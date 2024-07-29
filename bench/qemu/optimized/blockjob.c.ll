@@ -58,36 +58,36 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @block_job_next_locked(ptr noundef %bjob) local_unnamed_addr #0 {
 entry:
-  %call = tail call zeroext i1 @qemu_in_main_thread() #6
+  %call = tail call zeroext i1 @qemu_in_main_thread() #7
   br i1 %call, label %do.body2, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 50, ptr noundef nonnull @__PRETTY_FUNCTION__.block_job_next_locked) #7
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 50, ptr noundef nonnull @__PRETTY_FUNCTION__.block_job_next_locked) #8
   unreachable
 
 do.body2:                                         ; preds = %entry, %is_block_job.exit
   %job.0 = phi ptr [ %call3, %is_block_job.exit ], [ %bjob, %entry ]
-  %call3 = tail call ptr @job_next_locked(ptr noundef %job.0) #6
+  %call3 = tail call ptr @job_next_locked(ptr noundef %job.0) #7
   %tobool4.not = icmp eq ptr %call3, null
   br i1 %tobool4.not, label %do.end6, label %land.rhs
 
 land.rhs:                                         ; preds = %do.body2
-  %call.i = tail call i32 @job_type(ptr noundef nonnull %call3) #6
+  %call.i = tail call i32 @job_type(ptr noundef nonnull %call3) #7
   %cmp.i = icmp eq i32 %call.i, 3
   br i1 %cmp.i, label %do.end6, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %land.rhs
-  %call1.i = tail call i32 @job_type(ptr noundef nonnull %call3) #6
+  %call1.i = tail call i32 @job_type(ptr noundef nonnull %call3) #7
   %cmp2.i = icmp eq i32 %call1.i, 0
   br i1 %cmp2.i, label %do.end6, label %lor.lhs.false3.i
 
 lor.lhs.false3.i:                                 ; preds = %lor.lhs.false.i
-  %call4.i = tail call i32 @job_type(ptr noundef nonnull %call3) #6
+  %call4.i = tail call i32 @job_type(ptr noundef nonnull %call3) #7
   %cmp5.i = icmp eq i32 %call4.i, 2
   br i1 %cmp5.i, label %do.end6, label %is_block_job.exit
 
 is_block_job.exit:                                ; preds = %lor.lhs.false3.i
-  %call6.i = tail call i32 @job_type(ptr noundef nonnull %call3) #6
+  %call6.i = tail call i32 @job_type(ptr noundef nonnull %call3) #7
   %cmp7.i = icmp eq i32 %call6.i, 1
   br i1 %cmp7.i, label %do.end6, label %do.body2, !llvm.loop !5
 
@@ -105,12 +105,12 @@ declare ptr @job_next_locked(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @block_job_get_locked(ptr noundef %id) local_unnamed_addr #0 {
 entry:
-  %call = tail call ptr @job_get_locked(ptr noundef %id) #6
-  %call1 = tail call zeroext i1 @qemu_in_main_thread() #6
+  %call = tail call ptr @job_get_locked(ptr noundef %id) #7
+  %call1 = tail call zeroext i1 @qemu_in_main_thread() #7
   br i1 %call1, label %do.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 62, ptr noundef nonnull @__PRETTY_FUNCTION__.block_job_get_locked) #7
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 62, ptr noundef nonnull @__PRETTY_FUNCTION__.block_job_get_locked) #8
   unreachable
 
 do.end:                                           ; preds = %entry
@@ -118,22 +118,22 @@ do.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.else4, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %do.end
-  %call.i = tail call i32 @job_type(ptr noundef nonnull %call) #6
+  %call.i = tail call i32 @job_type(ptr noundef nonnull %call) #7
   %cmp.i = icmp eq i32 %call.i, 3
   br i1 %cmp.i, label %return, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %land.lhs.true
-  %call1.i = tail call i32 @job_type(ptr noundef nonnull %call) #6
+  %call1.i = tail call i32 @job_type(ptr noundef nonnull %call) #7
   %cmp2.i = icmp eq i32 %call1.i, 0
   br i1 %cmp2.i, label %return, label %lor.lhs.false3.i
 
 lor.lhs.false3.i:                                 ; preds = %lor.lhs.false.i
-  %call4.i = tail call i32 @job_type(ptr noundef nonnull %call) #6
+  %call4.i = tail call i32 @job_type(ptr noundef nonnull %call) #7
   %cmp5.i = icmp eq i32 %call4.i, 2
   br i1 %cmp5.i, label %return, label %is_block_job.exit
 
 is_block_job.exit:                                ; preds = %lor.lhs.false3.i
-  %call6.i = tail call i32 @job_type(ptr noundef nonnull %call) #6
+  %call6.i = tail call i32 @job_type(ptr noundef nonnull %call) #7
   %cmp7.i = icmp eq i32 %call6.i, 1
   br i1 %cmp7.i, label %return, label %if.else4
 
@@ -152,49 +152,49 @@ define dso_local ptr @block_job_get(ptr noundef %id) local_unnamed_addr #0 {
 glib_autoptr_cleanup_QemuLockable.exit:
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
-  tail call void %1(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.13, i32 noundef 122) #6
+  tail call void %1(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.13, i32 noundef 122) #7
   %call2 = tail call ptr @block_job_get_locked(ptr noundef %id)
-  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.13, i32 noundef 132) #6
+  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.13, i32 noundef 132) #7
   ret ptr %call2
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @block_job_free(ptr noundef %job) #0 {
 entry:
-  %call = tail call zeroext i1 @qemu_in_main_thread() #6
+  %call = tail call zeroext i1 @qemu_in_main_thread() #7
   br i1 %call, label %do.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 80, ptr noundef nonnull @__PRETTY_FUNCTION__.block_job_free) #7
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 80, ptr noundef nonnull @__PRETTY_FUNCTION__.block_job_free) #8
   unreachable
 
 do.end:                                           ; preds = %entry
   tail call void @block_job_remove_all_bdrv(ptr noundef %job)
   %limit = getelementptr inbounds i8, ptr %job, i64 296
-  tail call void @qemu_mutex_destroy(ptr noundef nonnull %limit) #6
+  tail call void @qemu_mutex_destroy(ptr noundef nonnull %limit) #7
   %blocker = getelementptr inbounds i8, ptr %job, i64 384
   %0 = load ptr, ptr %blocker, align 8
-  tail call void @error_free(ptr noundef %0) #6
+  tail call void @error_free(ptr noundef %0) #7
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @block_job_remove_all_bdrv(ptr nocapture noundef %job) local_unnamed_addr #0 {
 entry:
-  %call = tail call zeroext i1 @qemu_in_main_thread() #6
+  %call = tail call zeroext i1 @qemu_in_main_thread() #7
   br i1 %call, label %do.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 194, ptr noundef nonnull @__PRETTY_FUNCTION__.block_job_remove_all_bdrv) #7
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 194, ptr noundef nonnull @__PRETTY_FUNCTION__.block_job_remove_all_bdrv) #8
   unreachable
 
 do.end:                                           ; preds = %entry
   %aio_context = getelementptr inbounds i8, ptr %job, i64 112
   %0 = load ptr, ptr %aio_context, align 8
-  tail call void @aio_context_release(ptr noundef %0) #6
-  tail call void @bdrv_graph_wrlock(ptr noundef null) #6
+  tail call void @aio_context_release(ptr noundef %0) #7
+  tail call void @bdrv_graph_wrlock(ptr noundef null) #7
   %1 = load ptr, ptr %aio_context, align 8
-  tail call void @aio_context_acquire(ptr noundef %1) #6
+  tail call void @aio_context_acquire(ptr noundef %1) #7
   %nodes = getelementptr inbounds i8, ptr %job, i64 512
   %2 = load ptr, ptr %nodes, align 8
   %tobool.not10 = icmp eq ptr %2, null
@@ -212,16 +212,16 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   store ptr %5, ptr %nodes, align 8
   %6 = load ptr, ptr %4, align 8
   %7 = load ptr, ptr %blocker, align 8
-  tail call void @bdrv_op_unblock_all(ptr noundef %6, ptr noundef %7) #6
-  tail call void @bdrv_root_unref_child(ptr noundef nonnull %4) #6
-  tail call void @g_slist_free_1(ptr noundef nonnull %3) #6
+  tail call void @bdrv_op_unblock_all(ptr noundef %6, ptr noundef %7) #7
+  tail call void @bdrv_root_unref_child(ptr noundef nonnull %4) #7
+  tail call void @g_slist_free_1(ptr noundef nonnull %3) #7
   %8 = load ptr, ptr %nodes, align 8
   %tobool.not = icmp eq ptr %8, null
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !7
 
 while.end:                                        ; preds = %while.body, %do.end
   %9 = load ptr, ptr %aio_context, align 8
-  tail call void @bdrv_graph_wrunlock_ctx(ptr noundef %9) #6
+  tail call void @bdrv_graph_wrunlock_ctx(ptr noundef %9) #7
   ret void
 }
 
@@ -244,11 +244,11 @@ declare void @bdrv_graph_wrunlock_ctx(ptr noundef) #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef zeroext i1 @block_job_has_bdrv(ptr nocapture noundef readonly %job, ptr noundef readnone %bs) local_unnamed_addr #0 {
 entry:
-  %call = tail call zeroext i1 @qemu_in_main_thread() #6
+  %call = tail call zeroext i1 @qemu_in_main_thread() #7
   br i1 %call, label %do.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 221, ptr noundef nonnull @__PRETTY_FUNCTION__.block_job_has_bdrv) #7
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 221, ptr noundef nonnull @__PRETTY_FUNCTION__.block_job_has_bdrv) #8
   unreachable
 
 do.end:                                           ; preds = %entry
@@ -278,47 +278,47 @@ return:                                           ; preds = %for.body, %for.cond
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local range(i32 -1, 1) i32 @block_job_add_bdrv(ptr noundef %job, ptr noundef %name, ptr noundef %bs, i64 noundef %perm, i64 noundef %shared_perm, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %call = tail call ptr @bdrv_get_aio_context(ptr noundef %bs) #6
-  %call1 = tail call zeroext i1 @qemu_in_main_thread() #6
+  %call = tail call ptr @bdrv_get_aio_context(ptr noundef %bs) #7
+  %call1 = tail call zeroext i1 @qemu_in_main_thread() #7
   br i1 %call1, label %do.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 239, ptr noundef nonnull @__PRETTY_FUNCTION__.block_job_add_bdrv) #7
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 239, ptr noundef nonnull @__PRETTY_FUNCTION__.block_job_add_bdrv) #8
   unreachable
 
 do.end:                                           ; preds = %entry
-  tail call void @bdrv_ref(ptr noundef %bs) #6
+  tail call void @bdrv_ref(ptr noundef %bs) #7
   %aio_context = getelementptr inbounds i8, ptr %job, i64 112
   %0 = load ptr, ptr %aio_context, align 8
   %cmp.not = icmp eq ptr %call, %0
   br i1 %cmp.not, label %if.end12.thread, label %if.then3
 
 if.end12.thread:                                  ; preds = %do.end
-  %call1316 = tail call ptr @bdrv_root_attach_child(ptr noundef %bs, ptr noundef %name, ptr noundef nonnull @child_job, i32 noundef 0, i64 noundef %perm, i64 noundef %shared_perm, ptr noundef nonnull %job, ptr noundef %errp) #6
+  %call1316 = tail call ptr @bdrv_root_attach_child(ptr noundef %bs, ptr noundef %name, ptr noundef nonnull @child_job, i32 noundef 0, i64 noundef %perm, i64 noundef %shared_perm, ptr noundef nonnull %job, ptr noundef %errp) #7
   br label %if.end24
 
 if.then3:                                         ; preds = %do.end
-  %call6 = tail call ptr @qemu_get_aio_context() #6
+  %call6 = tail call ptr @qemu_get_aio_context() #7
   %cmp7.not = icmp eq ptr %0, %call6
   br i1 %cmp7.not, label %if.then15, label %if.then8
 
 if.then8:                                         ; preds = %if.then3
   %1 = load ptr, ptr %aio_context, align 8
-  tail call void @aio_context_release(ptr noundef %1) #6
+  tail call void @aio_context_release(ptr noundef %1) #7
   br label %if.then15
 
 if.then15:                                        ; preds = %if.then8, %if.then3
-  tail call void @aio_context_acquire(ptr noundef %call) #6
-  %call13 = tail call ptr @bdrv_root_attach_child(ptr noundef %bs, ptr noundef %name, ptr noundef nonnull @child_job, i32 noundef 0, i64 noundef %perm, i64 noundef %shared_perm, ptr noundef nonnull %job, ptr noundef %errp) #6
-  tail call void @aio_context_release(ptr noundef %call) #6
+  tail call void @aio_context_acquire(ptr noundef %call) #7
+  %call13 = tail call ptr @bdrv_root_attach_child(ptr noundef %bs, ptr noundef %name, ptr noundef nonnull @child_job, i32 noundef 0, i64 noundef %perm, i64 noundef %shared_perm, ptr noundef nonnull %job, ptr noundef %errp) #7
+  tail call void @aio_context_release(ptr noundef %call) #7
   %2 = load ptr, ptr %aio_context, align 8
-  %call18 = tail call ptr @qemu_get_aio_context() #6
+  %call18 = tail call ptr @qemu_get_aio_context() #7
   %cmp19.not = icmp eq ptr %2, %call18
   br i1 %cmp19.not, label %if.end24, label %if.then20
 
 if.then20:                                        ; preds = %if.then15
   %3 = load ptr, ptr %aio_context, align 8
-  tail call void @aio_context_acquire(ptr noundef %3) #6
+  tail call void @aio_context_acquire(ptr noundef %3) #7
   br label %if.end24
 
 if.end24:                                         ; preds = %if.end12.thread, %if.then15, %if.then20
@@ -329,11 +329,11 @@ if.end24:                                         ; preds = %if.end12.thread, %i
 if.end27:                                         ; preds = %if.end24
   %nodes = getelementptr inbounds i8, ptr %job, i64 512
   %4 = load ptr, ptr %nodes, align 8
-  %call28 = tail call ptr @g_slist_prepend(ptr noundef %4, ptr noundef nonnull %call1317) #6
+  %call28 = tail call ptr @g_slist_prepend(ptr noundef %4, ptr noundef nonnull %call1317) #7
   store ptr %call28, ptr %nodes, align 8
   %blocker = getelementptr inbounds i8, ptr %job, i64 384
   %5 = load ptr, ptr %blocker, align 8
-  tail call void @bdrv_op_block_all(ptr noundef %bs, ptr noundef %5) #6
+  tail call void @bdrv_op_block_all(ptr noundef %bs, ptr noundef %5) #7
   br label %return
 
 return:                                           ; preds = %if.end24, %if.end27
@@ -376,15 +376,15 @@ entry:
   %0 = load ptr, ptr %driver.i, align 8
   %speed1 = getelementptr inbounds i8, ptr %job, i64 288
   %1 = load i64, ptr %speed1, align 8
-  %call2 = tail call zeroext i1 @qemu_in_main_thread() #6
+  %call2 = tail call zeroext i1 @qemu_in_main_thread() #7
   br i1 %call2, label %do.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 296, ptr noundef nonnull @__PRETTY_FUNCTION__.block_job_set_speed_locked) #7
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 296, ptr noundef nonnull @__PRETTY_FUNCTION__.block_job_set_speed_locked) #8
   unreachable
 
 do.end:                                           ; preds = %entry
-  %call4 = tail call i32 @job_apply_verb_locked(ptr noundef nonnull %job, i32 noundef 3, ptr noundef %errp) #6
+  %call4 = tail call i32 @job_apply_verb_locked(ptr noundef nonnull %job, i32 noundef 3, ptr noundef %errp) #7
   %cmp = icmp slt i32 %call4, 0
   br i1 %cmp, label %return, label %if.end6
 
@@ -393,14 +393,14 @@ if.end6:                                          ; preds = %do.end
   br i1 %cmp7, label %if.then8, label %if.end9
 
 if.then8:                                         ; preds = %if.end6
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 303, ptr noundef nonnull @__func__.block_job_set_speed_locked, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4) #6
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 303, ptr noundef nonnull @__func__.block_job_set_speed_locked, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4) #7
   br label %return
 
 if.end9:                                          ; preds = %if.end6
   %limit = getelementptr inbounds i8, ptr %job, i64 296
   %2 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %3 = inttoptr i64 %2 to ptr
-  tail call void %3(ptr noundef nonnull %limit, ptr noundef nonnull @.str.13, i32 noundef 122) #6
+  tail call void %3(ptr noundef nonnull %limit, ptr noundef nonnull @.str.13, i32 noundef 122) #7
   %slice_ns4.i = getelementptr inbounds i8, ptr %job, i64 368
   store i64 100000000, ptr %slice_ns4.i, align 8
   %cmp.i = icmp eq i64 %speed, 0
@@ -419,7 +419,7 @@ ratelimit_set_speed.exit:                         ; preds = %if.end9, %if.else.i
   %conv8.sink.i = phi i64 [ %conv8.i, %if.else.i ], [ 0, %if.end9 ]
   %4 = getelementptr inbounds i8, ptr %job, i64 360
   store i64 %conv8.sink.i, ptr %4, align 8
-  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %limit, ptr noundef nonnull @.str.13, i32 noundef 132) #6
+  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %limit, ptr noundef nonnull @.str.13, i32 noundef 132) #7
   store i64 %speed, ptr %speed1, align 8
   %set_speed = getelementptr inbounds i8, ptr %0, i64 120
   %5 = load ptr, ptr %set_speed, align 8
@@ -427,10 +427,10 @@ ratelimit_set_speed.exit:                         ; preds = %if.end9, %if.else.i
   br i1 %tobool.not, label %if.end13, label %if.then11
 
 if.then11:                                        ; preds = %ratelimit_set_speed.exit
-  tail call void @job_unlock() #6
+  tail call void @job_unlock() #7
   %6 = load ptr, ptr %set_speed, align 8
-  tail call void %6(ptr noundef nonnull %job, i64 noundef %speed) #6
-  tail call void @job_lock() #6
+  tail call void %6(ptr noundef nonnull %job, i64 noundef %speed) #7
+  tail call void @job_lock() #7
   br label %if.end13
 
 if.end13:                                         ; preds = %if.then11, %ratelimit_set_speed.exit
@@ -439,7 +439,7 @@ if.end13:                                         ; preds = %if.then11, %ratelim
   br i1 %or.cond, label %if.end17, label %return
 
 if.end17:                                         ; preds = %if.end13
-  tail call void @job_enter_cond_locked(ptr noundef nonnull %job, ptr noundef nonnull @job_timer_pending) #6
+  tail call void @job_enter_cond_locked(ptr noundef nonnull %job, ptr noundef nonnull @job_timer_pending) #7
   br label %return
 
 return:                                           ; preds = %if.end13, %do.end, %if.end17, %if.then8
@@ -461,7 +461,7 @@ declare void @job_enter_cond_locked(ptr noundef, ptr noundef) local_unnamed_addr
 define internal zeroext i1 @job_timer_pending(ptr noundef %job) #0 {
 entry:
   %sleep_timer = getelementptr inbounds i8, ptr %job, i64 128
-  %call = tail call zeroext i1 @timer_pending(ptr noundef nonnull %sleep_timer) #6
+  %call = tail call zeroext i1 @timer_pending(ptr noundef nonnull %sleep_timer) #7
   ret i1 %call
 }
 
@@ -470,15 +470,15 @@ define dso_local void @block_job_change_locked(ptr noundef %job, ptr noundef %op
 entry:
   %driver.i = getelementptr inbounds i8, ptr %job, i64 8
   %0 = load ptr, ptr %driver.i, align 8
-  %call1 = tail call zeroext i1 @qemu_in_main_thread() #6
+  %call1 = tail call zeroext i1 @qemu_in_main_thread() #7
   br i1 %call1, label %do.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 338, ptr noundef nonnull @__PRETTY_FUNCTION__.block_job_change_locked) #7
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 338, ptr noundef nonnull @__PRETTY_FUNCTION__.block_job_change_locked) #8
   unreachable
 
 do.end:                                           ; preds = %entry
-  %call3 = tail call i32 @job_apply_verb_locked(ptr noundef nonnull %job, i32 noundef 7, ptr noundef %errp) #6
+  %call3 = tail call i32 @job_apply_verb_locked(ptr noundef nonnull %job, i32 noundef 7, ptr noundef %errp) #7
   %tobool.not = icmp eq i32 %call3, 0
   br i1 %tobool.not, label %if.end5, label %if.end10
 
@@ -489,14 +489,14 @@ if.end5:                                          ; preds = %do.end
   br i1 %tobool6.not, label %if.else9, label %if.then7
 
 if.then7:                                         ; preds = %if.end5
-  tail call void @job_unlock() #6
+  tail call void @job_unlock() #7
   %2 = load ptr, ptr %change, align 8
-  tail call void %2(ptr noundef nonnull %job, ptr noundef %opts, ptr noundef %errp) #6
-  tail call void @job_lock() #6
+  tail call void %2(ptr noundef nonnull %job, ptr noundef %opts, ptr noundef %errp) #7
+  tail call void @job_lock() #7
   br label %if.end10
 
 if.else9:                                         ; preds = %if.end5
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 349, ptr noundef nonnull @__func__.block_job_change_locked, ptr noundef nonnull @.str.5) #6
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 349, ptr noundef nonnull @__func__.block_job_change_locked, ptr noundef nonnull @.str.5) #7
   br label %if.end10
 
 if.end10:                                         ; preds = %do.end, %if.else9, %if.then7
@@ -507,10 +507,10 @@ if.end10:                                         ; preds = %do.end, %if.else9, 
 define dso_local void @block_job_ratelimit_processed_bytes(ptr noundef %job, i64 noundef %n) local_unnamed_addr #0 {
 entry:
   %limit = getelementptr inbounds i8, ptr %job, i64 296
-  %call.i = tail call i64 @qemu_clock_get_ns(i32 noundef 0) #6
+  %call.i = tail call i64 @qemu_clock_get_ns(i32 noundef 0) #7
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
-  tail call void %1(ptr noundef nonnull %limit, ptr noundef nonnull @.str.13, i32 noundef 122) #6
+  tail call void %1(ptr noundef nonnull %limit, ptr noundef nonnull @.str.13, i32 noundef 122) #7
   %slice_quota.i = getelementptr inbounds i8, ptr %job, i64 360
   %2 = load i64, ptr %slice_quota.i, align 8
   %tobool.not.i = icmp eq i64 %2, 0
@@ -523,7 +523,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %tobool5.not.i, label %if.else.i, label %if.end7.i
 
 if.else.i:                                        ; preds = %if.end.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, i32 noundef 50, ptr noundef nonnull @__PRETTY_FUNCTION__.ratelimit_calculate_delay) #7
+  tail call void @__assert_fail(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, i32 noundef 50, ptr noundef nonnull @__PRETTY_FUNCTION__.ratelimit_calculate_delay) #8
   unreachable
 
 if.end7.i:                                        ; preds = %if.end.i
@@ -566,7 +566,7 @@ if.end18.i:                                       ; preds = %if.end11.i
   br label %ratelimit_calculate_delay.exit
 
 ratelimit_calculate_delay.exit:                   ; preds = %entry, %if.end11.i, %if.end18.i
-  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %limit, ptr noundef nonnull @.str.13, i32 noundef 132) #6
+  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %limit, ptr noundef nonnull @.str.13, i32 noundef 132) #7
   ret void
 }
 
@@ -582,10 +582,10 @@ entry:
   br label %do.body
 
 do.body:                                          ; preds = %land.rhs, %entry
-  %call.i = tail call i64 @qemu_clock_get_ns(i32 noundef 0) #6
+  %call.i = tail call i64 @qemu_clock_get_ns(i32 noundef 0) #7
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
-  tail call void %1(ptr noundef nonnull %limit, ptr noundef nonnull @.str.13, i32 noundef 122) #6
+  tail call void %1(ptr noundef nonnull %limit, ptr noundef nonnull @.str.13, i32 noundef 122) #7
   %2 = load i64, ptr %slice_quota.i, align 8
   %tobool.not.i = icmp eq i64 %2, 0
   br i1 %tobool.not.i, label %ratelimit_calculate_delay.exit, label %if.end.i
@@ -596,7 +596,7 @@ if.end.i:                                         ; preds = %do.body
   br i1 %tobool5.not.i, label %if.else.i, label %if.end7.i
 
 if.else.i:                                        ; preds = %if.end.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, i32 noundef 50, ptr noundef nonnull @__PRETTY_FUNCTION__.ratelimit_calculate_delay) #7
+  tail call void @__assert_fail(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, i32 noundef 50, ptr noundef nonnull @__PRETTY_FUNCTION__.ratelimit_calculate_delay) #8
   unreachable
 
 if.end7.i:                                        ; preds = %if.end.i
@@ -635,13 +635,13 @@ if.end18.i:                                       ; preds = %if.end11.i
 
 ratelimit_calculate_delay.exit:                   ; preds = %do.body, %if.end11.i, %if.end18.i
   %retval.0.i = phi i64 [ %sub.i, %if.end18.i ], [ 0, %do.body ], [ 0, %if.end11.i ]
-  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %limit, ptr noundef nonnull @.str.13, i32 noundef 132) #6
-  tail call void @job_sleep_ns(ptr noundef nonnull %job, i64 noundef %retval.0.i) #6
+  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %limit, ptr noundef nonnull @.str.13, i32 noundef 132) #7
+  tail call void @job_sleep_ns(ptr noundef nonnull %job, i64 noundef %retval.0.i) #7
   %tobool.not = icmp eq i64 %retval.0.i, 0
   br i1 %tobool.not, label %do.end, label %land.rhs
 
 land.rhs:                                         ; preds = %ratelimit_calculate_delay.exit
-  %call3 = tail call zeroext i1 @job_is_cancelled(ptr noundef nonnull %job) #6
+  %call3 = tail call zeroext i1 @job_is_cancelled(ptr noundef nonnull %job) #7
   br i1 %call3, label %do.end, label %do.body, !llvm.loop !9
 
 do.end:                                           ; preds = %ratelimit_calculate_delay.exit, %land.rhs
@@ -659,11 +659,11 @@ entry:
   %progress_total = alloca i64, align 8
   %driver.i = getelementptr inbounds i8, ptr %job, i64 8
   %0 = load ptr, ptr %driver.i, align 8
-  %call1 = tail call zeroext i1 @qemu_in_main_thread() #6
+  %call1 = tail call zeroext i1 @qemu_in_main_thread() #7
   br i1 %call1, label %do.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 383, ptr noundef nonnull @__PRETTY_FUNCTION__.block_job_query_locked) #7
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 383, ptr noundef nonnull @__PRETTY_FUNCTION__.block_job_query_locked) #8
   unreachable
 
 do.end:                                           ; preds = %entry
@@ -672,17 +672,17 @@ do.end:                                           ; preds = %entry
   br i1 %cmp.i, label %if.then3, label %if.end4
 
 if.then3:                                         ; preds = %do.end
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 386, ptr noundef nonnull @__func__.block_job_query_locked, ptr noundef nonnull @.str.6) #6
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 386, ptr noundef nonnull @__func__.block_job_query_locked, ptr noundef nonnull @.str.6) #7
   br label %return
 
 if.end4:                                          ; preds = %do.end
   %progress = getelementptr inbounds i8, ptr %job, i64 48
-  call void @progress_get_snapshot(ptr noundef nonnull %progress, ptr noundef nonnull %progress_current, ptr noundef nonnull %progress_total) #6
-  %call6 = call noalias dereferenceable_or_null(80) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 80) #8
-  %call8 = call i32 @job_type(ptr noundef nonnull %job) #6
+  call void @progress_get_snapshot(ptr noundef nonnull %progress, ptr noundef nonnull %progress_current, ptr noundef nonnull %progress_total) #7
+  %call6 = call noalias dereferenceable_or_null(80) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 80) #9
+  %call8 = call i32 @job_type(ptr noundef nonnull %job) #7
   store i32 %call8, ptr %call6, align 8
   %2 = load ptr, ptr %job, align 8
-  %call10 = call noalias ptr @g_strdup(ptr noundef %2) #6
+  %call10 = call noalias ptr @g_strdup(ptr noundef %2) #7
   %device = getelementptr inbounds i8, ptr %call6, i64 8
   store ptr %call10, ptr %device, align 8
   %busy = getelementptr inbounds i8, ptr %job, i64 180
@@ -710,7 +710,7 @@ if.end4:                                          ; preds = %do.end
   %8 = load i32, ptr %iostatus, align 8
   %io_status = getelementptr inbounds i8, ptr %call6, i64 48
   store i32 %8, ptr %io_status, align 8
-  %call17 = call zeroext i1 @job_is_ready_locked(ptr noundef nonnull %job) #6
+  %call17 = call zeroext i1 @job_is_ready_locked(ptr noundef nonnull %job) #7
   %ready = getelementptr inbounds i8, ptr %call6, i64 52
   %frombool18 = zext i1 %call17 to i8
   store i8 %frombool18, ptr %ready, align 4
@@ -740,17 +740,17 @@ if.then31:                                        ; preds = %if.end4
   br i1 %tobool33.not, label %cond.false, label %cond.true
 
 cond.true:                                        ; preds = %if.then31
-  %call36 = call ptr @error_get_pretty(ptr noundef nonnull %13) #6
+  %call36 = call ptr @error_get_pretty(ptr noundef nonnull %13) #7
   br label %cond.end
 
 cond.false:                                       ; preds = %if.then31
   %sub = sub i32 0, %12
-  %call40 = call ptr @strerror(i32 noundef %sub) #6
+  %call40 = call ptr @strerror(i32 noundef %sub) #7
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
   %call40.sink = phi ptr [ %call40, %cond.false ], [ %call36, %cond.true ]
-  %call41 = call noalias ptr @g_strdup(ptr noundef %call40.sink) #6
+  %call41 = call noalias ptr @g_strdup(ptr noundef %call40.sink) #7
   %error = getelementptr inbounds i8, ptr %call6, i64 64
   store ptr %call41, ptr %error, align 8
   br label %if.end42
@@ -762,10 +762,10 @@ if.end42:                                         ; preds = %cond.end, %if.end4
   br i1 %tobool43.not, label %return, label %if.then44
 
 if.then44:                                        ; preds = %if.end42
-  call void @job_unlock() #6
+  call void @job_unlock() #7
   %15 = load ptr, ptr %query, align 8
-  call void %15(ptr noundef nonnull %job, ptr noundef nonnull %call6) #6
-  call void @job_lock() #6
+  call void %15(ptr noundef nonnull %job, ptr noundef nonnull %call6) #7
+  call void @job_lock() #7
   br label %return
 
 return:                                           ; preds = %if.end42, %if.then44, %if.then3
@@ -792,15 +792,15 @@ declare ptr @strerror(i32 noundef) local_unnamed_addr #5
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @block_job_create(ptr noundef %job_id, ptr noundef %driver, ptr noundef %txn, ptr noundef %bs, i64 noundef %perm, i64 noundef %shared_perm, i64 noundef %speed, i32 noundef %flags, ptr noundef %cb, ptr noundef %opaque, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %call = tail call zeroext i1 @qemu_in_main_thread() #6
+  %call = tail call zeroext i1 @qemu_in_main_thread() #7
   br i1 %call, label %do.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 515, ptr noundef nonnull @__PRETTY_FUNCTION__.block_job_create) #7
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 515, ptr noundef nonnull @__PRETTY_FUNCTION__.block_job_create) #8
   unreachable
 
 do.end:                                           ; preds = %entry
-  tail call void @bdrv_graph_wrlock(ptr noundef %bs) #6
+  tail call void @bdrv_graph_wrlock(ptr noundef %bs) #7
   %cmp = icmp eq ptr %job_id, null
   br i1 %cmp, label %land.lhs.true, label %if.end3
 
@@ -810,42 +810,42 @@ land.lhs.true:                                    ; preds = %do.end
   br i1 %tobool.not, label %if.then1, label %if.end3
 
 if.then1:                                         ; preds = %land.lhs.true
-  %call2 = tail call ptr @bdrv_get_device_name(ptr noundef %bs) #6
+  %call2 = tail call ptr @bdrv_get_device_name(ptr noundef %bs) #7
   br label %if.end3
 
 if.end3:                                          ; preds = %if.then1, %land.lhs.true, %do.end
   %job_id.addr.0 = phi ptr [ null, %land.lhs.true ], [ %call2, %if.then1 ], [ %job_id, %do.end ]
-  %call4 = tail call ptr @bdrv_get_aio_context(ptr noundef %bs) #6
-  %call5 = tail call ptr @job_create(ptr noundef %job_id.addr.0, ptr noundef %driver, ptr noundef %txn, ptr noundef %call4, i32 noundef %flags, ptr noundef %cb, ptr noundef %opaque, ptr noundef %errp) #6
+  %call4 = tail call ptr @bdrv_get_aio_context(ptr noundef %bs) #7
+  %call5 = tail call ptr @job_create(ptr noundef %job_id.addr.0, ptr noundef %driver, ptr noundef %txn, ptr noundef %call4, i32 noundef %flags, ptr noundef %cb, ptr noundef %opaque, ptr noundef %errp) #7
   %cmp6 = icmp eq ptr %call5, null
   br i1 %cmp6, label %if.then7, label %if.end8
 
 if.then7:                                         ; preds = %if.end3
-  tail call void @bdrv_graph_wrunlock(ptr noundef %bs) #6
+  tail call void @bdrv_graph_wrunlock(ptr noundef %bs) #7
   br label %return
 
 if.end8:                                          ; preds = %if.end3
-  %call.i = tail call i32 @job_type(ptr noundef nonnull %call5) #6
+  %call.i = tail call i32 @job_type(ptr noundef nonnull %call5) #7
   %cmp.i = icmp eq i32 %call.i, 3
   br i1 %cmp.i, label %if.end13, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end8
-  %call1.i = tail call i32 @job_type(ptr noundef nonnull %call5) #6
+  %call1.i = tail call i32 @job_type(ptr noundef nonnull %call5) #7
   %cmp2.i = icmp eq i32 %call1.i, 0
   br i1 %cmp2.i, label %if.end13, label %lor.lhs.false3.i
 
 lor.lhs.false3.i:                                 ; preds = %lor.lhs.false.i
-  %call4.i = tail call i32 @job_type(ptr noundef nonnull %call5) #6
+  %call4.i = tail call i32 @job_type(ptr noundef nonnull %call5) #7
   %cmp5.i = icmp eq i32 %call4.i, 2
   br i1 %cmp5.i, label %if.end13, label %is_block_job.exit
 
 is_block_job.exit:                                ; preds = %lor.lhs.false3.i
-  %call6.i = tail call i32 @job_type(ptr noundef nonnull %call5) #6
+  %call6.i = tail call i32 @job_type(ptr noundef nonnull %call5) #7
   %cmp7.i = icmp eq i32 %call6.i, 1
   br i1 %cmp7.i, label %if.end13, label %if.else12
 
 if.else12:                                        ; preds = %is_block_job.exit
-  tail call void @__assert_fail(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.1, i32 noundef 530, ptr noundef nonnull @__PRETTY_FUNCTION__.block_job_create) #7
+  tail call void @__assert_fail(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.1, i32 noundef 530, ptr noundef nonnull @__PRETTY_FUNCTION__.block_job_create) #8
   unreachable
 
 if.end13:                                         ; preds = %if.end8, %lor.lhs.false.i, %lor.lhs.false3.i, %is_block_job.exit
@@ -857,7 +857,7 @@ if.end13:                                         ; preds = %if.end8, %lor.lhs.f
   br i1 %cmp16, label %if.end19, label %if.else18
 
 if.else18:                                        ; preds = %if.end13
-  tail call void @__assert_fail(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.1, i32 noundef 531, ptr noundef nonnull @__PRETTY_FUNCTION__.block_job_create) #7
+  tail call void @__assert_fail(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.1, i32 noundef 531, ptr noundef nonnull @__PRETTY_FUNCTION__.block_job_create) #8
   unreachable
 
 if.end19:                                         ; preds = %if.end13
@@ -867,12 +867,12 @@ if.end19:                                         ; preds = %if.end13
   br i1 %cmp22, label %qemu_lockable_auto_unlock.exit.us, label %if.else24
 
 if.else24:                                        ; preds = %if.end19
-  tail call void @__assert_fail(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.1, i32 noundef 532, ptr noundef nonnull @__PRETTY_FUNCTION__.block_job_create) #7
+  tail call void @__assert_fail(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.1, i32 noundef 532, ptr noundef nonnull @__PRETTY_FUNCTION__.block_job_create) #8
   unreachable
 
 qemu_lockable_auto_unlock.exit.us:                ; preds = %if.end19
   %limit = getelementptr inbounds i8, ptr %call5, i64 296
-  tail call void @qemu_mutex_init(ptr noundef nonnull %limit) #6
+  tail call void @qemu_mutex_init(ptr noundef nonnull %limit) #7
   %finalize_cancelled_notifier = getelementptr inbounds i8, ptr %call5, i64 392
   store ptr @block_job_event_cancelled_locked, ptr %finalize_cancelled_notifier, align 8
   %finalize_completed_notifier = getelementptr inbounds i8, ptr %call5, i64 416
@@ -885,42 +885,42 @@ qemu_lockable_auto_unlock.exit.us:                ; preds = %if.end19
   store ptr @block_job_on_idle_locked, ptr %idle_notifier, align 8
   %3 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %4 = inttoptr i64 %3 to ptr
-  tail call void %4(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.13, i32 noundef 122) #6
+  tail call void %4(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.13, i32 noundef 122) #7
   %on_idle = getelementptr inbounds i8, ptr %call5, i64 232
   %on_ready = getelementptr inbounds i8, ptr %call5, i64 224
   %on_pending = getelementptr inbounds i8, ptr %call5, i64 216
   %on_finalize_completed = getelementptr inbounds i8, ptr %call5, i64 208
   %on_finalize_cancelled = getelementptr inbounds i8, ptr %call5, i64 200
-  tail call void @notifier_list_add(ptr noundef nonnull %on_finalize_cancelled, ptr noundef nonnull %finalize_cancelled_notifier) #6
-  tail call void @notifier_list_add(ptr noundef nonnull %on_finalize_completed, ptr noundef nonnull %finalize_completed_notifier) #6
-  tail call void @notifier_list_add(ptr noundef nonnull %on_pending, ptr noundef nonnull %pending_notifier) #6
-  tail call void @notifier_list_add(ptr noundef nonnull %on_ready, ptr noundef nonnull %ready_notifier) #6
-  tail call void @notifier_list_add(ptr noundef nonnull %on_idle, ptr noundef nonnull %idle_notifier) #6
-  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.13, i32 noundef 132) #6
+  tail call void @notifier_list_add(ptr noundef nonnull %on_finalize_cancelled, ptr noundef nonnull %finalize_cancelled_notifier) #7
+  tail call void @notifier_list_add(ptr noundef nonnull %on_finalize_completed, ptr noundef nonnull %finalize_completed_notifier) #7
+  tail call void @notifier_list_add(ptr noundef nonnull %on_pending, ptr noundef nonnull %pending_notifier) #7
+  tail call void @notifier_list_add(ptr noundef nonnull %on_ready, ptr noundef nonnull %ready_notifier) #7
+  tail call void @notifier_list_add(ptr noundef nonnull %on_idle, ptr noundef nonnull %idle_notifier) #7
+  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.13, i32 noundef 132) #7
   %blocker = getelementptr inbounds i8, ptr %call5, i64 384
-  %call43 = tail call ptr @job_type_str(ptr noundef nonnull %call5) #6
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %blocker, ptr noundef nonnull @.str.1, i32 noundef 553, ptr noundef nonnull @__func__.block_job_create, ptr noundef nonnull @.str.10, ptr noundef %call43) #6
+  %call43 = tail call ptr @job_type_str(ptr noundef nonnull %call5) #7
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %blocker, ptr noundef nonnull @.str.1, i32 noundef 553, ptr noundef nonnull @__func__.block_job_create, ptr noundef nonnull @.str.10, ptr noundef %call43) #7
   %call44 = tail call i32 @block_job_add_bdrv(ptr noundef nonnull %call5, ptr noundef nonnull @.str.11, ptr noundef %bs, i64 noundef %perm, i64 noundef %shared_perm, ptr noundef %errp)
   %cmp45 = icmp slt i32 %call44, 0
   br i1 %cmp45, label %fail, label %if.end47
 
 if.end47:                                         ; preds = %qemu_lockable_auto_unlock.exit.us
   %5 = load ptr, ptr %blocker, align 8
-  tail call void @bdrv_op_unblock(ptr noundef %bs, i32 noundef 5, ptr noundef %5) #6
+  tail call void @bdrv_op_unblock(ptr noundef %bs, i32 noundef 5, ptr noundef %5) #7
   %6 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %7 = inttoptr i64 %6 to ptr
-  tail call void %7(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.13, i32 noundef 122) #6
+  tail call void %7(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.13, i32 noundef 122) #7
   %call2.i = tail call zeroext i1 @block_job_set_speed_locked(ptr noundef nonnull %call5, i64 noundef %speed, ptr noundef %errp)
-  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.13, i32 noundef 132) #6
+  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.13, i32 noundef 132) #7
   br i1 %call2.i, label %if.end51, label %fail
 
 if.end51:                                         ; preds = %if.end47
-  tail call void @bdrv_graph_wrunlock(ptr noundef %bs) #6
+  tail call void @bdrv_graph_wrunlock(ptr noundef %bs) #7
   br label %return
 
 fail:                                             ; preds = %if.end47, %qemu_lockable_auto_unlock.exit.us
-  tail call void @bdrv_graph_wrunlock(ptr noundef %bs) #6
-  tail call void @job_early_fail(ptr noundef nonnull %call5) #6
+  tail call void @bdrv_graph_wrunlock(ptr noundef %bs) #7
+  tail call void @job_early_fail(ptr noundef nonnull %call5) #7
   br label %return
 
 return:                                           ; preds = %fail, %if.end51, %if.then7
@@ -937,22 +937,22 @@ declare void @bdrv_graph_wrunlock(ptr noundef) #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @block_job_user_resume(ptr nocapture noundef %job) #0 {
 entry:
-  %call = tail call zeroext i1 @qemu_in_main_thread() #6
+  %call = tail call zeroext i1 @qemu_in_main_thread() #7
   br i1 %call, label %do.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 594, ptr noundef nonnull @__PRETTY_FUNCTION__.block_job_user_resume) #7
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 594, ptr noundef nonnull @__PRETTY_FUNCTION__.block_job_user_resume) #8
   unreachable
 
 do.end:                                           ; preds = %entry
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
-  tail call void %1(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.13, i32 noundef 122) #6
-  %call.i.i = tail call zeroext i1 @qemu_in_main_thread() #6
+  tail call void %1(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.13, i32 noundef 122) #7
+  %call.i.i = tail call zeroext i1 @qemu_in_main_thread() #7
   br i1 %call.i.i, label %do.end.i.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %do.end
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 577, ptr noundef nonnull @__PRETTY_FUNCTION__.block_job_iostatus_reset_locked) #7
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 577, ptr noundef nonnull @__PRETTY_FUNCTION__.block_job_iostatus_reset_locked) #8
   unreachable
 
 do.end.i.i:                                       ; preds = %do.end
@@ -974,7 +974,7 @@ land.lhs.true.i.i:                                ; preds = %if.end2.i.i
   br i1 %cmp5.i.i, label %if.end8.i.i, label %if.else7.i.i
 
 if.else7.i.i:                                     ; preds = %land.lhs.true.i.i, %if.end2.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.1, i32 noundef 581, ptr noundef nonnull @__PRETTY_FUNCTION__.block_job_iostatus_reset_locked) #7
+  tail call void @__assert_fail(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.1, i32 noundef 581, ptr noundef nonnull @__PRETTY_FUNCTION__.block_job_iostatus_reset_locked) #8
   unreachable
 
 if.end8.i.i:                                      ; preds = %land.lhs.true.i.i
@@ -982,7 +982,7 @@ if.end8.i.i:                                      ; preds = %land.lhs.true.i.i
   br label %block_job_iostatus_reset.exit
 
 block_job_iostatus_reset.exit:                    ; preds = %do.end.i.i, %if.end8.i.i
-  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.13, i32 noundef 132) #6
+  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.13, i32 noundef 132) #7
   ret void
 }
 
@@ -997,14 +997,14 @@ entry:
 
 if.end:                                           ; preds = %entry
   %progress = getelementptr inbounds i8, ptr %opaque, i64 48
-  call void @progress_get_snapshot(ptr noundef nonnull %progress, ptr noundef nonnull %progress_current, ptr noundef nonnull %progress_total) #6
-  %call3 = call i32 @job_type(ptr noundef nonnull %opaque) #6
+  call void @progress_get_snapshot(ptr noundef nonnull %progress, ptr noundef nonnull %progress_current, ptr noundef nonnull %progress_total) #7
+  %call3 = call i32 @job_type(ptr noundef nonnull %opaque) #7
   %1 = load ptr, ptr %opaque, align 8
   %2 = load i64, ptr %progress_total, align 8
   %3 = load i64, ptr %progress_current, align 8
   %speed = getelementptr inbounds i8, ptr %opaque, i64 288
   %4 = load i64, ptr %speed, align 8
-  call void @qapi_event_send_block_job_cancelled(i32 noundef %call3, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) #6
+  call void @qapi_event_send_block_job_cancelled(i32 noundef %call3, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) #7
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -1029,20 +1029,20 @@ if.end:                                           ; preds = %entry
 if.then2:                                         ; preds = %if.end
   %err = getelementptr inbounds i8, ptr %opaque, i64 192
   %2 = load ptr, ptr %err, align 8
-  %call4 = tail call ptr @error_get_pretty(ptr noundef %2) #6
+  %call4 = tail call ptr @error_get_pretty(ptr noundef %2) #7
   br label %if.end5
 
 if.end5:                                          ; preds = %if.then2, %if.end
   %msg.0 = phi ptr [ %call4, %if.then2 ], [ null, %if.end ]
   %progress = getelementptr inbounds i8, ptr %opaque, i64 48
-  call void @progress_get_snapshot(ptr noundef nonnull %progress, ptr noundef nonnull %progress_current, ptr noundef nonnull %progress_total) #6
-  %call8 = call i32 @job_type(ptr noundef nonnull %opaque) #6
+  call void @progress_get_snapshot(ptr noundef nonnull %progress, ptr noundef nonnull %progress_current, ptr noundef nonnull %progress_total) #7
+  %call8 = call i32 @job_type(ptr noundef nonnull %opaque) #7
   %3 = load ptr, ptr %opaque, align 8
   %4 = load i64, ptr %progress_total, align 8
   %5 = load i64, ptr %progress_current, align 8
   %speed = getelementptr inbounds i8, ptr %opaque, i64 288
   %6 = load i64, ptr %speed, align 8
-  call void @qapi_event_send_block_job_completed(i32 noundef %call8, ptr noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, ptr noundef %msg.0) #6
+  call void @qapi_event_send_block_job_completed(i32 noundef %call8, ptr noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, ptr noundef %msg.0) #7
   br label %return
 
 return:                                           ; preds = %entry, %if.end5
@@ -1057,9 +1057,9 @@ entry:
   br i1 %cmp.i, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call2 = tail call i32 @job_type(ptr noundef nonnull %opaque) #6
+  %call2 = tail call i32 @job_type(ptr noundef nonnull %opaque) #7
   %1 = load ptr, ptr %opaque, align 8
-  tail call void @qapi_event_send_block_job_pending(i32 noundef %call2, ptr noundef %1) #6
+  tail call void @qapi_event_send_block_job_pending(i32 noundef %call2, ptr noundef %1) #7
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -1077,14 +1077,14 @@ entry:
 
 if.end:                                           ; preds = %entry
   %progress = getelementptr inbounds i8, ptr %opaque, i64 48
-  call void @progress_get_snapshot(ptr noundef nonnull %progress, ptr noundef nonnull %progress_current, ptr noundef nonnull %progress_total) #6
-  %call3 = call i32 @job_type(ptr noundef nonnull %opaque) #6
+  call void @progress_get_snapshot(ptr noundef nonnull %progress, ptr noundef nonnull %progress_current, ptr noundef nonnull %progress_total) #7
+  %call3 = call i32 @job_type(ptr noundef nonnull %opaque) #7
   %1 = load ptr, ptr %opaque, align 8
   %2 = load i64, ptr %progress_total, align 8
   %3 = load i64, ptr %progress_current, align 8
   %speed = getelementptr inbounds i8, ptr %opaque, i64 288
   %4 = load i64, ptr %speed, align 8
-  call void @qapi_event_send_block_job_ready(i32 noundef %call3, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) #6
+  call void @qapi_event_send_block_job_ready(i32 noundef %call3, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) #7
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -1094,7 +1094,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @block_job_on_idle_locked(ptr nocapture readnone %n, ptr nocapture readnone %opaque) #0 {
 entry:
-  tail call void @aio_wait_kick() #6
+  tail call void @aio_wait_kick() #7
   ret void
 }
 
@@ -1109,11 +1109,11 @@ declare void @job_early_fail(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @block_job_iostatus_reset_locked(ptr nocapture noundef %job) local_unnamed_addr #0 {
 entry:
-  %call = tail call zeroext i1 @qemu_in_main_thread() #6
+  %call = tail call zeroext i1 @qemu_in_main_thread() #7
   br i1 %call, label %do.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 577, ptr noundef nonnull @__PRETTY_FUNCTION__.block_job_iostatus_reset_locked) #7
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 577, ptr noundef nonnull @__PRETTY_FUNCTION__.block_job_iostatus_reset_locked) #8
   unreachable
 
 do.end:                                           ; preds = %entry
@@ -1135,7 +1135,7 @@ land.lhs.true:                                    ; preds = %if.end2
   br i1 %cmp5, label %if.end8, label %if.else7
 
 if.else7:                                         ; preds = %land.lhs.true, %if.end2
-  tail call void @__assert_fail(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.1, i32 noundef 581, ptr noundef nonnull @__PRETTY_FUNCTION__.block_job_iostatus_reset_locked) #7
+  tail call void @__assert_fail(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.1, i32 noundef 581, ptr noundef nonnull @__PRETTY_FUNCTION__.block_job_iostatus_reset_locked) #8
   unreachable
 
 if.end8:                                          ; preds = %land.lhs.true
@@ -1169,7 +1169,7 @@ sw.bb3:                                           ; preds = %entry
   br label %sw.epilog
 
 sw.default:                                       ; preds = %entry
-  tail call void @abort() #7
+  tail call void @abort() #8
   unreachable
 
 sw.epilog:                                        ; preds = %entry, %sw.bb3, %sw.bb2, %sw.bb
@@ -1181,7 +1181,7 @@ sw.epilog:                                        ; preds = %entry, %sw.bb3, %sw
 if.then:                                          ; preds = %sw.epilog
   %tobool.not = icmp eq i32 %is_read, 0
   %cond5 = zext i1 %tobool.not to i32
-  tail call void @qapi_event_send_block_job_error(ptr noundef nonnull %0, i32 noundef %cond5, i32 noundef %action.0) #6
+  tail call void @qapi_event_send_block_job_error(ptr noundef nonnull %0, i32 noundef %cond5, i32 noundef %action.0) #7
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %sw.epilog
@@ -1191,7 +1191,7 @@ if.end:                                           ; preds = %if.then, %sw.epilog
 for.body.us:                                      ; preds = %if.end
   %1 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %2 = inttoptr i64 %1 to ptr
-  tail call void %2(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.13, i32 noundef 122) #6
+  tail call void %2(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.13, i32 noundef 122) #7
   %user_paused = getelementptr inbounds i8, ptr %job, i64 182
   %iostatus.i = getelementptr inbounds i8, ptr %job, i64 280
   %cmp1.i = icmp eq i32 %error, 28
@@ -1201,7 +1201,7 @@ for.body.us:                                      ; preds = %if.end
   br i1 %tobool11.us, label %if.end16.us, label %if.then12.us
 
 if.then12.us:                                     ; preds = %for.body.us
-  tail call void @job_pause_locked(ptr noundef nonnull %job) #6
+  tail call void @job_pause_locked(ptr noundef nonnull %job) #7
   store i8 1, ptr %user_paused, align 2
   br label %if.end16.us
 
@@ -1215,15 +1215,15 @@ if.then.i.us:                                     ; preds = %if.end16.us
   br label %qemu_lockable_auto_unlock.exit.us
 
 qemu_lockable_auto_unlock.exit.us:                ; preds = %if.then.i.us, %if.end16.us
-  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.13, i32 noundef 132) #6
+  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.13, i32 noundef 132) #7
   br label %if.end17
 
 if.end17:                                         ; preds = %qemu_lockable_auto_unlock.exit.us, %if.end
   ret i32 %action.0
 }
 
-; Function Attrs: noreturn nounwind
-declare void @abort() local_unnamed_addr #2
+; Function Attrs: cold nofree noreturn nounwind
+declare void @abort() local_unnamed_addr #6
 
 declare void @qapi_event_send_block_job_error(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -1232,11 +1232,11 @@ declare void @job_pause_locked(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @block_job_get_aio_context(ptr nocapture noundef readonly %job) local_unnamed_addr #0 {
 entry:
-  %call = tail call zeroext i1 @qemu_in_main_thread() #6
+  %call = tail call zeroext i1 @qemu_in_main_thread() #7
   br i1 %call, label %do.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 646, ptr noundef nonnull @__PRETTY_FUNCTION__.block_job_get_aio_context) #7
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 646, ptr noundef nonnull @__PRETTY_FUNCTION__.block_job_get_aio_context) #8
   unreachable
 
 do.end:                                           ; preds = %entry
@@ -1254,9 +1254,9 @@ define internal noalias ptr @child_job_get_parent_desc(ptr nocapture noundef rea
 entry:
   %opaque = getelementptr inbounds i8, ptr %c, i64 32
   %0 = load ptr, ptr %opaque, align 8
-  %call = tail call ptr @job_type_str(ptr noundef %0) #6
+  %call = tail call ptr @job_type_str(ptr noundef %0) #7
   %1 = load ptr, ptr %0, align 8
-  %call3 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.14, ptr noundef %call, ptr noundef %1) #6
+  %call3 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.14, ptr noundef %call, ptr noundef %1) #7
   ret ptr %call3
 }
 
@@ -1265,7 +1265,7 @@ define internal void @child_job_drained_begin(ptr nocapture noundef readonly %c)
 entry:
   %opaque = getelementptr inbounds i8, ptr %c, i64 32
   %0 = load ptr, ptr %opaque, align 8
-  tail call void @job_pause(ptr noundef %0) #6
+  tail call void @job_pause(ptr noundef %0) #7
   ret void
 }
 
@@ -1274,7 +1274,7 @@ define internal void @child_job_drained_end(ptr nocapture noundef readonly %c) #
 entry:
   %opaque = getelementptr inbounds i8, ptr %c, i64 32
   %0 = load ptr, ptr %opaque, align 8
-  tail call void @job_resume(ptr noundef %0) #6
+  tail call void @job_resume(ptr noundef %0) #7
   ret void
 }
 
@@ -1287,29 +1287,29 @@ for.body.us:
   %1 = load ptr, ptr %driver.i, align 8
   %2 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %3 = inttoptr i64 %2 to ptr
-  tail call void %3(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.13, i32 noundef 122) #6
+  tail call void %3(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.13, i32 noundef 122) #7
   %busy = getelementptr inbounds i8, ptr %0, i64 180
   %4 = load i8, ptr %busy, align 4
   %tobool3.us = trunc i8 %4 to i1
   br i1 %tobool3.us, label %lor.lhs.false.us, label %glib_autoptr_cleanup_QemuLockable.exit
 
 lor.lhs.false.us:                                 ; preds = %for.body.us
-  %call4.us = tail call zeroext i1 @job_is_completed_locked(ptr noundef nonnull %0) #6
+  %call4.us = tail call zeroext i1 @job_is_completed_locked(ptr noundef nonnull %0) #7
   br i1 %call4.us, label %glib_autoptr_cleanup_QemuLockable.exit, label %qemu_lockable_auto_unlock.exit.us
 
 qemu_lockable_auto_unlock.exit.us:                ; preds = %lor.lhs.false.us
-  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.13, i32 noundef 132) #6
+  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.13, i32 noundef 132) #7
   %drained_poll = getelementptr inbounds i8, ptr %1, i64 104
   %5 = load ptr, ptr %drained_poll, align 8
   %tobool5.not = icmp eq ptr %5, null
   br i1 %tobool5.not, label %return, label %if.then6
 
 glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %for.body.us, %lor.lhs.false.us
-  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.13, i32 noundef 132) #6
+  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.13, i32 noundef 132) #7
   br label %return
 
 if.then6:                                         ; preds = %qemu_lockable_auto_unlock.exit.us
-  %call8 = tail call zeroext i1 %5(ptr noundef nonnull %0) #6
+  %call8 = tail call zeroext i1 %5(ptr noundef nonnull %0) #7
   br label %return
 
 return:                                           ; preds = %glib_autoptr_cleanup_QemuLockable.exit, %qemu_lockable_auto_unlock.exit.us, %if.then6
@@ -1336,15 +1336,15 @@ for.cond:                                         ; preds = %for.body
 for.body:                                         ; preds = %entry, %for.cond
   %l.011 = phi ptr [ %l.0, %for.cond ], [ %l.09, %entry ]
   %1 = load ptr, ptr %l.011, align 8
-  %call = tail call zeroext i1 @bdrv_child_change_aio_context(ptr noundef %1, ptr noundef %ctx, ptr noundef %visited, ptr noundef %tran, ptr noundef %errp) #6
+  %call = tail call zeroext i1 @bdrv_child_change_aio_context(ptr noundef %1, ptr noundef %ctx, ptr noundef %visited, ptr noundef %tran, ptr noundef %errp) #7
   br i1 %call, label %for.cond, label %return
 
 for.end:                                          ; preds = %for.cond, %entry
-  %call1 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #8
+  %call1 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #9
   store ptr %ctx, ptr %call1, align 8
   %.compoundliteral.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %call1, i64 8
   store ptr %0, ptr %.compoundliteral.sroa.2.0..sroa_idx, align 8
-  tail call void @tran_add(ptr noundef %tran, ptr noundef nonnull @change_child_job_context, ptr noundef nonnull %call1) #6
+  tail call void @tran_add(ptr noundef %tran, ptr noundef nonnull @change_child_job_context, ptr noundef nonnull %call1) #7
   br label %return
 
 return:                                           ; preds = %for.body, %for.end
@@ -1359,10 +1359,10 @@ glib_autoptr_cleanup_QemuLockable.exit:
   %0 = load ptr, ptr %opaque, align 8
   %1 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %2 = inttoptr i64 %1 to ptr
-  tail call void %2(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.13, i32 noundef 122) #6
+  tail call void %2(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.13, i32 noundef 122) #7
   %aio_context = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load ptr, ptr %aio_context, align 8
-  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.13, i32 noundef 132) #6
+  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.13, i32 noundef 132) #7
   ret ptr %3
 }
 
@@ -1387,7 +1387,7 @@ entry:
   %job1 = getelementptr inbounds i8, ptr %opaque, i64 8
   %0 = load ptr, ptr %job1, align 8
   %1 = load ptr, ptr %opaque, align 8
-  tail call void @job_set_aio_context(ptr noundef %0, ptr noundef %1) #6
+  tail call void @job_set_aio_context(ptr noundef %0, ptr noundef %1) #7
   ret void
 }
 
@@ -1417,9 +1417,10 @@ attributes #2 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="tr
 attributes #3 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind }
-attributes #7 = { noreturn nounwind }
-attributes #8 = { nounwind allocsize(0,1) }
+attributes #6 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind }
+attributes #8 = { noreturn nounwind }
+attributes #9 = { nounwind allocsize(0,1) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

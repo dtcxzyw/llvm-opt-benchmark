@@ -317,7 +317,7 @@ sw.bb76:                                          ; preds = %if.end74
   br i1 %tobool79.not, label %if.end81, label %if.then80
 
 if.then80:                                        ; preds = %sw.bb76
-  call void @_exit(i32 noundef 0) #13
+  call void @_exit(i32 noundef 0) #14
   unreachable
 
 if.end81:                                         ; preds = %sw.bb76
@@ -327,7 +327,7 @@ if.end81:                                         ; preds = %sw.bb76
 
 if.then85:                                        ; preds = %if.end81
   call void (i32, ptr, i32, ptr, ...) @trace_log_message(i32 noundef 18, ptr noundef %prog, i32 noundef 2, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10) #11
-  call void @_exit(i32 noundef 1) #13
+  call void @_exit(i32 noundef 1) #14
   unreachable
 
 for.body90:                                       ; preds = %for.body90.preheader, %for.inc100
@@ -425,7 +425,7 @@ for.inc.i73:                                      ; preds = %if.then.i70, %for.b
 for.end.i65:                                      ; preds = %for.inc.i73, %while.end107
   call void @CRYPTO_free(ptr noundef %call3, ptr noundef nonnull @.str.8, i32 noundef 67) #11
   call void @OSSL_sleep(i64 noundef 1000) #11
-  call void @exit(i32 noundef 0) #13
+  call void @exit(i32 noundef 0) #14
   unreachable
 
 return:                                           ; preds = %if.end81
@@ -445,7 +445,7 @@ declare ptr @strerror(i32 noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #3
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #4
 
 declare ptr @app_malloc(i64 noundef, ptr noundef) local_unnamed_addr #2
@@ -665,7 +665,7 @@ http_server_send_status.exit:                     ; preds = %if.then31, %if.end.
   br label %out
 
 if.end33:                                         ; preds = %if.end28
-  %call35 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %reqbuf, i32 noundef 13) #14
+  %call35 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %reqbuf, i32 noundef 13) #15
   %cmp36.not = icmp eq ptr %call35, null
   br i1 %cmp36.not, label %lor.lhs.false, label %land.lhs.true
 
@@ -676,7 +676,7 @@ land.lhs.true:                                    ; preds = %if.end33
   br i1 %cmp39, label %if.then45, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %land.lhs.true, %if.end33
-  %call42 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %reqbuf, i32 noundef 10) #14
+  %call42 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %reqbuf, i32 noundef 10) #15
   %cmp43.not = icmp eq ptr %call42, null
   br i1 %cmp43.not, label %if.end46, label %if.then45
 
@@ -781,7 +781,7 @@ for.inc:                                          ; preds = %for.cond
   br label %for.cond, !llvm.loop !12
 
 for.end:                                          ; preds = %for.cond, %for.cond
-  %call92 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %end.2, ptr noundef nonnull dereferenceable(9) @.str.28, i64 noundef 8) #14
+  %call92 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %end.2, ptr noundef nonnull dereferenceable(9) @.str.28, i64 noundef 8) #15
   %cmp93 = icmp eq i32 %call92, 0
   br i1 %cmp93, label %if.end98, label %if.then95
 
@@ -817,7 +817,7 @@ if.then101:                                       ; preds = %if.end98
   br label %if.end106
 
 if.end106:                                        ; preds = %if.then101, %if.end98
-  %call107 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %reqbuf) #14
+  %call107 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %reqbuf) #15
   %cmp108 = icmp eq i64 %call107, 3
   br i1 %cmp108, label %land.lhs.true110, label %if.end117
 
@@ -841,7 +841,7 @@ if.then121:                                       ; preds = %if.end117
   br label %out
 
 if.end123:                                        ; preds = %if.end117
-  %call124 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %reqbuf) #14
+  %call124 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %reqbuf) #15
   %cmp125 = icmp eq i64 %call124, 3
   br i1 %cmp125, label %if.then127, label %if.end144
 
@@ -927,7 +927,7 @@ if.then173:                                       ; preds = %if.end244, %while.e
   br label %out
 
 if.end175:                                        ; preds = %while.end167, %if.end244
-  %call177 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %inbuf, i32 noundef 13) #14
+  %call177 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %inbuf, i32 noundef 13) #15
   %cmp178.not = icmp eq ptr %call177, null
   br i1 %cmp178.not, label %lor.lhs.false185, label %land.lhs.true180
 
@@ -938,7 +938,7 @@ land.lhs.true180:                                 ; preds = %if.end175
   br i1 %cmp183, label %if.then190, label %lor.lhs.false185
 
 lor.lhs.false185:                                 ; preds = %land.lhs.true180, %if.end175
-  %call187 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %inbuf, i32 noundef 10) #14
+  %call187 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %inbuf, i32 noundef 10) #15
   %cmp188.not = icmp eq ptr %call187, null
   br i1 %cmp188.not, label %if.end191, label %if.then190
 
@@ -963,7 +963,7 @@ if.end191:                                        ; preds = %lor.lhs.false185
   br label %out
 
 if.end210:                                        ; preds = %if.then190
-  %call212 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %inbuf, i32 noundef 58) #14
+  %call212 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %inbuf, i32 noundef 58) #15
   %cmp213 = icmp eq ptr %call212, null
   br i1 %cmp213, label %if.then215, label %if.end217
 
@@ -1034,7 +1034,7 @@ land.lhs.true261:                                 ; preds = %if.else258
   br i1 %cmp263, label %if.then265, label %out.thread
 
 if.then265:                                       ; preds = %land.lhs.true261
-  %call266 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %url.2) #14
+  %call266 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %url.2) #15
   %add = add i64 %call266, 1
   call void (i32, ptr, i32, ptr, ...) @trace_log_message(i32 noundef 18, ptr noundef %prog, i32 noundef 3, ptr noundef nonnull @.str.43, i64 noundef %add) #11
   call void @ASN1_item_free(ptr noundef nonnull %call253, ptr noundef %it) #11
@@ -1237,7 +1237,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp5, label %land.lhs.true, label %if.end15
 
 land.lhs.true:                                    ; preds = %if.end
-  %call8 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %buf, i32 noundef 13) #14
+  %call8 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %buf, i32 noundef 13) #15
   %cmp9.not = icmp eq ptr %call8, null
   br i1 %cmp9.not, label %if.end15, label %if.then11
 
@@ -1300,7 +1300,7 @@ attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1309,8 +1309,9 @@ attributes #9 = { nofree nounwind willreturn memory(argmem: read) }
 attributes #10 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { nounwind }
 attributes #12 = { nounwind willreturn memory(none) }
-attributes #13 = { noreturn nounwind }
-attributes #14 = { nounwind willreturn memory(read) }
+attributes #13 = { cold noreturn nounwind }
+attributes #14 = { noreturn nounwind }
+attributes #15 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

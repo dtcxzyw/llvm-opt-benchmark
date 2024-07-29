@@ -138,7 +138,7 @@ declare void @error_report(ptr noundef, ...) local_unnamed_addr #2
 
 declare ptr @fdt_strerror(i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -1107,7 +1107,7 @@ if.then:                                          ; preds = %entry
 
 if.then3:                                         ; preds = %if.then
   tail call void (ptr, ...) @info_report(ptr noundef nonnull @.str.23, ptr noundef nonnull %1) #12
-  tail call void @exit(i32 noundef 0) #13
+  tail call void @exit(i32 noundef 0) #16
   unreachable
 
 if.end:                                           ; preds = %if.then
@@ -1240,7 +1240,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.not, label %if.else, label %do.end
 
 if.else:                                          ; preds = %if.end
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.10, i32 noundef 663, ptr noundef nonnull @__func__.qmp_dumpdtb, ptr noundef nonnull @.str.26) #13
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.10, i32 noundef 663, ptr noundef nonnull @__func__.qmp_dumpdtb, ptr noundef nonnull @.str.26) #16
   unreachable
 
 do.end:                                           ; preds = %if.end
@@ -1388,7 +1388,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1398,9 +1398,10 @@ attributes #9 = { nofree nounwind willreturn memory(argmem: read) }
 attributes #10 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { nounwind allocsize(0) }
 attributes #12 = { nounwind }
-attributes #13 = { noreturn nounwind }
+attributes #13 = { cold noreturn nounwind }
 attributes #14 = { nounwind willreturn memory(read) }
 attributes #15 = { nounwind allocsize(0,1) }
+attributes #16 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

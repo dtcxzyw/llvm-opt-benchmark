@@ -45,7 +45,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define range(i32 300, 1000) i32 @gvrender_select(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = tail call ptr @gvplugin_load(ptr noundef %3, i32 noundef 3, ptr noundef %1, ptr noundef null) #20
+  %4 = tail call ptr @gvplugin_load(ptr noundef %3, i32 noundef 3, ptr noundef %1, ptr noundef null) #21
   %5 = getelementptr inbounds i8, ptr %3, i64 184
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
@@ -145,7 +145,7 @@ define i32 @gvrender_features(ptr nocapture noundef readonly %0) local_unnamed_a
 define range(i32 0, 2) i32 @gvrender_begin_job(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load ptr, ptr %2, align 8
-  %4 = tail call i32 @gvdevice_initialize(ptr noundef %0) #20
+  %4 = tail call i32 @gvdevice_initialize(ptr noundef %0) #21
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %9
 
@@ -159,7 +159,7 @@ define range(i32 0, 2) i32 @gvrender_begin_job(ptr noundef %0) local_unnamed_add
   br i1 %.not9, label %9, label %8
 
 8:                                                ; preds = %6
-  tail call void %7(ptr noundef nonnull %0) #20
+  tail call void %7(ptr noundef nonnull %0) #21
   br label %9
 
 9:                                                ; preds = %5, %8, %6, %1
@@ -183,14 +183,14 @@ define void @gvrender_end_job(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not8, label %8, label %7
 
 7:                                                ; preds = %4
-  tail call void %6(ptr noundef nonnull %0) #20
+  tail call void %6(ptr noundef nonnull %0) #21
   br label %8
 
 8:                                                ; preds = %4, %7, %1
   %9 = load ptr, ptr %0, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 40
   store ptr null, ptr %10, align 8
-  tail call void @gvdevice_finalize(ptr noundef nonnull %0) #20
+  tail call void @gvdevice_finalize(ptr noundef nonnull %0) #21
   ret void
 }
 
@@ -324,7 +324,7 @@ define void @gvrender_begin_graph(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not6, label %8, label %7
 
 7:                                                ; preds = %4
-  tail call void %6(ptr noundef nonnull %0) #20
+  tail call void %6(ptr noundef nonnull %0) #21
   br label %8
 
 8:                                                ; preds = %4, %7, %1
@@ -345,11 +345,11 @@ define void @gvrender_end_graph(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not7, label %8, label %7
 
 7:                                                ; preds = %4
-  tail call void %6(ptr noundef nonnull %0) #20
+  tail call void %6(ptr noundef nonnull %0) #21
   br label %8
 
 8:                                                ; preds = %4, %7, %1
-  tail call void @gvdevice_format(ptr noundef nonnull %0) #20
+  tail call void @gvdevice_format(ptr noundef nonnull %0) #21
   ret void
 }
 
@@ -369,7 +369,7 @@ define void @gvrender_begin_page(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not6, label %8, label %7
 
 7:                                                ; preds = %4
-  tail call void %6(ptr noundef nonnull %0) #20
+  tail call void %6(ptr noundef nonnull %0) #21
   br label %8
 
 8:                                                ; preds = %4, %7, %1
@@ -390,7 +390,7 @@ define void @gvrender_end_page(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not6, label %8, label %7
 
 7:                                                ; preds = %4
-  tail call void %6(ptr noundef nonnull %0) #20
+  tail call void %6(ptr noundef nonnull %0) #21
   br label %8
 
 8:                                                ; preds = %4, %7, %1
@@ -421,7 +421,7 @@ define void @gvrender_begin_layer(ptr noundef %0) local_unnamed_addr #0 {
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 276
   %17 = load i32, ptr %16, align 4
-  tail call void %6(ptr noundef nonnull %0, ptr noundef %15, i32 noundef %12, i32 noundef %17) #20
+  tail call void %6(ptr noundef nonnull %0, ptr noundef %15, i32 noundef %12, i32 noundef %17) #21
   br label %18
 
 18:                                               ; preds = %4, %7, %1
@@ -442,7 +442,7 @@ define void @gvrender_end_layer(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not6, label %8, label %7
 
 7:                                                ; preds = %4
-  tail call void %6(ptr noundef nonnull %0) #20
+  tail call void %6(ptr noundef nonnull %0) #21
   br label %8
 
 8:                                                ; preds = %4, %7, %1
@@ -463,7 +463,7 @@ define void @gvrender_begin_cluster(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not6, label %8, label %7
 
 7:                                                ; preds = %4
-  tail call void %6(ptr noundef nonnull %0) #20
+  tail call void %6(ptr noundef nonnull %0) #21
   br label %8
 
 8:                                                ; preds = %4, %7, %1
@@ -484,7 +484,7 @@ define void @gvrender_end_cluster(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not6, label %8, label %7
 
 7:                                                ; preds = %4
-  tail call void %6(ptr noundef nonnull %0) #20
+  tail call void %6(ptr noundef nonnull %0) #21
   br label %8
 
 8:                                                ; preds = %4, %7, %1
@@ -505,7 +505,7 @@ define void @gvrender_begin_nodes(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not6, label %8, label %7
 
 7:                                                ; preds = %4
-  tail call void %6(ptr noundef nonnull %0) #20
+  tail call void %6(ptr noundef nonnull %0) #21
   br label %8
 
 8:                                                ; preds = %4, %7, %1
@@ -526,7 +526,7 @@ define void @gvrender_end_nodes(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not6, label %8, label %7
 
 7:                                                ; preds = %4
-  tail call void %6(ptr noundef nonnull %0) #20
+  tail call void %6(ptr noundef nonnull %0) #21
   br label %8
 
 8:                                                ; preds = %4, %7, %1
@@ -547,7 +547,7 @@ define void @gvrender_begin_edges(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not6, label %8, label %7
 
 7:                                                ; preds = %4
-  tail call void %6(ptr noundef nonnull %0) #20
+  tail call void %6(ptr noundef nonnull %0) #21
   br label %8
 
 8:                                                ; preds = %4, %7, %1
@@ -568,7 +568,7 @@ define void @gvrender_end_edges(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not6, label %8, label %7
 
 7:                                                ; preds = %4
-  tail call void %6(ptr noundef nonnull %0) #20
+  tail call void %6(ptr noundef nonnull %0) #21
   br label %8
 
 8:                                                ; preds = %4, %7, %1
@@ -589,7 +589,7 @@ define void @gvrender_begin_node(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not6, label %8, label %7
 
 7:                                                ; preds = %4
-  tail call void %6(ptr noundef nonnull %0) #20
+  tail call void %6(ptr noundef nonnull %0) #21
   br label %8
 
 8:                                                ; preds = %4, %7, %1
@@ -610,7 +610,7 @@ define void @gvrender_end_node(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not6, label %8, label %7
 
 7:                                                ; preds = %4
-  tail call void %6(ptr noundef nonnull %0) #20
+  tail call void %6(ptr noundef nonnull %0) #21
   br label %8
 
 8:                                                ; preds = %4, %7, %1
@@ -631,7 +631,7 @@ define void @gvrender_begin_edge(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not6, label %8, label %7
 
 7:                                                ; preds = %4
-  tail call void %6(ptr noundef nonnull %0) #20
+  tail call void %6(ptr noundef nonnull %0) #21
   br label %8
 
 8:                                                ; preds = %4, %7, %1
@@ -652,7 +652,7 @@ define void @gvrender_end_edge(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not6, label %8, label %7
 
 7:                                                ; preds = %4
-  tail call void %6(ptr noundef nonnull %0) #20
+  tail call void %6(ptr noundef nonnull %0) #21
   br label %8
 
 8:                                                ; preds = %4, %7, %1
@@ -673,7 +673,7 @@ define void @gvrender_begin_anchor(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %.not10, label %12, label %11
 
 11:                                               ; preds = %8
-  tail call void %10(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #20
+  tail call void %10(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #21
   br label %12
 
 12:                                               ; preds = %8, %11, %5
@@ -694,7 +694,7 @@ define void @gvrender_end_anchor(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not6, label %8, label %7
 
 7:                                                ; preds = %4
-  tail call void %6(ptr noundef nonnull %0) #20
+  tail call void %6(ptr noundef nonnull %0) #21
   br label %8
 
 8:                                                ; preds = %4, %7, %1
@@ -715,7 +715,7 @@ define void @gvrender_begin_label(ptr noundef %0, i32 noundef %1) local_unnamed_
   br i1 %.not6, label %9, label %8
 
 8:                                                ; preds = %5
-  tail call void %7(ptr noundef nonnull %0, i32 noundef %1) #20
+  tail call void %7(ptr noundef nonnull %0, i32 noundef %1) #21
   br label %9
 
 9:                                                ; preds = %5, %8, %2
@@ -736,7 +736,7 @@ define void @gvrender_end_label(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not6, label %8, label %7
 
 7:                                                ; preds = %4
-  tail call void %6(ptr noundef nonnull %0) #20
+  tail call void %6(ptr noundef nonnull %0) #21
   br label %8
 
 8:                                                ; preds = %4, %7, %1
@@ -825,7 +825,7 @@ gvrender_ptf.exit:                                ; preds = %31, %36
   br i1 %.not23, label %46, label %45
 
 45:                                               ; preds = %42
-  tail call void %44(ptr noundef nonnull %0, double %.sroa.01.0, double %.sroa.3.0, ptr noundef nonnull %3) #20
+  tail call void %44(ptr noundef nonnull %0, double %.sroa.01.0, double %.sroa.3.0, ptr noundef nonnull %3) #21
   br label %46
 
 46:                                               ; preds = %41, %45, %42, %13, %8, %4
@@ -839,7 +839,7 @@ define void @gvrender_set_pencolor(ptr noundef %0, ptr noundef %1) local_unnamed
   %5 = getelementptr inbounds i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 32
-  %8 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 58) #21
+  %8 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 58) #22
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %10, label %9
 
@@ -861,7 +861,7 @@ define void @gvrender_set_pencolor(ptr noundef %0, ptr noundef %1) local_unnamed
   br i1 %.not17, label %17, label %16
 
 16:                                               ; preds = %11
-  tail call void %15(ptr noundef nonnull %0, ptr noundef nonnull %7) #20
+  tail call void %15(ptr noundef nonnull %0, ptr noundef nonnull %7) #21
   br label %17
 
 17:                                               ; preds = %11, %16, %10
@@ -884,7 +884,7 @@ define internal fastcc void @gvrender_resolve_color(ptr nocapture noundef readon
   store ptr %1, ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 32
   store i32 5, ptr %5, align 8
-  %6 = tail call ptr @canontoken(ptr noundef %1) #20
+  %6 = tail call ptr @canontoken(ptr noundef %1) #21
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
@@ -894,14 +894,14 @@ define internal fastcc void @gvrender_resolve_color(ptr nocapture noundef readon
   %10 = getelementptr inbounds i8, ptr %0, i64 24
   %11 = load i32, ptr %10, align 8
   %12 = sext i32 %11 to i64
-  %13 = tail call ptr @bsearch(ptr noundef %6, ptr noundef nonnull %8, i64 noundef %12, i64 noundef 8, ptr noundef nonnull @gvrender_comparestr) #20
+  %13 = tail call ptr @bsearch(ptr noundef %6, ptr noundef nonnull %8, i64 noundef %12, i64 noundef 8, ptr noundef nonnull @gvrender_comparestr) #21
   %14 = icmp eq ptr %13, null
   br i1 %14, label %15, label %agxbfree.exit
 
 15:                                               ; preds = %9, %3
   %16 = getelementptr inbounds i8, ptr %0, i64 28
   %17 = load i32, ptr %16, align 4
-  %18 = tail call i32 @colorxlate(ptr noundef %1, ptr noundef nonnull %2, i32 noundef %17) #20
+  %18 = tail call i32 @colorxlate(ptr noundef %1, ptr noundef nonnull %2, i32 noundef %17) #21
   switch i32 %18, label %44 [
     i32 0, label %agxbfree.exit
     i32 1, label %agxbsizeof.exit.i.i
@@ -961,11 +961,11 @@ agxbclear.exit.thread.i:                          ; preds = %agxbputc.exit.i
 
 agxbuse.exit:                                     ; preds = %agxbclear.exit.thread.i, %35
   %37 = phi ptr [ %36, %35 ], [ %4, %agxbclear.exit.thread.i ]
-  %38 = call zeroext i1 @emit_once(ptr noundef %37) #20
+  %38 = call zeroext i1 @emit_once(ptr noundef %37) #21
   br i1 %38, label %39, label %41
 
 39:                                               ; preds = %agxbuse.exit
-  %40 = call i32 (i32, ptr, ...) @agerr(i32 noundef 0, ptr noundef nonnull @.str.12, ptr noundef %1) #20
+  %40 = call i32 (i32, ptr, ...) @agerr(i32 noundef 0, ptr noundef nonnull @.str.12, ptr noundef %1) #21
   br label %41
 
 41:                                               ; preds = %39, %agxbuse.exit
@@ -975,11 +975,11 @@ agxbuse.exit:                                     ; preds = %agxbclear.exit.thre
 
 43:                                               ; preds = %41
   %.val = load ptr, ptr %4, align 8
-  call void @free(ptr noundef %.val) #20
+  call void @free(ptr noundef %.val) #21
   br label %agxbfree.exit
 
 44:                                               ; preds = %15
-  %45 = tail call i32 (i32, ptr, ...) @agerr(i32 noundef 1, ptr noundef nonnull @.str.13) #20
+  %45 = tail call i32 (i32, ptr, ...) @agerr(i32 noundef 1, ptr noundef nonnull @.str.13) #21
   br label %agxbfree.exit
 
 agxbfree.exit:                                    ; preds = %43, %41, %15, %44, %9
@@ -993,7 +993,7 @@ define void @gvrender_set_fillcolor(ptr noundef %0, ptr noundef %1) local_unname
   %5 = getelementptr inbounds i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 72
-  %8 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 58) #21
+  %8 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 58) #22
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %10, label %9
 
@@ -1015,7 +1015,7 @@ define void @gvrender_set_fillcolor(ptr noundef %0, ptr noundef %1) local_unname
   br i1 %.not17, label %17, label %16
 
 16:                                               ; preds = %11
-  tail call void %15(ptr noundef nonnull %0, ptr noundef nonnull %7) #20
+  tail call void %15(ptr noundef nonnull %0, ptr noundef nonnull %7) #21
   br label %17
 
 17:                                               ; preds = %11, %16, %10
@@ -1049,7 +1049,7 @@ define void @gvrender_set_gradient_vals(ptr noundef %0, ptr noundef %1, i32 noun
   br i1 %.not14, label %16, label %15
 
 15:                                               ; preds = %10
-  tail call void %14(ptr noundef nonnull %0, ptr noundef nonnull %9) #20
+  tail call void %14(ptr noundef nonnull %0, ptr noundef nonnull %9) #21
   br label %16
 
 16:                                               ; preds = %10, %15, %4
@@ -1090,7 +1090,7 @@ define void @gvrender_set_style(ptr nocapture noundef readonly %0, ptr noundef %
   %15 = phi ptr [ %10, %.lr.ph ], [ %60, %59 ]
   %.pn = phi ptr [ %1, %.lr.ph ], [ %16, %59 ]
   %16 = getelementptr inbounds i8, ptr %.pn, i64 8
-  %17 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %15, ptr noundef nonnull readonly dereferenceable(6) @.str) #21
+  %17 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %15, ptr noundef nonnull readonly dereferenceable(6) @.str) #22
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %19, label %20
 
@@ -1099,7 +1099,7 @@ define void @gvrender_set_style(ptr nocapture noundef readonly %0, ptr noundef %
   br label %59
 
 20:                                               ; preds = %14
-  %21 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %15, ptr noundef nonnull readonly dereferenceable(7) @.str.1) #21
+  %21 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %15, ptr noundef nonnull readonly dereferenceable(7) @.str.1) #22
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %23, label %24
 
@@ -1108,7 +1108,7 @@ define void @gvrender_set_style(ptr nocapture noundef readonly %0, ptr noundef %
   br label %59
 
 24:                                               ; preds = %20
-  %25 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %15, ptr noundef nonnull readonly dereferenceable(7) @.str.2) #21
+  %25 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %15, ptr noundef nonnull readonly dereferenceable(7) @.str.2) #22
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %27, label %28
 
@@ -1117,12 +1117,12 @@ define void @gvrender_set_style(ptr nocapture noundef readonly %0, ptr noundef %
   br label %59
 
 28:                                               ; preds = %24
-  %29 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %15, ptr noundef nonnull readonly dereferenceable(6) @.str.3) #21
+  %29 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %15, ptr noundef nonnull readonly dereferenceable(6) @.str.3) #22
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %34, label %31
 
 31:                                               ; preds = %28
-  %32 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %15, ptr noundef nonnull readonly dereferenceable(10) @.str.4) #21
+  %32 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %15, ptr noundef nonnull readonly dereferenceable(10) @.str.4) #22
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %34, label %35
 
@@ -1131,7 +1131,7 @@ define void @gvrender_set_style(ptr nocapture noundef readonly %0, ptr noundef %
   br label %59
 
 35:                                               ; preds = %31
-  %36 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %15, ptr noundef nonnull readonly dereferenceable(5) @.str.5) #21
+  %36 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %15, ptr noundef nonnull readonly dereferenceable(5) @.str.5) #22
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %38, label %39
 
@@ -1140,7 +1140,7 @@ define void @gvrender_set_style(ptr nocapture noundef readonly %0, ptr noundef %
   br label %59
 
 39:                                               ; preds = %35
-  %40 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %15, ptr noundef nonnull readonly dereferenceable(13) @.str.6) #21
+  %40 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %15, ptr noundef nonnull readonly dereferenceable(13) @.str.6) #22
   %41 = icmp eq i32 %40, 0
   br i1 %41, label %.preheader, label %46
 
@@ -1152,12 +1152,12 @@ define void @gvrender_set_style(ptr nocapture noundef readonly %0, ptr noundef %
   br i1 %.not34, label %44, label %.preheader
 
 44:                                               ; preds = %.preheader
-  %45 = tail call double @atof(ptr noundef nonnull %43) #21
+  %45 = tail call double @atof(ptr noundef nonnull %43) #22
   store double %45, ptr %12, align 8
   br label %59
 
 46:                                               ; preds = %39
-  %47 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %15, ptr noundef nonnull readonly dereferenceable(7) @.str.7) #21
+  %47 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %15, ptr noundef nonnull readonly dereferenceable(7) @.str.7) #22
   %48 = icmp eq i32 %47, 0
   br i1 %48, label %49, label %50
 
@@ -1166,7 +1166,7 @@ define void @gvrender_set_style(ptr nocapture noundef readonly %0, ptr noundef %
   br label %59
 
 50:                                               ; preds = %46
-  %51 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %15, ptr noundef nonnull readonly dereferenceable(9) @.str.8) #21
+  %51 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %15, ptr noundef nonnull readonly dereferenceable(9) @.str.8) #22
   %52 = icmp eq i32 %51, 0
   br i1 %52, label %53, label %54
 
@@ -1175,12 +1175,12 @@ define void @gvrender_set_style(ptr nocapture noundef readonly %0, ptr noundef %
   br label %59
 
 54:                                               ; preds = %50
-  %55 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %15, ptr noundef nonnull readonly dereferenceable(8) @.str.9) #21
+  %55 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %15, ptr noundef nonnull readonly dereferenceable(8) @.str.9) #22
   %56 = icmp eq i32 %55, 0
   br i1 %56, label %59, label %57
 
 57:                                               ; preds = %54
-  %58 = tail call i32 (i32, ptr, ...) @agerr(i32 noundef 0, ptr noundef nonnull @.str.10, ptr noundef nonnull %15) #20
+  %58 = tail call i32 (i32, ptr, ...) @agerr(i32 noundef 0, ptr noundef nonnull @.str.10, ptr noundef nonnull %15) #21
   br label %59
 
 59:                                               ; preds = %23, %34, %44, %53, %54, %57, %49, %38, %27, %19
@@ -1283,7 +1283,7 @@ define void @gvrender_ellipse(ptr noundef %0, ptr nocapture noundef readonly %1,
   br i1 %exitcond44.not.i, label %gvrender_ptf_A.exit, label %.lr.ph40.i
 
 gvrender_ptf_A.exit:                              ; preds = %.lr.ph.i, %.lr.ph40.i, %15
-  call void %9(ptr noundef %0, ptr noundef nonnull %4, i32 noundef %2) #20
+  call void %9(ptr noundef %0, ptr noundef nonnull %4, i32 noundef %2) #21
   br label %55
 
 55:                                               ; preds = %7, %10, %gvrender_ptf_A.exit, %3
@@ -1335,7 +1335,7 @@ define void @gvrender_polygon(ptr noundef %0, ptr noundef %1, i64 noundef %2, i3
 
 26:                                               ; preds = %22
   %27 = load ptr, ptr %9, align 8
-  tail call void %27(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, i32 noundef %.0) #20
+  tail call void %27(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, i32 noundef %.0) #21
   br label %62
 
 28:                                               ; preds = %22
@@ -1398,8 +1398,8 @@ define void @gvrender_polygon(ptr noundef %0, ptr noundef %1, i64 noundef %2, i3
 
 gvrender_ptf_A.exit:                              ; preds = %.lr.ph.i, %.lr.ph40.i, %.preheader36.i, %.preheader.i
   %61 = load ptr, ptr %9, align 8
-  tail call void %61(ptr noundef %0, ptr noundef %29, i64 noundef %2, i32 noundef %.0) #20
-  tail call void @free(ptr noundef %29) #20
+  tail call void %61(ptr noundef %0, ptr noundef %29, i64 noundef %2, i32 noundef %.0) #21
+  tail call void @free(ptr noundef %29) #21
   br label %62
 
 62:                                               ; preds = %gvrender_ptf_A.exit, %26
@@ -1415,13 +1415,13 @@ gvrender_ptf_A.exit:                              ; preds = %.lr.ph.i, %.lr.ph40
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef %0, i64 noundef %1) unnamed_addr #0 {
+; Function Attrs: nofree nounwind uwtable
+define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef %0, i64 noundef %1) unnamed_addr #8 {
   %.not = icmp eq i64 %0, 0
   br i1 %.not, label %.thread, label %4
 
 .thread:                                          ; preds = %2
-  %3 = tail call noalias ptr @calloc(i64 noundef 0, i64 noundef %1) #22
+  %3 = tail call noalias ptr @calloc(i64 noundef 0, i64 noundef %1) #23
   br label %15
 
 4:                                                ; preds = %2
@@ -1431,20 +1431,20 @@ define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef %0, i64 nounde
 
 5:                                                ; preds = %4
   %6 = load ptr, ptr @stderr, align 8
-  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.14, i64 noundef %0, i64 noundef %1) #23
-  tail call fastcc void @graphviz_exit() #24
+  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.14, i64 noundef %0, i64 noundef %1) #24
+  tail call fastcc void @graphviz_exit() #25
   unreachable
 
 8:                                                ; preds = %4
-  %9 = tail call noalias ptr @calloc(i64 noundef %0, i64 noundef %1) #22
+  %9 = tail call noalias ptr @calloc(i64 noundef %0, i64 noundef %1) #23
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %15
 
 11:                                               ; preds = %8
   %12 = load ptr, ptr @stderr, align 8
   %13 = mul i64 %1, %0
-  %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.15, i64 noundef %13) #23
-  tail call fastcc void @graphviz_exit() #24
+  %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.15, i64 noundef %13) #24
+  tail call fastcc void @graphviz_exit() #25
   unreachable
 
 15:                                               ; preds = %.thread, %8
@@ -1453,7 +1453,7 @@ define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef %0, i64 nounde
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
+declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
 define void @gvrender_box(ptr noundef %0, ptr nocapture noundef readonly byval(%struct.boxf) align 8 %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -1509,7 +1509,7 @@ define void @gvrender_beziercurve(ptr noundef %0, ptr noundef %1, i64 noundef %2
   br i1 %.not23, label %20, label %19
 
 19:                                               ; preds = %15
-  tail call void %9(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) #20
+  tail call void %9(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) #21
   br label %54
 
 20:                                               ; preds = %15
@@ -1572,8 +1572,8 @@ define void @gvrender_beziercurve(ptr noundef %0, ptr noundef %1, i64 noundef %2
 
 gvrender_ptf_A.exit:                              ; preds = %.lr.ph.i, %.lr.ph40.i, %.preheader36.i, %.preheader.i
   %53 = load ptr, ptr %8, align 8
-  tail call void %53(ptr noundef %0, ptr noundef %21, i64 noundef %2, i32 noundef %3) #20
-  tail call void @free(ptr noundef %21) #20
+  tail call void %53(ptr noundef %0, ptr noundef %21, i64 noundef %2, i32 noundef %3) #21
+  tail call void @free(ptr noundef %21) #21
   br label %54
 
 54:                                               ; preds = %7, %10, %gvrender_ptf_A.exit, %19, %4
@@ -1609,7 +1609,7 @@ define void @gvrender_polyline(ptr noundef %0, ptr noundef %1, i64 noundef %2) l
   br i1 %.not21, label %19, label %18
 
 18:                                               ; preds = %14
-  tail call void %8(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2) #20
+  tail call void %8(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2) #21
   br label %53
 
 19:                                               ; preds = %14
@@ -1672,8 +1672,8 @@ define void @gvrender_polyline(ptr noundef %0, ptr noundef %1, i64 noundef %2) l
 
 gvrender_ptf_A.exit:                              ; preds = %.lr.ph.i, %.lr.ph40.i, %.preheader36.i, %.preheader.i
   %52 = load ptr, ptr %7, align 8
-  tail call void %52(ptr noundef %0, ptr noundef %20, i64 noundef %2) #20
-  tail call void @free(ptr noundef %20) #20
+  tail call void %52(ptr noundef %0, ptr noundef %20, i64 noundef %2) #21
+  tail call void @free(ptr noundef %20) #21
   br label %53
 
 53:                                               ; preds = %6, %9, %gvrender_ptf_A.exit, %18, %3
@@ -1701,7 +1701,7 @@ define void @gvrender_comment(ptr noundef %0, ptr noundef %1) local_unnamed_addr
   br i1 %.not11, label %13, label %12
 
 12:                                               ; preds = %9
-  tail call void %11(ptr noundef nonnull %0, ptr noundef nonnull %1) #20
+  tail call void %11(ptr noundef nonnull %0, ptr noundef nonnull %1) #21
   br label %13
 
 13:                                               ; preds = %9, %12, %2, %5
@@ -1713,12 +1713,12 @@ define void @gvrender_usershape(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %8 = alloca %struct.boxf, align 16
   %9 = getelementptr inbounds i8, ptr %0, i64 112
   %10 = load ptr, ptr %9, align 8
-  %11 = tail call ptr @gvusershape_find(ptr noundef %1) #20
+  %11 = tail call ptr @gvusershape_find(ptr noundef %1) #21
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %12, label %21
 
 12:                                               ; preds = %7
-  %13 = tail call ptr @find_user_shape(ptr noundef %1) #20
+  %13 = tail call ptr @find_user_shape(ptr noundef %1) #21
   %14 = icmp ne ptr %13, null
   %15 = icmp ne ptr %10, null
   %or.cond4 = select i1 %14, i1 %15, i1 false
@@ -1732,7 +1732,7 @@ define void @gvrender_usershape(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
 
 19:                                               ; preds = %16
   %20 = zext i1 %4 to i32
-  tail call void %18(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %20) #20
+  tail call void %18(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %20) #21
   br label %210
 
 21:                                               ; preds = %7
@@ -1740,7 +1740,7 @@ define void @gvrender_usershape(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %23 = load double, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %0, i64 560
   %25 = load double, ptr %24, align 8
-  %26 = tail call i64 @gvusershape_size_dpi(ptr noundef nonnull %11, double %23, double %25) #20
+  %26 = tail call i64 @gvusershape_size_dpi(ptr noundef nonnull %11, double %23, double %25) #21
   %27 = bitcast i64 %26 to <2 x i32>
   %28 = icmp slt <2 x i32> %27, <i32 1, i32 1>
   %29 = extractelement <2 x i1> %28, i64 0
@@ -1817,22 +1817,22 @@ define void @gvrender_usershape(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   br i1 %67, label %get_imagescale.exit.thread, label %68
 
 68:                                               ; preds = %56
-  %69 = tail call i32 @strcasecmp(ptr noundef nonnull %5, ptr noundef nonnull @.str.16) #21
+  %69 = tail call i32 @strcasecmp(ptr noundef nonnull %5, ptr noundef nonnull @.str.16) #22
   %.not.i = icmp eq i32 %69, 0
   br i1 %.not.i, label %get_imagescale.exit.thread136, label %70
 
 70:                                               ; preds = %68
-  %71 = tail call i32 @strcasecmp(ptr noundef nonnull %5, ptr noundef nonnull @.str.17) #21
+  %71 = tail call i32 @strcasecmp(ptr noundef nonnull %5, ptr noundef nonnull @.str.17) #22
   %.not5.i = icmp eq i32 %71, 0
   br i1 %.not5.i, label %get_imagescale.exit.thread138, label %72
 
 72:                                               ; preds = %70
-  %73 = tail call i32 @strcasecmp(ptr noundef nonnull %5, ptr noundef nonnull @.str.18) #21
+  %73 = tail call i32 @strcasecmp(ptr noundef nonnull %5, ptr noundef nonnull @.str.18) #22
   %.not6.i = icmp eq i32 %73, 0
   br i1 %.not6.i, label %get_imagescale.exit.thread140, label %get_imagescale.exit
 
 get_imagescale.exit:                              ; preds = %72
-  %74 = tail call zeroext i1 @mapbool(ptr noundef nonnull %5) #20
+  %74 = tail call zeroext i1 @mapbool(ptr noundef nonnull %5) #21
   br i1 %74, label %75, label %get_imagescale.exit.thread
 
 75:                                               ; preds = %get_imagescale.exit
@@ -1872,47 +1872,47 @@ get_imagescale.exit.thread:                       ; preds = %get_imagescale.exit
   br i1 %92, label %get_imagepos.exit, label %93
 
 93:                                               ; preds = %get_imagescale.exit.thread
-  %94 = tail call i32 @strcasecmp(ptr noundef nonnull readonly %6, ptr noundef nonnull @.str.19) #21
+  %94 = tail call i32 @strcasecmp(ptr noundef nonnull readonly %6, ptr noundef nonnull @.str.19) #22
   %.not.i121 = icmp eq i32 %94, 0
   br i1 %.not.i121, label %get_imagepos.exit, label %95
 
 95:                                               ; preds = %93
-  %96 = tail call i32 @strcasecmp(ptr noundef nonnull readonly %6, ptr noundef nonnull @.str.20) #21
+  %96 = tail call i32 @strcasecmp(ptr noundef nonnull readonly %6, ptr noundef nonnull @.str.20) #22
   %.not10.i = icmp eq i32 %96, 0
   br i1 %.not10.i, label %get_imagepos.exit, label %97
 
 97:                                               ; preds = %95
-  %98 = tail call i32 @strcasecmp(ptr noundef nonnull readonly %6, ptr noundef nonnull @.str.21) #21
+  %98 = tail call i32 @strcasecmp(ptr noundef nonnull readonly %6, ptr noundef nonnull @.str.21) #22
   %.not11.i = icmp eq i32 %98, 0
   br i1 %.not11.i, label %get_imagepos.exit, label %99
 
 99:                                               ; preds = %97
-  %100 = tail call i32 @strcasecmp(ptr noundef nonnull readonly %6, ptr noundef nonnull @.str.22) #21
+  %100 = tail call i32 @strcasecmp(ptr noundef nonnull readonly %6, ptr noundef nonnull @.str.22) #22
   %.not12.i = icmp eq i32 %100, 0
   br i1 %.not12.i, label %get_imagepos.exit, label %101
 
 101:                                              ; preds = %99
-  %102 = tail call i32 @strcasecmp(ptr noundef nonnull readonly %6, ptr noundef nonnull @.str.23) #21
+  %102 = tail call i32 @strcasecmp(ptr noundef nonnull readonly %6, ptr noundef nonnull @.str.23) #22
   %.not13.i = icmp eq i32 %102, 0
   br i1 %.not13.i, label %get_imagepos.exit, label %103
 
 103:                                              ; preds = %101
-  %104 = tail call i32 @strcasecmp(ptr noundef nonnull readonly %6, ptr noundef nonnull @.str.24) #21
+  %104 = tail call i32 @strcasecmp(ptr noundef nonnull readonly %6, ptr noundef nonnull @.str.24) #22
   %.not14.i = icmp eq i32 %104, 0
   br i1 %.not14.i, label %get_imagepos.exit, label %105
 
 105:                                              ; preds = %103
-  %106 = tail call i32 @strcasecmp(ptr noundef nonnull readonly %6, ptr noundef nonnull @.str.25) #21
+  %106 = tail call i32 @strcasecmp(ptr noundef nonnull readonly %6, ptr noundef nonnull @.str.25) #22
   %.not15.i = icmp eq i32 %106, 0
   br i1 %.not15.i, label %get_imagepos.exit, label %107
 
 107:                                              ; preds = %105
-  %108 = tail call i32 @strcasecmp(ptr noundef nonnull readonly %6, ptr noundef nonnull @.str.26) #21
+  %108 = tail call i32 @strcasecmp(ptr noundef nonnull readonly %6, ptr noundef nonnull @.str.26) #22
   %.not16.i = icmp eq i32 %108, 0
   br i1 %.not16.i, label %get_imagepos.exit, label %109
 
 109:                                              ; preds = %107
-  %110 = tail call i32 @strcasecmp(ptr noundef nonnull readonly %6, ptr noundef nonnull @.str.27) #21
+  %110 = tail call i32 @strcasecmp(ptr noundef nonnull readonly %6, ptr noundef nonnull @.str.27) #22
   %.not17.i = icmp eq i32 %110, 0
   %..i122 = select i1 %.not17.i, i32 8, i32 4
   br label %get_imagepos.exit
@@ -2102,7 +2102,7 @@ gvrender_ptf.exit134:                             ; preds = %170, %184
 207:                                              ; preds = %206
   %208 = getelementptr inbounds i8, ptr %0, i64 136
   %209 = load ptr, ptr %208, align 8
-  tail call void @gvloadimage(ptr noundef nonnull %0, ptr noundef nonnull %11, ptr noundef nonnull byval(%struct.boxf) align 8 %8, i1 noundef zeroext %4, ptr noundef %209) #20
+  tail call void @gvloadimage(ptr noundef nonnull %0, ptr noundef nonnull %11, ptr noundef nonnull byval(%struct.boxf) align 8 %8, i1 noundef zeroext %4, ptr noundef %209) #21
   br label %210
 
 210:                                              ; preds = %21, %12, %19, %16, %207, %206
@@ -2118,7 +2118,7 @@ declare i64 @gvusershape_size_dpi(ptr noundef, double, double) local_unnamed_add
 declare void @gvloadimage(ptr noundef, ptr noundef, ptr noundef byval(%struct.boxf) align 8, i1 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @gvrender_set_penwidth(ptr nocapture noundef readonly %0, double noundef %1) local_unnamed_addr #9 {
+define void @gvrender_set_penwidth(ptr nocapture noundef readonly %0, double noundef %1) local_unnamed_addr #10 {
   %3 = getelementptr inbounds i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -2140,16 +2140,16 @@ declare ptr @canontoken(ptr noundef) local_unnamed_addr #1
 declare ptr @bsearch(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @gvrender_comparestr(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #10 {
+define internal i32 @gvrender_comparestr(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #11 {
   %3 = load ptr, ptr %1, align 8
-  %4 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %3) #21
+  %4 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %3) #22
   ret i32 %4
 }
 
 declare i32 @colorxlate(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
 
 ; Function Attrs: nounwind uwtable
 define internal void @agxbprint(ptr nocapture noundef %0, ptr nocapture readnone %1, ...) unnamed_addr #0 {
@@ -2158,7 +2158,7 @@ define internal void @agxbprint(ptr nocapture noundef %0, ptr nocapture readnone
   call void @llvm.va_start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call void @llvm.va_copy.p0(ptr nonnull %3, ptr nonnull %4)
-  %5 = call i32 @vsnprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.11, ptr noundef nonnull %3) #20
+  %5 = call i32 @vsnprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.11, ptr noundef nonnull %3) #21
   call void @llvm.va_end.p0(ptr nonnull %3)
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %7, label %8
@@ -2218,7 +2218,7 @@ agxblen.exit.i:                                   ; preds = %12, %agxbsizeof.exi
 
 agxbnext.exit.i:                                  ; preds = %25, %22
   %30 = phi ptr [ %24, %22 ], [ %29, %25 ]
-  %31 = call i32 @vsnprintf(ptr noundef %30, i64 noundef %9, ptr noundef nonnull @.str.11, ptr noundef nonnull %4) #20
+  %31 = call i32 @vsnprintf(ptr noundef %30, i64 noundef %9, ptr noundef nonnull @.str.11, ptr noundef nonnull %4) #21
   %32 = icmp sgt i32 %31, 0
   br i1 %32, label %33, label %vagxbprint.exit
 
@@ -2253,7 +2253,7 @@ declare zeroext i1 @emit_once(ptr noundef) local_unnamed_addr #1
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #12
+declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @agxbmore(ptr nocapture noundef %0, i64 noundef %1) unnamed_addr #0 {
@@ -2276,18 +2276,18 @@ agxbsizeof.exit:                                  ; preds = %2
   br i1 %10, label %11, label %12
 
 11:                                               ; preds = %agxbsizeof.exit
-  tail call void @free(ptr noundef %9) #20
+  tail call void @free(ptr noundef %9) #21
   br label %gv_recalloc.exit
 
 12:                                               ; preds = %agxbsizeof.exit
-  %13 = tail call ptr @realloc(ptr noundef %9, i64 noundef %spec.select34) #25
+  %13 = tail call ptr @realloc(ptr noundef %9, i64 noundef %spec.select34) #26
   %14 = icmp eq ptr %13, null
   br i1 %14, label %15, label %18
 
 15:                                               ; preds = %12
   %16 = load ptr, ptr @stderr, align 8
-  %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.15, i64 noundef %spec.select34) #23
-  tail call fastcc void @graphviz_exit() #24
+  %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.15, i64 noundef %spec.select34) #24
+  tail call fastcc void @graphviz_exit() #25
   unreachable
 
 18:                                               ; preds = %12
@@ -2303,14 +2303,14 @@ agxbsizeof.exit:                                  ; preds = %2
 23:                                               ; preds = %2
   %24 = add i64 %1, 31
   %spec.select = tail call i64 @llvm.umax.i64(i64 %24, i64 62)
-  %25 = tail call noalias ptr @calloc(i64 noundef %spec.select, i64 noundef 1) #22
+  %25 = tail call noalias ptr @calloc(i64 noundef %spec.select, i64 noundef 1) #23
   %26 = icmp eq ptr %25, null
   br i1 %26, label %27, label %gv_calloc.exit
 
 27:                                               ; preds = %23
   %28 = load ptr, ptr @stderr, align 8
-  %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef nonnull @.str.15, i64 noundef %spec.select) #23
-  tail call fastcc void @graphviz_exit() #24
+  %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef nonnull @.str.15, i64 noundef %spec.select) #24
+  tail call fastcc void @graphviz_exit() #25
   unreachable
 
 gv_calloc.exit:                                   ; preds = %23
@@ -2331,22 +2331,22 @@ gv_recalloc.exit:                                 ; preds = %20, %18, %11, %gv_c
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #12
+declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #13
 
-; Function Attrs: noreturn nounwind uwtable
-define internal fastcc void @graphviz_exit() unnamed_addr #13 {
-  tail call void @exit(i32 noundef 1) #26
+; Function Attrs: nofree noreturn nounwind uwtable
+define internal fastcc void @graphviz_exit() unnamed_addr #14 {
+  tail call void @exit(i32 noundef 1) #27
   unreachable
 }
 
-; Function Attrs: noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #14
+; Function Attrs: nofree noreturn nounwind
+declare void @exit(i32 noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #15
+declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #16
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
@@ -2354,25 +2354,25 @@ declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unna
 declare zeroext i1 @mapbool(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start.p0(ptr) #17
+declare void @llvm.va_start.p0(ptr) #18
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end.p0(ptr) #17
+declare void @llvm.va_end.p0(ptr) #18
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_copy.p0(ptr, ptr) #17
+declare void @llvm.va_copy.p0(ptr, ptr) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #18
+declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #18
+declare i64 @llvm.umax.i64(i64, i64) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #20
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2382,25 +2382,26 @@ attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #5 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #12 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #18 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #19 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #20 = { nounwind }
-attributes #21 = { nounwind willreturn memory(read) }
-attributes #22 = { nounwind allocsize(0,1) }
-attributes #23 = { cold nounwind }
-attributes #24 = { noreturn }
-attributes #25 = { nounwind allocsize(1) }
-attributes #26 = { noreturn nounwind }
+attributes #8 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #13 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nofree noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #19 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #20 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #21 = { nounwind }
+attributes #22 = { nounwind willreturn memory(read) }
+attributes #23 = { nounwind allocsize(0,1) }
+attributes #24 = { cold nounwind }
+attributes #25 = { noreturn }
+attributes #26 = { nounwind allocsize(1) }
+attributes #27 = { cold noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

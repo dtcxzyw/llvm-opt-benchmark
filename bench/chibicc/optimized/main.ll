@@ -154,7 +154,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local noundef zeroext i1 @file_exists(ptr nocapture noundef readonly %path) local_unnamed_addr #0 {
 entry:
   %st = alloca %struct.stat, align 8
-  %call = call i32 @stat(ptr noundef %path, ptr noundef nonnull %st) #17
+  %call = call i32 @stat(ptr noundef %path, ptr noundef nonnull %st) #18
   %tobool.not = icmp eq i32 %call, 0
   ret i1 %tobool.not
 }
@@ -177,8 +177,8 @@ entry:
   %buflen.i = alloca i64, align 8
   %idirafter.i = alloca %struct.StringArray, align 8
   %ld_args = alloca %struct.StringArray, align 8
-  %call = tail call i32 @atexit(ptr noundef nonnull @cleanup) #17
-  tail call void @init_macros() #17
+  %call = tail call i32 @atexit(ptr noundef nonnull @cleanup) #18
+  tail call void @init_macros() #18
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %idirafter.i)
   %cmp254.i = icmp sgt i32 %argc, 1
   br i1 %cmp254.i, label %for.body.i, label %for.end.thread.i
@@ -226,7 +226,7 @@ for.cond.i.i:                                     ; preds = %for.body.i.tail, %f
 for.body.i.i:                                     ; preds = %for.cond.i.i
   %arrayidx.i.i = getelementptr inbounds [8 x ptr], ptr @__const.take_arg.x, i64 0, i64 %indvars.iv.next.i.i
   %12 = load ptr, ptr %arrayidx.i.i, align 8
-  %call.i.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %12) #18
+  %call.i.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %12) #19
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i.i, label %take_arg.exit.i, label %for.cond.i.i, !llvm.loop !7
 
@@ -244,8 +244,8 @@ if.then.i:                                        ; preds = %take_arg.exit.i, %f
 
 if.then3.i:                                       ; preds = %if.then.i
   %14 = load ptr, ptr @stderr, align 8
-  %15 = tail call i64 @fwrite(ptr nonnull @.str.56, i64 29, i64 1, ptr %14) #19
-  tail call void @exit(i32 noundef 1) #20
+  %15 = tail call i64 @fwrite(ptr nonnull @.str.56, i64 29, i64 1, ptr %14) #20
+  tail call void @exit(i32 noundef 1) #21
   unreachable
 
 for.inc.i:                                        ; preds = %for.cond.i.i, %if.then.i, %take_arg.exit.i
@@ -269,7 +269,7 @@ for.body9.i:                                      ; preds = %for.end.i, %for.inc
   %idxprom10.i = sext i32 %i6.0257.i to i64
   %arrayidx11.i = getelementptr inbounds ptr, ptr %argv, i64 %idxprom10.i
   %17 = load ptr, ptr %arrayidx11.i, align 8
-  %call12.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(5) @.str.9) #18
+  %call12.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(5) @.str.9) #19
   %tobool13.not.i = icmp eq i32 %call12.i, 0
   br i1 %tobool13.not.i, label %if.then14.i, label %if.end15.i
 
@@ -278,7 +278,7 @@ if.then14.i:                                      ; preds = %for.body9.i
   br label %for.inc396.i
 
 if.end15.i:                                       ; preds = %for.body9.i
-  %call18.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(5) @.str.10) #18
+  %call18.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(5) @.str.10) #19
   %tobool19.not.i = icmp eq i32 %call18.i, 0
   br i1 %tobool19.not.i, label %if.then20.i, label %if.end21.i
 
@@ -287,14 +287,14 @@ if.then20.i:                                      ; preds = %if.end15.i
   br label %for.inc396.i
 
 if.end21.i:                                       ; preds = %if.end15.i
-  %call24.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(7) @.str.11) #18
+  %call24.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(7) @.str.11) #19
   %tobool25.not.i = icmp eq i32 %call24.i, 0
   br i1 %tobool25.not.i, label %if.then26.i, label %sub_0.i
 
 if.then26.i:                                      ; preds = %if.end21.i
   %18 = load ptr, ptr @stderr, align 8
-  %19 = call i64 @fwrite(ptr nonnull @.str.56, i64 29, i64 1, ptr %18) #19
-  call void @exit(i32 noundef 0) #20
+  %19 = call i64 @fwrite(ptr nonnull @.str.56, i64 29, i64 1, ptr %18) #20
+  call void @exit(i32 noundef 0) #22
   unreachable
 
 sub_0.i:                                          ; preds = %if.end21.i
@@ -361,7 +361,7 @@ if.then49.i:                                      ; preds = %if.end44.tail.i
   br label %for.inc396.i
 
 if.end50.i:                                       ; preds = %if.end44.tail.i
-  %call53.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(9) @.str.14) #18
+  %call53.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(9) @.str.14) #19
   %tobool54.not.i = icmp eq i32 %call53.i, 0
   br i1 %tobool54.not.i, label %if.then55.i, label %if.end56.i
 
@@ -370,7 +370,7 @@ if.then55.i:                                      ; preds = %if.end50.i
   br label %for.inc396.i
 
 if.end56.i:                                       ; preds = %if.end50.i
-  %call59.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(12) @.str.15) #18
+  %call59.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(12) @.str.15) #19
   %tobool60.not.i = icmp eq i32 %call59.i, 0
   br i1 %tobool60.not.i, label %if.then61.i, label %sub_0185.i
 
@@ -430,7 +430,7 @@ if.end74.tail.i:                                  ; preds = %if.end68.tail.i
 
 if.then79.i:                                      ; preds = %if.end74.tail.i
   %add.ptr82.i = getelementptr inbounds i8, ptr %17, i64 2
-  call void @strarray_push(ptr noundef nonnull @include_paths, ptr noundef nonnull %add.ptr82.i) #17
+  call void @strarray_push(ptr noundef nonnull @include_paths, ptr noundef nonnull %add.ptr82.i) #18
   br label %for.inc396.i
 
 sub_1197.i:                                       ; preds = %if.end74.tail.i
@@ -454,7 +454,7 @@ if.then88.i:                                      ; preds = %if.end83.tail.i
   %idxprom90.i = sext i32 %inc89.i to i64
   %arrayidx91.i = getelementptr inbounds ptr, ptr %argv, i64 %idxprom90.i
   %55 = load ptr, ptr %arrayidx91.i, align 8
-  %call.i166.i = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %55, i32 noundef 61) #18
+  %call.i166.i = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %55, i32 noundef 61) #19
   %tobool.not.i167.i = icmp eq ptr %call.i166.i, null
   br i1 %tobool.not.i167.i, label %if.else.i.i, label %if.then.i.i
 
@@ -462,13 +462,13 @@ if.then.i.i:                                      ; preds = %if.then88.i
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %call.i166.i to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %55 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %call1.i.i = call noalias ptr @strndup(ptr noundef %55, i64 noundef %sub.ptr.sub.i.i) #17
+  %call1.i.i = call noalias ptr @strndup(ptr noundef %55, i64 noundef %sub.ptr.sub.i.i) #18
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call.i166.i, i64 1
-  call void @define_macro(ptr noundef %call1.i.i, ptr noundef nonnull %add.ptr.i.i) #17
+  call void @define_macro(ptr noundef %call1.i.i, ptr noundef nonnull %add.ptr.i.i) #18
   br label %for.inc396.i
 
 if.else.i.i:                                      ; preds = %if.then88.i
-  call void @define_macro(ptr noundef %55, ptr noundef nonnull @.str.57) #17
+  call void @define_macro(ptr noundef %55, ptr noundef nonnull @.str.57) #18
   br label %for.inc396.i
 
 if.end92.tail.i:                                  ; preds = %if.end83.tail.i
@@ -477,7 +477,7 @@ if.end92.tail.i:                                  ; preds = %if.end83.tail.i
 
 if.then97.i:                                      ; preds = %if.end92.tail.i
   %add.ptr100.i = getelementptr inbounds i8, ptr %17, i64 2
-  %call.i168.i = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %add.ptr100.i, i32 noundef 61) #18
+  %call.i168.i = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %add.ptr100.i, i32 noundef 61) #19
   %tobool.not.i169.i = icmp eq ptr %call.i168.i, null
   br i1 %tobool.not.i169.i, label %if.else.i176.i, label %if.then.i170.i
 
@@ -485,13 +485,13 @@ if.then.i170.i:                                   ; preds = %if.then97.i
   %sub.ptr.lhs.cast.i171.i = ptrtoint ptr %call.i168.i to i64
   %sub.ptr.rhs.cast.i172.i = ptrtoint ptr %add.ptr100.i to i64
   %sub.ptr.sub.i173.i = sub i64 %sub.ptr.lhs.cast.i171.i, %sub.ptr.rhs.cast.i172.i
-  %call1.i174.i = call noalias ptr @strndup(ptr noundef nonnull %add.ptr100.i, i64 noundef %sub.ptr.sub.i173.i) #17
+  %call1.i174.i = call noalias ptr @strndup(ptr noundef nonnull %add.ptr100.i, i64 noundef %sub.ptr.sub.i173.i) #18
   %add.ptr.i175.i = getelementptr inbounds i8, ptr %call.i168.i, i64 1
-  call void @define_macro(ptr noundef %call1.i174.i, ptr noundef nonnull %add.ptr.i175.i) #17
+  call void @define_macro(ptr noundef %call1.i174.i, ptr noundef nonnull %add.ptr.i175.i) #18
   br label %for.inc396.i
 
 if.else.i176.i:                                   ; preds = %if.then97.i
-  call void @define_macro(ptr noundef nonnull %add.ptr100.i, ptr noundef nonnull @.str.57) #17
+  call void @define_macro(ptr noundef nonnull %add.ptr100.i, ptr noundef nonnull @.str.57) #18
   br label %for.inc396.i
 
 sub_1204.i:                                       ; preds = %if.end92.tail.i
@@ -515,7 +515,7 @@ if.then106.i:                                     ; preds = %if.end101.tail.i
   %idxprom108.i = sext i32 %inc107.i to i64
   %arrayidx109.i = getelementptr inbounds ptr, ptr %argv, i64 %idxprom108.i
   %61 = load ptr, ptr %arrayidx109.i, align 8
-  call void @undef_macro(ptr noundef %61) #17
+  call void @undef_macro(ptr noundef %61) #18
   br label %for.inc396.i
 
 sub_0207.i:                                       ; preds = %if.end101.tail.i
@@ -535,11 +535,11 @@ if.end110.tail.i:                                 ; preds = %sub_0185.i, %sub_12
 
 if.then115.i:                                     ; preds = %if.end110.tail.i
   %add.ptr118.i = getelementptr inbounds i8, ptr %17, i64 2
-  call void @undef_macro(ptr noundef nonnull %add.ptr118.i) #17
+  call void @undef_macro(ptr noundef nonnull %add.ptr118.i) #18
   br label %for.inc396.i
 
 if.end119.i:                                      ; preds = %if.end110.tail.i
-  %call122.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(9) @.str.21) #18
+  %call122.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(9) @.str.21) #19
   %tobool123.not.i = icmp eq i32 %call122.i, 0
   br i1 %tobool123.not.i, label %if.then124.i, label %sub_0210.i
 
@@ -548,7 +548,7 @@ if.then124.i:                                     ; preds = %if.end119.i
   %idxprom126.i = sext i32 %inc125.i to i64
   %arrayidx127.i = getelementptr inbounds ptr, ptr %argv, i64 %idxprom126.i
   %67 = load ptr, ptr %arrayidx127.i, align 8
-  call void @strarray_push(ptr noundef nonnull @opt_include, ptr noundef %67) #17
+  call void @strarray_push(ptr noundef nonnull @opt_include, ptr noundef %67) #18
   br label %for.inc396.i
 
 sub_0210.i:                                       ; preds = %if.end119.i
@@ -602,16 +602,16 @@ if.end148.tail.i:                                 ; preds = %sub_0210.i, %sub_12
   br i1 %tobool152.not.i, label %if.then157.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end148.tail.i
-  %call155.i = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(5) @.str.2, i64 noundef 4) #18
+  %call155.i = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(5) @.str.2, i64 noundef 4) #19
   %tobool156.not.i = icmp eq i32 %call155.i, 0
   br i1 %tobool156.not.i, label %if.then157.i, label %if.end160.i
 
 if.then157.i:                                     ; preds = %lor.lhs.false.i, %if.end148.tail.i
-  call void @strarray_push(ptr noundef nonnull @input_paths, ptr noundef nonnull %17) #17
+  call void @strarray_push(ptr noundef nonnull @input_paths, ptr noundef nonnull %17) #18
   br label %for.inc396.i
 
 if.end160.i:                                      ; preds = %lor.lhs.false.i
-  %call163.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(9) @.str.23) #18
+  %call163.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(9) @.str.23) #19
   %tobool164.not.i = icmp eq i32 %call163.i, 0
   br i1 %tobool164.not.i, label %if.then165.i, label %sub_0220.i
 
@@ -620,7 +620,7 @@ if.then165.i:                                     ; preds = %if.end160.i
   %idxprom167.i = sext i32 %inc166.i to i64
   %arrayidx168.i = getelementptr inbounds ptr, ptr %argv, i64 %idxprom167.i
   %79 = load ptr, ptr %arrayidx168.i, align 8
-  call void @strarray_push(ptr noundef nonnull @ld_extra_args, ptr noundef %79) #17
+  call void @strarray_push(ptr noundef nonnull @ld_extra_args, ptr noundef %79) #18
   br label %for.inc396.i
 
 sub_0220.i:                                       ; preds = %if.end160.i
@@ -646,7 +646,7 @@ if.end169.tail.i:                                 ; preds = %sub_2222.i, %sub_12
   br i1 %tobool173.not.i, label %if.then174.i, label %sub_1225.i
 
 if.then174.i:                                     ; preds = %if.end169.tail.i
-  call void @strarray_push(ptr noundef nonnull @ld_extra_args, ptr noundef nonnull @.str.24) #17
+  call void @strarray_push(ptr noundef nonnull @ld_extra_args, ptr noundef nonnull @.str.24) #18
   br label %for.inc396.i
 
 sub_1225.i:                                       ; preds = %if.end169.tail.i
@@ -670,7 +670,7 @@ if.then180.i:                                     ; preds = %if.end175.tail.i
   br label %for.inc396.i
 
 if.end181.i:                                      ; preds = %if.end175.tail.i
-  %call184.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(4) @.str.26) #18
+  %call184.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(4) @.str.26) #19
   %tobool185.not.i = icmp eq i32 %call184.i, 0
   br i1 %tobool185.not.i, label %if.then186.i, label %if.end190.i
 
@@ -683,7 +683,7 @@ if.then186.i:                                     ; preds = %if.end181.i
   br label %for.inc396.i
 
 if.end190.i:                                      ; preds = %if.end181.i
-  %call193.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(4) @.str.27) #18
+  %call193.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(4) @.str.27) #19
   %tobool194.not.i = icmp eq i32 %call193.i, 0
   br i1 %tobool194.not.i, label %if.then195.i, label %if.end196.i
 
@@ -692,7 +692,7 @@ if.then195.i:                                     ; preds = %if.end190.i
   br label %for.inc396.i
 
 if.end196.i:                                      ; preds = %if.end190.i
-  %call199.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(4) @.str.28) #18
+  %call199.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(4) @.str.28) #19
   %tobool200.not.i = icmp eq i32 %call199.i, 0
   br i1 %tobool200.not.i, label %if.then201.i, label %if.end212.i
 
@@ -710,12 +710,12 @@ if.then203.i:                                     ; preds = %if.then201.i
   br label %for.inc396.i
 
 if.else.i:                                        ; preds = %if.then201.i
-  %call210.i = call ptr (ptr, ...) @format(ptr noundef nonnull @.str.29, ptr noundef nonnull %94, ptr noundef %95) #17
+  %call210.i = call ptr (ptr, ...) @format(ptr noundef nonnull @.str.29, ptr noundef nonnull %94, ptr noundef %95) #18
   store ptr %call210.i, ptr @opt_MT, align 8
   br label %for.inc396.i
 
 if.end212.i:                                      ; preds = %if.end196.i
-  %call215.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(4) @.str.30) #18
+  %call215.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(4) @.str.30) #19
   %tobool216.not.i = icmp eq i32 %call215.i, 0
   br i1 %tobool216.not.i, label %if.then217.i, label %if.end218.i
 
@@ -724,7 +724,7 @@ if.then217.i:                                     ; preds = %if.end212.i
   br label %for.inc396.i
 
 if.end218.i:                                      ; preds = %if.end212.i
-  %call221.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(4) @.str.31) #18
+  %call221.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(4) @.str.31) #19
   %tobool222.not.i = icmp eq i32 %call221.i, 0
   br i1 %tobool222.not.i, label %if.then223.i, label %if.end237.i
 
@@ -743,12 +743,12 @@ if.then225.i:                                     ; preds = %if.then223.i
   br label %for.inc396.i
 
 if.else230.i:                                     ; preds = %if.then223.i
-  %call235.i = call ptr (ptr, ...) @format(ptr noundef nonnull @.str.29, ptr noundef nonnull %96, ptr noundef %call229.i) #17
+  %call235.i = call ptr (ptr, ...) @format(ptr noundef nonnull @.str.29, ptr noundef nonnull %96, ptr noundef %call229.i) #18
   store ptr %call235.i, ptr @opt_MT, align 8
   br label %for.inc396.i
 
 if.end237.i:                                      ; preds = %if.end218.i
-  %call240.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(5) @.str.32) #18
+  %call240.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(5) @.str.32) #19
   %tobool241.not.i = icmp eq i32 %call240.i, 0
   br i1 %tobool241.not.i, label %if.then242.i, label %if.end243.i
 
@@ -758,12 +758,12 @@ if.then242.i:                                     ; preds = %if.end237.i
   br label %for.inc396.i
 
 if.end243.i:                                      ; preds = %if.end237.i
-  %call246.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(6) @.str.33) #18
+  %call246.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(6) @.str.33) #19
   %tobool247.not.i = icmp eq i32 %call246.i, 0
   br i1 %tobool247.not.i, label %if.then253.i, label %lor.lhs.false248.i
 
 lor.lhs.false248.i:                               ; preds = %if.end243.i
-  %call251.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(6) @.str.34) #18
+  %call251.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(6) @.str.34) #19
   %tobool252.not.i = icmp eq i32 %call251.i, 0
   br i1 %tobool252.not.i, label %if.then253.i, label %if.end254.i
 
@@ -772,7 +772,7 @@ if.then253.i:                                     ; preds = %lor.lhs.false248.i,
   br label %for.inc396.i
 
 if.end254.i:                                      ; preds = %lor.lhs.false248.i
-  %call257.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(11) @.str.35) #18
+  %call257.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(11) @.str.35) #19
   %tobool258.not.i = icmp eq i32 %call257.i, 0
   br i1 %tobool258.not.i, label %if.then259.i, label %if.end263.i
 
@@ -785,7 +785,7 @@ if.then259.i:                                     ; preds = %if.end254.i
   br label %for.inc396.i
 
 if.end263.i:                                      ; preds = %if.end254.i
-  %call266.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(12) @.str.36) #18
+  %call266.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(12) @.str.36) #19
   %tobool267.not.i = icmp eq i32 %call266.i, 0
   br i1 %tobool267.not.i, label %if.then268.i, label %if.end272.i
 
@@ -798,33 +798,33 @@ if.then268.i:                                     ; preds = %if.end263.i
   br label %for.inc396.i
 
 if.end272.i:                                      ; preds = %if.end263.i
-  %call275.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(11) @.str.37) #18
+  %call275.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(11) @.str.37) #19
   %tobool276.not.i = icmp eq i32 %call275.i, 0
   br i1 %tobool276.not.i, label %if.then277.i, label %if.end281.i
 
 if.then277.i:                                     ; preds = %if.end272.i
   %inc278.i = add nsw i32 %i6.0257.i, 1
-  call void @strarray_push(ptr noundef nonnull %idirafter.i, ptr noundef nonnull %17) #17
+  call void @strarray_push(ptr noundef nonnull %idirafter.i, ptr noundef nonnull %17) #18
   br label %for.inc396.i
 
 if.end281.i:                                      ; preds = %if.end272.i
-  %call284.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(8) @.str.38) #18
+  %call284.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(8) @.str.38) #19
   %tobool285.not.i = icmp eq i32 %call284.i, 0
   br i1 %tobool285.not.i, label %if.then286.i, label %if.end287.i
 
 if.then286.i:                                     ; preds = %if.end281.i
   store i1 true, ptr @opt_static, align 1
-  call void @strarray_push(ptr noundef nonnull @ld_extra_args, ptr noundef nonnull @.str.38) #17
+  call void @strarray_push(ptr noundef nonnull @ld_extra_args, ptr noundef nonnull @.str.38) #18
   br label %for.inc396.i
 
 if.end287.i:                                      ; preds = %if.end281.i
-  %call290.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(8) @.str.39) #18
+  %call290.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(8) @.str.39) #19
   %tobool291.not.i = icmp eq i32 %call290.i, 0
   br i1 %tobool291.not.i, label %if.then292.i, label %sub_0228.i
 
 if.then292.i:                                     ; preds = %if.end287.i
   store i1 true, ptr @opt_shared, align 1
-  call void @strarray_push(ptr noundef nonnull @ld_extra_args, ptr noundef nonnull @.str.39) #17
+  call void @strarray_push(ptr noundef nonnull @ld_extra_args, ptr noundef nonnull @.str.39) #18
   br label %for.inc396.i
 
 sub_0228.i:                                       ; preds = %if.end287.i
@@ -850,12 +850,12 @@ if.end293.tail.i:                                 ; preds = %sub_2230.i, %sub_12
   br i1 %tobool297.not.i, label %if.then298.i, label %if.end302.tail.i
 
 if.then298.i:                                     ; preds = %if.end293.tail.i
-  call void @strarray_push(ptr noundef nonnull @ld_extra_args, ptr noundef nonnull @.str.40) #17
+  call void @strarray_push(ptr noundef nonnull @ld_extra_args, ptr noundef nonnull @.str.40) #18
   %inc299.i = add nsw i32 %i6.0257.i, 1
   %idxprom300.i = sext i32 %inc299.i to i64
   %arrayidx301.i = getelementptr inbounds ptr, ptr %argv, i64 %idxprom300.i
   %108 = load ptr, ptr %arrayidx301.i, align 8
-  call void @strarray_push(ptr noundef nonnull @ld_extra_args, ptr noundef %108) #17
+  call void @strarray_push(ptr noundef nonnull @ld_extra_args, ptr noundef %108) #18
   br label %for.inc396.i
 
 if.end302.tail.i:                                 ; preds = %if.end293.tail.i, %sub_0228.i
@@ -864,20 +864,20 @@ if.end302.tail.i:                                 ; preds = %if.end293.tail.i, %
   br i1 %tobool306.not.i, label %if.then307.i, label %if.end311.i
 
 if.then307.i:                                     ; preds = %if.end302.tail.i
-  call void @strarray_push(ptr noundef nonnull @ld_extra_args, ptr noundef nonnull @.str.40) #17
+  call void @strarray_push(ptr noundef nonnull @ld_extra_args, ptr noundef nonnull @.str.40) #18
   %110 = load ptr, ptr %arrayidx11.i, align 8
   %add.ptr310.i = getelementptr inbounds i8, ptr %110, i64 2
-  call void @strarray_push(ptr noundef nonnull @ld_extra_args, ptr noundef nonnull %add.ptr310.i) #17
+  call void @strarray_push(ptr noundef nonnull @ld_extra_args, ptr noundef nonnull %add.ptr310.i) #18
   br label %for.inc396.i
 
 if.end311.i:                                      ; preds = %if.end302.tail.i
-  %call314.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(14) @.str.41) #18
+  %call314.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(14) @.str.41) #19
   %tobool315.not.i = icmp eq i32 %call314.i, 0
   br i1 %tobool315.not.i, label %if.then316.i, label %sub_0235.i
 
 if.then316.i:                                     ; preds = %if.end311.i
-  call void @hashmap_test() #17
-  call void @exit(i32 noundef 0) #20
+  call void @hashmap_test() #18
+  call void @exit(i32 noundef 0) #22
   unreachable
 
 sub_0235.i:                                       ; preds = %if.end311.i
@@ -902,42 +902,42 @@ lor.lhs.false327.tail.i:                          ; preds = %sub_1242.i, %sub_02
   br i1 %tobool331.not.i, label %for.inc396.i, label %lor.lhs.false332.i
 
 lor.lhs.false332.i:                               ; preds = %lor.lhs.false327.tail.i
-  %call335.i = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(6) @.str.45, i64 noundef 5) #18
+  %call335.i = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(6) @.str.45, i64 noundef 5) #19
   %tobool336.not.i = icmp eq i32 %call335.i, 0
   br i1 %tobool336.not.i, label %for.inc396.i, label %lor.lhs.false337.i
 
 lor.lhs.false337.i:                               ; preds = %lor.lhs.false332.i
-  %call340.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(15) @.str.46) #18
+  %call340.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(15) @.str.46) #19
   %tobool341.not.i = icmp eq i32 %call340.i, 0
   br i1 %tobool341.not.i, label %for.inc396.i, label %lor.lhs.false342.i
 
 lor.lhs.false342.i:                               ; preds = %lor.lhs.false337.i
-  %call345.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(13) @.str.47) #18
+  %call345.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(13) @.str.47) #19
   %tobool346.not.i = icmp eq i32 %call345.i, 0
   br i1 %tobool346.not.i, label %for.inc396.i, label %lor.lhs.false347.i
 
 lor.lhs.false347.i:                               ; preds = %lor.lhs.false342.i
-  %call350.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(24) @.str.48) #18
+  %call350.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(24) @.str.48) #19
   %tobool351.not.i = icmp eq i32 %call350.i, 0
   br i1 %tobool351.not.i, label %for.inc396.i, label %lor.lhs.false352.i
 
 lor.lhs.false352.i:                               ; preds = %lor.lhs.false347.i
-  %call355.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(21) @.str.49) #18
+  %call355.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(21) @.str.49) #19
   %tobool356.not.i = icmp eq i32 %call355.i, 0
   br i1 %tobool356.not.i, label %for.inc396.i, label %lor.lhs.false357.i
 
 lor.lhs.false357.i:                               ; preds = %lor.lhs.false352.i
-  %call360.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(21) @.str.50) #18
+  %call360.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(21) @.str.50) #19
   %tobool361.not.i = icmp eq i32 %call360.i, 0
   br i1 %tobool361.not.i, label %for.inc396.i, label %lor.lhs.false362.i
 
 lor.lhs.false362.i:                               ; preds = %lor.lhs.false357.i
-  %call365.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(5) @.str.51) #18
+  %call365.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(5) @.str.51) #19
   %tobool366.not.i = icmp eq i32 %call365.i, 0
   br i1 %tobool366.not.i, label %for.inc396.i, label %lor.lhs.false367.i
 
 lor.lhs.false367.i:                               ; preds = %lor.lhs.false362.i
-  %call370.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(14) @.str.52) #18
+  %call370.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(14) @.str.52) #19
   %tobool371.not.i = icmp eq i32 %call370.i, 0
   br i1 %tobool371.not.i, label %for.inc396.i, label %sub_0244.i
 
@@ -974,11 +974,11 @@ land.lhs.true.i:                                  ; preds = %if.end378.i
   br i1 %cmp388.not.i, label %if.end393.i, label %if.then390.i
 
 if.then390.i:                                     ; preds = %land.lhs.true.i
-  call void (ptr, ...) @error(ptr noundef nonnull @.str.54, ptr noundef nonnull %17) #20
+  call void (ptr, ...) @error(ptr noundef nonnull @.str.54, ptr noundef nonnull %17) #22
   unreachable
 
 if.end393.i:                                      ; preds = %land.lhs.true.i, %if.end378.i
-  call void @strarray_push(ptr noundef nonnull @input_paths, ptr noundef nonnull %17) #17
+  call void @strarray_push(ptr noundef nonnull @input_paths, ptr noundef nonnull %17) #18
   br label %for.inc396.i
 
 for.inc396.i:                                     ; preds = %if.end317.tail.i, %if.end317.tail.i, %if.end393.i, %lor.lhs.false372.tail.i, %lor.lhs.false367.i, %lor.lhs.false362.i, %lor.lhs.false357.i, %lor.lhs.false352.i, %lor.lhs.false347.i, %lor.lhs.false342.i, %lor.lhs.false337.i, %lor.lhs.false332.i, %lor.lhs.false327.tail.i, %if.then307.i, %if.then298.i, %if.then292.i, %if.then286.i, %if.then277.i, %if.then268.i, %if.then259.i, %if.then253.i, %if.then242.i, %if.else230.i, %if.then225.i, %if.then217.i, %if.else.i, %if.then203.i, %if.then195.i, %if.then186.i, %if.then180.i, %if.then174.i, %if.then165.i, %if.then157.i, %if.then143.i, %if.then133.i, %if.then124.i, %if.then115.i, %if.then106.i, %if.else.i176.i, %if.then.i170.i, %if.else.i.i, %if.then.i.i, %if.then79.i, %if.then73.i, %if.then67.i, %if.then61.i, %if.then55.i, %if.then49.i, %if.then41.i, %if.then32.i, %if.then20.i, %if.then14.i
@@ -992,7 +992,7 @@ for.body403.i:                                    ; preds = %for.cond400.prehead
   %125 = load ptr, ptr %idirafter.i, align 8
   %arrayidx405.i = getelementptr inbounds ptr, ptr %125, i64 %indvars.iv.i
   %126 = load ptr, ptr %arrayidx405.i, align 8
-  call void @strarray_push(ptr noundef nonnull @include_paths, ptr noundef %126) #17
+  call void @strarray_push(ptr noundef nonnull @include_paths, ptr noundef %126) #18
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %127 = load i32, ptr %len.phi.trans.insert.i, align 4
   %128 = sext i32 %127 to i64
@@ -1005,7 +1005,7 @@ for.end408.i:                                     ; preds = %for.body403.i, %for
   br i1 %cmp409.i, label %if.then411.i, label %if.end412.i
 
 if.then411.i:                                     ; preds = %for.end408.i
-  call void (ptr, ...) @error(ptr noundef nonnull @.str.55) #20
+  call void (ptr, ...) @error(ptr noundef nonnull @.str.55) #22
   unreachable
 
 if.end412.i:                                      ; preds = %for.end408.i
@@ -1023,13 +1023,13 @@ parse_args.exit:                                  ; preds = %if.end412.i, %if.th
 
 if.then:                                          ; preds = %parse_args.exit
   %130 = load ptr, ptr %argv, align 8
-  %call.i = call noalias ptr @strdup(ptr noundef readonly %130) #17
-  %call1.i = call ptr @dirname(ptr noundef %call.i) #17
-  %call2.i = call ptr (ptr, ...) @format(ptr noundef nonnull @.str.62, ptr noundef %call1.i) #17
-  call void @strarray_push(ptr noundef nonnull @include_paths, ptr noundef %call2.i) #17
-  call void @strarray_push(ptr noundef nonnull @include_paths, ptr noundef nonnull @.str.63) #17
-  call void @strarray_push(ptr noundef nonnull @include_paths, ptr noundef nonnull @.str.64) #17
-  call void @strarray_push(ptr noundef nonnull @include_paths, ptr noundef nonnull @.str.65) #17
+  %call.i = call noalias ptr @strdup(ptr noundef readonly %130) #18
+  %call1.i = call ptr @dirname(ptr noundef %call.i) #18
+  %call2.i = call ptr (ptr, ...) @format(ptr noundef nonnull @.str.62, ptr noundef %call1.i) #18
+  call void @strarray_push(ptr noundef nonnull @include_paths, ptr noundef %call2.i) #18
+  call void @strarray_push(ptr noundef nonnull @include_paths, ptr noundef nonnull @.str.63) #18
+  call void @strarray_push(ptr noundef nonnull @include_paths, ptr noundef nonnull @.str.64) #18
+  call void @strarray_push(ptr noundef nonnull @include_paths, ptr noundef nonnull @.str.65) #18
   %131 = load i32, ptr getelementptr inbounds (i8, ptr @include_paths, i64 12), align 4
   %cmp3.i = icmp sgt i32 %131, 0
   br i1 %cmp3.i, label %for.body.i57, label %add_default_include_paths.exit
@@ -1039,7 +1039,7 @@ for.body.i57:                                     ; preds = %if.then, %for.body.
   %132 = load ptr, ptr @include_paths, align 8
   %arrayidx.i59 = getelementptr inbounds ptr, ptr %132, i64 %indvars.iv.i58
   %133 = load ptr, ptr %arrayidx.i59, align 8
-  call void @strarray_push(ptr noundef nonnull @std_include_paths, ptr noundef %133) #17
+  call void @strarray_push(ptr noundef nonnull @std_include_paths, ptr noundef %133) #18
   %indvars.iv.next.i60 = add nuw nsw i64 %indvars.iv.i58, 1
   %134 = load i32, ptr getelementptr inbounds (i8, ptr @include_paths, i64 12), align 4
   %135 = sext i32 %134 to i64
@@ -1060,34 +1060,34 @@ for.body.i72:                                     ; preds = %add_default_include
   %arrayidx.i74 = getelementptr inbounds ptr, ptr %137, i64 %indvars.iv.i73
   %138 = load ptr, ptr %arrayidx.i74, align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %st.i.i)
-  %call.i.i75 = call i32 @stat(ptr noundef readonly %138, ptr noundef nonnull %st.i.i) #17
+  %call.i.i75 = call i32 @stat(ptr noundef readonly %138, ptr noundef nonnull %st.i.i) #18
   %tobool.not.i.i76 = icmp eq i32 %call.i.i75, 0
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %st.i.i)
   br i1 %tobool.not.i.i76, label %if.end5.i, label %if.else.i77
 
 if.else.i77:                                      ; preds = %for.body.i72
-  %call1.i78 = call ptr @search_include_paths(ptr noundef %138) #17
+  %call1.i78 = call ptr @search_include_paths(ptr noundef %138) #18
   %tobool.not.i79 = icmp eq ptr %call1.i78, null
   br i1 %tobool.not.i79, label %if.then2.i, label %if.end5.i
 
 if.then2.i:                                       ; preds = %if.else.i77
-  %call3.i = tail call ptr @__errno_location() #21
+  %call3.i = tail call ptr @__errno_location() #23
   %139 = load i32, ptr %call3.i, align 4
-  %call4.i = call ptr @strerror(i32 noundef %139) #17
-  call void (ptr, ...) @error(ptr noundef nonnull @.str.66, ptr noundef %138, ptr noundef %call4.i) #20
+  %call4.i = call ptr @strerror(i32 noundef %139) #18
+  call void (ptr, ...) @error(ptr noundef nonnull @.str.66, ptr noundef %138, ptr noundef %call4.i) #22
   unreachable
 
 if.end5.i:                                        ; preds = %if.else.i77, %for.body.i72
   %path.0.i = phi ptr [ %call1.i78, %if.else.i77 ], [ %138, %for.body.i72 ]
-  %call.i20.i = call ptr @tokenize_file(ptr noundef %path.0.i) #17
+  %call.i20.i = call ptr @tokenize_file(ptr noundef %path.0.i) #18
   %tobool.not.i21.i = icmp eq ptr %call.i20.i, null
   br i1 %tobool.not.i21.i, label %if.then.i.i82, label %must_tokenize_file.exit.i
 
 if.then.i.i82:                                    ; preds = %if.end5.i
-  %call1.i.i83 = tail call ptr @__errno_location() #21
+  %call1.i.i83 = tail call ptr @__errno_location() #23
   %140 = load i32, ptr %call1.i.i83, align 4
-  %call2.i.i = call ptr @strerror(i32 noundef %140) #17
-  call void (ptr, ...) @error(ptr noundef nonnull @.str.67, ptr noundef %path.0.i, ptr noundef %call2.i.i) #20
+  %call2.i.i = call ptr @strerror(i32 noundef %140) #18
+  call void (ptr, ...) @error(ptr noundef nonnull @.str.67, ptr noundef %path.0.i, ptr noundef %call2.i.i) #22
   unreachable
 
 must_tokenize_file.exit.i:                        ; preds = %if.end5.i
@@ -1123,15 +1123,15 @@ append_tokens.exit.i:                             ; preds = %while.end.i.i, %lor
 for.end.i62:                                      ; preds = %append_tokens.exit.i, %add_default_include_paths.exit
   %tok.0.lcssa.i = phi ptr [ null, %add_default_include_paths.exit ], [ %retval.0.i.i, %append_tokens.exit.i ]
   %146 = load ptr, ptr @base_file, align 8
-  %call.i23.i = call ptr @tokenize_file(ptr noundef %146) #17
+  %call.i23.i = call ptr @tokenize_file(ptr noundef %146) #18
   %tobool.not.i24.i = icmp eq ptr %call.i23.i, null
   br i1 %tobool.not.i24.i, label %if.then.i25.i, label %must_tokenize_file.exit28.i
 
 if.then.i25.i:                                    ; preds = %for.end.i62
-  %call1.i26.i = tail call ptr @__errno_location() #21
+  %call1.i26.i = tail call ptr @__errno_location() #23
   %147 = load i32, ptr %call1.i26.i, align 4
-  %call2.i27.i = call ptr @strerror(i32 noundef %147) #17
-  call void (ptr, ...) @error(ptr noundef nonnull @.str.67, ptr noundef %146, ptr noundef %call2.i27.i) #20
+  %call2.i27.i = call ptr @strerror(i32 noundef %147) #18
+  call void (ptr, ...) @error(ptr noundef nonnull @.str.67, ptr noundef %146, ptr noundef %call2.i27.i) #22
   unreachable
 
 must_tokenize_file.exit28.i:                      ; preds = %for.end.i62
@@ -1158,7 +1158,7 @@ while.end.i36.i:                                  ; preds = %while.cond.i32.i
 
 append_tokens.exit39.i:                           ; preds = %while.end.i36.i, %lor.lhs.false.i30.i, %must_tokenize_file.exit28.i
   %retval.0.i38.i = phi ptr [ %tok.0.lcssa.i, %while.end.i36.i ], [ %call.i23.i, %lor.lhs.false.i30.i ], [ %call.i23.i, %must_tokenize_file.exit28.i ]
-  %call11.i = call ptr @preprocess(ptr noundef nonnull %retval.0.i38.i) #17
+  %call11.i = call ptr @preprocess(ptr noundef nonnull %retval.0.i38.i) #18
   %.b1416.i = load i1, ptr @opt_M, align 1
   br i1 %.b1416.i, label %if.then14.i67, label %lor.lhs.false.i63
 
@@ -1180,9 +1180,9 @@ if.else.i.i71:                                    ; preds = %if.then14.i67
 if.then2.i.i:                                     ; preds = %if.else.i.i71
   %153 = load ptr, ptr @base_file, align 8
   %cond.i.i = select i1 %tobool3.not.i.i, ptr %153, ptr %152
-  %call.i.i.i = call noalias ptr @strdup(ptr noundef readonly %cond.i.i) #17
-  %call1.i.i.i = call ptr @__xpg_basename(ptr noundef %call.i.i.i) #17
-  %call2.i.i.i = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %call1.i.i.i, i32 noundef 46) #18
+  %call.i.i.i = call noalias ptr @strdup(ptr noundef readonly %cond.i.i) #18
+  %call1.i.i.i = call ptr @__xpg_basename(ptr noundef %call.i.i.i) #18
+  %call2.i.i.i = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %call1.i.i.i, i32 noundef 46) #19
   %tobool.not.i.i.i = icmp eq ptr %call2.i.i.i, null
   br i1 %tobool.not.i.i.i, label %if.end9.i.i, label %if.then.i.i.i
 
@@ -1195,7 +1195,7 @@ if.else4.i.i:                                     ; preds = %if.else.i.i71
   br label %sub_0.i.i.i
 
 if.end9.i.i:                                      ; preds = %if.then.i.i.i, %if.then2.i.i
-  %call3.i.i.i = call ptr (ptr, ...) @format(ptr noundef nonnull @.str.79, ptr noundef %call1.i.i.i, ptr noundef nonnull @.str.68) #17
+  %call3.i.i.i = call ptr (ptr, ...) @format(ptr noundef nonnull @.str.79, ptr noundef %call1.i.i.i, ptr noundef nonnull @.str.68) #18
   %tobool.not.i27.i.i = icmp eq ptr %call3.i.i.i, null
   br i1 %tobool.not.i27.i.i, label %if.then.i29.i.i, label %sub_0.i.i.i
 
@@ -1221,10 +1221,10 @@ if.end.i.i.i:                                     ; preds = %lor.lhs.false.tail.
   br i1 %tobool2.not.i.i.i, label %if.then3.i.i.i, label %open_file.exit.i.i
 
 if.then3.i.i.i:                                   ; preds = %if.end.i.i.i
-  %call4.i.i.i = tail call ptr @__errno_location() #21
+  %call4.i.i.i = tail call ptr @__errno_location() #23
   %159 = load i32, ptr %call4.i.i.i, align 4
-  %call5.i.i.i = call ptr @strerror(i32 noundef %159) #17
-  call void (ptr, ...) @error(ptr noundef nonnull @.str.78, ptr noundef nonnull %path.063.i.i, ptr noundef %call5.i.i.i) #20
+  %call5.i.i.i = call ptr @strerror(i32 noundef %159) #18
+  call void (ptr, ...) @error(ptr noundef nonnull @.str.78, ptr noundef nonnull %path.063.i.i, ptr noundef %call5.i.i.i) #22
   unreachable
 
 open_file.exit.i.i:                               ; preds = %if.end.i.i.i, %if.then.i29.i.i
@@ -1239,9 +1239,9 @@ if.then12.i.i:                                    ; preds = %open_file.exit.i.i
 
 if.else14.i.i:                                    ; preds = %open_file.exit.i.i
   %161 = load ptr, ptr @base_file, align 8
-  %call.i30.i.i = call noalias ptr @strdup(ptr noundef readonly %161) #17
-  %call1.i31.i.i = call ptr @__xpg_basename(ptr noundef %call.i30.i.i) #17
-  %call2.i32.i.i = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %call1.i31.i.i, i32 noundef 46) #18
+  %call.i30.i.i = call noalias ptr @strdup(ptr noundef readonly %161) #18
+  %call1.i31.i.i = call ptr @__xpg_basename(ptr noundef %call.i30.i.i) #18
+  %call2.i32.i.i = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %call1.i31.i.i, i32 noundef 46) #19
   %tobool.not.i33.i.i = icmp eq ptr %call2.i32.i.i, null
   br i1 %tobool.not.i33.i.i, label %replace_extn.exit37.i.i, label %if.then.i34.i.i
 
@@ -1250,13 +1250,13 @@ if.then.i34.i.i:                                  ; preds = %if.else14.i.i
   br label %replace_extn.exit37.i.i
 
 replace_extn.exit37.i.i:                          ; preds = %if.then.i34.i.i, %if.else14.i.i
-  %call3.i36.i.i = call ptr (ptr, ...) @format(ptr noundef nonnull @.str.79, ptr noundef %call1.i31.i.i, ptr noundef nonnull @.str.5) #17
+  %call3.i36.i.i = call ptr (ptr, ...) @format(ptr noundef nonnull @.str.79, ptr noundef %call1.i31.i.i, ptr noundef nonnull @.str.5) #18
   %call16.i.i = call fastcc ptr @quote_makefile(ptr noundef %call3.i36.i.i)
   %call17.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %retval.0.i.i.i, ptr noundef nonnull @.str.70, ptr noundef %call16.i.i)
   br label %if.end18.i.i
 
 if.end18.i.i:                                     ; preds = %replace_extn.exit37.i.i, %if.then12.i.i
-  %call19.i.i = call ptr @get_input_files() #17
+  %call19.i.i = call ptr @get_input_files() #18
   %162 = load ptr, ptr %call19.i.i, align 8
   %tobool20.not66.i.i = icmp eq ptr %162, null
   br i1 %tobool20.not66.i.i, label %for.end.i.i, label %for.body.preheader.i.i
@@ -1287,10 +1287,10 @@ for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %for
   %cmp9.i.i.i = phi i1 [ true, %for.body.lr.ph.i.i.i ], [ %cmp.i.i.i, %for.inc.i.i.i ]
   %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %165, i64 %indvars.iv.i.i.i
   %167 = load ptr, ptr %arrayidx.i.i.i, align 8
-  %call.i38.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %167) #18
+  %call.i38.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %167) #19
   %sext.i.i.i = shl i64 %call.i38.i.i, 32
   %conv1.i.i.i = ashr exact i64 %sext.i.i.i, 32
-  %call2.i39.i.i = call i32 @strncmp(ptr noundef %167, ptr noundef readonly %.pre.i.i, i64 noundef %conv1.i.i.i) #18
+  %call2.i39.i.i = call i32 @strncmp(ptr noundef %167, ptr noundef readonly %.pre.i.i, i64 noundef %conv1.i.i.i) #19
   %cmp3.i.i.i = icmp eq i32 %call2.i39.i.i, 0
   br i1 %cmp3.i.i.i, label %land.lhs.true.i.i.i, label %for.inc.i.i.i
 
@@ -1360,10 +1360,10 @@ for.body.i44.i.i:                                 ; preds = %for.inc.i53.i.i, %f
   %cmp9.i46.i.i = phi i1 [ true, %for.body.lr.ph.i42.i.i ], [ %cmp.i55.i.i, %for.inc.i53.i.i ]
   %arrayidx.i47.i.i = getelementptr inbounds ptr, ptr %174, i64 %indvars.iv.i45.i.i
   %176 = load ptr, ptr %arrayidx.i47.i.i, align 8
-  %call.i48.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %176) #18
+  %call.i48.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %176) #19
   %sext.i49.i.i = shl i64 %call.i48.i.i, 32
   %conv1.i50.i.i = ashr exact i64 %sext.i49.i.i, 32
-  %call2.i51.i.i = call i32 @strncmp(ptr noundef %176, ptr noundef readonly %.pre81.i.i, i64 noundef %conv1.i50.i.i) #18
+  %call2.i51.i.i = call i32 @strncmp(ptr noundef %176, ptr noundef readonly %.pre81.i.i, i64 noundef %conv1.i50.i.i) #19
   %cmp3.i52.i.i = icmp eq i32 %call2.i51.i.i, 0
   br i1 %cmp3.i52.i.i, label %land.lhs.true.i57.i.i, label %for.inc.i53.i.i
 
@@ -1429,10 +1429,10 @@ if.end.i.i44.i:                                   ; preds = %lor.lhs.false.tail.
   br i1 %tobool2.not.i.i46.i, label %if.then3.i.i54.i, label %open_file.exit.i47.i
 
 if.then3.i.i54.i:                                 ; preds = %if.end.i.i44.i
-  %call4.i.i55.i = tail call ptr @__errno_location() #21
+  %call4.i.i55.i = tail call ptr @__errno_location() #23
   %185 = load i32, ptr %call4.i.i55.i, align 4
-  %call5.i.i56.i = call ptr @strerror(i32 noundef %185) #17
-  call void (ptr, ...) @error(ptr noundef nonnull @.str.78, ptr noundef nonnull %cond.i42.i, ptr noundef %call5.i.i56.i) #20
+  %call5.i.i56.i = call ptr @strerror(i32 noundef %185) #18
+  call void (ptr, ...) @error(ptr noundef nonnull @.str.78, ptr noundef nonnull %cond.i42.i, ptr noundef %call5.i.i56.i) #22
   unreachable
 
 open_file.exit.i47.i:                             ; preds = %if.end.i.i44.i, %if.then.i.i58.i
@@ -1491,9 +1491,9 @@ print_tokens.exit.i:                              ; preds = %if.end10.i.i, %open
   br label %cc1.exit
 
 if.end21.i64:                                     ; preds = %if.end18.i
-  %call22.i = call ptr @parse(ptr noundef %call11.i) #17
-  %call23.i = call noalias ptr @open_memstream(ptr noundef nonnull %buf.i, ptr noundef nonnull %buflen.i) #17
-  call void @codegen(ptr noundef %call22.i, ptr noundef %call23.i) #17
+  %call22.i = call ptr @parse(ptr noundef %call11.i) #18
+  %call23.i = call noalias ptr @open_memstream(ptr noundef nonnull %buf.i, ptr noundef nonnull %buflen.i) #18
+  call void @codegen(ptr noundef %call22.i, ptr noundef %call23.i) #18
   %call24.i65 = call i32 @fclose(ptr noundef %call23.i)
   %194 = load ptr, ptr @output_file, align 8
   %tobool.not.i59.i = icmp eq ptr %194, null
@@ -1520,10 +1520,10 @@ if.end.i60.i:                                     ; preds = %lor.lhs.false.tail.
   br i1 %tobool2.not.i.i, label %if.then3.i.i, label %open_file.exit.i
 
 if.then3.i.i:                                     ; preds = %if.end.i60.i
-  %call4.i.i = tail call ptr @__errno_location() #21
+  %call4.i.i = tail call ptr @__errno_location() #23
   %200 = load i32, ptr %call4.i.i, align 4
-  %call5.i.i = call ptr @strerror(i32 noundef %200) #17
-  call void (ptr, ...) @error(ptr noundef nonnull @.str.78, ptr noundef nonnull %194, ptr noundef %call5.i.i) #20
+  %call5.i.i = call ptr @strerror(i32 noundef %200) #18
+  call void (ptr, ...) @error(ptr noundef nonnull @.str.78, ptr noundef nonnull %194, ptr noundef %call5.i.i) #22
   unreachable
 
 open_file.exit.i:                                 ; preds = %if.end.i60.i, %if.then.i63.i
@@ -1558,7 +1558,7 @@ if.end9.thread:                                   ; preds = %land.lhs.true2
   br label %for.body.lr.ph
 
 if.then8:                                         ; preds = %land.lhs.true2
-  call void (ptr, ...) @error(ptr noundef nonnull @.str) #20
+  call void (ptr, ...) @error(ptr noundef nonnull @.str) #22
   unreachable
 
 if.end9:                                          ; preds = %if.end
@@ -1612,25 +1612,25 @@ for.body.tail:                                    ; preds = %for.body, %sub_1243
   br i1 %tobool14.not, label %if.then15, label %if.end16
 
 if.then15:                                        ; preds = %for.body.tail
-  call void @strarray_push(ptr noundef nonnull %ld_args, ptr noundef nonnull %205) #17
+  call void @strarray_push(ptr noundef nonnull %ld_args, ptr noundef nonnull %205) #18
   br label %for.inc
 
 if.end16:                                         ; preds = %for.body.tail
-  %call17 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %205, ptr noundef nonnull dereferenceable(5) @.str.2, i64 noundef 4) #18
+  %call17 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %205, ptr noundef nonnull dereferenceable(5) @.str.2, i64 noundef 4) #19
   %tobool18.not = icmp eq i32 %call17, 0
   br i1 %tobool18.not, label %if.then19, label %if.end24
 
 if.then19:                                        ; preds = %if.end16
   %add.ptr = getelementptr inbounds i8, ptr %205, i64 4
-  %call20 = call noalias ptr @strdup(ptr noundef nonnull %add.ptr) #17
-  %call21 = call ptr @strtok(ptr noundef %call20, ptr noundef nonnull @.str.3) #17
+  %call20 = call noalias ptr @strdup(ptr noundef nonnull %add.ptr) #18
+  %call21 = call ptr @strtok(ptr noundef %call20, ptr noundef nonnull @.str.3) #18
   %tobool22.not258 = icmp eq ptr %call21, null
   br i1 %tobool22.not258, label %for.inc, label %while.body
 
 while.body:                                       ; preds = %if.then19, %while.body
   %arg.0259 = phi ptr [ %call23, %while.body ], [ %call21, %if.then19 ]
-  call void @strarray_push(ptr noundef nonnull %ld_args, ptr noundef nonnull %arg.0259) #17
-  %call23 = call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.3) #17
+  call void @strarray_push(ptr noundef nonnull %ld_args, ptr noundef nonnull %arg.0259) #18
+  %call23 = call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.3) #18
   %tobool22.not = icmp eq ptr %call23, null
   br i1 %tobool22.not, label %for.inc, label %while.body, !llvm.loop !19
 
@@ -1641,9 +1641,9 @@ if.end24:                                         ; preds = %if.end16
 
 if.else:                                          ; preds = %if.end24
   %.b4050 = load i1, ptr @opt_S, align 1
-  %call.i84 = call noalias ptr @strdup(ptr noundef nonnull readonly %205) #17
-  %call1.i85 = call ptr @__xpg_basename(ptr noundef %call.i84) #17
-  %call2.i86 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %call1.i85, i32 noundef 46) #18
+  %call.i84 = call noalias ptr @strdup(ptr noundef nonnull readonly %205) #18
+  %call1.i85 = call ptr @__xpg_basename(ptr noundef %call.i84) #18
+  %call2.i86 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %call1.i85, i32 noundef 46) #19
   %tobool.not.i87 = icmp eq ptr %call2.i86, null
   %.str.4..str.5 = select i1 %.b4050, ptr @.str.4, ptr @.str.5
   br i1 %tobool.not.i87, label %if.end33.sink.split, label %if.end33.sink.split.sink.split
@@ -1653,7 +1653,7 @@ if.end33.sink.split.sink.split:                   ; preds = %if.else
   br label %if.end33.sink.split
 
 if.end33.sink.split:                              ; preds = %if.else, %if.end33.sink.split.sink.split
-  %call3.i89 = call ptr (ptr, ...) @format(ptr noundef nonnull @.str.79, ptr noundef %call1.i85, ptr noundef nonnull %.str.4..str.5) #17
+  %call3.i89 = call ptr (ptr, ...) @format(ptr noundef nonnull @.str.79, ptr noundef %call1.i85, ptr noundef nonnull %.str.4..str.5) #18
   br label %if.end33
 
 if.end33:                                         ; preds = %if.end33.sink.split, %if.end24
@@ -1663,7 +1663,7 @@ if.end33:                                         ; preds = %if.end33.sink.split
   br i1 %cmp.not.i, label %if.end.i, label %get_file_type.exit
 
 if.end.i:                                         ; preds = %if.end33
-  %call.i.i97 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %205) #18
+  %call.i.i97 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %205) #19
   %conv.i.i = trunc i64 %call.i.i97 to i32
   %cmp.not.i.i98 = icmp slt i32 %conv.i.i, 2
   br i1 %cmp.not.i.i98, label %if.end14.i, label %endswith.exit.i
@@ -1693,7 +1693,7 @@ if.end2.i:                                        ; preds = %endswith.exit.tail.
 
 endswith.exit21.i:                                ; preds = %if.end2.i
   %add.ptr5.i18.i = getelementptr inbounds i8, ptr %add.ptr.i.i99, i64 -3
-  %call6.i19.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %add.ptr5.i18.i, ptr noundef nonnull readonly dereferenceable(4) @.str.81) #18
+  %call6.i19.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %add.ptr5.i18.i, ptr noundef nonnull readonly dereferenceable(4) @.str.81) #19
   %tobool.not.i20.i = icmp eq i32 %call6.i19.i, 0
   br i1 %tobool.not.i20.i, label %if.then43, label %endswith.exit37.i
 
@@ -1725,7 +1725,7 @@ endswith.exit69.tail.i:                           ; preds = %sub_171.i
   br i1 %228, label %if.then47, label %if.end14.i
 
 if.end14.i:                                       ; preds = %sub_171.i, %endswith.exit37.tail.i, %endswith.exit53.tail.i, %endswith.exit37.i, %endswith.exit69.tail.i, %if.end.i
-  call void (ptr, ...) @error(ptr noundef nonnull @.str.83, ptr noundef nonnull %205) #20
+  call void (ptr, ...) @error(ptr noundef nonnull @.str.83, ptr noundef nonnull %205) #22
   unreachable
 
 get_file_type.exit:                               ; preds = %if.end33
@@ -1734,7 +1734,7 @@ get_file_type.exit:                               ; preds = %if.end33
   br i1 %or.cond2, label %if.then43, label %if.end44
 
 if.then43:                                        ; preds = %endswith.exit37.tail.i, %endswith.exit21.i, %endswith.exit.tail.i, %get_file_type.exit
-  call void @strarray_push(ptr noundef nonnull %ld_args, ptr noundef nonnull %205) #17
+  call void @strarray_push(ptr noundef nonnull %ld_args, ptr noundef nonnull %205) #18
   br label %for.inc
 
 if.end44:                                         ; preds = %get_file_type.exit
@@ -1760,7 +1760,7 @@ if.then49:                                        ; preds = %if.then47
   br label %for.inc
 
 cond.false:                                       ; preds = %if.end44
-  call void @__assert_fail(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 757, ptr noundef nonnull @__PRETTY_FUNCTION__.main) #20
+  call void @__assert_fail(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 757, ptr noundef nonnull @__PRETTY_FUNCTION__.main) #22
   unreachable
 
 cond.end:                                         ; preds = %endswith.exit53.tail.i, %if.end44
@@ -1772,7 +1772,7 @@ lor.lhs.false56:                                  ; preds = %cond.end
   br i1 %.b4452, label %if.then59, label %if.end60
 
 if.then59:                                        ; preds = %lor.lhs.false56, %cond.end
-  %call.i102 = call noalias ptr @calloc(i64 noundef %conv.i179, i64 noundef 8) #22
+  %call.i102 = call noalias ptr @calloc(i64 noundef %conv.i179, i64 noundef 8) #24
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %call.i102, ptr readonly align 8 %argv, i64 %mul.i182, i1 false)
   %arrayidx.i104 = getelementptr ptr, ptr %call.i102, i64 %conv1.i181
   store ptr @.str.10, ptr %arrayidx.i104, align 8
@@ -1788,7 +1788,7 @@ if.end60:                                         ; preds = %lor.lhs.false56
   br i1 %.b3853, label %if.then62, label %if.end63
 
 if.then62:                                        ; preds = %if.end60
-  %call.i111 = call noalias ptr @calloc(i64 noundef %conv.i179, i64 noundef 8) #22
+  %call.i111 = call noalias ptr @calloc(i64 noundef %conv.i179, i64 noundef 8) #24
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %call.i111, ptr readonly align 8 %argv, i64 %mul.i182, i1 false)
   %arrayidx.i115 = getelementptr ptr, ptr %call.i111, i64 %conv1.i181
   store ptr @.str.10, ptr %arrayidx.i115, align 8
@@ -1812,8 +1812,8 @@ run_cc1.exit124:                                  ; preds = %if.then62, %if.then
 
 if.end63:                                         ; preds = %if.end60
   %.b3654 = load i1, ptr @opt_c, align 1
-  %call.i125 = call noalias dereferenceable_or_null(20) ptr @strdup(ptr noundef nonnull @.str.88) #17
-  %call1.i126 = call i32 @mkstemp(ptr noundef %call.i125) #17
+  %call.i125 = call noalias dereferenceable_or_null(20) ptr @strdup(ptr noundef nonnull @.str.88) #18
+  %call1.i126 = call i32 @mkstemp(ptr noundef %call.i125) #18
   %cmp.i127 = icmp eq i32 %call1.i126, -1
   br i1 %.b3654, label %if.then65, label %if.end67
 
@@ -1821,16 +1821,16 @@ if.then65:                                        ; preds = %if.end63
   br i1 %cmp.i127, label %if.then.i130, label %create_tmpfile.exit
 
 if.then.i130:                                     ; preds = %if.then65
-  %call2.i131 = tail call ptr @__errno_location() #21
+  %call2.i131 = tail call ptr @__errno_location() #23
   %230 = load i32, ptr %call2.i131, align 4
-  %call3.i132 = call ptr @strerror(i32 noundef %230) #17
-  call void (ptr, ...) @error(ptr noundef nonnull @.str.89, ptr noundef %call3.i132) #20
+  %call3.i132 = call ptr @strerror(i32 noundef %230) #18
+  call void (ptr, ...) @error(ptr noundef nonnull @.str.89, ptr noundef %call3.i132) #22
   unreachable
 
 create_tmpfile.exit:                              ; preds = %if.then65
-  %call4.i129 = call i32 @close(i32 noundef %call1.i126) #17
-  call void @strarray_push(ptr noundef nonnull @tmpfiles, ptr noundef %call.i125) #17
-  %call.i135 = call noalias ptr @calloc(i64 noundef %conv.i179, i64 noundef 8) #22
+  %call4.i129 = call i32 @close(i32 noundef %call1.i126) #18
+  call void @strarray_push(ptr noundef nonnull @tmpfiles, ptr noundef %call.i125) #18
+  %call.i135 = call noalias ptr @calloc(i64 noundef %conv.i179, i64 noundef 8) #24
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %call.i135, ptr readonly align 8 %argv, i64 %mul.i182, i1 false)
   %arrayidx.i139 = getelementptr ptr, ptr %call.i135, i64 %conv1.i181
   store ptr @.str.10, ptr %arrayidx.i139, align 8
@@ -1865,31 +1865,31 @@ if.end67:                                         ; preds = %if.end63
   br i1 %cmp.i127, label %if.then.i165, label %create_tmpfile.exit168
 
 if.then.i165:                                     ; preds = %if.end67
-  %call2.i166 = tail call ptr @__errno_location() #21
+  %call2.i166 = tail call ptr @__errno_location() #23
   %231 = load i32, ptr %call2.i166, align 4
-  %call3.i167 = call ptr @strerror(i32 noundef %231) #17
-  call void (ptr, ...) @error(ptr noundef nonnull @.str.89, ptr noundef %call3.i167) #20
+  %call3.i167 = call ptr @strerror(i32 noundef %231) #18
+  call void (ptr, ...) @error(ptr noundef nonnull @.str.89, ptr noundef %call3.i167) #22
   unreachable
 
 create_tmpfile.exit168:                           ; preds = %if.end67
-  %call4.i164 = call i32 @close(i32 noundef %call1.i126) #17
-  call void @strarray_push(ptr noundef nonnull @tmpfiles, ptr noundef %call.i125) #17
-  %call.i169 = call noalias dereferenceable_or_null(20) ptr @strdup(ptr noundef nonnull @.str.88) #17
-  %call1.i170 = call i32 @mkstemp(ptr noundef %call.i169) #17
+  %call4.i164 = call i32 @close(i32 noundef %call1.i126) #18
+  call void @strarray_push(ptr noundef nonnull @tmpfiles, ptr noundef %call.i125) #18
+  %call.i169 = call noalias dereferenceable_or_null(20) ptr @strdup(ptr noundef nonnull @.str.88) #18
+  %call1.i170 = call i32 @mkstemp(ptr noundef %call.i169) #18
   %cmp.i171 = icmp eq i32 %call1.i170, -1
   br i1 %cmp.i171, label %if.then.i174, label %create_tmpfile.exit177
 
 if.then.i174:                                     ; preds = %create_tmpfile.exit168
-  %call2.i175 = tail call ptr @__errno_location() #21
+  %call2.i175 = tail call ptr @__errno_location() #23
   %232 = load i32, ptr %call2.i175, align 4
-  %call3.i176 = call ptr @strerror(i32 noundef %232) #17
-  call void (ptr, ...) @error(ptr noundef nonnull @.str.89, ptr noundef %call3.i176) #20
+  %call3.i176 = call ptr @strerror(i32 noundef %232) #18
+  call void (ptr, ...) @error(ptr noundef nonnull @.str.89, ptr noundef %call3.i176) #22
   unreachable
 
 create_tmpfile.exit177:                           ; preds = %create_tmpfile.exit168
-  %call4.i173 = call i32 @close(i32 noundef %call1.i170) #17
-  call void @strarray_push(ptr noundef nonnull @tmpfiles, ptr noundef %call.i169) #17
-  %call.i180 = call noalias ptr @calloc(i64 noundef %conv.i179, i64 noundef 8) #22
+  %call4.i173 = call i32 @close(i32 noundef %call1.i170) #18
+  call void @strarray_push(ptr noundef nonnull @tmpfiles, ptr noundef %call.i169) #18
+  %call.i180 = call noalias ptr @calloc(i64 noundef %conv.i179, i64 noundef 8) #24
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %call.i180, ptr readonly align 8 %argv, i64 %mul.i182, i1 false)
   %arrayidx.i184 = getelementptr ptr, ptr %call.i180, i64 %conv1.i181
   store ptr @.str.10, ptr %arrayidx.i184, align 8
@@ -1918,7 +1918,7 @@ run_cc1.exit198:                                  ; preds = %create_tmpfile.exit
   store ptr null, ptr %arrayinit.element4.i204, align 8
   call fastcc void @run_subprocess(ptr noundef nonnull %cmd.i199)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %cmd.i199)
-  call void @strarray_push(ptr noundef nonnull %ld_args, ptr noundef %call.i169) #17
+  call void @strarray_push(ptr noundef nonnull %ld_args, ptr noundef %call.i169) #18
   br label %for.inc
 
 for.inc:                                          ; preds = %while.body, %if.then19, %if.then47, %if.then49, %run_cc1.exit198, %run_cc1.exit153, %run_cc1.exit124, %if.then59, %if.then43, %if.then15
@@ -1941,26 +1941,26 @@ if.then72:                                        ; preds = %for.end
   %cond = select i1 %tobool73.not, ptr @.str.8, ptr %236
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %arr.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arr.i, i8 0, i64 16, i1 false)
-  call void @strarray_push(ptr noundef nonnull %arr.i, ptr noundef nonnull @.str.90) #17
-  call void @strarray_push(ptr noundef nonnull %arr.i, ptr noundef nonnull @.str.12) #17
-  call void @strarray_push(ptr noundef nonnull %arr.i, ptr noundef nonnull %cond) #17
-  call void @strarray_push(ptr noundef nonnull %arr.i, ptr noundef nonnull @.str.91) #17
-  call void @strarray_push(ptr noundef nonnull %arr.i, ptr noundef nonnull @.str.92) #17
+  call void @strarray_push(ptr noundef nonnull %arr.i, ptr noundef nonnull @.str.90) #18
+  call void @strarray_push(ptr noundef nonnull %arr.i, ptr noundef nonnull @.str.12) #18
+  call void @strarray_push(ptr noundef nonnull %arr.i, ptr noundef nonnull %cond) #18
+  call void @strarray_push(ptr noundef nonnull %arr.i, ptr noundef nonnull @.str.91) #18
+  call void @strarray_push(ptr noundef nonnull %arr.i, ptr noundef nonnull @.str.92) #18
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %st.i.i.i)
-  %call.i.i.i205 = call i32 @stat(ptr noundef nonnull readonly @.str.118, ptr noundef nonnull %st.i.i.i) #17
+  %call.i.i.i205 = call i32 @stat(ptr noundef nonnull readonly @.str.118, ptr noundef nonnull %st.i.i.i) #18
   %tobool.not.i.i.i206 = icmp eq i32 %call.i.i.i205, 0
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %st.i.i.i)
   br i1 %tobool.not.i.i.i206, label %find_libpath.exit.i, label %if.end.i.i207
 
 if.end.i.i207:                                    ; preds = %if.then72
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %st.i1.i.i)
-  %call.i2.i.i = call i32 @stat(ptr noundef nonnull readonly @.str.120, ptr noundef nonnull %st.i1.i.i) #17
+  %call.i2.i.i = call i32 @stat(ptr noundef nonnull readonly @.str.120, ptr noundef nonnull %st.i1.i.i) #18
   %tobool.not.i3.i.i = icmp eq i32 %call.i2.i.i, 0
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %st.i1.i.i)
   br i1 %tobool.not.i3.i.i, label %find_libpath.exit.i, label %if.end3.i.i
 
 if.end3.i.i:                                      ; preds = %if.end.i.i207
-  call void (ptr, ...) @error(ptr noundef nonnull @.str.122) #20
+  call void (ptr, ...) @error(ptr noundef nonnull @.str.122) #22
   unreachable
 
 find_libpath.exit.i:                              ; preds = %if.end.i.i207, %if.then72
@@ -1974,13 +1974,13 @@ for.body.i.i209:                                  ; preds = %for.inc.i.i226, %fi
   %237 = load ptr, ptr %arrayidx.i.i211, align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %buf.i.i.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %buf.i.i.i, i8 0, i64 72, i1 false)
-  %call.i.i20.i = call i32 @glob(ptr noundef %237, i32 noundef 0, ptr noundef null, ptr noundef nonnull %buf.i.i.i) #17
+  %call.i.i20.i = call i32 @glob(ptr noundef %237, i32 noundef 0, ptr noundef null, ptr noundef nonnull %buf.i.i.i) #18
   %238 = load i64, ptr %buf.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq i64 %238, 0
   br i1 %cmp.not.i.i.i, label %find_file.exit.thread.i.i, label %find_file.exit.i.i
 
 find_file.exit.thread.i.i:                        ; preds = %for.body.i.i209
-  call void @globfree(ptr noundef nonnull %buf.i.i.i) #17
+  call void @globfree(ptr noundef nonnull %buf.i.i.i) #18
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %buf.i.i.i)
   br label %for.inc.i.i226
 
@@ -1989,8 +1989,8 @@ find_file.exit.i.i:                               ; preds = %for.body.i.i209
   %240 = getelementptr ptr, ptr %239, i64 %238
   %arrayidx.i.i.i212 = getelementptr i8, ptr %240, i64 -8
   %241 = load ptr, ptr %arrayidx.i.i.i212, align 8
-  %call2.i.i.i213 = call noalias ptr @strdup(ptr noundef %241) #17
-  call void @globfree(ptr noundef nonnull %buf.i.i.i) #17
+  %call2.i.i.i213 = call noalias ptr @strdup(ptr noundef %241) #18
+  call void @globfree(ptr noundef nonnull %buf.i.i.i) #18
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %buf.i.i.i)
   %tobool.not.i.i214 = icmp eq ptr %call2.i.i.i213, null
   br i1 %tobool.not.i.i214, label %for.inc.i.i226, label %find_gcc_libpath.exit.i
@@ -2001,41 +2001,41 @@ for.inc.i.i226:                                   ; preds = %find_file.exit.i.i,
   br i1 %exitcond.not.i.i228, label %for.end.i.i229, label %for.body.i.i209, !llvm.loop !21
 
 for.end.i.i229:                                   ; preds = %for.inc.i.i226
-  call void (ptr, ...) @error(ptr noundef nonnull @.str.126) #20
+  call void (ptr, ...) @error(ptr noundef nonnull @.str.126) #22
   unreachable
 
 find_gcc_libpath.exit.i:                          ; preds = %find_file.exit.i.i
-  %call2.i.i215 = call ptr @dirname(ptr noundef nonnull %call2.i.i.i213) #17
+  %call2.i.i215 = call ptr @dirname(ptr noundef nonnull %call2.i.i.i213) #18
   %.b1516.i = load i1, ptr @opt_shared, align 1
   br i1 %.b1516.i, label %if.end.i218, label %if.else.i216
 
 if.else.i216:                                     ; preds = %find_gcc_libpath.exit.i
-  %call4.i217 = call ptr (ptr, ...) @format(ptr noundef nonnull @.str.95, ptr noundef nonnull %retval.0.i.i208) #17
-  call void @strarray_push(ptr noundef nonnull %arr.i, ptr noundef %call4.i217) #17
+  %call4.i217 = call ptr (ptr, ...) @format(ptr noundef nonnull @.str.95, ptr noundef nonnull %retval.0.i.i208) #18
+  call void @strarray_push(ptr noundef nonnull %arr.i, ptr noundef %call4.i217) #18
   br label %if.end.i218
 
 if.end.i218:                                      ; preds = %if.else.i216, %find_gcc_libpath.exit.i
   %.str.96.sink.i = phi ptr [ @.str.96, %if.else.i216 ], [ @.str.94, %find_gcc_libpath.exit.i ]
-  %call5.i = call ptr (ptr, ...) @format(ptr noundef nonnull @.str.93, ptr noundef nonnull %retval.0.i.i208) #17
-  call void @strarray_push(ptr noundef nonnull %arr.i, ptr noundef %call5.i) #17
-  %call6.i = call ptr (ptr, ...) @format(ptr noundef nonnull %.str.96.sink.i, ptr noundef %call2.i.i215) #17
-  call void @strarray_push(ptr noundef nonnull %arr.i, ptr noundef %call6.i) #17
-  %call7.i = call ptr (ptr, ...) @format(ptr noundef nonnull @.str.97, ptr noundef %call2.i.i215) #17
-  call void @strarray_push(ptr noundef nonnull %arr.i, ptr noundef %call7.i) #17
-  call void @strarray_push(ptr noundef nonnull %arr.i, ptr noundef nonnull @.str.98) #17
-  call void @strarray_push(ptr noundef nonnull %arr.i, ptr noundef nonnull @.str.99) #17
-  call void @strarray_push(ptr noundef nonnull %arr.i, ptr noundef nonnull @.str.100) #17
-  call void @strarray_push(ptr noundef nonnull %arr.i, ptr noundef nonnull @.str.98) #17
-  call void @strarray_push(ptr noundef nonnull %arr.i, ptr noundef nonnull @.str.101) #17
-  call void @strarray_push(ptr noundef nonnull %arr.i, ptr noundef nonnull @.str.102) #17
-  call void @strarray_push(ptr noundef nonnull %arr.i, ptr noundef nonnull @.str.103) #17
-  call void @strarray_push(ptr noundef nonnull %arr.i, ptr noundef nonnull @.str.104) #17
+  %call5.i = call ptr (ptr, ...) @format(ptr noundef nonnull @.str.93, ptr noundef nonnull %retval.0.i.i208) #18
+  call void @strarray_push(ptr noundef nonnull %arr.i, ptr noundef %call5.i) #18
+  %call6.i = call ptr (ptr, ...) @format(ptr noundef nonnull %.str.96.sink.i, ptr noundef %call2.i.i215) #18
+  call void @strarray_push(ptr noundef nonnull %arr.i, ptr noundef %call6.i) #18
+  %call7.i = call ptr (ptr, ...) @format(ptr noundef nonnull @.str.97, ptr noundef %call2.i.i215) #18
+  call void @strarray_push(ptr noundef nonnull %arr.i, ptr noundef %call7.i) #18
+  call void @strarray_push(ptr noundef nonnull %arr.i, ptr noundef nonnull @.str.98) #18
+  call void @strarray_push(ptr noundef nonnull %arr.i, ptr noundef nonnull @.str.99) #18
+  call void @strarray_push(ptr noundef nonnull %arr.i, ptr noundef nonnull @.str.100) #18
+  call void @strarray_push(ptr noundef nonnull %arr.i, ptr noundef nonnull @.str.98) #18
+  call void @strarray_push(ptr noundef nonnull %arr.i, ptr noundef nonnull @.str.101) #18
+  call void @strarray_push(ptr noundef nonnull %arr.i, ptr noundef nonnull @.str.102) #18
+  call void @strarray_push(ptr noundef nonnull %arr.i, ptr noundef nonnull @.str.103) #18
+  call void @strarray_push(ptr noundef nonnull %arr.i, ptr noundef nonnull @.str.104) #18
   %.b1317.i = load i1, ptr @opt_static, align 1
   br i1 %.b1317.i, label %if.end10.i, label %if.then9.i219
 
 if.then9.i219:                                    ; preds = %if.end.i218
-  call void @strarray_push(ptr noundef nonnull %arr.i, ptr noundef nonnull @.str.105) #17
-  call void @strarray_push(ptr noundef nonnull %arr.i, ptr noundef nonnull @.str.106) #17
+  call void @strarray_push(ptr noundef nonnull %arr.i, ptr noundef nonnull @.str.105) #18
+  call void @strarray_push(ptr noundef nonnull %arr.i, ptr noundef nonnull @.str.106) #18
   br label %if.end10.i
 
 if.end10.i:                                       ; preds = %if.then9.i219, %if.end.i218
@@ -2053,7 +2053,7 @@ for.body.i221:                                    ; preds = %if.end10.i, %for.bo
   %244 = load ptr, ptr @ld_extra_args, align 8
   %arrayidx.i223 = getelementptr inbounds ptr, ptr %244, i64 %indvars.iv.i222
   %245 = load ptr, ptr %arrayidx.i223, align 8
-  call void @strarray_push(ptr noundef nonnull %arr.i, ptr noundef %245) #17
+  call void @strarray_push(ptr noundef nonnull %arr.i, ptr noundef %245) #18
   %indvars.iv.next.i224 = add nuw nsw i64 %indvars.iv.i222, 1
   %246 = load i32, ptr getelementptr inbounds (i8, ptr @ld_extra_args, i64 12), align 4
   %247 = sext i32 %246 to i64
@@ -2065,7 +2065,7 @@ for.body14.i:                                     ; preds = %for.cond12.preheade
   %248 = load ptr, ptr %ld_args, align 8
   %arrayidx16.i = getelementptr inbounds ptr, ptr %248, i64 %indvars.iv26.i
   %249 = load ptr, ptr %arrayidx16.i, align 8
-  call void @strarray_push(ptr noundef nonnull %arr.i, ptr noundef %249) #17
+  call void @strarray_push(ptr noundef nonnull %arr.i, ptr noundef %249) #18
   %indvars.iv.next27.i = add nuw nsw i64 %indvars.iv26.i, 1
   %250 = load i32, ptr %len, align 4
   %251 = sext i32 %250 to i64
@@ -2078,18 +2078,18 @@ run_linker.exit:                                  ; preds = %for.body14.i, %for.
   %.str.109..str.112.i = select i1 %.b18.i, ptr @.str.109, ptr @.str.112
   %.str.110..str.113.i = select i1 %.b18.i, ptr @.str.110, ptr @.str.113
   %.str.111..str.114.i = select i1 %.b18.i, ptr @.str.111, ptr @.str.114
-  call void @strarray_push(ptr noundef nonnull %arr.i, ptr noundef nonnull %.str.107..str.110.i) #17
-  call void @strarray_push(ptr noundef nonnull %arr.i, ptr noundef nonnull @.str.108) #17
-  call void @strarray_push(ptr noundef nonnull %arr.i, ptr noundef nonnull %.str.109..str.112.i) #17
-  call void @strarray_push(ptr noundef nonnull %arr.i, ptr noundef nonnull %.str.110..str.113.i) #17
-  call void @strarray_push(ptr noundef nonnull %arr.i, ptr noundef nonnull %.str.111..str.114.i) #17
+  call void @strarray_push(ptr noundef nonnull %arr.i, ptr noundef nonnull %.str.107..str.110.i) #18
+  call void @strarray_push(ptr noundef nonnull %arr.i, ptr noundef nonnull @.str.108) #18
+  call void @strarray_push(ptr noundef nonnull %arr.i, ptr noundef nonnull %.str.109..str.112.i) #18
+  call void @strarray_push(ptr noundef nonnull %arr.i, ptr noundef nonnull %.str.110..str.113.i) #18
+  call void @strarray_push(ptr noundef nonnull %arr.i, ptr noundef nonnull %.str.111..str.114.i) #18
   %.b1419.i = load i1, ptr @opt_shared, align 1
   %.str.116.sink.i = select i1 %.b1419.i, ptr @.str.115, ptr @.str.116
-  %call28.i = call ptr (ptr, ...) @format(ptr noundef nonnull %.str.116.sink.i, ptr noundef %call2.i.i215) #17
-  call void @strarray_push(ptr noundef nonnull %arr.i, ptr noundef %call28.i) #17
-  %call30.i = call ptr (ptr, ...) @format(ptr noundef nonnull @.str.117, ptr noundef nonnull %retval.0.i.i208) #17
-  call void @strarray_push(ptr noundef nonnull %arr.i, ptr noundef %call30.i) #17
-  call void @strarray_push(ptr noundef nonnull %arr.i, ptr noundef null) #17
+  %call28.i = call ptr (ptr, ...) @format(ptr noundef nonnull %.str.116.sink.i, ptr noundef %call2.i.i215) #18
+  call void @strarray_push(ptr noundef nonnull %arr.i, ptr noundef %call28.i) #18
+  %call30.i = call ptr (ptr, ...) @format(ptr noundef nonnull @.str.117, ptr noundef nonnull %retval.0.i.i208) #18
+  call void @strarray_push(ptr noundef nonnull %arr.i, ptr noundef %call30.i) #18
+  call void @strarray_push(ptr noundef nonnull %arr.i, ptr noundef null) #18
   %252 = load ptr, ptr %arr.i, align 8
   call fastcc void @run_subprocess(ptr noundef %252)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %arr.i)
@@ -2114,7 +2114,7 @@ for.body:                                         ; preds = %entry, %for.body
   %1 = load ptr, ptr @tmpfiles, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
   %2 = load ptr, ptr %arrayidx, align 8
-  %call = tail call i32 @unlink(ptr noundef %2) #17
+  %call = tail call i32 @unlink(ptr noundef %2) #18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %3 = load i32, ptr getelementptr inbounds (i8, ptr @tmpfiles, i64 12), align 4
   %4 = sext i32 %3 to i64
@@ -2169,17 +2169,17 @@ entry.tail:                                       ; preds = %entry
   br i1 %3, label %return, label %if.end
 
 if.end:                                           ; preds = %entry, %entry.tail
-  %call1 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %s, ptr noundef nonnull dereferenceable(10) @.str.59) #18
+  %call1 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %s, ptr noundef nonnull dereferenceable(10) @.str.59) #19
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %return, label %if.end4
 
 if.end4:                                          ; preds = %if.end
-  %call5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %s, ptr noundef nonnull dereferenceable(5) @.str.60) #18
+  %call5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %s, ptr noundef nonnull dereferenceable(5) @.str.60) #19
   %tobool6.not = icmp eq i32 %call5, 0
   br i1 %tobool6.not, label %return, label %if.end8
 
 if.end8:                                          ; preds = %if.end4
-  tail call void (ptr, ...) @error(ptr noundef nonnull @.str.61, ptr noundef nonnull %s) #20
+  tail call void (ptr, ...) @error(ptr noundef nonnull @.str.61, ptr noundef nonnull %s) #22
   unreachable
 
 return:                                           ; preds = %if.end4, %if.end, %entry.tail
@@ -2192,10 +2192,10 @@ declare ptr @format(ptr noundef, ...) local_unnamed_addr #3
 ; Function Attrs: nofree nounwind memory(write, argmem: read, inaccessiblemem: readwrite) uwtable
 define internal fastcc noalias noundef ptr @quote_makefile(ptr nocapture noundef readonly %s) unnamed_addr #10 {
 entry:
-  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %s) #18
+  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %s) #19
   %mul = shl i64 %call, 1
   %add = or disjoint i64 %mul, 1
-  %call1 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %add) #22
+  %call1 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %add) #24
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc41, %entry
@@ -2288,11 +2288,11 @@ for.end43:                                        ; preds = %for.cond
 
 declare void @hashmap_test() local_unnamed_addr #3
 
-; Function Attrs: noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #9
+; Function Attrs: nofree noreturn nounwind
+declare void @exit(i32 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #1
@@ -2306,28 +2306,28 @@ declare void @define_macro(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare noalias ptr @strndup(ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #12
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind
-declare ptr @dirname(ptr noundef) local_unnamed_addr #13
+declare ptr @dirname(ptr noundef) local_unnamed_addr #14
 
 declare ptr @search_include_paths(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
-declare ptr @strerror(i32 noundef) local_unnamed_addr #13
+declare ptr @strerror(i32 noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #14
+declare ptr @__errno_location() local_unnamed_addr #15
 
 declare ptr @preprocess(ptr noundef) local_unnamed_addr #3
 
 declare ptr @parse(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
-declare noalias ptr @open_memstream(ptr noundef, ptr noundef) local_unnamed_addr #13
+declare noalias ptr @open_memstream(ptr noundef, ptr noundef) local_unnamed_addr #14
 
 declare void @codegen(ptr noundef, ptr noundef) local_unnamed_addr #3
 
@@ -2345,7 +2345,7 @@ declare ptr @get_input_files() local_unnamed_addr #3
 declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare ptr @__xpg_basename(ptr noundef) local_unnamed_addr #13
+declare ptr @__xpg_basename(ptr noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #6
@@ -2360,7 +2360,7 @@ entry:
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr @stderr, align 8
   %1 = load ptr, ptr %argv, align 8
-  %fputs = tail call i32 @fputs(ptr %1, ptr %0) #19
+  %fputs = tail call i32 @fputs(ptr %1, ptr %0) #20
   %arrayidx19 = getelementptr inbounds i8, ptr %argv, i64 8
   %2 = load ptr, ptr %arrayidx19, align 8
   %tobool2.not10 = icmp eq ptr %2, null
@@ -2370,7 +2370,7 @@ for.body:                                         ; preds = %if.then, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 1, %if.then ]
   %3 = phi ptr [ %5, %for.body ], [ %2, %if.then ]
   %4 = load ptr, ptr @stderr, align 8
-  %call5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.86, ptr noundef nonnull %3) #19
+  %call5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.86, ptr noundef nonnull %3) #20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %arrayidx1 = getelementptr inbounds ptr, ptr %argv, i64 %indvars.iv.next
   %5 = load ptr, ptr %arrayidx1, align 8
@@ -2383,24 +2383,24 @@ for.end:                                          ; preds = %for.body, %if.then
   br label %if.end
 
 if.end:                                           ; preds = %for.end, %entry
-  %call7 = tail call i32 @fork() #17
+  %call7 = tail call i32 @fork() #18
   %cmp = icmp eq i32 %call7, 0
   br i1 %cmp, label %if.then8, label %while.cond
 
 if.then8:                                         ; preds = %if.end
   %7 = load ptr, ptr %argv, align 8
-  %call10 = tail call i32 @execvp(ptr noundef %7, ptr noundef nonnull %argv) #17
+  %call10 = tail call i32 @execvp(ptr noundef %7, ptr noundef nonnull %argv) #18
   %8 = load ptr, ptr @stderr, align 8
   %9 = load ptr, ptr %argv, align 8
-  %call12 = tail call ptr @__errno_location() #21
+  %call12 = tail call ptr @__errno_location() #23
   %10 = load i32, ptr %call12, align 4
-  %call13 = tail call ptr @strerror(i32 noundef %10) #17
-  %call14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.87, ptr noundef %9, ptr noundef %call13) #19
-  tail call void @_exit(i32 noundef 1) #20
+  %call13 = tail call ptr @strerror(i32 noundef %10) #18
+  %call14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.87, ptr noundef %9, ptr noundef %call13) #20
+  tail call void @_exit(i32 noundef 1) #22
   unreachable
 
 while.cond:                                       ; preds = %if.end, %while.cond
-  %call16 = call i32 @wait(ptr noundef nonnull %status) #17
+  %call16 = call i32 @wait(ptr noundef nonnull %status) #18
   %cmp17 = icmp sgt i32 %call16, 0
   br i1 %cmp17, label %while.cond, label %while.end, !llvm.loop !28
 
@@ -2410,7 +2410,7 @@ while.end:                                        ; preds = %while.cond
   br i1 %cmp18.not, label %if.end20, label %if.then19
 
 if.then19:                                        ; preds = %while.end
-  call void @exit(i32 noundef 1) #20
+  call void @exit(i32 noundef 1) #21
   unreachable
 
 if.end20:                                         ; preds = %while.end
@@ -2433,22 +2433,22 @@ declare i32 @mkstemp(ptr noundef) local_unnamed_addr #3
 declare i32 @close(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
-declare i32 @glob(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #13
+declare i32 @glob(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #14
 
 ; Function Attrs: nounwind
-declare void @globfree(ptr noundef) local_unnamed_addr #13
+declare void @globfree(ptr noundef) local_unnamed_addr #14
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #15
+declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #16
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputs(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #15
+declare noundef i32 @fputs(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
 
 attributes #0 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2461,18 +2461,20 @@ attributes #7 = { mustprogress nofree nounwind willreturn memory(argmem: readwri
 attributes #8 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { nofree nounwind memory(write, argmem: read, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { nofree nounwind }
-attributes #16 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #17 = { nounwind }
-attributes #18 = { nounwind willreturn memory(read) }
-attributes #19 = { cold }
-attributes #20 = { noreturn nounwind }
-attributes #21 = { nounwind willreturn memory(none) }
-attributes #22 = { nounwind allocsize(0,1) }
+attributes #11 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #13 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { nofree nounwind }
+attributes #17 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #18 = { nounwind }
+attributes #19 = { nounwind willreturn memory(read) }
+attributes #20 = { cold }
+attributes #21 = { cold noreturn nounwind }
+attributes #22 = { noreturn nounwind }
+attributes #23 = { nounwind willreturn memory(none) }
+attributes #24 = { nounwind allocsize(0,1) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
 

@@ -79,13 +79,13 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef ptr @riscv_aclint_mtimer_create(i64 noundef %addr, i64 noundef %size, i32 noundef %hartid_base, i32 noundef %num_harts, i32 noundef %timecmp_base, i32 noundef %time_base, i32 noundef %timebase_freq, i1 noundef zeroext %provide_rdtime) local_unnamed_addr #0 {
 entry:
-  %call = tail call ptr @qdev_new(ptr noundef nonnull @.str) #5
-  %call1 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 359, ptr noundef nonnull @__func__.riscv_aclint_mtimer_create) #5
+  %call = tail call ptr @qdev_new(ptr noundef nonnull @.str) #6
+  %call1 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 359, ptr noundef nonnull @__func__.riscv_aclint_mtimer_create) #6
   %cmp = icmp ult i32 %num_harts, 4096
   br i1 %cmp, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 361, ptr noundef nonnull @__PRETTY_FUNCTION__.riscv_aclint_mtimer_create) #6
+  tail call void @__assert_fail(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 361, ptr noundef nonnull @__PRETTY_FUNCTION__.riscv_aclint_mtimer_create) #7
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -94,7 +94,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.end4, label %if.else3
 
 if.else3:                                         ; preds = %if.end
-  tail call void @__assert_fail(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 362, ptr noundef nonnull @__PRETTY_FUNCTION__.riscv_aclint_mtimer_create) #6
+  tail call void @__assert_fail(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 362, ptr noundef nonnull @__PRETTY_FUNCTION__.riscv_aclint_mtimer_create) #7
   unreachable
 
 if.end4:                                          ; preds = %if.end
@@ -103,7 +103,7 @@ if.end4:                                          ; preds = %if.end
   br i1 %tobool6.not, label %if.end9, label %if.else8
 
 if.else8:                                         ; preds = %if.end4
-  tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 363, ptr noundef nonnull @__PRETTY_FUNCTION__.riscv_aclint_mtimer_create) #6
+  tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 363, ptr noundef nonnull @__PRETTY_FUNCTION__.riscv_aclint_mtimer_create) #7
   unreachable
 
 if.end9:                                          ; preds = %if.end4
@@ -112,21 +112,21 @@ if.end9:                                          ; preds = %if.end4
   br i1 %tobool11.not, label %if.end14, label %if.else13
 
 if.else13:                                        ; preds = %if.end9
-  tail call void @__assert_fail(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 364, ptr noundef nonnull @__PRETTY_FUNCTION__.riscv_aclint_mtimer_create) #6
+  tail call void @__assert_fail(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 364, ptr noundef nonnull @__PRETTY_FUNCTION__.riscv_aclint_mtimer_create) #7
   unreachable
 
 if.end14:                                         ; preds = %if.end9
-  tail call void @qdev_prop_set_uint32(ptr noundef %call, ptr noundef nonnull @.str.6, i32 noundef %hartid_base) #5
-  tail call void @qdev_prop_set_uint32(ptr noundef %call, ptr noundef nonnull @.str.7, i32 noundef %num_harts) #5
-  tail call void @qdev_prop_set_uint32(ptr noundef %call, ptr noundef nonnull @.str.8, i32 noundef %timecmp_base) #5
-  tail call void @qdev_prop_set_uint32(ptr noundef %call, ptr noundef nonnull @.str.9, i32 noundef %time_base) #5
+  tail call void @qdev_prop_set_uint32(ptr noundef %call, ptr noundef nonnull @.str.6, i32 noundef %hartid_base) #6
+  tail call void @qdev_prop_set_uint32(ptr noundef %call, ptr noundef nonnull @.str.7, i32 noundef %num_harts) #6
+  tail call void @qdev_prop_set_uint32(ptr noundef %call, ptr noundef nonnull @.str.8, i32 noundef %timecmp_base) #6
+  tail call void @qdev_prop_set_uint32(ptr noundef %call, ptr noundef nonnull @.str.9, i32 noundef %time_base) #6
   %conv = trunc i64 %size to i32
-  tail call void @qdev_prop_set_uint32(ptr noundef %call, ptr noundef nonnull @.str.10, i32 noundef %conv) #5
-  tail call void @qdev_prop_set_uint32(ptr noundef %call, ptr noundef nonnull @.str.11, i32 noundef %timebase_freq) #5
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #5
-  %call16 = tail call zeroext i1 @sysbus_realize_and_unref(ptr noundef %call.i, ptr noundef nonnull @error_fatal) #5
-  %call.i32 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #5
-  tail call void @sysbus_mmio_map(ptr noundef %call.i32, i32 noundef 0, i64 noundef %addr) #5
+  tail call void @qdev_prop_set_uint32(ptr noundef %call, ptr noundef nonnull @.str.10, i32 noundef %conv) #6
+  tail call void @qdev_prop_set_uint32(ptr noundef %call, ptr noundef nonnull @.str.11, i32 noundef %timebase_freq) #6
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #6
+  %call16 = tail call zeroext i1 @sysbus_realize_and_unref(ptr noundef %call.i, ptr noundef nonnull @error_fatal) #6
+  %call.i32 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #6
+  tail call void @sysbus_mmio_map(ptr noundef %call.i32, i32 noundef 0, i64 noundef %addr) #6
   %cmp1839.not = icmp eq i32 %num_harts, 0
   br i1 %cmp1839.not, label %for.end, label %for.body.lr.ph
 
@@ -141,48 +141,48 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %0 = trunc nuw nsw i64 %indvars.iv to i32
   %add = add i32 %0, %hartid_base
   %conv20 = zext i32 %add to i64
-  %call21 = tail call ptr @cpu_by_arch_id(i64 noundef %conv20) #5
-  %call.i33 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call21, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU) #5
+  %call21 = tail call ptr @cpu_by_arch_id(i64 noundef %conv20) #6
+  %call.i33 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call21, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU) #6
   %tobool23.not = icmp eq ptr %call21, null
   br i1 %tobool23.not, label %cond.end.thread, label %cond.end
 
 cond.end.thread:                                  ; preds = %for.body
-  %call2536 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #7
+  %call2536 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #8
   br label %if.then27
 
 cond.end:                                         ; preds = %for.body
   %add.ptr.i = getelementptr i8, ptr %call21, i64 10176
-  %call25 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #7
+  %call25 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #8
   %tobool26.not = icmp eq ptr %add.ptr.i, null
   br i1 %tobool26.not, label %if.then27, label %if.end28
 
 if.then27:                                        ; preds = %cond.end.thread, %cond.end
   %call2538 = phi ptr [ %call2536, %cond.end.thread ], [ %call25, %cond.end ]
-  tail call void @g_free(ptr noundef %call2538) #5
+  tail call void @g_free(ptr noundef %call2538) #6
   br label %for.inc
 
 if.end28:                                         ; preds = %cond.end
   br i1 %provide_rdtime, label %if.then30, label %if.end31
 
 if.then30:                                        ; preds = %if.end28
-  tail call void @riscv_cpu_set_rdtime_fn(ptr noundef nonnull %add.ptr.i, ptr noundef nonnull @cpu_riscv_read_rtc, ptr noundef %call) #5
+  tail call void @riscv_cpu_set_rdtime_fn(ptr noundef nonnull %add.ptr.i, ptr noundef nonnull @cpu_riscv_read_rtc, ptr noundef %call) #6
   br label %if.end31
 
 if.end31:                                         ; preds = %if.then30, %if.end28
   store ptr %call1, ptr %call25, align 8
   %num = getelementptr inbounds i8, ptr %call25, i64 8
   store i32 %0, ptr %num, align 8
-  %call.i.i.i = tail call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #7
-  tail call void @timer_init_full(ptr noundef %call.i.i.i, ptr noundef null, i32 noundef 1, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @riscv_aclint_mtimer_cb, ptr noundef nonnull %call25) #5
+  %call.i.i.i = tail call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #8
+  tail call void @timer_init_full(ptr noundef %call.i.i.i, ptr noundef null, i32 noundef 1, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @riscv_aclint_mtimer_cb, ptr noundef nonnull %call25) #6
   %1 = load ptr, ptr %timers, align 16
   %arrayidx = getelementptr ptr, ptr %1, i64 %indvars.iv
   store ptr %call.i.i.i, ptr %arrayidx, align 8
   %2 = load ptr, ptr %timecmp, align 8
   %arrayidx35 = getelementptr i64, ptr %2, i64 %indvars.iv
   store i64 0, ptr %arrayidx35, align 8
-  %call.i34 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i33, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #5
-  %call37 = tail call ptr @qdev_get_gpio_in(ptr noundef %call.i34, i32 noundef 7) #5
-  tail call void @qdev_connect_gpio_out(ptr noundef %call, i32 noundef %0, ptr noundef %call37) #5
+  %call.i34 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i33, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #6
+  %call37 = tail call ptr @qdev_get_gpio_in(ptr noundef %call.i34, i32 noundef 7) #6
+  tail call void @qdev_connect_gpio_out(ptr noundef %call, i32 noundef %0, ptr noundef %call37) #6
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end31, %if.then27
@@ -221,7 +221,7 @@ define internal i64 @cpu_riscv_read_rtc(ptr nocapture noundef readonly %opaque) 
 entry:
   %timebase_freq = getelementptr inbounds i8, ptr %opaque, i64 1140
   %0 = load i32, ptr %timebase_freq, align 4
-  %call.i = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #5
+  %call.i = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #6
   %conv.i.i = zext i64 %call.i to i128
   %conv1.i.i = zext i32 %0 to i128
   %mul.i.i = mul nuw nsw i128 %conv.i.i, %conv1.i.i
@@ -244,7 +244,7 @@ entry:
   %idxprom = sext i32 %2 to i64
   %arrayidx = getelementptr ptr, ptr %1, i64 %idxprom
   %3 = load ptr, ptr %arrayidx, align 8
-  tail call void @qemu_set_irq(ptr noundef %3, i32 noundef 1) #5
+  tail call void @qemu_set_irq(ptr noundef %3, i32 noundef 1) #6
   ret void
 }
 
@@ -255,12 +255,12 @@ declare ptr @qdev_get_gpio_in(ptr noundef, i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @riscv_aclint_swi_create(i64 noundef %addr, i32 noundef %hartid_base, i32 noundef %num_harts, i1 noundef zeroext %sswi) local_unnamed_addr #0 {
 entry:
-  %call = tail call ptr @qdev_new(ptr noundef nonnull @.str.12) #5
+  %call = tail call ptr @qdev_new(ptr noundef nonnull @.str.12) #6
   %cmp = icmp ult i32 %num_harts, 4096
   br i1 %cmp, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 539, ptr noundef nonnull @__PRETTY_FUNCTION__.riscv_aclint_swi_create) #6
+  tail call void @__assert_fail(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 539, ptr noundef nonnull @__PRETTY_FUNCTION__.riscv_aclint_swi_create) #7
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -269,18 +269,18 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.end3, label %if.else2
 
 if.else2:                                         ; preds = %if.end
-  tail call void @__assert_fail(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.1, i32 noundef 540, ptr noundef nonnull @__PRETTY_FUNCTION__.riscv_aclint_swi_create) #6
+  tail call void @__assert_fail(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.1, i32 noundef 540, ptr noundef nonnull @__PRETTY_FUNCTION__.riscv_aclint_swi_create) #7
   unreachable
 
 if.end3:                                          ; preds = %if.end
-  tail call void @qdev_prop_set_uint32(ptr noundef %call, ptr noundef nonnull @.str.6, i32 noundef %hartid_base) #5
-  tail call void @qdev_prop_set_uint32(ptr noundef %call, ptr noundef nonnull @.str.7, i32 noundef %num_harts) #5
+  tail call void @qdev_prop_set_uint32(ptr noundef %call, ptr noundef nonnull @.str.6, i32 noundef %hartid_base) #6
+  tail call void @qdev_prop_set_uint32(ptr noundef %call, ptr noundef nonnull @.str.7, i32 noundef %num_harts) #6
   %cond = zext i1 %sswi to i32
-  tail call void @qdev_prop_set_uint32(ptr noundef %call, ptr noundef nonnull @.str.14, i32 noundef %cond) #5
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #5
-  %call6 = tail call zeroext i1 @sysbus_realize_and_unref(ptr noundef %call.i, ptr noundef nonnull @error_fatal) #5
-  %call.i15 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #5
-  tail call void @sysbus_mmio_map(ptr noundef %call.i15, i32 noundef 0, i64 noundef %addr) #5
+  tail call void @qdev_prop_set_uint32(ptr noundef %call, ptr noundef nonnull @.str.14, i32 noundef %cond) #6
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #6
+  %call6 = tail call zeroext i1 @sysbus_realize_and_unref(ptr noundef %call.i, ptr noundef nonnull @error_fatal) #6
+  %call.i15 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #6
+  tail call void @sysbus_mmio_map(ptr noundef %call.i15, i32 noundef 0, i64 noundef %addr) #6
   %cmp818.not = icmp eq i32 %num_harts, 0
   br i1 %cmp818.not, label %for.end, label %for.body.lr.ph
 
@@ -294,11 +294,11 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %0 = trunc nuw nsw i64 %indvars.iv to i32
   %add = add i32 %0, %hartid_base
   %conv = zext i32 %add to i64
-  %call9 = tail call ptr @cpu_by_arch_id(i64 noundef %conv) #5
-  %call.i16 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call9, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU) #5
-  %call.i17 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i16, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #5
-  %call15 = tail call ptr @qdev_get_gpio_in(ptr noundef %call.i17, i32 noundef %cond14) #5
-  tail call void @qdev_connect_gpio_out(ptr noundef %call, i32 noundef %0, ptr noundef %call15) #5
+  %call9 = tail call ptr @cpu_by_arch_id(i64 noundef %conv) #6
+  %call.i16 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call9, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU) #6
+  %call.i17 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i16, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #6
+  %call15 = tail call ptr @qdev_get_gpio_in(ptr noundef %call.i17, i32 noundef %cond14) #6
+  tail call void @qdev_connect_gpio_out(ptr noundef %call, i32 noundef %0, ptr noundef %call15) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !7
@@ -310,7 +310,7 @@ for.end:                                          ; preds = %for.body, %if.end3
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @do_qemu_init_riscv_aclint_register_types() #0 {
 entry:
-  tail call void @register_module_init(ptr noundef nonnull @riscv_aclint_register_types, i32 noundef 3) #5
+  tail call void @register_module_init(ptr noundef nonnull @riscv_aclint_register_types, i32 noundef 3) #6
   ret void
 }
 
@@ -319,8 +319,8 @@ declare void @register_module_init(ptr noundef, i32 noundef) local_unnamed_addr 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @riscv_aclint_register_types() #0 {
 entry:
-  %call = tail call ptr @type_register_static(ptr noundef nonnull @riscv_aclint_mtimer_info) #5
-  %call1 = tail call ptr @type_register_static(ptr noundef nonnull @riscv_aclint_swi_info) #5
+  %call = tail call ptr @type_register_static(ptr noundef nonnull @riscv_aclint_mtimer_info) #6
+  %call1 = tail call ptr @type_register_static(ptr noundef nonnull @riscv_aclint_swi_info) #6
   ret void
 }
 
@@ -335,11 +335,11 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @riscv_aclint_mtimer_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
 entry:
-  %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #5
+  %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #6
   %realize = getelementptr inbounds i8, ptr %call.i, i64 144
   store ptr @riscv_aclint_mtimer_realize, ptr %realize, align 8
-  tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @riscv_aclint_mtimer_properties) #5
-  %call.i4 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.29, i32 noundef 22, ptr noundef nonnull @__func__.RESETTABLE_CLASS) #5
+  tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @riscv_aclint_mtimer_properties) #6
+  %call.i4 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.29, i32 noundef 22, ptr noundef nonnull @__func__.RESETTABLE_CLASS) #6
   %phases = getelementptr inbounds i8, ptr %call.i4, i64 112
   store ptr @riscv_aclint_mtimer_reset_enter, ptr %phases, align 8
   %vmsd = getelementptr inbounds i8, ptr %call.i, i64 160
@@ -350,30 +350,30 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @riscv_aclint_mtimer_realize(ptr noundef %dev, ptr nocapture readnone %errp) #0 {
 entry:
-  %call = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 282, ptr noundef nonnull @__func__.riscv_aclint_mtimer_realize) #5
+  %call = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 282, ptr noundef nonnull @__func__.riscv_aclint_mtimer_realize) #6
   %mmio = getelementptr inbounds i8, ptr %call, i64 848
   %aperture_size = getelementptr inbounds i8, ptr %call, i64 1136
   %0 = load i32, ptr %aperture_size, align 16
   %conv = zext i32 %0 to i64
-  tail call void @memory_region_init_io(ptr noundef nonnull %mmio, ptr noundef %dev, ptr noundef nonnull @riscv_aclint_mtimer_ops, ptr noundef %call, ptr noundef nonnull @.str, i64 noundef %conv) #5
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #5
-  tail call void @sysbus_init_mmio(ptr noundef %call.i, ptr noundef nonnull %mmio) #5
+  tail call void @memory_region_init_io(ptr noundef nonnull %mmio, ptr noundef %dev, ptr noundef nonnull @riscv_aclint_mtimer_ops, ptr noundef %call, ptr noundef nonnull @.str, i64 noundef %conv) #6
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #6
+  tail call void @sysbus_init_mmio(ptr noundef %call.i, ptr noundef nonnull %mmio) #6
   %num_harts = getelementptr inbounds i8, ptr %call, i64 1124
   %1 = load i32, ptr %num_harts, align 4
   %conv3 = zext i32 %1 to i64
-  %call4 = tail call noalias ptr @g_malloc_n(i64 noundef %conv3, i64 noundef 8) #7
+  %call4 = tail call noalias ptr @g_malloc_n(i64 noundef %conv3, i64 noundef 8) #8
   %timer_irqs = getelementptr inbounds i8, ptr %call, i64 1144
   store ptr %call4, ptr %timer_irqs, align 8
   %2 = load i32, ptr %num_harts, align 4
-  tail call void @qdev_init_gpio_out(ptr noundef %dev, ptr noundef %call4, i32 noundef %2) #5
+  tail call void @qdev_init_gpio_out(ptr noundef %dev, ptr noundef %call4, i32 noundef %2) #6
   %3 = load i32, ptr %num_harts, align 4
   %conv8 = zext i32 %3 to i64
-  %call9 = tail call noalias ptr @g_malloc0_n(i64 noundef %conv8, i64 noundef 8) #7
+  %call9 = tail call noalias ptr @g_malloc0_n(i64 noundef %conv8, i64 noundef 8) #8
   %timers = getelementptr inbounds i8, ptr %call, i64 832
   store ptr %call9, ptr %timers, align 16
   %4 = load i32, ptr %num_harts, align 4
   %conv11 = zext i32 %4 to i64
-  %call12 = tail call noalias ptr @g_malloc0_n(i64 noundef %conv11, i64 noundef 8) #7
+  %call12 = tail call noalias ptr @g_malloc0_n(i64 noundef %conv11, i64 noundef 8) #8
   %timecmp = getelementptr inbounds i8, ptr %call, i64 824
   store ptr %call12, ptr %timecmp, align 8
   %5 = load i32, ptr %num_harts, align 4
@@ -395,15 +395,15 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %7 = load i32, ptr %hartid_base, align 16
   %add = add i32 %7, %i.021
   %conv15 = zext i32 %add to i64
-  %call16 = tail call ptr @cpu_by_arch_id(i64 noundef %conv15) #5
-  %call.i19 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call16, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU) #5
-  %call18 = tail call i32 @riscv_cpu_claim_interrupts(ptr noundef %call.i19, i64 noundef 128) #5
+  %call16 = tail call ptr @cpu_by_arch_id(i64 noundef %conv15) #6
+  %call.i19 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call16, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU) #6
+  %call18 = tail call i32 @riscv_cpu_claim_interrupts(ptr noundef %call.i19, i64 noundef 128) #6
   %cmp19 = icmp slt i32 %call18, 0
   br i1 %cmp19, label %if.then, label %for.cond
 
 if.then:                                          ; preds = %for.body
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.21) #5
-  tail call void @exit(i32 noundef 1) #6
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.21) #6
+  tail call void @exit(i32 noundef 1) #9
   unreachable
 
 for.end:                                          ; preds = %for.cond, %entry
@@ -415,7 +415,7 @@ declare void @device_class_set_props(ptr noundef, ptr noundef) local_unnamed_add
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @riscv_aclint_mtimer_reset_enter(ptr noundef %obj, i32 %type) #0 {
 entry:
-  %call = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 311, ptr noundef nonnull @__func__.riscv_aclint_mtimer_reset_enter) #5
+  %call = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 311, ptr noundef nonnull @__func__.riscv_aclint_mtimer_reset_enter) #6
   %time_base = getelementptr inbounds i8, ptr %call, i64 1132
   %0 = load i32, ptr %time_base, align 4
   %conv = zext i32 %0 to i64
@@ -438,8 +438,8 @@ declare i32 @riscv_cpu_claim_interrupts(ptr noundef, i64 noundef) local_unnamed_
 
 declare void @error_report(ptr noundef, ...) local_unnamed_addr #1
 
-; Function Attrs: noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #2
+; Function Attrs: nofree noreturn nounwind
+declare void @exit(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @riscv_aclint_mtimer_read(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i32 noundef %size) #0 {
@@ -466,7 +466,7 @@ if.then:                                          ; preds = %land.lhs.true
   %sub = sub nsw i64 %addr, %conv
   %shr = lshr i64 %sub, 3
   %add9 = add nuw nsw i64 %shr, %conv6
-  %call = tail call ptr @cpu_by_arch_id(i64 noundef %add9) #5
+  %call = tail call ptr @cpu_by_arch_id(i64 noundef %add9) #6
   %tobool.not = icmp eq ptr %call, null
   %add.ptr.i = getelementptr i8, ptr %call, i64 10176
   %3 = icmp eq ptr %add.ptr.i, null
@@ -480,7 +480,7 @@ do.body:                                          ; preds = %if.then
   br i1 %cmp.i.not, label %do.body79, label %if.then17
 
 if.then17:                                        ; preds = %do.body
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.22, i64 noundef %add9) #5
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.22, i64 noundef %add9) #6
   br label %do.body79
 
 if.else:                                          ; preds = %if.then
@@ -516,7 +516,7 @@ do.body40:                                        ; preds = %if.else
 
 if.then48:                                        ; preds = %do.body40
   %conv49 = trunc nuw i64 %addr to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.23, i32 noundef %conv49) #5
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.23, i32 noundef %conv49) #6
   br label %return
 
 if.else53:                                        ; preds = %land.lhs.true, %entry
@@ -529,7 +529,7 @@ if.else53:                                        ; preds = %land.lhs.true, %ent
 if.then57:                                        ; preds = %if.else53
   %timebase_freq.i = getelementptr inbounds i8, ptr %opaque, i64 1140
   %11 = load i32, ptr %timebase_freq.i, align 4
-  %call.i.i = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #5
+  %call.i.i = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #6
   %conv.i.i.i = zext i64 %call.i.i to i128
   %conv1.i.i.i = zext i32 %11 to i128
   %mul.i.i.i = mul nuw nsw i128 %conv.i.i.i, %conv1.i.i.i
@@ -552,7 +552,7 @@ if.else66:                                        ; preds = %if.else53
 if.then72:                                        ; preds = %if.else66
   %timebase_freq.i28 = getelementptr inbounds i8, ptr %opaque, i64 1140
   %13 = load i32, ptr %timebase_freq.i28, align 4
-  %call.i.i29 = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #5
+  %call.i.i29 = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #6
   %conv.i.i.i30 = zext i64 %call.i.i29 to i128
   %conv1.i.i.i31 = zext i32 %13 to i128
   %mul.i.i.i32 = mul nuw nsw i128 %conv.i.i.i30, %conv1.i.i.i31
@@ -572,7 +572,7 @@ do.body79:                                        ; preds = %if.then17, %do.body
 
 if.then87:                                        ; preds = %do.body79
   %conv88 = trunc i64 %addr to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.23, i32 noundef %conv88) #5
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.23, i32 noundef %conv88) #6
   br label %return
 
 return:                                           ; preds = %if.then87, %do.body79, %if.then48, %do.body40, %if.then72, %if.then57, %if.then33, %if.then20
@@ -605,7 +605,7 @@ if.then:                                          ; preds = %land.lhs.true
   %sub = sub nsw i64 %addr, %conv
   %shr = lshr i64 %sub, 3
   %add9 = add nuw nsw i64 %shr, %conv6
-  %call = tail call ptr @cpu_by_arch_id(i64 noundef %add9) #5
+  %call = tail call ptr @cpu_by_arch_id(i64 noundef %add9) #6
   %tobool.not = icmp eq ptr %call, null
   %add.ptr.i = getelementptr i8, ptr %call, i64 10176
   %3 = icmp eq ptr %add.ptr.i, null
@@ -619,7 +619,7 @@ do.body:                                          ; preds = %if.then
   br i1 %cmp.i.not, label %do.end165, label %if.then17
 
 if.then17:                                        ; preds = %do.body
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.22, i64 noundef %add9) #5
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.22, i64 noundef %add9) #6
   br label %do.end165
 
 if.else:                                          ; preds = %if.then
@@ -639,7 +639,7 @@ if.then23:                                        ; preds = %if.then20
   %arrayidx = getelementptr i64, ptr %5, i64 %add9
   %6 = load i64, ptr %arrayidx, align 8
   %shr24 = and i64 %6, -4294967296
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU) #5
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU) #6
   %conv26 = trunc i64 %add9 to i32
   %and28 = and i64 %value, 4294967295
   %or = or disjoint i64 %shr24, %and28
@@ -647,7 +647,7 @@ if.then23:                                        ; preds = %if.then20
   br label %do.end165
 
 if.else29:                                        ; preds = %if.then20
-  %call.i61 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU) #5
+  %call.i61 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU) #6
   %conv31 = trunc i64 %add9 to i32
   tail call fastcc void @riscv_aclint_mtimer_write_timecmp(ptr noundef nonnull %opaque, i32 noundef %conv31, i64 noundef %value)
   br label %do.end165
@@ -661,7 +661,7 @@ if.then40:                                        ; preds = %if.then37
   %7 = load ptr, ptr %timecmp41, align 8
   %arrayidx42 = getelementptr i64, ptr %7, i64 %add9
   %8 = load i64, ptr %arrayidx42, align 8
-  %call.i62 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU) #5
+  %call.i62 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU) #6
   %conv44 = trunc i64 %add9 to i32
   %shl45 = shl i64 %value, 32
   %and46 = and i64 %8, 4294967295
@@ -677,7 +677,7 @@ do.body49:                                        ; preds = %if.then37
 
 if.then57:                                        ; preds = %do.body49
   %conv58 = trunc nuw i64 %addr to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.24, i32 noundef %conv58) #5
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.24, i32 noundef %conv58) #6
   br label %do.end165
 
 do.body63:                                        ; preds = %if.else
@@ -688,7 +688,7 @@ do.body63:                                        ; preds = %if.else
 
 if.then71:                                        ; preds = %do.body63
   %conv72 = trunc nuw i64 %addr to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.25, i32 noundef %conv72) #5
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.25, i32 noundef %conv72) #6
   br label %do.end165
 
 if.else78:                                        ; preds = %land.lhs.true, %entry
@@ -705,14 +705,14 @@ if.else78:                                        ; preds = %land.lhs.true, %ent
 if.then87:                                        ; preds = %if.else78
   %timebase_freq = getelementptr inbounds i8, ptr %opaque, i64 1140
   %12 = load i32, ptr %timebase_freq, align 4
-  %call.i67 = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #5
+  %call.i67 = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #6
   %conv.i.i = zext i64 %call.i67 to i128
   %conv1.i.i = zext i32 %12 to i128
   %mul.i.i = mul nuw nsw i128 %conv.i.i, %conv1.i.i
   %div.i.i = udiv i128 %mul.i.i, 1000000000
   %conv3.i.i = trunc i128 %div.i.i to i64
   %13 = load i32, ptr %timebase_freq, align 4
-  %call.i.i = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #5
+  %call.i.i = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #6
   %conv.i.i.i = zext i64 %call.i.i to i128
   %conv1.i.i.i = zext i32 %13 to i128
   %mul.i.i.i = mul nuw nsw i128 %conv.i.i.i, %conv1.i.i.i
@@ -758,7 +758,7 @@ do.body115:                                       ; preds = %if.else105
 
 if.then123:                                       ; preds = %do.body115
   %conv124 = trunc i64 %addr to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.26, i32 noundef %conv124) #5
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.26, i32 noundef %conv124) #6
   br label %do.end165
 
 if.end128:                                        ; preds = %if.then97, %if.else101, %if.then108
@@ -779,7 +779,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %18 = load i32, ptr %hartid_base133, align 16
   %add134 = add i32 %18, %i.079
   %conv135 = zext i32 %add134 to i64
-  %call136 = tail call ptr @cpu_by_arch_id(i64 noundef %conv135) #5
+  %call136 = tail call ptr @cpu_by_arch_id(i64 noundef %conv135) #6
   %tobool138.not = icmp eq ptr %call136, null
   %add.ptr.i70 = getelementptr i8, ptr %call136, i64 10176
   %tobool144.not = icmp eq ptr %add.ptr.i70, null
@@ -787,7 +787,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %or.cond77, label %for.inc, label %if.end146
 
 if.end146:                                        ; preds = %for.body
-  %call.i71 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call136, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU) #5
+  %call.i71 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call136, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU) #6
   %19 = load i32, ptr %hartid_base133, align 16
   %add149 = add i32 %19, %i.079
   %20 = load ptr, ptr %timecmp150, align 8
@@ -811,7 +811,7 @@ do.body154:                                       ; preds = %if.else78
 
 if.then162:                                       ; preds = %do.body154
   %conv163 = trunc i64 %addr to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.27, i32 noundef %conv163) #5
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.27, i32 noundef %conv163) #6
   br label %do.end165
 
 do.end165:                                        ; preds = %for.inc, %if.end128, %do.body154, %if.then162, %if.then123, %do.body115, %do.body, %if.then17, %if.then57, %do.body49, %if.then40, %do.body63, %if.then71, %if.then23, %if.else29
@@ -825,7 +825,7 @@ define internal fastcc void @riscv_aclint_mtimer_write_timecmp(ptr nocapture nou
 entry:
   %timebase_freq1 = getelementptr inbounds i8, ptr %mtimer, i64 1140
   %0 = load i32, ptr %timebase_freq1, align 4
-  %call.i.i = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #5
+  %call.i.i = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #6
   %conv.i.i.i = zext i64 %call.i.i to i128
   %conv1.i.i.i = zext i32 %0 to i128
   %mul.i.i.i = mul nuw nsw i128 %conv.i.i.i, %conv1.i.i.i
@@ -853,11 +853,11 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call void @qemu_set_irq(ptr noundef %7, i32 noundef 1) #5
+  tail call void @qemu_set_irq(ptr noundef %7, i32 noundef 1) #6
   br label %return
 
 if.end:                                           ; preds = %entry
-  tail call void @qemu_set_irq(ptr noundef %7, i32 noundef 0) #5
+  tail call void @qemu_set_irq(ptr noundef %7, i32 noundef 0) #6
   %8 = load ptr, ptr %timecmp, align 8
   %arrayidx12 = getelementptr i64, ptr %8, i64 %idxprom
   %9 = load i64, ptr %arrayidx12, align 8
@@ -880,7 +880,7 @@ lor.lhs.false:                                    ; preds = %if.end
   br i1 %cmp19.old, label %if.end25, label %if.else
 
 if.else:                                          ; preds = %land.lhs.true, %lor.lhs.false
-  %call22 = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #5
+  %call22 = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #6
   %add = add i64 %call22, %conv3.i
   %cond = tail call i64 @llvm.umin.i64(i64 %add, i64 9223372036854775807)
   br label %if.end25
@@ -891,7 +891,7 @@ if.end25:                                         ; preds = %land.lhs.true, %lor
   %10 = load ptr, ptr %timers, align 16
   %arrayidx27 = getelementptr ptr, ptr %10, i64 %idxprom
   %11 = load ptr, ptr %arrayidx27, align 8
-  tail call void @timer_mod(ptr noundef %11, i64 noundef %next.0) #5
+  tail call void @timer_mod(ptr noundef %11, i64 noundef %next.0) #6
   br label %return
 
 return:                                           ; preds = %if.end25, %if.then
@@ -903,11 +903,11 @@ declare void @timer_mod(ptr noundef, i64 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @riscv_aclint_swi_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
 entry:
-  %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #5
+  %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #6
   %realize = getelementptr inbounds i8, ptr %call.i, i64 144
   store ptr @riscv_aclint_swi_realize, ptr %realize, align 8
-  tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @riscv_aclint_swi_properties) #5
-  %call.i3 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.29, i32 noundef 22, ptr noundef nonnull @__func__.RESETTABLE_CLASS) #5
+  tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @riscv_aclint_swi_properties) #6
+  %call.i3 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.29, i32 noundef 22, ptr noundef nonnull @__func__.RESETTABLE_CLASS) #6
   %phases = getelementptr inbounds i8, ptr %call.i3, i64 112
   store ptr @riscv_aclint_swi_reset_enter, ptr %phases, align 8
   ret void
@@ -916,19 +916,19 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @riscv_aclint_swi_realize(ptr noundef %dev, ptr nocapture readnone %errp) #0 {
 entry:
-  %call = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.1, i32 noundef 474, ptr noundef nonnull @__func__.riscv_aclint_swi_realize) #5
+  %call = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.1, i32 noundef 474, ptr noundef nonnull @__func__.riscv_aclint_swi_realize) #6
   %mmio = getelementptr inbounds i8, ptr %call, i64 816
-  tail call void @memory_region_init_io(ptr noundef nonnull %mmio, ptr noundef %dev, ptr noundef nonnull @riscv_aclint_swi_ops, ptr noundef %call, ptr noundef nonnull @.str.12, i64 noundef 16384) #5
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #5
-  tail call void @sysbus_init_mmio(ptr noundef %call.i, ptr noundef nonnull %mmio) #5
+  tail call void @memory_region_init_io(ptr noundef nonnull %mmio, ptr noundef %dev, ptr noundef nonnull @riscv_aclint_swi_ops, ptr noundef %call, ptr noundef nonnull @.str.12, i64 noundef 16384) #6
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #6
+  tail call void @sysbus_init_mmio(ptr noundef %call.i, ptr noundef nonnull %mmio) #6
   %num_harts = getelementptr inbounds i8, ptr %call, i64 1092
   %0 = load i32, ptr %num_harts, align 4
   %conv = zext i32 %0 to i64
-  %call3 = tail call noalias ptr @g_malloc_n(i64 noundef %conv, i64 noundef 8) #7
+  %call3 = tail call noalias ptr @g_malloc_n(i64 noundef %conv, i64 noundef 8) #8
   %soft_irqs = getelementptr inbounds i8, ptr %call, i64 1104
   store ptr %call3, ptr %soft_irqs, align 16
   %1 = load i32, ptr %num_harts, align 4
-  tail call void @qdev_init_gpio_out(ptr noundef %dev, ptr noundef %call3, i32 noundef %1) #5
+  tail call void @qdev_init_gpio_out(ptr noundef %dev, ptr noundef %call3, i32 noundef %1) #6
   %2 = load i32, ptr %num_harts, align 4
   %cmp16.not = icmp eq i32 %2, 0
   br i1 %cmp16.not, label %for.end, label %for.body.lr.ph
@@ -948,18 +948,18 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %i.017 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.cond ]
   %4 = load i32, ptr %hartid_base, align 16
   %add = add i32 %4, %i.017
-  %call8 = tail call ptr @qemu_get_cpu(i32 noundef %add) #5
-  %call.i15 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call8, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU) #5
+  %call8 = tail call ptr @qemu_get_cpu(i32 noundef %add) #6
+  %call.i15 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call8, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU) #6
   %5 = load i32, ptr %sswi, align 8
   %tobool.not = icmp eq i32 %5, 0
   %cond = select i1 %tobool.not, i64 8, i64 0
-  %call11 = tail call i32 @riscv_cpu_claim_interrupts(ptr noundef %call.i15, i64 noundef %cond) #5
+  %call11 = tail call i32 @riscv_cpu_claim_interrupts(ptr noundef %call.i15, i64 noundef %cond) #6
   %cmp12 = icmp slt i32 %call11, 0
   br i1 %cmp12, label %if.then, label %for.cond
 
 if.then:                                          ; preds = %for.body
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.32) #5
-  tail call void @exit(i32 noundef 1) #6
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.32) #6
+  tail call void @exit(i32 noundef 1) #9
   unreachable
 
 for.end:                                          ; preds = %for.cond, %entry
@@ -969,7 +969,7 @@ for.end:                                          ; preds = %for.cond, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @riscv_aclint_swi_reset_enter(ptr noundef %obj, i32 %type) #0 {
 entry:
-  %call = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.1, i32 noundef 503, ptr noundef nonnull @__func__.riscv_aclint_swi_reset_enter) #5
+  %call = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.1, i32 noundef 503, ptr noundef nonnull @__func__.riscv_aclint_swi_reset_enter) #6
   %sswi = getelementptr inbounds i8, ptr %call, i64 1096
   %0 = load i32, ptr %sswi, align 8
   %tobool.not = icmp eq i32 %0, 0
@@ -991,7 +991,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %idxprom = sext i32 %i.06 to i64
   %arrayidx = getelementptr ptr, ptr %2, i64 %idxprom
   %3 = load ptr, ptr %arrayidx, align 8
-  tail call void @qemu_set_irq(ptr noundef %3, i32 noundef 0) #5
+  tail call void @qemu_set_irq(ptr noundef %3, i32 noundef 0) #6
   %inc = add nuw i32 %i.06, 1
   %4 = load i32, ptr %num_harts, align 4
   %cmp = icmp ult i32 %inc, %4
@@ -1019,7 +1019,7 @@ if.then:                                          ; preds = %entry
   %conv2 = zext i32 %1 to i64
   %shr = lshr i64 %addr, 2
   %add = add nuw nsw i64 %shr, %conv2
-  %call = tail call ptr @cpu_by_arch_id(i64 noundef %add) #5
+  %call = tail call ptr @cpu_by_arch_id(i64 noundef %add) #6
   %tobool.not = icmp eq ptr %call, null
   %add.ptr.i = getelementptr i8, ptr %call, i64 10176
   %tobool4.not = icmp eq ptr %add.ptr.i, null
@@ -1033,7 +1033,7 @@ do.body:                                          ; preds = %if.then
   br i1 %cmp.i.not, label %do.body26, label %if.then10
 
 if.then10:                                        ; preds = %do.body
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.33, i64 noundef %add) #5
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.33, i64 noundef %add) #6
   br label %do.body26
 
 if.else:                                          ; preds = %if.then
@@ -1062,7 +1062,7 @@ do.body26:                                        ; preds = %entry, %if.else, %i
 
 if.then34:                                        ; preds = %do.body26
   %conv35 = trunc i64 %addr to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.34, i32 noundef %conv35) #5
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.34, i32 noundef %conv35) #6
   br label %return
 
 return:                                           ; preds = %if.then34, %do.body26, %cond.false16, %if.then13
@@ -1086,7 +1086,7 @@ if.then:                                          ; preds = %entry
   %conv2 = zext i32 %1 to i64
   %shr = lshr i64 %addr, 2
   %add = add nuw nsw i64 %shr, %conv2
-  %call = tail call ptr @cpu_by_arch_id(i64 noundef %add) #5
+  %call = tail call ptr @cpu_by_arch_id(i64 noundef %add) #6
   %tobool.not = icmp eq ptr %call, null
   %add.ptr.i = getelementptr i8, ptr %call, i64 10176
   %2 = icmp eq ptr %add.ptr.i, null
@@ -1100,7 +1100,7 @@ do.body:                                          ; preds = %if.then
   br i1 %cmp.i.not, label %do.body32, label %if.then10
 
 if.then10:                                        ; preds = %do.body
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.33, i64 noundef %add) #5
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.33, i64 noundef %add) #6
   br label %do.body32
 
 if.else:                                          ; preds = %if.then
@@ -1121,7 +1121,7 @@ if.then16:                                        ; preds = %if.then13
   %sub = sub nsw i64 %add, %conv18
   %arrayidx = getelementptr ptr, ptr %4, i64 %sub
   %6 = load ptr, ptr %arrayidx, align 8
-  tail call void @qemu_set_irq(ptr noundef %6, i32 noundef 1) #5
+  tail call void @qemu_set_irq(ptr noundef %6, i32 noundef 1) #6
   br label %do.end43
 
 if.else19:                                        ; preds = %if.then13
@@ -1138,7 +1138,7 @@ if.then21:                                        ; preds = %if.else19
   %sub25 = sub nsw i64 %add, %conv24
   %arrayidx26 = getelementptr ptr, ptr %8, i64 %sub25
   %10 = load ptr, ptr %arrayidx26, align 8
-  tail call void @qemu_set_irq(ptr noundef %10, i32 noundef 0) #5
+  tail call void @qemu_set_irq(ptr noundef %10, i32 noundef 0) #6
   br label %do.end43
 
 do.body32:                                        ; preds = %entry, %if.else, %if.then10, %do.body
@@ -1149,7 +1149,7 @@ do.body32:                                        ; preds = %entry, %if.else, %i
 
 if.then40:                                        ; preds = %do.body32
   %conv41 = trunc i64 %addr to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.35, i32 noundef %conv41) #5
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.35, i32 noundef %conv41) #6
   br label %do.end43
 
 do.end43:                                         ; preds = %do.body32, %if.then40, %if.then16, %if.then21, %if.else19
@@ -1157,16 +1157,18 @@ do.end43:                                         ; preds = %do.body32, %if.then
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #4
+declare i64 @llvm.umin.i64(i64, i64) #5
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nounwind }
-attributes #6 = { noreturn nounwind }
-attributes #7 = { nounwind allocsize(0,1) }
+attributes #4 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nounwind }
+attributes #7 = { noreturn nounwind }
+attributes #8 = { nounwind allocsize(0,1) }
+attributes #9 = { cold noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

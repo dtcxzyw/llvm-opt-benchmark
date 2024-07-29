@@ -321,7 +321,7 @@ hwloc_utils_check_api_version.exit:               ; preds = %2
 
 40:                                               ; preds = %38
   %41 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.33, ptr noundef %.0168, ptr noundef nonnull @.str.34)
-  tail call void @exit(i32 noundef 0) #26
+  tail call void @exit(i32 noundef 0) #27
   unreachable
 
 sub_1:                                            ; preds = %38
@@ -344,7 +344,7 @@ sub_1:                                            ; preds = %38
 48:                                               ; preds = %.tail.thread, %.tail
   %49 = load ptr, ptr @stdout, align 8
   tail call void @usage(ptr poison, ptr noundef %49)
-  tail call void @exit(i32 noundef 0) #26
+  tail call void @exit(i32 noundef 0) #27
   unreachable
 
 50:                                               ; preds = %.tail.thread
@@ -897,7 +897,7 @@ sub_1275:                                         ; preds = %sub_0274
 
 285:                                              ; preds = %283
   %286 = load ptr, ptr @stderr, align 8
-  %287 = tail call i64 @fwrite(ptr nonnull @.str.62, i64 48, i64 1, ptr %286) #27
+  %287 = tail call i64 @fwrite(ptr nonnull @.str.62, i64 48, i64 1, ptr %286) #28
   br label %548
 
 288:                                              ; preds = %283
@@ -932,7 +932,7 @@ sub_1275:                                         ; preds = %sub_0274
 
 300:                                              ; preds = %298
   %301 = load ptr, ptr @stderr, align 8
-  %302 = tail call i64 @fwrite(ptr nonnull @.str.64, i64 38, i64 1, ptr %301) #27
+  %302 = tail call i64 @fwrite(ptr nonnull @.str.64, i64 38, i64 1, ptr %301) #28
   br label %548
 
 303:                                              ; preds = %298
@@ -953,7 +953,7 @@ sub_1275:                                         ; preds = %sub_0274
 
 315:                                              ; preds = %303
   %316 = load ptr, ptr @stderr, align 8
-  %317 = tail call i64 @fwrite(ptr nonnull @.str.65, i64 42, i64 1, ptr %316) #27
+  %317 = tail call i64 @fwrite(ptr nonnull @.str.65, i64 42, i64 1, ptr %316) #28
   br label %548
 
 318:                                              ; preds = %303
@@ -1001,7 +1001,7 @@ sub_1275:                                         ; preds = %sub_0274
 
 338:                                              ; preds = %335
   %339 = load ptr, ptr @stderr, align 8
-  %340 = tail call i64 @fwrite(ptr nonnull @.str.67, i64 25, i64 1, ptr %339) #27
+  %340 = tail call i64 @fwrite(ptr nonnull @.str.67, i64 25, i64 1, ptr %339) #28
   %341 = load ptr, ptr @stderr, align 8
   tail call void @usage(ptr poison, ptr noundef %341)
   tail call void @exit(i32 noundef 1) #26
@@ -1073,7 +1073,7 @@ sub_1275:                                         ; preds = %sub_0274
 
 378:                                              ; preds = %373
   %379 = load ptr, ptr @stderr, align 8
-  %380 = tail call ptr @__errno_location() #28
+  %380 = tail call ptr @__errno_location() #29
   %381 = load i32, ptr %380, align 4
   %382 = call ptr @strerror(i32 noundef %381) #24
   %383 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %379, ptr noundef nonnull @.str.69, ptr noundef %382) #25
@@ -1106,7 +1106,7 @@ sub_1275:                                         ; preds = %sub_0274
 
 397:                                              ; preds = %386
   %398 = load ptr, ptr @stderr, align 8
-  %399 = tail call ptr @__errno_location() #28
+  %399 = tail call ptr @__errno_location() #29
   %400 = load i32, ptr %399, align 4
   %401 = call ptr @strerror(i32 noundef %400) #24
   %402 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %398, ptr noundef nonnull @.str.70, ptr noundef %401) #25
@@ -1204,7 +1204,7 @@ hwloc_utils_parse_memattr_name.exit:              ; preds = %.lr.ph.i, %417
 
 442:                                              ; preds = %440
   %443 = load ptr, ptr @stderr, align 8
-  %444 = call i64 @fwrite(ptr nonnull @.str.73, i64 64, i64 1, ptr %443) #27
+  %444 = call i64 @fwrite(ptr nonnull @.str.73, i64 64, i64 1, ptr %443) #28
   br label %445
 
 445:                                              ; preds = %440, %442, %430, %428
@@ -1425,7 +1425,7 @@ apply_infos.exit:                                 ; preds = %524, %508, %506, %5
   call fastcc void @hwloc_utils_userdata_free_recursive(ptr noundef %542)
   %543 = load ptr, ptr %4, align 8
   call void @hwloc_topology_destroy(ptr noundef %543) #24
-  call void @exit(i32 noundef 0) #26
+  call void @exit(i32 noundef 0) #27
   unreachable
 
 544:                                              ; preds = %351, %342, %471, %463, %436, %421, %378
@@ -1460,7 +1460,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 ; Function Attrs: nofree nounwind
 declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #1
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
@@ -1502,7 +1502,7 @@ define internal void @hwloc_utils_userdata_import_cb(ptr nocapture readnone %0, 
   br i1 %.not, label %10, label %7, !llvm.loop !9
 
 10:                                               ; preds = %7
-  %11 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #29
+  %11 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #30
   store ptr %11, ptr %.0, align 8
   %12 = tail call noalias ptr @strdup(ptr noundef %2) #24
   store ptr %12, ptr %11, align 8
@@ -1581,7 +1581,7 @@ define internal fastcc void @add_distances(ptr noundef %0, i32 noundef %1) unnam
 
 16:                                               ; preds = %14
   %17 = load ptr, ptr @stderr, align 8
-  %18 = call i64 @fwrite(ptr nonnull @.str.98, i64 27, i64 1, ptr %17) #27
+  %18 = call i64 @fwrite(ptr nonnull @.str.98, i64 27, i64 1, ptr %17) #28
   br label %141
 
 19:                                               ; preds = %14
@@ -1608,7 +1608,7 @@ define internal fastcc void @add_distances(ptr noundef %0, i32 noundef %1) unnam
 
 27:                                               ; preds = %25
   %28 = load ptr, ptr @stderr, align 8
-  %29 = call i64 @fwrite(ptr nonnull @.str.100, i64 25, i64 1, ptr %28) #27
+  %29 = call i64 @fwrite(ptr nonnull @.str.100, i64 25, i64 1, ptr %28) #28
   br label %141
 
 30:                                               ; preds = %25, %19
@@ -1620,7 +1620,7 @@ define internal fastcc void @add_distances(ptr noundef %0, i32 noundef %1) unnam
 
 33:                                               ; preds = %30
   %34 = load ptr, ptr @stderr, align 8
-  %35 = call i64 @fwrite(ptr nonnull @.str.101, i64 27, i64 1, ptr %34) #27
+  %35 = call i64 @fwrite(ptr nonnull @.str.101, i64 27, i64 1, ptr %34) #28
   br label %141
 
 36:                                               ; preds = %30
@@ -1637,11 +1637,11 @@ define internal fastcc void @add_distances(ptr noundef %0, i32 noundef %1) unnam
 43:                                               ; preds = %36
   %44 = shl i64 %37, 3
   %45 = and i64 %44, 34359738360
-  %46 = call noalias ptr @malloc(i64 noundef %45) #29
+  %46 = call noalias ptr @malloc(i64 noundef %45) #30
   %47 = mul i32 %38, %38
   %48 = zext i32 %47 to i64
   %49 = shl nuw nsw i64 %48, 3
-  %50 = call noalias ptr @malloc(i64 noundef %49) #29
+  %50 = call noalias ptr @malloc(i64 noundef %49) #30
   %51 = icmp ne ptr %46, null
   %52 = icmp ne ptr %50, null
   %or.cond = and i1 %51, %52
@@ -1838,7 +1838,7 @@ define internal fastcc void @add_distances(ptr noundef %0, i32 noundef %1) unnam
 
 .thread:                                          ; preds = %.loopexit, %137
   %139 = load ptr, ptr @stderr, align 8
-  %140 = call i64 @fwrite(ptr nonnull @.str.109, i64 24, i64 1, ptr %139) #27
+  %140 = call i64 @fwrite(ptr nonnull @.str.109, i64 24, i64 1, ptr %139) #28
   br label %141
 
 141:                                              ; preds = %137, %43, %.thread, %124, %89, %77, %63, %54, %40, %33, %27, %16
@@ -2255,7 +2255,7 @@ define internal fastcc void @transform_distances(ptr noundef %0, i32 noundef %1)
 
 212:                                              ; preds = %206
   %213 = load ptr, ptr @stderr, align 8
-  %214 = call i64 @fwrite(ptr nonnull @.str.121, i64 59, i64 1, ptr %213) #27
+  %214 = call i64 @fwrite(ptr nonnull @.str.121, i64 59, i64 1, ptr %213) #28
   br label %233
 
 215:                                              ; preds = %206
@@ -2271,7 +2271,7 @@ define internal fastcc void @transform_distances(ptr noundef %0, i32 noundef %1)
 
 224:                                              ; preds = %215
   %225 = load ptr, ptr @stderr, align 8
-  %226 = call i64 @fwrite(ptr nonnull @.str.122, i64 66, i64 1, ptr %225) #27
+  %226 = call i64 @fwrite(ptr nonnull @.str.122, i64 66, i64 1, ptr %225) #28
   br label %233
 
 227:                                              ; preds = %215
@@ -2281,7 +2281,7 @@ define internal fastcc void @transform_distances(ptr noundef %0, i32 noundef %1)
 
 230:                                              ; preds = %227
   %231 = load ptr, ptr @stderr, align 8
-  %232 = call i64 @fwrite(ptr nonnull @.str.123, i64 59, i64 1, ptr %231) #27
+  %232 = call i64 @fwrite(ptr nonnull @.str.123, i64 59, i64 1, ptr %231) #28
   br label %233
 
 233:                                              ; preds = %227, %230, %224, %212, %82, %56, %46, %37, %28, %19
@@ -2640,7 +2640,7 @@ apply_infos.exit:                                 ; preds = %28, %26, %24, %19, 
 
 68:                                               ; preds = %63
   %69 = load ptr, ptr @stderr, align 8
-  %70 = tail call ptr @__errno_location() #28
+  %70 = tail call ptr @__errno_location() #29
   %71 = load i32, ptr %70, align 4
   %72 = call ptr @strerror(i32 noundef %71) #24
   %73 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %69, ptr noundef nonnull @.str.126, ptr noundef %72) #25
@@ -2843,7 +2843,7 @@ hwloc_calc_append_iodev_by_index.exit:            ; preds = %63, %76, %79, %45, 
   br label %98
 
 96:                                               ; preds = %94
-  %97 = tail call ptr @__errno_location() #28
+  %97 = tail call ptr @__errno_location() #29
   store i32 22, ptr %97, align 4
   br label %.loopexit
 
@@ -3340,11 +3340,11 @@ define internal fastcc i64 @hwloc_utils_parse_flags(ptr noundef %0, ptr nocaptur
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %76 = load ptr, ptr @stderr, align 8
-  %77 = tail call i64 @fwrite(ptr nonnull @.str.90, i64 2, i64 1, ptr %76) #27
+  %77 = tail call i64 @fwrite(ptr nonnull @.str.90, i64 2, i64 1, ptr %76) #28
   %78 = load ptr, ptr @stderr, align 8
   %79 = getelementptr inbounds %struct.hwloc_utils_parsing_flag, ptr %1, i64 %indvars.iv.i, i32 1
   %80 = load ptr, ptr %79, align 8
-  %fputs.i = tail call i32 @fputs(ptr %80, ptr %78) #27
+  %fputs.i = tail call i32 @fputs(ptr %80, ptr %78) #28
   %81 = load ptr, ptr @stderr, align 8
   %fputc.i = tail call i32 @fputc(i32 10, ptr %81)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -3398,11 +3398,11 @@ define internal fastcc void @hwloc_utils_parsing_flag_error(ptr noundef %0, ptr 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %7 = load ptr, ptr @stderr, align 8
-  %8 = tail call i64 @fwrite(ptr nonnull @.str.90, i64 2, i64 1, ptr %7) #27
+  %8 = tail call i64 @fwrite(ptr nonnull @.str.90, i64 2, i64 1, ptr %7) #28
   %9 = load ptr, ptr @stderr, align 8
   %10 = getelementptr inbounds %struct.hwloc_utils_parsing_flag, ptr %1, i64 %indvars.iv, i32 1
   %11 = load ptr, ptr %10, align 8
-  %fputs = tail call i32 @fputs(ptr %11, ptr %9) #27
+  %fputs = tail call i32 @fputs(ptr %11, ptr %9) #28
   %12 = load ptr, ptr @stderr, align 8
   %fputc = tail call i32 @fputc(i32 10, ptr %12)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -4214,7 +4214,7 @@ define internal fastcc range(i32 -1, 1) i32 @hwloc_calc_parse_range(ptr noundef 
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %8, ptr align 1 %0, i64 %.041, i1 false)
   %26 = getelementptr inbounds [65 x i8], ptr %8, i64 0, i64 %.041
   store i8 0, ptr %26, align 1
-  %27 = tail call ptr @__ctype_b_loc() #28
+  %27 = tail call ptr @__ctype_b_loc() #29
   %28 = load ptr, ptr %27, align 8
   %29 = load i8, ptr %8, align 16
   %30 = sext i8 %29 to i64
@@ -4550,7 +4550,7 @@ attributes #2 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vec
 attributes #3 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -4570,10 +4570,11 @@ attributes #22 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #23 = { nounwind willreturn memory(read) }
 attributes #24 = { nounwind }
 attributes #25 = { cold nounwind }
-attributes #26 = { noreturn nounwind }
-attributes #27 = { cold }
-attributes #28 = { nounwind willreturn memory(none) }
-attributes #29 = { nounwind allocsize(0) }
+attributes #26 = { cold noreturn nounwind }
+attributes #27 = { noreturn nounwind }
+attributes #28 = { cold }
+attributes #29 = { nounwind willreturn memory(none) }
+attributes #30 = { nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

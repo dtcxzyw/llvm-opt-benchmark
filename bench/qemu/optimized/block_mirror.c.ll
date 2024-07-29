@@ -145,11 +145,11 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @mirror_start(ptr noundef %job_id, ptr noundef %bs, ptr noundef %target, ptr noundef %replaces, i32 noundef %creation_flags, i64 noundef %speed, i32 noundef %granularity, i64 noundef %buf_size, i32 noundef %mode, i32 noundef %backing_mode, i1 noundef zeroext %zero_target, i32 noundef %on_source_error, i32 noundef %on_target_error, i1 noundef zeroext %unmap, ptr noundef %filter_node_name, i32 noundef %copy_mode, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %call = tail call zeroext i1 @qemu_in_main_thread() #11
+  %call = tail call zeroext i1 @qemu_in_main_thread() #12
   br i1 %call, label %do.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 2031, ptr noundef nonnull @__PRETTY_FUNCTION__.mirror_start) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 2031, ptr noundef nonnull @__PRETTY_FUNCTION__.mirror_start) #13
   unreachable
 
 do.end:                                           ; preds = %entry
@@ -158,23 +158,23 @@ do.end:                                           ; preds = %entry
   br i1 %or.cond, label %if.then3, label %if.end5
 
 if.then3:                                         ; preds = %do.end
-  %call4 = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @MirrorSyncMode_lookup, i32 noundef %mode) #11
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 2036, ptr noundef nonnull @__func__.mirror_start, ptr noundef nonnull @.str.2, ptr noundef %call4) #11
+  %call4 = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @MirrorSyncMode_lookup, i32 noundef %mode) #12
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 2036, ptr noundef nonnull @__func__.mirror_start, ptr noundef nonnull @.str.2, ptr noundef %call4) #12
   br label %return
 
 if.end5:                                          ; preds = %do.end
-  tail call void @bdrv_graph_rdlock_main_loop() #11
+  tail call void @bdrv_graph_rdlock_main_loop() #12
   %cmp6 = icmp eq i32 %mode, 2
   %cmp8 = icmp eq i32 %mode, 0
   br i1 %cmp8, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %if.end5
-  %call9 = tail call ptr @bdrv_backing_chain_next(ptr noundef %bs) #11
+  %call9 = tail call ptr @bdrv_backing_chain_next(ptr noundef %bs) #12
   br label %cond.end
 
 cond.end:                                         ; preds = %if.end5, %cond.true
   %cond = phi ptr [ %call9, %cond.true ], [ null, %if.end5 ]
-  tail call void @bdrv_graph_rdunlock_main_loop() #11
+  tail call void @bdrv_graph_rdunlock_main_loop() #12
   %call12 = tail call fastcc ptr @mirror_start_job(ptr noundef %job_id, ptr noundef %bs, i32 noundef %creation_flags, ptr noundef %target, ptr noundef %replaces, i64 noundef %speed, i32 noundef %granularity, i64 noundef %buf_size, i32 noundef %backing_mode, i1 noundef zeroext %zero_target, i32 noundef %on_source_error, i32 noundef %on_target_error, i1 noundef zeroext %unmap, ptr noundef null, ptr noundef null, ptr noundef nonnull @mirror_job_driver, i1 noundef zeroext %cmp6, ptr noundef %cond, i1 noundef zeroext false, ptr noundef %filter_node_name, i1 noundef zeroext true, i32 noundef %copy_mode, ptr noundef %errp)
   br label %return
 
@@ -203,11 +203,11 @@ entry:
   %frombool = zext i1 %zero_target to i8
   %frombool1 = zext i1 %unmap to i8
   %frombool2 = zext i1 %is_none_mode to i8
-  %call = tail call zeroext i1 @qemu_in_main_thread() #11
+  %call = tail call zeroext i1 @qemu_in_main_thread() #12
   br i1 %call, label %do.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 1746, ptr noundef nonnull @__PRETTY_FUNCTION__.mirror_start_job) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 1746, ptr noundef nonnull @__PRETTY_FUNCTION__.mirror_start_job) #13
   unreachable
 
 do.end:                                           ; preds = %entry
@@ -215,7 +215,7 @@ do.end:                                           ; preds = %entry
   br i1 %cmp, label %if.then5, label %if.end7
 
 if.then5:                                         ; preds = %do.end
-  %call6 = tail call i32 @bdrv_get_default_bitmap_granularity(ptr noundef %target) #11
+  %call6 = tail call i32 @bdrv_get_default_bitmap_granularity(ptr noundef %target) #12
   br label %if.end7
 
 if.end7:                                          ; preds = %if.then5, %do.end
@@ -228,7 +228,7 @@ if.end7:                                          ; preds = %if.then5, %do.end
   br i1 %or.cond, label %if.end11, label %if.else10
 
 if.else10:                                        ; preds = %if.end7
-  tail call void @__assert_fail(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 1752, ptr noundef nonnull @__PRETTY_FUNCTION__.mirror_start_job) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 1752, ptr noundef nonnull @__PRETTY_FUNCTION__.mirror_start_job) #13
   unreachable
 
 if.end11:                                         ; preds = %if.end7
@@ -236,28 +236,28 @@ if.end11:                                         ; preds = %if.end7
   br i1 %cmp12, label %if.then14, label %if.end15
 
 if.then14:                                        ; preds = %if.end11
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 1755, ptr noundef nonnull @__func__.mirror_start_job, ptr noundef nonnull @.str.4) #11
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 1755, ptr noundef nonnull @__func__.mirror_start_job, ptr noundef nonnull @.str.4) #12
   br label %return
 
 if.end15:                                         ; preds = %if.end11
   %cmp16 = icmp eq i64 %buf_size, 0
   %1 = add nsw i64 %buf_size, -1
-  tail call void @bdrv_graph_rdlock_main_loop() #11
-  %call20 = tail call ptr @bdrv_skip_filters(ptr noundef %bs) #11
-  %call21 = tail call ptr @bdrv_skip_filters(ptr noundef %target) #11
+  tail call void @bdrv_graph_rdlock_main_loop() #12
+  %call20 = tail call ptr @bdrv_skip_filters(ptr noundef %bs) #12
+  %call21 = tail call ptr @bdrv_skip_filters(ptr noundef %target) #12
   %cmp22 = icmp eq ptr %call20, %call21
   br i1 %cmp22, label %if.then24, label %if.end25
 
 if.then24:                                        ; preds = %if.end15
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 1765, ptr noundef nonnull @__func__.mirror_start_job, ptr noundef nonnull @.str.5) #11
-  tail call void @bdrv_graph_rdunlock_main_loop() #11
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 1765, ptr noundef nonnull @__func__.mirror_start_job, ptr noundef nonnull @.str.5) #12
+  tail call void @bdrv_graph_rdunlock_main_loop() #12
   br label %return
 
 if.end25:                                         ; preds = %if.end15
-  %call26 = tail call zeroext i1 @bdrv_chain_contains(ptr noundef %bs, ptr noundef %target) #11
+  %call26 = tail call zeroext i1 @bdrv_chain_contains(ptr noundef %bs, ptr noundef %target) #12
   %frombool27 = zext i1 %call26 to i8
-  tail call void @bdrv_graph_rdunlock_main_loop() #11
-  %call28 = tail call ptr @bdrv_new_open_driver(ptr noundef nonnull @bdrv_mirror_top, ptr noundef %filter_node_name, i32 noundef 2, ptr noundef %errp) #11
+  tail call void @bdrv_graph_rdunlock_main_loop() #12
+  %call28 = tail call ptr @bdrv_new_open_driver(ptr noundef nonnull @bdrv_mirror_top, ptr noundef %filter_node_name, i32 noundef 2, ptr noundef %errp) #12
   %cmp29 = icmp eq ptr %call28, null
   br i1 %cmp29, label %return, label %if.end32
 
@@ -281,52 +281,52 @@ if.end34:                                         ; preds = %if.then33, %if.end3
   store i32 64, ptr %supported_write_flags, align 4
   %supported_zero_flags = getelementptr inbounds i8, ptr %call28, i64 16592
   store i32 320, ptr %supported_zero_flags, align 8
-  %call36 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #13
+  %call36 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #14
   %opaque37 = getelementptr inbounds i8, ptr %call28, i64 24
   store ptr %call36, ptr %opaque37, align 8
   %is_commit = getelementptr inbounds i8, ptr %call36, i64 9
   store i8 %frombool27, ptr %is_commit, align 1
-  tail call void @bdrv_drained_begin(ptr noundef %bs) #11
-  %call40 = tail call i32 @bdrv_append(ptr noundef nonnull %call28, ptr noundef %bs, ptr noundef %errp) #11
-  tail call void @bdrv_drained_end(ptr noundef %bs) #11
+  tail call void @bdrv_drained_begin(ptr noundef %bs) #12
+  %call40 = tail call i32 @bdrv_append(ptr noundef nonnull %call28, ptr noundef %bs, ptr noundef %errp) #12
+  tail call void @bdrv_drained_end(ptr noundef %bs) #12
   %cmp41 = icmp slt i32 %call40, 0
   br i1 %cmp41, label %if.then43, label %if.end44
 
 if.then43:                                        ; preds = %if.end34
-  tail call void @bdrv_unref(ptr noundef nonnull %call28) #11
+  tail call void @bdrv_unref(ptr noundef nonnull %call28) #12
   br label %return
 
 if.end44:                                         ; preds = %if.end34
-  %call45 = tail call ptr @block_job_create(ptr noundef %job_id, ptr noundef %driver, ptr noundef null, ptr noundef nonnull %call28, i64 noundef 1, i64 noundef 7, i64 noundef %speed, i32 noundef %creation_flags, ptr noundef %cb, ptr noundef %opaque, ptr noundef %errp) #11
+  %call45 = tail call ptr @block_job_create(ptr noundef %job_id, ptr noundef %driver, ptr noundef null, ptr noundef nonnull %call28, i64 noundef 1, i64 noundef 7, i64 noundef %speed, i32 noundef %creation_flags, ptr noundef %cb, ptr noundef %opaque, ptr noundef %errp) #12
   %tobool46.not = icmp eq ptr %call45, null
   br i1 %tobool46.not, label %if.end187, label %if.end48
 
 if.end48:                                         ; preds = %if.end44
-  tail call void @bdrv_unref(ptr noundef nonnull %call28) #11
+  tail call void @bdrv_unref(ptr noundef nonnull %call28) #12
   %mirror_top_bs49 = getelementptr inbounds i8, ptr %call45, i64 528
   store ptr %call28, ptr %mirror_top_bs49, align 8
   br i1 %call26, label %if.then51, label %if.else70
 
 if.then51:                                        ; preds = %if.end48
-  %call52 = tail call i64 @bdrv_getlength(ptr noundef nonnull %bs) #11
+  %call52 = tail call i64 @bdrv_getlength(ptr noundef nonnull %bs) #12
   %cmp53 = icmp slt i64 %call52, 0
   br i1 %cmp53, label %if.then55, label %if.end57
 
 if.then55:                                        ; preds = %if.then51
   %3 = trunc i64 %call52 to i32
   %conv56 = sub i32 0, %3
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 1838, ptr noundef nonnull @__func__.mirror_start_job, i32 noundef %conv56, ptr noundef nonnull @.str.6) #11
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 1838, ptr noundef nonnull @__func__.mirror_start_job, i32 noundef %conv56, ptr noundef nonnull @.str.6) #12
   br label %if.then176
 
 if.end57:                                         ; preds = %if.then51
-  %call58 = tail call i64 @bdrv_getlength(ptr noundef %target) #11
+  %call58 = tail call i64 @bdrv_getlength(ptr noundef %target) #12
   %cmp59 = icmp slt i64 %call58, 0
   br i1 %cmp59, label %if.then61, label %if.end64
 
 if.then61:                                        ; preds = %if.end57
   %4 = trunc i64 %call58 to i32
   %conv63 = sub i32 0, %4
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 1845, ptr noundef nonnull @__func__.mirror_start_job, i32 noundef %conv63, ptr noundef nonnull @.str.7) #11
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 1845, ptr noundef nonnull @__func__.mirror_start_job, i32 noundef %conv63, ptr noundef nonnull @.str.7) #12
   br label %if.then176
 
 if.end64:                                         ; preds = %if.end57
@@ -335,18 +335,18 @@ if.end64:                                         ; preds = %if.end57
   br label %if.end75
 
 if.else70:                                        ; preds = %if.end48
-  tail call void @bdrv_graph_rdlock_main_loop() #11
-  %call71 = tail call ptr @bdrv_skip_filters(ptr noundef %target) #11
-  %call72 = tail call zeroext i1 @bdrv_chain_contains(ptr noundef nonnull %bs, ptr noundef %call71) #11
+  tail call void @bdrv_graph_rdlock_main_loop() #12
+  %call71 = tail call ptr @bdrv_skip_filters(ptr noundef %target) #12
+  %call72 = tail call zeroext i1 @bdrv_chain_contains(ptr noundef nonnull %bs, ptr noundef %call71) #12
   br i1 %call72, label %if.then73, label %if.end74
 
 if.then73:                                        ; preds = %if.else70
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 1862, ptr noundef nonnull @__func__.mirror_start_job, ptr noundef nonnull @.str.8) #11
-  tail call void @bdrv_graph_rdunlock_main_loop() #11
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 1862, ptr noundef nonnull @__func__.mirror_start_job, ptr noundef nonnull @.str.8) #12
+  tail call void @bdrv_graph_rdunlock_main_loop() #12
   br label %if.then176
 
 if.end74:                                         ; preds = %if.else70
-  tail call void @bdrv_graph_rdunlock_main_loop() #11
+  tail call void @bdrv_graph_rdunlock_main_loop() #12
   br label %if.end75
 
 if.end75:                                         ; preds = %if.end74, %if.end64
@@ -354,10 +354,10 @@ if.end75:                                         ; preds = %if.end74, %if.end64
   %target_perms.1 = phi i64 [ %spec.select, %if.end64 ], [ 2, %if.end74 ]
   %aio_context = getelementptr inbounds i8, ptr %call45, i64 112
   %5 = load ptr, ptr %aio_context, align 8
-  %call76 = tail call ptr @blk_new(ptr noundef %5, i64 noundef %target_perms.1, i64 noundef %target_shared_perms.0) #11
+  %call76 = tail call ptr @blk_new(ptr noundef %5, i64 noundef %target_perms.1, i64 noundef %target_shared_perms.0) #12
   %target77 = getelementptr inbounds i8, ptr %call45, i64 520
   store ptr %call76, ptr %target77, align 8
-  %call79 = tail call i32 @blk_insert_bs(ptr noundef %call76, ptr noundef %target, ptr noundef %errp) #11
+  %call79 = tail call i32 @blk_insert_bs(ptr noundef %call76, ptr noundef %target, ptr noundef %errp) #12
   %cmp80 = icmp slt i32 %call79, 0
   br i1 %cmp80, label %if.then176, label %if.end83
 
@@ -366,16 +366,16 @@ if.end83:                                         ; preds = %if.end75
 
 if.then85:                                        ; preds = %if.end83
   %6 = load ptr, ptr %target77, align 8
-  tail call void @blk_set_force_allow_inactivate(ptr noundef %6) #11
+  tail call void @blk_set_force_allow_inactivate(ptr noundef %6) #12
   br label %if.end87
 
 if.end87:                                         ; preds = %if.then85, %if.end83
   %7 = load ptr, ptr %target77, align 8
-  tail call void @blk_set_allow_aio_context_change(ptr noundef %7, i1 noundef zeroext true) #11
+  tail call void @blk_set_allow_aio_context_change(ptr noundef %7, i1 noundef zeroext true) #12
   %8 = load ptr, ptr %target77, align 8
-  tail call void @blk_set_disable_request_queuing(ptr noundef %8, i1 noundef zeroext true) #11
-  tail call void @bdrv_graph_rdlock_main_loop() #11
-  %call90 = tail call noalias ptr @g_strdup(ptr noundef %replaces) #11
+  tail call void @blk_set_disable_request_queuing(ptr noundef %8, i1 noundef zeroext true) #12
+  tail call void @bdrv_graph_rdlock_main_loop() #12
+  %call90 = tail call noalias ptr @g_strdup(ptr noundef %replaces) #12
   %replaces91 = getelementptr inbounds i8, ptr %call45, i64 552
   store ptr %call90, ptr %replaces91, align 8
   %on_source_error92 = getelementptr inbounds i8, ptr %call45, i64 592
@@ -392,7 +392,7 @@ if.end87:                                         ; preds = %if.then85, %if.end8
   store atomic i32 %copy_mode, ptr %copy_mode104 monotonic, align 4
   %base106 = getelementptr inbounds i8, ptr %call45, i64 536
   store ptr %base, ptr %base106, align 8
-  %call107 = tail call ptr @bdrv_find_overlay(ptr noundef nonnull %bs, ptr noundef %base) #11
+  %call107 = tail call ptr @bdrv_find_overlay(ptr noundef nonnull %bs, ptr noundef %base) #12
   %base_overlay = getelementptr inbounds i8, ptr %call45, i64 544
   store ptr %call107, ptr %base_overlay, align 8
   %granularity109 = getelementptr inbounds i8, ptr %call45, i64 608
@@ -413,32 +413,32 @@ if.then119:                                       ; preds = %if.end87
   br label %if.end120
 
 if.end120:                                        ; preds = %if.then119, %if.end87
-  tail call void @bdrv_graph_rdunlock_main_loop() #11
+  tail call void @bdrv_graph_rdunlock_main_loop() #12
   %9 = load ptr, ptr %mirror_top_bs49, align 8
-  %call122 = tail call ptr @bdrv_create_dirty_bitmap(ptr noundef %9, i32 noundef %granularity.addr.0, ptr noundef null, ptr noundef %errp) #11
+  %call122 = tail call ptr @bdrv_create_dirty_bitmap(ptr noundef %9, i32 noundef %granularity.addr.0, ptr noundef null, ptr noundef %errp) #12
   %dirty_bitmap = getelementptr inbounds i8, ptr %call45, i64 640
   store ptr %call122, ptr %dirty_bitmap, align 8
   %tobool124.not = icmp eq ptr %call122, null
   br i1 %tobool124.not, label %if.then176, label %if.end126
 
 if.end126:                                        ; preds = %if.end120
-  tail call void @bdrv_disable_dirty_bitmap(ptr noundef nonnull %call122) #11
-  tail call void @bdrv_graph_wrlock(ptr noundef nonnull %bs) #11
-  %call129 = tail call i32 @block_job_add_bdrv(ptr noundef nonnull %call45, ptr noundef nonnull @.str.9, ptr noundef nonnull %bs, i64 noundef 0, i64 noundef 7, ptr noundef %errp) #11
+  tail call void @bdrv_disable_dirty_bitmap(ptr noundef nonnull %call122) #12
+  tail call void @bdrv_graph_wrlock(ptr noundef nonnull %bs) #12
+  %call129 = tail call i32 @block_job_add_bdrv(ptr noundef nonnull %call45, ptr noundef nonnull @.str.9, ptr noundef nonnull %bs, i64 noundef 0, i64 noundef 7, ptr noundef %errp) #12
   %cmp130 = icmp slt i32 %call129, 0
   br i1 %cmp130, label %if.then132, label %if.end133
 
 if.then132:                                       ; preds = %if.end126
-  tail call void @bdrv_graph_wrunlock(ptr noundef nonnull %bs) #11
+  tail call void @bdrv_graph_wrunlock(ptr noundef nonnull %bs) #12
   br label %if.then176
 
 if.end133:                                        ; preds = %if.end126
-  %call135 = tail call i32 @block_job_add_bdrv(ptr noundef nonnull %call45, ptr noundef nonnull @.str.10, ptr noundef %target, i64 noundef 0, i64 noundef 15, ptr noundef nonnull @error_abort) #11
+  %call135 = tail call i32 @block_job_add_bdrv(ptr noundef nonnull %call45, ptr noundef nonnull @.str.10, ptr noundef %target, i64 noundef 0, i64 noundef 15, ptr noundef nonnull @error_abort) #12
   br i1 %call26, label %if.then137, label %if.end167
 
 if.then137:                                       ; preds = %if.end133
-  %call138 = tail call ptr @bdrv_find_overlay(ptr noundef nonnull %bs, ptr noundef %target) #11
-  %call.i = tail call ptr @bdrv_cow_child(ptr noundef %call138) #11
+  %call138 = tail call ptr @bdrv_find_overlay(ptr noundef nonnull %bs, ptr noundef %target) #12
+  %call.i = tail call ptr @bdrv_cow_child(ptr noundef %call138) #12
   %tobool.not.i.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i.i, label %bdrv_cow_bs.exit, label %cond.true.i.i
 
@@ -448,17 +448,17 @@ cond.true.i.i:                                    ; preds = %if.then137
 
 bdrv_cow_bs.exit:                                 ; preds = %if.then137, %cond.true.i.i
   %cond.i.i = phi ptr [ %10, %cond.true.i.i ], [ null, %if.then137 ]
-  %call140 = tail call ptr @bdrv_skip_filters(ptr noundef %cond.i.i) #11
-  %call141 = tail call ptr @bdrv_skip_filters(ptr noundef %target) #11
+  %call140 = tail call ptr @bdrv_skip_filters(ptr noundef %cond.i.i) #12
+  %call141 = tail call ptr @bdrv_skip_filters(ptr noundef %target) #12
   %cmp142 = icmp eq ptr %call140, %call141
   br i1 %cmp142, label %if.end146, label %if.else145
 
 if.else145:                                       ; preds = %bdrv_cow_bs.exit
-  tail call void @__assert_fail(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.1, i32 noundef 1944, ptr noundef nonnull @__PRETTY_FUNCTION__.mirror_start_job) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.1, i32 noundef 1944, ptr noundef nonnull @__PRETTY_FUNCTION__.mirror_start_job) #13
   unreachable
 
 if.end146:                                        ; preds = %bdrv_cow_bs.exit
-  %call.i133 = tail call ptr @bdrv_filter_or_cow_child(ptr noundef nonnull %bs) #11
+  %call.i133 = tail call ptr @bdrv_filter_or_cow_child(ptr noundef nonnull %bs) #12
   %tobool.not.i.i134 = icmp eq ptr %call.i133, null
   br i1 %tobool.not.i.i134, label %bdrv_filter_or_cow_bs.exit, label %cond.true.i.i135
 
@@ -476,16 +476,16 @@ for.body:                                         ; preds = %bdrv_filter_or_cow_
   %iter.0144 = phi ptr [ %cond.i.i140, %bdrv_filter_or_cow_bs.exit141 ], [ %cond.i.i136, %bdrv_filter_or_cow_bs.exit ]
   %cmp150 = icmp eq ptr %iter.0144, %cond.i.i
   %spec.select132 = select i1 %cmp150, i64 7, i64 %iter_shared_perms.0145
-  %call156 = tail call i32 @block_job_add_bdrv(ptr noundef %call45, ptr noundef nonnull @.str.12, ptr noundef %iter.0144, i64 noundef 0, i64 noundef %spec.select132, ptr noundef %errp) #11
+  %call156 = tail call i32 @block_job_add_bdrv(ptr noundef %call45, ptr noundef nonnull @.str.12, ptr noundef %iter.0144, i64 noundef 0, i64 noundef %spec.select132, ptr noundef %errp) #12
   %cmp157 = icmp slt i32 %call156, 0
   br i1 %cmp157, label %if.then159, label %for.inc
 
 if.then159:                                       ; preds = %for.body
-  tail call void @bdrv_graph_wrunlock(ptr noundef %bs) #11
+  tail call void @bdrv_graph_wrunlock(ptr noundef %bs) #12
   br label %if.then176
 
 for.inc:                                          ; preds = %for.body
-  %call.i137 = tail call ptr @bdrv_filter_or_cow_child(ptr noundef %iter.0144) #11
+  %call.i137 = tail call ptr @bdrv_filter_or_cow_child(ptr noundef %iter.0144) #12
   %tobool.not.i.i138 = icmp eq ptr %call.i137, null
   br i1 %tobool.not.i.i138, label %bdrv_filter_or_cow_bs.exit141, label %cond.true.i.i139
 
@@ -499,32 +499,32 @@ bdrv_filter_or_cow_bs.exit141:                    ; preds = %for.inc, %cond.true
   br i1 %cmp148.not, label %for.end, label %for.body, !llvm.loop !5
 
 for.end:                                          ; preds = %bdrv_filter_or_cow_bs.exit141, %bdrv_filter_or_cow_bs.exit
-  %call162 = tail call i32 @bdrv_freeze_backing_chain(ptr noundef nonnull %call28, ptr noundef %target, ptr noundef %errp) #11
+  %call162 = tail call i32 @bdrv_freeze_backing_chain(ptr noundef nonnull %call28, ptr noundef %target, ptr noundef %errp) #12
   %cmp163 = icmp slt i32 %call162, 0
   br i1 %cmp163, label %if.then165, label %if.end167
 
 if.then165:                                       ; preds = %for.end
-  tail call void @bdrv_graph_wrunlock(ptr noundef %bs) #11
+  tail call void @bdrv_graph_wrunlock(ptr noundef %bs) #12
   br label %if.then176
 
 if.end167:                                        ; preds = %for.end, %if.end133
-  tail call void @bdrv_graph_wrunlock(ptr noundef %bs) #11
+  tail call void @bdrv_graph_wrunlock(ptr noundef %bs) #12
   %ops_in_flight = getelementptr inbounds i8, ptr %call45, i64 720
   store ptr null, ptr %ops_in_flight, align 8
   %tql_prev = getelementptr inbounds i8, ptr %call45, i64 728
   store ptr %ops_in_flight, ptr %tql_prev, align 8
   tail call fastcc void @trace_mirror_start(ptr noundef %bs, ptr noundef %call45, ptr noundef %opaque)
-  tail call void @job_start(ptr noundef %call45) #11
+  tail call void @job_start(ptr noundef %call45) #12
   br label %return
 
 if.then176:                                       ; preds = %if.then55, %if.then61, %if.then73, %if.then132, %if.then159, %if.then165, %if.end75, %if.end120
-  tail call void @bdrv_ref(ptr noundef nonnull %call28) #11
+  tail call void @bdrv_ref(ptr noundef nonnull %call28) #12
   %replaces177 = getelementptr inbounds i8, ptr %call45, i64 552
   %13 = load ptr, ptr %replaces177, align 8
-  tail call void @g_free(ptr noundef %13) #11
+  tail call void @g_free(ptr noundef %13) #12
   %target178 = getelementptr inbounds i8, ptr %call45, i64 520
   %14 = load ptr, ptr %target178, align 8
-  tail call void @blk_unref(ptr noundef %14) #11
+  tail call void @blk_unref(ptr noundef %14) #12
   store ptr null, ptr %call36, align 8
   %dirty_bitmap180 = getelementptr inbounds i8, ptr %call45, i64 640
   %15 = load ptr, ptr %dirty_bitmap180, align 8
@@ -532,18 +532,18 @@ if.then176:                                       ; preds = %if.then55, %if.then
   br i1 %tobool181.not, label %if.end184, label %if.then182
 
 if.then182:                                       ; preds = %if.then176
-  tail call void @bdrv_release_dirty_bitmap(ptr noundef nonnull %15) #11
+  tail call void @bdrv_release_dirty_bitmap(ptr noundef nonnull %15) #12
   br label %if.end184
 
 if.end184:                                        ; preds = %if.then182, %if.then176
-  tail call void @job_early_fail(ptr noundef nonnull %call45) #11
+  tail call void @job_early_fail(ptr noundef nonnull %call45) #12
   br label %if.end187
 
 if.end187:                                        ; preds = %if.end44, %if.end184
   %stop = getelementptr inbounds i8, ptr %call36, i64 8
   store i8 1, ptr %stop, align 8
-  tail call void @bdrv_drained_begin(ptr noundef %bs) #11
-  tail call void @bdrv_graph_wrlock(ptr noundef %bs) #11
+  tail call void @bdrv_drained_begin(ptr noundef %bs) #12
+  tail call void @bdrv_graph_wrlock(ptr noundef %bs) #12
   %backing = getelementptr inbounds i8, ptr %call28, i64 16832
   %16 = load ptr, ptr %backing, align 8
   %17 = load ptr, ptr %16, align 8
@@ -551,15 +551,15 @@ if.end187:                                        ; preds = %if.end44, %if.end18
   br i1 %cmp189, label %if.end193, label %if.else192
 
 if.else192:                                       ; preds = %if.end187
-  tail call void @__assert_fail(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.1, i32 noundef 2005, ptr noundef nonnull @__PRETTY_FUNCTION__.mirror_start_job) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.1, i32 noundef 2005, ptr noundef nonnull @__PRETTY_FUNCTION__.mirror_start_job) #13
   unreachable
 
 if.end193:                                        ; preds = %if.end187
-  %call195 = tail call i32 @bdrv_child_refresh_perms(ptr noundef nonnull %call28, ptr noundef nonnull %16, ptr noundef nonnull @error_abort) #11
-  %call196 = tail call i32 @bdrv_replace_node(ptr noundef nonnull %call28, ptr noundef %bs, ptr noundef nonnull @error_abort) #11
-  tail call void @bdrv_graph_wrunlock(ptr noundef %bs) #11
-  tail call void @bdrv_drained_end(ptr noundef %bs) #11
-  tail call void @bdrv_unref(ptr noundef nonnull %call28) #11
+  %call195 = tail call i32 @bdrv_child_refresh_perms(ptr noundef nonnull %call28, ptr noundef nonnull %16, ptr noundef nonnull @error_abort) #12
+  %call196 = tail call i32 @bdrv_replace_node(ptr noundef nonnull %call28, ptr noundef %bs, ptr noundef nonnull @error_abort) #12
+  tail call void @bdrv_graph_wrunlock(ptr noundef %bs) #12
+  tail call void @bdrv_drained_end(ptr noundef %bs) #12
+  tail call void @bdrv_unref(ptr noundef nonnull %call28) #12
   br label %return
 
 return:                                           ; preds = %if.end25, %if.end193, %if.end167, %if.then43, %if.then24, %if.then14
@@ -570,15 +570,15 @@ return:                                           ; preds = %if.end25, %if.end19
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @commit_active_start(ptr noundef %job_id, ptr noundef %bs, ptr noundef %base, i32 noundef %creation_flags, i64 noundef %speed, i32 noundef %on_error, ptr noundef %filter_node_name, ptr noundef %cb, ptr noundef %opaque, i1 noundef zeroext %auto_complete, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %call = tail call zeroext i1 @qemu_in_main_thread() #11
+  %call = tail call zeroext i1 @qemu_in_main_thread() #12
   br i1 %call, label %do.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 2062, ptr noundef nonnull @__PRETTY_FUNCTION__.commit_active_start) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 2062, ptr noundef nonnull @__PRETTY_FUNCTION__.commit_active_start) #13
   unreachable
 
 do.end:                                           ; preds = %entry
-  %call1 = tail call zeroext i1 @bdrv_is_read_only(ptr noundef %base) #11
+  %call1 = tail call zeroext i1 @bdrv_is_read_only(ptr noundef %base) #12
   br i1 %call1, label %if.then3, label %if.end7.thread
 
 if.end7.thread:                                   ; preds = %do.end
@@ -586,7 +586,7 @@ if.end7.thread:                                   ; preds = %do.end
   br label %return
 
 if.then3:                                         ; preds = %do.end
-  %call4 = tail call i32 @bdrv_reopen_set_read_only(ptr noundef %base, i1 noundef zeroext false, ptr noundef %errp) #11
+  %call4 = tail call i32 @bdrv_reopen_set_read_only(ptr noundef %base, i1 noundef zeroext false, ptr noundef %errp) #12
   %cmp = icmp slt i32 %call4, 0
   br i1 %cmp, label %return, label %if.end7
 
@@ -597,7 +597,7 @@ if.end7:                                          ; preds = %if.then3
   br i1 %brmerge.not, label %if.then14, label %return
 
 if.then14:                                        ; preds = %if.end7
-  %call15 = tail call i32 @bdrv_reopen_set_read_only(ptr noundef %base, i1 noundef zeroext true, ptr noundef null) #11
+  %call15 = tail call i32 @bdrv_reopen_set_read_only(ptr noundef %base, i1 noundef zeroext true, ptr noundef null) #12
   br label %return
 
 return:                                           ; preds = %if.end7.thread, %if.end7, %if.then14, %if.then3
@@ -684,16 +684,16 @@ if.then.i:                                        ; preds = %land.lhs.true5.i
   br i1 %tobool7.i, label %if.then8.i, label %if.else.i
 
 if.then8.i:                                       ; preds = %if.then.i
-  %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #11
-  %call10.i = tail call i32 @qemu_get_thread_id() #11
+  %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #12
+  %call10.i = tail call i32 @qemu_get_thread_id() #12
   %4 = load i64, ptr %_now.i, align 8
   %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %5 = load i64, ptr %tv_usec.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, ptr noundef %bs, ptr noundef %s, ptr noundef %opaque) #11
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, ptr noundef %bs, ptr noundef %s, ptr noundef %opaque) #12
   br label %_nocheck__trace_mirror_start.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.19, ptr noundef %bs, ptr noundef %s, ptr noundef %opaque) #11
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.19, ptr noundef %bs, ptr noundef %s, ptr noundef %opaque) #12
   br label %_nocheck__trace_mirror_start.exit
 
 _nocheck__trace_mirror_start.exit:                ; preds = %entry, %land.lhs.true5.i, %if.then8.i, %if.else.i
@@ -729,7 +729,7 @@ if.end:                                           ; preds = %entry
   %exact_filename = getelementptr inbounds i8, ptr %bs, i64 12368
   %1 = load ptr, ptr %0, align 8
   %filename = getelementptr inbounds i8, ptr %1, i64 49
-  tail call void @pstrcpy(ptr noundef nonnull %exact_filename, i32 noundef 4096, ptr noundef nonnull %filename) #11
+  tail call void @pstrcpy(ptr noundef nonnull %exact_filename, i32 noundef 4096, ptr noundef nonnull %filename) #12
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -751,7 +751,7 @@ if.then:                                          ; preds = %entry
   br label %if.end3.sink.split
 
 if.end:                                           ; preds = %entry
-  tail call void @bdrv_default_perms(ptr noundef nonnull %bs, ptr noundef %c, i32 noundef %role, ptr noundef %reopen_queue, i64 noundef %perm, i64 noundef %shared, ptr noundef %nperm, ptr noundef %nshared) #11
+  tail call void @bdrv_default_perms(ptr noundef nonnull %bs, ptr noundef %c, i32 noundef %role, ptr noundef %reopen_queue, i64 noundef %perm, i64 noundef %shared, ptr noundef %nperm, ptr noundef %nshared) #12
   %is_commit = getelementptr inbounds i8, ptr %0, i64 9
   %2 = load i8, ptr %is_commit, align 1
   %tobool1 = trunc i8 %2 to i1
@@ -779,7 +779,7 @@ define internal i32 @bdrv_mirror_top_preadv(ptr nocapture noundef readonly %bs, 
 entry:
   %backing = getelementptr inbounds i8, ptr %bs, i64 16832
   %0 = load ptr, ptr %backing, align 8
-  %call = tail call i32 @bdrv_co_preadv(ptr noundef %0, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i32 noundef %flags) #11
+  %call = tail call i32 @bdrv_co_preadv(ptr noundef %0, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i32 noundef %flags) #12
   ret i32 %call
 }
 
@@ -800,7 +800,7 @@ land.lhs.true.i:                                  ; preds = %entry
   br i1 %cmp.i, label %land.lhs.true2.i, label %if.end.thread
 
 land.lhs.true2.i:                                 ; preds = %land.lhs.true.i
-  %call.i = tail call zeroext i1 @job_is_cancelled(ptr noundef nonnull %1) #11
+  %call.i = tail call zeroext i1 @job_is_cancelled(ptr noundef nonnull %1) #12
   br i1 %call.i, label %if.end.thread, label %should_copy_to_target.exit
 
 should_copy_to_target.exit:                       ; preds = %land.lhs.true2.i
@@ -815,17 +815,17 @@ if.end.thread:                                    ; preds = %should_copy_to_targ
   br label %if.end7
 
 if.then6:                                         ; preds = %should_copy_to_target.exit
-  %call1 = tail call ptr @qemu_blockalign(ptr noundef nonnull %bs, i64 noundef %bytes) #11
+  %call1 = tail call ptr @qemu_blockalign(ptr noundef nonnull %bs, i64 noundef %bytes) #12
   %5 = load ptr, ptr %qiov, align 8
   %niov = getelementptr inbounds i8, ptr %qiov, i64 8
   %6 = load i32, ptr %niov, align 8
-  %call2 = tail call i64 @iov_to_buf_full(ptr noundef %5, i32 noundef %6, i64 noundef 0, ptr noundef %call1, i64 noundef %bytes) #11
-  call void @qemu_iovec_init(ptr noundef nonnull %bounce_qiov, i32 noundef 1) #11
-  call void @qemu_iovec_add(ptr noundef nonnull %bounce_qiov, ptr noundef %call1, i64 noundef %bytes) #11
+  %call2 = tail call i64 @iov_to_buf_full(ptr noundef %5, i32 noundef %6, i64 noundef 0, ptr noundef %call1, i64 noundef %bytes) #12
+  call void @qemu_iovec_init(ptr noundef nonnull %bounce_qiov, i32 noundef 1) #12
+  call void @qemu_iovec_add(ptr noundef nonnull %bounce_qiov, ptr noundef %call1, i64 noundef %bytes) #12
   %and = and i32 %flags, -9
   %call4 = call i32 @bdrv_mirror_top_do_write(ptr noundef nonnull %bs, i32 noundef 0, i1 noundef zeroext true, i64 noundef %offset, i64 noundef %bytes, ptr noundef nonnull %bounce_qiov, i32 noundef %and)
-  call void @qemu_iovec_destroy(ptr noundef nonnull %bounce_qiov) #11
-  call void @qemu_vfree(ptr noundef %call1) #11
+  call void @qemu_iovec_destroy(ptr noundef nonnull %bounce_qiov) #12
+  call void @qemu_vfree(ptr noundef %call1) #12
   br label %if.end7
 
 if.end7:                                          ; preds = %if.end.thread, %if.then6
@@ -849,7 +849,7 @@ land.lhs.true.i:                                  ; preds = %entry
   br i1 %cmp.i, label %land.lhs.true2.i, label %should_copy_to_target.exit
 
 land.lhs.true2.i:                                 ; preds = %land.lhs.true.i
-  %call.i = tail call zeroext i1 @job_is_cancelled(ptr noundef nonnull %1) #11
+  %call.i = tail call zeroext i1 @job_is_cancelled(ptr noundef nonnull %1) #12
   br i1 %call.i, label %should_copy_to_target.exit, label %while.end.i
 
 while.end.i:                                      ; preds = %land.lhs.true2.i
@@ -881,7 +881,7 @@ land.lhs.true.i:                                  ; preds = %entry
   br i1 %cmp.i, label %land.lhs.true2.i, label %should_copy_to_target.exit
 
 land.lhs.true2.i:                                 ; preds = %land.lhs.true.i
-  %call.i = tail call zeroext i1 @job_is_cancelled(ptr noundef nonnull %1) #11
+  %call.i = tail call zeroext i1 @job_is_cancelled(ptr noundef nonnull %1) #12
   br i1 %call.i, label %should_copy_to_target.exit, label %while.end.i
 
 while.end.i:                                      ; preds = %land.lhs.true2.i
@@ -907,7 +907,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %0, align 8
-  %call = tail call i32 @bdrv_co_flush(ptr noundef %1) #11
+  %call = tail call i32 @bdrv_co_flush(ptr noundef %1) #12
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -947,10 +947,10 @@ if.then:                                          ; preds = %entry
   %add2.i = add i64 %add.i, %bytes
   %sub.i = add i64 %add2.i, %2
   %div4.i = udiv i64 %sub.i, %2
-  %call.i = tail call noalias dereferenceable_or_null(128) ptr @g_malloc_n(i64 noundef 1, i64 noundef 128) #13
+  %call.i = tail call noalias dereferenceable_or_null(128) ptr @g_malloc_n(i64 noundef 1, i64 noundef 128) #14
   %.compoundliteral.sroa.9.i.5.i.5.i.5.waiting_requests.sroa_idx = getelementptr inbounds i8, ptr %.compoundliteral.sroa.9.i, i64 5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.compoundliteral.sroa.9.i.5.i.5.i.5.waiting_requests.sroa_idx, i8 0, i64 16, i1 false)
-  %call8.i = tail call ptr @qemu_coroutine_self() #11
+  %call8.i = tail call ptr @qemu_coroutine_self() #12
   store ptr %1, ptr %call.i, align 8
   %.compoundliteral.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %call.i, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.compoundliteral.sroa.2.0..sroa_idx.i, i8 0, i64 40, i1 false)
@@ -974,7 +974,7 @@ if.then:                                          ; preds = %entry
   %.compoundliteral.sroa.12.0..sroa_idx.i = getelementptr inbounds i8, ptr %call.i, i64 112
   %waiting_requests9.i = getelementptr inbounds i8, ptr %call.i, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.compoundliteral.sroa.11.0..sroa_idx.i, i8 0, i64 24, i1 false)
-  tail call void @qemu_co_queue_init(ptr noundef nonnull %waiting_requests9.i) #11
+  tail call void @qemu_co_queue_init(ptr noundef nonnull %waiting_requests9.i) #12
   store ptr null, ptr %.compoundliteral.sroa.12.0..sroa_idx.i, align 8
   %tql_prev.i = getelementptr inbounds i8, ptr %1, i64 728
   %3 = load ptr, ptr %tql_prev.i, align 8
@@ -990,7 +990,7 @@ if.then:                                          ; preds = %entry
   %in_flight_bitmap.i = getelementptr inbounds i8, ptr %1, i64 696
   %5 = load ptr, ptr %in_flight_bitmap.i, align 8
   %sub18.i = sub i64 %div4.i, %div.i
-  tail call void @bitmap_set(ptr noundef %5, i64 noundef %div.i, i64 noundef %sub18.i) #11
+  tail call void @bitmap_set(ptr noundef %5, i64 noundef %div.i, i64 noundef %sub18.i) #12
   call void @llvm.lifetime.end.p0(i64 21, ptr nonnull %.compoundliteral.sroa.9.i)
   br label %if.end
 
@@ -1005,23 +1005,23 @@ if.end:                                           ; preds = %if.then, %entry
 sw.bb:                                            ; preds = %if.end
   %backing = getelementptr inbounds i8, ptr %bs, i64 16832
   %6 = load ptr, ptr %backing, align 8
-  %call1 = tail call i32 @bdrv_co_pwritev(ptr noundef %6, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i32 noundef %flags) #11
+  %call1 = tail call i32 @bdrv_co_pwritev(ptr noundef %6, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i32 noundef %flags) #12
   br label %sw.epilog
 
 sw.bb2:                                           ; preds = %if.end
   %backing3 = getelementptr inbounds i8, ptr %bs, i64 16832
   %7 = load ptr, ptr %backing3, align 8
-  %call4 = tail call i32 @bdrv_co_pwrite_zeroes(ptr noundef %7, i64 noundef %offset, i64 noundef %bytes, i32 noundef %flags) #11
+  %call4 = tail call i32 @bdrv_co_pwrite_zeroes(ptr noundef %7, i64 noundef %offset, i64 noundef %bytes, i32 noundef %flags) #12
   br label %sw.epilog
 
 sw.bb5:                                           ; preds = %if.end
   %backing6 = getelementptr inbounds i8, ptr %bs, i64 16832
   %8 = load ptr, ptr %backing6, align 8
-  %call7 = tail call i32 @bdrv_co_pdiscard(ptr noundef %8, i64 noundef %offset, i64 noundef %bytes) #11
+  %call7 = tail call i32 @bdrv_co_pdiscard(ptr noundef %8, i64 noundef %offset, i64 noundef %bytes) #12
   br label %sw.epilog
 
 sw.default:                                       ; preds = %if.end
-  tail call void @abort() #12
+  tail call void @abort() #13
   unreachable
 
 sw.epilog:                                        ; preds = %sw.bb5, %sw.bb2, %sw.bb
@@ -1045,7 +1045,7 @@ while.end:                                        ; preds = %land.lhs.true11
   %11 = load ptr, ptr %0, align 8
   %dirty_bitmap19 = getelementptr inbounds i8, ptr %11, i64 640
   %12 = load ptr, ptr %dirty_bitmap19, align 8
-  tail call void @bdrv_set_dirty_bitmap(ptr noundef %12, i64 noundef %offset, i64 noundef %bytes) #11
+  tail call void @bdrv_set_dirty_bitmap(ptr noundef %12, i64 noundef %offset, i64 noundef %bytes) #12
   br label %if.end29
 
 if.end20:                                         ; preds = %sw.epilog
@@ -1082,10 +1082,10 @@ entry:
   %add2 = add i64 %add, %bytes
   %sub = add i64 %add2, %0
   %div4 = udiv i64 %sub, %0
-  %call = tail call noalias dereferenceable_or_null(128) ptr @g_malloc_n(i64 noundef 1, i64 noundef 128) #13
+  %call = tail call noalias dereferenceable_or_null(128) ptr @g_malloc_n(i64 noundef 1, i64 noundef 128) #14
   %.compoundliteral.sroa.9.5.waiting_requests.sroa_idx24 = getelementptr inbounds i8, ptr %.compoundliteral.sroa.9, i64 5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.compoundliteral.sroa.9.5.waiting_requests.sroa_idx24, i8 0, i64 16, i1 false)
-  %call8 = tail call ptr @qemu_coroutine_self() #11
+  %call8 = tail call ptr @qemu_coroutine_self() #12
   store ptr %s, ptr %call, align 8
   %.compoundliteral.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %call, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.compoundliteral.sroa.2.0..sroa_idx, i8 0, i64 40, i1 false)
@@ -1109,7 +1109,7 @@ entry:
   %.compoundliteral.sroa.12.0..sroa_idx = getelementptr inbounds i8, ptr %call, i64 112
   %waiting_requests9 = getelementptr inbounds i8, ptr %call, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.compoundliteral.sroa.11.0..sroa_idx, i8 0, i64 24, i1 false)
-  tail call void @qemu_co_queue_init(ptr noundef nonnull %waiting_requests9) #11
+  tail call void @qemu_co_queue_init(ptr noundef nonnull %waiting_requests9) #12
   store ptr null, ptr %.compoundliteral.sroa.12.0..sroa_idx, align 8
   %tql_prev = getelementptr inbounds i8, ptr %s, i64 728
   %1 = load ptr, ptr %tql_prev, align 8
@@ -1125,7 +1125,7 @@ entry:
   %in_flight_bitmap = getelementptr inbounds i8, ptr %s, i64 696
   %3 = load ptr, ptr %in_flight_bitmap, align 8
   %sub18 = sub i64 %div4, %div
-  tail call void @bitmap_set(ptr noundef %3, i64 noundef %div, i64 noundef %sub18) #11
+  tail call void @bitmap_set(ptr noundef %3, i64 noundef %div, i64 noundef %sub18) #12
   ret ptr %call
 }
 
@@ -1135,8 +1135,8 @@ declare i32 @bdrv_co_pwrite_zeroes(ptr noundef, i64 noundef, i64 noundef, i32 no
 
 declare i32 @bdrv_co_pdiscard(ptr noundef, i64 noundef, i64 noundef) #1
 
-; Function Attrs: noreturn nounwind
-declare void @abort() local_unnamed_addr #2
+; Function Attrs: cold nofree noreturn nounwind
+declare void @abort() local_unnamed_addr #4
 
 declare void @bdrv_set_dirty_bitmap(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
@@ -1152,7 +1152,7 @@ entry:
 land.lhs.true:                                    ; preds = %entry
   %dirty_bitmap = getelementptr inbounds i8, ptr %job, i64 640
   %1 = load ptr, ptr %dirty_bitmap, align 8
-  %call = tail call zeroext i1 @bdrv_dirty_bitmap_get(ptr noundef %1, i64 noundef %offset) #11
+  %call = tail call zeroext i1 @bdrv_dirty_bitmap_get(ptr noundef %1, i64 noundef %offset) #12
   %.pre = load i64, ptr %granularity, align 8
   %.fr = freeze i64 %.pre
   br i1 %call, label %if.then, label %if.end9
@@ -1184,7 +1184,7 @@ land.lhs.true14:                                  ; preds = %if.end9
   %dirty_bitmap15 = getelementptr inbounds i8, ptr %job, i64 640
   %4 = load ptr, ptr %dirty_bitmap15, align 8
   %sub17 = add i64 %add10, -1
-  %call18 = tail call zeroext i1 @bdrv_dirty_bitmap_get(ptr noundef %4, i64 noundef %sub17) #11
+  %call18 = tail call zeroext i1 @bdrv_dirty_bitmap_get(ptr noundef %4, i64 noundef %sub17) #12
   %.pre77 = load i64, ptr %granularity, align 8
   br i1 %call18, label %if.then19, label %if.end27
 
@@ -1217,11 +1217,11 @@ if.then41:                                        ; preds = %if.end27
   %dirty_bitmap42 = getelementptr inbounds i8, ptr %job, i64 640
   %8 = load ptr, ptr %dirty_bitmap42, align 8
   %sub43 = sub i64 %mul39, %mul34
-  tail call void @bdrv_reset_dirty_bitmap(ptr noundef %8, i64 noundef %mul34, i64 noundef %sub43) #11
+  tail call void @bdrv_reset_dirty_bitmap(ptr noundef %8, i64 noundef %mul34, i64 noundef %sub43) #12
   br label %if.end44
 
 if.end44:                                         ; preds = %if.then41, %if.end27
-  tail call void @job_progress_increase_remaining(ptr noundef nonnull %job, i64 noundef %bytes.addr.1) #11
+  tail call void @job_progress_increase_remaining(ptr noundef nonnull %job, i64 noundef %bytes.addr.1) #12
   %active_write_bytes_in_flight = getelementptr inbounds i8, ptr %job, i64 760
   %9 = load i64, ptr %active_write_bytes_in_flight, align 8
   %add46 = add i64 %9, %bytes.addr.1
@@ -1235,7 +1235,7 @@ if.end44:                                         ; preds = %if.then41, %if.end2
 sw.bb:                                            ; preds = %if.end44
   %target = getelementptr inbounds i8, ptr %job, i64 520
   %10 = load ptr, ptr %target, align 8
-  %call47 = tail call i32 @blk_co_pwritev_part(ptr noundef %10, i64 noundef %offset.addr.0, i64 noundef %bytes.addr.1, ptr noundef %qiov, i64 noundef %qiov_offset.0, i32 noundef %flags) #11
+  %call47 = tail call i32 @blk_co_pwritev_part(ptr noundef %10, i64 noundef %offset.addr.0, i64 noundef %bytes.addr.1, ptr noundef %qiov, i64 noundef %qiov_offset.0, i32 noundef %flags) #12
   br label %sw.epilog
 
 sw.bb48:                                          ; preds = %if.end44
@@ -1243,13 +1243,13 @@ sw.bb48:                                          ; preds = %if.end44
   br i1 %tobool.not, label %if.end50, label %if.else
 
 if.else:                                          ; preds = %sw.bb48
-  tail call void @__assert_fail(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.1, i32 noundef 1420, ptr noundef nonnull @__PRETTY_FUNCTION__.do_sync_target_write) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.1, i32 noundef 1420, ptr noundef nonnull @__PRETTY_FUNCTION__.do_sync_target_write) #13
   unreachable
 
 if.end50:                                         ; preds = %sw.bb48
   %target51 = getelementptr inbounds i8, ptr %job, i64 520
   %11 = load ptr, ptr %target51, align 8
-  %call52 = tail call i32 @blk_co_pwrite_zeroes(ptr noundef %11, i64 noundef %offset.addr.0, i64 noundef %bytes.addr.1, i32 noundef %flags) #11
+  %call52 = tail call i32 @blk_co_pwrite_zeroes(ptr noundef %11, i64 noundef %offset.addr.0, i64 noundef %bytes.addr.1, i32 noundef %flags) #12
   br label %sw.epilog
 
 sw.bb53:                                          ; preds = %if.end44
@@ -1257,17 +1257,17 @@ sw.bb53:                                          ; preds = %if.end44
   br i1 %tobool54.not, label %if.end57, label %if.else56
 
 if.else56:                                        ; preds = %sw.bb53
-  tail call void @__assert_fail(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.1, i32 noundef 1425, ptr noundef nonnull @__PRETTY_FUNCTION__.do_sync_target_write) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.1, i32 noundef 1425, ptr noundef nonnull @__PRETTY_FUNCTION__.do_sync_target_write) #13
   unreachable
 
 if.end57:                                         ; preds = %sw.bb53
   %target58 = getelementptr inbounds i8, ptr %job, i64 520
   %12 = load ptr, ptr %target58, align 8
-  %call59 = tail call i32 @blk_co_pdiscard(ptr noundef %12, i64 noundef %offset.addr.0, i64 noundef %bytes.addr.1) #11
+  %call59 = tail call i32 @blk_co_pdiscard(ptr noundef %12, i64 noundef %offset.addr.0, i64 noundef %bytes.addr.1) #12
   br label %sw.epilog
 
 sw.default:                                       ; preds = %if.end44
-  tail call void @abort() #12
+  tail call void @abort() #13
   unreachable
 
 sw.epilog:                                        ; preds = %if.end57, %if.end50, %sw.bb
@@ -1279,7 +1279,7 @@ sw.epilog:                                        ; preds = %if.end57, %if.end50
   br i1 %cmp62, label %if.then63, label %if.else66
 
 if.then63:                                        ; preds = %sw.epilog
-  tail call void @job_progress_update(ptr noundef nonnull %job, i64 noundef %bytes.addr.1) #11
+  tail call void @job_progress_update(ptr noundef nonnull %job, i64 noundef %bytes.addr.1) #12
   br label %if.end93
 
 if.else66:                                        ; preds = %sw.epilog
@@ -1294,14 +1294,14 @@ if.else66:                                        ; preds = %sw.epilog
   %17 = load ptr, ptr %dirty_bitmap79, align 8
   %18 = add i64 %16, %mul70
   %sub80 = sub i64 %sub74, %18
-  tail call void @bdrv_set_dirty_bitmap(ptr noundef %17, i64 noundef %mul70, i64 noundef %sub80) #11
+  tail call void @bdrv_set_dirty_bitmap(ptr noundef %17, i64 noundef %mul70, i64 noundef %sub80) #12
   %actively_synced = getelementptr inbounds i8, ptr %job, i64 600
   store atomic i8 0, ptr %actively_synced monotonic, align 8
   %sub83 = sub i32 0, %ret.0
   store atomic i8 0, ptr %actively_synced monotonic, align 8
   %on_target_error.i = getelementptr inbounds i8, ptr %job, i64 596
   %19 = load i32, ptr %on_target_error.i, align 4
-  %call4.i = tail call i32 @block_job_error_action(ptr noundef nonnull %job, i32 noundef %19, i32 noundef 0, i32 noundef %sub83) #11
+  %call4.i = tail call i32 @block_job_error_action(ptr noundef nonnull %job, i32 noundef %19, i32 noundef 0, i32 noundef %sub83) #12
   %cmp85 = icmp eq i32 %call4.i, 1
   br i1 %cmp85, label %if.then86, label %if.end93
 
@@ -1368,7 +1368,7 @@ land.lhs.true13:                                  ; preds = %if.then
 if.then15:                                        ; preds = %land.lhs.true13
   %dirty_bitmap = getelementptr inbounds i8, ptr %.pre27, i64 640
   %11 = load ptr, ptr %dirty_bitmap, align 8
-  %call = tail call i64 @bdrv_get_dirty_count(ptr noundef %11) #11
+  %call = tail call i64 @bdrv_get_dirty_count(ptr noundef %11) #12
   %tobool17.not = icmp eq i64 %call, 0
   br i1 %tobool17.not, label %if.then15.if.end20_crit_edge, label %if.else
 
@@ -1377,7 +1377,7 @@ if.then15.if.end20_crit_edge:                     ; preds = %if.then15
   br label %if.end20
 
 if.else:                                          ; preds = %if.then15
-  tail call void @__assert_fail(ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.1, i32 noundef 1519, ptr noundef nonnull @__PRETTY_FUNCTION__.active_write_settle) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.1, i32 noundef 1519, ptr noundef nonnull @__PRETTY_FUNCTION__.active_write_settle) #13
   unreachable
 
 if.end20:                                         ; preds = %if.then15.if.end20_crit_edge, %if.then, %land.lhs.true13, %while.end, %entry
@@ -1385,7 +1385,7 @@ if.end20:                                         ; preds = %if.then15.if.end20_
   %in_flight_bitmap = getelementptr inbounds i8, ptr %12, i64 696
   %13 = load ptr, ptr %in_flight_bitmap, align 8
   %sub22 = sub i64 %div7, %div
-  tail call void @bitmap_clear(ptr noundef %13, i64 noundef %div, i64 noundef %sub22) #11
+  tail call void @bitmap_clear(ptr noundef %13, i64 noundef %div, i64 noundef %sub22) #12
   %next = getelementptr inbounds i8, ptr %op, i64 112
   %14 = load ptr, ptr %next, align 8
   %cmp24.not = icmp eq ptr %14, null
@@ -1409,8 +1409,8 @@ if.end35:                                         ; preds = %if.else30, %if.then
   store ptr %17, ptr %15, align 8
   %waiting_requests = getelementptr inbounds i8, ptr %op, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next, i8 0, i64 16, i1 false)
-  tail call void @qemu_co_queue_restart_all(ptr noundef nonnull %waiting_requests) #11
-  tail call void @g_free(ptr noundef nonnull %op) #11
+  tail call void @qemu_co_queue_restart_all(ptr noundef nonnull %waiting_requests) #12
+  tail call void @g_free(ptr noundef nonnull %op) #12
   ret void
 }
 
@@ -1418,12 +1418,12 @@ if.end35:                                         ; preds = %if.else30, %if.then
 declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
 declare ptr @qemu_coroutine_self() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
 declare void @qemu_co_queue_init(ptr noundef) local_unnamed_addr #1
 
@@ -1440,7 +1440,7 @@ entry:
   %ret = getelementptr inbounds i8, ptr %s, i64 736
   %in_flight_bitmap = getelementptr inbounds i8, ptr %s, i64 696
   %1 = load ptr, ptr %in_flight_bitmap, align 8
-  %call33 = tail call i64 @find_next_bit(ptr noundef %1, i64 noundef %div4, i64 noundef %div) #11
+  %call33 = tail call i64 @find_next_bit(ptr noundef %1, i64 noundef %div4, i64 noundef %div) #12
   %cmp34 = icmp ult i64 %call33, %div4
   br i1 %cmp34, label %land.rhs.lr.ph, label %while.end
 
@@ -1467,7 +1467,7 @@ for.body.us.us.preheader:                         ; preds = %while.body.us
 
 for.end.us:                                       ; preds = %for.inc.us.us, %while.body.us, %if.then22.us.us
   %4 = load ptr, ptr %in_flight_bitmap, align 8
-  %call.us = tail call i64 @find_next_bit(ptr noundef %4, i64 noundef %div4, i64 noundef %div) #11
+  %call.us = tail call i64 @find_next_bit(ptr noundef %4, i64 noundef %div4, i64 noundef %div) #12
   %cmp.us = icmp ult i64 %call.us, %div4
   br i1 %cmp.us, label %land.rhs.us, label %while.end, !llvm.loop !7
 
@@ -1496,7 +1496,7 @@ for.inc.us.us:                                    ; preds = %if.end.us.us
 
 if.then22.us.us:                                  ; preds = %if.end.us.us
   %waiting_requests.c.us = getelementptr inbounds i8, ptr %op.031.us.us, i64 80
-  tail call void @qemu_co_queue_wait_impl(ptr noundef nonnull %waiting_requests.c.us, ptr noundef null, i32 noundef 0) #11
+  tail call void @qemu_co_queue_wait_impl(ptr noundef nonnull %waiting_requests.c.us, ptr noundef null, i32 noundef 0) #12
   br label %for.end.us
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %for.end
@@ -1540,7 +1540,7 @@ if.then22:                                        ; preds = %if.end
 if.then32:                                        ; preds = %if.then22
   store ptr %op.031, ptr %waiting_for_op28, align 8
   %waiting_requests = getelementptr inbounds i8, ptr %op.031, i64 80
-  tail call void @qemu_co_queue_wait_impl(ptr noundef nonnull %waiting_requests, ptr noundef null, i32 noundef 0) #11
+  tail call void @qemu_co_queue_wait_impl(ptr noundef nonnull %waiting_requests, ptr noundef null, i32 noundef 0) #12
   store ptr null, ptr %waiting_for_op28, align 8
   br label %for.end
 
@@ -1552,7 +1552,7 @@ for.inc:                                          ; preds = %if.end, %if.then22,
 
 for.end:                                          ; preds = %for.inc, %while.body, %if.then32
   %12 = load ptr, ptr %in_flight_bitmap, align 8
-  %call = tail call i64 @find_next_bit(ptr noundef %12, i64 noundef %div4, i64 noundef %div) #11
+  %call = tail call i64 @find_next_bit(ptr noundef %12, i64 noundef %div4, i64 noundef %div) #12
   %cmp = icmp ult i64 %call, %div4
   br i1 %cmp, label %land.rhs, label %while.end, !llvm.loop !7
 
@@ -1595,7 +1595,7 @@ declare ptr @bdrv_cow_child(ptr noundef) local_unnamed_addr #1
 declare ptr @bdrv_filter_or_cow_child(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 
@@ -1616,10 +1616,10 @@ entry:
   %1 = load ptr, ptr %opaque, align 8
   %target = getelementptr inbounds i8, ptr %job, i64 520
   %2 = load ptr, ptr %target, align 8
-  %call = tail call ptr @blk_bs(ptr noundef %2) #11
-  tail call void @bdrv_graph_co_rdlock() #11
+  %call = tail call ptr @blk_bs(ptr noundef %2) #12
+  tail call void @bdrv_graph_co_rdlock() #12
   %3 = load ptr, ptr %mirror_top_bs, align 8
-  %call.i = tail call ptr @bdrv_filter_child(ptr noundef %3) #11
+  %call.i = tail call ptr @bdrv_filter_child(ptr noundef %3) #12
   %tobool.not.i.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i.i, label %bdrv_filter_bs.exit, label %cond.true.i.i
 
@@ -1629,16 +1629,16 @@ cond.true.i.i:                                    ; preds = %entry
 
 bdrv_filter_bs.exit:                              ; preds = %entry, %cond.true.i.i
   %cond.i.i = phi ptr [ %4, %cond.true.i.i ], [ null, %entry ]
-  tail call void @bdrv_graph_co_rdunlock() #11
-  %call4 = tail call zeroext i1 @job_is_cancelled(ptr noundef nonnull %job) #11
+  tail call void @bdrv_graph_co_rdunlock() #12
+  %call4 = tail call zeroext i1 @job_is_cancelled(ptr noundef nonnull %job) #12
   br i1 %call4, label %immediate_exit, label %if.end
 
 if.end:                                           ; preds = %bdrv_filter_bs.exit
-  tail call void @bdrv_graph_co_rdlock() #11
-  %call5 = tail call i64 @bdrv_co_getlength(ptr noundef %cond.i.i) #11
+  tail call void @bdrv_graph_co_rdlock() #12
+  %call5 = tail call i64 @bdrv_co_getlength(ptr noundef %cond.i.i) #12
   %bdev_length = getelementptr inbounds i8, ptr %job, i64 624
   store i64 %call5, ptr %bdev_length, align 8
-  tail call void @bdrv_graph_co_rdunlock() #11
+  tail call void @bdrv_graph_co_rdunlock() #12
   %5 = load i64, ptr %bdev_length, align 8
   %cmp = icmp slt i64 %5, 0
   br i1 %cmp, label %if.then7, label %if.end9
@@ -1649,7 +1649,7 @@ if.then7:                                         ; preds = %if.end
 
 if.end9:                                          ; preds = %if.end
   %6 = load ptr, ptr %target, align 8
-  %call11 = tail call i64 @blk_co_getlength(ptr noundef %6) #11
+  %call11 = tail call i64 @blk_co_getlength(ptr noundef %6) #12
   %cmp12 = icmp slt i64 %call11, 0
   br i1 %cmp12, label %if.then14, label %if.end16
 
@@ -1661,7 +1661,7 @@ if.end16:                                         ; preds = %if.end9
   %base = getelementptr inbounds i8, ptr %job, i64 536
   %7 = load ptr, ptr %base, align 8
   %8 = load ptr, ptr %target, align 8
-  %call18 = tail call ptr @blk_bs(ptr noundef %8) #11
+  %call18 = tail call ptr @blk_bs(ptr noundef %8) #12
   %cmp19 = icmp eq ptr %7, %call18
   %9 = load i64, ptr %bdev_length, align 8
   br i1 %cmp19, label %if.then21, label %if.else
@@ -1672,7 +1672,7 @@ if.then21:                                        ; preds = %if.end16
 
 if.then25:                                        ; preds = %if.then21
   %10 = load ptr, ptr %target, align 8
-  %call28 = tail call i32 @blk_co_truncate(ptr noundef %10, i64 noundef %9, i1 noundef zeroext false, i32 noundef 0, i32 noundef 0, ptr noundef null) #11
+  %call28 = tail call i32 @blk_co_truncate(ptr noundef %10, i64 noundef %9, i1 noundef zeroext false, i32 noundef 0, i32 noundef 0, ptr noundef null) #12
   %cmp29 = icmp slt i32 %call28, 0
   br i1 %cmp29, label %immediate_exit, label %if.end39thread-pre-split
 
@@ -1681,7 +1681,7 @@ if.else:                                          ; preds = %if.end16
   br i1 %cmp35.not, label %if.end39, label %if.then37
 
 if.then37:                                        ; preds = %if.else
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 979, ptr noundef nonnull @__func__.mirror_run, ptr noundef nonnull @.str.20) #11
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 979, ptr noundef nonnull @__func__.mirror_run, ptr noundef nonnull @.str.20) #12
   br label %immediate_exit
 
 if.end39thread-pre-split:                         ; preds = %if.then25
@@ -1695,10 +1695,10 @@ if.end39:                                         ; preds = %if.end39thread-pre-
   br i1 %cmp41, label %if.then43, label %if.end56
 
 if.then43:                                        ; preds = %if.end39
-  tail call void @job_transition_to_ready(ptr noundef nonnull %job) #11
+  tail call void @job_transition_to_ready(ptr noundef nonnull %job) #12
   %actively_synced = getelementptr inbounds i8, ptr %job, i64 600
   store atomic i8 1, ptr %actively_synced monotonic, align 8
-  %call51233 = tail call zeroext i1 @job_cancel_requested(ptr noundef nonnull %job) #11
+  %call51233 = tail call zeroext i1 @job_cancel_requested(ptr noundef nonnull %job) #12
   br i1 %call51233, label %immediate_exit, label %land.rhs.lr.ph
 
 land.rhs.lr.ph:                                   ; preds = %if.then43
@@ -1711,8 +1711,8 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %wh
   br i1 %tobool, label %immediate_exit, label %while.body52
 
 while.body52:                                     ; preds = %land.rhs
-  tail call void @job_yield(ptr noundef nonnull %job) #11
-  %call51 = tail call zeroext i1 @job_cancel_requested(ptr noundef nonnull %job) #11
+  tail call void @job_yield(ptr noundef nonnull %job) #12
+  %call51 = tail call zeroext i1 @job_cancel_requested(ptr noundef nonnull %job) #12
   br i1 %call51, label %immediate_exit, label %land.rhs, !llvm.loop !9
 
 if.end56:                                         ; preds = %if.end39
@@ -1724,20 +1724,20 @@ if.end56:                                         ; preds = %if.end39
   %sub.i.i = add i64 %div, 63
   %14 = lshr i64 %sub.i.i, 3
   %mul.i.i = and i64 %14, 2305843009213693944
-  %call.i.i = tail call noalias ptr @g_try_malloc0(i64 noundef %mul.i.i) #14
+  %call.i.i = tail call noalias ptr @g_try_malloc0(i64 noundef %mul.i.i) #15
   %cmp.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.i, label %if.then.i, label %bitmap_new.exit
 
 if.then.i:                                        ; preds = %if.end56
-  tail call void @abort() #12
+  tail call void @abort() #13
   unreachable
 
 bitmap_new.exit:                                  ; preds = %if.end56
   %in_flight_bitmap = getelementptr inbounds i8, ptr %job, i64 696
   store ptr %call.i.i, ptr %in_flight_bitmap, align 8
-  call void @bdrv_get_backing_filename(ptr noundef %call, ptr noundef nonnull %backing_filename, i32 noundef 2) #11
-  call void @bdrv_graph_co_rdlock() #11
-  %call60 = call i32 @bdrv_co_get_info(ptr noundef %call, ptr noundef nonnull %bdi) #11
+  call void @bdrv_get_backing_filename(ptr noundef %call, ptr noundef nonnull %backing_filename, i32 noundef 2) #12
+  call void @bdrv_graph_co_rdlock() #12
+  %call60 = call i32 @bdrv_co_get_info(ptr noundef %call, ptr noundef nonnull %bdi) #12
   %tobool61 = icmp eq i32 %call60, 0
   %15 = load i32, ptr %bdi, align 8
   %tobool62 = icmp ne i32 %15, 0
@@ -1750,7 +1750,7 @@ bitmap_new.exit:                                  ; preds = %if.end56
   br i1 %tobool69.not, label %if.end87, label %land.lhs.true70
 
 land.lhs.true70:                                  ; preds = %bitmap_new.exit
-  %call71 = call ptr @bdrv_backing_chain_next(ptr noundef %call) #11
+  %call71 = call ptr @bdrv_backing_chain_next(ptr noundef %call) #12
   %tobool72.not = icmp eq ptr %call71, null
   br i1 %tobool72.not, label %land.lhs.true73, label %if.end87
 
@@ -1779,10 +1779,10 @@ if.end87:                                         ; preds = %if.then79, %land.lh
   %cond96 = call i32 @llvm.smin.i32(i32 %21, i32 %22)
   %max_iov97 = getelementptr inbounds i8, ptr %job, i64 748
   store i32 %cond96, ptr %max_iov97, align 4
-  call void @bdrv_graph_co_rdunlock() #11
+  call void @bdrv_graph_co_rdunlock() #12
   %buf_size98 = getelementptr inbounds i8, ptr %job, i64 616
   %23 = load i64, ptr %buf_size98, align 8
-  %call99 = call ptr @qemu_try_blockalign(ptr noundef %cond.i.i, i64 noundef %23) #11
+  %call99 = call ptr @qemu_try_blockalign(ptr noundef %cond.i.i, i64 noundef %23) #12
   %buf = getelementptr inbounds i8, ptr %job, i64 656
   store ptr %call99, ptr %buf, align 8
   %cmp101 = icmp eq ptr %call99, null
@@ -1796,7 +1796,7 @@ if.end104:                                        ; preds = %if.end87
   br i1 %cmp.i137, label %do.body.i, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end104
-  call void @__assert_fail(ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.1, i32 noundef 633, ptr noundef nonnull @__PRETTY_FUNCTION__.mirror_free_init) #12
+  call void @__assert_fail(ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.1, i32 noundef 633, ptr noundef nonnull @__PRETTY_FUNCTION__.mirror_free_init) #13
   unreachable
 
 do.body.i:                                        ; preds = %if.end104
@@ -1829,7 +1829,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   br i1 %cmp8.not.i, label %mirror_free_init.exit, label %while.body.i, !llvm.loop !10
 
 mirror_free_init.exit:                            ; preds = %while.body.i, %do.body.i
-  %call105 = call i64 @qemu_clock_get_ns(i32 noundef 0) #11
+  %call105 = call i64 @qemu_clock_get_ns(i32 noundef 0) #12
   %last_pause_ns = getelementptr inbounds i8, ptr %job, i64 688
   store i64 %call105, ptr %last_pause_ns, align 8
   %is_none_mode = getelementptr inbounds i8, ptr %job, i64 576
@@ -1843,7 +1843,7 @@ if.then107:                                       ; preds = %mirror_free_init.ex
   br i1 %cmp109, label %immediate_exit, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.then107
-  %call113 = call zeroext i1 @job_is_cancelled(ptr noundef nonnull %job) #11
+  %call113 = call zeroext i1 @job_is_cancelled(ptr noundef nonnull %job) #12
   br i1 %call113, label %immediate_exit, label %if.end117
 
 if.end117:                                        ; preds = %lor.lhs.false, %mirror_free_init.exit
@@ -1855,13 +1855,13 @@ if.end117:                                        ; preds = %lor.lhs.false, %mir
   br i1 %tobool119.not, label %if.end122, label %if.else121
 
 if.else121:                                       ; preds = %if.end117
-  call void @__assert_fail(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.1, i32 noundef 1039, ptr noundef nonnull @__PRETTY_FUNCTION__.mirror_run) #12
+  call void @__assert_fail(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.1, i32 noundef 1039, ptr noundef nonnull @__PRETTY_FUNCTION__.mirror_run) #13
   unreachable
 
 if.end122:                                        ; preds = %if.end117
   %dirty_bitmap = getelementptr inbounds i8, ptr %job, i64 640
   %31 = load ptr, ptr %dirty_bitmap, align 8
-  %call123 = call ptr @bdrv_dirty_iter_new(ptr noundef %31) #11
+  %call123 = call ptr @bdrv_dirty_iter_new(ptr noundef %31) #12
   store ptr %call123, ptr %dbi, align 8
   %ret126 = getelementptr inbounds i8, ptr %job, i64 736
   %32 = load i32, ptr %ret126, align 8
@@ -1887,26 +1887,26 @@ if.end131.lr.ph:                                  ; preds = %if.end122
   br label %if.end131
 
 if.end131:                                        ; preds = %if.end131.lr.ph, %for.cond.backedge
-  call void @job_pause_point(ptr noundef nonnull %job) #11
-  %call136 = call zeroext i1 @job_is_cancelled(ptr noundef nonnull %job) #11
+  call void @job_pause_point(ptr noundef nonnull %job) #12
+  %call136 = call zeroext i1 @job_is_cancelled(ptr noundef nonnull %job) #12
   br i1 %call136, label %immediate_exit, label %if.end138
 
 if.end138:                                        ; preds = %if.end131
   %33 = load ptr, ptr %dirty_bitmap, align 8
-  %call140 = call i64 @bdrv_get_dirty_count(ptr noundef %33) #11
+  %call140 = call i64 @bdrv_get_dirty_count(ptr noundef %33) #12
   %34 = load i64, ptr %bytes_in_flight, align 8
   %add143 = add i64 %34, %call140
   %35 = load i64, ptr %active_write_bytes_in_flight, align 8
   %add144 = add i64 %add143, %35
-  call void @job_progress_set_remaining(ptr noundef nonnull %job, i64 noundef %add144) #11
-  %call145 = call i64 @qemu_clock_get_ns(i32 noundef 0) #11
+  call void @job_progress_set_remaining(ptr noundef nonnull %job, i64 noundef %add144) #12
+  %call145 = call i64 @qemu_clock_get_ns(i32 noundef 0) #12
   %36 = load i64, ptr %last_pause_ns, align 8
   %sub147 = sub i64 %call145, %36
   %37 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %38 = inttoptr i64 %37 to ptr
-  call void %38(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.44, i32 noundef 122) #11
+  call void %38(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.44, i32 noundef 122) #12
   %39 = load i32, ptr %iostatus152, align 8
-  call void @qemu_mutex_unlock_impl(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.44, i32 noundef 132) #11
+  call void @qemu_mutex_unlock_impl(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.44, i32 noundef 132) #12
   %cmp153 = icmp ult i64 %sub147, 100000000
   %cmp156 = icmp eq i32 %39, 0
   %or.cond1 = select i1 %cmp153, i1 %cmp156, i1 false
@@ -1947,15 +1947,15 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #11
-  %call10.i.i = call i32 @qemu_get_thread_id() #11
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #12
+  %call10.i.i = call i32 @qemu_get_thread_id() #12
   %44 = load i64, ptr %_now.i.i, align 8
   %45 = load i64, ptr %tv_usec.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i, i64 noundef %44, i64 noundef %45, ptr noundef nonnull %job, i64 noundef %call140, i32 noundef %.pre239, i32 noundef %.pre) #11
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i, i64 noundef %44, i64 noundef %45, ptr noundef nonnull %job, i64 noundef %call140, i32 noundef %.pre239, i32 noundef %.pre) #12
   br label %trace_mirror_yield.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.46, ptr noundef nonnull %job, i64 noundef %call140, i32 noundef %.pre239, i32 noundef %.pre) #11
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.46, ptr noundef nonnull %job, i64 noundef %call140, i32 noundef %.pre239, i32 noundef %.pre) #12
   br label %trace_mirror_yield.exit
 
 trace_mirror_yield.exit:                          ; preds = %if.then171, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -1990,12 +1990,12 @@ for.inc.i:                                        ; preds = %land.lhs.true3.i, %
   br i1 %tobool.not.i142, label %for.end.i, label %for.body.i, !llvm.loop !11
 
 for.end.i:                                        ; preds = %trace_mirror_yield.exit, %for.inc.i
-  call void @abort() #12
+  call void @abort() #13
   unreachable
 
 mirror_wait_for_free_in_flight_slot.exit:         ; preds = %land.lhs.true3.i
   %waiting_requests.i = getelementptr inbounds i8, ptr %op.09.i, i64 80
-  call void @qemu_co_queue_wait_impl(ptr noundef nonnull %waiting_requests.i, ptr noundef null, i32 noundef 0) #11
+  call void @qemu_co_queue_wait_impl(ptr noundef nonnull %waiting_requests.i, ptr noundef null, i32 noundef 0) #12
   br label %for.cond.backedge
 
 for.cond.backedge:                                ; preds = %if.then.i159, %mirror_wait_for_free_in_flight_slot.exit, %if.then248, %if.end280
@@ -2008,9 +2008,9 @@ if.else174:                                       ; preds = %lor.lhs.false164
   br i1 %cmp175.not, label %if.end180, label %if.end180.thread
 
 if.end180.thread:                                 ; preds = %if.else174
-  call void @bdrv_graph_co_rdlock() #11
+  call void @bdrv_graph_co_rdlock() #12
   call void @mirror_iteration(ptr noundef nonnull %job)
-  call void @bdrv_graph_co_rdunlock() #11
+  call void @bdrv_graph_co_rdunlock() #12
   br label %if.end228.thread
 
 if.end180:                                        ; preds = %if.else174, %if.end138
@@ -2040,25 +2040,25 @@ if.then.i.i150:                                   ; preds = %land.lhs.true5.i.i1
   br i1 %tobool7.i.i151, label %if.then8.i.i153, label %if.else.i.i152
 
 if.then8.i.i153:                                  ; preds = %if.then.i.i150
-  %call9.i.i154 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i143, ptr noundef null) #11
-  %call10.i.i155 = call i32 @qemu_get_thread_id() #11
+  %call9.i.i154 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i143, ptr noundef null) #12
+  %call10.i.i155 = call i32 @qemu_get_thread_id() #12
   %53 = load i64, ptr %_now.i.i143, align 8
   %54 = load i64, ptr %tv_usec.i.i156, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.53, i32 noundef %call10.i.i155, i64 noundef %53, i64 noundef %54, ptr noundef nonnull %job) #11
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.53, i32 noundef %call10.i.i155, i64 noundef %53, i64 noundef %54, ptr noundef nonnull %job) #12
   br label %trace_mirror_before_flush.exit
 
 if.else.i.i152:                                   ; preds = %if.then.i.i150
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.54, ptr noundef nonnull %job) #11
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.54, ptr noundef nonnull %job) #12
   br label %trace_mirror_before_flush.exit
 
 trace_mirror_before_flush.exit:                   ; preds = %if.then187, %land.lhs.true5.i.i147, %if.then8.i.i153, %if.else.i.i152
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i143)
-  %call190 = call zeroext i1 @job_is_ready(ptr noundef nonnull %job) #11
+  %call190 = call zeroext i1 @job_is_ready(ptr noundef nonnull %job) #12
   br i1 %call190, label %while.end204, label %if.then191
 
 if.then191:                                       ; preds = %trace_mirror_before_flush.exit
   %55 = load ptr, ptr %target, align 8
-  %call.i157 = call i32 @blk_co_flush(ptr noundef %55) #11
+  %call.i157 = call i32 @blk_co_flush(ptr noundef %55) #12
   %cmp.i158 = icmp slt i32 %call.i157, 0
   br i1 %cmp.i158, label %if.then.i159, label %if.end196
 
@@ -2066,7 +2066,7 @@ if.then.i159:                                     ; preds = %if.then191
   %sub.i160 = sub i32 0, %call.i157
   store atomic i8 0, ptr %actively_synced.i.i monotonic, align 8
   %56 = load i32, ptr %on_target_error.i.i, align 4
-  %call4.i.i = call i32 @block_job_error_action(ptr noundef nonnull %job, i32 noundef %56, i32 noundef 0, i32 noundef %sub.i160) #11
+  %call4.i.i = call i32 @block_job_error_action(ptr noundef nonnull %job, i32 noundef %56, i32 noundef 0, i32 noundef %sub.i160) #12
   %cmp2.i = icmp eq i32 %call4.i.i, 1
   br i1 %cmp2.i, label %for.cond.backedge.thread, label %for.cond.backedge
 
@@ -2075,7 +2075,7 @@ for.cond.backedge.thread:                         ; preds = %if.then.i159
   br label %immediate_exit
 
 if.end196:                                        ; preds = %if.then191
-  call void @job_transition_to_ready(ptr noundef nonnull %job) #11
+  call void @job_transition_to_ready(ptr noundef nonnull %job) #12
   br label %while.end204
 
 while.end204:                                     ; preds = %if.end196, %trace_mirror_before_flush.exit
@@ -2093,7 +2093,7 @@ if.end218:                                        ; preds = %while.end214, %whil
   br i1 %tobool220, label %if.end228, label %lor.rhs
 
 lor.rhs:                                          ; preds = %if.end218
-  %call224 = call zeroext i1 @job_cancel_requested(ptr noundef nonnull %job) #11
+  %call224 = call zeroext i1 @job_cancel_requested(ptr noundef nonnull %job) #12
   br label %if.end228
 
 if.end228.thread:                                 ; preds = %if.end180.thread, %if.end180
@@ -2103,7 +2103,7 @@ if.end228.thread:                                 ; preds = %if.end180.thread, %
 if.end228:                                        ; preds = %if.end218, %lor.rhs
   %59 = phi i1 [ true, %if.end218 ], [ %call224, %lor.rhs ]
   %60 = load ptr, ptr %dirty_bitmap, align 8
-  %call227 = call i64 @bdrv_get_dirty_count(ptr noundef %60) #11
+  %call227 = call i64 @bdrv_get_dirty_count(ptr noundef %60) #12
   %cmp229 = icmp eq i64 %call227, 0
   %61 = select i1 %cmp229, i1 %59, i1 false
   br i1 %61, label %if.then234, label %if.end256
@@ -2129,38 +2129,38 @@ if.then.i.i168:                                   ; preds = %land.lhs.true5.i.i1
   br i1 %tobool7.i.i169, label %if.then8.i.i171, label %if.else.i.i170
 
 if.then8.i.i171:                                  ; preds = %if.then.i.i168
-  %call9.i.i172 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i161, ptr noundef null) #11
-  %call10.i.i173 = call i32 @qemu_get_thread_id() #11
+  %call9.i.i172 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i161, ptr noundef null) #12
+  %call10.i.i173 = call i32 @qemu_get_thread_id() #12
   %66 = load i64, ptr %_now.i.i161, align 8
   %67 = load i64, ptr %tv_usec.i.i174, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.55, i32 noundef %call10.i.i173, i64 noundef %66, i64 noundef %67, ptr noundef nonnull %job, i64 noundef 0) #11
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.55, i32 noundef %call10.i.i173, i64 noundef %66, i64 noundef %67, ptr noundef nonnull %job, i64 noundef 0) #12
   br label %trace_mirror_before_drain.exit
 
 if.else.i.i170:                                   ; preds = %if.then.i.i168
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.56, ptr noundef nonnull %job, i64 noundef 0) #11
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.56, ptr noundef nonnull %job, i64 noundef 0) #12
   br label %trace_mirror_before_drain.exit
 
 trace_mirror_before_drain.exit:                   ; preds = %if.then234, %land.lhs.true5.i.i165, %if.then8.i.i171, %if.else.i.i170
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i161)
   store i8 1, ptr %in_drain, align 1
-  call void @bdrv_drained_begin(ptr noundef %cond.i.i) #11
+  call void @bdrv_drained_begin(ptr noundef %cond.i.i) #12
   %68 = load i32, ptr %in_active_write_counter, align 4
   %cmp235 = icmp eq i32 %68, 0
   br i1 %cmp235, label %if.end239, label %if.else238
 
 if.else238:                                       ; preds = %trace_mirror_before_drain.exit
-  call void @__assert_fail(ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.1, i32 noundef 1128, ptr noundef nonnull @__PRETTY_FUNCTION__.mirror_run) #12
+  call void @__assert_fail(ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.1, i32 noundef 1128, ptr noundef nonnull @__PRETTY_FUNCTION__.mirror_run) #13
   unreachable
 
 if.end239:                                        ; preds = %trace_mirror_before_drain.exit
   %69 = load ptr, ptr %dirty_bitmap, align 8
-  %call241 = call i64 @bdrv_get_dirty_count(ptr noundef %69) #11
+  %call241 = call i64 @bdrv_get_dirty_count(ptr noundef %69) #12
   %cmp242 = icmp sgt i64 %call241, 0
   br i1 %cmp242, label %if.then248, label %lor.lhs.false244
 
 lor.lhs.false244:                                 ; preds = %if.end239
   %70 = load ptr, ptr %target, align 8
-  %call.i176 = call i32 @blk_co_flush(ptr noundef %70) #11
+  %call.i176 = call i32 @blk_co_flush(ptr noundef %70) #12
   %cmp.i177 = icmp slt i32 %call.i176, 0
   br i1 %cmp.i177, label %if.then.i178, label %if.end250
 
@@ -2168,7 +2168,7 @@ if.then.i178:                                     ; preds = %lor.lhs.false244
   %sub.i179 = sub i32 0, %call.i176
   store atomic i8 0, ptr %actively_synced.i.i monotonic, align 8
   %71 = load i32, ptr %on_target_error.i.i, align 4
-  %call4.i.i182 = call i32 @block_job_error_action(ptr noundef nonnull %job, i32 noundef %71, i32 noundef 0, i32 noundef %sub.i179) #11
+  %call4.i.i182 = call i32 @block_job_error_action(ptr noundef nonnull %job, i32 noundef %71, i32 noundef 0, i32 noundef %sub.i179) #12
   %cmp2.i183 = icmp eq i32 %call4.i.i182, 1
   br i1 %cmp2.i183, label %if.then3.i184, label %if.then248
 
@@ -2177,7 +2177,7 @@ if.then3.i184:                                    ; preds = %if.then.i178
   br label %if.then248
 
 if.then248:                                       ; preds = %if.then3.i184, %if.then.i178, %if.end239
-  call void @bdrv_drained_end(ptr noundef %cond.i.i) #11
+  call void @bdrv_drained_end(ptr noundef %cond.i.i) #12
   store i8 0, ptr %in_drain, align 1
   br label %for.cond.backedge
 
@@ -2188,13 +2188,13 @@ if.end250:                                        ; preds = %lor.lhs.false244
   br i1 %cmp251, label %immediate_exit, label %if.else254
 
 if.else254:                                       ; preds = %if.end250
-  call void @__assert_fail(ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.1, i32 noundef 1140, ptr noundef nonnull @__PRETTY_FUNCTION__.mirror_run) #12
+  call void @__assert_fail(ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.1, i32 noundef 1140, ptr noundef nonnull @__PRETTY_FUNCTION__.mirror_run) #13
   unreachable
 
 if.end256:                                        ; preds = %if.end228.thread, %if.end228
   %cmp229219 = phi i1 [ %cmp229213, %if.end228.thread ], [ %cmp229, %if.end228 ]
   %should_complete125.0218 = phi i1 [ false, %if.end228.thread ], [ %59, %if.end228 ]
-  %call259 = call zeroext i1 @job_is_ready(ptr noundef %job) #11
+  %call259 = call zeroext i1 @job_is_ready(ptr noundef %job) #12
   %call259.not = xor i1 %call259, true
   %brmerge136 = select i1 %call259.not, i1 true, i1 %should_complete125.0218
   br i1 %brmerge136, label %if.else278, label %if.then263
@@ -2206,7 +2206,7 @@ if.then263:                                       ; preds = %if.end256
   br i1 %or.cond3, label %if.then270, label %if.end280
 
 if.then270:                                       ; preds = %if.then263
-  %call273 = call zeroext i1 @job_is_ready(ptr noundef nonnull %job) #11
+  %call273 = call zeroext i1 @job_is_ready(ptr noundef nonnull %job) #12
   %conv274 = zext i1 %call273 to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i187)
   %74 = load i32, ptr @trace_events_enabled_count, align 4
@@ -2228,28 +2228,28 @@ if.then.i.i194:                                   ; preds = %land.lhs.true5.i.i1
   br i1 %tobool7.i.i195, label %if.then8.i.i197, label %if.else.i.i196
 
 if.then8.i.i197:                                  ; preds = %if.then.i.i194
-  %call9.i.i198 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i187, ptr noundef null) #11
-  %call10.i.i199 = call i32 @qemu_get_thread_id() #11
+  %call9.i.i198 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i187, ptr noundef null) #12
+  %call10.i.i199 = call i32 @qemu_get_thread_id() #12
   %78 = load i64, ptr %_now.i.i187, align 8
   %79 = load i64, ptr %tv_usec.i.i200, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.57, i32 noundef %call10.i.i199, i64 noundef %78, i64 noundef %79, ptr noundef nonnull %job, i64 noundef 0, i32 noundef %conv274, i64 noundef 100000000) #11
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.57, i32 noundef %call10.i.i199, i64 noundef %78, i64 noundef %79, ptr noundef nonnull %job, i64 noundef 0, i32 noundef %conv274, i64 noundef 100000000) #12
   br label %trace_mirror_before_sleep.exit
 
 if.else.i.i196:                                   ; preds = %if.then.i.i194
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.58, ptr noundef nonnull %job, i64 noundef 0, i32 noundef %conv274, i64 noundef 100000000) #11
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.58, ptr noundef nonnull %job, i64 noundef 0, i32 noundef %conv274, i64 noundef 100000000) #12
   br label %trace_mirror_before_sleep.exit
 
 trace_mirror_before_sleep.exit:                   ; preds = %if.then270, %land.lhs.true5.i.i191, %if.then8.i.i197, %if.else.i.i196
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i187)
-  call void @job_sleep_ns(ptr noundef nonnull %job, i64 noundef 100000000) #11
+  call void @job_sleep_ns(ptr noundef nonnull %job, i64 noundef 100000000) #12
   br label %if.end280
 
 if.else278:                                       ; preds = %if.end256
-  call void @block_job_ratelimit_sleep(ptr noundef %job) #11
+  call void @block_job_ratelimit_sleep(ptr noundef %job) #12
   br label %if.end280
 
 if.end280:                                        ; preds = %if.then263, %trace_mirror_before_sleep.exit, %if.else278
-  %call281 = call i64 @qemu_clock_get_ns(i32 noundef 0) #11
+  %call281 = call i64 @qemu_clock_get_ns(i32 noundef 0) #12
   store i64 %call281, ptr %last_pause_ns, align 8
   br label %for.cond.backedge
 
@@ -2266,18 +2266,18 @@ if.then287:                                       ; preds = %immediate_exit
   br i1 %cmp288, label %if.end297, label %lor.lhs.false290
 
 lor.lhs.false290:                                 ; preds = %if.then287
-  %call293 = call zeroext i1 @job_is_cancelled(ptr noundef nonnull %job) #11
+  %call293 = call zeroext i1 @job_is_cancelled(ptr noundef nonnull %job) #12
   br i1 %call293, label %if.end297, label %if.else296
 
 if.else296:                                       ; preds = %lor.lhs.false290
-  call void @__assert_fail(ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.1, i32 noundef 1163, ptr noundef nonnull @__PRETTY_FUNCTION__.mirror_run) #12
+  call void @__assert_fail(ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.1, i32 noundef 1163, ptr noundef nonnull @__PRETTY_FUNCTION__.mirror_run) #13
   unreachable
 
 if.end297:                                        ; preds = %if.then287, %lor.lhs.false290
   br i1 %need_drain.0, label %if.end301, label %if.else300
 
 if.else300:                                       ; preds = %if.end297
-  call void @__assert_fail(ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.1, i32 noundef 1164, ptr noundef nonnull @__PRETTY_FUNCTION__.mirror_run) #12
+  call void @__assert_fail(ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.1, i32 noundef 1164, ptr noundef nonnull @__PRETTY_FUNCTION__.mirror_run) #13
   unreachable
 
 if.end301:                                        ; preds = %if.end297
@@ -2320,12 +2320,12 @@ for.inc.i.i:                                      ; preds = %land.lhs.true3.i.i,
   br i1 %tobool.not.i.i203, label %for.end.i.i, label %for.body.i.i, !llvm.loop !11
 
 for.end.i.i:                                      ; preds = %while.body.i202, %for.inc.i.i
-  call void @abort() #12
+  call void @abort() #13
   unreachable
 
 mirror_wait_for_free_in_flight_slot.exit.i:       ; preds = %land.lhs.true3.i.i
   %waiting_requests.i.i = getelementptr inbounds i8, ptr %op.09.i.i, i64 80
-  call void @qemu_co_queue_wait_impl(ptr noundef nonnull %waiting_requests.i.i, ptr noundef null, i32 noundef 0) #11
+  call void @qemu_co_queue_wait_impl(ptr noundef nonnull %waiting_requests.i.i, ptr noundef null, i32 noundef 0) #12
   %85 = load i32, ptr %in_flight284, align 8
   %cmp.not.i = icmp eq i32 %85, 0
   br i1 %cmp.not.i, label %if.end308, label %while.body.i202, !llvm.loop !12
@@ -2333,22 +2333,22 @@ mirror_wait_for_free_in_flight_slot.exit.i:       ; preds = %land.lhs.true3.i.i
 if.end308:                                        ; preds = %mirror_wait_for_free_in_flight_slot.exit.i, %immediate_exit, %if.end301
   %buf309 = getelementptr inbounds i8, ptr %job, i64 656
   %86 = load ptr, ptr %buf309, align 8
-  call void @qemu_vfree(ptr noundef %86) #11
+  call void @qemu_vfree(ptr noundef %86) #12
   %cow_bitmap310 = getelementptr inbounds i8, ptr %job, i64 632
   %87 = load ptr, ptr %cow_bitmap310, align 8
-  call void @g_free(ptr noundef %87) #11
+  call void @g_free(ptr noundef %87) #12
   %in_flight_bitmap311 = getelementptr inbounds i8, ptr %job, i64 696
   %88 = load ptr, ptr %in_flight_bitmap311, align 8
-  call void @g_free(ptr noundef %88) #11
+  call void @g_free(ptr noundef %88) #12
   %dbi312 = getelementptr inbounds i8, ptr %job, i64 648
   %89 = load ptr, ptr %dbi312, align 8
-  call void @bdrv_dirty_iter_free(ptr noundef %89) #11
+  call void @bdrv_dirty_iter_free(ptr noundef %89) #12
   br i1 %need_drain.0, label %if.then314, label %if.end316
 
 if.then314:                                       ; preds = %if.end308
   %in_drain315 = getelementptr inbounds i8, ptr %job, i64 769
   store i8 1, ptr %in_drain315, align 1
-  call void @bdrv_drained_begin(ptr noundef %cond.i.i) #11
+  call void @bdrv_drained_begin(ptr noundef %cond.i.i) #12
   br label %if.end316
 
 if.end316:                                        ; preds = %if.then314, %if.end308
@@ -2398,12 +2398,12 @@ for.inc.i.i:                                      ; preds = %land.lhs.true3.i.i,
   br i1 %tobool.not.i.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !11
 
 for.end.i.i:                                      ; preds = %while.body.i, %for.inc.i.i
-  tail call void @abort() #12
+  tail call void @abort() #13
   unreachable
 
 mirror_wait_for_free_in_flight_slot.exit.i:       ; preds = %land.lhs.true3.i.i
   %waiting_requests.i.i = getelementptr inbounds i8, ptr %op.09.i.i, i64 80
-  tail call void @qemu_co_queue_wait_impl(ptr noundef nonnull %waiting_requests.i.i, ptr noundef null, i32 noundef 0) #11
+  tail call void @qemu_co_queue_wait_impl(ptr noundef nonnull %waiting_requests.i.i, ptr noundef null, i32 noundef 0) #12
   %4 = load i32, ptr %in_flight.i, align 8
   %cmp.not.i = icmp eq i32 %4, 0
   br i1 %cmp.not.i, label %mirror_wait_for_all_io.exit, label %while.body.i, !llvm.loop !12
@@ -2417,12 +2417,12 @@ declare void @block_job_user_resume(ptr noundef) #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @mirror_complete(ptr noundef %job, ptr noundef %errp) #0 {
 entry:
-  %call = tail call zeroext i1 @job_is_ready(ptr noundef %job) #11
+  %call = tail call zeroext i1 @job_is_ready(ptr noundef %job) #12
   br i1 %call, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %job, align 8
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 1188, ptr noundef nonnull @__func__.mirror_complete, ptr noundef nonnull @.str.59, ptr noundef %0) #11
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 1188, ptr noundef nonnull @__func__.mirror_complete, ptr noundef nonnull @.str.59, ptr noundef %0) #12
   br label %for.end
 
 if.end:                                           ; preds = %entry
@@ -2432,7 +2432,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %for.body.us, label %if.then1
 
 if.then1:                                         ; preds = %if.end
-  %call3 = tail call ptr @bdrv_find_node(ptr noundef nonnull %1) #11
+  %call3 = tail call ptr @bdrv_find_node(ptr noundef nonnull %1) #12
   %to_replace = getelementptr inbounds i8, ptr %job, i64 560
   store ptr %call3, ptr %to_replace, align 8
   %tobool5.not = icmp eq ptr %call3, null
@@ -2440,20 +2440,20 @@ if.then1:                                         ; preds = %if.end
 
 if.then6:                                         ; preds = %if.then1
   %2 = load ptr, ptr %replaces, align 8
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 1198, ptr noundef nonnull @__func__.mirror_complete, ptr noundef nonnull @.str.60, ptr noundef %2) #11
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 1198, ptr noundef nonnull @__func__.mirror_complete, ptr noundef nonnull @.str.60, ptr noundef %2) #12
   br label %for.end
 
 if.end8:                                          ; preds = %if.then1
-  %call10 = tail call ptr @bdrv_get_aio_context(ptr noundef nonnull %call3) #11
-  tail call void @aio_context_acquire(ptr noundef %call10) #11
+  %call10 = tail call ptr @bdrv_get_aio_context(ptr noundef nonnull %call3) #12
+  tail call void @aio_context_acquire(ptr noundef %call10) #12
   %replace_blocker = getelementptr inbounds i8, ptr %job, i64 568
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %replace_blocker, ptr noundef nonnull @.str.1, i32 noundef 1207, ptr noundef nonnull @__func__.mirror_complete, ptr noundef nonnull @.str.61) #11
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %replace_blocker, ptr noundef nonnull @.str.1, i32 noundef 1207, ptr noundef nonnull @__func__.mirror_complete, ptr noundef nonnull @.str.61) #12
   %3 = load ptr, ptr %to_replace, align 8
   %4 = load ptr, ptr %replace_blocker, align 8
-  tail call void @bdrv_op_block_all(ptr noundef %3, ptr noundef %4) #11
+  tail call void @bdrv_op_block_all(ptr noundef %3, ptr noundef %4) #12
   %5 = load ptr, ptr %to_replace, align 8
-  tail call void @bdrv_ref(ptr noundef %5) #11
-  tail call void @aio_context_release(ptr noundef %call10) #11
+  tail call void @bdrv_ref(ptr noundef %5) #12
+  tail call void @aio_context_release(ptr noundef %call10) #12
   br label %for.body.us
 
 for.body.us:                                      ; preds = %if.end, %if.end8
@@ -2461,18 +2461,18 @@ for.body.us:                                      ; preds = %if.end, %if.end8
   store i8 1, ptr %should_complete, align 1
   %6 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %7 = inttoptr i64 %6 to ptr
-  tail call void %7(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.44, i32 noundef 122) #11
+  tail call void %7(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.44, i32 noundef 122) #12
   %paused = getelementptr inbounds i8, ptr %job, i64 181
   %8 = load i8, ptr %paused, align 1
   %tobool17.us = trunc i8 %8 to i1
   br i1 %tobool17.us, label %qemu_lockable_auto_unlock.exit.us, label %if.then18.us
 
 if.then18.us:                                     ; preds = %for.body.us
-  tail call void @job_enter_cond_locked(ptr noundef nonnull %job, ptr noundef null) #11
+  tail call void @job_enter_cond_locked(ptr noundef nonnull %job, ptr noundef null) #12
   br label %qemu_lockable_auto_unlock.exit.us
 
 qemu_lockable_auto_unlock.exit.us:                ; preds = %if.then18.us, %for.body.us
-  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.44, i32 noundef 132) #11
+  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.44, i32 noundef 132) #12
   br label %for.end
 
 for.end:                                          ; preds = %qemu_lockable_auto_unlock.exit.us, %if.then6, %if.then
@@ -2494,7 +2494,7 @@ entry:
   br i1 %cmp, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.66, ptr noundef nonnull @.str.1, i32 noundef 827, ptr noundef nonnull @__PRETTY_FUNCTION__.mirror_abort) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.66, ptr noundef nonnull @.str.1, i32 noundef 827, ptr noundef nonnull @__PRETTY_FUNCTION__.mirror_abort) #13
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -2506,15 +2506,15 @@ define internal noundef zeroext i1 @mirror_cancel(ptr noundef %job, i1 noundef z
 entry:
   %target1 = getelementptr inbounds i8, ptr %job, i64 520
   %0 = load ptr, ptr %target1, align 8
-  %call = tail call ptr @blk_bs(ptr noundef %0) #11
+  %call = tail call ptr @blk_bs(ptr noundef %0) #12
   br i1 %force, label %if.then, label %lor.end
 
 lor.end:                                          ; preds = %entry
-  %call2 = tail call zeroext i1 @job_is_ready(ptr noundef nonnull %job) #11
+  %call2 = tail call zeroext i1 @job_is_ready(ptr noundef nonnull %job) #12
   br i1 %call2, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry, %lor.end
-  tail call void @bdrv_cancel_in_flight(ptr noundef %call) #11
+  tail call void @bdrv_cancel_in_flight(ptr noundef %call) #12
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %lor.end
@@ -2529,7 +2529,7 @@ define internal zeroext i1 @mirror_drained_poll(ptr noundef %job) #0 {
 for.body.us:
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
-  tail call void %1(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.44, i32 noundef 122) #11
+  tail call void %1(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.44, i32 noundef 122) #12
   %in_drain = getelementptr inbounds i8, ptr %job, i64 769
   %paused = getelementptr inbounds i8, ptr %job, i64 181
   %2 = load i8, ptr %paused, align 1
@@ -2537,7 +2537,7 @@ for.body.us:
   br i1 %tobool2.us, label %qemu_lockable_auto_unlock.exit.us, label %land.lhs.true.us
 
 land.lhs.true.us:                                 ; preds = %for.body.us
-  %call4.us = tail call zeroext i1 @job_is_cancelled_locked(ptr noundef nonnull %job) #11
+  %call4.us = tail call zeroext i1 @job_is_cancelled_locked(ptr noundef nonnull %job) #12
   br i1 %call4.us, label %qemu_lockable_auto_unlock.exit.us, label %land.lhs.true5.us
 
 land.lhs.true5.us:                                ; preds = %land.lhs.true.us
@@ -2546,14 +2546,14 @@ land.lhs.true5.us:                                ; preds = %land.lhs.true.us
   br i1 %tobool6.us, label %qemu_lockable_auto_unlock.exit.us, label %glib_autoptr_cleanup_QemuLockable.exit
 
 qemu_lockable_auto_unlock.exit.us:                ; preds = %land.lhs.true5.us, %land.lhs.true.us, %for.body.us
-  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.44, i32 noundef 132) #11
+  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.44, i32 noundef 132) #12
   %in_flight = getelementptr inbounds i8, ptr %job, i64 704
   %4 = load i32, ptr %in_flight, align 8
   %tobool7 = icmp ne i32 %4, 0
   br label %return
 
 glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %land.lhs.true5.us
-  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.44, i32 noundef 132) #11
+  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.44, i32 noundef 132) #12
   br label %return
 
 return:                                           ; preds = %glib_autoptr_cleanup_QemuLockable.exit, %qemu_lockable_auto_unlock.exit.us
@@ -2564,11 +2564,11 @@ return:                                           ; preds = %glib_autoptr_cleanu
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @mirror_change(ptr nocapture noundef %job, ptr nocapture noundef readonly %opts, ptr noundef %errp) #0 {
 entry:
-  %call = tail call zeroext i1 @qemu_in_main_thread() #11
+  %call = tail call zeroext i1 @qemu_in_main_thread() #12
   br i1 %call, label %while.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 1285, ptr noundef nonnull @__PRETTY_FUNCTION__.mirror_change) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 1285, ptr noundef nonnull @__PRETTY_FUNCTION__.mirror_change) #13
   unreachable
 
 while.end:                                        ; preds = %entry
@@ -2584,8 +2584,8 @@ if.end6:                                          ; preds = %while.end
   br i1 %cmp8.not, label %while.end17, label %if.then9
 
 if.then9:                                         ; preds = %if.end6
-  %call11 = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @MirrorCopyMode_lookup, i32 noundef %1) #11
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 1293, ptr noundef nonnull @__func__.mirror_change, ptr noundef nonnull @.str.67, ptr noundef %call11) #11
+  %call11 = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @MirrorCopyMode_lookup, i32 noundef %1) #12
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 1293, ptr noundef nonnull @__func__.mirror_change, ptr noundef nonnull @.str.67, ptr noundef %call11) #12
   br label %if.end26
 
 while.end17:                                      ; preds = %if.end6
@@ -2595,9 +2595,9 @@ while.end17:                                      ; preds = %if.end6
 
 if.then23:                                        ; preds = %while.end17
   %3 = extractvalue { i32, i1 } %2, 0
-  %call24 = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @MirrorCopyMode_lookup, i32 noundef 0) #11
-  %call25 = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @MirrorCopyMode_lookup, i32 noundef %3) #11
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 1302, ptr noundef nonnull @__func__.mirror_change, ptr noundef nonnull @.str.68, ptr noundef %call24, ptr noundef %call25) #11
+  %call24 = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @MirrorCopyMode_lookup, i32 noundef 0) #12
+  %call25 = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @MirrorCopyMode_lookup, i32 noundef %3) #12
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 1302, ptr noundef nonnull @__func__.mirror_change, ptr noundef nonnull @.str.68, ptr noundef %call24, ptr noundef %call25) #12
   br label %if.end26
 
 if.end26:                                         ; preds = %while.end, %if.then23, %while.end17, %if.then9
@@ -2605,7 +2605,7 @@ if.end26:                                         ; preds = %while.end, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal void @mirror_query(ptr nocapture noundef readonly %job, ptr nocapture noundef writeonly %info) #7 {
+define internal void @mirror_query(ptr nocapture noundef readonly %job, ptr nocapture noundef writeonly %info) #8 {
 entry:
   %u = getelementptr inbounds i8, ptr %info, i64 72
   %actively_synced2 = getelementptr inbounds i8, ptr %job, i64 600
@@ -2639,12 +2639,12 @@ entry:
   %sub.i = add i64 %nbits, 63
   %0 = lshr i64 %sub.i, 3
   %mul.i = and i64 %0, 2305843009213693944
-  %call.i = tail call noalias ptr @g_try_malloc0(i64 noundef %mul.i) #14
+  %call.i = tail call noalias ptr @g_try_malloc0(i64 noundef %mul.i) #15
   %cmp = icmp eq ptr %call.i, null
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call void @abort() #12
+  tail call void @abort() #13
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -2666,21 +2666,21 @@ entry:
   %count = alloca i64, align 8
   %target = getelementptr inbounds i8, ptr %s, i64 520
   %0 = load ptr, ptr %target, align 8
-  %call = tail call ptr @blk_bs(ptr noundef %0) #11
-  tail call void @bdrv_graph_co_rdlock() #11
+  %call = tail call ptr @blk_bs(ptr noundef %0) #12
+  tail call void @bdrv_graph_co_rdlock() #12
   %mirror_top_bs = getelementptr inbounds i8, ptr %s, i64 528
   %1 = load ptr, ptr %mirror_top_bs, align 8
   %backing = getelementptr inbounds i8, ptr %1, i64 16832
   %2 = load ptr, ptr %backing, align 8
   %3 = load ptr, ptr %2, align 8
-  tail call void @bdrv_graph_co_rdunlock() #11
+  tail call void @bdrv_graph_co_rdunlock() #12
   %zero_target = getelementptr inbounds i8, ptr %s, i64 584
   %4 = load i8, ptr %zero_target, align 8
   %tobool = trunc i8 %4 to i1
   br i1 %tobool, label %if.then, label %if.end20
 
 if.then:                                          ; preds = %entry
-  %call2 = tail call zeroext i1 @bdrv_can_write_zeroes_with_unmap(ptr noundef %call) #11
+  %call2 = tail call zeroext i1 @bdrv_can_write_zeroes_with_unmap(ptr noundef %call) #12
   %bdev_length4 = getelementptr inbounds i8, ptr %s, i64 624
   br i1 %call2, label %if.end, label %if.then3
 
@@ -2688,7 +2688,7 @@ if.then3:                                         ; preds = %if.then
   %dirty_bitmap = getelementptr inbounds i8, ptr %s, i64 640
   %5 = load ptr, ptr %dirty_bitmap, align 8
   %6 = load i64, ptr %bdev_length4, align 8
-  tail call void @bdrv_set_dirty_bitmap(ptr noundef %5, i64 noundef 0, i64 noundef %6) #11
+  tail call void @bdrv_set_dirty_bitmap(ptr noundef %5, i64 noundef 0, i64 noundef %6) #12
   br label %return
 
 if.end:                                           ; preds = %if.then
@@ -2715,7 +2715,7 @@ for.body.lr.ph:                                   ; preds = %for.body.lr.ph.lr.p
 for.body:                                         ; preds = %for.body.lr.ph, %mirror_wait_for_free_in_flight_slot.exit
   %9 = phi i64 [ %8, %for.body.lr.ph ], [ %23, %mirror_wait_for_free_in_flight_slot.exit ]
   %10 = load i64, ptr %granularity, align 8
-  %call.i = tail call i64 @qemu_clock_get_ns(i32 noundef 0) #11
+  %call.i = tail call i64 @qemu_clock_get_ns(i32 noundef 0) #12
   %11 = load i64, ptr %last_pause_ns.i, align 8
   %sub.i = sub i64 %call.i, %11
   %cmp.i = icmp ugt i64 %sub.i, 100000000
@@ -2723,15 +2723,15 @@ for.body:                                         ; preds = %for.body.lr.ph, %mi
 
 if.then.i:                                        ; preds = %for.body
   store i64 %call.i, ptr %last_pause_ns.i, align 8
-  tail call void @job_sleep_ns(ptr noundef nonnull %s, i64 noundef 0) #11
+  tail call void @job_sleep_ns(ptr noundef nonnull %s, i64 noundef 0) #12
   br label %mirror_throttle.exit
 
 if.else.i:                                        ; preds = %for.body
-  tail call void @job_pause_point(ptr noundef nonnull %s) #11
+  tail call void @job_pause_point(ptr noundef nonnull %s) #12
   br label %mirror_throttle.exit
 
 mirror_throttle.exit:                             ; preds = %if.then.i, %if.else.i
-  %call8 = tail call zeroext i1 @job_is_cancelled(ptr noundef nonnull %s) #11
+  %call8 = tail call zeroext i1 @job_is_cancelled(ptr noundef nonnull %s) #12
   br i1 %call8, label %if.then9, label %if.end11
 
 if.then9:                                         ; preds = %mirror_throttle.exit
@@ -2765,15 +2765,15 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #11
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #11
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #12
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #12
   %18 = load i64, ptr %_now.i.i, align 8
   %19 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i, i64 noundef %18, i64 noundef %19, ptr noundef nonnull %s, i64 noundef -1, i32 noundef %13, i32 noundef %12) #11
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i, i64 noundef %18, i64 noundef %19, ptr noundef nonnull %s, i64 noundef -1, i32 noundef %13, i32 noundef %12) #12
   br label %trace_mirror_yield.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.46, ptr noundef nonnull %s, i64 noundef -1, i32 noundef %13, i32 noundef %12) #11
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.46, ptr noundef nonnull %s, i64 noundef -1, i32 noundef %13, i32 noundef %12) #12
   br label %trace_mirror_yield.exit
 
 trace_mirror_yield.exit:                          ; preds = %if.then14, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -2808,12 +2808,12 @@ for.inc.i:                                        ; preds = %land.lhs.true3.i, %
   br i1 %tobool.not.i, label %for.end.i, label %for.body.i, !llvm.loop !11
 
 for.end.i:                                        ; preds = %trace_mirror_yield.exit, %for.inc.i
-  tail call void @abort() #12
+  tail call void @abort() #13
   unreachable
 
 mirror_wait_for_free_in_flight_slot.exit:         ; preds = %land.lhs.true3.i
   %waiting_requests.i = getelementptr inbounds i8, ptr %op.09.i, i64 80
-  tail call void @qemu_co_queue_wait_impl(ptr noundef nonnull %waiting_requests.i, ptr noundef null, i32 noundef 0) #11
+  tail call void @qemu_co_queue_wait_impl(ptr noundef nonnull %waiting_requests.i, ptr noundef null, i32 noundef 0) #12
   %23 = load i64, ptr %bdev_length4, align 8
   %cmp = icmp slt i64 %offset.0.ph72, %23
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !13
@@ -2873,12 +2873,12 @@ for.inc.i.i:                                      ; preds = %land.lhs.true3.i.i,
   br i1 %tobool.not.i.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !11
 
 for.end.i.i:                                      ; preds = %while.body.i, %for.inc.i.i
-  tail call void @abort() #12
+  tail call void @abort() #13
   unreachable
 
 mirror_wait_for_free_in_flight_slot.exit.i:       ; preds = %land.lhs.true3.i.i
   %waiting_requests.i.i = getelementptr inbounds i8, ptr %op.09.i.i, i64 80
-  tail call void @qemu_co_queue_wait_impl(ptr noundef nonnull %waiting_requests.i.i, ptr noundef null, i32 noundef 0) #11
+  tail call void @qemu_co_queue_wait_impl(ptr noundef nonnull %waiting_requests.i.i, ptr noundef null, i32 noundef 0) #12
   %30 = load i32, ptr %in_flight.i, align 8
   %cmp.not.i = icmp eq i32 %30, 0
   br i1 %cmp.not.i, label %mirror_wait_for_all_io.exit, label %while.body.i, !llvm.loop !12
@@ -2908,7 +2908,7 @@ for.body25:                                       ; preds = %for.body25.lr.ph, %
   %34 = srem i64 2147483647, %33
   %mul32 = xor i64 %34, 2147483647
   %cond39 = call i64 @llvm.smin.i64(i64 %sub28, i64 %mul32)
-  %call.i49 = call i64 @qemu_clock_get_ns(i32 noundef 0) #11
+  %call.i49 = call i64 @qemu_clock_get_ns(i32 noundef 0) #12
   %35 = load i64, ptr %last_pause_ns.i50, align 8
   %sub.i51 = sub i64 %call.i49, %35
   %cmp.i52 = icmp ugt i64 %sub.i51, 100000000
@@ -2916,24 +2916,24 @@ for.body25:                                       ; preds = %for.body25.lr.ph, %
 
 if.then.i54:                                      ; preds = %for.body25
   store i64 %call.i49, ptr %last_pause_ns.i50, align 8
-  call void @job_sleep_ns(ptr noundef nonnull %s, i64 noundef 0) #11
+  call void @job_sleep_ns(ptr noundef nonnull %s, i64 noundef 0) #12
   br label %mirror_throttle.exit55
 
 if.else.i53:                                      ; preds = %for.body25
-  call void @job_pause_point(ptr noundef nonnull %s) #11
+  call void @job_pause_point(ptr noundef nonnull %s) #12
   br label %mirror_throttle.exit55
 
 mirror_throttle.exit55:                           ; preds = %if.then.i54, %if.else.i53
-  %call43 = call zeroext i1 @job_is_cancelled(ptr noundef nonnull %s) #11
+  %call43 = call zeroext i1 @job_is_cancelled(ptr noundef nonnull %s) #12
   br i1 %call43, label %return, label %if.end45
 
 if.end45:                                         ; preds = %mirror_throttle.exit55
-  call void @bdrv_graph_co_rdlock() #11
+  call void @bdrv_graph_co_rdlock() #12
   %sext = shl i64 %cond39, 32
   %conv50 = ashr exact i64 %sext, 32
   %36 = load ptr, ptr %base_overlay, align 8
-  %call51 = call i32 @bdrv_co_is_allocated_above(ptr noundef %3, ptr noundef %36, i1 noundef zeroext true, i64 noundef %offset.174, i64 noundef %conv50, ptr noundef nonnull %count) #11
-  call void @bdrv_graph_co_rdunlock() #11
+  %call51 = call i32 @bdrv_co_is_allocated_above(ptr noundef %3, ptr noundef %36, i1 noundef zeroext true, i64 noundef %offset.174, i64 noundef %conv50, ptr noundef nonnull %count) #12
+  call void @bdrv_graph_co_rdunlock() #12
   %cmp53 = icmp slt i32 %call51, 0
   br i1 %cmp53, label %return, label %if.end56
 
@@ -2943,7 +2943,7 @@ if.end56:                                         ; preds = %if.end45
   br i1 %tobool57.not, label %if.else, label %if.end59
 
 if.else:                                          ; preds = %if.end56
-  call void @__assert_fail(ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.1, i32 noundef 907, ptr noundef nonnull @__PRETTY_FUNCTION__.mirror_dirty_init) #12
+  call void @__assert_fail(ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.1, i32 noundef 907, ptr noundef nonnull @__PRETTY_FUNCTION__.mirror_dirty_init) #13
   unreachable
 
 if.end59:                                         ; preds = %if.end56
@@ -2952,7 +2952,7 @@ if.end59:                                         ; preds = %if.end56
 
 if.then62:                                        ; preds = %if.end59
   %38 = load ptr, ptr %dirty_bitmap63, align 8
-  call void @bdrv_set_dirty_bitmap(ptr noundef %38, i64 noundef %offset.174, i64 noundef %37) #11
+  call void @bdrv_set_dirty_bitmap(ptr noundef %38, i64 noundef %offset.174, i64 noundef %37) #12
   %.pre = load i64, ptr %count, align 8
   br label %if.end64
 
@@ -3003,7 +3003,7 @@ land.lhs.true3:                                   ; preds = %land.lhs.true
 
 qemu_null_lockable.exit:                          ; preds = %land.lhs.true3
   %waiting_requests = getelementptr inbounds i8, ptr %op.09, i64 80
-  tail call void @qemu_co_queue_wait_impl(ptr noundef nonnull %waiting_requests, ptr noundef null, i32 noundef 0) #11
+  tail call void @qemu_co_queue_wait_impl(ptr noundef nonnull %waiting_requests, ptr noundef null, i32 noundef 0) #12
   ret void
 
 for.inc:                                          ; preds = %for.body, %land.lhs.true, %land.lhs.true3
@@ -3013,7 +3013,7 @@ for.inc:                                          ; preds = %for.body, %land.lhs
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !11
 
 for.end:                                          ; preds = %for.inc, %entry
-  tail call void @abort() #12
+  tail call void @abort() #13
   unreachable
 }
 
@@ -3032,28 +3032,28 @@ entry:
   %2 = load ptr, ptr %1, align 8
   %target = getelementptr inbounds i8, ptr %s, i64 520
   %3 = load ptr, ptr %target, align 8
-  %call = tail call ptr @blk_bs(ptr noundef %3) #11
-  %call1 = tail call zeroext i1 @bdrv_can_write_zeroes_with_unmap(ptr noundef %call) #11
+  %call = tail call ptr @blk_bs(ptr noundef %3) #12
+  %call1 = tail call zeroext i1 @bdrv_can_write_zeroes_with_unmap(ptr noundef %call) #12
   %buf_size = getelementptr inbounds i8, ptr %s, i64 616
   %4 = load i64, ptr %buf_size, align 8
   %div114 = lshr i64 %4, 4
   %cond = tail call i64 @llvm.umax.i64(i64 %div114, i64 1048576)
   %dirty_bitmap = getelementptr inbounds i8, ptr %s, i64 640
   %5 = load ptr, ptr %dirty_bitmap, align 8
-  tail call void @bdrv_dirty_bitmap_lock(ptr noundef %5) #11
+  tail call void @bdrv_dirty_bitmap_lock(ptr noundef %5) #12
   %dbi = getelementptr inbounds i8, ptr %s, i64 648
   %6 = load ptr, ptr %dbi, align 8
-  %call2 = tail call i64 @bdrv_dirty_iter_next(ptr noundef %6) #11
+  %call2 = tail call i64 @bdrv_dirty_iter_next(ptr noundef %6) #12
   %cmp3 = icmp slt i64 %call2, 0
   br i1 %cmp3, label %if.then, label %if.end13
 
 if.then:                                          ; preds = %entry
   %7 = load ptr, ptr %dbi, align 8
-  tail call void @bdrv_set_dirty_iter(ptr noundef %7, i64 noundef 0) #11
+  tail call void @bdrv_set_dirty_iter(ptr noundef %7, i64 noundef 0) #12
   %8 = load ptr, ptr %dbi, align 8
-  %call7 = tail call i64 @bdrv_dirty_iter_next(ptr noundef %8) #11
+  %call7 = tail call i64 @bdrv_dirty_iter_next(ptr noundef %8) #12
   %9 = load ptr, ptr %dirty_bitmap, align 8
-  %call9 = tail call i64 @bdrv_get_dirty_count(ptr noundef %9) #11
+  %call9 = tail call i64 @bdrv_get_dirty_count(ptr noundef %9) #12
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %10 = load i32, ptr @trace_events_enabled_count, align 4
   %tobool.i.i = icmp ne i32 %10, 0
@@ -3074,16 +3074,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #11
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #11
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #12
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #12
   %14 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %15 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.51, i32 noundef %call10.i.i, i64 noundef %14, i64 noundef %15, ptr noundef nonnull %s, i64 noundef %call9) #11
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.51, i32 noundef %call10.i.i, i64 noundef %14, i64 noundef %15, ptr noundef nonnull %s, i64 noundef %call9) #12
   br label %trace_mirror_restart_iter.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.52, ptr noundef nonnull %s, i64 noundef %call9) #11
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.52, ptr noundef nonnull %s, i64 noundef %call9) #12
   br label %trace_mirror_restart_iter.exit
 
 trace_mirror_restart_iter.exit:                   ; preds = %if.then, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -3092,17 +3092,17 @@ trace_mirror_restart_iter.exit:                   ; preds = %if.then, %land.lhs.
   br i1 %cmp10, label %if.end13, label %if.else
 
 if.else:                                          ; preds = %trace_mirror_restart_iter.exit
-  tail call void @__assert_fail(ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.1, i32 noundef 498, ptr noundef nonnull @__PRETTY_FUNCTION__.mirror_iteration) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.1, i32 noundef 498, ptr noundef nonnull @__PRETTY_FUNCTION__.mirror_iteration) #13
   unreachable
 
 if.end13:                                         ; preds = %trace_mirror_restart_iter.exit, %entry
   %offset.0 = phi i64 [ %call7, %trace_mirror_restart_iter.exit ], [ %call2, %entry ]
   %16 = load ptr, ptr %dirty_bitmap, align 8
-  tail call void @bdrv_dirty_bitmap_unlock(ptr noundef %16) #11
+  tail call void @bdrv_dirty_bitmap_unlock(ptr noundef %16) #12
   tail call void @mirror_wait_on_conflicts(ptr noundef null, ptr noundef nonnull %s, i64 noundef %offset.0, i64 noundef 1)
-  tail call void @job_pause_point(ptr noundef nonnull %s) #11
+  tail call void @job_pause_point(ptr noundef nonnull %s) #12
   %17 = load ptr, ptr %dirty_bitmap, align 8
-  tail call void @bdrv_dirty_bitmap_lock(ptr noundef %17) #11
+  tail call void @bdrv_dirty_bitmap_lock(ptr noundef %17) #12
   %granularity = getelementptr inbounds i8, ptr %s, i64 608
   %18 = load i64, ptr %granularity, align 8
   %19 = load i64, ptr %buf_size, align 8
@@ -3134,7 +3134,7 @@ lor.lhs.false:                                    ; preds = %lor.lhs.false.lr.ph
   %nb_chunks.0143169 = phi i32 [ 1, %lor.lhs.false.lr.ph ], [ %inc, %while.body ]
   %conv16144168 = phi i64 [ 1, %lor.lhs.false.lr.ph ], [ %conv16, %while.body ]
   %22 = load ptr, ptr %dirty_bitmap, align 8
-  %call28 = tail call zeroext i1 @bdrv_dirty_bitmap_get_locked(ptr noundef %22, i64 noundef %add170) #11
+  %call28 = tail call zeroext i1 @bdrv_dirty_bitmap_get_locked(ptr noundef %22, i64 noundef %add170) #12
   br i1 %call28, label %if.end30, label %while.end.loopexit
 
 if.end30:                                         ; preds = %lor.lhs.false
@@ -3150,7 +3150,7 @@ if.end30:                                         ; preds = %lor.lhs.false
 
 if.end33:                                         ; preds = %if.end30
   %27 = load ptr, ptr %dbi, align 8
-  %call35 = tail call i64 @bdrv_dirty_iter_next(ptr noundef %27) #11
+  %call35 = tail call i64 @bdrv_dirty_iter_next(ptr noundef %27) #12
   %cmp36 = icmp sgt i64 %call35, %add170
   %cmp39 = icmp slt i64 %call35, 0
   %or.cond = or i1 %cmp36, %cmp39
@@ -3158,9 +3158,9 @@ if.end33:                                         ; preds = %if.end30
 
 if.then41:                                        ; preds = %if.end33
   %28 = load ptr, ptr %dbi, align 8
-  tail call void @bdrv_set_dirty_iter(ptr noundef %28, i64 noundef %add170) #11
+  tail call void @bdrv_set_dirty_iter(ptr noundef %28, i64 noundef %add170) #12
   %29 = load ptr, ptr %dbi, align 8
-  %call44 = tail call i64 @bdrv_dirty_iter_next(ptr noundef %29) #11
+  %call44 = tail call i64 @bdrv_dirty_iter_next(ptr noundef %29) #12
   br label %if.end45
 
 if.end45:                                         ; preds = %if.end33, %if.then41
@@ -3169,7 +3169,7 @@ if.end45:                                         ; preds = %if.end33, %if.then4
   br i1 %cmp46, label %if.end50, label %if.else49
 
 if.else49:                                        ; preds = %if.end45
-  tail call void @__assert_fail(ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.1, i32 noundef 534, ptr noundef nonnull @__PRETTY_FUNCTION__.mirror_iteration) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.1, i32 noundef 534, ptr noundef nonnull @__PRETTY_FUNCTION__.mirror_iteration) #13
   unreachable
 
 if.end50:                                         ; preds = %if.end45
@@ -3193,10 +3193,10 @@ while.end:                                        ; preds = %while.end.loopexit,
   %conv16.lcssa = phi i64 [ 1, %if.end13 ], [ %conv16.lcssa.ph, %while.end.loopexit ]
   %33 = load ptr, ptr %dirty_bitmap, align 8
   %mul54 = mul i64 %32, %conv16.lcssa
-  tail call void @bdrv_reset_dirty_bitmap_locked(ptr noundef %33, i64 noundef %offset.0, i64 noundef %mul54) #11
+  tail call void @bdrv_reset_dirty_bitmap_locked(ptr noundef %33, i64 noundef %offset.0, i64 noundef %mul54) #12
   %34 = load ptr, ptr %dirty_bitmap, align 8
-  tail call void @bdrv_dirty_bitmap_unlock(ptr noundef %34) #11
-  %call56 = tail call noalias dereferenceable_or_null(128) ptr @g_malloc_n(i64 noundef 1, i64 noundef 128) #13
+  tail call void @bdrv_dirty_bitmap_unlock(ptr noundef %34) #12
+  %call56 = tail call noalias dereferenceable_or_null(128) ptr @g_malloc_n(i64 noundef 1, i64 noundef 128) #14
   %35 = load i64, ptr %granularity, align 8
   %mul61 = mul i64 %35, %conv16.lcssa
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %call56, i8 0, i64 48, i1 false)
@@ -3211,7 +3211,7 @@ while.end:                                        ; preds = %while.end.loopexit,
   %.compoundliteral.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %call56, i64 73
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(55) %.compoundliteral.sroa.5.0..sroa_idx, i8 0, i64 55, i1 false)
   %waiting_requests = getelementptr inbounds i8, ptr %call56, i64 80
-  tail call void @qemu_co_queue_init(ptr noundef nonnull %waiting_requests) #11
+  tail call void @qemu_co_queue_init(ptr noundef nonnull %waiting_requests) #12
   %next = getelementptr inbounds i8, ptr %call56, i64 112
   store ptr null, ptr %next, align 8
   %tql_prev = getelementptr inbounds i8, ptr %s, i64 728
@@ -3224,7 +3224,7 @@ while.end:                                        ; preds = %while.end.loopexit,
   %37 = load ptr, ptr %in_flight_bitmap69, align 8
   %38 = load i64, ptr %granularity, align 8
   %div71 = sdiv i64 %offset.0, %38
-  tail call void @bitmap_set(ptr noundef %37, i64 noundef %div71, i64 noundef %conv16.lcssa) #11
+  tail call void @bitmap_set(ptr noundef %37, i64 noundef %div71, i64 noundef %conv16.lcssa) #12
   %cmp74154 = icmp sgt i32 %nb_chunks.0.lcssa, 0
   br i1 %cmp74154, label %land.rhs.lr.ph, label %do.body192
 
@@ -3252,16 +3252,16 @@ while.body79:                                     ; preds = %land.rhs
   br i1 %tobool81.not, label %if.end84, label %if.else83
 
 if.else83:                                        ; preds = %while.body79
-  call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.1, i32 noundef 568, ptr noundef nonnull @__PRETTY_FUNCTION__.mirror_iteration) #12
+  call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.1, i32 noundef 568, ptr noundef nonnull @__PRETTY_FUNCTION__.mirror_iteration) #13
   unreachable
 
 if.end84:                                         ; preds = %while.body79
-  call void @bdrv_graph_co_rdlock() #11
+  call void @bdrv_graph_co_rdlock() #12
   %conv88 = zext nneg i32 %nb_chunks.1155 to i64
   %41 = load i64, ptr %granularity, align 8
   %mul90 = mul i64 %41, %conv88
-  %call91 = call i32 @bdrv_co_block_status_above(ptr noundef %2, ptr noundef null, i64 noundef %offset.1156, i64 noundef %mul90, ptr noundef nonnull %io_bytes, ptr noundef null, ptr noundef null) #11
-  call void @bdrv_graph_co_rdunlock() #11
+  %call91 = call i32 @bdrv_co_block_status_above(ptr noundef %2, ptr noundef null, i64 noundef %offset.1156, i64 noundef %mul90, ptr noundef nonnull %io_bytes, ptr noundef null, ptr noundef null) #12
+  call void @bdrv_graph_co_rdunlock() #12
   %cmp92 = icmp slt i32 %call91, 0
   br i1 %cmp92, label %if.then94, label %if.else106
 
@@ -3300,12 +3300,12 @@ if.else126:                                       ; preds = %if.end118
   br i1 %or.cond117, label %if.then131, label %if.end153
 
 if.then131:                                       ; preds = %if.else126
-  call void @bdrv_graph_co_rdlock() #11
+  call void @bdrv_graph_co_rdlock() #12
   %46 = load ptr, ptr %target, align 8
-  %call139 = call ptr @blk_bs(ptr noundef %46) #11
+  %call139 = call ptr @blk_bs(ptr noundef %46) #12
   %47 = load i64, ptr %io_bytes, align 8
-  call void @bdrv_round_to_subclusters(ptr noundef %call139, i64 noundef %offset.1156, i64 noundef %47, ptr noundef nonnull %target_offset, ptr noundef nonnull %target_bytes) #11
-  call void @bdrv_graph_co_rdunlock() #11
+  call void @bdrv_round_to_subclusters(ptr noundef %call139, i64 noundef %offset.1156, i64 noundef %47, ptr noundef nonnull %target_offset, ptr noundef nonnull %target_bytes) #12
+  call void @bdrv_graph_co_rdunlock() #12
   %48 = load i64, ptr %target_offset, align 8
   %cmp142 = icmp eq i64 %48, %offset.1156
   br i1 %cmp142, label %land.lhs.true144, label %if.end153
@@ -3350,15 +3350,15 @@ if.then.i.i129:                                   ; preds = %land.lhs.true5.i.i1
   br i1 %tobool7.i.i130, label %if.then8.i.i132, label %if.else.i.i131
 
 if.then8.i.i132:                                  ; preds = %if.then.i.i129
-  %call9.i.i133 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i122, ptr noundef null) #11
-  %call10.i.i134 = call i32 @qemu_get_thread_id() #11
+  %call9.i.i133 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i122, ptr noundef null) #12
+  %call10.i.i134 = call i32 @qemu_get_thread_id() #12
   %57 = load i64, ptr %_now.i.i122, align 8
   %58 = load i64, ptr %tv_usec.i.i135, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.38, i32 noundef %call10.i.i134, i64 noundef %57, i64 noundef %58, ptr noundef nonnull %s, i64 noundef %offset.1156, i32 noundef %52) #11
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.38, i32 noundef %call10.i.i134, i64 noundef %57, i64 noundef %58, ptr noundef nonnull %s, i64 noundef %offset.1156, i32 noundef %52) #12
   br label %trace_mirror_yield_in_flight.exit
 
 if.else.i.i131:                                   ; preds = %if.then.i.i129
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.39, ptr noundef nonnull %s, i64 noundef %offset.1156, i32 noundef %52) #11
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.39, ptr noundef nonnull %s, i64 noundef %offset.1156, i32 noundef %52) #12
   br label %trace_mirror_yield_in_flight.exit
 
 trace_mirror_yield_in_flight.exit:                ; preds = %while.body157, %land.lhs.true5.i.i126, %if.then8.i.i132, %if.else.i.i131
@@ -3393,12 +3393,12 @@ for.inc.i:                                        ; preds = %land.lhs.true3.i, %
   br i1 %tobool.not.i, label %for.end.i, label %for.body.i, !llvm.loop !11
 
 for.end.i:                                        ; preds = %trace_mirror_yield_in_flight.exit, %for.inc.i
-  call void @abort() #12
+  call void @abort() #13
   unreachable
 
 mirror_wait_for_free_in_flight_slot.exit:         ; preds = %land.lhs.true3.i
   %waiting_requests.i = getelementptr inbounds i8, ptr %op.09.i, i64 80
-  call void @qemu_co_queue_wait_impl(ptr noundef nonnull %waiting_requests.i, ptr noundef null, i32 noundef 0) #11
+  call void @qemu_co_queue_wait_impl(ptr noundef nonnull %waiting_requests.i, ptr noundef null, i32 noundef 0) #12
   %62 = load i32, ptr %in_flight, align 8
   %cmp155 = icmp ugt i32 %62, 15
   br i1 %cmp155, label %while.body157, label %while.end159, !llvm.loop !16
@@ -3422,7 +3422,7 @@ if.end164:                                        ; preds = %while.end159
   br i1 %tobool177.not, label %if.else179, label %if.end180
 
 if.else179:                                       ; preds = %if.end164
-  call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.1, i32 noundef 615, ptr noundef nonnull @__PRETTY_FUNCTION__.mirror_iteration) #12
+  call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.1, i32 noundef 615, ptr noundef nonnull @__PRETTY_FUNCTION__.mirror_iteration) #13
   unreachable
 
 if.end180:                                        ; preds = %if.end164
@@ -3436,7 +3436,7 @@ if.end180:                                        ; preds = %if.end164
   %div186 = sdiv i64 %sub184, %65
   %66 = trunc i64 %div186 to i32
   %conv189 = sub i32 %nb_chunks.1155, %66
-  call void @block_job_ratelimit_processed_bytes(ptr noundef nonnull %s, i64 noundef %io_bytes_acct.0) #11
+  call void @block_job_ratelimit_processed_bytes(ptr noundef nonnull %s, i64 noundef %io_bytes_acct.0) #12
   %cmp74 = icmp sgt i32 %conv189, 0
   br i1 %cmp74, label %land.rhs, label %do.body192, !llvm.loop !17
 
@@ -3460,8 +3460,8 @@ if.end207:                                        ; preds = %if.else202, %if.the
   %69 = phi ptr [ null, %if.else202 ], [ %.pre160, %if.then196 ]
   store ptr %69, ptr %68, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next, i8 0, i64 16, i1 false)
-  call void @qemu_co_queue_restart_all(ptr noundef nonnull %waiting_requests) #11
-  call void @g_free(ptr noundef nonnull %call56) #11
+  call void @qemu_co_queue_restart_all(ptr noundef nonnull %waiting_requests) #12
+  call void @g_free(ptr noundef nonnull %call56) #12
   ret void
 }
 
@@ -3472,7 +3472,7 @@ define internal i32 @mirror_flush(ptr noundef %s) #0 {
 entry:
   %target = getelementptr inbounds i8, ptr %s, i64 520
   %0 = load ptr, ptr %target, align 8
-  %call = tail call i32 @blk_co_flush(ptr noundef %0) #11
+  %call = tail call i32 @blk_co_flush(ptr noundef %0) #12
   %cmp = icmp slt i32 %call, 0
   br i1 %cmp, label %if.then, label %if.end5
 
@@ -3482,7 +3482,7 @@ if.then:                                          ; preds = %entry
   store atomic i8 0, ptr %actively_synced.i monotonic, align 8
   %on_target_error.i = getelementptr inbounds i8, ptr %s, i64 596
   %1 = load i32, ptr %on_target_error.i, align 4
-  %call4.i = tail call i32 @block_job_error_action(ptr noundef nonnull %s, i32 noundef %1, i32 noundef 0, i32 noundef %sub) #11
+  %call4.i = tail call i32 @block_job_error_action(ptr noundef nonnull %s, i32 noundef %1, i32 noundef 0, i32 noundef %sub) #12
   %cmp2 = icmp eq i32 %call4.i, 1
   br i1 %cmp2, label %if.then3, label %if.end5
 
@@ -3542,12 +3542,12 @@ for.inc.i:                                        ; preds = %land.lhs.true3.i, %
   br i1 %tobool.not.i, label %for.end.i, label %for.body.i, !llvm.loop !11
 
 for.end.i:                                        ; preds = %while.body, %for.inc.i
-  tail call void @abort() #12
+  tail call void @abort() #13
   unreachable
 
 mirror_wait_for_free_in_flight_slot.exit:         ; preds = %land.lhs.true3.i
   %waiting_requests.i = getelementptr inbounds i8, ptr %op.09.i, i64 80
-  tail call void @qemu_co_queue_wait_impl(ptr noundef nonnull %waiting_requests.i, ptr noundef null, i32 noundef 0) #11
+  tail call void @qemu_co_queue_wait_impl(ptr noundef nonnull %waiting_requests.i, ptr noundef null, i32 noundef 0) #12
   %4 = load i32, ptr %in_flight, align 8
   %cmp.not = icmp eq i32 %4, 0
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !12
@@ -3561,14 +3561,14 @@ declare void @bdrv_dirty_iter_free(ptr noundef) local_unnamed_addr #1
 declare ptr @bdrv_filter_child(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @g_try_malloc0(i64 noundef) local_unnamed_addr #8
+declare noalias ptr @g_try_malloc0(i64 noundef) local_unnamed_addr #9
 
 declare zeroext i1 @bdrv_can_write_zeroes_with_unmap(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @mirror_throttle(ptr noundef %s) #0 {
 entry:
-  %call = tail call i64 @qemu_clock_get_ns(i32 noundef 0) #11
+  %call = tail call i64 @qemu_clock_get_ns(i32 noundef 0) #12
   %last_pause_ns = getelementptr inbounds i8, ptr %s, i64 688
   %0 = load i64, ptr %last_pause_ns, align 8
   %sub = sub i64 %call, %0
@@ -3577,11 +3577,11 @@ entry:
 
 if.then:                                          ; preds = %entry
   store i64 %call, ptr %last_pause_ns, align 8
-  tail call void @job_sleep_ns(ptr noundef nonnull %s, i64 noundef 0) #11
+  tail call void @job_sleep_ns(ptr noundef nonnull %s, i64 noundef 0) #12
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  tail call void @job_pause_point(ptr noundef nonnull %s) #11
+  tail call void @job_pause_point(ptr noundef nonnull %s) #12
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
@@ -3593,7 +3593,7 @@ define internal fastcc i32 @mirror_perform(ptr noundef %s, i64 noundef %offset, 
 entry:
   %bytes_handled = alloca i64, align 8
   store i64 -1, ptr %bytes_handled, align 8
-  %call = tail call noalias dereferenceable_or_null(128) ptr @g_malloc_n(i64 noundef 1, i64 noundef 128) #13
+  %call = tail call noalias dereferenceable_or_null(128) ptr @g_malloc_n(i64 noundef 1, i64 noundef 128) #14
   %conv = zext i32 %bytes to i64
   store ptr %s, ptr %call, align 8
   %.compoundliteral.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %call, i64 8
@@ -3607,11 +3607,11 @@ entry:
   %.compoundliteral.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %call, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.compoundliteral.sroa.6.0..sroa_idx, i8 0, i64 56, i1 false)
   %waiting_requests = getelementptr inbounds i8, ptr %call, i64 80
-  call void @qemu_co_queue_init(ptr noundef nonnull %waiting_requests) #11
+  call void @qemu_co_queue_init(ptr noundef nonnull %waiting_requests) #12
   %0 = sext i32 %mirror_method to i64
   %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.mirror_perform, i64 0, i64 %0
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %call10 = call ptr @qemu_coroutine_create(ptr noundef nonnull %switch.load, ptr noundef nonnull %call) #11
+  %call10 = call ptr @qemu_coroutine_create(ptr noundef nonnull %switch.load, ptr noundef nonnull %call) #12
   %co11 = getelementptr inbounds i8, ptr %call, i64 96
   store ptr %call10, ptr %co11, align 8
   %next = getelementptr inbounds i8, ptr %call, i64 112
@@ -3622,13 +3622,13 @@ entry:
   store ptr %1, ptr %tql_prev13, align 8
   store ptr %call, ptr %1, align 8
   store ptr %next, ptr %tql_prev, align 8
-  call void @qemu_coroutine_enter(ptr noundef %call10) #11
+  call void @qemu_coroutine_enter(ptr noundef %call10) #12
   %2 = load i64, ptr %bytes_handled, align 8
   %cmp = icmp sgt i64 %2, -1
   br i1 %cmp, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  call void @__assert_fail(ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.1, i32 noundef 473, ptr noundef nonnull @__PRETTY_FUNCTION__.mirror_perform) #12
+  call void @__assert_fail(ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.1, i32 noundef 473, ptr noundef nonnull @__PRETTY_FUNCTION__.mirror_perform) #13
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -3636,7 +3636,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp20, label %if.end24, label %if.else23
 
 if.else23:                                        ; preds = %if.end
-  call void @__assert_fail(ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 478, ptr noundef nonnull @__PRETTY_FUNCTION__.mirror_perform) #12
+  call void @__assert_fail(ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.1, i32 noundef 478, ptr noundef nonnull @__PRETTY_FUNCTION__.mirror_perform) #13
   unreachable
 
 if.end24:                                         ; preds = %if.end
@@ -3647,7 +3647,7 @@ if.end24:                                         ; preds = %if.end
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef ptr @graph_lockable_auto_lock(ptr noundef readnone returned %x) #0 {
 entry:
-  tail call void @bdrv_graph_co_rdlock() #11
+  tail call void @bdrv_graph_co_rdlock() #12
   ret ptr %x
 }
 
@@ -3656,7 +3656,7 @@ declare i32 @bdrv_co_is_allocated_above(ptr noundef, ptr noundef, i1 noundef zer
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @graph_lockable_auto_unlock(ptr nocapture readnone %x) #0 {
 entry:
-  tail call void @bdrv_graph_co_rdunlock() #11
+  tail call void @bdrv_graph_co_rdunlock() #12
   ret void
 }
 
@@ -3685,7 +3685,7 @@ entry:
   br i1 %tobool.not, label %if.else, label %if.end
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 358, ptr noundef nonnull @__PRETTY_FUNCTION__.mirror_co_read) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.1, i32 noundef 358, ptr noundef nonnull @__PRETTY_FUNCTION__.mirror_co_read) #13
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -3693,7 +3693,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp13, label %if.end17, label %if.else16
 
 if.else16:                                        ; preds = %if.end
-  tail call void @__assert_fail(ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.1, i32 noundef 359, ptr noundef nonnull @__PRETTY_FUNCTION__.mirror_co_read) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.1, i32 noundef 359, ptr noundef nonnull @__PRETTY_FUNCTION__.mirror_co_read) #13
   unreachable
 
 if.end17:                                         ; preds = %if.end
@@ -3722,7 +3722,7 @@ if.end24:                                         ; preds = %if.then20, %if.end1
   br i1 %cmp26, label %if.end30, label %if.else29
 
 if.else29:                                        ; preds = %if.end24
-  tail call void @__assert_fail(ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.1, i32 noundef 366, ptr noundef nonnull @__PRETTY_FUNCTION__.mirror_co_read) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.1, i32 noundef 366, ptr noundef nonnull @__PRETTY_FUNCTION__.mirror_co_read) #13
   unreachable
 
 if.end30:                                         ; preds = %if.end24
@@ -3732,7 +3732,7 @@ if.end30:                                         ; preds = %if.end24
   br i1 %cmp33.not, label %if.else36, label %if.end37
 
 if.else36:                                        ; preds = %if.end30
-  tail call void @__assert_fail(ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.1, i32 noundef 367, ptr noundef nonnull @__PRETTY_FUNCTION__.mirror_co_read) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.1, i32 noundef 367, ptr noundef nonnull @__PRETTY_FUNCTION__.mirror_co_read) #13
   unreachable
 
 if.end37:                                         ; preds = %if.end30
@@ -3744,7 +3744,7 @@ if.end37:                                         ; preds = %if.end30
   br i1 %cmp40, label %if.end44, label %if.else43
 
 if.else43:                                        ; preds = %if.end37
-  tail call void @__assert_fail(ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.1, i32 noundef 371, ptr noundef nonnull @__PRETTY_FUNCTION__.mirror_co_read) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.1, i32 noundef 371, ptr noundef nonnull @__PRETTY_FUNCTION__.mirror_co_read) #13
   unreachable
 
 if.end44:                                         ; preds = %if.end37
@@ -3753,7 +3753,7 @@ if.end44:                                         ; preds = %if.end37
   br i1 %cmp47, label %if.end51, label %if.else50
 
 if.else50:                                        ; preds = %if.end44
-  tail call void @__assert_fail(ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.1, i32 noundef 373, ptr noundef nonnull @__PRETTY_FUNCTION__.mirror_co_read) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.1, i32 noundef 373, ptr noundef nonnull @__PRETTY_FUNCTION__.mirror_co_read) #13
   unreachable
 
 if.end51:                                         ; preds = %if.end44
@@ -3795,15 +3795,15 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #11
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #11
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #12
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #12
   %22 = load i64, ptr %_now.i.i, align 8
   %23 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.38, i32 noundef %call10.i.i, i64 noundef %22, i64 noundef %23, ptr noundef nonnull %0, i64 noundef %16, i32 noundef %17) #11
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.38, i32 noundef %call10.i.i, i64 noundef %22, i64 noundef %23, ptr noundef nonnull %0, i64 noundef %16, i32 noundef %17) #12
   br label %trace_mirror_yield_in_flight.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.39, ptr noundef nonnull %0, i64 noundef %16, i32 noundef %17) #11
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.39, ptr noundef nonnull %0, i64 noundef %16, i32 noundef %17) #12
   br label %trace_mirror_yield_in_flight.exit
 
 trace_mirror_yield_in_flight.exit:                ; preds = %while.body, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -3838,19 +3838,19 @@ for.inc.i:                                        ; preds = %land.lhs.true3.i, %
   br i1 %tobool.not.i, label %for.end.i, label %for.body.i, !llvm.loop !11
 
 for.end.i:                                        ; preds = %trace_mirror_yield_in_flight.exit, %for.inc.i
-  tail call void @abort() #12
+  tail call void @abort() #13
   unreachable
 
 mirror_wait_for_free_in_flight_slot.exit:         ; preds = %land.lhs.true3.i
   %waiting_requests.i = getelementptr inbounds i8, ptr %op.09.i, i64 80
-  tail call void @qemu_co_queue_wait_impl(ptr noundef nonnull %waiting_requests.i, ptr noundef null, i32 noundef 0) #11
+  tail call void @qemu_co_queue_wait_impl(ptr noundef nonnull %waiting_requests.i, ptr noundef null, i32 noundef 0) #12
   %27 = load i32, ptr %buf_free_count, align 8
   %cmp57 = icmp slt i32 %27, %conv56
   br i1 %cmp57, label %while.body, label %while.end, !llvm.loop !18
 
 while.end:                                        ; preds = %mirror_wait_for_free_in_flight_slot.exit, %if.end51
   %qiov = getelementptr inbounds i8, ptr %opaque, i64 8
-  tail call void @qemu_iovec_init(ptr noundef nonnull %qiov, i32 noundef %conv56) #11
+  tail call void @qemu_iovec_init(ptr noundef nonnull %qiov, i32 noundef %conv56) #12
   %cmp6181 = icmp sgt i32 %conv56, 0
   br i1 %cmp6181, label %while.body63.lr.ph, label %while.end91
 
@@ -3883,7 +3883,7 @@ if.end77:                                         ; preds = %if.then73, %while.b
   store i32 %dec81, ptr %buf_free_count, align 8
   %33 = load i64, ptr %granularity, align 8
   %cond90 = tail call i64 @llvm.umin.i64(i64 %33, i64 %sub66)
-  tail call void @qemu_iovec_add(ptr noundef nonnull %qiov, ptr noundef nonnull %28, i64 noundef %cond90) #11
+  tail call void @qemu_iovec_add(ptr noundef nonnull %qiov, ptr noundef nonnull %28, i64 noundef %cond90) #12
   %cmp61 = icmp ugt i32 %dec82.in, 1
   br i1 %cmp61, label %while.body63, label %while.end91, !llvm.loop !19
 
@@ -3921,29 +3921,29 @@ if.then.i.i67:                                    ; preds = %land.lhs.true5.i.i6
   br i1 %tobool7.i.i68, label %if.then8.i.i70, label %if.else.i.i69
 
 if.then8.i.i70:                                   ; preds = %if.then.i.i67
-  %call9.i.i71 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i60, ptr noundef null) #11
-  %call10.i.i72 = tail call i32 @qemu_get_thread_id() #11
+  %call9.i.i71 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i60, ptr noundef null) #12
+  %call10.i.i72 = tail call i32 @qemu_get_thread_id() #12
   %43 = load i64, ptr %_now.i.i60, align 8
   %tv_usec.i.i73 = getelementptr inbounds i8, ptr %_now.i.i60, i64 8
   %44 = load i64, ptr %tv_usec.i.i73, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.40, i32 noundef %call10.i.i72, i64 noundef %43, i64 noundef %44, ptr noundef nonnull %0, i64 noundef %37, i64 noundef %38) #11
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.40, i32 noundef %call10.i.i72, i64 noundef %43, i64 noundef %44, ptr noundef nonnull %0, i64 noundef %37, i64 noundef %38) #12
   br label %trace_mirror_one_iteration.exit
 
 if.else.i.i69:                                    ; preds = %if.then.i.i67
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.41, ptr noundef nonnull %0, i64 noundef %37, i64 noundef %38) #11
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.41, ptr noundef nonnull %0, i64 noundef %37, i64 noundef %38) #12
   br label %trace_mirror_one_iteration.exit
 
 trace_mirror_one_iteration.exit:                  ; preds = %while.end91, %land.lhs.true5.i.i64, %if.then8.i.i70, %if.else.i.i69
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i60)
-  tail call void @bdrv_graph_co_rdlock() #11
+  tail call void @bdrv_graph_co_rdlock() #12
   %mirror_top_bs = getelementptr inbounds i8, ptr %0, i64 528
   %45 = load ptr, ptr %mirror_top_bs, align 8
   %backing = getelementptr inbounds i8, ptr %45, i64 16832
   %46 = load ptr, ptr %backing, align 8
   %47 = load i64, ptr %offset38, align 8
   %48 = load i64, ptr %bytes, align 8
-  %call102 = tail call i32 @bdrv_co_preadv(ptr noundef %46, i64 noundef %47, i64 noundef %48, ptr noundef nonnull %qiov, i32 noundef 0) #11
-  tail call void @bdrv_graph_co_rdunlock() #11
+  %call102 = tail call i32 @bdrv_co_preadv(ptr noundef %46, i64 noundef %47, i64 noundef %48, ptr noundef nonnull %qiov, i32 noundef 0) #12
+  tail call void @bdrv_graph_co_rdunlock() #12
   tail call void @mirror_read_complete(ptr noundef nonnull %opaque, i32 noundef %call102)
   ret void
 }
@@ -3978,7 +3978,7 @@ entry:
   %10 = load i8, ptr %unmap, align 4
   %tobool = trunc i8 %10 to i1
   %cond = select i1 %tobool, i32 4, i32 0
-  %call = tail call i32 @blk_co_pwrite_zeroes(ptr noundef %8, i64 noundef %9, i64 noundef %5, i32 noundef %cond) #11
+  %call = tail call i32 @blk_co_pwrite_zeroes(ptr noundef %8, i64 noundef %9, i64 noundef %5, i32 noundef %cond) #12
   %11 = load ptr, ptr %opaque, align 8
   %cmp.i = icmp slt i32 %call, 0
   br i1 %cmp.i, label %if.then.i, label %mirror_write_complete.exit
@@ -3988,13 +3988,13 @@ if.then.i:                                        ; preds = %entry
   %12 = load ptr, ptr %dirty_bitmap.i, align 8
   %13 = load i64, ptr %offset, align 8
   %14 = load i64, ptr %bytes, align 8
-  tail call void @bdrv_set_dirty_bitmap(ptr noundef %12, i64 noundef %13, i64 noundef %14) #11
+  tail call void @bdrv_set_dirty_bitmap(ptr noundef %12, i64 noundef %13, i64 noundef %14) #12
   %sub.i = sub i32 0, %call
   %actively_synced.i.i = getelementptr inbounds i8, ptr %11, i64 600
   store atomic i8 0, ptr %actively_synced.i.i monotonic, align 8
   %on_target_error.i.i = getelementptr inbounds i8, ptr %11, i64 596
   %15 = load i32, ptr %on_target_error.i.i, align 4
-  %call4.i.i = tail call i32 @block_job_error_action(ptr noundef nonnull %11, i32 noundef %15, i32 noundef 0, i32 noundef %sub.i) #11
+  %call4.i.i = tail call i32 @block_job_error_action(ptr noundef nonnull %11, i32 noundef %15, i32 noundef 0, i32 noundef %sub.i) #12
   %cmp2.i = icmp eq i32 %call4.i.i, 1
   br i1 %cmp2.i, label %land.lhs.true.i, label %mirror_write_complete.exit
 
@@ -4039,7 +4039,7 @@ entry:
   %8 = load ptr, ptr %target, align 8
   %offset = getelementptr inbounds i8, ptr %opaque, i64 48
   %9 = load i64, ptr %offset, align 8
-  %call = tail call i32 @blk_co_pdiscard(ptr noundef %8, i64 noundef %9, i64 noundef %5) #11
+  %call = tail call i32 @blk_co_pdiscard(ptr noundef %8, i64 noundef %9, i64 noundef %5) #12
   %10 = load ptr, ptr %opaque, align 8
   %cmp.i = icmp slt i32 %call, 0
   br i1 %cmp.i, label %if.then.i, label %mirror_write_complete.exit
@@ -4049,13 +4049,13 @@ if.then.i:                                        ; preds = %entry
   %11 = load ptr, ptr %dirty_bitmap.i, align 8
   %12 = load i64, ptr %offset, align 8
   %13 = load i64, ptr %bytes, align 8
-  tail call void @bdrv_set_dirty_bitmap(ptr noundef %11, i64 noundef %12, i64 noundef %13) #11
+  tail call void @bdrv_set_dirty_bitmap(ptr noundef %11, i64 noundef %12, i64 noundef %13) #12
   %sub.i = sub i32 0, %call
   %actively_synced.i.i = getelementptr inbounds i8, ptr %10, i64 600
   store atomic i8 0, ptr %actively_synced.i.i monotonic, align 8
   %on_target_error.i.i = getelementptr inbounds i8, ptr %10, i64 596
   %14 = load i32, ptr %on_target_error.i.i, align 4
-  %call4.i.i = tail call i32 @block_job_error_action(ptr noundef nonnull %10, i32 noundef %14, i32 noundef 0, i32 noundef %sub.i) #11
+  %call4.i.i = tail call i32 @block_job_error_action(ptr noundef nonnull %10, i32 noundef %14, i32 noundef 0, i32 noundef %sub.i) #12
   %cmp2.i = icmp eq i32 %call4.i.i, 1
   br i1 %cmp2.i, label %land.lhs.true.i, label %mirror_write_complete.exit
 
@@ -4123,10 +4123,10 @@ if.end:                                           ; preds = %entry
 if.end.thread:                                    ; preds = %entry
   %target = getelementptr inbounds i8, ptr %s, i64 520
   %14 = load ptr, ptr %target, align 8
-  %call14 = tail call ptr @blk_bs(ptr noundef %14) #11
+  %call14 = tail call ptr @blk_bs(ptr noundef %14) #12
   %15 = load i64, ptr %offset, align 8
   %16 = load i64, ptr %bytes, align 8
-  call void @bdrv_round_to_subclusters(ptr noundef %call14, i64 noundef %15, i64 noundef %16, ptr noundef nonnull %align_offset, ptr noundef nonnull %align_bytes) #11
+  call void @bdrv_round_to_subclusters(ptr noundef %call14, i64 noundef %15, i64 noundef %16, ptr noundef nonnull %align_offset, ptr noundef nonnull %align_bytes) #12
   %17 = load i64, ptr %align_bytes, align 8
   %conv1529 = sext i32 %conv1.fr28 to i64
   %cmp30 = icmp sgt i64 %17, %conv1529
@@ -4160,7 +4160,7 @@ if.end27:                                         ; preds = %if.end, %if.end.thr
   br i1 %cmp33, label %if.end36, label %if.else
 
 if.else:                                          ; preds = %if.end27
-  call void @__assert_fail(ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.1, i32 noundef 311, ptr noundef nonnull @__PRETTY_FUNCTION__.mirror_cow_align) #12
+  call void @__assert_fail(ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.1, i32 noundef 311, ptr noundef nonnull @__PRETTY_FUNCTION__.mirror_cow_align) #13
   unreachable
 
 if.end36:                                         ; preds = %if.end27
@@ -4181,13 +4181,13 @@ if.then:                                          ; preds = %entry
   %2 = load ptr, ptr %dirty_bitmap, align 8
   %bytes = getelementptr inbounds i8, ptr %op, i64 56
   %3 = load i64, ptr %bytes, align 8
-  tail call void @bdrv_set_dirty_bitmap(ptr noundef %2, i64 noundef %1, i64 noundef %3) #11
+  tail call void @bdrv_set_dirty_bitmap(ptr noundef %2, i64 noundef %1, i64 noundef %3) #12
   %sub = sub i32 0, %ret
   %actively_synced.i = getelementptr inbounds i8, ptr %0, i64 600
   store atomic i8 0, ptr %actively_synced.i monotonic, align 8
   %on_source_error.i = getelementptr inbounds i8, ptr %0, i64 592
   %4 = load i32, ptr %on_source_error.i, align 8
-  %call.i = tail call i32 @block_job_error_action(ptr noundef nonnull %0, i32 noundef %4, i32 noundef 1, i32 noundef %sub) #11
+  %call.i = tail call i32 @block_job_error_action(ptr noundef nonnull %0, i32 noundef %4, i32 noundef 1, i32 noundef %sub) #12
   %cmp2 = icmp eq i32 %call.i, 1
   br i1 %cmp2, label %land.lhs.true, label %return
 
@@ -4207,7 +4207,7 @@ if.end7:                                          ; preds = %entry
   %qiov = getelementptr inbounds i8, ptr %op, i64 8
   %size = getelementptr inbounds i8, ptr %op, i64 40
   %7 = load i64, ptr %size, align 8
-  %call10 = tail call i32 @blk_co_pwritev(ptr noundef %6, i64 noundef %1, i64 noundef %7, ptr noundef nonnull %qiov, i32 noundef 0) #11
+  %call10 = tail call i32 @blk_co_pwritev(ptr noundef %6, i64 noundef %1, i64 noundef %7, ptr noundef nonnull %qiov, i32 noundef 0) #12
   %8 = load ptr, ptr %op, align 8
   %cmp.i = icmp slt i32 %call10, 0
   br i1 %cmp.i, label %if.then.i, label %return
@@ -4218,13 +4218,13 @@ if.then.i:                                        ; preds = %if.end7
   %10 = load i64, ptr %offset, align 8
   %bytes.i = getelementptr inbounds i8, ptr %op, i64 56
   %11 = load i64, ptr %bytes.i, align 8
-  tail call void @bdrv_set_dirty_bitmap(ptr noundef %9, i64 noundef %10, i64 noundef %11) #11
+  tail call void @bdrv_set_dirty_bitmap(ptr noundef %9, i64 noundef %10, i64 noundef %11) #12
   %sub.i = sub i32 0, %call10
   %actively_synced.i.i = getelementptr inbounds i8, ptr %8, i64 600
   store atomic i8 0, ptr %actively_synced.i.i monotonic, align 8
   %on_target_error.i.i = getelementptr inbounds i8, ptr %8, i64 596
   %12 = load i32, ptr %on_target_error.i.i, align 4
-  %call4.i.i = tail call i32 @block_job_error_action(ptr noundef nonnull %8, i32 noundef %12, i32 noundef 0, i32 noundef %sub.i) #11
+  %call4.i.i = tail call i32 @block_job_error_action(ptr noundef nonnull %8, i32 noundef %12, i32 noundef 0, i32 noundef %sub.i) #12
   %cmp2.i = icmp eq i32 %call4.i.i, 1
   br i1 %cmp2.i, label %land.lhs.true.i, label %return
 
@@ -4275,16 +4275,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #11
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #11
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #12
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #12
   %7 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.42, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %ret) #11
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.42, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %ret) #12
   br label %trace_mirror_iteration_done.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.43, ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %ret) #11
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.43, ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %ret) #12
   br label %trace_mirror_iteration_done.exit
 
 trace_mirror_iteration_done.exit:                 ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -4340,7 +4340,7 @@ for.end:                                          ; preds = %for.body, %trace_mi
   %22 = load ptr, ptr %in_flight_bitmap, align 8
   %sext = shl i64 %div15, 32
   %conv16 = ashr exact i64 %sext, 32
-  tail call void @bitmap_clear(ptr noundef %22, i64 noundef %div, i64 noundef %conv16) #11
+  tail call void @bitmap_clear(ptr noundef %22, i64 noundef %div, i64 noundef %conv16) #12
   %next18 = getelementptr inbounds i8, ptr %op, i64 112
   %23 = load ptr, ptr %next18, align 8
   %cmp19.not = icmp eq ptr %23, null
@@ -4363,7 +4363,7 @@ if.then39:                                        ; preds = %for.end
   br i1 %tobool.not, label %if.end43, label %if.then40
 
 if.then40:                                        ; preds = %if.then39
-  tail call void @bitmap_set(ptr noundef nonnull %26, i64 noundef %div, i64 noundef %conv16) #11
+  tail call void @bitmap_set(ptr noundef nonnull %26, i64 noundef %div, i64 noundef %conv16) #12
   br label %if.end43
 
 if.end43:                                         ; preds = %if.then40, %if.then39
@@ -4374,14 +4374,14 @@ if.end43:                                         ; preds = %if.then40, %if.then
 
 if.then45:                                        ; preds = %if.end43
   %28 = load i64, ptr %bytes, align 8
-  tail call void @job_progress_update(ptr noundef nonnull %0, i64 noundef %28) #11
+  tail call void @job_progress_update(ptr noundef nonnull %0, i64 noundef %28) #12
   br label %if.end48
 
 if.end48:                                         ; preds = %if.end43, %if.then45, %for.end
-  tail call void @qemu_iovec_destroy(ptr noundef nonnull %qiov) #11
+  tail call void @qemu_iovec_destroy(ptr noundef nonnull %qiov) #12
   %waiting_requests = getelementptr inbounds i8, ptr %op, i64 80
-  tail call void @qemu_co_queue_restart_all(ptr noundef nonnull %waiting_requests) #11
-  tail call void @g_free(ptr noundef nonnull %op) #11
+  tail call void @qemu_co_queue_restart_all(ptr noundef nonnull %waiting_requests) #12
+  tail call void @g_free(ptr noundef nonnull %op) #12
   ret void
 }
 
@@ -4401,13 +4401,13 @@ if.then:                                          ; preds = %entry
   %2 = load i64, ptr %offset, align 8
   %bytes = getelementptr inbounds i8, ptr %op, i64 56
   %3 = load i64, ptr %bytes, align 8
-  tail call void @bdrv_set_dirty_bitmap(ptr noundef %1, i64 noundef %2, i64 noundef %3) #11
+  tail call void @bdrv_set_dirty_bitmap(ptr noundef %1, i64 noundef %2, i64 noundef %3) #12
   %sub = sub i32 0, %ret
   %actively_synced.i = getelementptr inbounds i8, ptr %0, i64 600
   store atomic i8 0, ptr %actively_synced.i monotonic, align 8
   %on_target_error.i = getelementptr inbounds i8, ptr %0, i64 596
   %4 = load i32, ptr %on_target_error.i, align 4
-  %call4.i = tail call i32 @block_job_error_action(ptr noundef nonnull %0, i32 noundef %4, i32 noundef 0, i32 noundef %sub) #11
+  %call4.i = tail call i32 @block_job_error_action(ptr noundef nonnull %0, i32 noundef %4, i32 noundef 0, i32 noundef %sub) #12
   %cmp2 = icmp eq i32 %call4.i, 1
   br i1 %cmp2, label %land.lhs.true, label %if.end7
 
@@ -4466,11 +4466,11 @@ entry:
   %ret = getelementptr inbounds i8, ptr %job, i64 188
   %0 = load i32, ptr %ret, align 4
   %cmp = icmp sgt i32 %0, -1
-  %call = tail call zeroext i1 @qemu_in_main_thread() #11
+  %call = tail call zeroext i1 @qemu_in_main_thread() #12
   br i1 %call, label %do.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 673, ptr noundef nonnull @__PRETTY_FUNCTION__.mirror_exit_common) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 673, ptr noundef nonnull @__PRETTY_FUNCTION__.mirror_exit_common) #13
   unreachable
 
 do.end:                                           ; preds = %entry
@@ -4481,9 +4481,9 @@ do.end:                                           ; preds = %entry
 
 if.end3:                                          ; preds = %do.end
   store i8 1, ptr %prepared, align 8
-  %call5 = tail call ptr @qemu_get_aio_context() #11
-  tail call void @aio_context_acquire(ptr noundef %call5) #11
-  tail call void @bdrv_graph_rdlock_main_loop() #11
+  %call5 = tail call ptr @qemu_get_aio_context() #12
+  tail call void @aio_context_acquire(ptr noundef %call5) #12
+  tail call void @bdrv_graph_rdlock_main_loop() #12
   %mirror_top_bs6 = getelementptr inbounds i8, ptr %job, i64 528
   %2 = load ptr, ptr %mirror_top_bs6, align 8
   %opaque = getelementptr inbounds i8, ptr %2, i64 24
@@ -4493,32 +4493,32 @@ if.end3:                                          ; preds = %do.end
   %5 = load ptr, ptr %4, align 8
   %target = getelementptr inbounds i8, ptr %job, i64 520
   %6 = load ptr, ptr %target, align 8
-  %call7 = tail call ptr @blk_bs(ptr noundef %6) #11
-  %call8 = tail call zeroext i1 @bdrv_chain_contains(ptr noundef %5, ptr noundef %call7) #11
+  %call7 = tail call ptr @blk_bs(ptr noundef %6) #12
+  %call8 = tail call zeroext i1 @bdrv_chain_contains(ptr noundef %5, ptr noundef %call7) #12
   br i1 %call8, label %if.then9, label %if.end10
 
 if.then9:                                         ; preds = %if.end3
-  tail call void @bdrv_unfreeze_backing_chain(ptr noundef nonnull %2, ptr noundef %call7) #11
+  tail call void @bdrv_unfreeze_backing_chain(ptr noundef nonnull %2, ptr noundef %call7) #12
   br label %if.end10
 
 if.end10:                                         ; preds = %if.then9, %if.end3
   %dirty_bitmap = getelementptr inbounds i8, ptr %job, i64 640
   %7 = load ptr, ptr %dirty_bitmap, align 8
-  tail call void @bdrv_release_dirty_bitmap(ptr noundef %7) #11
-  tail call void @bdrv_ref(ptr noundef %5) #11
-  tail call void @bdrv_ref(ptr noundef nonnull %2) #11
-  tail call void @bdrv_ref(ptr noundef %call7) #11
-  tail call void @bdrv_graph_rdunlock_main_loop() #11
+  tail call void @bdrv_release_dirty_bitmap(ptr noundef %7) #12
+  tail call void @bdrv_ref(ptr noundef %5) #12
+  tail call void @bdrv_ref(ptr noundef nonnull %2) #12
+  tail call void @bdrv_ref(ptr noundef %call7) #12
+  tail call void @bdrv_graph_rdunlock_main_loop() #12
   %8 = load ptr, ptr %target, align 8
-  tail call void @blk_unref(ptr noundef %8) #11
+  tail call void @blk_unref(ptr noundef %8) #12
   store ptr null, ptr %target, align 8
-  tail call void @bdrv_drained_begin(ptr noundef nonnull %2) #11
-  tail call void @bdrv_drained_begin(ptr noundef %call7) #11
+  tail call void @bdrv_drained_begin(ptr noundef nonnull %2) #12
+  tail call void @bdrv_drained_begin(ptr noundef %call7) #12
   %stop = getelementptr inbounds i8, ptr %3, i64 8
   store i8 1, ptr %stop, align 8
-  tail call void @bdrv_graph_rdlock_main_loop() #11
+  tail call void @bdrv_graph_rdlock_main_loop() #12
   %9 = load ptr, ptr %backing, align 8
-  %call14 = tail call i32 @bdrv_child_refresh_perms(ptr noundef nonnull %2, ptr noundef %9, ptr noundef nonnull @error_abort) #11
+  %call14 = tail call i32 @bdrv_child_refresh_perms(ptr noundef nonnull %2, ptr noundef %9, ptr noundef nonnull @error_abort) #12
   br i1 %cmp, label %land.lhs.true, label %if.end46
 
 land.lhs.true:                                    ; preds = %if.end10
@@ -4542,8 +4542,8 @@ cond.false:                                       ; preds = %if.then17
 
 cond.end:                                         ; preds = %if.then17, %cond.false
   %cond = phi ptr [ %12, %cond.false ], [ %5, %if.then17 ]
-  %call20 = tail call ptr @bdrv_skip_filters(ptr noundef %call7) #11
-  %call.i = tail call ptr @bdrv_cow_child(ptr noundef %call20) #11
+  %call20 = tail call ptr @bdrv_skip_filters(ptr noundef %call7) #12
+  %call.i = tail call ptr @bdrv_cow_child(ptr noundef %call20) #12
   %tobool.not.i.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i.i, label %bdrv_cow_bs.exit, label %cond.true.i.i
 
@@ -4557,48 +4557,48 @@ bdrv_cow_bs.exit:                                 ; preds = %cond.end, %cond.tru
   br i1 %cmp22.not, label %if.end46, label %if.then23
 
 if.then23:                                        ; preds = %bdrv_cow_bs.exit
-  %call24 = call i32 @bdrv_set_backing_hd(ptr noundef %call20, ptr noundef %cond, ptr noundef nonnull %local_err) #11
+  %call24 = call i32 @bdrv_set_backing_hd(ptr noundef %call20, ptr noundef %cond, ptr noundef nonnull %local_err) #12
   %14 = load ptr, ptr %local_err, align 8
   %tobool25.not = icmp eq ptr %14, null
   br i1 %tobool25.not, label %if.end46, label %if.then26
 
 if.then26:                                        ; preds = %if.then23
-  call void @error_report_err(ptr noundef nonnull %14) #11
+  call void @error_report_err(ptr noundef nonnull %14) #12
   store ptr null, ptr %local_err, align 8
   br label %if.end46
 
 if.then34:                                        ; preds = %land.lhs.true
-  %call35 = tail call ptr @bdrv_backing_chain_next(ptr noundef %call7) #11
+  %call35 = tail call ptr @bdrv_backing_chain_next(ptr noundef %call7) #12
   %tobool36.not = icmp eq ptr %call35, null
   br i1 %tobool36.not, label %if.end39, label %if.else38
 
 if.else38:                                        ; preds = %if.then34
-  tail call void @__assert_fail(ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.1, i32 noundef 735, ptr noundef nonnull @__PRETTY_FUNCTION__.mirror_exit_common) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.1, i32 noundef 735, ptr noundef nonnull @__PRETTY_FUNCTION__.mirror_exit_common) #13
   unreachable
 
 if.end39:                                         ; preds = %if.then34
-  %call40 = tail call ptr @bdrv_skip_filters(ptr noundef %call7) #11
-  %call41 = call i32 @bdrv_open_backing_file(ptr noundef %call40, ptr noundef null, ptr noundef nonnull @.str.63, ptr noundef nonnull %local_err) #11
+  %call40 = tail call ptr @bdrv_skip_filters(ptr noundef %call7) #12
+  %call41 = call i32 @bdrv_open_backing_file(ptr noundef %call40, ptr noundef null, ptr noundef nonnull @.str.63, ptr noundef nonnull %local_err) #12
   %cmp42 = icmp slt i32 %call41, 0
   br i1 %cmp42, label %if.then43, label %if.end46
 
 if.then43:                                        ; preds = %if.end39
   %15 = load ptr, ptr %local_err, align 8
-  call void @error_report_err(ptr noundef %15) #11
+  call void @error_report_err(ptr noundef %15) #12
   store ptr null, ptr %local_err, align 8
   br label %if.end46
 
 if.end46:                                         ; preds = %land.lhs.true, %if.end10, %if.then43, %if.end39, %bdrv_cow_bs.exit, %if.then26, %if.then23
   %ret1.0 = phi i32 [ %call41, %if.then43 ], [ %call41, %if.end39 ], [ -1, %if.then26 ], [ 0, %if.then23 ], [ 0, %bdrv_cow_bs.exit ], [ 0, %if.end10 ], [ 0, %land.lhs.true ]
-  call void @bdrv_graph_rdunlock_main_loop() #11
+  call void @bdrv_graph_rdunlock_main_loop() #12
   %to_replace = getelementptr inbounds i8, ptr %job, i64 560
   %16 = load ptr, ptr %to_replace, align 8
   %tobool47.not = icmp eq ptr %16, null
   br i1 %tobool47.not, label %if.end51, label %if.then48
 
 if.then48:                                        ; preds = %if.end46
-  %call50 = call ptr @bdrv_get_aio_context(ptr noundef nonnull %16) #11
-  call void @aio_context_acquire(ptr noundef %call50) #11
+  %call50 = call ptr @bdrv_get_aio_context(ptr noundef nonnull %16) #12
+  call void @aio_context_acquire(ptr noundef %call50) #12
   br label %if.end51
 
 if.end51:                                         ; preds = %if.then48, %if.end46
@@ -4613,13 +4613,13 @@ if.then55:                                        ; preds = %if.end51
   %18 = load ptr, ptr %to_replace, align 8
   %tobool58.not = icmp eq ptr %18, null
   %cond62 = select i1 %tobool58.not, ptr %5, ptr %18
-  %call63 = call zeroext i1 @bdrv_is_read_only(ptr noundef %cond62) #11
-  %call66 = call zeroext i1 @bdrv_is_read_only(ptr noundef %call7) #11
+  %call63 = call zeroext i1 @bdrv_is_read_only(ptr noundef %cond62) #12
+  %call66 = call zeroext i1 @bdrv_is_read_only(ptr noundef %call7) #12
   %19 = xor i1 %call63, %call66
   br i1 %19, label %if.then70, label %if.end73
 
 if.then70:                                        ; preds = %if.then55
-  %call72 = call i32 @bdrv_reopen_set_read_only(ptr noundef %call7, i1 noundef zeroext %call63, ptr noundef null) #11
+  %call72 = call i32 @bdrv_reopen_set_read_only(ptr noundef %call7, i1 noundef zeroext %call63, ptr noundef null) #12
   br label %if.end73
 
 if.end73:                                         ; preds = %if.then70, %if.then55
@@ -4629,34 +4629,34 @@ if.end73:                                         ; preds = %if.then70, %if.then
   br i1 %tobool74, label %if.end77, label %if.else76
 
 if.else76:                                        ; preds = %if.end73
-  call void @__assert_fail(ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.1, i32 noundef 760, ptr noundef nonnull @__PRETTY_FUNCTION__.mirror_exit_common) #12
+  call void @__assert_fail(ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.1, i32 noundef 760, ptr noundef nonnull @__PRETTY_FUNCTION__.mirror_exit_common) #13
   unreachable
 
 if.end77:                                         ; preds = %if.end73
-  call void @bdrv_drained_begin(ptr noundef %cond62) #11
-  call void @bdrv_graph_wrlock(ptr noundef %call7) #11
-  %call78 = call zeroext i1 @bdrv_recurse_can_replace(ptr noundef %5, ptr noundef %cond62) #11
+  call void @bdrv_drained_begin(ptr noundef %cond62) #12
+  call void @bdrv_graph_wrlock(ptr noundef %call7) #12
+  %call78 = call zeroext i1 @bdrv_recurse_can_replace(ptr noundef %5, ptr noundef %cond62) #12
   br i1 %call78, label %if.then79, label %if.else81
 
 if.then79:                                        ; preds = %if.end77
-  %call80 = call i32 @bdrv_replace_node(ptr noundef %cond62, ptr noundef %call7, ptr noundef nonnull %local_err) #11
+  %call80 = call i32 @bdrv_replace_node(ptr noundef %cond62, ptr noundef %call7, ptr noundef nonnull %local_err) #12
   br label %if.end84
 
 if.else81:                                        ; preds = %if.end77
   %node_name = getelementptr inbounds i8, ptr %cond62, i64 16600
   %node_name82 = getelementptr inbounds i8, ptr %call7, i64 16600
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %local_err, ptr noundef nonnull @.str.1, i32 noundef 774, ptr noundef nonnull @__func__.mirror_exit_common, ptr noundef nonnull @.str.65, ptr noundef nonnull %node_name, ptr noundef nonnull %node_name82) #11
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %local_err, ptr noundef nonnull @.str.1, i32 noundef 774, ptr noundef nonnull @__func__.mirror_exit_common, ptr noundef nonnull @.str.65, ptr noundef nonnull %node_name, ptr noundef nonnull %node_name82) #12
   br label %if.end84
 
 if.end84:                                         ; preds = %if.else81, %if.then79
-  call void @bdrv_graph_wrunlock(ptr noundef %call7) #11
-  call void @bdrv_drained_end(ptr noundef %cond62) #11
+  call void @bdrv_graph_wrunlock(ptr noundef %call7) #12
+  call void @bdrv_drained_end(ptr noundef %cond62) #12
   %21 = load ptr, ptr %local_err, align 8
   %tobool85.not = icmp eq ptr %21, null
   br i1 %tobool85.not, label %if.end88, label %if.then86
 
 if.then86:                                        ; preds = %if.end84
-  call void @error_report_err(ptr noundef nonnull %21) #11
+  call void @error_report_err(ptr noundef nonnull %21) #12
   br label %if.end88
 
 if.end88:                                         ; preds = %if.end51, %if.end84, %if.then86
@@ -4668,11 +4668,11 @@ if.end88:                                         ; preds = %if.end51, %if.end84
 if.then91:                                        ; preds = %if.end88
   %replace_blocker = getelementptr inbounds i8, ptr %job, i64 568
   %23 = load ptr, ptr %replace_blocker, align 8
-  call void @bdrv_op_unblock_all(ptr noundef nonnull %22, ptr noundef %23) #11
+  call void @bdrv_op_unblock_all(ptr noundef nonnull %22, ptr noundef %23) #12
   %24 = load ptr, ptr %replace_blocker, align 8
-  call void @error_free(ptr noundef %24) #11
+  call void @error_free(ptr noundef %24) #12
   %25 = load ptr, ptr %to_replace, align 8
-  call void @bdrv_unref(ptr noundef %25) #11
+  call void @bdrv_unref(ptr noundef %25) #12
   br label %if.end95
 
 if.end95:                                         ; preds = %if.then91, %if.end88
@@ -4680,30 +4680,30 @@ if.end95:                                         ; preds = %if.then91, %if.end8
   br i1 %tobool96.not, label %if.end98, label %if.then97
 
 if.then97:                                        ; preds = %if.end95
-  call void @aio_context_release(ptr noundef nonnull %replace_aio_context.0) #11
+  call void @aio_context_release(ptr noundef nonnull %replace_aio_context.0) #12
   br label %if.end98
 
 if.end98:                                         ; preds = %if.then97, %if.end95
   %replaces = getelementptr inbounds i8, ptr %job, i64 552
   %26 = load ptr, ptr %replaces, align 8
-  call void @g_free(ptr noundef %26) #11
-  call void @block_job_remove_all_bdrv(ptr noundef nonnull %job) #11
-  call void @bdrv_graph_wrlock(ptr noundef nonnull %2) #11
+  call void @g_free(ptr noundef %26) #12
+  call void @block_job_remove_all_bdrv(ptr noundef nonnull %job) #12
+  call void @bdrv_graph_wrlock(ptr noundef nonnull %2) #12
   %27 = load ptr, ptr %backing, align 8
   %28 = load ptr, ptr %27, align 8
-  %call101 = call i32 @bdrv_replace_node(ptr noundef nonnull %2, ptr noundef %28, ptr noundef nonnull @error_abort) #11
-  call void @bdrv_graph_wrunlock(ptr noundef nonnull %2) #11
-  call void @bdrv_drained_end(ptr noundef %call7) #11
-  call void @bdrv_unref(ptr noundef %call7) #11
+  %call101 = call i32 @bdrv_replace_node(ptr noundef nonnull %2, ptr noundef %28, ptr noundef nonnull @error_abort) #12
+  call void @bdrv_graph_wrunlock(ptr noundef nonnull %2) #12
+  call void @bdrv_drained_end(ptr noundef %call7) #12
+  call void @bdrv_unref(ptr noundef %call7) #12
   store ptr null, ptr %3, align 8
-  call void @bdrv_drained_end(ptr noundef %5) #11
-  call void @bdrv_drained_end(ptr noundef nonnull %2) #11
+  call void @bdrv_drained_end(ptr noundef %5) #12
+  call void @bdrv_drained_end(ptr noundef nonnull %2) #12
   %in_drain103 = getelementptr inbounds i8, ptr %job, i64 769
   store i8 0, ptr %in_drain103, align 1
-  call void @bdrv_unref(ptr noundef nonnull %2) #11
-  call void @bdrv_unref(ptr noundef %5) #11
-  %call104 = call ptr @qemu_get_aio_context() #11
-  call void @aio_context_release(ptr noundef %call104) #11
+  call void @bdrv_unref(ptr noundef nonnull %2) #12
+  call void @bdrv_unref(ptr noundef %5) #12
+  %call104 = call ptr @qemu_get_aio_context() #12
+  call void @aio_context_release(ptr noundef %call104) #12
   br label %return
 
 return:                                           ; preds = %do.end, %if.end98
@@ -4739,7 +4739,7 @@ entry:
   br i1 %force, label %lor.end, label %lor.rhs
 
 lor.rhs:                                          ; preds = %entry
-  %call = tail call zeroext i1 @job_is_ready(ptr noundef %job) #11
+  %call = tail call zeroext i1 @job_is_ready(ptr noundef %job) #12
   %lnot = xor i1 %call, true
   br label %lor.end
 
@@ -4749,41 +4749,42 @@ lor.end:                                          ; preds = %lor.rhs, %entry
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctpop.i64(i64) #9
+declare i64 @llvm.ctpop.i64(i64) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #9
+declare i64 @llvm.umax.i64(i64, i64) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #9
+declare i32 @llvm.smin.i32(i32, i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #9
+declare i64 @llvm.smin.i64(i64, i64) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #9
+declare i64 @llvm.umin.i64(i64, i64) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nounwind sspstrong willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { nounwind }
-attributes #12 = { noreturn nounwind }
-attributes #13 = { nounwind allocsize(0,1) }
-attributes #14 = { nounwind allocsize(0) }
+attributes #4 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nounwind sspstrong willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #12 = { nounwind }
+attributes #13 = { noreturn nounwind }
+attributes #14 = { nounwind allocsize(0,1) }
+attributes #15 = { nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

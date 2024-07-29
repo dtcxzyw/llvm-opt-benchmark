@@ -811,7 +811,7 @@ sub_2:                                            ; preds = %sub_1
 139:                                              ; preds = %136, %134
   call fastcc void @usage()
   call void @h5tools_close() #21
-  call void @exit(i32 noundef 1) #24
+  call void @exit(i32 noundef 1) #25
   unreachable
 
 140:                                              ; preds = %126
@@ -827,7 +827,7 @@ sub_2:                                            ; preds = %sub_1
 144:                                              ; preds = %142
   call fastcc void @usage()
   call void @h5tools_close() #21
-  call void @exit(i32 noundef 1) #24
+  call void @exit(i32 noundef 1) #25
   unreachable
 
 145:                                              ; preds = %142
@@ -849,7 +849,7 @@ sub_2:                                            ; preds = %sub_1
 155:                                              ; preds = %152, %145
   call fastcc void @usage()
   call void @h5tools_close() #21
-  call void @exit(i32 noundef 1) #24
+  call void @exit(i32 noundef 1) #25
   unreachable
 
 156:                                              ; preds = %140
@@ -904,7 +904,7 @@ sub_2:                                            ; preds = %sub_1
 175:                                              ; preds = %173
   call fastcc void @usage()
   call void @h5tools_close() #21
-  call void @exit(i32 noundef 1) #24
+  call void @exit(i32 noundef 1) #25
   unreachable
 
 176:                                              ; preds = %173
@@ -939,7 +939,7 @@ sub_2:                                            ; preds = %sub_1
 190:                                              ; preds = %187, %185
   call fastcc void @usage()
   call void @h5tools_close() #21
-  call void @exit(i32 noundef 1) #24
+  call void @exit(i32 noundef 1) #25
   unreachable
 
 191:                                              ; preds = %.tail309
@@ -952,7 +952,7 @@ sub_2:                                            ; preds = %sub_1
   %195 = call i64 @fwrite(ptr nonnull @.str.33, i64 92, i64 1, ptr %194)
   call fastcc void @usage()
   call void @h5tools_close() #21
-  call void @exit(i32 noundef 1) #24
+  call void @exit(i32 noundef 1) #25
   unreachable
 
 196:                                              ; preds = %191
@@ -965,7 +965,7 @@ sub_2:                                            ; preds = %sub_1
   %200 = call i64 @fwrite(ptr nonnull @.str.35, i64 88, i64 1, ptr %199)
   call fastcc void @usage()
   call void @h5tools_close() #21
-  call void @exit(i32 noundef 1) #24
+  call void @exit(i32 noundef 1) #25
   unreachable
 
 201:                                              ; preds = %196
@@ -1067,7 +1067,7 @@ sub_2:                                            ; preds = %sub_1
 223:                                              ; preds = %204
   call fastcc void @usage()
   call void @h5tools_close() #21
-  call void @exit(i32 noundef 1) #24
+  call void @exit(i32 noundef 1) #25
   unreachable
 
 224:                                              ; preds = %208, %209, %210, %211, %212, %213, %214, %215, %216, %217, %218, %222
@@ -1078,10 +1078,10 @@ sub_2:                                            ; preds = %sub_1
 
 227:                                              ; preds = %201
   %228 = load ptr, ptr @stderr, align 8
-  %229 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %228, ptr noundef nonnull @.str.36, ptr noundef nonnull %41) #25
+  %229 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %228, ptr noundef nonnull @.str.36, ptr noundef nonnull %41) #26
   call fastcc void @usage()
   call void @h5tools_close() #21
-  call void @exit(i32 noundef 1) #24
+  call void @exit(i32 noundef 1) #25
   unreachable
 
 .loopexit:                                        ; preds = %204, %59, %65, %71, %77, %83, %89, %95, %103, %111, %120, %136, %133, %158, %167, %184, %187, %152, %124, %115, %107, %98, %92, %86, %80, %74, %68, %62
@@ -1103,7 +1103,7 @@ sub_2:                                            ; preds = %sub_1
 232:                                              ; preds = %.critedge
   call fastcc void @usage()
   call void @h5tools_close() #21
-  call void @exit(i32 noundef 1) #24
+  call void @exit(i32 noundef 1) #25
   unreachable
 
 233:                                              ; preds = %.critedge
@@ -1130,7 +1130,7 @@ is_valid_args.exit:                               ; preds = %238, %234
   %240 = call i64 @fwrite(ptr nonnull %.str.307.sink, i64 %.sink, i64 1, ptr %239)
   call fastcc void @usage()
   call void @h5tools_close() #21
-  call void @exit(i32 noundef 1) #24
+  call void @exit(i32 noundef 1) #25
   unreachable
 
 is_valid_args.exit.thread:                        ; preds = %237, %238
@@ -1150,7 +1150,7 @@ is_valid_args.exit.thread._crit_edge:             ; preds = %is_valid_args.exit.
 244:                                              ; preds = %is_valid_args.exit.thread._crit_edge
   call void (ptr, ...) @error_msg(ptr noundef nonnull @.str.37) #21
   call void @h5tools_close() #21
-  call void @exit(i32 noundef 1) #24
+  call void @exit(i32 noundef 1) #25
   unreachable
 
 .lr.ph413:                                        ; preds = %is_valid_args.exit.thread, %is_valid_args.exit.thread._crit_edge
@@ -1263,7 +1263,7 @@ is_valid_args.exit.thread._crit_edge:             ; preds = %is_valid_args.exit.
   %290 = load ptr, ptr @rawerrorstream, align 8
   %291 = call i64 @fwrite(ptr nonnull @.str.40, i64 25, i64 1, ptr %290)
   call void @h5tools_close() #21
-  call void @exit(i32 noundef 1) #24
+  call void @exit(i32 noundef 1) #25
   unreachable
 
 292:                                              ; preds = %280
@@ -1347,7 +1347,7 @@ print_obj_name.exit:                              ; preds = %313, %314
   %324 = zext i32 %323 to i64
   %325 = call zeroext i1 @h5tools_render_element(ptr noundef %322, ptr noundef nonnull @ls_dataformat, ptr noundef nonnull %13, ptr noundef nonnull %12, ptr noundef nonnull %11, i64 noundef %324, i64 noundef 0, i64 noundef 0) #21
   call void @h5tools_close() #21
-  call void @exit(i32 noundef 1) #24
+  call void @exit(i32 noundef 1) #25
   unreachable
 
 .thread306:                                       ; preds = %296
@@ -1366,7 +1366,7 @@ print_obj_name.exit:                              ; preds = %313, %314
 
 331:                                              ; preds = %328
   call void @h5tools_close() #21
-  call void @exit(i32 noundef 1) #24
+  call void @exit(i32 noundef 1) #25
   unreachable
 
 332:                                              ; preds = %326
@@ -1440,7 +1440,7 @@ print_obj_name.exit:                              ; preds = %313, %314
   %363 = load ptr, ptr @rawerrorstream, align 8
   %364 = call i64 @fwrite(ptr nonnull @.str.42, i64 39, i64 1, ptr %363)
   call void @h5tools_close() #21
-  call void @exit(i32 noundef 1) #24
+  call void @exit(i32 noundef 1) #25
   unreachable
 
 365:                                              ; preds = %359, %._crit_edge414
@@ -1449,7 +1449,7 @@ print_obj_name.exit:                              ; preds = %313, %314
   br i1 %.not211, label %367, label %366
 
 366:                                              ; preds = %365
-  call void @exit(i32 noundef 1) #24
+  call void @exit(i32 noundef 1) #25
   unreachable
 
 367:                                              ; preds = %365
@@ -2102,7 +2102,7 @@ print_string.exit:                                ; preds = %.preheader112
   store i32 1, ptr %256, align 8
   %sext.i = shl i64 %270, 32
   %278 = ashr exact i64 %sext.i, 32
-  %279 = call noalias ptr @calloc(i64 noundef 64, i64 noundef %278) #26
+  %279 = call noalias ptr @calloc(i64 noundef 64, i64 noundef %278) #27
   %.not47.i = icmp eq ptr %279, null
   br i1 %.not47.i, label %316, label %280
 
@@ -2134,7 +2134,7 @@ print_string.exit:                                ; preds = %.preheader112
 
 296:                                              ; preds = %287
   %297 = load ptr, ptr @stderr, align 8
-  %298 = call i64 @fwrite(ptr nonnull @.str.231, i64 24, i64 1, ptr %297) #27
+  %298 = call i64 @fwrite(ptr nonnull @.str.231, i64 24, i64 1, ptr %297) #28
   %299 = load ptr, ptr @stderr, align 8
   %fputc49.i = call i32 @fputc(i32 10, ptr %299)
   br label %316
@@ -4022,7 +4022,7 @@ print_cmpd_type.exit:                             ; preds = %344, %341
   %.088.i = phi i64 [ %377, %376 ], [ %379, %378 ], [ -1, %380 ]
   %.088.i.fr = freeze i64 %.088.i
   %383 = zext nneg i32 %363 to i64
-  %384 = call noalias ptr @calloc(i64 noundef %383, i64 noundef 8) #26
+  %384 = call noalias ptr @calloc(i64 noundef %383, i64 noundef 8) #27
   %385 = call i64 @H5Tget_size(i64 noundef %1) #21
   %386 = icmp ugt i64 %385, %.090.i
   br i1 %386, label %387, label %389
@@ -4033,7 +4033,7 @@ print_cmpd_type.exit:                             ; preds = %344, %341
 
 389:                                              ; preds = %387, %382
   %390 = phi i64 [ %388, %387 ], [ %.090.i, %382 ]
-  %391 = call noalias ptr @calloc(i64 noundef %383, i64 noundef %390) #26
+  %391 = call noalias ptr @calloc(i64 noundef %383, i64 noundef %390) #27
   %wide.trip.count = zext nneg i32 %363 to i64
   br label %392
 
@@ -4331,7 +4331,7 @@ define internal fastcc noundef zeroext i1 @print_array_type(ptr noundef %0, i64 
 7:                                                ; preds = %5
   %8 = zext i32 %6 to i64
   %9 = shl nuw nsw i64 %8, 3
-  %10 = tail call noalias ptr @malloc(i64 noundef %9) #28
+  %10 = tail call noalias ptr @malloc(i64 noundef %9) #29
   %11 = tail call i32 @H5Tget_array_dims2(i64 noundef %1, ptr noundef %10) #21
   %12 = icmp sgt i32 %6, 0
   br i1 %12, label %.lr.ph, label %._crit_edge
@@ -4742,7 +4742,7 @@ declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #8
 
 declare void @h5tools_close() local_unnamed_addr #2
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #17
 
 declare i32 @H5Oget_info_by_name3(i64 noundef, ptr noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
@@ -4991,7 +4991,7 @@ print_obj_name.exit:                              ; preds = %30, %31
 
 149:                                              ; preds = %146
   %150 = add nuw i64 %147, 1
-  %151 = call noalias ptr @malloc(i64 noundef %150) #28
+  %151 = call noalias ptr @malloc(i64 noundef %150) #29
   %.not91 = icmp eq ptr %151, null
   br i1 %.not91, label %.thread96, label %152
 
@@ -5335,7 +5335,7 @@ define internal noundef i32 @list_attr(i64 noundef %0, ptr noundef %1, ptr nocap
   store i32 1, ptr %115, align 8
   %sext.i = shl i64 %129, 32
   %137 = ashr exact i64 %sext.i, 32
-  %138 = call noalias ptr @calloc(i64 noundef 64, i64 noundef %137) #26
+  %138 = call noalias ptr @calloc(i64 noundef 64, i64 noundef %137) #27
   %.not47.i = icmp eq ptr %138, null
   br i1 %.not47.i, label %184, label %139
 
@@ -5367,7 +5367,7 @@ define internal noundef i32 @list_attr(i64 noundef %0, ptr noundef %1, ptr nocap
 
 155:                                              ; preds = %146
   %156 = load ptr, ptr @stderr, align 8
-  %157 = call i64 @fwrite(ptr nonnull @.str.346, i64 24, i64 1, ptr %156) #27
+  %157 = call i64 @fwrite(ptr nonnull @.str.346, i64 24, i64 1, ptr %156) #28
   %158 = load ptr, ptr @stderr, align 8
   %fputc49.i = call i32 @fputc(i32 10, ptr %158)
   br label %184
@@ -5517,7 +5517,7 @@ attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(arg
 attributes #14 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #18 = { nofree nounwind }
 attributes #19 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #20 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
@@ -5525,10 +5525,11 @@ attributes #21 = { nounwind }
 attributes #22 = { nounwind willreturn memory(none) }
 attributes #23 = { nounwind willreturn memory(read) }
 attributes #24 = { noreturn nounwind }
-attributes #25 = { cold nounwind }
-attributes #26 = { nounwind allocsize(0,1) }
-attributes #27 = { cold }
-attributes #28 = { nounwind allocsize(0) }
+attributes #25 = { cold noreturn nounwind }
+attributes #26 = { cold nounwind }
+attributes #27 = { nounwind allocsize(0,1) }
+attributes #28 = { cold }
+attributes #29 = { nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

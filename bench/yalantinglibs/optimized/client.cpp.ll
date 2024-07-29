@@ -4372,7 +4372,7 @@ invoke.cont62:                                    ; preds = %if.then
           to label %invoke.cont64 unwind label %lpad13.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont64:                                    ; preds = %invoke.cont62
-  call void @exit(i32 noundef 1) #35
+  call void @exit(i32 noundef 1) #36
   unreachable
 
 lpad57.loopexit:                                  ; preds = %for.cond.us.i.i.i
@@ -8230,7 +8230,7 @@ _ZNSt14__basic_futureIvED2Ev.exit:                ; preds = %entry, %_ZN9__gnu_c
   ret void
 }
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #16
 
 declare void @_ZNSt6thread4joinEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
@@ -14946,7 +14946,7 @@ if.end36:                                         ; preds = %for.cond17, %if.the
   %sub.i = sub i64 %cond.i, %rem.i
   %add.i = select i1 %cmp1.i, i64 0, i64 %sub.i
   %cond6.i = add i64 %add.i, %add38
-  %call.i = tail call noalias ptr @aligned_alloc(i64 noundef %cond.i, i64 noundef %cond6.i) #36
+  %call.i = tail call noalias ptr @aligned_alloc(i64 noundef %cond.i, i64 noundef %cond6.i) #37
   call void @llvm.assume(i1 true) [ "align"(ptr %call.i, i64 %cond.i) ]
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i, label %if.then.i, label %_ZN4asio11aligned_newEmm.exit
@@ -26492,7 +26492,7 @@ if.end36:                                         ; preds = %for.cond17, %if.the
   %sub.i = sub i64 %cond.i, %rem.i
   %add.i = select i1 %cmp1.i, i64 0, i64 %sub.i
   %cond6.i = add i64 %add.i, %add38
-  %call.i = tail call noalias ptr @aligned_alloc(i64 noundef %cond.i, i64 noundef %cond6.i) #36
+  %call.i = tail call noalias ptr @aligned_alloc(i64 noundef %cond.i, i64 noundef %cond6.i) #37
   call void @llvm.assume(i1 true) [ "align"(ptr %call.i, i64 %cond.i) ]
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i, label %if.then.i, label %_ZN4asio11aligned_newEmm.exit
@@ -36044,7 +36044,7 @@ invoke.cont54:                                    ; preds = %invoke.cont52
 
 for.inc58:                                        ; preds = %for.body32, %land.lhs.true, %invoke.cont54
   %pos.1 = phi i64 [ %add56, %invoke.cont54 ], [ %pos.060, %land.lhs.true ], [ %pos.060, %for.body32 ]
-  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__begin1.sroa.0.059) #37
+  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__begin1.sroa.0.059) #38
   %cmp.i27 = icmp eq ptr %call.i, %0
   br i1 %cmp.i27, label %for.end60, label %for.body32
 
@@ -36058,7 +36058,7 @@ if.then63:                                        ; preds = %for.end60
           to label %invoke.cont64 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont64:                                    ; preds = %if.then63
-  %call.i30 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %0) #37
+  %call.i30 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %0) #38
   %_M_storage.i.i31 = getelementptr inbounds i8, ptr %call.i30, i64 32
   %24 = load i64, ptr %_M_storage.i.i31, align 8
   %conv71 = uitofp i64 %24 to double
@@ -36171,7 +36171,7 @@ if.then.i:                                        ; preds = %while.end.i, %if.el
   br i1 %cmp.i4.i, label %return, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then.i
-  %call.i.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i) #37
+  %call.i.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i) #38
   %_M_storage.i.i.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %call.i.i, i64 32
   %.pre114 = load i64, ptr %_M_storage.i.i.i.i.phi.trans.insert, align 8
   %.pre115 = load i64, ptr %__k, align 8
@@ -36201,7 +36201,7 @@ if.then18:                                        ; preds = %if.else12
   br i1 %cmp21, label %return, label %if.else25
 
 if.else25:                                        ; preds = %if.then18
-  %call.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__position.coerce) #37
+  %call.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__position.coerce) #38
   %_M_storage.i.i.i16 = getelementptr inbounds i8, ptr %call.i, i64 32
   %12 = load i64, ptr %_M_storage.i.i.i16, align 8
   %cmp.i17 = icmp ult i64 %12, %9
@@ -36241,7 +36241,7 @@ if.then.i46:                                      ; preds = %while.end.i34, %if.
   br i1 %cmp.i4.i49, label %return, label %if.else.i50
 
 if.else.i50:                                      ; preds = %if.then.i46
-  %call.i.i51 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i47) #37
+  %call.i.i51 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i47) #38
   %_M_storage.i.i.i.i38.phi.trans.insert = getelementptr inbounds i8, ptr %call.i.i51, i64 32
   %.pre113 = load i64, ptr %_M_storage.i.i.i.i38.phi.trans.insert, align 8
   br label %if.end12.i35
@@ -36266,7 +36266,7 @@ if.then50:                                        ; preds = %if.else44
   br i1 %cmp53, label %return, label %if.else57
 
 if.else57:                                        ; preds = %if.then50
-  %call.i58 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__position.coerce) #37
+  %call.i58 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__position.coerce) #38
   %_M_storage.i.i.i59 = getelementptr inbounds i8, ptr %call.i58, i64 32
   %17 = load i64, ptr %_M_storage.i.i.i59, align 8
   %cmp.i60 = icmp ult i64 %9, %17
@@ -36308,7 +36308,7 @@ if.then.i89:                                      ; preds = %while.end.i77, %if.
   br i1 %cmp.i4.i92, label %return, label %if.else.i93
 
 if.else.i93:                                      ; preds = %if.then.i89
-  %call.i.i94 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i90) #37
+  %call.i.i94 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i90) #38
   %_M_storage.i.i.i.i81.phi.trans.insert = getelementptr inbounds i8, ptr %call.i.i94, i64 32
   %.pre = load i64, ptr %_M_storage.i.i.i.i81.phi.trans.insert, align 8
   br label %if.end12.i78
@@ -37395,7 +37395,7 @@ attributes #12 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "sta
 attributes #13 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #17 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #18 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #19 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -37415,8 +37415,9 @@ attributes #32 = { nounwind willreturn memory(none) }
 attributes #33 = { noreturn }
 attributes #34 = { builtin allocsize(0) }
 attributes #35 = { noreturn nounwind }
-attributes #36 = { nounwind allocsize(1) }
-attributes #37 = { nounwind willreturn memory(read) }
+attributes #36 = { cold noreturn nounwind }
+attributes #37 = { nounwind allocsize(1) }
+attributes #38 = { nounwind willreturn memory(read) }
 
 !llvm.linker.options = !{}
 !llvm.module.flags = !{!0, !1, !2, !3, !4}

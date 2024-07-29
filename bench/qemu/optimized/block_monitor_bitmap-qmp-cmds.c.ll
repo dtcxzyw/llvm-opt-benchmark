@@ -25,11 +25,11 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @block_dirty_bitmap_lookup(ptr noundef %node, ptr noundef %name, ptr noundef writeonly %pbs, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %call = tail call zeroext i1 @qemu_in_main_thread() #4
+  %call = tail call zeroext i1 @qemu_in_main_thread() #5
   br i1 %call, label %do.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 61, ptr noundef nonnull @__PRETTY_FUNCTION__.block_dirty_bitmap_lookup) #5
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 61, ptr noundef nonnull @__PRETTY_FUNCTION__.block_dirty_bitmap_lookup) #6
   unreachable
 
 do.end:                                           ; preds = %entry
@@ -37,7 +37,7 @@ do.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.then1, label %if.end2
 
 if.then1:                                         ; preds = %do.end
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 64, ptr noundef nonnull @__func__.block_dirty_bitmap_lookup, ptr noundef nonnull @.str.2) #4
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 64, ptr noundef nonnull @__func__.block_dirty_bitmap_lookup, ptr noundef nonnull @.str.2) #5
   br label %return
 
 if.end2:                                          ; preds = %do.end
@@ -45,25 +45,25 @@ if.end2:                                          ; preds = %do.end
   br i1 %tobool3.not, label %if.then4, label %if.end5
 
 if.then4:                                         ; preds = %if.end2
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 68, ptr noundef nonnull @__func__.block_dirty_bitmap_lookup, ptr noundef nonnull @.str.3) #4
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 68, ptr noundef nonnull @__func__.block_dirty_bitmap_lookup, ptr noundef nonnull @.str.3) #5
   br label %return
 
 if.end5:                                          ; preds = %if.end2
-  %call6 = tail call ptr @bdrv_lookup_bs(ptr noundef nonnull %node, ptr noundef nonnull %node, ptr noundef null) #4
+  %call6 = tail call ptr @bdrv_lookup_bs(ptr noundef nonnull %node, ptr noundef nonnull %node, ptr noundef null) #5
   %tobool7.not = icmp eq ptr %call6, null
   br i1 %tobool7.not, label %if.then8, label %if.end9
 
 if.then8:                                         ; preds = %if.end5
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 73, ptr noundef nonnull @__func__.block_dirty_bitmap_lookup, ptr noundef nonnull @.str.4, ptr noundef nonnull %node) #4
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 73, ptr noundef nonnull @__func__.block_dirty_bitmap_lookup, ptr noundef nonnull @.str.4, ptr noundef nonnull %node) #5
   br label %return
 
 if.end9:                                          ; preds = %if.end5
-  %call10 = tail call ptr @bdrv_find_dirty_bitmap(ptr noundef nonnull %call6, ptr noundef nonnull %name) #4
+  %call10 = tail call ptr @bdrv_find_dirty_bitmap(ptr noundef nonnull %call6, ptr noundef nonnull %name) #5
   %tobool11.not = icmp eq ptr %call10, null
   br i1 %tobool11.not, label %if.then12, label %if.end13
 
 if.then12:                                        ; preds = %if.end9
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 79, ptr noundef nonnull @__func__.block_dirty_bitmap_lookup, ptr noundef nonnull @.str.5, ptr noundef nonnull %name) #4
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 79, ptr noundef nonnull @__func__.block_dirty_bitmap_lookup, ptr noundef nonnull @.str.5, ptr noundef nonnull %name) #5
   br label %return
 
 if.end13:                                         ; preds = %if.end9
@@ -102,17 +102,17 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 101, ptr noundef nonnull @__func__.qmp_block_dirty_bitmap_add, ptr noundef nonnull @.str.6) #4
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 101, ptr noundef nonnull @__func__.qmp_block_dirty_bitmap_add, ptr noundef nonnull @.str.6) #5
   br label %return
 
 if.end:                                           ; preds = %lor.lhs.false
-  %call = tail call ptr @bdrv_lookup_bs(ptr noundef %node, ptr noundef %node, ptr noundef %errp) #4
+  %call = tail call ptr @bdrv_lookup_bs(ptr noundef %node, ptr noundef %node, ptr noundef %errp) #5
   %tobool6.not = icmp eq ptr %call, null
   br i1 %tobool6.not, label %return, label %if.end8
 
 if.end8:                                          ; preds = %if.end
-  %call9 = tail call ptr @bdrv_get_aio_context(ptr noundef nonnull %call) #4
-  tail call void @aio_context_acquire(ptr noundef %call9) #4
+  %call9 = tail call ptr @bdrv_get_aio_context(ptr noundef nonnull %call) #5
+  tail call void @aio_context_acquire(ptr noundef %call9) #5
   br i1 %has_granularity, label %if.then11, label %if.else
 
 if.then11:                                        ; preds = %if.end8
@@ -123,11 +123,11 @@ if.then11:                                        ; preds = %if.end8
   br i1 %or.cond, label %if.end20, label %if.then17
 
 if.then17:                                        ; preds = %if.then11
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 116, ptr noundef nonnull @__func__.qmp_block_dirty_bitmap_add, ptr noundef nonnull @.str.7) #4
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 116, ptr noundef nonnull @__func__.qmp_block_dirty_bitmap_add, ptr noundef nonnull @.str.7) #5
   br label %out
 
 if.else:                                          ; preds = %if.end8
-  %call19 = tail call i32 @bdrv_get_default_bitmap_granularity(ptr noundef nonnull %call) #4
+  %call19 = tail call i32 @bdrv_get_default_bitmap_granularity(ptr noundef nonnull %call) #5
   br label %if.end20
 
 if.end20:                                         ; preds = %if.then11, %if.else
@@ -137,11 +137,11 @@ if.end20:                                         ; preds = %if.then11, %if.else
   br i1 %spec.select, label %land.lhs.true, label %if.end31
 
 land.lhs.true:                                    ; preds = %if.end20
-  %call29 = tail call zeroext i1 @bdrv_can_store_new_dirty_bitmap(ptr noundef nonnull %call, ptr noundef nonnull %name, i32 noundef %granularity.addr.0, ptr noundef %errp) #4
+  %call29 = tail call zeroext i1 @bdrv_can_store_new_dirty_bitmap(ptr noundef nonnull %call, ptr noundef nonnull %name, i32 noundef %granularity.addr.0, ptr noundef %errp) #5
   br i1 %call29, label %if.end31, label %out
 
 if.end31:                                         ; preds = %land.lhs.true, %if.end20
-  %call32 = tail call ptr @bdrv_create_dirty_bitmap(ptr noundef nonnull %call, i32 noundef %granularity.addr.0, ptr noundef nonnull %name, ptr noundef %errp) #4
+  %call32 = tail call ptr @bdrv_create_dirty_bitmap(ptr noundef nonnull %call, i32 noundef %granularity.addr.0, ptr noundef nonnull %name, ptr noundef %errp) #5
   %cmp33 = icmp eq ptr %call32, null
   br i1 %cmp33, label %out, label %if.end36
 
@@ -149,15 +149,15 @@ if.end36:                                         ; preds = %if.end31
   br i1 %disabled.addr.0, label %if.then38, label %if.end39
 
 if.then38:                                        ; preds = %if.end36
-  tail call void @bdrv_disable_dirty_bitmap(ptr noundef nonnull %call32) #4
+  tail call void @bdrv_disable_dirty_bitmap(ptr noundef nonnull %call32) #5
   br label %if.end39
 
 if.end39:                                         ; preds = %if.then38, %if.end36
-  tail call void @bdrv_dirty_bitmap_set_persistence(ptr noundef nonnull %call32, i1 noundef zeroext %spec.select) #4
+  tail call void @bdrv_dirty_bitmap_set_persistence(ptr noundef nonnull %call32, i1 noundef zeroext %spec.select) #5
   br label %out
 
 out:                                              ; preds = %if.end31, %land.lhs.true, %if.end39, %if.then17
-  tail call void @aio_context_release(ptr noundef %call9) #4
+  tail call void @aio_context_release(ptr noundef %call9) #5
   br label %return
 
 return:                                           ; preds = %if.end, %out, %if.then
@@ -184,11 +184,11 @@ declare void @aio_context_release(ptr noundef) local_unnamed_addr #1
 define dso_local ptr @block_dirty_bitmap_remove(ptr noundef %node, ptr noundef %name, i1 noundef zeroext %release, ptr noundef writeonly %bitmap_bs, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %bs = alloca ptr, align 8
-  %call = tail call zeroext i1 @qemu_in_main_thread() #4
+  %call = tail call zeroext i1 @qemu_in_main_thread() #5
   br i1 %call, label %do.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 162, ptr noundef nonnull @__PRETTY_FUNCTION__.block_dirty_bitmap_remove) #5
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 162, ptr noundef nonnull @__PRETTY_FUNCTION__.block_dirty_bitmap_remove) #6
   unreachable
 
 do.end:                                           ; preds = %entry
@@ -200,35 +200,35 @@ do.end:                                           ; preds = %entry
   br i1 %or.cond, label %if.end4, label %return
 
 if.end4:                                          ; preds = %do.end
-  %call5 = call ptr @bdrv_get_aio_context(ptr noundef nonnull %0) #4
-  call void @aio_context_acquire(ptr noundef %call5) #4
-  %call6 = call i32 @bdrv_dirty_bitmap_check(ptr noundef nonnull %call1, i32 noundef 3, ptr noundef %errp) #4
+  %call5 = call ptr @bdrv_get_aio_context(ptr noundef nonnull %0) #5
+  call void @aio_context_acquire(ptr noundef %call5) #5
+  %call6 = call i32 @bdrv_dirty_bitmap_check(ptr noundef nonnull %call1, i32 noundef 3, ptr noundef %errp) #5
   %tobool7.not = icmp eq i32 %call6, 0
   br i1 %tobool7.not, label %if.end9, label %if.then8
 
 if.then8:                                         ; preds = %if.end4
-  call void @aio_context_release(ptr noundef %call5) #4
+  call void @aio_context_release(ptr noundef %call5) #5
   br label %return
 
 if.end9:                                          ; preds = %if.end4
-  %call10 = call zeroext i1 @bdrv_dirty_bitmap_get_persistence(ptr noundef nonnull %call1) #4
+  %call10 = call zeroext i1 @bdrv_dirty_bitmap_get_persistence(ptr noundef nonnull %call1) #5
   br i1 %call10, label %land.lhs.true, label %if.end13
 
 land.lhs.true:                                    ; preds = %if.end9
   %1 = load ptr, ptr %bs, align 8
-  %call11 = call i32 @bdrv_remove_persistent_dirty_bitmap(ptr noundef %1, ptr noundef %name, ptr noundef %errp) #4
+  %call11 = call i32 @bdrv_remove_persistent_dirty_bitmap(ptr noundef %1, ptr noundef %name, ptr noundef %errp) #5
   %cmp = icmp slt i32 %call11, 0
   br i1 %cmp, label %if.then12, label %if.end13
 
 if.then12:                                        ; preds = %land.lhs.true
-  call void @aio_context_release(ptr noundef %call5) #4
+  call void @aio_context_release(ptr noundef %call5) #5
   br label %return
 
 if.end13:                                         ; preds = %land.lhs.true, %if.end9
   br i1 %release, label %if.then15, label %if.end16
 
 if.then15:                                        ; preds = %if.end13
-  call void @bdrv_release_dirty_bitmap(ptr noundef nonnull %call1) #4
+  call void @bdrv_release_dirty_bitmap(ptr noundef nonnull %call1) #5
   br label %if.end16
 
 if.end16:                                         ; preds = %if.then15, %if.end13
@@ -241,7 +241,7 @@ if.then18:                                        ; preds = %if.end16
   br label %if.end19
 
 if.end19:                                         ; preds = %if.then18, %if.end16
-  call void @aio_context_release(ptr noundef %call5) #4
+  call void @aio_context_release(ptr noundef %call5) #5
   %cond = select i1 %release, ptr null, ptr %call1
   br label %return
 
@@ -277,12 +277,12 @@ entry:
   br i1 %or.cond, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %call2 = call i32 @bdrv_dirty_bitmap_check(ptr noundef nonnull %call, i32 noundef 7, ptr noundef %errp) #4
+  %call2 = call i32 @bdrv_dirty_bitmap_check(ptr noundef nonnull %call, i32 noundef 7, ptr noundef %errp) #5
   %tobool3.not = icmp eq i32 %call2, 0
   br i1 %tobool3.not, label %if.end5, label %return
 
 if.end5:                                          ; preds = %if.end
-  call void @bdrv_clear_dirty_bitmap(ptr noundef nonnull %call, ptr noundef null) #4
+  call void @bdrv_clear_dirty_bitmap(ptr noundef nonnull %call, ptr noundef null) #5
   br label %return
 
 return:                                           ; preds = %if.end, %entry, %if.end5
@@ -300,12 +300,12 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call1 = call i32 @bdrv_dirty_bitmap_check(ptr noundef nonnull %call, i32 noundef 5, ptr noundef %errp) #4
+  %call1 = call i32 @bdrv_dirty_bitmap_check(ptr noundef nonnull %call, i32 noundef 5, ptr noundef %errp) #5
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %if.end4, label %return
 
 if.end4:                                          ; preds = %if.end
-  call void @bdrv_enable_dirty_bitmap(ptr noundef nonnull %call) #4
+  call void @bdrv_enable_dirty_bitmap(ptr noundef nonnull %call) #5
   br label %return
 
 return:                                           ; preds = %if.end, %entry, %if.end4
@@ -323,12 +323,12 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call1 = call i32 @bdrv_dirty_bitmap_check(ptr noundef nonnull %call, i32 noundef 5, ptr noundef %errp) #4
+  %call1 = call i32 @bdrv_dirty_bitmap_check(ptr noundef nonnull %call, i32 noundef 5, ptr noundef %errp) #5
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %if.end4, label %return
 
 if.end4:                                          ; preds = %if.end
-  call void @bdrv_disable_dirty_bitmap(ptr noundef nonnull %call) #4
+  call void @bdrv_disable_dirty_bitmap(ptr noundef nonnull %call) #5
   br label %return
 
 return:                                           ; preds = %if.end, %entry, %if.end4
@@ -341,11 +341,11 @@ entry:
   %bs = alloca ptr, align 8
   %local_backup = alloca ptr, align 8
   store ptr null, ptr %local_backup, align 8
-  %call = tail call zeroext i1 @qemu_in_main_thread() #4
+  %call = tail call zeroext i1 @qemu_in_main_thread() #5
   br i1 %call, label %do.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 272, ptr noundef nonnull @__PRETTY_FUNCTION__.block_dirty_bitmap_merge) #5
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 272, ptr noundef nonnull @__PRETTY_FUNCTION__.block_dirty_bitmap_merge) #6
   unreachable
 
 do.end:                                           ; preds = %entry
@@ -371,12 +371,12 @@ sw.bb:                                            ; preds = %for.body
   %u = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load ptr, ptr %u, align 8
   %3 = load ptr, ptr %bs, align 8
-  %call6 = call ptr @bdrv_find_dirty_bitmap(ptr noundef %3, ptr noundef %2) #4
+  %call6 = call ptr @bdrv_find_dirty_bitmap(ptr noundef %3, ptr noundef %2) #5
   %tobool7.not = icmp eq ptr %call6, null
   br i1 %tobool7.not, label %if.then8, label %sw.epilog
 
 if.then8:                                         ; preds = %sw.bb
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 285, ptr noundef nonnull @__func__.block_dirty_bitmap_merge, ptr noundef nonnull @.str.5, ptr noundef %2) #4
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 285, ptr noundef nonnull @__func__.block_dirty_bitmap_merge, ptr noundef nonnull @.str.5, ptr noundef %2) #5
   br label %fail
 
 sw.bb10:                                          ; preds = %for.body
@@ -389,7 +389,7 @@ sw.bb10:                                          ; preds = %for.body
   br i1 %tobool16.not, label %fail, label %sw.epilog
 
 sw.default:                                       ; preds = %for.body
-  call void @abort() #5
+  call void @abort() #6
   unreachable
 
 sw.epilog:                                        ; preds = %sw.bb10, %sw.bb
@@ -397,7 +397,7 @@ sw.epilog:                                        ; preds = %sw.bb10, %sw.bb
   %6 = load ptr, ptr %local_backup, align 8
   %tobool19.not = icmp eq ptr %6, null
   %.local_backup = select i1 %tobool19.not, ptr %local_backup, ptr null
-  %call20 = call zeroext i1 @bdrv_merge_dirty_bitmap(ptr noundef nonnull %call1, ptr noundef nonnull %src.0, ptr noundef %.local_backup, ptr noundef %errp) #4
+  %call20 = call zeroext i1 @bdrv_merge_dirty_bitmap(ptr noundef nonnull %call1, ptr noundef nonnull %src.0, ptr noundef %.local_backup, ptr noundef %errp) #5
   br i1 %call20, label %for.inc, label %fail
 
 for.inc:                                          ; preds = %sw.epilog
@@ -415,7 +415,7 @@ if.then24:                                        ; preds = %for.end
   br label %return
 
 if.else25:                                        ; preds = %for.end
-  call void @hbitmap_free(ptr noundef %8) #4
+  call void @hbitmap_free(ptr noundef %8) #5
   br label %return
 
 fail:                                             ; preds = %sw.epilog, %sw.bb10, %if.then8
@@ -424,7 +424,7 @@ fail:                                             ; preds = %sw.epilog, %sw.bb10
   br i1 %tobool27.not, label %return, label %if.then28
 
 if.then28:                                        ; preds = %fail
-  call void @bdrv_restore_dirty_bitmap(ptr noundef nonnull %call1, ptr noundef nonnull %9) #4
+  call void @bdrv_restore_dirty_bitmap(ptr noundef nonnull %call1, ptr noundef nonnull %9) #5
   br label %return
 
 return:                                           ; preds = %fail, %if.then28, %if.then24, %if.else25, %do.end
@@ -432,8 +432,8 @@ return:                                           ; preds = %fail, %if.then28, %
   ret ptr %retval.0
 }
 
-; Function Attrs: noreturn nounwind
-declare void @abort() local_unnamed_addr #2
+; Function Attrs: cold nofree noreturn nounwind
+declare void @abort() local_unnamed_addr #3
 
 declare zeroext i1 @bdrv_merge_dirty_bitmap(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -449,14 +449,15 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctpop.i32(i32) #3
+declare i32 @llvm.ctpop.i32(i32) #4
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { nounwind }
-attributes #5 = { noreturn nounwind }
+attributes #3 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { nounwind }
+attributes #6 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

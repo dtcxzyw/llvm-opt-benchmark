@@ -163,7 +163,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 31:                                               ; preds = %16
   call fastcc void @_usage()
-  call void @exit(i32 noundef 1) #14
+  call void @exit(i32 noundef 1) #15
   unreachable
 
 32:                                               ; preds = %16
@@ -362,7 +362,7 @@ _establish_config_source.exit:                    ; preds = %59, %62, %65, %81
   br i1 %.not.i14, label %101, label %99
 
 99:                                               ; preds = %97
-  %100 = call i32 @atoi(ptr nocapture noundef nonnull %98) #15
+  %100 = call i32 @atoi(ptr nocapture noundef nonnull %98) #16
   store i32 %100, ptr @listen_fd, align 4
   br label %108
 
@@ -404,7 +404,7 @@ _listen_for_reconf.exit:                          ; preds = %108, %106, %96
 
 117:                                              ; preds = %114
   %118 = call ptr @getenv(ptr noundef nonnull @.str.34) #13
-  %119 = call i32 @atoi(ptr nocapture noundef %118) #15
+  %119 = call i32 @atoi(ptr nocapture noundef %118) #16
   %120 = call i32 @get_log_level() #13
   %121 = icmp sgt i32 %120, 2
   br i1 %121, label %122, label %.lr.ph.split.us.i.preheader
@@ -426,7 +426,7 @@ _listen_for_reconf.exit:                          ; preds = %108, %106, %96
   br i1 %126, label %.lr.ph29.i, label %.split.us.i
 
 .lr.ph29.i:                                       ; preds = %.lr.ph.split.us.i
-  %127 = tail call ptr @__errno_location() #16
+  %127 = tail call ptr @__errno_location() #17
   br label %128
 
 128:                                              ; preds = %130, %.lr.ph29.i
@@ -599,7 +599,7 @@ _notify_parent_of_success.exit:                   ; preds = %114, %.sink.split.i
   br i1 %195, label %.lr.ph, label %.split55.us.i
 
 .lr.ph:                                           ; preds = %.lr.ph96.i.preheader
-  %196 = tail call ptr @__errno_location() #16
+  %196 = tail call ptr @__errno_location() #17
   br label %198
 
 .lr.ph96.i:                                       ; preds = %200
@@ -628,7 +628,7 @@ _notify_parent_of_success.exit:                   ; preds = %114, %.sink.split.i
   br i1 %205, label %.lr.ph50, label %.split55.us.i
 
 .lr.ph50:                                         ; preds = %.lr.ph80.preheader.i.preheader
-  %206 = tail call ptr @__errno_location() #16
+  %206 = tail call ptr @__errno_location() #17
   br label %208
 
 .lr.ph80.preheader.i:                             ; preds = %210
@@ -921,12 +921,12 @@ define internal fastcc void @_usage() unnamed_addr #0 {
   store i8 0, ptr %3, align 1
   store ptr %2, ptr %1, align 8
   %4 = load ptr, ptr @stderr, align 8
-  %fputs = tail call i32 @fputs(ptr %2, ptr %4) #17
+  %fputs = tail call i32 @fputs(ptr %2, ptr %4) #18
   call void @slurm_xfree(ptr noundef nonnull %1) #13
   ret void
 }
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #6
 
 declare i32 @log_alter(ptr noundef byval(%struct.log_options_t) align 8, i32 noundef, ptr noundef) local_unnamed_addr #2
@@ -1101,7 +1101,7 @@ attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protect
 attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1110,9 +1110,10 @@ attributes #11 = { nofree nounwind }
 attributes #12 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #13 = { nounwind }
 attributes #14 = { noreturn nounwind }
-attributes #15 = { nounwind willreturn memory(read) }
-attributes #16 = { nounwind willreturn memory(none) }
-attributes #17 = { cold }
+attributes #15 = { cold noreturn nounwind }
+attributes #16 = { nounwind willreturn memory(read) }
+attributes #17 = { nounwind willreturn memory(none) }
+attributes #18 = { cold }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
 

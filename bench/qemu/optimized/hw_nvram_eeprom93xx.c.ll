@@ -308,7 +308,7 @@ sw.bb1:                                           ; preds = %entry, %entry
   br label %sw.epilog
 
 sw.default:                                       ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 313, ptr noundef nonnull @__PRETTY_FUNCTION__.eeprom93xx_new) #10
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 313, ptr noundef nonnull @__PRETTY_FUNCTION__.eeprom93xx_new) #11
   unreachable
 
 sw.epilog:                                        ; preds = %entry, %entry, %sw.bb1
@@ -316,15 +316,15 @@ sw.epilog:                                        ; preds = %entry, %entry, %sw.
   %conv = zext nneg i16 %nwords to i64
   %mul = shl nuw nsw i64 %conv, 1
   %add = add nuw nsw i64 %mul, 12
-  %call = tail call noalias ptr @g_malloc0(i64 noundef %add) #11
+  %call = tail call noalias ptr @g_malloc0(i64 noundef %add) #12
   %size = getelementptr inbounds i8, ptr %call, i64 8
   store i16 %nwords, ptr %size, align 2
   %addrbits4 = getelementptr inbounds i8, ptr %call, i64 7
   store i8 %addrbits.0, ptr %addrbits4, align 1
   %eedo = getelementptr inbounds i8, ptr %call, i64 6
   store i8 1, ptr %eedo, align 2
-  %call5 = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 324, ptr noundef nonnull @__func__.eeprom93xx_new) #12
-  %call.i = tail call i32 @vmstate_register_with_alias_id(ptr noundef %call5, i32 noundef -1, ptr noundef nonnull @vmstate_eeprom, ptr noundef %call, i32 noundef -1, i32 noundef 0, ptr noundef null) #12
+  %call5 = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 324, ptr noundef nonnull @__func__.eeprom93xx_new) #13
+  %call.i = tail call i32 @vmstate_register_with_alias_id(ptr noundef %call5, i32 noundef -1, ptr noundef nonnull @vmstate_eeprom, ptr noundef %call, i32 noundef -1, i32 noundef 0, ptr noundef null) #13
   ret ptr %call
 }
 
@@ -339,9 +339,9 @@ declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @eeprom93xx_free(ptr noundef %dev, ptr noundef %eeprom) local_unnamed_addr #2 {
 entry:
-  %call = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 332, ptr noundef nonnull @__func__.eeprom93xx_free) #12
-  tail call void @vmstate_unregister(ptr noundef %call, ptr noundef nonnull @vmstate_eeprom, ptr noundef %eeprom) #12
-  tail call void @g_free(ptr noundef %eeprom) #12
+  %call = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 332, ptr noundef nonnull @__func__.eeprom93xx_free) #13
+  tail call void @vmstate_unregister(ptr noundef %call, ptr noundef nonnull @vmstate_eeprom, ptr noundef %eeprom) #13
+  tail call void @g_free(ptr noundef %eeprom) #13
   ret void
 }
 
@@ -368,33 +368,33 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i32 @get_uint16_from_uint8(ptr noundef %f, ptr nocapture noundef writeonly %pv, i64 %size, ptr nocapture readnone %field) #2 {
 entry:
-  %call.i = tail call i32 @qemu_get_byte(ptr noundef %f) #12
+  %call.i = tail call i32 @qemu_get_byte(ptr noundef %f) #13
   %conv = trunc i32 %call.i to i16
   store i16 %conv, ptr %pv, align 2
   ret i32 0
 }
 
-; Function Attrs: noreturn nounwind sspstrong uwtable
+; Function Attrs: nofree noreturn nounwind sspstrong uwtable
 define internal noundef i32 @put_unused(ptr nocapture readnone %f, ptr nocapture readnone %pv, i64 %size, ptr nocapture readnone %field, ptr nocapture readnone %vmdesc) #7 {
 entry:
   %0 = load ptr, ptr @stderr, align 8
-  %1 = tail call i64 @fwrite(ptr nonnull @.str.17, i64 60, i64 1, ptr %0) #13
+  %1 = tail call i64 @fwrite(ptr nonnull @.str.17, i64 60, i64 1, ptr %0) #14
   %2 = load ptr, ptr @stderr, align 8
-  %3 = tail call i64 @fwrite(ptr nonnull @.str.18, i64 43, i64 1, ptr %2) #13
-  tail call void @exit(i32 noundef 0) #10
+  %3 = tail call i64 @fwrite(ptr nonnull @.str.18, i64 43, i64 1, ptr %2) #14
+  tail call void @exit(i32 noundef 0) #11
   unreachable
 }
 
 declare i32 @qemu_get_byte(ptr noundef) local_unnamed_addr #5
 
-; Function Attrs: noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #3
+; Function Attrs: nofree noreturn nounwind
+declare void @exit(i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
 
 attributes #0 = { nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -403,13 +403,14 @@ attributes #3 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="tr
 attributes #4 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { noreturn nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree nounwind }
-attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #10 = { noreturn nounwind }
-attributes #11 = { nounwind allocsize(0) }
-attributes #12 = { nounwind }
-attributes #13 = { cold }
+attributes #7 = { nofree noreturn nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nofree nounwind }
+attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #11 = { noreturn nounwind }
+attributes #12 = { nounwind allocsize(0) }
+attributes #13 = { nounwind }
+attributes #14 = { cold }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

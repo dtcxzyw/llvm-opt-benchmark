@@ -69,7 +69,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define ptr @ggml_backend_buft_alloc_buffer(ptr noundef %buft, i64 noundef %size) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %buft, align 8
-  %call = tail call ptr %0(ptr noundef nonnull %buft, i64 noundef %size) #19
+  %call = tail call ptr %0(ptr noundef nonnull %buft, i64 noundef %size) #20
   ret ptr %call
 }
 
@@ -78,7 +78,7 @@ define i64 @ggml_backend_buft_get_alignment(ptr noundef %buft) local_unnamed_add
 entry:
   %get_alignment = getelementptr inbounds i8, ptr %buft, i64 8
   %0 = load ptr, ptr %get_alignment, align 8
-  %call = tail call i64 %0(ptr noundef %buft) #19
+  %call = tail call i64 %0(ptr noundef %buft) #20
   ret i64 %call
 }
 
@@ -91,11 +91,11 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call = tail call i64 %0(ptr noundef nonnull %buft, ptr noundef %tensor) #19
+  %call = tail call i64 %0(ptr noundef nonnull %buft, ptr noundef %tensor) #20
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call3 = tail call i64 @ggml_nbytes(ptr noundef %tensor) #19
+  %call3 = tail call i64 @ggml_nbytes(ptr noundef %tensor) #20
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
@@ -110,14 +110,14 @@ define zeroext i1 @ggml_backend_buft_supports_backend(ptr noundef %buft, ptr nou
 entry:
   %supports_backend = getelementptr inbounds i8, ptr %buft, i64 24
   %0 = load ptr, ptr %supports_backend, align 8
-  %call = tail call zeroext i1 %0(ptr noundef %buft, ptr noundef %backend) #19
+  %call = tail call zeroext i1 %0(ptr noundef %buft, ptr noundef %backend) #20
   ret i1 %call
 }
 
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @ggml_backend_buffer_init(ptr noundef %buft, ptr nocapture noundef readonly byval(%struct.ggml_backend_buffer_i) align 8 %iface, ptr noundef %context, i64 noundef %size) local_unnamed_addr #0 {
 entry:
-  %call = tail call noalias dereferenceable_or_null(80) ptr @malloc(i64 noundef 80) #20
+  %call = tail call noalias dereferenceable_or_null(80) ptr @malloc(i64 noundef 80) #21
   %get_base = getelementptr inbounds i8, ptr %iface, i64 8
   %0 = load ptr, ptr %get_base, align 8
   %cmp.not = icmp eq ptr %0, null
@@ -127,9 +127,9 @@ if.then:                                          ; preds = %entry
   %1 = load ptr, ptr @stdout, align 8
   %call1 = tail call i32 @fflush(ptr noundef %1)
   %2 = load ptr, ptr @stderr, align 8
-  %call2 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 47, ptr noundef nonnull @.str.2) #21
-  tail call void @ggml_print_backtrace() #19
-  tail call void @abort() #22
+  %call2 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 47, ptr noundef nonnull @.str.2) #22
+  tail call void @ggml_print_backtrace() #20
+  tail call void @abort() #23
   unreachable
 
 do.end:                                           ; preds = %entry
@@ -154,7 +154,7 @@ declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readon
 
 declare void @ggml_print_backtrace() local_unnamed_addr #1
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: cold nofree noreturn nounwind
 declare void @abort() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -172,11 +172,11 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1.not, label %if.end5, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  tail call void %0(ptr noundef nonnull %buffer) #19
+  tail call void %0(ptr noundef nonnull %buffer) #20
   br label %if.end5
 
 if.end5:                                          ; preds = %if.then2, %if.end
-  tail call void @free(ptr noundef nonnull %buffer) #19
+  tail call void @free(ptr noundef nonnull %buffer) #20
   br label %return
 
 return:                                           ; preds = %entry, %if.end5
@@ -199,7 +199,7 @@ define ptr @ggml_backend_buffer_get_base(ptr noundef %buffer) local_unnamed_addr
 entry:
   %get_base = getelementptr inbounds i8, ptr %buffer, i64 8
   %0 = load ptr, ptr %get_base, align 8
-  %call = tail call ptr %0(ptr noundef %buffer) #19
+  %call = tail call ptr %0(ptr noundef %buffer) #20
   %cmp.not = icmp eq ptr %call, null
   br i1 %cmp.not, label %if.then, label %do.end
 
@@ -207,9 +207,9 @@ if.then:                                          ; preds = %entry
   %1 = load ptr, ptr @stdout, align 8
   %call1 = tail call i32 @fflush(ptr noundef %1)
   %2 = load ptr, ptr @stderr, align 8
-  %call2 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 77, ptr noundef nonnull @.str.4) #21
-  tail call void @ggml_print_backtrace() #19
-  tail call void @abort() #22
+  %call2 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 77, ptr noundef nonnull @.str.4) #22
+  tail call void @ggml_print_backtrace() #20
+  tail call void @abort() #23
   unreachable
 
 do.end:                                           ; preds = %entry
@@ -225,7 +225,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call void %0(ptr noundef nonnull %buffer, ptr noundef %tensor) #19
+  tail call void %0(ptr noundef nonnull %buffer, ptr noundef %tensor) #20
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -239,7 +239,7 @@ entry:
   %0 = load ptr, ptr %buft.i, align 8
   %get_alignment.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %get_alignment.i, align 8
-  %call.i = tail call i64 %1(ptr noundef %0) #19
+  %call.i = tail call i64 %1(ptr noundef %0) #20
   ret i64 %call.i
 }
 
@@ -262,11 +262,11 @@ entry:
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %call.i = tail call i64 %1(ptr noundef nonnull %0, ptr noundef %tensor) #19
+  %call.i = tail call i64 %1(ptr noundef nonnull %0, ptr noundef %tensor) #20
   br label %ggml_backend_buft_get_alloc_size.exit
 
 if.end.i:                                         ; preds = %entry
-  %call3.i = tail call i64 @ggml_nbytes(ptr noundef %tensor) #19
+  %call3.i = tail call i64 @ggml_nbytes(ptr noundef %tensor) #20
   br label %ggml_backend_buft_get_alloc_size.exit
 
 ggml_backend_buft_get_alloc_size.exit:            ; preds = %if.then.i, %if.end.i
@@ -282,7 +282,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %backend, align 8
-  %call = tail call ptr %0(ptr noundef nonnull %backend) #19
+  %call = tail call ptr %0(ptr noundef nonnull %backend) #20
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -299,7 +299,7 @@ entry:
 if.end:                                           ; preds = %entry
   %free = getelementptr inbounds i8, ptr %backend, i64 8
   %0 = load ptr, ptr %free, align 8
-  tail call void %0(ptr noundef nonnull %backend) #19
+  tail call void %0(ptr noundef nonnull %backend) #20
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -311,7 +311,7 @@ define ptr @ggml_backend_get_default_buffer_type(ptr noundef %backend) local_unn
 entry:
   %get_default_buffer_type = getelementptr inbounds i8, ptr %backend, i64 16
   %0 = load ptr, ptr %get_default_buffer_type, align 8
-  %call = tail call ptr %0(ptr noundef %backend) #19
+  %call = tail call ptr %0(ptr noundef %backend) #20
   ret ptr %call
 }
 
@@ -320,9 +320,9 @@ define ptr @ggml_backend_alloc_buffer(ptr noundef %backend, i64 noundef %size) l
 entry:
   %get_default_buffer_type.i = getelementptr inbounds i8, ptr %backend, i64 16
   %0 = load ptr, ptr %get_default_buffer_type.i, align 8
-  %call.i = tail call ptr %0(ptr noundef %backend) #19
+  %call.i = tail call ptr %0(ptr noundef %backend) #20
   %1 = load ptr, ptr %call.i, align 8
-  %call.i1 = tail call ptr %1(ptr noundef nonnull %call.i, i64 noundef %size) #19
+  %call.i1 = tail call ptr %1(ptr noundef nonnull %call.i, i64 noundef %size) #20
   ret ptr %call.i1
 }
 
@@ -331,10 +331,10 @@ define i64 @ggml_backend_get_alignment(ptr noundef %backend) local_unnamed_addr 
 entry:
   %get_default_buffer_type.i = getelementptr inbounds i8, ptr %backend, i64 16
   %0 = load ptr, ptr %get_default_buffer_type.i, align 8
-  %call.i = tail call ptr %0(ptr noundef %backend) #19
+  %call.i = tail call ptr %0(ptr noundef %backend) #20
   %get_alignment.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %1 = load ptr, ptr %get_alignment.i, align 8
-  %call.i1 = tail call i64 %1(ptr noundef %call.i) #19
+  %call.i1 = tail call i64 %1(ptr noundef %call.i) #20
   ret i64 %call.i1
 }
 
@@ -350,14 +350,14 @@ if.then:                                          ; preds = %entry
   %1 = load ptr, ptr @stdout, align 8
   %call = tail call i32 @fflush(ptr noundef %1)
   %2 = load ptr, ptr @stderr, align 8
-  %call2 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 131, ptr noundef nonnull @.str.7) #21
-  tail call void @ggml_print_backtrace() #19
-  tail call void @abort() #22
+  %call2 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 131, ptr noundef nonnull @.str.7) #22
+  tail call void @ggml_print_backtrace() #20
+  tail call void @abort() #23
   unreachable
 
 do.body3:                                         ; preds = %entry
   %add = add i64 %size, %offset
-  %call4 = tail call i64 @ggml_nbytes(ptr noundef nonnull %tensor) #19
+  %call4 = tail call i64 @ggml_nbytes(ptr noundef nonnull %tensor) #20
   %cmp5.not = icmp ugt i64 %add, %call4
   br i1 %cmp5.not, label %if.then7, label %do.end11
 
@@ -365,15 +365,15 @@ if.then7:                                         ; preds = %do.body3
   %3 = load ptr, ptr @stdout, align 8
   %call8 = tail call i32 @fflush(ptr noundef %3)
   %4 = load ptr, ptr @stderr, align 8
-  %call9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 132, ptr noundef nonnull @.str.9) #21
-  tail call void @ggml_print_backtrace() #19
-  tail call void @abort() #22
+  %call9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 132, ptr noundef nonnull @.str.9) #22
+  tail call void @ggml_print_backtrace() #20
+  tail call void @abort() #23
   unreachable
 
 do.end11:                                         ; preds = %do.body3
   %set_tensor_async = getelementptr inbounds i8, ptr %backend, i64 24
   %5 = load ptr, ptr %set_tensor_async, align 8
-  tail call void %5(ptr noundef %backend, ptr noundef nonnull %tensor, ptr noundef %data, i64 noundef %offset, i64 noundef %size) #19
+  tail call void %5(ptr noundef %backend, ptr noundef nonnull %tensor, ptr noundef %data, i64 noundef %offset, i64 noundef %size) #20
   ret void
 }
 
@@ -389,14 +389,14 @@ if.then:                                          ; preds = %entry
   %1 = load ptr, ptr @stdout, align 8
   %call = tail call i32 @fflush(ptr noundef %1)
   %2 = load ptr, ptr @stderr, align 8
-  %call2 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 138, ptr noundef nonnull @.str.7) #21
-  tail call void @ggml_print_backtrace() #19
-  tail call void @abort() #22
+  %call2 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 138, ptr noundef nonnull @.str.7) #22
+  tail call void @ggml_print_backtrace() #20
+  tail call void @abort() #23
   unreachable
 
 do.body3:                                         ; preds = %entry
   %add = add i64 %size, %offset
-  %call4 = tail call i64 @ggml_nbytes(ptr noundef nonnull %tensor) #19
+  %call4 = tail call i64 @ggml_nbytes(ptr noundef nonnull %tensor) #20
   %cmp5.not = icmp ugt i64 %add, %call4
   br i1 %cmp5.not, label %if.then7, label %do.end11
 
@@ -404,15 +404,15 @@ if.then7:                                         ; preds = %do.body3
   %3 = load ptr, ptr @stdout, align 8
   %call8 = tail call i32 @fflush(ptr noundef %3)
   %4 = load ptr, ptr @stderr, align 8
-  %call9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 139, ptr noundef nonnull @.str.11) #21
-  tail call void @ggml_print_backtrace() #19
-  tail call void @abort() #22
+  %call9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 139, ptr noundef nonnull @.str.11) #22
+  tail call void @ggml_print_backtrace() #20
+  tail call void @abort() #23
   unreachable
 
 do.end11:                                         ; preds = %do.body3
   %get_tensor_async = getelementptr inbounds i8, ptr %backend, i64 32
   %5 = load ptr, ptr %get_tensor_async, align 8
-  tail call void %5(ptr noundef %backend, ptr noundef nonnull %tensor, ptr noundef %data, i64 noundef %offset, i64 noundef %size) #19
+  tail call void %5(ptr noundef %backend, ptr noundef nonnull %tensor, ptr noundef %data, i64 noundef %offset, i64 noundef %size) #20
   ret void
 }
 
@@ -428,9 +428,9 @@ if.then:                                          ; preds = %entry
   %1 = load ptr, ptr @stdout, align 8
   %call = tail call i32 @fflush(ptr noundef %1)
   %2 = load ptr, ptr @stderr, align 8
-  %call2 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 145, ptr noundef nonnull @.str.7) #21
-  tail call void @ggml_print_backtrace() #19
-  tail call void @abort() #22
+  %call2 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 145, ptr noundef nonnull @.str.7) #22
+  tail call void @ggml_print_backtrace() #20
+  tail call void @abort() #23
   unreachable
 
 do.body3:                                         ; preds = %entry
@@ -443,14 +443,14 @@ if.then6:                                         ; preds = %do.body3
   %4 = load ptr, ptr @stdout, align 8
   %call7 = tail call i32 @fflush(ptr noundef %4)
   %5 = load ptr, ptr @stderr, align 8
-  %call8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 146, ptr noundef nonnull @.str.13) #21
-  tail call void @ggml_print_backtrace() #19
-  tail call void @abort() #22
+  %call8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 146, ptr noundef nonnull @.str.13) #22
+  tail call void @ggml_print_backtrace() #20
+  tail call void @abort() #23
   unreachable
 
 do.body11:                                        ; preds = %do.body3
   %add = add i64 %size, %offset
-  %call12 = tail call i64 @ggml_nbytes(ptr noundef nonnull %tensor) #19
+  %call12 = tail call i64 @ggml_nbytes(ptr noundef nonnull %tensor) #20
   %cmp13.not = icmp ugt i64 %add, %call12
   br i1 %cmp13.not, label %if.then15, label %do.end19
 
@@ -458,16 +458,16 @@ if.then15:                                        ; preds = %do.body11
   %6 = load ptr, ptr @stdout, align 8
   %call16 = tail call i32 @fflush(ptr noundef %6)
   %7 = load ptr, ptr @stderr, align 8
-  %call17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 147, ptr noundef nonnull @.str.9) #21
-  tail call void @ggml_print_backtrace() #19
-  tail call void @abort() #22
+  %call17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 147, ptr noundef nonnull @.str.9) #22
+  tail call void @ggml_print_backtrace() #20
+  tail call void @abort() #23
   unreachable
 
 do.end19:                                         ; preds = %do.body11
   %8 = load ptr, ptr %buffer, align 8
   %set_tensor = getelementptr inbounds i8, ptr %8, i64 24
   %9 = load ptr, ptr %set_tensor, align 8
-  tail call void %9(ptr noundef %8, ptr noundef nonnull %tensor, ptr noundef %data, i64 noundef %offset, i64 noundef %size) #19
+  tail call void %9(ptr noundef %8, ptr noundef nonnull %tensor, ptr noundef %data, i64 noundef %offset, i64 noundef %size) #20
   ret void
 }
 
@@ -483,9 +483,9 @@ if.then:                                          ; preds = %entry
   %1 = load ptr, ptr @stdout, align 8
   %call = tail call i32 @fflush(ptr noundef %1)
   %2 = load ptr, ptr @stderr, align 8
-  %call2 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 153, ptr noundef nonnull @.str.7) #21
-  tail call void @ggml_print_backtrace() #19
-  tail call void @abort() #22
+  %call2 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 153, ptr noundef nonnull @.str.7) #22
+  tail call void @ggml_print_backtrace() #20
+  tail call void @abort() #23
   unreachable
 
 do.body3:                                         ; preds = %entry
@@ -498,14 +498,14 @@ if.then6:                                         ; preds = %do.body3
   %4 = load ptr, ptr @stdout, align 8
   %call7 = tail call i32 @fflush(ptr noundef %4)
   %5 = load ptr, ptr @stderr, align 8
-  %call8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 154, ptr noundef nonnull @.str.13) #21
-  tail call void @ggml_print_backtrace() #19
-  tail call void @abort() #22
+  %call8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 154, ptr noundef nonnull @.str.13) #22
+  tail call void @ggml_print_backtrace() #20
+  tail call void @abort() #23
   unreachable
 
 do.body11:                                        ; preds = %do.body3
   %add = add i64 %size, %offset
-  %call12 = tail call i64 @ggml_nbytes(ptr noundef nonnull %tensor) #19
+  %call12 = tail call i64 @ggml_nbytes(ptr noundef nonnull %tensor) #20
   %cmp13.not = icmp ugt i64 %add, %call12
   br i1 %cmp13.not, label %if.then15, label %do.end19
 
@@ -513,16 +513,16 @@ if.then15:                                        ; preds = %do.body11
   %6 = load ptr, ptr @stdout, align 8
   %call16 = tail call i32 @fflush(ptr noundef %6)
   %7 = load ptr, ptr @stderr, align 8
-  %call17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 155, ptr noundef nonnull @.str.11) #21
-  tail call void @ggml_print_backtrace() #19
-  tail call void @abort() #22
+  %call17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 155, ptr noundef nonnull @.str.11) #22
+  tail call void @ggml_print_backtrace() #20
+  tail call void @abort() #23
   unreachable
 
 do.end19:                                         ; preds = %do.body11
   %8 = load ptr, ptr %buffer, align 8
   %get_tensor = getelementptr inbounds i8, ptr %8, i64 32
   %9 = load ptr, ptr %get_tensor, align 8
-  tail call void %9(ptr noundef %8, ptr noundef nonnull %tensor, ptr noundef %data, i64 noundef %offset, i64 noundef %size) #19
+  tail call void %9(ptr noundef %8, ptr noundef nonnull %tensor, ptr noundef %data, i64 noundef %offset, i64 noundef %size) #20
   ret void
 }
 
@@ -535,7 +535,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  tail call void %0(ptr noundef nonnull %backend) #19
+  tail call void %0(ptr noundef nonnull %backend) #20
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -547,7 +547,7 @@ define ptr @ggml_backend_graph_plan_create(ptr noundef %backend, ptr noundef %cg
 entry:
   %graph_plan_create = getelementptr inbounds i8, ptr %backend, i64 64
   %0 = load ptr, ptr %graph_plan_create, align 8
-  %call = tail call ptr %0(ptr noundef %backend, ptr noundef %cgraph) #19
+  %call = tail call ptr %0(ptr noundef %backend, ptr noundef %cgraph) #20
   ret ptr %call
 }
 
@@ -556,7 +556,7 @@ define void @ggml_backend_graph_plan_free(ptr noundef %backend, ptr noundef %pla
 entry:
   %graph_plan_free = getelementptr inbounds i8, ptr %backend, i64 72
   %0 = load ptr, ptr %graph_plan_free, align 8
-  tail call void %0(ptr noundef %backend, ptr noundef %plan) #19
+  tail call void %0(ptr noundef %backend, ptr noundef %plan) #20
   ret void
 }
 
@@ -565,14 +565,14 @@ define void @ggml_backend_graph_plan_compute(ptr noundef %backend, ptr noundef %
 entry:
   %graph_plan_compute = getelementptr inbounds i8, ptr %backend, i64 80
   %0 = load ptr, ptr %graph_plan_compute, align 8
-  tail call void %0(ptr noundef %backend, ptr noundef %plan) #19
+  tail call void %0(ptr noundef %backend, ptr noundef %plan) #20
   %synchronize.i = getelementptr inbounds i8, ptr %backend, i64 56
   %1 = load ptr, ptr %synchronize.i, align 8
   %cmp.i = icmp eq ptr %1, null
   br i1 %cmp.i, label %ggml_backend_synchronize.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  tail call void %1(ptr noundef nonnull %backend) #19
+  tail call void %1(ptr noundef nonnull %backend) #20
   br label %ggml_backend_synchronize.exit
 
 ggml_backend_synchronize.exit:                    ; preds = %entry, %if.end.i
@@ -584,14 +584,14 @@ define void @ggml_backend_graph_compute(ptr noundef %backend, ptr noundef %cgrap
 entry:
   %graph_compute = getelementptr inbounds i8, ptr %backend, i64 88
   %0 = load ptr, ptr %graph_compute, align 8
-  tail call void %0(ptr noundef %backend, ptr noundef %cgraph) #19
+  tail call void %0(ptr noundef %backend, ptr noundef %cgraph) #20
   %synchronize.i = getelementptr inbounds i8, ptr %backend, i64 56
   %1 = load ptr, ptr %synchronize.i, align 8
   %cmp.i = icmp eq ptr %1, null
   br i1 %cmp.i, label %ggml_backend_synchronize.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  tail call void %1(ptr noundef nonnull %backend) #19
+  tail call void %1(ptr noundef nonnull %backend) #20
   br label %ggml_backend_synchronize.exit
 
 ggml_backend_synchronize.exit:                    ; preds = %entry, %if.end.i
@@ -603,7 +603,7 @@ define zeroext i1 @ggml_backend_supports_op(ptr noundef %backend, ptr noundef %o
 entry:
   %supports_op = getelementptr inbounds i8, ptr %backend, i64 96
   %0 = load ptr, ptr %supports_op, align 8
-  %call = tail call zeroext i1 %0(ptr noundef %backend, ptr noundef %op) #19
+  %call = tail call zeroext i1 %0(ptr noundef %backend, ptr noundef %op) #20
   ret i1 %call
 }
 
@@ -648,9 +648,9 @@ if.then:                                          ; preds = %if.end8.i, %for.bod
   %6 = load ptr, ptr @stdout, align 8
   %call1 = tail call i32 @fflush(ptr noundef %6)
   %7 = load ptr, ptr @stderr, align 8
-  %call2 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 214, ptr noundef nonnull @.str.15) #21
-  tail call void @ggml_print_backtrace() #19
-  tail call void @abort() #22
+  %call2 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 214, ptr noundef nonnull @.str.15) #22
+  tail call void @ggml_print_backtrace() #20
+  tail call void @abort() #23
   unreachable
 
 do.end:                                           ; preds = %for.cond.i
@@ -666,7 +666,7 @@ if.end4:                                          ; preds = %do.end
   br i1 %cmp5.not, label %if.else, label %if.then6
 
 if.then6:                                         ; preds = %if.end4
-  tail call void %9(ptr noundef nonnull %8, ptr noundef nonnull %src, ptr noundef nonnull %dst) #19
+  tail call void %9(ptr noundef nonnull %8, ptr noundef nonnull %src, ptr noundef nonnull %dst) #20
   br label %if.end23
 
 if.else:                                          ; preds = %if.end4
@@ -678,15 +678,15 @@ if.else:                                          ; preds = %if.end4
   br i1 %cmp13.not, label %if.else19, label %if.then14
 
 if.then14:                                        ; preds = %if.else
-  tail call void %11(ptr noundef nonnull %10, ptr noundef nonnull %src, ptr noundef nonnull %dst) #19
+  tail call void %11(ptr noundef nonnull %10, ptr noundef nonnull %src, ptr noundef nonnull %dst) #20
   br label %if.end23
 
 if.else19:                                        ; preds = %if.else
-  %call20 = tail call i64 @ggml_nbytes(ptr noundef nonnull %src) #19
-  %call21 = tail call noalias ptr @malloc(i64 noundef %call20) #20
+  %call20 = tail call i64 @ggml_nbytes(ptr noundef nonnull %src) #20
+  %call21 = tail call noalias ptr @malloc(i64 noundef %call20) #21
   tail call void @ggml_backend_tensor_get(ptr noundef nonnull %src, ptr noundef %call21, i64 noundef 0, i64 noundef %call20)
   tail call void @ggml_backend_tensor_set(ptr noundef nonnull %dst, ptr noundef %call21, i64 noundef 0, i64 noundef %call20)
-  tail call void @free(ptr noundef %call21) #19
+  tail call void @free(ptr noundef %call21) #20
   br label %if.end23
 
 if.end23:                                         ; preds = %if.then14, %if.else19, %do.end, %if.then6
@@ -704,9 +704,9 @@ if.then:                                          ; preds = %entry
   %1 = load ptr, ptr @stdout, align 8
   %call = tail call i32 @fflush(ptr noundef %1)
   %2 = load ptr, ptr @stderr, align 8
-  %call1 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 283, ptr noundef nonnull @.str.16) #21
-  tail call void @ggml_print_backtrace() #19
-  tail call void @abort() #22
+  %call1 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 283, ptr noundef nonnull @.str.16) #22
+  tail call void @ggml_print_backtrace() #20
+  tail call void @abort() #23
   unreachable
 
 do.end:                                           ; preds = %entry
@@ -718,7 +718,7 @@ do.end:                                           ; preds = %entry
   store ptr %default_buffer_type, ptr %.compoundliteral.sroa.3.0.arrayidx.sroa_idx, align 8
   %.compoundliteral.sroa.4.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %arrayidx, i64 144
   store ptr %user_data, ptr %.compoundliteral.sroa.4.0.arrayidx.sroa_idx, align 8
-  %call9 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %arrayidx, i64 noundef 128, ptr noundef nonnull @.str.17, ptr noundef %name) #19
+  %call9 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %arrayidx, i64 noundef 128, ptr noundef nonnull @.str.17, ptr noundef %name) #20
   %3 = load i64, ptr @ggml_backend_registry_count, align 8
   %inc = add i64 %3, 1
   store i64 %inc, ptr @ggml_backend_registry_count, align 8
@@ -747,9 +747,9 @@ if.then.i.i:                                      ; preds = %if.end.i
   %0 = load ptr, ptr @stdout, align 8
   %call.i.i = tail call i32 @fflush(ptr noundef %0)
   %1 = load ptr, ptr @stderr, align 8
-  %call1.i.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 283, ptr noundef nonnull @.str.16) #21
-  tail call void @ggml_print_backtrace() #19
-  tail call void @abort() #22
+  %call1.i.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 283, ptr noundef nonnull @.str.16) #22
+  tail call void @ggml_print_backtrace() #20
+  tail call void @abort() #23
   unreachable
 
 ggml_backend_register.exit.i:                     ; preds = %if.end.i
@@ -787,9 +787,9 @@ if.then.i.i:                                      ; preds = %if.end.i
   %0 = load ptr, ptr @stdout, align 8
   %call.i.i = tail call i32 @fflush(ptr noundef %0)
   %1 = load ptr, ptr @stderr, align 8
-  %call1.i.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 283, ptr noundef nonnull @.str.16) #21
-  tail call void @ggml_print_backtrace() #19
-  tail call void @abort() #22
+  %call1.i.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 283, ptr noundef nonnull @.str.16) #22
+  tail call void @ggml_print_backtrace() #20
+  tail call void @abort() #23
   unreachable
 
 ggml_backend_registry_init.exit.thread:           ; preds = %if.end.i
@@ -817,7 +817,7 @@ for.body.preheader:                               ; preds = %ggml_backend_regist
 for.body:                                         ; preds = %for.body.preheader, %for.inc
   %i.05 = phi i64 [ %inc, %for.inc ], [ 0, %for.body.preheader ]
   %arrayidx = getelementptr inbounds [16 x %struct.ggml_backend_reg], ptr @ggml_backend_registry, i64 0, i64 %i.05
-  %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %arrayidx, ptr noundef nonnull dereferenceable(1) %name) #23
+  %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %arrayidx, ptr noundef nonnull dereferenceable(1) %name) #24
   %cmp2 = icmp eq i32 %call, 0
   br i1 %cmp2, label %return, label %for.inc
 
@@ -851,9 +851,9 @@ if.then.i.i:                                      ; preds = %if.end.i
   %1 = load ptr, ptr @stdout, align 8
   %call.i.i = tail call i32 @fflush(ptr noundef %1)
   %2 = load ptr, ptr @stderr, align 8
-  %call1.i.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 283, ptr noundef nonnull @.str.16) #21
-  tail call void @ggml_print_backtrace() #19
-  tail call void @abort() #22
+  %call1.i.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 283, ptr noundef nonnull @.str.16) #22
+  tail call void @ggml_print_backtrace() #20
+  tail call void @abort() #23
   unreachable
 
 ggml_backend_register.exit.i:                     ; preds = %if.end.i
@@ -871,19 +871,19 @@ ggml_backend_register.exit.i:                     ; preds = %if.end.i
   br label %ggml_backend_registry_init.exit
 
 ggml_backend_registry_init.exit:                  ; preds = %entry, %ggml_backend_register.exit.i
-  %call = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %backend_str, i32 noundef 58) #23
+  %call = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %backend_str, i32 noundef 58) #24
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %ggml_backend_registry_init.exit
-  %call1 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %backend_name, ptr noundef nonnull dereferenceable(1) %backend_str) #19
+  %call1 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %backend_name, ptr noundef nonnull dereferenceable(1) %backend_str) #20
   br label %if.end
 
 if.else:                                          ; preds = %ggml_backend_registry_init.exit
   %sub.ptr.lhs.cast = ptrtoint ptr %call to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %backend_str to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %call3 = call ptr @strncpy(ptr noundef nonnull %backend_name, ptr noundef %backend_str, i64 noundef %sub.ptr.sub) #19
+  %call3 = call ptr @strncpy(ptr noundef nonnull %backend_name, ptr noundef %backend_str, i64 noundef %sub.ptr.sub) #20
   %arrayidx = getelementptr inbounds [128 x i8], ptr %backend_name, i64 0, i64 %sub.ptr.sub
   store i8 0, ptr %arrayidx, align 1
   %incdec.ptr = getelementptr inbounds i8, ptr %call, i64 1
@@ -897,7 +897,7 @@ if.end:                                           ; preds = %if.else, %if.then
 
 if.then10:                                        ; preds = %if.end
   %3 = load ptr, ptr @stderr, align 8
-  %call12 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.19, ptr noundef nonnull @__func__.ggml_backend_reg_init_backend_from_str, ptr noundef nonnull %backend_name) #21
+  %call12 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.19, ptr noundef nonnull @__func__.ggml_backend_reg_init_backend_from_str, ptr noundef nonnull %backend_name) #22
   br label %return
 
 if.end13:                                         ; preds = %if.end
@@ -934,9 +934,9 @@ if.then.i.i:                                      ; preds = %if.end.i
   %0 = load ptr, ptr @stdout, align 8
   %call.i.i = tail call i32 @fflush(ptr noundef %0)
   %1 = load ptr, ptr @stderr, align 8
-  %call1.i.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 283, ptr noundef nonnull @.str.16) #21
-  tail call void @ggml_print_backtrace() #19
-  tail call void @abort() #22
+  %call1.i.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 283, ptr noundef nonnull @.str.16) #22
+  tail call void @ggml_print_backtrace() #20
+  tail call void @abort() #23
   unreachable
 
 ggml_backend_register.exit.i:                     ; preds = %if.end.i
@@ -962,9 +962,9 @@ if.then:                                          ; preds = %ggml_backend_regist
   %3 = load ptr, ptr @stdout, align 8
   %call = tail call i32 @fflush(ptr noundef %3)
   %4 = load ptr, ptr @stderr, align 8
-  %call1 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 355, ptr noundef nonnull @.str.20) #21
-  tail call void @ggml_print_backtrace() #19
-  tail call void @abort() #22
+  %call1 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 355, ptr noundef nonnull @.str.20) #22
+  tail call void @ggml_print_backtrace() #20
+  tail call void @abort() #23
   unreachable
 
 do.end:                                           ; preds = %ggml_backend_registry_init.exit
@@ -973,7 +973,7 @@ do.end:                                           ; preds = %ggml_backend_regist
   %5 = load ptr, ptr %init_fn, align 8
   %user_data = getelementptr inbounds i8, ptr %arrayidx, i64 144
   %6 = load ptr, ptr %user_data, align 8
-  %call3 = tail call ptr %5(ptr noundef %params, ptr noundef %6) #19
+  %call3 = tail call ptr %5(ptr noundef %params, ptr noundef %6) #20
   ret ptr %call3
 }
 
@@ -993,9 +993,9 @@ if.then.i.i:                                      ; preds = %if.end.i
   %0 = load ptr, ptr @stdout, align 8
   %call.i.i = tail call i32 @fflush(ptr noundef %0)
   %1 = load ptr, ptr @stderr, align 8
-  %call1.i.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 283, ptr noundef nonnull @.str.16) #21
-  tail call void @ggml_print_backtrace() #19
-  tail call void @abort() #22
+  %call1.i.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 283, ptr noundef nonnull @.str.16) #22
+  tail call void @ggml_print_backtrace() #20
+  tail call void @abort() #23
   unreachable
 
 ggml_backend_register.exit.i:                     ; preds = %if.end.i
@@ -1021,9 +1021,9 @@ if.then:                                          ; preds = %ggml_backend_regist
   %3 = load ptr, ptr @stdout, align 8
   %call = tail call i32 @fflush(ptr noundef %3)
   %4 = load ptr, ptr @stderr, align 8
-  %call1 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 348, ptr noundef nonnull @.str.20) #21
-  tail call void @ggml_print_backtrace() #19
-  tail call void @abort() #22
+  %call1 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 348, ptr noundef nonnull @.str.20) #22
+  tail call void @ggml_print_backtrace() #20
+  tail call void @abort() #23
   unreachable
 
 do.end:                                           ; preds = %ggml_backend_registry_init.exit
@@ -1047,9 +1047,9 @@ if.then.i.i:                                      ; preds = %if.end.i
   %0 = load ptr, ptr @stdout, align 8
   %call.i.i = tail call i32 @fflush(ptr noundef %0)
   %1 = load ptr, ptr @stderr, align 8
-  %call1.i.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 283, ptr noundef nonnull @.str.16) #21
-  tail call void @ggml_print_backtrace() #19
-  tail call void @abort() #22
+  %call1.i.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 283, ptr noundef nonnull @.str.16) #22
+  tail call void @ggml_print_backtrace() #20
+  tail call void @abort() #23
   unreachable
 
 ggml_backend_register.exit.i:                     ; preds = %if.end.i
@@ -1075,9 +1075,9 @@ if.then:                                          ; preds = %ggml_backend_regist
   %3 = load ptr, ptr @stdout, align 8
   %call = tail call i32 @fflush(ptr noundef %3)
   %4 = load ptr, ptr @stderr, align 8
-  %call1 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 362, ptr noundef nonnull @.str.20) #21
-  tail call void @ggml_print_backtrace() #19
-  tail call void @abort() #22
+  %call1 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 362, ptr noundef nonnull @.str.20) #22
+  tail call void @ggml_print_backtrace() #20
+  tail call void @abort() #23
   unreachable
 
 do.end:                                           ; preds = %ggml_backend_registry_init.exit
@@ -1102,9 +1102,9 @@ if.then.i.i:                                      ; preds = %if.end.i
   %0 = load ptr, ptr @stdout, align 8
   %call.i.i = tail call i32 @fflush(ptr noundef %0)
   %1 = load ptr, ptr @stderr, align 8
-  %call1.i.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 283, ptr noundef nonnull @.str.16) #21
-  tail call void @ggml_print_backtrace() #19
-  tail call void @abort() #22
+  %call1.i.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 283, ptr noundef nonnull @.str.16) #22
+  tail call void @ggml_print_backtrace() #20
+  tail call void @abort() #23
   unreachable
 
 ggml_backend_register.exit.i:                     ; preds = %if.end.i
@@ -1130,16 +1130,16 @@ if.then:                                          ; preds = %ggml_backend_regist
   %3 = load ptr, ptr @stdout, align 8
   %call = tail call i32 @fflush(ptr noundef %3)
   %4 = load ptr, ptr @stderr, align 8
-  %call1 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 369, ptr noundef nonnull @.str.20) #21
-  tail call void @ggml_print_backtrace() #19
-  tail call void @abort() #22
+  %call1 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 369, ptr noundef nonnull @.str.20) #22
+  tail call void @ggml_print_backtrace() #20
+  tail call void @abort() #23
   unreachable
 
 do.end:                                           ; preds = %ggml_backend_registry_init.exit
   %default_buffer_type = getelementptr inbounds [16 x %struct.ggml_backend_reg], ptr @ggml_backend_registry, i64 0, i64 %i, i32 2
   %5 = load ptr, ptr %default_buffer_type, align 8
   %6 = load ptr, ptr %5, align 8
-  %call.i = tail call ptr %6(ptr noundef nonnull %5, i64 noundef %size) #19
+  %call.i = tail call ptr %6(ptr noundef nonnull %5, i64 noundef %size) #20
   ret ptr %call.i
 }
 
@@ -1153,7 +1153,7 @@ entry:
 define internal noalias noundef ptr @ggml_backend_cpu_buffer_type_alloc_buffer(ptr noundef %buft, i64 noundef %size) #0 {
 entry:
   %add = add i64 %size, 64
-  %call = tail call noalias ptr @malloc(i64 noundef %add) #20
+  %call = tail call noalias ptr @malloc(i64 noundef %add) #21
   %cmp.not = icmp eq ptr %call, null
   br i1 %cmp.not, label %if.then, label %do.end
 
@@ -1161,13 +1161,13 @@ if.then:                                          ; preds = %entry
   %0 = load ptr, ptr @stdout, align 8
   %call1 = tail call i32 @fflush(ptr noundef %0)
   %1 = load ptr, ptr @stderr, align 8
-  %call2 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 441, ptr noundef nonnull @.str.35) #21
-  tail call void @ggml_print_backtrace() #19
-  tail call void @abort() #22
+  %call2 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 441, ptr noundef nonnull @.str.35) #22
+  tail call void @ggml_print_backtrace() #20
+  tail call void @abort() #23
   unreachable
 
 do.end:                                           ; preds = %entry
-  %call.i = tail call noalias dereferenceable_or_null(80) ptr @malloc(i64 noundef 80) #20
+  %call.i = tail call noalias dereferenceable_or_null(80) ptr @malloc(i64 noundef 80) #21
   store ptr @ggml_backend_cpu_buffer_free_buffer, ptr %call.i, align 8
   %cpu_backend_buffer_i.sroa.4.0.call.i.sroa_idx = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr @ggml_backend_cpu_buffer_get_base, ptr %cpu_backend_buffer_i.sroa.4.0.call.i.sroa_idx, align 8
@@ -1199,10 +1199,10 @@ entry:
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, argmem: none) uwtable
 define noalias noundef ptr @ggml_backend_cpu_init() local_unnamed_addr #12 {
 entry:
-  %call = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #20
+  %call = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #21
   store i32 4, ptr %call, align 8
   %work_data = getelementptr inbounds i8, ptr %call, i64 8
-  %call1 = tail call noalias dereferenceable_or_null(112) ptr @malloc(i64 noundef 112) #20
+  %call1 = tail call noalias dereferenceable_or_null(112) ptr @malloc(i64 noundef 112) #21
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %work_data, i8 0, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %call1, ptr noundef nonnull align 8 dereferenceable(104) @cpu_backend_i, i64 104, i1 false)
   %.compoundliteral.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %call1, i64 104
@@ -1235,9 +1235,9 @@ if.then:                                          ; preds = %entry
   %1 = load ptr, ptr @stdout, align 8
   %call1 = tail call i32 @fflush(ptr noundef %1)
   %2 = load ptr, ptr @stderr, align 8
-  %call2 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 594, ptr noundef nonnull @.str.21) #21
-  tail call void @ggml_print_backtrace() #19
-  tail call void @abort() #22
+  %call2 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 594, ptr noundef nonnull @.str.21) #22
+  tail call void @ggml_print_backtrace() #20
+  tail call void @abort() #23
   unreachable
 
 do.end:                                           ; preds = %entry
@@ -1250,7 +1250,7 @@ do.end:                                           ; preds = %entry
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @ggml_backend_cpu_buffer_from_ptr(ptr noundef %ptr, i64 noundef %size) local_unnamed_addr #0 {
 entry:
-  %call.i = tail call noalias dereferenceable_or_null(80) ptr @malloc(i64 noundef 80) #20
+  %call.i = tail call noalias dereferenceable_or_null(80) ptr @malloc(i64 noundef 80) #21
   store ptr null, ptr %call.i, align 8
   %cpu_backend_buffer_i_from_ptr.sroa.4.0.call.i.sroa_idx = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr @ggml_backend_cpu_buffer_get_base, ptr %cpu_backend_buffer_i_from_ptr.sroa.4.0.call.i.sroa_idx, align 8
@@ -1275,9 +1275,9 @@ if.then:                                          ; preds = %entry
   %0 = load ptr, ptr @stdout, align 8
   %call = tail call i32 @fflush(ptr noundef %0)
   %1 = load ptr, ptr @stderr, align 8
-  %call1 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 1100, ptr noundef nonnull @.str.22) #21
-  tail call void @ggml_print_backtrace() #19
-  tail call void @abort() #22
+  %call1 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 1100, ptr noundef nonnull @.str.22) #22
+  tail call void @ggml_print_backtrace() #20
+  tail call void @abort() #23
   unreachable
 
 do.end:                                           ; preds = %entry
@@ -1287,7 +1287,7 @@ do.end:                                           ; preds = %entry
   br i1 %cmp416, label %for.body12.lr.ph, label %for.end
 
 for.end:                                          ; preds = %do.end
-  %call8 = tail call ptr @ggml_gallocr_new() #19
+  %call8 = tail call ptr @ggml_gallocr_new() #20
   %galloc = getelementptr inbounds i8, ptr %calloc, i64 72
   store ptr %call8, ptr %galloc, align 8
   br label %for.end20
@@ -1297,7 +1297,7 @@ for.body12.lr.ph:                                 ; preds = %do.end
   %2 = zext nneg i32 %n_backends to i64
   %3 = shl nuw nsw i64 %2, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %backends5, ptr align 8 %backends, i64 %3, i1 false)
-  %call822 = tail call ptr @ggml_gallocr_new() #19
+  %call822 = tail call ptr @ggml_gallocr_new() #20
   %galloc23 = getelementptr inbounds i8, ptr %calloc, i64 72
   store ptr %call822, ptr %galloc23, align 8
   %tallocs = getelementptr inbounds i8, ptr %calloc, i64 40
@@ -1308,7 +1308,7 @@ for.body12:                                       ; preds = %for.body12.lr.ph, %
   %indvars.iv = phi i64 [ 0, %for.body12.lr.ph ], [ %indvars.iv.next, %for.body12 ]
   %arrayidx14 = getelementptr inbounds ptr, ptr %backends, i64 %indvars.iv
   %4 = load ptr, ptr %arrayidx14, align 8
-  %call15 = tail call ptr @ggml_tallocr_new_measure_from_backend(ptr noundef %4) #19
+  %call15 = tail call ptr @ggml_tallocr_new_measure_from_backend(ptr noundef %4) #20
   %arrayidx17 = getelementptr inbounds [4 x ptr], ptr %tallocs, i64 0, i64 %indvars.iv
   store ptr %call15, ptr %arrayidx17, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1342,7 +1342,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
   %arrayidx = getelementptr inbounds [4 x ptr], ptr %tallocs, i64 0, i64 %indvars.iv
   %1 = load ptr, ptr %arrayidx, align 8
-  tail call void @ggml_tallocr_free(ptr noundef %1) #19
+  tail call void @ggml_tallocr_free(ptr noundef %1) #20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %2 = load i32, ptr %sched, align 16
   %3 = sext i32 %2 to i64
@@ -1352,17 +1352,17 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 for.end:                                          ; preds = %for.body, %for.cond.preheader
   %galloc = getelementptr inbounds i8, ptr %sched, i64 72
   %4 = load ptr, ptr %galloc, align 8
-  tail call void @ggml_gallocr_free(ptr noundef %4) #19
+  tail call void @ggml_gallocr_free(ptr noundef %4) #20
   %keys = getelementptr inbounds i8, ptr %sched, i64 88
   %5 = load ptr, ptr %keys, align 8
-  tail call void @free(ptr noundef %5) #19
+  tail call void @free(ptr noundef %5) #20
   %node_talloc = getelementptr inbounds i8, ptr %sched, i64 96
   %6 = load ptr, ptr %node_talloc, align 16
-  tail call void @free(ptr noundef %6) #19
+  tail call void @free(ptr noundef %6) #20
   %node_copies = getelementptr inbounds i8, ptr %sched, i64 104
   %7 = load ptr, ptr %node_copies, align 8
-  tail call void @free(ptr noundef %7) #19
-  tail call void @free(ptr noundef nonnull %sched) #19
+  tail call void @free(ptr noundef %7) #20
+  tail call void @free(ptr noundef nonnull %sched) #20
   br label %return
 
 return:                                           ; preds = %entry, %for.end
@@ -1382,14 +1382,14 @@ entry:
   %hash_set = getelementptr inbounds i8, ptr %sched, i64 80
   store i64 %add, ptr %hash_set, align 16
   %mul = shl i64 %add, 3
-  %call = tail call noalias ptr @malloc(i64 noundef %mul) #20
+  %call = tail call noalias ptr @malloc(i64 noundef %mul) #21
   %keys = getelementptr inbounds i8, ptr %sched, i64 88
   store ptr %call, ptr %keys, align 8
-  %call4 = tail call noalias ptr @malloc(i64 noundef %mul) #20
+  %call4 = tail call noalias ptr @malloc(i64 noundef %mul) #21
   %node_talloc = getelementptr inbounds i8, ptr %sched, i64 96
   store ptr %call4, ptr %node_talloc, align 16
   %mul5 = shl i64 %add, 5
-  %call6 = tail call noalias ptr @malloc(i64 noundef %mul5) #20
+  %call6 = tail call noalias ptr @malloc(i64 noundef %mul5) #21
   %node_copies = getelementptr inbounds i8, ptr %sched, i64 104
   store ptr %call6, ptr %node_copies, align 8
   tail call fastcc void @sched_split_graph(ptr noundef %sched, ptr noundef %measure_graph)
@@ -1400,7 +1400,7 @@ entry:
   %3 = load ptr, ptr %node_talloc, align 16
   %4 = load i64, ptr %hash_set, align 16
   %5 = load ptr, ptr %keys, align 8
-  tail call void @ggml_gallocr_alloc_graph_n(ptr noundef %1, ptr noundef %2, i64 %4, ptr %5, ptr noundef %3) #19
+  tail call void @ggml_gallocr_alloc_graph_n(ptr noundef %1, ptr noundef %2, i64 %4, ptr %5, ptr noundef %3) #20
   %6 = load i32, ptr %sched, align 16
   %cmp21 = icmp sgt i32 %6, 0
   br i1 %cmp21, label %for.body.lr.ph, label %sched_reset.exit
@@ -1414,12 +1414,12 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
   %arrayidx = getelementptr inbounds [4 x ptr], ptr %tallocs, i64 0, i64 %indvars.iv
   %7 = load ptr, ptr %arrayidx, align 8
-  %call8 = tail call i64 @ggml_tallocr_max_size(ptr noundef %7) #19
+  %call8 = tail call i64 @ggml_tallocr_max_size(ptr noundef %7) #20
   %8 = load ptr, ptr %arrayidx, align 8
-  tail call void @ggml_tallocr_free(ptr noundef %8) #19
+  tail call void @ggml_tallocr_free(ptr noundef %8) #20
   %arrayidx13 = getelementptr inbounds [4 x ptr], ptr %backends, i64 0, i64 %indvars.iv
   %9 = load ptr, ptr %arrayidx13, align 8
-  %call14 = tail call ptr @ggml_tallocr_new_from_backend(ptr noundef %9, i64 noundef %call8) #19
+  %call14 = tail call ptr @ggml_tallocr_new_from_backend(ptr noundef %9, i64 noundef %call8) #20
   store ptr %call14, ptr %arrayidx, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %10 = load i32, ptr %sched, align 16
@@ -1439,7 +1439,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.body.i ]
   %arrayidx.i = getelementptr inbounds [4 x ptr], ptr %tallocs.i, i64 0, i64 %indvars.iv.i
   %13 = load ptr, ptr %arrayidx.i, align 8
-  tail call void @ggml_tallocr_reset(ptr noundef %13) #19
+  tail call void @ggml_tallocr_reset(ptr noundef %13) #20
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %14 = load i32, ptr %sched, align 16
   %15 = sext i32 %14 to i64
@@ -1482,11 +1482,11 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call void @ggml_free(ptr noundef nonnull %4) #19
+  tail call void @ggml_free(ptr noundef nonnull %4) #20
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %call = tail call ptr @ggml_init(ptr noundef nonnull byval(%struct.ggml_init_params) align 8 %params) #19
+  %call = tail call ptr @ggml_init(ptr noundef nonnull byval(%struct.ggml_init_params) align 8 %params) #20
   store ptr %call, ptr %ctx, align 16
   %n_leafs = getelementptr inbounds i8, ptr %graph, i64 8
   %5 = load i32, ptr %n_leafs, align 8
@@ -1519,7 +1519,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %9 = load ptr, ptr %node_talloc, align 16
   %10 = load i64, ptr %hash_set, align 16
   %11 = load ptr, ptr %keys, align 8
-  %call9 = tail call i64 @ggml_hash_find_or_insert(i64 %10, ptr %11, ptr noundef %8) #19
+  %call9 = tail call i64 @ggml_hash_find_or_insert(i64 %10, ptr %11, ptr noundef %8) #20
   %arrayidx10 = getelementptr inbounds ptr, ptr %9, i64 %call9
   %12 = load ptr, ptr %arrayidx10, align 8
   %cmp11.not = icmp eq ptr %12, null
@@ -1554,16 +1554,16 @@ for.body.i:                                       ; preds = %for.cond.i, %for.bo
   %18 = load ptr, ptr %arrayidx.i, align 8
   %supports_backend.i.i = getelementptr inbounds i8, ptr %17, i64 24
   %19 = load ptr, ptr %supports_backend.i.i, align 8
-  %call.i.i = tail call zeroext i1 %19(ptr noundef %17, ptr noundef %18) #19
+  %call.i.i = tail call zeroext i1 %19(ptr noundef %17, ptr noundef %18) #20
   br i1 %call.i.i, label %get_buffer_backend.exit, label %for.cond.i
 
 do.body.i:                                        ; preds = %for.cond.preheader.i, %for.cond.i
   %20 = load ptr, ptr @stdout, align 8
   %call7.i = tail call i32 @fflush(ptr noundef %20)
   %21 = load ptr, ptr @stderr, align 8
-  %call8.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %21, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 689, ptr noundef nonnull @.str.41) #21
-  tail call void @ggml_print_backtrace() #19
-  tail call void @abort() #22
+  %call8.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %21, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 689, ptr noundef nonnull @.str.41) #22
+  tail call void @ggml_print_backtrace() #20
+  tail call void @abort() #23
   unreachable
 
 get_buffer_backend.exit:                          ; preds = %for.body.i
@@ -1607,16 +1607,16 @@ for.body.i230:                                    ; preds = %for.cond.i235, %for
   %29 = load ptr, ptr %arrayidx.i232, align 8
   %supports_backend.i.i233 = getelementptr inbounds i8, ptr %28, i64 24
   %30 = load ptr, ptr %supports_backend.i.i233, align 8
-  %call.i.i234 = tail call zeroext i1 %30(ptr noundef %28, ptr noundef %29) #19
+  %call.i.i234 = tail call zeroext i1 %30(ptr noundef %28, ptr noundef %29) #20
   br i1 %call.i.i234, label %if.end21, label %for.cond.i235
 
 do.body.i224:                                     ; preds = %for.cond.preheader.i222, %for.cond.i235
   %31 = load ptr, ptr @stdout, align 8
   %call7.i225 = tail call i32 @fflush(ptr noundef %31)
   %32 = load ptr, ptr @stderr, align 8
-  %call8.i226 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %32, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 689, ptr noundef nonnull @.str.41) #21
-  tail call void @ggml_print_backtrace() #19
-  tail call void @abort() #22
+  %call8.i226 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %32, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 689, ptr noundef nonnull @.str.41) #22
+  tail call void @ggml_print_backtrace() #20
+  tail call void @abort() #23
   unreachable
 
 if.end21:                                         ; preds = %for.body.i230
@@ -1659,7 +1659,7 @@ ggml_backend_sched_get_tallocr.exit:              ; preds = %for.inc.i.i, %if.th
   %38 = load ptr, ptr %node_talloc, align 16
   %39 = load i64, ptr %hash_set, align 16
   %40 = load ptr, ptr %keys, align 8
-  %call27 = tail call i64 @ggml_hash_find_or_insert(i64 %39, ptr %40, ptr noundef %8) #19
+  %call27 = tail call i64 @ggml_hash_find_or_insert(i64 %39, ptr %40, ptr noundef %8) #20
   %arrayidx28 = getelementptr inbounds ptr, ptr %38, i64 %call27
   store ptr %37, ptr %arrayidx28, align 8
   br label %for.inc
@@ -1688,7 +1688,7 @@ for.body33:                                       ; preds = %for.body33.lr.ph, %
   %45 = load ptr, ptr %node_talloc, align 16
   %46 = load i64, ptr %hash_set, align 16
   %47 = load ptr, ptr %keys, align 8
-  %call38 = tail call i64 @ggml_hash_find_or_insert(i64 %46, ptr %47, ptr noundef %44) #19
+  %call38 = tail call i64 @ggml_hash_find_or_insert(i64 %46, ptr %47, ptr noundef %44) #20
   %arrayidx39 = getelementptr inbounds ptr, ptr %45, i64 %call38
   %48 = load ptr, ptr %arrayidx39, align 8
   %cmp40.not = icmp eq ptr %48, null
@@ -1723,16 +1723,16 @@ for.body.i.i244:                                  ; preds = %for.cond.i.i, %for.
   %54 = load ptr, ptr %arrayidx.i.i246, align 8
   %supports_backend.i.i.i = getelementptr inbounds i8, ptr %53, i64 24
   %55 = load ptr, ptr %supports_backend.i.i.i, align 8
-  %call.i.i.i = tail call zeroext i1 %55(ptr noundef %53, ptr noundef %54) #19
+  %call.i.i.i = tail call zeroext i1 %55(ptr noundef %53, ptr noundef %54) #20
   br i1 %call.i.i.i, label %get_buffer_backend.exit.i, label %for.cond.i.i
 
 do.body.i.i:                                      ; preds = %for.cond.preheader.i.i, %for.cond.i.i
   %56 = load ptr, ptr @stdout, align 8
   %call7.i.i = tail call i32 @fflush(ptr noundef %56)
   %57 = load ptr, ptr @stderr, align 8
-  %call8.i.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %57, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 689, ptr noundef nonnull @.str.41) #21
-  tail call void @ggml_print_backtrace() #19
-  tail call void @abort() #22
+  %call8.i.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %57, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 689, ptr noundef nonnull @.str.41) #22
+  tail call void @ggml_print_backtrace() #20
+  tail call void @abort() #23
   unreachable
 
 get_buffer_backend.exit.i:                        ; preds = %for.body.i.i244
@@ -1776,16 +1776,16 @@ for.body.i29.i:                                   ; preds = %for.cond.i34.i, %fo
   %65 = load ptr, ptr %arrayidx.i31.i, align 8
   %supports_backend.i.i32.i = getelementptr inbounds i8, ptr %64, i64 24
   %66 = load ptr, ptr %supports_backend.i.i32.i, align 8
-  %call.i.i33.i = tail call zeroext i1 %66(ptr noundef %64, ptr noundef %65) #19
+  %call.i.i33.i = tail call zeroext i1 %66(ptr noundef %64, ptr noundef %65) #20
   br i1 %call.i.i33.i, label %get_buffer_backend.exit40.i, label %for.cond.i34.i
 
 do.body.i23.i:                                    ; preds = %for.cond.preheader.i21.i, %for.cond.i34.i
   %67 = load ptr, ptr @stdout, align 8
   %call7.i24.i = tail call i32 @fflush(ptr noundef %67)
   %68 = load ptr, ptr @stderr, align 8
-  %call8.i25.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %68, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 689, ptr noundef nonnull @.str.41) #21
-  tail call void @ggml_print_backtrace() #19
-  tail call void @abort() #22
+  %call8.i25.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %68, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 689, ptr noundef nonnull @.str.41) #22
+  tail call void @ggml_print_backtrace() #20
+  tail call void @abort() #23
   unreachable
 
 get_buffer_backend.exit40.i:                      ; preds = %for.body.i29.i
@@ -1824,7 +1824,7 @@ for.body.i50.i:                                   ; preds = %for.cond.i55.i, %fo
   %76 = load ptr, ptr %arrayidx.i52.i, align 8
   %supports_backend.i.i53.i = getelementptr inbounds i8, ptr %75, i64 24
   %77 = load ptr, ptr %supports_backend.i.i53.i, align 8
-  %call.i.i54.i = tail call zeroext i1 %77(ptr noundef %75, ptr noundef %76) #19
+  %call.i.i54.i = tail call zeroext i1 %77(ptr noundef %75, ptr noundef %76) #20
   br i1 %call.i.i54.i, label %if.then2.i58.i, label %for.cond.i55.i
 
 if.then2.i58.i:                                   ; preds = %for.body.i50.i
@@ -1836,9 +1836,9 @@ do.body.i44.i:                                    ; preds = %for.cond.preheader.
   %79 = load ptr, ptr @stdout, align 8
   %call7.i45.i = tail call i32 @fflush(ptr noundef %79)
   %80 = load ptr, ptr @stderr, align 8
-  %call8.i46.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %80, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 689, ptr noundef nonnull @.str.41) #21
-  tail call void @ggml_print_backtrace() #19
-  tail call void @abort() #22
+  %call8.i46.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %80, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 689, ptr noundef nonnull @.str.41) #22
+  tail call void @ggml_print_backtrace() #20
+  tail call void @abort() #23
   unreachable
 
 if.end10.i:                                       ; preds = %get_buffer_backend.exit40.i, %land.lhs.true.i, %if.end.i
@@ -1884,16 +1884,16 @@ for.body.i71.i:                                   ; preds = %for.cond.i76.i, %fo
   %87 = load ptr, ptr %arrayidx.i73.i, align 8
   %supports_backend.i.i74.i = getelementptr inbounds i8, ptr %86, i64 24
   %88 = load ptr, ptr %supports_backend.i.i74.i, align 8
-  %call.i.i75.i = tail call zeroext i1 %88(ptr noundef %86, ptr noundef %87) #19
+  %call.i.i75.i = tail call zeroext i1 %88(ptr noundef %86, ptr noundef %87) #20
   br i1 %call.i.i75.i, label %get_buffer_backend.exit82.i, label %for.cond.i76.i
 
 do.body.i65.i:                                    ; preds = %for.cond.preheader.i63.i, %for.cond.i76.i
   %89 = load ptr, ptr @stdout, align 8
   %call7.i66.i = tail call i32 @fflush(ptr noundef %89)
   %90 = load ptr, ptr @stderr, align 8
-  %call8.i67.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %90, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 689, ptr noundef nonnull @.str.41) #21
-  tail call void @ggml_print_backtrace() #19
-  tail call void @abort() #22
+  %call8.i67.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %90, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 689, ptr noundef nonnull @.str.41) #22
+  tail call void @ggml_print_backtrace() #20
+  tail call void @abort() #23
   unreachable
 
 get_buffer_backend.exit82.i:                      ; preds = %for.body.i71.i
@@ -1929,7 +1929,7 @@ return.loopexit.split.loop.exit9.i.i259:          ; preds = %for.body.i85.i
 
 sched_backend_prio.exit.i:                        ; preds = %for.inc.i.i257, %return.loopexit.split.loop.exit9.i.i259, %if.then19.i
   %retval.0.i84.i = phi i32 [ 2147483647, %if.then19.i ], [ %94, %return.loopexit.split.loop.exit9.i.i259 ], [ 2147483647, %for.inc.i.i257 ]
-  %call21.i = tail call i64 @ggml_nbytes(ptr noundef nonnull %81) #19
+  %call21.i = tail call i64 @ggml_nbytes(ptr noundef nonnull %81) #20
   %cmp22.i = icmp sge i32 %retval.0.i84.i, %cur_prio.0106.i
   %cmp24.not.i = icmp ult i64 %call21.i, %cur_size.0105.i
   %or.cond.i = select i1 %cmp22.i, i1 true, i1 %cmp24.not.i
@@ -1985,7 +1985,7 @@ ggml_backend_sched_get_tallocr.exit277:           ; preds = %for.inc.i.i272, %if
   %99 = load ptr, ptr %node_talloc, align 16
   %100 = load i64, ptr %hash_set, align 16
   %101 = load ptr, ptr %keys, align 8
-  %call49 = tail call i64 @ggml_hash_find_or_insert(i64 %100, ptr %101, ptr noundef %44) #19
+  %call49 = tail call i64 @ggml_hash_find_or_insert(i64 %100, ptr %101, ptr noundef %44) #20
   %arrayidx50 = getelementptr inbounds ptr, ptr %99, i64 %call49
   store ptr %98, ptr %arrayidx50, align 8
   br label %for.inc52
@@ -2013,7 +2013,7 @@ for.body59:                                       ; preds = %for.body59.lr.ph, %
   %106 = load ptr, ptr %node_talloc, align 16
   %107 = load i64, ptr %hash_set, align 16
   %108 = load ptr, ptr %keys, align 8
-  %call66 = tail call i64 @ggml_hash_find_or_insert(i64 %107, ptr %108, ptr noundef %105) #19
+  %call66 = tail call i64 @ggml_hash_find_or_insert(i64 %107, ptr %108, ptr noundef %105) #20
   %arrayidx67 = getelementptr inbounds ptr, ptr %106, i64 %call66
   %109 = load ptr, ptr %arrayidx67, align 8
   %cmp68 = icmp eq ptr %109, null
@@ -2037,7 +2037,7 @@ if.end78:                                         ; preds = %for.body72
   %111 = load ptr, ptr %node_talloc, align 16
   %112 = load i64, ptr %hash_set, align 16
   %113 = load ptr, ptr %keys, align 8
-  %call81 = tail call i64 @ggml_hash_find_or_insert(i64 %112, ptr %113, ptr noundef nonnull %110) #19
+  %call81 = tail call i64 @ggml_hash_find_or_insert(i64 %112, ptr %113, ptr noundef nonnull %110) #20
   %arrayidx82 = getelementptr inbounds ptr, ptr %111, i64 %call81
   %114 = load ptr, ptr %arrayidx82, align 8
   %cmp83.not = icmp eq ptr %114, null
@@ -2070,7 +2070,7 @@ return.loopexit.split.loop.exit9.i:               ; preds = %for.body.i280
 
 sched_allocr_prio.exit:                           ; preds = %for.inc.i284, %if.then84, %return.loopexit.split.loop.exit9.i
   %retval.0.i279 = phi i32 [ 2147483647, %if.then84 ], [ %117, %return.loopexit.split.loop.exit9.i ], [ 2147483647, %for.inc.i284 ]
-  %call86 = tail call i64 @ggml_nbytes(ptr noundef nonnull %110) #19
+  %call86 = tail call i64 @ggml_nbytes(ptr noundef nonnull %110) #20
   %cmp87 = icmp sge i32 %retval.0.i279, %cur_prio.0441
   %cmp89.not = icmp ult i64 %call86, %cur_size.0440
   %or.cond = select i1 %cmp87, i1 true, i1 %cmp89.not
@@ -2096,7 +2096,7 @@ if.then97:                                        ; preds = %for.end95
   %118 = load ptr, ptr %node_talloc, align 16
   %119 = load i64, ptr %hash_set, align 16
   %120 = load ptr, ptr %keys, align 8
-  %call100 = tail call i64 @ggml_hash_find_or_insert(i64 %119, ptr %120, ptr noundef %105) #19
+  %call100 = tail call i64 @ggml_hash_find_or_insert(i64 %119, ptr %120, ptr noundef %105) #20
   %arrayidx101 = getelementptr inbounds ptr, ptr %118, i64 %call100
   store ptr %node_allocr.0.lcssa, ptr %arrayidx101, align 8
   br label %for.inc104
@@ -2126,7 +2126,7 @@ for.body111:                                      ; preds = %for.body111.lr.ph, 
   %126 = load ptr, ptr %node_talloc, align 16
   %127 = load i64, ptr %hash_set, align 16
   %128 = load ptr, ptr %keys, align 8
-  %call119 = tail call i64 @ggml_hash_find_or_insert(i64 %127, ptr %128, ptr noundef %125) #19
+  %call119 = tail call i64 @ggml_hash_find_or_insert(i64 %127, ptr %128, ptr noundef %125) #20
   %arrayidx120 = getelementptr inbounds ptr, ptr %126, i64 %call119
   %129 = load ptr, ptr %arrayidx120, align 8
   %src126 = getelementptr inbounds i8, ptr %125, i64 160
@@ -2143,7 +2143,7 @@ if.end131:                                        ; preds = %for.body124
   %131 = load ptr, ptr %node_talloc, align 16
   %132 = load i64, ptr %hash_set, align 16
   %133 = load ptr, ptr %keys, align 8
-  %call135 = tail call i64 @ggml_hash_find_or_insert(i64 %132, ptr %133, ptr noundef nonnull %130) #19
+  %call135 = tail call i64 @ggml_hash_find_or_insert(i64 %132, ptr %133, ptr noundef nonnull %130) #20
   %arrayidx136 = getelementptr inbounds ptr, ptr %131, i64 %call135
   %134 = load ptr, ptr %arrayidx136, align 8
   %cmp137 = icmp eq ptr %134, null
@@ -2153,7 +2153,7 @@ if.then138:                                       ; preds = %if.end131
   %135 = load ptr, ptr %node_talloc, align 16
   %136 = load i64, ptr %hash_set, align 16
   %137 = load ptr, ptr %keys, align 8
-  %call141 = tail call i64 @ggml_hash_find_or_insert(i64 %136, ptr %137, ptr noundef nonnull %130) #19
+  %call141 = tail call i64 @ggml_hash_find_or_insert(i64 %136, ptr %137, ptr noundef nonnull %130) #20
   %arrayidx142 = getelementptr inbounds ptr, ptr %135, i64 %call141
   store ptr %129, ptr %arrayidx142, align 8
   br label %for.inc144
@@ -2188,7 +2188,7 @@ if.then161:                                       ; preds = %for.body154
   %142 = load ptr, ptr %node_talloc, align 16
   %143 = load i64, ptr %hash_set, align 16
   %144 = load ptr, ptr %keys, align 8
-  %call164 = tail call i64 @ggml_hash_find_or_insert(i64 %143, ptr %144, ptr noundef nonnull %140) #19
+  %call164 = tail call i64 @ggml_hash_find_or_insert(i64 %143, ptr %144, ptr noundef nonnull %140) #20
   %arrayidx165 = getelementptr inbounds ptr, ptr %142, i64 %call164
   %145 = load ptr, ptr %arrayidx165, align 8
   %splits = getelementptr inbounds i8, ptr %sched, i64 120
@@ -2259,7 +2259,7 @@ if.end194:                                        ; preds = %for.body187
   %157 = load ptr, ptr %node_talloc, align 16
   %158 = load i64, ptr %hash_set, align 16
   %159 = load ptr, ptr %keys, align 8
-  %call198 = tail call i64 @ggml_hash_find_or_insert(i64 %158, ptr %159, ptr noundef nonnull %154) #19
+  %call198 = tail call i64 @ggml_hash_find_or_insert(i64 %158, ptr %159, ptr noundef nonnull %154) #20
   %arrayidx199 = getelementptr inbounds ptr, ptr %157, i64 %call198
   %160 = load ptr, ptr %arrayidx199, align 8
   %cmp200.not = icmp eq ptr %160, %cur_allocr.0454
@@ -2277,9 +2277,9 @@ if.then209:                                       ; preds = %if.then202
   %162 = load ptr, ptr @stdout, align 8
   %call210 = tail call i32 @fflush(ptr noundef %162)
   %163 = load ptr, ptr @stderr, align 8
-  %call211 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %163, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 941, ptr noundef nonnull @.str.36) #21
-  tail call void @ggml_print_backtrace() #19
-  tail call void @abort() #22
+  %call211 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %163, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 941, ptr noundef nonnull @.str.36) #22
+  tail call void @ggml_print_backtrace() #20
+  tail call void @abort() #23
   unreachable
 
 do.end:                                           ; preds = %if.then202
@@ -2340,7 +2340,7 @@ if.end245:                                        ; preds = %for.body237
   %167 = load ptr, ptr %node_talloc, align 16
   %168 = load i64, ptr %hash_set, align 16
   %169 = load ptr, ptr %keys, align 8
-  %call249 = tail call i64 @ggml_hash_find_or_insert(i64 %168, ptr %169, ptr noundef nonnull %166) #19
+  %call249 = tail call i64 @ggml_hash_find_or_insert(i64 %168, ptr %169, ptr noundef nonnull %166) #20
   %arrayidx250 = getelementptr inbounds ptr, ptr %167, i64 %call249
   %170 = load ptr, ptr %arrayidx250, align 8
   %cmp251.not = icmp eq ptr %170, %160
@@ -2357,9 +2357,9 @@ if.then263:                                       ; preds = %if.then253
   %172 = load ptr, ptr @stdout, align 8
   %call264 = tail call i32 @fflush(ptr noundef %172)
   %173 = load ptr, ptr @stderr, align 8
-  %call265 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %173, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 959, ptr noundef nonnull @.str.37) #21
-  tail call void @ggml_print_backtrace() #19
-  tail call void @abort() #22
+  %call265 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %173, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 959, ptr noundef nonnull @.str.37) #22
+  tail call void @ggml_print_backtrace() #20
+  tail call void @abort() #23
   unreachable
 
 do.end267:                                        ; preds = %if.then253
@@ -2368,7 +2368,7 @@ do.end267:                                        ; preds = %if.then253
   store ptr %166, ptr %arrayidx273, align 8
   %174 = load i64, ptr %hash_set, align 16
   %175 = load ptr, ptr %keys, align 8
-  %call275 = tail call i64 @ggml_hash_find_or_insert(i64 %174, ptr %175, ptr noundef nonnull %166) #19
+  %call275 = tail call i64 @ggml_hash_find_or_insert(i64 %174, ptr %175, ptr noundef nonnull %166) #20
   %176 = load ptr, ptr %node_copies, align 8
   %arrayidx278 = getelementptr inbounds [4 x ptr], ptr %176, i64 %call275, i64 %cur_backend_id.1
   %177 = load ptr, ptr %arrayidx278, align 8
@@ -2377,7 +2377,7 @@ do.end267:                                        ; preds = %if.then253
 
 if.then281:                                       ; preds = %do.end267
   %178 = load ptr, ptr %ctx, align 16
-  %call.i = tail call ptr @ggml_dup_tensor(ptr noundef %178, ptr noundef nonnull %166) #19
+  %call.i = tail call ptr @ggml_dup_tensor(ptr noundef %178, ptr noundef nonnull %166) #20
   %nb.i = getelementptr inbounds i8, ptr %166, i64 48
   %nb1.i = getelementptr inbounds i8, ptr %call.i, i64 48
   br label %for.body.i315
@@ -2399,7 +2399,7 @@ ggml_dup_tensor_layout.exit:                      ; preds = %for.body.i315
   %181 = load ptr, ptr %node_talloc, align 16
   %182 = load i64, ptr %hash_set, align 16
   %183 = load ptr, ptr %keys, align 8
-  %call289 = tail call i64 @ggml_hash_find_or_insert(i64 %182, ptr %183, ptr noundef nonnull %call.i) #19
+  %call289 = tail call i64 @ggml_hash_find_or_insert(i64 %182, ptr %183, ptr noundef nonnull %call.i) #20
   %arrayidx290 = getelementptr inbounds ptr, ptr %181, i64 %call289
   store ptr %cur_allocr.1, ptr %arrayidx290, align 8
   br i1 %cmp.i320, label %ggml_backend_name.exit, label %for.cond.preheader.i321
@@ -2427,13 +2427,13 @@ get_allocr_backend.exit:                          ; preds = %for.cond.i323
 
 if.end.i331:                                      ; preds = %get_allocr_backend.exit
   %188 = load ptr, ptr %187, align 8
-  %call.i332 = tail call ptr %188(ptr noundef nonnull %187) #19
+  %call.i332 = tail call ptr %188(ptr noundef nonnull %187) #20
   br label %ggml_backend_name.exit
 
 ggml_backend_name.exit:                           ; preds = %ggml_dup_tensor_layout.exit, %get_allocr_backend.exit, %if.end.i331
   %retval.0.i333 = phi ptr [ %call.i332, %if.end.i331 ], [ @.str.5, %get_allocr_backend.exit ], [ @.str.5, %ggml_dup_tensor_layout.exit ]
   %name = getelementptr inbounds i8, ptr %166, i64 288
-  %call294 = tail call ptr (ptr, ptr, ...) @ggml_format_name(ptr noundef %call.i, ptr noundef nonnull @.str.38, ptr noundef %retval.0.i333, ptr noundef nonnull %name) #19
+  %call294 = tail call ptr (ptr, ptr, ...) @ggml_format_name(ptr noundef %call.i, ptr noundef nonnull @.str.38, ptr noundef %retval.0.i333, ptr noundef nonnull %name) #20
   %.pre = load ptr, ptr %node_copies, align 8
   %arrayidx298.phi.trans.insert = getelementptr inbounds [4 x ptr], ptr %.pre, i64 %call275, i64 %cur_backend_id.1
   %.pre538 = load ptr, ptr %arrayidx298.phi.trans.insert, align 8
@@ -2488,7 +2488,7 @@ for.body320:                                      ; preds = %for.body320.lr.ph, 
   %195 = load ptr, ptr %node_talloc, align 16
   %196 = load i64, ptr %hash_set, align 16
   %197 = load ptr, ptr %keys, align 8
-  %call328 = tail call i64 @ggml_hash_find_or_insert(i64 %196, ptr %197, ptr noundef %194) #19
+  %call328 = tail call i64 @ggml_hash_find_or_insert(i64 %196, ptr %197, ptr noundef %194) #20
   %arrayidx329 = getelementptr inbounds ptr, ptr %195, i64 %call328
   %198 = load ptr, ptr %arrayidx329, align 8
   %cmp330 = icmp eq ptr %198, null
@@ -2501,7 +2501,7 @@ for.body341.preheader:                            ; preds = %for.body320
 
 for.body341.us.preheader:                         ; preds = %for.body320
   %199 = load ptr, ptr @stderr, align 8
-  %call335 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %199, ptr noundef nonnull @.str.39, ptr noundef nonnull %name333) #21
+  %call335 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %199, ptr noundef nonnull @.str.39, ptr noundef nonnull %name333) #22
   %src343546 = getelementptr inbounds i8, ptr %194, i64 160
   %name358547 = getelementptr inbounds i8, ptr %194, i64 288
   br label %for.body341.us
@@ -2517,7 +2517,7 @@ if.end349.us:                                     ; preds = %for.body341.us
   %201 = load ptr, ptr %node_talloc, align 16
   %202 = load i64, ptr %hash_set, align 16
   %203 = load ptr, ptr %keys, align 8
-  %call353.us = tail call i64 @ggml_hash_find_or_insert(i64 %202, ptr %203, ptr noundef nonnull %200) #19
+  %call353.us = tail call i64 @ggml_hash_find_or_insert(i64 %202, ptr %203, ptr noundef nonnull %200) #20
   %arrayidx354.us = getelementptr inbounds ptr, ptr %201, i64 %call353.us
   %204 = load ptr, ptr %arrayidx354.us, align 8
   %cmp355.not.us = icmp eq ptr %204, null
@@ -2548,13 +2548,13 @@ get_allocr_backend.exit366.us:                    ; preds = %for.cond.i356.us
 
 if.end.i368.us:                                   ; preds = %get_allocr_backend.exit366.us
   %210 = load ptr, ptr %209, align 8
-  %call.i369.us = tail call ptr %210(ptr noundef nonnull %209) #19
+  %call.i369.us = tail call ptr %210(ptr noundef nonnull %209) #20
   br label %cond.end369.us
 
 cond.end369.us:                                   ; preds = %if.end.i368.us, %get_allocr_backend.exit366.us
   %cond370.us = phi ptr [ %call.i369.us, %if.end.i368.us ], [ @.str.5, %get_allocr_backend.exit366.us ]
   %211 = trunc nuw nsw i64 %indvars.iv522 to i32
-  %call371.us = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %205, ptr noundef nonnull @.str.40, ptr noundef nonnull %name358547, ptr noundef nonnull @.str.5, i32 noundef %211, ptr noundef nonnull %name362.us, ptr noundef %cond370.us) #21
+  %call371.us = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %205, ptr noundef nonnull @.str.40, ptr noundef nonnull %name358547, ptr noundef nonnull @.str.5, i32 noundef %211, ptr noundef nonnull %name362.us, ptr noundef %cond370.us) #22
   br label %for.inc373.us
 
 for.inc373.us:                                    ; preds = %cond.end369.us, %if.end349.us
@@ -2573,7 +2573,7 @@ if.end349:                                        ; preds = %for.body341
   %213 = load ptr, ptr %node_talloc, align 16
   %214 = load i64, ptr %hash_set, align 16
   %215 = load ptr, ptr %keys, align 8
-  %call353 = tail call i64 @ggml_hash_find_or_insert(i64 %214, ptr %215, ptr noundef nonnull %212) #19
+  %call353 = tail call i64 @ggml_hash_find_or_insert(i64 %214, ptr %215, ptr noundef nonnull %212) #20
   %arrayidx354 = getelementptr inbounds ptr, ptr %213, i64 %call353
   %216 = load ptr, ptr %arrayidx354, align 8
   %cmp355.not = icmp eq ptr %216, %198
@@ -2603,7 +2603,7 @@ get_allocr_backend.exit347:                       ; preds = %for.cond.i337
 
 if.end.i349:                                      ; preds = %get_allocr_backend.exit347
   %222 = load ptr, ptr %221, align 8
-  %call.i350 = tail call ptr %222(ptr noundef nonnull %221) #19
+  %call.i350 = tail call ptr %222(ptr noundef nonnull %221) #20
   br label %cond.end
 
 cond.end:                                         ; preds = %if.end.i349, %get_allocr_backend.exit347
@@ -2635,13 +2635,13 @@ get_allocr_backend.exit366:                       ; preds = %for.cond.i356
 
 if.end.i368:                                      ; preds = %get_allocr_backend.exit366
   %227 = load ptr, ptr %226, align 8
-  %call.i369 = tail call ptr %227(ptr noundef nonnull %226) #19
+  %call.i369 = tail call ptr %227(ptr noundef nonnull %226) #20
   br label %cond.end369
 
 cond.end369:                                      ; preds = %if.end.i368, %get_allocr_backend.exit366, %cond.end
   %cond370 = phi ptr [ @.str.5, %cond.end ], [ %call.i369, %if.end.i368 ], [ @.str.5, %get_allocr_backend.exit366 ]
   %228 = trunc nuw nsw i64 %indvars.iv518 to i32
-  %call371 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %217, ptr noundef nonnull @.str.40, ptr noundef nonnull %name333, ptr noundef %cond, i32 noundef %228, ptr noundef nonnull %name362, ptr noundef %cond370) #21
+  %call371 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %217, ptr noundef nonnull @.str.40, ptr noundef nonnull %name333, ptr noundef %cond, i32 noundef %228, ptr noundef nonnull %name362, ptr noundef %cond370) #22
   br label %for.inc373
 
 for.inc373:                                       ; preds = %if.end349, %cond.end369
@@ -2667,7 +2667,7 @@ for.end378:                                       ; preds = %for.end378.loopexit
   %mul382 = shl nsw i32 %231, 4
   %add383 = add nsw i32 %mul382, %.lcssa
   %conv384 = sext i32 %add383 to i64
-  %call385 = tail call ptr @ggml_new_graph_custom(ptr noundef %232, i64 noundef %conv384, i1 noundef zeroext false) #19
+  %call385 = tail call ptr @ggml_new_graph_custom(ptr noundef %232, i64 noundef %conv384, i1 noundef zeroext false) #20
   %233 = load i32, ptr %n_splits, align 8
   %cmp389466 = icmp sgt i32 %233, 0
   br i1 %cmp389466, label %for.body391.lr.ph, label %for.end445
@@ -2686,7 +2686,7 @@ for.body391:                                      ; preds = %for.body391.lr.ph, 
   %234 = load i32, ptr %i_start396, align 8
   %i_end397 = getelementptr inbounds i8, ptr %arrayidx394, i64 12
   %235 = load i32, ptr %i_end397, align 4
-  call void @ggml_graph_view(ptr nonnull sret(%struct.ggml_cgraph) align 8 %tmp, ptr noundef %graph, i32 noundef %234, i32 noundef %235) #19
+  call void @ggml_graph_view(ptr nonnull sret(%struct.ggml_cgraph) align 8 %tmp, ptr noundef %graph, i32 noundef %234, i32 noundef %235) #20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %graph395, ptr noundef nonnull align 8 dereferenceable(80) %tmp, i64 80, i1 false)
   %n_inputs400 = getelementptr inbounds i8, ptr %arrayidx394, i64 144
   %236 = load i32, ptr %n_inputs400, align 8
@@ -2704,7 +2704,7 @@ for.body403:                                      ; preds = %for.body403.lr.ph, 
   %238 = load ptr, ptr %node_copies, align 8
   %239 = load i64, ptr %hash_set, align 16
   %240 = load ptr, ptr %keys, align 8
-  %call409 = call i64 @ggml_hash_find_or_insert(i64 %239, ptr %240, ptr noundef %237) #19
+  %call409 = call i64 @ggml_hash_find_or_insert(i64 %239, ptr %240, ptr noundef %237) #20
   %241 = load ptr, ptr %arrayidx394, align 8
   %242 = load i32, ptr %sched, align 16
   %cmp5.i373 = icmp sgt i32 %242, 0
@@ -2809,9 +2809,9 @@ if.then:                                          ; preds = %entry
   %2 = load ptr, ptr @stdout, align 8
   %call = tail call i32 @fflush(ptr noundef %2)
   %3 = load ptr, ptr @stderr, align 8
-  %call2 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 1156, ptr noundef nonnull @.str.23) #21
-  tail call void @ggml_print_backtrace() #19
-  tail call void @abort() #22
+  %call2 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 1156, ptr noundef nonnull @.str.23) #22
+  tail call void @ggml_print_backtrace() #20
+  tail call void @abort() #23
   unreachable
 
 do.end:                                           ; preds = %entry
@@ -2825,7 +2825,7 @@ do.end:                                           ; preds = %entry
   %7 = load i64, ptr %hash_set, align 16
   %8 = getelementptr inbounds i8, ptr %sched, i64 88
   %9 = load ptr, ptr %8, align 8
-  tail call void @ggml_gallocr_alloc_graph_n(ptr noundef %4, ptr noundef %5, i64 %7, ptr %9, ptr noundef %6) #19
+  tail call void @ggml_gallocr_alloc_graph_n(ptr noundef %4, ptr noundef %5, i64 %7, ptr %9, ptr noundef %6) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %copy_us.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %compute_us.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %copy_us.i, i8 0, i64 32, i1 false)
@@ -2892,7 +2892,7 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
 
 sched_backend_prio.exit.i:                        ; preds = %for.inc.i.i, %for.body.i.i, %get_allocr_backend.exit.i
   %retval.0.i26.i = phi i64 [ 2147483647, %get_allocr_backend.exit.i ], [ 2147483647, %for.inc.i.i ], [ %indvars.iv.i27.i, %for.body.i.i ]
-  %call3.i = tail call i64 @ggml_time_us() #19
+  %call3.i = tail call i64 @ggml_time_us() #20
   %n_inputs.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 144
   %16 = load i32, ptr %n_inputs.i, align 8
   %cmp555.i = icmp sgt i32 %16, 0
@@ -2909,7 +2909,7 @@ for.body6.i:                                      ; preds = %ggml_backend_tensor
   %18 = load ptr, ptr %node_copies.i, align 8
   %19 = load i64, ptr %hash_set, align 16
   %20 = load ptr, ptr %8, align 8
-  %call9.i = tail call i64 @ggml_hash_find_or_insert(i64 %19, ptr %20, ptr noundef %17) #19
+  %call9.i = tail call i64 @ggml_hash_find_or_insert(i64 %19, ptr %20, ptr noundef %17) #20
   %21 = load i32, ptr %sched, align 16
   %cmp5.i32.i = icmp sgt i32 %21, 0
   br i1 %cmp5.i32.i, label %for.body.preheader.i34.i, label %sched_backend_prio.exit44.i
@@ -2950,8 +2950,8 @@ if.then.i:                                        ; preds = %sched_backend_prio.
 if.then16.i:                                      ; preds = %if.then.i
   %26 = load ptr, ptr @stderr, align 8
   %name.i = getelementptr inbounds i8, ptr %17, i64 288
-  %call18.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str.42, ptr noundef nonnull %name.i) #21
-  tail call void @exit(i32 noundef 1) #22
+  %call18.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str.42, ptr noundef nonnull %name.i) #22
+  tail call void @exit(i32 noundef 1) #25
   unreachable
 
 if.end.i:                                         ; preds = %if.then.i
@@ -2969,8 +2969,8 @@ if.end21.i:                                       ; preds = %if.end.i, %sched_ba
 if.then24.i:                                      ; preds = %if.end21.i
   %29 = load ptr, ptr @stderr, align 8
   %name25.i = getelementptr inbounds i8, ptr %23, i64 288
-  %call27.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %29, ptr noundef nonnull @.str.43, ptr noundef nonnull %name25.i) #21
-  tail call void @exit(i32 noundef 1) #22
+  %call27.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %29, ptr noundef nonnull @.str.43, ptr noundef nonnull %name25.i) #22
+  tail call void @exit(i32 noundef 1) #25
   unreachable
 
 if.end28.i:                                       ; preds = %if.end21.i
@@ -3012,9 +3012,9 @@ if.then.i.i:                                      ; preds = %if.end28.i, %if.end
   %36 = load ptr, ptr @stdout, align 8
   %call1.i.i = tail call i32 @fflush(ptr noundef %36)
   %37 = load ptr, ptr @stderr, align 8
-  %call2.i.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %37, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 214, ptr noundef nonnull @.str.15) #21
-  tail call void @ggml_print_backtrace() #19
-  tail call void @abort() #22
+  %call2.i.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %37, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 214, ptr noundef nonnull @.str.15) #22
+  tail call void @ggml_print_backtrace() #20
+  tail call void @abort() #23
   unreachable
 
 do.end.i.i:                                       ; preds = %for.cond.i.i.i
@@ -3028,7 +3028,7 @@ if.end4.i.i:                                      ; preds = %do.end.i.i
   br i1 %cmp5.not.i.i, label %if.else.i.i, label %if.then6.i.i
 
 if.then6.i.i:                                     ; preds = %if.end4.i.i
-  tail call void %38(ptr noundef nonnull %28, ptr noundef nonnull %17, ptr noundef nonnull %23) #19
+  tail call void %38(ptr noundef nonnull %28, ptr noundef nonnull %17, ptr noundef nonnull %23) #20
   br label %ggml_backend_tensor_copy.exit.i
 
 if.else.i.i:                                      ; preds = %if.end4.i.i
@@ -3039,15 +3039,15 @@ if.else.i.i:                                      ; preds = %if.end4.i.i
   br i1 %cmp13.not.i.i, label %if.else19.i.i, label %if.then14.i.i
 
 if.then14.i.i:                                    ; preds = %if.else.i.i
-  tail call void %40(ptr noundef nonnull %39, ptr noundef nonnull %17, ptr noundef nonnull %23) #19
+  tail call void %40(ptr noundef nonnull %39, ptr noundef nonnull %17, ptr noundef nonnull %23) #20
   br label %ggml_backend_tensor_copy.exit.i
 
 if.else19.i.i:                                    ; preds = %if.else.i.i
-  %call20.i.i = tail call i64 @ggml_nbytes(ptr noundef nonnull %17) #19
-  %call21.i.i = tail call noalias ptr @malloc(i64 noundef %call20.i.i) #20
+  %call20.i.i = tail call i64 @ggml_nbytes(ptr noundef nonnull %17) #20
+  %call21.i.i = tail call noalias ptr @malloc(i64 noundef %call20.i.i) #21
   tail call void @ggml_backend_tensor_get(ptr noundef nonnull %17, ptr noundef %call21.i.i, i64 noundef 0, i64 noundef %call20.i.i)
   tail call void @ggml_backend_tensor_set(ptr noundef nonnull %23, ptr noundef %call21.i.i, i64 noundef 0, i64 noundef %call20.i.i)
-  tail call void @free(ptr noundef %call21.i.i) #19
+  tail call void @free(ptr noundef %call21.i.i) #20
   br label %ggml_backend_tensor_copy.exit.i
 
 ggml_backend_tensor_copy.exit.i:                  ; preds = %if.else19.i.i, %if.then14.i.i, %if.then6.i.i, %do.end.i.i
@@ -3058,7 +3058,7 @@ ggml_backend_tensor_copy.exit.i:                  ; preds = %if.else19.i.i, %if.
   br i1 %cmp5.i, label %for.body6.i, label %for.end.i, !llvm.loop !31
 
 for.end.i:                                        ; preds = %ggml_backend_tensor_copy.exit.i, %sched_backend_prio.exit.i
-  %call29.i = tail call i64 @ggml_time_us() #19
+  %call29.i = tail call i64 @ggml_time_us() #20
   %sub.i = sub i64 %call29.i, %call3.i
   %sext.i = shl i64 %retval.0.i26.i, 32
   %idxprom30.i = ashr exact i64 %sext.i, 32
@@ -3066,22 +3066,22 @@ for.end.i:                                        ; preds = %ggml_backend_tensor
   %43 = load i64, ptr %arrayidx31.i, align 8
   %add.i = add i64 %sub.i, %43
   store i64 %add.i, ptr %arrayidx31.i, align 8
-  %call32.i = tail call i64 @ggml_time_us() #19
+  %call32.i = tail call i64 @ggml_time_us() #20
   %graph.i7 = getelementptr inbounds i8, ptr %arrayidx.i, i64 152
   %graph_compute.i.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 88
   %44 = load ptr, ptr %graph_compute.i.i, align 8
-  tail call void %44(ptr noundef %retval.0.i.i, ptr noundef nonnull %graph.i7) #19
+  tail call void %44(ptr noundef %retval.0.i.i, ptr noundef nonnull %graph.i7) #20
   %synchronize.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 56
   %45 = load ptr, ptr %synchronize.i.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %45, null
   br i1 %cmp.i.i.i, label %ggml_backend_graph_compute.exit.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %for.end.i
-  tail call void %45(ptr noundef nonnull %retval.0.i.i) #19
+  tail call void %45(ptr noundef nonnull %retval.0.i.i) #20
   br label %ggml_backend_graph_compute.exit.i
 
 ggml_backend_graph_compute.exit.i:                ; preds = %if.end.i.i.i, %for.end.i
-  %call33.i = tail call i64 @ggml_time_us() #19
+  %call33.i = tail call i64 @ggml_time_us() #20
   %sub34.i = sub i64 %call33.i, %call32.i
   %arrayidx36.i = getelementptr inbounds [4 x i64], ptr %compute_us.i, i64 0, i64 %idxprom30.i
   %46 = load i64, ptr %arrayidx36.i, align 8
@@ -3108,7 +3108,7 @@ for.body.i10:                                     ; preds = %for.body.i10, %for.
   %indvars.iv.i11 = phi i64 [ 0, %for.body.lr.ph.i9 ], [ %indvars.iv.next.i13, %for.body.i10 ]
   %arrayidx.i12 = getelementptr inbounds [4 x ptr], ptr %tallocs.i, i64 0, i64 %indvars.iv.i11
   %50 = load ptr, ptr %arrayidx.i12, align 8
-  tail call void @ggml_tallocr_reset(ptr noundef %50) #19
+  tail call void @ggml_tallocr_reset(ptr noundef %50) #20
   %indvars.iv.next.i13 = add nuw nsw i64 %indvars.iv.i11, 1
   %51 = load i32, ptr %sched, align 16
   %52 = sext i32 %51 to i64
@@ -3190,7 +3190,7 @@ sched_backend_prio.exit:                          ; preds = %for.inc.i, %entry, 
   %tallocs = getelementptr inbounds i8, ptr %sched, i64 40
   %arrayidx = getelementptr inbounds [4 x ptr], ptr %tallocs, i64 0, i64 %retval.0.i
   %3 = load ptr, ptr %arrayidx, align 8
-  %call1 = tail call ptr @ggml_tallocr_get_buffer(ptr noundef %3) #19
+  %call1 = tail call ptr @ggml_tallocr_get_buffer(ptr noundef %3) #20
   ret ptr %call1
 }
 
@@ -3229,9 +3229,9 @@ if.then:                                          ; preds = %for.inc.i, %entry, 
   %3 = load ptr, ptr @stdout, align 8
   %call2 = tail call i32 @fflush(ptr noundef %3)
   %4 = load ptr, ptr @stderr, align 8
-  %call3 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 1176, ptr noundef nonnull @.str.24) #21
-  tail call void @ggml_print_backtrace() #19
-  tail call void @abort() #22
+  %call3 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 1176, ptr noundef nonnull @.str.24) #22
+  tail call void @ggml_print_backtrace() #20
+  tail call void @abort() #23
   unreachable
 
 do.end:                                           ; preds = %sched_backend_prio.exit
@@ -3245,7 +3245,7 @@ do.end:                                           ; preds = %sched_backend_prio.
   %7 = load i64, ptr %hash_set, align 16
   %8 = getelementptr inbounds i8, ptr %sched, i64 88
   %9 = load ptr, ptr %8, align 8
-  %call4 = tail call i64 @ggml_hash_find_or_insert(i64 %7, ptr %9, ptr noundef %node) #19
+  %call4 = tail call i64 @ggml_hash_find_or_insert(i64 %7, ptr %9, ptr noundef %node) #20
   %arrayidx5 = getelementptr inbounds ptr, ptr %6, i64 %call4
   store ptr %5, ptr %arrayidx5, align 8
   ret void
@@ -3265,9 +3265,9 @@ if.then:                                          ; preds = %entry
   %1 = load ptr, ptr @stdout, align 8
   %call = tail call i32 @fflush(ptr noundef %1)
   %2 = load ptr, ptr @stderr, align 8
-  %call2 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 1182, ptr noundef nonnull @.str.25) #21
-  tail call void @ggml_print_backtrace() #19
-  tail call void @abort() #22
+  %call2 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 1182, ptr noundef nonnull @.str.25) #22
+  tail call void @ggml_print_backtrace() #20
+  tail call void @abort() #23
   unreachable
 
 do.body3:                                         ; preds = %entry
@@ -3280,9 +3280,9 @@ if.then5:                                         ; preds = %do.body3
   %4 = load ptr, ptr @stdout, align 8
   %call6 = tail call i32 @fflush(ptr noundef %4)
   %5 = load ptr, ptr @stderr, align 8
-  %call7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 1183, ptr noundef nonnull @.str.26) #21
-  tail call void @ggml_print_backtrace() #19
-  tail call void @abort() #22
+  %call7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 1183, ptr noundef nonnull @.str.26) #22
+  tail call void @ggml_print_backtrace() #20
+  tail call void @abort() #23
   unreachable
 
 do.body10:                                        ; preds = %do.body3
@@ -3295,9 +3295,9 @@ if.then12:                                        ; preds = %do.body10
   %7 = load ptr, ptr @stdout, align 8
   %call13 = tail call i32 @fflush(ptr noundef %7)
   %8 = load ptr, ptr @stderr, align 8
-  %call14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 1184, ptr noundef nonnull @.str.27) #21
-  tail call void @ggml_print_backtrace() #19
-  tail call void @abort() #22
+  %call14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 1184, ptr noundef nonnull @.str.27) #22
+  tail call void @ggml_print_backtrace() #20
+  tail call void @abort() #23
   unreachable
 
 do.body17:                                        ; preds = %do.body10
@@ -3310,9 +3310,9 @@ if.then21:                                        ; preds = %do.body17
   %10 = load ptr, ptr @stdout, align 8
   %call22 = tail call i32 @fflush(ptr noundef %10)
   %11 = load ptr, ptr @stderr, align 8
-  %call23 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 1185, ptr noundef nonnull @.str.28) #21
-  tail call void @ggml_print_backtrace() #19
-  tail call void @abort() #22
+  %call23 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 1185, ptr noundef nonnull @.str.28) #22
+  tail call void @ggml_print_backtrace() #20
+  tail call void @abort() #23
   unreachable
 
 do.body26:                                        ; preds = %do.body17
@@ -3325,9 +3325,9 @@ if.then30:                                        ; preds = %do.body26
   %13 = load ptr, ptr @stdout, align 8
   %call31 = tail call i32 @fflush(ptr noundef %13)
   %14 = load ptr, ptr @stderr, align 8
-  %call32 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 1186, ptr noundef nonnull @.str.29) #21
-  tail call void @ggml_print_backtrace() #19
-  tail call void @abort() #22
+  %call32 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 1186, ptr noundef nonnull @.str.29) #22
+  tail call void @ggml_print_backtrace() #20
+  tail call void @abort() #23
   unreachable
 
 do.end34:                                         ; preds = %do.body26
@@ -3347,7 +3347,7 @@ do.end34:                                         ; preds = %do.body26
   br i1 %tobool.not.i, label %ggml_backend_buffer_init_tensor.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %do.end34
-  tail call void %18(ptr noundef nonnull %buffer, ptr noundef nonnull %tensor) #19
+  tail call void %18(ptr noundef nonnull %buffer, ptr noundef nonnull %tensor) #20
   br label %ggml_backend_buffer_init_tensor.exit
 
 ggml_backend_buffer_init_tensor.exit:             ; preds = %do.end34, %if.then.i
@@ -3366,9 +3366,9 @@ if.then:                                          ; preds = %entry
   %1 = load ptr, ptr @stdout, align 8
   %call = tail call i32 @fflush(ptr noundef %1)
   %2 = load ptr, ptr @stderr, align 8
-  %call2 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 1195, ptr noundef nonnull @.str.25) #21
-  tail call void @ggml_print_backtrace() #19
-  tail call void @abort() #22
+  %call2 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 1195, ptr noundef nonnull @.str.25) #22
+  tail call void @ggml_print_backtrace() #20
+  tail call void @abort() #23
   unreachable
 
 do.body3:                                         ; preds = %entry
@@ -3381,9 +3381,9 @@ if.then5:                                         ; preds = %do.body3
   %4 = load ptr, ptr @stdout, align 8
   %call6 = tail call i32 @fflush(ptr noundef %4)
   %5 = load ptr, ptr @stderr, align 8
-  %call7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 1196, ptr noundef nonnull @.str.26) #21
-  tail call void @ggml_print_backtrace() #19
-  tail call void @abort() #22
+  %call7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 1196, ptr noundef nonnull @.str.26) #22
+  tail call void @ggml_print_backtrace() #20
+  tail call void @abort() #23
   unreachable
 
 do.body10:                                        ; preds = %do.body3
@@ -3396,15 +3396,15 @@ if.then12:                                        ; preds = %do.body10
   %7 = load ptr, ptr @stdout, align 8
   %call13 = tail call i32 @fflush(ptr noundef %7)
   %8 = load ptr, ptr @stderr, align 8
-  %call14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 1197, ptr noundef nonnull @.str.30) #21
-  tail call void @ggml_print_backtrace() #19
-  tail call void @abort() #22
+  %call14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 1197, ptr noundef nonnull @.str.30) #22
+  tail call void @ggml_print_backtrace() #20
+  tail call void @abort() #23
   unreachable
 
 do.body17:                                        ; preds = %do.body10
   %get_base.i = getelementptr inbounds i8, ptr %buffer, i64 8
   %9 = load ptr, ptr %get_base.i, align 8
-  %call.i = tail call ptr %9(ptr noundef %buffer) #19
+  %call.i = tail call ptr %9(ptr noundef %buffer) #20
   %cmp.not.i = icmp eq ptr %call.i, null
   br i1 %cmp.not.i, label %if.then.i, label %ggml_backend_buffer_get_base.exit
 
@@ -3412,9 +3412,9 @@ if.then.i:                                        ; preds = %do.body17
   %10 = load ptr, ptr @stdout, align 8
   %call1.i = tail call i32 @fflush(ptr noundef %10)
   %11 = load ptr, ptr @stderr, align 8
-  %call2.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 77, ptr noundef nonnull @.str.4) #21
-  tail call void @ggml_print_backtrace() #19
-  tail call void @abort() #22
+  %call2.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 77, ptr noundef nonnull @.str.4) #22
+  tail call void @ggml_print_backtrace() #20
+  tail call void @abort() #23
   unreachable
 
 ggml_backend_buffer_get_base.exit:                ; preds = %do.body17
@@ -3425,9 +3425,9 @@ if.then20:                                        ; preds = %ggml_backend_buffer
   %12 = load ptr, ptr @stdout, align 8
   %call21 = tail call i32 @fflush(ptr noundef %12)
   %13 = load ptr, ptr @stderr, align 8
-  %call22 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 1198, ptr noundef nonnull @.str.31) #21
-  tail call void @ggml_print_backtrace() #19
-  tail call void @abort() #22
+  %call22 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 1198, ptr noundef nonnull @.str.31) #22
+  tail call void @ggml_print_backtrace() #20
+  tail call void @abort() #23
   unreachable
 
 do.body25:                                        ; preds = %ggml_backend_buffer_get_base.exit
@@ -3439,17 +3439,17 @@ do.body25:                                        ; preds = %ggml_backend_buffer
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %do.body25
-  %call.i.i = tail call i64 %15(ptr noundef nonnull %14, ptr noundef nonnull %tensor) #19
+  %call.i.i = tail call i64 %15(ptr noundef nonnull %14, ptr noundef nonnull %tensor) #20
   br label %ggml_backend_buffer_get_alloc_size.exit
 
 if.end.i.i:                                       ; preds = %do.body25
-  %call3.i.i = tail call i64 @ggml_nbytes(ptr noundef nonnull %tensor) #19
+  %call3.i.i = tail call i64 @ggml_nbytes(ptr noundef nonnull %tensor) #20
   br label %ggml_backend_buffer_get_alloc_size.exit
 
 ggml_backend_buffer_get_alloc_size.exit:          ; preds = %if.then.i.i, %if.end.i.i
   %retval.0.i.i = phi i64 [ %call.i.i, %if.then.i.i ], [ %call3.i.i, %if.end.i.i ]
   %16 = load ptr, ptr %get_base.i, align 8
-  %call.i15 = tail call ptr %16(ptr noundef nonnull %buffer) #19
+  %call.i15 = tail call ptr %16(ptr noundef nonnull %buffer) #20
   %cmp.not.i16 = icmp eq ptr %call.i15, null
   br i1 %cmp.not.i16, label %if.then.i17, label %ggml_backend_buffer_get_base.exit20
 
@@ -3457,9 +3457,9 @@ if.then.i17:                                      ; preds = %ggml_backend_buffer
   %17 = load ptr, ptr @stdout, align 8
   %call1.i18 = tail call i32 @fflush(ptr noundef %17)
   %18 = load ptr, ptr @stderr, align 8
-  %call2.i19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 77, ptr noundef nonnull @.str.4) #21
-  tail call void @ggml_print_backtrace() #19
-  tail call void @abort() #22
+  %call2.i19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 77, ptr noundef nonnull @.str.4) #22
+  tail call void @ggml_print_backtrace() #20
+  tail call void @abort() #23
   unreachable
 
 ggml_backend_buffer_get_base.exit20:              ; preds = %ggml_backend_buffer_get_alloc_size.exit
@@ -3474,9 +3474,9 @@ if.then31:                                        ; preds = %ggml_backend_buffer
   %20 = load ptr, ptr @stdout, align 8
   %call32 = tail call i32 @fflush(ptr noundef %20)
   %21 = load ptr, ptr @stderr, align 8
-  %call33 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %21, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 1200, ptr noundef nonnull @.str.32) #21
-  tail call void @ggml_print_backtrace() #19
-  tail call void @abort() #22
+  %call33 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %21, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 1200, ptr noundef nonnull @.str.32) #22
+  tail call void @ggml_print_backtrace() #20
+  tail call void @abort() #23
   unreachable
 
 do.end35:                                         ; preds = %ggml_backend_buffer_get_base.exit20
@@ -3488,7 +3488,7 @@ do.end35:                                         ; preds = %ggml_backend_buffer
   br i1 %tobool.not.i, label %ggml_backend_buffer_init_tensor.exit, label %if.then.i21
 
 if.then.i21:                                      ; preds = %do.end35
-  tail call void %22(ptr noundef nonnull %buffer, ptr noundef nonnull %tensor) #19
+  tail call void %22(ptr noundef nonnull %buffer, ptr noundef nonnull %tensor) #20
   br label %ggml_backend_buffer_init_tensor.exit
 
 ggml_backend_buffer_init_tensor.exit:             ; preds = %do.end35, %if.then.i21
@@ -3502,22 +3502,22 @@ entry:
   %visited_hash_table = getelementptr inbounds i8, ptr %graph, i64 40
   %0 = load i64, ptr %visited_hash_table, align 8
   %mul = shl i64 %0, 3
-  %call = tail call noalias ptr @calloc(i64 noundef %mul, i64 noundef 1) #24
-  %call6 = tail call noalias ptr @calloc(i64 noundef %mul, i64 noundef 1) #24
-  %call9 = tail call noalias ptr @calloc(i64 noundef %0, i64 noundef 1) #24
-  %call10 = tail call i64 @ggml_tensor_overhead() #19
+  %call = tail call noalias ptr @calloc(i64 noundef %mul, i64 noundef 1) #26
+  %call6 = tail call noalias ptr @calloc(i64 noundef %mul, i64 noundef 1) #26
+  %call9 = tail call noalias ptr @calloc(i64 noundef %0, i64 noundef 1) #26
+  %call10 = tail call i64 @ggml_tensor_overhead() #20
   %mul12 = mul i64 %call10, %0
   %1 = load i32, ptr %graph, align 8
   %conv = sext i32 %1 to i64
-  %call14 = tail call i64 @ggml_graph_overhead_custom(i64 noundef %conv, i1 noundef zeroext false) #19
+  %call14 = tail call i64 @ggml_graph_overhead_custom(i64 noundef %conv, i1 noundef zeroext false) #20
   %add = add i64 %call14, %mul12
   store i64 %add, ptr %params, align 8
   %mem_buffer = getelementptr inbounds i8, ptr %params, i64 8
   store ptr null, ptr %mem_buffer, align 8
   %no_alloc = getelementptr inbounds i8, ptr %params, i64 16
   store i8 1, ptr %no_alloc, align 8
-  %call15 = tail call ptr @ggml_init(ptr noundef nonnull byval(%struct.ggml_init_params) align 8 %params) #19
-  %call16 = tail call ptr @ggml_init(ptr noundef nonnull byval(%struct.ggml_init_params) align 8 %params) #19
+  %call15 = tail call ptr @ggml_init(ptr noundef nonnull byval(%struct.ggml_init_params) align 8 %params) #20
+  %call16 = tail call ptr @ggml_init(ptr noundef nonnull byval(%struct.ggml_init_params) align 8 %params) #20
   %n_nodes = getelementptr inbounds i8, ptr %graph, i64 4
   %2 = load i32, ptr %n_nodes, align 4
   %cmp36 = icmp sgt i32 %2, 0
@@ -3540,7 +3540,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !33
 
 for.end:                                          ; preds = %for.body, %entry
-  %call19 = tail call ptr @ggml_backend_alloc_ctx_tensors(ptr noundef %call15, ptr noundef %backend) #19
+  %call19 = tail call ptr @ggml_backend_alloc_ctx_tensors(ptr noundef %call15, ptr noundef %backend) #20
   %7 = load i32, ptr %n_nodes, align 4
   %cmp2338 = icmp sgt i32 %7, 0
   br i1 %cmp2338, label %for.body25.lr.ph, label %for.end32
@@ -3564,7 +3564,7 @@ for.body25:                                       ; preds = %for.body25.lr.ph, %
 for.end32:                                        ; preds = %for.body25, %for.end
   %12 = load i32, ptr %graph, align 8
   %conv34 = sext i32 %12 to i64
-  %call35 = tail call ptr @ggml_new_graph_custom(ptr noundef %call15, i64 noundef %conv34, i1 noundef zeroext false) #19
+  %call35 = tail call ptr @ggml_new_graph_custom(ptr noundef %call15, i64 noundef %conv34, i1 noundef zeroext false) #20
   %13 = load i32, ptr %n_nodes, align 4
   %cmp3940 = icmp sgt i32 %13, 0
   br i1 %cmp3940, label %for.body41.lr.ph, label %for.end53
@@ -3579,7 +3579,7 @@ for.body41:                                       ; preds = %for.body41.lr.ph, %
   %14 = load ptr, ptr %nodes43, align 8
   %arrayidx45 = getelementptr inbounds ptr, ptr %14, i64 %indvars.iv47
   %15 = load ptr, ptr %arrayidx45, align 8
-  %call46 = tail call i64 @ggml_hash_find(i64 %0, ptr %call, ptr noundef %15) #19
+  %call46 = tail call i64 @ggml_hash_find(i64 %0, ptr %call, ptr noundef %15) #20
   %arrayidx47 = getelementptr inbounds ptr, ptr %call6, i64 %call46
   %16 = load ptr, ptr %arrayidx47, align 8
   %17 = load ptr, ptr %nodes48, align 8
@@ -3595,9 +3595,9 @@ for.end53:                                        ; preds = %for.body41, %for.en
   %.lcssa = phi i32 [ %13, %for.end32 ], [ %18, %for.body41 ]
   %n_nodes55 = getelementptr inbounds i8, ptr %call35, i64 4
   store i32 %.lcssa, ptr %n_nodes55, align 4
-  tail call void @free(ptr noundef %call) #19
-  tail call void @free(ptr noundef %call6) #19
-  tail call void @free(ptr noundef %call9) #19
+  tail call void @free(ptr noundef %call) #20
+  tail call void @free(ptr noundef %call6) #20
+  tail call void @free(ptr noundef %call9) #20
   store ptr %call19, ptr %agg.result, align 8
   %ctx_allocated58 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %call15, ptr %ctx_allocated58, align 8
@@ -3627,9 +3627,9 @@ if.then:                                          ; preds = %entry
   %0 = load ptr, ptr @stdout, align 8
   %call = tail call i32 @fflush(ptr noundef %0)
   %1 = load ptr, ptr @stderr, align 8
-  %call1 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 1210, ptr noundef nonnull @.str.44) #21
-  tail call void @ggml_print_backtrace() #19
-  tail call void @abort() #22
+  %call1 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 1210, ptr noundef nonnull @.str.44) #22
+  tail call void @ggml_print_backtrace() #20
+  tail call void @abort() #23
   unreachable
 
 do.body2:                                         ; preds = %entry
@@ -3642,18 +3642,18 @@ if.then3:                                         ; preds = %do.body2
   %3 = load ptr, ptr @stdout, align 8
   %call4 = tail call i32 @fflush(ptr noundef %3)
   %4 = load ptr, ptr @stderr, align 8
-  %call5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 1211, ptr noundef nonnull @.str.46) #21
-  tail call void @ggml_print_backtrace() #19
-  tail call void @abort() #22
+  %call5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 1211, ptr noundef nonnull @.str.46) #22
+  tail call void @ggml_print_backtrace() #20
+  tail call void @abort() #23
   unreachable
 
 do.end7:                                          ; preds = %do.body2
-  %call8 = tail call i64 @ggml_hash_insert(i64 %hash_set.coerce0, ptr %hash_set.coerce1, ptr noundef nonnull %src) #19
+  %call8 = tail call i64 @ggml_hash_insert(i64 %hash_set.coerce0, ptr %hash_set.coerce1, ptr noundef nonnull %src) #20
   %cmp9 = icmp eq i64 %call8, -2
   br i1 %cmp9, label %if.then10, label %if.end12
 
 if.then10:                                        ; preds = %do.end7
-  %call11 = tail call i64 @ggml_hash_find(i64 %hash_set.coerce0, ptr %hash_set.coerce1, ptr noundef nonnull %src) #19
+  %call11 = tail call i64 @ggml_hash_find(i64 %hash_set.coerce0, ptr %hash_set.coerce1, ptr noundef nonnull %src) #20
   %arrayidx = getelementptr inbounds ptr, ptr %node_copies, i64 %call11
   %5 = load ptr, ptr %arrayidx, align 8
   br label %return
@@ -3674,7 +3674,7 @@ cond.false:                                       ; preds = %land.lhs.true15, %i
 
 cond.end:                                         ; preds = %land.lhs.true15, %cond.false
   %cond = phi ptr [ %ctx_unallocated, %cond.false ], [ %ctx_allocated, %land.lhs.true15 ]
-  %call.i = tail call ptr @ggml_dup_tensor(ptr noundef %cond, ptr noundef nonnull %src) #19
+  %call.i = tail call ptr @ggml_dup_tensor(ptr noundef %cond, ptr noundef nonnull %src) #20
   %nb.i = getelementptr inbounds i8, ptr %src, i64 48
   %nb1.i = getelementptr inbounds i8, ptr %call.i, i64 48
   br label %for.body.i
@@ -3714,7 +3714,7 @@ if.end25:                                         ; preds = %if.then20, %ggml_du
   %op_params27 = getelementptr inbounds i8, ptr %src, i64 84
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %op_params, ptr noundef nonnull align 4 dereferenceable(64) %op_params27, i64 64, i1 false)
   %name = getelementptr inbounds i8, ptr %src, i64 288
-  %call30 = tail call ptr @ggml_set_name(ptr noundef nonnull %call.i, ptr noundef nonnull %name) #19
+  %call30 = tail call ptr @ggml_set_name(ptr noundef nonnull %call.i, ptr noundef nonnull %name) #20
   %src32 = getelementptr inbounds i8, ptr %src, i64 160
   %src38 = getelementptr inbounds i8, ptr %call.i, i64 160
   br label %for.body
@@ -3749,7 +3749,7 @@ declare ptr @ggml_backend_alloc_ctx_tensors(ptr noundef, ptr noundef) local_unna
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @graph_init_tensor(i64 %hash_set.coerce0, ptr %hash_set.coerce1, ptr nocapture noundef readonly %node_copies, ptr nocapture noundef %node_init, ptr noundef %src) unnamed_addr #0 {
 entry:
-  %call = tail call i64 @ggml_hash_find(i64 %hash_set.coerce0, ptr %hash_set.coerce1, ptr noundef %src) #19
+  %call = tail call i64 @ggml_hash_find(i64 %hash_set.coerce0, ptr %hash_set.coerce1, ptr noundef %src) #20
   %arrayidx = getelementptr inbounds i8, ptr %node_init, i64 %call
   %0 = load i8, ptr %arrayidx, align 1
   %tobool = trunc i8 %0 to i1
@@ -3812,20 +3812,20 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp1.not.i, label %if.end5.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.end.i
-  tail call void %1(ptr noundef nonnull %0) #19
+  tail call void %1(ptr noundef nonnull %0) #20
   br label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.then2.i, %if.end.i
-  tail call void @free(ptr noundef nonnull %0) #19
+  tail call void @free(ptr noundef nonnull %0) #20
   br label %ggml_backend_buffer_free.exit
 
 ggml_backend_buffer_free.exit:                    ; preds = %entry, %if.end5.i
   %ctx_allocated = getelementptr inbounds i8, ptr %copy, i64 8
   %2 = load ptr, ptr %ctx_allocated, align 8
-  tail call void @ggml_free(ptr noundef %2) #19
+  tail call void @ggml_free(ptr noundef %2) #20
   %ctx_unallocated = getelementptr inbounds i8, ptr %copy, i64 16
   %3 = load ptr, ptr %ctx_unallocated, align 8
-  tail call void @ggml_free(ptr noundef %3) #19
+  tail call void @ggml_free(ptr noundef %3) #20
   ret void
 }
 
@@ -3865,27 +3865,27 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %indvars = trunc i64 %indvars.iv.next to i32
   %6 = trunc nuw nsw i64 %indvars.iv to i32
-  call void @ggml_graph_view(ptr nonnull sret(%struct.ggml_cgraph) align 8 %g1v, ptr noundef nonnull %graph, i32 noundef %6, i32 noundef %indvars) #19
-  call void @ggml_graph_view(ptr nonnull sret(%struct.ggml_cgraph) align 8 %g2v, ptr noundef %0, i32 noundef %6, i32 noundef %indvars) #19
+  call void @ggml_graph_view(ptr nonnull sret(%struct.ggml_cgraph) align 8 %g1v, ptr noundef nonnull %graph, i32 noundef %6, i32 noundef %indvars) #20
+  call void @ggml_graph_view(ptr nonnull sret(%struct.ggml_cgraph) align 8 %g2v, ptr noundef %0, i32 noundef %6, i32 noundef %indvars) #20
   %7 = load ptr, ptr %graph_compute.i, align 8
-  call void %7(ptr noundef %backend1, ptr noundef nonnull %g1v) #19
+  call void %7(ptr noundef %backend1, ptr noundef nonnull %g1v) #20
   %8 = load ptr, ptr %synchronize.i.i, align 8
   %cmp.i.i = icmp eq ptr %8, null
   br i1 %cmp.i.i, label %ggml_backend_graph_compute.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %for.body
-  call void %8(ptr noundef nonnull %backend1) #19
+  call void %8(ptr noundef nonnull %backend1) #20
   br label %ggml_backend_graph_compute.exit
 
 ggml_backend_graph_compute.exit:                  ; preds = %for.body, %if.end.i.i
   %9 = load ptr, ptr %graph_compute.i15, align 8
-  call void %9(ptr noundef %backend2, ptr noundef nonnull %g2v) #19
+  call void %9(ptr noundef %backend2, ptr noundef nonnull %g2v) #20
   %10 = load ptr, ptr %synchronize.i.i16, align 8
   %cmp.i.i17 = icmp eq ptr %10, null
   br i1 %cmp.i.i17, label %ggml_backend_graph_compute.exit19, label %if.end.i.i18
 
 if.end.i.i18:                                     ; preds = %ggml_backend_graph_compute.exit
-  call void %10(ptr noundef nonnull %backend2) #19
+  call void %10(ptr noundef nonnull %backend2) #20
   br label %ggml_backend_graph_compute.exit19
 
 ggml_backend_graph_compute.exit19:                ; preds = %ggml_backend_graph_compute.exit, %if.end.i.i18
@@ -3896,7 +3896,7 @@ ggml_backend_graph_compute.exit19:                ; preds = %ggml_backend_graph_
   br i1 %switch.selectcmp.i, label %for.inc, label %if.end
 
 if.end:                                           ; preds = %ggml_backend_graph_compute.exit19
-  %call6 = call zeroext i1 %callback(i32 noundef %6, ptr noundef nonnull %3, ptr noundef %5, ptr noundef %user_data) #19
+  %call6 = call zeroext i1 %callback(i32 noundef %6, ptr noundef nonnull %3, ptr noundef %5, ptr noundef %user_data) #20
   br i1 %call6, label %for.inc, label %for.end
 
 for.inc:                                          ; preds = %if.end, %ggml_backend_graph_compute.exit19
@@ -3920,16 +3920,16 @@ if.end.i.i22:                                     ; preds = %for.end
   br i1 %cmp1.not.i.i, label %if.end5.i.i, label %if.then2.i.i
 
 if.then2.i.i:                                     ; preds = %if.end.i.i22
-  call void %15(ptr noundef nonnull %copy20.sroa.0.0.copyload) #19
+  call void %15(ptr noundef nonnull %copy20.sroa.0.0.copyload) #20
   br label %if.end5.i.i
 
 if.end5.i.i:                                      ; preds = %if.then2.i.i, %if.end.i.i22
-  call void @free(ptr noundef nonnull %copy20.sroa.0.0.copyload) #19
+  call void @free(ptr noundef nonnull %copy20.sroa.0.0.copyload) #20
   br label %ggml_backend_graph_copy_free.exit
 
 ggml_backend_graph_copy_free.exit:                ; preds = %for.end, %if.end5.i.i
-  call void @ggml_free(ptr noundef %copy20.sroa.4.0.copyload) #19
-  call void @ggml_free(ptr noundef %copy20.sroa.5.0.copyload) #19
+  call void @ggml_free(ptr noundef %copy20.sroa.4.0.copyload) #20
+  call void @ggml_free(ptr noundef %copy20.sroa.5.0.copyload) #20
   ret void
 }
 
@@ -3938,10 +3938,10 @@ declare void @ggml_graph_view(ptr sret(%struct.ggml_cgraph) align 8, ptr noundef
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, argmem: none) uwtable
 define internal noalias noundef ptr @ggml_backend_reg_cpu_init(ptr nocapture readnone %params, ptr nocapture readnone %user_data) #12 {
 entry:
-  %call.i = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #20
+  %call.i = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #21
   store i32 4, ptr %call.i, align 8
   %work_data.i = getelementptr inbounds i8, ptr %call.i, i64 8
-  %call1.i = tail call noalias noundef dereferenceable_or_null(112) ptr @malloc(i64 noundef 112) #20
+  %call1.i = tail call noalias noundef dereferenceable_or_null(112) ptr @malloc(i64 noundef 112) #21
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %work_data.i, i8 0, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %call1.i, ptr noundef nonnull align 8 dereferenceable(104) @cpu_backend_i, i64 104, i1 false)
   %.compoundliteral.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %call1.i, i64 104
@@ -3954,7 +3954,7 @@ define internal void @ggml_backend_cpu_buffer_free_buffer(ptr nocapture noundef 
 entry:
   %context = getelementptr inbounds i8, ptr %buffer, i64 64
   %0 = load ptr, ptr %context, align 8
-  tail call void @free(ptr noundef %0) #19
+  tail call void @free(ptr noundef %0) #20
   ret void
 }
 
@@ -3970,7 +3970,7 @@ entry:
 define internal void @ggml_backend_cpu_buffer_set_tensor(ptr nocapture readnone %buffer, ptr noundef %tensor, ptr nocapture noundef readonly %data, i64 noundef %offset, i64 noundef %size) #0 {
 entry:
   %add = add i64 %size, %offset
-  %call = tail call i64 @ggml_nbytes(ptr noundef %tensor) #19
+  %call = tail call i64 @ggml_nbytes(ptr noundef %tensor) #20
   %cmp.not = icmp ugt i64 %add, %call
   br i1 %cmp.not, label %if.then, label %do.body3
 
@@ -3978,9 +3978,9 @@ if.then:                                          ; preds = %entry
   %0 = load ptr, ptr @stdout, align 8
   %call1 = tail call i32 @fflush(ptr noundef %0)
   %1 = load ptr, ptr @stderr, align 8
-  %call2 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 385, ptr noundef nonnull @.str.9) #21
-  tail call void @ggml_print_backtrace() #19
-  tail call void @abort() #22
+  %call2 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 385, ptr noundef nonnull @.str.9) #22
+  tail call void @ggml_print_backtrace() #20
+  tail call void @abort() #23
   unreachable
 
 do.body3:                                         ; preds = %entry
@@ -3993,9 +3993,9 @@ if.then7:                                         ; preds = %do.body3
   %3 = load ptr, ptr @stdout, align 8
   %call8 = tail call i32 @fflush(ptr noundef %3)
   %4 = load ptr, ptr @stderr, align 8
-  %call9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 386, ptr noundef nonnull @.str.7) #21
-  tail call void @ggml_print_backtrace() #19
-  tail call void @abort() #22
+  %call9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 386, ptr noundef nonnull @.str.7) #22
+  tail call void @ggml_print_backtrace() #20
+  tail call void @abort() #23
   unreachable
 
 do.end11:                                         ; preds = %do.body3
@@ -4008,7 +4008,7 @@ do.end11:                                         ; preds = %do.body3
 define internal void @ggml_backend_cpu_buffer_get_tensor(ptr nocapture readnone %buffer, ptr noundef %tensor, ptr nocapture noundef writeonly %data, i64 noundef %offset, i64 noundef %size) #0 {
 entry:
   %add = add i64 %size, %offset
-  %call = tail call i64 @ggml_nbytes(ptr noundef %tensor) #19
+  %call = tail call i64 @ggml_nbytes(ptr noundef %tensor) #20
   %cmp.not = icmp ugt i64 %add, %call
   br i1 %cmp.not, label %if.then, label %do.body3
 
@@ -4016,9 +4016,9 @@ if.then:                                          ; preds = %entry
   %0 = load ptr, ptr @stdout, align 8
   %call1 = tail call i32 @fflush(ptr noundef %0)
   %1 = load ptr, ptr @stderr, align 8
-  %call2 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 394, ptr noundef nonnull @.str.11) #21
-  tail call void @ggml_print_backtrace() #19
-  tail call void @abort() #22
+  %call2 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 394, ptr noundef nonnull @.str.11) #22
+  tail call void @ggml_print_backtrace() #20
+  tail call void @abort() #23
   unreachable
 
 do.body3:                                         ; preds = %entry
@@ -4031,9 +4031,9 @@ if.then7:                                         ; preds = %do.body3
   %3 = load ptr, ptr @stdout, align 8
   %call8 = tail call i32 @fflush(ptr noundef %3)
   %4 = load ptr, ptr @stderr, align 8
-  %call9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 395, ptr noundef nonnull @.str.7) #21
-  tail call void @ggml_print_backtrace() #19
-  tail call void @abort() #22
+  %call9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 395, ptr noundef nonnull @.str.7) #22
+  tail call void @ggml_print_backtrace() #20
+  tail call void @abort() #23
   unreachable
 
 do.end11:                                         ; preds = %do.body3
@@ -4047,7 +4047,7 @@ define internal void @ggml_backend_cpu_buffer_cpy_tensor_from(ptr nocapture read
 entry:
   %data = getelementptr inbounds i8, ptr %dst, i64 280
   %0 = load ptr, ptr %data, align 8
-  %call = tail call i64 @ggml_nbytes(ptr noundef %src) #19
+  %call = tail call i64 @ggml_nbytes(ptr noundef %src) #20
   tail call void @ggml_backend_tensor_get(ptr noundef %src, ptr noundef %0, i64 noundef 0, i64 noundef %call)
   ret void
 }
@@ -4057,7 +4057,7 @@ define internal void @ggml_backend_cpu_buffer_cpy_tensor_to(ptr nocapture readno
 entry:
   %data = getelementptr inbounds i8, ptr %src, i64 280
   %0 = load ptr, ptr %data, align 8
-  %call = tail call i64 @ggml_nbytes(ptr noundef %src) #19
+  %call = tail call i64 @ggml_nbytes(ptr noundef %src) #20
   tail call void @ggml_backend_tensor_set(ptr noundef %dst, ptr noundef %0, i64 noundef 0, i64 noundef %call)
   ret void
 }
@@ -4069,9 +4069,9 @@ entry:
   %0 = load ptr, ptr %context, align 8
   %work_data = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %work_data, align 8
-  tail call void @free(ptr noundef %1) #19
-  tail call void @free(ptr noundef %0) #19
-  tail call void @free(ptr noundef %backend) #19
+  tail call void @free(ptr noundef %1) #20
+  tail call void @free(ptr noundef %0) #20
+  tail call void @free(ptr noundef %backend) #20
   ret void
 }
 
@@ -4087,9 +4087,9 @@ entry:
   %tmp = alloca %struct.ggml_cplan, align 8
   %context = getelementptr inbounds i8, ptr %backend, i64 104
   %0 = load ptr, ptr %context, align 8
-  %call = tail call noalias dereferenceable_or_null(120) ptr @malloc(i64 noundef 120) #20
+  %call = tail call noalias dereferenceable_or_null(120) ptr @malloc(i64 noundef 120) #21
   %1 = load i32, ptr %0, align 8
-  call void @ggml_graph_plan(ptr nonnull sret(%struct.ggml_cplan) align 8 %tmp, ptr noundef %cgraph, i32 noundef %1) #19
+  call void @ggml_graph_plan(ptr nonnull sret(%struct.ggml_cplan) align 8 %tmp, ptr noundef %cgraph, i32 noundef %1) #20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %call, ptr noundef nonnull align 8 dereferenceable(40) %tmp, i64 40, i1 false)
   %cgraph1 = getelementptr inbounds i8, ptr %call, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %cgraph1, ptr noundef nonnull align 8 dereferenceable(80) %cgraph, i64 80, i1 false)
@@ -4098,7 +4098,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call5 = call noalias ptr @malloc(i64 noundef %2) #20
+  %call5 = call noalias ptr @malloc(i64 noundef %2) #21
   %work_data = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %call5, ptr %work_data, align 8
   br label %if.end
@@ -4112,8 +4112,8 @@ define internal void @ggml_backend_cpu_graph_plan_free(ptr nocapture readnone %b
 entry:
   %work_data = getelementptr inbounds i8, ptr %plan, i64 8
   %0 = load ptr, ptr %work_data, align 8
-  tail call void @free(ptr noundef %0) #19
-  tail call void @free(ptr noundef %plan) #19
+  tail call void @free(ptr noundef %0) #20
+  tail call void @free(ptr noundef %plan) #20
   ret void
 }
 
@@ -4121,7 +4121,7 @@ entry:
 define internal void @ggml_backend_cpu_graph_plan_compute(ptr nocapture readnone %backend, ptr noundef %plan) #0 {
 entry:
   %cgraph = getelementptr inbounds i8, ptr %plan, i64 40
-  %call = tail call i32 @ggml_graph_compute(ptr noundef nonnull %cgraph, ptr noundef %plan) #19
+  %call = tail call i32 @ggml_graph_compute(ptr noundef nonnull %cgraph, ptr noundef %plan) #20
   ret void
 }
 
@@ -4132,7 +4132,7 @@ entry:
   %context = getelementptr inbounds i8, ptr %backend, i64 104
   %0 = load ptr, ptr %context, align 8
   %1 = load i32, ptr %0, align 8
-  call void @ggml_graph_plan(ptr nonnull sret(%struct.ggml_cplan) align 8 %cplan, ptr noundef %cgraph, i32 noundef %1) #19
+  call void @ggml_graph_plan(ptr nonnull sret(%struct.ggml_cplan) align 8 %cplan, ptr noundef %cgraph, i32 noundef %1) #20
   %work_size = getelementptr inbounds i8, ptr %0, i64 16
   %2 = load i64, ptr %work_size, align 8
   %3 = load i64, ptr %cplan, align 8
@@ -4142,7 +4142,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %call = call ptr @realloc(ptr noundef %4, i64 noundef %3) #25
+  %call = call ptr @realloc(ptr noundef %4, i64 noundef %3) #27
   store ptr %call, ptr %work_data, align 8
   %5 = load i64, ptr %cplan, align 8
   store i64 %5, ptr %work_size, align 8
@@ -4152,7 +4152,7 @@ if.end:                                           ; preds = %entry, %if.then
   %6 = phi ptr [ %call, %if.then ], [ %4, %entry ]
   %work_data7 = getelementptr inbounds i8, ptr %cplan, i64 8
   store ptr %6, ptr %work_data7, align 8
-  %call8 = call i32 @ggml_graph_compute(ptr noundef %cgraph, ptr noundef nonnull %cplan) #19
+  %call8 = call i32 @ggml_graph_compute(ptr noundef %cgraph, ptr noundef nonnull %cplan) #20
   ret void
 }
 
@@ -4179,27 +4179,27 @@ declare void @ggml_tallocr_reset(ptr noundef) local_unnamed_addr #1
 
 declare i64 @ggml_time_us() local_unnamed_addr #1
 
-; Function Attrs: noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #4
+; Function Attrs: nofree noreturn nounwind
+declare void @exit(i32 noundef) local_unnamed_addr #17
 
 declare i64 @ggml_hash_insert(i64, ptr, ptr noundef) local_unnamed_addr #1
 
 declare ptr @ggml_set_name(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #17
+declare void @llvm.assume(i1 noundef) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #19
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #3 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #4 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #4 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
@@ -4212,15 +4212,17 @@ attributes #13 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable
 attributes #14 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #15 = { mustprogress nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #16 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #17 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #18 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #19 = { nounwind }
-attributes #20 = { nounwind allocsize(0) }
-attributes #21 = { cold }
-attributes #22 = { noreturn nounwind }
-attributes #23 = { nounwind willreturn memory(read) }
-attributes #24 = { nounwind allocsize(0,1) }
-attributes #25 = { nounwind allocsize(1) }
+attributes #17 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #18 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #19 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #20 = { nounwind }
+attributes #21 = { nounwind allocsize(0) }
+attributes #22 = { cold }
+attributes #23 = { noreturn nounwind }
+attributes #24 = { nounwind willreturn memory(read) }
+attributes #25 = { cold noreturn nounwind }
+attributes #26 = { nounwind allocsize(0,1) }
+attributes #27 = { nounwind allocsize(1) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

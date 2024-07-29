@@ -528,7 +528,7 @@ rbimpl_rstring_getmem.exit:                       ; preds = %27, %32
   %.sroa.3.0 = phi ptr [ %.sroa.3.0.copyload, %32 ], [ %31, %27 ]
   %.sroa.1.0.in = getelementptr inbounds i8, ptr %28, i64 16
   %.sroa.1.0 = load i64, ptr %.sroa.1.0.in, align 8
-  %33 = tail call ptr @memchr(ptr noundef %.sroa.3.0, i32 noundef 0, i64 noundef %.sroa.1.0) #22
+  %33 = tail call ptr @memchr(ptr noundef %.sroa.3.0, i32 noundef 0, i64 noundef %.sroa.1.0) #23
   %.not = icmp eq ptr %33, null
   br i1 %.not, label %36, label %34
 
@@ -683,12 +683,12 @@ define hidden noalias noundef ptr @rb_allocate_sigaltstack() local_unnamed_addr 
 7:                                                ; preds = %2, %0
   %8 = phi i32 [ %.1.i, %2 ], [ %1, %0 ]
   %9 = zext nneg i32 %8 to i64
-  %10 = tail call noalias ptr @malloc(i64 noundef %9) #23
+  %10 = tail call noalias ptr @malloc(i64 noundef %9) #24
   %.not2 = icmp eq ptr %10, null
   br i1 %.not2, label %11, label %12
 
 11:                                               ; preds = %7
-  tail call void @rb_memerror() #24
+  tail call void @rb_memerror() #25
   unreachable
 
 12:                                               ; preds = %7
@@ -1190,7 +1190,7 @@ define hidden void @Init_signal() local_unnamed_addr #1 {
   br i1 %.not, label %28, label %27
 
 27:                                               ; preds = %0
-  call void @perror(ptr noundef nonnull @Init_signal.failed) #25
+  call void @perror(ptr noundef nonnull @Init_signal.failed) #26
   br label %28
 
 28:                                               ; preds = %27, %0
@@ -1199,7 +1199,7 @@ define hidden void @Init_signal() local_unnamed_addr #1 {
   br i1 %.not4, label %31, label %30
 
 30:                                               ; preds = %28
-  call void @perror(ptr noundef nonnull @Init_signal.failed.8) #25
+  call void @perror(ptr noundef nonnull @Init_signal.failed.8) #26
   br label %31
 
 31:                                               ; preds = %30, %28
@@ -1208,7 +1208,7 @@ define hidden void @Init_signal() local_unnamed_addr #1 {
   br i1 %.not6, label %34, label %33
 
 33:                                               ; preds = %31
-  call void @perror(ptr noundef nonnull @Init_signal.failed.9) #25
+  call void @perror(ptr noundef nonnull @Init_signal.failed.9) #26
   br label %34
 
 34:                                               ; preds = %33, %31
@@ -1217,7 +1217,7 @@ define hidden void @Init_signal() local_unnamed_addr #1 {
   br i1 %.not8, label %37, label %36
 
 36:                                               ; preds = %34
-  call void @perror(ptr noundef nonnull @Init_signal.failed.10) #25
+  call void @perror(ptr noundef nonnull @Init_signal.failed.10) #26
   br label %37
 
 37:                                               ; preds = %36, %34
@@ -1226,7 +1226,7 @@ define hidden void @Init_signal() local_unnamed_addr #1 {
   br i1 %.not10, label %40, label %39
 
 39:                                               ; preds = %37
-  call void @perror(ptr noundef nonnull @Init_signal.failed.11) #25
+  call void @perror(ptr noundef nonnull @Init_signal.failed.11) #26
   br label %40
 
 40:                                               ; preds = %39, %37
@@ -1235,7 +1235,7 @@ define hidden void @Init_signal() local_unnamed_addr #1 {
   br i1 %.not12, label %43, label %42
 
 42:                                               ; preds = %40
-  call void @perror(ptr noundef nonnull @Init_signal.failed.12) #25
+  call void @perror(ptr noundef nonnull @Init_signal.failed.12) #26
   br label %43
 
 43:                                               ; preds = %42, %40
@@ -1244,7 +1244,7 @@ define hidden void @Init_signal() local_unnamed_addr #1 {
   br i1 %.not14, label %46, label %45
 
 45:                                               ; preds = %43
-  call void @perror(ptr noundef nonnull @Init_signal.failed.13) #25
+  call void @perror(ptr noundef nonnull @Init_signal.failed.13) #26
   br label %46
 
 46:                                               ; preds = %43, %45
@@ -1288,7 +1288,7 @@ define hidden void @Init_signal() local_unnamed_addr #1 {
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
-  call void (ptr, ...) @rb_bug(ptr noundef nonnull @Init_signal.failed.14) #24
+  call void (ptr, ...) @rb_bug(ptr noundef nonnull @Init_signal.failed.14) #25
   unreachable
 
 63:                                               ; preds = %48
@@ -1337,7 +1337,7 @@ define hidden void @Init_signal() local_unnamed_addr #1 {
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
-  call void (ptr, ...) @rb_bug(ptr noundef nonnull @Init_signal.failed.15) #24
+  call void (ptr, ...) @rb_bug(ptr noundef nonnull @Init_signal.failed.15) #25
   unreachable
 
 80:                                               ; preds = %63
@@ -1368,12 +1368,12 @@ define hidden void @Init_signal() local_unnamed_addr #1 {
 90:                                               ; preds = %85, %80
   %91 = phi i32 [ %.1.i.i, %85 ], [ %84, %80 ]
   %92 = zext nneg i32 %91 to i64
-  %93 = call noalias ptr @malloc(i64 noundef %92) #23
+  %93 = call noalias ptr @malloc(i64 noundef %92) #24
   %.not2.i = icmp eq ptr %93, null
   br i1 %.not2.i, label %94, label %rb_allocate_sigaltstack.exit
 
 94:                                               ; preds = %90
-  call void @rb_memerror() #24
+  call void @rb_memerror() #25
   unreachable
 
 rb_allocate_sigaltstack.exit:                     ; preds = %90
@@ -1439,7 +1439,7 @@ install_sighandler_core.exit45.thread:            ; preds = %rb_allocate_sigalts
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void (ptr, ...) @rb_bug(ptr noundef nonnull @Init_signal.failed.16) #24
+  call void (ptr, ...) @rb_bug(ptr noundef nonnull @Init_signal.failed.16) #25
   unreachable
 
 118:                                              ; preds = %install_sighandler_core.exit45.thread, %46
@@ -1448,7 +1448,7 @@ install_sighandler_core.exit45.thread:            ; preds = %rb_allocate_sigalts
   br i1 %.not23, label %121, label %120
 
 120:                                              ; preds = %118
-  call void @perror(ptr noundef nonnull @Init_signal.failed.17) #25
+  call void @perror(ptr noundef nonnull @Init_signal.failed.17) #26
   br label %121
 
 121:                                              ; preds = %120, %118
@@ -1457,7 +1457,7 @@ install_sighandler_core.exit45.thread:            ; preds = %rb_allocate_sigalts
   br i1 %.not25, label %124, label %123
 
 123:                                              ; preds = %121
-  call void @perror(ptr noundef nonnull @Init_signal.failed.18) #25
+  call void @perror(ptr noundef nonnull @Init_signal.failed.18) #26
   br label %124
 
 124:                                              ; preds = %123, %121
@@ -1466,7 +1466,7 @@ install_sighandler_core.exit45.thread:            ; preds = %rb_allocate_sigalts
   br i1 %.not27, label %127, label %126
 
 126:                                              ; preds = %124
-  call void @perror(ptr noundef nonnull @Init_signal.failed.19) #25
+  call void @perror(ptr noundef nonnull @Init_signal.failed.19) #26
   br label %127
 
 127:                                              ; preds = %124, %126
@@ -2454,7 +2454,7 @@ define internal fastcc void @check_reserved_signal_(ptr noundef %0, i64 noundef 
   %.sroa.24.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 24
   store i64 13, ptr %.sroa.24.0..sroa_idx, align 8
   %11 = getelementptr inbounds i8, ptr %4, i64 32
-  %12 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #22
+  %12 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #23
   store ptr %8, ptr %11, align 16
   %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 40
   store i64 %12, ptr %.sroa.22.0..sroa_idx, align 8
@@ -2463,7 +2463,7 @@ define internal fastcc void @check_reserved_signal_(ptr noundef %0, i64 noundef 
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 56
   store i64 9, ptr %.sroa.2.0..sroa_idx, align 8
   %14 = call i64 @writev(i32 noundef 2, ptr noundef nonnull %4, i32 noundef 4) #16
-  call fastcc void @ruby_abort() #26
+  call fastcc void @ruby_abort() #27
   unreachable
 
 15:                                               ; preds = %3
@@ -2533,32 +2533,32 @@ declare void @rb_bug_for_fatal_signal(ptr noundef, i32 noundef, ptr noundef, ptr
 
 declare i64 @writev(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: noreturn nounwind sspstrong uwtable
-define internal fastcc void @ruby_abort() unnamed_addr #10 {
+; Function Attrs: nofree noreturn nounwind sspstrong uwtable
+define internal fastcc void @ruby_abort() unnamed_addr #18 {
   tail call void @abort() #17
   unreachable
 }
 
-; Function Attrs: noreturn nounwind
-declare void @abort() local_unnamed_addr #18
+; Function Attrs: cold nofree noreturn nounwind
+declare void @abort() local_unnamed_addr #19
 
 ; Function Attrs: noreturn
 declare void @rb_ec_stack_overflow(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshl.i64(i64, i64, i64) #19
+declare i64 @llvm.fshl.i64(i64, i64, i64) #20
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #20
+declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #19
+declare i32 @llvm.smax.i32(i32, i32) #20
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2578,15 +2578,16 @@ attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn mem
 attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #16 = { nounwind }
 attributes #17 = { noreturn nounwind }
-attributes #18 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #20 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #21 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #22 = { nounwind willreturn memory(read) }
-attributes #23 = { nounwind allocsize(0) }
-attributes #24 = { cold noreturn nounwind }
-attributes #25 = { cold }
-attributes #26 = { noreturn }
+attributes #18 = { nofree noreturn nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #21 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #22 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #23 = { nounwind willreturn memory(read) }
+attributes #24 = { nounwind allocsize(0) }
+attributes #25 = { cold noreturn nounwind }
+attributes #26 = { cold }
+attributes #27 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
 

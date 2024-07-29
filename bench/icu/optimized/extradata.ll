@@ -331,7 +331,7 @@ if.then5:                                         ; preds = %if.then
   %9 = load ptr, ptr @stderr, align 8
   %conv6 = sext i32 %c to i64
   %call7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str, i64 noundef %conv6, i32 noundef 31) #12
-  tail call void @exit(i32 noundef 3) #11
+  tail call void @exit(i32 noundef 3) #13
   unreachable
 
 if.end:                                           ; preds = %if.then
@@ -464,7 +464,7 @@ if.end33:                                         ; preds = %if.then29, %if.end2
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
@@ -627,7 +627,7 @@ if.then:                                          ; preds = %entry
   %1 = load ptr, ptr @stderr, align 8
   %conv2 = sext i32 %c to i64
   %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.2, i64 noundef %conv2) #12
-  tail call void @exit(i32 noundef 3) #11
+  tail call void @exit(i32 noundef 3) #13
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -736,7 +736,7 @@ if.then:                                          ; preds = %entry
   %conv = sext i32 %start to i64
   %conv2 = sext i32 %end to i64
   %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.3, i64 noundef %conv, i64 noundef %conv2) #12
-  tail call void @exit(i32 noundef 5) #11
+  tail call void @exit(i32 noundef 5) #13
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -749,7 +749,7 @@ if.then4:                                         ; preds = %if.end
   %2 = load ptr, ptr @stderr, align 8
   %conv5 = sext i32 %start to i64
   %call7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.4, i64 noundef %conv5, ptr noundef nonnull %1) #12
-  tail call void @exit(i32 noundef 3) #11
+  tail call void @exit(i32 noundef 3) #13
   unreachable
 
 if.end8:                                          ; preds = %if.end
@@ -952,7 +952,7 @@ sw.bb37:                                          ; preds = %entry
   br label %sw.epilog
 
 sw.default:                                       ; preds = %entry
-  tail call void @exit(i32 noundef 5) #11
+  tail call void @exit(i32 noundef 5) #13
   unreachable
 
 sw.epilog:                                        ; preds = %_ZNK6icu_759ExtraData12setNoNoDeltaEiRNS_4NormE.exit58, %_ZNK6icu_759ExtraData12setNoNoDeltaEiRNS_4NormE.exit, %entry, %entry, %entry, %sw.bb37, %sw.bb34, %sw.bb31, %if.end28, %if.end, %sw.bb10, %sw.bb4, %sw.bb2
@@ -1055,7 +1055,7 @@ _ZN6icu_759HashtableD2Ev.exit12:                  ; preds = %_ZN6icu_759Hashtabl
 define linkonce_odr dso_local void @_ZN6icu_759ExtraDataD0Ev(ptr noundef nonnull align 8 dereferenceable(888) %this) unnamed_addr #2 comdat align 2 {
 entry:
   tail call void @_ZN6icu_759ExtraDataD2Ev(ptr noundef nonnull align 8 dereferenceable(888) %this) #10
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #13
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #14
   ret void
 }
 
@@ -1117,7 +1117,7 @@ attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protect
 attributes #2 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
@@ -1125,7 +1125,8 @@ attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memo
 attributes #10 = { nounwind }
 attributes #11 = { noreturn nounwind }
 attributes #12 = { cold }
-attributes #13 = { builtin nounwind }
+attributes #13 = { cold noreturn nounwind }
+attributes #14 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

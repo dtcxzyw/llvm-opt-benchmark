@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define void @stress_model(i32 noundef %0, ptr noundef %1, ptr noundef readonly %2, i32 noundef %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 {
-  %6 = tail call zeroext i1 @SparseMatrix_is_symmetric(ptr noundef %1, i1 noundef zeroext false) #5
+  %6 = tail call zeroext i1 @SparseMatrix_is_symmetric(ptr noundef %1, i1 noundef zeroext false) #6
   %7 = getelementptr inbounds i8, ptr %1, i64 16
   %8 = load i32, ptr %7, align 8
   %.not = icmp eq i32 %8, 1
@@ -21,17 +21,17 @@ define void @stress_model(i32 noundef %0, ptr noundef %1, ptr noundef readonly %
   br i1 %.not, label %11, label %.thread
 
 11:                                               ; preds = %10
-  %12 = tail call ptr @SparseMatrix_symmetrize(ptr noundef nonnull %1, i1 noundef zeroext false) #5
-  %13 = tail call ptr @SparseMatrix_remove_diagonal(ptr noundef %12) #5
+  %12 = tail call ptr @SparseMatrix_symmetrize(ptr noundef nonnull %1, i1 noundef zeroext false) #6
+  %13 = tail call ptr @SparseMatrix_remove_diagonal(ptr noundef %12) #6
   br label %15
 
 .thread:                                          ; preds = %9, %10
-  %14 = tail call ptr @SparseMatrix_get_real_adjacency_matrix_symmetrized(ptr noundef nonnull %1) #5
+  %14 = tail call ptr @SparseMatrix_get_real_adjacency_matrix_symmetrized(ptr noundef nonnull %1) #6
   br label %15
 
 15:                                               ; preds = %11, %.thread, %9
   %.041 = phi ptr [ %13, %11 ], [ %14, %.thread ], [ %1, %9 ]
-  %16 = tail call ptr @SparseMatrix_remove_diagonal(ptr noundef %.041) #5
+  %16 = tail call ptr @SparseMatrix_remove_diagonal(ptr noundef %.041) #6
   store i32 0, ptr %4, align 4
   %17 = load i32, ptr %16, align 8
   %.not45 = icmp eq ptr %2, null
@@ -45,7 +45,7 @@ define void @stress_model(i32 noundef %0, ptr noundef %1, ptr noundef readonly %
 
 21:                                               ; preds = %15
   %22 = load ptr, ptr %2, align 8
-  %23 = tail call ptr @SparseStressMajorizationSmoother_new(ptr noundef nonnull %16, i32 noundef %0, ptr noundef %22) #5
+  %23 = tail call ptr @SparseStressMajorizationSmoother_new(ptr noundef nonnull %16, i32 noundef %0, ptr noundef %22) #6
   %.not46 = icmp eq ptr %23, null
   br i1 %.not46, label %24, label %25
 
@@ -59,7 +59,7 @@ define void @stress_model(i32 noundef %0, ptr noundef %1, ptr noundef readonly %
   %27 = getelementptr inbounds i8, ptr %23, i64 48
   store i32 2, ptr %27, align 8
   %28 = load ptr, ptr %2, align 8
-  %29 = tail call double @SparseStressMajorizationSmoother_smooth(ptr noundef nonnull %23, i32 noundef %0, ptr noundef %28, i32 noundef %3) #5
+  %29 = tail call double @SparseStressMajorizationSmoother_smooth(ptr noundef nonnull %23, i32 noundef %0, ptr noundef %28, i32 noundef %3) #6
   %30 = mul nsw i32 %17, %0
   %31 = icmp sgt i32 %30, 0
   br i1 %31, label %.lr.ph, label %._crit_edge
@@ -82,7 +82,7 @@ define void @stress_model(i32 noundef %0, ptr noundef %1, ptr noundef readonly %
   br i1 %exitcond.not, label %._crit_edge, label %33
 
 ._crit_edge:                                      ; preds = %33, %25
-  tail call void @SparseStressMajorizationSmoother_delete(ptr noundef nonnull %23) #5
+  tail call void @SparseStressMajorizationSmoother_delete(ptr noundef nonnull %23) #6
   br label %39
 
 39:                                               ; preds = %._crit_edge, %24
@@ -90,7 +90,7 @@ define void @stress_model(i32 noundef %0, ptr noundef %1, ptr noundef readonly %
   br i1 %.not47, label %41, label %40
 
 40:                                               ; preds = %39
-  tail call void @SparseMatrix_delete(ptr noundef nonnull %16) #5
+  tail call void @SparseMatrix_delete(ptr noundef nonnull %16) #6
   br label %41
 
 41:                                               ; preds = %40, %39
@@ -105,15 +105,15 @@ declare ptr @SparseMatrix_remove_diagonal(ptr noundef) local_unnamed_addr #1
 
 declare ptr @SparseMatrix_get_real_adjacency_matrix_symmetrized(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
-define internal fastcc void @gv_calloc(i64 noundef %0) unnamed_addr #0 {
+; Function Attrs: nofree nounwind uwtable
+define internal fastcc void @gv_calloc(i64 noundef %0) unnamed_addr #2 {
   %mul.ov = icmp ugt i64 %0, 2305843009213693951
   br i1 %mul.ov, label %2, label %5
 
 2:                                                ; preds = %1
   %3 = load ptr, ptr @stderr, align 8
-  %4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str, i64 noundef %0, i64 noundef 8) #6
-  tail call fastcc void @graphviz_exit() #7
+  %4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str, i64 noundef %0, i64 noundef 8) #7
+  tail call fastcc void @graphviz_exit() #8
   unreachable
 
 5:                                                ; preds = %1
@@ -129,26 +129,27 @@ declare void @SparseStressMajorizationSmoother_delete(ptr noundef) local_unnamed
 declare void @SparseMatrix_delete(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
 
-; Function Attrs: noreturn nounwind uwtable
-define internal fastcc void @graphviz_exit() unnamed_addr #3 {
-  tail call void @exit(i32 noundef 1) #8
+; Function Attrs: nofree noreturn nounwind uwtable
+define internal fastcc void @graphviz_exit() unnamed_addr #4 {
+  tail call void @exit(i32 noundef 1) #9
   unreachable
 }
 
-; Function Attrs: noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #4
+; Function Attrs: nofree noreturn nounwind
+declare void @exit(i32 noundef) local_unnamed_addr #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind }
-attributes #6 = { cold nounwind }
-attributes #7 = { noreturn }
-attributes #8 = { noreturn nounwind }
+attributes #2 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind }
+attributes #7 = { cold nounwind }
+attributes #8 = { noreturn }
+attributes #9 = { cold noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

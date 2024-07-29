@@ -79,7 +79,7 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %tobool.not, label %if.then3, label %if.end4
 
 if.then3:                                         ; preds = %if.end
-  tail call fastcc void @err_sys(ptr noundef nonnull @.str.1) #13
+  tail call fastcc void @err_sys(ptr noundef nonnull @.str.1) #14
   unreachable
 
 if.end4:                                          ; preds = %if.end
@@ -89,7 +89,7 @@ if.end4:                                          ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %on.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %on2.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %addr.i, i8 0, i64 16, i1 false)
-  %call.i.i = tail call ptr @__ctype_b_loc() #14
+  %call.i.i = tail call ptr @__ctype_b_loc() #15
   %4 = load ptr, ptr %call.i.i, align 8
   %arrayidx2.i.i = getelementptr inbounds i8, ptr %4, i64 98
   %5 = load i16, ptr %arrayidx2.i.i, align 2
@@ -98,7 +98,7 @@ if.end4:                                          ; preds = %if.end
   br i1 %tobool.not.i.i, label %if.end12.i.i, label %if.then4.i.i
 
 if.then4.i.i:                                     ; preds = %if.end4
-  %call6.i.i = tail call ptr @gethostbyname(ptr noundef nonnull @.str.28) #15
+  %call6.i.i = tail call ptr @gethostbyname(ptr noundef nonnull @.str.28) #16
   %tobool7.not.i.i = icmp eq ptr %call6.i.i, null
   br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
 
@@ -112,120 +112,120 @@ if.then8.i.i:                                     ; preds = %if.then4.i.i
   %conv10.i.i = sext i32 %9 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %sin_addr.i.i, ptr align 1 %8, i64 %conv10.i.i, i1 false)
   store i16 2, ptr %addr.i, align 4
-  %call13.c.i.i = tail call zeroext i16 @htons(i16 noundef zeroext 11111) #14
+  %call13.c.i.i = tail call zeroext i16 @htons(i16 noundef zeroext 11111) #15
   %sin_port.c.i.i = getelementptr inbounds i8, ptr %addr.i, i64 2
   store i16 %call13.c.i.i, ptr %sin_port.c.i.i, align 2
   br label %build_addr.exit.i
 
 if.else.i.i:                                      ; preds = %if.then4.i.i
-  tail call fastcc void @err_sys(ptr noundef nonnull @.str.34) #13
+  tail call fastcc void @err_sys(ptr noundef nonnull @.str.34) #14
   unreachable
 
 if.end12.i.i:                                     ; preds = %if.end4
   store i16 2, ptr %addr.i, align 4
-  %call13.i.i = tail call zeroext i16 @htons(i16 noundef zeroext 11111) #14
+  %call13.i.i = tail call zeroext i16 @htons(i16 noundef zeroext 11111) #15
   %sin_port.i.i = getelementptr inbounds i8, ptr %addr.i, i64 2
   store i16 %call13.i.i, ptr %sin_port.i.i, align 2
-  %call22.i.i = tail call i32 @inet_addr(ptr noundef nonnull @.str.28) #15
+  %call22.i.i = tail call i32 @inet_addr(ptr noundef nonnull @.str.28) #16
   %sin_addr23.i.i = getelementptr inbounds i8, ptr %addr.i, i64 4
   store i32 %call22.i.i, ptr %sin_addr23.i.i, align 4
   br label %build_addr.exit.i
 
 build_addr.exit.i:                                ; preds = %if.end12.i.i, %if.then8.i.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %on.i.i)
-  %call1.i.i = tail call i32 @socket(i32 noundef 2, i32 noundef 1, i32 noundef 6) #15
+  %call1.i.i = tail call i32 @socket(i32 noundef 2, i32 noundef 1, i32 noundef 6) #16
   %cmp.i.i = icmp slt i32 %call1.i.i, -1
   br i1 %cmp.i.i, label %if.then2.i.i, label %if.end3.i.i
 
 if.then2.i.i:                                     ; preds = %build_addr.exit.i
-  tail call fastcc void @err_sys_with_errno(ptr noundef nonnull @.str.35) #13
+  tail call fastcc void @err_sys_with_errno(ptr noundef nonnull @.str.35) #14
   unreachable
 
 if.end3.i.i:                                      ; preds = %build_addr.exit.i
-  %call4.i.i = tail call ptr @signal(i32 noundef 13, ptr noundef nonnull inttoptr (i64 1 to ptr)) #15
+  %call4.i.i = tail call ptr @signal(i32 noundef 13, ptr noundef nonnull inttoptr (i64 1 to ptr)) #16
   store i32 1, ptr %on.i.i, align 4
-  %call8.i.i = call i32 @setsockopt(i32 noundef %call1.i.i, i32 noundef 6, i32 noundef 1, ptr noundef nonnull %on.i.i, i32 noundef 4) #15
+  %call8.i.i = call i32 @setsockopt(i32 noundef %call1.i.i, i32 noundef 6, i32 noundef 1, ptr noundef nonnull %on.i.i, i32 noundef 4) #16
   %cmp9.i.i = icmp slt i32 %call8.i.i, 0
   br i1 %cmp9.i.i, label %if.then10.i.i, label %tcp_socket.exit.i
 
 if.then10.i.i:                                    ; preds = %if.end3.i.i
-  call fastcc void @err_sys_with_errno(ptr noundef nonnull @.str.36) #13
+  call fastcc void @err_sys_with_errno(ptr noundef nonnull @.str.36) #14
   unreachable
 
 tcp_socket.exit.i:                                ; preds = %if.end3.i.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %on.i.i)
   store i32 1, ptr %on.i, align 4
-  %call.i = call i32 @setsockopt(i32 noundef %call1.i.i, i32 noundef 1, i32 noundef 2, ptr noundef nonnull %on.i, i32 noundef 4) #15
+  %call.i = call i32 @setsockopt(i32 noundef %call1.i.i, i32 noundef 1, i32 noundef 2, ptr noundef nonnull %on.i, i32 noundef 4) #16
   %cmp.i = icmp slt i32 %call.i, 0
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %tcp_socket.exit.i
-  call fastcc void @err_sys_with_errno(ptr noundef nonnull @.str.29) #13
+  call fastcc void @err_sys_with_errno(ptr noundef nonnull @.str.29) #14
   unreachable
 
 if.end.i:                                         ; preds = %tcp_socket.exit.i
   store i32 1, ptr %on2.i, align 4
-  %call4.i = call i32 @setsockopt(i32 noundef %call1.i.i, i32 noundef 1, i32 noundef 15, ptr noundef nonnull %on2.i, i32 noundef 4) #15
+  %call4.i = call i32 @setsockopt(i32 noundef %call1.i.i, i32 noundef 1, i32 noundef 15, ptr noundef nonnull %on2.i, i32 noundef 4) #16
   %cmp5.i = icmp slt i32 %call4.i, 0
   br i1 %cmp5.i, label %if.then6.i, label %if.end7.i
 
 if.then6.i:                                       ; preds = %if.end.i
-  call fastcc void @err_sys_with_errno(ptr noundef nonnull @.str.30) #13
+  call fastcc void @err_sys_with_errno(ptr noundef nonnull @.str.30) #14
   unreachable
 
 if.end7.i:                                        ; preds = %if.end.i
-  %call8.i = call i32 @bind(i32 noundef %call1.i.i, ptr noundef nonnull %addr.i, i32 noundef 16) #15
+  %call8.i = call i32 @bind(i32 noundef %call1.i.i, ptr noundef nonnull %addr.i, i32 noundef 16) #16
   %cmp9.not.i = icmp eq i32 %call8.i, 0
   br i1 %cmp9.not.i, label %if.then13.i, label %if.then10.i
 
 if.then10.i:                                      ; preds = %if.end7.i
-  call fastcc void @err_sys_with_errno(ptr noundef nonnull @.str.31) #13
+  call fastcc void @err_sys_with_errno(ptr noundef nonnull @.str.31) #14
   unreachable
 
 if.then13.i:                                      ; preds = %if.end7.i
-  %call14.i = call i32 @listen(i32 noundef %call1.i.i, i32 noundef 5) #15
+  %call14.i = call i32 @listen(i32 noundef %call1.i.i, i32 noundef 5) #16
   %cmp15.not.i = icmp eq i32 %call14.i, 0
   br i1 %cmp15.not.i, label %tcp_listen.exit, label %if.then16.i
 
 if.then16.i:                                      ; preds = %if.then13.i
-  call fastcc void @err_sys_with_errno(ptr noundef nonnull @.str.32) #13
+  call fastcc void @err_sys_with_errno(ptr noundef nonnull @.str.32) #14
   unreachable
 
 tcp_listen.exit:                                  ; preds = %if.then13.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %addr.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %on.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %on2.i)
-  %call5 = call ptr @wolfSSLv23_server_method() #15
-  %call6 = call ptr @wolfSSL_CTX_new(ptr noundef %call5) #15
-  %call9 = call i32 @wolfSSL_CTX_use_certificate_file(ptr noundef %call6, ptr noundef nonnull @.str.2, i32 noundef 1) #15
+  %call5 = call ptr @wolfSSLv23_server_method() #16
+  %call6 = call ptr @wolfSSL_CTX_new(ptr noundef %call5) #16
+  %call9 = call i32 @wolfSSL_CTX_use_certificate_file(ptr noundef %call6, ptr noundef nonnull @.str.2, i32 noundef 1) #16
   %cmp10.not = icmp eq i32 %call9, 1
   br i1 %cmp10.not, label %if.end12, label %if.then11
 
 if.then11:                                        ; preds = %tcp_listen.exit
-  call fastcc void @err_sys(ptr noundef nonnull @.str.3) #13
+  call fastcc void @err_sys(ptr noundef nonnull @.str.3) #14
   unreachable
 
 if.end12:                                         ; preds = %tcp_listen.exit
-  %call13 = call i32 @wolfSSL_CTX_use_PrivateKey_file(ptr noundef %call6, ptr noundef nonnull @.str.4, i32 noundef 1) #15
+  %call13 = call i32 @wolfSSL_CTX_use_PrivateKey_file(ptr noundef %call6, ptr noundef nonnull @.str.4, i32 noundef 1) #16
   %cmp14.not = icmp eq i32 %call13, 1
   br i1 %cmp14.not, label %while.body.lr.ph.split.us.preheader, label %if.then15
 
 while.body.lr.ph.split.us.preheader:              ; preds = %if.end12
   store i32 16, ptr %client_len, align 4
-  %call22.us102144 = call i32 @accept(i32 noundef %call1.i.i, ptr noundef nonnull %client, ptr noundef nonnull %client_len) #15
+  %call22.us102144 = call i32 @accept(i32 noundef %call1.i.i, ptr noundef nonnull %client, ptr noundef nonnull %client_len) #16
   %cmp23.us103145 = icmp slt i32 %call22.us102144, -1
   br i1 %cmp23.us103145, label %if.then24, label %if.end25.us
 
 if.then15:                                        ; preds = %if.end12
-  call fastcc void @err_sys(ptr noundef nonnull @.str.5) #13
+  call fastcc void @err_sys(ptr noundef nonnull @.str.5) #14
   unreachable
 
 if.then24:                                        ; preds = %while.body.lr.ph.split.us.critedge, %if.then39.us, %while.body.lr.ph.split.us.preheader
-  call fastcc void @err_sys(ptr noundef nonnull @.str.6) #13
+  call fastcc void @err_sys(ptr noundef nonnull @.str.6) #14
   unreachable
 
 if.then28:                                        ; preds = %if.end25.us
-  call fastcc void @err_sys(ptr noundef nonnull @.str.7) #13
+  call fastcc void @err_sys(ptr noundef nonnull @.str.7) #14
   unreachable
 
 while.body46:                                     ; preds = %while.body46.outer, %do.end167
@@ -233,12 +233,12 @@ while.body46:                                     ; preds = %while.body46.outer,
   br label %do.body47
 
 do.body47:                                        ; preds = %do.cond55, %while.body46
-  %call49 = call i32 @wolfSSL_read(ptr noundef nonnull %call26.us, ptr noundef nonnull %command, i32 noundef 256) #15
+  %call49 = call i32 @wolfSSL_read(ptr noundef nonnull %call26.us, ptr noundef nonnull %command, i32 noundef 256) #16
   %cmp50 = icmp slt i32 %call49, 1
   br i1 %cmp50, label %do.cond55, label %if.end72
 
 do.cond55:                                        ; preds = %do.body47
-  %call53 = call i32 @wolfSSL_get_error(ptr noundef nonnull %call26.us, i32 noundef 0) #15
+  %call53 = call i32 @wolfSSL_get_error(ptr noundef nonnull %call26.us, i32 noundef 0) #16
   %cmp56 = icmp eq i32 %call53, -108
   br i1 %cmp56, label %do.body47, label %if.then61, !llvm.loop !5
 
@@ -250,8 +250,8 @@ if.then61:                                        ; preds = %do.cond55
 if.then66:                                        ; preds = %if.then61
   %11 = load ptr, ptr @stderr, align 8
   %conv67 = sext i32 %call53 to i64
-  %call69 = call ptr @wolfSSL_ERR_error_string(i64 noundef %conv67, ptr noundef nonnull %buffer) #15
-  %call70 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.11, i32 noundef %call53, ptr noundef %call69) #16
+  %call69 = call ptr @wolfSSL_ERR_error_string(i64 noundef %conv67, ptr noundef nonnull %buffer) #16
+  %call70 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.11, i32 noundef %call53, ptr noundef %call69) #17
   br label %while.body.lr.ph.split.us.critedge
 
 if.end72:                                         ; preds = %do.body47
@@ -290,11 +290,11 @@ if.end96:                                         ; preds = %if.end96thread-pre-
 
 if.then101:                                       ; preds = %if.end96
   %puts60 = call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
-  %call176 = call i32 @wolfSSL_shutdown(ptr noundef nonnull %call26.us) #15
-  call void @wolfSSL_free(ptr noundef nonnull %call26.us) #15
-  %call177 = call i32 @close(i32 noundef %call22.us104) #15
-  %call179 = call i32 @close(i32 noundef %call1.i.i) #15
-  call void @wolfSSL_CTX_free(ptr noundef %call6) #15
+  %call176 = call i32 @wolfSSL_shutdown(ptr noundef nonnull %call26.us) #16
+  call void @wolfSSL_free(ptr noundef nonnull %call26.us) #16
+  %call177 = call i32 @close(i32 noundef %call22.us104) #16
+  %call179 = call i32 @close(i32 noundef %call1.i.i) #16
+  call void @wolfSSL_CTX_free(ptr noundef %call6) #16
   br i1 %cmp, label %if.end183, label %if.then181
 
 if.end103:                                        ; preds = %if.end96.thread, %if.end96
@@ -312,16 +312,16 @@ if.end110:                                        ; preds = %if.end103
   br i1 %cmp113, label %if.end119, label %if.end143
 
 if.end119:                                        ; preds = %if.end110
-  %call122 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %command, ptr noundef nonnull dereferenceable(130) @__const.echoserver_test.resp, i64 noundef 257) #15
+  %call122 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %command, ptr noundef nonnull dereferenceable(130) @__const.echoserver_test.resp, i64 noundef 257) #16
   br label %do.body123
 
 do.body123:                                       ; preds = %do.cond131, %if.end119
-  %call125 = call i32 @wolfSSL_write(ptr noundef nonnull %call26.us, ptr noundef nonnull %command, i32 noundef 130) #15
+  %call125 = call i32 @wolfSSL_write(ptr noundef nonnull %call26.us, ptr noundef nonnull %command, i32 noundef 130) #16
   %cmp126 = icmp slt i32 %call125, 1
   br i1 %cmp126, label %do.cond131, label %do.end134
 
 do.cond131:                                       ; preds = %do.body123
-  %call129 = call i32 @wolfSSL_get_error(ptr noundef nonnull %call26.us, i32 noundef 0) #15
+  %call129 = call i32 @wolfSSL_get_error(ptr noundef nonnull %call26.us, i32 noundef 0) #16
   %cmp132 = icmp eq i32 %call129, -108
   br i1 %cmp132, label %do.body123, label %if.then137, !llvm.loop !7
 
@@ -333,9 +333,9 @@ if.then137:                                       ; preds = %do.end134, %do.cond
   %err.28487 = phi i32 [ %call129, %do.cond131 ], [ 0, %do.end134 ]
   %13 = load ptr, ptr @stderr, align 8
   %conv138 = sext i32 %err.28487 to i64
-  %call140 = call ptr @wolfSSL_ERR_error_string(i64 noundef %conv138, ptr noundef nonnull %buffer) #15
-  %call141 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.19, i32 noundef %err.28487, ptr noundef %call140) #16
-  call fastcc void @err_sys(ptr noundef nonnull @.str.20) #13
+  %call140 = call ptr @wolfSSL_ERR_error_string(i64 noundef %conv138, ptr noundef nonnull %buffer) #16
+  %call141 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.19, i32 noundef %err.28487, ptr noundef %call140) #17
+  call fastcc void @err_sys(ptr noundef nonnull @.str.20) #14
   unreachable
 
 if.end143:                                        ; preds = %if.end110
@@ -348,19 +348,19 @@ if.end143:                                        ; preds = %if.end110
 
 if.then150:                                       ; preds = %if.end143
   %14 = load ptr, ptr @stderr, align 8
-  %call151 = tail call ptr @__errno_location() #14
+  %call151 = tail call ptr @__errno_location() #15
   %15 = load i32, ptr %call151, align 4
-  %call152 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22, i32 noundef 464, i32 noundef %15, ptr noundef nonnull @.str.23) #16
-  call fastcc void @err_sys(ptr noundef nonnull @.str.24) #13
+  %call152 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22, i32 noundef 464, i32 noundef %15, ptr noundef nonnull @.str.23) #17
+  call fastcc void @err_sys(ptr noundef nonnull @.str.24) #14
   unreachable
 
 do.body156:                                       ; preds = %if.end143, %do.cond164
-  %call158 = call i32 @wolfSSL_write(ptr noundef nonnull %call26.us, ptr noundef nonnull %command, i32 noundef %call49) #15
+  %call158 = call i32 @wolfSSL_write(ptr noundef nonnull %call26.us, ptr noundef nonnull %command, i32 noundef %call49) #16
   %cmp159 = icmp slt i32 %call158, 1
   br i1 %cmp159, label %do.cond164, label %do.end167
 
 do.cond164:                                       ; preds = %do.body156
-  %call162 = call i32 @wolfSSL_get_error(ptr noundef nonnull %call26.us, i32 noundef 0) #15
+  %call162 = call i32 @wolfSSL_get_error(ptr noundef nonnull %call26.us, i32 noundef 0) #16
   %cmp165 = icmp eq i32 %call162, -108
   br i1 %cmp165, label %do.body156, label %do.end167, !llvm.loop !8
 
@@ -372,52 +372,52 @@ do.end167:                                        ; preds = %do.body156, %do.con
 if.then170:                                       ; preds = %do.end167
   %16 = load ptr, ptr @stderr, align 8
   %conv171 = sext i32 %err.390 to i64
-  %call173 = call ptr @wolfSSL_ERR_error_string(i64 noundef %conv171, ptr noundef nonnull %buffer) #15
-  %call174 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.25, i32 noundef %err.390, ptr noundef %call173) #16
-  call fastcc void @err_sys(ptr noundef nonnull @.str.26) #13
+  %call173 = call ptr @wolfSSL_ERR_error_string(i64 noundef %conv171, ptr noundef nonnull %buffer) #16
+  %call174 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.25, i32 noundef %err.390, ptr noundef %call173) #17
+  call fastcc void @err_sys(ptr noundef nonnull @.str.26) #14
   unreachable
 
 while.body.lr.ph.split.us.critedge:               ; preds = %do.end134, %if.then108, %if.then61, %if.then66
-  %call176.c = call i32 @wolfSSL_shutdown(ptr noundef nonnull %call26.us) #15
-  call void @wolfSSL_free(ptr noundef nonnull %call26.us) #15
-  %call177.c = call i32 @close(i32 noundef %call22.us104) #15
+  %call176.c = call i32 @wolfSSL_shutdown(ptr noundef nonnull %call26.us) #16
+  call void @wolfSSL_free(ptr noundef nonnull %call26.us) #16
+  %call177.c = call i32 @close(i32 noundef %call22.us104) #16
   store i32 16, ptr %client_len, align 4
-  %call22.us102 = call i32 @accept(i32 noundef %call1.i.i, ptr noundef nonnull %client, ptr noundef nonnull %client_len) #15
+  %call22.us102 = call i32 @accept(i32 noundef %call1.i.i, ptr noundef nonnull %client, ptr noundef nonnull %client_len) #16
   %cmp23.us103 = icmp slt i32 %call22.us102, -1
   br i1 %cmp23.us103, label %if.then24, label %if.end25.us.backedge
 
 if.end25.us:                                      ; preds = %while.body.lr.ph.split.us.preheader, %if.end25.us.backedge
   %call22.us104 = phi i32 [ %call22.us104.be, %if.end25.us.backedge ], [ %call22.us102144, %while.body.lr.ph.split.us.preheader ]
-  %call26.us = call ptr @wolfSSL_new(ptr noundef %call6) #15
+  %call26.us = call ptr @wolfSSL_new(ptr noundef %call6) #16
   %cmp27.us = icmp eq ptr %call26.us, null
   br i1 %cmp27.us, label %if.then28, label %if.end29.us
 
 if.end29.us:                                      ; preds = %if.end25.us
-  %call30.us = call i32 @wolfSSL_set_fd(ptr noundef nonnull %call26.us, i32 noundef %call22.us104) #15
-  %call31.us = call i32 @wolfSSL_SetTmpDH_file(ptr noundef nonnull %call26.us, ptr noundef nonnull @.str.8, i32 noundef 1) #15
+  %call30.us = call i32 @wolfSSL_set_fd(ptr noundef nonnull %call26.us, i32 noundef %call22.us104) #16
+  %call31.us = call i32 @wolfSSL_SetTmpDH_file(ptr noundef nonnull %call26.us, ptr noundef nonnull @.str.8, i32 noundef 1) #16
   br label %do.body.us
 
 do.body.us:                                       ; preds = %do.cond.us, %if.end29.us
-  %call32.us = call i32 @wolfSSL_accept(ptr noundef nonnull %call26.us) #15
+  %call32.us = call i32 @wolfSSL_accept(ptr noundef nonnull %call26.us) #16
   %cmp33.not.us = icmp eq i32 %call32.us, 1
   br i1 %cmp33.not.us, label %while.body46.outer, label %do.cond.us
 
 do.cond.us:                                       ; preds = %do.body.us
-  %call35.us = call i32 @wolfSSL_get_error(ptr noundef nonnull %call26.us, i32 noundef 0) #15
+  %call35.us = call i32 @wolfSSL_get_error(ptr noundef nonnull %call26.us, i32 noundef 0) #16
   %cmp37.us = icmp eq i32 %call35.us, -108
   br i1 %cmp37.us, label %do.body.us, label %if.then39.us, !llvm.loop !9
 
 if.then39.us:                                     ; preds = %do.cond.us
   %17 = load ptr, ptr @stderr, align 8
   %conv.us = sext i32 %call35.us to i64
-  %call40.us = call ptr @wolfSSL_ERR_error_string(i64 noundef %conv.us, ptr noundef nonnull %buffer) #15
-  %call41.us = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.9, i32 noundef %call35.us, ptr noundef %call40.us) #16
+  %call40.us = call ptr @wolfSSL_ERR_error_string(i64 noundef %conv.us, ptr noundef nonnull %buffer) #16
+  %call41.us = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.9, i32 noundef %call35.us, ptr noundef %call40.us) #17
   %18 = load ptr, ptr @stderr, align 8
-  %19 = call i64 @fwrite(ptr nonnull @.str.10, i64 18, i64 1, ptr %18) #16
-  call void @wolfSSL_free(ptr noundef nonnull %call26.us) #15
-  %call43.us = call i32 @close(i32 noundef %call22.us104) #15
+  %19 = call i64 @fwrite(ptr nonnull @.str.10, i64 18, i64 1, ptr %18) #17
+  call void @wolfSSL_free(ptr noundef nonnull %call26.us) #16
+  %call43.us = call i32 @close(i32 noundef %call22.us104) #16
   store i32 16, ptr %client_len, align 4
-  %call22.us = call i32 @accept(i32 noundef %call1.i.i, ptr noundef nonnull %client, ptr noundef nonnull %client_len) #15
+  %call22.us = call i32 @accept(i32 noundef %call1.i.i, ptr noundef nonnull %client, ptr noundef nonnull %client_len) #16
   %cmp23.us = icmp slt i32 %call22.us, -1
   br i1 %cmp23.us, label %if.then24, label %if.end25.us.backedge
 
@@ -437,12 +437,12 @@ if.end183:                                        ; preds = %if.then181, %if.the
 ; Function Attrs: nofree nounwind
 declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #1
 
-; Function Attrs: noreturn nounwind uwtable
+; Function Attrs: nofree noreturn nounwind uwtable
 define internal fastcc void @err_sys(ptr noundef %msg) unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr @stderr, align 8
-  %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.27, ptr noundef %msg) #16
-  tail call void @exit(i32 noundef 1) #17
+  %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.27, ptr noundef %msg) #17
+  tail call void @exit(i32 noundef 1) #18
   unreachable
 }
 
@@ -507,7 +507,7 @@ entry:
   store ptr %argv, ptr %argv2, align 8
   %return_code = getelementptr inbounds i8, ptr %args, i64 16
   store i32 0, ptr %return_code, align 8
-  %call = tail call i32 @wolfSSL_Init() #15
+  %call = tail call i32 @wolfSSL_Init() #16
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %entry
@@ -517,7 +517,7 @@ for.body.i:                                       ; preds = %for.inc.i, %entry
   br i1 %cmp1.not.i, label %if.end.i, label %ChangeToWolfRoot.exit
 
 if.end.i:                                         ; preds = %for.body.i
-  %call3.i = tail call i32 @chdir(ptr noundef nonnull @.str.39) #15
+  %call3.i = tail call i32 @chdir(ptr noundef nonnull @.str.39) #16
   %cmp4.i = icmp slt i32 %call3.i, 0
   br i1 %cmp4.i, label %if.then5.i, label %for.inc.i
 
@@ -531,13 +531,13 @@ for.inc.i:                                        ; preds = %if.end.i
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !10
 
 for.end.i:                                        ; preds = %for.inc.i, %if.then5.i
-  tail call fastcc void @err_sys(ptr noundef nonnull @.str.41) #13
+  tail call fastcc void @err_sys(ptr noundef nonnull @.str.41) #14
   unreachable
 
 ChangeToWolfRoot.exit:                            ; preds = %for.body.i
   %call2.i = tail call i32 @fclose(ptr noundef nonnull %call.i)
   %call4 = call ptr @echoserver_test(ptr noundef nonnull %args)
-  %call5 = tail call i32 @wolfSSL_Cleanup() #15
+  %call5 = tail call i32 @wolfSSL_Cleanup() #16
   %0 = load i32, ptr %return_code, align 8
   ret i32 %0
 }
@@ -546,21 +546,21 @@ declare i32 @wolfSSL_Init() local_unnamed_addr #3
 
 declare i32 @wolfSSL_Cleanup() local_unnamed_addr #3
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind
 declare i32 @setsockopt(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal fastcc void @err_sys_with_errno(ptr noundef %msg) unnamed_addr #2 {
+define internal fastcc void @err_sys_with_errno(ptr noundef %msg) unnamed_addr #9 {
 entry:
   %0 = load ptr, ptr @stderr, align 8
-  %call = tail call ptr @__errno_location() #14
+  %call = tail call ptr @__errno_location() #15
   %1 = load i32, ptr %call, align 4
-  %call1 = tail call ptr @strerror(i32 noundef %1) #15
-  %call2 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.37, ptr noundef %msg, ptr noundef %call1) #16
-  tail call void @exit(i32 noundef 1) #17
+  %call1 = tail call ptr @strerror(i32 noundef %1) #16
+  %call2 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.37, ptr noundef %msg, ptr noundef %call1) #17
+  tail call void @exit(i32 noundef 1) #18
   unreachable
 }
 
@@ -571,7 +571,7 @@ declare i32 @bind(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
 declare i32 @listen(i32 noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__ctype_b_loc() local_unnamed_addr #6
@@ -597,38 +597,39 @@ declare ptr @strerror(i32 noundef) local_unnamed_addr #8
 declare i32 @chdir(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #10
+declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #11
+declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #12
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #11
+declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #10 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #11 = { nofree nounwind }
-attributes #12 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #13 = { noreturn }
-attributes #14 = { nounwind willreturn memory(none) }
-attributes #15 = { nounwind }
-attributes #16 = { cold }
-attributes #17 = { noreturn nounwind }
+attributes #9 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #11 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #12 = { nofree nounwind }
+attributes #13 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #14 = { noreturn }
+attributes #15 = { nounwind willreturn memory(none) }
+attributes #16 = { nounwind }
+attributes #17 = { cold }
+attributes #18 = { cold noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

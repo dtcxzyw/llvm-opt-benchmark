@@ -26,7 +26,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noalias noundef ptr @qnum_from_int(i64 noundef %value) local_unnamed_addr #0 {
 entry:
-  %call = tail call noalias dereferenceable_or_null(32) ptr @g_malloc_n(i64 noundef 1, i64 noundef 32) #4
+  %call = tail call noalias dereferenceable_or_null(32) ptr @g_malloc_n(i64 noundef 1, i64 noundef 32) #5
   %refcnt.i = getelementptr inbounds i8, ptr %call, i64 8
   store i64 1, ptr %refcnt.i, align 8
   store i32 2, ptr %call, align 8
@@ -43,7 +43,7 @@ declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noalias noundef ptr @qnum_from_uint(i64 noundef %value) local_unnamed_addr #0 {
 entry:
-  %call = tail call noalias dereferenceable_or_null(32) ptr @g_malloc_n(i64 noundef 1, i64 noundef 32) #4
+  %call = tail call noalias dereferenceable_or_null(32) ptr @g_malloc_n(i64 noundef 1, i64 noundef 32) #5
   %refcnt.i = getelementptr inbounds i8, ptr %call, i64 8
   store i64 1, ptr %refcnt.i, align 8
   store i32 2, ptr %call, align 8
@@ -57,7 +57,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noalias noundef ptr @qnum_from_double(double noundef %value) local_unnamed_addr #0 {
 entry:
-  %call = tail call noalias dereferenceable_or_null(32) ptr @g_malloc_n(i64 noundef 1, i64 noundef 32) #4
+  %call = tail call noalias dereferenceable_or_null(32) ptr @g_malloc_n(i64 noundef 1, i64 noundef 32) #5
   %refcnt.i = getelementptr inbounds i8, ptr %call, i64 8
   store i64 1, ptr %refcnt.i, align 8
   store i32 2, ptr %call, align 8
@@ -91,7 +91,7 @@ sw.bb1:                                           ; preds = %entry
   br i1 %cmp, label %return, label %return.sink.split
 
 sw.epilog:                                        ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 88, ptr noundef nonnull @__PRETTY_FUNCTION__.qnum_get_try_int) #5
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 88, ptr noundef nonnull @__PRETTY_FUNCTION__.qnum_get_try_int) #6
   unreachable
 
 return.sink.split:                                ; preds = %sw.bb1, %sw.bb
@@ -130,11 +130,11 @@ sw.bb1.i:                                         ; preds = %entry
   br i1 %cmp.i, label %if.else, label %if.end
 
 sw.epilog.i:                                      ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 88, ptr noundef nonnull @__PRETTY_FUNCTION__.qnum_get_try_int) #5
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 88, ptr noundef nonnull @__PRETTY_FUNCTION__.qnum_get_try_int) #6
   unreachable
 
 if.else:                                          ; preds = %sw.bb1.i, %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.qnum_get_int) #5
+  tail call void @__assert_fail(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.qnum_get_int) #6
   unreachable
 
 if.end:                                           ; preds = %sw.bb1.i, %sw.bb.i
@@ -165,7 +165,7 @@ sw.bb2:                                           ; preds = %entry
   br label %return.sink.split
 
 sw.epilog:                                        ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qnum_get_try_uint) #5
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qnum_get_try_uint) #6
   unreachable
 
 return.sink.split:                                ; preds = %sw.bb, %sw.bb2
@@ -201,11 +201,11 @@ sw.bb2.i:                                         ; preds = %entry
   br label %if.end
 
 sw.epilog.i:                                      ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qnum_get_try_uint) #5
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qnum_get_try_uint) #6
   unreachable
 
 if.else:                                          ; preds = %sw.bb.i, %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 139, ptr noundef nonnull @__PRETTY_FUNCTION__.qnum_get_uint) #5
+  tail call void @__assert_fail(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 139, ptr noundef nonnull @__PRETTY_FUNCTION__.qnum_get_uint) #6
   unreachable
 
 if.end:                                           ; preds = %sw.bb.i, %sw.bb2.i
@@ -242,7 +242,7 @@ sw.bb4:                                           ; preds = %entry
   br label %return
 
 sw.epilog:                                        ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 159, ptr noundef nonnull @__PRETTY_FUNCTION__.qnum_get_double) #5
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 159, ptr noundef nonnull @__PRETTY_FUNCTION__.qnum_get_double) #6
   unreachable
 
 return:                                           ; preds = %sw.bb4, %sw.bb1, %sw.bb
@@ -264,23 +264,23 @@ entry:
 sw.bb:                                            ; preds = %entry
   %u = getelementptr inbounds i8, ptr %qn, i64 24
   %1 = load i64, ptr %u, align 8
-  %call = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.3, i64 noundef %1) #6
+  %call = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.3, i64 noundef %1) #7
   br label %return
 
 sw.bb1:                                           ; preds = %entry
   %u2 = getelementptr inbounds i8, ptr %qn, i64 24
   %2 = load i64, ptr %u2, align 8
-  %call3 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.4, i64 noundef %2) #6
+  %call3 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.4, i64 noundef %2) #7
   br label %return
 
 sw.bb4:                                           ; preds = %entry
   %u5 = getelementptr inbounds i8, ptr %qn, i64 24
   %3 = load double, ptr %u5, align 8
-  %call6 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.5, double noundef %3) #6
+  %call6 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.5, double noundef %3) #7
   br label %return
 
 sw.epilog:                                        ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 175, ptr noundef nonnull @__PRETTY_FUNCTION__.qnum_to_string) #5
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 175, ptr noundef nonnull @__PRETTY_FUNCTION__.qnum_to_string) #6
   unreachable
 
 return:                                           ; preds = %sw.bb4, %sw.bb1, %sw.bb
@@ -308,7 +308,7 @@ land.lhs.true.i:                                  ; preds = %tailrecurse
   br i1 %or.cond.i.i, label %qobject_type.exit.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %land.lhs.true.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_type) #5
+  tail call void @__assert_fail(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_type) #6
   unreachable
 
 qobject_type.exit.i:                              ; preds = %land.lhs.true.i
@@ -330,7 +330,7 @@ land.lhs.true.i15:                                ; preds = %qobject_check_type.
   br i1 %or.cond.i.i17, label %qobject_type.exit.i19, label %if.else.i.i18
 
 if.else.i.i18:                                    ; preds = %land.lhs.true.i15
-  tail call void @__assert_fail(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_type) #5
+  tail call void @__assert_fail(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_type) #6
   unreachable
 
 qobject_type.exit.i19:                            ; preds = %land.lhs.true.i15
@@ -380,7 +380,7 @@ land.rhs:                                         ; preds = %sw.bb5
   br label %return
 
 sw.epilog:                                        ; preds = %sw.bb
-  tail call void @abort() #5
+  tail call void @abort() #6
   unreachable
 
 sw.bb12:                                          ; preds = %qobject_check_type.exit23
@@ -401,7 +401,7 @@ sw.bb16:                                          ; preds = %sw.bb12
   br label %return
 
 sw.epilog21:                                      ; preds = %sw.bb12
-  tail call void @abort() #5
+  tail call void @abort() #6
   unreachable
 
 sw.bb22:                                          ; preds = %qobject_check_type.exit23
@@ -422,11 +422,11 @@ sw.bb25:                                          ; preds = %sw.bb22
   br label %return
 
 sw.epilog29:                                      ; preds = %sw.bb22
-  tail call void @abort() #5
+  tail call void @abort() #6
   unreachable
 
 sw.epilog30:                                      ; preds = %qobject_check_type.exit23
-  tail call void @abort() #5
+  tail call void @abort() #6
   unreachable
 
 return:                                           ; preds = %sw.bb12, %sw.bb22, %sw.bb22, %sw.bb, %sw.bb5, %land.rhs, %sw.bb25, %sw.bb16, %sw.bb3
@@ -434,8 +434,8 @@ return:                                           ; preds = %sw.bb12, %sw.bb22, 
   ret i1 %retval.0
 }
 
-; Function Attrs: noreturn nounwind
-declare void @abort() local_unnamed_addr #2
+; Function Attrs: cold nofree noreturn nounwind
+declare void @abort() local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qnum_destroy_obj(ptr noundef %obj) local_unnamed_addr #0 {
@@ -444,7 +444,7 @@ entry:
   br i1 %cmp.not, label %if.else, label %land.lhs.true.i
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.1, i32 noundef 239, ptr noundef nonnull @__PRETTY_FUNCTION__.qnum_destroy_obj) #5
+  tail call void @__assert_fail(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.1, i32 noundef 239, ptr noundef nonnull @__PRETTY_FUNCTION__.qnum_destroy_obj) #6
   unreachable
 
 land.lhs.true.i:                                  ; preds = %entry
@@ -454,13 +454,13 @@ land.lhs.true.i:                                  ; preds = %entry
   br i1 %or.cond.i.i, label %qobject_type.exit.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %land.lhs.true.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_type) #5
+  tail call void @__assert_fail(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_type) #6
   unreachable
 
 qobject_type.exit.i:                              ; preds = %land.lhs.true.i
   %cmp.i = icmp eq i32 %obj.val.i, 2
   %spec.select = select i1 %cmp.i, ptr %obj, ptr null
-  tail call void @g_free(ptr noundef %spec.select) #6
+  tail call void @g_free(ptr noundef %spec.select) #7
   ret void
 }
 
@@ -479,7 +479,7 @@ lor.lhs.false.i:                                  ; preds = %entry
   br i1 %tobool1.not.i, label %if.else.i, label %land.lhs.true.i
 
 if.else.i:                                        ; preds = %lor.lhs.false.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.10, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #5
+  tail call void @__assert_fail(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.10, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #6
   unreachable
 
 land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
@@ -489,7 +489,7 @@ land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
   br i1 %cmp.i, label %if.then5.i, label %qobject_unref_impl.exit
 
 if.then5.i:                                       ; preds = %land.lhs.true.i
-  tail call void @qobject_destroy(ptr noundef nonnull %q) #6
+  tail call void @qobject_destroy(ptr noundef nonnull %q) #7
   br label %qobject_unref_impl.exit
 
 qobject_unref_impl.exit:                          ; preds = %entry, %land.lhs.true.i, %if.then5.i
@@ -502,9 +502,10 @@ attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-ve
 attributes #1 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind allocsize(0,1) }
-attributes #5 = { noreturn nounwind }
-attributes #6 = { nounwind }
+attributes #4 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind allocsize(0,1) }
+attributes #6 = { noreturn nounwind }
+attributes #7 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

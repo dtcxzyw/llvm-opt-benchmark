@@ -35,7 +35,7 @@ if.end:                                           ; preds = %entry
   %add = add i32 %2, 1
   %conv = sext i32 %add to i64
   %mul = shl nsw i64 %conv, 3
-  %call = tail call ptr @g_realloc(ptr noundef %1, i64 noundef %mul) #8
+  %call = tail call ptr @g_realloc(ptr noundef %1, i64 noundef %mul) #9
   store ptr %call, ptr @char_drivers, align 8
   %3 = load i32, ptr @drivers_count, align 4
   %inc = add i32 %3, 1
@@ -54,7 +54,7 @@ declare ptr @g_realloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @replay_chr_be_write(ptr noundef readnone %s, ptr nocapture noundef readonly %buf, i32 noundef %len) local_unnamed_addr #0 {
 entry:
-  %call = tail call noalias dereferenceable_or_null(24) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 24) #9
+  %call = tail call noalias dereferenceable_or_null(24) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 24) #10
   %0 = load i32, ptr @drivers_count, align 4
   %cmp4.i = icmp sgt i32 %0, 0
   br i1 %cmp4.i, label %for.body.lr.ph.i, label %find_char_driver.exit.thread
@@ -79,28 +79,28 @@ for.inc.i:                                        ; preds = %for.body.i
 find_char_driver.exit.thread:                     ; preds = %for.inc.i, %entry
   store i32 -1, ptr %call, align 8
   %3 = load ptr, ptr @stderr, align 8
-  %4 = tail call i64 @fwrite(ptr nonnull @.str, i64 32, i64 1, ptr %3) #10
-  tail call void @exit(i32 noundef 1) #11
+  %4 = tail call i64 @fwrite(ptr nonnull @.str, i64 32, i64 1, ptr %3) #11
+  tail call void @exit(i32 noundef 1) #12
   unreachable
 
 find_char_driver.exit:                            ; preds = %for.body.i
   %5 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %5, ptr %call, align 8
   %conv = sext i32 %len to i64
-  %call4 = tail call noalias ptr @g_malloc(i64 noundef %conv) #12
+  %call4 = tail call noalias ptr @g_malloc(i64 noundef %conv) #13
   %buf5 = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %call4, ptr %buf5, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call4, ptr align 1 %buf, i64 %conv, i1 false)
   %len9 = getelementptr inbounds i8, ptr %call, i64 16
   store i64 %conv, ptr %len9, align 8
-  tail call void @replay_add_event(i32 noundef 4, ptr noundef nonnull %call, ptr noundef null, i64 noundef 0) #8
+  tail call void @replay_add_event(i32 noundef 4, ptr noundef nonnull %call, ptr noundef null, i64 noundef 0) #9
   ret void
 }
 
 ; Function Attrs: allocsize(0,1)
 declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #2
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: allocsize(0)
@@ -124,10 +124,10 @@ entry:
   %len = getelementptr inbounds i8, ptr %opaque, i64 16
   %4 = load i64, ptr %len, align 8
   %conv = trunc i64 %4 to i32
-  tail call void @qemu_chr_be_write_impl(ptr noundef %2, ptr noundef %3, i32 noundef %conv) #8
+  tail call void @qemu_chr_be_write_impl(ptr noundef %2, ptr noundef %3, i32 noundef %conv) #9
   %5 = load ptr, ptr %buf, align 8
-  tail call void @g_free(ptr noundef %5) #8
-  tail call void @g_free(ptr noundef nonnull %opaque) #8
+  tail call void @g_free(ptr noundef %5) #9
+  tail call void @g_free(ptr noundef nonnull %opaque) #9
   ret void
 }
 
@@ -140,12 +140,12 @@ define dso_local void @replay_event_char_read_save(ptr nocapture noundef readonl
 entry:
   %0 = load i32, ptr %opaque, align 8
   %conv = trunc i32 %0 to i8
-  tail call void @replay_put_byte(i8 noundef zeroext %conv) #8
+  tail call void @replay_put_byte(i8 noundef zeroext %conv) #9
   %buf = getelementptr inbounds i8, ptr %opaque, i64 8
   %1 = load ptr, ptr %buf, align 8
   %len = getelementptr inbounds i8, ptr %opaque, i64 16
   %2 = load i64, ptr %len, align 8
-  tail call void @replay_put_array(ptr noundef %1, i64 noundef %2) #8
+  tail call void @replay_put_array(ptr noundef %1, i64 noundef %2) #9
   ret void
 }
 
@@ -156,13 +156,13 @@ declare void @replay_put_array(ptr noundef, i64 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef ptr @replay_event_char_read_load() local_unnamed_addr #0 {
 entry:
-  %call = tail call noalias dereferenceable_or_null(24) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 24) #9
-  %call1 = tail call zeroext i8 @replay_get_byte() #8
+  %call = tail call noalias dereferenceable_or_null(24) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 24) #10
+  %call1 = tail call zeroext i8 @replay_get_byte() #9
   %conv = zext i8 %call1 to i32
   store i32 %conv, ptr %call, align 8
   %buf = getelementptr inbounds i8, ptr %call, i64 8
   %len = getelementptr inbounds i8, ptr %call, i64 16
-  tail call void @replay_get_array_alloc(ptr noundef nonnull %buf, ptr noundef nonnull %len) #8
+  tail call void @replay_get_array_alloc(ptr noundef nonnull %buf, ptr noundef nonnull %len) #9
   ret ptr %call
 }
 
@@ -173,18 +173,18 @@ declare void @replay_get_array_alloc(ptr noundef, ptr noundef) local_unnamed_add
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @replay_char_write_event_save(i32 noundef %res, i32 noundef %offset) local_unnamed_addr #0 {
 entry:
-  %call = tail call zeroext i1 @replay_mutex_locked() #8
+  %call = tail call zeroext i1 @replay_mutex_locked() #9
   br i1 %call, label %do.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 98, ptr noundef nonnull @__func__.replay_char_write_event_save, ptr noundef nonnull @.str.2) #11
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 98, ptr noundef nonnull @__func__.replay_char_write_event_save, ptr noundef nonnull @.str.2) #14
   unreachable
 
 do.end:                                           ; preds = %entry
-  tail call void @replay_save_instructions() #8
-  tail call void @replay_put_event(i8 noundef zeroext 22) #8
-  tail call void @replay_put_dword(i32 noundef %res) #8
-  tail call void @replay_put_dword(i32 noundef %offset) #8
+  tail call void @replay_save_instructions() #9
+  tail call void @replay_put_event(i8 noundef zeroext 22) #9
+  tail call void @replay_put_dword(i32 noundef %res) #9
+  tail call void @replay_put_dword(i32 noundef %offset) #9
   ret void
 }
 
@@ -202,29 +202,29 @@ declare void @replay_put_dword(i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @replay_char_write_event_load(ptr nocapture noundef writeonly %res, ptr nocapture noundef writeonly %offset) local_unnamed_addr #0 {
 entry:
-  %call = tail call zeroext i1 @replay_mutex_locked() #8
+  %call = tail call zeroext i1 @replay_mutex_locked() #9
   br i1 %call, label %do.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 108, ptr noundef nonnull @__func__.replay_char_write_event_load, ptr noundef nonnull @.str.2) #11
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 108, ptr noundef nonnull @__func__.replay_char_write_event_load, ptr noundef nonnull @.str.2) #14
   unreachable
 
 do.end:                                           ; preds = %entry
-  tail call void @replay_account_executed_instructions() #8
-  %call1 = tail call zeroext i1 @replay_next_event_is(i32 noundef 22) #8
+  tail call void @replay_account_executed_instructions() #9
+  %call1 = tail call zeroext i1 @replay_next_event_is(i32 noundef 22) #9
   br i1 %call1, label %if.then2, label %if.else5
 
 if.then2:                                         ; preds = %do.end
-  %call3 = tail call i32 @replay_get_dword() #8
+  %call3 = tail call i32 @replay_get_dword() #9
   store i32 %call3, ptr %res, align 4
-  %call4 = tail call i32 @replay_get_dword() #8
+  %call4 = tail call i32 @replay_get_dword() #9
   store i32 %call4, ptr %offset, align 4
-  tail call void @replay_finish_event() #8
+  tail call void @replay_finish_event() #9
   ret void
 
 if.else5:                                         ; preds = %do.end
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.3) #8
-  tail call void @exit(i32 noundef 1) #11
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.3) #9
+  tail call void @exit(i32 noundef 1) #12
   unreachable
 }
 
@@ -242,41 +242,41 @@ declare void @error_report(ptr noundef, ...) local_unnamed_addr #1
 define dso_local i32 @replay_char_read_all_load(ptr noundef %buf) local_unnamed_addr #0 {
 entry:
   %size = alloca i64, align 8
-  %call = tail call zeroext i1 @replay_mutex_locked() #8
+  %call = tail call zeroext i1 @replay_mutex_locked() #9
   br i1 %call, label %do.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 123, ptr noundef nonnull @__func__.replay_char_read_all_load, ptr noundef nonnull @.str.2) #11
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 123, ptr noundef nonnull @__func__.replay_char_read_all_load, ptr noundef nonnull @.str.2) #14
   unreachable
 
 do.end:                                           ; preds = %entry
-  %call1 = tail call zeroext i1 @replay_next_event_is(i32 noundef 23) #8
+  %call1 = tail call zeroext i1 @replay_next_event_is(i32 noundef 23) #9
   br i1 %call1, label %if.then2, label %if.else7
 
 if.then2:                                         ; preds = %do.end
-  call void @replay_get_array(ptr noundef %buf, ptr noundef nonnull %size) #8
-  call void @replay_finish_event() #8
+  call void @replay_get_array(ptr noundef %buf, ptr noundef nonnull %size) #9
+  call void @replay_finish_event() #9
   %0 = load i64, ptr %size, align 8
   %conv = trunc i64 %0 to i32
   %cmp = icmp sgt i32 %conv, -1
   br i1 %cmp, label %return, label %if.else5
 
 if.else5:                                         ; preds = %if.then2
-  call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 131, ptr noundef nonnull @__PRETTY_FUNCTION__.replay_char_read_all_load) #11
+  call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 131, ptr noundef nonnull @__PRETTY_FUNCTION__.replay_char_read_all_load) #14
   unreachable
 
 if.else7:                                         ; preds = %do.end
-  %call8 = tail call zeroext i1 @replay_next_event_is(i32 noundef 24) #8
+  %call8 = tail call zeroext i1 @replay_next_event_is(i32 noundef 24) #9
   br i1 %call8, label %if.then9, label %if.else12
 
 if.then9:                                         ; preds = %if.else7
-  %call11 = tail call i32 @replay_get_dword() #8
-  tail call void @replay_finish_event() #8
+  %call11 = tail call i32 @replay_get_dword() #9
+  tail call void @replay_finish_event() #9
   br label %return
 
 if.else12:                                        ; preds = %if.else7
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.5) #8
-  tail call void @exit(i32 noundef 1) #11
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.5) #9
+  tail call void @exit(i32 noundef 1) #12
   unreachable
 
 return:                                           ; preds = %if.then2, %if.then9
@@ -287,16 +287,16 @@ return:                                           ; preds = %if.then2, %if.then9
 declare void @replay_get_array(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn nounwind
-declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @replay_char_read_all_save_error(i32 noundef %res) local_unnamed_addr #0 {
 entry:
-  %call = tail call zeroext i1 @replay_mutex_locked() #8
+  %call = tail call zeroext i1 @replay_mutex_locked() #9
   br i1 %call, label %do.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 145, ptr noundef nonnull @__func__.replay_char_read_all_save_error, ptr noundef nonnull @.str.2) #11
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 145, ptr noundef nonnull @__func__.replay_char_read_all_save_error, ptr noundef nonnull @.str.2) #14
   unreachable
 
 do.end:                                           ; preds = %entry
@@ -304,50 +304,52 @@ do.end:                                           ; preds = %entry
   br i1 %cmp, label %if.end3, label %if.else2
 
 if.else2:                                         ; preds = %do.end
-  tail call void @__assert_fail(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.1, i32 noundef 146, ptr noundef nonnull @__PRETTY_FUNCTION__.replay_char_read_all_save_error) #11
+  tail call void @__assert_fail(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.1, i32 noundef 146, ptr noundef nonnull @__PRETTY_FUNCTION__.replay_char_read_all_save_error) #14
   unreachable
 
 if.end3:                                          ; preds = %do.end
-  tail call void @replay_save_instructions() #8
-  tail call void @replay_put_event(i8 noundef zeroext 24) #8
-  tail call void @replay_put_dword(i32 noundef %res) #8
+  tail call void @replay_save_instructions() #9
+  tail call void @replay_put_event(i8 noundef zeroext 24) #9
+  tail call void @replay_put_dword(i32 noundef %res) #9
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @replay_char_read_all_save_buf(ptr noundef %buf, i32 noundef %offset) local_unnamed_addr #0 {
 entry:
-  %call = tail call zeroext i1 @replay_mutex_locked() #8
+  %call = tail call zeroext i1 @replay_mutex_locked() #9
   br i1 %call, label %do.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 154, ptr noundef nonnull @__func__.replay_char_read_all_save_buf, ptr noundef nonnull @.str.2) #11
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 154, ptr noundef nonnull @__func__.replay_char_read_all_save_buf, ptr noundef nonnull @.str.2) #14
   unreachable
 
 do.end:                                           ; preds = %entry
-  tail call void @replay_save_instructions() #8
-  tail call void @replay_put_event(i8 noundef zeroext 23) #8
+  tail call void @replay_save_instructions() #9
+  tail call void @replay_put_event(i8 noundef zeroext 23) #9
   %conv = sext i32 %offset to i64
-  tail call void @replay_put_array(ptr noundef %buf, i64 noundef %conv) #8
+  tail call void @replay_put_array(ptr noundef %buf, i64 noundef %conv) #9
   ret void
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #8
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree nounwind }
-attributes #8 = { nounwind }
-attributes #9 = { nounwind allocsize(0,1) }
-attributes #10 = { cold }
-attributes #11 = { noreturn nounwind }
-attributes #12 = { nounwind allocsize(0) }
+attributes #7 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree nounwind }
+attributes #9 = { nounwind }
+attributes #10 = { nounwind allocsize(0,1) }
+attributes #11 = { cold }
+attributes #12 = { cold noreturn nounwind }
+attributes #13 = { nounwind allocsize(0) }
+attributes #14 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

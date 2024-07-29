@@ -39,7 +39,7 @@ declare void @_ZN6icu_759UVector32C1ER10UErrorCode(ptr noundef nonnull align 8 d
 define void @_ZN6icu_7522RuleBasedBreakIterator15DictionaryCacheD2Ev(ptr noundef nonnull align 8 dereferenceable(60) %this) unnamed_addr #2 align 2 {
 entry:
   %fBreaks = getelementptr inbounds i8, ptr %this, i64 8
-  tail call void @_ZN6icu_759UVector32D1Ev(ptr noundef nonnull align 8 dereferenceable(32) %fBreaks) #12
+  tail call void @_ZN6icu_759UVector32D1Ev(ptr noundef nonnull align 8 dereferenceable(32) %fBreaks) #13
   ret void
 }
 
@@ -60,8 +60,8 @@ entry:
 
 declare void @_ZN6icu_759UVector3217removeAllElementsEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nounwind uwtable
-define noundef signext range(i8 0, 2) i8 @_ZN6icu_7522RuleBasedBreakIterator15DictionaryCache9followingEiPiS2_(ptr nocapture noundef nonnull align 8 dereferenceable(60) %this, i32 noundef %fromPos, ptr nocapture noundef writeonly %result, ptr nocapture noundef writeonly %statusIndex) local_unnamed_addr #2 align 2 {
+; Function Attrs: mustprogress nofree nounwind uwtable
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7522RuleBasedBreakIterator15DictionaryCache9followingEiPiS2_(ptr nocapture noundef nonnull align 8 dereferenceable(60) %this, i32 noundef %fromPos, ptr nocapture noundef writeonly %result, ptr nocapture noundef writeonly %statusIndex) local_unnamed_addr #4 align 2 {
 entry:
   %fLimit = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i32, ptr %fLimit, align 8
@@ -152,7 +152,7 @@ if.then34:                                        ; preds = %cond.true.i26
   br label %return
 
 for.end:                                          ; preds = %for.cond, %if.end24
-  tail call void @abort() #13
+  tail call void @abort() #14
   unreachable
 
 return:                                           ; preds = %if.then34, %_ZNK6icu_759UVector3210elementAtiEi.exit19, %if.then18, %if.then
@@ -160,11 +160,11 @@ return:                                           ; preds = %if.then34, %_ZNK6ic
   ret i8 %retval.0
 }
 
-; Function Attrs: noreturn nounwind
-declare void @abort() local_unnamed_addr #4
+; Function Attrs: cold nofree noreturn nounwind
+declare void @abort() local_unnamed_addr #5
 
-; Function Attrs: mustprogress nounwind uwtable
-define noundef signext range(i8 0, 2) i8 @_ZN6icu_7522RuleBasedBreakIterator15DictionaryCache9precedingEiPiS2_(ptr nocapture noundef nonnull align 8 dereferenceable(60) %this, i32 noundef %fromPos, ptr nocapture noundef writeonly %result, ptr nocapture noundef writeonly %statusIndex) local_unnamed_addr #2 align 2 {
+; Function Attrs: mustprogress nofree nounwind uwtable
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7522RuleBasedBreakIterator15DictionaryCache9precedingEiPiS2_(ptr nocapture noundef nonnull align 8 dereferenceable(60) %this, i32 noundef %fromPos, ptr nocapture noundef writeonly %result, ptr nocapture noundef writeonly %statusIndex) local_unnamed_addr #4 align 2 {
 entry:
   %fStart = getelementptr inbounds i8, ptr %this, i64 44
   %0 = load i32, ptr %fStart, align 4
@@ -298,7 +298,7 @@ if.then46:                                        ; preds = %_ZNK6icu_759UVector
   br label %return
 
 for.end:                                          ; preds = %for.cond
-  tail call void @abort() #13
+  tail call void @abort() #14
   unreachable
 
 return:                                           ; preds = %if.then46, %if.then33, %_ZNK6icu_759UVector3210elementAtiEi.exit24, %if.then
@@ -565,7 +565,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7522RuleBasedBreakIterator10BreakCache5resetEii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(832) %this, i32 noundef %pos, i32 noundef %ruleStatus) local_unnamed_addr #5 align 2 {
+define void @_ZN6icu_7522RuleBasedBreakIterator10BreakCache5resetEii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(832) %this, i32 noundef %pos, i32 noundef %ruleStatus) local_unnamed_addr #6 align 2 {
 entry:
   %fStartBufIdx = getelementptr inbounds i8, ptr %this, i64 16
   store i32 0, ptr %fStartBufIdx, align 8
@@ -590,15 +590,15 @@ define void @_ZN6icu_7522RuleBasedBreakIterator10BreakCacheD2Ev(ptr noundef nonn
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7522RuleBasedBreakIterator10BreakCacheE, i64 16), ptr %this, align 8
   %fSideBuffer = getelementptr inbounds i8, ptr %this, i64 800
-  tail call void @_ZN6icu_759UVector32D1Ev(ptr noundef nonnull align 8 dereferenceable(32) %fSideBuffer) #12
+  tail call void @_ZN6icu_759UVector32D1Ev(ptr noundef nonnull align 8 dereferenceable(32) %fSideBuffer) #13
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7522RuleBasedBreakIterator10BreakCacheD0Ev(ptr noundef nonnull align 8 dereferenceable(832) %this) unnamed_addr #2 align 2 {
 entry:
-  tail call void @_ZN6icu_7522RuleBasedBreakIterator10BreakCacheD1Ev(ptr noundef nonnull align 8 dereferenceable(832) %this) #12
-  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %this) #12
+  tail call void @_ZN6icu_7522RuleBasedBreakIterator10BreakCacheD1Ev(ptr noundef nonnull align 8 dereferenceable(832) %this) #13
+  tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %this) #13
   ret void
 }
 
@@ -606,7 +606,7 @@ entry:
 declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @_ZN6icu_7522RuleBasedBreakIterator10BreakCache7currentEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(832) %this) local_unnamed_addr #6 align 2 {
+define noundef i32 @_ZN6icu_7522RuleBasedBreakIterator10BreakCache7currentEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(832) %this) local_unnamed_addr #7 align 2 {
 entry:
   %fTextIdx = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i32, ptr %fTextIdx, align 8
@@ -781,7 +781,7 @@ return:                                           ; preds = %lor.lhs.false4, %_Z
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef signext range(i8 0, 2) i8 @_ZN6icu_7522RuleBasedBreakIterator10BreakCache4seekEi(ptr nocapture noundef nonnull align 8 dereferenceable(832) %this, i32 noundef %pos) local_unnamed_addr #7 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7522RuleBasedBreakIterator10BreakCache4seekEi(ptr nocapture noundef nonnull align 8 dereferenceable(832) %this, i32 noundef %pos) local_unnamed_addr #8 align 2 {
 entry:
   %fBoundaries = getelementptr inbounds i8, ptr %this, i64 32
   %fStartBufIdx = getelementptr inbounds i8, ptr %this, i64 16
@@ -1007,7 +1007,7 @@ while.body:                                       ; preds = %while.cond
   br i1 %tobool80.not, label %if.then81, label %while.cond, !llvm.loop !10
 
 if.then81:                                        ; preds = %while.body
-  tail call void @abort() #13
+  tail call void @abort() #14
   unreachable
 
 while.end:                                        ; preds = %while.cond
@@ -1577,7 +1577,7 @@ cond.true.i26.i:                                  ; preds = %for.cond.i, %cond.t
   br i1 %cmp33.i, label %if.then, label %for.cond.i
 
 for.end.i:                                        ; preds = %for.cond.i, %if.end24.i
-  tail call void @abort() #13
+  tail call void @abort() #14
   unreachable
 
 if.then:                                          ; preds = %cond.true.i26.i, %_ZNK6icu_759UVector3210elementAtiEi.exit19.i
@@ -1692,7 +1692,7 @@ cond.true.i26.i24:                                ; preds = %for.cond.i28, %cond
   br i1 %cmp33.i27, label %if.then20, label %for.cond.i28
 
 for.end.i20:                                      ; preds = %for.cond.i28, %if.end24.i18
-  tail call void @abort() #13
+  tail call void @abort() #14
   unreachable
 
 if.then20:                                        ; preds = %cond.true.i26.i24, %_ZNK6icu_759UVector3210elementAtiEi.exit19.i44
@@ -1944,7 +1944,7 @@ _ZNK6icu_759UVector3210elementAtiEi.exit35.i:     ; preds = %cond.true.i31.i, %f
   br i1 %cmp45.i, label %if.then6, label %for.cond.i, !llvm.loop !6
 
 for.end.i:                                        ; preds = %for.cond.i
-  tail call void @abort() #13
+  tail call void @abort() #14
   unreachable
 
 _ZN6icu_7522RuleBasedBreakIterator15DictionaryCache9precedingEiPiS2_.exit: ; preds = %if.end30.i, %if.then.i
@@ -2213,7 +2213,7 @@ cond.true.i26.i:                                  ; preds = %for.cond.i63, %cond
   br i1 %cmp33.i, label %while.body, label %for.cond.i63
 
 for.end.i61:                                      ; preds = %if.end24.i, %for.cond.i63
-  tail call void @abort() #13
+  tail call void @abort() #14
   unreachable
 
 while.body:                                       ; preds = %cond.true.i26.i, %_ZNK6icu_759UVector3210elementAtiEi.exit19.i
@@ -2508,7 +2508,7 @@ declare i64 @utext_getPreviousNativeIndex_75(ptr noundef) local_unnamed_addr #1
 declare i64 @utext_nativeLength_75(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6icu_7522RuleBasedBreakIterator10BreakCache12addFollowingEiiNS1_20UpdatePositionValuesE(ptr nocapture noundef nonnull align 8 dereferenceable(832) %this, i32 noundef %position, i32 noundef %ruleStatusIdx, i32 noundef %update) local_unnamed_addr #8 align 2 {
+define void @_ZN6icu_7522RuleBasedBreakIterator10BreakCache12addFollowingEiiNS1_20UpdatePositionValuesE(ptr nocapture noundef nonnull align 8 dereferenceable(832) %this, i32 noundef %position, i32 noundef %ruleStatusIdx, i32 noundef %update) local_unnamed_addr #9 align 2 {
 entry:
   %fEndBufIdx = getelementptr inbounds i8, ptr %this, i64 20
   %0 = load i32, ptr %fEndBufIdx, align 4
@@ -2550,7 +2550,7 @@ if.end11:                                         ; preds = %if.end, %if.then10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZN6icu_7522RuleBasedBreakIterator10BreakCache12addPrecedingEiiNS1_20UpdatePositionValuesE(ptr nocapture noundef nonnull align 8 dereferenceable(832) %this, i32 noundef %position, i32 noundef %ruleStatusIdx, i32 noundef %update) local_unnamed_addr #8 align 2 {
+define noundef zeroext i1 @_ZN6icu_7522RuleBasedBreakIterator10BreakCache12addPrecedingEiiNS1_20UpdatePositionValuesE(ptr nocapture noundef nonnull align 8 dereferenceable(832) %this, i32 noundef %position, i32 noundef %ruleStatusIdx, i32 noundef %update) local_unnamed_addr #9 align 2 {
 entry:
   %fStartBufIdx = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i32, ptr %fStartBufIdx, align 8
@@ -2601,7 +2601,7 @@ return:                                           ; preds = %if.end10, %if.then1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN6icu_7522RuleBasedBreakIterator10BreakCache9dumpCacheEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(832) %this) local_unnamed_addr #9 align 2 {
+define void @_ZN6icu_7522RuleBasedBreakIterator10BreakCache9dumpCacheEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(832) %this) local_unnamed_addr #10 align 2 {
 entry:
   ret void
 }
@@ -2609,25 +2609,26 @@ entry:
 declare noundef signext i8 @_ZN6icu_759UVector3214expandCapacityEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32), i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #11
+declare void @llvm.assume(i1 noundef) #12
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #11 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #12 = { nounwind }
-attributes #13 = { noreturn nounwind }
+attributes #4 = { mustprogress nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #13 = { nounwind }
+attributes #14 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

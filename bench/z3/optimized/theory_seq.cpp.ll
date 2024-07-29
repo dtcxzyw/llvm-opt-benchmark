@@ -4428,7 +4428,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  tail call void @__clang_call_terminate(ptr %6) #25
+  tail call void @__clang_call_terminate(ptr %6) #26
   unreachable
 
 _ZN10ptr_vectorIN3smt10theory_seq4cellEED2Ev.exit: ; preds = %entry, %_ZSt8for_eachIPPN3smt10theory_seq4cellE11delete_procIS2_EET0_T_S8_S7_.exit.i, %invoke.cont, %if.then.i.i.i
@@ -4438,7 +4438,7 @@ terminate.lpad:                                   ; preds = %_Z7deallocIN3smt10t
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #25
+  tail call void @__clang_call_terminate(ptr %8) #26
   unreachable
 }
 
@@ -4457,7 +4457,7 @@ terminate.lpad.i:                                 ; preds = %for.cond.preheader.
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #25
+  tail call void @__clang_call_terminate(ptr %2) #26
   unreachable
 
 _ZN14core_hashtableI19obj_pair_hash_entryI4exprS1_E17obj_ptr_pair_hashIS1_S1_E10default_eqISt4pairIPS1_S7_EEED2Ev.exit: ; preds = %entry, %for.cond.preheader.i.i.i
@@ -4480,7 +4480,7 @@ terminate.lpad.i:                                 ; preds = %for.cond.preheader.
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #25
+  tail call void @__clang_call_terminate(ptr %2) #26
   unreachable
 
 _ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EED2Ev.exit: ; preds = %entry, %for.cond.preheader.i.i.i
@@ -4543,14 +4543,14 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #25
+  tail call void @__clang_call_terminate(ptr %8) #26
   unreachable
 
 terminate.lpad.i:                                 ; preds = %if.then2.i.i.i.i.i
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #25
+  tail call void @__clang_call_terminate(ptr %10) #26
   unreachable
 
 _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit: ; preds = %entry, %invoke.cont8.i, %if.then.i.i.i.i
@@ -4573,7 +4573,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #25
+  tail call void @__clang_call_terminate(ptr %2) #26
   unreachable
 
 _ZN6vectorIP4exprLb0EjED2Ev.exit:                 ; preds = %entry, %if.then.i.i
@@ -4599,7 +4599,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #25
+  tail call void @__clang_call_terminate(ptr %2) #26
   unreachable
 
 _ZN7svectorIjjED2Ev.exit:                         ; preds = %entry, %if.then.i.i.i
@@ -4616,7 +4616,7 @@ terminate.lpad.i.i4:                              ; preds = %if.then.i.i.i2
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #25
+  tail call void @__clang_call_terminate(ptr %5) #26
   unreachable
 
 _ZN10ptr_vectorI5trailED2Ev.exit:                 ; preds = %_ZN7svectorIjjED2Ev.exit, %if.then.i.i.i2
@@ -4681,14 +4681,14 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #25
+  tail call void @__clang_call_terminate(ptr %8) #26
   unreachable
 
 terminate.lpad.i.i:                               ; preds = %if.then2.i.i.i.i.i.i
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #25
+  tail call void @__clang_call_terminate(ptr %10) #26
   unreachable
 
 _ZN10ref_vectorI4expr11ast_managerED2Ev.exit:     ; preds = %entry, %invoke.cont8.i.i, %if.then.i.i.i.i.i
@@ -4705,7 +4705,7 @@ terminate.lpad.i.i.i:                             ; preds = %for.cond.preheader.
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  tail call void @__clang_call_terminate(ptr %13) #25
+  tail call void @__clang_call_terminate(ptr %13) #26
   unreachable
 
 _ZN12ptr_addr_mapI4exprjED2Ev.exit:               ; preds = %_ZN10ref_vectorI4expr11ast_managerED2Ev.exit, %for.cond.preheader.i.i.i.i.i
@@ -4724,7 +4724,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  tail call void @__clang_call_terminate(ptr %16) #25
+  tail call void @__clang_call_terminate(ptr %16) #26
   unreachable
 
 _ZN6vectorIN3smt9seq_regex7s_in_reELb1EjED2Ev.exit: ; preds = %_ZN12ptr_addr_mapI4exprjED2Ev.exit, %if.then.i.i
@@ -4748,7 +4748,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #25
+  tail call void @__clang_call_terminate(ptr %2) #26
   unreachable
 
 _ZN10ptr_vectorI4exprED2Ev.exit:                  ; preds = %entry, %if.then.i.i.i
@@ -4805,14 +4805,14 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i
   %10 = landingpad { ptr, i32 }
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0
-  tail call void @__clang_call_terminate(ptr %11) #25
+  tail call void @__clang_call_terminate(ptr %11) #26
   unreachable
 
 terminate.lpad.i.i1:                              ; preds = %if.then2.i.i.i.i.i.i
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  tail call void @__clang_call_terminate(ptr %13) #25
+  tail call void @__clang_call_terminate(ptr %13) #26
   unreachable
 
 _ZN10ref_vectorI4expr11ast_managerED2Ev.exit:     ; preds = %_ZN10ptr_vectorI4exprED2Ev.exit, %invoke.cont8.i.i, %if.then.i.i.i.i.i
@@ -4838,7 +4838,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #25
+  tail call void @__clang_call_terminate(ptr %2) #26
   unreachable
 
 _ZNSt8functionIFN3sat7literalEP4exprbEED2Ev.exit: ; preds = %entry, %if.then.i.i
@@ -4856,7 +4856,7 @@ terminate.lpad.i.i5:                              ; preds = %if.then.i.i3
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #25
+  tail call void @__clang_call_terminate(ptr %5) #26
   unreachable
 
 _ZNSt8functionIFvN3sat7literalES1_S1_S1_S1_EED2Ev.exit: ; preds = %_ZNSt8functionIFN3sat7literalEP4exprbEED2Ev.exit, %if.then.i.i3
@@ -4925,14 +4925,14 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #25
+  tail call void @__clang_call_terminate(ptr %8) #26
   unreachable
 
 terminate.lpad.i.i:                               ; preds = %if.then2.i.i.i.i.i.i
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #25
+  tail call void @__clang_call_terminate(ptr %10) #26
   unreachable
 
 _ZN10ref_vectorI4expr11ast_managerED2Ev.exit:     ; preds = %entry, %invoke.cont8.i.i, %if.then.i.i.i.i.i
@@ -4989,14 +4989,14 @@ terminate.lpad.i.i.i.i22:                         ; preds = %if.then.i.i.i.i.i20
   %18 = landingpad { ptr, i32 }
           catch ptr null
   %19 = extractvalue { ptr, i32 } %18, 0
-  tail call void @__clang_call_terminate(ptr %19) #25
+  tail call void @__clang_call_terminate(ptr %19) #26
   unreachable
 
 terminate.lpad.i.i24:                             ; preds = %if.then2.i.i.i.i.i.i23
   %20 = landingpad { ptr, i32 }
           catch ptr null
   %21 = extractvalue { ptr, i32 } %20, 0
-  tail call void @__clang_call_terminate(ptr %21) #25
+  tail call void @__clang_call_terminate(ptr %21) #26
   unreachable
 
 _ZN10ref_vectorI4expr11ast_managerED2Ev.exit25:   ; preds = %_ZN10ref_vectorI4expr11ast_managerED2Ev.exit, %invoke.cont8.i.i17, %if.then.i.i.i.i.i20
@@ -5053,14 +5053,14 @@ terminate.lpad.i.i.i.i47:                         ; preds = %if.then.i.i.i.i.i45
   %29 = landingpad { ptr, i32 }
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
-  tail call void @__clang_call_terminate(ptr %30) #25
+  tail call void @__clang_call_terminate(ptr %30) #26
   unreachable
 
 terminate.lpad.i.i49:                             ; preds = %if.then2.i.i.i.i.i.i48
   %31 = landingpad { ptr, i32 }
           catch ptr null
   %32 = extractvalue { ptr, i32 } %31, 0
-  tail call void @__clang_call_terminate(ptr %32) #25
+  tail call void @__clang_call_terminate(ptr %32) #26
   unreachable
 
 _ZN10ref_vectorI4expr11ast_managerED2Ev.exit50:   ; preds = %_ZN10ref_vectorI4expr11ast_managerED2Ev.exit25, %invoke.cont8.i.i42, %if.then.i.i.i.i.i45
@@ -5133,7 +5133,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  tail call void @__clang_call_terminate(ptr %7) #25
+  tail call void @__clang_call_terminate(ptr %7) #26
   unreachable
 
 _ZN10ptr_vectorIN3smt10theory_seq5applyEED2Ev.exit: ; preds = %entry, %_ZSt8for_eachIPPN3smt10theory_seq5applyE11delete_procIS2_EET0_T_S8_S7_.exit.i, %invoke.cont, %if.then.i.i.i
@@ -5143,7 +5143,7 @@ terminate.lpad:                                   ; preds = %_Z7deallocIN3smt10t
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  tail call void @__clang_call_terminate(ptr %9) #25
+  tail call void @__clang_call_terminate(ptr %9) #26
   unreachable
 }
 
@@ -5162,7 +5162,7 @@ terminate.lpad.i:                                 ; preds = %for.cond.preheader.
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #25
+  tail call void @__clang_call_terminate(ptr %2) #26
   unreachable
 
 _ZN14core_hashtableIN7obj_mapI4exprjE13obj_map_entryE8obj_hashINS2_8key_dataEE10default_eqIS5_EED2Ev.exit: ; preds = %entry, %for.cond.preheader.i.i.i
@@ -5187,7 +5187,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #25
+  tail call void @__clang_call_terminate(ptr %2) #26
   unreachable
 
 _ZN7svectorIjjED2Ev.exit:                         ; preds = %entry, %if.then.i.i.i
@@ -5244,14 +5244,14 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i
   %10 = landingpad { ptr, i32 }
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0
-  tail call void @__clang_call_terminate(ptr %11) #25
+  tail call void @__clang_call_terminate(ptr %11) #26
   unreachable
 
 terminate.lpad.i.i1:                              ; preds = %if.then2.i.i.i.i.i.i
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  tail call void @__clang_call_terminate(ptr %13) #25
+  tail call void @__clang_call_terminate(ptr %13) #26
   unreachable
 
 _ZN10ref_vectorI4expr11ast_managerED2Ev.exit:     ; preds = %_ZN7svectorIjjED2Ev.exit, %invoke.cont8.i.i, %if.then.i.i.i.i.i
@@ -5308,14 +5308,14 @@ terminate.lpad.i.i.i.i23:                         ; preds = %if.then.i.i.i.i.i21
   %21 = landingpad { ptr, i32 }
           catch ptr null
   %22 = extractvalue { ptr, i32 } %21, 0
-  tail call void @__clang_call_terminate(ptr %22) #25
+  tail call void @__clang_call_terminate(ptr %22) #26
   unreachable
 
 terminate.lpad.i.i25:                             ; preds = %if.then2.i.i.i.i.i.i24
   %23 = landingpad { ptr, i32 }
           catch ptr null
   %24 = extractvalue { ptr, i32 } %23, 0
-  tail call void @__clang_call_terminate(ptr %24) #25
+  tail call void @__clang_call_terminate(ptr %24) #26
   unreachable
 
 _ZN10ref_vectorI4expr11ast_managerED2Ev.exit26:   ; preds = %_ZN10ref_vectorI4expr11ast_managerED2Ev.exit, %invoke.cont8.i.i18, %if.then.i.i.i.i.i21
@@ -5332,7 +5332,7 @@ terminate.lpad.i.i27:                             ; preds = %for.cond.preheader.
   %26 = landingpad { ptr, i32 }
           catch ptr null
   %27 = extractvalue { ptr, i32 } %26, 0
-  tail call void @__clang_call_terminate(ptr %27) #25
+  tail call void @__clang_call_terminate(ptr %27) #26
   unreachable
 
 _ZN18obj_pair_hashtableI4exprS0_ED2Ev.exit:       ; preds = %_ZN10ref_vectorI4expr11ast_managerED2Ev.exit26, %for.cond.preheader.i.i.i.i
@@ -5360,7 +5360,7 @@ terminate.lpad.i.i:                               ; preds = %for.cond.preheader.
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #25
+  tail call void @__clang_call_terminate(ptr %2) #26
   unreachable
 
 _ZN7obj_mapI4exprbED2Ev.exit:                     ; preds = %invoke.cont, %for.cond.preheader.i.i.i.i
@@ -5371,7 +5371,7 @@ terminate.lpad:                                   ; preds = %entry
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #25
+  tail call void @__clang_call_terminate(ptr %4) #26
   unreachable
 }
 
@@ -5391,7 +5391,7 @@ terminate.lpad.i.i:                               ; preds = %for.cond.preheader.
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #25
+  tail call void @__clang_call_terminate(ptr %2) #26
   unreachable
 
 _ZN12obj_pair_mapIN3smt5enodeES1_iED2Ev.exit:     ; preds = %entry, %for.cond.preheader.i.i.i.i
@@ -5409,7 +5409,7 @@ terminate.lpad.i.i3:                              ; preds = %for.cond.preheader.
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #25
+  tail call void @__clang_call_terminate(ptr %5) #26
   unreachable
 
 _ZN13obj_hashtableIN3smt5enodeEED2Ev.exit:        ; preds = %_ZN12obj_pair_mapIN3smt5enodeES1_iED2Ev.exit, %for.cond.preheader.i.i.i.i2
@@ -5436,7 +5436,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #25
+  tail call void @__clang_call_terminate(ptr %2) #26
   unreachable
 
 _ZN7svectorIjjED2Ev.exit:                         ; preds = %entry, %if.then.i.i.i
@@ -5454,7 +5454,7 @@ terminate.lpad.i.i4:                              ; preds = %if.then.i.i.i2
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #25
+  tail call void @__clang_call_terminate(ptr %5) #26
   unreachable
 
 _ZN7svectorIjjED2Ev.exit5:                        ; preds = %_ZN7svectorIjjED2Ev.exit, %if.then.i.i.i2
@@ -5472,7 +5472,7 @@ terminate.lpad.i.i9:                              ; preds = %if.then.i.i.i7
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #25
+  tail call void @__clang_call_terminate(ptr %8) #26
   unreachable
 
 _ZN7svectorIjjED2Ev.exit10:                       ; preds = %_ZN7svectorIjjED2Ev.exit5, %if.then.i.i.i7
@@ -5496,7 +5496,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #25
+  tail call void @__clang_call_terminate(ptr %2) #26
   unreachable
 
 _ZN7svectorIjjED2Ev.exit:                         ; preds = %entry, %if.then.i.i.i
@@ -5514,7 +5514,7 @@ terminate.lpad.i.i4:                              ; preds = %if.then.i.i.i2
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #25
+  tail call void @__clang_call_terminate(ptr %5) #26
   unreachable
 
 _ZN7svectorIjjED2Ev.exit5:                        ; preds = %_ZN7svectorIjjED2Ev.exit, %if.then.i.i.i2
@@ -5532,7 +5532,7 @@ terminate.lpad.i.i9:                              ; preds = %if.then.i.i.i7
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #25
+  tail call void @__clang_call_terminate(ptr %8) #26
   unreachable
 
 _ZN7svectorIjjED2Ev.exit10:                       ; preds = %_ZN7svectorIjjED2Ev.exit5, %if.then.i.i.i7
@@ -5550,7 +5550,7 @@ terminate.lpad.i.i14:                             ; preds = %if.then.i.i.i12
   %10 = landingpad { ptr, i32 }
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0
-  tail call void @__clang_call_terminate(ptr %11) #25
+  tail call void @__clang_call_terminate(ptr %11) #26
   unreachable
 
 _ZN7svectorIjjED2Ev.exit15:                       ; preds = %_ZN7svectorIjjED2Ev.exit10, %if.then.i.i.i12
@@ -5568,7 +5568,7 @@ terminate.lpad.i.i19:                             ; preds = %if.then.i.i.i17
   %13 = landingpad { ptr, i32 }
           catch ptr null
   %14 = extractvalue { ptr, i32 } %13, 0
-  tail call void @__clang_call_terminate(ptr %14) #25
+  tail call void @__clang_call_terminate(ptr %14) #26
   unreachable
 
 _ZN7svectorIjjED2Ev.exit20:                       ; preds = %_ZN7svectorIjjED2Ev.exit15, %if.then.i.i.i17
@@ -5586,7 +5586,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i
   %16 = landingpad { ptr, i32 }
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
-  tail call void @__clang_call_terminate(ptr %17) #25
+  tail call void @__clang_call_terminate(ptr %17) #26
   unreachable
 
 _ZN6vectorIP4exprLb1EjED2Ev.exit:                 ; preds = %_ZN7svectorIjjED2Ev.exit20, %if.then.i.i
@@ -5604,7 +5604,7 @@ terminate.lpad.i.i24:                             ; preds = %if.then.i.i.i22
   %19 = landingpad { ptr, i32 }
           catch ptr null
   %20 = extractvalue { ptr, i32 } %19, 0
-  tail call void @__clang_call_terminate(ptr %20) #25
+  tail call void @__clang_call_terminate(ptr %20) #26
   unreachable
 
 _ZN7svectorIjjED2Ev.exit25:                       ; preds = %_ZN6vectorIP4exprLb1EjED2Ev.exit, %if.then.i.i.i22
@@ -5628,7 +5628,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #25
+  tail call void @__clang_call_terminate(ptr %2) #26
   unreachable
 
 _ZN7svectorIjjED2Ev.exit:                         ; preds = %entry, %if.then.i.i.i
@@ -5646,7 +5646,7 @@ terminate.lpad.i.i4:                              ; preds = %if.then.i.i.i2
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #25
+  tail call void @__clang_call_terminate(ptr %5) #26
   unreachable
 
 _ZN7svectorIjjED2Ev.exit5:                        ; preds = %_ZN7svectorIjjED2Ev.exit, %if.then.i.i.i2
@@ -5664,7 +5664,7 @@ terminate.lpad.i.i9:                              ; preds = %if.then.i.i.i7
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #25
+  tail call void @__clang_call_terminate(ptr %8) #26
   unreachable
 
 _ZN7svectorIjjED2Ev.exit10:                       ; preds = %_ZN7svectorIjjED2Ev.exit5, %if.then.i.i.i7
@@ -5682,7 +5682,7 @@ terminate.lpad.i.i14:                             ; preds = %if.then.i.i.i12
   %10 = landingpad { ptr, i32 }
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0
-  tail call void @__clang_call_terminate(ptr %11) #25
+  tail call void @__clang_call_terminate(ptr %11) #26
   unreachable
 
 _ZN7svectorIjjED2Ev.exit15:                       ; preds = %_ZN7svectorIjjED2Ev.exit10, %if.then.i.i.i12
@@ -5700,7 +5700,7 @@ terminate.lpad.i.i19:                             ; preds = %if.then.i.i.i17
   %13 = landingpad { ptr, i32 }
           catch ptr null
   %14 = extractvalue { ptr, i32 } %13, 0
-  tail call void @__clang_call_terminate(ptr %14) #25
+  tail call void @__clang_call_terminate(ptr %14) #26
   unreachable
 
 _ZN7svectorIjjED2Ev.exit20:                       ; preds = %_ZN7svectorIjjED2Ev.exit15, %if.then.i.i.i17
@@ -5740,7 +5740,7 @@ terminate.lpad.i.i.i.i.i.i.i.i.i:                 ; preds = %if.then2.i.i.i.i.i.
   %20 = landingpad { ptr, i32 }
           catch ptr null
   %21 = extractvalue { ptr, i32 } %20, 0
-  tail call void @__clang_call_terminate(ptr %21) #25
+  tail call void @__clang_call_terminate(ptr %21) #26
   unreachable
 
 _ZSt8_DestroyIN3smt10theory_seq2ncEEvPT_.exit.i.i.i.i.i.i: ; preds = %if.then2.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i
@@ -5763,7 +5763,7 @@ terminate.lpad.i:                                 ; preds = %_ZN6vectorIN3smt10t
   %23 = landingpad { ptr, i32 }
           catch ptr null
   %24 = extractvalue { ptr, i32 } %23, 0
-  tail call void @__clang_call_terminate(ptr %24) #25
+  tail call void @__clang_call_terminate(ptr %24) #26
   unreachable
 
 _ZN6vectorIN3smt10theory_seq2ncELb1EjED2Ev.exit:  ; preds = %_ZN7svectorIjjED2Ev.exit20, %_ZN6vectorIN3smt10theory_seq2ncELb1EjE16destroy_elementsEv.exit.i.i
@@ -5781,7 +5781,7 @@ terminate.lpad.i.i24:                             ; preds = %if.then.i.i.i22
   %26 = landingpad { ptr, i32 }
           catch ptr null
   %27 = extractvalue { ptr, i32 } %26, 0
-  tail call void @__clang_call_terminate(ptr %27) #25
+  tail call void @__clang_call_terminate(ptr %27) #26
   unreachable
 
 _ZN7svectorIjjED2Ev.exit25:                       ; preds = %_ZN6vectorIN3smt10theory_seq2ncELb1EjED2Ev.exit, %if.then.i.i.i22
@@ -5805,7 +5805,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #25
+  tail call void @__clang_call_terminate(ptr %2) #26
   unreachable
 
 _ZN7svectorIjjED2Ev.exit:                         ; preds = %entry, %if.then.i.i.i
@@ -5823,7 +5823,7 @@ terminate.lpad.i.i4:                              ; preds = %if.then.i.i.i2
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #25
+  tail call void @__clang_call_terminate(ptr %5) #26
   unreachable
 
 _ZN7svectorIjjED2Ev.exit5:                        ; preds = %_ZN7svectorIjjED2Ev.exit, %if.then.i.i.i2
@@ -5841,7 +5841,7 @@ terminate.lpad.i.i9:                              ; preds = %if.then.i.i.i7
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #25
+  tail call void @__clang_call_terminate(ptr %8) #26
   unreachable
 
 _ZN7svectorIjjED2Ev.exit10:                       ; preds = %_ZN7svectorIjjED2Ev.exit5, %if.then.i.i.i7
@@ -5859,7 +5859,7 @@ terminate.lpad.i.i14:                             ; preds = %if.then.i.i.i12
   %10 = landingpad { ptr, i32 }
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0
-  tail call void @__clang_call_terminate(ptr %11) #25
+  tail call void @__clang_call_terminate(ptr %11) #26
   unreachable
 
 _ZN7svectorIjjED2Ev.exit15:                       ; preds = %_ZN7svectorIjjED2Ev.exit10, %if.then.i.i.i12
@@ -5877,7 +5877,7 @@ terminate.lpad.i.i19:                             ; preds = %if.then.i.i.i17
   %13 = landingpad { ptr, i32 }
           catch ptr null
   %14 = extractvalue { ptr, i32 } %13, 0
-  tail call void @__clang_call_terminate(ptr %14) #25
+  tail call void @__clang_call_terminate(ptr %14) #26
   unreachable
 
 _ZN7svectorIjjED2Ev.exit20:                       ; preds = %_ZN7svectorIjjED2Ev.exit15, %if.then.i.i.i17
@@ -5915,7 +5915,7 @@ terminate.lpad.i:                                 ; preds = %_ZN6vectorIN3smt10t
   %18 = landingpad { ptr, i32 }
           catch ptr null
   %19 = extractvalue { ptr, i32 } %18, 0
-  tail call void @__clang_call_terminate(ptr %19) #25
+  tail call void @__clang_call_terminate(ptr %19) #26
   unreachable
 
 _ZN6vectorIN3smt10theory_seq2neELb1EjED2Ev.exit:  ; preds = %_ZN7svectorIjjED2Ev.exit20, %_ZN6vectorIN3smt10theory_seq2neELb1EjE16destroy_elementsEv.exit.i.i
@@ -5933,7 +5933,7 @@ terminate.lpad.i.i24:                             ; preds = %if.then.i.i.i22
   %21 = landingpad { ptr, i32 }
           catch ptr null
   %22 = extractvalue { ptr, i32 } %21, 0
-  tail call void @__clang_call_terminate(ptr %22) #25
+  tail call void @__clang_call_terminate(ptr %22) #26
   unreachable
 
 _ZN7svectorIjjED2Ev.exit25:                       ; preds = %_ZN6vectorIN3smt10theory_seq2neELb1EjED2Ev.exit, %if.then.i.i.i22
@@ -5957,7 +5957,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #25
+  tail call void @__clang_call_terminate(ptr %2) #26
   unreachable
 
 _ZN7svectorIjjED2Ev.exit:                         ; preds = %entry, %if.then.i.i.i
@@ -5975,7 +5975,7 @@ terminate.lpad.i.i4:                              ; preds = %if.then.i.i.i2
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #25
+  tail call void @__clang_call_terminate(ptr %5) #26
   unreachable
 
 _ZN7svectorIjjED2Ev.exit5:                        ; preds = %_ZN7svectorIjjED2Ev.exit, %if.then.i.i.i2
@@ -5993,7 +5993,7 @@ terminate.lpad.i.i9:                              ; preds = %if.then.i.i.i7
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #25
+  tail call void @__clang_call_terminate(ptr %8) #26
   unreachable
 
 _ZN7svectorIjjED2Ev.exit10:                       ; preds = %_ZN7svectorIjjED2Ev.exit5, %if.then.i.i.i7
@@ -6011,7 +6011,7 @@ terminate.lpad.i.i14:                             ; preds = %if.then.i.i.i12
   %10 = landingpad { ptr, i32 }
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0
-  tail call void @__clang_call_terminate(ptr %11) #25
+  tail call void @__clang_call_terminate(ptr %11) #26
   unreachable
 
 _ZN7svectorIjjED2Ev.exit15:                       ; preds = %_ZN7svectorIjjED2Ev.exit10, %if.then.i.i.i12
@@ -6029,7 +6029,7 @@ terminate.lpad.i.i19:                             ; preds = %if.then.i.i.i17
   %13 = landingpad { ptr, i32 }
           catch ptr null
   %14 = extractvalue { ptr, i32 } %13, 0
-  tail call void @__clang_call_terminate(ptr %14) #25
+  tail call void @__clang_call_terminate(ptr %14) #26
   unreachable
 
 _ZN7svectorIjjED2Ev.exit20:                       ; preds = %_ZN7svectorIjjED2Ev.exit15, %if.then.i.i.i17
@@ -6067,7 +6067,7 @@ terminate.lpad.i:                                 ; preds = %_ZN6vectorIN3smt10t
   %18 = landingpad { ptr, i32 }
           catch ptr null
   %19 = extractvalue { ptr, i32 } %18, 0
-  tail call void @__clang_call_terminate(ptr %19) #25
+  tail call void @__clang_call_terminate(ptr %19) #26
   unreachable
 
 _ZN6vectorIN3smt10theory_seq5depeqELb1EjED2Ev.exit: ; preds = %_ZN7svectorIjjED2Ev.exit20, %_ZN6vectorIN3smt10theory_seq5depeqELb1EjE16destroy_elementsEv.exit.i.i
@@ -6085,7 +6085,7 @@ terminate.lpad.i.i24:                             ; preds = %if.then.i.i.i22
   %21 = landingpad { ptr, i32 }
           catch ptr null
   %22 = extractvalue { ptr, i32 } %21, 0
-  tail call void @__clang_call_terminate(ptr %22) #25
+  tail call void @__clang_call_terminate(ptr %22) #26
   unreachable
 
 _ZN7svectorIjjED2Ev.exit25:                       ; preds = %_ZN6vectorIN3smt10theory_seq5depeqELb1EjED2Ev.exit, %if.then.i.i.i22
@@ -6109,7 +6109,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #25
+  tail call void @__clang_call_terminate(ptr %2) #26
   unreachable
 
 _ZN7svectorIjjED2Ev.exit:                         ; preds = %entry, %if.then.i.i.i
@@ -6127,7 +6127,7 @@ terminate.lpad.i.i4:                              ; preds = %if.then.i.i.i2
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #25
+  tail call void @__clang_call_terminate(ptr %5) #26
   unreachable
 
 _ZN7svectorIN3smt10theory_seq12solution_map10map_updateEjED2Ev.exit: ; preds = %_ZN7svectorIjjED2Ev.exit, %if.then.i.i.i2
@@ -6145,7 +6145,7 @@ terminate.lpad.i.i8:                              ; preds = %if.then.i.i.i6
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #25
+  tail call void @__clang_call_terminate(ptr %8) #26
   unreachable
 
 _ZN10ptr_vectorIN18dependency_managerIN25scoped_dependency_managerIN3smt10theory_seq10assumptionEE6configEE10dependencyEED2Ev.exit: ; preds = %_ZN7svectorIN3smt10theory_seq12solution_map10map_updateEjED2Ev.exit, %if.then.i.i.i6
@@ -6202,14 +6202,14 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i
   %16 = landingpad { ptr, i32 }
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
-  tail call void @__clang_call_terminate(ptr %17) #25
+  tail call void @__clang_call_terminate(ptr %17) #26
   unreachable
 
 terminate.lpad.i.i9:                              ; preds = %if.then2.i.i.i.i.i.i
   %18 = landingpad { ptr, i32 }
           catch ptr null
   %19 = extractvalue { ptr, i32 } %18, 0
-  tail call void @__clang_call_terminate(ptr %19) #25
+  tail call void @__clang_call_terminate(ptr %19) #26
   unreachable
 
 _ZN10ref_vectorI4expr11ast_managerED2Ev.exit:     ; preds = %_ZN10ptr_vectorIN18dependency_managerIN25scoped_dependency_managerIN3smt10theory_seq10assumptionEE6configEE10dependencyEED2Ev.exit, %invoke.cont8.i.i, %if.then.i.i.i.i.i
@@ -6266,14 +6266,14 @@ terminate.lpad.i.i.i.i31:                         ; preds = %if.then.i.i.i.i.i29
   %27 = landingpad { ptr, i32 }
           catch ptr null
   %28 = extractvalue { ptr, i32 } %27, 0
-  tail call void @__clang_call_terminate(ptr %28) #25
+  tail call void @__clang_call_terminate(ptr %28) #26
   unreachable
 
 terminate.lpad.i.i33:                             ; preds = %if.then2.i.i.i.i.i.i32
   %29 = landingpad { ptr, i32 }
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
-  tail call void @__clang_call_terminate(ptr %30) #25
+  tail call void @__clang_call_terminate(ptr %30) #26
   unreachable
 
 _ZN10ref_vectorI4expr11ast_managerED2Ev.exit34:   ; preds = %_ZN10ref_vectorI4expr11ast_managerED2Ev.exit, %invoke.cont8.i.i26, %if.then.i.i.i.i.i29
@@ -6293,7 +6293,7 @@ terminate.lpad.i.i38:                             ; preds = %if.then.i.i.i36
   %32 = landingpad { ptr, i32 }
           catch ptr null
   %33 = extractvalue { ptr, i32 } %32, 0
-  tail call void @__clang_call_terminate(ptr %33) #25
+  tail call void @__clang_call_terminate(ptr %33) #26
   unreachable
 
 _ZN7svectorIN3smt10theory_seq8expr_depEjED2Ev.exit: ; preds = %_ZN10ref_vectorI4expr11ast_managerED2Ev.exit34, %if.then.i.i.i36
@@ -6317,7 +6317,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #25
+  tail call void @__clang_call_terminate(ptr %2) #26
   unreachable
 
 _ZN18dependency_managerIN25scoped_dependency_managerIN3smt10theory_seq10assumptionEE6configEED2Ev.exit: ; preds = %entry, %if.then.i.i.i.i
@@ -6478,7 +6478,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i4
   %17 = landingpad { ptr, i32 }
           catch ptr null
   %18 = extractvalue { ptr, i32 } %17, 0
-  tail call void @__clang_call_terminate(ptr %18) #25
+  tail call void @__clang_call_terminate(ptr %18) #26
   unreachable
 
 _ZN10ptr_vectorI4exprED2Ev.exit:                  ; preds = %invoke.cont, %if.then.i.i.i4
@@ -6495,7 +6495,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %for.cond.preheader.
   %20 = landingpad { ptr, i32 }
           catch ptr null
   %21 = extractvalue { ptr, i32 } %20, 0
-  tail call void @__clang_call_terminate(ptr %21) #25
+  tail call void @__clang_call_terminate(ptr %21) #26
   unreachable
 
 _ZN5u_mapIjED2Ev.exit:                            ; preds = %_ZN10ptr_vectorI4exprED2Ev.exit, %for.cond.preheader.i.i.i.i.i.i
@@ -6550,14 +6550,14 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i15
   %27 = landingpad { ptr, i32 }
           catch ptr null
   %28 = extractvalue { ptr, i32 } %27, 0
-  tail call void @__clang_call_terminate(ptr %28) #25
+  tail call void @__clang_call_terminate(ptr %28) #26
   unreachable
 
 terminate.lpad.i:                                 ; preds = %_Z7deallocIN3smt10theory_seq4cellEEvPT_.exit.i.i.i.i
   %29 = landingpad { ptr, i32 }
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
-  tail call void @__clang_call_terminate(ptr %30) #25
+  tail call void @__clang_call_terminate(ptr %30) #26
   unreachable
 
 _ZN17scoped_ptr_vectorIN3smt10theory_seq4cellEED2Ev.exit: ; preds = %_ZN5u_mapIjED2Ev.exit, %_ZSt8for_eachIPPN3smt10theory_seq4cellE11delete_procIS2_EET0_T_S8_S7_.exit.i.i, %invoke.cont.i, %if.then.i.i.i.i15
@@ -6574,7 +6574,7 @@ terminate.lpad.i.i17:                             ; preds = %for.cond.preheader.
   %32 = landingpad { ptr, i32 }
           catch ptr null
   %33 = extractvalue { ptr, i32 } %32, 0
-  tail call void @__clang_call_terminate(ptr %33) #25
+  tail call void @__clang_call_terminate(ptr %33) #26
   unreachable
 
 _ZN18obj_pair_hashtableI4exprS0_ED2Ev.exit:       ; preds = %_ZN17scoped_ptr_vectorIN3smt10theory_seq4cellEED2Ev.exit, %for.cond.preheader.i.i.i.i
@@ -6592,7 +6592,7 @@ terminate.lpad.i.i20:                             ; preds = %for.cond.preheader.
   %35 = landingpad { ptr, i32 }
           catch ptr null
   %36 = extractvalue { ptr, i32 } %35, 0
-  tail call void @__clang_call_terminate(ptr %36) #25
+  tail call void @__clang_call_terminate(ptr %36) #26
   unreachable
 
 _ZN13obj_hashtableI4exprED2Ev.exit:               ; preds = %_ZN18obj_pair_hashtableI4exprS0_ED2Ev.exit, %for.cond.preheader.i.i.i.i19
@@ -6610,7 +6610,7 @@ terminate.lpad.i.i23:                             ; preds = %for.cond.preheader.
   %38 = landingpad { ptr, i32 }
           catch ptr null
   %39 = extractvalue { ptr, i32 } %38, 0
-  tail call void @__clang_call_terminate(ptr %39) #25
+  tail call void @__clang_call_terminate(ptr %39) #26
   unreachable
 
 _ZN13obj_hashtableI4exprED2Ev.exit24:             ; preds = %_ZN13obj_hashtableI4exprED2Ev.exit, %for.cond.preheader.i.i.i.i22
@@ -6670,14 +6670,14 @@ terminate.lpad.i.i.i.i30:                         ; preds = %if.then.i.i.i.i.i
   %47 = landingpad { ptr, i32 }
           catch ptr null
   %48 = extractvalue { ptr, i32 } %47, 0
-  tail call void @__clang_call_terminate(ptr %48) #25
+  tail call void @__clang_call_terminate(ptr %48) #26
   unreachable
 
 terminate.lpad.i.i31:                             ; preds = %if.then2.i.i.i.i.i.i
   %49 = landingpad { ptr, i32 }
           catch ptr null
   %50 = extractvalue { ptr, i32 } %49, 0
-  tail call void @__clang_call_terminate(ptr %50) #25
+  tail call void @__clang_call_terminate(ptr %50) #26
   unreachable
 
 _ZN10ref_vectorI4expr11ast_managerED2Ev.exit:     ; preds = %_ZN13obj_hashtableI4exprED2Ev.exit24, %invoke.cont8.i.i, %if.then.i.i.i.i.i
@@ -6734,14 +6734,14 @@ terminate.lpad.i.i.i.i53:                         ; preds = %if.then.i.i.i.i.i51
   %58 = landingpad { ptr, i32 }
           catch ptr null
   %59 = extractvalue { ptr, i32 } %58, 0
-  tail call void @__clang_call_terminate(ptr %59) #25
+  tail call void @__clang_call_terminate(ptr %59) #26
   unreachable
 
 terminate.lpad.i.i55:                             ; preds = %if.then2.i.i.i.i.i.i54
   %60 = landingpad { ptr, i32 }
           catch ptr null
   %61 = extractvalue { ptr, i32 } %60, 0
-  tail call void @__clang_call_terminate(ptr %61) #25
+  tail call void @__clang_call_terminate(ptr %61) #26
   unreachable
 
 _ZN10ref_vectorI4expr11ast_managerED2Ev.exit56:   ; preds = %_ZN10ref_vectorI4expr11ast_managerED2Ev.exit, %invoke.cont8.i.i48, %if.then.i.i.i.i.i51
@@ -6798,14 +6798,14 @@ terminate.lpad.i.i.i.i78:                         ; preds = %if.then.i.i.i.i.i76
   %69 = landingpad { ptr, i32 }
           catch ptr null
   %70 = extractvalue { ptr, i32 } %69, 0
-  tail call void @__clang_call_terminate(ptr %70) #25
+  tail call void @__clang_call_terminate(ptr %70) #26
   unreachable
 
 terminate.lpad.i.i80:                             ; preds = %if.then2.i.i.i.i.i.i79
   %71 = landingpad { ptr, i32 }
           catch ptr null
   %72 = extractvalue { ptr, i32 } %71, 0
-  tail call void @__clang_call_terminate(ptr %72) #25
+  tail call void @__clang_call_terminate(ptr %72) #26
   unreachable
 
 _ZN10ref_vectorI4expr11ast_managerED2Ev.exit81:   ; preds = %_ZN10ref_vectorI4expr11ast_managerED2Ev.exit56, %invoke.cont8.i.i73, %if.then.i.i.i.i.i76
@@ -6862,14 +6862,14 @@ terminate.lpad.i.i.i.i103:                        ; preds = %if.then.i.i.i.i.i10
   %80 = landingpad { ptr, i32 }
           catch ptr null
   %81 = extractvalue { ptr, i32 } %80, 0
-  tail call void @__clang_call_terminate(ptr %81) #25
+  tail call void @__clang_call_terminate(ptr %81) #26
   unreachable
 
 terminate.lpad.i.i105:                            ; preds = %if.then2.i.i.i.i.i.i104
   %82 = landingpad { ptr, i32 }
           catch ptr null
   %83 = extractvalue { ptr, i32 } %82, 0
-  tail call void @__clang_call_terminate(ptr %83) #25
+  tail call void @__clang_call_terminate(ptr %83) #26
   unreachable
 
 _ZN10ref_vectorI4expr11ast_managerED2Ev.exit106:  ; preds = %_ZN10ref_vectorI4expr11ast_managerED2Ev.exit81, %invoke.cont8.i.i98, %if.then.i.i.i.i.i101
@@ -6887,7 +6887,7 @@ terminate.lpad.i.i110:                            ; preds = %if.then.i.i.i108
   %85 = landingpad { ptr, i32 }
           catch ptr null
   %86 = extractvalue { ptr, i32 } %85, 0
-  tail call void @__clang_call_terminate(ptr %86) #25
+  tail call void @__clang_call_terminate(ptr %86) #26
   unreachable
 
 _ZN10ptr_vectorI4exprED2Ev.exit111:               ; preds = %_ZN10ref_vectorI4expr11ast_managerED2Ev.exit106, %if.then.i.i.i108
@@ -6905,7 +6905,7 @@ terminate.lpad.i.i115:                            ; preds = %if.then.i.i.i113
   %88 = landingpad { ptr, i32 }
           catch ptr null
   %89 = extractvalue { ptr, i32 } %88, 0
-  tail call void @__clang_call_terminate(ptr %89) #25
+  tail call void @__clang_call_terminate(ptr %89) #26
   unreachable
 
 _ZN10ptr_vectorI4exprED2Ev.exit116:               ; preds = %_ZN10ptr_vectorI4exprED2Ev.exit111, %if.then.i.i.i113
@@ -6924,7 +6924,7 @@ terminate.lpad.i.i.i121:                          ; preds = %if.then.i.i.i.i119
   %91 = landingpad { ptr, i32 }
           catch ptr null
   %92 = extractvalue { ptr, i32 } %91, 0
-  tail call void @__clang_call_terminate(ptr %92) #25
+  tail call void @__clang_call_terminate(ptr %92) #26
   unreachable
 
 _ZN7svectorIjjED2Ev.exit.i:                       ; preds = %if.then.i.i.i.i119, %_ZN10ptr_vectorI4exprED2Ev.exit116
@@ -6941,7 +6941,7 @@ terminate.lpad.i.i4.i:                            ; preds = %if.then.i.i.i2.i
   %94 = landingpad { ptr, i32 }
           catch ptr null
   %95 = extractvalue { ptr, i32 } %94, 0
-  tail call void @__clang_call_terminate(ptr %95) #25
+  tail call void @__clang_call_terminate(ptr %95) #26
   unreachable
 
 _ZN11trail_stackD2Ev.exit:                        ; preds = %_ZN7svectorIjjED2Ev.exit.i, %if.then.i.i.i2.i
@@ -6963,7 +6963,7 @@ terminate.lpad.i.i.i125:                          ; preds = %if.then.i.i.i124
   %97 = landingpad { ptr, i32 }
           catch ptr null
   %98 = extractvalue { ptr, i32 } %97, 0
-  tail call void @__clang_call_terminate(ptr %98) #25
+  tail call void @__clang_call_terminate(ptr %98) #26
   unreachable
 
 _ZNSt8functionIFN3sat7literalEP4exprbEED2Ev.exit.i: ; preds = %if.then.i.i.i124, %_ZN11trail_stackD2Ev.exit
@@ -6981,7 +6981,7 @@ terminate.lpad.i.i5.i:                            ; preds = %if.then.i.i3.i
   %100 = landingpad { ptr, i32 }
           catch ptr null
   %101 = extractvalue { ptr, i32 } %100, 0
-  tail call void @__clang_call_terminate(ptr %101) #25
+  tail call void @__clang_call_terminate(ptr %101) #26
   unreachable
 
 _ZN3smt10seq_axiomsD2Ev.exit:                     ; preds = %_ZNSt8functionIFN3sat7literalEP4exprbEED2Ev.exit.i, %if.then.i.i3.i
@@ -7054,14 +7054,14 @@ terminate.lpad.i.i.i145:                          ; preds = %if.then.i.i.i.i143
   %108 = landingpad { ptr, i32 }
           catch ptr null
   %109 = extractvalue { ptr, i32 } %108, 0
-  tail call void @__clang_call_terminate(ptr %109) #25
+  tail call void @__clang_call_terminate(ptr %109) #26
   unreachable
 
 terminate.lpad.i134:                              ; preds = %_Z7deallocIN3smt10theory_seq5applyEEvPT_.exit.i.i.i.i
   %110 = landingpad { ptr, i32 }
           catch ptr null
   %111 = extractvalue { ptr, i32 } %110, 0
-  tail call void @__clang_call_terminate(ptr %111) #25
+  tail call void @__clang_call_terminate(ptr %111) #26
   unreachable
 
 _ZN17scoped_ptr_vectorIN3smt10theory_seq5applyEED2Ev.exit: ; preds = %_ZN3smt10seq_axiomsD2Ev.exit, %_ZSt8for_eachIPPN3smt10theory_seq5applyE11delete_procIS2_EET0_T_S8_S7_.exit.i.i, %invoke.cont.i139, %if.then.i.i.i.i143
@@ -7118,14 +7118,14 @@ terminate.lpad.i.i.i.i167:                        ; preds = %if.then.i.i.i.i.i16
   %119 = landingpad { ptr, i32 }
           catch ptr null
   %120 = extractvalue { ptr, i32 } %119, 0
-  tail call void @__clang_call_terminate(ptr %120) #25
+  tail call void @__clang_call_terminate(ptr %120) #26
   unreachable
 
 terminate.lpad.i.i169:                            ; preds = %if.then2.i.i.i.i.i.i168
   %121 = landingpad { ptr, i32 }
           catch ptr null
   %122 = extractvalue { ptr, i32 } %121, 0
-  tail call void @__clang_call_terminate(ptr %122) #25
+  tail call void @__clang_call_terminate(ptr %122) #26
   unreachable
 
 _ZN10ref_vectorI4expr11ast_managerED2Ev.exit170:  ; preds = %_ZN17scoped_ptr_vectorIN3smt10theory_seq5applyEED2Ev.exit, %invoke.cont8.i.i162, %if.then.i.i.i.i.i165
@@ -7142,7 +7142,7 @@ terminate.lpad.i.i173:                            ; preds = %for.cond.preheader.
   %124 = landingpad { ptr, i32 }
           catch ptr null
   %125 = extractvalue { ptr, i32 } %124, 0
-  tail call void @__clang_call_terminate(ptr %125) #25
+  tail call void @__clang_call_terminate(ptr %125) #26
   unreachable
 
 _ZN7obj_mapI4exprjED2Ev.exit:                     ; preds = %_ZN10ref_vectorI4expr11ast_managerED2Ev.exit170, %for.cond.preheader.i.i.i.i172
@@ -7200,14 +7200,14 @@ terminate.lpad.i.i.i.i195:                        ; preds = %if.then.i.i.i.i.i19
   %133 = landingpad { ptr, i32 }
           catch ptr null
   %134 = extractvalue { ptr, i32 } %133, 0
-  tail call void @__clang_call_terminate(ptr %134) #25
+  tail call void @__clang_call_terminate(ptr %134) #26
   unreachable
 
 terminate.lpad.i.i197:                            ; preds = %if.then2.i.i.i.i.i.i196
   %135 = landingpad { ptr, i32 }
           catch ptr null
   %136 = extractvalue { ptr, i32 } %135, 0
-  tail call void @__clang_call_terminate(ptr %136) #25
+  tail call void @__clang_call_terminate(ptr %136) #26
   unreachable
 
 _ZN10ref_vectorI4expr11ast_managerED2Ev.exit198:  ; preds = %_ZN7obj_mapI4exprjED2Ev.exit, %invoke.cont8.i.i190, %if.then.i.i.i.i.i193
@@ -7224,7 +7224,7 @@ terminate.lpad.i.i201:                            ; preds = %for.cond.preheader.
   %138 = landingpad { ptr, i32 }
           catch ptr null
   %139 = extractvalue { ptr, i32 } %138, 0
-  tail call void @__clang_call_terminate(ptr %139) #25
+  tail call void @__clang_call_terminate(ptr %139) #26
   unreachable
 
 _ZN13obj_hashtableI4exprED2Ev.exit202:            ; preds = %_ZN10ref_vectorI4expr11ast_managerED2Ev.exit198, %for.cond.preheader.i.i.i.i200
@@ -7242,7 +7242,7 @@ terminate.lpad.i.i205:                            ; preds = %for.cond.preheader.
   %141 = landingpad { ptr, i32 }
           catch ptr null
   %142 = extractvalue { ptr, i32 } %141, 0
-  tail call void @__clang_call_terminate(ptr %142) #25
+  tail call void @__clang_call_terminate(ptr %142) #26
   unreachable
 
 _ZN13obj_hashtableI4exprED2Ev.exit206:            ; preds = %_ZN13obj_hashtableI4exprED2Ev.exit202, %for.cond.preheader.i.i.i.i204
@@ -7300,14 +7300,14 @@ terminate.lpad.i.i.i.i228:                        ; preds = %if.then.i.i.i.i.i22
   %150 = landingpad { ptr, i32 }
           catch ptr null
   %151 = extractvalue { ptr, i32 } %150, 0
-  tail call void @__clang_call_terminate(ptr %151) #25
+  tail call void @__clang_call_terminate(ptr %151) #26
   unreachable
 
 terminate.lpad.i.i230:                            ; preds = %if.then2.i.i.i.i.i.i229
   %152 = landingpad { ptr, i32 }
           catch ptr null
   %153 = extractvalue { ptr, i32 } %152, 0
-  tail call void @__clang_call_terminate(ptr %153) #25
+  tail call void @__clang_call_terminate(ptr %153) #26
   unreachable
 
 _ZN10ref_vectorI4expr11ast_managerED2Ev.exit231:  ; preds = %_ZN13obj_hashtableI4exprED2Ev.exit206, %invoke.cont8.i.i223, %if.then.i.i.i.i.i226
@@ -7364,14 +7364,14 @@ terminate.lpad.i.i.i.i253:                        ; preds = %if.then.i.i.i.i.i25
   %161 = landingpad { ptr, i32 }
           catch ptr null
   %162 = extractvalue { ptr, i32 } %161, 0
-  tail call void @__clang_call_terminate(ptr %162) #25
+  tail call void @__clang_call_terminate(ptr %162) #26
   unreachable
 
 terminate.lpad.i.i255:                            ; preds = %if.then2.i.i.i.i.i.i254
   %163 = landingpad { ptr, i32 }
           catch ptr null
   %164 = extractvalue { ptr, i32 } %163, 0
-  tail call void @__clang_call_terminate(ptr %164) #25
+  tail call void @__clang_call_terminate(ptr %164) #26
   unreachable
 
 _ZN10ref_vectorI4expr11ast_managerED2Ev.exit256:  ; preds = %_ZN10ref_vectorI4expr11ast_managerED2Ev.exit231, %invoke.cont8.i.i248, %if.then.i.i.i.i.i251
@@ -7388,7 +7388,7 @@ terminate.lpad.i.i259:                            ; preds = %for.cond.preheader.
   %166 = landingpad { ptr, i32 }
           catch ptr null
   %167 = extractvalue { ptr, i32 } %166, 0
-  tail call void @__clang_call_terminate(ptr %167) #25
+  tail call void @__clang_call_terminate(ptr %167) #26
   unreachable
 
 _ZN13obj_hashtableI4exprED2Ev.exit260:            ; preds = %_ZN10ref_vectorI4expr11ast_managerED2Ev.exit256, %for.cond.preheader.i.i.i.i258
@@ -7446,14 +7446,14 @@ terminate.lpad.i.i.i.i282:                        ; preds = %if.then.i.i.i.i.i28
   %175 = landingpad { ptr, i32 }
           catch ptr null
   %176 = extractvalue { ptr, i32 } %175, 0
-  tail call void @__clang_call_terminate(ptr %176) #25
+  tail call void @__clang_call_terminate(ptr %176) #26
   unreachable
 
 terminate.lpad.i.i284:                            ; preds = %if.then2.i.i.i.i.i.i283
   %177 = landingpad { ptr, i32 }
           catch ptr null
   %178 = extractvalue { ptr, i32 } %177, 0
-  tail call void @__clang_call_terminate(ptr %178) #25
+  tail call void @__clang_call_terminate(ptr %178) #26
   unreachable
 
 _ZN10ref_vectorI4expr11ast_managerED2Ev.exit285:  ; preds = %_ZN13obj_hashtableI4exprED2Ev.exit260, %invoke.cont8.i.i277, %if.then.i.i.i.i.i280
@@ -7477,14 +7477,14 @@ terminate.lpad.i.i.i289:                          ; preds = %for.cond.preheader.
   %180 = landingpad { ptr, i32 }
           catch ptr null
   %181 = extractvalue { ptr, i32 } %180, 0
-  tail call void @__clang_call_terminate(ptr %181) #25
+  tail call void @__clang_call_terminate(ptr %181) #26
   unreachable
 
 terminate.lpad.i286:                              ; preds = %_ZN10ref_vectorI4expr11ast_managerED2Ev.exit285
   %182 = landingpad { ptr, i32 }
           catch ptr null
   %183 = extractvalue { ptr, i32 } %182, 0
-  tail call void @__clang_call_terminate(ptr %183) #25
+  tail call void @__clang_call_terminate(ptr %183) #26
   unreachable
 
 _ZN11obj_ref_mapI11ast_manager4exprbED2Ev.exit:   ; preds = %invoke.cont.i287, %for.cond.preheader.i.i.i.i.i
@@ -7507,14 +7507,14 @@ terminate.lpad.i.i.i295:                          ; preds = %for.cond.preheader.
   %185 = landingpad { ptr, i32 }
           catch ptr null
   %186 = extractvalue { ptr, i32 } %185, 0
-  tail call void @__clang_call_terminate(ptr %186) #25
+  tail call void @__clang_call_terminate(ptr %186) #26
   unreachable
 
 terminate.lpad.i290:                              ; preds = %_ZN11obj_ref_mapI11ast_manager4exprbED2Ev.exit
   %187 = landingpad { ptr, i32 }
           catch ptr null
   %188 = extractvalue { ptr, i32 } %187, 0
-  tail call void @__clang_call_terminate(ptr %188) #25
+  tail call void @__clang_call_terminate(ptr %188) #26
   unreachable
 
 _ZN11obj_ref_mapI11ast_manager4exprbED2Ev.exit296: ; preds = %invoke.cont.i291, %for.cond.preheader.i.i.i.i.i294
@@ -7532,7 +7532,7 @@ terminate.lpad.i.i.i299:                          ; preds = %for.cond.preheader.
   %190 = landingpad { ptr, i32 }
           catch ptr null
   %191 = extractvalue { ptr, i32 } %190, 0
-  tail call void @__clang_call_terminate(ptr %191) #25
+  tail call void @__clang_call_terminate(ptr %191) #26
   unreachable
 
 _ZN12obj_pair_mapIN3smt5enodeES1_iED2Ev.exit.i:   ; preds = %for.cond.preheader.i.i.i.i.i298, %_ZN11obj_ref_mapI11ast_manager4exprbED2Ev.exit296
@@ -7550,7 +7550,7 @@ terminate.lpad.i.i3.i:                            ; preds = %for.cond.preheader.
   %193 = landingpad { ptr, i32 }
           catch ptr null
   %194 = extractvalue { ptr, i32 } %193, 0
-  tail call void @__clang_call_terminate(ptr %194) #25
+  tail call void @__clang_call_terminate(ptr %194) #26
   unreachable
 
 _ZN3smt13seq_offset_eqD2Ev.exit:                  ; preds = %_ZN12obj_pair_mapIN3smt5enodeES1_iED2Ev.exit.i, %for.cond.preheader.i.i.i.i2.i
@@ -7571,7 +7571,7 @@ terminate.lpad.i.i.i304:                          ; preds = %if.then.i.i.i.i302
   %196 = landingpad { ptr, i32 }
           catch ptr null
   %197 = extractvalue { ptr, i32 } %196, 0
-  tail call void @__clang_call_terminate(ptr %197) #25
+  tail call void @__clang_call_terminate(ptr %197) #26
   unreachable
 
 _ZN7svectorIjjED2Ev.exit.i305:                    ; preds = %if.then.i.i.i.i302, %_ZN3smt13seq_offset_eqD2Ev.exit
@@ -7589,7 +7589,7 @@ terminate.lpad.i.i4.i309:                         ; preds = %if.then.i.i.i2.i307
   %199 = landingpad { ptr, i32 }
           catch ptr null
   %200 = extractvalue { ptr, i32 } %199, 0
-  tail call void @__clang_call_terminate(ptr %200) #25
+  tail call void @__clang_call_terminate(ptr %200) #26
   unreachable
 
 _ZN7svectorIjjED2Ev.exit5.i:                      ; preds = %if.then.i.i.i2.i307, %_ZN7svectorIjjED2Ev.exit.i305
@@ -7607,7 +7607,7 @@ terminate.lpad.i.i9.i:                            ; preds = %if.then.i.i.i7.i
   %202 = landingpad { ptr, i32 }
           catch ptr null
   %203 = extractvalue { ptr, i32 } %202, 0
-  tail call void @__clang_call_terminate(ptr %203) #25
+  tail call void @__clang_call_terminate(ptr %203) #26
   unreachable
 
 _ZN10union_findIN3smt10theory_seqES1_ED2Ev.exit:  ; preds = %_ZN7svectorIjjED2Ev.exit5.i, %if.then.i.i.i7.i
@@ -7637,7 +7637,7 @@ terminate.lpad.i.i.i.i313:                        ; preds = %if.then.i.i.i.i.i31
   %205 = landingpad { ptr, i32 }
           catch ptr null
   %206 = extractvalue { ptr, i32 } %205, 0
-  tail call void @__clang_call_terminate(ptr %206) #25
+  tail call void @__clang_call_terminate(ptr %206) #26
   unreachable
 
 _ZN25scoped_dependency_managerIN3smt10theory_seq10assumptionEED2Ev.exit: ; preds = %_ZN10union_findIN3smt10theory_seqES1_ED2Ev.exit, %if.then.i.i.i.i.i311
@@ -7664,14 +7664,14 @@ terminate.lpad.loopexit.split-lp.loopexit.split-lp: ; preds = %while.body.i.i.i
 terminate.lpad:                                   ; preds = %terminate.lpad.loopexit.split-lp.loopexit, %terminate.lpad.loopexit.split-lp.loopexit.split-lp, %terminate.lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %terminate.lpad.loopexit ], [ %lpad.loopexit314, %terminate.lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp315, %terminate.lpad.loopexit.split-lp.loopexit.split-lp ]
   %207 = extractvalue { ptr, i32 } %lpad.phi, 0
-  tail call void @__clang_call_terminate(ptr %207) #25
+  tail call void @__clang_call_terminate(ptr %207) #26
   unreachable
 }
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #8 comdat {
   %2 = tail call ptr @__cxa_begin_catch(ptr %0) #23
-  tail call void @_ZSt9terminatev() #25
+  tail call void @_ZSt9terminatev() #26
   unreachable
 }
 
@@ -7691,7 +7691,7 @@ entry:
 define hidden void @_ZN3smt10theory_seqD0Ev(ptr noundef nonnull align 8 dereferenceable(4328) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN3smt10theory_seqD2Ev(ptr noundef nonnull align 8 dereferenceable(4328) %this) #23
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #26
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #27
   ret void
 }
 
@@ -7703,7 +7703,7 @@ define hidden void @_ZThn56_N3smt10theory_seqD0Ev(ptr noundef %this) unnamed_add
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -56
   tail call void @_ZN3smt10theory_seqD2Ev(ptr noundef nonnull align 8 dereferenceable(4328) %0) #23
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #26
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #27
   ret void
 }
 
@@ -7757,7 +7757,7 @@ terminate.lpad.i.i7.i:                            ; preds = %if.then.i.i5.i
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
-  call void @__clang_call_terminate(ptr %5) #25
+  call void @__clang_call_terminate(ptr %5) #26
   unreachable
 
 if.then.i.i11:                                    ; preds = %if.then.i.i, %if.then.i.i5.i
@@ -7793,7 +7793,7 @@ terminate.lpad.i.i7.i26:                          ; preds = %if.then.i.i5.i24
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  call void @__clang_call_terminate(ptr %10) #25
+  call void @__clang_call_terminate(ptr %10) #26
   unreachable
 
 invoke.cont7:                                     ; preds = %if.then.i.i5.i24, %if.then.i.i11
@@ -9583,7 +9583,7 @@ terminate.lpad.i:                                 ; preds = %if.then2.i.i.i
   %64 = landingpad { ptr, i32 }
           catch ptr null
   %65 = extractvalue { ptr, i32 } %64, 0
-  call void @__clang_call_terminate(ptr %65) #25
+  call void @__clang_call_terminate(ptr %65) #26
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %_ZNK3smt6theory12get_num_varsEv.exit, %_ZNK3smt6theory12get_num_varsEv.exit.thread, %cleanup, %if.then.i.i.i, %if.then2.i.i.i
@@ -9601,7 +9601,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i75
   %67 = landingpad { ptr, i32 }
           catch ptr null
   %68 = extractvalue { ptr, i32 } %67, 0
-  call void @__clang_call_terminate(ptr %68) #25
+  call void @__clang_call_terminate(ptr %68) #26
   unreachable
 
 _ZN7svectorIjjED2Ev.exit:                         ; preds = %_ZN7obj_refI4expr11ast_managerED2Ev.exit, %if.then.i.i.i75
@@ -9759,7 +9759,7 @@ terminate.lpad.i:                                 ; preds = %if.then2.i.i.i
   %16 = landingpad { ptr, i32 }
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
-  call void @__clang_call_terminate(ptr %17) #25
+  call void @__clang_call_terminate(ptr %17) #26
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %if.end, %if.then.i.i.i, %if.then2.i.i.i
@@ -9970,7 +9970,7 @@ terminate.lpad.i:                                 ; preds = %if.then2.i.i.i
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
-  call void @__clang_call_terminate(ptr %5) #25
+  call void @__clang_call_terminate(ptr %5) #26
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %invoke.cont22, %if.then.i.i.i, %if.then2.i.i.i
@@ -10125,7 +10125,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
   %11 = landingpad { ptr, i32 }
           catch ptr null
   %12 = extractvalue { ptr, i32 } %11, 0
-  call void @__clang_call_terminate(ptr %12) #25
+  call void @__clang_call_terminate(ptr %12) #26
   unreachable
 
 _ZN7svectorIN3sat7literalEjED2Ev.exit:            ; preds = %lor.lhs.false8, %entry, %cleanup, %if.then.i.i.i
@@ -10183,7 +10183,7 @@ terminate.lpad.i:                                 ; preds = %.noexc.i, %invoke.c
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
-  call void @__clang_call_terminate(ptr %5) #25
+  call void @__clang_call_terminate(ptr %5) #26
   unreachable
 
 _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
@@ -10464,14 +10464,14 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i
   %37 = landingpad { ptr, i32 }
           catch ptr null
   %38 = extractvalue { ptr, i32 } %37, 0
-  call void @__clang_call_terminate(ptr %38) #25
+  call void @__clang_call_terminate(ptr %38) #26
   unreachable
 
 terminate.lpad.i.i:                               ; preds = %if.then2.i.i.i.i.i.i
   %39 = landingpad { ptr, i32 }
           catch ptr null
   %40 = extractvalue { ptr, i32 } %39, 0
-  call void @__clang_call_terminate(ptr %40) #25
+  call void @__clang_call_terminate(ptr %40) #26
   unreachable
 
 cleanup61:                                        ; preds = %invoke.cont5, %if.then.i.i.i.i.i, %invoke.cont8.i.i, %cleanup
@@ -10490,7 +10490,7 @@ terminate.lpad.i.i27:                             ; preds = %if.end.i.i.i.i.i
   %42 = landingpad { ptr, i32 }
           catch ptr null
   %43 = extractvalue { ptr, i32 } %42, 0
-  call void @__clang_call_terminate(ptr %43) #25
+  call void @__clang_call_terminate(ptr %43) #26
   unreachable
 
 _ZN7zstringD2Ev.exit:                             ; preds = %cleanup61, %if.end.i.i.i.i.i
@@ -10515,7 +10515,7 @@ terminate.lpad.i:                                 ; preds = %if.then2.i.i.i34
   %47 = landingpad { ptr, i32 }
           catch ptr null
   %48 = extractvalue { ptr, i32 } %47, 0
-  call void @__clang_call_terminate(ptr %48) #25
+  call void @__clang_call_terminate(ptr %48) #26
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %_ZN7zstringD2Ev.exit, %if.then.i.i.i29, %if.then2.i.i.i34
@@ -10540,7 +10540,7 @@ terminate.lpad.i42:                               ; preds = %if.then2.i.i.i41
   %52 = landingpad { ptr, i32 }
           catch ptr null
   %53 = extractvalue { ptr, i32 } %52, 0
-  call void @__clang_call_terminate(ptr %53) #25
+  call void @__clang_call_terminate(ptr %53) #26
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit43:       ; preds = %_ZN7obj_refI4expr11ast_managerED2Ev.exit, %if.then.i.i.i36, %if.then2.i.i.i41
@@ -10582,7 +10582,7 @@ terminate.lpad:                                   ; preds = %if.then2.i.i
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #25
+  tail call void @__clang_call_terminate(ptr %4) #26
   unreachable
 }
 
@@ -10772,7 +10772,7 @@ terminate.lpad.i:                                 ; preds = %.noexc.i, %invoke.c
   %23 = landingpad { ptr, i32 }
           catch ptr null
   %24 = extractvalue { ptr, i32 } %23, 0
-  call void @__clang_call_terminate(ptr %24) #25
+  call void @__clang_call_terminate(ptr %24) #26
   unreachable
 
 lpad:                                             ; preds = %_ZN11mpq_managerILb1EE3setER3mpqj.exit.i, %if.else.i.i.i.i, %if.then14, %if.then, %if.else39, %if.then36, %if.else33, %if.else20, %if.else
@@ -10893,7 +10893,7 @@ terminate.lpad.i79:                               ; preds = %.noexc.i80, %invoke
   %40 = landingpad { ptr, i32 }
           catch ptr null
   %41 = extractvalue { ptr, i32 } %40, 0
-  call void @__clang_call_terminate(ptr %41) #25
+  call void @__clang_call_terminate(ptr %41) #26
   unreachable
 
 lpad17:                                           ; preds = %if.then.i73
@@ -11024,7 +11024,7 @@ terminate.lpad.i138:                              ; preds = %.noexc.i139, %invok
   %57 = landingpad { ptr, i32 }
           catch ptr null
   %58 = extractvalue { ptr, i32 } %57, 0
-  call void @__clang_call_terminate(ptr %58) #25
+  call void @__clang_call_terminate(ptr %58) #26
   unreachable
 
 lpad30:                                           ; preds = %if.then.i132
@@ -11072,7 +11072,7 @@ terminate.lpad.i.i:                               ; preds = %if.end.i.i.i.i.i
   %61 = landingpad { ptr, i32 }
           catch ptr null
   %62 = extractvalue { ptr, i32 } %61, 0
-  call void @__clang_call_terminate(ptr %62) #25
+  call void @__clang_call_terminate(ptr %62) #26
   unreachable
 
 _ZN7zstringD2Ev.exit:                             ; preds = %invoke.cont, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit, %for.end, %if.end.i.i.i.i.i
@@ -11089,7 +11089,7 @@ terminate.lpad.i143:                              ; preds = %.noexc.i144, %_ZN7z
   %64 = landingpad { ptr, i32 }
           catch ptr null
   %65 = extractvalue { ptr, i32 } %64, 0
-  call void @__clang_call_terminate(ptr %65) #25
+  call void @__clang_call_terminate(ptr %65) #26
   unreachable
 
 _ZN8rationalD2Ev.exit146:                         ; preds = %.noexc.i144
@@ -11121,7 +11121,7 @@ terminate.lpad:                                   ; preds = %.noexc, %entry
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #25
+  tail call void @__clang_call_terminate(ptr %2) #26
   unreachable
 }
 
@@ -11188,7 +11188,7 @@ terminate.lpad.i.i:                               ; preds = %if.end.i.i.i.i.i
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  call void @__clang_call_terminate(ptr %10) #25
+  call void @__clang_call_terminate(ptr %10) #26
   unreachable
 
 _ZN7zstringD2Ev.exit:                             ; preds = %lor.end, %if.end.i.i.i.i.i
@@ -11417,7 +11417,7 @@ terminate.lpad.i:                                 ; preds = %if.then2.i.i.i
   %13 = landingpad { ptr, i32 }
           catch ptr null
   %14 = extractvalue { ptr, i32 } %13, 0
-  call void @__clang_call_terminate(ptr %14) #25
+  call void @__clang_call_terminate(ptr %14) #26
   unreachable
 
 lpad:                                             ; preds = %invoke.cont6, %_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit
@@ -11455,7 +11455,7 @@ terminate.lpad.i:                                 ; preds = %if.end.i.i.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #25
+  tail call void @__clang_call_terminate(ptr %2) #26
   unreachable
 
 _ZN6bufferIjLb1ELj16EED2Ev.exit:                  ; preds = %entry, %if.end.i.i.i.i
@@ -12071,7 +12071,7 @@ terminate.lpad.i:                                 ; preds = %.noexc.i, %cleanup1
   %67 = landingpad { ptr, i32 }
           catch ptr null
   %68 = extractvalue { ptr, i32 } %67, 0
-  call void @__clang_call_terminate(ptr %68) #25
+  call void @__clang_call_terminate(ptr %68) #26
   unreachable
 
 _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
@@ -12087,7 +12087,7 @@ terminate.lpad.i83:                               ; preds = %.noexc.i84, %_ZN8ra
   %70 = landingpad { ptr, i32 }
           catch ptr null
   %71 = extractvalue { ptr, i32 } %70, 0
-  call void @__clang_call_terminate(ptr %71) #25
+  call void @__clang_call_terminate(ptr %71) #26
   unreachable
 
 _ZN8rationalD2Ev.exit86:                          ; preds = %.noexc.i84
@@ -12102,7 +12102,7 @@ ehcleanup162:                                     ; preds = %ehcleanup, %lpad47,
 
 declare void @_Z26notify_assertion_violationPKciS0_(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
@@ -12497,7 +12497,7 @@ terminate.lpad.i:                                 ; preds = %.noexc.i, %invoke.c
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  call void @__clang_call_terminate(ptr %8) #25
+  call void @__clang_call_terminate(ptr %8) #26
   unreachable
 
 _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
@@ -12694,7 +12694,7 @@ terminate.lpad:                                   ; preds = %if.then2.i.i.i
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #25
+  tail call void @__clang_call_terminate(ptr %5) #26
   unreachable
 }
 
@@ -12735,7 +12735,7 @@ terminate.lpad.i:                                 ; preds = %if.then2.i.i.i
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  call void @__clang_call_terminate(ptr %7) #25
+  call void @__clang_call_terminate(ptr %7) #26
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %invoke.cont2, %if.then.i.i.i, %if.then2.i.i.i
@@ -13010,7 +13010,7 @@ terminate.lpad.i.i.i:                             ; preds = %_ZN6vectorI9paramet
   %30 = landingpad { ptr, i32 }
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
-  call void @__clang_call_terminate(ptr %31) #25
+  call void @__clang_call_terminate(ptr %31) #26
   unreachable
 
 _ZN3smt36ext_theory_propagation_justificationD2Ev.exit: ; preds = %invoke.cont33, %_ZN6vectorI9parameterLb1EjE16destroy_elementsEv.exit.i.i.i.i
@@ -13061,7 +13061,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i17
   %38 = landingpad { ptr, i32 }
           catch ptr null
   %39 = extractvalue { ptr, i32 } %38, 0
-  call void @__clang_call_terminate(ptr %39) #25
+  call void @__clang_call_terminate(ptr %39) #26
   unreachable
 
 lpad15:                                           ; preds = %sw.bb9.i.i, %sw.bb.i.i, %_ZNK6vectorISt4pairIPN3smt5enodeES3_ELb0EjE4sizeEv.exit, %invoke.cont38, %invoke.cont13
@@ -13094,7 +13094,7 @@ terminate.lpad.i.i21:                             ; preds = %if.then.i.i.i19
   %43 = landingpad { ptr, i32 }
           catch ptr null
   %44 = extractvalue { ptr, i32 } %43, 0
-  call void @__clang_call_terminate(ptr %44) #25
+  call void @__clang_call_terminate(ptr %44) #26
   unreachable
 
 ehcleanup42:                                      ; preds = %ehcleanup, %lpad
@@ -13202,7 +13202,7 @@ terminate.lpad.i:                                 ; preds = %if.then2.i.i.i
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  tail call void @__clang_call_terminate(ptr %16) #25
+  tail call void @__clang_call_terminate(ptr %16) #26
   unreachable
 
 if.then.i.i.i18:                                  ; preds = %if.then2.i.i.i, %if.then.i.i.i
@@ -13221,7 +13221,7 @@ terminate.lpad.i24:                               ; preds = %if.then2.i.i.i23
   %18 = landingpad { ptr, i32 }
           catch ptr null
   %19 = extractvalue { ptr, i32 } %18, 0
-  tail call void @__clang_call_terminate(ptr %19) #25
+  tail call void @__clang_call_terminate(ptr %19) #26
   unreachable
 
 lpad16:                                           ; preds = %invoke.cont, %invoke.cont28
@@ -13436,7 +13436,7 @@ terminate.lpad.i:                                 ; preds = %if.then2.i.i.i
   %33 = landingpad { ptr, i32 }
           catch ptr null
   %34 = extractvalue { ptr, i32 } %33, 0
-  call void @__clang_call_terminate(ptr %34) #25
+  call void @__clang_call_terminate(ptr %34) #26
   unreachable
 
 if.then.i.i.i36:                                  ; preds = %if.then2.i.i.i, %if.then.i.i.i, %invoke.cont32
@@ -13454,7 +13454,7 @@ terminate.lpad.i42:                               ; preds = %if.then2.i.i.i41
   %36 = landingpad { ptr, i32 }
           catch ptr null
   %37 = extractvalue { ptr, i32 } %36, 0
-  call void @__clang_call_terminate(ptr %37) #25
+  call void @__clang_call_terminate(ptr %37) #26
   unreachable
 
 lpad19:                                           ; preds = %invoke.cont30, %invoke.cont26, %invoke.cont
@@ -13718,7 +13718,7 @@ terminate.lpad.i:                                 ; preds = %if.then2.i.i.i
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  call void @__clang_call_terminate(ptr %9) #25
+  call void @__clang_call_terminate(ptr %9) #26
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %invoke.cont36, %if.then.i.i.i, %if.then2.i.i.i
@@ -14103,7 +14103,7 @@ terminate.lpad.i:                                 ; preds = %if.then2.i.i.i
   %53 = landingpad { ptr, i32 }
           catch ptr null
   %54 = extractvalue { ptr, i32 } %53, 0
-  call void @__clang_call_terminate(ptr %54) #25
+  call void @__clang_call_terminate(ptr %54) #26
   unreachable
 
 return:                                           ; preds = %land.lhs.true.i.i.i, %land.lhs.true25.i.i.i, %if.then2.i.i.i, %if.then.i.i.i76, %cleanup, %if.end, %entry
@@ -14150,7 +14150,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #25
+  tail call void @__clang_call_terminate(ptr %2) #26
   unreachable
 
 _ZN6vectorIjLb0EjED2Ev.exit:                      ; preds = %entry, %if.then.i.i
@@ -14368,7 +14368,7 @@ terminate.lpad.i.i:                               ; preds = %if.then2.i.i.i.i
   %10 = landingpad { ptr, i32 }
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0
-  call void @__clang_call_terminate(ptr %11) #25
+  call void @__clang_call_terminate(ptr %11) #26
   unreachable
 
 lpad:                                             ; preds = %_ZN3smt10theory_seq2ncC2ERKS1_.exit
@@ -14426,7 +14426,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then2.i.i.i.i.i.
   %22 = landingpad { ptr, i32 }
           catch ptr null
   %23 = extractvalue { ptr, i32 } %22, 0
-  call void @__clang_call_terminate(ptr %23) #25
+  call void @__clang_call_terminate(ptr %23) #26
   unreachable
 
 _ZN6vectorIN3smt10theory_seq2ncELb1EjE8pop_backEv.exit.i: ; preds = %if.then2.i.i.i.i.i.i, %if.then.i.i.i.i.i.i, %_ZN6vectorIN3smt10theory_seq2ncELb1EjE4backEv.exit.i.i
@@ -14675,7 +14675,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i30
   %30 = landingpad { ptr, i32 }
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
-  call void @__clang_call_terminate(ptr %31) #25
+  call void @__clang_call_terminate(ptr %31) #26
   unreachable
 
 _ZN7svectorIN3smt10theory_seq10assumptionEjED2Ev.exit: ; preds = %invoke.cont, %entry, %for.end, %if.then.i.i.i30
@@ -14735,7 +14735,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #25
+  tail call void @__clang_call_terminate(ptr %2) #26
   unreachable
 
 _ZN6vectorIN3smt10theory_seq10assumptionELb0EjED2Ev.exit: ; preds = %entry, %if.then.i.i
@@ -14813,7 +14813,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  call void @__clang_call_terminate(ptr %9) #25
+  call void @__clang_call_terminate(ptr %9) #26
   unreachable
 
 _ZN7svectorIN3sat7literalEjED2Ev.exit:            ; preds = %invoke.cont4, %if.then.i.i.i
@@ -14830,7 +14830,7 @@ terminate.lpad.i.i7:                              ; preds = %if.then.i.i.i5
   %11 = landingpad { ptr, i32 }
           catch ptr null
   %12 = extractvalue { ptr, i32 } %11, 0
-  call void @__clang_call_terminate(ptr %12) #25
+  call void @__clang_call_terminate(ptr %12) #26
   unreachable
 
 _ZN7svectorISt4pairIPN3smt5enodeES3_EjED2Ev.exit: ; preds = %_ZN7svectorIN3sat7literalEjED2Ev.exit, %if.then.i.i.i5
@@ -14973,7 +14973,7 @@ terminate.lpad.i.i:                               ; preds = %_ZN6vectorI9paramet
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #25
+  tail call void @__clang_call_terminate(ptr %4) #26
   unreachable
 
 _ZN3smt31ext_theory_simple_justificationD2Ev.exit: ; preds = %entry, %_ZN6vectorI9parameterLb1EjE16destroy_elementsEv.exit.i.i.i
@@ -15161,14 +15161,14 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i
   %23 = landingpad { ptr, i32 }
           catch ptr null
   %24 = extractvalue { ptr, i32 } %23, 0
-  call void @__clang_call_terminate(ptr %24) #25
+  call void @__clang_call_terminate(ptr %24) #26
   unreachable
 
 terminate.lpad.i.i:                               ; preds = %if.then2.i.i.i.i.i.i
   %25 = landingpad { ptr, i32 }
           catch ptr null
   %26 = extractvalue { ptr, i32 } %25, 0
-  call void @__clang_call_terminate(ptr %26) #25
+  call void @__clang_call_terminate(ptr %26) #26
   unreachable
 
 _ZN10ref_vectorI4expr11ast_managerED2Ev.exit:     ; preds = %invoke.cont38, %invoke.cont8.i.i, %if.then.i.i.i.i.i
@@ -15185,7 +15185,7 @@ terminate.lpad.i.i13:                             ; preds = %if.then.i.i.i
   %28 = landingpad { ptr, i32 }
           catch ptr null
   %29 = extractvalue { ptr, i32 } %28, 0
-  call void @__clang_call_terminate(ptr %29) #25
+  call void @__clang_call_terminate(ptr %29) #26
   unreachable
 
 lpad:                                             ; preds = %if.then.i
@@ -15224,7 +15224,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #25
+  tail call void @__clang_call_terminate(ptr %2) #26
   unreachable
 
 _ZN6vectorISt4pairIPN3smt5enodeES3_ELb0EjED2Ev.exit: ; preds = %entry, %if.then.i.i
@@ -15247,7 +15247,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #25
+  tail call void @__clang_call_terminate(ptr %2) #26
   unreachable
 
 _ZN6vectorIN3sat7literalELb0EjED2Ev.exit:         ; preds = %entry, %if.then.i.i
@@ -15430,7 +15430,7 @@ terminate.lpad.i.i.i:                             ; preds = %_ZN6vectorI9paramet
   %23 = landingpad { ptr, i32 }
           catch ptr null
   %24 = extractvalue { ptr, i32 } %23, 0
-  call void @__clang_call_terminate(ptr %24) #25
+  call void @__clang_call_terminate(ptr %24) #26
   unreachable
 
 _ZN3smt33ext_theory_conflict_justificationD2Ev.exit: ; preds = %invoke.cont9, %_ZN6vectorI9parameterLb1EjE16destroy_elementsEv.exit.i.i.i.i
@@ -15482,7 +15482,7 @@ terminate.lpad.i.i:                               ; preds = %_ZN6vectorI9paramet
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #25
+  tail call void @__clang_call_terminate(ptr %4) #26
   unreachable
 
 _ZN3smt31ext_theory_simple_justificationD2Ev.exit: ; preds = %entry, %_ZN6vectorI9parameterLb1EjE16destroy_elementsEv.exit.i.i.i
@@ -15584,14 +15584,14 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i
   %10 = landingpad { ptr, i32 }
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0
-  call void @__clang_call_terminate(ptr %11) #25
+  call void @__clang_call_terminate(ptr %11) #26
   unreachable
 
 terminate.lpad.i.i:                               ; preds = %if.then2.i.i.i.i.i.i
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  call void @__clang_call_terminate(ptr %13) #25
+  call void @__clang_call_terminate(ptr %13) #26
   unreachable
 
 lpad:                                             ; preds = %if.then12
@@ -15794,13 +15794,13 @@ terminate.lpad.i.i.i:                             ; preds = %_ZN6vectorI9paramet
   %23 = landingpad { ptr, i32 }
           catch ptr null
   %24 = extractvalue { ptr, i32 } %23, 0
-  call void @__clang_call_terminate(ptr %24) #25
+  call void @__clang_call_terminate(ptr %24) #26
   unreachable
 
 _ZN3smt39ext_theory_eq_propagation_justificationD2Ev.exit: ; preds = %invoke.cont18, %_ZN6vectorI9parameterLb1EjE16destroy_elementsEv.exit.i.i.i.i
   %_M_manager.i.i = getelementptr inbounds i8, ptr %fn, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %fn, i8 0, i64 32, i1 false)
-  %call.i.i2.i16 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #27
+  %call.i.i2.i16 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #28
           to label %invoke.cont21 unwind label %lpad3
 
 invoke.cont21:                                    ; preds = %_ZN3smt39ext_theory_eq_propagation_justificationD2Ev.exit
@@ -15886,7 +15886,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i19
   %40 = landingpad { ptr, i32 }
           catch ptr null
   %41 = extractvalue { ptr, i32 } %40, 0
-  call void @__clang_call_terminate(ptr %41) #25
+  call void @__clang_call_terminate(ptr %41) #26
   unreachable
 
 _ZN3smt6theory19scoped_trace_streamD2Ev.exit:     ; preds = %invoke.cont28, %if.then.i19
@@ -15902,7 +15902,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i23
   %43 = landingpad { ptr, i32 }
           catch ptr null
   %44 = extractvalue { ptr, i32 } %43, 0
-  call void @__clang_call_terminate(ptr %44) #25
+  call void @__clang_call_terminate(ptr %44) #26
   unreachable
 
 _ZNSt8functionIFP4exprvEED2Ev.exit:               ; preds = %_ZN3smt6theory19scoped_trace_streamD2Ev.exit, %if.then.i.i23
@@ -15933,7 +15933,7 @@ terminate.lpad.i.i25:                             ; preds = %if.then.i.i.i24
   %50 = landingpad { ptr, i32 }
           catch ptr null
   %51 = extractvalue { ptr, i32 } %50, 0
-  call void @__clang_call_terminate(ptr %51) #25
+  call void @__clang_call_terminate(ptr %51) #26
   unreachable
 
 _ZN7svectorISt4pairIPN3smt5enodeES3_EjED2Ev.exit: ; preds = %invoke.cont30, %if.then.i.i.i24
@@ -15950,7 +15950,7 @@ terminate.lpad.i.i29:                             ; preds = %if.then.i.i.i27
   %53 = landingpad { ptr, i32 }
           catch ptr null
   %54 = extractvalue { ptr, i32 } %53, 0
-  call void @__clang_call_terminate(ptr %54) #25
+  call void @__clang_call_terminate(ptr %54) #26
   unreachable
 
 lpad3:                                            ; preds = %_ZN3smt39ext_theory_eq_propagation_justificationD2Ev.exit, %_ZNK6vectorISt4pairIPN3smt5enodeES3_ELb0EjE4sizeEv.exit, %invoke.cont29, %_ZNSt8functionIFP4exprvEED2Ev.exit, %if.end
@@ -15989,7 +15989,7 @@ terminate.lpad.i.i34:                             ; preds = %if.then.i.i32
   %60 = landingpad { ptr, i32 }
           catch ptr null
   %61 = extractvalue { ptr, i32 } %60, 0
-  call void @__clang_call_terminate(ptr %61) #25
+  call void @__clang_call_terminate(ptr %61) #26
   unreachable
 
 ehcleanup31:                                      ; preds = %if.then.i.i32, %ehcleanup, %lpad3, %lpad.i, %lpad17
@@ -16040,7 +16040,7 @@ terminate.lpad.i.i:                               ; preds = %_ZN6vectorI9paramet
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #25
+  tail call void @__clang_call_terminate(ptr %4) #26
   unreachable
 
 _ZN3smt31ext_theory_simple_justificationD2Ev.exit: ; preds = %entry, %_ZN6vectorI9parameterLb1EjE16destroy_elementsEv.exit.i.i.i
@@ -16107,7 +16107,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  call void @__clang_call_terminate(ptr %8) #25
+  call void @__clang_call_terminate(ptr %8) #26
   unreachable
 
 _ZN6vectorISt5tupleIJPN3smt5enodeES3_EELb1EjED2Ev.exit: ; preds = %invoke.cont8, %if.then.i.i
@@ -16129,7 +16129,7 @@ terminate.lpad.i6:                                ; preds = %if.then2.i.i.i
   %10 = landingpad { ptr, i32 }
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0
-  call void @__clang_call_terminate(ptr %11) #25
+  call void @__clang_call_terminate(ptr %11) #26
   unreachable
 
 lpad7:                                            ; preds = %_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit
@@ -16164,7 +16164,7 @@ terminate.lpad:                                   ; preds = %if.then
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #25
+  tail call void @__clang_call_terminate(ptr %3) #26
   unreachable
 }
 
@@ -16339,14 +16339,14 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i
   %28 = landingpad { ptr, i32 }
           catch ptr null
   %29 = extractvalue { ptr, i32 } %28, 0
-  call void @__clang_call_terminate(ptr %29) #25
+  call void @__clang_call_terminate(ptr %29) #26
   unreachable
 
 terminate.lpad.i.i:                               ; preds = %if.then2.i.i.i.i.i.i
   %30 = landingpad { ptr, i32 }
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
-  call void @__clang_call_terminate(ptr %31) #25
+  call void @__clang_call_terminate(ptr %31) #26
   unreachable
 
 lpad:                                             ; preds = %if.then.i.i, %invoke.cont41, %if.then34, %invoke.cont45
@@ -17012,7 +17012,7 @@ terminate.lpad.i.i.i:                             ; preds = %_ZN6vectorI9paramet
   %47 = landingpad { ptr, i32 }
           catch ptr null
   %48 = extractvalue { ptr, i32 } %47, 0
-  call void @__clang_call_terminate(ptr %48) #25
+  call void @__clang_call_terminate(ptr %48) #26
   unreachable
 
 _ZN3smt39ext_theory_eq_propagation_justificationD2Ev.exit: ; preds = %invoke.cont27, %_ZN6vectorI9parameterLb1EjE16destroy_elementsEv.exit.i.i.i.i
@@ -17020,7 +17020,7 @@ _ZN3smt39ext_theory_eq_propagation_justificationD2Ev.exit: ; preds = %invoke.con
   store i8 1, ptr %m_new_propagation, align 2
   %_M_manager.i.i = getelementptr inbounds i8, ptr %fn, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %fn, i8 0, i64 32, i1 false)
-  %call.i.i2.i36 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #27
+  %call.i.i2.i36 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #28
           to label %invoke.cont30 unwind label %lpad6.loopexit.split-lp
 
 invoke.cont30:                                    ; preds = %_ZN3smt39ext_theory_eq_propagation_justificationD2Ev.exit
@@ -17106,7 +17106,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i41
   %62 = landingpad { ptr, i32 }
           catch ptr null
   %63 = extractvalue { ptr, i32 } %62, 0
-  call void @__clang_call_terminate(ptr %63) #25
+  call void @__clang_call_terminate(ptr %63) #26
   unreachable
 
 _ZN3smt6theory19scoped_trace_streamD2Ev.exit:     ; preds = %invoke.cont38, %if.then.i41
@@ -17122,7 +17122,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i46
   %65 = landingpad { ptr, i32 }
           catch ptr null
   %66 = extractvalue { ptr, i32 } %65, 0
-  call void @__clang_call_terminate(ptr %66) #25
+  call void @__clang_call_terminate(ptr %66) #26
   unreachable
 
 _ZNSt8functionIFP4exprvEED2Ev.exit:               ; preds = %_ZN3smt6theory19scoped_trace_streamD2Ev.exit, %if.then.i.i46
@@ -17139,7 +17139,7 @@ terminate.lpad.i.i49:                             ; preds = %if.then.i.i.i47
   %68 = landingpad { ptr, i32 }
           catch ptr null
   %69 = extractvalue { ptr, i32 } %68, 0
-  call void @__clang_call_terminate(ptr %69) #25
+  call void @__clang_call_terminate(ptr %69) #26
   unreachable
 
 _ZN7svectorISt4pairIPN3smt5enodeES3_EjED2Ev.exit: ; preds = %_ZNSt8functionIFP4exprvEED2Ev.exit, %if.then.i.i.i47
@@ -17156,7 +17156,7 @@ terminate.lpad.i.i53:                             ; preds = %if.then.i.i.i51
   %71 = landingpad { ptr, i32 }
           catch ptr null
   %72 = extractvalue { ptr, i32 } %71, 0
-  call void @__clang_call_terminate(ptr %72) #25
+  call void @__clang_call_terminate(ptr %72) #26
   unreachable
 
 lpad26:                                           ; preds = %if.then.i.i, %invoke.cont.i, %if.then.i.i.i.i, %invoke.cont25
@@ -17190,7 +17190,7 @@ terminate.lpad.i.i58:                             ; preds = %if.then.i.i56
   %77 = landingpad { ptr, i32 }
           catch ptr null
   %78 = extractvalue { ptr, i32 } %77, 0
-  call void @__clang_call_terminate(ptr %78) #25
+  call void @__clang_call_terminate(ptr %78) #26
   unreachable
 
 ehcleanup39:                                      ; preds = %lpad6.loopexit, %lpad6.loopexit.split-lp, %if.then.i.i56, %ehcleanup, %lpad.i, %lpad26
@@ -17240,7 +17240,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #25
+  call void @__clang_call_terminate(ptr %4) #26
   unreachable
 
 _ZN7svectorIN3sat7literalEjED2Ev.exit:            ; preds = %invoke.cont2, %if.then.i.i.i
@@ -17732,14 +17732,14 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i
   %10 = landingpad { ptr, i32 }
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0
-  call void @__clang_call_terminate(ptr %11) #25
+  call void @__clang_call_terminate(ptr %11) #26
   unreachable
 
 terminate.lpad.i.i:                               ; preds = %if.then2.i.i.i.i.i.i
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  call void @__clang_call_terminate(ptr %13) #25
+  call void @__clang_call_terminate(ptr %13) #26
   unreachable
 
 _ZN10ref_vectorI4expr11ast_managerED2Ev.exit:     ; preds = %invoke.cont8, %invoke.cont8.i.i, %if.then.i.i.i.i.i
@@ -17794,14 +17794,14 @@ terminate.lpad.i.i.i.i25:                         ; preds = %if.then.i.i.i.i.i23
   %21 = landingpad { ptr, i32 }
           catch ptr null
   %22 = extractvalue { ptr, i32 } %21, 0
-  call void @__clang_call_terminate(ptr %22) #25
+  call void @__clang_call_terminate(ptr %22) #26
   unreachable
 
 terminate.lpad.i.i27:                             ; preds = %if.then2.i.i.i.i.i.i26
   %23 = landingpad { ptr, i32 }
           catch ptr null
   %24 = extractvalue { ptr, i32 } %23, 0
-  call void @__clang_call_terminate(ptr %24) #25
+  call void @__clang_call_terminate(ptr %24) #26
   unreachable
 
 _ZN10ref_vectorI4expr11ast_managerED2Ev.exit28:   ; preds = %_ZN10ref_vectorI4expr11ast_managerED2Ev.exit, %invoke.cont8.i.i20, %if.then.i.i.i.i.i23
@@ -18232,7 +18232,7 @@ terminate.lpad.i:                                 ; preds = %if.end.i.i79
   %63 = landingpad { ptr, i32 }
           catch ptr null
   %64 = extractvalue { ptr, i32 } %63, 0
-  call void @__clang_call_terminate(ptr %64) #25
+  call void @__clang_call_terminate(ptr %64) #26
   unreachable
 
 _ZN10scoped_ptrIN3seq2eqEED2Ev.exit:              ; preds = %if.then25, %if.end71, %if.end.i.i79
@@ -18254,7 +18254,7 @@ terminate.lpad.i84:                               ; preds = %if.then2.i.i.i
   %66 = landingpad { ptr, i32 }
           catch ptr null
   %67 = extractvalue { ptr, i32 } %66, 0
-  call void @__clang_call_terminate(ptr %67) #25
+  call void @__clang_call_terminate(ptr %67) #26
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %_ZN10scoped_ptrIN3seq2eqEED2Ev.exit, %if.then.i.i.i81, %if.then2.i.i.i
@@ -18276,7 +18276,7 @@ terminate.lpad.i92:                               ; preds = %if.then2.i.i.i91
   %69 = landingpad { ptr, i32 }
           catch ptr null
   %70 = extractvalue { ptr, i32 } %69, 0
-  call void @__clang_call_terminate(ptr %70) #25
+  call void @__clang_call_terminate(ptr %70) #26
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit93:       ; preds = %_ZN7obj_refI4expr11ast_managerED2Ev.exit, %if.then.i.i.i86, %if.then2.i.i.i91
@@ -18462,14 +18462,14 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i
   %18 = landingpad { ptr, i32 }
           catch ptr null
   %19 = extractvalue { ptr, i32 } %18, 0
-  call void @__clang_call_terminate(ptr %19) #25
+  call void @__clang_call_terminate(ptr %19) #26
   unreachable
 
 terminate.lpad.i.i:                               ; preds = %if.then2.i.i.i.i.i.i
   %20 = landingpad { ptr, i32 }
           catch ptr null
   %21 = extractvalue { ptr, i32 } %20, 0
-  call void @__clang_call_terminate(ptr %21) #25
+  call void @__clang_call_terminate(ptr %21) #26
   unreachable
 
 _ZN10ref_vectorI4expr11ast_managerED2Ev.exit:     ; preds = %invoke.cont25, %invoke.cont8.i.i, %if.then.i.i.i.i.i
@@ -18524,14 +18524,14 @@ terminate.lpad.i.i.i.i42:                         ; preds = %if.then.i.i.i.i.i40
   %29 = landingpad { ptr, i32 }
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
-  call void @__clang_call_terminate(ptr %30) #25
+  call void @__clang_call_terminate(ptr %30) #26
   unreachable
 
 terminate.lpad.i.i44:                             ; preds = %if.then2.i.i.i.i.i.i43
   %31 = landingpad { ptr, i32 }
           catch ptr null
   %32 = extractvalue { ptr, i32 } %31, 0
-  call void @__clang_call_terminate(ptr %32) #25
+  call void @__clang_call_terminate(ptr %32) #26
   unreachable
 
 _ZN10ref_vectorI4expr11ast_managerED2Ev.exit45:   ; preds = %_ZN10ref_vectorI4expr11ast_managerED2Ev.exit, %invoke.cont8.i.i37, %if.then.i.i.i.i.i40
@@ -18559,7 +18559,7 @@ terminate.lpad:                                   ; preds = %if.end.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #25
+  tail call void @__clang_call_terminate(ptr %2) #26
   unreachable
 }
 
@@ -18628,7 +18628,7 @@ terminate.lpad.i:                                 ; preds = %if.then2.i.i.i
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  call void @__clang_call_terminate(ptr %7) #25
+  call void @__clang_call_terminate(ptr %7) #26
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %invoke.cont5, %invoke.cont6, %if.then.i.i.i, %if.then2.i.i.i
@@ -18654,7 +18654,7 @@ terminate.lpad.i11:                               ; preds = %if.then2.i.i.i10
   %11 = landingpad { ptr, i32 }
           catch ptr null
   %12 = extractvalue { ptr, i32 } %11, 0
-  call void @__clang_call_terminate(ptr %12) #25
+  call void @__clang_call_terminate(ptr %12) #26
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit12:       ; preds = %_ZN7obj_refI4expr11ast_managerED2Ev.exit, %if.then.i.i.i5, %if.then2.i.i.i10
@@ -18846,7 +18846,7 @@ terminate.lpad.i:                                 ; preds = %if.then2.i.i.i
   %26 = landingpad { ptr, i32 }
           catch ptr null
   %27 = extractvalue { ptr, i32 } %26, 0
-  call void @__clang_call_terminate(ptr %27) #25
+  call void @__clang_call_terminate(ptr %27) #26
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %invoke.cont11, %if.then.i.i.i, %if.then2.i.i.i
@@ -18871,7 +18871,7 @@ terminate.lpad.i62:                               ; preds = %if.then2.i.i.i61
   %31 = landingpad { ptr, i32 }
           catch ptr null
   %32 = extractvalue { ptr, i32 } %31, 0
-  call void @__clang_call_terminate(ptr %32) #25
+  call void @__clang_call_terminate(ptr %32) #26
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit63:       ; preds = %_ZN7obj_refI4expr11ast_managerED2Ev.exit, %if.then.i.i.i56, %if.then2.i.i.i61
@@ -18976,7 +18976,7 @@ terminate.lpad.i96:                               ; preds = %if.then2.i.i.i95
   %48 = landingpad { ptr, i32 }
           catch ptr null
   %49 = extractvalue { ptr, i32 } %48, 0
-  call void @__clang_call_terminate(ptr %49) #25
+  call void @__clang_call_terminate(ptr %49) #26
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit97:       ; preds = %invoke.cont31, %if.then.i.i.i90, %if.then2.i.i.i95
@@ -19186,7 +19186,7 @@ terminate.lpad.i139:                              ; preds = %if.then2.i.i.i138
   %76 = landingpad { ptr, i32 }
           catch ptr null
   %77 = extractvalue { ptr, i32 } %76, 0
-  call void @__clang_call_terminate(ptr %77) #25
+  call void @__clang_call_terminate(ptr %77) #26
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit140:      ; preds = %cleanup, %if.then.i.i.i133, %if.then2.i.i.i138
@@ -19212,7 +19212,7 @@ terminate.lpad.i148:                              ; preds = %if.then2.i.i.i147
   %81 = landingpad { ptr, i32 }
           catch ptr null
   %82 = extractvalue { ptr, i32 } %81, 0
-  call void @__clang_call_terminate(ptr %82) #25
+  call void @__clang_call_terminate(ptr %82) #26
   unreachable
 
 ehcleanup79:                                      ; preds = %lpad16.loopexit, %lpad16.loopexit.split-lp, %lpad.i77, %lpad28
@@ -19356,7 +19356,7 @@ terminate.lpad.i213:                              ; preds = %if.then2.i.i.i212
   %104 = landingpad { ptr, i32 }
           catch ptr null
   %105 = extractvalue { ptr, i32 } %104, 0
-  call void @__clang_call_terminate(ptr %105) #25
+  call void @__clang_call_terminate(ptr %105) #26
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit214:      ; preds = %invoke.cont118, %if.then.i.i.i207, %if.then2.i.i.i212
@@ -19382,7 +19382,7 @@ terminate.lpad.i222:                              ; preds = %if.then2.i.i.i221
   %109 = landingpad { ptr, i32 }
           catch ptr null
   %110 = extractvalue { ptr, i32 } %109, 0
-  call void @__clang_call_terminate(ptr %110) #25
+  call void @__clang_call_terminate(ptr %110) #26
   unreachable
 
 invoke.cont133:                                   ; preds = %if.then2.i.i.i221, %if.then.i.i.i216, %_ZN7obj_refI4expr11ast_managerED2Ev.exit214
@@ -19620,7 +19620,7 @@ terminate.lpad.i311:                              ; preds = %if.then2.i.i.i310
   %145 = landingpad { ptr, i32 }
           catch ptr null
   %146 = extractvalue { ptr, i32 } %145, 0
-  call void @__clang_call_terminate(ptr %146) #25
+  call void @__clang_call_terminate(ptr %146) #26
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit312:      ; preds = %invoke.cont187, %if.then.i.i.i305, %if.then2.i.i.i310
@@ -19646,7 +19646,7 @@ terminate.lpad.i320:                              ; preds = %if.then2.i.i.i319
   %150 = landingpad { ptr, i32 }
           catch ptr null
   %151 = extractvalue { ptr, i32 } %150, 0
-  call void @__clang_call_terminate(ptr %151) #25
+  call void @__clang_call_terminate(ptr %151) #26
   unreachable
 
 invoke.cont202:                                   ; preds = %if.then2.i.i.i319, %if.then.i.i.i314, %_ZN7obj_refI4expr11ast_managerED2Ev.exit312
@@ -19863,7 +19863,7 @@ terminate.lpad.i403:                              ; preds = %if.then2.i.i.i402
   %185 = landingpad { ptr, i32 }
           catch ptr null
   %186 = extractvalue { ptr, i32 } %185, 0
-  call void @__clang_call_terminate(ptr %186) #25
+  call void @__clang_call_terminate(ptr %186) #26
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit404:      ; preds = %invoke.cont239, %if.then.i.i.i397, %if.then2.i.i.i402
@@ -19889,7 +19889,7 @@ terminate.lpad.i412:                              ; preds = %if.then2.i.i.i411
   %190 = landingpad { ptr, i32 }
           catch ptr null
   %191 = extractvalue { ptr, i32 } %190, 0
-  call void @__clang_call_terminate(ptr %191) #25
+  call void @__clang_call_terminate(ptr %191) #26
   unreachable
 
 invoke.cont250:                                   ; preds = %if.then2.i.i.i411, %if.then.i.i.i406, %_ZN7obj_refI4expr11ast_managerED2Ev.exit404
@@ -20041,7 +20041,7 @@ terminate.lpad.i456:                              ; preds = %if.then2.i.i.i455
   %214 = landingpad { ptr, i32 }
           catch ptr null
   %215 = extractvalue { ptr, i32 } %214, 0
-  call void @__clang_call_terminate(ptr %215) #25
+  call void @__clang_call_terminate(ptr %215) #26
   unreachable
 
 invoke.cont295:                                   ; preds = %if.then2.i.i.i455, %if.then.i.i.i450, %invoke.cont288
@@ -20171,7 +20171,7 @@ terminate.lpad.i473:                              ; preds = %if.then2.i.i.i472
   %232 = landingpad { ptr, i32 }
           catch ptr null
   %233 = extractvalue { ptr, i32 } %232, 0
-  call void @__clang_call_terminate(ptr %233) #25
+  call void @__clang_call_terminate(ptr %233) #26
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit474:      ; preds = %cleanup348.critedge, %if.then.i.i.i467, %if.then2.i.i.i472
@@ -20197,7 +20197,7 @@ terminate.lpad.i482:                              ; preds = %if.then2.i.i.i481
   %237 = landingpad { ptr, i32 }
           catch ptr null
   %238 = extractvalue { ptr, i32 } %237, 0
-  call void @__clang_call_terminate(ptr %238) #25
+  call void @__clang_call_terminate(ptr %238) #26
   unreachable
 
 cleanup348.critedge35:                            ; preds = %invoke.cont317, %invoke.cont308
@@ -20223,7 +20223,7 @@ terminate.lpad.i491:                              ; preds = %if.then2.i.i.i490
   %242 = landingpad { ptr, i32 }
           catch ptr null
   %243 = extractvalue { ptr, i32 } %242, 0
-  call void @__clang_call_terminate(ptr %243) #25
+  call void @__clang_call_terminate(ptr %243) #26
   unreachable
 
 cleanup348:                                       ; preds = %_ZN6vectorIN3sat7literalELb0EjE9push_backERKS1_.exit.i254, %_ZN6vectorIN3sat7literalELb0EjE9push_backERKS1_.exit.i352, %land.rhs.i.i, %if.else331, %if.then2.i.i.i490, %if.then.i.i.i485, %cleanup348.critedge35, %if.then2.i.i.i481, %if.then.i.i.i476, %_ZN7obj_refI4expr11ast_managerED2Ev.exit474, %if.then2.i.i.i147, %if.then.i.i.i142, %_ZN7obj_refI4expr11ast_managerED2Ev.exit140, %invoke.cont209, %invoke.cont202, %invoke.cont334, %invoke.cont250, %invoke.cont257, %invoke.cont133, %invoke.cont140, %cleanup327, %invoke.cont338, %invoke.cont267
@@ -20240,7 +20240,7 @@ terminate.lpad.i493:                              ; preds = %.noexc.i, %cleanup3
   %245 = landingpad { ptr, i32 }
           catch ptr null
   %246 = extractvalue { ptr, i32 } %245, 0
-  call void @__clang_call_terminate(ptr %246) #25
+  call void @__clang_call_terminate(ptr %246) #26
   unreachable
 
 _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
@@ -20487,7 +20487,7 @@ terminate.lpad.i:                                 ; preds = %if.then2.i.i.i
   %22 = landingpad { ptr, i32 }
           catch ptr null
   %23 = extractvalue { ptr, i32 } %22, 0
-  call void @__clang_call_terminate(ptr %23) #25
+  call void @__clang_call_terminate(ptr %23) #26
   unreachable
 
 lpad:                                             ; preds = %if.then13, %if.end.i, %if.then.i, %land.lhs.true10, %land.lhs.true5, %entry
@@ -20515,7 +20515,7 @@ terminate.lpad.i10:                               ; preds = %.noexc.i, %cleanup
   %27 = landingpad { ptr, i32 }
           catch ptr null
   %28 = extractvalue { ptr, i32 } %27, 0
-  call void @__clang_call_terminate(ptr %28) #25
+  call void @__clang_call_terminate(ptr %28) #26
   unreachable
 
 _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
@@ -20979,14 +20979,14 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i18
   %65 = landingpad { ptr, i32 }
           catch ptr null
   %66 = extractvalue { ptr, i32 } %65, 0
-  call void @__clang_call_terminate(ptr %66) #25
+  call void @__clang_call_terminate(ptr %66) #26
   unreachable
 
 terminate.lpad.i.i:                               ; preds = %if.then2.i.i.i.i.i.i
   %67 = landingpad { ptr, i32 }
           catch ptr null
   %68 = extractvalue { ptr, i32 } %67, 0
-  call void @__clang_call_terminate(ptr %68) #25
+  call void @__clang_call_terminate(ptr %68) #26
   unreachable
 
 _ZN10ref_vectorI4expr11ast_managerED2Ev.exit:     ; preds = %invoke.cont50, %invoke.cont8.i.i, %if.then.i.i.i.i.i183
@@ -21041,14 +21041,14 @@ terminate.lpad.i.i.i.i205:                        ; preds = %if.then.i.i.i.i.i20
   %76 = landingpad { ptr, i32 }
           catch ptr null
   %77 = extractvalue { ptr, i32 } %76, 0
-  call void @__clang_call_terminate(ptr %77) #25
+  call void @__clang_call_terminate(ptr %77) #26
   unreachable
 
 terminate.lpad.i.i207:                            ; preds = %if.then2.i.i.i.i.i.i206
   %78 = landingpad { ptr, i32 }
           catch ptr null
   %79 = extractvalue { ptr, i32 } %78, 0
-  call void @__clang_call_terminate(ptr %79) #25
+  call void @__clang_call_terminate(ptr %79) #26
   unreachable
 
 lpad15:                                           ; preds = %if.then2.i.i.i235, %if.then2.i.i.i, %invoke.cont60, %invoke.cont14
@@ -21539,14 +21539,14 @@ terminate.lpad.i.i.i.i409:                        ; preds = %if.then.i.i.i.i.i40
   %150 = landingpad { ptr, i32 }
           catch ptr null
   %151 = extractvalue { ptr, i32 } %150, 0
-  call void @__clang_call_terminate(ptr %151) #25
+  call void @__clang_call_terminate(ptr %151) #26
   unreachable
 
 terminate.lpad.i.i411:                            ; preds = %if.then2.i.i.i.i.i.i410
   %152 = landingpad { ptr, i32 }
           catch ptr null
   %153 = extractvalue { ptr, i32 } %152, 0
-  call void @__clang_call_terminate(ptr %153) #25
+  call void @__clang_call_terminate(ptr %153) #26
   unreachable
 
 _ZN10ref_vectorI4expr11ast_managerED2Ev.exit412:  ; preds = %invoke.cont103, %invoke.cont8.i.i404, %if.then.i.i.i.i.i407
@@ -21601,14 +21601,14 @@ terminate.lpad.i.i.i.i434:                        ; preds = %if.then.i.i.i.i.i43
   %161 = landingpad { ptr, i32 }
           catch ptr null
   %162 = extractvalue { ptr, i32 } %161, 0
-  call void @__clang_call_terminate(ptr %162) #25
+  call void @__clang_call_terminate(ptr %162) #26
   unreachable
 
 terminate.lpad.i.i436:                            ; preds = %if.then2.i.i.i.i.i.i435
   %163 = landingpad { ptr, i32 }
           catch ptr null
   %164 = extractvalue { ptr, i32 } %163, 0
-  call void @__clang_call_terminate(ptr %164) #25
+  call void @__clang_call_terminate(ptr %164) #26
   unreachable
 
 lpad76.loopexit:                                  ; preds = %for.body.i321, %_ZN18dependency_managerIN25scoped_dependency_managerIN3smt10theory_seq10assumptionEE6configEE7inc_refEPNS6_10dependencyE.exit17.i.i.i.i330
@@ -22429,7 +22429,7 @@ terminate.lpad.i:                                 ; preds = %.noexc.i, %cleanup
   %271 = landingpad { ptr, i32 }
           catch ptr null
   %272 = extractvalue { ptr, i32 } %271, 0
-  call void @__clang_call_terminate(ptr %272) #25
+  call void @__clang_call_terminate(ptr %272) #26
   unreachable
 
 _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
@@ -22445,7 +22445,7 @@ terminate.lpad.i715:                              ; preds = %.noexc.i716, %_ZN8r
   %274 = landingpad { ptr, i32 }
           catch ptr null
   %275 = extractvalue { ptr, i32 } %274, 0
-  call void @__clang_call_terminate(ptr %275) #25
+  call void @__clang_call_terminate(ptr %275) #26
   unreachable
 
 _ZN8rationalD2Ev.exit718:                         ; preds = %.noexc.i716
@@ -22461,7 +22461,7 @@ terminate.lpad.i719:                              ; preds = %.noexc.i720, %_ZN8r
   %277 = landingpad { ptr, i32 }
           catch ptr null
   %278 = extractvalue { ptr, i32 } %277, 0
-  call void @__clang_call_terminate(ptr %278) #25
+  call void @__clang_call_terminate(ptr %278) #26
   unreachable
 
 cleanup353:                                       ; preds = %.noexc.i720, %if.then.i.i.i.i.i432, %invoke.cont8.i.i429, %_ZN10ref_vectorI4expr11ast_managerED2Ev.exit412, %if.then.i.i.i.i.i203, %invoke.cont8.i.i200, %_ZN10ref_vectorI4expr11ast_managerED2Ev.exit
@@ -22487,7 +22487,7 @@ terminate.lpad.i730:                              ; preds = %if.then2.i.i.i729
   %282 = landingpad { ptr, i32 }
           catch ptr null
   %283 = extractvalue { ptr, i32 } %282, 0
-  call void @__clang_call_terminate(ptr %283) #25
+  call void @__clang_call_terminate(ptr %283) #26
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %cleanup353, %if.then.i.i.i724, %if.then2.i.i.i729
@@ -22512,7 +22512,7 @@ terminate.lpad.i738:                              ; preds = %if.then2.i.i.i737
   %287 = landingpad { ptr, i32 }
           catch ptr null
   %288 = extractvalue { ptr, i32 } %287, 0
-  call void @__clang_call_terminate(ptr %288) #25
+  call void @__clang_call_terminate(ptr %288) #26
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit739:      ; preds = %_ZN7obj_refI4expr11ast_managerED2Ev.exit, %if.then.i.i.i732, %if.then2.i.i.i737
@@ -22529,7 +22529,7 @@ terminate.lpad.i.i741:                            ; preds = %if.then.i.i.i740
   %290 = landingpad { ptr, i32 }
           catch ptr null
   %291 = extractvalue { ptr, i32 } %290, 0
-  call void @__clang_call_terminate(ptr %291) #25
+  call void @__clang_call_terminate(ptr %291) #26
   unreachable
 
 ehcleanup354:                                     ; preds = %lpad113, %ehcleanup105, %ehcleanup, %lpad15
@@ -23437,14 +23437,14 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i15
   %112 = landingpad { ptr, i32 }
           catch ptr null
   %113 = extractvalue { ptr, i32 } %112, 0
-  call void @__clang_call_terminate(ptr %113) #25
+  call void @__clang_call_terminate(ptr %113) #26
   unreachable
 
 terminate.lpad.i.i:                               ; preds = %if.then2.i.i.i.i.i.i
   %114 = landingpad { ptr, i32 }
           catch ptr null
   %115 = extractvalue { ptr, i32 } %114, 0
-  call void @__clang_call_terminate(ptr %115) #25
+  call void @__clang_call_terminate(ptr %115) #26
   unreachable
 
 _ZN10ref_vectorI4expr11ast_managerED2Ev.exit:     ; preds = %cleanup, %invoke.cont8.i.i, %if.then.i.i.i.i.i154
@@ -23499,14 +23499,14 @@ terminate.lpad.i.i.i.i176:                        ; preds = %if.then.i.i.i.i.i17
   %123 = landingpad { ptr, i32 }
           catch ptr null
   %124 = extractvalue { ptr, i32 } %123, 0
-  call void @__clang_call_terminate(ptr %124) #25
+  call void @__clang_call_terminate(ptr %124) #26
   unreachable
 
 terminate.lpad.i.i178:                            ; preds = %if.then2.i.i.i.i.i.i177
   %125 = landingpad { ptr, i32 }
           catch ptr null
   %126 = extractvalue { ptr, i32 } %125, 0
-  call void @__clang_call_terminate(ptr %126) #25
+  call void @__clang_call_terminate(ptr %126) #26
   unreachable
 
 ehcleanup:                                        ; preds = %lpad37.loopexit, %lpad37.loopexit.split-lp.loopexit.split-lp, %lpad37.loopexit.split-lp.loopexit, %lpad.i, %lpad64
@@ -23539,7 +23539,7 @@ terminate.lpad.i:                                 ; preds = %if.then2.i.i.i
   %130 = landingpad { ptr, i32 }
           catch ptr null
   %131 = extractvalue { ptr, i32 } %130, 0
-  call void @__clang_call_terminate(ptr %131) #25
+  call void @__clang_call_terminate(ptr %131) #26
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %cleanup74, %if.then.i.i.i180, %if.then2.i.i.i
@@ -23565,7 +23565,7 @@ terminate.lpad.i190:                              ; preds = %if.then2.i.i.i189
   %135 = landingpad { ptr, i32 }
           catch ptr null
   %136 = extractvalue { ptr, i32 } %135, 0
-  call void @__clang_call_terminate(ptr %136) #25
+  call void @__clang_call_terminate(ptr %136) #26
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit191:      ; preds = %_ZN7obj_refI4expr11ast_managerED2Ev.exit, %if.then.i.i.i184, %if.then2.i.i.i189
@@ -23590,7 +23590,7 @@ terminate.lpad.i199:                              ; preds = %if.then2.i.i.i198
   %140 = landingpad { ptr, i32 }
           catch ptr null
   %141 = extractvalue { ptr, i32 } %140, 0
-  call void @__clang_call_terminate(ptr %141) #25
+  call void @__clang_call_terminate(ptr %141) #26
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit200:      ; preds = %_ZN7obj_refI4expr11ast_managerED2Ev.exit191, %if.then.i.i.i193, %if.then2.i.i.i198
@@ -23615,7 +23615,7 @@ terminate.lpad.i208:                              ; preds = %if.then2.i.i.i207
   %145 = landingpad { ptr, i32 }
           catch ptr null
   %146 = extractvalue { ptr, i32 } %145, 0
-  call void @__clang_call_terminate(ptr %146) #25
+  call void @__clang_call_terminate(ptr %146) #26
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit209:      ; preds = %_ZN7obj_refI4expr11ast_managerED2Ev.exit200, %if.then.i.i.i202, %if.then2.i.i.i207
@@ -24459,7 +24459,7 @@ terminate.lpad.i:                                 ; preds = %if.then2.i.i.i
   %79 = landingpad { ptr, i32 }
           catch ptr null
   %80 = extractvalue { ptr, i32 } %79, 0
-  call void @__clang_call_terminate(ptr %80) #25
+  call void @__clang_call_terminate(ptr %80) #26
   unreachable
 
 lpad67:                                           ; preds = %if.then.i.i109, %if.end62
@@ -24496,7 +24496,7 @@ terminate.lpad.i125:                              ; preds = %if.then2.i.i.i124
   %86 = landingpad { ptr, i32 }
           catch ptr null
   %87 = extractvalue { ptr, i32 } %86, 0
-  call void @__clang_call_terminate(ptr %87) #25
+  call void @__clang_call_terminate(ptr %87) #26
   unreachable
 
 cleanup.cont:                                     ; preds = %for.body, %for.inc34, %if.then, %if.then16, %if.then2.i.i.i124, %if.then.i.i.i119, %cleanup, %if.end9, %_ZNK8seq_util3str7is_unitEPK4expr.exit
@@ -25113,7 +25113,7 @@ terminate.lpad.i.i:                               ; preds = %if.end.i.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #25
+  tail call void @__clang_call_terminate(ptr %2) #26
   unreachable
 
 _ZN10scoped_ptrI7bv_utilED2Ev.exit.i:             ; preds = %if.end.i.i.i, %entry
@@ -25130,7 +25130,7 @@ terminate.lpad.i3.i:                              ; preds = %if.end.i.i2.i
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #25
+  tail call void @__clang_call_terminate(ptr %5) #26
   unreachable
 
 _ZN7datalog12dl_decl_utilD2Ev.exit:               ; preds = %_ZN10scoped_ptrI7bv_utilED2Ev.exit.i, %if.end.i.i2.i
@@ -25155,7 +25155,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %for.cond.preheader.
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #25
+  tail call void @__clang_call_terminate(ptr %8) #26
   unreachable
 
 _ZN3mapI6symbolS0_16symbol_hash_proc14symbol_eq_procED2Ev.exit.i.i: ; preds = %for.cond.preheader.i.i.i.i.i.i.i, %_ZN7datalog12dl_decl_utilD2Ev.exit
@@ -25172,7 +25172,7 @@ terminate.lpad.i.i.i3.i.i:                        ; preds = %for.cond.preheader.
   %10 = landingpad { ptr, i32 }
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0
-  tail call void @__clang_call_terminate(ptr %11) #25
+  tail call void @__clang_call_terminate(ptr %11) #26
   unreachable
 
 _ZN19smt2_pp_environmentD2Ev.exit:                ; preds = %_ZN3mapI6symbolS0_16symbol_hash_proc14symbol_eq_procED2Ev.exit.i.i, %for.cond.preheader.i.i.i.i.i2.i.i
@@ -26023,7 +26023,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i293
   %105 = landingpad { ptr, i32 }
           catch ptr null
   %106 = extractvalue { ptr, i32 } %105, 0
-  call void @__clang_call_terminate(ptr %106) #25
+  call void @__clang_call_terminate(ptr %106) #26
   unreachable
 
 _ZN10ptr_vectorIN3smt10theory_seq4cellEED2Ev.exit: ; preds = %invoke.cont154, %if.then.i.i.i293
@@ -26040,7 +26040,7 @@ terminate.lpad.i.i297:                            ; preds = %if.then.i.i.i295
   %108 = landingpad { ptr, i32 }
           catch ptr null
   %109 = extractvalue { ptr, i32 } %108, 0
-  call void @__clang_call_terminate(ptr %109) #25
+  call void @__clang_call_terminate(ptr %109) #26
   unreachable
 
 return:                                           ; preds = %if.then.i.i.i295, %_ZN10ptr_vectorIN3smt10theory_seq4cellEED2Ev.exit, %entry
@@ -26064,7 +26064,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #25
+  tail call void @__clang_call_terminate(ptr %2) #26
   unreachable
 
 _ZN6vectorIPN3smt10theory_seq4cellELb0EjED2Ev.exit: ; preds = %entry, %if.then.i.i
@@ -27443,7 +27443,7 @@ terminate.lpad.i:                                 ; preds = %.noexc.i, %invoke.c
   %49 = landingpad { ptr, i32 }
           catch ptr null
   %50 = extractvalue { ptr, i32 } %49, 0
-  call void @__clang_call_terminate(ptr %50) #25
+  call void @__clang_call_terminate(ptr %50) #26
   unreachable
 
 lpad39:                                           ; preds = %invoke.cont38
@@ -27472,7 +27472,7 @@ terminate.lpad.i35:                               ; preds = %if.then2.i.i.i
   %53 = landingpad { ptr, i32 }
           catch ptr null
   %54 = extractvalue { ptr, i32 } %53, 0
-  call void @__clang_call_terminate(ptr %54) #25
+  call void @__clang_call_terminate(ptr %54) #26
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %sw.epilog, %if.then.i.i.i, %if.then2.i.i.i
@@ -27601,7 +27601,7 @@ terminate.lpad.i56:                               ; preds = %.noexc.i57, %invoke
   %70 = landingpad { ptr, i32 }
           catch ptr null
   %71 = extractvalue { ptr, i32 } %70, 0
-  call void @__clang_call_terminate(ptr %71) #25
+  call void @__clang_call_terminate(ptr %71) #26
   unreachable
 
 _ZN8rationalD2Ev.exit59:                          ; preds = %.noexc.i57
@@ -27617,7 +27617,7 @@ terminate.lpad.i60:                               ; preds = %.noexc.i61, %_ZN8ra
   %73 = landingpad { ptr, i32 }
           catch ptr null
   %74 = extractvalue { ptr, i32 } %73, 0
-  call void @__clang_call_terminate(ptr %74) #25
+  call void @__clang_call_terminate(ptr %74) #26
   unreachable
 
 while.end:                                        ; preds = %invoke.cont45
@@ -27694,7 +27694,7 @@ terminate.lpad.i72:                               ; preds = %.noexc.i73, %cleanu
   %84 = landingpad { ptr, i32 }
           catch ptr null
   %85 = extractvalue { ptr, i32 } %84, 0
-  call void @__clang_call_terminate(ptr %85) #25
+  call void @__clang_call_terminate(ptr %85) #26
   unreachable
 
 _ZN8rationalD2Ev.exit75:                          ; preds = %.noexc.i73
@@ -27710,7 +27710,7 @@ terminate.lpad.i76:                               ; preds = %.noexc.i77, %_ZN8ra
   %87 = landingpad { ptr, i32 }
           catch ptr null
   %88 = extractvalue { ptr, i32 } %87, 0
-  call void @__clang_call_terminate(ptr %88) #25
+  call void @__clang_call_terminate(ptr %88) #26
   unreachable
 
 ehcleanup65:                                      ; preds = %lpad19.loopexit, %lpad19.loopexit.split-lp, %lpad.i, %lpad60, %lpad.i49, %ehcleanup
@@ -27812,7 +27812,7 @@ terminate.lpad.i:                                 ; preds = %.noexc.i, %invoke.c
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  call void @__clang_call_terminate(ptr %8) #25
+  call void @__clang_call_terminate(ptr %8) #26
   unreachable
 
 _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
@@ -28307,7 +28307,7 @@ terminate.lpad.i:                                 ; preds = %.noexc.i, %cleanup
   %41 = landingpad { ptr, i32 }
           catch ptr null
   %42 = extractvalue { ptr, i32 } %41, 0
-  call void @__clang_call_terminate(ptr %42) #25
+  call void @__clang_call_terminate(ptr %42) #26
   unreachable
 
 _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
@@ -28780,7 +28780,7 @@ terminate.lpad.i:                                 ; preds = %.noexc.i, %if.end56
   %50 = landingpad { ptr, i32 }
           catch ptr null
   %51 = extractvalue { ptr, i32 } %50, 0
-  call void @__clang_call_terminate(ptr %51) #25
+  call void @__clang_call_terminate(ptr %51) #26
   unreachable
 
 _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
@@ -28796,7 +28796,7 @@ terminate.lpad.i100:                              ; preds = %.noexc.i101, %_ZN8r
   %53 = landingpad { ptr, i32 }
           catch ptr null
   %54 = extractvalue { ptr, i32 } %53, 0
-  call void @__clang_call_terminate(ptr %54) #25
+  call void @__clang_call_terminate(ptr %54) #26
   unreachable
 
 _ZN8rationalD2Ev.exit103:                         ; preds = %.noexc.i101
@@ -28952,7 +28952,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #25
+  call void @__clang_call_terminate(ptr %2) #26
   unreachable
 
 _ZN7svectorISt4pairIPN3smt5enodeES3_EjED2Ev.exit: ; preds = %invoke.cont4, %if.then.i.i.i
@@ -28969,7 +28969,7 @@ terminate.lpad.i.i5:                              ; preds = %if.then.i.i.i3
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
-  call void @__clang_call_terminate(ptr %5) #25
+  call void @__clang_call_terminate(ptr %5) #26
   unreachable
 
 _ZN7svectorIN3sat7literalEjED2Ev.exit:            ; preds = %_ZN7svectorISt4pairIPN3smt5enodeES3_EjED2Ev.exit, %if.then.i.i.i3
@@ -29852,7 +29852,7 @@ terminate.lpad.i:                                 ; preds = %if.then2.i.i.i32
   %25 = landingpad { ptr, i32 }
           catch ptr null
   %26 = extractvalue { ptr, i32 } %25, 0
-  call void @__clang_call_terminate(ptr %26) #25
+  call void @__clang_call_terminate(ptr %26) #26
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %if.end29, %if.then.i.i.i27, %if.then2.i.i.i32
@@ -29881,7 +29881,7 @@ terminate.lpad.i40:                               ; preds = %if.then2.i.i.i39
   %29 = landingpad { ptr, i32 }
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
-  call void @__clang_call_terminate(ptr %30) #25
+  call void @__clang_call_terminate(ptr %30) #26
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit41:       ; preds = %invoke.cont, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit, %for.end, %if.then.i.i.i34, %if.then2.i.i.i39
@@ -30925,7 +30925,7 @@ terminate.lpad.i:                                 ; preds = %if.then2.i.i.i
   %122 = landingpad { ptr, i32 }
           catch ptr null
   %123 = extractvalue { ptr, i32 } %122, 0
-  tail call void @__clang_call_terminate(ptr %123) #25
+  tail call void @__clang_call_terminate(ptr %123) #26
   unreachable
 
 lpad:                                             ; preds = %if.then.i10.i189, %if.then.i.i193
@@ -31501,7 +31501,7 @@ terminate.lpad.i:                                 ; preds = %if.then2.i.i.i40
   %37 = landingpad { ptr, i32 }
           catch ptr null
   %38 = extractvalue { ptr, i32 } %37, 0
-  tail call void @__clang_call_terminate(ptr %38) #25
+  tail call void @__clang_call_terminate(ptr %38) #26
   unreachable
 
 if.else:                                          ; preds = %invoke.cont8
@@ -31584,7 +31584,7 @@ terminate.lpad.i53:                               ; preds = %if.then2.i.i.i52
   %52 = landingpad { ptr, i32 }
           catch ptr null
   %53 = extractvalue { ptr, i32 } %52, 0
-  call void @__clang_call_terminate(ptr %53) #25
+  call void @__clang_call_terminate(ptr %53) #26
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit54:       ; preds = %invoke.cont35, %if.then.i.i.i47, %if.then2.i.i.i52
@@ -31624,7 +31624,7 @@ terminate.lpad:                                   ; preds = %if.then2.i.i
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #25
+  tail call void @__clang_call_terminate(ptr %4) #26
   unreachable
 }
 
@@ -33348,7 +33348,7 @@ terminate.lpad.i:                                 ; preds = %if.then2.i.i.i753
   %201 = landingpad { ptr, i32 }
           catch ptr null
   %202 = extractvalue { ptr, i32 } %201, 0
-  call void @__clang_call_terminate(ptr %202) #25
+  call void @__clang_call_terminate(ptr %202) #26
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %invoke.cont179, %if.then.i.i.i748, %if.then2.i.i.i753
@@ -33370,7 +33370,7 @@ terminate.lpad.i761:                              ; preds = %if.then2.i.i.i760
   %204 = landingpad { ptr, i32 }
           catch ptr null
   %205 = extractvalue { ptr, i32 } %204, 0
-  call void @__clang_call_terminate(ptr %205) #25
+  call void @__clang_call_terminate(ptr %205) #26
   unreachable
 
 lpad152:                                          ; preds = %invoke.cont153, %invoke.cont148
@@ -35198,7 +35198,7 @@ terminate.lpad.i1777:                             ; preds = %if.then2.i.i.i1776
   %443 = landingpad { ptr, i32 }
           catch ptr null
   %444 = extractvalue { ptr, i32 } %443, 0
-  call void @__clang_call_terminate(ptr %444) #25
+  call void @__clang_call_terminate(ptr %444) #26
   unreachable
 
 lpad380:                                          ; preds = %invoke.cont393, %if.then.i.i1758, %if.then2.i.i.i1740, %invoke.cont385, %invoke.cont377
@@ -35751,7 +35751,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i1975
   %522 = landingpad { ptr, i32 }
           catch ptr null
   %523 = extractvalue { ptr, i32 } %522, 0
-  call void @__clang_call_terminate(ptr %523) #25
+  call void @__clang_call_terminate(ptr %523) #26
   unreachable
 
 _ZN10ptr_vectorI4exprED2Ev.exit:                  ; preds = %cleanup, %if.then.i.i.i1975
@@ -35767,7 +35767,7 @@ terminate.lpad.i.i1977:                           ; preds = %for.cond.preheader.
   %525 = landingpad { ptr, i32 }
           catch ptr null
   %526 = extractvalue { ptr, i32 } %525, 0
-  call void @__clang_call_terminate(ptr %526) #25
+  call void @__clang_call_terminate(ptr %526) #26
   unreachable
 
 _ZN7obj_mapI4exprPS0_ED2Ev.exit:                  ; preds = %_ZN10ptr_vectorI4exprED2Ev.exit, %for.cond.preheader.i.i.i.i
@@ -35823,14 +35823,14 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i19
   %534 = landingpad { ptr, i32 }
           catch ptr null
   %535 = extractvalue { ptr, i32 } %534, 0
-  call void @__clang_call_terminate(ptr %535) #25
+  call void @__clang_call_terminate(ptr %535) #26
   unreachable
 
 terminate.lpad.i.i1988:                           ; preds = %if.then2.i.i.i.i.i.i
   %536 = landingpad { ptr, i32 }
           catch ptr null
   %537 = extractvalue { ptr, i32 } %536, 0
-  call void @__clang_call_terminate(ptr %537) #25
+  call void @__clang_call_terminate(ptr %537) #26
   unreachable
 
 _ZN10ref_vectorI4expr11ast_managerED2Ev.exit:     ; preds = %_ZN7obj_mapI4exprPS0_ED2Ev.exit, %invoke.cont8.i.i, %if.then.i.i.i.i.i1987
@@ -35885,14 +35885,14 @@ terminate.lpad.i.i.i.i2010:                       ; preds = %if.then.i.i.i.i.i20
   %545 = landingpad { ptr, i32 }
           catch ptr null
   %546 = extractvalue { ptr, i32 } %545, 0
-  call void @__clang_call_terminate(ptr %546) #25
+  call void @__clang_call_terminate(ptr %546) #26
   unreachable
 
 terminate.lpad.i.i2012:                           ; preds = %if.then2.i.i.i.i.i.i2011
   %547 = landingpad { ptr, i32 }
           catch ptr null
   %548 = extractvalue { ptr, i32 } %547, 0
-  call void @__clang_call_terminate(ptr %548) #25
+  call void @__clang_call_terminate(ptr %548) #26
   unreachable
 
 _ZN10ref_vectorI4expr11ast_managerED2Ev.exit2013: ; preds = %_ZN10ref_vectorI4expr11ast_managerED2Ev.exit, %invoke.cont8.i.i2005, %if.then.i.i.i.i.i2008
@@ -35917,7 +35917,7 @@ terminate.lpad.i2021:                             ; preds = %if.then2.i.i.i2020
   %552 = landingpad { ptr, i32 }
           catch ptr null
   %553 = extractvalue { ptr, i32 } %552, 0
-  call void @__clang_call_terminate(ptr %553) #25
+  call void @__clang_call_terminate(ptr %553) #26
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit2022:     ; preds = %_ZN10ref_vectorI4expr11ast_managerED2Ev.exit2013, %if.then.i.i.i2015, %if.then2.i.i.i2020
@@ -35954,7 +35954,7 @@ terminate.lpad.i:                                 ; preds = %for.cond.preheader.
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #25
+  tail call void @__clang_call_terminate(ptr %2) #26
   unreachable
 
 _ZN14core_hashtableIN7obj_mapI4exprPS1_E13obj_map_entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EED2Ev.exit: ; preds = %entry, %for.cond.preheader.i.i.i
@@ -36097,14 +36097,14 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i
   %21 = landingpad { ptr, i32 }
           catch ptr null
   %22 = extractvalue { ptr, i32 } %21, 0
-  call void @__clang_call_terminate(ptr %22) #25
+  call void @__clang_call_terminate(ptr %22) #26
   unreachable
 
 terminate.lpad.i.i:                               ; preds = %if.then2.i.i.i.i.i.i
   %23 = landingpad { ptr, i32 }
           catch ptr null
   %24 = extractvalue { ptr, i32 } %23, 0
-  call void @__clang_call_terminate(ptr %24) #25
+  call void @__clang_call_terminate(ptr %24) #26
   unreachable
 
 _ZN10ref_vectorI4expr11ast_managerED2Ev.exit:     ; preds = %invoke.cont14, %invoke.cont8.i.i, %if.then.i.i.i.i.i
@@ -36121,7 +36121,7 @@ terminate.lpad.i.i7:                              ; preds = %if.then.i.i.i
   %26 = landingpad { ptr, i32 }
           catch ptr null
   %27 = extractvalue { ptr, i32 } %26, 0
-  call void @__clang_call_terminate(ptr %27) #25
+  call void @__clang_call_terminate(ptr %27) #26
   unreachable
 
 _ZN7svectorIN3sat7literalEjED2Ev.exit:            ; preds = %_ZN10ref_vectorI4expr11ast_managerED2Ev.exit, %if.then.i.i.i
@@ -36138,7 +36138,7 @@ terminate.lpad.i.i11:                             ; preds = %if.then.i.i.i9
   %29 = landingpad { ptr, i32 }
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
-  call void @__clang_call_terminate(ptr %30) #25
+  call void @__clang_call_terminate(ptr %30) #26
   unreachable
 
 lpad13:                                           ; preds = %invoke.cont12
@@ -36430,7 +36430,7 @@ terminate.lpad.i:                                 ; preds = %if.then2.i.i.i.i
   %41 = landingpad { ptr, i32 }
           catch ptr null
   %42 = extractvalue { ptr, i32 } %41, 0
-  call void @__clang_call_terminate(ptr %42) #25
+  call void @__clang_call_terminate(ptr %42) #26
   unreachable
 
 invoke.cont54:                                    ; preds = %if.then.i.i.i.i62, %if.then2.i.i.i.i.invoke.cont54thread-pre-split_crit_edge, %invoke.cont49
@@ -36641,7 +36641,7 @@ terminate.lpad.i82:                               ; preds = %if.then.i.i.i81
   %57 = landingpad { ptr, i32 }
           catch ptr null
   %58 = extractvalue { ptr, i32 } %57, 0
-  call void @__clang_call_terminate(ptr %58) #25
+  call void @__clang_call_terminate(ptr %58) #26
   unreachable
 
 if.end138:                                        ; preds = %if.then.i.i.i81, %if.then.i.i77, %if.end137, %invoke.cont74
@@ -36667,7 +36667,7 @@ terminate.lpad.i90:                               ; preds = %if.then2.i.i.i89
   %62 = landingpad { ptr, i32 }
           catch ptr null
   %63 = extractvalue { ptr, i32 } %62, 0
-  call void @__clang_call_terminate(ptr %63) #25
+  call void @__clang_call_terminate(ptr %63) #26
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit91:       ; preds = %if.end138, %if.then.i.i.i84, %if.then2.i.i.i89
@@ -37322,7 +37322,7 @@ terminate.lpad:                                   ; preds = %if.then.i.i
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #25
+  tail call void @__clang_call_terminate(ptr %4) #26
   unreachable
 }
 
@@ -37954,7 +37954,7 @@ terminate.lpad.i:                                 ; preds = %if.then2.i.i.i17
   %25 = landingpad { ptr, i32 }
           catch ptr null
   %26 = extractvalue { ptr, i32 } %25, 0
-  call void @__clang_call_terminate(ptr %26) #25
+  call void @__clang_call_terminate(ptr %26) #26
   unreachable
 
 cleanup36.critedge:                               ; preds = %invoke.cont22
@@ -37978,7 +37978,7 @@ terminate.lpad.i25:                               ; preds = %if.then2.i.i.i24
   %29 = landingpad { ptr, i32 }
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
-  call void @__clang_call_terminate(ptr %30) #25
+  call void @__clang_call_terminate(ptr %30) #26
   unreachable
 
 cleanup36:                                        ; preds = %if.then2.i.i.i24, %if.then.i.i.i19, %cleanup36.critedge, %if.then15, %cleanup, %if.then.i.i.i12, %if.then2.i.i.i17
@@ -38006,7 +38006,7 @@ terminate.lpad.i34:                               ; preds = %if.then2.i.i.i33
   %35 = landingpad { ptr, i32 }
           catch ptr null
   %36 = extractvalue { ptr, i32 } %35, 0
-  call void @__clang_call_terminate(ptr %36) #25
+  call void @__clang_call_terminate(ptr %36) #26
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit35:       ; preds = %cleanup36, %if.then.i.i.i28, %if.then2.i.i.i33
@@ -38124,7 +38124,7 @@ terminate.lpad.i:                                 ; preds = %if.then2.i.i.i.i
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
-  call void @__clang_call_terminate(ptr %5) #25
+  call void @__clang_call_terminate(ptr %5) #26
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exitthread-pre-split: ; preds = %if.then.i.i.i.i, %if.then2.i.i.i.i
@@ -38294,7 +38294,7 @@ terminate.lpad.i66:                               ; preds = %if.then2.i.i.i.i65
   %30 = landingpad { ptr, i32 }
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
-  call void @__clang_call_terminate(ptr %31) #25
+  call void @__clang_call_terminate(ptr %31) #26
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit76:       ; preds = %if.then2.i.i.i.i65, %if.then.i.i.i.i60, %invoke.cont16
@@ -38329,7 +38329,7 @@ terminate.lpad.i84:                               ; preds = %if.then2.i.i.i.i83
   %37 = landingpad { ptr, i32 }
           catch ptr null
   %38 = extractvalue { ptr, i32 } %37, 0
-  call void @__clang_call_terminate(ptr %38) #25
+  call void @__clang_call_terminate(ptr %38) #26
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit94:       ; preds = %if.then2.i.i.i.i83, %if.then.i.i.i.i78, %invoke.cont19
@@ -38398,7 +38398,7 @@ terminate.lpad.i109:                              ; preds = %if.then2.i.i.i.i108
   %48 = landingpad { ptr, i32 }
           catch ptr null
   %49 = extractvalue { ptr, i32 } %48, 0
-  call void @__clang_call_terminate(ptr %49) #25
+  call void @__clang_call_terminate(ptr %49) #26
   unreachable
 
 if.else:                                          ; preds = %land.lhs.true.i, %_ZNK8seq_util3str9is_concatEPK4expr.exit.i, %_ZN3smt10theory_seq12solution_map4findEP4exprRPN18dependency_managerIN25scoped_dependency_managerINS0_10assumptionEE6configEE10dependencyE.exit, %land.rhs.i.i.i
@@ -38510,7 +38510,7 @@ terminate.lpad.i153:                              ; preds = %if.then2.i.i.i.i152
   %70 = landingpad { ptr, i32 }
           catch ptr null
   %71 = extractvalue { ptr, i32 } %70, 0
-  call void @__clang_call_terminate(ptr %71) #25
+  call void @__clang_call_terminate(ptr %71) #26
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit163:      ; preds = %if.then2.i.i.i.i152, %if.then.i.i.i.i147, %invoke.cont53
@@ -38545,7 +38545,7 @@ terminate.lpad.i171:                              ; preds = %if.then2.i.i.i.i170
   %77 = landingpad { ptr, i32 }
           catch ptr null
   %78 = extractvalue { ptr, i32 } %77, 0
-  call void @__clang_call_terminate(ptr %78) #25
+  call void @__clang_call_terminate(ptr %78) #26
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit181:      ; preds = %if.then2.i.i.i.i170, %if.then.i.i.i.i165, %invoke.cont56
@@ -39268,7 +39268,7 @@ terminate.lpad.i316:                              ; preds = %if.then2.i.i.i315
   %185 = landingpad { ptr, i32 }
           catch ptr null
   %186 = extractvalue { ptr, i32 } %185, 0
-  call void @__clang_call_terminate(ptr %186) #25
+  call void @__clang_call_terminate(ptr %186) #26
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit317:      ; preds = %invoke.cont295, %cleanup, %if.then.i.i.i310, %if.then2.i.i.i315
@@ -39294,7 +39294,7 @@ terminate.lpad.i325:                              ; preds = %if.then2.i.i.i324
   %190 = landingpad { ptr, i32 }
           catch ptr null
   %191 = extractvalue { ptr, i32 } %190, 0
-  call void @__clang_call_terminate(ptr %191) #25
+  call void @__clang_call_terminate(ptr %191) #26
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit326:      ; preds = %_ZN7obj_refI4expr11ast_managerED2Ev.exit317, %if.then.i.i.i319, %if.then2.i.i.i324
@@ -39319,7 +39319,7 @@ terminate.lpad.i334:                              ; preds = %if.then2.i.i.i333
   %195 = landingpad { ptr, i32 }
           catch ptr null
   %196 = extractvalue { ptr, i32 } %195, 0
-  call void @__clang_call_terminate(ptr %196) #25
+  call void @__clang_call_terminate(ptr %196) #26
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit335:      ; preds = %_ZN7obj_refI4expr11ast_managerED2Ev.exit326, %if.then.i.i.i328, %if.then2.i.i.i333
@@ -39344,7 +39344,7 @@ terminate.lpad.i343:                              ; preds = %if.then2.i.i.i342
   %200 = landingpad { ptr, i32 }
           catch ptr null
   %201 = extractvalue { ptr, i32 } %200, 0
-  call void @__clang_call_terminate(ptr %201) #25
+  call void @__clang_call_terminate(ptr %201) #26
   unreachable
 
 return:                                           ; preds = %if.then2.i.i.i342, %if.then.i.i.i337, %_ZN7obj_refI4expr11ast_managerED2Ev.exit335, %_ZN7obj_refI4expr11ast_managerED2Ev.exit
@@ -39970,7 +39970,7 @@ terminate.lpad.i:                                 ; preds = %if.then2.i.i.i9
   %13 = landingpad { ptr, i32 }
           catch ptr null
   %14 = extractvalue { ptr, i32 } %13, 0
-  tail call void @__clang_call_terminate(ptr %14) #25
+  tail call void @__clang_call_terminate(ptr %14) #26
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %invoke.cont13, %if.then.i.i.i4, %if.then2.i.i.i9
@@ -40867,7 +40867,7 @@ terminate.lpad.i:                                 ; preds = %if.then2.i.i.i.i
   %17 = landingpad { ptr, i32 }
           catch ptr null
   %18 = extractvalue { ptr, i32 } %17, 0
-  call void @__clang_call_terminate(ptr %18) #25
+  call void @__clang_call_terminate(ptr %18) #26
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %if.then2.i.i.i.i, %if.then.i.i.i.i, %invoke.cont35
@@ -40926,7 +40926,7 @@ terminate.lpad.i.i:                               ; preds = %if.end.i.i.i.i.i
   %21 = landingpad { ptr, i32 }
           catch ptr null
   %22 = extractvalue { ptr, i32 } %21, 0
-  call void @__clang_call_terminate(ptr %22) #25
+  call void @__clang_call_terminate(ptr %22) #26
   unreachable
 
 _ZN7zstringD2Ev.exit:                             ; preds = %cleanup, %if.end.i.i.i.i.i
@@ -41021,7 +41021,7 @@ terminate.lpad.i:                                 ; preds = %if.then2.i.i.i
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #25
+  call void @__clang_call_terminate(ptr %6) #26
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %invoke.cont2, %if.then.i.i.i, %if.then2.i.i.i
@@ -41297,7 +41297,7 @@ terminate.lpad.i:                                 ; preds = %.noexc.i, %invoke.c
   %35 = landingpad { ptr, i32 }
           catch ptr null
   %36 = extractvalue { ptr, i32 } %35, 0
-  call void @__clang_call_terminate(ptr %36) #25
+  call void @__clang_call_terminate(ptr %36) #26
   unreachable
 
 lpad28:                                           ; preds = %invoke.cont27
@@ -41453,7 +41453,7 @@ terminate.lpad.i143:                              ; preds = %.noexc.i144, %invok
   %61 = landingpad { ptr, i32 }
           catch ptr null
   %62 = extractvalue { ptr, i32 } %61, 0
-  call void @__clang_call_terminate(ptr %62) #25
+  call void @__clang_call_terminate(ptr %62) #26
   unreachable
 
 lpad63:                                           ; preds = %invoke.cont62
@@ -41490,7 +41490,7 @@ terminate.lpad.i150:                              ; preds = %if.then2.i.i.i.i
   %67 = landingpad { ptr, i32 }
           catch ptr null
   %68 = extractvalue { ptr, i32 } %67, 0
-  call void @__clang_call_terminate(ptr %68) #25
+  call void @__clang_call_terminate(ptr %68) #26
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %if.then2.i.i.i.i, %if.then.i.i.i.i148, %invoke.cont68
@@ -41644,7 +41644,7 @@ terminate.lpad.i.i:                               ; preds = %if.end.i.i.i.i.i
   %86 = landingpad { ptr, i32 }
           catch ptr null
   %87 = extractvalue { ptr, i32 } %86, 0
-  call void @__clang_call_terminate(ptr %87) #25
+  call void @__clang_call_terminate(ptr %87) #26
   unreachable
 
 _ZN7zstringD2Ev.exit:                             ; preds = %cleanup, %if.end.i.i.i.i.i
@@ -41661,7 +41661,7 @@ terminate.lpad.i.i166:                            ; preds = %if.then.i.i.i165
   %89 = landingpad { ptr, i32 }
           catch ptr null
   %90 = extractvalue { ptr, i32 } %89, 0
-  call void @__clang_call_terminate(ptr %90) #25
+  call void @__clang_call_terminate(ptr %90) #26
   unreachable
 
 _ZN10ptr_vectorI4exprED2Ev.exit:                  ; preds = %_ZN7zstringD2Ev.exit, %if.then.i.i.i165
@@ -41686,7 +41686,7 @@ terminate.lpad.i174:                              ; preds = %if.then2.i.i.i173
   %94 = landingpad { ptr, i32 }
           catch ptr null
   %95 = extractvalue { ptr, i32 } %94, 0
-  call void @__clang_call_terminate(ptr %95) #25
+  call void @__clang_call_terminate(ptr %95) #26
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit175:      ; preds = %_ZN10ptr_vectorI4exprED2Ev.exit, %if.then.i.i.i168, %if.then2.i.i.i173
@@ -41710,7 +41710,7 @@ terminate.lpad.i183:                              ; preds = %if.then2.i.i.i182
   %98 = landingpad { ptr, i32 }
           catch ptr null
   %99 = extractvalue { ptr, i32 } %98, 0
-  call void @__clang_call_terminate(ptr %99) #25
+  call void @__clang_call_terminate(ptr %99) #26
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit184:      ; preds = %_ZN7obj_refI4expr11ast_managerED2Ev.exit175, %if.then.i.i.i177, %if.then2.i.i.i182
@@ -41726,7 +41726,7 @@ terminate.lpad.i185:                              ; preds = %.noexc.i186, %_ZN7o
   %101 = landingpad { ptr, i32 }
           catch ptr null
   %102 = extractvalue { ptr, i32 } %101, 0
-  call void @__clang_call_terminate(ptr %102) #25
+  call void @__clang_call_terminate(ptr %102) #26
   unreachable
 
 _ZN8rationalD2Ev.exit188:                         ; preds = %.noexc.i186
@@ -41945,7 +41945,7 @@ terminate.lpad.i:                                 ; preds = %if.then2.i.i.i.i
   %22 = landingpad { ptr, i32 }
           catch ptr null
   %23 = extractvalue { ptr, i32 } %22, 0
-  call void @__clang_call_terminate(ptr %23) #25
+  call void @__clang_call_terminate(ptr %23) #26
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %if.then2.i.i.i.i, %if.then.i.i.i.i20, %invoke.cont29
@@ -42014,7 +42014,7 @@ terminate.lpad.i41:                               ; preds = %if.then2.i.i.i40
   %32 = landingpad { ptr, i32 }
           catch ptr null
   %33 = extractvalue { ptr, i32 } %32, 0
-  call void @__clang_call_terminate(ptr %33) #25
+  call void @__clang_call_terminate(ptr %33) #26
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit42:       ; preds = %invoke.cont44, %if.then.i.i.i35, %if.then2.i.i.i40
@@ -42052,7 +42052,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i52
   %37 = landingpad { ptr, i32 }
           catch ptr null
   %38 = extractvalue { ptr, i32 } %37, 0
-  call void @__clang_call_terminate(ptr %38) #25
+  call void @__clang_call_terminate(ptr %38) #26
   unreachable
 
 lpad.i:                                           ; preds = %invoke.cont.i, %_ZN7obj_refI4expr11ast_managerED2Ev.exit42
@@ -42217,7 +42217,7 @@ terminate.lpad.i.i.i119:                          ; preds = %if.then.i.i.i.i117
   %62 = landingpad { ptr, i32 }
           catch ptr null
   %63 = extractvalue { ptr, i32 } %62, 0
-  call void @__clang_call_terminate(ptr %63) #25
+  call void @__clang_call_terminate(ptr %63) #26
   unreachable
 
 lpad.i105:                                        ; preds = %invoke.cont.i106, %_ZN7obj_refI4expr11ast_managerED2Ev.exit102
@@ -42283,14 +42283,14 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i
   %72 = landingpad { ptr, i32 }
           catch ptr null
   %73 = extractvalue { ptr, i32 } %72, 0
-  call void @__clang_call_terminate(ptr %73) #25
+  call void @__clang_call_terminate(ptr %73) #26
   unreachable
 
 terminate.lpad.i.i:                               ; preds = %if.then2.i.i.i.i.i.i
   %74 = landingpad { ptr, i32 }
           catch ptr null
   %75 = extractvalue { ptr, i32 } %74, 0
-  call void @__clang_call_terminate(ptr %75) #25
+  call void @__clang_call_terminate(ptr %75) #26
   unreachable
 
 _ZN10ref_vectorI4expr11ast_managerED2Ev.exit:     ; preds = %if.then.i.i.i.i.i._ZN10ref_vectorI4expr11ast_managerED2Ev.exit_crit_edge, %invoke.cont66, %invoke.cont8.i.i
@@ -42315,7 +42315,7 @@ terminate.lpad.i137:                              ; preds = %if.then2.i.i.i136
   %79 = landingpad { ptr, i32 }
           catch ptr null
   %80 = extractvalue { ptr, i32 } %79, 0
-  call void @__clang_call_terminate(ptr %80) #25
+  call void @__clang_call_terminate(ptr %80) #26
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit138:      ; preds = %_ZN10ref_vectorI4expr11ast_managerED2Ev.exit, %if.then.i.i.i130, %if.then2.i.i.i136
@@ -42340,7 +42340,7 @@ terminate.lpad.i147:                              ; preds = %if.then2.i.i.i146
   %84 = landingpad { ptr, i32 }
           catch ptr null
   %85 = extractvalue { ptr, i32 } %84, 0
-  call void @__clang_call_terminate(ptr %85) #25
+  call void @__clang_call_terminate(ptr %85) #26
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit148:      ; preds = %_ZN7obj_refI4expr11ast_managerED2Ev.exit138, %if.then.i.i.i140, %if.then2.i.i.i146
@@ -42365,7 +42365,7 @@ terminate.lpad.i157:                              ; preds = %if.then2.i.i.i156
   %89 = landingpad { ptr, i32 }
           catch ptr null
   %90 = extractvalue { ptr, i32 } %89, 0
-  call void @__clang_call_terminate(ptr %90) #25
+  call void @__clang_call_terminate(ptr %90) #26
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit158:      ; preds = %_ZN7obj_refI4expr11ast_managerED2Ev.exit148, %if.then.i.i.i150, %if.then2.i.i.i156
@@ -42390,7 +42390,7 @@ terminate.lpad.i167:                              ; preds = %if.then2.i.i.i166
   %94 = landingpad { ptr, i32 }
           catch ptr null
   %95 = extractvalue { ptr, i32 } %94, 0
-  call void @__clang_call_terminate(ptr %95) #25
+  call void @__clang_call_terminate(ptr %95) #26
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit168:      ; preds = %_ZN7obj_refI4expr11ast_managerED2Ev.exit158, %if.then.i.i.i160, %if.then2.i.i.i166
@@ -42415,7 +42415,7 @@ terminate.lpad.i177:                              ; preds = %if.then2.i.i.i176
   %99 = landingpad { ptr, i32 }
           catch ptr null
   %100 = extractvalue { ptr, i32 } %99, 0
-  call void @__clang_call_terminate(ptr %100) #25
+  call void @__clang_call_terminate(ptr %100) #26
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit178:      ; preds = %_ZN7obj_refI4expr11ast_managerED2Ev.exit168, %if.then.i.i.i170, %if.then2.i.i.i176
@@ -42431,7 +42431,7 @@ terminate.lpad.i179:                              ; preds = %.noexc.i, %_ZN7obj_
   %102 = landingpad { ptr, i32 }
           catch ptr null
   %103 = extractvalue { ptr, i32 } %102, 0
-  call void @__clang_call_terminate(ptr %103) #25
+  call void @__clang_call_terminate(ptr %103) #26
   unreachable
 
 _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
@@ -42490,7 +42490,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #25
+  call void @__clang_call_terminate(ptr %4) #26
   unreachable
 
 _ZN7svectorIN3sat7literalEjED2Ev.exit:            ; preds = %invoke.cont2, %if.then.i.i.i
@@ -42554,7 +42554,7 @@ terminate.lpad.i:                                 ; preds = %if.then2.i.i.i
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  call void @__clang_call_terminate(ptr %7) #25
+  call void @__clang_call_terminate(ptr %7) #26
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %invoke.cont3, %if.then.i.i.i, %if.then2.i.i.i
@@ -42781,7 +42781,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i40
   %31 = landingpad { ptr, i32 }
           catch ptr null
   %32 = extractvalue { ptr, i32 } %31, 0
-  tail call void @__clang_call_terminate(ptr %32) #25
+  tail call void @__clang_call_terminate(ptr %32) #26
   unreachable
 
 return:                                           ; preds = %for.body, %if.then.i40, %invoke.cont71
@@ -42992,7 +42992,7 @@ terminate.lpad.i55:                               ; preds = %if.then2.i.i.i.i54
   %25 = landingpad { ptr, i32 }
           catch ptr null
   %26 = extractvalue { ptr, i32 } %25, 0
-  call void @__clang_call_terminate(ptr %26) #25
+  call void @__clang_call_terminate(ptr %26) #26
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit65:       ; preds = %if.then2.i.i.i.i54, %if.then.i.i.i.i49, %invoke.cont26
@@ -43031,7 +43031,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i66
   %31 = landingpad { ptr, i32 }
           catch ptr null
   %32 = extractvalue { ptr, i32 } %31, 0
-  call void @__clang_call_terminate(ptr %32) #25
+  call void @__clang_call_terminate(ptr %32) #26
   unreachable
 
 lpad.i:                                           ; preds = %invoke.cont.i, %_ZN7obj_refI4expr11ast_managerED2Ev.exit65
@@ -43088,7 +43088,7 @@ terminate.lpad.i.i.i84:                           ; preds = %if.then.i.i.i.i82
   %40 = landingpad { ptr, i32 }
           catch ptr null
   %41 = extractvalue { ptr, i32 } %40, 0
-  call void @__clang_call_terminate(ptr %41) #25
+  call void @__clang_call_terminate(ptr %41) #26
   unreachable
 
 lpad.i70:                                         ; preds = %invoke.cont.i71, %invoke.cont45
@@ -43122,7 +43122,7 @@ terminate.lpad.i95:                               ; preds = %if.then2.i.i.i94
   %46 = landingpad { ptr, i32 }
           catch ptr null
   %47 = extractvalue { ptr, i32 } %46, 0
-  call void @__clang_call_terminate(ptr %47) #25
+  call void @__clang_call_terminate(ptr %47) #26
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit96:       ; preds = %invoke.cont50, %if.then.i.i.i88, %if.then2.i.i.i94
@@ -43148,7 +43148,7 @@ terminate.lpad.i105:                              ; preds = %if.then2.i.i.i104
   %51 = landingpad { ptr, i32 }
           catch ptr null
   %52 = extractvalue { ptr, i32 } %51, 0
-  call void @__clang_call_terminate(ptr %52) #25
+  call void @__clang_call_terminate(ptr %52) #26
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit106:      ; preds = %_ZN7obj_refI4expr11ast_managerED2Ev.exit96, %if.then.i.i.i98, %if.then2.i.i.i104
@@ -43173,7 +43173,7 @@ terminate.lpad.i115:                              ; preds = %if.then2.i.i.i114
   %56 = landingpad { ptr, i32 }
           catch ptr null
   %57 = extractvalue { ptr, i32 } %56, 0
-  call void @__clang_call_terminate(ptr %57) #25
+  call void @__clang_call_terminate(ptr %57) #26
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit116:      ; preds = %_ZN7obj_refI4expr11ast_managerED2Ev.exit106, %if.then.i.i.i108, %if.then2.i.i.i114
@@ -43198,7 +43198,7 @@ terminate.lpad.i125:                              ; preds = %if.then2.i.i.i124
   %61 = landingpad { ptr, i32 }
           catch ptr null
   %62 = extractvalue { ptr, i32 } %61, 0
-  call void @__clang_call_terminate(ptr %62) #25
+  call void @__clang_call_terminate(ptr %62) #26
   unreachable
 
 lpad:                                             ; preds = %invoke.cont394, %invoke.cont381, %if.else317, %if.else308, %if.else303, %if.else264, %if.else253, %if.end406, %if.else393, %invoke.cont389, %invoke.cont380, %if.then379, %if.then376, %if.else373, %if.then338, %if.then323, %if.then314, %if.else298, %if.then293, %if.then282, %if.else276, %if.then270, %if.then259, %if.then128, %if.else120, %if.else
@@ -43359,7 +43359,7 @@ terminate.lpad.i199:                              ; preds = %if.then2.i.i.i.i198
   %86 = landingpad { ptr, i32 }
           catch ptr null
   %87 = extractvalue { ptr, i32 } %86, 0
-  call void @__clang_call_terminate(ptr %87) #25
+  call void @__clang_call_terminate(ptr %87) #26
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit210:      ; preds = %if.then2.i.i.i.i198, %if.then.i.i.i.i192, %invoke.cont88
@@ -43398,7 +43398,7 @@ terminate.lpad.i.i.i226:                          ; preds = %if.then.i.i.i.i224
   %92 = landingpad { ptr, i32 }
           catch ptr null
   %93 = extractvalue { ptr, i32 } %92, 0
-  call void @__clang_call_terminate(ptr %93) #25
+  call void @__clang_call_terminate(ptr %93) #26
   unreachable
 
 lpad.i212:                                        ; preds = %invoke.cont.i213, %_ZN7obj_refI4expr11ast_managerED2Ev.exit210
@@ -43455,7 +43455,7 @@ terminate.lpad.i.i.i248:                          ; preds = %if.then.i.i.i.i246
   %101 = landingpad { ptr, i32 }
           catch ptr null
   %102 = extractvalue { ptr, i32 } %101, 0
-  call void @__clang_call_terminate(ptr %102) #25
+  call void @__clang_call_terminate(ptr %102) #26
   unreachable
 
 lpad.i234:                                        ; preds = %invoke.cont.i235, %invoke.cont109
@@ -43489,7 +43489,7 @@ terminate.lpad.i259:                              ; preds = %if.then2.i.i.i258
   %107 = landingpad { ptr, i32 }
           catch ptr null
   %108 = extractvalue { ptr, i32 } %107, 0
-  call void @__clang_call_terminate(ptr %108) #25
+  call void @__clang_call_terminate(ptr %108) #26
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit260:      ; preds = %invoke.cont114, %if.then.i.i.i252, %if.then2.i.i.i258
@@ -43515,7 +43515,7 @@ terminate.lpad.i269:                              ; preds = %if.then2.i.i.i268
   %112 = landingpad { ptr, i32 }
           catch ptr null
   %113 = extractvalue { ptr, i32 } %112, 0
-  call void @__clang_call_terminate(ptr %113) #25
+  call void @__clang_call_terminate(ptr %113) #26
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit270:      ; preds = %_ZN7obj_refI4expr11ast_managerED2Ev.exit260, %if.then.i.i.i262, %if.then2.i.i.i268
@@ -43540,7 +43540,7 @@ terminate.lpad.i279:                              ; preds = %if.then2.i.i.i278
   %117 = landingpad { ptr, i32 }
           catch ptr null
   %118 = extractvalue { ptr, i32 } %117, 0
-  call void @__clang_call_terminate(ptr %118) #25
+  call void @__clang_call_terminate(ptr %118) #26
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit280:      ; preds = %_ZN7obj_refI4expr11ast_managerED2Ev.exit270, %if.then.i.i.i272, %if.then2.i.i.i278
@@ -43565,7 +43565,7 @@ terminate.lpad.i289:                              ; preds = %if.then2.i.i.i288
   %122 = landingpad { ptr, i32 }
           catch ptr null
   %123 = extractvalue { ptr, i32 } %122, 0
-  call void @__clang_call_terminate(ptr %123) #25
+  call void @__clang_call_terminate(ptr %123) #26
   unreachable
 
 lpad71:                                           ; preds = %invoke.cont96, %_ZN7obj_refI4expr11ast_managerED2Ev.exit177, %invoke.cont74, %invoke.cont72, %invoke.cont69
@@ -43773,7 +43773,7 @@ terminate.lpad.i.i.i369:                          ; preds = %if.then.i.i.i.i367
   %156 = landingpad { ptr, i32 }
           catch ptr null
   %157 = extractvalue { ptr, i32 } %156, 0
-  call void @__clang_call_terminate(ptr %157) #25
+  call void @__clang_call_terminate(ptr %157) #26
   unreachable
 
 lpad.i355:                                        ; preds = %invoke.cont.i356, %_ZN7obj_refI4expr11ast_managerED2Ev.exit353
@@ -43830,7 +43830,7 @@ terminate.lpad.i.i.i393:                          ; preds = %if.then.i.i.i.i391
   %165 = landingpad { ptr, i32 }
           catch ptr null
   %166 = extractvalue { ptr, i32 } %165, 0
-  call void @__clang_call_terminate(ptr %166) #25
+  call void @__clang_call_terminate(ptr %166) #26
   unreachable
 
 lpad.i379:                                        ; preds = %invoke.cont.i380, %invoke.cont186
@@ -43864,7 +43864,7 @@ terminate.lpad.i404:                              ; preds = %if.then2.i.i.i403
   %171 = landingpad { ptr, i32 }
           catch ptr null
   %172 = extractvalue { ptr, i32 } %171, 0
-  call void @__clang_call_terminate(ptr %172) #25
+  call void @__clang_call_terminate(ptr %172) #26
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit405:      ; preds = %invoke.cont191, %if.then.i.i.i397, %if.then2.i.i.i403
@@ -43890,7 +43890,7 @@ terminate.lpad.i414:                              ; preds = %if.then2.i.i.i413
   %176 = landingpad { ptr, i32 }
           catch ptr null
   %177 = extractvalue { ptr, i32 } %176, 0
-  call void @__clang_call_terminate(ptr %177) #25
+  call void @__clang_call_terminate(ptr %177) #26
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit415:      ; preds = %_ZN7obj_refI4expr11ast_managerED2Ev.exit405, %if.then.i.i.i407, %if.then2.i.i.i413
@@ -43916,7 +43916,7 @@ terminate.lpad.i424:                              ; preds = %if.then2.i.i.i423
   %181 = landingpad { ptr, i32 }
           catch ptr null
   %182 = extractvalue { ptr, i32 } %181, 0
-  call void @__clang_call_terminate(ptr %182) #25
+  call void @__clang_call_terminate(ptr %182) #26
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit425:      ; preds = %_ZN7obj_refI4expr11ast_managerED2Ev.exit415, %if.then.i.i.i417, %if.then2.i.i.i423
@@ -43942,7 +43942,7 @@ terminate.lpad.i434:                              ; preds = %if.then2.i.i.i433
   %186 = landingpad { ptr, i32 }
           catch ptr null
   %187 = extractvalue { ptr, i32 } %186, 0
-  call void @__clang_call_terminate(ptr %187) #25
+  call void @__clang_call_terminate(ptr %187) #26
   unreachable
 
 lpad142:                                          ; preds = %invoke.cont207, %invoke.cont202, %call.i.noexc, %if.else197, %.noexc, %if.then147, %invoke.cont143, %invoke.cont140
@@ -44087,7 +44087,7 @@ terminate.lpad.i469:                              ; preds = %if.then2.i.i.i468
   %207 = landingpad { ptr, i32 }
           catch ptr null
   %208 = extractvalue { ptr, i32 } %207, 0
-  call void @__clang_call_terminate(ptr %208) #25
+  call void @__clang_call_terminate(ptr %208) #26
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit470:      ; preds = %invoke.cont228, %if.then.i.i.i462, %if.then2.i.i.i468
@@ -44113,7 +44113,7 @@ terminate.lpad.i479:                              ; preds = %if.then2.i.i.i478
   %212 = landingpad { ptr, i32 }
           catch ptr null
   %213 = extractvalue { ptr, i32 } %212, 0
-  call void @__clang_call_terminate(ptr %213) #25
+  call void @__clang_call_terminate(ptr %213) #26
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit480:      ; preds = %_ZN7obj_refI4expr11ast_managerED2Ev.exit470, %if.then.i.i.i472, %if.then2.i.i.i478
@@ -44139,7 +44139,7 @@ terminate.lpad.i489:                              ; preds = %if.then2.i.i.i488
   %217 = landingpad { ptr, i32 }
           catch ptr null
   %218 = extractvalue { ptr, i32 } %217, 0
-  call void @__clang_call_terminate(ptr %218) #25
+  call void @__clang_call_terminate(ptr %218) #26
   unreachable
 
 invoke.cont245:                                   ; preds = %if.then2.i.i.i488, %if.then.i.i.i482, %_ZN7obj_refI4expr11ast_managerED2Ev.exit480
@@ -44246,7 +44246,7 @@ terminate.lpad.i527:                              ; preds = %if.then2.i.i.i526
   %237 = landingpad { ptr, i32 }
           catch ptr null
   %238 = extractvalue { ptr, i32 } %237, 0
-  call void @__clang_call_terminate(ptr %238) #25
+  call void @__clang_call_terminate(ptr %238) #26
   unreachable
 
 lpad214:                                          ; preds = %invoke.cont213
@@ -44305,7 +44305,7 @@ terminate.lpad.i537:                              ; preds = %if.then2.i.i.i536
   %247 = landingpad { ptr, i32 }
           catch ptr null
   %248 = extractvalue { ptr, i32 } %247, 0
-  call void @__clang_call_terminate(ptr %248) #25
+  call void @__clang_call_terminate(ptr %248) #26
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit538:      ; preds = %if.end250, %if.then.i.i.i530, %if.then2.i.i.i536
@@ -44330,7 +44330,7 @@ terminate.lpad.i547:                              ; preds = %if.then2.i.i.i546
   %252 = landingpad { ptr, i32 }
           catch ptr null
   %253 = extractvalue { ptr, i32 } %252, 0
-  call void @__clang_call_terminate(ptr %253) #25
+  call void @__clang_call_terminate(ptr %253) #26
   unreachable
 
 ehcleanup251:                                     ; preds = %lpad246, %ehcleanup233, %ehcleanup196, %lpad142
@@ -44661,7 +44661,7 @@ terminate.lpad.i679:                              ; preds = %if.then2.i.i.i678
   %297 = landingpad { ptr, i32 }
           catch ptr null
   %298 = extractvalue { ptr, i32 } %297, 0
-  call void @__clang_call_terminate(ptr %298) #25
+  call void @__clang_call_terminate(ptr %298) #26
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit680:      ; preds = %invoke.cont130, %if.else120, %if.then259, %if.then257, %if.then282, %if.then280, %invoke.cont300, %if.then314, %if.then312, %if.then338, %invoke.cont353, %invoke.cont370, %invoke.cont365, %invoke.cont359, %invoke.cont343, %invoke.cont348, %if.then321, %if.then323, %invoke.cont305, %if.then293, %if.then268, %if.then270, %if.else, %cleanup, %if.then.i.i.i672, %if.then2.i.i.i678
@@ -44797,7 +44797,7 @@ terminate.lpad.i:                                 ; preds = %if.then2.i.i.i
   %18 = landingpad { ptr, i32 }
           catch ptr null
   %19 = extractvalue { ptr, i32 } %18, 0
-  call void @__clang_call_terminate(ptr %19) #25
+  call void @__clang_call_terminate(ptr %19) #26
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %cleanup, %if.then.i.i.i, %if.then2.i.i.i
@@ -44928,7 +44928,7 @@ terminate.lpad.i:                                 ; preds = %if.then2.i.i.i
   %18 = landingpad { ptr, i32 }
           catch ptr null
   %19 = extractvalue { ptr, i32 } %18, 0
-  call void @__clang_call_terminate(ptr %19) #25
+  call void @__clang_call_terminate(ptr %19) #26
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %cleanup, %if.then.i.i.i, %if.then2.i.i.i
@@ -45066,7 +45066,7 @@ terminate.lpad.i:                                 ; preds = %if.then2.i.i.i24
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #25
+  call void @__clang_call_terminate(ptr %16) #26
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %cleanup, %if.then.i.i.i19, %if.then2.i.i.i24
@@ -45098,7 +45098,7 @@ terminate.lpad.i:                                 ; preds = %if.then2.i.i.i
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #25
+  tail call void @__clang_call_terminate(ptr %4) #26
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %entry, %if.then.i.i.i, %if.then2.i.i.i
@@ -45826,7 +45826,7 @@ terminate.lpad.i:                                 ; preds = %if.then2.i.i.i
   %76 = landingpad { ptr, i32 }
           catch ptr null
   %77 = extractvalue { ptr, i32 } %76, 0
-  call void @__clang_call_terminate(ptr %77) #25
+  call void @__clang_call_terminate(ptr %77) #26
   unreachable
 
 cleanup:                                          ; preds = %call.i.noexc28, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i.i23, %if.then2.i.i.i, %if.then.i.i.i, %if.end94, %invoke.cont26, %if.then16, %invoke.cont6
@@ -45851,7 +45851,7 @@ terminate.lpad.i51:                               ; preds = %if.then2.i.i.i50
   %81 = landingpad { ptr, i32 }
           catch ptr null
   %82 = extractvalue { ptr, i32 } %81, 0
-  call void @__clang_call_terminate(ptr %82) #25
+  call void @__clang_call_terminate(ptr %82) #26
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit52:       ; preds = %cleanup, %if.then.i.i.i45, %if.then2.i.i.i50
@@ -45876,7 +45876,7 @@ terminate.lpad.i60:                               ; preds = %if.then2.i.i.i59
   %86 = landingpad { ptr, i32 }
           catch ptr null
   %87 = extractvalue { ptr, i32 } %86, 0
-  call void @__clang_call_terminate(ptr %87) #25
+  call void @__clang_call_terminate(ptr %87) #26
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit61:       ; preds = %_ZN7obj_refI4expr11ast_managerED2Ev.exit52, %if.then.i.i.i54, %if.then2.i.i.i59
@@ -46141,14 +46141,14 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i
   %44 = landingpad { ptr, i32 }
           catch ptr null
   %45 = extractvalue { ptr, i32 } %44, 0
-  call void @__clang_call_terminate(ptr %45) #25
+  call void @__clang_call_terminate(ptr %45) #26
   unreachable
 
 terminate.lpad.i.i:                               ; preds = %if.then2.i.i.i.i.i.i
   %46 = landingpad { ptr, i32 }
           catch ptr null
   %47 = extractvalue { ptr, i32 } %46, 0
-  call void @__clang_call_terminate(ptr %47) #25
+  call void @__clang_call_terminate(ptr %47) #26
   unreachable
 
 _ZN10ref_vectorI4expr11ast_managerED2Ev.exit:     ; preds = %invoke.cont23, %invoke.cont8.i.i, %if.then.i.i.i.i.i
@@ -46203,14 +46203,14 @@ terminate.lpad.i.i.i.i66:                         ; preds = %if.then.i.i.i.i.i64
   %55 = landingpad { ptr, i32 }
           catch ptr null
   %56 = extractvalue { ptr, i32 } %55, 0
-  call void @__clang_call_terminate(ptr %56) #25
+  call void @__clang_call_terminate(ptr %56) #26
   unreachable
 
 terminate.lpad.i.i68:                             ; preds = %if.then2.i.i.i.i.i.i67
   %57 = landingpad { ptr, i32 }
           catch ptr null
   %58 = extractvalue { ptr, i32 } %57, 0
-  call void @__clang_call_terminate(ptr %58) #25
+  call void @__clang_call_terminate(ptr %58) #26
   unreachable
 
 _ZN10ref_vectorI4expr11ast_managerED2Ev.exit69:   ; preds = %_ZN10ref_vectorI4expr11ast_managerED2Ev.exit, %invoke.cont8.i.i61, %if.then.i.i.i.i.i64
@@ -46265,7 +46265,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #25
+  tail call void @__clang_call_terminate(ptr %2) #26
   unreachable
 
 _ZN7svectorIN3sat7literalEjED2Ev.exit:            ; preds = %entry, %if.then.i.i.i
@@ -46303,7 +46303,7 @@ terminate.lpad.i:                                 ; preds = %_ZN6vectorISt4pairI
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  tail call void @__clang_call_terminate(ptr %7) #25
+  tail call void @__clang_call_terminate(ptr %7) #26
   unreachable
 
 _ZN6vectorISt4pairI10ref_vectorI4expr11ast_managerES4_ELb1EjED2Ev.exit: ; preds = %_ZN7svectorIN3sat7literalEjED2Ev.exit, %_ZN6vectorISt4pairI10ref_vectorI4expr11ast_managerES4_ELb1EjE16destroy_elementsEv.exit.i.i
@@ -46330,7 +46330,7 @@ terminate.lpad.i3:                                ; preds = %if.then2.i.i.i
   %11 = landingpad { ptr, i32 }
           catch ptr null
   %12 = extractvalue { ptr, i32 } %11, 0
-  tail call void @__clang_call_terminate(ptr %12) #25
+  tail call void @__clang_call_terminate(ptr %12) #26
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %_ZN6vectorISt4pairI10ref_vectorI4expr11ast_managerES4_ELb1EjED2Ev.exit, %if.then.i.i.i2, %if.then2.i.i.i
@@ -46356,7 +46356,7 @@ terminate.lpad.i11:                               ; preds = %if.then2.i.i.i10
   %16 = landingpad { ptr, i32 }
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
-  tail call void @__clang_call_terminate(ptr %17) #25
+  tail call void @__clang_call_terminate(ptr %17) #26
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit12:       ; preds = %_ZN7obj_refI4expr11ast_managerED2Ev.exit, %if.then.i.i.i5, %if.then2.i.i.i10
@@ -47818,7 +47818,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then2.i.i.i.i.i
   %25 = landingpad { ptr, i32 }
           catch ptr null
   %26 = extractvalue { ptr, i32 } %25, 0
-  tail call void @__clang_call_terminate(ptr %26) #25
+  tail call void @__clang_call_terminate(ptr %26) #26
   unreachable
 
 _ZN3smt10theory_seq2ncD2Ev.exit.i:                ; preds = %if.then2.i.i.i.i.i, %if.then.i.i.i.i.i, %for.body.i
@@ -49132,7 +49132,7 @@ terminate.lpad.i50:                               ; preds = %if.then2.i.i.i49
   %39 = landingpad { ptr, i32 }
           catch ptr null
   %40 = extractvalue { ptr, i32 } %39, 0
-  call void @__clang_call_terminate(ptr %40) #25
+  call void @__clang_call_terminate(ptr %40) #26
   unreachable
 
 ehcleanup:                                        ; preds = %lpad.loopexit, %lpad.loopexit.split-lp, %lpad26, %lpad2
@@ -49767,14 +49767,14 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #25
+  tail call void @__clang_call_terminate(ptr %8) #26
   unreachable
 
 terminate.lpad.i.i:                               ; preds = %if.then2.i.i.i.i.i.i
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #25
+  tail call void @__clang_call_terminate(ptr %10) #26
   unreachable
 
 _ZN10ref_vectorI4expr11ast_managerED2Ev.exit:     ; preds = %entry, %invoke.cont8.i.i, %if.then.i.i.i.i.i
@@ -49791,7 +49791,7 @@ terminate.lpad.i.i1:                              ; preds = %if.then.i.i.i
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  tail call void @__clang_call_terminate(ptr %13) #25
+  tail call void @__clang_call_terminate(ptr %13) #26
   unreachable
 
 _ZN7svectorIN3smt10theory_seq8expr_depEjED2Ev.exit: ; preds = %_ZN10ref_vectorI4expr11ast_managerED2Ev.exit, %if.then.i.i.i
@@ -49820,7 +49820,7 @@ terminate.lpad.i.i:                               ; preds = %for.cond.preheader.
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #25
+  tail call void @__clang_call_terminate(ptr %2) #26
   unreachable
 
 _ZN9hashtableIN12seq_rewriter8op_cache8op_entryENS1_10hash_entryENS1_8eq_entryEED2Ev.exit: ; preds = %entry, %for.cond.preheader.i.i.i.i
@@ -49878,14 +49878,14 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i
   %10 = landingpad { ptr, i32 }
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0
-  tail call void @__clang_call_terminate(ptr %11) #25
+  tail call void @__clang_call_terminate(ptr %11) #26
   unreachable
 
 terminate.lpad.i.i1:                              ; preds = %if.then2.i.i.i.i.i.i
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  tail call void @__clang_call_terminate(ptr %13) #25
+  tail call void @__clang_call_terminate(ptr %13) #26
   unreachable
 
 _ZN10ref_vectorI4expr11ast_managerED2Ev.exit:     ; preds = %_ZN9hashtableIN12seq_rewriter8op_cache8op_entryENS1_10hash_entryENS1_8eq_entryEED2Ev.exit, %invoke.cont8.i.i, %if.then.i.i.i.i.i
@@ -49908,7 +49908,7 @@ terminate.lpad.i:                                 ; preds = %if.end.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #25
+  tail call void @__clang_call_terminate(ptr %2) #26
   unreachable
 
 _ZN10scoped_ptrI17symbolic_automataI8sym_expr16sym_expr_managerEED2Ev.exit: ; preds = %entry, %if.end.i.i
@@ -49928,7 +49928,7 @@ terminate.lpad.i3:                                ; preds = %if.end.i.i2
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  tail call void @__clang_call_terminate(ptr %6) #25
+  tail call void @__clang_call_terminate(ptr %6) #26
   unreachable
 
 _ZN10scoped_ptrI15boolean_algebraIP8sym_exprEED2Ev.exit: ; preds = %_ZN10scoped_ptrI17symbolic_automataI8sym_expr16sym_expr_managerEED2Ev.exit, %if.end.i.i2
@@ -49948,7 +49948,7 @@ terminate.lpad.i7:                                ; preds = %if.end.i.i5
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #25
+  tail call void @__clang_call_terminate(ptr %10) #26
   unreachable
 
 _ZN10scoped_ptrI11expr_solverED2Ev.exit:          ; preds = %_ZN10scoped_ptrI15boolean_algebraIP8sym_exprEED2Ev.exit, %if.end.i.i5
@@ -49974,7 +49974,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #25
+  tail call void @__clang_call_terminate(ptr %2) #26
   unreachable
 
 _ZN7svectorIjjED2Ev.exit:                         ; preds = %entry, %if.then.i.i.i
@@ -49992,7 +49992,7 @@ terminate.lpad.i.i4:                              ; preds = %if.then.i.i.i2
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #25
+  tail call void @__clang_call_terminate(ptr %5) #26
   unreachable
 
 _ZN7svectorIjjED2Ev.exit5:                        ; preds = %_ZN7svectorIjjED2Ev.exit, %if.then.i.i.i2
@@ -50010,7 +50010,7 @@ terminate.lpad.i.i9:                              ; preds = %if.then.i.i.i7
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #25
+  tail call void @__clang_call_terminate(ptr %8) #26
   unreachable
 
 _ZN10ptr_vectorI4exprED2Ev.exit:                  ; preds = %_ZN7svectorIjjED2Ev.exit5, %if.then.i.i.i7
@@ -50028,7 +50028,7 @@ terminate.lpad.i.i13:                             ; preds = %if.then.i.i.i11
   %10 = landingpad { ptr, i32 }
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0
-  tail call void @__clang_call_terminate(ptr %11) #25
+  tail call void @__clang_call_terminate(ptr %11) #26
   unreachable
 
 _ZN10ptr_vectorI4exprED2Ev.exit14:                ; preds = %_ZN10ptr_vectorI4exprED2Ev.exit, %if.then.i.i.i11
@@ -50057,7 +50057,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #25
+  tail call void @__clang_call_terminate(ptr %2) #26
   unreachable
 
 _ZN6vectorIP5trailLb0EjED2Ev.exit:                ; preds = %entry, %if.then.i.i
@@ -50138,7 +50138,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
   %10 = landingpad { ptr, i32 }
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0
-  tail call void @__clang_call_terminate(ptr %11) #25
+  tail call void @__clang_call_terminate(ptr %11) #26
   unreachable
 
 _ZN7svectorISt4pairIP4exprS2_EjED2Ev.exit:        ; preds = %entry, %invoke.cont5, %if.then.i.i.i
@@ -50148,7 +50148,7 @@ terminate.lpad:                                   ; preds = %if.then2.i.i.i7.i.i
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  tail call void @__clang_call_terminate(ptr %13) #25
+  tail call void @__clang_call_terminate(ptr %13) #26
   unreachable
 }
 
@@ -50209,7 +50209,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #25
+  tail call void @__clang_call_terminate(ptr %8) #26
   unreachable
 
 _ZN10ptr_vectorI4exprED2Ev.exit:                  ; preds = %entry, %invoke.cont8, %if.then.i.i.i
@@ -50219,7 +50219,7 @@ terminate.lpad:                                   ; preds = %if.then2.i.i.i.i
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #25
+  tail call void @__clang_call_terminate(ptr %10) #26
   unreachable
 }
 
@@ -50257,7 +50257,7 @@ terminate.lpad.i.i.i.i.i.i.i.i.i.i.i.i:           ; preds = %if.then.i.i.i.i.i.i
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #25
+  tail call void @__clang_call_terminate(ptr %4) #26
   unreachable
 
 _ZN17default_map_entryIj8uint_setED2Ev.exit.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i
@@ -50274,7 +50274,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %for.end.i.i.i.i.i.i
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  tail call void @__clang_call_terminate(ptr %6) #25
+  tail call void @__clang_call_terminate(ptr %6) #26
   unreachable
 
 _ZN5u_mapI8uint_setED2Ev.exit:                    ; preds = %entry, %for.end.i.i.i.i.i.i
@@ -50307,7 +50307,7 @@ terminate.lpad.i.i.i.i.i.i.i.i.i.i.i.i12:         ; preds = %if.then.i.i.i.i.i.i
   %10 = landingpad { ptr, i32 }
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0
-  tail call void @__clang_call_terminate(ptr %11) #25
+  tail call void @__clang_call_terminate(ptr %11) #26
   unreachable
 
 _ZN17default_map_entryIj8uint_setED2Ev.exit.i.i.i.i.i.i13: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i10, %for.body.i.i.i.i.i.i5
@@ -50324,7 +50324,7 @@ terminate.lpad.i.i.i.i18:                         ; preds = %for.end.i.i.i.i.i.i
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  tail call void @__clang_call_terminate(ptr %13) #25
+  tail call void @__clang_call_terminate(ptr %13) #26
   unreachable
 
 _ZN5u_mapI8uint_setED2Ev.exit19:                  ; preds = %_ZN5u_mapI8uint_setED2Ev.exit, %for.end.i.i.i.i.i.i17
@@ -50357,7 +50357,7 @@ terminate.lpad.i.i.i.i.i.i.i.i.i.i.i.i31:         ; preds = %if.then.i.i.i.i.i.i
   %17 = landingpad { ptr, i32 }
           catch ptr null
   %18 = extractvalue { ptr, i32 } %17, 0
-  tail call void @__clang_call_terminate(ptr %18) #25
+  tail call void @__clang_call_terminate(ptr %18) #26
   unreachable
 
 _ZN17default_map_entryIj8uint_setED2Ev.exit.i.i.i.i.i.i32: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i29, %for.body.i.i.i.i.i.i24
@@ -50374,7 +50374,7 @@ terminate.lpad.i.i.i.i37:                         ; preds = %for.end.i.i.i.i.i.i
   %19 = landingpad { ptr, i32 }
           catch ptr null
   %20 = extractvalue { ptr, i32 } %19, 0
-  tail call void @__clang_call_terminate(ptr %20) #25
+  tail call void @__clang_call_terminate(ptr %20) #26
   unreachable
 
 _ZN5u_mapI8uint_setED2Ev.exit38:                  ; preds = %_ZN5u_mapI8uint_setED2Ev.exit19, %for.end.i.i.i.i.i.i36
@@ -50394,7 +50394,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i
   %22 = landingpad { ptr, i32 }
           catch ptr null
   %23 = extractvalue { ptr, i32 } %22, 0
-  tail call void @__clang_call_terminate(ptr %23) #25
+  tail call void @__clang_call_terminate(ptr %23) #26
   unreachable
 
 _ZN7svectorIjjED2Ev.exit.i:                       ; preds = %if.then.i.i.i.i, %_ZN5u_mapI8uint_setED2Ev.exit38
@@ -50412,7 +50412,7 @@ terminate.lpad.i.i4.i:                            ; preds = %if.then.i.i.i2.i
   %25 = landingpad { ptr, i32 }
           catch ptr null
   %26 = extractvalue { ptr, i32 } %25, 0
-  tail call void @__clang_call_terminate(ptr %26) #25
+  tail call void @__clang_call_terminate(ptr %26) #26
   unreachable
 
 _ZN7svectorIjjED2Ev.exit5.i:                      ; preds = %if.then.i.i.i2.i, %_ZN7svectorIjjED2Ev.exit.i
@@ -50429,7 +50429,7 @@ terminate.lpad.i.i9.i:                            ; preds = %if.then.i.i.i7.i
   %28 = landingpad { ptr, i32 }
           catch ptr null
   %29 = extractvalue { ptr, i32 } %28, 0
-  tail call void @__clang_call_terminate(ptr %29) #25
+  tail call void @__clang_call_terminate(ptr %29) #26
   unreachable
 
 _ZN16basic_union_findD2Ev.exit:                   ; preds = %_ZN7svectorIjjED2Ev.exit5.i, %if.then.i.i.i7.i
@@ -50447,7 +50447,7 @@ terminate.lpad.i.i.i42:                           ; preds = %if.then.i.i.i.i40
   %31 = landingpad { ptr, i32 }
           catch ptr null
   %32 = extractvalue { ptr, i32 } %31, 0
-  tail call void @__clang_call_terminate(ptr %32) #25
+  tail call void @__clang_call_terminate(ptr %32) #26
   unreachable
 
 _ZN8uint_setD2Ev.exit:                            ; preds = %_ZN16basic_union_findD2Ev.exit, %if.then.i.i.i.i40
@@ -50465,7 +50465,7 @@ terminate.lpad.i.i.i47:                           ; preds = %if.then.i.i.i.i45
   %34 = landingpad { ptr, i32 }
           catch ptr null
   %35 = extractvalue { ptr, i32 } %34, 0
-  tail call void @__clang_call_terminate(ptr %35) #25
+  tail call void @__clang_call_terminate(ptr %35) #26
   unreachable
 
 _ZN8uint_setD2Ev.exit49:                          ; preds = %_ZN8uint_setD2Ev.exit, %if.then.i.i.i.i45
@@ -50483,7 +50483,7 @@ terminate.lpad.i.i.i53:                           ; preds = %if.then.i.i.i.i51
   %37 = landingpad { ptr, i32 }
           catch ptr null
   %38 = extractvalue { ptr, i32 } %37, 0
-  tail call void @__clang_call_terminate(ptr %38) #25
+  tail call void @__clang_call_terminate(ptr %38) #26
   unreachable
 
 _ZN8uint_setD2Ev.exit55:                          ; preds = %_ZN8uint_setD2Ev.exit49, %if.then.i.i.i.i51
@@ -50501,7 +50501,7 @@ terminate.lpad.i.i.i59:                           ; preds = %if.then.i.i.i.i57
   %40 = landingpad { ptr, i32 }
           catch ptr null
   %41 = extractvalue { ptr, i32 } %40, 0
-  tail call void @__clang_call_terminate(ptr %41) #25
+  tail call void @__clang_call_terminate(ptr %41) #26
   unreachable
 
 _ZN8uint_setD2Ev.exit61:                          ; preds = %_ZN8uint_setD2Ev.exit55, %if.then.i.i.i.i57
@@ -50518,7 +50518,7 @@ terminate.lpad.i.i.i65:                           ; preds = %if.then.i.i.i.i63
   %43 = landingpad { ptr, i32 }
           catch ptr null
   %44 = extractvalue { ptr, i32 } %43, 0
-  tail call void @__clang_call_terminate(ptr %44) #25
+  tail call void @__clang_call_terminate(ptr %44) #26
   unreachable
 
 _ZN8uint_setD2Ev.exit67:                          ; preds = %_ZN8uint_setD2Ev.exit61, %if.then.i.i.i.i63
@@ -50542,7 +50542,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #25
+  tail call void @__clang_call_terminate(ptr %2) #26
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %entry, %if.then.i.i
@@ -50560,7 +50560,7 @@ terminate.lpad.i.i5:                              ; preds = %if.then.i.i3
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #25
+  tail call void @__clang_call_terminate(ptr %5) #26
   unreachable
 
 _ZNSt8functionIFvP4exprEED2Ev.exit:               ; preds = %_ZNSt8functionIFvvEED2Ev.exit, %if.then.i.i3
@@ -50578,7 +50578,7 @@ terminate.lpad.i.i10:                             ; preds = %if.then.i.i8
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #25
+  tail call void @__clang_call_terminate(ptr %8) #26
   unreachable
 
 _ZNSt8functionIFvRK10ref_vectorI4expr11ast_managerEEED2Ev.exit: ; preds = %_ZNSt8functionIFvP4exprEED2Ev.exit, %if.then.i.i8
@@ -50595,7 +50595,7 @@ terminate.lpad.i.i11:                             ; preds = %for.cond.preheader.
   %10 = landingpad { ptr, i32 }
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0
-  tail call void @__clang_call_terminate(ptr %11) #25
+  tail call void @__clang_call_terminate(ptr %11) #26
   unreachable
 
 _ZN7obj_mapI4exprPS0_ED2Ev.exit:                  ; preds = %_ZNSt8functionIFvRK10ref_vectorI4expr11ast_managerEEED2Ev.exit, %for.cond.preheader.i.i.i.i
@@ -50653,14 +50653,14 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i
   %19 = landingpad { ptr, i32 }
           catch ptr null
   %20 = extractvalue { ptr, i32 } %19, 0
-  tail call void @__clang_call_terminate(ptr %20) #25
+  tail call void @__clang_call_terminate(ptr %20) #26
   unreachable
 
 terminate.lpad.i.i12:                             ; preds = %if.then2.i.i.i.i.i.i
   %21 = landingpad { ptr, i32 }
           catch ptr null
   %22 = extractvalue { ptr, i32 } %21, 0
-  tail call void @__clang_call_terminate(ptr %22) #25
+  tail call void @__clang_call_terminate(ptr %22) #26
   unreachable
 
 _ZN10ref_vectorI4expr11ast_managerED2Ev.exit:     ; preds = %_ZN7obj_mapI4exprPS0_ED2Ev.exit, %invoke.cont8.i.i, %if.then.i.i.i.i.i
@@ -50717,14 +50717,14 @@ terminate.lpad.i.i.i.i34:                         ; preds = %if.then.i.i.i.i.i32
   %30 = landingpad { ptr, i32 }
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
-  tail call void @__clang_call_terminate(ptr %31) #25
+  tail call void @__clang_call_terminate(ptr %31) #26
   unreachable
 
 terminate.lpad.i.i36:                             ; preds = %if.then2.i.i.i.i.i.i35
   %32 = landingpad { ptr, i32 }
           catch ptr null
   %33 = extractvalue { ptr, i32 } %32, 0
-  tail call void @__clang_call_terminate(ptr %33) #25
+  tail call void @__clang_call_terminate(ptr %33) #26
   unreachable
 
 _ZN10ref_vectorI4expr11ast_managerED2Ev.exit37:   ; preds = %_ZN10ref_vectorI4expr11ast_managerED2Ev.exit, %invoke.cont8.i.i29, %if.then.i.i.i.i.i32
@@ -50791,14 +50791,14 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #25
+  tail call void @__clang_call_terminate(ptr %8) #26
   unreachable
 
 terminate.lpad.i.i:                               ; preds = %if.then2.i.i.i.i.i.i
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #25
+  tail call void @__clang_call_terminate(ptr %10) #26
   unreachable
 
 _ZN10ref_vectorI4expr11ast_managerED2Ev.exit:     ; preds = %entry, %invoke.cont8.i.i, %if.then.i.i.i.i.i
@@ -50816,7 +50816,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  tail call void @__clang_call_terminate(ptr %13) #25
+  tail call void @__clang_call_terminate(ptr %13) #26
   unreachable
 
 _ZN6vectorIN8seq_util3rex4infoELb1EjED2Ev.exit:   ; preds = %_ZN10ref_vectorI4expr11ast_managerED2Ev.exit, %if.then.i.i
@@ -50854,7 +50854,7 @@ terminate.lpad:                                   ; preds = %if.end.i.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #25
+  tail call void @__clang_call_terminate(ptr %2) #26
   unreachable
 }
 
@@ -50903,7 +50903,7 @@ terminate.lpad.i:                                 ; preds = %if.then2.i.i.i
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #25
+  tail call void @__clang_call_terminate(ptr %4) #26
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %entry, %if.then.i.i.i, %if.then2.i.i.i
@@ -50937,11 +50937,11 @@ terminate.lpad.i.i:                               ; preds = %if.then2.i.i.i.i
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #25
+  tail call void @__clang_call_terminate(ptr %4) #26
   unreachable
 
 _ZN3smt10theory_seq19replay_fixed_lengthD2Ev.exit: ; preds = %entry, %if.then.i.i.i.i, %if.then2.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #26
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #27
   ret void
 }
 
@@ -50977,7 +50977,7 @@ _ZN7obj_refI4expr11ast_managerE5resetEv.exit:     ; preds = %entry, %if.then.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3smt10theory_seq11push_replayD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #26
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #27
   ret void
 }
 
@@ -51145,7 +51145,7 @@ terminate.lpad.i:                                 ; preds = %_ZN6vectorI9paramet
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #25
+  tail call void @__clang_call_terminate(ptr %4) #26
   unreachable
 
 _ZN6vectorI9parameterLb1EjED2Ev.exit:             ; preds = %entry, %_ZN6vectorI9parameterLb1EjE16destroy_elementsEv.exit.i.i
@@ -51155,7 +51155,7 @@ _ZN6vectorI9parameterLb1EjED2Ev.exit:             ; preds = %entry, %_ZN6vectorI
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3smt31ext_theory_simple_justificationD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #7 comdat align 2 {
 entry:
-  tail call void @llvm.trap() #25
+  tail call void @llvm.trap() #26
   unreachable
 }
 
@@ -51252,7 +51252,7 @@ entry:
 define linkonce_odr hidden void @_ZNSt18bad_variant_accessD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #7 comdat align 2 {
 entry:
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #23
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #26
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #27
   ret void
 }
 
@@ -51299,7 +51299,7 @@ terminate.lpad:                                   ; preds = %if.then.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #25
+  tail call void @__clang_call_terminate(ptr %2) #26
   unreachable
 }
 
@@ -51745,7 +51745,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %for.cond.preheader.
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #25
+  tail call void @__clang_call_terminate(ptr %2) #26
   unreachable
 
 _ZN3mapI6symbolS0_16symbol_hash_proc14symbol_eq_procED2Ev.exit.i: ; preds = %for.cond.preheader.i.i.i.i.i.i, %entry
@@ -51762,7 +51762,7 @@ terminate.lpad.i.i.i3.i:                          ; preds = %for.cond.preheader.
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #25
+  tail call void @__clang_call_terminate(ptr %5) #26
   unreachable
 
 _ZN12smt_renamingD2Ev.exit:                       ; preds = %_ZN3mapI6symbolS0_16symbol_hash_proc14symbol_eq_procED2Ev.exit.i, %for.cond.preheader.i.i.i.i.i2.i
@@ -51774,7 +51774,7 @@ _ZN12smt_renamingD2Ev.exit:                       ; preds = %_ZN3mapI6symbolS0_1
 define linkonce_odr hidden void @_ZN23smt2_pp_environment_dbgD0Ev(ptr noundef nonnull align 8 dereferenceable(640) %this) unnamed_addr #7 comdat align 2 {
 entry:
   tail call void @_ZN23smt2_pp_environment_dbgD2Ev(ptr noundef nonnull align 8 dereferenceable(640) %this) #23
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #26
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #27
   ret void
 }
 
@@ -52169,7 +52169,7 @@ terminate.lpad.i:                                 ; preds = %for.cond.preheader.
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #25
+  tail call void @__clang_call_terminate(ptr %2) #26
   unreachable
 
 _ZN14core_hashtableIN7obj_mapI4sortP4exprE13obj_map_entryE8obj_hashINS4_8key_dataEE10default_eqIS7_EED2Ev.exit: ; preds = %entry, %for.cond.preheader.i.i.i
@@ -52192,7 +52192,7 @@ terminate.lpad.i:                                 ; preds = %for.cond.preheader.
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #25
+  tail call void @__clang_call_terminate(ptr %2) #26
   unreachable
 
 _ZN14core_hashtableI18default_hash_entryI6symbolE16symbol_hash_proc14symbol_eq_procED2Ev.exit: ; preds = %entry, %for.cond.preheader.i.i.i
@@ -52260,14 +52260,14 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #25
+  tail call void @__clang_call_terminate(ptr %8) #26
   unreachable
 
 terminate.lpad.i.i:                               ; preds = %if.then2.i.i.i.i.i.i
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #25
+  tail call void @__clang_call_terminate(ptr %10) #26
   unreachable
 
 _ZN10ref_vectorI4expr11ast_managerED2Ev.exit:     ; preds = %entry, %invoke.cont8.i.i, %if.then.i.i.i.i.i
@@ -52284,7 +52284,7 @@ terminate.lpad.i.i1:                              ; preds = %for.cond.preheader.
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  tail call void @__clang_call_terminate(ptr %13) #25
+  tail call void @__clang_call_terminate(ptr %13) #26
   unreachable
 
 _ZN7obj_mapI4sortP4exprED2Ev.exit:                ; preds = %_ZN10ref_vectorI4expr11ast_managerED2Ev.exit, %for.cond.preheader.i.i.i.i
@@ -52304,7 +52304,7 @@ terminate.lpad.i.i4:                              ; preds = %for.cond.preheader.
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  tail call void @__clang_call_terminate(ptr %16) #25
+  tail call void @__clang_call_terminate(ptr %16) #26
   unreachable
 
 _ZN9hashtableI6symbol16symbol_hash_proc14symbol_eq_procED2Ev.exit: ; preds = %_ZN7obj_mapI4sortP4exprED2Ev.exit, %for.cond.preheader.i.i.i.i3
@@ -52319,7 +52319,7 @@ _ZN9hashtableI6symbol16symbol_hash_proc14symbol_eq_procED2Ev.exit: ; preds = %_Z
 define linkonce_odr hidden void @_ZN11seq_factoryD0Ev(ptr noundef nonnull align 8 dereferenceable(272) %this) unnamed_addr #7 comdat align 2 {
 entry:
   tail call void @_ZN11seq_factoryD2Ev(ptr noundef nonnull align 8 dereferenceable(272) %this) #23
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #26
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #27
   ret void
 }
 
@@ -52521,7 +52521,7 @@ terminate.lpad.i.i:                               ; preds = %if.end.i.i.i.i.i
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #25
+  call void @__clang_call_terminate(ptr %16) #26
   unreachable
 
 _ZN7zstringD2Ev.exit:                             ; preds = %invoke.cont4, %if.end.i.i.i.i.i
@@ -52576,7 +52576,7 @@ terminate.lpad.i.i33:                             ; preds = %if.end.i.i.i.i.i32
   %22 = landingpad { ptr, i32 }
           catch ptr null
   %23 = extractvalue { ptr, i32 } %22, 0
-  call void @__clang_call_terminate(ptr %23) #25
+  call void @__clang_call_terminate(ptr %23) #26
   unreachable
 
 lpad:                                             ; preds = %if.then2.i.i.i, %if.then
@@ -53015,7 +53015,7 @@ terminate.lpad.i.i:                               ; preds = %if.end.i.i.i.i.i
   %25 = landingpad { ptr, i32 }
           catch ptr null
   %26 = extractvalue { ptr, i32 } %25, 0
-  call void @__clang_call_terminate(ptr %26) #25
+  call void @__clang_call_terminate(ptr %26) #26
   unreachable
 
 lpad23:                                           ; preds = %invoke.cont22
@@ -53466,7 +53466,7 @@ terminate.lpad.i.i:                               ; preds = %if.end.i.i.i.i.i
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  call void @__clang_call_terminate(ptr %8) #25
+  call void @__clang_call_terminate(ptr %8) #26
   unreachable
 
 _ZN7zstringD2Ev.exit:                             ; preds = %if.end11, %if.end.i.i.i.i.i
@@ -53891,7 +53891,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #25
+  tail call void @__clang_call_terminate(ptr %2) #26
   unreachable
 
 _ZN7svectorIN3smt10theory_seq14seq_value_proc8source_tEjED2Ev.exit: ; preds = %entry, %if.then.i.i.i
@@ -53909,7 +53909,7 @@ terminate.lpad.i.i4:                              ; preds = %if.then.i.i.i2
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #25
+  tail call void @__clang_call_terminate(ptr %5) #26
   unreachable
 
 _ZN10ptr_vectorI4exprED2Ev.exit:                  ; preds = %_ZN7svectorIN3smt10theory_seq14seq_value_proc8source_tEjED2Ev.exit, %if.then.i.i.i2
@@ -53927,7 +53927,7 @@ terminate.lpad.i.i8:                              ; preds = %if.then.i.i.i6
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #25
+  tail call void @__clang_call_terminate(ptr %8) #26
   unreachable
 
 _ZN7svectorIN3smt22model_value_dependencyEjED2Ev.exit: ; preds = %_ZN10ptr_vectorI4exprED2Ev.exit, %if.then.i.i.i6
@@ -53952,7 +53952,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #25
+  tail call void @__clang_call_terminate(ptr %2) #26
   unreachable
 
 _ZN7svectorIN3smt10theory_seq14seq_value_proc8source_tEjED2Ev.exit.i: ; preds = %if.then.i.i.i.i, %entry
@@ -53970,7 +53970,7 @@ terminate.lpad.i.i4.i:                            ; preds = %if.then.i.i.i2.i
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #25
+  tail call void @__clang_call_terminate(ptr %5) #26
   unreachable
 
 _ZN10ptr_vectorI4exprED2Ev.exit.i:                ; preds = %if.then.i.i.i2.i, %_ZN7svectorIN3smt10theory_seq14seq_value_proc8source_tEjED2Ev.exit.i
@@ -53988,11 +53988,11 @@ terminate.lpad.i.i8.i:                            ; preds = %if.then.i.i.i6.i
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #25
+  tail call void @__clang_call_terminate(ptr %8) #26
   unreachable
 
 _ZN3smt10theory_seq14seq_value_procD2Ev.exit:     ; preds = %_ZN10ptr_vectorI4exprED2Ev.exit.i, %if.then.i.i.i6.i
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #26
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #27
   ret void
 }
 
@@ -54463,7 +54463,7 @@ terminate.lpad.i.i:                               ; preds = %if.end.i.i.i.i.i
   %57 = landingpad { ptr, i32 }
           catch ptr null
   %58 = extractvalue { ptr, i32 } %57, 0
-  call void @__clang_call_terminate(ptr %58) #25
+  call void @__clang_call_terminate(ptr %58) #26
   unreachable
 
 _ZN7zstringD2Ev.exit:                             ; preds = %if.end53, %if.end.i.i.i.i.i
@@ -54488,7 +54488,7 @@ terminate.lpad.i:                                 ; preds = %if.then2.i.i.i45
   %62 = landingpad { ptr, i32 }
           catch ptr null
   %63 = extractvalue { ptr, i32 } %62, 0
-  call void @__clang_call_terminate(ptr %63) #25
+  call void @__clang_call_terminate(ptr %63) #26
   unreachable
 
 ehcleanup:                                        ; preds = %lpad46, %lpad30
@@ -54643,7 +54643,7 @@ terminate.lpad.i.i81:                             ; preds = %if.end.i.i.i.i.i80
   %84 = landingpad { ptr, i32 }
           catch ptr null
   %85 = extractvalue { ptr, i32 } %84, 0
-  call void @__clang_call_terminate(ptr %85) #25
+  call void @__clang_call_terminate(ptr %85) #26
   unreachable
 
 _ZN7zstringD2Ev.exit82:                           ; preds = %invoke.cont84, %if.end.i.i.i.i.i80
@@ -54837,7 +54837,7 @@ terminate.lpad.i.i113:                            ; preds = %if.end.i.i.i.i.i112
   %105 = landingpad { ptr, i32 }
           catch ptr null
   %106 = extractvalue { ptr, i32 } %105, 0
-  call void @__clang_call_terminate(ptr %106) #25
+  call void @__clang_call_terminate(ptr %106) #26
   unreachable
 
 _ZN7zstringD2Ev.exit114:                          ; preds = %invoke.cont99, %if.end.i.i.i.i.i112
@@ -54854,7 +54854,7 @@ terminate.lpad.i.i116:                            ; preds = %if.then.i.i.i115
   %108 = landingpad { ptr, i32 }
           catch ptr null
   %109 = extractvalue { ptr, i32 } %108, 0
-  call void @__clang_call_terminate(ptr %109) #25
+  call void @__clang_call_terminate(ptr %109) #26
   unreachable
 
 lpad96:                                           ; preds = %if.then2.i.i.i105, %invoke.cont95
@@ -55095,7 +55095,7 @@ terminate.lpad.i179:                              ; preds = %if.then2.i.i.i.i
   %145 = landingpad { ptr, i32 }
           catch ptr null
   %146 = extractvalue { ptr, i32 } %145, 0
-  call void @__clang_call_terminate(ptr %146) #25
+  call void @__clang_call_terminate(ptr %146) #26
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit188:      ; preds = %if.then2.i.i.i.i, %if.then.i.i.i.i175, %invoke.cont143
@@ -55176,7 +55176,7 @@ terminate.lpad.i208:                              ; preds = %if.then2.i.i.i207
   %162 = landingpad { ptr, i32 }
           catch ptr null
   %163 = extractvalue { ptr, i32 } %162, 0
-  call void @__clang_call_terminate(ptr %163) #25
+  call void @__clang_call_terminate(ptr %163) #26
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit209:      ; preds = %invoke.cont152, %if.then.i.i.i202, %if.then2.i.i.i207
@@ -55192,7 +55192,7 @@ terminate.lpad.i210:                              ; preds = %.noexc.i211, %_ZN7o
   %165 = landingpad { ptr, i32 }
           catch ptr null
   %166 = extractvalue { ptr, i32 } %165, 0
-  call void @__clang_call_terminate(ptr %166) #25
+  call void @__clang_call_terminate(ptr %166) #26
   unreachable
 
 _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i211
@@ -55247,14 +55247,14 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i22
   %174 = landingpad { ptr, i32 }
           catch ptr null
   %175 = extractvalue { ptr, i32 } %174, 0
-  call void @__clang_call_terminate(ptr %175) #25
+  call void @__clang_call_terminate(ptr %175) #26
   unreachable
 
 terminate.lpad.i.i221:                            ; preds = %if.then2.i.i.i.i.i.i
   %176 = landingpad { ptr, i32 }
           catch ptr null
   %177 = extractvalue { ptr, i32 } %176, 0
-  call void @__clang_call_terminate(ptr %177) #25
+  call void @__clang_call_terminate(ptr %177) #26
   unreachable
 
 _ZN10ref_vectorI4expr11ast_managerED2Ev.exit:     ; preds = %_ZN8rationalD2Ev.exit, %invoke.cont8.i.i, %if.then.i.i.i.i.i220
@@ -55454,7 +55454,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3smt17expr_wrapper_procD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #7 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #26
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #27
   ret void
 }
 
@@ -55877,7 +55877,7 @@ terminate.lpad.i:                                 ; preds = %if.then2.i.i.i
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #25
+  tail call void @__clang_call_terminate(ptr %4) #26
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %entry, %if.then.i.i.i, %if.then2.i.i.i
@@ -55911,11 +55911,11 @@ terminate.lpad.i.i:                               ; preds = %if.then2.i.i.i.i
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #25
+  tail call void @__clang_call_terminate(ptr %4) #26
   unreachable
 
 _ZN3smt10theory_seq12replay_axiomD2Ev.exit:       ; preds = %entry, %if.then.i.i.i.i, %if.then2.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #26
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #27
   ret void
 }
 
@@ -56042,14 +56042,14 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #25
+  tail call void @__clang_call_terminate(ptr %8) #26
   unreachable
 
 terminate.lpad.i.i:                               ; preds = %if.then2.i.i.i.i.i.i
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #25
+  tail call void @__clang_call_terminate(ptr %10) #26
   unreachable
 
 _ZN10ref_vectorI4expr11ast_managerED2Ev.exit:     ; preds = %entry, %invoke.cont8.i.i, %if.then.i.i.i.i.i
@@ -56105,14 +56105,14 @@ terminate.lpad.i.i.i.i22:                         ; preds = %if.then.i.i.i.i.i20
   %18 = landingpad { ptr, i32 }
           catch ptr null
   %19 = extractvalue { ptr, i32 } %18, 0
-  tail call void @__clang_call_terminate(ptr %19) #25
+  tail call void @__clang_call_terminate(ptr %19) #26
   unreachable
 
 terminate.lpad.i.i24:                             ; preds = %if.then2.i.i.i.i.i.i23
   %20 = landingpad { ptr, i32 }
           catch ptr null
   %21 = extractvalue { ptr, i32 } %20, 0
-  tail call void @__clang_call_terminate(ptr %21) #25
+  tail call void @__clang_call_terminate(ptr %21) #26
   unreachable
 
 _ZN10ref_vectorI4expr11ast_managerED2Ev.exit25:   ; preds = %_ZN10ref_vectorI4expr11ast_managerED2Ev.exit, %invoke.cont8.i.i17, %if.then.i.i.i.i.i20
@@ -56158,7 +56158,7 @@ terminate.lpad:                                   ; preds = %_ZN6vectorISt4pairI
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #25
+  tail call void @__clang_call_terminate(ptr %4) #26
   unreachable
 }
 
@@ -56792,7 +56792,7 @@ terminate.lpad.i:                                 ; preds = %if.else
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #25
+  tail call void @__clang_call_terminate(ptr %2) #26
   unreachable
 
 if.end:                                           ; preds = %if.else, %if.then
@@ -56851,7 +56851,7 @@ terminate.lpad:                                   ; preds = %if.then
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #25
+  tail call void @__clang_call_terminate(ptr %2) #26
   unreachable
 }
 
@@ -57269,7 +57269,7 @@ _ZN14core_hashtableIN7obj_mapI4exprPS1_E13obj_map_entryE8obj_hashINS3_8key_dataE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN11value_trailIjED0Ev(ptr noundef nonnull align 8 dereferenceable(20) %this) unnamed_addr #7 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #26
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #27
   ret void
 }
 
@@ -57370,7 +57370,7 @@ declare noundef ptr @_ZN6region8allocateEm(ptr noundef nonnull align 8 dereferen
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN11value_trailIbED0Ev(ptr noundef nonnull align 8 dereferenceable(17) %this) unnamed_addr #7 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #26
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #27
   ret void
 }
 
@@ -57915,7 +57915,7 @@ declare noundef zeroext i1 @_ZN6memory16is_out_of_memoryEv() local_unnamed_addr 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN10union_findIN3smt10theory_seqES1_E12mk_var_trailD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #7 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #26
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #27
   ret void
 }
 
@@ -58328,7 +58328,7 @@ terminate.lpad.i.i.i.i.i.i.i:                     ; preds = %.noexc.i.i.i.i.i.i.
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  tail call void @__clang_call_terminate(ptr %16) #25
+  tail call void @__clang_call_terminate(ptr %16) #26
   unreachable
 
 _ZSt8_DestroyI8rationalEvPT_.exit.i.i.i.i.i:      ; preds = %.noexc.i.i.i.i.i.i.i
@@ -58367,7 +58367,7 @@ unreachable:                                      ; preds = %invoke.cont
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN16insert_obj_trailI4exprED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #26
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #27
   ret void
 }
 
@@ -58639,7 +58639,7 @@ terminate.lpad.i.i:                               ; preds = %if.then2.i.i.i.i.i
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  tail call void @__clang_call_terminate(ptr %9) #25
+  tail call void @__clang_call_terminate(ptr %9) #26
   unreachable
 
 _ZN3smt10theory_seq2ncaSEOS1_.exit:               ; preds = %if.then, %if.then.i.i.i.i.i, %if.then2.i.i.i.i.i
@@ -58976,7 +58976,7 @@ terminate.lpad.i.i.i.i.i.i.i.i:                   ; preds = %if.then2.i.i.i.i.i.
   %13 = landingpad { ptr, i32 }
           catch ptr null
   %14 = extractvalue { ptr, i32 } %13, 0
-  tail call void @__clang_call_terminate(ptr %14) #25
+  tail call void @__clang_call_terminate(ptr %14) #26
   unreachable
 
 _ZSt8_DestroyIN3smt10theory_seq2ncEEvPT_.exit.i.i.i.i.i: ; preds = %if.then2.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i
@@ -59423,7 +59423,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3smt13justificationD0Ev(ptr noundef nonnull align 8 dereferenceable(9) %this) unnamed_addr #7 comdat align 2 {
 entry:
-  tail call void @llvm.trap() #25
+  tail call void @llvm.trap() #26
   unreachable
 }
 
@@ -59539,7 +59539,7 @@ terminate.lpad.i.i.i:                             ; preds = %lpad2.i.i.i
   %11 = landingpad { ptr, i32 }
           catch ptr null
   %12 = extractvalue { ptr, i32 } %11, 0
-  tail call void @__clang_call_terminate(ptr %12) #25
+  tail call void @__clang_call_terminate(ptr %12) #26
   unreachable
 
 unreachable.i.i.i:                                ; preds = %invoke.cont3.i.i.i
@@ -59670,7 +59670,7 @@ sw.bb1:                                           ; preds = %entry
 
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
-  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #27
+  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
@@ -59681,7 +59681,7 @@ sw.bb6.i:                                         ; preds = %entry
   br i1 %isnull.i.i, label %sw.epilog, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %sw.bb6.i
-  tail call void @_ZdlPv(ptr noundef nonnull %__dest.val.i) #26
+  tail call void @_ZdlPv(ptr noundef nonnull %__dest.val.i) #27
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %delete.notnull.i.i, %sw.bb6.i, %sw.bb4.i, %sw.bb1, %sw.bb
@@ -60036,14 +60036,14 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #25
+  tail call void @__clang_call_terminate(ptr %8) #26
   unreachable
 
 terminate.lpad.i.i:                               ; preds = %if.then2.i.i.i.i.i.i
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #25
+  tail call void @__clang_call_terminate(ptr %10) #26
   unreachable
 
 _ZN10ref_vectorI4expr11ast_managerED2Ev.exit:     ; preds = %entry, %invoke.cont8.i.i, %if.then.i.i.i.i.i
@@ -60099,14 +60099,14 @@ terminate.lpad.i.i.i.i22:                         ; preds = %if.then.i.i.i.i.i20
   %18 = landingpad { ptr, i32 }
           catch ptr null
   %19 = extractvalue { ptr, i32 } %18, 0
-  tail call void @__clang_call_terminate(ptr %19) #25
+  tail call void @__clang_call_terminate(ptr %19) #26
   unreachable
 
 terminate.lpad.i.i24:                             ; preds = %if.then2.i.i.i.i.i.i23
   %20 = landingpad { ptr, i32 }
           catch ptr null
   %21 = extractvalue { ptr, i32 } %20, 0
-  tail call void @__clang_call_terminate(ptr %21) #25
+  tail call void @__clang_call_terminate(ptr %21) #26
   unreachable
 
 _ZN10ref_vectorI4expr11ast_managerED2Ev.exit25:   ; preds = %_ZN10ref_vectorI4expr11ast_managerED2Ev.exit, %invoke.cont8.i.i17, %if.then.i.i.i.i.i20
@@ -60409,7 +60409,7 @@ unreachable:                                      ; preds = %invoke.cont
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN16push_back_vectorI10ref_vectorI4expr11ast_managerEED0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #7 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #26
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #27
   ret void
 }
 
@@ -60709,7 +60709,7 @@ _ZN14core_hashtableIN7obj_mapI4exprjE13obj_map_entryE8obj_hashINS2_8key_dataEE10
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN14remove_obj_mapI4exprjED0Ev(ptr noundef nonnull align 8 dereferenceable(28) %this) unnamed_addr #7 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #26
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #27
   ret void
 }
 
@@ -60735,7 +60735,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN14insert_obj_mapI4exprjED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #26
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #27
   ret void
 }
 
@@ -61008,7 +61008,7 @@ sw.bb1:                                           ; preds = %entry
 
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
-  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #27
+  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %__source.val5, i64 24, i1 false)
   store ptr %call.i.i.i, ptr %__dest, align 8
   br label %sw.epilog
@@ -61019,7 +61019,7 @@ sw.bb6.i:                                         ; preds = %entry
   br i1 %isnull.i.i, label %sw.epilog, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %sw.bb6.i
-  tail call void @_ZdlPv(ptr noundef nonnull %__dest.val.i) #26
+  tail call void @_ZdlPv(ptr noundef nonnull %__dest.val.i) #27
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %delete.notnull.i.i, %sw.bb6.i, %sw.bb4.i, %sw.bb1, %sw.bb
@@ -61035,7 +61035,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN10union_findIN3smt10theory_seqES1_E11merge_trailD0Ev(ptr noundef nonnull align 8 dereferenceable(20) %this) unnamed_addr #7 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #26
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #27
   ret void
 }
 
@@ -61380,7 +61380,7 @@ unreachable:                                      ; preds = %invoke.cont
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN11value_trailIP4exprED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #26
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #27
   ret void
 }
 
@@ -61398,7 +61398,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN11value_trailIN3sat7literalEED0Ev(ptr noundef nonnull align 8 dereferenceable(20) %this) unnamed_addr #7 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #26
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #27
   ret void
 }
 
@@ -61450,7 +61450,7 @@ attributes #7 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal
 attributes #8 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { cold noreturn nounwind memory(inaccessiblemem: write) }
@@ -61464,9 +61464,10 @@ attributes #21 = { nocallback nofree nosync nounwind willreturn memory(inaccessi
 attributes #22 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #23 = { nounwind }
 attributes #24 = { noreturn }
-attributes #25 = { noreturn nounwind }
-attributes #26 = { builtin nounwind }
-attributes #27 = { builtin allocsize(0) }
+attributes #25 = { cold noreturn nounwind }
+attributes #26 = { noreturn nounwind }
+attributes #27 = { builtin nounwind }
+attributes #28 = { builtin allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

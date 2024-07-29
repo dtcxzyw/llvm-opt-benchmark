@@ -897,7 +897,7 @@ sub_2520:                                         ; preds = %sub_1519
 
 292:                                              ; preds = %290
   %293 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.59, ptr noundef %.0345, ptr noundef nonnull @.str.60)
-  call void @exit(i32 noundef 0) #23
+  call void @exit(i32 noundef 0) #25
   unreachable
 
 sub_0523:                                         ; preds = %290
@@ -1398,7 +1398,7 @@ hwloc_calc_append_iodev_by_index.exit.i.i:        ; preds = %481, %478, %465, %4
   br label %499
 
 497:                                              ; preds = %495
-  %498 = tail call ptr @__errno_location() #25
+  %498 = tail call ptr @__errno_location() #26
   store i32 22, ptr %498, align 4
   br label %.loopexit.i.i
 
@@ -2029,7 +2029,7 @@ hwloc_calc_process_location_as_set.exit:          ; preds = %hwloc_calc_process_
   br i1 %.not414, label %750, label %736
 
 736:                                              ; preds = %735
-  %737 = tail call ptr @__errno_location() #25
+  %737 = tail call ptr @__errno_location() #26
   %738 = load i32, ptr %737, align 4
   %739 = call ptr @strerror(i32 noundef %738) #20
   %740 = load ptr, ptr @stderr, align 8
@@ -2151,7 +2151,7 @@ hwloc_cpuset_to_nodeset.exit:                     ; preds = %758, %hwloc_get_nex
   br i1 %698, label %.thread1859, label %792
 
 .thread1859:                                      ; preds = %789
-  %790 = tail call ptr @__errno_location() #25
+  %790 = tail call ptr @__errno_location() #26
   store i32 38, ptr %790, align 4
   %791 = call ptr @strerror(i32 noundef 38) #20
   br label %804
@@ -2169,7 +2169,7 @@ hwloc_cpuset_to_nodeset.exit:                     ; preds = %758, %hwloc_get_nex
   br i1 %.not412, label %809, label %797
 
 797:                                              ; preds = %796
-  %.pre = tail call ptr @__errno_location() #25
+  %.pre = tail call ptr @__errno_location() #26
   %798 = load i32, ptr %.pre, align 4
   %799 = call ptr @strerror(i32 noundef %798) #20
   br i1 %697, label %800, label %804
@@ -2373,7 +2373,7 @@ hwloc_utils_parse_memattr_name.exit:              ; preds = %.lr.ph.i, %848
   br i1 %698, label %893, label %895
 
 893:                                              ; preds = %892
-  %894 = tail call ptr @__errno_location() #25
+  %894 = tail call ptr @__errno_location() #26
   store i32 38, ptr %894, align 4
   br label %899
 
@@ -2390,7 +2390,7 @@ hwloc_utils_parse_memattr_name.exit:              ; preds = %.lr.ph.i, %848
   br i1 %or.cond17, label %901, label %914
 
 901:                                              ; preds = %899
-  %902 = tail call ptr @__errno_location() #25
+  %902 = tail call ptr @__errno_location() #26
   %903 = load i32, ptr %902, align 4
   %904 = call ptr @strerror(i32 noundef %903) #20
   %905 = call i32 @hwloc_bitmap_asprintf(ptr noundef nonnull %24, ptr noundef %37) #20
@@ -2546,7 +2546,7 @@ hwloc_utils_parse_memattr_name.exit:              ; preds = %.lr.ph.i, %848
   br i1 %or.cond23, label %977, label %993
 
 977:                                              ; preds = %975
-  %978 = tail call ptr @__errno_location() #25
+  %978 = tail call ptr @__errno_location() #26
   %979 = load i32, ptr %978, align 4
   %980 = call ptr @strerror(i32 noundef %979) #20
   %981 = call i32 @hwloc_bitmap_asprintf(ptr noundef nonnull %26, ptr noundef %36) #20
@@ -2633,7 +2633,7 @@ declare noalias ptr @hwloc_bitmap_alloc() local_unnamed_addr #4
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
@@ -2718,8 +2718,8 @@ define internal fastcc void @hwloc_utils_get_best_node_in_nodeset_by_memattr(ptr
   %13 = load i32, ptr %5, align 4
   %14 = zext i32 %13 to i64
   %15 = shl nuw nsw i64 %14, 3
-  %16 = call noalias ptr @malloc(i64 noundef %15) #26
-  %17 = call noalias ptr @malloc(i64 noundef %15) #26
+  %16 = call noalias ptr @malloc(i64 noundef %15) #27
+  %17 = call noalias ptr @malloc(i64 noundef %15) #27
   %18 = icmp ne ptr %16, null
   %19 = icmp ne ptr %17, null
   %or.cond = and i1 %18, %19
@@ -3824,7 +3824,7 @@ define internal fastcc range(i32 -1, 1) i32 @hwloc_calc_parse_range(ptr noundef 
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %8, ptr align 1 %0, i64 %.041, i1 false)
   %26 = getelementptr inbounds [65 x i8], ptr %8, i64 0, i64 %.041
   store i8 0, ptr %26, align 1
-  %27 = tail call ptr @__ctype_b_loc() #25
+  %27 = tail call ptr @__ctype_b_loc() #26
   %28 = load ptr, ptr %27, align 8
   %29 = load i8, ptr %8, align 16
   %30 = sext i8 %29 to i64
@@ -4194,7 +4194,7 @@ attributes #1 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true
 attributes #2 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -4212,10 +4212,11 @@ attributes #19 = { nocallback nofree nosync nounwind speculatable willreturn mem
 attributes #20 = { nounwind }
 attributes #21 = { nounwind willreturn memory(read) }
 attributes #22 = { cold nounwind }
-attributes #23 = { noreturn nounwind }
+attributes #23 = { cold noreturn nounwind }
 attributes #24 = { cold }
-attributes #25 = { nounwind willreturn memory(none) }
-attributes #26 = { nounwind allocsize(0) }
+attributes #25 = { noreturn nounwind }
+attributes #26 = { nounwind willreturn memory(none) }
+attributes #27 = { nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

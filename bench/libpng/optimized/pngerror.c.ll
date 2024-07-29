@@ -30,11 +30,11 @@ define void @png_error(ptr noalias noundef %0, ptr noundef %1) local_unnamed_add
   br i1 %.not8, label %7, label %6
 
 6:                                                ; preds = %3
-  tail call void %5(ptr noundef nonnull %0, ptr noundef %1) #17
+  tail call void %5(ptr noundef nonnull %0, ptr noundef %1) #18
   br label %7
 
 7:                                                ; preds = %6, %3, %2
-  tail call fastcc void @png_default_error(ptr noundef %0, ptr noundef %1) #18
+  tail call fastcc void @png_default_error(ptr noundef %0, ptr noundef %1) #19
   unreachable
 }
 
@@ -43,10 +43,10 @@ define internal fastcc void @png_default_error(ptr noalias noundef %0, ptr nound
   %3 = load ptr, ptr @stderr, align 8
   %.not = icmp eq ptr %1, null
   %4 = select i1 %.not, ptr @.str.5, ptr %1
-  %5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.4, ptr noundef nonnull %4) #19
+  %5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.4, ptr noundef nonnull %4) #20
   %6 = load ptr, ptr @stderr, align 8
   %fputc = tail call i32 @fputc(i32 10, ptr %6)
-  tail call void @png_longjmp(ptr noundef %0, i32 noundef 1) #18
+  tail call void @png_longjmp(ptr noundef %0, i32 noundef 1) #19
   unreachable
 }
 
@@ -263,7 +263,7 @@ define void @png_warning(ptr noalias noundef %0, ptr noundef %1) local_unnamed_a
 
 .split:                                           ; preds = %2
   %10 = load ptr, ptr @stderr, align 8
-  %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.7, ptr noundef %1) #19
+  %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.7, ptr noundef %1) #20
   %12 = load ptr, ptr @stderr, align 8
   %fputc.i = tail call i32 @fputc(i32 10, ptr %12)
   br label %21
@@ -283,13 +283,13 @@ define void @png_warning(ptr noalias noundef %0, ptr noundef %1) local_unnamed_a
 
 .split14:                                         ; preds = %.thread21
   %17 = load ptr, ptr @stderr, align 8
-  %18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.7, ptr noundef nonnull %16) #19
+  %18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.7, ptr noundef nonnull %16) #20
   %19 = load ptr, ptr @stderr, align 8
   %fputc.i18 = tail call i32 @fputc(i32 10, ptr %19)
   br label %21
 
 20:                                               ; preds = %.thread21
-  tail call void %15(ptr noundef nonnull %0, ptr noundef nonnull %16) #17
+  tail call void %15(ptr noundef nonnull %0, ptr noundef nonnull %16) #18
   br label %21
 
 21:                                               ; preds = %.split, %.split14, %20
@@ -575,7 +575,7 @@ define void @png_formatted_warning(ptr noalias noundef %0, ptr noundef readonly 
 
 .split.i:                                         ; preds = %.critedge
   %39 = load ptr, ptr @stderr, align 8, !noalias !11
-  %40 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %39, ptr noundef nonnull @.str.7, ptr noundef nonnull %4) #19
+  %40 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %39, ptr noundef nonnull @.str.7, ptr noundef nonnull %4) #20
   %41 = load ptr, ptr @stderr, align 8, !noalias !11
   %fputc.i.i = call i32 @fputc(i32 10, ptr %41)
   br label %png_warning.exit
@@ -595,13 +595,13 @@ define void @png_formatted_warning(ptr noalias noundef %0, ptr noundef readonly 
 
 .split14.i:                                       ; preds = %.thread21.i
   %46 = load ptr, ptr @stderr, align 8, !noalias !11
-  %47 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %46, ptr noundef nonnull @.str.7, ptr noundef nonnull %45) #19
+  %47 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %46, ptr noundef nonnull @.str.7, ptr noundef nonnull %45) #20
   %48 = load ptr, ptr @stderr, align 8, !noalias !11
   %fputc.i18.i = call i32 @fputc(i32 10, ptr %48)
   br label %png_warning.exit
 
 49:                                               ; preds = %.thread21.i
-  call void %44(ptr noundef nonnull %0, ptr noundef nonnull %45) #17
+  call void %44(ptr noundef nonnull %0, ptr noundef nonnull %45) #18
   br label %png_warning.exit
 
 png_warning.exit:                                 ; preds = %.split.i, %.split14.i, %49
@@ -664,13 +664,13 @@ define void @png_benign_error(ptr noalias noundef %0, ptr noundef %1) local_unna
 
 .split14.i:                                       ; preds = %.thread21.i
   %25 = load ptr, ptr @stderr, align 8, !noalias !14
-  %26 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef nonnull @.str.7, ptr noundef nonnull %24) #19
+  %26 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef nonnull @.str.7, ptr noundef nonnull %24) #20
   %27 = load ptr, ptr @stderr, align 8, !noalias !14
   %fputc.i18.i = tail call i32 @fputc(i32 10, ptr %27)
   br label %png_warning.exit
 
 28:                                               ; preds = %.thread21.i
-  tail call void %23(ptr noundef nonnull %0, ptr noundef nonnull %24) #17
+  tail call void %23(ptr noundef nonnull %0, ptr noundef nonnull %24) #18
   br label %png_warning.exit
 
 29:                                               ; preds = %2
@@ -684,11 +684,11 @@ define void @png_benign_error(ptr noalias noundef %0, ptr noundef %1) local_unna
   br i1 %.not14, label %35, label %34
 
 34:                                               ; preds = %31
-  tail call void @png_chunk_error(ptr noundef nonnull %0, ptr noundef %1) #18
+  tail call void @png_chunk_error(ptr noundef nonnull %0, ptr noundef %1) #19
   unreachable
 
 35:                                               ; preds = %31, %29
-  tail call void @png_error(ptr noundef nonnull %0, ptr noundef %1) #18
+  tail call void @png_error(ptr noundef nonnull %0, ptr noundef %1) #19
   unreachable
 
 png_warning.exit:                                 ; preds = %28, %.split14.i, %13
@@ -703,7 +703,7 @@ define void @png_chunk_warning(ptr noalias noundef %0, ptr noundef %1) local_unn
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr @stderr, align 8, !noalias !17
-  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.7, ptr noundef %1) #19
+  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.7, ptr noundef %1) #20
   %8 = load ptr, ptr @stderr, align 8, !noalias !17
   %fputc.i.i = tail call i32 @fputc(i32 10, ptr %8)
   br label %png_warning.exit
@@ -837,13 +837,13 @@ define void @png_chunk_warning(ptr noalias noundef %0, ptr noundef %1) local_unn
 
 .split14.i:                                       ; preds = %.thread21.i
   %69 = load ptr, ptr @stderr, align 8, !noalias !22
-  %70 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %69, ptr noundef nonnull @.str.7, ptr noundef nonnull %68) #19
+  %70 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %69, ptr noundef nonnull @.str.7, ptr noundef nonnull %68) #20
   %71 = load ptr, ptr @stderr, align 8, !noalias !22
   %fputc.i18.i = call i32 @fputc(i32 10, ptr %71)
   br label %png_warning.exit
 
 72:                                               ; preds = %.thread21.i
-  call void %67(ptr noundef nonnull %0, ptr noundef nonnull %68) #17
+  call void %67(ptr noundef nonnull %0, ptr noundef nonnull %68) #18
   br label %png_warning.exit
 
 png_warning.exit:                                 ; preds = %72, %.split14.i, %5
@@ -857,14 +857,14 @@ define void @png_chunk_error(ptr noalias noundef %0, ptr noundef %1) local_unnam
   br i1 %4, label %5, label %6
 
 5:                                                ; preds = %2
-  tail call void @png_error(ptr noundef null, ptr noundef %1) #18
+  tail call void @png_error(ptr noundef null, ptr noundef %1) #19
   unreachable
 
 6:                                                ; preds = %2
   %7 = getelementptr i8, ptr %0, i64 536
   %.val = load i32, ptr %7, align 8
   call fastcc void @png_format_buffer(i32 %.val, ptr noundef nonnull %3, ptr noundef %1)
-  call void @png_error(ptr noundef nonnull %0, ptr noundef nonnull %3) #18
+  call void @png_error(ptr noundef nonnull %0, ptr noundef nonnull %3) #19
   unreachable
 }
 
@@ -909,20 +909,20 @@ define void @png_app_warning(ptr noalias noundef %0, ptr noundef %1) local_unnam
 
 .split14.i:                                       ; preds = %.thread21.i
   %17 = load ptr, ptr @stderr, align 8, !noalias !25
-  %18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.7, ptr noundef nonnull %16) #19
+  %18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.7, ptr noundef nonnull %16) #20
   %19 = load ptr, ptr @stderr, align 8, !noalias !25
   %fputc.i18.i = tail call i32 @fputc(i32 10, ptr %19)
   br label %png_warning.exit
 
 20:                                               ; preds = %.thread21.i
-  tail call void %15(ptr noundef nonnull %0, ptr noundef nonnull %16) #17
+  tail call void %15(ptr noundef nonnull %0, ptr noundef nonnull %16) #18
   br label %png_warning.exit
 
 png_warning.exit:                                 ; preds = %.split14.i, %20
   ret void
 
 21:                                               ; preds = %2
-  tail call void @png_error(ptr noundef nonnull %0, ptr noundef %1) #18
+  tail call void @png_error(ptr noundef nonnull %0, ptr noundef %1) #19
   unreachable
 }
 
@@ -967,20 +967,20 @@ define void @png_app_error(ptr noalias noundef %0, ptr noundef %1) local_unnamed
 
 .split14.i:                                       ; preds = %.thread21.i
   %17 = load ptr, ptr @stderr, align 8, !noalias !28
-  %18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.7, ptr noundef nonnull %16) #19
+  %18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.7, ptr noundef nonnull %16) #20
   %19 = load ptr, ptr @stderr, align 8, !noalias !28
   %fputc.i18.i = tail call i32 @fputc(i32 10, ptr %19)
   br label %png_warning.exit
 
 20:                                               ; preds = %.thread21.i
-  tail call void %15(ptr noundef nonnull %0, ptr noundef nonnull %16) #17
+  tail call void %15(ptr noundef nonnull %0, ptr noundef nonnull %16) #18
   br label %png_warning.exit
 
 png_warning.exit:                                 ; preds = %.split14.i, %20
   ret void
 
 21:                                               ; preds = %2
-  tail call void @png_error(ptr noundef nonnull %0, ptr noundef %1) #18
+  tail call void @png_error(ptr noundef nonnull %0, ptr noundef %1) #19
   unreachable
 }
 
@@ -1096,7 +1096,7 @@ define void @png_chunk_benign_error(ptr noalias noundef %0, ptr noundef %1) loca
   ret void
 
 7:                                                ; preds = %2
-  tail call void @png_chunk_error(ptr noundef nonnull %0, ptr noundef %1) #18
+  tail call void @png_chunk_error(ptr noundef nonnull %0, ptr noundef %1) #19
   unreachable
 }
 
@@ -1124,7 +1124,7 @@ define void @png_chunk_report(ptr noalias noundef %0, ptr noundef %1, i32 nounde
   br i1 %.not.i, label %14, label %png_chunk_benign_error.exit
 
 14:                                               ; preds = %10
-  tail call void @png_chunk_error(ptr noundef nonnull %0, ptr noundef %1) #18
+  tail call void @png_chunk_error(ptr noundef nonnull %0, ptr noundef %1) #19
   unreachable
 
 png_chunk_benign_error.exit:                      ; preds = %10
@@ -1176,17 +1176,17 @@ png_chunk_benign_error.exit:                      ; preds = %10
 
 .split14.i.i:                                     ; preds = %.thread21.i.i
   %32 = load ptr, ptr @stderr, align 8, !noalias !40
-  %33 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %32, ptr noundef nonnull @.str.7, ptr noundef nonnull %31) #19, !noalias !34
+  %33 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %32, ptr noundef nonnull @.str.7, ptr noundef nonnull %31) #20, !noalias !34
   %34 = load ptr, ptr @stderr, align 8, !noalias !40
   %fputc.i18.i.i = tail call i32 @fputc(i32 10, ptr %34), !noalias !34
   br label %png_app_warning.exit
 
 35:                                               ; preds = %.thread21.i.i
-  tail call void %30(ptr noundef nonnull %0, ptr noundef nonnull %31) #17
+  tail call void %30(ptr noundef nonnull %0, ptr noundef nonnull %31) #18
   br label %png_app_warning.exit
 
 36:                                               ; preds = %18
-  tail call void @png_error(ptr noundef nonnull %0, ptr noundef %1) #18
+  tail call void @png_error(ptr noundef nonnull %0, ptr noundef %1) #19
   unreachable
 
 37:                                               ; preds = %15
@@ -1229,17 +1229,17 @@ png_chunk_benign_error.exit:                      ; preds = %10
 
 .split14.i.i16:                                   ; preds = %.thread21.i.i13
   %51 = load ptr, ptr @stderr, align 8, !noalias !47
-  %52 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %51, ptr noundef nonnull @.str.7, ptr noundef nonnull %50) #19, !noalias !41
+  %52 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %51, ptr noundef nonnull @.str.7, ptr noundef nonnull %50) #20, !noalias !41
   %53 = load ptr, ptr @stderr, align 8, !noalias !47
   %fputc.i18.i.i17 = tail call i32 @fputc(i32 10, ptr %53), !noalias !41
   br label %png_app_warning.exit
 
 54:                                               ; preds = %.thread21.i.i13
-  tail call void %49(ptr noundef nonnull %0, ptr noundef nonnull %50) #17
+  tail call void %49(ptr noundef nonnull %0, ptr noundef nonnull %50) #18
   br label %png_app_warning.exit
 
 55:                                               ; preds = %37
-  tail call void @png_error(ptr noundef nonnull %0, ptr noundef %1) #18
+  tail call void @png_error(ptr noundef nonnull %0, ptr noundef %1) #19
   unreachable
 
 png_app_warning.exit:                             ; preds = %54, %.split14.i.i16, %35, %.split14.i.i, %9, %png_chunk_benign_error.exit
@@ -1279,7 +1279,7 @@ define void @png_fixed_error(ptr noalias noundef %0, ptr noundef readonly %1) lo
   %.1 = phi i64 [ 24, %2 ], [ %11, %.critedge.loopexit ]
   %12 = getelementptr inbounds [220 x i8], ptr %3, i64 0, i64 %.1
   store i8 0, ptr %12, align 1
-  call void @png_error(ptr noundef %0, ptr noundef nonnull %3) #18
+  call void @png_error(ptr noundef %0, ptr noundef nonnull %3) #19
   unreachable
 }
 
@@ -1308,7 +1308,7 @@ define ptr @png_set_longjmp_fn(ptr noalias noundef %0, ptr noundef %1, i64 nound
   br label %30
 
 13:                                               ; preds = %10
-  %14 = tail call noalias ptr @png_malloc_warn(ptr noundef nonnull %0, i64 noundef %2) #17
+  %14 = tail call noalias ptr @png_malloc_warn(ptr noundef nonnull %0, i64 noundef %2) #18
   store ptr %14, ptr %6, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %png_warning.exit, label %16
@@ -1327,7 +1327,7 @@ define ptr @png_set_longjmp_fn(ptr noalias noundef %0, ptr noundef %1, i64 nound
   br i1 %.not, label %22, label %21
 
 21:                                               ; preds = %20
-  tail call void @png_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.1) #18
+  tail call void @png_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.1) #19
   unreachable
 
 22:                                               ; preds = %20, %17
@@ -1344,13 +1344,13 @@ define ptr @png_set_longjmp_fn(ptr noalias noundef %0, ptr noundef %1, i64 nound
 
 .split14.i:                                       ; preds = %23
   %26 = load ptr, ptr @stderr, align 8, !noalias !48
-  %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.2) #19
+  %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.2) #20
   %28 = load ptr, ptr @stderr, align 8, !noalias !48
   %fputc.i18.i = tail call i32 @fputc(i32 10, ptr %28)
   br label %png_warning.exit
 
 29:                                               ; preds = %23
-  tail call void %25(ptr noundef nonnull %0, ptr noundef nonnull @.str.2) #17
+  tail call void %25(ptr noundef nonnull %0, ptr noundef nonnull @.str.2) #18
   br label %png_warning.exit
 
 30:                                               ; preds = %22, %12, %16
@@ -1387,7 +1387,7 @@ define void @png_free_jmpbuf(ptr noalias noundef %0) local_unnamed_addr #3 {
   br i1 %or.cond, label %13, label %9
 
 9:                                                ; preds = %6
-  %10 = call i32 @_setjmp(ptr noundef nonnull %2) #20
+  %10 = call i32 @_setjmp(ptr noundef nonnull %2) #21
   %.not18 = icmp eq i32 %10, 0
   br i1 %.not18, label %11, label %13
 
@@ -1396,7 +1396,7 @@ define void @png_free_jmpbuf(ptr noalias noundef %0) local_unnamed_addr #3 {
   store i64 0, ptr %7, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 200
   store ptr @longjmp, ptr %12, align 8
-  call void @png_free(ptr noundef nonnull %0, ptr noundef nonnull %5) #17
+  call void @png_free(ptr noundef nonnull %0, ptr noundef nonnull %5) #18
   br label %13
 
 13:                                               ; preds = %11, %9, %6, %3
@@ -1434,19 +1434,19 @@ define void @png_longjmp(ptr noalias noundef readonly %0, i32 noundef %1) local_
   br i1 %.not8, label %10, label %9
 
 9:                                                ; preds = %6
-  tail call void %5(ptr noundef nonnull %8, i32 noundef %1) #17
+  tail call void %5(ptr noundef nonnull %8, i32 noundef %1) #18
   br label %10
 
 10:                                               ; preds = %9, %6, %3, %2
-  tail call void @abort() #21
+  tail call void @abort() #22
   unreachable
 }
 
-; Function Attrs: noreturn nounwind
-declare void @abort() local_unnamed_addr #10
+; Function Attrs: cold nofree noreturn nounwind
+declare void @abort() local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @png_set_error_fn(ptr noalias noundef writeonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #11 {
+define void @png_set_error_fn(ptr noalias noundef writeonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #12 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %10, label %6
 
@@ -1464,7 +1464,7 @@ define void @png_set_error_fn(ptr noalias noundef writeonly %0, ptr noundef %1, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @png_get_error_ptr(ptr noalias noundef readonly %0) local_unnamed_addr #12 {
+define ptr @png_get_error_ptr(ptr noalias noundef readonly %0) local_unnamed_addr #13 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 
@@ -1531,7 +1531,7 @@ png_safecat.exit:                                 ; preds = %.lr.ph.i, %5, %.pre
   br i1 %.not15, label %.lr.ph.i17.preheader, label %24
 
 24:                                               ; preds = %21
-  tail call void @longjmp(ptr noundef nonnull %23, i32 noundef 1) #21
+  tail call void @longjmp(ptr noundef nonnull %23, i32 noundef 1) #22
   unreachable
 
 .lr.ph.i17:                                       ; preds = %.lr.ph.i17.preheader, %.lr.ph.i17
@@ -1577,7 +1577,7 @@ png_safecat.exit28:                               ; preds = %.lr.ph.i25, %30, %.
   br label %42
 
 42:                                               ; preds = %png_safecat.exit28, %2
-  tail call void @abort() #21
+  tail call void @abort() #22
   unreachable
 }
 
@@ -1633,7 +1633,7 @@ define i32 @png_safe_execute(ptr noundef %0, ptr nocapture noundef readonly %1, 
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = call i32 @_setjmp(ptr noundef nonnull %4) #20
+  %8 = call i32 @_setjmp(ptr noundef nonnull %4) #21
   %9 = icmp eq i32 %8, 0
   %10 = load ptr, ptr %0, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 16
@@ -1641,7 +1641,7 @@ define i32 @png_safe_execute(ptr noundef %0, ptr nocapture noundef readonly %1, 
 
 12:                                               ; preds = %3
   store ptr %4, ptr %11, align 8
-  %13 = call i32 %1(ptr noundef %2) #17
+  %13 = call i32 %1(ptr noundef %2) #18
   %14 = load ptr, ptr %0, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 16
   store ptr %7, ptr %15, align 8
@@ -1649,7 +1649,7 @@ define i32 @png_safe_execute(ptr noundef %0, ptr nocapture noundef readonly %1, 
 
 16:                                               ; preds = %3
   store ptr %7, ptr %11, align 8
-  call void @png_image_free(ptr noundef nonnull %0) #17
+  call void @png_image_free(ptr noundef nonnull %0) #18
   br label %17
 
 17:                                               ; preds = %16, %12
@@ -1660,16 +1660,16 @@ define i32 @png_safe_execute(ptr noundef %0, ptr nocapture noundef readonly %1, 
 declare void @png_image_free(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #13
+declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #14
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #14
+declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #15
+declare i32 @llvm.abs.i32(i32, i1 immarg) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #16
+declare void @llvm.experimental.noalias.scope.decl(metadata) #17
 
 attributes #0 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1682,17 +1682,18 @@ attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #8 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nounwind returns_twice "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { nofree nounwind }
-attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #16 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #17 = { nounwind }
-attributes #18 = { noreturn }
-attributes #19 = { cold nounwind }
-attributes #20 = { nounwind returns_twice }
-attributes #21 = { noreturn nounwind }
+attributes #11 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { nofree nounwind }
+attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #17 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #18 = { nounwind }
+attributes #19 = { noreturn }
+attributes #20 = { cold nounwind }
+attributes #21 = { nounwind returns_twice }
+attributes #22 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

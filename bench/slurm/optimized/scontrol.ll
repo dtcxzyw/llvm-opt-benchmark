@@ -421,7 +421,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 50:                                               ; preds = %42
   call fastcc void @_usage()
   %51 = load i32, ptr @exit_code, align 4
-  call void @exit(i32 noundef %51) #19
+  call void @exit(i32 noundef %51) #20
   unreachable
 
 52:                                               ; preds = %42
@@ -467,7 +467,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %66 = load ptr, ptr @optarg, align 8
   %67 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.31, ptr noundef %66) #17
   %68 = load i32, ptr @exit_code, align 4
-  call void @exit(i32 noundef %68) #19
+  call void @exit(i32 noundef %68) #20
   unreachable
 
 69:                                               ; preds = %42
@@ -480,13 +480,13 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 72:                                               ; preds = %42
   call fastcc void @_print_version()
   %73 = load i32, ptr @exit_code, align 4
-  call void @exit(i32 noundef %73) #19
+  call void @exit(i32 noundef %73) #20
   unreachable
 
 74:                                               ; preds = %42
   %75 = load ptr, ptr @optarg, align 8
   call void @suggest_completion(ptr noundef nonnull @main.long_options, ptr noundef %75) #17
-  call void @exit(i32 noundef 0) #19
+  call void @exit(i32 noundef 0) #20
   unreachable
 
 76:                                               ; preds = %42
@@ -499,7 +499,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %.not54, label %.backedge, label %79
 
 79:                                               ; preds = %76
-  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.34) #19
+  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.34) #20
   unreachable
 
 80:                                               ; preds = %42
@@ -515,15 +515,15 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br label %34
 
 83:                                               ; preds = %80
-  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.37) #19
+  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.37) #20
   unreachable
 
 84:                                               ; preds = %42
   store i32 1, ptr @exit_code, align 4
   %85 = load ptr, ptr @stderr, align 8
-  %86 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %85, ptr noundef nonnull @.str.38, i32 noundef %43) #20
+  %86 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %85, ptr noundef nonnull @.str.38, i32 noundef %43) #21
   %87 = load i32, ptr @exit_code, align 4
-  call void @exit(i32 noundef %87) #19
+  call void @exit(i32 noundef %87) #20
   unreachable
 
 88:                                               ; preds = %42, %37
@@ -552,7 +552,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 97:                                               ; preds = %93
   %98 = load ptr, ptr @cluster_names, align 8
   call void @print_db_notok(ptr noundef %98, i1 noundef zeroext false) #17
-  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.39) #19
+  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.39) #20
   unreachable
 
 99:                                               ; preds = %93
@@ -570,7 +570,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %104, label %105, label %.thread
 
 105:                                              ; preds = %102
-  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.40) #19
+  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.40) #20
   unreachable
 
 .thread:                                          ; preds = %91, %102, %99
@@ -703,7 +703,7 @@ _get_command.exit.thread97:                       ; preds = %153
 
 165:                                              ; preds = %164, %162
   store ptr %154, ptr @_get_command.last_in_line, align 8
-  %166 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %154) #21
+  %166 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %154) #22
   %167 = trunc i64 %166 to i32
   store i32 %167, ptr @_get_command.last_in_line_size, align 4
   br label %168
@@ -729,7 +729,7 @@ _get_command.exit.thread97:                       ; preds = %153
   br i1 %175, label %_get_command.exit, label %176
 
 176:                                              ; preds = %.lr.ph61.i
-  %177 = tail call ptr @__ctype_b_loc() #22
+  %177 = tail call ptr @__ctype_b_loc() #23
   %178 = load ptr, ptr %177, align 8
   %179 = sext i8 %174 to i64
   %180 = getelementptr inbounds i16, ptr %178, i64 %179
@@ -746,7 +746,7 @@ _get_command.exit.thread:                         ; preds = %183
   store i32 1, ptr @exit_code, align 4
   %185 = load ptr, ptr @stderr, align 8
   %186 = load ptr, ptr @command_name, align 8
-  %187 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %185, ptr noundef nonnull @.str.58, ptr noundef %186, i32 noundef 127) #20
+  %187 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %185, ptr noundef nonnull @.str.58, ptr noundef %186, i32 noundef 127) #21
   br label %.loopexit
 
 188:                                              ; preds = %183
@@ -841,7 +841,7 @@ _get_command.exit:                                ; preds = %.lr.ph61.i, %.loope
 
 218:                                              ; preds = %.loopexit73, %149, %115
   %219 = load i32, ptr @exit_code, align 4
-  call void @exit(i32 noundef %219) #19
+  call void @exit(i32 noundef %219) #20
   unreachable
 }
 
@@ -869,7 +869,7 @@ declare i32 @getopt_long(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
@@ -960,7 +960,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   br i1 %.not, label %25, label %19
 
 19:                                               ; preds = %18
-  %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #21
+  %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #22
   %21 = trunc i64 %20 to i32
   %22 = tail call i32 @llvm.smax.i32(i32 %21, i32 2)
   %23 = zext nneg i32 %22 to i64
@@ -996,7 +996,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 38:                                               ; preds = %36
   store i32 1, ptr @exit_code, align 4
   %39 = load ptr, ptr @stderr, align 8
-  %40 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %39, ptr noundef nonnull @.str.52, ptr noundef nonnull %10) #20
+  %40 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %39, ptr noundef nonnull @.str.52, ptr noundef nonnull %10) #21
   br label %_create_it.exit
 
 41:                                               ; preds = %36
@@ -1006,7 +1006,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 43:                                               ; preds = %41
   store i32 1, ptr @exit_code, align 4
   %44 = load ptr, ptr @stderr, align 8
-  %45 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %44, ptr noundef nonnull @.str.62, ptr noundef nonnull %10) #20
+  %45 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %44, ptr noundef nonnull @.str.62, ptr noundef nonnull %10) #21
   br label %_create_it.exit
 
 46:                                               ; preds = %41
@@ -1027,7 +1027,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 53:                                               ; preds = %52
   store i32 1, ptr @exit_code, align 4
   %54 = load ptr, ptr @stderr, align 8
-  %55 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %54, ptr noundef nonnull @.str.52, ptr noundef nonnull %10) #20
+  %55 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %54, ptr noundef nonnull @.str.52, ptr noundef nonnull %10) #21
   br label %_create_it.exit
 
 56:                                               ; preds = %52
@@ -1067,7 +1067,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 69:                                               ; preds = %63
   %70 = load ptr, ptr %64, align 8
   tail call void @print_db_notok(ptr noundef %70, i1 noundef zeroext false) #17
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.39) #19
+  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.39) #20
   unreachable
 
 71:                                               ; preds = %63
@@ -1080,7 +1080,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   br i1 %76, label %77, label %78
 
 77:                                               ; preds = %71
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.40) #19
+  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.40) #20
   unreachable
 
 78:                                               ; preds = %71, %62
@@ -1118,7 +1118,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 90:                                               ; preds = %88
   store i32 1, ptr @exit_code, align 4
   %91 = load ptr, ptr @stderr, align 8
-  %92 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %91, ptr noundef nonnull @.str.65, ptr noundef nonnull %10) #20
+  %92 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %91, ptr noundef nonnull @.str.65, ptr noundef nonnull %10) #21
   br label %_create_it.exit
 
 .lr.ph.preheader.i:                               ; preds = %88
@@ -1136,7 +1136,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %95 ]
   %96 = getelementptr inbounds ptr, ptr %94, i64 %indvars.iv.i
   %97 = load ptr, ptr %96, align 8
-  %98 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %97, i32 noundef 61) #21
+  %98 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %97, i32 noundef 61) #22
   %.not.i = icmp eq ptr %98, null
   br i1 %.not.i, label %103, label %99
 
@@ -1147,7 +1147,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   br label %105
 
 103:                                              ; preds = %.lr.ph.i
-  %104 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %97) #21
+  %104 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %97) #22
   br label %105
 
 105:                                              ; preds = %103, %99
@@ -1210,7 +1210,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 128:                                              ; preds = %127
   store i32 1, ptr @exit_code, align 4
   %129 = load ptr, ptr @stderr, align 8
-  %130 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %129, ptr noundef nonnull @.str.52, ptr noundef nonnull %10) #20
+  %130 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %129, ptr noundef nonnull @.str.52, ptr noundef nonnull %10) #21
   br label %_create_it.exit
 
 131:                                              ; preds = %127
@@ -1234,7 +1234,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 137:                                              ; preds = %136
   store i32 1, ptr @exit_code, align 4
   %138 = load ptr, ptr @stderr, align 8
-  %139 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %138, ptr noundef nonnull @.str.68, ptr noundef nonnull %10) #20
+  %139 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %138, ptr noundef nonnull @.str.68, ptr noundef nonnull %10) #21
   br label %_create_it.exit
 
 140:                                              ; preds = %136
@@ -1255,7 +1255,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 150:                                              ; preds = %140
   store i32 1, ptr @exit_code, align 4
   %151 = load ptr, ptr @stderr, align 8
-  %152 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %151, ptr noundef nonnull @.str.70, ptr noundef nonnull %10) #20
+  %152 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %151, ptr noundef nonnull @.str.70, ptr noundef nonnull %10) #21
   br label %_create_it.exit
 
 153:                                              ; preds = %134
@@ -1270,7 +1270,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 156:                                              ; preds = %155
   store i32 1, ptr @exit_code, align 4
   %157 = load ptr, ptr @stderr, align 8
-  %158 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %157, ptr noundef nonnull @.str.52, ptr noundef nonnull %10) #20
+  %158 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %157, ptr noundef nonnull @.str.52, ptr noundef nonnull %10) #21
   br label %159
 
 159:                                              ; preds = %156, %155
@@ -1297,7 +1297,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 169:                                              ; preds = %164
   store i32 1, ptr @exit_code, align 4
   %170 = load ptr, ptr @stderr, align 8
-  %171 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %170, ptr noundef nonnull @.str.73, ptr noundef nonnull %10) #20
+  %171 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %170, ptr noundef nonnull @.str.73, ptr noundef nonnull %10) #21
   br label %_create_it.exit
 
 172:                                              ; preds = %160
@@ -1322,7 +1322,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 183:                                              ; preds = %176
   store i32 1, ptr @exit_code, align 4
   %184 = load ptr, ptr @stderr, align 8
-  %185 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %184, ptr noundef nonnull @.str.75, ptr noundef nonnull %10) #20
+  %185 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %184, ptr noundef nonnull @.str.75, ptr noundef nonnull %10) #21
   br label %_create_it.exit
 
 186:                                              ; preds = %172
@@ -1339,7 +1339,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 192:                                              ; preds = %190
   store i32 1, ptr @exit_code, align 4
   %193 = load ptr, ptr @stderr, align 8
-  %194 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %193, ptr noundef nonnull @.str.52, ptr noundef nonnull %10) #20
+  %194 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %193, ptr noundef nonnull @.str.52, ptr noundef nonnull %10) #21
   br label %_create_it.exit
 
 195:                                              ; preds = %190
@@ -1349,7 +1349,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 197:                                              ; preds = %195
   store i32 1, ptr @exit_code, align 4
   %198 = load ptr, ptr @stderr, align 8
-  %199 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %198, ptr noundef nonnull @.str.62, ptr noundef nonnull %10) #20
+  %199 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %198, ptr noundef nonnull @.str.62, ptr noundef nonnull %10) #21
   br label %_create_it.exit
 
 200:                                              ; preds = %195
@@ -1360,7 +1360,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 202:                                              ; preds = %200
   %203 = getelementptr inbounds i8, ptr %1, i64 16
   %204 = load ptr, ptr %203, align 8
-  %205 = tail call i32 @atoi(ptr nocapture noundef %204) #21
+  %205 = tail call i32 @atoi(ptr nocapture noundef %204) #22
   %206 = trunc i32 %205 to i8
   store i8 %206, ptr %4, align 1
   br label %207
@@ -1376,7 +1376,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   store i32 1, ptr @exit_code, align 4
   %212 = load ptr, ptr @stderr, align 8
   %213 = load ptr, ptr %208, align 8
-  %214 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %212, ptr noundef nonnull @.str.77, ptr noundef %213) #20
+  %214 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %212, ptr noundef nonnull @.str.77, ptr noundef %213) #21
   br label %_create_it.exit
 
 215:                                              ; preds = %207
@@ -1422,7 +1422,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 234:                                              ; preds = %232
   store i32 1, ptr @exit_code, align 4
   %235 = load ptr, ptr @stderr, align 8
-  %236 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %235, ptr noundef nonnull @.str.52, ptr noundef nonnull %10) #20
+  %236 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %235, ptr noundef nonnull @.str.52, ptr noundef nonnull %10) #21
   br label %_create_it.exit
 
 237:                                              ; preds = %232
@@ -1432,7 +1432,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 239:                                              ; preds = %237
   store i32 1, ptr @exit_code, align 4
   %240 = load ptr, ptr @stderr, align 8
-  %241 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %240, ptr noundef nonnull @.str.62, ptr noundef nonnull %10) #20
+  %241 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %240, ptr noundef nonnull @.str.62, ptr noundef nonnull %10) #21
   br label %_create_it.exit
 
 242:                                              ; preds = %237
@@ -1443,7 +1443,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 244:                                              ; preds = %242
   %245 = getelementptr inbounds i8, ptr %1, i64 16
   %246 = load ptr, ptr %245, align 8
-  %247 = tail call i32 @atoi(ptr nocapture noundef %246) #21
+  %247 = tail call i32 @atoi(ptr nocapture noundef %246) #22
   %248 = trunc i32 %247 to i8
   store i8 %248, ptr %5, align 1
   br label %249
@@ -1451,7 +1451,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 249:                                              ; preds = %244, %242
   %250 = getelementptr inbounds i8, ptr %1, i64 8
   %251 = load ptr, ptr %250, align 8
-  %252 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %251) #21
+  %252 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %251) #22
   %253 = trunc i64 %252 to i32
   %254 = call i32 @hash_g_compute(ptr noundef %251, i32 noundef %253, ptr noundef null, i32 noundef 0, ptr noundef nonnull %5) #17
   %255 = icmp sgt i32 %254, 0
@@ -1488,7 +1488,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 265:                                              ; preds = %264
   store i32 1, ptr @exit_code, align 4
   %266 = load ptr, ptr @stderr, align 8
-  %267 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %266, ptr noundef nonnull @.str.52, ptr noundef nonnull %10) #20
+  %267 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %266, ptr noundef nonnull @.str.52, ptr noundef nonnull %10) #21
   br label %268
 
 268:                                              ; preds = %265, %264
@@ -1517,7 +1517,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 275:                                              ; preds = %274
   store i32 1, ptr @exit_code, align 4
   %276 = load ptr, ptr @stderr, align 8
-  %277 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %276, ptr noundef nonnull @.str.52, ptr noundef nonnull %10) #20
+  %277 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %276, ptr noundef nonnull @.str.52, ptr noundef nonnull %10) #21
   br label %278
 
 278:                                              ; preds = %275, %274
@@ -1536,7 +1536,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 283:                                              ; preds = %281
   store i32 1, ptr @exit_code, align 4
   %284 = load ptr, ptr @stderr, align 8
-  %285 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %284, ptr noundef nonnull @.str.52, ptr noundef nonnull %10) #20
+  %285 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %284, ptr noundef nonnull @.str.52, ptr noundef nonnull %10) #21
   br label %_create_it.exit
 
 286:                                              ; preds = %281
@@ -1546,13 +1546,13 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 288:                                              ; preds = %286
   store i32 1, ptr @exit_code, align 4
   %289 = load ptr, ptr @stderr, align 8
-  %290 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %289, ptr noundef nonnull @.str.62, ptr noundef nonnull %10) #20
+  %290 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %289, ptr noundef nonnull @.str.62, ptr noundef nonnull %10) #21
   br label %_create_it.exit
 
 291:                                              ; preds = %286
   %292 = getelementptr inbounds i8, ptr %1, i64 8
   %293 = load ptr, ptr %292, align 8
-  %294 = tail call i64 @atol(ptr nocapture noundef %293) #21
+  %294 = tail call i64 @atol(ptr nocapture noundef %293) #22
   %295 = trunc i64 %294 to i32
   tail call void @scontrol_pid_info(i32 noundef %295) #17
   br label %_create_it.exit
@@ -1569,7 +1569,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 299:                                              ; preds = %298
   store i32 1, ptr @exit_code, align 4
   %300 = load ptr, ptr @stderr, align 8
-  %301 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %300, ptr noundef nonnull @.str.52, ptr noundef nonnull %10) #20
+  %301 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %300, ptr noundef nonnull @.str.52, ptr noundef nonnull %10) #21
   br label %_create_it.exit
 
 302:                                              ; preds = %298
@@ -1595,7 +1595,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 310:                                              ; preds = %309
   store i32 1, ptr @exit_code, align 4
   %311 = load ptr, ptr @stderr, align 8
-  %312 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %311, ptr noundef nonnull @.str.52, ptr noundef nonnull %10) #20
+  %312 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %311, ptr noundef nonnull @.str.52, ptr noundef nonnull %10) #21
   br label %313
 
 313:                                              ; preds = %310, %309
@@ -1614,7 +1614,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 317:                                              ; preds = %316
   store i32 1, ptr @exit_code, align 4
   %318 = load ptr, ptr @stderr, align 8
-  %319 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %318, ptr noundef nonnull @.str.52, ptr noundef nonnull %10) #20
+  %319 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %318, ptr noundef nonnull @.str.52, ptr noundef nonnull %10) #21
   br label %320
 
 320:                                              ; preds = %317, %316
@@ -1642,7 +1642,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 328:                                              ; preds = %326
   store i32 1, ptr @exit_code, align 4
   %329 = load ptr, ptr @stderr, align 8
-  %330 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %329, ptr noundef nonnull @.str.52, ptr noundef nonnull %10) #20
+  %330 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %329, ptr noundef nonnull @.str.52, ptr noundef nonnull %10) #21
   br label %331
 
 331:                                              ; preds = %328, %326
@@ -1677,7 +1677,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 
 342:                                              ; preds = %340
   %343 = load ptr, ptr @stderr, align 8
-  %344 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %343, ptr noundef nonnull @.str.89, ptr noundef nonnull %10) #20
+  %344 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %343, ptr noundef nonnull @.str.89, ptr noundef nonnull %10) #21
   br label %_create_it.exit
 
 .lr.ph567.preheader:                              ; preds = %338
@@ -1735,7 +1735,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 
 360:                                              ; preds = %358
   %361 = load ptr, ptr @stderr, align 8
-  %362 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %361, ptr noundef nonnull @.str.89, ptr noundef nonnull %10) #20
+  %362 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %361, ptr noundef nonnull @.str.89, ptr noundef nonnull %10) #21
   br label %_create_it.exit
 
 .lr.ph557.preheader:                              ; preds = %356
@@ -1812,7 +1812,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 
 384:                                              ; preds = %382
   %385 = load ptr, ptr @stderr, align 8
-  %386 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %385, ptr noundef nonnull @.str.89, ptr noundef nonnull %10) #20
+  %386 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %385, ptr noundef nonnull @.str.89, ptr noundef nonnull %10) #21
   br label %_create_it.exit
 
 .lr.ph553:                                        ; preds = %.lr.ph553.preheader, %394
@@ -1870,7 +1870,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 
 405:                                              ; preds = %403
   %406 = load ptr, ptr @stderr, align 8
-  %407 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %406, ptr noundef nonnull @.str.89, ptr noundef nonnull %10) #20
+  %407 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %406, ptr noundef nonnull @.str.89, ptr noundef nonnull %10) #21
   br label %_create_it.exit
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -1900,7 +1900,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 
 417:                                              ; preds = %415
   %418 = load ptr, ptr @stderr, align 8
-  %419 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %418, ptr noundef nonnull @.str.89, ptr noundef nonnull %10) #20
+  %419 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %418, ptr noundef nonnull @.str.89, ptr noundef nonnull %10) #21
   br label %_create_it.exit
 
 420:                                              ; preds = %413
@@ -1915,7 +1915,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 
 424:                                              ; preds = %422
   %425 = load ptr, ptr @stderr, align 8
-  %426 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %425, ptr noundef nonnull @.str.52, ptr noundef nonnull %10) #20
+  %426 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %425, ptr noundef nonnull @.str.52, ptr noundef nonnull %10) #21
   br label %_create_it.exit
 
 427:                                              ; preds = %420
@@ -1950,7 +1950,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 
 439:                                              ; preds = %437
   %440 = load ptr, ptr @stderr, align 8
-  %441 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %440, ptr noundef nonnull @.str.52, ptr noundef nonnull %10) #20
+  %441 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %440, ptr noundef nonnull @.str.52, ptr noundef nonnull %10) #21
   br label %_create_it.exit
 
 442:                                              ; preds = %435
@@ -1965,7 +1965,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 
 446:                                              ; preds = %444
   %447 = load ptr, ptr @stderr, align 8
-  %448 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %447, ptr noundef nonnull @.str.89, ptr noundef nonnull %10) #20
+  %448 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %447, ptr noundef nonnull @.str.89, ptr noundef nonnull %10) #21
   br label %_create_it.exit
 
 449:                                              ; preds = %442
@@ -2010,7 +2010,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 
 465:                                              ; preds = %463
   %466 = load ptr, ptr @stderr, align 8
-  %467 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %466, ptr noundef nonnull @.str.52, ptr noundef nonnull %10) #20
+  %467 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %466, ptr noundef nonnull @.str.52, ptr noundef nonnull %10) #21
   br label %_create_it.exit
 
 468:                                              ; preds = %461
@@ -2025,7 +2025,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 
 472:                                              ; preds = %470
   %473 = load ptr, ptr @stderr, align 8
-  %474 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %473, ptr noundef nonnull @.str.89, ptr noundef nonnull %10) #20
+  %474 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %473, ptr noundef nonnull @.str.89, ptr noundef nonnull %10) #21
   br label %_create_it.exit
 
 475:                                              ; preds = %468
@@ -2048,7 +2048,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 486:                                              ; preds = %484
   %487 = load ptr, ptr @stderr, align 8
   %488 = load ptr, ptr %476, align 8
-  %489 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %487, ptr noundef nonnull @.str.103, ptr noundef %488) #20
+  %489 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %487, ptr noundef nonnull @.str.103, ptr noundef %488) #21
   br label %_create_it.exit
 
 490:                                              ; preds = %475
@@ -2093,7 +2093,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 
 505:                                              ; preds = %503
   %506 = load ptr, ptr @stderr, align 8
-  %507 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %506, ptr noundef nonnull @.str.52, ptr noundef nonnull %10) #20
+  %507 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %506, ptr noundef nonnull @.str.52, ptr noundef nonnull %10) #21
   br label %_create_it.exit
 
 508:                                              ; preds = %501
@@ -2112,7 +2112,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 
 513:                                              ; preds = %511
   %514 = load ptr, ptr @stderr, align 8
-  %515 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %514, ptr noundef nonnull @.str.89, ptr noundef nonnull %10) #20
+  %515 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %514, ptr noundef nonnull @.str.89, ptr noundef nonnull %10) #21
   br label %_create_it.exit
 
 516:                                              ; preds = %.preheader548, %522
@@ -2149,7 +2149,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 533:                                              ; preds = %531
   %534 = load ptr, ptr @stderr, align 8
   %535 = load ptr, ptr %510, align 8
-  %536 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %534, ptr noundef nonnull @.str.109, ptr noundef %535) #20
+  %536 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %534, ptr noundef nonnull @.str.109, ptr noundef %535) #21
   br label %_create_it.exit
 
 537:                                              ; preds = %523
@@ -2199,13 +2199,13 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 552:                                              ; preds = %550
   store i32 1, ptr @exit_code, align 4
   %553 = load ptr, ptr @stderr, align 8
-  %554 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %553, ptr noundef nonnull @.str.89, ptr noundef nonnull %10) #20
+  %554 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %553, ptr noundef nonnull @.str.89, ptr noundef nonnull %10) #21
   br label %_create_it.exit
 
 555:                                              ; preds = %550
   %556 = getelementptr inbounds i8, ptr %1, i64 8
   %557 = load ptr, ptr %556, align 8
-  %558 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %557) #21
+  %558 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %557) #22
   %spec.select = tail call i64 @llvm.umax.i64(i64 %558, i64 5)
   %559 = tail call i32 @xstrncasecmp(ptr noundef %557, ptr noundef nonnull @.str.113, i64 noundef %spec.select) #17
   %.not500 = icmp eq i32 %559, 0
@@ -2218,7 +2218,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 562:                                              ; preds = %560
   store i32 1, ptr @exit_code, align 4
   %563 = load ptr, ptr @stderr, align 8
-  %564 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %563, ptr noundef nonnull @.str.52, ptr noundef nonnull %10) #20
+  %564 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %563, ptr noundef nonnull @.str.52, ptr noundef nonnull %10) #21
   br label %_create_it.exit
 
 565:                                              ; preds = %560
@@ -2229,7 +2229,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 
 569:                                              ; preds = %555
   %570 = load ptr, ptr %556, align 8
-  %571 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %570) #21
+  %571 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %570) #22
   %spec.select525 = tail call i64 @llvm.umax.i64(i64 %571, i64 6)
   %572 = tail call i32 @xstrncasecmp(ptr noundef %570, ptr noundef nonnull @.str.114, i64 noundef %spec.select525) #17
   %.not501 = icmp eq i32 %572, 0
@@ -2242,7 +2242,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 575:                                              ; preds = %573
   store i32 1, ptr @exit_code, align 4
   %576 = load ptr, ptr @stderr, align 8
-  %577 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %576, ptr noundef nonnull @.str.52, ptr noundef nonnull %10) #20
+  %577 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %576, ptr noundef nonnull @.str.52, ptr noundef nonnull %10) #21
   br label %_create_it.exit
 
 578:                                              ; preds = %573
@@ -2255,7 +2255,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   store i32 1, ptr @exit_code, align 4
   %582 = load ptr, ptr @stderr, align 8
   %583 = load ptr, ptr %556, align 8
-  %584 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %582, ptr noundef nonnull @.str.115, ptr noundef %583) #20
+  %584 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %582, ptr noundef nonnull @.str.115, ptr noundef %583) #21
   br label %_create_it.exit
 
 585:                                              ; preds = %546
@@ -2274,7 +2274,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 592:                                              ; preds = %587
   store i32 1, ptr @exit_code, align 4
   %593 = load ptr, ptr @stderr, align 8
-  %594 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %593, ptr noundef nonnull @.str.117, ptr noundef nonnull %10) #20
+  %594 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %593, ptr noundef nonnull @.str.117, ptr noundef nonnull %10) #21
   br label %_create_it.exit
 
 595:                                              ; preds = %587
@@ -2284,7 +2284,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 597:                                              ; preds = %595
   %598 = getelementptr inbounds i8, ptr %1, i64 8
   %599 = load ptr, ptr %598, align 8
-  %600 = tail call i32 @atoi(ptr nocapture noundef %599) #21
+  %600 = tail call i32 @atoi(ptr nocapture noundef %599) #22
   %601 = icmp sgt i32 %600, 0
   %.not503 = icmp slt i32 %600, %590
   %or.cond526 = select i1 %601, i1 %.not503, i1 false
@@ -2293,7 +2293,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 602:                                              ; preds = %597
   store i32 1, ptr @exit_code, align 4
   %603 = load ptr, ptr @stderr, align 8
-  %604 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %603, ptr noundef nonnull @.str.118, ptr noundef nonnull %10, i32 noundef %600) #20
+  %604 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %603, ptr noundef nonnull @.str.118, ptr noundef nonnull %10, i32 noundef %600) #21
   br label %_create_it.exit
 
 605:                                              ; preds = %595
@@ -2303,7 +2303,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 607:                                              ; preds = %605
   store i32 1, ptr @exit_code, align 4
   %608 = load ptr, ptr @stderr, align 8
-  %609 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %608, ptr noundef nonnull @.str.119, ptr noundef nonnull %10) #20
+  %609 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %608, ptr noundef nonnull @.str.119, ptr noundef nonnull %10) #21
   br label %_create_it.exit
 
 610:                                              ; preds = %605, %597
@@ -2348,7 +2348,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   store i32 1, ptr @exit_code, align 4
   %627 = load ptr, ptr @stderr, align 8
   %628 = load ptr, ptr %620, align 8
-  %629 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %627, ptr noundef nonnull @.str.124, ptr noundef %628) #20
+  %629 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %627, ptr noundef nonnull @.str.124, ptr noundef %628) #21
   br label %_create_it.exit
 
 630:                                              ; preds = %617
@@ -2358,7 +2358,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 632:                                              ; preds = %630
   store i32 1, ptr @exit_code, align 4
   %633 = load ptr, ptr @stderr, align 8
-  %634 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %633, ptr noundef nonnull @.str.52, ptr noundef nonnull %10) #20
+  %634 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %633, ptr noundef nonnull @.str.52, ptr noundef nonnull %10) #21
   br label %_create_it.exit
 
 635:                                              ; preds = %630, %623, %619
@@ -2389,7 +2389,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 644:                                              ; preds = %642
   store i32 1, ptr @exit_code, align 4
   %645 = load ptr, ptr @stderr, align 8
-  %646 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %645, ptr noundef nonnull @.str.65, ptr noundef nonnull %10) #20
+  %646 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %645, ptr noundef nonnull @.str.65, ptr noundef nonnull %10) #21
   br label %_create_it.exit
 
 647:                                              ; preds = %642
@@ -2410,7 +2410,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 654:                                              ; preds = %652
   store i32 1, ptr @exit_code, align 4
   %655 = load ptr, ptr @stderr, align 8
-  %656 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %655, ptr noundef nonnull @.str.65, ptr noundef nonnull %10) #20
+  %656 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %655, ptr noundef nonnull @.str.65, ptr noundef nonnull %10) #21
   br label %_create_it.exit
 
 657:                                              ; preds = %652
@@ -2431,7 +2431,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 663:                                              ; preds = %662
   store i32 1, ptr @exit_code, align 4
   %664 = load ptr, ptr @stderr, align 8
-  %665 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %664, ptr noundef nonnull @.str.128, ptr noundef nonnull %10) #20
+  %665 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %664, ptr noundef nonnull @.str.128, ptr noundef nonnull %10) #21
   br label %666
 
 666:                                              ; preds = %663, %662
@@ -2450,7 +2450,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 670:                                              ; preds = %669
   store i32 1, ptr @exit_code, align 4
   %671 = load ptr, ptr @stderr, align 8
-  %672 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %671, ptr noundef nonnull @.str.128, ptr noundef nonnull %10) #20
+  %672 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %671, ptr noundef nonnull @.str.128, ptr noundef nonnull %10) #21
   br label %673
 
 673:                                              ; preds = %670, %669
@@ -2469,7 +2469,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 678:                                              ; preds = %676
   store i32 1, ptr @exit_code, align 4
   %679 = load ptr, ptr @stderr, align 8
-  %680 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %679, ptr noundef nonnull @.str.52, ptr noundef nonnull %10) #20
+  %680 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %679, ptr noundef nonnull @.str.52, ptr noundef nonnull %10) #21
   br label %_create_it.exit
 
 681:                                              ; preds = %676
@@ -2526,7 +2526,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 706:                                              ; preds = %704
   store i32 1, ptr @exit_code, align 4
   %707 = load ptr, ptr @stderr, align 8
-  %708 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %707, ptr noundef nonnull @.str.89, ptr noundef nonnull %10) #20
+  %708 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %707, ptr noundef nonnull @.str.89, ptr noundef nonnull %10) #21
   br label %_create_it.exit
 
 709:                                              ; preds = %704
@@ -2553,7 +2553,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 718:                                              ; preds = %716
   store i32 1, ptr @exit_code, align 4
   %719 = load ptr, ptr @stderr, align 8
-  %720 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %719, ptr noundef nonnull @.str.89, ptr noundef nonnull %10) #20
+  %720 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %719, ptr noundef nonnull @.str.89, ptr noundef nonnull %10) #21
   br label %_create_it.exit
 
 721:                                              ; preds = %716
@@ -2563,7 +2563,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 723:                                              ; preds = %721
   store i32 1, ptr @exit_code, align 4
   %724 = load ptr, ptr @stderr, align 8
-  %725 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %724, ptr noundef nonnull @.str.52, ptr noundef nonnull %10) #20
+  %725 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %724, ptr noundef nonnull @.str.52, ptr noundef nonnull %10) #21
   br label %_create_it.exit
 
 726:                                              ; preds = %721
@@ -2581,7 +2581,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 731:                                              ; preds = %714
   store i32 1, ptr @exit_code, align 4
   %732 = load ptr, ptr @stderr, align 8
-  %733 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %732, ptr noundef nonnull @.str.135, ptr noundef nonnull %10) #20
+  %733 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %732, ptr noundef nonnull @.str.135, ptr noundef nonnull %10) #21
   br label %_create_it.exit
 
 _create_it.exit:                                  ; preds = %.lr.ph, %366, %.lr.ph563, %348, %.lr.ph574, %._crit_edge558, %._crit_edge568, %607, %602, %592, %531, %533, %626, %632, %122, %121, %._crit_edge.i, %31, %56, %53, %147, %150, %137, %169, %166, %197, %._crit_edge582, %211, %192, %268, %278, %302, %299, %320, %333, %335, %331, %358, %360, %403, %405, %432, %456, %498, %545, %610, %614, %612, %647, %666, %.thread543, %678, %709, %713, %706, %718, %726, %730, %723, %731, %700, %673, %657, %637, %639, %635, %552, %581, %578, %575, %562, %565, %505, %503, %537, %540, %542, %.thread531, %511, %513, %465, %463, %486, %484, %493, %495, %490, %470, %472, %439, %437, %449, %453, %444, %446, %417, %415, %422, %424, %427, %._crit_edge, %384, %382, %342, %340, %323, %313, %283, %291, %288, %271, %234, %._crit_edge578, %239, %178, %183, %159, %131, %78, %38, %46, %43, %25, %28, %12, %15, %654, %644, %128, %90
@@ -2632,7 +2632,7 @@ define dso_local void @_process_reboot_command(ptr noundef %0, i32 noundef %1, p
   %.04272 = phi i32 [ 1, %.preheader.preheader ], [ %.143, %66 ]
   %9 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
-  %11 = call i32 @strcasecmp(ptr noundef %10, ptr noundef nonnull @.str.43) #21
+  %11 = call i32 @strcasecmp(ptr noundef %10, ptr noundef nonnull @.str.43) #22
   %.not51 = icmp eq i32 %11, 0
   br i1 %.not51, label %12, label %14
 
@@ -2647,7 +2647,7 @@ define dso_local void @_process_reboot_command(ptr noundef %0, i32 noundef %1, p
   br i1 %.not52, label %17, label %31
 
 17:                                               ; preds = %14
-  %18 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %16, i32 noundef 61) #21
+  %18 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %16, i32 noundef 61) #22
   %.not53 = icmp eq ptr %18, null
   br i1 %.not53, label %22, label %19
 
@@ -2686,7 +2686,7 @@ define dso_local void @_process_reboot_command(ptr noundef %0, i32 noundef %1, p
 
 33:                                               ; preds = %31
   %34 = load ptr, ptr %9, align 8
-  %35 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %34, i32 noundef 61) #21
+  %35 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %34, i32 noundef 61) #22
   %.not57 = icmp eq ptr %35, null
   br i1 %.not57, label %39, label %36
 
@@ -2714,7 +2714,7 @@ define dso_local void @_process_reboot_command(ptr noundef %0, i32 noundef %1, p
 45:                                               ; preds = %36
   %46 = call ptr @xstrdup(ptr noundef nonnull %37) #17
   store ptr %46, ptr %5, align 8
-  %47 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %46) #21
+  %47 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %46) #22
   %48 = trunc i64 %47 to i32
   %49 = add nsw i32 %.04272, 1
   %50 = call i32 @llvm.smax.i32(i32 %48, i32 1)
@@ -2738,7 +2738,7 @@ define dso_local void @_process_reboot_command(ptr noundef %0, i32 noundef %1, p
 58:                                               ; preds = %56
   %59 = load ptr, ptr @stderr, align 8
   %60 = load ptr, ptr %5, align 8
-  %61 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %59, ptr noundef nonnull @.str.50, ptr noundef %60) #20
+  %61 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %59, ptr noundef nonnull @.str.50, ptr noundef %60) #21
   %62 = load ptr, ptr @stderr, align 8
   %63 = call i64 @fwrite(ptr nonnull @.str.51, i64 27, i64 1, ptr %62) #18
   br label %64
@@ -2772,7 +2772,7 @@ define dso_local void @_process_reboot_command(ptr noundef %0, i32 noundef %1, p
 69:                                               ; preds = %.loopexit
   store i32 1, ptr @exit_code, align 4
   %70 = load ptr, ptr @stderr, align 8
-  %71 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %70, ptr noundef nonnull @.str.52, ptr noundef %0) #20
+  %71 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %70, ptr noundef nonnull @.str.52, ptr noundef %0) #21
   br label %.critedge
 
 72:                                               ; preds = %.loopexit
@@ -3103,7 +3103,7 @@ define internal fastcc void @_fetch_token(i32 noundef %0, ptr nocapture noundef 
 21:                                               ; preds = %16
   %22 = load ptr, ptr @stderr, align 8
   %23 = load ptr, ptr %5, align 8
-  %24 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef nonnull @.str.152, ptr noundef %23) #20
+  %24 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef nonnull @.str.152, ptr noundef %23) #21
   store i32 1, ptr @exit_code, align 4
   br label %30
 
@@ -3157,7 +3157,7 @@ define internal fastcc void @_setdebugflags(i32 noundef %0, ptr nocapture nounde
 
 9:                                                ; preds = %7
   %10 = load ptr, ptr @stderr, align 8
-  %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.89, ptr noundef %4) #20
+  %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.89, ptr noundef %4) #21
   br label %.thread65
 
 .preheader:                                       ; preds = %.preheader.preheader, %19
@@ -3216,7 +3216,7 @@ define internal fastcc void @_setdebugflags(i32 noundef %0, ptr nocapture nounde
 
 36:                                               ; preds = %33, %28
   %37 = load ptr, ptr %30, align 8
-  %38 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %37, i32 noundef 61) #21
+  %38 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %37, i32 noundef 61) #22
   %39 = getelementptr inbounds i8, ptr %38, i64 1
   %40 = call i32 @slurm_set_slurmd_debug_flags(ptr noundef nonnull %39, i64 noundef %.03448, i64 noundef %.03349) #17
   %.not42 = icmp eq i32 %40, 0
@@ -3248,7 +3248,7 @@ define internal fastcc void @_setdebugflags(i32 noundef %0, ptr nocapture nounde
   %51 = zext nneg i32 %.0.lcssa6062 to i64
   %52 = getelementptr inbounds ptr, ptr %1, i64 %51
   %53 = load ptr, ptr %52, align 8
-  %54 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %50, ptr noundef nonnull @.str.157, ptr noundef %53) #20
+  %54 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %50, ptr noundef nonnull @.str.157, ptr noundef %53) #21
   %.pre = load i32, ptr @quiet_flag, align 4
   %.pre.fr = freeze i32 %.pre
   %.not85 = icmp eq i32 %.pre.fr, 1
@@ -3306,7 +3306,7 @@ define internal fastcc void @_setdebug(i32 noundef %0, ptr nocapture noundef rea
 7:                                                ; preds = %5
   %8 = load ptr, ptr @stderr, align 8
   %9 = load ptr, ptr %1, align 8
-  %10 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.52, ptr noundef %9) #20
+  %10 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.52, ptr noundef %9) #21
   br label %66
 
 11:                                               ; preds = %2
@@ -3326,7 +3326,7 @@ define internal fastcc void @_setdebug(i32 noundef %0, ptr nocapture noundef rea
 16:                                               ; preds = %14
   %17 = load ptr, ptr @stderr, align 8
   %18 = load ptr, ptr %1, align 8
-  %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.89, ptr noundef %18) #20
+  %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.89, ptr noundef %18) #21
   br label %66
 
 20:                                               ; preds = %.preheader, %25
@@ -3363,7 +3363,7 @@ define internal fastcc void @_setdebug(i32 noundef %0, ptr nocapture noundef rea
 36:                                               ; preds = %34
   %37 = load ptr, ptr @stderr, align 8
   %38 = load ptr, ptr %13, align 8
-  %39 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %37, ptr noundef nonnull @.str.168, ptr noundef %38) #20
+  %39 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %37, ptr noundef nonnull @.str.168, ptr noundef %38) #21
   br label %66
 
 .loopexit.loopexit:                               ; preds = %20
@@ -3408,12 +3408,12 @@ define internal fastcc void @_setdebug(i32 noundef %0, ptr nocapture noundef rea
 52:                                               ; preds = %50
   %53 = load ptr, ptr @stderr, align 8
   %54 = load ptr, ptr %13, align 8
-  %55 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %53, ptr noundef nonnull @.str.171, ptr noundef %54) #20
+  %55 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %53, ptr noundef nonnull @.str.171, ptr noundef %54) #21
   br label %66
 
 56:                                               ; preds = %46
   %57 = load ptr, ptr %47, align 8
-  %58 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %57, i32 noundef 61) #21
+  %58 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %57, i32 noundef 61) #22
   %.not31 = icmp eq ptr %58, null
   %59 = getelementptr inbounds i8, ptr %58, i64 1
   %spec.select = select i1 %.not31, ptr null, ptr %59
@@ -3454,7 +3454,7 @@ define internal fastcc void @_show_it(i32 noundef %0, ptr noundef %1) unnamed_ad
 6:                                                ; preds = %4
   %7 = load ptr, ptr @stderr, align 8
   %8 = load ptr, ptr %1, align 8
-  %9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.89, ptr noundef %8) #20
+  %9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.89, ptr noundef %8) #21
   br label %169
 
 10:                                               ; preds = %2
@@ -3487,13 +3487,13 @@ define internal fastcc void @_show_it(i32 noundef %0, ptr noundef %1) unnamed_ad
 23:                                               ; preds = %21
   %24 = load ptr, ptr @stderr, align 8
   %25 = load ptr, ptr %1, align 8
-  %26 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.52, ptr noundef %25) #20
+  %26 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.52, ptr noundef %25) #21
   br label %169
 
 .thread:                                          ; preds = %17, %14, %10
   %27 = load ptr, ptr %11, align 8
-  %28 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %27) #21
-  %29 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %27, i32 noundef 61) #21
+  %28 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %27) #22
+  %29 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %27, i32 noundef 61) #22
   %.not141 = icmp eq ptr %29, null
   br i1 %.not141, label %35, label %30
 
@@ -3605,7 +3605,7 @@ define internal fastcc void @_show_it(i32 noundef %0, ptr noundef %1) unnamed_ad
 78:                                               ; preds = %76
   %79 = load ptr, ptr @stderr, align 8
   %80 = load ptr, ptr %1, align 8
-  %81 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %79, ptr noundef nonnull @.str.52, ptr noundef %80) #20
+  %81 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %79, ptr noundef nonnull @.str.52, ptr noundef %80) #21
   br label %169
 
 82:                                               ; preds = %75
@@ -3798,7 +3798,7 @@ define internal fastcc void @_show_it(i32 noundef %0, ptr noundef %1) unnamed_ad
 165:                                              ; preds = %163
   %166 = load ptr, ptr @stderr, align 8
   %167 = load ptr, ptr %1, align 8
-  %168 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %166, ptr noundef nonnull @.str.198, ptr noundef %27, ptr noundef %167) #20
+  %168 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %166, ptr noundef nonnull @.str.198, ptr noundef %27, ptr noundef %167) #21
   br label %169
 
 169:                                              ; preds = %54, %65, %76, %78, %82, %90, %107, %109, %104, %128, %136, %150, %158, %163, %165, %162, %154, %143, %132, %116, %121, %119, %97, %98, %86, %71, %60, %46, %47, %21, %23, %4, %6
@@ -3948,12 +3948,12 @@ define internal fastcc void @_update_it(i32 noundef %0, ptr noundef %1) unnamed_
   %4 = sext i32 %.0108148 to i64
   %5 = getelementptr inbounds ptr, ptr %1, i64 %4
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %6, i32 noundef 61) #21
+  %7 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %6, i32 noundef 61) #22
   %.not127 = icmp eq ptr %7, null
   br i1 %.not127, label %8, label %12
 
 8:                                                ; preds = %.lr.ph
-  %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #21
+  %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #22
   %10 = trunc i64 %9 to i32
   %11 = add nsw i32 %.0108148, 1
   br label %25
@@ -4191,7 +4191,7 @@ define internal fastcc void @_delete_it(i32 noundef %0, ptr nocapture noundef re
 
 9:                                                ; preds = %2
   %10 = load ptr, ptr %1, align 8
-  %11 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %10, i32 noundef 61) #21
+  %11 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %10, i32 noundef 61) #22
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %17, label %12
 
@@ -4209,7 +4209,7 @@ define internal fastcc void @_delete_it(i32 noundef %0, ptr nocapture noundef re
 
 19:                                               ; preds = %2
   %20 = load ptr, ptr %1, align 8
-  %21 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %20) #21
+  %21 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %20) #22
   %22 = getelementptr inbounds i8, ptr %1, i64 8
   %23 = load ptr, ptr %22, align 8
   br label %26
@@ -4285,7 +4285,7 @@ define internal fastcc void @_delete_it(i32 noundef %0, ptr nocapture noundef re
   store i32 1, ptr @exit_code, align 4
   %54 = load ptr, ptr @stderr, align 8
   %55 = load ptr, ptr %1, align 8
-  %56 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %54, ptr noundef nonnull @.str.223, ptr noundef %55) #20
+  %56 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %54, ptr noundef nonnull @.str.223, ptr noundef %55) #21
   br label %57
 
 57:                                               ; preds = %42, %40, %48, %50, %53, %31, %34, %24, %17
@@ -4710,7 +4710,7 @@ define internal fastcc i32 @_update_slurmctld_debug(ptr noundef %0) unnamed_addr
 
 11:                                               ; preds = %.thread
   %12 = load ptr, ptr @stderr, align 8
-  %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.168, ptr noundef %0) #20
+  %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.168, ptr noundef %0) #21
   br label %16
 
 14:                                               ; preds = %3
@@ -4760,7 +4760,7 @@ attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protect
 attributes #3 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
@@ -4773,10 +4773,11 @@ attributes #15 = { nofree nounwind }
 attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #17 = { nounwind }
 attributes #18 = { cold }
-attributes #19 = { noreturn nounwind }
-attributes #20 = { cold nounwind }
-attributes #21 = { nounwind willreturn memory(read) }
-attributes #22 = { nounwind willreturn memory(none) }
+attributes #19 = { cold noreturn nounwind }
+attributes #20 = { noreturn nounwind }
+attributes #21 = { cold nounwind }
+attributes #22 = { nounwind willreturn memory(read) }
+attributes #23 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
 

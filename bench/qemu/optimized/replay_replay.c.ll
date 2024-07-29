@@ -73,7 +73,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp1, label %if.end, label %if.else
 
 if.else:                                          ; preds = %if.then
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 47, ptr noundef nonnull @__PRETTY_FUNCTION__.replay_next_event_is) #10
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 47, ptr noundef nonnull @__PRETTY_FUNCTION__.replay_next_event_is) #11
   unreachable
 
 if.end:                                           ; preds = %if.then
@@ -83,8 +83,8 @@ if.end:                                           ; preds = %if.then
 sw.bb:                                            ; preds = %while.body.preheader, %sw.bb
   %.off8 = phi i32 [ %.off, %sw.bb ], [ %.off5, %while.body.preheader ]
   %spec.select7 = phi i1 [ %spec.select, %sw.bb ], [ %cmp54, %while.body.preheader ]
-  tail call void @replay_finish_event() #11
-  tail call void @qemu_system_shutdown_request(i32 noundef %.off8) #11
+  tail call void @replay_finish_event() #12
+  tail call void @qemu_system_shutdown_request(i32 noundef %.off8) #12
   %2 = load i32, ptr getelementptr inbounds (i8, ptr @replay_state, i64 28), align 4
   %cmp5 = icmp eq i32 %2, %event
   %spec.select = select i1 %cmp5, i1 true, i1 %spec.select7
@@ -107,7 +107,7 @@ declare void @qemu_system_shutdown_request(i32 noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @replay_get_current_icount() local_unnamed_addr #0 {
 entry:
-  %call = tail call i64 @icount_get_raw() #11
+  %call = tail call i64 @icount_get_raw() #12
   ret i64 %call
 }
 
@@ -116,11 +116,11 @@ declare i64 @icount_get_raw() local_unnamed_addr #2
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @replay_get_instructions() local_unnamed_addr #0 {
 entry:
-  %call = tail call zeroext i1 @replay_mutex_locked() #11
+  %call = tail call zeroext i1 @replay_mutex_locked() #12
   br i1 %call, label %do.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 77, ptr noundef nonnull @__func__.replay_get_instructions, ptr noundef nonnull @.str.2) #10
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 77, ptr noundef nonnull @__func__.replay_get_instructions, ptr noundef nonnull @.str.2) #11
   unreachable
 
 do.end:                                           ; preds = %entry
@@ -139,14 +139,14 @@ if.then.i:                                        ; preds = %do.end
   br i1 %cmp54.i, label %if.then2, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 47, ptr noundef nonnull @__PRETTY_FUNCTION__.replay_next_event_is) #10
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 47, ptr noundef nonnull @__PRETTY_FUNCTION__.replay_next_event_is) #11
   unreachable
 
 sw.bb.i:                                          ; preds = %while.body.preheader.i, %sw.bb.i
   %.off8.i = phi i32 [ %.off.i, %sw.bb.i ], [ %.off5.i, %while.body.preheader.i ]
   %spec.select7.i = phi i1 [ %spec.select.i, %sw.bb.i ], [ %cmp54.i, %while.body.preheader.i ]
-  tail call void @replay_finish_event() #11
-  tail call void @qemu_system_shutdown_request(i32 noundef %.off8.i) #11
+  tail call void @replay_finish_event() #12
+  tail call void @qemu_system_shutdown_request(i32 noundef %.off8.i) #12
   %2 = load i32, ptr getelementptr inbounds (i8, ptr @replay_state, i64 28), align 4
   %cmp5.i = icmp eq i32 %2, 0
   %spec.select.i = select i1 %cmp5.i, i1 true, i1 %spec.select7.i
@@ -169,13 +169,13 @@ if.then2:                                         ; preds = %replay_next_event_i
   br i1 %cmp.not, label %if.end15, label %if.then3
 
 if.then3:                                         ; preds = %if.then2
-  %call.i = tail call i64 @icount_get_raw() #11
+  %call.i = tail call i64 @icount_get_raw() #12
   %5 = load i64, ptr @replay_break_icount, align 8
   %cmp5.not = icmp ult i64 %5, %call.i
   br i1 %cmp5.not, label %if.else7, label %if.end8
 
 if.else7:                                         ; preds = %if.then3
-  tail call void @__assert_fail(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 82, ptr noundef nonnull @__PRETTY_FUNCTION__.replay_get_instructions) #10
+  tail call void @__assert_fail(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 82, ptr noundef nonnull @__PRETTY_FUNCTION__.replay_get_instructions) #11
   unreachable
 
 if.end8:                                          ; preds = %if.then3
@@ -207,11 +207,11 @@ entry:
   br i1 %cmp, label %do.body, label %if.end6
 
 do.body:                                          ; preds = %entry
-  %call = tail call zeroext i1 @replay_mutex_locked() #11
+  %call = tail call zeroext i1 @replay_mutex_locked() #12
   br i1 %call, label %do.end, label %if.else
 
 if.else:                                          ; preds = %do.body
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 94, ptr noundef nonnull @__func__.replay_account_executed_instructions, ptr noundef nonnull @.str.2) #10
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 94, ptr noundef nonnull @__func__.replay_account_executed_instructions, ptr noundef nonnull @.str.2) #11
   unreachable
 
 do.end:                                           ; preds = %do.body
@@ -220,8 +220,8 @@ do.end:                                           ; preds = %do.body
   br i1 %cmp2, label %if.then3, label %if.end6
 
 if.then3:                                         ; preds = %do.end
-  %call.i = tail call i64 @icount_get_raw() #11
-  tail call void @replay_advance_current_icount(i64 noundef %call.i) #11
+  %call.i = tail call i64 @icount_get_raw() #12
+  tail call void @replay_advance_current_icount(i64 noundef %call.i) #12
   br label %if.end6
 
 if.end6:                                          ; preds = %do.end, %if.then3, %entry
@@ -240,24 +240,24 @@ entry:
   ]
 
 do.body:                                          ; preds = %entry
-  %call = tail call zeroext i1 @replay_mutex_locked() #11
+  %call = tail call zeroext i1 @replay_mutex_locked() #12
   br i1 %call, label %do.end, label %if.else
 
 if.else:                                          ; preds = %do.body
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 105, ptr noundef nonnull @__func__.replay_exception, ptr noundef nonnull @.str.2) #10
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 105, ptr noundef nonnull @__func__.replay_exception, ptr noundef nonnull @.str.2) #11
   unreachable
 
 do.end:                                           ; preds = %do.body
-  tail call void @replay_save_instructions() #11
-  tail call void @replay_put_event(i8 noundef zeroext 2) #11
+  tail call void @replay_save_instructions() #12
+  tail call void @replay_put_event(i8 noundef zeroext 2) #12
   br label %return
 
 do.body5:                                         ; preds = %entry
-  %call6 = tail call zeroext i1 @replay_mutex_locked() #11
+  %call6 = tail call zeroext i1 @replay_mutex_locked() #12
   br i1 %call6, label %do.end10, label %if.else8
 
 if.else8:                                         ; preds = %do.body5
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 110, ptr noundef nonnull @__func__.replay_exception, ptr noundef nonnull @.str.2) #10
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 110, ptr noundef nonnull @__func__.replay_exception, ptr noundef nonnull @.str.2) #11
   unreachable
 
 do.end10:                                         ; preds = %do.body5
@@ -265,7 +265,7 @@ do.end10:                                         ; preds = %do.body5
   br i1 %call11, label %if.then12, label %return
 
 if.then12:                                        ; preds = %do.end10
-  tail call void @replay_finish_event() #11
+  tail call void @replay_finish_event() #12
   br label %return
 
 return:                                           ; preds = %entry, %do.end10, %if.then12, %do.end
@@ -285,11 +285,11 @@ entry:
   br i1 %cmp, label %do.body, label %if.end3
 
 do.body:                                          ; preds = %entry
-  %call = tail call zeroext i1 @replay_mutex_locked() #11
+  %call = tail call zeroext i1 @replay_mutex_locked() #12
   br i1 %call, label %do.end, label %if.else
 
 if.else:                                          ; preds = %do.body
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 125, ptr noundef nonnull @__func__.replay_has_exception, ptr noundef nonnull @.str.2) #10
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 125, ptr noundef nonnull @__func__.replay_has_exception, ptr noundef nonnull @.str.2) #11
   unreachable
 
 do.end:                                           ; preds = %do.body
@@ -298,11 +298,11 @@ do.end:                                           ; preds = %do.body
   br i1 %cmp.i, label %do.body.i, label %replay_account_executed_instructions.exitthread-pre-split
 
 do.body.i:                                        ; preds = %do.end
-  %call.i = tail call zeroext i1 @replay_mutex_locked() #11
+  %call.i = tail call zeroext i1 @replay_mutex_locked() #12
   br i1 %call.i, label %do.end.i, label %if.else.i
 
 if.else.i:                                        ; preds = %do.body.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 94, ptr noundef nonnull @__func__.replay_account_executed_instructions, ptr noundef nonnull @.str.2) #10
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 94, ptr noundef nonnull @__func__.replay_account_executed_instructions, ptr noundef nonnull @.str.2) #11
   unreachable
 
 do.end.i:                                         ; preds = %do.body.i
@@ -311,8 +311,8 @@ do.end.i:                                         ; preds = %do.body.i
   br i1 %cmp2.i, label %if.then3.i, label %replay_account_executed_instructions.exit
 
 if.then3.i:                                       ; preds = %do.end.i
-  %call.i.i = tail call i64 @icount_get_raw() #11
-  tail call void @replay_advance_current_icount(i64 noundef %call.i.i) #11
+  %call.i.i = tail call i64 @icount_get_raw() #12
+  tail call void @replay_advance_current_icount(i64 noundef %call.i.i) #12
   br label %replay_account_executed_instructions.exitthread-pre-split
 
 replay_account_executed_instructions.exitthread-pre-split: ; preds = %if.then3.i, %do.end
@@ -336,14 +336,14 @@ if.then.i:                                        ; preds = %replay_account_exec
   br i1 %cmp1.i, label %if.end3, label %if.else.i1
 
 if.else.i1:                                       ; preds = %if.then.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 47, ptr noundef nonnull @__PRETTY_FUNCTION__.replay_next_event_is) #10
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 47, ptr noundef nonnull @__PRETTY_FUNCTION__.replay_next_event_is) #11
   unreachable
 
 sw.bb.i:                                          ; preds = %while.body.preheader.i, %sw.bb.i
   %.off8.i = phi i32 [ %.off.i, %sw.bb.i ], [ %.off5.i, %while.body.preheader.i ]
   %spec.select7.i = phi i1 [ %spec.select.i, %sw.bb.i ], [ %cmp54.i, %while.body.preheader.i ]
-  tail call void @replay_finish_event() #11
-  tail call void @qemu_system_shutdown_request(i32 noundef %.off8.i) #11
+  tail call void @replay_finish_event() #12
+  tail call void @qemu_system_shutdown_request(i32 noundef %.off8.i) #12
   %5 = load i32, ptr getelementptr inbounds (i8, ptr @replay_state, i64 28), align 4
   %cmp5.i = icmp eq i32 %5, 2
   %spec.select.i = select i1 %cmp5.i, i1 true, i1 %spec.select7.i
@@ -366,24 +366,24 @@ entry:
   ]
 
 do.body:                                          ; preds = %entry
-  %call = tail call zeroext i1 @replay_mutex_locked() #11
+  %call = tail call zeroext i1 @replay_mutex_locked() #12
   br i1 %call, label %do.end, label %if.else
 
 if.else:                                          ; preds = %do.body
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 136, ptr noundef nonnull @__func__.replay_interrupt, ptr noundef nonnull @.str.2) #10
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 136, ptr noundef nonnull @__func__.replay_interrupt, ptr noundef nonnull @.str.2) #11
   unreachable
 
 do.end:                                           ; preds = %do.body
-  tail call void @replay_save_instructions() #11
-  tail call void @replay_put_event(i8 noundef zeroext 1) #11
+  tail call void @replay_save_instructions() #12
+  tail call void @replay_put_event(i8 noundef zeroext 1) #12
   br label %return
 
 do.body5:                                         ; preds = %entry
-  %call6 = tail call zeroext i1 @replay_mutex_locked() #11
+  %call6 = tail call zeroext i1 @replay_mutex_locked() #12
   br i1 %call6, label %do.end10, label %if.else8
 
 if.else8:                                         ; preds = %do.body5
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 141, ptr noundef nonnull @__func__.replay_interrupt, ptr noundef nonnull @.str.2) #10
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 141, ptr noundef nonnull @__func__.replay_interrupt, ptr noundef nonnull @.str.2) #11
   unreachable
 
 do.end10:                                         ; preds = %do.body5
@@ -391,7 +391,7 @@ do.end10:                                         ; preds = %do.body5
   br i1 %call11, label %if.then12, label %return
 
 if.then12:                                        ; preds = %do.end10
-  tail call void @replay_finish_event() #11
+  tail call void @replay_finish_event() #12
   br label %return
 
 return:                                           ; preds = %entry, %do.end10, %if.then12, %do.end
@@ -407,11 +407,11 @@ entry:
   br i1 %cmp, label %do.body, label %if.end3
 
 do.body:                                          ; preds = %entry
-  %call = tail call zeroext i1 @replay_mutex_locked() #11
+  %call = tail call zeroext i1 @replay_mutex_locked() #12
   br i1 %call, label %do.end, label %if.else
 
 if.else:                                          ; preds = %do.body
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 156, ptr noundef nonnull @__func__.replay_has_interrupt, ptr noundef nonnull @.str.2) #10
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 156, ptr noundef nonnull @__func__.replay_has_interrupt, ptr noundef nonnull @.str.2) #11
   unreachable
 
 do.end:                                           ; preds = %do.body
@@ -420,11 +420,11 @@ do.end:                                           ; preds = %do.body
   br i1 %cmp.i, label %do.body.i, label %replay_account_executed_instructions.exitthread-pre-split
 
 do.body.i:                                        ; preds = %do.end
-  %call.i = tail call zeroext i1 @replay_mutex_locked() #11
+  %call.i = tail call zeroext i1 @replay_mutex_locked() #12
   br i1 %call.i, label %do.end.i, label %if.else.i
 
 if.else.i:                                        ; preds = %do.body.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 94, ptr noundef nonnull @__func__.replay_account_executed_instructions, ptr noundef nonnull @.str.2) #10
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 94, ptr noundef nonnull @__func__.replay_account_executed_instructions, ptr noundef nonnull @.str.2) #11
   unreachable
 
 do.end.i:                                         ; preds = %do.body.i
@@ -433,8 +433,8 @@ do.end.i:                                         ; preds = %do.body.i
   br i1 %cmp2.i, label %if.then3.i, label %replay_account_executed_instructions.exit
 
 if.then3.i:                                       ; preds = %do.end.i
-  %call.i.i = tail call i64 @icount_get_raw() #11
-  tail call void @replay_advance_current_icount(i64 noundef %call.i.i) #11
+  %call.i.i = tail call i64 @icount_get_raw() #12
+  tail call void @replay_advance_current_icount(i64 noundef %call.i.i) #12
   br label %replay_account_executed_instructions.exitthread-pre-split
 
 replay_account_executed_instructions.exitthread-pre-split: ; preds = %if.then3.i, %do.end
@@ -458,14 +458,14 @@ if.then.i:                                        ; preds = %replay_account_exec
   br i1 %cmp1.i, label %if.end3, label %if.else.i1
 
 if.else.i1:                                       ; preds = %if.then.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 47, ptr noundef nonnull @__PRETTY_FUNCTION__.replay_next_event_is) #10
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 47, ptr noundef nonnull @__PRETTY_FUNCTION__.replay_next_event_is) #11
   unreachable
 
 sw.bb.i:                                          ; preds = %while.body.preheader.i, %sw.bb.i
   %.off8.i = phi i32 [ %.off.i, %sw.bb.i ], [ %.off5.i, %while.body.preheader.i ]
   %spec.select7.i = phi i1 [ %spec.select.i, %sw.bb.i ], [ %cmp54.i, %while.body.preheader.i ]
-  tail call void @replay_finish_event() #11
-  tail call void @qemu_system_shutdown_request(i32 noundef %.off8.i) #11
+  tail call void @replay_finish_event() #12
+  tail call void @qemu_system_shutdown_request(i32 noundef %.off8.i) #12
   %5 = load i32, ptr getelementptr inbounds (i8, ptr @replay_state, i64 28), align 4
   %cmp5.i = icmp eq i32 %5, 1
   %spec.select.i = select i1 %cmp5.i, i1 true, i1 %spec.select7.i
@@ -486,17 +486,17 @@ entry:
   br i1 %cmp, label %do.body, label %if.end2
 
 do.body:                                          ; preds = %entry
-  %call = tail call zeroext i1 @replay_mutex_locked() #11
+  %call = tail call zeroext i1 @replay_mutex_locked() #12
   br i1 %call, label %do.end, label %if.else
 
 if.else:                                          ; preds = %do.body
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 166, ptr noundef nonnull @__func__.replay_shutdown_request, ptr noundef nonnull @.str.2) #10
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 166, ptr noundef nonnull @__func__.replay_shutdown_request, ptr noundef nonnull @.str.2) #11
   unreachable
 
 do.end:                                           ; preds = %do.body
   %1 = trunc i32 %cause to i8
   %conv = add i8 %1, 10
-  tail call void @replay_put_event(i8 noundef zeroext %conv) #11
+  tail call void @replay_put_event(i8 noundef zeroext %conv) #12
   br label %if.end2
 
 if.end2:                                          ; preds = %do.end, %entry
@@ -511,11 +511,11 @@ entry:
   br i1 %cmp, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 173, ptr noundef nonnull @__PRETTY_FUNCTION__.replay_checkpoint) #10
+  tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 173, ptr noundef nonnull @__PRETTY_FUNCTION__.replay_checkpoint) #11
   unreachable
 
 if.end:                                           ; preds = %entry
-  tail call void @replay_save_instructions() #11
+  tail call void @replay_save_instructions() #12
   %0 = load i32, ptr @replay_mode, align 4
   switch i32 %0, label %return [
     i32 2, label %do.body
@@ -523,11 +523,11 @@ if.end:                                           ; preds = %entry
   ]
 
 do.body:                                          ; preds = %if.end
-  %call = tail call zeroext i1 @replay_mutex_locked() #11
+  %call = tail call zeroext i1 @replay_mutex_locked() #12
   br i1 %call, label %do.end, label %if.else4
 
 if.else4:                                         ; preds = %do.body
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 178, ptr noundef nonnull @__func__.replay_checkpoint, ptr noundef nonnull @.str.2) #10
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 178, ptr noundef nonnull @__func__.replay_checkpoint, ptr noundef nonnull @.str.2) #11
   unreachable
 
 do.end:                                           ; preds = %do.body
@@ -547,7 +547,7 @@ if.then.i:                                        ; preds = %do.end
   br i1 %cmp1.i, label %if.end.i, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 47, ptr noundef nonnull @__PRETTY_FUNCTION__.replay_next_event_is) #10
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 47, ptr noundef nonnull @__PRETTY_FUNCTION__.replay_next_event_is) #11
   unreachable
 
 if.end.i:                                         ; preds = %if.then.i
@@ -557,8 +557,8 @@ if.end.i:                                         ; preds = %if.then.i
 sw.bb.i:                                          ; preds = %while.body.preheader.i, %sw.bb.i
   %.off8.i = phi i32 [ %.off.i, %sw.bb.i ], [ %.off5.i, %while.body.preheader.i ]
   %spec.select7.i = phi i1 [ %spec.select.i, %sw.bb.i ], [ %cmp54.i, %while.body.preheader.i ]
-  tail call void @replay_finish_event() #11
-  tail call void @qemu_system_shutdown_request(i32 noundef %.off8.i) #11
+  tail call void @replay_finish_event() #12
+  tail call void @qemu_system_shutdown_request(i32 noundef %.off8.i) #12
   %3 = load i32, ptr getelementptr inbounds (i8, ptr @replay_state, i64 28), align 4
   %cmp5.i = icmp eq i32 %3, %add
   %spec.select.i = select i1 %cmp5.i, i1 true, i1 %spec.select7.i
@@ -571,20 +571,20 @@ replay_next_event_is.exit:                        ; preds = %sw.bb.i, %while.bod
   br i1 %retval.0.i, label %if.then8, label %return
 
 if.then8:                                         ; preds = %if.end.i, %replay_next_event_is.exit
-  tail call void @replay_finish_event() #11
+  tail call void @replay_finish_event() #12
   br label %return
 
 do.body14:                                        ; preds = %if.end
-  %call15 = tail call zeroext i1 @replay_mutex_locked() #11
+  %call15 = tail call zeroext i1 @replay_mutex_locked() #12
   br i1 %call15, label %do.end19, label %if.else17
 
 if.else17:                                        ; preds = %do.body14
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 185, ptr noundef nonnull @__func__.replay_checkpoint, ptr noundef nonnull @.str.2) #10
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 185, ptr noundef nonnull @__func__.replay_checkpoint, ptr noundef nonnull @.str.2) #11
   unreachable
 
 do.end19:                                         ; preds = %do.body14
   %conv = trunc nuw nsw i32 %add to i8
-  tail call void @replay_put_event(i8 noundef zeroext %conv) #11
+  tail call void @replay_put_event(i8 noundef zeroext %conv) #12
   br label %return
 
 return:                                           ; preds = %if.end.i, %if.then8, %do.end19, %if.end, %replay_next_event_is.exit
@@ -599,12 +599,12 @@ entry:
   br i1 %.b1, label %if.else, label %do.end
 
 if.else:                                          ; preds = %entry
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 200, ptr noundef nonnull @__func__.replay_async_events, ptr noundef nonnull @.str.5) #10
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 200, ptr noundef nonnull @__func__.replay_async_events, ptr noundef nonnull @.str.5) #11
   unreachable
 
 do.end:                                           ; preds = %entry
   store i1 true, ptr @replay_async_events.processing, align 1
-  tail call void @replay_save_instructions() #11
+  tail call void @replay_save_instructions() #12
   %0 = load i32, ptr @replay_mode, align 4
   switch i32 %0, label %if.end17 [
     i32 2, label %do.body2
@@ -612,27 +612,27 @@ do.end:                                           ; preds = %entry
   ]
 
 do.body2:                                         ; preds = %do.end
-  %call = tail call zeroext i1 @replay_mutex_locked() #11
+  %call = tail call zeroext i1 @replay_mutex_locked() #12
   br i1 %call, label %do.end6, label %if.else4
 
 if.else4:                                         ; preds = %do.body2
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 206, ptr noundef nonnull @__func__.replay_async_events, ptr noundef nonnull @.str.2) #10
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 206, ptr noundef nonnull @__func__.replay_async_events, ptr noundef nonnull @.str.2) #11
   unreachable
 
 do.end6:                                          ; preds = %do.body2
-  tail call void @replay_read_events() #11
+  tail call void @replay_read_events() #12
   br label %if.end17
 
 do.body10:                                        ; preds = %do.end
-  %call11 = tail call zeroext i1 @replay_mutex_locked() #11
+  %call11 = tail call zeroext i1 @replay_mutex_locked() #12
   br i1 %call11, label %do.end15, label %if.else13
 
 if.else13:                                        ; preds = %do.body10
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 209, ptr noundef nonnull @__func__.replay_async_events, ptr noundef nonnull @.str.2) #10
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 209, ptr noundef nonnull @__func__.replay_async_events, ptr noundef nonnull @.str.2) #11
   unreachable
 
 do.end15:                                         ; preds = %do.body10
-  tail call void @replay_save_events() #11
+  tail call void @replay_save_events() #12
   br label %if.end17
 
 if.end17:                                         ; preds = %do.end, %do.end15, %do.end6
@@ -652,11 +652,11 @@ entry:
   br i1 %cmp, label %do.body, label %if.end9
 
 do.body:                                          ; preds = %entry
-  %call = tail call zeroext i1 @replay_mutex_locked() #11
+  %call = tail call zeroext i1 @replay_mutex_locked() #12
   br i1 %call, label %do.end, label %if.else
 
 if.else:                                          ; preds = %do.body
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 219, ptr noundef nonnull @__func__.replay_has_event, ptr noundef nonnull @.str.2) #10
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 219, ptr noundef nonnull @__func__.replay_has_event, ptr noundef nonnull @.str.2) #11
   unreachable
 
 do.end:                                           ; preds = %do.body
@@ -665,11 +665,11 @@ do.end:                                           ; preds = %do.body
   br i1 %cmp.i, label %do.body.i, label %replay_account_executed_instructions.exit
 
 do.body.i:                                        ; preds = %do.end
-  %call.i = tail call zeroext i1 @replay_mutex_locked() #11
+  %call.i = tail call zeroext i1 @replay_mutex_locked() #12
   br i1 %call.i, label %do.end.i, label %if.else.i
 
 if.else.i:                                        ; preds = %do.body.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 94, ptr noundef nonnull @__func__.replay_account_executed_instructions, ptr noundef nonnull @.str.2) #10
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 94, ptr noundef nonnull @__func__.replay_account_executed_instructions, ptr noundef nonnull @.str.2) #11
   unreachable
 
 do.end.i:                                         ; preds = %do.body.i
@@ -678,8 +678,8 @@ do.end.i:                                         ; preds = %do.body.i
   br i1 %cmp2.i, label %if.then3.i, label %replay_account_executed_instructions.exit
 
 if.then3.i:                                       ; preds = %do.end.i
-  %call.i.i = tail call i64 @icount_get_raw() #11
-  tail call void @replay_advance_current_icount(i64 noundef %call.i.i) #11
+  %call.i.i = tail call i64 @icount_get_raw() #12
+  tail call void @replay_advance_current_icount(i64 noundef %call.i.i) #12
   br label %replay_account_executed_instructions.exit
 
 replay_account_executed_instructions.exit:        ; preds = %do.end, %do.end.i, %if.then3.i
@@ -704,54 +704,54 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call = call ptr @loc_push_none(ptr noundef nonnull %loc) #11
-  call void @qemu_opts_loc_restore(ptr noundef nonnull %opts) #11
-  %call1 = call ptr @qemu_opt_get(ptr noundef nonnull %opts, ptr noundef nonnull @.str.6) #11
+  %call = call ptr @loc_push_none(ptr noundef nonnull %loc) #12
+  call void @qemu_opts_loc_restore(ptr noundef nonnull %opts) #12
+  %call1 = call ptr @qemu_opt_get(ptr noundef nonnull %opts, ptr noundef nonnull @.str.6) #12
   %tobool2.not = icmp eq ptr %call1, null
   br i1 %tobool2.not, label %out, label %if.else
 
 if.else:                                          ; preds = %if.end
-  %call4 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call1, ptr noundef nonnull dereferenceable(7) @.str.7) #12
+  %call4 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call1, ptr noundef nonnull dereferenceable(7) @.str.7) #13
   %tobool5.not = icmp eq i32 %call4, 0
   br i1 %tobool5.not, label %if.end14, label %if.else7
 
 if.else7:                                         ; preds = %if.else
-  %call8 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call1, ptr noundef nonnull dereferenceable(7) @.str.8) #12
+  %call8 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call1, ptr noundef nonnull dereferenceable(7) @.str.8) #13
   %tobool9.not = icmp eq i32 %call8, 0
   br i1 %tobool9.not, label %if.end14, label %if.else11
 
 if.else11:                                        ; preds = %if.else7
-  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.9, ptr noundef nonnull %call1) #11
-  call void @exit(i32 noundef 1) #10
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.9, ptr noundef nonnull %call1) #12
+  call void @exit(i32 noundef 1) #14
   unreachable
 
 if.end14:                                         ; preds = %if.else7, %if.else
   %mode.0 = phi i32 [ 1, %if.else ], [ 2, %if.else7 ]
-  %call15 = call ptr @qemu_opt_get(ptr noundef nonnull %opts, ptr noundef nonnull @.str.10) #11
+  %call15 = call ptr @qemu_opt_get(ptr noundef nonnull %opts, ptr noundef nonnull @.str.10) #12
   %tobool16.not = icmp eq ptr %call15, null
   br i1 %tobool16.not, label %if.then17, label %if.end18
 
 if.then17:                                        ; preds = %if.end14
-  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.11) #11
-  call void @exit(i32 noundef 1) #10
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.11) #12
+  call void @exit(i32 noundef 1) #14
   unreachable
 
 if.end18:                                         ; preds = %if.end14
-  %call19 = call ptr @qemu_opt_get(ptr noundef nonnull %opts, ptr noundef nonnull @.str.12) #11
-  %call20 = call noalias ptr @g_strdup(ptr noundef %call19) #11
+  %call19 = call ptr @qemu_opt_get(ptr noundef nonnull %opts, ptr noundef nonnull @.str.12) #12
+  %call20 = call noalias ptr @g_strdup(ptr noundef %call19) #12
   store ptr %call20, ptr @replay_snapshot, align 8
-  call void @replay_vmstate_register() #11
+  call void @replay_vmstate_register() #12
   %0 = load ptr, ptr @replay_file, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %if.end.i, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end18
-  call void @__assert_fail(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.1, i32 noundef 232, ptr noundef nonnull @__PRETTY_FUNCTION__.replay_enable) #10
+  call void @__assert_fail(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.1, i32 noundef 232, ptr noundef nonnull @__PRETTY_FUNCTION__.replay_enable) #11
   unreachable
 
 if.end.i:                                         ; preds = %if.end18
   %.str.17..str.18.i = select i1 %tobool5.not, ptr @.str.17, ptr @.str.18
-  %call2.i = call i32 @atexit(ptr noundef nonnull @replay_finish) #11
+  %call2.i = call i32 @atexit(ptr noundef nonnull @replay_finish) #12
   %call3.i = call noalias ptr @fopen64(ptr noundef nonnull %call15, ptr noundef nonnull %.str.17..str.18.i)
   store ptr %call3.i, ptr @replay_file, align 8
   %cmp.i = icmp eq ptr %call3.i, null
@@ -759,18 +759,18 @@ if.end.i:                                         ; preds = %if.end18
 
 if.then4.i:                                       ; preds = %if.end.i
   %1 = load ptr, ptr @stderr, align 8
-  %call5.i = tail call ptr @__errno_location() #13
+  %call5.i = tail call ptr @__errno_location() #15
   %2 = load i32, ptr %call5.i, align 4
-  %call6.i = call ptr @strerror(i32 noundef %2) #11
-  %call7.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.20, ptr noundef nonnull %call15, ptr noundef %call6.i) #14
-  call void @exit(i32 noundef 1) #10
+  %call6.i = call ptr @strerror(i32 noundef %2) #12
+  %call7.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.20, ptr noundef nonnull %call15, ptr noundef %call6.i) #16
+  call void @exit(i32 noundef 1) #14
   unreachable
 
 if.end8.i:                                        ; preds = %if.end.i
-  %call9.i = call noalias ptr @g_strdup(ptr noundef nonnull %call15) #11
+  %call9.i = call noalias ptr @g_strdup(ptr noundef nonnull %call15) #12
   store ptr %call9.i, ptr @replay_filename, align 8
   store i32 %mode.0, ptr @replay_mode, align 4
-  call void @replay_mutex_init() #11
+  call void @replay_mutex_init() #12
   store i32 -1, ptr getelementptr inbounds (i8, ptr @replay_state, i64 28), align 4
   store i32 0, ptr getelementptr inbounds (i8, ptr @replay_state, i64 24), align 8
   store i64 0, ptr getelementptr inbounds (i8, ptr @replay_state, i64 16), align 8
@@ -787,28 +787,28 @@ if.then11.i:                                      ; preds = %if.end8.i
   br label %replay_enable.exit
 
 if.then15.i:                                      ; preds = %if.end8.i
-  %call16.i = call i32 @replay_get_dword() #11
+  %call16.i = call i32 @replay_get_dword() #12
   %cmp17.not.i = icmp eq i32 %call16.i, 14688268
   br i1 %cmp17.not.i, label %if.end20.i, label %if.then18.i
 
 if.then18.i:                                      ; preds = %if.then15.i
   %5 = load ptr, ptr @stderr, align 8
-  %6 = call i64 @fwrite(ptr nonnull @.str.21, i64 39, i64 1, ptr %5) #14
-  call void @exit(i32 noundef 1) #10
+  %6 = call i64 @fwrite(ptr nonnull @.str.21, i64 39, i64 1, ptr %5) #16
+  call void @exit(i32 noundef 1) #14
   unreachable
 
 if.end20.i:                                       ; preds = %if.then15.i
   %7 = load ptr, ptr @replay_file, align 8
   %call21.i = call i32 @fseek(ptr noundef %7, i64 noundef 12, i32 noundef 0)
-  call void @replay_fetch_data_kind() #11
+  call void @replay_fetch_data_kind() #12
   br label %replay_enable.exit
 
 replay_enable.exit:                               ; preds = %if.end8.i, %if.then11.i, %if.end20.i
-  call void @replay_init_events() #11
+  call void @replay_init_events() #12
   br label %out
 
 out:                                              ; preds = %if.end, %replay_enable.exit
-  %call21 = call ptr @loc_pop(ptr noundef nonnull %loc) #11
+  %call21 = call ptr @loc_pop(ptr noundef nonnull %loc) #12
   br label %return
 
 return:                                           ; preds = %entry, %out
@@ -826,8 +826,8 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 
 declare void @error_report(ptr noundef, ...) local_unnamed_addr #2
 
-; Function Attrs: noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #1
+; Function Attrs: nofree noreturn nounwind
+declare void @exit(i32 noundef) local_unnamed_addr #5
 
 declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #2
 
@@ -849,8 +849,8 @@ if.end:                                           ; preds = %entry
 
 if.then1:                                         ; preds = %if.end
   %2 = load ptr, ptr %1, align 8
-  tail call void (ptr, ptr, ...) @error_reportf_err(ptr noundef %2, ptr noundef nonnull @.str.13) #11
-  tail call void @exit(i32 noundef 1) #10
+  tail call void (ptr, ptr, ...) @error_reportf_err(ptr noundef %2, ptr noundef nonnull @.str.13) #12
+  tail call void @exit(i32 noundef 1) #14
   unreachable
 
 if.end2:                                          ; preds = %if.end
@@ -859,12 +859,12 @@ if.end2:                                          ; preds = %if.end
   br i1 %tobool3.not, label %if.then4, label %if.end5
 
 if.then4:                                         ; preds = %if.end2
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.14) #11
-  tail call void @exit(i32 noundef 1) #10
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.14) #12
+  tail call void @exit(i32 noundef 1) #14
   unreachable
 
 if.end5:                                          ; preds = %if.end2
-  tail call void @replay_enable_events() #11
+  tail call void @replay_enable_events() #12
   br label %return
 
 return:                                           ; preds = %entry, %if.end5
@@ -883,7 +883,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  tail call void @replay_save_instructions() #11
+  tail call void @replay_save_instructions() #12
   %1 = load ptr, ptr @replay_file, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.end6, label %if.then1
@@ -894,19 +894,19 @@ if.then1:                                         ; preds = %if.end
   br i1 %cmp2, label %do.body.i, label %if.end4
 
 do.body.i:                                        ; preds = %if.then1
-  %call.i = tail call zeroext i1 @replay_mutex_locked() #11
+  %call.i = tail call zeroext i1 @replay_mutex_locked() #12
   br i1 %call.i, label %replay_shutdown_request.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %do.body.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 166, ptr noundef nonnull @__func__.replay_shutdown_request, ptr noundef nonnull @.str.2) #10
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 166, ptr noundef nonnull @__func__.replay_shutdown_request, ptr noundef nonnull @.str.2) #11
   unreachable
 
 replay_shutdown_request.exit:                     ; preds = %do.body.i
-  tail call void @replay_put_event(i8 noundef zeroext 14) #11
-  tail call void @replay_put_event(i8 noundef zeroext 39) #11
+  tail call void @replay_put_event(i8 noundef zeroext 14) #12
+  tail call void @replay_put_event(i8 noundef zeroext 39) #12
   %3 = load ptr, ptr @replay_file, align 8
   %call = tail call i32 @fseek(ptr noundef %3, i64 noundef 0, i32 noundef 0)
-  tail call void @replay_put_dword(i32 noundef 14688268) #11
+  tail call void @replay_put_dword(i32 noundef 14688268) #12
   %.pre = load ptr, ptr @replay_file, align 8
   br label %if.end4
 
@@ -918,12 +918,12 @@ if.end4:                                          ; preds = %replay_shutdown_req
 
 if.end6:                                          ; preds = %if.end4, %if.end
   %5 = load ptr, ptr @replay_filename, align 8
-  tail call void @g_free(ptr noundef %5) #11
+  tail call void @g_free(ptr noundef %5) #12
   store ptr null, ptr @replay_filename, align 8
   %6 = load ptr, ptr @replay_snapshot, align 8
-  tail call void @g_free(ptr noundef %6) #11
+  tail call void @g_free(ptr noundef %6) #12
   store ptr null, ptr @replay_snapshot, align 8
-  tail call void @replay_finish_events() #11
+  tail call void @replay_finish_events() #12
   store i32 0, ptr @replay_mode, align 4
   br label %return
 
@@ -932,12 +932,12 @@ return:                                           ; preds = %entry, %if.end6
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fseek(ptr nocapture noundef, i64 noundef, i32 noundef) local_unnamed_addr #5
+declare noundef i32 @fseek(ptr nocapture noundef, i64 noundef, i32 noundef) local_unnamed_addr #6
 
 declare void @replay_put_dword(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #6
 
 declare void @g_free(ptr noundef) local_unnamed_addr #2
 
@@ -948,10 +948,10 @@ define dso_local void @replay_add_blocker(ptr noundef %feature) local_unnamed_ad
 entry:
   %reason = alloca ptr, align 8
   store ptr null, ptr %reason, align 8
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %reason, ptr noundef nonnull @.str.1, i32 noundef 383, ptr noundef nonnull @__func__.replay_add_blocker, ptr noundef nonnull @.str.15, ptr noundef %feature) #11
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %reason, ptr noundef nonnull @.str.1, i32 noundef 383, ptr noundef nonnull @__func__.replay_add_blocker, ptr noundef nonnull @.str.15, ptr noundef %feature) #12
   %0 = load ptr, ptr @replay_blockers, align 8
   %1 = load ptr, ptr %reason, align 8
-  %call = call ptr @g_slist_prepend(ptr noundef %0, ptr noundef %1) #11
+  %call = call ptr @g_slist_prepend(ptr noundef %0, ptr noundef %1) #12
   store ptr %call, ptr @replay_blockers, align 8
   ret void
 }
@@ -961,26 +961,26 @@ declare void @error_setg_internal(ptr noundef, ptr noundef, i32 noundef, ptr nou
 declare ptr @g_slist_prepend(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define dso_local ptr @replay_get_filename() local_unnamed_addr #6 {
+define dso_local ptr @replay_get_filename() local_unnamed_addr #7 {
 entry:
   %0 = load ptr, ptr @replay_filename, align 8
   ret ptr %0
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare i32 @atexit(ptr noundef) local_unnamed_addr #5
+declare i32 @atexit(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen64(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #5
+declare noalias noundef ptr @fopen64(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #6
 
 ; Function Attrs: nounwind
-declare ptr @strerror(i32 noundef) local_unnamed_addr #7
+declare ptr @strerror(i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #8
+declare ptr @__errno_location() local_unnamed_addr #9
 
 declare void @replay_mutex_init() local_unnamed_addr #2
 
@@ -991,23 +991,25 @@ declare void @replay_fetch_data_kind() local_unnamed_addr #2
 declare void @replay_init_events() local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #10
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nofree nounwind }
-attributes #10 = { noreturn nounwind }
-attributes #11 = { nounwind }
-attributes #12 = { nounwind willreturn memory(read) }
-attributes #13 = { nounwind willreturn memory(none) }
-attributes #14 = { cold }
+attributes #5 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nofree nounwind }
+attributes #11 = { noreturn nounwind }
+attributes #12 = { nounwind }
+attributes #13 = { nounwind willreturn memory(read) }
+attributes #14 = { cold noreturn nounwind }
+attributes #15 = { nounwind willreturn memory(none) }
+attributes #16 = { cold }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

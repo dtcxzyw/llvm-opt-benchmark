@@ -2534,13 +2534,13 @@ entry:
   call void @llvm.va_end.p0(ptr nonnull %args)
   %1 = load ptr, ptr @bio_err, align 8
   call void @ERR_print_errors(ptr noundef %1) #28
-  call void @exit(i32 noundef 1) #31
+  call void @exit(i32 noundef 1) #32
   unreachable
 }
 
 declare i32 @BIO_vprintf(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #7
 
 declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
@@ -3575,7 +3575,7 @@ if.then8:                                         ; preds = %if.end5
   br i1 %tobool.not, label %if.then9, label %if.end10
 
 if.then9:                                         ; preds = %if.then8
-  tail call void @perror(ptr noundef %serialfile) #32
+  tail call void @perror(ptr noundef %serialfile) #33
   br label %if.then43
 
 if.end10:                                         ; preds = %if.then8
@@ -3832,7 +3832,7 @@ land.lhs.true:                                    ; preds = %if.end12
 if.then29:                                        ; preds = %land.lhs.true
   %2 = load ptr, ptr @bio_err, align 8
   %call32 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %2, ptr noundef nonnull @.str.125, ptr noundef %serialfile, ptr noundef nonnull %arrayidx14) #28
-  call void @perror(ptr noundef nonnull @.str.126) #32
+  call void @perror(ptr noundef nonnull @.str.126) #33
   br label %err
 
 if.end33:                                         ; preds = %land.lhs.true, %land.lhs.true, %if.end12
@@ -3843,7 +3843,7 @@ if.end33:                                         ; preds = %land.lhs.true, %lan
 if.then39:                                        ; preds = %if.end33
   %3 = load ptr, ptr @bio_err, align 8
   %call42 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %3, ptr noundef nonnull @.str.125, ptr noundef nonnull %buf, ptr noundef %serialfile) #28
-  call void @perror(ptr noundef nonnull @.str.126) #32
+  call void @perror(ptr noundef nonnull @.str.126) #33
   %call45 = call i32 @rename(ptr noundef nonnull %arrayidx14, ptr noundef %serialfile) #28
   br label %err
 
@@ -4202,7 +4202,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp15, label %if.then17, label %if.end19
 
 if.then17:                                        ; preds = %if.end
-  call void @perror(ptr noundef %dbfile) #32
+  call void @perror(ptr noundef %dbfile) #33
   %1 = load ptr, ptr @bio_err, align 8
   %call18 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %1, ptr noundef nonnull @.str.134, ptr noundef %dbfile) #28
   br label %err
@@ -4222,7 +4222,7 @@ if.end27:                                         ; preds = %if.end19
   br i1 %cmp31, label %if.then33, label %if.end39
 
 if.then33:                                        ; preds = %if.end27
-  call void @perror(ptr noundef nonnull %arrayidx) #32
+  call void @perror(ptr noundef nonnull %arrayidx) #33
   %3 = load ptr, ptr @bio_err, align 8
   %call38 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %3, ptr noundef nonnull @.str.134, ptr noundef nonnull %arrayidx) #28
   br label %err
@@ -4292,7 +4292,7 @@ land.lhs.true:                                    ; preds = %if.end12
 if.then38:                                        ; preds = %land.lhs.true
   %2 = load ptr, ptr @bio_err, align 8
   %call41 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %2, ptr noundef nonnull @.str.125, ptr noundef %dbfile, ptr noundef nonnull %arrayidx20) #28
-  call void @perror(ptr noundef nonnull @.str.126) #32
+  call void @perror(ptr noundef nonnull @.str.126) #33
   br label %err
 
 if.end42:                                         ; preds = %land.lhs.true, %land.lhs.true, %if.end12
@@ -4303,7 +4303,7 @@ if.end42:                                         ; preds = %land.lhs.true, %lan
 if.then48:                                        ; preds = %if.end42
   %3 = load ptr, ptr @bio_err, align 8
   %call51 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %3, ptr noundef nonnull @.str.125, ptr noundef nonnull %buf, ptr noundef %dbfile) #28
-  call void @perror(ptr noundef nonnull @.str.126) #32
+  call void @perror(ptr noundef nonnull @.str.126) #33
   %call54 = call i32 @rename(ptr noundef nonnull %arrayidx20, ptr noundef %dbfile) #28
   br label %err
 
@@ -4323,7 +4323,7 @@ land.lhs.true63:                                  ; preds = %if.end55
 if.then71:                                        ; preds = %land.lhs.true63
   %5 = load ptr, ptr @bio_err, align 8
   %call76 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %5, ptr noundef nonnull @.str.125, ptr noundef nonnull %arrayidx, ptr noundef nonnull %arrayidx14) #28
-  call void @perror(ptr noundef nonnull @.str.126) #32
+  call void @perror(ptr noundef nonnull @.str.126) #33
   %call79 = call i32 @rename(ptr noundef %dbfile, ptr noundef nonnull %buf) #28
   %call82 = call i32 @rename(ptr noundef nonnull %arrayidx20, ptr noundef %dbfile) #28
   br label %err
@@ -4336,7 +4336,7 @@ if.end83:                                         ; preds = %land.lhs.true63, %l
 if.then91:                                        ; preds = %if.end83
   %6 = load ptr, ptr @bio_err, align 8
   %call96 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %6, ptr noundef nonnull @.str.125, ptr noundef nonnull %arrayidx17, ptr noundef nonnull %arrayidx) #28
-  call void @perror(ptr noundef nonnull @.str.126) #32
+  call void @perror(ptr noundef nonnull @.str.126) #33
   %call101 = call i32 @rename(ptr noundef nonnull %arrayidx14, ptr noundef nonnull %arrayidx) #28
   %call104 = call i32 @rename(ptr noundef %dbfile, ptr noundef nonnull %buf) #28
   %call107 = call i32 @rename(ptr noundef nonnull %arrayidx20, ptr noundef %dbfile) #28
@@ -6461,7 +6461,7 @@ attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -6486,7 +6486,8 @@ attributes #28 = { nounwind }
 attributes #29 = { nounwind willreturn memory(none) }
 attributes #30 = { nounwind willreturn memory(read) }
 attributes #31 = { noreturn nounwind }
-attributes #32 = { cold }
+attributes #32 = { cold noreturn nounwind }
+attributes #33 = { cold }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

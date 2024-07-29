@@ -120,13 +120,13 @@ define dso_local range(i32 -128, 289) i32 @gmllex() local_unnamed_addr #1 {
   br i1 %.not91, label %23, label %45
 
 19:                                               ; preds = %13
-  %20 = tail call noalias noundef dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #24
+  %20 = tail call noalias noundef dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #25
   store ptr %20, ptr @yy_buffer_stack, align 8
   %.not9.i = icmp eq ptr %20, null
   br i1 %.not9.i, label %21, label %22
 
 21:                                               ; preds = %19
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.12) #25
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.12) #26
   unreachable
 
 22:                                               ; preds = %19
@@ -144,13 +144,13 @@ define dso_local range(i32 -128, 289) i32 @gmllex() local_unnamed_addr #1 {
 26:                                               ; preds = %23
   %27 = add i64 %24, 8
   %28 = shl i64 %27, 3
-  %29 = tail call noalias noundef ptr @realloc(ptr noundef nonnull %14, i64 noundef %28) #26
+  %29 = tail call noalias noundef ptr @realloc(ptr noundef nonnull %14, i64 noundef %28) #27
   store ptr %29, ptr @yy_buffer_stack, align 8
   %.not11.i = icmp eq ptr %29, null
   br i1 %.not11.i, label %30, label %31
 
 30:                                               ; preds = %26
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.12) #25
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.12) #26
   unreachable
 
 31:                                               ; preds = %26
@@ -162,25 +162,25 @@ define dso_local range(i32 -128, 289) i32 @gmllex() local_unnamed_addr #1 {
 
 gmlensure_buffer_stack.exit:                      ; preds = %22, %23, %31
   %33 = phi ptr [ %9, %22 ], [ %9, %23 ], [ %.pre, %31 ]
-  %34 = tail call noalias noundef dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #24
+  %34 = tail call noalias noundef dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #25
   %.not.i97 = icmp eq ptr %34, null
   br i1 %.not.i97, label %35, label %36
 
 35:                                               ; preds = %gmlensure_buffer_stack.exit
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.1) #25
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.1) #26
   unreachable
 
 36:                                               ; preds = %gmlensure_buffer_stack.exit
   %37 = getelementptr inbounds i8, ptr %34, i64 24
   store i32 16384, ptr %37, align 8
-  %38 = tail call noalias noundef dereferenceable_or_null(16386) ptr @malloc(i64 noundef 16386) #24
+  %38 = tail call noalias noundef dereferenceable_or_null(16386) ptr @malloc(i64 noundef 16386) #25
   %39 = getelementptr inbounds i8, ptr %34, i64 8
   store ptr %38, ptr %39, align 8
   %.not9.i98 = icmp eq ptr %38, null
   br i1 %.not9.i98, label %40, label %gml_create_buffer.exit
 
 40:                                               ; preds = %36
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.1) #25
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.1) #26
   unreachable
 
 gml_create_buffer.exit:                           ; preds = %36
@@ -1083,16 +1083,16 @@ gml_create_buffer.exit:                           ; preds = %36
   br label %647
 
 647:                                              ; preds = %635, %632
-  %648 = tail call noalias ptr @strdup(ptr noundef readonly %.pre303) #27
+  %648 = tail call noalias ptr @strdup(ptr noundef readonly %.pre303) #28
   %649 = icmp eq ptr %648, null
   br i1 %649, label %650, label %gv_strdup.exit
 
 650:                                              ; preds = %647
   %651 = load ptr, ptr @stderr, align 8
-  %652 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.pre303) #28
+  %652 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.pre303) #29
   %653 = add i64 %652, 1
-  %654 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %651, ptr noundef nonnull @.str.6, i64 noundef %653) #29
-  tail call fastcc void @graphviz_exit() #25
+  %654 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %651, ptr noundef nonnull @.str.6, i64 noundef %653) #30
+  tail call fastcc void @graphviz_exit() #26
   unreachable
 
 gv_strdup.exit:                                   ; preds = %647
@@ -1121,16 +1121,16 @@ gv_strdup.exit:                                   ; preds = %647
   br label %670
 
 670:                                              ; preds = %658, %655
-  %671 = tail call noalias ptr @strdup(ptr noundef readonly %.pre302) #27
+  %671 = tail call noalias ptr @strdup(ptr noundef readonly %.pre302) #28
   %672 = icmp eq ptr %671, null
   br i1 %672, label %673, label %gv_strdup.exit99
 
 673:                                              ; preds = %670
   %674 = load ptr, ptr @stderr, align 8
-  %675 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.pre302) #28
+  %675 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.pre302) #29
   %676 = add i64 %675, 1
-  %677 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %674, ptr noundef nonnull @.str.6, i64 noundef %676) #29
-  tail call fastcc void @graphviz_exit() #25
+  %677 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %674, ptr noundef nonnull @.str.6, i64 noundef %676) #30
+  tail call fastcc void @graphviz_exit() #26
   unreachable
 
 gv_strdup.exit99:                                 ; preds = %670
@@ -1159,16 +1159,16 @@ gv_strdup.exit99:                                 ; preds = %670
   br label %693
 
 693:                                              ; preds = %681, %678
-  %694 = tail call noalias ptr @strdup(ptr noundef readonly %.pre301) #27
+  %694 = tail call noalias ptr @strdup(ptr noundef readonly %.pre301) #28
   %695 = icmp eq ptr %694, null
   br i1 %695, label %696, label %gv_strdup.exit100
 
 696:                                              ; preds = %693
   %697 = load ptr, ptr @stderr, align 8
-  %698 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.pre301) #28
+  %698 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.pre301) #29
   %699 = add i64 %698, 1
-  %700 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %697, ptr noundef nonnull @.str.6, i64 noundef %699) #29
-  tail call fastcc void @graphviz_exit() #25
+  %700 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %697, ptr noundef nonnull @.str.6, i64 noundef %699) #30
+  tail call fastcc void @graphviz_exit() #26
   unreachable
 
 gv_strdup.exit100:                                ; preds = %693
@@ -1198,14 +1198,14 @@ gv_strdup.exit100:                                ; preds = %693
 
 717:                                              ; preds = %704, %701
   store i32 3, ptr @yy_start, align 4
-  %718 = tail call noalias dereferenceable_or_null(1) ptr @strdup(ptr noundef nonnull readonly @.str.7) #27
+  %718 = tail call noalias dereferenceable_or_null(1) ptr @strdup(ptr noundef nonnull readonly @.str.7) #28
   %719 = icmp eq ptr %718, null
   br i1 %719, label %720, label %beginstr.exit
 
 720:                                              ; preds = %717
   %721 = load ptr, ptr @stderr, align 8
-  %722 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %721, ptr noundef nonnull @.str.6, i64 noundef 1) #29
-  tail call fastcc void @graphviz_exit() #25
+  %722 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %721, ptr noundef nonnull @.str.6, i64 noundef 1) #30
+  tail call fastcc void @graphviz_exit() #26
   unreachable
 
 beginstr.exit:                                    ; preds = %717
@@ -1263,20 +1263,20 @@ beginstr.exit:                                    ; preds = %717
 
 756:                                              ; preds = %744, %741
   %757 = load ptr, ptr @Sbuf, align 8
-  %758 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %757) #28
+  %758 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %757) #29
   %759 = add i64 %758, 1
-  %760 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.pre300) #28
+  %760 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.pre300) #29
   %761 = add i64 %759, %760
   %762 = icmp ne i64 %761, 0
   tail call void @llvm.assume(i1 %762)
-  %763 = tail call ptr @realloc(ptr noundef %757, i64 noundef %761) #26
+  %763 = tail call ptr @realloc(ptr noundef %757, i64 noundef %761) #27
   %764 = icmp eq ptr %763, null
   br i1 %764, label %765, label %768
 
 765:                                              ; preds = %756
   %766 = load ptr, ptr @stderr, align 8
-  %767 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %766, ptr noundef nonnull @.str.6, i64 noundef %761) #29
-  tail call fastcc void @graphviz_exit() #25
+  %767 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %766, ptr noundef nonnull @.str.6, i64 noundef %761) #30
+  tail call fastcc void @graphviz_exit() #26
   unreachable
 
 768:                                              ; preds = %756
@@ -1290,7 +1290,7 @@ beginstr.exit:                                    ; preds = %717
 
 addstr.exit:                                      ; preds = %768, %770
   store ptr %763, ptr @Sbuf, align 8
-  %772 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %763, ptr noundef nonnull readonly dereferenceable(1) %.pre300) #27
+  %772 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %763, ptr noundef nonnull readonly dereferenceable(1) %.pre300) #28
   br label %.backedge654
 
 773:                                              ; preds = %127
@@ -1538,7 +1538,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i103, %892
   br i1 %919, label %920, label %921
 
 920:                                              ; preds = %916
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.8) #25
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.8) #26
   unreachable
 
 921:                                              ; preds = %916
@@ -1627,13 +1627,13 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i103, %892
   store i32 %storemerge43.i, ptr %958, align 8
   %963 = add nsw i32 %storemerge43.i, 2
   %964 = sext i32 %963 to i64
-  %965 = tail call noalias noundef ptr @realloc(ptr noundef %951, i64 noundef %964) #26
+  %965 = tail call noalias noundef ptr @realloc(ptr noundef %951, i64 noundef %964) #27
   store ptr %965, ptr %950, align 8
   %.not44.i = icmp eq ptr %965, null
   br i1 %.not44.i, label %.loopexit.i, label %966
 
 .loopexit.i:                                      ; preds = %957, %.thread.i
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.9) #25
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.9) #26
   unreachable
 
 966:                                              ; preds = %957
@@ -1666,7 +1666,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i103, %892
   br i1 %981, label %982, label %983
 
 982:                                              ; preds = %._crit_edge62.i
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.10) #25
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.10) #26
   unreachable
 
 983:                                              ; preds = %._crit_edge62.i
@@ -1719,7 +1719,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i103, %892
   %1013 = getelementptr inbounds i8, ptr %1006, i64 8
   %1014 = load ptr, ptr %1013, align 8
   %1015 = sext i32 %1012 to i64
-  %1016 = tail call noalias noundef ptr @realloc(ptr noundef %1014, i64 noundef %1015) #26
+  %1016 = tail call noalias noundef ptr @realloc(ptr noundef %1014, i64 noundef %1015) #27
   %1017 = load ptr, ptr %1005, align 8
   %1018 = getelementptr inbounds i8, ptr %1017, i64 8
   store ptr %1016, ptr %1018, align 8
@@ -1730,7 +1730,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i103, %892
   br i1 %.not46.i, label %1022, label %1023
 
 1022:                                             ; preds = %1010
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.11) #25
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.11) #26
   unreachable
 
 1023:                                             ; preds = %1010
@@ -1979,7 +1979,7 @@ yy_get_next_buffer.exit.thread141:                ; preds = %927, %yy_get_next_b
   br i1 %exitcond.not.i138, label %.outer.backedge, label %.lr.ph26.i126
 
 1151:                                             ; preds = %127
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str) #25
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str) #26
   unreachable
 
 default.unreachable307:                           ; preds = %yy_get_next_buffer.exit
@@ -1992,12 +1992,12 @@ default.unreachable307:                           ; preds = %yy_get_next_buffer.
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @gml_create_buffer(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
-  %3 = tail call noalias noundef dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #24
+  %3 = tail call noalias noundef dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #25
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %5
 
 4:                                                ; preds = %2
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.1) #25
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.1) #26
   unreachable
 
 5:                                                ; preds = %2
@@ -2005,14 +2005,14 @@ define dso_local noundef ptr @gml_create_buffer(ptr noundef %0, i32 noundef %1) 
   store i32 %1, ptr %6, align 8
   %7 = add nsw i32 %1, 2
   %8 = sext i32 %7 to i64
-  %9 = tail call noalias noundef ptr @malloc(i64 noundef %8) #24
+  %9 = tail call noalias noundef ptr @malloc(i64 noundef %8) #25
   %10 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %9, ptr %10, align 8
   %.not9 = icmp eq ptr %9, null
   br i1 %.not9, label %11, label %12
 
 11:                                               ; preds = %5
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.1) #25
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.1) #26
   unreachable
 
 12:                                               ; preds = %5
@@ -2044,13 +2044,13 @@ define dso_local void @gmlrestart(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %.not2, label %11, label %33
 
 7:                                                ; preds = %1
-  %8 = tail call noalias noundef dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #24
+  %8 = tail call noalias noundef dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #25
   store ptr %8, ptr @yy_buffer_stack, align 8
   %.not9.i = icmp eq ptr %8, null
   br i1 %.not9.i, label %9, label %10
 
 9:                                                ; preds = %7
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.12) #25
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.12) #26
   unreachable
 
 10:                                               ; preds = %7
@@ -2068,13 +2068,13 @@ define dso_local void @gmlrestart(ptr noundef %0) local_unnamed_addr #1 {
 14:                                               ; preds = %11
   %15 = add i64 %12, 8
   %16 = shl i64 %15, 3
-  %17 = tail call noalias noundef ptr @realloc(ptr noundef nonnull %2, i64 noundef %16) #26
+  %17 = tail call noalias noundef ptr @realloc(ptr noundef nonnull %2, i64 noundef %16) #27
   store ptr %17, ptr @yy_buffer_stack, align 8
   %.not11.i = icmp eq ptr %17, null
   br i1 %.not11.i, label %18, label %19
 
 18:                                               ; preds = %14
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.12) #25
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.12) #26
   unreachable
 
 19:                                               ; preds = %14
@@ -2085,25 +2085,25 @@ define dso_local void @gmlrestart(ptr noundef %0) local_unnamed_addr #1 {
 
 gmlensure_buffer_stack.exit:                      ; preds = %10, %11, %19
   %21 = load ptr, ptr @gmlin, align 8
-  %22 = tail call noalias noundef dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #24
+  %22 = tail call noalias noundef dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #25
   %.not.i4 = icmp eq ptr %22, null
   br i1 %.not.i4, label %23, label %24
 
 23:                                               ; preds = %gmlensure_buffer_stack.exit
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.1) #25
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.1) #26
   unreachable
 
 24:                                               ; preds = %gmlensure_buffer_stack.exit
   %25 = getelementptr inbounds i8, ptr %22, i64 24
   store i32 16384, ptr %25, align 8
-  %26 = tail call noalias noundef dereferenceable_or_null(16386) ptr @malloc(i64 noundef 16386) #24
+  %26 = tail call noalias noundef dereferenceable_or_null(16386) ptr @malloc(i64 noundef 16386) #25
   %27 = getelementptr inbounds i8, ptr %22, i64 8
   store ptr %26, ptr %27, align 8
   %.not9.i5 = icmp eq ptr %26, null
   br i1 %.not9.i5, label %28, label %.thread6
 
 28:                                               ; preds = %24
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.1) #25
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.1) #26
   unreachable
 
 .thread6:                                         ; preds = %24
@@ -2138,17 +2138,17 @@ gmlensure_buffer_stack.exit:                      ; preds = %10, %11, %19
   ret void
 }
 
-; Function Attrs: noreturn nounwind uwtable
+; Function Attrs: nofree noreturn nounwind uwtable
 define internal fastcc void @yy_fatal_error(ptr noundef %0) unnamed_addr #4 {
   %2 = load ptr, ptr @stderr, align 8
-  %3 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.13, ptr noundef %0) #29
-  tail call void @exit(i32 noundef 2) #30
+  %3 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.13, ptr noundef %0) #30
+  tail call void @exit(i32 noundef 2) #31
   unreachable
 }
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @gml_init_buffer(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
-  %3 = tail call ptr @__errno_location() #31
+  %3 = tail call ptr @__errno_location() #32
   %4 = load i32, ptr %3, align 4
   %.not.i = icmp eq ptr %0, null
   %.pre = load ptr, ptr @yy_buffer_stack, align 8
@@ -2235,8 +2235,8 @@ gml_flush_buffer.exit:                            ; preds = %2, %19
   br i1 %.not13, label %49, label %44
 
 44:                                               ; preds = %43
-  %45 = tail call i32 @fileno(ptr noundef nonnull %1) #27
-  %46 = tail call i32 @isatty(i32 noundef %45) #27
+  %45 = tail call i32 @fileno(ptr noundef nonnull %1) #28
+  %46 = tail call i32 @isatty(i32 noundef %45) #28
   %47 = icmp sgt i32 %46, 0
   %48 = zext i1 %47 to i32
   br label %49
@@ -2256,13 +2256,13 @@ define dso_local void @gml_switch_to_buffer(ptr noundef %0) local_unnamed_addr #
   br i1 %.not.i, label %3, label %7
 
 3:                                                ; preds = %1
-  %4 = tail call noalias noundef dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #24
+  %4 = tail call noalias noundef dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #25
   store ptr %4, ptr @yy_buffer_stack, align 8
   %.not9.i = icmp eq ptr %4, null
   br i1 %.not9.i, label %5, label %6
 
 5:                                                ; preds = %3
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.12) #25
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.12) #26
   unreachable
 
 6:                                                ; preds = %3
@@ -2281,13 +2281,13 @@ define dso_local void @gml_switch_to_buffer(ptr noundef %0) local_unnamed_addr #
 11:                                               ; preds = %7
   %12 = add i64 %9, 8
   %13 = shl i64 %12, 3
-  %14 = tail call noalias noundef ptr @realloc(ptr noundef nonnull %2, i64 noundef %13) #26
+  %14 = tail call noalias noundef ptr @realloc(ptr noundef nonnull %2, i64 noundef %13) #27
   store ptr %14, ptr @yy_buffer_stack, align 8
   %.not11.i = icmp eq ptr %14, null
   br i1 %.not11.i, label %15, label %16
 
 15:                                               ; preds = %11
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.12) #25
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.12) #26
   unreachable
 
 16:                                               ; preds = %11
@@ -2344,7 +2344,7 @@ define dso_local void @gml_switch_to_buffer(ptr noundef %0) local_unnamed_addr #
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable
 define dso_local noalias noundef ptr @gmlalloc(i64 noundef %0) local_unnamed_addr #5 {
-  %2 = tail call noalias ptr @malloc(i64 noundef %0) #24
+  %2 = tail call noalias ptr @malloc(i64 noundef %0) #25
   ret ptr %2
 }
 
@@ -2384,11 +2384,11 @@ define dso_local void @gml_delete_buffer(ptr noundef %0) local_unnamed_addr #6 {
 17:                                               ; preds = %14
   %18 = getelementptr inbounds i8, ptr %0, i64 8
   %19 = load ptr, ptr %18, align 8
-  tail call void @free(ptr noundef %19) #27
+  tail call void @free(ptr noundef %19) #28
   br label %20
 
 20:                                               ; preds = %17, %14
-  tail call void @free(ptr noundef nonnull %0) #27
+  tail call void @free(ptr noundef nonnull %0) #28
   br label %21
 
 21:                                               ; preds = %1, %20
@@ -2397,7 +2397,7 @@ define dso_local void @gml_delete_buffer(ptr noundef %0) local_unnamed_addr #6 {
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define dso_local void @gmlfree(ptr nocapture noundef %0) local_unnamed_addr #7 {
-  tail call void @free(ptr noundef %0) #27
+  tail call void @free(ptr noundef %0) #28
   ret void
 }
 
@@ -2470,13 +2470,13 @@ define dso_local void @gmlpush_buffer_state(ptr noundef %0) local_unnamed_addr #
   br i1 %.not.i, label %5, label %9
 
 5:                                                ; preds = %3
-  %6 = tail call noalias noundef dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #24
+  %6 = tail call noalias noundef dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #25
   store ptr %6, ptr @yy_buffer_stack, align 8
   %.not9.i = icmp eq ptr %6, null
   br i1 %.not9.i, label %7, label %8
 
 7:                                                ; preds = %5
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.12) #25
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.12) #26
   unreachable
 
 8:                                                ; preds = %5
@@ -2495,13 +2495,13 @@ define dso_local void @gmlpush_buffer_state(ptr noundef %0) local_unnamed_addr #
 13:                                               ; preds = %9
   %14 = add i64 %11, 8
   %15 = shl i64 %14, 3
-  %16 = tail call noalias noundef ptr @realloc(ptr noundef nonnull %4, i64 noundef %15) #26
+  %16 = tail call noalias noundef ptr @realloc(ptr noundef nonnull %4, i64 noundef %15) #27
   store ptr %16, ptr @yy_buffer_stack, align 8
   %.not11.i = icmp eq ptr %16, null
   br i1 %.not11.i, label %17, label %18
 
 17:                                               ; preds = %13
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.12) #25
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.12) #26
   unreachable
 
 18:                                               ; preds = %13
@@ -2583,11 +2583,11 @@ define dso_local void @gmlpop_buffer_state() local_unnamed_addr #6 {
 9:                                                ; preds = %6
   %10 = getelementptr inbounds i8, ptr %5, i64 8
   %11 = load ptr, ptr %10, align 8
-  tail call void @free(ptr noundef %11) #27
+  tail call void @free(ptr noundef %11) #28
   br label %gml_delete_buffer.exit
 
 gml_delete_buffer.exit:                           ; preds = %6, %9
-  tail call void @free(ptr noundef nonnull %5) #27
+  tail call void @free(ptr noundef nonnull %5) #28
   store ptr null, ptr %4, align 8
   %.not5 = icmp eq i64 %3, 0
   br i1 %.not5, label %.thread, label %12
@@ -2640,12 +2640,12 @@ define dso_local noundef ptr @gml_scan_buffer(ptr noundef %0, i64 noundef %1) lo
   br i1 %.not23, label %12, label %26
 
 12:                                               ; preds = %8
-  %13 = tail call noalias noundef dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #24
+  %13 = tail call noalias noundef dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #25
   %.not24 = icmp eq ptr %13, null
   br i1 %.not24, label %14, label %15
 
 14:                                               ; preds = %12
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.2) #25
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.2) #26
   unreachable
 
 15:                                               ; preds = %12
@@ -2679,7 +2679,7 @@ define dso_local noundef ptr @gml_scan_buffer(ptr noundef %0, i64 noundef %1) lo
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @gml_scan_string(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
-  %2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #28
+  %2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #29
   %3 = trunc i64 %2 to i32
   %4 = tail call ptr @gml_scan_bytes(ptr noundef %0, i32 noundef %3)
   ret ptr %4
@@ -2689,7 +2689,7 @@ define dso_local noundef ptr @gml_scan_string(ptr nocapture noundef readonly %0)
 define dso_local noundef ptr @gml_scan_bytes(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = add nsw i32 %1, 2
   %4 = sext i32 %3 to i64
-  %5 = tail call noalias noundef ptr @malloc(i64 noundef %4) #24
+  %5 = tail call noalias noundef ptr @malloc(i64 noundef %4) #25
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %11, label %.preheader
 
@@ -2708,7 +2708,7 @@ define dso_local noundef ptr @gml_scan_bytes(ptr nocapture noundef readonly %0, 
   br label %16
 
 11:                                               ; preds = %2
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.3) #25
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.3) #26
   unreachable
 
 ._crit_edge:                                      ; preds = %.preheader
@@ -2721,16 +2721,16 @@ define dso_local noundef ptr @gml_scan_bytes(ptr nocapture noundef readonly %0, 
   br i1 %15, label %19, label %16
 
 16:                                               ; preds = %._crit_edge.thread, %._crit_edge
-  %17 = tail call noalias noundef dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #24
+  %17 = tail call noalias noundef dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #25
   %.not24.i = icmp eq ptr %17, null
   br i1 %.not24.i, label %18, label %20
 
 18:                                               ; preds = %16
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.2) #25
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.2) #26
   unreachable
 
 19:                                               ; preds = %._crit_edge
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.4) #25
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.4) #26
   unreachable
 
 20:                                               ; preds = %16
@@ -2845,13 +2845,13 @@ define dso_local noundef i32 @gmllex_destroy() local_unnamed_addr #1 {
 4:                                                ; preds = %.lr.ph19
   %5 = getelementptr inbounds i8, ptr %.pre10, i64 8
   %6 = load ptr, ptr %5, align 8
-  tail call void @free(ptr noundef %6) #27
+  tail call void @free(ptr noundef %6) #28
   %.pre11.pre = load ptr, ptr @yy_buffer_stack, align 8
   br label %gmlpop_buffer_state.exit
 
 gmlpop_buffer_state.exit:                         ; preds = %.lr.ph19, %4
   %.pre11 = phi ptr [ %.pre11.pre, %4 ], [ %.pr, %.lr.ph19 ]
-  tail call void @free(ptr noundef nonnull %.pre10) #27
+  tail call void @free(ptr noundef nonnull %.pre10) #28
   %.pre12 = load i64, ptr @yy_buffer_stack_top, align 8
   %7 = getelementptr inbounds ptr, ptr %.pre11, i64 %.pre12
   store ptr null, ptr %7, align 8
@@ -2859,7 +2859,7 @@ gmlpop_buffer_state.exit:                         ; preds = %.lr.ph19, %4
 
 .thread:                                          ; preds = %.lr.ph.preheader, %gmlpop_buffer_state.exit, %0
   %.lcssa = phi ptr [ null, %0 ], [ %.pre11, %gmlpop_buffer_state.exit ], [ %.pr, %.lr.ph.preheader ]
-  tail call void @free(ptr noundef %.lcssa) #27
+  tail call void @free(ptr noundef %.lcssa) #28
   store ptr null, ptr @yy_buffer_stack, align 8
   store i64 0, ptr @yy_buffer_stack_top, align 8
   store i64 0, ptr @yy_buffer_stack_max, align 8
@@ -2876,7 +2876,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define dso_local noalias noundef ptr @gmlrealloc(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #7 {
-  %3 = tail call ptr @realloc(ptr noundef %0, i64 noundef %1) #26
+  %3 = tail call ptr @realloc(ptr noundef %0, i64 noundef %1) #27
   ret ptr %3
 }
 
@@ -2895,7 +2895,7 @@ define dso_local void @gmlerror(ptr noundef %0) local_unnamed_addr #1 {
   store i1 true, ptr @errors, align 4
   %3 = load i32, ptr @line_num, align 4
   %4 = load ptr, ptr @gmltext, align 8
-  %5 = tail call i32 (i32, ptr, ...) @agerr(i32 noundef 0, ptr noundef nonnull @.str.5, ptr noundef %0, i32 noundef %3, ptr noundef %4) #27
+  %5 = tail call i32 (i32, ptr, ...) @agerr(i32 noundef 0, ptr noundef nonnull @.str.5, ptr noundef %0, i32 noundef %3, ptr noundef %4) #28
   br label %6
 
 6:                                                ; preds = %1, %2
@@ -2911,8 +2911,8 @@ define dso_local range(i32 0, 2) i32 @gmlerrors() local_unnamed_addr #10 {
   ret i32 %1
 }
 
-; Function Attrs: nounwind uwtable
-define dso_local void @gmllexeof() local_unnamed_addr #1 {
+; Function Attrs: nofree nounwind uwtable
+define dso_local void @gmllexeof() local_unnamed_addr #15 {
   %1 = load ptr, ptr @gmltext, align 8
   %2 = load ptr, ptr @yy_c_buf_p, align 8
   %3 = load i8, ptr @yy_hold_char, align 1
@@ -2981,7 +2981,7 @@ define dso_local void @gmllexeof() local_unnamed_addr #1 {
   br i1 %42, label %43, label %yyunput.exit
 
 43:                                               ; preds = %._crit_edge.i
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.14) #25
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.14) #26
   unreachable
 
 yyunput.exit:                                     ; preds = %0, %._crit_edge.i
@@ -2997,52 +2997,52 @@ yyunput.exit:                                     ; preds = %0, %._crit_edge.i
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #15
+declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #16
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
 
-; Function Attrs: noreturn nounwind uwtable
+; Function Attrs: nofree noreturn nounwind uwtable
 define internal fastcc void @graphviz_exit() unnamed_addr #4 {
-  tail call void @exit(i32 noundef 1) #30
+  tail call void @exit(i32 noundef 1) #31
   unreachable
 }
 
-; Function Attrs: noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #16
+; Function Attrs: nofree noreturn nounwind
+declare void @exit(i32 noundef) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcat(ptr noalias noundef returned, ptr noalias nocapture noundef readonly) local_unnamed_addr #17
+declare ptr @strcat(ptr noalias noundef returned, ptr noalias nocapture noundef readonly) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #18
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #19
 
 ; Function Attrs: nofree nounwind
 declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #19
+declare ptr @__errno_location() local_unnamed_addr #20
 
 ; Function Attrs: nounwind
-declare i32 @isatty(i32 noundef) local_unnamed_addr #20
+declare i32 @isatty(i32 noundef) local_unnamed_addr #21
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fileno(ptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #21
+declare i32 @llvm.umin.i32(i32, i32) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #22
+declare void @llvm.assume(i1 noundef) #23
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #23
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #24
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -3053,23 +3053,24 @@ attributes #11 = { mustprogress nofree nounwind willreturn allockind("alloc,unin
 attributes #12 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #19 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #22 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #23 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #24 = { nounwind allocsize(0) }
-attributes #25 = { noreturn }
-attributes #26 = { nounwind allocsize(1) }
-attributes #27 = { nounwind }
-attributes #28 = { nounwind willreturn memory(read) }
-attributes #29 = { cold nounwind }
-attributes #30 = { noreturn nounwind }
-attributes #31 = { nounwind willreturn memory(none) }
+attributes #15 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #20 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #22 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #23 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #24 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #25 = { nounwind allocsize(0) }
+attributes #26 = { noreturn }
+attributes #27 = { nounwind allocsize(1) }
+attributes #28 = { nounwind }
+attributes #29 = { nounwind willreturn memory(read) }
+attributes #30 = { cold nounwind }
+attributes #31 = { cold noreturn nounwind }
+attributes #32 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

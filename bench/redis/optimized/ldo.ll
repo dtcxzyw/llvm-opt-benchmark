@@ -33,12 +33,12 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %call = tail call ptr @luaS_newlstr(ptr noundef %L, ptr noundef nonnull @.str, i64 noundef 17) #7
+  %call = tail call ptr @luaS_newlstr(ptr noundef %L, ptr noundef nonnull @.str, i64 noundef 17) #8
   store ptr %call, ptr %oldtop, align 8, !tbaa !4
   br label %sw.epilog.sink.split
 
 sw.bb1:                                           ; preds = %entry
-  %call3 = tail call ptr @luaS_newlstr(ptr noundef %L, ptr noundef nonnull @.str.1, i64 noundef 23) #7
+  %call3 = tail call ptr @luaS_newlstr(ptr noundef %L, ptr noundef nonnull @.str.1, i64 noundef 23) #8
   store ptr %call3, ptr %oldtop, align 8, !tbaa !4
   br label %sw.epilog.sink.split
 
@@ -85,7 +85,7 @@ if.then:                                          ; preds = %entry
   %status = getelementptr inbounds i8, ptr %0, i64 208
   store volatile i32 %errcode, ptr %status, align 8, !tbaa !16
   %b = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @longjmp(ptr noundef nonnull %b, i32 noundef 1) #8
+  tail call void @longjmp(ptr noundef nonnull %b, i32 noundef 1) #9
   unreachable
 
 if.else:                                          ; preds = %entry
@@ -107,7 +107,7 @@ if.then5:                                         ; preds = %if.else
   %4 = load ptr, ptr %3, align 8, !tbaa !27
   %base2.i = getelementptr inbounds i8, ptr %L, i64 24
   store ptr %4, ptr %base2.i, align 8, !tbaa !29
-  tail call void @luaF_close(ptr noundef nonnull %L, ptr noundef %4) #7
+  tail call void @luaF_close(ptr noundef nonnull %L, ptr noundef %4) #8
   %5 = load ptr, ptr %base2.i, align 8, !tbaa !29
   switch i32 %errcode, label %luaD_seterrorobj.exit.i [
     i32 4, label %sw.bb.i.i
@@ -117,12 +117,12 @@ if.then5:                                         ; preds = %if.else
   ]
 
 sw.bb.i.i:                                        ; preds = %if.then5
-  %call.i.i = tail call ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull @.str, i64 noundef 17) #7
+  %call.i.i = tail call ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull @.str, i64 noundef 17) #8
   store ptr %call.i.i, ptr %5, align 8, !tbaa !4
   br label %sw.epilog.sink.split.i.i
 
 sw.bb1.i.i:                                       ; preds = %if.then5
-  %call3.i.i = tail call ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull @.str.1, i64 noundef 23) #7
+  %call3.i.i = tail call ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull @.str.1, i64 noundef 23) #8
   store ptr %call3.i.i, ptr %5, align 8, !tbaa !4
   br label %sw.epilog.sink.split.i.i
 
@@ -171,7 +171,7 @@ if.then.i.i:                                      ; preds = %luaD_seterrorobj.ex
 if.then3.i.i:                                     ; preds = %if.then.i.i
   %conv3.i.i.i = zext nneg i32 %10 to i64
   %mul.i.i.i = mul nuw nsw i64 %conv3.i.i.i, 40
-  %call.i.i.i = tail call ptr @luaM_realloc_(ptr noundef nonnull %L, ptr noundef %12, i64 noundef %mul.i.i.i, i64 noundef 800000) #7
+  %call.i.i.i = tail call ptr @luaM_realloc_(ptr noundef nonnull %L, ptr noundef %12, i64 noundef %mul.i.i.i, i64 noundef 800000) #8
   store ptr %call.i.i.i, ptr %base_ci.i, align 8, !tbaa !25
   store i32 20000, ptr %size_ci.i.i, align 4, !tbaa !33
   %13 = load ptr, ptr %ci.i, align 8, !tbaa !26
@@ -189,25 +189,25 @@ resetstack.exit:                                  ; preds = %if.then3.i.i, %if.t
   %14 = load ptr, ptr %l_G, align 8, !tbaa !19
   %panic7 = getelementptr inbounds i8, ptr %14, i64 152
   %15 = load ptr, ptr %panic7, align 8, !tbaa !20
-  %call = tail call i32 %15(ptr noundef nonnull %L) #7
+  %call = tail call i32 %15(ptr noundef nonnull %L) #8
   br label %if.end
 
 if.end:                                           ; preds = %resetstack.exit, %if.else
-  tail call void @exit(i32 noundef 1) #8
+  tail call void @exit(i32 noundef 1) #10
   unreachable
 }
 
 ; Function Attrs: noreturn nounwind
 declare void @longjmp(ptr noundef, i32 noundef) local_unnamed_addr #4
 
-; Function Attrs: noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #4
+; Function Attrs: nofree noreturn nounwind
+declare void @exit(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @luaD_rawrunprotected(ptr noundef %L, ptr nocapture noundef readonly %f, ptr noundef %ud) local_unnamed_addr #0 {
 entry:
   %lj = alloca %struct.lua_longjmp, align 8
-  call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %lj) #7
+  call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %lj) #8
   %status = getelementptr inbounds i8, ptr %lj, i64 208
   store volatile i32 0, ptr %status, align 8, !tbaa !16
   %errorJmp = getelementptr inbounds i8, ptr %L, i64 168
@@ -215,24 +215,24 @@ entry:
   store ptr %0, ptr %lj, align 8, !tbaa !35
   store ptr %lj, ptr %errorJmp, align 8, !tbaa !15
   %b = getelementptr inbounds i8, ptr %lj, i64 8
-  %call = call i32 @_setjmp(ptr noundef nonnull %b) #9
+  %call = call i32 @_setjmp(ptr noundef nonnull %b) #11
   %cmp = icmp eq i32 %call, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  call void %f(ptr noundef nonnull %L, ptr noundef %ud) #7
+  call void %f(ptr noundef nonnull %L, ptr noundef %ud) #8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
   %1 = load ptr, ptr %lj, align 8, !tbaa !35
   store ptr %1, ptr %errorJmp, align 8, !tbaa !15
   %2 = load volatile i32, ptr %status, align 8, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %lj) #7
+  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %lj) #8
   ret i32 %2
 }
 
 ; Function Attrs: nounwind returns_twice
-declare i32 @_setjmp(ptr noundef) local_unnamed_addr #5
+declare i32 @_setjmp(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define hidden void @luaD_reallocstack(ptr noundef %L, i32 noundef %newsize) local_unnamed_addr #0 {
@@ -250,11 +250,11 @@ cond.true:                                        ; preds = %entry
   %mul = shl nsw i64 %conv5, 4
   %conv6 = sext i32 %add1 to i64
   %mul7 = shl nsw i64 %conv6, 4
-  %call = tail call ptr @luaM_realloc_(ptr noundef nonnull %L, ptr noundef %0, i64 noundef %mul, i64 noundef %mul7) #7
+  %call = tail call ptr @luaM_realloc_(ptr noundef nonnull %L, ptr noundef %0, i64 noundef %mul, i64 noundef %mul7) #8
   br label %cond.end
 
 cond.false:                                       ; preds = %entry
-  %call8 = tail call ptr @luaM_toobig(ptr noundef nonnull %L) #7
+  %call8 = tail call ptr @luaM_toobig(ptr noundef nonnull %L) #8
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
@@ -356,11 +356,11 @@ cond.true:                                        ; preds = %entry
   %mul = mul nsw i64 %conv3, 40
   %conv4 = sext i32 %newsize to i64
   %mul5 = mul nsw i64 %conv4, 40
-  %call = tail call ptr @luaM_realloc_(ptr noundef nonnull %L, ptr noundef %0, i64 noundef %mul, i64 noundef %mul5) #7
+  %call = tail call ptr @luaM_realloc_(ptr noundef nonnull %L, ptr noundef %0, i64 noundef %mul, i64 noundef %mul5) #8
   br label %cond.end
 
 cond.false:                                       ; preds = %entry
-  %call6 = tail call ptr @luaM_toobig(ptr noundef nonnull %L) #7
+  %call6 = tail call ptr @luaM_toobig(ptr noundef nonnull %L) #8
   %.pre = sext i32 %newsize to i64
   br label %cond.end
 
@@ -426,7 +426,7 @@ if.then:                                          ; preds = %land.lhs.true
   %5 = load ptr, ptr %top4, align 8, !tbaa !41
   %sub.ptr.lhs.cast6 = ptrtoint ptr %5 to i64
   %sub.ptr.sub8 = sub i64 %sub.ptr.lhs.cast6, %sub.ptr.rhs.cast
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %ar) #7
+  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %ar) #8
   store i32 %event, ptr %ar, align 8, !tbaa !45
   %currentline = getelementptr inbounds i8, ptr %ar, i64 40
   store i32 %line, ptr %currentline, align 8, !tbaa !47
@@ -473,7 +473,7 @@ if.end26:                                         ; preds = %if.then24, %if.end
   %top29 = getelementptr inbounds i8, ptr %10, i64 16
   store ptr %add.ptr, ptr %top29, align 8, !tbaa !41
   store i8 0, ptr %allowhook, align 1, !tbaa !32
-  call void %0(ptr noundef nonnull %L, ptr noundef nonnull %ar) #7
+  call void %0(ptr noundef nonnull %L, ptr noundef nonnull %ar) #8
   store i8 1, ptr %allowhook, align 1, !tbaa !32
   %12 = load ptr, ptr %stack, align 8, !tbaa !36
   %add.ptr33 = getelementptr inbounds i8, ptr %12, i64 %sub.ptr.sub8
@@ -482,7 +482,7 @@ if.end26:                                         ; preds = %if.then24, %if.end
   store ptr %add.ptr33, ptr %top35, align 8, !tbaa !41
   %add.ptr37 = getelementptr inbounds i8, ptr %12, i64 %sub.ptr.sub
   store ptr %add.ptr37, ptr %top3, align 8, !tbaa !7
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %ar) #7
+  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %ar) #8
   br label %if.end39
 
 if.end39:                                         ; preds = %if.end26, %land.lhs.true, %entry
@@ -504,7 +504,7 @@ entry.if.end_crit_edge:                           ; preds = %entry
   br label %if.end
 
 if.then:                                          ; preds = %entry
-  %call.i = tail call ptr @luaT_gettmbyobj(ptr noundef %L, ptr noundef nonnull %func, i32 noundef 16) #7
+  %call.i = tail call ptr @luaT_gettmbyobj(ptr noundef %L, ptr noundef nonnull %func, i32 noundef 16) #8
   %stack.i = getelementptr inbounds i8, ptr %L, i64 64
   %1 = load ptr, ptr %stack.i, align 8, !tbaa !36
   %tt.i = getelementptr inbounds i8, ptr %call.i, i64 8
@@ -513,7 +513,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
-  tail call void @luaG_typeerror(ptr noundef nonnull %L, ptr noundef nonnull %func, ptr noundef nonnull @.str.5) #7
+  tail call void @luaG_typeerror(ptr noundef nonnull %L, ptr noundef nonnull %func, ptr noundef nonnull @.str.5) #8
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %if.then
@@ -743,7 +743,7 @@ if.then.i211:                                     ; preds = %for.end.i210
   br i1 %cmp4.not.i, label %if.end.i212, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.then.i211
-  tail call void @luaC_step(ptr noundef nonnull %L) #7
+  tail call void @luaC_step(ptr noundef nonnull %L) #8
   %.pre297 = load ptr, ptr %top, align 8, !tbaa !7
   br label %if.end.i212
 
@@ -771,7 +771,7 @@ if.then12.i:                                      ; preds = %if.end.i212
   br label %if.end15.i
 
 if.end15.i:                                       ; preds = %if.then12.i, %if.end.i212
-  %call.i223 = tail call ptr @luaH_new(ptr noundef nonnull %L, i32 noundef %sub.i, i32 noundef 1) #7
+  %call.i223 = tail call ptr @luaH_new(ptr noundef nonnull %L, i32 noundef %sub.i, i32 noundef 1) #8
   %cmp17114.i = icmp sgt i32 %sub.i, 0
   br i1 %cmp17114.i, label %for.body19.lr.ph.i, label %for.end29.i
 
@@ -787,7 +787,7 @@ for.body19.i:                                     ; preds = %for.body19.i, %for.
   %add.ptr22.i = getelementptr inbounds %struct.lua_TValue, ptr %add.ptr.i224, i64 %indvars.iv.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %49 = trunc i64 %indvars.iv.next.i to i32
-  %call23.i = tail call ptr @luaH_setnum(ptr noundef nonnull %L, ptr noundef %call.i223, i32 noundef %49) #7
+  %call23.i = tail call ptr @luaH_setnum(ptr noundef nonnull %L, ptr noundef %call.i223, i32 noundef %49) #8
   %50 = load i64, ptr %add.ptr22.i, align 8, !tbaa !4
   store i64 %50, ptr %call23.i, align 8, !tbaa !4
   %tt25.i = getelementptr inbounds i8, ptr %add.ptr22.i, i64 8
@@ -798,8 +798,8 @@ for.body19.i:                                     ; preds = %for.body19.i, %for.
   br i1 %exitcond119.not.i, label %for.end29.i, label %for.body19.i, !llvm.loop !63
 
 for.end29.i:                                      ; preds = %for.body19.i, %if.end15.i
-  %call30.i = tail call ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull @.str.6, i64 noundef 1) #7
-  %call31.i = tail call ptr @luaH_setstr(ptr noundef nonnull %L, ptr noundef %call.i223, ptr noundef %call30.i) #7
+  %call30.i = tail call ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull @.str.6, i64 noundef 1) #8
+  %call31.i = tail call ptr @luaH_setstr(ptr noundef nonnull %L, ptr noundef %call.i223, ptr noundef %call30.i) #8
   %conv32.i = sitofp i32 %sub.i to double
   store double %conv32.i, ptr %call31.i, align 8, !tbaa !4
   %tt34.i = getelementptr inbounds i8, ptr %call31.i, i64 8
@@ -923,11 +923,11 @@ cond.true.i.i:                                    ; preds = %if.else.i
   %mul.i.i11 = mul nuw nsw i64 %conv3.i.i, 40
   %conv4.i.i = zext nneg i32 %mul.i9 to i64
   %mul5.i.i = mul nuw nsw i64 %conv4.i.i, 40
-  %call.i.i = tail call ptr @luaM_realloc_(ptr noundef nonnull %L, ptr noundef %68, i64 noundef %mul.i.i11, i64 noundef %mul5.i.i) #7
+  %call.i.i = tail call ptr @luaM_realloc_(ptr noundef nonnull %L, ptr noundef %68, i64 noundef %mul.i.i11, i64 noundef %mul5.i.i) #8
   br label %luaD_reallocCI.exit.i
 
 cond.false.i.i:                                   ; preds = %if.else.i
-  %call6.i.i = tail call ptr @luaM_toobig(ptr noundef nonnull %L) #7
+  %call6.i.i = tail call ptr @luaM_toobig(ptr noundef nonnull %L) #8
   %.pre.i.i = sext i32 %mul.i9 to i64
   br label %luaD_reallocCI.exit.i
 
@@ -949,7 +949,7 @@ luaD_reallocCI.exit.i:                            ; preds = %cond.false.i.i, %co
   br i1 %cmp3.i, label %if.then4.i, label %cond.end
 
 if.then4.i:                                       ; preds = %luaD_reallocCI.exit.i
-  tail call void (ptr, ptr, ...) @luaG_runerror(ptr noundef nonnull %L, ptr noundef nonnull @.str.7) #7
+  tail call void (ptr, ptr, ...) @luaG_runerror(ptr noundef nonnull %L, ptr noundef nonnull @.str.7) #8
   %.pre.i10 = load ptr, ptr %ci, align 8, !tbaa !26
   br label %cond.end
 
@@ -1013,7 +1013,7 @@ if.then.i229:                                     ; preds = %land.lhs.true.i
   %sub.ptr.lhs.cast.i231 = ptrtoint ptr %add.ptr58 to i64
   %sub.ptr.rhs.cast.i232 = ptrtoint ptr %77 to i64
   %sub.ptr.sub.i233 = sub i64 %sub.ptr.lhs.cast.i231, %sub.ptr.rhs.cast.i232
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %ar.i) #7
+  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %ar.i) #8
   store i32 0, ptr %ar.i, align 8, !tbaa !45
   %currentline.i = getelementptr inbounds i8, ptr %ar.i, i64 40
   store i32 -1, ptr %currentline.i, align 8, !tbaa !47
@@ -1051,7 +1051,7 @@ if.end26.i:                                       ; preds = %if.then24.i, %if.th
   %top29.i = getelementptr inbounds i8, ptr %82, i64 16
   store ptr %add.ptr.i238, ptr %top29.i, align 8, !tbaa !41
   store i8 0, ptr %allowhook.i, align 1, !tbaa !32
-  call void %75(ptr noundef nonnull %L, ptr noundef nonnull %ar.i) #7
+  call void %75(ptr noundef nonnull %L, ptr noundef nonnull %ar.i) #8
   store i8 1, ptr %allowhook.i, align 1, !tbaa !32
   %84 = load ptr, ptr %stack, align 8, !tbaa !36
   %add.ptr33.i = getelementptr inbounds i8, ptr %84, i64 %sub.ptr.sub.i233
@@ -1059,7 +1059,7 @@ if.end26.i:                                       ; preds = %if.then24.i, %if.th
   %top35.i = getelementptr inbounds i8, ptr %85, i64 16
   store ptr %add.ptr33.i, ptr %top35.i, align 8, !tbaa !41
   store ptr %add.ptr33.i, ptr %top, align 8, !tbaa !7
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %ar.i) #7
+  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %ar.i) #8
   %.pre299 = load ptr, ptr %savedpc, align 8, !tbaa !49
   br label %luaD_callhook.exit
 
@@ -1120,11 +1120,11 @@ cond.true.i.i37:                                  ; preds = %if.else.i15
   %mul.i.i39 = mul nuw nsw i64 %conv3.i.i38, 40
   %conv4.i.i40 = zext nneg i32 %mul.i16 to i64
   %mul5.i.i41 = mul nuw nsw i64 %conv4.i.i40, 40
-  %call.i.i42 = tail call ptr @luaM_realloc_(ptr noundef nonnull %L, ptr noundef %93, i64 noundef %mul.i.i39, i64 noundef %mul5.i.i41) #7
+  %call.i.i42 = tail call ptr @luaM_realloc_(ptr noundef nonnull %L, ptr noundef %93, i64 noundef %mul.i.i39, i64 noundef %mul5.i.i41) #8
   br label %luaD_reallocCI.exit.i22
 
 cond.false.i.i19:                                 ; preds = %if.else.i15
-  %call6.i.i20 = tail call ptr @luaM_toobig(ptr noundef nonnull %L) #7
+  %call6.i.i20 = tail call ptr @luaM_toobig(ptr noundef nonnull %L) #8
   %.pre.i.i21 = sext i32 %mul.i16 to i64
   br label %luaD_reallocCI.exit.i22
 
@@ -1146,7 +1146,7 @@ luaD_reallocCI.exit.i22:                          ; preds = %cond.false.i.i19, %
   br i1 %cmp3.i33, label %if.then4.i35, label %cond.end99
 
 if.then4.i35:                                     ; preds = %luaD_reallocCI.exit.i22
-  tail call void (ptr, ptr, ...) @luaG_runerror(ptr noundef nonnull %L, ptr noundef nonnull @.str.7) #7
+  tail call void (ptr, ptr, ...) @luaG_runerror(ptr noundef nonnull %L, ptr noundef nonnull @.str.7) #8
   %.pre.i36 = load ptr, ptr %ci, align 8, !tbaa !26
   br label %cond.end99
 
@@ -1192,7 +1192,7 @@ if.then.i256:                                     ; preds = %land.lhs.true.i253
   %sub.ptr.sub.i261 = sub i64 %sub.ptr.lhs.cast.i259, %sub.ptr.rhs.cast.i260
   %sub.ptr.lhs.cast6.i264 = ptrtoint ptr %add.ptr109 to i64
   %sub.ptr.sub8.i265 = sub i64 %sub.ptr.lhs.cast6.i264, %sub.ptr.rhs.cast.i260
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %ar.i250) #7
+  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %ar.i250) #8
   store i32 0, ptr %ar.i250, align 8, !tbaa !45
   %currentline.i266 = getelementptr inbounds i8, ptr %ar.i250, i64 40
   store i32 -1, ptr %currentline.i266, align 8, !tbaa !47
@@ -1230,7 +1230,7 @@ if.end26.i278:                                    ; preds = %if.then24.i284, %if
   %top29.i280 = getelementptr inbounds i8, ptr %105, i64 16
   store ptr %add.ptr.i279, ptr %top29.i280, align 8, !tbaa !41
   store i8 0, ptr %allowhook.i254, align 1, !tbaa !32
-  call void %99(ptr noundef nonnull %L, ptr noundef nonnull %ar.i250) #7
+  call void %99(ptr noundef nonnull %L, ptr noundef nonnull %ar.i250) #8
   store i8 1, ptr %allowhook.i254, align 1, !tbaa !32
   %107 = load ptr, ptr %stack, align 8, !tbaa !36
   %add.ptr33.i281 = getelementptr inbounds i8, ptr %107, i64 %sub.ptr.sub8.i265
@@ -1239,7 +1239,7 @@ if.end26.i278:                                    ; preds = %if.then24.i284, %if
   store ptr %add.ptr33.i281, ptr %top35.i282, align 8, !tbaa !41
   %add.ptr37.i283 = getelementptr inbounds i8, ptr %107, i64 %sub.ptr.sub.i261
   store ptr %add.ptr37.i283, ptr %top81, align 8, !tbaa !7
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %ar.i250) #7
+  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %ar.i250) #8
   br label %if.end117
 
 if.end117:                                        ; preds = %if.end26.i278, %land.lhs.true.i253, %if.then116, %cond.end99
@@ -1249,7 +1249,7 @@ if.end117:                                        ; preds = %if.end26.i278, %lan
   %111 = load ptr, ptr %110, align 8, !tbaa !4
   %f = getelementptr inbounds i8, ptr %111, i64 32
   %112 = load ptr, ptr %f, align 8, !tbaa !4
-  %call121 = call i32 %112(ptr noundef nonnull %L) #7
+  %call121 = call i32 %112(ptr noundef nonnull %L) #8
   %cmp122 = icmp slt i32 %call121, 0
   br i1 %cmp122, label %cleanup131, label %if.else125
 
@@ -1308,7 +1308,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   %7 = load ptr, ptr %top4.i.i, align 8, !tbaa !41
   %sub.ptr.lhs.cast6.i.i = ptrtoint ptr %7 to i64
   %sub.ptr.sub8.i.i = sub i64 %sub.ptr.lhs.cast6.i.i, %sub.ptr.rhs.cast.i.i
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %ar.i.i) #7
+  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %ar.i.i) #8
   store i32 1, ptr %ar.i.i, align 8, !tbaa !45
   %currentline.i.i = getelementptr inbounds i8, ptr %ar.i.i, i64 40
   store i32 -1, ptr %currentline.i.i, align 8, !tbaa !47
@@ -1347,7 +1347,7 @@ if.end26.i.i:                                     ; preds = %if.then24.i.i, %if.
   %top29.i.i = getelementptr inbounds i8, ptr %12, i64 16
   store ptr %add.ptr.i.i, ptr %top29.i.i, align 8, !tbaa !41
   store i8 0, ptr %allowhook.i.i, align 1, !tbaa !32
-  call void %3(ptr noundef nonnull %L, ptr noundef nonnull %ar.i.i) #7
+  call void %3(ptr noundef nonnull %L, ptr noundef nonnull %ar.i.i) #8
   store i8 1, ptr %allowhook.i.i, align 1, !tbaa !32
   %14 = load ptr, ptr %stack.i, align 8, !tbaa !36
   %add.ptr33.i.i = getelementptr inbounds i8, ptr %14, i64 %sub.ptr.sub8.i.i
@@ -1356,7 +1356,7 @@ if.end26.i.i:                                     ; preds = %if.then24.i.i, %if.
   store ptr %add.ptr33.i.i, ptr %top35.i.i, align 8, !tbaa !41
   %add.ptr37.i.i = getelementptr inbounds i8, ptr %14, i64 %sub.ptr.sub.i.i
   store ptr %add.ptr37.i.i, ptr %top3.i.i, align 8, !tbaa !7
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %ar.i.i) #7
+  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %ar.i.i) #8
   br label %luaD_callhook.exit.i
 
 luaD_callhook.exit.i:                             ; preds = %if.end26.i.i, %land.lhs.true.i.i, %if.then
@@ -1416,7 +1416,7 @@ if.then.i17.i:                                    ; preds = %land.lhs.true.i14.i
   %31 = load ptr, ptr %top4.i24.i, align 8, !tbaa !41
   %sub.ptr.lhs.cast6.i25.i = ptrtoint ptr %31 to i64
   %sub.ptr.sub8.i26.i = sub i64 %sub.ptr.lhs.cast6.i25.i, %sub.ptr.rhs.cast.i21.i
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %ar.i11.i) #7
+  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %ar.i11.i) #8
   store i32 4, ptr %ar.i11.i, align 8, !tbaa !45
   store i32 -1, ptr %currentline.i27.i, align 8, !tbaa !47
   store i32 0, ptr %23, align 4
@@ -1444,7 +1444,7 @@ if.end26.i32.i:                                   ; preds = %if.then24.i38.i, %i
   %top29.i34.i = getelementptr inbounds i8, ptr %34, i64 16
   store ptr %add.ptr.i33.i, ptr %top29.i34.i, align 8, !tbaa !41
   store i8 0, ptr %allowhook.i15.i, align 1, !tbaa !32
-  call void %28(ptr noundef nonnull %L, ptr noundef nonnull %ar.i11.i) #7
+  call void %28(ptr noundef nonnull %L, ptr noundef nonnull %ar.i11.i) #8
   store i8 1, ptr %allowhook.i15.i, align 1, !tbaa !32
   %36 = load ptr, ptr %stack.i, align 8, !tbaa !36
   %add.ptr33.i35.i = getelementptr inbounds i8, ptr %36, i64 %sub.ptr.sub8.i26.i
@@ -1453,7 +1453,7 @@ if.end26.i32.i:                                   ; preds = %if.then24.i38.i, %i
   store ptr %add.ptr33.i35.i, ptr %top35.i36.i, align 8, !tbaa !41
   %add.ptr37.i37.i = getelementptr inbounds i8, ptr %36, i64 %sub.ptr.sub.i22.i
   store ptr %add.ptr37.i37.i, ptr %top3.i18.i, align 8, !tbaa !7
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %ar.i11.i) #7
+  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %ar.i11.i) #8
   %.pre.i = load i8, ptr %hookmask, align 4, !tbaa !69
   br label %luaD_callhook.exit46.i
 
@@ -1594,7 +1594,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp4, label %if.then6, label %if.else
 
 if.then6:                                         ; preds = %if.then
-  tail call void (ptr, ptr, ...) @luaG_runerror(ptr noundef nonnull %L, ptr noundef nonnull @.str.2) #7
+  tail call void (ptr, ptr, ...) @luaG_runerror(ptr noundef nonnull %L, ptr noundef nonnull @.str.2) #8
   br label %if.end13
 
 if.else:                                          ; preds = %if.then
@@ -1611,7 +1611,7 @@ if.end13:                                         ; preds = %if.else, %if.then6,
   br i1 %cmp14, label %if.then16, label %if.end17
 
 if.then16:                                        ; preds = %if.end13
-  tail call void @luaV_execute(ptr noundef nonnull %L, i32 noundef 1) #7
+  tail call void @luaV_execute(ptr noundef nonnull %L, i32 noundef 1) #8
   br label %if.end17
 
 if.end17:                                         ; preds = %if.then16, %if.end13
@@ -1628,7 +1628,7 @@ if.end17:                                         ; preds = %if.then16, %if.end1
   br i1 %cmp20.not, label %if.end23, label %if.then22
 
 if.then22:                                        ; preds = %if.end17
-  tail call void @luaC_step(ptr noundef nonnull %L) #7
+  tail call void @luaC_step(ptr noundef nonnull %L) #8
   br label %if.end23
 
 if.end23:                                         ; preds = %if.then22, %if.end17
@@ -1669,7 +1669,7 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
   %4 = load ptr, ptr %3, align 8, !tbaa !27
   %top.i = getelementptr inbounds i8, ptr %L, i64 16
   store ptr %4, ptr %top.i, align 8, !tbaa !7
-  %call2.i = tail call ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull @.str.3, i64 noundef 37) #7
+  %call2.i = tail call ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull @.str.3, i64 noundef 37) #8
   store ptr %call2.i, ptr %4, align 8, !tbaa !4
   %tt.i = getelementptr inbounds i8, ptr %4, i64 8
   store i32 4, ptr %tt.i, align 8, !tbaa !14
@@ -1711,7 +1711,7 @@ if.then12:                                        ; preds = %if.end
   %11 = load ptr, ptr %10, align 8, !tbaa !27
   %top.i52 = getelementptr inbounds i8, ptr %L, i64 16
   store ptr %11, ptr %top.i52, align 8, !tbaa !7
-  %call2.i54 = tail call ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull @.str.2, i64 noundef 16) #7
+  %call2.i54 = tail call ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull @.str.2, i64 noundef 16) #8
   store ptr %call2.i54, ptr %11, align 8, !tbaa !4
   %tt.i55 = getelementptr inbounds i8, ptr %11, i64 8
   store i32 4, ptr %tt.i55, align 8, !tbaa !14
@@ -1767,12 +1767,12 @@ if.then19:                                        ; preds = %if.end14
   ]
 
 sw.bb.i:                                          ; preds = %if.then19
-  %call.i71 = tail call ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull @.str, i64 noundef 17) #7
+  %call.i71 = tail call ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull @.str, i64 noundef 17) #8
   store ptr %call.i71, ptr %17, align 8, !tbaa !4
   br label %sw.epilog.sink.split.i
 
 sw.bb1.i:                                         ; preds = %if.then19
-  %call3.i = tail call ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull @.str.1, i64 noundef 23) #7
+  %call3.i = tail call ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull @.str.1, i64 noundef 23) #8
   store ptr %call3.i, ptr %17, align 8, !tbaa !4
   br label %sw.epilog.sink.split.i
 
@@ -1874,7 +1874,7 @@ if.end18:                                         ; preds = %if.else14, %if.then
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %sub.ptr.div = sdiv exact i64 %sub.ptr.sub, 40
   %conv20 = trunc i64 %sub.ptr.div to i32
-  tail call void @luaV_execute(ptr noundef nonnull %L, i32 noundef %conv20) #7
+  tail call void @luaV_execute(ptr noundef nonnull %L, i32 noundef %conv20) #8
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end18, %if.then
@@ -1892,7 +1892,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call void (ptr, ptr, ...) @luaG_runerror(ptr noundef nonnull %L, ptr noundef nonnull @.str.4) #7
+  tail call void (ptr, ptr, ...) @luaG_runerror(ptr noundef nonnull %L, ptr noundef nonnull @.str.4) #8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -1933,7 +1933,7 @@ if.then:                                          ; preds = %entry
   %stack = getelementptr inbounds i8, ptr %L, i64 64
   %5 = load ptr, ptr %stack, align 8, !tbaa !36
   %add.ptr = getelementptr inbounds i8, ptr %5, i64 %old_top
-  tail call void @luaF_close(ptr noundef nonnull %L, ptr noundef %add.ptr) #7
+  tail call void @luaF_close(ptr noundef nonnull %L, ptr noundef %add.ptr) #8
   switch i32 %call, label %luaD_seterrorobj.exit [
     i32 4, label %sw.bb.i
     i32 5, label %sw.bb1.i
@@ -1942,12 +1942,12 @@ if.then:                                          ; preds = %entry
   ]
 
 sw.bb.i:                                          ; preds = %if.then
-  %call.i = tail call ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull @.str, i64 noundef 17) #7
+  %call.i = tail call ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull @.str, i64 noundef 17) #8
   store ptr %call.i, ptr %add.ptr, align 8, !tbaa !4
   br label %sw.epilog.sink.split.i
 
 sw.bb1.i:                                         ; preds = %if.then
-  %call3.i = tail call ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull @.str.1, i64 noundef 23) #7
+  %call3.i = tail call ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull @.str.1, i64 noundef 23) #8
   store ptr %call3.i, ptr %add.ptr, align 8, !tbaa !4
   br label %sw.epilog.sink.split.i
 
@@ -1996,7 +1996,7 @@ if.then3.i:                                       ; preds = %luaD_seterrorobj.ex
   %sub.ptr.rhs.cast.i = ptrtoint ptr %9 to i64
   %conv3.i.i = zext nneg i32 %12 to i64
   %mul.i.i = mul nuw nsw i64 %conv3.i.i, 40
-  %call.i.i = tail call ptr @luaM_realloc_(ptr noundef nonnull %L, ptr noundef nonnull %9, i64 noundef %mul.i.i, i64 noundef 800000) #7
+  %call.i.i = tail call ptr @luaM_realloc_(ptr noundef nonnull %L, ptr noundef nonnull %9, i64 noundef %mul.i.i, i64 noundef 800000) #8
   store ptr %call.i.i, ptr %base_ci, align 8, !tbaa !25
   store i32 20000, ptr %size_ci.i, align 4, !tbaa !33
   %13 = load ptr, ptr %ci, align 8, !tbaa !26
@@ -2020,7 +2020,7 @@ declare hidden void @luaF_close(ptr noundef, ptr noundef) local_unnamed_addr #2
 define hidden i32 @luaD_protectedparser(ptr noundef %L, ptr noundef %z, ptr noundef %name) local_unnamed_addr #0 {
 entry:
   %p = alloca %struct.SParser, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %p) #7
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %p) #8
   store ptr %z, ptr %p, align 8, !tbaa !77
   %name2 = getelementptr inbounds i8, ptr %p, i64 32
   store ptr %name, ptr %name2, align 8, !tbaa !79
@@ -2040,8 +2040,8 @@ entry:
   %call = call i32 @luaD_pcall(ptr noundef %L, ptr noundef nonnull @f_parser, ptr noundef nonnull %p, i64 noundef %sub.ptr.sub, i64 noundef %2)
   %3 = load ptr, ptr %buff, align 8, !tbaa !80
   %4 = load i64, ptr %buffsize, align 8, !tbaa !81
-  %call8 = call ptr @luaM_realloc_(ptr noundef %L, ptr noundef %3, i64 noundef %4, i64 noundef 0) #7
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %p) #7
+  %call8 = call ptr @luaM_realloc_(ptr noundef %L, ptr noundef %3, i64 noundef %4, i64 noundef 0) #8
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %p) #8
   ret i32 %call
 }
 
@@ -2049,7 +2049,7 @@ entry:
 define internal void @f_parser(ptr noundef %L, ptr noundef %ud) #0 {
 entry:
   %0 = load ptr, ptr %ud, align 8, !tbaa !77
-  %call = tail call i32 @luaZ_lookahead(ptr noundef %0) #7
+  %call = tail call i32 @luaZ_lookahead(ptr noundef %0) #8
   %l_G = getelementptr inbounds i8, ptr %L, i64 32
   %1 = load ptr, ptr %l_G, align 8, !tbaa !19
   %totalbytes = getelementptr inbounds i8, ptr %1, i64 120
@@ -2060,7 +2060,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call void @luaC_step(ptr noundef nonnull %L) #7
+  tail call void @luaC_step(ptr noundef nonnull %L) #8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -2068,13 +2068,13 @@ if.end:                                           ; preds = %if.then, %entry
   %buff = getelementptr inbounds i8, ptr %ud, i64 8
   %name = getelementptr inbounds i8, ptr %ud, i64 32
   %5 = load ptr, ptr %name, align 8, !tbaa !79
-  %call3 = tail call ptr @luaY_parser(ptr noundef nonnull %L, ptr noundef %4, ptr noundef nonnull %buff, ptr noundef %5) #7
+  %call3 = tail call ptr @luaY_parser(ptr noundef nonnull %L, ptr noundef %4, ptr noundef nonnull %buff, ptr noundef %5) #8
   %nups = getelementptr inbounds i8, ptr %call3, i64 112
   %6 = load i8, ptr %nups, align 8, !tbaa !82
   %conv = zext i8 %6 to i32
   %l_gt = getelementptr inbounds i8, ptr %L, i64 120
   %7 = load ptr, ptr %l_gt, align 8, !tbaa !4
-  %call4 = tail call ptr @luaF_newLclosure(ptr noundef nonnull %L, i32 noundef %conv, ptr noundef %7) #7
+  %call4 = tail call ptr @luaF_newLclosure(ptr noundef nonnull %L, i32 noundef %conv, ptr noundef %7) #8
   %p5 = getelementptr inbounds i8, ptr %call4, i64 32
   store ptr %call3, ptr %p5, align 8, !tbaa !4
   %8 = load i8, ptr %nups, align 8, !tbaa !82
@@ -2087,7 +2087,7 @@ for.body.lr.ph:                                   ; preds = %if.end
 
 for.body:                                         ; preds = %for.body, %for.body.lr.ph
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %call10 = tail call ptr @luaF_newupval(ptr noundef %L) #7
+  %call10 = tail call ptr @luaF_newupval(ptr noundef %L) #8
   %arrayidx = getelementptr inbounds [1 x ptr], ptr %upvals, i64 0, i64 %indvars.iv
   store ptr %call10, ptr %arrayidx, align 8, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2148,18 +2148,20 @@ declare hidden ptr @luaF_newLclosure(ptr noundef, i32 noundef, ptr noundef) loca
 declare hidden ptr @luaF_newupval(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind returns_twice "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { nounwind }
-attributes #8 = { noreturn nounwind }
-attributes #9 = { nounwind returns_twice }
+attributes #5 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind returns_twice "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { nounwind }
+attributes #9 = { noreturn nounwind }
+attributes #10 = { cold noreturn nounwind }
+attributes #11 = { nounwind returns_twice }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

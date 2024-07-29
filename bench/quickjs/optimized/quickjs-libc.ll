@@ -1055,7 +1055,7 @@ define dso_local void @js_std_init_handlers(ptr noundef %0) local_unnamed_addr #
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #1
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
@@ -3031,7 +3031,7 @@ define internal noundef { i64, i64 } @js_std_exit(ptr noundef %0, i64 %1, i64 %2
 
 12:                                               ; preds = %._crit_edge, %11
   %13 = phi i32 [ %.pre, %._crit_edge ], [ -1, %11 ]
-  call void @exit(i32 noundef %13) #33
+  call void @exit(i32 noundef %13) #35
   unreachable
 }
 
@@ -8483,7 +8483,7 @@ JS_FreeValue.exit286:                             ; preds = %150, %153, %158
   br i1 %177, label %178, label %179
 
 178:                                              ; preds = %174
-  call void @_exit(i32 noundef 127) #33
+  call void @_exit(i32 noundef 127) #35
   unreachable
 
 179:                                              ; preds = %170, %174
@@ -8508,7 +8508,7 @@ JS_FreeValue.exit286:                             ; preds = %150, %153, %158
   br i1 %184, label %185, label %186
 
 185:                                              ; preds = %182
-  call void @_exit(i32 noundef 127) #33
+  call void @_exit(i32 noundef 127) #35
   unreachable
 
 186:                                              ; preds = %182, %._crit_edge314
@@ -8522,7 +8522,7 @@ JS_FreeValue.exit286:                             ; preds = %150, %153, %158
   br i1 %190, label %191, label %192
 
 191:                                              ; preds = %188
-  call void @_exit(i32 noundef 127) #33
+  call void @_exit(i32 noundef 127) #35
   unreachable
 
 192:                                              ; preds = %188, %186
@@ -8536,7 +8536,7 @@ JS_FreeValue.exit286:                             ; preds = %150, %153, %158
   br i1 %196, label %197, label %198
 
 197:                                              ; preds = %194
-  call void @_exit(i32 noundef 127) #33
+  call void @_exit(i32 noundef 127) #35
   unreachable
 
 198:                                              ; preds = %194, %192
@@ -8562,7 +8562,7 @@ JS_FreeValue.exit286:                             ; preds = %150, %153, %158
   br label %206
 
 206:                                              ; preds = %204, %203
-  call void @_exit(i32 noundef 127) #33
+  call void @_exit(i32 noundef 127) #35
   unreachable
 
 207:                                              ; preds = %164
@@ -9301,7 +9301,7 @@ attributes #6 = { mustprogress nofree nounwind willreturn memory(argmem: read) "
 attributes #7 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #12 = { mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -9324,8 +9324,9 @@ attributes #29 = { nounwind }
 attributes #30 = { nounwind allocsize(0) }
 attributes #31 = { nounwind willreturn memory(read) }
 attributes #32 = { cold }
-attributes #33 = { noreturn nounwind }
+attributes #33 = { cold noreturn nounwind }
 attributes #34 = { cold nounwind }
+attributes #35 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
 

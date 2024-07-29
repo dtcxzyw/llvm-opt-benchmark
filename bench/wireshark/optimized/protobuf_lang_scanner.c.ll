@@ -85,13 +85,13 @@ define hidden range(i32 0, 63) i32 @protobuf_lang_lex(ptr noundef %0) local_unna
   br i1 %.not646, label %33, label %51
 
 27:                                               ; preds = %19
-  %28 = tail call noalias dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #24
+  %28 = tail call noalias dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #25
   store ptr %28, ptr %20, align 8
   %.not26.i = icmp eq ptr %28, null
   br i1 %.not26.i, label %29, label %30
 
 29:                                               ; preds = %27
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.12) #25
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.12) #26
   unreachable
 
 30:                                               ; preds = %27
@@ -112,13 +112,13 @@ define hidden range(i32 0, 63) i32 @protobuf_lang_lex(ptr noundef %0) local_unna
 37:                                               ; preds = %33
   %38 = add i64 %35, 8
   %39 = shl i64 %38, 3
-  %40 = tail call ptr @realloc(ptr noundef nonnull %21, i64 noundef %39) #26
+  %40 = tail call ptr @realloc(ptr noundef nonnull %21, i64 noundef %39) #27
   store ptr %40, ptr %20, align 8
   %.not28.i = icmp eq ptr %40, null
   br i1 %.not28.i, label %41, label %42
 
 41:                                               ; preds = %37
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.12) #25
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.12) #26
   unreachable
 
 42:                                               ; preds = %37
@@ -429,7 +429,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   br label %127
 
 168:                                              ; preds = %.loopexit971
-  %169 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
+  %169 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %170 = load ptr, ptr %0, align 8
   %171 = getelementptr inbounds i8, ptr %170, i64 56
   store ptr %169, ptr %171, align 8
@@ -438,7 +438,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %174 = load ptr, ptr %173, align 8
   %175 = getelementptr inbounds i8, ptr %172, i64 24
   %176 = load ptr, ptr %175, align 8
-  %177 = tail call ptr @g_slist_prepend(ptr noundef %176, ptr noundef %174) #28
+  %177 = tail call ptr @g_slist_prepend(ptr noundef %176, ptr noundef %174) #29
   store ptr %177, ptr %175, align 8
   %178 = load ptr, ptr %74, align 8
   %.val = load ptr, ptr %0, align 8
@@ -459,7 +459,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   br i1 %.not8.i, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
 188:                                              ; preds = %.loopexit971
-  %189 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
+  %189 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %190 = load ptr, ptr %0, align 8
   %191 = getelementptr inbounds i8, ptr %190, i64 56
   store ptr %189, ptr %191, align 8
@@ -468,7 +468,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %194 = load ptr, ptr %193, align 8
   %195 = getelementptr inbounds i8, ptr %192, i64 24
   %196 = load ptr, ptr %195, align 8
-  %197 = tail call ptr @g_slist_prepend(ptr noundef %196, ptr noundef %194) #28
+  %197 = tail call ptr @g_slist_prepend(ptr noundef %196, ptr noundef %194) #29
   store ptr %197, ptr %195, align 8
   %198 = load ptr, ptr %74, align 8
   %.val654 = load ptr, ptr %0, align 8
@@ -489,7 +489,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   br i1 %.not8.i718, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
 208:                                              ; preds = %.loopexit971
-  %209 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
+  %209 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %210 = load ptr, ptr %0, align 8
   %211 = getelementptr inbounds i8, ptr %210, i64 56
   store ptr %209, ptr %211, align 8
@@ -498,7 +498,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %214 = load ptr, ptr %213, align 8
   %215 = getelementptr inbounds i8, ptr %212, i64 24
   %216 = load ptr, ptr %215, align 8
-  %217 = tail call ptr @g_slist_prepend(ptr noundef %216, ptr noundef %214) #28
+  %217 = tail call ptr @g_slist_prepend(ptr noundef %216, ptr noundef %214) #29
   store ptr %217, ptr %215, align 8
   %218 = load ptr, ptr %74, align 8
   %.val655 = load ptr, ptr %0, align 8
@@ -519,7 +519,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   br i1 %.not8.i722, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
 228:                                              ; preds = %.loopexit971
-  %229 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
+  %229 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %230 = load ptr, ptr %0, align 8
   %231 = getelementptr inbounds i8, ptr %230, i64 56
   store ptr %229, ptr %231, align 8
@@ -528,7 +528,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %234 = load ptr, ptr %233, align 8
   %235 = getelementptr inbounds i8, ptr %232, i64 24
   %236 = load ptr, ptr %235, align 8
-  %237 = tail call ptr @g_slist_prepend(ptr noundef %236, ptr noundef %234) #28
+  %237 = tail call ptr @g_slist_prepend(ptr noundef %236, ptr noundef %234) #29
   store ptr %237, ptr %235, align 8
   %238 = load ptr, ptr %74, align 8
   %.val656 = load ptr, ptr %0, align 8
@@ -549,7 +549,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   br i1 %.not8.i726, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
 248:                                              ; preds = %.loopexit971
-  %249 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
+  %249 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %250 = load ptr, ptr %0, align 8
   %251 = getelementptr inbounds i8, ptr %250, i64 56
   store ptr %249, ptr %251, align 8
@@ -558,7 +558,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %254 = load ptr, ptr %253, align 8
   %255 = getelementptr inbounds i8, ptr %252, i64 24
   %256 = load ptr, ptr %255, align 8
-  %257 = tail call ptr @g_slist_prepend(ptr noundef %256, ptr noundef %254) #28
+  %257 = tail call ptr @g_slist_prepend(ptr noundef %256, ptr noundef %254) #29
   store ptr %257, ptr %255, align 8
   %258 = load ptr, ptr %74, align 8
   %.val657 = load ptr, ptr %0, align 8
@@ -579,7 +579,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   br i1 %.not8.i730, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
 268:                                              ; preds = %.loopexit971
-  %269 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
+  %269 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %270 = load ptr, ptr %0, align 8
   %271 = getelementptr inbounds i8, ptr %270, i64 56
   store ptr %269, ptr %271, align 8
@@ -588,7 +588,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %274 = load ptr, ptr %273, align 8
   %275 = getelementptr inbounds i8, ptr %272, i64 24
   %276 = load ptr, ptr %275, align 8
-  %277 = tail call ptr @g_slist_prepend(ptr noundef %276, ptr noundef %274) #28
+  %277 = tail call ptr @g_slist_prepend(ptr noundef %276, ptr noundef %274) #29
   store ptr %277, ptr %275, align 8
   %278 = load ptr, ptr %74, align 8
   %.val658 = load ptr, ptr %0, align 8
@@ -609,7 +609,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   br i1 %.not8.i734, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
 288:                                              ; preds = %.loopexit971
-  %289 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
+  %289 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %290 = load ptr, ptr %0, align 8
   %291 = getelementptr inbounds i8, ptr %290, i64 56
   store ptr %289, ptr %291, align 8
@@ -618,7 +618,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %294 = load ptr, ptr %293, align 8
   %295 = getelementptr inbounds i8, ptr %292, i64 24
   %296 = load ptr, ptr %295, align 8
-  %297 = tail call ptr @g_slist_prepend(ptr noundef %296, ptr noundef %294) #28
+  %297 = tail call ptr @g_slist_prepend(ptr noundef %296, ptr noundef %294) #29
   store ptr %297, ptr %295, align 8
   %298 = load ptr, ptr %74, align 8
   %.val659 = load ptr, ptr %0, align 8
@@ -639,7 +639,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   br i1 %.not8.i738, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
 308:                                              ; preds = %.loopexit971
-  %309 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
+  %309 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %310 = load ptr, ptr %0, align 8
   %311 = getelementptr inbounds i8, ptr %310, i64 56
   store ptr %309, ptr %311, align 8
@@ -648,7 +648,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %314 = load ptr, ptr %313, align 8
   %315 = getelementptr inbounds i8, ptr %312, i64 24
   %316 = load ptr, ptr %315, align 8
-  %317 = tail call ptr @g_slist_prepend(ptr noundef %316, ptr noundef %314) #28
+  %317 = tail call ptr @g_slist_prepend(ptr noundef %316, ptr noundef %314) #29
   store ptr %317, ptr %315, align 8
   %318 = load ptr, ptr %74, align 8
   %.val660 = load ptr, ptr %0, align 8
@@ -669,7 +669,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   br i1 %.not8.i742, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
 328:                                              ; preds = %.loopexit971
-  %329 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
+  %329 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %330 = load ptr, ptr %0, align 8
   %331 = getelementptr inbounds i8, ptr %330, i64 56
   store ptr %329, ptr %331, align 8
@@ -678,7 +678,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %334 = load ptr, ptr %333, align 8
   %335 = getelementptr inbounds i8, ptr %332, i64 24
   %336 = load ptr, ptr %335, align 8
-  %337 = tail call ptr @g_slist_prepend(ptr noundef %336, ptr noundef %334) #28
+  %337 = tail call ptr @g_slist_prepend(ptr noundef %336, ptr noundef %334) #29
   store ptr %337, ptr %335, align 8
   %338 = load ptr, ptr %74, align 8
   %.val661 = load ptr, ptr %0, align 8
@@ -699,7 +699,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   br i1 %.not8.i746, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
 348:                                              ; preds = %.loopexit971
-  %349 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
+  %349 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %350 = load ptr, ptr %0, align 8
   %351 = getelementptr inbounds i8, ptr %350, i64 56
   store ptr %349, ptr %351, align 8
@@ -708,7 +708,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %354 = load ptr, ptr %353, align 8
   %355 = getelementptr inbounds i8, ptr %352, i64 24
   %356 = load ptr, ptr %355, align 8
-  %357 = tail call ptr @g_slist_prepend(ptr noundef %356, ptr noundef %354) #28
+  %357 = tail call ptr @g_slist_prepend(ptr noundef %356, ptr noundef %354) #29
   store ptr %357, ptr %355, align 8
   %358 = load ptr, ptr %74, align 8
   %.val662 = load ptr, ptr %0, align 8
@@ -729,7 +729,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   br i1 %.not8.i750, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
 368:                                              ; preds = %.loopexit971
-  %369 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
+  %369 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %370 = load ptr, ptr %0, align 8
   %371 = getelementptr inbounds i8, ptr %370, i64 56
   store ptr %369, ptr %371, align 8
@@ -738,7 +738,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %374 = load ptr, ptr %373, align 8
   %375 = getelementptr inbounds i8, ptr %372, i64 24
   %376 = load ptr, ptr %375, align 8
-  %377 = tail call ptr @g_slist_prepend(ptr noundef %376, ptr noundef %374) #28
+  %377 = tail call ptr @g_slist_prepend(ptr noundef %376, ptr noundef %374) #29
   store ptr %377, ptr %375, align 8
   %378 = load ptr, ptr %74, align 8
   %.val663 = load ptr, ptr %0, align 8
@@ -759,7 +759,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   br i1 %.not8.i754, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
 388:                                              ; preds = %.loopexit971
-  %389 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
+  %389 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %390 = load ptr, ptr %0, align 8
   %391 = getelementptr inbounds i8, ptr %390, i64 56
   store ptr %389, ptr %391, align 8
@@ -768,7 +768,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %394 = load ptr, ptr %393, align 8
   %395 = getelementptr inbounds i8, ptr %392, i64 24
   %396 = load ptr, ptr %395, align 8
-  %397 = tail call ptr @g_slist_prepend(ptr noundef %396, ptr noundef %394) #28
+  %397 = tail call ptr @g_slist_prepend(ptr noundef %396, ptr noundef %394) #29
   store ptr %397, ptr %395, align 8
   %398 = load ptr, ptr %74, align 8
   %.val664 = load ptr, ptr %0, align 8
@@ -789,7 +789,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   br i1 %.not8.i758, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
 408:                                              ; preds = %.loopexit971
-  %409 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
+  %409 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %410 = load ptr, ptr %0, align 8
   %411 = getelementptr inbounds i8, ptr %410, i64 56
   store ptr %409, ptr %411, align 8
@@ -798,7 +798,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %414 = load ptr, ptr %413, align 8
   %415 = getelementptr inbounds i8, ptr %412, i64 24
   %416 = load ptr, ptr %415, align 8
-  %417 = tail call ptr @g_slist_prepend(ptr noundef %416, ptr noundef %414) #28
+  %417 = tail call ptr @g_slist_prepend(ptr noundef %416, ptr noundef %414) #29
   store ptr %417, ptr %415, align 8
   %418 = load ptr, ptr %74, align 8
   %.val665 = load ptr, ptr %0, align 8
@@ -819,7 +819,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   br i1 %.not8.i762, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
 428:                                              ; preds = %.loopexit971
-  %429 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
+  %429 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %430 = load ptr, ptr %0, align 8
   %431 = getelementptr inbounds i8, ptr %430, i64 56
   store ptr %429, ptr %431, align 8
@@ -828,7 +828,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %434 = load ptr, ptr %433, align 8
   %435 = getelementptr inbounds i8, ptr %432, i64 24
   %436 = load ptr, ptr %435, align 8
-  %437 = tail call ptr @g_slist_prepend(ptr noundef %436, ptr noundef %434) #28
+  %437 = tail call ptr @g_slist_prepend(ptr noundef %436, ptr noundef %434) #29
   store ptr %437, ptr %435, align 8
   %438 = load ptr, ptr %74, align 8
   %.val666 = load ptr, ptr %0, align 8
@@ -849,7 +849,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   br i1 %.not8.i766, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
 448:                                              ; preds = %.loopexit971
-  %449 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
+  %449 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %450 = load ptr, ptr %0, align 8
   %451 = getelementptr inbounds i8, ptr %450, i64 56
   store ptr %449, ptr %451, align 8
@@ -858,7 +858,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %454 = load ptr, ptr %453, align 8
   %455 = getelementptr inbounds i8, ptr %452, i64 24
   %456 = load ptr, ptr %455, align 8
-  %457 = tail call ptr @g_slist_prepend(ptr noundef %456, ptr noundef %454) #28
+  %457 = tail call ptr @g_slist_prepend(ptr noundef %456, ptr noundef %454) #29
   store ptr %457, ptr %455, align 8
   %458 = load ptr, ptr %74, align 8
   %.val667 = load ptr, ptr %0, align 8
@@ -879,7 +879,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   br i1 %.not8.i770, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
 468:                                              ; preds = %.loopexit971
-  %469 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
+  %469 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %470 = load ptr, ptr %0, align 8
   %471 = getelementptr inbounds i8, ptr %470, i64 56
   store ptr %469, ptr %471, align 8
@@ -888,7 +888,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %474 = load ptr, ptr %473, align 8
   %475 = getelementptr inbounds i8, ptr %472, i64 24
   %476 = load ptr, ptr %475, align 8
-  %477 = tail call ptr @g_slist_prepend(ptr noundef %476, ptr noundef %474) #28
+  %477 = tail call ptr @g_slist_prepend(ptr noundef %476, ptr noundef %474) #29
   store ptr %477, ptr %475, align 8
   %478 = load ptr, ptr %74, align 8
   %.val668 = load ptr, ptr %0, align 8
@@ -909,7 +909,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   br i1 %.not8.i774, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
 488:                                              ; preds = %.loopexit971
-  %489 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
+  %489 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %490 = load ptr, ptr %0, align 8
   %491 = getelementptr inbounds i8, ptr %490, i64 56
   store ptr %489, ptr %491, align 8
@@ -918,7 +918,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %494 = load ptr, ptr %493, align 8
   %495 = getelementptr inbounds i8, ptr %492, i64 24
   %496 = load ptr, ptr %495, align 8
-  %497 = tail call ptr @g_slist_prepend(ptr noundef %496, ptr noundef %494) #28
+  %497 = tail call ptr @g_slist_prepend(ptr noundef %496, ptr noundef %494) #29
   store ptr %497, ptr %495, align 8
   %498 = load ptr, ptr %74, align 8
   %.val669 = load ptr, ptr %0, align 8
@@ -939,7 +939,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   br i1 %.not8.i778, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
 508:                                              ; preds = %.loopexit971
-  %509 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
+  %509 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %510 = load ptr, ptr %0, align 8
   %511 = getelementptr inbounds i8, ptr %510, i64 56
   store ptr %509, ptr %511, align 8
@@ -948,7 +948,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %514 = load ptr, ptr %513, align 8
   %515 = getelementptr inbounds i8, ptr %512, i64 24
   %516 = load ptr, ptr %515, align 8
-  %517 = tail call ptr @g_slist_prepend(ptr noundef %516, ptr noundef %514) #28
+  %517 = tail call ptr @g_slist_prepend(ptr noundef %516, ptr noundef %514) #29
   store ptr %517, ptr %515, align 8
   %518 = load ptr, ptr %74, align 8
   %.val670 = load ptr, ptr %0, align 8
@@ -969,7 +969,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   br i1 %.not8.i782, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
 528:                                              ; preds = %.loopexit971
-  %529 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
+  %529 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %530 = load ptr, ptr %0, align 8
   %531 = getelementptr inbounds i8, ptr %530, i64 56
   store ptr %529, ptr %531, align 8
@@ -978,7 +978,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %534 = load ptr, ptr %533, align 8
   %535 = getelementptr inbounds i8, ptr %532, i64 24
   %536 = load ptr, ptr %535, align 8
-  %537 = tail call ptr @g_slist_prepend(ptr noundef %536, ptr noundef %534) #28
+  %537 = tail call ptr @g_slist_prepend(ptr noundef %536, ptr noundef %534) #29
   store ptr %537, ptr %535, align 8
   %538 = load ptr, ptr %74, align 8
   %.val671 = load ptr, ptr %0, align 8
@@ -999,7 +999,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   br i1 %.not8.i786, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
 548:                                              ; preds = %.loopexit971
-  %549 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
+  %549 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %550 = load ptr, ptr %0, align 8
   %551 = getelementptr inbounds i8, ptr %550, i64 56
   store ptr %549, ptr %551, align 8
@@ -1008,7 +1008,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %554 = load ptr, ptr %553, align 8
   %555 = getelementptr inbounds i8, ptr %552, i64 24
   %556 = load ptr, ptr %555, align 8
-  %557 = tail call ptr @g_slist_prepend(ptr noundef %556, ptr noundef %554) #28
+  %557 = tail call ptr @g_slist_prepend(ptr noundef %556, ptr noundef %554) #29
   store ptr %557, ptr %555, align 8
   %558 = load ptr, ptr %74, align 8
   %.val672 = load ptr, ptr %0, align 8
@@ -1029,7 +1029,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   br i1 %.not8.i790, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
 568:                                              ; preds = %.loopexit971
-  %569 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
+  %569 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %570 = load ptr, ptr %0, align 8
   %571 = getelementptr inbounds i8, ptr %570, i64 56
   store ptr %569, ptr %571, align 8
@@ -1038,7 +1038,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %574 = load ptr, ptr %573, align 8
   %575 = getelementptr inbounds i8, ptr %572, i64 24
   %576 = load ptr, ptr %575, align 8
-  %577 = tail call ptr @g_slist_prepend(ptr noundef %576, ptr noundef %574) #28
+  %577 = tail call ptr @g_slist_prepend(ptr noundef %576, ptr noundef %574) #29
   store ptr %577, ptr %575, align 8
   %578 = load ptr, ptr %74, align 8
   %.val673 = load ptr, ptr %0, align 8
@@ -1059,7 +1059,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   br i1 %.not8.i794, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
 588:                                              ; preds = %.loopexit971
-  %589 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
+  %589 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %590 = load ptr, ptr %0, align 8
   %591 = getelementptr inbounds i8, ptr %590, i64 56
   store ptr %589, ptr %591, align 8
@@ -1068,7 +1068,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %594 = load ptr, ptr %593, align 8
   %595 = getelementptr inbounds i8, ptr %592, i64 24
   %596 = load ptr, ptr %595, align 8
-  %597 = tail call ptr @g_slist_prepend(ptr noundef %596, ptr noundef %594) #28
+  %597 = tail call ptr @g_slist_prepend(ptr noundef %596, ptr noundef %594) #29
   store ptr %597, ptr %595, align 8
   %598 = load ptr, ptr %74, align 8
   %.val674 = load ptr, ptr %0, align 8
@@ -1089,7 +1089,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   br i1 %.not8.i798, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
 608:                                              ; preds = %.loopexit971
-  %609 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
+  %609 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %610 = load ptr, ptr %0, align 8
   %611 = getelementptr inbounds i8, ptr %610, i64 56
   store ptr %609, ptr %611, align 8
@@ -1098,7 +1098,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %614 = load ptr, ptr %613, align 8
   %615 = getelementptr inbounds i8, ptr %612, i64 24
   %616 = load ptr, ptr %615, align 8
-  %617 = tail call ptr @g_slist_prepend(ptr noundef %616, ptr noundef %614) #28
+  %617 = tail call ptr @g_slist_prepend(ptr noundef %616, ptr noundef %614) #29
   store ptr %617, ptr %615, align 8
   %618 = load ptr, ptr %74, align 8
   %.val675 = load ptr, ptr %0, align 8
@@ -1119,7 +1119,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   br i1 %.not8.i802, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
 628:                                              ; preds = %.loopexit971
-  %629 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
+  %629 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %630 = load ptr, ptr %0, align 8
   %631 = getelementptr inbounds i8, ptr %630, i64 56
   store ptr %629, ptr %631, align 8
@@ -1128,7 +1128,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %634 = load ptr, ptr %633, align 8
   %635 = getelementptr inbounds i8, ptr %632, i64 24
   %636 = load ptr, ptr %635, align 8
-  %637 = tail call ptr @g_slist_prepend(ptr noundef %636, ptr noundef %634) #28
+  %637 = tail call ptr @g_slist_prepend(ptr noundef %636, ptr noundef %634) #29
   store ptr %637, ptr %635, align 8
   %638 = load ptr, ptr %74, align 8
   %.val676 = load ptr, ptr %0, align 8
@@ -1149,7 +1149,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   br i1 %.not8.i806, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
 648:                                              ; preds = %.loopexit971
-  %649 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
+  %649 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %650 = load ptr, ptr %0, align 8
   %651 = getelementptr inbounds i8, ptr %650, i64 56
   store ptr %649, ptr %651, align 8
@@ -1158,7 +1158,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %654 = load ptr, ptr %653, align 8
   %655 = getelementptr inbounds i8, ptr %652, i64 24
   %656 = load ptr, ptr %655, align 8
-  %657 = tail call ptr @g_slist_prepend(ptr noundef %656, ptr noundef %654) #28
+  %657 = tail call ptr @g_slist_prepend(ptr noundef %656, ptr noundef %654) #29
   store ptr %657, ptr %655, align 8
   %658 = load ptr, ptr %74, align 8
   %.val677 = load ptr, ptr %0, align 8
@@ -1179,7 +1179,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   br i1 %.not8.i810, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
 668:                                              ; preds = %.loopexit971
-  %669 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
+  %669 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %670 = load ptr, ptr %0, align 8
   %671 = getelementptr inbounds i8, ptr %670, i64 56
   store ptr %669, ptr %671, align 8
@@ -1188,7 +1188,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %674 = load ptr, ptr %673, align 8
   %675 = getelementptr inbounds i8, ptr %672, i64 24
   %676 = load ptr, ptr %675, align 8
-  %677 = tail call ptr @g_slist_prepend(ptr noundef %676, ptr noundef %674) #28
+  %677 = tail call ptr @g_slist_prepend(ptr noundef %676, ptr noundef %674) #29
   store ptr %677, ptr %675, align 8
   %678 = load ptr, ptr %74, align 8
   %.val678 = load ptr, ptr %0, align 8
@@ -1209,7 +1209,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   br i1 %.not8.i814, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
 688:                                              ; preds = %.loopexit971
-  %689 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
+  %689 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %690 = load ptr, ptr %0, align 8
   %691 = getelementptr inbounds i8, ptr %690, i64 56
   store ptr %689, ptr %691, align 8
@@ -1218,7 +1218,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %694 = load ptr, ptr %693, align 8
   %695 = getelementptr inbounds i8, ptr %692, i64 24
   %696 = load ptr, ptr %695, align 8
-  %697 = tail call ptr @g_slist_prepend(ptr noundef %696, ptr noundef %694) #28
+  %697 = tail call ptr @g_slist_prepend(ptr noundef %696, ptr noundef %694) #29
   store ptr %697, ptr %695, align 8
   %698 = load ptr, ptr %74, align 8
   %.val679 = load ptr, ptr %0, align 8
@@ -1239,7 +1239,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   br i1 %.not8.i818, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
 708:                                              ; preds = %.loopexit971
-  %709 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
+  %709 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %710 = load ptr, ptr %0, align 8
   %711 = getelementptr inbounds i8, ptr %710, i64 56
   store ptr %709, ptr %711, align 8
@@ -1248,7 +1248,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %714 = load ptr, ptr %713, align 8
   %715 = getelementptr inbounds i8, ptr %712, i64 24
   %716 = load ptr, ptr %715, align 8
-  %717 = tail call ptr @g_slist_prepend(ptr noundef %716, ptr noundef %714) #28
+  %717 = tail call ptr @g_slist_prepend(ptr noundef %716, ptr noundef %714) #29
   store ptr %717, ptr %715, align 8
   %718 = load ptr, ptr %74, align 8
   %.val680 = load ptr, ptr %0, align 8
@@ -1269,7 +1269,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   br i1 %.not8.i822, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
 728:                                              ; preds = %.loopexit971
-  %729 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
+  %729 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %730 = load ptr, ptr %0, align 8
   %731 = getelementptr inbounds i8, ptr %730, i64 56
   store ptr %729, ptr %731, align 8
@@ -1278,7 +1278,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %734 = load ptr, ptr %733, align 8
   %735 = getelementptr inbounds i8, ptr %732, i64 24
   %736 = load ptr, ptr %735, align 8
-  %737 = tail call ptr @g_slist_prepend(ptr noundef %736, ptr noundef %734) #28
+  %737 = tail call ptr @g_slist_prepend(ptr noundef %736, ptr noundef %734) #29
   store ptr %737, ptr %735, align 8
   %738 = load ptr, ptr %74, align 8
   %.val681 = load ptr, ptr %0, align 8
@@ -1299,7 +1299,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   br i1 %.not8.i826, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
 748:                                              ; preds = %.loopexit971
-  %749 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
+  %749 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %750 = load ptr, ptr %0, align 8
   %751 = getelementptr inbounds i8, ptr %750, i64 56
   store ptr %749, ptr %751, align 8
@@ -1308,7 +1308,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %754 = load ptr, ptr %753, align 8
   %755 = getelementptr inbounds i8, ptr %752, i64 24
   %756 = load ptr, ptr %755, align 8
-  %757 = tail call ptr @g_slist_prepend(ptr noundef %756, ptr noundef %754) #28
+  %757 = tail call ptr @g_slist_prepend(ptr noundef %756, ptr noundef %754) #29
   store ptr %757, ptr %755, align 8
   %758 = load ptr, ptr %74, align 8
   %.val682 = load ptr, ptr %0, align 8
@@ -1329,7 +1329,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   br i1 %.not8.i830, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
 768:                                              ; preds = %.loopexit971
-  %769 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
+  %769 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %770 = load ptr, ptr %0, align 8
   %771 = getelementptr inbounds i8, ptr %770, i64 56
   store ptr %769, ptr %771, align 8
@@ -1338,7 +1338,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %774 = load ptr, ptr %773, align 8
   %775 = getelementptr inbounds i8, ptr %772, i64 24
   %776 = load ptr, ptr %775, align 8
-  %777 = tail call ptr @g_slist_prepend(ptr noundef %776, ptr noundef %774) #28
+  %777 = tail call ptr @g_slist_prepend(ptr noundef %776, ptr noundef %774) #29
   store ptr %777, ptr %775, align 8
   %778 = load ptr, ptr %74, align 8
   %.val683 = load ptr, ptr %0, align 8
@@ -1359,7 +1359,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   br i1 %.not8.i834, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
 788:                                              ; preds = %.loopexit971
-  %789 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
+  %789 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %790 = load ptr, ptr %0, align 8
   %791 = getelementptr inbounds i8, ptr %790, i64 56
   store ptr %789, ptr %791, align 8
@@ -1368,7 +1368,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %794 = load ptr, ptr %793, align 8
   %795 = getelementptr inbounds i8, ptr %792, i64 24
   %796 = load ptr, ptr %795, align 8
-  %797 = tail call ptr @g_slist_prepend(ptr noundef %796, ptr noundef %794) #28
+  %797 = tail call ptr @g_slist_prepend(ptr noundef %796, ptr noundef %794) #29
   store ptr %797, ptr %795, align 8
   %798 = load ptr, ptr %74, align 8
   %.val684 = load ptr, ptr %0, align 8
@@ -1389,7 +1389,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   br i1 %.not8.i838, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
 808:                                              ; preds = %.loopexit971
-  %809 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
+  %809 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %810 = load ptr, ptr %0, align 8
   %811 = getelementptr inbounds i8, ptr %810, i64 56
   store ptr %809, ptr %811, align 8
@@ -1398,7 +1398,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %814 = load ptr, ptr %813, align 8
   %815 = getelementptr inbounds i8, ptr %812, i64 24
   %816 = load ptr, ptr %815, align 8
-  %817 = tail call ptr @g_slist_prepend(ptr noundef %816, ptr noundef %814) #28
+  %817 = tail call ptr @g_slist_prepend(ptr noundef %816, ptr noundef %814) #29
   store ptr %817, ptr %815, align 8
   %818 = load ptr, ptr %74, align 8
   %.val685 = load ptr, ptr %0, align 8
@@ -1419,7 +1419,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   br i1 %.not8.i842, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
 828:                                              ; preds = %.loopexit971
-  %829 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
+  %829 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %830 = load ptr, ptr %0, align 8
   %831 = getelementptr inbounds i8, ptr %830, i64 56
   store ptr %829, ptr %831, align 8
@@ -1428,7 +1428,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %834 = load ptr, ptr %833, align 8
   %835 = getelementptr inbounds i8, ptr %832, i64 24
   %836 = load ptr, ptr %835, align 8
-  %837 = tail call ptr @g_slist_prepend(ptr noundef %836, ptr noundef %834) #28
+  %837 = tail call ptr @g_slist_prepend(ptr noundef %836, ptr noundef %834) #29
   store ptr %837, ptr %835, align 8
   %838 = load ptr, ptr %74, align 8
   %.val686 = load ptr, ptr %0, align 8
@@ -1449,7 +1449,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   br i1 %.not8.i846, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
 848:                                              ; preds = %.loopexit971
-  %849 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
+  %849 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %850 = load ptr, ptr %0, align 8
   %851 = getelementptr inbounds i8, ptr %850, i64 56
   store ptr %849, ptr %851, align 8
@@ -1458,7 +1458,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %854 = load ptr, ptr %853, align 8
   %855 = getelementptr inbounds i8, ptr %852, i64 24
   %856 = load ptr, ptr %855, align 8
-  %857 = tail call ptr @g_slist_prepend(ptr noundef %856, ptr noundef %854) #28
+  %857 = tail call ptr @g_slist_prepend(ptr noundef %856, ptr noundef %854) #29
   store ptr %857, ptr %855, align 8
   %858 = load ptr, ptr %74, align 8
   %.val687 = load ptr, ptr %0, align 8
@@ -1479,7 +1479,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   br i1 %.not8.i850, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
 868:                                              ; preds = %.loopexit971
-  %869 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
+  %869 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %870 = load ptr, ptr %0, align 8
   %871 = getelementptr inbounds i8, ptr %870, i64 56
   store ptr %869, ptr %871, align 8
@@ -1488,7 +1488,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %874 = load ptr, ptr %873, align 8
   %875 = getelementptr inbounds i8, ptr %872, i64 24
   %876 = load ptr, ptr %875, align 8
-  %877 = tail call ptr @g_slist_prepend(ptr noundef %876, ptr noundef %874) #28
+  %877 = tail call ptr @g_slist_prepend(ptr noundef %876, ptr noundef %874) #29
   store ptr %877, ptr %875, align 8
   %878 = load ptr, ptr %74, align 8
   %.val688 = load ptr, ptr %0, align 8
@@ -1509,7 +1509,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   br i1 %.not8.i854, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
 888:                                              ; preds = %.loopexit971
-  %889 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
+  %889 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %890 = load ptr, ptr %0, align 8
   %891 = getelementptr inbounds i8, ptr %890, i64 56
   store ptr %889, ptr %891, align 8
@@ -1518,7 +1518,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %894 = load ptr, ptr %893, align 8
   %895 = getelementptr inbounds i8, ptr %892, i64 24
   %896 = load ptr, ptr %895, align 8
-  %897 = tail call ptr @g_slist_prepend(ptr noundef %896, ptr noundef %894) #28
+  %897 = tail call ptr @g_slist_prepend(ptr noundef %896, ptr noundef %894) #29
   store ptr %897, ptr %895, align 8
   %898 = load ptr, ptr %74, align 8
   %.val689 = load ptr, ptr %0, align 8
@@ -1539,7 +1539,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   br i1 %.not8.i858, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
 908:                                              ; preds = %.loopexit971
-  %909 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
+  %909 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %910 = load ptr, ptr %0, align 8
   %911 = getelementptr inbounds i8, ptr %910, i64 56
   store ptr %909, ptr %911, align 8
@@ -1548,7 +1548,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %914 = load ptr, ptr %913, align 8
   %915 = getelementptr inbounds i8, ptr %912, i64 24
   %916 = load ptr, ptr %915, align 8
-  %917 = tail call ptr @g_slist_prepend(ptr noundef %916, ptr noundef %914) #28
+  %917 = tail call ptr @g_slist_prepend(ptr noundef %916, ptr noundef %914) #29
   store ptr %917, ptr %915, align 8
   %918 = load ptr, ptr %74, align 8
   %.val690 = load ptr, ptr %0, align 8
@@ -1569,7 +1569,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   br i1 %.not8.i862, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
 928:                                              ; preds = %.loopexit971
-  %929 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
+  %929 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %930 = load ptr, ptr %0, align 8
   %931 = getelementptr inbounds i8, ptr %930, i64 56
   store ptr %929, ptr %931, align 8
@@ -1578,7 +1578,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %934 = load ptr, ptr %933, align 8
   %935 = getelementptr inbounds i8, ptr %932, i64 24
   %936 = load ptr, ptr %935, align 8
-  %937 = tail call ptr @g_slist_prepend(ptr noundef %936, ptr noundef %934) #28
+  %937 = tail call ptr @g_slist_prepend(ptr noundef %936, ptr noundef %934) #29
   store ptr %937, ptr %935, align 8
   %938 = load ptr, ptr %74, align 8
   %.val691 = load ptr, ptr %0, align 8
@@ -1599,7 +1599,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   br i1 %.not8.i866, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
 948:                                              ; preds = %.loopexit971
-  %949 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
+  %949 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %950 = load ptr, ptr %0, align 8
   %951 = getelementptr inbounds i8, ptr %950, i64 56
   store ptr %949, ptr %951, align 8
@@ -1608,7 +1608,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %954 = load ptr, ptr %953, align 8
   %955 = getelementptr inbounds i8, ptr %952, i64 24
   %956 = load ptr, ptr %955, align 8
-  %957 = tail call ptr @g_slist_prepend(ptr noundef %956, ptr noundef %954) #28
+  %957 = tail call ptr @g_slist_prepend(ptr noundef %956, ptr noundef %954) #29
   store ptr %957, ptr %955, align 8
   %958 = load ptr, ptr %74, align 8
   %.val692 = load ptr, ptr %0, align 8
@@ -1629,7 +1629,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   br i1 %.not8.i870, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
 968:                                              ; preds = %.loopexit971
-  %969 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
+  %969 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %970 = load ptr, ptr %0, align 8
   %971 = getelementptr inbounds i8, ptr %970, i64 56
   store ptr %969, ptr %971, align 8
@@ -1638,7 +1638,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %974 = load ptr, ptr %973, align 8
   %975 = getelementptr inbounds i8, ptr %972, i64 24
   %976 = load ptr, ptr %975, align 8
-  %977 = tail call ptr @g_slist_prepend(ptr noundef %976, ptr noundef %974) #28
+  %977 = tail call ptr @g_slist_prepend(ptr noundef %976, ptr noundef %974) #29
   store ptr %977, ptr %975, align 8
   %978 = load ptr, ptr %74, align 8
   %.val693 = load ptr, ptr %0, align 8
@@ -1659,7 +1659,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   br i1 %.not8.i874, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
 988:                                              ; preds = %.loopexit971
-  %989 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
+  %989 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %990 = load ptr, ptr %0, align 8
   %991 = getelementptr inbounds i8, ptr %990, i64 56
   store ptr %989, ptr %991, align 8
@@ -1668,7 +1668,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %994 = load ptr, ptr %993, align 8
   %995 = getelementptr inbounds i8, ptr %992, i64 24
   %996 = load ptr, ptr %995, align 8
-  %997 = tail call ptr @g_slist_prepend(ptr noundef %996, ptr noundef %994) #28
+  %997 = tail call ptr @g_slist_prepend(ptr noundef %996, ptr noundef %994) #29
   store ptr %997, ptr %995, align 8
   %998 = load ptr, ptr %74, align 8
   %.val694 = load ptr, ptr %0, align 8
@@ -1689,7 +1689,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   br i1 %.not8.i878, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
 1008:                                             ; preds = %.loopexit971
-  %1009 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
+  %1009 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %1010 = load ptr, ptr %0, align 8
   %1011 = getelementptr inbounds i8, ptr %1010, i64 56
   store ptr %1009, ptr %1011, align 8
@@ -1698,7 +1698,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %1014 = load ptr, ptr %1013, align 8
   %1015 = getelementptr inbounds i8, ptr %1012, i64 24
   %1016 = load ptr, ptr %1015, align 8
-  %1017 = tail call ptr @g_slist_prepend(ptr noundef %1016, ptr noundef %1014) #28
+  %1017 = tail call ptr @g_slist_prepend(ptr noundef %1016, ptr noundef %1014) #29
   store ptr %1017, ptr %1015, align 8
   %1018 = load ptr, ptr %74, align 8
   %.val695 = load ptr, ptr %0, align 8
@@ -1719,7 +1719,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   br i1 %.not8.i882, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
 1028:                                             ; preds = %.loopexit971
-  %1029 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
+  %1029 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %1030 = load ptr, ptr %0, align 8
   %1031 = getelementptr inbounds i8, ptr %1030, i64 56
   store ptr %1029, ptr %1031, align 8
@@ -1728,7 +1728,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %1034 = load ptr, ptr %1033, align 8
   %1035 = getelementptr inbounds i8, ptr %1032, i64 24
   %1036 = load ptr, ptr %1035, align 8
-  %1037 = tail call ptr @g_slist_prepend(ptr noundef %1036, ptr noundef %1034) #28
+  %1037 = tail call ptr @g_slist_prepend(ptr noundef %1036, ptr noundef %1034) #29
   store ptr %1037, ptr %1035, align 8
   %1038 = load ptr, ptr %74, align 8
   %.val696 = load ptr, ptr %0, align 8
@@ -1749,7 +1749,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   br i1 %.not8.i886, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
 1048:                                             ; preds = %.loopexit971
-  %1049 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
+  %1049 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %1050 = load ptr, ptr %0, align 8
   %1051 = getelementptr inbounds i8, ptr %1050, i64 56
   store ptr %1049, ptr %1051, align 8
@@ -1758,7 +1758,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %1054 = load ptr, ptr %1053, align 8
   %1055 = getelementptr inbounds i8, ptr %1052, i64 24
   %1056 = load ptr, ptr %1055, align 8
-  %1057 = tail call ptr @g_slist_prepend(ptr noundef %1056, ptr noundef %1054) #28
+  %1057 = tail call ptr @g_slist_prepend(ptr noundef %1056, ptr noundef %1054) #29
   store ptr %1057, ptr %1055, align 8
   %1058 = load ptr, ptr %74, align 8
   %.val697 = load ptr, ptr %0, align 8
@@ -1779,7 +1779,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   br i1 %.not8.i890, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
 1068:                                             ; preds = %.loopexit971
-  %1069 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
+  %1069 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %1070 = load ptr, ptr %0, align 8
   %1071 = getelementptr inbounds i8, ptr %1070, i64 56
   store ptr %1069, ptr %1071, align 8
@@ -1788,7 +1788,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %1074 = load ptr, ptr %1073, align 8
   %1075 = getelementptr inbounds i8, ptr %1072, i64 24
   %1076 = load ptr, ptr %1075, align 8
-  %1077 = tail call ptr @g_slist_prepend(ptr noundef %1076, ptr noundef %1074) #28
+  %1077 = tail call ptr @g_slist_prepend(ptr noundef %1076, ptr noundef %1074) #29
   store ptr %1077, ptr %1075, align 8
   %1078 = load ptr, ptr %74, align 8
   %.val698 = load ptr, ptr %0, align 8
@@ -1809,7 +1809,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   br i1 %.not8.i894, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
 1088:                                             ; preds = %.loopexit971
-  %1089 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
+  %1089 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %1090 = load ptr, ptr %0, align 8
   %1091 = getelementptr inbounds i8, ptr %1090, i64 56
   store ptr %1089, ptr %1091, align 8
@@ -1818,7 +1818,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %1094 = load ptr, ptr %1093, align 8
   %1095 = getelementptr inbounds i8, ptr %1092, i64 24
   %1096 = load ptr, ptr %1095, align 8
-  %1097 = tail call ptr @g_slist_prepend(ptr noundef %1096, ptr noundef %1094) #28
+  %1097 = tail call ptr @g_slist_prepend(ptr noundef %1096, ptr noundef %1094) #29
   store ptr %1097, ptr %1095, align 8
   %1098 = load ptr, ptr %74, align 8
   %.val699 = load ptr, ptr %0, align 8
@@ -1839,7 +1839,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   br i1 %.not8.i898, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
 1108:                                             ; preds = %.loopexit971
-  %1109 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
+  %1109 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %1110 = load ptr, ptr %0, align 8
   %1111 = getelementptr inbounds i8, ptr %1110, i64 56
   store ptr %1109, ptr %1111, align 8
@@ -1848,7 +1848,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %1114 = load ptr, ptr %1113, align 8
   %1115 = getelementptr inbounds i8, ptr %1112, i64 24
   %1116 = load ptr, ptr %1115, align 8
-  %1117 = tail call ptr @g_slist_prepend(ptr noundef %1116, ptr noundef %1114) #28
+  %1117 = tail call ptr @g_slist_prepend(ptr noundef %1116, ptr noundef %1114) #29
   store ptr %1117, ptr %1115, align 8
   %1118 = load ptr, ptr %74, align 8
   %.val700 = load ptr, ptr %0, align 8
@@ -1869,7 +1869,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   br i1 %.not8.i902, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
 1128:                                             ; preds = %.loopexit971
-  %1129 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
+  %1129 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %1130 = load ptr, ptr %0, align 8
   %1131 = getelementptr inbounds i8, ptr %1130, i64 56
   store ptr %1129, ptr %1131, align 8
@@ -1878,7 +1878,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %1134 = load ptr, ptr %1133, align 8
   %1135 = getelementptr inbounds i8, ptr %1132, i64 24
   %1136 = load ptr, ptr %1135, align 8
-  %1137 = tail call ptr @g_slist_prepend(ptr noundef %1136, ptr noundef %1134) #28
+  %1137 = tail call ptr @g_slist_prepend(ptr noundef %1136, ptr noundef %1134) #29
   store ptr %1137, ptr %1135, align 8
   %1138 = load ptr, ptr %74, align 8
   %.val701 = load ptr, ptr %0, align 8
@@ -1899,7 +1899,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   br i1 %.not8.i906, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
 1148:                                             ; preds = %.loopexit971
-  %1149 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
+  %1149 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %1150 = load ptr, ptr %0, align 8
   %1151 = getelementptr inbounds i8, ptr %1150, i64 56
   store ptr %1149, ptr %1151, align 8
@@ -1908,7 +1908,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %1154 = load ptr, ptr %1153, align 8
   %1155 = getelementptr inbounds i8, ptr %1152, i64 24
   %1156 = load ptr, ptr %1155, align 8
-  %1157 = tail call ptr @g_slist_prepend(ptr noundef %1156, ptr noundef %1154) #28
+  %1157 = tail call ptr @g_slist_prepend(ptr noundef %1156, ptr noundef %1154) #29
   store ptr %1157, ptr %1155, align 8
   %1158 = load ptr, ptr %74, align 8
   %.val702 = load ptr, ptr %0, align 8
@@ -1929,7 +1929,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   br i1 %.not8.i910, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
 1168:                                             ; preds = %.loopexit971
-  %1169 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
+  %1169 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %1170 = load ptr, ptr %0, align 8
   %1171 = getelementptr inbounds i8, ptr %1170, i64 56
   store ptr %1169, ptr %1171, align 8
@@ -1938,7 +1938,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %1174 = load ptr, ptr %1173, align 8
   %1175 = getelementptr inbounds i8, ptr %1172, i64 24
   %1176 = load ptr, ptr %1175, align 8
-  %1177 = tail call ptr @g_slist_prepend(ptr noundef %1176, ptr noundef %1174) #28
+  %1177 = tail call ptr @g_slist_prepend(ptr noundef %1176, ptr noundef %1174) #29
   store ptr %1177, ptr %1175, align 8
   %1178 = load ptr, ptr %74, align 8
   %.val703 = load ptr, ptr %0, align 8
@@ -1959,7 +1959,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   br i1 %.not8.i914, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
 1188:                                             ; preds = %.loopexit971
-  %1189 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
+  %1189 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %1190 = load ptr, ptr %0, align 8
   %1191 = getelementptr inbounds i8, ptr %1190, i64 56
   store ptr %1189, ptr %1191, align 8
@@ -1968,7 +1968,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %1194 = load ptr, ptr %1193, align 8
   %1195 = getelementptr inbounds i8, ptr %1192, i64 24
   %1196 = load ptr, ptr %1195, align 8
-  %1197 = tail call ptr @g_slist_prepend(ptr noundef %1196, ptr noundef %1194) #28
+  %1197 = tail call ptr @g_slist_prepend(ptr noundef %1196, ptr noundef %1194) #29
   store ptr %1197, ptr %1195, align 8
   %1198 = load ptr, ptr %74, align 8
   %.val704 = load ptr, ptr %0, align 8
@@ -1989,7 +1989,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   br i1 %.not8.i918, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
 1208:                                             ; preds = %.loopexit971
-  %1209 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
+  %1209 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %1210 = load ptr, ptr %0, align 8
   %1211 = getelementptr inbounds i8, ptr %1210, i64 56
   store ptr %1209, ptr %1211, align 8
@@ -1998,7 +1998,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %1214 = load ptr, ptr %1213, align 8
   %1215 = getelementptr inbounds i8, ptr %1212, i64 24
   %1216 = load ptr, ptr %1215, align 8
-  %1217 = tail call ptr @g_slist_prepend(ptr noundef %1216, ptr noundef %1214) #28
+  %1217 = tail call ptr @g_slist_prepend(ptr noundef %1216, ptr noundef %1214) #29
   store ptr %1217, ptr %1215, align 8
   %1218 = load ptr, ptr %74, align 8
   %.val705 = load ptr, ptr %0, align 8
@@ -2019,7 +2019,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   br i1 %.not8.i922, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
 1228:                                             ; preds = %.loopexit971
-  %1229 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
+  %1229 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %1230 = load ptr, ptr %0, align 8
   %1231 = getelementptr inbounds i8, ptr %1230, i64 56
   store ptr %1229, ptr %1231, align 8
@@ -2028,7 +2028,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %1234 = load ptr, ptr %1233, align 8
   %1235 = getelementptr inbounds i8, ptr %1232, i64 24
   %1236 = load ptr, ptr %1235, align 8
-  %1237 = tail call ptr @g_slist_prepend(ptr noundef %1236, ptr noundef %1234) #28
+  %1237 = tail call ptr @g_slist_prepend(ptr noundef %1236, ptr noundef %1234) #29
   store ptr %1237, ptr %1235, align 8
   %1238 = load ptr, ptr %74, align 8
   %.val706 = load ptr, ptr %0, align 8
@@ -2049,7 +2049,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   br i1 %.not8.i926, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
 1248:                                             ; preds = %.loopexit971
-  %1249 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
+  %1249 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %1250 = load ptr, ptr %0, align 8
   %1251 = getelementptr inbounds i8, ptr %1250, i64 56
   store ptr %1249, ptr %1251, align 8
@@ -2058,7 +2058,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %1254 = load ptr, ptr %1253, align 8
   %1255 = getelementptr inbounds i8, ptr %1252, i64 24
   %1256 = load ptr, ptr %1255, align 8
-  %1257 = tail call ptr @g_slist_prepend(ptr noundef %1256, ptr noundef %1254) #28
+  %1257 = tail call ptr @g_slist_prepend(ptr noundef %1256, ptr noundef %1254) #29
   store ptr %1257, ptr %1255, align 8
   %1258 = load ptr, ptr %74, align 8
   %.val707 = load ptr, ptr %0, align 8
@@ -2079,7 +2079,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   br i1 %.not8.i930, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
 1268:                                             ; preds = %.loopexit971
-  %1269 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
+  %1269 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %1270 = load ptr, ptr %0, align 8
   %1271 = getelementptr inbounds i8, ptr %1270, i64 56
   store ptr %1269, ptr %1271, align 8
@@ -2088,7 +2088,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %1274 = load ptr, ptr %1273, align 8
   %1275 = getelementptr inbounds i8, ptr %1272, i64 24
   %1276 = load ptr, ptr %1275, align 8
-  %1277 = tail call ptr @g_slist_prepend(ptr noundef %1276, ptr noundef %1274) #28
+  %1277 = tail call ptr @g_slist_prepend(ptr noundef %1276, ptr noundef %1274) #29
   store ptr %1277, ptr %1275, align 8
   %1278 = load ptr, ptr %74, align 8
   %.val708 = load ptr, ptr %0, align 8
@@ -2109,7 +2109,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   br i1 %.not8.i934, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
 1288:                                             ; preds = %.loopexit971
-  %1289 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
+  %1289 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %1290 = load ptr, ptr %0, align 8
   %1291 = getelementptr inbounds i8, ptr %1290, i64 56
   store ptr %1289, ptr %1291, align 8
@@ -2118,7 +2118,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %1294 = load ptr, ptr %1293, align 8
   %1295 = getelementptr inbounds i8, ptr %1292, i64 24
   %1296 = load ptr, ptr %1295, align 8
-  %1297 = tail call ptr @g_slist_prepend(ptr noundef %1296, ptr noundef %1294) #28
+  %1297 = tail call ptr @g_slist_prepend(ptr noundef %1296, ptr noundef %1294) #29
   store ptr %1297, ptr %1295, align 8
   %1298 = load ptr, ptr %74, align 8
   %.val709 = load ptr, ptr %0, align 8
@@ -2139,7 +2139,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   br i1 %.not8.i938, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
 1308:                                             ; preds = %.loopexit971
-  %1309 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
+  %1309 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %1310 = load ptr, ptr %0, align 8
   %1311 = getelementptr inbounds i8, ptr %1310, i64 56
   store ptr %1309, ptr %1311, align 8
@@ -2148,7 +2148,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %1314 = load ptr, ptr %1313, align 8
   %1315 = getelementptr inbounds i8, ptr %1312, i64 24
   %1316 = load ptr, ptr %1315, align 8
-  %1317 = tail call ptr @g_slist_prepend(ptr noundef %1316, ptr noundef %1314) #28
+  %1317 = tail call ptr @g_slist_prepend(ptr noundef %1316, ptr noundef %1314) #29
   store ptr %1317, ptr %1315, align 8
   %1318 = load ptr, ptr %74, align 8
   %.val710 = load ptr, ptr %0, align 8
@@ -2169,7 +2169,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   br i1 %.not8.i942, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
 1328:                                             ; preds = %.loopexit971
-  %1329 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
+  %1329 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %1330 = load ptr, ptr %0, align 8
   %1331 = getelementptr inbounds i8, ptr %1330, i64 56
   store ptr %1329, ptr %1331, align 8
@@ -2178,7 +2178,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %1334 = load ptr, ptr %1333, align 8
   %1335 = getelementptr inbounds i8, ptr %1332, i64 24
   %1336 = load ptr, ptr %1335, align 8
-  %1337 = tail call ptr @g_slist_prepend(ptr noundef %1336, ptr noundef %1334) #28
+  %1337 = tail call ptr @g_slist_prepend(ptr noundef %1336, ptr noundef %1334) #29
   store ptr %1337, ptr %1335, align 8
   %1338 = load ptr, ptr %74, align 8
   %.val711 = load ptr, ptr %0, align 8
@@ -2199,7 +2199,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   br i1 %.not8.i946, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
 1348:                                             ; preds = %.loopexit971
-  %1349 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
+  %1349 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %1350 = load ptr, ptr %0, align 8
   %1351 = getelementptr inbounds i8, ptr %1350, i64 56
   store ptr %1349, ptr %1351, align 8
@@ -2208,7 +2208,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %1354 = load ptr, ptr %1353, align 8
   %1355 = getelementptr inbounds i8, ptr %1352, i64 24
   %1356 = load ptr, ptr %1355, align 8
-  %1357 = tail call ptr @g_slist_prepend(ptr noundef %1356, ptr noundef %1354) #28
+  %1357 = tail call ptr @g_slist_prepend(ptr noundef %1356, ptr noundef %1354) #29
   store ptr %1357, ptr %1355, align 8
   %1358 = load ptr, ptr %74, align 8
   %.val712 = load ptr, ptr %0, align 8
@@ -2229,7 +2229,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   br i1 %.not8.i950, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
 1368:                                             ; preds = %.loopexit971
-  %1369 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
+  %1369 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %1370 = load ptr, ptr %0, align 8
   %1371 = getelementptr inbounds i8, ptr %1370, i64 56
   store ptr %1369, ptr %1371, align 8
@@ -2238,7 +2238,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %1374 = load ptr, ptr %1373, align 8
   %1375 = getelementptr inbounds i8, ptr %1372, i64 24
   %1376 = load ptr, ptr %1375, align 8
-  %1377 = tail call ptr @g_slist_prepend(ptr noundef %1376, ptr noundef %1374) #28
+  %1377 = tail call ptr @g_slist_prepend(ptr noundef %1376, ptr noundef %1374) #29
   store ptr %1377, ptr %1375, align 8
   %1378 = load ptr, ptr %74, align 8
   %.val713 = load ptr, ptr %0, align 8
@@ -2259,7 +2259,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   br i1 %.not8.i954, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
 1388:                                             ; preds = %.loopexit971
-  %1389 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
+  %1389 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %1390 = load ptr, ptr %0, align 8
   %1391 = getelementptr inbounds i8, ptr %1390, i64 56
   store ptr %1389, ptr %1391, align 8
@@ -2268,7 +2268,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %1394 = load ptr, ptr %1393, align 8
   %1395 = getelementptr inbounds i8, ptr %1392, i64 24
   %1396 = load ptr, ptr %1395, align 8
-  %1397 = tail call ptr @g_slist_prepend(ptr noundef %1396, ptr noundef %1394) #28
+  %1397 = tail call ptr @g_slist_prepend(ptr noundef %1396, ptr noundef %1394) #29
   store ptr %1397, ptr %1395, align 8
   %1398 = load ptr, ptr %74, align 8
   %.val714 = load ptr, ptr %0, align 8
@@ -2289,7 +2289,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   br i1 %.not8.i958, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
 
 1408:                                             ; preds = %.loopexit971
-  %1409 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
+  %1409 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #28
   %1410 = load ptr, ptr %0, align 8
   %1411 = getelementptr inbounds i8, ptr %1410, i64 56
   store ptr %1409, ptr %1411, align 8
@@ -2298,7 +2298,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %1414 = load ptr, ptr %1413, align 8
   %1415 = getelementptr inbounds i8, ptr %1412, i64 24
   %1416 = load ptr, ptr %1415, align 8
-  %1417 = tail call ptr @g_slist_prepend(ptr noundef %1416, ptr noundef %1414) #28
+  %1417 = tail call ptr @g_slist_prepend(ptr noundef %1416, ptr noundef %1414) #29
   store ptr %1417, ptr %1415, align 8
   %1418 = load ptr, ptr %74, align 8
   %.val715 = load ptr, ptr %0, align 8
@@ -2335,7 +2335,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
 
 1436:                                             ; preds = %.loopexit971
   %1437 = load ptr, ptr %0, align 8
-  tail call void (ptr, ptr, ...) @pbl_parser_error(ptr noundef %1437, ptr noundef nonnull @.str) #28
+  tail call void (ptr, ptr, ...) @pbl_parser_error(ptr noundef %1437, ptr noundef nonnull @.str) #29
   br label %.loopexit.backedge
 
 1438:                                             ; preds = %.loopexit971
@@ -2440,7 +2440,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   br i1 %1494, label %1495, label %1496
 
 1495:                                             ; preds = %1489
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.8) #25
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.8) #26
   unreachable
 
 1496:                                             ; preds = %1489
@@ -2542,13 +2542,13 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store i32 %storemerge146.i, ptr %1536, align 8
   %1543 = add i32 %storemerge146.i, 2
   %1544 = sext i32 %1543 to i64
-  %1545 = tail call ptr @realloc(ptr noundef %1529, i64 noundef %1544) #26
+  %1545 = tail call ptr @realloc(ptr noundef %1529, i64 noundef %1544) #27
   store ptr %1545, ptr %1528, align 8
   %.not147.i = icmp eq ptr %1545, null
   br i1 %.not147.i, label %.loopexit.i, label %1546
 
 .loopexit.i:                                      ; preds = %1542, %.thread.i
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.9) #25
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.9) #26
   unreachable
 
 1546:                                             ; preds = %1542
@@ -2632,12 +2632,12 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
 
 1583:                                             ; preds = %.critedge.i
   %1584 = load ptr, ptr %79, align 8
-  %1585 = tail call i32 @ferror(ptr noundef %1584) #28
+  %1585 = tail call i32 @ferror(ptr noundef %1584) #29
   %.not143.i = icmp eq i32 %1585, 0
   br i1 %.not143.i, label %1587, label %1586
 
 1586:                                             ; preds = %1583
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.10) #25
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.10) #26
   unreachable
 
 1587:                                             ; preds = %1583, %.thread152.i, %.critedge.i
@@ -2646,7 +2646,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   br label %.critedge2.i
 
 1588:                                             ; preds = %._crit_edge167.i
-  %1589 = tail call ptr @__errno_location() #29
+  %1589 = tail call ptr @__errno_location() #30
   store i32 0, ptr %1589, align 4
   %sext.i = shl i64 %1507, 32
   %1590 = ashr exact i64 %sext.i, 32
@@ -2667,7 +2667,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
 
 .lr.ph170.i:                                      ; preds = %1588, %1608
   %1603 = load ptr, ptr %79, align 8
-  %1604 = tail call i32 @ferror(ptr noundef %1603) #28
+  %1604 = tail call i32 @ferror(ptr noundef %1603) #29
   %.not140.i = icmp eq i32 %1604, 0
   br i1 %.not140.i, label %.critedge2.i, label %1605
 
@@ -2677,13 +2677,13 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   br i1 %.not141.i, label %1608, label %1607
 
 1607:                                             ; preds = %1605
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.10) #25
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.10) #26
   unreachable
 
 1608:                                             ; preds = %1605
   store i32 0, ptr %1589, align 4
   %1609 = load ptr, ptr %79, align 8
-  tail call void @clearerr(ptr noundef %1609) #28
+  tail call void @clearerr(ptr noundef %1609) #29
   %1610 = load ptr, ptr %76, align 8
   %1611 = load i64, ptr %77, align 8
   %1612 = getelementptr ptr, ptr %1610, i64 %1611
@@ -2752,7 +2752,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %1653 = getelementptr inbounds i8, ptr %1646, i64 8
   %1654 = load ptr, ptr %1653, align 8
   %1655 = sext i32 %1652 to i64
-  %1656 = tail call ptr @realloc(ptr noundef %1654, i64 noundef %1655) #26
+  %1656 = tail call ptr @realloc(ptr noundef %1654, i64 noundef %1655) #27
   %1657 = load ptr, ptr %76, align 8
   %1658 = load i64, ptr %77, align 8
   %1659 = getelementptr ptr, ptr %1657, i64 %1658
@@ -2769,7 +2769,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   br i1 %.not149.i, label %1668, label %1669
 
 1668:                                             ; preds = %1650
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.11) #25
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.11) #26
   unreachable
 
 1669:                                             ; preds = %1650
@@ -2860,7 +2860,7 @@ yy_get_next_buffer.exit.thread968:                ; preds = %1502, %yy_get_next_
   br label %.outer.backedge
 
 1715:                                             ; preds = %.loopexit971
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.1) #25
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.1) #26
   unreachable
 
 default.unreachable1311:                          ; preds = %yy_get_next_buffer.exit
@@ -2888,14 +2888,14 @@ default.unreachable1311:                          ; preds = %yy_get_next_buffer.
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
-define hidden noundef ptr @protobuf_lang__create_buffer(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
-  %4 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #24
+; Function Attrs: nofree nounwind uwtable
+define hidden noundef ptr @protobuf_lang__create_buffer(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #1 {
+  %4 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #25
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %6
 
 5:                                                ; preds = %3
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.2) #25
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.2) #26
   unreachable
 
 6:                                                ; preds = %3
@@ -2903,20 +2903,20 @@ define hidden noundef ptr @protobuf_lang__create_buffer(ptr noundef %0, i32 noun
   store i32 %1, ptr %7, align 8
   %8 = add i32 %1, 2
   %9 = sext i32 %8 to i64
-  %10 = tail call noalias ptr @malloc(i64 noundef %9) #24
+  %10 = tail call noalias ptr @malloc(i64 noundef %9) #25
   %11 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %10, ptr %11, align 8
   %.not12 = icmp eq ptr %10, null
   br i1 %.not12, label %12, label %13
 
 12:                                               ; preds = %6
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.2) #25
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.2) #26
   unreachable
 
 13:                                               ; preds = %6
   %14 = getelementptr inbounds i8, ptr %4, i64 32
   store i32 1, ptr %14, align 8
-  %15 = tail call ptr @__errno_location() #29
+  %15 = tail call ptr @__errno_location() #30
   %16 = load i32, ptr %15, align 4
   %17 = getelementptr inbounds i8, ptr %4, i64 28
   store i32 0, ptr %17, align 4
@@ -3003,26 +3003,26 @@ protobuf_lang__init_buffer.exit:                  ; preds = %52, %54
 }
 
 ; Function Attrs: allocsize(0,1)
-declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #1
+declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @protobuf_lang_get_extra(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define hidden ptr @protobuf_lang_get_extra(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
   %2 = load ptr, ptr %0, align 8
   ret ptr %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef ptr @strdup_and_store(ptr nocapture %.0.val, ptr noundef %0) unnamed_addr #0 {
-  %2 = tail call noalias ptr @g_strdup(ptr noundef %0) #28
+  %2 = tail call noalias ptr @g_strdup(ptr noundef %0) #29
   %3 = getelementptr inbounds i8, ptr %.0.val, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = tail call ptr @g_slist_prepend(ptr noundef %4, ptr noundef %2) #28
+  %5 = tail call ptr @g_slist_prepend(ptr noundef %4, ptr noundef %2) #29
   store ptr %5, ptr %3, align 8
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @protobuf_lang_get_lineno(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define hidden i32 @protobuf_lang_get_lineno(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -3046,13 +3046,13 @@ define hidden i32 @protobuf_lang_get_lineno(ptr nocapture noundef readonly %0) l
   ret i32 %.0
 }
 
-declare void @pbl_parser_error(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
+declare void @pbl_parser_error(ptr noundef, ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @yy_get_previous_state(ptr nocapture noundef %0) unnamed_addr #6 {
+define internal fastcc i32 @yy_get_previous_state(ptr nocapture noundef %0) unnamed_addr #7 {
   %2 = getelementptr inbounds i8, ptr %0, i64 76
   %3 = load i32, ptr %2, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 128
@@ -3147,7 +3147,7 @@ define internal fastcc i32 @yy_get_previous_state(ptr nocapture noundef %0) unna
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 -32768, 32768) i32 @yy_try_NUL_trans(i32 noundef %0, ptr nocapture noundef %1) unnamed_addr #7 {
+define internal fastcc range(i32 -32768, 32768) i32 @yy_try_NUL_trans(i32 noundef %0, ptr nocapture noundef %1) unnamed_addr #8 {
   %3 = sext i32 %0 to i64
   %4 = getelementptr [185 x i16], ptr @yy_accept, i64 0, i64 %3
   %5 = load i16, ptr %4, align 2
@@ -3198,11 +3198,11 @@ define internal fastcc range(i32 -32768, 32768) i32 @yy_try_NUL_trans(i32 nounde
   ret i32 %32
 }
 
-; Function Attrs: noreturn nounwind uwtable
-define internal fastcc void @yy_fatal_error(ptr noundef %0) unnamed_addr #8 {
+; Function Attrs: nofree noreturn nounwind uwtable
+define internal fastcc void @yy_fatal_error(ptr noundef %0) unnamed_addr #9 {
   %2 = load ptr, ptr @stderr, align 8
-  %3 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.13, ptr noundef %0) #30
-  tail call void @exit(i32 noundef 2) #31
+  %3 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.13, ptr noundef %0) #31
+  tail call void @exit(i32 noundef 2) #32
   unreachable
 }
 
@@ -3222,13 +3222,13 @@ define hidden void @protobuf_lang_restart(ptr noundef %0, ptr nocapture noundef 
   br i1 %.not16, label %16, label %.thread
 
 10:                                               ; preds = %2
-  %11 = tail call noalias dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #24
+  %11 = tail call noalias dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #25
   store ptr %11, ptr %3, align 8
   %.not26.i = icmp eq ptr %11, null
   br i1 %.not26.i, label %12, label %13
 
 12:                                               ; preds = %10
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.12) #25
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.12) #26
   unreachable
 
 13:                                               ; preds = %10
@@ -3249,13 +3249,13 @@ define hidden void @protobuf_lang_restart(ptr noundef %0, ptr nocapture noundef 
 20:                                               ; preds = %16
   %21 = add i64 %18, 8
   %22 = shl i64 %21, 3
-  %23 = tail call ptr @realloc(ptr noundef nonnull %4, i64 noundef %22) #26
+  %23 = tail call ptr @realloc(ptr noundef nonnull %4, i64 noundef %22) #27
   store ptr %23, ptr %3, align 8
   %.not28.i = icmp eq ptr %23, null
   br i1 %.not28.i, label %24, label %25
 
 24:                                               ; preds = %20
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.12) #25
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.12) #26
   unreachable
 
 25:                                               ; preds = %20
@@ -3279,7 +3279,7 @@ define hidden void @protobuf_lang_restart(ptr noundef %0, ptr nocapture noundef 
   br i1 %.not17, label %.thread19, label %.thread
 
 .thread19:                                        ; preds = %28
-  %36 = tail call ptr @__errno_location() #29
+  %36 = tail call ptr @__errno_location() #30
   %37 = load i32, ptr %36, align 4
   br label %protobuf_lang__flush_buffer.exit.i
 
@@ -3289,7 +3289,7 @@ define hidden void @protobuf_lang_restart(ptr noundef %0, ptr nocapture noundef 
   %40 = load i64, ptr %39, align 8
   %41 = getelementptr ptr, ptr %38, i64 %40
   %42 = load ptr, ptr %41, align 8
-  %43 = tail call ptr @__errno_location() #29
+  %43 = tail call ptr @__errno_location() #30
   %44 = load i32, ptr %43, align 4
   %.not.i.i = icmp eq ptr %42, null
   br i1 %.not.i.i, label %protobuf_lang__flush_buffer.exit.i, label %45
@@ -3417,13 +3417,13 @@ define hidden void @protobuf_lang__switch_to_buffer(ptr noundef %0, ptr nocaptur
   br i1 %.not.i, label %5, label %11
 
 5:                                                ; preds = %2
-  %6 = tail call noalias dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #24
+  %6 = tail call noalias dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #25
   store ptr %6, ptr %3, align 8
   %.not26.i = icmp eq ptr %6, null
   br i1 %.not26.i, label %7, label %8
 
 7:                                                ; preds = %5
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.12) #25
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.12) #26
   unreachable
 
 8:                                                ; preds = %5
@@ -3446,13 +3446,13 @@ define hidden void @protobuf_lang__switch_to_buffer(ptr noundef %0, ptr nocaptur
 17:                                               ; preds = %11
   %18 = add i64 %15, 8
   %19 = shl i64 %18, 3
-  %20 = tail call ptr @realloc(ptr noundef nonnull %4, i64 noundef %19) #26
+  %20 = tail call ptr @realloc(ptr noundef nonnull %4, i64 noundef %19) #27
   store ptr %20, ptr %3, align 8
   %.not28.i = icmp eq ptr %20, null
   br i1 %.not28.i, label %21, label %22
 
 21:                                               ; preds = %17
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.12) #25
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.12) #26
   unreachable
 
 22:                                               ; preds = %17
@@ -3536,10 +3536,10 @@ define hidden void @protobuf_lang__switch_to_buffer(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #9
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define hidden void @protobuf_lang__delete_buffer(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #10 {
+define hidden void @protobuf_lang__delete_buffer(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #11 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %25, label %3
 
@@ -3577,11 +3577,11 @@ define hidden void @protobuf_lang__delete_buffer(ptr noundef %0, ptr nocapture n
 21:                                               ; preds = %18
   %22 = getelementptr inbounds i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8
-  tail call void @free(ptr noundef %23) #28
+  tail call void @free(ptr noundef %23) #29
   br label %24
 
 24:                                               ; preds = %21, %18
-  tail call void @free(ptr noundef nonnull %0) #28
+  tail call void @free(ptr noundef nonnull %0) #29
   br label %25
 
 25:                                               ; preds = %2, %24
@@ -3589,10 +3589,10 @@ define hidden void @protobuf_lang__delete_buffer(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #11
+declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @protobuf_lang__flush_buffer(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #12 {
+define hidden void @protobuf_lang__flush_buffer(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #13 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %41, label %3
 
@@ -3670,13 +3670,13 @@ define hidden void @protobuf_lang_push_buffer_state(ptr noundef %0, ptr nocaptur
   br i1 %.not.i, label %7, label %13
 
 7:                                                ; preds = %4
-  %8 = tail call noalias dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #24
+  %8 = tail call noalias dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #25
   store ptr %8, ptr %5, align 8
   %.not26.i = icmp eq ptr %8, null
   br i1 %.not26.i, label %9, label %10
 
 9:                                                ; preds = %7
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.12) #25
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.12) #26
   unreachable
 
 10:                                               ; preds = %7
@@ -3699,13 +3699,13 @@ define hidden void @protobuf_lang_push_buffer_state(ptr noundef %0, ptr nocaptur
 19:                                               ; preds = %13
   %20 = add i64 %17, 8
   %21 = shl i64 %20, 3
-  %22 = tail call ptr @realloc(ptr noundef nonnull %6, i64 noundef %21) #26
+  %22 = tail call ptr @realloc(ptr noundef nonnull %6, i64 noundef %21) #27
   store ptr %22, ptr %5, align 8
   %.not28.i = icmp eq ptr %22, null
   br i1 %.not28.i, label %23, label %24
 
 23:                                               ; preds = %19
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.12) #25
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.12) #26
   unreachable
 
 24:                                               ; preds = %19
@@ -3794,7 +3794,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %10, %13, %24
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define hidden void @protobuf_lang_pop_buffer_state(ptr nocapture noundef %0) local_unnamed_addr #10 {
+define hidden void @protobuf_lang_pop_buffer_state(ptr nocapture noundef %0) local_unnamed_addr #11 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -3818,11 +3818,11 @@ define hidden void @protobuf_lang_pop_buffer_state(ptr nocapture noundef %0) loc
 12:                                               ; preds = %9
   %13 = getelementptr inbounds i8, ptr %8, i64 8
   %14 = load ptr, ptr %13, align 8
-  tail call void @free(ptr noundef %14) #28
+  tail call void @free(ptr noundef %14) #29
   br label %protobuf_lang__delete_buffer.exit
 
 protobuf_lang__delete_buffer.exit:                ; preds = %9, %12
-  tail call void @free(ptr noundef nonnull %8) #28
+  tail call void @free(ptr noundef nonnull %8) #29
   %15 = load ptr, ptr %2, align 8
   %16 = load i64, ptr %5, align 8
   %17 = getelementptr ptr, ptr %15, i64 %16
@@ -3895,12 +3895,12 @@ define hidden noundef ptr @protobuf_lang__scan_buffer(ptr noundef %0, i64 nounde
   br i1 %.not25, label %13, label %27
 
 13:                                               ; preds = %9
-  %14 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #24
+  %14 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #25
   %.not26 = icmp eq ptr %14, null
   br i1 %.not26, label %15, label %16
 
 15:                                               ; preds = %13
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.3) #25
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.3) #26
   unreachable
 
 16:                                               ; preds = %13
@@ -3934,7 +3934,7 @@ define hidden noundef ptr @protobuf_lang__scan_buffer(ptr noundef %0, i64 nounde
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef ptr @protobuf_lang__scan_string(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
-  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #32
+  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #33
   %4 = trunc i64 %3 to i32
   %5 = tail call ptr @protobuf_lang__scan_bytes(ptr noundef %0, i32 noundef %4, ptr noundef %1)
   ret ptr %5
@@ -3944,7 +3944,7 @@ define hidden noundef ptr @protobuf_lang__scan_string(ptr nocapture noundef read
 define hidden noundef ptr @protobuf_lang__scan_bytes(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
   %4 = add i32 %1, 2
   %5 = sext i32 %4 to i64
-  %6 = tail call noalias ptr @malloc(i64 noundef %5) #24
+  %6 = tail call noalias ptr @malloc(i64 noundef %5) #25
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %14, label %.preheader
 
@@ -3965,7 +3965,7 @@ define hidden noundef ptr @protobuf_lang__scan_bytes(ptr nocapture noundef reado
   br label %21
 
 14:                                               ; preds = %3
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.4) #25
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.4) #26
   unreachable
 
 ._crit_edge:                                      ; preds = %.preheader
@@ -3994,16 +3994,16 @@ define hidden noundef ptr @protobuf_lang__scan_bytes(ptr nocapture noundef reado
   br i1 %.not25.i, label %29, label %32
 
 29:                                               ; preds = %25
-  %30 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #24
+  %30 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #25
   %.not26.i = icmp eq ptr %30, null
   br i1 %.not26.i, label %31, label %33
 
 31:                                               ; preds = %29
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.3) #25
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.3) #26
   unreachable
 
 32:                                               ; preds = %25, %21, %._crit_edge
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.5) #25
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.5) #26
   unreachable
 
 33:                                               ; preds = %29
@@ -4033,10 +4033,10 @@ define hidden noundef ptr @protobuf_lang__scan_bytes(ptr nocapture noundef reado
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #13
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @protobuf_lang_get_column(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define hidden i32 @protobuf_lang_get_column(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -4061,41 +4061,41 @@ define hidden i32 @protobuf_lang_get_column(ptr nocapture noundef readonly %0) l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @protobuf_lang_get_in(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define hidden ptr @protobuf_lang_get_in(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @protobuf_lang_get_out(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define hidden ptr @protobuf_lang_get_out(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @protobuf_lang_get_leng(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define hidden i32 @protobuf_lang_get_leng(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @protobuf_lang_get_text(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define hidden ptr @protobuf_lang_get_text(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @protobuf_lang_set_extra(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #14 {
+define hidden void @protobuf_lang_set_extra(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #15 {
   store ptr %0, ptr %1, align 8
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define hidden void @protobuf_lang_set_lineno(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+; Function Attrs: nofree nounwind uwtable
+define hidden void @protobuf_lang_set_lineno(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -4110,7 +4110,7 @@ define hidden void @protobuf_lang_set_lineno(i32 noundef %0, ptr nocapture nound
   br i1 %.not8, label %10, label %11
 
 10:                                               ; preds = %2, %5
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.6) #25
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.6) #26
   unreachable
 
 11:                                               ; preds = %5
@@ -4119,8 +4119,8 @@ define hidden void @protobuf_lang_set_lineno(i32 noundef %0, ptr nocapture nound
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define hidden void @protobuf_lang_set_column(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+; Function Attrs: nofree nounwind uwtable
+define hidden void @protobuf_lang_set_column(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -4135,7 +4135,7 @@ define hidden void @protobuf_lang_set_column(i32 noundef %0, ptr nocapture nound
   br i1 %.not8, label %10, label %11
 
 10:                                               ; preds = %2, %5
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.7) #25
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.7) #26
   unreachable
 
 11:                                               ; preds = %5
@@ -4145,35 +4145,35 @@ define hidden void @protobuf_lang_set_column(i32 noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @protobuf_lang_set_in(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #14 {
+define hidden void @protobuf_lang_set_in(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #15 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   store ptr %0, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @protobuf_lang_set_out(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #14 {
+define hidden void @protobuf_lang_set_out(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #15 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   store ptr %0, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @protobuf_lang_get_debug(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define hidden i32 @protobuf_lang_get_debug(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 124
   %3 = load i32, ptr %2, align 4
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @protobuf_lang_set_debug(i32 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #14 {
+define hidden void @protobuf_lang_set_debug(i32 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #15 {
   %3 = getelementptr inbounds i8, ptr %1, i64 124
   store i32 %0, ptr %3, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define hidden range(i32 0, 2) i32 @protobuf_lang_lex_init(ptr noundef writeonly %0) local_unnamed_addr #15 {
+define hidden range(i32 0, 2) i32 @protobuf_lang_lex_init(ptr noundef writeonly %0) local_unnamed_addr #16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.sink.split, label %3
 
@@ -4185,7 +4185,7 @@ define hidden range(i32 0, 2) i32 @protobuf_lang_lex_init(ptr noundef writeonly 
 
 .sink.split:                                      ; preds = %3, %1
   %.sink = phi i32 [ 22, %1 ], [ 12, %3 ]
-  %5 = tail call ptr @__errno_location() #29
+  %5 = tail call ptr @__errno_location() #30
   store i32 %.sink, ptr %5, align 4
   br label %6
 
@@ -4195,18 +4195,18 @@ define hidden range(i32 0, 2) i32 @protobuf_lang_lex_init(ptr noundef writeonly 
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #16
+declare ptr @__errno_location() local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #17
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #18
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define hidden range(i32 0, 2) i32 @protobuf_lang_lex_init_extra(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #15 {
+define hidden range(i32 0, 2) i32 @protobuf_lang_lex_init_extra(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #16 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %4, label %6
 
 4:                                                ; preds = %2
-  %5 = tail call ptr @__errno_location() #29
+  %5 = tail call ptr @__errno_location() #30
   store i32 22, ptr %5, align 4
   br label %11
 
@@ -4217,7 +4217,7 @@ define hidden range(i32 0, 2) i32 @protobuf_lang_lex_init_extra(ptr noundef %0, 
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %6
-  %9 = tail call ptr @__errno_location() #29
+  %9 = tail call ptr @__errno_location() #30
   store i32 12, ptr %9, align 4
   br label %11
 
@@ -4263,11 +4263,11 @@ define hidden noundef i32 @protobuf_lang_lex_destroy(ptr nocapture noundef %0) l
 18:                                               ; preds = %.lr.ph31
   %19 = getelementptr inbounds i8, ptr %14, i64 8
   %20 = load ptr, ptr %19, align 8
-  tail call void @free(ptr noundef %20) #28
+  tail call void @free(ptr noundef %20) #29
   br label %protobuf_lang__delete_buffer.exit
 
 protobuf_lang__delete_buffer.exit:                ; preds = %.lr.ph31, %18
-  tail call void @free(ptr noundef nonnull %14) #28
+  tail call void @free(ptr noundef nonnull %14) #29
   %.pre28 = load i64, ptr %2, align 8
   %.pre = load ptr, ptr %3, align 8
   %21 = getelementptr ptr, ptr %.pre, i64 %.pre28
@@ -4293,11 +4293,11 @@ protobuf_lang__delete_buffer.exit:                ; preds = %.lr.ph31, %18
 30:                                               ; preds = %27
   %31 = getelementptr inbounds i8, ptr %26, i64 8
   %32 = load ptr, ptr %31, align 8
-  tail call void @free(ptr noundef %32) #28
+  tail call void @free(ptr noundef %32) #29
   br label %protobuf_lang__delete_buffer.exit.i
 
 protobuf_lang__delete_buffer.exit.i:              ; preds = %30, %27
-  tail call void @free(ptr noundef nonnull %26) #28
+  tail call void @free(ptr noundef nonnull %26) #29
   %33 = load ptr, ptr %3, align 8
   %34 = load i64, ptr %2, align 8
   %35 = getelementptr ptr, ptr %33, i64 %34
@@ -4350,82 +4350,83 @@ protobuf_lang_pop_buffer_state.exit:              ; preds = %23, %42, %45
 
 .thread:                                          ; preds = %protobuf_lang_pop_buffer_state.exit, %protobuf_lang__delete_buffer.exit, %39, %.lr.ph, %1
   %.lcssa = phi ptr [ null, %1 ], [ %4, %.lr.ph ], [ null, %39 ], [ null, %protobuf_lang__delete_buffer.exit ], [ %54, %protobuf_lang_pop_buffer_state.exit ]
-  tail call void @free(ptr noundef %.lcssa) #28
+  tail call void @free(ptr noundef %.lcssa) #29
   store ptr null, ptr %3, align 8
   %58 = getelementptr inbounds i8, ptr %0, i64 96
   %59 = load ptr, ptr %58, align 8
-  tail call void @free(ptr noundef %59) #28
-  tail call void @free(ptr noundef nonnull %0) #28
+  tail call void @free(ptr noundef %59) #29
+  tail call void @free(ptr noundef nonnull %0) #29
   ret i32 0
 }
 
-declare ptr @g_slist_prepend(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @g_slist_prepend(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #18
+declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #19
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @getc(ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @getc(ptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef i32 @ferror(ptr nocapture noundef) local_unnamed_addr #19
+declare noundef i32 @ferror(ptr nocapture noundef) local_unnamed_addr #20
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare void @clearerr(ptr nocapture noundef) local_unnamed_addr #5
+declare void @clearerr(ptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
 
-; Function Attrs: noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #20
+; Function Attrs: nofree noreturn nounwind
+declare void @exit(i32 noundef) local_unnamed_addr #21
 
-declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #4
+declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #21
+declare i32 @llvm.umin.i32(i32, i32) #22
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #22
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #23
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #23
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #24
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #18 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #22 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #23 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
-attributes #24 = { nounwind allocsize(0) }
-attributes #25 = { noreturn }
-attributes #26 = { nounwind allocsize(1) }
-attributes #27 = { nounwind allocsize(0,1) }
-attributes #28 = { nounwind }
-attributes #29 = { nounwind willreturn memory(none) }
-attributes #30 = { cold nounwind }
-attributes #31 = { noreturn nounwind }
-attributes #32 = { nounwind willreturn memory(read) }
+attributes #1 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nofree noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #19 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #22 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #23 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #24 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
+attributes #25 = { nounwind allocsize(0) }
+attributes #26 = { noreturn }
+attributes #27 = { nounwind allocsize(1) }
+attributes #28 = { nounwind allocsize(0,1) }
+attributes #29 = { nounwind }
+attributes #30 = { nounwind willreturn memory(none) }
+attributes #31 = { cold nounwind }
+attributes #32 = { cold noreturn nounwind }
+attributes #33 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

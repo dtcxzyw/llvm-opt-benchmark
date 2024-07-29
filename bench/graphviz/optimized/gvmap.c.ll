@@ -87,7 +87,7 @@ openFile.exit.i:                                  ; preds = %openFile.exit.i.bac
   %.sroa.29.0 = phi i32 [ 0, %2 ], [ %.sroa.29.0.be, %openFile.exit.i.backedge ]
   %.sroa.5.0 = phi ptr [ null, %2 ], [ %.sroa.5.0.be, %openFile.exit.i.backedge ]
   %.sroa.26.0 = phi i32 [ 0, %2 ], [ %.sroa.26.0.be, %openFile.exit.i.backedge ]
-  %29 = call i32 @getopt(i32 noundef %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.1) #10
+  %29 = call i32 @getopt(i32 noundef %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.1) #11
   switch i32 %29, label %openFile.exit.i.backedge [
     i32 -1, label %init.exit
     i32 109, label %30
@@ -114,7 +114,7 @@ openFile.exit.i:                                  ; preds = %openFile.exit.i.bac
 
 30:                                               ; preds = %openFile.exit.i
   %31 = load ptr, ptr @optarg, align 8
-  %32 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %31, ptr noundef nonnull @.str.2, ptr noundef nonnull %23) #10
+  %32 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %31, ptr noundef nonnull @.str.2, ptr noundef nonnull %23) #11
   %33 = icmp sgt i32 %32, 0
   %34 = load double, ptr %23, align 8
   %35 = fcmp une double %34, 0.000000e+00
@@ -123,10 +123,10 @@ openFile.exit.i:                                  ; preds = %openFile.exit.i.bac
 
 36:                                               ; preds = %30
   %37 = load ptr, ptr @stderr, align 8
-  %38 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %37, ptr noundef nonnull @.str.11, ptr noundef %28) #11
+  %38 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %37, ptr noundef nonnull @.str.11, ptr noundef %28) #12
   %39 = load ptr, ptr @stderr, align 8
-  %40 = call i64 @fwrite(ptr nonnull @usestr, i64 1774, i64 1, ptr %39) #12
-  call fastcc void @graphviz_exit(i32 noundef 1) #13
+  %40 = call i64 @fwrite(ptr nonnull @usestr, i64 1774, i64 1, ptr %39) #13
+  call fastcc void @graphviz_exit(i32 noundef 1) #14
   unreachable
 
 41:                                               ; preds = %openFile.exit.i
@@ -134,7 +134,7 @@ openFile.exit.i:                                  ; preds = %openFile.exit.i.bac
 
 42:                                               ; preds = %openFile.exit.i
   %43 = load ptr, ptr @optarg, align 8
-  %44 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %43, ptr noundef nonnull @.str.2, ptr noundef nonnull %23) #10
+  %44 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %43, ptr noundef nonnull @.str.2, ptr noundef nonnull %23) #11
   %45 = icmp sgt i32 %44, 0
   br i1 %45, label %46, label %48
 
@@ -144,15 +144,15 @@ openFile.exit.i:                                  ; preds = %openFile.exit.i.bac
 
 48:                                               ; preds = %42
   %49 = load ptr, ptr @stderr, align 8
-  %50 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %49, ptr noundef nonnull @.str.11, ptr noundef %28) #11
+  %50 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %49, ptr noundef nonnull @.str.11, ptr noundef %28) #12
   %51 = load ptr, ptr @stderr, align 8
-  %52 = call i64 @fwrite(ptr nonnull @usestr, i64 1774, i64 1, ptr %51) #12
-  call fastcc void @graphviz_exit(i32 noundef 1) #13
+  %52 = call i64 @fwrite(ptr nonnull @usestr, i64 1774, i64 1, ptr %51) #13
+  call fastcc void @graphviz_exit(i32 noundef 1) #14
   unreachable
 
 53:                                               ; preds = %openFile.exit.i
   %54 = load ptr, ptr @optarg, align 8
-  %55 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %54, ptr noundef nonnull @.str.3, ptr noundef nonnull %24) #10
+  %55 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %54, ptr noundef nonnull @.str.3, ptr noundef nonnull %24) #11
   %56 = icmp sgt i32 %55, 0
   br i1 %56, label %57, label %60
 
@@ -163,13 +163,13 @@ openFile.exit.i:                                  ; preds = %openFile.exit.i.bac
 
 60:                                               ; preds = %53
   %61 = load ptr, ptr @optarg, align 8
-  %62 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %61, ptr noundef nonnull dereferenceable(10) @.str.4, i64 noundef 9) #14
+  %62 = call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %61, ptr noundef nonnull dereferenceable(10) @.str.4, i64 noundef 9) #15
   %63 = icmp eq i32 %62, 0
   br i1 %63, label %64, label %71
 
 64:                                               ; preds = %60
   %65 = getelementptr inbounds i8, ptr %61, i64 9
-  %66 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %65, ptr noundef nonnull @.str.3, ptr noundef nonnull %24) #10
+  %66 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %65, ptr noundef nonnull @.str.3, ptr noundef nonnull %24) #11
   %67 = icmp sgt i32 %66, 0
   br i1 %67, label %68, label %71
 
@@ -180,15 +180,15 @@ openFile.exit.i:                                  ; preds = %openFile.exit.i.bac
 
 71:                                               ; preds = %64, %60
   %72 = load ptr, ptr @stderr, align 8
-  %73 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %72, ptr noundef nonnull @.str.11, ptr noundef %28) #11
+  %73 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %72, ptr noundef nonnull @.str.11, ptr noundef %28) #12
   %74 = load ptr, ptr @stderr, align 8
-  %75 = call i64 @fwrite(ptr nonnull @usestr, i64 1774, i64 1, ptr %74) #12
-  call fastcc void @graphviz_exit(i32 noundef 1) #13
+  %75 = call i64 @fwrite(ptr nonnull @usestr, i64 1774, i64 1, ptr %74) #13
+  call fastcc void @graphviz_exit(i32 noundef 1) #14
   unreachable
 
 76:                                               ; preds = %openFile.exit.i
   %77 = load ptr, ptr @optarg, align 8
-  %78 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %77, ptr noundef nonnull @.str.3, ptr noundef nonnull %25) #10
+  %78 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %77, ptr noundef nonnull @.str.3, ptr noundef nonnull %25) #11
   %79 = icmp sgt i32 %78, 0
   %80 = load i32, ptr %25, align 4
   %spec.select = select i1 %79, i32 %80, i32 %.sroa.18.0
@@ -196,7 +196,7 @@ openFile.exit.i:                                  ; preds = %openFile.exit.i.bac
 
 81:                                               ; preds = %openFile.exit.i
   %82 = load ptr, ptr @optarg, align 8
-  %83 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %82, ptr noundef nonnull @.str.3, ptr noundef nonnull %25) #10
+  %83 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %82, ptr noundef nonnull @.str.3, ptr noundef nonnull %25) #11
   %84 = icmp sgt i32 %83, 0
   %85 = load i32, ptr %25, align 4
   %86 = icmp sgt i32 %85, 0
@@ -248,9 +248,9 @@ openFile.exit.i.backedge:                         ; preds = %81, %76, %147, %117
 
 95:                                               ; preds = %91
   %96 = load ptr, ptr @stderr, align 8
-  %97 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %96, ptr noundef nonnull @.str.15, ptr noundef %28, ptr noundef %92, ptr noundef nonnull @.str.14) #11
-  call void @perror(ptr noundef %92) #12
-  call fastcc void @graphviz_exit(i32 noundef 1) #13
+  %97 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %96, ptr noundef nonnull @.str.15, ptr noundef %28, ptr noundef %92, ptr noundef nonnull @.str.14) #12
+  call void @perror(ptr noundef %92) #13
+  call fastcc void @graphviz_exit(i32 noundef 1) #14
   unreachable
 
 98:                                               ; preds = %openFile.exit.i
@@ -258,7 +258,7 @@ openFile.exit.i.backedge:                         ; preds = %81, %76, %147, %117
 
 99:                                               ; preds = %openFile.exit.i
   %100 = load ptr, ptr @optarg, align 8
-  %101 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %100, ptr noundef nonnull @.str.3, ptr noundef nonnull %25) #10
+  %101 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %100, ptr noundef nonnull @.str.3, ptr noundef nonnull %25) #11
   %102 = icmp sgt i32 %101, 0
   br i1 %102, label %103, label %105
 
@@ -268,26 +268,26 @@ openFile.exit.i.backedge:                         ; preds = %81, %76, %147, %117
 
 105:                                              ; preds = %99
   %106 = load ptr, ptr @stderr, align 8
-  %107 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %106, ptr noundef nonnull @.str.11, ptr noundef %28) #11
+  %107 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %106, ptr noundef nonnull @.str.11, ptr noundef %28) #12
   %108 = load ptr, ptr @stderr, align 8
-  %109 = call i64 @fwrite(ptr nonnull @usestr, i64 1774, i64 1, ptr %108) #12
-  call fastcc void @graphviz_exit(i32 noundef 1) #13
+  %109 = call i64 @fwrite(ptr nonnull @usestr, i64 1774, i64 1, ptr %108) #13
+  call fastcc void @graphviz_exit(i32 noundef 1) #14
   unreachable
 
 110:                                              ; preds = %openFile.exit.i
   %111 = load ptr, ptr @optarg, align 8
-  %112 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %111, ptr noundef nonnull @.str.6, ptr noundef nonnull %26) #10
+  %112 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %111, ptr noundef nonnull @.str.6, ptr noundef nonnull %26) #11
   %113 = icmp sgt i32 %112, 0
   br i1 %113, label %114, label %117
 
 114:                                              ; preds = %110
-  %115 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %26) #14
+  %115 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %26) #15
   %116 = icmp eq i64 %115, 2
   br i1 %116, label %openFile.exit.i.backedge, label %117
 
 117:                                              ; preds = %114, %110
   %118 = load ptr, ptr @optarg, align 8
-  %119 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %118, ptr noundef nonnull @.str.3, ptr noundef nonnull %25) #10
+  %119 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %118, ptr noundef nonnull @.str.3, ptr noundef nonnull %25) #11
   %120 = icmp sgt i32 %119, 0
   %121 = load i32, ptr %25, align 4
   %122 = icmp ult i32 %121, 11
@@ -296,7 +296,7 @@ openFile.exit.i.backedge:                         ; preds = %81, %76, %147, %117
 
 123:                                              ; preds = %117
   %124 = load ptr, ptr @optarg, align 8
-  %125 = call i32 @knownColorScheme(ptr noundef %124) #10
+  %125 = call i32 @knownColorScheme(ptr noundef %124) #11
   %.not84.i = icmp eq i32 %125, 0
   br i1 %.not84.i, label %128, label %126
 
@@ -307,26 +307,26 @@ openFile.exit.i.backedge:                         ; preds = %81, %76, %147, %117
 128:                                              ; preds = %123
   %129 = load ptr, ptr @stderr, align 8
   %130 = load ptr, ptr @optarg, align 8
-  %131 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %129, ptr noundef nonnull @.str.7, ptr noundef %130) #11
+  %131 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %129, ptr noundef nonnull @.str.7, ptr noundef %130) #12
   %132 = load ptr, ptr @stderr, align 8
-  %133 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %132, ptr noundef nonnull @.str.11, ptr noundef %28) #11
+  %133 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %132, ptr noundef nonnull @.str.11, ptr noundef %28) #12
   %134 = load ptr, ptr @stderr, align 8
-  %135 = call i64 @fwrite(ptr nonnull @usestr, i64 1774, i64 1, ptr %134) #12
-  call fastcc void @graphviz_exit(i32 noundef 1) #13
+  %135 = call i64 @fwrite(ptr nonnull @usestr, i64 1774, i64 1, ptr %134) #13
+  call fastcc void @graphviz_exit(i32 noundef 1) #14
   unreachable
 
 136:                                              ; preds = %openFile.exit.i
   %137 = load ptr, ptr @optarg, align 8
-  %138 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %137, ptr noundef nonnull @.str.3, ptr noundef nonnull %24) #10
+  %138 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %137, ptr noundef nonnull @.str.3, ptr noundef nonnull %24) #11
   %139 = icmp slt i32 %138, 1
   br i1 %139, label %140, label %145
 
 140:                                              ; preds = %136
   %141 = load ptr, ptr @stderr, align 8
-  %142 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %141, ptr noundef nonnull @.str.11, ptr noundef %28) #11
+  %142 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %141, ptr noundef nonnull @.str.11, ptr noundef %28) #12
   %143 = load ptr, ptr @stderr, align 8
-  %144 = call i64 @fwrite(ptr nonnull @usestr, i64 1774, i64 1, ptr %143) #12
-  call fastcc void @graphviz_exit(i32 noundef 1) #13
+  %144 = call i64 @fwrite(ptr nonnull @usestr, i64 1774, i64 1, ptr %143) #13
+  call fastcc void @graphviz_exit(i32 noundef 1) #14
   unreachable
 
 145:                                              ; preds = %136
@@ -335,7 +335,7 @@ openFile.exit.i.backedge:                         ; preds = %81, %76, %147, %117
 
 147:                                              ; preds = %openFile.exit.i
   %148 = load ptr, ptr @optarg, align 8
-  %149 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %148, ptr noundef nonnull @.str.3, ptr noundef nonnull %24) #10
+  %149 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %148, ptr noundef nonnull @.str.3, ptr noundef nonnull %24) #11
   %150 = icmp sgt i32 %149, 0
   %151 = load i32, ptr %24, align 4
   %152 = icmp sgt i32 %151, -1
@@ -344,10 +344,10 @@ openFile.exit.i.backedge:                         ; preds = %81, %76, %147, %117
 
 153:                                              ; preds = %147
   %154 = load ptr, ptr @stderr, align 8
-  %155 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %154, ptr noundef nonnull @.str.11, ptr noundef %28) #11
+  %155 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %154, ptr noundef nonnull @.str.11, ptr noundef %28) #12
   %156 = load ptr, ptr @stderr, align 8
-  %157 = call i64 @fwrite(ptr nonnull @usestr, i64 1774, i64 1, ptr %156) #12
-  call fastcc void @graphviz_exit(i32 noundef 1) #13
+  %157 = call i64 @fwrite(ptr nonnull @usestr, i64 1774, i64 1, ptr %156) #13
+  call fastcc void @graphviz_exit(i32 noundef 1) #14
   unreachable
 
 158:                                              ; preds = %openFile.exit.i
@@ -356,7 +356,7 @@ openFile.exit.i.backedge:                         ; preds = %81, %76, %147, %117
 
 160:                                              ; preds = %openFile.exit.i
   %161 = load ptr, ptr @optarg, align 8
-  %162 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %161, ptr noundef nonnull @.str.2, ptr noundef nonnull %23) #10
+  %162 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %161, ptr noundef nonnull @.str.2, ptr noundef nonnull %23) #11
   %163 = icmp sgt i32 %162, 0
   br i1 %163, label %164, label %166
 
@@ -367,13 +367,13 @@ openFile.exit.i.backedge:                         ; preds = %81, %76, %147, %117
 166:                                              ; preds = %160
   %167 = load ptr, ptr @stderr, align 8
   %168 = load ptr, ptr @optarg, align 8
-  %169 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %167, ptr noundef nonnull @.str.8, ptr noundef %28, ptr noundef %168) #11
+  %169 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %167, ptr noundef nonnull @.str.8, ptr noundef %28, ptr noundef %168) #12
   br label %openFile.exit.i.backedge
 
 170:                                              ; preds = %openFile.exit.i
   %171 = load ptr, ptr @stderr, align 8
   %172 = load i32, ptr @optopt, align 4
-  %173 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %171, ptr noundef nonnull @.str.9, i32 noundef %172) #11
+  %173 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %171, ptr noundef nonnull @.str.9, i32 noundef %172) #12
   br label %openFile.exit.i.backedge
 
 174:                                              ; preds = %openFile.exit.i
@@ -385,20 +385,20 @@ openFile.exit.i.backedge:                         ; preds = %81, %76, %147, %117
 
 176:                                              ; preds = %174, %174
   %177 = load ptr, ptr @stderr, align 8
-  %178 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %177, ptr noundef nonnull @.str.11, ptr noundef %28) #11
+  %178 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %177, ptr noundef nonnull @.str.11, ptr noundef %28) #12
   %179 = load ptr, ptr @stderr, align 8
-  %180 = call i64 @fwrite(ptr nonnull @usestr, i64 1774, i64 1, ptr %179) #12
-  call fastcc void @graphviz_exit(i32 noundef 0) #13
+  %180 = call i64 @fwrite(ptr nonnull @usestr, i64 1774, i64 1, ptr %179) #13
+  call fastcc void @graphviz_exit(i32 noundef 0) #14
   unreachable
 
 181:                                              ; preds = %174
   %182 = load ptr, ptr @stderr, align 8
-  %183 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %182, ptr noundef nonnull @.str.10, i32 noundef %175) #11
+  %183 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %182, ptr noundef nonnull @.str.10, i32 noundef %175) #12
   %184 = load ptr, ptr @stderr, align 8
-  %185 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %184, ptr noundef nonnull @.str.11, ptr noundef %28) #11
+  %185 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %184, ptr noundef nonnull @.str.11, ptr noundef %28) #12
   %186 = load ptr, ptr @stderr, align 8
-  %187 = call i64 @fwrite(ptr nonnull @usestr, i64 1774, i64 1, ptr %186) #12
-  call fastcc void @graphviz_exit(i32 noundef 1) #13
+  %187 = call i64 @fwrite(ptr nonnull @usestr, i64 1774, i64 1, ptr %186) #13
+  call fastcc void @graphviz_exit(i32 noundef 1) #14
   unreachable
 
 init.exit:                                        ; preds = %openFile.exit.i
@@ -414,8 +414,8 @@ init.exit:                                        ; preds = %openFile.exit.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25)
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %26)
-  %192 = call ptr @newIngraph(ptr noundef nonnull %27, ptr noundef %.sroa.2.0) #10
-  %193 = call ptr @nextGraph(ptr noundef nonnull %27) #10
+  %192 = call ptr @newIngraph(ptr noundef nonnull %27, ptr noundef %.sroa.2.0) #11
+  %193 = call ptr @nextGraph(ptr noundef nonnull %27) #11
   %.not200 = icmp eq ptr %193, null
   br i1 %.not200, label %._crit_edge, label %.lr.ph
 
@@ -426,14 +426,14 @@ init.exit:                                        ; preds = %openFile.exit.i
   br label %196
 
 196:                                              ; preds = %.lr.ph, %mapFromGraph.exit
-  %197 = phi ptr [ %193, %.lr.ph ], [ %257, %mapFromGraph.exit ]
+  %197 = phi ptr [ %193, %.lr.ph ], [ %260, %mapFromGraph.exit ]
   %.0202 = phi ptr [ null, %.lr.ph ], [ %197, %mapFromGraph.exit ]
   %.sroa.70.2201 = phi i32 [ %.sroa.70.0, %.lr.ph ], [ %.sroa.70.3, %mapFromGraph.exit ]
   %.not6 = icmp eq ptr %.0202, null
   br i1 %.not6, label %200, label %198
 
 198:                                              ; preds = %196
-  %199 = call i32 @agclose(ptr noundef nonnull %.0202) #10
+  %199 = call i32 @agclose(ptr noundef nonnull %.0202) #11
   br label %200
 
 200:                                              ; preds = %198, %196
@@ -451,8 +451,8 @@ init.exit:                                        ; preds = %openFile.exit.i
   store ptr null, ptr %19, align 8
   store ptr null, ptr %20, align 8
   store ptr null, ptr %21, align 8
-  call void @initDotIO(ptr noundef nonnull %197) #10
-  %201 = call ptr @Import_coord_clusters_from_dot(ptr noundef nonnull %197, i32 noundef %.sroa.54.0, i32 noundef 2, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull %20, ptr noundef nonnull %21, ptr noundef nonnull %22, ptr noundef nonnull %17, i32 noundef %.sroa.33.0, i32 noundef %.sroa.29.0, i32 noundef %.sroa.26.0) #10
+  call void @initDotIO(ptr noundef nonnull %197) #11
+  %201 = call ptr @Import_coord_clusters_from_dot(ptr noundef nonnull %197, i32 noundef %.sroa.54.0, i32 noundef 2, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull %20, ptr noundef nonnull %21, ptr noundef nonnull %22, ptr noundef nonnull %17, i32 noundef %.sroa.33.0, i32 noundef %.sroa.29.0, i32 noundef %.sroa.26.0) #11
   %202 = load i32, ptr %14, align 4
   %203 = load ptr, ptr %16, align 8
   %204 = load ptr, ptr %15, align 8
@@ -502,12 +502,12 @@ init.exit:                                        ; preds = %openFile.exit.i
 
 ._crit_edge.i.i.i:                                ; preds = %213, %211
   %217 = load ptr, ptr @stderr, align 8
-  %218 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %217, ptr noundef nonnull @.str.17, i32 noundef %.sroa.70.2201) #11
+  %218 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %217, ptr noundef nonnull @.str.17, i32 noundef %.sroa.70.2201) #12
   br label %validateCluster.exit.i.i
 
 validateCluster.exit.i.i:                         ; preds = %.lr.ph.i.i.i, %._crit_edge.i.i.i, %200
   %.sroa.70.3 = phi i32 [ 0, %200 ], [ 0, %._crit_edge.i.i.i ], [ %.sroa.70.2201, %.lr.ph.i.i.i ]
-  call void @make_map_from_rectangle_groups(i1 noundef zeroext %.sroa.65.0, i32 noundef %202, i32 noundef 2, ptr noundef %203, ptr noundef %204, ptr noundef %205, ptr noundef %201, double noundef %.sroa.21.0, i32 noundef %.sroa.18.0, ptr noundef nonnull %13, i32 noundef %.sroa.57.0, double noundef %.sroa.13.0, ptr noundef nonnull %9, ptr noundef nonnull %11, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %10, ptr noundef nonnull %8, ptr noundef nonnull %12, i32 noundef %.sroa.70.3) #10
+  call void @make_map_from_rectangle_groups(i1 noundef zeroext %.sroa.65.0, i32 noundef %202, i32 noundef 2, ptr noundef %203, ptr noundef %204, ptr noundef %205, ptr noundef %201, double noundef %.sroa.21.0, i32 noundef %.sroa.18.0, ptr noundef nonnull %13, i32 noundef %.sroa.57.0, double noundef %.sroa.13.0, ptr noundef nonnull %9, ptr noundef nonnull %11, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %10, ptr noundef nonnull %8, ptr noundef nonnull %12, i32 noundef %.sroa.70.3) #11
   %219 = load i8, ptr @Verbose, align 1
   %.not96.i.i = icmp eq i8 %219, 0
   br i1 %.not96.i.i, label %224, label %220
@@ -515,82 +515,83 @@ validateCluster.exit.i.i:                         ; preds = %.lr.ph.i.i.i, %._cr
 220:                                              ; preds = %validateCluster.exit.i.i
   %221 = load ptr, ptr @stderr, align 8
   %222 = load i32, ptr %13, align 4
-  %223 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %221, ptr noundef nonnull @.str.16, i32 noundef %222) #11
+  %223 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %221, ptr noundef nonnull @.str.16, i32 noundef %222) #12
   br label %224
 
 224:                                              ; preds = %220, %validateCluster.exit.i.i
   %225 = load ptr, ptr %12, align 8
-  %226 = icmp ne ptr %225, null
-  %or.cond.i.i = select i1 %.sroa.51.0, i1 %226, i1 false
-  %227 = icmp ne ptr %208, null
-  %or.cond3.i.i = and i1 %227, %or.cond.i.i
-  %228 = icmp ne ptr %209, null
-  %or.cond5.i.i = and i1 %228, %or.cond3.i.i
-  %229 = icmp ne ptr %210, null
-  %or.cond7.i.i = and i1 %229, %or.cond5.i.i
-  br i1 %or.cond7.i.i, label %230, label %231
+  %226 = insertelement <4 x ptr> poison, ptr %225, i64 0
+  %227 = insertelement <4 x ptr> %226, ptr %208, i64 1
+  %228 = insertelement <4 x ptr> %227, ptr %209, i64 2
+  %229 = insertelement <4 x ptr> %228, ptr %210, i64 3
+  %.fr = freeze <4 x ptr> %229
+  %230 = icmp eq <4 x ptr> %.fr, zeroinitializer
+  %231 = bitcast <4 x i1> %230 to i4
+  %232 = icmp eq i4 %231, 0
+  %op.rdx = and i1 %.sroa.51.0, %232
+  br i1 %op.rdx, label %233, label %234
 
-230:                                              ; preds = %224
-  call void @map_optimal_coloring(i32 noundef %.sroa.76.0, ptr noundef nonnull %225, ptr noundef nonnull %208, ptr noundef nonnull %209, ptr noundef nonnull %210) #10
-  br label %233
+233:                                              ; preds = %224
+  call void @map_optimal_coloring(i32 noundef %.sroa.76.0, ptr noundef nonnull %225, ptr noundef nonnull %208, ptr noundef nonnull %209, ptr noundef nonnull %210) #11
+  br label %236
 
-231:                                              ; preds = %224
-  br i1 %.not97.i.i, label %233, label %232
+234:                                              ; preds = %224
+  br i1 %.not97.i.i, label %236, label %235
 
-232:                                              ; preds = %231
-  call void @map_palette_optimal_coloring(ptr noundef nonnull %.sroa.40.0, ptr noundef %225, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #10
-  br label %233
+235:                                              ; preds = %234
+  call void @map_palette_optimal_coloring(ptr noundef nonnull %.sroa.40.0, ptr noundef %225, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #11
+  br label %236
 
-233:                                              ; preds = %232, %231, %230
-  %234 = icmp ne ptr %201, null
-  %or.cond9.i.i = select i1 %234, i1 %194, i1 false
+236:                                              ; preds = %235, %234, %233
+  %237 = icmp ne ptr %201, null
+  %or.cond9.i.i = select i1 %237, i1 %194, i1 false
   br i1 %or.cond9.i.i, label %.preheader.i.i, label %mapFromGraph.exit
 
-.preheader.i.i:                                   ; preds = %233
+.preheader.i.i:                                   ; preds = %236
   br i1 %195, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %.lr.ph.i.i
-  %.098.i.i = phi i32 [ %236, %.lr.ph.i.i ], [ 0, %.preheader.i.i ]
-  %235 = load ptr, ptr %8, align 8
-  call void @improve_contiguity(i32 noundef %202, i32 noundef 2, ptr noundef %205, ptr noundef %235, ptr noundef %203, ptr noundef nonnull %201) #10
+  %.098.i.i = phi i32 [ %239, %.lr.ph.i.i ], [ 0, %.preheader.i.i ]
+  %238 = load ptr, ptr %8, align 8
+  call void @improve_contiguity(i32 noundef %202, i32 noundef 2, ptr noundef %205, ptr noundef %238, ptr noundef %203, ptr noundef nonnull %201) #11
   store i32 %.sroa.48.0, ptr %13, align 4
-  call void @make_map_from_rectangle_groups(i1 noundef zeroext %.sroa.65.0, i32 noundef %202, i32 noundef 2, ptr noundef %203, ptr noundef %204, ptr noundef %205, ptr noundef nonnull %201, double noundef %.sroa.21.0, i32 noundef %.sroa.18.0, ptr noundef nonnull %13, i32 noundef %.sroa.57.0, double noundef %.sroa.13.0, ptr noundef nonnull %9, ptr noundef nonnull %11, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %10, ptr noundef nonnull %8, ptr noundef nonnull %12, i32 noundef %.sroa.70.3) #10
-  %236 = add nuw nsw i32 %.098.i.i, 1
-  %exitcond.not.i.i = icmp eq i32 %236, %.sroa.45.0
+  call void @make_map_from_rectangle_groups(i1 noundef zeroext %.sroa.65.0, i32 noundef %202, i32 noundef 2, ptr noundef %203, ptr noundef %204, ptr noundef %205, ptr noundef nonnull %201, double noundef %.sroa.21.0, i32 noundef %.sroa.18.0, ptr noundef nonnull %13, i32 noundef %.sroa.57.0, double noundef %.sroa.13.0, ptr noundef nonnull %9, ptr noundef nonnull %11, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %10, ptr noundef nonnull %8, ptr noundef nonnull %12, i32 noundef %.sroa.70.3) #11
+  %239 = add nuw nsw i32 %.098.i.i, 1
+  %exitcond.not.i.i = icmp eq i32 %239, %.sroa.45.0
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %.preheader.i.i
-  %237 = call ptr @SparseMatrix_get_real_adjacency_matrix_symmetrized(ptr noundef nonnull %201) #10
-  call void @remove_overlap(i32 noundef 2, ptr noundef %237, ptr noundef %203, ptr noundef %204, i32 noundef 1000, double noundef 5.000000e+03, i32 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef null, i1 noundef zeroext true) #10
-  call void @SparseMatrix_delete(ptr noundef %237) #10
+  %240 = call ptr @SparseMatrix_get_real_adjacency_matrix_symmetrized(ptr noundef nonnull %201) #11
+  call void @remove_overlap(i32 noundef 2, ptr noundef %240, ptr noundef %203, ptr noundef %204, i32 noundef 1000, double noundef 5.000000e+03, i32 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef null, i1 noundef zeroext true) #11
+  call void @SparseMatrix_delete(ptr noundef %240) #11
   store i32 %.sroa.48.0, ptr %13, align 4
-  call void @make_map_from_rectangle_groups(i1 noundef zeroext %.sroa.65.0, i32 noundef %202, i32 noundef 2, ptr noundef %203, ptr noundef %204, ptr noundef %205, ptr noundef nonnull %201, double noundef %.sroa.21.0, i32 noundef %.sroa.18.0, ptr noundef nonnull %13, i32 noundef %.sroa.57.0, double noundef %.sroa.13.0, ptr noundef nonnull %9, ptr noundef nonnull %11, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %10, ptr noundef nonnull %8, ptr noundef nonnull %12, i32 noundef %.sroa.70.3) #10
+  call void @make_map_from_rectangle_groups(i1 noundef zeroext %.sroa.65.0, i32 noundef %202, i32 noundef 2, ptr noundef %203, ptr noundef %204, ptr noundef %205, ptr noundef nonnull %201, double noundef %.sroa.21.0, i32 noundef %.sroa.18.0, ptr noundef nonnull %13, i32 noundef %.sroa.57.0, double noundef %.sroa.13.0, ptr noundef nonnull %9, ptr noundef nonnull %11, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %10, ptr noundef nonnull %8, ptr noundef nonnull %12, i32 noundef %.sroa.70.3) #11
   br label %mapFromGraph.exit
 
-mapFromGraph.exit:                                ; preds = %233, %._crit_edge.i.i
-  %238 = load ptr, ptr %3, align 8
-  %239 = load ptr, ptr %4, align 8
-  %240 = load ptr, ptr %5, align 8
-  call void @Dot_SetClusterColor(ptr noundef nonnull %197, ptr noundef %238, ptr noundef %239, ptr noundef %240, ptr noundef %205) #10
-  %241 = load ptr, ptr %7, align 8
-  %242 = load ptr, ptr %6, align 8
-  %243 = load ptr, ptr %11, align 8
-  %244 = load ptr, ptr %10, align 8
-  %245 = load ptr, ptr %3, align 8
-  %246 = load ptr, ptr %4, align 8
-  %247 = load ptr, ptr %5, align 8
-  %248 = select i1 %.sroa.31.0, ptr %201, ptr null
-  call void @plot_dot_map(ptr noundef nonnull %197, i32 noundef %202, i32 noundef 2, ptr noundef %203, ptr noundef %241, ptr noundef %242, double noundef %.sroa.37.0, ptr noundef %.sroa.62.0, ptr noundef %243, ptr noundef %244, ptr noundef %206, ptr noundef %207, ptr noundef %245, ptr noundef %246, ptr noundef %247, ptr noundef %.sroa.43.0, ptr noundef %248, ptr noundef %.sroa.5.2) #10
-  %249 = load ptr, ptr %7, align 8
-  call void @SparseMatrix_delete(ptr noundef %249) #10
-  %250 = load ptr, ptr %6, align 8
-  call void @SparseMatrix_delete(ptr noundef %250) #10
-  %251 = load ptr, ptr %8, align 8
-  call void @SparseMatrix_delete(ptr noundef %251) #10
-  %252 = load ptr, ptr %11, align 8
-  call void @free(ptr noundef %252) #10
-  %253 = load ptr, ptr %10, align 8
-  call void @free(ptr noundef %253) #10
+mapFromGraph.exit:                                ; preds = %236, %._crit_edge.i.i
+  %241 = load ptr, ptr %3, align 8
+  %242 = load ptr, ptr %4, align 8
+  %243 = load ptr, ptr %5, align 8
+  call void @Dot_SetClusterColor(ptr noundef nonnull %197, ptr noundef %241, ptr noundef %242, ptr noundef %243, ptr noundef %205) #11
+  %244 = load ptr, ptr %7, align 8
+  %245 = load ptr, ptr %6, align 8
+  %246 = load ptr, ptr %11, align 8
+  %247 = load ptr, ptr %10, align 8
+  %248 = load ptr, ptr %3, align 8
+  %249 = load ptr, ptr %4, align 8
+  %250 = load ptr, ptr %5, align 8
+  %251 = select i1 %.sroa.31.0, ptr %201, ptr null
+  call void @plot_dot_map(ptr noundef nonnull %197, i32 noundef %202, i32 noundef 2, ptr noundef %203, ptr noundef %244, ptr noundef %245, double noundef %.sroa.37.0, ptr noundef %.sroa.62.0, ptr noundef %246, ptr noundef %247, ptr noundef %206, ptr noundef %207, ptr noundef %248, ptr noundef %249, ptr noundef %250, ptr noundef %.sroa.43.0, ptr noundef %251, ptr noundef %.sroa.5.2) #11
+  %252 = load ptr, ptr %7, align 8
+  call void @SparseMatrix_delete(ptr noundef %252) #11
+  %253 = load ptr, ptr %6, align 8
+  call void @SparseMatrix_delete(ptr noundef %253) #11
+  %254 = load ptr, ptr %8, align 8
+  call void @SparseMatrix_delete(ptr noundef %254) #11
+  %255 = load ptr, ptr %11, align 8
+  call void @free(ptr noundef %255) #11
+  %256 = load ptr, ptr %10, align 8
+  call void @free(ptr noundef %256) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
@@ -602,12 +603,12 @@ mapFromGraph.exit:                                ; preds = %233, %._crit_edge.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
-  %254 = load ptr, ptr %19, align 8
-  call void @free(ptr noundef %254) #10
-  %255 = load ptr, ptr %20, align 8
-  call void @free(ptr noundef %255) #10
-  %256 = load ptr, ptr %21, align 8
-  call void @free(ptr noundef %256) #10
+  %257 = load ptr, ptr %19, align 8
+  call void @free(ptr noundef %257) #11
+  %258 = load ptr, ptr %20, align 8
+  call void @free(ptr noundef %258) #11
+  %259 = load ptr, ptr %21, align 8
+  call void @free(ptr noundef %259) #11
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
@@ -617,12 +618,12 @@ mapFromGraph.exit:                                ; preds = %233, %._crit_edge.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22)
-  %257 = call ptr @nextGraph(ptr noundef nonnull %27) #10
-  %.not = icmp eq ptr %257, null
+  %260 = call ptr @nextGraph(ptr noundef nonnull %27) #11
+  %.not = icmp eq ptr %260, null
   br i1 %.not, label %._crit_edge, label %196
 
 ._crit_edge:                                      ; preds = %mapFromGraph.exit, %init.exit
-  call fastcc void @graphviz_exit(i32 noundef 0) #13
+  call fastcc void @graphviz_exit(i32 noundef 0) #14
   unreachable
 }
 
@@ -632,41 +633,41 @@ declare ptr @nextGraph(ptr noundef) local_unnamed_addr #1
 
 declare i32 @agclose(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: noreturn nounwind uwtable
-define internal fastcc void @graphviz_exit(i32 noundef %0) unnamed_addr #0 {
-  tail call void @exit(i32 noundef %0) #15
+; Function Attrs: nofree noreturn nounwind uwtable
+define internal fastcc void @graphviz_exit(i32 noundef %0) unnamed_addr #2 {
+  tail call void @exit(i32 noundef %0) #16
   unreachable
 }
 
 ; Function Attrs: nounwind
-declare i32 @getopt(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @getopt(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
 
 declare i32 @knownColorScheme(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #3
+declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare void @perror(ptr nocapture noundef readonly) local_unnamed_addr #3
+declare void @perror(ptr nocapture noundef readonly) local_unnamed_addr #4
 
 declare void @initDotIO(ptr noundef) local_unnamed_addr #1
 
 declare ptr @Import_coord_clusters_from_dot(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
 
 declare void @make_map_from_rectangle_groups(i1 noundef zeroext, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, double noundef, i32 noundef, ptr noundef, i32 noundef, double noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -686,37 +687,38 @@ declare void @Dot_SetClusterColor(ptr noundef, ptr noundef, ptr noundef, ptr nou
 
 declare void @plot_dot_map(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, double noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #6
+; Function Attrs: nofree noreturn nounwind
+declare void @exit(i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #7
+declare i32 @llvm.smax.i32(i32, i32) #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
 
 attributes #0 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nofree nounwind }
-attributes #9 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { nounwind }
-attributes #11 = { cold nounwind }
-attributes #12 = { cold }
-attributes #13 = { noreturn }
-attributes #14 = { nounwind willreturn memory(read) }
-attributes #15 = { noreturn nounwind }
+attributes #2 = { nofree noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nofree nounwind }
+attributes #10 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #11 = { nounwind }
+attributes #12 = { cold nounwind }
+attributes #13 = { cold }
+attributes #14 = { noreturn }
+attributes #15 = { nounwind willreturn memory(read) }
+attributes #16 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

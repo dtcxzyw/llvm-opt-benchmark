@@ -559,7 +559,7 @@ declare i32 @__gxx_personality_v0(...)
 
 declare void @_Z26notify_assertion_violationPKciS0_(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
@@ -675,7 +675,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #18
+  tail call void @__clang_call_terminate(ptr %2) #20
   unreachable
 
 _ZN6vectorIjLb0EjED2Ev.exit:                      ; preds = %entry, %if.then.i.i
@@ -699,7 +699,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #18
+  tail call void @__clang_call_terminate(ptr %2) #20
   unreachable
 
 _ZN7svectorIjjED2Ev.exit:                         ; preds = %entry, %if.then.i.i.i
@@ -797,7 +797,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i2
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  tail call void @__clang_call_terminate(ptr %13) #18
+  tail call void @__clang_call_terminate(ptr %13) #20
   unreachable
 
 _ZN7svectorIjjED2Ev.exit:                         ; preds = %invoke.cont, %if.then.i.i.i2
@@ -815,7 +815,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i.i4
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  tail call void @__clang_call_terminate(ptr %16) #18
+  tail call void @__clang_call_terminate(ptr %16) #20
   unreachable
 
 _ZN7svectorIjjED2Ev.exit7:                        ; preds = %_ZN7svectorIjjED2Ev.exit, %if.then.i.i.i4
@@ -833,7 +833,7 @@ terminate.lpad.i.i11:                             ; preds = %if.then.i.i.i9
   %18 = landingpad { ptr, i32 }
           catch ptr null
   %19 = extractvalue { ptr, i32 } %18, 0
-  tail call void @__clang_call_terminate(ptr %19) #18
+  tail call void @__clang_call_terminate(ptr %19) #20
   unreachable
 
 _ZN7svectorIjjED2Ev.exit12:                       ; preds = %_ZN7svectorIjjED2Ev.exit7, %if.then.i.i.i9
@@ -851,7 +851,7 @@ terminate.lpad.i.i16:                             ; preds = %if.then.i.i.i14
   %21 = landingpad { ptr, i32 }
           catch ptr null
   %22 = extractvalue { ptr, i32 } %21, 0
-  tail call void @__clang_call_terminate(ptr %22) #18
+  tail call void @__clang_call_terminate(ptr %22) #20
   unreachable
 
 _ZN7svectorIjjED2Ev.exit17:                       ; preds = %_ZN7svectorIjjED2Ev.exit12, %if.then.i.i.i14
@@ -869,7 +869,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i
   %24 = landingpad { ptr, i32 }
           catch ptr null
   %25 = extractvalue { ptr, i32 } %24, 0
-  tail call void @__clang_call_terminate(ptr %25) #18
+  tail call void @__clang_call_terminate(ptr %25) #20
   unreachable
 
 _ZN6id_genD2Ev.exit:                              ; preds = %_ZN7svectorIjjED2Ev.exit17, %if.then.i.i.i.i
@@ -887,7 +887,7 @@ terminate.lpad.i.i21:                             ; preds = %if.then.i.i.i19
   %27 = landingpad { ptr, i32 }
           catch ptr null
   %28 = extractvalue { ptr, i32 } %27, 0
-  tail call void @__clang_call_terminate(ptr %28) #18
+  tail call void @__clang_call_terminate(ptr %28) #20
   unreachable
 
 _ZN7svectorIjjED2Ev.exit22:                       ; preds = %_ZN6id_genD2Ev.exit, %if.then.i.i.i19
@@ -897,7 +897,7 @@ terminate.lpad:                                   ; preds = %if.then.i.i.i, %if.
   %29 = landingpad { ptr, i32 }
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
-  tail call void @__clang_call_terminate(ptr %30) #18
+  tail call void @__clang_call_terminate(ptr %30) #20
   unreachable
 }
 
@@ -977,7 +977,7 @@ if.end:                                           ; preds = %for.body, %_ZN6id_g
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #6 comdat {
   %2 = tail call ptr @__cxa_begin_catch(ptr %0) #19
-  tail call void @_ZSt9terminatev() #18
+  tail call void @_ZSt9terminatev() #20
   unreachable
 }
 
@@ -1197,7 +1197,7 @@ invoke.cont.i:                                    ; preds = %if.then17.i
   store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception.i, align 8
   %m_msg.i.i = getelementptr inbounds i8, ptr %exception.i, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
-  invoke void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #20
+  invoke void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #21
           to label %unreachable.i unwind label %ehcleanup.i
 
 ehcleanup.i:                                      ; preds = %invoke.cont.i
@@ -1785,7 +1785,7 @@ entry:
 if.then4:                                         ; preds = %entry
   %exception = tail call ptr @__cxa_allocate_exception(i64 8) #19
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12mpfx_manager18overflow_exceptionE, i64 16), ptr %exception, align 8
-  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN12mpfx_manager18overflow_exceptionE, ptr nonnull @_ZN12mpfx_manager18overflow_exceptionD2Ev) #20
+  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN12mpfx_manager18overflow_exceptionE, ptr nonnull @_ZN12mpfx_manager18overflow_exceptionD2Ev) #21
   unreachable
 
 if.end5:                                          ; preds = %entry
@@ -1911,7 +1911,7 @@ entry:
 if.then3:                                         ; preds = %entry
   %exception = tail call ptr @__cxa_allocate_exception(i64 8) #19
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12mpfx_manager18overflow_exceptionE, i64 16), ptr %exception, align 8
-  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN12mpfx_manager18overflow_exceptionE, ptr nonnull @_ZN12mpfx_manager18overflow_exceptionD2Ev) #20
+  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN12mpfx_manager18overflow_exceptionE, ptr nonnull @_ZN12mpfx_manager18overflow_exceptionD2Ev) #21
   unreachable
 
 if.end4:                                          ; preds = %entry
@@ -2173,7 +2173,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i.i.i, %i
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  tail call void @__clang_call_terminate(ptr %13) #18
+  tail call void @__clang_call_terminate(ptr %13) #20
   unreachable
 
 _ZN15_scoped_numeralI12mpfx_managerED2Ev.exit:    ; preds = %for.body.i.i, %invoke.cont12, %_ZN6id_gen7recycleEj.exit.i.i
@@ -2252,7 +2252,7 @@ terminate.lpad.i14:                               ; preds = %if.then.i.i.i.i42, 
   %26 = landingpad { ptr, i32 }
           catch ptr null
   %27 = extractvalue { ptr, i32 } %26, 0
-  tail call void @__clang_call_terminate(ptr %27) #18
+  tail call void @__clang_call_terminate(ptr %27) #20
   unreachable
 
 _ZN15_scoped_numeralI12mpfx_managerED2Ev.exit47:  ; preds = %for.body.i.i37, %_ZN15_scoped_numeralI12mpfx_managerED2Ev.exit, %_ZN6id_gen7recycleEj.exit.i.i28
@@ -2276,7 +2276,7 @@ entry:
 if.then:                                          ; preds = %entry
   %exception = tail call ptr @__cxa_allocate_exception(i64 8) #19
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12mpfx_manager14div0_exceptionE, i64 16), ptr %exception, align 8
-  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN12mpfx_manager14div0_exceptionE, ptr nonnull @_ZN12mpfx_manager14div0_exceptionD2Ev) #20
+  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN12mpfx_manager14div0_exceptionE, ptr nonnull @_ZN12mpfx_manager14div0_exceptionD2Ev) #21
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -2616,7 +2616,7 @@ for.body46:                                       ; preds = %for.body46.preheade
 if.then50:                                        ; preds = %for.body46
   %exception51 = tail call ptr @__cxa_allocate_exception(i64 8) #19
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12mpfx_manager18overflow_exceptionE, i64 16), ptr %exception51, align 8
-  tail call void @__cxa_throw(ptr nonnull %exception51, ptr nonnull @_ZTIN12mpfx_manager18overflow_exceptionE, ptr nonnull @_ZN12mpfx_manager18overflow_exceptionD2Ev) #20
+  tail call void @__cxa_throw(ptr nonnull %exception51, ptr nonnull @_ZTIN12mpfx_manager18overflow_exceptionE, ptr nonnull @_ZN12mpfx_manager18overflow_exceptionD2Ev) #21
   unreachable
 
 for.end55:                                        ; preds = %for.cond44, %if.else38
@@ -2645,7 +2645,7 @@ if.then65.if.end71_crit_edge:                     ; preds = %if.then65
 if.then68:                                        ; preds = %if.then65
   %exception69 = tail call ptr @__cxa_allocate_exception(i64 8) #19
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12mpfx_manager18overflow_exceptionE, i64 16), ptr %exception69, align 8
-  tail call void @__cxa_throw(ptr nonnull %exception69, ptr nonnull @_ZTIN12mpfx_manager18overflow_exceptionE, ptr nonnull @_ZN12mpfx_manager18overflow_exceptionD2Ev) #20
+  tail call void @__cxa_throw(ptr nonnull %exception69, ptr nonnull @_ZTIN12mpfx_manager18overflow_exceptionE, ptr nonnull @_ZN12mpfx_manager18overflow_exceptionD2Ev) #21
   unreachable
 
 if.end71:                                         ; preds = %if.then65.if.end71_crit_edge, %land.lhs.true, %for.end55
@@ -2921,7 +2921,7 @@ terminate.lpad:                                   ; preds = %if.then.i.i.i, %if.
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  tail call void @__clang_call_terminate(ptr %13) #18
+  tail call void @__clang_call_terminate(ptr %13) #20
   unreachable
 }
 
@@ -3023,7 +3023,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i.i.i, %i
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  tail call void @__clang_call_terminate(ptr %13) #18
+  tail call void @__clang_call_terminate(ptr %13) #20
   unreachable
 
 _ZN15_scoped_numeralI12mpfx_managerED2Ev.exit:    ; preds = %for.body.i.i, %invoke.cont12, %_ZN6id_gen7recycleEj.exit.i.i
@@ -3102,7 +3102,7 @@ terminate.lpad.i14:                               ; preds = %if.then.i.i.i.i42, 
   %26 = landingpad { ptr, i32 }
           catch ptr null
   %27 = extractvalue { ptr, i32 } %26, 0
-  tail call void @__clang_call_terminate(ptr %27) #18
+  tail call void @__clang_call_terminate(ptr %27) #20
   unreachable
 
 _ZN15_scoped_numeralI12mpfx_managerED2Ev.exit47:  ; preds = %for.body.i.i37, %_ZN15_scoped_numeralI12mpfx_managerED2Ev.exit, %_ZN6id_gen7recycleEj.exit.i.i28
@@ -3433,7 +3433,7 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit:                  ; preds = %_ZN12mpfx_manager18
 if.then6:                                         ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit
   %exception = tail call ptr @__cxa_allocate_exception(i64 8) #19
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12mpfx_manager18overflow_exceptionE, i64 16), ptr %exception, align 8
-  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN12mpfx_manager18overflow_exceptionE, ptr nonnull @_ZN12mpfx_manager18overflow_exceptionD2Ev) #20
+  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN12mpfx_manager18overflow_exceptionE, ptr nonnull @_ZN12mpfx_manager18overflow_exceptionD2Ev) #21
   unreachable
 
 if.end:                                           ; preds = %_ZN12mpfx_manager18allocate_if_neededER4mpfx.exit, %_ZNK6vectorIjLb0EjE4sizeEv.exit
@@ -3637,7 +3637,7 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit:                  ; preds = %_ZN12mpfx_manager18
 if.then6:                                         ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit
   %exception = tail call ptr @__cxa_allocate_exception(i64 8) #19
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12mpfx_manager18overflow_exceptionE, i64 16), ptr %exception, align 8
-  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN12mpfx_manager18overflow_exceptionE, ptr nonnull @_ZN12mpfx_manager18overflow_exceptionD2Ev) #20
+  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN12mpfx_manager18overflow_exceptionE, ptr nonnull @_ZN12mpfx_manager18overflow_exceptionD2Ev) #21
   unreachable
 
 if.end:                                           ; preds = %_ZN12mpfx_manager18allocate_if_neededER4mpfx.exit, %_ZNK6vectorIjLb0EjE4sizeEv.exit
@@ -3866,7 +3866,7 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit:                  ; preds = %invoke.cont46
 if.then51:                                        ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit
   %exception = call ptr @__cxa_allocate_exception(i64 8) #19
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12mpfx_manager18overflow_exceptionE, i64 16), ptr %exception, align 8
-  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN12mpfx_manager18overflow_exceptionE, ptr nonnull @_ZN12mpfx_manager18overflow_exceptionD2Ev) #20
+  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN12mpfx_manager18overflow_exceptionE, ptr nonnull @_ZN12mpfx_manager18overflow_exceptionD2Ev) #21
           to label %unreachable unwind label %lpad
 
 invoke.cont53:                                    ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit, %_ZNK6vectorIjLb0EjE4sizeEv.exit.thread
@@ -3891,7 +3891,7 @@ terminate.lpad.i:                                 ; preds = %invoke.cont58
   %21 = landingpad { ptr, i32 }
           catch ptr null
   %22 = extractvalue { ptr, i32 } %21, 0
-  call void @__clang_call_terminate(ptr %22) #18
+  call void @__clang_call_terminate(ptr %22) #20
   unreachable
 
 if.end59:                                         ; preds = %invoke.cont58, %if.then
@@ -4085,7 +4085,7 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit:                  ; preds = %invoke.cont42
 if.then47:                                        ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit
   %exception = call ptr @__cxa_allocate_exception(i64 8) #19
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12mpfx_manager18overflow_exceptionE, i64 16), ptr %exception, align 8
-  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN12mpfx_manager18overflow_exceptionE, ptr nonnull @_ZN12mpfx_manager18overflow_exceptionD2Ev) #20
+  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN12mpfx_manager18overflow_exceptionE, ptr nonnull @_ZN12mpfx_manager18overflow_exceptionD2Ev) #21
           to label %unreachable unwind label %lpad
 
 invoke.cont49:                                    ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit, %_ZNK6vectorIjLb0EjE4sizeEv.exit.thread
@@ -4110,7 +4110,7 @@ terminate.lpad.i:                                 ; preds = %invoke.cont54
   %21 = landingpad { ptr, i32 }
           catch ptr null
   %22 = extractvalue { ptr, i32 } %21, 0
-  call void @__clang_call_terminate(ptr %22) #18
+  call void @__clang_call_terminate(ptr %22) #20
   unreachable
 
 if.end55:                                         ; preds = %invoke.cont54, %if.then
@@ -4363,7 +4363,7 @@ if.then24:                                        ; preds = %_ZN12mpfx_manager18
 if.then30:                                        ; preds = %if.then24
   %exception = tail call ptr @__cxa_allocate_exception(i64 8) #19
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12mpfx_manager18overflow_exceptionE, i64 16), ptr %exception, align 8
-  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN12mpfx_manager18overflow_exceptionE, ptr nonnull @_ZN12mpfx_manager18overflow_exceptionD2Ev) #20
+  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN12mpfx_manager18overflow_exceptionE, ptr nonnull @_ZN12mpfx_manager18overflow_exceptionD2Ev) #21
   unreachable
 
 if.else:                                          ; preds = %_ZN12mpfx_manager18allocate_if_neededER4mpfx.exit
@@ -4655,7 +4655,7 @@ if.then18:                                        ; preds = %land.lhs.true
 if.then21:                                        ; preds = %if.then18
   %exception = tail call ptr @__cxa_allocate_exception(i64 8) #19
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12mpfx_manager18overflow_exceptionE, i64 16), ptr %exception, align 8
-  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN12mpfx_manager18overflow_exceptionE, ptr nonnull @_ZN12mpfx_manager18overflow_exceptionD2Ev) #20
+  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN12mpfx_manager18overflow_exceptionE, ptr nonnull @_ZN12mpfx_manager18overflow_exceptionD2Ev) #21
   unreachable
 
 if.end22:                                         ; preds = %if.then18, %land.lhs.true, %_ZN12mpfx_manager18allocate_if_neededER4mpfx.exit
@@ -4669,7 +4669,7 @@ if.end22:                                         ; preds = %if.then18, %land.lh
 if.then27:                                        ; preds = %if.end22
   %exception28 = tail call ptr @__cxa_allocate_exception(i64 8) #19
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12mpfx_manager18overflow_exceptionE, i64 16), ptr %exception28, align 8
-  tail call void @__cxa_throw(ptr nonnull %exception28, ptr nonnull @_ZTIN12mpfx_manager18overflow_exceptionE, ptr nonnull @_ZN12mpfx_manager18overflow_exceptionD2Ev) #20
+  tail call void @__cxa_throw(ptr nonnull %exception28, ptr nonnull @_ZTIN12mpfx_manager18overflow_exceptionE, ptr nonnull @_ZN12mpfx_manager18overflow_exceptionD2Ev) #21
   unreachable
 
 if.end29:                                         ; preds = %if.end22
@@ -5002,7 +5002,7 @@ land.lhs.true.if.end21_crit_edge:                 ; preds = %land.lhs.true
 if.then9:                                         ; preds = %land.lhs.true
   %exception = tail call ptr @__cxa_allocate_exception(i64 8) #19
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12mpfx_manager18overflow_exceptionE, i64 16), ptr %exception, align 8
-  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN12mpfx_manager18overflow_exceptionE, ptr nonnull @_ZN12mpfx_manager18overflow_exceptionD2Ev) #20
+  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN12mpfx_manager18overflow_exceptionE, ptr nonnull @_ZN12mpfx_manager18overflow_exceptionD2Ev) #21
   unreachable
 
 for.body15:                                       ; preds = %for.cond12.preheader, %for.body15
@@ -5162,7 +5162,7 @@ land.lhs.true.if.end21_crit_edge:                 ; preds = %land.lhs.true
 if.then9:                                         ; preds = %land.lhs.true
   %exception = tail call ptr @__cxa_allocate_exception(i64 8) #19
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12mpfx_manager18overflow_exceptionE, i64 16), ptr %exception, align 8
-  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN12mpfx_manager18overflow_exceptionE, ptr nonnull @_ZN12mpfx_manager18overflow_exceptionD2Ev) #20
+  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN12mpfx_manager18overflow_exceptionE, ptr nonnull @_ZN12mpfx_manager18overflow_exceptionD2Ev) #21
   unreachable
 
 for.body15:                                       ; preds = %for.cond12.preheader, %for.body15
@@ -5642,7 +5642,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i.i.i64, 
   %46 = landingpad { ptr, i32 }
           catch ptr null
   %47 = extractvalue { ptr, i32 } %46, 0
-  tail call void @__clang_call_terminate(ptr %47) #18
+  tail call void @__clang_call_terminate(ptr %47) #20
   unreachable
 
 if.end38:                                         ; preds = %while.body, %for.body.i.i59, %_ZN6id_gen7recycleEj.exit.i.i50, %while.end33, %_ZN12mpfx_manager3setER4mpfxj.exit, %if.then8, %if.then5, %_ZN12mpfx_manager5resetER4mpfx.exit
@@ -6014,7 +6014,7 @@ terminate.lpad.i:                                 ; preds = %if.end
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #18
+  call void @__clang_call_terminate(ptr %6) #20
   unreachable
 
 _ZN15_scoped_numeralI11mpz_managerILb0EEED2Ev.exit: ; preds = %if.end
@@ -6026,7 +6026,7 @@ terminate.lpad.i25:                               ; preds = %_ZN15_scoped_numera
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  call void @__clang_call_terminate(ptr %9) #18
+  call void @__clang_call_terminate(ptr %9) #20
   unreachable
 
 _ZN15_scoped_numeralI11mpz_managerILb0EEED2Ev.exit26: ; preds = %_ZN15_scoped_numeralI11mpz_managerILb0EEED2Ev.exit
@@ -6110,7 +6110,7 @@ terminate.lpad.i:                                 ; preds = %if.end
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #18
+  call void @__clang_call_terminate(ptr %6) #20
   unreachable
 
 _ZN15_scoped_numeralI11mpz_managerILb1EEED2Ev.exit: ; preds = %if.end
@@ -6122,7 +6122,7 @@ terminate.lpad.i25:                               ; preds = %_ZN15_scoped_numera
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  call void @__clang_call_terminate(ptr %9) #18
+  call void @__clang_call_terminate(ptr %9) #20
   unreachable
 
 _ZN15_scoped_numeralI11mpz_managerILb1EEED2Ev.exit26: ; preds = %_ZN15_scoped_numeralI11mpz_managerILb1EEED2Ev.exit
@@ -6453,7 +6453,7 @@ terminate.lpad.i.i:                               ; preds = %if.end.i.i.i.i.i
   %25 = landingpad { ptr, i32 }
           catch ptr null
   %26 = extractvalue { ptr, i32 } %25, 0
-  call void @__clang_call_terminate(ptr %26) #18
+  call void @__clang_call_terminate(ptr %26) #20
   unreachable
 
 _ZN7sbufferIcLj1024EED2Ev.exit:                   ; preds = %if.end44, %if.end.i.i.i.i.i
@@ -6484,7 +6484,7 @@ terminate.lpad.i:                                 ; preds = %if.end.i.i.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #18
+  tail call void @__clang_call_terminate(ptr %2) #20
   unreachable
 
 _ZN6bufferIcLb0ELj1024EED2Ev.exit:                ; preds = %entry, %if.end.i.i.i.i
@@ -6836,7 +6836,7 @@ terminate.lpad.i.i:                               ; preds = %if.end.i.i.i.i.i
   %39 = landingpad { ptr, i32 }
           catch ptr null
   %40 = extractvalue { ptr, i32 } %39, 0
-  call void @__clang_call_terminate(ptr %40) #18
+  call void @__clang_call_terminate(ptr %40) #20
   unreachable
 
 lpad35:                                           ; preds = %invoke.cont42, %invoke.cont40, %invoke.cont31
@@ -6870,7 +6870,7 @@ terminate.lpad.i.i90:                             ; preds = %if.end.i.i.i.i.i89
   %43 = landingpad { ptr, i32 }
           catch ptr null
   %44 = extractvalue { ptr, i32 } %43, 0
-  call void @__clang_call_terminate(ptr %44) #18
+  call void @__clang_call_terminate(ptr %44) #20
   unreachable
 
 _ZN7sbufferIcLj1024EED2Ev.exit91:                 ; preds = %if.end52, %if.end.i.i.i.i.i89
@@ -7131,7 +7131,7 @@ terminate.lpad.i.i:                               ; preds = %if.end.i.i.i.i.i
   %27 = landingpad { ptr, i32 }
           catch ptr null
   %28 = extractvalue { ptr, i32 } %27, 0
-  call void @__clang_call_terminate(ptr %28) #18
+  call void @__clang_call_terminate(ptr %28) #20
   unreachable
 
 _ZN7sbufferIcLj1024EED2Ev.exit:                   ; preds = %cleanup, %if.end.i.i.i.i.i
@@ -7287,7 +7287,7 @@ invoke.cont:                                      ; preds = %if.then17
   store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception, align 8
   %m_msg.i = getelementptr inbounds i8, ptr %exception, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
-  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #20
+  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #21
           to label %unreachable unwind label %ehcleanup
 
 ehcleanup:                                        ; preds = %invoke.cont
@@ -7337,7 +7337,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.13) #20
+  invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.13) #21
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
@@ -7412,7 +7412,7 @@ terminate.lpad.i:                                 ; preds = %if.else
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #18
+  tail call void @__clang_call_terminate(ptr %2) #20
   unreachable
 
 if.end:                                           ; preds = %if.else, %if.then
@@ -7471,7 +7471,7 @@ terminate.lpad:                                   ; preds = %if.then
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #18
+  tail call void @__clang_call_terminate(ptr %2) #20
   unreachable
 }
 
@@ -7486,7 +7486,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr n
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN12mpfx_manager18overflow_exceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #22
   ret void
 }
 
@@ -7504,7 +7504,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #14
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN12mpfx_manager14div0_exceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #22
   ret void
 }
 
@@ -7533,7 +7533,7 @@ terminate.lpad:                                   ; preds = %entry
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #18
+  tail call void @__clang_call_terminate(ptr %2) #20
   unreachable
 }
 
@@ -7566,7 +7566,7 @@ terminate.lpad:                                   ; preds = %entry
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #18
+  tail call void @__clang_call_terminate(ptr %2) #20
   unreachable
 }
 
@@ -7752,7 +7752,7 @@ attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protect
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind }
 attributes #3 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -7766,10 +7766,11 @@ attributes #14 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="
 attributes #15 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #17 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #18 = { noreturn nounwind }
+attributes #18 = { cold noreturn nounwind }
 attributes #19 = { nounwind }
-attributes #20 = { noreturn }
-attributes #21 = { builtin nounwind }
+attributes #20 = { noreturn nounwind }
+attributes #21 = { noreturn }
+attributes #22 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -1501,7 +1501,7 @@ _ZN12_GLOBAL__N_19NinjaMainC2EPKcRK11BuildConfig.exit: ; preds = %353
           to label %396 unwind label %.loopexit.split-lp84
 
 396:                                              ; preds = %391
-  call void @exit(i32 noundef 1) #30
+  call void @exit(i32 noundef 1) #32
   unreachable
 
 397:                                              ; preds = %_ZN12_GLOBAL__N_19NinjaMainC2EPKcRK11BuildConfig.exit
@@ -1584,7 +1584,7 @@ _ZN12_GLOBAL__N_19NinjaMainC2EPKcRK11BuildConfig.exit: ; preds = %353
   br i1 %425, label %428, label %427
 
 427:                                              ; preds = %426
-  call void @exit(i32 noundef 1) #30
+  call void @exit(i32 noundef 1) #32
   unreachable
 
 428:                                              ; preds = %426
@@ -1602,7 +1602,7 @@ _ZN12_GLOBAL__N_19NinjaMainC2EPKcRK11BuildConfig.exit: ; preds = %353
   br i1 %432, label %435, label %434
 
 434:                                              ; preds = %433, %430
-  call void @exit(i32 noundef 1) #30
+  call void @exit(i32 noundef 1) #32
   unreachable
 
 435:                                              ; preds = %433
@@ -1976,7 +1976,7 @@ _ZN5StateD2Ev.exit:                               ; preds = %_ZNSt10_HashtableI1
           to label %547 unwind label %.loopexit.split-lp84
 
 547:                                              ; preds = %541
-  call void @exit(i32 noundef 1) #30
+  call void @exit(i32 noundef 1) #32
   unreachable
 
 548:                                              ; preds = %539
@@ -2016,7 +2016,7 @@ _ZN5StateD2Ev.exit:                               ; preds = %_ZNSt10_HashtableI1
   %558 = getelementptr inbounds i8, ptr %557, i64 64
   %559 = load ptr, ptr %558, align 8
   call void (ptr, ptr, ...) %559(ptr noundef nonnull align 8 dereferenceable(8) %274, ptr noundef nonnull @.str.5, ptr noundef %556, i32 noundef 100)
-  call void @exit(i32 noundef 1) #30
+  call void @exit(i32 noundef 1) #32
   unreachable
 }
 
@@ -2026,7 +2026,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 ; Function Attrs: nofree nounwind
 declare noundef i32 @setvbuf(ptr nocapture noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nobuiltin allocsize(0)
@@ -4436,7 +4436,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %94, label %select.unfold.i.i, label %95
 
 95:                                               ; preds = %._crit_edge.thread.i.i.i
-  %96 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.020.lcssa32.i.i.i) #32
+  %96 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.020.lcssa32.i.i.i) #33
   br label %97
 
 97:                                               ; preds = %95, %._crit_edge.i.i.i
@@ -4554,7 +4554,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   %137 = getelementptr inbounds i8, ptr %.sroa.06.031.i, i64 32
   %138 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %137) #26
   %puts.i36 = call i32 @puts(ptr nonnull dereferenceable(1) %138)
-  %139 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.06.031.i) #32
+  %139 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.06.031.i) #33
   %.not21.i = icmp eq ptr %139, %61
   br i1 %.not21.i, label %._crit_edge34.i, label %.lr.ph33.i, !llvm.loop !37
 
@@ -4590,7 +4590,7 @@ _ZN12_GLOBAL__N_121ToolTargetsSourceListEP5State.exit: ; preds = %._crit_edge.i,
 148:                                              ; preds = %147
   %149 = getelementptr inbounds i8, ptr %3, i64 8
   %150 = load ptr, ptr %149, align 8
-  %151 = call i32 @atoi(ptr nocapture noundef %150) #32
+  %151 = call i32 @atoi(ptr nocapture noundef %150) #33
   br label %_ZN12_GLOBAL__N_115ToolTargetsListEP5State.exit
 
 152:                                              ; preds = %144
@@ -5313,7 +5313,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.us: ;
   %putchar.us = call i32 @putchar(i32 10)
   %31 = load ptr, ptr @stdout, align 8
   %32 = call i32 @fflush(ptr noundef %31)
-  %33 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.024.030.us) #32
+  %33 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.024.030.us) #33
   %.not.us = icmp eq ptr %33, %18
   br i1 %.not.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !45
 
@@ -5342,7 +5342,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.us: ;
   %putchar = tail call i32 @putchar(i32 10)
   %40 = load ptr, ptr @stdout, align 8
   %41 = tail call i32 @fflush(ptr noundef %40)
-  %42 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.024.030) #32
+  %42 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.024.030) #33
   %.not = icmp eq ptr %42, %18
   br i1 %.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !45
 
@@ -5738,7 +5738,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_113PrintCommandsEP4EdgePSt3setIS1_7
   br i1 %18, label %select.unfold.i.i, label %19
 
 19:                                               ; preds = %._crit_edge.thread.i.i.i
-  %20 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i.i.i) #32
+  %20 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i.i.i) #33
   %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %20, i64 32
   %.pre.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8
   %.phi.trans.insert18.i.i = getelementptr inbounds i8, ptr %.pre.i.i, i64 112
@@ -6281,7 +6281,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_113CollectInputsEP4EdgePSt3setIS1_S
   br i1 %12, label %select.unfold.i.i, label %13
 
 13:                                               ; preds = %._crit_edge.thread.i.i.i
-  %14 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i.i.i) #32
+  %14 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i.i.i) #33
   %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %14, i64 32
   %.pre.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8
   br label %15
@@ -8174,7 +8174,7 @@ declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #24
 attributes #0 = { mustprogress norecurse noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #2 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -8203,7 +8203,8 @@ attributes #28 = { builtin nounwind }
 attributes #29 = { cold nounwind }
 attributes #30 = { noreturn nounwind }
 attributes #31 = { nounwind willreturn memory(none) }
-attributes #32 = { nounwind willreturn memory(read) }
+attributes #32 = { cold noreturn nounwind }
+attributes #33 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

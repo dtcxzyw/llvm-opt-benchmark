@@ -36,12 +36,12 @@ define hidden nonnull ptr @tm_malloc(i64 noundef %0, ptr noundef %1, i32 noundef
   br i1 %.b.i, label %init_extra_data.exit, label %4
 
 4:                                                ; preds = %3
-  tail call void @tm_init_genrand(i64 noundef 0) #12
+  tail call void @tm_init_genrand(i64 noundef 0) #13
   br label %5
 
 5:                                                ; preds = %5, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %5 ]
-  %6 = tail call i64 @tm_genrand_int32() #12
+  %6 = tail call i64 @tm_genrand_int32() #13
   %7 = trunc i64 %6 to i8
   %8 = getelementptr inbounds [100 x i8], ptr @extra_data, i64 0, i64 %indvars.iv.i
   store i8 %7, ptr %8, align 1
@@ -55,8 +55,8 @@ define hidden nonnull ptr @tm_malloc(i64 noundef %0, ptr noundef %1, i32 noundef
 
 init_extra_data.exit:                             ; preds = %3, %9
   %10 = add i64 %0, 200
-  %11 = tail call noalias ptr @malloc(i64 noundef %10) #13
-  %12 = tail call i32 @tm_get_verbose_level() #12
+  %11 = tail call noalias ptr @malloc(i64 noundef %10) #14
+  %12 = tail call i32 @tm_get_verbose_level() #13
   %13 = icmp ugt i32 %12, 5
   br i1 %13, label %14, label %16
 
@@ -70,7 +70,7 @@ init_extra_data.exit:                             ; preds = %3, %9
   %17 = getelementptr inbounds i8, ptr %11, i64 %10
   %18 = getelementptr inbounds i8, ptr %17, i64 -100
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(100) %18, ptr noundef nonnull align 16 dereferenceable(100) @extra_data, i64 100, i1 false)
-  %19 = tail call i32 @tm_get_verbose_level() #12
+  %19 = tail call i32 @tm_get_verbose_level() #13
   %20 = icmp ugt i32 %19, 5
   br i1 %20, label %21, label %24
 
@@ -94,17 +94,17 @@ declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_a
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @save_ptr(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) unnamed_addr #1 {
-  %5 = tail call noalias dereferenceable_or_null(88) ptr @malloc(i64 noundef 88) #13
+  %5 = tail call noalias dereferenceable_or_null(88) ptr @malloc(i64 noundef 88) #14
   store ptr %0, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   store i64 %1, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   store i32 %3, ptr %7, align 8
-  %8 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #14
+  %8 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #15
   %9 = shl i64 %8, 32
   %sext.i = add i64 %9, 4294967296
   %10 = ashr exact i64 %sext.i, 32
-  %11 = tail call noalias ptr @malloc(i64 noundef %10) #13
+  %11 = tail call noalias ptr @malloc(i64 noundef %10) #14
   %.not.i = icmp eq ptr %11, null
   br i1 %.not.i, label %my_strdup.exit, label %12
 
@@ -115,7 +115,7 @@ define internal fastcc void @save_ptr(ptr noundef %0, i64 noundef %1, ptr nocapt
 my_strdup.exit:                                   ; preds = %4, %12
   %13 = getelementptr inbounds i8, ptr %5, i64 16
   store ptr %11, ptr %13, align 8
-  %14 = tail call i32 @tm_get_verbose_level() #12
+  %14 = tail call i32 @tm_get_verbose_level() #13
   %15 = icmp ugt i32 %14, 5
   br i1 %15, label %16, label %18
 
@@ -145,7 +145,7 @@ my_strdup.exit:                                   ; preds = %4, %12
   br i1 %.not245, label %26, label %27
 
 26:                                               ; preds = %24
-  tail call void @exit(i32 noundef -1) #15
+  tail call void @exit(i32 noundef -1) #16
   unreachable
 
 27:                                               ; preds = %24
@@ -163,7 +163,7 @@ my_strdup.exit:                                   ; preds = %4, %12
   br i1 %.not246, label %32, label %33
 
 32:                                               ; preds = %27
-  tail call void @exit(i32 noundef -1) #15
+  tail call void @exit(i32 noundef -1) #16
   unreachable
 
 33:                                               ; preds = %27
@@ -343,7 +343,7 @@ my_strdup.exit:                                   ; preds = %4, %12
   br i1 %.not250, label %174, label %175
 
 174:                                              ; preds = %168
-  tail call void @exit(i32 noundef -1) #15
+  tail call void @exit(i32 noundef -1) #16
   unreachable
 
 175:                                              ; preds = %168
@@ -448,7 +448,7 @@ my_strdup.exit:                                   ; preds = %4, %12
 ._crit_edge276:                                   ; preds = %._crit_edge, %175
   %.lcssa = phi ptr [ %189, %175 ], [ %229, %._crit_edge ]
   %234 = load ptr, ptr %.lcssa, align 8
-  tail call void @free(ptr noundef %234) #12
+  tail call void @free(ptr noundef %234) #13
   %235 = load ptr, ptr %19, align 8
   %236 = getelementptr inbounds i8, ptr %235, i64 8
   %237 = load i32, ptr %236, align 8
@@ -504,12 +504,12 @@ define hidden nonnull ptr @tm_calloc(i64 noundef %0, i64 noundef %1, ptr noundef
   br i1 %.b.i, label %init_extra_data.exit, label %5
 
 5:                                                ; preds = %4
-  tail call void @tm_init_genrand(i64 noundef 0) #12
+  tail call void @tm_init_genrand(i64 noundef 0) #13
   br label %6
 
 6:                                                ; preds = %6, %5
   %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %6 ]
-  %7 = tail call i64 @tm_genrand_int32() #12
+  %7 = tail call i64 @tm_genrand_int32() #13
   %8 = trunc i64 %7 to i8
   %9 = getelementptr inbounds [100 x i8], ptr @extra_data, i64 0, i64 %indvars.iv.i
   store i8 %8, ptr %9, align 1
@@ -526,7 +526,7 @@ init_extra_data.exit:                             ; preds = %4, %10
   %12 = add i64 %11, 200
   %calloc = tail call ptr @calloc(i64 1, i64 %12)
   tail call fastcc void @save_ptr(ptr noundef %calloc, i64 noundef %12, ptr noundef %2, i32 noundef %3)
-  %13 = tail call i32 @tm_get_verbose_level() #12
+  %13 = tail call i32 @tm_get_verbose_level() #13
   %14 = icmp ugt i32 %13, 5
   br i1 %14, label %15, label %17
 
@@ -539,7 +539,7 @@ init_extra_data.exit:                             ; preds = %4, %10
   %18 = getelementptr inbounds i8, ptr %calloc, i64 %12
   %19 = getelementptr inbounds i8, ptr %18, i64 -100
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(100) %19, ptr noundef nonnull align 16 dereferenceable(100) @extra_data, i64 100, i1 false)
-  %20 = tail call i32 @tm_get_verbose_level() #12
+  %20 = tail call i32 @tm_get_verbose_level() #13
   %21 = icmp ugt i32 %20, 5
   br i1 %21, label %22, label %25
 
@@ -559,12 +559,12 @@ define hidden nonnull ptr @tm_realloc(ptr noundef %0, i64 noundef %1, ptr nounde
   br i1 %.b.i, label %init_extra_data.exit, label %5
 
 5:                                                ; preds = %4
-  tail call void @tm_init_genrand(i64 noundef 0) #12
+  tail call void @tm_init_genrand(i64 noundef 0) #13
   br label %6
 
 6:                                                ; preds = %6, %5
   %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %6 ]
-  %7 = tail call i64 @tm_genrand_int32() #12
+  %7 = tail call i64 @tm_genrand_int32() #13
   %8 = trunc i64 %7 to i8
   %9 = getelementptr inbounds [100 x i8], ptr @extra_data, i64 0, i64 %indvars.iv.i
   store i8 %8, ptr %9, align 1
@@ -578,9 +578,9 @@ define hidden nonnull ptr @tm_realloc(ptr noundef %0, i64 noundef %1, ptr nounde
 
 init_extra_data.exit:                             ; preds = %4, %10
   %11 = add i64 %1, 200
-  %12 = tail call noalias ptr @malloc(i64 noundef %11) #13
+  %12 = tail call noalias ptr @malloc(i64 noundef %11) #14
   tail call fastcc void @save_ptr(ptr noundef %12, i64 noundef %11, ptr noundef %2, i32 noundef %3)
-  %13 = tail call i32 @tm_get_verbose_level() #12
+  %13 = tail call i32 @tm_get_verbose_level() #13
   %14 = icmp ugt i32 %13, 5
   br i1 %14, label %15, label %17
 
@@ -603,43 +603,43 @@ init_extra_data.exit:                             ; preds = %4, %10
   %24 = add i64 %22, -200
   %25 = tail call i64 @llvm.umin.i64(i64 %24, i64 %1)
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %23, ptr nonnull align 1 %0, i64 %25, i1 false)
-  %26 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(100) %21, ptr noundef nonnull dereferenceable(100) @extra_data, i64 noundef 100) #14
+  %26 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(100) %21, ptr noundef nonnull dereferenceable(100) @extra_data, i64 noundef 100) #15
   %.not31 = icmp eq i32 %26, 0
   br i1 %.not31, label %35, label %27
 
 27:                                               ; preds = %20
-  %28 = tail call i32 @tm_get_verbose_level() #12
+  %28 = tail call i32 @tm_get_verbose_level() #13
   %29 = icmp ugt i32 %28, 1
   br i1 %29, label %30, label %35
 
 30:                                               ; preds = %27
   %31 = load ptr, ptr @stderr, align 8
-  %32 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %31, ptr noundef nonnull @.str.5, ptr noundef nonnull %21) #16
+  %32 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %31, ptr noundef nonnull @.str.5, ptr noundef nonnull %21) #17
   %33 = load ptr, ptr @stderr, align 8
-  %34 = tail call i64 @fwrite(ptr nonnull @.str.6, i64 35, i64 1, ptr %33) #17
+  %34 = tail call i64 @fwrite(ptr nonnull @.str.6, i64 35, i64 1, ptr %33) #18
   br label %35
 
 35:                                               ; preds = %30, %27, %20
   %36 = getelementptr inbounds i8, ptr %21, i64 %22
   %37 = getelementptr inbounds i8, ptr %36, i64 -100
-  %38 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(100) %37, ptr noundef nonnull dereferenceable(100) @extra_data, i64 noundef 100) #14
+  %38 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(100) %37, ptr noundef nonnull dereferenceable(100) @extra_data, i64 noundef 100) #15
   %.not32 = icmp eq i32 %38, 0
   br i1 %.not32, label %47, label %39
 
 39:                                               ; preds = %35
-  %40 = tail call i32 @tm_get_verbose_level() #12
+  %40 = tail call i32 @tm_get_verbose_level() #13
   %41 = icmp ugt i32 %40, 1
   br i1 %41, label %42, label %47
 
 42:                                               ; preds = %39
   %43 = load ptr, ptr @stderr, align 8
-  %44 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %43, ptr noundef nonnull @.str.7, ptr noundef nonnull %21) #16
+  %44 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %43, ptr noundef nonnull @.str.7, ptr noundef nonnull %21) #17
   %45 = load ptr, ptr @stderr, align 8
-  %46 = tail call i64 @fwrite(ptr nonnull @.str.6, i64 35, i64 1, ptr %45) #17
+  %46 = tail call i64 @fwrite(ptr nonnull @.str.6, i64 35, i64 1, ptr %45) #18
   br label %47
 
 47:                                               ; preds = %42, %39, %35
-  %48 = tail call i32 @tm_get_verbose_level() #12
+  %48 = tail call i32 @tm_get_verbose_level() #13
   %49 = icmp ugt i32 %48, 5
   br i1 %49, label %50, label %52
 
@@ -648,11 +648,11 @@ init_extra_data.exit:                             ; preds = %4, %10
   br label %52
 
 52:                                               ; preds = %50, %47
-  tail call void @free(ptr noundef nonnull %21) #12
+  tail call void @free(ptr noundef nonnull %21) #13
   br label %53
 
 53:                                               ; preds = %52, %17
-  %54 = tail call i32 @tm_get_verbose_level() #12
+  %54 = tail call i32 @tm_get_verbose_level() #13
   %55 = icmp ugt i32 %54, 5
   br i1 %55, label %56, label %60
 
@@ -794,23 +794,23 @@ define internal fastcc i64 @retreive_size(ptr noundef %0) unnamed_addr #1 {
   br label %81, !llvm.loop !8
 
 .loopexit:                                        ; preds = %89, %4, %1
-  %96 = tail call i32 @tm_get_verbose_level() #12
+  %96 = tail call i32 @tm_get_verbose_level() #13
   %.not217 = icmp eq i32 %96, 0
   br i1 %.not217, label %100, label %97
 
 97:                                               ; preds = %.loopexit
   %98 = load ptr, ptr @stderr, align 8
-  %99 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %98, ptr noundef nonnull @.str.13, ptr noundef %0) #16
+  %99 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %98, ptr noundef nonnull @.str.13, ptr noundef %0) #17
   br label %100
 
 100:                                              ; preds = %97, %.loopexit
-  tail call void @abort() #15
+  tail call void @abort() #19
   unreachable
 
 101:                                              ; preds = %85
   %102 = getelementptr inbounds i8, ptr %.1241, i64 8
   %103 = load i64, ptr %102, align 8
-  %104 = tail call i32 @tm_get_verbose_level() #12
+  %104 = tail call i32 @tm_get_verbose_level() #13
   %105 = icmp ugt i32 %104, 5
   br i1 %105, label %106, label %108
 
@@ -821,7 +821,7 @@ define internal fastcc i64 @retreive_size(ptr noundef %0) unnamed_addr #1 {
 108:                                              ; preds = %106, %101
   %109 = getelementptr inbounds i8, ptr %.1241, i64 16
   %110 = load ptr, ptr %109, align 8
-  tail call void @free(ptr noundef %110) #12
+  tail call void @free(ptr noundef %110) #13
   %111 = getelementptr inbounds i8, ptr %.1241, i64 32
   %112 = getelementptr inbounds i8, ptr %.1241, i64 40
   %113 = load ptr, ptr %112, align 8
@@ -839,9 +839,9 @@ define internal fastcc i64 @retreive_size(ptr noundef %0) unnamed_addr #1 {
   %121 = getelementptr inbounds i8, ptr %120, i64 32
   %122 = load ptr, ptr %121, align 8
   %123 = load ptr, ptr %122, align 8
-  tail call void @free(ptr noundef %123) #12
+  tail call void @free(ptr noundef %123) #13
   %124 = load ptr, ptr %121, align 8
-  tail call void @free(ptr noundef %124) #12
+  tail call void @free(ptr noundef %124) #13
   store ptr null, ptr @size_hash, align 8
   br label %194
 
@@ -983,43 +983,43 @@ define hidden void @tm_free(ptr noundef %0) local_unnamed_addr #1 {
 2:                                                ; preds = %1
   %3 = getelementptr inbounds i8, ptr %0, i64 -100
   %4 = tail call fastcc i64 @retreive_size(ptr noundef nonnull %3)
-  %5 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(100) %3, ptr noundef nonnull dereferenceable(100) @extra_data, i64 noundef 100) #14
+  %5 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(100) %3, ptr noundef nonnull dereferenceable(100) @extra_data, i64 noundef 100) #15
   %.not9 = icmp eq i32 %5, 0
   br i1 %.not9, label %14, label %6
 
 6:                                                ; preds = %2
-  %7 = tail call i32 @tm_get_verbose_level() #12
+  %7 = tail call i32 @tm_get_verbose_level() #13
   %8 = icmp ugt i32 %7, 1
   br i1 %8, label %9, label %14
 
 9:                                                ; preds = %6
   %10 = load ptr, ptr @stderr, align 8
-  %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.10, ptr noundef nonnull %3) #16
+  %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.10, ptr noundef nonnull %3) #17
   %12 = load ptr, ptr @stderr, align 8
-  %13 = tail call i64 @fwrite(ptr nonnull @.str.6, i64 35, i64 1, ptr %12) #17
+  %13 = tail call i64 @fwrite(ptr nonnull @.str.6, i64 35, i64 1, ptr %12) #18
   br label %14
 
 14:                                               ; preds = %9, %6, %2
   %15 = getelementptr inbounds i8, ptr %3, i64 %4
   %16 = getelementptr inbounds i8, ptr %15, i64 -100
-  %17 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(100) %16, ptr noundef nonnull dereferenceable(100) @extra_data, i64 noundef 100) #14
+  %17 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(100) %16, ptr noundef nonnull dereferenceable(100) @extra_data, i64 noundef 100) #15
   %.not10 = icmp eq i32 %17, 0
   br i1 %.not10, label %26, label %18
 
 18:                                               ; preds = %14
-  %19 = tail call i32 @tm_get_verbose_level() #12
+  %19 = tail call i32 @tm_get_verbose_level() #13
   %20 = icmp ugt i32 %19, 1
   br i1 %20, label %21, label %26
 
 21:                                               ; preds = %18
   %22 = load ptr, ptr @stderr, align 8
-  %23 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef nonnull @.str.11, ptr noundef nonnull %3) #16
+  %23 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef nonnull @.str.11, ptr noundef nonnull %3) #17
   %24 = load ptr, ptr @stderr, align 8
-  %25 = tail call i64 @fwrite(ptr nonnull @.str.6, i64 35, i64 1, ptr %24) #17
+  %25 = tail call i64 @fwrite(ptr nonnull @.str.6, i64 35, i64 1, ptr %24) #18
   br label %26
 
 26:                                               ; preds = %21, %18, %14
-  %27 = tail call i32 @tm_get_verbose_level() #12
+  %27 = tail call i32 @tm_get_verbose_level() #13
   %28 = icmp ugt i32 %27, 5
   br i1 %28, label %29, label %31
 
@@ -1028,7 +1028,7 @@ define hidden void @tm_free(ptr noundef %0) local_unnamed_addr #1 {
   br label %31
 
 31:                                               ; preds = %29, %26
-  tail call void @free(ptr noundef nonnull %3) #12
+  tail call void @free(ptr noundef nonnull %3) #13
   br label %32
 
 32:                                               ; preds = %1, %31
@@ -1039,23 +1039,23 @@ declare hidden void @tm_init_genrand(i64 noundef) local_unnamed_addr #3
 
 declare hidden i64 @tm_genrand_int32() local_unnamed_addr #3
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
 
-; Function Attrs: noreturn nounwind
-declare void @abort() local_unnamed_addr #8
+; Function Attrs: cold nofree noreturn nounwind
+declare void @abort() local_unnamed_addr #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #9
+declare i64 @llvm.umin.i64(i64, i64) #10
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #10
+declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #11
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #12
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1065,16 +1065,18 @@ attributes #4 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nofree nounwind }
-attributes #11 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
-attributes #12 = { nounwind }
-attributes #13 = { nounwind allocsize(0) }
-attributes #14 = { nounwind willreturn memory(read) }
-attributes #15 = { noreturn nounwind }
-attributes #16 = { cold nounwind }
-attributes #17 = { cold }
+attributes #8 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nofree nounwind }
+attributes #12 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
+attributes #13 = { nounwind }
+attributes #14 = { nounwind allocsize(0) }
+attributes #15 = { nounwind willreturn memory(read) }
+attributes #16 = { cold noreturn nounwind }
+attributes #17 = { cold nounwind }
+attributes #18 = { cold }
+attributes #19 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -134,7 +134,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 15:                                               ; preds = %12
   %16 = load ptr, ptr @stderr, align 8
   %17 = call i64 @fwrite(ptr nonnull @.str.23, i64 41, i64 1, ptr %16) #16
-  call void @exit(i32 noundef 1) #15
+  call void @exit(i32 noundef 1) #17
   unreachable
 
 18:                                               ; preds = %12
@@ -319,7 +319,7 @@ _addto_name_char_list.exit:                       ; preds = %56, %58
 82:                                               ; preds = %12
   store i32 1, ptr @exit_code, align 4
   %83 = load ptr, ptr @stderr, align 8
-  %84 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %83, ptr noundef nonnull @.str.33, i32 noundef %14) #17
+  %84 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %83, ptr noundef nonnull @.str.33, i32 noundef %14) #18
   %85 = load i32, ptr @exit_code, align 4
   call void @exit(i32 noundef %85) #15
   unreachable
@@ -390,7 +390,7 @@ _addto_name_char_list.exit:                       ; preds = %56, %58
 .lr.ph:                                           ; preds = %111, %.lr.ph
   %116 = phi ptr [ %119, %.lr.ph ], [ %115, %111 ]
   %117 = load ptr, ptr @stderr, align 8
-  %118 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %117, ptr noundef nonnull @.str.36, ptr noundef nonnull %116) #17
+  %118 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %117, ptr noundef nonnull @.str.36, ptr noundef nonnull %116) #18
   %119 = call ptr @list_next(ptr noundef %114) #14
   %.not43 = icmp eq ptr %119, null
   br i1 %.not43, label %._crit_edge, label %.lr.ph, !llvm.loop !9
@@ -434,7 +434,7 @@ thread-pre-split.thread:                          ; preds = %109, %thread-pre-sp
   %131 = load ptr, ptr @stderr, align 8
   %132 = call i64 @fwrite(ptr nonnull @.str.35, i64 17, i64 1, ptr %131) #16
   %133 = load ptr, ptr @stderr, align 8
-  %134 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %133, ptr noundef nonnull @.str.36, ptr noundef nonnull %123) #17
+  %134 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %133, ptr noundef nonnull @.str.36, ptr noundef nonnull %123) #18
   br label %135
 
 135:                                              ; preds = %._crit_edge, %121, %130, %127, %thread-pre-split.thread, %99, %101
@@ -461,7 +461,7 @@ thread-pre-split.thread:                          ; preds = %109, %thread-pre-sp
 .lr.ph86:                                         ; preds = %142, %.lr.ph86
   %147 = phi ptr [ %150, %.lr.ph86 ], [ %146, %142 ]
   %148 = load ptr, ptr @stderr, align 8
-  %149 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %148, ptr noundef nonnull @.str.36, ptr noundef nonnull %147) #17
+  %149 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %148, ptr noundef nonnull @.str.36, ptr noundef nonnull %147) #18
   %150 = call ptr @list_next(ptr noundef %143) #14
   %.not50 = icmp eq ptr %150, null
   br i1 %.not50, label %._crit_edge87, label %.lr.ph86, !llvm.loop !10
@@ -578,7 +578,7 @@ declare i32 @getopt_long(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #7
 
 declare ptr @list_create(ptr noundef) local_unnamed_addr #3
@@ -797,7 +797,7 @@ declare i32 @slurm_parse_char_list(ptr noundef, ptr noundef, ptr noundef, ptr no
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @_addto_name_char_list_internal(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #9 {
   %4 = alloca ptr, align 8
-  %5 = tail call ptr @__ctype_b_loc() #18
+  %5 = tail call ptr @__ctype_b_loc() #19
   %6 = load ptr, ptr %5, align 8
   %7 = load i8, ptr %1, align 1
   %8 = sext i8 %7 to i64
@@ -821,8 +821,8 @@ define internal range(i32 0, 2) i32 @_addto_name_char_list_internal(ptr noundef 
 
 19:                                               ; preds = %17
   %20 = load ptr, ptr @stderr, align 8
-  %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef nonnull @.str.43, i32 noundef %16) #17
-  tail call void @exit(i32 noundef 1) #15
+  %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef nonnull @.str.43, i32 noundef %16) #18
+  tail call void @exit(i32 noundef 1) #17
   unreachable
 
 22:                                               ; preds = %12
@@ -832,8 +832,8 @@ define internal range(i32 0, 2) i32 @_addto_name_char_list_internal(ptr noundef 
 
 24:                                               ; preds = %22
   %25 = load ptr, ptr @stderr, align 8
-  %26 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef nonnull @.str.44, i32 noundef %16) #17
-  tail call void @exit(i32 noundef 1) #15
+  %26 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef nonnull @.str.44, i32 noundef %16) #18
+  tail call void @exit(i32 noundef 1) #17
   unreachable
 
 27:                                               ; preds = %3
@@ -902,7 +902,7 @@ attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protect
 attributes #4 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -912,8 +912,9 @@ attributes #13 = { nocallback nofree nosync nounwind willreturn memory(argmem: r
 attributes #14 = { nounwind }
 attributes #15 = { noreturn nounwind }
 attributes #16 = { cold }
-attributes #17 = { cold nounwind }
-attributes #18 = { nounwind willreturn memory(none) }
+attributes #17 = { cold noreturn nounwind }
+attributes #18 = { cold nounwind }
+attributes #19 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
 

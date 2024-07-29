@@ -49,7 +49,7 @@ while.cond6.preheader.i:                          ; preds = %entry, %while.cond.
   br i1 %tobool15.not2.i, label %while.cond.loopexit.i, label %while.body16.i
 
 while.body16.i:                                   ; preds = %while.cond6.preheader.i, %while.body16.i
-  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !7
+  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !7
   %3 = load atomic i32, ptr getelementptr inbounds (i8, ptr @timers_state, i64 20) monotonic, align 4
   %tobool15.not.i = icmp eq i32 %3, 0
   br i1 %tobool15.not.i, label %while.cond.loopexit.i, label %while.body16.i, !llvm.loop !8
@@ -58,7 +58,7 @@ qemu_spin_lock.exit:                              ; preds = %while.cond.loopexit
   %4 = load i32, ptr getelementptr inbounds (i8, ptr @timers_state, i64 16), align 8
   %add.i.i = add i32 %4, 1
   store atomic i32 %add.i.i, ptr getelementptr inbounds (i8, ptr @timers_state, i64 16) monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !9
   fence release
   %icount_budget.i.i = getelementptr inbounds i8, ptr %cpu, i64 224
   %5 = load i64, ptr %icount_budget.i.i, align 16
@@ -73,7 +73,7 @@ qemu_spin_lock.exit:                              ; preds = %while.cond.loopexit
   %9 = load i64, ptr getelementptr inbounds (i8, ptr @timers_state, i64 64), align 8
   %add.i = add i64 %sub.i.i, %9
   store atomic i64 %add.i, ptr getelementptr inbounds (i8, ptr @timers_state, i64 64) monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !10
   fence release
   %10 = load i32, ptr getelementptr inbounds (i8, ptr @timers_state, i64 16), align 8
   %add.i.i2 = add i32 %10, 1
@@ -90,7 +90,7 @@ entry:
 
 do.body:                                          ; preds = %icount_get_raw_locked.exit, %entry
   %1 = load atomic i32, ptr getelementptr inbounds (i8, ptr @timers_state, i64 16) monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !11
   fence acquire
   %and.i = and i32 %1, -2
   %2 = load ptr, ptr %0, align 8
@@ -110,8 +110,8 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   br i1 %tobool2.i, label %if.end.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.then.i
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.14) #8
-  tail call void @exit(i32 noundef 1) #9
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.14) #9
+  tail call void @exit(i32 noundef 1) #10
   unreachable
 
 if.end.i:                                         ; preds = %if.then.i
@@ -132,7 +132,7 @@ if.end.i:                                         ; preds = %if.then.i
 
 icount_get_raw_locked.exit:                       ; preds = %do.body, %land.lhs.true.i, %if.end.i
   %10 = load atomic i64, ptr getelementptr inbounds (i8, ptr @timers_state, i64 64) monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !12
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !12
   fence acquire
   %11 = load atomic i32, ptr getelementptr inbounds (i8, ptr @timers_state, i64 16) monotonic, align 8
   %cmp.i.not = icmp eq i32 %11, %and.i
@@ -150,7 +150,7 @@ entry:
 
 do.body:                                          ; preds = %icount_get_locked.exit, %entry
   %1 = load atomic i32, ptr getelementptr inbounds (i8, ptr @timers_state, i64 16) monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !11
   fence acquire
   %and.i = and i32 %1, -2
   %2 = load ptr, ptr %0, align 8
@@ -170,8 +170,8 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   br i1 %tobool2.i.i, label %if.end.i.i, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %if.then.i.i
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.14) #8
-  tail call void @exit(i32 noundef 1) #9
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.14) #9
+  tail call void @exit(i32 noundef 1) #10
   unreachable
 
 if.end.i.i:                                       ; preds = %if.then.i.i
@@ -194,7 +194,7 @@ icount_get_locked.exit:                           ; preds = %do.body, %land.lhs.
   %10 = load atomic i64, ptr getelementptr inbounds (i8, ptr @timers_state, i64 64) monotonic, align 8
   %11 = load atomic i64, ptr getelementptr inbounds (i8, ptr @timers_state, i64 40) monotonic, align 8
   %12 = load atomic i16, ptr getelementptr inbounds (i8, ptr @timers_state, i64 26) monotonic, align 2
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !12
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !12
   fence acquire
   %13 = load atomic i32, ptr getelementptr inbounds (i8, ptr @timers_state, i64 16) monotonic, align 8
   %cmp.i.not = icmp eq i32 %13, %and.i
@@ -240,11 +240,11 @@ entry:
   br i1 %tobool.not, label %if.else, label %if.end
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str, i32 noundef 299, ptr noundef nonnull @__PRETTY_FUNCTION__.icount_start_warp_timer) #9
+  tail call void @__assert_fail(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str, i32 noundef 299, ptr noundef nonnull @__PRETTY_FUNCTION__.icount_start_warp_timer) #11
   unreachable
 
 if.end:                                           ; preds = %entry
-  %call = tail call zeroext i1 @runstate_is_running() #8
+  %call = tail call zeroext i1 @runstate_is_running() #9
   br i1 %call, label %if.end2, label %if.end59
 
 if.end2:                                          ; preds = %if.end
@@ -253,7 +253,7 @@ if.end2:                                          ; preds = %if.end
   br i1 %cmp.not, label %if.else11, label %if.then3
 
 if.then3:                                         ; preds = %if.end2
-  %call4 = tail call zeroext i1 @all_cpu_threads_idle() #8
+  %call4 = tail call zeroext i1 @all_cpu_threads_idle() #9
   br i1 %call4, label %if.end6, label %if.end59
 
 if.end6:                                          ; preds = %if.then3
@@ -262,24 +262,24 @@ if.end6:                                          ; preds = %if.then3
   br i1 %tobool.i, label %if.end59, label %if.end9
 
 if.end9:                                          ; preds = %if.end6
-  %call10 = tail call zeroext i1 @replay_checkpoint(i32 noundef 0) #8
+  %call10 = tail call zeroext i1 @replay_checkpoint(i32 noundef 0) #9
   br label %if.end18
 
 if.else11:                                        ; preds = %if.end2
-  %call12 = tail call zeroext i1 @replay_checkpoint(i32 noundef 0) #8
+  %call12 = tail call zeroext i1 @replay_checkpoint(i32 noundef 0) #9
   br i1 %call12, label %if.end18, label %if.then13
 
 if.then13:                                        ; preds = %if.else11
-  %call14 = tail call zeroext i1 @replay_has_event() #8
+  %call14 = tail call zeroext i1 @replay_has_event() #9
   br i1 %call14, label %if.then15, label %if.end59
 
 if.then15:                                        ; preds = %if.then13
-  tail call void @qemu_clock_notify(i32 noundef 1) #8
+  tail call void @qemu_clock_notify(i32 noundef 1) #9
   br label %if.end59
 
 if.end18:                                         ; preds = %if.else11, %if.end9
-  %call19 = tail call i64 @qemu_clock_get_ns(i32 noundef 3) #8
-  %call20 = tail call i64 @qemu_clock_deadline_ns_all(i32 noundef 1, i32 noundef -2) #8
+  %call19 = tail call i64 @qemu_clock_get_ns(i32 noundef 3) #9
+  %call20 = tail call i64 @qemu_clock_deadline_ns_all(i32 noundef 1, i32 noundef -2) #9
   %cmp21 = icmp slt i64 %call20, 0
   br i1 %cmp21, label %if.then22, label %if.end27
 
@@ -293,7 +293,7 @@ land.lhs.true:                                    ; preds = %if.then22
   br i1 %.b7, label %if.end59, label %if.then25
 
 if.then25:                                        ; preds = %land.lhs.true
-  tail call void (ptr, ...) @warn_report(ptr noundef nonnull @.str.2) #8
+  tail call void (ptr, ...) @warn_report(ptr noundef nonnull @.str.2) #9
   store i1 true, ptr @icount_start_warp_timer.notified, align 1
   br label %if.end59
 
@@ -319,7 +319,7 @@ while.cond6.preheader.i:                          ; preds = %if.then29, %while.c
   br i1 %tobool15.not2.i, label %while.cond.loopexit.i, label %while.body16.i
 
 while.body16.i:                                   ; preds = %while.cond6.preheader.i, %while.body16.i
-  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !7
+  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !7
   %8 = load atomic i32, ptr getelementptr inbounds (i8, ptr @timers_state, i64 20) monotonic, align 4
   %tobool15.not.i = icmp eq i32 %8, 0
   br i1 %tobool15.not.i, label %while.cond.loopexit.i, label %while.body16.i, !llvm.loop !8
@@ -328,7 +328,7 @@ qemu_spin_lock.exit:                              ; preds = %while.cond.loopexit
   %9 = load i32, ptr getelementptr inbounds (i8, ptr @timers_state, i64 16), align 8
   %add.i.i11 = add i32 %9, 1
   store atomic i32 %add.i.i11, ptr getelementptr inbounds (i8, ptr @timers_state, i64 16) monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9
   fence release
   br i1 %tobool30, label %if.else38, label %if.then31
 
@@ -336,13 +336,13 @@ if.then31:                                        ; preds = %qemu_spin_lock.exit
   %10 = load i64, ptr getelementptr inbounds (i8, ptr @timers_state, i64 40), align 8
   %add = add i64 %10, %call20
   store atomic i64 %add, ptr getelementptr inbounds (i8, ptr @timers_state, i64 40) monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !10
   fence release
   %11 = load i32, ptr getelementptr inbounds (i8, ptr @timers_state, i64 16), align 8
   %add.i.i10 = add i32 %11, 1
   store atomic i32 %add.i.i10, ptr getelementptr inbounds (i8, ptr @timers_state, i64 16) monotonic, align 8
   store atomic i32 0, ptr getelementptr inbounds (i8, ptr @timers_state, i64 20) release, align 4
-  tail call void @qemu_clock_notify(i32 noundef 1) #8
+  tail call void @qemu_clock_notify(i32 noundef 1) #9
   br label %if.end59
 
 if.else38:                                        ; preds = %qemu_spin_lock.exit
@@ -357,7 +357,7 @@ if.then46:                                        ; preds = %if.else38
   br label %if.end47
 
 if.end47:                                         ; preds = %if.else38, %if.then46
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !10
   fence release
   %13 = load i32, ptr getelementptr inbounds (i8, ptr @timers_state, i64 16), align 8
   %add.i.i12 = add i32 %13, 1
@@ -365,11 +365,11 @@ if.end47:                                         ; preds = %if.else38, %if.then
   store atomic i32 0, ptr getelementptr inbounds (i8, ptr @timers_state, i64 20) release, align 4
   %14 = load ptr, ptr getelementptr inbounds (i8, ptr @timers_state, i64 88), align 8
   %add53 = add i64 %call20, %call19
-  tail call void @timer_mod_anticipate(ptr noundef %14, i64 noundef %add53) #8
+  tail call void @timer_mod_anticipate(ptr noundef %14, i64 noundef %add53) #9
   br label %if.end59
 
 if.then57:                                        ; preds = %if.end27
-  tail call void @qemu_clock_notify(i32 noundef 1) #8
+  tail call void @qemu_clock_notify(i32 noundef 1) #9
   br label %if.end59
 
 if.end59:                                         ; preds = %if.then57, %if.then31, %if.end47, %if.then22, %land.lhs.true, %if.then25, %if.then13, %if.then15, %if.end6, %if.then3, %if.end
@@ -405,17 +405,17 @@ entry:
   br i1 %tobool, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %call = tail call zeroext i1 @runstate_is_running() #8
+  %call = tail call zeroext i1 @runstate_is_running() #9
   br i1 %call, label %if.end2, label %return
 
 if.end2:                                          ; preds = %if.end
-  tail call void @replay_async_events() #8
-  %call3 = tail call zeroext i1 @replay_checkpoint(i32 noundef 1) #8
+  tail call void @replay_async_events() #9
+  %call3 = tail call zeroext i1 @replay_checkpoint(i32 noundef 1) #9
   br i1 %call3, label %if.end5, label %return
 
 if.end5:                                          ; preds = %if.end2
   %1 = load ptr, ptr getelementptr inbounds (i8, ptr @timers_state, i64 88), align 8
-  tail call void @timer_del(ptr noundef %1) #8
+  tail call void @timer_del(ptr noundef %1) #9
   tail call fastcc void @icount_warp_rt()
   br label %return
 
@@ -434,11 +434,11 @@ entry:
 
 do.body:                                          ; preds = %do.body, %entry
   %0 = load atomic i32, ptr getelementptr inbounds (i8, ptr @timers_state, i64 16) monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !11
   fence acquire
   %and.i = and i32 %0, -2
   %1 = load i64, ptr getelementptr inbounds (i8, ptr @timers_state, i64 48), align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !12
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !12
   fence acquire
   %2 = load atomic i32, ptr getelementptr inbounds (i8, ptr @timers_state, i64 16) monotonic, align 8
   %cmp.i.not = icmp eq i32 %2, %and.i
@@ -464,7 +464,7 @@ while.cond6.preheader.i:                          ; preds = %if.end, %while.cond
   br i1 %tobool15.not2.i, label %while.cond.loopexit.i, label %while.body16.i
 
 while.body16.i:                                   ; preds = %while.cond6.preheader.i, %while.body16.i
-  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !7
+  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !7
   %6 = load atomic i32, ptr getelementptr inbounds (i8, ptr @timers_state, i64 20) monotonic, align 4
   %tobool15.not.i = icmp eq i32 %6, 0
   br i1 %tobool15.not.i, label %while.cond.loopexit.i, label %while.body16.i, !llvm.loop !8
@@ -473,9 +473,9 @@ qemu_spin_lock.exit:                              ; preds = %while.cond.loopexit
   %7 = load i32, ptr getelementptr inbounds (i8, ptr @timers_state, i64 16), align 8
   %add.i.i = add i32 %7, 1
   store atomic i32 %add.i.i, ptr getelementptr inbounds (i8, ptr @timers_state, i64 16) monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !9
   fence release
-  %call3 = tail call zeroext i1 @runstate_is_running() #8
+  %call3 = tail call zeroext i1 @runstate_is_running() #9
   br i1 %call3, label %if.then4, label %if.end30
 
 if.then4:                                         ; preds = %qemu_spin_lock.exit
@@ -504,8 +504,8 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   br i1 %tobool2.i, label %if.end.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.then.i
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.14) #8
-  tail call void @exit(i32 noundef 1) #9
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.14) #9
+  tail call void @exit(i32 noundef 1) #10
   unreachable
 
 if.end.i:                                         ; preds = %if.then.i
@@ -526,11 +526,11 @@ if.end.i:                                         ; preds = %if.then.i
 
 icount_get_raw_locked.exit:                       ; preds = %cond.true, %land.lhs.true.i, %if.end.i
   %18 = load atomic i64, ptr getelementptr inbounds (i8, ptr @timers_state, i64 64) monotonic, align 8
-  %call7 = tail call i64 @replay_read_clock(i32 noundef 1, i64 noundef %18) #8
+  %call7 = tail call i64 @replay_read_clock(i32 noundef 1, i64 noundef %18) #9
   br label %cond.end15
 
 cond.true9:                                       ; preds = %if.then4
-  %call10 = tail call i64 @cpu_get_clock_locked() #8
+  %call10 = tail call i64 @cpu_get_clock_locked() #9
   %19 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @current_cpu)
   %20 = load ptr, ptr %19, align 8
   %tobool.not.i8 = icmp eq ptr %20, null
@@ -549,8 +549,8 @@ if.then.i12:                                      ; preds = %land.lhs.true.i9
   br i1 %tobool2.i14, label %if.end.i16, label %if.then3.i15
 
 if.then3.i15:                                     ; preds = %if.then.i12
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.14) #8
-  tail call void @exit(i32 noundef 1) #9
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.14) #9
+  tail call void @exit(i32 noundef 1) #10
   unreachable
 
 if.end.i16:                                       ; preds = %if.then.i12
@@ -571,11 +571,11 @@ if.end.i16:                                       ; preds = %if.then.i12
 
 icount_get_raw_locked.exit23:                     ; preds = %cond.true9, %land.lhs.true.i9, %if.end.i16
   %28 = load atomic i64, ptr getelementptr inbounds (i8, ptr @timers_state, i64 64) monotonic, align 8
-  %call12 = tail call i64 @replay_save_clock(i32 noundef 1, i64 noundef %call10, i64 noundef %28) #8
+  %call12 = tail call i64 @replay_save_clock(i32 noundef 1, i64 noundef %call10, i64 noundef %28) #9
   br label %cond.end15
 
 cond.false13:                                     ; preds = %if.then4
-  %call14 = tail call i64 @cpu_get_clock_locked() #8
+  %call14 = tail call i64 @cpu_get_clock_locked() #9
   br label %cond.end15
 
 cond.end15:                                       ; preds = %icount_get_raw_locked.exit23, %cond.false13, %icount_get_raw_locked.exit
@@ -609,8 +609,8 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   br i1 %tobool2.i.i, label %if.end.i.i, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %if.then.i.i
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.14) #8
-  tail call void @exit(i32 noundef 1) #9
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.14) #9
+  tail call void @exit(i32 noundef 1) #10
   unreachable
 
 if.end.i.i:                                       ; preds = %if.then.i.i
@@ -651,17 +651,17 @@ if.end29:                                         ; preds = %cond.end15.if.end29
 
 if.end30:                                         ; preds = %if.end29, %qemu_spin_lock.exit
   store i64 -1, ptr getelementptr inbounds (i8, ptr @timers_state, i64 48), align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !10
   fence release
   %45 = load i32, ptr getelementptr inbounds (i8, ptr @timers_state, i64 16), align 8
   %add.i.i24 = add i32 %45, 1
   store atomic i32 %add.i.i24, ptr getelementptr inbounds (i8, ptr @timers_state, i64 16) monotonic, align 8
   store atomic i32 0, ptr getelementptr inbounds (i8, ptr @timers_state, i64 20) release, align 4
-  %call36 = tail call zeroext i1 @qemu_clock_expired(i32 noundef 1) #8
+  %call36 = tail call zeroext i1 @qemu_clock_expired(i32 noundef 1) #9
   br i1 %call36, label %if.then37, label %if.end38
 
 if.then37:                                        ; preds = %if.end30
-  tail call void @qemu_clock_notify(i32 noundef 1) #8
+  tail call void @qemu_clock_notify(i32 noundef 1) #9
   br label %if.end38
 
 if.end38:                                         ; preds = %do.end, %if.then37, %if.end30
@@ -672,21 +672,21 @@ if.end38:                                         ; preds = %do.end, %if.then37,
 define dso_local void @icount_configure(ptr noundef %opts, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %time_shift = alloca i64, align 8
-  %call = tail call ptr @qemu_opt_get(ptr noundef %opts, ptr noundef nonnull @.str.3) #8
-  %call1 = tail call zeroext i1 @qemu_opt_get_bool(ptr noundef %opts, ptr noundef nonnull @.str.4, i1 noundef zeroext true) #8
+  %call = tail call ptr @qemu_opt_get(ptr noundef %opts, ptr noundef nonnull @.str.3) #9
+  %call1 = tail call zeroext i1 @qemu_opt_get_bool(ptr noundef %opts, ptr noundef nonnull @.str.4, i1 noundef zeroext true) #9
   %frombool = zext i1 %call1 to i8
-  %call2 = tail call zeroext i1 @qemu_opt_get_bool(ptr noundef %opts, ptr noundef nonnull @.str.5, i1 noundef zeroext false) #8
+  %call2 = tail call zeroext i1 @qemu_opt_get_bool(ptr noundef %opts, ptr noundef nonnull @.str.5, i1 noundef zeroext false) #9
   store i64 -1, ptr %time_shift, align 8
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %if.then, label %if.end6
 
 if.then:                                          ; preds = %entry
-  %call4 = tail call ptr @qemu_opt_get(ptr noundef %opts, ptr noundef nonnull @.str.5) #8
+  %call4 = tail call ptr @qemu_opt_get(ptr noundef %opts, ptr noundef nonnull @.str.5) #9
   %cmp.not = icmp eq ptr %call4, null
   br i1 %cmp.not, label %return, label %if.then5
 
 if.then5:                                         ; preds = %if.then
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 431, ptr noundef nonnull @__func__.icount_configure, ptr noundef nonnull @.str.6) #8
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 431, ptr noundef nonnull @__func__.icount_configure, ptr noundef nonnull @.str.6) #9
   br label %return
 
 if.end6:                                          ; preds = %entry
@@ -695,16 +695,16 @@ if.end6:                                          ; preds = %entry
   br i1 %brmerge, label %if.end10, label %if.then9
 
 if.then9:                                         ; preds = %if.end6
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 437, ptr noundef nonnull @__func__.icount_configure, ptr noundef nonnull @.str.7) #8
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 437, ptr noundef nonnull @__func__.icount_configure, ptr noundef nonnull @.str.7) #9
   br label %return
 
 if.end10:                                         ; preds = %if.end6
-  %call11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call, ptr noundef nonnull dereferenceable(5) @.str.8) #10
+  %call11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call, ptr noundef nonnull dereferenceable(5) @.str.8) #12
   %cmp12.not = icmp eq i32 %call11, 0
   br i1 %cmp12.not, label %if.else, label %if.then13
 
 if.then13:                                        ; preds = %if.end10
-  %call14 = call i32 @qemu_strtol(ptr noundef nonnull %call, ptr noundef null, i32 noundef 0, ptr noundef nonnull %time_shift) #8
+  %call14 = call i32 @qemu_strtol(ptr noundef nonnull %call, ptr noundef null, i32 noundef 0, ptr noundef nonnull %time_shift) #9
   %cmp15 = icmp slt i32 %call14, 0
   %0 = load i64, ptr %time_shift, align 8
   %1 = icmp ugt i64 %0, 10
@@ -712,7 +712,7 @@ if.then13:                                        ; preds = %if.end10
   br i1 %or.cond1, label %if.then19, label %if.end28
 
 if.then19:                                        ; preds = %if.then13
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 444, ptr noundef nonnull @__func__.icount_configure, ptr noundef nonnull @.str.9) #8
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 444, ptr noundef nonnull @__func__.icount_configure, ptr noundef nonnull @.str.9) #9
   br label %return
 
 if.else:                                          ; preds = %if.end10
@@ -721,7 +721,7 @@ if.else:                                          ; preds = %if.end10
   br i1 %tobool21.not, label %if.else23, label %if.then22
 
 if.then22:                                        ; preds = %if.else
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 448, ptr noundef nonnull @__func__.icount_configure, ptr noundef nonnull @.str.10) #8
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 448, ptr noundef nonnull @__func__.icount_configure, ptr noundef nonnull @.str.10) #9
   br label %return
 
 if.else23:                                        ; preds = %if.else
@@ -730,7 +730,7 @@ if.else23:                                        ; preds = %if.else
   br i1 %tobool24, label %if.end28, label %if.then25
 
 if.then25:                                        ; preds = %if.else23
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 451, ptr noundef nonnull @__func__.icount_configure, ptr noundef nonnull @.str.11) #8
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 451, ptr noundef nonnull @__func__.icount_configure, ptr noundef nonnull @.str.11) #9
   br label %return
 
 if.end28:                                         ; preds = %if.else23, %if.then13
@@ -739,8 +739,8 @@ if.end28:                                         ; preds = %if.else23, %if.then
   br i1 %call1, label %if.then32, label %if.end34
 
 if.then32:                                        ; preds = %if.end28
-  %call.i.i.i = call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #11
-  call void @timer_init_full(ptr noundef %call.i.i.i, ptr noundef null, i32 noundef 3, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @icount_timer_cb, ptr noundef null) #8
+  %call.i.i.i = call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #13
+  call void @timer_init_full(ptr noundef %call.i.i.i, ptr noundef null, i32 noundef 3, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @icount_timer_cb, ptr noundef null) #9
   store ptr %call.i.i.i, ptr getelementptr inbounds (i8, ptr @timers_state, i64 88), align 8
   %.pre = load i64, ptr %time_shift, align 8
   br label %if.end34
@@ -762,19 +762,19 @@ if.end40:                                         ; preds = %if.end34
   store i32 2, ptr @use_icount, align 4
   store i16 3, ptr getelementptr inbounds (i8, ptr @timers_state, i64 26), align 2
   store i64 -1, ptr getelementptr inbounds (i8, ptr @timers_state, i64 48), align 8
-  %call.i.i.i13 = call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #11
-  call void @timer_init_full(ptr noundef %call.i.i.i13, ptr noundef null, i32 noundef 3, i32 noundef 1000000, i32 noundef 0, ptr noundef nonnull @icount_adjust_rt, ptr noundef null) #8
+  %call.i.i.i13 = call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #13
+  call void @timer_init_full(ptr noundef %call.i.i.i13, ptr noundef null, i32 noundef 3, i32 noundef 1000000, i32 noundef 0, ptr noundef nonnull @icount_adjust_rt, ptr noundef null) #9
   store ptr %call.i.i.i13, ptr getelementptr inbounds (i8, ptr @timers_state, i64 72), align 8
-  %call.i = call i64 @qemu_clock_get_ns(i32 noundef 3) #8
+  %call.i = call i64 @qemu_clock_get_ns(i32 noundef 3) #9
   %div.i = sdiv i64 %call.i, 1000000
   %add = add nsw i64 %div.i, 1000
-  call void @timer_mod(ptr noundef %call.i.i.i13, i64 noundef %add) #8
-  %call.i.i.i14 = call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #11
-  call void @timer_init_full(ptr noundef %call.i.i.i14, ptr noundef null, i32 noundef 1, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @icount_adjust_vm, ptr noundef null) #8
+  call void @timer_mod(ptr noundef %call.i.i.i13, i64 noundef %add) #9
+  %call.i.i.i14 = call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #13
+  call void @timer_init_full(ptr noundef %call.i.i.i14, ptr noundef null, i32 noundef 1, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @icount_adjust_vm, ptr noundef null) #9
   store ptr %call.i.i.i14, ptr getelementptr inbounds (i8, ptr @timers_state, i64 80), align 8
-  %call44 = call i64 @qemu_clock_get_ns(i32 noundef 1) #8
+  %call44 = call i64 @qemu_clock_get_ns(i32 noundef 1) #9
   %add45 = add i64 %call44, 100000000
-  call void @timer_mod(ptr noundef %call.i.i.i14, i64 noundef %add45) #8
+  call void @timer_mod(ptr noundef %call.i.i.i14, i64 noundef %add45) #9
   br label %return
 
 return:                                           ; preds = %if.then, %if.then5, %if.end40, %if.then38, %if.then25, %if.then22, %if.then19, %if.then9
@@ -803,10 +803,10 @@ entry:
 define internal void @icount_adjust_rt(ptr nocapture readnone %opaque) #0 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds (i8, ptr @timers_state, i64 72), align 8
-  %call.i = tail call i64 @qemu_clock_get_ns(i32 noundef 3) #8
+  %call.i = tail call i64 @qemu_clock_get_ns(i32 noundef 3) #9
   %div.i = sdiv i64 %call.i, 1000000
   %add = add nsw i64 %div.i, 1000
-  tail call void @timer_mod(ptr noundef %0, i64 noundef %add) #8
+  tail call void @timer_mod(ptr noundef %0, i64 noundef %add) #9
   tail call fastcc void @icount_adjust()
   ret void
 }
@@ -817,9 +817,9 @@ declare void @timer_mod(ptr noundef, i64 noundef) local_unnamed_addr #3
 define internal void @icount_adjust_vm(ptr nocapture readnone %opaque) #0 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds (i8, ptr @timers_state, i64 80), align 8
-  %call = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #8
+  %call = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #9
   %add = add i64 %call, 100000000
-  tail call void @timer_mod(ptr noundef %0, i64 noundef %add) #8
+  tail call void @timer_mod(ptr noundef %0, i64 noundef %add) #9
   tail call fastcc void @icount_adjust()
   ret void
 }
@@ -836,8 +836,8 @@ entry:
   br i1 %or.cond, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call void @qemu_cpu_kick(ptr noundef nonnull %2) #8
-  tail call void @qemu_clock_notify(i32 noundef 1) #8
+  tail call void @qemu_cpu_kick(ptr noundef nonnull %2) #9
+  tail call void @qemu_clock_notify(i32 noundef 1) #9
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -851,8 +851,8 @@ declare void @qemu_cpu_kick(ptr noundef) local_unnamed_addr #3
 
 declare void @error_report(ptr noundef, ...) local_unnamed_addr #3
 
-; Function Attrs: noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #2
+; Function Attrs: nofree noreturn nounwind
+declare void @exit(i32 noundef) local_unnamed_addr #6
 
 declare i64 @replay_read_clock(i32 noundef, i64 noundef) local_unnamed_addr #3
 
@@ -863,14 +863,14 @@ declare i64 @cpu_get_clock_locked() local_unnamed_addr #3
 declare zeroext i1 @qemu_clock_expired(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: allocsize(0,1)
-declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #6
+declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #7
 
 declare void @timer_init_full(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @icount_adjust() unnamed_addr #0 {
 entry:
-  %call = tail call zeroext i1 @runstate_is_running() #8
+  %call = tail call zeroext i1 @runstate_is_running() #9
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -889,7 +889,7 @@ while.cond6.preheader.i:                          ; preds = %if.end, %while.cond
   br i1 %tobool15.not2.i, label %while.cond.loopexit.i, label %while.body16.i
 
 while.body16.i:                                   ; preds = %while.cond6.preheader.i, %while.body16.i
-  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !7
+  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !7
   %3 = load atomic i32, ptr getelementptr inbounds (i8, ptr @timers_state, i64 20) monotonic, align 4
   %tobool15.not.i = icmp eq i32 %3, 0
   br i1 %tobool15.not.i, label %while.cond.loopexit.i, label %while.body16.i, !llvm.loop !8
@@ -898,7 +898,7 @@ qemu_spin_lock.exit:                              ; preds = %while.cond.loopexit
   %4 = load i32, ptr getelementptr inbounds (i8, ptr @timers_state, i64 16), align 8
   %add.i.i = add i32 %4, 1
   store atomic i32 %add.i.i, ptr getelementptr inbounds (i8, ptr @timers_state, i64 16) monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !9
   fence release
   %5 = load i32, ptr @replay_mode, align 4
   switch i32 %5, label %cond.false9 [
@@ -925,8 +925,8 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   br i1 %tobool2.i, label %if.end.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.then.i
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.14) #8
-  tail call void @exit(i32 noundef 1) #9
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.14) #9
+  tail call void @exit(i32 noundef 1) #10
   unreachable
 
 if.end.i:                                         ; preds = %if.then.i
@@ -947,11 +947,11 @@ if.end.i:                                         ; preds = %if.then.i
 
 icount_get_raw_locked.exit:                       ; preds = %cond.true, %land.lhs.true.i, %if.end.i
   %15 = load atomic i64, ptr getelementptr inbounds (i8, ptr @timers_state, i64 64) monotonic, align 8
-  %call3 = tail call i64 @replay_read_clock(i32 noundef 1, i64 noundef %15) #8
+  %call3 = tail call i64 @replay_read_clock(i32 noundef 1, i64 noundef %15) #9
   br label %cond.end11
 
 cond.true5:                                       ; preds = %qemu_spin_lock.exit
-  %call6 = tail call i64 @cpu_get_clock_locked() #8
+  %call6 = tail call i64 @cpu_get_clock_locked() #9
   %16 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @current_cpu)
   %17 = load ptr, ptr %16, align 8
   %tobool.not.i8 = icmp eq ptr %17, null
@@ -970,8 +970,8 @@ if.then.i12:                                      ; preds = %land.lhs.true.i9
   br i1 %tobool2.i14, label %if.end.i16, label %if.then3.i15
 
 if.then3.i15:                                     ; preds = %if.then.i12
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.14) #8
-  tail call void @exit(i32 noundef 1) #9
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.14) #9
+  tail call void @exit(i32 noundef 1) #10
   unreachable
 
 if.end.i16:                                       ; preds = %if.then.i12
@@ -992,11 +992,11 @@ if.end.i16:                                       ; preds = %if.then.i12
 
 icount_get_raw_locked.exit23:                     ; preds = %cond.true5, %land.lhs.true.i9, %if.end.i16
   %25 = load atomic i64, ptr getelementptr inbounds (i8, ptr @timers_state, i64 64) monotonic, align 8
-  %call8 = tail call i64 @replay_save_clock(i32 noundef 1, i64 noundef %call6, i64 noundef %25) #8
+  %call8 = tail call i64 @replay_save_clock(i32 noundef 1, i64 noundef %call6, i64 noundef %25) #9
   br label %cond.end11
 
 cond.false9:                                      ; preds = %qemu_spin_lock.exit
-  %call10 = tail call i64 @cpu_get_clock_locked() #8
+  %call10 = tail call i64 @cpu_get_clock_locked() #9
   %.pre = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @current_cpu)
   br label %cond.end11
 
@@ -1020,8 +1020,8 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   br i1 %tobool2.i.i, label %if.end.i.i, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %if.then.i.i
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.14) #8
-  tail call void @exit(i32 noundef 1) #9
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.14) #9
+  tail call void @exit(i32 noundef 1) #10
   unreachable
 
 if.end.i.i:                                       ; preds = %if.then.i.i
@@ -1088,7 +1088,7 @@ if.end49:                                         ; preds = %if.end49.sink.split
   store i64 %sub, ptr getelementptr inbounds (i8, ptr @timers_state, i64 32), align 8
   %sub52 = sub i64 %add.i, %shl.pre-phi
   store atomic i64 %sub52, ptr getelementptr inbounds (i8, ptr @timers_state, i64 40) monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !10
   fence release
   %39 = load i32, ptr getelementptr inbounds (i8, ptr @timers_state, i64 16), align 8
   %add.i.i24 = add i32 %39, 1
@@ -1101,10 +1101,10 @@ return:                                           ; preds = %entry, %if.end49
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #7
+declare i64 @llvm.smax.i64(i64, i64) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #7
+declare i64 @llvm.smin.i64(i64, i64) #8
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nounwind sspstrong willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1112,12 +1112,14 @@ attributes #2 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="tr
 attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nounwind }
-attributes #9 = { noreturn nounwind }
-attributes #10 = { nounwind willreturn memory(read) }
-attributes #11 = { nounwind allocsize(0,1) }
+attributes #6 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nounwind }
+attributes #10 = { cold noreturn nounwind }
+attributes #11 = { noreturn nounwind }
+attributes #12 = { nounwind willreturn memory(read) }
+attributes #13 = { nounwind allocsize(0,1) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

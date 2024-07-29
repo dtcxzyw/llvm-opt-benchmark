@@ -90,7 +90,7 @@ _opt_env.exit.backedge:                           ; preds = %_opt_env.exit, %26,
 
 12:                                               ; preds = %_opt_env.exit
   call fastcc void @_help()
-  call void @exit(i32 noundef 0) #10
+  call void @exit(i32 noundef 0) #11
   unreachable
 
 13:                                               ; preds = %_opt_env.exit
@@ -118,12 +118,12 @@ _opt_env.exit.backedge:                           ; preds = %_opt_env.exit, %26,
 
 20:                                               ; preds = %_opt_env.exit
   call void @print_slurm_version() #8
-  call void @exit(i32 noundef 0) #10
+  call void @exit(i32 noundef 0) #11
   unreachable
 
 21:                                               ; preds = %_opt_env.exit
   call fastcc void @_usage()
-  call void @exit(i32 noundef 0) #10
+  call void @exit(i32 noundef 0) #11
   unreachable
 
 22:                                               ; preds = %_opt_env.exit
@@ -135,7 +135,7 @@ _opt_env.exit.backedge:                           ; preds = %_opt_env.exit, %26,
   br i1 %.not10, label %_opt_env.exit.backedge, label %25
 
 25:                                               ; preds = %22
-  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.17) #10
+  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.17) #11
   unreachable
 
 26:                                               ; preds = %_opt_env.exit
@@ -147,13 +147,13 @@ _opt_env.exit.backedge:                           ; preds = %_opt_env.exit, %26,
   br i1 %.not9, label %_opt_env.exit.backedge, label %29
 
 29:                                               ; preds = %26
-  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.20) #10
+  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.20) #11
   unreachable
 
 30:                                               ; preds = %_opt_env.exit
   %31 = load ptr, ptr @optarg, align 8
   call void @suggest_completion(ptr noundef nonnull @parse_command_line.long_options, ptr noundef %31) #8
-  call void @exit(i32 noundef 0) #10
+  call void @exit(i32 noundef 0) #11
   unreachable
 
 32:                                               ; preds = %_opt_env.exit
@@ -179,7 +179,7 @@ _opt_env.exit.backedge:                           ; preds = %_opt_env.exit, %26,
 39:                                               ; preds = %37
   %40 = load ptr, ptr getelementptr inbounds (i8, ptr @params, i64 16), align 8
   call void @print_db_notok(ptr noundef %40, i1 noundef zeroext false) #8
-  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.21) #10
+  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.21) #11
   unreachable
 
 41:                                               ; preds = %37
@@ -196,7 +196,7 @@ _opt_env.exit.backedge:                           ; preds = %_opt_env.exit, %26,
   br i1 %46, label %47, label %48
 
 47:                                               ; preds = %44
-  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.22) #10
+  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.22) #11
   unreachable
 
 48:                                               ; preds = %44
@@ -212,7 +212,7 @@ _opt_env.exit.backedge:                           ; preds = %_opt_env.exit, %26,
 ; Function Attrs: nounwind
 declare i32 @getopt_long(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
@@ -261,7 +261,7 @@ declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -269,7 +269,8 @@ attributes #6 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trappin
 attributes #7 = { nofree nounwind }
 attributes #8 = { nounwind }
 attributes #9 = { cold }
-attributes #10 = { noreturn nounwind }
+attributes #10 = { cold noreturn nounwind }
+attributes #11 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
 

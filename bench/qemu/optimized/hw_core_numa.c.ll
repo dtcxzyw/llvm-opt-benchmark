@@ -130,7 +130,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.3, i32 noundef 224, ptr noundef nonnull @__func__.parse_numa_hmat_lb, ptr noundef nonnull @.str.4, i32 noundef %conv, i32 noundef %4) #11
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.3, i32 noundef 224, ptr noundef nonnull @__func__.parse_numa_hmat_lb, ptr noundef nonnull @.str.4, i32 noundef %conv, i32 noundef %4) #13
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -141,7 +141,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp10, label %if.then12, label %if.end16
 
 if.then12:                                        ; preds = %if.end
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.3, i32 noundef 229, ptr noundef nonnull @__func__.parse_numa_hmat_lb, ptr noundef nonnull @.str.5, i32 noundef %conv8, i32 noundef %4) #11
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.3, i32 noundef 229, ptr noundef nonnull @__func__.parse_numa_hmat_lb, ptr noundef nonnull @.str.5, i32 noundef %conv8, i32 noundef %4) #13
   br label %return
 
 if.end16:                                         ; preds = %if.end
@@ -152,7 +152,7 @@ if.end16:                                         ; preds = %if.end
   br i1 %tobool, label %if.end23, label %if.then20
 
 if.then20:                                        ; preds = %if.end16
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.3, i32 noundef 234, ptr noundef nonnull @__func__.parse_numa_hmat_lb, ptr noundef nonnull @.str.6, i32 noundef %conv) #11
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.3, i32 noundef 234, ptr noundef nonnull @__func__.parse_numa_hmat_lb, ptr noundef nonnull @.str.6, i32 noundef %conv) #13
   br label %return
 
 if.end23:                                         ; preds = %if.end16
@@ -163,7 +163,7 @@ if.end23:                                         ; preds = %if.end16
   br i1 %tobool27, label %if.end31, label %if.then28
 
 if.then28:                                        ; preds = %if.end23
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.3, i32 noundef 239, ptr noundef nonnull @__func__.parse_numa_hmat_lb, ptr noundef nonnull @.str.7, i32 noundef %conv8) #11
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.3, i32 noundef 239, ptr noundef nonnull @__func__.parse_numa_hmat_lb, ptr noundef nonnull @.str.7, i32 noundef %conv8) #13
   br label %return
 
 if.end31:                                         ; preds = %if.end23
@@ -171,14 +171,14 @@ if.end31:                                         ; preds = %if.end23
   br i1 %tobool32.not, label %if.then33, label %if.end42
 
 if.then33:                                        ; preds = %if.end31
-  %call = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0(i64 noundef 32) #12
+  %call = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0(i64 noundef 32) #14
   %8 = load i32, ptr %hierarchy, align 4
   %idxprom36 = zext i32 %8 to i64
   %9 = load i32, ptr %data_type, align 8
   %idxprom39 = zext i32 %9 to i64
   %arrayidx40 = getelementptr [4 x [6 x ptr]], ptr %hmat_lb1, i64 0, i64 %idxprom36, i64 %idxprom39
   store ptr %call, ptr %arrayidx40, align 8
-  %call41 = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 1, i32 noundef 16) #11
+  %call41 = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 1, i32 noundef 16) #13
   %list = getelementptr inbounds i8, ptr %call, i64 24
   store ptr %call41, ptr %list, align 8
   %.pre = load i32, ptr %hierarchy, align 4
@@ -211,7 +211,7 @@ if.then58:                                        ; preds = %if.end42
   br i1 %tobool59, label %if.end61, label %if.then60
 
 if.then60:                                        ; preds = %if.then58
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.3, i32 noundef 257, ptr noundef nonnull @__func__.parse_numa_hmat_lb, ptr noundef nonnull @.str.8) #11
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.3, i32 noundef 257, ptr noundef nonnull @__func__.parse_numa_hmat_lb, ptr noundef nonnull @.str.8) #13
   br label %return
 
 if.end61:                                         ; preds = %if.then58
@@ -233,7 +233,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
   br label %for.body
 
 if.then63:                                        ; preds = %if.end61
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.3, i32 noundef 262, ptr noundef nonnull @__func__.parse_numa_hmat_lb, ptr noundef nonnull @.str.9) #11
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.3, i32 noundef 262, ptr noundef nonnull @__func__.parse_numa_hmat_lb, ptr noundef nonnull @.str.9) #13
   br label %return
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -255,7 +255,7 @@ land.lhs.true:                                    ; preds = %for.body
 if.then83:                                        ; preds = %land.lhs.true
   %conv72.le = zext nneg i16 %12 to i32
   %conv78 = zext nneg i16 %13 to i32
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.3, i32 noundef 274, ptr noundef nonnull @__func__.parse_numa_hmat_lb, ptr noundef nonnull @.str.10, i32 noundef %conv72.le, i32 noundef %conv78) #11
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.3, i32 noundef 274, ptr noundef nonnull @__func__.parse_numa_hmat_lb, ptr noundef nonnull @.str.10, i32 noundef %conv72.le, i32 noundef %conv78) #13
   br label %return
 
 for.inc:                                          ; preds = %for.body, %land.lhs.true
@@ -302,7 +302,7 @@ if.then116:                                       ; preds = %while.end
   %conv119 = zext i16 %27 to i32
   %28 = load i16, ptr %target, align 2
   %conv121 = zext i16 %28 to i32
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.3, i32 noundef 303, ptr noundef nonnull @__func__.parse_numa_hmat_lb, ptr noundef nonnull @.str.11, i64 noundef %25, i32 noundef %conv119, i32 noundef %conv121, i32 noundef 65534) #11
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.3, i32 noundef 303, ptr noundef nonnull @__func__.parse_numa_hmat_lb, ptr noundef nonnull @.str.11, i64 noundef %25, i32 noundef %conv119, i32 noundef %conv121, i32 noundef 65534) #13
   br label %return
 
 if.else:                                          ; preds = %while.end
@@ -318,7 +318,7 @@ if.then137:                                       ; preds = %if.end42
   br i1 %tobool139, label %if.end141, label %if.then140
 
 if.then140:                                       ; preds = %if.then137
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.3, i32 noundef 320, ptr noundef nonnull @__func__.parse_numa_hmat_lb, ptr noundef nonnull @.str.12) #11
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.3, i32 noundef 320, ptr noundef nonnull @__func__.parse_numa_hmat_lb, ptr noundef nonnull @.str.12) #13
   br label %return
 
 if.end141:                                        ; preds = %if.then137
@@ -328,7 +328,7 @@ if.end141:                                        ; preds = %if.then137
   br i1 %tobool143, label %if.then144, label %if.end145
 
 if.then144:                                       ; preds = %if.end141
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.3, i32 noundef 325, ptr noundef nonnull @__func__.parse_numa_hmat_lb, ptr noundef nonnull @.str.13) #11
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.3, i32 noundef 325, ptr noundef nonnull @__func__.parse_numa_hmat_lb, ptr noundef nonnull @.str.13) #13
   br label %return
 
 if.end145:                                        ; preds = %if.end141
@@ -353,7 +353,7 @@ for.body161.lr.ph:                                ; preds = %for.cond156.prehead
 if.then149:                                       ; preds = %if.end145
   %conv152 = zext i16 %12 to i32
   %conv154 = zext i16 %13 to i32
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.3, i32 noundef 331, ptr noundef nonnull @__func__.parse_numa_hmat_lb, ptr noundef nonnull @.str.14, i64 noundef %31, i32 noundef %conv152, i32 noundef %conv154) #11
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.3, i32 noundef 331, ptr noundef nonnull @__func__.parse_numa_hmat_lb, ptr noundef nonnull @.str.14, i64 noundef %31, i32 noundef %conv152, i32 noundef %conv154) #13
   br label %return
 
 for.body161:                                      ; preds = %for.body161.lr.ph, %for.inc185
@@ -375,7 +375,7 @@ land.lhs.true172:                                 ; preds = %for.body161
 if.then179:                                       ; preds = %land.lhs.true172
   %conv167.le = zext nneg i16 %12 to i32
   %conv174 = zext nneg i16 %13 to i32
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.3, i32 noundef 343, ptr noundef nonnull @__func__.parse_numa_hmat_lb, ptr noundef nonnull @.str.15, i32 noundef %conv167.le, i32 noundef %conv174) #11
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.3, i32 noundef 343, ptr noundef nonnull @__func__.parse_numa_hmat_lb, ptr noundef nonnull @.str.15, i32 noundef %conv167.le, i32 noundef %conv174) #13
   br label %return
 
 for.inc185:                                       ; preds = %for.body161, %land.lhs.true172
@@ -412,7 +412,7 @@ if.then211:                                       ; preds = %if.then198
   %conv214 = zext i16 %45 to i32
   %46 = load i16, ptr %target, align 2
   %conv216 = zext i16 %46 to i32
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.3, i32 noundef 369, ptr noundef nonnull @__func__.parse_numa_hmat_lb, ptr noundef nonnull @.str.16, i64 noundef %40, i32 noundef %conv214, i32 noundef %conv216, i32 noundef 65534) #11
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.3, i32 noundef 369, ptr noundef nonnull @__func__.parse_numa_hmat_lb, ptr noundef nonnull @.str.16, i64 noundef %40, i32 noundef %conv214, i32 noundef %conv216, i32 noundef 65534) #13
   br label %return
 
 if.else217:                                       ; preds = %if.then198
@@ -439,7 +439,7 @@ if.end233:                                        ; preds = %if.end233.sink.spli
   store i64 %.sink, ptr %data230, align 8
   %list234 = getelementptr inbounds i8, ptr %hmat_lb.0, i64 24
   %50 = load ptr, ptr %list234, align 8
-  %call235 = call ptr @g_array_append_vals(ptr noundef %50, ptr noundef nonnull %lb_data, i32 noundef 1) #11
+  %call235 = call ptr @g_array_append_vals(ptr noundef %50, ptr noundef nonnull %lb_data, i32 noundef 1) #13
   br label %return
 
 return:                                           ; preds = %if.end233, %if.then211, %if.then179, %if.then149, %if.then144, %if.then140, %if.then116, %if.then83, %if.then63, %if.then60, %if.then28, %if.then20, %if.then12, %if.then
@@ -472,7 +472,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.3, i32 noundef 399, ptr noundef nonnull @__func__.parse_numa_hmat_cache, ptr noundef nonnull @.str.18, i32 noundef %2, i32 noundef %1) #11
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.3, i32 noundef 399, ptr noundef nonnull @__func__.parse_numa_hmat_cache, ptr noundef nonnull @.str.18, i32 noundef %2, i32 noundef %1) #13
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -484,7 +484,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4.not, label %if.end8, label %if.then6
 
 if.then6:                                         ; preds = %if.end
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.3, i32 noundef 406, ptr noundef nonnull @__func__.parse_numa_hmat_cache, ptr noundef nonnull @.str.19, i32 noundef %2) #11
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.3, i32 noundef 406, ptr noundef nonnull @__func__.parse_numa_hmat_cache, ptr noundef nonnull @.str.19, i32 noundef %2) #13
   br label %return
 
 if.end8:                                          ; preds = %if.end
@@ -496,7 +496,7 @@ if.end8:                                          ; preds = %if.end
   br i1 %or.cond, label %if.then16, label %if.end19
 
 if.then16:                                        ; preds = %if.end8
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.3, i32 noundef 413, ptr noundef nonnull @__func__.parse_numa_hmat_cache, ptr noundef nonnull @.str.20, i32 noundef %conv9, i32 noundef 3) #11
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.3, i32 noundef 413, ptr noundef nonnull @__func__.parse_numa_hmat_cache, ptr noundef nonnull @.str.20, i32 noundef %conv9, i32 noundef 3) #13
   br label %return
 
 if.end19:                                         ; preds = %if.end8
@@ -506,7 +506,7 @@ if.end19:                                         ; preds = %if.end8
   br i1 %cmp20, label %if.end23, label %if.else
 
 if.else:                                          ; preds = %if.end19
-  tail call void @__assert_fail(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.3, i32 noundef 417, ptr noundef nonnull @__PRETTY_FUNCTION__.parse_numa_hmat_cache) #13
+  tail call void @__assert_fail(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.3, i32 noundef 417, ptr noundef nonnull @__PRETTY_FUNCTION__.parse_numa_hmat_cache) #15
   unreachable
 
 if.end23:                                         ; preds = %if.end19
@@ -516,7 +516,7 @@ if.end23:                                         ; preds = %if.end19
   br i1 %cmp24, label %if.end28, label %if.else27
 
 if.else27:                                        ; preds = %if.end23
-  tail call void @__assert_fail(ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.3, i32 noundef 418, ptr noundef nonnull @__PRETTY_FUNCTION__.parse_numa_hmat_cache) #13
+  tail call void @__assert_fail(ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.3, i32 noundef 418, ptr noundef nonnull @__PRETTY_FUNCTION__.parse_numa_hmat_cache) #15
   unreachable
 
 if.end28:                                         ; preds = %if.end23
@@ -528,7 +528,7 @@ if.end28:                                         ; preds = %if.end23
   br i1 %tobool.not, label %if.end41, label %if.then37
 
 if.then37:                                        ; preds = %if.end28
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.3, i32 noundef 422, ptr noundef nonnull @__func__.parse_numa_hmat_cache, ptr noundef nonnull @.str.23, i32 noundef %2, i32 noundef %conv9) #11
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.3, i32 noundef 422, ptr noundef nonnull @__func__.parse_numa_hmat_cache, ptr noundef nonnull @.str.23, i32 noundef %2, i32 noundef %conv9) #13
   br label %return
 
 if.end41:                                         ; preds = %if.end28
@@ -544,7 +544,7 @@ land.lhs.true:                                    ; preds = %if.end41
   br i1 %cmp55, label %if.then57, label %land.lhs.true66
 
 if.then57:                                        ; preds = %land.lhs.true
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.3, i32 noundef 429, ptr noundef nonnull @__func__.parse_numa_hmat_cache, ptr noundef nonnull @.str.24, i32 noundef %sub) #11
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.3, i32 noundef 429, ptr noundef nonnull @__func__.parse_numa_hmat_cache, ptr noundef nonnull @.str.24, i32 noundef %sub) #13
   br label %return
 
 land.lhs.true66:                                  ; preds = %land.lhs.true
@@ -556,7 +556,7 @@ land.lhs.true66:                                  ; preds = %land.lhs.true
   br i1 %cmp78.not, label %if.end98, label %if.then80
 
 if.then80:                                        ; preds = %land.lhs.true66
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.3, i32 noundef 441, ptr noundef nonnull @__func__.parse_numa_hmat_cache, ptr noundef nonnull @.str.25, i64 noundef %10, i32 noundef %conv9, i64 noundef %11, i32 noundef %sub) #11
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.3, i32 noundef 441, ptr noundef nonnull @__func__.parse_numa_hmat_cache, ptr noundef nonnull @.str.25, i64 noundef %10, i32 noundef %conv9, i64 noundef %11, i32 noundef %sub) #13
   br label %return
 
 if.end98:                                         ; preds = %land.lhs.true66
@@ -580,11 +580,11 @@ land.lhs.true114:                                 ; preds = %land.lhs.true103
   br i1 %cmp127.not, label %if.end147, label %if.then129
 
 if.then129:                                       ; preds = %land.lhs.true114
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.3, i32 noundef 454, ptr noundef nonnull @__func__.parse_numa_hmat_cache, ptr noundef nonnull @.str.26, i64 noundef %13, i32 noundef %conv9, i64 noundef %14, i32 noundef %add) #11
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.3, i32 noundef 454, ptr noundef nonnull @__func__.parse_numa_hmat_cache, ptr noundef nonnull @.str.26, i64 noundef %13, i32 noundef %conv9, i64 noundef %14, i32 noundef %add) #13
   br label %return
 
 if.end147:                                        ; preds = %land.lhs.true114, %land.lhs.true103, %if.end98
-  %call = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0(i64 noundef 32) #12
+  %call = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0(i64 noundef 32) #14
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call, ptr noundef nonnull align 8 dereferenceable(32) %node, i64 32, i1 false)
   %15 = load ptr, ptr %numa_state, align 8
   %hmat_cache149 = getelementptr inbounds i8, ptr %15, i64 19656
@@ -612,7 +612,7 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.3, i32 noundef 466, ptr noundef nonnull @__func__.set_numa_options, ptr noundef nonnull @.str.27) #11
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.3, i32 noundef 466, ptr noundef nonnull @__func__.set_numa_options, ptr noundef nonnull @.str.27) #13
   br label %sw.epilog
 
 if.end:                                           ; preds = %entry
@@ -646,7 +646,7 @@ sw.bb1:                                           ; preds = %if.end
 
 if.then.i:                                        ; preds = %sw.bb1
   %cond.i = select i1 %cmp.i, ptr @.str.51, ptr @.str.52
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.3, i32 noundef 183, ptr noundef nonnull @__func__.parse_numa_distance, ptr noundef nonnull @.str.50, ptr noundef nonnull %cond.i, i32 noundef 127) #11
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.3, i32 noundef 183, ptr noundef nonnull @__func__.parse_numa_distance, ptr noundef nonnull @.str.50, ptr noundef nonnull %cond.i, i32 noundef 127) #13
   br label %sw.epilog
 
 if.end.i:                                         ; preds = %sw.bb1
@@ -665,7 +665,7 @@ lor.lhs.false11.i:                                ; preds = %if.end.i
   br i1 %tobool15.i, label %if.end17.i, label %if.then16.i
 
 if.then16.i:                                      ; preds = %lor.lhs.false11.i, %if.end.i
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.3, i32 noundef 189, ptr noundef nonnull @__func__.parse_numa_distance, ptr noundef nonnull @.str.53) #11
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.3, i32 noundef 189, ptr noundef nonnull @__func__.parse_numa_distance, ptr noundef nonnull @.str.53) #13
   br label %sw.epilog
 
 if.end17.i:                                       ; preds = %lor.lhs.false11.i
@@ -674,7 +674,7 @@ if.end17.i:                                       ; preds = %lor.lhs.false11.i
 
 if.then21.i:                                      ; preds = %if.end17.i
   %conv18.i = zext nneg i8 %4 to i32
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.3, i32 noundef 196, ptr noundef nonnull @__func__.parse_numa_distance, ptr noundef nonnull @.str.54, i32 noundef %conv18.i, i32 noundef 10) #11
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.3, i32 noundef 196, ptr noundef nonnull @__func__.parse_numa_distance, ptr noundef nonnull @.str.54, i32 noundef %conv18.i, i32 noundef 10) #13
   br label %sw.epilog
 
 if.end23.i:                                       ; preds = %if.end17.i
@@ -684,7 +684,7 @@ if.end23.i:                                       ; preds = %if.end17.i
   br i1 %or.cond1.i, label %if.then31.i, label %if.end33.i
 
 if.then31.i:                                      ; preds = %if.end23.i
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.3, i32 noundef 202, ptr noundef nonnull @__func__.parse_numa_distance, ptr noundef nonnull @.str.55, i32 noundef %conv.i, i32 noundef 10) #11
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.3, i32 noundef 202, ptr noundef nonnull @__func__.parse_numa_distance, ptr noundef nonnull @.str.55, i32 noundef %conv.i, i32 noundef 10) #13
   br label %sw.epilog
 
 if.end33.i:                                       ; preds = %if.end23.i
@@ -703,7 +703,7 @@ sw.bb3:                                           ; preds = %if.end
   br i1 %tobool5, label %if.end7, label %if.then6
 
 if.then6:                                         ; preds = %sw.bb3
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.3, i32 noundef 479, ptr noundef nonnull @__func__.set_numa_options, ptr noundef nonnull @.str.28) #11
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.3, i32 noundef 479, ptr noundef nonnull @__func__.set_numa_options, ptr noundef nonnull @.str.28) #13
   br label %sw.epilog
 
 if.end7:                                          ; preds = %sw.bb3
@@ -716,11 +716,11 @@ if.end7:                                          ; preds = %sw.bb3
   br i1 %tobool10, label %if.end14, label %if.then11
 
 if.then11:                                        ; preds = %if.end7
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.3, i32 noundef 485, ptr noundef nonnull @__func__.set_numa_options, ptr noundef nonnull @.str.29, i64 noundef %9) #11
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.3, i32 noundef 485, ptr noundef nonnull @__func__.set_numa_options, ptr noundef nonnull @.str.29, i64 noundef %9) #13
   br label %sw.epilog
 
 if.end14:                                         ; preds = %if.end7
-  tail call void @machine_set_cpu_numa_node(ptr noundef nonnull %ms, ptr noundef nonnull %u4, ptr noundef %errp) #11
+  tail call void @machine_set_cpu_numa_node(ptr noundef nonnull %ms, ptr noundef nonnull %u4, ptr noundef %errp) #13
   br label %sw.epilog
 
 sw.bb16:                                          ; preds = %if.end
@@ -730,7 +730,7 @@ sw.bb16:                                          ; preds = %if.end
   br i1 %tobool18, label %if.end20, label %if.then19
 
 if.then19:                                        ; preds = %sw.bb16
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.3, i32 noundef 497, ptr noundef nonnull @__func__.set_numa_options, ptr noundef nonnull @.str.30) #11
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.3, i32 noundef 497, ptr noundef nonnull @__func__.set_numa_options, ptr noundef nonnull @.str.30) #13
   br label %sw.epilog
 
 if.end20:                                         ; preds = %sw.bb16
@@ -745,7 +745,7 @@ sw.bb23:                                          ; preds = %if.end
   br i1 %tobool26, label %if.end28, label %if.then27
 
 if.then27:                                        ; preds = %sw.bb23
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.3, i32 noundef 507, ptr noundef nonnull @__func__.set_numa_options, ptr noundef nonnull @.str.30) #11
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.3, i32 noundef 507, ptr noundef nonnull @__func__.set_numa_options, ptr noundef nonnull @.str.30) #13
   br label %sw.epilog
 
 if.end28:                                         ; preds = %sw.bb23
@@ -754,7 +754,7 @@ if.end28:                                         ; preds = %sw.bb23
   br label %sw.epilog
 
 sw.default:                                       ; preds = %if.end
-  tail call void @abort() #13
+  tail call void @abort() #15
   unreachable
 
 sw.epilog:                                        ; preds = %if.end33.i, %if.then31.i, %if.then21.i, %if.then16.i, %if.then.i, %if.end28, %if.then27, %if.end20, %if.then19, %if.end14, %if.then11, %if.then6, %sw.bb, %if.then
@@ -768,8 +768,8 @@ entry:
   %props = alloca %struct.CpuInstanceProperties, align 8
   %tmp = alloca %struct.CpuInstanceProperties, align 8
   store ptr null, ptr %err, align 8
-  %call.i = tail call ptr @object_get_class(ptr noundef %ms) #11
-  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.57, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE_GET_CLASS) #11
+  %call.i = tail call ptr @object_get_class(ptr noundef %ms) #13
+  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.57, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE_GET_CLASS) #13
   %max_cpus1 = getelementptr inbounds i8, ptr %ms, i64 320
   %0 = load i32, ptr %max_cpus1, align 8
   %numa_state = getelementptr inbounds i8, ptr %ms, i64 336
@@ -796,7 +796,7 @@ if.end:                                           ; preds = %if.else, %if.then
   br i1 %cmp, label %if.then5, label %if.end7
 
 if.then5:                                         ; preds = %if.end
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.3, i32 noundef 82, ptr noundef nonnull @__func__.parse_numa_node, ptr noundef nonnull @.str.38, i32 noundef %conv3) #11
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.3, i32 noundef 82, ptr noundef nonnull @__func__.parse_numa_node, ptr noundef nonnull @.str.38, i32 noundef %conv3) #13
   br label %return
 
 if.end7:                                          ; preds = %if.end
@@ -808,7 +808,7 @@ if.end7:                                          ; preds = %if.end
   br i1 %tobool8, label %if.then9, label %if.end11
 
 if.then9:                                         ; preds = %if.end7
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.3, i32 noundef 87, ptr noundef nonnull @__func__.parse_numa_node, ptr noundef nonnull @.str.39, i32 noundef %conv3) #11
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.3, i32 noundef 87, ptr noundef nonnull @__func__.parse_numa_node, ptr noundef nonnull @.str.39, i32 noundef %conv3) #13
   br label %return
 
 if.end11:                                         ; preds = %if.end7
@@ -827,7 +827,7 @@ if.then15:                                        ; preds = %if.end11
   br i1 %tobool17, label %if.end19, label %if.then18
 
 if.then18:                                        ; preds = %if.then15
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.3, i32 noundef 100, ptr noundef nonnull @__func__.parse_numa_node, ptr noundef nonnull @.str.30) #11
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.3, i32 noundef 100, ptr noundef nonnull @__func__.parse_numa_node, ptr noundef nonnull @.str.30) #13
   br label %return
 
 if.end19:                                         ; preds = %if.then15
@@ -838,7 +838,7 @@ if.end19:                                         ; preds = %if.then15
 
 if.then24:                                        ; preds = %if.end19
   %conv21 = zext i16 %9 to i32
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.40, i32 noundef %conv21, i32 noundef 127) #11
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.40, i32 noundef %conv21, i32 noundef 127) #13
   br label %return
 
 if.end27:                                         ; preds = %if.end19
@@ -865,22 +865,22 @@ for.body:                                         ; preds = %for.cond
   br i1 %cmp36.not, label %if.end41, label %if.then38
 
 if.then38:                                        ; preds = %for.body
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.3, i32 noundef 120, ptr noundef nonnull @__func__.parse_numa_node, ptr noundef nonnull @.str.41, i32 noundef %conv35, i32 noundef %0) #11
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.3, i32 noundef 120, ptr noundef nonnull @__func__.parse_numa_node, ptr noundef nonnull @.str.41, i32 noundef %conv35, i32 noundef %0) #13
   br label %return
 
 if.end41:                                         ; preds = %for.body
   %11 = load ptr, ptr %cpu_index_to_instance_props, align 8
-  call void %11(ptr nonnull sret(%struct.CpuInstanceProperties) align 8 %tmp, ptr noundef %ms, i32 noundef %conv35) #11
+  call void %11(ptr nonnull sret(%struct.CpuInstanceProperties) align 8 %tmp, ptr noundef %ms, i32 noundef %conv35) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %props, ptr noundef nonnull align 8 dereferenceable(128) %tmp, i64 128, i1 false)
   store i64 %idxprom, ptr %node_id, align 8
   store i8 1, ptr %props, align 8
-  call void @machine_set_cpu_numa_node(ptr noundef %ms, ptr noundef nonnull %props, ptr noundef nonnull %err) #11
+  call void @machine_set_cpu_numa_node(ptr noundef %ms, ptr noundef nonnull %props, ptr noundef nonnull %err) #13
   %12 = load ptr, ptr %err, align 8
   %tobool45.not = icmp eq ptr %12, null
   br i1 %tobool45.not, label %for.cond, label %if.then46, !llvm.loop !9
 
 if.then46:                                        ; preds = %if.end41
-  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %12) #11
+  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %12) #13
   br label %return
 
 for.end:                                          ; preds = %for.cond
@@ -919,7 +919,7 @@ lor.lhs.false:                                    ; preds = %lor.end
   br i1 %or.cond1, label %if.then64, label %if.end65
 
 if.then64:                                        ; preds = %lor.lhs.false, %lor.end
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.3, i32 noundef 137, ptr noundef nonnull @__func__.parse_numa_node, ptr noundef nonnull @.str.42) #11
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.3, i32 noundef 137, ptr noundef nonnull @__func__.parse_numa_node, ptr noundef nonnull @.str.42) #13
   br label %return
 
 if.end65:                                         ; preds = %lor.lhs.false
@@ -932,8 +932,8 @@ if.then68:                                        ; preds = %if.end65
   br i1 %tobool69, label %if.end71, label %if.then70
 
 if.then70:                                        ; preds = %if.then68
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.3, i32 noundef 144, ptr noundef nonnull @__func__.parse_numa_node, ptr noundef nonnull @.str.43) #11
-  call void (ptr, ptr, ...) @error_append_hint(ptr noundef %errp, ptr noundef nonnull @.str.44) #11
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.3, i32 noundef 144, ptr noundef nonnull @__func__.parse_numa_node, ptr noundef nonnull @.str.43) #13
+  call void (ptr, ptr, ...) @error_append_hint(ptr noundef %errp, ptr noundef nonnull @.str.44) #13
   br label %return
 
 if.end71:                                         ; preds = %if.then68
@@ -945,7 +945,7 @@ if.end71:                                         ; preds = %if.then68
   br i1 %tobool.i, label %if.end77thread-pre-split, label %if.then75
 
 if.then75:                                        ; preds = %if.end71
-  call void (ptr, ...) @warn_report(ptr noundef nonnull @.str.45) #11
+  call void (ptr, ...) @warn_report(ptr noundef nonnull @.str.45) #13
   br label %if.end77thread-pre-split
 
 if.end77thread-pre-split:                         ; preds = %if.then75, %if.end71
@@ -958,20 +958,20 @@ if.end77:                                         ; preds = %if.end77thread-pre-
   br i1 %tobool79.not, label %if.end95, label %if.then80
 
 if.then80:                                        ; preds = %if.end77
-  %call82 = call ptr @object_resolve_path_type(ptr noundef nonnull %23, ptr noundef nonnull @.str.46, ptr noundef null) #11
+  %call82 = call ptr @object_resolve_path_type(ptr noundef nonnull %23, ptr noundef nonnull @.str.46, ptr noundef null) #13
   %tobool83.not = icmp eq ptr %call82, null
   br i1 %tobool83.not, label %if.then84, label %if.end86
 
 if.then84:                                        ; preds = %if.then80
   %24 = load ptr, ptr %memdev60, align 8
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.3, i32 noundef 159, ptr noundef nonnull @__func__.parse_numa_node, ptr noundef nonnull @.str.47, ptr noundef %24) #11
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.3, i32 noundef 159, ptr noundef nonnull @__func__.parse_numa_node, ptr noundef nonnull @.str.47, ptr noundef %24) #13
   br label %return
 
 if.end86:                                         ; preds = %if.then80
-  %call87 = call ptr @object_ref(ptr noundef nonnull %call82) #11
-  %call88 = call i64 @object_property_get_uint(ptr noundef nonnull %call82, ptr noundef nonnull @.str.48, ptr noundef null) #11
+  %call87 = call ptr @object_ref(ptr noundef nonnull %call82) #13
+  %call88 = call i64 @object_property_get_uint(ptr noundef nonnull %call82, ptr noundef nonnull @.str.48, ptr noundef null) #13
   store i64 %call88, ptr %arrayidx, align 8
-  %call.i62 = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call82, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.49, i32 noundef 25, ptr noundef nonnull @__func__.MEMORY_BACKEND) #11
+  %call.i62 = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call82, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.49, i32 noundef 25, ptr noundef nonnull @__func__.MEMORY_BACKEND) #13
   %node_memdev = getelementptr inbounds i8, ptr %arrayidx, i64 8
   store ptr %call.i62, ptr %node_memdev, align 8
   br label %if.end95
@@ -994,15 +994,15 @@ return:                                           ; preds = %if.end95, %if.then8
 
 declare void @machine_set_cpu_numa_node(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-; Function Attrs: noreturn nounwind
-declare void @abort() local_unnamed_addr #5
+; Function Attrs: cold nofree noreturn nounwind
+declare void @abort() local_unnamed_addr #7
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @numa_complete_configuration(ptr noundef %ms) local_unnamed_addr #1 {
 entry:
   %node = alloca %struct.NumaNodeOptions, align 8
-  %call.i = tail call ptr @object_get_class(ptr noundef %ms) #11
-  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.57, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE_GET_CLASS) #11
+  %call.i = tail call ptr @object_get_class(ptr noundef %ms) #13
+  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.57, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE_GET_CLASS) #13
   %numa_state = getelementptr inbounds i8, ptr %ms, i64 336
   %0 = load ptr, ptr %numa_state, align 8
   %nodes = getelementptr inbounds i8, ptr %0, i64 8
@@ -1070,8 +1070,8 @@ for.body:                                         ; preds = %for.cond
 
 if.then16:                                        ; preds = %for.body
   %14 = trunc i64 %12 to i32
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.32, i32 noundef %14) #11
-  tail call void @exit(i32 noundef 1) #13
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.32, i32 noundef %14) #13
+  tail call void @exit(i32 noundef 1) #16
   unreachable
 
 for.end:                                          ; preds = %for.cond
@@ -1081,7 +1081,7 @@ for.end:                                          ; preds = %for.cond
   br i1 %cmp20, label %if.end23, label %if.else22
 
 if.else22:                                        ; preds = %for.end
-  tail call void @__assert_fail(ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.3, i32 noundef 688, ptr noundef nonnull @__PRETTY_FUNCTION__.numa_complete_configuration) #13
+  tail call void @__assert_fail(ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.3, i32 noundef 688, ptr noundef nonnull @__PRETTY_FUNCTION__.numa_complete_configuration) #15
   unreachable
 
 if.end23:                                         ; preds = %for.end
@@ -1105,8 +1105,8 @@ for.end37:                                        ; preds = %for.body32
   br i1 %cmp39.not, label %if.end42, label %if.then40
 
 if.then40:                                        ; preds = %for.end37
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.34, i64 noundef %add, i64 noundef %18) #11
-  tail call void @exit(i32 noundef 1) #13
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.34, i64 noundef %add, i64 noundef %18) #13
+  tail call void @exit(i32 noundef 1) #16
   unreachable
 
 if.end42:                                         ; preds = %for.end37
@@ -1127,17 +1127,17 @@ if.then46:                                        ; preds = %land.lhs.true44
   br i1 %tobool47.not, label %if.end49, label %if.then48
 
 if.then48:                                        ; preds = %if.then46
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.35) #11
-  tail call void @exit(i32 noundef 1) #13
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.35) #13
+  tail call void @exit(i32 noundef 1) #16
   unreachable
 
 if.end49:                                         ; preds = %if.then46
-  %call50 = tail call noalias dereferenceable_or_null(272) ptr @g_malloc_n(i64 noundef 1, i64 noundef 272) #14
+  %call50 = tail call noalias dereferenceable_or_null(272) ptr @g_malloc_n(i64 noundef 1, i64 noundef 272) #17
   %ram = getelementptr inbounds i8, ptr %ms, i64 120
   store ptr %call50, ptr %ram, align 8
   %22 = load ptr, ptr %default_ram_id, align 8
   %23 = load i64, ptr %ram_size38, align 8
-  tail call void @memory_region_init(ptr noundef %call50, ptr noundef nonnull %ms, ptr noundef %22, i64 noundef %23) #11
+  tail call void @memory_region_init(ptr noundef %call50, ptr noundef nonnull %ms, ptr noundef %22, i64 noundef %23) #13
   %24 = load ptr, ptr %ram, align 8
   %25 = load ptr, ptr %numa_state, align 8
   %26 = load i32, ptr %25, align 8
@@ -1158,8 +1158,8 @@ for.body.i:                                       ; preds = %if.end49, %for.inc.
 
 if.end.i:                                         ; preds = %for.body.i
   %30 = load i64, ptr %arrayidx.i, align 8
-  %call.i40 = tail call ptr @machine_consume_memdev(ptr noundef nonnull %ms, ptr noundef nonnull %29) #11
-  tail call void @memory_region_add_subregion(ptr noundef %24, i64 noundef %addr.010.i, ptr noundef %call.i40) #11
+  %call.i40 = tail call ptr @machine_consume_memdev(ptr noundef nonnull %ms, ptr noundef nonnull %29) #13
+  tail call void @memory_region_add_subregion(ptr noundef %24, i64 noundef %addr.010.i, ptr noundef %call.i40) #13
   %add.i = add i64 %30, %addr.010.i
   %.pre.i = load ptr, ptr %numa_state, align 8
   %.pre13.i = load i32, ptr %.pre.i, align 8
@@ -1215,8 +1215,8 @@ land.lhs.true.i:                                  ; preds = %for.body4.i
 if.then19.i:                                      ; preds = %land.lhs.true.i
   %39 = trunc nuw nsw i64 %indvars.iv.i42 to i32
   %40 = trunc nuw nsw i64 %indvars.iv18.i to i32
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.58, i32 noundef %39, i32 noundef %40) #11
-  tail call void @exit(i32 noundef 1) #13
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.58, i32 noundef %39, i32 noundef %40) #13
+  tail call void @exit(i32 noundef 1) #16
   unreachable
 
 land.lhs.true29.i:                                ; preds = %for.body4.i
@@ -1268,8 +1268,8 @@ for.cond63.for.inc83_crit_edge.us.i:              ; preds = %for.inc80.us.i
   br i1 %exitcond31.not.i, label %for.cond2.preheader.i47.preheader, label %for.cond63.preheader.us.i, !llvm.loop !16
 
 if.then78.i:                                      ; preds = %land.lhs.true69.us.i
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.59) #11
-  tail call void @exit(i32 noundef 1) #13
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.59) #13
+  tail call void @exit(i32 noundef 1) #16
   unreachable
 
 for.cond2.preheader.i47:                          ; preds = %for.cond2.preheader.i47.preheader, %for.inc30.i
@@ -1328,19 +1328,19 @@ if.end60:                                         ; preds = %for.inc30.i, %if.th
 
 declare void @error_report(ptr noundef, ...) local_unnamed_addr #3
 
-; Function Attrs: noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #5
+; Function Attrs: nofree noreturn nounwind
+declare void @exit(i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: allocsize(0,1)
-declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #7
+declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #9
 
 declare void @memory_region_init(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @parse_numa_opts(ptr noundef %ms) local_unnamed_addr #1 {
 entry:
-  %call = tail call ptr @qemu_find_opts(ptr noundef nonnull @.str) #11
-  %call1 = tail call i32 @qemu_opts_foreach(ptr noundef %call, ptr noundef nonnull @parse_numa, ptr noundef %ms, ptr noundef nonnull @error_fatal) #11
+  %call = tail call ptr @qemu_find_opts(ptr noundef nonnull @.str) #13
+  %call1 = tail call i32 @qemu_opts_foreach(ptr noundef %call, ptr noundef nonnull @parse_numa, ptr noundef %ms, ptr noundef nonnull @error_fatal) #13
   ret void
 }
 
@@ -1354,11 +1354,11 @@ entry:
   %object = alloca ptr, align 8
   %err = alloca ptr, align 8
   store ptr null, ptr %object, align 8
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.57, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #11
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.57, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #13
   store ptr null, ptr %err, align 8
-  %call1 = tail call ptr @opts_visitor_new(ptr noundef %opts) #11
-  %call2 = call zeroext i1 @visit_type_NumaOptions(ptr noundef %call1, ptr noundef null, ptr noundef nonnull %object, ptr noundef %errp) #11
-  call void @visit_free(ptr noundef %call1) #11
+  %call1 = tail call ptr @opts_visitor_new(ptr noundef %opts) #13
+  %call2 = call zeroext i1 @visit_type_NumaOptions(ptr noundef %call1, ptr noundef null, ptr noundef nonnull %object, ptr noundef %errp) #13
+  call void @visit_free(ptr noundef %call1) #13
   %0 = load ptr, ptr %object, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %if.end
@@ -1375,16 +1375,16 @@ land.lhs.true:                                    ; preds = %if.end
   br i1 %tobool3, label %if.then4, label %if.end11
 
 if.then4:                                         ; preds = %land.lhs.true
-  %call5 = call ptr @qemu_opt_get(ptr noundef %opts, ptr noundef nonnull @.str.60) #11
+  %call5 = call ptr @qemu_opt_get(ptr noundef %opts, ptr noundef nonnull @.str.60) #13
   %3 = load ptr, ptr %object, align 8
   %mem = getelementptr inbounds i8, ptr %3, i64 32
-  %call7 = call i32 @qemu_strtosz_MiB(ptr noundef %call5, ptr noundef null, ptr noundef nonnull %mem) #11
+  %call7 = call i32 @qemu_strtosz_MiB(ptr noundef %call5, ptr noundef null, ptr noundef nonnull %mem) #13
   %cmp8 = icmp slt i32 %call7, 0
   br i1 %cmp8, label %if.then9, label %if.end11
 
 if.then9:                                         ; preds = %if.then4
   %sub = sub i32 0, %call7
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef nonnull %err, ptr noundef nonnull @.str.3, i32 noundef 538, ptr noundef nonnull @__func__.parse_numa, i32 noundef %sub, ptr noundef nonnull @.str.61, ptr noundef %call5) #11
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef nonnull %err, ptr noundef nonnull @.str.3, i32 noundef 538, ptr noundef nonnull @__func__.parse_numa, i32 noundef %sub, ptr noundef nonnull @.str.61, ptr noundef %call5) #13
   br label %if.end11
 
 if.end11:                                         ; preds = %if.then4, %if.then9, %land.lhs.true, %if.end
@@ -1400,13 +1400,13 @@ if.then13:                                        ; preds = %if.end11
 
 if.end14:                                         ; preds = %if.then13, %if.end11
   %5 = phi ptr [ %.pre, %if.then13 ], [ %.pre7, %if.end11 ]
-  call void @qapi_free_NumaOptions(ptr noundef %5) #11
+  call void @qapi_free_NumaOptions(ptr noundef %5) #13
   %6 = load ptr, ptr %err, align 8
   %tobool15.not = icmp eq ptr %6, null
   br i1 %tobool15.not, label %return, label %if.then16
 
 if.then16:                                        ; preds = %if.end14
-  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %6) #11
+  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %6) #13
   br label %return
 
 return:                                           ; preds = %if.end14, %entry, %if.then16
@@ -1417,7 +1417,7 @@ return:                                           ; preds = %if.end14, %entry, %
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @numa_cpu_pre_plug(ptr nocapture noundef readonly %slot, ptr noundef %dev, ptr noundef %errp) local_unnamed_addr #1 {
 entry:
-  %call = tail call i64 @object_property_get_int(ptr noundef %dev, ptr noundef nonnull @.str.36, ptr noundef nonnull @error_abort) #11
+  %call = tail call i64 @object_property_get_int(ptr noundef %dev, ptr noundef nonnull @.str.36, ptr noundef nonnull @error_abort) #13
   %0 = and i64 %call, 4294967295
   %cmp = icmp eq i64 %0, 4294967295
   br i1 %cmp, label %if.then, label %if.else
@@ -1431,7 +1431,7 @@ if.then:                                          ; preds = %entry
 if.then2:                                         ; preds = %if.then
   %node_id4 = getelementptr inbounds i8, ptr %slot, i64 24
   %2 = load i64, ptr %node_id4, align 8
-  %call5 = tail call zeroext i1 @object_property_set_int(ptr noundef %dev, ptr noundef nonnull @.str.36, i64 noundef %2, ptr noundef %errp) #11
+  %call5 = tail call zeroext i1 @object_property_set_int(ptr noundef %dev, ptr noundef nonnull @.str.36, i64 noundef %2, ptr noundef %errp) #13
   br label %if.end15
 
 if.else:                                          ; preds = %entry
@@ -1443,7 +1443,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp9.not, label %if.end15, label %if.then11
 
 if.then11:                                        ; preds = %if.else
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.3, i32 noundef 755, ptr noundef nonnull @__func__.numa_cpu_pre_plug, ptr noundef nonnull @.str.37, i64 noundef %3) #11
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.3, i32 noundef 755, ptr noundef nonnull @__func__.numa_cpu_pre_plug, ptr noundef nonnull @.str.37, i64 noundef %3) #13
   br label %if.end15
 
 if.end15:                                         ; preds = %if.else, %if.then11, %if.then, %if.then2
@@ -1468,7 +1468,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp2, label %for.end, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %call.i = tail call ptr @qmp_memory_device_list() #11
+  %call.i = tail call ptr @qmp_memory_device_list() #13
   %tobool.not27.i = icmp eq ptr %call.i, null
   br i1 %tobool.not27.i, label %numa_stat_memory_devices.exit, label %for.body.lr.ph.i
 
@@ -1562,7 +1562,7 @@ sw.bb35.i:                                        ; preds = %if.then.i
   br label %for.inc.i
 
 do.body.i:                                        ; preds = %if.then.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 798, ptr noundef nonnull @__func__.numa_stat_memory_devices, ptr noundef null) #13
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 798, ptr noundef nonnull @__func__.numa_stat_memory_devices, ptr noundef null) #15
   unreachable
 
 for.inc.i:                                        ; preds = %sw.bb35.i, %sw.bb22.i, %sw.bb11.i, %cond.end.i, %for.body.i
@@ -1571,7 +1571,7 @@ for.inc.i:                                        ; preds = %sw.bb35.i, %sw.bb22
   br i1 %tobool.not.i, label %numa_stat_memory_devices.exit, label %for.body.i, !llvm.loop !20
 
 numa_stat_memory_devices.exit:                    ; preds = %for.inc.i, %if.end
-  tail call void @qapi_free_MemoryDeviceInfoList(ptr noundef %call.i) #11
+  tail call void @qapi_free_MemoryDeviceInfoList(ptr noundef %call.i) #13
   %28 = load ptr, ptr %numa_state, align 8
   %29 = load i32, ptr %28, align 8
   %cmp58 = icmp sgt i32 %29, 0
@@ -1621,7 +1621,7 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %tobool.not, label %if.end7, label %if.then6
 
 if.then6:                                         ; preds = %if.end
-  %call = tail call i32 @qemu_ram_foreach_block(ptr noundef nonnull @ram_block_notify_add_single, ptr noundef nonnull %n) #11
+  %call = tail call i32 @qemu_ram_foreach_block(ptr noundef nonnull @ram_block_notify_add_single, ptr noundef nonnull %n) #13
   br label %if.end7
 
 if.end7:                                          ; preds = %if.then6, %if.end
@@ -1633,15 +1633,15 @@ declare i32 @qemu_ram_foreach_block(ptr noundef, ptr noundef) local_unnamed_addr
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i32 @ram_block_notify_add_single(ptr noundef %rb, ptr noundef %opaque) #1 {
 entry:
-  %call = tail call i64 @qemu_ram_get_max_length(ptr noundef %rb) #11
-  %call1 = tail call i64 @qemu_ram_get_used_length(ptr noundef %rb) #11
-  %call2 = tail call ptr @qemu_ram_get_host_addr(ptr noundef %rb) #11
+  %call = tail call i64 @qemu_ram_get_max_length(ptr noundef %rb) #13
+  %call1 = tail call i64 @qemu_ram_get_used_length(ptr noundef %rb) #13
+  %call2 = tail call ptr @qemu_ram_get_host_addr(ptr noundef %rb) #13
   %tobool.not = icmp eq ptr %call2, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %opaque, align 8
-  tail call void %0(ptr noundef nonnull %opaque, ptr noundef nonnull %call2, i64 noundef %call1, i64 noundef %call) #11
+  tail call void %0(ptr noundef nonnull %opaque, ptr noundef nonnull %call2, i64 noundef %call1, i64 noundef %call) #13
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -1674,7 +1674,7 @@ if.end:                                           ; preds = %entry, %if.then
   br i1 %tobool.not, label %if.end15, label %if.then14
 
 if.then14:                                        ; preds = %if.end
-  %call = tail call i32 @qemu_ram_foreach_block(ptr noundef nonnull @ram_block_notify_remove_single, ptr noundef nonnull %n) #11
+  %call = tail call i32 @qemu_ram_foreach_block(ptr noundef nonnull @ram_block_notify_remove_single, ptr noundef nonnull %n) #13
   br label %if.end15
 
 if.end15:                                         ; preds = %if.then14, %if.end
@@ -1684,16 +1684,16 @@ if.end15:                                         ; preds = %if.then14, %if.end
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i32 @ram_block_notify_remove_single(ptr noundef %rb, ptr noundef %opaque) #1 {
 entry:
-  %call = tail call i64 @qemu_ram_get_max_length(ptr noundef %rb) #11
-  %call1 = tail call i64 @qemu_ram_get_used_length(ptr noundef %rb) #11
-  %call2 = tail call ptr @qemu_ram_get_host_addr(ptr noundef %rb) #11
+  %call = tail call i64 @qemu_ram_get_max_length(ptr noundef %rb) #13
+  %call1 = tail call i64 @qemu_ram_get_used_length(ptr noundef %rb) #13
+  %call2 = tail call ptr @qemu_ram_get_host_addr(ptr noundef %rb) #13
   %tobool.not = icmp eq ptr %call2, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %ram_block_removed = getelementptr inbounds i8, ptr %opaque, i64 8
   %0 = load ptr, ptr %ram_block_removed, align 8
-  tail call void %0(ptr noundef %opaque, ptr noundef nonnull %call2, i64 noundef %call1, i64 noundef %call) #11
+  tail call void %0(ptr noundef %opaque, ptr noundef nonnull %call2, i64 noundef %call1, i64 noundef %call) #13
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -1716,7 +1716,7 @@ land.rhs:                                         ; preds = %entry, %for.inc
   br i1 %tobool2.not, label %for.inc, label %if.then
 
 if.then:                                          ; preds = %land.rhs
-  tail call void %2(ptr noundef nonnull %notifier.06, ptr noundef %host, i64 noundef %size, i64 noundef %max_size) #11
+  tail call void %2(ptr noundef nonnull %notifier.06, ptr noundef %host, i64 noundef %size, i64 noundef %max_size) #13
   br label %for.inc
 
 for.inc:                                          ; preds = %land.rhs, %if.then
@@ -1744,7 +1744,7 @@ land.rhs:                                         ; preds = %entry, %for.inc
   br i1 %tobool2.not, label %for.inc, label %if.then
 
 if.then:                                          ; preds = %land.rhs
-  tail call void %2(ptr noundef nonnull %notifier.06, ptr noundef %host, i64 noundef %size, i64 noundef %max_size) #11
+  tail call void %2(ptr noundef nonnull %notifier.06, ptr noundef %host, i64 noundef %size, i64 noundef %max_size) #13
   br label %for.inc
 
 for.inc:                                          ; preds = %land.rhs, %if.then
@@ -1772,7 +1772,7 @@ land.rhs:                                         ; preds = %entry, %for.inc
   br i1 %tobool2.not, label %for.inc, label %if.then
 
 if.then:                                          ; preds = %land.rhs
-  tail call void %2(ptr noundef nonnull %notifier.06, ptr noundef %host, i64 noundef %old_size, i64 noundef %new_size) #11
+  tail call void %2(ptr noundef nonnull %notifier.06, ptr noundef %host, i64 noundef %old_size, i64 noundef %new_size) #13
   br label %for.inc
 
 for.inc:                                          ; preds = %land.rhs, %if.then
@@ -1784,10 +1784,10 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.cttz.i64(i64, i1 immarg) #8
+declare i64 @llvm.cttz.i64(i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #8
+declare i64 @llvm.ctlz.i64(i64, i1 immarg) #10
 
 declare void @error_propagate(ptr noundef, ptr noundef) local_unnamed_addr #3
 
@@ -1828,7 +1828,7 @@ declare void @qapi_free_NumaOptions(ptr noundef) local_unnamed_addr #3
 declare ptr @qmp_memory_device_list() local_unnamed_addr #3
 
 ; Function Attrs: noreturn
-declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #9
+declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #11
 
 declare void @qapi_free_MemoryDeviceInfoList(ptr noundef) local_unnamed_addr #3
 
@@ -1839,13 +1839,13 @@ declare i64 @qemu_ram_get_used_length(ptr noundef) local_unnamed_addr #3
 declare ptr @qemu_ram_get_host_addr(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #10
+declare i64 @llvm.umin.i64(i64, i64) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #10
+declare i64 @llvm.umax.i64(i64, i64) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #10
+declare i32 @llvm.smax.i32(i32, i32) #12
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1854,14 +1854,17 @@ attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protect
 attributes #4 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { nounwind }
-attributes #12 = { nounwind allocsize(0) }
-attributes #13 = { noreturn nounwind }
-attributes #14 = { nounwind allocsize(0,1) }
+attributes #7 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { nounwind }
+attributes #14 = { nounwind allocsize(0) }
+attributes #15 = { noreturn nounwind }
+attributes #16 = { cold noreturn nounwind }
+attributes #17 = { nounwind allocsize(0,1) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

@@ -56,7 +56,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @aio_bh_schedule_oneshot_full(ptr noundef %ctx, ptr noundef %cb, ptr noundef %opaque, ptr noundef %name) local_unnamed_addr #0 {
 entry:
-  %call = tail call noalias dereferenceable_or_null(56) ptr @g_malloc_n(i64 noundef 1, i64 noundef 56) #11
+  %call = tail call noalias dereferenceable_or_null(56) ptr @g_malloc_n(i64 noundef 1, i64 noundef 56) #12
   store ptr %ctx, ptr %call, align 8
   %.compoundliteral.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %name, ptr %.compoundliteral.sroa.2.0..sroa_idx, align 8
@@ -93,11 +93,11 @@ do.body2.i:                                       ; preds = %do.body2.i, %do.bod
   br i1 %cmp.not.i, label %if.end.i, label %do.body2.i, !llvm.loop !5
 
 if.end.i:                                         ; preds = %do.body2.i, %entry
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !7
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !7
   fence release
   %notified.i.i = getelementptr inbounds i8, ptr %ctx, i64 200
   store atomic i8 1, ptr %notified.i.i monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !8
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   fence seq_cst
   %notify_me.i.i = getelementptr inbounds i8, ptr %ctx, i64 168
   %8 = load atomic i32, ptr %notify_me.i.i monotonic, align 8
@@ -106,11 +106,11 @@ if.end.i:                                         ; preds = %do.body2.i, %entry
 
 if.then.i.i:                                      ; preds = %if.end.i
   %notifier.i.i = getelementptr inbounds i8, ptr %ctx, i64 204
-  %call.i.i = tail call i32 @event_notifier_set(ptr noundef nonnull %notifier.i.i) #12
+  %call.i.i = tail call i32 @event_notifier_set(ptr noundef nonnull %notifier.i.i) #13
   br label %aio_bh_enqueue.exit
 
 aio_bh_enqueue.exit:                              ; preds = %if.end.i, %if.then.i.i
-  tail call void @icount_notify_exit() #12
+  tail call void @icount_notify_exit() #13
   ret void
 }
 
@@ -120,7 +120,7 @@ declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noalias noundef ptr @aio_bh_new_full(ptr noundef %ctx, ptr noundef %cb, ptr noundef %opaque, ptr noundef %name, ptr noundef %reentrancy_guard) local_unnamed_addr #0 {
 entry:
-  %call = tail call noalias dereferenceable_or_null(56) ptr @g_malloc_n(i64 noundef 1, i64 noundef 56) #11
+  %call = tail call noalias dereferenceable_or_null(56) ptr @g_malloc_n(i64 noundef 1, i64 noundef 56) #12
   store ptr %ctx, ptr %call, align 8
   %.compoundliteral.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %name, ptr %.compoundliteral.sroa.2.0..sroa_idx, align 8
@@ -151,7 +151,7 @@ if.end7.thread:                                   ; preds = %entry
   %1 = load ptr, ptr %cb11, align 8
   %opaque12 = getelementptr inbounds i8, ptr %bh, i64 24
   %2 = load ptr, ptr %opaque12, align 8
-  tail call void %1(ptr noundef %2) #12
+  tail call void %1(ptr noundef %2) #13
   br label %if.end13
 
 if.then:                                          ; preds = %entry
@@ -183,16 +183,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #12
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #12
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #13
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #13
   %10 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %11 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.9, i32 noundef %call10.i.i, i64 noundef %10, i64 noundef %11, ptr noundef %4, ptr noundef %5) #12
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.9, i32 noundef %call10.i.i, i64 noundef %10, i64 noundef %11, ptr noundef %4, ptr noundef %5) #13
   br label %trace_reentrant_aio.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.10, ptr noundef %4, ptr noundef %5) #12
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.10, ptr noundef %4, ptr noundef %5) #13
   br label %trace_reentrant_aio.exit
 
 trace_reentrant_aio.exit:                         ; preds = %if.then5, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -206,7 +206,7 @@ if.then9:                                         ; preds = %trace_reentrant_aio
   %13 = load ptr, ptr %cb, align 8
   %opaque = getelementptr inbounds i8, ptr %bh, i64 24
   %14 = load ptr, ptr %opaque, align 8
-  tail call void %13(ptr noundef %14) #12
+  tail call void %13(ptr noundef %14) #13
   store i8 %12, ptr %0, align 1
   br label %if.end13
 
@@ -241,7 +241,7 @@ while.body14.lr.ph:                               ; preds = %entry, %if.end43
 while.body14:                                     ; preds = %while.body14.lr.ph, %if.end
   %5 = phi ptr [ %4, %while.body14.lr.ph ], [ %13, %if.end ]
   %6 = load atomic i64, ptr %5 monotonic, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !9
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
   %tobool.not.i = icmp eq i64 %6, 0
   br i1 %tobool.not.i, label %do.body17, label %aio_bh_dequeue.exit
 
@@ -290,7 +290,7 @@ if.end39:                                         ; preds = %if.then34, %aio_bh_
   br i1 %tobool41.not, label %if.end43, label %if.then42
 
 if.then42:                                        ; preds = %if.end39
-  call void @g_free(ptr noundef nonnull %7) #12
+  call void @g_free(ptr noundef nonnull %7) #13
   br label %if.end43
 
 if.end43:                                         ; preds = %if.then42, %if.end39
@@ -334,11 +334,11 @@ do.body2.i:                                       ; preds = %do.body2.i, %do.bod
   br i1 %cmp.not.i, label %if.end.i, label %do.body2.i, !llvm.loop !5
 
 if.end.i:                                         ; preds = %do.body2.i, %entry
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !7
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !7
   fence release
   %notified.i.i = getelementptr inbounds i8, ptr %0, i64 200
   store atomic i8 1, ptr %notified.i.i monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !8
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   fence seq_cst
   %notify_me.i.i = getelementptr inbounds i8, ptr %0, i64 168
   %9 = load atomic i32, ptr %notify_me.i.i monotonic, align 8
@@ -347,11 +347,11 @@ if.end.i:                                         ; preds = %do.body2.i, %entry
 
 if.then.i.i:                                      ; preds = %if.end.i
   %notifier.i.i = getelementptr inbounds i8, ptr %0, i64 204
-  %call.i.i = tail call i32 @event_notifier_set(ptr noundef nonnull %notifier.i.i) #12
+  %call.i.i = tail call i32 @event_notifier_set(ptr noundef nonnull %notifier.i.i) #13
   br label %aio_bh_enqueue.exit
 
 aio_bh_enqueue.exit:                              ; preds = %if.end.i, %if.then.i.i
-  tail call void @icount_notify_exit() #12
+  tail call void @icount_notify_exit() #13
   ret void
 }
 
@@ -384,11 +384,11 @@ do.body2.i:                                       ; preds = %do.body2.i, %do.bod
   br i1 %cmp.not.i, label %if.end.i, label %do.body2.i, !llvm.loop !5
 
 if.end.i:                                         ; preds = %do.body2.i, %entry
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !7
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !7
   fence release
   %notified.i.i = getelementptr inbounds i8, ptr %0, i64 200
   store atomic i8 1, ptr %notified.i.i monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !8
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   fence seq_cst
   %notify_me.i.i = getelementptr inbounds i8, ptr %0, i64 168
   %9 = load atomic i32, ptr %notify_me.i.i monotonic, align 8
@@ -397,11 +397,11 @@ if.end.i:                                         ; preds = %do.body2.i, %entry
 
 if.then.i.i:                                      ; preds = %if.end.i
   %notifier.i.i = getelementptr inbounds i8, ptr %0, i64 204
-  %call.i.i = tail call i32 @event_notifier_set(ptr noundef nonnull %notifier.i.i) #12
+  %call.i.i = tail call i32 @event_notifier_set(ptr noundef nonnull %notifier.i.i) #13
   br label %aio_bh_enqueue.exit
 
 aio_bh_enqueue.exit:                              ; preds = %if.end.i, %if.then.i.i
-  tail call void @icount_notify_exit() #12
+  tail call void @icount_notify_exit() #13
   ret void
 }
 
@@ -442,11 +442,11 @@ do.body2.i:                                       ; preds = %do.body2.i, %do.bod
   br i1 %cmp.not.i, label %if.end.i, label %do.body2.i, !llvm.loop !5
 
 if.end.i:                                         ; preds = %do.body2.i, %entry
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !7
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !7
   fence release
   %notified.i.i = getelementptr inbounds i8, ptr %0, i64 200
   store atomic i8 1, ptr %notified.i.i monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !8
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   fence seq_cst
   %notify_me.i.i = getelementptr inbounds i8, ptr %0, i64 168
   %9 = load atomic i32, ptr %notify_me.i.i monotonic, align 8
@@ -455,11 +455,11 @@ if.end.i:                                         ; preds = %do.body2.i, %entry
 
 if.then.i.i:                                      ; preds = %if.end.i
   %notifier.i.i = getelementptr inbounds i8, ptr %0, i64 204
-  %call.i.i = tail call i32 @event_notifier_set(ptr noundef nonnull %notifier.i.i) #12
+  %call.i.i = tail call i32 @event_notifier_set(ptr noundef nonnull %notifier.i.i) #13
   br label %aio_bh_enqueue.exit
 
 aio_bh_enqueue.exit:                              ; preds = %if.end.i, %if.then.i.i
-  tail call void @icount_notify_exit() #12
+  tail call void @icount_notify_exit() #13
   ret void
 }
 
@@ -468,7 +468,7 @@ define dso_local noundef i64 @aio_compute_timeout(ptr noundef %ctx) local_unname
 entry:
   %bh_list = getelementptr inbounds i8, ptr %ctx, i64 176
   %0 = load atomic i64, ptr %bh_list monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !11
   %tobool.not6.i = icmp eq i64 %0, 0
   br i1 %tobool.not6.i, label %if.end, label %for.body.i
 
@@ -491,7 +491,7 @@ while.end10.i:                                    ; preds = %if.then.i, %for.bod
   %timeout.addr.1.i = phi i32 [ %timeout.addr.07.i, %for.body.i ], [ 10000000, %if.then.i ]
   %next.i = getelementptr inbounds i8, ptr %bh.08.i, i64 32
   %2 = load atomic i64, ptr %next.i monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !12
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !12
   %tobool.not.i = icmp eq i64 %2, 0
   br i1 %tobool.not.i, label %aio_compute_bh_timeout.exit, label %for.body.i, !llvm.loop !13
 
@@ -521,7 +521,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %s.046 = phi ptr [ %s.0, %for.cond ], [ %s.043, %for.body.preheader ]
   %timeout.0.in45 = phi i32 [ %timeout.addr.0.lcssa.i23, %for.cond ], [ %3, %for.body.preheader ]
   %4 = load atomic i64, ptr %s.046 monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !11
   %tobool.not6.i10 = icmp eq i64 %4, 0
   br i1 %tobool.not6.i10, label %aio_compute_bh_timeout.exit29, label %for.body.i11
 
@@ -544,7 +544,7 @@ while.end10.i18:                                  ; preds = %if.then.i26, %for.b
   %timeout.addr.1.i19 = phi i32 [ %timeout.addr.07.i13, %for.body.i11 ], [ 10000000, %if.then.i26 ]
   %next.i20 = getelementptr inbounds i8, ptr %bh.08.i14, i64 32
   %6 = load atomic i64, ptr %next.i20 monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !12
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !12
   %tobool.not.i21 = icmp eq i64 %6, 0
   br i1 %tobool.not.i21, label %aio_compute_bh_timeout.exit29, label %for.body.i11, !llvm.loop !13
 
@@ -560,7 +560,7 @@ for.end.loopexit:                                 ; preds = %for.cond
 for.end:                                          ; preds = %for.end.loopexit, %if.end
   %timeout.0.in.lcssa = phi i64 [ %conv.i36, %if.end ], [ %conv.i24, %for.end.loopexit ]
   %tlg = getelementptr inbounds i8, ptr %ctx, i64 480
-  %call9 = tail call i64 @timerlistgroup_deadline_ns(ptr noundef nonnull %tlg) #12
+  %call9 = tail call i64 @timerlistgroup_deadline_ns(ptr noundef nonnull %tlg) #13
   %cmp10 = icmp eq i64 %call9, 0
   br i1 %cmp10, label %return, label %if.else
 
@@ -578,8 +578,8 @@ declare i64 @timerlistgroup_deadline_ns(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef ptr @aio_get_g_source(ptr noundef returned %ctx) local_unnamed_addr #0 {
 entry:
-  tail call void @aio_context_use_g_source(ptr noundef %ctx) #12
-  %call = tail call ptr @g_source_ref(ptr noundef %ctx) #12
+  tail call void @aio_context_use_g_source(ptr noundef %ctx) #13
+  %call = tail call ptr @g_source_ref(ptr noundef %ctx) #13
   ret ptr %ctx
 }
 
@@ -596,7 +596,7 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %call = tail call ptr @thread_pool_new(ptr noundef nonnull %ctx) #12
+  %call = tail call ptr @thread_pool_new(ptr noundef nonnull %ctx) #13
   store ptr %call, ptr %thread_pool, align 8
   br label %if.end
 
@@ -616,13 +616,13 @@ entry:
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %call = tail call ptr @luring_init(ptr noundef %errp) #12
+  %call = tail call ptr @luring_init(ptr noundef %errp) #13
   store ptr %call, ptr %linux_io_uring, align 8
   %tobool4.not = icmp eq ptr %call, null
   br i1 %tobool4.not, label %return, label %if.end6
 
 if.end6:                                          ; preds = %if.end
-  tail call void @luring_attach_aio_context(ptr noundef nonnull %call, ptr noundef nonnull %ctx) #12
+  tail call void @luring_attach_aio_context(ptr noundef nonnull %call, ptr noundef nonnull %ctx) #13
   %1 = load ptr, ptr %linux_io_uring, align 8
   br label %return
 
@@ -644,7 +644,7 @@ entry:
   br i1 %tobool.not, label %if.else, label %if.end
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str, i32 noundef 480, ptr noundef nonnull @__PRETTY_FUNCTION__.aio_get_linux_io_uring) #13
+  tail call void @__assert_fail(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str, i32 noundef 480, ptr noundef nonnull @__PRETTY_FUNCTION__.aio_get_linux_io_uring) #14
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -657,11 +657,11 @@ declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @aio_notify(ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !7
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !7
   fence release
   %notified = getelementptr inbounds i8, ptr %ctx, i64 200
   store atomic i8 1, ptr %notified monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !8
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   fence seq_cst
   %notify_me = getelementptr inbounds i8, ptr %ctx, i64 168
   %0 = load atomic i32, ptr %notify_me monotonic, align 8
@@ -670,7 +670,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %notifier = getelementptr inbounds i8, ptr %ctx, i64 204
-  %call = tail call i32 @event_notifier_set(ptr noundef nonnull %notifier) #12
+  %call = tail call i32 @event_notifier_set(ptr noundef nonnull %notifier) #13
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -684,7 +684,7 @@ define dso_local void @aio_notify_accept(ptr nocapture noundef writeonly %ctx) l
 entry:
   %notified = getelementptr inbounds i8, ptr %ctx, i64 200
   store atomic i8 0, ptr %notified monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !15
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !15
   fence seq_cst
   ret void
 }
@@ -692,29 +692,29 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef ptr @aio_context_new(ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %call = tail call ptr @g_source_new(ptr noundef nonnull @aio_source_funcs, i32 noundef 584) #12
+  %call = tail call ptr @g_source_new(ptr noundef nonnull @aio_source_funcs, i32 noundef 584) #13
   %bh_list = getelementptr inbounds i8, ptr %call, i64 176
   %bh_slice_list = getelementptr inbounds i8, ptr %call, i64 184
   %sqh_last = getelementptr inbounds i8, ptr %call, i64 192
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %bh_list, i8 0, i64 16, i1 false)
   store ptr %bh_slice_list, ptr %sqh_last, align 8
-  tail call void @aio_context_setup(ptr noundef %call) #12
+  tail call void @aio_context_setup(ptr noundef %call) #13
   %notifier = getelementptr inbounds i8, ptr %call, i64 204
-  %call6 = tail call i32 @event_notifier_init(ptr noundef nonnull %notifier, i32 noundef 0) #12
+  %call6 = tail call i32 @event_notifier_init(ptr noundef nonnull %notifier, i32 noundef 0) #13
   %cmp = icmp slt i32 %call6, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %sub = sub i32 0, %call6
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 586, ptr noundef nonnull @__func__.aio_context_new, i32 noundef %sub, ptr noundef nonnull @.str.2) #12
-  tail call void @g_source_destroy(ptr noundef nonnull %call) #12
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 586, ptr noundef nonnull @__func__.aio_context_new, i32 noundef %sub, ptr noundef nonnull @.str.2) #13
+  tail call void @g_source_destroy(ptr noundef nonnull %call) #13
   br label %return
 
 if.end:                                           ; preds = %entry
-  tail call void @g_source_set_can_recurse(ptr noundef nonnull %call, i32 noundef 1) #12
+  tail call void @g_source_set_can_recurse(ptr noundef nonnull %call, i32 noundef 1) #13
   %list_lock = getelementptr inbounds i8, ptr %call, i64 172
-  tail call void @qemu_lockcnt_init(ptr noundef nonnull %list_lock) #12
-  %call.i = tail call noalias dereferenceable_or_null(56) ptr @g_malloc_n(i64 noundef 1, i64 noundef 56) #11
+  tail call void @qemu_lockcnt_init(ptr noundef nonnull %list_lock) #13
+  %call.i = tail call noalias dereferenceable_or_null(56) ptr @g_malloc_n(i64 noundef 1, i64 noundef 56) #12
   store ptr %call, ptr %call.i, align 8
   %.compoundliteral.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr @.str.3, ptr %.compoundliteral.sroa.2.0..sroa_idx.i, align 8
@@ -732,20 +732,20 @@ if.end:                                           ; preds = %entry
   store ptr %call.i, ptr %co_schedule_bh, align 8
   %scheduled_coroutines = getelementptr inbounds i8, ptr %call, i64 216
   store ptr null, ptr %scheduled_coroutines, align 8
-  tail call void @aio_set_event_notifier(ptr noundef nonnull %call, ptr noundef nonnull %notifier, ptr noundef nonnull @aio_context_notifier_cb, ptr noundef nonnull @aio_context_notifier_poll, ptr noundef nonnull @aio_context_notifier_poll_ready) #12
+  tail call void @aio_set_event_notifier(ptr noundef nonnull %call, ptr noundef nonnull %notifier, ptr noundef nonnull @aio_context_notifier_cb, ptr noundef nonnull @aio_context_notifier_poll, ptr noundef nonnull @aio_context_notifier_poll_ready) #13
   %thread_pool = getelementptr inbounds i8, ptr %call, i64 240
   %lock = getelementptr inbounds i8, ptr %call, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %thread_pool, i8 0, i64 16, i1 false)
-  tail call void @qemu_rec_mutex_init(ptr noundef nonnull %lock) #12
+  tail call void @qemu_rec_mutex_init(ptr noundef nonnull %lock) #13
   %tlg = getelementptr inbounds i8, ptr %call, i64 480
-  tail call void @timerlistgroup_init(ptr noundef nonnull %tlg, ptr noundef nonnull @aio_timerlist_notify, ptr noundef nonnull %call) #12
+  tail call void @timerlistgroup_init(ptr noundef nonnull %tlg, ptr noundef nonnull @aio_timerlist_notify, ptr noundef nonnull %call) #13
   %poll_ns = getelementptr inbounds i8, ptr %call, i64 520
   %thread_pool_min = getelementptr inbounds i8, ptr %call, i64 232
   store i32 0, ptr %thread_pool_min, align 8
   %thread_pool_max = getelementptr inbounds i8, ptr %call, i64 236
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %poll_ns, i8 0, i64 40, i1 false)
   store i32 64, ptr %thread_pool_max, align 4
-  tail call void @register_aiocontext(ptr noundef nonnull %call) #12
+  tail call void @register_aiocontext(ptr noundef nonnull %call) #13
   br label %return
 
 return:                                           ; preds = %if.then, %if.end
@@ -817,26 +817,26 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #12
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #12
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #13
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #13
   %8 = load i64, ptr %_now.i.i, align 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.15, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, ptr noundef %opaque, ptr noundef nonnull %straight.sroa.0.120) #12
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.15, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, ptr noundef %opaque, ptr noundef nonnull %straight.sroa.0.120) #13
   br label %trace_aio_co_schedule_bh_cb.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.16, ptr noundef %opaque, ptr noundef nonnull %straight.sroa.0.120) #12
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.16, ptr noundef %opaque, ptr noundef nonnull %straight.sroa.0.120) #13
   br label %trace_aio_co_schedule_bh_cb.exit
 
 trace_aio_co_schedule_bh_cb.exit:                 ; preds = %while.body29, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   %10 = load atomic i64, ptr @qemu_rec_mutex_lock_func monotonic, align 8
   %11 = inttoptr i64 %10 to ptr
-  tail call void %11(ptr noundef nonnull %lock.i, ptr noundef nonnull @.str, i32 noundef 728) #12
+  tail call void %11(ptr noundef nonnull %lock.i, ptr noundef nonnull @.str, i32 noundef 728) #13
   %scheduled = getelementptr inbounds i8, ptr %straight.sroa.0.120, i64 48
   store atomic i64 0, ptr %scheduled monotonic, align 8
-  tail call void @qemu_aio_coroutine_enter(ptr noundef %opaque, ptr noundef nonnull %straight.sroa.0.120) #12
-  tail call void @qemu_rec_mutex_unlock_impl(ptr noundef nonnull %lock.i, ptr noundef nonnull @.str, i32 noundef 733) #12
+  tail call void @qemu_aio_coroutine_enter(ptr noundef %opaque, ptr noundef nonnull %straight.sroa.0.120) #13
+  tail call void @qemu_rec_mutex_unlock_impl(ptr noundef nonnull %lock.i, ptr noundef nonnull @.str, i32 noundef 733) #13
   %cmp27.not = icmp eq ptr %3, null
   br i1 %cmp27.not, label %while.end49, label %while.body29, !llvm.loop !17
 
@@ -849,7 +849,7 @@ declare void @aio_set_event_notifier(ptr noundef, ptr noundef, ptr noundef, ptr 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @aio_context_notifier_cb(ptr noundef %e) #0 {
 entry:
-  %call = tail call i32 @event_notifier_test_and_clear(ptr noundef %e) #12
+  %call = tail call i32 @event_notifier_test_and_clear(ptr noundef %e) #13
   ret void
 }
 
@@ -875,11 +875,11 @@ declare void @timerlistgroup_init(ptr noundef, ptr noundef, ptr noundef) local_u
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @aio_timerlist_notify(ptr noundef %opaque, i32 %type) #0 {
 entry:
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !7
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !7
   fence release
   %notified.i = getelementptr inbounds i8, ptr %opaque, i64 200
   store atomic i8 1, ptr %notified.i monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !8
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   fence seq_cst
   %notify_me.i = getelementptr inbounds i8, ptr %opaque, i64 168
   %0 = load atomic i32, ptr %notify_me.i monotonic, align 8
@@ -888,7 +888,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %notifier.i = getelementptr inbounds i8, ptr %opaque, i64 204
-  %call.i = tail call i32 @event_notifier_set(ptr noundef nonnull %notifier.i) #12
+  %call.i = tail call i32 @event_notifier_set(ptr noundef nonnull %notifier.i) #13
   br label %aio_notify.exit
 
 aio_notify.exit:                                  ; preds = %entry, %if.then.i
@@ -923,16 +923,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #12
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #12
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #13
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #13
   %4 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.17, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, ptr noundef %ctx, ptr noundef %co) #12
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.17, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, ptr noundef %ctx, ptr noundef %co) #13
   br label %trace_aio_co_schedule.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, ptr noundef %ctx, ptr noundef %co) #12
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, ptr noundef %ctx, ptr noundef %co) #13
   br label %trace_aio_co_schedule.exit
 
 trace_aio_co_schedule.exit:                       ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -946,12 +946,12 @@ if.then:                                          ; preds = %trace_aio_co_schedu
   %8 = extractvalue { i64, i1 } %6, 0
   %9 = inttoptr i64 %8 to ptr
   %10 = load ptr, ptr @stderr, align 8
-  %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__.aio_co_schedule, ptr noundef nonnull %9) #14
-  tail call void @abort() #13
+  %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__.aio_co_schedule, ptr noundef nonnull %9) #15
+  tail call void @abort() #14
   unreachable
 
 if.end:                                           ; preds = %trace_aio_co_schedule.exit
-  %call.i = tail call ptr @g_source_ref(ptr noundef %ctx) #12
+  %call.i = tail call ptr @g_source_ref(ptr noundef %ctx) #13
   %scheduled_coroutines = getelementptr inbounds i8, ptr %ctx, i64 216
   %co_scheduled_next = getelementptr inbounds i8, ptr %co, i64 80
   %11 = ptrtoint ptr %co to i64
@@ -998,11 +998,11 @@ do.body2.i.i:                                     ; preds = %do.body2.i.i, %do.b
   br i1 %cmp.not.i.i, label %if.end.i.i, label %do.body2.i.i, !llvm.loop !5
 
 if.end.i.i:                                       ; preds = %do.body2.i.i, %do.end25
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !7
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !7
   fence release
   %notified.i.i.i = getelementptr inbounds i8, ptr %19, i64 200
   store atomic i8 1, ptr %notified.i.i.i monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !8
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   fence seq_cst
   %notify_me.i.i.i = getelementptr inbounds i8, ptr %19, i64 168
   %28 = load atomic i32, ptr %notify_me.i.i.i monotonic, align 8
@@ -1011,32 +1011,32 @@ if.end.i.i:                                       ; preds = %do.body2.i.i, %do.e
 
 if.then.i.i.i:                                    ; preds = %if.end.i.i
   %notifier.i.i.i = getelementptr inbounds i8, ptr %19, i64 204
-  %call.i.i.i = tail call i32 @event_notifier_set(ptr noundef nonnull %notifier.i.i.i) #12
+  %call.i.i.i = tail call i32 @event_notifier_set(ptr noundef nonnull %notifier.i.i.i) #13
   br label %qemu_bh_schedule.exit
 
 qemu_bh_schedule.exit:                            ; preds = %if.end.i.i, %if.then.i.i.i
-  tail call void @icount_notify_exit() #12
-  tail call void @g_source_unref(ptr noundef %ctx) #12
+  tail call void @icount_notify_exit() #13
+  tail call void @g_source_unref(ptr noundef %ctx) #13
   ret void
 }
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
 
-; Function Attrs: noreturn nounwind
-declare void @abort() local_unnamed_addr #4
+; Function Attrs: cold nofree noreturn nounwind
+declare void @abort() local_unnamed_addr #7
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @aio_context_ref(ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
-  %call = tail call ptr @g_source_ref(ptr noundef %ctx) #12
+  %call = tail call ptr @g_source_ref(ptr noundef %ctx) #13
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @aio_context_unref(ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
-  tail call void @g_source_unref(ptr noundef %ctx) #12
+  tail call void @g_source_unref(ptr noundef %ctx) #13
   ret void
 }
 
@@ -1044,18 +1044,18 @@ entry:
 define dso_local void @aio_co_reschedule_self(ptr noundef %new_ctx) #0 {
 entry:
   %data = alloca %struct.AioCoRescheduleSelf, align 8
-  tail call void asm sideeffect "", "~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !19
+  tail call void asm sideeffect "", "~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !19
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @co_tls_my_aiocontext)
   %1 = load ptr, ptr %0, align 8
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %if.end.i, label %qemu_get_current_aio_context.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call zeroext i1 @qemu_mutex_iothread_locked() #12
+  %call1.i = tail call zeroext i1 @qemu_mutex_iothread_locked() #13
   br i1 %call1.i, label %if.then2.i, label %qemu_get_current_aio_context.exit
 
 if.then2.i:                                       ; preds = %if.end.i
-  %call3.i = tail call ptr @qemu_get_aio_context() #12
+  %call3.i = tail call ptr @qemu_get_aio_context() #13
   br label %qemu_get_current_aio_context.exit
 
 qemu_get_current_aio_context.exit:                ; preds = %entry, %if.end.i, %if.then2.i
@@ -1064,11 +1064,11 @@ qemu_get_current_aio_context.exit:                ; preds = %entry, %if.end.i, %
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %qemu_get_current_aio_context.exit
-  %call1 = tail call ptr @qemu_coroutine_self() #12
+  %call1 = tail call ptr @qemu_coroutine_self() #13
   store ptr %call1, ptr %data, align 8
   %new_ctx2 = getelementptr inbounds i8, ptr %data, i64 8
   store ptr %new_ctx, ptr %new_ctx2, align 8
-  %call.i = tail call noalias dereferenceable_or_null(56) ptr @g_malloc_n(i64 noundef 1, i64 noundef 56) #11
+  %call.i = tail call noalias dereferenceable_or_null(56) ptr @g_malloc_n(i64 noundef 1, i64 noundef 56) #12
   store ptr %retval.0.i, ptr %call.i, align 8
   %.compoundliteral.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr @.str.5, ptr %.compoundliteral.sroa.2.0..sroa_idx.i, align 8
@@ -1105,11 +1105,11 @@ do.body2.i.i:                                     ; preds = %do.body2.i.i, %do.b
   br i1 %cmp.not.i.i, label %if.end.i.i, label %do.body2.i.i, !llvm.loop !5
 
 if.end.i.i:                                       ; preds = %do.body2.i.i, %if.then
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !7
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !7
   fence release
   %notified.i.i.i = getelementptr inbounds i8, ptr %retval.0.i, i64 200
   store atomic i8 1, ptr %notified.i.i.i monotonic, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !8
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   fence seq_cst
   %notify_me.i.i.i = getelementptr inbounds i8, ptr %retval.0.i, i64 168
   %10 = load atomic i32, ptr %notify_me.i.i.i monotonic, align 8
@@ -1118,12 +1118,12 @@ if.end.i.i:                                       ; preds = %do.body2.i.i, %if.t
 
 if.then.i.i.i:                                    ; preds = %if.end.i.i
   %notifier.i.i.i = getelementptr inbounds i8, ptr %retval.0.i, i64 204
-  %call.i.i.i = call i32 @event_notifier_set(ptr noundef nonnull %notifier.i.i.i) #12
+  %call.i.i.i = call i32 @event_notifier_set(ptr noundef nonnull %notifier.i.i.i) #13
   br label %aio_bh_schedule_oneshot_full.exit
 
 aio_bh_schedule_oneshot_full.exit:                ; preds = %if.end.i.i, %if.then.i.i.i
-  call void @icount_notify_exit() #12
-  call void @qemu_coroutine_yield() #12
+  call void @icount_notify_exit() #13
+  call void @qemu_coroutine_yield() #13
   br label %if.end
 
 if.end:                                           ; preds = %aio_bh_schedule_oneshot_full.exit, %qemu_get_current_aio_context.exit
@@ -1133,18 +1133,18 @@ if.end:                                           ; preds = %aio_bh_schedule_one
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @qemu_get_current_aio_context() local_unnamed_addr #0 {
 entry:
-  tail call void asm sideeffect "", "~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !19
+  tail call void asm sideeffect "", "~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !19
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @co_tls_my_aiocontext)
   %1 = load ptr, ptr %0, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %call1 = tail call zeroext i1 @qemu_mutex_iothread_locked() #12
+  %call1 = tail call zeroext i1 @qemu_mutex_iothread_locked() #13
   br i1 %call1, label %if.then2, label %return
 
 if.then2:                                         ; preds = %if.end
-  %call3 = tail call ptr @qemu_get_aio_context() #12
+  %call3 = tail call ptr @qemu_get_aio_context() #13
   br label %return
 
 return:                                           ; preds = %if.end, %entry, %if.then2
@@ -1169,7 +1169,7 @@ declare void @qemu_coroutine_yield() #2
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @aio_co_wake(ptr noundef %co) local_unnamed_addr #0 {
 entry:
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !20
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !20
   %ctx1 = getelementptr inbounds i8, ptr %co, i64 40
   %0 = load atomic i64, ptr %ctx1 monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
@@ -1180,18 +1180,18 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @aio_co_enter(ptr noundef %ctx, ptr noundef %co) local_unnamed_addr #0 {
 entry:
-  tail call void asm sideeffect "", "~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !19
+  tail call void asm sideeffect "", "~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !19
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @co_tls_my_aiocontext)
   %1 = load ptr, ptr %0, align 8
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %if.end.i, label %qemu_get_current_aio_context.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call zeroext i1 @qemu_mutex_iothread_locked() #12
+  %call1.i = tail call zeroext i1 @qemu_mutex_iothread_locked() #13
   br i1 %call1.i, label %if.then2.i, label %qemu_get_current_aio_context.exit
 
 if.then2.i:                                       ; preds = %if.end.i
-  %call3.i = tail call ptr @qemu_get_aio_context() #12
+  %call3.i = tail call ptr @qemu_get_aio_context() #13
   br label %qemu_get_current_aio_context.exit
 
 qemu_get_current_aio_context.exit:                ; preds = %entry, %if.end.i, %if.then2.i
@@ -1204,16 +1204,16 @@ if.then:                                          ; preds = %qemu_get_current_ai
   br label %if.end12
 
 if.end:                                           ; preds = %qemu_get_current_aio_context.exit
-  %call1 = tail call zeroext i1 @qemu_in_coroutine() #12
+  %call1 = tail call zeroext i1 @qemu_in_coroutine() #13
   br i1 %call1, label %if.then2, label %if.else11
 
 if.then2:                                         ; preds = %if.end
-  %call3 = tail call ptr @qemu_coroutine_self() #12
+  %call3 = tail call ptr @qemu_coroutine_self() #13
   %cmp4.not = icmp eq ptr %call3, %co
   br i1 %cmp4.not, label %if.else, label %do.body
 
 if.else:                                          ; preds = %if.then2
-  tail call void @__assert_fail(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str, i32 noundef 707, ptr noundef nonnull @__PRETTY_FUNCTION__.aio_co_enter) #13
+  tail call void @__assert_fail(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str, i32 noundef 707, ptr noundef nonnull @__PRETTY_FUNCTION__.aio_co_enter) #14
   unreachable
 
 do.body:                                          ; preds = %if.then2
@@ -1229,9 +1229,9 @@ if.else11:                                        ; preds = %if.end
   %3 = load atomic i64, ptr @qemu_rec_mutex_lock_func monotonic, align 8
   %4 = inttoptr i64 %3 to ptr
   %lock.i = getelementptr inbounds i8, ptr %ctx, i64 96
-  tail call void %4(ptr noundef nonnull %lock.i, ptr noundef nonnull @.str, i32 noundef 728) #12
-  tail call void @qemu_aio_coroutine_enter(ptr noundef %ctx, ptr noundef %co) #12
-  tail call void @qemu_rec_mutex_unlock_impl(ptr noundef nonnull %lock.i, ptr noundef nonnull @.str, i32 noundef 733) #12
+  tail call void %4(ptr noundef nonnull %lock.i, ptr noundef nonnull @.str, i32 noundef 728) #13
+  tail call void @qemu_aio_coroutine_enter(ptr noundef %ctx, ptr noundef %co) #13
+  tail call void @qemu_rec_mutex_unlock_impl(ptr noundef nonnull %lock.i, ptr noundef nonnull @.str, i32 noundef 733) #13
   br label %if.end12
 
 if.end12:                                         ; preds = %if.else11, %do.body, %if.then
@@ -1246,7 +1246,7 @@ entry:
   %0 = load atomic i64, ptr @qemu_rec_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
   %lock = getelementptr inbounds i8, ptr %ctx, i64 96
-  tail call void %1(ptr noundef nonnull %lock, ptr noundef nonnull @.str, i32 noundef 728) #12
+  tail call void %1(ptr noundef nonnull %lock, ptr noundef nonnull @.str, i32 noundef 728) #13
   ret void
 }
 
@@ -1256,7 +1256,7 @@ declare void @qemu_aio_coroutine_enter(ptr noundef, ptr noundef) local_unnamed_a
 define dso_local void @aio_context_release(ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %lock = getelementptr inbounds i8, ptr %ctx, i64 96
-  tail call void @qemu_rec_mutex_unlock_impl(ptr noundef nonnull %lock, ptr noundef nonnull @.str, i32 noundef 733) #12
+  tail call void @qemu_rec_mutex_unlock_impl(ptr noundef nonnull %lock, ptr noundef nonnull @.str, i32 noundef 733) #13
   ret void
 }
 
@@ -1271,18 +1271,18 @@ declare ptr @qemu_get_aio_context() local_unnamed_addr #2
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qemu_set_current_aio_context(ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
-  tail call void asm sideeffect "", "~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !19
+  tail call void asm sideeffect "", "~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !19
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @co_tls_my_aiocontext)
   %1 = load ptr, ptr %0, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str, i32 noundef 753, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_set_current_aio_context) #13
+  tail call void @__assert_fail(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str, i32 noundef 753, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_set_current_aio_context) #14
   unreachable
 
 if.end:                                           ; preds = %entry
-  tail call void asm sideeffect "", "~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !21
+  tail call void asm sideeffect "", "~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !21
   store ptr %ctx, ptr %0, align 8
   ret void
 }
@@ -1300,7 +1300,7 @@ entry:
   br i1 %or.cond2, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 762, ptr noundef nonnull @__func__.aio_context_set_thread_pool_params, ptr noundef nonnull @.str.8) #12
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 762, ptr noundef nonnull @__func__.aio_context_set_thread_pool_params, ptr noundef nonnull @.str.8) #13
   br label %if.end9
 
 if.end:                                           ; preds = %entry
@@ -1316,7 +1316,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool6.not, label %if.end9, label %if.then7
 
 if.then7:                                         ; preds = %if.end
-  tail call void @thread_pool_update_params(ptr noundef nonnull %0, ptr noundef nonnull %ctx) #12
+  tail call void @thread_pool_update_params(ptr noundef nonnull %0, ptr noundef nonnull %ctx) #13
   br label %if.end9
 
 if.end9:                                          ; preds = %if.then7, %if.end, %if.then
@@ -1343,11 +1343,11 @@ entry:
   %0 = load atomic i32, ptr %notify_me monotonic, align 8
   %or = or i32 %0, 1
   store atomic i32 %or, ptr %notify_me monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !22
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !22
   fence seq_cst
   %bh_list.i = getelementptr inbounds i8, ptr %source, i64 176
   %1 = load atomic i64, ptr %bh_list.i monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !11
   %tobool.not6.i.i = icmp eq i64 %1, 0
   br i1 %tobool.not6.i.i, label %if.end.i, label %for.body.i.i
 
@@ -1370,7 +1370,7 @@ while.end10.i.i:                                  ; preds = %if.then.i.i, %for.b
   %timeout.addr.1.i.i = phi i32 [ %timeout.addr.07.i.i, %for.body.i.i ], [ 10000000, %if.then.i.i ]
   %next.i.i = getelementptr inbounds i8, ptr %bh.08.i.i, i64 32
   %3 = load atomic i64, ptr %next.i.i monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !12
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !12
   %tobool.not.i.i = icmp eq i64 %3, 0
   br i1 %tobool.not.i.i, label %aio_compute_bh_timeout.exit.i, label %for.body.i.i, !llvm.loop !13
 
@@ -1400,7 +1400,7 @@ for.body.i:                                       ; preds = %for.cond.i, %for.bo
   %s.046.i = phi ptr [ %s.0.i, %for.cond.i ], [ %s.043.i, %for.body.preheader.i ]
   %timeout.0.in45.i = phi i32 [ %timeout.addr.0.lcssa.i23.i, %for.cond.i ], [ %4, %for.body.preheader.i ]
   %5 = load atomic i64, ptr %s.046.i monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !11
   %tobool.not6.i10.i = icmp eq i64 %5, 0
   br i1 %tobool.not6.i10.i, label %aio_compute_bh_timeout.exit29.i, label %for.body.i11.i
 
@@ -1423,7 +1423,7 @@ while.end10.i18.i:                                ; preds = %if.then.i26.i, %for
   %timeout.addr.1.i19.i = phi i32 [ %timeout.addr.07.i13.i, %for.body.i11.i ], [ 10000000, %if.then.i26.i ]
   %next.i20.i = getelementptr inbounds i8, ptr %bh.08.i14.i, i64 32
   %7 = load atomic i64, ptr %next.i20.i monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !12
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !12
   %tobool.not.i21.i = icmp eq i64 %7, 0
   br i1 %tobool.not.i21.i, label %aio_compute_bh_timeout.exit29.i, label %for.body.i11.i, !llvm.loop !13
 
@@ -1439,7 +1439,7 @@ for.end.loopexit.i:                               ; preds = %for.cond.i
 for.end.i:                                        ; preds = %for.end.loopexit.i, %if.end.i
   %timeout.0.in.lcssa.i = phi i64 [ %conv.i36.i, %if.end.i ], [ %conv.i24.i, %for.end.loopexit.i ]
   %tlg.i = getelementptr inbounds i8, ptr %source, i64 480
-  %call9.i = tail call i64 @timerlistgroup_deadline_ns(ptr noundef nonnull %tlg.i) #12
+  %call9.i = tail call i64 @timerlistgroup_deadline_ns(ptr noundef nonnull %tlg.i) #13
   %cmp10.i = icmp eq i64 %call9.i, 0
   br i1 %cmp10.i, label %aio_compute_timeout.exit, label %if.else.i
 
@@ -1449,9 +1449,9 @@ if.else.i:                                        ; preds = %for.end.i
 
 aio_compute_timeout.exit:                         ; preds = %if.then.i.i, %aio_compute_bh_timeout.exit29.i, %if.then.i26.i, %aio_compute_bh_timeout.exit.i, %for.end.i, %if.else.i
   %retval.0.i = phi i64 [ %cond.i.i, %if.else.i ], [ 0, %aio_compute_bh_timeout.exit.i ], [ 0, %for.end.i ], [ 0, %if.then.i26.i ], [ 0, %aio_compute_bh_timeout.exit29.i ], [ 0, %if.then.i.i ]
-  %call9 = tail call i32 @qemu_timeout_ns_to_ms(i64 noundef %retval.0.i) #12
+  %call9 = tail call i32 @qemu_timeout_ns_to_ms(i64 noundef %retval.0.i) #13
   store i32 %call9, ptr %timeout, align 4
-  %call10 = tail call zeroext i1 @aio_prepare(ptr noundef %source) #12
+  %call10 = tail call zeroext i1 @aio_prepare(ptr noundef %source) #13
   br i1 %call10, label %if.then, label %aio_compute_timeout.exit.if.end_crit_edge
 
 aio_compute_timeout.exit.if.end_crit_edge:        ; preds = %aio_compute_timeout.exit
@@ -1478,11 +1478,11 @@ entry:
   store atomic i32 %and, ptr %notify_me release, align 8
   %notified.i = getelementptr inbounds i8, ptr %source, i64 200
   store atomic i8 0, ptr %notified.i monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !15
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !15
   fence seq_cst
   %bh_list = getelementptr inbounds i8, ptr %source, i64 176
   %1 = load atomic i64, ptr %bh_list monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !23
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !23
   %tobool.not16 = icmp eq i64 %1, 0
   br i1 %tobool.not16, label %for.end, label %for.body
 
@@ -1498,7 +1498,7 @@ for.body:                                         ; preds = %entry, %while.end20
 while.end20:                                      ; preds = %for.body
   %next = getelementptr inbounds i8, ptr %bh.017, i64 32
   %3 = load atomic i64, ptr %next monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !24
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !24
   %tobool.not = icmp eq i64 %3, 0
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !25
 
@@ -1511,7 +1511,7 @@ for.end:                                          ; preds = %while.end20, %entry
 while.end29:                                      ; preds = %for.end, %for.inc51
   %s.023 = phi ptr [ %s.0, %for.inc51 ], [ %s.021, %for.end ]
   %4 = load atomic i64, ptr %s.023 monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !26
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !26
   %tobool34.not19 = icmp eq i64 %4, 0
   br i1 %tobool34.not19, label %for.inc51, label %for.body35
 
@@ -1527,7 +1527,7 @@ for.body35:                                       ; preds = %while.end29, %while
 while.end46:                                      ; preds = %for.body35
   %next47 = getelementptr inbounds i8, ptr %bh.120, i64 32
   %6 = load atomic i64, ptr %next47 monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !27
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !27
   %tobool34.not = icmp eq i64 %6, 0
   br i1 %tobool34.not, label %for.inc51, label %for.body35, !llvm.loop !28
 
@@ -1538,12 +1538,12 @@ for.inc51:                                        ; preds = %while.end46, %while
   br i1 %tobool23.not, label %for.end53, label %while.end29, !llvm.loop !29
 
 for.end53:                                        ; preds = %for.inc51, %for.end
-  %call = tail call zeroext i1 @aio_pending(ptr noundef %source) #12
+  %call = tail call zeroext i1 @aio_pending(ptr noundef %source) #13
   br i1 %call, label %return, label %lor.rhs
 
 lor.rhs:                                          ; preds = %for.end53
   %tlg = getelementptr inbounds i8, ptr %source, i64 480
-  %call54 = tail call i64 @timerlistgroup_deadline_ns(ptr noundef nonnull %tlg) #12
+  %call54 = tail call i64 @timerlistgroup_deadline_ns(ptr noundef nonnull %tlg) #13
   %cmp55 = icmp eq i64 %call54, 0
   %7 = zext i1 %cmp55 to i32
   br label %return
@@ -1560,11 +1560,11 @@ entry:
   br i1 %cmp, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str, i32 noundef 357, ptr noundef nonnull @__PRETTY_FUNCTION__.aio_ctx_dispatch) #13
+  tail call void @__assert_fail(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str, i32 noundef 357, ptr noundef nonnull @__PRETTY_FUNCTION__.aio_ctx_dispatch) #14
   unreachable
 
 if.end:                                           ; preds = %entry
-  tail call void @aio_dispatch(ptr noundef %source) #12
+  tail call void @aio_dispatch(ptr noundef %source) #13
   ret i32 1
 }
 
@@ -1573,16 +1573,16 @@ define internal void @aio_ctx_finalize(ptr noundef %source) #0 {
 entry:
   %thread_pool = getelementptr inbounds i8, ptr %source, i64 240
   %0 = load ptr, ptr %thread_pool, align 8
-  tail call void @thread_pool_free(ptr noundef %0) #12
+  tail call void @thread_pool_free(ptr noundef %0) #13
   %linux_io_uring = getelementptr inbounds i8, ptr %source, i64 248
   %1 = load ptr, ptr %linux_io_uring, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call void @luring_detach_aio_context(ptr noundef nonnull %1, ptr noundef nonnull %source) #12
+  tail call void @luring_detach_aio_context(ptr noundef nonnull %1, ptr noundef nonnull %source) #13
   %2 = load ptr, ptr %linux_io_uring, align 8
-  tail call void @luring_cleanup(ptr noundef %2) #12
+  tail call void @luring_cleanup(ptr noundef %2) #13
   store ptr null, ptr %linux_io_uring, align 8
   br label %if.end
 
@@ -1593,7 +1593,7 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %cmp, label %if.end5, label %if.else
 
 if.else:                                          ; preds = %if.end
-  tail call void @__assert_fail(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str, i32 noundef 387, ptr noundef nonnull @__PRETTY_FUNCTION__.aio_ctx_finalize) #13
+  tail call void @__assert_fail(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str, i32 noundef 387, ptr noundef nonnull @__PRETTY_FUNCTION__.aio_ctx_finalize) #14
   unreachable
 
 if.end5:                                          ; preds = %if.end
@@ -1625,11 +1625,11 @@ do.body2.i.i:                                     ; preds = %do.body2.i.i, %do.b
   br i1 %cmp.not.i.i, label %if.end.i.i, label %do.body2.i.i, !llvm.loop !5
 
 if.end.i.i:                                       ; preds = %do.body2.i.i, %if.end5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !7
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !7
   fence release
   %notified.i.i.i = getelementptr inbounds i8, ptr %5, i64 200
   store atomic i8 1, ptr %notified.i.i.i monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !8
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   fence seq_cst
   %notify_me.i.i.i = getelementptr inbounds i8, ptr %5, i64 168
   %14 = load atomic i32, ptr %notify_me.i.i.i monotonic, align 8
@@ -1638,11 +1638,11 @@ if.end.i.i:                                       ; preds = %do.body2.i.i, %if.e
 
 if.then.i.i.i:                                    ; preds = %if.end.i.i
   %notifier.i.i.i = getelementptr inbounds i8, ptr %5, i64 204
-  %call.i.i.i = tail call i32 @event_notifier_set(ptr noundef nonnull %notifier.i.i.i) #12
+  %call.i.i.i = tail call i32 @event_notifier_set(ptr noundef nonnull %notifier.i.i.i) #13
   br label %qemu_bh_delete.exit
 
 qemu_bh_delete.exit:                              ; preds = %if.end.i.i, %if.then.i.i.i
-  tail call void @icount_notify_exit() #12
+  tail call void @icount_notify_exit() #13
   %bh_slice_list = getelementptr inbounds i8, ptr %source, i64 184
   %15 = load ptr, ptr %bh_slice_list, align 8
   %cmp6 = icmp eq ptr %15, null
@@ -1651,12 +1651,12 @@ qemu_bh_delete.exit:                              ; preds = %if.end.i.i, %if.the
 while.cond.preheader:                             ; preds = %qemu_bh_delete.exit
   %bh_list = getelementptr inbounds i8, ptr %source, i64 176
   %16 = load atomic i64, ptr %bh_list monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
   %tobool.not.i22 = icmp eq i64 %16, 0
   br i1 %tobool.not.i22, label %while.end, label %aio_bh_dequeue.exit
 
 if.else8:                                         ; preds = %qemu_bh_delete.exit
-  tail call void @__assert_fail(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str, i32 noundef 391, ptr noundef nonnull @__PRETTY_FUNCTION__.aio_ctx_finalize) #13
+  tail call void @__assert_fail(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str, i32 noundef 391, ptr noundef nonnull @__PRETTY_FUNCTION__.aio_ctx_finalize) #14
   unreachable
 
 aio_bh_dequeue.exit:                              ; preds = %while.cond.preheader, %if.end17
@@ -1677,29 +1677,29 @@ if.then15:                                        ; preds = %aio_bh_dequeue.exit
   %22 = load ptr, ptr @stderr, align 8
   %name = getelementptr inbounds i8, ptr %18, i64 8
   %23 = load ptr, ptr %name, align 8
-  %call16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef nonnull @.str.14, ptr noundef nonnull @__func__.aio_ctx_finalize, ptr noundef %23) #14
-  tail call void @abort() #13
+  %call16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef nonnull @.str.14, ptr noundef nonnull @__func__.aio_ctx_finalize, ptr noundef %23) #15
+  tail call void @abort() #14
   unreachable
 
 if.end17:                                         ; preds = %aio_bh_dequeue.exit
-  tail call void @g_free(ptr noundef nonnull %18) #12
+  tail call void @g_free(ptr noundef nonnull %18) #13
   %24 = load atomic i64, ptr %bh_list monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
   %tobool.not.i = icmp eq i64 %24, 0
   br i1 %tobool.not.i, label %while.end, label %aio_bh_dequeue.exit, !llvm.loop !30
 
 while.end:                                        ; preds = %if.end17, %while.cond.preheader
   %notifier = getelementptr inbounds i8, ptr %source, i64 204
-  tail call void @aio_set_event_notifier(ptr noundef nonnull %source, ptr noundef nonnull %notifier, ptr noundef null, ptr noundef null, ptr noundef null) #12
-  tail call void @event_notifier_cleanup(ptr noundef nonnull %notifier) #12
+  tail call void @aio_set_event_notifier(ptr noundef nonnull %source, ptr noundef nonnull %notifier, ptr noundef null, ptr noundef null, ptr noundef null) #13
+  tail call void @event_notifier_cleanup(ptr noundef nonnull %notifier) #13
   %lock = getelementptr inbounds i8, ptr %source, i64 96
-  tail call void @qemu_rec_mutex_destroy(ptr noundef nonnull %lock) #12
+  tail call void @qemu_rec_mutex_destroy(ptr noundef nonnull %lock) #13
   %list_lock = getelementptr inbounds i8, ptr %source, i64 172
-  tail call void @qemu_lockcnt_destroy(ptr noundef nonnull %list_lock) #12
+  tail call void @qemu_lockcnt_destroy(ptr noundef nonnull %list_lock) #13
   %tlg = getelementptr inbounds i8, ptr %source, i64 480
-  tail call void @timerlistgroup_deinit(ptr noundef nonnull %tlg) #12
-  tail call void @unregister_aiocontext(ptr noundef nonnull %source) #12
-  tail call void @aio_context_destroy(ptr noundef nonnull %source) #12
+  tail call void @timerlistgroup_deinit(ptr noundef nonnull %tlg) #13
+  tail call void @unregister_aiocontext(ptr noundef nonnull %source) #13
+  tail call void @aio_context_destroy(ptr noundef nonnull %source) #13
   ret void
 }
 
@@ -1732,19 +1732,19 @@ declare void @aio_context_destroy(ptr noundef) local_unnamed_addr #2
 declare i32 @event_notifier_test_and_clear(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #7
+declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #8
+declare i64 @llvm.umin.i64(i64, i64) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1753,14 +1753,15 @@ attributes #3 = { mustprogress nofree norecurse nounwind sspstrong willreturn me
 attributes #4 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #11 = { nounwind allocsize(0,1) }
-attributes #12 = { nounwind }
-attributes #13 = { noreturn nounwind }
-attributes #14 = { cold }
+attributes #7 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #12 = { nounwind allocsize(0,1) }
+attributes #13 = { nounwind }
+attributes #14 = { noreturn nounwind }
+attributes #15 = { cold }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

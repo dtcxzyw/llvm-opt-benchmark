@@ -79,7 +79,7 @@ define hidden range(i32 0, 3) i32 @main(i32 noundef %0, ptr noundef %1) local_un
 20:                                               ; preds = %14
   %21 = load ptr, ptr @stderr, align 8
   call fastcc void @print_usage(ptr noundef %21)
-  call void @exit(i32 noundef 1) #9
+  call void @exit(i32 noundef 1) #10
   unreachable
 
 22:                                               ; preds = %14
@@ -90,11 +90,11 @@ define hidden range(i32 0, 3) i32 @main(i32 noundef %0, ptr noundef %1) local_un
 25:                                               ; preds = %22
   %26 = load ptr, ptr @stderr, align 8
   %fputc.i = call i32 @fputc(i32 10, ptr %26)
-  %27 = call i64 @fwrite(ptr nonnull @.str.12, i64 38, i64 1, ptr %26) #10
+  %27 = call i64 @fwrite(ptr nonnull @.str.12, i64 38, i64 1, ptr %26) #11
   %fputc6.i = call i32 @fputc(i32 10, ptr %26)
-  %28 = call i64 @fwrite(ptr nonnull @.str.13, i64 15, i64 1, ptr %26) #10
-  %29 = call i64 @fwrite(ptr nonnull @.str.14, i64 54, i64 1, ptr %26) #10
-  %30 = call i64 @fwrite(ptr nonnull @.str.15, i64 57, i64 1, ptr %26) #10
+  %28 = call i64 @fwrite(ptr nonnull @.str.13, i64 15, i64 1, ptr %26) #11
+  %29 = call i64 @fwrite(ptr nonnull @.str.14, i64 54, i64 1, ptr %26) #11
+  %30 = call i64 @fwrite(ptr nonnull @.str.15, i64 57, i64 1, ptr %26) #11
   br label %51
 
 .lr.ph:                                           ; preds = %22, %47
@@ -173,7 +173,7 @@ declare void @cmdarg_err_init(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nofree nounwind uwtable
 define internal void @captype_cmdarg_err(ptr nocapture noundef readonly %0, ptr noundef %1) #3 {
   %3 = load ptr, ptr @stderr, align 8
-  %4 = tail call i64 @fwrite(ptr nonnull @.str.10, i64 9, i64 1, ptr %3) #10
+  %4 = tail call i64 @fwrite(ptr nonnull @.str.10, i64 9, i64 1, ptr %3) #11
   %5 = load ptr, ptr @stderr, align 8
   %6 = tail call i32 @vfprintf(ptr noundef %5, ptr noundef %0, ptr noundef %1) #8
   %7 = load ptr, ptr @stderr, align 8
@@ -226,7 +226,7 @@ define internal fastcc void @print_usage(ptr nocapture noundef %0) unnamed_addr 
   ret void
 }
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #5
 
 declare void @show_version() local_unnamed_addr #1
@@ -260,12 +260,13 @@ attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protect
 attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nofree nounwind }
 attributes #7 = { nounwind }
 attributes #8 = { cold nounwind }
 attributes #9 = { noreturn nounwind }
-attributes #10 = { cold }
+attributes #10 = { cold noreturn nounwind }
+attributes #11 = { cold }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

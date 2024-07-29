@@ -49,7 +49,7 @@ sw.bb:                                            ; preds = %entry
   br label %sw.epilog
 
 sw.bb2:                                           ; preds = %entry
-  %call = tail call ptr @luaS_newlstr(ptr noundef %L, ptr noundef nonnull @.str, i64 noundef 23) #11
+  %call = tail call ptr @luaS_newlstr(ptr noundef %L, ptr noundef nonnull @.str, i64 noundef 23) #12
   store ptr %call, ptr %oldtop, align 8
   %tt6 = getelementptr inbounds i8, ptr %call, i64 8
   %4 = load i8, ptr %tt6, align 8
@@ -91,13 +91,13 @@ if.then:                                          ; preds = %entry
   store volatile i32 %errcode, ptr %status, align 8
   %1 = load ptr, ptr %errorJmp, align 8
   %b = getelementptr inbounds i8, ptr %1, i64 8
-  tail call void @longjmp(ptr noundef nonnull %b, i32 noundef 1) #12
+  tail call void @longjmp(ptr noundef nonnull %b, i32 noundef 1) #13
   unreachable
 
 if.else:                                          ; preds = %entry
   %l_G = getelementptr inbounds i8, ptr %L, i64 24
   %2 = load ptr, ptr %l_G, align 8
-  %call = tail call i32 @luaE_resetthread(ptr noundef nonnull %L, i32 noundef %errcode) #11
+  %call = tail call i32 @luaE_resetthread(ptr noundef nonnull %L, i32 noundef %errcode) #12
   %mainthread = getelementptr inbounds i8, ptr %2, i64 264
   %3 = load ptr, ptr %mainthread, align 8
   %errorJmp3 = getelementptr inbounds i8, ptr %3, i64 88
@@ -120,7 +120,7 @@ if.then5:                                         ; preds = %if.else
   %tt_9 = getelementptr inbounds i8, ptr %5, i64 8
   store i8 %8, ptr %tt_9, align 8
   %9 = load ptr, ptr %mainthread, align 8
-  tail call void @luaD_throw(ptr noundef %9, i32 noundef %call) #13
+  tail call void @luaD_throw(ptr noundef %9, i32 noundef %call) #14
   unreachable
 
 if.else11:                                        ; preds = %if.else
@@ -130,11 +130,11 @@ if.else11:                                        ; preds = %if.else
   br i1 %tobool12.not, label %if.end, label %if.then13
 
 if.then13:                                        ; preds = %if.else11
-  %call15 = tail call i32 %10(ptr noundef nonnull %L) #11
+  %call15 = tail call i32 %10(ptr noundef nonnull %L) #12
   br label %if.end
 
 if.end:                                           ; preds = %if.then13, %if.else11
-  tail call void @abort() #12
+  tail call void @abort() #13
   unreachable
 }
 
@@ -143,8 +143,8 @@ declare void @longjmp(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 declare hidden i32 @luaE_resetthread(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: noreturn nounwind
-declare void @abort() local_unnamed_addr #3
+; Function Attrs: cold nofree noreturn nounwind
+declare void @abort() local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @luaD_rawrunprotected(ptr noundef %L, ptr nocapture noundef readonly %f, ptr noundef %ud) local_unnamed_addr #0 {
@@ -159,12 +159,12 @@ entry:
   store ptr %1, ptr %lj, align 8
   store ptr %lj, ptr %errorJmp, align 8
   %b = getelementptr inbounds i8, ptr %lj, i64 8
-  %call = call i32 @_setjmp(ptr noundef nonnull %b) #14
+  %call = call i32 @_setjmp(ptr noundef nonnull %b) #15
   %cmp = icmp eq i32 %call, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  call void %f(ptr noundef nonnull %L, ptr noundef %ud) #11
+  call void %f(ptr noundef nonnull %L, ptr noundef %ud) #12
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -176,7 +176,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind returns_twice
-declare i32 @_setjmp(ptr noundef) local_unnamed_addr #4
+declare i32 @_setjmp(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @luaD_reallocstack(ptr noundef %L, i32 noundef %newsize, i32 noundef %raiseerror) local_unnamed_addr #0 {
@@ -261,7 +261,7 @@ relstack.exit:                                    ; preds = %for.body15.i, %for.
   %add6 = add nsw i32 %newsize, 5
   %conv7 = sext i32 %add6 to i64
   %mul8 = shl nsw i64 %conv7, 4
-  %call = tail call ptr @luaM_realloc_(ptr noundef nonnull %L, ptr noundef %13, i64 noundef %mul, i64 noundef %mul8) #11
+  %call = tail call ptr @luaM_realloc_(ptr noundef nonnull %L, ptr noundef %13, i64 noundef %mul, i64 noundef %mul8) #12
   %14 = load ptr, ptr %l_G, align 8
   %gcstopem11 = getelementptr inbounds i8, ptr %14, i64 103
   store i8 %3, ptr %gcstopem11, align 1
@@ -330,7 +330,7 @@ correctstack.exit:                                ; preds = %for.inc20.i, %for.e
   br i1 %tobool16.not, label %return, label %if.then17
 
 if.then17:                                        ; preds = %correctstack.exit
-  tail call void @luaD_throw(ptr noundef nonnull %L, i32 noundef 4) #13
+  tail call void @luaD_throw(ptr noundef nonnull %L, i32 noundef 4) #14
   unreachable
 
 if.end:                                           ; preds = %relstack.exit
@@ -433,7 +433,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool5.not, label %return, label %if.then6
 
 if.then6:                                         ; preds = %if.then
-  tail call void @luaD_throw(ptr noundef nonnull %L, i32 noundef 5) #13
+  tail call void @luaD_throw(ptr noundef nonnull %L, i32 noundef 5) #14
   unreachable
 
 if.else:                                          ; preds = %entry
@@ -464,7 +464,7 @@ if.end33:                                         ; preds = %if.else, %if.then9
   br i1 %tobool35.not, label %return, label %if.then36
 
 if.then36:                                        ; preds = %if.end33
-  tail call void (ptr, ptr, ...) @luaG_runerror(ptr noundef nonnull %L, ptr noundef nonnull @.str.1) #12
+  tail call void (ptr, ptr, ...) @luaG_runerror(ptr noundef nonnull %L, ptr noundef nonnull @.str.1) #13
   unreachable
 
 return:                                           ; preds = %if.end33, %if.then, %if.then30
@@ -473,7 +473,7 @@ return:                                           ; preds = %if.end33, %if.then,
 }
 
 ; Function Attrs: noreturn
-declare hidden void @luaG_runerror(ptr noundef, ptr noundef, ...) local_unnamed_addr #5
+declare hidden void @luaG_runerror(ptr noundef, ptr noundef, ...) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define hidden void @luaD_shrinkstack(ptr noundef %L) local_unnamed_addr #0 {
@@ -532,7 +532,7 @@ if.then:                                          ; preds = %land.lhs.true
   br label %if.end
 
 if.end:                                           ; preds = %stackinuse.exit, %land.lhs.true, %if.then
-  tail call void @luaE_shrinkCI(ptr noundef nonnull %L) #11
+  tail call void @luaE_shrinkCI(ptr noundef nonnull %L) #12
   ret void
 }
 
@@ -562,7 +562,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then
-  tail call void @luaD_throw(ptr noundef nonnull %L, i32 noundef 5) #13
+  tail call void @luaD_throw(ptr noundef nonnull %L, i32 noundef 5) #14
   unreachable
 
 if.else.i:                                        ; preds = %if.then
@@ -574,7 +574,7 @@ if.else.i:                                        ; preds = %if.then
 
 if.end33.i:                                       ; preds = %if.else.i
   %call34.i = tail call i32 @luaD_reallocstack(ptr noundef nonnull %L, i32 noundef 1000200, i32 noundef 1)
-  tail call void (ptr, ptr, ...) @luaG_runerror(ptr noundef nonnull %L, ptr noundef nonnull @.str.1) #12
+  tail call void (ptr, ptr, ...) @luaG_runerror(ptr noundef nonnull %L, ptr noundef nonnull @.str.1) #13
   unreachable
 
 luaD_growstack.exit:                              ; preds = %if.else.i
@@ -675,7 +675,7 @@ if.then39:                                        ; preds = %if.end28
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then39
-  tail call void @luaD_throw(ptr noundef nonnull %L, i32 noundef 5) #13
+  tail call void @luaD_throw(ptr noundef nonnull %L, i32 noundef 5) #14
   unreachable
 
 if.else.i:                                        ; preds = %if.then39
@@ -687,7 +687,7 @@ if.else.i:                                        ; preds = %if.then39
 
 if.end33.i:                                       ; preds = %if.else.i
   %call34.i = tail call i32 @luaD_reallocstack(ptr noundef nonnull %L, i32 noundef 1000200, i32 noundef 1)
-  tail call void (ptr, ptr, ...) @luaG_runerror(ptr noundef nonnull %L, ptr noundef nonnull @.str.1) #12
+  tail call void (ptr, ptr, ...) @luaG_runerror(ptr noundef nonnull %L, ptr noundef nonnull @.str.1) #13
   unreachable
 
 luaD_growstack.exit:                              ; preds = %if.else.i
@@ -715,7 +715,7 @@ if.end49:                                         ; preds = %if.then45, %if.end4
   %13 = load i16, ptr %callstatus, align 2
   %conv54 = or i16 %13, %mask.0
   store i16 %conv54, ptr %callstatus, align 2
-  call void %0(ptr noundef nonnull %L, ptr noundef nonnull %ar) #11
+  call void %0(ptr noundef nonnull %L, ptr noundef nonnull %ar) #12
   store i8 1, ptr %allowhook, align 1
   %14 = load ptr, ptr %stack, align 8
   %add.ptr57 = getelementptr inbounds i8, ptr %14, i64 %sub.ptr.sub9
@@ -920,7 +920,7 @@ if.then10.i:                                      ; preds = %sw.default.i
   %32 = load ptr, ptr %ci.i, align 8
   %u2.i = getelementptr inbounds i8, ptr %32, i64 56
   store i32 %nres, ptr %u2.i, align 8
-  %call.i = tail call ptr @luaF_close(ptr noundef nonnull %L, ptr noundef %24, i32 noundef -1, i32 noundef 1) #11
+  %call.i = tail call ptr @luaF_close(ptr noundef nonnull %L, ptr noundef %24, i32 noundef -1, i32 noundef 1) #12
   %33 = load ptr, ptr %ci.i, align 8
   %callstatus14.i = getelementptr inbounds i8, ptr %33, i64 62
   %34 = load i16, ptr %callstatus14.i, align 2
@@ -1162,7 +1162,7 @@ if.then:                                          ; preds = %sw.bb4
   br i1 %cmp17, label %if.then19, label %if.end
 
 if.then19:                                        ; preds = %if.then
-  tail call void @luaC_step(ptr noundef nonnull %L) #11
+  tail call void @luaC_step(ptr noundef nonnull %L) #12
   %.pre = load ptr, ptr %stack_last, align 8
   %.pre65 = load ptr, ptr %stack, align 8
   %.pre67 = ptrtoint ptr %.pre to i64
@@ -1179,7 +1179,7 @@ if.end:                                           ; preds = %if.then19, %if.then
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end
-  tail call void @luaD_throw(ptr noundef nonnull %L, i32 noundef 5) #13
+  tail call void @luaD_throw(ptr noundef nonnull %L, i32 noundef 5) #14
   unreachable
 
 if.else.i:                                        ; preds = %if.end
@@ -1198,7 +1198,7 @@ if.then9.i:                                       ; preds = %if.else.i
 
 if.end33.i:                                       ; preds = %if.then9.i, %if.else.i
   %call34.i = tail call i32 @luaD_reallocstack(ptr noundef nonnull %L, i32 noundef 1000200, i32 noundef 1)
-  tail call void (ptr, ptr, ...) @luaG_runerror(ptr noundef nonnull %L, ptr noundef nonnull @.str.1) #12
+  tail call void (ptr, ptr, ...) @luaG_runerror(ptr noundef nonnull %L, ptr noundef nonnull @.str.1) #13
   unreachable
 
 luaD_growstack.exit:                              ; preds = %if.then9.i
@@ -1322,7 +1322,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp7, label %if.then9, label %if.end
 
 if.then9:                                         ; preds = %if.then
-  tail call void @luaC_step(ptr noundef nonnull %L) #11
+  tail call void @luaC_step(ptr noundef nonnull %L) #12
   %.pre = load ptr, ptr %stack_last, align 8
   %.pre20 = load ptr, ptr %stack, align 8
   %.pre22 = ptrtoint ptr %.pre to i64
@@ -1339,7 +1339,7 @@ if.end:                                           ; preds = %if.then9, %if.then
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end
-  tail call void @luaD_throw(ptr noundef nonnull %L, i32 noundef 5) #13
+  tail call void @luaD_throw(ptr noundef nonnull %L, i32 noundef 5) #14
   unreachable
 
 if.else.i:                                        ; preds = %if.end
@@ -1353,7 +1353,7 @@ if.else.i:                                        ; preds = %if.end
 
 if.end33.i:                                       ; preds = %if.else.i
   %call34.i = tail call i32 @luaD_reallocstack(ptr noundef nonnull %L, i32 noundef 1000200, i32 noundef 1)
-  tail call void (ptr, ptr, ...) @luaG_runerror(ptr noundef nonnull %L, ptr noundef nonnull @.str.1) #12
+  tail call void (ptr, ptr, ...) @luaG_runerror(ptr noundef nonnull %L, ptr noundef nonnull @.str.1) #13
   unreachable
 
 luaD_growstack.exit:                              ; preds = %if.else.i
@@ -1379,7 +1379,7 @@ if.end11:                                         ; preds = %entry, %luaD_growst
   br i1 %tobool.not.i, label %cond.false.i, label %prepCallInfo.exit
 
 cond.false.i:                                     ; preds = %if.end11
-  %call.i19 = tail call ptr @luaE_extendCI(ptr noundef nonnull %L) #11
+  %call.i19 = tail call ptr @luaE_extendCI(ptr noundef nonnull %L) #12
   br label %prepCallInfo.exit
 
 prepCallInfo.exit:                                ; preds = %if.end11, %cond.false.i
@@ -1411,7 +1411,7 @@ if.then20:                                        ; preds = %prepCallInfo.exit
   br label %if.end27
 
 if.end27:                                         ; preds = %if.then20, %prepCallInfo.exit
-  %call28 = tail call i32 %f(ptr noundef nonnull %L) #11
+  %call28 = tail call i32 %f(ptr noundef nonnull %L) #12
   tail call void @luaD_poscall(ptr noundef nonnull %L, ptr noundef nonnull %cond.i, i32 noundef %call28)
   ret i32 %call28
 }
@@ -1445,7 +1445,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp7, label %if.then9, label %if.end
 
 if.then9:                                         ; preds = %if.then
-  tail call void @luaC_step(ptr noundef nonnull %L) #11
+  tail call void @luaC_step(ptr noundef nonnull %L) #12
   %.pre = load ptr, ptr %stack_last, align 8
   %.pre26 = load ptr, ptr %stack, align 8
   %.pre28 = ptrtoint ptr %.pre to i64
@@ -1462,7 +1462,7 @@ if.end:                                           ; preds = %if.then9, %if.then
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end
-  tail call void @luaD_throw(ptr noundef nonnull %L, i32 noundef 5) #13
+  tail call void @luaD_throw(ptr noundef nonnull %L, i32 noundef 5) #14
   unreachable
 
 if.else.i:                                        ; preds = %if.end
@@ -1476,7 +1476,7 @@ if.else.i:                                        ; preds = %if.end
 
 if.end33.i:                                       ; preds = %if.else.i
   %call34.i = tail call i32 @luaD_reallocstack(ptr noundef nonnull %L, i32 noundef 1000200, i32 noundef 1)
-  tail call void (ptr, ptr, ...) @luaG_runerror(ptr noundef nonnull %L, ptr noundef nonnull @.str.1) #12
+  tail call void (ptr, ptr, ...) @luaG_runerror(ptr noundef nonnull %L, ptr noundef nonnull @.str.1) #13
   unreachable
 
 luaD_growstack.exit:                              ; preds = %if.else.i
@@ -1491,7 +1491,7 @@ luaD_growstack.exit:                              ; preds = %if.else.i
 
 if.end11:                                         ; preds = %entry, %luaD_growstack.exit
   %func.addr.0 = phi ptr [ %add.ptr, %luaD_growstack.exit ], [ %func, %entry ]
-  %call12 = tail call ptr @luaT_gettmbyobj(ptr noundef nonnull %L, ptr noundef %func.addr.0, i32 noundef 23) #11
+  %call12 = tail call ptr @luaT_gettmbyobj(ptr noundef nonnull %L, ptr noundef %func.addr.0, i32 noundef 23) #12
   %tt_ = getelementptr inbounds i8, ptr %call12, i64 8
   %7 = load i8, ptr %tt_, align 8
   %8 = and i8 %7, 15
@@ -1499,7 +1499,7 @@ if.end11:                                         ; preds = %entry, %luaD_growst
   br i1 %cmp14, label %if.then20, label %if.end21
 
 if.then20:                                        ; preds = %if.end11
-  tail call void @luaG_callerror(ptr noundef nonnull %L, ptr noundef %func.addr.0) #12
+  tail call void @luaG_callerror(ptr noundef nonnull %L, ptr noundef %func.addr.0) #13
   unreachable
 
 if.end21:                                         ; preds = %if.end11
@@ -1596,7 +1596,7 @@ if.then:                                          ; preds = %sw.bb4
   br i1 %cmp23, label %if.then25, label %if.end
 
 if.then25:                                        ; preds = %if.then
-  tail call void @luaC_step(ptr noundef nonnull %L) #11
+  tail call void @luaC_step(ptr noundef nonnull %L) #12
   %.pre = load ptr, ptr %stack_last, align 8
   %.pre40 = load ptr, ptr %stack, align 8
   %.pre41 = ptrtoint ptr %.pre to i64
@@ -1613,7 +1613,7 @@ if.end:                                           ; preds = %if.then25, %if.then
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end
-  tail call void @luaD_throw(ptr noundef nonnull %L, i32 noundef 5) #13
+  tail call void @luaD_throw(ptr noundef nonnull %L, i32 noundef 5) #14
   unreachable
 
 if.else.i:                                        ; preds = %if.end
@@ -1628,7 +1628,7 @@ if.else.i:                                        ; preds = %if.end
 
 if.end33.i:                                       ; preds = %if.else.i
   %call34.i = tail call i32 @luaD_reallocstack(ptr noundef nonnull %L, i32 noundef 1000200, i32 noundef 1)
-  tail call void (ptr, ptr, ...) @luaG_runerror(ptr noundef nonnull %L, ptr noundef nonnull @.str.1) #12
+  tail call void (ptr, ptr, ...) @luaG_runerror(ptr noundef nonnull %L, ptr noundef nonnull @.str.1) #13
   unreachable
 
 luaD_growstack.exit:                              ; preds = %if.else.i
@@ -1652,7 +1652,7 @@ if.end28:                                         ; preds = %sw.bb4, %luaD_grows
   br i1 %tobool.not.i, label %cond.false.i, label %prepCallInfo.exit
 
 cond.false.i:                                     ; preds = %if.end28
-  %call.i33 = tail call ptr @luaE_extendCI(ptr noundef nonnull %L) #11
+  %call.i33 = tail call ptr @luaE_extendCI(ptr noundef nonnull %L) #12
   br label %prepCallInfo.exit
 
 prepCallInfo.exit:                                ; preds = %if.end28, %cond.false.i
@@ -1741,7 +1741,7 @@ if.then11:                                        ; preds = %if.then
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then11
-  tail call void @luaD_throw(ptr noundef nonnull %L, i32 noundef 5) #13
+  tail call void @luaD_throw(ptr noundef nonnull %L, i32 noundef 5) #14
   unreachable
 
 if.else.i:                                        ; preds = %if.then11
@@ -1753,7 +1753,7 @@ if.else.i:                                        ; preds = %if.then11
 
 if.end33.i:                                       ; preds = %if.else.i
   %call34.i = tail call i32 @luaD_reallocstack(ptr noundef nonnull %L, i32 noundef 1000200, i32 noundef 1)
-  tail call void (ptr, ptr, ...) @luaG_runerror(ptr noundef nonnull %L, ptr noundef nonnull @.str.1) #12
+  tail call void (ptr, ptr, ...) @luaG_runerror(ptr noundef nonnull %L, ptr noundef nonnull @.str.1) #13
   unreachable
 
 luaD_growstack.exit:                              ; preds = %if.else.i
@@ -1767,7 +1767,7 @@ luaD_growstack.exit:                              ; preds = %if.else.i
 
 if.end:                                           ; preds = %if.then, %luaD_growstack.exit
   %func.addr.0 = phi ptr [ %add.ptr, %luaD_growstack.exit ], [ %func, %if.then ]
-  tail call void @luaE_checkcstack(ptr noundef nonnull %L) #11
+  tail call void @luaE_checkcstack(ptr noundef nonnull %L) #12
   br label %if.end16
 
 if.end16:                                         ; preds = %if.end, %entry
@@ -1779,7 +1779,7 @@ if.end16:                                         ; preds = %if.end, %entry
 if.then20:                                        ; preds = %if.end16
   %callstatus = getelementptr inbounds i8, ptr %call17, i64 62
   store i16 4, ptr %callstatus, align 2
-  tail call void @luaV_execute(ptr noundef nonnull %L, ptr noundef nonnull %call17) #11
+  tail call void @luaV_execute(ptr noundef nonnull %L, ptr noundef nonnull %call17) #12
   br label %if.end21
 
 if.end21:                                         ; preds = %if.then20, %if.end16
@@ -1822,7 +1822,7 @@ if.then5:                                         ; preds = %if.then
   %idx.neg.i = sub nsw i64 0, %idx.ext.i
   %add.ptr.i = getelementptr inbounds %union.StackValue, ptr %2, i64 %idx.neg.i
   store ptr %add.ptr.i, ptr %top, align 8
-  %call.i = tail call ptr @luaS_new(ptr noundef nonnull %L, ptr noundef nonnull @.str.2) #11
+  %call.i = tail call ptr @luaS_new(ptr noundef nonnull %L, ptr noundef nonnull @.str.2) #12
   store ptr %call.i, ptr %add.ptr.i, align 8
   %tt.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %3 = load i8, ptr %tt.i, align 8
@@ -1849,7 +1849,7 @@ if.then10:                                        ; preds = %if.else
   %idx.neg.i31 = sub nsw i64 0, %conv7
   %add.ptr.i32 = getelementptr inbounds %union.StackValue, ptr %2, i64 %idx.neg.i31
   store ptr %add.ptr.i32, ptr %top, align 8
-  %call.i33 = tail call ptr @luaS_new(ptr noundef nonnull %L, ptr noundef nonnull @.str.3) #11
+  %call.i33 = tail call ptr @luaS_new(ptr noundef nonnull %L, ptr noundef nonnull @.str.3) #12
   store ptr %call.i33, ptr %add.ptr.i32, align 8
   %tt.i34 = getelementptr inbounds i8, ptr %call.i33, i64 8
   %7 = load i8, ptr %tt.i34, align 8
@@ -1868,7 +1868,7 @@ if.then18:                                        ; preds = %entry
   %idx.neg.i39 = sub nsw i64 0, %idx.ext.i38
   %add.ptr.i40 = getelementptr inbounds %union.StackValue, ptr %10, i64 %idx.neg.i39
   store ptr %add.ptr.i40, ptr %top.i37, align 8
-  %call.i41 = tail call ptr @luaS_new(ptr noundef nonnull %L, ptr noundef nonnull @.str.3) #11
+  %call.i41 = tail call ptr @luaS_new(ptr noundef nonnull %L, ptr noundef nonnull @.str.3) #12
   store ptr %call.i41, ptr %add.ptr.i40, align 8
   %tt.i42 = getelementptr inbounds i8, ptr %call.i41, i64 8
   %11 = load i8, ptr %tt.i42, align 8
@@ -1904,7 +1904,7 @@ if.then27:                                        ; preds = %cond.end
   %idx.neg.i47 = sub nsw i64 0, %idx.ext.i46
   %add.ptr.i48 = getelementptr inbounds %union.StackValue, ptr %15, i64 %idx.neg.i47
   store ptr %add.ptr.i48, ptr %top.i45, align 8
-  %call.i49 = tail call ptr @luaS_new(ptr noundef nonnull %L, ptr noundef nonnull @.str.4) #11
+  %call.i49 = tail call ptr @luaS_new(ptr noundef nonnull %L, ptr noundef nonnull @.str.4) #12
   store ptr %call.i49, ptr %add.ptr.i48, align 8
   %tt.i50 = getelementptr inbounds i8, ptr %call.i49, i64 8
   %16 = load i8, ptr %tt.i50, align 8
@@ -1988,7 +1988,7 @@ sw.bb.i:                                          ; preds = %if.else40
   br label %if.end47.thread
 
 sw.bb2.i:                                         ; preds = %if.else40
-  %call.i53 = call ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull @.str, i64 noundef 23) #11
+  %call.i53 = call ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull @.str, i64 noundef 23) #12
   store ptr %call.i53, ptr %24, align 8
   %tt6.i = getelementptr inbounds i8, ptr %call.i53, i64 8
   %29 = load i8, ptr %tt6.i, align 8
@@ -2083,7 +2083,7 @@ if.else:                                          ; preds = %entry
 
 if.then6:                                         ; preds = %if.else
   store ptr %add.ptr, ptr %top, align 8
-  tail call void @luaV_execute(ptr noundef nonnull %L, ptr noundef nonnull %2) #11
+  tail call void @luaV_execute(ptr noundef nonnull %L, ptr noundef nonnull %2) #12
   br label %if.end15
 
 if.else8:                                         ; preds = %if.else
@@ -2095,7 +2095,7 @@ if.else8:                                         ; preds = %if.else
 if.then11:                                        ; preds = %if.else8
   %ctx = getelementptr inbounds i8, ptr %2, i64 48
   %7 = load i64, ptr %ctx, align 8
-  %call = tail call i32 %6(ptr noundef nonnull %L, i32 noundef 1, i64 noundef %7) #11
+  %call = tail call i32 %6(ptr noundef nonnull %L, i32 noundef 1, i64 noundef %7) #12
   br label %if.end
 
 if.end:                                           ; preds = %if.then11, %if.else8
@@ -2112,7 +2112,7 @@ if.end16:                                         ; preds = %if.end15, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local range(i32 0, 2) i32 @lua_isyieldable(ptr nocapture noundef readonly %L) local_unnamed_addr #6 {
+define dso_local range(i32 0, 2) i32 @lua_isyieldable(ptr nocapture noundef readonly %L) local_unnamed_addr #7 {
 entry:
   %nCcalls = getelementptr inbounds i8, ptr %L, i64 176
   %0 = load i32, ptr %nCcalls, align 8
@@ -2140,11 +2140,11 @@ if.then:                                          ; preds = %entry
   br i1 %cmp4.not, label %if.else, label %if.then6
 
 if.then6:                                         ; preds = %if.then
-  tail call void (ptr, ptr, ...) @luaG_runerror(ptr noundef nonnull %L, ptr noundef nonnull @.str.5) #12
+  tail call void (ptr, ptr, ...) @luaG_runerror(ptr noundef nonnull %L, ptr noundef nonnull @.str.5) #13
   unreachable
 
 if.else:                                          ; preds = %if.then
-  tail call void (ptr, ptr, ...) @luaG_runerror(ptr noundef nonnull %L, ptr noundef nonnull @.str.6) #12
+  tail call void (ptr, ptr, ...) @luaG_runerror(ptr noundef nonnull %L, ptr noundef nonnull @.str.6) #13
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -2170,7 +2170,7 @@ if.then15:                                        ; preds = %if.else11
   br label %if.end18
 
 if.end18:                                         ; preds = %if.then15, %if.else11
-  tail call void @luaD_throw(ptr noundef nonnull %L, i32 noundef 1) #13
+  tail call void @luaD_throw(ptr noundef nonnull %L, i32 noundef 1) #14
   unreachable
 
 if.end19:                                         ; preds = %if.end
@@ -2218,7 +2218,7 @@ entry:
   %0 = load ptr, ptr %ud, align 8
   %status = getelementptr inbounds i8, ptr %ud, i64 8
   %1 = load i32, ptr %status, align 8
-  %call = tail call ptr @luaF_close(ptr noundef %L, ptr noundef %0, i32 noundef %1, i32 noundef 0) #11
+  %call = tail call ptr @luaF_close(ptr noundef %L, ptr noundef %0, i32 noundef %1, i32 noundef 0) #12
   ret void
 }
 
@@ -2286,7 +2286,7 @@ sw.bb.i:                                          ; preds = %luaD_closeprotected
   br label %luaD_seterrorobj.exit
 
 sw.bb2.i:                                         ; preds = %luaD_closeprotected.exit
-  %call.i16 = call ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull @.str, i64 noundef 23) #11
+  %call.i16 = call ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull @.str, i64 noundef 23) #12
   store ptr %call.i16, ptr %add.ptr, align 8
   %tt6.i = getelementptr inbounds i8, ptr %call.i16, i64 8
   %11 = load i8, ptr %tt6.i, align 8
@@ -2360,7 +2360,7 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   br label %luaD_shrinkstack.exit
 
 luaD_shrinkstack.exit:                            ; preds = %stackinuse.exit.i, %land.lhs.true.i, %if.then.i
-  call void @luaE_shrinkCI(ptr noundef nonnull %L) #11
+  call void @luaE_shrinkCI(ptr noundef nonnull %L) #12
   br label %if.end
 
 if.end:                                           ; preds = %luaD_shrinkstack.exit, %entry
@@ -2409,24 +2409,24 @@ entry:
   %call = call i32 @luaD_pcall(ptr noundef %L, ptr noundef nonnull @f_parser, ptr noundef nonnull %p, i64 noundef %sub.ptr.sub, i64 noundef %3)
   %4 = load ptr, ptr %buff, align 8
   %5 = load i64, ptr %buffsize, align 8
-  %call21 = call ptr @luaM_saferealloc_(ptr noundef %L, ptr noundef %4, i64 noundef %5, i64 noundef 0) #11
+  %call21 = call ptr @luaM_saferealloc_(ptr noundef %L, ptr noundef %4, i64 noundef %5, i64 noundef 0) #12
   store ptr %call21, ptr %buff, align 8
   store i64 0, ptr %buffsize, align 8
   %6 = load ptr, ptr %dyd, align 8
   %7 = load i32, ptr %size, align 4
   %conv = sext i32 %7 to i64
   %mul32 = mul nsw i64 %conv, 24
-  call void @luaM_free_(ptr noundef %L, ptr noundef %6, i64 noundef %mul32) #11
+  call void @luaM_free_(ptr noundef %L, ptr noundef %6, i64 noundef %mul32) #12
   %8 = load ptr, ptr %gt, align 8
   %9 = load i32, ptr %size10, align 4
   %conv39 = sext i32 %9 to i64
   %mul40 = mul nsw i64 %conv39, 24
-  call void @luaM_free_(ptr noundef %L, ptr noundef %8, i64 noundef %mul40) #11
+  call void @luaM_free_(ptr noundef %L, ptr noundef %8, i64 noundef %mul40) #12
   %10 = load ptr, ptr %label, align 8
   %11 = load i32, ptr %size15, align 4
   %conv47 = sext i32 %11 to i64
   %mul48 = mul nsw i64 %conv47, 24
-  call void @luaM_free_(ptr noundef %L, ptr noundef %10, i64 noundef %mul48) #11
+  call void @luaM_free_(ptr noundef %L, ptr noundef %10, i64 noundef %mul48) #12
   %12 = load i32, ptr %nCcalls, align 8
   %sub = add i32 %12, -65536
   store i32 %sub, ptr %nCcalls, align 8
@@ -2454,7 +2454,7 @@ cond.true:                                        ; preds = %entry
   br label %cond.end
 
 cond.false:                                       ; preds = %entry
-  %call = tail call i32 @luaZ_fill(ptr noundef %2) #11
+  %call = tail call i32 @luaZ_fill(ptr noundef %2) #12
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
@@ -2469,33 +2469,33 @@ if.then:                                          ; preds = %cond.end
   br i1 %tobool.not.i, label %checkmode.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.then
-  %call.i = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %5, i32 noundef 98) #15
+  %call.i = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %5, i32 noundef 98) #16
   %cmp.i = icmp eq ptr %call.i, null
   br i1 %cmp.i, label %if.then.i, label %checkmode.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %call2.i = tail call ptr (ptr, ptr, ...) @luaO_pushfstring(ptr noundef %L, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.8, ptr noundef nonnull %5) #11
-  tail call void @luaD_throw(ptr noundef %L, i32 noundef 3) #13
+  %call2.i = tail call ptr (ptr, ptr, ...) @luaO_pushfstring(ptr noundef %L, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.8, ptr noundef nonnull %5) #12
+  tail call void @luaD_throw(ptr noundef %L, i32 noundef 3) #14
   unreachable
 
 checkmode.exit:                                   ; preds = %if.then, %land.lhs.true.i
   %6 = load ptr, ptr %ud, align 8
   %name = getelementptr inbounds i8, ptr %ud, i64 88
   %7 = load ptr, ptr %name, align 8
-  %call8 = tail call ptr @luaU_undump(ptr noundef %L, ptr noundef %6, ptr noundef %7) #11
+  %call8 = tail call ptr @luaU_undump(ptr noundef %L, ptr noundef %6, ptr noundef %7) #12
   br label %if.end
 
 if.else:                                          ; preds = %cond.end
   br i1 %tobool.not.i, label %checkmode.exit22, label %land.lhs.true.i17
 
 land.lhs.true.i17:                                ; preds = %if.else
-  %call.i18 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %5, i32 noundef 116) #15
+  %call.i18 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %5, i32 noundef 116) #16
   %cmp.i19 = icmp eq ptr %call.i18, null
   br i1 %cmp.i19, label %if.then.i20, label %checkmode.exit22
 
 if.then.i20:                                      ; preds = %land.lhs.true.i17
-  %call2.i21 = tail call ptr (ptr, ptr, ...) @luaO_pushfstring(ptr noundef %L, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.9, ptr noundef nonnull %5) #11
-  tail call void @luaD_throw(ptr noundef %L, i32 noundef 3) #13
+  %call2.i21 = tail call ptr (ptr, ptr, ...) @luaO_pushfstring(ptr noundef %L, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.9, ptr noundef nonnull %5) #12
+  tail call void @luaD_throw(ptr noundef %L, i32 noundef 3) #14
   unreachable
 
 checkmode.exit22:                                 ; preds = %if.else, %land.lhs.true.i17
@@ -2504,12 +2504,12 @@ checkmode.exit22:                                 ; preds = %if.else, %land.lhs.
   %dyd = getelementptr inbounds i8, ptr %ud, i64 32
   %name11 = getelementptr inbounds i8, ptr %ud, i64 88
   %9 = load ptr, ptr %name11, align 8
-  %call12 = tail call ptr @luaY_parser(ptr noundef %L, ptr noundef %8, ptr noundef nonnull %buff, ptr noundef nonnull %dyd, ptr noundef %9, i32 noundef %cond) #11
+  %call12 = tail call ptr @luaY_parser(ptr noundef %L, ptr noundef %8, ptr noundef nonnull %buff, ptr noundef nonnull %dyd, ptr noundef %9, i32 noundef %cond) #12
   br label %if.end
 
 if.end:                                           ; preds = %checkmode.exit22, %checkmode.exit
   %cl.0 = phi ptr [ %call8, %checkmode.exit ], [ %call12, %checkmode.exit22 ]
-  tail call void @luaF_initupvals(ptr noundef %L, ptr noundef %cl.0) #11
+  tail call void @luaF_initupvals(ptr noundef %L, ptr noundef %cl.0) #12
   ret void
 }
 
@@ -2522,7 +2522,7 @@ declare hidden ptr @luaF_close(ptr noundef, ptr noundef, i32 noundef, i32 nounde
 declare hidden ptr @luaT_gettmbyobj(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare hidden void @luaG_callerror(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare hidden void @luaG_callerror(ptr noundef, ptr noundef) local_unnamed_addr #6
 
 declare hidden ptr @luaE_extendCI(ptr noundef) local_unnamed_addr #1
 
@@ -2590,7 +2590,7 @@ if.else.i.i:                                      ; preds = %if.then5.i
   %9 = trunc i16 %2 to i8
   %conv8.i.i = and i8 %9, 1
   store i8 %conv8.i.i, ptr %allowhook.i.i, align 1
-  %call.i.i = tail call ptr @luaF_close(ptr noundef nonnull %L, ptr noundef %add.ptr.i.i, i32 noundef %and.i.i, i32 noundef 1) #11
+  %call.i.i = tail call ptr @luaF_close(ptr noundef nonnull %L, ptr noundef %add.ptr.i.i, i32 noundef %and.i.i, i32 noundef 1) #12
   switch i16 %6, label %sw.default.i.i.i [
     i16 4, label %sw.bb.i.i.i
     i16 5, label %sw.bb2.i.i.i
@@ -2607,7 +2607,7 @@ sw.bb.i.i.i:                                      ; preds = %if.else.i.i
   br label %luaD_seterrorobj.exit.i.i
 
 sw.bb2.i.i.i:                                     ; preds = %if.else.i.i
-  %call.i.i.i = tail call ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull @.str, i64 noundef 23) #11
+  %call.i.i.i = tail call ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull @.str, i64 noundef 23) #12
   store ptr %call.i.i.i, ptr %call.i.i, align 8
   %tt6.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   %14 = load i8, ptr %tt6.i.i.i, align 8
@@ -2678,7 +2678,7 @@ if.then.i.i.i:                                    ; preds = %land.lhs.true.i.i.i
   br label %luaD_shrinkstack.exit.i.i
 
 luaD_shrinkstack.exit.i.i:                        ; preds = %if.then.i.i.i, %land.lhs.true.i.i.i, %stackinuse.exit.i.i.i
-  tail call void @luaE_shrinkCI(ptr noundef nonnull %L) #11
+  tail call void @luaE_shrinkCI(ptr noundef nonnull %L) #12
   %23 = load i16, ptr %callstatus, align 2
   %24 = and i16 %23, -7169
   br label %finishpcallk.exit.i
@@ -2712,7 +2712,7 @@ if.end13.i:                                       ; preds = %if.then9.i, %if.end
   %31 = load ptr, ptr %u.i, align 8
   %ctx.i = getelementptr inbounds i8, ptr %1, i64 48
   %32 = load i64, ptr %ctx.i, align 8
-  %call15.i = tail call i32 %31(ptr noundef nonnull %L, i32 noundef %status.0.i, i64 noundef %32) #11
+  %call15.i = tail call i32 %31(ptr noundef nonnull %L, i32 noundef %status.0.i, i64 noundef %32) #12
   br label %finishCcall.exit
 
 finishCcall.exit:                                 ; preds = %if.then.i, %if.end13.i
@@ -2721,8 +2721,8 @@ finishCcall.exit:                                 ; preds = %if.then.i, %if.end1
   br label %if.end
 
 if.else:                                          ; preds = %while.body
-  tail call void @luaV_finishOp(ptr noundef nonnull %L) #11
-  tail call void @luaV_execute(ptr noundef nonnull %L, ptr noundef nonnull %1) #11
+  tail call void @luaV_finishOp(ptr noundef nonnull %L) #12
+  tail call void @luaV_execute(ptr noundef nonnull %L, ptr noundef nonnull %1) #12
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %finishCcall.exit
@@ -2745,41 +2745,42 @@ declare hidden ptr @luaY_parser(ptr noundef, ptr noundef, ptr noundef, ptr nound
 declare hidden void @luaF_initupvals(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #7
+declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #8
 
 declare hidden ptr @luaO_pushfstring(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #8
+declare i32 @llvm.smin.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #8
+declare i32 @llvm.smax.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind returns_twice "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #11 = { nounwind }
-attributes #12 = { noreturn nounwind }
-attributes #13 = { noreturn }
-attributes #14 = { nounwind returns_twice }
-attributes #15 = { nounwind willreturn memory(read) }
+attributes #4 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind returns_twice "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #12 = { nounwind }
+attributes #13 = { noreturn nounwind }
+attributes #14 = { noreturn }
+attributes #15 = { nounwind returns_twice }
+attributes #16 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

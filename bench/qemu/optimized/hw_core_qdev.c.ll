@@ -89,8 +89,8 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @qdev_get_vmsd(ptr noundef %dev) local_unnamed_addr #0 {
 entry:
-  %call.i = tail call ptr @object_get_class(ptr noundef %dev) #13
-  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_GET_CLASS) #13
+  %call.i = tail call ptr @object_get_class(ptr noundef %dev) #14
+  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_GET_CLASS) #14
   %vmsd = getelementptr inbounds i8, ptr %call1.i, i64 160
   %0 = load ptr, ptr %vmsd, align 8
   ret ptr %0
@@ -104,32 +104,32 @@ entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %parent_bus = getelementptr inbounds i8, ptr %dev, i64 88
   %0 = load ptr, ptr %parent_bus, align 8
-  %call.i = tail call ptr @object_get_class(ptr noundef %dev) #13
-  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_GET_CLASS) #13
+  %call.i = tail call ptr @object_get_class(ptr noundef %dev) #14
+  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_GET_CLASS) #14
   %bus_type = getelementptr inbounds i8, ptr %call1.i, i64 168
   %1 = load ptr, ptr %bus_type, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.else, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %call2 = tail call ptr @object_dynamic_cast(ptr noundef %bus, ptr noundef nonnull %1) #13
+  %call2 = tail call ptr @object_dynamic_cast(ptr noundef %bus, ptr noundef nonnull %1) #14
   %tobool3.not = icmp eq ptr %call2, null
   br i1 %tobool3.not, label %if.else, label %if.end
 
 if.else:                                          ; preds = %land.lhs.true, %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 114, ptr noundef nonnull @__PRETTY_FUNCTION__.qdev_set_parent_bus) #14
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 114, ptr noundef nonnull @__PRETTY_FUNCTION__.qdev_set_parent_bus) #15
   unreachable
 
 if.end:                                           ; preds = %land.lhs.true
-  %call.i.i = tail call ptr @object_get_class(ptr noundef %bus) #13
-  %call1.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.11, i32 noundef 316, ptr noundef nonnull @__func__.BUS_GET_CLASS) #13
+  %call.i.i = tail call ptr @object_get_class(ptr noundef %bus) #14
+  %call1.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.11, i32 noundef 316, ptr noundef nonnull @__func__.BUS_GET_CLASS) #14
   %check_address.i = getelementptr inbounds i8, ptr %call1.i.i, i64 128
   %2 = load ptr, ptr %check_address.i, align 8
   %tobool.not.i = icmp eq ptr %2, null
   br i1 %tobool.not.i, label %if.end6, label %bus_check_address.exit
 
 bus_check_address.exit:                           ; preds = %if.end
-  %call2.i = tail call zeroext i1 %2(ptr noundef %bus, ptr noundef nonnull %dev, ptr noundef %errp) #13
+  %call2.i = tail call zeroext i1 %2(ptr noundef %bus, ptr noundef nonnull %dev, ptr noundef %errp) #14
   br i1 %call2.i, label %if.end6, label %return
 
 if.end6:                                          ; preds = %if.end, %bus_check_address.exit
@@ -137,9 +137,9 @@ if.end6:                                          ; preds = %if.end, %bus_check_
   br i1 %tobool7.not, label %if.end14, label %if.then8
 
 if.then8:                                         ; preds = %if.end6
-  %call9 = tail call ptr @object_get_typename(ptr noundef nonnull %dev) #13
-  %call10 = tail call ptr @object_get_typename(ptr noundef nonnull %0) #13
-  %call11 = tail call ptr @object_get_typename(ptr noundef %bus) #13
+  %call9 = tail call ptr @object_get_typename(ptr noundef nonnull %dev) #14
+  %call10 = tail call ptr @object_get_typename(ptr noundef nonnull %0) #14
+  %call11 = tail call ptr @object_get_typename(ptr noundef %bus) #14
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %3 = load i32, ptr @trace_events_enabled_count, align 4
   %tobool.i.i = icmp ne i32 %3, 0
@@ -160,21 +160,21 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #13
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #13
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #14
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #14
   %7 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, ptr noundef nonnull %dev, ptr noundef %call9, ptr noundef nonnull %0, ptr noundef %call10, ptr noundef %bus, ptr noundef %call11) #13
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, ptr noundef nonnull %dev, ptr noundef %call9, ptr noundef nonnull %0, ptr noundef %call10, ptr noundef %bus, ptr noundef %call11) #14
   br label %trace_qdev_update_parent_bus.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.13, ptr noundef nonnull %dev, ptr noundef %call9, ptr noundef nonnull %0, ptr noundef %call10, ptr noundef %bus, ptr noundef %call11) #13
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.13, ptr noundef nonnull %dev, ptr noundef %call9, ptr noundef nonnull %0, ptr noundef %call10, ptr noundef %bus, ptr noundef %call11) #14
   br label %trace_qdev_update_parent_bus.exit
 
 trace_qdev_update_parent_bus.exit:                ; preds = %if.then8, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %call12 = tail call ptr @object_ref(ptr noundef nonnull %dev) #13
+  %call12 = tail call ptr @object_ref(ptr noundef nonnull %dev) #14
   %9 = load ptr, ptr %parent_bus, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %name.i)
   %children.i = getelementptr inbounds i8, ptr %9, i64 80
@@ -192,7 +192,7 @@ for.body.i:                                       ; preds = %trace_qdev_update_p
 if.then.i:                                        ; preds = %for.body.i
   %index.i = getelementptr inbounds i8, ptr %kid.018.i, i64 24
   %11 = load i32, ptr %index.i, align 8
-  %call.i28 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %name.i, i64 noundef 32, ptr noundef nonnull @.str.14, i32 noundef %11) #13
+  %call.i28 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %name.i, i64 noundef 32, ptr noundef nonnull @.str.14, i32 noundef %11) #14
   %sibling.i = getelementptr inbounds i8, ptr %kid.018.i, i64 32
   %12 = load ptr, ptr %sibling.i, align 8
   %cmp2.not.i = icmp eq ptr %12, null
@@ -210,8 +210,8 @@ if.then.i:                                        ; preds = %for.body.i
   %16 = load i32, ptr %num_children.i, align 8
   %dec.i = add i32 %16, -1
   store i32 %dec.i, ptr %num_children.i, align 8
-  call void @object_property_del(ptr noundef %9, ptr noundef nonnull %name.i) #13
-  call void @call_rcu1(ptr noundef nonnull %kid.018.i, ptr noundef nonnull @bus_free_bus_child) #13
+  call void @object_property_del(ptr noundef %9, ptr noundef nonnull %name.i) #14
+  call void @call_rcu1(ptr noundef nonnull %kid.018.i, ptr noundef nonnull @bus_free_bus_child) #14
   br label %bus_remove_child.exit
 
 for.inc.i:                                        ; preds = %for.body.i
@@ -226,9 +226,9 @@ bus_remove_child.exit:                            ; preds = %for.inc.i, %trace_q
 
 if.end14:                                         ; preds = %bus_remove_child.exit, %if.end6
   store ptr %bus, ptr %parent_bus, align 8
-  %call16 = call ptr @object_ref(ptr noundef %bus) #13
+  %call16 = call ptr @object_ref(ptr noundef %bus) #14
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %name.i29)
-  %call.i30 = call noalias dereferenceable_or_null(48) ptr @g_malloc0(i64 noundef 48) #15
+  %call.i30 = call noalias dereferenceable_or_null(48) ptr @g_malloc0(i64 noundef 48) #16
   %num_children.i31 = getelementptr inbounds i8, ptr %bus, i64 72
   %17 = load i32, ptr %num_children.i31, align 8
   %inc.i = add i32 %17, 1
@@ -241,7 +241,7 @@ if.end14:                                         ; preds = %bus_remove_child.ex
   store i32 %18, ptr %index.i32, align 8
   %child2.i = getelementptr inbounds i8, ptr %call.i30, i64 16
   store ptr %dev, ptr %child2.i, align 8
-  %call4.i = call ptr @object_ref(ptr noundef %dev) #13
+  %call4.i = call ptr @object_ref(ptr noundef %dev) #14
   %children.i33 = getelementptr inbounds i8, ptr %bus, i64 80
   %19 = load ptr, ptr %children.i33, align 8
   %sibling.i34 = getelementptr inbounds i8, ptr %call.i30, i64 32
@@ -255,9 +255,9 @@ if.end14:                                         ; preds = %bus_remove_child.ex
   store atomic i64 %20, ptr %children.i33 release, align 8
   %tql_prev18.i = getelementptr inbounds i8, ptr %call.i30, i64 40
   store ptr %children.i33, ptr %tql_prev18.i, align 8
-  %call21.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %name.i29, i64 noundef 32, ptr noundef nonnull @.str.14, i32 noundef %18) #13
-  %call23.i = call ptr @object_get_typename(ptr noundef %dev) #13
-  %call25.i = call ptr @object_property_add_link(ptr noundef nonnull %bus, ptr noundef nonnull %name.i29, ptr noundef %call23.i, ptr noundef nonnull %child2.i, ptr noundef null, i32 noundef 0) #13
+  %call21.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %name.i29, i64 noundef 32, ptr noundef nonnull @.str.14, i32 noundef %18) #14
+  %call23.i = call ptr @object_get_typename(ptr noundef %dev) #14
+  %call25.i = call ptr @object_property_add_link(ptr noundef nonnull %bus, ptr noundef nonnull %name.i29, ptr noundef %call23.i, ptr noundef nonnull %child2.i, ptr noundef null, i32 noundef 0) #14
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %name.i29)
   %realized = getelementptr inbounds i8, ptr %dev, i64 56
   %21 = load i8, ptr %realized, align 8
@@ -265,15 +265,15 @@ if.end14:                                         ; preds = %bus_remove_child.ex
   br i1 %tobool17, label %if.then18, label %if.end19
 
 if.then18:                                        ; preds = %if.end14
-  call void @resettable_change_parent(ptr noundef nonnull %dev, ptr noundef nonnull %bus, ptr noundef %0) #13
+  call void @resettable_change_parent(ptr noundef nonnull %dev, ptr noundef nonnull %bus, ptr noundef %0) #14
   br label %if.end19
 
 if.end19:                                         ; preds = %if.then18, %if.end14
   br i1 %tobool7.not, label %return, label %if.then21
 
 if.then21:                                        ; preds = %if.end19
-  call void @object_unref(ptr noundef nonnull %0) #13
-  call void @object_unref(ptr noundef nonnull %dev) #13
+  call void @object_unref(ptr noundef nonnull %0) #14
+  call void @object_unref(ptr noundef nonnull %dev) #14
   br label %return
 
 return:                                           ; preds = %if.end19, %if.then21, %bus_check_address.exit
@@ -297,18 +297,18 @@ declare void @object_unref(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @qdev_new(ptr noundef %name) local_unnamed_addr #0 {
 entry:
-  %call = tail call ptr @object_class_by_name(ptr noundef %name) #13
+  %call = tail call ptr @object_class_by_name(ptr noundef %name) #14
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.2, ptr noundef %name) #13
-  tail call void @abort() #14
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.2, ptr noundef %name) #14
+  tail call void @abort() #15
   unreachable
 
 if.end:                                           ; preds = %entry
-  %call1 = tail call ptr @object_new(ptr noundef %name) #13
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #13
+  %call1 = tail call ptr @object_new(ptr noundef %name) #14
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #14
   ret ptr %call.i
 }
 
@@ -316,21 +316,21 @@ declare ptr @object_class_by_name(ptr noundef) local_unnamed_addr #1
 
 declare void @error_report(ptr noundef, ...) local_unnamed_addr #1
 
-; Function Attrs: noreturn nounwind
-declare void @abort() local_unnamed_addr #2
+; Function Attrs: cold nofree noreturn nounwind
+declare void @abort() local_unnamed_addr #3
 
 declare ptr @object_new(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @qdev_try_new(ptr noundef %name) local_unnamed_addr #0 {
 entry:
-  %call = tail call ptr @module_object_class_by_name(ptr noundef %name) #13
+  %call = tail call ptr @module_object_class_by_name(ptr noundef %name) #14
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call1 = tail call ptr @object_new(ptr noundef %name) #13
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #13
+  %call1 = tail call ptr @object_new(ptr noundef %name) #14
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #14
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -350,8 +350,8 @@ entry:
   store ptr %0, ptr %tql_prev, align 8
   store ptr %listener, ptr %0, align 8
   store ptr %link, ptr getelementptr inbounds (i8, ptr @device_listeners, i64 8), align 8
-  %call = tail call ptr @sysbus_get_default() #13
-  %call3 = tail call i32 @qbus_walk_children(ptr noundef %call, ptr noundef null, ptr noundef null, ptr noundef nonnull @device_listener_add, ptr noundef null, ptr noundef null) #13
+  %call = tail call ptr @sysbus_get_default() #14
+  %call3 = tail call i32 @qbus_walk_children(ptr noundef %call, ptr noundef null, ptr noundef null, ptr noundef nonnull @device_listener_add, ptr noundef null, ptr noundef null) #14
   ret void
 }
 
@@ -373,7 +373,7 @@ for.body:                                         ; preds = %entry, %for.inc
   br i1 %tobool1.not, label %for.inc, label %if.then
 
 if.then:                                          ; preds = %for.body
-  tail call void %0(ptr noundef nonnull %_listener.07, ptr noundef %dev) #13
+  tail call void %0(ptr noundef nonnull %_listener.07, ptr noundef %dev) #14
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then
@@ -387,7 +387,7 @@ do.end:                                           ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @device_listener_unregister(ptr nocapture noundef %listener) local_unnamed_addr #3 {
+define dso_local void @device_listener_unregister(ptr nocapture noundef %listener) local_unnamed_addr #4 {
 entry:
   %link = getelementptr inbounds i8, ptr %listener, i64 24
   %0 = load ptr, ptr %link, align 8
@@ -436,7 +436,7 @@ for.body:                                         ; preds = %entry, %for.inc
   br i1 %tobool4.not, label %for.inc, label %if.then5
 
 if.then5:                                         ; preds = %for.body
-  %call = call zeroext i1 %0(ptr noundef nonnull %listener.012, ptr noundef %opts, i1 noundef zeroext %from_json, ptr noundef %spec.select) #13
+  %call = call zeroext i1 %0(ptr noundef nonnull %listener.012, ptr noundef %opts, i1 noundef zeroext %from_json, ptr noundef %spec.select) #14
   br i1 %call, label %cleanup.loopexit, label %if.else
 
 if.else:                                          ; preds = %if.then5
@@ -460,7 +460,7 @@ cleanup:                                          ; preds = %cleanup.loopexit, %
   %_auto_errp_prop.val9 = phi ptr [ %errp, %entry ], [ %_auto_errp_prop.val9.pre, %cleanup.loopexit ]
   %_auto_errp_prop.val = phi ptr [ null, %entry ], [ %_auto_errp_prop.val.pre, %cleanup.loopexit ]
   %retval.0 = phi i1 [ false, %entry ], [ %retval.0.ph, %cleanup.loopexit ]
-  call void @error_propagate(ptr noundef %_auto_errp_prop.val9, ptr noundef %_auto_errp_prop.val) #13
+  call void @error_propagate(ptr noundef %_auto_errp_prop.val9, ptr noundef %_auto_errp_prop.val) #14
   ret i1 %retval.0
 }
 
@@ -473,7 +473,7 @@ entry:
   br i1 %tobool, label %if.else, label %if.end
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 248, ptr noundef nonnull @__PRETTY_FUNCTION__.qdev_set_legacy_instance_id) #14
+  tail call void @__assert_fail(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 248, ptr noundef nonnull @__PRETTY_FUNCTION__.qdev_set_legacy_instance_id) #15
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -487,7 +487,7 @@ if.end:                                           ; preds = %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @device_cold_reset(ptr noundef %dev) local_unnamed_addr #0 {
 entry:
-  tail call void @resettable_reset(ptr noundef %dev, i32 noundef 0) #13
+  tail call void @resettable_reset(ptr noundef %dev, i32 noundef 0) #14
   ret void
 }
 
@@ -496,7 +496,7 @@ declare void @resettable_reset(ptr noundef, i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local zeroext i1 @device_is_in_reset(ptr noundef %dev) local_unnamed_addr #0 {
 entry:
-  %call = tail call zeroext i1 @resettable_is_in_reset(ptr noundef %dev) #13
+  %call = tail call zeroext i1 @resettable_is_in_reset(ptr noundef %dev) #14
   ret i1 %call
 }
 
@@ -517,7 +517,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %tobool1.not, label %if.end, label %if.else
 
 if.else:                                          ; preds = %land.lhs.true, %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 282, ptr noundef nonnull @__PRETTY_FUNCTION__.qdev_realize) #14
+  tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 282, ptr noundef nonnull @__PRETTY_FUNCTION__.qdev_realize) #15
   unreachable
 
 if.end:                                           ; preds = %land.lhs.true
@@ -529,19 +529,19 @@ if.then3:                                         ; preds = %if.end
   br i1 %call, label %if.end12, label %return
 
 if.else6:                                         ; preds = %if.end
-  %call.i = tail call ptr @object_get_class(ptr noundef nonnull %dev) #13
-  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_GET_CLASS) #13
+  %call.i = tail call ptr @object_get_class(ptr noundef nonnull %dev) #14
+  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_GET_CLASS) #14
   %bus_type = getelementptr inbounds i8, ptr %call1.i, i64 168
   %2 = load ptr, ptr %bus_type, align 8
   %tobool8.not = icmp eq ptr %2, null
   br i1 %tobool8.not, label %if.end12, label %if.else10
 
 if.else10:                                        ; preds = %if.else6
-  tail call void @__assert_fail(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 289, ptr noundef nonnull @__PRETTY_FUNCTION__.qdev_realize) #14
+  tail call void @__assert_fail(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 289, ptr noundef nonnull @__PRETTY_FUNCTION__.qdev_realize) #15
   unreachable
 
 if.end12:                                         ; preds = %if.else6, %if.then3
-  %call13 = tail call zeroext i1 @object_property_set_bool(ptr noundef nonnull %dev, ptr noundef nonnull @.str.6, i1 noundef zeroext true, ptr noundef %errp) #13
+  %call13 = tail call zeroext i1 @object_property_set_bool(ptr noundef nonnull %dev, ptr noundef nonnull @.str.6, i1 noundef zeroext true, ptr noundef %errp) #14
   br label %return
 
 return:                                           ; preds = %if.then3, %if.end12
@@ -555,22 +555,22 @@ declare zeroext i1 @object_property_set_bool(ptr noundef, ptr noundef, i1 nounde
 define dso_local zeroext i1 @qdev_realize_and_unref(ptr noundef %dev, ptr noundef %bus, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @qdev_realize(ptr noundef %dev, ptr noundef %bus, ptr noundef %errp)
-  tail call void @object_unref(ptr noundef %dev) #13
+  tail call void @object_unref(ptr noundef %dev) #14
   ret i1 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qdev_unrealize(ptr noundef %dev) local_unnamed_addr #0 {
 entry:
-  %call = tail call zeroext i1 @object_property_set_bool(ptr noundef %dev, ptr noundef nonnull @.str.6, i1 noundef zeroext false, ptr noundef nonnull @error_abort) #13
+  %call = tail call zeroext i1 @object_property_set_bool(ptr noundef %dev, ptr noundef nonnull @.str.6, i1 noundef zeroext false, ptr noundef nonnull @error_abort) #14
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qdev_assert_realized_properly() local_unnamed_addr #0 {
 entry:
-  %call = tail call ptr @object_get_root() #13
-  %call1 = tail call i32 @object_child_foreach_recursive(ptr noundef %call, ptr noundef nonnull @qdev_assert_realized_properly_cb, ptr noundef null) #13
+  %call = tail call ptr @object_get_root() #14
+  %call1 = tail call i32 @object_child_foreach_recursive(ptr noundef %call, ptr noundef nonnull @qdev_assert_realized_properly_cb, ptr noundef null) #14
   ret void
 }
 
@@ -581,21 +581,21 @@ declare ptr @object_get_root() local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i32 @qdev_assert_realized_properly_cb(ptr noundef %obj, ptr nocapture readnone %opaque) #0 {
 entry:
-  %call = tail call ptr @object_dynamic_cast(ptr noundef %obj, ptr noundef nonnull @.str.10) #13
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #13
+  %call = tail call ptr @object_dynamic_cast(ptr noundef %obj, ptr noundef nonnull @.str.10) #14
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #14
   %tobool.not = icmp eq ptr %call.i, null
   br i1 %tobool.not, label %if.end10, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call.i4 = tail call ptr @object_get_class(ptr noundef nonnull %call.i) #13
-  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i4, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_GET_CLASS) #13
+  %call.i4 = tail call ptr @object_get_class(ptr noundef nonnull %call.i) #14
+  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i4, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_GET_CLASS) #14
   %realized = getelementptr inbounds i8, ptr %call.i, i64 56
   %0 = load i8, ptr %realized, align 8
   %tobool3 = trunc i8 %0 to i1
   br i1 %tobool3, label %if.end, label %if.else
 
 if.else:                                          ; preds = %if.then
-  tail call void @__assert_fail(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.1, i32 noundef 316, ptr noundef nonnull @__PRETTY_FUNCTION__.qdev_assert_realized_properly_cb) #14
+  tail call void @__assert_fail(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.1, i32 noundef 316, ptr noundef nonnull @__PRETTY_FUNCTION__.qdev_assert_realized_properly_cb) #15
   unreachable
 
 if.end:                                           ; preds = %if.then
@@ -611,7 +611,7 @@ lor.lhs.false:                                    ; preds = %if.end
   br i1 %tobool6.not, label %if.end10, label %if.else8
 
 if.else8:                                         ; preds = %lor.lhs.false
-  tail call void @__assert_fail(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.1, i32 noundef 317, ptr noundef nonnull @__PRETTY_FUNCTION__.qdev_assert_realized_properly_cb) #14
+  tail call void @__assert_fail(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.1, i32 noundef 317, ptr noundef nonnull @__PRETTY_FUNCTION__.qdev_assert_realized_properly_cb) #15
   unreachable
 
 if.end10:                                         ; preds = %lor.lhs.false, %if.end, %entry
@@ -619,7 +619,7 @@ if.end10:                                         ; preds = %lor.lhs.false, %if.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define dso_local zeroext i1 @qdev_machine_modified() local_unnamed_addr #4 {
+define dso_local zeroext i1 @qdev_machine_modified() local_unnamed_addr #5 {
 entry:
   %.b1 = load i1, ptr @qdev_hot_added, align 1
   %0 = load i8, ptr @qdev_hot_removed, align 1
@@ -629,7 +629,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local ptr @qdev_get_parent_bus(ptr nocapture noundef readonly %dev) local_unnamed_addr #5 {
+define dso_local ptr @qdev_get_parent_bus(ptr nocapture noundef readonly %dev) local_unnamed_addr #6 {
 entry:
   %parent_bus = getelementptr inbounds i8, ptr %dev, i64 88
   %0 = load ptr, ptr %parent_bus, align 8
@@ -639,8 +639,8 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @qdev_get_child_bus(ptr noundef %dev, ptr noundef %name) local_unnamed_addr #0 {
 entry:
-  %call = tail call ptr @object_resolve_path_component(ptr noundef %dev, ptr noundef %name) #13
-  %call1 = tail call ptr @object_dynamic_cast(ptr noundef %call, ptr noundef nonnull @.str.7) #13
+  %call = tail call ptr @object_resolve_path_component(ptr noundef %dev, ptr noundef %name) #14
+  %call1 = tail call ptr @object_dynamic_cast(ptr noundef %call, ptr noundef nonnull @.str.7) #14
   %tobool.not = icmp eq ptr %call1, null
   br i1 %tobool.not, label %if.end, label %return
 
@@ -654,7 +654,7 @@ for.body:                                         ; preds = %if.end, %for.inc
   %bus.010 = phi ptr [ %bus.0, %for.inc ], [ %bus.08, %if.end ]
   %name3 = getelementptr inbounds i8, ptr %bus.010, i64 48
   %0 = load ptr, ptr %name3, align 8
-  %call4 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(1) %0) #16
+  %call4 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(1) %0) #17
   %cmp = icmp eq i32 %call4, 0
   br i1 %cmp, label %return, label %for.inc
 
@@ -672,7 +672,7 @@ return:                                           ; preds = %for.body, %for.inc,
 declare ptr @object_resolve_path_component(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @qdev_walk_children(ptr noundef %dev, ptr noundef %pre_devfn, ptr noundef %pre_busfn, ptr noundef %post_devfn, ptr noundef %post_busfn, ptr noundef %opaque) local_unnamed_addr #0 {
@@ -681,7 +681,7 @@ entry:
   br i1 %tobool.not, label %if.end3, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call = tail call i32 %pre_devfn(ptr noundef %dev, ptr noundef %opaque) #13
+  %call = tail call i32 %pre_devfn(ptr noundef %dev, ptr noundef %opaque) #14
   %tobool1.not = icmp eq i32 %call, 0
   br i1 %tobool1.not, label %if.end3, label %return
 
@@ -699,7 +699,7 @@ for.cond:                                         ; preds = %for.body
 
 for.body:                                         ; preds = %if.end3, %for.cond
   %bus.018 = phi ptr [ %bus.0, %for.cond ], [ %bus.016, %if.end3 ]
-  %call5 = tail call i32 @qbus_walk_children(ptr noundef nonnull %bus.018, ptr noundef %pre_devfn, ptr noundef %pre_busfn, ptr noundef %post_devfn, ptr noundef %post_busfn, ptr noundef %opaque) #13
+  %call5 = tail call i32 @qbus_walk_children(ptr noundef nonnull %bus.018, ptr noundef %pre_devfn, ptr noundef %pre_busfn, ptr noundef %post_devfn, ptr noundef %post_busfn, ptr noundef %opaque) #14
   %cmp = icmp slt i32 %call5, 0
   br i1 %cmp, label %return, label %for.cond
 
@@ -708,7 +708,7 @@ for.end:                                          ; preds = %for.cond, %if.end3
   br i1 %tobool8.not, label %if.end14, label %if.then9
 
 if.then9:                                         ; preds = %for.end
-  %call10 = tail call i32 %post_devfn(ptr noundef %dev, ptr noundef %opaque) #13
+  %call10 = tail call i32 %post_devfn(ptr noundef %dev, ptr noundef %opaque) #14
   %tobool11.not = icmp eq i32 %call10, 0
   br i1 %tobool11.not, label %if.end14, label %return
 
@@ -723,7 +723,7 @@ return:                                           ; preds = %for.body, %if.then9
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @qdev_find_recursive(ptr nocapture noundef readonly %bus, ptr nocapture noundef readonly %id) local_unnamed_addr #0 {
 entry:
-  %call.i.i = tail call ptr @get_ptr_rcu_reader() #13
+  %call.i.i = tail call ptr @get_ptr_rcu_reader() #14
   %depth.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   %0 = load i32, ptr %depth.i.i, align 4
   %inc.i.i = add i32 %0, 1
@@ -735,14 +735,14 @@ while.end.i.i:                                    ; preds = %entry
   %1 = load atomic i64, ptr @rcu_gp_ctr monotonic, align 8
   %conv8.i.i = and i64 %1, 4294967295
   store atomic i64 %conv8.i.i, ptr %call.i.i monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !11
   fence seq_cst
   br label %rcu_read_auto_lock.exit
 
 rcu_read_auto_lock.exit:                          ; preds = %entry, %while.end.i.i
   %children = getelementptr inbounds i8, ptr %bus, i64 80
   %2 = load atomic i64, ptr %children monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !12
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !12
   %tobool2.not26 = icmp eq i64 %2, 0
   br i1 %tobool2.not26, label %for.inc26, label %for.body3
 
@@ -757,7 +757,7 @@ for.body3:                                        ; preds = %rcu_read_auto_lock.
   br i1 %tobool6.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.body3
-  %call8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %id) #16
+  %call8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %id) #17
   %cmp = icmp eq i32 %call8, 0
   br i1 %cmp, label %if.then.i.i, label %if.end
 
@@ -782,19 +782,19 @@ for.body11:                                       ; preds = %if.end, %for.cond9
 while.end22:                                      ; preds = %for.cond9, %if.end
   %sibling23 = getelementptr inbounds i8, ptr %kid.027, i64 32
   %5 = load atomic i64, ptr %sibling23 monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !14
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !14
   %tobool2.not = icmp eq i64 %5, 0
   br i1 %tobool2.not, label %for.inc26, label %for.body3, !llvm.loop !15
 
 for.inc26:                                        ; preds = %while.end22, %rcu_read_auto_lock.exit
-  %call.i.i10 = tail call ptr @get_ptr_rcu_reader() #13
+  %call.i.i10 = tail call ptr @get_ptr_rcu_reader() #14
   %depth.i.i11 = getelementptr inbounds i8, ptr %call.i.i10, i64 12
   %6 = load i32, ptr %depth.i.i11, align 4
   %cmp.not.i.i12 = icmp eq i32 %6, 0
   br i1 %cmp.not.i.i12, label %if.else.i.i, label %if.end.i.i
 
 if.else.i.i:                                      ; preds = %for.inc26
-  tail call void @__assert_fail(ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.17, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #14
+  tail call void @__assert_fail(ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.17, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #15
   unreachable
 
 if.end.i.i:                                       ; preds = %for.inc26
@@ -805,7 +805,7 @@ if.end.i.i:                                       ; preds = %for.inc26
 
 while.end.i.i13:                                  ; preds = %if.end.i.i
   store atomic i64 0, ptr %call.i.i10 release, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !16
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !16
   fence seq_cst
   %waiting.i.i = getelementptr inbounds i8, ptr %call.i.i10, i64 8
   %7 = load atomic i8, ptr %waiting.i.i monotonic, align 8
@@ -814,14 +814,14 @@ while.end.i.i13:                                  ; preds = %if.end.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true, %for.body11
   %retval.0 = phi ptr [ %call12, %for.body11 ], [ %3, %land.lhs.true ]
-  %call.i.i.i.i = tail call ptr @get_ptr_rcu_reader() #13
+  %call.i.i.i.i = tail call ptr @get_ptr_rcu_reader() #14
   %depth.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 12
   %8 = load i32, ptr %depth.i.i.i.i, align 4
   %cmp.not.i.i.i.i = icmp eq i32 %8, 0
   br i1 %cmp.not.i.i.i.i, label %if.else.i.i.i.i, label %if.end.i.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %if.then.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.17, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #14
+  tail call void @__assert_fail(ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.17, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #15
   unreachable
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i
@@ -832,7 +832,7 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i
 
 while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   store atomic i64 0, ptr %call.i.i.i.i release, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !16
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !16
   fence seq_cst
   %waiting.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
   %9 = load atomic i8, ptr %waiting.i.i.i.i monotonic, align 8
@@ -843,7 +843,7 @@ glib_autoptr_cleanup_RCUReadAuto.exit.sink.split: ; preds = %while.end.i.i.i.i, 
   %waiting.i.i.sink = phi ptr [ %waiting.i.i, %while.end.i.i13 ], [ %waiting.i.i.i.i, %while.end.i.i.i.i ]
   %spec.select.ph = phi ptr [ null, %while.end.i.i13 ], [ %retval.0, %while.end.i.i.i.i ]
   store atomic i8 0, ptr %waiting.i.i.sink monotonic, align 8
-  tail call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #13
+  tail call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #14
   br label %glib_autoptr_cleanup_RCUReadAuto.exit
 
 glib_autoptr_cleanup_RCUReadAuto.exit:            ; preds = %glib_autoptr_cleanup_RCUReadAuto.exit.sink.split, %while.end.i.i13, %if.end.i.i, %if.end.i.i.i.i, %while.end.i.i.i.i
@@ -852,7 +852,7 @@ glib_autoptr_cleanup_RCUReadAuto.exit:            ; preds = %glib_autoptr_cleanu
 }
 
 ; Function Attrs: noreturn
-declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
+declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @qdev_get_dev_path(ptr noundef %dev) local_unnamed_addr #0 {
@@ -867,15 +867,15 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %tobool1.not, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %call.i = tail call ptr @object_get_class(ptr noundef nonnull %0) #13
-  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.11, i32 noundef 316, ptr noundef nonnull @__func__.BUS_GET_CLASS) #13
+  %call.i = tail call ptr @object_get_class(ptr noundef nonnull %0) #14
+  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.11, i32 noundef 316, ptr noundef nonnull @__func__.BUS_GET_CLASS) #14
   %get_dev_path = getelementptr inbounds i8, ptr %call1.i, i64 104
   %1 = load ptr, ptr %get_dev_path, align 8
   %tobool3.not = icmp eq ptr %1, null
   br i1 %tobool3.not, label %return, label %if.then4
 
 if.then4:                                         ; preds = %if.end
-  %call6 = tail call ptr %1(ptr noundef nonnull %dev) #13
+  %call6 = tail call ptr %1(ptr noundef nonnull %dev) #14
   br label %return
 
 return:                                           ; preds = %if.end, %entry, %lor.lhs.false, %if.then4
@@ -888,7 +888,7 @@ define dso_local void @qdev_add_unplug_blocker(ptr nocapture noundef %dev, ptr n
 entry:
   %unplug_blockers = getelementptr inbounds i8, ptr %dev, i64 144
   %0 = load ptr, ptr %unplug_blockers, align 8
-  %call = tail call ptr @g_slist_prepend(ptr noundef %0, ptr noundef %reason) #13
+  %call = tail call ptr @g_slist_prepend(ptr noundef %0, ptr noundef %reason) #14
   store ptr %call, ptr %unplug_blockers, align 8
   ret void
 }
@@ -900,7 +900,7 @@ define dso_local void @qdev_del_unplug_blocker(ptr nocapture noundef %dev, ptr n
 entry:
   %unplug_blockers = getelementptr inbounds i8, ptr %dev, i64 144
   %0 = load ptr, ptr %unplug_blockers, align 8
-  %call = tail call ptr @g_slist_remove(ptr noundef %0, ptr noundef %reason) #13
+  %call = tail call ptr @g_slist_remove(ptr noundef %0, ptr noundef %reason) #14
   store ptr %call, ptr %unplug_blockers, align 8
   ret void
 }
@@ -917,8 +917,8 @@ entry:
 
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr %0, align 8
-  %call = tail call ptr @error_copy(ptr noundef %1) #13
-  tail call void @error_propagate(ptr noundef %errp, ptr noundef %call) #13
+  %call = tail call ptr @error_copy(ptr noundef %1) #14
+  tail call void @error_propagate(ptr noundef %errp, ptr noundef %call) #14
   br label %return
 
 return:                                           ; preds = %entry, %if.then
@@ -930,7 +930,7 @@ declare void @error_propagate(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @error_copy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local void @device_class_set_parent_reset(ptr nocapture noundef %dc, ptr noundef %dev_reset, ptr nocapture noundef writeonly %parent_reset) local_unnamed_addr #8 {
+define dso_local void @device_class_set_parent_reset(ptr nocapture noundef %dc, ptr noundef %dev_reset, ptr nocapture noundef writeonly %parent_reset) local_unnamed_addr #9 {
 entry:
   %reset = getelementptr inbounds i8, ptr %dc, i64 136
   %0 = load ptr, ptr %reset, align 8
@@ -940,7 +940,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local void @device_class_set_parent_realize(ptr nocapture noundef %dc, ptr noundef %dev_realize, ptr nocapture noundef writeonly %parent_realize) local_unnamed_addr #8 {
+define dso_local void @device_class_set_parent_realize(ptr nocapture noundef %dc, ptr noundef %dev_realize, ptr nocapture noundef writeonly %parent_realize) local_unnamed_addr #9 {
 entry:
   %realize = getelementptr inbounds i8, ptr %dc, i64 144
   %0 = load ptr, ptr %realize, align 8
@@ -950,7 +950,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local void @device_class_set_parent_unrealize(ptr nocapture noundef %dc, ptr noundef %dev_unrealize, ptr nocapture noundef writeonly %parent_unrealize) local_unnamed_addr #8 {
+define dso_local void @device_class_set_parent_unrealize(ptr nocapture noundef %dc, ptr noundef %dev_unrealize, ptr nocapture noundef writeonly %parent_unrealize) local_unnamed_addr #9 {
 entry:
   %unrealize = getelementptr inbounds i8, ptr %dc, i64 152
   %0 = load ptr, ptr %unrealize, align 8
@@ -967,8 +967,8 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %call = tail call ptr @object_get_root() #13
-  %call1 = tail call ptr @container_get(ptr noundef %call, ptr noundef nonnull @.str.8) #13
+  %call = tail call ptr @object_get_root() #14
+  %call1 = tail call ptr @container_get(ptr noundef %call, ptr noundef nonnull @.str.8) #14
   store ptr %call1, ptr @qdev_get_machine.dev, align 8
   br label %if.end
 
@@ -980,7 +980,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare ptr @container_get(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define dso_local zeroext i1 @phase_check(i32 noundef %phase) local_unnamed_addr #4 {
+define dso_local zeroext i1 @phase_check(i32 noundef %phase) local_unnamed_addr #5 {
 entry:
   %0 = load i32, ptr @machine_phase, align 4
   %cmp = icmp uge i32 %0, %phase
@@ -996,7 +996,7 @@ entry:
   br i1 %cmp, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.1, i32 noundef 891, ptr noundef nonnull @__PRETTY_FUNCTION__.phase_advance) #14
+  tail call void @__assert_fail(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.1, i32 noundef 891, ptr noundef nonnull @__PRETTY_FUNCTION__.phase_advance) #15
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -1007,7 +1007,7 @@ if.end:                                           ; preds = %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @do_qemu_init_qdev_register_types() #0 {
 entry:
-  tail call void @register_module_init(ptr noundef nonnull @qdev_register_types, i32 noundef 3) #13
+  tail call void @register_module_init(ptr noundef nonnull @qdev_register_types, i32 noundef 3) #14
   ret void
 }
 
@@ -1016,7 +1016,7 @@ declare void @register_module_init(ptr noundef, i32 noundef) local_unnamed_addr 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @qdev_register_types() #0 {
 entry:
-  %call = tail call ptr @type_register_static(ptr noundef nonnull @device_type_info) #13
+  %call = tail call ptr @type_register_static(ptr noundef nonnull @device_type_info) #14
   ret void
 }
 
@@ -1025,14 +1025,14 @@ declare ptr @object_class_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noun
 declare ptr @object_get_class(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #10
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 
 declare i32 @qemu_get_thread_id() local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #9
+declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #10
 
 declare void @object_property_del(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1043,15 +1043,15 @@ define internal void @bus_free_bus_child(ptr noundef %kid) #0 {
 entry:
   %child = getelementptr inbounds i8, ptr %kid, i64 16
   %0 = load ptr, ptr %child, align 8
-  tail call void @object_unref(ptr noundef %0) #13
-  tail call void @g_free(ptr noundef %kid) #13
+  tail call void @object_unref(ptr noundef %0) #14
+  tail call void @g_free(ptr noundef %kid) #14
   ret void
 }
 
 declare void @g_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #10
+declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #11
 
 declare ptr @object_property_add_link(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -1066,7 +1066,7 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @device_initfn(ptr noundef %obj) #0 {
 entry:
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #13
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #14
   %0 = load i32, ptr @machine_phase, align 4
   %cmp.i = icmp ugt i32 %0, 3
   br i1 %cmp.i, label %if.then, label %if.end
@@ -1092,23 +1092,23 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @device_post_init(ptr noundef %obj) #0 {
 entry:
-  tail call void @object_apply_compat_props(ptr noundef %obj) #13
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #13
-  tail call void @qdev_prop_set_globals(ptr noundef %call.i) #13
+  tail call void @object_apply_compat_props(ptr noundef %obj) #14
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #14
+  tail call void @qdev_prop_set_globals(ptr noundef %call.i) #14
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @device_finalize(ptr noundef %obj) #0 {
 entry:
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #13
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #14
   %unplug_blockers = getelementptr inbounds i8, ptr %call.i, i64 144
   %0 = load ptr, ptr %unplug_blockers, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %do.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 686, ptr noundef nonnull @__func__.device_finalize, ptr noundef nonnull @.str.22) #14
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 686, ptr noundef nonnull @__func__.device_finalize, ptr noundef nonnull @.str.22) #15
   unreachable
 
 do.end:                                           ; preds = %entry
@@ -1139,10 +1139,10 @@ if.then5:                                         ; preds = %land.rhs.preheader,
   %4 = load ptr, ptr %in, align 8
   %num_in = getelementptr inbounds i8, ptr %ngl.02733, i64 16
   %5 = load i32, ptr %num_in, align 8
-  tail call void @qemu_free_irqs(ptr noundef %4, i32 noundef %5) #13
+  tail call void @qemu_free_irqs(ptr noundef %4, i32 noundef %5) #14
   %6 = load ptr, ptr %ngl.02733, align 8
-  tail call void @g_free(ptr noundef %6) #13
-  tail call void @g_free(ptr noundef nonnull %ngl.02733) #13
+  tail call void @g_free(ptr noundef %6) #14
+  tail call void @g_free(ptr noundef nonnull %ngl.02733) #14
   %node = getelementptr inbounds i8, ptr %3, i64 24
   %7 = load ptr, ptr %node, align 8
   %cmp.not = icmp eq ptr %7, null
@@ -1160,14 +1160,14 @@ for.end.critedge:                                 ; preds = %if.then5, %land.rhs
   %8 = load ptr, ptr %in.c, align 8
   %num_in.c = getelementptr inbounds i8, ptr %ngl.027.lcssa, i64 16
   %9 = load i32, ptr %num_in.c, align 8
-  tail call void @qemu_free_irqs(ptr noundef %8, i32 noundef %9) #13
+  tail call void @qemu_free_irqs(ptr noundef %8, i32 noundef %9) #14
   %10 = load ptr, ptr %ngl.027.lcssa, align 8
-  tail call void @g_free(ptr noundef %10) #13
-  tail call void @g_free(ptr noundef nonnull %ngl.027.lcssa) #13
+  tail call void @g_free(ptr noundef %10) #14
+  tail call void @g_free(ptr noundef nonnull %ngl.027.lcssa) #14
   br label %for.end
 
 for.end:                                          ; preds = %for.end.critedge, %do.end
-  tail call void @qdev_finalize_clocklist(ptr noundef %call.i) #13
+  tail call void @qdev_finalize_clocklist(ptr noundef %call.i) #14
   %pending_deleted_event = getelementptr inbounds i8, ptr %call.i, i64 57
   %11 = load i8, ptr %pending_deleted_event, align 1
   %tobool21 = trunc i8 %11 to i1
@@ -1180,15 +1180,15 @@ do.body23:                                        ; preds = %for.end
   br i1 %tobool24.not, label %if.else26, label %do.end28
 
 if.else26:                                        ; preds = %do.body23
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 702, ptr noundef nonnull @__func__.device_finalize, ptr noundef nonnull @.str.23) #14
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 702, ptr noundef nonnull @__func__.device_finalize, ptr noundef nonnull @.str.23) #15
   unreachable
 
 do.end28:                                         ; preds = %do.body23
   %id = getelementptr inbounds i8, ptr %call.i, i64 40
   %13 = load ptr, ptr %id, align 8
-  tail call void @qapi_event_send_device_deleted(ptr noundef %13, ptr noundef nonnull %12) #13
+  tail call void @qapi_event_send_device_deleted(ptr noundef %13, ptr noundef nonnull %12) #14
   %14 = load ptr, ptr %canonical_path, align 8
-  tail call void @g_free(ptr noundef %14) #13
+  tail call void @g_free(ptr noundef %14) #14
   store ptr null, ptr %canonical_path, align 8
   br label %if.end32
 
@@ -1205,7 +1205,7 @@ lor.lhs.false.i:                                  ; preds = %if.end32
   br i1 %tobool1.not.i, label %if.else.i, label %land.lhs.true.i
 
 if.else.i:                                        ; preds = %lor.lhs.false.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.25, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #14
+  tail call void @__assert_fail(ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.25, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #15
   unreachable
 
 land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
@@ -1215,22 +1215,22 @@ land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
   br i1 %cmp.i, label %if.then5.i, label %qobject_unref_impl.exit
 
 if.then5.i:                                       ; preds = %land.lhs.true.i
-  tail call void @qobject_destroy(ptr noundef nonnull %15) #13
+  tail call void @qobject_destroy(ptr noundef nonnull %15) #14
   br label %qobject_unref_impl.exit
 
 qobject_unref_impl.exit:                          ; preds = %if.end32, %land.lhs.true.i, %if.then5.i
   %id35 = getelementptr inbounds i8, ptr %call.i, i64 40
   %17 = load ptr, ptr %id35, align 8
-  tail call void @g_free(ptr noundef %17) #13
+  tail call void @g_free(ptr noundef %17) #14
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @device_class_init(ptr noundef %class, ptr nocapture readnone %data) #0 {
 entry:
-  %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %class, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #13
-  %call.i12 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %class, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.29, i32 noundef 18, ptr noundef nonnull @__func__.VMSTATE_IF_CLASS) #13
-  %call.i13 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %class, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.30, i32 noundef 22, ptr noundef nonnull @__func__.RESETTABLE_CLASS) #13
+  %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %class, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #14
+  %call.i12 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %class, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.29, i32 noundef 18, ptr noundef nonnull @__func__.VMSTATE_IF_CLASS) #14
+  %call.i13 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %class, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.30, i32 noundef 22, ptr noundef nonnull @__func__.RESETTABLE_CLASS) #14
   %unparent = getelementptr inbounds i8, ptr %class, i64 80
   store ptr @device_unparent, ptr %unparent, align 8
   %hotpluggable = getelementptr inbounds i8, ptr %call.i, i64 129
@@ -1247,17 +1247,17 @@ entry:
   store ptr @device_phases_reset, ptr %reset, align 8
   %get_transitional_function = getelementptr inbounds i8, ptr %call.i13, i64 144
   store ptr @device_get_transitional_reset, ptr %get_transitional_function, align 8
-  %call3 = tail call ptr @object_class_property_add_bool(ptr noundef %class, ptr noundef nonnull @.str.6, ptr noundef nonnull @device_get_realized, ptr noundef nonnull @device_set_realized) #13
-  %call4 = tail call ptr @object_class_property_add_bool(ptr noundef %class, ptr noundef nonnull @.str.26, ptr noundef nonnull @device_get_hotpluggable, ptr noundef null) #13
-  %call5 = tail call ptr @object_class_property_add_bool(ptr noundef %class, ptr noundef nonnull @.str.27, ptr noundef nonnull @device_get_hotplugged, ptr noundef null) #13
-  %call6 = tail call ptr @object_class_property_add_link(ptr noundef %class, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.7, i64 noundef 88, ptr noundef null, i32 noundef 0) #13
+  %call3 = tail call ptr @object_class_property_add_bool(ptr noundef %class, ptr noundef nonnull @.str.6, ptr noundef nonnull @device_get_realized, ptr noundef nonnull @device_set_realized) #14
+  %call4 = tail call ptr @object_class_property_add_bool(ptr noundef %class, ptr noundef nonnull @.str.26, ptr noundef nonnull @device_get_hotpluggable, ptr noundef null) #14
+  %call5 = tail call ptr @object_class_property_add_bool(ptr noundef %class, ptr noundef nonnull @.str.27, ptr noundef nonnull @device_get_hotplugged, ptr noundef null) #14
+  %call6 = tail call ptr @object_class_property_add_link(ptr noundef %class, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.7, i64 noundef 88, ptr noundef null, i32 noundef 0) #14
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @device_class_base_init(ptr noundef %class, ptr nocapture readnone %data) #0 {
 entry:
-  %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %class, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #13
+  %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %class, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #14
   %props_ = getelementptr inbounds i8, ptr %call.i, i64 120
   store ptr null, ptr %props_, align 8
   ret void
@@ -1279,14 +1279,14 @@ declare void @qobject_destroy(ptr noundef) local_unnamed_addr #1
 define internal void @device_unparent(ptr noundef %obj) #0 {
 entry:
   %name.i = alloca [32 x i8], align 16
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #13
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #14
   %realized = getelementptr inbounds i8, ptr %call.i, i64 56
   %0 = load i8, ptr %realized, align 8
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %call.i9 = tail call zeroext i1 @object_property_set_bool(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.6, i1 noundef zeroext false, ptr noundef nonnull @error_abort) #13
+  %call.i9 = tail call zeroext i1 @object_property_set_bool(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.6, i1 noundef zeroext false, ptr noundef nonnull @error_abort) #14
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -1301,7 +1301,7 @@ while.body.lr.ph:                                 ; preds = %if.end
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
   %2 = load ptr, ptr %child_bus, align 8
-  tail call void @object_unparent(ptr noundef %2) #13
+  tail call void @object_unparent(ptr noundef %2) #14
   %3 = load i32, ptr %num_child_bus, align 8
   %tobool1.not = icmp eq i32 %3, 0
   br i1 %tobool1.not, label %while.end, label %while.body, !llvm.loop !18
@@ -1329,7 +1329,7 @@ for.body.i:                                       ; preds = %if.then3, %for.inc.
 if.then.i:                                        ; preds = %for.body.i
   %index.i = getelementptr inbounds i8, ptr %kid.018.i, i64 24
   %6 = load i32, ptr %index.i, align 8
-  %call.i10 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %name.i, i64 noundef 32, ptr noundef nonnull @.str.14, i32 noundef %6) #13
+  %call.i10 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %name.i, i64 noundef 32, ptr noundef nonnull @.str.14, i32 noundef %6) #14
   %sibling.i = getelementptr inbounds i8, ptr %kid.018.i, i64 32
   %7 = load ptr, ptr %sibling.i, align 8
   %cmp2.not.i = icmp eq ptr %7, null
@@ -1347,8 +1347,8 @@ if.then.i:                                        ; preds = %for.body.i
   %11 = load i32, ptr %num_children.i, align 8
   %dec.i = add i32 %11, -1
   store i32 %dec.i, ptr %num_children.i, align 8
-  call void @object_property_del(ptr noundef nonnull %4, ptr noundef nonnull %name.i) #13
-  call void @call_rcu1(ptr noundef nonnull %kid.018.i, ptr noundef nonnull @bus_free_bus_child) #13
+  call void @object_property_del(ptr noundef nonnull %4, ptr noundef nonnull %name.i) #14
+  call void @call_rcu1(ptr noundef nonnull %kid.018.i, ptr noundef nonnull @bus_free_bus_child) #14
   %.pre = load ptr, ptr %parent_bus, align 8
   br label %bus_remove_child.exit
 
@@ -1361,7 +1361,7 @@ for.inc.i:                                        ; preds = %for.body.i
 bus_remove_child.exit:                            ; preds = %for.inc.i, %if.then3, %if.then.i
   %12 = phi ptr [ %4, %if.then3 ], [ %.pre, %if.then.i ], [ %4, %for.inc.i ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %name.i)
-  call void @object_unref(ptr noundef %12) #13
+  call void @object_unref(ptr noundef %12) #14
   store ptr null, ptr %parent_bus, align 8
   br label %if.end7
 
@@ -1372,7 +1372,7 @@ if.end7:                                          ; preds = %bus_remove_child.ex
 ; Function Attrs: nounwind sspstrong uwtable
 define internal ptr @device_vmstate_if_get_id(ptr noundef %obj) #0 {
 entry:
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #13
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #14
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i, label %qdev_get_dev_path.exit, label %lor.lhs.false.i
 
@@ -1383,15 +1383,15 @@ lor.lhs.false.i:                                  ; preds = %entry
   br i1 %tobool1.not.i, label %qdev_get_dev_path.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
-  %call.i.i = tail call ptr @object_get_class(ptr noundef nonnull %0) #13
-  %call1.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.11, i32 noundef 316, ptr noundef nonnull @__func__.BUS_GET_CLASS) #13
+  %call.i.i = tail call ptr @object_get_class(ptr noundef nonnull %0) #14
+  %call1.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.11, i32 noundef 316, ptr noundef nonnull @__func__.BUS_GET_CLASS) #14
   %get_dev_path.i = getelementptr inbounds i8, ptr %call1.i.i, i64 104
   %1 = load ptr, ptr %get_dev_path.i, align 8
   %tobool3.not.i = icmp eq ptr %1, null
   br i1 %tobool3.not.i, label %qdev_get_dev_path.exit, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.end.i
-  %call6.i = tail call ptr %1(ptr noundef nonnull %call.i) #13
+  %call6.i = tail call ptr %1(ptr noundef nonnull %call.i) #14
   br label %qdev_get_dev_path.exit
 
 qdev_get_dev_path.exit:                           ; preds = %entry, %lor.lhs.false.i, %if.end.i, %if.then4.i
@@ -1402,7 +1402,7 @@ qdev_get_dev_path.exit:                           ; preds = %entry, %lor.lhs.fal
 ; Function Attrs: nounwind sspstrong uwtable
 define internal nonnull ptr @device_get_reset_state(ptr noundef %obj) #0 {
 entry:
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #13
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #14
   %reset = getelementptr inbounds i8, ptr %call.i, i64 132
   ret ptr %reset
 }
@@ -1410,7 +1410,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @device_reset_child_foreach(ptr noundef %obj, ptr nocapture noundef readonly %cb, ptr noundef %opaque, i32 noundef %type) #0 {
 entry:
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #13
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #14
   %child_bus = getelementptr inbounds i8, ptr %call.i, i64 112
   %bus.03 = load ptr, ptr %child_bus, align 8
   %tobool.not4 = icmp eq ptr %bus.03, null
@@ -1418,7 +1418,7 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.body
   %bus.05 = phi ptr [ %bus.0, %for.body ], [ %bus.03, %entry ]
-  tail call void %cb(ptr noundef nonnull %bus.05, ptr noundef %opaque, i32 noundef %type) #13
+  tail call void %cb(ptr noundef nonnull %bus.05, ptr noundef %opaque, i32 noundef %type) #14
   %sibling = getelementptr inbounds i8, ptr %bus.05, i64 96
   %bus.0 = load ptr, ptr %sibling, align 8
   %tobool.not = icmp eq ptr %bus.0, null
@@ -1431,15 +1431,15 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @device_phases_reset(ptr noundef %dev) #0 {
 entry:
-  %call.i = tail call ptr @object_get_class(ptr noundef %dev) #13
-  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.30, i32 noundef 22, ptr noundef nonnull @__func__.RESETTABLE_GET_CLASS) #13
+  %call.i = tail call ptr @object_get_class(ptr noundef %dev) #14
+  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.30, i32 noundef 22, ptr noundef nonnull @__func__.RESETTABLE_GET_CLASS) #14
   %phases = getelementptr inbounds i8, ptr %call1.i, i64 112
   %0 = load ptr, ptr %phases, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call void %0(ptr noundef %dev, i32 noundef 0) #13
+  tail call void %0(ptr noundef %dev, i32 noundef 0) #14
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -1449,7 +1449,7 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %tobool4.not, label %if.end8, label %if.then5
 
 if.then5:                                         ; preds = %if.end
-  tail call void %1(ptr noundef %dev) #13
+  tail call void %1(ptr noundef %dev) #14
   br label %if.end8
 
 if.end8:                                          ; preds = %if.then5, %if.end
@@ -1459,7 +1459,7 @@ if.end8:                                          ; preds = %if.then5, %if.end
   br i1 %tobool10.not, label %if.end14, label %if.then11
 
 if.then11:                                        ; preds = %if.end8
-  tail call void %2(ptr noundef %dev) #13
+  tail call void %2(ptr noundef %dev) #14
   br label %if.end14
 
 if.end14:                                         ; preds = %if.then11, %if.end8
@@ -1469,8 +1469,8 @@ if.end14:                                         ; preds = %if.then11, %if.end8
 ; Function Attrs: nounwind sspstrong uwtable
 define internal ptr @device_get_transitional_reset(ptr noundef %obj) #0 {
 entry:
-  %call.i = tail call ptr @object_get_class(ptr noundef %obj) #13
-  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_GET_CLASS) #13
+  %call.i = tail call ptr @object_get_class(ptr noundef %obj) #14
+  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_GET_CLASS) #14
   %reset = getelementptr inbounds i8, ptr %call1.i, i64 136
   %0 = load ptr, ptr %reset, align 8
   %cmp.not = icmp eq ptr %0, @device_phases_reset
@@ -1483,7 +1483,7 @@ declare ptr @object_class_property_add_bool(ptr noundef, ptr noundef, ptr nounde
 ; Function Attrs: nounwind sspstrong uwtable
 define internal zeroext i1 @device_get_realized(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
 entry:
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #13
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #14
   %realized = getelementptr inbounds i8, ptr %call.i, i64 56
   %0 = load i8, ptr %realized, align 8
   %tobool = trunc i8 %0 to i1
@@ -1495,9 +1495,9 @@ define internal void @device_set_realized(ptr noundef %obj, i1 noundef zeroext %
 entry:
   %local_err = alloca ptr, align 8
   %frombool = zext i1 %value to i8
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #13
-  %call.i89 = tail call ptr @object_get_class(ptr noundef %call.i) #13
-  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i89, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_GET_CLASS) #13
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #14
+  %call.i89 = tail call ptr @object_get_class(ptr noundef %call.i) #14
+  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i89, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_GET_CLASS) #14
   store ptr null, ptr %local_err, align 8
   %hotplugged = getelementptr inbounds i8, ptr %call.i, i64 80
   %0 = load i32, ptr %hotplugged, align 8
@@ -1511,8 +1511,8 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %tobool2, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  %call3 = tail call ptr @object_get_typename(ptr noundef %obj) #13
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 482, ptr noundef nonnull @__func__.device_set_realized, ptr noundef nonnull @.str.31, ptr noundef %call3) #13
+  %call3 = tail call ptr @object_get_typename(ptr noundef %obj) #14
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 482, ptr noundef nonnull @__func__.device_set_realized, ptr noundef nonnull @.str.31, ptr noundef %call3) #14
   br label %if.end168
 
 if.end:                                           ; preds = %land.lhs.true, %entry
@@ -1525,17 +1525,17 @@ land.lhs.true5:                                   ; preds = %if.end
   br i1 %tobool6, label %if.end168, label %if.then7
 
 if.then7:                                         ; preds = %land.lhs.true5
-  %call.i.i = tail call ptr @object_get_class(ptr noundef %obj) #13
-  %call1.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_GET_CLASS) #13
+  %call.i.i = tail call ptr @object_get_class(ptr noundef %obj) #14
+  %call1.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_GET_CLASS) #14
   %vmsd.i = getelementptr inbounds i8, ptr %call1.i.i, i64 160
   %3 = load ptr, ptr %vmsd.i, align 8
-  %call1.i90 = tail call zeroext i1 @vmstate_check_only_migratable(ptr noundef %3) #13
+  %call1.i90 = tail call zeroext i1 @vmstate_check_only_migratable(ptr noundef %3) #14
   br i1 %call1.i90, label %if.end10, label %fail.thread
 
 fail.thread:                                      ; preds = %if.then7
-  %call2.i = tail call ptr @object_get_typename(ptr noundef %obj) #13
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 463, ptr noundef nonnull @__func__.check_only_migratable, ptr noundef nonnull @.str.35, ptr noundef %call2.i) #13
-  tail call void @error_propagate(ptr noundef %errp, ptr noundef null) #13
+  %call2.i = tail call ptr @object_get_typename(ptr noundef %obj) #14
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 463, ptr noundef nonnull @__func__.check_only_migratable, ptr noundef nonnull @.str.35, ptr noundef %call2.i) #14
+  tail call void @error_propagate(ptr noundef %errp, ptr noundef null) #14
   br label %if.end168
 
 if.end10:                                         ; preds = %if.then7
@@ -1548,31 +1548,31 @@ if.then12:                                        ; preds = %if.end10
   %5 = load i32, ptr @device_set_realized.unattached_count, align 4
   %inc = add i32 %5, 1
   store i32 %inc, ptr @device_set_realized.unattached_count, align 4
-  %call13 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.32, i32 noundef %5) #13
+  %call13 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.32, i32 noundef %5) #14
   %6 = load ptr, ptr @qdev_get_machine.dev, align 8
   %cmp.i = icmp eq ptr %6, null
   br i1 %cmp.i, label %if.then.i91, label %qdev_get_machine.exit
 
 if.then.i91:                                      ; preds = %if.then12
-  %call.i92 = tail call ptr @object_get_root() #13
-  %call1.i93 = tail call ptr @container_get(ptr noundef %call.i92, ptr noundef nonnull @.str.8) #13
+  %call.i92 = tail call ptr @object_get_root() #14
+  %call1.i93 = tail call ptr @container_get(ptr noundef %call.i92, ptr noundef nonnull @.str.8) #14
   store ptr %call1.i93, ptr @qdev_get_machine.dev, align 8
   br label %qdev_get_machine.exit
 
 qdev_get_machine.exit:                            ; preds = %if.then12, %if.then.i91
   %7 = phi ptr [ %call1.i93, %if.then.i91 ], [ %6, %if.then12 ]
-  %call15 = tail call ptr @container_get(ptr noundef %7, ptr noundef nonnull @.str.33) #13
-  %call16 = tail call ptr @object_property_add_child(ptr noundef %call15, ptr noundef %call13, ptr noundef nonnull %obj) #13
-  tail call void @g_free(ptr noundef %call13) #13
+  %call15 = tail call ptr @container_get(ptr noundef %7, ptr noundef nonnull @.str.33) #14
+  %call16 = tail call ptr @object_property_add_child(ptr noundef %call15, ptr noundef %call13, ptr noundef nonnull %obj) #14
+  tail call void @g_free(ptr noundef %call13) #14
   br label %if.end17
 
 if.end17:                                         ; preds = %qdev_get_machine.exit, %if.end10
-  %call18 = tail call ptr @qdev_get_hotplug_handler(ptr noundef nonnull %call.i) #13
+  %call18 = tail call ptr @qdev_get_hotplug_handler(ptr noundef nonnull %call.i) #14
   %tobool19.not = icmp eq ptr %call18, null
   br i1 %tobool19.not, label %if.end23, label %if.then20
 
 if.then20:                                        ; preds = %if.end17
-  call void @hotplug_handler_pre_plug(ptr noundef nonnull %call18, ptr noundef nonnull %call.i, ptr noundef nonnull %local_err) #13
+  call void @hotplug_handler_pre_plug(ptr noundef nonnull %call18, ptr noundef nonnull %call.i, ptr noundef nonnull %local_err) #14
   %8 = load ptr, ptr %local_err, align 8
   %cmp.not = icmp eq ptr %8, null
   br i1 %cmp.not, label %if.end23, label %fail
@@ -1584,7 +1584,7 @@ if.end23:                                         ; preds = %if.then20, %if.end1
   br i1 %tobool24.not, label %do.body, label %if.then25
 
 if.then25:                                        ; preds = %if.end23
-  call void %9(ptr noundef nonnull %call.i, ptr noundef nonnull %local_err) #13
+  call void %9(ptr noundef nonnull %call.i, ptr noundef nonnull %local_err) #14
   %10 = load ptr, ptr %local_err, align 8
   %cmp27.not = icmp eq ptr %10, null
   br i1 %cmp27.not, label %do.body, label %fail
@@ -1601,7 +1601,7 @@ for.body:                                         ; preds = %do.body, %for.inc
   br i1 %tobool33.not, label %for.inc, label %if.then34
 
 if.then34:                                        ; preds = %for.body
-  call void %11(ptr noundef nonnull %_listener.0116, ptr noundef %call.i) #13
+  call void %11(ptr noundef nonnull %_listener.0116, ptr noundef %call.i) #14
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then34
@@ -1613,8 +1613,8 @@ for.inc:                                          ; preds = %for.body, %if.then3
 do.end:                                           ; preds = %for.inc, %do.body
   %canonical_path = getelementptr inbounds i8, ptr %call.i, i64 48
   %12 = load ptr, ptr %canonical_path, align 8
-  call void @g_free(ptr noundef %12) #13
-  %call37 = call ptr @object_get_canonical_path(ptr noundef %call.i) #13
+  call void @g_free(ptr noundef %12) #14
+  %call37 = call ptr @object_get_canonical_path(ptr noundef %call.i) #14
   store ptr %call37, ptr %canonical_path, align 8
   %clocks = getelementptr inbounds i8, ptr %call.i, i64 104
   %ncl.0117 = load ptr, ptr %clocks, align 8
@@ -1631,7 +1631,7 @@ for.body41:                                       ; preds = %do.end, %for.inc45
 if.else:                                          ; preds = %for.body41
   %clock = getelementptr inbounds i8, ptr %ncl.0119, i64 8
   %14 = load ptr, ptr %clock, align 8
-  call void @clock_setup_canonical_path(ptr noundef %14) #13
+  call void @clock_setup_canonical_path(ptr noundef %14) #14
   br label %for.inc45
 
 for.inc45:                                        ; preds = %for.body41, %if.else
@@ -1641,21 +1641,21 @@ for.inc45:                                        ; preds = %for.body41, %if.els
   br i1 %tobool40.not, label %for.end46, label %for.body41, !llvm.loop !21
 
 for.end46:                                        ; preds = %for.inc45, %do.end
-  %call.i.i94 = call ptr @object_get_class(ptr noundef %call.i) #13
-  %call1.i.i95 = call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i94, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_GET_CLASS) #13
+  %call.i.i94 = call ptr @object_get_class(ptr noundef %call.i) #14
+  %call1.i.i95 = call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i94, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_GET_CLASS) #14
   %vmsd.i96 = getelementptr inbounds i8, ptr %call1.i.i95, i64 160
   %15 = load ptr, ptr %vmsd.i96, align 8
   %tobool48.not = icmp eq ptr %15, null
   br i1 %tobool48.not, label %if.end56, label %if.then49
 
 if.then49:                                        ; preds = %for.end46
-  %call50 = call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.1, i32 noundef 533, ptr noundef nonnull @__func__.device_set_realized) #13
+  %call50 = call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.1, i32 noundef 533, ptr noundef nonnull @__func__.device_set_realized) #14
   %call51 = call ptr @qdev_get_vmsd(ptr noundef %call.i)
   %instance_id_alias = getelementptr inbounds i8, ptr %call.i, i64 124
   %16 = load i32, ptr %instance_id_alias, align 4
   %alias_required_for_version = getelementptr inbounds i8, ptr %call.i, i64 128
   %17 = load i32, ptr %alias_required_for_version, align 8
-  %call52 = call i32 @vmstate_register_with_alias_id(ptr noundef %call50, i32 noundef -1, ptr noundef %call51, ptr noundef %call.i, i32 noundef %16, i32 noundef %17, ptr noundef nonnull %local_err) #13
+  %call52 = call i32 @vmstate_register_with_alias_id(ptr noundef %call50, i32 noundef -1, ptr noundef %call51, ptr noundef %call.i, i32 noundef %16, i32 noundef %17, ptr noundef nonnull %local_err) #14
   %cmp53 = icmp slt i32 %call52, 0
   br i1 %cmp53, label %post_realize_fail, label %if.end56
 
@@ -1675,7 +1675,7 @@ for.cond58:                                       ; preds = %for.body60
 
 for.body60:                                       ; preds = %if.end56, %for.cond58
   %bus.0122 = phi ptr [ %bus.0, %for.cond58 ], [ %bus.0120, %if.end56 ]
-  %call61 = call zeroext i1 @qbus_realize(ptr noundef nonnull %bus.0122, ptr noundef %errp) #13
+  %call61 = call zeroext i1 @qbus_realize(ptr noundef nonnull %bus.0122, ptr noundef %errp) #14
   br i1 %call61, label %for.cond58, label %child_realize_fail
 
 for.end66:                                        ; preds = %for.cond58, %if.end56
@@ -1684,11 +1684,11 @@ for.end66:                                        ; preds = %for.cond58, %if.end
   br i1 %tobool68.not, label %if.end70, label %if.then69
 
 if.then69:                                        ; preds = %for.end66
-  call void @resettable_assert_reset(ptr noundef nonnull %call.i, i32 noundef 0) #13
+  call void @resettable_assert_reset(ptr noundef nonnull %call.i, i32 noundef 0) #14
   %parent_bus = getelementptr inbounds i8, ptr %call.i, i64 88
   %19 = load ptr, ptr %parent_bus, align 8
-  call void @resettable_change_parent(ptr noundef nonnull %call.i, ptr noundef %19, ptr noundef null) #13
-  call void @resettable_release_reset(ptr noundef nonnull %call.i, i32 noundef 0) #13
+  call void @resettable_change_parent(ptr noundef nonnull %call.i, ptr noundef %19, ptr noundef null) #14
+  call void @resettable_release_reset(ptr noundef nonnull %call.i, i32 noundef 0) #14
   br label %if.end70
 
 if.end70:                                         ; preds = %if.then69, %for.end66
@@ -1697,7 +1697,7 @@ if.end70:                                         ; preds = %if.then69, %for.end
   br i1 %tobool19.not, label %if.end139, label %if.then72
 
 if.then72:                                        ; preds = %if.end70
-  call void @hotplug_handler_plug(ptr noundef nonnull %call18, ptr noundef nonnull %call.i, ptr noundef nonnull %local_err) #13
+  call void @hotplug_handler_plug(ptr noundef nonnull %call18, ptr noundef nonnull %call.i, ptr noundef nonnull %local_err) #14
   %20 = load ptr, ptr %local_err, align 8
   %cmp73.not = icmp eq ptr %20, null
   br i1 %cmp73.not, label %if.end139.thread128, label %child_realize_fail
@@ -1711,7 +1711,7 @@ land.lhs.true86:                                  ; preds = %if.end
 
 while.end95:                                      ; preds = %land.lhs.true86
   store atomic i8 %frombool, ptr %realized monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !23
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !23
   fence release
   %child_bus101 = getelementptr inbounds i8, ptr %call.i, i64 112
   %bus.1105 = load ptr, ptr %child_bus101, align 8
@@ -1720,27 +1720,27 @@ while.end95:                                      ; preds = %land.lhs.true86
 
 for.body105:                                      ; preds = %while.end95, %for.body105
   %bus.1107 = phi ptr [ %bus.1, %for.body105 ], [ %bus.1105, %while.end95 ]
-  tail call void @qbus_unrealize(ptr noundef nonnull %bus.1107) #13
+  tail call void @qbus_unrealize(ptr noundef nonnull %bus.1107) #14
   %sibling107 = getelementptr inbounds i8, ptr %bus.1107, i64 96
   %bus.1 = load ptr, ptr %sibling107, align 8
   %tobool104.not = icmp eq ptr %bus.1, null
   br i1 %tobool104.not, label %for.end109, label %for.body105, !llvm.loop !24
 
 for.end109:                                       ; preds = %for.body105, %while.end95
-  %call.i.i97 = tail call ptr @object_get_class(ptr noundef %call.i) #13
-  %call1.i.i98 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i97, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_GET_CLASS) #13
+  %call.i.i97 = tail call ptr @object_get_class(ptr noundef %call.i) #14
+  %call1.i.i98 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i97, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_GET_CLASS) #14
   %vmsd.i99 = getelementptr inbounds i8, ptr %call1.i.i98, i64 160
   %21 = load ptr, ptr %vmsd.i99, align 8
   %tobool111.not = icmp eq ptr %21, null
   br i1 %tobool111.not, label %if.end115, label %if.then112
 
 if.then112:                                       ; preds = %for.end109
-  %call113 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.1, i32 noundef 596, ptr noundef nonnull @__func__.device_set_realized) #13
-  %call.i.i100 = tail call ptr @object_get_class(ptr noundef %call.i) #13
-  %call1.i.i101 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i100, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_GET_CLASS) #13
+  %call113 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.1, i32 noundef 596, ptr noundef nonnull @__func__.device_set_realized) #14
+  %call.i.i100 = tail call ptr @object_get_class(ptr noundef %call.i) #14
+  %call1.i.i101 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i100, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_GET_CLASS) #14
   %vmsd.i102 = getelementptr inbounds i8, ptr %call1.i.i101, i64 160
   %22 = load ptr, ptr %vmsd.i102, align 8
-  tail call void @vmstate_unregister(ptr noundef %call113, ptr noundef %22, ptr noundef %call.i) #13
+  tail call void @vmstate_unregister(ptr noundef %call113, ptr noundef %22, ptr noundef %call.i) #14
   br label %if.end115
 
 if.end115:                                        ; preds = %if.then112, %for.end109
@@ -1750,7 +1750,7 @@ if.end115:                                        ; preds = %if.then112, %for.en
   br i1 %tobool116.not, label %if.end119, label %if.then117
 
 if.then117:                                       ; preds = %if.end115
-  tail call void %23(ptr noundef %call.i) #13
+  tail call void %23(ptr noundef %call.i) #14
   br label %if.end119
 
 if.end119:                                        ; preds = %if.then117, %if.end115
@@ -1771,7 +1771,7 @@ for.body125:                                      ; preds = %if.end119, %for.inc
   br i1 %tobool127.not, label %for.inc131, label %if.then128
 
 if.then128:                                       ; preds = %for.body125
-  tail call void %24(ptr noundef nonnull %_listener122.0113, ptr noundef %call.i) #13
+  tail call void %24(ptr noundef nonnull %_listener122.0113, ptr noundef %call.i) #14
   br label %for.inc131
 
 for.inc131:                                       ; preds = %for.body125, %if.then128
@@ -1790,7 +1790,7 @@ if.end139:                                        ; preds = %if.end70
   br i1 %25, label %if.end168, label %if.else142
 
 if.else142:                                       ; preds = %if.end139
-  call void @__assert_fail(ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.1, i32 noundef 605, ptr noundef nonnull @__PRETTY_FUNCTION__.device_set_realized) #14
+  call void @__assert_fail(ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.1, i32 noundef 605, ptr noundef nonnull @__PRETTY_FUNCTION__.device_set_realized) #15
   unreachable
 
 child_realize_fail:                               ; preds = %for.body60, %if.then72
@@ -1800,7 +1800,7 @@ child_realize_fail:                               ; preds = %for.body60, %if.the
 
 for.body148:                                      ; preds = %child_realize_fail, %for.body148
   %bus.2125 = phi ptr [ %bus.2, %for.body148 ], [ %bus.2123, %child_realize_fail ]
-  call void @qbus_unrealize(ptr noundef nonnull %bus.2125) #13
+  call void @qbus_unrealize(ptr noundef nonnull %bus.2125) #14
   %sibling150 = getelementptr inbounds i8, ptr %bus.2125, i64 96
   %bus.2 = load ptr, ptr %sibling150, align 8
   %tobool147.not = icmp eq ptr %bus.2, null
@@ -1812,14 +1812,14 @@ for.end152:                                       ; preds = %for.body148, %child
   br i1 %tobool154.not, label %post_realize_fail, label %if.then155
 
 if.then155:                                       ; preds = %for.end152
-  %call156 = call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.1, i32 noundef 614, ptr noundef nonnull @__func__.device_set_realized) #13
+  %call156 = call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.1, i32 noundef 614, ptr noundef nonnull @__func__.device_set_realized) #14
   %call157 = call ptr @qdev_get_vmsd(ptr noundef %call.i)
-  call void @vmstate_unregister(ptr noundef %call156, ptr noundef %call157, ptr noundef %call.i) #13
+  call void @vmstate_unregister(ptr noundef %call156, ptr noundef %call157, ptr noundef %call.i) #14
   br label %post_realize_fail
 
 post_realize_fail:                                ; preds = %for.end152, %if.then155, %if.then49
   %26 = load ptr, ptr %canonical_path, align 8
-  call void @g_free(ptr noundef %26) #13
+  call void @g_free(ptr noundef %26) #14
   store ptr null, ptr %canonical_path, align 8
   %unrealize161 = getelementptr inbounds i8, ptr %call1.i, i64 152
   %27 = load ptr, ptr %unrealize161, align 8
@@ -1827,16 +1827,16 @@ post_realize_fail:                                ; preds = %for.end152, %if.the
   br i1 %tobool162.not, label %fail, label %if.then163
 
 if.then163:                                       ; preds = %post_realize_fail
-  call void %27(ptr noundef nonnull %call.i) #13
+  call void %27(ptr noundef nonnull %call.i) #14
   br label %fail
 
 fail:                                             ; preds = %post_realize_fail, %if.then163, %if.then25, %if.then20
   %28 = load ptr, ptr %local_err, align 8
-  call void @error_propagate(ptr noundef %errp, ptr noundef %28) #13
+  call void @error_propagate(ptr noundef %errp, ptr noundef %28) #14
   br i1 %tobool11.not, label %if.then167, label %if.end168
 
 if.then167:                                       ; preds = %fail
-  call void @object_unparent(ptr noundef nonnull %call.i) #13
+  call void @object_unparent(ptr noundef nonnull %call.i) #14
   %29 = load i32, ptr @device_set_realized.unattached_count, align 4
   %dec = add i32 %29, -1
   store i32 %dec, ptr @device_set_realized.unattached_count, align 4
@@ -1849,9 +1849,9 @@ if.end168:                                        ; preds = %for.inc131, %land.l
 ; Function Attrs: nounwind sspstrong uwtable
 define internal zeroext i1 @device_get_hotpluggable(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
 entry:
-  %call.i = tail call ptr @object_get_class(ptr noundef %obj) #13
-  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_GET_CLASS) #13
-  %call.i3 = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #13
+  %call.i = tail call ptr @object_get_class(ptr noundef %obj) #14
+  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_GET_CLASS) #14
+  %call.i3 = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #14
   %hotpluggable = getelementptr inbounds i8, ptr %call1.i, i64 129
   %0 = load i8, ptr %hotpluggable, align 1
   %tobool = trunc i8 %0 to i1
@@ -1870,15 +1870,15 @@ lor.rhs:                                          ; preds = %land.rhs
   br i1 %tobool.not.i, label %land.end, label %if.then.i
 
 if.then.i:                                        ; preds = %lor.rhs
-  %call.i.i = tail call ptr @object_get_class(ptr noundef nonnull %2) #13
-  %call1.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.37, i32 noundef 21, ptr noundef nonnull @__func__.HOTPLUG_HANDLER_GET_CLASS) #13
+  %call.i.i = tail call ptr @object_get_class(ptr noundef nonnull %2) #14
+  %call1.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.37, i32 noundef 21, ptr noundef nonnull @__func__.HOTPLUG_HANDLER_GET_CLASS) #14
   %is_hotpluggable_bus.i = getelementptr inbounds i8, ptr %call1.i.i, i64 144
   %3 = load ptr, ptr %is_hotpluggable_bus.i, align 8
   %tobool3.not.i = icmp eq ptr %3, null
   br i1 %tobool3.not.i, label %land.end, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.then.i
-  %call6.i = tail call zeroext i1 %3(ptr noundef nonnull %2, ptr noundef nonnull %1) #13
+  %call6.i = tail call zeroext i1 %3(ptr noundef nonnull %2, ptr noundef nonnull %1) #14
   br label %land.end
 
 land.end:                                         ; preds = %if.then4.i, %if.then.i, %lor.rhs, %land.rhs, %entry
@@ -1889,7 +1889,7 @@ land.end:                                         ; preds = %if.then4.i, %if.the
 ; Function Attrs: nounwind sspstrong uwtable
 define internal zeroext i1 @device_get_hotplugged(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
 entry:
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #13
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #14
   %hotplugged = getelementptr inbounds i8, ptr %call.i, i64 80
   %0 = load i32, ptr %hotplugged, align 8
   %tobool = icmp ne i32 %0, 0
@@ -1903,16 +1903,16 @@ declare void @object_unparent(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @device_transitional_reset(ptr noundef %obj) #0 {
 entry:
-  %call.i = tail call ptr @object_get_class(ptr noundef %obj) #13
-  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_GET_CLASS) #13
+  %call.i = tail call ptr @object_get_class(ptr noundef %obj) #14
+  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_GET_CLASS) #14
   %reset = getelementptr inbounds i8, ptr %call1.i, i64 136
   %0 = load ptr, ptr %reset, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call.i3 = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #13
-  tail call void %0(ptr noundef %call.i3) #13
+  %call.i3 = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #14
+  tail call void %0(ptr noundef %call.i3) #14
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -1950,31 +1950,32 @@ declare void @vmstate_unregister(ptr noundef, ptr noundef, ptr noundef) local_un
 declare zeroext i1 @vmstate_check_only_migratable(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #12 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #13 = { nounwind }
-attributes #14 = { noreturn nounwind }
-attributes #15 = { nounwind allocsize(0) }
-attributes #16 = { nounwind willreturn memory(read) }
+attributes #3 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #13 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #14 = { nounwind }
+attributes #15 = { noreturn nounwind }
+attributes #16 = { nounwind allocsize(0) }
+attributes #17 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

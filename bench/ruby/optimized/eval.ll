@@ -1858,7 +1858,7 @@ define dso_local void @ruby_init() local_unnamed_addr #0 {
   br label %13
 
 13:                                               ; preds = %8, %4
-  tail call void @exit(i32 noundef 1) #22
+  tail call void @exit(i32 noundef 1) #31
   unreachable
 
 14:                                               ; preds = %0
@@ -1867,7 +1867,7 @@ define dso_local void @ruby_init() local_unnamed_addr #0 {
 
 declare ptr @rb_ruby_debug_ptr() local_unnamed_addr #1
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -8177,7 +8177,7 @@ attributes #6 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stac
 attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
 attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #9 = { nounwind }
-attributes #10 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { cold noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

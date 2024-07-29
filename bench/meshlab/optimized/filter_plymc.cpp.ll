@@ -29369,7 +29369,7 @@ _ZNK3vcg6Point3IiEneERKS1_.exit:                  ; preds = %12
 
 _ZNK3vcg6Point3IiEneERKS1_.exit.thread:           ; preds = %4, %12, %_ZNK3vcg6Point3IiEneERKS1_.exit
   %21 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.333)
-  tail call void @exit(i32 noundef -1) #38
+  tail call void @exit(i32 noundef -1) #43
   unreachable
 
 22:                                               ; preds = %_ZNK3vcg6Point3IiEneERKS1_.exit
@@ -33277,7 +33277,7 @@ _ZN3vcg3plyL14CheckBBoxCacheIfEEbPKcRNS_4Box3IT_EES3_.exit: ; preds = %63
 
 93:                                               ; preds = %91
   %94 = load ptr, ptr @stderr, align 8
-  %95 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %94, ptr noundef nonnull @.str.151, ptr noundef %0) #43
+  %95 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %94, ptr noundef nonnull @.str.151, ptr noundef %0) #44
   br label %348
 
 .thread:                                          ; preds = %78
@@ -33435,7 +33435,7 @@ _ZN3vcg3ply7PlyFile9AddToReadERKNS0_14PropDescriptorE.exit: ; preds = %125
 
 142:                                              ; preds = %_ZN3vcg3ply7PlyFile9AddToReadERKNS0_14PropDescriptorE.exit
   %143 = load ptr, ptr @stderr, align 8
-  %144 = call i64 @fwrite(ptr nonnull @.str.152, i64 20, i64 1, ptr %143) #44
+  %144 = call i64 @fwrite(ptr nonnull @.str.152, i64 20, i64 1, ptr %143) #45
   br label %348
 
 145:                                              ; preds = %_ZN3vcg3ply7PlyFile9AddToReadERKNS0_14PropDescriptorE.exit
@@ -33462,7 +33462,7 @@ _ZN3vcg3ply7PlyFile9AddToReadERKNS0_14PropDescriptorE.exit59: ; preds = %145
 
 162:                                              ; preds = %_ZN3vcg3ply7PlyFile9AddToReadERKNS0_14PropDescriptorE.exit59
   %163 = load ptr, ptr @stderr, align 8
-  %164 = call i64 @fwrite(ptr nonnull @.str.152, i64 20, i64 1, ptr %163) #44
+  %164 = call i64 @fwrite(ptr nonnull @.str.152, i64 20, i64 1, ptr %163) #45
   br label %348
 
 165:                                              ; preds = %_ZN3vcg3ply7PlyFile9AddToReadERKNS0_14PropDescriptorE.exit59
@@ -33489,7 +33489,7 @@ _ZN3vcg3ply7PlyFile9AddToReadERKNS0_14PropDescriptorE.exit60: ; preds = %165
 
 182:                                              ; preds = %_ZN3vcg3ply7PlyFile9AddToReadERKNS0_14PropDescriptorE.exit60
   %183 = load ptr, ptr @stderr, align 8
-  %184 = call i64 @fwrite(ptr nonnull @.str.152, i64 20, i64 1, ptr %183) #44
+  %184 = call i64 @fwrite(ptr nonnull @.str.152, i64 20, i64 1, ptr %183) #45
   br label %348
 
 185:                                              ; preds = %_ZN3vcg3ply7PlyFile9AddToReadERKNS0_14PropDescriptorE.exit60
@@ -56351,7 +56351,7 @@ _ZN3vcg3tri2io11ImporterVMIINS_5SMeshEldiscE7ReadIntERj.exit91: ; preds = %228, 
 
 240:                                              ; preds = %_ZN3vcg3tri2io11ImporterVMIINS_5SMeshEldiscE7ReadIntERj.exit91
   %241 = zext i32 %239 to i64
-  %242 = call noalias ptr @malloc(i64 noundef %241) #45
+  %242 = call noalias ptr @malloc(i64 noundef %241) #46
   br label %_ZN3vcg3tri2io11ImporterVMIINS_5SMeshEldiscE6MallocEj.exit
 
 _ZN3vcg3tri2io11ImporterVMIINS_5SMeshEldiscE6MallocEj.exit: ; preds = %_ZN3vcg3tri2io11ImporterVMIINS_5SMeshEldiscE7ReadIntERj.exit91, %240
@@ -56513,7 +56513,7 @@ _ZN3vcg3tri2io11ImporterVMIINS_5SMeshEldiscE7ReadIntERj.exit96: ; preds = %289, 
 
 301:                                              ; preds = %_ZN3vcg3tri2io11ImporterVMIINS_5SMeshEldiscE7ReadIntERj.exit96
   %302 = zext i32 %300 to i64
-  %303 = call noalias ptr @malloc(i64 noundef %302) #45
+  %303 = call noalias ptr @malloc(i64 noundef %302) #46
   br label %_ZN3vcg3tri2io11ImporterVMIINS_5SMeshEldiscE6MallocEj.exit98
 
 _ZN3vcg3tri2io11ImporterVMIINS_5SMeshEldiscE6MallocEj.exit98: ; preds = %_ZN3vcg3tri2io11ImporterVMIINS_5SMeshEldiscE7ReadIntERj.exit96, %301
@@ -56638,7 +56638,7 @@ _ZN3vcg3tri2io11ImporterVMIINS_5SMeshEldiscE7ReadIntERj.exit104: ; preds = %346,
 
 349:                                              ; preds = %_ZN3vcg3tri2io11ImporterVMIINS_5SMeshEldiscE7ReadIntERj.exit104
   %350 = zext i32 %.pr166210 to i64
-  %351 = call noalias ptr @malloc(i64 noundef %350) #45
+  %351 = call noalias ptr @malloc(i64 noundef %350) #46
   br label %_ZN3vcg3tri2io11ImporterVMIINS_5SMeshEldiscE6MallocEj.exit106
 
 _ZN3vcg3tri2io11ImporterVMIINS_5SMeshEldiscE6MallocEj.exit106: ; preds = %_ZN3vcg3tri2io11ImporterVMIINS_5SMeshEldiscE7ReadIntERj.exit104, %349
@@ -74009,7 +74009,7 @@ define linkonce_odr void @_ZN3vcg7BestDimIdEEvxRKNS_6Point3IT_EERNS1_IiEE(i64 no
   ret void
 }
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #28
 
 ; Function Attrs: mustprogress uwtable
@@ -74041,7 +74041,7 @@ define linkonce_odr void @_ZN3vcg6VolumeINS_7VoxelfcEfE10SetSubPartENS_6Point3Ii
 
 16:                                               ; preds = %12
   %17 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.291, i32 noundef %8, i32 noundef %10, i32 noundef %2)
-  tail call void @exit(i32 noundef -1) #38
+  tail call void @exit(i32 noundef -1) #43
   unreachable
 
 18:                                               ; preds = %12
@@ -74057,7 +74057,7 @@ define linkonce_odr void @_ZN3vcg6VolumeINS_7VoxelfcEfE10SetSubPartENS_6Point3Ii
   %24 = trunc nuw i64 %23 to i32
   %25 = trunc i64 %3 to i32
   %26 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.292, i32 noundef %8, i32 noundef %10, i32 noundef %2, i32 noundef %25, i32 noundef %24, i32 noundef %4)
-  tail call void @exit(i32 noundef -1) #38
+  tail call void @exit(i32 noundef -1) #43
   unreachable
 
 27:                                               ; preds = %11
@@ -79904,7 +79904,7 @@ define linkonce_odr noundef zeroext i1 @_ZN3vcg6VolumeINS_7VoxelfcEfE8ScanFaceER
 
 8:                                                ; preds = %6
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.7)
-  tail call void @exit(i32 noundef -1) #38
+  tail call void @exit(i32 noundef -1) #43
   unreachable
 
 _ZN3vcg4Box3IfE3AddERKNS_6Point3IfEE.exit:        ; preds = %6
@@ -130619,7 +130619,7 @@ attributes #24 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-widt
 attributes #25 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #26 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #27 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #28 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #28 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #29 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #30 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #31 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
@@ -130634,9 +130634,10 @@ attributes #39 = { nounwind willreturn memory(read) }
 attributes #40 = { builtin allocsize(0) }
 attributes #41 = { noreturn }
 attributes #42 = { nounwind willreturn memory(none) }
-attributes #43 = { cold nounwind }
-attributes #44 = { cold }
-attributes #45 = { nounwind allocsize(0) }
+attributes #43 = { cold noreturn nounwind }
+attributes #44 = { cold nounwind }
+attributes #45 = { cold }
+attributes #46 = { nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

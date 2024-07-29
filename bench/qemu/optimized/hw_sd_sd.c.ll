@@ -218,30 +218,30 @@ entry:
   %err = alloca ptr, align 8
   store ptr null, ptr %err, align 8
   %cond = select i1 %is_spi, ptr @.str, ptr @.str.1
-  %call = tail call ptr @object_new(ptr noundef nonnull %cond) #17
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #17
-  %call2 = call zeroext i1 @qdev_prop_set_drive_err(ptr noundef %call.i, ptr noundef nonnull @.str.2, ptr noundef %blk, ptr noundef nonnull %err) #17
+  %call = tail call ptr @object_new(ptr noundef nonnull %cond) #18
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #18
+  %call2 = call zeroext i1 @qdev_prop_set_drive_err(ptr noundef %call.i, ptr noundef nonnull @.str.2, ptr noundef %blk, ptr noundef nonnull %err) #18
   br i1 %call2, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %err, align 8
-  call void (ptr, ptr, ...) @error_reportf_err(ptr noundef %0, ptr noundef nonnull @.str.3) #17
+  call void (ptr, ptr, ...) @error_reportf_err(ptr noundef %0, ptr noundef nonnull @.str.3) #18
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call3 = call ptr @object_ref(ptr noundef %call) #17
-  call void @object_unparent(ptr noundef %call) #17
+  %call3 = call ptr @object_ref(ptr noundef %call) #18
+  call void @object_unparent(ptr noundef %call) #18
   call void @sd_realize(ptr noundef %call.i, ptr noundef nonnull %err)
   %1 = load ptr, ptr %err, align 8
   %tobool4.not = icmp eq ptr %1, null
   br i1 %tobool4.not, label %if.end6, label %if.then5
 
 if.then5:                                         ; preds = %if.end
-  call void (ptr, ptr, ...) @error_reportf_err(ptr noundef nonnull %1, ptr noundef nonnull @.str.3) #17
+  call void (ptr, ptr, ...) @error_reportf_err(ptr noundef nonnull %1, ptr noundef nonnull @.str.3) #18
   br label %return
 
 if.end6:                                          ; preds = %if.end
-  %call.i6 = call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.14, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD) #17
+  %call.i6 = call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.14, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD) #18
   %me_no_qdev_me_kill_mammoth_with_rocks = getelementptr inbounds i8, ptr %call.i6, i64 160
   store i8 1, ptr %me_no_qdev_me_kill_mammoth_with_rocks, align 8
   br label %return
@@ -264,7 +264,7 @@ declare void @object_unparent(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @sd_realize(ptr noundef %dev, ptr noundef %errp) #0 {
 entry:
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.14, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD) #17
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.14, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD) #18
   %spec_version = getelementptr inbounds i8, ptr %call.i, i64 280
   %0 = load i8, ptr %spec_version, align 8
   %.off = add i8 %0, -1
@@ -273,7 +273,7 @@ entry:
 
 sw.default:                                       ; preds = %entry
   %conv = zext i8 %0 to i32
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.6, i32 noundef 2201, ptr noundef nonnull @__func__.sd_realize, ptr noundef nonnull @.str.92, i32 noundef %conv) #17
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.6, i32 noundef 2201, ptr noundef nonnull @__func__.sd_realize, ptr noundef nonnull @.str.92, i32 noundef %conv) #18
   br label %if.end22
 
 sw.epilog:                                        ; preds = %entry
@@ -283,16 +283,16 @@ sw.epilog:                                        ; preds = %entry
   br i1 %tobool.not, label %if.end22, label %if.then
 
 if.then:                                          ; preds = %sw.epilog
-  %call4 = tail call zeroext i1 @blk_supports_write_perm(ptr noundef nonnull %1) #17
+  %call4 = tail call zeroext i1 @blk_supports_write_perm(ptr noundef nonnull %1) #18
   br i1 %call4, label %if.end, label %if.then5
 
 if.then5:                                         ; preds = %if.then
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.6, i32 noundef 2209, ptr noundef nonnull @__func__.sd_realize, ptr noundef nonnull @.str.93) #17
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.6, i32 noundef 2209, ptr noundef nonnull @__func__.sd_realize, ptr noundef nonnull @.str.93) #18
   br label %if.end22
 
 if.end:                                           ; preds = %if.then
   %2 = load ptr, ptr %blk, align 8
-  %call7 = tail call i64 @blk_getlength(ptr noundef %2) #17
+  %call7 = tail call i64 @blk_getlength(ptr noundef %2) #18
   %cmp = icmp slt i64 %call7, 1
   %3 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %call7)
   %tobool1.not.i = icmp ult i64 %3, 2
@@ -305,23 +305,23 @@ if.then10:                                        ; preds = %if.end
   %sub2.i = add nuw nsw i64 %4, 4294967295
   %sh_prom.i = and i64 %sub2.i, 4294967295
   %shr.i = lshr exact i64 -9223372036854775808, %sh_prom.i
-  %call12 = tail call ptr @size_to_str(i64 noundef %call7) #17
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.6, i32 noundef 2219, ptr noundef nonnull @__func__.sd_realize, ptr noundef nonnull @.str.94, ptr noundef %call12) #17
-  tail call void @g_free(ptr noundef %call12) #17
-  %call13 = tail call ptr @size_to_str(i64 noundef %shr.i) #17
-  tail call void (ptr, ptr, ...) @error_append_hint(ptr noundef %errp, ptr noundef nonnull @.str.95, ptr noundef %call13) #17
-  tail call void @g_free(ptr noundef %call13) #17
+  %call12 = tail call ptr @size_to_str(i64 noundef %call7) #18
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.6, i32 noundef 2219, ptr noundef nonnull @__func__.sd_realize, ptr noundef nonnull @.str.94, ptr noundef %call12) #18
+  tail call void @g_free(ptr noundef %call12) #18
+  %call13 = tail call ptr @size_to_str(i64 noundef %shr.i) #18
+  tail call void (ptr, ptr, ...) @error_append_hint(ptr noundef %errp, ptr noundef nonnull @.str.95, ptr noundef %call13) #18
+  tail call void @g_free(ptr noundef %call13) #18
   br label %if.end22
 
 if.end14:                                         ; preds = %if.end
   %5 = load ptr, ptr %blk, align 8
-  %call16 = tail call i32 @blk_set_perm(ptr noundef %5, i64 noundef 3, i64 noundef 15, ptr noundef %errp) #17
+  %call16 = tail call i32 @blk_set_perm(ptr noundef %5, i64 noundef 3, i64 noundef 15, ptr noundef %errp) #18
   %cmp17 = icmp slt i32 %call16, 0
   br i1 %cmp17, label %if.end22, label %if.end20
 
 if.end20:                                         ; preds = %if.end14
   %6 = load ptr, ptr %blk, align 8
-  tail call void @blk_set_dev_ops(ptr noundef %6, ptr noundef nonnull @sd_block_ops, ptr noundef nonnull %call.i) #17
+  tail call void @blk_set_dev_ops(ptr noundef %6, ptr noundef nonnull @sd_block_ops, ptr noundef nonnull %call.i) #18
   br label %if.end22
 
 if.end22:                                         ; preds = %if.end14, %if.end20, %if.then10, %if.then5, %sw.epilog, %sw.default
@@ -341,26 +341,26 @@ entry:
   br i1 %tobool.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %entry
-  %call = tail call zeroext i1 @blk_is_writable(ptr noundef nonnull %0) #17
+  %call = tail call zeroext i1 @blk_is_writable(ptr noundef nonnull %0) #18
   %lnot = xor i1 %call, true
   %lnot.ext = zext i1 %lnot to i32
   br label %cond.end
 
 cond.end:                                         ; preds = %entry, %cond.true
   %cond = phi i32 [ %lnot.ext, %cond.true ], [ 0, %entry ]
-  tail call void @qemu_set_irq(ptr noundef %readonly, i32 noundef %cond) #17
+  tail call void @qemu_set_irq(ptr noundef %readonly, i32 noundef %cond) #18
   %1 = load ptr, ptr %blk, align 8
   %tobool3.not = icmp eq ptr %1, null
   br i1 %tobool3.not, label %cond.end8, label %cond.true4
 
 cond.true4:                                       ; preds = %cond.end
-  %call6 = tail call zeroext i1 @blk_is_inserted(ptr noundef nonnull %1) #17
+  %call6 = tail call zeroext i1 @blk_is_inserted(ptr noundef nonnull %1) #18
   %conv = zext i1 %call6 to i32
   br label %cond.end8
 
 cond.end8:                                        ; preds = %cond.end, %cond.true4
   %cond9 = phi i32 [ %conv, %cond.true4 ], [ 0, %cond.end ]
-  tail call void @qemu_set_irq(ptr noundef %insert, i32 noundef %cond9) #17
+  tail call void @qemu_set_irq(ptr noundef %insert, i32 noundef %cond9) #18
   ret void
 }
 
@@ -381,7 +381,7 @@ entry:
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %call = tail call zeroext i1 @blk_is_inserted(ptr noundef nonnull %0) #17
+  %call = tail call zeroext i1 @blk_is_inserted(ptr noundef nonnull %0) #18
   br i1 %call, label %lor.lhs.false2, label %return
 
 lor.lhs.false2:                                   ; preds = %lor.lhs.false
@@ -403,7 +403,7 @@ do.body:                                          ; preds = %if.end
 
 if.then14:                                        ; preds = %do.body
   %conv16 = zext i8 %2 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.4, i32 noundef %conv16) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.4, i32 noundef %conv16) #18
   %.pre = load i8, ptr %req, align 4
   br label %do.end
 
@@ -464,7 +464,7 @@ if.then29:                                        ; preds = %cmd_valid_while_loc
   br i1 %cmp.i45.not, label %sd_response_name.exit, label %if.then40
 
 if.then40:                                        ; preds = %if.then29
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.5) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.5) #18
   br label %sd_response_name.exit
 
 if.end44:                                         ; preds = %if.end.i, %if.end.i, %if.end12.i, %cmd_valid_while_locked.exit, %if.end21
@@ -496,12 +496,12 @@ if.then47:                                        ; preds = %sd_set_mode.exit
   %req.sroa.0.0.extract.trunc.i = trunc i64 %.coerce.sroa.0.0.copyload to i8
   %req.sroa.1052.0.extract.shift.i = lshr i64 %.coerce.sroa.0.0.copyload, 32
   %req.sroa.1052.0.extract.trunc.i = trunc nuw i64 %req.sroa.1052.0.extract.shift.i to i32
-  %call.i.i.i = tail call ptr @object_get_class(ptr noundef nonnull %sd) #17
-  %call1.i.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.14, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD_GET_CLASS) #17
+  %call.i.i.i = tail call ptr @object_get_class(ptr noundef nonnull %sd) #18
+  %call1.i.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.14, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD_GET_CLASS) #18
   %proto.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 264
   %21 = load ptr, ptr %proto.i.i, align 8
   %22 = load ptr, ptr %21, align 8
-  %call1.i = tail call ptr @sd_acmd_name(i8 noundef zeroext %req.sroa.0.0.extract.trunc.i) #17
+  %call1.i = tail call ptr @sd_acmd_name(i8 noundef zeroext %req.sroa.0.0.extract.trunc.i) #18
   %23 = load i32, ptr %state, align 4
   %cmp.i.i = icmp eq i32 %23, -1
   br i1 %cmp.i.i, label %sd_state_name.exit.i, label %if.end.i.i
@@ -511,7 +511,7 @@ if.end.i.i:                                       ; preds = %if.then47
   br i1 %cmp1.i.i, label %if.end4.i.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.end.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.6, i32 noundef 197, ptr noundef nonnull @__PRETTY_FUNCTION__.sd_state_name) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.6, i32 noundef 197, ptr noundef nonnull @__PRETTY_FUNCTION__.sd_state_name) #19
   unreachable
 
 if.end4.i.i:                                      ; preds = %if.end.i.i
@@ -542,20 +542,20 @@ if.then.i.i.i:                                    ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.i.i.i, label %if.then8.i.i.i, label %if.else.i.i.i
 
 if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
-  %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #17
-  %call10.i.i.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #18
+  %call10.i.i.i = tail call i32 @qemu_get_thread_id() #18
   %29 = load i64, ptr %_now.i.i.i, align 8
   %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %30 = load i64, ptr %tv_usec.i.i.i, align 8
   %31 = trunc i64 %.coerce.sroa.0.0.copyload to i32
   %conv11.i.i.i = and i32 %31, 255
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.17, i32 noundef %call10.i.i.i, i64 noundef %29, i64 noundef %30, ptr noundef %22, ptr noundef %call1.i, i32 noundef %conv11.i.i.i, i32 noundef %req.sroa.1052.0.extract.trunc.i, ptr noundef %retval.0.i.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.17, i32 noundef %call10.i.i.i, i64 noundef %29, i64 noundef %30, ptr noundef %22, ptr noundef %call1.i, i32 noundef %conv11.i.i.i, i32 noundef %req.sroa.1052.0.extract.trunc.i, ptr noundef %retval.0.i.i) #18
   br label %trace_sdcard_app_command.exit.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
   %32 = trunc i64 %.coerce.sroa.0.0.copyload to i32
   %conv12.i.i.i = and i32 %32, 255
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, ptr noundef %22, ptr noundef %call1.i, i32 noundef %conv12.i.i.i, i32 noundef %req.sroa.1052.0.extract.trunc.i, ptr noundef %retval.0.i.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, ptr noundef %22, ptr noundef %call1.i, i32 noundef %conv12.i.i.i, i32 noundef %req.sroa.1052.0.extract.trunc.i, ptr noundef %retval.0.i.i) #18
   br label %trace_sdcard_app_command.exit.i
 
 trace_sdcard_app_command.exit.i:                  ; preds = %if.else.i.i.i, %if.then8.i.i.i, %land.lhs.true5.i.i.i, %sd_state_name.exit.i
@@ -563,8 +563,8 @@ trace_sdcard_app_command.exit.i:                  ; preds = %if.else.i.i.i, %if.
   %33 = load i32, ptr %card_status22, align 4
   %or.i = or i32 %33, 32
   store i32 %or.i, ptr %card_status22, align 4
-  %call.i.i62.i = tail call ptr @object_get_class(ptr noundef nonnull %sd) #17
-  %call1.i.i63.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i62.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.14, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD_GET_CLASS) #17
+  %call.i.i62.i = tail call ptr @object_get_class(ptr noundef nonnull %sd) #18
+  %call1.i.i63.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i62.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.14, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD_GET_CLASS) #18
   %proto.i64.i = getelementptr inbounds i8, ptr %call1.i.i63.i, i64 264
   %34 = load ptr, ptr %proto.i64.i, align 8
   %acmd.i = getelementptr inbounds i8, ptr %34, i64 520
@@ -575,14 +575,14 @@ trace_sdcard_app_command.exit.i:                  ; preds = %if.else.i.i.i, %if.
   br i1 %tobool.not.i, label %if.end.i50, label %if.then.i48
 
 if.then.i48:                                      ; preds = %trace_sdcard_app_command.exit.i
-  %call.i.i65.i = tail call ptr @object_get_class(ptr noundef nonnull %sd) #17
-  %call1.i.i66.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i65.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.14, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD_GET_CLASS) #17
+  %call.i.i65.i = tail call ptr @object_get_class(ptr noundef nonnull %sd) #18
+  %call1.i.i66.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i65.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.14, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD_GET_CLASS) #18
   %proto.i67.i = getelementptr inbounds i8, ptr %call1.i.i66.i, i64 264
   %36 = load ptr, ptr %proto.i67.i, align 8
   %acmd7.i = getelementptr inbounds i8, ptr %36, i64 520
   %arrayidx10.i = getelementptr [64 x ptr], ptr %acmd7.i, i64 0, i64 %idxprom.i47
   %37 = load ptr, ptr %arrayidx10.i, align 8
-  %call11.i = tail call i32 %37(ptr noundef nonnull %sd, i64 %.coerce.sroa.0.0.copyload, i8 %.coerce.sroa.2.0.copyload) #17
+  %call11.i = tail call i32 %37(ptr noundef nonnull %sd, i64 %.coerce.sroa.0.0.copyload, i8 %.coerce.sroa.2.0.copyload) #18
   br label %if.end52
 
 if.end.i50:                                       ; preds = %trace_sdcard_app_command.exit.i
@@ -678,7 +678,7 @@ if.then51.i:                                      ; preds = %if.end48.i
 if.then56.i:                                      ; preds = %if.then51.i
   %ocr_power_timer.i = getelementptr inbounds i8, ptr %sd, i64 928
   %49 = load ptr, ptr %ocr_power_timer.i, align 8
-  tail call void @timer_del(ptr noundef %49) #17
+  tail call void @timer_del(ptr noundef %49) #18
   tail call void @sd_ocr_powerup(ptr noundef nonnull %sd)
   br label %if.end64.i
 
@@ -686,14 +686,14 @@ if.else.i:                                        ; preds = %if.then51.i
   tail call fastcc void @trace_sdcard_inquiry_cmd41()
   %ocr_power_timer57.i = getelementptr inbounds i8, ptr %sd, i64 928
   %50 = load ptr, ptr %ocr_power_timer57.i, align 8
-  %call58.i = tail call zeroext i1 @timer_pending(ptr noundef %50) #17
+  %call58.i = tail call zeroext i1 @timer_pending(ptr noundef %50) #18
   br i1 %call58.i, label %if.end64.i, label %if.then59.i
 
 if.then59.i:                                      ; preds = %if.else.i
   %51 = load ptr, ptr %ocr_power_timer57.i, align 8
-  %call61.i = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #17
+  %call61.i = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #18
   %add.i = add i64 %call61.i, 500000
-  tail call void @timer_mod_ns(ptr noundef %51, i64 noundef %add.i) #17
+  tail call void @timer_mod_ns(ptr noundef %51, i64 noundef %add.i) #18
   br label %if.end64.i
 
 if.end64.i:                                       ; preds = %if.then59.i, %if.else.i, %if.then56.i, %if.end48.i
@@ -755,7 +755,7 @@ if.end52:                                         ; preds = %sw.default96.i, %if
 
 if.then55.sink.split:                             ; preds = %do.body100.i, %do.body.i
   %.str.16.sink = phi ptr [ @.str.15, %do.body.i ], [ @.str.16, %do.body100.i ]
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull %.str.16.sink, i32 noundef %conv.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull %.str.16.sink, i32 noundef %conv.i) #18
   br label %if.then55
 
 if.then55:                                        ; preds = %if.then55.sink.split, %do.body100.i, %do.body.i, %if.end52
@@ -856,7 +856,7 @@ sw.bb70:                                          ; preds = %send_response
   br label %if.end7.i
 
 do.body72:                                        ; preds = %send_response
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.6, i32 noundef 1833, ptr noundef nonnull @__func__.sd_do_command, ptr noundef null) #18
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.6, i32 noundef 1833, ptr noundef nonnull @__func__.sd_do_command, ptr noundef null) #19
   unreachable
 
 if.end.i59:                                       ; preds = %send_response, %send_response, %send_response.thread85
@@ -876,7 +876,7 @@ if.end.i59:                                       ; preds = %send_response, %sen
   br i1 %cmp4.i, label %if.end7.i, label %if.else.i60
 
 if.else.i60:                                      ; preds = %73
-  tail call void @__assert_fail(ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.6, i32 noundef 218, ptr noundef nonnull @__PRETTY_FUNCTION__.sd_response_name) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.6, i32 noundef 218, ptr noundef nonnull @__PRETTY_FUNCTION__.sd_response_name) #19
   unreachable
 
 if.end7.i:                                        ; preds = %if.end.i59, %sw.bb70, %sw.bb69, %sw.bb68, %sw.bb66, %sw.bb65, %send_response, %73
@@ -911,16 +911,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i64
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #18
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #18
   %80 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %81 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.65, i32 noundef %call10.i.i, i64 noundef %80, i64 noundef %81, ptr noundef %retval.0.i63, i32 noundef %rsplen.081) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.65, i32 noundef %call10.i.i, i64 noundef %80, i64 noundef %81, ptr noundef %retval.0.i63, i32 noundef %rsplen.081) #18
   br label %trace_sdcard_response.exit
 
 if.else.i.i64:                                    ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.66, ptr noundef %retval.0.i63, i32 noundef %rsplen.081) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.66, ptr noundef %retval.0.i63, i32 noundef %rsplen.081) #18
   br label %trace_sdcard_response.exit
 
 trace_sdcard_response.exit:                       ; preds = %sd_response_name.exit, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i64
@@ -968,12 +968,12 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %tobool5, label %if.then, label %if.end
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
-  %call.i.i = tail call ptr @object_get_class(ptr noundef nonnull %sd) #17
-  %call1.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.14, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD_GET_CLASS) #17
+  %call.i.i = tail call ptr @object_get_class(ptr noundef nonnull %sd) #18
+  %call1.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.14, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD_GET_CLASS) #18
   %proto.i = getelementptr inbounds i8, ptr %call1.i.i, i64 264
   %3 = load ptr, ptr %proto.i, align 8
   %4 = load ptr, ptr %3, align 8
-  %call8 = tail call ptr @sd_cmd_name(i8 noundef zeroext %req.sroa.0.0.extract.trunc) #17
+  %call8 = tail call ptr @sd_cmd_name(i8 noundef zeroext %req.sroa.0.0.extract.trunc) #18
   %state = getelementptr inbounds i8, ptr %sd, i64 300
   %5 = load i32, ptr %state, align 4
   %cmp.i = icmp eq i32 %5, -1
@@ -984,7 +984,7 @@ if.end.i:                                         ; preds = %if.then
   br i1 %cmp1.i, label %if.end4.i, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.6, i32 noundef 197, ptr noundef nonnull @__PRETTY_FUNCTION__.sd_state_name) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.6, i32 noundef 197, ptr noundef nonnull @__PRETTY_FUNCTION__.sd_state_name) #19
   unreachable
 
 if.end4.i:                                        ; preds = %if.end.i
@@ -1015,16 +1015,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #18
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #18
   %11 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %12 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i, i64 noundef %11, i64 noundef %12, ptr noundef %4, ptr noundef %call8, i32 noundef %conv3, i32 noundef %req.sroa.16187.0.extract.trunc, ptr noundef %retval.0.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i, i64 noundef %11, i64 noundef %12, ptr noundef %4, ptr noundef %call8, i32 noundef %conv3, i32 noundef %req.sroa.16187.0.extract.trunc, ptr noundef %retval.0.i) #18
   br label %trace_sdcard_normal_command.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.46, ptr noundef %4, ptr noundef %call8, i32 noundef %conv3, i32 noundef %req.sroa.16187.0.extract.trunc, ptr noundef %retval.0.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.46, ptr noundef %4, ptr noundef %call8, i32 noundef %conv3, i32 noundef %req.sroa.16187.0.extract.trunc, ptr noundef %retval.0.i) #18
   br label %trace_sdcard_normal_command.exit
 
 trace_sdcard_normal_command.exit:                 ; preds = %sd_state_name.exit, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -1082,8 +1082,8 @@ land.lhs.true44:                                  ; preds = %if.end38
   br i1 %tobool47.not, label %if.end49, label %return
 
 if.end49:                                         ; preds = %land.lhs.true44, %if.end38
-  %call.i.i213 = tail call ptr @object_get_class(ptr noundef nonnull %sd) #17
-  %call1.i.i214 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i213, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.14, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD_GET_CLASS) #17
+  %call.i.i213 = tail call ptr @object_get_class(ptr noundef nonnull %sd) #18
+  %call1.i.i214 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i213, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.14, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD_GET_CLASS) #18
   %proto.i215 = getelementptr inbounds i8, ptr %call1.i.i214, i64 264
   %22 = load ptr, ptr %proto.i215, align 8
   %cmd51 = getelementptr inbounds i8, ptr %22, i64 8
@@ -1093,14 +1093,14 @@ if.end49:                                         ; preds = %land.lhs.true44, %i
   br i1 %tobool55.not, label %if.end63, label %if.then56
 
 if.then56:                                        ; preds = %if.end49
-  %call.i.i216 = tail call ptr @object_get_class(ptr noundef nonnull %sd) #17
-  %call1.i.i217 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i216, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.14, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD_GET_CLASS) #17
+  %call.i.i216 = tail call ptr @object_get_class(ptr noundef nonnull %sd) #18
+  %call1.i.i217 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i216, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.14, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD_GET_CLASS) #18
   %proto.i218 = getelementptr inbounds i8, ptr %call1.i.i217, i64 264
   %24 = load ptr, ptr %proto.i218, align 8
   %cmd58 = getelementptr inbounds i8, ptr %24, i64 8
   %arrayidx61 = getelementptr [64 x ptr], ptr %cmd58, i64 0, i64 %idxprom
   %25 = load ptr, ptr %arrayidx61, align 8
-  %call62 = tail call i32 %25(ptr noundef nonnull %sd, i64 %req.coerce0, i8 %req.coerce1) #17
+  %call62 = tail call i32 %25(ptr noundef nonnull %sd, i64 %req.coerce0, i8 %req.coerce1) #18
   br label %return
 
 if.end63:                                         ; preds = %if.end49
@@ -1658,7 +1658,7 @@ do.body:                                          ; preds = %sw.bb381
   br i1 %cmp.i227.not, label %sw.epilog394, label %if.then388
 
 if.then388:                                       ; preds = %do.body
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.43, i32 noundef 55) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.43, i32 noundef 55) #18
   br label %sw.epilog394
 
 sw.epilog394:                                     ; preds = %sw.bb378, %if.then388, %do.body, %sw.bb381
@@ -1705,7 +1705,7 @@ do.body424:                                       ; preds = %if.end63
   br i1 %cmp.i229.not, label %return, label %if.then432
 
 if.then432:                                       ; preds = %do.body424
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.44, i32 noundef %conv3) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.44, i32 noundef %conv3) #18
   br label %return
 
 sw.epilog437:                                     ; preds = %sw.bb407, %sw.bb370, %sw.bb354, %sw.bb348, %sw.bb342, %if.end323, %if.end306, %if.end290, %sw.bb277, %sw.bb269, %sw.bb238, %sw.bb226, %sw.bb212, %sw.bb200, %sw.bb187, %sw.bb178, %sw.bb166, %sw.bb157, %sw.bb147, %sw.bb138, %if.end115, %sw.bb110, %sw.bb84, %sw.bb100, %sw.bb74, %sw.bb68, %if.end63
@@ -1715,8 +1715,8 @@ sw.epilog437:                                     ; preds = %sw.bb407, %sw.bb370
   br i1 %cmp.i.not.i, label %return, label %if.then.i
 
 if.then.i:                                        ; preds = %sw.epilog437
-  %call.i.i.i = tail call ptr @object_get_class(ptr noundef nonnull %sd) #17
-  %call1.i.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.14, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD_GET_CLASS) #17
+  %call.i.i.i = tail call ptr @object_get_class(ptr noundef nonnull %sd) #18
+  %call1.i.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.14, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD_GET_CLASS) #18
   %proto.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 264
   %86 = load ptr, ptr %proto.i.i, align 8
   %87 = load ptr, ptr %86, align 8
@@ -1730,7 +1730,7 @@ if.end.i.i:                                       ; preds = %if.then.i
   br i1 %cmp1.i.i, label %if.end4.i.i, label %if.else.i.i231
 
 if.else.i.i231:                                   ; preds = %if.end.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.6, i32 noundef 197, ptr noundef nonnull @__PRETTY_FUNCTION__.sd_state_name) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.6, i32 noundef 197, ptr noundef nonnull @__PRETTY_FUNCTION__.sd_state_name) #19
   unreachable
 
 if.end4.i.i:                                      ; preds = %if.end.i.i
@@ -1754,7 +1754,7 @@ if.end.i5.i:                                      ; preds = %sd_state_name.exit.
 
 sd_version_str.exit.i:                            ; preds = %if.end.i5.i, %sd_state_name.exit.i
   %retval.0.i8.i = phi ptr [ %91, %if.end.i5.i ], [ @.str.57, %sd_state_name.exit.i ]
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.64, ptr noundef %87, i32 noundef %conv3, ptr noundef %retval.0.i.i, ptr noundef %retval.0.i8.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.64, ptr noundef %87, i32 noundef %conv3, ptr noundef %retval.0.i.i, ptr noundef %retval.0.i8.i) #18
   br label %return
 
 return:                                           ; preds = %sd_version_str.exit.i, %sw.epilog437, %if.then432, %do.body424, %if.end63, %if.then396, %sw.bb378, %sw.bb378, %sw.bb378, %sw.bb325, %sw.bb318, %sw.bb308, %sw.bb301, %sw.bb292, %sw.bb285, %if.end257, %if.then263, %sw.bb240, %sw.bb228, %if.then218, %if.else, %sw.bb202, %land.lhs.true191, %sw.bb159, %sw.bb140, %sw.bb92, %sw.bb76, %land.lhs.true44, %sw.bb422, %sw.bb409, %if.end403, %sw.bb372, %if.end365, %if.then362, %sw.bb350, %sw.bb344, %if.end331, %if.end311, %if.end295, %sw.bb279, %sw.bb271, %if.end232, %if.end208, %if.end197, %sw.bb182, %sw.bb180, %if.end169, %if.end150, %if.end135, %if.then131, %if.end106, %if.end98, %if.end90, %if.end82, %sw.bb69, %if.then56
@@ -1775,7 +1775,7 @@ entry:
   br i1 %tobool.not, label %sw.epilog, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %call = tail call zeroext i1 @blk_is_inserted(ptr noundef nonnull %0) #17
+  %call = tail call zeroext i1 @blk_is_inserted(ptr noundef nonnull %0) #18
   br i1 %call, label %lor.lhs.false2, label %sw.epilog
 
 lor.lhs.false2:                                   ; preds = %lor.lhs.false
@@ -1797,7 +1797,7 @@ do.body:                                          ; preds = %if.end
   br i1 %cmp.i.not, label %sw.epilog, label %if.then8
 
 if.then8:                                         ; preds = %do.body
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.7, ptr noundef nonnull @__func__.sd_write_byte) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.7, ptr noundef nonnull @__func__.sd_write_byte) #18
   br label %sw.epilog
 
 if.end10:                                         ; preds = %if.end
@@ -1808,14 +1808,14 @@ if.end10:                                         ; preds = %if.end
   br i1 %tobool11.not, label %if.end13, label %sw.epilog
 
 if.end13:                                         ; preds = %if.end10
-  %call.i.i = tail call ptr @object_get_class(ptr noundef nonnull %sd) #17
-  %call1.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.14, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD_GET_CLASS) #17
+  %call.i.i = tail call ptr @object_get_class(ptr noundef nonnull %sd) #18
+  %call1.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.14, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD_GET_CLASS) #18
   %proto.i = getelementptr inbounds i8, ptr %call1.i.i, i64 264
   %5 = load ptr, ptr %proto.i, align 8
   %6 = load ptr, ptr %5, align 8
   %current_cmd = getelementptr inbounds i8, ptr %sd, i64 378
   %7 = load i8, ptr %current_cmd, align 2
-  %call15 = tail call ptr @sd_acmd_name(i8 noundef zeroext %7) #17
+  %call15 = tail call ptr @sd_acmd_name(i8 noundef zeroext %7) #18
   %8 = load i8, ptr %current_cmd, align 2
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %9 = load i32, ptr @trace_events_enabled_count, align 4
@@ -1837,20 +1837,20 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #18
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #18
   %13 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %14 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i8 %8 to i32
   %conv12.i.i = zext i8 %value to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.76, i32 noundef %call10.i.i, i64 noundef %13, i64 noundef %14, ptr noundef %6, ptr noundef %call15, i32 noundef %conv11.i.i, i32 noundef %conv12.i.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.76, i32 noundef %call10.i.i, i64 noundef %13, i64 noundef %14, ptr noundef %6, ptr noundef %call15, i32 noundef %conv11.i.i, i32 noundef %conv12.i.i) #18
   br label %trace_sdcard_write_data.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
   %conv13.i.i = zext i8 %8 to i32
   %conv14.i.i = zext i8 %value to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.77, ptr noundef %6, ptr noundef %call15, i32 noundef %conv13.i.i, i32 noundef %conv14.i.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.77, ptr noundef %6, ptr noundef %call15, i32 noundef %conv13.i.i, i32 noundef %conv14.i.i) #18
   br label %trace_sdcard_write_data.exit
 
 trace_sdcard_write_data.exit:                     ; preds = %if.end13, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -2175,7 +2175,7 @@ do.body265:                                       ; preds = %trace_sdcard_write_
   br i1 %cmp.i117.not, label %sw.epilog, label %if.then273
 
 if.then273:                                       ; preds = %do.body265
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.9, ptr noundef nonnull @__func__.sd_write_byte) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.9, ptr noundef nonnull @__func__.sd_write_byte) #18
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %if.then273, %do.body265, %sw.bb252, %if.then262, %sw.bb238, %if.then248, %sw.bb149, %if.end235, %sw.bb88, %if.end146, %if.end51, %if.end85, %if.then35, %sw.bb, %if.then22, %if.end10, %if.then8, %do.body, %entry, %lor.lhs.false, %lor.lhs.false2, %if.then82, %if.then46
@@ -2208,16 +2208,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #18
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #18
   %4 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.79, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, i64 noundef %addr, i32 noundef %len) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.79, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, i64 noundef %addr, i32 noundef %len) #18
   br label %trace_sdcard_write_block.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.80, i64 noundef %addr, i32 noundef %len) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.80, i64 noundef %addr, i32 noundef %len) #18
   br label %trace_sdcard_write_block.exit
 
 trace_sdcard_write_block.exit:                    ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -2230,13 +2230,13 @@ trace_sdcard_write_block.exit:                    ; preds = %entry, %land.lhs.tr
 lor.lhs.false:                                    ; preds = %trace_sdcard_write_block.exit
   %conv = zext i32 %len to i64
   %data = getelementptr inbounds i8, ptr %sd, i64 396
-  %call = tail call i32 @blk_pwrite(ptr noundef nonnull %6, i64 noundef %addr, i64 noundef %conv, ptr noundef nonnull %data, i32 noundef 0) #17
+  %call = tail call i32 @blk_pwrite(ptr noundef nonnull %6, i64 noundef %addr, i64 noundef %conv, ptr noundef nonnull %data, i32 noundef 0) #18
   %cmp = icmp slt i32 %call, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %lor.lhs.false, %trace_sdcard_write_block.exit
   %7 = load ptr, ptr @stderr, align 8
-  %8 = tail call i64 @fwrite(ptr nonnull @.str.78, i64 39, i64 1, ptr %7) #19
+  %8 = tail call i64 @fwrite(ptr nonnull @.str.78, i64 39, i64 1, ptr %7) #20
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %lor.lhs.false
@@ -2260,7 +2260,7 @@ do.body:                                          ; preds = %entry
   br i1 %cmp.i.not, label %do.end, label %if.then4
 
 if.then4:                                         ; preds = %do.body
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.81, ptr noundef %desc, i64 noundef %addr, i64 noundef %0, i32 noundef %length) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.81, ptr noundef %desc, i64 noundef %addr, i64 noundef %0, i32 noundef %length) #18
   br label %do.end
 
 do.end:                                           ; preds = %do.body, %if.then4
@@ -2322,16 +2322,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #18
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #18
   %7 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.83, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.83, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8) #18
   br label %trace_sdcard_lock.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.84) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.84) #18
   br label %trace_sdcard_lock.exit
 
 trace_sdcard_lock.exit:                           ; preds = %if.then19, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -2359,16 +2359,16 @@ if.then.i.i74:                                    ; preds = %land.lhs.true5.i.i7
   br i1 %tobool7.i.i75, label %if.then8.i.i77, label %if.else.i.i76
 
 if.then8.i.i77:                                   ; preds = %if.then.i.i74
-  %call9.i.i78 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i67, ptr noundef null) #17
-  %call10.i.i79 = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i78 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i67, ptr noundef null) #18
+  %call10.i.i79 = tail call i32 @qemu_get_thread_id() #18
   %13 = load i64, ptr %_now.i.i67, align 8
   %tv_usec.i.i80 = getelementptr inbounds i8, ptr %_now.i.i67, i64 8
   %14 = load i64, ptr %tv_usec.i.i80, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.85, i32 noundef %call10.i.i79, i64 noundef %13, i64 noundef %14) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.85, i32 noundef %call10.i.i79, i64 noundef %13, i64 noundef %14) #18
   br label %trace_sdcard_unlock.exit
 
 if.else.i.i76:                                    ; preds = %if.then.i.i74
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.86) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.86) #18
   br label %trace_sdcard_unlock.exit
 
 trace_sdcard_unlock.exit:                         ; preds = %if.else20, %land.lhs.true5.i.i71, %if.then8.i.i77, %if.else.i.i76
@@ -2441,7 +2441,7 @@ bitmap_zero.exit:                                 ; preds = %if.then.i, %if.else
   %pwd_len54 = getelementptr inbounds i8, ptr %sd, i64 368
   store i32 0, ptr %pwd_len54, align 8
   %28 = load ptr, ptr @stderr, align 8
-  %29 = tail call i64 @fwrite(ptr nonnull @.str.82, i64 31, i64 1, ptr %28) #19
+  %29 = tail call i64 @fwrite(ptr nonnull @.str.82, i64 31, i64 1, ptr %28) #20
   br label %if.end144
 
 if.end55:                                         ; preds = %if.end21
@@ -2534,7 +2534,7 @@ entry:
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %call = tail call zeroext i1 @blk_is_inserted(ptr noundef nonnull %0) #17
+  %call = tail call zeroext i1 @blk_is_inserted(ptr noundef nonnull %0) #18
   br i1 %call, label %lor.lhs.false2, label %return
 
 lor.lhs.false2:                                   ; preds = %lor.lhs.false
@@ -2556,7 +2556,7 @@ do.body:                                          ; preds = %if.end
   br i1 %cmp.i.not, label %return, label %if.then8
 
 if.then8:                                         ; preds = %do.body
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.10, ptr noundef nonnull @__func__.sd_read_byte) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.10, ptr noundef nonnull @__func__.sd_read_byte) #18
   br label %return
 
 if.end10:                                         ; preds = %if.end
@@ -2580,14 +2580,14 @@ cond.false:                                       ; preds = %if.end13
 
 cond.end:                                         ; preds = %if.end13, %cond.false
   %cond = phi i32 [ %6, %cond.false ], [ 512, %if.end13 ]
-  %call.i.i = tail call ptr @object_get_class(ptr noundef nonnull %sd) #17
-  %call1.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.14, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD_GET_CLASS) #17
+  %call.i.i = tail call ptr @object_get_class(ptr noundef nonnull %sd) #18
+  %call1.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.14, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD_GET_CLASS) #18
   %proto.i = getelementptr inbounds i8, ptr %call1.i.i, i64 264
   %7 = load ptr, ptr %proto.i, align 8
   %8 = load ptr, ptr %7, align 8
   %current_cmd = getelementptr inbounds i8, ptr %sd, i64 378
   %9 = load i8, ptr %current_cmd, align 2
-  %call17 = tail call ptr @sd_acmd_name(i8 noundef zeroext %9) #17
+  %call17 = tail call ptr @sd_acmd_name(i8 noundef zeroext %9) #18
   %10 = load i8, ptr %current_cmd, align 2
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %11 = load i32, ptr @trace_events_enabled_count, align 4
@@ -2609,18 +2609,18 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #18
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #18
   %15 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %16 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i8 %10 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.87, i32 noundef %call10.i.i, i64 noundef %15, i64 noundef %16, ptr noundef %8, ptr noundef %call17, i32 noundef %conv11.i.i, i32 noundef %cond) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.87, i32 noundef %call10.i.i, i64 noundef %15, i64 noundef %16, ptr noundef %8, ptr noundef %call17, i32 noundef %conv11.i.i, i32 noundef %cond) #18
   br label %trace_sdcard_read_data.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
   %conv12.i.i = zext i8 %10 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.88, ptr noundef %8, ptr noundef %call17, i32 noundef %conv12.i.i, i32 noundef %cond) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.88, ptr noundef %8, ptr noundef %call17, i32 noundef %conv12.i.i, i32 noundef %cond) #18
   br label %trace_sdcard_read_data.exit
 
 trace_sdcard_read_data.exit:                      ; preds = %cond.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -2874,7 +2874,7 @@ do.body170:                                       ; preds = %trace_sdcard_read_d
   br i1 %cmp.i74.not, label %return, label %if.then178
 
 if.then178:                                       ; preds = %do.body170
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.9, ptr noundef nonnull @__func__.sd_read_byte) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.9, ptr noundef nonnull @__func__.sd_read_byte) #18
   br label %return
 
 return:                                           ; preds = %if.then97, %if.end108, %if.then24, %sw.bb, %if.then36, %sw.bb27, %if.then48, %sw.bb39, %if.then65, %if.end56, %if.then87, %if.then93, %if.end78, %if.then122, %sw.bb113, %if.then134, %sw.bb125, %if.then146, %sw.bb137, %if.then167, %if.end157, %if.then178, %do.body170, %if.then72, %if.end10, %if.then8, %do.body, %entry, %lor.lhs.false, %lor.lhs.false2
@@ -2906,16 +2906,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #18
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #18
   %4 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.90, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, i64 noundef %addr, i32 noundef %len) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.90, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, i64 noundef %addr, i32 noundef %len) #18
   br label %trace_sdcard_read_block.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.91, i64 noundef %addr, i32 noundef %len) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.91, i64 noundef %addr, i32 noundef %len) #18
   br label %trace_sdcard_read_block.exit
 
 trace_sdcard_read_block.exit:                     ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -2928,13 +2928,13 @@ trace_sdcard_read_block.exit:                     ; preds = %entry, %land.lhs.tr
 lor.lhs.false:                                    ; preds = %trace_sdcard_read_block.exit
   %conv = zext i32 %len to i64
   %data = getelementptr inbounds i8, ptr %sd, i64 396
-  %call = tail call i32 @blk_pread(ptr noundef nonnull %6, i64 noundef %addr, i64 noundef %conv, ptr noundef nonnull %data, i32 noundef 0) #17
+  %call = tail call i32 @blk_pread(ptr noundef nonnull %6, i64 noundef %addr, i64 noundef %conv, ptr noundef nonnull %data, i32 noundef 0) #18
   %cmp = icmp slt i32 %call, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %lor.lhs.false, %trace_sdcard_read_block.exit
   %7 = load ptr, ptr @stderr, align 8
-  %8 = tail call i64 @fwrite(ptr nonnull @.str.89, i64 37, i64 1, ptr %7) #19
+  %8 = tail call i64 @fwrite(ptr nonnull @.str.89, i64 37, i64 1, ptr %7) #20
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %lor.lhs.false
@@ -2956,7 +2956,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @do_qemu_init_do_qemu_init_sd_types() #0 {
 entry:
-  tail call void @register_module_init(ptr noundef nonnull @do_qemu_init_sd_types, i32 noundef 3) #17
+  tail call void @register_module_init(ptr noundef nonnull @do_qemu_init_sd_types, i32 noundef 3) #18
   ret void
 }
 
@@ -2965,7 +2965,7 @@ declare void @register_module_init(ptr noundef, i32 noundef) local_unnamed_addr 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @do_qemu_init_sd_types() #0 {
 entry:
-  tail call void @type_register_static_array(ptr noundef nonnull @sd_types, i32 noundef 2) #17
+  tail call void @type_register_static_array(ptr noundef nonnull @sd_types, i32 noundef 2) #18
   ret void
 }
 
@@ -3000,16 +3000,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #18
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #18
   %4 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.34, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.34, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5) #18
   br label %trace_sdcard_powerup.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.35) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.35) #18
   br label %trace_sdcard_powerup.exit
 
 trace_sdcard_powerup.exit:                        ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -3020,7 +3020,7 @@ trace_sdcard_powerup.exit:                        ; preds = %entry, %land.lhs.tr
   br i1 %tobool.not, label %if.end, label %if.else
 
 if.else:                                          ; preds = %trace_sdcard_powerup.exit
-  tail call void @__assert_fail(ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.6, i32 noundef 330, ptr noundef nonnull @__PRETTY_FUNCTION__.sd_ocr_powerup) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.6, i32 noundef 330, ptr noundef nonnull @__PRETTY_FUNCTION__.sd_ocr_powerup) #19
   unreachable
 
 if.end:                                           ; preds = %trace_sdcard_powerup.exit
@@ -3064,16 +3064,16 @@ if.then.i:                                        ; preds = %land.lhs.true5.i
   br i1 %tobool7.i, label %if.then8.i, label %if.else.i
 
 if.then8.i:                                       ; preds = %if.then.i
-  %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #17
-  %call10.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #18
+  %call10.i = tail call i32 @qemu_get_thread_id() #18
   %4 = load i64, ptr %_now.i, align 8
   %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %5 = load i64, ptr %tv_usec.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.36, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.36, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5) #18
   br label %_nocheck__trace_sdcard_inquiry_cmd41.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.37) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.37) #18
   br label %_nocheck__trace_sdcard_inquiry_cmd41.exit
 
 _nocheck__trace_sdcard_inquiry_cmd41.exit:        ; preds = %entry, %land.lhs.true5.i, %if.then8.i, %if.else.i
@@ -3173,8 +3173,8 @@ for.end:                                          ; preds = %for.body.us, %if.en
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc zeroext i1 @sd_is_spi(ptr noundef %sd) unnamed_addr #0 {
 entry:
-  %call.i.i = tail call ptr @object_get_class(ptr noundef %sd) #17
-  %call1.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.14, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD_GET_CLASS) #17
+  %call.i.i = tail call ptr @object_get_class(ptr noundef %sd) #18
+  %call1.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.14, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD_GET_CLASS) #18
   %proto.i = getelementptr inbounds i8, ptr %call1.i.i, i64 264
   %0 = load ptr, ptr %proto.i, align 8
   %cmp = icmp eq ptr %0, @sd_proto_spi
@@ -3205,18 +3205,18 @@ if.then.i:                                        ; preds = %land.lhs.true5.i
   br i1 %tobool7.i, label %if.then8.i, label %if.else.i
 
 if.then8.i:                                       ; preds = %if.then.i
-  %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #17
-  %call10.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #18
+  %call10.i = tail call i32 @qemu_get_thread_id() #18
   %4 = load i64, ptr %_now.i, align 8
   %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %5 = load i64, ptr %tv_usec.i, align 8
   %conv11.i = zext nneg i16 %length to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.59, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, i32 noundef %conv11.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.59, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, i32 noundef %conv11.i) #18
   br label %_nocheck__trace_sdcard_set_blocklen.exit
 
 if.else.i:                                        ; preds = %if.then.i
   %conv12.i = zext nneg i16 %length to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.60, i32 noundef %conv12.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.60, i32 noundef %conv12.i) #18
   br label %_nocheck__trace_sdcard_set_blocklen.exit
 
 _nocheck__trace_sdcard_set_blocklen.exit:         ; preds = %entry, %land.lhs.true5.i, %if.then8.i, %if.else.i
@@ -3249,7 +3249,7 @@ if.end:                                           ; preds = %for.body
   br i1 %cmp4, label %if.end7, label %if.else
 
 if.else:                                          ; preds = %if.end
-  tail call void @__assert_fail(ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.6, i32 noundef 872, ptr noundef nonnull @__PRETTY_FUNCTION__.sd_wpbits) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.6, i32 noundef 872, ptr noundef nonnull @__PRETTY_FUNCTION__.sd_wpbits) #19
   unreachable
 
 if.end7:                                          ; preds = %if.end
@@ -3311,16 +3311,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #18
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #18
   %6 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.62, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i32 noundef %0, i32 noundef %1) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.62, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i32 noundef %0, i32 noundef %1) #18
   br label %trace_sdcard_erase.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.63, i32 noundef %0, i32 noundef %1) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.63, i32 noundef %0, i32 noundef %1) #18
   br label %trace_sdcard_erase.exit
 
 trace_sdcard_erase.exit:                          ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -3410,7 +3410,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp34.not, label %for.end, label %for.body, !llvm.loop !12
 
 if.else:                                          ; preds = %for.body.us
-  tail call void @__assert_fail(ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.6, i32 noundef 847, ptr noundef nonnull @__PRETTY_FUNCTION__.sd_erase) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.6, i32 noundef 847, ptr noundef nonnull @__PRETTY_FUNCTION__.sd_erase) #19
   unreachable
 
 for.end.sink.split:                               ; preds = %if.end, %trace_sdcard_erase.exit, %lor.lhs.false
@@ -3440,13 +3440,13 @@ entry:
 
 if.then:                                          ; preds = %entry
   store i32 0, ptr %state, align 4
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %sd, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #17
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %sd, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #18
   tail call void @sd_reset(ptr noundef %call.i)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %call.i.i.i = tail call ptr @object_get_class(ptr noundef nonnull %sd) #17
-  %call1.i.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.14, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD_GET_CLASS) #17
+  %call.i.i.i = tail call ptr @object_get_class(ptr noundef nonnull %sd) #18
+  %call1.i.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.14, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD_GET_CLASS) #18
   %proto.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 264
   %1 = load ptr, ptr %proto.i.i, align 8
   %cmp.i = icmp eq ptr %1, @sd_proto_spi
@@ -3472,8 +3472,8 @@ entry:
 
 if.then:                                          ; preds = %entry
   %req.sroa.0.0.extract.trunc = trunc i64 %req.coerce0 to i32
-  %call.i.i = tail call ptr @object_get_class(ptr noundef %sd) #17
-  %call1.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.14, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD_GET_CLASS) #17
+  %call.i.i = tail call ptr @object_get_class(ptr noundef %sd) #18
+  %call1.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.14, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD_GET_CLASS) #18
   %proto.i = getelementptr inbounds i8, ptr %call1.i.i, i64 264
   %1 = load ptr, ptr %proto.i, align 8
   %2 = load ptr, ptr %1, align 8
@@ -3491,7 +3491,7 @@ if.end.i:                                         ; preds = %if.then
 
 sd_version_str.exit:                              ; preds = %if.then, %if.end.i
   %retval.0.i = phi ptr [ %4, %if.end.i ], [ @.str.57, %if.then ]
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.53, ptr noundef %2, i32 noundef %conv3, ptr noundef %retval.0.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.53, ptr noundef %2, i32 noundef %conv3, ptr noundef %retval.0.i) #18
   br label %do.end
 
 do.end:                                           ; preds = %entry, %sd_version_str.exit
@@ -3508,13 +3508,13 @@ entry:
 
 if.then:                                          ; preds = %entry
   %req.sroa.0.0.extract.trunc = trunc i64 %req.coerce0 to i32
-  %call.i.i = tail call ptr @object_get_class(ptr noundef %sd) #17
-  %call1.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.14, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD_GET_CLASS) #17
+  %call.i.i = tail call ptr @object_get_class(ptr noundef %sd) #18
+  %call1.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.14, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD_GET_CLASS) #18
   %proto.i = getelementptr inbounds i8, ptr %call1.i.i, i64 264
   %1 = load ptr, ptr %proto.i, align 8
   %2 = load ptr, ptr %1, align 8
   %conv3 = and i32 %req.sroa.0.0.extract.trunc, 255
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.58, ptr noundef %2, i32 noundef %conv3) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.58, ptr noundef %2, i32 noundef %conv3) #18
   br label %do.end
 
 do.end:                                           ; preds = %entry, %if.then
@@ -3526,7 +3526,7 @@ define internal void @sd_reset(ptr noundef %dev) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %sect = alloca i64, align 8
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.14, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD) #17
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.14, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD) #18
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %0 = load i32, ptr @trace_events_enabled_count, align 4
   %tobool.i.i = icmp ne i32 %0, 0
@@ -3547,16 +3547,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #18
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #18
   %4 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.49, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.49, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5) #18
   br label %trace_sdcard_reset.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.50) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.50) #18
   br label %trace_sdcard_reset.exit
 
 trace_sdcard_reset.exit:                          ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -3567,7 +3567,7 @@ trace_sdcard_reset.exit:                          ; preds = %entry, %land.lhs.tr
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %trace_sdcard_reset.exit
-  call void @blk_get_geometry(ptr noundef nonnull %6, ptr noundef nonnull %sect) #17
+  call void @blk_get_geometry(ptr noundef nonnull %6, ptr noundef nonnull %sect) #18
   %.pre = load i64, ptr %sect, align 8
   %7 = shl i64 %.pre, 9
   br label %if.end
@@ -3585,8 +3585,8 @@ if.end:                                           ; preds = %trace_sdcard_reset.
   store i64 %shl, ptr %size3, align 8
   %ocr.i = getelementptr inbounds i8, ptr %call.i, i64 164
   store i32 16776960, ptr %ocr.i, align 4
-  %call.i.i.i.i = call ptr @object_get_class(ptr noundef nonnull %call.i) #17
-  %call1.i.i.i.i = call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i.i.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.14, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD_GET_CLASS) #17
+  %call.i.i.i.i = call ptr @object_get_class(ptr noundef nonnull %call.i) #18
+  %call1.i.i.i.i = call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i.i.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.14, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD_GET_CLASS) #18
   %proto.i.i.i = getelementptr inbounds i8, ptr %call1.i.i.i.i, i64 264
   %8 = load ptr, ptr %proto.i.i.i, align 8
   %cmp.i.i = icmp eq ptr %8, @sd_proto_spi
@@ -3778,13 +3778,13 @@ sd_set_csd.exit:                                  ; preds = %for.inc14.i.i49
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %sd_status.i, i8 0, i64 64, i1 false)
   %wp_group_bmap = getelementptr inbounds i8, ptr %call.i, i64 312
   %35 = load ptr, ptr %wp_group_bmap, align 8
-  call void @g_free(ptr noundef %35) #17
+  call void @g_free(ptr noundef %35) #18
   %36 = load ptr, ptr %blk, align 8
   %tobool5.not = icmp eq ptr %36, null
   br i1 %tobool5.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %sd_set_csd.exit
-  %call7 = call zeroext i1 @blk_is_writable(ptr noundef nonnull %36) #17
+  %call7 = call zeroext i1 @blk_is_writable(ptr noundef nonnull %36) #18
   %lnot = xor i1 %call7, true
   %37 = zext i1 %lnot to i8
   br label %cond.end
@@ -3802,12 +3802,12 @@ cond.end:                                         ; preds = %sd_set_csd.exit, %c
   %sub.i.i = add nsw i64 %conv10, 63
   %39 = lshr i64 %sub.i.i, 3
   %mul.i.i = and i64 %39, 2305843009213693944
-  %call.i.i = call noalias ptr @g_try_malloc0(i64 noundef %mul.i.i) #20
+  %call.i.i = call noalias ptr @g_try_malloc0(i64 noundef %mul.i.i) #21
   %cmp.i61 = icmp eq ptr %call.i.i, null
   br i1 %cmp.i61, label %if.then.i62, label %bitmap_new.exit
 
 if.then.i62:                                      ; preds = %cond.end
-  call void @abort() #18
+  call void @abort() #19
   unreachable
 
 bitmap_new.exit:                                  ; preds = %cond.end
@@ -3837,11 +3837,11 @@ declare void @blk_get_geometry(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare void @g_free(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: noreturn nounwind
-declare void @abort() local_unnamed_addr #8
+; Function Attrs: cold nofree noreturn nounwind
+declare void @abort() local_unnamed_addr #10
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @g_try_malloc0(i64 noundef) local_unnamed_addr #10
+declare noalias ptr @g_try_malloc0(i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.bswap.i16(i16) #6
@@ -3876,7 +3876,7 @@ define internal void @sd_cardchange(ptr noundef %opaque, i1 zeroext %load, ptr n
 entry:
   %_now.i.i15 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #17
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #18
   %blk.i = getelementptr inbounds i8, ptr %opaque, i64 288
   %0 = load ptr, ptr %blk.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
@@ -3889,7 +3889,7 @@ sd_get_inserted.exit.thread:                      ; preds = %entry
   br label %if.else
 
 sd_get_inserted.exit:                             ; preds = %entry
-  %call.i14 = tail call zeroext i1 @blk_is_inserted(ptr noundef nonnull %0) #17
+  %call.i14 = tail call zeroext i1 @blk_is_inserted(ptr noundef nonnull %0) #18
   %wp_switch.i = getelementptr inbounds i8, ptr %opaque, i64 308
   %2 = load i8, ptr %wp_switch.i, align 4
   %tobool.i = trunc i8 %2 to i1
@@ -3916,20 +3916,20 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #18
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #18
   %7 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
   %tobool.i.mask34 = and i8 %2, 1
   %conv12.i.i = zext nneg i8 %tobool.i.mask34 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.96, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, i32 noundef %conv12.i.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.96, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, i32 noundef %conv12.i.i) #18
   br label %trace_sdcard_inserted.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
   %tobool.i.mask = and i8 %2, 1
   %conv14.i.i = zext nneg i8 %tobool.i.mask to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.97, i32 noundef %conv14.i.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.97, i32 noundef %conv14.i.i) #18
   br label %trace_sdcard_inserted.exit
 
 trace_sdcard_inserted.exit:                       ; preds = %if.then, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -3959,16 +3959,16 @@ if.then.i.i22:                                    ; preds = %land.lhs.true5.i.i1
   br i1 %tobool7.i.i23, label %if.then8.i.i25, label %if.else.i.i24
 
 if.then8.i.i25:                                   ; preds = %if.then.i.i22
-  %call9.i.i26 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i15, ptr noundef null) #17
-  %call10.i.i27 = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i26 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i15, ptr noundef null) #18
+  %call10.i.i27 = tail call i32 @qemu_get_thread_id() #18
   %13 = load i64, ptr %_now.i.i15, align 8
   %tv_usec.i.i28 = getelementptr inbounds i8, ptr %_now.i.i15, i64 8
   %14 = load i64, ptr %tv_usec.i.i28, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.98, i32 noundef %call10.i.i27, i64 noundef %13, i64 noundef %14) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.98, i32 noundef %call10.i.i27, i64 noundef %13, i64 noundef %14) #18
   br label %trace_sdcard_ejected.exit
 
 if.else.i.i24:                                    ; preds = %if.then.i.i22
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.99) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.99) #18
   br label %trace_sdcard_ejected.exit
 
 trace_sdcard_ejected.exit:                        ; preds = %if.else, %land.lhs.true5.i.i19, %if.then8.i.i25, %if.else.i.i24
@@ -3987,24 +3987,24 @@ if.then7:                                         ; preds = %if.end
   %inserted_cb = getelementptr inbounds i8, ptr %opaque, i64 920
   %17 = load ptr, ptr %inserted_cb, align 8
   %conv = zext i1 %15 to i32
-  tail call void @qemu_set_irq(ptr noundef %17, i32 noundef %conv) #17
+  tail call void @qemu_set_irq(ptr noundef %17, i32 noundef %conv) #18
   br i1 %15, label %if.then10, label %if.end22
 
 if.then10:                                        ; preds = %if.then7
   %readonly_cb = getelementptr inbounds i8, ptr %opaque, i64 912
   %18 = load ptr, ptr %readonly_cb, align 8
   %conv12 = zext i1 %tobool.i32 to i32
-  tail call void @qemu_set_irq(ptr noundef %18, i32 noundef %conv12) #17
+  tail call void @qemu_set_irq(ptr noundef %18, i32 noundef %conv12) #18
   br label %if.end22
 
 if.else14:                                        ; preds = %if.end
-  %call15 = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i) #17
-  %call.i29 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call15, ptr noundef nonnull @.str.100, ptr noundef nonnull @.str.14, i32 noundef 136, ptr noundef nonnull @__func__.SD_BUS) #17
-  tail call void @sdbus_set_inserted(ptr noundef %call.i29, i1 noundef zeroext %15) #17
+  %call15 = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i) #18
+  %call.i29 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call15, ptr noundef nonnull @.str.100, ptr noundef nonnull @.str.14, i32 noundef 136, ptr noundef nonnull @__func__.SD_BUS) #18
+  tail call void @sdbus_set_inserted(ptr noundef %call.i29, i1 noundef zeroext %15) #18
   br i1 %15, label %if.then19, label %if.end22
 
 if.then19:                                        ; preds = %if.else14
-  tail call void @sdbus_set_readonly(ptr noundef %call.i29, i1 noundef zeroext %tobool.i32) #17
+  tail call void @sdbus_set_readonly(ptr noundef %call.i29, i1 noundef zeroext %tobool.i32) #18
   br label %if.end22
 
 if.end22:                                         ; preds = %if.else14, %if.then19, %if.then7, %if.then10
@@ -4020,7 +4020,7 @@ entry:
   br i1 %tobool.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %entry
-  %call = tail call zeroext i1 @blk_is_inserted(ptr noundef nonnull %0) #17
+  %call = tail call zeroext i1 @blk_is_inserted(ptr noundef nonnull %0) #18
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %entry
@@ -4029,7 +4029,7 @@ land.end:                                         ; preds = %land.rhs, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @sd_get_readonly(ptr nocapture noundef readonly %sd) #11 {
+define internal zeroext i1 @sd_get_readonly(ptr nocapture noundef readonly %sd) #12 {
 entry:
   %wp_switch = getelementptr inbounds i8, ptr %sd, i64 308
   %0 = load i8, ptr %wp_switch, align 4
@@ -4048,11 +4048,11 @@ declare void @type_register_static_array(ptr noundef, i32 noundef) local_unnamed
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @sd_instance_init(ptr noundef %obj) #0 {
 entry:
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.14, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD) #17
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.14, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD) #18
   %enable = getelementptr inbounds i8, ptr %call.i, i64 936
   store i8 1, ptr %enable, align 8
-  %call.i.i.i = tail call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #21
-  tail call void @timer_init_full(ptr noundef %call.i.i.i, ptr noundef null, i32 noundef 1, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @sd_ocr_powerup, ptr noundef %call.i) #17
+  %call.i.i.i = tail call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #22
+  tail call void @timer_init_full(ptr noundef %call.i.i.i, ptr noundef null, i32 noundef 1, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @sd_ocr_powerup, ptr noundef %call.i) #18
   %ocr_power_timer = getelementptr inbounds i8, ptr %call.i, i64 928
   store ptr %call.i.i.i, ptr %ocr_power_timer, align 8
   ret void
@@ -4061,15 +4061,15 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @sd_instance_finalize(ptr noundef %obj) #0 {
 entry:
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.14, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD) #17
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.14, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD) #18
   %ocr_power_timer = getelementptr inbounds i8, ptr %call.i, i64 928
   %0 = load ptr, ptr %ocr_power_timer, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %timer_free.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void @timer_del(ptr noundef nonnull %0) #17
-  tail call void @g_free(ptr noundef nonnull %0) #17
+  tail call void @timer_del(ptr noundef nonnull %0) #18
+  tail call void @g_free(ptr noundef nonnull %0) #18
   br label %timer_free.exit
 
 timer_free.exit:                                  ; preds = %entry, %if.then.i
@@ -4079,11 +4079,11 @@ timer_free.exit:                                  ; preds = %entry, %if.then.i
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @sd_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
 entry:
-  %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #17
-  %call.i18 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.14, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD_CLASS) #17
+  %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #18
+  %call.i18 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.14, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD_CLASS) #18
   %realize = getelementptr inbounds i8, ptr %call.i, i64 144
   store ptr @sd_realize, ptr %realize, align 8
-  tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @sd_properties) #17
+  tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @sd_properties) #18
   %vmsd = getelementptr inbounds i8, ptr %call.i, i64 160
   store ptr @sd_vmstate, ptr %vmsd, align 8
   %reset = getelementptr inbounds i8, ptr %call.i, i64 136
@@ -4124,8 +4124,8 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @sd_spi_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
 entry:
-  %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #17
-  %call.i2 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.14, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD_CLASS) #17
+  %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #18
+  %call.i2 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.14, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD_CLASS) #18
   %desc = getelementptr inbounds i8, ptr %call.i, i64 112
   store ptr @.str.135, ptr %desc, align 8
   %proto = getelementptr inbounds i8, ptr %call.i2, i64 264
@@ -4134,7 +4134,7 @@ entry:
 }
 
 ; Function Attrs: allocsize(0,1)
-declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #12
+declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #13
 
 declare void @timer_init_full(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -4164,18 +4164,18 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #18
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #18
   %4 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i16 %millivolts to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.132, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, i32 noundef %conv11.i.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.132, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, i32 noundef %conv11.i.i) #18
   br label %trace_sdcard_set_voltage.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
   %conv12.i.i = zext i16 %millivolts to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.133, i32 noundef %conv12.i.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.133, i32 noundef %conv12.i.i) #18
   br label %trace_sdcard_set_voltage.exit
 
 trace_sdcard_set_voltage.exit:                    ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -4195,7 +4195,7 @@ if.then:                                          ; preds = %do.body
   %conv7 = uitofp i16 %millivolts to float
   %div = fdiv float %conv7, 1.000000e+03
   %conv8 = fpext float %div to double
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.131, double noundef %conv8) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.131, double noundef %conv8) #18
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %if.then, %do.body, %trace_sdcard_set_voltage.exit
@@ -4203,7 +4203,7 @@ sw.epilog:                                        ; preds = %if.then, %do.body, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i8 @sd_get_dat_lines(ptr nocapture noundef readonly %sd) #11 {
+define internal zeroext i8 @sd_get_dat_lines(ptr nocapture noundef readonly %sd) #12 {
 entry:
   %enable = getelementptr inbounds i8, ptr %sd, i64 936
   %0 = load i8, ptr %enable, align 8
@@ -4221,7 +4221,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @sd_get_cmd_line(ptr nocapture noundef readonly %sd) #11 {
+define internal zeroext i1 @sd_get_cmd_line(ptr nocapture noundef readonly %sd) #12 {
 entry:
   %enable = getelementptr inbounds i8, ptr %sd, i64 936
   %0 = load i8, ptr %enable, align 8
@@ -4241,7 +4241,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @sd_receive_ready(ptr nocapture noundef readonly %sd) #11 {
+define internal zeroext i1 @sd_receive_ready(ptr nocapture noundef readonly %sd) #12 {
 entry:
   %state = getelementptr inbounds i8, ptr %sd, i64 300
   %0 = load i32, ptr %state, align 4
@@ -4250,7 +4250,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @sd_data_ready(ptr nocapture noundef readonly %sd) #11 {
+define internal zeroext i1 @sd_data_ready(ptr nocapture noundef readonly %sd) #12 {
 entry:
   %state = getelementptr inbounds i8, ptr %sd, i64 300
   %0 = load i32, ptr %state, align 4
@@ -4266,7 +4266,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @sd_ocr_vmstate_needed(ptr nocapture noundef readonly %opaque) #11 {
+define internal zeroext i1 @sd_ocr_vmstate_needed(ptr nocapture noundef readonly %opaque) #12 {
 entry:
   %ocr = getelementptr inbounds i8, ptr %opaque, i64 164
   %0 = load i32, ptr %ocr, align 4
@@ -4290,8 +4290,8 @@ if.then:                                          ; preds = %entry
 
 if.then.i:                                        ; preds = %if.then
   %req.sroa.0.0.extract.trunc.i = trunc i64 %req.coerce0 to i32
-  %call.i.i.i = tail call ptr @object_get_class(ptr noundef nonnull %sd) #17
-  %call1.i.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.14, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD_GET_CLASS) #17
+  %call.i.i.i = tail call ptr @object_get_class(ptr noundef nonnull %sd) #18
+  %call1.i.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.14, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD_GET_CLASS) #18
   %proto.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 264
   %2 = load ptr, ptr %proto.i.i, align 8
   %3 = load ptr, ptr %2, align 8
@@ -4305,7 +4305,7 @@ if.end.i.i:                                       ; preds = %if.then.i
   br i1 %cmp1.i.i, label %if.end4.i.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.end.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.6, i32 noundef 197, ptr noundef nonnull @__PRETTY_FUNCTION__.sd_state_name) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.6, i32 noundef 197, ptr noundef nonnull @__PRETTY_FUNCTION__.sd_state_name) #19
   unreachable
 
 if.end4.i.i:                                      ; preds = %if.end.i.i
@@ -4329,7 +4329,7 @@ if.end.i5.i:                                      ; preds = %sd_state_name.exit.
 
 sd_version_str.exit.i:                            ; preds = %if.end.i5.i, %sd_state_name.exit.i
   %retval.0.i8.i = phi ptr [ %7, %if.end.i5.i ], [ @.str.57, %sd_state_name.exit.i ]
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.64, ptr noundef %3, i32 noundef %conv3.i, ptr noundef %retval.0.i.i, ptr noundef %retval.0.i8.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.64, ptr noundef %3, i32 noundef %conv3.i, ptr noundef %retval.0.i.i, ptr noundef %retval.0.i8.i) #18
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -4366,8 +4366,8 @@ sw.default:                                       ; preds = %entry
 
 if.then.i:                                        ; preds = %sw.default
   %req.sroa.0.0.extract.trunc.i = trunc i64 %req.coerce0 to i32
-  %call.i.i.i = tail call ptr @object_get_class(ptr noundef nonnull %sd) #17
-  %call1.i.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.14, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD_GET_CLASS) #17
+  %call.i.i.i = tail call ptr @object_get_class(ptr noundef nonnull %sd) #18
+  %call1.i.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.14, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD_GET_CLASS) #18
   %proto.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 264
   %4 = load ptr, ptr %proto.i.i, align 8
   %5 = load ptr, ptr %4, align 8
@@ -4381,7 +4381,7 @@ if.end.i.i:                                       ; preds = %if.then.i
   br i1 %cmp1.i.i, label %if.end4.i.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.end.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.6, i32 noundef 197, ptr noundef nonnull @__PRETTY_FUNCTION__.sd_state_name) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.6, i32 noundef 197, ptr noundef nonnull @__PRETTY_FUNCTION__.sd_state_name) #19
   unreachable
 
 if.end4.i.i:                                      ; preds = %if.end.i.i
@@ -4405,7 +4405,7 @@ if.end.i5.i:                                      ; preds = %sd_state_name.exit.
 
 sd_version_str.exit.i:                            ; preds = %if.end.i5.i, %sd_state_name.exit.i
   %retval.0.i8.i = phi ptr [ %9, %if.end.i5.i ], [ @.str.57, %sd_state_name.exit.i ]
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.64, ptr noundef %5, i32 noundef %conv3.i, ptr noundef %retval.0.i.i, ptr noundef %retval.0.i8.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.64, ptr noundef %5, i32 noundef %conv3.i, ptr noundef %retval.0.i.i, ptr noundef %retval.0.i8.i) #18
   br label %return
 
 return:                                           ; preds = %sd_version_str.exit.i, %sw.default, %sw.bb
@@ -4429,8 +4429,8 @@ if.then:                                          ; preds = %entry
 
 if.then.i:                                        ; preds = %if.then
   %req.sroa.0.0.extract.trunc.i = trunc i64 %req.coerce0 to i32
-  %call.i.i.i = tail call ptr @object_get_class(ptr noundef nonnull %sd) #17
-  %call1.i.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.14, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD_GET_CLASS) #17
+  %call.i.i.i = tail call ptr @object_get_class(ptr noundef nonnull %sd) #18
+  %call1.i.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.14, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD_GET_CLASS) #18
   %proto.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 264
   %2 = load ptr, ptr %proto.i.i, align 8
   %3 = load ptr, ptr %2, align 8
@@ -4447,7 +4447,7 @@ if.end.i.i:                                       ; preds = %if.then.i
 
 sd_version_str.exit.i:                            ; preds = %if.end.i.i, %if.then.i
   %retval.0.i.i = phi ptr [ %5, %if.end.i.i ], [ @.str.57, %if.then.i ]
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.53, ptr noundef %3, i32 noundef %conv3.i, ptr noundef %retval.0.i.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.53, ptr noundef %3, i32 noundef %conv3.i, ptr noundef %retval.0.i.i) #18
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -4464,8 +4464,8 @@ if.then4:                                         ; preds = %if.end
 
 if.then.i10:                                      ; preds = %if.then4
   %req.sroa.0.0.extract.trunc.i11 = trunc i64 %req.coerce0 to i32
-  %call.i.i.i12 = tail call ptr @object_get_class(ptr noundef nonnull %sd) #17
-  %call1.i.i.i13 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i.i12, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.14, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD_GET_CLASS) #17
+  %call.i.i.i12 = tail call ptr @object_get_class(ptr noundef nonnull %sd) #18
+  %call1.i.i.i13 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i.i12, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.14, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD_GET_CLASS) #18
   %proto.i.i14 = getelementptr inbounds i8, ptr %call1.i.i.i13, i64 264
   %8 = load ptr, ptr %proto.i.i14, align 8
   %9 = load ptr, ptr %8, align 8
@@ -4479,7 +4479,7 @@ if.end.i.i16:                                     ; preds = %if.then.i10
   br i1 %cmp1.i.i, label %if.end4.i.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.end.i.i16
-  tail call void @__assert_fail(ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.6, i32 noundef 197, ptr noundef nonnull @__PRETTY_FUNCTION__.sd_state_name) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.6, i32 noundef 197, ptr noundef nonnull @__PRETTY_FUNCTION__.sd_state_name) #19
   unreachable
 
 if.end4.i.i:                                      ; preds = %if.end.i.i16
@@ -4502,7 +4502,7 @@ if.end.i5.i:                                      ; preds = %sd_state_name.exit.
 
 sd_version_str.exit.i21:                          ; preds = %if.end.i5.i, %sd_state_name.exit.i
   %retval.0.i8.i = phi ptr [ %13, %if.end.i5.i ], [ @.str.57, %sd_state_name.exit.i ]
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.64, ptr noundef %9, i32 noundef %conv3.i15, ptr noundef %retval.0.i.i19, ptr noundef %retval.0.i8.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.64, ptr noundef %9, i32 noundef %conv3.i15, ptr noundef %retval.0.i.i19, ptr noundef %retval.0.i8.i) #18
   br label %return
 
 if.end7:                                          ; preds = %if.end
@@ -4534,8 +4534,8 @@ if.then:                                          ; preds = %entry
 
 if.then.i:                                        ; preds = %if.then
   %req.sroa.0.0.extract.trunc.i = trunc i64 %req.coerce0 to i32
-  %call.i.i.i = tail call ptr @object_get_class(ptr noundef nonnull %sd) #17
-  %call1.i.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.14, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD_GET_CLASS) #17
+  %call.i.i.i = tail call ptr @object_get_class(ptr noundef nonnull %sd) #18
+  %call1.i.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.14, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD_GET_CLASS) #18
   %proto.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 264
   %2 = load ptr, ptr %proto.i.i, align 8
   %3 = load ptr, ptr %2, align 8
@@ -4552,7 +4552,7 @@ if.end.i.i:                                       ; preds = %if.then.i
 
 sd_version_str.exit.i:                            ; preds = %if.end.i.i, %if.then.i
   %retval.0.i.i = phi ptr [ %5, %if.end.i.i ], [ @.str.57, %if.then.i ]
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.53, ptr noundef %3, i32 noundef %conv3.i, ptr noundef %retval.0.i.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.53, ptr noundef %3, i32 noundef %conv3.i, ptr noundef %retval.0.i.i) #18
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -4569,8 +4569,8 @@ if.then4:                                         ; preds = %if.end
 
 if.then.i15:                                      ; preds = %if.then4
   %req.sroa.0.0.extract.trunc.i16 = trunc i64 %req.coerce0 to i32
-  %call.i.i.i17 = tail call ptr @object_get_class(ptr noundef nonnull %sd) #17
-  %call1.i.i.i18 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i.i17, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.14, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD_GET_CLASS) #17
+  %call.i.i.i17 = tail call ptr @object_get_class(ptr noundef nonnull %sd) #18
+  %call1.i.i.i18 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i.i17, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.14, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD_GET_CLASS) #18
   %proto.i.i19 = getelementptr inbounds i8, ptr %call1.i.i.i18, i64 264
   %8 = load ptr, ptr %proto.i.i19, align 8
   %9 = load ptr, ptr %8, align 8
@@ -4584,7 +4584,7 @@ if.end.i.i21:                                     ; preds = %if.then.i15
   br i1 %cmp1.i.i, label %if.end4.i.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.end.i.i21
-  tail call void @__assert_fail(ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.6, i32 noundef 197, ptr noundef nonnull @__PRETTY_FUNCTION__.sd_state_name) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.6, i32 noundef 197, ptr noundef nonnull @__PRETTY_FUNCTION__.sd_state_name) #19
   unreachable
 
 if.end4.i.i:                                      ; preds = %if.end.i.i21
@@ -4607,7 +4607,7 @@ if.end.i5.i:                                      ; preds = %sd_state_name.exit.
 
 sd_version_str.exit.i26:                          ; preds = %if.end.i5.i, %sd_state_name.exit.i
   %retval.0.i8.i = phi ptr [ %13, %if.end.i5.i ], [ @.str.57, %sd_state_name.exit.i ]
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.64, ptr noundef %9, i32 noundef %conv3.i20, ptr noundef %retval.0.i.i24, ptr noundef %retval.0.i8.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.64, ptr noundef %9, i32 noundef %conv3.i20, ptr noundef %retval.0.i.i24, ptr noundef %retval.0.i8.i) #18
   br label %return
 
 if.end7:                                          ; preds = %if.end
@@ -4621,19 +4621,19 @@ return:                                           ; preds = %sd_version_str.exit
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #13
+declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #14
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #14
+declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctpop.i64(i64) #15
+declare i64 @llvm.ctpop.i64(i64) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -4645,18 +4645,19 @@ attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable wi
 attributes #7 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nofree nounwind }
-attributes #14 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #16 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #17 = { nounwind }
-attributes #18 = { noreturn nounwind }
-attributes #19 = { cold }
-attributes #20 = { nounwind allocsize(0) }
-attributes #21 = { nounwind allocsize(0,1) }
+attributes #10 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nofree nounwind }
+attributes #15 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #17 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #18 = { nounwind }
+attributes #19 = { noreturn nounwind }
+attributes #20 = { cold }
+attributes #21 = { nounwind allocsize(0) }
+attributes #22 = { nounwind allocsize(0,1) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

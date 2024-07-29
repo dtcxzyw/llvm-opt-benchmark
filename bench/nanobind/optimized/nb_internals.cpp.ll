@@ -116,11 +116,11 @@ define hidden void @_ZN8nanobind6detail28default_exception_translatorERKNSt15__e
   br i1 %.not.i, label %_ZNSt15__exception_ptr13exception_ptrC2ERKS0_.exit, label %5
 
 5:                                                ; preds = %2
-  call void @_ZNSt15__exception_ptr13exception_ptr9_M_addrefEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #15
+  call void @_ZNSt15__exception_ptr13exception_ptr9_M_addrefEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #16
   br label %_ZNSt15__exception_ptr13exception_ptrC2ERKS0_.exit
 
 _ZNSt15__exception_ptr13exception_ptrC2ERKS0_.exit: ; preds = %2, %5
-  invoke void @_ZSt17rethrow_exceptionNSt15__exception_ptr13exception_ptrE(ptr noundef nonnull %3) #16
+  invoke void @_ZSt17rethrow_exceptionNSt15__exception_ptr13exception_ptrE(ptr noundef nonnull %3) #17
           to label %6 unwind label %7
 
 6:                                                ; preds = %_ZNSt15__exception_ptr13exception_ptrC2ERKS0_.exit
@@ -144,21 +144,21 @@ _ZNSt15__exception_ptr13exception_ptrC2ERKS0_.exit: ; preds = %2, %5
   br i1 %.not.i21, label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, label %12
 
 12:                                               ; preds = %7
-  call void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #15
+  call void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #16
   br label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit
 
 _ZNSt15__exception_ptr13exception_ptrD2Ev.exit:   ; preds = %7, %12
-  %13 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9bad_alloc) #15
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9bad_alloc) #16
   %14 = icmp eq i32 %10, %13
   br i1 %14, label %15, label %23
 
 15:                                               ; preds = %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit
-  %16 = call ptr @__cxa_begin_catch(ptr %9) #15
+  %16 = call ptr @__cxa_begin_catch(ptr %9) #16
   %17 = load ptr, ptr @PyExc_MemoryError, align 8
   %18 = load ptr, ptr %16, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8
-  %21 = call noundef ptr %20(ptr noundef nonnull align 8 dereferenceable(8) %16) #15
+  %21 = call noundef ptr %20(ptr noundef nonnull align 8 dereferenceable(8) %16) #16
   invoke void @PyErr_SetString(ptr noundef %17, ptr noundef %21)
           to label %22 unwind label %107
 
@@ -167,107 +167,107 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit:   ; preds = %7, %12
   ret void
 
 23:                                               ; preds = %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit
-  %24 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt12domain_error) #15
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt12domain_error) #16
   %25 = icmp eq i32 %10, %24
   br i1 %25, label %26, label %33
 
 26:                                               ; preds = %23
-  %27 = call ptr @__cxa_begin_catch(ptr %9) #15
+  %27 = call ptr @__cxa_begin_catch(ptr %9) #16
   %28 = load ptr, ptr @PyExc_ValueError, align 8
   %29 = load ptr, ptr %27, align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 16
   %31 = load ptr, ptr %30, align 8
-  %32 = call noundef ptr %31(ptr noundef nonnull align 8 dereferenceable(16) %27) #15
+  %32 = call noundef ptr %31(ptr noundef nonnull align 8 dereferenceable(16) %27) #16
   invoke void @PyErr_SetString(ptr noundef %28, ptr noundef %32)
           to label %22 unwind label %105
 
 33:                                               ; preds = %23
-  %34 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #15
+  %34 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #16
   %35 = icmp eq i32 %10, %34
   br i1 %35, label %36, label %43
 
 36:                                               ; preds = %33
-  %37 = call ptr @__cxa_begin_catch(ptr %9) #15
+  %37 = call ptr @__cxa_begin_catch(ptr %9) #16
   %38 = load ptr, ptr @PyExc_ValueError, align 8
   %39 = load ptr, ptr %37, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 16
   %41 = load ptr, ptr %40, align 8
-  %42 = call noundef ptr %41(ptr noundef nonnull align 8 dereferenceable(16) %37) #15
+  %42 = call noundef ptr %41(ptr noundef nonnull align 8 dereferenceable(16) %37) #16
   invoke void @PyErr_SetString(ptr noundef %38, ptr noundef %42)
           to label %22 unwind label %103
 
 43:                                               ; preds = %33
-  %44 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt12length_error) #15
+  %44 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt12length_error) #16
   %45 = icmp eq i32 %10, %44
   br i1 %45, label %46, label %53
 
 46:                                               ; preds = %43
-  %47 = call ptr @__cxa_begin_catch(ptr %9) #15
+  %47 = call ptr @__cxa_begin_catch(ptr %9) #16
   %48 = load ptr, ptr @PyExc_ValueError, align 8
   %49 = load ptr, ptr %47, align 8
   %50 = getelementptr inbounds i8, ptr %49, i64 16
   %51 = load ptr, ptr %50, align 8
-  %52 = call noundef ptr %51(ptr noundef nonnull align 8 dereferenceable(16) %47) #15
+  %52 = call noundef ptr %51(ptr noundef nonnull align 8 dereferenceable(16) %47) #16
   invoke void @PyErr_SetString(ptr noundef %48, ptr noundef %52)
           to label %22 unwind label %101
 
 53:                                               ; preds = %43
-  %54 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt12out_of_range) #15
+  %54 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt12out_of_range) #16
   %55 = icmp eq i32 %10, %54
   br i1 %55, label %56, label %63
 
 56:                                               ; preds = %53
-  %57 = call ptr @__cxa_begin_catch(ptr %9) #15
+  %57 = call ptr @__cxa_begin_catch(ptr %9) #16
   %58 = load ptr, ptr @PyExc_IndexError, align 8
   %59 = load ptr, ptr %57, align 8
   %60 = getelementptr inbounds i8, ptr %59, i64 16
   %61 = load ptr, ptr %60, align 8
-  %62 = call noundef ptr %61(ptr noundef nonnull align 8 dereferenceable(16) %57) #15
+  %62 = call noundef ptr %61(ptr noundef nonnull align 8 dereferenceable(16) %57) #16
   invoke void @PyErr_SetString(ptr noundef %58, ptr noundef %62)
           to label %22 unwind label %99
 
 63:                                               ; preds = %53
-  %64 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt11range_error) #15
+  %64 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt11range_error) #16
   %65 = icmp eq i32 %10, %64
   br i1 %65, label %66, label %73
 
 66:                                               ; preds = %63
-  %67 = call ptr @__cxa_begin_catch(ptr %9) #15
+  %67 = call ptr @__cxa_begin_catch(ptr %9) #16
   %68 = load ptr, ptr @PyExc_ValueError, align 8
   %69 = load ptr, ptr %67, align 8
   %70 = getelementptr inbounds i8, ptr %69, i64 16
   %71 = load ptr, ptr %70, align 8
-  %72 = call noundef ptr %71(ptr noundef nonnull align 8 dereferenceable(16) %67) #15
+  %72 = call noundef ptr %71(ptr noundef nonnull align 8 dereferenceable(16) %67) #16
   invoke void @PyErr_SetString(ptr noundef %68, ptr noundef %72)
           to label %22 unwind label %97
 
 73:                                               ; preds = %63
-  %74 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt14overflow_error) #15
+  %74 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt14overflow_error) #16
   %75 = icmp eq i32 %10, %74
   br i1 %75, label %76, label %83
 
 76:                                               ; preds = %73
-  %77 = call ptr @__cxa_begin_catch(ptr %9) #15
+  %77 = call ptr @__cxa_begin_catch(ptr %9) #16
   %78 = load ptr, ptr @PyExc_OverflowError, align 8
   %79 = load ptr, ptr %77, align 8
   %80 = getelementptr inbounds i8, ptr %79, i64 16
   %81 = load ptr, ptr %80, align 8
-  %82 = call noundef ptr %81(ptr noundef nonnull align 8 dereferenceable(16) %77) #15
+  %82 = call noundef ptr %81(ptr noundef nonnull align 8 dereferenceable(16) %77) #16
   invoke void @PyErr_SetString(ptr noundef %78, ptr noundef %82)
           to label %22 unwind label %95
 
 83:                                               ; preds = %73
-  %84 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #15
+  %84 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #16
   %85 = icmp eq i32 %10, %84
   br i1 %85, label %86, label %109
 
 86:                                               ; preds = %83
-  %87 = call ptr @__cxa_begin_catch(ptr %9) #15
+  %87 = call ptr @__cxa_begin_catch(ptr %9) #16
   %88 = load ptr, ptr @PyExc_RuntimeError, align 8
   %89 = load ptr, ptr %87, align 8
   %90 = getelementptr inbounds i8, ptr %89, i64 16
   %91 = load ptr, ptr %90, align 8
-  %92 = call noundef ptr %91(ptr noundef nonnull align 8 dereferenceable(8) %87) #15
+  %92 = call noundef ptr %91(ptr noundef nonnull align 8 dereferenceable(8) %87) #16
   invoke void @PyErr_SetString(ptr noundef %88, ptr noundef %92)
           to label %22 unwind label %93
 
@@ -327,7 +327,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit:   ; preds = %7, %12
   %111 = landingpad { ptr, i32 }
           catch ptr null
   %112 = extractvalue { ptr, i32 } %111, 0
-  call void @__clang_call_terminate(ptr %112) #17
+  call void @__clang_call_terminate(ptr %112) #18
   unreachable
 }
 
@@ -344,8 +344,8 @@ declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #3 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #15
-  tail call void @_ZSt9terminatev() #17
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #16
+  tail call void @_ZSt9terminatev() #18
   unreachable
 }
 
@@ -373,7 +373,7 @@ define void @_ZN8nanobind6detail4initEPKc(ptr noundef %0) local_unnamed_addr #0 
   br i1 %.not43, label %7, label %8
 
 7:                                                ; preds = %4
-  tail call void @_ZN8nanobind6detail16fail_unspecifiedEv() #17
+  tail call void @_ZN8nanobind6detail16fail_unspecifiedEv() #18
   unreachable
 
 8:                                                ; preds = %4
@@ -384,7 +384,7 @@ define void @_ZN8nanobind6detail4initEPKc(ptr noundef %0) local_unnamed_addr #0 
   br i1 %.not45, label %11, label %12
 
 11:                                               ; preds = %8
-  tail call void @_ZN8nanobind6detail16fail_unspecifiedEv() #17
+  tail call void @_ZN8nanobind6detail16fail_unspecifiedEv() #18
   unreachable
 
 12:                                               ; preds = %8
@@ -410,7 +410,7 @@ _ZL10_Py_DECREFP7_object.exit:                    ; preds = %14, %17
   br i1 %.not59, label %19, label %20
 
 19:                                               ; preds = %_ZL10_Py_DECREFP7_object.exit
-  tail call void @_ZN8nanobind6detail16fail_unspecifiedEv() #17
+  tail call void @_ZN8nanobind6detail16fail_unspecifiedEv() #18
   unreachable
 
 20:                                               ; preds = %_ZL10_Py_DECREFP7_object.exit
@@ -423,7 +423,7 @@ _ZL10_Py_DECREFP7_object.exit:                    ; preds = %14, %17
   br label %_ZN8nanobind3strD2Ev.exit
 
 25:                                               ; preds = %12
-  %26 = tail call noalias noundef nonnull dereferenceable(520) ptr @_Znwm(i64 noundef 520) #18
+  %26 = tail call noalias noundef nonnull dereferenceable(520) ptr @_Znwm(i64 noundef 520) #19
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(520) %26, i8 0, i64 520, i1 false)
   invoke void @_ZN8nanobind6detail12nb_internalsC2Ev(ptr noundef nonnull align 8 dereferenceable(520) %26)
           to label %27 unwind label %56
@@ -495,19 +495,19 @@ _ZL10_Py_DECREFP7_object.exit:                    ; preds = %14, %17
   br i1 %spec.select, label %.critedge, label %60
 
 .critedge:                                        ; preds = %51, %49, %47, %44, %53
-  tail call void @_ZN8nanobind6detail16fail_unspecifiedEv() #17
+  tail call void @_ZN8nanobind6detail16fail_unspecifiedEv() #18
   unreachable
 
 56:                                               ; preds = %25
   %57 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %26) #19
+  tail call void @_ZdlPv(ptr noundef nonnull %26) #20
   br label %105
 
 58:                                               ; preds = %97, %94, %77, %74, %86, %84, %_ZL10_Py_DECREFP7_object.exit63, %78, %70, %67, %65, %60, %41, %38, %35, %32, %30, %27
   %59 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8nanobind3strD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #15
+  call void @_ZN8nanobind3strD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #16
   br label %105
 
 60:                                               ; preds = %53
@@ -578,7 +578,7 @@ _ZL10_Py_DECREFP7_object.exit63:                  ; preds = %_ZL11_Py_XDECREFP7_
 
 81:                                               ; preds = %80
   %82 = load ptr, ptr @stderr, align 8
-  %83 = tail call i64 @fwrite(ptr nonnull @.str.7, i64 298, i64 1, ptr %82) #20
+  %83 = tail call i64 @fwrite(ptr nonnull @.str.7, i64 298, i64 1, ptr %82) #21
   br label %84
 
 84:                                               ; preds = %81, %80
@@ -596,7 +596,7 @@ _ZL10_Py_DECREFP7_object.exit63:                  ; preds = %_ZL11_Py_XDECREFP7_
   br i1 %.not57, label %90, label %91
 
 90:                                               ; preds = %88
-  tail call void @_ZN8nanobind6detail16fail_unspecifiedEv() #17
+  tail call void @_ZN8nanobind6detail16fail_unspecifiedEv() #18
   unreachable
 
 91:                                               ; preds = %88
@@ -641,7 +641,7 @@ _ZL10_Py_DECREFP7_object.exit69:                  ; preds = %_ZL10_Py_DECREFP7_o
   %103 = landingpad { ptr, i32 }
           catch ptr null
   %104 = extractvalue { ptr, i32 } %103, 0
-  tail call void @__clang_call_terminate(ptr %104) #17
+  tail call void @__clang_call_terminate(ptr %104) #18
   unreachable
 
 _ZN8nanobind3strD2Ev.exit:                        ; preds = %101, %98, %_ZL10_Py_DECREFP7_object.exit69, %1, %20
@@ -658,7 +658,7 @@ declare ptr @PyInterpreterState_Get() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
 define hidden void @_ZN8nanobind6detail16fail_unspecifiedEv() local_unnamed_addr #5 {
-  tail call void (ptr, ...) @_ZN8nanobind6detail4failEPKcz(ptr noundef nonnull @.str.8) #17
+  tail call void (ptr, ...) @_ZN8nanobind6detail4failEPKcz(ptr noundef nonnull @.str.8) #18
   unreachable
 }
 
@@ -687,7 +687,7 @@ define linkonce_odr hidden void @_ZN8nanobind6detail12nb_internalsC2Ev(ptr nound
   br i1 %6, label %7, label %_ZN3tsl9robin_mapIPvS1_N8nanobind6detail8ptr_hashESt8equal_toIS1_ESaISt4pairIS1_S1_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEEC2Ev.exit, !prof !4
 
 7:                                                ; preds = %1
-  %8 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E23static_empty_bucket_ptrEvE12empty_bucket) #15
+  %8 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E23static_empty_bucket_ptrEvE12empty_bucket) #16
   %.not.i10.i.i = icmp eq i32 %8, 0
   br i1 %.not.i10.i.i, label %_ZN3tsl9robin_mapIPvS1_N8nanobind6detail8ptr_hashESt8equal_toIS1_ESaISt4pairIS1_S1_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEEC2Ev.exit, label %9
 
@@ -695,8 +695,8 @@ define linkonce_odr hidden void @_ZN8nanobind6detail12nb_internalsC2Ev(ptr nound
   store i32 0, ptr @_ZZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E23static_empty_bucket_ptrEvE12empty_bucket, align 8
   store i16 -1, ptr getelementptr inbounds (i8, ptr @_ZZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E23static_empty_bucket_ptrEvE12empty_bucket, i64 4), align 4
   store i8 1, ptr getelementptr inbounds (i8, ptr @_ZZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E23static_empty_bucket_ptrEvE12empty_bucket, i64 6), align 2
-  %10 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EED2Ev, ptr nonnull @_ZZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E23static_empty_bucket_ptrEvE12empty_bucket, ptr nonnull @__dso_handle) #15
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E23static_empty_bucket_ptrEvE12empty_bucket) #15
+  %10 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EED2Ev, ptr nonnull @_ZZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E23static_empty_bucket_ptrEvE12empty_bucket, ptr nonnull @__dso_handle) #16
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E23static_empty_bucket_ptrEvE12empty_bucket) #16
   br label %_ZN3tsl9robin_mapIPvS1_N8nanobind6detail8ptr_hashESt8equal_toIS1_ESaISt4pairIS1_S1_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEEC2Ev.exit
 
 _ZN3tsl9robin_mapIPvS1_N8nanobind6detail8ptr_hashESt8equal_toIS1_ESaISt4pairIS1_S1_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEEC2Ev.exit: ; preds = %1, %7, %9
@@ -719,7 +719,7 @@ _ZN3tsl9robin_mapIPvS1_N8nanobind6detail8ptr_hashESt8equal_toIS1_ESaISt4pairIS1_
   br i1 %19, label %20, label %24, !prof !4
 
 20:                                               ; preds = %_ZN3tsl9robin_mapIPvS1_N8nanobind6detail8ptr_hashESt8equal_toIS1_ESaISt4pairIS1_S1_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEEC2Ev.exit
-  %21 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_8ptr_hashESt8equal_toIS5_ESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSJ_11ValueSelectESC_SE_SF_Lb0ESI_E23static_empty_bucket_ptrEvE12empty_bucket) #15
+  %21 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_8ptr_hashESt8equal_toIS5_ESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSJ_11ValueSelectESC_SE_SF_Lb0ESI_E23static_empty_bucket_ptrEvE12empty_bucket) #16
   %.not.i10.i.i8 = icmp eq i32 %21, 0
   br i1 %.not.i10.i.i8, label %24, label %22
 
@@ -727,8 +727,8 @@ _ZN3tsl9robin_mapIPvS1_N8nanobind6detail8ptr_hashESt8equal_toIS1_ESaISt4pairIS1_
   store i32 0, ptr @_ZZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_8ptr_hashESt8equal_toIS5_ESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSJ_11ValueSelectESC_SE_SF_Lb0ESI_E23static_empty_bucket_ptrEvE12empty_bucket, align 8
   store i16 -1, ptr getelementptr inbounds (i8, ptr @_ZZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_8ptr_hashESt8equal_toIS5_ESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSJ_11ValueSelectESC_SE_SF_Lb0ESI_E23static_empty_bucket_ptrEvE12empty_bucket, i64 4), align 4
   store i8 1, ptr getelementptr inbounds (i8, ptr @_ZZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_8ptr_hashESt8equal_toIS5_ESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSJ_11ValueSelectESC_SE_SF_Lb0ESI_E23static_empty_bucket_ptrEvE12empty_bucket, i64 6), align 2
-  %23 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EED2Ev, ptr nonnull @_ZZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_8ptr_hashESt8equal_toIS5_ESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSJ_11ValueSelectESC_SE_SF_Lb0ESI_E23static_empty_bucket_ptrEvE12empty_bucket, ptr nonnull @__dso_handle) #15
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_8ptr_hashESt8equal_toIS5_ESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSJ_11ValueSelectESC_SE_SF_Lb0ESI_E23static_empty_bucket_ptrEvE12empty_bucket) #15
+  %23 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EED2Ev, ptr nonnull @_ZZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_8ptr_hashESt8equal_toIS5_ESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSJ_11ValueSelectESC_SE_SF_Lb0ESI_E23static_empty_bucket_ptrEvE12empty_bucket, ptr nonnull @__dso_handle) #16
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_8ptr_hashESt8equal_toIS5_ESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSJ_11ValueSelectESC_SE_SF_Lb0ESI_E23static_empty_bucket_ptrEvE12empty_bucket) #16
   br label %24
 
 24:                                               ; preds = %22, %20, %_ZN3tsl9robin_mapIPvS1_N8nanobind6detail8ptr_hashESt8equal_toIS1_ESaISt4pairIS1_S1_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEEC2Ev.exit
@@ -751,7 +751,7 @@ _ZN3tsl9robin_mapIPvS1_N8nanobind6detail8ptr_hashESt8equal_toIS1_ESaISt4pairIS1_
   br i1 %33, label %34, label %38, !prof !4
 
 34:                                               ; preds = %24
-  %35 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_E23static_empty_bucket_ptrEvE12empty_bucket) #15
+  %35 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_E23static_empty_bucket_ptrEvE12empty_bucket) #16
   %.not.i10.i.i9 = icmp eq i32 %35, 0
   br i1 %.not.i10.i.i9, label %38, label %36
 
@@ -759,8 +759,8 @@ _ZN3tsl9robin_mapIPvS1_N8nanobind6detail8ptr_hashESt8equal_toIS1_ESaISt4pairIS1_
   store i32 0, ptr @_ZZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_E23static_empty_bucket_ptrEvE12empty_bucket, align 8
   store i16 -1, ptr getelementptr inbounds (i8, ptr @_ZZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_E23static_empty_bucket_ptrEvE12empty_bucket, i64 4), align 4
   store i8 1, ptr getelementptr inbounds (i8, ptr @_ZZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_E23static_empty_bucket_ptrEvE12empty_bucket, i64 6), align 2
-  %37 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EED2Ev, ptr nonnull @_ZZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_E23static_empty_bucket_ptrEvE12empty_bucket, ptr nonnull @__dso_handle) #15
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_E23static_empty_bucket_ptrEvE12empty_bucket) #15
+  %37 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EED2Ev, ptr nonnull @_ZZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_E23static_empty_bucket_ptrEvE12empty_bucket, ptr nonnull @__dso_handle) #16
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_E23static_empty_bucket_ptrEvE12empty_bucket) #16
   br label %38
 
 38:                                               ; preds = %36, %34, %24
@@ -783,7 +783,7 @@ _ZN3tsl9robin_mapIPvS1_N8nanobind6detail8ptr_hashESt8equal_toIS1_ESaISt4pairIS1_
   br i1 %47, label %48, label %52, !prof !4
 
 48:                                               ; preds = %38
-  %49 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E23static_empty_bucket_ptrEvE12empty_bucket) #15
+  %49 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E23static_empty_bucket_ptrEvE12empty_bucket) #16
   %.not.i10.i.i10 = icmp eq i32 %49, 0
   br i1 %.not.i10.i.i10, label %52, label %50
 
@@ -791,8 +791,8 @@ _ZN3tsl9robin_mapIPvS1_N8nanobind6detail8ptr_hashESt8equal_toIS1_ESaISt4pairIS1_
   store i32 0, ptr @_ZZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E23static_empty_bucket_ptrEvE12empty_bucket, align 8
   store i16 -1, ptr getelementptr inbounds (i8, ptr @_ZZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E23static_empty_bucket_ptrEvE12empty_bucket, i64 4), align 4
   store i8 1, ptr getelementptr inbounds (i8, ptr @_ZZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E23static_empty_bucket_ptrEvE12empty_bucket, i64 6), align 2
-  %51 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EED2Ev, ptr nonnull @_ZZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E23static_empty_bucket_ptrEvE12empty_bucket, ptr nonnull @__dso_handle) #15
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E23static_empty_bucket_ptrEvE12empty_bucket) #15
+  %51 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EED2Ev, ptr nonnull @_ZZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E23static_empty_bucket_ptrEvE12empty_bucket, ptr nonnull @__dso_handle) #16
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E23static_empty_bucket_ptrEvE12empty_bucket) #16
   br label %52
 
 52:                                               ; preds = %50, %48, %38
@@ -815,7 +815,7 @@ _ZN3tsl9robin_mapIPvS1_N8nanobind6detail8ptr_hashESt8equal_toIS1_ESaISt4pairIS1_
   br i1 %61, label %62, label %66, !prof !4
 
 62:                                               ; preds = %52
-  %63 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E23static_empty_bucket_ptrEvE12empty_bucket) #15
+  %63 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E23static_empty_bucket_ptrEvE12empty_bucket) #16
   %.not.i10.i.i12 = icmp eq i32 %63, 0
   br i1 %.not.i10.i.i12, label %66, label %64
 
@@ -823,8 +823,8 @@ _ZN3tsl9robin_mapIPvS1_N8nanobind6detail8ptr_hashESt8equal_toIS1_ESaISt4pairIS1_
   store i32 0, ptr @_ZZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E23static_empty_bucket_ptrEvE12empty_bucket, align 8
   store i16 -1, ptr getelementptr inbounds (i8, ptr @_ZZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E23static_empty_bucket_ptrEvE12empty_bucket, i64 4), align 4
   store i8 1, ptr getelementptr inbounds (i8, ptr @_ZZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E23static_empty_bucket_ptrEvE12empty_bucket, i64 6), align 2
-  %65 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EED2Ev, ptr nonnull @_ZZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E23static_empty_bucket_ptrEvE12empty_bucket, ptr nonnull @__dso_handle) #15
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E23static_empty_bucket_ptrEvE12empty_bucket) #15
+  %65 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS3_ELb1EED2Ev, ptr nonnull @_ZZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E23static_empty_bucket_ptrEvE12empty_bucket, ptr nonnull @__dso_handle) #16
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_E23static_empty_bucket_ptrEvE12empty_bucket) #16
   br label %66
 
 66:                                               ; preds = %64, %62, %52
@@ -891,7 +891,7 @@ define internal void @_ZN8nanobind6detailL17internals_cleanupEv() #9 {
 
 11:                                               ; preds = %2
   %12 = load ptr, ptr @stderr, align 8
-  %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.21, i64 noundef %9) #21
+  %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.21, i64 noundef %9) #22
   %14 = load ptr, ptr @_ZN8nanobind6detail9internalsE, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 120
   %16 = load i64, ptr %15, align 8
@@ -933,7 +933,7 @@ _ZN3tsl9robin_mapIPvS1_N8nanobind6detail8ptr_hashESt8equal_toIS1_ESaISt4pairIS1_
   %27 = load ptr, ptr @stderr, align 8
   %28 = getelementptr inbounds i8, ptr %26, i64 24
   %29 = load ptr, ptr %28, align 8
-  %30 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.22, ptr noundef %.sroa.058.0.copyload, ptr noundef %29) #21
+  %30 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.22, ptr noundef %.sroa.058.0.copyload, ptr noundef %29) #22
   br label %31
 
 31:                                               ; preds = %37, %.lr.ph
@@ -970,7 +970,7 @@ _ZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanob
 
 46:                                               ; preds = %.loopexit74
   %47 = load ptr, ptr @stderr, align 8
-  %48 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %47, ptr noundef nonnull @.str.23, i64 noundef %43) #21
+  %48 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %47, ptr noundef nonnull @.str.23, i64 noundef %43) #22
   %.pre104 = load ptr, ptr @_ZN8nanobind6detail9internalsE, align 8
   br label %49
 
@@ -995,7 +995,7 @@ _ZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanob
 
 59:                                               ; preds = %54, %58
   %60 = load ptr, ptr @stderr, align 8
-  %61 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %60, ptr noundef nonnull @.str.24, i64 noundef %52) #21
+  %61 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %60, ptr noundef nonnull @.str.24, i64 noundef %52) #22
   %62 = load ptr, ptr @_ZN8nanobind6detail9internalsE, align 8
   %63 = getelementptr inbounds i8, ptr %62, i64 280
   %64 = load i64, ptr %63, align 8
@@ -1034,13 +1034,13 @@ _ZN3tsl9robin_mapIPKSt9type_infoPN8nanobind6detail9type_dataENS5_17std_typeinfo_
   %74 = load ptr, ptr %73, align 8
   %75 = getelementptr inbounds i8, ptr %74, i64 8
   %76 = load ptr, ptr %75, align 8
-  %77 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %72, ptr noundef nonnull @.str.25, ptr noundef %76) #21
+  %77 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %72, ptr noundef nonnull @.str.25, ptr noundef %76) #22
   %78 = icmp eq i32 %.02487, 10
   br i1 %78, label %79, label %82
 
 79:                                               ; preds = %.lr.ph88
   %80 = load ptr, ptr @stderr, align 8
-  %81 = tail call i64 @fwrite(ptr nonnull @.str.26, i64 25, i64 1, ptr %80) #20
+  %81 = tail call i64 @fwrite(ptr nonnull @.str.26, i64 25, i64 1, ptr %80) #21
   br label %.loopexit
 
 82:                                               ; preds = %.lr.ph88
@@ -1078,7 +1078,7 @@ _ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9
 
 99:                                               ; preds = %98
   %100 = load ptr, ptr @stderr, align 8
-  %101 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %100, ptr noundef nonnull @.str.27, i64 noundef %96) #21
+  %101 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %100, ptr noundef nonnull @.str.27, i64 noundef %96) #22
   %102 = load ptr, ptr @_ZN8nanobind6detail9internalsE, align 8
   %103 = getelementptr inbounds i8, ptr %102, i64 440
   %104 = load i64, ptr %103, align 8
@@ -1117,13 +1117,13 @@ _ZN3tsl9robin_mapIPvS1_N8nanobind6detail8ptr_hashESt8equal_toIS1_ESaISt4pairIS1_
   %113 = load ptr, ptr @stderr, align 8
   %114 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload, i64 104
   %115 = load ptr, ptr %114, align 8
-  %116 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %113, ptr noundef nonnull @.str.28, ptr noundef %115) #21
+  %116 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %113, ptr noundef nonnull @.str.28, ptr noundef %115) #22
   %117 = icmp eq i32 %.02591, 10
   br i1 %117, label %118, label %121
 
 118:                                              ; preds = %.lr.ph92
   %119 = load ptr, ptr @stderr, align 8
-  %120 = tail call i64 @fwrite(ptr nonnull @.str.26, i64 25, i64 1, ptr %119) #20
+  %120 = tail call i64 @fwrite(ptr nonnull @.str.26, i64 25, i64 1, ptr %119) #21
   br label %.critedge
 
 121:                                              ; preds = %.lr.ph92
@@ -1161,7 +1161,7 @@ _ZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanob
   %.02394 = phi ptr [ %138, %.lr.ph95 ], [ %136, %134 ]
   %137 = getelementptr inbounds i8, ptr %.02394, i64 16
   %138 = load ptr, ptr %137, align 8
-  tail call void @_ZdlPv(ptr noundef nonnull %.02394) #19
+  tail call void @_ZdlPv(ptr noundef nonnull %.02394) #20
   %.not27 = icmp eq ptr %138, null
   br i1 %.not27, label %._crit_edge, label %.lr.ph95, !llvm.loop !10
 
@@ -1172,8 +1172,8 @@ _ZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanob
 
 ._crit_edge.thread:                               ; preds = %134, %._crit_edge
   %140 = phi ptr [ %.pre105, %._crit_edge ], [ %94, %134 ]
-  tail call void @_ZN8nanobind6detail12nb_internalsD2Ev(ptr noundef nonnull align 8 dereferenceable(520) %140) #15
-  tail call void @_ZdlPv(ptr noundef nonnull %140) #19
+  tail call void @_ZN8nanobind6detail12nb_internalsD2Ev(ptr noundef nonnull align 8 dereferenceable(520) %140) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %140) #20
   br label %141
 
 141:                                              ; preds = %._crit_edge.thread, %._crit_edge
@@ -1186,11 +1186,11 @@ _ZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanob
 
 142:                                              ; preds = %.critedge
   %143 = load ptr, ptr @stderr, align 8
-  %144 = tail call i64 @fwrite(ptr nonnull @.str.29, i64 83, i64 1, ptr %143) #20
+  %144 = tail call i64 @fwrite(ptr nonnull @.str.29, i64 83, i64 1, ptr %143) #21
   br label %.critedge28
 
 .critedge28:                                      ; preds = %58, %98, %142, %.critedge
-  tail call void @abort() #17
+  tail call void @abort() #18
   unreachable
 
 145:                                              ; preds = %0, %141
@@ -1225,7 +1225,7 @@ define linkonce_odr hidden void @_ZN8nanobind3strD2Ev(ptr noundef nonnull align 
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  tail call void @__clang_call_terminate(ptr %9) #17
+  tail call void @__clang_call_terminate(ptr %9) #18
   unreachable
 
 _ZN8nanobind6objectD2Ev.exit:                     ; preds = %1, %3, %6
@@ -1345,7 +1345,7 @@ _ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEES6_EvT
   br i1 %.not.i.i.i.i.i, label %_ZN3tsl9robin_mapIPvS1_N8nanobind6detail8ptr_hashESt8equal_toIS1_ESaISt4pairIS1_S1_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEED2Ev.exit, label %12
 
 12:                                               ; preds = %_ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEES6_EvT_S8_RSaIT0_E.exit.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %11) #19
+  tail call void @_ZdlPv(ptr noundef nonnull %11) #20
   br label %_ZN3tsl9robin_mapIPvS1_N8nanobind6detail8ptr_hashESt8equal_toIS1_ESaISt4pairIS1_S1_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEED2Ev.exit
 
 _ZN3tsl9robin_mapIPvS1_N8nanobind6detail8ptr_hashESt8equal_toIS1_ESaISt4pairIS1_S1_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEED2Ev.exit: ; preds = %_ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEES6_EvT_S8_RSaIT0_E.exit.i.i.i, %12
@@ -1382,7 +1382,7 @@ _ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEES6_EvT
   br i1 %.not.i.i.i.i.i9, label %_ZN3tsl9robin_mapIPvS1_N8nanobind6detail8ptr_hashESt8equal_toIS1_ESaISt4pairIS1_S1_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEED2Ev.exit10, label %23
 
 23:                                               ; preds = %_ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEES6_EvT_S8_RSaIT0_E.exit.i.i.i8
-  tail call void @_ZdlPv(ptr noundef nonnull %22) #19
+  tail call void @_ZdlPv(ptr noundef nonnull %22) #20
   br label %_ZN3tsl9robin_mapIPvS1_N8nanobind6detail8ptr_hashESt8equal_toIS1_ESaISt4pairIS1_S1_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEED2Ev.exit10
 
 _ZN3tsl9robin_mapIPvS1_N8nanobind6detail8ptr_hashESt8equal_toIS1_ESaISt4pairIS1_S1_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEED2Ev.exit10: ; preds = %_ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEES6_EvT_S8_RSaIT0_E.exit.i.i.i8, %23
@@ -1419,7 +1419,7 @@ _ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8n
   br i1 %.not.i.i.i.i.i16, label %_ZN3tsl9robin_mapIPKSt9type_infoPN8nanobind6detail9type_dataENS5_17std_typeinfo_hashENS5_15std_typeinfo_eqESaISt4pairIS3_S7_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEED2Ev.exit, label %34
 
 34:                                               ; preds = %_ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESC_EvT_SE_RSaIT0_E.exit.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %33) #19
+  tail call void @_ZdlPv(ptr noundef nonnull %33) #20
   br label %_ZN3tsl9robin_mapIPKSt9type_infoPN8nanobind6detail9type_dataENS5_17std_typeinfo_hashENS5_15std_typeinfo_eqESaISt4pairIS3_S7_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEED2Ev.exit
 
 _ZN3tsl9robin_mapIPKSt9type_infoPN8nanobind6detail9type_dataENS5_17std_typeinfo_hashENS5_15std_typeinfo_eqESaISt4pairIS3_S7_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEED2Ev.exit: ; preds = %_ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESC_EvT_SE_RSaIT0_E.exit.i.i.i, %34
@@ -1456,7 +1456,7 @@ _ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8n
   br i1 %.not.i.i.i.i.i25, label %_ZN3tsl9robin_mapIPKSt9type_infoPN8nanobind6detail9type_dataENS5_8ptr_hashESt8equal_toIS3_ESaISt4pairIS3_S7_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEED2Ev.exit, label %45
 
 45:                                               ; preds = %_ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESC_EvT_SE_RSaIT0_E.exit.i.i.i24
-  tail call void @_ZdlPv(ptr noundef nonnull %44) #19
+  tail call void @_ZdlPv(ptr noundef nonnull %44) #20
   br label %_ZN3tsl9robin_mapIPKSt9type_infoPN8nanobind6detail9type_dataENS5_8ptr_hashESt8equal_toIS3_ESaISt4pairIS3_S7_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEED2Ev.exit
 
 _ZN3tsl9robin_mapIPKSt9type_infoPN8nanobind6detail9type_dataENS5_8ptr_hashESt8equal_toIS3_ESaISt4pairIS3_S7_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEED2Ev.exit: ; preds = %_ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESC_EvT_SE_RSaIT0_E.exit.i.i.i24, %45
@@ -1493,18 +1493,18 @@ _ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEES6_EvT
   br i1 %.not.i.i.i.i.i34, label %_ZN3tsl9robin_mapIPvS1_N8nanobind6detail8ptr_hashESt8equal_toIS1_ESaISt4pairIS1_S1_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEED2Ev.exit35, label %56
 
 56:                                               ; preds = %_ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEES6_EvT_S8_RSaIT0_E.exit.i.i.i33
-  tail call void @_ZdlPv(ptr noundef nonnull %55) #19
+  tail call void @_ZdlPv(ptr noundef nonnull %55) #20
   br label %_ZN3tsl9robin_mapIPvS1_N8nanobind6detail8ptr_hashESt8equal_toIS1_ESaISt4pairIS1_S1_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEED2Ev.exit35
 
 _ZN3tsl9robin_mapIPvS1_N8nanobind6detail8ptr_hashESt8equal_toIS1_ESaISt4pairIS1_S1_EELb0ENS_2rh26power_of_two_growth_policyILm2EEEED2Ev.exit35: ; preds = %_ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEES6_EvT_S8_RSaIT0_E.exit.i.i.i33, %56
   ret void
 }
 
-; Function Attrs: noreturn nounwind
-declare void @abort() local_unnamed_addr #11
+; Function Attrs: cold nofree noreturn nounwind
+declare void @abort() local_unnamed_addr #14
 
 ; Function Attrs: nofree nosync nounwind memory(none)
-declare i32 @llvm.eh.typeid.for.p0(ptr) #14
+declare i32 @llvm.eh.typeid.for.p0(ptr) #15
 
 ; Function Attrs: nofree nounwind
 declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #13
@@ -1523,14 +1523,15 @@ attributes #10 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="tru
 attributes #11 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { nofree nounwind }
-attributes #14 = { nofree nosync nounwind memory(none) }
-attributes #15 = { nounwind }
-attributes #16 = { noreturn }
-attributes #17 = { noreturn nounwind }
-attributes #18 = { builtin allocsize(0) }
-attributes #19 = { builtin nounwind }
-attributes #20 = { cold }
-attributes #21 = { cold nounwind }
+attributes #14 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { nofree nosync nounwind memory(none) }
+attributes #16 = { nounwind }
+attributes #17 = { noreturn }
+attributes #18 = { noreturn nounwind }
+attributes #19 = { builtin allocsize(0) }
+attributes #20 = { builtin nounwind }
+attributes #21 = { cold }
+attributes #22 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

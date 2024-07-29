@@ -598,7 +598,7 @@ define void @_Z11dts_compileRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   %50 = getelementptr inbounds i8, ptr %3, i64 4
   %51 = load i32, ptr %50, align 4
   %52 = call i32 @close(i32 noundef %51)
-  call void @exit(i32 noundef 0) #22
+  call void @exit(i32 noundef 0) #23
   unreachable
 
 53:                                               ; preds = %20
@@ -793,7 +793,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr nou
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_(ptr noundef nonnull align 8 dereferenceable(8)) #0
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #8
 
 declare i32 @close(i32 noundef) local_unnamed_addr #0
@@ -1445,7 +1445,7 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC
   br i1 %10, label %11, label %12
 
 11:                                               ; preds = %9
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.46) #23
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.46) #24
           to label %.noexc unwind label %26
 
 .noexc:                                           ; preds = %11
@@ -1457,14 +1457,14 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC
   br i1 %14, label %15, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i
 
 15:                                               ; preds = %12
-  invoke void @_ZSt17__throw_bad_allocv() #23
+  invoke void @_ZSt17__throw_bad_allocv() #24
           to label %.noexc6 unwind label %26
 
 .noexc6:                                          ; preds = %15
   unreachable
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i: ; preds = %12
-  %16 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %13) #24
+  %16 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %13) #25
           to label %.noexc7 unwind label %26
 
 .noexc7:                                          ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i
@@ -1557,7 +1557,7 @@ attributes #4 = { mustprogress nofree nounwind willreturn memory(argmem: read) "
 attributes #5 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1571,9 +1571,10 @@ attributes #18 = { nounwind willreturn memory(read) }
 attributes #19 = { builtin nounwind }
 attributes #20 = { nounwind }
 attributes #21 = { nounwind willreturn memory(none) }
-attributes #22 = { noreturn nounwind }
-attributes #23 = { noreturn }
-attributes #24 = { builtin allocsize(0) }
+attributes #22 = { cold noreturn nounwind }
+attributes #23 = { noreturn nounwind }
+attributes #24 = { noreturn }
+attributes #25 = { builtin allocsize(0) }
 
 !llvm.linker.options = !{}
 !llvm.module.flags = !{!0, !1, !2, !3}

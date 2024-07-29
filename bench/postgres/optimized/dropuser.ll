@@ -179,7 +179,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %45, label %47, label %46
 
 46:                                               ; preds = %43
-  call void @exit(i32 noundef 0) #6
+  call void @exit(i32 noundef 0) #7
   unreachable
 
 47:                                               ; preds = %43, %42
@@ -226,7 +226,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 66:                                               ; preds = %60
   call void @PQclear(ptr noundef %62) #5
   call void @PQfinish(ptr noundef %53) #5
-  call void @exit(i32 noundef 0) #6
+  call void @exit(i32 noundef 0) #7
   unreachable
 }
 
@@ -267,7 +267,7 @@ declare ptr @pg_strdup(ptr noundef) local_unnamed_addr #1
 
 declare void @pg_log_generic(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #4
 
 declare ptr @simple_prompt(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
@@ -298,9 +298,10 @@ attributes #0 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vec
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nounwind }
-attributes #6 = { noreturn nounwind }
+attributes #6 = { cold noreturn nounwind }
+attributes #7 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

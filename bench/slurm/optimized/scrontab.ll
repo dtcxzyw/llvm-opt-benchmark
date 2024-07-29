@@ -203,7 +203,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 44:                                               ; preds = %22
   call void @_usage()
-  call void @exit(i32 noundef 1) #18
+  call void @exit(i32 noundef 1) #19
   unreachable
 
 45:                                               ; preds = %22
@@ -225,7 +225,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 51:                                               ; preds = %48
   call void @_usage()
-  call void @exit(i32 noundef 1) #18
+  call void @exit(i32 noundef 1) #19
   unreachable
 
 52:                                               ; preds = %47
@@ -236,7 +236,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 56:                                               ; preds = %52
   call void @_usage()
-  call void @exit(i32 noundef 1) #18
+  call void @exit(i32 noundef 1) #19
   unreachable
 
 57:                                               ; preds = %52
@@ -388,7 +388,7 @@ _handle_first_form.exit:                          ; preds = %87, %79, %73
   %110 = load i32, ptr @uid, align 4
   %111 = call ptr @uid_to_string(i32 noundef %110) #16
   %112 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, ptr noundef %111)
-  call void @exit(i32 noundef 1) #18
+  call void @exit(i32 noundef 1) #19
   unreachable
 
 113:                                              ; preds = %107
@@ -433,12 +433,12 @@ _handle_first_form.exit:                          ; preds = %87, %79, %73
 125:                                              ; preds = %122
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(33) %9, i8 0, i64 33, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(33) %10, i8 0, i64 33, i1 false)
-  %126 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %123) #19
+  %126 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %123) #20
   %127 = trunc i64 %126 to i32
   %128 = call i32 @hash_g_compute(ptr noundef nonnull %123, i32 noundef %127, ptr noundef null, i32 noundef 0, ptr noundef nonnull %9) #16
   call fastcc void @_edit_crontab(ptr noundef nonnull %4)
   %129 = load ptr, ptr %4, align 8
-  %130 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %129) #19
+  %130 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %129) #20
   %131 = trunc i64 %130 to i32
   %132 = call i32 @hash_g_compute(ptr noundef %129, i32 noundef %131, ptr noundef null, i32 noundef 0, ptr noundef nonnull %10) #16
   %133 = icmp eq i32 %128, %132
@@ -507,7 +507,7 @@ _handle_first_form.exit:                          ; preds = %87, %79, %73
 
 156:                                              ; preds = %154
   %157 = call i32 (ptr, ...) @error(ptr noundef nonnull @str) #16
-  call void @exit(i32 noundef 1) #18
+  call void @exit(i32 noundef 1) #19
   unreachable
 
 _reset_options.exit.i:                            ; preds = %154
@@ -740,7 +740,7 @@ _entry_to_job.exit.i:                             ; preds = %229, %226
   br label %246
 
 246:                                              ; preds = %245, %244
-  call void @exit(i32 noundef 1) #18
+  call void @exit(i32 noundef 1) #19
   unreachable
 
 247:                                              ; preds = %243
@@ -758,7 +758,7 @@ _entry_to_job.exit.i:                             ; preds = %229, %226
   %.088.i = phi i32 [ %254, %252 ], [ 0, %.preheader165 ]
   %sext126.i = shl i32 %.088.i, 24
   %250 = ashr exact i32 %sext126.i, 24
-  %251 = call i32 @tolower(i32 noundef %250) #19
+  %251 = call i32 @tolower(i32 noundef %250) #20
   switch i32 %251, label %252 [
     i32 121, label %.critedge3.i
     i32 110, label %.critedge3.i
@@ -817,7 +817,7 @@ _entry_to_job.exit.i:                             ; preds = %229, %226
   br label %274
 
 274:                                              ; preds = %273, %267
-  call void @exit(i32 noundef 1) #18
+  call void @exit(i32 noundef 1) #19
   unreachable
 
 275:                                              ; preds = %266
@@ -836,7 +836,7 @@ _entry_to_job.exit.i:                             ; preds = %229, %226
   %.087.i = phi i32 [ 0, %277 ], [ %288, %282 ]
   %sext.i = shl i32 %.087.i, 24
   %280 = ashr exact i32 %sext.i, 24
-  %281 = call i32 @tolower(i32 noundef %280) #19
+  %281 = call i32 @tolower(i32 noundef %280) #20
   switch i32 %281, label %282 [
     i32 121, label %.critedge5.i
     i32 110, label %.critedge5.i
@@ -935,7 +935,7 @@ declare i32 @slurm_remove_crontab(i32 noundef, i32 noundef) local_unnamed_addr #
 
 declare ptr @slurm_strerror(i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #3
 
 declare i32 @slurm_request_crontab(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -1172,7 +1172,7 @@ define internal fastcc void @_edit_crontab(ptr noundef %0) unnamed_addr #0 {
 
 18:                                               ; preds = %9
   %19 = load ptr, ptr %0, align 8
-  %20 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %19) #19
+  %20 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %19) #20
   %21 = trunc i64 %20 to i32
   %22 = icmp sgt i32 %21, 0
   br i1 %22, label %.lr.ph.split.us, label %.outer._crit_edge
@@ -1187,7 +1187,7 @@ define internal fastcc void @_edit_crontab(ptr noundef %0) unnamed_addr #0 {
   br i1 %26, label %.lr.ph66, label %.split.us
 
 .lr.ph66:                                         ; preds = %.lr.ph.split.us
-  %27 = tail call ptr @__errno_location() #20
+  %27 = tail call ptr @__errno_location() #21
   br label %28
 
 28:                                               ; preds = %.lr.ph66, %30
@@ -1210,7 +1210,7 @@ define internal fastcc void @_edit_crontab(ptr noundef %0) unnamed_addr #0 {
 
 36:                                               ; preds = %.split60.us
   %37 = load ptr, ptr %0, align 8
-  %38 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %37) #19
+  %38 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %37) #20
   %39 = trunc i64 %38 to i32
   call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.9, i32 noundef 271, ptr noundef nonnull @__func__._edit_crontab, i32 noundef %.039.ph68, i32 noundef %39) #16
   br label %96
@@ -1231,7 +1231,7 @@ define internal fastcc void @_edit_crontab(ptr noundef %0) unnamed_addr #0 {
 
 47:                                               ; preds = %44
   %48 = load ptr, ptr %0, align 8
-  %49 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %48) #19
+  %49 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %48) #20
   %50 = trunc i64 %49 to i32
   call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.9, i32 noundef 271, ptr noundef nonnull @__func__._edit_crontab, i32 noundef %42, i32 noundef %50) #16
   br label %.lr.ph.split.us.backedge
@@ -1287,7 +1287,7 @@ define internal fastcc void @_edit_crontab(ptr noundef %0) unnamed_addr #0 {
   %70 = getelementptr inbounds i8, ptr %4, i64 16
   store ptr null, ptr %70, align 16
   %71 = call i32 @execvp(ptr noundef nonnull %.040, ptr noundef nonnull %4) #16
-  call void @exit(i32 noundef 127) #18
+  call void @exit(i32 noundef 127) #19
   unreachable
 
 72:                                               ; preds = %62
@@ -1309,7 +1309,7 @@ define internal fastcc void @_edit_crontab(ptr noundef %0) unnamed_addr #0 {
   br i1 %80, label %81, label %88
 
 81:                                               ; preds = %78
-  %82 = tail call ptr @__errno_location() #20
+  %82 = tail call ptr @__errno_location() #21
   %83 = load i32, ptr %82, align 4
   %84 = load ptr, ptr %3, align 8
   %85 = call i32 @unlink(ptr noundef %84) #16
@@ -1492,7 +1492,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1508,8 +1508,9 @@ attributes #15 = { nocallback nofree nosync nounwind willreturn memory(argmem: r
 attributes #16 = { nounwind }
 attributes #17 = { cold }
 attributes #18 = { noreturn nounwind }
-attributes #19 = { nounwind willreturn memory(read) }
-attributes #20 = { nounwind willreturn memory(none) }
+attributes #19 = { cold noreturn nounwind }
+attributes #20 = { nounwind willreturn memory(read) }
+attributes #21 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
 

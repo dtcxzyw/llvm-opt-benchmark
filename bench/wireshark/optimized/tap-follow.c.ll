@@ -442,7 +442,7 @@ declare ptr @get_follow_sub_stream_id_func(ptr noundef) local_unnamed_addr #1
 
 declare ptr @get_follow_index_func(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: noreturn nounwind uwtable
+; Function Attrs: nofree noreturn nounwind uwtable
 define internal fastcc void @follow_exit(ptr noundef %0) unnamed_addr #4 {
   %2 = load ptr, ptr @stderr, align 8
   %3 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.23, ptr noundef %0) #16
@@ -498,7 +498,7 @@ define internal void @follow_draw(ptr noundef %0) #0 {
   br i1 %24, label %switch.hole_check, label %25
 
 25:                                               ; preds = %switch.hole_check, %18
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.39, i32 noundef 7, ptr noundef nonnull @.str.40, i64 noundef 89, ptr noundef nonnull @__func__.follow_str_type, ptr noundef nonnull @.str.41) #17
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.39, i32 noundef 7, ptr noundef nonnull @.str.40, i64 noundef 89, ptr noundef nonnull @__func__.follow_str_type, ptr noundef nonnull @.str.41) #18
   unreachable
 
 switch.hole_check:                                ; preds = %18
@@ -609,7 +609,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br label %thread-pre-split
 
 80:                                               ; preds = %68
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.39, i32 noundef 7, ptr noundef nonnull @.str.40, i64 noundef 265, ptr noundef nonnull @__func__.follow_draw, ptr noundef nonnull @.str.41) #17
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.39, i32 noundef 7, ptr noundef nonnull @.str.40, i64 noundef 265, ptr noundef nonnull @__func__.follow_draw, ptr noundef nonnull @.str.41) #18
   unreachable
 
 thread-pre-split:                                 ; preds = %70, %78
@@ -747,7 +747,7 @@ follow_print_hex.exit:                            ; preds = %141, %83
   %150 = load i32, ptr %149, align 8
   %151 = add i32 %150, 2
   %152 = zext i32 %151 to i64
-  %153 = call noalias ptr @g_malloc(i64 noundef %152) #18
+  %153 = call noalias ptr @g_malloc(i64 noundef %152) #19
   %154 = load ptr, ptr %147, align 8
   %155 = getelementptr inbounds i8, ptr %154, i64 8
   %156 = load i32, ptr %155, align 8
@@ -841,7 +841,7 @@ follow_print_hex.exit:                            ; preds = %141, %83
   %205 = shl i32 %204, 1
   %206 = add i32 %205, 2
   %207 = zext i32 %206 to i64
-  %208 = call noalias ptr @g_malloc(i64 noundef %207) #18
+  %208 = call noalias ptr @g_malloc(i64 noundef %207) #19
   %209 = load ptr, ptr %201, align 8
   %210 = getelementptr inbounds i8, ptr %209, i64 8
   %211 = load i32, ptr %210, align 8
@@ -938,7 +938,7 @@ follow_print_hex.exit:                            ; preds = %141, %83
   br i1 %274, label %.lr.ph, label %.cont, !llvm.loop !10
 
 275:                                              ; preds = %81
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.39, i32 noundef 7, ptr noundef nonnull @.str.40, i64 noundef 356, ptr noundef nonnull @__func__.follow_draw, ptr noundef nonnull @.str.41) #17
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.39, i32 noundef 7, ptr noundef nonnull @.str.40, i64 noundef 356, ptr noundef nonnull @__func__.follow_draw, ptr noundef nonnull @.str.41) #18
   unreachable
 
 .cont:                                            ; preds = %.lr.ph, %245, %follow_print_hex.exit, %62, %182, %184, %._crit_edge
@@ -987,7 +987,7 @@ declare i32 @get_host_ipaddr(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
@@ -1044,9 +1044,9 @@ attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
@@ -1057,8 +1057,9 @@ attributes #13 = { nounwind willreturn memory(read) }
 attributes #14 = { nounwind allocsize(0,1) }
 attributes #15 = { noreturn }
 attributes #16 = { cold nounwind }
-attributes #17 = { noreturn nounwind }
-attributes #18 = { nounwind allocsize(0) }
+attributes #17 = { cold noreturn nounwind }
+attributes #18 = { noreturn nounwind }
+attributes #19 = { nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

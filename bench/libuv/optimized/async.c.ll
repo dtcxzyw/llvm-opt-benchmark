@@ -18,19 +18,19 @@ entry:
   br i1 %cmp.not.i, label %if.end.i, label %do.body
 
 if.end.i:                                         ; preds = %entry
-  %call.i = tail call i32 @eventfd(i32 noundef 0, i32 noundef 526336) #6
+  %call.i = tail call i32 @eventfd(i32 noundef 0, i32 noundef 526336) #7
   %cmp1.i = icmp slt i32 %call.i, 0
   br i1 %cmp1.i, label %uv__async_start.exit, label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.end.i
-  tail call void @uv__io_init(ptr noundef nonnull %async_io_watcher.i, ptr noundef nonnull @uv__async_io, i32 noundef %call.i) #6
-  tail call void @uv__io_start(ptr noundef nonnull %loop, ptr noundef nonnull %async_io_watcher.i, i32 noundef 1) #6
+  tail call void @uv__io_init(ptr noundef nonnull %async_io_watcher.i, ptr noundef nonnull @uv__async_io, i32 noundef %call.i) #7
+  tail call void @uv__io_start(ptr noundef nonnull %loop, ptr noundef nonnull %async_io_watcher.i, i32 noundef 1) #7
   %async_wfd.i = getelementptr inbounds i8, ptr %loop, i64 512
   store i32 -1, ptr %async_wfd.i, align 8
   br label %do.body
 
 uv__async_start.exit:                             ; preds = %if.end.i
-  %call3.i = tail call ptr @__errno_location() #7
+  %call3.i = tail call ptr @__errno_location() #8
   %1 = load i32, ptr %call3.i, align 4
   %sub.i = sub nsw i32 0, %1
   %tobool.not = icmp eq i32 %1, 0
@@ -94,8 +94,8 @@ return:                                           ; preds = %do.body, %do.body13
   ret i32 %retval.0
 }
 
-; Function Attrs: nounwind uwtable
-define noundef i32 @uv_async_send(ptr nocapture noundef %handle) local_unnamed_addr #0 {
+; Function Attrs: nofree nounwind uwtable
+define noundef i32 @uv_async_send(ptr nocapture noundef %handle) local_unnamed_addr #1 {
 entry:
   %pending1 = getelementptr inbounds i8, ptr %handle, i64 120
   %u = getelementptr inbounds i8, ptr %handle, i64 48
@@ -129,13 +129,13 @@ if.end.i:                                         ; preds = %if.then.i, %if.then
   br label %do.body.i
 
 do.body.i:                                        ; preds = %land.rhs.i, %if.end.i
-  %call.i = tail call i64 @write(i32 noundef %fd.0.i, ptr noundef nonnull %buf.0.i, i64 noundef %len.0.i) #6
+  %call.i = tail call i64 @write(i32 noundef %fd.0.i, ptr noundef nonnull %buf.0.i, i64 noundef %len.0.i) #7
   %6 = and i64 %call.i, 4294967295
   %cmp2.i = icmp eq i64 %6, 4294967295
   br i1 %cmp2.i, label %land.rhs.i, label %do.end.thread.i
 
 land.rhs.i:                                       ; preds = %do.body.i
-  %call4.i = tail call ptr @__errno_location() #7
+  %call4.i = tail call ptr @__errno_location() #8
   %7 = load i32, ptr %call4.i, align 4
   switch i32 %7, label %if.end23.i [
     i32 4, label %do.body.i
@@ -149,7 +149,7 @@ do.end.thread.i:                                  ; preds = %do.body.i
   br i1 %cmp88.i, label %if.end7, label %if.end23.i
 
 if.end23.i:                                       ; preds = %land.rhs.i, %do.end.thread.i
-  tail call void @abort() #8
+  tail call void @abort() #9
   unreachable
 
 if.end7:                                          ; preds = %land.rhs.i, %do.end.thread.i, %if.end
@@ -175,7 +175,7 @@ for.body.i:                                       ; preds = %for.body.i.backedge
   br i1 %cmp3.i, label %uv__async_spin.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %for.body.i
-  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !4
+  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !4
   %inc.i = add nuw nsw i32 %i.03.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, 997
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i.backedge
@@ -185,7 +185,7 @@ for.body.i.backedge:                              ; preds = %if.end.i, %for.end.
   br label %for.body.i
 
 for.end.i:                                        ; preds = %if.end.i
-  %call.i = tail call i32 @sched_yield() #6
+  %call.i = tail call i32 @sched_yield() #7
   br label %for.body.i.backedge
 
 uv__async_spin.exit:                              ; preds = %for.body.i
@@ -296,7 +296,7 @@ for.body.i:                                       ; preds = %for.body.i.backedge
   br i1 %cmp3.i, label %while.cond.loopexit, label %if.end.i
 
 if.end.i:                                         ; preds = %for.body.i
-  call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !4
+  call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !4
   %inc.i = add nuw nsw i32 %i.03.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, 997
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i.backedge
@@ -306,7 +306,7 @@ for.body.i.backedge:                              ; preds = %if.end.i, %for.end.
   br label %for.body.i
 
 for.end.i:                                        ; preds = %if.end.i
-  %call.i = call i32 @sched_yield() #6
+  %call.i = call i32 @sched_yield() #7
   br label %for.body.i.backedge
 
 while.end:                                        ; preds = %while.cond.loopexit, %uv__queue_move.exit.thread, %uv__queue_move.exit
@@ -321,7 +321,7 @@ if.then4:                                         ; preds = %while.end
   br i1 %cmp8.not, label %if.end12, label %if.then9
 
 if.then9:                                         ; preds = %if.then4
-  %call11 = call i32 @uv__close(i32 noundef %11) #6
+  %call11 = call i32 @uv__close(i32 noundef %11) #7
   br label %if.end12
 
 if.end12:                                         ; preds = %if.then9, %if.then4
@@ -329,9 +329,9 @@ if.end12:                                         ; preds = %if.then9, %if.then4
   br label %if.end14
 
 if.end14:                                         ; preds = %if.end12, %while.end
-  call void @uv__io_stop(ptr noundef nonnull %loop, ptr noundef nonnull %async_io_watcher, i32 noundef 1) #6
+  call void @uv__io_stop(ptr noundef nonnull %loop, ptr noundef nonnull %async_io_watcher, i32 noundef 1) #7
   %13 = load i32, ptr %fd, align 8
-  %call18 = call i32 @uv__close(i32 noundef %13) #6
+  %call18 = call i32 @uv__close(i32 noundef %13) #7
   store i32 -1, ptr %fd, align 8
   br label %return
 
@@ -339,9 +339,9 @@ return:                                           ; preds = %entry, %if.end14
   ret void
 }
 
-declare i32 @uv__close(i32 noundef) local_unnamed_addr #1
+declare i32 @uv__close(i32 noundef) local_unnamed_addr #2
 
-declare void @uv__io_stop(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+declare void @uv__io_stop(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -2147483647, -2147483648) i32 @uv__async_fork(ptr noundef %loop) local_unnamed_addr #0 {
@@ -419,7 +419,7 @@ if.then4:                                         ; preds = %while.end
   br i1 %cmp8.not, label %if.end12, label %if.then9
 
 if.then9:                                         ; preds = %if.then4
-  %call11 = call i32 @uv__close(i32 noundef %10) #6
+  %call11 = call i32 @uv__close(i32 noundef %10) #7
   br label %if.end12
 
 if.end12:                                         ; preds = %if.then9, %if.then4
@@ -427,23 +427,23 @@ if.end12:                                         ; preds = %if.then9, %if.then4
   br label %if.end.i
 
 if.end.i:                                         ; preds = %while.end, %if.end12
-  call void @uv__io_stop(ptr noundef nonnull %loop, ptr noundef nonnull %async_io_watcher, i32 noundef 1) #6
+  call void @uv__io_stop(ptr noundef nonnull %loop, ptr noundef nonnull %async_io_watcher, i32 noundef 1) #7
   %12 = load i32, ptr %fd, align 8
-  %call18 = call i32 @uv__close(i32 noundef %12) #6
+  %call18 = call i32 @uv__close(i32 noundef %12) #7
   store i32 -1, ptr %fd, align 8
-  %call.i = call i32 @eventfd(i32 noundef 0, i32 noundef 526336) #6
+  %call.i = call i32 @eventfd(i32 noundef 0, i32 noundef 526336) #7
   %cmp1.i = icmp slt i32 %call.i, 0
   br i1 %cmp1.i, label %if.then2.i, label %if.end4.i
 
 if.then2.i:                                       ; preds = %if.end.i
-  %call3.i = tail call ptr @__errno_location() #7
+  %call3.i = tail call ptr @__errno_location() #8
   %13 = load i32, ptr %call3.i, align 4
   %sub.i = sub nsw i32 0, %13
   br label %return
 
 if.end4.i:                                        ; preds = %if.end.i
-  call void @uv__io_init(ptr noundef nonnull %async_io_watcher, ptr noundef nonnull @uv__async_io, i32 noundef %call.i) #6
-  call void @uv__io_start(ptr noundef nonnull %loop, ptr noundef nonnull %async_io_watcher, i32 noundef 1) #6
+  call void @uv__io_init(ptr noundef nonnull %async_io_watcher, ptr noundef nonnull @uv__async_io, i32 noundef %call.i) #7
+  call void @uv__io_start(ptr noundef nonnull %loop, ptr noundef nonnull %async_io_watcher, i32 noundef 1) #7
   store i32 -1, ptr %async_wfd, align 8
   br label %return
 
@@ -453,21 +453,21 @@ return:                                           ; preds = %if.end4.i, %if.then
 }
 
 ; Function Attrs: nounwind
-declare i32 @sched_yield() local_unnamed_addr #2
+declare i32 @sched_yield() local_unnamed_addr #3
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #3
+declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #4
+declare ptr @__errno_location() local_unnamed_addr #5
 
-; Function Attrs: noreturn nounwind
-declare void @abort() local_unnamed_addr #5
+; Function Attrs: cold nofree noreturn nounwind
+declare void @abort() local_unnamed_addr #6
 
 ; Function Attrs: nounwind
-declare i32 @eventfd(i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @eventfd(i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @uv__io_init(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+declare void @uv__io_init(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal void @uv__async_io(ptr noundef %loop, ptr nocapture noundef readonly %w, i32 %events) #0 {
@@ -479,7 +479,7 @@ entry:
 
 for.cond:                                         ; preds = %for.cond.backedge, %entry
   %0 = load i32, ptr %fd, align 8
-  %call = call i64 @read(i32 noundef %0, ptr noundef nonnull %buf, i64 noundef 1024) #6
+  %call = call i64 @read(i32 noundef %0, ptr noundef nonnull %buf, i64 noundef 1024) #7
   switch i64 %call, label %for.end [
     i64 1024, label %for.cond.backedge
     i64 -1, label %if.end3
@@ -489,7 +489,7 @@ for.cond.backedge:                                ; preds = %for.cond, %if.end3
   br label %for.cond
 
 if.end3:                                          ; preds = %for.cond
-  %call4 = tail call ptr @__errno_location() #7
+  %call4 = tail call ptr @__errno_location() #8
   %1 = load i32, ptr %call4, align 4
   switch i32 %1, label %if.end13 [
     i32 11, label %for.end
@@ -497,7 +497,7 @@ if.end3:                                          ; preds = %for.cond
   ]
 
 if.end13:                                         ; preds = %if.end3
-  tail call void @abort() #8
+  tail call void @abort() #9
   unreachable
 
 for.end:                                          ; preds = %if.end3, %for.cond
@@ -553,7 +553,7 @@ if.end20:                                         ; preds = %while.body
   br i1 %cmp21, label %while.cond.backedge, label %if.end23
 
 if.end23:                                         ; preds = %if.end20
-  call void %11(ptr noundef nonnull %add.ptr) #6
+  call void %11(ptr noundef nonnull %add.ptr) #7
   br label %while.cond.backedge
 
 while.cond.backedge:                              ; preds = %if.end23, %while.body, %if.end20
@@ -565,20 +565,21 @@ while.end:                                        ; preds = %while.cond.backedge
   ret void
 }
 
-declare void @uv__io_start(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+declare void @uv__io_start(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #3
+declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind }
-attributes #7 = { nounwind willreturn memory(none) }
-attributes #8 = { noreturn nounwind }
+attributes #1 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind }
+attributes #8 = { nounwind willreturn memory(none) }
+attributes #9 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

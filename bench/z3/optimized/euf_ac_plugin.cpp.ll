@@ -2455,7 +2455,7 @@ _ZN6vectorISt4pairIjN3euf9ac_plugin6sharedEELb0EjE4backEv.exit: ; preds = %sw.bb
 
 sw.default:                                       ; preds = %_ZN6vectorIN3euf9ac_plugin9undo_kindELb0EjE4backEv.exit
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str, i32 noundef 176, ptr noundef nonnull @.str.2)
-  tail call void @exit(i32 noundef 114) #21
+  tail call void @exit(i32 noundef 114) #23
   unreachable
 
 sw.epilog:                                        ; preds = %if.then.i.i.i2.i, %_ZN7svectorIjjED2Ev.exit.i, %_ZN6vectorISt4pairIjN3euf9ac_plugin6sharedEELb0EjE4backEv.exit, %_ZN6vectorIN3euf9ac_plugin6sharedELb0EjE4backEv.exit, %_ZN6vectorIPN3euf9ac_plugin4nodeELb0EjE4backEv.exit55, %_ZN6vectorIPN3euf9ac_plugin4nodeELb0EjE4backEv.exit45, %_ZN6vectorISt4pairIjN3euf9ac_plugin2eqEELb0EjE4backEv.exit, %_ZN6vectorIjLb0EjE6shrinkEj.exit28, %_ZN6vectorIN3euf9ac_plugin10monomial_tELb1EjE8pop_backEv.exit, %sw.bb
@@ -2467,7 +2467,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 declare void @_Z26notify_assertion_violationPKciS0_(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
@@ -6266,7 +6266,7 @@ for.end:                                          ; preds = %for.inc
 
 if.then16:                                        ; preds = %_ZN6vectorIPN3euf9ac_plugin4nodeELb0EjE6appendERKS4_.exit, %_ZN3euf9ac_plugin10monomial_t3endEv.exit, %for.end
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str, i32 noundef 601, ptr noundef nonnull @.str.14)
-  tail call void @exit(i32 noundef 114) #21
+  tail call void @exit(i32 noundef 114) #23
   unreachable
 
 if.end17:                                         ; preds = %for.end
@@ -13777,7 +13777,7 @@ _ZN6vectorIN3euf9ac_plugin2eqELb1EjED2Ev.exit:    ; preds = %_ZN10ptr_vectorIN3e
 define linkonce_odr hidden void @_ZN3euf9ac_pluginD0Ev(ptr noundef nonnull align 8 dereferenceable(432) %this) unnamed_addr #4 comdat align 2 {
 entry:
   tail call void @_ZN3euf9ac_pluginD2Ev(ptr noundef nonnull align 8 dereferenceable(432) %this) #20
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #24
   ret void
 }
 
@@ -16170,7 +16170,7 @@ for.inc54:                                        ; preds = %for.body.i.i.i74, %
 
 for.end56:                                        ; preds = %for.inc54, %for.cond27.preheader
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.18, i32 noundef 404, ptr noundef nonnull @.str.2)
-  tail call void @exit(i32 noundef 114) #21
+  tail call void @exit(i32 noundef 114) #23
   unreachable
 
 return:                                           ; preds = %if.end48, %if.then37, %if.end21, %if.then14
@@ -16249,7 +16249,7 @@ for.inc17.i:                                      ; preds = %for.body13.i
 
 for.end19.i:                                      ; preds = %for.cond11.preheader.i, %for.inc17.i
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.18, i32 noundef 212, ptr noundef nonnull @.str.2)
-  tail call void @exit(i32 noundef 114) #21
+  tail call void @exit(i32 noundef 114) #23
   unreachable
 
 for.inc21.sink.split.i:                           ; preds = %for.body8.i, %for.body13.i
@@ -16427,7 +16427,7 @@ attributes #3 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-w
 attributes #4 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #10 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -16443,7 +16443,8 @@ attributes #19 = { nocallback nofree nosync nounwind speculatable willreturn mem
 attributes #20 = { nounwind }
 attributes #21 = { noreturn nounwind }
 attributes #22 = { noreturn }
-attributes #23 = { builtin nounwind }
+attributes #23 = { cold noreturn nounwind }
+attributes #24 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

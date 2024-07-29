@@ -649,7 +649,7 @@ sw.epilog:                                        ; preds = %entry, %entry, %ent
 
 declare void @reftable_free(ptr noundef) local_unnamed_addr #7
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: cold nofree noreturn nounwind
 declare void @abort() local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
@@ -829,8 +829,8 @@ sw.epilog:                                        ; preds = %entry, %sw.bb1
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @reftable_log_record_equal(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %hash_size) local_unnamed_addr #6 {
+; Function Attrs: nofree nounwind uwtable
+define dso_local range(i32 0, 2) i32 @reftable_log_record_equal(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %hash_size) local_unnamed_addr #9 {
 entry:
   %0 = load ptr, ptr %a, align 8
   %1 = load ptr, ptr %b, align 8
@@ -1250,8 +1250,8 @@ return:                                           ; preds = %entry, %reftable_re
   ret i32 %retval.0
 }
 
-; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @reftable_ref_record_equal(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %hash_size) local_unnamed_addr #6 {
+; Function Attrs: nofree nounwind uwtable
+define dso_local range(i32 0, 2) i32 @reftable_ref_record_equal(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %hash_size) local_unnamed_addr #9 {
 entry:
   %0 = load ptr, ptr %a, align 8
   %1 = load ptr, ptr %b, align 8
@@ -1571,8 +1571,8 @@ entry:
   ret i8 %conv
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @reftable_ref_record_encode(ptr nocapture noundef readonly %rec, ptr nocapture writeonly %s.coerce0, i64 %s.coerce1, i32 noundef %hash_size) #6 {
+; Function Attrs: nofree nounwind uwtable
+define internal i32 @reftable_ref_record_encode(ptr nocapture noundef readonly %rec, ptr nocapture writeonly %s.coerce0, i64 %s.coerce1, i32 noundef %hash_size) #9 {
 entry:
   %buf.i.i = alloca [10 x i8], align 1
   %buf.i = alloca [10 x i8], align 1
@@ -1983,8 +1983,8 @@ entry:
   ret i32 %conv.i
 }
 
-; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @reftable_ref_record_equal_void(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %hash_size) #6 {
+; Function Attrs: nofree nounwind uwtable
+define internal range(i32 0, 2) i32 @reftable_ref_record_equal_void(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %hash_size) #9 {
 entry:
   %call = tail call i32 @reftable_ref_record_equal(ptr noundef %a, ptr noundef %b, i32 noundef %hash_size)
   ret i32 %call
@@ -2994,8 +2994,8 @@ entry:
   ret i32 %conv.i
 }
 
-; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @reftable_log_record_equal_void(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %hash_size) #6 {
+; Function Attrs: nofree nounwind uwtable
+define internal range(i32 0, 2) i32 @reftable_log_record_equal_void(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %hash_size) #9 {
 entry:
   %call = tail call i32 @reftable_log_record_equal(ptr noundef %a, ptr noundef %b, i32 noundef %hash_size)
   ret i32 %call
@@ -3907,7 +3907,7 @@ attributes #6 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width
 attributes #7 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

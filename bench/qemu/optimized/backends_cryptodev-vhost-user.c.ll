@@ -36,13 +36,13 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @cryptodev_vhost_user_get_vhost(ptr nocapture noundef readonly %cc, ptr noundef %b, i16 noundef zeroext %queue) local_unnamed_addr #0 {
 entry:
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %b, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 42, ptr noundef nonnull @__func__.CRYPTODEV_BACKEND_VHOST_USER) #4
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %b, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 42, ptr noundef nonnull @__func__.CRYPTODEV_BACKEND_VHOST_USER) #5
   %0 = load i32, ptr %cc, align 8
   %cmp = icmp eq i32 %0, 1
   br i1 %cmp, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 70, ptr noundef nonnull @__PRETTY_FUNCTION__.cryptodev_vhost_user_get_vhost) #5
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 70, ptr noundef nonnull @__PRETTY_FUNCTION__.cryptodev_vhost_user_get_vhost) #6
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -50,7 +50,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1, label %if.end5, label %if.else4
 
 if.else4:                                         ; preds = %if.end
-  tail call void @__assert_fail(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 71, ptr noundef nonnull @__PRETTY_FUNCTION__.cryptodev_vhost_user_get_vhost) #5
+  tail call void @__assert_fail(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 71, ptr noundef nonnull @__PRETTY_FUNCTION__.cryptodev_vhost_user_get_vhost) #6
   unreachable
 
 if.end5:                                          ; preds = %if.end
@@ -67,7 +67,7 @@ declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @do_qemu_init_cryptodev_vhost_user_register_types() #0 {
 entry:
-  tail call void @register_module_init(ptr noundef nonnull @cryptodev_vhost_user_register_types, i32 noundef 3) #4
+  tail call void @register_module_init(ptr noundef nonnull @cryptodev_vhost_user_register_types, i32 noundef 3) #5
   ret void
 }
 
@@ -76,7 +76,7 @@ declare void @register_module_init(ptr noundef, i32 noundef) local_unnamed_addr 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @cryptodev_vhost_user_register_types() #0 {
 entry:
-  %call = tail call ptr @type_register_static(ptr noundef nonnull @cryptodev_vhost_user_info) #4
+  %call = tail call ptr @type_register_static(ptr noundef nonnull @cryptodev_vhost_user_info) #5
   ret void
 }
 
@@ -87,19 +87,19 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @cryptodev_vhost_user_finalize(ptr noundef %obj) #0 {
 entry:
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 42, ptr noundef nonnull @__func__.CRYPTODEV_BACKEND_VHOST_USER) #4
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 42, ptr noundef nonnull @__func__.CRYPTODEV_BACKEND_VHOST_USER) #5
   %chr = getelementptr inbounds i8, ptr %call.i, i64 1224
-  tail call void @qemu_chr_fe_deinit(ptr noundef nonnull %chr, i1 noundef zeroext false) #4
+  tail call void @qemu_chr_fe_deinit(ptr noundef nonnull %chr, i1 noundef zeroext false) #5
   %chr_name = getelementptr inbounds i8, ptr %call.i, i64 1280
   %0 = load ptr, ptr %chr_name, align 8
-  tail call void @g_free(ptr noundef %0) #4
+  tail call void @g_free(ptr noundef %0) #5
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @cryptodev_vhost_user_class_init(ptr noundef %oc, ptr nocapture readnone %data) #0 {
 entry:
-  %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.6, i32 noundef 43, ptr noundef nonnull @__func__.CRYPTODEV_BACKEND_CLASS) #4
+  %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.6, i32 noundef 43, ptr noundef nonnull @__func__.CRYPTODEV_BACKEND_CLASS) #5
   %init = getelementptr inbounds i8, ptr %call.i, i64 96
   store ptr @cryptodev_vhost_user_init, ptr %init, align 8
   %cleanup = getelementptr inbounds i8, ptr %call.i, i64 104
@@ -110,7 +110,7 @@ entry:
   store ptr @cryptodev_vhost_user_close_session, ptr %close_session, align 8
   %do_op = getelementptr inbounds i8, ptr %call.i, i64 128
   store ptr null, ptr %do_op, align 8
-  %call1 = tail call ptr @object_class_property_add_str(ptr noundef %oc, ptr noundef nonnull @.str.5, ptr noundef nonnull @cryptodev_vhost_user_get_chardev, ptr noundef nonnull @cryptodev_vhost_user_set_chardev) #4
+  %call1 = tail call ptr @object_class_property_add_str(ptr noundef %oc, ptr noundef nonnull @.str.5, ptr noundef nonnull @cryptodev_vhost_user_get_chardev, ptr noundef nonnull @cryptodev_vhost_user_set_chardev) #5
   ret void
 }
 
@@ -126,24 +126,24 @@ entry:
   %queues1 = getelementptr inbounds i8, ptr %backend, i64 560
   %0 = load i32, ptr %queues1, align 8
   store ptr null, ptr %local_err, align 8
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %backend, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 42, ptr noundef nonnull @__func__.CRYPTODEV_BACKEND_VHOST_USER) #4
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %backend, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 42, ptr noundef nonnull @__func__.CRYPTODEV_BACKEND_VHOST_USER) #5
   %chr_name.i = getelementptr inbounds i8, ptr %call.i, i64 1280
   %1 = load ptr, ptr %chr_name.i, align 8
   %cmp.i = icmp eq ptr %1, null
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %local_err, ptr noundef nonnull @.str.1, i32 noundef 140, ptr noundef nonnull @__func__.cryptodev_vhost_claim_chardev, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.9) #4
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %local_err, ptr noundef nonnull @.str.1, i32 noundef 140, ptr noundef nonnull @__func__.cryptodev_vhost_claim_chardev, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.9) #5
   br label %cryptodev_vhost_claim_chardev.exit
 
 if.end.i:                                         ; preds = %entry
-  %call.i26 = tail call ptr @qemu_chr_find(ptr noundef nonnull %1) #4
+  %call.i26 = tail call ptr @qemu_chr_find(ptr noundef nonnull %1) #5
   %cmp2.i = icmp eq ptr %call.i26, null
   br i1 %cmp2.i, label %if.then3.i, label %cryptodev_vhost_claim_chardev.exit
 
 if.then3.i:                                       ; preds = %if.end.i
   %2 = load ptr, ptr %chr_name.i, align 8
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_set_internal(ptr noundef nonnull %local_err, ptr noundef nonnull @.str.1, i32 noundef 147, ptr noundef nonnull @__func__.cryptodev_vhost_claim_chardev, i32 noundef 3, ptr noundef nonnull @.str.10, ptr noundef %2) #4
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_set_internal(ptr noundef nonnull %local_err, ptr noundef nonnull @.str.1, i32 noundef 147, ptr noundef nonnull @__func__.cryptodev_vhost_claim_chardev, i32 noundef 3, ptr noundef nonnull @.str.10, ptr noundef %2) #5
   br label %cryptodev_vhost_claim_chardev.exit
 
 cryptodev_vhost_claim_chardev.exit:               ; preds = %if.then.i, %if.end.i, %if.then3.i
@@ -153,7 +153,7 @@ cryptodev_vhost_claim_chardev.exit:               ; preds = %if.then.i, %if.end.
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %cryptodev_vhost_claim_chardev.exit
-  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %3) #4
+  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %3) #5
   br label %return
 
 if.end:                                           ; preds = %cryptodev_vhost_claim_chardev.exit
@@ -170,9 +170,9 @@ for.body.lr.ph:                                   ; preds = %if.end
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %i.028 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
-  %call4 = call ptr @cryptodev_backend_new_client() #4
+  %call4 = call ptr @cryptodev_backend_new_client() #5
   %4 = load ptr, ptr %label, align 8
-  %call5 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.7, i64 noundef %i.028, ptr noundef %4) #4
+  %call5 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.7, i64 noundef %i.028, ptr noundef %4) #5
   %info_str = getelementptr inbounds i8, ptr %call4, i64 8
   store ptr %call5, ptr %info_str, align 8
   %conv6 = trunc i64 %i.028 to i32
@@ -185,7 +185,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp9, label %if.then11, label %for.inc
 
 if.then11:                                        ; preds = %for.body
-  %call13 = call zeroext i1 @qemu_chr_fe_init(ptr noundef nonnull %chr12, ptr noundef nonnull %retval.0.i, ptr noundef %errp) #4
+  %call13 = call zeroext i1 @qemu_chr_fe_init(ptr noundef nonnull %chr12, ptr noundef nonnull %retval.0.i, ptr noundef %errp) #5
   br i1 %call13, label %for.inc, label %return
 
 for.inc:                                          ; preds = %for.body, %if.then11
@@ -196,11 +196,11 @@ for.inc:                                          ; preds = %for.body, %if.then1
 for.end:                                          ; preds = %for.inc, %if.end
   %vhost_user = getelementptr inbounds i8, ptr %call.i, i64 1200
   %chr17 = getelementptr inbounds i8, ptr %call.i, i64 1224
-  %call18 = call zeroext i1 @vhost_user_init(ptr noundef nonnull %vhost_user, ptr noundef nonnull %chr17, ptr noundef %errp) #4
+  %call18 = call zeroext i1 @vhost_user_init(ptr noundef nonnull %vhost_user, ptr noundef nonnull %chr17, ptr noundef %errp) #5
   br i1 %call18, label %if.end20, label %return
 
 if.end20:                                         ; preds = %for.end
-  call void @qemu_chr_fe_set_handlers(ptr noundef nonnull %chr17, ptr noundef null, ptr noundef null, ptr noundef nonnull @cryptodev_vhost_user_event, ptr noundef null, ptr noundef %call.i, ptr noundef null, i1 noundef zeroext true) #4
+  call void @qemu_chr_fe_set_handlers(ptr noundef nonnull %chr17, ptr noundef null, ptr noundef null, ptr noundef nonnull @cryptodev_vhost_user_event, ptr noundef null, ptr noundef %call.i, ptr noundef null, i1 noundef zeroext true) #5
   %crypto_services = getelementptr inbounds i8, ptr %backend, i64 568
   store i32 7, ptr %crypto_services, align 8
   %cipher_algo_l = getelementptr inbounds i8, ptr %backend, i64 572
@@ -222,7 +222,7 @@ return:                                           ; preds = %if.then11, %for.end
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @cryptodev_vhost_user_cleanup(ptr noundef %backend, ptr nocapture readnone %errp) #0 {
 entry:
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %backend, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 42, ptr noundef nonnull @__func__.CRYPTODEV_BACKEND_VHOST_USER) #4
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %backend, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 42, ptr noundef nonnull @__func__.CRYPTODEV_BACKEND_VHOST_USER) #5
   %conf = getelementptr inbounds i8, ptr %backend, i64 48
   %queues1 = getelementptr inbounds i8, ptr %backend, i64 560
   %0 = load i32, ptr %queues1, align 8
@@ -242,7 +242,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   br i1 %tobool.not.i.not.i, label %for.inc.i, label %if.end.i
 
 if.end.i:                                         ; preds = %for.body.i
-  tail call void @cryptodev_vhost_cleanup(ptr noundef nonnull %1) #4
+  tail call void @cryptodev_vhost_cleanup(ptr noundef nonnull %1) #5
   store ptr null, ptr %arrayidx.i, align 8
   br label %for.inc.i
 
@@ -262,7 +262,7 @@ for.body:                                         ; preds = %cryptodev_vhost_use
   br i1 %tobool.not, label %for.inc, label %if.then
 
 if.then:                                          ; preds = %for.body
-  tail call void @cryptodev_backend_free_client(ptr noundef nonnull %2) #4
+  tail call void @cryptodev_backend_free_client(ptr noundef nonnull %2) #5
   store ptr null, ptr %arrayidx, align 8
   br label %for.inc
 
@@ -273,7 +273,7 @@ for.inc:                                          ; preds = %for.body, %if.then
 
 for.end:                                          ; preds = %for.inc, %entry, %cryptodev_vhost_user_stop.exit
   %vhost_user = getelementptr inbounds i8, ptr %call.i, i64 1200
-  tail call void @vhost_user_cleanup(ptr noundef nonnull %vhost_user) #4
+  tail call void @vhost_user_cleanup(ptr noundef nonnull %vhost_user) #5
   ret void
 }
 
@@ -299,13 +299,13 @@ sw.bb:                                            ; preds = %entry, %entry, %ent
   %arrayidx.i = getelementptr [64 x ptr], ptr %conf.i, i64 0, i64 %idxprom.i
   %1 = load ptr, ptr %arrayidx.i, align 8
   store i64 0, ptr %session_id.i, align 8
-  %call.i.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %backend, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 42, ptr noundef nonnull @__func__.CRYPTODEV_BACKEND_VHOST_USER) #4
+  %call.i.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %backend, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 42, ptr noundef nonnull @__func__.CRYPTODEV_BACKEND_VHOST_USER) #5
   %2 = load i32, ptr %1, align 8
   %cmp.i.i = icmp eq i32 %2, 1
   br i1 %cmp.i.i, label %if.end.i.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %sw.bb
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 70, ptr noundef nonnull @__PRETTY_FUNCTION__.cryptodev_vhost_user_get_vhost) #5
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 70, ptr noundef nonnull @__PRETTY_FUNCTION__.cryptodev_vhost_user_get_vhost) #6
   unreachable
 
 if.end.i.i:                                       ; preds = %sw.bb
@@ -314,7 +314,7 @@ if.end.i.i:                                       ; preds = %sw.bb
   br i1 %cmp1.i.i, label %cryptodev_vhost_user_get_vhost.exit.i, label %if.else4.i.i
 
 if.else4.i.i:                                     ; preds = %if.end.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 71, ptr noundef nonnull @__PRETTY_FUNCTION__.cryptodev_vhost_user_get_vhost) #5
+  tail call void @__assert_fail(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 71, ptr noundef nonnull @__PRETTY_FUNCTION__.cryptodev_vhost_user_get_vhost) #6
   unreachable
 
 cryptodev_vhost_user_get_vhost.exit.i:            ; preds = %if.end.i.i
@@ -331,13 +331,13 @@ if.then.i:                                        ; preds = %cryptodev_vhost_use
   %5 = load ptr, ptr %vhost_ops.i, align 8
   %vhost_crypto_create_session.i = getelementptr inbounds i8, ptr %5, i64 288
   %6 = load ptr, ptr %vhost_crypto_create_session.i, align 8
-  %call2.i = call i32 %6(ptr noundef nonnull %4, ptr noundef nonnull %sess_info, ptr noundef nonnull %session_id.i) #4
+  %call2.i = call i32 %6(ptr noundef nonnull %4, ptr noundef nonnull %sess_info, ptr noundef nonnull %session_id.i) #5
   %cmp.i = icmp slt i32 %call2.i, 0
   %7 = load i64, ptr %session_id.i, align 8
   br i1 %cmp.i, label %if.end.thread, label %if.end
 
 sw.default:                                       ; preds = %entry
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %local_error, ptr noundef nonnull @.str.1, i32 noundef 285, ptr noundef nonnull @__func__.cryptodev_vhost_user_create_session, ptr noundef nonnull @.str.14, i32 noundef %0) #4
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %local_error, ptr noundef nonnull @.str.1, i32 noundef 285, ptr noundef nonnull @__func__.cryptodev_vhost_user_create_session, ptr noundef nonnull @.str.14, i32 noundef %0) #5
   br label %return
 
 if.end.thread:                                    ; preds = %cryptodev_vhost_user_get_vhost.exit.i, %if.then.i
@@ -360,7 +360,7 @@ if.end4:                                          ; preds = %if.end.thread, %if.
   br i1 %tobool5.not, label %return, label %if.then6
 
 if.then6:                                         ; preds = %if.end4
-  call void %cb(ptr noundef %opaque, i32 noundef %status.0) #4
+  call void %cb(ptr noundef %opaque, i32 noundef %status.0) #5
   br label %return
 
 return:                                           ; preds = %if.end4, %if.then6, %sw.default
@@ -375,13 +375,13 @@ entry:
   %idxprom = zext i32 %queue_index to i64
   %arrayidx = getelementptr [64 x ptr], ptr %conf, i64 0, i64 %idxprom
   %0 = load ptr, ptr %arrayidx, align 8
-  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %backend, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 42, ptr noundef nonnull @__func__.CRYPTODEV_BACKEND_VHOST_USER) #4
+  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %backend, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 42, ptr noundef nonnull @__func__.CRYPTODEV_BACKEND_VHOST_USER) #5
   %1 = load i32, ptr %0, align 8
   %cmp.i = icmp eq i32 %1, 1
   br i1 %cmp.i, label %if.end.i, label %if.else.i
 
 if.else.i:                                        ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 70, ptr noundef nonnull @__PRETTY_FUNCTION__.cryptodev_vhost_user_get_vhost) #5
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 70, ptr noundef nonnull @__PRETTY_FUNCTION__.cryptodev_vhost_user_get_vhost) #6
   unreachable
 
 if.end.i:                                         ; preds = %entry
@@ -390,7 +390,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp1.i, label %cryptodev_vhost_user_get_vhost.exit, label %if.else4.i
 
 if.else4.i:                                       ; preds = %if.end.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 71, ptr noundef nonnull @__PRETTY_FUNCTION__.cryptodev_vhost_user_get_vhost) #5
+  tail call void @__assert_fail(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 71, ptr noundef nonnull @__PRETTY_FUNCTION__.cryptodev_vhost_user_get_vhost) #6
   unreachable
 
 cryptodev_vhost_user_get_vhost.exit:              ; preds = %if.end.i
@@ -407,7 +407,7 @@ if.then:                                          ; preds = %cryptodev_vhost_use
   %4 = load ptr, ptr %vhost_ops, align 8
   %vhost_crypto_close_session = getelementptr inbounds i8, ptr %4, i64 296
   %5 = load ptr, ptr %vhost_crypto_close_session, align 8
-  %call2 = tail call i32 %5(ptr noundef nonnull %3, i64 noundef %session_id) #4
+  %call2 = tail call i32 %5(ptr noundef nonnull %3, i64 noundef %session_id) #5
   %call2.lobit = ashr i32 %call2, 31
   br label %if.end6
 
@@ -417,7 +417,7 @@ if.end6:                                          ; preds = %cryptodev_vhost_use
   br i1 %tobool7.not, label %if.end9, label %if.then8
 
 if.then8:                                         ; preds = %if.end6
-  tail call void %cb(ptr noundef %opaque, i32 noundef %status.0) #4
+  tail call void %cb(ptr noundef %opaque, i32 noundef %status.0) #5
   br label %if.end9
 
 if.end9:                                          ; preds = %if.then8, %if.end6
@@ -429,9 +429,9 @@ declare ptr @object_class_property_add_str(ptr noundef, ptr noundef, ptr noundef
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noalias ptr @cryptodev_vhost_user_get_chardev(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
 entry:
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 42, ptr noundef nonnull @__func__.CRYPTODEV_BACKEND_VHOST_USER) #4
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 42, ptr noundef nonnull @__func__.CRYPTODEV_BACKEND_VHOST_USER) #5
   %chr1 = getelementptr inbounds i8, ptr %call.i, i64 1224
-  %call2 = tail call ptr @qemu_chr_fe_get_driver(ptr noundef nonnull %chr1) #4
+  %call2 = tail call ptr @qemu_chr_fe_get_driver(ptr noundef nonnull %chr1) #5
   %tobool.not = icmp eq ptr %call2, null
   br i1 %tobool.not, label %return, label %land.lhs.true
 
@@ -442,7 +442,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %tobool3.not, label %return, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  %call5 = tail call noalias ptr @g_strdup(ptr noundef nonnull %0) #4
+  %call5 = tail call noalias ptr @g_strdup(ptr noundef nonnull %0) #5
   br label %return
 
 return:                                           ; preds = %entry, %land.lhs.true, %if.then
@@ -453,21 +453,21 @@ return:                                           ; preds = %entry, %land.lhs.tr
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @cryptodev_vhost_user_set_chardev(ptr noundef %obj, ptr noundef %value, ptr noundef %errp) #0 {
 entry:
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 42, ptr noundef nonnull @__func__.CRYPTODEV_BACKEND_VHOST_USER) #4
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 42, ptr noundef nonnull @__func__.CRYPTODEV_BACKEND_VHOST_USER) #5
   %opened = getelementptr inbounds i8, ptr %call.i, i64 1288
   %0 = load i8, ptr %opened, align 8
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 365, ptr noundef nonnull @__func__.cryptodev_vhost_user_set_chardev, ptr noundef nonnull @.str.15) #4
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 365, ptr noundef nonnull @__func__.cryptodev_vhost_user_set_chardev, ptr noundef nonnull @.str.15) #5
   br label %if.end
 
 if.else:                                          ; preds = %entry
   %chr_name = getelementptr inbounds i8, ptr %call.i, i64 1280
   %1 = load ptr, ptr %chr_name, align 8
-  tail call void @g_free(ptr noundef %1) #4
-  %call1 = tail call noalias ptr @g_strdup(ptr noundef %value) #4
+  tail call void @g_free(ptr noundef %1) #5
+  %call1 = tail call noalias ptr @g_strdup(ptr noundef %value) #5
   store ptr %call1, ptr %chr_name, align 8
   br label %if.end
 
@@ -493,14 +493,14 @@ declare void @qemu_chr_fe_set_handlers(ptr noundef, ptr noundef, ptr noundef, pt
 define internal void @cryptodev_vhost_user_event(ptr noundef %opaque, i32 noundef %event) #0 {
 entry:
   %options.i = alloca %struct.CryptoDevBackendVhostOptions, align 8
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.6, i32 noundef 43, ptr noundef nonnull @__func__.CRYPTODEV_BACKEND) #4
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.6, i32 noundef 43, ptr noundef nonnull @__func__.CRYPTODEV_BACKEND) #5
   %queues1 = getelementptr inbounds i8, ptr %call.i, i64 560
   %0 = load i32, ptr %queues1, align 8
   %cmp = icmp slt i32 %0, 64
   br i1 %cmp, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.1, i32 noundef 160, ptr noundef nonnull @__PRETTY_FUNCTION__.cryptodev_vhost_user_event) #5
+  tail call void @__assert_fail(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.1, i32 noundef 160, ptr noundef nonnull @__PRETTY_FUNCTION__.cryptodev_vhost_user_event) #6
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -511,7 +511,7 @@ if.end:                                           ; preds = %entry
 
 sw.bb:                                            ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %options.i)
-  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.6, i32 noundef 43, ptr noundef nonnull @__func__.CRYPTODEV_BACKEND) #4
+  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.6, i32 noundef 43, ptr noundef nonnull @__func__.CRYPTODEV_BACKEND) #5
   %conv.i = sext i32 %0 to i64
   %cmp27.not.i = icmp eq i32 %0, 0
   br i1 %cmp27.not.i, label %if.end5, label %for.body.lr.ph.i
@@ -537,7 +537,7 @@ if.end.i:                                         ; preds = %for.body.i
   %arrayidx3.i = getelementptr [64 x ptr], ptr %conf.i, i64 0, i64 %i.028.i
   %2 = load ptr, ptr %arrayidx3.i, align 8
   store ptr %2, ptr %cc.i, align 8
-  %call4.i = call ptr @cryptodev_vhost_init(ptr noundef nonnull %options.i) #4
+  %call4.i = call ptr @cryptodev_vhost_init(ptr noundef nonnull %options.i) #5
   store ptr %call4.i, ptr %arrayidx.i, align 8
   %tobool9.not.i = icmp eq ptr %call4.i, null
   br i1 %tobool9.not.i, label %err.i, label %if.end11.i
@@ -547,13 +547,13 @@ if.end11.i:                                       ; preds = %if.end.i
   br i1 %cmp12.i, label %if.then14.i, label %for.inc.i
 
 if.then14.i:                                      ; preds = %if.end11.i
-  %call17.i = call i64 @cryptodev_vhost_get_max_queues(ptr noundef nonnull %call4.i) #4
+  %call17.i = call i64 @cryptodev_vhost_get_max_queues(ptr noundef nonnull %call4.i) #5
   %conv18.i = trunc i64 %call17.i to i32
   %cmp19.i = icmp sgt i32 %0, %conv18.i
   br i1 %cmp19.i, label %err.thread.i, label %for.inc.i
 
 err.thread.i:                                     ; preds = %if.then14.i
-  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.13, i32 noundef %conv18.i) #4
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.13, i32 noundef %conv18.i) #5
   br label %for.body.lr.ph.i.i
 
 for.inc.i:                                        ; preds = %if.then14.i, %if.end11.i, %for.body.i
@@ -562,7 +562,7 @@ for.inc.i:                                        ; preds = %if.then14.i, %if.en
   br i1 %exitcond.not.i, label %if.end5, label %for.body.i, !llvm.loop !9
 
 err.i:                                            ; preds = %if.end.i
-  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.12, i64 noundef %i.028.i) #4
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.12, i64 noundef %i.028.i) #5
   %3 = trunc i64 %i.028.i to i32
   %conv24.i = add i32 %3, 1
   %conv.i.i = sext i32 %conv24.i to i64
@@ -581,7 +581,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %for.b
   br i1 %tobool.not.i.not.i.i, label %for.inc.i.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %for.body.i.i
-  call void @cryptodev_vhost_cleanup(ptr noundef nonnull %4) #4
+  call void @cryptodev_vhost_cleanup(ptr noundef nonnull %4) #5
   store ptr null, ptr %arrayidx.i.i, align 8
   br label %for.inc.i.i
 
@@ -592,7 +592,7 @@ for.inc.i.i:                                      ; preds = %if.end.i.i, %for.bo
 
 if.then4:                                         ; preds = %for.inc.i.i, %err.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %options.i)
-  call void @exit(i32 noundef 1) #5
+  call void @exit(i32 noundef 1) #7
   unreachable
 
 if.end5:                                          ; preds = %for.inc.i, %sw.bb
@@ -620,7 +620,7 @@ for.body.i10:                                     ; preds = %for.inc.i14, %for.b
   br i1 %tobool.not.i.not.i12, label %for.inc.i14, label %if.end.i13
 
 if.end.i13:                                       ; preds = %for.body.i10
-  tail call void @cryptodev_vhost_cleanup(ptr noundef nonnull %5) #4
+  tail call void @cryptodev_vhost_cleanup(ptr noundef nonnull %5) #5
   store ptr null, ptr %arrayidx.i11, align 8
   br label %for.inc.i14
 
@@ -639,8 +639,8 @@ declare ptr @qemu_chr_find(ptr noundef) local_unnamed_addr #2
 
 declare void @error_set_internal(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
-; Function Attrs: noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #1
+; Function Attrs: nofree noreturn nounwind
+declare void @exit(i32 noundef) local_unnamed_addr #3
 
 declare ptr @cryptodev_vhost_init(ptr noundef) local_unnamed_addr #2
 
@@ -659,17 +659,19 @@ declare ptr @qemu_chr_fe_get_driver(ptr noundef) local_unnamed_addr #2
 declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nounwind }
-attributes #5 = { noreturn nounwind }
+attributes #3 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { nounwind }
+attributes #6 = { noreturn nounwind }
+attributes #7 = { cold noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

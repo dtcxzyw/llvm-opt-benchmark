@@ -49,12 +49,12 @@ entry:
   %0 = load ptr, ptr %config, align 8
   %idx.ext = zext i16 %offset to i64
   %add.ptr = getelementptr i8, ptr %0, i64 %idx.ext
-  tail call void @pcie_add_capability(ptr noundef %dev, i16 noundef zeroext 16, i8 noundef zeroext 1, i16 noundef zeroext %offset, i16 noundef zeroext 64) #9
+  tail call void @pcie_add_capability(ptr noundef %dev, i16 noundef zeroext 16, i8 noundef zeroext 1, i16 noundef zeroext %offset, i16 noundef zeroext 64) #10
   %sriov_cap = getelementptr inbounds i8, ptr %dev, i64 2196
   store i16 %offset, ptr %sriov_cap, align 4
   %sriov_pf = getelementptr inbounds i8, ptr %dev, i64 2200
   store i16 0, ptr %sriov_pf, align 8
-  %call = tail call noalias ptr @g_strdup(ptr noundef %vfname) #9
+  %call = tail call noalias ptr @g_strdup(ptr noundef %vfname) #10
   %vfname4 = getelementptr inbounds i8, ptr %dev, i64 2216
   store ptr %call, ptr %vfname4, align 8
   %vf = getelementptr inbounds i8, ptr %dev, i64 2224
@@ -84,7 +84,7 @@ entry:
   store i16 -1, ptr %add.ptr20, align 1
   %add.ptr21 = getelementptr i8, ptr %add.ptr18, i64 32
   store i16 1363, ptr %add.ptr21, align 1
-  tail call void @qdev_prop_set_bit(ptr noundef %dev, ptr noundef nonnull @.str, i1 noundef zeroext true) #9
+  tail call void @qdev_prop_set_bit(ptr noundef %dev, ptr noundef nonnull @.str, i1 noundef zeroext true) #10
   ret void
 }
 
@@ -100,7 +100,7 @@ entry:
   tail call fastcc void @unregister_vfs(ptr noundef %dev)
   %vfname = getelementptr inbounds i8, ptr %dev, i64 2216
   %0 = load ptr, ptr %vfname, align 8
-  tail call void @g_free(ptr noundef %0) #9
+  tail call void @g_free(ptr noundef %0) #10
   store ptr null, ptr %vfname, align 8
   ret void
 }
@@ -139,16 +139,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #9
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #10
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #10
   %6 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.15, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef nonnull %name, i32 noundef %and, i32 noundef %and3, i32 noundef %conv) #9
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.15, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef nonnull %name, i32 noundef %and, i32 noundef %and3, i32 noundef %conv) #10
   br label %trace_sriov_unregister_vfs.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.16, ptr noundef nonnull %name, i32 noundef %and, i32 noundef %and3, i32 noundef %conv) #9
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.16, ptr noundef nonnull %name, i32 noundef %and, i32 noundef %and3, i32 noundef %conv) #10
   br label %trace_sriov_unregister_vfs.exit
 
 trace_sriov_unregister_vfs.exit:                  ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -167,17 +167,17 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   %8 = load ptr, ptr %vf9, align 8
   %arrayidx = getelementptr ptr, ptr %8, i64 %indvars.iv
   %9 = load ptr, ptr %arrayidx, align 8
-  %call = call zeroext i1 @object_property_set_bool(ptr noundef %9, ptr noundef nonnull @.str.13, i1 noundef zeroext false, ptr noundef nonnull %err) #9
+  %call = call zeroext i1 @object_property_set_bool(ptr noundef %9, ptr noundef nonnull @.str.13, i1 noundef zeroext false, ptr noundef nonnull %err) #10
   br i1 %call, label %if.end, label %if.then
 
 if.then:                                          ; preds = %for.body
   %10 = load ptr, ptr %err, align 8
-  call void (ptr, ptr, ...) @error_reportf_err(ptr noundef %10, ptr noundef nonnull @.str.14) #9
+  call void (ptr, ptr, ...) @error_reportf_err(ptr noundef %10, ptr noundef nonnull @.str.14) #10
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %for.body
-  call void @object_unparent(ptr noundef %9) #9
-  call void @object_unref(ptr noundef %9) #9
+  call void @object_unparent(ptr noundef %9) #10
+  call void @object_unref(ptr noundef %9) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !5
@@ -185,7 +185,7 @@ if.end:                                           ; preds = %if.then, %for.body
 for.end:                                          ; preds = %if.end, %trace_sriov_unregister_vfs.exit
   %vf12 = getelementptr inbounds i8, ptr %dev, i64 2224
   %11 = load ptr, ptr %vf12, align 8
-  call void @g_free(ptr noundef %11) #9
+  call void @g_free(ptr noundef %11) #10
   store ptr null, ptr %vf12, align 8
   store i16 0, ptr %sriov_pf, align 8
   %config = getelementptr inbounds i8, ptr %dev, i64 168
@@ -211,7 +211,7 @@ entry:
   br i1 %cmp.not, label %if.else, label %if.end
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 88, ptr noundef nonnull @__PRETTY_FUNCTION__.pcie_sriov_pf_init_vf_bar) #10
+  tail call void @__assert_fail(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 88, ptr noundef nonnull @__PRETTY_FUNCTION__.pcie_sriov_pf_init_vf_bar) #11
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -219,7 +219,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp3, label %if.end7, label %if.else6
 
 if.else6:                                         ; preds = %if.end
-  tail call void @__assert_fail(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.2, i32 noundef 89, ptr noundef nonnull @__PRETTY_FUNCTION__.pcie_sriov_pf_init_vf_bar) #10
+  tail call void @__assert_fail(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.2, i32 noundef 89, ptr noundef nonnull @__PRETTY_FUNCTION__.pcie_sriov_pf_init_vf_bar) #11
   unreachable
 
 if.end7:                                          ; preds = %if.end
@@ -227,7 +227,7 @@ if.end7:                                          ; preds = %if.end
   br i1 %cmp8, label %if.end12, label %if.else11
 
 if.else11:                                        ; preds = %if.end7
-  tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.2, i32 noundef 90, ptr noundef nonnull @__PRETTY_FUNCTION__.pcie_sriov_pf_init_vf_bar) #10
+  tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.2, i32 noundef 90, ptr noundef nonnull @__PRETTY_FUNCTION__.pcie_sriov_pf_init_vf_bar) #11
   unreachable
 
 if.end12:                                         ; preds = %if.end7
@@ -235,7 +235,7 @@ if.end12:                                         ; preds = %if.end7
   br i1 %cmp13.not, label %if.else16, label %if.end17
 
 if.else16:                                        ; preds = %if.end12
-  tail call void @__assert_fail(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.2, i32 noundef 91, ptr noundef nonnull @__PRETTY_FUNCTION__.pcie_sriov_pf_init_vf_bar) #10
+  tail call void @__assert_fail(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.2, i32 noundef 91, ptr noundef nonnull @__PRETTY_FUNCTION__.pcie_sriov_pf_init_vf_bar) #11
   unreachable
 
 if.end17:                                         ; preds = %if.end12
@@ -287,17 +287,17 @@ declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @pcie_sriov_vf_register_bar(ptr noundef %dev, i32 noundef %region_num, ptr noundef %memory) local_unnamed_addr #0 {
 entry:
-  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #9
-  %call1.i = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i) #9
-  %call.i1.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1.i, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #9
-  %call1 = tail call i64 @memory_region_size(ptr noundef %memory) #9
+  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #10
+  %call1.i = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i) #10
+  %call.i1.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1.i, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #10
+  %call1 = tail call i64 @memory_region_size(ptr noundef %memory) #10
   %0 = getelementptr i8, ptr %dev, i64 2232
   %dev.val = load ptr, ptr %0, align 8
   %cmp.i.not = icmp eq ptr %dev.val, null
   br i1 %cmp.i.not, label %if.else, label %if.end
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.2, i32 noundef 116, ptr noundef nonnull @__PRETTY_FUNCTION__.pcie_sriov_vf_register_bar) #10
+  tail call void @__assert_fail(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.2, i32 noundef 116, ptr noundef nonnull @__PRETTY_FUNCTION__.pcie_sriov_vf_register_bar) #11
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -305,7 +305,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %if.end5, label %if.else4
 
 if.else4:                                         ; preds = %if.end
-  tail call void @__assert_fail(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.2, i32 noundef 117, ptr noundef nonnull @__PRETTY_FUNCTION__.pcie_sriov_vf_register_bar) #10
+  tail call void @__assert_fail(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.2, i32 noundef 117, ptr noundef nonnull @__PRETTY_FUNCTION__.pcie_sriov_vf_register_bar) #11
   unreachable
 
 if.end5:                                          ; preds = %if.end
@@ -313,7 +313,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %cmp6, label %if.end9, label %if.else8
 
 if.else8:                                         ; preds = %if.end5
-  tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.2, i32 noundef 118, ptr noundef nonnull @__PRETTY_FUNCTION__.pcie_sriov_vf_register_bar) #10
+  tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.2, i32 noundef 118, ptr noundef nonnull @__PRETTY_FUNCTION__.pcie_sriov_vf_register_bar) #11
   unreachable
 
 if.end9:                                          ; preds = %if.end5
@@ -327,8 +327,8 @@ if.end9:                                          ; preds = %if.end5
 
 if.then12:                                        ; preds = %if.end9
   %conv = zext i8 %1 to i32
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.7, ptr noundef nonnull @__func__.pcie_sriov_vf_register_bar, i32 noundef %conv, i64 noundef %call1) #9
-  tail call void @exit(i32 noundef 1) #10
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.7, ptr noundef nonnull @__func__.pcie_sriov_vf_register_bar, i32 noundef %conv, i64 noundef %call1) #10
+  tail call void @exit(i32 noundef 1) #12
   unreachable
 
 if.end13:                                         ; preds = %if.end9
@@ -347,7 +347,7 @@ if.end13:                                         ; preds = %if.end9
   store i64 %call1, ptr %size19, align 8
   %type20 = getelementptr inbounds i8, ptr %arrayidx15, i64 16
   store i8 %1, ptr %type20, align 8
-  %call23 = tail call i64 @pci_bar_address(ptr noundef nonnull %dev, i32 noundef %region_num, i8 noundef zeroext %1, i64 noundef %call1) #9
+  %call23 = tail call i64 @pci_bar_address(ptr noundef nonnull %dev, i32 noundef %region_num, i8 noundef zeroext %1, i64 noundef %call1) #10
   store i64 %call23, ptr %arrayidx15, align 8
   %cmp25.not = icmp eq i64 %call23, -1
   br i1 %cmp25.not, label %if.end31, label %if.then27
@@ -355,7 +355,7 @@ if.end13:                                         ; preds = %if.end9
 if.then27:                                        ; preds = %if.end13
   %4 = load ptr, ptr %address_space, align 8
   %5 = load ptr, ptr %memory16, align 8
-  tail call void @memory_region_add_subregion_overlap(ptr noundef %4, i64 noundef %call23, ptr noundef %5, i32 noundef 1) #9
+  tail call void @memory_region_add_subregion_overlap(ptr noundef %4, i64 noundef %call23, ptr noundef %5, i32 noundef 1) #10
   br label %if.end31
 
 if.end31:                                         ; preds = %if.then27, %if.end13
@@ -366,8 +366,8 @@ declare i64 @memory_region_size(ptr noundef) local_unnamed_addr #1
 
 declare void @error_report(ptr noundef, ...) local_unnamed_addr #1
 
-; Function Attrs: noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #2
+; Function Attrs: nofree noreturn nounwind
+declare void @exit(i32 noundef) local_unnamed_addr #3
 
 declare i64 @pci_bar_address(ptr noundef, i32 noundef, i8 noundef zeroext, i64 noundef) local_unnamed_addr #1
 
@@ -419,16 +419,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #9
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #10
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #10
   %6 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.17, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef nonnull %name, i32 noundef %and, i32 noundef %and9, i32 noundef %sub, i32 noundef %val, i32 noundef %len) #9
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.17, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef nonnull %name, i32 noundef %and, i32 noundef %and9, i32 noundef %sub, i32 noundef %val, i32 noundef %len) #10
   br label %trace_sriov_config_write.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, ptr noundef nonnull %name, i32 noundef %and, i32 noundef %and9, i32 noundef %sub, i32 noundef %val, i32 noundef %len) #9
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, ptr noundef nonnull %name, i32 noundef %and, i32 noundef %and9, i32 noundef %sub, i32 noundef %val, i32 noundef %len) #10
   br label %trace_sriov_config_write.exit
 
 trace_sriov_config_write.exit:                    ; preds = %if.end7, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -485,7 +485,7 @@ entry:
   br i1 %cmp.not, label %if.else, label %if.end
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 177, ptr noundef nonnull @__PRETTY_FUNCTION__.register_vfs) #10
+  tail call void @__assert_fail(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 177, ptr noundef nonnull @__PRETTY_FUNCTION__.register_vfs) #11
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -498,7 +498,7 @@ if.end:                                           ; preds = %entry
   %add.ptr17 = getelementptr i8, ptr %add.ptr, i64 16
   %add.ptr17.val = load i16, ptr %add.ptr17, align 1
   %conv19 = zext i16 %add.ptr17.val to i64
-  %call20 = tail call noalias ptr @g_malloc_n(i64 noundef %conv19, i64 noundef 8) #11
+  %call20 = tail call noalias ptr @g_malloc_n(i64 noundef %conv19, i64 noundef 8) #13
   %vf = getelementptr inbounds i8, ptr %dev, i64 2224
   store ptr %call20, ptr %vf, align 8
   %name = getelementptr inbounds i8, ptr %dev, i64 232
@@ -527,16 +527,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #9
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #10
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #10
   %8 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.19, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, ptr noundef nonnull %name, i32 noundef %and, i32 noundef %and24, i32 noundef %conv25) #9
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.19, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, ptr noundef nonnull %name, i32 noundef %and, i32 noundef %and24, i32 noundef %conv25) #10
   br label %trace_sriov_register_vfs.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.20, ptr noundef nonnull %name, i32 noundef %and, i32 noundef %and24, i32 noundef %conv25) #9
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.20, ptr noundef nonnull %name, i32 noundef %and, i32 noundef %and24, i32 noundef %conv25) #10
   br label %trace_sriov_register_vfs.exit
 
 trace_sriov_register_vfs.exit:                    ; preds = %if.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -554,23 +554,23 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   %devfn.028 = phi i32 [ %add, %for.body.lr.ph ], [ %add44, %if.end42 ]
   %10 = load ptr, ptr %vfname, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %local_err.i)
-  %call.i = call ptr @pci_new(i32 noundef %devfn.028, ptr noundef %10) #9
+  %call.i = call ptr @pci_new(i32 noundef %devfn.028, ptr noundef %10) #10
   %sriov_vf.i = getelementptr inbounds i8, ptr %call.i, i64 2232
   store ptr %dev, ptr %sriov_vf.i, align 8
   %vf_number.i = getelementptr inbounds i8, ptr %call.i, i64 2240
   %11 = trunc nuw i64 %indvars.iv to i16
   store i16 %11, ptr %vf_number.i, align 8
-  %call.i.i.i = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %dev, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #9
-  %call1.i.i = call ptr @qdev_get_parent_bus(ptr noundef %call.i.i.i) #9
-  %call.i1.i.i = call ptr @object_dynamic_cast_assert(ptr noundef %call1.i.i, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #9
+  %call.i.i.i = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %dev, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #10
+  %call1.i.i = call ptr @qdev_get_parent_bus(ptr noundef %call.i.i.i) #10
+  %call.i1.i.i = call ptr @object_dynamic_cast_assert(ptr noundef %call1.i.i, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #10
   store ptr null, ptr %local_err.i, align 8
-  %call5.i = call zeroext i1 @qdev_realize(ptr noundef %call.i, ptr noundef %call.i1.i.i, ptr noundef nonnull %local_err.i) #9
+  %call5.i = call zeroext i1 @qdev_realize(ptr noundef %call.i, ptr noundef %call.i1.i.i, ptr noundef nonnull %local_err.i) #10
   %12 = load ptr, ptr %local_err.i, align 8
   %tobool.not.i = icmp eq ptr %12, null
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body
-  call void @error_report_err(ptr noundef nonnull %12) #9
+  call void @error_report_err(ptr noundef nonnull %12) #10
   br label %register_vf.exit
 
 if.end.i:                                         ; preds = %for.body
@@ -639,7 +639,7 @@ if.end8:                                          ; preds = %if.then, %if.then5,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @pcie_sriov_pf_add_sup_pgsize(ptr nocapture noundef readonly %dev, i16 noundef zeroext %opt_sup_pgsize) local_unnamed_addr #3 {
+define dso_local void @pcie_sriov_pf_add_sup_pgsize(ptr nocapture noundef readonly %dev, i16 noundef zeroext %opt_sup_pgsize) local_unnamed_addr #4 {
 entry:
   %config = getelementptr inbounds i8, ptr %dev, i64 168
   %0 = load ptr, ptr %config, align 8
@@ -668,7 +668,7 @@ entry:
   br i1 %cmp.i.not, label %if.else, label %if.end
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.2, i32 noundef 283, ptr noundef nonnull @__PRETTY_FUNCTION__.pcie_sriov_vf_number) #10
+  tail call void @__assert_fail(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.2, i32 noundef 283, ptr noundef nonnull @__PRETTY_FUNCTION__.pcie_sriov_vf_number) #11
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -678,7 +678,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local ptr @pcie_sriov_get_pf(ptr nocapture noundef readonly %dev) local_unnamed_addr #4 {
+define dso_local ptr @pcie_sriov_get_pf(ptr nocapture noundef readonly %dev) local_unnamed_addr #5 {
 entry:
   %sriov_vf = getelementptr inbounds i8, ptr %dev, i64 2232
   %0 = load ptr, ptr %sriov_vf, align 8
@@ -694,7 +694,7 @@ entry:
   br i1 %cmp.i.not, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.2, i32 noundef 294, ptr noundef nonnull @__PRETTY_FUNCTION__.pcie_sriov_get_vf_at_index) #10
+  tail call void @__assert_fail(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.2, i32 noundef 294, ptr noundef nonnull @__PRETTY_FUNCTION__.pcie_sriov_get_vf_at_index) #11
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -718,7 +718,7 @@ return:                                           ; preds = %if.end, %if.then2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local zeroext i16 @pcie_sriov_num_vfs(ptr nocapture noundef readonly %dev) local_unnamed_addr #4 {
+define dso_local zeroext i16 @pcie_sriov_num_vfs(ptr nocapture noundef readonly %dev) local_unnamed_addr #5 {
 entry:
   %sriov_pf = getelementptr inbounds i8, ptr %dev, i64 2200
   %0 = load i16, ptr %sriov_pf, align 8
@@ -738,14 +738,14 @@ declare void @object_unparent(ptr noundef) local_unnamed_addr #1
 declare void @object_unref(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 
 declare i32 @qemu_get_thread_id() local_unnamed_addr #1
 
 ; Function Attrs: allocsize(0,1)
-declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #6
+declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #7
 
 declare ptr @pci_new(i32 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -754,26 +754,28 @@ declare zeroext i1 @qdev_realize(ptr noundef, ptr noundef, ptr noundef) local_un
 declare void @error_report_err(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctpop.i64(i64) #7
+declare i64 @llvm.ctpop.i64(i64) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { nounwind }
-attributes #10 = { noreturn nounwind }
-attributes #11 = { nounwind allocsize(0,1) }
+attributes #3 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { nounwind }
+attributes #11 = { noreturn nounwind }
+attributes #12 = { cold noreturn nounwind }
+attributes #13 = { nounwind allocsize(0,1) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

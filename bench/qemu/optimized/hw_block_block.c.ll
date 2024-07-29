@@ -32,14 +32,14 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local noundef zeroext i1 @blk_check_size_and_read_all(ptr noundef %blk, ptr noundef %buf, i64 noundef %size, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %bytes.i = alloca i64, align 8
-  %call = tail call i64 @blk_getlength(ptr noundef %blk) #5
+  %call = tail call i64 @blk_getlength(ptr noundef %blk) #6
   %cmp = icmp slt i64 %call, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %0 = trunc i64 %call to i32
   %conv = sub i32 0, %0
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 73, ptr noundef nonnull @__func__.blk_check_size_and_read_all, i32 noundef %conv, ptr noundef nonnull @.str.1) #5
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 73, ptr noundef nonnull @__func__.blk_check_size_and_read_all, i32 noundef %conv, ptr noundef nonnull @.str.1) #6
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -47,7 +47,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1.not, label %if.end4, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 79, ptr noundef nonnull @__func__.blk_check_size_and_read_all, ptr noundef nonnull @.str.2, i64 noundef %size, i64 noundef %call) #5
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 79, ptr noundef nonnull @__func__.blk_check_size_and_read_all, ptr noundef nonnull @.str.2, i64 noundef %size, i64 noundef %call) #6
   br label %return
 
 if.end4:                                          ; preds = %if.end
@@ -55,12 +55,12 @@ if.end4:                                          ; preds = %if.end
   br i1 %cmp5, label %if.end8, label %if.else
 
 if.else:                                          ; preds = %if.end4
-  tail call void @__assert_fail(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, i32 noundef 89, ptr noundef nonnull @__PRETTY_FUNCTION__.blk_check_size_and_read_all) #6
+  tail call void @__assert_fail(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, i32 noundef 89, ptr noundef nonnull @__PRETTY_FUNCTION__.blk_check_size_and_read_all) #7
   unreachable
 
 if.end8:                                          ; preds = %if.end4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %bytes.i)
-  %call.i = tail call ptr @blk_bs(ptr noundef %blk) #5
+  %call.i = tail call ptr @blk_bs(ptr noundef %blk) #6
   %cond12.i = tail call i64 @llvm.umin.i64(i64 %size, i64 4194303)
   store i64 %cond12.i, ptr %bytes.i, align 8
   %cmp113.i = icmp eq i64 %size, 0
@@ -69,7 +69,7 @@ if.end8:                                          ; preds = %if.end4
 if.end.i:                                         ; preds = %if.end8, %if.end11.i
   %cond15.i = phi i64 [ %cond.i, %if.end11.i ], [ %cond12.i, %if.end8 ]
   %offset.014.i = phi i64 [ %add.i, %if.end11.i ], [ 0, %if.end8 ]
-  %call2.i = call i32 @bdrv_block_status(ptr noundef %call.i, i64 noundef %offset.014.i, i64 noundef %cond15.i, ptr noundef nonnull %bytes.i, ptr noundef null, ptr noundef null) #5
+  %call2.i = call i32 @bdrv_block_status(ptr noundef %call.i, i64 noundef %offset.014.i, i64 noundef %cond15.i, ptr noundef nonnull %bytes.i, ptr noundef null, ptr noundef null) #6
   %cmp3.i = icmp slt i32 %call2.i, 0
   br i1 %cmp3.i, label %if.then12, label %if.end5.i
 
@@ -81,7 +81,7 @@ if.end5.i:                                        ; preds = %if.end.i
 if.then6.i:                                       ; preds = %if.end5.i
   %1 = load i64, ptr %bytes.i, align 8
   %add.ptr.i = getelementptr i8, ptr %buf, i64 %offset.014.i
-  %call7.i = call i32 @blk_pread(ptr noundef %blk, i64 noundef %offset.014.i, i64 noundef %1, ptr noundef %add.ptr.i, i32 noundef 0) #5
+  %call7.i = call i32 @blk_pread(ptr noundef %blk, i64 noundef %offset.014.i, i64 noundef %1, ptr noundef %add.ptr.i, i32 noundef 0) #6
   %cmp8.i = icmp slt i32 %call7.i, 0
   br i1 %cmp8.i, label %if.then12, label %if.end11.i
 
@@ -102,7 +102,7 @@ if.then12:                                        ; preds = %if.then6.i, %if.end
   %retval.0.i.ph = phi i32 [ %call2.i, %if.end.i ], [ %call7.i, %if.then6.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %bytes.i)
   %sub13 = sub i32 0, %retval.0.i.ph
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 92, ptr noundef nonnull @__func__.blk_check_size_and_read_all, i32 noundef %sub13, ptr noundef nonnull @.str.4) #5
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 92, ptr noundef nonnull @__func__.blk_check_size_and_read_all, i32 noundef %sub13, ptr noundef nonnull @.str.4) #6
   br label %return
 
 return:                                           ; preds = %blk_pread_nonzeroes.exit, %if.then12, %if.then3, %if.then
@@ -133,17 +133,17 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %call = call i32 @blk_probe_blocksizes(ptr noundef %0, ptr noundef nonnull %blocksizes) #5
+  %call = call i32 @blk_probe_blocksizes(ptr noundef %0, ptr noundef nonnull %blocksizes) #6
   br label %sw.epilog
 
 sw.bb2:                                           ; preds = %entry
-  %call3 = call i32 @blk_probe_blocksizes(ptr noundef %0, ptr noundef nonnull %blocksizes) #5
-  %call7 = call ptr @blk_bs(ptr noundef %0) #5
+  %call3 = call i32 @blk_probe_blocksizes(ptr noundef %0, ptr noundef nonnull %blocksizes) #6
+  %call7 = call ptr @blk_bs(ptr noundef %0) #6
   %tobool8 = icmp ne ptr %call7, null
   br label %sw.epilog
 
 sw.default:                                       ; preds = %entry
-  tail call void @abort() #6
+  tail call void @abort() #7
   unreachable
 
 sw.epilog:                                        ; preds = %sw.bb2, %sw.bb
@@ -273,7 +273,7 @@ if.end49:                                         ; preds = %if.end16.thread97.t
   br i1 %cmp52, label %if.then53, label %if.end54
 
 if.then53:                                        ; preds = %if.end49
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 157, ptr noundef nonnull @__func__.blkconf_blocksizes, ptr noundef nonnull @.str.5) #5
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 157, ptr noundef nonnull @__func__.blkconf_blocksizes, ptr noundef nonnull @.str.5) #6
   br label %return
 
 if.end54:                                         ; preds = %if.end49
@@ -285,7 +285,7 @@ if.end54:                                         ; preds = %if.end49
   br i1 %cmp56, label %if.end58, label %if.then57
 
 if.then57:                                        ; preds = %if.end54
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 163, ptr noundef nonnull @__func__.blkconf_blocksizes, ptr noundef nonnull @.str.6) #5
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 163, ptr noundef nonnull @__func__.blkconf_blocksizes, ptr noundef nonnull @.str.6) #6
   br label %return
 
 if.end58:                                         ; preds = %if.end54
@@ -293,7 +293,7 @@ if.end58:                                         ; preds = %if.end54
   br i1 %cmp61, label %if.then62, label %if.end63
 
 if.then62:                                        ; preds = %if.end58
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 173, ptr noundef nonnull @__func__.blkconf_blocksizes, ptr noundef nonnull @.str.7, i32 noundef 65535) #5
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 173, ptr noundef nonnull @__func__.blkconf_blocksizes, ptr noundef nonnull @.str.7, i32 noundef 65535) #6
   br label %return
 
 if.end63:                                         ; preds = %if.end58
@@ -304,7 +304,7 @@ if.end63:                                         ; preds = %if.end58
   br i1 %cmp67, label %if.end69, label %if.then68
 
 if.then68:                                        ; preds = %if.end63
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 179, ptr noundef nonnull @__func__.blkconf_blocksizes, ptr noundef nonnull @.str.8) #5
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 179, ptr noundef nonnull @__func__.blkconf_blocksizes, ptr noundef nonnull @.str.8) #6
   br label %return
 
 if.end69:                                         ; preds = %if.end63
@@ -319,7 +319,7 @@ land.lhs.true:                                    ; preds = %if.end69
   br i1 %cmp75, label %return, label %if.then76
 
 if.then76:                                        ; preds = %land.lhs.true
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 187, ptr noundef nonnull @__func__.blkconf_blocksizes, ptr noundef nonnull @.str.9) #5
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 187, ptr noundef nonnull @__func__.blkconf_blocksizes, ptr noundef nonnull @.str.9) #6
   br label %return
 
 return:                                           ; preds = %if.end69, %land.lhs.true, %if.then76, %if.then68, %if.then62, %if.then57, %if.then53
@@ -331,8 +331,8 @@ declare i32 @blk_probe_blocksizes(ptr noundef, ptr noundef) local_unnamed_addr #
 
 declare ptr @blk_bs(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: noreturn nounwind
-declare void @abort() local_unnamed_addr #2
+; Function Attrs: cold nofree noreturn nounwind
+declare void @abort() local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef zeroext i1 @blkconf_apply_backend_options(ptr nocapture noundef readonly %conf, i1 noundef zeroext %readonly, i1 noundef zeroext %resizable, ptr noundef %errp) local_unnamed_addr #0 {
@@ -345,7 +345,7 @@ entry:
   %tobool7 = trunc i8 %1 to i1
   %or9 = or disjoint i64 %shared_perm.0, 2
   %shared_perm.1 = select i1 %tobool7, i64 %or9, i64 %shared_perm.0
-  %call = tail call i32 @blk_set_perm(ptr noundef %0, i64 noundef %spec.select, i64 noundef %shared_perm.1, ptr noundef %errp) #5
+  %call = tail call i32 @blk_set_perm(ptr noundef %0, i64 noundef %spec.select, i64 noundef %shared_perm.1, ptr noundef %errp) #6
   %cmp = icmp sgt i32 %call, -1
   br i1 %cmp, label %if.end12, label %return
 
@@ -362,11 +362,11 @@ sw.bb14:                                          ; preds = %if.end12
   br label %sw.epilog
 
 sw.bb15:                                          ; preds = %if.end12
-  %call16 = tail call zeroext i1 @blk_enable_write_cache(ptr noundef %0) #5
+  %call16 = tail call zeroext i1 @blk_enable_write_cache(ptr noundef %0) #6
   br label %sw.epilog
 
 sw.default:                                       ; preds = %if.end12
-  tail call void @abort() #6
+  tail call void @abort() #7
   unreachable
 
 sw.epilog:                                        ; preds = %if.end12, %sw.bb15, %sw.bb14
@@ -377,7 +377,7 @@ sw.epilog:                                        ; preds = %if.end12, %sw.bb15,
   br i1 %cmp19, label %if.then20, label %if.end22
 
 if.then20:                                        ; preds = %sw.epilog
-  %call21 = tail call i32 @blk_get_on_error(ptr noundef %0, i1 noundef zeroext true) #5
+  %call21 = tail call i32 @blk_get_on_error(ptr noundef %0, i1 noundef zeroext true) #6
   br label %if.end22
 
 if.end22:                                         ; preds = %if.then20, %sw.epilog
@@ -388,19 +388,19 @@ if.end22:                                         ; preds = %if.then20, %sw.epil
   br i1 %cmp24, label %if.then25, label %if.end27
 
 if.then25:                                        ; preds = %if.end22
-  %call26 = tail call i32 @blk_get_on_error(ptr noundef %0, i1 noundef zeroext false) #5
+  %call26 = tail call i32 @blk_get_on_error(ptr noundef %0, i1 noundef zeroext false) #6
   br label %if.end27
 
 if.end27:                                         ; preds = %if.then25, %if.end22
   %werror.0 = phi i32 [ %call26, %if.then25 ], [ %4, %if.end22 ]
-  tail call void @blk_set_enable_write_cache(ptr noundef %0, i1 noundef zeroext %wce.0) #5
-  tail call void @blk_set_on_error(ptr noundef %0, i32 noundef %rerror.0, i32 noundef %werror.0) #5
-  %call29 = tail call ptr @blk_get_stats(ptr noundef %0) #5
+  tail call void @blk_set_enable_write_cache(ptr noundef %0, i1 noundef zeroext %wce.0) #6
+  tail call void @blk_set_on_error(ptr noundef %0, i32 noundef %rerror.0, i32 noundef %werror.0) #6
+  %call29 = tail call ptr @blk_get_stats(ptr noundef %0) #6
   %account_invalid = getelementptr inbounds i8, ptr %conf, i64 68
   %5 = load i32, ptr %account_invalid, align 4
   %account_failed = getelementptr inbounds i8, ptr %conf, i64 72
   %6 = load i32, ptr %account_failed, align 8
-  tail call void @block_acct_setup(ptr noundef %call29, i32 noundef %5, i32 noundef %6) #5
+  tail call void @block_acct_setup(ptr noundef %call29, i32 noundef %5, i32 noundef %6) #6
   br label %return
 
 return:                                           ; preds = %entry, %if.end27
@@ -443,7 +443,7 @@ land.lhs.true2:                                   ; preds = %land.lhs.true
 
 if.then:                                          ; preds = %land.lhs.true2
   %3 = load ptr, ptr %conf, align 8
-  tail call void @hd_geometry_guess(ptr noundef %3, ptr noundef nonnull %cyls, ptr noundef nonnull %heads, ptr noundef nonnull %secs, ptr noundef %ptrans) #5
+  tail call void @hd_geometry_guess(ptr noundef %3, ptr noundef nonnull %cyls, ptr noundef nonnull %heads, ptr noundef nonnull %secs, ptr noundef %ptrans) #6
   br label %if.end13
 
 if.else:                                          ; preds = %land.lhs.true2, %land.lhs.true, %entry
@@ -460,7 +460,7 @@ if.then9:                                         ; preds = %land.lhs.true8
   %5 = load i32, ptr %heads11, align 8
   %secs12 = getelementptr inbounds i8, ptr %conf, i64 44
   %6 = load i32, ptr %secs12, align 4
-  %call = tail call i32 @hd_bios_chs_auto_trans(i32 noundef %0, i32 noundef %5, i32 noundef %6) #5
+  %call = tail call i32 @hd_bios_chs_auto_trans(i32 noundef %0, i32 noundef %5, i32 noundef %6) #6
   store i32 %call, ptr %ptrans, align 4
   br label %if.end13
 
@@ -487,7 +487,7 @@ if.then21:                                        ; preds = %if.end13
   br i1 %or.cond.not, label %if.end28, label %if.then27
 
 if.then27:                                        ; preds = %lor.lhs.false, %lor.lhs.false18, %if.then21
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 260, ptr noundef nonnull @__func__.blkconf_geometry, ptr noundef nonnull @.str.10, i32 noundef %cyls_max) #5
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 260, ptr noundef nonnull @__func__.blkconf_geometry, ptr noundef nonnull @.str.10, i32 noundef %cyls_max) #6
   br label %return
 
 if.end28:                                         ; preds = %if.then21
@@ -498,7 +498,7 @@ if.end28:                                         ; preds = %if.then21
   br i1 %or.cond29.not, label %if.end35, label %if.then34
 
 if.then34:                                        ; preds = %if.end28
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 264, ptr noundef nonnull @__func__.blkconf_geometry, ptr noundef nonnull @.str.11, i32 noundef %heads_max) #5
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 264, ptr noundef nonnull @__func__.blkconf_geometry, ptr noundef nonnull @.str.11, i32 noundef %heads_max) #6
   br label %return
 
 if.end35:                                         ; preds = %if.end28
@@ -509,7 +509,7 @@ if.end35:                                         ; preds = %if.end28
   br i1 %or.cond30.not, label %return, label %if.then41
 
 if.then41:                                        ; preds = %if.end35
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 268, ptr noundef nonnull @__func__.blkconf_geometry, ptr noundef nonnull @.str.12, i32 noundef %secs_max) #5
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 268, ptr noundef nonnull @__func__.blkconf_geometry, ptr noundef nonnull @.str.12, i32 noundef %secs_max) #6
   br label %return
 
 return:                                           ; preds = %lor.lhs.false18, %if.end35, %if.then41, %if.then34, %if.then27
@@ -526,21 +526,22 @@ declare i32 @bdrv_block_status(ptr noundef, i64 noundef, i64 noundef, ptr nounde
 declare i32 @blk_pread(ptr noundef, i64 noundef, i64 noundef, ptr noundef, i32 noundef) #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #3
+declare i64 @llvm.umin.i64(i64, i64) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nounwind }
-attributes #6 = { noreturn nounwind }
+attributes #3 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { nounwind }
+attributes #7 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

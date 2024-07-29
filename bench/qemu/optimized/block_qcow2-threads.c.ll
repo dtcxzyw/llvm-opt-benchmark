@@ -79,7 +79,7 @@ sw.bb1.split:                                     ; preds = %entry
   br label %sw.epilog
 
 sw.default:                                       ; preds = %entry
-  tail call void @abort() #5
+  tail call void @abort() #6
   unreachable
 
 sw.epilog:                                        ; preds = %sw.bb1.split, %sw.bb.split
@@ -92,7 +92,7 @@ define internal i64 @qcow2_zlib_compress(ptr noundef %dest, i64 noundef %dest_si
 entry:
   %strm = alloca %struct.z_stream_s, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %strm, i8 0, i64 112, i1 false)
-  %call = call i32 @deflateInit2_(ptr noundef nonnull %strm, i32 noundef -1, i32 noundef 8, i32 noundef -12, i32 noundef 9, i32 noundef 0, ptr noundef nonnull @.str, i32 noundef 112) #6
+  %call = call i32 @deflateInit2_(ptr noundef nonnull %strm, i32 noundef -1, i32 noundef 8, i32 noundef -12, i32 noundef 9, i32 noundef 0, ptr noundef nonnull @.str, i32 noundef 112) #7
   %cmp.not = icmp eq i32 %call, 0
   br i1 %cmp.not, label %if.end, label %return
 
@@ -106,7 +106,7 @@ if.end:                                           ; preds = %entry
   store i32 %conv3, ptr %avail_out, align 8
   %next_out = getelementptr inbounds i8, ptr %strm, i64 24
   store ptr %dest, ptr %next_out, align 8
-  %call4 = call i32 @deflate(ptr noundef nonnull %strm, i32 noundef 4) #6
+  %call4 = call i32 @deflate(ptr noundef nonnull %strm, i32 noundef 4) #7
   %cmp6 = icmp eq i32 %call4, 1
   %0 = load i32, ptr %avail_out, align 8
   %conv10 = zext i32 %0 to i64
@@ -114,7 +114,7 @@ if.end:                                           ; preds = %entry
   %cmp11 = icmp eq i32 %call4, 0
   %cond = select i1 %cmp11, i64 -12, i64 -5
   %ret.0 = select i1 %cmp6, i64 %sub, i64 %cond
-  %call15 = call i32 @deflateEnd(ptr noundef nonnull %strm) #6
+  %call15 = call i32 @deflateEnd(ptr noundef nonnull %strm) #7
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -137,12 +137,12 @@ entry:
   store i64 %src_size, ptr %size2, align 8
   %pos3 = getelementptr inbounds i8, ptr %input, i64 16
   store i64 0, ptr %pos3, align 8
-  %call = tail call ptr @ZSTD_createCCtx() #6
+  %call = tail call ptr @ZSTD_createCCtx() #7
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call4 = call i64 @ZSTD_compressStream2(ptr noundef nonnull %call, ptr noundef nonnull %output, ptr noundef nonnull %input, i32 noundef 2) #6
+  %call4 = call i64 @ZSTD_compressStream2(ptr noundef nonnull %call, ptr noundef nonnull %output, ptr noundef nonnull %input, i32 noundef 2) #7
   %tobool5.not = icmp eq i64 %call4, 0
   br i1 %tobool5.not, label %if.end11, label %if.then6
 
@@ -160,12 +160,12 @@ if.end11:                                         ; preds = %if.end
   br i1 %cmp13.not, label %if.else15, label %out
 
 if.else15:                                        ; preds = %if.end11
-  call void @__assert_fail(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 237, ptr noundef nonnull @__PRETTY_FUNCTION__.qcow2_zstd_compress) #5
+  call void @__assert_fail(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 237, ptr noundef nonnull @__PRETTY_FUNCTION__.qcow2_zstd_compress) #6
   unreachable
 
 out:                                              ; preds = %if.end11, %if.then6
   %ret.0 = phi i64 [ %., %if.then6 ], [ %2, %if.end11 ]
-  %call18 = call i64 @ZSTD_freeCCtx(ptr noundef nonnull %call) #6
+  %call18 = call i64 @ZSTD_freeCCtx(ptr noundef nonnull %call) #7
   br label %return
 
 return:                                           ; preds = %entry, %out
@@ -173,7 +173,7 @@ return:                                           ; preds = %entry, %out
   ret i64 %retval.0
 }
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: cold nofree noreturn nounwind
 declare void @abort() local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -247,7 +247,7 @@ sw.bb1.split:                                     ; preds = %entry
   br label %sw.epilog
 
 sw.default:                                       ; preds = %entry
-  tail call void @abort() #5
+  tail call void @abort() #6
   unreachable
 
 sw.epilog:                                        ; preds = %sw.bb1.split, %sw.bb.split
@@ -270,12 +270,12 @@ entry:
   store i32 %conv1, ptr %avail_out, align 8
   %next_out = getelementptr inbounds i8, ptr %strm, i64 24
   store ptr %dest, ptr %next_out, align 8
-  %call = call i32 @inflateInit2_(ptr noundef nonnull %strm, i32 noundef -12, ptr noundef nonnull @.str, i32 noundef 112) #6
+  %call = call i32 @inflateInit2_(ptr noundef nonnull %strm, i32 noundef -12, ptr noundef nonnull @.str, i32 noundef 112) #7
   %cmp.not = icmp eq i32 %call, 0
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %call3 = call i32 @inflate(ptr noundef nonnull %strm, i32 noundef 4) #6
+  %call3 = call i32 @inflate(ptr noundef nonnull %strm, i32 noundef 4) #7
   %cmp4 = icmp eq i32 %call3, 1
   %cmp6 = icmp eq i32 %call3, -5
   %or.cond = or i1 %cmp4, %cmp6
@@ -283,7 +283,7 @@ if.end:                                           ; preds = %entry
   %cmp9 = icmp eq i32 %1, 0
   %or.cond1 = select i1 %or.cond, i1 %cmp9, i1 false
   %. = select i1 %or.cond1, i64 0, i64 -5
-  %call13 = call i32 @inflateEnd(ptr noundef nonnull %strm) #6
+  %call13 = call i32 @inflateEnd(ptr noundef nonnull %strm) #7
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -306,7 +306,7 @@ entry:
   store i64 %src_size, ptr %size2, align 8
   %pos3 = getelementptr inbounds i8, ptr %input, i64 16
   store i64 0, ptr %pos3, align 8
-  %call = tail call ptr @ZSTD_createDCtx() #6
+  %call = tail call ptr @ZSTD_createDCtx() #7
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %return, label %while.cond.preheader
 
@@ -322,8 +322,8 @@ while.cond:                                       ; preds = %if.end12
 while.body:                                       ; preds = %while.cond.preheader, %while.cond
   %1 = phi i64 [ %3, %while.cond ], [ 0, %while.cond.preheader ]
   %2 = phi i64 [ %4, %while.cond ], [ 0, %while.cond.preheader ]
-  %call8 = call i64 @ZSTD_decompressStream(ptr noundef nonnull %call, ptr noundef nonnull %output, ptr noundef nonnull %input) #6
-  %call9 = call i32 @ZSTD_isError(i64 noundef %call8) #6
+  %call8 = call i64 @ZSTD_decompressStream(ptr noundef nonnull %call, ptr noundef nonnull %output, ptr noundef nonnull %input) #7
+  %call9 = call i32 @ZSTD_isError(i64 noundef %call8) #7
   %tobool10.not = icmp eq i32 %call9, 0
   br i1 %tobool10.not, label %if.end12, label %while.end.loopexit
 
@@ -342,18 +342,18 @@ while.end.loopexit:                               ; preds = %if.end12, %while.bo
 
 while.end.thread:                                 ; preds = %while.cond.preheader, %while.end.loopexit
   %zstd_ret.1.ph = phi i64 [ -5, %while.end.loopexit ], [ 0, %while.cond.preheader ]
-  %call2214 = call i64 @ZSTD_freeDCtx(ptr noundef nonnull %call) #6
+  %call2214 = call i64 @ZSTD_freeDCtx(ptr noundef nonnull %call) #7
   br label %return
 
 while.end:                                        ; preds = %while.end.loopexit
-  %call22 = call i64 @ZSTD_freeDCtx(ptr noundef nonnull %call) #6
+  %call22 = call i64 @ZSTD_freeDCtx(ptr noundef nonnull %call) #7
   switch i64 %ret.0.ph, label %if.else [
     i64 -5, label %return
     i64 0, label %return
   ]
 
 if.else:                                          ; preds = %while.end
-  call void @__assert_fail(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.2, i32 noundef 323, ptr noundef nonnull @__PRETTY_FUNCTION__.qcow2_zstd_decompress) #5
+  call void @__assert_fail(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.2, i32 noundef 323, ptr noundef nonnull @__PRETTY_FUNCTION__.qcow2_zstd_decompress) #6
   unreachable
 
 return:                                           ; preds = %while.end.thread, %while.end, %while.end, %entry
@@ -393,17 +393,17 @@ entry:
   br i1 %tobool5.not, label %if.else, label %if.end
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.2, i32 noundef 471, ptr noundef nonnull @__PRETTY_FUNCTION__.qcow2_co_encdec) #5
+  tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.2, i32 noundef 471, ptr noundef nonnull @__PRETTY_FUNCTION__.qcow2_co_encdec) #6
   unreachable
 
 if.end:                                           ; preds = %entry
-  %call = tail call i64 @qcrypto_block_get_sector_size(ptr noundef nonnull %1) #6
+  %call = tail call i64 @qcrypto_block_get_sector_size(ptr noundef nonnull %1) #7
   %rem = urem i64 %guest_offset, %call
   %cmp = icmp eq i64 %rem, 0
   br i1 %cmp, label %if.end9, label %if.else8
 
 if.else8:                                         ; preds = %if.end
-  tail call void @__assert_fail(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.2, i32 noundef 474, ptr noundef nonnull @__PRETTY_FUNCTION__.qcow2_co_encdec) #5
+  tail call void @__assert_fail(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.2, i32 noundef 474, ptr noundef nonnull @__PRETTY_FUNCTION__.qcow2_co_encdec) #6
   unreachable
 
 if.end9:                                          ; preds = %if.end
@@ -412,7 +412,7 @@ if.end9:                                          ; preds = %if.end
   br i1 %cmp11, label %if.end14, label %if.else13
 
 if.else13:                                        ; preds = %if.end9
-  tail call void @__assert_fail(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.2, i32 noundef 475, ptr noundef nonnull @__PRETTY_FUNCTION__.qcow2_co_encdec) #5
+  tail call void @__assert_fail(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.2, i32 noundef 475, ptr noundef nonnull @__PRETTY_FUNCTION__.qcow2_co_encdec) #6
   unreachable
 
 if.end14:                                         ; preds = %if.end9
@@ -421,7 +421,7 @@ if.end14:                                         ; preds = %if.end9
   br i1 %cmp16, label %if.end19, label %if.else18
 
 if.else18:                                        ; preds = %if.end14
-  tail call void @__assert_fail(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.2, i32 noundef 476, ptr noundef nonnull @__PRETTY_FUNCTION__.qcow2_co_encdec) #5
+  tail call void @__assert_fail(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.2, i32 noundef 476, ptr noundef nonnull @__PRETTY_FUNCTION__.qcow2_co_encdec) #6
   unreachable
 
 if.end19:                                         ; preds = %if.end14
@@ -462,7 +462,7 @@ declare ptr @ZSTD_createCCtx() local_unnamed_addr #2
 declare i64 @ZSTD_compressStream2(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: noreturn nounwind
-declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 declare i64 @ZSTD_freeCCtx(ptr noundef) local_unnamed_addr #2
 
@@ -473,7 +473,7 @@ entry:
   %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   %lock = getelementptr inbounds i8, ptr %0, i64 160
-  tail call void @qemu_co_mutex_lock(ptr noundef nonnull %lock) #6
+  tail call void @qemu_co_mutex_lock(ptr noundef nonnull %lock) #7
   %nb_threads = getelementptr inbounds i8, ptr %0, i64 472
   %1 = load i32, ptr %nb_threads, align 8
   %cmp11 = icmp sgt i32 %1, 3
@@ -489,7 +489,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   store ptr %lock, ptr %.compoundliteral, align 8
   store ptr @qemu_co_mutex_lock, ptr %lock3, align 8
   store ptr @qemu_co_mutex_unlock, ptr %unlock, align 8
-  call void @qemu_co_queue_wait_impl(ptr noundef nonnull %thread_task_queue, ptr noundef nonnull %.compoundliteral, i32 noundef 0) #6
+  call void @qemu_co_queue_wait_impl(ptr noundef nonnull %thread_task_queue, ptr noundef nonnull %.compoundliteral, i32 noundef 0) #7
   %2 = load i32, ptr %nb_threads, align 8
   %cmp = icmp sgt i32 %2, 3
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !7
@@ -498,15 +498,15 @@ while.end:                                        ; preds = %while.body, %entry
   %.lcssa = phi i32 [ %1, %entry ], [ %2, %while.body ]
   %inc = add nsw i32 %.lcssa, 1
   store i32 %inc, ptr %nb_threads, align 8
-  call void @qemu_co_mutex_unlock(ptr noundef nonnull %lock) #6
-  %call6 = call i32 @thread_pool_submit_co(ptr noundef %func, ptr noundef %arg) #6
-  call void @qemu_co_mutex_lock(ptr noundef nonnull %lock) #6
+  call void @qemu_co_mutex_unlock(ptr noundef nonnull %lock) #7
+  %call6 = call i32 @thread_pool_submit_co(ptr noundef %func, ptr noundef %arg) #7
+  call void @qemu_co_mutex_lock(ptr noundef nonnull %lock) #7
   %3 = load i32, ptr %nb_threads, align 8
   %dec = add i32 %3, -1
   store i32 %dec, ptr %nb_threads, align 8
   %thread_task_queue9 = getelementptr inbounds i8, ptr %0, i64 456
-  %call10 = call zeroext i1 @qemu_co_queue_next(ptr noundef nonnull %thread_task_queue9) #6
-  call void @qemu_co_mutex_unlock(ptr noundef nonnull %lock) #6
+  %call10 = call zeroext i1 @qemu_co_queue_next(ptr noundef nonnull %thread_task_queue9) #7
+  call void @qemu_co_mutex_unlock(ptr noundef nonnull %lock) #7
   ret i32 %call6
 }
 
@@ -522,7 +522,7 @@ entry:
   %3 = load ptr, ptr %src, align 8
   %src_size = getelementptr inbounds i8, ptr %opaque, i64 24
   %4 = load i64, ptr %src_size, align 8
-  %call = tail call i64 %0(ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) #6
+  %call = tail call i64 %0(ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) #7
   %ret = getelementptr inbounds i8, ptr %opaque, i64 32
   store i64 %call, ptr %ret, align 8
   ret i32 0
@@ -566,23 +566,24 @@ entry:
   %3 = load ptr, ptr %buf, align 8
   %len = getelementptr inbounds i8, ptr %opaque, i64 24
   %4 = load i64, ptr %len, align 8
-  %call = tail call i32 %0(ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef null) #6
+  %call = tail call i32 %0(ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef null) #7
   ret i32 %call
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { noreturn nounwind }
-attributes #6 = { nounwind }
+attributes #4 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { noreturn nounwind }
+attributes #7 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

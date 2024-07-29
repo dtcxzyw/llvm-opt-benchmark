@@ -1402,14 +1402,14 @@ define void @slurm_process_option_or_exit(ptr noundef %0, i32 noundef %1, ptr no
   br i1 %.not, label %8, label %7
 
 7:                                                ; preds = %5
-  tail call void @exit(i32 noundef -1) #24
+  tail call void @exit(i32 noundef -1) #25
   unreachable
 
 8:                                                ; preds = %5
   ret void
 }
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
@@ -2668,7 +2668,7 @@ define void @slurm_option_update_tres_per_task_cpu(i32 noundef %0, ptr nocapture
 
 13:                                               ; preds = %2
   %14 = getelementptr inbounds i8, ptr %6, i64 4
-  %15 = tail call i32 @atoi(ptr nocapture noundef nonnull %14) #25
+  %15 = tail call i32 @atoi(ptr nocapture noundef nonnull %14) #26
   %16 = icmp eq i32 %15, %0
   br i1 %16, label %47, label %17
 
@@ -2681,7 +2681,7 @@ define void @slurm_option_update_tres_per_task_cpu(i32 noundef %0, ptr nocapture
   br i1 %.not73, label %.critedge, label %20
 
 20:                                               ; preds = %17
-  %21 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #25
+  %21 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #26
   %22 = getelementptr inbounds i8, ptr %5, i64 %21
   %23 = getelementptr inbounds i8, ptr %22, i64 -1
   %24 = load i8, ptr %23, align 1
@@ -5033,7 +5033,7 @@ slurm_option_set_by_env.exit.i.i:                 ; preds = %.preheader.i49.i.i
 
 slurm_option_set_by_cli.exit47.thread.i.i:        ; preds = %930, %946, %slurm_option_set_by_env.exit.i.i, %slurm_option_set_by_cli.exit47.i.i, %939, %936
   %965 = getelementptr inbounds i8, ptr %892, i64 4
-  %966 = tail call i32 @atoi(ptr nocapture noundef nonnull %965) #25
+  %966 = tail call i32 @atoi(ptr nocapture noundef nonnull %965) #26
   %967 = icmp slt i32 %966, 1
   br i1 %967, label %968, label %.preheader.i54.i.i
 
@@ -5760,7 +5760,7 @@ _validate_cpus_per_tres.exit:                     ; preds = %1216, %1228, %_find
 
 1273:                                             ; preds = %1269
   %1274 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.437) #23
-  call void @exit(i32 noundef -1) #24
+  call void @exit(i32 noundef -1) #25
   unreachable
 
 1275:                                             ; preds = %1269
@@ -5839,7 +5839,7 @@ _valid_node_list.exit.i:                          ; preds = %1307, %1304, %1300,
 
 1311:                                             ; preds = %_valid_node_list.exit.i
   %1312 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.441) #23
-  call void @exit(i32 noundef 1) #24
+  call void @exit(i32 noundef 1) #25
   unreachable
 
 1313:                                             ; preds = %_valid_node_list.exit.i
@@ -5890,7 +5890,7 @@ _valid_node_list.exit29.i:                        ; preds = %1332, %1329, %1325,
   br i1 %1337, label %_validate_nodelist.exit, label %1338
 
 1338:                                             ; preds = %_valid_node_list.exit29.i
-  call void @exit(i32 noundef 1) #24
+  call void @exit(i32 noundef 1) #25
   unreachable
 
 _validate_nodelist.exit:                          ; preds = %1280, %1313, %1316, %_valid_node_list.exit29.i
@@ -5935,7 +5935,7 @@ slurm_option_set_by_env.exit.i137:                ; preds = %1352
 
 slurm_option_set_by_env.exit.thread.i135:         ; preds = %1346, %slurm_option_set_by_env.exit.i137, %1352
   %1358 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.443) #23
-  call void @exit(i32 noundef 1) #24
+  call void @exit(i32 noundef 1) #25
   unreachable
 
 _validate_arbitrary.exit:                         ; preds = %_validate_nodelist.exit, %1342, %slurm_option_set_by_env.exit.i137
@@ -7201,7 +7201,7 @@ define void @suggest_completion(ptr noundef readonly %0, ptr noundef %1) local_u
   ]
 
 9:                                                ; preds = %7
-  %10 = tail call ptr @__ctype_b_loc() #26
+  %10 = tail call ptr @__ctype_b_loc() #27
   %11 = load ptr, ptr %10, align 8
   %12 = sext i8 %8 to i64
   %13 = getelementptr inbounds i16, ptr %11, i64 %12
@@ -7213,12 +7213,12 @@ define void @suggest_completion(ptr noundef readonly %0, ptr noundef %1) local_u
 
 17:                                               ; preds = %7, %9
   %.not46 = phi i1 [ %16, %9 ], [ false, %7 ]
-  %18 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #25
+  %18 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #26
   %19 = icmp ugt i64 %18, 1
   br i1 %19, label %.split.preheader, label %20
 
 20:                                               ; preds = %17
-  %21 = tail call ptr @__ctype_b_loc() #26
+  %21 = tail call ptr @__ctype_b_loc() #27
   %22 = load ptr, ptr %21, align 8
   %23 = sext i8 %8 to i64
   %24 = getelementptr inbounds i16, ptr %22, i64 %23
@@ -7238,7 +7238,7 @@ define void @suggest_completion(ptr noundef readonly %0, ptr noundef %1) local_u
   br i1 %or.cond7078, label %.split52.us, label %.critedge.preheader
 
 .critedge.preheader:                              ; preds = %.split.preheader
-  %31 = tail call ptr @__ctype_b_loc() #26
+  %31 = tail call ptr @__ctype_b_loc() #27
   br label %.critedge
 
 .split.us:                                        ; preds = %20
@@ -7254,7 +7254,7 @@ define void @suggest_completion(ptr noundef readonly %0, ptr noundef %1) local_u
   br i1 %or.cond6974, label %.split52.us, label %.critedge.us.preheader
 
 .critedge.us.preheader:                           ; preds = %.split.us.split.preheader
-  %35 = tail call ptr @__ctype_b_loc() #26
+  %35 = tail call ptr @__ctype_b_loc() #27
   br label %.critedge.us
 
 .critedge.us:                                     ; preds = %.critedge.us.preheader, %.split.us.split
@@ -7415,21 +7415,21 @@ declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readon
 ; Function Attrs: nofree nounwind uwtable
 define internal noundef i32 @arg_set__unknown_salloc(ptr nocapture readnone %0, ptr nocapture readnone %1) #9 {
   %3 = load ptr, ptr @stderr, align 8
-  %4 = tail call i64 @fwrite(ptr nonnull @.str.55, i64 41, i64 1, ptr %3) #27
+  %4 = tail call i64 @fwrite(ptr nonnull @.str.55, i64 41, i64 1, ptr %3) #28
   ret i32 -1
 }
 
 ; Function Attrs: nofree nounwind uwtable
 define internal noundef i32 @arg_set__unknown_sbatch(ptr nocapture readnone %0, ptr nocapture readnone %1) #9 {
   %3 = load ptr, ptr @stderr, align 8
-  %4 = tail call i64 @fwrite(ptr nonnull @.str.56, i64 41, i64 1, ptr %3) #27
+  %4 = tail call i64 @fwrite(ptr nonnull @.str.56, i64 41, i64 1, ptr %3) #28
   ret i32 -1
 }
 
 ; Function Attrs: nofree nounwind uwtable
 define internal noundef i32 @arg_set__unknown_srun(ptr nocapture readnone %0, ptr nocapture readnone %1) #9 {
   %3 = load ptr, ptr @stderr, align 8
-  %4 = tail call i64 @fwrite(ptr nonnull @.str.57, i64 39, i64 1, ptr %3) #27
+  %4 = tail call i64 @fwrite(ptr nonnull @.str.57, i64 39, i64 1, ptr %3) #28
   ret i32 -1
 }
 
@@ -7451,7 +7451,7 @@ define internal range(i32 -1, 1) i32 @arg_set_accel_bind_type(ptr nocapture noun
   br i1 %.not, label %25, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 118) #25
+  %6 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 118) #26
   %.not9 = icmp eq ptr %6, null
   br i1 %.not9, label %10, label %7
 
@@ -7464,7 +7464,7 @@ define internal range(i32 -1, 1) i32 @arg_set_accel_bind_type(ptr nocapture noun
 
 10:                                               ; preds = %7, %5
   %.pre13.pre14 = phi ptr [ %.pre13.pre14.pre, %7 ], [ %4, %5 ]
-  %11 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 103) #25
+  %11 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 103) #26
   %.not10 = icmp eq ptr %11, null
   br i1 %.not10, label %15, label %12
 
@@ -7477,7 +7477,7 @@ define internal range(i32 -1, 1) i32 @arg_set_accel_bind_type(ptr nocapture noun
 
 15:                                               ; preds = %12, %10
   %.pre13 = phi ptr [ %.pre13.pre, %12 ], [ %.pre13.pre14, %10 ]
-  %16 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 110) #25
+  %16 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 110) #26
   %.not11 = icmp eq ptr %16, null
   br i1 %.not11, label %20, label %17
 
@@ -8437,7 +8437,7 @@ define internal void @arg_reset_chdir(ptr noundef %0) #0 {
 
 10:                                               ; preds = %8
   %11 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.84) #23
-  call void @exit(i32 noundef -1) #24
+  call void @exit(i32 noundef -1) #25
   unreachable
 
 12:                                               ; preds = %8
@@ -15775,7 +15775,7 @@ define internal range(i32 -1, 1) i32 @arg_set_send_libs(ptr nocapture noundef re
 
 8:                                                ; preds = %5
   %9 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.308) #23
-  tail call void @exit(i32 noundef -1) #24
+  tail call void @exit(i32 noundef -1) #25
   unreachable
 
 10:                                               ; preds = %5
@@ -16372,7 +16372,7 @@ tailrecurse.i.i:                                  ; preds = %tailrecurse.i.i, %.
   br i1 %.not.i.i, label %_handle_data_switches_str.exit.i, label %tailrecurse.i.i
 
 _handle_data_switches_str.exit.i:                 ; preds = %tailrecurse.i.i, %32
-  %40 = call i32 @atoi(ptr nocapture noundef %33) #25
+  %40 = call i32 @atoi(ptr nocapture noundef %33) #26
   %41 = getelementptr inbounds i8, ptr %0, i64 624
   store i32 %40, ptr %41, align 8
   br label %_handle_data_switches_data.exit
@@ -18297,7 +18297,7 @@ attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protect
 attributes #2 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -18317,9 +18317,10 @@ attributes #21 = { nocallback nofree nosync nounwind willreturn memory(argmem: r
 attributes #22 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #23 = { nounwind }
 attributes #24 = { noreturn nounwind }
-attributes #25 = { nounwind willreturn memory(read) }
-attributes #26 = { nounwind willreturn memory(none) }
-attributes #27 = { cold }
+attributes #25 = { cold noreturn nounwind }
+attributes #26 = { nounwind willreturn memory(read) }
+attributes #27 = { nounwind willreturn memory(none) }
+attributes #28 = { cold }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

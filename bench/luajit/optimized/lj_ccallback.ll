@@ -195,7 +195,7 @@ if.end.i:                                         ; preds = %cond.end.i, %land.l
 
 if.then22.i:                                      ; preds = %if.end.i
   %25 = load ptr, ptr %L1, align 8
-  tail call void @lj_err_caller(ptr noundef %25, i32 noundef 3648) #8
+  tail call void @lj_err_caller(ptr noundef %25, i32 noundef 3648) #9
   unreachable
 
 if.end24.i:                                       ; preds = %if.end.i
@@ -358,7 +358,7 @@ callback_conv_args.exit:                          ; preds = %if.end98.i, %while.
 
 declare hidden ptr @lj_err_str(ptr noundef, i32 noundef) local_unnamed_addr #3
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
@@ -647,7 +647,7 @@ for.end.i:                                        ; preds = %for.inc.i, %if.then
 if.then12.i:                                      ; preds = %for.end.i
   %L.i = getelementptr inbounds i8, ptr %cts, i64 16
   %19 = load ptr, ptr %L.i, align 8
-  tail call void @lj_err_caller(ptr noundef %19, i32 noundef 3661) #8
+  tail call void @lj_err_caller(ptr noundef %19, i32 noundef 3661) #9
   unreachable
 
 if.end13.i:                                       ; preds = %for.end.i
@@ -664,7 +664,7 @@ if.then16.i:                                      ; preds = %if.end13.i
 if.then.i.i:                                      ; preds = %if.then16.i
   %L.i.i = getelementptr inbounds i8, ptr %cts, i64 16
   %21 = load ptr, ptr %L.i.i, align 8
-  tail call void @lj_err_caller(ptr noundef %21, i32 noundef 3661) #8
+  tail call void @lj_err_caller(ptr noundef %21, i32 noundef 3661) #9
   unreachable
 
 if.end.i.i:                                       ; preds = %if.then16.i
@@ -863,11 +863,12 @@ attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #7 = { nounwind }
-attributes #8 = { noreturn nounwind }
+attributes #8 = { cold noreturn nounwind }
+attributes #9 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

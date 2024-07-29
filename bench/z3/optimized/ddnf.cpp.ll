@@ -2556,7 +2556,7 @@ entry:
 define hidden void @_ZNK7datalog4ddnf19display_certificateERSo(ptr nocapture nonnull readonly align 8 %this, ptr nocapture nonnull readnone align 8 %out) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.30, i32 noundef 543, ptr noundef nonnull @.str.2)
-  tail call void @exit(i32 noundef 114) #23
+  tail call void @exit(i32 noundef 114) #26
   unreachable
 }
 
@@ -2564,7 +2564,7 @@ entry:
 define hidden void @_ZN7datalog4ddnf10get_answerEv(ptr noalias nocapture readnone sret(%class.obj_ref) align 8 %agg.result, ptr nocapture nonnull readonly align 8 %this) unnamed_addr #11 align 2 {
 entry:
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.30, i32 noundef 543, ptr noundef nonnull @.str.2)
-  tail call void @exit(i32 noundef 114) #23
+  tail call void @exit(i32 noundef 114) #26
   unreachable
 }
 
@@ -4238,7 +4238,7 @@ for.inc54:                                        ; preds = %for.body29, %land.l
 
 for.end56:                                        ; preds = %for.inc54, %for.end
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.1, i32 noundef 404, ptr noundef nonnull @.str.2)
-  tail call void @exit(i32 noundef 114) #23
+  tail call void @exit(i32 noundef 114) #26
   unreachable
 
 return:                                           ; preds = %if.end48, %if.then37, %if.end21, %if.then14
@@ -4317,7 +4317,7 @@ for.inc17.i:                                      ; preds = %for.body13.i
 
 for.end19.i:                                      ; preds = %for.cond11.preheader.i, %for.inc17.i
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.1, i32 noundef 212, ptr noundef nonnull @.str.2)
-  tail call void @exit(i32 noundef 114) #23
+  tail call void @exit(i32 noundef 114) #26
   unreachable
 
 for.inc21.sink.split.i:                           ; preds = %for.body8.i, %for.body13.i
@@ -4353,7 +4353,7 @@ _ZN14core_hashtableI14ptr_hash_entryIN7datalog9ddnf_nodeEENS2_4hashENS2_2eqEE12d
 
 declare void @_Z26notify_assertion_violationPKciS0_(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #14
 
 declare void @_ZN6memory10deallocateEPv(ptr noundef) local_unnamed_addr #0
@@ -7934,7 +7934,7 @@ for.inc54:                                        ; preds = %for.body29, %land.l
 
 for.end56:                                        ; preds = %for.inc54, %for.cond27.preheader
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.1, i32 noundef 404, ptr noundef nonnull @.str.2)
-  tail call void @exit(i32 noundef 114) #23
+  tail call void @exit(i32 noundef 114) #26
   unreachable
 
 return:                                           ; preds = %if.end48, %if.then37, %if.end21, %if.then14
@@ -8012,7 +8012,7 @@ for.inc17.i:                                      ; preds = %for.body13.i
 
 for.end19.i:                                      ; preds = %for.cond11.preheader.i, %for.inc17.i
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.1, i32 noundef 212, ptr noundef nonnull @.str.2)
-  tail call void @exit(i32 noundef 114) #23
+  tail call void @exit(i32 noundef 114) #26
   unreachable
 
 for.inc21.sink.split.i:                           ; preds = %for.body8.i, %for.body13.i
@@ -8184,7 +8184,7 @@ for.inc54:                                        ; preds = %for.body29, %if.the
 
 for.end56:                                        ; preds = %for.inc54, %for.cond27.preheader
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.1, i32 noundef 404, ptr noundef nonnull @.str.2)
-  tail call void @exit(i32 noundef 114) #23
+  tail call void @exit(i32 noundef 114) #26
   unreachable
 
 return:                                           ; preds = %if.end48, %if.then37, %if.end21, %if.then14
@@ -8260,7 +8260,7 @@ for.inc17.i:                                      ; preds = %for.body13.i
 
 for.end19.i:                                      ; preds = %for.cond11.preheader.i, %for.inc17.i
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.1, i32 noundef 212, ptr noundef nonnull @.str.2)
-  tail call void @exit(i32 noundef 114) #23
+  tail call void @exit(i32 noundef 114) #26
   unreachable
 
 for.inc21.sink.split.i:                           ; preds = %for.body8.i, %for.body13.i
@@ -10167,7 +10167,7 @@ lpad103:                                          ; preds = %invoke.cont106, %in
 
 if.else118:                                       ; preds = %land.lhs.true95, %if.else93
   call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.30, i32 noundef 835, ptr noundef nonnull @.str.2)
-  call void @exit(i32 noundef 114) #23
+  call void @exit(i32 noundef 114) #26
   unreachable
 
 if.end123:                                        ; preds = %if.then70, %if.then91, %invoke.cont114, %if.then82, %if.then63
@@ -10188,7 +10188,7 @@ invoke.cont129:                                   ; preds = %if.end125
 invoke.cont131:                                   ; preds = %invoke.cont129
   call void @_ZN5mk_ppD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp126) #22
   call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.30, i32 noundef 841, ptr noundef nonnull @.str.2)
-  call void @exit(i32 noundef 114) #23
+  call void @exit(i32 noundef 114) #26
   unreachable
 
 lpad128:                                          ; preds = %invoke.cont129, %if.end125
@@ -10409,7 +10409,7 @@ while.end:                                        ; preds = %while.cond
 
 if.end10:                                         ; preds = %if.end
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.30, i32 noundef 772, ptr noundef nonnull @.str.2)
-  tail call void @exit(i32 noundef 114) #23
+  tail call void @exit(i32 noundef 114) #26
   unreachable
 
 return:                                           ; preds = %entry, %while.end
@@ -11080,7 +11080,7 @@ for.inc36.i.i.i:                                  ; preds = %if.then22.i.i.i, %f
 
 if.then:                                          ; preds = %for.body.i.i.i, %for.body20.i.i.i, %for.inc36.i.i.i, %for.cond18.preheader.i.i.i
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.30, i32 noundef 847, ptr noundef nonnull @.str.31)
-  tail call void @exit(i32 noundef 114) #23
+  tail call void @exit(i32 noundef 114) #26
   unreachable
 
 if.end:                                           ; preds = %if.then.i.i.i, %if.then22.i.i.i
@@ -11410,7 +11410,7 @@ sw.bb:                                            ; preds = %for.end, %_ZNK15ref
           to label %invoke.cont35 unwind label %lpad12.loopexit.split-lp
 
 invoke.cont35:                                    ; preds = %sw.bb
-  call void @exit(i32 noundef 114) #23
+  call void @exit(i32 noundef 114) #26
   unreachable
 
 invoke.cont38:                                    ; preds = %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit
@@ -11716,7 +11716,7 @@ for.inc54:                                        ; preds = %for.body29, %if.the
 
 for.end56:                                        ; preds = %for.inc54, %for.cond27.preheader
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.1, i32 noundef 404, ptr noundef nonnull @.str.2)
-  tail call void @exit(i32 noundef 114) #23
+  tail call void @exit(i32 noundef 114) #26
   unreachable
 
 return:                                           ; preds = %if.end48, %if.then37, %if.end21, %if.then14
@@ -11792,7 +11792,7 @@ for.inc17.i:                                      ; preds = %for.body13.i
 
 for.end19.i:                                      ; preds = %for.cond11.preheader.i, %for.inc17.i
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.1, i32 noundef 212, ptr noundef nonnull @.str.2)
-  tail call void @exit(i32 noundef 114) #23
+  tail call void @exit(i32 noundef 114) #26
   unreachable
 
 for.inc21.sink.split.i:                           ; preds = %for.body8.i, %for.body13.i
@@ -12494,7 +12494,7 @@ for.inc54:                                        ; preds = %for.body29, %if.the
 
 for.end56:                                        ; preds = %for.inc54, %for.cond27.preheader
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.1, i32 noundef 404, ptr noundef nonnull @.str.2)
-  tail call void @exit(i32 noundef 114) #23
+  tail call void @exit(i32 noundef 114) #26
   unreachable
 
 return:                                           ; preds = %if.end48, %if.then37, %if.end21, %if.then14
@@ -12571,7 +12571,7 @@ for.inc17.i:                                      ; preds = %for.body13.i
 
 for.end19.i:                                      ; preds = %for.cond11.preheader.i, %for.inc17.i
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.1, i32 noundef 212, ptr noundef nonnull @.str.2)
-  tail call void @exit(i32 noundef 114) #23
+  tail call void @exit(i32 noundef 114) #26
   unreachable
 
 for.inc21.sink.split.i:                           ; preds = %for.body8.i, %for.body13.i
@@ -13190,7 +13190,7 @@ attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memo
 attributes #11 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #14 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #17 = { cold noreturn nounwind memory(inaccessiblemem: write) }
@@ -13202,6 +13202,7 @@ attributes #22 = { nounwind }
 attributes #23 = { noreturn nounwind }
 attributes #24 = { noreturn }
 attributes #25 = { builtin nounwind }
+attributes #26 = { cold noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

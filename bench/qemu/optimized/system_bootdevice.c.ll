@@ -56,7 +56,7 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 60, ptr noundef nonnull @__func__.qemu_boot_set, ptr noundef nonnull @.str.1) #10
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 60, ptr noundef nonnull @__func__.qemu_boot_set, ptr noundef nonnull @.str.1) #11
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -74,7 +74,7 @@ for.body.i:                                       ; preds = %if.end, %if.end12.i
   br i1 %or.cond.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %for.body.i
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %local_err, ptr noundef nonnull @.str, i32 noundef 90, ptr noundef nonnull @__func__.validate_bootdevices, ptr noundef nonnull @.str.2, i32 noundef %conv16.i) #10
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %local_err, ptr noundef nonnull @.str, i32 noundef 90, ptr noundef nonnull @__func__.validate_bootdevices, ptr noundef nonnull @.str.2, i32 noundef %conv16.i) #11
   br label %validate_bootdevices.exit
 
 if.end.i:                                         ; preds = %for.body.i
@@ -85,7 +85,7 @@ if.end.i:                                         ; preds = %for.body.i
   br i1 %tobool.not.i, label %if.end12.i, label %if.then10.i
 
 if.then10.i:                                      ; preds = %if.end.i
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %local_err, ptr noundef nonnull @.str, i32 noundef 94, ptr noundef nonnull @__func__.validate_bootdevices, ptr noundef nonnull @.str.3, i32 noundef %conv16.i) #10
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %local_err, ptr noundef nonnull @.str, i32 noundef 94, ptr noundef nonnull @__func__.validate_bootdevices, ptr noundef nonnull @.str.3, i32 noundef %conv16.i) #11
   br label %validate_bootdevices.exit
 
 if.end12.i:                                       ; preds = %if.end.i
@@ -101,13 +101,13 @@ validate_bootdevices.exit:                        ; preds = %if.end12.i, %if.end
   br i1 %tobool1.not, label %if.end3, label %if.then2
 
 if.then2:                                         ; preds = %validate_bootdevices.exit
-  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %5) #10
+  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %5) #11
   br label %return
 
 if.end3:                                          ; preds = %validate_bootdevices.exit
   %6 = load ptr, ptr @boot_set_handler, align 8
   %7 = load ptr, ptr @boot_set_opaque, align 8
-  call void %6(ptr noundef %7, ptr noundef nonnull %boot_order, ptr noundef %errp) #10
+  call void %6(ptr noundef %7, ptr noundef nonnull %boot_order, ptr noundef %errp) #11
   br label %return
 
 return:                                           ; preds = %if.end3, %if.then2, %if.then
@@ -133,7 +133,7 @@ for.body:                                         ; preds = %entry, %if.end12
   br i1 %or.cond, label %if.then, label %if.end
 
 if.then:                                          ; preds = %for.body
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 90, ptr noundef nonnull @__func__.validate_bootdevices, ptr noundef nonnull @.str.2, i32 noundef %conv16) #10
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 90, ptr noundef nonnull @__func__.validate_bootdevices, ptr noundef nonnull @.str.2, i32 noundef %conv16) #11
   br label %for.end
 
 if.end:                                           ; preds = %for.body
@@ -144,7 +144,7 @@ if.end:                                           ; preds = %for.body
   br i1 %tobool.not, label %if.end12, label %if.then10
 
 if.then10:                                        ; preds = %if.end
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 94, ptr noundef nonnull @__func__.validate_bootdevices, ptr noundef nonnull @.str.3, i32 noundef %conv16) #10
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 94, ptr noundef nonnull @__func__.validate_bootdevices, ptr noundef nonnull @.str.3, i32 noundef %conv16) #11
   br label %for.end
 
 if.end12:                                         ; preds = %if.end
@@ -180,8 +180,8 @@ if.then2:                                         ; preds = %if.end
   br label %if.end3
 
 if.end3:                                          ; preds = %if.then2, %if.end
-  tail call void @qemu_unregister_reset(ptr noundef nonnull @restore_boot_order, ptr noundef %opaque) #10
-  tail call void @g_free(ptr noundef %opaque) #10
+  tail call void @qemu_unregister_reset(ptr noundef nonnull @restore_boot_order, ptr noundef %opaque) #11
+  tail call void @g_free(ptr noundef %opaque) #11
   br label %return
 
 return:                                           ; preds = %if.end3, %if.then
@@ -211,7 +211,7 @@ for.body:                                         ; preds = %for.cond
   br i1 %cmp2, label %if.then3, label %for.cond, !llvm.loop !7
 
 if.then3:                                         ; preds = %for.body
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 128, ptr noundef nonnull @__func__.check_boot_index, ptr noundef nonnull @.str.4, i32 noundef %bootindex) #10
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 128, ptr noundef nonnull @__func__.check_boot_index, ptr noundef nonnull @.str.4, i32 noundef %bootindex) #11
   br label %if.end4
 
 if.end4:                                          ; preds = %for.cond, %if.then3, %entry
@@ -249,7 +249,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %i.020 = phi ptr [ %i.0, %for.inc ], [ %i.018, %for.body.lr.ph ]
   %suffix2 = getelementptr inbounds i8, ptr %i.020, i64 32
   %1 = load ptr, ptr %suffix2, align 8
-  %call = tail call i32 @g_strcmp0(ptr noundef %1, ptr noundef nonnull %suffix) #10
+  %call = tail call i32 @g_strcmp0(ptr noundef %1, ptr noundef nonnull %suffix) #11
   %tobool3.not = icmp eq i32 %call, 0
   br i1 %tobool3.not, label %land.lhs.true, label %for.inc
 
@@ -273,8 +273,8 @@ do.body:                                          ; preds = %land.lhs.true, %for
   %suffix24 = getelementptr inbounds i8, ptr %.us-phi, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.us-phi, i8 0, i64 16, i1 false)
   %6 = load ptr, ptr %suffix24, align 8
-  tail call void @g_free(ptr noundef %6) #10
-  tail call void @g_free(ptr noundef nonnull %.us-phi) #10
+  tail call void @g_free(ptr noundef %6) #11
+  tail call void @g_free(ptr noundef nonnull %.us-phi) #11
   br label %for.end
 
 for.inc:                                          ; preds = %for.body, %land.lhs.true
@@ -323,7 +323,7 @@ for.body.i:                                       ; preds = %for.body.lr.ph.i, %
   %i.020.i = phi ptr [ %i.0.i, %for.inc.i ], [ %i.018.i, %for.body.lr.ph.i ]
   %suffix2.i = getelementptr inbounds i8, ptr %i.020.i, i64 32
   %1 = load ptr, ptr %suffix2.i, align 8
-  %call.i = tail call i32 @g_strcmp0(ptr noundef %1, ptr noundef nonnull %suffix) #10
+  %call.i = tail call i32 @g_strcmp0(ptr noundef %1, ptr noundef nonnull %suffix) #11
   %tobool3.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool3.not.i, label %land.lhs.true.i, label %for.inc.i
 
@@ -347,8 +347,8 @@ do.body.i:                                        ; preds = %land.lhs.true.i, %f
   %suffix24.i = getelementptr inbounds i8, ptr %.us-phi.i, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.us-phi.i, i8 0, i64 16, i1 false)
   %6 = load ptr, ptr %suffix24.i, align 8
-  tail call void @g_free(ptr noundef %6) #10
-  tail call void @g_free(ptr noundef nonnull %.us-phi.i) #10
+  tail call void @g_free(ptr noundef %6) #11
+  tail call void @g_free(ptr noundef nonnull %.us-phi.i) #11
   br label %do.end33
 
 for.inc.i:                                        ; preds = %land.lhs.true.i, %for.body.i
@@ -363,7 +363,7 @@ if.end:                                           ; preds = %entry
   br i1 %or.cond, label %if.end4, label %if.else
 
 if.else:                                          ; preds = %if.end
-  tail call void @__assert_fail(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str, i32 noundef 165, ptr noundef nonnull @__PRETTY_FUNCTION__.add_boot_device_path) #11
+  tail call void @__assert_fail(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str, i32 noundef 165, ptr noundef nonnull @__PRETTY_FUNCTION__.add_boot_device_path) #12
   unreachable
 
 if.end4:                                          ; preds = %if.end
@@ -395,7 +395,7 @@ for.body.i34:                                     ; preds = %for.body.lr.ph.i32,
   %i.020.i35 = phi ptr [ %i.0.i40, %for.inc.i39 ], [ %i.018.i30, %for.body.lr.ph.i32 ]
   %suffix2.i36 = getelementptr inbounds i8, ptr %i.020.i35, i64 32
   %8 = load ptr, ptr %suffix2.i36, align 8
-  %call.i37 = tail call i32 @g_strcmp0(ptr noundef %8, ptr noundef nonnull %suffix) #10
+  %call.i37 = tail call i32 @g_strcmp0(ptr noundef %8, ptr noundef nonnull %suffix) #11
   %tobool3.not.i38 = icmp eq i32 %call.i37, 0
   br i1 %tobool3.not.i38, label %land.lhs.true.i42, label %for.inc.i39
 
@@ -419,8 +419,8 @@ do.body.i45:                                      ; preds = %land.lhs.true.i42, 
   %suffix24.i51 = getelementptr inbounds i8, ptr %.us-phi.i46, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.us-phi.i46, i8 0, i64 16, i1 false)
   %13 = load ptr, ptr %suffix24.i51, align 8
-  tail call void @g_free(ptr noundef %13) #10
-  tail call void @g_free(ptr noundef nonnull %.us-phi.i46) #10
+  tail call void @g_free(ptr noundef %13) #11
+  tail call void @g_free(ptr noundef nonnull %.us-phi.i46) #11
   br label %del_boot_device_path.exit59
 
 for.inc.i39:                                      ; preds = %land.lhs.true.i42, %for.body.i34
@@ -429,10 +429,10 @@ for.inc.i39:                                      ; preds = %land.lhs.true.i42, 
   br i1 %tobool.not.i41, label %del_boot_device_path.exit59, label %for.body.i34, !llvm.loop !8
 
 del_boot_device_path.exit59:                      ; preds = %for.inc.i39, %for.inc.us.i56, %if.end4, %for.cond.preheader.i29, %do.body.i45
-  %call = tail call noalias dereferenceable_or_null(40) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 40) #12
+  %call = tail call noalias dereferenceable_or_null(40) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 40) #13
   %bootindex5 = getelementptr inbounds i8, ptr %call, i64 16
   store i32 %bootindex, ptr %bootindex5, align 8
-  %call6 = tail call noalias ptr @g_strdup(ptr noundef %suffix) #10
+  %call6 = tail call noalias ptr @g_strdup(ptr noundef %suffix) #11
   %suffix7 = getelementptr inbounds i8, ptr %call, i64 32
   store ptr %call6, ptr %suffix7, align 8
   %dev8 = getelementptr inbounds i8, ptr %call, i64 24
@@ -452,8 +452,8 @@ for.body:                                         ; preds = %for.cond
   br i1 %cmp10, label %if.then11, label %if.else12
 
 if.then11:                                        ; preds = %for.body
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.6, i32 noundef %bootindex) #10
-  tail call void @exit(i32 noundef 1) #11
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.6, i32 noundef %bootindex) #11
+  tail call void @exit(i32 noundef 1) #14
   unreachable
 
 if.else12:                                        ; preds = %for.body
@@ -494,11 +494,11 @@ declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #2
 
 declare void @error_report(ptr noundef, ...) local_unnamed_addr #2
 
-; Function Attrs: noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #3
+; Function Attrs: nofree noreturn nounwind
+declare void @exit(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @get_boot_device(i32 noundef %position) local_unnamed_addr #5 {
+define dso_local ptr @get_boot_device(i32 noundef %position) local_unnamed_addr #6 {
 entry:
   %0 = load ptr, ptr @fw_boot_order, align 8
   %cmp = icmp eq ptr %0, null
@@ -529,9 +529,9 @@ if.end3:                                          ; preds = %if.end, %if.then2, 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @get_boot_devices_list(ptr nocapture noundef writeonly %size) local_unnamed_addr #1 {
 entry:
-  %call = tail call ptr @qdev_get_machine() #10
-  %call.i = tail call ptr @object_get_class(ptr noundef %call) #10
-  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE_GET_CLASS) #10
+  %call = tail call ptr @qdev_get_machine() #11
+  %call.i = tail call ptr @object_get_class(ptr noundef %call) #11
+  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE_GET_CLASS) #11
   %ignore_boot_device_suffixes = getelementptr inbounds i8, ptr %call1.i, i64 290
   %0 = load i8, ptr %ignore_boot_device_suffixes, align 2
   %tobool = trunc i8 %0 to i1
@@ -558,13 +558,13 @@ if.then:                                          ; preds = %for.body
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %for.body
-  %call6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call4) #13
+  %call6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call4) #15
   %add = add i64 %call6, 1
   %add7 = add i64 %add, %total.028
-  %call8 = tail call ptr @g_realloc(ptr noundef %list.027, i64 noundef %add7) #10
+  %call8 = tail call ptr @g_realloc(ptr noundef %list.027, i64 noundef %add7) #11
   %arrayidx9 = getelementptr i8, ptr %call8, i64 %total.028
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %arrayidx9, ptr align 1 %call4, i64 %add, i1 false)
-  tail call void @g_free(ptr noundef %call4) #10
+  tail call void @g_free(ptr noundef %call4) #11
   %i.0 = load ptr, ptr %i.029, align 8
   %tobool2.not = icmp eq ptr %i.0, null
   br i1 %tobool2.not, label %for.end, label %for.body, !llvm.loop !11
@@ -592,7 +592,7 @@ if.then15:                                        ; preds = %land.lhs.true
   %arrayidx17 = getelementptr i8, ptr %list.0.lcssa, i64 %sub16
   store i8 10, ptr %arrayidx17, align 1
   %add18 = add i64 %total.0.lcssa, 5
-  %call19 = tail call ptr @g_realloc(ptr noundef %list.0.lcssa, i64 noundef %add18) #10
+  %call19 = tail call ptr @g_realloc(ptr noundef %list.0.lcssa, i64 noundef %add18) #11
   %arrayidx20 = getelementptr i8, ptr %call19, i64 %total.0.lcssa
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %arrayidx20, ptr noundef nonnull align 1 dereferenceable(5) @.str.7, i64 5, i1 false)
   store i64 %add18, ptr %size, align 8
@@ -612,12 +612,12 @@ entry:
   br i1 %tobool.not, label %if.end3, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call = tail call ptr @qdev_get_fw_dev_path(ptr noundef nonnull %dev) #10
+  %call = tail call ptr @qdev_get_fw_dev_path(ptr noundef nonnull %dev) #11
   %tobool1.not = icmp eq ptr %call, null
   br i1 %tobool1.not, label %if.else, label %if.end3.thread
 
 if.else:                                          ; preds = %if.then
-  tail call void @__assert_fail(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str, i32 noundef 212, ptr noundef nonnull @__PRETTY_FUNCTION__.get_boot_device_path) #11
+  tail call void @__assert_fail(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str, i32 noundef 212, ptr noundef nonnull @__PRETTY_FUNCTION__.get_boot_device_path) #12
   unreachable
 
 if.end3:                                          ; preds = %entry
@@ -629,7 +629,7 @@ if.end3.thread:                                   ; preds = %if.then
 if.then7:                                         ; preds = %if.end3.thread
   %parent_bus = getelementptr inbounds i8, ptr %dev, i64 88
   %0 = load ptr, ptr %parent_bus, align 8
-  %call8 = tail call ptr @qdev_get_own_fw_dev_path_from_handler(ptr noundef %0, ptr noundef nonnull %dev) #10
+  %call8 = tail call ptr @qdev_get_own_fw_dev_path_from_handler(ptr noundef %0, ptr noundef nonnull %dev) #11
   %tobool9.not = icmp eq ptr %call8, null
   br i1 %tobool9.not, label %if.end21.sink.split, label %if.then10
 
@@ -638,12 +638,12 @@ if.then10:                                        ; preds = %if.then7
   br i1 %tobool11.not, label %if.end21, label %if.else13
 
 if.else13:                                        ; preds = %if.then10
-  tail call void @__assert_fail(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str, i32 noundef 219, ptr noundef nonnull @__PRETTY_FUNCTION__.get_boot_device_path) #11
+  tail call void @__assert_fail(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str, i32 noundef 219, ptr noundef nonnull @__PRETTY_FUNCTION__.get_boot_device_path) #12
   unreachable
 
 if.end21.sink.split:                              ; preds = %if.end3, %if.then7
   %devpath.015.ph = phi ptr [ %call, %if.then7 ], [ null, %if.end3 ]
-  %call19 = tail call noalias ptr @g_strdup(ptr noundef %suffix) #10
+  %call19 = tail call noalias ptr @g_strdup(ptr noundef %suffix) #11
   br label %if.end21
 
 if.end21:                                         ; preds = %if.end21.sink.split, %if.end3.thread, %if.then10, %if.end3
@@ -653,36 +653,36 @@ if.end21:                                         ; preds = %if.end21.sink.split
   %cond = select i1 %tobool22.not, ptr @.str.15, ptr %devpath.015
   %tobool23.not = icmp eq ptr %s.0, null
   %cond27 = select i1 %tobool23.not, ptr @.str.15, ptr %s.0
-  %call28 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.14, ptr noundef nonnull %cond, ptr noundef nonnull %cond27) #10
-  tail call void @g_free(ptr noundef %devpath.015) #10
-  tail call void @g_free(ptr noundef %s.0) #10
+  %call28 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.14, ptr noundef nonnull %cond, ptr noundef nonnull %cond27) #11
+  tail call void @g_free(ptr noundef %devpath.015) #11
+  tail call void @g_free(ptr noundef %s.0) #11
   ret ptr %call28
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
 
 declare ptr @g_realloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @device_add_bootindex_property(ptr noundef %obj, ptr noundef %bootindex, ptr noundef %name, ptr noundef %suffix, ptr noundef %dev) local_unnamed_addr #1 {
 entry:
-  %call = tail call noalias dereferenceable_or_null(24) ptr @g_malloc0(i64 noundef 24) #14
+  %call = tail call noalias dereferenceable_or_null(24) ptr @g_malloc0(i64 noundef 24) #16
   store ptr %bootindex, ptr %call, align 8
   %suffix2 = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %suffix, ptr %suffix2, align 8
   %dev3 = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %dev, ptr %dev3, align 8
-  %call4 = tail call ptr @object_property_add(ptr noundef %obj, ptr noundef %name, ptr noundef nonnull @.str.8, ptr noundef nonnull @device_get_bootindex, ptr noundef nonnull @device_set_bootindex, ptr noundef nonnull @property_release_bootindex, ptr noundef nonnull %call) #10
-  %call5 = tail call zeroext i1 @object_property_set_int(ptr noundef %obj, ptr noundef %name, i64 noundef -1, ptr noundef null) #10
+  %call4 = tail call ptr @object_property_add(ptr noundef %obj, ptr noundef %name, ptr noundef nonnull @.str.8, ptr noundef nonnull @device_get_bootindex, ptr noundef nonnull @device_set_bootindex, ptr noundef nonnull @property_release_bootindex, ptr noundef nonnull %call) #11
+  %call5 = tail call zeroext i1 @object_property_set_int(ptr noundef %obj, ptr noundef %name, i64 noundef -1, ptr noundef null) #11
   ret void
 }
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #8
+declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #9
 
 declare ptr @object_property_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -690,7 +690,7 @@ declare ptr @object_property_add(ptr noundef, ptr noundef, ptr noundef, ptr noun
 define internal void @device_get_bootindex(ptr nocapture readnone %obj, ptr noundef %v, ptr noundef %name, ptr nocapture noundef readonly %opaque, ptr noundef %errp) #1 {
 entry:
   %0 = load ptr, ptr %opaque, align 8
-  %call = tail call zeroext i1 @visit_type_int32(ptr noundef %v, ptr noundef %name, ptr noundef %0, ptr noundef %errp) #10
+  %call = tail call zeroext i1 @visit_type_int32(ptr noundef %v, ptr noundef %name, ptr noundef %0, ptr noundef %errp) #11
   ret void
 }
 
@@ -700,7 +700,7 @@ entry:
   %boot_index = alloca i32, align 4
   %local_err = alloca ptr, align 8
   store ptr null, ptr %local_err, align 8
-  %call = call zeroext i1 @visit_type_int32(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %boot_index, ptr noundef %errp) #10
+  %call = call zeroext i1 @visit_type_int32(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %boot_index, ptr noundef %errp) #11
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -721,13 +721,13 @@ for.body.i:                                       ; preds = %for.cond.i
   br i1 %cmp2.i, label %check_boot_index.exit, label %for.cond.i, !llvm.loop !7
 
 check_boot_index.exit:                            ; preds = %for.body.i
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %local_err, ptr noundef nonnull @.str, i32 noundef 128, ptr noundef nonnull @__func__.check_boot_index, ptr noundef nonnull @.str.4, i32 noundef %0) #10
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %local_err, ptr noundef nonnull @.str, i32 noundef 128, ptr noundef nonnull @__func__.check_boot_index, ptr noundef nonnull @.str.4, i32 noundef %0) #11
   %.pre = load ptr, ptr %local_err, align 8
   %tobool.not = icmp eq ptr %.pre, null
   br i1 %tobool.not, label %if.end2, label %if.then1
 
 if.then1:                                         ; preds = %check_boot_index.exit
-  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %.pre) #10
+  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %.pre) #11
   br label %return
 
 if.end2:                                          ; preds = %for.cond.i, %if.end, %check_boot_index.exit
@@ -782,7 +782,7 @@ for.body.i:                                       ; preds = %for.body.lr.ph.i, %
   %i.020.i = phi ptr [ %i.0.i, %for.inc.i ], [ %i.018.i, %for.body.lr.ph.i ]
   %suffix2.i = getelementptr inbounds i8, ptr %i.020.i, i64 32
   %3 = load ptr, ptr %suffix2.i, align 8
-  %call.i = tail call i32 @g_strcmp0(ptr noundef %3, ptr noundef nonnull %1) #10
+  %call.i = tail call i32 @g_strcmp0(ptr noundef %3, ptr noundef nonnull %1) #11
   %tobool3.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool3.not.i, label %land.lhs.true.i, label %for.inc.i
 
@@ -806,8 +806,8 @@ do.body.i:                                        ; preds = %land.lhs.true.i, %f
   %suffix24.i = getelementptr inbounds i8, ptr %.us-phi.i, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.us-phi.i, i8 0, i64 16, i1 false)
   %8 = load ptr, ptr %suffix24.i, align 8
-  tail call void @g_free(ptr noundef %8) #10
-  tail call void @g_free(ptr noundef nonnull %.us-phi.i) #10
+  tail call void @g_free(ptr noundef %8) #11
+  tail call void @g_free(ptr noundef nonnull %.us-phi.i) #11
   br label %del_boot_device_path.exit
 
 for.inc.i:                                        ; preds = %land.lhs.true.i, %for.body.i
@@ -816,7 +816,7 @@ for.inc.i:                                        ; preds = %land.lhs.true.i, %f
   br i1 %tobool.not.i, label %del_boot_device_path.exit, label %for.body.i, !llvm.loop !8
 
 del_boot_device_path.exit:                        ; preds = %for.inc.i, %for.inc.us.i, %entry, %for.cond.preheader.i, %do.body.i
-  tail call void @g_free(ptr noundef %opaque) #10
+  tail call void @g_free(ptr noundef %opaque) #11
   ret void
 }
 
@@ -837,12 +837,12 @@ if.end:                                           ; preds = %entry
   br i1 %or.cond2, label %if.end6, label %if.else
 
 if.else:                                          ; preds = %if.end
-  tail call void @__assert_fail(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str, i32 noundef 369, ptr noundef nonnull @__PRETTY_FUNCTION__.add_boot_device_lchs) #11
+  tail call void @__assert_fail(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str, i32 noundef 369, ptr noundef nonnull @__PRETTY_FUNCTION__.add_boot_device_lchs) #12
   unreachable
 
 if.end6:                                          ; preds = %if.end
-  %call = tail call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #12
-  %call7 = tail call noalias ptr @g_strdup(ptr noundef %suffix) #10
+  %call = tail call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #13
+  %call7 = tail call noalias ptr @g_strdup(ptr noundef %suffix) #11
   %suffix8 = getelementptr inbounds i8, ptr %call, i64 24
   store ptr %call7, ptr %suffix8, align 8
   %dev9 = getelementptr inbounds i8, ptr %call, i64 16
@@ -896,7 +896,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %i.020 = phi ptr [ %i.0, %for.inc ], [ %i.018, %for.body.lr.ph ]
   %suffix2 = getelementptr inbounds i8, ptr %i.020, i64 24
   %1 = load ptr, ptr %suffix2, align 8
-  %call = tail call i32 @g_strcmp0(ptr noundef %1, ptr noundef nonnull %suffix) #10
+  %call = tail call i32 @g_strcmp0(ptr noundef %1, ptr noundef nonnull %suffix) #11
   %tobool3.not = icmp eq i32 %call, 0
   br i1 %tobool3.not, label %land.lhs.true, label %for.inc
 
@@ -920,8 +920,8 @@ do.body:                                          ; preds = %land.lhs.true, %for
   %suffix24 = getelementptr inbounds i8, ptr %.us-phi, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.us-phi, i8 0, i64 16, i1 false)
   %6 = load ptr, ptr %suffix24, align 8
-  tail call void @g_free(ptr noundef %6) #10
-  tail call void @g_free(ptr noundef nonnull %.us-phi) #10
+  tail call void @g_free(ptr noundef %6) #11
+  tail call void @g_free(ptr noundef nonnull %.us-phi) #11
   br label %for.end
 
 for.inc:                                          ; preds = %for.body, %land.lhs.true
@@ -955,7 +955,7 @@ for.body:                                         ; preds = %entry, %if.end
   %3 = load i32, ptr %lheads, align 4
   %lsecs = getelementptr inbounds i8, ptr %i.024, i64 40
   %4 = load i32, ptr %lsecs, align 8
-  %call1 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.9, ptr noundef %call, i32 noundef %2, i32 noundef %3, i32 noundef %4) #10
+  %call1 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.9, ptr noundef %call, i32 noundef %2, i32 noundef %3, i32 noundef %4) #11
   %tobool2.not = icmp eq i64 %total.023, 0
   br i1 %tobool2.not, label %if.end, label %if.then
 
@@ -966,14 +966,14 @@ if.then:                                          ; preds = %for.body
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %for.body
-  %call3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call1) #13
+  %call3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call1) #15
   %add = add i64 %call3, 1
   %add4 = add i64 %add, %total.023
-  %call5 = tail call ptr @g_realloc(ptr noundef %list.022, i64 noundef %add4) #10
+  %call5 = tail call ptr @g_realloc(ptr noundef %list.022, i64 noundef %add4) #11
   %arrayidx6 = getelementptr i8, ptr %call5, i64 %total.023
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %arrayidx6, ptr align 1 %call1, i64 %add, i1 false)
-  tail call void @g_free(ptr noundef %call1) #10
-  tail call void @g_free(ptr noundef %call) #10
+  tail call void @g_free(ptr noundef %call1) #11
+  tail call void @g_free(ptr noundef %call) #11
   %i.0 = load ptr, ptr %i.024, align 8
   %tobool.not = icmp eq ptr %i.0, null
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !13
@@ -998,23 +998,25 @@ declare ptr @qdev_get_own_fw_dev_path_from_handler(ptr noundef, ptr noundef) loc
 declare zeroext i1 @visit_type_int32(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #10 = { nounwind }
-attributes #11 = { noreturn nounwind }
-attributes #12 = { nounwind allocsize(0,1) }
-attributes #13 = { nounwind willreturn memory(read) }
-attributes #14 = { nounwind allocsize(0) }
+attributes #5 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #11 = { nounwind }
+attributes #12 = { noreturn nounwind }
+attributes #13 = { nounwind allocsize(0,1) }
+attributes #14 = { cold noreturn nounwind }
+attributes #15 = { nounwind willreturn memory(read) }
+attributes #16 = { nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

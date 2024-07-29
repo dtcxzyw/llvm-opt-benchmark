@@ -3880,7 +3880,7 @@ declare void @_ZN6google24glog_internal_namespace_14SetCrashReasonEPKNS_7logging
 
 declare hidden noundef i32 @_ZN6google24glog_internal_namespace_13GetStackTraceEPPvii(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: cold nofree noreturn nounwind
 declare void @abort() #23
 
 ; Function Attrs: mustprogress uwtable
@@ -3978,7 +3978,7 @@ define noundef nonnull align 8 dereferenceable(91) ptr @_ZN6google10NullStream6s
   ret ptr %0
 }
 
-; Function Attrs: mustprogress noreturn nounwind uwtable
+; Function Attrs: mustprogress nofree noreturn nounwind uwtable
 define void @_ZN6google15NullStreamFatalD2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(91) %0, ptr nocapture noundef readonly %1) unnamed_addr #24 align 2 {
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8
@@ -3992,13 +3992,13 @@ define void @_ZN6google15NullStreamFatalD2Ev(ptr nocapture noundef nonnull write
   unreachable
 }
 
-; Function Attrs: mustprogress noreturn nounwind uwtable
+; Function Attrs: mustprogress nofree noreturn nounwind uwtable
 define void @_ZN6google15NullStreamFatalD1Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(91) %0) unnamed_addr #24 align 2 {
   tail call void @_ZN6google15NullStreamFatalD2Ev(ptr noundef nonnull align 8 dereferenceable(91) %0, ptr noundef nonnull @_ZTTN6google15NullStreamFatalE) #40
   unreachable
 }
 
-; Function Attrs: noreturn nounwind uwtable
+; Function Attrs: nofree noreturn nounwind uwtable
 define void @_ZTv0_n24_N6google15NullStreamFatalD1Ev(ptr nocapture noundef %0) unnamed_addr #25 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
@@ -4008,13 +4008,13 @@ define void @_ZTv0_n24_N6google15NullStreamFatalD1Ev(ptr nocapture noundef %0) u
   unreachable
 }
 
-; Function Attrs: mustprogress noreturn nounwind uwtable
+; Function Attrs: mustprogress nofree noreturn nounwind uwtable
 define void @_ZN6google15NullStreamFatalD0Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(91) %0) unnamed_addr #24 align 2 {
   tail call void @_ZN6google15NullStreamFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(91) %0) #40
   unreachable
 }
 
-; Function Attrs: noreturn nounwind uwtable
+; Function Attrs: nofree noreturn nounwind uwtable
 define void @_ZTv0_n24_N6google15NullStreamFatalD0Ev(ptr nocapture noundef %0) unnamed_addr #25 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
@@ -37091,9 +37091,9 @@ attributes #19 = { mustprogress nofree nounwind willreturn memory(argmem: read) 
 attributes #20 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #21 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #22 = { mustprogress nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #23 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #24 = { mustprogress noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #25 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #23 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #24 = { mustprogress nofree noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #25 = { nofree noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #26 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #27 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #28 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

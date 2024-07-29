@@ -16,24 +16,24 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden void @mpd_dflt_traphandler(ptr nocapture readnone %ctx) #0 {
 entry:
-  %call = tail call i32 @raise(i32 noundef 8) #8
+  %call = tail call i32 @raise(i32 noundef 8) #9
   ret void
 }
 
 ; Function Attrs: nounwind
 declare i32 @raise(i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
-define hidden void @mpd_setminalloc(i64 noundef %n) local_unnamed_addr #0 {
+; Function Attrs: nofree nounwind uwtable
+define hidden void @mpd_setminalloc(i64 noundef %n) local_unnamed_addr #2 {
 entry:
   %.b = load i1, ptr @mpd_setminalloc.minalloc_is_set, align 4
   br i1 %.b, label %do.body, label %if.end
 
 do.body:                                          ; preds = %entry
   %0 = load ptr, ptr @stderr, align 8
-  %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 57) #9
+  %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 57) #10
   %1 = load ptr, ptr @stderr, align 8
-  %2 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 68, i64 1, ptr %1) #9
+  %2 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 68, i64 1, ptr %1) #10
   %3 = load ptr, ptr @stderr, align 8
   %call2 = tail call i32 @fputc(i32 noundef 10, ptr noundef %3)
   br label %return
@@ -45,12 +45,12 @@ if.end:                                           ; preds = %entry
 
 do.body5:                                         ; preds = %if.end
   %5 = load ptr, ptr @stderr, align 8
-  %call6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 61) #9
+  %call6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 61) #10
   %6 = load ptr, ptr @stderr, align 8
-  %7 = tail call i64 @fwrite(ptr nonnull @.str.4, i64 30, i64 1, ptr %6) #9
+  %7 = tail call i64 @fwrite(ptr nonnull @.str.4, i64 30, i64 1, ptr %6) #10
   %8 = load ptr, ptr @stderr, align 8
   %call8 = tail call i32 @fputc(i32 noundef 10, ptr noundef %8)
-  tail call void @abort() #10
+  tail call void @abort() #11
   unreachable
 
 if.end10:                                         ; preds = %if.end
@@ -63,13 +63,13 @@ return:                                           ; preds = %if.end10, %do.body
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #3
 
-; Function Attrs: noreturn nounwind
-declare void @abort() local_unnamed_addr #3
+; Function Attrs: cold nofree noreturn nounwind
+declare void @abort() local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define hidden void @mpd_init(ptr noundef %ctx, i64 noundef %prec) local_unnamed_addr #0 {
@@ -95,7 +95,7 @@ mpd_addstatus_raise.exit:                         ; preds = %entry
   store i32 128, ptr %status.i, align 4
   store i32 128, ptr %newtrap.i, align 8
   %1 = load ptr, ptr @mpd_traphandler, align 8
-  tail call void %1(ptr noundef nonnull %ctx) #8
+  tail call void %1(ptr noundef nonnull %ctx) #9
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -112,7 +112,7 @@ return:                                           ; preds = %if.end, %mpd_addsta
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @mpd_defaultcontext(ptr nocapture noundef writeonly %ctx) local_unnamed_addr #4 {
+define hidden void @mpd_defaultcontext(ptr nocapture noundef writeonly %ctx) local_unnamed_addr #5 {
 entry:
   store i64 38, ptr %ctx, align 8
   %emax = getelementptr inbounds i8, ptr %ctx, i64 8
@@ -129,7 +129,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden range(i32 0, 2) i32 @mpd_qsetprec(ptr nocapture noundef writeonly %ctx, i64 noundef %prec) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @mpd_qsetprec(ptr nocapture noundef writeonly %ctx, i64 noundef %prec) local_unnamed_addr #5 {
 entry:
   %0 = add i64 %prec, -1000000000000000000
   %or.cond = icmp ult i64 %0, -999999999999999999
@@ -161,7 +161,7 @@ if.then:                                          ; preds = %entry
   %newtrap = getelementptr inbounds i8, ptr %ctx, i64 32
   store i32 %and, ptr %newtrap, align 8
   %2 = load ptr, ptr @mpd_traphandler, align 8
-  tail call void %2(ptr noundef nonnull %ctx) #8
+  tail call void %2(ptr noundef nonnull %ctx) #9
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -169,7 +169,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @mpd_maxcontext(ptr nocapture noundef writeonly %ctx) local_unnamed_addr #4 {
+define hidden void @mpd_maxcontext(ptr nocapture noundef writeonly %ctx) local_unnamed_addr #5 {
 entry:
   store i64 999999999999999999, ptr %ctx, align 8
   %emax = getelementptr inbounds i8, ptr %ctx, i64 8
@@ -186,7 +186,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @mpd_basiccontext(ptr nocapture noundef writeonly %ctx) local_unnamed_addr #4 {
+define hidden void @mpd_basiccontext(ptr nocapture noundef writeonly %ctx) local_unnamed_addr #5 {
 entry:
   store i64 9, ptr %ctx, align 8
   %emax = getelementptr inbounds i8, ptr %ctx, i64 8
@@ -203,7 +203,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden range(i32 -1, 1) i32 @mpd_ieee_context(ptr nocapture noundef writeonly %ctx, i32 noundef %bits) local_unnamed_addr #4 {
+define hidden range(i32 -1, 1) i32 @mpd_ieee_context(ptr nocapture noundef writeonly %ctx, i32 noundef %bits) local_unnamed_addr #5 {
 entry:
   %0 = add i32 %bits, -1
   %or.cond = icmp ult i32 %0, 512
@@ -241,14 +241,14 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i64 @mpd_getprec(ptr nocapture noundef readonly %ctx) local_unnamed_addr #5 {
+define hidden i64 @mpd_getprec(ptr nocapture noundef readonly %ctx) local_unnamed_addr #6 {
 entry:
   %0 = load i64, ptr %ctx, align 8
   ret i64 %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i64 @mpd_getemax(ptr nocapture noundef readonly %ctx) local_unnamed_addr #5 {
+define hidden i64 @mpd_getemax(ptr nocapture noundef readonly %ctx) local_unnamed_addr #6 {
 entry:
   %emax = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load i64, ptr %emax, align 8
@@ -256,7 +256,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i64 @mpd_getemin(ptr nocapture noundef readonly %ctx) local_unnamed_addr #5 {
+define hidden i64 @mpd_getemin(ptr nocapture noundef readonly %ctx) local_unnamed_addr #6 {
 entry:
   %emin = getelementptr inbounds i8, ptr %ctx, i64 16
   %0 = load i64, ptr %emin, align 8
@@ -264,7 +264,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @mpd_getround(ptr nocapture noundef readonly %ctx) local_unnamed_addr #5 {
+define hidden i32 @mpd_getround(ptr nocapture noundef readonly %ctx) local_unnamed_addr #6 {
 entry:
   %round = getelementptr inbounds i8, ptr %ctx, i64 36
   %0 = load i32, ptr %round, align 4
@@ -272,7 +272,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @mpd_gettraps(ptr nocapture noundef readonly %ctx) local_unnamed_addr #5 {
+define hidden i32 @mpd_gettraps(ptr nocapture noundef readonly %ctx) local_unnamed_addr #6 {
 entry:
   %traps = getelementptr inbounds i8, ptr %ctx, i64 24
   %0 = load i32, ptr %traps, align 8
@@ -280,7 +280,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @mpd_getstatus(ptr nocapture noundef readonly %ctx) local_unnamed_addr #5 {
+define hidden i32 @mpd_getstatus(ptr nocapture noundef readonly %ctx) local_unnamed_addr #6 {
 entry:
   %status = getelementptr inbounds i8, ptr %ctx, i64 28
   %0 = load i32, ptr %status, align 4
@@ -288,7 +288,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @mpd_getclamp(ptr nocapture noundef readonly %ctx) local_unnamed_addr #5 {
+define hidden i32 @mpd_getclamp(ptr nocapture noundef readonly %ctx) local_unnamed_addr #6 {
 entry:
   %clamp = getelementptr inbounds i8, ptr %ctx, i64 40
   %0 = load i32, ptr %clamp, align 8
@@ -296,7 +296,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @mpd_getcr(ptr nocapture noundef readonly %ctx) local_unnamed_addr #5 {
+define hidden i32 @mpd_getcr(ptr nocapture noundef readonly %ctx) local_unnamed_addr #6 {
 entry:
   %allcr = getelementptr inbounds i8, ptr %ctx, i64 44
   %0 = load i32, ptr %allcr, align 4
@@ -304,7 +304,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden range(i32 0, 2) i32 @mpd_qsetemax(ptr nocapture noundef writeonly %ctx, i64 noundef %emax) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @mpd_qsetemax(ptr nocapture noundef writeonly %ctx, i64 noundef %emax) local_unnamed_addr #5 {
 entry:
   %or.cond = icmp ugt i64 %emax, 999999999999999999
   br i1 %or.cond, label %return, label %if.end
@@ -320,7 +320,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden range(i32 0, 2) i32 @mpd_qsetemin(ptr nocapture noundef writeonly %ctx, i64 noundef %emin) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @mpd_qsetemin(ptr nocapture noundef writeonly %ctx, i64 noundef %emin) local_unnamed_addr #5 {
 entry:
   %0 = add i64 %emin, -1
   %or.cond = icmp ult i64 %0, -1000000000000000000
@@ -337,7 +337,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden range(i32 0, 2) i32 @mpd_qsetround(ptr nocapture noundef writeonly %ctx, i32 noundef %round) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @mpd_qsetround(ptr nocapture noundef writeonly %ctx, i32 noundef %round) local_unnamed_addr #5 {
 entry:
   %or.cond = icmp ult i32 %round, 9
   br i1 %or.cond, label %if.end, label %return
@@ -353,7 +353,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden range(i32 0, 2) i32 @mpd_qsettraps(ptr nocapture noundef writeonly %ctx, i32 noundef %flags) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @mpd_qsettraps(ptr nocapture noundef writeonly %ctx, i32 noundef %flags) local_unnamed_addr #5 {
 entry:
   %cmp = icmp ugt i32 %flags, 32767
   br i1 %cmp, label %return, label %if.end
@@ -369,7 +369,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden range(i32 0, 2) i32 @mpd_qsetstatus(ptr nocapture noundef writeonly %ctx, i32 noundef %flags) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @mpd_qsetstatus(ptr nocapture noundef writeonly %ctx, i32 noundef %flags) local_unnamed_addr #5 {
 entry:
   %cmp = icmp ugt i32 %flags, 32767
   br i1 %cmp, label %return, label %if.end
@@ -385,7 +385,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden range(i32 0, 2) i32 @mpd_qsetclamp(ptr nocapture noundef writeonly %ctx, i32 noundef %c) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @mpd_qsetclamp(ptr nocapture noundef writeonly %ctx, i32 noundef %c) local_unnamed_addr #5 {
 entry:
   %or.cond = icmp ugt i32 %c, 1
   br i1 %or.cond, label %return, label %if.end
@@ -401,7 +401,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden range(i32 0, 2) i32 @mpd_qsetcr(ptr nocapture noundef writeonly %ctx, i32 noundef %c) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @mpd_qsetcr(ptr nocapture noundef writeonly %ctx, i32 noundef %c) local_unnamed_addr #5 {
 entry:
   %or.cond = icmp ugt i32 %c, 1
   br i1 %or.cond, label %return, label %if.end
@@ -417,22 +417,23 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #7
+declare i64 @llvm.umin.i64(i64, i64) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree nounwind }
-attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nounwind }
-attributes #9 = { cold }
-attributes #10 = { noreturn nounwind }
+attributes #2 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree nounwind }
+attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nounwind }
+attributes #10 = { cold }
+attributes #11 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -171,7 +171,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   tail call void @optfree(ptr noundef nonnull %12) #7
   %51 = load ptr, ptr @clamdopts, align 8
   tail call void @optfree(ptr noundef %51) #7
-  tail call void @exit(i32 noundef 0) #8
+  tail call void @exit(i32 noundef 0) #9
   unreachable
 
 52:                                               ; preds = %46
@@ -197,7 +197,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   tail call void @optfree(ptr noundef nonnull %12) #7
   %62 = load ptr, ptr @clamdopts, align 8
   tail call void @optfree(ptr noundef %62) #7
-  tail call void @exit(i32 noundef %switch.select62) #8
+  tail call void @exit(i32 noundef %switch.select62) #9
   unreachable
 
 63:                                               ; preds = %56, %52
@@ -251,7 +251,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %85 = load ptr, ptr @clamdopts, align 8
   tail call void @optfree(ptr noundef %85) #7
   tail call void @logg_close() #7
-  tail call void @exit(i32 noundef %84) #8
+  tail call void @exit(i32 noundef %84) #9
   unreachable
 
 86:                                               ; preds = %79
@@ -367,7 +367,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 151:                                              ; preds = %148, %90
   call void @logg_close() #7
   call void @optfree(ptr noundef nonnull %12) #7
-  call void @exit(i32 noundef %98) #8
+  call void @exit(i32 noundef %98) #9
   unreachable
 }
 
@@ -375,7 +375,7 @@ declare ptr @optparse(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 no
 
 declare void @mprintf(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #2
 
 declare ptr @optget(ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -415,7 +415,7 @@ define dso_local void @help() local_unnamed_addr #0 {
   tail call void (i32, ptr, ...) @mprintf(i32 noundef 0, ptr noundef nonnull @.str.51) #7
   tail call void (i32, ptr, ...) @mprintf(i32 noundef 0, ptr noundef nonnull @.str.52) #7
   tail call void (i32, ptr, ...) @mprintf(i32 noundef 0, ptr noundef nonnull @.str.27) #7
-  tail call void @exit(i32 noundef 0) #8
+  tail call void @exit(i32 noundef 0) #9
   unreachable
 }
 
@@ -479,13 +479,14 @@ declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_a
 
 attributes #0 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #5 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nounwind }
-attributes #8 = { noreturn nounwind }
+attributes #8 = { cold noreturn nounwind }
+attributes #9 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

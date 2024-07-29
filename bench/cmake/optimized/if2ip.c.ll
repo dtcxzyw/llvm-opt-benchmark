@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local range(i32 0, 5) i32 @Curl_ipv6_scope(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = load i16, ptr %0, align 2
   %3 = icmp eq i16 %2, 10
-  br i1 %3, label %4, label %29
+  br i1 %3, label %4, label %30
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -20,7 +20,7 @@ define dso_local range(i32 0, 5) i32 @Curl_ipv6_scope(ptr nocapture noundef read
   %9 = load i8, ptr %8, align 1
   %10 = and i32 %7, 254
   %11 = icmp eq i32 %10, 252
-  br i1 %11, label %30, label %12
+  br i1 %11, label %31, label %12
 
 12:                                               ; preds = %4
   %13 = shl nuw nsw i32 %7, 8
@@ -28,14 +28,14 @@ define dso_local range(i32 0, 5) i32 @Curl_ipv6_scope(ptr nocapture noundef read
   %.masked = zext i8 %14 to i32
   %15 = or disjoint i32 %13, %.masked
   %trunc = trunc nuw i32 %15 to i16
-  switch i16 %trunc, label %29 [
-    i16 -384, label %30
+  switch i16 %trunc, label %30 [
+    i16 -384, label %31
     i16 -320, label %16
     i16 0, label %17
   ]
 
 16:                                               ; preds = %12
-  br label %30
+  br label %31
 
 17:                                               ; preds = %12
   %18 = getelementptr inbounds i8, ptr %0, i64 10
@@ -47,22 +47,22 @@ define dso_local range(i32 0, 5) i32 @Curl_ipv6_scope(ptr nocapture noundef read
   %24 = tail call i8 @llvm.vector.reduce.or.v8i8(<8 x i8> %19)
   %25 = tail call i8 @llvm.vector.reduce.or.v4i8(<4 x i8> %21)
   %op.rdx = or i8 %24, %25
-  %op.rdx24 = or i8 %op.rdx, %23
-  %op.rdx25 = or i8 %op.rdx24, %9
+  %26 = or i8 %op.rdx, %23
+  %op.rdx25 = or i8 %26, %9
   %.not = icmp eq i8 %op.rdx25, 0
-  br i1 %.not, label %26, label %29
+  br i1 %.not, label %27, label %30
 
-26:                                               ; preds = %17
-  %27 = getelementptr inbounds i8, ptr %0, i64 23
-  %28 = load i8, ptr %27, align 1
-  %.not23 = icmp eq i8 %28, 1
-  br i1 %.not23, label %30, label %29
+27:                                               ; preds = %17
+  %28 = getelementptr inbounds i8, ptr %0, i64 23
+  %29 = load i8, ptr %28, align 1
+  %.not23 = icmp eq i8 %29, 1
+  br i1 %.not23, label %31, label %30
 
-29:                                               ; preds = %26, %17, %12, %1
-  br label %30
+30:                                               ; preds = %27, %17, %12, %1
+  br label %31
 
-30:                                               ; preds = %26, %12, %4, %29, %16
-  %.0 = phi i32 [ 0, %29 ], [ 2, %16 ], [ 3, %4 ], [ 1, %12 ], [ 4, %26 ]
+31:                                               ; preds = %27, %12, %4, %30, %16
+  %.0 = phi i32 [ 0, %30 ], [ 2, %16 ], [ 3, %4 ], [ 1, %12 ], [ 4, %27 ]
   ret i32 %.0
 }
 
@@ -73,7 +73,7 @@ define dso_local range(i32 0, 3) i32 @Curl_if2ip(i32 noundef %0, i32 noundef %1,
   %9 = alloca [64 x i8], align 16
   %10 = call i32 @getifaddrs(ptr noundef nonnull %7) #6
   %11 = icmp sgt i32 %10, -1
-  br i1 %11, label %.preheader, label %91
+  br i1 %11, label %.preheader, label %92
 
 .preheader:                                       ; preds = %6
   %.049 = load ptr, ptr %7, align 8
@@ -85,13 +85,13 @@ define dso_local range(i32 0, 3) i32 @Curl_if2ip(i32 noundef %0, i32 noundef %1,
   %.not40 = icmp eq i32 %2, 0
   br i1 %12, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %61
-  %.052.us = phi ptr [ %.0.us, %61 ], [ %.049, %.lr.ph ]
-  %.03051.us = phi i32 [ %.1.us, %61 ], [ 0, %.lr.ph ]
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %62
+  %.052.us = phi ptr [ %.0.us, %62 ], [ %.049, %.lr.ph ]
+  %.03051.us = phi i32 [ %.1.us, %62 ], [ 0, %.lr.ph ]
   %13 = getelementptr inbounds i8, ptr %.052.us, i64 24
   %14 = load ptr, ptr %13, align 8
   %.not36.us = icmp eq ptr %14, null
-  br i1 %.not36.us, label %61, label %15
+  br i1 %.not36.us, label %62, label %15
 
 15:                                               ; preds = %.lr.ph.split.us
   %16 = load i16, ptr %14, align 2
@@ -100,7 +100,7 @@ define dso_local range(i32 0, 3) i32 @Curl_if2ip(i32 noundef %0, i32 noundef %1,
 
 18:                                               ; preds = %15
   %19 = icmp eq i32 %.03051.us, 0
-  br i1 %19, label %20, label %61
+  br i1 %19, label %20, label %62
 
 20:                                               ; preds = %18
   %21 = getelementptr inbounds i8, ptr %.052.us, i64 8
@@ -108,21 +108,21 @@ define dso_local range(i32 0, 3) i32 @Curl_if2ip(i32 noundef %0, i32 noundef %1,
   %23 = call i32 @curl_strequal(ptr noundef %22, ptr noundef %3) #6
   %.not37.us = icmp ne i32 %23, 0
   %spec.select.us = zext i1 %.not37.us to i32
-  br label %61
+  br label %62
 
 24:                                               ; preds = %15
   %25 = getelementptr inbounds i8, ptr %.052.us, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = call i32 @curl_strequal(ptr noundef %26, ptr noundef %3) #6
   %.not38.us = icmp eq i32 %27, 0
-  br i1 %.not38.us, label %61, label %28
+  br i1 %.not38.us, label %62, label %28
 
 28:                                               ; preds = %24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %8, i8 0, i64 12, i1 false)
   %29 = load ptr, ptr %13, align 8
   %30 = load i16, ptr %29, align 2
   %31 = icmp eq i16 %30, 10
-  br i1 %31, label %32, label %57
+  br i1 %31, label %32, label %58
 
 32:                                               ; preds = %28
   %33 = getelementptr inbounds i8, ptr %29, i64 8
@@ -140,9 +140,9 @@ define dso_local range(i32 0, 3) i32 @Curl_if2ip(i32 noundef %0, i32 noundef %1,
   %.masked.i.us = zext i8 %42 to i32
   %43 = or disjoint i32 %41, %.masked.i.us
   %trunc.i.us = trunc nuw i32 %43 to i16
-  switch i16 %trunc.i.us, label %57 [
+  switch i16 %trunc.i.us, label %58 [
     i16 -384, label %Curl_ipv6_scope.exit.us
-    i16 -320, label %56
+    i16 -320, label %57
     i16 0, label %44
   ]
 
@@ -156,110 +156,110 @@ define dso_local range(i32 0, 3) i32 @Curl_if2ip(i32 noundef %0, i32 noundef %1,
   %51 = call i8 @llvm.vector.reduce.or.v8i8(<8 x i8> %46)
   %52 = call i8 @llvm.vector.reduce.or.v4i8(<4 x i8> %48)
   %op.rdx = or i8 %51, %52
-  %op.rdx67 = or i8 %op.rdx, %50
-  %op.rdx68 = or i8 %op.rdx67, %37
+  %53 = or i8 %op.rdx, %50
+  %op.rdx68 = or i8 %53, %37
   %.not.i.us = icmp eq i8 %op.rdx68, 0
-  br i1 %.not.i.us, label %53, label %57
+  br i1 %.not.i.us, label %54, label %58
 
-53:                                               ; preds = %44
-  %54 = getelementptr inbounds i8, ptr %29, i64 23
-  %55 = load i8, ptr %54, align 1
-  %.not23.i.us = icmp eq i8 %55, 1
-  br i1 %.not23.i.us, label %Curl_ipv6_scope.exit.us, label %57
+54:                                               ; preds = %44
+  %55 = getelementptr inbounds i8, ptr %29, i64 23
+  %56 = load i8, ptr %55, align 1
+  %.not23.i.us = icmp eq i8 %56, 1
+  br i1 %.not23.i.us, label %Curl_ipv6_scope.exit.us, label %58
 
-56:                                               ; preds = %40
+57:                                               ; preds = %40
   br label %Curl_ipv6_scope.exit.us
 
-57:                                               ; preds = %53, %44, %40, %28
+58:                                               ; preds = %54, %44, %40, %28
   br label %Curl_ipv6_scope.exit.us
 
-Curl_ipv6_scope.exit.us:                          ; preds = %57, %56, %53, %40, %32
-  %.0.i.us = phi i32 [ 0, %57 ], [ 2, %56 ], [ 3, %32 ], [ 1, %40 ], [ 4, %53 ]
+Curl_ipv6_scope.exit.us:                          ; preds = %58, %57, %54, %40, %32
+  %.0.i.us = phi i32 [ 0, %58 ], [ 2, %57 ], [ 3, %32 ], [ 1, %40 ], [ 4, %54 ]
   %.not39.us = icmp eq i32 %.0.i.us, %1
-  br i1 %.not39.us, label %58, label %61
+  br i1 %.not39.us, label %59, label %62
 
-58:                                               ; preds = %Curl_ipv6_scope.exit.us
-  %59 = getelementptr inbounds i8, ptr %29, i64 24
-  %60 = load i32, ptr %59, align 4
-  %.not41.us = icmp eq i32 %60, %2
+59:                                               ; preds = %Curl_ipv6_scope.exit.us
+  %60 = getelementptr inbounds i8, ptr %29, i64 24
+  %61 = load i32, ptr %60, align 4
+  %.not41.us = icmp eq i32 %61, %2
   %or.cond.us = select i1 %.not40, i1 true, i1 %.not41.us
-  br i1 %or.cond.us, label %.split.us, label %61
+  br i1 %or.cond.us, label %.split.us, label %62
 
-61:                                               ; preds = %58, %Curl_ipv6_scope.exit.us, %24, %20, %18, %.lr.ph.split.us
-  %.1.us = phi i32 [ %.03051.us, %24 ], [ 1, %18 ], [ %.03051.us, %.lr.ph.split.us ], [ %spec.select.us, %20 ], [ 1, %Curl_ipv6_scope.exit.us ], [ 1, %58 ]
+62:                                               ; preds = %59, %Curl_ipv6_scope.exit.us, %24, %20, %18, %.lr.ph.split.us
+  %.1.us = phi i32 [ %.03051.us, %24 ], [ 1, %18 ], [ %.03051.us, %.lr.ph.split.us ], [ %spec.select.us, %20 ], [ 1, %Curl_ipv6_scope.exit.us ], [ 1, %59 ]
   %.0.us = load ptr, ptr %.052.us, align 8
   %.not.us = icmp eq ptr %.0.us, null
   br i1 %.not.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !5
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %89
-  %.052 = phi ptr [ %.0, %89 ], [ %.049, %.lr.ph ]
-  %.03051 = phi i32 [ %.1, %89 ], [ 0, %.lr.ph ]
-  %62 = getelementptr inbounds i8, ptr %.052, i64 24
-  %63 = load ptr, ptr %62, align 8
-  %.not36 = icmp eq ptr %63, null
-  br i1 %.not36, label %89, label %64
+.lr.ph.split:                                     ; preds = %.lr.ph, %90
+  %.052 = phi ptr [ %.0, %90 ], [ %.049, %.lr.ph ]
+  %.03051 = phi i32 [ %.1, %90 ], [ 0, %.lr.ph ]
+  %63 = getelementptr inbounds i8, ptr %.052, i64 24
+  %64 = load ptr, ptr %63, align 8
+  %.not36 = icmp eq ptr %64, null
+  br i1 %.not36, label %90, label %65
 
-64:                                               ; preds = %.lr.ph.split
-  %65 = load i16, ptr %63, align 2
-  %66 = zext i16 %65 to i32
-  %67 = icmp eq i32 %66, %0
-  br i1 %67, label %68, label %83
+65:                                               ; preds = %.lr.ph.split
+  %66 = load i16, ptr %64, align 2
+  %67 = zext i16 %66 to i32
+  %68 = icmp eq i32 %67, %0
+  br i1 %68, label %69, label %84
 
-68:                                               ; preds = %64
-  %69 = getelementptr inbounds i8, ptr %.052, i64 8
-  %70 = load ptr, ptr %69, align 8
-  %71 = call i32 @curl_strequal(ptr noundef %70, ptr noundef %3) #6
-  %.not38 = icmp eq i32 %71, 0
-  br i1 %.not38, label %89, label %72
+69:                                               ; preds = %65
+  %70 = getelementptr inbounds i8, ptr %.052, i64 8
+  %71 = load ptr, ptr %70, align 8
+  %72 = call i32 @curl_strequal(ptr noundef %71, ptr noundef %3) #6
+  %.not38 = icmp eq i32 %72, 0
+  br i1 %.not38, label %90, label %73
 
-72:                                               ; preds = %68
-  %73 = getelementptr inbounds i8, ptr %.052, i64 24
+73:                                               ; preds = %69
+  %74 = getelementptr inbounds i8, ptr %.052, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %8, i8 0, i64 12, i1 false)
-  %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 4
-  br label %79
+  %75 = load ptr, ptr %74, align 8
+  %76 = getelementptr inbounds i8, ptr %75, i64 4
+  br label %80
 
-.split.us:                                        ; preds = %58
-  %76 = getelementptr inbounds i8, ptr %29, i64 8
-  %.not42 = icmp eq i32 %60, 0
-  br i1 %.not42, label %79, label %77
+.split.us:                                        ; preds = %59
+  %77 = getelementptr inbounds i8, ptr %29, i64 8
+  %.not42 = icmp eq i32 %61, 0
+  br i1 %.not42, label %80, label %78
 
-77:                                               ; preds = %.split.us
-  %78 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %8, i64 noundef 12, ptr noundef nonnull @.str, i32 noundef %60) #6
-  br label %79
+78:                                               ; preds = %.split.us
+  %79 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %8, i64 noundef 12, ptr noundef nonnull @.str, i32 noundef %61) #6
+  br label %80
 
-79:                                               ; preds = %.split.us, %77, %72
-  %.031 = phi ptr [ %76, %77 ], [ %76, %.split.us ], [ %75, %72 ]
-  %80 = call ptr @inet_ntop(i32 noundef %0, ptr noundef nonnull %.031, ptr noundef nonnull %9, i32 noundef 64) #6
-  %81 = sext i32 %5 to i64
-  %82 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef %4, i64 noundef %81, ptr noundef nonnull @.str.1, ptr noundef %80, ptr noundef nonnull %8) #6
+80:                                               ; preds = %.split.us, %78, %73
+  %.031 = phi ptr [ %77, %78 ], [ %77, %.split.us ], [ %76, %73 ]
+  %81 = call ptr @inet_ntop(i32 noundef %0, ptr noundef nonnull %.031, ptr noundef nonnull %9, i32 noundef 64) #6
+  %82 = sext i32 %5 to i64
+  %83 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef %4, i64 noundef %82, ptr noundef nonnull @.str.1, ptr noundef %81, ptr noundef nonnull %8) #6
   br label %.loopexit
 
-83:                                               ; preds = %64
-  %84 = icmp eq i32 %.03051, 0
-  br i1 %84, label %85, label %89
+84:                                               ; preds = %65
+  %85 = icmp eq i32 %.03051, 0
+  br i1 %85, label %86, label %90
 
-85:                                               ; preds = %83
-  %86 = getelementptr inbounds i8, ptr %.052, i64 8
-  %87 = load ptr, ptr %86, align 8
-  %88 = call i32 @curl_strequal(ptr noundef %87, ptr noundef %3) #6
-  %.not37 = icmp ne i32 %88, 0
+86:                                               ; preds = %84
+  %87 = getelementptr inbounds i8, ptr %.052, i64 8
+  %88 = load ptr, ptr %87, align 8
+  %89 = call i32 @curl_strequal(ptr noundef %88, ptr noundef %3) #6
+  %.not37 = icmp ne i32 %89, 0
   %spec.select = zext i1 %.not37 to i32
-  br label %89
+  br label %90
 
-89:                                               ; preds = %85, %.lr.ph.split, %83, %68
-  %.1 = phi i32 [ %.03051, %68 ], [ 1, %83 ], [ %.03051, %.lr.ph.split ], [ %spec.select, %85 ]
+90:                                               ; preds = %86, %.lr.ph.split, %84, %69
+  %.1 = phi i32 [ %.03051, %69 ], [ 1, %84 ], [ %.03051, %.lr.ph.split ], [ %spec.select, %86 ]
   %.0 = load ptr, ptr %.052, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !5
 
-.loopexit:                                        ; preds = %89, %61, %.preheader, %79
-  %.2 = phi i32 [ 2, %79 ], [ 0, %.preheader ], [ %.1.us, %61 ], [ %.1, %89 ]
-  %90 = load ptr, ptr %7, align 8
-  call void @freeifaddrs(ptr noundef %90) #6
-  br label %91
+.loopexit:                                        ; preds = %90, %62, %.preheader, %80
+  %.2 = phi i32 [ 2, %80 ], [ 0, %.preheader ], [ %.1.us, %62 ], [ %.1, %90 ]
+  %91 = load ptr, ptr %7, align 8
+  call void @freeifaddrs(ptr noundef %91) #6
+  br label %92
 
-91:                                               ; preds = %.loopexit, %6
+92:                                               ; preds = %.loopexit, %6
   %.3 = phi i32 [ %.2, %.loopexit ], [ 0, %6 ]
   ret i32 %.3
 }

@@ -25,7 +25,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @block_acct_init(ptr noundef %stats) local_unnamed_addr #0 {
 entry:
-  tail call void @qemu_mutex_init(ptr noundef %stats) #8
+  tail call void @qemu_mutex_init(ptr noundef %stats) #10
   %0 = load i8, ptr @qtest_allowed, align 1
   %tobool.i = trunc i8 %0 to i1
   br i1 %tobool.i, label %if.then, label %if.end
@@ -44,8 +44,8 @@ if.end:                                           ; preds = %if.then, %entry
 
 declare void @qemu_mutex_init(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @block_acct_setup(ptr nocapture noundef %stats, i32 noundef %account_invalid, i32 noundef %account_failed) local_unnamed_addr #0 {
+; Function Attrs: nofree nounwind sspstrong uwtable
+define dso_local void @block_acct_setup(ptr nocapture noundef %stats, i32 noundef %account_invalid, i32 noundef %account_failed) local_unnamed_addr #2 {
 entry:
   %account_invalid1 = getelementptr inbounds i8, ptr %stats, i64 352
   %0 = load i8, ptr %account_invalid1, align 8
@@ -62,7 +62,7 @@ sw.bb2.i:                                         ; preds = %entry
   br label %bool_from_onoffauto.exit
 
 sw.default.i:                                     ; preds = %entry
-  tail call void @abort() #9
+  tail call void @abort() #11
   unreachable
 
 bool_from_onoffauto.exit:                         ; preds = %entry, %sw.bb1.i, %sw.bb2.i
@@ -84,7 +84,7 @@ sw.bb2.i4:                                        ; preds = %bool_from_onoffauto
   br label %bool_from_onoffauto.exit8
 
 sw.default.i7:                                    ; preds = %bool_from_onoffauto.exit
-  tail call void @abort() #9
+  tail call void @abort() #11
   unreachable
 
 bool_from_onoffauto.exit8:                        ; preds = %bool_from_onoffauto.exit, %sw.bb1.i6, %sw.bb2.i4
@@ -106,12 +106,12 @@ land.rhs:                                         ; preds = %entry, %land.rhs
   %s.05 = phi ptr [ %1, %land.rhs ], [ %0, %entry ]
   %entries = getelementptr inbounds i8, ptr %s.05, i64 592
   %1 = load ptr, ptr %entries, align 8
-  tail call void @g_free(ptr noundef nonnull %s.05) #8
+  tail call void @g_free(ptr noundef nonnull %s.05) #10
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %for.end, label %land.rhs, !llvm.loop !5
 
 for.end:                                          ; preds = %land.rhs, %entry
-  tail call void @qemu_mutex_destroy(ptr noundef %stats) #8
+  tail call void @qemu_mutex_destroy(ptr noundef %stats) #10
   ret void
 }
 
@@ -122,13 +122,13 @@ declare void @qemu_mutex_destroy(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @block_acct_add_interval(ptr noundef %stats, i32 noundef %interval_length) local_unnamed_addr #0 {
 entry:
-  %call = tail call noalias dereferenceable_or_null(600) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 600) #10
+  %call = tail call noalias dereferenceable_or_null(600) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 600) #12
   %interval_length1 = getelementptr inbounds i8, ptr %call, i64 584
   store i32 %interval_length, ptr %interval_length1, align 8
   store ptr %stats, ptr %call, align 8
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
-  tail call void %1(ptr noundef %stats, ptr noundef nonnull @.str, i32 noundef 85) #8
+  tail call void %1(ptr noundef %stats, ptr noundef nonnull @.str, i32 noundef 85) #10
   %intervals = getelementptr inbounds i8, ptr %stats, i64 344
   %2 = load ptr, ptr %intervals, align 8
   %entries = getelementptr inbounds i8, ptr %call, i64 592
@@ -144,25 +144,25 @@ for.body:                                         ; preds = %entry, %for.body
   %arrayidx = getelementptr [6 x %struct.TimedAverage], ptr %latency, i64 0, i64 %indvars.iv
   %.b = load i1, ptr @clock_type, align 4
   %3 = zext i1 %.b to i32
-  tail call void @timed_average_init(ptr noundef %arrayidx, i32 noundef %3, i64 noundef %mul) #8
+  tail call void @timed_average_init(ptr noundef %arrayidx, i32 noundef %3, i64 noundef %mul) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !7
 
 for.end:                                          ; preds = %for.body
-  tail call void @qemu_mutex_unlock_impl(ptr noundef %stats, ptr noundef nonnull @.str, i32 noundef 92) #8
+  tail call void @qemu_mutex_unlock_impl(ptr noundef %stats, ptr noundef nonnull @.str, i32 noundef 92) #10
   ret void
 }
 
 ; Function Attrs: allocsize(0,1)
-declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #2
+declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 declare void @timed_average_init(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 declare void @qemu_mutex_unlock_impl(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @block_acct_interval_next(ptr nocapture noundef readonly %stats, ptr noundef readonly %s) local_unnamed_addr #3 {
+define dso_local ptr @block_acct_interval_next(ptr nocapture noundef readonly %stats, ptr noundef readonly %s) local_unnamed_addr #4 {
 entry:
   %cmp = icmp eq ptr %s, null
   %intervals = getelementptr inbounds i8, ptr %stats, i64 344
@@ -179,14 +179,14 @@ entry:
   br i1 %cmp, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str, i32 noundef 108, ptr noundef nonnull @__PRETTY_FUNCTION__.block_acct_start) #9
+  tail call void @__assert_fail(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str, i32 noundef 108, ptr noundef nonnull @__PRETTY_FUNCTION__.block_acct_start) #11
   unreachable
 
 if.end:                                           ; preds = %entry
   store i64 %bytes, ptr %cookie, align 8
   %.b = load i1, ptr @clock_type, align 4
   %0 = zext i1 %.b to i32
-  %call = tail call i64 @qemu_clock_get_ns(i32 noundef %0) #8
+  %call = tail call i64 @qemu_clock_get_ns(i32 noundef %0) #10
   %start_time_ns = getelementptr inbounds i8, ptr %cookie, i64 8
   store i64 %call, ptr %start_time_ns, align 8
   %type2 = getelementptr inbounds i8, ptr %cookie, i64 16
@@ -195,7 +195,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: noreturn nounwind
-declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
 
 declare i64 @qemu_clock_get_ns(i32 noundef) local_unnamed_addr #1
 
@@ -228,11 +228,11 @@ for.end:                                          ; preds = %if.end, %entry
   store i32 %new_nbins.0.lcssa, ptr %arrayidx, align 8
   %boundaries3 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %2 = load ptr, ptr %boundaries3, align 8
-  tail call void @g_free(ptr noundef %2) #8
+  tail call void @g_free(ptr noundef %2) #10
   %3 = load i32, ptr %arrayidx, align 8
   %sub = add i32 %3, -1
   %conv = sext i32 %sub to i64
-  %call = tail call noalias ptr @g_malloc_n(i64 noundef %conv, i64 noundef 8) #10
+  %call = tail call noalias ptr @g_malloc_n(i64 noundef %conv, i64 noundef 8) #12
   store ptr %call, ptr %boundaries3, align 8
   br i1 %tobool.not18, label %for.end13, label %for.body9
 
@@ -250,10 +250,10 @@ for.body9:                                        ; preds = %for.end, %for.body9
 for.end13:                                        ; preds = %for.body9, %for.end
   %bins = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %6 = load ptr, ptr %bins, align 8
-  tail call void @g_free(ptr noundef %6) #8
+  tail call void @g_free(ptr noundef %6) #10
   %7 = load i32, ptr %arrayidx, align 8
   %conv15 = sext i32 %7 to i64
-  %call16 = tail call noalias ptr @g_malloc0_n(i64 noundef %conv15, i64 noundef 8) #10
+  %call16 = tail call noalias ptr @g_malloc0_n(i64 noundef %conv15, i64 noundef 8) #12
   store ptr %call16, ptr %bins, align 8
   br label %return
 
@@ -263,7 +263,7 @@ return:                                           ; preds = %for.body, %for.end1
 }
 
 ; Function Attrs: allocsize(0,1)
-declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #2
+declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @block_latency_histograms_clear(ptr nocapture noundef %stats) local_unnamed_addr #0 {
@@ -276,10 +276,10 @@ for.body:                                         ; preds = %entry, %for.body
   %arrayidx = getelementptr [6 x %struct.BlockLatencyHistogram], ptr %latency_histogram, i64 0, i64 %indvars.iv
   %bins = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %0 = load ptr, ptr %bins, align 8
-  tail call void @g_free(ptr noundef %0) #8
+  tail call void @g_free(ptr noundef %0) #10
   %boundaries = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %1 = load ptr, ptr %boundaries, align 8
-  tail call void @g_free(ptr noundef %1) #8
+  tail call void @g_free(ptr noundef %1) #10
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %arrayidx, i8 0, i64 24, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
@@ -290,7 +290,7 @@ for.end:                                          ; preds = %for.body
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @block_acct_done(ptr noundef %stats, ptr nocapture noundef %cookie) local_unnamed_addr #0 {
@@ -305,7 +305,7 @@ entry:
   %latency_ns.addr.i = alloca i64, align 8
   %.b = load i1, ptr @clock_type, align 4
   %0 = zext i1 %.b to i32
-  %call = tail call i64 @qemu_clock_get_ns(i32 noundef %0) #8
+  %call = tail call i64 @qemu_clock_get_ns(i32 noundef %0) #10
   %start_time_ns = getelementptr inbounds i8, ptr %cookie, i64 8
   %1 = load i64, ptr %start_time_ns, align 8
   %sub = sub i64 %call, %1
@@ -318,7 +318,7 @@ entry:
   br i1 %cmp, label %if.end3, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str, i32 noundef 214, ptr noundef nonnull @__PRETTY_FUNCTION__.block_account_one_io) #9
+  tail call void @__assert_fail(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str, i32 noundef 214, ptr noundef nonnull @__PRETTY_FUNCTION__.block_account_one_io) #11
   unreachable
 
 if.end3:                                          ; preds = %entry
@@ -328,7 +328,7 @@ if.end3:                                          ; preds = %entry
 if.end7:                                          ; preds = %if.end3
   %4 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %5 = inttoptr i64 %4 to ptr
-  tail call void %5(ptr noundef %stats, ptr noundef nonnull @.str.3, i32 noundef 122) #8
+  tail call void %5(ptr noundef %stats, ptr noundef nonnull @.str.3, i32 noundef 122) #10
   %latency_histogram = getelementptr inbounds i8, ptr %stats, i64 360
   %account_failed = getelementptr inbounds i8, ptr %stats, i64 353
   %total_time_ns = getelementptr inbounds i8, ptr %stats, i64 240
@@ -389,12 +389,12 @@ if.then9.i:                                       ; preds = %if.end5.i
   br label %return.sink.split.i
 
 if.end16.i:                                       ; preds = %if.end5.i
-  %call.i = call ptr @bsearch(ptr noundef nonnull %latency_ns.addr.i, ptr noundef nonnull %15, i64 noundef %idxprom.i, i64 noundef 8, ptr noundef nonnull @block_latency_histogram_compare_func) #8
+  %call.i = call ptr @bsearch(ptr noundef nonnull %latency_ns.addr.i, ptr noundef nonnull %15, i64 noundef %idxprom.i, i64 noundef 8, ptr noundef nonnull @block_latency_histogram_compare_func) #10
   %cmp20.not.i = icmp eq ptr %call.i, null
   br i1 %cmp20.not.i, label %if.else.i, label %if.end23.i
 
 if.else.i:                                        ; preds = %if.end16.i
-  call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str, i32 noundef 154, ptr noundef nonnull @__PRETTY_FUNCTION__.block_latency_histogram_account) #9
+  call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str, i32 noundef 154, ptr noundef nonnull @__PRETTY_FUNCTION__.block_latency_histogram_account) #11
   unreachable
 
 if.end23.i:                                       ; preds = %if.end16.i
@@ -441,14 +441,14 @@ for.body34:                                       ; preds = %if.then27, %for.bod
   %26 = load i32, ptr %type, align 8
   %idxprom36 = zext i32 %26 to i64
   %arrayidx37 = getelementptr [6 x %struct.TimedAverage], ptr %latency, i64 0, i64 %idxprom36
-  call void @timed_average_account(ptr noundef %arrayidx37, i64 noundef %spec.select) #8
+  call void @timed_average_account(ptr noundef %arrayidx37, i64 noundef %spec.select) #10
   %entries = getelementptr inbounds i8, ptr %s.030, i64 592
   %s.0 = load ptr, ptr %entries, align 8
   %tobool33.not = icmp eq ptr %s.0, null
   br i1 %tobool33.not, label %qemu_lockable_auto_unlock.exit, label %for.body34, !llvm.loop !11
 
 qemu_lockable_auto_unlock.exit:                   ; preds = %for.body34, %if.then27, %lor.lhs.false
-  call void @qemu_mutex_unlock_impl(ptr noundef %stats, ptr noundef nonnull @.str.3, i32 noundef 132) #8
+  call void @qemu_mutex_unlock_impl(ptr noundef %stats, ptr noundef nonnull @.str.3, i32 noundef 132) #10
   store i32 0, ptr %type, align 8
   br label %return
 
@@ -470,13 +470,13 @@ entry:
   br i1 %cmp, label %while.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str, i32 noundef 256, ptr noundef nonnull @__PRETTY_FUNCTION__.block_acct_invalid) #9
+  tail call void @__assert_fail(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str, i32 noundef 256, ptr noundef nonnull @__PRETTY_FUNCTION__.block_acct_invalid) #11
   unreachable
 
 while.end:                                        ; preds = %entry
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
-  tail call void %1(ptr noundef %stats, ptr noundef nonnull @.str, i32 noundef 262) #8
+  tail call void %1(ptr noundef %stats, ptr noundef nonnull @.str, i32 noundef 262) #10
   %invalid_ops = getelementptr inbounds i8, ptr %stats, i64 144
   %idxprom = zext nneg i32 %type to i64
   %arrayidx = getelementptr [6 x i64], ptr %invalid_ops, i64 0, i64 %idxprom
@@ -491,13 +491,13 @@ while.end:                                        ; preds = %entry
 if.then1:                                         ; preds = %while.end
   %.b = load i1, ptr @clock_type, align 4
   %4 = zext i1 %.b to i32
-  %call = tail call i64 @qemu_clock_get_ns(i32 noundef %4) #8
+  %call = tail call i64 @qemu_clock_get_ns(i32 noundef %4) #10
   %last_access_time_ns = getelementptr inbounds i8, ptr %stats, i64 336
   store i64 %call, ptr %last_access_time_ns, align 8
   br label %if.end2
 
 if.end2:                                          ; preds = %if.then1, %while.end
-  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %stats, ptr noundef nonnull @.str, i32 noundef 268) #8
+  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %stats, ptr noundef nonnull @.str, i32 noundef 268) #10
   ret void
 }
 
@@ -508,13 +508,13 @@ entry:
   br i1 %cmp, label %while.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str, i32 noundef 274, ptr noundef nonnull @__PRETTY_FUNCTION__.block_acct_merge_done) #9
+  tail call void @__assert_fail(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str, i32 noundef 274, ptr noundef nonnull @__PRETTY_FUNCTION__.block_acct_merge_done) #11
   unreachable
 
 while.end:                                        ; preds = %entry
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
-  tail call void %1(ptr noundef %stats, ptr noundef nonnull @.str, i32 noundef 276) #8
+  tail call void %1(ptr noundef %stats, ptr noundef nonnull @.str, i32 noundef 276) #10
   %conv = sext i32 %num_requests to i64
   %merged = getelementptr inbounds i8, ptr %stats, i64 288
   %idxprom = zext nneg i32 %type to i64
@@ -522,7 +522,7 @@ while.end:                                        ; preds = %entry
   %2 = load i64, ptr %arrayidx, align 8
   %add = add i64 %2, %conv
   store i64 %add, ptr %arrayidx, align 8
-  tail call void @qemu_mutex_unlock_impl(ptr noundef %stats, ptr noundef nonnull @.str, i32 noundef 278) #8
+  tail call void @qemu_mutex_unlock_impl(ptr noundef %stats, ptr noundef nonnull @.str, i32 noundef 278) #10
   ret void
 }
 
@@ -531,7 +531,7 @@ define dso_local i64 @block_acct_idle_time_ns(ptr nocapture noundef readonly %st
 entry:
   %.b = load i1, ptr @clock_type, align 4
   %0 = zext i1 %.b to i32
-  %call = tail call i64 @qemu_clock_get_ns(i32 noundef %0) #8
+  %call = tail call i64 @qemu_clock_get_ns(i32 noundef %0) #10
   %last_access_time_ns = getelementptr inbounds i8, ptr %stats, i64 336
   %1 = load i64, ptr %last_access_time_ns, align 8
   %sub = sub i64 %call, %1
@@ -546,20 +546,20 @@ entry:
   br i1 %cmp, label %while.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str, i32 noundef 291, ptr noundef nonnull @__PRETTY_FUNCTION__.block_acct_queue_depth) #9
+  tail call void @__assert_fail(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str, i32 noundef 291, ptr noundef nonnull @__PRETTY_FUNCTION__.block_acct_queue_depth) #11
   unreachable
 
 while.end:                                        ; preds = %entry
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
   %2 = load ptr, ptr %stats, align 8
-  tail call void %1(ptr noundef %2, ptr noundef nonnull @.str, i32 noundef 293) #8
+  tail call void %1(ptr noundef %2, ptr noundef nonnull @.str, i32 noundef 293) #10
   %latency = getelementptr inbounds i8, ptr %stats, i64 8
   %idxprom = zext nneg i32 %type to i64
   %arrayidx = getelementptr [6 x %struct.TimedAverage], ptr %latency, i64 0, i64 %idxprom
-  %call = call i64 @timed_average_sum(ptr noundef %arrayidx, ptr noundef nonnull %elapsed) #8
+  %call = call i64 @timed_average_sum(ptr noundef %arrayidx, ptr noundef nonnull %elapsed) #10
   %3 = load ptr, ptr %stats, align 8
-  call void @qemu_mutex_unlock_impl(ptr noundef %3, ptr noundef nonnull @.str, i32 noundef 295) #8
+  call void @qemu_mutex_unlock_impl(ptr noundef %3, ptr noundef nonnull @.str, i32 noundef 295) #10
   %conv = uitofp i64 %call to double
   %4 = load i64, ptr %elapsed, align 8
   %conv4 = uitofp i64 %4 to double
@@ -569,15 +569,15 @@ while.end:                                        ; preds = %entry
 
 declare i64 @timed_average_sum(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: noreturn nounwind
-declare void @abort() local_unnamed_addr #4
+; Function Attrs: cold nofree noreturn nounwind
+declare void @abort() local_unnamed_addr #7
 
 declare void @timed_average_account(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 declare ptr @bsearch(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @block_latency_histogram_compare_func(ptr nocapture noundef readonly %key, ptr nocapture noundef readonly %it) #6 {
+define internal range(i32 -1, 2) i32 @block_latency_histogram_compare_func(ptr nocapture noundef readonly %key, ptr nocapture noundef readonly %it) #8 {
 entry:
   %0 = load i64, ptr %key, align 8
   %1 = load i64, ptr %it, align 8
@@ -591,22 +591,24 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nounwind }
-attributes #9 = { noreturn nounwind }
-attributes #10 = { nounwind allocsize(0,1) }
+attributes #2 = { nofree nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { nounwind }
+attributes #11 = { noreturn nounwind }
+attributes #12 = { nounwind allocsize(0,1) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

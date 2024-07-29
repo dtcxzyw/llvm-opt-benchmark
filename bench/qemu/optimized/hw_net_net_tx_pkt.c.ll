@@ -38,14 +38,14 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @net_tx_pkt_init(ptr nocapture noundef writeonly %pkt, i32 noundef %max_frags) local_unnamed_addr #0 {
 entry:
-  %call = tail call noalias dereferenceable_or_null(65632) ptr @g_malloc0(i64 noundef 65632) #14
+  %call = tail call noalias dereferenceable_or_null(65632) ptr @g_malloc0(i64 noundef 65632) #15
   %add = add i32 %max_frags, 3
   %conv = zext i32 %add to i64
-  %call1 = tail call noalias ptr @g_malloc_n(i64 noundef %conv, i64 noundef 16) #15
+  %call1 = tail call noalias ptr @g_malloc_n(i64 noundef %conv, i64 noundef 16) #16
   %vec = getelementptr inbounds i8, ptr %call, i64 32
   store ptr %call1, ptr %vec, align 8
   %conv2 = zext i32 %max_frags to i64
-  %call3 = tail call noalias ptr @g_malloc_n(i64 noundef %conv2, i64 noundef 16) #15
+  %call3 = tail call noalias ptr @g_malloc_n(i64 noundef %conv2, i64 noundef 16) #16
   %raw = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %call3, ptr %raw, align 8
   %max_payload_frags = getelementptr inbounds i8, ptr %call, i64 65612
@@ -80,11 +80,11 @@ entry:
 if.then:                                          ; preds = %entry
   %vec = getelementptr inbounds i8, ptr %pkt, i64 32
   %0 = load ptr, ptr %vec, align 8
-  tail call void @g_free(ptr noundef %0) #16
+  tail call void @g_free(ptr noundef %0) #17
   %raw = getelementptr inbounds i8, ptr %pkt, i64 16
   %1 = load ptr, ptr %raw, align 8
-  tail call void @g_free(ptr noundef %1) #16
-  tail call void @g_free(ptr noundef nonnull %pkt) #16
+  tail call void @g_free(ptr noundef %1) #17
+  tail call void @g_free(ptr noundef nonnull %pkt) #17
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -100,7 +100,7 @@ entry:
   br i1 %tobool.not, label %if.else, label %if.end
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 94, ptr noundef nonnull @__PRETTY_FUNCTION__.net_tx_pkt_update_ip_hdr_checksum) #17
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 94, ptr noundef nonnull @__PRETTY_FUNCTION__.net_tx_pkt_update_ip_hdr_checksum) #18
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -121,8 +121,8 @@ if.end:                                           ; preds = %entry
   store i16 0, ptr %ip_sum, align 2
   %4 = load i64, ptr %iov_len, align 8
   %conv7 = trunc i64 %4 to i32
-  %call.i.i = tail call i32 @net_checksum_add_cont(i32 noundef %conv7, ptr noundef nonnull %l3_hdr, i32 noundef 0) #16
-  %call1.i = tail call zeroext i16 @net_checksum_finish(i32 noundef %call.i.i) #16
+  %call.i.i = tail call i32 @net_checksum_add_cont(i32 noundef %conv7, ptr noundef nonnull %l3_hdr, i32 noundef 0) #17
+  %call1.i = tail call zeroext i16 @net_checksum_finish(i32 noundef %call.i.i) #17
   %5 = tail call noundef i16 @llvm.bswap.i16(i16 %call1.i)
   store i16 %5, ptr %ip_sum, align 2
   ret void
@@ -140,7 +140,7 @@ entry:
   br i1 %tobool.not, label %if.else, label %if.end
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 109, ptr noundef nonnull @__PRETTY_FUNCTION__.net_tx_pkt_update_ip_checksums) #17
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 109, ptr noundef nonnull @__PRETTY_FUNCTION__.net_tx_pkt_update_ip_checksums) #18
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -174,13 +174,13 @@ net_tx_pkt_update_ip_hdr_checksum.exit:           ; preds = %if.end8
   store i16 0, ptr %ip_sum.i, align 2
   %7 = load i64, ptr %iov_len, align 8
   %conv7.i = trunc i64 %7 to i32
-  %call.i.i.i = tail call i32 @net_checksum_add_cont(i32 noundef %conv7.i, ptr noundef nonnull %l3_hdr.i, i32 noundef 0) #16
-  %call1.i.i = tail call zeroext i16 @net_checksum_finish(i32 noundef %call.i.i.i) #16
+  %call.i.i.i = tail call i32 @net_checksum_add_cont(i32 noundef %conv7.i, ptr noundef nonnull %l3_hdr.i, i32 noundef 0) #17
+  %call1.i.i = tail call zeroext i16 @net_checksum_finish(i32 noundef %call.i.i.i) #17
   %8 = tail call noundef i16 @llvm.bswap.i16(i16 %call1.i.i)
   store i16 %8, ptr %ip_sum.i, align 2
   %9 = load i32, ptr %payload_len, align 4
   %conv17 = trunc i32 %9 to i16
-  %call = call i32 @eth_calc_ip4_pseudo_hdr_csum(ptr noundef %1, i16 noundef zeroext %conv17, ptr noundef nonnull %cso) #16
+  %call = call i32 @eth_calc_ip4_pseudo_hdr_csum(ptr noundef %1, i16 noundef zeroext %conv17, ptr noundef nonnull %cso) #17
   br label %if.end37
 
 if.else22:                                        ; preds = %if.end8
@@ -190,12 +190,12 @@ if.else22:                                        ; preds = %if.end8
 
 if.then26:                                        ; preds = %if.else22
   %conv28 = trunc i32 %2 to i16
-  %call29 = call i32 @eth_calc_ip6_pseudo_hdr_csum(ptr noundef %1, i16 noundef zeroext %conv28, i8 noundef zeroext 6, ptr noundef nonnull %cso) #16
+  %call29 = call i32 @eth_calc_ip6_pseudo_hdr_csum(ptr noundef %1, i16 noundef zeroext %conv28, i8 noundef zeroext 6, ptr noundef nonnull %cso) #17
   br label %if.end37
 
 if.end37:                                         ; preds = %if.then26, %net_tx_pkt_update_ip_hdr_checksum.exit
   %call29.sink = phi i32 [ %call29, %if.then26 ], [ %call, %net_tx_pkt_update_ip_hdr_checksum.exit ]
-  %call30 = call zeroext i16 @net_checksum_finish(i32 noundef %call29.sink) #16
+  %call30 = call zeroext i16 @net_checksum_finish(i32 noundef %call29.sink) #17
   %not32 = xor i16 %call30, -1
   %11 = call noundef i16 @llvm.bswap.i16(i16 %not32)
   store i16 %11, ptr %csum, align 2
@@ -225,7 +225,7 @@ if.then.i:                                        ; preds = %land.lhs.true1.i
   br label %return
 
 if.else.i15:                                      ; preds = %land.lhs.true1.i, %if.end37
-  %call.i = call i64 @iov_from_buf_full(ptr noundef %arrayidx39, i32 noundef %13, i64 noundef %conv41, ptr noundef nonnull %csum, i64 noundef 2) #16
+  %call.i = call i64 @iov_from_buf_full(ptr noundef %arrayidx39, i32 noundef %13, i64 noundef %conv41, ptr noundef nonnull %csum, i64 noundef 2) #17
   br label %return
 
 return:                                           ; preds = %if.else.i15, %if.then.i, %if.else22, %if.end
@@ -267,14 +267,14 @@ iov_from_buf.exit.thread:                         ; preds = %land.lhs.true1.i
   br label %if.end
 
 iov_from_buf.exit:                                ; preds = %entry, %land.lhs.true1.i
-  %call.i = call i64 @iov_from_buf_full(ptr noundef %add.ptr, i32 noundef %1, i64 noundef 8, ptr noundef nonnull %csum, i64 noundef 4) #16
+  %call.i = call i64 @iov_from_buf_full(ptr noundef %add.ptr, i32 noundef %1, i64 noundef 8, ptr noundef nonnull %csum, i64 noundef 4) #17
   %cmp = icmp ult i64 %call.i, 4
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %iov_from_buf.exit.thread, %iov_from_buf.exit
   %5 = load i32, ptr %payload_frags, align 8
   %conv = zext i32 %5 to i64
-  %call2 = call i32 @iov_crc32c(i32 noundef -1, ptr noundef %add.ptr, i64 noundef %conv) #16
+  %call2 = call i32 @iov_crc32c(i32 noundef -1, ptr noundef %add.ptr, i64 noundef %conv) #17
   store i32 %call2, ptr %csum, align 4
   %6 = load i32, ptr %payload_frags, align 8
   %tobool.i6.not = icmp eq i32 %6, 0
@@ -296,7 +296,7 @@ iov_from_buf.exit18.thread:                       ; preds = %land.lhs.true1.i10
   br label %return
 
 iov_from_buf.exit18:                              ; preds = %if.end, %land.lhs.true1.i10
-  %call.i8 = call i64 @iov_from_buf_full(ptr noundef %add.ptr, i32 noundef %6, i64 noundef 8, ptr noundef nonnull %csum, i64 noundef 4) #16
+  %call.i8 = call i64 @iov_from_buf_full(ptr noundef %add.ptr, i32 noundef %6, i64 noundef 8, ptr noundef nonnull %csum, i64 noundef 4) #17
   %call.i8.fr = freeze i64 %call.i8
   %cmp6 = icmp ugt i64 %call.i8.fr, 3
   br label %return
@@ -317,7 +317,7 @@ entry:
   br i1 %tobool.not.i, label %if.else.i, label %if.end.i
 
 if.else.i:                                        ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 169, ptr noundef nonnull @__PRETTY_FUNCTION__.net_tx_pkt_parse_headers) #17
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 169, ptr noundef nonnull @__PRETTY_FUNCTION__.net_tx_pkt_parse_headers) #18
   unreachable
 
 if.end.i:                                         ; preds = %entry
@@ -345,7 +345,7 @@ iov_to_buf.exit.thread.i:                         ; preds = %land.lhs.true1.i.i
   br label %if.end4.i
 
 iov_to_buf.exit.i:                                ; preds = %land.lhs.true1.i.i, %if.end.i
-  %call.i.i = tail call i64 @iov_to_buf_full(ptr noundef %1, i32 noundef %2, i64 noundef 0, ptr noundef %3, i64 noundef 22) #16
+  %call.i.i = tail call i64 @iov_to_buf_full(ptr noundef %1, i32 noundef %2, i64 noundef 0, ptr noundef %3, i64 noundef 22) #17
   %cmp.i = icmp ult i64 %call.i.i, 14
   br i1 %cmp.i, label %if.then3.i, label %if.end4.i
 
@@ -414,7 +414,7 @@ eth_get_l2_hdr_length.exit.i:                     ; preds = %sw.default.i.i, %sw
   %packet_type26.i = getelementptr inbounds i8, ptr %pkt, i64 65620
   store i32 %retval.0.i63.i, ptr %packet_type26.i, align 4
   %17 = load i64, ptr %iov_len5.i, align 8
-  %call29.i = tail call zeroext i16 @eth_get_l3_proto(ptr noundef nonnull %arrayidx.i, i32 noundef 1, i64 noundef %17) #16
+  %call29.i = tail call zeroext i16 @eth_get_l3_proto(ptr noundef nonnull %arrayidx.i, i32 noundef 1, i64 noundef %17) #17
   switch i16 %call29.i, label %sw.epilog109.sink.split.i [
     i16 2048, label %sw.bb31.i
     i16 -31011, label %sw.bb81.i
@@ -444,7 +444,7 @@ iov_to_buf.exit72.thread.i:                       ; preds = %land.lhs.true1.i68.
   br label %if.end41.i
 
 iov_to_buf.exit72.i:                              ; preds = %land.lhs.true1.i68.i, %sw.bb31.i
-  %call.i66.i = tail call i64 @iov_to_buf_full(ptr noundef %18, i32 noundef %19, i64 noundef %20, ptr noundef %21, i64 noundef 20) #16
+  %call.i66.i = tail call i64 @iov_to_buf_full(ptr noundef %18, i32 noundef %19, i64 noundef %20, ptr noundef %21, i64 noundef 20) #17
   %cmp37.i = icmp ult i64 %call.i66.i, 20
   br i1 %cmp37.i, label %if.then39.i, label %if.end41.i
 
@@ -488,7 +488,7 @@ if.else.i76.i:                                    ; preds = %if.end51.i
   %add68.i = add i64 %28, 20
   %29 = load i32, ptr %raw_frags.i, align 8
   %30 = load ptr, ptr %raw.i, align 8
-  %call.i77.i = tail call i64 @iov_to_buf_full(ptr noundef %30, i32 noundef %29, i64 noundef %add68.i, ptr noundef %add.ptr70.i, i64 noundef %sub.i) #16
+  %call.i77.i = tail call i64 @iov_to_buf_full(ptr noundef %30, i32 noundef %29, i64 noundef %add68.i, ptr noundef %add.ptr70.i, i64 noundef %sub.i) #17
   %31 = load i64, ptr %iov_len45.i, align 8
   %sub74.i = add i64 %31, -20
   %cmp75.i = icmp ult i64 %call.i77.i, %sub74.i
@@ -502,7 +502,7 @@ sw.bb81.i:                                        ; preds = %eth_get_l2_hdr_leng
   %32 = load ptr, ptr %raw.i, align 8
   %33 = load i32, ptr %raw_frags.i, align 8
   %34 = load i64, ptr %iov_len5.i, align 8
-  %call85.i = call zeroext i1 @eth_parse_ipv6_hdr(ptr noundef %32, i32 noundef %33, i64 noundef %34, ptr noundef nonnull %hdrinfo.i) #16
+  %call85.i = call zeroext i1 @eth_parse_ipv6_hdr(ptr noundef %32, i32 noundef %33, i64 noundef %34, ptr noundef nonnull %hdrinfo.i) #17
   br i1 %call85.i, label %if.end88.i, label %if.then86.i
 
 if.then86.i:                                      ; preds = %sw.bb81.i
@@ -529,7 +529,7 @@ iov_to_buf.exit101.i:                             ; preds = %if.end88.i
   %38 = load i64, ptr %iov_len5.i, align 8
   %39 = load i32, ptr %raw_frags.i, align 8
   %40 = load ptr, ptr %raw.i, align 8
-  %call.i91.i = call i64 @iov_to_buf_full(ptr noundef %40, i32 noundef %39, i64 noundef %38, ptr noundef %37, i64 noundef %36) #16
+  %call.i91.i = call i64 @iov_to_buf_full(ptr noundef %40, i32 noundef %39, i64 noundef %38, ptr noundef %37, i64 noundef %36) #17
   %cmp101.i = icmp ult i64 %call.i91.i, %36
   br i1 %cmp101.i, label %if.then103.i, label %sw.epilog109.sink.split.i
 
@@ -561,7 +561,7 @@ if.then:                                          ; preds = %sw.epilog109.sink.s
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %hdrinfo.i)
   %44 = load ptr, ptr %raw.i, align 8
   %45 = load i32, ptr %raw_frags.i, align 8
-  %call.i = call i64 @iov_size(ptr noundef %44, i32 noundef %45) #16
+  %call.i = call i64 @iov_size(ptr noundef %44, i32 noundef %45) #17
   %46 = load i16, ptr %hdr_len.i.i, align 8
   %conv.i = zext i16 %46 to i64
   %sub.i4 = sub i64 %call.i, %conv.i
@@ -575,7 +575,7 @@ if.then:                                          ; preds = %sw.epilog109.sink.s
   %49 = load ptr, ptr %raw.i, align 8
   %50 = load i32, ptr %raw_frags.i, align 8
   %conv7.i = and i64 %sub.i4, 4294967295
-  %call8.i = call i32 @iov_copy(ptr noundef %arrayidx.i6, i32 noundef %48, ptr noundef %49, i32 noundef %50, i64 noundef %conv.i, i64 noundef %conv7.i) #16
+  %call8.i = call i32 @iov_copy(ptr noundef %arrayidx.i6, i32 noundef %48, ptr noundef %49, i32 noundef %50, i64 noundef %conv.i, i64 noundef %conv7.i) #17
   %payload_frags.i = getelementptr inbounds i8, ptr %pkt, i64 65608
   store i32 %call8.i, ptr %payload_frags.i, align 8
   br label %return
@@ -592,7 +592,7 @@ entry:
   br i1 %tobool.not, label %if.else, label %if.end
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 296, ptr noundef nonnull @__PRETTY_FUNCTION__.net_tx_pkt_get_vhdr) #17
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 296, ptr noundef nonnull @__PRETTY_FUNCTION__.net_tx_pkt_get_vhdr) #18
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -607,7 +607,7 @@ entry:
   br i1 %tobool.not, label %if.else, label %if.end
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 325, ptr noundef nonnull @__PRETTY_FUNCTION__.net_tx_pkt_build_vheader) #17
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 325, ptr noundef nonnull @__PRETTY_FUNCTION__.net_tx_pkt_build_vheader) #18
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -616,7 +616,7 @@ if.end:                                           ; preds = %entry
   br i1 %brmerge, label %if.end6, label %if.else5
 
 if.else5:                                         ; preds = %if.end
-  tail call void @__assert_fail(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 328, ptr noundef nonnull @__PRETTY_FUNCTION__.net_tx_pkt_build_vheader) #17
+  tail call void @__assert_fail(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 328, ptr noundef nonnull @__PRETTY_FUNCTION__.net_tx_pkt_build_vheader) #18
   unreachable
 
 if.end6:                                          ; preds = %if.end
@@ -625,7 +625,7 @@ if.end6:                                          ; preds = %if.end
   %arrayidx.i = getelementptr i8, ptr %0, i64 16
   %iov_len.i = getelementptr i8, ptr %0, i64 24
   %1 = load i64, ptr %iov_len.i, align 8
-  %call.i = tail call zeroext i16 @eth_get_l3_proto(ptr noundef %arrayidx.i, i32 noundef 1, i64 noundef %1) #16
+  %call.i = tail call zeroext i16 @eth_get_l3_proto(ptr noundef %arrayidx.i, i32 noundef 1, i64 noundef %1) #17
   br i1 %tso_enable, label %net_tx_pkt_get_gso_type.exit, label %net_tx_pkt_get_gso_type.exit.thread
 
 net_tx_pkt_get_gso_type.exit.thread:              ; preds = %if.end6
@@ -639,7 +639,7 @@ net_tx_pkt_get_gso_type.exit:                     ; preds = %if.end6
   %3 = load ptr, ptr %arrayidx4.i, align 8
   %l4proto.i = getelementptr inbounds i8, ptr %pkt, i64 65624
   %4 = load i8, ptr %l4proto.i, align 8
-  %call5.i = tail call zeroext i8 @eth_get_gso_type(i16 noundef zeroext %call.i, ptr noundef %3, i8 noundef zeroext %4) #16
+  %call5.i = tail call zeroext i8 @eth_get_gso_type(i16 noundef zeroext %call.i, ptr noundef %3, i8 noundef zeroext %4) #17
   %gso_type = getelementptr inbounds i8, ptr %pkt, i64 1
   store i8 %call5.i, ptr %gso_type, align 1
   %5 = and i8 %call5.i, 127
@@ -688,7 +688,7 @@ iov_to_buf.exit.thread:                           ; preds = %land.lhs.true1.i
   br label %lor.lhs.false25
 
 iov_to_buf.exit:                                  ; preds = %sw.bb22, %land.lhs.true1.i
-  %call.i28 = call i64 @iov_to_buf_full(ptr noundef %arrayidx, i32 noundef %8, i64 noundef 0, ptr noundef nonnull %l4hdr, i64 noundef 20) #16
+  %call.i28 = call i64 @iov_to_buf_full(ptr noundef %arrayidx, i32 noundef %8, i64 noundef 0, ptr noundef nonnull %l4hdr, i64 noundef 20) #17
   %cmp = icmp ult i64 %call.i28, 20
   br i1 %cmp, label %return, label %lor.lhs.false25
 
@@ -713,7 +713,7 @@ if.end30:                                         ; preds = %lor.lhs.false25
   br label %sw.epilog
 
 do.body:                                          ; preds = %net_tx_pkt_get_gso_type.exit
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 357, ptr noundef nonnull @__func__.net_tx_pkt_build_vheader, ptr noundef null) #17
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 357, ptr noundef nonnull @__func__.net_tx_pkt_build_vheader, ptr noundef null) #18
   unreachable
 
 sw.epilog:                                        ; preds = %if.end30, %sw.bb13, %sw.bb
@@ -765,7 +765,7 @@ entry:
   br i1 %tobool.not, label %if.else, label %if.end
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 389, ptr noundef nonnull @__PRETTY_FUNCTION__.net_tx_pkt_setup_vlan_header_ex) #17
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 389, ptr noundef nonnull @__PRETTY_FUNCTION__.net_tx_pkt_setup_vlan_header_ex) #18
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -774,7 +774,7 @@ if.end:                                           ; preds = %entry
   %arrayidx = getelementptr i8, ptr %0, i64 16
   %1 = load ptr, ptr %arrayidx, align 8
   %iov_len = getelementptr i8, ptr %0, i64 24
-  tail call void @eth_setup_vlan_headers(ptr noundef %1, ptr noundef %iov_len, i16 noundef zeroext %vlan, i16 noundef zeroext %vlan_ethtype) #16
+  tail call void @eth_setup_vlan_headers(ptr noundef %1, ptr noundef %iov_len, i16 noundef zeroext %vlan, i16 noundef zeroext %vlan_ethtype) #17
   %hdr_len = getelementptr inbounds i8, ptr %pkt, i64 65616
   %2 = load i16, ptr %hdr_len, align 8
   %add = add i16 %2, 4
@@ -791,7 +791,7 @@ entry:
   br i1 %tobool.not, label %if.else, label %if.end
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 401, ptr noundef nonnull @__PRETTY_FUNCTION__.net_tx_pkt_add_raw_fragment) #17
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 401, ptr noundef nonnull @__PRETTY_FUNCTION__.net_tx_pkt_add_raw_fragment) #18
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -835,7 +835,7 @@ entry:
   br i1 %tobool.not, label %if.else, label %if.end
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 422, ptr noundef nonnull @__PRETTY_FUNCTION__.net_tx_pkt_get_packet_type) #17
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 422, ptr noundef nonnull @__PRETTY_FUNCTION__.net_tx_pkt_get_packet_type) #18
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -851,7 +851,7 @@ entry:
   br i1 %tobool.not, label %if.else, label %if.end
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 429, ptr noundef nonnull @__PRETTY_FUNCTION__.net_tx_pkt_get_total_len) #17
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 429, ptr noundef nonnull @__PRETTY_FUNCTION__.net_tx_pkt_get_total_len) #18
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -885,7 +885,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool1.not, label %if.else, label %if.end3
 
 if.else:                                          ; preds = %if.end
-  tail call void @__assert_fail(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 458, ptr noundef nonnull @__PRETTY_FUNCTION__.net_tx_pkt_reset) #17
+  tail call void @__assert_fail(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 458, ptr noundef nonnull @__PRETTY_FUNCTION__.net_tx_pkt_reset) #18
   unreachable
 
 if.end3:                                          ; preds = %if.end
@@ -911,7 +911,7 @@ for.cond.preheader:                               ; preds = %if.then4
   br i1 %cmp918.not, label %if.end22, label %for.body
 
 if.else7:                                         ; preds = %if.then4
-  tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 464, ptr noundef nonnull @__PRETTY_FUNCTION__.net_tx_pkt_reset) #17
+  tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 464, ptr noundef nonnull @__PRETTY_FUNCTION__.net_tx_pkt_reset) #18
   unreachable
 
 for.body:                                         ; preds = %for.cond.preheader, %if.end14
@@ -924,13 +924,13 @@ for.body:                                         ; preds = %for.cond.preheader,
   br i1 %tobool11.not, label %if.else13, label %if.end14
 
 if.else13:                                        ; preds = %for.body
-  tail call void @__assert_fail(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 466, ptr noundef nonnull @__PRETTY_FUNCTION__.net_tx_pkt_reset) #17
+  tail call void @__assert_fail(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 466, ptr noundef nonnull @__PRETTY_FUNCTION__.net_tx_pkt_reset) #18
   unreachable
 
 if.end14:                                         ; preds = %for.body
   %iov_len = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %6 = load i64, ptr %iov_len, align 8
-  tail call void %callback(ptr noundef %context, ptr noundef nonnull %5, i64 noundef %6) #16
+  tail call void %callback(ptr noundef %context, ptr noundef nonnull %5, i64 noundef %6) #17
   %inc = add nuw i32 %i.019, 1
   %7 = load i32, ptr %raw_frags, align 8
   %cmp9 = icmp ult i32 %inc, %7
@@ -956,7 +956,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 define dso_local void @net_tx_pkt_unmap_frag_pci(ptr noundef %context, ptr noundef %base, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %bus_master_as.i.i = getelementptr inbounds i8, ptr %context, i64 576
-  tail call void @address_space_unmap(ptr noundef nonnull %bus_master_as.i.i, ptr noundef %base, i64 noundef %len, i1 noundef zeroext false, i64 noundef 0) #16
+  tail call void @address_space_unmap(ptr noundef nonnull %bus_master_as.i.i, ptr noundef %base, i64 noundef %len, i1 noundef zeroext false, i64 noundef 0) #17
   ret void
 }
 
@@ -967,7 +967,7 @@ entry:
   %bus_master_as.i.i = getelementptr inbounds i8, ptr %pci_dev, i64 576
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %xlen.i.i)
   store i64 %len, ptr %xlen.i.i, align 8
-  %call.i.i = call ptr @address_space_map(ptr noundef nonnull %bus_master_as.i.i, i64 noundef %pa, ptr noundef nonnull %xlen.i.i, i1 noundef zeroext false, i32 1) #16
+  %call.i.i = call ptr @address_space_map(ptr noundef nonnull %bus_master_as.i.i, i64 noundef %pa, ptr noundef nonnull %xlen.i.i, i1 noundef zeroext false, i32 1) #17
   %0 = load i64, ptr %xlen.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %xlen.i.i)
   %tobool.not = icmp eq ptr %call.i.i, null
@@ -982,7 +982,7 @@ lor.lhs.false:                                    ; preds = %if.end
   br i1 %tobool.not.i, label %if.else.i, label %if.end.i
 
 if.else.i:                                        ; preds = %lor.lhs.false
-  call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 401, ptr noundef nonnull @__PRETTY_FUNCTION__.net_tx_pkt_add_raw_fragment) #17
+  call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 401, ptr noundef nonnull @__PRETTY_FUNCTION__.net_tx_pkt_add_raw_fragment) #18
   unreachable
 
 if.end.i:                                         ; preds = %lor.lhs.false
@@ -1007,7 +1007,7 @@ net_tx_pkt_add_raw_fragment.exit.thread:          ; preds = %if.end.i
   br label %return
 
 if.then2:                                         ; preds = %if.end.i, %if.end
-  call void @address_space_unmap(ptr noundef nonnull %bus_master_as.i.i, ptr noundef nonnull %call.i.i, i64 noundef %0, i1 noundef zeroext false, i64 noundef 0) #16
+  call void @address_space_unmap(ptr noundef nonnull %bus_master_as.i.i, ptr noundef nonnull %call.i.i, i64 noundef %0, i1 noundef zeroext false, i64 noundef 0) #17
   br label %return
 
 return:                                           ; preds = %net_tx_pkt_add_raw_fragment.exit.thread, %entry, %if.then2
@@ -1020,7 +1020,7 @@ define dso_local noundef zeroext i1 @net_tx_pkt_send(ptr noundef %pkt, ptr nound
 entry:
   %peer = getelementptr inbounds i8, ptr %nc, i64 32
   %0 = load ptr, ptr %peer, align 8
-  %call = tail call zeroext i1 @qemu_get_using_vnet_hdr(ptr noundef %0) #16
+  %call = tail call zeroext i1 @qemu_get_using_vnet_hdr(ptr noundef %0) #17
   %call1 = tail call zeroext i1 @net_tx_pkt_send_custom(ptr noundef %pkt, i1 noundef zeroext %call, ptr noundef nonnull @net_tx_pkt_sendv, ptr noundef %nc)
   ret i1 %call1
 }
@@ -1036,7 +1036,7 @@ entry:
   br i1 %tobool.not, label %if.else, label %if.end
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 818, ptr noundef nonnull @__PRETTY_FUNCTION__.net_tx_pkt_send_custom) #17
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 818, ptr noundef nonnull @__PRETTY_FUNCTION__.net_tx_pkt_send_custom) #18
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -1089,7 +1089,7 @@ if.end29:                                         ; preds = %if.end11, %if.then2
   %arrayidx.i = getelementptr i8, ptr %10, i64 16
   %iov_len.i = getelementptr i8, ptr %10, i64 24
   %11 = load i64, ptr %iov_len.i, align 8
-  %call.i = tail call zeroext i16 @eth_get_l3_proto(ptr noundef %arrayidx.i, i32 noundef 1, i64 noundef %11) #16
+  %call.i = tail call zeroext i16 @eth_get_l3_proto(ptr noundef %arrayidx.i, i32 noundef 1, i64 noundef %11) #17
   %cmp.i = icmp eq i16 %call.i, -31011
   br i1 %cmp.i, label %if.then.i, label %net_tx_pkt_fix_ip6_payload_len.exit
 
@@ -1107,7 +1107,7 @@ if.then5.i:                                       ; preds = %if.then.i
 
 if.then8.i:                                       ; preds = %if.then5.i
   %conv10.i = trunc nuw i32 %13 to i16
-  %call11.i = tail call zeroext i16 @htons(i16 noundef zeroext %conv10.i) #18
+  %call11.i = tail call zeroext i16 @htons(i16 noundef zeroext %conv10.i) #19
   store i16 %call11.i, ptr %ip6_un1_plen.i, align 4
   br label %net_tx_pkt_fix_ip6_payload_len.exit
 
@@ -1118,7 +1118,7 @@ net_tx_pkt_fix_ip6_payload_len.exit:              ; preds = %if.end29, %if.then.
   %15 = load i32, ptr %payload_frags31, align 8
   %add32 = add i32 %15, 3
   %sub33 = add i32 %15, 2
-  tail call void %callback(ptr noundef %context, ptr noundef %add.ptr, i32 noundef %sub33, ptr noundef %14, i32 noundef %add32) #16
+  tail call void %callback(ptr noundef %context, ptr noundef %add.ptr, i32 noundef %sub33, ptr noundef %14, i32 noundef %add32) #17
   br label %return
 
 if.end39:                                         ; preds = %if.end11
@@ -1162,7 +1162,7 @@ if.end.i.i:                                       ; preds = %sw.bb.i
   %sub.i.i = sub nsw i64 %conv.i.i, %conv2.i.i
   %iov_len.i.i = getelementptr inbounds i8, ptr %fragment.i, i64 56
   store i64 %sub.i.i, ptr %iov_len.i.i, align 8
-  %call.i.i = call noalias ptr @g_malloc(i64 noundef %sub.i.i) #14
+  %call.i.i = call noalias ptr @g_malloc(i64 noundef %sub.i.i) #15
   store ptr %call.i.i, ptr %add.ptr.i.i, align 16
   %.pre.i = load ptr, ptr %vec, align 8
   br label %while.cond.i.i
@@ -1213,7 +1213,7 @@ sw.bb17.i:                                        ; preds = %if.end39
   br label %sw.epilog.i
 
 sw.default.i:                                     ; preds = %if.end39
-  call void @abort() #17
+  call void @abort() #18
   unreachable
 
 sw.epilog.i:                                      ; preds = %sw.bb17.i, %net_tx_pkt_tcp_fragment_init.exit.i
@@ -1321,7 +1321,7 @@ sw.bb.i.i:                                        ; preds = %sw.bb27.i
   store i16 %42, ptr %ip_len.i.i, align 2
   %43 = load ptr, ptr %arrayidx13.i, align 16
   %44 = load i64, ptr %iov_len.i55.i, align 8
-  call void @eth_fix_ip4_checksum(ptr noundef %43, i64 noundef %44) #16
+  call void @eth_fix_ip4_checksum(ptr noundef %43, i64 noundef %44) #17
   br label %net_tx_pkt_tcp_fragment_fix.exit.i
 
 sw.bb8.i.i:                                       ; preds = %sw.bb27.i
@@ -1347,7 +1347,7 @@ sw.bb33.i:                                        ; preds = %if.end25.i
   br i1 %cmp3.i.i, label %if.end.i50.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %sw.bb33.i
-  call void @__assert_fail(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.1, i32 noundef 707, ptr noundef nonnull @__PRETTY_FUNCTION__.net_tx_pkt_udp_fragment_fix) #17
+  call void @__assert_fail(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.1, i32 noundef 707, ptr noundef nonnull @__PRETTY_FUNCTION__.net_tx_pkt_udp_fragment_fix) #18
   unreachable
 
 if.end.i50.i:                                     ; preds = %sw.bb33.i
@@ -1357,7 +1357,7 @@ if.end.i50.i:                                     ; preds = %sw.bb33.i
   br i1 %cmp6.i.i, label %net_tx_pkt_udp_fragment_fix.exit.i, label %if.else9.i.i
 
 if.else9.i.i:                                     ; preds = %if.end.i50.i
-  call void @__assert_fail(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.1, i32 noundef 708, ptr noundef nonnull @__PRETTY_FUNCTION__.net_tx_pkt_udp_fragment_fix) #17
+  call void @__assert_fail(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.1, i32 noundef 708, ptr noundef nonnull @__PRETTY_FUNCTION__.net_tx_pkt_udp_fragment_fix) #18
   unreachable
 
 net_tx_pkt_udp_fragment_fix.exit.i:               ; preds = %if.end.i50.i
@@ -1383,12 +1383,12 @@ net_tx_pkt_udp_fragment_fix.exit.i:               ; preds = %if.end.i50.i
   store i16 %57, ptr %ip_len.i56.i, align 2
   %58 = load ptr, ptr %arrayidx13.i, align 16
   %59 = load i64, ptr %iov_len.i55.i, align 8
-  call void @eth_fix_ip4_checksum(ptr noundef %58, i64 noundef %59) #16
+  call void @eth_fix_ip4_checksum(ptr noundef %58, i64 noundef %59) #17
   br label %sw.epilog35.i
 
 sw.epilog35.i:                                    ; preds = %net_tx_pkt_udp_fragment_fix.exit.i, %net_tx_pkt_tcp_fragment_fix.exit.i, %if.end25.i
   %sub38.i = add i32 %dst_idx.1.i, -1
-  call void %callback(ptr noundef %context, ptr noundef nonnull %arrayidx11.i, i32 noundef %sub38.i, ptr noundef nonnull %fragment.i, i32 noundef %dst_idx.1.i) #16
+  call void %callback(ptr noundef %context, ptr noundef nonnull %arrayidx11.i, i32 noundef %sub38.i, ptr noundef nonnull %fragment.i, i32 noundef %dst_idx.1.i) #17
   switch i8 %0, label %if.end49.i [
     i8 -124, label %if.then47.i
     i8 -127, label %if.then47.i
@@ -1444,7 +1444,7 @@ if.then58.i:                                      ; preds = %while.end.i, %while
 return.sink.split.i:                              ; preds = %while.body.i.i, %if.then58.i
   %call.i.sink.i = phi ptr [ %fragment.val30.i, %if.then58.i ], [ %call.i.i, %while.body.i.i ]
   %retval.0.ph.i = phi i1 [ true, %if.then58.i ], [ false, %while.body.i.i ]
-  call void @g_free(ptr noundef %call.i.sink.i) #16
+  call void @g_free(ptr noundef %call.i.sink.i) #17
   br label %net_tx_pkt_do_sw_fragmentation.exit
 
 net_tx_pkt_do_sw_fragmentation.exit:              ; preds = %sw.bb.i, %while.end.i, %return.sink.split.i
@@ -1463,15 +1463,15 @@ define internal void @net_tx_pkt_sendv(ptr noundef %opaque, ptr noundef %iov, i3
 entry:
   %peer = getelementptr inbounds i8, ptr %opaque, i64 32
   %0 = load ptr, ptr %peer, align 8
-  %call = tail call zeroext i1 @qemu_get_using_vnet_hdr(ptr noundef %0) #16
+  %call = tail call zeroext i1 @qemu_get_using_vnet_hdr(ptr noundef %0) #17
   br i1 %call, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %call1 = tail call i64 @qemu_sendv_packet(ptr noundef nonnull %opaque, ptr noundef %virt_iov, i32 noundef %virt_iov_cnt) #16
+  %call1 = tail call i64 @qemu_sendv_packet(ptr noundef nonnull %opaque, ptr noundef %virt_iov, i32 noundef %virt_iov_cnt) #17
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %call2 = tail call i64 @qemu_sendv_packet(ptr noundef nonnull %opaque, ptr noundef %iov, i32 noundef %iov_cnt) #16
+  %call2 = tail call i64 @qemu_sendv_packet(ptr noundef nonnull %opaque, ptr noundef %iov, i32 noundef %iov_cnt) #17
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
@@ -1493,7 +1493,7 @@ entry:
   %add = add nuw nsw i64 %conv3, %conv
   %iov_len5 = getelementptr inbounds i8, ptr %iov, i64 8
   %2 = load i64, ptr %iov_len5, align 8
-  %call = tail call zeroext i16 @eth_get_l3_proto(ptr noundef %iov, i32 noundef 1, i64 noundef %2) #16
+  %call = tail call zeroext i16 @eth_get_l3_proto(ptr noundef %iov, i32 noundef 1, i64 noundef %2) #17
   %tobool.i.not = icmp eq i32 %iov_len, 0
   br i1 %tobool.i.not, label %if.else.i, label %land.lhs.true1.i
 
@@ -1512,7 +1512,7 @@ if.then.i:                                        ; preds = %land.lhs.true1.i
   br label %iov_from_buf.exit
 
 if.else.i:                                        ; preds = %land.lhs.true1.i, %entry
-  %call.i = call i64 @iov_from_buf_full(ptr noundef nonnull %iov, i32 noundef %iov_len, i64 noundef %add, ptr noundef nonnull %csum, i64 noundef 2) #16
+  %call.i = call i64 @iov_from_buf_full(ptr noundef nonnull %iov, i32 noundef %iov_len, i64 noundef %add, ptr noundef nonnull %csum, i64 noundef 2) #17
   br label %iov_from_buf.exit
 
 iov_from_buf.exit:                                ; preds = %if.then.i, %if.else.i
@@ -1527,7 +1527,7 @@ if.then:                                          ; preds = %iov_from_buf.exit
   %5 = load ptr, ptr %vec, align 8
   %arrayidx = getelementptr i8, ptr %5, i64 32
   %6 = load ptr, ptr %arrayidx, align 8
-  %call9 = call i32 @eth_calc_ip4_pseudo_hdr_csum(ptr noundef %6, i16 noundef zeroext %csl, ptr noundef nonnull %cso) #16
+  %call9 = call i32 @eth_calc_ip4_pseudo_hdr_csum(ptr noundef %6, i16 noundef zeroext %csl, ptr noundef nonnull %cso) #17
   br label %if.end18
 
 if.then13:                                        ; preds = %iov_from_buf.exit
@@ -1537,7 +1537,7 @@ if.then13:                                        ; preds = %iov_from_buf.exit
   %8 = load ptr, ptr %arrayidx15, align 8
   %l4proto = getelementptr inbounds i8, ptr %pkt, i64 65624
   %9 = load i8, ptr %l4proto, align 8
-  %call17 = call i32 @eth_calc_ip6_pseudo_hdr_csum(ptr noundef %8, i16 noundef zeroext %csl, i8 noundef zeroext %9, ptr noundef nonnull %cso) #16
+  %call17 = call i32 @eth_calc_ip6_pseudo_hdr_csum(ptr noundef %8, i16 noundef zeroext %csl, i8 noundef zeroext %9, ptr noundef nonnull %cso) #17
   br label %if.end18
 
 if.end18:                                         ; preds = %iov_from_buf.exit, %if.then13, %if.then
@@ -1546,9 +1546,9 @@ if.end18:                                         ; preds = %iov_from_buf.exit, 
   %conv21 = zext i16 %10 to i32
   %conv22 = zext i16 %csl to i32
   %11 = load i32, ptr %cso, align 4
-  %call23 = call i32 @net_checksum_add_iov(ptr noundef nonnull %iov, i32 noundef %iov_len, i32 noundef %conv21, i32 noundef %conv22, i32 noundef %11) #16
+  %call23 = call i32 @net_checksum_add_iov(ptr noundef nonnull %iov, i32 noundef %iov_len, i32 noundef %conv21, i32 noundef %conv22, i32 noundef %11) #17
   %add24 = add i32 %call23, %csum_cntr.0
-  %call.i17 = call zeroext i16 @net_checksum_finish(i32 noundef %add24) #16
+  %call.i17 = call zeroext i16 @net_checksum_finish(i32 noundef %add24) #17
   %tobool.not.i = icmp eq i16 %call.i17, 0
   %narrow.i = select i1 %tobool.not.i, i16 -1, i16 %call.i17
   %12 = call noundef i16 @llvm.bswap.i16(i16 %narrow.i)
@@ -1570,7 +1570,7 @@ if.then.i28:                                      ; preds = %land.lhs.true1.i22
   br label %iov_from_buf.exit30
 
 if.else.i19:                                      ; preds = %land.lhs.true1.i22, %if.end18
-  %call.i20 = call i64 @iov_from_buf_full(ptr noundef nonnull %iov, i32 noundef %iov_len, i64 noundef %add, ptr noundef nonnull %csum, i64 noundef 2) #16
+  %call.i20 = call i64 @iov_from_buf_full(ptr noundef nonnull %iov, i32 noundef %iov_len, i64 noundef %add, ptr noundef nonnull %csum, i64 noundef 2) #17
   br label %iov_from_buf.exit30
 
 iov_from_buf.exit30:                              ; preds = %if.then.i28, %if.else.i19
@@ -1585,7 +1585,7 @@ entry:
   %arrayidx = getelementptr i8, ptr %0, i64 16
   %iov_len = getelementptr i8, ptr %0, i64 24
   %1 = load i64, ptr %iov_len, align 8
-  %call = tail call zeroext i16 @eth_get_l3_proto(ptr noundef %arrayidx, i32 noundef 1, i64 noundef %1) #16
+  %call = tail call zeroext i16 @eth_get_l3_proto(ptr noundef %arrayidx, i32 noundef 1, i64 noundef %1) #17
   %cmp = icmp eq i16 %call, -31011
   br i1 %cmp, label %if.then, label %if.end16
 
@@ -1603,7 +1603,7 @@ if.then5:                                         ; preds = %if.then
 
 if.then8:                                         ; preds = %if.then5
   %conv10 = trunc nuw i32 %3 to i16
-  %call11 = tail call zeroext i16 @htons(i16 noundef zeroext %conv10) #18
+  %call11 = tail call zeroext i16 @htons(i16 noundef zeroext %conv10) #19
   store i16 %call11, ptr %ip6_un1_plen, align 4
   br label %if.end16
 
@@ -1644,8 +1644,8 @@ declare i64 @qemu_sendv_packet(ptr noundef, ptr noundef, i32 noundef) local_unna
 
 declare i32 @net_checksum_add_iov(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
-; Function Attrs: noreturn nounwind
-declare void @abort() local_unnamed_addr #4
+; Function Attrs: cold nofree noreturn nounwind
+declare void @abort() local_unnamed_addr #12
 
 ; Function Attrs: allocsize(0)
 declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #1
@@ -1656,16 +1656,16 @@ declare void @eth_fix_ip4_checksum(ptr noundef, i64 noundef) local_unnamed_addr 
 declare i32 @llvm.bswap.i32(i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #12
+declare i64 @llvm.umin.i64(i64, i64) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.vector.reduce.and.v4i8(<4 x i8>) #12
+declare i8 @llvm.vector.reduce.and.v4i8(<4 x i8>) #13
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1679,13 +1679,14 @@ attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #9 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #13 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #14 = { nounwind allocsize(0) }
-attributes #15 = { nounwind allocsize(0,1) }
-attributes #16 = { nounwind }
-attributes #17 = { noreturn nounwind }
-attributes #18 = { nounwind willreturn memory(none) }
+attributes #12 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #15 = { nounwind allocsize(0) }
+attributes #16 = { nounwind allocsize(0,1) }
+attributes #17 = { nounwind }
+attributes #18 = { noreturn nounwind }
+attributes #19 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

@@ -186,7 +186,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %34, label %35, label %36
 
 35:                                               ; preds = %31
-  tail call void @exit(i32 noundef 1) #14
+  tail call void @exit(i32 noundef 1) #15
   unreachable
 
 36:                                               ; preds = %31
@@ -253,7 +253,7 @@ _process_cmdline.exit:                            ; preds = %2, %21, %27
   br i1 %60, label %.lr.ph, label %.split150.us.i
 
 .lr.ph:                                           ; preds = %.lr.ph191.i.preheader
-  %61 = tail call ptr @__errno_location() #15
+  %61 = tail call ptr @__errno_location() #16
   br label %63
 
 .lr.ph191.i:                                      ; preds = %65
@@ -281,7 +281,7 @@ _process_cmdline.exit:                            ; preds = %2, %21, %27
   br i1 %69, label %.lr.ph344, label %.split150.us.i
 
 .lr.ph344:                                        ; preds = %.lr.ph175.preheader.i.preheader
-  %70 = tail call ptr @__errno_location() #15
+  %70 = tail call ptr @__errno_location() #16
   br label %72
 
 .lr.ph175.preheader.i:                            ; preds = %74
@@ -364,7 +364,7 @@ _process_cmdline.exit:                            ; preds = %2, %21, %27
   br i1 %.not350.i, label %.lr.ph197.i, label %99
 
 99:                                               ; preds = %97
-  %100 = tail call ptr @__errno_location() #15
+  %100 = tail call ptr @__errno_location() #16
   store i32 %98, ptr %100, align 4
   tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str, i32 noundef 583, ptr noundef nonnull @__func__._init_from_slurmd) #14
   unreachable
@@ -436,7 +436,7 @@ _process_cmdline.exit:                            ; preds = %2, %21, %27
   br i1 %123, label %.lr.ph347, label %.split202.i
 
 .lr.ph347:                                        ; preds = %.lr.ph244.i.preheader
-  %124 = tail call ptr @__errno_location() #15
+  %124 = tail call ptr @__errno_location() #16
   br label %126
 
 .lr.ph244.i:                                      ; preds = %128
@@ -464,7 +464,7 @@ _process_cmdline.exit:                            ; preds = %2, %21, %27
   br i1 %132, label %.lr.ph350, label %.split202.i
 
 .lr.ph350:                                        ; preds = %.lr.ph228.preheader.i.preheader
-  %133 = tail call ptr @__errno_location() #15
+  %133 = tail call ptr @__errno_location() #16
   br label %135
 
 .lr.ph228.preheader.i:                            ; preds = %137
@@ -551,7 +551,7 @@ _process_cmdline.exit:                            ; preds = %2, %21, %27
   br i1 %163, label %.lr.ph353, label %.split256.i
 
 .lr.ph353:                                        ; preds = %.lr.ph298.i.preheader
-  %164 = tail call ptr @__errno_location() #15
+  %164 = tail call ptr @__errno_location() #16
   br label %166
 
 .lr.ph298.i:                                      ; preds = %168
@@ -579,7 +579,7 @@ _process_cmdline.exit:                            ; preds = %2, %21, %27
   br i1 %172, label %.lr.ph356, label %.split256.i
 
 .lr.ph356:                                        ; preds = %.lr.ph282.preheader.i.preheader
-  %173 = tail call ptr @__errno_location() #15
+  %173 = tail call ptr @__errno_location() #16
   br label %175
 
 .lr.ph282.preheader.i:                            ; preds = %177
@@ -666,7 +666,7 @@ _process_cmdline.exit:                            ; preds = %2, %21, %27
   br i1 %203, label %.lr.ph359, label %.split310.i
 
 .lr.ph359:                                        ; preds = %.lr.ph352.i.preheader
-  %204 = tail call ptr @__errno_location() #15
+  %204 = tail call ptr @__errno_location() #16
   br label %206
 
 .lr.ph352.i:                                      ; preds = %208
@@ -694,7 +694,7 @@ _process_cmdline.exit:                            ; preds = %2, %21, %27
   br i1 %212, label %.lr.ph362, label %.split310.i
 
 .lr.ph362:                                        ; preds = %.lr.ph336.preheader.i.preheader
-  %213 = tail call ptr @__errno_location() #15
+  %213 = tail call ptr @__errno_location() #16
   br label %215
 
 .lr.ph336.preheader.i:                            ; preds = %217
@@ -781,7 +781,7 @@ _process_cmdline.exit:                            ; preds = %2, %21, %27
   br i1 %243, label %.lr.ph365, label %.split364.i
 
 .lr.ph365:                                        ; preds = %.lr.ph406.i.preheader
-  %244 = tail call ptr @__errno_location() #15
+  %244 = tail call ptr @__errno_location() #16
   br label %246
 
 .lr.ph406.i:                                      ; preds = %248
@@ -809,7 +809,7 @@ _process_cmdline.exit:                            ; preds = %2, %21, %27
   br i1 %252, label %.lr.ph368, label %.split364.i
 
 .lr.ph368:                                        ; preds = %.lr.ph390.preheader.i.preheader
-  %253 = tail call ptr @__errno_location() #15
+  %253 = tail call ptr @__errno_location() #16
   br label %255
 
 .lr.ph390.preheader.i:                            ; preds = %257
@@ -896,7 +896,7 @@ _process_cmdline.exit:                            ; preds = %2, %21, %27
   br i1 %283, label %.lr.ph371, label %.split418.i
 
 .lr.ph371:                                        ; preds = %.lr.ph460.i.preheader
-  %284 = tail call ptr @__errno_location() #15
+  %284 = tail call ptr @__errno_location() #16
   br label %286
 
 .lr.ph460.i:                                      ; preds = %288
@@ -924,7 +924,7 @@ _process_cmdline.exit:                            ; preds = %2, %21, %27
   br i1 %292, label %.lr.ph374, label %.split418.i
 
 .lr.ph374:                                        ; preds = %.lr.ph444.preheader.i.preheader
-  %293 = tail call ptr @__errno_location() #15
+  %293 = tail call ptr @__errno_location() #16
   br label %295
 
 .lr.ph444.preheader.i:                            ; preds = %297
@@ -1011,7 +1011,7 @@ _process_cmdline.exit:                            ; preds = %2, %21, %27
   br i1 %323, label %.lr.ph377, label %.split473.i
 
 .lr.ph377:                                        ; preds = %.lr.ph515.i.preheader
-  %324 = tail call ptr @__errno_location() #15
+  %324 = tail call ptr @__errno_location() #16
   br label %326
 
 .lr.ph515.i:                                      ; preds = %328
@@ -1039,7 +1039,7 @@ _process_cmdline.exit:                            ; preds = %2, %21, %27
   br i1 %332, label %.lr.ph380, label %.split473.i
 
 .lr.ph380:                                        ; preds = %.lr.ph499.preheader.i.preheader
-  %333 = tail call ptr @__errno_location() #15
+  %333 = tail call ptr @__errno_location() #16
   br label %335
 
 .lr.ph499.preheader.i:                            ; preds = %337
@@ -1091,7 +1091,7 @@ _process_cmdline.exit:                            ; preds = %2, %21, %27
   br i1 %351, label %.lr.ph383, label %.split527.us.i
 
 .lr.ph383:                                        ; preds = %.lr.ph569.i.preheader
-  %352 = tail call ptr @__errno_location() #15
+  %352 = tail call ptr @__errno_location() #16
   br label %354
 
 .lr.ph569.i:                                      ; preds = %356
@@ -1119,7 +1119,7 @@ _process_cmdline.exit:                            ; preds = %2, %21, %27
   br i1 %360, label %.lr.ph386, label %.split527.us.i
 
 .lr.ph386:                                        ; preds = %.lr.ph553.preheader.i.preheader
-  %361 = tail call ptr @__errno_location() #15
+  %361 = tail call ptr @__errno_location() #16
   br label %363
 
 .lr.ph553.preheader.i:                            ; preds = %365
@@ -1206,7 +1206,7 @@ _process_cmdline.exit:                            ; preds = %2, %21, %27
   br i1 %.not353.i, label %395, label %393
 
 393:                                              ; preds = %390
-  %394 = tail call ptr @__errno_location() #15
+  %394 = tail call ptr @__errno_location() #16
   store i32 %392, ptr %394, align 4
   tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str, i32 noundef 598, ptr noundef nonnull @__func__._init_from_slurmd) #14
   unreachable
@@ -1243,7 +1243,7 @@ _process_cmdline.exit:                            ; preds = %2, %21, %27
   br i1 %406, label %.lr.ph389, label %.split582.us.i
 
 .lr.ph389:                                        ; preds = %.lr.ph624.i.preheader
-  %407 = tail call ptr @__errno_location() #15
+  %407 = tail call ptr @__errno_location() #16
   br label %409
 
 .lr.ph624.i:                                      ; preds = %411
@@ -1271,7 +1271,7 @@ _process_cmdline.exit:                            ; preds = %2, %21, %27
   br i1 %415, label %.lr.ph392, label %.split582.us.i
 
 .lr.ph392:                                        ; preds = %.lr.ph608.preheader.i.preheader
-  %416 = tail call ptr @__errno_location() #15
+  %416 = tail call ptr @__errno_location() #16
   br label %418
 
 .lr.ph608.preheader.i:                            ; preds = %420
@@ -1366,7 +1366,7 @@ _process_cmdline.exit:                            ; preds = %2, %21, %27
   br i1 %449, label %.lr.ph395, label %.split637.us.i
 
 .lr.ph395:                                        ; preds = %.lr.ph679.i.preheader
-  %450 = tail call ptr @__errno_location() #15
+  %450 = tail call ptr @__errno_location() #16
   br label %452
 
 .lr.ph679.i:                                      ; preds = %454
@@ -1394,7 +1394,7 @@ _process_cmdline.exit:                            ; preds = %2, %21, %27
   br i1 %458, label %.lr.ph398, label %.split637.us.i
 
 .lr.ph398:                                        ; preds = %.lr.ph663.preheader.i.preheader
-  %459 = tail call ptr @__errno_location() #15
+  %459 = tail call ptr @__errno_location() #16
   br label %461
 
 .lr.ph663.preheader.i:                            ; preds = %463
@@ -1505,7 +1505,7 @@ _process_cmdline.exit:                            ; preds = %2, %21, %27
   br i1 %498, label %.lr.ph401, label %.split691.us.i
 
 .lr.ph401:                                        ; preds = %.lr.ph733.i.preheader
-  %499 = tail call ptr @__errno_location() #15
+  %499 = tail call ptr @__errno_location() #16
   br label %501
 
 .lr.ph733.i:                                      ; preds = %503
@@ -1533,7 +1533,7 @@ _process_cmdline.exit:                            ; preds = %2, %21, %27
   br i1 %507, label %.lr.ph404, label %.split691.us.i
 
 .lr.ph404:                                        ; preds = %.lr.ph717.preheader.i.preheader
-  %508 = tail call ptr @__errno_location() #15
+  %508 = tail call ptr @__errno_location() #16
   br label %510
 
 .lr.ph717.preheader.i:                            ; preds = %512
@@ -1669,7 +1669,7 @@ _process_cmdline.exit:                            ; preds = %2, %21, %27
   br i1 %555, label %.lr.ph407, label %.split746.i
 
 .lr.ph407:                                        ; preds = %.lr.ph788.i.preheader
-  %556 = tail call ptr @__errno_location() #15
+  %556 = tail call ptr @__errno_location() #16
   br label %558
 
 .lr.ph788.i:                                      ; preds = %560
@@ -1697,7 +1697,7 @@ _process_cmdline.exit:                            ; preds = %2, %21, %27
   br i1 %564, label %.lr.ph410, label %.split746.i
 
 .lr.ph410:                                        ; preds = %.lr.ph772.preheader.i.preheader
-  %565 = tail call ptr @__errno_location() #15
+  %565 = tail call ptr @__errno_location() #16
   br label %567
 
 .lr.ph772.preheader.i:                            ; preds = %569
@@ -1743,7 +1743,7 @@ _process_cmdline.exit:                            ; preds = %2, %21, %27
   br i1 %581, label %.lr.ph413, label %.split801.us.i
 
 .lr.ph413:                                        ; preds = %.lr.ph843.i.preheader
-  %582 = tail call ptr @__errno_location() #15
+  %582 = tail call ptr @__errno_location() #16
   br label %584
 
 .lr.ph843.i:                                      ; preds = %586
@@ -1771,7 +1771,7 @@ _process_cmdline.exit:                            ; preds = %2, %21, %27
   br i1 %590, label %.lr.ph416, label %.split801.us.i
 
 .lr.ph416:                                        ; preds = %.lr.ph827.preheader.i.preheader
-  %591 = tail call ptr @__errno_location() #15
+  %591 = tail call ptr @__errno_location() #16
   br label %593
 
 .lr.ph827.preheader.i:                            ; preds = %595
@@ -2381,7 +2381,7 @@ define internal fastcc void @_send_fail_to_slurmd(i32 noundef %0) unnamed_addr #
   br i1 %6, label %.lr.ph26, label %.split.us
 
 .lr.ph26:                                         ; preds = %.lr.ph.split.us
-  %7 = tail call ptr @__errno_location() #15
+  %7 = tail call ptr @__errno_location() #16
   br label %8
 
 8:                                                ; preds = %.lr.ph26, %10
@@ -2475,7 +2475,7 @@ define dso_local void @close_slurmd_conn(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %14, label %.lr.ph26.i, label %.split.us.i
 
 .lr.ph26.i:                                       ; preds = %.lr.ph.split.us.i
-  %15 = tail call ptr @__errno_location() #15
+  %15 = tail call ptr @__errno_location() #16
   br label %16
 
 16:                                               ; preds = %18, %.lr.ph26.i
@@ -2551,7 +2551,7 @@ _send_ok_to_slurmd.exit:                          ; preds = %.split.us.i, %33
   br i1 %41, label %.lr.ph, label %.split32.us.i
 
 .lr.ph:                                           ; preds = %.lr.ph73.i.preheader
-  %42 = tail call ptr @__errno_location() #15
+  %42 = tail call ptr @__errno_location() #16
   br label %44
 
 .lr.ph73.i:                                       ; preds = %46
@@ -2579,7 +2579,7 @@ _send_ok_to_slurmd.exit:                          ; preds = %.split.us.i, %33
   br i1 %50, label %.lr.ph32, label %.split32.us.i
 
 .lr.ph32:                                         ; preds = %.lr.ph57.preheader.i.preheader
-  %51 = tail call ptr @__errno_location() #15
+  %51 = tail call ptr @__errno_location() #16
   br label %53
 
 .lr.ph57.preheader.i:                             ; preds = %55
@@ -2679,7 +2679,7 @@ define dso_local noundef i32 @stepd_cleanup(ptr nocapture readnone %0, ptr nound
   br i1 %.not, label %9, label %7
 
 7:                                                ; preds = %5
-  %8 = tail call ptr @__errno_location() #15
+  %8 = tail call ptr @__errno_location() #16
   store i32 %6, ptr %8, align 4
   tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str, i32 noundef 189, ptr noundef nonnull @__func__.stepd_cleanup) #14
   unreachable
@@ -2732,7 +2732,7 @@ define dso_local noundef i32 @stepd_cleanup(ptr nocapture readnone %0, ptr nound
   br i1 %.not35, label %.thread, label %29
 
 29:                                               ; preds = %27
-  %30 = tail call ptr @__errno_location() #15
+  %30 = tail call ptr @__errno_location() #16
   store i32 %28, ptr %30, align 4
   %31 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.7, ptr noundef nonnull @__func__.stepd_cleanup) #13
   br label %.thread
@@ -2791,7 +2791,7 @@ define dso_local noundef i32 @stepd_cleanup(ptr nocapture readnone %0, ptr nound
   br i1 %.not39, label %61, label %59
 
 59:                                               ; preds = %57
-  %60 = tail call ptr @__errno_location() #15
+  %60 = tail call ptr @__errno_location() #16
   store i32 %58, ptr %60, align 4
   tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str, i32 noundef 254, ptr noundef nonnull @__func__.stepd_cleanup) #14
   unreachable
@@ -2868,7 +2868,7 @@ declare i32 @xstrcmp(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 declare void @print_rlimits() local_unnamed_addr #2
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #7
 
 declare i32 @set_oom_adj(i32 noundef) local_unnamed_addr #2
@@ -3060,7 +3060,7 @@ define internal fastcc ptr @_read_slurmd_conf_lite() unnamed_addr #0 {
   br i1 %15, label %.lr.ph46.preheader, label %.split124.us
 
 .lr.ph46.preheader:                               ; preds = %.lr.ph165.preheader
-  %16 = tail call ptr @__errno_location() #15
+  %16 = tail call ptr @__errno_location() #16
   br label %.lr.ph46
 
 .lr.ph165:                                        ; preds = %19
@@ -3088,7 +3088,7 @@ define internal fastcc ptr @_read_slurmd_conf_lite() unnamed_addr #0 {
   br i1 %23, label %.lr.ph48.preheader, label %.split124.us
 
 .lr.ph48.preheader:                               ; preds = %.lr.ph149.preheader.preheader
-  %24 = tail call ptr @__errno_location() #15
+  %24 = tail call ptr @__errno_location() #16
   br label %.lr.ph48
 
 .lr.ph149.preheader:                              ; preds = %27
@@ -3186,7 +3186,7 @@ define internal fastcc ptr @_read_slurmd_conf_lite() unnamed_addr #0 {
   br i1 %57, label %.lr.ph51.preheader, label %.split177.us
 
 .lr.ph51.preheader:                               ; preds = %.lr.ph219.preheader
-  %58 = tail call ptr @__errno_location() #15
+  %58 = tail call ptr @__errno_location() #16
   br label %.lr.ph51
 
 .lr.ph219:                                        ; preds = %61
@@ -3214,7 +3214,7 @@ define internal fastcc ptr @_read_slurmd_conf_lite() unnamed_addr #0 {
   br i1 %65, label %.lr.ph54.preheader, label %.split177.us
 
 .lr.ph54.preheader:                               ; preds = %.lr.ph203.preheader.preheader
-  %66 = tail call ptr @__errno_location() #15
+  %66 = tail call ptr @__errno_location() #16
   br label %.lr.ph54
 
 .lr.ph203.preheader:                              ; preds = %69
@@ -3588,7 +3588,7 @@ attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stac
 attributes #4 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -3596,7 +3596,8 @@ attributes #11 = { nofree nounwind }
 attributes #12 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #13 = { nounwind }
 attributes #14 = { noreturn nounwind }
-attributes #15 = { nounwind willreturn memory(none) }
+attributes #15 = { cold noreturn nounwind }
+attributes #16 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
 

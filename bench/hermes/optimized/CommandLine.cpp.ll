@@ -7179,7 +7179,7 @@ _ZNSt6vectorIN4llvh9StringRefESaIS1_EE5clearEv.exit.i: ; preds = %if.then.i.i806
   br i1 %brmerge.not.i, label %if.then476.i, label %cleanup479.i
 
 if.then476.i:                                     ; preds = %_ZNSt6vectorIN4llvh9StringRefESaIS1_EE5clearEv.exit.i
-  call void @exit(i32 noundef 1) #28
+  call void @exit(i32 noundef 1) #32
   unreachable
 
 cleanup479.i:                                     ; preds = %_ZNSt6vectorIN4llvh9StringRefESaIS1_EE5clearEv.exit.i
@@ -13639,7 +13639,7 @@ if.then8:                                         ; preds = %entry
 
 if.end9:                                          ; preds = %entry, %if.then8
   %add1.i = add i64 %Key.coerce1, 17
-  %call.i.i.i = tail call noalias ptr @malloc(i64 noundef %add1.i) #32
+  %call.i.i.i = tail call noalias ptr @malloc(i64 noundef %add1.i) #33
   %cmp.i.i.i = icmp eq ptr %call.i.i.i, null
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN4llvh15MallocAllocator8AllocateEmm.exit.i
 
@@ -14633,7 +14633,7 @@ return:                                           ; preds = %while.body.i87, %_Z
   ret i1 %retval.0
 }
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
@@ -17877,7 +17877,7 @@ attributes #11 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "sta
 attributes #12 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #17 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #18 = { mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -17894,7 +17894,8 @@ attributes #28 = { noreturn nounwind }
 attributes #29 = { builtin nounwind allocsize(0) }
 attributes #30 = { builtin nounwind }
 attributes #31 = { nounwind willreturn memory(read) }
-attributes #32 = { nounwind allocsize(0) }
+attributes #32 = { cold noreturn nounwind }
+attributes #33 = { nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -12410,14 +12410,14 @@ define void @zend_activate_modules() local_unnamed_addr #1 {
   %17 = getelementptr inbounds i8, ptr %6, i64 32
   %18 = load ptr, ptr %17, align 8
   tail call void (i32, ptr, ...) @zend_error(i32 noundef 2, ptr noundef nonnull @.str.111, ptr noundef %18) #33
-  tail call void @exit(i32 noundef 1) #35
+  tail call void @exit(i32 noundef 1) #39
   unreachable
 
 ._crit_edge:                                      ; preds = %3, %0
   ret void
 }
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #20
 
 ; Function Attrs: nounwind uwtable
@@ -12463,7 +12463,7 @@ define void @zend_deactivate_modules() local_unnamed_addr #1 {
 20:                                               ; preds = %16
   %21 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
   store ptr %1, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
-  %22 = call i32 @__sigsetjmp(ptr noundef nonnull %1, i32 noundef 0) #39
+  %22 = call i32 @__sigsetjmp(ptr noundef nonnull %1, i32 noundef 0) #40
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %24, label %32
 
@@ -12500,7 +12500,7 @@ define void @zend_deactivate_modules() local_unnamed_addr #1 {
   %38 = phi ptr [ %52, %50 ], [ %37, %.lr.ph.preheader ]
   %.02431 = phi ptr [ %51, %50 ], [ %36, %.lr.ph.preheader ]
   store ptr %2, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
-  %39 = call i32 @__sigsetjmp(ptr noundef nonnull %2, i32 noundef 0) #39
+  %39 = call i32 @__sigsetjmp(ptr noundef nonnull %2, i32 noundef 0) #40
   %40 = icmp eq i32 %39, 0
   br i1 %40, label %41, label %50
 
@@ -20109,7 +20109,7 @@ attributes #16 = { mustprogress nofree nounwind willreturn memory(read) "frame-p
 attributes #17 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #18 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #19 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #21 = { nounwind returns_twice "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #22 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #23 = { allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -20128,7 +20128,8 @@ attributes #35 = { noreturn nounwind }
 attributes #36 = { nounwind allocsize(0) }
 attributes #37 = { nounwind allocsize(1) }
 attributes #38 = { nounwind memory(read) }
-attributes #39 = { nounwind returns_twice }
+attributes #39 = { cold noreturn nounwind }
+attributes #40 = { nounwind returns_twice }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

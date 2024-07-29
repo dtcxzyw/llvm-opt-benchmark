@@ -112,7 +112,7 @@ declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readon
 
 declare noundef ptr @_ZNK6icu_759ErrorCode9errorNameEv(ptr noundef nonnull align 8 dereferenceable(12)) local_unnamed_addr #5
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -395,7 +395,7 @@ entry:
 if.then2:                                         ; preds = %entry
   %0 = load ptr, ptr @stderr, align 8
   %call3 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.2, ptr noundef %name) #23
-  tail call void @exit(i32 noundef 7) #22
+  tail call void @exit(i32 noundef 7) #27
   unreachable
 
 if.end4:                                          ; preds = %entry
@@ -502,7 +502,7 @@ if.then3:                                         ; preds = %if.then
   %2 = load ptr, ptr @stderr, align 8
   %conv = sext i32 %1 to i64
   %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.3, ptr noundef nonnull %mem, i64 noundef %conv) #23
-  tail call void @exit(i32 noundef 7) #22
+  tail call void @exit(i32 noundef 7) #27
   unreachable
 
 if.end:                                           ; preds = %if.then
@@ -545,7 +545,7 @@ if.end43.thread:                                  ; preds = %if.then20
   br label %if.end50
 
 if.end43:                                         ; preds = %if.end17
-  %call41 = tail call ptr @uprv_realloc_75(ptr noundef %3, i64 noundef %conv22) #27
+  %call41 = tail call ptr @uprv_realloc_75(ptr noundef %3, i64 noundef %conv22) #28
   store ptr %call41, ptr %array, align 16
   %7 = icmp eq ptr %call41, null
   br i1 %7, label %if.then46, label %if.end50
@@ -553,7 +553,7 @@ if.end43:                                         ; preds = %if.end17
 if.then46:                                        ; preds = %if.then20, %if.end43
   %8 = load ptr, ptr @stderr, align 8
   %call49 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.2, ptr noundef nonnull %mem) #23
-  tail call void @exit(i32 noundef 7) #22
+  tail call void @exit(i32 noundef 7) #27
   unreachable
 
 if.end50:                                         ; preds = %if.end43.thread, %if.end43
@@ -603,7 +603,7 @@ attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stac
 attributes #3 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -624,7 +624,8 @@ attributes #23 = { cold }
 attributes #24 = { nounwind willreturn memory(read) }
 attributes #25 = { nounwind willreturn memory(none) }
 attributes #26 = { allocsize(0) }
-attributes #27 = { allocsize(1) }
+attributes #27 = { cold noreturn nounwind }
+attributes #28 = { allocsize(1) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

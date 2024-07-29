@@ -195,7 +195,7 @@ sub_2137:                                         ; preds = %sub_1136
 
 52:                                               ; preds = %50
   %53 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14, ptr noundef %.077, ptr noundef nonnull @.str.15)
-  tail call void @exit(i32 noundef 0) #17
+  tail call void @exit(i32 noundef 0) #18
   unreachable
 
 sub_1141:                                         ; preds = %50
@@ -227,12 +227,12 @@ sub_1141:                                         ; preds = %50
 67:                                               ; preds = %.tail139.thread
   %68 = load ptr, ptr @stderr, align 8
   %69 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %68, ptr noundef nonnull @.str, ptr noundef %.077) #16
-  %70 = tail call i64 @fwrite(ptr nonnull @.str.1, i64 59, i64 1, ptr %68) #18
-  %71 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 9, i64 1, ptr %68) #18
-  %72 = tail call i64 @fwrite(ptr nonnull @.str.3, i64 75, i64 1, ptr %68) #18
-  %73 = tail call i64 @fwrite(ptr nonnull @.str.4, i64 47, i64 1, ptr %68) #18
-  %74 = tail call i64 @fwrite(ptr nonnull @.str.5, i64 42, i64 1, ptr %68) #18
-  %75 = tail call i64 @fwrite(ptr nonnull @.str.6, i64 34, i64 1, ptr %68) #18
+  %70 = tail call i64 @fwrite(ptr nonnull @.str.1, i64 59, i64 1, ptr %68) #19
+  %71 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 9, i64 1, ptr %68) #19
+  %72 = tail call i64 @fwrite(ptr nonnull @.str.3, i64 75, i64 1, ptr %68) #19
+  %73 = tail call i64 @fwrite(ptr nonnull @.str.4, i64 47, i64 1, ptr %68) #19
+  %74 = tail call i64 @fwrite(ptr nonnull @.str.5, i64 42, i64 1, ptr %68) #19
+  %75 = tail call i64 @fwrite(ptr nonnull @.str.6, i64 34, i64 1, ptr %68) #19
   br label %200
 
 hwloc_utils_check_api_version.exit:               ; preds = %48, %28
@@ -269,7 +269,7 @@ hwloc_utils_check_api_version.exit:               ; preds = %48, %28
 
 92:                                               ; preds = %83
   %93 = load ptr, ptr @stderr, align 8
-  %94 = call i64 @fwrite(ptr nonnull @.str.21, i64 24, i64 1, ptr %93) #18
+  %94 = call i64 @fwrite(ptr nonnull @.str.21, i64 24, i64 1, ptr %93) #19
   br label %200
 
 95:                                               ; preds = %83
@@ -313,7 +313,7 @@ sub_1146:                                         ; preds = %sub_0145
 
 110:                                              ; preds = %108
   %111 = load ptr, ptr @stderr, align 8
-  %112 = call i64 @fwrite(ptr nonnull @.str.25, i64 38, i64 1, ptr %111) #18
+  %112 = call i64 @fwrite(ptr nonnull @.str.25, i64 38, i64 1, ptr %111) #19
   br label %200
 
 .critedge191:                                     ; preds = %sub_0145, %sub_1146
@@ -343,7 +343,7 @@ sub_1146:                                         ; preds = %sub_0145
 125:                                              ; preds = %121, %123
   %126 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.078) #15
   %127 = add i64 %126, 20
-  %128 = call noalias ptr @malloc(i64 noundef %127) #19
+  %128 = call noalias ptr @malloc(i64 noundef %127) #20
   %129 = icmp eq i32 %.073150, -1
   %.pre177 = load ptr, ptr %3, align 8
   br i1 %129, label %.preheader, label %.thread
@@ -449,7 +449,7 @@ hwloc_get_next_obj_by_type.exit.thread:           ; preds = %hwloc_get_next_obj_
 
 168:                                              ; preds = %hwloc_get_next_obj_by_type.exit.thread
   %169 = load ptr, ptr @stderr, align 8
-  %170 = tail call ptr @__errno_location() #20
+  %170 = tail call ptr @__errno_location() #21
   %171 = load i32, ptr %170, align 4
   %172 = call ptr @strerror(i32 noundef %171) #14
   %173 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %169, ptr noundef nonnull @.str.33, ptr noundef %128, ptr noundef %172) #16
@@ -556,7 +556,7 @@ declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #4
 ; Function Attrs: nofree nounwind
 declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #1
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind memory(read)
@@ -624,7 +624,7 @@ define internal fastcc void @dump_one_proc(ptr noundef %0, ptr nocapture noundef
 
 21:                                               ; preds = %19
   %22 = load ptr, ptr @stderr, align 8
-  %23 = tail call ptr @__errno_location() #20
+  %23 = tail call ptr @__errno_location() #21
   %24 = load i32, ptr %23, align 4
   %25 = tail call ptr @strerror(i32 noundef %24) #14
   %26 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef nonnull @.str.38, ptr noundef nonnull %2, ptr noundef %25) #16
@@ -3632,7 +3632,7 @@ attributes #1 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true
 attributes #2 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -3644,10 +3644,11 @@ attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn mem
 attributes #14 = { nounwind }
 attributes #15 = { nounwind willreturn memory(read) }
 attributes #16 = { cold nounwind }
-attributes #17 = { noreturn nounwind }
-attributes #18 = { cold }
-attributes #19 = { nounwind allocsize(0) }
-attributes #20 = { nounwind willreturn memory(none) }
+attributes #17 = { cold noreturn nounwind }
+attributes #18 = { noreturn nounwind }
+attributes #19 = { cold }
+attributes #20 = { nounwind allocsize(0) }
+attributes #21 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

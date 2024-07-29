@@ -194,8 +194,8 @@ for.body.i:                                       ; preds = %for.cond.i, %entry
 
 if.then9.i:                                       ; preds = %for.cond.i
   %conv10.i = zext i16 %device_id to i32
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.8, i32 noundef %conv10.i) #13
-  tail call void @abort() #14
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.8, i32 noundef %conv10.i) #14
+  tail call void @abort() #15
   unreachable
 
 virtio_pci_get_id_info.exit:                      ; preds = %for.body.i
@@ -223,8 +223,8 @@ for.body.i:                                       ; preds = %for.cond.i, %entry
 
 if.then9.i:                                       ; preds = %for.cond.i
   %conv10.i = zext i16 %device_id to i32
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.8, i32 noundef %conv10.i) #13
-  tail call void @abort() #14
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.8, i32 noundef %conv10.i) #14
+  tail call void @abort() #15
   unreachable
 
 virtio_pci_get_id_info.exit:                      ; preds = %for.body.i
@@ -240,11 +240,11 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  tail call void @virtio_config_set_guest_notifier_fd_handler(ptr noundef %vdev, i1 noundef zeroext %assign, i1 noundef zeroext %with_irqfd) #13
+  tail call void @virtio_config_set_guest_notifier_fd_handler(ptr noundef %vdev, i1 noundef zeroext %assign, i1 noundef zeroext %with_irqfd) #14
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  tail call void @virtio_queue_set_guest_notifier_fd_handler(ptr noundef %vq, i1 noundef zeroext %assign, i1 noundef zeroext %with_irqfd) #13
+  tail call void @virtio_queue_set_guest_notifier_fd_handler(ptr noundef %vq, i1 noundef zeroext %assign, i1 noundef zeroext %with_irqfd) #14
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
@@ -264,7 +264,7 @@ virtio_pci_add_mem_cap.exit:
   %conv7 = trunc i64 %offset to i32
   %shr11 = lshr i64 %offset, 32
   %conv12 = trunc nuw i64 %shr11 to i32
-  %call.i = tail call i32 @pci_add_capability(ptr noundef %proxy, i8 noundef zeroext 9, i8 noundef zeroext 0, i8 noundef zeroext 24, ptr noundef nonnull @error_abort) #13
+  %call.i = tail call i32 @pci_add_capability(ptr noundef %proxy, i8 noundef zeroext 9, i8 noundef zeroext 0, i8 noundef zeroext 24, ptr noundef nonnull @error_abort) #14
   %config.i = getelementptr inbounds i8, ptr %proxy, i64 168
   %0 = load ptr, ptr %config.i, align 8
   %idx.ext.i = sext i32 %call.i to i64
@@ -358,7 +358,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %class_data21 = getelementptr inbounds i8, ptr %generic_type_info, i64 88
-  %call = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.3, ptr noundef %7) #13
+  %call = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.3, ptr noundef %7) #14
   store ptr %call, ptr %base_type_info, align 8
   store ptr @virtio_pci_generic_class_init, ptr %class_init, align 8
   store ptr %call, ptr %parent10, align 8
@@ -370,7 +370,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool31.not, label %if.end, label %if.else
 
 if.else:                                          ; preds = %if.then
-  call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 2421, ptr noundef nonnull @__PRETTY_FUNCTION__.virtio_pci_types_register) #14
+  call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 2421, ptr noundef nonnull @__PRETTY_FUNCTION__.virtio_pci_types_register) #15
   unreachable
 
 if.end:                                           ; preds = %if.then
@@ -380,7 +380,7 @@ if.end:                                           ; preds = %if.then
   br i1 %tobool33.not, label %if.end40, label %if.else35
 
 if.else35:                                        ; preds = %if.end
-  call void @__assert_fail(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.5, i32 noundef 2422, ptr noundef nonnull @__PRETTY_FUNCTION__.virtio_pci_types_register) #14
+  call void @__assert_fail(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.5, i32 noundef 2422, ptr noundef nonnull @__PRETTY_FUNCTION__.virtio_pci_types_register) #15
   unreachable
 
 if.else37:                                        ; preds = %entry
@@ -391,12 +391,12 @@ if.else37:                                        ; preds = %entry
 
 if.end40:                                         ; preds = %if.end, %if.else37
   %base_name.0 = phi ptr [ null, %if.else37 ], [ %call, %if.end ]
-  %call41 = call ptr @type_register(ptr noundef nonnull %base_type_info) #13
+  %call41 = call ptr @type_register(ptr noundef nonnull %base_type_info) #14
   %tobool43.not = icmp eq ptr %7, null
   br i1 %tobool43.not, label %if.end46, label %if.then44
 
 if.then44:                                        ; preds = %if.end40
-  %call45 = call ptr @type_register(ptr noundef nonnull %generic_type_info) #13
+  %call45 = call ptr @type_register(ptr noundef nonnull %generic_type_info) #14
   br label %if.end46
 
 if.end46:                                         ; preds = %if.then44, %if.end40
@@ -421,7 +421,7 @@ if.then49:                                        ; preds = %if.end46
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %class_size60, i8 0, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.compoundliteral65, ptr noundef nonnull align 8 dereferenceable(24) @constinit.7, i64 24, i1 false)
   store ptr %.compoundliteral65, ptr %interfaces64, align 8
-  %call68 = call ptr @type_register(ptr noundef nonnull %non_transitional_type_info) #13
+  %call68 = call ptr @type_register(ptr noundef nonnull %non_transitional_type_info) #14
   br label %if.end69
 
 if.end69:                                         ; preds = %if.then49, %if.end46
@@ -448,19 +448,19 @@ if.then72:                                        ; preds = %if.end69
   %arrayinit.element = getelementptr inbounds i8, ptr %.compoundliteral88, i64 8
   store ptr null, ptr %arrayinit.element, align 8
   store ptr %.compoundliteral88, ptr %interfaces87, align 8
-  %call92 = call ptr @type_register(ptr noundef nonnull %transitional_type_info) #13
+  %call92 = call ptr @type_register(ptr noundef nonnull %transitional_type_info) #14
   br label %if.end93
 
 if.end93:                                         ; preds = %if.then72, %if.end69
-  call void @g_free(ptr noundef %base_name.0) #13
+  call void @g_free(ptr noundef %base_name.0) #14
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @virtio_pci_generic_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
 entry:
-  %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #13
-  tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @virtio_pci_generic_properties) #13
+  %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #14
+  tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @virtio_pci_generic_properties) #14
   ret void
 }
 
@@ -475,7 +475,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call void %0(ptr noundef %klass, ptr noundef null) #13
+  tail call void %0(ptr noundef %klass, ptr noundef null) #14
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -490,7 +490,7 @@ declare ptr @type_register(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @virtio_pci_non_transitional_instance_init(ptr noundef %obj) #0 {
 entry:
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.14, i32 noundef 102, ptr noundef nonnull @__func__.VIRTIO_PCI) #13
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.14, i32 noundef 102, ptr noundef nonnull @__func__.VIRTIO_PCI) #14
   %disable_legacy = getelementptr inbounds i8, ptr %call.i, i64 4892
   store i32 1, ptr %disable_legacy, align 4
   %disable_modern = getelementptr inbounds i8, ptr %call.i, i64 4888
@@ -501,7 +501,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @virtio_pci_transitional_instance_init(ptr noundef %obj) #0 {
 entry:
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.14, i32 noundef 102, ptr noundef nonnull @__func__.VIRTIO_PCI) #13
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.14, i32 noundef 102, ptr noundef nonnull @__func__.VIRTIO_PCI) #14
   %disable_legacy = getelementptr inbounds i8, ptr %call.i, i64 4892
   store i32 2, ptr %disable_legacy, align 4
   %disable_modern = getelementptr inbounds i8, ptr %call.i, i64 4888
@@ -527,7 +527,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @do_qemu_init_virtio_pci_register_types() #0 {
 entry:
-  tail call void @register_module_init(ptr noundef nonnull @virtio_pci_register_types, i32 noundef 3) #13
+  tail call void @register_module_init(ptr noundef nonnull @virtio_pci_register_types, i32 noundef 3) #14
   ret void
 }
 
@@ -536,15 +536,15 @@ declare void @register_module_init(ptr noundef, i32 noundef) local_unnamed_addr 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @virtio_pci_register_types() #0 {
 entry:
-  %call = tail call ptr @type_register_static(ptr noundef nonnull @virtio_pci_bus_info) #13
-  %call1 = tail call ptr @type_register_static(ptr noundef nonnull @virtio_pci_info) #13
+  %call = tail call ptr @type_register_static(ptr noundef nonnull @virtio_pci_bus_info) #14
+  %call1 = tail call ptr @type_register_static(ptr noundef nonnull @virtio_pci_info) #14
   ret void
 }
 
 declare void @error_report(ptr noundef, ...) local_unnamed_addr #1
 
-; Function Attrs: noreturn nounwind
-declare void @abort() local_unnamed_addr #3
+; Function Attrs: cold nofree noreturn nounwind
+declare void @abort() local_unnamed_addr #5
 
 declare i32 @pci_add_capability(ptr noundef, i8 noundef zeroext, i8 noundef zeroext, i8 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
@@ -559,8 +559,8 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @virtio_pci_bus_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
 entry:
-  %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.11, i32 noundef 316, ptr noundef nonnull @__func__.BUS_CLASS) #13
-  %call.i22 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @__const.virtio_pci_bus_new.virtio_bus_name, ptr noundef nonnull @.str.18, i32 noundef 36, ptr noundef nonnull @__func__.VIRTIO_BUS_CLASS) #13
+  %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.11, i32 noundef 316, ptr noundef nonnull @__func__.BUS_CLASS) #14
+  %call.i22 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @__const.virtio_pci_bus_new.virtio_bus_name, ptr noundef nonnull @.str.18, i32 noundef 36, ptr noundef nonnull @__func__.VIRTIO_BUS_CLASS) #14
   %max_dev = getelementptr inbounds i8, ptr %call.i, i64 152
   store i32 1, ptr %max_dev, align 8
   %notify = getelementptr inbounds i8, ptr %call.i22, i64 160
@@ -611,7 +611,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @virtio_pci_notify(ptr noundef %d, i16 noundef zeroext %vector) #0 {
 entry:
-  %call1 = tail call i32 @msix_enabled(ptr noundef %d) #13
+  %call1 = tail call i32 @msix_enabled(ptr noundef %d) #14
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %if.else, label %if.then
 
@@ -621,7 +621,7 @@ if.then:                                          ; preds = %entry
 
 if.then3:                                         ; preds = %if.then
   %conv = zext i16 %vector to i32
-  tail call void @msix_notify(ptr noundef %d, i32 noundef %conv) #13
+  tail call void @msix_notify(ptr noundef %d, i32 noundef %conv) #14
   br label %if.end9
 
 if.else:                                          ; preds = %entry
@@ -633,7 +633,7 @@ if.else:                                          ; preds = %entry
   %2 = load atomic i8, ptr %isr monotonic, align 1
   %3 = and i8 %2, 1
   %and = zext nneg i8 %3 to i32
-  tail call void @pci_set_irq(ptr noundef nonnull %d, i32 noundef %and) #13
+  tail call void @pci_set_irq(ptr noundef nonnull %d, i32 noundef %and) #14
   br label %if.end9
 
 if.end9:                                          ; preds = %if.then, %if.then3, %if.else
@@ -655,9 +655,9 @@ cond.true.i:                                      ; preds = %entry
 
 virtio_bus_get_device.exit:                       ; preds = %entry, %cond.true.i
   %cond.i = phi ptr [ %1, %cond.true.i ], [ null, %entry ]
-  tail call void @pci_device_save(ptr noundef nonnull %d, ptr noundef %f) #13
-  tail call void @msix_save(ptr noundef nonnull %d, ptr noundef %f) #13
-  %call4 = tail call i32 @msix_present(ptr noundef nonnull %d) #13
+  tail call void @pci_device_save(ptr noundef nonnull %d, ptr noundef %f) #14
+  tail call void @msix_save(ptr noundef nonnull %d, ptr noundef %f) #14
+  %call4 = tail call i32 @msix_present(ptr noundef nonnull %d) #14
   %tobool.not = icmp eq i32 %call4, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
@@ -665,7 +665,7 @@ if.then:                                          ; preds = %virtio_bus_get_devi
   %config_vector = getelementptr inbounds i8, ptr %cond.i, i64 216
   %2 = load i16, ptr %config_vector, align 8
   %conv = zext i16 %2 to i32
-  tail call void @qemu_put_be16(ptr noundef %f, i32 noundef %conv) #13
+  tail call void @qemu_put_be16(ptr noundef %f, i32 noundef %conv) #14
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %virtio_bus_get_device.exit
@@ -687,19 +687,19 @@ cond.true.i:                                      ; preds = %entry
 
 virtio_bus_get_device.exit:                       ; preds = %entry, %cond.true.i
   %cond.i = phi ptr [ %1, %cond.true.i ], [ null, %entry ]
-  %call2 = tail call i32 @pci_device_load(ptr noundef nonnull %d, ptr noundef %f) #13
+  %call2 = tail call i32 @pci_device_load(ptr noundef nonnull %d, ptr noundef %f) #14
   %tobool.not = icmp eq i32 %call2, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %virtio_bus_get_device.exit
-  tail call void @msix_unuse_all_vectors(ptr noundef nonnull %d) #13
-  tail call void @msix_load(ptr noundef nonnull %d, ptr noundef %f) #13
-  %call6 = tail call i32 @msix_present(ptr noundef nonnull %d) #13
+  tail call void @msix_unuse_all_vectors(ptr noundef nonnull %d) #14
+  tail call void @msix_load(ptr noundef nonnull %d, ptr noundef %f) #14
+  %call6 = tail call i32 @msix_present(ptr noundef nonnull %d) #14
   %tobool7.not = icmp eq i32 %call6, 0
   br i1 %tobool7.not, label %if.end15.thread, label %if.then8
 
 if.then8:                                         ; preds = %if.end
-  %call.i = tail call i32 @qemu_get_be16(ptr noundef %f) #13
+  %call.i = tail call i32 @qemu_get_be16(ptr noundef %f) #14
   %conv.i = trunc i32 %call.i to i16
   %cmp.not = icmp eq i16 %conv.i, -1
   br i1 %cmp.not, label %if.end15.thread, label %land.lhs.true
@@ -719,7 +719,7 @@ if.end15.thread:                                  ; preds = %if.then8, %if.end
 if.then19:                                        ; preds = %land.lhs.true
   %config_vector = getelementptr inbounds i8, ptr %cond.i, i64 216
   store i16 %conv.i, ptr %config_vector, align 8
-  tail call void @msix_vector_use(ptr noundef nonnull %d, i32 noundef %conv) #13
+  tail call void @msix_vector_use(ptr noundef nonnull %d, i32 noundef %conv) #14
   br label %return
 
 return:                                           ; preds = %if.end15.thread, %if.then19, %land.lhs.true, %virtio_bus_get_device.exit
@@ -742,14 +742,14 @@ cond.true.i:                                      ; preds = %entry
 
 virtio_bus_get_device.exit:                       ; preds = %entry, %cond.true.i
   %cond.i = phi ptr [ %1, %cond.true.i ], [ null, %entry ]
-  %call2 = tail call i32 @msix_present(ptr noundef nonnull %d) #13
+  %call2 = tail call i32 @msix_present(ptr noundef nonnull %d) #14
   %tobool.not = icmp eq i32 %call2, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %virtio_bus_get_device.exit
-  %call3 = tail call zeroext i16 @virtio_queue_vector(ptr noundef %cond.i, i32 noundef %n) #13
+  %call3 = tail call zeroext i16 @virtio_queue_vector(ptr noundef %cond.i, i32 noundef %n) #14
   %conv = zext i16 %call3 to i32
-  tail call void @qemu_put_be16(ptr noundef %f, i32 noundef %conv) #13
+  tail call void @qemu_put_be16(ptr noundef %f, i32 noundef %conv) #14
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %virtio_bus_get_device.exit
@@ -771,12 +771,12 @@ cond.true.i:                                      ; preds = %entry
 
 virtio_bus_get_device.exit:                       ; preds = %entry, %cond.true.i
   %cond.i = phi ptr [ %1, %cond.true.i ], [ null, %entry ]
-  %call2 = tail call i32 @msix_present(ptr noundef nonnull %d) #13
+  %call2 = tail call i32 @msix_present(ptr noundef nonnull %d) #14
   %tobool.not = icmp eq i32 %call2, 0
   br i1 %tobool.not, label %if.end8.thread, label %if.then
 
 if.then:                                          ; preds = %virtio_bus_get_device.exit
-  %call.i = tail call i32 @qemu_get_be16(ptr noundef %f) #13
+  %call.i = tail call i32 @qemu_get_be16(ptr noundef %f) #14
   %conv.i = trunc i32 %call.i to i16
   %cmp.not = icmp eq i16 %conv.i, -1
   br i1 %cmp.not, label %if.end8.thread, label %land.lhs.true
@@ -789,12 +789,12 @@ land.lhs.true:                                    ; preds = %if.then
   br i1 %cmp5.not, label %if.then12, label %return
 
 if.end8.thread:                                   ; preds = %if.then, %virtio_bus_get_device.exit
-  tail call void @virtio_queue_set_vector(ptr noundef %cond.i, i32 noundef %n, i16 noundef zeroext -1) #13
+  tail call void @virtio_queue_set_vector(ptr noundef %cond.i, i32 noundef %n, i16 noundef zeroext -1) #14
   br label %return
 
 if.then12:                                        ; preds = %land.lhs.true
-  tail call void @virtio_queue_set_vector(ptr noundef %cond.i, i32 noundef %n, i16 noundef zeroext %conv.i) #13
-  tail call void @msix_vector_use(ptr noundef nonnull %d, i32 noundef %conv) #13
+  tail call void @virtio_queue_set_vector(ptr noundef %cond.i, i32 noundef %n, i16 noundef zeroext %conv.i) #14
+  tail call void @msix_vector_use(ptr noundef nonnull %d, i32 noundef %conv) #14
   br label %return
 
 return:                                           ; preds = %if.end8.thread, %if.then12, %land.lhs.true
@@ -805,19 +805,19 @@ return:                                           ; preds = %if.end8.thread, %if
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @virtio_pci_save_extra_state(ptr noundef %d, ptr noundef %f) #0 {
 entry:
-  %call1 = tail call i32 @vmstate_save_state(ptr noundef %f, ptr noundef nonnull @vmstate_virtio_pci, ptr noundef %d, ptr noundef null) #13
+  %call1 = tail call i32 @vmstate_save_state(ptr noundef %f, ptr noundef nonnull @vmstate_virtio_pci, ptr noundef %d, ptr noundef null) #14
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @virtio_pci_load_extra_state(ptr noundef %d, ptr noundef %f) #0 {
 entry:
-  %call1 = tail call i32 @vmstate_load_state(ptr noundef %f, ptr noundef nonnull @vmstate_virtio_pci, ptr noundef %d, i32 noundef 1) #13
+  %call1 = tail call i32 @vmstate_load_state(ptr noundef %f, ptr noundef nonnull @vmstate_virtio_pci, ptr noundef %d, i32 noundef 1) #14
   ret i32 %call1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @virtio_pci_has_extra_state(ptr nocapture noundef readonly %d) #5 {
+define internal zeroext i1 @virtio_pci_has_extra_state(ptr nocapture noundef readonly %d) #6 {
 entry:
   %flags = getelementptr inbounds i8, ptr %d, i64 4884
   %0 = load i32, ptr %flags, align 4
@@ -829,7 +829,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal zeroext i1 @virtio_pci_query_guest_notifiers(ptr noundef %d) #0 {
 entry:
-  %call1 = tail call i32 @msix_enabled(ptr noundef %d) #13
+  %call1 = tail call i32 @msix_enabled(ptr noundef %d) #14
   %tobool = icmp ne i32 %call1, 0
   ret i1 %tobool
 }
@@ -849,9 +849,9 @@ cond.true.i:                                      ; preds = %entry
 
 virtio_bus_get_device.exit:                       ; preds = %entry, %cond.true.i
   %cond.i = phi ptr [ %1, %cond.true.i ], [ null, %entry ]
-  %call.i = tail call ptr @object_get_class(ptr noundef %cond.i) #13
-  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.38, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_GET_CLASS) #13
-  %call3 = tail call i32 @msix_enabled(ptr noundef nonnull %d) #13
+  %call.i = tail call ptr @object_get_class(ptr noundef %cond.i) #14
+  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.38, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_GET_CLASS) #14
+  %call3 = tail call i32 @msix_enabled(ptr noundef nonnull %d) #14
   %tobool = icmp ne i32 %call3, 0
   %2 = load i8, ptr @kvm_msi_via_irqfd_allowed, align 1
   %tobool4 = trunc i8 %2 to i1
@@ -870,7 +870,7 @@ lor.lhs.false:                                    ; preds = %land.lhs.true
   br i1 %cmp10, label %if.end12.thread, label %if.else
 
 if.else:                                          ; preds = %lor.lhs.false
-  tail call void @__assert_fail(ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.5, i32 noundef 1241, ptr noundef nonnull @__PRETTY_FUNCTION__.virtio_pci_set_guest_notifiers) #14
+  tail call void @__assert_fail(ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.5, i32 noundef 1241, ptr noundef nonnull @__PRETTY_FUNCTION__.virtio_pci_set_guest_notifiers) #15
   unreachable
 
 if.end12:                                         ; preds = %virtio_bus_get_device.exit
@@ -902,7 +902,7 @@ land.lhs.true17:                                  ; preds = %lor.lhs.false15
 
 if.then21:                                        ; preds = %if.end12.thread, %land.lhs.true17
   %vector_irqfd84 = phi ptr [ %vector_irqfd87, %land.lhs.true17 ], [ %vector_irqfd82, %if.end12.thread ]
-  tail call void @msix_unset_vector_notifiers(ptr noundef nonnull %d) #13
+  tail call void @msix_unset_vector_notifiers(ptr noundef nonnull %d) #14
   %9 = load ptr, ptr %vector_irqfd84, align 16
   %tobool24.not = icmp eq ptr %9, null
   br i1 %tobool24.not, label %if.end29, label %if.then25
@@ -924,7 +924,7 @@ virtio_bus_get_device.exit.i:                     ; preds = %cond.true.i.i, %if.
 
 for.body.i:                                       ; preds = %virtio_bus_get_device.exit.i, %if.end.i
   %queue_no.06.i = phi i32 [ %inc.i, %if.end.i ], [ 0, %virtio_bus_get_device.exit.i ]
-  %call1.i64 = tail call i32 @virtio_queue_get_num(ptr noundef %cond.i.i, i32 noundef %queue_no.06.i) #13
+  %call1.i64 = tail call i32 @virtio_queue_get_num(ptr noundef %cond.i.i, i32 noundef %queue_no.06.i) #14
   %tobool.not.i65 = icmp eq i32 %call1.i64, 0
   br i1 %tobool.not.i65, label %kvm_virtio_pci_vector_vq_release.exit, label %if.end.i
 
@@ -937,7 +937,7 @@ if.end.i:                                         ; preds = %for.body.i
 kvm_virtio_pci_vector_vq_release.exit:            ; preds = %for.body.i, %if.end.i, %virtio_bus_get_device.exit.i
   tail call fastcc void @kvm_virtio_pci_vector_release_one(ptr noundef %d, i32 noundef -1)
   %11 = load ptr, ptr %vector_irqfd84, align 16
-  tail call void @g_free(ptr noundef %11) #13
+  tail call void @g_free(ptr noundef %11) #14
   store ptr null, ptr %vector_irqfd84, align 16
   br label %if.end29
 
@@ -948,7 +948,7 @@ if.end29:                                         ; preds = %if.end12, %land.lhs
 
 for.body:                                         ; preds = %if.end29, %for.inc
   %n.0122 = phi i32 [ %inc, %for.inc ], [ 0, %if.end29 ]
-  %call31 = tail call i32 @virtio_queue_get_num(ptr noundef %cond.i, i32 noundef %n.0122) #13
+  %call31 = tail call i32 @virtio_queue_get_num(ptr noundef %cond.i, i32 noundef %n.0122) #14
   %tobool32.not = icmp eq i32 %call31, 0
   br i1 %tobool32.not, label %for.end, label %if.end34
 
@@ -988,10 +988,10 @@ land.lhs.true54:                                  ; preds = %if.end46
   br i1 %assign, label %if.then58, label %return
 
 if.then58:                                        ; preds = %land.lhs.true54
-  %call60 = tail call i32 @msix_nr_vectors_allocated(ptr noundef %d) #13
+  %call60 = tail call i32 @msix_nr_vectors_allocated(ptr noundef %d) #14
   %conv = zext i32 %call60 to i64
   %mul = mul nuw nsw i64 %conv, 24
-  %call61 = tail call noalias ptr @g_malloc0(i64 noundef %mul) #15
+  %call61 = tail call noalias ptr @g_malloc0(i64 noundef %mul) #16
   store ptr %call61, ptr %vector_irqfd85, align 16
   %bus.val.i66 = load ptr, ptr %0, align 8
   %tobool.not.i.i67 = icmp eq ptr %bus.val.i66, null
@@ -1008,7 +1008,7 @@ virtio_bus_get_device.exit.i70:                   ; preds = %cond.true.i.i68, %i
 
 for.body.i73:                                     ; preds = %virtio_bus_get_device.exit.i70, %if.end.i77
   %queue_no.06.i74 = phi i32 [ %inc.i78, %if.end.i77 ], [ 0, %virtio_bus_get_device.exit.i70 ]
-  %call1.i75 = tail call i32 @virtio_queue_get_num(ptr noundef %cond.i.i71, i32 noundef %queue_no.06.i74) #13
+  %call1.i75 = tail call i32 @virtio_queue_get_num(ptr noundef %cond.i.i71, i32 noundef %queue_no.06.i74) #14
   %tobool.not.i76 = icmp eq i32 %call1.i75, 0
   br i1 %tobool.not.i76, label %config_assign_error, label %if.end.i77
 
@@ -1033,17 +1033,17 @@ if.end67.thread:                                  ; preds = %virtio_bus_get_devi
   br i1 %cmp69109, label %if.then89, label %if.end73.thread113
 
 if.end73:                                         ; preds = %if.end67
-  %call75 = tail call i32 @msix_set_vector_notifiers(ptr noundef %d, ptr noundef nonnull @virtio_pci_vector_unmask, ptr noundef nonnull @virtio_pci_vector_mask, ptr noundef nonnull @virtio_pci_vector_poll) #13
+  %call75 = tail call i32 @msix_set_vector_notifiers(ptr noundef %d, ptr noundef nonnull @virtio_pci_vector_unmask, ptr noundef nonnull @virtio_pci_vector_mask, ptr noundef nonnull @virtio_pci_vector_poll) #14
   %cmp76 = icmp slt i32 %call75, 0
   br i1 %cmp76, label %config_error.thread103, label %return
 
 if.end73.thread113:                               ; preds = %if.end67.thread
-  %call75114 = tail call i32 @msix_set_vector_notifiers(ptr noundef nonnull %d, ptr noundef nonnull @virtio_pci_vector_unmask, ptr noundef nonnull @virtio_pci_vector_mask, ptr noundef nonnull @virtio_pci_vector_poll) #13
+  %call75114 = tail call i32 @msix_set_vector_notifiers(ptr noundef nonnull %d, ptr noundef nonnull @virtio_pci_vector_unmask, ptr noundef nonnull @virtio_pci_vector_mask, ptr noundef nonnull @virtio_pci_vector_poll) #14
   %cmp76115 = icmp slt i32 %call75114, 0
   br i1 %cmp76115, label %config_error.thread103, label %return
 
 if.end73.thread:                                  ; preds = %land.lhs.true51
-  %call7597 = tail call i32 @msix_set_vector_notifiers(ptr noundef %d, ptr noundef nonnull @virtio_pci_vector_unmask, ptr noundef nonnull @virtio_pci_vector_mask, ptr noundef nonnull @virtio_pci_vector_poll) #13
+  %call7597 = tail call i32 @msix_set_vector_notifiers(ptr noundef %d, ptr noundef nonnull @virtio_pci_vector_unmask, ptr noundef nonnull @virtio_pci_vector_mask, ptr noundef nonnull @virtio_pci_vector_poll) #14
   %cmp7698 = icmp slt i32 %call7597, 0
   br i1 %cmp7698, label %config_assign_error, label %return
 
@@ -1074,7 +1074,7 @@ while.cond.preheader:                             ; preds = %assign_error
   br i1 %cmp98125, label %while.body, label %while.end
 
 if.else96:                                        ; preds = %assign_error
-  tail call void @__assert_fail(ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.5, i32 noundef 1315, ptr noundef nonnull @__PRETTY_FUNCTION__.virtio_pci_set_guest_notifiers) #14
+  tail call void @__assert_fail(ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.5, i32 noundef 1315, ptr noundef nonnull @__PRETTY_FUNCTION__.virtio_pci_set_guest_notifiers) #15
   unreachable
 
 while.body:                                       ; preds = %while.cond.preheader, %while.body
@@ -1086,7 +1086,7 @@ while.body:                                       ; preds = %while.cond.preheade
 
 while.end:                                        ; preds = %while.body, %while.cond.preheader
   %15 = load ptr, ptr %vector_irqfd85, align 16
-  tail call void @g_free(ptr noundef %15) #13
+  tail call void @g_free(ptr noundef %15) #14
   store ptr null, ptr %vector_irqfd85, align 16
   br label %return
 
@@ -1113,7 +1113,7 @@ lor.lhs.false2:                                   ; preds = %lor.lhs.false
   %and.i = and i32 %call.val8, 32
   %tobool.not.i = icmp eq i32 %and.i, 0
   %cond.i = select i1 %tobool.not.i, i64 4, i64 4096
-  %call4 = tail call i64 @memory_region_size(ptr noundef %mr) #13
+  %call4 = tail call i64 @memory_region_size(ptr noundef %mr) #14
   %cmp5.not = icmp eq i64 %call4, %cond.i
   br i1 %cmp5.not, label %if.end, label %return
 
@@ -1128,12 +1128,12 @@ if.then7:                                         ; preds = %if.end
   %mul = shl i32 %n, %2
   %notify = getelementptr inbounds i8, ptr %d, i64 3744
   %conv10 = sext i32 %mul to i64
-  tail call void @memory_region_add_subregion_overlap(ptr noundef nonnull %notify, i64 noundef %conv10, ptr noundef %mr, i32 noundef 1) #13
+  tail call void @memory_region_add_subregion_overlap(ptr noundef nonnull %notify, i64 noundef %conv10, ptr noundef %mr, i32 noundef 1) #14
   br label %return
 
 if.else:                                          ; preds = %if.end
   %notify11 = getelementptr inbounds i8, ptr %d, i64 3744
-  tail call void @memory_region_del_subregion(ptr noundef nonnull %notify11, ptr noundef %mr) #13
+  tail call void @memory_region_del_subregion(ptr noundef nonnull %notify11, ptr noundef %mr) #14
   br label %return
 
 return:                                           ; preds = %if.then7, %if.else, %entry, %lor.lhs.false, %lor.lhs.false2
@@ -1185,15 +1185,15 @@ land.lhs.true5:                                   ; preds = %land.lhs.true
 
 if.then9:                                         ; preds = %land.lhs.true5
   %or = or disjoint i32 %conv6, 4
-  tail call void @pci_default_write_config(ptr noundef nonnull %d, i32 noundef 4, i32 noundef %or, i32 noundef 1) #13
+  tail call void @pci_default_write_config(ptr noundef nonnull %d, i32 noundef 4, i32 noundef %or, i32 noundef 1) #14
   br label %if.end
 
 if.end:                                           ; preds = %if.then9, %land.lhs.true5, %land.lhs.true, %if.then
-  %call.i = tail call i32 @virtio_bus_start_ioeventfd(ptr noundef nonnull %bus) #13
+  %call.i = tail call i32 @virtio_bus_start_ioeventfd(ptr noundef nonnull %bus) #14
   br label %if.end15
 
 if.else:                                          ; preds = %virtio_bus_get_device.exit
-  tail call void @virtio_bus_stop_ioeventfd(ptr noundef nonnull %bus) #13
+  tail call void @virtio_bus_stop_ioeventfd(ptr noundef nonnull %bus) #14
   br label %if.end15
 
 if.end15:                                         ; preds = %if.else, %if.end
@@ -1203,7 +1203,7 @@ if.end15:                                         ; preds = %if.else, %if.end
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @virtio_pci_pre_plugged(ptr noundef %d, ptr nocapture readnone %errp) #0 {
 entry:
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %d, ptr noundef nonnull @.str, ptr noundef nonnull @.str.14, i32 noundef 102, ptr noundef nonnull @__func__.VIRTIO_PCI) #13
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %d, ptr noundef nonnull @.str, ptr noundef nonnull @.str.14, i32 noundef 102, ptr noundef nonnull @__func__.VIRTIO_PCI) #14
   %0 = getelementptr i8, ptr %call.i, i64 33696
   %bus.val = load ptr, ptr %0, align 8, !nonnull !7, !noundef !7
   %child.i = getelementptr inbounds i8, ptr %bus.val, i64 16
@@ -1224,7 +1224,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @virtio_pci_device_plugged(ptr noundef %d, ptr noundef %errp) #0 {
 entry:
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %d, ptr noundef nonnull @.str, ptr noundef nonnull @.str.14, i32 noundef 102, ptr noundef nonnull @__func__.VIRTIO_PCI) #13
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %d, ptr noundef nonnull @.str, ptr noundef nonnull @.str.14, i32 noundef 102, ptr noundef nonnull @__func__.VIRTIO_PCI) #14
   %bus1 = getelementptr inbounds i8, ptr %call.i, i64 33616
   %0 = getelementptr i8, ptr %call.i, i64 4892
   %call.val76 = load i32, ptr %0, align 4
@@ -1263,8 +1263,8 @@ if.then:                                          ; preds = %land.lhs.true
   br i1 %cmp.i, label %if.end10, label %if.then9
 
 if.then9:                                         ; preds = %if.then
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.5, i32 noundef 1944, ptr noundef nonnull @__func__.virtio_pci_device_plugged, ptr noundef nonnull @.str.41) #13
-  tail call void (ptr, ptr, ...) @error_append_hint(ptr noundef %errp, ptr noundef nonnull @.str.42) #13
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.5, i32 noundef 1944, ptr noundef nonnull @__func__.virtio_pci_device_plugged, ptr noundef nonnull @.str.41) #14
+  tail call void (ptr, ptr, ...) @error_append_hint(ptr noundef %errp, ptr noundef nonnull @.str.42) #14
   br label %if.end103
 
 if.end10:                                         ; preds = %if.then, %land.lhs.true, %virtio_bus_get_device.exit
@@ -1288,19 +1288,19 @@ if.end17:                                         ; preds = %if.then15, %if.end1
   br i1 %cmp.i, label %if.then19, label %if.else34
 
 if.then19:                                        ; preds = %if.end17
-  %call20 = tail call zeroext i1 @virtio_legacy_allowed(ptr noundef %cond.i) #13
+  %call20 = tail call zeroext i1 @virtio_legacy_allowed(ptr noundef %cond.i) #14
   br i1 %call20, label %if.end25, label %if.then21
 
 if.then21:                                        ; preds = %if.then19
-  %call22 = tail call zeroext i1 @virtio_legacy_check_disabled(ptr noundef %cond.i) #13
+  %call22 = tail call zeroext i1 @virtio_legacy_check_disabled(ptr noundef %cond.i) #14
   br i1 %call22, label %if.then23, label %if.else
 
 if.then23:                                        ; preds = %if.then21
-  tail call void (ptr, ...) @warn_report(ptr noundef nonnull @.str.43) #13
+  tail call void (ptr, ...) @warn_report(ptr noundef nonnull @.str.43) #14
   br label %if.end25
 
 if.else:                                          ; preds = %if.then21
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.5, i32 noundef 1969, ptr noundef nonnull @__func__.virtio_pci_device_plugged, ptr noundef nonnull @.str.44) #13
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.5, i32 noundef 1969, ptr noundef nonnull @__func__.virtio_pci_device_plugged, ptr noundef nonnull @.str.44) #14
   br label %if.end103
 
 if.end25:                                         ; preds = %if.then23, %if.then19
@@ -1311,12 +1311,12 @@ if.end25:                                         ; preds = %if.then23, %if.then
   br i1 %tobool.i.i.not, label %if.end28, label %if.then27
 
 if.then27:                                        ; preds = %if.end25
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.5, i32 noundef 1975, ptr noundef nonnull @__func__.virtio_pci_device_plugged, ptr noundef nonnull @.str.45) #13
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.5, i32 noundef 1975, ptr noundef nonnull @__func__.virtio_pci_device_plugged, ptr noundef nonnull @.str.45) #14
   br label %if.end103
 
 if.end28:                                         ; preds = %if.end25
   %add.ptr = getelementptr i8, ptr %7, i64 46
-  %call29 = tail call zeroext i16 @virtio_bus_get_vdev_id(ptr noundef nonnull %bus1) #13
+  %call29 = tail call zeroext i16 @virtio_bus_get_vdev_id(ptr noundef nonnull %bus1) #14
   store i16 %call29, ptr %add.ptr, align 1
   %trans_devid = getelementptr inbounds i8, ptr %call.i, i64 4896
   %10 = load i16, ptr %trans_devid, align 16
@@ -1331,7 +1331,7 @@ if.then31:                                        ; preds = %if.end28
 if.else34:                                        ; preds = %if.end17
   store i16 6900, ptr %7, align 1
   %add.ptr36 = getelementptr i8, ptr %7, i64 2
-  %call37 = tail call zeroext i16 @virtio_bus_get_vdev_id(ptr noundef nonnull %bus1) #13
+  %call37 = tail call zeroext i16 @virtio_bus_get_vdev_id(ptr noundef nonnull %bus1) #14
   %add = add i16 %call37, 4160
   store i16 %add, ptr %add.ptr36, align 1
   %arrayidx.i79 = getelementptr i8, ptr %7, i64 8
@@ -1347,43 +1347,43 @@ virtio_pci_modern_mem_region_map.exit153:         ; preds = %if.end40
   %call.val75 = load i32, ptr %flags, align 4
   %name = getelementptr inbounds i8, ptr %cond.i, i64 160
   %11 = load ptr, ptr %name, align 8
-  %call.i83 = tail call ptr @g_string_new(ptr noundef null) #13
-  tail call void (ptr, ptr, ...) @g_string_printf(ptr noundef %call.i83, ptr noundef nonnull @.str.48, ptr noundef %11) #13
+  %call.i83 = tail call ptr @g_string_new(ptr noundef null) #14
+  tail call void (ptr, ptr, ...) @g_string_printf(ptr noundef %call.i83, ptr noundef nonnull @.str.48, ptr noundef %11) #14
   %12 = getelementptr inbounds i8, ptr %call.i, i64 2880
   %13 = load ptr, ptr %call.i83, align 8
   %size.i = getelementptr inbounds i8, ptr %call.i, i64 3156
   %14 = load i32, ptr %size.i, align 4
   %conv.i = zext i32 %14 to i64
-  tail call void @memory_region_init_io(ptr noundef nonnull %12, ptr noundef nonnull %call.i, ptr noundef nonnull @virtio_pci_modern_regions_init.common_ops, ptr noundef nonnull %call.i, ptr noundef %13, i64 noundef %conv.i) #13
-  tail call void (ptr, ptr, ...) @g_string_printf(ptr noundef nonnull %call.i83, ptr noundef nonnull @.str.49, ptr noundef %11) #13
+  tail call void @memory_region_init_io(ptr noundef nonnull %12, ptr noundef nonnull %call.i, ptr noundef nonnull @virtio_pci_modern_regions_init.common_ops, ptr noundef nonnull %call.i, ptr noundef %13, i64 noundef %conv.i) #14
+  tail call void (ptr, ptr, ...) @g_string_printf(ptr noundef nonnull %call.i83, ptr noundef nonnull @.str.49, ptr noundef %11) #14
   %isr.i = getelementptr inbounds i8, ptr %call.i, i64 3168
   %15 = load ptr, ptr %call.i83, align 8
   %size5.i = getelementptr inbounds i8, ptr %call.i, i64 3444
   %16 = load i32, ptr %size5.i, align 4
   %conv6.i = zext i32 %16 to i64
-  tail call void @memory_region_init_io(ptr noundef nonnull %isr.i, ptr noundef nonnull %call.i, ptr noundef nonnull @virtio_pci_modern_regions_init.isr_ops, ptr noundef nonnull %call.i, ptr noundef %15, i64 noundef %conv6.i) #13
-  tail call void (ptr, ptr, ...) @g_string_printf(ptr noundef nonnull %call.i83, ptr noundef nonnull @.str.50, ptr noundef %11) #13
+  tail call void @memory_region_init_io(ptr noundef nonnull %isr.i, ptr noundef nonnull %call.i, ptr noundef nonnull @virtio_pci_modern_regions_init.isr_ops, ptr noundef nonnull %call.i, ptr noundef %15, i64 noundef %conv6.i) #14
+  tail call void (ptr, ptr, ...) @g_string_printf(ptr noundef nonnull %call.i83, ptr noundef nonnull @.str.50, ptr noundef %11) #14
   %device.i = getelementptr inbounds i8, ptr %call.i, i64 3456
   %17 = load ptr, ptr %call.i83, align 8
   %size10.i = getelementptr inbounds i8, ptr %call.i, i64 3732
   %18 = load i32, ptr %size10.i, align 4
   %conv11.i = zext i32 %18 to i64
-  tail call void @memory_region_init_io(ptr noundef nonnull %device.i, ptr noundef nonnull %call.i, ptr noundef nonnull @virtio_pci_modern_regions_init.device_ops, ptr noundef nonnull %call.i, ptr noundef %17, i64 noundef %conv11.i) #13
-  tail call void (ptr, ptr, ...) @g_string_printf(ptr noundef nonnull %call.i83, ptr noundef nonnull @.str.51, ptr noundef %11) #13
+  tail call void @memory_region_init_io(ptr noundef nonnull %device.i, ptr noundef nonnull %call.i, ptr noundef nonnull @virtio_pci_modern_regions_init.device_ops, ptr noundef nonnull %call.i, ptr noundef %17, i64 noundef %conv11.i) #14
+  tail call void (ptr, ptr, ...) @g_string_printf(ptr noundef nonnull %call.i83, ptr noundef nonnull @.str.51, ptr noundef %11) #14
   %notify.i = getelementptr inbounds i8, ptr %call.i, i64 3744
   %19 = load ptr, ptr %call.i83, align 8
   %size15.i = getelementptr inbounds i8, ptr %call.i, i64 4020
   %20 = load i32, ptr %size15.i, align 4
   %conv16.i = zext i32 %20 to i64
-  tail call void @memory_region_init_io(ptr noundef nonnull %notify.i, ptr noundef nonnull %call.i, ptr noundef nonnull @virtio_pci_modern_regions_init.notify_ops, ptr noundef nonnull %call.i, ptr noundef %19, i64 noundef %conv16.i) #13
-  tail call void (ptr, ptr, ...) @g_string_printf(ptr noundef nonnull %call.i83, ptr noundef nonnull @.str.52, ptr noundef %11) #13
+  tail call void @memory_region_init_io(ptr noundef nonnull %notify.i, ptr noundef nonnull %call.i, ptr noundef nonnull @virtio_pci_modern_regions_init.notify_ops, ptr noundef nonnull %call.i, ptr noundef %19, i64 noundef %conv16.i) #14
+  tail call void (ptr, ptr, ...) @g_string_printf(ptr noundef nonnull %call.i83, ptr noundef nonnull @.str.52, ptr noundef %11) #14
   %notify_pio.i = getelementptr inbounds i8, ptr %call.i, i64 4032
   %21 = load ptr, ptr %call.i83, align 8
   %size20.i = getelementptr inbounds i8, ptr %call.i, i64 4308
   %22 = load i32, ptr %size20.i, align 4
   %conv21.i = zext i32 %22 to i64
-  tail call void @memory_region_init_io(ptr noundef nonnull %notify_pio.i, ptr noundef nonnull %call.i, ptr noundef nonnull @virtio_pci_modern_regions_init.notify_pio_ops, ptr noundef nonnull %call.i, ptr noundef %21, i64 noundef %conv21.i) #13
-  %call.i.i.i.i = tail call ptr @g_string_free(ptr noundef nonnull %call.i83, i32 noundef 1) #13
+  tail call void @memory_region_init_io(ptr noundef nonnull %notify_pio.i, ptr noundef nonnull %call.i, ptr noundef nonnull @virtio_pci_modern_regions_init.notify_pio_ops, ptr noundef nonnull %call.i, ptr noundef %21, i64 noundef %conv21.i) #14
+  %call.i.i.i.i = tail call ptr @g_string_free(ptr noundef nonnull %call.i83, i32 noundef 1) #14
   %modern_bar.i = getelementptr inbounds i8, ptr %call.i, i64 4320
   %modern_mem_bar_idx.i = getelementptr inbounds i8, ptr %call.i, i64 4876
   %23 = load i32, ptr %modern_mem_bar_idx.i, align 4
@@ -1391,12 +1391,12 @@ virtio_pci_modern_mem_region_map.exit153:         ; preds = %if.end40
   %offset.i.i = getelementptr inbounds i8, ptr %call.i, i64 3152
   %24 = load i32, ptr %offset.i.i, align 16
   %conv.i.i = zext i32 %24 to i64
-  tail call void @memory_region_add_subregion(ptr noundef nonnull %modern_bar.i, i64 noundef %conv.i.i, ptr noundef nonnull %12) #13
+  tail call void @memory_region_add_subregion(ptr noundef nonnull %modern_bar.i, i64 noundef %conv.i.i, ptr noundef nonnull %12) #14
   %type.i.i = getelementptr inbounds i8, ptr %call.i, i64 3160
   %25 = load i32, ptr %type.i.i, align 8
   %conv2.i.i = trunc i32 %25 to i8
   %26 = load <2 x i32>, ptr %offset.i.i, align 16
-  %call.i.i.i = tail call i32 @pci_add_capability(ptr noundef nonnull %call.i, i8 noundef zeroext 9, i8 noundef zeroext 0, i8 noundef zeroext 16, ptr noundef nonnull @error_abort) #13
+  %call.i.i.i = tail call i32 @pci_add_capability(ptr noundef nonnull %call.i, i8 noundef zeroext 9, i8 noundef zeroext 0, i8 noundef zeroext 16, ptr noundef nonnull @error_abort) #14
   %and.i80 = and i32 %call.val75, 32
   %tobool.not.i81 = icmp eq i32 %and.i80, 0
   %cond.i82 = select i1 %tobool.not.i81, i32 4, i32 4096
@@ -1418,12 +1418,12 @@ virtio_pci_modern_mem_region_map.exit153:         ; preds = %if.end40
   %offset.i.i88 = getelementptr inbounds i8, ptr %call.i, i64 3440
   %29 = load i32, ptr %offset.i.i88, align 16
   %conv.i.i89 = zext i32 %29 to i64
-  tail call void @memory_region_add_subregion(ptr noundef nonnull %modern_bar.i, i64 noundef %conv.i.i89, ptr noundef nonnull %isr.i) #13
+  tail call void @memory_region_add_subregion(ptr noundef nonnull %modern_bar.i, i64 noundef %conv.i.i89, ptr noundef nonnull %isr.i) #14
   %type.i.i90 = getelementptr inbounds i8, ptr %call.i, i64 3448
   %30 = load i32, ptr %type.i.i90, align 8
   %conv2.i.i91 = trunc i32 %30 to i8
   %31 = load <2 x i32>, ptr %offset.i.i88, align 16
-  %call.i.i.i98 = tail call i32 @pci_add_capability(ptr noundef nonnull %call.i, i8 noundef zeroext 9, i8 noundef zeroext 0, i8 noundef zeroext 16, ptr noundef nonnull @error_abort) #13
+  %call.i.i.i98 = tail call i32 @pci_add_capability(ptr noundef nonnull %call.i, i8 noundef zeroext 9, i8 noundef zeroext 0, i8 noundef zeroext 16, ptr noundef nonnull @error_abort) #14
   %32 = load ptr, ptr %config13, align 8
   %idx.ext.i.i.i102 = sext i32 %call.i.i.i98 to i64
   %add.ptr.i.i.i103 = getelementptr i8, ptr %32, i64 %idx.ext.i.i.i102
@@ -1442,12 +1442,12 @@ virtio_pci_modern_mem_region_map.exit153:         ; preds = %if.end40
   %offset.i.i111 = getelementptr inbounds i8, ptr %call.i, i64 3728
   %34 = load i32, ptr %offset.i.i111, align 16
   %conv.i.i112 = zext i32 %34 to i64
-  tail call void @memory_region_add_subregion(ptr noundef nonnull %modern_bar.i, i64 noundef %conv.i.i112, ptr noundef nonnull %device.i) #13
+  tail call void @memory_region_add_subregion(ptr noundef nonnull %modern_bar.i, i64 noundef %conv.i.i112, ptr noundef nonnull %device.i) #14
   %type.i.i113 = getelementptr inbounds i8, ptr %call.i, i64 3736
   %35 = load i32, ptr %type.i.i113, align 8
   %conv2.i.i114 = trunc i32 %35 to i8
   %36 = load <2 x i32>, ptr %offset.i.i111, align 16
-  %call.i.i.i121 = tail call i32 @pci_add_capability(ptr noundef nonnull %call.i, i8 noundef zeroext 9, i8 noundef zeroext 0, i8 noundef zeroext 16, ptr noundef nonnull @error_abort) #13
+  %call.i.i.i121 = tail call i32 @pci_add_capability(ptr noundef nonnull %call.i, i8 noundef zeroext 9, i8 noundef zeroext 0, i8 noundef zeroext 16, ptr noundef nonnull @error_abort) #14
   %37 = load ptr, ptr %config13, align 8
   %idx.ext.i.i.i125 = sext i32 %call.i.i.i121 to i64
   %add.ptr.i.i.i126 = getelementptr i8, ptr %37, i64 %idx.ext.i.i.i125
@@ -1466,12 +1466,12 @@ virtio_pci_modern_mem_region_map.exit153:         ; preds = %if.end40
   %offset.i.i134 = getelementptr inbounds i8, ptr %call.i, i64 4016
   %39 = load i32, ptr %offset.i.i134, align 16
   %conv.i.i135 = zext i32 %39 to i64
-  tail call void @memory_region_add_subregion(ptr noundef nonnull %modern_bar.i, i64 noundef %conv.i.i135, ptr noundef nonnull %notify.i) #13
+  tail call void @memory_region_add_subregion(ptr noundef nonnull %modern_bar.i, i64 noundef %conv.i.i135, ptr noundef nonnull %notify.i) #14
   %type.i.i136 = getelementptr inbounds i8, ptr %call.i, i64 4024
   %40 = load i32, ptr %type.i.i136, align 8
   %conv2.i.i137 = trunc i32 %40 to i8
   %41 = load <2 x i32>, ptr %offset.i.i134, align 16
-  %call.i.i.i144 = tail call i32 @pci_add_capability(ptr noundef nonnull %call.i, i8 noundef zeroext 9, i8 noundef zeroext 0, i8 noundef zeroext 20, ptr noundef nonnull @error_abort) #13
+  %call.i.i.i144 = tail call i32 @pci_add_capability(ptr noundef nonnull %call.i, i8 noundef zeroext 9, i8 noundef zeroext 0, i8 noundef zeroext 20, ptr noundef nonnull @error_abort) #14
   %42 = load ptr, ptr %config13, align 8
   %idx.ext.i.i.i148 = sext i32 %call.i.i.i144 to i64
   %add.ptr.i.i.i149 = getelementptr i8, ptr %42, i64 %idx.ext.i.i.i148
@@ -1491,21 +1491,21 @@ virtio_pci_modern_mem_region_map.exit153:         ; preds = %if.end40
 
 virtio_pci_modern_io_region_map.exit:             ; preds = %virtio_pci_modern_mem_region_map.exit153
   %io_bar = getelementptr inbounds i8, ptr %call.i, i64 4592
-  tail call void @memory_region_init(ptr noundef nonnull %io_bar, ptr noundef nonnull %call.i, ptr noundef nonnull @.str.46, i64 noundef 4) #13
+  tail call void @memory_region_init(ptr noundef nonnull %io_bar, ptr noundef nonnull %call.i, ptr noundef nonnull @.str.46, i64 noundef 4) #14
   %modern_io_bar_idx = getelementptr inbounds i8, ptr %call.i, i64 4872
   %43 = load i32, ptr %modern_io_bar_idx, align 8
-  tail call void @pci_register_bar(ptr noundef nonnull %call.i, i32 noundef %43, i8 noundef zeroext 1, ptr noundef nonnull %io_bar) #13
+  tail call void @pci_register_bar(ptr noundef nonnull %call.i, i32 noundef %43, i8 noundef zeroext 1, ptr noundef nonnull %io_bar) #14
   %44 = load i32, ptr %modern_io_bar_idx, align 8
   %conv.i154 = trunc i32 %44 to i8
   %offset.i.i155 = getelementptr inbounds i8, ptr %call.i, i64 4304
   %45 = load i32, ptr %offset.i.i155, align 16
   %conv.i.i156 = zext i32 %45 to i64
-  tail call void @memory_region_add_subregion(ptr noundef nonnull %io_bar, i64 noundef %conv.i.i156, ptr noundef nonnull %notify_pio.i) #13
+  tail call void @memory_region_add_subregion(ptr noundef nonnull %io_bar, i64 noundef %conv.i.i156, ptr noundef nonnull %notify_pio.i) #14
   %type.i.i157 = getelementptr inbounds i8, ptr %call.i, i64 4312
   %46 = load i32, ptr %type.i.i157, align 8
   %conv2.i.i158 = trunc i32 %46 to i8
   %47 = load <2 x i32>, ptr %offset.i.i155, align 16
-  %call.i.i.i165 = tail call i32 @pci_add_capability(ptr noundef nonnull %call.i, i8 noundef zeroext 9, i8 noundef zeroext 0, i8 noundef zeroext 20, ptr noundef nonnull @error_abort) #13
+  %call.i.i.i165 = tail call i32 @pci_add_capability(ptr noundef nonnull %call.i, i8 noundef zeroext 9, i8 noundef zeroext 0, i8 noundef zeroext 20, ptr noundef nonnull @error_abort) #14
   %48 = load ptr, ptr %config13, align 8
   %idx.ext.i.i.i169 = sext i32 %call.i.i.i165 to i64
   %add.ptr.i.i.i170 = getelementptr i8, ptr %48, i64 %idx.ext.i.i.i169
@@ -1525,8 +1525,8 @@ virtio_pci_modern_io_region_map.exit:             ; preds = %virtio_pci_modern_m
 
 if.end58:                                         ; preds = %virtio_pci_modern_io_region_map.exit, %virtio_pci_modern_mem_region_map.exit153
   %49 = load i32, ptr %modern_mem_bar_idx.i, align 4
-  tail call void @pci_register_bar(ptr noundef nonnull %call.i, i32 noundef %49, i8 noundef zeroext 12, ptr noundef nonnull %modern_bar.i) #13
-  %call.i174 = tail call i32 @pci_add_capability(ptr noundef nonnull %call.i, i8 noundef zeroext 9, i8 noundef zeroext 0, i8 noundef zeroext 20, ptr noundef nonnull @error_abort) #13
+  tail call void @pci_register_bar(ptr noundef nonnull %call.i, i32 noundef %49, i8 noundef zeroext 12, ptr noundef nonnull %modern_bar.i) #14
+  %call.i174 = tail call i32 @pci_add_capability(ptr noundef nonnull %call.i, i8 noundef zeroext 9, i8 noundef zeroext 0, i8 noundef zeroext 20, ptr noundef nonnull @error_abort) #14
   %50 = load ptr, ptr %config13, align 8
   %idx.ext.i = sext i32 %call.i174 to i64
   %add.ptr.i = getelementptr i8, ptr %50, i64 %idx.ext.i
@@ -1558,7 +1558,7 @@ if.then70:                                        ; preds = %if.end68
   %msix_bar_idx = getelementptr inbounds i8, ptr %call.i, i64 4868
   %53 = load i32, ptr %msix_bar_idx, align 4
   %conv74 = trunc i32 %53 to i8
-  %call75 = tail call i32 @msix_init_exclusive_bar(ptr noundef nonnull %call.i, i16 noundef zeroext %conv73, i8 noundef zeroext %conv74, ptr noundef null) #13
+  %call75 = tail call i32 @msix_init_exclusive_bar(ptr noundef nonnull %call.i, i16 noundef zeroext %conv73, i8 noundef zeroext %conv74, ptr noundef null) #14
   switch i32 %call75, label %if.then79 [
     i32 0, label %if.end84
     i32 -95, label %if.end81
@@ -1566,7 +1566,7 @@ if.then70:                                        ; preds = %if.end68
 
 if.then79:                                        ; preds = %if.then70
   %54 = load i32, ptr %nvectors, align 8
-  tail call void (ptr, ...) @warn_report(ptr noundef nonnull @.str.47, i32 noundef %54) #13
+  tail call void (ptr, ...) @warn_report(ptr noundef nonnull @.str.47, i32 noundef %54) #14
   br label %if.end81
 
 if.end81:                                         ; preds = %if.then70, %if.then79
@@ -1581,10 +1581,10 @@ if.end84:                                         ; preds = %if.then70, %if.end8
   br i1 %cmp.i, label %if.then88, label %if.end103
 
 if.then88:                                        ; preds = %if.end84
-  %call90 = tail call i32 @msix_present(ptr noundef nonnull %call.i) #13
+  %call90 = tail call i32 @msix_present(ptr noundef nonnull %call.i) #14
   %tobool91.not = icmp eq i32 %call90, 0
   %cond = select i1 %tobool91.not, i64 20, i64 24
-  %call93 = tail call i64 @virtio_bus_get_vdev_config_len(ptr noundef nonnull %bus1) #13
+  %call93 = tail call i64 @virtio_bus_get_vdev_config_len(ptr noundef nonnull %bus1) #14
   %add94 = add i64 %cond, %call93
   %conv96 = and i64 %add94, 4294967295
   %sub.i177 = add nsw i64 %conv96, -1
@@ -1598,10 +1598,10 @@ if.then88:                                        ; preds = %if.end84
   %retval.0.i = select i1 %tobool.not.i178, i64 %conv.i179, i64 %shr.i
   %bar99 = getelementptr inbounds i8, ptr %call.i, i64 2608
   %conv100 = and i64 %retval.0.i, 4294967295
-  tail call void @memory_region_init_io(ptr noundef nonnull %bar99, ptr noundef nonnull %call.i, ptr noundef nonnull @virtio_pci_config_ops, ptr noundef nonnull %call.i, ptr noundef nonnull @.str, i64 noundef %conv100) #13
+  tail call void @memory_region_init_io(ptr noundef nonnull %bar99, ptr noundef nonnull %call.i, ptr noundef nonnull @virtio_pci_config_ops, ptr noundef nonnull %call.i, ptr noundef nonnull @.str, i64 noundef %conv100) #14
   %legacy_io_bar_idx = getelementptr inbounds i8, ptr %call.i, i64 4864
   %56 = load i32, ptr %legacy_io_bar_idx, align 16
-  tail call void @pci_register_bar(ptr noundef nonnull %call.i, i32 noundef %56, i8 noundef zeroext 1, ptr noundef nonnull %bar99) #13
+  tail call void @pci_register_bar(ptr noundef nonnull %call.i, i32 noundef %56, i8 noundef zeroext 1, ptr noundef nonnull %bar99) #14
   br label %if.end103
 
 if.end103:                                        ; preds = %if.then88, %if.end84, %if.then27, %if.else, %if.then9
@@ -1611,14 +1611,14 @@ if.end103:                                        ; preds = %if.then88, %if.end8
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @virtio_pci_device_unplugged(ptr noundef %d) #0 {
 entry:
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %d, ptr noundef nonnull @.str, ptr noundef nonnull @.str.14, i32 noundef 102, ptr noundef nonnull @__func__.VIRTIO_PCI) #13
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %d, ptr noundef nonnull @.str, ptr noundef nonnull @.str.14, i32 noundef 102, ptr noundef nonnull @__func__.VIRTIO_PCI) #14
   %0 = getelementptr i8, ptr %call.i, i64 4888
   %call.val = load i8, ptr %0, align 8
   %tobool.i = trunc i8 %call.val to i1
   %flags = getelementptr inbounds i8, ptr %call.i, i64 4884
   %1 = load i32, ptr %flags, align 4
   %bus.i = getelementptr inbounds i8, ptr %call.i, i64 33616
-  tail call void @virtio_bus_stop_ioeventfd(ptr noundef nonnull %bus.i) #13
+  tail call void @virtio_bus_stop_ioeventfd(ptr noundef nonnull %bus.i) #14
   br i1 %tobool.i, label %if.end6, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -1626,19 +1626,19 @@ if.then:                                          ; preds = %entry
   %tobool.not = icmp eq i32 %and, 0
   %2 = getelementptr inbounds i8, ptr %call.i, i64 2880
   %modern_bar.i = getelementptr inbounds i8, ptr %call.i, i64 4320
-  tail call void @memory_region_del_subregion(ptr noundef nonnull %modern_bar.i, ptr noundef nonnull %2) #13
+  tail call void @memory_region_del_subregion(ptr noundef nonnull %modern_bar.i, ptr noundef nonnull %2) #14
   %isr = getelementptr inbounds i8, ptr %call.i, i64 3168
-  tail call void @memory_region_del_subregion(ptr noundef nonnull %modern_bar.i, ptr noundef nonnull %isr) #13
+  tail call void @memory_region_del_subregion(ptr noundef nonnull %modern_bar.i, ptr noundef nonnull %isr) #14
   %device = getelementptr inbounds i8, ptr %call.i, i64 3456
-  tail call void @memory_region_del_subregion(ptr noundef nonnull %modern_bar.i, ptr noundef nonnull %device) #13
+  tail call void @memory_region_del_subregion(ptr noundef nonnull %modern_bar.i, ptr noundef nonnull %device) #14
   %notify = getelementptr inbounds i8, ptr %call.i, i64 3744
-  tail call void @memory_region_del_subregion(ptr noundef nonnull %modern_bar.i, ptr noundef nonnull %notify) #13
+  tail call void @memory_region_del_subregion(ptr noundef nonnull %modern_bar.i, ptr noundef nonnull %notify) #14
   br i1 %tobool.not, label %if.end6, label %if.then5
 
 if.then5:                                         ; preds = %if.then
   %notify_pio = getelementptr inbounds i8, ptr %call.i, i64 4032
   %io_bar.i = getelementptr inbounds i8, ptr %call.i, i64 4592
-  tail call void @memory_region_del_subregion(ptr noundef nonnull %io_bar.i, ptr noundef nonnull %notify_pio) #13
+  tail call void @memory_region_del_subregion(ptr noundef nonnull %io_bar.i, ptr noundef nonnull %notify_pio) #14
   br label %if.end6
 
 if.end6:                                          ; preds = %if.then, %if.then5, %entry
@@ -1648,14 +1648,14 @@ if.end6:                                          ; preds = %if.then, %if.then5,
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @virtio_pci_query_nvectors(ptr noundef %d) #0 {
 entry:
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %d, ptr noundef nonnull @.str, ptr noundef nonnull @.str.14, i32 noundef 102, ptr noundef nonnull @__func__.VIRTIO_PCI) #13
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %d, ptr noundef nonnull @.str, ptr noundef nonnull @.str.14, i32 noundef 102, ptr noundef nonnull @__func__.VIRTIO_PCI) #14
   %nvectors = getelementptr inbounds i8, ptr %call.i, i64 4904
   %0 = load i32, ptr %nvectors, align 8
   ret i32 %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @virtio_pci_ioeventfd_enabled(ptr nocapture noundef readonly %d) #5 {
+define internal zeroext i1 @virtio_pci_ioeventfd_enabled(ptr nocapture noundef readonly %d) #6 {
 entry:
   %flags = getelementptr inbounds i8, ptr %d, i64 4884
   %0 = load i32, ptr %flags, align 4
@@ -1679,7 +1679,7 @@ cond.true.i:                                      ; preds = %entry
 
 virtio_bus_get_device.exit:                       ; preds = %entry, %cond.true.i
   %cond.i = phi ptr [ %1, %cond.true.i ], [ null, %entry ]
-  %call2 = tail call ptr @virtio_get_queue(ptr noundef %cond.i, i32 noundef %n) #13
+  %call2 = tail call ptr @virtio_get_queue(ptr noundef %cond.i, i32 noundef %n) #14
   %2 = getelementptr i8, ptr %d, i64 4892
   %call.val28 = load i32, ptr %2, align 4
   %cmp.i = icmp eq i32 %call.val28, 2
@@ -1695,7 +1695,7 @@ virtio_bus_get_device.exit:                       ; preds = %entry, %cond.true.i
   %bar = getelementptr inbounds i8, ptr %d, i64 2608
   %and.i = and i32 %4, 32
   %tobool.not.i29 = icmp eq i32 %and.i, 0
-  %call10 = tail call zeroext i16 @virtio_get_queue_index(ptr noundef %call2) #13
+  %call10 = tail call zeroext i16 @virtio_get_queue_index(ptr noundef %call2) #14
   %conv = zext i16 %call10 to i32
   %5 = select i1 %tobool.not.i29, i32 2, i32 12
   %mul = shl nuw nsw i32 %conv, %5
@@ -1707,11 +1707,11 @@ if.then:                                          ; preds = %virtio_bus_get_devi
 
 if.then14:                                        ; preds = %if.then
   %conv15 = sext i32 %n to i64
-  tail call void @memory_region_add_eventfd(ptr noundef nonnull %notify, i64 noundef %conv11, i32 noundef 0, i1 noundef zeroext false, i64 noundef %conv15, ptr noundef %notifier) #13
+  tail call void @memory_region_add_eventfd(ptr noundef nonnull %notify, i64 noundef %conv11, i32 noundef 0, i1 noundef zeroext false, i64 noundef %conv15, ptr noundef %notifier) #14
   br i1 %tobool.not, label %if.end19, label %if.then17
 
 if.then17:                                        ; preds = %if.then14
-  tail call void @memory_region_add_eventfd(ptr noundef nonnull %notify_pio, i64 noundef 0, i32 noundef 2, i1 noundef zeroext true, i64 noundef %conv15, ptr noundef %notifier) #13
+  tail call void @memory_region_add_eventfd(ptr noundef nonnull %notify_pio, i64 noundef 0, i32 noundef 2, i1 noundef zeroext true, i64 noundef %conv15, ptr noundef %notifier) #14
   br label %if.end19
 
 if.end19:                                         ; preds = %if.then14, %if.then17, %if.then
@@ -1719,7 +1719,7 @@ if.end19:                                         ; preds = %if.then14, %if.then
 
 if.then21:                                        ; preds = %if.end19
   %conv22 = sext i32 %n to i64
-  tail call void @memory_region_add_eventfd(ptr noundef nonnull %bar, i64 noundef 16, i32 noundef 2, i1 noundef zeroext true, i64 noundef %conv22, ptr noundef %notifier) #13
+  tail call void @memory_region_add_eventfd(ptr noundef nonnull %bar, i64 noundef 16, i32 noundef 2, i1 noundef zeroext true, i64 noundef %conv22, ptr noundef %notifier) #14
   br label %if.end36
 
 if.else:                                          ; preds = %virtio_bus_get_device.exit
@@ -1727,11 +1727,11 @@ if.else:                                          ; preds = %virtio_bus_get_devi
 
 if.then25:                                        ; preds = %if.else
   %conv26 = sext i32 %n to i64
-  tail call void @memory_region_del_eventfd(ptr noundef nonnull %notify, i64 noundef %conv11, i32 noundef 0, i1 noundef zeroext false, i64 noundef %conv26, ptr noundef %notifier) #13
+  tail call void @memory_region_del_eventfd(ptr noundef nonnull %notify, i64 noundef %conv11, i32 noundef 0, i1 noundef zeroext false, i64 noundef %conv26, ptr noundef %notifier) #14
   br i1 %tobool.not, label %if.end31, label %if.then28
 
 if.then28:                                        ; preds = %if.then25
-  tail call void @memory_region_del_eventfd(ptr noundef nonnull %notify_pio, i64 noundef 0, i32 noundef 2, i1 noundef zeroext true, i64 noundef %conv26, ptr noundef %notifier) #13
+  tail call void @memory_region_del_eventfd(ptr noundef nonnull %notify_pio, i64 noundef 0, i32 noundef 2, i1 noundef zeroext true, i64 noundef %conv26, ptr noundef %notifier) #14
   br label %if.end31
 
 if.end31:                                         ; preds = %if.then25, %if.then28, %if.else
@@ -1739,7 +1739,7 @@ if.end31:                                         ; preds = %if.then25, %if.then
 
 if.then33:                                        ; preds = %if.end31
   %conv34 = sext i32 %n to i64
-  tail call void @memory_region_del_eventfd(ptr noundef nonnull %bar, i64 noundef 16, i32 noundef 2, i1 noundef zeroext true, i64 noundef %conv34, ptr noundef %notifier) #13
+  tail call void @memory_region_del_eventfd(ptr noundef nonnull %bar, i64 noundef 16, i32 noundef 2, i1 noundef zeroext true, i64 noundef %conv34, ptr noundef %notifier) #14
   br label %if.end36
 
 if.end36:                                         ; preds = %if.end31, %if.then33, %if.end19, %if.then21
@@ -1749,7 +1749,7 @@ if.end36:                                         ; preds = %if.end31, %if.then3
 ; Function Attrs: nounwind sspstrong uwtable
 define internal nonnull ptr @virtio_pci_get_dma_as(ptr noundef %d) #0 {
 entry:
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %d, ptr noundef nonnull @.str, ptr noundef nonnull @.str.14, i32 noundef 102, ptr noundef nonnull @__func__.VIRTIO_PCI) #13
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %d, ptr noundef nonnull @.str, ptr noundef nonnull @.str.14, i32 noundef 102, ptr noundef nonnull @__func__.VIRTIO_PCI) #14
   %bus_master_as.i = getelementptr inbounds i8, ptr %call.i, i64 576
   ret ptr %bus_master_as.i
 }
@@ -1757,8 +1757,8 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal zeroext i1 @virtio_pci_iommu_enabled(ptr noundef %d) #0 {
 entry:
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %d, ptr noundef nonnull @.str, ptr noundef nonnull @.str.14, i32 noundef 102, ptr noundef nonnull @__func__.VIRTIO_PCI) #13
-  %call1 = tail call ptr @pci_device_iommu_address_space(ptr noundef %call.i) #13
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %d, ptr noundef nonnull @.str, ptr noundef nonnull @.str.14, i32 noundef 102, ptr noundef nonnull @__func__.VIRTIO_PCI) #14
+  %call1 = tail call ptr @pci_device_iommu_address_space(ptr noundef %call.i) #14
   %cmp = icmp ne ptr %call1, @address_space_memory
   ret i1 %cmp
 }
@@ -1766,7 +1766,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal zeroext i1 @virtio_pci_queue_enabled(ptr noundef %d, i32 noundef %n) #0 {
 entry:
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %d, ptr noundef nonnull @.str, ptr noundef nonnull @.str.14, i32 noundef 102, ptr noundef nonnull @__func__.VIRTIO_PCI) #13
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %d, ptr noundef nonnull @.str, ptr noundef nonnull @.str.14, i32 noundef 102, ptr noundef nonnull @__func__.VIRTIO_PCI) #14
   %0 = getelementptr i8, ptr %call.i, i64 33696
   %bus.val = load ptr, ptr %0, align 8
   %tobool.not.i = icmp eq ptr %bus.val, null
@@ -1794,7 +1794,7 @@ if.then:                                          ; preds = %virtio_bus_get_devi
   br label %return
 
 if.end:                                           ; preds = %virtio_bus_get_device.exit
-  %call3 = tail call zeroext i1 @virtio_queue_enabled_legacy(ptr noundef nonnull %cond.i, i32 noundef %n) #13
+  %call3 = tail call zeroext i1 @virtio_queue_enabled_legacy(ptr noundef nonnull %cond.i, i32 noundef %n) #14
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
@@ -1833,7 +1833,7 @@ declare void @virtio_queue_set_vector(ptr noundef, i32 noundef, i16 noundef zero
 declare i32 @vmstate_save_state(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @virtio_pci_modern_state_needed(ptr nocapture noundef readonly %opaque) #5 {
+define internal zeroext i1 @virtio_pci_modern_state_needed(ptr nocapture noundef readonly %opaque) #6 {
 entry:
   %0 = getelementptr i8, ptr %opaque, i64 4888
   %opaque.val = load i8, ptr %0, align 8
@@ -1847,8 +1847,8 @@ declare i32 @vmstate_load_state(ptr noundef, ptr noundef, ptr noundef, i32 nound
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc ptr @VIRTIO_DEVICE_GET_CLASS(ptr noundef %obj) unnamed_addr #0 {
 entry:
-  %call = tail call ptr @object_get_class(ptr noundef %obj) #13
-  %call1 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.38, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_GET_CLASS) #13
+  %call = tail call ptr @object_get_class(ptr noundef %obj) #14
+  %call1 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.38, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_GET_CLASS) #14
   ret ptr %call1
 }
 
@@ -1874,7 +1874,7 @@ virtio_bus_get_device.exit:                       ; preds = %entry, %cond.true.i
 
 for.body:                                         ; preds = %virtio_bus_get_device.exit, %if.end
   %queue_no.06 = phi i32 [ %inc, %if.end ], [ 0, %virtio_bus_get_device.exit ]
-  %call1 = tail call i32 @virtio_queue_get_num(ptr noundef %cond.i, i32 noundef %queue_no.06) #13
+  %call1 = tail call i32 @virtio_queue_get_num(ptr noundef %cond.i, i32 noundef %queue_no.06) #14
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %for.end, label %if.end
 
@@ -1905,53 +1905,53 @@ cond.true.i:                                      ; preds = %entry
 
 virtio_bus_get_device.exit:                       ; preds = %entry, %cond.true.i
   %cond.i = phi ptr [ %1, %cond.true.i ], [ null, %entry ]
-  %call.i = tail call ptr @object_get_class(ptr noundef %cond.i) #13
-  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.38, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_GET_CLASS) #13
+  %call.i = tail call ptr @object_get_class(ptr noundef %cond.i) #14
+  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.38, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_GET_CLASS) #14
   %cmp = icmp eq i32 %n, -1
   br i1 %cmp, label %if.end, label %if.end.thread
 
 if.end:                                           ; preds = %virtio_bus_get_device.exit
-  %call4 = tail call ptr @virtio_config_get_guest_notifier(ptr noundef %cond.i) #13
+  %call4 = tail call ptr @virtio_config_get_guest_notifier(ptr noundef %cond.i) #14
   br i1 %assign, label %if.then7, label %if.then.i21
 
 if.end.thread:                                    ; preds = %virtio_bus_get_device.exit
-  %call5 = tail call ptr @virtio_get_queue(ptr noundef %cond.i, i32 noundef %n) #13
-  %call6 = tail call ptr @virtio_queue_get_guest_notifier(ptr noundef %call5) #13
+  %call5 = tail call ptr @virtio_get_queue(ptr noundef %cond.i, i32 noundef %n) #14
+  %call6 = tail call ptr @virtio_queue_get_guest_notifier(ptr noundef %call5) #14
   br i1 %assign, label %if.then7.thread, label %if.else.i20
 
 if.then7:                                         ; preds = %if.end
-  %call8 = tail call i32 @event_notifier_init(ptr noundef %call4, i32 noundef 0) #13
+  %call8 = tail call i32 @event_notifier_init(ptr noundef %call4, i32 noundef 0) #14
   %cmp9 = icmp slt i32 %call8, 0
   br i1 %cmp9, label %return, label %if.then.i
 
 if.then7.thread:                                  ; preds = %if.end.thread
-  %call836 = tail call i32 @event_notifier_init(ptr noundef %call6, i32 noundef 0) #13
+  %call836 = tail call i32 @event_notifier_init(ptr noundef %call6, i32 noundef 0) #14
   %cmp937 = icmp slt i32 %call836, 0
   br i1 %cmp937, label %return, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then7
-  tail call void @virtio_config_set_guest_notifier_fd_handler(ptr noundef %cond.i, i1 noundef zeroext true, i1 noundef zeroext %with_irqfd) #13
+  tail call void @virtio_config_set_guest_notifier_fd_handler(ptr noundef %cond.i, i1 noundef zeroext true, i1 noundef zeroext %with_irqfd) #14
   br label %if.end15
 
 if.else.i:                                        ; preds = %if.then7.thread
-  tail call void @virtio_queue_set_guest_notifier_fd_handler(ptr noundef %call5, i1 noundef zeroext true, i1 noundef zeroext %with_irqfd) #13
+  tail call void @virtio_queue_set_guest_notifier_fd_handler(ptr noundef %call5, i1 noundef zeroext true, i1 noundef zeroext %with_irqfd) #14
   br label %if.end15
 
 if.then.i21:                                      ; preds = %if.end
-  tail call void @virtio_config_set_guest_notifier_fd_handler(ptr noundef %cond.i, i1 noundef zeroext false, i1 noundef zeroext %with_irqfd) #13
+  tail call void @virtio_config_set_guest_notifier_fd_handler(ptr noundef %cond.i, i1 noundef zeroext false, i1 noundef zeroext %with_irqfd) #14
   br label %virtio_pci_set_guest_notifier_fd_handler.exit22
 
 if.else.i20:                                      ; preds = %if.end.thread
-  tail call void @virtio_queue_set_guest_notifier_fd_handler(ptr noundef %call5, i1 noundef zeroext false, i1 noundef zeroext %with_irqfd) #13
+  tail call void @virtio_queue_set_guest_notifier_fd_handler(ptr noundef %call5, i1 noundef zeroext false, i1 noundef zeroext %with_irqfd) #14
   br label %virtio_pci_set_guest_notifier_fd_handler.exit22
 
 virtio_pci_set_guest_notifier_fd_handler.exit22:  ; preds = %if.then.i21, %if.else.i20
   %notifier.02831 = phi ptr [ %call4, %if.then.i21 ], [ %call6, %if.else.i20 ]
-  tail call void @event_notifier_cleanup(ptr noundef %notifier.02831) #13
+  tail call void @event_notifier_cleanup(ptr noundef %notifier.02831) #14
   br label %if.end15
 
 if.end15:                                         ; preds = %if.else.i, %if.then.i, %virtio_pci_set_guest_notifier_fd_handler.exit22
-  %call16 = tail call i32 @msix_enabled(ptr noundef nonnull %d) #13
+  %call16 = tail call i32 @msix_enabled(ptr noundef nonnull %d) #14
   %tobool17.not = icmp eq i32 %call16, 0
   br i1 %tobool17.not, label %land.lhs.true, label %return
 
@@ -1969,7 +1969,7 @@ land.lhs.true19:                                  ; preds = %land.lhs.true
 
 if.then21:                                        ; preds = %land.lhs.true19
   %lnot = xor i1 %assign, true
-  tail call void %3(ptr noundef nonnull %cond.i, i32 noundef %n, i1 noundef zeroext %lnot) #13
+  tail call void %3(ptr noundef nonnull %cond.i, i32 noundef %n, i1 noundef zeroext %lnot) #14
   br label %return
 
 return:                                           ; preds = %if.then7.thread, %if.end15, %land.lhs.true, %land.lhs.true19, %if.then21, %if.then7
@@ -1978,7 +1978,7 @@ return:                                           ; preds = %if.then7.thread, %i
 }
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #6
+declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #7
 
 declare i32 @msix_nr_vectors_allocated(ptr noundef) local_unnamed_addr #1
 
@@ -2000,7 +2000,7 @@ cond.true.i:                                      ; preds = %entry
 virtio_bus_get_device.exit:                       ; preds = %entry, %cond.true.i
   %cond.i = phi ptr [ %1, %cond.true.i ], [ null, %entry ]
   %conv = trunc i32 %vector to i16
-  %call1 = tail call ptr @virtio_vector_first_queue(ptr noundef %cond.i, i16 noundef zeroext %conv) #13
+  %call1 = tail call ptr @virtio_vector_first_queue(ptr noundef %cond.i, i16 noundef zeroext %conv) #14
   %tobool.not62 = icmp eq ptr %call1, null
   br i1 %tobool.not62, label %while.end, label %while.body.lr.ph
 
@@ -2011,9 +2011,9 @@ while.body.lr.ph:                                 ; preds = %virtio_bus_get_devi
 while.body:                                       ; preds = %while.body.lr.ph, %if.end14
   %unmasked.064 = phi i32 [ 0, %while.body.lr.ph ], [ %unmasked.1, %if.end14 ]
   %vq.063 = phi ptr [ %call1, %while.body.lr.ph ], [ %call15, %if.end14 ]
-  %call2 = tail call zeroext i16 @virtio_get_queue_index(ptr noundef nonnull %vq.063) #13
+  %call2 = tail call zeroext i16 @virtio_get_queue_index(ptr noundef nonnull %vq.063) #14
   %conv3 = zext i16 %call2 to i32
-  %call4 = tail call i32 @virtio_queue_get_num(ptr noundef %cond.i, i32 noundef %conv3) #13
+  %call4 = tail call i32 @virtio_queue_get_num(ptr noundef %cond.i, i32 noundef %conv3) #14
   %tobool5.not = icmp eq i32 %call4, 0
   br i1 %tobool5.not, label %while.end, label %if.end
 
@@ -2023,7 +2023,7 @@ if.end:                                           ; preds = %while.body
   br i1 %cmp, label %if.then7, label %if.end14
 
 if.then7:                                         ; preds = %if.end
-  %call8 = tail call ptr @virtio_queue_get_guest_notifier(ptr noundef nonnull %vq.063) #13
+  %call8 = tail call ptr @virtio_queue_get_guest_notifier(ptr noundef nonnull %vq.063) #14
   %call9 = tail call fastcc i32 @virtio_pci_one_vector_unmask(ptr noundef nonnull %dev, i32 noundef %conv3, i32 noundef %vector, i64 %msg.coerce0, i32 %msg.coerce1, ptr noundef %call8)
   %cmp10 = icmp slt i32 %call9, 0
   br i1 %cmp10, label %undo, label %if.end13
@@ -2034,7 +2034,7 @@ if.end13:                                         ; preds = %if.then7
 
 if.end14:                                         ; preds = %if.end13, %if.end
   %unmasked.1 = phi i32 [ %inc, %if.end13 ], [ %unmasked.064, %if.end ]
-  %call15 = tail call ptr @virtio_vector_next_queue(ptr noundef nonnull %vq.063) #13
+  %call15 = tail call ptr @virtio_vector_next_queue(ptr noundef nonnull %vq.063) #14
   %tobool.not = icmp eq ptr %call15, null
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !12
 
@@ -2047,13 +2047,13 @@ while.end:                                        ; preds = %if.end14, %while.bo
   br i1 %cmp17, label %if.then19, label %return
 
 if.then19:                                        ; preds = %while.end
-  %call20 = tail call ptr @virtio_config_get_guest_notifier(ptr noundef nonnull %cond.i) #13
+  %call20 = tail call ptr @virtio_config_get_guest_notifier(ptr noundef nonnull %cond.i) #14
   %call21 = tail call fastcc i32 @virtio_pci_one_vector_unmask(ptr noundef nonnull %dev, i32 noundef -1, i32 noundef %vector, i64 %msg.coerce0, i32 %msg.coerce1, ptr noundef %call20)
   %cmp22 = icmp slt i32 %call21, 0
   br i1 %cmp22, label %undo_config, label %return
 
 undo_config:                                      ; preds = %if.then19
-  %call27 = tail call ptr @virtio_config_get_guest_notifier(ptr noundef nonnull %cond.i) #13
+  %call27 = tail call ptr @virtio_config_get_guest_notifier(ptr noundef nonnull %cond.i) #14
   %bus.val.i = load ptr, ptr %0, align 8
   %tobool.not.i.i = icmp eq ptr %bus.val.i, null
   br i1 %tobool.not.i.i, label %virtio_bus_get_device.exit.i, label %cond.true.i.i
@@ -2065,8 +2065,8 @@ cond.true.i.i:                                    ; preds = %undo_config
 
 virtio_bus_get_device.exit.i:                     ; preds = %cond.true.i.i, %undo_config
   %cond.i.i = phi ptr [ %4, %cond.true.i.i ], [ null, %undo_config ]
-  %call.i.i = tail call ptr @object_get_class(ptr noundef %cond.i.i) #13
-  %call1.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.38, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_GET_CLASS) #13
+  %call.i.i = tail call ptr @object_get_class(ptr noundef %cond.i.i) #14
+  %call1.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.38, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_GET_CLASS) #14
   %use_guest_notifier_mask.i = getelementptr inbounds i8, ptr %cond.i.i, i64 465
   %5 = load i8, ptr %use_guest_notifier_mask.i, align 1
   %tobool.i = trunc i8 %5 to i1
@@ -2079,7 +2079,7 @@ land.lhs.true.i:                                  ; preds = %virtio_bus_get_devi
   br i1 %tobool2.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void %6(ptr noundef nonnull %cond.i.i, i32 noundef -1, i1 noundef zeroext true) #13
+  tail call void %6(ptr noundef nonnull %cond.i.i, i32 noundef -1, i1 noundef zeroext true) #14
   br label %undo
 
 if.else.i:                                        ; preds = %land.lhs.true.i, %virtio_bus_get_device.exit.i
@@ -2089,18 +2089,18 @@ if.else.i:                                        ; preds = %land.lhs.true.i, %v
   %8 = load ptr, ptr @kvm_state, align 8
   %virq.i.i = getelementptr %struct.VirtIOIRQFD, ptr %proxy.val.i, i64 %idxprom.i.i, i32 1
   %9 = load i32, ptr %virq.i.i, align 8
-  %call.i5.i = tail call i32 @kvm_irqchip_remove_irqfd_notifier_gsi(ptr noundef %8, ptr noundef %call27, i32 noundef %9) #13
+  %call.i5.i = tail call i32 @kvm_irqchip_remove_irqfd_notifier_gsi(ptr noundef %8, ptr noundef %call27, i32 noundef %9) #14
   %cmp.i.i = icmp eq i32 %call.i5.i, 0
   br i1 %cmp.i.i, label %undo, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.else.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.5, i32 noundef 855, ptr noundef nonnull @__PRETTY_FUNCTION__.kvm_virtio_pci_irqfd_release) #14
+  tail call void @__assert_fail(ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.5, i32 noundef 855, ptr noundef nonnull @__PRETTY_FUNCTION__.kvm_virtio_pci_irqfd_release) #15
   unreachable
 
 undo:                                             ; preds = %if.then7, %if.else.i, %if.then.i
   %unmasked.061 = phi i32 [ %unmasked.0.lcssa, %if.then.i ], [ %unmasked.0.lcssa, %if.else.i ], [ %unmasked.064, %if.then7 ]
   %ret.0 = phi i32 [ %call21, %if.then.i ], [ %call21, %if.else.i ], [ %call9, %if.then7 ]
-  %call29 = tail call ptr @virtio_vector_first_queue(ptr noundef %cond.i, i16 noundef zeroext %conv) #13
+  %call29 = tail call ptr @virtio_vector_first_queue(ptr noundef %cond.i, i16 noundef zeroext %conv) #14
   %tobool3166 = icmp ne ptr %call29, null
   %cmp3267 = icmp sgt i32 %unmasked.061, -1
   %10 = select i1 %tobool3166, i1 %cmp3267, i1 false
@@ -2115,14 +2115,14 @@ while.body34.lr.ph:                               ; preds = %undo
 while.body34:                                     ; preds = %while.body34.lr.ph, %if.end42
   %unmasked.269 = phi i32 [ %unmasked.061, %while.body34.lr.ph ], [ %unmasked.3, %if.end42 ]
   %vq.168 = phi ptr [ %call29, %while.body34.lr.ph ], [ %call43, %if.end42 ]
-  %call35 = tail call zeroext i16 @virtio_get_queue_index(ptr noundef nonnull %vq.168) #13
+  %call35 = tail call zeroext i16 @virtio_get_queue_index(ptr noundef nonnull %vq.168) #14
   %conv36 = zext i16 %call35 to i32
   %12 = load i32, ptr %nvqs_with_notifiers37, align 8
   %cmp38 = icmp sgt i32 %12, %conv36
   br i1 %cmp38, label %if.then40, label %if.end42
 
 if.then40:                                        ; preds = %while.body34
-  %call41 = tail call ptr @virtio_queue_get_guest_notifier(ptr noundef nonnull %vq.168) #13
+  %call41 = tail call ptr @virtio_queue_get_guest_notifier(ptr noundef nonnull %vq.168) #14
   %bus.val.i38 = load ptr, ptr %0, align 8
   %tobool.not.i.i39 = icmp eq ptr %bus.val.i38, null
   br i1 %tobool.not.i.i39, label %virtio_bus_get_device.exit.i42, label %cond.true.i.i40
@@ -2134,8 +2134,8 @@ cond.true.i.i40:                                  ; preds = %if.then40
 
 virtio_bus_get_device.exit.i42:                   ; preds = %cond.true.i.i40, %if.then40
   %cond.i.i43 = phi ptr [ %13, %cond.true.i.i40 ], [ null, %if.then40 ]
-  %call.i.i44 = tail call ptr @object_get_class(ptr noundef %cond.i.i43) #13
-  %call1.i.i45 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i44, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.38, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_GET_CLASS) #13
+  %call.i.i44 = tail call ptr @object_get_class(ptr noundef %cond.i.i43) #14
+  %call1.i.i45 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i44, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.38, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_GET_CLASS) #14
   %use_guest_notifier_mask.i46 = getelementptr inbounds i8, ptr %cond.i.i43, i64 465
   %14 = load i8, ptr %use_guest_notifier_mask.i46, align 1
   %tobool.i47 = trunc i8 %14 to i1
@@ -2148,7 +2148,7 @@ land.lhs.true.i55:                                ; preds = %virtio_bus_get_devi
   br i1 %tobool2.not.i57, label %if.else.i48, label %if.then.i58
 
 if.then.i58:                                      ; preds = %land.lhs.true.i55
-  tail call void %15(ptr noundef nonnull %cond.i.i43, i32 noundef %conv36, i1 noundef zeroext true) #13
+  tail call void %15(ptr noundef nonnull %cond.i.i43, i32 noundef %conv36, i1 noundef zeroext true) #14
   br label %virtio_pci_one_vector_mask.exit59
 
 if.else.i48:                                      ; preds = %land.lhs.true.i55, %virtio_bus_get_device.exit.i42
@@ -2156,12 +2156,12 @@ if.else.i48:                                      ; preds = %land.lhs.true.i55, 
   %16 = load ptr, ptr @kvm_state, align 8
   %virq.i.i51 = getelementptr %struct.VirtIOIRQFD, ptr %proxy.val.i49, i64 %idxprom.i.i50, i32 1
   %17 = load i32, ptr %virq.i.i51, align 8
-  %call.i5.i52 = tail call i32 @kvm_irqchip_remove_irqfd_notifier_gsi(ptr noundef %16, ptr noundef %call41, i32 noundef %17) #13
+  %call.i5.i52 = tail call i32 @kvm_irqchip_remove_irqfd_notifier_gsi(ptr noundef %16, ptr noundef %call41, i32 noundef %17) #14
   %cmp.i.i53 = icmp eq i32 %call.i5.i52, 0
   br i1 %cmp.i.i53, label %virtio_pci_one_vector_mask.exit59, label %if.else.i.i54
 
 if.else.i.i54:                                    ; preds = %if.else.i48
-  tail call void @__assert_fail(ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.5, i32 noundef 855, ptr noundef nonnull @__PRETTY_FUNCTION__.kvm_virtio_pci_irqfd_release) #14
+  tail call void @__assert_fail(ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.5, i32 noundef 855, ptr noundef nonnull @__PRETTY_FUNCTION__.kvm_virtio_pci_irqfd_release) #15
   unreachable
 
 virtio_pci_one_vector_mask.exit59:                ; preds = %if.then.i58, %if.else.i48
@@ -2170,7 +2170,7 @@ virtio_pci_one_vector_mask.exit59:                ; preds = %if.then.i58, %if.el
 
 if.end42:                                         ; preds = %virtio_pci_one_vector_mask.exit59, %while.body34
   %unmasked.3 = phi i32 [ %dec, %virtio_pci_one_vector_mask.exit59 ], [ %unmasked.269, %while.body34 ]
-  %call43 = tail call ptr @virtio_vector_next_queue(ptr noundef nonnull %vq.168) #13
+  %call43 = tail call ptr @virtio_vector_next_queue(ptr noundef nonnull %vq.168) #14
   %tobool31 = icmp ne ptr %call43, null
   %cmp32 = icmp sgt i32 %unmasked.3, -1
   %18 = select i1 %tobool31, i1 %cmp32, i1 false
@@ -2197,7 +2197,7 @@ cond.true.i:                                      ; preds = %entry
 virtio_bus_get_device.exit:                       ; preds = %entry, %cond.true.i
   %cond.i = phi ptr [ %1, %cond.true.i ], [ null, %entry ]
   %conv = trunc i32 %vector to i16
-  %call1 = tail call ptr @virtio_vector_first_queue(ptr noundef %cond.i, i16 noundef zeroext %conv) #13
+  %call1 = tail call ptr @virtio_vector_first_queue(ptr noundef %cond.i, i16 noundef zeroext %conv) #14
   %tobool.not38 = icmp eq ptr %call1, null
   br i1 %tobool.not38, label %while.end, label %while.body.lr.ph
 
@@ -2209,10 +2209,10 @@ while.body.lr.ph:                                 ; preds = %virtio_bus_get_devi
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end9
   %vq.039 = phi ptr [ %call1, %while.body.lr.ph ], [ %call10, %if.end9 ]
-  %call2 = tail call zeroext i16 @virtio_get_queue_index(ptr noundef nonnull %vq.039) #13
+  %call2 = tail call zeroext i16 @virtio_get_queue_index(ptr noundef nonnull %vq.039) #14
   %conv3 = zext i16 %call2 to i32
-  %call4 = tail call ptr @virtio_queue_get_guest_notifier(ptr noundef nonnull %vq.039) #13
-  %call5 = tail call i32 @virtio_queue_get_num(ptr noundef %cond.i, i32 noundef %conv3) #13
+  %call4 = tail call ptr @virtio_queue_get_guest_notifier(ptr noundef nonnull %vq.039) #14
+  %call5 = tail call i32 @virtio_queue_get_num(ptr noundef %cond.i, i32 noundef %conv3) #14
   %tobool6.not = icmp eq i32 %call5, 0
   br i1 %tobool6.not, label %while.end, label %if.end
 
@@ -2233,8 +2233,8 @@ cond.true.i.i:                                    ; preds = %if.then8
 
 virtio_bus_get_device.exit.i:                     ; preds = %cond.true.i.i, %if.then8
   %cond.i.i = phi ptr [ %4, %cond.true.i.i ], [ null, %if.then8 ]
-  %call.i.i = tail call ptr @object_get_class(ptr noundef %cond.i.i) #13
-  %call1.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.38, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_GET_CLASS) #13
+  %call.i.i = tail call ptr @object_get_class(ptr noundef %cond.i.i) #14
+  %call1.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.38, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_GET_CLASS) #14
   %use_guest_notifier_mask.i = getelementptr inbounds i8, ptr %cond.i.i, i64 465
   %5 = load i8, ptr %use_guest_notifier_mask.i, align 1
   %tobool.i = trunc i8 %5 to i1
@@ -2247,7 +2247,7 @@ land.lhs.true.i:                                  ; preds = %virtio_bus_get_devi
   br i1 %tobool2.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void %6(ptr noundef nonnull %cond.i.i, i32 noundef %conv3, i1 noundef zeroext true) #13
+  tail call void %6(ptr noundef nonnull %cond.i.i, i32 noundef %conv3, i1 noundef zeroext true) #14
   br label %if.end9
 
 if.else.i:                                        ; preds = %land.lhs.true.i, %virtio_bus_get_device.exit.i
@@ -2255,16 +2255,16 @@ if.else.i:                                        ; preds = %land.lhs.true.i, %v
   %7 = load ptr, ptr @kvm_state, align 8
   %virq.i.i = getelementptr %struct.VirtIOIRQFD, ptr %proxy.val.i, i64 %idxprom.i.i, i32 1
   %8 = load i32, ptr %virq.i.i, align 8
-  %call.i5.i = tail call i32 @kvm_irqchip_remove_irqfd_notifier_gsi(ptr noundef %7, ptr noundef %call4, i32 noundef %8) #13
+  %call.i5.i = tail call i32 @kvm_irqchip_remove_irqfd_notifier_gsi(ptr noundef %7, ptr noundef %call4, i32 noundef %8) #14
   %cmp.i.i = icmp eq i32 %call.i5.i, 0
   br i1 %cmp.i.i, label %if.end9, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.else.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.5, i32 noundef 855, ptr noundef nonnull @__PRETTY_FUNCTION__.kvm_virtio_pci_irqfd_release) #14
+  tail call void @__assert_fail(ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.5, i32 noundef 855, ptr noundef nonnull @__PRETTY_FUNCTION__.kvm_virtio_pci_irqfd_release) #15
   unreachable
 
 if.end9:                                          ; preds = %if.else.i, %if.then.i, %if.end
-  %call10 = tail call ptr @virtio_vector_next_queue(ptr noundef nonnull %vq.039) #13
+  %call10 = tail call ptr @virtio_vector_next_queue(ptr noundef nonnull %vq.039) #14
   %tobool.not = icmp eq ptr %call10, null
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !14
 
@@ -2276,7 +2276,7 @@ while.end:                                        ; preds = %if.end9, %while.bod
   br i1 %cmp12, label %if.then14, label %if.end16
 
 if.then14:                                        ; preds = %while.end
-  %call15 = tail call ptr @virtio_config_get_guest_notifier(ptr noundef nonnull %cond.i) #13
+  %call15 = tail call ptr @virtio_config_get_guest_notifier(ptr noundef nonnull %cond.i) #14
   %bus.val.i16 = load ptr, ptr %0, align 8
   %tobool.not.i.i17 = icmp eq ptr %bus.val.i16, null
   br i1 %tobool.not.i.i17, label %virtio_bus_get_device.exit.i20, label %cond.true.i.i18
@@ -2288,8 +2288,8 @@ cond.true.i.i18:                                  ; preds = %if.then14
 
 virtio_bus_get_device.exit.i20:                   ; preds = %cond.true.i.i18, %if.then14
   %cond.i.i21 = phi ptr [ %10, %cond.true.i.i18 ], [ null, %if.then14 ]
-  %call.i.i22 = tail call ptr @object_get_class(ptr noundef %cond.i.i21) #13
-  %call1.i.i23 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i22, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.38, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_GET_CLASS) #13
+  %call.i.i22 = tail call ptr @object_get_class(ptr noundef %cond.i.i21) #14
+  %call1.i.i23 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i22, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.38, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_GET_CLASS) #14
   %use_guest_notifier_mask.i24 = getelementptr inbounds i8, ptr %cond.i.i21, i64 465
   %11 = load i8, ptr %use_guest_notifier_mask.i24, align 1
   %tobool.i25 = trunc i8 %11 to i1
@@ -2302,7 +2302,7 @@ land.lhs.true.i33:                                ; preds = %virtio_bus_get_devi
   br i1 %tobool2.not.i35, label %if.else.i26, label %if.then.i36
 
 if.then.i36:                                      ; preds = %land.lhs.true.i33
-  tail call void %12(ptr noundef nonnull %cond.i.i21, i32 noundef -1, i1 noundef zeroext true) #13
+  tail call void %12(ptr noundef nonnull %cond.i.i21, i32 noundef -1, i1 noundef zeroext true) #14
   br label %if.end16
 
 if.else.i26:                                      ; preds = %land.lhs.true.i33, %virtio_bus_get_device.exit.i20
@@ -2312,12 +2312,12 @@ if.else.i26:                                      ; preds = %land.lhs.true.i33, 
   %14 = load ptr, ptr @kvm_state, align 8
   %virq.i.i29 = getelementptr %struct.VirtIOIRQFD, ptr %proxy.val.i27, i64 %idxprom.i.i28, i32 1
   %15 = load i32, ptr %virq.i.i29, align 8
-  %call.i5.i30 = tail call i32 @kvm_irqchip_remove_irqfd_notifier_gsi(ptr noundef %14, ptr noundef %call15, i32 noundef %15) #13
+  %call.i5.i30 = tail call i32 @kvm_irqchip_remove_irqfd_notifier_gsi(ptr noundef %14, ptr noundef %call15, i32 noundef %15) #14
   %cmp.i.i31 = icmp eq i32 %call.i5.i30, 0
   br i1 %cmp.i.i31, label %if.end16, label %if.else.i.i32
 
 if.else.i.i32:                                    ; preds = %if.else.i26
-  tail call void @__assert_fail(ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.5, i32 noundef 855, ptr noundef nonnull @__PRETTY_FUNCTION__.kvm_virtio_pci_irqfd_release) #14
+  tail call void @__assert_fail(ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.5, i32 noundef 855, ptr noundef nonnull @__PRETTY_FUNCTION__.kvm_virtio_pci_irqfd_release) #15
   unreachable
 
 if.end16:                                         ; preds = %if.else.i26, %if.then.i36, %while.end
@@ -2339,8 +2339,8 @@ cond.true.i:                                      ; preds = %entry
 
 virtio_bus_get_device.exit:                       ; preds = %entry, %cond.true.i
   %cond.i = phi ptr [ %1, %cond.true.i ], [ null, %entry ]
-  %call.i = tail call ptr @object_get_class(ptr noundef %cond.i) #13
-  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.38, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_GET_CLASS) #13
+  %call.i = tail call ptr @object_get_class(ptr noundef %cond.i) #14
+  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.38, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_GET_CLASS) #14
   %nvqs_with_notifiers = getelementptr inbounds i8, ptr %dev, i64 33608
   %2 = load i32, ptr %nvqs_with_notifiers, align 8
   %cmp51 = icmp sgt i32 %2, 0
@@ -2363,14 +2363,14 @@ cond.true.i.i:                                    ; preds = %for.body
 
 if.else.i:                                        ; preds = %for.body, %cond.true.i.i
   %cond.i.i = phi ptr [ %3, %cond.true.i.i ], [ null, %for.body ]
-  %call2.i = tail call i32 @virtio_queue_get_num(ptr noundef %cond.i.i, i32 noundef %queue_no.052) #13
+  %call2.i = tail call i32 @virtio_queue_get_num(ptr noundef %cond.i.i, i32 noundef %queue_no.052) #14
   %tobool.not.i26 = icmp eq i32 %call2.i, 0
   br i1 %tobool.not.i26, label %for.end, label %if.end
 
 if.end:                                           ; preds = %if.else.i
-  %call4.i = tail call zeroext i16 @virtio_queue_vector(ptr noundef %cond.i.i, i32 noundef %queue_no.052) #13
-  %call6.i = tail call ptr @virtio_get_queue(ptr noundef %cond.i.i, i32 noundef %queue_no.052) #13
-  %call7.i = tail call ptr @virtio_queue_get_guest_notifier(ptr noundef %call6.i) #13
+  %call4.i = tail call zeroext i16 @virtio_queue_vector(ptr noundef %cond.i.i, i32 noundef %queue_no.052) #14
+  %call6.i = tail call ptr @virtio_get_queue(ptr noundef %cond.i.i, i32 noundef %queue_no.052) #14
+  %call7.i = tail call ptr @virtio_queue_get_guest_notifier(ptr noundef %call6.i) #14
   %vector.1.ph = zext i16 %call4.i to i32
   %cmp4 = icmp uge i32 %vector.1.ph, %vector_start
   %cmp5.not = icmp ult i32 %vector.1.ph, %vector_end
@@ -2378,7 +2378,7 @@ if.end:                                           ; preds = %if.else.i
   br i1 %or.cond, label %lor.lhs.false6, label %for.inc
 
 lor.lhs.false6:                                   ; preds = %if.end
-  %call7 = tail call zeroext i1 @msix_is_masked(ptr noundef nonnull %dev, i32 noundef %vector.1.ph) #13
+  %call7 = tail call zeroext i1 @msix_is_masked(ptr noundef nonnull %dev, i32 noundef %vector.1.ph) #14
   br i1 %call7, label %if.end9, label %for.inc
 
 if.end9:                                          ; preds = %lor.lhs.false6
@@ -2387,20 +2387,20 @@ if.end9:                                          ; preds = %lor.lhs.false6
   br i1 %tobool.not, label %if.else, label %if.then10
 
 if.then10:                                        ; preds = %if.end9
-  %call12 = tail call zeroext i1 %4(ptr noundef %cond.i, i32 noundef %queue_no.052) #13
+  %call12 = tail call zeroext i1 %4(ptr noundef %cond.i, i32 noundef %queue_no.052) #14
   br i1 %call12, label %if.then13, label %for.inc
 
 if.then13:                                        ; preds = %if.then10
-  tail call void @msix_set_pending(ptr noundef %dev, i32 noundef %vector.1.ph) #13
+  tail call void @msix_set_pending(ptr noundef %dev, i32 noundef %vector.1.ph) #14
   br label %for.inc
 
 if.else:                                          ; preds = %if.end9
-  %call15 = tail call i32 @event_notifier_test_and_clear(ptr noundef %call7.i) #13
+  %call15 = tail call i32 @event_notifier_test_and_clear(ptr noundef %call7.i) #14
   %tobool16.not = icmp eq i32 %call15, 0
   br i1 %tobool16.not, label %for.inc, label %if.then17
 
 if.then17:                                        ; preds = %if.else
-  tail call void @msix_set_pending(ptr noundef nonnull %dev, i32 noundef %vector.1.ph) #13
+  tail call void @msix_set_pending(ptr noundef nonnull %dev, i32 noundef %vector.1.ph) #14
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then13, %if.then10, %if.then17, %if.else, %if.end, %lor.lhs.false6
@@ -2421,7 +2421,7 @@ cond.true.i.i29:                                  ; preds = %for.end
 
 if.end23:                                         ; preds = %cond.true.i.i29, %for.end
   %cond.i.i32 = phi ptr [ %6, %cond.true.i.i29 ], [ null, %for.end ]
-  %call1.i34 = tail call ptr @virtio_config_get_guest_notifier(ptr noundef %cond.i.i32) #13
+  %call1.i34 = tail call ptr @virtio_config_get_guest_notifier(ptr noundef %cond.i.i32) #14
   %config_vector.i35 = getelementptr inbounds i8, ptr %cond.i.i32, i64 216
   %7 = load i16, ptr %config_vector.i35, align 8
   %conv.i36 = zext i16 %7 to i32
@@ -2431,7 +2431,7 @@ if.end23:                                         ; preds = %cond.true.i.i29, %f
   br i1 %or.cond24, label %lor.lhs.false27, label %if.end43
 
 lor.lhs.false27:                                  ; preds = %if.end23
-  %call28 = tail call zeroext i1 @msix_is_masked(ptr noundef nonnull %dev, i32 noundef %conv.i36) #13
+  %call28 = tail call zeroext i1 @msix_is_masked(ptr noundef nonnull %dev, i32 noundef %conv.i36) #14
   br i1 %call28, label %if.end30, label %if.end43
 
 if.end30:                                         ; preds = %lor.lhs.false27
@@ -2441,16 +2441,16 @@ if.end30:                                         ; preds = %lor.lhs.false27
   br i1 %tobool32.not, label %if.else38, label %if.then33
 
 if.then33:                                        ; preds = %if.end30
-  %call35 = tail call zeroext i1 %8(ptr noundef %cond.i, i32 noundef -1) #13
+  %call35 = tail call zeroext i1 %8(ptr noundef %cond.i, i32 noundef -1) #14
   br i1 %call35, label %if.end43.sink.split, label %if.end43
 
 if.else38:                                        ; preds = %if.end30
-  %call39 = tail call i32 @event_notifier_test_and_clear(ptr noundef %call1.i34) #13
+  %call39 = tail call i32 @event_notifier_test_and_clear(ptr noundef %call1.i34) #14
   %tobool40.not = icmp eq i32 %call39, 0
   br i1 %tobool40.not, label %if.end43, label %if.end43.sink.split
 
 if.end43.sink.split:                              ; preds = %if.else38, %if.then33
-  tail call void @msix_set_pending(ptr noundef nonnull %dev, i32 noundef %conv.i36) #13
+  tail call void @msix_set_pending(ptr noundef nonnull %dev, i32 noundef %conv.i36) #14
   br label %if.end43
 
 if.end43:                                         ; preds = %if.end43.sink.split, %if.else38, %if.then33, %if.end23, %lor.lhs.false27
@@ -2474,8 +2474,8 @@ cond.true.i:                                      ; preds = %entry
 
 virtio_bus_get_device.exit:                       ; preds = %entry, %cond.true.i
   %cond.i = phi ptr [ %1, %cond.true.i ], [ null, %entry ]
-  %call.i = tail call ptr @object_get_class(ptr noundef %cond.i) #13
-  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.38, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_GET_CLASS) #13
+  %call.i = tail call ptr @object_get_class(ptr noundef %cond.i) #14
+  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.38, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_GET_CLASS) #14
   %proxy.val = load ptr, ptr %0, align 8
   %tobool.not.i.i = icmp eq ptr %proxy.val, null
   br i1 %tobool.not.i.i, label %virtio_bus_get_device.exit.i, label %cond.true.i.i
@@ -2491,27 +2491,27 @@ virtio_bus_get_device.exit.i:                     ; preds = %cond.true.i.i, %vir
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %virtio_bus_get_device.exit.i
-  %call1.i9 = tail call ptr @virtio_config_get_guest_notifier(ptr noundef %cond.i.i) #13
+  %call1.i9 = tail call ptr @virtio_config_get_guest_notifier(ptr noundef %cond.i.i) #14
   %config_vector.i = getelementptr inbounds i8, ptr %cond.i.i, i64 216
   %3 = load i16, ptr %config_vector.i, align 8
   br label %if.end
 
 if.else.i:                                        ; preds = %virtio_bus_get_device.exit.i
-  %call2.i = tail call i32 @virtio_queue_get_num(ptr noundef %cond.i.i, i32 noundef %queue_no) #13
+  %call2.i = tail call i32 @virtio_queue_get_num(ptr noundef %cond.i.i, i32 noundef %queue_no) #14
   %tobool.not.i8 = icmp eq i32 %call2.i, 0
   br i1 %tobool.not.i8, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.else.i
-  %call4.i = tail call zeroext i16 @virtio_queue_vector(ptr noundef %cond.i.i, i32 noundef %queue_no) #13
-  %call6.i = tail call ptr @virtio_get_queue(ptr noundef %cond.i.i, i32 noundef %queue_no) #13
-  %call7.i = tail call ptr @virtio_queue_get_guest_notifier(ptr noundef %call6.i) #13
+  %call4.i = tail call zeroext i16 @virtio_queue_vector(ptr noundef %cond.i.i, i32 noundef %queue_no) #14
+  %call6.i = tail call ptr @virtio_get_queue(ptr noundef %cond.i.i, i32 noundef %queue_no) #14
+  %call7.i = tail call ptr @virtio_queue_get_guest_notifier(ptr noundef %call6.i) #14
   br label %if.end
 
 if.end:                                           ; preds = %if.end.i, %if.then.i
   %vector.0.ph.in = phi i16 [ %call4.i, %if.end.i ], [ %3, %if.then.i ]
   %n.0.ph = phi ptr [ %call7.i, %if.end.i ], [ %call1.i9, %if.then.i ]
   %vector.0.ph = zext i16 %vector.0.ph.in to i32
-  %call3 = tail call i32 @msix_nr_vectors_allocated(ptr noundef nonnull %proxy) #13
+  %call3 = tail call i32 @msix_nr_vectors_allocated(ptr noundef nonnull %proxy) #14
   %cmp4.not = icmp ugt i32 %call3, %vector.0.ph
   br i1 %cmp4.not, label %if.end6, label %return
 
@@ -2534,12 +2534,12 @@ if.then8:                                         ; preds = %land.lhs.true
   %7 = load ptr, ptr @kvm_state, align 8
   %virq.i = getelementptr %struct.VirtIOIRQFD, ptr %proxy.val6, i64 %idxprom.i, i32 1
   %8 = load i32, ptr %virq.i, align 8
-  %call.i10 = tail call i32 @kvm_irqchip_remove_irqfd_notifier_gsi(ptr noundef %7, ptr noundef %n.0.ph, i32 noundef %8) #13
+  %call.i10 = tail call i32 @kvm_irqchip_remove_irqfd_notifier_gsi(ptr noundef %7, ptr noundef %n.0.ph, i32 noundef %8) #14
   %cmp.i11 = icmp eq i32 %call.i10, 0
   br i1 %cmp.i11, label %if.end9, label %if.else.i12
 
 if.else.i12:                                      ; preds = %if.then8
-  tail call void @__assert_fail(ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.5, i32 noundef 855, ptr noundef nonnull @__PRETTY_FUNCTION__.kvm_virtio_pci_irqfd_release) #14
+  tail call void @__assert_fail(ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.5, i32 noundef 855, ptr noundef nonnull @__PRETTY_FUNCTION__.kvm_virtio_pci_irqfd_release) #15
   unreachable
 
 if.end9:                                          ; preds = %if.then8, %land.lhs.true, %if.end6
@@ -2558,7 +2558,7 @@ if.then.i17:                                      ; preds = %if.end9
   %11 = load ptr, ptr @kvm_state, align 8
   %virq.i18 = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
   %12 = load i32, ptr %virq.i18, align 8
-  tail call void @kvm_irqchip_release_virq(ptr noundef %11, i32 noundef %12) #13
+  tail call void @kvm_irqchip_release_virq(ptr noundef %11, i32 noundef %12) #14
   br label %return
 
 return:                                           ; preds = %if.then.i17, %if.end9, %if.else.i, %if.end
@@ -2572,12 +2572,12 @@ entry:
   %0 = load ptr, ptr @kvm_state, align 8
   %virq = getelementptr %struct.VirtIOIRQFD, ptr %proxy.33600.val, i64 %idxprom, i32 1
   %1 = load i32, ptr %virq, align 8
-  %call = tail call i32 @kvm_irqchip_remove_irqfd_notifier_gsi(ptr noundef %0, ptr noundef %n, i32 noundef %1) #13
+  %call = tail call i32 @kvm_irqchip_remove_irqfd_notifier_gsi(ptr noundef %0, ptr noundef %n, i32 noundef %1) #14
   %cmp = icmp eq i32 %call, 0
   br i1 %cmp, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.5, i32 noundef 855, ptr noundef nonnull @__PRETTY_FUNCTION__.kvm_virtio_pci_irqfd_release) #14
+  tail call void @__assert_fail(ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.5, i32 noundef 855, ptr noundef nonnull @__PRETTY_FUNCTION__.kvm_virtio_pci_irqfd_release) #15
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -2614,8 +2614,8 @@ cond.true.i:                                      ; preds = %entry
 
 virtio_bus_get_device.exit:                       ; preds = %entry, %cond.true.i
   %cond.i = phi ptr [ %1, %cond.true.i ], [ null, %entry ]
-  %call.i = tail call ptr @object_get_class(ptr noundef %cond.i) #13
-  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.38, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_GET_CLASS) #13
+  %call.i = tail call ptr @object_get_class(ptr noundef %cond.i) #14
+  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.38, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_GET_CLASS) #14
   %proxy.val22 = load ptr, ptr %0, align 8
   %tobool.not.i.i = icmp eq ptr %proxy.val22, null
   br i1 %tobool.not.i.i, label %virtio_bus_get_device.exit.i, label %cond.true.i.i
@@ -2631,27 +2631,27 @@ virtio_bus_get_device.exit.i:                     ; preds = %cond.true.i.i, %vir
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %virtio_bus_get_device.exit.i
-  %call1.i27 = tail call ptr @virtio_config_get_guest_notifier(ptr noundef %cond.i.i) #13
+  %call1.i27 = tail call ptr @virtio_config_get_guest_notifier(ptr noundef %cond.i.i) #14
   %config_vector.i = getelementptr inbounds i8, ptr %cond.i.i, i64 216
   %3 = load i16, ptr %config_vector.i, align 8
   br label %if.end
 
 if.else.i:                                        ; preds = %virtio_bus_get_device.exit.i
-  %call2.i = tail call i32 @virtio_queue_get_num(ptr noundef %cond.i.i, i32 noundef %queue_no) #13
+  %call2.i = tail call i32 @virtio_queue_get_num(ptr noundef %cond.i.i, i32 noundef %queue_no) #14
   %tobool.not.i26 = icmp eq i32 %call2.i, 0
   br i1 %tobool.not.i26, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.else.i
-  %call4.i = tail call zeroext i16 @virtio_queue_vector(ptr noundef %cond.i.i, i32 noundef %queue_no) #13
-  %call6.i = tail call ptr @virtio_get_queue(ptr noundef %cond.i.i, i32 noundef %queue_no) #13
-  %call7.i = tail call ptr @virtio_queue_get_guest_notifier(ptr noundef %call6.i) #13
+  %call4.i = tail call zeroext i16 @virtio_queue_vector(ptr noundef %cond.i.i, i32 noundef %queue_no) #14
+  %call6.i = tail call ptr @virtio_get_queue(ptr noundef %cond.i.i, i32 noundef %queue_no) #14
+  %call7.i = tail call ptr @virtio_queue_get_guest_notifier(ptr noundef %call6.i) #14
   br label %if.end
 
 if.end:                                           ; preds = %if.end.i, %if.then.i
   %vector.0.ph.in = phi i16 [ %call4.i, %if.end.i ], [ %3, %if.then.i ]
   %n.0.ph = phi ptr [ %call7.i, %if.end.i ], [ %call1.i27, %if.then.i ]
   %vector.0.ph = zext i16 %vector.0.ph.in to i32
-  %call3 = tail call i32 @msix_nr_vectors_allocated(ptr noundef nonnull %proxy) #13
+  %call3 = tail call i32 @msix_nr_vectors_allocated(ptr noundef nonnull %proxy) #14
   %cmp4.not = icmp ugt i32 %call3, %vector.0.ph
   br i1 %cmp4.not, label %if.end6, label %return
 
@@ -2671,7 +2671,7 @@ if.then.i30:                                      ; preds = %if.end6
   store ptr %6, ptr %c.i, align 8
   %7 = getelementptr inbounds i8, ptr %c.i, i64 8
   store i32 0, ptr %7, align 8
-  %call1.i31 = call i32 @kvm_irqchip_add_msi_route(ptr noundef nonnull %c.i, i32 noundef %vector.0.ph, ptr noundef nonnull %proxy) #13
+  %call1.i31 = call i32 @kvm_irqchip_add_msi_route(ptr noundef nonnull %c.i, i32 noundef %vector.0.ph, ptr noundef nonnull %proxy) #14
   %cmp2.i = icmp slt i32 %call1.i31, 0
   br i1 %cmp2.i, label %kvm_virtio_pci_vq_vector_use.exit.thread, label %if.end.i32
 
@@ -2686,7 +2686,7 @@ if.end.i32:                                       ; preds = %if.then.i30
 
 if.then.i.i:                                      ; preds = %if.end.i32
   %9 = load ptr, ptr %c.i, align 8
-  call void @kvm_irqchip_commit_routes(ptr noundef %9) #13
+  call void @kvm_irqchip_commit_routes(ptr noundef %9) #14
   br label %kvm_irqchip_commit_route_changes.exit.i
 
 kvm_irqchip_commit_route_changes.exit.i:          ; preds = %if.then.i.i, %if.end.i32
@@ -2716,7 +2716,7 @@ if.then12:                                        ; preds = %land.lhs.true
   %13 = load ptr, ptr @kvm_state, align 8
   %virq.i35 = getelementptr %struct.VirtIOIRQFD, ptr %proxy.val25, i64 %idxprom.i, i32 1
   %14 = load i32, ptr %virq.i35, align 8
-  %call.i36 = call i32 @kvm_irqchip_add_irqfd_notifier_gsi(ptr noundef %13, ptr noundef %n.0.ph, ptr noundef null, i32 noundef %14) #13
+  %call.i36 = call i32 @kvm_irqchip_add_irqfd_notifier_gsi(ptr noundef %13, ptr noundef %n.0.ph, ptr noundef null, i32 noundef %14) #14
   %cmp14 = icmp slt i32 %call.i36, 0
   br i1 %cmp14, label %if.then15, label %return
 
@@ -2734,14 +2734,14 @@ if.then.i42:                                      ; preds = %if.then15
   %16 = load ptr, ptr @kvm_state, align 8
   %virq.i43 = getelementptr inbounds i8, ptr %arrayidx.i38, i64 16
   %17 = load i32, ptr %virq.i43, align 8
-  call void @kvm_irqchip_release_virq(ptr noundef %16, i32 noundef %17) #13
+  call void @kvm_irqchip_release_virq(ptr noundef %16, i32 noundef %17) #14
   br label %undo
 
 undo:                                             ; preds = %if.then.i42, %if.then15, %kvm_virtio_pci_vq_vector_use.exit.thread
   %ret.0 = phi i32 [ %call1.i31, %kvm_virtio_pci_vq_vector_use.exit.thread ], [ %call.i36, %if.then15 ], [ %call.i36, %if.then.i42 ]
-  %call18 = call zeroext i16 @virtio_queue_vector(ptr noundef %cond.i, i32 noundef %queue_no) #13
+  %call18 = call zeroext i16 @virtio_queue_vector(ptr noundef %cond.i, i32 noundef %queue_no) #14
   %conv = zext i16 %call18 to i32
-  %call19 = call i32 @msix_nr_vectors_allocated(ptr noundef nonnull %proxy) #13
+  %call19 = call i32 @msix_nr_vectors_allocated(ptr noundef nonnull %proxy) #14
   %cmp20.not = icmp ugt i32 %call19, %conv
   br i1 %cmp20.not, label %if.end23, label %return
 
@@ -2772,20 +2772,20 @@ virtio_bus_get_device.exit.i47:                   ; preds = %cond.true.i.i45, %i
   br i1 %cmp.i, label %if.then.i59, label %if.else.i50
 
 if.then.i59:                                      ; preds = %virtio_bus_get_device.exit.i47
-  %call1.i60 = call ptr @virtio_config_get_guest_notifier(ptr noundef %cond.i.i48) #13
+  %call1.i60 = call ptr @virtio_config_get_guest_notifier(ptr noundef %cond.i.i48) #14
   %config_vector.i61 = getelementptr inbounds i8, ptr %cond.i.i48, i64 216
   %21 = load i16, ptr %config_vector.i61, align 8
   br label %if.end35
 
 if.else.i50:                                      ; preds = %virtio_bus_get_device.exit.i47
-  %call2.i51 = call i32 @virtio_queue_get_num(ptr noundef %cond.i.i48, i32 noundef %queue_no) #13
+  %call2.i51 = call i32 @virtio_queue_get_num(ptr noundef %cond.i.i48, i32 noundef %queue_no) #14
   %tobool.not.i52 = icmp eq i32 %call2.i51, 0
   br i1 %tobool.not.i52, label %return, label %if.end.i53
 
 if.end.i53:                                       ; preds = %if.else.i50
-  %call4.i54 = call zeroext i16 @virtio_queue_vector(ptr noundef %cond.i.i48, i32 noundef %queue_no) #13
-  %call6.i56 = call ptr @virtio_get_queue(ptr noundef %cond.i.i48, i32 noundef %queue_no) #13
-  %call7.i57 = call ptr @virtio_queue_get_guest_notifier(ptr noundef %call6.i56) #13
+  %call4.i54 = call zeroext i16 @virtio_queue_vector(ptr noundef %cond.i.i48, i32 noundef %queue_no) #14
+  %call6.i56 = call ptr @virtio_get_queue(ptr noundef %cond.i.i48, i32 noundef %queue_no) #14
+  %call7.i57 = call ptr @virtio_queue_get_guest_notifier(ptr noundef %call6.i56) #14
   br label %if.end35
 
 if.end35:                                         ; preds = %if.end.i53, %if.then.i59
@@ -2826,8 +2826,8 @@ cond.true.i:                                      ; preds = %entry
 
 virtio_bus_get_device.exit:                       ; preds = %entry, %cond.true.i
   %cond.i = phi ptr [ %1, %cond.true.i ], [ null, %entry ]
-  %call.i = tail call ptr @object_get_class(ptr noundef %cond.i) #13
-  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.38, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_GET_CLASS) #13
+  %call.i = tail call ptr @object_get_class(ptr noundef %cond.i) #14
+  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.38, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_GET_CLASS) #14
   %vector_irqfd = getelementptr inbounds i8, ptr %proxy, i64 33600
   %2 = load ptr, ptr %vector_irqfd, align 16
   %tobool.not = icmp eq ptr %2, null
@@ -2850,13 +2850,13 @@ if.then8:                                         ; preds = %lor.lhs.false, %if.
   %5 = load ptr, ptr @kvm_state, align 8
   %virq = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %6 = load i32, ptr %virq, align 8
-  %call9 = tail call i32 @kvm_irqchip_update_msi_route(ptr noundef %5, i32 noundef %6, i64 %msg.coerce0, i32 %msg.coerce1, ptr noundef nonnull %proxy) #13
+  %call9 = tail call i32 @kvm_irqchip_update_msi_route(ptr noundef %5, i32 noundef %6, i64 %msg.coerce0, i32 %msg.coerce1, ptr noundef nonnull %proxy) #14
   %cmp10 = icmp slt i32 %call9, 0
   br i1 %cmp10, label %return, label %if.end
 
 if.end:                                           ; preds = %if.then8
   %7 = load ptr, ptr @kvm_state, align 8
-  tail call void @kvm_irqchip_commit_routes(ptr noundef %7) #13
+  tail call void @kvm_irqchip_commit_routes(ptr noundef %7) #14
   br label %if.end13
 
 if.end13:                                         ; preds = %lor.lhs.false, %if.end, %virtio_bus_get_device.exit
@@ -2873,18 +2873,18 @@ land.lhs.true:                                    ; preds = %if.end13
   br i1 %tobool15.not, label %if.else, label %if.then16
 
 if.then16:                                        ; preds = %land.lhs.true
-  tail call void %9(ptr noundef nonnull %cond.i, i32 noundef %queue_no, i1 noundef zeroext false) #13
+  tail call void %9(ptr noundef nonnull %cond.i, i32 noundef %queue_no, i1 noundef zeroext false) #14
   %guest_notifier_pending = getelementptr inbounds i8, ptr %call1.i, i64 280
   %10 = load ptr, ptr %guest_notifier_pending, align 8
   %tobool18.not = icmp eq ptr %10, null
   br i1 %tobool18.not, label %return, label %land.lhs.true19
 
 land.lhs.true19:                                  ; preds = %if.then16
-  %call21 = tail call zeroext i1 %10(ptr noundef nonnull %cond.i, i32 noundef %queue_no) #13
+  %call21 = tail call zeroext i1 %10(ptr noundef nonnull %cond.i, i32 noundef %queue_no) #14
   br i1 %call21, label %if.then22, label %return
 
 if.then22:                                        ; preds = %land.lhs.true19
-  %call23 = tail call i32 @event_notifier_set(ptr noundef %n) #13
+  %call23 = tail call i32 @event_notifier_set(ptr noundef %n) #14
   br label %return
 
 if.else:                                          ; preds = %land.lhs.true, %if.end13
@@ -2893,7 +2893,7 @@ if.else:                                          ; preds = %land.lhs.true, %if.
   %11 = load ptr, ptr @kvm_state, align 8
   %virq.i = getelementptr %struct.VirtIOIRQFD, ptr %proxy.val, i64 %idxprom.i, i32 1
   %12 = load i32, ptr %virq.i, align 8
-  %call.i22 = tail call i32 @kvm_irqchip_add_irqfd_notifier_gsi(ptr noundef %11, ptr noundef %n, ptr noundef null, i32 noundef %12) #13
+  %call.i22 = tail call i32 @kvm_irqchip_add_irqfd_notifier_gsi(ptr noundef %11, ptr noundef %n, ptr noundef null, i32 noundef %12) #14
   br label %return
 
 return:                                           ; preds = %if.else, %if.then22, %land.lhs.true19, %if.then16, %if.then8
@@ -2938,7 +2938,7 @@ declare void @warn_report(ptr noundef, ...) local_unnamed_addr #1
 declare zeroext i16 @virtio_bus_get_vdev_id(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 
 declare void @memory_region_init(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -2949,7 +2949,7 @@ declare i32 @msix_init_exclusive_bar(ptr noundef, i16 noundef zeroext, i8 nounde
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @virtio_write_config(ptr noundef %pci_dev, i32 noundef %address, i32 noundef %val, i32 noundef %len) #0 {
 entry:
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %pci_dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.14, i32 noundef 102, ptr noundef nonnull @__func__.VIRTIO_PCI) #13
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %pci_dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.14, i32 noundef 102, ptr noundef nonnull @__func__.VIRTIO_PCI) #14
   %bus = getelementptr inbounds i8, ptr %call.i, i64 33616
   %0 = getelementptr i8, ptr %call.i, i64 33696
   %bus.val = load ptr, ptr %0, align 8
@@ -2963,7 +2963,7 @@ cond.true.i:                                      ; preds = %entry
 
 virtio_bus_get_device.exit:                       ; preds = %entry, %cond.true.i
   %cond.i = phi ptr [ %1, %cond.true.i ], [ null, %entry ]
-  tail call void @pci_default_write_config(ptr noundef %pci_dev, i32 noundef %address, i32 noundef %val, i32 noundef %len) #13
+  tail call void @pci_default_write_config(ptr noundef %pci_dev, i32 noundef %address, i32 noundef %val, i32 noundef %len) #14
   %flags = getelementptr inbounds i8, ptr %call.i, i64 4884
   %2 = load i32, ptr %flags, align 4
   %and = and i32 %2, 1024
@@ -2971,7 +2971,7 @@ virtio_bus_get_device.exit:                       ; preds = %entry, %cond.true.i
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %virtio_bus_get_device.exit
-  tail call void @pcie_cap_flr_write_config(ptr noundef %pci_dev, i32 noundef %address, i32 noundef %val, i32 noundef %len) #13
+  tail call void @pcie_cap_flr_write_config(ptr noundef %pci_dev, i32 noundef %address, i32 noundef %val, i32 noundef %len) #14
   %.pre = load i32, ptr %flags, align 4
   br label %if.end
 
@@ -3009,7 +3009,7 @@ if.then11.i:                                      ; preds = %if.end7.i
   %and.i = lshr i32 %val, 15
   %5 = trunc i32 %and.i to i8
   %frombool.i.i = and i8 %5, 1
-  %call.i.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %pci_dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.14, i32 noundef 102, ptr noundef nonnull @__func__.VIRTIO_PCI) #13
+  %call.i.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %pci_dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.14, i32 noundef 102, ptr noundef nonnull @__func__.VIRTIO_PCI) #14
   %6 = getelementptr i8, ptr %call.i.i.i, i64 33696
   %bus.val.i.i = load ptr, ptr %6, align 8
   %tobool.not.i.i.i = icmp eq ptr %bus.val.i.i, null
@@ -3022,8 +3022,8 @@ cond.true.i.i.i:                                  ; preds = %if.then11.i
 
 virtio_bus_get_device.exit.i.i:                   ; preds = %cond.true.i.i.i, %if.then11.i
   %cond.i.i.i = phi ptr [ %7, %cond.true.i.i.i ], [ null, %if.then11.i ]
-  %call.i4.i.i = tail call ptr @object_get_class(ptr noundef %cond.i.i.i) #13
-  %call1.i.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i4.i.i, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.38, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_GET_CLASS) #13
+  %call.i4.i.i = tail call ptr @object_get_class(ptr noundef %cond.i.i.i) #14
+  %call1.i.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i4.i.i, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.38, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_GET_CLASS) #14
   %device_iotlb_enabled.i.i = getelementptr inbounds i8, ptr %cond.i.i.i, i64 516
   store i8 %frombool.i.i, ptr %device_iotlb_enabled.i.i, align 4
   %toggle_device_iotlb.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 360
@@ -3032,7 +3032,7 @@ virtio_bus_get_device.exit.i.i:                   ; preds = %cond.true.i.i.i, %i
   br i1 %tobool4.not.i.i, label %if.end6, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %virtio_bus_get_device.exit.i.i
-  tail call void %8(ptr noundef nonnull %cond.i.i.i) #13
+  tail call void %8(ptr noundef nonnull %cond.i.i.i) #14
   br label %if.end6
 
 if.end6:                                          ; preds = %if.then.i.i, %virtio_bus_get_device.exit.i.i, %if.end7.i, %if.end.i, %lor.lhs.false.i, %if.then5, %if.end
@@ -3066,11 +3066,11 @@ if.then.i:                                        ; preds = %if.then14
   br label %virtio_set_disabled.exit
 
 virtio_set_disabled.exit:                         ; preds = %if.then14, %if.then.i
-  tail call void @virtio_bus_stop_ioeventfd(ptr noundef nonnull %bus) #13
+  tail call void @virtio_bus_stop_ioeventfd(ptr noundef nonnull %bus) #14
   %status = getelementptr inbounds i8, ptr %cond.i, i64 168
   %13 = load i8, ptr %status, align 8
   %14 = and i8 %13, -5
-  %call18 = tail call i32 @virtio_set_status(ptr noundef nonnull %cond.i, i8 noundef zeroext %14) #13
+  %call18 = tail call i32 @virtio_set_status(ptr noundef nonnull %cond.i, i8 noundef zeroext %14) #14
   br label %if.end20
 
 if.else:                                          ; preds = %if.then10
@@ -3156,7 +3156,7 @@ if.end.i49:                                       ; preds = %virtio_address_spac
   br i1 %tobool4.not.i, label %if.end6.i, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end.i49
-  tail call void @__assert_fail(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.5, i32 noundef 650, ptr noundef nonnull @__PRETTY_FUNCTION__.virtio_address_space_write) #14
+  tail call void @__assert_fail(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.5, i32 noundef 650, ptr noundef nonnull @__PRETTY_FUNCTION__.virtio_address_space_write) #15
   unreachable
 
 if.end6.i:                                        ; preds = %if.end.i49
@@ -3184,7 +3184,7 @@ sw.bb12.i:                                        ; preds = %if.end6.i
 sw.epilog.i:                                      ; preds = %sw.bb12.i, %sw.bb9.i, %sw.bb.i
   %val.0.i = phi i64 [ %conv14.i, %sw.bb12.i ], [ %conv11.i, %sw.bb9.i ], [ %conv8.i51, %sw.bb.i ]
   %23 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %17, i1 false)
-  %call43.i = tail call i32 @memory_region_dispatch_write(ptr noundef nonnull %arrayidx.i.i, i64 noundef %sub.i.i47, i64 noundef %val.0.i, i32 noundef %23, i32 1) #13
+  %call43.i = tail call i32 @memory_region_dispatch_write(ptr noundef nonnull %arrayidx.i.i, i64 noundef %sub.i.i47, i64 noundef %val.0.i, i32 noundef %23, i32 1) #14
   br label %if.end50
 
 if.end50:                                         ; preds = %for.inc.i.i, %sw.epilog.i, %if.end6.i, %virtio_address_space_lookup.exit.i, %if.then28, %land.lhs.true, %if.end20
@@ -3195,7 +3195,7 @@ if.end50:                                         ; preds = %for.inc.i.i, %sw.ep
 define internal i32 @virtio_read_config(ptr noundef %pci_dev, i32 noundef %address, i32 noundef %len) #0 {
 entry:
   %val.i = alloca i64, align 8
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %pci_dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.14, i32 noundef 102, ptr noundef nonnull @__func__.VIRTIO_PCI) #13
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %pci_dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.14, i32 noundef 102, ptr noundef nonnull @__func__.VIRTIO_PCI) #14
   %config_cap = getelementptr inbounds i8, ptr %call.i, i64 4880
   %0 = load i32, ptr %config_cap, align 16
   %tobool.not = icmp eq i32 %0, 0
@@ -3275,12 +3275,12 @@ if.end.i:                                         ; preds = %virtio_address_spac
   br i1 %tobool4.not.i, label %if.end6.i, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.5, i32 noundef 688, ptr noundef nonnull @__PRETTY_FUNCTION__.virtio_address_space_read) #14
+  tail call void @__assert_fail(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.5, i32 noundef 688, ptr noundef nonnull @__PRETTY_FUNCTION__.virtio_address_space_read) #15
   unreachable
 
 if.end6.i:                                        ; preds = %if.end.i
   %8 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %2, i1 false)
-  %call35.i = call i32 @memory_region_dispatch_read(ptr noundef nonnull %arrayidx.i.i, i64 noundef %sub.i.i16, ptr noundef nonnull %val.i, i32 noundef %8, i32 1) #13
+  %call35.i = call i32 @memory_region_dispatch_read(ptr noundef nonnull %arrayidx.i.i, i64 noundef %sub.i.i16, ptr noundef nonnull %val.i, i32 noundef %8, i32 1) #14
   switch i32 %2, label %virtio_address_space_read.exit [
     i32 1, label %sw.bb.i
     i32 2, label %sw.bb37.i
@@ -3310,7 +3310,7 @@ virtio_address_space_read.exit:                   ; preds = %for.inc.i.i, %virti
   br label %if.end24
 
 if.end24:                                         ; preds = %if.then, %virtio_address_space_read.exit, %land.lhs.true, %entry
-  %call25 = call i32 @pci_default_read_config(ptr noundef %pci_dev, i32 noundef %address, i32 noundef %len) #13
+  %call25 = call i32 @pci_default_read_config(ptr noundef %pci_dev, i32 noundef %address, i32 noundef %len) #14
   ret i32 %call25
 }
 
@@ -3409,7 +3409,7 @@ sw.bb17:                                          ; preds = %if.end
 for.body:                                         ; preds = %if.end, %for.body
   %i.042 = phi i32 [ %add, %for.body ], [ 0, %if.end ]
   %val.041 = phi i32 [ %spec.select, %for.body ], [ 0, %if.end ]
-  %call22 = tail call i32 @virtio_queue_get_num(ptr noundef nonnull %1, i32 noundef %i.042) #13
+  %call22 = tail call i32 @virtio_queue_get_num(ptr noundef nonnull %1, i32 noundef %i.042) #14
   %tobool.not = icmp eq i32 %call22, 0
   %add = add nuw nsw i32 %i.042, 1
   %spec.select = select i1 %tobool.not, i32 %val.041, i32 %add
@@ -3437,14 +3437,14 @@ sw.bb30:                                          ; preds = %if.end
   %queue_sel31 = getelementptr inbounds i8, ptr %1, i64 170
   %14 = load i16, ptr %queue_sel31, align 2
   %conv32 = zext i16 %14 to i32
-  %call33 = tail call i32 @virtio_queue_get_num(ptr noundef nonnull %1, i32 noundef %conv32) #13
+  %call33 = tail call i32 @virtio_queue_get_num(ptr noundef nonnull %1, i32 noundef %conv32) #14
   br label %sw.epilog
 
 sw.bb34:                                          ; preds = %if.end
   %queue_sel35 = getelementptr inbounds i8, ptr %1, i64 170
   %15 = load i16, ptr %queue_sel35, align 2
   %conv36 = zext i16 %15 to i32
-  %call37 = tail call zeroext i16 @virtio_queue_vector(ptr noundef nonnull %1, i32 noundef %conv36) #13
+  %call37 = tail call zeroext i16 @virtio_queue_vector(ptr noundef nonnull %1, i32 noundef %conv36) #14
   %conv38 = zext i16 %call37 to i32
   br label %sw.epilog
 
@@ -3601,7 +3601,7 @@ if.then8:                                         ; preds = %sw.bb3
   %arrayidx = getelementptr [2 x i32], ptr %guest_features, i64 0, i64 %conv5
   store i32 %conv9, ptr %arrayidx, align 4
   %4 = load i64, ptr %guest_features, align 4
-  %call17 = tail call i32 @virtio_set_features(ptr noundef nonnull %1, i64 noundef %4) #13
+  %call17 = tail call i32 @virtio_set_features(ptr noundef nonnull %1, i64 noundef %4) #14
   br label %sw.epilog
 
 sw.bb19:                                          ; preds = %if.end
@@ -3612,7 +3612,7 @@ sw.bb19:                                          ; preds = %if.end
 
 if.then23:                                        ; preds = %sw.bb19
   %conv20 = zext i16 %5 to i32
-  tail call void @msix_vector_unuse(ptr noundef nonnull %opaque, i32 noundef %conv20) #13
+  tail call void @msix_vector_unuse(ptr noundef nonnull %opaque, i32 noundef %conv20) #14
   br label %if.end26
 
 if.end26:                                         ; preds = %if.then23, %sw.bb19
@@ -3624,7 +3624,7 @@ if.end26:                                         ; preds = %if.then23, %sw.bb19
 
 if.then30:                                        ; preds = %if.end26
   %conv32 = trunc nuw i64 %val to i32
-  tail call void @msix_vector_use(ptr noundef nonnull %opaque, i32 noundef %conv32) #13
+  tail call void @msix_vector_use(ptr noundef nonnull %opaque, i32 noundef %conv32) #14
   %7 = trunc i64 %val to i16
   br label %if.end33
 
@@ -3639,15 +3639,15 @@ sw.bb36:                                          ; preds = %if.end
   br i1 %tobool.not, label %if.then37, label %if.then44.critedge
 
 if.then37:                                        ; preds = %sw.bb36
-  tail call void @virtio_bus_stop_ioeventfd(ptr noundef nonnull %bus) #13
+  tail call void @virtio_bus_stop_ioeventfd(ptr noundef nonnull %bus) #14
   %conv40 = trunc i64 %val to i8
-  %call41 = tail call i32 @virtio_set_status(ptr noundef nonnull %1, i8 noundef zeroext %conv40) #13
+  %call41 = tail call i32 @virtio_set_status(ptr noundef nonnull %1, i8 noundef zeroext %conv40) #14
   br label %if.end45
 
 if.then44.critedge:                               ; preds = %sw.bb36
   %conv40.c = trunc i64 %val to i8
-  %call41.c = tail call i32 @virtio_set_status(ptr noundef nonnull %1, i8 noundef zeroext %conv40.c) #13
-  %call.i = tail call i32 @virtio_bus_start_ioeventfd(ptr noundef nonnull %bus) #13
+  %call41.c = tail call i32 @virtio_set_status(ptr noundef nonnull %1, i8 noundef zeroext %conv40.c) #14
+  %call.i = tail call i32 @virtio_bus_start_ioeventfd(ptr noundef nonnull %bus) #14
   br label %if.end45
 
 if.end45:                                         ; preds = %if.then37, %if.then44.critedge
@@ -3657,7 +3657,7 @@ if.end45:                                         ; preds = %if.then37, %if.then
   br i1 %cmp47, label %if.then49, label %sw.epilog
 
 if.then49:                                        ; preds = %if.end45
-  %call.i106 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %opaque, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #13
+  %call.i106 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %opaque, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #14
   tail call fastcc void @virtio_pci_reset(ptr noundef %call.i106)
   br label %sw.epilog
 
@@ -3685,23 +3685,23 @@ sw.bb58:                                          ; preds = %if.end
   %arrayidx68 = getelementptr [1024 x %struct.VirtIOPCIQueue], ptr %vqs, i64 0, i64 %idxprom67
   %11 = load i16, ptr %arrayidx68, align 4
   %conv70 = zext i16 %11 to i32
-  tail call void @virtio_queue_set_num(ptr noundef nonnull %1, i32 noundef %conv64, i32 noundef %conv70) #13
+  tail call void @virtio_queue_set_num(ptr noundef nonnull %1, i32 noundef %conv64, i32 noundef %conv70) #14
   %12 = load i16, ptr %queue_sel60, align 2
   %conv72 = zext i16 %12 to i32
-  tail call void @virtio_init_region_cache(ptr noundef nonnull %1, i32 noundef %conv72) #13
+  tail call void @virtio_init_region_cache(ptr noundef nonnull %1, i32 noundef %conv72) #14
   br label %sw.epilog
 
 sw.bb73:                                          ; preds = %if.end
   %queue_sel74 = getelementptr inbounds i8, ptr %1, i64 170
   %13 = load i16, ptr %queue_sel74, align 2
   %conv75 = zext i16 %13 to i32
-  %call76 = tail call zeroext i16 @virtio_queue_vector(ptr noundef nonnull %1, i32 noundef %conv75) #13
+  %call76 = tail call zeroext i16 @virtio_queue_vector(ptr noundef nonnull %1, i32 noundef %conv75) #14
   %cmp78.not = icmp eq i16 %call76, -1
   br i1 %cmp78.not, label %if.end83, label %if.then80
 
 if.then80:                                        ; preds = %sw.bb73
   %conv77 = zext i16 %call76 to i32
-  tail call void @msix_vector_unuse(ptr noundef nonnull %opaque, i32 noundef %conv77) #13
+  tail call void @msix_vector_unuse(ptr noundef nonnull %opaque, i32 noundef %conv77) #14
   br label %if.end83
 
 if.end83:                                         ; preds = %if.then80, %sw.bb73
@@ -3713,7 +3713,7 @@ if.end83:                                         ; preds = %if.then80, %sw.bb73
 
 if.then88:                                        ; preds = %if.end83
   %conv90 = trunc nuw i64 %val to i32
-  tail call void @msix_vector_use(ptr noundef nonnull %opaque, i32 noundef %conv90) #13
+  tail call void @msix_vector_use(ptr noundef nonnull %opaque, i32 noundef %conv90) #14
   %15 = trunc i64 %val to i16
   br label %if.end92
 
@@ -3721,7 +3721,7 @@ if.end92:                                         ; preds = %if.end83, %if.then8
   %val.addr.1 = phi i16 [ %15, %if.then88 ], [ -1, %if.end83 ]
   %16 = load i16, ptr %queue_sel74, align 2
   %conv94 = zext i16 %16 to i32
-  tail call void @virtio_queue_set_vector(ptr noundef nonnull %1, i32 noundef %conv94, i16 noundef zeroext %val.addr.1) #13
+  tail call void @virtio_queue_set_vector(ptr noundef nonnull %1, i32 noundef %conv94, i16 noundef zeroext %val.addr.1) #14
   br label %sw.epilog
 
 sw.bb96:                                          ; preds = %if.end
@@ -3737,7 +3737,7 @@ if.then99:                                        ; preds = %sw.bb96
   %arrayidx105 = getelementptr [1024 x %struct.VirtIOPCIQueue], ptr %vqs102, i64 0, i64 %idxprom104
   %18 = load i16, ptr %arrayidx105, align 4
   %conv107 = zext i16 %18 to i32
-  tail call void @virtio_queue_set_num(ptr noundef nonnull %1, i32 noundef %conv101, i32 noundef %conv107) #13
+  tail call void @virtio_queue_set_num(ptr noundef nonnull %1, i32 noundef %conv101, i32 noundef %conv107) #14
   %19 = load i16, ptr %queue_sel100, align 2
   %conv109 = zext i16 %19 to i32
   %idxprom112 = zext i16 %19 to i64
@@ -3748,7 +3748,7 @@ if.then99:                                        ; preds = %sw.bb96
   %21 = load i64, ptr %avail, align 4
   %used = getelementptr inbounds i8, ptr %arrayidx113, i64 20
   %22 = load i64, ptr %used, align 4
-  tail call void @virtio_queue_set_rings(ptr noundef nonnull %1, i32 noundef %conv109, i64 noundef %20, i64 noundef %21, i64 noundef %22) #13
+  tail call void @virtio_queue_set_rings(ptr noundef nonnull %1, i32 noundef %conv109, i64 noundef %20, i64 noundef %21, i64 noundef %22) #14
   %23 = load i16, ptr %queue_sel100, align 2
   %idxprom157 = zext i16 %23 to i64
   %enabled = getelementptr [1024 x %struct.VirtIOPCIQueue], ptr %vqs102, i64 0, i64 %idxprom157, i32 1
@@ -3759,11 +3759,11 @@ if.then99:                                        ; preds = %sw.bb96
   store i8 0, ptr %reset, align 1
   %25 = load i16, ptr %queue_sel100, align 2
   %conv164 = zext i16 %25 to i32
-  tail call void @virtio_queue_enable(ptr noundef nonnull %1, i32 noundef %conv164) #13
+  tail call void @virtio_queue_enable(ptr noundef nonnull %1, i32 noundef %conv164) #14
   br label %sw.epilog
 
 if.else165:                                       ; preds = %sw.bb96
-  tail call void (ptr, ptr, ...) @virtio_error(ptr noundef nonnull %1, ptr noundef nonnull @.str.53, i64 noundef %val) #13
+  tail call void (ptr, ptr, ...) @virtio_error(ptr noundef nonnull %1, ptr noundef nonnull @.str.53, i64 noundef %val) #14
   br label %sw.epilog
 
 sw.bb167:                                         ; preds = %if.end
@@ -3839,7 +3839,7 @@ if.then218:                                       ; preds = %sw.bb215
   store i8 1, ptr %reset223, align 1
   %33 = load i16, ptr %queue_sel220, align 2
   %conv225 = zext i16 %33 to i32
-  tail call void @virtio_queue_reset(ptr noundef nonnull %1, i32 noundef %conv225) #13
+  tail call void @virtio_queue_reset(ptr noundef nonnull %1, i32 noundef %conv225) #14
   %34 = load i16, ptr %queue_sel220, align 2
   %idxprom228 = zext i16 %34 to i64
   %reset230 = getelementptr [1024 x %struct.VirtIOPCIQueue], ptr %vqs219, i64 0, i64 %idxprom228, i32 2
@@ -3872,7 +3872,7 @@ while.end:                                        ; preds = %virtio_bus_get_devi
   %isr = getelementptr inbounds i8, ptr %1, i64 169
   %2 = atomicrmw xchg ptr %isr, i8 0 seq_cst, align 1
   %conv = zext i8 %2 to i64
-  tail call void @pci_set_irq(ptr noundef nonnull %opaque, i32 noundef 0) #13
+  tail call void @pci_set_irq(ptr noundef nonnull %opaque, i32 noundef 0) #14
   br label %return
 
 return:                                           ; preds = %entry, %virtio_bus_get_device.exit, %while.end
@@ -3881,7 +3881,7 @@ return:                                           ; preds = %entry, %virtio_bus_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal void @virtio_pci_isr_write(ptr nocapture readnone %opaque, i64 %addr, i64 %val, i32 %size) #8 {
+define internal void @virtio_pci_isr_write(ptr nocapture readnone %opaque, i64 %addr, i64 %val, i32 %size) #9 {
 entry:
   ret void
 }
@@ -3909,17 +3909,17 @@ if.end:                                           ; preds = %virtio_bus_get_devi
 
 sw.bb:                                            ; preds = %if.end
   %conv = trunc i64 %addr to i32
-  %call1 = tail call i32 @virtio_config_modern_readb(ptr noundef nonnull %1, i32 noundef %conv) #13
+  %call1 = tail call i32 @virtio_config_modern_readb(ptr noundef nonnull %1, i32 noundef %conv) #14
   br label %sw.epilog
 
 sw.bb3:                                           ; preds = %if.end
   %conv4 = trunc i64 %addr to i32
-  %call5 = tail call i32 @virtio_config_modern_readw(ptr noundef nonnull %1, i32 noundef %conv4) #13
+  %call5 = tail call i32 @virtio_config_modern_readw(ptr noundef nonnull %1, i32 noundef %conv4) #14
   br label %sw.epilog
 
 sw.bb7:                                           ; preds = %if.end
   %conv8 = trunc i64 %addr to i32
-  %call9 = tail call i32 @virtio_config_modern_readl(ptr noundef nonnull %1, i32 noundef %conv8) #13
+  %call9 = tail call i32 @virtio_config_modern_readl(ptr noundef nonnull %1, i32 noundef %conv8) #14
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %if.end, %sw.bb7, %sw.bb3, %sw.bb
@@ -3956,19 +3956,19 @@ if.end:                                           ; preds = %virtio_bus_get_devi
 sw.bb:                                            ; preds = %if.end
   %conv = trunc i64 %addr to i32
   %conv1 = trunc i64 %val to i32
-  tail call void @virtio_config_modern_writeb(ptr noundef nonnull %1, i32 noundef %conv, i32 noundef %conv1) #13
+  tail call void @virtio_config_modern_writeb(ptr noundef nonnull %1, i32 noundef %conv, i32 noundef %conv1) #14
   br label %sw.epilog
 
 sw.bb2:                                           ; preds = %if.end
   %conv3 = trunc i64 %addr to i32
   %conv4 = trunc i64 %val to i32
-  tail call void @virtio_config_modern_writew(ptr noundef nonnull %1, i32 noundef %conv3, i32 noundef %conv4) #13
+  tail call void @virtio_config_modern_writew(ptr noundef nonnull %1, i32 noundef %conv3, i32 noundef %conv4) #14
   br label %sw.epilog
 
 sw.bb5:                                           ; preds = %if.end
   %conv6 = trunc i64 %addr to i32
   %conv7 = trunc i64 %val to i32
-  tail call void @virtio_config_modern_writel(ptr noundef nonnull %1, i32 noundef %conv6, i32 noundef %conv7) #13
+  tail call void @virtio_config_modern_writel(ptr noundef nonnull %1, i32 noundef %conv6, i32 noundef %conv7) #14
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %virtio_bus_get_device.exit, %sw.bb5, %sw.bb2, %sw.bb, %if.end
@@ -4044,21 +4044,21 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #13
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #13
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #14
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #14
   %8 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.54, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, i64 noundef %addr, i64 noundef %val, i32 noundef %size) #13
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.54, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, i64 noundef %addr, i64 noundef %val, i32 noundef %size) #14
   br label %trace_virtio_pci_notify_write.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.55, i64 noundef %addr, i64 noundef %val, i32 noundef %size) #13
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.55, i64 noundef %addr, i64 noundef %val, i32 noundef %size) #14
   br label %trace_virtio_pci_notify_write.exit
 
 trace_virtio_pci_notify_write.exit:               ; preds = %if.then, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  tail call void @virtio_queue_notify(ptr noundef nonnull %cond.i, i32 noundef %conv2) #13
+  tail call void @virtio_queue_notify(ptr noundef nonnull %cond.i, i32 noundef %conv2) #14
   br label %if.end
 
 if.end:                                           ; preds = %trace_virtio_pci_notify_write.exit, %virtio_bus_get_device.exit
@@ -4104,21 +4104,21 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #13
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #13
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #14
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #14
   %6 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.56, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i64 noundef %addr, i64 noundef %val, i32 noundef %size) #13
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.56, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i64 noundef %addr, i64 noundef %val, i32 noundef %size) #14
   br label %trace_virtio_pci_notify_write_pio.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.57, i64 noundef %addr, i64 noundef %val, i32 noundef %size) #13
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.57, i64 noundef %addr, i64 noundef %val, i32 noundef %size) #14
   br label %trace_virtio_pci_notify_write_pio.exit
 
 trace_virtio_pci_notify_write_pio.exit:           ; preds = %if.then, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  tail call void @virtio_queue_notify(ptr noundef nonnull %1, i32 noundef %conv) #13
+  tail call void @virtio_queue_notify(ptr noundef nonnull %1, i32 noundef %conv) #14
   br label %if.end
 
 if.end:                                           ; preds = %entry, %trace_virtio_pci_notify_write_pio.exit, %virtio_bus_get_device.exit
@@ -4138,11 +4138,11 @@ declare i32 @virtio_set_status(ptr noundef, i8 noundef zeroext) local_unnamed_ad
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @virtio_pci_reset(ptr noundef %qdev) unnamed_addr #0 {
 entry:
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %qdev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.14, i32 noundef 102, ptr noundef nonnull @__func__.VIRTIO_PCI) #13
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %qdev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.14, i32 noundef 102, ptr noundef nonnull @__func__.VIRTIO_PCI) #14
   %bus1 = getelementptr inbounds i8, ptr %call.i, i64 33616
-  %call.i21 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %bus1, ptr noundef nonnull @__const.virtio_pci_bus_new.virtio_bus_name, ptr noundef nonnull @.str.18, i32 noundef 36, ptr noundef nonnull @__func__.VIRTIO_BUS) #13
-  tail call void @virtio_bus_reset(ptr noundef %call.i21) #13
-  tail call void @msix_unuse_all_vectors(ptr noundef %call.i) #13
+  %call.i21 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %bus1, ptr noundef nonnull @__const.virtio_pci_bus_new.virtio_bus_name, ptr noundef nonnull @.str.18, i32 noundef 36, ptr noundef nonnull @__func__.VIRTIO_BUS) #14
+  tail call void @virtio_bus_reset(ptr noundef %call.i21) #14
+  tail call void @msix_unuse_all_vectors(ptr noundef %call.i) #14
   %vqs = getelementptr inbounds i8, ptr %call.i, i64 4924
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28672) %vqs, i8 0, i64 28672, i1 false)
   ret void
@@ -4177,7 +4177,7 @@ declare void @virtio_config_modern_writel(ptr noundef, i32 noundef, i32 noundef)
 declare void @virtio_queue_notify(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #10
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 
@@ -4192,14 +4192,14 @@ declare void @pcie_cap_flr_write_config(ptr noundef, i32 noundef, i32 noundef, i
 declare i32 @memory_region_dispatch_write(ptr noundef, i64 noundef, i64 noundef, i32 noundef, i32) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #10
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #11
 
 declare i32 @pci_default_read_config(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 declare i32 @memory_region_dispatch_read(ptr noundef, i64 noundef, ptr noundef, i32 noundef, i32) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #10
+declare i64 @llvm.ctlz.i64(i64, i1 immarg) #11
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 -1, 4294967296) i64 @virtio_pci_config_read(ptr noundef %opaque, i64 noundef %addr, i32 noundef %size) #0 {
@@ -4210,13 +4210,13 @@ entry:
   br i1 %tobool.not.i, label %virtio_bus_get_device.exit.thread, label %virtio_bus_get_device.exit
 
 virtio_bus_get_device.exit.thread:                ; preds = %entry
-  %call128 = tail call i32 @msix_enabled(ptr noundef nonnull %opaque) #13
+  %call128 = tail call i32 @msix_enabled(ptr noundef nonnull %opaque) #14
   br label %return
 
 virtio_bus_get_device.exit:                       ; preds = %entry
   %child.i = getelementptr inbounds i8, ptr %bus.val, i64 16
   %1 = load ptr, ptr %child.i, align 8
-  %call1 = tail call i32 @msix_enabled(ptr noundef nonnull %opaque) #13
+  %call1 = tail call i32 @msix_enabled(ptr noundef nonnull %opaque) #14
   %cmp = icmp eq ptr %1, null
   br i1 %cmp, label %return, label %if.end
 
@@ -4267,7 +4267,7 @@ sw.bb3.i:                                         ; preds = %virtio_bus_get_devi
   %queue_sel.i = getelementptr inbounds i8, ptr %cond.i.i, i64 170
   %5 = load i16, ptr %queue_sel.i, align 2
   %conv4.i = zext i16 %5 to i32
-  %call5.i = tail call i64 @virtio_queue_get_addr(ptr noundef %cond.i.i, i32 noundef %conv4.i) #13
+  %call5.i = tail call i64 @virtio_queue_get_addr(ptr noundef %cond.i.i, i32 noundef %conv4.i) #14
   %shr.i = lshr i64 %call5.i, 12
   %conv6.i = trunc i64 %shr.i to i32
   br label %virtio_ioport_read.exit
@@ -4276,7 +4276,7 @@ sw.bb7.i:                                         ; preds = %virtio_bus_get_devi
   %queue_sel8.i = getelementptr inbounds i8, ptr %cond.i.i, i64 170
   %6 = load i16, ptr %queue_sel8.i, align 2
   %conv9.i = zext i16 %6 to i32
-  %call10.i = tail call i32 @virtio_queue_get_num(ptr noundef %cond.i.i, i32 noundef %conv9.i) #13
+  %call10.i = tail call i32 @virtio_queue_get_num(ptr noundef %cond.i.i, i32 noundef %conv9.i) #14
   br label %virtio_ioport_read.exit
 
 sw.bb11.i:                                        ; preds = %virtio_bus_get_device.exit.i
@@ -4295,7 +4295,7 @@ while.end.i:                                      ; preds = %virtio_bus_get_devi
   %isr.i = getelementptr inbounds i8, ptr %cond.i.i, i64 169
   %9 = atomicrmw xchg ptr %isr.i, i8 0 seq_cst, align 1
   %conv18.i = zext i8 %9 to i32
-  tail call void @pci_set_irq(ptr noundef nonnull %opaque, i32 noundef 0) #13
+  tail call void @pci_set_irq(ptr noundef nonnull %opaque, i32 noundef 0) #14
   br label %virtio_ioport_read.exit
 
 sw.bb19.i:                                        ; preds = %virtio_bus_get_device.exit.i
@@ -4308,7 +4308,7 @@ sw.bb21.i:                                        ; preds = %virtio_bus_get_devi
   %queue_sel22.i = getelementptr inbounds i8, ptr %cond.i.i, i64 170
   %11 = load i16, ptr %queue_sel22.i, align 2
   %conv23.i = zext i16 %11 to i32
-  %call24.i = tail call zeroext i16 @virtio_queue_vector(ptr noundef %cond.i.i, i32 noundef %conv23.i) #13
+  %call24.i = tail call zeroext i16 @virtio_queue_vector(ptr noundef %cond.i.i, i32 noundef %conv23.i) #14
   %conv25.i = zext i16 %call24.i to i32
   br label %virtio_ioport_read.exit
 
@@ -4327,13 +4327,13 @@ if.end8:                                          ; preds = %if.end
 
 sw.bb:                                            ; preds = %if.end8
   %conv10 = trunc i64 %sub to i32
-  %call11 = tail call i32 @virtio_config_readb(ptr noundef nonnull %1, i32 noundef %conv10) #13
+  %call11 = tail call i32 @virtio_config_readb(ptr noundef nonnull %1, i32 noundef %conv10) #14
   %conv12 = zext i32 %call11 to i64
   br label %return
 
 sw.bb13:                                          ; preds = %if.end8
   %conv14 = trunc i64 %sub to i32
-  %call15 = tail call i32 @virtio_config_readw(ptr noundef nonnull %1, i32 noundef %conv14) #13
+  %call15 = tail call i32 @virtio_config_readw(ptr noundef nonnull %1, i32 noundef %conv14) #14
   %conv16 = zext i32 %call15 to i64
   %12 = getelementptr i8, ptr %1, i64 184
   %vdev.val.i = load i64, ptr %12, align 8
@@ -4350,7 +4350,7 @@ if.then.i:                                        ; preds = %sw.bb13
   ]
 
 if.else.i:                                        ; preds = %if.then.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.38, i32 noundef 441, ptr noundef nonnull @__PRETTY_FUNCTION__.virtio_is_big_endian) #14
+  tail call void @__assert_fail(ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.38, i32 noundef 441, ptr noundef nonnull @__PRETTY_FUNCTION__.virtio_is_big_endian) #15
   unreachable
 
 if.then18:                                        ; preds = %if.then.i
@@ -4361,7 +4361,7 @@ if.then18:                                        ; preds = %if.then.i
 
 sw.bb22:                                          ; preds = %if.end8
   %conv23 = trunc i64 %sub to i32
-  %call24 = tail call i32 @virtio_config_readl(ptr noundef nonnull %1, i32 noundef %conv23) #13
+  %call24 = tail call i32 @virtio_config_readl(ptr noundef nonnull %1, i32 noundef %conv23) #14
   %conv25 = zext i32 %call24 to i64
   %15 = getelementptr i8, ptr %1, i64 184
   %vdev.val.i16 = load i64, ptr %15, align 8
@@ -4378,7 +4378,7 @@ if.then.i20:                                      ; preds = %sw.bb22
   ]
 
 if.else.i25:                                      ; preds = %if.then.i20
-  tail call void @__assert_fail(ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.38, i32 noundef 441, ptr noundef nonnull @__PRETTY_FUNCTION__.virtio_is_big_endian) #14
+  tail call void @__assert_fail(ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.38, i32 noundef 441, ptr noundef nonnull @__PRETTY_FUNCTION__.virtio_is_big_endian) #15
   unreachable
 
 if.then27:                                        ; preds = %if.then.i20
@@ -4394,7 +4394,7 @@ return:                                           ; preds = %if.then.i20, %if.th
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @virtio_pci_config_write(ptr noundef %opaque, i64 noundef %addr, i64 noundef %val, i32 noundef %size) #0 {
 entry:
-  %call = tail call i32 @msix_enabled(ptr noundef %opaque) #13
+  %call = tail call i32 @msix_enabled(ptr noundef %opaque) #14
   %bus = getelementptr inbounds i8, ptr %opaque, i64 33616
   %0 = getelementptr i8, ptr %opaque, i64 33696
   %bus.val = load ptr, ptr %0, align 8
@@ -4434,13 +4434,13 @@ sw.bb.i:                                          ; preds = %virtio_bus_get_devi
   br i1 %tobool.not.i19, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %sw.bb.i
-  %call2.i = tail call i32 @virtio_bus_get_vdev_bad_features(ptr noundef nonnull %bus) #13
+  %call2.i = tail call i32 @virtio_bus_get_vdev_bad_features(ptr noundef nonnull %bus) #14
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %sw.bb.i
   %val.addr.0.i = phi i32 [ %call2.i, %if.then.i ], [ %conv6, %sw.bb.i ]
   %conv.i = zext i32 %val.addr.0.i to i64
-  %call3.i = tail call i32 @virtio_set_features(ptr noundef nonnull %1, i64 noundef %conv.i) #13
+  %call3.i = tail call i32 @virtio_set_features(ptr noundef nonnull %1, i64 noundef %conv.i) #14
   br label %sw.epilog
 
 sw.bb4.i:                                         ; preds = %virtio_bus_get_device.exit.i
@@ -4448,12 +4448,12 @@ sw.bb4.i:                                         ; preds = %virtio_bus_get_devi
   br i1 %cmp.i, label %if.then7.i, label %if.else.i
 
 if.then7.i:                                       ; preds = %sw.bb4.i
-  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %opaque, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #13
-  %call.i.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str, ptr noundef nonnull @.str.14, i32 noundef 102, ptr noundef nonnull @__func__.VIRTIO_PCI) #13
+  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %opaque, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #14
+  %call.i.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str, ptr noundef nonnull @.str.14, i32 noundef 102, ptr noundef nonnull @__func__.VIRTIO_PCI) #14
   %bus1.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 33616
-  %call.i21.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %bus1.i.i, ptr noundef nonnull @__const.virtio_pci_bus_new.virtio_bus_name, ptr noundef nonnull @.str.18, i32 noundef 36, ptr noundef nonnull @__func__.VIRTIO_BUS) #13
-  tail call void @virtio_bus_reset(ptr noundef %call.i21.i.i) #13
-  tail call void @msix_unuse_all_vectors(ptr noundef %call.i.i.i) #13
+  %call.i21.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %bus1.i.i, ptr noundef nonnull @__const.virtio_pci_bus_new.virtio_bus_name, ptr noundef nonnull @.str.18, i32 noundef 36, ptr noundef nonnull @__func__.VIRTIO_BUS) #14
+  tail call void @virtio_bus_reset(ptr noundef %call.i21.i.i) #14
+  tail call void @msix_unuse_all_vectors(ptr noundef %call.i.i.i) #14
   %vqs.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 4924
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28672) %vqs.i.i, i8 0, i64 28672, i1 false)
   br label %sw.epilog
@@ -4464,7 +4464,7 @@ if.else.i:                                        ; preds = %sw.bb4.i
   %queue_sel.i = getelementptr inbounds i8, ptr %1, i64 170
   %4 = load i16, ptr %queue_sel.i, align 2
   %conv9.i = zext i16 %4 to i32
-  tail call void @virtio_queue_set_addr(ptr noundef nonnull %1, i32 noundef %conv9.i, i64 noundef %shl.i) #13
+  tail call void @virtio_queue_set_addr(ptr noundef nonnull %1, i32 noundef %conv9.i, i64 noundef %shl.i) #14
   br label %sw.epilog
 
 sw.bb11.i:                                        ; preds = %virtio_bus_get_device.exit.i
@@ -4482,7 +4482,7 @@ sw.bb18.i:                                        ; preds = %virtio_bus_get_devi
   br i1 %cmp19.i, label %if.then21.i, label %sw.epilog
 
 if.then21.i:                                      ; preds = %sw.bb18.i
-  tail call void @virtio_queue_notify(ptr noundef nonnull %1, i32 noundef %conv6) #13
+  tail call void @virtio_queue_notify(ptr noundef nonnull %1, i32 noundef %conv6) #14
   br label %sw.epilog
 
 sw.bb23.i:                                        ; preds = %virtio_bus_get_device.exit.i
@@ -4491,15 +4491,15 @@ sw.bb23.i:                                        ; preds = %virtio_bus_get_devi
   br i1 %tobool25.not.i, label %if.then26.i, label %if.then33.critedge.i
 
 if.then26.i:                                      ; preds = %sw.bb23.i
-  tail call void @virtio_bus_stop_ioeventfd(ptr noundef nonnull %bus) #13
+  tail call void @virtio_bus_stop_ioeventfd(ptr noundef nonnull %bus) #14
   %conv29.i = trunc i64 %val to i8
-  %call30.i = tail call i32 @virtio_set_status(ptr noundef nonnull %1, i8 noundef zeroext %conv29.i) #13
+  %call30.i = tail call i32 @virtio_set_status(ptr noundef nonnull %1, i8 noundef zeroext %conv29.i) #14
   br label %if.end34.i
 
 if.then33.critedge.i:                             ; preds = %sw.bb23.i
   %conv29.c.i = trunc i64 %val to i8
-  %call30.c.i = tail call i32 @virtio_set_status(ptr noundef nonnull %1, i8 noundef zeroext %conv29.c.i) #13
-  %call.i48.i = tail call i32 @virtio_bus_start_ioeventfd(ptr noundef nonnull %bus) #13
+  %call30.c.i = tail call i32 @virtio_set_status(ptr noundef nonnull %1, i8 noundef zeroext %conv29.c.i) #14
+  %call.i48.i = tail call i32 @virtio_bus_start_ioeventfd(ptr noundef nonnull %bus) #14
   br label %if.end34.i
 
 if.end34.i:                                       ; preds = %if.then33.critedge.i, %if.then26.i
@@ -4509,12 +4509,12 @@ if.end34.i:                                       ; preds = %if.then33.critedge.
   br i1 %cmp36.i, label %if.then38.i, label %if.end40.i
 
 if.then38.i:                                      ; preds = %if.end34.i
-  %call.i49.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %opaque, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #13
-  %call.i.i50.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i49.i, ptr noundef nonnull @.str, ptr noundef nonnull @.str.14, i32 noundef 102, ptr noundef nonnull @__func__.VIRTIO_PCI) #13
+  %call.i49.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %opaque, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #14
+  %call.i.i50.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i49.i, ptr noundef nonnull @.str, ptr noundef nonnull @.str.14, i32 noundef 102, ptr noundef nonnull @__func__.VIRTIO_PCI) #14
   %bus1.i51.i = getelementptr inbounds i8, ptr %call.i.i50.i, i64 33616
-  %call.i21.i52.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %bus1.i51.i, ptr noundef nonnull @__const.virtio_pci_bus_new.virtio_bus_name, ptr noundef nonnull @.str.18, i32 noundef 36, ptr noundef nonnull @__func__.VIRTIO_BUS) #13
-  tail call void @virtio_bus_reset(ptr noundef %call.i21.i52.i) #13
-  tail call void @msix_unuse_all_vectors(ptr noundef %call.i.i50.i) #13
+  %call.i21.i52.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %bus1.i51.i, ptr noundef nonnull @__const.virtio_pci_bus_new.virtio_bus_name, ptr noundef nonnull @.str.18, i32 noundef 36, ptr noundef nonnull @__func__.VIRTIO_BUS) #14
+  tail call void @virtio_bus_reset(ptr noundef %call.i21.i52.i) #14
+  tail call void @msix_unuse_all_vectors(ptr noundef %call.i.i50.i) #14
   %vqs.i53.i = getelementptr inbounds i8, ptr %call.i.i50.i, i64 4924
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28672) %vqs.i53.i, i8 0, i64 28672, i1 false)
   br label %if.end40.i
@@ -4530,7 +4530,7 @@ if.then43.i:                                      ; preds = %if.end40.i
   %7 = load i8, ptr %arrayidx.i, align 1
   %8 = or i8 %7, 4
   %or.i = zext i8 %8 to i32
-  tail call void @pci_default_write_config(ptr noundef nonnull %opaque, i32 noundef 4, i32 noundef %or.i, i32 noundef 1) #13
+  tail call void @pci_default_write_config(ptr noundef nonnull %opaque, i32 noundef 4, i32 noundef %or.i, i32 noundef 1) #14
   br label %sw.epilog
 
 sw.bb47.i:                                        ; preds = %virtio_bus_get_device.exit.i
@@ -4541,7 +4541,7 @@ sw.bb47.i:                                        ; preds = %virtio_bus_get_devi
 
 if.then51.i:                                      ; preds = %sw.bb47.i
   %conv48.i = zext i16 %9 to i32
-  tail call void @msix_vector_unuse(ptr noundef nonnull %opaque, i32 noundef %conv48.i) #13
+  tail call void @msix_vector_unuse(ptr noundef nonnull %opaque, i32 noundef %conv48.i) #14
   br label %if.end55.i
 
 if.end55.i:                                       ; preds = %if.then51.i, %sw.bb47.i
@@ -4551,7 +4551,7 @@ if.end55.i:                                       ; preds = %if.then51.i, %sw.bb
   br i1 %cmp56.i, label %if.then58.i, label %if.end61.i
 
 if.then58.i:                                      ; preds = %if.end55.i
-  tail call void @msix_vector_use(ptr noundef nonnull %opaque, i32 noundef %conv6) #13
+  tail call void @msix_vector_use(ptr noundef nonnull %opaque, i32 noundef %conv6) #14
   %11 = trunc i64 %val to i16
   br label %if.end61.i
 
@@ -4564,13 +4564,13 @@ sw.bb64.i:                                        ; preds = %virtio_bus_get_devi
   %queue_sel65.i = getelementptr inbounds i8, ptr %1, i64 170
   %12 = load i16, ptr %queue_sel65.i, align 2
   %conv66.i = zext i16 %12 to i32
-  %call67.i = tail call zeroext i16 @virtio_queue_vector(ptr noundef nonnull %1, i32 noundef %conv66.i) #13
+  %call67.i = tail call zeroext i16 @virtio_queue_vector(ptr noundef nonnull %1, i32 noundef %conv66.i) #14
   %cmp69.not.i = icmp eq i16 %call67.i, -1
   br i1 %cmp69.not.i, label %if.end74.i, label %if.then71.i
 
 if.then71.i:                                      ; preds = %sw.bb64.i
   %conv68.i = zext i16 %call67.i to i32
-  tail call void @msix_vector_unuse(ptr noundef nonnull %opaque, i32 noundef %conv68.i) #13
+  tail call void @msix_vector_unuse(ptr noundef nonnull %opaque, i32 noundef %conv68.i) #14
   br label %if.end74.i
 
 if.end74.i:                                       ; preds = %if.then71.i, %sw.bb64.i
@@ -4580,7 +4580,7 @@ if.end74.i:                                       ; preds = %if.then71.i, %sw.bb
   br i1 %cmp76.i, label %if.then78.i, label %if.end81.i
 
 if.then78.i:                                      ; preds = %if.end74.i
-  tail call void @msix_vector_use(ptr noundef nonnull %opaque, i32 noundef %conv6) #13
+  tail call void @msix_vector_use(ptr noundef nonnull %opaque, i32 noundef %conv6) #14
   %14 = trunc i64 %val to i16
   br label %if.end81.i
 
@@ -4588,7 +4588,7 @@ if.end81.i:                                       ; preds = %if.then78.i, %if.en
   %val.addr.2.i = phi i16 [ %14, %if.then78.i ], [ -1, %if.end74.i ]
   %15 = load i16, ptr %queue_sel65.i, align 2
   %conv83.i = zext i16 %15 to i32
-  tail call void @virtio_queue_set_vector(ptr noundef nonnull %1, i32 noundef %conv83.i, i16 noundef zeroext %val.addr.2.i) #13
+  tail call void @virtio_queue_set_vector(ptr noundef nonnull %1, i32 noundef %conv83.i, i16 noundef zeroext %val.addr.2.i) #14
   br label %sw.epilog
 
 do.body.i:                                        ; preds = %virtio_bus_get_device.exit.i
@@ -4598,7 +4598,7 @@ do.body.i:                                        ; preds = %virtio_bus_get_devi
   br i1 %cmp.i.not.i, label %sw.epilog, label %if.then89.i
 
 if.then89.i:                                      ; preds = %do.body.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.61, ptr noundef nonnull @__func__.virtio_ioport_write, i32 noundef %conv5, i32 noundef %conv6) #13
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.61, ptr noundef nonnull @__func__.virtio_ioport_write, i32 noundef %conv5, i32 noundef %conv6) #14
   br label %sw.epilog
 
 if.end7:                                          ; preds = %if.end
@@ -4612,7 +4612,7 @@ if.end7:                                          ; preds = %if.end
 sw.bb:                                            ; preds = %if.end7
   %conv9 = trunc i64 %sub to i32
   %conv10 = trunc i64 %val to i32
-  tail call void @virtio_config_writeb(ptr noundef nonnull %1, i32 noundef %conv9, i32 noundef %conv10) #13
+  tail call void @virtio_config_writeb(ptr noundef nonnull %1, i32 noundef %conv9, i32 noundef %conv10) #14
   br label %sw.epilog
 
 sw.bb11:                                          ; preds = %if.end7
@@ -4630,7 +4630,7 @@ if.then.i20:                                      ; preds = %sw.bb11
   br i1 %cmp.not.i, label %if.else.i22, label %virtio_is_big_endian.exit
 
 if.else.i22:                                      ; preds = %if.then.i20
-  tail call void @__assert_fail(ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.38, i32 noundef 441, ptr noundef nonnull @__PRETTY_FUNCTION__.virtio_is_big_endian) #14
+  tail call void @__assert_fail(ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.38, i32 noundef 441, ptr noundef nonnull @__PRETTY_FUNCTION__.virtio_is_big_endian) #15
   unreachable
 
 virtio_is_big_endian.exit:                        ; preds = %if.then.i20
@@ -4645,7 +4645,7 @@ virtio_is_big_endian.exit.thread:                 ; preds = %virtio_is_big_endia
   %20 = phi i64 [ %val, %sw.bb11 ], [ %spec.select, %virtio_is_big_endian.exit ]
   %conv17 = trunc i64 %sub to i32
   %conv18 = trunc i64 %20 to i32
-  tail call void @virtio_config_writew(ptr noundef nonnull %1, i32 noundef %conv17, i32 noundef %conv18) #13
+  tail call void @virtio_config_writew(ptr noundef nonnull %1, i32 noundef %conv17, i32 noundef %conv18) #14
   br label %sw.epilog
 
 sw.bb19:                                          ; preds = %if.end7
@@ -4663,7 +4663,7 @@ if.then.i27:                                      ; preds = %sw.bb19
   br i1 %cmp.not.i29, label %if.else.i32, label %virtio_is_big_endian.exit33
 
 if.else.i32:                                      ; preds = %if.then.i27
-  tail call void @__assert_fail(ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.38, i32 noundef 441, ptr noundef nonnull @__PRETTY_FUNCTION__.virtio_is_big_endian) #14
+  tail call void @__assert_fail(ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.38, i32 noundef 441, ptr noundef nonnull @__PRETTY_FUNCTION__.virtio_is_big_endian) #15
   unreachable
 
 virtio_is_big_endian.exit33:                      ; preds = %if.then.i27
@@ -4678,7 +4678,7 @@ virtio_is_big_endian.exit33.thread:               ; preds = %virtio_is_big_endia
   %24 = phi i64 [ %val, %sw.bb19 ], [ %spec.select45, %virtio_is_big_endian.exit33 ]
   %conv25 = trunc i64 %sub to i32
   %conv26 = trunc i64 %24 to i32
-  tail call void @virtio_config_writel(ptr noundef nonnull %1, i32 noundef %conv25, i32 noundef %conv26) #13
+  tail call void @virtio_config_writel(ptr noundef nonnull %1, i32 noundef %conv25, i32 noundef %conv26) #14
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %if.then89.i, %do.body.i, %if.end81.i, %if.end61.i, %if.then43.i, %if.end40.i, %if.then21.i, %sw.bb18.i, %if.then14.i, %sw.bb11.i, %if.else.i, %if.then7.i, %if.end.i, %virtio_bus_get_device.exit, %virtio_is_big_endian.exit33.thread, %virtio_is_big_endian.exit.thread, %sw.bb, %if.end7
@@ -4690,12 +4690,12 @@ declare i32 @virtio_config_readb(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @virtio_config_readw(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.bswap.i16(i16) #10
+declare i16 @llvm.bswap.i16(i16) #11
 
 declare i32 @virtio_config_readl(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.bswap.i32(i32) #10
+declare i32 @llvm.bswap.i32(i32) #11
 
 declare i64 @virtio_queue_get_addr(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -4720,11 +4720,11 @@ declare zeroext i1 @virtio_queue_enabled_legacy(ptr noundef, i32 noundef) local_
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @virtio_pci_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
 entry:
-  %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #13
-  %call.i9 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.63, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE_CLASS) #13
-  %call.i10 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str, ptr noundef nonnull @.str.14, i32 noundef 102, ptr noundef nonnull @__func__.VIRTIO_PCI_CLASS) #13
-  %call.i11 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.65, i32 noundef 22, ptr noundef nonnull @__func__.RESETTABLE_CLASS) #13
-  tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @virtio_pci_properties) #13
+  %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #14
+  %call.i9 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.63, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE_CLASS) #14
+  %call.i10 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str, ptr noundef nonnull @.str.14, i32 noundef 102, ptr noundef nonnull @__func__.VIRTIO_PCI_CLASS) #14
+  %call.i11 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.65, i32 noundef 22, ptr noundef nonnull @__func__.RESETTABLE_CLASS) #14
+  tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @virtio_pci_properties) #14
   %realize = getelementptr inbounds i8, ptr %call.i9, i64 176
   store ptr @virtio_pci_realize, ptr %realize, align 8
   %exit = getelementptr inbounds i8, ptr %call.i9, i64 184
@@ -4736,7 +4736,7 @@ entry:
   %class_id = getelementptr inbounds i8, ptr %call.i9, i64 214
   store i16 255, ptr %class_id, align 2
   %parent_dc_realize = getelementptr inbounds i8, ptr %call.i10, i64 232
-  tail call void @device_class_set_parent_realize(ptr noundef %call.i, ptr noundef nonnull @virtio_pci_dc_realize, ptr noundef nonnull %parent_dc_realize) #13
+  tail call void @device_class_set_parent_realize(ptr noundef %call.i, ptr noundef nonnull @virtio_pci_dc_realize, ptr noundef nonnull %parent_dc_realize) #14
   %hold = getelementptr inbounds i8, ptr %call.i11, i64 120
   store ptr @virtio_pci_bus_reset_hold, ptr %hold, align 8
   ret void
@@ -4746,19 +4746,19 @@ entry:
 define internal void @virtio_pci_realize(ptr noundef %pci_dev, ptr noundef %errp) #0 {
 entry:
   %virtio_bus_name.i = alloca [11 x i8], align 1
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %pci_dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.14, i32 noundef 102, ptr noundef nonnull @__func__.VIRTIO_PCI) #13
-  %call.i68 = tail call ptr @object_get_class(ptr noundef %pci_dev) #13
-  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i68, ptr noundef nonnull @.str, ptr noundef nonnull @.str.14, i32 noundef 102, ptr noundef nonnull @__func__.VIRTIO_PCI_GET_CLASS) #13
-  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %pci_dev, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #13
-  %call1.i69 = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i) #13
-  %call.i1.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1.i69, ptr noundef nonnull @.str.82, ptr noundef nonnull @.str.83, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #13
-  %call3 = tail call zeroext i1 @pci_bus_is_express(ptr noundef %call.i1.i) #13
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %pci_dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.14, i32 noundef 102, ptr noundef nonnull @__func__.VIRTIO_PCI) #14
+  %call.i68 = tail call ptr @object_get_class(ptr noundef %pci_dev) #14
+  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i68, ptr noundef nonnull @.str, ptr noundef nonnull @.str.14, i32 noundef 102, ptr noundef nonnull @__func__.VIRTIO_PCI_GET_CLASS) #14
+  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %pci_dev, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #14
+  %call1.i69 = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i) #14
+  %call.i1.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1.i69, ptr noundef nonnull @.str.82, ptr noundef nonnull @.str.83, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #14
+  %call3 = tail call zeroext i1 @pci_bus_is_express(ptr noundef %call.i1.i) #14
   br i1 %call3, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %entry
-  %call.i.i70 = tail call ptr @object_dynamic_cast_assert(ptr noundef %pci_dev, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #13
-  %call1.i71 = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i70) #13
-  %call.i1.i72 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1.i71, ptr noundef nonnull @.str.82, ptr noundef nonnull @.str.83, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #13
+  %call.i.i70 = tail call ptr @object_dynamic_cast_assert(ptr noundef %pci_dev, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #14
+  %call1.i71 = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i70) #14
+  %call.i1.i72 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1.i71, ptr noundef nonnull @.str.82, ptr noundef nonnull @.str.83, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #14
   %0 = getelementptr i8, ptr %call.i1.i72, i64 120
   %call4.val = load i32, ptr %0, align 8
   %and.i = and i32 %call4.val, 1
@@ -4823,7 +4823,7 @@ if.end:                                           ; preds = %land.end, %if.then
   %sub2.i = add nuw nsw i64 %5, 4294967295
   %sh_prom.i = and i64 %sub2.i, 4294967295
   %shr.i = lshr exact i64 -9223372036854775808, %sh_prom.i
-  tail call void @memory_region_init(ptr noundef nonnull %modern_bar, ptr noundef nonnull %call.i, ptr noundef nonnull @.str, i64 noundef %shr.i) #13
+  tail call void @memory_region_init(ptr noundef nonnull %modern_bar, ptr noundef nonnull %call.i, ptr noundef nonnull @.str, i64 noundef %shr.i) #14
   %disable_legacy = getelementptr inbounds i8, ptr %call.i, i64 4892
   %6 = load i32, ptr %disable_legacy, align 4
   %cmp34 = icmp eq i32 %6, 0
@@ -4844,8 +4844,8 @@ if.end39:                                         ; preds = %if.then36, %if.end
   br i1 %or.cond.not, label %if.then42, label %if.end43
 
 if.then42:                                        ; preds = %if.end39
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.5, i32 noundef 2157, ptr noundef nonnull @__func__.virtio_pci_realize, ptr noundef nonnull @.str.79) #13
-  tail call void (ptr, ptr, ...) @error_append_hint(ptr noundef %errp, ptr noundef nonnull @.str.80) #13
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.5, i32 noundef 2157, ptr noundef nonnull @__func__.virtio_pci_realize, ptr noundef nonnull @.str.79) #14
+  tail call void (ptr, ptr, ...) @error_append_hint(ptr noundef %errp, ptr noundef nonnull @.str.80) #14
   br label %if.end111
 
 if.end43:                                         ; preds = %if.end39
@@ -4857,16 +4857,16 @@ if.end43:                                         ; preds = %if.end39
   br i1 %or.cond85.not, label %if.then49, label %if.else105
 
 if.then49:                                        ; preds = %if.end43
-  %call50 = tail call i32 @pcie_endpoint_cap_init(ptr noundef nonnull %pci_dev, i8 noundef zeroext 0) #13
+  %call50 = tail call i32 @pcie_endpoint_cap_init(ptr noundef nonnull %pci_dev, i8 noundef zeroext 0) #14
   %cmp51 = icmp sgt i32 %call50, 0
   br i1 %cmp51, label %if.end54, label %if.else
 
 if.else:                                          ; preds = %if.then49
-  tail call void @__assert_fail(ptr noundef nonnull @.str.81, ptr noundef nonnull @.str.5, i32 noundef 2168, ptr noundef nonnull @__PRETTY_FUNCTION__.virtio_pci_realize) #14
+  tail call void @__assert_fail(ptr noundef nonnull @.str.81, ptr noundef nonnull @.str.5, i32 noundef 2168, ptr noundef nonnull @__PRETTY_FUNCTION__.virtio_pci_realize) #15
   unreachable
 
 if.end54:                                         ; preds = %if.then49
-  %call55 = tail call i32 @pci_add_capability(ptr noundef nonnull %pci_dev, i8 noundef zeroext 1, i8 noundef zeroext 0, i8 noundef zeroext 8, ptr noundef %errp) #13
+  %call55 = tail call i32 @pci_add_capability(ptr noundef nonnull %pci_dev, i8 noundef zeroext 1, i8 noundef zeroext 0, i8 noundef zeroext 8, ptr noundef %errp) #14
   %cmp56 = icmp slt i32 %call55, 0
   br i1 %cmp56, label %if.end111, label %if.end59
 
@@ -4886,7 +4886,7 @@ if.end59:                                         ; preds = %if.end54
   br i1 %tobool64.not, label %if.end70, label %if.then65
 
 if.then65:                                        ; preds = %if.end59
-  %call66 = tail call i32 @pcie_aer_init(ptr noundef nonnull %pci_dev, i8 noundef zeroext 2, i16 noundef zeroext 256, i16 noundef zeroext 72, ptr noundef null) #13
+  %call66 = tail call i32 @pcie_aer_init(ptr noundef nonnull %pci_dev, i8 noundef zeroext 2, i16 noundef zeroext 256, i16 noundef zeroext 72, ptr noundef null) #14
   %.pre = load i32, ptr %3, align 4
   br label %if.end70
 
@@ -4898,7 +4898,7 @@ if.end70:                                         ; preds = %if.then65, %if.end5
   br i1 %tobool73.not, label %if.end75, label %if.then74
 
 if.then74:                                        ; preds = %if.end70
-  tail call void @pcie_cap_deverr_init(ptr noundef nonnull %pci_dev) #13
+  tail call void @pcie_cap_deverr_init(ptr noundef nonnull %pci_dev) #14
   %.pre80 = load i32, ptr %3, align 4
   br label %if.end75
 
@@ -4909,7 +4909,7 @@ if.end75:                                         ; preds = %if.then74, %if.end7
   br i1 %tobool78.not, label %if.end80, label %if.then79
 
 if.then79:                                        ; preds = %if.end75
-  tail call void @pcie_cap_lnkctl_init(ptr noundef nonnull %pci_dev) #13
+  tail call void @pcie_cap_lnkctl_init(ptr noundef nonnull %pci_dev) #14
   %.pre81 = load i32, ptr %3, align 4
   br label %if.end80
 
@@ -4937,7 +4937,7 @@ if.end88:                                         ; preds = %if.then84, %if.end8
 if.then92:                                        ; preds = %if.end88
   %and94 = and i32 %15, 4096
   %tobool95 = icmp ne i32 %and94, 0
-  tail call void @pcie_ats_init(ptr noundef nonnull %pci_dev, i16 noundef zeroext %last_pcie_cap_offset.0, i1 noundef zeroext %tobool95) #13
+  tail call void @pcie_ats_init(ptr noundef nonnull %pci_dev, i16 noundef zeroext %last_pcie_cap_offset.0, i1 noundef zeroext %tobool95) #14
   %.pre83 = load i32, ptr %3, align 4
   br label %if.end99
 
@@ -4948,7 +4948,7 @@ if.end99:                                         ; preds = %if.then92, %if.end8
   br i1 %tobool102.not, label %if.end107, label %if.then103
 
 if.then103:                                       ; preds = %if.end99
-  tail call void @pcie_cap_flr_init(ptr noundef nonnull %pci_dev) #13
+  tail call void @pcie_cap_flr_init(ptr noundef nonnull %pci_dev) #14
   br label %if.end107
 
 if.else105:                                       ; preds = %if.end43
@@ -4960,9 +4960,9 @@ if.else105:                                       ; preds = %if.end43
 if.end107:                                        ; preds = %if.end99, %if.then103, %if.else105
   %bus = getelementptr inbounds i8, ptr %call.i, i64 33616
   call void @llvm.lifetime.start.p0(i64 11, ptr nonnull %virtio_bus_name.i)
-  %call.i.i77 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #13
+  %call.i.i77 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %virtio_bus_name.i, ptr noundef nonnull align 1 dereferenceable(11) @__const.virtio_pci_bus_new.virtio_bus_name, i64 11, i1 false)
-  call void @qbus_init(ptr noundef nonnull %bus, i64 noundef 128, ptr noundef nonnull @.str.15, ptr noundef %call.i.i77, ptr noundef nonnull %virtio_bus_name.i) #13
+  call void @qbus_init(ptr noundef nonnull %bus, i64 noundef 128, ptr noundef nonnull @.str.15, ptr noundef %call.i.i77, ptr noundef nonnull %virtio_bus_name.i) #14
   call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %virtio_bus_name.i)
   %realize = getelementptr inbounds i8, ptr %call1.i, i64 240
   %17 = load ptr, ptr %realize, align 8
@@ -4970,7 +4970,7 @@ if.end107:                                        ; preds = %if.end99, %if.then1
   br i1 %tobool108.not, label %if.end111, label %if.then109
 
 if.then109:                                       ; preds = %if.end107
-  call void %17(ptr noundef nonnull %call.i, ptr noundef %errp) #13
+  call void %17(ptr noundef nonnull %call.i, ptr noundef %errp) #14
   br label %if.end111
 
 if.end111:                                        ; preds = %if.end54, %if.then109, %if.end107, %if.then42
@@ -4980,17 +4980,17 @@ if.end111:                                        ; preds = %if.end54, %if.then1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @virtio_pci_exit(ptr noundef %pci_dev) #0 {
 entry:
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %pci_dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.14, i32 noundef 102, ptr noundef nonnull @__func__.VIRTIO_PCI) #13
-  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %pci_dev, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #13
-  %call1.i = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i) #13
-  %call.i1.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1.i, ptr noundef nonnull @.str.82, ptr noundef nonnull @.str.83, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #13
-  %call2 = tail call zeroext i1 @pci_bus_is_express(ptr noundef %call.i1.i) #13
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %pci_dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.14, i32 noundef 102, ptr noundef nonnull @__func__.VIRTIO_PCI) #14
+  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %pci_dev, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #14
+  %call1.i = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i) #14
+  %call.i1.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1.i, ptr noundef nonnull @.str.82, ptr noundef nonnull @.str.83, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #14
+  %call2 = tail call zeroext i1 @pci_bus_is_express(ptr noundef %call.i1.i) #14
   br i1 %call2, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %entry
-  %call.i.i6 = tail call ptr @object_dynamic_cast_assert(ptr noundef %pci_dev, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #13
-  %call1.i7 = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i6) #13
-  %call.i1.i8 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1.i7, ptr noundef nonnull @.str.82, ptr noundef nonnull @.str.83, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #13
+  %call.i.i6 = tail call ptr @object_dynamic_cast_assert(ptr noundef %pci_dev, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #14
+  %call1.i7 = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i6) #14
+  %call.i1.i8 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1.i7, ptr noundef nonnull @.str.82, ptr noundef nonnull @.str.83, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #14
   %0 = getelementptr i8, ptr %call.i1.i8, i64 120
   %call3.val = load i32, ptr %0, align 8
   %and.i = and i32 %call3.val, 1
@@ -4999,7 +4999,7 @@ land.rhs:                                         ; preds = %entry
 
 land.end:                                         ; preds = %land.rhs, %entry
   %.not = phi i1 [ true, %entry ], [ %tobool.i.not, %land.rhs ]
-  tail call void @msix_uninit_exclusive_bar(ptr noundef %pci_dev) #13
+  tail call void @msix_uninit_exclusive_bar(ptr noundef %pci_dev) #14
   %flags = getelementptr inbounds i8, ptr %call.i, i64 4884
   %1 = load i32, ptr %flags, align 4
   %and = and i32 %1, 2048
@@ -5015,7 +5015,7 @@ land.lhs.true6:                                   ; preds = %land.end
   br i1 %tobool8.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true6
-  tail call void @pcie_aer_exit(ptr noundef nonnull %pci_dev) #13
+  tail call void @pcie_aer_exit(ptr noundef nonnull %pci_dev) #14
   br label %if.end
 
 if.end:                                           ; preds = %land.end, %if.then, %land.lhs.true6
@@ -5027,9 +5027,9 @@ declare void @device_class_set_parent_realize(ptr noundef, ptr noundef, ptr noun
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @virtio_pci_dc_realize(ptr noundef %qdev, ptr noundef %errp) #0 {
 entry:
-  %call.i = tail call ptr @object_get_class(ptr noundef %qdev) #13
-  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str, ptr noundef nonnull @.str.14, i32 noundef 102, ptr noundef nonnull @__func__.VIRTIO_PCI_GET_CLASS) #13
-  %call.i5 = tail call ptr @object_dynamic_cast_assert(ptr noundef %qdev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.14, i32 noundef 102, ptr noundef nonnull @__func__.VIRTIO_PCI) #13
+  %call.i = tail call ptr @object_get_class(ptr noundef %qdev) #14
+  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str, ptr noundef nonnull @.str.14, i32 noundef 102, ptr noundef nonnull @__func__.VIRTIO_PCI_GET_CLASS) #14
+  %call.i5 = tail call ptr @object_dynamic_cast_assert(ptr noundef %qdev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.14, i32 noundef 102, ptr noundef nonnull @__func__.VIRTIO_PCI) #14
   %flags = getelementptr inbounds i8, ptr %call.i5, i64 4884
   %0 = load i32, ptr %flags, align 4
   %and = and i32 %0, 16
@@ -5052,20 +5052,20 @@ if.then:                                          ; preds = %land.lhs.true
 if.end:                                           ; preds = %if.then, %land.lhs.true, %entry
   %parent_dc_realize = getelementptr inbounds i8, ptr %call1.i, i64 232
   %3 = load ptr, ptr %parent_dc_realize, align 8
-  tail call void %3(ptr noundef %qdev, ptr noundef %errp) #13
+  tail call void %3(ptr noundef %qdev, ptr noundef %errp) #14
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @virtio_pci_bus_reset_hold(ptr noundef %obj) #0 {
 entry:
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.63, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #13
-  %call.i6 = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #13
-  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i6, ptr noundef nonnull @.str, ptr noundef nonnull @.str.14, i32 noundef 102, ptr noundef nonnull @__func__.VIRTIO_PCI) #13
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.63, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #14
+  %call.i6 = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #14
+  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i6, ptr noundef nonnull @.str, ptr noundef nonnull @.str.14, i32 noundef 102, ptr noundef nonnull @__func__.VIRTIO_PCI) #14
   %bus1.i = getelementptr inbounds i8, ptr %call.i.i, i64 33616
-  %call.i21.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %bus1.i, ptr noundef nonnull @__const.virtio_pci_bus_new.virtio_bus_name, ptr noundef nonnull @.str.18, i32 noundef 36, ptr noundef nonnull @__func__.VIRTIO_BUS) #13
-  tail call void @virtio_bus_reset(ptr noundef %call.i21.i) #13
-  tail call void @msix_unuse_all_vectors(ptr noundef %call.i.i) #13
+  %call.i21.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %bus1.i, ptr noundef nonnull @__const.virtio_pci_bus_new.virtio_bus_name, ptr noundef nonnull @.str.18, i32 noundef 36, ptr noundef nonnull @__func__.VIRTIO_BUS) #14
+  tail call void @virtio_bus_reset(ptr noundef %call.i21.i) #14
+  tail call void @msix_unuse_all_vectors(ptr noundef %call.i.i) #14
   %vqs.i = getelementptr inbounds i8, ptr %call.i.i, i64 4924
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28672) %vqs.i, i8 0, i64 28672, i1 false)
   %0 = getelementptr i8, ptr %call.i, i64 1260
@@ -5075,8 +5075,8 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call void @pcie_cap_deverr_reset(ptr noundef nonnull %call.i) #13
-  tail call void @pcie_cap_lnkctl_reset(ptr noundef nonnull %call.i) #13
+  tail call void @pcie_cap_deverr_reset(ptr noundef nonnull %call.i) #14
+  tail call void @pcie_cap_lnkctl_reset(ptr noundef nonnull %call.i) #14
   %config = getelementptr inbounds i8, ptr %call.i, i64 168
   %1 = load ptr, ptr %config, align 8
   %pm_cap = getelementptr inbounds i8, ptr %call.i, i64 2169
@@ -5118,39 +5118,40 @@ declare void @pcie_cap_deverr_reset(ptr noundef) local_unnamed_addr #1
 declare void @pcie_cap_lnkctl_reset(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshl.i64(i64, i64, i64) #11
+declare i64 @llvm.fshl.i64(i64, i64, i64) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #11
+declare i32 @llvm.fshl.i32(i32, i32, i32) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #11
+declare i32 @llvm.umin.i32(i32, i32) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #11
+declare i32 @llvm.smin.i32(i32, i32) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #13 = { nounwind }
-attributes #14 = { noreturn nounwind }
-attributes #15 = { nounwind allocsize(0) }
+attributes #5 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #14 = { nounwind }
+attributes #15 = { noreturn nounwind }
+attributes #16 = { nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

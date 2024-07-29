@@ -6492,7 +6492,7 @@ define linkonce_odr noundef zeroext i1 @_ZN7Minisat9IntOption5parseEPKc(ptr noun
   %28 = load ptr, ptr @stderr, align 8
   %29 = load ptr, ptr %6, align 8
   %30 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef nonnull @.str.41, ptr noundef nonnull %18, ptr noundef %29) #28
-  tail call void @exit(i32 noundef 1) #29
+  tail call void @exit(i32 noundef 1) #30
   unreachable
 
 31:                                               ; preds = %23
@@ -6505,7 +6505,7 @@ define linkonce_odr noundef zeroext i1 @_ZN7Minisat9IntOption5parseEPKc(ptr noun
   %36 = load ptr, ptr @stderr, align 8
   %37 = load ptr, ptr %6, align 8
   %38 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %36, ptr noundef nonnull @.str.42, ptr noundef nonnull %18, ptr noundef %37) #28
-  tail call void @exit(i32 noundef 1) #29
+  tail call void @exit(i32 noundef 1) #30
   unreachable
 
 39:                                               ; preds = %31
@@ -6533,7 +6533,7 @@ define linkonce_odr void @_ZN7Minisat9IntOption4helpEb(ptr noundef nonnull align
   br i1 %11, label %13, label %15
 
 13:                                               ; preds = %2
-  %14 = tail call i64 @fwrite(ptr nonnull @.str.44, i64 4, i64 1, ptr %12) #30
+  %14 = tail call i64 @fwrite(ptr nonnull @.str.44, i64 4, i64 1, ptr %12) #31
   br label %17
 
 15:                                               ; preds = %2
@@ -6542,7 +6542,7 @@ define linkonce_odr void @_ZN7Minisat9IntOption4helpEb(ptr noundef nonnull align
 
 17:                                               ; preds = %15, %13
   %18 = load ptr, ptr @stderr, align 8
-  %19 = tail call i64 @fwrite(ptr nonnull @.str.46, i64 4, i64 1, ptr %18) #30
+  %19 = tail call i64 @fwrite(ptr nonnull @.str.46, i64 4, i64 1, ptr %18) #31
   %20 = getelementptr inbounds i8, ptr %0, i64 44
   %21 = load i32, ptr %20, align 4
   %22 = icmp eq i32 %21, 2147483647
@@ -6550,7 +6550,7 @@ define linkonce_odr void @_ZN7Minisat9IntOption4helpEb(ptr noundef nonnull align
   br i1 %22, label %24, label %26
 
 24:                                               ; preds = %17
-  %25 = tail call i64 @fwrite(ptr nonnull @.str.47, i64 4, i64 1, ptr %23) #30
+  %25 = tail call i64 @fwrite(ptr nonnull @.str.47, i64 4, i64 1, ptr %23) #31
   br label %28
 
 26:                                               ; preds = %17
@@ -6580,7 +6580,7 @@ define linkonce_odr void @_ZN7Minisat9IntOption4helpEb(ptr noundef nonnull align
 ; Function Attrs: mustprogress nofree nounwind willreturn
 declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #14
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -6653,7 +6653,7 @@ define linkonce_odr noundef zeroext i1 @_ZN7Minisat12DoubleOption5parseEPKc(ptr 
   %33 = load ptr, ptr @stderr, align 8
   %34 = load ptr, ptr %6, align 8
   %35 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %33, ptr noundef nonnull @.str.41, ptr noundef nonnull %18, ptr noundef %34) #28
-  tail call void @exit(i32 noundef 1) #29
+  tail call void @exit(i32 noundef 1) #30
   unreachable
 
 36:                                               ; preds = %27, %22
@@ -6673,7 +6673,7 @@ define linkonce_odr noundef zeroext i1 @_ZN7Minisat12DoubleOption5parseEPKc(ptr 
   %45 = load ptr, ptr @stderr, align 8
   %46 = load ptr, ptr %6, align 8
   %47 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %45, ptr noundef nonnull @.str.42, ptr noundef nonnull %18, ptr noundef %46) #28
-  tail call void @exit(i32 noundef 1) #29
+  tail call void @exit(i32 noundef 1) #30
   unreachable
 
 48:                                               ; preds = %39, %36
@@ -7775,7 +7775,7 @@ attributes #11 = { mustprogress nofree nosync nounwind willreturn memory(none) "
 attributes #12 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #13 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #18 = { nocallback nofree nounwind willreturn memory(argmem: write) }
@@ -7790,7 +7790,8 @@ attributes #26 = { nounwind allocsize(1) }
 attributes #27 = { nounwind willreturn memory(read) }
 attributes #28 = { cold nounwind }
 attributes #29 = { noreturn nounwind }
-attributes #30 = { cold }
+attributes #30 = { cold noreturn nounwind }
+attributes #31 = { cold }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

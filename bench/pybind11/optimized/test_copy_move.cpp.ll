@@ -44308,7 +44308,7 @@ _ZN8pybind116detail11type_casterIivE4castIiEENSt9enable_ifIXaaaantsr3std17is_flo
 ; Function Attrs: mustprogress uwtable
 define internal fastcc noundef i32 @"_ZNO8pybind116detail15argument_loaderIJSt4pairI11MoveOnlyIntS2_ISt5tupleIJ13MoveOrCopyInt11CopyOnlyIntS4_IJS3_EEEES5_EEEE4callIiNS0_9void_typeERZ33test_submodule_copy_move_policiesRNS_7module_EE3$_7EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESJ_E4typeEOT1_"(ptr noundef nonnull align 4 dereferenceable(20) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.std::pair.621", align 4
-  %3 = alloca %"struct.std::pair.619", align 4
+  %3 = alloca %"struct.std::pair.619", align 16
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2), !noalias !1130
   %4 = getelementptr inbounds i8, ptr %0, i64 4
@@ -44325,33 +44325,26 @@ define internal fastcc noundef i32 @"_ZNO8pybind116detail15argument_loaderIJSt4p
 _ZN8pybind116detail7cast_opISt4pairI11MoveOnlyIntS2_ISt5tupleIJ13MoveOrCopyInt11CopyOnlyIntS4_IJS3_EEEES5_EEEENS0_11type_casterINS0_14intrinsic_typeIT_E4typeEvE12cast_op_typeINSt20add_rvalue_referenceISD_E4typeEEEOSG_.exit.i: ; preds = %1
   call void @_ZNSt4pairISt5tupleIJ13MoveOrCopyInt11CopyOnlyIntS0_IJ11MoveOnlyIntEEEES1_ED2Ev(ptr noundef nonnull align 4 dereferenceable(16) %2) #23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2), !noalias !1130
-  %7 = load i32, ptr %3, align 4
-  %8 = getelementptr inbounds i8, ptr %3, i64 4
-  %9 = getelementptr inbounds i8, ptr %3, i64 12
-  %10 = load i32, ptr %9, align 4
-  %11 = getelementptr inbounds i8, ptr %3, i64 8
-  %12 = load i32, ptr %11, align 4
-  %13 = load i32, ptr %8, align 4
-  %14 = getelementptr inbounds i8, ptr %3, i64 16
-  %15 = load i32, ptr %14, align 4
-  call void @_ZNSt4pairISt5tupleIJ13MoveOrCopyInt11CopyOnlyIntS0_IJ11MoveOnlyIntEEEES1_ED2Ev(ptr noundef nonnull align 4 dereferenceable(16) %8) #23
+  %7 = getelementptr inbounds i8, ptr %3, i64 4
+  %8 = load <4 x i32>, ptr %3, align 16
+  %9 = getelementptr inbounds i8, ptr %3, i64 16
+  %10 = load i32, ptr %9, align 16
+  call void @_ZNSt4pairISt5tupleIJ13MoveOrCopyInt11CopyOnlyIntS0_IJ11MoveOnlyIntEEEES1_ED2Ev(ptr noundef nonnull align 4 dereferenceable(16) %7) #23
   invoke void @_Z15print_destroyedI11MoveOnlyIntJEEvPT_DpOT0_(ptr noundef nonnull %3)
-          to label %"_ZNO8pybind116detail15argument_loaderIJSt4pairI11MoveOnlyIntS2_ISt5tupleIJ13MoveOrCopyInt11CopyOnlyIntS4_IJS3_EEEES5_EEEE9call_implIiRZ33test_submodule_copy_move_policiesRNS_7module_EE3$_7JLm0EENS0_9void_typeEEET_OT0_St16integer_sequenceImJXspT1_EEEOT2_.exit" unwind label %16
+          to label %"_ZNO8pybind116detail15argument_loaderIJSt4pairI11MoveOnlyIntS2_ISt5tupleIJ13MoveOrCopyInt11CopyOnlyIntS4_IJS3_EEEES5_EEEE9call_implIiRZ33test_submodule_copy_move_policiesRNS_7module_EE3$_7JLm0EENS0_9void_typeEEET_OT0_St16integer_sequenceImJXspT1_EEEOT2_.exit" unwind label %11
 
-16:                                               ; preds = %_ZN8pybind116detail7cast_opISt4pairI11MoveOnlyIntS2_ISt5tupleIJ13MoveOrCopyInt11CopyOnlyIntS4_IJS3_EEEES5_EEEENS0_11type_casterINS0_14intrinsic_typeIT_E4typeEvE12cast_op_typeINSt20add_rvalue_referenceISD_E4typeEEEOSG_.exit.i
-  %17 = landingpad { ptr, i32 }
+11:                                               ; preds = %_ZN8pybind116detail7cast_opISt4pairI11MoveOnlyIntS2_ISt5tupleIJ13MoveOrCopyInt11CopyOnlyIntS4_IJS3_EEEES5_EEEENS0_11type_casterINS0_14intrinsic_typeIT_E4typeEvE12cast_op_typeINSt20add_rvalue_referenceISD_E4typeEEEOSG_.exit.i
+  %12 = landingpad { ptr, i32 }
           catch ptr null
-  %18 = extractvalue { ptr, i32 } %17, 0
-  call void @__clang_call_terminate(ptr %18) #24
+  %13 = extractvalue { ptr, i32 } %12, 0
+  call void @__clang_call_terminate(ptr %13) #24
   unreachable
 
 "_ZNO8pybind116detail15argument_loaderIJSt4pairI11MoveOnlyIntS2_ISt5tupleIJ13MoveOrCopyInt11CopyOnlyIntS4_IJS3_EEEES5_EEEE9call_implIiRZ33test_submodule_copy_move_policiesRNS_7module_EE3$_7JLm0EENS0_9void_typeEEET_OT0_St16integer_sequenceImJXspT1_EEEOT2_.exit": ; preds = %_ZN8pybind116detail7cast_opISt4pairI11MoveOnlyIntS2_ISt5tupleIJ13MoveOrCopyInt11CopyOnlyIntS4_IJS3_EEEES5_EEEENS0_11type_casterINS0_14intrinsic_typeIT_E4typeEvE12cast_op_typeINSt20add_rvalue_referenceISD_E4typeEEEOSG_.exit.i
-  %19 = add nsw i32 %10, %7
-  %20 = add nsw i32 %19, %12
-  %21 = add nsw i32 %20, %13
-  %22 = add nsw i32 %21, %15
+  %14 = call i32 @llvm.vector.reduce.add.v4i32(<4 x i32> %8)
+  %op.rdx = add i32 %14, %10
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3)
-  ret i32 %22
+  ret i32 %op.rdx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -52875,6 +52868,9 @@ declare i64 @llvm.umax.i64(i64, i64) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #19
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.vector.reduce.add.v4i32(<4 x i32>) #19
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

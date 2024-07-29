@@ -1051,7 +1051,7 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit:
 
 if.end:                                           ; preds = %_ZNK6vectorI10ref_vectorI4expr11ast_managerELb1EjE5emptyEv.exit
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.13, i32 noundef 174, ptr noundef nonnull @.str.14)
-  tail call void @exit(i32 noundef 107) #14
+  tail call void @exit(i32 noundef 107) #16
   unreachable
 }
 
@@ -1191,7 +1191,7 @@ invoke.cont8:                                     ; preds = %invoke.cont6
   br i1 %call2.i2, label %if.else, label %if.then
 
 if.then:                                          ; preds = %invoke.cont8
-  invoke void @__cxa_rethrow() #16
+  invoke void @__cxa_rethrow() #17
           to label %unreachable unwind label %lpad5
 
 lpad5:                                            ; preds = %invoke.cont6, %invoke.cont12, %if.else, %if.then, %catch
@@ -1511,7 +1511,7 @@ catch:                                            ; preds = %catch.dispatch
   br i1 %tobool.i.i, label %if.end65, label %if.then63
 
 if.then63:                                        ; preds = %catch
-  invoke void @__cxa_rethrow() #16
+  invoke void @__cxa_rethrow() #17
           to label %unreachable unwind label %lpad64
 
 lpad64:                                           ; preds = %if.then63
@@ -1591,7 +1591,7 @@ sw.default.i:                                     ; preds = %lor.lhs.false70
           to label %.noexc unwind label %lpad66.loopexit.split-lp
 
 .noexc:                                           ; preds = %sw.default.i
-  call void @exit(i32 noundef 114) #14
+  call void @exit(i32 noundef 114) #16
   unreachable
 
 invoke.cont71:                                    ; preds = %call4.i.i.noexc, %cond.true.i.i.i, %for.inc.i.i
@@ -2183,7 +2183,7 @@ declare noundef i32 @_ZN6solver9check_satEjPKP4expr(ptr noundef nonnull align 8 
 
 declare void @_Z26notify_assertion_violationPKciS0_(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #11
 
 declare void @__cxa_rethrow() local_unnamed_addr
@@ -2267,7 +2267,7 @@ sw.bb3:                                           ; preds = %entry
 
 sw.default:                                       ; preds = %entry
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.19, i32 noundef 112, ptr noundef nonnull @.str.20)
-  tail call void @exit(i32 noundef 114) #14
+  tail call void @exit(i32 noundef 114) #16
   unreachable
 
 return:                                           ; preds = %sw.bb2, %_ZNK15combined_solver15has_quantifiersEv.exit.loopexit, %entry, %sw.bb3
@@ -2503,12 +2503,13 @@ attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #8 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #10 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { nofree nosync nounwind memory(none) }
 attributes #13 = { nounwind }
 attributes #14 = { noreturn nounwind }
 attributes #15 = { builtin nounwind }
-attributes #16 = { noreturn }
+attributes #16 = { cold noreturn nounwind }
+attributes #17 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

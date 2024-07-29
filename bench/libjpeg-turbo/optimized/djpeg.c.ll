@@ -213,17 +213,17 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonl
   br label %14
 
 14:                                               ; preds = %13, %10
-  %15 = call ptr @jpeg_std_error(ptr noundef nonnull %4) #10
+  %15 = call ptr @jpeg_std_error(ptr noundef nonnull %4) #11
   store ptr %15, ptr %3, align 8
-  call void @jpeg_CreateDecompress(ptr noundef nonnull %3, i32 noundef 62, i64 noundef 632) #10
+  call void @jpeg_CreateDecompress(ptr noundef nonnull %3, i32 noundef 62, i64 noundef 632) #11
   %16 = getelementptr inbounds i8, ptr %4, i64 152
   store ptr @cdjpeg_message_table, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %4, i64 160
   store i32 1000, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %4, i64 164
   store i32 1048, ptr %18, align 4
-  call void @jpeg_set_marker_processor(ptr noundef nonnull %3, i32 noundef 254, ptr noundef nonnull @print_text_marker) #10
-  call void @jpeg_set_marker_processor(ptr noundef nonnull %3, i32 noundef 236, ptr noundef nonnull @print_text_marker) #10
+  call void @jpeg_set_marker_processor(ptr noundef nonnull %3, i32 noundef 254, ptr noundef nonnull @print_text_marker) #11
+  call void @jpeg_set_marker_processor(ptr noundef nonnull %3, i32 noundef 236, ptr noundef nonnull @print_text_marker) #11
   %19 = call fastcc i32 @parse_switches(ptr noundef nonnull %3, i32 noundef %0, ptr noundef nonnull %1, i32 noundef 0)
   %.b = load i1, ptr @strict, align 4
   br i1 %.b, label %20, label %22
@@ -241,7 +241,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonl
 25:                                               ; preds = %22
   %26 = load ptr, ptr @stderr, align 8
   %27 = load ptr, ptr @progname, align 8
-  %28 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str.1, ptr noundef %27) #11
+  %28 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str.1, ptr noundef %27) #12
   call fastcc void @usage()
   unreachable
 
@@ -261,12 +261,12 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonl
   %38 = load ptr, ptr @stderr, align 8
   %39 = load ptr, ptr @progname, align 8
   %40 = load ptr, ptr %33, align 8
-  %41 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %38, ptr noundef nonnull @.str.3, ptr noundef %39, ptr noundef %40) #11
-  call void @exit(i32 noundef 1) #12
+  %41 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %38, ptr noundef nonnull @.str.3, ptr noundef %39, ptr noundef %40) #12
+  call void @exit(i32 noundef 1) #13
   unreachable
 
 42:                                               ; preds = %29
-  %43 = call ptr @read_stdin() #10
+  %43 = call ptr @read_stdin() #11
   br label %44
 
 44:                                               ; preds = %31, %42
@@ -284,12 +284,12 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonl
   %50 = load ptr, ptr @stderr, align 8
   %51 = load ptr, ptr @progname, align 8
   %52 = load ptr, ptr @outfilename, align 8
-  %53 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %50, ptr noundef nonnull @.str.3, ptr noundef %51, ptr noundef %52) #11
-  call void @exit(i32 noundef 1) #12
+  %53 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %50, ptr noundef nonnull @.str.3, ptr noundef %51, ptr noundef %52) #12
+  call void @exit(i32 noundef 1) #13
   unreachable
 
 54:                                               ; preds = %44
-  %55 = call ptr @write_stdout() #10
+  %55 = call ptr @write_stdout() #11
   br label %56
 
 56:                                               ; preds = %46, %54
@@ -301,7 +301,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonl
   br i1 %or.cond, label %59, label %64
 
 59:                                               ; preds = %56
-  call void @start_progress_monitor(ptr noundef nonnull %3, ptr noundef nonnull %5) #10
+  call void @start_progress_monitor(ptr noundef nonnull %3, ptr noundef nonnull %5) #11
   %.b147 = load i1, ptr @report, align 4
   %60 = zext i1 %.b147 to i32
   %61 = getelementptr inbounds i8, ptr %5, i64 44
@@ -319,15 +319,15 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonl
   %.0111 = phi ptr [ %66, %89 ], [ null, %64 ]
   %.0110 = phi i64 [ %90, %89 ], [ 0, %64 ]
   %65 = add i64 %.0110, 4096
-  %66 = call ptr @realloc(ptr noundef %.0111, i64 noundef %65) #13
+  %66 = call ptr @realloc(ptr noundef %.0111, i64 noundef %65) #14
   %67 = icmp eq ptr %66, null
   br i1 %67, label %68, label %72
 
 68:                                               ; preds = %.preheader187
   %69 = load ptr, ptr @stderr, align 8
   %70 = load ptr, ptr @progname, align 8
-  %71 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %69, ptr noundef nonnull @.str.5, ptr noundef %70) #11
-  call void @exit(i32 noundef 1) #12
+  %71 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %69, ptr noundef nonnull @.str.5, ptr noundef %70) #12
+  call void @exit(i32 noundef 1) #13
   unreachable
 
 72:                                               ; preds = %.preheader187
@@ -337,7 +337,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonl
   br i1 %75, label %76, label %89
 
 76:                                               ; preds = %72
-  %77 = call i32 @ferror(ptr noundef %.0113) #10
+  %77 = call i32 @ferror(ptr noundef %.0113) #11
   %.not153 = icmp eq i32 %77, 0
   br i1 %.not153, label %.thread, label %78
 
@@ -350,11 +350,11 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonl
   %82 = sext i32 %19 to i64
   %83 = getelementptr inbounds ptr, ptr %1, i64 %82
   %84 = load ptr, ptr %83, align 8
-  %85 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %79, ptr noundef nonnull @.str.6, ptr noundef %80, ptr noundef %84) #11
+  %85 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %79, ptr noundef nonnull @.str.6, ptr noundef %80, ptr noundef %84) #12
   br label %.thread
 
 86:                                               ; preds = %78
-  %87 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %79, ptr noundef nonnull @.str.7, ptr noundef %80) #11
+  %87 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %79, ptr noundef nonnull @.str.7, ptr noundef %80) #12
   br label %.thread
 
 .thread:                                          ; preds = %81, %86, %76
@@ -369,17 +369,17 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonl
 .loopexit188:                                     ; preds = %89, %.thread
   %92 = phi i64 [ %88, %.thread ], [ %90, %89 ]
   %93 = load ptr, ptr @stderr, align 8
-  %94 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %93, ptr noundef nonnull @.str.8, i64 noundef %92) #11
-  call void @jpeg_mem_src(ptr noundef nonnull %3, ptr noundef nonnull %66, i64 noundef %92) #10
+  %94 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %93, ptr noundef nonnull @.str.8, i64 noundef %92) #12
+  call void @jpeg_mem_src(ptr noundef nonnull %3, ptr noundef nonnull %66, i64 noundef %92) #11
   br label %96
 
 95:                                               ; preds = %64
-  call void @jpeg_stdio_src(ptr noundef nonnull %3, ptr noundef %.0113) #10
+  call void @jpeg_stdio_src(ptr noundef nonnull %3, ptr noundef %.0113) #11
   br label %96
 
 96:                                               ; preds = %95, %.loopexit188
   %.1 = phi ptr [ %66, %.loopexit188 ], [ null, %95 ]
-  %97 = call i32 @jpeg_read_header(ptr noundef nonnull %3, i32 noundef 1) #10
+  %97 = call i32 @jpeg_read_header(ptr noundef nonnull %3, i32 noundef 1) #11
   %98 = call fastcc i32 @parse_switches(ptr noundef nonnull %3, i32 noundef %0, ptr noundef nonnull %1, i32 noundef 1)
   %99 = load i32, ptr @requested_fmt, align 4
   switch i32 %99, label %default.unreachable [
@@ -392,11 +392,11 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonl
   ]
 
 100:                                              ; preds = %96
-  %101 = call ptr @jinit_write_bmp(ptr noundef nonnull %3, i32 noundef 0, i32 noundef 1) #10
+  %101 = call ptr @jinit_write_bmp(ptr noundef nonnull %3, i32 noundef 0, i32 noundef 1) #11
   br label %130
 
 102:                                              ; preds = %96
-  %103 = call ptr @jinit_write_bmp(ptr noundef nonnull %3, i32 noundef 1, i32 noundef 1) #10
+  %103 = call ptr @jinit_write_bmp(ptr noundef nonnull %3, i32 noundef 1, i32 noundef 1) #11
   br label %130
 
 104:                                              ; preds = %96
@@ -415,19 +415,19 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonl
   %111 = getelementptr inbounds i8, ptr %108, i64 44
   store i32 %110, ptr %111, align 4
   %112 = load ptr, ptr %108, align 8
-  call void %112(ptr noundef nonnull %3) #10
+  call void %112(ptr noundef nonnull %3) #11
   br label %130
 
 113:                                              ; preds = %104
-  %114 = call ptr @j12init_write_gif(ptr noundef nonnull %3, i32 noundef 1) #10
+  %114 = call ptr @j12init_write_gif(ptr noundef nonnull %3, i32 noundef 1) #11
   br label %130
 
 115:                                              ; preds = %104
-  %116 = call ptr @jinit_write_gif(ptr noundef nonnull %3, i32 noundef 1) #10
+  %116 = call ptr @jinit_write_gif(ptr noundef nonnull %3, i32 noundef 1) #11
   br label %130
 
 117:                                              ; preds = %96
-  %118 = call ptr @jinit_write_gif(ptr noundef nonnull %3, i32 noundef 0) #10
+  %118 = call ptr @jinit_write_gif(ptr noundef nonnull %3, i32 noundef 0) #11
   br label %130
 
 119:                                              ; preds = %96
@@ -439,19 +439,19 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonl
   ]
 
 122:                                              ; preds = %119
-  %123 = call ptr @j16init_write_ppm(ptr noundef nonnull %3) #10
+  %123 = call ptr @j16init_write_ppm(ptr noundef nonnull %3) #11
   br label %130
 
 124:                                              ; preds = %119
-  %125 = call ptr @j12init_write_ppm(ptr noundef nonnull %3) #10
+  %125 = call ptr @j12init_write_ppm(ptr noundef nonnull %3) #11
   br label %130
 
 126:                                              ; preds = %119
-  %127 = call ptr @jinit_write_ppm(ptr noundef nonnull %3) #10
+  %127 = call ptr @jinit_write_ppm(ptr noundef nonnull %3) #11
   br label %130
 
 128:                                              ; preds = %96
-  %129 = call ptr @jinit_write_targa(ptr noundef nonnull %3) #10
+  %129 = call ptr @jinit_write_targa(ptr noundef nonnull %3) #11
   br label %130
 
 default.unreachable:                              ; preds = %96
@@ -461,7 +461,7 @@ default.unreachable:                              ; preds = %96
   %.0 = phi ptr [ %129, %128 ], [ %123, %122 ], [ %125, %124 ], [ %127, %126 ], [ %118, %117 ], [ null, %107 ], [ %114, %113 ], [ %116, %115 ], [ %103, %102 ], [ %101, %100 ]
   %131 = getelementptr inbounds i8, ptr %.0, i64 32
   store ptr %.0112, ptr %131, align 8
-  %132 = call i32 @jpeg_start_decompress(ptr noundef nonnull %3) #10
+  %132 = call i32 @jpeg_start_decompress(ptr noundef nonnull %3) #11
   %.b151 = load i1, ptr @skip, align 4
   br i1 %.b151, label %133, label %230
 
@@ -476,8 +476,8 @@ default.unreachable:                              ; preds = %96
 139:                                              ; preds = %133
   %140 = load ptr, ptr @stderr, align 8
   %141 = load ptr, ptr @progname, align 8
-  %142 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %140, ptr noundef nonnull @.str.9, ptr noundef %141, i32 noundef %136) #11
-  call void @exit(i32 noundef 1) #12
+  %142 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %140, ptr noundef nonnull @.str.9, ptr noundef %141, i32 noundef %136) #12
+  call void @exit(i32 noundef 1) #13
   unreachable
 
 143:                                              ; preds = %133
@@ -487,7 +487,7 @@ default.unreachable:                              ; preds = %96
   %146 = add i32 %.neg, %144
   store i32 %146, ptr %135, align 4
   %147 = load ptr, ptr %.0, align 8
-  call void %147(ptr noundef nonnull %3, ptr noundef nonnull %.0) #10
+  call void %147(ptr noundef nonnull %3, ptr noundef nonnull %.0) #11
   store i32 %136, ptr %135, align 4
   %148 = getelementptr inbounds i8, ptr %3, i64 296
   %149 = load i32, ptr %148, align 8
@@ -525,9 +525,9 @@ default.unreachable:                              ; preds = %96
 164:                                              ; preds = %.lr.ph208, %164
   %165 = load ptr, ptr %154, align 8
   %166 = load i32, ptr %155, align 8
-  %167 = call i32 @jpeg12_read_scanlines(ptr noundef nonnull %3, ptr noundef %165, i32 noundef %166) #10
+  %167 = call i32 @jpeg12_read_scanlines(ptr noundef nonnull %3, ptr noundef %165, i32 noundef %166) #11
   %168 = load ptr, ptr %156, align 8
-  call void %168(ptr noundef nonnull %3, ptr noundef nonnull %.0, i32 noundef %167) #10
+  call void %168(ptr noundef nonnull %3, ptr noundef nonnull %.0, i32 noundef %167) #11
   %169 = load i32, ptr %150, align 8
   %170 = load i32, ptr @skip_start, align 4
   %171 = icmp ult i32 %169, %170
@@ -538,7 +538,7 @@ default.unreachable:                              ; preds = %96
   %172 = load i32, ptr @skip_end, align 4
   %reass.sub = sub i32 %172, %.lcssa190
   %173 = add i32 %reass.sub, 1
-  %174 = call i32 @jpeg12_skip_scanlines(ptr noundef nonnull %3, i32 noundef %173) #10
+  %174 = call i32 @jpeg12_skip_scanlines(ptr noundef nonnull %3, i32 noundef %173) #11
   %175 = load i32, ptr @skip_end, align 4
   %176 = load i32, ptr @skip_start, align 4
   %177 = sub i32 %175, %176
@@ -561,16 +561,16 @@ default.unreachable:                              ; preds = %96
 185:                                              ; preds = %._crit_edge209
   %186 = load ptr, ptr @stderr, align 8
   %187 = load ptr, ptr @progname, align 8
-  %188 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %186, ptr noundef nonnull @.str.10, ptr noundef %187, i32 noundef %174, i32 noundef %178) #11
-  call void @exit(i32 noundef 1) #12
+  %188 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %186, ptr noundef nonnull @.str.10, ptr noundef %187, i32 noundef %174, i32 noundef %178) #12
+  call void @exit(i32 noundef 1) #13
   unreachable
 
 189:                                              ; preds = %.lr.ph211, %189
   %190 = load ptr, ptr %182, align 8
   %191 = load i32, ptr %183, align 8
-  %192 = call i32 @jpeg12_read_scanlines(ptr noundef nonnull %3, ptr noundef %190, i32 noundef %191) #10
+  %192 = call i32 @jpeg12_read_scanlines(ptr noundef nonnull %3, ptr noundef %190, i32 noundef %191) #11
   %193 = load ptr, ptr %184, align 8
-  call void %193(ptr noundef nonnull %3, ptr noundef nonnull %.0, i32 noundef %192) #10
+  call void %193(ptr noundef nonnull %3, ptr noundef nonnull %.0, i32 noundef %192) #11
   %194 = load i32, ptr %150, align 8
   %195 = load i32, ptr %135, align 4
   %196 = icmp ult i32 %194, %195
@@ -579,9 +579,9 @@ default.unreachable:                              ; preds = %96
 197:                                              ; preds = %.lr.ph212, %197
   %198 = load ptr, ptr %161, align 8
   %199 = load i32, ptr %162, align 8
-  %200 = call i32 @jpeg_read_scanlines(ptr noundef nonnull %3, ptr noundef %198, i32 noundef %199) #10
+  %200 = call i32 @jpeg_read_scanlines(ptr noundef nonnull %3, ptr noundef %198, i32 noundef %199) #11
   %201 = load ptr, ptr %163, align 8
-  call void %201(ptr noundef nonnull %3, ptr noundef nonnull %.0, i32 noundef %200) #10
+  call void %201(ptr noundef nonnull %3, ptr noundef nonnull %.0, i32 noundef %200) #11
   %202 = load i32, ptr %157, align 8
   %203 = load i32, ptr @skip_start, align 4
   %204 = icmp ult i32 %202, %203
@@ -592,7 +592,7 @@ default.unreachable:                              ; preds = %96
   %205 = load i32, ptr @skip_end, align 4
   %reass.sub216 = sub i32 %205, %.lcssa
   %206 = add i32 %reass.sub216, 1
-  %207 = call i32 @jpeg_skip_scanlines(ptr noundef nonnull %3, i32 noundef %206) #10
+  %207 = call i32 @jpeg_skip_scanlines(ptr noundef nonnull %3, i32 noundef %206) #11
   %208 = load i32, ptr @skip_end, align 4
   %209 = load i32, ptr @skip_start, align 4
   %210 = sub i32 %208, %209
@@ -615,16 +615,16 @@ default.unreachable:                              ; preds = %96
 218:                                              ; preds = %._crit_edge213
   %219 = load ptr, ptr @stderr, align 8
   %220 = load ptr, ptr @progname, align 8
-  %221 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %219, ptr noundef nonnull @.str.11, ptr noundef %220, i32 noundef %207, i32 noundef %211) #11
-  call void @exit(i32 noundef 1) #12
+  %221 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %219, ptr noundef nonnull @.str.11, ptr noundef %220, i32 noundef %207, i32 noundef %211) #12
+  call void @exit(i32 noundef 1) #13
   unreachable
 
 222:                                              ; preds = %.lr.ph215, %222
   %223 = load ptr, ptr %215, align 8
   %224 = load i32, ptr %216, align 8
-  %225 = call i32 @jpeg_read_scanlines(ptr noundef nonnull %3, ptr noundef %223, i32 noundef %224) #10
+  %225 = call i32 @jpeg_read_scanlines(ptr noundef nonnull %3, ptr noundef %223, i32 noundef %224) #11
   %226 = load ptr, ptr %217, align 8
-  call void %226(ptr noundef nonnull %3, ptr noundef nonnull %.0, i32 noundef %225) #10
+  call void %226(ptr noundef nonnull %3, ptr noundef nonnull %.0, i32 noundef %225) #11
   %227 = load i32, ptr %157, align 8
   %228 = load i32, ptr %135, align 4
   %229 = icmp ult i32 %227, %228
@@ -661,8 +661,8 @@ default.unreachable:                              ; preds = %96
   %246 = phi i32 [ %.pre, %._crit_edge233 ], [ %243, %238 ]
   %247 = load ptr, ptr @stderr, align 8
   %248 = load ptr, ptr @progname, align 8
-  %249 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %247, ptr noundef nonnull @.str.12, ptr noundef %248, i32 noundef %236, i32 noundef %246) #11
-  call void @exit(i32 noundef 1) #12
+  %249 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %247, ptr noundef nonnull @.str.12, ptr noundef %248, i32 noundef %236, i32 noundef %246) #12
+  call void @exit(i32 noundef 1) #13
   unreachable
 
 250:                                              ; preds = %238
@@ -678,15 +678,15 @@ default.unreachable:                              ; preds = %96
   %255 = getelementptr inbounds i8, ptr %254, i64 40
   store i32 47, ptr %255, align 8
   %256 = load ptr, ptr %254, align 8
-  call void %256(ptr noundef nonnull %3) #10
+  call void %256(ptr noundef nonnull %3) #11
   br label %259
 
 257:                                              ; preds = %250
-  call void @jpeg12_crop_scanline(ptr noundef nonnull %3, ptr noundef nonnull @crop_x, ptr noundef nonnull @crop_width) #10
+  call void @jpeg12_crop_scanline(ptr noundef nonnull %3, ptr noundef nonnull @crop_x, ptr noundef nonnull @crop_width) #11
   br label %259
 
 258:                                              ; preds = %250
-  call void @jpeg_crop_scanline(ptr noundef nonnull %3, ptr noundef nonnull @crop_x, ptr noundef nonnull @crop_width) #10
+  call void @jpeg_crop_scanline(ptr noundef nonnull %3, ptr noundef nonnull @crop_x, ptr noundef nonnull @crop_width) #11
   br label %259
 
 259:                                              ; preds = %257, %258, %253
@@ -696,7 +696,7 @@ default.unreachable:                              ; preds = %96
   br i1 %.not154, label %263, label %262
 
 262:                                              ; preds = %259
-  call void %261(ptr noundef nonnull %3, ptr noundef nonnull %.0) #10
+  call void %261(ptr noundef nonnull %3, ptr noundef nonnull %.0) #11
   br label %267
 
 263:                                              ; preds = %259
@@ -704,7 +704,7 @@ default.unreachable:                              ; preds = %96
   %265 = getelementptr inbounds i8, ptr %264, i64 40
   store i32 1047, ptr %265, align 8
   %266 = load ptr, ptr %264, align 8
-  call void %266(ptr noundef nonnull %3) #10
+  call void %266(ptr noundef nonnull %3) #11
   br label %267
 
 267:                                              ; preds = %263, %262
@@ -712,7 +712,7 @@ default.unreachable:                              ; preds = %96
   %269 = load i32, ptr @crop_height, align 4
   store i32 %269, ptr %242, align 4
   %270 = load ptr, ptr %.0, align 8
-  call void %270(ptr noundef nonnull %3, ptr noundef nonnull %.0) #10
+  call void %270(ptr noundef nonnull %3, ptr noundef nonnull %.0) #11
   store i32 %268, ptr %242, align 4
   %271 = load i32, ptr %251, align 8
   switch i32 %271, label %310 [
@@ -722,7 +722,7 @@ default.unreachable:                              ; preds = %96
 
 272:                                              ; preds = %267
   %273 = load i32, ptr @crop_y, align 4
-  %274 = call i32 @jpeg12_skip_scanlines(ptr noundef nonnull %3, i32 noundef %273) #10
+  %274 = call i32 @jpeg12_skip_scanlines(ptr noundef nonnull %3, i32 noundef %273) #11
   %275 = load i32, ptr @crop_y, align 4
   %.not157 = icmp eq i32 %274, %275
   br i1 %.not157, label %.preheader180, label %284
@@ -744,16 +744,16 @@ default.unreachable:                              ; preds = %96
 284:                                              ; preds = %272
   %285 = load ptr, ptr @stderr, align 8
   %286 = load ptr, ptr @progname, align 8
-  %287 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %285, ptr noundef nonnull @.str.10, ptr noundef %286, i32 noundef %274, i32 noundef %275) #11
-  call void @exit(i32 noundef 1) #12
+  %287 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %285, ptr noundef nonnull @.str.10, ptr noundef %286, i32 noundef %274, i32 noundef %275) #12
+  call void @exit(i32 noundef 1) #13
   unreachable
 
 288:                                              ; preds = %.lr.ph204, %288
   %289 = load ptr, ptr %281, align 8
   %290 = load i32, ptr %282, align 8
-  %291 = call i32 @jpeg12_read_scanlines(ptr noundef nonnull %3, ptr noundef %289, i32 noundef %290) #10
+  %291 = call i32 @jpeg12_read_scanlines(ptr noundef nonnull %3, ptr noundef %289, i32 noundef %290) #11
   %292 = load ptr, ptr %283, align 8
-  call void %292(ptr noundef nonnull %3, ptr noundef nonnull %.0, i32 noundef %291) #10
+  call void %292(ptr noundef nonnull %3, ptr noundef nonnull %.0, i32 noundef %291) #11
   %293 = load i32, ptr %276, align 8
   %294 = load i32, ptr @crop_y, align 4
   %295 = load i32, ptr @crop_height, align 4
@@ -765,7 +765,7 @@ default.unreachable:                              ; preds = %96
   %.lcssa193 = phi i32 [ %279, %.preheader180 ], [ %296, %288 ]
   %298 = load i32, ptr %242, align 4
   %299 = sub i32 %298, %.lcssa193
-  %300 = call i32 @jpeg12_skip_scanlines(ptr noundef nonnull %3, i32 noundef %299) #10
+  %300 = call i32 @jpeg12_skip_scanlines(ptr noundef nonnull %3, i32 noundef %299) #11
   %301 = load i32, ptr %242, align 4
   %302 = load i32, ptr @crop_y, align 4
   %303 = load i32, ptr @crop_height, align 4
@@ -777,13 +777,13 @@ default.unreachable:                              ; preds = %96
 306:                                              ; preds = %._crit_edge
   %307 = load ptr, ptr @stderr, align 8
   %308 = load ptr, ptr @progname, align 8
-  %309 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %307, ptr noundef nonnull @.str.10, ptr noundef %308, i32 noundef %300, i32 noundef %305) #11
-  call void @exit(i32 noundef 1) #12
+  %309 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %307, ptr noundef nonnull @.str.10, ptr noundef %308, i32 noundef %300, i32 noundef %305) #12
+  call void @exit(i32 noundef 1) #13
   unreachable
 
 310:                                              ; preds = %267
   %311 = load i32, ptr @crop_y, align 4
-  %312 = call i32 @jpeg_skip_scanlines(ptr noundef nonnull %3, i32 noundef %311) #10
+  %312 = call i32 @jpeg_skip_scanlines(ptr noundef nonnull %3, i32 noundef %311) #11
   %313 = load i32, ptr @crop_y, align 4
   %.not155 = icmp eq i32 %312, %313
   br i1 %.not155, label %.preheader179, label %322
@@ -805,16 +805,16 @@ default.unreachable:                              ; preds = %96
 322:                                              ; preds = %310
   %323 = load ptr, ptr @stderr, align 8
   %324 = load ptr, ptr @progname, align 8
-  %325 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %323, ptr noundef nonnull @.str.11, ptr noundef %324, i32 noundef %312, i32 noundef %313) #11
-  call void @exit(i32 noundef 1) #12
+  %325 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %323, ptr noundef nonnull @.str.11, ptr noundef %324, i32 noundef %312, i32 noundef %313) #12
+  call void @exit(i32 noundef 1) #13
   unreachable
 
 326:                                              ; preds = %.lr.ph205, %326
   %327 = load ptr, ptr %319, align 8
   %328 = load i32, ptr %320, align 8
-  %329 = call i32 @jpeg_read_scanlines(ptr noundef nonnull %3, ptr noundef %327, i32 noundef %328) #10
+  %329 = call i32 @jpeg_read_scanlines(ptr noundef nonnull %3, ptr noundef %327, i32 noundef %328) #11
   %330 = load ptr, ptr %321, align 8
-  call void %330(ptr noundef nonnull %3, ptr noundef nonnull %.0, i32 noundef %329) #10
+  call void %330(ptr noundef nonnull %3, ptr noundef nonnull %.0, i32 noundef %329) #11
   %331 = load i32, ptr %314, align 8
   %332 = load i32, ptr @crop_y, align 4
   %333 = load i32, ptr @crop_height, align 4
@@ -826,7 +826,7 @@ default.unreachable:                              ; preds = %96
   %.lcssa192 = phi i32 [ %317, %.preheader179 ], [ %334, %326 ]
   %336 = load i32, ptr %242, align 4
   %337 = sub i32 %336, %.lcssa192
-  %338 = call i32 @jpeg_skip_scanlines(ptr noundef nonnull %3, i32 noundef %337) #10
+  %338 = call i32 @jpeg_skip_scanlines(ptr noundef nonnull %3, i32 noundef %337) #11
   %339 = load i32, ptr %242, align 4
   %340 = load i32, ptr @crop_y, align 4
   %341 = load i32, ptr @crop_height, align 4
@@ -838,13 +838,13 @@ default.unreachable:                              ; preds = %96
 344:                                              ; preds = %._crit_edge206
   %345 = load ptr, ptr @stderr, align 8
   %346 = load ptr, ptr @progname, align 8
-  %347 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %345, ptr noundef nonnull @.str.11, ptr noundef %346, i32 noundef %338, i32 noundef %343) #11
-  call void @exit(i32 noundef 1) #12
+  %347 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %345, ptr noundef nonnull @.str.11, ptr noundef %346, i32 noundef %338, i32 noundef %343) #12
+  call void @exit(i32 noundef 1) #13
   unreachable
 
 348:                                              ; preds = %230
   %349 = load ptr, ptr %.0, align 8
-  call void %349(ptr noundef nonnull %3, ptr noundef nonnull %.0) #10
+  call void %349(ptr noundef nonnull %3, ptr noundef nonnull %.0) #11
   %350 = getelementptr inbounds i8, ptr %3, i64 296
   %351 = load i32, ptr %350, align 8
   %352 = getelementptr inbounds i8, ptr %3, i64 168
@@ -887,9 +887,9 @@ default.unreachable:                              ; preds = %96
 366:                                              ; preds = %.lr.ph202, %366
   %367 = load ptr, ptr %360, align 8
   %368 = load i32, ptr %361, align 8
-  %369 = call i32 @jpeg16_read_scanlines(ptr noundef nonnull %3, ptr noundef %367, i32 noundef %368) #10
+  %369 = call i32 @jpeg16_read_scanlines(ptr noundef nonnull %3, ptr noundef %367, i32 noundef %368) #11
   %370 = load ptr, ptr %362, align 8
-  call void %370(ptr noundef nonnull %3, ptr noundef nonnull %.0, i32 noundef %369) #10
+  call void %370(ptr noundef nonnull %3, ptr noundef nonnull %.0, i32 noundef %369) #11
   %371 = load i32, ptr %352, align 8
   %372 = load i32, ptr %353, align 4
   %373 = icmp ult i32 %371, %372
@@ -898,9 +898,9 @@ default.unreachable:                              ; preds = %96
 374:                                              ; preds = %.lr.ph, %374
   %375 = load ptr, ptr %357, align 8
   %376 = load i32, ptr %358, align 8
-  %377 = call i32 @jpeg12_read_scanlines(ptr noundef nonnull %3, ptr noundef %375, i32 noundef %376) #10
+  %377 = call i32 @jpeg12_read_scanlines(ptr noundef nonnull %3, ptr noundef %375, i32 noundef %376) #11
   %378 = load ptr, ptr %359, align 8
-  call void %378(ptr noundef nonnull %3, ptr noundef nonnull %.0, i32 noundef %377) #10
+  call void %378(ptr noundef nonnull %3, ptr noundef nonnull %.0, i32 noundef %377) #11
   %379 = load i32, ptr %352, align 8
   %380 = load i32, ptr %353, align 4
   %381 = icmp ult i32 %379, %380
@@ -909,9 +909,9 @@ default.unreachable:                              ; preds = %96
 382:                                              ; preds = %.lr.ph203, %382
   %383 = load ptr, ptr %363, align 8
   %384 = load i32, ptr %364, align 8
-  %385 = call i32 @jpeg_read_scanlines(ptr noundef nonnull %3, ptr noundef %383, i32 noundef %384) #10
+  %385 = call i32 @jpeg_read_scanlines(ptr noundef nonnull %3, ptr noundef %383, i32 noundef %384) #11
   %386 = load ptr, ptr %365, align 8
-  call void %386(ptr noundef nonnull %3, ptr noundef nonnull %.0, i32 noundef %385) #10
+  call void %386(ptr noundef nonnull %3, ptr noundef nonnull %.0, i32 noundef %385) #11
   %387 = load i32, ptr %352, align 8
   %388 = load i32, ptr %353, align 4
   %389 = icmp ult i32 %387, %388
@@ -922,7 +922,7 @@ default.unreachable:                              ; preds = %96
   %390 = getelementptr inbounds i8, ptr %.sink251, i64 40
   store i32 47, ptr %390, align 8
   %391 = load ptr, ptr %.sink251, align 8
-  call void %391(ptr noundef nonnull %3) #10
+  call void %391(ptr noundef nonnull %3) #11
   br label %.loopexit
 
 .loopexit:                                        ; preds = %374, %366, %382, %189, %222, %.loopexit.sink.split, %.preheader185, %.preheader183, %.preheader181, %.preheader176, %.preheader, %._crit_edge, %._crit_edge206
@@ -953,12 +953,12 @@ default.unreachable:                              ; preds = %96
   %404 = load ptr, ptr @stderr, align 8
   %405 = load ptr, ptr @progname, align 8
   %406 = load ptr, ptr @icc_filename, align 8
-  %407 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %404, ptr noundef nonnull @.str.3, ptr noundef %405, ptr noundef %406) #11
-  call void @exit(i32 noundef 1) #12
+  %407 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %404, ptr noundef nonnull @.str.3, ptr noundef %405, ptr noundef %406) #12
+  call void @exit(i32 noundef 1) #13
   unreachable
 
 408:                                              ; preds = %400
-  %409 = call i32 @jpeg_read_icc_profile(ptr noundef nonnull %3, ptr noundef nonnull %6, ptr noundef nonnull %7) #10
+  %409 = call i32 @jpeg_read_icc_profile(ptr noundef nonnull %3, ptr noundef nonnull %6, ptr noundef nonnull %7) #11
   %.not162 = icmp eq i32 %409, 0
   br i1 %.not162, label %426, label %410
 
@@ -974,16 +974,16 @@ default.unreachable:                              ; preds = %96
   %417 = load ptr, ptr @stderr, align 8
   %418 = load ptr, ptr @progname, align 8
   %419 = load ptr, ptr @icc_filename, align 8
-  %420 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %417, ptr noundef nonnull @.str.13, ptr noundef %418, ptr noundef %419) #11
+  %420 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %417, ptr noundef nonnull @.str.13, ptr noundef %418, ptr noundef %419) #12
   %421 = load ptr, ptr %6, align 8
-  call void @free(ptr noundef %421) #10
+  call void @free(ptr noundef %421) #11
   %422 = call i32 @fclose(ptr noundef nonnull %401)
-  call void @exit(i32 noundef 1) #12
+  call void @exit(i32 noundef 1) #13
   unreachable
 
 423:                                              ; preds = %410
   %424 = load ptr, ptr %6, align 8
-  call void @free(ptr noundef %424) #10
+  call void @free(ptr noundef %424) #11
   %425 = call i32 @fclose(ptr noundef nonnull %401)
   br label %434
 
@@ -997,15 +997,15 @@ default.unreachable:                              ; preds = %96
 430:                                              ; preds = %426
   %431 = load ptr, ptr @stderr, align 8
   %432 = load ptr, ptr @progname, align 8
-  %433 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %431, ptr noundef nonnull @.str.14, ptr noundef %432) #11
+  %433 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %431, ptr noundef nonnull @.str.14, ptr noundef %432) #12
   br label %434
 
 434:                                              ; preds = %423, %430, %426, %398
   %435 = getelementptr inbounds i8, ptr %.0, i64 16
   %436 = load ptr, ptr %435, align 8
-  call void %436(ptr noundef nonnull %3, ptr noundef nonnull %.0) #10
-  %437 = call i32 @jpeg_finish_decompress(ptr noundef nonnull %3) #10
-  call void @jpeg_destroy_decompress(ptr noundef nonnull %3) #10
+  call void %436(ptr noundef nonnull %3, ptr noundef nonnull %.0) #11
+  %437 = call i32 @jpeg_finish_decompress(ptr noundef nonnull %3) #11
+  call void @jpeg_destroy_decompress(ptr noundef nonnull %3) #11
   %438 = load ptr, ptr @stdin, align 8
   %.not164 = icmp eq ptr %.0113, %438
   br i1 %.not164, label %441, label %439
@@ -1031,7 +1031,7 @@ default.unreachable:                              ; preds = %96
   br i1 %or.cond5, label %448, label %449
 
 448:                                              ; preds = %445
-  call void @end_progress_monitor(ptr noundef nonnull %3) #10
+  call void @end_progress_monitor(ptr noundef nonnull %3) #11
   br label %449
 
 449:                                              ; preds = %445, %448
@@ -1039,7 +1039,7 @@ default.unreachable:                              ; preds = %96
   br i1 %.b149, label %450, label %451
 
 450:                                              ; preds = %449
-  call void @free(ptr noundef %.1) #10
+  call void @free(ptr noundef %.1) #11
   br label %451
 
 451:                                              ; preds = %450, %449
@@ -1047,7 +1047,7 @@ default.unreachable:                              ; preds = %96
   %453 = load i64, ptr %452, align 8
   %.not166 = icmp eq i64 %453, 0
   %454 = select i1 %.not166, i32 0, i32 2
-  call void @exit(i32 noundef %454) #12
+  call void @exit(i32 noundef %454) #15
   unreachable
 }
 
@@ -1073,7 +1073,7 @@ define internal noundef i32 @print_text_marker(ptr noundef %0) #2 {
 11:                                               ; preds = %1
   %12 = getelementptr inbounds i8, ptr %7, i64 24
   %13 = load ptr, ptr %12, align 8
-  %14 = tail call i32 %13(ptr noundef nonnull %0) #10
+  %14 = tail call i32 %13(ptr noundef nonnull %0) #11
   %.not.i = icmp eq i32 %14, 0
   br i1 %.not.i, label %15, label %jpeg_getc.exit
 
@@ -1083,7 +1083,7 @@ define internal noundef i32 @print_text_marker(ptr noundef %0) #2 {
   store i32 24, ptr %17, align 8
   %18 = load ptr, ptr %0, align 8
   %19 = load ptr, ptr %18, align 8
-  tail call void %19(ptr noundef nonnull %0) #10
+  tail call void %19(ptr noundef nonnull %0) #11
   br label %jpeg_getc.exit
 
 jpeg_getc.exit:                                   ; preds = %1, %11, %15
@@ -1105,7 +1105,7 @@ jpeg_getc.exit:                                   ; preds = %1, %11, %15
 31:                                               ; preds = %jpeg_getc.exit
   %32 = getelementptr inbounds i8, ptr %27, i64 24
   %33 = load ptr, ptr %32, align 8
-  %34 = tail call i32 %33(ptr noundef nonnull %0) #10
+  %34 = tail call i32 %33(ptr noundef nonnull %0) #11
   %.not.i28 = icmp eq i32 %34, 0
   br i1 %.not.i28, label %35, label %jpeg_getc.exit29
 
@@ -1115,7 +1115,7 @@ jpeg_getc.exit:                                   ; preds = %1, %11, %15
   store i32 24, ptr %37, align 8
   %38 = load ptr, ptr %0, align 8
   %39 = load ptr, ptr %38, align 8
-  tail call void %39(ptr noundef nonnull %0) #10
+  tail call void %39(ptr noundef nonnull %0) #11
   br label %jpeg_getc.exit29
 
 jpeg_getc.exit29:                                 ; preds = %jpeg_getc.exit, %31, %35
@@ -1139,12 +1139,12 @@ jpeg_getc.exit29:                                 ; preds = %jpeg_getc.exit, %31
   br i1 %51, label %53, label %55
 
 53:                                               ; preds = %48
-  %54 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %52, ptr noundef nonnull @.str.62, i64 noundef %47) #11
+  %54 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %52, ptr noundef nonnull @.str.62, i64 noundef %47) #12
   br label %58
 
 55:                                               ; preds = %48
   %56 = add nsw i32 %50, -224
-  %57 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %52, ptr noundef nonnull @.str.63, i32 noundef %56, i64 noundef %47) #11
+  %57 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %52, ptr noundef nonnull @.str.63, i32 noundef %56, i64 noundef %47) #12
   br label %58
 
 58:                                               ; preds = %53, %55
@@ -1179,7 +1179,7 @@ jpeg_getc.exit29:                                 ; preds = %jpeg_getc.exit, %31
 68:                                               ; preds = %.lr.ph.split.us
   %69 = getelementptr inbounds i8, ptr %64, i64 24
   %70 = load ptr, ptr %69, align 8
-  %71 = tail call i32 %70(ptr noundef nonnull %0) #10
+  %71 = tail call i32 %70(ptr noundef nonnull %0) #11
   %.not.i30.us = icmp eq i32 %71, 0
   br i1 %.not.i30.us, label %72, label %jpeg_getc.exit31.us
 
@@ -1189,7 +1189,7 @@ jpeg_getc.exit29:                                 ; preds = %jpeg_getc.exit, %31
   store i32 24, ptr %74, align 8
   %75 = load ptr, ptr %0, align 8
   %76 = load ptr, ptr %75, align 8
-  tail call void %76(ptr noundef nonnull %0) #10
+  tail call void %76(ptr noundef nonnull %0) #11
   br label %jpeg_getc.exit31.us
 
 jpeg_getc.exit31.us:                              ; preds = %72, %68, %.lr.ph.split.us
@@ -1209,7 +1209,7 @@ jpeg_getc.exit31.us:                              ; preds = %72, %68, %.lr.ph.sp
 
 83:                                               ; preds = %jpeg_getc.exit31.us
   %84 = load ptr, ptr @stderr, align 8
-  %85 = tail call i64 @fwrite(ptr nonnull @.str.65, i64 2, i64 1, ptr %84) #14
+  %85 = tail call i64 @fwrite(ptr nonnull @.str.65, i64 2, i64 1, ptr %84) #16
   br label %103
 
 86:                                               ; preds = %jpeg_getc.exit31.us
@@ -1227,7 +1227,7 @@ jpeg_getc.exit31.us:                              ; preds = %72, %68, %.lr.ph.sp
   br label %103
 
 91:                                               ; preds = %jpeg_getc.exit31.us
-  %92 = tail call ptr @__ctype_b_loc() #15
+  %92 = tail call ptr @__ctype_b_loc() #17
   %93 = load ptr, ptr %92, align 8
   %94 = zext i8 %81 to i64
   %95 = getelementptr inbounds i16, ptr %93, i64 %94
@@ -1242,7 +1242,7 @@ jpeg_getc.exit31.us:                              ; preds = %72, %68, %.lr.ph.sp
   br label %103
 
 101:                                              ; preds = %91
-  %102 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %98, ptr noundef nonnull @.str.66, i32 noundef %82) #11
+  %102 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %98, ptr noundef nonnull @.str.66, i32 noundef %82) #12
   br label %103
 
 103:                                              ; preds = %101, %99, %89, %87, %86, %83
@@ -1261,7 +1261,7 @@ jpeg_getc.exit31.us:                              ; preds = %72, %68, %.lr.ph.sp
 111:                                              ; preds = %.lr.ph.split
   %112 = getelementptr inbounds i8, ptr %107, i64 24
   %113 = load ptr, ptr %112, align 8
-  %114 = tail call i32 %113(ptr noundef nonnull %0) #10
+  %114 = tail call i32 %113(ptr noundef nonnull %0) #11
   %.not.i30 = icmp eq i32 %114, 0
   br i1 %.not.i30, label %115, label %jpeg_getc.exit31
 
@@ -1271,7 +1271,7 @@ jpeg_getc.exit31.us:                              ; preds = %72, %68, %.lr.ph.sp
   store i32 24, ptr %117, align 8
   %118 = load ptr, ptr %0, align 8
   %119 = load ptr, ptr %118, align 8
-  tail call void %119(ptr noundef nonnull %0) #10
+  tail call void %119(ptr noundef nonnull %0) #11
   br label %jpeg_getc.exit31
 
 jpeg_getc.exit31:                                 ; preds = %.lr.ph.split, %111, %115
@@ -1352,7 +1352,7 @@ define internal fastcc i32 @parse_switches(ptr noundef %0, i32 noundef %1, ptr n
 
 31:                                               ; preds = %23
   %32 = getelementptr inbounds i8, ptr %26, i64 1
-  %33 = call i32 @keymatch(ptr noundef nonnull %32, ptr noundef nonnull @.str.67, i32 noundef 1) #10
+  %33 = call i32 @keymatch(ptr noundef nonnull %32, ptr noundef nonnull @.str.67, i32 noundef 1) #11
   %.not141 = icmp eq i32 %33, 0
   br i1 %.not141, label %35, label %34
 
@@ -1361,22 +1361,22 @@ define internal fastcc i32 @parse_switches(ptr noundef %0, i32 noundef %1, ptr n
   br label %290
 
 35:                                               ; preds = %31
-  %36 = call i32 @keymatch(ptr noundef nonnull %32, ptr noundef nonnull @.str.68, i32 noundef 1) #10
+  %36 = call i32 @keymatch(ptr noundef nonnull %32, ptr noundef nonnull @.str.68, i32 noundef 1) #11
   %.not142 = icmp eq i32 %36, 0
   br i1 %.not142, label %37, label %43
 
 37:                                               ; preds = %35
-  %38 = call i32 @keymatch(ptr noundef nonnull %32, ptr noundef nonnull @.str.69, i32 noundef 1) #10
+  %38 = call i32 @keymatch(ptr noundef nonnull %32, ptr noundef nonnull @.str.69, i32 noundef 1) #11
   %.not143 = icmp eq i32 %38, 0
   br i1 %.not143, label %39, label %43
 
 39:                                               ; preds = %37
-  %40 = call i32 @keymatch(ptr noundef nonnull %32, ptr noundef nonnull @.str.70, i32 noundef 1) #10
+  %40 = call i32 @keymatch(ptr noundef nonnull %32, ptr noundef nonnull @.str.70, i32 noundef 1) #11
   %.not144 = icmp eq i32 %40, 0
   br i1 %.not144, label %41, label %43
 
 41:                                               ; preds = %39
-  %42 = call i32 @keymatch(ptr noundef nonnull %32, ptr noundef nonnull @.str.71, i32 noundef 1) #10
+  %42 = call i32 @keymatch(ptr noundef nonnull %32, ptr noundef nonnull @.str.71, i32 noundef 1) #11
   %.not145 = icmp eq i32 %42, 0
   br i1 %.not145, label %54, label %43
 
@@ -1393,7 +1393,7 @@ define internal fastcc i32 @parse_switches(ptr noundef %0, i32 noundef %1, ptr n
   %47 = sext i32 %44 to i64
   %48 = getelementptr inbounds ptr, ptr %2, i64 %47
   %49 = load ptr, ptr %48, align 8
-  %50 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %49, ptr noundef nonnull @.str.72, ptr noundef nonnull %5) #10
+  %50 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %49, ptr noundef nonnull @.str.72, ptr noundef nonnull %5) #11
   %.not198 = icmp eq i32 %50, 1
   br i1 %.not198, label %52, label %51
 
@@ -1408,7 +1408,7 @@ define internal fastcc i32 @parse_switches(ptr noundef %0, i32 noundef %1, ptr n
   br label %290
 
 54:                                               ; preds = %41
-  %55 = call i32 @keymatch(ptr noundef nonnull %32, ptr noundef nonnull @.str.73, i32 noundef 2) #10
+  %55 = call i32 @keymatch(ptr noundef nonnull %32, ptr noundef nonnull @.str.73, i32 noundef 2) #11
   %.not146 = icmp eq i32 %55, 0
   br i1 %.not146, label %74, label %56
 
@@ -1425,7 +1425,7 @@ define internal fastcc i32 @parse_switches(ptr noundef %0, i32 noundef %1, ptr n
   %60 = sext i32 %57 to i64
   %61 = getelementptr inbounds ptr, ptr %2, i64 %60
   %62 = load ptr, ptr %61, align 8
-  %63 = call i32 @keymatch(ptr noundef %62, ptr noundef nonnull @.str.74, i32 noundef 1) #10
+  %63 = call i32 @keymatch(ptr noundef %62, ptr noundef nonnull @.str.74, i32 noundef 1) #11
   %.not194 = icmp eq i32 %63, 0
   br i1 %.not194, label %65, label %64
 
@@ -1435,7 +1435,7 @@ define internal fastcc i32 @parse_switches(ptr noundef %0, i32 noundef %1, ptr n
 
 65:                                               ; preds = %59
   %66 = load ptr, ptr %61, align 8
-  %67 = call i32 @keymatch(ptr noundef %66, ptr noundef nonnull @.str.75, i32 noundef 2) #10
+  %67 = call i32 @keymatch(ptr noundef %66, ptr noundef nonnull @.str.75, i32 noundef 2) #11
   %.not195 = icmp eq i32 %67, 0
   br i1 %.not195, label %69, label %68
 
@@ -1445,7 +1445,7 @@ define internal fastcc i32 @parse_switches(ptr noundef %0, i32 noundef %1, ptr n
 
 69:                                               ; preds = %65
   %70 = load ptr, ptr %61, align 8
-  %71 = call i32 @keymatch(ptr noundef %70, ptr noundef nonnull @.str.76, i32 noundef 2) #10
+  %71 = call i32 @keymatch(ptr noundef %70, ptr noundef nonnull @.str.76, i32 noundef 2) #11
   %.not196 = icmp eq i32 %71, 0
   br i1 %.not196, label %73, label %72
 
@@ -1458,7 +1458,7 @@ define internal fastcc i32 @parse_switches(ptr noundef %0, i32 noundef %1, ptr n
   unreachable
 
 74:                                               ; preds = %54
-  %75 = call i32 @keymatch(ptr noundef nonnull %32, ptr noundef nonnull @.str.77, i32 noundef 2) #10
+  %75 = call i32 @keymatch(ptr noundef nonnull %32, ptr noundef nonnull @.str.77, i32 noundef 2) #11
   %.not147 = icmp eq i32 %75, 0
   br i1 %.not147, label %94, label %76
 
@@ -1475,7 +1475,7 @@ define internal fastcc i32 @parse_switches(ptr noundef %0, i32 noundef %1, ptr n
   %80 = sext i32 %77 to i64
   %81 = getelementptr inbounds ptr, ptr %2, i64 %80
   %82 = load ptr, ptr %81, align 8
-  %83 = call i32 @keymatch(ptr noundef %82, ptr noundef nonnull @.str.78, i32 noundef 2) #10
+  %83 = call i32 @keymatch(ptr noundef %82, ptr noundef nonnull @.str.78, i32 noundef 2) #11
   %.not190 = icmp eq i32 %83, 0
   br i1 %.not190, label %85, label %84
 
@@ -1485,7 +1485,7 @@ define internal fastcc i32 @parse_switches(ptr noundef %0, i32 noundef %1, ptr n
 
 85:                                               ; preds = %79
   %86 = load ptr, ptr %81, align 8
-  %87 = call i32 @keymatch(ptr noundef %86, ptr noundef nonnull @.str.79, i32 noundef 2) #10
+  %87 = call i32 @keymatch(ptr noundef %86, ptr noundef nonnull @.str.79, i32 noundef 2) #11
   %.not191 = icmp eq i32 %87, 0
   br i1 %.not191, label %89, label %88
 
@@ -1495,7 +1495,7 @@ define internal fastcc i32 @parse_switches(ptr noundef %0, i32 noundef %1, ptr n
 
 89:                                               ; preds = %85
   %90 = load ptr, ptr %81, align 8
-  %91 = call i32 @keymatch(ptr noundef %90, ptr noundef nonnull @.str.80, i32 noundef 2) #10
+  %91 = call i32 @keymatch(ptr noundef %90, ptr noundef nonnull @.str.80, i32 noundef 2) #11
   %.not192 = icmp eq i32 %91, 0
   br i1 %.not192, label %93, label %92
 
@@ -1508,12 +1508,12 @@ define internal fastcc i32 @parse_switches(ptr noundef %0, i32 noundef %1, ptr n
   unreachable
 
 94:                                               ; preds = %74
-  %95 = call i32 @keymatch(ptr noundef nonnull %32, ptr noundef nonnull @.str.81, i32 noundef 1) #10
+  %95 = call i32 @keymatch(ptr noundef nonnull %32, ptr noundef nonnull @.str.81, i32 noundef 1) #11
   %.not148 = icmp eq i32 %95, 0
   br i1 %.not148, label %96, label %98
 
 96:                                               ; preds = %94
-  %97 = call i32 @keymatch(ptr noundef nonnull %32, ptr noundef nonnull @.str.82, i32 noundef 1) #10
+  %97 = call i32 @keymatch(ptr noundef nonnull %32, ptr noundef nonnull @.str.82, i32 noundef 1) #11
   %.not149 = icmp eq i32 %97, 0
   br i1 %.not149, label %113, label %98
 
@@ -1523,13 +1523,13 @@ define internal fastcc i32 @parse_switches(ptr noundef %0, i32 noundef %1, ptr n
 
 99:                                               ; preds = %98
   %100 = load ptr, ptr @stderr, align 8
-  %101 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %100, ptr noundef nonnull @.str.83, ptr noundef nonnull @.str.84, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.86) #11
+  %101 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %100, ptr noundef nonnull @.str.83, ptr noundef nonnull @.str.84, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.86) #12
   %102 = load ptr, ptr @stderr, align 8
-  %103 = call i64 @fwrite(ptr nonnull @.str.87, i64 240, i64 1, ptr %102) #14
+  %103 = call i64 @fwrite(ptr nonnull @.str.87, i64 240, i64 1, ptr %102) #16
   %104 = load ptr, ptr @stderr, align 8
-  %105 = call i64 @fwrite(ptr nonnull @.str.88, i64 341, i64 1, ptr %104) #14
+  %105 = call i64 @fwrite(ptr nonnull @.str.88, i64 341, i64 1, ptr %104) #16
   %106 = load ptr, ptr @stderr, align 8
-  %107 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %106, ptr noundef nonnull @.str.89, ptr noundef nonnull @.str.90) #11
+  %107 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %106, ptr noundef nonnull @.str.89, ptr noundef nonnull @.str.90) #12
   store i1 true, ptr @parse_switches.printed_version, align 4
   br label %108
 
@@ -1542,18 +1542,18 @@ define internal fastcc i32 @parse_switches(ptr noundef %0, i32 noundef %1, ptr n
   br label %290
 
 113:                                              ; preds = %96
-  %114 = call i32 @keymatch(ptr noundef nonnull %32, ptr noundef nonnull @.str.91, i32 noundef 4) #10
+  %114 = call i32 @keymatch(ptr noundef nonnull %32, ptr noundef nonnull @.str.91, i32 noundef 4) #11
   %.not150 = icmp eq i32 %114, 0
   br i1 %.not150, label %118, label %115
 
 115:                                              ; preds = %113
   %116 = load ptr, ptr @stderr, align 8
-  %117 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %116, ptr noundef nonnull @.str.83, ptr noundef nonnull @.str.84, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.86) #11
-  call void @exit(i32 noundef 0) #12
+  %117 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %116, ptr noundef nonnull @.str.83, ptr noundef nonnull @.str.84, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.86) #12
+  call void @exit(i32 noundef 0) #15
   unreachable
 
 118:                                              ; preds = %113
-  %119 = call i32 @keymatch(ptr noundef nonnull %32, ptr noundef nonnull @.str.75, i32 noundef 1) #10
+  %119 = call i32 @keymatch(ptr noundef nonnull %32, ptr noundef nonnull @.str.75, i32 noundef 1) #11
   %.not151 = icmp eq i32 %119, 0
   br i1 %.not151, label %124, label %120
 
@@ -1574,7 +1574,7 @@ define internal fastcc i32 @parse_switches(ptr noundef %0, i32 noundef %1, ptr n
   br label %290
 
 124:                                              ; preds = %118
-  %125 = call i32 @keymatch(ptr noundef nonnull %32, ptr noundef nonnull @.str.92, i32 noundef 1) #10
+  %125 = call i32 @keymatch(ptr noundef nonnull %32, ptr noundef nonnull @.str.92, i32 noundef 1) #11
   %.not152 = icmp eq i32 %125, 0
   br i1 %.not152, label %127, label %126
 
@@ -1583,7 +1583,7 @@ define internal fastcc i32 @parse_switches(ptr noundef %0, i32 noundef %1, ptr n
   br label %290
 
 127:                                              ; preds = %124
-  %128 = call i32 @keymatch(ptr noundef nonnull %32, ptr noundef nonnull @.str.93, i32 noundef 4) #10
+  %128 = call i32 @keymatch(ptr noundef nonnull %32, ptr noundef nonnull @.str.93, i32 noundef 4) #11
   %.not153 = icmp eq i32 %128, 0
   br i1 %.not153, label %130, label %129
 
@@ -1592,12 +1592,12 @@ define internal fastcc i32 @parse_switches(ptr noundef %0, i32 noundef %1, ptr n
   br label %290
 
 130:                                              ; preds = %127
-  %131 = call i32 @keymatch(ptr noundef nonnull %32, ptr noundef nonnull @.str.94, i32 noundef 2) #10
+  %131 = call i32 @keymatch(ptr noundef nonnull %32, ptr noundef nonnull @.str.94, i32 noundef 2) #11
   %.not154 = icmp eq i32 %131, 0
   br i1 %.not154, label %132, label %134
 
 132:                                              ; preds = %130
-  %133 = call i32 @keymatch(ptr noundef nonnull %32, ptr noundef nonnull @.str.95, i32 noundef 2) #10
+  %133 = call i32 @keymatch(ptr noundef nonnull %32, ptr noundef nonnull @.str.95, i32 noundef 2) #11
   %.not155 = icmp eq i32 %133, 0
   br i1 %.not155, label %135, label %134
 
@@ -1606,7 +1606,7 @@ define internal fastcc i32 @parse_switches(ptr noundef %0, i32 noundef %1, ptr n
   br label %290
 
 135:                                              ; preds = %132
-  %136 = call i32 @keymatch(ptr noundef nonnull %32, ptr noundef nonnull @.str.96, i32 noundef 2) #10
+  %136 = call i32 @keymatch(ptr noundef nonnull %32, ptr noundef nonnull @.str.96, i32 noundef 2) #11
   %.not156 = icmp eq i32 %136, 0
   br i1 %.not156, label %138, label %137
 
@@ -1615,7 +1615,7 @@ define internal fastcc i32 @parse_switches(ptr noundef %0, i32 noundef %1, ptr n
   br label %290
 
 138:                                              ; preds = %135
-  %139 = call i32 @keymatch(ptr noundef nonnull %32, ptr noundef nonnull @.str.97, i32 noundef 2) #10
+  %139 = call i32 @keymatch(ptr noundef nonnull %32, ptr noundef nonnull @.str.97, i32 noundef 2) #11
   %.not157 = icmp eq i32 %139, 0
   br i1 %.not157, label %141, label %140
 
@@ -1624,7 +1624,7 @@ define internal fastcc i32 @parse_switches(ptr noundef %0, i32 noundef %1, ptr n
   br label %290
 
 141:                                              ; preds = %138
-  %142 = call i32 @keymatch(ptr noundef nonnull %32, ptr noundef nonnull @.str.98, i32 noundef 1) #10
+  %142 = call i32 @keymatch(ptr noundef nonnull %32, ptr noundef nonnull @.str.98, i32 noundef 1) #11
   %.not158 = icmp eq i32 %142, 0
   br i1 %.not158, label %150, label %143
 
@@ -1642,11 +1642,11 @@ define internal fastcc i32 @parse_switches(ptr noundef %0, i32 noundef %1, ptr n
   %148 = getelementptr inbounds ptr, ptr %2, i64 %147
   %149 = load ptr, ptr %148, align 8
   store ptr %149, ptr @icc_filename, align 8
-  call void @jpeg_save_markers(ptr noundef nonnull %0, i32 noundef 226, i32 noundef 65535) #10
+  call void @jpeg_save_markers(ptr noundef nonnull %0, i32 noundef 226, i32 noundef 65535) #11
   br label %290
 
 150:                                              ; preds = %141
-  %151 = call i32 @keymatch(ptr noundef nonnull %32, ptr noundef nonnull @.str.99, i32 noundef 3) #10
+  %151 = call i32 @keymatch(ptr noundef nonnull %32, ptr noundef nonnull @.str.99, i32 noundef 3) #11
   %.not159 = icmp eq i32 %151, 0
   br i1 %.not159, label %175, label %152
 
@@ -1675,8 +1675,8 @@ define internal fastcc i32 @parse_switches(ptr noundef %0, i32 noundef %1, ptr n
   %164 = load ptr, ptr @stderr, align 8
   %165 = load ptr, ptr @progname, align 8
   %166 = load ptr, ptr %163, align 8
-  %167 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %164, ptr noundef nonnull @.str.3, ptr noundef %165, ptr noundef %166) #11
-  call void @exit(i32 noundef 1) #12
+  %167 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %164, ptr noundef nonnull @.str.3, ptr noundef %165, ptr noundef %166) #12
+  call void @exit(i32 noundef 1) #13
   unreachable
 
 168:                                              ; preds = %156
@@ -1685,11 +1685,11 @@ define internal fastcc i32 @parse_switches(ptr noundef %0, i32 noundef %1, ptr n
   br i1 %170, label %171, label %172
 
 171:                                              ; preds = %168
-  call void @read_color_map_12(ptr noundef nonnull %0, ptr noundef nonnull %160) #10
+  call void @read_color_map_12(ptr noundef nonnull %0, ptr noundef nonnull %160) #11
   br label %173
 
 172:                                              ; preds = %168
-  call void @read_color_map(ptr noundef nonnull %0, ptr noundef nonnull %160) #10
+  call void @read_color_map(ptr noundef nonnull %0, ptr noundef nonnull %160) #11
   br label %173
 
 173:                                              ; preds = %172, %171
@@ -1698,7 +1698,7 @@ define internal fastcc i32 @parse_switches(ptr noundef %0, i32 noundef %1, ptr n
   br label %290
 
 175:                                              ; preds = %150
-  %176 = call i32 @keymatch(ptr noundef nonnull %32, ptr noundef nonnull @.str.100, i32 noundef 3) #10
+  %176 = call i32 @keymatch(ptr noundef nonnull %32, ptr noundef nonnull @.str.100, i32 noundef 3) #11
   %.not160 = icmp eq i32 %176, 0
   br i1 %.not160, label %197, label %177
 
@@ -1716,7 +1716,7 @@ define internal fastcc i32 @parse_switches(ptr noundef %0, i32 noundef %1, ptr n
   %181 = sext i32 %178 to i64
   %182 = getelementptr inbounds ptr, ptr %2, i64 %181
   %183 = load ptr, ptr %182, align 8
-  %184 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %183, ptr noundef nonnull @.str.101, ptr noundef nonnull %6, ptr noundef nonnull %7) #10
+  %184 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %183, ptr noundef nonnull @.str.101, ptr noundef nonnull %6, ptr noundef nonnull %7) #11
   %185 = icmp slt i32 %184, 1
   br i1 %185, label %186, label %187
 
@@ -1745,7 +1745,7 @@ define internal fastcc i32 @parse_switches(ptr noundef %0, i32 noundef %1, ptr n
   br label %290
 
 197:                                              ; preds = %175
-  %198 = call i32 @keymatch(ptr noundef nonnull %32, ptr noundef nonnull @.str.102, i32 noundef 4) #10
+  %198 = call i32 @keymatch(ptr noundef nonnull %32, ptr noundef nonnull @.str.102, i32 noundef 4) #11
   %.not161 = icmp eq i32 %198, 0
   br i1 %.not161, label %208, label %199
 
@@ -1762,7 +1762,7 @@ define internal fastcc i32 @parse_switches(ptr noundef %0, i32 noundef %1, ptr n
   %203 = sext i32 %200 to i64
   %204 = getelementptr inbounds ptr, ptr %2, i64 %203
   %205 = load ptr, ptr %204, align 8
-  %206 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %205, ptr noundef nonnull @.str.103, ptr noundef nonnull @max_scans) #10
+  %206 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %205, ptr noundef nonnull @.str.103, ptr noundef nonnull @max_scans) #11
   %.not183 = icmp eq i32 %206, 1
   br i1 %.not183, label %290, label %207
 
@@ -1771,7 +1771,7 @@ define internal fastcc i32 @parse_switches(ptr noundef %0, i32 noundef %1, ptr n
   unreachable
 
 208:                                              ; preds = %197
-  %209 = call i32 @keymatch(ptr noundef nonnull %32, ptr noundef nonnull @.str.104, i32 noundef 3) #10
+  %209 = call i32 @keymatch(ptr noundef nonnull %32, ptr noundef nonnull @.str.104, i32 noundef 3) #11
   %.not162 = icmp eq i32 %209, 0
   br i1 %.not162, label %211, label %210
 
@@ -1780,7 +1780,7 @@ define internal fastcc i32 @parse_switches(ptr noundef %0, i32 noundef %1, ptr n
   br label %290
 
 211:                                              ; preds = %208
-  %212 = call i32 @keymatch(ptr noundef nonnull %32, ptr noundef nonnull @.str.105, i32 noundef 3) #10
+  %212 = call i32 @keymatch(ptr noundef nonnull %32, ptr noundef nonnull @.str.105, i32 noundef 3) #11
   %.not163 = icmp eq i32 %212, 0
   br i1 %.not163, label %214, label %213
 
@@ -1789,7 +1789,7 @@ define internal fastcc i32 @parse_switches(ptr noundef %0, i32 noundef %1, ptr n
   br label %290
 
 214:                                              ; preds = %211
-  %215 = call i32 @keymatch(ptr noundef nonnull %32, ptr noundef nonnull @.str.106, i32 noundef 3) #10
+  %215 = call i32 @keymatch(ptr noundef nonnull %32, ptr noundef nonnull @.str.106, i32 noundef 3) #11
   %.not164 = icmp eq i32 %215, 0
   br i1 %.not164, label %217, label %216
 
@@ -1798,7 +1798,7 @@ define internal fastcc i32 @parse_switches(ptr noundef %0, i32 noundef %1, ptr n
   br label %290
 
 217:                                              ; preds = %214
-  %218 = call i32 @keymatch(ptr noundef nonnull %32, ptr noundef nonnull @.str.107, i32 noundef 4) #10
+  %218 = call i32 @keymatch(ptr noundef nonnull %32, ptr noundef nonnull @.str.107, i32 noundef 4) #11
   %.not165 = icmp eq i32 %218, 0
   br i1 %.not165, label %226, label %219
 
@@ -1819,7 +1819,7 @@ define internal fastcc i32 @parse_switches(ptr noundef %0, i32 noundef %1, ptr n
   br label %290
 
 226:                                              ; preds = %217
-  %227 = call i32 @keymatch(ptr noundef nonnull %32, ptr noundef nonnull @.str.108, i32 noundef 2) #10
+  %227 = call i32 @keymatch(ptr noundef nonnull %32, ptr noundef nonnull @.str.108, i32 noundef 2) #11
   %.not166 = icmp eq i32 %227, 0
   br i1 %.not166, label %229, label %228
 
@@ -1828,12 +1828,12 @@ define internal fastcc i32 @parse_switches(ptr noundef %0, i32 noundef %1, ptr n
   br label %290
 
 229:                                              ; preds = %226
-  %230 = call i32 @keymatch(ptr noundef nonnull %32, ptr noundef nonnull @.str.109, i32 noundef 1) #10
+  %230 = call i32 @keymatch(ptr noundef nonnull %32, ptr noundef nonnull @.str.109, i32 noundef 1) #11
   %.not167 = icmp eq i32 %230, 0
   br i1 %.not167, label %231, label %233
 
 231:                                              ; preds = %229
-  %232 = call i32 @keymatch(ptr noundef nonnull %32, ptr noundef nonnull @.str.110, i32 noundef 1) #10
+  %232 = call i32 @keymatch(ptr noundef nonnull %32, ptr noundef nonnull @.str.110, i32 noundef 1) #11
   %.not168 = icmp eq i32 %232, 0
   br i1 %.not168, label %234, label %233
 
@@ -1842,7 +1842,7 @@ define internal fastcc i32 @parse_switches(ptr noundef %0, i32 noundef %1, ptr n
   br label %290
 
 234:                                              ; preds = %231
-  %235 = call i32 @keymatch(ptr noundef nonnull %32, ptr noundef nonnull @.str.111, i32 noundef 2) #10
+  %235 = call i32 @keymatch(ptr noundef nonnull %32, ptr noundef nonnull @.str.111, i32 noundef 2) #11
   %.not169 = icmp eq i32 %235, 0
   br i1 %.not169, label %237, label %236
 
@@ -1851,7 +1851,7 @@ define internal fastcc i32 @parse_switches(ptr noundef %0, i32 noundef %1, ptr n
   br label %290
 
 237:                                              ; preds = %234
-  %238 = call i32 @keymatch(ptr noundef nonnull %32, ptr noundef nonnull @.str.112, i32 noundef 2) #10
+  %238 = call i32 @keymatch(ptr noundef nonnull %32, ptr noundef nonnull @.str.112, i32 noundef 2) #11
   %.not170 = icmp eq i32 %238, 0
   br i1 %.not170, label %248, label %239
 
@@ -1868,7 +1868,7 @@ define internal fastcc i32 @parse_switches(ptr noundef %0, i32 noundef %1, ptr n
   %243 = sext i32 %240 to i64
   %244 = getelementptr inbounds ptr, ptr %2, i64 %243
   %245 = load ptr, ptr %244, align 8
-  %246 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %245, ptr noundef nonnull @.str.113, ptr noundef nonnull %21, ptr noundef nonnull %22) #10
+  %246 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %245, ptr noundef nonnull @.str.113, ptr noundef nonnull %21, ptr noundef nonnull %22) #11
   %.not180 = icmp eq i32 %246, 2
   br i1 %.not180, label %290, label %247
 
@@ -1877,7 +1877,7 @@ define internal fastcc i32 @parse_switches(ptr noundef %0, i32 noundef %1, ptr n
   unreachable
 
 248:                                              ; preds = %237
-  %249 = call i32 @keymatch(ptr noundef nonnull %32, ptr noundef nonnull @.str.114, i32 noundef 2) #10
+  %249 = call i32 @keymatch(ptr noundef nonnull %32, ptr noundef nonnull @.str.114, i32 noundef 2) #11
   %.not171 = icmp eq i32 %249, 0
   br i1 %.not171, label %264, label %250
 
@@ -1894,7 +1894,7 @@ define internal fastcc i32 @parse_switches(ptr noundef %0, i32 noundef %1, ptr n
   %254 = sext i32 %251 to i64
   %255 = getelementptr inbounds ptr, ptr %2, i64 %254
   %256 = load ptr, ptr %255, align 8
-  %257 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %256, ptr noundef nonnull @.str.115, ptr noundef nonnull @skip_start, ptr noundef nonnull @skip_end) #10
+  %257 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %256, ptr noundef nonnull @.str.115, ptr noundef nonnull @skip_start, ptr noundef nonnull @skip_end) #11
   %.not178 = icmp eq i32 %257, 2
   br i1 %.not178, label %258, label %262
 
@@ -1913,7 +1913,7 @@ define internal fastcc i32 @parse_switches(ptr noundef %0, i32 noundef %1, ptr n
   br label %290
 
 264:                                              ; preds = %248
-  %265 = call i32 @keymatch(ptr noundef nonnull %32, ptr noundef nonnull @.str.116, i32 noundef 2) #10
+  %265 = call i32 @keymatch(ptr noundef nonnull %32, ptr noundef nonnull @.str.116, i32 noundef 2) #11
   %.not172 = icmp eq i32 %265, 0
   br i1 %.not172, label %283, label %266
 
@@ -1930,7 +1930,7 @@ define internal fastcc i32 @parse_switches(ptr noundef %0, i32 noundef %1, ptr n
   %270 = sext i32 %267 to i64
   %271 = getelementptr inbounds ptr, ptr %2, i64 %270
   %272 = load ptr, ptr %271, align 8
-  %273 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %272, ptr noundef nonnull @.str.117, ptr noundef nonnull @crop_width, ptr noundef nonnull %8, ptr noundef nonnull @crop_height, ptr noundef nonnull @crop_x, ptr noundef nonnull @crop_y) #10
+  %273 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %272, ptr noundef nonnull @.str.117, ptr noundef nonnull @crop_width, ptr noundef nonnull %8, ptr noundef nonnull @crop_height, ptr noundef nonnull @crop_x, ptr noundef nonnull @crop_y) #11
   %.not176 = icmp eq i32 %273, 5
   br i1 %.not176, label %274, label %281
 
@@ -1955,7 +1955,7 @@ define internal fastcc i32 @parse_switches(ptr noundef %0, i32 noundef %1, ptr n
   br label %290
 
 283:                                              ; preds = %264
-  %284 = call i32 @keymatch(ptr noundef nonnull %32, ptr noundef nonnull @.str.118, i32 noundef 2) #10
+  %284 = call i32 @keymatch(ptr noundef nonnull %32, ptr noundef nonnull @.str.118, i32 noundef 2) #11
   %.not173 = icmp eq i32 %284, 0
   br i1 %.not173, label %286, label %285
 
@@ -1964,7 +1964,7 @@ define internal fastcc i32 @parse_switches(ptr noundef %0, i32 noundef %1, ptr n
   br label %290
 
 286:                                              ; preds = %283
-  %287 = call i32 @keymatch(ptr noundef nonnull %32, ptr noundef nonnull @.str.119, i32 noundef 1) #10
+  %287 = call i32 @keymatch(ptr noundef nonnull %32, ptr noundef nonnull @.str.119, i32 noundef 1) #11
   %.not174 = icmp eq i32 %287, 0
   br i1 %.not174, label %289, label %288
 
@@ -2006,7 +2006,7 @@ define internal void @my_emit_message(ptr noundef %0, i32 noundef %1) #2 {
 .sink.split:                                      ; preds = %2, %8
   %.sink6 = phi ptr [ %9, %8 ], [ %4, %2 ]
   %10 = load ptr, ptr %.sink6, align 8
-  tail call void %10(ptr noundef nonnull %0) #10
+  tail call void %10(ptr noundef nonnull %0) #11
   br label %11
 
 11:                                               ; preds = %.sink.split, %5
@@ -2016,96 +2016,96 @@ define internal void @my_emit_message(ptr noundef %0, i32 noundef %1) #2 {
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
 
-; Function Attrs: noreturn nounwind uwtable
-define internal fastcc void @usage() unnamed_addr #0 {
+; Function Attrs: nofree noreturn nounwind uwtable
+define internal fastcc void @usage() unnamed_addr #4 {
   %1 = load ptr, ptr @stderr, align 8
   %2 = load ptr, ptr @progname, align 8
-  %3 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.120, ptr noundef %2) #11
+  %3 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.120, ptr noundef %2) #12
   %4 = load ptr, ptr @stderr, align 8
-  %5 = tail call i64 @fwrite(ptr nonnull @.str.121, i64 12, i64 1, ptr %4) #14
+  %5 = tail call i64 @fwrite(ptr nonnull @.str.121, i64 12, i64 1, ptr %4) #16
   %6 = load ptr, ptr @stderr, align 8
-  %7 = tail call i64 @fwrite(ptr nonnull @.str.122, i64 37, i64 1, ptr %6) #14
+  %7 = tail call i64 @fwrite(ptr nonnull @.str.122, i64 37, i64 1, ptr %6) #16
   %8 = load ptr, ptr @stderr, align 8
-  %9 = tail call i64 @fwrite(ptr nonnull @.str.123, i64 72, i64 1, ptr %8) #14
+  %9 = tail call i64 @fwrite(ptr nonnull @.str.123, i64 72, i64 1, ptr %8) #16
   %10 = load ptr, ptr @stderr, align 8
-  %11 = tail call i64 @fwrite(ptr nonnull @.str.124, i64 57, i64 1, ptr %10) #14
+  %11 = tail call i64 @fwrite(ptr nonnull @.str.124, i64 57, i64 1, ptr %10) #16
   %12 = load ptr, ptr @stderr, align 8
-  %13 = tail call i64 @fwrite(ptr nonnull @.str.125, i64 40, i64 1, ptr %12) #14
+  %13 = tail call i64 @fwrite(ptr nonnull @.str.125, i64 40, i64 1, ptr %12) #16
   %14 = load ptr, ptr @stderr, align 8
-  %15 = tail call i64 @fwrite(ptr nonnull @.str.126, i64 34, i64 1, ptr %14) #14
+  %15 = tail call i64 @fwrite(ptr nonnull @.str.126, i64 34, i64 1, ptr %14) #16
   %16 = load ptr, ptr @stderr, align 8
-  %17 = tail call i64 @fwrite(ptr nonnull @.str.127, i64 37, i64 1, ptr %16) #14
+  %17 = tail call i64 @fwrite(ptr nonnull @.str.127, i64 37, i64 1, ptr %16) #16
   %18 = load ptr, ptr @stderr, align 8
-  %19 = tail call i64 @fwrite(ptr nonnull @.str.128, i64 61, i64 1, ptr %18) #14
+  %19 = tail call i64 @fwrite(ptr nonnull @.str.128, i64 61, i64 1, ptr %18) #16
   %20 = load ptr, ptr @stderr, align 8
-  %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef nonnull @.str.129, ptr noundef nonnull @.str.130) #11
+  %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef nonnull @.str.129, ptr noundef nonnull @.str.130) #12
   %22 = load ptr, ptr @stderr, align 8
-  %23 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef nonnull @.str.131, ptr noundef nonnull @.str.130) #11
+  %23 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef nonnull @.str.131, ptr noundef nonnull @.str.130) #12
   %24 = load ptr, ptr @stderr, align 8
-  %25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.132, ptr noundef nonnull @.str.130) #11
+  %25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.132, ptr noundef nonnull @.str.130) #12
   %26 = load ptr, ptr @stderr, align 8
-  %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str.133, ptr noundef nonnull @.str.130) #11
+  %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str.133, ptr noundef nonnull @.str.130) #12
   %28 = load ptr, ptr @stderr, align 8
-  %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef nonnull @.str.134, ptr noundef nonnull @.str.135) #11
+  %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef nonnull @.str.134, ptr noundef nonnull @.str.135) #12
   %30 = load ptr, ptr @stderr, align 8
-  %31 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %30, ptr noundef nonnull @.str.136, ptr noundef nonnull @.str.130) #11
+  %31 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %30, ptr noundef nonnull @.str.136, ptr noundef nonnull @.str.130) #12
   %32 = load ptr, ptr @stderr, align 8
-  %33 = tail call i64 @fwrite(ptr nonnull @.str.137, i64 29, i64 1, ptr %32) #14
+  %33 = tail call i64 @fwrite(ptr nonnull @.str.137, i64 29, i64 1, ptr %32) #16
   %34 = load ptr, ptr @stderr, align 8
-  %35 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %34, ptr noundef nonnull @.str.138, ptr noundef nonnull @.str.135) #11
+  %35 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %34, ptr noundef nonnull @.str.138, ptr noundef nonnull @.str.135) #12
   %36 = load ptr, ptr @stderr, align 8
-  %37 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %36, ptr noundef nonnull @.str.139, ptr noundef nonnull @.str.130) #11
+  %37 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %36, ptr noundef nonnull @.str.139, ptr noundef nonnull @.str.130) #12
   %38 = load ptr, ptr @stderr, align 8
-  %39 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %38, ptr noundef nonnull @.str.140, ptr noundef nonnull @.str.130) #11
+  %39 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %38, ptr noundef nonnull @.str.140, ptr noundef nonnull @.str.130) #12
   %40 = load ptr, ptr @stderr, align 8
-  %41 = tail call i64 @fwrite(ptr nonnull @.str.141, i64 80, i64 1, ptr %40) #14
+  %41 = tail call i64 @fwrite(ptr nonnull @.str.141, i64 80, i64 1, ptr %40) #16
   %42 = load ptr, ptr @stderr, align 8
-  %43 = tail call i64 @fwrite(ptr nonnull @.str.142, i64 34, i64 1, ptr %42) #14
+  %43 = tail call i64 @fwrite(ptr nonnull @.str.142, i64 34, i64 1, ptr %42) #16
   %44 = load ptr, ptr @stderr, align 8
-  %45 = tail call i64 @fwrite(ptr nonnull @.str.143, i64 77, i64 1, ptr %44) #14
+  %45 = tail call i64 @fwrite(ptr nonnull @.str.143, i64 77, i64 1, ptr %44) #16
   %46 = load ptr, ptr @stderr, align 8
-  %47 = tail call i64 @fwrite(ptr nonnull @.str.144, i64 64, i64 1, ptr %46) #14
+  %47 = tail call i64 @fwrite(ptr nonnull @.str.144, i64 64, i64 1, ptr %46) #16
   %48 = load ptr, ptr @stderr, align 8
-  %49 = tail call i64 @fwrite(ptr nonnull @.str.145, i64 36, i64 1, ptr %48) #14
+  %49 = tail call i64 @fwrite(ptr nonnull @.str.145, i64 36, i64 1, ptr %48) #16
   %50 = load ptr, ptr @stderr, align 8
-  %51 = tail call i64 @fwrite(ptr nonnull @.str.146, i64 45, i64 1, ptr %50) #14
+  %51 = tail call i64 @fwrite(ptr nonnull @.str.146, i64 45, i64 1, ptr %50) #16
   %52 = load ptr, ptr @stderr, align 8
-  %53 = tail call i64 @fwrite(ptr nonnull @.str.147, i64 78, i64 1, ptr %52) #14
+  %53 = tail call i64 @fwrite(ptr nonnull @.str.147, i64 78, i64 1, ptr %52) #16
   %54 = load ptr, ptr @stderr, align 8
-  %55 = tail call i64 @fwrite(ptr nonnull @.str.148, i64 54, i64 1, ptr %54) #14
+  %55 = tail call i64 @fwrite(ptr nonnull @.str.148, i64 54, i64 1, ptr %54) #16
   %56 = load ptr, ptr @stderr, align 8
-  %57 = tail call i64 @fwrite(ptr nonnull @.str.149, i64 78, i64 1, ptr %56) #14
+  %57 = tail call i64 @fwrite(ptr nonnull @.str.149, i64 78, i64 1, ptr %56) #16
   %58 = load ptr, ptr @stderr, align 8
-  %59 = tail call i64 @fwrite(ptr nonnull @.str.150, i64 51, i64 1, ptr %58) #14
+  %59 = tail call i64 @fwrite(ptr nonnull @.str.150, i64 51, i64 1, ptr %58) #16
   %60 = load ptr, ptr @stderr, align 8
-  %61 = tail call i64 @fwrite(ptr nonnull @.str.151, i64 64, i64 1, ptr %60) #14
+  %61 = tail call i64 @fwrite(ptr nonnull @.str.151, i64 64, i64 1, ptr %60) #16
   %62 = load ptr, ptr @stderr, align 8
-  %63 = tail call i64 @fwrite(ptr nonnull @.str.152, i64 46, i64 1, ptr %62) #14
+  %63 = tail call i64 @fwrite(ptr nonnull @.str.152, i64 46, i64 1, ptr %62) #16
   %64 = load ptr, ptr @stderr, align 8
-  %65 = tail call i64 @fwrite(ptr nonnull @.str.153, i64 66, i64 1, ptr %64) #14
+  %65 = tail call i64 @fwrite(ptr nonnull @.str.153, i64 66, i64 1, ptr %64) #16
   %66 = load ptr, ptr @stderr, align 8
-  %67 = tail call i64 @fwrite(ptr nonnull @.str.154, i64 47, i64 1, ptr %66) #14
+  %67 = tail call i64 @fwrite(ptr nonnull @.str.154, i64 47, i64 1, ptr %66) #16
   %68 = load ptr, ptr @stderr, align 8
-  %69 = tail call i64 @fwrite(ptr nonnull @.str.155, i64 80, i64 1, ptr %68) #14
+  %69 = tail call i64 @fwrite(ptr nonnull @.str.155, i64 80, i64 1, ptr %68) #16
   %70 = load ptr, ptr @stderr, align 8
-  %71 = tail call i64 @fwrite(ptr nonnull @.str.156, i64 70, i64 1, ptr %70) #14
+  %71 = tail call i64 @fwrite(ptr nonnull @.str.156, i64 70, i64 1, ptr %70) #16
   %72 = load ptr, ptr @stderr, align 8
-  %73 = tail call i64 @fwrite(ptr nonnull @.str.157, i64 75, i64 1, ptr %72) #14
+  %73 = tail call i64 @fwrite(ptr nonnull @.str.157, i64 75, i64 1, ptr %72) #16
   %74 = load ptr, ptr @stderr, align 8
-  %75 = tail call i64 @fwrite(ptr nonnull @.str.158, i64 45, i64 1, ptr %74) #14
+  %75 = tail call i64 @fwrite(ptr nonnull @.str.158, i64 45, i64 1, ptr %74) #16
   %76 = load ptr, ptr @stderr, align 8
-  %77 = tail call i64 @fwrite(ptr nonnull @.str.159, i64 43, i64 1, ptr %76) #14
+  %77 = tail call i64 @fwrite(ptr nonnull @.str.159, i64 43, i64 1, ptr %76) #16
   %78 = load ptr, ptr @stderr, align 8
-  %79 = tail call i64 @fwrite(ptr nonnull @.str.160, i64 52, i64 1, ptr %78) #14
-  tail call void @exit(i32 noundef 1) #12
+  %79 = tail call i64 @fwrite(ptr nonnull @.str.160, i64 52, i64 1, ptr %78) #16
+  tail call void @exit(i32 noundef 1) #13
   unreachable
 }
 
 ; Function Attrs: nofree nounwind
 declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #3
 
-; Function Attrs: noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #4
+; Function Attrs: nofree noreturn nounwind
+declare void @exit(i32 noundef) local_unnamed_addr #5
 
 declare ptr @read_stdin() local_unnamed_addr #1
 
@@ -2114,13 +2114,13 @@ declare ptr @write_stdout() local_unnamed_addr #1
 declare void @start_progress_monitor(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #5
+declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
 declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef i32 @ferror(ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @ferror(ptr nocapture noundef) local_unnamed_addr #7
 
 declare void @jpeg_mem_src(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -2164,7 +2164,7 @@ declare i32 @jpeg_read_icc_profile(ptr noundef, ptr noundef, ptr noundef) local_
 declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
+declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #3
@@ -2176,7 +2176,7 @@ declare void @jpeg_destroy_decompress(ptr noundef) local_unnamed_addr #1
 declare void @end_progress_monitor(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__ctype_b_loc() local_unnamed_addr #8
+declare ptr @__ctype_b_loc() local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #3
@@ -2193,24 +2193,26 @@ declare void @read_color_map_12(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @read_color_map(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #10
 
 attributes #0 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nofree nounwind }
-attributes #10 = { nounwind }
-attributes #11 = { cold nounwind }
-attributes #12 = { noreturn nounwind }
-attributes #13 = { nounwind allocsize(1) }
-attributes #14 = { cold }
-attributes #15 = { nounwind willreturn memory(none) }
+attributes #4 = { nofree noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nofree nounwind }
+attributes #11 = { nounwind }
+attributes #12 = { cold nounwind }
+attributes #13 = { cold noreturn nounwind }
+attributes #14 = { nounwind allocsize(1) }
+attributes #15 = { noreturn nounwind }
+attributes #16 = { cold }
+attributes #17 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

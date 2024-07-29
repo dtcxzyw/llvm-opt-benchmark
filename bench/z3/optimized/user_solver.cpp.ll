@@ -3681,7 +3681,7 @@ for.body9:                                        ; preds = %for.body9.lr.ph, %f
 
 if.then:                                          ; preds = %for.body9
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.4, i32 noundef 235, ptr noundef nonnull @.str.5)
-  tail call void @exit(i32 noundef 114) #18
+  tail call void @exit(i32 noundef 114) #22
   unreachable
 
 for.inc13:                                        ; preds = %for.cond7, %for.body, %_ZN6vectorIN3sat7literalELb0EjE3endEv.exit
@@ -3724,7 +3724,7 @@ for.body23:                                       ; preds = %_ZNK6vectorISt4pair
 
 if.then29:                                        ; preds = %for.body23
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.4, i32 noundef 237, ptr noundef nonnull @.str.6)
-  tail call void @exit(i32 noundef 114) #18
+  tail call void @exit(i32 noundef 114) #22
   unreachable
 
 for.end33:                                        ; preds = %for.cond21, %for.end15, %_ZNK6vectorISt4pairIP4exprS2_ELb0EjE3endEv.exit
@@ -3733,7 +3733,7 @@ for.end33:                                        ; preds = %for.cond21, %for.en
 
 declare void @_Z26notify_assertion_violationPKciS0_(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
@@ -4524,7 +4524,7 @@ entry:
 define linkonce_odr hidden noundef zeroext i1 @_ZN3sat9extension10propagatedENS_7literalEm(ptr noundef nonnull align 8 dereferenceable(32) %this, i32 %l.coerce, i64 noundef %idx) unnamed_addr #3 comdat align 2 {
 entry:
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.17, i32 noundef 88, ptr noundef nonnull @.str.18)
-  tail call void @exit(i32 noundef 114) #18
+  tail call void @exit(i32 noundef 114) #22
   unreachable
 }
 
@@ -4636,7 +4636,7 @@ entry:
 define linkonce_odr hidden noundef ptr @_ZN3sat9extension4copyEPNS_6solverE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %s) unnamed_addr #3 comdat align 2 {
 entry:
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.17, i32 noundef 117, ptr noundef nonnull @.str.18)
-  tail call void @exit(i32 noundef 114) #18
+  tail call void @exit(i32 noundef 114) #22
   unreachable
 }
 
@@ -6258,7 +6258,7 @@ attributes #7 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="t
 attributes #8 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #14 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -6269,6 +6269,7 @@ attributes #18 = { noreturn nounwind }
 attributes #19 = { nounwind }
 attributes #20 = { builtin nounwind }
 attributes #21 = { noreturn }
+attributes #22 = { cold noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

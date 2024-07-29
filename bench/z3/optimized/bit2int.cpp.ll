@@ -728,7 +728,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str, i32 noundef 49, ptr noundef nonnull @.str.1)
-  call void @exit(i32 noundef 114) #15
+  call void @exit(i32 noundef 114) #16
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -748,7 +748,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.end
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i.i.i, align 8
   %_M_reason.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %exception.i.i.i.i.i.i.i, i64 8
   store ptr @.str.9, ptr %_M_reason.i.i.i.i.i.i.i.i, align 8
-  call void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #16
+  call void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #17
   unreachable
 
 _ZNK7bv_util11get_bv_sizeEPK4expr.exit:           ; preds = %if.end
@@ -760,7 +760,7 @@ declare noundef zeroext i1 @_ZNK14bv_recognizers9is_bv2intEPK4exprRPS0_(ptr noun
 
 declare void @_Z26notify_assertion_violationPKciS0_(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
@@ -1125,7 +1125,7 @@ if.then.i.i.i.i.i:                                ; preds = %entry
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i.i.i, align 8
   %_M_reason.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %exception.i.i.i.i.i.i.i, i64 8
   store ptr @.str.9, ptr %_M_reason.i.i.i.i.i.i.i.i, align 8
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #16
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #17
   unreachable
 
 _ZNK7bv_util11get_bv_sizeEPK4expr.exit:           ; preds = %entry
@@ -1308,7 +1308,7 @@ if.then.i.i.i.i.i:                                ; preds = %entry
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i.i.i, align 8
   %_M_reason.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %exception.i.i.i.i.i.i.i, i64 8
   store ptr @.str.9, ptr %_M_reason.i.i.i.i.i.i.i.i, align 8
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #16
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #17
   unreachable
 
 _ZNK7bv_util11get_bv_sizeEPK4expr.exit:           ; preds = %entry
@@ -1329,7 +1329,7 @@ if.then.i.i.i.i.i16:                              ; preds = %_ZNK7bv_util11get_b
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i.i.i17, align 8
   %_M_reason.i.i.i.i.i.i.i.i18 = getelementptr inbounds i8, ptr %exception.i.i.i.i.i.i.i17, i64 8
   store ptr @.str.9, ptr %_M_reason.i.i.i.i.i.i.i.i18, align 8
-  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i.i.i17, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #16
+  tail call void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i.i.i17, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #17
   unreachable
 
 _ZNK7bv_util11get_bv_sizeEPK4expr.exit19:         ; preds = %_ZNK7bv_util11get_bv_sizeEPK4expr.exit
@@ -1487,7 +1487,7 @@ if.then.i.i.i.i.i:                                ; preds = %call.i.noexc
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i.i.i, align 8
   %_M_reason.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %exception.i.i.i.i.i.i.i, i64 8
   store ptr @.str.9, ptr %_M_reason.i.i.i.i.i.i.i.i, align 8
-  invoke void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #16
+  invoke void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #17
           to label %.noexc8 unwind label %lpad
 
 .noexc8:                                          ; preds = %if.then.i.i.i.i.i
@@ -2475,7 +2475,7 @@ if.then.i.i.i.i.i11.invoke:                       ; preds = %if.then.i.i.i.i.i, 
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i.i.i.sink124, align 8
   %_M_reason.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %exception.i.i.i.i.i.i.i.sink124, i64 8
   store ptr @.str.9, ptr %_M_reason.i.i.i.i.i.i.i.i, align 8
-  invoke void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i.i.i.sink124, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #16
+  invoke void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i.i.i.sink124, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #17
           to label %if.then.i.i.i.i.i11.cont unwind label %lpad6
 
 if.then.i.i.i.i.i11.cont:                         ; preds = %if.then.i.i.i.i.i11.invoke
@@ -3072,7 +3072,7 @@ if.then24:                                        ; preds = %invoke.cont22
           to label %invoke.cont25 unwind label %lpad4.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont25:                                    ; preds = %if.then24
-  call void @exit(i32 noundef 114) #15
+  call void @exit(i32 noundef 114) #16
   unreachable
 
 lpad4.loopexit:                                   ; preds = %if.then.i215, %if.end.i214
@@ -3126,7 +3126,7 @@ if.then36:                                        ; preds = %invoke.cont34
           to label %invoke.cont37 unwind label %lpad4.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont37:                                    ; preds = %if.then36
-  call void @exit(i32 noundef 114) #15
+  call void @exit(i32 noundef 114) #16
   unreachable
 
 if.else39:                                        ; preds = %invoke.cont29
@@ -3210,7 +3210,7 @@ if.then54:                                        ; preds = %invoke.cont52
           to label %invoke.cont55 unwind label %lpad4.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont55:                                    ; preds = %if.then54
-  call void @exit(i32 noundef 114) #15
+  call void @exit(i32 noundef 114) #16
   unreachable
 
 lpad43:                                           ; preds = %if.then2.i.i.i59, %_ZNK10arith_util6pluginEv.exit.i, %if.then.i.i
@@ -3312,7 +3312,7 @@ invoke.cont.i212:                                 ; preds = %if.then17.i
   store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception.i, align 8
   %m_msg.i.i = getelementptr inbounds i8, ptr %exception.i, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #14
-  invoke void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #16
+  invoke void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #17
           to label %unreachable.i unwind label %ehcleanup.i
 
 ehcleanup.i:                                      ; preds = %invoke.cont.i212
@@ -3453,7 +3453,7 @@ if.then93:                                        ; preds = %invoke.cont91
           to label %invoke.cont94 unwind label %lpad4.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont94:                                    ; preds = %if.then93
-  call void @exit(i32 noundef 114) #15
+  call void @exit(i32 noundef 114) #16
   unreachable
 
 if.else96:                                        ; preds = %land.rhs.i.i68, %land.rhs.i.i108, %land.lhs.true84, %land.lhs.true81, %if.else58, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i, %land.lhs.true.i, %invoke.cont86, %invoke.cont82, %land.lhs.true79, %invoke.cont77
@@ -3557,7 +3557,7 @@ if.then118:                                       ; preds = %invoke.cont116
           to label %invoke.cont119 unwind label %lpad4.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont119:                                   ; preds = %if.then118
-  call void @exit(i32 noundef 114) #15
+  call void @exit(i32 noundef 114) #16
   unreachable
 
 if.else121:                                       ; preds = %land.rhs.i.i154, %land.lhs.true109, %land.lhs.true106, %land.rhs.i.i.i122, %if.else96, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i126, %land.lhs.true.i130, %invoke.cont111, %invoke.cont107, %land.lhs.true104, %invoke.cont102
@@ -3629,7 +3629,7 @@ if.then134:                                       ; preds = %invoke.cont132
           to label %invoke.cont135 unwind label %lpad4.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont135:                                   ; preds = %if.then134
-  call void @exit(i32 noundef 114) #15
+  call void @exit(i32 noundef 114) #16
   unreachable
 
 if.end143:                                        ; preds = %for.inc, %if.then62, %invoke.cont52, %invoke.cont34, %invoke.cont91, %invoke.cont132, %invoke.cont116, %invoke.cont22
@@ -4851,7 +4851,7 @@ if.then333:                                       ; preds = %invoke.cont331
           to label %invoke.cont334 unwind label %lpad328
 
 invoke.cont334:                                   ; preds = %if.then333
-  call void @exit(i32 noundef 114) #15
+  call void @exit(i32 noundef 114) #16
   unreachable
 
 lpad328:                                          ; preds = %invoke.cont440.invoke, %invoke.cont434, %invoke.cont427, %invoke.cont425, %invoke.cont423, %invoke.cont415, %invoke.cont409, %invoke.cont404, %invoke.cont402, %invoke.cont400, %invoke.cont398, %invoke.cont391, %invoke.cont389, %invoke.cont387, %invoke.cont385, %invoke.cont378, %invoke.cont376, %invoke.cont374, %if.end373, %invoke.cont362, %invoke.cont356, %invoke.cont354, %invoke.cont352, %if.then351, %if.end342, %if.then340, %if.end335, %if.then333, %if.then322
@@ -4874,7 +4874,7 @@ if.then340:                                       ; preds = %invoke.cont338
           to label %invoke.cont341 unwind label %lpad328
 
 invoke.cont341:                                   ; preds = %if.then340
-  call void @exit(i32 noundef 114) #15
+  call void @exit(i32 noundef 114) #16
   unreachable
 
 if.end342:                                        ; preds = %invoke.cont338
@@ -5637,7 +5637,7 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr
 define linkonce_odr hidden void @_ZNSt18bad_variant_accessD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #4 comdat align 2 {
 entry:
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #14
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #17
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #18
   ret void
 }
 
@@ -6424,7 +6424,7 @@ invoke.cont:                                      ; preds = %if.then17
   store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception, align 8
   %m_msg.i = getelementptr inbounds i8, ptr %exception, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #14
-  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #16
+  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #17
           to label %unreachable unwind label %ehcleanup
 
 ehcleanup:                                        ; preds = %invoke.cont
@@ -6472,7 +6472,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.11) #16
+  invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.11) #17
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
@@ -6663,7 +6663,7 @@ invoke.cont:                                      ; preds = %if.then17
   store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception, align 8
   %m_msg.i = getelementptr inbounds i8, ptr %exception, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #14
-  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #16
+  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #17
           to label %unreachable unwind label %ehcleanup
 
 ehcleanup:                                        ; preds = %invoke.cont
@@ -6721,7 +6721,7 @@ attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stac
 attributes #2 = { nofree nounwind }
 attributes #3 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #7 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -6732,8 +6732,9 @@ attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessi
 attributes #13 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #14 = { nounwind }
 attributes #15 = { noreturn nounwind }
-attributes #16 = { noreturn }
-attributes #17 = { builtin nounwind }
+attributes #16 = { cold noreturn nounwind }
+attributes #17 = { noreturn }
+attributes #18 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

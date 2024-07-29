@@ -62,7 +62,7 @@ if.then2:                                         ; preds = %if.then
   br i1 %.b1.i, label %if.end3, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then2
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.10) #9
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.10) #10
   store i1 true, ptr @write_error, align 1
   br label %if.end3
 
@@ -80,7 +80,7 @@ entry:
   br i1 %cmp, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 58, ptr noundef nonnull @__PRETTY_FUNCTION__.replay_put_event) #10
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 58, ptr noundef nonnull @__PRETTY_FUNCTION__.replay_put_event) #11
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -99,7 +99,7 @@ if.then2.i:                                       ; preds = %if.then.i
   br i1 %.b1.i.i, label %replay_put_byte.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then2.i
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.10) #9
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.10) #10
   store i1 true, ptr @write_error, align 1
   br label %replay_put_byte.exit
 
@@ -129,7 +129,7 @@ if.then2.i:                                       ; preds = %if.then.i
   br i1 %.b1.i.i, label %replay_put_byte.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then2.i
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.10) #9
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.10) #10
   store i1 true, ptr @write_error, align 1
   br label %replay_put_byte.exit
 
@@ -150,7 +150,7 @@ if.then2.i7:                                      ; preds = %if.then.i3
   br i1 %.b1.i.i8, label %replay_put_byte.exit10, label %if.then.i.i9
 
 if.then.i.i9:                                     ; preds = %if.then2.i7
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.10) #9
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.10) #10
   store i1 true, ptr @write_error, align 1
   br label %replay_put_byte.exit10
 
@@ -177,7 +177,7 @@ if.then2.i.i:                                     ; preds = %if.then.i.i
   br i1 %.b1.i.i.i, label %replay_put_byte.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then2.i.i
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.10) #9
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.10) #10
   store i1 true, ptr @write_error, align 1
   br label %replay_put_byte.exit.i
 
@@ -197,7 +197,7 @@ if.then2.i7.i:                                    ; preds = %if.then.i3.i
   br i1 %.b1.i.i8.i, label %replay_put_word.exit, label %if.then.i.i9.i
 
 if.then.i.i9.i:                                   ; preds = %if.then2.i7.i
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.10) #9
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.10) #10
   store i1 true, ptr @write_error, align 1
   br label %replay_put_word.exit
 
@@ -218,7 +218,7 @@ if.then2.i.i17:                                   ; preds = %if.then.i.i3
   br i1 %.b1.i.i.i18, label %replay_put_byte.exit.i7, label %if.then.i.i.i19
 
 if.then.i.i.i19:                                  ; preds = %if.then2.i.i17
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.10) #9
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.10) #10
   store i1 true, ptr @write_error, align 1
   br label %replay_put_byte.exit.i7
 
@@ -238,7 +238,7 @@ if.then2.i7.i14:                                  ; preds = %if.then.i3.i10
   br i1 %.b1.i.i8.i15, label %replay_put_word.exit20, label %if.then.i.i9.i16
 
 if.then.i.i9.i16:                                 ; preds = %if.then2.i7.i14
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.10) #9
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.10) #10
   store i1 true, ptr @write_error, align 1
   br label %replay_put_word.exit20
 
@@ -277,7 +277,7 @@ if.then2:                                         ; preds = %if.then
   br i1 %.b1.i, label %if.end3, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then2
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.10) #9
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.10) #10
   store i1 true, ptr @write_error, align 1
   br label %if.end3
 
@@ -301,8 +301,8 @@ if.then:                                          ; preds = %entry
   br i1 %cmp, label %if.then1, label %if.end
 
 if.then1:                                         ; preds = %if.then
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.11) #9
-  tail call void @exit(i32 noundef 1) #10
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.11) #10
+  tail call void @exit(i32 noundef 1) #12
   unreachable
 
 if.end:                                           ; preds = %if.then
@@ -330,8 +330,8 @@ if.then.i:                                        ; preds = %entry
   br i1 %cmp.i, label %if.then1.i, label %replay_get_byte.exit
 
 if.then1.i:                                       ; preds = %if.then.i
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.11) #9
-  tail call void @exit(i32 noundef 1) #10
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.11) #10
+  tail call void @exit(i32 noundef 1) #12
   unreachable
 
 replay_get_byte.exit:                             ; preds = %if.then.i
@@ -347,8 +347,8 @@ if.then.i3:                                       ; preds = %replay_get_byte.exi
   br i1 %cmp.i5, label %if.then1.i9, label %if.end.i6
 
 if.then1.i9:                                      ; preds = %if.then.i3
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.11) #9
-  tail call void @exit(i32 noundef 1) #10
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.11) #10
+  tail call void @exit(i32 noundef 1) #12
   unreachable
 
 if.end.i6:                                        ; preds = %if.then.i3
@@ -379,8 +379,8 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %cmp.i.i, label %if.then1.i.i, label %replay_get_byte.exit.i
 
 if.then1.i.i:                                     ; preds = %if.then.i.i
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.11) #9
-  tail call void @exit(i32 noundef 1) #10
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.11) #10
+  tail call void @exit(i32 noundef 1) #12
   unreachable
 
 replay_get_byte.exit.i:                           ; preds = %if.then.i.i
@@ -396,8 +396,8 @@ if.then.i3.i:                                     ; preds = %replay_get_byte.exi
   br i1 %cmp.i5.i, label %if.then1.i9.i, label %replay_get_word.exit
 
 if.then1.i9.i:                                    ; preds = %if.then.i3.i
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.11) #9
-  tail call void @exit(i32 noundef 1) #10
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.11) #10
+  tail call void @exit(i32 noundef 1) #12
   unreachable
 
 replay_get_word.exit:                             ; preds = %if.then.i3.i
@@ -414,8 +414,8 @@ if.then.i.i3:                                     ; preds = %replay_get_word.exi
   br i1 %cmp.i.i5, label %if.then1.i.i20, label %replay_get_byte.exit.i6
 
 if.then1.i.i20:                                   ; preds = %if.then.i.i3
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.11) #9
-  tail call void @exit(i32 noundef 1) #10
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.11) #10
+  tail call void @exit(i32 noundef 1) #12
   unreachable
 
 replay_get_byte.exit.i6:                          ; preds = %if.then.i.i3
@@ -430,8 +430,8 @@ if.then.i3.i10:                                   ; preds = %replay_get_byte.exi
   br i1 %cmp.i5.i12, label %if.then1.i9.i19, label %if.end.i6.i13
 
 if.then1.i9.i19:                                  ; preds = %if.then.i3.i10
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.11) #9
-  tail call void @exit(i32 noundef 1) #10
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.11) #10
+  tail call void @exit(i32 noundef 1) #12
   unreachable
 
 if.end.i6.i13:                                    ; preds = %if.then.i3.i10
@@ -496,8 +496,8 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.not, label %if.end4, label %if.then3
 
 if.then3:                                         ; preds = %if.then
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.11) #9
-  tail call void @exit(i32 noundef 1) #10
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.11) #10
+  tail call void @exit(i32 noundef 1) #12
   unreachable
 
 if.end4:                                          ; preds = %if.then, %entry
@@ -518,7 +518,7 @@ if.then:                                          ; preds = %entry
   %call = tail call i32 @replay_get_dword()
   %conv = zext i32 %call to i64
   store i64 %conv, ptr %size, align 8
-  %call1 = tail call noalias ptr @g_malloc(i64 noundef %conv) #11
+  %call1 = tail call noalias ptr @g_malloc(i64 noundef %conv) #13
   store ptr %call1, ptr %buf, align 8
   %1 = load i64, ptr %size, align 8
   %2 = load ptr, ptr @replay_file, align 8
@@ -528,8 +528,8 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.not, label %if.end5, label %if.then4
 
 if.then4:                                         ; preds = %if.then
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.11) #9
-  tail call void @exit(i32 noundef 1) #10
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.11) #10
+  tail call void @exit(i32 noundef 1) #12
   unreachable
 
 if.end5:                                          ; preds = %if.then, %entry
@@ -547,22 +547,22 @@ entry:
   br i1 %tobool.not, label %if.end7, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call = tail call i32 @feof(ptr noundef nonnull %0) #9
+  %call = tail call i32 @feof(ptr noundef nonnull %0) #10
   %tobool1.not = icmp eq i32 %call, 0
   br i1 %tobool1.not, label %if.else, label %if.end7.sink.split
 
 if.else:                                          ; preds = %if.then
   %1 = load ptr, ptr @replay_file, align 8
-  %call3 = tail call i32 @ferror(ptr noundef %1) #9
+  %call3 = tail call i32 @ferror(ptr noundef %1) #10
   %tobool4.not = icmp eq i32 %call3, 0
   br i1 %tobool4.not, label %if.end7, label %if.end7.sink.split
 
 if.end7.sink.split:                               ; preds = %if.else, %if.then
   %.str.2.sink = phi ptr [ @.str.2, %if.then ], [ @.str.3, %if.else ]
   %.sink = phi i32 [ 4, %if.then ], [ 2, %if.else ]
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull %.str.2.sink) #9
-  tail call void @qemu_system_vmstop_request_prepare() #9
-  tail call void @qemu_system_vmstop_request(i32 noundef %.sink) #9
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull %.str.2.sink) #10
+  tail call void @qemu_system_vmstop_request_prepare() #10
+  tail call void @qemu_system_vmstop_request(i32 noundef %.sink) #10
   br label %if.end7
 
 if.end7:                                          ; preds = %if.end7.sink.split, %if.else, %entry
@@ -597,8 +597,8 @@ if.then.i:                                        ; preds = %entry
   br i1 %cmp.i, label %if.then1.i, label %replay_get_byte.exit
 
 if.then1.i:                                       ; preds = %if.then.i
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.11) #9
-  tail call void @exit(i32 noundef 1) #10
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.11) #10
+  tail call void @exit(i32 noundef 1) #12
   unreachable
 
 replay_get_byte.exit:                             ; preds = %if.then.i
@@ -618,22 +618,22 @@ if.end:                                           ; preds = %if.then4, %replay_g
   br i1 %tobool.not.i1, label %replay_check_error.exit, label %if.then.i2
 
 if.then.i2:                                       ; preds = %if.end
-  %call.i3 = tail call i32 @feof(ptr noundef nonnull %2) #9
+  %call.i3 = tail call i32 @feof(ptr noundef nonnull %2) #10
   %tobool1.not.i = icmp eq i32 %call.i3, 0
   br i1 %tobool1.not.i, label %if.else.i, label %if.end7.sink.split.i
 
 if.else.i:                                        ; preds = %if.then.i2
   %3 = load ptr, ptr @replay_file, align 8
-  %call3.i = tail call i32 @ferror(ptr noundef %3) #9
+  %call3.i = tail call i32 @ferror(ptr noundef %3) #10
   %tobool4.not.i = icmp eq i32 %call3.i, 0
   br i1 %tobool4.not.i, label %replay_check_error.exit, label %if.end7.sink.split.i
 
 if.end7.sink.split.i:                             ; preds = %if.else.i, %if.then.i2
   %.str.2.sink.i = phi ptr [ @.str.2, %if.then.i2 ], [ @.str.3, %if.else.i ]
   %.sink.i = phi i32 [ 4, %if.then.i2 ], [ 2, %if.else.i ]
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull %.str.2.sink.i) #9
-  tail call void @qemu_system_vmstop_request_prepare() #9
-  tail call void @qemu_system_vmstop_request(i32 noundef %.sink.i) #9
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull %.str.2.sink.i) #10
+  tail call void @qemu_system_vmstop_request_prepare() #10
+  tail call void @qemu_system_vmstop_request(i32 noundef %.sink.i) #10
   br label %replay_check_error.exit
 
 replay_check_error.exit:                          ; preds = %if.end, %if.else.i, %if.end7.sink.split.i
@@ -643,16 +643,16 @@ replay_check_error.exit:                          ; preds = %if.end, %if.else.i,
   br i1 %cmp6, label %if.then8, label %if.end11
 
 if.then8:                                         ; preds = %replay_check_error.exit
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.4, i32 noundef %4) #9
-  tail call void @exit(i32 noundef 1) #10
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.4, i32 noundef %4) #10
+  tail call void @exit(i32 noundef 1) #12
   unreachable
 
 if.end11:                                         ; preds = %replay_check_error.exit, %entry
   ret void
 }
 
-; Function Attrs: noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #2
+; Function Attrs: nofree noreturn nounwind
+declare void @exit(i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @replay_finish_event() local_unnamed_addr #0 {
@@ -665,8 +665,8 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @replay_mutex_init() local_unnamed_addr #0 {
 entry:
-  tail call void @qemu_mutex_init(ptr noundef nonnull @lock) #9
-  tail call void @qemu_cond_init(ptr noundef nonnull @mutex_cond) #9
+  tail call void @qemu_mutex_init(ptr noundef nonnull @lock) #10
+  tail call void @qemu_cond_init(ptr noundef nonnull @mutex_cond) #10
   %0 = tail call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @replay_locked)
   store i8 1, ptr %0, align 1
   %1 = load i64, ptr @mutex_tail, align 8
@@ -680,10 +680,10 @@ declare void @qemu_mutex_init(ptr noundef) local_unnamed_addr #4
 declare void @qemu_cond_init(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #6
+declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define dso_local zeroext i1 @replay_mutex_locked() local_unnamed_addr #7 {
+define dso_local zeroext i1 @replay_mutex_locked() local_unnamed_addr #8 {
 entry:
   %0 = tail call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @replay_locked)
   %1 = load i8, ptr %0, align 1
@@ -699,11 +699,11 @@ entry:
   br i1 %cmp.not, label %if.end22, label %do.body
 
 do.body:                                          ; preds = %entry
-  %call = tail call zeroext i1 @qemu_mutex_iothread_locked() #9
+  %call = tail call zeroext i1 @qemu_mutex_iothread_locked() #10
   br i1 %call, label %if.else, label %do.body2
 
 if.else:                                          ; preds = %do.body
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 219, ptr noundef nonnull @__func__.replay_mutex_lock, ptr noundef nonnull @.str.5) #10
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 219, ptr noundef nonnull @__func__.replay_mutex_lock, ptr noundef nonnull @.str.5) #11
   unreachable
 
 do.body2:                                         ; preds = %do.body
@@ -713,13 +713,13 @@ do.body2:                                         ; preds = %do.body
   br i1 %tobool.i, label %if.else5, label %while.end
 
 if.else5:                                         ; preds = %do.body2
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 220, ptr noundef nonnull @__func__.replay_mutex_lock, ptr noundef nonnull @.str.6) #10
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 220, ptr noundef nonnull @__func__.replay_mutex_lock, ptr noundef nonnull @.str.6) #11
   unreachable
 
 while.end:                                        ; preds = %do.body2
   %3 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %4 = inttoptr i64 %3 to ptr
-  tail call void %4(ptr noundef nonnull @lock, ptr noundef nonnull @.str.1, i32 noundef 221) #9
+  tail call void %4(ptr noundef nonnull @lock, ptr noundef nonnull @.str.1, i32 noundef 221) #10
   %5 = load i64, ptr @mutex_tail, align 8
   %inc = add i64 %5, 1
   store i64 %inc, ptr @mutex_tail, align 8
@@ -730,14 +730,14 @@ while.end:                                        ; preds = %do.body2
 while.end18:                                      ; preds = %while.end, %while.end18
   %7 = load atomic i64, ptr @qemu_cond_wait_func monotonic, align 8
   %8 = inttoptr i64 %7 to ptr
-  tail call void %8(ptr noundef nonnull @mutex_cond, ptr noundef nonnull @lock, ptr noundef nonnull @.str.1, i32 noundef 224) #9
+  tail call void %8(ptr noundef nonnull @mutex_cond, ptr noundef nonnull @lock, ptr noundef nonnull @.str.1, i32 noundef 224) #10
   %9 = load i64, ptr @mutex_head, align 8
   %cmp11.not = icmp eq i64 %5, %9
   br i1 %cmp11.not, label %while.end21, label %while.end18, !llvm.loop !5
 
 while.end21:                                      ; preds = %while.end18, %while.end
   store i8 1, ptr %1, align 1
-  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @lock, ptr noundef nonnull @.str.1, i32 noundef 227) #9
+  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @lock, ptr noundef nonnull @.str.1, i32 noundef 227) #10
   br label %if.end22
 
 if.end22:                                         ; preds = %while.end21, %entry
@@ -747,7 +747,7 @@ if.end22:                                         ; preds = %while.end21, %entry
 declare zeroext i1 @qemu_mutex_iothread_locked() local_unnamed_addr #4
 
 ; Function Attrs: noreturn
-declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
+declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #9
 
 declare void @qemu_mutex_unlock_impl(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
@@ -765,19 +765,19 @@ do.body:                                          ; preds = %entry
   br i1 %tobool.i, label %while.end, label %if.else
 
 if.else:                                          ; preds = %do.body
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 234, ptr noundef nonnull @__func__.replay_mutex_unlock, ptr noundef nonnull @.str.7) #10
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 234, ptr noundef nonnull @__func__.replay_mutex_unlock, ptr noundef nonnull @.str.7) #11
   unreachable
 
 while.end:                                        ; preds = %do.body
   %3 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %4 = inttoptr i64 %3 to ptr
-  tail call void %4(ptr noundef nonnull @lock, ptr noundef nonnull @.str.1, i32 noundef 235) #9
+  tail call void %4(ptr noundef nonnull @lock, ptr noundef nonnull @.str.1, i32 noundef 235) #10
   %5 = load i64, ptr @mutex_head, align 8
   %inc = add i64 %5, 1
   store i64 %inc, ptr @mutex_head, align 8
   store i8 0, ptr %1, align 1
-  tail call void @qemu_cond_broadcast(ptr noundef nonnull @mutex_cond) #9
-  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @lock, ptr noundef nonnull @.str.1, i32 noundef 239) #9
+  tail call void @qemu_cond_broadcast(ptr noundef nonnull @mutex_cond) #10
+  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @lock, ptr noundef nonnull @.str.1, i32 noundef 239) #10
   br label %if.end4
 
 if.end4:                                          ; preds = %while.end, %entry
@@ -796,7 +796,7 @@ entry:
   br i1 %cmp, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.1, i32 noundef 248, ptr noundef nonnull @__PRETTY_FUNCTION__.replay_advance_current_icount) #10
+  tail call void @__assert_fail(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.1, i32 noundef 248, ptr noundef nonnull @__PRETTY_FUNCTION__.replay_advance_current_icount) #11
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -825,7 +825,7 @@ if.then2.i.i:                                     ; preds = %if.then.i.i
   br i1 %.b1.i.i.i, label %replay_put_event.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then2.i.i
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.10) #9
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.10) #10
   store i1 true, ptr @write_error, align 1
   br label %replay_put_event.exit
 
@@ -857,13 +857,13 @@ if.then22:                                        ; preds = %if.then16
   br i1 %cmp23, label %if.end27, label %if.else26
 
 if.else26:                                        ; preds = %if.then22
-  tail call void @__assert_fail(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.1, i32 noundef 261, ptr noundef nonnull @__PRETTY_FUNCTION__.replay_advance_current_icount) #10
+  tail call void @__assert_fail(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.1, i32 noundef 261, ptr noundef nonnull @__PRETTY_FUNCTION__.replay_advance_current_icount) #11
   unreachable
 
 if.end27:                                         ; preds = %if.then22
   store i32 0, ptr getelementptr inbounds (i8, ptr @replay_state, i64 32), align 8
   tail call void @replay_fetch_data_kind()
-  tail call void @qemu_notify_event() #9
+  tail call void @qemu_notify_event() #10
   %.pre = load i64, ptr getelementptr inbounds (i8, ptr @replay_state, i64 16), align 8
   br label %if.end29
 
@@ -875,8 +875,8 @@ if.end29:                                         ; preds = %if.then16, %if.end2
 
 if.then32:                                        ; preds = %if.end29
   %8 = load ptr, ptr @replay_break_timer, align 8
-  %call = tail call i64 @qemu_clock_get_ns(i32 noundef 0) #9
-  tail call void @timer_mod_ns(ptr noundef %8, i64 noundef %call) #9
+  %call = tail call i64 @qemu_clock_get_ns(i32 noundef 0) #10
+  tail call void @timer_mod_ns(ptr noundef %8, i64 noundef %call) #10
   br label %if.end35
 
 if.end35:                                         ; preds = %if.end, %if.then32, %if.end29, %if.then4, %replay_put_event.exit
@@ -906,11 +906,11 @@ do.body:                                          ; preds = %entry
   br i1 %tobool.i, label %do.end, label %if.else
 
 if.else:                                          ; preds = %do.body
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 282, ptr noundef nonnull @__func__.replay_save_instructions, ptr noundef nonnull @.str.7) #10
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 282, ptr noundef nonnull @__func__.replay_save_instructions, ptr noundef nonnull @.str.7) #11
   unreachable
 
 do.end:                                           ; preds = %do.body
-  %call2 = tail call i64 @replay_get_current_icount() #9
+  %call2 = tail call i64 @replay_get_current_icount() #10
   tail call void @replay_advance_current_icount(i64 noundef %call2)
   br label %if.end3
 
@@ -926,12 +926,14 @@ attributes #2 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="tr
 attributes #3 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nounwind }
-attributes #10 = { noreturn nounwind }
-attributes #11 = { nounwind allocsize(0) }
+attributes #6 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nounwind }
+attributes #11 = { noreturn nounwind }
+attributes #12 = { cold noreturn nounwind }
+attributes #13 = { nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

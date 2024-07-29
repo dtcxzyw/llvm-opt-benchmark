@@ -11683,7 +11683,7 @@ if.then.i264:                                     ; preds = %_ZN11mpz_managerILb
           to label %.noexc265 unwind label %lpad11.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc265:                                        ; preds = %if.then.i264
-  call void @exit(i32 noundef 114) #21
+  call void @exit(i32 noundef 114) #23
   unreachable
 
 _ZN13mpzzp_manager11p_normalizeER3mpz.exit.i:     ; preds = %_ZN11mpz_managerILb0EE3setER3mpzRKS1_.exit.i246
@@ -12270,7 +12270,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.17, i32 noundef 168, ptr noundef nonnull @.str.18)
-  tail call void @exit(i32 noundef 114) #21
+  tail call void @exit(i32 noundef 114) #23
   unreachable
 
 _ZN13mpzzp_manager11p_normalizeER3mpz.exit:       ; preds = %entry
@@ -26291,7 +26291,7 @@ if.else.i:                                        ; preds = %invoke.cont34
           to label %.noexc55 unwind label %lpad35
 
 .noexc55:                                         ; preds = %if.else.i
-  call void @exit(i32 noundef 107) #21
+  call void @exit(i32 noundef 107) #23
   unreachable
 
 invoke.cont42:                                    ; preds = %if.then.i
@@ -27412,7 +27412,7 @@ if.then42:                                        ; preds = %invoke.cont40
           to label %invoke.cont43 unwind label %lpad30.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont43:                                    ; preds = %if.then42
-  call void @exit(i32 noundef 114) #21
+  call void @exit(i32 noundef 114) #23
   unreachable
 
 while.condthread-pre-split:                       ; preds = %invoke.cont40
@@ -27531,7 +27531,7 @@ if.then51:                                        ; preds = %invoke.cont49
           to label %invoke.cont52 unwind label %lpad30.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont52:                                    ; preds = %if.then51
-  call void @exit(i32 noundef 114) #21
+  call void @exit(i32 noundef 114) #23
   unreachable
 
 if.end53:                                         ; preds = %invoke.cont49
@@ -27710,7 +27710,7 @@ if.then76:                                        ; preds = %invoke.cont74
           to label %invoke.cont77 unwind label %lpad30.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont77:                                    ; preds = %if.then76
-  call void @exit(i32 noundef 114) #21
+  call void @exit(i32 noundef 114) #23
   unreachable
 
 if.end78:                                         ; preds = %invoke.cont74
@@ -28056,7 +28056,7 @@ return:                                           ; preds = %_ZN22_scoped_numera
 
 declare void @_Z26notify_assertion_violationPKciS0_(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress uwtable
@@ -28249,7 +28249,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %this, align 8
   %m_msg.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i.i) #20
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #24
   ret void
 }
 
@@ -29289,7 +29289,7 @@ attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #10 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #13 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -29299,7 +29299,8 @@ attributes #19 = { nocallback nofree nosync nounwind willreturn memory(argmem: r
 attributes #20 = { nounwind }
 attributes #21 = { noreturn nounwind }
 attributes #22 = { noreturn }
-attributes #23 = { builtin nounwind }
+attributes #23 = { cold noreturn nounwind }
+attributes #24 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

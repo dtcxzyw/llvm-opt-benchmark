@@ -17,7 +17,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table.Hacl_Streaming_Keccak_block_len = private unnamed_addr constant [6 x i32] [i32 136, i32 144, i32 104, i32 72, i32 168, i32 136], align 4
 @switch.table.Hacl_Streaming_Keccak_hash_len = private unnamed_addr constant [4 x i32] [i32 32, i32 28, i32 48, i32 64], align 4
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nofree nounwind uwtable
 define hidden void @Hacl_Hash_SHA3_update_multi_sha3(i8 noundef zeroext %a, ptr noundef %s, ptr nocapture noundef readonly %blocks, i32 noundef %n_blocks) local_unnamed_addr #0 {
 entry:
   %block.i.i = alloca [200 x i8], align 16
@@ -120,7 +120,7 @@ Hacl_Impl_SHA3_loadState.exit:                    ; preds = %for.body.i
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nofree nounwind uwtable
 define hidden void @Hacl_Hash_SHA3_update_last_sha3(i8 noundef zeroext %a, ptr noundef %s, ptr nocapture noundef readonly %input, i32 noundef %input_len) local_unnamed_addr #0 {
 entry:
   %block.i57 = alloca [200 x i8], align 16
@@ -632,7 +632,7 @@ entry:
   ret i8 %scrut.sroa.0.0.copyload
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nofree nounwind uwtable
 define hidden noalias noundef ptr @Hacl_Streaming_Keccak_malloc(i8 noundef zeroext %a) local_unnamed_addr #0 {
 entry:
   %a.off = add i8 %a, -8
@@ -663,7 +663,7 @@ block_len.exit:                                   ; preds = %entry
   ret ptr %call9
 }
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
@@ -688,7 +688,7 @@ entry:
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #9
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nofree nounwind uwtable
 define hidden noalias noundef ptr @Hacl_Streaming_Keccak_copy(ptr nocapture noundef readonly %s0) local_unnamed_addr #0 {
 entry:
   %scrut0.sroa.0.0.copyload = load i64, ptr %s0, align 8
@@ -781,7 +781,7 @@ entry:
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nofree nounwind uwtable
 define hidden zeroext range(i8 0, 4) i8 @Hacl_Streaming_Keccak_update(ptr nocapture noundef %p, ptr nocapture noundef readonly %data, i32 noundef %len) local_unnamed_addr #0 {
 entry:
   %block.i.i.i469 = alloca [200 x i8], align 16
@@ -1636,7 +1636,7 @@ return:                                           ; preds = %return.sink.split, 
   ret i8 %retval.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nofree nounwind uwtable
 define hidden zeroext range(i8 0, 2) i8 @Hacl_Streaming_Keccak_finish(ptr nocapture noundef readonly %s, ptr nocapture noundef writeonly %dst) local_unnamed_addr #0 {
 entry:
   %scrut.sroa.0.0.copyload.i = load i8, ptr %s, align 8
@@ -1667,7 +1667,7 @@ return:                                           ; preds = %entry, %switch.look
   ret i8 %retval.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nofree nounwind uwtable
 define internal fastcc void @finish_(i8 noundef zeroext %a, ptr nocapture noundef readonly %p, ptr nocapture noundef writeonly %dst, i32 noundef %l) unnamed_addr #0 {
 entry:
   %block.i12.i110 = alloca [200 x i8], align 16
@@ -1938,7 +1938,7 @@ return:                                           ; preds = %Hacl_Impl_SHA3_sque
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nofree nounwind uwtable
 define hidden zeroext range(i8 0, 3) i8 @Hacl_Streaming_Keccak_squeeze(ptr nocapture noundef readonly %s, ptr nocapture noundef writeonly %dst, i32 noundef %l) local_unnamed_addr #0 {
 entry:
   %scrut.sroa.0.0.copyload.i = load i8, ptr %s, align 8
@@ -1959,7 +1959,7 @@ return:                                           ; preds = %if.end, %entry, %if
   ret i8 %retval.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nofree nounwind uwtable
 define hidden range(i32 72, 169) i32 @Hacl_Streaming_Keccak_block_len(ptr nocapture noundef readonly %s) local_unnamed_addr #0 {
 entry:
   %scrut.sroa.0.0.copyload.i = load i8, ptr %s, align 8
@@ -1980,7 +1980,7 @@ switch.lookup:                                    ; preds = %entry
   ret i32 %switch.load
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nofree nounwind uwtable
 define hidden range(i32 28, 65) i32 @Hacl_Streaming_Keccak_hash_len(ptr nocapture noundef readonly %s) local_unnamed_addr #0 {
 entry:
   %scrut.sroa.0.0.copyload.i = load i8, ptr %s, align 8
@@ -2282,12 +2282,12 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #12
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2297,7 +2297,7 @@ attributes #11 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="tru
 attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #13 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #14 = { cold }
-attributes #15 = { noreturn nounwind }
+attributes #15 = { cold noreturn nounwind }
 attributes #16 = { nounwind allocsize(0,1) }
 attributes #17 = { nounwind allocsize(0) }
 attributes #18 = { nounwind }

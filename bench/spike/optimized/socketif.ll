@@ -2558,7 +2558,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit14: ; preds = %_ZN
           to label %104 unwind label %105
 
 104:                                              ; preds = %102
-  call void @exit(i32 noundef -1) #30
+  call void @exit(i32 noundef -1) #35
   unreachable
 
 105:                                              ; preds = %102, %95
@@ -3029,7 +3029,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr nou
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_(ptr noundef nonnull align 8 dereferenceable(8)) #0
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -11990,7 +11990,7 @@ _ZN5boost4asio6detail10call_stackINS1_14thread_contextENS1_16thread_info_baseEE3
 
 _ZN5boost4asio6detail10call_stackINS1_14thread_contextENS1_16thread_info_baseEE3topEv.exit.thread.i.i: ; preds = %_ZN5boost4asio6detail9scheduler12can_dispatchEv.exit.thread.thread, %43, %39, %_ZN5boost4asio6detail10call_stackINS1_14thread_contextENS1_16thread_info_baseEE3topEv.exit.i.i, %_ZN5boost4asio6detail9scheduler12can_dispatchEv.exit.thread
   %44 = phi ptr [ %14, %_ZN5boost4asio6detail9scheduler12can_dispatchEv.exit.thread.thread ], [ %36, %43 ], [ %36, %39 ], [ %36, %_ZN5boost4asio6detail10call_stackINS1_14thread_contextENS1_16thread_info_baseEE3topEv.exit.i.i ], [ %36, %_ZN5boost4asio6detail9scheduler12can_dispatchEv.exit.thread ]
-  %45 = tail call noalias noundef nonnull dereferenceable(41) ptr @_Znwm(i64 noundef 41) #35
+  %45 = tail call noalias noundef nonnull dereferenceable(41) ptr @_Znwm(i64 noundef 41) #36
   br label %_ZN5boost4asio6detail11executor_opINS1_17executor_functionESaIvENS1_19scheduler_operationEE3ptr8allocateERKS4_.exit
 
 _ZN5boost4asio6detail11executor_opINS1_17executor_functionESaIvENS1_19scheduler_operationEE3ptr8allocateERKS4_.exit: ; preds = %41, %_ZN5boost4asio6detail10call_stackINS1_14thread_contextENS1_16thread_info_baseEE3topEv.exit.thread.i.i
@@ -13976,7 +13976,7 @@ _ZN5boost4asio6detail10call_stackINS1_14thread_contextENS1_16thread_info_baseEE3
 
 _ZN5boost4asio6detail10call_stackINS1_14thread_contextENS1_16thread_info_baseEE3topEv.exit.thread.i.i: ; preds = %_ZN5boost4asio6detail9scheduler12can_dispatchEv.exit.thread.thread, %43, %39, %_ZN5boost4asio6detail10call_stackINS1_14thread_contextENS1_16thread_info_baseEE3topEv.exit.i.i, %_ZN5boost4asio6detail9scheduler12can_dispatchEv.exit.thread
   %44 = phi ptr [ %14, %_ZN5boost4asio6detail9scheduler12can_dispatchEv.exit.thread.thread ], [ %36, %43 ], [ %36, %39 ], [ %36, %_ZN5boost4asio6detail10call_stackINS1_14thread_contextENS1_16thread_info_baseEE3topEv.exit.i.i ], [ %36, %_ZN5boost4asio6detail9scheduler12can_dispatchEv.exit.thread ]
-  %45 = tail call noalias noundef nonnull dereferenceable(41) ptr @_Znwm(i64 noundef 41) #35
+  %45 = tail call noalias noundef nonnull dereferenceable(41) ptr @_Znwm(i64 noundef 41) #36
   br label %_ZN5boost4asio6detail11executor_opINS1_17executor_functionESaIvENS1_19scheduler_operationEE3ptr8allocateERKS4_.exit
 
 _ZN5boost4asio6detail11executor_opINS1_17executor_functionESaIvENS1_19scheduler_operationEE3ptr8allocateERKS4_.exit: ; preds = %41, %_ZN5boost4asio6detail10call_stackINS1_14thread_contextENS1_16thread_info_baseEE3topEv.exit.thread.i.i
@@ -22442,7 +22442,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiNSt7__cxx1112basic_s
   br i1 %25, label %_ZNSt8_Rb_treeIiSt4pairIKiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stIS8_ESt4lessIiESaIS8_EE24_M_get_insert_unique_posERS1_.exit, label %26
 
 26:                                               ; preds = %._crit_edge.thread.i
-  %27 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i) #36
+  %27 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i) #37
   %.phi.trans.insert80 = getelementptr inbounds i8, ptr %27, i64 32
   %.pre81 = load i32, ptr %.phi.trans.insert80, align 4
   %.pre82 = load i32, ptr %2, align 4
@@ -22472,7 +22472,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiNSt7__cxx1112basic_s
   br i1 %40, label %_ZNSt8_Rb_treeIiSt4pairIKiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stIS8_ESt4lessIiESaIS8_EE24_M_get_insert_unique_posERS1_.exit, label %41
 
 41:                                               ; preds = %37
-  %42 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #36
+  %42 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #37
   %43 = getelementptr inbounds i8, ptr %42, i64 32
   %44 = load i32, ptr %43, align 4
   %45 = icmp slt i32 %44, %34
@@ -22512,7 +22512,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiNSt7__cxx1112basic_s
   br i1 %55, label %_ZNSt8_Rb_treeIiSt4pairIKiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stIS8_ESt4lessIiESaIS8_EE24_M_get_insert_unique_posERS1_.exit, label %56
 
 56:                                               ; preds = %._crit_edge.thread.i27
-  %57 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i28) #36
+  %57 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i28) #37
   %.phi.trans.insert78 = getelementptr inbounds i8, ptr %57, i64 32
   %.pre79 = load i32, ptr %.phi.trans.insert78, align 4
   br label %58
@@ -22537,7 +22537,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiNSt7__cxx1112basic_s
   br i1 %66, label %_ZNSt8_Rb_treeIiSt4pairIKiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stIS8_ESt4lessIiESaIS8_EE24_M_get_insert_unique_posERS1_.exit, label %67
 
 67:                                               ; preds = %63
-  %68 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #36
+  %68 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #37
   %69 = getelementptr inbounds i8, ptr %68, i64 32
   %70 = load i32, ptr %69, align 4
   %71 = icmp slt i32 %34, %70
@@ -22579,7 +22579,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiNSt7__cxx1112basic_s
   br i1 %83, label %_ZNSt8_Rb_treeIiSt4pairIKiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stIS8_ESt4lessIiESaIS8_EE24_M_get_insert_unique_posERS1_.exit, label %84
 
 84:                                               ; preds = %._crit_edge.thread.i47
-  %85 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i48) #36
+  %85 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i48) #37
   %.phi.trans.insert = getelementptr inbounds i8, ptr %85, i64 32
   %.pre = load i32, ptr %.phi.trans.insert, align 4
   br label %86
@@ -22967,7 +22967,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %45, label %91, label %46
 
 46:                                               ; preds = %42
-  %47 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #36
+  %47 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #37
   %48 = getelementptr inbounds i8, ptr %47, i64 40
   %49 = load i64, ptr %48, align 8
   %.sroa.speculated.i.i.i19 = tail call i64 @llvm.umin.i64(i64 %29, i64 %49)
@@ -23032,7 +23032,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %71, label %91, label %72
 
 72:                                               ; preds = %68
-  %73 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #36
+  %73 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #37
   %74 = getelementptr inbounds i8, ptr %73, i64 40
   %75 = load i64, ptr %74, align 8
   %.sroa.speculated.i.i.i37 = tail call i64 @llvm.umin.i64(i64 %75, i64 %29)
@@ -23171,7 +23171,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %19, label %34, label %20
 
 20:                                               ; preds = %._crit_edge.thread
-  %21 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.028.lcssa37) #36
+  %21 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.028.lcssa37) #37
   br label %22
 
 22:                                               ; preds = %20, %._crit_edge
@@ -24252,7 +24252,7 @@ _ZNKSt4lessIN5boost16re_detail_10740021cpp_regex_traits_baseIcEEEclERKS3_S6_.exi
   br i1 %59, label %_ZNSt8_Rb_treeIN5boost16re_detail_10740021cpp_regex_traits_baseIcEESt4pairIKS3_St14_List_iteratorIS4_INS0_10shared_ptrIKNS1_31cpp_regex_traits_implementationIcEEEEPS5_EEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE24_M_get_insert_unique_posERS5_.exit, label %60
 
 60:                                               ; preds = %._crit_edge.thread.i
-  %61 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.021.lcssa33.i) #36
+  %61 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.021.lcssa33.i) #37
   %.phi.trans.insert113 = getelementptr inbounds i8, ptr %61, i64 40
   %.pre114 = load ptr, ptr %.phi.trans.insert113, align 8
   %.phi.trans.insert115 = getelementptr inbounds i8, ptr %2, i64 8
@@ -24333,7 +24333,7 @@ _ZNKSt4lessIN5boost16re_detail_10740021cpp_regex_traits_baseIcEEEclERKS3_S6_.exi
   br i1 %105, label %_ZNSt8_Rb_treeIN5boost16re_detail_10740021cpp_regex_traits_baseIcEESt4pairIKS3_St14_List_iteratorIS4_INS0_10shared_ptrIKNS1_31cpp_regex_traits_implementationIcEEEEPS5_EEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE24_M_get_insert_unique_posERS5_.exit, label %106
 
 106:                                              ; preds = %102
-  %107 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #36
+  %107 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #37
   %108 = getelementptr inbounds i8, ptr %107, i64 40
   %109 = load ptr, ptr %108, align 8
   %110 = icmp eq ptr %109, %83
@@ -24433,7 +24433,7 @@ _ZNKSt4lessIN5boost16re_detail_10740021cpp_regex_traits_baseIcEEEclERKS3_S6_.exi
   br i1 %153, label %_ZNSt8_Rb_treeIN5boost16re_detail_10740021cpp_regex_traits_baseIcEESt4pairIKS3_St14_List_iteratorIS4_INS0_10shared_ptrIKNS1_31cpp_regex_traits_implementationIcEEEEPS5_EEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE24_M_get_insert_unique_posERS5_.exit, label %154
 
 154:                                              ; preds = %._crit_edge.thread.i31
-  %155 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.021.lcssa33.i32) #36
+  %155 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.021.lcssa33.i32) #37
   %.phi.trans.insert111 = getelementptr inbounds i8, ptr %155, i64 40
   %.pre112 = load ptr, ptr %.phi.trans.insert111, align 8
   br label %._crit_edge.i23.thread
@@ -24495,7 +24495,7 @@ _ZNKSt4lessIN5boost16re_detail_10740021cpp_regex_traits_baseIcEEEclERKS3_S6_.exi
   br i1 %186, label %_ZNSt8_Rb_treeIN5boost16re_detail_10740021cpp_regex_traits_baseIcEESt4pairIKS3_St14_List_iteratorIS4_INS0_10shared_ptrIKNS1_31cpp_regex_traits_implementationIcEEEEPS5_EEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE24_M_get_insert_unique_posERS5_.exit, label %187
 
 187:                                              ; preds = %183
-  %188 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #36
+  %188 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #37
   %189 = getelementptr inbounds i8, ptr %188, i64 40
   %190 = load ptr, ptr %189, align 8
   %191 = icmp eq ptr %83, %190
@@ -24597,7 +24597,7 @@ _ZNKSt4lessIN5boost16re_detail_10740021cpp_regex_traits_baseIcEEEclERKS3_S6_.exi
   br i1 %236, label %_ZNSt8_Rb_treeIN5boost16re_detail_10740021cpp_regex_traits_baseIcEESt4pairIKS3_St14_List_iteratorIS4_INS0_10shared_ptrIKNS1_31cpp_regex_traits_implementationIcEEEEPS5_EEESt10_Select1stISF_ESt4lessIS3_ESaISF_EE24_M_get_insert_unique_posERS5_.exit, label %237
 
 237:                                              ; preds = %._crit_edge.thread.i55
-  %238 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.021.lcssa33.i56) #36
+  %238 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.021.lcssa33.i56) #37
   %.phi.trans.insert = getelementptr inbounds i8, ptr %238, i64 40
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br label %._crit_edge.i47.thread
@@ -24872,7 +24872,7 @@ _ZNSt8_Rb_treeIN5boost16re_detail_10740021cpp_regex_traits_baseIcEESt4pairIKS3_S
 
 21:                                               ; preds = %.lr.ph, %21
   %.sroa.06.08 = phi ptr [ %1, %.lr.ph ], [ %22, %21 ]
-  %22 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.06.08) #36
+  %22 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.06.08) #37
   %23 = tail call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef %.sroa.06.08, ptr noundef nonnull align 8 dereferenceable(32) %19) #29
   %24 = getelementptr inbounds i8, ptr %23, i64 32
   tail call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %24) #29
@@ -29341,7 +29341,7 @@ _ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_re
   br i1 %327, label %select.unfold.i.i.i, label %328
 
 328:                                              ; preds = %._crit_edge.thread.i.i.i.i
-  %329 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i.i.i.i) #36
+  %329 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i.i.i.i) #37
   %.phi.trans.insert.i.i.i = getelementptr inbounds i8, ptr %329, i64 32
   %.pre.i.i.i = load i64, ptr %.phi.trans.insert.i.i.i, align 8
   br label %330
@@ -38068,7 +38068,7 @@ define linkonce_odr void @_ZN5boost16re_detail_10740016indexed_bit_flag3setEm(pt
   br i1 %16, label %select.unfold.i.i, label %17
 
 17:                                               ; preds = %._crit_edge.thread.i.i.i
-  %18 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i.i.i) #36
+  %18 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i.i.i) #37
   %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %18, i64 32
   %.pre.i.i = load i64, ptr %.phi.trans.insert.i.i, align 8
   br label %19
@@ -40473,7 +40473,7 @@ _ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_re
 .lr.ph.i.i:                                       ; preds = %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE12append_stateENS0_19syntax_element_typeEm.exit, %.lr.ph.i.i
   %.05.i.i = phi i32 [ %69, %.lr.ph.i.i ], [ 0, %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE12append_stateENS0_19syntax_element_typeEm.exit ]
   %.sroa.02.04.i.i = phi ptr [ %68, %.lr.ph.i.i ], [ %65, %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE12append_stateENS0_19syntax_element_typeEm.exit ]
-  %68 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.02.04.i.i) #36
+  %68 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.02.04.i.i) #37
   %69 = add i32 %.05.i.i, 1
   %70 = icmp eq ptr %68, %66
   br i1 %70, label %_ZSt8distanceISt23_Rb_tree_const_iteratorIN5boost16re_detail_1074007digraphIcEEEENSt15iterator_traitsIT_E15difference_typeES7_S7_.exit, label %.lr.ph.i.i, !llvm.loop !715
@@ -40503,7 +40503,7 @@ _ZSt8distanceISt23_Rb_tree_const_iteratorIN5boost16re_detail_1074007digraphIcEEE
 .lr.ph.i.i90:                                     ; preds = %_ZSt8distanceISt23_Rb_tree_const_iteratorIN5boost16re_detail_1074007digraphIcEEEENSt15iterator_traitsIT_E15difference_typeES7_S7_.exit, %.lr.ph.i.i90
   %.05.i.i91 = phi i32 [ %87, %.lr.ph.i.i90 ], [ 0, %_ZSt8distanceISt23_Rb_tree_const_iteratorIN5boost16re_detail_1074007digraphIcEEEENSt15iterator_traitsIT_E15difference_typeES7_S7_.exit ]
   %.sroa.02.04.i.i92 = phi ptr [ %86, %.lr.ph.i.i90 ], [ %83, %_ZSt8distanceISt23_Rb_tree_const_iteratorIN5boost16re_detail_1074007digraphIcEEEENSt15iterator_traitsIT_E15difference_typeES7_S7_.exit ]
-  %86 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.02.04.i.i92) #36
+  %86 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.02.04.i.i92) #37
   %87 = add i32 %.05.i.i91, 1
   %88 = icmp eq ptr %86, %84
   br i1 %88, label %_ZSt8distanceISt23_Rb_tree_const_iteratorIN5boost16re_detail_1074007digraphIcEEEENSt15iterator_traitsIT_E15difference_typeES7_S7_.exit94, label %.lr.ph.i.i90, !llvm.loop !715
@@ -40696,7 +40696,7 @@ _ZNK5boost16cpp_regex_traitsIcE9translateEcb.exit95: ; preds = %192, %195
 209:                                              ; preds = %_ZNK5boost16cpp_regex_traitsIcE9translateEcb.exit, %_ZNK5boost16cpp_regex_traitsIcE9translateEcb.exit95, %207
   %.sink = phi ptr [ %206, %_ZNK5boost16cpp_regex_traitsIcE9translateEcb.exit95 ], [ %208, %207 ], [ %172, %_ZNK5boost16cpp_regex_traitsIcE9translateEcb.exit ]
   store i8 0, ptr %.sink, align 1
-  %210 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0247.0276) #36
+  %210 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0247.0276) #37
   %211 = icmp eq ptr %210, %66
   br i1 %211, label %._crit_edge, label %147, !llvm.loop !716
 
@@ -41816,7 +41816,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_t
   %643 = phi i64 [ %.pre293, %638 ], [ 0, %636 ]
   %644 = getelementptr inbounds i8, ptr %642, i64 %643
   store i8 0, ptr %644, align 1
-  %645 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0247.1) #36
+  %645 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0247.1) #37
   br label %646
 
 646:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit199, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES2_ET0_T_SB_SA_.exit217
@@ -42003,7 +42003,7 @@ _ZNK5boost16cpp_regex_traitsIcE9translateEcb.exit97: ; preds = %_ZNK5boost16cpp_
   br i1 %exitcond.not, label %96, label %65, !llvm.loop !729
 
 96:                                               ; preds = %95
-  %97 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0153.0190) #36
+  %97 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0153.0190) #37
   %98 = icmp eq ptr %97, %60
   br i1 %98, label %._crit_edge, label %.preheader188, !llvm.loop !730
 
@@ -42723,7 +42723,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit148: ; preds = %_Z
   br i1 %exitcond220.not, label %399, label %.preheader178, !llvm.loop !750
 
 399:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit148
-  %400 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.0153.1) #36
+  %400 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.0153.1) #37
   br label %401
 
 401:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit144, %399
@@ -45400,7 +45400,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt8_Rb_treeIN5boost16re_detail_1074007digrap
   br i1 %17, label %select.unfold, label %18
 
 18:                                               ; preds = %._crit_edge.thread.i
-  %19 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.020.lcssa29.i) #36
+  %19 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.020.lcssa29.i) #37
   %.phi.trans.insert = getelementptr inbounds i8, ptr %19, i64 32
   %.pre = load i8, ptr %.phi.trans.insert, align 1
   %.phi.trans.insert20 = getelementptr inbounds i8, ptr %19, i64 33
@@ -69751,7 +69751,7 @@ attributes #4 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-w
 attributes #5 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -69778,8 +69778,9 @@ attributes #31 = { noreturn }
 attributes #32 = { builtin nounwind }
 attributes #33 = { builtin allocsize(0) }
 attributes #34 = { nounwind willreturn memory(none) }
-attributes #35 = { allocsize(0) }
-attributes #36 = { nounwind willreturn memory(read) }
+attributes #35 = { cold noreturn nounwind }
+attributes #36 = { allocsize(0) }
+attributes #37 = { nounwind willreturn memory(read) }
 
 !llvm.linker.options = !{}
 !llvm.module.flags = !{!0, !1, !2, !3}

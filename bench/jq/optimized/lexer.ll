@@ -92,13 +92,13 @@ define range(i32 -128, 302) i32 @jq_yylex(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %.not552, label %36, label %61
 
 30:                                               ; preds = %22
-  %31 = tail call ptr @jv_mem_alloc(i64 noundef 8) #18
+  %31 = tail call ptr @jv_mem_alloc(i64 noundef 8) #19
   store ptr %31, ptr %23, align 8
   %.not28.i = icmp eq ptr %31, null
   br i1 %.not28.i, label %32, label %33
 
 32:                                               ; preds = %30
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.13) #19
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.13) #20
   unreachable
 
 33:                                               ; preds = %30
@@ -119,13 +119,13 @@ define range(i32 -128, 302) i32 @jq_yylex(ptr noundef %0, ptr noundef %1, ptr no
 40:                                               ; preds = %36
   %41 = add i64 %38, 8
   %42 = shl i64 %41, 3
-  %43 = tail call ptr @jv_mem_realloc(ptr noundef nonnull %24, i64 noundef %42) #18
+  %43 = tail call ptr @jv_mem_realloc(ptr noundef nonnull %24, i64 noundef %42) #19
   store ptr %43, ptr %23, align 8
   %.not30.i = icmp eq ptr %43, null
   br i1 %.not30.i, label %44, label %45
 
 44:                                               ; preds = %40
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.13) #19
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.13) #20
   unreachable
 
 45:                                               ; preds = %40
@@ -137,25 +137,25 @@ define range(i32 -128, 302) i32 @jq_yylex(ptr noundef %0, ptr noundef %1, ptr no
 
 jq_yyensure_buffer_stack.exit:                    ; preds = %33, %36, %45
   %48 = load ptr, ptr %13, align 8
-  %49 = tail call ptr @jv_mem_alloc(i64 noundef 64) #18
+  %49 = tail call ptr @jv_mem_alloc(i64 noundef 64) #19
   %.not.i558 = icmp eq ptr %49, null
   br i1 %.not.i558, label %50, label %51
 
 50:                                               ; preds = %jq_yyensure_buffer_stack.exit
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.3) #19
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.3) #20
   unreachable
 
 51:                                               ; preds = %jq_yyensure_buffer_stack.exit
   %52 = getelementptr inbounds i8, ptr %49, i64 24
   store i32 16384, ptr %52, align 8
-  %53 = tail call ptr @jv_mem_alloc(i64 noundef 16386) #18
+  %53 = tail call ptr @jv_mem_alloc(i64 noundef 16386) #19
   %54 = getelementptr inbounds i8, ptr %49, i64 8
   store ptr %53, ptr %54, align 8
   %.not14.i = icmp eq ptr %53, null
   br i1 %.not14.i, label %55, label %jq_yy_create_buffer.exit
 
 55:                                               ; preds = %51
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.3) #19
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.3) #20
   unreachable
 
 jq_yy_create_buffer.exit:                         ; preds = %51
@@ -1070,7 +1070,7 @@ jq_yy_create_buffer.exit:                         ; preds = %51
   %616 = getelementptr inbounds i8, ptr %615, i64 1
   %617 = load i32, ptr %85, align 8
   %618 = add nsw i32 %617, -1
-  %619 = tail call { i64, ptr } @jv_string_sized(ptr noundef nonnull %616, i32 noundef %618) #18
+  %619 = tail call { i64, ptr } @jv_string_sized(ptr noundef nonnull %616, i32 noundef %618) #19
   %620 = extractvalue { i64, ptr } %619, 0
   %621 = extractvalue { i64, ptr } %619, 1
   store i64 %620, ptr %614, align 8
@@ -1095,7 +1095,7 @@ jq_yy_create_buffer.exit:                         ; preds = %51
   %633 = load ptr, ptr %4, align 8
   %634 = load ptr, ptr %84, align 8
   %635 = load i32, ptr %85, align 8
-  %636 = tail call { i64, ptr } @jv_parse_sized(ptr noundef %634, i32 noundef %635) #18
+  %636 = tail call { i64, ptr } @jv_parse_sized(ptr noundef %634, i32 noundef %635) #19
   %637 = extractvalue { i64, ptr } %636, 0
   %638 = extractvalue { i64, ptr } %636, 1
   store i64 %637, ptr %633, align 8
@@ -1170,22 +1170,22 @@ jq_yy_create_buffer.exit:                         ; preds = %51
   store i32 %683, ptr %2, align 8
   %684 = load i32, ptr %85, align 8
   %685 = load ptr, ptr %84, align 8
-  %686 = tail call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str, i32 noundef %684, ptr noundef %685) #18
+  %686 = tail call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str, i32 noundef %684, ptr noundef %685) #19
   %687 = extractvalue { i64, ptr } %686, 0
   %688 = extractvalue { i64, ptr } %686, 1
   %689 = load ptr, ptr %4, align 8
-  %690 = tail call ptr @jv_string_value(i64 %687, ptr %688) #18
-  %691 = tail call { i64, ptr } @jv_copy(i64 %687, ptr %688) #18
+  %690 = tail call ptr @jv_string_value(i64 %687, ptr %688) #19
+  %691 = tail call { i64, ptr } @jv_copy(i64 %687, ptr %688) #19
   %692 = extractvalue { i64, ptr } %691, 0
   %693 = extractvalue { i64, ptr } %691, 1
-  %694 = tail call i32 @jv_string_length_bytes(i64 %692, ptr %693) #18
-  %695 = tail call { i64, ptr } @jv_parse_sized(ptr noundef %690, i32 noundef %694) #18
+  %694 = tail call i32 @jv_string_length_bytes(i64 %692, ptr %693) #19
+  %695 = tail call { i64, ptr } @jv_parse_sized(ptr noundef %690, i32 noundef %694) #19
   %696 = extractvalue { i64, ptr } %695, 0
   %697 = extractvalue { i64, ptr } %695, 1
   store i64 %696, ptr %689, align 8
   %.sroa.213.0..sroa_idx = getelementptr inbounds i8, ptr %689, i64 8
   store ptr %697, ptr %.sroa.213.0..sroa_idx, align 8
-  tail call void @jv_free(i64 %687, ptr %688) #18
+  tail call void @jv_free(i64 %687, ptr %688) #19
   br label %.loopexit
 
 698:                                              ; preds = %154
@@ -1205,7 +1205,7 @@ jq_yy_create_buffer.exit:                         ; preds = %51
   %709 = load ptr, ptr %4, align 8
   %710 = load ptr, ptr %84, align 8
   %711 = load i32, ptr %85, align 8
-  %712 = tail call { i64, ptr } @jv_string_sized(ptr noundef %710, i32 noundef %711) #18
+  %712 = tail call { i64, ptr } @jv_string_sized(ptr noundef %710, i32 noundef %711) #19
   %713 = extractvalue { i64, ptr } %712, 0
   %714 = extractvalue { i64, ptr } %712, 1
   store i64 %713, ptr %709, align 8
@@ -1245,7 +1245,7 @@ jq_yy_create_buffer.exit:                         ; preds = %51
   store i32 %736, ptr %2, align 8
   %737 = load ptr, ptr %4, align 8
   %738 = load ptr, ptr %84, align 8
-  %739 = tail call { i64, ptr } @jv_string(ptr noundef %738) #18
+  %739 = tail call { i64, ptr } @jv_string(ptr noundef %738) #19
   %740 = extractvalue { i64, ptr } %739, 0
   %741 = extractvalue { i64, ptr } %739, 1
   store i64 %740, ptr %737, align 8
@@ -1270,7 +1270,7 @@ jq_yy_create_buffer.exit:                         ; preds = %51
   %753 = load ptr, ptr %4, align 8
   %754 = load ptr, ptr %84, align 8
   %755 = getelementptr inbounds i8, ptr %754, i64 1
-  %756 = tail call { i64, ptr } @jv_string(ptr noundef nonnull %755) #18
+  %756 = tail call { i64, ptr } @jv_string(ptr noundef nonnull %755) #19
   %757 = extractvalue { i64, ptr } %756, 0
   %758 = extractvalue { i64, ptr } %756, 1
   store i64 %757, ptr %753, align 8
@@ -1295,7 +1295,7 @@ jq_yy_create_buffer.exit:                         ; preds = %51
   %770 = load ptr, ptr %4, align 8
   %771 = load ptr, ptr %84, align 8
   %772 = getelementptr inbounds i8, ptr %771, i64 1
-  %773 = tail call { i64, ptr } @jv_string(ptr noundef nonnull %772) #18
+  %773 = tail call { i64, ptr } @jv_string(ptr noundef nonnull %772) #19
   %774 = extractvalue { i64, ptr } %773, 0
   %775 = extractvalue { i64, ptr } %773, 1
   store i64 %774, ptr %770, align 8
@@ -1352,7 +1352,7 @@ jq_yy_create_buffer.exit:                         ; preds = %51
   %807 = getelementptr inbounds i8, ptr %806, i64 4
   %808 = load i32, ptr %807, align 4
   store i32 %808, ptr %2, align 8
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.1) #19
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.1) #20
   unreachable
 
 809:                                              ; preds = %154
@@ -1440,7 +1440,7 @@ jq_yy_create_buffer.exit:                         ; preds = %51
   br i1 %855, label %856, label %857
 
 856:                                              ; preds = %852
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.9) #19
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.9) #20
   unreachable
 
 857:                                              ; preds = %852
@@ -1537,13 +1537,13 @@ jq_yy_create_buffer.exit:                         ; preds = %51
   store i32 %storemerge148.i, ptr %897, align 8
   %902 = add nsw i32 %storemerge148.i, 2
   %903 = sext i32 %902 to i64
-  %904 = tail call ptr @jv_mem_realloc(ptr noundef %890, i64 noundef %903) #18
+  %904 = tail call ptr @jv_mem_realloc(ptr noundef %890, i64 noundef %903) #19
   store ptr %904, ptr %889, align 8
   %.not149.i = icmp eq ptr %904, null
   br i1 %.not149.i, label %.loopexit.i, label %905
 
 .loopexit.i:                                      ; preds = %896, %.thread.i
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.10) #19
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.10) #20
   unreachable
 
 905:                                              ; preds = %896
@@ -1627,12 +1627,12 @@ jq_yy_create_buffer.exit:                         ; preds = %51
 
 942:                                              ; preds = %.critedge.i
   %943 = load ptr, ptr %89, align 8
-  %944 = tail call i32 @ferror(ptr noundef %943) #18
+  %944 = tail call i32 @ferror(ptr noundef %943) #19
   %.not145.i = icmp eq i32 %944, 0
   br i1 %.not145.i, label %946, label %945
 
 945:                                              ; preds = %942
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.11) #19
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.11) #20
   unreachable
 
 946:                                              ; preds = %942, %.thread154.i, %.critedge.i
@@ -1641,7 +1641,7 @@ jq_yy_create_buffer.exit:                         ; preds = %51
   br label %.critedge2.i
 
 947:                                              ; preds = %._crit_edge169.i
-  %948 = tail call ptr @__errno_location() #20
+  %948 = tail call ptr @__errno_location() #21
   store i32 0, ptr %948, align 4
   %sext.i = shl i64 %868, 32
   %949 = ashr exact i64 %sext.i, 32
@@ -1662,7 +1662,7 @@ jq_yy_create_buffer.exit:                         ; preds = %51
 
 .lr.ph172.i:                                      ; preds = %947, %967
   %962 = load ptr, ptr %89, align 8
-  %963 = tail call i32 @ferror(ptr noundef %962) #18
+  %963 = tail call i32 @ferror(ptr noundef %962) #19
   %.not142.i = icmp eq i32 %963, 0
   br i1 %.not142.i, label %.critedge2.i, label %964
 
@@ -1672,13 +1672,13 @@ jq_yy_create_buffer.exit:                         ; preds = %51
   br i1 %.not143.i, label %967, label %966
 
 966:                                              ; preds = %964
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.11) #19
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.11) #20
   unreachable
 
 967:                                              ; preds = %964
   store i32 0, ptr %948, align 4
   %968 = load ptr, ptr %89, align 8
-  tail call void @clearerr(ptr noundef %968) #18
+  tail call void @clearerr(ptr noundef %968) #19
   %969 = load ptr, ptr %86, align 8
   %970 = load i64, ptr %87, align 8
   %971 = getelementptr inbounds ptr, ptr %969, i64 %970
@@ -1747,7 +1747,7 @@ jq_yy_create_buffer.exit:                         ; preds = %51
   %1012 = getelementptr inbounds i8, ptr %1005, i64 8
   %1013 = load ptr, ptr %1012, align 8
   %1014 = sext i32 %1011 to i64
-  %1015 = tail call ptr @jv_mem_realloc(ptr noundef %1013, i64 noundef %1014) #18
+  %1015 = tail call ptr @jv_mem_realloc(ptr noundef %1013, i64 noundef %1014) #19
   %1016 = load ptr, ptr %86, align 8
   %1017 = load i64, ptr %87, align 8
   %1018 = getelementptr inbounds ptr, ptr %1016, i64 %1017
@@ -1764,7 +1764,7 @@ jq_yy_create_buffer.exit:                         ; preds = %51
   br i1 %.not151.i, label %1027, label %1028
 
 1027:                                             ; preds = %1009
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.12) #19
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.12) #20
   unreachable
 
 1028:                                             ; preds = %1009
@@ -1855,7 +1855,7 @@ yy_get_next_buffer.exit.thread561:                ; preds = %863, %yy_get_next_b
   br label %.outer.backedge
 
 1074:                                             ; preds = %154
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.2) #19
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.2) #20
   unreachable
 
 default.unreachable917:                           ; preds = %yy_get_next_buffer.exit
@@ -1868,12 +1868,12 @@ default.unreachable917:                           ; preds = %yy_get_next_buffer.
 
 ; Function Attrs: nounwind uwtable
 define ptr @jq_yy_create_buffer(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
-  %4 = tail call ptr @jv_mem_alloc(i64 noundef 64) #18
+  %4 = tail call ptr @jv_mem_alloc(i64 noundef 64) #19
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %6
 
 5:                                                ; preds = %3
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.3) #19
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.3) #20
   unreachable
 
 6:                                                ; preds = %3
@@ -1881,14 +1881,14 @@ define ptr @jq_yy_create_buffer(ptr noundef %0, i32 noundef %1, ptr nocapture no
   store i32 %1, ptr %7, align 8
   %8 = add nsw i32 %1, 2
   %9 = sext i32 %8 to i64
-  %10 = tail call ptr @jv_mem_alloc(i64 noundef %9) #18
+  %10 = tail call ptr @jv_mem_alloc(i64 noundef %9) #19
   %11 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %10, ptr %11, align 8
   %.not14 = icmp eq ptr %10, null
   br i1 %.not14, label %12, label %13
 
 12:                                               ; preds = %6
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.3) #19
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.3) #20
   unreachable
 
 13:                                               ; preds = %6
@@ -1935,11 +1935,11 @@ define internal fastcc void @yy_push_state(i32 noundef %0, ptr nocapture noundef
   br i1 %.not20, label %13, label %15
 
 13:                                               ; preds = %7
-  %14 = tail call ptr @jv_mem_alloc(i64 noundef %10) #18
+  %14 = tail call ptr @jv_mem_alloc(i64 noundef %10) #19
   br label %17
 
 15:                                               ; preds = %7
-  %16 = tail call ptr @jv_mem_realloc(ptr noundef nonnull %12, i64 noundef %10) #18
+  %16 = tail call ptr @jv_mem_realloc(ptr noundef nonnull %12, i64 noundef %10) #19
   br label %17
 
 17:                                               ; preds = %15, %13
@@ -1953,7 +1953,7 @@ define internal fastcc void @yy_push_state(i32 noundef %0, ptr nocapture noundef
   br label %19
 
 18:                                               ; preds = %17
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.14) #19
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.14) #20
   unreachable
 
 19:                                               ; preds = %._crit_edge22, %._crit_edge
@@ -1974,8 +1974,8 @@ define internal fastcc void @yy_push_state(i32 noundef %0, ptr nocapture noundef
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal fastcc void @yy_pop_state(ptr nocapture noundef %0) unnamed_addr #0 {
+; Function Attrs: nofree nounwind uwtable
+define internal fastcc void @yy_pop_state(ptr nocapture noundef %0) unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 84
   %3 = load i32, ptr %2, align 4
   %4 = add nsw i32 %3, -1
@@ -1984,7 +1984,7 @@ define internal fastcc void @yy_pop_state(ptr nocapture noundef %0) unnamed_addr
   br i1 %5, label %6, label %7
 
 6:                                                ; preds = %1
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.15) #19
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.15) #20
   unreachable
 
 7:                                                ; preds = %1
@@ -2046,11 +2046,11 @@ define internal fastcc range(i32 -128, 300) i32 @enter(i32 noundef returned %0, 
   br i1 %.not20.i, label %18, label %20
 
 18:                                               ; preds = %12
-  %19 = tail call ptr @jv_mem_alloc(i64 noundef %15) #18
+  %19 = tail call ptr @jv_mem_alloc(i64 noundef %15) #19
   br label %22
 
 20:                                               ; preds = %12
-  %21 = tail call ptr @jv_mem_realloc(ptr noundef nonnull %17, i64 noundef %15) #18
+  %21 = tail call ptr @jv_mem_realloc(ptr noundef nonnull %17, i64 noundef %15) #19
   br label %22
 
 22:                                               ; preds = %20, %18
@@ -2064,7 +2064,7 @@ define internal fastcc range(i32 -128, 300) i32 @enter(i32 noundef returned %0, 
   br label %yy_push_state.exit
 
 23:                                               ; preds = %22
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.14) #19
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.14) #20
   unreachable
 
 yy_push_state.exit:                               ; preds = %._crit_edge.i, %._crit_edge22.i
@@ -2083,8 +2083,8 @@ yy_push_state.exit:                               ; preds = %._crit_edge.i, %._c
   ret i32 %0
 }
 
-; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 41, 301) i32 @try_exit(i32 noundef %0, i32 noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+; Function Attrs: nofree nounwind uwtable
+define internal fastcc range(i32 41, 301) i32 @try_exit(i32 noundef %0, i32 noundef %1, ptr nocapture noundef %2) unnamed_addr #3 {
   %switch.tableidx = add i32 %1, -1
   %4 = icmp ult i32 %switch.tableidx, 4
   br i1 %4, label %switch.lookup, label %22
@@ -2108,7 +2108,7 @@ switch.lookup:                                    ; preds = %3
   br i1 %12, label %13, label %yy_pop_state.exit
 
 13:                                               ; preds = %8
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.15) #19
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.15) #20
   unreachable
 
 yy_pop_state.exit:                                ; preds = %8
@@ -2128,32 +2128,32 @@ yy_pop_state.exit:                                ; preds = %8
   ret i32 %.06
 }
 
-declare { i64, ptr } @jv_string_sized(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare { i64, ptr } @jv_string_sized(ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare { i64, ptr } @jv_parse_sized(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare { i64, ptr } @jv_parse_sized(ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare { i64, ptr } @jv_string_fmt(ptr noundef, ...) local_unnamed_addr #3
+declare { i64, ptr } @jv_string_fmt(ptr noundef, ...) local_unnamed_addr #4
 
-declare ptr @jv_string_value(i64, ptr) local_unnamed_addr #3
+declare ptr @jv_string_value(i64, ptr) local_unnamed_addr #4
 
-declare i32 @jv_string_length_bytes(i64, ptr) local_unnamed_addr #3
+declare i32 @jv_string_length_bytes(i64, ptr) local_unnamed_addr #4
 
-declare { i64, ptr } @jv_copy(i64, ptr) local_unnamed_addr #3
+declare { i64, ptr } @jv_copy(i64, ptr) local_unnamed_addr #4
 
-declare void @jv_free(i64, ptr) local_unnamed_addr #3
+declare void @jv_free(i64, ptr) local_unnamed_addr #4
 
-declare { i64, ptr } @jv_string(ptr noundef) local_unnamed_addr #3
+declare { i64, ptr } @jv_string(ptr noundef) local_unnamed_addr #4
 
-; Function Attrs: noreturn nounwind uwtable
-define internal fastcc void @yy_fatal_error(ptr noundef %0) unnamed_addr #4 {
+; Function Attrs: nofree noreturn nounwind uwtable
+define internal fastcc void @yy_fatal_error(ptr noundef %0) unnamed_addr #5 {
   %2 = load ptr, ptr @stderr, align 8
-  %3 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.16, ptr noundef %0) #21
-  tail call void @exit(i32 noundef 2) #22
+  %3 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.16, ptr noundef %0) #22
+  tail call void @exit(i32 noundef 2) #23
   unreachable
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @yy_get_previous_state(ptr nocapture noundef %0) unnamed_addr #5 {
+define internal fastcc i32 @yy_get_previous_state(ptr nocapture noundef %0) unnamed_addr #6 {
   %2 = getelementptr inbounds i8, ptr %0, i64 76
   %3 = load i32, ptr %2, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 128
@@ -2248,7 +2248,7 @@ define internal fastcc i32 @yy_get_previous_state(ptr nocapture noundef %0) unna
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 -32768, 32768) i32 @yy_try_NUL_trans(i32 noundef %0, ptr nocapture noundef %1) unnamed_addr #6 {
+define internal fastcc range(i32 -32768, 32768) i32 @yy_try_NUL_trans(i32 noundef %0, ptr nocapture noundef %1) unnamed_addr #7 {
   %3 = sext i32 %0 to i64
   %4 = getelementptr inbounds [168 x i16], ptr @yy_accept, i64 0, i64 %3
   %5 = load i16, ptr %4, align 2
@@ -2315,13 +2315,13 @@ define void @jq_yyrestart(ptr noundef %0, ptr nocapture noundef %1) local_unname
   br i1 %.not16, label %16, label %.thread
 
 10:                                               ; preds = %2
-  %11 = tail call ptr @jv_mem_alloc(i64 noundef 8) #18
+  %11 = tail call ptr @jv_mem_alloc(i64 noundef 8) #19
   store ptr %11, ptr %3, align 8
   %.not28.i = icmp eq ptr %11, null
   br i1 %.not28.i, label %12, label %13
 
 12:                                               ; preds = %10
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.13) #19
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.13) #20
   unreachable
 
 13:                                               ; preds = %10
@@ -2342,13 +2342,13 @@ define void @jq_yyrestart(ptr noundef %0, ptr nocapture noundef %1) local_unname
 20:                                               ; preds = %16
   %21 = add i64 %18, 8
   %22 = shl i64 %21, 3
-  %23 = tail call ptr @jv_mem_realloc(ptr noundef nonnull %4, i64 noundef %22) #18
+  %23 = tail call ptr @jv_mem_realloc(ptr noundef nonnull %4, i64 noundef %22) #19
   store ptr %23, ptr %3, align 8
   %.not30.i = icmp eq ptr %23, null
   br i1 %.not30.i, label %24, label %25
 
 24:                                               ; preds = %20
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.13) #19
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.13) #20
   unreachable
 
 25:                                               ; preds = %20
@@ -2361,25 +2361,25 @@ define void @jq_yyrestart(ptr noundef %0, ptr nocapture noundef %1) local_unname
 jq_yyensure_buffer_stack.exit:                    ; preds = %13, %16, %25
   %28 = getelementptr inbounds i8, ptr %1, i64 8
   %29 = load ptr, ptr %28, align 8
-  %30 = tail call ptr @jv_mem_alloc(i64 noundef 64) #18
+  %30 = tail call ptr @jv_mem_alloc(i64 noundef 64) #19
   %.not.i18 = icmp eq ptr %30, null
   br i1 %.not.i18, label %31, label %32
 
 31:                                               ; preds = %jq_yyensure_buffer_stack.exit
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.3) #19
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.3) #20
   unreachable
 
 32:                                               ; preds = %jq_yyensure_buffer_stack.exit
   %33 = getelementptr inbounds i8, ptr %30, i64 24
   store i32 16384, ptr %33, align 8
-  %34 = tail call ptr @jv_mem_alloc(i64 noundef 16386) #18
+  %34 = tail call ptr @jv_mem_alloc(i64 noundef 16386) #19
   %35 = getelementptr inbounds i8, ptr %30, i64 8
   store ptr %34, ptr %35, align 8
   %.not14.i = icmp eq ptr %34, null
   br i1 %.not14.i, label %36, label %37
 
 36:                                               ; preds = %32
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.3) #19
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.3) #20
   unreachable
 
 37:                                               ; preds = %32
@@ -2434,7 +2434,7 @@ jq_yyensure_buffer_stack.exit:                    ; preds = %13, %16, %25
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @jq_yy_init_buffer(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
-  %4 = tail call ptr @__errno_location() #20
+  %4 = tail call ptr @__errno_location() #21
   %5 = load i32, ptr %4, align 4
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %jq_yy_flush_buffer.exit, label %6
@@ -2530,8 +2530,8 @@ jq_yy_flush_buffer.exit:                          ; preds = %3, %23, %26
   br i1 %.not18, label %63, label %58
 
 58:                                               ; preds = %57
-  %59 = tail call i32 @fileno(ptr noundef nonnull %1) #18
-  %60 = tail call i32 @isatty(i32 noundef %59) #18
+  %59 = tail call i32 @fileno(ptr noundef nonnull %1) #19
+  %60 = tail call i32 @isatty(i32 noundef %59) #19
   %61 = icmp sgt i32 %60, 0
   %62 = zext i1 %61 to i32
   br label %63
@@ -2552,13 +2552,13 @@ define void @jq_yy_switch_to_buffer(ptr noundef %0, ptr nocapture noundef %1) lo
   br i1 %.not.i, label %5, label %11
 
 5:                                                ; preds = %2
-  %6 = tail call ptr @jv_mem_alloc(i64 noundef 8) #18
+  %6 = tail call ptr @jv_mem_alloc(i64 noundef 8) #19
   store ptr %6, ptr %3, align 8
   %.not28.i = icmp eq ptr %6, null
   br i1 %.not28.i, label %7, label %8
 
 7:                                                ; preds = %5
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.13) #19
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.13) #20
   unreachable
 
 8:                                                ; preds = %5
@@ -2581,13 +2581,13 @@ define void @jq_yy_switch_to_buffer(ptr noundef %0, ptr nocapture noundef %1) lo
 17:                                               ; preds = %11
   %18 = add i64 %15, 8
   %19 = shl i64 %18, 3
-  %20 = tail call ptr @jv_mem_realloc(ptr noundef nonnull %4, i64 noundef %19) #18
+  %20 = tail call ptr @jv_mem_realloc(ptr noundef nonnull %4, i64 noundef %19) #19
   store ptr %20, ptr %3, align 8
   %.not30.i = icmp eq ptr %20, null
   br i1 %.not30.i, label %21, label %22
 
 21:                                               ; preds = %17
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.13) #19
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.13) #20
   unreachable
 
 22:                                               ; preds = %17
@@ -2681,7 +2681,7 @@ jq_yyensure_buffer_stack.exit:                    ; preds = %8, %11, %22
 
 ; Function Attrs: nounwind uwtable
 define ptr @jq_yyalloc(i64 noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
-  %3 = tail call ptr @jv_mem_alloc(i64 noundef %0) #18
+  %3 = tail call ptr @jv_mem_alloc(i64 noundef %0) #19
   ret ptr %3
 }
 
@@ -2724,11 +2724,11 @@ define void @jq_yy_delete_buffer(ptr noundef %0, ptr nocapture noundef readonly 
 21:                                               ; preds = %18
   %22 = getelementptr inbounds i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8
-  tail call void @jv_mem_free(ptr noundef %23) #18
+  tail call void @jv_mem_free(ptr noundef %23) #19
   br label %24
 
 24:                                               ; preds = %21, %18
-  tail call void @jv_mem_free(ptr noundef nonnull %0) #18
+  tail call void @jv_mem_free(ptr noundef nonnull %0) #19
   br label %25
 
 25:                                               ; preds = %2, %24
@@ -2737,12 +2737,12 @@ define void @jq_yy_delete_buffer(ptr noundef %0, ptr nocapture noundef readonly 
 
 ; Function Attrs: nounwind uwtable
 define void @jq_yyfree(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
-  tail call void @jv_mem_free(ptr noundef %0) #18
+  tail call void @jv_mem_free(ptr noundef %0) #19
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @jq_yy_flush_buffer(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #7 {
+define void @jq_yy_flush_buffer(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #8 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %41, label %3
 
@@ -2820,13 +2820,13 @@ define void @jq_yypush_buffer_state(ptr noundef %0, ptr nocapture noundef %1) lo
   br i1 %.not.i, label %7, label %13
 
 7:                                                ; preds = %4
-  %8 = tail call ptr @jv_mem_alloc(i64 noundef 8) #18
+  %8 = tail call ptr @jv_mem_alloc(i64 noundef 8) #19
   store ptr %8, ptr %5, align 8
   %.not28.i = icmp eq ptr %8, null
   br i1 %.not28.i, label %9, label %10
 
 9:                                                ; preds = %7
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.13) #19
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.13) #20
   unreachable
 
 10:                                               ; preds = %7
@@ -2849,13 +2849,13 @@ define void @jq_yypush_buffer_state(ptr noundef %0, ptr nocapture noundef %1) lo
 19:                                               ; preds = %13
   %20 = add i64 %17, 8
   %21 = shl i64 %20, 3
-  %22 = tail call ptr @jv_mem_realloc(ptr noundef nonnull %6, i64 noundef %21) #18
+  %22 = tail call ptr @jv_mem_realloc(ptr noundef nonnull %6, i64 noundef %21) #19
   store ptr %22, ptr %5, align 8
   %.not30.i = icmp eq ptr %22, null
   br i1 %.not30.i, label %23, label %24
 
 23:                                               ; preds = %19
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.13) #19
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.13) #20
   unreachable
 
 24:                                               ; preds = %19
@@ -2968,11 +2968,11 @@ define void @jq_yypop_buffer_state(ptr nocapture noundef %0) local_unnamed_addr 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds i8, ptr %8, i64 8
   %14 = load ptr, ptr %13, align 8
-  tail call void @jv_mem_free(ptr noundef %14) #18
+  tail call void @jv_mem_free(ptr noundef %14) #19
   br label %jq_yy_delete_buffer.exit
 
 jq_yy_delete_buffer.exit:                         ; preds = %9, %12
-  tail call void @jv_mem_free(ptr noundef nonnull %8) #18
+  tail call void @jv_mem_free(ptr noundef nonnull %8) #19
   %15 = load ptr, ptr %2, align 8
   %16 = load i64, ptr %5, align 8
   %17 = getelementptr inbounds ptr, ptr %15, i64 %16
@@ -3045,12 +3045,12 @@ define ptr @jq_yy_scan_buffer(ptr noundef %0, i64 noundef %1, ptr nocapture noun
   br i1 %.not26, label %13, label %27
 
 13:                                               ; preds = %9
-  %14 = tail call ptr @jv_mem_alloc(i64 noundef 64) #18
+  %14 = tail call ptr @jv_mem_alloc(i64 noundef 64) #19
   %.not27 = icmp eq ptr %14, null
   br i1 %.not27, label %15, label %16
 
 15:                                               ; preds = %13
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.4) #19
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.4) #20
   unreachable
 
 16:                                               ; preds = %13
@@ -3084,7 +3084,7 @@ define ptr @jq_yy_scan_buffer(ptr noundef %0, i64 noundef %1, ptr nocapture noun
 
 ; Function Attrs: nounwind uwtable
 define ptr @jq_yy_scan_string(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
-  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #23
+  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #24
   %4 = trunc i64 %3 to i32
   %5 = tail call ptr @jq_yy_scan_bytes(ptr noundef %0, i32 noundef %4, ptr noundef %1)
   ret ptr %5
@@ -3094,7 +3094,7 @@ define ptr @jq_yy_scan_string(ptr nocapture noundef readonly %0, ptr nocapture n
 define ptr @jq_yy_scan_bytes(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
   %4 = add nsw i32 %1, 2
   %5 = sext i32 %4 to i64
-  %6 = tail call ptr @jv_mem_alloc(i64 noundef %5) #18
+  %6 = tail call ptr @jv_mem_alloc(i64 noundef %5) #19
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %8, label %.preheader
 
@@ -3107,7 +3107,7 @@ define ptr @jq_yy_scan_bytes(ptr nocapture noundef readonly %0, i32 noundef %1, 
   br label %.lr.ph
 
 8:                                                ; preds = %3
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.5) #19
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.5) #20
   unreachable
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -3130,16 +3130,16 @@ define ptr @jq_yy_scan_bytes(ptr nocapture noundef readonly %0, i32 noundef %1, 
   br i1 %15, label %19, label %16
 
 16:                                               ; preds = %._crit_edge
-  %17 = tail call ptr @jv_mem_alloc(i64 noundef 64) #18
+  %17 = tail call ptr @jv_mem_alloc(i64 noundef 64) #19
   %.not27.i = icmp eq ptr %17, null
   br i1 %.not27.i, label %18, label %20
 
 18:                                               ; preds = %16
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.4) #19
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.4) #20
   unreachable
 
 19:                                               ; preds = %._crit_edge
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.6) #19
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.6) #20
   unreachable
 
 20:                                               ; preds = %16
@@ -3168,10 +3168,10 @@ define ptr @jq_yy_scan_bytes(ptr nocapture noundef readonly %0, i32 noundef %1, 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @jq_yyget_lineno(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
+define i32 @jq_yyget_lineno(ptr nocapture noundef readonly %0) local_unnamed_addr #10 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -3196,7 +3196,7 @@ define i32 @jq_yyget_lineno(ptr nocapture noundef readonly %0) local_unnamed_add
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @jq_yyget_column(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
+define i32 @jq_yyget_column(ptr nocapture noundef readonly %0) local_unnamed_addr #10 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -3248,8 +3248,8 @@ define ptr @jq_yyget_text(ptr nocapture noundef readonly %0) local_unnamed_addr 
   ret ptr %3
 }
 
-; Function Attrs: nounwind uwtable
-define void @jq_yyset_lineno(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+; Function Attrs: nofree nounwind uwtable
+define void @jq_yyset_lineno(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -3264,7 +3264,7 @@ define void @jq_yyset_lineno(i32 noundef %0, ptr nocapture noundef readonly %1) 
   br i1 %.not8, label %10, label %11
 
 10:                                               ; preds = %2, %5
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.7) #19
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.7) #20
   unreachable
 
 11:                                               ; preds = %5
@@ -3273,8 +3273,8 @@ define void @jq_yyset_lineno(i32 noundef %0, ptr nocapture noundef readonly %1) 
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define void @jq_yyset_column(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+; Function Attrs: nofree nounwind uwtable
+define void @jq_yyset_column(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -3289,7 +3289,7 @@ define void @jq_yyset_column(i32 noundef %0, ptr nocapture noundef readonly %1) 
   br i1 %.not8, label %10, label %11
 
 10:                                               ; preds = %2, %5
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.8) #19
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.8) #20
   unreachable
 
 11:                                               ; preds = %5
@@ -3360,18 +3360,18 @@ define range(i32 0, 2) i32 @jq_yylex_init(ptr noundef %0) local_unnamed_addr #0 
   br i1 %2, label %3, label %5
 
 3:                                                ; preds = %1
-  %4 = tail call ptr @__errno_location() #20
+  %4 = tail call ptr @__errno_location() #21
   store i32 22, ptr %4, align 4
   br label %17
 
 5:                                                ; preds = %1
-  %6 = tail call ptr @jv_mem_alloc(i64 noundef 160) #18
+  %6 = tail call ptr @jv_mem_alloc(i64 noundef 160) #19
   store ptr %6, ptr %0, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %5
-  %9 = tail call ptr @__errno_location() #20
+  %9 = tail call ptr @__errno_location() #21
   store i32 12, ptr %9, align 4
   br label %17
 
@@ -3396,10 +3396,10 @@ define range(i32 0, 2) i32 @jq_yylex_init(ptr noundef %0) local_unnamed_addr #0 
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #10
+declare ptr @__errno_location() local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @jq_yylex_init_extra(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -3407,18 +3407,18 @@ define range(i32 0, 2) i32 @jq_yylex_init_extra(i32 noundef %0, ptr noundef %1) 
   br i1 %3, label %4, label %6
 
 4:                                                ; preds = %2
-  %5 = tail call ptr @__errno_location() #20
+  %5 = tail call ptr @__errno_location() #21
   store i32 22, ptr %5, align 4
   br label %19
 
 6:                                                ; preds = %2
-  %7 = tail call ptr @jv_mem_alloc(i64 noundef 160) #18
+  %7 = tail call ptr @jv_mem_alloc(i64 noundef 160) #19
   store ptr %7, ptr %1, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %6
-  %10 = tail call ptr @__errno_location() #20
+  %10 = tail call ptr @__errno_location() #21
   store i32 12, ptr %10, align 4
   br label %19
 
@@ -3477,11 +3477,11 @@ define noundef i32 @jq_yylex_destroy(ptr noundef %0) local_unnamed_addr #0 {
 18:                                               ; preds = %.lr.ph34
   %19 = getelementptr inbounds i8, ptr %14, i64 8
   %20 = load ptr, ptr %19, align 8
-  tail call void @jv_mem_free(ptr noundef %20) #18
+  tail call void @jv_mem_free(ptr noundef %20) #19
   br label %jq_yy_delete_buffer.exit
 
 jq_yy_delete_buffer.exit:                         ; preds = %.lr.ph34, %18
-  tail call void @jv_mem_free(ptr noundef nonnull %14) #18
+  tail call void @jv_mem_free(ptr noundef nonnull %14) #19
   %.pre31 = load i64, ptr %2, align 8
   %.pre = load ptr, ptr %3, align 8
   %21 = getelementptr inbounds ptr, ptr %.pre, i64 %.pre31
@@ -3507,11 +3507,11 @@ jq_yy_delete_buffer.exit:                         ; preds = %.lr.ph34, %18
 30:                                               ; preds = %27
   %31 = getelementptr inbounds i8, ptr %26, i64 8
   %32 = load ptr, ptr %31, align 8
-  tail call void @jv_mem_free(ptr noundef %32) #18
+  tail call void @jv_mem_free(ptr noundef %32) #19
   br label %jq_yy_delete_buffer.exit.i
 
 jq_yy_delete_buffer.exit.i:                       ; preds = %30, %27
-  tail call void @jv_mem_free(ptr noundef nonnull %26) #18
+  tail call void @jv_mem_free(ptr noundef nonnull %26) #19
   %33 = load ptr, ptr %3, align 8
   %34 = load i64, ptr %2, align 8
   %35 = getelementptr inbounds ptr, ptr %33, i64 %34
@@ -3564,11 +3564,11 @@ jq_yypop_buffer_state.exit:                       ; preds = %23, %42, %45
 
 .thread:                                          ; preds = %jq_yypop_buffer_state.exit, %jq_yy_delete_buffer.exit, %39, %.lr.ph, %1
   %.lcssa = phi ptr [ null, %1 ], [ %4, %.lr.ph ], [ null, %39 ], [ null, %jq_yy_delete_buffer.exit ], [ %54, %jq_yypop_buffer_state.exit ]
-  tail call void @jv_mem_free(ptr noundef %.lcssa) #18
+  tail call void @jv_mem_free(ptr noundef %.lcssa) #19
   store ptr null, ptr %3, align 8
   %58 = getelementptr inbounds i8, ptr %0, i64 96
   %59 = load ptr, ptr %58, align 8
-  tail call void @jv_mem_free(ptr noundef %59) #18
+  tail call void @jv_mem_free(ptr noundef %59) #19
   %60 = getelementptr inbounds i8, ptr %0, i64 64
   %61 = getelementptr inbounds i8, ptr %0, i64 84
   store i32 0, ptr %61, align 4
@@ -3578,76 +3578,77 @@ jq_yypop_buffer_state.exit:                       ; preds = %23, %42, %45
   %63 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %63, i8 0, i64 40, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %60, i8 0, i64 16, i1 false)
-  tail call void @jv_mem_free(ptr noundef nonnull %0) #18
+  tail call void @jv_mem_free(ptr noundef nonnull %0) #19
   ret i32 0
 }
 
-declare ptr @jv_mem_alloc(i64 noundef) local_unnamed_addr #3
+declare ptr @jv_mem_alloc(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define ptr @jq_yyrealloc(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 {
-  %4 = tail call ptr @jv_mem_realloc(ptr noundef %0, i64 noundef %1) #18
+  %4 = tail call ptr @jv_mem_realloc(ptr noundef %0, i64 noundef %1) #19
   ret ptr %4
 }
 
-declare ptr @jv_mem_realloc(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare ptr @jv_mem_realloc(ptr noundef, i64 noundef) local_unnamed_addr #4
 
-declare void @jv_mem_free(ptr noundef) local_unnamed_addr #3
+declare void @jv_mem_free(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @getc(ptr nocapture noundef) local_unnamed_addr #12
+declare noundef i32 @getc(ptr nocapture noundef) local_unnamed_addr #13
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef i32 @ferror(ptr nocapture noundef) local_unnamed_addr #13
+declare noundef i32 @ferror(ptr nocapture noundef) local_unnamed_addr #14
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #12
+declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #13
 
 ; Function Attrs: nofree nounwind
-declare void @clearerr(ptr nocapture noundef) local_unnamed_addr #12
+declare void @clearerr(ptr nocapture noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind
-declare i32 @isatty(i32 noundef) local_unnamed_addr #14
+declare i32 @isatty(i32 noundef) local_unnamed_addr #15
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fileno(ptr nocapture noundef) local_unnamed_addr #12
+declare noundef i32 @fileno(ptr nocapture noundef) local_unnamed_addr #13
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #12
+declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #13
 
-; Function Attrs: noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #15
+; Function Attrs: nofree noreturn nounwind
+declare void @exit(i32 noundef) local_unnamed_addr #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #16
+declare i32 @llvm.umin.i32(i32, i32) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #17
+declare void @llvm.assume(i1 noundef) #18
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #12 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #17 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #18 = { nounwind }
-attributes #19 = { noreturn }
-attributes #20 = { nounwind willreturn memory(none) }
-attributes #21 = { cold nounwind }
-attributes #22 = { noreturn nounwind }
-attributes #23 = { nounwind willreturn memory(read) }
+attributes #3 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #13 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #18 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #19 = { nounwind }
+attributes #20 = { noreturn }
+attributes #21 = { nounwind willreturn memory(none) }
+attributes #22 = { cold nounwind }
+attributes #23 = { cold noreturn nounwind }
+attributes #24 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

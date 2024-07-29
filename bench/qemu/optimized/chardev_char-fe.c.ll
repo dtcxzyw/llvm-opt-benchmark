@@ -31,7 +31,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call = tail call i32 @qemu_chr_write(ptr noundef nonnull %0, ptr noundef %buf, i32 noundef %len, i1 noundef zeroext false) #9
+  %call = tail call i32 @qemu_chr_write(ptr noundef nonnull %0, ptr noundef %buf, i32 noundef %len, i1 noundef zeroext false) #10
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -49,7 +49,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call = tail call i32 @qemu_chr_write(ptr noundef nonnull %0, ptr noundef %buf, i32 noundef %len, i1 noundef zeroext true) #9
+  %call = tail call i32 @qemu_chr_write(ptr noundef nonnull %0, ptr noundef %buf, i32 noundef %len, i1 noundef zeroext true) #10
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -65,15 +65,15 @@ entry:
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %call.i = tail call ptr @object_get_class(ptr noundef nonnull %0) #9
-  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV_GET_CLASS) #9
+  %call.i = tail call ptr @object_get_class(ptr noundef nonnull %0) #10
+  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV_GET_CLASS) #10
   %chr_sync_read = getelementptr inbounds i8, ptr %call1.i, i64 128
   %1 = load ptr, ptr %chr_sync_read, align 8
   %tobool1.not = icmp eq ptr %1, null
   br i1 %tobool1.not, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %call2 = tail call zeroext i1 @qemu_chr_has_feature(ptr noundef nonnull %0, i32 noundef 2) #9
+  %call2 = tail call zeroext i1 @qemu_chr_has_feature(ptr noundef nonnull %0, i32 noundef 2) #10
   %2 = load i32, ptr @replay_mode, align 4
   %cmp = icmp eq i32 %2, 2
   %or.cond = select i1 %call2, i1 %cmp, i1 false
@@ -84,7 +84,7 @@ while.cond.preheader:                             ; preds = %if.end
   br i1 %cmp634, label %retry.preheader, label %while.end
 
 if.then3:                                         ; preds = %if.end
-  %call4 = tail call i32 @replay_char_read_all_load(ptr noundef %buf) #9
+  %call4 = tail call i32 @replay_char_read_all_load(ptr noundef %buf) #10
   br label %return
 
 retry.preheader:                                  ; preds = %while.cond.preheader, %if.end26
@@ -95,24 +95,24 @@ retry.preheader:                                  ; preds = %while.cond.preheade
   br label %retry
 
 retry:                                            ; preds = %retry.preheader, %if.then14
-  %call.i22 = tail call ptr @object_get_class(ptr noundef nonnull %0) #9
-  %call1.i23 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i22, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV_GET_CLASS) #9
+  %call.i22 = tail call ptr @object_get_class(ptr noundef nonnull %0) #10
+  %call1.i23 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i22, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV_GET_CLASS) #10
   %chr_sync_read8 = getelementptr inbounds i8, ptr %call1.i23, i64 128
   %3 = load ptr, ptr %chr_sync_read8, align 8
-  %call9 = tail call i32 %3(ptr noundef nonnull %0, ptr noundef %add.ptr, i32 noundef %sub) #9
+  %call9 = tail call i32 %3(ptr noundef nonnull %0, ptr noundef %add.ptr, i32 noundef %sub) #10
   switch i32 %call9, label %if.end18 [
     i32 -1, label %land.lhs.true11
     i32 0, label %while.end
   ]
 
 land.lhs.true11:                                  ; preds = %retry
-  %call12 = tail call ptr @__errno_location() #10
+  %call12 = tail call ptr @__errno_location() #11
   %4 = load i32, ptr %call12, align 4
   %cmp13 = icmp eq i32 %4, 11
   br i1 %cmp13, label %if.then14, label %if.then20
 
 if.then14:                                        ; preds = %land.lhs.true11
-  tail call void @g_usleep(i64 noundef 100) #9
+  tail call void @g_usleep(i64 noundef 100) #10
   br label %retry
 
 if.end18:                                         ; preds = %retry
@@ -120,14 +120,14 @@ if.end18:                                         ; preds = %retry
   br i1 %cmp19, label %if.then20, label %if.end26
 
 if.then20:                                        ; preds = %if.end18, %land.lhs.true11
-  %call21 = tail call zeroext i1 @qemu_chr_has_feature(ptr noundef nonnull %0, i32 noundef 2) #9
+  %call21 = tail call zeroext i1 @qemu_chr_has_feature(ptr noundef nonnull %0, i32 noundef 2) #10
   %5 = load i32, ptr @replay_mode, align 4
   %cmp23 = icmp eq i32 %5, 1
   %or.cond1 = select i1 %call21, i1 %cmp23, i1 false
   br i1 %or.cond1, label %if.then24, label %return
 
 if.then24:                                        ; preds = %if.then20
-  tail call void @replay_char_read_all_save_error(i32 noundef %call9) #9
+  tail call void @replay_char_read_all_save_error(i32 noundef %call9) #10
   br label %return
 
 if.end26:                                         ; preds = %if.end18
@@ -137,14 +137,14 @@ if.end26:                                         ; preds = %if.end18
 
 while.end:                                        ; preds = %if.end26, %retry, %while.cond.preheader
   %offset.033 = phi i32 [ 0, %while.cond.preheader ], [ %offset.035, %retry ], [ %add, %if.end26 ]
-  %call27 = tail call zeroext i1 @qemu_chr_has_feature(ptr noundef nonnull %0, i32 noundef 2) #9
+  %call27 = tail call zeroext i1 @qemu_chr_has_feature(ptr noundef nonnull %0, i32 noundef 2) #10
   %6 = load i32, ptr @replay_mode, align 4
   %cmp29 = icmp eq i32 %6, 1
   %or.cond2 = select i1 %call27, i1 %cmp29, i1 false
   br i1 %or.cond2, label %if.then30, label %return
 
 if.then30:                                        ; preds = %while.end
-  tail call void @replay_char_read_all_save_buf(ptr noundef %buf, i32 noundef %offset.033) #9
+  tail call void @replay_char_read_all_save_buf(ptr noundef %buf, i32 noundef %offset.033) #10
   br label %return
 
 return:                                           ; preds = %while.end, %if.then30, %if.then20, %if.then24, %entry, %lor.lhs.false, %if.then3
@@ -173,23 +173,23 @@ entry:
   br i1 %tobool.not, label %if.end, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %call.i = tail call ptr @object_get_class(ptr noundef nonnull %0) #9
-  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV_GET_CLASS) #9
+  %call.i = tail call ptr @object_get_class(ptr noundef nonnull %0) #10
+  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV_GET_CLASS) #10
   %chr_ioctl = getelementptr inbounds i8, ptr %call1.i, i64 152
   %1 = load ptr, ptr %chr_ioctl, align 8
   %tobool1.not = icmp eq ptr %1, null
   br i1 %tobool1.not, label %if.end, label %lor.lhs.false2
 
 lor.lhs.false2:                                   ; preds = %lor.lhs.false
-  %call3 = tail call zeroext i1 @qemu_chr_has_feature(ptr noundef nonnull %0, i32 noundef 2) #9
+  %call3 = tail call zeroext i1 @qemu_chr_has_feature(ptr noundef nonnull %0, i32 noundef 2) #10
   br i1 %call3, label %if.end, label %if.else
 
 if.else:                                          ; preds = %lor.lhs.false2
-  %call.i5 = tail call ptr @object_get_class(ptr noundef nonnull %0) #9
-  %call1.i6 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i5, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV_GET_CLASS) #9
+  %call.i5 = tail call ptr @object_get_class(ptr noundef nonnull %0) #10
+  %call1.i6 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i5, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV_GET_CLASS) #10
   %chr_ioctl5 = getelementptr inbounds i8, ptr %call1.i6, i64 152
   %2 = load ptr, ptr %chr_ioctl5, align 8
-  %call6 = tail call i32 %2(ptr noundef nonnull %0, i32 noundef %cmd, ptr noundef %arg) #9
+  %call6 = tail call i32 %2(ptr noundef nonnull %0, i32 noundef %cmd, ptr noundef %arg) #10
   br label %if.end
 
 if.end:                                           ; preds = %entry, %lor.lhs.false, %lor.lhs.false2, %if.else
@@ -206,19 +206,19 @@ entry:
   br i1 %tobool.not.i, label %if.end.thread, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %call.i.i = tail call ptr @object_get_class(ptr noundef nonnull %0) #9
-  %call1.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV_GET_CLASS) #9
+  %call.i.i = tail call ptr @object_get_class(ptr noundef nonnull %0) #10
+  %call1.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV_GET_CLASS) #10
   %get_msgfds.i = getelementptr inbounds i8, ptr %call1.i.i, i64 160
   %1 = load ptr, ptr %get_msgfds.i, align 8
   %tobool1.not.i = icmp eq ptr %1, null
   br i1 %tobool1.not.i, label %land.lhs.true, label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.end.i
-  %call.i4.i = tail call ptr @object_get_class(ptr noundef nonnull %0) #9
-  %call1.i5.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i4.i, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV_GET_CLASS) #9
+  %call.i4.i = tail call ptr @object_get_class(ptr noundef nonnull %0) #10
+  %call1.i5.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i4.i, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV_GET_CLASS) #10
   %get_msgfds3.i = getelementptr inbounds i8, ptr %call1.i5.i, i64 160
   %2 = load ptr, ptr %get_msgfds3.i, align 8
-  %call4.i = call i32 %2(ptr noundef nonnull %0, ptr noundef nonnull %fd, i32 noundef 1) #9
+  %call4.i = call i32 %2(ptr noundef nonnull %0, ptr noundef nonnull %fd, i32 noundef 1) #10
   %.pre = load i32, ptr %fd, align 4
   %call4.i.fr = freeze i32 %call4.i
   %3 = icmp eq i32 %call4.i.fr, 1
@@ -227,12 +227,12 @@ cond.true.i:                                      ; preds = %if.end.i
 
 land.lhs.true:                                    ; preds = %if.end.i, %cond.true.i
   %retval.0.i.ph = phi i32 [ -1, %if.end.i ], [ %4, %cond.true.i ]
-  %call1 = call zeroext i1 @qemu_chr_has_feature(ptr noundef nonnull %0, i32 noundef 2) #9
+  %call1 = call zeroext i1 @qemu_chr_has_feature(ptr noundef nonnull %0, i32 noundef 2) #10
   br i1 %call1, label %if.then, label %if.end.thread
 
 if.then:                                          ; preds = %land.lhs.true
-  call void (ptr, ...) @error_report(ptr noundef nonnull @.str) #9
-  call void @exit(i32 noundef 1) #11
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str) #10
+  call void @exit(i32 noundef 1) #12
   unreachable
 
 if.end.thread:                                    ; preds = %land.lhs.true, %entry
@@ -248,19 +248,19 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call.i = tail call ptr @object_get_class(ptr noundef nonnull %0) #9
-  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV_GET_CLASS) #9
+  %call.i = tail call ptr @object_get_class(ptr noundef nonnull %0) #10
+  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV_GET_CLASS) #10
   %get_msgfds = getelementptr inbounds i8, ptr %call1.i, i64 160
   %1 = load ptr, ptr %get_msgfds, align 8
   %tobool1.not = icmp eq ptr %1, null
   br i1 %tobool1.not, label %return, label %cond.true
 
 cond.true:                                        ; preds = %if.end
-  %call.i4 = tail call ptr @object_get_class(ptr noundef nonnull %0) #9
-  %call1.i5 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV_GET_CLASS) #9
+  %call.i4 = tail call ptr @object_get_class(ptr noundef nonnull %0) #10
+  %call1.i5 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV_GET_CLASS) #10
   %get_msgfds3 = getelementptr inbounds i8, ptr %call1.i5, i64 160
   %2 = load ptr, ptr %get_msgfds3, align 8
-  %call4 = tail call i32 %2(ptr noundef nonnull %0, ptr noundef %fds, i32 noundef %len) #9
+  %call4 = tail call i32 %2(ptr noundef nonnull %0, ptr noundef %fds, i32 noundef %len) #10
   br label %return
 
 return:                                           ; preds = %cond.true, %if.end, %entry
@@ -270,7 +270,7 @@ return:                                           ; preds = %cond.true, %if.end,
 
 declare void @error_report(ptr noundef, ...) local_unnamed_addr #1
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -281,19 +281,19 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call.i = tail call ptr @object_get_class(ptr noundef nonnull %0) #9
-  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV_GET_CLASS) #9
+  %call.i = tail call ptr @object_get_class(ptr noundef nonnull %0) #10
+  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV_GET_CLASS) #10
   %set_msgfds = getelementptr inbounds i8, ptr %call1.i, i64 168
   %1 = load ptr, ptr %set_msgfds, align 8
   %tobool1.not = icmp eq ptr %1, null
   br i1 %tobool1.not, label %return, label %cond.true
 
 cond.true:                                        ; preds = %if.end
-  %call.i4 = tail call ptr @object_get_class(ptr noundef nonnull %0) #9
-  %call1.i5 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV_GET_CLASS) #9
+  %call.i4 = tail call ptr @object_get_class(ptr noundef nonnull %0) #10
+  %call1.i5 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV_GET_CLASS) #10
   %set_msgfds3 = getelementptr inbounds i8, ptr %call1.i5, i64 168
   %2 = load ptr, ptr %set_msgfds3, align 8
-  %call4 = tail call i32 %2(ptr noundef nonnull %0, ptr noundef %fds, i32 noundef %num) #9
+  %call4 = tail call i32 %2(ptr noundef nonnull %0, ptr noundef %fds, i32 noundef %num) #10
   br label %return
 
 return:                                           ; preds = %cond.true, %if.end, %entry
@@ -309,23 +309,23 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call.i = tail call ptr @object_get_class(ptr noundef nonnull %0) #9
-  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV_GET_CLASS) #9
+  %call.i = tail call ptr @object_get_class(ptr noundef nonnull %0) #10
+  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV_GET_CLASS) #10
   %chr_accept_input = getelementptr inbounds i8, ptr %call1.i, i64 200
   %1 = load ptr, ptr %chr_accept_input, align 8
   %tobool1.not = icmp eq ptr %1, null
   br i1 %tobool1.not, label %if.end5, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %call.i4 = tail call ptr @object_get_class(ptr noundef nonnull %0) #9
-  %call1.i5 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV_GET_CLASS) #9
+  %call.i4 = tail call ptr @object_get_class(ptr noundef nonnull %0) #10
+  %call1.i5 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV_GET_CLASS) #10
   %chr_accept_input4 = getelementptr inbounds i8, ptr %call1.i5, i64 200
   %2 = load ptr, ptr %chr_accept_input4, align 8
-  tail call void %2(ptr noundef nonnull %0) #9
+  tail call void %2(ptr noundef nonnull %0) #10
   br label %if.end5
 
 if.end5:                                          ; preds = %if.then2, %if.end
-  tail call void @qemu_notify_event() #9
+  tail call void @qemu_notify_event() #10
   br label %return
 
 return:                                           ; preds = %entry, %if.end5
@@ -340,15 +340,15 @@ entry:
   %buf = alloca [4096 x i8], align 16
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %ap)
-  %call = call i32 @vsnprintf(ptr noundef nonnull %buf, i64 noundef 4096, ptr noundef %fmt, ptr noundef nonnull %ap) #9
+  %call = call i32 @vsnprintf(ptr noundef nonnull %buf, i64 noundef 4096, ptr noundef %fmt, ptr noundef nonnull %ap) #10
   %0 = load ptr, ptr %be, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %qemu_chr_fe_write_all.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %call5 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf) #12
+  %call5 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf) #13
   %conv = trunc i64 %call5 to i32
-  %call.i = call i32 @qemu_chr_write(ptr noundef nonnull %0, ptr noundef nonnull %buf, i32 noundef %conv, i1 noundef zeroext true) #9
+  %call.i = call i32 @qemu_chr_write(ptr noundef nonnull %0, ptr noundef nonnull %buf, i32 noundef %conv, i1 noundef zeroext true) #10
   br label %qemu_chr_fe_write_all.exit
 
 qemu_chr_fe_write_all.exit:                       ; preds = %entry, %if.end.i
@@ -371,7 +371,7 @@ entry:
   br i1 %cmp, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 179, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_chr_fe_get_driver) #11
+  tail call void @__assert_fail(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 179, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_chr_fe_get_driver) #14
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -380,10 +380,10 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: noreturn nounwind
-declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local zeroext i1 @qemu_chr_fe_backend_connected(ptr nocapture noundef readonly %be) local_unnamed_addr #6 {
+define dso_local zeroext i1 @qemu_chr_fe_backend_connected(ptr nocapture noundef readonly %be) local_unnamed_addr #7 {
 entry:
   %0 = load ptr, ptr %be, align 8
   %tobool = icmp ne ptr %0, null
@@ -391,7 +391,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local zeroext i1 @qemu_chr_fe_backend_open(ptr nocapture noundef readonly %be) local_unnamed_addr #7 {
+define dso_local zeroext i1 @qemu_chr_fe_backend_open(ptr nocapture noundef readonly %be) local_unnamed_addr #8 {
 entry:
   %0 = load ptr, ptr %be, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -415,12 +415,12 @@ entry:
   br i1 %tobool.not, label %if.end13, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call = tail call ptr @object_dynamic_cast(ptr noundef nonnull %s, ptr noundef nonnull @.str.3) #9
+  %call = tail call ptr @object_dynamic_cast(ptr noundef nonnull %s, ptr noundef nonnull @.str.3) #10
   %tobool1.not = icmp eq ptr %call, null
   br i1 %tobool1.not, label %if.else, label %if.then2
 
 if.then2:                                         ; preds = %if.then
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %s, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.9, i32 noundef 59, ptr noundef nonnull @__func__.MUX_CHARDEV) #9
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %s, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.9, i32 noundef 59, ptr noundef nonnull @__func__.MUX_CHARDEV) #10
   %mux_cnt = getelementptr inbounds i8, ptr %call.i, i64 244
   %0 = load i32, ptr %mux_cnt, align 4
   %cmp = icmp sgt i32 %0, 3
@@ -458,7 +458,7 @@ if.end13:                                         ; preds = %if.end, %if.else9, 
 unavailable:                                      ; preds = %if.else, %if.then2
   %label = getelementptr inbounds i8, ptr %s, i64 96
   %3 = load ptr, ptr %label, align 8
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.2, i32 noundef 220, ptr noundef nonnull @__func__.qemu_chr_fe_init, ptr noundef nonnull @.str.4, ptr noundef %3) #9
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.2, i32 noundef 220, ptr noundef nonnull @__func__.qemu_chr_fe_init, ptr noundef nonnull @.str.4, ptr noundef %3) #10
   br label %return
 
 return:                                           ; preds = %unavailable, %if.end13
@@ -477,7 +477,7 @@ entry:
   br i1 %tobool.not, label %if.else, label %if.end
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.2, i32 noundef 226, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_chr_fe_deinit) #11
+  tail call void @__assert_fail(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.2, i32 noundef 226, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_chr_fe_deinit) #14
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -500,13 +500,13 @@ if.then4:                                         ; preds = %if.then2
 
 if.end7:                                          ; preds = %if.then4, %if.then2
   %3 = phi ptr [ %.pre, %if.then4 ], [ %1, %if.then2 ]
-  %call = tail call ptr @object_dynamic_cast(ptr noundef %3, ptr noundef nonnull @.str.3) #9
+  %call = tail call ptr @object_dynamic_cast(ptr noundef %3, ptr noundef nonnull @.str.3) #10
   %tobool9.not = icmp eq ptr %call, null
   br i1 %tobool9.not, label %if.end13, label %if.then10
 
 if.then10:                                        ; preds = %if.end7
   %4 = load ptr, ptr %b, align 8
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %4, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.9, i32 noundef 59, ptr noundef nonnull @__func__.MUX_CHARDEV) #9
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %4, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.9, i32 noundef 59, ptr noundef nonnull @__func__.MUX_CHARDEV) #10
   %backends = getelementptr inbounds i8, ptr %call.i, i64 152
   %tag = getelementptr inbounds i8, ptr %b, i64 48
   %5 = load i32, ptr %tag, align 8
@@ -526,11 +526,11 @@ if.then15:                                        ; preds = %if.end13
   br i1 %tobool17.not, label %if.else19, label %if.then18
 
 if.then18:                                        ; preds = %if.then15
-  tail call void @object_unparent(ptr noundef nonnull %6) #9
+  tail call void @object_unparent(ptr noundef nonnull %6) #10
   br label %if.end21
 
 if.else19:                                        ; preds = %if.then15
-  tail call void @object_unref(ptr noundef nonnull %6) #9
+  tail call void @object_unref(ptr noundef nonnull %6) #10
   br label %if.end21
 
 if.end21:                                         ; preds = %if.then18, %if.else19, %if.end13
@@ -570,7 +570,7 @@ if.end:                                           ; preds = %entry
   br i1 %7, label %if.then8, label %if.end9
 
 if.then8:                                         ; preds = %if.end
-  tail call void @remove_fd_in_watch(ptr noundef nonnull %0) #9
+  tail call void @remove_fd_in_watch(ptr noundef nonnull %0) #10
   br label %if.end9
 
 if.end9:                                          ; preds = %if.end, %if.then8
@@ -585,7 +585,7 @@ if.end9:                                          ; preds = %if.end, %if.then8
   store ptr %be_change, ptr %chr_be_change, align 8
   %opaque10 = getelementptr inbounds i8, ptr %b, i64 40
   store ptr %opaque, ptr %opaque10, align 8
-  tail call void @qemu_chr_be_update_read_handlers(ptr noundef nonnull %0, ptr noundef %context) #9
+  tail call void @qemu_chr_be_update_read_handlers(ptr noundef nonnull %0, ptr noundef %context) #10
   br i1 %set_open, label %if.then12, label %if.end13
 
 if.then12:                                        ; preds = %if.end9
@@ -601,19 +601,19 @@ if.end.i:                                         ; preds = %if.then12
 
 if.end4.i:                                        ; preds = %if.end.i
   store i32 %fe_open.0, ptr %fe_open2.i, align 4
-  %call.i.i = tail call ptr @object_get_class(ptr noundef nonnull %8) #9
-  %call1.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV_GET_CLASS) #9
+  %call.i.i = tail call ptr @object_get_class(ptr noundef nonnull %8) #10
+  %call1.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV_GET_CLASS) #10
   %chr_set_fe_open.i = getelementptr inbounds i8, ptr %call1.i.i, i64 216
   %10 = load ptr, ptr %chr_set_fe_open.i, align 8
   %tobool6.not.i = icmp eq ptr %10, null
   br i1 %tobool6.not.i, label %if.end13, label %if.then7.i
 
 if.then7.i:                                       ; preds = %if.end4.i
-  %call.i8.i = tail call ptr @object_get_class(ptr noundef nonnull %8) #9
-  %call1.i9.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i8.i, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV_GET_CLASS) #9
+  %call.i8.i = tail call ptr @object_get_class(ptr noundef nonnull %8) #10
+  %call1.i9.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i8.i, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV_GET_CLASS) #10
   %chr_set_fe_open9.i = getelementptr inbounds i8, ptr %call1.i9.i, i64 216
   %11 = load ptr, ptr %chr_set_fe_open9.i, align 8
-  tail call void %11(ptr noundef nonnull %8, i32 noundef %fe_open.0) #9
+  tail call void %11(ptr noundef nonnull %8, i32 noundef %fe_open.0) #10
   br label %if.end13
 
 if.end13:                                         ; preds = %if.then7.i, %if.end4.i, %if.end.i, %if.then12, %if.end9
@@ -625,7 +625,7 @@ if.then15:                                        ; preds = %if.end13
   br i1 %tobool.not.i21, label %qemu_chr_fe_take_focus.exit, label %if.end.i22
 
 if.end.i22:                                       ; preds = %if.then15
-  %call.i = tail call ptr @object_dynamic_cast(ptr noundef nonnull %12, ptr noundef nonnull @.str.3) #9
+  %call.i = tail call ptr @object_dynamic_cast(ptr noundef nonnull %12, ptr noundef nonnull @.str.3) #10
   %tobool2.not.i = icmp eq ptr %call.i, null
   br i1 %tobool2.not.i, label %qemu_chr_fe_take_focus.exit, label %if.then3.i
 
@@ -633,7 +633,7 @@ if.then3.i:                                       ; preds = %if.end.i22
   %13 = load ptr, ptr %b, align 8
   %tag.i = getelementptr inbounds i8, ptr %b, i64 48
   %14 = load i32, ptr %tag.i, align 8
-  tail call void @mux_set_focus(ptr noundef %13, i32 noundef %14) #9
+  tail call void @mux_set_focus(ptr noundef %13, i32 noundef %14) #10
   br label %qemu_chr_fe_take_focus.exit
 
 qemu_chr_fe_take_focus.exit:                      ; preds = %if.then15, %if.end.i22, %if.then3.i
@@ -646,7 +646,7 @@ land.lhs.true17:                                  ; preds = %qemu_chr_fe_take_fo
   br i1 %tobool18.not, label %if.end21, label %if.then19
 
 if.then19:                                        ; preds = %land.lhs.true17
-  tail call void @qemu_chr_be_event(ptr noundef nonnull %0, i32 noundef 1) #9
+  tail call void @qemu_chr_be_event(ptr noundef nonnull %0, i32 noundef 1) #10
   br label %if.end21
 
 if.end21:                                         ; preds = %qemu_chr_fe_take_focus.exit, %land.lhs.true17, %if.then19, %entry, %if.end13
@@ -672,19 +672,19 @@ if.end:                                           ; preds = %entry
 
 if.end4:                                          ; preds = %if.end
   store i32 %fe_open, ptr %fe_open2, align 4
-  %call.i = tail call ptr @object_get_class(ptr noundef nonnull %0) #9
-  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV_GET_CLASS) #9
+  %call.i = tail call ptr @object_get_class(ptr noundef nonnull %0) #10
+  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV_GET_CLASS) #10
   %chr_set_fe_open = getelementptr inbounds i8, ptr %call1.i, i64 216
   %2 = load ptr, ptr %chr_set_fe_open, align 8
   %tobool6.not = icmp eq ptr %2, null
   br i1 %tobool6.not, label %if.end10, label %if.then7
 
 if.then7:                                         ; preds = %if.end4
-  %call.i8 = tail call ptr @object_get_class(ptr noundef nonnull %0) #9
-  %call1.i9 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i8, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV_GET_CLASS) #9
+  %call.i8 = tail call ptr @object_get_class(ptr noundef nonnull %0) #10
+  %call1.i9 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i8, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV_GET_CLASS) #10
   %chr_set_fe_open9 = getelementptr inbounds i8, ptr %call1.i9, i64 216
   %3 = load ptr, ptr %chr_set_fe_open9, align 8
-  tail call void %3(ptr noundef nonnull %0, i32 noundef %fe_open) #9
+  tail call void %3(ptr noundef nonnull %0, i32 noundef %fe_open) #10
   br label %if.end10
 
 if.end10:                                         ; preds = %if.end, %entry, %if.then7, %if.end4
@@ -699,7 +699,7 @@ entry:
   br i1 %tobool.not, label %if.end5, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call = tail call ptr @object_dynamic_cast(ptr noundef nonnull %0, ptr noundef nonnull @.str.3) #9
+  %call = tail call ptr @object_dynamic_cast(ptr noundef nonnull %0, ptr noundef nonnull @.str.3) #10
   %tobool2.not = icmp eq ptr %call, null
   br i1 %tobool2.not, label %if.end5, label %if.then3
 
@@ -707,7 +707,7 @@ if.then3:                                         ; preds = %if.end
   %1 = load ptr, ptr %b, align 8
   %tag = getelementptr inbounds i8, ptr %b, i64 48
   %2 = load i32, ptr %tag, align 8
-  tail call void @mux_set_focus(ptr noundef %1, i32 noundef %2) #9
+  tail call void @mux_set_focus(ptr noundef %1, i32 noundef %2) #10
   br label %if.end5
 
 if.end5:                                          ; preds = %entry, %if.then3, %if.end
@@ -726,11 +726,11 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.2, i32 noundef 323, ptr noundef nonnull @__func__.qemu_chr_fe_wait_connected, ptr noundef nonnull @.str.6) #9
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.2, i32 noundef 323, ptr noundef nonnull @__func__.qemu_chr_fe_wait_connected, ptr noundef nonnull @.str.6) #10
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call = tail call i32 @qemu_chr_wait_connected(ptr noundef nonnull %0, ptr noundef %errp) #9
+  %call = tail call i32 @qemu_chr_wait_connected(ptr noundef nonnull %0, ptr noundef %errp) #10
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
@@ -748,19 +748,19 @@ entry:
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %call.i = tail call ptr @object_get_class(ptr noundef nonnull %0) #9
-  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV_GET_CLASS) #9
+  %call.i = tail call ptr @object_get_class(ptr noundef nonnull %0) #10
+  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV_GET_CLASS) #10
   %chr_set_echo = getelementptr inbounds i8, ptr %call1.i, i64 208
   %1 = load ptr, ptr %chr_set_echo, align 8
   %tobool2.not = icmp eq ptr %1, null
   br i1 %tobool2.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  %call.i4 = tail call ptr @object_get_class(ptr noundef nonnull %0) #9
-  %call1.i5 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV_GET_CLASS) #9
+  %call.i4 = tail call ptr @object_get_class(ptr noundef nonnull %0) #10
+  %call1.i5 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV_GET_CLASS) #10
   %chr_set_echo4 = getelementptr inbounds i8, ptr %call1.i5, i64 208
   %2 = load ptr, ptr %chr_set_echo4, align 8
-  tail call void %2(ptr noundef nonnull %0, i1 noundef zeroext %echo) #9
+  tail call void %2(ptr noundef nonnull %0, i1 noundef zeroext %echo) #10
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %land.lhs.true, %entry
@@ -775,28 +775,28 @@ entry:
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %call.i = tail call ptr @object_get_class(ptr noundef nonnull %0) #9
-  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV_GET_CLASS) #9
+  %call.i = tail call ptr @object_get_class(ptr noundef nonnull %0) #10
+  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV_GET_CLASS) #10
   %chr_add_watch = getelementptr inbounds i8, ptr %call1.i, i64 136
   %1 = load ptr, ptr %chr_add_watch, align 8
   %cmp = icmp eq ptr %1, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %call.i8 = tail call ptr @object_get_class(ptr noundef nonnull %0) #9
-  %call1.i9 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i8, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV_GET_CLASS) #9
+  %call.i8 = tail call ptr @object_get_class(ptr noundef nonnull %0) #10
+  %call1.i9 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i8, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV_GET_CLASS) #10
   %chr_add_watch2 = getelementptr inbounds i8, ptr %call1.i9, i64 136
   %2 = load ptr, ptr %chr_add_watch2, align 8
-  %call3 = tail call ptr %2(ptr noundef nonnull %0, i32 noundef %cond) #9
+  %call3 = tail call ptr %2(ptr noundef nonnull %0, i32 noundef %cond) #10
   %tobool4.not = icmp eq ptr %call3, null
   br i1 %tobool4.not, label %return, label %if.end6
 
 if.end6:                                          ; preds = %if.end
-  tail call void @g_source_set_callback(ptr noundef nonnull %call3, ptr noundef %func, ptr noundef %user_data, ptr noundef null) #9
+  tail call void @g_source_set_callback(ptr noundef nonnull %call3, ptr noundef %func, ptr noundef %user_data, ptr noundef null) #10
   %gcontext = getelementptr inbounds i8, ptr %0, i64 136
   %3 = load ptr, ptr %gcontext, align 8
-  %call7 = tail call i32 @g_source_attach(ptr noundef nonnull %call3, ptr noundef %3) #9
-  tail call void @g_source_unref(ptr noundef nonnull %call3) #9
+  %call7 = tail call i32 @g_source_attach(ptr noundef nonnull %call3, ptr noundef %3) #10
+  tail call void @g_source_unref(ptr noundef nonnull %call3) #10
   br label %return
 
 return:                                           ; preds = %if.end, %entry, %lor.lhs.false, %if.end6
@@ -818,19 +818,19 @@ entry:
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %call.i = tail call ptr @object_get_class(ptr noundef nonnull %0) #9
-  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV_GET_CLASS) #9
+  %call.i = tail call ptr @object_get_class(ptr noundef nonnull %0) #10
+  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV_GET_CLASS) #10
   %chr_disconnect = getelementptr inbounds i8, ptr %call1.i, i64 192
   %1 = load ptr, ptr %chr_disconnect, align 8
   %tobool2.not = icmp eq ptr %1, null
   br i1 %tobool2.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  %call.i4 = tail call ptr @object_get_class(ptr noundef nonnull %0) #9
-  %call1.i5 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV_GET_CLASS) #9
+  %call.i4 = tail call ptr @object_get_class(ptr noundef nonnull %0) #10
+  %call1.i5 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV_GET_CLASS) #10
   %chr_disconnect4 = getelementptr inbounds i8, ptr %call1.i5, i64 192
   %2 = load ptr, ptr %chr_disconnect4, align 8
-  tail call void %2(ptr noundef nonnull %0) #9
+  tail call void %2(ptr noundef nonnull %0) #10
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %land.lhs.true, %entry
@@ -844,24 +844,26 @@ declare ptr @object_get_class(ptr noundef) local_unnamed_addr #1
 declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start.p0(ptr) #8
+declare void @llvm.va_start.p0(ptr) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end.p0(ptr) #8
+declare void @llvm.va_end.p0(ptr) #9
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #9 = { nounwind }
-attributes #10 = { nounwind willreturn memory(none) }
-attributes #11 = { noreturn nounwind }
-attributes #12 = { nounwind willreturn memory(read) }
+attributes #6 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #10 = { nounwind }
+attributes #11 = { nounwind willreturn memory(none) }
+attributes #12 = { cold noreturn nounwind }
+attributes #13 = { nounwind willreturn memory(read) }
+attributes #14 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

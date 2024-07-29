@@ -8208,7 +8208,7 @@ sw.bb45:                                          ; preds = %entry
 
 sw.bb46:                                          ; preds = %entry
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.61, i32 noundef 363, ptr noundef nonnull @.str.62)
-  tail call void @exit(i32 noundef 114) #19
+  tail call void @exit(i32 noundef 114) #22
   unreachable
 
 sw.bb47:                                          ; preds = %entry
@@ -9001,7 +9001,7 @@ if.end11.i:                                       ; preds = %if.end6.i
   br i1 %cmp.i9.i, label %if.then, label %lor.lhs.false
 
 _ZeqRK6symbolPKc.exit:                            ; preds = %if.end6.i
-  %call9.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(4) @.str.46) #22
+  %call9.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(4) @.str.46) #23
   %cmp10.i = icmp eq i32 %call9.i, 0
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   br i1 %cmp10.i, label %if.then, label %lor.lhs.false.thread67
@@ -9037,7 +9037,7 @@ lor.lhs.false3.thread:                            ; preds = %lor.lhs.false.threa
   br label %_ZeqRK6symbolPKc.exit30.thread
 
 _ZeqRK6symbolPKc.exit17:                          ; preds = %if.end6.i7
-  %call9.i11 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr70, ptr noundef nonnull dereferenceable(7) @.str.47) #22
+  %call9.i11 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pr70, ptr noundef nonnull dereferenceable(7) @.str.47) #23
   %cmp10.i12 = icmp eq i32 %call9.i11, 0
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i5)
   br i1 %cmp10.i12, label %if.then, label %lor.lhs.false3.thread72
@@ -9072,7 +9072,7 @@ if.end11.i27:                                     ; preds = %if.end6.i20
   br i1 %cmp.i9.i29, label %if.then, label %if.else
 
 _ZeqRK6symbolPKc.exit30:                          ; preds = %if.end6.i20
-  %call9.i24 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(9) @.str.48) #22
+  %call9.i24 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(9) @.str.48) #23
   %cmp10.i25 = icmp eq i32 %call9.i24, 0
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i18)
   br i1 %cmp10.i25, label %if.then, label %if.else
@@ -15117,7 +15117,7 @@ declare noundef ptr @_ZN11ast_manager12mk_func_declERK6symboljPKP4sortS4_P14func
 
 declare void @_Z26notify_assertion_violationPKciS0_(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
@@ -15563,7 +15563,7 @@ attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #12 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #15 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
@@ -15572,7 +15572,8 @@ attributes #18 = { nounwind }
 attributes #19 = { noreturn nounwind }
 attributes #20 = { noreturn }
 attributes #21 = { builtin nounwind }
-attributes #22 = { nounwind willreturn memory(read) }
+attributes #22 = { cold noreturn nounwind }
+attributes #23 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

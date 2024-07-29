@@ -166,7 +166,7 @@ entry:
   br i1 %tobool.not, label %if.else, label %if.end
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 152, ptr noundef nonnull @__PRETTY_FUNCTION__.type_register) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 152, ptr noundef nonnull @__PRETTY_FUNCTION__.type_register) #19
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -175,7 +175,7 @@ if.end:                                           ; preds = %entry
   br i1 %.b2.i.i, label %if.else.i.i, label %if.end.i.i
 
 if.else.i.i:                                      ; preds = %if.end
-  tail call void @__assert_fail(ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.1, i32 noundef 95, ptr noundef nonnull @__PRETTY_FUNCTION__.type_table_add) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.1, i32 noundef 95, ptr noundef nonnull @__PRETTY_FUNCTION__.type_table_add) #19
   unreachable
 
 if.end.i.i:                                       ; preds = %if.end
@@ -184,14 +184,14 @@ if.end.i.i:                                       ; preds = %if.end
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %type_register_internal.exit
 
 if.then.i.i.i:                                    ; preds = %if.end.i.i
-  %call.i.i.i = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal) #19
+  %call.i.i.i = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal) #20
   store ptr %call.i.i.i, ptr @type_table_get.type_table, align 8
   br label %type_register_internal.exit
 
 type_register_internal.exit:                      ; preds = %if.end.i.i, %if.then.i.i.i
   %2 = phi ptr [ %call.i.i.i, %if.then.i.i.i ], [ %1, %if.end.i.i ]
   %3 = load ptr, ptr %call.i, align 8
-  %call1.i.i = tail call i32 @g_hash_table_insert(ptr noundef %2, ptr noundef %3, ptr noundef nonnull %call.i) #19
+  %call1.i.i = tail call i32 @g_hash_table_insert(ptr noundef %2, ptr noundef %3, ptr noundef nonnull %call.i) #20
   ret ptr %call.i
 }
 
@@ -207,7 +207,7 @@ entry:
   br i1 %tobool.not.i, label %if.else.i, label %if.end.i
 
 if.else.i:                                        ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 152, ptr noundef nonnull @__PRETTY_FUNCTION__.type_register) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 152, ptr noundef nonnull @__PRETTY_FUNCTION__.type_register) #19
   unreachable
 
 if.end.i:                                         ; preds = %entry
@@ -216,7 +216,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %.b2.i.i.i, label %if.else.i.i.i, label %if.end.i.i.i
 
 if.else.i.i.i:                                    ; preds = %if.end.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.1, i32 noundef 95, ptr noundef nonnull @__PRETTY_FUNCTION__.type_table_add) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.1, i32 noundef 95, ptr noundef nonnull @__PRETTY_FUNCTION__.type_table_add) #19
   unreachable
 
 if.end.i.i.i:                                     ; preds = %if.end.i
@@ -225,14 +225,14 @@ if.end.i.i.i:                                     ; preds = %if.end.i
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %type_register.exit
 
 if.then.i.i.i.i:                                  ; preds = %if.end.i.i.i
-  %call.i.i.i.i = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal) #19
+  %call.i.i.i.i = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal) #20
   store ptr %call.i.i.i.i, ptr @type_table_get.type_table, align 8
   br label %type_register.exit
 
 type_register.exit:                               ; preds = %if.end.i.i.i, %if.then.i.i.i.i
   %2 = phi ptr [ %call.i.i.i.i, %if.then.i.i.i.i ], [ %1, %if.end.i.i.i ]
   %3 = load ptr, ptr %call.i.i, align 8
-  %call1.i.i.i = tail call i32 @g_hash_table_insert(ptr noundef %2, ptr noundef %3, ptr noundef nonnull %call.i.i) #19
+  %call1.i.i.i = tail call i32 @g_hash_table_insert(ptr noundef %2, ptr noundef %3, ptr noundef nonnull %call.i.i) #20
   ret ptr %call.i.i
 }
 
@@ -255,7 +255,7 @@ for.body:                                         ; preds = %for.body.preheader,
   br i1 %tobool.not.i.i, label %if.else.i.i, label %if.end.i.i
 
 if.else.i.i:                                      ; preds = %for.body
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 152, ptr noundef nonnull @__PRETTY_FUNCTION__.type_register) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 152, ptr noundef nonnull @__PRETTY_FUNCTION__.type_register) #19
   unreachable
 
 if.end.i.i:                                       ; preds = %for.body
@@ -264,7 +264,7 @@ if.end.i.i:                                       ; preds = %for.body
   br i1 %.b2.i.i.i.i, label %if.else.i.i.i.i, label %if.end.i.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %if.end.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.1, i32 noundef 95, ptr noundef nonnull @__PRETTY_FUNCTION__.type_table_add) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.1, i32 noundef 95, ptr noundef nonnull @__PRETTY_FUNCTION__.type_table_add) #19
   unreachable
 
 if.end.i.i.i.i:                                   ; preds = %if.end.i.i
@@ -273,14 +273,14 @@ if.end.i.i.i.i:                                   ; preds = %if.end.i.i
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %type_register_static.exit
 
 if.then.i.i.i.i.i:                                ; preds = %if.end.i.i.i.i
-  %call.i.i.i.i.i = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal) #19
+  %call.i.i.i.i.i = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal) #20
   store ptr %call.i.i.i.i.i, ptr @type_table_get.type_table, align 8
   br label %type_register_static.exit
 
 type_register_static.exit:                        ; preds = %if.end.i.i.i.i, %if.then.i.i.i.i.i
   %2 = phi ptr [ %call.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %1, %if.end.i.i.i.i ]
   %3 = load ptr, ptr %call.i.i.i, align 8
-  %call1.i.i.i.i = tail call i32 @g_hash_table_insert(ptr noundef %2, ptr noundef %3, ptr noundef nonnull %call.i.i.i) #19
+  %call1.i.i.i.i = tail call i32 @g_hash_table_insert(ptr noundef %2, ptr noundef %3, ptr noundef nonnull %call.i.i.i) #20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !5
@@ -301,18 +301,18 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %type_get_by_name.exit
 
 if.then.i.i.i:                                    ; preds = %if.end.i
-  %call.i.i.i = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal) #19
+  %call.i.i.i = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal) #20
   store ptr %call.i.i.i, ptr @type_table_get.type_table, align 8
   br label %type_get_by_name.exit
 
 type_get_by_name.exit:                            ; preds = %if.end.i, %if.then.i.i.i
   %1 = phi ptr [ %call.i.i.i, %if.then.i.i.i ], [ %0, %if.end.i ]
-  %call1.i.i = tail call ptr @g_hash_table_lookup(ptr noundef %1, ptr noundef nonnull %typename) #19
+  %call1.i.i = tail call ptr @g_hash_table_lookup(ptr noundef %1, ptr noundef nonnull %typename) #20
   %cmp.not = icmp eq ptr %call1.i.i, null
   br i1 %cmp.not, label %if.else, label %do.end
 
 if.else:                                          ; preds = %entry, %type_get_by_name.exit
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 241, ptr noundef nonnull @__func__.object_type_get_instance_size, ptr noundef nonnull @.str.2) #18
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 241, ptr noundef nonnull @__func__.object_type_get_instance_size, ptr noundef nonnull @.str.2) #19
   unreachable
 
 do.end:                                           ; preds = %type_get_by_name.exit
@@ -340,13 +340,13 @@ if.end.i.i.i:                                     ; preds = %if.then2.i
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %type_get_by_name.exit.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.end.i.i.i
-  %call.i.i.i.i.i = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal) #19
+  %call.i.i.i.i.i = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal) #20
   store ptr %call.i.i.i.i.i, ptr @type_table_get.type_table, align 8
   br label %type_get_by_name.exit.i.i
 
 type_get_by_name.exit.i.i:                        ; preds = %if.then.i.i.i.i.i, %if.end.i.i.i
   %6 = phi ptr [ %call.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %5, %if.end.i.i.i ]
-  %call1.i.i.i.i = tail call ptr @g_hash_table_lookup(ptr noundef %6, ptr noundef nonnull %ti.val.i) #19
+  %call1.i.i.i.i = tail call ptr @g_hash_table_lookup(ptr noundef %6, ptr noundef nonnull %ti.val.i) #20
   store ptr %call1.i.i.i.i, ptr %parent_type.i.i, align 8
   %tobool5.not.i.i = icmp eq ptr %call1.i.i.i.i, null
   br i1 %tobool5.not.i.i, label %if.then6.i.i, label %type_get_parent.exit.i
@@ -356,8 +356,8 @@ if.then6.i.i:                                     ; preds = %type_get_by_name.ex
   %8 = load ptr, ptr @stderr, align 8
   %9 = load ptr, ptr %ti.tr7.i, align 8
   %10 = load ptr, ptr %7, align 8
-  %call8.i.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.70, ptr noundef %9, ptr noundef %10) #20
-  tail call void @abort() #18
+  %call8.i.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.70, ptr noundef %9, ptr noundef %10) #21
+  tail call void @abort() #19
   unreachable
 
 type_get_parent.exit.i:                           ; preds = %type_get_by_name.exit.i.i, %if.then2.i
@@ -423,7 +423,7 @@ land.lhs.true:                                    ; preds = %if.end3
 
 object_property_find.exit:                        ; preds = %land.lhs.true
   %8 = load ptr, ptr %properties.i, align 8
-  %call2.i = call ptr @g_hash_table_lookup(ptr noundef %8, ptr noundef %6) #19
+  %call2.i = call ptr @g_hash_table_lookup(ptr noundef %8, ptr noundef %6) #20
   %tobool6.not = icmp eq ptr %call2.i, null
   br i1 %tobool6.not, label %for.inc, label %if.end8
 
@@ -434,25 +434,25 @@ if.end8:                                          ; preds = %land.lhs.true, %obj
   %9 = load ptr, ptr %property9, align 8
   %value = getelementptr inbounds i8, ptr %2, i64 16
   %10 = load ptr, ptr %value, align 8
-  %call.i = call ptr @string_input_visitor_new(ptr noundef %10) #19
+  %call.i = call ptr @string_input_visitor_new(ptr noundef %10) #20
   %call1.i20 = call zeroext i1 @object_property_set(ptr noundef nonnull %obj, ptr noundef %9, ptr noundef %call.i, ptr noundef nonnull %err)
-  call void @visit_free(ptr noundef %call.i) #19
+  call void @visit_free(ptr noundef %call.i) #20
   br i1 %call1.i20, label %for.inc, label %if.then11
 
 if.then11:                                        ; preds = %if.end8
   %11 = load ptr, ptr %2, align 8
   %12 = load ptr, ptr %property9, align 8
   %13 = load ptr, ptr %value, align 8
-  call void (ptr, ptr, ...) @error_prepend(ptr noundef nonnull %err, ptr noundef nonnull @.str.3, ptr noundef %11, ptr noundef %12, ptr noundef %13) #19
+  call void (ptr, ptr, ...) @error_prepend(ptr noundef nonnull %err, ptr noundef nonnull @.str.3, ptr noundef %11, ptr noundef %12, ptr noundef %13) #20
   %14 = load ptr, ptr %err, align 8
   br i1 %tobool15.not, label %if.else, label %if.then16
 
 if.then16:                                        ; preds = %if.then11
-  call void @error_propagate(ptr noundef nonnull %errp, ptr noundef %14) #19
+  call void @error_propagate(ptr noundef nonnull %errp, ptr noundef %14) #20
   br label %return
 
 if.else:                                          ; preds = %if.then11
-  call void @warn_report_err(ptr noundef %14) #19
+  call void @warn_report_err(ptr noundef %14) #20
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.end8, %if.else, %object_property_find.exit
@@ -497,7 +497,7 @@ entry:
 if.end:                                           ; preds = %entry
   %properties = getelementptr inbounds i8, ptr %obj, i64 16
   %1 = load ptr, ptr %properties, align 8
-  %call2 = tail call ptr @g_hash_table_lookup(ptr noundef %1, ptr noundef %name) #19
+  %call2 = tail call ptr @g_hash_table_lookup(ptr noundef %1, ptr noundef %name) #20
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -508,9 +508,9 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local zeroext i1 @object_property_parse(ptr noundef %obj, ptr noundef %name, ptr noundef %string, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %call = tail call ptr @string_input_visitor_new(ptr noundef %string) #19
+  %call = tail call ptr @string_input_visitor_new(ptr noundef %string) #20
   %call1 = tail call zeroext i1 @object_property_set(ptr noundef %obj, ptr noundef %name, ptr noundef %call, ptr noundef %errp)
-  tail call void @visit_free(ptr noundef %call) #19
+  tail call void @visit_free(ptr noundef %call) #20
   ret i1 %call1
 }
 
@@ -528,25 +528,25 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %call = tail call ptr @g_ptr_array_new() #19
+  %call = tail call ptr @g_ptr_array_new() #20
   store ptr %call, ptr getelementptr inbounds (i8, ptr @object_compat_props, i64 16), align 16
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
   %frombool = zext i1 %optional to i8
-  %call1 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 32) #21
-  %call2 = tail call noalias ptr @g_strdup(ptr noundef %driver) #19
+  %call1 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 32) #22
+  %call2 = tail call noalias ptr @g_strdup(ptr noundef %driver) #20
   store ptr %call2, ptr %call1, align 8
-  %call4 = tail call noalias ptr @g_strdup(ptr noundef %prop) #19
+  %call4 = tail call noalias ptr @g_strdup(ptr noundef %prop) #20
   %property = getelementptr inbounds i8, ptr %call1, i64 8
   store ptr %call4, ptr %property, align 8
-  %call5 = tail call noalias ptr @g_strdup(ptr noundef %value) #19
+  %call5 = tail call noalias ptr @g_strdup(ptr noundef %value) #20
   %value6 = getelementptr inbounds i8, ptr %call1, i64 16
   store ptr %call5, ptr %value6, align 8
   %optional8 = getelementptr inbounds i8, ptr %call1, i64 25
   store i8 %frombool, ptr %optional8, align 1
   %1 = load ptr, ptr getelementptr inbounds (i8, ptr @object_compat_props, i64 16), align 16
-  tail call void @g_ptr_array_add(ptr noundef %1, ptr noundef nonnull %call1) #19
+  tail call void @g_ptr_array_add(ptr noundef %1, ptr noundef nonnull %call1) #20
   ret void
 }
 
@@ -567,7 +567,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 483, ptr noundef nonnull @__PRETTY_FUNCTION__.object_set_machine_compat_props) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 483, ptr noundef nonnull @__PRETTY_FUNCTION__.object_set_machine_compat_props) #19
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -583,7 +583,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 493, ptr noundef nonnull @__PRETTY_FUNCTION__.object_set_accelerator_compat_props) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 493, ptr noundef nonnull @__PRETTY_FUNCTION__.object_set_accelerator_compat_props) #19
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -623,19 +623,19 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %type_get_by_name.exit
 
 if.then.i.i.i:                                    ; preds = %if.end.i
-  %call.i.i.i = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal) #19
+  %call.i.i.i = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal) #20
   store ptr %call.i.i.i, ptr @type_table_get.type_table, align 8
   br label %type_get_by_name.exit
 
 type_get_by_name.exit:                            ; preds = %if.end.i, %if.then.i.i.i
   %1 = phi ptr [ %call.i.i.i, %if.then.i.i.i ], [ %0, %if.end.i ]
-  %call1.i.i = tail call ptr @g_hash_table_lookup(ptr noundef %1, ptr noundef nonnull %typename) #19
+  %call1.i.i = tail call ptr @g_hash_table_lookup(ptr noundef %1, ptr noundef nonnull %typename) #20
   %tobool.not = icmp eq ptr %call1.i.i, null
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry, %type_get_by_name.exit
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.6, ptr noundef %typename) #19
-  tail call void @abort() #18
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.6, ptr noundef %typename) #20
+  tail call void @abort() #19
   unreachable
 
 if.end:                                           ; preds = %type_get_by_name.exit
@@ -645,8 +645,8 @@ if.end:                                           ; preds = %type_get_by_name.ex
 
 declare void @error_report(ptr noundef, ...) local_unnamed_addr #3
 
-; Function Attrs: noreturn nounwind
-declare void @abort() local_unnamed_addr #1
+; Function Attrs: cold nofree noreturn nounwind
+declare void @abort() local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @object_initialize_with_type(ptr noundef %obj, i64 noundef %size, ptr noundef %type) unnamed_addr #0 {
@@ -661,7 +661,7 @@ entry:
   br i1 %cmp, label %do.body1, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 524, ptr noundef nonnull @__func__.object_initialize_with_type, ptr noundef nonnull @.str.52) #18
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 524, ptr noundef nonnull @__func__.object_initialize_with_type, ptr noundef nonnull @.str.52) #19
   unreachable
 
 do.body1:                                         ; preds = %entry
@@ -672,7 +672,7 @@ do.body1:                                         ; preds = %entry
   br i1 %cmp2, label %do.body8, label %if.else5
 
 if.else5:                                         ; preds = %do.body1
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 525, ptr noundef nonnull @__func__.object_initialize_with_type, ptr noundef nonnull @.str.53) #18
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 525, ptr noundef nonnull @__func__.object_initialize_with_type, ptr noundef nonnull @.str.53) #19
   unreachable
 
 do.body8:                                         ; preds = %do.body1
@@ -680,7 +680,7 @@ do.body8:                                         ; preds = %do.body1
   br i1 %cmp10.not, label %if.else13, label %if.end.i
 
 if.else13:                                        ; preds = %do.body8
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 526, ptr noundef nonnull @__func__.object_initialize_with_type, ptr noundef nonnull @.str.54) #18
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 526, ptr noundef nonnull @__func__.object_initialize_with_type, ptr noundef nonnull @.str.54) #19
   unreachable
 
 if.end.i:                                         ; preds = %do.body8
@@ -694,7 +694,7 @@ if.end.i:                                         ; preds = %do.body8
   br i1 %cmp.i, label %object_ref.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1203, ptr noundef nonnull @__func__.object_ref, ptr noundef nonnull @.str.14) #18
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1203, ptr noundef nonnull @__func__.object_ref, ptr noundef nonnull @.str.14) #19
   unreachable
 
 object_ref.exit:                                  ; preds = %if.end.i
@@ -703,7 +703,7 @@ object_ref.exit:                                  ; preds = %if.end.i
   %iter1.i.i = getelementptr inbounds i8, ptr %iter.i, i64 8
   %properties.i.i = getelementptr inbounds i8, ptr %5, i64 88
   %6 = load ptr, ptr %properties.i.i, align 8
-  call void @g_hash_table_iter_init(ptr noundef nonnull %iter1.i.i, ptr noundef %6) #19
+  call void @g_hash_table_iter_init(ptr noundef nonnull %iter1.i.i, ptr noundef %6) #20
   %call.i.i = call ptr @object_class_get_parent(ptr noundef readonly %5)
   store ptr %call.i.i, ptr %iter.i, align 8
   br label %while.cond.i
@@ -711,7 +711,7 @@ object_ref.exit:                                  ; preds = %if.end.i
 while.cond.i:                                     ; preds = %while.cond.i.backedge, %object_ref.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %key.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %val.i.i)
-  %call7.i.i = call i32 @g_hash_table_iter_next(ptr noundef nonnull %iter1.i.i, ptr noundef nonnull %key.i.i, ptr noundef nonnull %val.i.i) #19
+  %call7.i.i = call i32 @g_hash_table_iter_next(ptr noundef nonnull %iter1.i.i, ptr noundef nonnull %key.i.i, ptr noundef nonnull %val.i.i) #20
   %tobool.not8.i.i = icmp eq i32 %call7.i.i, 0
   br i1 %tobool.not8.i.i, label %while.body.i.i, label %object_property_iter_next.exit.i
 
@@ -728,7 +728,7 @@ object_property_iter_next.exit.thread.i:          ; preds = %while.body.i.i
 if.end.i.i:                                       ; preds = %while.body.i.i
   %properties.i5.i = getelementptr inbounds i8, ptr %7, i64 88
   %8 = load ptr, ptr %properties.i5.i, align 8
-  call void @g_hash_table_iter_init(ptr noundef nonnull %iter1.i.i, ptr noundef %8) #19
+  call void @g_hash_table_iter_init(ptr noundef nonnull %iter1.i.i, ptr noundef %8) #20
   %9 = load ptr, ptr %iter.i, align 8
   %10 = load ptr, ptr %9, align 8
   %parent_type.i.i.i = getelementptr inbounds i8, ptr %10, i64 96
@@ -748,13 +748,13 @@ if.end.i.i.i.i:                                   ; preds = %land.lhs.true.i.i.i
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %type_get_by_name.exit.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i
-  %call.i.i.i.i.i.i = call ptr @g_hash_table_new(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal) #19
+  %call.i.i.i.i.i.i = call ptr @g_hash_table_new(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal) #20
   store ptr %call.i.i.i.i.i.i, ptr @type_table_get.type_table, align 8
   br label %type_get_by_name.exit.i.i.i
 
 type_get_by_name.exit.i.i.i:                      ; preds = %if.then.i.i.i.i.i.i, %if.end.i.i.i.i
   %14 = phi ptr [ %call.i.i.i.i.i.i, %if.then.i.i.i.i.i.i ], [ %13, %if.end.i.i.i.i ]
-  %call1.i.i.i.i.i = call ptr @g_hash_table_lookup(ptr noundef %14, ptr noundef nonnull %12) #19
+  %call1.i.i.i.i.i = call ptr @g_hash_table_lookup(ptr noundef %14, ptr noundef nonnull %12) #20
   store ptr %call1.i.i.i.i.i, ptr %parent_type.i.i.i, align 8
   %tobool5.not.i.i.i = icmp eq ptr %call1.i.i.i.i.i, null
   br i1 %tobool5.not.i.i.i, label %if.then6.i.i.i, label %if.end.i7.i
@@ -764,8 +764,8 @@ if.then6.i.i.i:                                   ; preds = %type_get_by_name.ex
   %15 = load ptr, ptr @stderr, align 8
   %16 = load ptr, ptr %10, align 8
   %17 = load ptr, ptr %parent.i.i.i.le, align 8
-  %call8.i.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str.70, ptr noundef %16, ptr noundef %17) #20
-  call void @abort() #18
+  %call8.i.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str.70, ptr noundef %16, ptr noundef %17) #21
+  call void @abort() #19
   unreachable
 
 if.end.i7.i:                                      ; preds = %type_get_by_name.exit.i.i.i, %if.end.i.i
@@ -778,7 +778,7 @@ if.end.i7.i:                                      ; preds = %type_get_by_name.ex
 object_class_get_parent.exit.i:                   ; preds = %if.end.i7.i, %land.lhs.true.i.i.i
   %retval.0.i8.i = phi ptr [ %18, %if.end.i7.i ], [ null, %land.lhs.true.i.i.i ]
   store ptr %retval.0.i8.i, ptr %iter.i, align 8
-  %call.i6.i = call i32 @g_hash_table_iter_next(ptr noundef nonnull %iter1.i.i, ptr noundef nonnull %key.i.i, ptr noundef nonnull %val.i.i) #19
+  %call.i6.i = call i32 @g_hash_table_iter_next(ptr noundef nonnull %iter1.i.i, ptr noundef nonnull %key.i.i, ptr noundef nonnull %val.i.i) #20
   %tobool.not.i.i = icmp eq i32 %call.i6.i, 0
   br i1 %tobool.not.i.i, label %while.body.i.i, label %object_property_iter_next.exit.i, !llvm.loop !9
 
@@ -796,7 +796,7 @@ while.body.i:                                     ; preds = %object_property_ite
   br i1 %tobool2.not.i, label %while.cond.i.backedge, label %if.then.i
 
 if.then.i:                                        ; preds = %while.body.i
-  call void %20(ptr noundef nonnull %obj, ptr noundef nonnull %19) #19
+  call void %20(ptr noundef nonnull %obj, ptr noundef nonnull %19) #20
   br label %while.cond.i.backedge
 
 while.cond.i.backedge:                            ; preds = %if.then.i, %while.body.i
@@ -804,7 +804,7 @@ while.cond.i.backedge:                            ; preds = %if.then.i, %while.b
 
 object_class_property_init_all.exit:              ; preds = %object_property_iter_next.exit.i, %object_property_iter_next.exit.thread.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %iter.i)
-  %call18 = call ptr @g_hash_table_new_full(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal, ptr noundef null, ptr noundef nonnull @object_property_free) #19
+  %call18 = call ptr @g_hash_table_new_full(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal, ptr noundef null, ptr noundef nonnull @object_property_free) #20
   %properties = getelementptr inbounds i8, ptr %obj, i64 16
   store ptr %call18, ptr %properties, align 8
   call fastcc void @object_init_with_type(ptr noundef nonnull %obj, ptr noundef %type)
@@ -818,7 +818,7 @@ tailrecurse.i:                                    ; preds = %tailrecurse.i.backe
   br i1 %tobool.not.i16, label %if.end.i18, label %if.then.i17
 
 if.then.i17:                                      ; preds = %tailrecurse.i
-  call void %21(ptr noundef nonnull %obj) #19
+  call void %21(ptr noundef nonnull %obj) #20
   br label %if.end.i18
 
 if.end.i18:                                       ; preds = %if.then.i17, %tailrecurse.i
@@ -839,13 +839,13 @@ if.end.i.i.i:                                     ; preds = %if.then2.i
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %type_get_by_name.exit.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.end.i.i.i
-  %call.i.i.i.i.i = call ptr @g_hash_table_new(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal) #19
+  %call.i.i.i.i.i = call ptr @g_hash_table_new(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal) #20
   store ptr %call.i.i.i.i.i, ptr @type_table_get.type_table, align 8
   br label %type_get_by_name.exit.i.i
 
 type_get_by_name.exit.i.i:                        ; preds = %if.then.i.i.i.i.i, %if.end.i.i.i
   %25 = phi ptr [ %call.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %24, %if.end.i.i.i ]
-  %call1.i.i.i.i = call ptr @g_hash_table_lookup(ptr noundef %25, ptr noundef nonnull %ti.val.i) #19
+  %call1.i.i.i.i = call ptr @g_hash_table_lookup(ptr noundef %25, ptr noundef nonnull %ti.val.i) #20
   store ptr %call1.i.i.i.i, ptr %parent_type.i.i, align 8
   %tobool5.not.i.i = icmp eq ptr %call1.i.i.i.i, null
   br i1 %tobool5.not.i.i, label %if.then6.i.i, label %tailrecurse.i.backedge
@@ -859,8 +859,8 @@ if.then6.i.i:                                     ; preds = %type_get_by_name.ex
   %27 = load ptr, ptr @stderr, align 8
   %28 = load ptr, ptr %ti.tr.i, align 8
   %29 = load ptr, ptr %26, align 8
-  %call8.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.70, ptr noundef %28, ptr noundef %29) #20
-  call void @abort() #18
+  %call8.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.70, ptr noundef %28, ptr noundef %29) #21
+  call void @abort() #19
   unreachable
 
 object_post_init_with_type.exit:                  ; preds = %if.end.i18
@@ -889,19 +889,19 @@ if.end.i.i:                                       ; preds = %entry
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %type_get_by_name.exit.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end.i.i
-  %call.i.i.i.i = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal) #19
+  %call.i.i.i.i = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal) #20
   store ptr %call.i.i.i.i, ptr @type_table_get.type_table, align 8
   br label %type_get_by_name.exit.i
 
 type_get_by_name.exit.i:                          ; preds = %if.then.i.i.i.i, %if.end.i.i
   %1 = phi ptr [ %call.i.i.i.i, %if.then.i.i.i.i ], [ %0, %if.end.i.i ]
-  %call1.i.i.i = tail call ptr @g_hash_table_lookup(ptr noundef %1, ptr noundef nonnull %type) #19
+  %call1.i.i.i = tail call ptr @g_hash_table_lookup(ptr noundef %1, ptr noundef nonnull %type) #20
   %tobool.not.i = icmp eq ptr %call1.i.i.i, null
   br i1 %tobool.not.i, label %if.then.i, label %object_initialize.exit
 
 if.then.i:                                        ; preds = %type_get_by_name.exit.i, %entry
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.6, ptr noundef %type) #19
-  tail call void @abort() #18
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.6, ptr noundef %type) #20
+  tail call void @abort() #19
   unreachable
 
 object_initialize.exit:                           ; preds = %type_get_by_name.exit.i
@@ -921,7 +921,7 @@ land.lhs.true.i:                                  ; preds = %if.end
   br i1 %tobool2.not.i, label %out, label %if.then3
 
 if.then3:                                         ; preds = %land.lhs.true.i
-  %call4 = tail call zeroext i1 @user_creatable_complete(ptr noundef nonnull %childobj, ptr noundef %errp) #19
+  %call4 = tail call zeroext i1 @user_creatable_complete(ptr noundef nonnull %childobj, ptr noundef %errp) #20
   br i1 %call4, label %out, label %if.then5
 
 if.then5:                                         ; preds = %if.then3
@@ -996,13 +996,13 @@ vaarg.end10:                                      ; preds = %vaarg.in_mem6, %vaa
   br i1 %cmp12.not, label %if.else, label %do.end
 
 if.else:                                          ; preds = %vaarg.end10
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 864, ptr noundef nonnull @__func__.object_set_propv, ptr noundef nonnull @.str.10) #18
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 864, ptr noundef nonnull @__func__.object_set_propv, ptr noundef nonnull @.str.10) #19
   unreachable
 
 do.end:                                           ; preds = %vaarg.end10
-  %call.i = tail call ptr @string_input_visitor_new(ptr noundef nonnull %8) #19
+  %call.i = tail call ptr @string_input_visitor_new(ptr noundef nonnull %8) #20
   %call1.i = tail call zeroext i1 @object_property_set(ptr noundef %obj, ptr noundef nonnull %propname.08, ptr noundef %call.i, ptr noundef %errp)
-  tail call void @visit_free(ptr noundef %call.i) #19
+  tail call void @visit_free(ptr noundef %call.i) #20
   br i1 %call1.i, label %if.end14, label %return
 
 if.end14:                                         ; preds = %do.end
@@ -1062,8 +1062,8 @@ if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %value.i)
   %properties.i = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %properties.i, align 8
-  call void @g_hash_table_iter_init(ptr noundef nonnull %iter.i, ptr noundef %1) #19
-  %call17.i = call i32 @g_hash_table_iter_next(ptr noundef nonnull %iter.i, ptr noundef nonnull %key.i, ptr noundef nonnull %value.i) #19
+  call void @g_hash_table_iter_init(ptr noundef nonnull %iter.i, ptr noundef %1) #20
+  %call17.i = call i32 @g_hash_table_iter_next(ptr noundef nonnull %iter.i, ptr noundef nonnull %key.i, ptr noundef nonnull %value.i) #20
   %tobool.not18.i = icmp eq i32 %call17.i, 0
   br i1 %tobool.not18.i, label %while.end.i, label %while.body.i
 
@@ -1071,7 +1071,7 @@ while.body.i:                                     ; preds = %if.then, %if.end7.i
   %2 = load ptr, ptr %value.i, align 8
   %3 = getelementptr i8, ptr %2, i64 8
   %.val.i = load ptr, ptr %3, align 8
-  %call.i.i = call i32 @strstart(ptr noundef %.val.i, ptr noundef nonnull @.str.80, ptr noundef null) #19
+  %call.i.i = call i32 @strstart(ptr noundef %.val.i, ptr noundef nonnull @.str.80, ptr noundef null) #20
   %tobool.i.not.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.i.not.i, label %if.end7.i, label %land.lhs.true.i
 
@@ -1089,19 +1089,19 @@ if.then.i:                                        ; preds = %land.lhs.true.i
 
 if.then3.i:                                       ; preds = %if.then.i
   %6 = load ptr, ptr %2, align 8
-  call void %5(ptr noundef nonnull %0, ptr noundef %6, ptr noundef %4) #19
+  call void %5(ptr noundef nonnull %0, ptr noundef %6, ptr noundef %4) #20
   store ptr null, ptr %release.i, align 8
   br label %while.end.i
 
 if.end7.i:                                        ; preds = %land.lhs.true.i, %while.body.i
-  %call.i = call i32 @g_hash_table_iter_next(ptr noundef nonnull %iter.i, ptr noundef nonnull %key.i, ptr noundef nonnull %value.i) #19
+  %call.i = call i32 @g_hash_table_iter_next(ptr noundef nonnull %iter.i, ptr noundef nonnull %key.i, ptr noundef nonnull %value.i) #20
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %while.end.i, label %while.body.i, !llvm.loop !12
 
 while.end.i:                                      ; preds = %if.end7.i, %if.then3.i, %if.then.i, %if.then
   %7 = load ptr, ptr %properties.i, align 8
-  call void @g_hash_table_iter_init(ptr noundef nonnull %iter.i, ptr noundef %7) #19
-  %call1019.i = call i32 @g_hash_table_iter_next(ptr noundef nonnull %iter.i, ptr noundef nonnull %key.i, ptr noundef nonnull %value.i) #19
+  call void @g_hash_table_iter_init(ptr noundef nonnull %iter.i, ptr noundef %7) #20
+  %call1019.i = call i32 @g_hash_table_iter_next(ptr noundef nonnull %iter.i, ptr noundef nonnull %key.i, ptr noundef nonnull %value.i) #20
   %tobool11.not20.i = icmp eq i32 %call1019.i, 0
   br i1 %tobool11.not20.i, label %object_property_del_child.exit, label %while.body12.i
 
@@ -1109,7 +1109,7 @@ while.body12.i:                                   ; preds = %while.end.i, %if.en
   %8 = load ptr, ptr %value.i, align 8
   %9 = getelementptr i8, ptr %8, i64 8
   %.val13.i = load ptr, ptr %9, align 8
-  %call.i14.i = call i32 @strstart(ptr noundef %.val13.i, ptr noundef nonnull @.str.80, ptr noundef null) #19
+  %call.i14.i = call i32 @strstart(ptr noundef %.val13.i, ptr noundef nonnull @.str.80, ptr noundef null) #20
   %tobool.i15.not.i = icmp eq i32 %call.i14.i, 0
   br i1 %tobool.i15.not.i, label %if.end18.i, label %land.lhs.true14.i
 
@@ -1120,11 +1120,11 @@ land.lhs.true14.i:                                ; preds = %while.body12.i
   br i1 %cmp16.i, label %if.then17.i, label %if.end18.i
 
 if.then17.i:                                      ; preds = %land.lhs.true14.i
-  call void @g_hash_table_iter_remove(ptr noundef nonnull %iter.i) #19
+  call void @g_hash_table_iter_remove(ptr noundef nonnull %iter.i) #20
   br label %object_property_del_child.exit
 
 if.end18.i:                                       ; preds = %land.lhs.true14.i, %while.body12.i
-  %call10.i = call i32 @g_hash_table_iter_next(ptr noundef nonnull %iter.i, ptr noundef nonnull %key.i, ptr noundef nonnull %value.i) #19
+  %call10.i = call i32 @g_hash_table_iter_next(ptr noundef nonnull %iter.i, ptr noundef nonnull %key.i, ptr noundef nonnull %value.i) #20
   %tobool11.not.i = icmp eq i32 %call10.i, 0
   br i1 %tobool11.not.i, label %object_property_del_child.exit, label %while.body12.i, !llvm.loop !13
 
@@ -1154,7 +1154,7 @@ do.body:                                          ; preds = %entry
   br i1 %cmp.not, label %if.else, label %do.end
 
 if.else:                                          ; preds = %do.body
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1213, ptr noundef nonnull @__func__.object_unref, ptr noundef nonnull @.str.15) #18
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1213, ptr noundef nonnull @__func__.object_unref, ptr noundef nonnull @.str.15) #19
   unreachable
 
 do.end:                                           ; preds = %do.body
@@ -1166,14 +1166,14 @@ if.then5:                                         ; preds = %do.end
   %2 = load ptr, ptr %objptr, align 8
   %3 = load ptr, ptr %2, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %iter.i.i)
-  %call.i.i = tail call ptr @g_hash_table_new(ptr noundef null, ptr noundef null) #19
+  %call.i.i = tail call ptr @g_hash_table_new(ptr noundef null, ptr noundef null) #20
   %iter1.i.i.i = getelementptr inbounds i8, ptr %iter.i.i, i64 8
   %properties.i.i.i = getelementptr inbounds i8, ptr %objptr, i64 16
   br label %do.body.i.i
 
 do.body.i.i:                                      ; preds = %if.then4.i.i, %if.then5
   %4 = load ptr, ptr %properties.i.i.i, align 8
-  call void @g_hash_table_iter_init(ptr noundef nonnull %iter1.i.i.i, ptr noundef %4) #19
+  call void @g_hash_table_iter_init(ptr noundef nonnull %iter1.i.i.i, ptr noundef %4) #20
   %5 = load ptr, ptr %objptr, align 8
   store ptr %5, ptr %iter.i.i, align 8
   br label %while.cond.i.i
@@ -1181,7 +1181,7 @@ do.body.i.i:                                      ; preds = %if.then4.i.i, %if.t
 while.cond.i.i:                                   ; preds = %while.cond.i.i.backedge, %do.body.i.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %key.i.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %val.i.i.i)
-  %call7.i.i.i = call i32 @g_hash_table_iter_next(ptr noundef nonnull %iter1.i.i.i, ptr noundef nonnull %key.i.i.i, ptr noundef nonnull %val.i.i.i) #19
+  %call7.i.i.i = call i32 @g_hash_table_iter_next(ptr noundef nonnull %iter1.i.i.i, ptr noundef nonnull %key.i.i.i, ptr noundef nonnull %val.i.i.i) #20
   %tobool.not8.i.i.i = icmp eq i32 %call7.i.i.i, 0
   br i1 %tobool.not8.i.i.i, label %while.body.i.i.i, label %object_property_iter_next.exit.i.i
 
@@ -1198,7 +1198,7 @@ object_property_iter_next.exit.thread.i.i:        ; preds = %while.body.i.i.i
 if.end.i.i.i:                                     ; preds = %while.body.i.i.i
   %properties.i8.i.i = getelementptr inbounds i8, ptr %6, i64 88
   %7 = load ptr, ptr %properties.i8.i.i, align 8
-  call void @g_hash_table_iter_init(ptr noundef nonnull %iter1.i.i.i, ptr noundef %7) #19
+  call void @g_hash_table_iter_init(ptr noundef nonnull %iter1.i.i.i, ptr noundef %7) #20
   %8 = load ptr, ptr %iter.i.i, align 8
   %9 = load ptr, ptr %8, align 8
   %parent_type.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 96
@@ -1218,13 +1218,13 @@ if.end.i.i.i.i.i:                                 ; preds = %land.lhs.true.i.i.i
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %type_get_by_name.exit.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.end.i.i.i.i.i
-  %call.i.i.i.i.i.i.i = call ptr @g_hash_table_new(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal) #19
+  %call.i.i.i.i.i.i.i = call ptr @g_hash_table_new(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal) #20
   store ptr %call.i.i.i.i.i.i.i, ptr @type_table_get.type_table, align 8
   br label %type_get_by_name.exit.i.i.i.i
 
 type_get_by_name.exit.i.i.i.i:                    ; preds = %if.then.i.i.i.i.i.i.i, %if.end.i.i.i.i.i
   %13 = phi ptr [ %call.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i ], [ %12, %if.end.i.i.i.i.i ]
-  %call1.i.i.i.i.i.i = call ptr @g_hash_table_lookup(ptr noundef %13, ptr noundef nonnull %11) #19
+  %call1.i.i.i.i.i.i = call ptr @g_hash_table_lookup(ptr noundef %13, ptr noundef nonnull %11) #20
   store ptr %call1.i.i.i.i.i.i, ptr %parent_type.i.i.i.i, align 8
   %tobool5.not.i.i.i.i = icmp eq ptr %call1.i.i.i.i.i.i, null
   br i1 %tobool5.not.i.i.i.i, label %if.then6.i.i.i.i, label %if.end.i10.i.i
@@ -1234,8 +1234,8 @@ if.then6.i.i.i.i:                                 ; preds = %type_get_by_name.ex
   %14 = load ptr, ptr @stderr, align 8
   %15 = load ptr, ptr %9, align 8
   %16 = load ptr, ptr %parent.i.i.i.i.le, align 8
-  %call8.i.i.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str.70, ptr noundef %15, ptr noundef %16) #20
-  call void @abort() #18
+  %call8.i.i.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str.70, ptr noundef %15, ptr noundef %16) #21
+  call void @abort() #19
   unreachable
 
 if.end.i10.i.i:                                   ; preds = %type_get_by_name.exit.i.i.i.i, %if.end.i.i.i
@@ -1248,7 +1248,7 @@ if.end.i10.i.i:                                   ; preds = %type_get_by_name.ex
 object_class_get_parent.exit.i.i:                 ; preds = %if.end.i10.i.i, %land.lhs.true.i.i.i.i
   %retval.0.i11.i.i = phi ptr [ %17, %if.end.i10.i.i ], [ null, %land.lhs.true.i.i.i.i ]
   store ptr %retval.0.i11.i.i, ptr %iter.i.i, align 8
-  %call.i.i.i = call i32 @g_hash_table_iter_next(ptr noundef nonnull %iter1.i.i.i, ptr noundef nonnull %key.i.i.i, ptr noundef nonnull %val.i.i.i) #19
+  %call.i.i.i = call i32 @g_hash_table_iter_next(ptr noundef nonnull %iter1.i.i.i, ptr noundef nonnull %key.i.i.i, ptr noundef nonnull %val.i.i.i) #20
   %tobool.not.i.i.i = icmp eq i32 %call.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %while.body.i.i.i, label %object_property_iter_next.exit.i.i, !llvm.loop !9
 
@@ -1260,7 +1260,7 @@ object_property_iter_next.exit.i.i:               ; preds = %object_class_get_pa
   br i1 %cmp.not.not.i.i, label %do.end.i.i, label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %object_property_iter_next.exit.i.i
-  %call2.i.i = call i32 @g_hash_table_add(ptr noundef %call.i.i, ptr noundef nonnull %18) #19
+  %call2.i.i = call i32 @g_hash_table_add(ptr noundef %call.i.i, ptr noundef nonnull %18) #20
   %tobool.not.i.i = icmp eq i32 %call2.i.i, 0
   br i1 %tobool.not.i.i, label %while.cond.i.i.backedge, label %if.then.i.i
 
@@ -1277,17 +1277,17 @@ if.then4.i.i:                                     ; preds = %if.then.i.i
   %20 = load ptr, ptr %18, align 8
   %opaque.i.i = getelementptr inbounds i8, ptr %18, i64 64
   %21 = load ptr, ptr %opaque.i.i, align 8
-  call void %19(ptr noundef nonnull %objptr, ptr noundef %20, ptr noundef %21) #19
+  call void %19(ptr noundef nonnull %objptr, ptr noundef %20, ptr noundef %21) #20
   br label %do.body.i.i, !llvm.loop !15
 
 do.end.i.i:                                       ; preds = %object_property_iter_next.exit.i.i, %object_property_iter_next.exit.thread.i.i
   %22 = load ptr, ptr %properties.i.i.i, align 8
-  call void @g_hash_table_unref(ptr noundef %22) #19
+  call void @g_hash_table_unref(ptr noundef %22) #20
   %tobool.not.i.i.i.i = icmp eq ptr %call.i.i, null
   br i1 %tobool.not.i.i.i.i, label %object_property_del_all.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %do.end.i.i
-  call void @g_hash_table_unref(ptr noundef nonnull %call.i.i) #19
+  call void @g_hash_table_unref(ptr noundef nonnull %call.i.i) #20
   br label %object_property_del_all.exit.i
 
 object_property_del_all.exit.i:                   ; preds = %if.then.i.i.i.i, %do.end.i.i
@@ -1302,7 +1302,7 @@ tailrecurse.i.i:                                  ; preds = %tailrecurse.i.i.bac
   br i1 %tobool.not.i8.i, label %if.end.i.i, label %if.then.i9.i
 
 if.then.i9.i:                                     ; preds = %tailrecurse.i.i
-  call void %23(ptr noundef nonnull %objptr) #19
+  call void %23(ptr noundef nonnull %objptr) #20
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i9.i, %tailrecurse.i.i
@@ -1323,13 +1323,13 @@ if.end.i.i.i.i:                                   ; preds = %if.then2.i.i
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %type_get_by_name.exit.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i
-  %call.i.i.i.i.i.i = call ptr @g_hash_table_new(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal) #19
+  %call.i.i.i.i.i.i = call ptr @g_hash_table_new(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal) #20
   store ptr %call.i.i.i.i.i.i, ptr @type_table_get.type_table, align 8
   br label %type_get_by_name.exit.i.i.i
 
 type_get_by_name.exit.i.i.i:                      ; preds = %if.then.i.i.i.i.i.i, %if.end.i.i.i.i
   %27 = phi ptr [ %call.i.i.i.i.i.i, %if.then.i.i.i.i.i.i ], [ %26, %if.end.i.i.i.i ]
-  %call1.i.i.i.i.i = call ptr @g_hash_table_lookup(ptr noundef %27, ptr noundef nonnull %type.val.i.i) #19
+  %call1.i.i.i.i.i = call ptr @g_hash_table_lookup(ptr noundef %27, ptr noundef nonnull %type.val.i.i) #20
   store ptr %call1.i.i.i.i.i, ptr %parent_type.i.i.i, align 8
   %tobool5.not.i.i.i = icmp eq ptr %call1.i.i.i.i.i, null
   br i1 %tobool5.not.i.i.i, label %if.then6.i.i.i, label %tailrecurse.i.i.backedge
@@ -1343,8 +1343,8 @@ if.then6.i.i.i:                                   ; preds = %type_get_by_name.ex
   %29 = load ptr, ptr @stderr, align 8
   %30 = load ptr, ptr %type.tr.i.i, align 8
   %31 = load ptr, ptr %28, align 8
-  %call8.i.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %29, ptr noundef nonnull @.str.70, ptr noundef %30, ptr noundef %31) #20
-  call void @abort() #18
+  %call8.i.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %29, ptr noundef nonnull @.str.70, ptr noundef %30, ptr noundef %31) #21
+  call void @abort() #19
   unreachable
 
 object_deinit.exit.i:                             ; preds = %if.end.i.i
@@ -1353,7 +1353,7 @@ object_deinit.exit.i:                             ; preds = %if.end.i.i
   br i1 %cmp.i, label %do.body1.i, label %if.else.i
 
 if.else.i:                                        ; preds = %object_deinit.exit.i
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 711, ptr noundef nonnull @__func__.object_finalize, ptr noundef nonnull @.str.71) #18
+  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 711, ptr noundef nonnull @__func__.object_finalize, ptr noundef nonnull @.str.71) #19
   unreachable
 
 do.body1.i:                                       ; preds = %object_deinit.exit.i
@@ -1363,7 +1363,7 @@ do.body1.i:                                       ; preds = %object_deinit.exit.
   br i1 %cmp2.i, label %do.end6.i, label %if.else4.i
 
 if.else4.i:                                       ; preds = %do.body1.i
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 712, ptr noundef nonnull @__func__.object_finalize, ptr noundef nonnull @.str.72) #18
+  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 712, ptr noundef nonnull @__func__.object_finalize, ptr noundef nonnull @.str.72) #19
   unreachable
 
 do.end6.i:                                        ; preds = %do.body1.i
@@ -1373,7 +1373,7 @@ do.end6.i:                                        ; preds = %do.body1.i
   br i1 %tobool.not.i, label %if.end6, label %if.then7.i
 
 if.then7.i:                                       ; preds = %do.end6.i
-  call void %34(ptr noundef nonnull %objptr) #19
+  call void %34(ptr noundef nonnull %objptr) #20
   br label %if.end6
 
 if.end6:                                          ; preds = %if.then7.i, %do.end6.i, %entry, %do.end
@@ -1395,7 +1395,7 @@ entry:
   br i1 %cmp.not.i, label %if.else.i, label %do.end.i
 
 if.else.i:                                        ; preds = %entry
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 736, ptr noundef nonnull @__func__.object_new_with_type, ptr noundef nonnull @.str.2) #18
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 736, ptr noundef nonnull @__func__.object_new_with_type, ptr noundef nonnull @.str.2) #19
   unreachable
 
 do.end.i:                                         ; preds = %entry
@@ -1408,11 +1408,11 @@ do.end.i:                                         ; preds = %entry
   br i1 %cmp1.i, label %if.then3.i, label %if.else4.i
 
 if.then3.i:                                       ; preds = %do.end.i
-  %call.i = tail call noalias ptr @g_malloc(i64 noundef %1) #22
+  %call.i = tail call noalias ptr @g_malloc(i64 noundef %1) #23
   br label %object_new_with_type.exit
 
 if.else4.i:                                       ; preds = %do.end.i
-  %call5.i = tail call ptr @qemu_memalign(i64 noundef %2, i64 noundef %1) #19
+  %call5.i = tail call ptr @qemu_memalign(i64 noundef %2, i64 noundef %1) #20
   br label %object_new_with_type.exit
 
 object_new_with_type.exit:                        ; preds = %if.then3.i, %if.else4.i
@@ -1436,18 +1436,18 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %type_get_by_name.exit
 
 if.then.i.i.i:                                    ; preds = %if.end.i
-  %call.i.i.i = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal) #19
+  %call.i.i.i = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal) #20
   store ptr %call.i.i.i, ptr @type_table_get.type_table, align 8
   br label %type_get_by_name.exit
 
 type_get_by_name.exit:                            ; preds = %if.end.i, %if.then.i.i.i
   %1 = phi ptr [ %call.i.i.i, %if.then.i.i.i ], [ %0, %if.end.i ]
-  %call1.i.i = tail call ptr @g_hash_table_lookup(ptr noundef %1, ptr noundef nonnull %typename) #19
+  %call1.i.i = tail call ptr @g_hash_table_lookup(ptr noundef %1, ptr noundef nonnull %typename) #20
   %cmp.not.i = icmp eq ptr %call1.i.i, null
   br i1 %cmp.not.i, label %if.else.i, label %do.end.i
 
 if.else.i:                                        ; preds = %entry, %type_get_by_name.exit
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 736, ptr noundef nonnull @__func__.object_new_with_type, ptr noundef nonnull @.str.2) #18
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 736, ptr noundef nonnull @__func__.object_new_with_type, ptr noundef nonnull @.str.2) #19
   unreachable
 
 do.end.i:                                         ; preds = %type_get_by_name.exit
@@ -1460,11 +1460,11 @@ do.end.i:                                         ; preds = %type_get_by_name.ex
   br i1 %cmp1.i, label %if.then3.i, label %if.else4.i
 
 if.then3.i:                                       ; preds = %do.end.i
-  %call.i = tail call noalias ptr @g_malloc(i64 noundef %2) #22
+  %call.i = tail call noalias ptr @g_malloc(i64 noundef %2) #23
   br label %object_new_with_type.exit
 
 if.else4.i:                                       ; preds = %do.end.i
-  %call5.i = tail call ptr @qemu_memalign(i64 noundef %3, i64 noundef %2) #19
+  %call5.i = tail call ptr @qemu_memalign(i64 noundef %3, i64 noundef %2) #20
   br label %object_new_with_type.exit
 
 object_new_with_type.exit:                        ; preds = %if.then3.i, %if.else4.i
@@ -1498,13 +1498,13 @@ if.end.i.i:                                       ; preds = %entry
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %type_get_by_name.exit.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end.i.i
-  %call.i.i.i.i = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal) #19
+  %call.i.i.i.i = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal) #20
   store ptr %call.i.i.i.i, ptr @type_table_get.type_table, align 8
   br label %type_get_by_name.exit.i
 
 type_get_by_name.exit.i:                          ; preds = %if.then.i.i.i.i, %if.end.i.i
   %1 = phi ptr [ %call.i.i.i.i, %if.then.i.i.i.i ], [ %0, %if.end.i.i ]
-  %call1.i.i.i = tail call ptr @g_hash_table_lookup(ptr noundef %1, ptr noundef nonnull %typename) #19
+  %call1.i.i.i = tail call ptr @g_hash_table_lookup(ptr noundef %1, ptr noundef nonnull %typename) #20
   %tobool.not.i = icmp eq ptr %call1.i.i.i, null
   br i1 %tobool.not.i, label %if.then, label %object_class_by_name.exit
 
@@ -1516,7 +1516,7 @@ object_class_by_name.exit:                        ; preds = %type_get_by_name.ex
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry, %type_get_by_name.exit.i, %object_class_by_name.exit
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 802, ptr noundef nonnull @__func__.object_new_with_propv, ptr noundef nonnull @.str.8, ptr noundef %typename) #19
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 802, ptr noundef nonnull @__func__.object_new_with_propv, ptr noundef nonnull @.str.8, ptr noundef %typename) #20
   br label %return
 
 if.end:                                           ; preds = %object_class_by_name.exit
@@ -1527,7 +1527,7 @@ if.end:                                           ; preds = %object_class_by_nam
   br i1 %tobool.i, label %if.then2, label %do.end.i
 
 if.then2:                                         ; preds = %if.end
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 807, ptr noundef nonnull @__func__.object_new_with_propv, ptr noundef nonnull @.str.9, ptr noundef nonnull %typename) #19
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 807, ptr noundef nonnull @__func__.object_new_with_propv, ptr noundef nonnull @.str.9, ptr noundef nonnull %typename) #20
   br label %return
 
 do.end.i:                                         ; preds = %if.end
@@ -1540,11 +1540,11 @@ do.end.i:                                         ; preds = %if.end
   br i1 %cmp1.i, label %if.then3.i, label %if.else4.i
 
 if.then3.i:                                       ; preds = %do.end.i
-  %call.i = tail call noalias ptr @g_malloc(i64 noundef %5) #22
+  %call.i = tail call noalias ptr @g_malloc(i64 noundef %5) #23
   br label %object_new_with_type.exit
 
 if.else4.i:                                       ; preds = %do.end.i
-  %call5.i = tail call ptr @qemu_memalign(i64 noundef %6, i64 noundef %5) #19
+  %call5.i = tail call ptr @qemu_memalign(i64 noundef %6, i64 noundef %5) #20
   br label %object_new_with_type.exit
 
 object_new_with_type.exit:                        ; preds = %if.then3.i, %if.else4.i
@@ -1571,7 +1571,7 @@ land.lhs.true.i:                                  ; preds = %if.end7, %if.then8
   br i1 %tobool2.not.i, label %if.end20, label %if.then13
 
 if.then13:                                        ; preds = %land.lhs.true.i
-  %call14 = tail call zeroext i1 @user_creatable_complete(ptr noundef nonnull %obj.0.i, ptr noundef %errp) #19
+  %call14 = tail call zeroext i1 @user_creatable_complete(ptr noundef nonnull %obj.0.i, ptr noundef %errp) #20
   br i1 %call14, label %if.end20, label %if.then15
 
 if.then15:                                        ; preds = %if.then13
@@ -1606,13 +1606,13 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %type_get_by_name.exit
 
 if.then.i.i.i:                                    ; preds = %if.end.i
-  %call.i.i.i = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal) #19
+  %call.i.i.i = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal) #20
   store ptr %call.i.i.i, ptr @type_table_get.type_table, align 8
   br label %type_get_by_name.exit
 
 type_get_by_name.exit:                            ; preds = %if.end.i, %if.then.i.i.i
   %1 = phi ptr [ %call.i.i.i, %if.then.i.i.i ], [ %0, %if.end.i ]
-  %call1.i.i = tail call ptr @g_hash_table_lookup(ptr noundef %1, ptr noundef nonnull %typename) #19
+  %call1.i.i = tail call ptr @g_hash_table_lookup(ptr noundef %1, ptr noundef nonnull %typename) #20
   %tobool.not = icmp eq ptr %call1.i.i, null
   br i1 %tobool.not, label %return, label %if.end
 
@@ -1630,7 +1630,7 @@ return:                                           ; preds = %entry, %type_get_by
 declare void @error_setg_internal(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local zeroext i1 @object_class_is_abstract(ptr nocapture noundef readonly %klass) local_unnamed_addr #5 {
+define dso_local zeroext i1 @object_class_is_abstract(ptr nocapture noundef readonly %klass) local_unnamed_addr #6 {
 entry:
   %0 = load ptr, ptr %klass, align 8
   %abstract = getelementptr inbounds i8, ptr %0, i64 80
@@ -1703,13 +1703,13 @@ vaarg.end10.i:                                    ; preds = %vaarg.in_mem6.i, %v
   br i1 %cmp12.not.i, label %if.else.i, label %do.end.i
 
 if.else.i:                                        ; preds = %vaarg.end10.i
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 864, ptr noundef nonnull @__func__.object_set_propv, ptr noundef nonnull @.str.10) #18
+  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 864, ptr noundef nonnull @__func__.object_set_propv, ptr noundef nonnull @.str.10) #19
   unreachable
 
 do.end.i:                                         ; preds = %vaarg.end10.i
-  %call.i.i = call ptr @string_input_visitor_new(ptr noundef nonnull %8) #19
+  %call.i.i = call ptr @string_input_visitor_new(ptr noundef nonnull %8) #20
   %call1.i.i = call zeroext i1 @object_property_set(ptr noundef %obj, ptr noundef nonnull %propname.08.i, ptr noundef %call.i.i, ptr noundef %errp)
-  call void @visit_free(ptr noundef %call.i.i) #19
+  call void @visit_free(ptr noundef %call.i.i) #20
   br i1 %call1.i.i, label %if.end14.i, label %object_set_propv.exit
 
 if.end14.i:                                       ; preds = %do.end.i
@@ -1766,13 +1766,13 @@ if.end.i:                                         ; preds = %if.end3
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %type_get_by_name.exit
 
 if.then.i.i.i:                                    ; preds = %if.end.i
-  %call.i.i.i = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal) #19
+  %call.i.i.i = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal) #20
   store ptr %call.i.i.i, ptr @type_table_get.type_table, align 8
   br label %type_get_by_name.exit
 
 type_get_by_name.exit:                            ; preds = %if.end.i, %if.then.i.i.i
   %3 = phi ptr [ %call.i.i.i, %if.then.i.i.i ], [ %2, %if.end.i ]
-  %call1.i.i = tail call ptr @g_hash_table_lookup(ptr noundef %3, ptr noundef nonnull %typename) #19
+  %call1.i.i = tail call ptr @g_hash_table_lookup(ptr noundef %3, ptr noundef nonnull %typename) #20
   %tobool4.not = icmp eq ptr %call1.i.i, null
   br i1 %tobool4.not, label %return, label %if.end6
 
@@ -1826,13 +1826,13 @@ if.end.i.i.i:                                     ; preds = %land.lhs.true.i.i
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %type_get_by_name.exit.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.end.i.i.i
-  %call.i.i.i.i.i = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal) #19
+  %call.i.i.i.i.i = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal) #20
   store ptr %call.i.i.i.i.i, ptr @type_table_get.type_table, align 8
   br label %type_get_by_name.exit.i.i
 
 type_get_by_name.exit.i.i:                        ; preds = %if.then.i.i.i.i.i, %if.end.i.i.i
   %12 = phi ptr [ %call.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %11, %if.end.i.i.i ]
-  %call1.i.i.i.i = tail call ptr @g_hash_table_lookup(ptr noundef %12, ptr noundef nonnull %10) #19
+  %call1.i.i.i.i = tail call ptr @g_hash_table_lookup(ptr noundef %12, ptr noundef nonnull %10) #20
   store ptr %call1.i.i.i.i, ptr %parent_type.i.i, align 8
   %tobool5.not.i.i = icmp eq ptr %call1.i.i.i.i, null
   br i1 %tobool5.not.i.i, label %if.then6.i.i, label %type_get_parent.exit.i
@@ -1842,8 +1842,8 @@ if.then6.i.i:                                     ; preds = %type_get_by_name.ex
   %13 = load ptr, ptr @stderr, align 8
   %14 = load ptr, ptr %type.addr.09.i, align 8
   %15 = load ptr, ptr %parent.i.i.le, align 8
-  %call8.i.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.70, ptr noundef %14, ptr noundef %15) #20
-  tail call void @abort() #18
+  %call8.i.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.70, ptr noundef %14, ptr noundef %15) #21
+  tail call void @abort() #19
   unreachable
 
 type_get_parent.exit.i:                           ; preds = %type_get_by_name.exit.i.i, %if.end3.i
@@ -1897,13 +1897,13 @@ if.end.i.i.i33:                                   ; preds = %land.lhs.true.i.i30
   br i1 %cmp.i.i.i.i.i34, label %if.then.i.i.i.i.i41, label %type_get_by_name.exit.i.i35
 
 if.then.i.i.i.i.i41:                              ; preds = %if.end.i.i.i33
-  %call.i.i.i.i.i42 = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal) #19
+  %call.i.i.i.i.i42 = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal) #20
   store ptr %call.i.i.i.i.i42, ptr @type_table_get.type_table, align 8
   br label %type_get_by_name.exit.i.i35
 
 type_get_by_name.exit.i.i35:                      ; preds = %if.then.i.i.i.i.i41, %if.end.i.i.i33
   %24 = phi ptr [ %call.i.i.i.i.i42, %if.then.i.i.i.i.i41 ], [ %23, %if.end.i.i.i33 ]
-  %call1.i.i.i.i36 = tail call ptr @g_hash_table_lookup(ptr noundef %24, ptr noundef nonnull %22) #19
+  %call1.i.i.i.i36 = tail call ptr @g_hash_table_lookup(ptr noundef %24, ptr noundef nonnull %22) #20
   store ptr %call1.i.i.i.i36, ptr %parent_type.i.i26, align 8
   %tobool5.not.i.i37 = icmp eq ptr %call1.i.i.i.i36, null
   br i1 %tobool5.not.i.i37, label %if.then6.i.i38, label %type_get_parent.exit.i28
@@ -1913,8 +1913,8 @@ if.then6.i.i38:                                   ; preds = %type_get_by_name.ex
   %25 = load ptr, ptr @stderr, align 8
   %26 = load ptr, ptr %type.addr.09.i25, align 8
   %27 = load ptr, ptr %parent.i.i31.le, align 8
-  %call8.i.i40 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef nonnull @.str.70, ptr noundef %26, ptr noundef %27) #20
-  tail call void @abort() #18
+  %call8.i.i40 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef nonnull @.str.70, ptr noundef %26, ptr noundef %27) #21
+  tail call void @abort() #19
   unreachable
 
 type_get_parent.exit.i28:                         ; preds = %type_get_by_name.exit.i.i35, %if.end3.i24
@@ -1928,7 +1928,7 @@ return:                                           ; preds = %land.lhs.true.i.i30
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local ptr @object_get_class(ptr nocapture noundef readonly %obj) local_unnamed_addr #6 {
+define dso_local ptr @object_get_class(ptr nocapture noundef readonly %obj) local_unnamed_addr #7 {
 entry:
   %0 = load ptr, ptr %obj, align 8
   ret ptr %0
@@ -1969,16 +1969,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #19
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #19
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #20
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #20
   %7 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.55, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, ptr noundef %cond, ptr noundef %typename, ptr noundef %file, i32 noundef %line, ptr noundef %func) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.55, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, ptr noundef %cond, ptr noundef %typename, ptr noundef %file, i32 noundef %line, ptr noundef %func) #20
   br label %trace_object_dynamic_cast_assert.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.56, ptr noundef %cond, ptr noundef %typename, ptr noundef %file, i32 noundef %line, ptr noundef %func) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.56, ptr noundef %cond, ptr noundef %typename, ptr noundef %file, i32 noundef %line, ptr noundef %func) #20
   br label %trace_object_dynamic_cast_assert.exit
 
 trace_object_dynamic_cast_assert.exit:            ; preds = %cond.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -2014,8 +2014,8 @@ land.lhs.true.i:                                  ; preds = %for.end
 
 if.then6:                                         ; preds = %land.lhs.true.i
   %13 = load ptr, ptr @stderr, align 8
-  %call7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.12, ptr noundef %file, i32 noundef %line, ptr noundef %func, ptr noundef nonnull %obj, ptr noundef %typename) #20
-  tail call void @abort() #18
+  %call7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.12, ptr noundef %file, i32 noundef %line, ptr noundef %func, ptr noundef nonnull %obj, ptr noundef %typename) #21
+  tail call void @abort() #19
   unreachable
 
 while.end24:                                      ; preds = %land.lhs.true.i, %while.end24
@@ -2043,7 +2043,7 @@ out:                                              ; preds = %while.end, %trace_o
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
+declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #8
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc noundef zeroext i1 @type_is_ancestor(ptr noundef %type, ptr noundef readnone %target_type) unnamed_addr #0 {
@@ -2058,7 +2058,7 @@ while.cond.preheader:                             ; preds = %entry
   br i1 %or.cond.not8, label %if.end3, label %return
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.1, i32 noundef 247, ptr noundef nonnull @__PRETTY_FUNCTION__.type_is_ancestor) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.1, i32 noundef 247, ptr noundef nonnull @__PRETTY_FUNCTION__.type_is_ancestor) #19
   unreachable
 
 if.end3:                                          ; preds = %while.cond.preheader, %type_get_parent.exit
@@ -2080,13 +2080,13 @@ if.end.i.i:                                       ; preds = %land.lhs.true.i
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %type_get_by_name.exit.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end.i.i
-  %call.i.i.i.i = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal) #19
+  %call.i.i.i.i = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal) #20
   store ptr %call.i.i.i.i, ptr @type_table_get.type_table, align 8
   br label %type_get_by_name.exit.i
 
 type_get_by_name.exit.i:                          ; preds = %if.then.i.i.i.i, %if.end.i.i
   %3 = phi ptr [ %call.i.i.i.i, %if.then.i.i.i.i ], [ %2, %if.end.i.i ]
-  %call1.i.i.i = tail call ptr @g_hash_table_lookup(ptr noundef %3, ptr noundef nonnull %1) #19
+  %call1.i.i.i = tail call ptr @g_hash_table_lookup(ptr noundef %3, ptr noundef nonnull %1) #20
   store ptr %call1.i.i.i, ptr %parent_type.i, align 8
   %tobool5.not.i = icmp eq ptr %call1.i.i.i, null
   br i1 %tobool5.not.i, label %if.then6.i, label %type_get_parent.exit
@@ -2096,8 +2096,8 @@ if.then6.i:                                       ; preds = %type_get_by_name.ex
   %4 = load ptr, ptr @stderr, align 8
   %5 = load ptr, ptr %type.addr.09, align 8
   %6 = load ptr, ptr %parent.i.le, align 8
-  %call8.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.70, ptr noundef %5, ptr noundef %6) #20
-  tail call void @abort() #18
+  %call8.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.70, ptr noundef %5, ptr noundef %6) #21
+  tail call void @abort() #19
   unreachable
 
 type_get_parent.exit:                             ; preds = %if.end3, %type_get_by_name.exit.i
@@ -2144,16 +2144,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #19
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #19
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #20
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #20
   %6 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.58, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef %cond, ptr noundef %typename, ptr noundef %file, i32 noundef %line, ptr noundef %func) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.58, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef %cond, ptr noundef %typename, ptr noundef %file, i32 noundef %line, ptr noundef %func) #20
   br label %trace_object_class_dynamic_cast_assert.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.59, ptr noundef %cond, ptr noundef %typename, ptr noundef %file, i32 noundef %line, ptr noundef %func) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.59, ptr noundef %cond, ptr noundef %typename, ptr noundef %file, i32 noundef %line, ptr noundef %func) #20
   br label %trace_object_class_dynamic_cast_assert.exit
 
 trace_object_class_dynamic_cast_assert.exit:      ; preds = %cond.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -2189,8 +2189,8 @@ for.end:                                          ; preds = %for.cond
 
 if.then5:                                         ; preds = %for.end
   %10 = load ptr, ptr @stderr, align 8
-  %call6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.12, ptr noundef %file, i32 noundef %line, ptr noundef %func, ptr noundef nonnull %class, ptr noundef %typename) #20
-  tail call void @abort() #18
+  %call6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.12, ptr noundef %file, i32 noundef %line, ptr noundef %func, ptr noundef nonnull %class, ptr noundef %typename) #21
+  tail call void @abort() #19
   unreachable
 
 if.end7:                                          ; preds = %for.end
@@ -2225,7 +2225,7 @@ out:                                              ; preds = %while.end, %if.end7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @object_get_typename(ptr nocapture noundef readonly %obj) local_unnamed_addr #5 {
+define dso_local ptr @object_get_typename(ptr nocapture noundef readonly %obj) local_unnamed_addr #6 {
 entry:
   %0 = load ptr, ptr %obj, align 8
   %1 = load ptr, ptr %0, align 8
@@ -2234,7 +2234,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @object_class_get_name(ptr nocapture noundef readonly %klass) local_unnamed_addr #5 {
+define dso_local ptr @object_class_get_name(ptr nocapture noundef readonly %klass) local_unnamed_addr #6 {
 entry:
   %0 = load ptr, ptr %klass, align 8
   %1 = load ptr, ptr %0, align 8
@@ -2276,13 +2276,13 @@ if.end.i.i.i:                                     ; preds = %if.then2.i
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %type_get_by_name.exit.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.end.i.i.i
-  %call.i.i.i.i.i = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal) #19
+  %call.i.i.i.i.i = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal) #20
   store ptr %call.i.i.i.i.i, ptr @type_table_get.type_table, align 8
   br label %type_get_by_name.exit.i.i
 
 type_get_by_name.exit.i.i:                        ; preds = %if.then.i.i.i.i.i, %if.end.i.i.i
   %5 = phi ptr [ %call.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %4, %if.end.i.i.i ]
-  %call1.i.i.i.i = tail call ptr @g_hash_table_lookup(ptr noundef %5, ptr noundef nonnull %ti.val.i) #19
+  %call1.i.i.i.i = tail call ptr @g_hash_table_lookup(ptr noundef %5, ptr noundef nonnull %ti.val.i) #20
   store ptr %call1.i.i.i.i, ptr %parent_type.i.i, align 8
   %tobool5.not.i.i = icmp eq ptr %call1.i.i.i.i, null
   br i1 %tobool5.not.i.i, label %if.then6.i.i, label %type_get_parent.exit.i
@@ -2292,8 +2292,8 @@ if.then6.i.i:                                     ; preds = %type_get_by_name.ex
   %7 = load ptr, ptr @stderr, align 8
   %8 = load ptr, ptr %ti.tr7.i, align 8
   %9 = load ptr, ptr %6, align 8
-  %call8.i.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.70, ptr noundef %8, ptr noundef %9) #20
-  tail call void @abort() #18
+  %call8.i.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.70, ptr noundef %8, ptr noundef %9) #21
+  tail call void @abort() #19
   unreachable
 
 type_get_parent.exit.i:                           ; preds = %type_get_by_name.exit.i.i, %if.then2.i
@@ -2330,13 +2330,13 @@ if.end.i.i.i76:                                   ; preds = %if.then2.i71
   br i1 %cmp.i.i.i.i.i77, label %if.then.i.i.i.i.i83, label %type_get_by_name.exit.i.i78
 
 if.then.i.i.i.i.i83:                              ; preds = %if.end.i.i.i76
-  %call.i.i.i.i.i84 = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal) #19
+  %call.i.i.i.i.i84 = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal) #20
   store ptr %call.i.i.i.i.i84, ptr @type_table_get.type_table, align 8
   br label %type_get_by_name.exit.i.i78
 
 type_get_by_name.exit.i.i78:                      ; preds = %if.then.i.i.i.i.i83, %if.end.i.i.i76
   %16 = phi ptr [ %call.i.i.i.i.i84, %if.then.i.i.i.i.i83 ], [ %15, %if.end.i.i.i76 ]
-  %call1.i.i.i.i79 = tail call ptr @g_hash_table_lookup(ptr noundef %16, ptr noundef nonnull %ti.val.i69) #19
+  %call1.i.i.i.i79 = tail call ptr @g_hash_table_lookup(ptr noundef %16, ptr noundef nonnull %ti.val.i69) #20
   store ptr %call1.i.i.i.i79, ptr %parent_type.i.i72, align 8
   %tobool5.not.i.i80 = icmp eq ptr %call1.i.i.i.i79, null
   br i1 %tobool5.not.i.i80, label %if.then6.i.i81, label %type_get_parent.exit.i74
@@ -2346,8 +2346,8 @@ if.then6.i.i81:                                   ; preds = %type_get_by_name.ex
   %18 = load ptr, ptr @stderr, align 8
   %19 = load ptr, ptr %ti.tr7.i68, align 8
   %20 = load ptr, ptr %17, align 8
-  %call8.i.i82 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str.70, ptr noundef %19, ptr noundef %20) #20
-  tail call void @abort() #18
+  %call8.i.i82 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str.70, ptr noundef %19, ptr noundef %20) #21
+  tail call void @abort() #19
   unreachable
 
 type_get_parent.exit.i74:                         ; preds = %type_get_by_name.exit.i.i78, %if.then2.i71
@@ -2384,13 +2384,13 @@ if.end.i.i.i96:                                   ; preds = %if.then2.i91
   br i1 %cmp.i.i.i.i.i97, label %if.then.i.i.i.i.i103, label %type_get_by_name.exit.i.i98
 
 if.then.i.i.i.i.i103:                             ; preds = %if.end.i.i.i96
-  %call.i.i.i.i.i104 = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal) #19
+  %call.i.i.i.i.i104 = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal) #20
   store ptr %call.i.i.i.i.i104, ptr @type_table_get.type_table, align 8
   br label %type_get_by_name.exit.i.i98
 
 type_get_by_name.exit.i.i98:                      ; preds = %if.then.i.i.i.i.i103, %if.end.i.i.i96
   %27 = phi ptr [ %call.i.i.i.i.i104, %if.then.i.i.i.i.i103 ], [ %26, %if.end.i.i.i96 ]
-  %call1.i.i.i.i99 = tail call ptr @g_hash_table_lookup(ptr noundef %27, ptr noundef nonnull %ti.val.i89) #19
+  %call1.i.i.i.i99 = tail call ptr @g_hash_table_lookup(ptr noundef %27, ptr noundef nonnull %ti.val.i89) #20
   store ptr %call1.i.i.i.i99, ptr %parent_type.i.i92, align 8
   %tobool5.not.i.i100 = icmp eq ptr %call1.i.i.i.i99, null
   br i1 %tobool5.not.i.i100, label %if.then6.i.i101, label %type_get_parent.exit.i94
@@ -2400,8 +2400,8 @@ if.then6.i.i101:                                  ; preds = %type_get_by_name.ex
   %29 = load ptr, ptr @stderr, align 8
   %30 = load ptr, ptr %ti.tr7.i88, align 8
   %31 = load ptr, ptr %28, align 8
-  %call8.i.i102 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %29, ptr noundef nonnull @.str.70, ptr noundef %30, ptr noundef %31) #20
-  tail call void @abort() #18
+  %call8.i.i102 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %29, ptr noundef nonnull @.str.70, ptr noundef %30, ptr noundef %31) #21
+  tail call void @abort() #19
   unreachable
 
 type_get_parent.exit.i94:                         ; preds = %type_get_by_name.exit.i.i98, %if.then2.i91
@@ -2439,7 +2439,7 @@ if.then7:                                         ; preds = %if.end5
   br i1 %cmp9, label %if.end11, label %if.else
 
 if.else:                                          ; preds = %if.then7
-  tail call void @__assert_fail(ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.1, i32 noundef 318, ptr noundef nonnull @__PRETTY_FUNCTION__.type_initialize) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.1, i32 noundef 318, ptr noundef nonnull @__PRETTY_FUNCTION__.type_initialize) #19
   unreachable
 
 if.end11:                                         ; preds = %if.then7
@@ -2449,7 +2449,7 @@ if.end11:                                         ; preds = %if.then7
   br i1 %tobool13, label %if.end16, label %if.else15
 
 if.else15:                                        ; preds = %if.end11
-  tail call void @__assert_fail(ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.1, i32 noundef 319, ptr noundef nonnull @__PRETTY_FUNCTION__.type_initialize) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.1, i32 noundef 319, ptr noundef nonnull @__PRETTY_FUNCTION__.type_initialize) #19
   unreachable
 
 if.end16:                                         ; preds = %if.end11
@@ -2459,7 +2459,7 @@ if.end16:                                         ; preds = %if.end11
   br i1 %tobool17.not, label %if.end20, label %if.else19
 
 if.else19:                                        ; preds = %if.end16
-  tail call void @__assert_fail(ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.1, i32 noundef 320, ptr noundef nonnull @__PRETTY_FUNCTION__.type_initialize) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.1, i32 noundef 320, ptr noundef nonnull @__PRETTY_FUNCTION__.type_initialize) #19
   unreachable
 
 if.end20:                                         ; preds = %if.end16
@@ -2469,7 +2469,7 @@ if.end20:                                         ; preds = %if.end16
   br i1 %tobool21.not, label %if.end24, label %if.else23
 
 if.else23:                                        ; preds = %if.end20
-  tail call void @__assert_fail(ptr noundef nonnull @.str.63, ptr noundef nonnull @.str.1, i32 noundef 321, ptr noundef nonnull @__PRETTY_FUNCTION__.type_initialize) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.63, ptr noundef nonnull @.str.1, i32 noundef 321, ptr noundef nonnull @__PRETTY_FUNCTION__.type_initialize) #19
   unreachable
 
 if.end24:                                         ; preds = %if.end20
@@ -2479,7 +2479,7 @@ if.end24:                                         ; preds = %if.end20
   br i1 %tobool25.not, label %if.end28, label %if.else27
 
 if.else27:                                        ; preds = %if.end24
-  tail call void @__assert_fail(ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.1, i32 noundef 322, ptr noundef nonnull @__PRETTY_FUNCTION__.type_initialize) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.1, i32 noundef 322, ptr noundef nonnull @__PRETTY_FUNCTION__.type_initialize) #19
   unreachable
 
 if.end28:                                         ; preds = %if.end24
@@ -2489,12 +2489,12 @@ if.end28:                                         ; preds = %if.end24
   br i1 %tobool29.not, label %if.end33, label %if.else31
 
 if.else31:                                        ; preds = %if.end28
-  tail call void @__assert_fail(ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.1, i32 noundef 323, ptr noundef nonnull @__PRETTY_FUNCTION__.type_initialize) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.1, i32 noundef 323, ptr noundef nonnull @__PRETTY_FUNCTION__.type_initialize) #19
   unreachable
 
 if.end33:                                         ; preds = %if.end28, %if.end5
   %42 = load i64, ptr %class_size5.i, align 8
-  %call35 = tail call noalias ptr @g_malloc0(i64 noundef %42) #22
+  %call35 = tail call noalias ptr @g_malloc0(i64 noundef %42) #23
   store ptr %call35, ptr %class, align 8
   %parent_type.i = getelementptr inbounds i8, ptr %ti, i64 96
   %43 = load ptr, ptr %parent_type.i, align 8
@@ -2513,13 +2513,13 @@ if.end.i.i:                                       ; preds = %land.lhs.true.i
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %type_get_by_name.exit.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end.i.i
-  %call.i.i.i.i = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal) #19
+  %call.i.i.i.i = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal) #20
   store ptr %call.i.i.i.i, ptr @type_table_get.type_table, align 8
   br label %type_get_by_name.exit.i
 
 type_get_by_name.exit.i:                          ; preds = %if.then.i.i.i.i, %if.end.i.i
   %46 = phi ptr [ %call.i.i.i.i, %if.then.i.i.i.i ], [ %45, %if.end.i.i ]
-  %call1.i.i.i = tail call ptr @g_hash_table_lookup(ptr noundef %46, ptr noundef nonnull %44) #19
+  %call1.i.i.i = tail call ptr @g_hash_table_lookup(ptr noundef %46, ptr noundef nonnull %44) #20
   store ptr %call1.i.i.i, ptr %parent_type.i, align 8
   %tobool5.not.i = icmp eq ptr %call1.i.i.i, null
   br i1 %tobool5.not.i, label %if.then6.i, label %if.then39
@@ -2528,8 +2528,8 @@ if.then6.i:                                       ; preds = %type_get_by_name.ex
   %47 = load ptr, ptr @stderr, align 8
   %48 = load ptr, ptr %ti, align 8
   %49 = load ptr, ptr %parent.i, align 8
-  %call8.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %47, ptr noundef nonnull @.str.70, ptr noundef %48, ptr noundef %49) #20
-  tail call void @abort() #18
+  %call8.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %47, ptr noundef nonnull @.str.70, ptr noundef %48, ptr noundef %49) #21
+  tail call void @abort() #19
   unreachable
 
 if.then39:                                        ; preds = %type_get_by_name.exit.i, %if.end33
@@ -2542,7 +2542,7 @@ if.then39:                                        ; preds = %type_get_by_name.ex
   br i1 %cmp42.not, label %if.else44, label %do.body46
 
 if.else44:                                        ; preds = %if.then39
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 333, ptr noundef nonnull @__func__.type_initialize, ptr noundef nonnull @.str.66) #18
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 333, ptr noundef nonnull @__func__.type_initialize, ptr noundef nonnull @.str.66) #19
   unreachable
 
 do.body46:                                        ; preds = %if.then39
@@ -2553,7 +2553,7 @@ do.body46:                                        ; preds = %if.then39
   br i1 %cmp49.not, label %if.else51, label %do.end53
 
 if.else51:                                        ; preds = %do.body46
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 334, ptr noundef nonnull @__func__.type_initialize, ptr noundef nonnull @.str.67) #18
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 334, ptr noundef nonnull @__func__.type_initialize, ptr noundef nonnull @.str.67) #19
   unreachable
 
 do.end53:                                         ; preds = %do.body46
@@ -2601,14 +2601,14 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   store ptr %64, ptr %parent.i106, align 8
   %65 = load ptr, ptr %ti, align 8
   %66 = load ptr, ptr %62, align 8
-  %call.i = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.69, ptr noundef %65, ptr noundef %66) #19
+  %call.i = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.69, ptr noundef %65, ptr noundef %66) #20
   store ptr %call.i, ptr %info.i, align 8
   store i8 1, ptr %abstract.i, align 8
   %call4.i = call fastcc ptr @type_new(ptr noundef nonnull %info.i)
   %parent_type5.i = getelementptr inbounds i8, ptr %call4.i, i64 96
   store ptr %63, ptr %parent_type5.i, align 8
   tail call fastcc void @type_initialize(ptr noundef %call4.i)
-  tail call void @g_free(ptr noundef %call.i) #19
+  tail call void @g_free(ptr noundef %call.i) #20
   %class.i = getelementptr inbounds i8, ptr %call4.i, i64 104
   %67 = load ptr, ptr %class.i, align 8
   %68 = load ptr, ptr %class, align 8
@@ -2619,7 +2619,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %69 = load ptr, ptr %class, align 8
   %interfaces.i = getelementptr inbounds i8, ptr %69, i64 8
   %70 = load ptr, ptr %interfaces.i, align 8
-  %call10.i = tail call ptr @g_slist_append(ptr noundef %70, ptr noundef %67) #19
+  %call10.i = tail call ptr @g_slist_append(ptr noundef %70, ptr noundef %67) #20
   %71 = load ptr, ptr %class, align 8
   %interfaces12.i = getelementptr inbounds i8, ptr %71, i64 8
   store ptr %call10.i, ptr %interfaces12.i, align 8
@@ -2643,13 +2643,13 @@ if.end.i107:                                      ; preds = %for.body64
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %type_get_by_name.exit
 
 if.then.i.i.i:                                    ; preds = %if.end.i107
-  %call.i.i.i = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal) #19
+  %call.i.i.i = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal) #20
   store ptr %call.i.i.i, ptr @type_table_get.type_table, align 8
   br label %type_get_by_name.exit
 
 type_get_by_name.exit:                            ; preds = %if.end.i107, %if.then.i.i.i
   %74 = phi ptr [ %call.i.i.i, %if.then.i.i.i ], [ %73, %if.end.i107 ]
-  %call1.i.i = tail call ptr @g_hash_table_lookup(ptr noundef %74, ptr noundef nonnull %72) #19
+  %call1.i.i = tail call ptr @g_hash_table_lookup(ptr noundef %74, ptr noundef nonnull %72) #20
   %tobool67.not = icmp eq ptr %call1.i.i, null
   br i1 %tobool67.not, label %type_get_by_name.exit.if.then68_crit_edge, label %if.end73
 
@@ -2661,8 +2661,8 @@ type_get_by_name.exit.if.then68_crit_edge:        ; preds = %type_get_by_name.ex
 if.then68:                                        ; preds = %for.body64, %type_get_by_name.exit.if.then68_crit_edge
   %75 = phi ptr [ %.pre, %type_get_by_name.exit.if.then68_crit_edge ], [ null, %for.body64 ]
   %76 = load ptr, ptr %.ph, align 8
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.68, ptr noundef %75, ptr noundef %76) #19
-  tail call void @abort() #18
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.68, ptr noundef %75, ptr noundef %76) #20
+  tail call void @abort() #19
   unreachable
 
 if.end73:                                         ; preds = %type_get_by_name.exit
@@ -2700,13 +2700,13 @@ if.end.i.i.i113:                                  ; preds = %land.lhs.true.i.i
   br i1 %cmp.i.i.i.i.i114, label %if.then.i.i.i.i.i120, label %type_get_by_name.exit.i.i115
 
 if.then.i.i.i.i.i120:                             ; preds = %if.end.i.i.i113
-  %call.i.i.i.i.i121 = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal) #19
+  %call.i.i.i.i.i121 = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal) #20
   store ptr %call.i.i.i.i.i121, ptr @type_table_get.type_table, align 8
   br label %type_get_by_name.exit.i.i115
 
 type_get_by_name.exit.i.i115:                     ; preds = %if.then.i.i.i.i.i120, %if.end.i.i.i113
   %83 = phi ptr [ %call.i.i.i.i.i121, %if.then.i.i.i.i.i120 ], [ %82, %if.end.i.i.i113 ]
-  %call1.i.i.i.i116 = tail call ptr @g_hash_table_lookup(ptr noundef %83, ptr noundef nonnull %81) #19
+  %call1.i.i.i.i116 = tail call ptr @g_hash_table_lookup(ptr noundef %83, ptr noundef nonnull %81) #20
   store ptr %call1.i.i.i.i116, ptr %parent_type.i.i110, align 8
   %tobool5.not.i.i117 = icmp eq ptr %call1.i.i.i.i116, null
   br i1 %tobool5.not.i.i117, label %if.then6.i.i118, label %type_get_parent.exit.i112
@@ -2716,8 +2716,8 @@ if.then6.i.i118:                                  ; preds = %type_get_by_name.ex
   %84 = load ptr, ptr @stderr, align 8
   %85 = load ptr, ptr %type.addr.09.i, align 8
   %86 = load ptr, ptr %parent.i.i.le, align 8
-  %call8.i.i119 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %84, ptr noundef nonnull @.str.70, ptr noundef %85, ptr noundef %86) #20
-  tail call void @abort() #18
+  %call8.i.i119 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %84, ptr noundef nonnull @.str.70, ptr noundef %85, ptr noundef %86) #21
+  tail call void @abort() #19
   unreachable
 
 type_get_parent.exit.i112:                        ; preds = %type_get_by_name.exit.i.i115, %if.end3.i
@@ -2740,14 +2740,14 @@ if.end89:                                         ; preds = %for.cond76.backedge
   %88 = load ptr, ptr %call1.i.i, align 8
   store ptr %88, ptr %parent.i123, align 8
   %89 = load ptr, ptr %ti, align 8
-  %call.i124 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.69, ptr noundef %89, ptr noundef %88) #19
+  %call.i124 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.69, ptr noundef %89, ptr noundef %88) #20
   store ptr %call.i124, ptr %info.i122, align 8
   store i8 1, ptr %abstract.i125, align 8
   %call4.i126 = call fastcc ptr @type_new(ptr noundef nonnull %info.i122)
   %parent_type5.i127 = getelementptr inbounds i8, ptr %call4.i126, i64 96
   store ptr %call1.i.i, ptr %parent_type5.i127, align 8
   tail call fastcc void @type_initialize(ptr noundef %call4.i126)
-  tail call void @g_free(ptr noundef %call.i124) #19
+  tail call void @g_free(ptr noundef %call.i124) #20
   %class.i128 = getelementptr inbounds i8, ptr %call4.i126, i64 104
   %90 = load ptr, ptr %class.i128, align 8
   %91 = load ptr, ptr %class, align 8
@@ -2758,7 +2758,7 @@ if.end89:                                         ; preds = %for.cond76.backedge
   %92 = load ptr, ptr %class, align 8
   %interfaces.i132 = getelementptr inbounds i8, ptr %92, i64 8
   %93 = load ptr, ptr %interfaces.i132, align 8
-  %call10.i133 = tail call ptr @g_slist_append(ptr noundef %93, ptr noundef %90) #19
+  %call10.i133 = tail call ptr @g_slist_append(ptr noundef %93, ptr noundef %90) #20
   %94 = load ptr, ptr %class, align 8
   %interfaces12.i134 = getelementptr inbounds i8, ptr %94, i64 8
   store ptr %call10.i133, ptr %interfaces12.i134, align 8
@@ -2773,7 +2773,7 @@ for.inc90:                                        ; preds = %type_is_ancestor.ex
 
 if.end92:                                         ; preds = %for.inc90, %for.cond61.preheader, %land.lhs.true.i
   %96 = phi ptr [ null, %land.lhs.true.i ], [ %.ph, %for.cond61.preheader ], [ %.ph, %for.inc90 ]
-  %call93 = tail call ptr @g_hash_table_new_full(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal, ptr noundef null, ptr noundef nonnull @object_property_free) #19
+  %call93 = tail call ptr @g_hash_table_new_full(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal, ptr noundef null, ptr noundef nonnull @object_property_free) #20
   %97 = load ptr, ptr %class, align 8
   %properties = getelementptr inbounds i8, ptr %97, i64 88
   store ptr %call93, ptr %properties, align 8
@@ -2796,7 +2796,7 @@ while.body:                                       ; preds = %while.body.backedge
 if.then99:                                        ; preds = %while.body
   %100 = load ptr, ptr %class, align 8
   %101 = load ptr, ptr %class_data, align 8
-  tail call void %99(ptr noundef %100, ptr noundef %101) #19
+  tail call void %99(ptr noundef %100, ptr noundef %101) #20
   br label %if.end102
 
 if.end102:                                        ; preds = %if.then99, %while.body
@@ -2821,13 +2821,13 @@ if.end.i.i140:                                    ; preds = %land.lhs.true.i137
   br i1 %cmp.i.i.i.i141, label %if.then.i.i.i.i147, label %type_get_by_name.exit.i142
 
 if.then.i.i.i.i147:                               ; preds = %if.end.i.i140
-  %call.i.i.i.i148 = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal) #19
+  %call.i.i.i.i148 = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal) #20
   store ptr %call.i.i.i.i148, ptr @type_table_get.type_table, align 8
   br label %type_get_by_name.exit.i142
 
 type_get_by_name.exit.i142:                       ; preds = %if.then.i.i.i.i147, %if.end.i.i140
   %105 = phi ptr [ %call.i.i.i.i148, %if.then.i.i.i.i147 ], [ %104, %if.end.i.i140 ]
-  %call1.i.i.i143 = tail call ptr @g_hash_table_lookup(ptr noundef %105, ptr noundef nonnull %103) #19
+  %call1.i.i.i143 = tail call ptr @g_hash_table_lookup(ptr noundef %105, ptr noundef nonnull %103) #20
   store ptr %call1.i.i.i143, ptr %parent_type.i135, align 8
   %tobool5.not.i144 = icmp eq ptr %call1.i.i.i143, null
   br i1 %tobool5.not.i144, label %if.then6.i145, label %while.body.backedge
@@ -2837,8 +2837,8 @@ if.then6.i145:                                    ; preds = %type_get_by_name.ex
   %106 = load ptr, ptr @stderr, align 8
   %107 = load ptr, ptr %parent.0177, align 8
   %108 = load ptr, ptr %parent.i138.le, align 8
-  %call8.i146 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %106, ptr noundef nonnull @.str.70, ptr noundef %107, ptr noundef %108) #20
-  tail call void @abort() #18
+  %call8.i146 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %106, ptr noundef nonnull @.str.70, ptr noundef %107, ptr noundef %108) #21
+  tail call void @abort() #19
   unreachable
 
 while.end:                                        ; preds = %land.lhs.true.i137, %if.end92
@@ -2851,7 +2851,7 @@ if.then105:                                       ; preds = %while.end
   %110 = load ptr, ptr %class, align 8
   %class_data108 = getelementptr inbounds i8, ptr %ti, i64 48
   %111 = load ptr, ptr %class_data108, align 8
-  tail call void %109(ptr noundef %110, ptr noundef %111) #19
+  tail call void %109(ptr noundef %110, ptr noundef %111) #20
   br label %if.end109
 
 if.end109:                                        ; preds = %entry, %if.then105, %while.end
@@ -2870,13 +2870,13 @@ if.end.i.i:                                       ; preds = %entry
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %type_get_by_name.exit.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end.i.i
-  %call.i.i.i.i = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal) #19
+  %call.i.i.i.i = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal) #20
   store ptr %call.i.i.i.i, ptr @type_table_get.type_table, align 8
   br label %type_get_by_name.exit.i
 
 type_get_by_name.exit.i:                          ; preds = %if.then.i.i.i.i, %if.end.i.i
   %1 = phi ptr [ %call.i.i.i.i, %if.then.i.i.i.i ], [ %0, %if.end.i.i ]
-  %call1.i.i.i = tail call ptr @g_hash_table_lookup(ptr noundef %1, ptr noundef nonnull %typename) #19
+  %call1.i.i.i = tail call ptr @g_hash_table_lookup(ptr noundef %1, ptr noundef nonnull %typename) #20
   %tobool.not.i = icmp eq ptr %call1.i.i.i, null
   br i1 %tobool.not.i, label %object_class_by_name.exit, label %if.end.i
 
@@ -2912,13 +2912,13 @@ if.end.i.i:                                       ; preds = %land.lhs.true.i
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %type_get_by_name.exit.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end.i.i
-  %call.i.i.i.i = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal) #19
+  %call.i.i.i.i = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal) #20
   store ptr %call.i.i.i.i, ptr @type_table_get.type_table, align 8
   br label %type_get_by_name.exit.i
 
 type_get_by_name.exit.i:                          ; preds = %if.then.i.i.i.i, %if.end.i.i
   %4 = phi ptr [ %call.i.i.i.i, %if.then.i.i.i.i ], [ %3, %if.end.i.i ]
-  %call1.i.i.i = tail call ptr @g_hash_table_lookup(ptr noundef %4, ptr noundef nonnull %2) #19
+  %call1.i.i.i = tail call ptr @g_hash_table_lookup(ptr noundef %4, ptr noundef nonnull %2) #20
   store ptr %call1.i.i.i, ptr %parent_type.i, align 8
   %tobool5.not.i = icmp eq ptr %call1.i.i.i, null
   br i1 %tobool5.not.i, label %if.then6.i, label %if.end
@@ -2927,8 +2927,8 @@ if.then6.i:                                       ; preds = %type_get_by_name.ex
   %5 = load ptr, ptr @stderr, align 8
   %6 = load ptr, ptr %0, align 8
   %7 = load ptr, ptr %parent.i, align 8
-  %call8.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.70, ptr noundef %6, ptr noundef %7) #20
-  tail call void @abort() #18
+  %call8.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.70, ptr noundef %6, ptr noundef %7) #21
+  tail call void @abort() #19
   unreachable
 
 if.end:                                           ; preds = %type_get_by_name.exit.i, %entry
@@ -2961,13 +2961,13 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %type_table_get.exit
 
 if.then.i:                                        ; preds = %entry
-  %call.i = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal) #19
+  %call.i = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal) #20
   store ptr %call.i, ptr @type_table_get.type_table, align 8
   br label %type_table_get.exit
 
 type_table_get.exit:                              ; preds = %entry, %if.then.i
   %1 = phi ptr [ %call.i, %if.then.i ], [ %0, %entry ]
-  call void @g_hash_table_foreach(ptr noundef %1, ptr noundef nonnull @object_class_foreach_tramp, ptr noundef nonnull %data) #19
+  call void @g_hash_table_foreach(ptr noundef %1, ptr noundef nonnull @object_class_foreach_tramp, ptr noundef nonnull %data) #20
   store i1 false, ptr @enumerating_types, align 1
   ret void
 }
@@ -3006,7 +3006,7 @@ if.end7:                                          ; preds = %land.lhs.true3, %if
   %4 = load ptr, ptr %opaque, align 8
   %opaque8 = getelementptr inbounds i8, ptr %opaque, i64 24
   %5 = load ptr, ptr %opaque8, align 8
-  tail call void %4(ptr noundef %0, ptr noundef %5) #19
+  tail call void %4(ptr noundef %0, ptr noundef %5) #20
   br label %return
 
 return:                                           ; preds = %land.lhs.true3, %land.lhs.true, %if.end7
@@ -3022,8 +3022,8 @@ entry:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %prop.i)
   %properties.i = getelementptr inbounds i8, ptr %obj, i64 16
   %0 = load ptr, ptr %properties.i, align 8
-  call void @g_hash_table_iter_init(ptr noundef nonnull %iter.i, ptr noundef %0) #19
-  %call6.i = call i32 @g_hash_table_iter_next(ptr noundef nonnull %iter.i, ptr noundef null, ptr noundef nonnull %prop.i) #19
+  call void @g_hash_table_iter_init(ptr noundef nonnull %iter.i, ptr noundef %0) #20
+  %call6.i = call i32 @g_hash_table_iter_next(ptr noundef nonnull %iter.i, ptr noundef null, ptr noundef nonnull %prop.i) #20
   %tobool.not7.i = icmp eq i32 %call6.i, 0
   br i1 %tobool.not7.i, label %do_object_child_foreach.exit, label %while.body.i
 
@@ -3031,7 +3031,7 @@ while.body.i:                                     ; preds = %entry, %if.end12.i
   %1 = load ptr, ptr %prop.i, align 8
   %2 = getelementptr i8, ptr %1, i64 8
   %.val.i = load ptr, ptr %2, align 8
-  %call.i.i = call i32 @strstart(ptr noundef %.val.i, ptr noundef nonnull @.str.80, ptr noundef null) #19
+  %call.i.i = call i32 @strstart(ptr noundef %.val.i, ptr noundef nonnull @.str.80, ptr noundef null) #20
   %tobool.i.not.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.i.not.i, label %if.end12.i, label %if.then.i
 
@@ -3039,12 +3039,12 @@ if.then.i:                                        ; preds = %while.body.i
   %3 = load ptr, ptr %prop.i, align 8
   %opaque2.i = getelementptr inbounds i8, ptr %3, i64 64
   %4 = load ptr, ptr %opaque2.i, align 8
-  %call3.i = call i32 %fn(ptr noundef %4, ptr noundef %opaque) #19
+  %call3.i = call i32 %fn(ptr noundef %4, ptr noundef %opaque) #20
   %cmp.not.i = icmp eq i32 %call3.i, 0
   br i1 %cmp.not.i, label %if.end12.i, label %do_object_child_foreach.exit
 
 if.end12.i:                                       ; preds = %if.then.i, %while.body.i
-  %call.i = call i32 @g_hash_table_iter_next(ptr noundef nonnull %iter.i, ptr noundef null, ptr noundef nonnull %prop.i) #19
+  %call.i = call i32 @g_hash_table_iter_next(ptr noundef nonnull %iter.i, ptr noundef null, ptr noundef nonnull %prop.i) #20
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %do_object_child_foreach.exit, label %while.body.i, !llvm.loop !26
 
@@ -3062,8 +3062,8 @@ entry:
   %prop = alloca ptr, align 8
   %properties = getelementptr inbounds i8, ptr %obj, i64 16
   %0 = load ptr, ptr %properties, align 8
-  call void @g_hash_table_iter_init(ptr noundef nonnull %iter, ptr noundef %0) #19
-  %call6 = call i32 @g_hash_table_iter_next(ptr noundef nonnull %iter, ptr noundef null, ptr noundef nonnull %prop) #19
+  call void @g_hash_table_iter_init(ptr noundef nonnull %iter, ptr noundef %0) #20
+  %call6 = call i32 @g_hash_table_iter_next(ptr noundef nonnull %iter, ptr noundef null, ptr noundef nonnull %prop) #20
   %tobool.not7 = icmp eq i32 %call6, 0
   br i1 %tobool.not7, label %while.end, label %while.body.lr.ph
 
@@ -3074,7 +3074,7 @@ while.body.us:                                    ; preds = %while.body.lr.ph, %
   %1 = load ptr, ptr %prop, align 8
   %2 = getelementptr i8, ptr %1, i64 8
   %.val.us = load ptr, ptr %2, align 8
-  %call.i.us = call i32 @strstart(ptr noundef %.val.us, ptr noundef nonnull @.str.80, ptr noundef null) #19
+  %call.i.us = call i32 @strstart(ptr noundef %.val.us, ptr noundef nonnull @.str.80, ptr noundef null) #20
   %tobool.i.not.us = icmp eq i32 %call.i.us, 0
   br i1 %tobool.i.not.us, label %if.end12.us, label %if.then.us
 
@@ -3082,7 +3082,7 @@ if.then.us:                                       ; preds = %while.body.us
   %3 = load ptr, ptr %prop, align 8
   %opaque2.us = getelementptr inbounds i8, ptr %3, i64 64
   %4 = load ptr, ptr %opaque2.us, align 8
-  %call3.us = call i32 %fn(ptr noundef %4, ptr noundef %opaque) #19
+  %call3.us = call i32 %fn(ptr noundef %4, ptr noundef %opaque) #20
   %cmp.not.us = icmp eq i32 %call3.us, 0
   br i1 %cmp.not.us, label %if.end.us, label %while.end
 
@@ -3092,7 +3092,7 @@ if.end.us:                                        ; preds = %if.then.us
   br i1 %cmp8.not.us, label %if.end12.us, label %while.end
 
 if.end12.us:                                      ; preds = %if.end.us, %while.body.us
-  %call.us = call i32 @g_hash_table_iter_next(ptr noundef nonnull %iter, ptr noundef null, ptr noundef nonnull %prop) #19
+  %call.us = call i32 @g_hash_table_iter_next(ptr noundef nonnull %iter, ptr noundef null, ptr noundef nonnull %prop) #20
   %tobool.not.us = icmp eq i32 %call.us, 0
   br i1 %tobool.not.us, label %while.end, label %while.body.us, !llvm.loop !26
 
@@ -3100,7 +3100,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %5 = load ptr, ptr %prop, align 8
   %6 = getelementptr i8, ptr %5, i64 8
   %.val = load ptr, ptr %6, align 8
-  %call.i = call i32 @strstart(ptr noundef %.val, ptr noundef nonnull @.str.80, ptr noundef null) #19
+  %call.i = call i32 @strstart(ptr noundef %.val, ptr noundef nonnull @.str.80, ptr noundef null) #20
   %tobool.i.not = icmp eq i32 %call.i, 0
   br i1 %tobool.i.not, label %if.end12, label %if.then
 
@@ -3108,12 +3108,12 @@ if.then:                                          ; preds = %while.body
   %7 = load ptr, ptr %prop, align 8
   %opaque2 = getelementptr inbounds i8, ptr %7, i64 64
   %8 = load ptr, ptr %opaque2, align 8
-  %call3 = call i32 %fn(ptr noundef %8, ptr noundef %opaque) #19
+  %call3 = call i32 %fn(ptr noundef %8, ptr noundef %opaque) #20
   %cmp.not = icmp eq i32 %call3, 0
   br i1 %cmp.not, label %if.end12, label %while.end
 
 if.end12:                                         ; preds = %if.then, %while.body
-  %call = call i32 @g_hash_table_iter_next(ptr noundef nonnull %iter, ptr noundef null, ptr noundef nonnull %prop) #19
+  %call = call i32 @g_hash_table_iter_next(ptr noundef nonnull %iter, ptr noundef null, ptr noundef nonnull %prop) #20
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !26
 
@@ -3150,13 +3150,13 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %object_class_foreach.exit
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i.i = call ptr @g_hash_table_new(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal) #19
+  %call.i.i = call ptr @g_hash_table_new(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal) #20
   store ptr %call.i.i, ptr @type_table_get.type_table, align 8
   br label %object_class_foreach.exit
 
 object_class_foreach.exit:                        ; preds = %entry, %if.then.i.i
   %1 = phi ptr [ %call.i.i, %if.then.i.i ], [ %0, %entry ]
-  call void @g_hash_table_foreach(ptr noundef %1, ptr noundef nonnull @object_class_foreach_tramp, ptr noundef nonnull %data.i) #19
+  call void @g_hash_table_foreach(ptr noundef %1, ptr noundef nonnull @object_class_foreach_tramp, ptr noundef nonnull %data.i) #20
   store i1 false, ptr @enumerating_types, align 1
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %data.i)
   %2 = load ptr, ptr %list, align 8
@@ -3167,7 +3167,7 @@ object_class_foreach.exit:                        ; preds = %entry, %if.then.i.i
 define internal void @object_class_get_list_tramp(ptr noundef %klass, ptr nocapture noundef %opaque) #0 {
 entry:
   %0 = load ptr, ptr %opaque, align 8
-  %call = tail call ptr @g_slist_prepend(ptr noundef %0, ptr noundef %klass) #19
+  %call = tail call ptr @g_slist_prepend(ptr noundef %0, ptr noundef %klass) #20
   store ptr %call, ptr %opaque, align 8
   ret void
 }
@@ -3194,31 +3194,31 @@ entry:
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %object_class_get_list.exit
 
 if.then.i.i.i:                                    ; preds = %entry
-  %call.i.i.i = call ptr @g_hash_table_new(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal) #19
+  %call.i.i.i = call ptr @g_hash_table_new(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal) #20
   store ptr %call.i.i.i, ptr @type_table_get.type_table, align 8
   br label %object_class_get_list.exit
 
 object_class_get_list.exit:                       ; preds = %entry, %if.then.i.i.i
   %1 = phi ptr [ %call.i.i.i, %if.then.i.i.i ], [ %0, %entry ]
-  call void @g_hash_table_foreach(ptr noundef %1, ptr noundef nonnull @object_class_foreach_tramp, ptr noundef nonnull %data.i.i) #19
+  call void @g_hash_table_foreach(ptr noundef %1, ptr noundef nonnull @object_class_foreach_tramp, ptr noundef nonnull %data.i.i) #20
   store i1 false, ptr @enumerating_types, align 1
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %data.i.i)
   %2 = load ptr, ptr %list.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %list.i)
-  %call1 = call ptr @g_slist_sort(ptr noundef %2, ptr noundef nonnull @object_class_cmp) #19
+  %call1 = call ptr @g_slist_sort(ptr noundef %2, ptr noundef nonnull @object_class_cmp) #20
   ret ptr %call1
 }
 
 declare ptr @g_slist_sort(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(read) uwtable
-define internal i32 @object_class_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #8 {
+define internal i32 @object_class_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #9 {
 entry:
   %0 = load ptr, ptr %a, align 8
   %1 = load ptr, ptr %0, align 8
   %2 = load ptr, ptr %b, align 8
   %3 = load ptr, ptr %2, align 8
-  %call2 = tail call i32 @strcasecmp(ptr noundef %1, ptr noundef %3) #23
+  %call2 = tail call i32 @strcasecmp(ptr noundef %1, ptr noundef %3) #24
   ret i32 %call2
 }
 
@@ -3235,7 +3235,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %return, label %if.else
 
 if.else:                                          ; preds = %if.end
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1203, ptr noundef nonnull @__func__.object_ref, ptr noundef nonnull @.str.14) #18
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1203, ptr noundef nonnull @__func__.object_ref, ptr noundef nonnull @.str.14) #19
   unreachable
 
 return:                                           ; preds = %if.end, %entry
@@ -3245,7 +3245,7 @@ return:                                           ; preds = %if.end, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @object_property_try_add(ptr nocapture noundef readonly %obj, ptr noundef %name, ptr noundef %type, ptr noundef %get, ptr noundef %set, ptr noundef %release, ptr noundef %opaque, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #23
+  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #24
   %cmp = icmp ugt i64 %call, 2
   br i1 %cmp, label %land.lhs.true, label %if.end12
 
@@ -3257,7 +3257,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %tobool.not, label %if.then, label %if.end12
 
 if.then:                                          ; preds = %land.lhs.true
-  %call3 = tail call noalias ptr @g_strdup(ptr noundef %name) #19
+  %call3 = tail call noalias ptr @g_strdup(ptr noundef %name) #20
   %0 = getelementptr i8, ptr %call3, i64 %call
   %arrayidx = getelementptr i8, ptr %0, i64 -3
   store i8 0, ptr %arrayidx, align 1
@@ -3270,19 +3270,19 @@ for.cond:                                         ; preds = %for.body
 
 for.body:                                         ; preds = %if.then, %for.cond
   %i.035 = phi i32 [ 0, %if.then ], [ %inc, %for.cond ]
-  %call5 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.17, ptr noundef %call3, i32 noundef %i.035) #19
+  %call5 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.17, ptr noundef %call3, i32 noundef %i.035) #20
   %call6 = tail call ptr @object_property_try_add(ptr noundef %obj, ptr noundef %call5, ptr noundef %type, ptr noundef %get, ptr noundef %set, ptr noundef %release, ptr noundef %opaque, ptr noundef null)
-  tail call void @g_free(ptr noundef %call5) #19
+  tail call void @g_free(ptr noundef %call5) #20
   %tobool7.not = icmp eq ptr %call6, null
   br i1 %tobool7.not, label %for.cond, label %for.end
 
 for.end:                                          ; preds = %for.body
-  tail call void @g_free(ptr noundef %call3) #19
+  tail call void @g_free(ptr noundef %call3) #20
   br label %return
 
 if.else:                                          ; preds = %for.cond
-  tail call void @g_free(ptr noundef %call3) #19
-  tail call void @__assert_fail(ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.1, i32 noundef 1248, ptr noundef nonnull @__PRETTY_FUNCTION__.object_property_try_add) #18
+  tail call void @g_free(ptr noundef %call3) #20
+  tail call void @__assert_fail(ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.1, i32 noundef 1248, ptr noundef nonnull @__PRETTY_FUNCTION__.object_property_try_add) #19
   unreachable
 
 if.end12:                                         ; preds = %land.lhs.true, %entry
@@ -3294,7 +3294,7 @@ if.end12:                                         ; preds = %land.lhs.true, %ent
 object_property_find.exit:                        ; preds = %if.end12
   %properties.i = getelementptr inbounds i8, ptr %obj, i64 16
   %2 = load ptr, ptr %properties.i, align 8
-  %call2.i = tail call ptr @g_hash_table_lookup(ptr noundef %2, ptr noundef %name) #19
+  %call2.i = tail call ptr @g_hash_table_lookup(ptr noundef %2, ptr noundef %name) #20
   %cmp14.not = icmp eq ptr %call2.i, null
   br i1 %cmp14.not, label %if.end17, label %if.then15
 
@@ -3302,14 +3302,14 @@ if.then15:                                        ; preds = %if.end12, %object_p
   %3 = load ptr, ptr %obj, align 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 1254, ptr noundef nonnull @__func__.object_property_try_add, ptr noundef nonnull @.str.19, ptr noundef %name, ptr noundef %5) #19
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 1254, ptr noundef nonnull @__func__.object_property_try_add, ptr noundef nonnull @.str.19, ptr noundef %name, ptr noundef %5) #20
   br label %return
 
 if.end17:                                         ; preds = %object_property_find.exit
-  %call18 = tail call noalias dereferenceable_or_null(80) ptr @g_malloc0(i64 noundef 80) #22
-  %call19 = tail call noalias ptr @g_strdup(ptr noundef %name) #19
+  %call18 = tail call noalias dereferenceable_or_null(80) ptr @g_malloc0(i64 noundef 80) #23
+  %call19 = tail call noalias ptr @g_strdup(ptr noundef %name) #20
   store ptr %call19, ptr %call18, align 8
-  %call21 = tail call noalias ptr @g_strdup(ptr noundef %type) #19
+  %call21 = tail call noalias ptr @g_strdup(ptr noundef %type) #20
   %type22 = getelementptr inbounds i8, ptr %call18, i64 8
   store ptr %call21, ptr %type22, align 8
   %get23 = getelementptr inbounds i8, ptr %call18, i64 24
@@ -3321,7 +3321,7 @@ if.end17:                                         ; preds = %object_property_fin
   %opaque26 = getelementptr inbounds i8, ptr %call18, i64 64
   store ptr %opaque, ptr %opaque26, align 8
   %6 = load ptr, ptr %properties.i, align 8
-  %call28 = tail call i32 @g_hash_table_insert(ptr noundef %6, ptr noundef %call19, ptr noundef nonnull %call18) #19
+  %call28 = tail call i32 @g_hash_table_insert(ptr noundef %6, ptr noundef %call19, ptr noundef nonnull %call18) #20
   br label %return
 
 return:                                           ; preds = %for.end, %if.end17, %if.then15
@@ -3330,14 +3330,14 @@ return:                                           ; preds = %for.end, %if.end17,
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #10
 
 declare noalias ptr @g_strdup_printf(ptr noundef, ...) local_unnamed_addr #3
 
 declare void @g_free(ptr noundef) #3
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #10
+declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #11
 
 declare i32 @g_hash_table_insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
@@ -3356,14 +3356,14 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.1, i32 noundef 1294, ptr noundef nonnull @__PRETTY_FUNCTION__.object_class_property_add) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.1, i32 noundef 1294, ptr noundef nonnull @__PRETTY_FUNCTION__.object_class_property_add) #19
   unreachable
 
 if.end:                                           ; preds = %entry
-  %call1 = tail call noalias dereferenceable_or_null(80) ptr @g_malloc0(i64 noundef 80) #22
-  %call2 = tail call noalias ptr @g_strdup(ptr noundef %name) #19
+  %call1 = tail call noalias dereferenceable_or_null(80) ptr @g_malloc0(i64 noundef 80) #23
+  %call2 = tail call noalias ptr @g_strdup(ptr noundef %name) #20
   store ptr %call2, ptr %call1, align 8
-  %call4 = tail call noalias ptr @g_strdup(ptr noundef %type) #19
+  %call4 = tail call noalias ptr @g_strdup(ptr noundef %type) #20
   %type5 = getelementptr inbounds i8, ptr %call1, i64 8
   store ptr %call4, ptr %type5, align 8
   %get6 = getelementptr inbounds i8, ptr %call1, i64 24
@@ -3376,7 +3376,7 @@ if.end:                                           ; preds = %entry
   store ptr %opaque, ptr %opaque9, align 8
   %properties = getelementptr inbounds i8, ptr %klass, i64 88
   %0 = load ptr, ptr %properties, align 8
-  %call11 = tail call i32 @g_hash_table_insert(ptr noundef %0, ptr noundef %call2, ptr noundef nonnull %call1) #19
+  %call11 = tail call i32 @g_hash_table_insert(ptr noundef %0, ptr noundef %call2, ptr noundef nonnull %call1) #20
   ret ptr %call1
 }
 
@@ -3395,7 +3395,7 @@ if.then:                                          ; preds = %entry
 if.end4:                                          ; preds = %if.then, %entry
   %properties = getelementptr inbounds i8, ptr %klass, i64 88
   %0 = load ptr, ptr %properties, align 8
-  %call5 = tail call ptr @g_hash_table_lookup(ptr noundef %0, ptr noundef %name) #19
+  %call5 = tail call ptr @g_hash_table_lookup(ptr noundef %0, ptr noundef %name) #20
   br label %return
 
 return:                                           ; preds = %if.then, %if.end4
@@ -3416,7 +3416,7 @@ entry:
 object_property_find.exit:                        ; preds = %entry
   %properties.i = getelementptr inbounds i8, ptr %obj, i64 16
   %1 = load ptr, ptr %properties.i, align 8
-  %call2.i = tail call ptr @g_hash_table_lookup(ptr noundef %1, ptr noundef %name) #19
+  %call2.i = tail call ptr @g_hash_table_lookup(ptr noundef %1, ptr noundef %name) #20
   %tobool.not = icmp eq ptr %call2.i, null
   br i1 %tobool.not, label %if.then, label %if.end
 
@@ -3424,7 +3424,7 @@ if.then:                                          ; preds = %object_property_fin
   %2 = load ptr, ptr %obj, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 1330, ptr noundef nonnull @__func__.object_property_find_err, ptr noundef nonnull @.str.21, ptr noundef %4, ptr noundef %name) #19
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 1330, ptr noundef nonnull @__func__.object_property_find_err, ptr noundef nonnull @.str.21, ptr noundef %4, ptr noundef %name) #20
   br label %if.end
 
 if.end:                                           ; preds = %entry, %if.then, %object_property_find.exit
@@ -3438,7 +3438,7 @@ entry:
   %iter1 = getelementptr inbounds i8, ptr %iter, i64 8
   %properties = getelementptr inbounds i8, ptr %obj, i64 16
   %0 = load ptr, ptr %properties, align 8
-  tail call void @g_hash_table_iter_init(ptr noundef nonnull %iter1, ptr noundef %0) #19
+  tail call void @g_hash_table_iter_init(ptr noundef nonnull %iter1, ptr noundef %0) #20
   %1 = load ptr, ptr %obj, align 8
   store ptr %1, ptr %iter, align 8
   ret void
@@ -3452,7 +3452,7 @@ entry:
   %key = alloca ptr, align 8
   %val = alloca ptr, align 8
   %iter1 = getelementptr inbounds i8, ptr %iter, i64 8
-  %call7 = call i32 @g_hash_table_iter_next(ptr noundef nonnull %iter1, ptr noundef nonnull %key, ptr noundef nonnull %val) #19
+  %call7 = call i32 @g_hash_table_iter_next(ptr noundef nonnull %iter1, ptr noundef nonnull %key, ptr noundef nonnull %val) #20
   %tobool.not8 = icmp eq i32 %call7, 0
   br i1 %tobool.not8, label %while.body, label %while.end
 
@@ -3464,11 +3464,11 @@ while.body:                                       ; preds = %entry, %if.end
 if.end:                                           ; preds = %while.body
   %properties = getelementptr inbounds i8, ptr %0, i64 88
   %1 = load ptr, ptr %properties, align 8
-  call void @g_hash_table_iter_init(ptr noundef nonnull %iter1, ptr noundef %1) #19
+  call void @g_hash_table_iter_init(ptr noundef nonnull %iter1, ptr noundef %1) #20
   %2 = load ptr, ptr %iter, align 8
   %call6 = call ptr @object_class_get_parent(ptr noundef %2)
   store ptr %call6, ptr %iter, align 8
-  %call = call i32 @g_hash_table_iter_next(ptr noundef nonnull %iter1, ptr noundef nonnull %key, ptr noundef nonnull %val) #19
+  %call = call i32 @g_hash_table_iter_next(ptr noundef nonnull %iter1, ptr noundef nonnull %key, ptr noundef nonnull %val) #20
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %while.body, label %while.end, !llvm.loop !9
 
@@ -3489,7 +3489,7 @@ entry:
   %iter1 = getelementptr inbounds i8, ptr %iter, i64 8
   %properties = getelementptr inbounds i8, ptr %klass, i64 88
   %0 = load ptr, ptr %properties, align 8
-  tail call void @g_hash_table_iter_init(ptr noundef nonnull %iter1, ptr noundef %0) #19
+  tail call void @g_hash_table_iter_init(ptr noundef nonnull %iter1, ptr noundef %0) #20
   %call = tail call ptr @object_class_get_parent(ptr noundef %klass)
   store ptr %call, ptr %iter, align 8
   ret void
@@ -3503,7 +3503,7 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 1384, ptr noundef nonnull @__func__.object_class_property_find_err, ptr noundef nonnull @.str.22, ptr noundef %name) #19
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 1384, ptr noundef nonnull @__func__.object_class_property_find_err, ptr noundef nonnull @.str.22, ptr noundef %name) #20
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -3515,7 +3515,7 @@ define dso_local void @object_property_del(ptr noundef %obj, ptr noundef %name) 
 entry:
   %properties = getelementptr inbounds i8, ptr %obj, i64 16
   %0 = load ptr, ptr %properties, align 8
-  %call = tail call ptr @g_hash_table_lookup(ptr noundef %0, ptr noundef %name) #19
+  %call = tail call ptr @g_hash_table_lookup(ptr noundef %0, ptr noundef %name) #20
   %release = getelementptr inbounds i8, ptr %call, i64 48
   %1 = load ptr, ptr %release, align 8
   %tobool.not = icmp eq ptr %1, null
@@ -3524,12 +3524,12 @@ entry:
 if.then:                                          ; preds = %entry
   %opaque = getelementptr inbounds i8, ptr %call, i64 64
   %2 = load ptr, ptr %opaque, align 8
-  tail call void %1(ptr noundef nonnull %obj, ptr noundef %name, ptr noundef %2) #19
+  tail call void %1(ptr noundef nonnull %obj, ptr noundef %name, ptr noundef %2) #20
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
   %3 = load ptr, ptr %properties, align 8
-  %call3 = tail call i32 @g_hash_table_remove(ptr noundef %3, ptr noundef %name) #19
+  %call3 = tail call i32 @g_hash_table_remove(ptr noundef %3, ptr noundef %name) #20
   ret void
 }
 
@@ -3548,7 +3548,7 @@ entry:
 object_property_find.exit.i:                      ; preds = %entry
   %properties.i.i = getelementptr inbounds i8, ptr %obj, i64 16
   %1 = load ptr, ptr %properties.i.i, align 8
-  %call2.i.i = tail call ptr @g_hash_table_lookup(ptr noundef %1, ptr noundef %name) #19
+  %call2.i.i = tail call ptr @g_hash_table_lookup(ptr noundef %1, ptr noundef %name) #20
   %tobool.not.i = icmp eq ptr %call2.i.i, null
   br i1 %tobool.not.i, label %object_property_find_err.exit, label %if.end
 
@@ -3556,7 +3556,7 @@ object_property_find_err.exit:                    ; preds = %object_property_fin
   %2 = load ptr, ptr %obj, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 1330, ptr noundef nonnull @__func__.object_property_find_err, ptr noundef nonnull @.str.21, ptr noundef %4, ptr noundef %name) #19
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 1330, ptr noundef nonnull @__func__.object_property_find_err, ptr noundef nonnull @.str.21, ptr noundef %4, ptr noundef %name) #20
   br label %return
 
 if.end:                                           ; preds = %object_property_find.exit.i, %entry
@@ -3570,15 +3570,15 @@ if.then1:                                         ; preds = %if.end
   %6 = load ptr, ptr %obj, align 8
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %7, align 8
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 1412, ptr noundef nonnull @__func__.object_property_get, ptr noundef nonnull @.str.23, ptr noundef %8, ptr noundef %name) #19
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 1412, ptr noundef nonnull @__func__.object_property_get, ptr noundef nonnull @.str.23, ptr noundef %8, ptr noundef %name) #20
   br label %return
 
 if.end3:                                          ; preds = %if.end
   %opaque = getelementptr inbounds i8, ptr %retval.0.i6.i.ph, i64 64
   %9 = load ptr, ptr %opaque, align 8
-  call void %5(ptr noundef nonnull %obj, ptr noundef %v, ptr noundef %name, ptr noundef %9, ptr noundef nonnull %err) #19
+  call void %5(ptr noundef nonnull %obj, ptr noundef %v, ptr noundef %name, ptr noundef %9, ptr noundef nonnull %err) #20
   %10 = load ptr, ptr %err, align 8
-  call void @error_propagate(ptr noundef %errp, ptr noundef %10) #19
+  call void @error_propagate(ptr noundef %errp, ptr noundef %10) #20
   %11 = load ptr, ptr %err, align 8
   %tobool5.not = icmp eq ptr %11, null
   br label %return
@@ -3607,7 +3607,7 @@ entry:
 object_property_find.exit.i:                      ; preds = %entry
   %properties.i.i = getelementptr inbounds i8, ptr %obj, i64 16
   %1 = load ptr, ptr %properties.i.i, align 8
-  %call2.i.i = tail call ptr @g_hash_table_lookup(ptr noundef %1, ptr noundef %name) #19
+  %call2.i.i = tail call ptr @g_hash_table_lookup(ptr noundef %1, ptr noundef %name) #20
   %tobool.not.i = icmp eq ptr %call2.i.i, null
   br i1 %tobool.not.i, label %object_property_find_err.exit, label %if.end5
 
@@ -3615,7 +3615,7 @@ object_property_find_err.exit:                    ; preds = %object_property_fin
   %2 = load ptr, ptr %obj, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.1, i32 noundef 1330, ptr noundef nonnull @__func__.object_property_find_err, ptr noundef nonnull @.str.21, ptr noundef %4, ptr noundef %name) #19
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.1, i32 noundef 1330, ptr noundef nonnull @__func__.object_property_find_err, ptr noundef nonnull @.str.21, ptr noundef %4, ptr noundef %name) #20
   br label %cleanup
 
 if.end5:                                          ; preds = %object_property_find.exit.i, %entry
@@ -3629,13 +3629,13 @@ if.then7:                                         ; preds = %if.end5
   %6 = load ptr, ptr %obj, align 8
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %7, align 8
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.1, i32 noundef 1432, ptr noundef nonnull @__func__.object_property_set, ptr noundef nonnull @.str.24, ptr noundef %8, ptr noundef %name) #19
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.1, i32 noundef 1432, ptr noundef nonnull @__func__.object_property_set, ptr noundef nonnull @.str.24, ptr noundef %8, ptr noundef %name) #20
   br label %cleanup
 
 if.end9:                                          ; preds = %if.end5
   %opaque = getelementptr inbounds i8, ptr %retval.0.i6.i.ph, i64 64
   %9 = load ptr, ptr %opaque, align 8
-  call void %5(ptr noundef nonnull %obj, ptr noundef %v, ptr noundef %name, ptr noundef %9, ptr noundef nonnull %spec.select) #19
+  call void %5(ptr noundef nonnull %obj, ptr noundef %v, ptr noundef %name, ptr noundef %9, ptr noundef nonnull %spec.select) #20
   %10 = load ptr, ptr %spec.select, align 8
   %tobool11.not = icmp eq ptr %10, null
   br label %cleanup
@@ -3644,16 +3644,16 @@ cleanup:                                          ; preds = %object_property_fin
   %retval.0 = phi i1 [ %tobool11.not, %if.end9 ], [ false, %if.then7 ], [ false, %object_property_find_err.exit ]
   %_auto_errp_prop.val = load ptr, ptr %_auto_errp_prop, align 8
   %_auto_errp_prop.val14 = load ptr, ptr %errp1, align 8
-  call void @error_propagate(ptr noundef %_auto_errp_prop.val14, ptr noundef %_auto_errp_prop.val) #19
+  call void @error_propagate(ptr noundef %_auto_errp_prop.val14, ptr noundef %_auto_errp_prop.val) #20
   ret i1 %retval.0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local zeroext i1 @object_property_set_str(ptr noundef %obj, ptr noundef %name, ptr noundef %value, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %call = tail call ptr @qstring_from_str(ptr noundef %value) #19
+  %call = tail call ptr @qstring_from_str(ptr noundef %value) #20
   %tobool.not = icmp eq ptr %call, null
-  %call2 = tail call zeroext i1 @object_property_set_qobject(ptr noundef %obj, ptr noundef %name, ptr noundef %call, ptr noundef %errp) #19
+  %call2 = tail call zeroext i1 @object_property_set_qobject(ptr noundef %obj, ptr noundef %name, ptr noundef %call, ptr noundef %errp) #20
   br i1 %tobool.not, label %qobject_unref_impl.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %entry
@@ -3663,7 +3663,7 @@ lor.lhs.false.i:                                  ; preds = %entry
   br i1 %tobool1.not.i, label %if.else.i, label %land.lhs.true.i
 
 if.else.i:                                        ; preds = %lor.lhs.false.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.73, ptr noundef nonnull @.str.74, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.73, ptr noundef nonnull @.str.74, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #19
   unreachable
 
 land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
@@ -3673,7 +3673,7 @@ land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
   br i1 %cmp.i, label %if.then5.i, label %qobject_unref_impl.exit
 
 if.then5.i:                                       ; preds = %land.lhs.true.i
-  tail call void @qobject_destroy(ptr noundef nonnull %call) #19
+  tail call void @qobject_destroy(ptr noundef nonnull %call) #20
   br label %qobject_unref_impl.exit
 
 qobject_unref_impl.exit:                          ; preds = %entry, %land.lhs.true.i, %if.then5.i
@@ -3687,7 +3687,7 @@ declare zeroext i1 @object_property_set_qobject(ptr noundef, ptr noundef, ptr no
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noalias ptr @object_property_get_str(ptr noundef %obj, ptr noundef %name, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %call = tail call ptr @object_property_get_qobject(ptr noundef %obj, ptr noundef %name, ptr noundef %errp) #19
+  %call = tail call ptr @object_property_get_qobject(ptr noundef %obj, ptr noundef %name, ptr noundef %errp) #20
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %return, label %if.end
 
@@ -3698,7 +3698,7 @@ if.end:                                           ; preds = %entry
   br i1 %or.cond.i.i, label %qobject_check_type.exit, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.end
-  tail call void @__assert_fail(ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.74, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_type) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.74, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_type) #19
   unreachable
 
 qobject_check_type.exit:                          ; preds = %if.end
@@ -3706,12 +3706,12 @@ qobject_check_type.exit:                          ; preds = %if.end
   br i1 %cmp.i.not, label %if.else, label %if.then4
 
 if.then4:                                         ; preds = %qobject_check_type.exit
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 1461, ptr noundef nonnull @__func__.object_property_get_str, ptr noundef nonnull @.str.25, ptr noundef %name, ptr noundef nonnull @.str.26) #19
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 1461, ptr noundef nonnull @__func__.object_property_get_str, ptr noundef nonnull @.str.25, ptr noundef %name, ptr noundef nonnull @.str.26) #20
   br label %lor.lhs.false.i
 
 if.else:                                          ; preds = %qobject_check_type.exit
-  %call5 = tail call ptr @qstring_get_str(ptr noundef nonnull %call) #19
-  %call6 = tail call noalias ptr @g_strdup(ptr noundef %call5) #19
+  %call5 = tail call ptr @qstring_get_str(ptr noundef nonnull %call) #20
+  %call6 = tail call noalias ptr @g_strdup(ptr noundef %call5) #20
   br label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.then4, %if.else
@@ -3722,7 +3722,7 @@ lor.lhs.false.i:                                  ; preds = %if.then4, %if.else
   br i1 %tobool1.not.i, label %if.else.i, label %land.lhs.true.i
 
 if.else.i:                                        ; preds = %lor.lhs.false.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.73, ptr noundef nonnull @.str.74, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.73, ptr noundef nonnull @.str.74, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #19
   unreachable
 
 land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
@@ -3732,7 +3732,7 @@ land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
   br i1 %cmp.i7, label %if.then5.i, label %return
 
 if.then5.i:                                       ; preds = %land.lhs.true.i
-  tail call void @qobject_destroy(ptr noundef nonnull %call) #19
+  tail call void @qobject_destroy(ptr noundef nonnull %call) #20
   br label %return
 
 return:                                           ; preds = %if.then5.i, %land.lhs.true.i, %entry
@@ -3758,9 +3758,9 @@ if.end:                                           ; preds = %if.then, %entry
   %path.0 = phi ptr [ null, %entry ], [ %call, %if.then ]
   %tobool1.not = icmp eq ptr %path.0, null
   %..str.27 = select i1 %tobool1.not, ptr @.str.27, ptr %path.0
-  %call.i = tail call ptr @qstring_from_str(ptr noundef nonnull %..str.27) #19
+  %call.i = tail call ptr @qstring_from_str(ptr noundef nonnull %..str.27) #20
   %tobool.not.i = icmp eq ptr %call.i, null
-  %call2.i = tail call zeroext i1 @object_property_set_qobject(ptr noundef %obj, ptr noundef %name, ptr noundef %call.i, ptr noundef %errp) #19
+  %call2.i = tail call zeroext i1 @object_property_set_qobject(ptr noundef %obj, ptr noundef %name, ptr noundef %call.i, ptr noundef %errp) #20
   br i1 %tobool.not.i, label %object_property_set_str.exit, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %if.end
@@ -3770,7 +3770,7 @@ lor.lhs.false.i.i:                                ; preds = %if.end
   br i1 %tobool1.not.i.i, label %if.else.i.i, label %land.lhs.true.i.i
 
 if.else.i.i:                                      ; preds = %lor.lhs.false.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.73, ptr noundef nonnull @.str.74, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.73, ptr noundef nonnull @.str.74, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #19
   unreachable
 
 land.lhs.true.i.i:                                ; preds = %lor.lhs.false.i.i
@@ -3780,11 +3780,11 @@ land.lhs.true.i.i:                                ; preds = %lor.lhs.false.i.i
   br i1 %cmp.i.i, label %if.then5.i.i, label %object_property_set_str.exit
 
 if.then5.i.i:                                     ; preds = %land.lhs.true.i.i
-  tail call void @qobject_destroy(ptr noundef nonnull %call.i) #19
+  tail call void @qobject_destroy(ptr noundef nonnull %call.i) #20
   br label %object_property_set_str.exit
 
 object_property_set_str.exit:                     ; preds = %if.end, %land.lhs.true.i.i, %if.then5.i.i
-  tail call void @g_free(ptr noundef %path.0) #19
+  tail call void @g_free(ptr noundef %path.0) #20
   ret i1 %call2.i
 }
 
@@ -3806,7 +3806,7 @@ object_get_root.exit:                             ; preds = %entry, %if.then.i
   br i1 %cmp, label %if.then, label %do.body
 
 if.then:                                          ; preds = %object_get_root.exit
-  %call1 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.38) #19
+  %call1 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.38) #20
   br label %return
 
 do.body:                                          ; preds = %object_get_root.exit, %if.end4
@@ -3817,14 +3817,14 @@ do.body:                                          ; preds = %object_get_root.exi
   br i1 %tobool.not, label %if.then3, label %if.end4
 
 if.then3:                                         ; preds = %do.body
-  tail call void @g_free(ptr noundef %path.0) #19
+  tail call void @g_free(ptr noundef %path.0) #20
   br label %return
 
 if.end4:                                          ; preds = %do.body
   %tobool5.not = icmp eq ptr %path.0, null
   %cond = select i1 %tobool5.not, ptr @.str.27, ptr %path.0
-  %call6 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.39, ptr noundef nonnull %call2, ptr noundef nonnull %cond) #19
-  tail call void @g_free(ptr noundef %path.0) #19
+  %call6 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.39, ptr noundef nonnull %call2, ptr noundef nonnull %cond) #20
+  tail call void @g_free(ptr noundef %path.0) #20
   %parent = getelementptr inbounds i8, ptr %obj.addr.0, i64 32
   %2 = load ptr, ptr %parent, align 8
   %cmp7.not = icmp eq ptr %2, %1
@@ -3853,12 +3853,12 @@ if.then:                                          ; preds = %land.lhs.true
   br i1 %tobool3.not, label %if.then4, label %if.end5
 
 if.then4:                                         ; preds = %if.then
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_set_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 1492, ptr noundef nonnull @__func__.object_property_get_link, i32 noundef 3, ptr noundef nonnull @.str.28, ptr noundef nonnull %call) #19
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_set_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 1492, ptr noundef nonnull @__func__.object_property_get_link, i32 noundef 3, ptr noundef nonnull @.str.28, ptr noundef nonnull %call) #20
   br label %if.end5
 
 if.end5:                                          ; preds = %if.then, %if.then4, %land.lhs.true, %entry
   %target.0 = phi ptr [ %call.i, %if.then ], [ null, %if.then4 ], [ null, %land.lhs.true ], [ null, %entry ]
-  tail call void @g_free(ptr noundef %call) #19
+  tail call void @g_free(ptr noundef %call) #20
   ret ptr %target.0
 }
 
@@ -3874,9 +3874,9 @@ declare void @error_set_internal(ptr noundef, ptr noundef, i32 noundef, ptr noun
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local zeroext i1 @object_property_set_bool(ptr noundef %obj, ptr noundef %name, i1 noundef zeroext %value, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %call = tail call ptr @qbool_from_bool(i1 noundef zeroext %value) #19
+  %call = tail call ptr @qbool_from_bool(i1 noundef zeroext %value) #20
   %tobool1.not = icmp eq ptr %call, null
-  %call3 = tail call zeroext i1 @object_property_set_qobject(ptr noundef %obj, ptr noundef %name, ptr noundef %call, ptr noundef %errp) #19
+  %call3 = tail call zeroext i1 @object_property_set_qobject(ptr noundef %obj, ptr noundef %name, ptr noundef %call, ptr noundef %errp) #20
   br i1 %tobool1.not, label %qobject_unref_impl.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %entry
@@ -3886,7 +3886,7 @@ lor.lhs.false.i:                                  ; preds = %entry
   br i1 %tobool1.not.i, label %if.else.i, label %land.lhs.true.i
 
 if.else.i:                                        ; preds = %lor.lhs.false.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.73, ptr noundef nonnull @.str.74, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.73, ptr noundef nonnull @.str.74, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #19
   unreachable
 
 land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
@@ -3896,7 +3896,7 @@ land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
   br i1 %cmp.i, label %if.then5.i, label %qobject_unref_impl.exit
 
 if.then5.i:                                       ; preds = %land.lhs.true.i
-  tail call void @qobject_destroy(ptr noundef nonnull %call) #19
+  tail call void @qobject_destroy(ptr noundef nonnull %call) #20
   br label %qobject_unref_impl.exit
 
 qobject_unref_impl.exit:                          ; preds = %entry, %land.lhs.true.i, %if.then5.i
@@ -3908,7 +3908,7 @@ declare ptr @qbool_from_bool(i1 noundef zeroext) local_unnamed_addr #3
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local zeroext i1 @object_property_get_bool(ptr noundef %obj, ptr noundef %name, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %call = tail call ptr @object_property_get_qobject(ptr noundef %obj, ptr noundef %name, ptr noundef %errp) #19
+  %call = tail call ptr @object_property_get_qobject(ptr noundef %obj, ptr noundef %name, ptr noundef %errp) #20
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %return, label %if.end
 
@@ -3919,7 +3919,7 @@ if.end:                                           ; preds = %entry
   br i1 %or.cond.i.i, label %qobject_check_type.exit, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.end
-  tail call void @__assert_fail(ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.74, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_type) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.74, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_type) #19
   unreachable
 
 qobject_check_type.exit:                          ; preds = %if.end
@@ -3927,11 +3927,11 @@ qobject_check_type.exit:                          ; preds = %if.end
   br i1 %cmp.i.not, label %if.else, label %if.then4
 
 if.then4:                                         ; preds = %qobject_check_type.exit
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 1522, ptr noundef nonnull @__func__.object_property_get_bool, ptr noundef nonnull @.str.25, ptr noundef %name, ptr noundef nonnull @.str.29) #19
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 1522, ptr noundef nonnull @__func__.object_property_get_bool, ptr noundef nonnull @.str.25, ptr noundef %name, ptr noundef nonnull @.str.29) #20
   br label %lor.lhs.false.i
 
 if.else:                                          ; preds = %qobject_check_type.exit
-  %call5 = tail call zeroext i1 @qbool_get_bool(ptr noundef nonnull %call) #19
+  %call5 = tail call zeroext i1 @qbool_get_bool(ptr noundef nonnull %call) #20
   br label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.then4, %if.else
@@ -3942,7 +3942,7 @@ lor.lhs.false.i:                                  ; preds = %if.then4, %if.else
   br i1 %tobool1.not.i, label %if.else.i, label %land.lhs.true.i
 
 if.else.i:                                        ; preds = %lor.lhs.false.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.73, ptr noundef nonnull @.str.74, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.73, ptr noundef nonnull @.str.74, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #19
   unreachable
 
 land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
@@ -3952,7 +3952,7 @@ land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
   br i1 %cmp.i7, label %if.then5.i, label %return
 
 if.then5.i:                                       ; preds = %land.lhs.true.i
-  tail call void @qobject_destroy(ptr noundef nonnull %call) #19
+  tail call void @qobject_destroy(ptr noundef nonnull %call) #20
   br label %return
 
 return:                                           ; preds = %if.then5.i, %land.lhs.true.i, %entry
@@ -3965,9 +3965,9 @@ declare zeroext i1 @qbool_get_bool(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local zeroext i1 @object_property_set_int(ptr noundef %obj, ptr noundef %name, i64 noundef %value, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %call = tail call ptr @qnum_from_int(i64 noundef %value) #19
+  %call = tail call ptr @qnum_from_int(i64 noundef %value) #20
   %tobool.not = icmp eq ptr %call, null
-  %call2 = tail call zeroext i1 @object_property_set_qobject(ptr noundef %obj, ptr noundef %name, ptr noundef %call, ptr noundef %errp) #19
+  %call2 = tail call zeroext i1 @object_property_set_qobject(ptr noundef %obj, ptr noundef %name, ptr noundef %call, ptr noundef %errp) #20
   br i1 %tobool.not, label %qobject_unref_impl.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %entry
@@ -3977,7 +3977,7 @@ lor.lhs.false.i:                                  ; preds = %entry
   br i1 %tobool1.not.i, label %if.else.i, label %land.lhs.true.i
 
 if.else.i:                                        ; preds = %lor.lhs.false.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.73, ptr noundef nonnull @.str.74, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.73, ptr noundef nonnull @.str.74, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #19
   unreachable
 
 land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
@@ -3987,7 +3987,7 @@ land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
   br i1 %cmp.i, label %if.then5.i, label %qobject_unref_impl.exit
 
 if.then5.i:                                       ; preds = %land.lhs.true.i
-  tail call void @qobject_destroy(ptr noundef nonnull %call) #19
+  tail call void @qobject_destroy(ptr noundef nonnull %call) #20
   br label %qobject_unref_impl.exit
 
 qobject_unref_impl.exit:                          ; preds = %entry, %land.lhs.true.i, %if.then5.i
@@ -4000,7 +4000,7 @@ declare ptr @qnum_from_int(i64 noundef) local_unnamed_addr #3
 define dso_local i64 @object_property_get_int(ptr noundef %obj, ptr noundef %name, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %retval1 = alloca i64, align 8
-  %call = tail call ptr @object_property_get_qobject(ptr noundef %obj, ptr noundef %name, ptr noundef %errp) #19
+  %call = tail call ptr @object_property_get_qobject(ptr noundef %obj, ptr noundef %name, ptr noundef %errp) #20
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %return, label %if.end
 
@@ -4011,7 +4011,7 @@ if.end:                                           ; preds = %entry
   br i1 %or.cond.i.i, label %qobject_check_type.exit, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.end
-  tail call void @__assert_fail(ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.74, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_type) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.74, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_type) #19
   unreachable
 
 qobject_check_type.exit:                          ; preds = %if.end
@@ -4019,11 +4019,11 @@ qobject_check_type.exit:                          ; preds = %if.end
   br i1 %cmp.i.not, label %lor.lhs.false, label %if.then5
 
 lor.lhs.false:                                    ; preds = %qobject_check_type.exit
-  %call4 = call zeroext i1 @qnum_get_try_int(ptr noundef nonnull %call, ptr noundef nonnull %retval1) #19
+  %call4 = call zeroext i1 @qnum_get_try_int(ptr noundef nonnull %call, ptr noundef nonnull %retval1) #20
   br i1 %call4, label %lor.lhs.false.i, label %if.then5
 
 if.then5:                                         ; preds = %lor.lhs.false, %qobject_check_type.exit
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 1555, ptr noundef nonnull @__func__.object_property_get_int, ptr noundef nonnull @.str.25, ptr noundef %name, ptr noundef nonnull @.str.30) #19
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 1555, ptr noundef nonnull @__func__.object_property_get_int, ptr noundef nonnull @.str.25, ptr noundef %name, ptr noundef nonnull @.str.30) #20
   store i64 -1, ptr %retval1, align 8
   br label %lor.lhs.false.i
 
@@ -4034,7 +4034,7 @@ lor.lhs.false.i:                                  ; preds = %lor.lhs.false, %if.
   br i1 %tobool1.not.i, label %if.else.i, label %land.lhs.true.i
 
 if.else.i:                                        ; preds = %lor.lhs.false.i
-  call void @__assert_fail(ptr noundef nonnull @.str.73, ptr noundef nonnull @.str.74, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #18
+  call void @__assert_fail(ptr noundef nonnull @.str.73, ptr noundef nonnull @.str.74, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #19
   unreachable
 
 land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
@@ -4044,7 +4044,7 @@ land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
   br i1 %cmp.i7, label %if.then5.i, label %qobject_unref_impl.exit
 
 if.then5.i:                                       ; preds = %land.lhs.true.i
-  call void @qobject_destroy(ptr noundef nonnull %call) #19
+  call void @qobject_destroy(ptr noundef nonnull %call) #20
   br label %qobject_unref_impl.exit
 
 qobject_unref_impl.exit:                          ; preds = %land.lhs.true.i, %if.then5.i
@@ -4061,14 +4061,14 @@ declare zeroext i1 @qnum_get_try_int(ptr noundef, ptr noundef) local_unnamed_add
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @object_property_set_default_bool(ptr nocapture noundef %prop, i1 noundef zeroext %value) local_unnamed_addr #0 {
 entry:
-  %call = tail call ptr @qbool_from_bool(i1 noundef zeroext %value) #19
+  %call = tail call ptr @qbool_from_bool(i1 noundef zeroext %value) #20
   %defval1.i = getelementptr inbounds i8, ptr %prop, i64 72
   %0 = load ptr, ptr %defval1.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %if.end.i, label %if.else.i
 
 if.else.i:                                        ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.1, i32 noundef 1575, ptr noundef nonnull @__PRETTY_FUNCTION__.object_property_set_default) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.1, i32 noundef 1575, ptr noundef nonnull @__PRETTY_FUNCTION__.object_property_set_default) #19
   unreachable
 
 if.end.i:                                         ; preds = %entry
@@ -4078,7 +4078,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %tobool2.not.i, label %object_property_set_default.exit, label %if.else4.i
 
 if.else4.i:                                       ; preds = %if.end.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.1, i32 noundef 1576, ptr noundef nonnull @__PRETTY_FUNCTION__.object_property_set_default) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.1, i32 noundef 1576, ptr noundef nonnull @__PRETTY_FUNCTION__.object_property_set_default) #19
   unreachable
 
 object_property_set_default.exit:                 ; preds = %if.end.i
@@ -4090,14 +4090,14 @@ object_property_set_default.exit:                 ; preds = %if.end.i
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @object_property_set_default_str(ptr nocapture noundef %prop, ptr noundef %value) local_unnamed_addr #0 {
 entry:
-  %call = tail call ptr @qstring_from_str(ptr noundef %value) #19
+  %call = tail call ptr @qstring_from_str(ptr noundef %value) #20
   %defval1.i = getelementptr inbounds i8, ptr %prop, i64 72
   %0 = load ptr, ptr %defval1.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %if.end.i, label %if.else.i
 
 if.else.i:                                        ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.1, i32 noundef 1575, ptr noundef nonnull @__PRETTY_FUNCTION__.object_property_set_default) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.1, i32 noundef 1575, ptr noundef nonnull @__PRETTY_FUNCTION__.object_property_set_default) #19
   unreachable
 
 if.end.i:                                         ; preds = %entry
@@ -4107,7 +4107,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %tobool2.not.i, label %object_property_set_default.exit, label %if.else4.i
 
 if.else4.i:                                       ; preds = %if.end.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.1, i32 noundef 1576, ptr noundef nonnull @__PRETTY_FUNCTION__.object_property_set_default) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.1, i32 noundef 1576, ptr noundef nonnull @__PRETTY_FUNCTION__.object_property_set_default) #19
   unreachable
 
 object_property_set_default.exit:                 ; preds = %if.end.i
@@ -4119,14 +4119,14 @@ object_property_set_default.exit:                 ; preds = %if.end.i
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @object_property_set_default_list(ptr nocapture noundef %prop) local_unnamed_addr #0 {
 entry:
-  %call = tail call ptr @qlist_new() #19
+  %call = tail call ptr @qlist_new() #20
   %defval1.i = getelementptr inbounds i8, ptr %prop, i64 72
   %0 = load ptr, ptr %defval1.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %if.end.i, label %if.else.i
 
 if.else.i:                                        ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.1, i32 noundef 1575, ptr noundef nonnull @__PRETTY_FUNCTION__.object_property_set_default) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.1, i32 noundef 1575, ptr noundef nonnull @__PRETTY_FUNCTION__.object_property_set_default) #19
   unreachable
 
 if.end.i:                                         ; preds = %entry
@@ -4136,7 +4136,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %tobool2.not.i, label %object_property_set_default.exit, label %if.else4.i
 
 if.else4.i:                                       ; preds = %if.end.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.1, i32 noundef 1576, ptr noundef nonnull @__PRETTY_FUNCTION__.object_property_set_default) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.1, i32 noundef 1576, ptr noundef nonnull @__PRETTY_FUNCTION__.object_property_set_default) #19
   unreachable
 
 object_property_set_default.exit:                 ; preds = %if.end.i
@@ -4150,14 +4150,14 @@ declare ptr @qlist_new() local_unnamed_addr #3
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @object_property_set_default_int(ptr nocapture noundef %prop, i64 noundef %value) local_unnamed_addr #0 {
 entry:
-  %call = tail call ptr @qnum_from_int(i64 noundef %value) #19
+  %call = tail call ptr @qnum_from_int(i64 noundef %value) #20
   %defval1.i = getelementptr inbounds i8, ptr %prop, i64 72
   %0 = load ptr, ptr %defval1.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %if.end.i, label %if.else.i
 
 if.else.i:                                        ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.1, i32 noundef 1575, ptr noundef nonnull @__PRETTY_FUNCTION__.object_property_set_default) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.1, i32 noundef 1575, ptr noundef nonnull @__PRETTY_FUNCTION__.object_property_set_default) #19
   unreachable
 
 if.end.i:                                         ; preds = %entry
@@ -4167,7 +4167,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %tobool2.not.i, label %object_property_set_default.exit, label %if.else4.i
 
 if.else4.i:                                       ; preds = %if.end.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.1, i32 noundef 1576, ptr noundef nonnull @__PRETTY_FUNCTION__.object_property_set_default) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.1, i32 noundef 1576, ptr noundef nonnull @__PRETTY_FUNCTION__.object_property_set_default) #19
   unreachable
 
 object_property_set_default.exit:                 ; preds = %if.end.i
@@ -4179,14 +4179,14 @@ object_property_set_default.exit:                 ; preds = %if.end.i
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @object_property_set_default_uint(ptr nocapture noundef %prop, i64 noundef %value) local_unnamed_addr #0 {
 entry:
-  %call = tail call ptr @qnum_from_uint(i64 noundef %value) #19
+  %call = tail call ptr @qnum_from_uint(i64 noundef %value) #20
   %defval1.i = getelementptr inbounds i8, ptr %prop, i64 72
   %0 = load ptr, ptr %defval1.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %if.end.i, label %if.else.i
 
 if.else.i:                                        ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.1, i32 noundef 1575, ptr noundef nonnull @__PRETTY_FUNCTION__.object_property_set_default) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.1, i32 noundef 1575, ptr noundef nonnull @__PRETTY_FUNCTION__.object_property_set_default) #19
   unreachable
 
 if.end.i:                                         ; preds = %entry
@@ -4196,7 +4196,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %tobool2.not.i, label %object_property_set_default.exit, label %if.else4.i
 
 if.else4.i:                                       ; preds = %if.end.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.1, i32 noundef 1576, ptr noundef nonnull @__PRETTY_FUNCTION__.object_property_set_default) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.1, i32 noundef 1576, ptr noundef nonnull @__PRETTY_FUNCTION__.object_property_set_default) #19
   unreachable
 
 object_property_set_default.exit:                 ; preds = %if.end.i
@@ -4210,9 +4210,9 @@ declare ptr @qnum_from_uint(i64 noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local zeroext i1 @object_property_set_uint(ptr noundef %obj, ptr noundef %name, i64 noundef %value, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %call = tail call ptr @qnum_from_uint(i64 noundef %value) #19
+  %call = tail call ptr @qnum_from_uint(i64 noundef %value) #20
   %tobool.not = icmp eq ptr %call, null
-  %call2 = tail call zeroext i1 @object_property_set_qobject(ptr noundef %obj, ptr noundef %name, ptr noundef %call, ptr noundef %errp) #19
+  %call2 = tail call zeroext i1 @object_property_set_qobject(ptr noundef %obj, ptr noundef %name, ptr noundef %call, ptr noundef %errp) #20
   br i1 %tobool.not, label %qobject_unref_impl.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %entry
@@ -4222,7 +4222,7 @@ lor.lhs.false.i:                                  ; preds = %entry
   br i1 %tobool1.not.i, label %if.else.i, label %land.lhs.true.i
 
 if.else.i:                                        ; preds = %lor.lhs.false.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.73, ptr noundef nonnull @.str.74, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.73, ptr noundef nonnull @.str.74, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #19
   unreachable
 
 land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
@@ -4232,7 +4232,7 @@ land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
   br i1 %cmp.i, label %if.then5.i, label %qobject_unref_impl.exit
 
 if.then5.i:                                       ; preds = %land.lhs.true.i
-  tail call void @qobject_destroy(ptr noundef nonnull %call) #19
+  tail call void @qobject_destroy(ptr noundef nonnull %call) #20
   br label %qobject_unref_impl.exit
 
 qobject_unref_impl.exit:                          ; preds = %entry, %land.lhs.true.i, %if.then5.i
@@ -4243,7 +4243,7 @@ qobject_unref_impl.exit:                          ; preds = %entry, %land.lhs.tr
 define dso_local i64 @object_property_get_uint(ptr noundef %obj, ptr noundef %name, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %retval1 = alloca i64, align 8
-  %call = tail call ptr @object_property_get_qobject(ptr noundef %obj, ptr noundef %name, ptr noundef %errp) #19
+  %call = tail call ptr @object_property_get_qobject(ptr noundef %obj, ptr noundef %name, ptr noundef %errp) #20
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %return, label %if.end
 
@@ -4254,7 +4254,7 @@ if.end:                                           ; preds = %entry
   br i1 %or.cond.i.i, label %qobject_check_type.exit, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.end
-  tail call void @__assert_fail(ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.74, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_type) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.74, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_type) #19
   unreachable
 
 qobject_check_type.exit:                          ; preds = %if.end
@@ -4262,11 +4262,11 @@ qobject_check_type.exit:                          ; preds = %if.end
   br i1 %cmp.i.not, label %lor.lhs.false, label %if.then5
 
 lor.lhs.false:                                    ; preds = %qobject_check_type.exit
-  %call4 = call zeroext i1 @qnum_get_try_uint(ptr noundef nonnull %call, ptr noundef nonnull %retval1) #19
+  %call4 = call zeroext i1 @qnum_get_try_uint(ptr noundef nonnull %call, ptr noundef nonnull %retval1) #20
   br i1 %call4, label %lor.lhs.false.i, label %if.then5
 
 if.then5:                                         ; preds = %lor.lhs.false, %qobject_check_type.exit
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 1629, ptr noundef nonnull @__func__.object_property_get_uint, ptr noundef nonnull @.str.25, ptr noundef %name, ptr noundef nonnull @.str.31) #19
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 1629, ptr noundef nonnull @__func__.object_property_get_uint, ptr noundef nonnull @.str.25, ptr noundef %name, ptr noundef nonnull @.str.31) #20
   store i64 0, ptr %retval1, align 8
   br label %lor.lhs.false.i
 
@@ -4277,7 +4277,7 @@ lor.lhs.false.i:                                  ; preds = %lor.lhs.false, %if.
   br i1 %tobool1.not.i, label %if.else.i, label %land.lhs.true.i
 
 if.else.i:                                        ; preds = %lor.lhs.false.i
-  call void @__assert_fail(ptr noundef nonnull @.str.73, ptr noundef nonnull @.str.74, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #18
+  call void @__assert_fail(ptr noundef nonnull @.str.73, ptr noundef nonnull @.str.74, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #19
   unreachable
 
 land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
@@ -4287,7 +4287,7 @@ land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
   br i1 %cmp.i7, label %if.then5.i, label %qobject_unref_impl.exit
 
 if.then5.i:                                       ; preds = %land.lhs.true.i
-  call void @qobject_destroy(ptr noundef nonnull %call) #19
+  call void @qobject_destroy(ptr noundef nonnull %call) #20
   br label %qobject_unref_impl.exit
 
 qobject_unref_impl.exit:                          ; preds = %land.lhs.true.i, %if.then5.i
@@ -4312,7 +4312,7 @@ entry:
 object_property_find.exit.i:                      ; preds = %entry
   %properties.i.i = getelementptr inbounds i8, ptr %obj, i64 16
   %1 = load ptr, ptr %properties.i.i, align 8
-  %call2.i.i = tail call ptr @g_hash_table_lookup(ptr noundef %1, ptr noundef %name) #19
+  %call2.i.i = tail call ptr @g_hash_table_lookup(ptr noundef %1, ptr noundef %name) #20
   %tobool.not.i = icmp eq ptr %call2.i.i, null
   br i1 %tobool.not.i, label %object_property_find_err.exit, label %if.end
 
@@ -4320,14 +4320,14 @@ object_property_find_err.exit:                    ; preds = %object_property_fin
   %2 = load ptr, ptr %obj, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 1330, ptr noundef nonnull @__func__.object_property_find_err, ptr noundef nonnull @.str.21, ptr noundef %4, ptr noundef %name) #19
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 1330, ptr noundef nonnull @__func__.object_property_find_err, ptr noundef nonnull @.str.21, ptr noundef %4, ptr noundef %name) #20
   br label %return
 
 if.end:                                           ; preds = %object_property_find.exit.i, %entry
   %retval.0.i6.i.ph = phi ptr [ %call1.i.i, %entry ], [ %call2.i.i, %object_property_find.exit.i ]
   %type = getelementptr inbounds i8, ptr %retval.0.i6.i.ph, i64 8
   %5 = load ptr, ptr %type, align 8
-  %call1 = tail call i32 @g_str_equal(ptr noundef %5, ptr noundef %typename) #19
+  %call1 = tail call i32 @g_str_equal(ptr noundef %5, ptr noundef %typename) #20
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %if.then2, label %if.end5
 
@@ -4335,7 +4335,7 @@ if.then2:                                         ; preds = %if.end
   %6 = load ptr, ptr %obj, align 8
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %7, align 8
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 1658, ptr noundef nonnull @__func__.object_property_get_enum, ptr noundef nonnull @.str.32, ptr noundef %name, ptr noundef %8, ptr noundef %typename) #19
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 1658, ptr noundef nonnull @__func__.object_property_get_enum, ptr noundef nonnull @.str.32, ptr noundef %name, ptr noundef %8, ptr noundef %typename) #20
   br label %return
 
 if.end5:                                          ; preds = %if.end
@@ -4347,8 +4347,8 @@ if.end5:                                          ; preds = %if.end
 
 if.end9:                                          ; preds = %if.end5
   %10 = load ptr, ptr %9, align 8
-  %call10 = tail call i32 @qapi_enum_parse(ptr noundef %10, ptr noundef nonnull %call6, i32 noundef -1, ptr noundef %errp) #19
-  tail call void @g_free(ptr noundef nonnull %call6) #19
+  %call10 = tail call i32 @qapi_enum_parse(ptr noundef %10, ptr noundef nonnull %call6, i32 noundef -1, ptr noundef %errp) #20
+  tail call void @g_free(ptr noundef nonnull %call6) #20
   br label %return
 
 return:                                           ; preds = %object_property_find_err.exit, %if.end5, %if.end9, %if.then2
@@ -4369,16 +4369,16 @@ define dso_local ptr @object_property_print(ptr noundef %obj, ptr noundef %name,
 entry:
   %string = alloca ptr, align 8
   store ptr null, ptr %string, align 8
-  %call = call ptr @string_output_visitor_new(i1 noundef zeroext %human, ptr noundef nonnull %string) #19
+  %call = call ptr @string_output_visitor_new(i1 noundef zeroext %human, ptr noundef nonnull %string) #20
   %call1 = call zeroext i1 @object_property_get(ptr noundef %obj, ptr noundef %name, ptr noundef %call, ptr noundef %errp)
   br i1 %call1, label %if.end, label %out
 
 if.end:                                           ; preds = %entry
-  call void @visit_complete(ptr noundef %call, ptr noundef nonnull %string) #19
+  call void @visit_complete(ptr noundef %call, ptr noundef nonnull %string) #20
   br label %out
 
 out:                                              ; preds = %entry, %if.end
-  call void @visit_free(ptr noundef %call) #19
+  call void @visit_free(ptr noundef %call) #20
   %0 = load ptr, ptr %string, align 8
   ret ptr %0
 }
@@ -4398,7 +4398,7 @@ entry:
 object_property_find.exit.i:                      ; preds = %entry
   %properties.i.i = getelementptr inbounds i8, ptr %obj, i64 16
   %1 = load ptr, ptr %properties.i.i, align 8
-  %call2.i.i = tail call ptr @g_hash_table_lookup(ptr noundef %1, ptr noundef %name) #19
+  %call2.i.i = tail call ptr @g_hash_table_lookup(ptr noundef %1, ptr noundef %name) #20
   %tobool.not.i = icmp eq ptr %call2.i.i, null
   br i1 %tobool.not.i, label %object_property_find_err.exit, label %if.end
 
@@ -4406,7 +4406,7 @@ object_property_find_err.exit:                    ; preds = %object_property_fin
   %2 = load ptr, ptr %obj, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 1330, ptr noundef nonnull @__func__.object_property_find_err, ptr noundef nonnull @.str.21, ptr noundef %4, ptr noundef %name) #19
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 1330, ptr noundef nonnull @__func__.object_property_find_err, ptr noundef nonnull @.str.21, ptr noundef %4, ptr noundef %name) #20
   br label %return
 
 if.end:                                           ; preds = %object_property_find.exit.i, %entry
@@ -4451,7 +4451,7 @@ if.then.i:                                        ; preds = %entry
 
 object_get_root.exit:                             ; preds = %entry, %if.then.i
   %1 = phi ptr [ %call.i, %if.then.i ], [ %0, %entry ]
-  %call1 = tail call ptr @container_get(ptr noundef %1, ptr noundef nonnull @.str.34) #19
+  %call1 = tail call ptr @container_get(ptr noundef %1, ptr noundef nonnull @.str.34) #20
   ret ptr %call1
 }
 
@@ -4483,14 +4483,14 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.1, i32 noundef 1777, ptr noundef nonnull @__PRETTY_FUNCTION__.object_property_try_add_child) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.1, i32 noundef 1777, ptr noundef nonnull @__PRETTY_FUNCTION__.object_property_try_add_child) #19
   unreachable
 
 if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %child, align 8
   %2 = load ptr, ptr %1, align 8
   %3 = load ptr, ptr %2, align 8
-  %call1 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.36, ptr noundef %3) #19
+  %call1 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.36, ptr noundef %3) #20
   %call2 = tail call ptr @object_property_try_add(ptr noundef %obj, ptr noundef %name, ptr noundef %call1, ptr noundef nonnull @object_get_child_property, ptr noundef null, ptr noundef nonnull @object_finalize_child_property, ptr noundef nonnull %child, ptr noundef %errp)
   %tobool3.not = icmp eq ptr %call2, null
   br i1 %tobool3.not, label %cleanup, label %if.end.i
@@ -4504,7 +4504,7 @@ if.end.i:                                         ; preds = %if.end
   br i1 %cmp.i, label %object_ref.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1203, ptr noundef nonnull @__func__.object_ref, ptr noundef nonnull @.str.14) #18
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1203, ptr noundef nonnull @__func__.object_ref, ptr noundef nonnull @.str.14) #19
   unreachable
 
 object_ref.exit:                                  ; preds = %if.end.i
@@ -4512,7 +4512,7 @@ object_ref.exit:                                  ; preds = %if.end.i
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end, %object_ref.exit
-  tail call void @g_free(ptr noundef %call1) #19
+  tail call void @g_free(ptr noundef %call1) #20
   ret ptr %call2
 }
 
@@ -4522,9 +4522,9 @@ entry:
   %path = alloca ptr, align 8
   %call = tail call ptr @object_get_canonical_path(ptr noundef %opaque)
   store ptr %call, ptr %path, align 8
-  %call1 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %path, ptr noundef %errp) #19
+  %call1 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %path, ptr noundef %errp) #20
   %0 = load ptr, ptr %path, align 8
-  call void @g_free(ptr noundef %0) #19
+  call void @g_free(ptr noundef %0) #20
   ret void
 }
 
@@ -4538,7 +4538,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call void %1(ptr noundef nonnull %opaque) #19
+  tail call void %1(ptr noundef nonnull %opaque) #20
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -4549,13 +4549,13 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef ptr @object_resolve_child_property(ptr nocapture readnone %parent, ptr noundef readnone returned %opaque, ptr nocapture readnone %part) #11 {
+define internal noundef ptr @object_resolve_child_property(ptr nocapture readnone %parent, ptr noundef readnone returned %opaque, ptr nocapture readnone %part) #12 {
 entry:
   ret ptr %opaque
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local void @object_property_allow_set_link(ptr nocapture noundef readnone %obj, ptr nocapture noundef readnone %name, ptr nocapture noundef readnone %val, ptr nocapture noundef readnone %errp) local_unnamed_addr #11 {
+define dso_local void @object_property_allow_set_link(ptr nocapture noundef readnone %obj, ptr nocapture noundef readnone %name, ptr nocapture noundef readnone %val, ptr nocapture noundef readnone %errp) local_unnamed_addr #12 {
 entry:
   ret void
 }
@@ -4563,48 +4563,48 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @object_property_add_link(ptr nocapture noundef readonly %obj, ptr noundef %name, ptr noundef %type, ptr noundef %targetp, ptr noundef %check, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
-  %call.i = tail call noalias dereferenceable_or_null(24) ptr @g_malloc(i64 noundef 24) #22
+  %call.i = tail call noalias dereferenceable_or_null(24) ptr @g_malloc(i64 noundef 24) #23
   store ptr %targetp, ptr %call.i, align 8
   %check1.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %check, ptr %check1.i, align 8
   %flags2.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store i32 %flags, ptr %flags2.i, align 8
-  %call3.i = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.37, ptr noundef %type) #19
+  %call3.i = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.37, ptr noundef %type) #20
   %tobool4.not.i = icmp eq ptr %check, null
   %cond.i = select i1 %tobool4.not.i, ptr null, ptr @object_set_link_property
   %call.i.i = tail call ptr @object_property_try_add(ptr noundef readonly %obj, ptr noundef %name, ptr noundef %call3.i, ptr noundef nonnull @object_get_link_property, ptr noundef %cond.i, ptr noundef nonnull @object_release_link_property, ptr noundef nonnull %call.i, ptr noundef nonnull @error_abort)
   %resolve.i = getelementptr inbounds i8, ptr %call.i.i, i64 40
   store ptr @object_resolve_link_property, ptr %resolve.i, align 8
-  tail call void @g_free(ptr noundef %call3.i) #19
+  tail call void @g_free(ptr noundef %call3.i) #20
   ret ptr %call.i.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef ptr @object_class_property_add_link(ptr nocapture noundef readonly %oc, ptr noundef %name, ptr noundef %type, i64 noundef %offset, ptr noundef %check, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
-  %call = tail call noalias dereferenceable_or_null(24) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 24) #21
+  %call = tail call noalias dereferenceable_or_null(24) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 24) #22
   store i64 %offset, ptr %call, align 8
   %check1 = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %check, ptr %check1, align 8
   %or = or i32 %flags, 4
   %flags2 = getelementptr inbounds i8, ptr %call, i64 16
   store i32 %or, ptr %flags2, align 8
-  %call3 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.37, ptr noundef %type) #19
+  %call3 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.37, ptr noundef %type) #20
   %call.i = tail call ptr @object_class_property_find(ptr noundef readonly %oc, ptr noundef %name)
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i, label %object_class_property_add.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.1, i32 noundef 1294, ptr noundef nonnull @__PRETTY_FUNCTION__.object_class_property_add) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.1, i32 noundef 1294, ptr noundef nonnull @__PRETTY_FUNCTION__.object_class_property_add) #19
   unreachable
 
 object_class_property_add.exit:                   ; preds = %entry
   %tobool.not = icmp eq ptr %check, null
   %cond = select i1 %tobool.not, ptr null, ptr @object_set_link_property
-  %call1.i = tail call noalias dereferenceable_or_null(80) ptr @g_malloc0(i64 noundef 80) #22
-  %call2.i = tail call noalias ptr @g_strdup(ptr noundef %name) #19
+  %call1.i = tail call noalias dereferenceable_or_null(80) ptr @g_malloc0(i64 noundef 80) #23
+  %call2.i = tail call noalias ptr @g_strdup(ptr noundef %name) #20
   store ptr %call2.i, ptr %call1.i, align 8
-  %call4.i = tail call noalias ptr @g_strdup(ptr noundef %call3) #19
+  %call4.i = tail call noalias ptr @g_strdup(ptr noundef %call3) #20
   %type5.i = getelementptr inbounds i8, ptr %call1.i, i64 8
   store ptr %call4.i, ptr %type5.i, align 8
   %get6.i = getelementptr inbounds i8, ptr %call1.i, i64 24
@@ -4617,10 +4617,10 @@ object_class_property_add.exit:                   ; preds = %entry
   store ptr %call, ptr %opaque9.i, align 8
   %properties.i = getelementptr inbounds i8, ptr %oc, i64 88
   %0 = load ptr, ptr %properties.i, align 8
-  %call11.i = tail call i32 @g_hash_table_insert(ptr noundef %0, ptr noundef %call2.i, ptr noundef nonnull %call1.i) #19
+  %call11.i = tail call i32 @g_hash_table_insert(ptr noundef %0, ptr noundef %call2.i, ptr noundef nonnull %call1.i) #20
   %resolve = getelementptr inbounds i8, ptr %call1.i, i64 40
   store ptr @object_resolve_link_property, ptr %resolve, align 8
-  tail call void @g_free(ptr noundef %call3) #19
+  tail call void @g_free(ptr noundef %call3) #20
   ret ptr %call1.i
 }
 
@@ -4657,14 +4657,14 @@ object_link_get_targetp.exit:                     ; preds = %entry, %if.then4.i,
 if.then:                                          ; preds = %object_link_get_targetp.exit
   %call1 = tail call ptr @object_get_canonical_path(ptr noundef nonnull %3)
   store ptr %call1, ptr %path, align 8
-  %call2 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %path, ptr noundef %errp) #19
+  %call2 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %path, ptr noundef %errp) #20
   %4 = load ptr, ptr %path, align 8
-  call void @g_free(ptr noundef %4) #19
+  call void @g_free(ptr noundef %4) #20
   br label %if.end
 
 if.else:                                          ; preds = %object_link_get_targetp.exit
   store ptr @.str.27, ptr %path, align 8
-  %call3 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %path, ptr noundef %errp) #19
+  %call3 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %path, ptr noundef %errp) #20
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
@@ -4702,7 +4702,7 @@ object_link_get_targetp.exit:                     ; preds = %entry, %if.then4.i,
   %retval.0.i = phi ptr [ %add.ptr.i, %if.then4.i ], [ %2, %if.else5.i ], [ %opaque, %entry ]
   %3 = load ptr, ptr %retval.0.i, align 8
   store ptr null, ptr %path, align 8
-  %call1 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %path, ptr noundef %errp) #19
+  %call1 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %path, ptr noundef %errp) #20
   br i1 %call1, label %if.end, label %if.end14
 
 if.end:                                           ; preds = %object_link_get_targetp.exit
@@ -4722,7 +4722,7 @@ if.then2:                                         ; preds = %if.end
 object_property_find.exit.i.i.i:                  ; preds = %if.then2
   %properties.i.i.i.i = getelementptr inbounds i8, ptr %obj, i64 16
   %7 = load ptr, ptr %properties.i.i.i.i, align 8
-  %call2.i.i.i.i = call ptr @g_hash_table_lookup(ptr noundef %7, ptr noundef %name) #19
+  %call2.i.i.i.i = call ptr @g_hash_table_lookup(ptr noundef %7, ptr noundef %name) #20
   %tobool.not.i.i.i = icmp eq ptr %call2.i.i.i.i, null
   br i1 %tobool.not.i.i.i, label %object_property_find_err.exit.i.i, label %if.end.i.i
 
@@ -4730,7 +4730,7 @@ object_property_find_err.exit.i.i:                ; preds = %object_property_fin
   %8 = load ptr, ptr %obj, align 8
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %9, align 8
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1330, ptr noundef nonnull @__func__.object_property_find_err, ptr noundef nonnull @.str.21, ptr noundef %10, ptr noundef %name) #19
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1330, ptr noundef nonnull @__func__.object_property_find_err, ptr noundef nonnull @.str.21, ptr noundef %10, ptr noundef %name) #20
   unreachable
 
 if.end.i.i:                                       ; preds = %object_property_find.exit.i.i.i, %if.then2
@@ -4738,9 +4738,9 @@ if.end.i.i:                                       ; preds = %object_property_fin
   %type.i.i = getelementptr inbounds i8, ptr %retval.0.i6.i.ph.i.i, i64 8
   %11 = load ptr, ptr %type.i.i, align 8
   %arrayidx.i = getelementptr i8, ptr %11, i64 5
-  %call1.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #23
+  %call1.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #24
   %sub.i = add i64 %call1.i, -6
-  %call2.i = call noalias ptr @g_strndup(ptr noundef %arrayidx.i, i64 noundef %sub.i) #19
+  %call2.i = call noalias ptr @g_strndup(ptr noundef %arrayidx.i, i64 noundef %sub.i) #20
   %call3.i = call ptr @object_resolve_path_type(ptr noundef nonnull %4, ptr noundef %call2.i, ptr noundef nonnull %ambiguous.i)
   %12 = load i8, ptr %ambiguous.i, align 1
   %tobool.i = trunc i8 %12 to i1
@@ -4751,7 +4751,7 @@ if.else.i13:                                      ; preds = %if.end.i.i
   br i1 %tobool4.not.i, label %if.then5.i, label %object_resolve_link.exit.thread18
 
 object_resolve_link.exit.thread18:                ; preds = %if.else.i13
-  call void @g_free(ptr noundef %call2.i) #19
+  call void @g_free(ptr noundef %call2.i) #20
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ambiguous.i)
   br label %if.end7
 
@@ -4766,43 +4766,43 @@ lor.lhs.false.i:                                  ; preds = %if.then5.i
   br i1 %tobool8.i, label %if.then9.i, label %if.else10.i
 
 if.then9.i:                                       ; preds = %lor.lhs.false.i, %if.then5.i
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 1874, ptr noundef nonnull @__func__.object_resolve_link, ptr noundef nonnull @.str.25, ptr noundef %name, ptr noundef %call2.i) #19
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 1874, ptr noundef nonnull @__func__.object_resolve_link, ptr noundef nonnull @.str.25, ptr noundef %name, ptr noundef %call2.i) #20
   br label %object_resolve_link.exit.thread
 
 if.else10.i:                                      ; preds = %lor.lhs.false.i
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_set_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 1877, ptr noundef nonnull @__func__.object_resolve_link, i32 noundef 3, ptr noundef nonnull @.str.28, ptr noundef nonnull %4) #19
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_set_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 1877, ptr noundef nonnull @__func__.object_resolve_link, i32 noundef 3, ptr noundef nonnull @.str.28, ptr noundef nonnull %4) #20
   br label %object_resolve_link.exit.thread
 
 object_resolve_link.exit.thread:                  ; preds = %if.else10.i, %if.then9.i
-  call void @g_free(ptr noundef %call2.i) #19
+  call void @g_free(ptr noundef %call2.i) #20
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ambiguous.i)
   br label %if.then5
 
 object_resolve_link.exit:                         ; preds = %if.end.i.i
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 1870, ptr noundef nonnull @__func__.object_resolve_link, ptr noundef nonnull @.str.79, ptr noundef nonnull %4) #19
-  call void @g_free(ptr noundef %call2.i) #19
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 1870, ptr noundef nonnull @__func__.object_resolve_link, ptr noundef nonnull @.str.79, ptr noundef nonnull %4) #20
+  call void @g_free(ptr noundef %call2.i) #20
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ambiguous.i)
   %tobool4.not = icmp eq ptr %call3.i, null
   br i1 %tobool4.not, label %if.then5, label %if.end7
 
 if.then5:                                         ; preds = %object_resolve_link.exit.thread, %object_resolve_link.exit
   %14 = load ptr, ptr %path, align 8
-  call void @g_free(ptr noundef %14) #19
+  call void @g_free(ptr noundef %14) #20
   br label %if.end14
 
 if.end7:                                          ; preds = %object_resolve_link.exit.thread18, %if.end, %object_resolve_link.exit
   %new_target.0 = phi ptr [ %call3.i, %object_resolve_link.exit ], [ null, %if.end ], [ %call3.i, %object_resolve_link.exit.thread18 ]
   %15 = load ptr, ptr %path, align 8
-  call void @g_free(ptr noundef %15) #19
+  call void @g_free(ptr noundef %15) #20
   %check = getelementptr inbounds i8, ptr %opaque, i64 8
   %16 = load ptr, ptr %check, align 8
-  call void %16(ptr noundef %obj, ptr noundef %name, ptr noundef %new_target.0, ptr noundef nonnull %local_err) #19
+  call void %16(ptr noundef %obj, ptr noundef %name, ptr noundef %new_target.0, ptr noundef nonnull %local_err) #20
   %17 = load ptr, ptr %local_err, align 8
   %tobool8.not = icmp eq ptr %17, null
   br i1 %tobool8.not, label %if.end10, label %if.then9
 
 if.then9:                                         ; preds = %if.end7
-  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %17) #19
+  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %17) #20
   br label %if.end14
 
 if.end10:                                         ; preds = %if.end7
@@ -4823,7 +4823,7 @@ if.end.i:                                         ; preds = %if.then12
   br i1 %cmp.i, label %object_ref.exit, label %if.else.i15
 
 if.else.i15:                                      ; preds = %if.end.i
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1203, ptr noundef nonnull @__func__.object_ref, ptr noundef nonnull @.str.14) #18
+  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1203, ptr noundef nonnull @__func__.object_ref, ptr noundef nonnull @.str.14) #19
   unreachable
 
 object_ref.exit:                                  ; preds = %if.then12, %if.end.i
@@ -4880,7 +4880,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
   br i1 %tobool4.not, label %if.then5, label %if.end6
 
 if.then5:                                         ; preds = %if.end
-  tail call void @g_free(ptr noundef nonnull %opaque) #19
+  tail call void @g_free(ptr noundef nonnull %opaque) #20
   br label %if.end6
 
 if.end6:                                          ; preds = %if.then5, %if.end
@@ -4888,7 +4888,7 @@ if.end6:                                          ; preds = %if.then5, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define internal ptr @object_resolve_link_property(ptr nocapture noundef readonly %parent, ptr nocapture noundef readonly %opaque, ptr nocapture readnone %part) #5 {
+define internal ptr @object_resolve_link_property(ptr nocapture noundef readonly %parent, ptr nocapture noundef readonly %opaque, ptr nocapture readnone %part) #6 {
 entry:
   %flags.i = getelementptr inbounds i8, ptr %opaque, i64 16
   %0 = load i32, ptr %flags.i, align 8
@@ -4922,17 +4922,17 @@ entry:
   %0 = load ptr, ptr %target, align 8
   %1 = load ptr, ptr %0, align 8
   %2 = load ptr, ptr %1, align 8
-  %call.i = tail call noalias dereferenceable_or_null(24) ptr @g_malloc(i64 noundef 24) #22
+  %call.i = tail call noalias dereferenceable_or_null(24) ptr @g_malloc(i64 noundef 24) #23
   store ptr %target, ptr %call.i, align 8
   %check1.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr null, ptr %check1.i, align 8
   %flags2.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store i32 2, ptr %flags2.i, align 8
-  %call3.i = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.37, ptr noundef %2) #19
+  %call3.i = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.37, ptr noundef %2) #20
   %call.i.i = tail call ptr @object_property_try_add(ptr noundef readonly %obj, ptr noundef %name, ptr noundef %call3.i, ptr noundef nonnull @object_get_link_property, ptr noundef null, ptr noundef nonnull @object_release_link_property, ptr noundef nonnull %call.i, ptr noundef nonnull @error_abort)
   %resolve.i = getelementptr inbounds i8, ptr %call.i.i, i64 40
   store ptr @object_resolve_link_property, ptr %resolve.i, align 8
-  tail call void @g_free(ptr noundef %call3.i) #19
+  tail call void @g_free(ptr noundef %call3.i) #20
   ret ptr %call.i.i
 }
 
@@ -4950,8 +4950,8 @@ entry:
 if.end:                                           ; preds = %entry
   %properties = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %properties, align 8
-  call void @g_hash_table_iter_init(ptr noundef nonnull %iter, ptr noundef %1) #19
-  %call3 = call i32 @g_hash_table_iter_next(ptr noundef nonnull %iter, ptr noundef null, ptr noundef nonnull %prop) #19
+  call void @g_hash_table_iter_init(ptr noundef nonnull %iter, ptr noundef %1) #20
+  %call3 = call i32 @g_hash_table_iter_next(ptr noundef nonnull %iter, ptr noundef null, ptr noundef nonnull %prop) #20
   %tobool.not4 = icmp eq i32 %call3, 0
   br i1 %tobool.not4, label %do.body, label %while.body
 
@@ -4959,12 +4959,12 @@ while.body:                                       ; preds = %if.end, %while.cond
   %2 = load ptr, ptr %prop, align 8
   %3 = getelementptr i8, ptr %2, i64 8
   %.val = load ptr, ptr %3, align 8
-  %call.i = call i32 @strstart(ptr noundef %.val, ptr noundef nonnull @.str.80, ptr noundef null) #19
+  %call.i = call i32 @strstart(ptr noundef %.val, ptr noundef nonnull @.str.80, ptr noundef null) #20
   %tobool.i.not = icmp eq i32 %call.i, 0
   br i1 %tobool.i.not, label %while.cond.backedge, label %if.end4
 
 while.cond.backedge:                              ; preds = %while.body, %if.end4
-  %call = call i32 @g_hash_table_iter_next(ptr noundef nonnull %iter, ptr noundef null, ptr noundef nonnull %prop) #19
+  %call = call i32 @g_hash_table_iter_next(ptr noundef nonnull %iter, ptr noundef null, ptr noundef nonnull %prop) #20
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %do.body, label %while.body, !llvm.loop !29
 
@@ -4980,7 +4980,7 @@ if.then6:                                         ; preds = %if.end4
   br label %return
 
 do.body:                                          ; preds = %while.cond.backedge, %if.end
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 2048, ptr noundef nonnull @__func__.object_get_canonical_path_component, ptr noundef null) #18
+  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 2048, ptr noundef nonnull @__func__.object_get_canonical_path_component, ptr noundef null) #19
   unreachable
 
 return:                                           ; preds = %entry, %if.then6
@@ -4999,7 +4999,7 @@ entry:
 object_property_find.exit:                        ; preds = %entry
   %properties.i = getelementptr inbounds i8, ptr %parent, i64 16
   %1 = load ptr, ptr %properties.i, align 8
-  %call2.i = tail call ptr @g_hash_table_lookup(ptr noundef %1, ptr noundef %part) #19
+  %call2.i = tail call ptr @g_hash_table_lookup(ptr noundef %1, ptr noundef %part) #20
   %cmp = icmp eq ptr %call2.i, null
   br i1 %cmp, label %return, label %if.end
 
@@ -5013,7 +5013,7 @@ if.end:                                           ; preds = %entry, %object_prop
 if.then1:                                         ; preds = %if.end
   %opaque = getelementptr inbounds i8, ptr %retval.0.i8, i64 64
   %3 = load ptr, ptr %opaque, align 8
-  %call3 = tail call ptr %2(ptr noundef nonnull %parent, ptr noundef %3, ptr noundef %part) #19
+  %call3 = tail call ptr %2(ptr noundef nonnull %parent, ptr noundef %3, ptr noundef %part) #20
   br label %return
 
 return:                                           ; preds = %if.end, %object_property_find.exit, %if.then1
@@ -5025,12 +5025,12 @@ return:                                           ; preds = %if.end, %object_pro
 define dso_local ptr @object_resolve_path_type(ptr noundef %path, ptr noundef %typename, ptr noundef writeonly %ambiguousp) local_unnamed_addr #0 {
 entry:
   %ambiguous = alloca i8, align 1
-  %call = tail call ptr @g_strsplit(ptr noundef %path, ptr noundef nonnull @.str.38, i32 noundef 0) #19
+  %call = tail call ptr @g_strsplit(ptr noundef %path, ptr noundef nonnull @.str.38, i32 noundef 0) #20
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %if.else, label %if.end
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.1, i32 noundef 2161, ptr noundef nonnull @__PRETTY_FUNCTION__.object_resolve_path_type) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.1, i32 noundef 2161, ptr noundef nonnull @__PRETTY_FUNCTION__.object_resolve_path_type) #19
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -5132,7 +5132,7 @@ if.end5.i:                                        ; preds = %if.end.i
 object_property_find.exit.i.i:                    ; preds = %if.end5.i
   %properties.i.i.i = getelementptr inbounds i8, ptr %parent.tr.ph22.i, i64 16
   %13 = load ptr, ptr %properties.i.i.i, align 8
-  %call2.i.i.i = tail call ptr @g_hash_table_lookup(ptr noundef %13, ptr noundef nonnull %10) #19
+  %call2.i.i.i = tail call ptr @g_hash_table_lookup(ptr noundef %13, ptr noundef nonnull %10) #20
   %cmp.i.i = icmp eq ptr %call2.i.i.i, null
   br i1 %cmp.i.i, label %if.end14, label %if.end.i10.i
 
@@ -5146,13 +5146,13 @@ if.end.i10.i:                                     ; preds = %object_property_fin
 object_resolve_path_component.exit.i:             ; preds = %if.end.i10.i
   %opaque.i.i = getelementptr inbounds i8, ptr %retval.0.i8.i.i, i64 64
   %15 = load ptr, ptr %opaque.i.i, align 8
-  %call3.i.i = tail call ptr %14(ptr noundef nonnull %parent.tr.ph22.i, ptr noundef %15, ptr noundef nonnull %10) #19
+  %call3.i.i = tail call ptr %14(ptr noundef nonnull %parent.tr.ph22.i, ptr noundef %15, ptr noundef nonnull %10) #20
   %tobool.not.i12 = icmp eq ptr %call3.i.i, null
   br i1 %tobool.not.i12, label %if.end14, label %tailrecurse.outer.i
 
 if.end14:                                         ; preds = %object_resolve_path_component.exit.i, %if.end.i10.i, %object_property_find.exit.i.i, %if.end.i.i, %land.lhs.true.i.i, %object_get_root.exit, %if.then8
   %obj.0 = phi ptr [ %call6, %if.then8 ], [ %call6, %object_get_root.exit ], [ null, %if.end.i.i ], [ %parent.tr.ph.lcssa1732.i, %land.lhs.true.i.i ], [ null, %object_property_find.exit.i.i ], [ null, %if.end.i10.i ], [ null, %object_resolve_path_component.exit.i ]
-  tail call void @g_strfreev(ptr noundef nonnull %call) #19
+  tail call void @g_strfreev(ptr noundef nonnull %call) #20
   ret ptr %obj.0
 }
 
@@ -5216,7 +5216,7 @@ if.end5.i:                                        ; preds = %if.end.i
 object_property_find.exit.i.i:                    ; preds = %if.end5.i
   %properties.i.i.i = getelementptr inbounds i8, ptr %parent.tr.ph22.i, i64 16
   %7 = load ptr, ptr %properties.i.i.i, align 8
-  %call2.i.i.i = tail call ptr @g_hash_table_lookup(ptr noundef %7, ptr noundef nonnull %4) #19
+  %call2.i.i.i = tail call ptr @g_hash_table_lookup(ptr noundef %7, ptr noundef nonnull %4) #20
   %cmp.i.i = icmp eq ptr %call2.i.i.i, null
   br i1 %cmp.i.i, label %object_resolve_abs_path.exit, label %if.end.i10.i
 
@@ -5230,7 +5230,7 @@ if.end.i10.i:                                     ; preds = %object_property_fin
 object_resolve_path_component.exit.i:             ; preds = %if.end.i10.i
   %opaque.i.i = getelementptr inbounds i8, ptr %retval.0.i8.i.i, i64 64
   %9 = load ptr, ptr %opaque.i.i, align 8
-  %call3.i.i = tail call ptr %8(ptr noundef nonnull %parent.tr.ph22.i, ptr noundef %9, ptr noundef nonnull %4) #19
+  %call3.i.i = tail call ptr %8(ptr noundef nonnull %parent.tr.ph22.i, ptr noundef %9, ptr noundef nonnull %4) #20
   %tobool.not.i = icmp eq ptr %call3.i.i, null
   br i1 %tobool.not.i, label %object_resolve_abs_path.exit, label %tailrecurse.outer.i
 
@@ -5238,7 +5238,7 @@ object_resolve_abs_path.exit:                     ; preds = %object_property_fin
   %retval.0.i = phi ptr [ null, %if.end.i.i ], [ %parent.tr.ph.lcssa1732.i, %land.lhs.true.i.i ], [ null, %object_resolve_path_component.exit.i ], [ null, %if.end.i10.i ], [ null, %object_property_find.exit.i.i ]
   %properties = getelementptr inbounds i8, ptr %parent, i64 16
   %10 = load ptr, ptr %properties, align 8
-  call void @g_hash_table_iter_init(ptr noundef nonnull %iter, ptr noundef %10) #19
+  call void @g_hash_table_iter_init(ptr noundef nonnull %iter, ptr noundef %10) #20
   br label %while.cond.outer
 
 while.cond.outer:                                 ; preds = %if.end9, %object_resolve_abs_path.exit
@@ -5246,7 +5246,7 @@ while.cond.outer:                                 ; preds = %if.end9, %object_re
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.outer, %while.body
-  %call1 = call i32 @g_hash_table_iter_next(ptr noundef nonnull %iter, ptr noundef null, ptr noundef nonnull %prop) #19
+  %call1 = call i32 @g_hash_table_iter_next(ptr noundef nonnull %iter, ptr noundef null, ptr noundef nonnull %prop) #20
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %return, label %while.body
 
@@ -5254,7 +5254,7 @@ while.body:                                       ; preds = %while.cond
   %11 = load ptr, ptr %prop, align 8
   %12 = getelementptr i8, ptr %11, i64 8
   %.val = load ptr, ptr %12, align 8
-  %call.i = call i32 @strstart(ptr noundef %.val, ptr noundef nonnull @.str.80, ptr noundef null) #19
+  %call.i = call i32 @strstart(ptr noundef %.val, ptr noundef nonnull @.str.80, ptr noundef null) #20
   %tobool.i.not = icmp eq i32 %call.i, 0
   br i1 %tobool.i.not, label %while.cond, label %if.end, !llvm.loop !30
 
@@ -5290,7 +5290,7 @@ declare void @g_strfreev(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef ptr @object_resolve_path_at(ptr noundef %parent, ptr noundef %path) local_unnamed_addr #0 {
 entry:
-  %call = tail call ptr @g_strsplit(ptr noundef %path, ptr noundef nonnull @.str.38, i32 noundef 0) #19
+  %call = tail call ptr @g_strsplit(ptr noundef %path, ptr noundef nonnull @.str.38, i32 noundef 0) #20
   %0 = load i8, ptr %path, align 1
   %cmp = icmp eq i8 %0, 47
   br i1 %cmp, label %if.then, label %if.end
@@ -5361,7 +5361,7 @@ if.end5.i:                                        ; preds = %if.end.i
 object_property_find.exit.i.i:                    ; preds = %if.end5.i
   %properties.i.i.i = getelementptr inbounds i8, ptr %parent.tr.ph22.i, i64 16
   %10 = load ptr, ptr %properties.i.i.i, align 8
-  %call2.i.i.i = tail call ptr @g_hash_table_lookup(ptr noundef %10, ptr noundef nonnull %7) #19
+  %call2.i.i.i = tail call ptr @g_hash_table_lookup(ptr noundef %10, ptr noundef nonnull %7) #20
   %cmp.i.i = icmp eq ptr %call2.i.i.i, null
   br i1 %cmp.i.i, label %cleanup, label %if.end.i10.i
 
@@ -5375,7 +5375,7 @@ if.end.i10.i:                                     ; preds = %object_property_fin
 object_resolve_path_component.exit.i:             ; preds = %if.end.i10.i
   %opaque.i.i = getelementptr inbounds i8, ptr %retval.0.i8.i.i, i64 64
   %12 = load ptr, ptr %opaque.i.i, align 8
-  %call3.i.i = tail call ptr %11(ptr noundef nonnull %parent.tr.ph22.i, ptr noundef %12, ptr noundef nonnull %7) #19
+  %call3.i.i = tail call ptr %11(ptr noundef nonnull %parent.tr.ph22.i, ptr noundef %12, ptr noundef nonnull %7) #20
   %tobool.not.i2 = icmp eq ptr %call3.i.i, null
   br i1 %tobool.not.i2, label %cleanup, label %tailrecurse.outer.i
 
@@ -5433,7 +5433,7 @@ if.end5.i12:                                      ; preds = %if.end.i8
 object_property_find.exit.i.i32:                  ; preds = %if.end5.i12
   %properties.i.i.i33 = getelementptr inbounds i8, ptr %parent.tr.ph22.i7, i64 16
   %20 = load ptr, ptr %properties.i.i.i33, align 8
-  %call2.i.i.i34 = tail call ptr @g_hash_table_lookup(ptr noundef %20, ptr noundef nonnull %17) #19
+  %call2.i.i.i34 = tail call ptr @g_hash_table_lookup(ptr noundef %20, ptr noundef nonnull %17) #20
   %cmp.i.i35 = icmp eq ptr %call2.i.i.i34, null
   br i1 %cmp.i.i35, label %cleanup, label %if.end.i10.i15
 
@@ -5447,7 +5447,7 @@ if.end.i10.i15:                                   ; preds = %object_property_fin
 object_resolve_path_component.exit.i19:           ; preds = %if.end.i10.i15
   %opaque.i.i20 = getelementptr inbounds i8, ptr %retval.0.i8.i.i16, i64 64
   %22 = load ptr, ptr %opaque.i.i20, align 8
-  %call3.i.i21 = tail call ptr %21(ptr noundef nonnull %parent.tr.ph22.i7, ptr noundef %22, ptr noundef nonnull %17) #19
+  %call3.i.i21 = tail call ptr %21(ptr noundef nonnull %parent.tr.ph22.i7, ptr noundef %22, ptr noundef nonnull %17) #20
   %tobool.not.i22 = icmp eq ptr %call3.i.i21, null
   br i1 %tobool.not.i22, label %cleanup, label %tailrecurse.outer.i23
 
@@ -5457,7 +5457,7 @@ cleanup:                                          ; preds = %object_resolve_path
   br i1 %cmp.not.i, label %glib_auto_cleanup_GStrv.exit, label %if.then.i43
 
 if.then.i43:                                      ; preds = %cleanup
-  tail call void @g_strfreev(ptr noundef nonnull %call) #19
+  tail call void @g_strfreev(ptr noundef nonnull %call) #20
   br label %glib_auto_cleanup_GStrv.exit
 
 glib_auto_cleanup_GStrv.exit:                     ; preds = %cleanup, %if.then.i43
@@ -5467,7 +5467,7 @@ glib_auto_cleanup_GStrv.exit:                     ; preds = %cleanup, %if.then.i
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @object_property_add_str(ptr nocapture noundef readonly %obj, ptr noundef %name, ptr noundef %get, ptr noundef %set) local_unnamed_addr #0 {
 entry:
-  %call = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #22
+  %call = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #23
   store ptr %get, ptr %call, align 8
   %set2 = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %set, ptr %set2, align 8
@@ -5486,20 +5486,20 @@ entry:
   %err = alloca ptr, align 8
   store ptr null, ptr %err, align 8
   %0 = load ptr, ptr %opaque, align 8
-  %call = call ptr %0(ptr noundef %obj, ptr noundef nonnull %err) #19
+  %call = call ptr %0(ptr noundef %obj, ptr noundef nonnull %err) #20
   store ptr %call, ptr %value, align 8
   %1 = load ptr, ptr %err, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %1) #19
+  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %1) #20
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call1 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %value, ptr noundef %errp) #19
+  %call1 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %value, ptr noundef %errp) #20
   %2 = load ptr, ptr %value, align 8
-  call void @g_free(ptr noundef %2) #19
+  call void @g_free(ptr noundef %2) #20
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
@@ -5510,16 +5510,16 @@ return:                                           ; preds = %if.end, %if.then
 define internal void @property_set_str(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr nocapture noundef readonly %opaque, ptr noundef %errp) #0 {
 entry:
   %value = alloca ptr, align 8
-  %call = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %value, ptr noundef %errp) #19
+  %call = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %value, ptr noundef %errp) #20
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
   %set = getelementptr inbounds i8, ptr %opaque, i64 8
   %0 = load ptr, ptr %set, align 8
   %1 = load ptr, ptr %value, align 8
-  call void %0(ptr noundef %obj, ptr noundef %1, ptr noundef %errp) #19
+  call void %0(ptr noundef %obj, ptr noundef %1, ptr noundef %errp) #20
   %2 = load ptr, ptr %value, align 8
-  call void @g_free(ptr noundef %2) #19
+  call void @g_free(ptr noundef %2) #20
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -5529,14 +5529,14 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @property_release_data(ptr nocapture readnone %obj, ptr nocapture readnone %name, ptr noundef %opaque) #0 {
 entry:
-  tail call void @g_free(ptr noundef %opaque) #19
+  tail call void @g_free(ptr noundef %opaque) #20
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef ptr @object_class_property_add_str(ptr nocapture noundef readonly %klass, ptr noundef %name, ptr noundef %get, ptr noundef %set) local_unnamed_addr #0 {
 entry:
-  %call = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #22
+  %call = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #23
   store ptr %get, ptr %call, align 8
   %set2 = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %set, ptr %set2, align 8
@@ -5545,17 +5545,17 @@ entry:
   br i1 %tobool.not.i, label %object_class_property_add.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.1, i32 noundef 1294, ptr noundef nonnull @__PRETTY_FUNCTION__.object_class_property_add) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.1, i32 noundef 1294, ptr noundef nonnull @__PRETTY_FUNCTION__.object_class_property_add) #19
   unreachable
 
 object_class_property_add.exit:                   ; preds = %entry
   %0 = insertelement <2 x ptr> poison, ptr %get, i64 0
   %1 = insertelement <2 x ptr> %0, ptr %set, i64 1
   %2 = icmp eq <2 x ptr> %1, zeroinitializer
-  %call1.i = tail call noalias dereferenceable_or_null(80) ptr @g_malloc0(i64 noundef 80) #22
-  %call2.i = tail call noalias ptr @g_strdup(ptr noundef %name) #19
+  %call1.i = tail call noalias dereferenceable_or_null(80) ptr @g_malloc0(i64 noundef 80) #23
+  %call2.i = tail call noalias ptr @g_strdup(ptr noundef %name) #20
   store ptr %call2.i, ptr %call1.i, align 8
-  %call4.i = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.26) #19
+  %call4.i = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.26) #20
   %type5.i = getelementptr inbounds i8, ptr %call1.i, i64 8
   store ptr %call4.i, ptr %type5.i, align 8
   %get6.i = getelementptr inbounds i8, ptr %call1.i, i64 24
@@ -5567,14 +5567,14 @@ object_class_property_add.exit:                   ; preds = %entry
   store ptr %call, ptr %opaque9.i, align 8
   %properties.i = getelementptr inbounds i8, ptr %klass, i64 88
   %4 = load ptr, ptr %properties.i, align 8
-  %call11.i = tail call i32 @g_hash_table_insert(ptr noundef %4, ptr noundef %call2.i, ptr noundef nonnull %call1.i) #19
+  %call11.i = tail call i32 @g_hash_table_insert(ptr noundef %4, ptr noundef %call2.i, ptr noundef nonnull %call1.i) #20
   ret ptr %call1.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @object_property_add_bool(ptr nocapture noundef readonly %obj, ptr noundef %name, ptr noundef %get, ptr noundef %set) local_unnamed_addr #0 {
 entry:
-  %call = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #22
+  %call = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #23
   store ptr %get, ptr %call, align 8
   %set2 = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %set, ptr %set2, align 8
@@ -5593,7 +5593,7 @@ entry:
   %err = alloca ptr, align 8
   store ptr null, ptr %err, align 8
   %0 = load ptr, ptr %opaque, align 8
-  %call = call zeroext i1 %0(ptr noundef %obj, ptr noundef nonnull %err) #19
+  %call = call zeroext i1 %0(ptr noundef %obj, ptr noundef nonnull %err) #20
   %frombool = zext i1 %call to i8
   store i8 %frombool, ptr %value, align 1
   %1 = load ptr, ptr %err, align 8
@@ -5601,11 +5601,11 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %1) #19
+  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %1) #20
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call1 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %value, ptr noundef %errp) #19
+  %call1 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %value, ptr noundef %errp) #20
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
@@ -5616,7 +5616,7 @@ return:                                           ; preds = %if.end, %if.then
 define internal void @property_set_bool(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr nocapture noundef readonly %opaque, ptr noundef %errp) #0 {
 entry:
   %value = alloca i8, align 1
-  %call = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %value, ptr noundef %errp) #19
+  %call = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %value, ptr noundef %errp) #20
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -5624,7 +5624,7 @@ if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %set, align 8
   %1 = load i8, ptr %value, align 1
   %tobool = trunc i8 %1 to i1
-  call void %0(ptr noundef %obj, i1 noundef zeroext %tobool, ptr noundef %errp) #19
+  call void %0(ptr noundef %obj, i1 noundef zeroext %tobool, ptr noundef %errp) #20
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -5634,7 +5634,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef ptr @object_class_property_add_bool(ptr nocapture noundef readonly %klass, ptr noundef %name, ptr noundef %get, ptr noundef %set) local_unnamed_addr #0 {
 entry:
-  %call = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #22
+  %call = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #23
   store ptr %get, ptr %call, align 8
   %set2 = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %set, ptr %set2, align 8
@@ -5643,17 +5643,17 @@ entry:
   br i1 %tobool.not.i, label %object_class_property_add.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.1, i32 noundef 1294, ptr noundef nonnull @__PRETTY_FUNCTION__.object_class_property_add) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.1, i32 noundef 1294, ptr noundef nonnull @__PRETTY_FUNCTION__.object_class_property_add) #19
   unreachable
 
 object_class_property_add.exit:                   ; preds = %entry
   %0 = insertelement <2 x ptr> poison, ptr %get, i64 0
   %1 = insertelement <2 x ptr> %0, ptr %set, i64 1
   %2 = icmp eq <2 x ptr> %1, zeroinitializer
-  %call1.i = tail call noalias dereferenceable_or_null(80) ptr @g_malloc0(i64 noundef 80) #22
-  %call2.i = tail call noalias ptr @g_strdup(ptr noundef %name) #19
+  %call1.i = tail call noalias dereferenceable_or_null(80) ptr @g_malloc0(i64 noundef 80) #23
+  %call2.i = tail call noalias ptr @g_strdup(ptr noundef %name) #20
   store ptr %call2.i, ptr %call1.i, align 8
-  %call4.i = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.42) #19
+  %call4.i = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.42) #20
   %type5.i = getelementptr inbounds i8, ptr %call1.i, i64 8
   store ptr %call4.i, ptr %type5.i, align 8
   %get6.i = getelementptr inbounds i8, ptr %call1.i, i64 24
@@ -5665,14 +5665,14 @@ object_class_property_add.exit:                   ; preds = %entry
   store ptr %call, ptr %opaque9.i, align 8
   %properties.i = getelementptr inbounds i8, ptr %klass, i64 88
   %4 = load ptr, ptr %properties.i, align 8
-  %call11.i = tail call i32 @g_hash_table_insert(ptr noundef %4, ptr noundef %call2.i, ptr noundef nonnull %call1.i) #19
+  %call11.i = tail call i32 @g_hash_table_insert(ptr noundef %4, ptr noundef %call2.i, ptr noundef nonnull %call1.i) #20
   ret ptr %call1.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @object_property_add_enum(ptr nocapture noundef readonly %obj, ptr noundef %name, ptr noundef %typename, ptr noundef %lookup, ptr noundef %get, ptr noundef %set) local_unnamed_addr #0 {
 entry:
-  %call = tail call noalias dereferenceable_or_null(24) ptr @g_malloc(i64 noundef 24) #22
+  %call = tail call noalias dereferenceable_or_null(24) ptr @g_malloc(i64 noundef 24) #23
   store ptr %lookup, ptr %call, align 8
   %get2 = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %get, ptr %get2, align 8
@@ -5687,7 +5687,7 @@ entry:
 }
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #10
+declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @property_get_enum(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr nocapture noundef readonly %opaque, ptr noundef %errp) #0 {
@@ -5697,19 +5697,19 @@ entry:
   store ptr null, ptr %err, align 8
   %get = getelementptr inbounds i8, ptr %opaque, i64 8
   %0 = load ptr, ptr %get, align 8
-  %call = call i32 %0(ptr noundef %obj, ptr noundef nonnull %err) #19
+  %call = call i32 %0(ptr noundef %obj, ptr noundef nonnull %err) #20
   store i32 %call, ptr %value, align 4
   %1 = load ptr, ptr %err, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %1) #19
+  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %1) #20
   br label %return
 
 if.end:                                           ; preds = %entry
   %2 = load ptr, ptr %opaque, align 8
-  %call1 = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %value, ptr noundef %2, ptr noundef %errp) #19
+  %call1 = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %value, ptr noundef %2, ptr noundef %errp) #20
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
@@ -5721,14 +5721,14 @@ define internal void @property_set_enum(ptr noundef %obj, ptr noundef %v, ptr no
 entry:
   %value = alloca i32, align 4
   %0 = load ptr, ptr %opaque, align 8
-  %call = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %value, ptr noundef %0, ptr noundef %errp) #19
+  %call = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %value, ptr noundef %0, ptr noundef %errp) #20
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
   %set = getelementptr inbounds i8, ptr %opaque, i64 16
   %1 = load ptr, ptr %set, align 8
   %2 = load i32, ptr %value, align 4
-  call void %1(ptr noundef %obj, i32 noundef %2, ptr noundef %errp) #19
+  call void %1(ptr noundef %obj, i32 noundef %2, ptr noundef %errp) #20
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -5738,7 +5738,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef ptr @object_class_property_add_enum(ptr nocapture noundef readonly %klass, ptr noundef %name, ptr noundef %typename, ptr noundef %lookup, ptr noundef %get, ptr noundef %set) local_unnamed_addr #0 {
 entry:
-  %call = tail call noalias dereferenceable_or_null(24) ptr @g_malloc(i64 noundef 24) #22
+  %call = tail call noalias dereferenceable_or_null(24) ptr @g_malloc(i64 noundef 24) #23
   store ptr %lookup, ptr %call, align 8
   %get2 = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %get, ptr %get2, align 8
@@ -5749,17 +5749,17 @@ entry:
   br i1 %tobool.not.i, label %object_class_property_add.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.1, i32 noundef 1294, ptr noundef nonnull @__PRETTY_FUNCTION__.object_class_property_add) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.1, i32 noundef 1294, ptr noundef nonnull @__PRETTY_FUNCTION__.object_class_property_add) #19
   unreachable
 
 object_class_property_add.exit:                   ; preds = %entry
   %0 = insertelement <2 x ptr> poison, ptr %get, i64 0
   %1 = insertelement <2 x ptr> %0, ptr %set, i64 1
   %2 = icmp eq <2 x ptr> %1, zeroinitializer
-  %call1.i = tail call noalias dereferenceable_or_null(80) ptr @g_malloc0(i64 noundef 80) #22
-  %call2.i = tail call noalias ptr @g_strdup(ptr noundef %name) #19
+  %call1.i = tail call noalias dereferenceable_or_null(80) ptr @g_malloc0(i64 noundef 80) #23
+  %call2.i = tail call noalias ptr @g_strdup(ptr noundef %name) #20
   store ptr %call2.i, ptr %call1.i, align 8
-  %call4.i = tail call noalias ptr @g_strdup(ptr noundef %typename) #19
+  %call4.i = tail call noalias ptr @g_strdup(ptr noundef %typename) #20
   %type5.i = getelementptr inbounds i8, ptr %call1.i, i64 8
   store ptr %call4.i, ptr %type5.i, align 8
   %get6.i = getelementptr inbounds i8, ptr %call1.i, i64 24
@@ -5771,14 +5771,14 @@ object_class_property_add.exit:                   ; preds = %entry
   store ptr %call, ptr %opaque9.i, align 8
   %properties.i = getelementptr inbounds i8, ptr %klass, i64 88
   %4 = load ptr, ptr %properties.i, align 8
-  %call11.i = tail call i32 @g_hash_table_insert(ptr noundef %4, ptr noundef %call2.i, ptr noundef nonnull %call1.i) #19
+  %call11.i = tail call i32 @g_hash_table_insert(ptr noundef %4, ptr noundef %call2.i, ptr noundef nonnull %call1.i) #20
   ret ptr %call1.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @object_property_add_tm(ptr nocapture noundef readonly %obj, ptr noundef %name, ptr noundef %get) local_unnamed_addr #0 {
 entry:
-  %call = tail call noalias dereferenceable_or_null(8) ptr @g_malloc0(i64 noundef 8) #22
+  %call = tail call noalias dereferenceable_or_null(8) ptr @g_malloc0(i64 noundef 8) #23
   store ptr %get, ptr %call, align 8
   %tobool.not = icmp eq ptr %get, null
   %cond = select i1 %tobool.not, ptr null, ptr @property_get_tm
@@ -5793,54 +5793,54 @@ entry:
   %value = alloca %struct.tm, align 8
   store ptr null, ptr %err, align 8
   %0 = load ptr, ptr %opaque, align 8
-  call void %0(ptr noundef %obj, ptr noundef nonnull %value, ptr noundef nonnull %err) #19
+  call void %0(ptr noundef %obj, ptr noundef nonnull %value, ptr noundef nonnull %err) #20
   %1 = load ptr, ptr %err, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %1) #19
+  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %1) #20
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call = call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef null, i64 noundef 0, ptr noundef %errp) #19
+  %call = call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef null, i64 noundef 0, ptr noundef %errp) #20
   br i1 %call, label %if.end2, label %return
 
 if.end2:                                          ; preds = %if.end
   %tm_year = getelementptr inbounds i8, ptr %value, i64 20
-  %call3 = call zeroext i1 @visit_type_int32(ptr noundef %v, ptr noundef nonnull @.str.81, ptr noundef nonnull %tm_year, ptr noundef %errp) #19
+  %call3 = call zeroext i1 @visit_type_int32(ptr noundef %v, ptr noundef nonnull @.str.81, ptr noundef nonnull %tm_year, ptr noundef %errp) #20
   br i1 %call3, label %if.end5, label %out_end
 
 if.end5:                                          ; preds = %if.end2
   %tm_mon = getelementptr inbounds i8, ptr %value, i64 16
-  %call6 = call zeroext i1 @visit_type_int32(ptr noundef %v, ptr noundef nonnull @.str.82, ptr noundef nonnull %tm_mon, ptr noundef %errp) #19
+  %call6 = call zeroext i1 @visit_type_int32(ptr noundef %v, ptr noundef nonnull @.str.82, ptr noundef nonnull %tm_mon, ptr noundef %errp) #20
   br i1 %call6, label %if.end8, label %out_end
 
 if.end8:                                          ; preds = %if.end5
   %tm_mday = getelementptr inbounds i8, ptr %value, i64 12
-  %call9 = call zeroext i1 @visit_type_int32(ptr noundef %v, ptr noundef nonnull @.str.83, ptr noundef nonnull %tm_mday, ptr noundef %errp) #19
+  %call9 = call zeroext i1 @visit_type_int32(ptr noundef %v, ptr noundef nonnull @.str.83, ptr noundef nonnull %tm_mday, ptr noundef %errp) #20
   br i1 %call9, label %if.end11, label %out_end
 
 if.end11:                                         ; preds = %if.end8
   %tm_hour = getelementptr inbounds i8, ptr %value, i64 8
-  %call12 = call zeroext i1 @visit_type_int32(ptr noundef %v, ptr noundef nonnull @.str.84, ptr noundef nonnull %tm_hour, ptr noundef %errp) #19
+  %call12 = call zeroext i1 @visit_type_int32(ptr noundef %v, ptr noundef nonnull @.str.84, ptr noundef nonnull %tm_hour, ptr noundef %errp) #20
   br i1 %call12, label %if.end14, label %out_end
 
 if.end14:                                         ; preds = %if.end11
   %tm_min = getelementptr inbounds i8, ptr %value, i64 4
-  %call15 = call zeroext i1 @visit_type_int32(ptr noundef %v, ptr noundef nonnull @.str.85, ptr noundef nonnull %tm_min, ptr noundef %errp) #19
+  %call15 = call zeroext i1 @visit_type_int32(ptr noundef %v, ptr noundef nonnull @.str.85, ptr noundef nonnull %tm_min, ptr noundef %errp) #20
   br i1 %call15, label %if.end17, label %out_end
 
 if.end17:                                         ; preds = %if.end14
-  %call18 = call zeroext i1 @visit_type_int32(ptr noundef %v, ptr noundef nonnull @.str.86, ptr noundef nonnull %value, ptr noundef %errp) #19
+  %call18 = call zeroext i1 @visit_type_int32(ptr noundef %v, ptr noundef nonnull @.str.86, ptr noundef nonnull %value, ptr noundef %errp) #20
   br i1 %call18, label %if.end20, label %out_end
 
 if.end20:                                         ; preds = %if.end17
-  %call21 = call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #19
+  %call21 = call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #20
   br label %out_end
 
 out_end:                                          ; preds = %if.end17, %if.end14, %if.end11, %if.end8, %if.end5, %if.end2, %if.end20
-  call void @visit_end_struct(ptr noundef %v, ptr noundef null) #19
+  call void @visit_end_struct(ptr noundef %v, ptr noundef null) #20
   br label %return
 
 return:                                           ; preds = %if.end, %out_end, %if.then
@@ -5850,23 +5850,23 @@ return:                                           ; preds = %if.end, %out_end, %
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef ptr @object_class_property_add_tm(ptr nocapture noundef readonly %klass, ptr noundef %name, ptr noundef %get) local_unnamed_addr #0 {
 entry:
-  %call = tail call noalias dereferenceable_or_null(8) ptr @g_malloc0(i64 noundef 8) #22
+  %call = tail call noalias dereferenceable_or_null(8) ptr @g_malloc0(i64 noundef 8) #23
   store ptr %get, ptr %call, align 8
   %call.i = tail call ptr @object_class_property_find(ptr noundef readonly %klass, ptr noundef %name)
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i, label %object_class_property_add.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.1, i32 noundef 1294, ptr noundef nonnull @__PRETTY_FUNCTION__.object_class_property_add) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.1, i32 noundef 1294, ptr noundef nonnull @__PRETTY_FUNCTION__.object_class_property_add) #19
   unreachable
 
 object_class_property_add.exit:                   ; preds = %entry
   %tobool.not = icmp eq ptr %get, null
   %cond = select i1 %tobool.not, ptr null, ptr @property_get_tm
-  %call1.i = tail call noalias dereferenceable_or_null(80) ptr @g_malloc0(i64 noundef 80) #22
-  %call2.i = tail call noalias ptr @g_strdup(ptr noundef %name) #19
+  %call1.i = tail call noalias dereferenceable_or_null(80) ptr @g_malloc0(i64 noundef 80) #23
+  %call2.i = tail call noalias ptr @g_strdup(ptr noundef %name) #20
   store ptr %call2.i, ptr %call1.i, align 8
-  %call4.i = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.43) #19
+  %call4.i = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.43) #20
   %type5.i = getelementptr inbounds i8, ptr %call1.i, i64 8
   store ptr %call4.i, ptr %type5.i, align 8
   %get6.i = getelementptr inbounds i8, ptr %call1.i, i64 24
@@ -5879,7 +5879,7 @@ object_class_property_add.exit:                   ; preds = %entry
   store ptr %call, ptr %opaque9.i, align 8
   %properties.i = getelementptr inbounds i8, ptr %klass, i64 88
   %0 = load ptr, ptr %properties.i, align 8
-  %call11.i = tail call i32 @g_hash_table_insert(ptr noundef %0, ptr noundef %call2.i, ptr noundef nonnull %call1.i) #19
+  %call11.i = tail call i32 @g_hash_table_insert(ptr noundef %0, ptr noundef %call2.i, ptr noundef nonnull %call1.i) #20
   ret ptr %call1.i
 }
 
@@ -5912,7 +5912,7 @@ entry:
   %value = alloca i8, align 1
   %0 = load i8, ptr %opaque, align 1
   store i8 %0, ptr %value, align 1
-  %call = call zeroext i1 @visit_type_uint8(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %value, ptr noundef %errp) #19
+  %call = call zeroext i1 @visit_type_uint8(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %value, ptr noundef %errp) #20
   ret void
 }
 
@@ -5920,7 +5920,7 @@ entry:
 define internal void @property_set_uint8_ptr(ptr nocapture readnone %obj, ptr noundef %v, ptr noundef %name, ptr nocapture noundef writeonly %opaque, ptr noundef %errp) #0 {
 entry:
   %value = alloca i8, align 1
-  %call = call zeroext i1 @visit_type_uint8(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %value, ptr noundef %errp) #19
+  %call = call zeroext i1 @visit_type_uint8(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %value, ptr noundef %errp) #20
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -5945,14 +5945,14 @@ if.end.split:                                     ; preds = %entry
   br i1 %tobool.not.i, label %if.end4, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end.split
-  tail call void @__assert_fail(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.1, i32 noundef 1294, ptr noundef nonnull @__PRETTY_FUNCTION__.object_class_property_add) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.1, i32 noundef 1294, ptr noundef nonnull @__PRETTY_FUNCTION__.object_class_property_add) #19
   unreachable
 
 if.then3.split:                                   ; preds = %entry
   br i1 %tobool.not.i, label %if.end4, label %if.else.i6
 
 if.else.i6:                                       ; preds = %if.then3.split
-  tail call void @__assert_fail(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.1, i32 noundef 1294, ptr noundef nonnull @__PRETTY_FUNCTION__.object_class_property_add) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.1, i32 noundef 1294, ptr noundef nonnull @__PRETTY_FUNCTION__.object_class_property_add) #19
   unreachable
 
 if.end4:                                          ; preds = %if.then3.split, %if.end.split
@@ -5960,10 +5960,10 @@ if.end4:                                          ; preds = %if.then3.split, %if
   %and = and i32 %flags, 1
   %cmp.not = icmp eq i32 %and, 0
   %spec.select = select i1 %cmp.not, ptr null, ptr @property_get_uint8_ptr
-  %call1.i = tail call noalias dereferenceable_or_null(80) ptr @g_malloc0(i64 noundef 80) #22
-  %call2.i = tail call noalias ptr @g_strdup(ptr noundef %name) #19
+  %call1.i = tail call noalias dereferenceable_or_null(80) ptr @g_malloc0(i64 noundef 80) #23
+  %call2.i = tail call noalias ptr @g_strdup(ptr noundef %name) #20
   store ptr %call2.i, ptr %call1.i, align 8
-  %call4.i = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.44) #19
+  %call4.i = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.44) #20
   %type5.i = getelementptr inbounds i8, ptr %call1.i, i64 8
   store ptr %call4.i, ptr %type5.i, align 8
   %get6.i = getelementptr inbounds i8, ptr %call1.i, i64 24
@@ -5976,7 +5976,7 @@ if.end4:                                          ; preds = %if.then3.split, %if
   store ptr %v, ptr %opaque9.i, align 8
   %properties.i = getelementptr inbounds i8, ptr %klass, i64 88
   %0 = load ptr, ptr %properties.i, align 8
-  %call11.i = tail call i32 @g_hash_table_insert(ptr noundef %0, ptr noundef %call2.i, ptr noundef nonnull %call1.i) #19
+  %call11.i = tail call i32 @g_hash_table_insert(ptr noundef %0, ptr noundef %call2.i, ptr noundef nonnull %call1.i) #20
   ret ptr %call1.i
 }
 
@@ -6009,7 +6009,7 @@ entry:
   %value = alloca i16, align 2
   %0 = load i16, ptr %opaque, align 2
   store i16 %0, ptr %value, align 2
-  %call = call zeroext i1 @visit_type_uint16(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %value, ptr noundef %errp) #19
+  %call = call zeroext i1 @visit_type_uint16(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %value, ptr noundef %errp) #20
   ret void
 }
 
@@ -6017,7 +6017,7 @@ entry:
 define internal void @property_set_uint16_ptr(ptr nocapture readnone %obj, ptr noundef %v, ptr noundef %name, ptr nocapture noundef writeonly %opaque, ptr noundef %errp) #0 {
 entry:
   %value = alloca i16, align 2
-  %call = call zeroext i1 @visit_type_uint16(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %value, ptr noundef %errp) #19
+  %call = call zeroext i1 @visit_type_uint16(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %value, ptr noundef %errp) #20
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -6042,14 +6042,14 @@ if.end.split:                                     ; preds = %entry
   br i1 %tobool.not.i, label %if.end4, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end.split
-  tail call void @__assert_fail(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.1, i32 noundef 1294, ptr noundef nonnull @__PRETTY_FUNCTION__.object_class_property_add) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.1, i32 noundef 1294, ptr noundef nonnull @__PRETTY_FUNCTION__.object_class_property_add) #19
   unreachable
 
 if.then3.split:                                   ; preds = %entry
   br i1 %tobool.not.i, label %if.end4, label %if.else.i6
 
 if.else.i6:                                       ; preds = %if.then3.split
-  tail call void @__assert_fail(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.1, i32 noundef 1294, ptr noundef nonnull @__PRETTY_FUNCTION__.object_class_property_add) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.1, i32 noundef 1294, ptr noundef nonnull @__PRETTY_FUNCTION__.object_class_property_add) #19
   unreachable
 
 if.end4:                                          ; preds = %if.then3.split, %if.end.split
@@ -6057,10 +6057,10 @@ if.end4:                                          ; preds = %if.then3.split, %if
   %and = and i32 %flags, 1
   %cmp.not = icmp eq i32 %and, 0
   %spec.select = select i1 %cmp.not, ptr null, ptr @property_get_uint16_ptr
-  %call1.i = tail call noalias dereferenceable_or_null(80) ptr @g_malloc0(i64 noundef 80) #22
-  %call2.i = tail call noalias ptr @g_strdup(ptr noundef %name) #19
+  %call1.i = tail call noalias dereferenceable_or_null(80) ptr @g_malloc0(i64 noundef 80) #23
+  %call2.i = tail call noalias ptr @g_strdup(ptr noundef %name) #20
   store ptr %call2.i, ptr %call1.i, align 8
-  %call4.i = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.45) #19
+  %call4.i = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.45) #20
   %type5.i = getelementptr inbounds i8, ptr %call1.i, i64 8
   store ptr %call4.i, ptr %type5.i, align 8
   %get6.i = getelementptr inbounds i8, ptr %call1.i, i64 24
@@ -6073,7 +6073,7 @@ if.end4:                                          ; preds = %if.then3.split, %if
   store ptr %v, ptr %opaque9.i, align 8
   %properties.i = getelementptr inbounds i8, ptr %klass, i64 88
   %0 = load ptr, ptr %properties.i, align 8
-  %call11.i = tail call i32 @g_hash_table_insert(ptr noundef %0, ptr noundef %call2.i, ptr noundef nonnull %call1.i) #19
+  %call11.i = tail call i32 @g_hash_table_insert(ptr noundef %0, ptr noundef %call2.i, ptr noundef nonnull %call1.i) #20
   ret ptr %call1.i
 }
 
@@ -6106,7 +6106,7 @@ entry:
   %value = alloca i32, align 4
   %0 = load i32, ptr %opaque, align 4
   store i32 %0, ptr %value, align 4
-  %call = call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %value, ptr noundef %errp) #19
+  %call = call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %value, ptr noundef %errp) #20
   ret void
 }
 
@@ -6114,7 +6114,7 @@ entry:
 define internal void @property_set_uint32_ptr(ptr nocapture readnone %obj, ptr noundef %v, ptr noundef %name, ptr nocapture noundef writeonly %opaque, ptr noundef %errp) #0 {
 entry:
   %value = alloca i32, align 4
-  %call = call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %value, ptr noundef %errp) #19
+  %call = call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %value, ptr noundef %errp) #20
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -6139,14 +6139,14 @@ if.end.split:                                     ; preds = %entry
   br i1 %tobool.not.i, label %if.end4, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end.split
-  tail call void @__assert_fail(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.1, i32 noundef 1294, ptr noundef nonnull @__PRETTY_FUNCTION__.object_class_property_add) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.1, i32 noundef 1294, ptr noundef nonnull @__PRETTY_FUNCTION__.object_class_property_add) #19
   unreachable
 
 if.then3.split:                                   ; preds = %entry
   br i1 %tobool.not.i, label %if.end4, label %if.else.i6
 
 if.else.i6:                                       ; preds = %if.then3.split
-  tail call void @__assert_fail(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.1, i32 noundef 1294, ptr noundef nonnull @__PRETTY_FUNCTION__.object_class_property_add) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.1, i32 noundef 1294, ptr noundef nonnull @__PRETTY_FUNCTION__.object_class_property_add) #19
   unreachable
 
 if.end4:                                          ; preds = %if.then3.split, %if.end.split
@@ -6154,10 +6154,10 @@ if.end4:                                          ; preds = %if.then3.split, %if
   %and = and i32 %flags, 1
   %cmp.not = icmp eq i32 %and, 0
   %spec.select = select i1 %cmp.not, ptr null, ptr @property_get_uint32_ptr
-  %call1.i = tail call noalias dereferenceable_or_null(80) ptr @g_malloc0(i64 noundef 80) #22
-  %call2.i = tail call noalias ptr @g_strdup(ptr noundef %name) #19
+  %call1.i = tail call noalias dereferenceable_or_null(80) ptr @g_malloc0(i64 noundef 80) #23
+  %call2.i = tail call noalias ptr @g_strdup(ptr noundef %name) #20
   store ptr %call2.i, ptr %call1.i, align 8
-  %call4.i = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.46) #19
+  %call4.i = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.46) #20
   %type5.i = getelementptr inbounds i8, ptr %call1.i, i64 8
   store ptr %call4.i, ptr %type5.i, align 8
   %get6.i = getelementptr inbounds i8, ptr %call1.i, i64 24
@@ -6170,7 +6170,7 @@ if.end4:                                          ; preds = %if.then3.split, %if
   store ptr %v, ptr %opaque9.i, align 8
   %properties.i = getelementptr inbounds i8, ptr %klass, i64 88
   %0 = load ptr, ptr %properties.i, align 8
-  %call11.i = tail call i32 @g_hash_table_insert(ptr noundef %0, ptr noundef %call2.i, ptr noundef nonnull %call1.i) #19
+  %call11.i = tail call i32 @g_hash_table_insert(ptr noundef %0, ptr noundef %call2.i, ptr noundef nonnull %call1.i) #20
   ret ptr %call1.i
 }
 
@@ -6203,7 +6203,7 @@ entry:
   %value = alloca i64, align 8
   %0 = load i64, ptr %opaque, align 8
   store i64 %0, ptr %value, align 8
-  %call = call zeroext i1 @visit_type_uint64(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %value, ptr noundef %errp) #19
+  %call = call zeroext i1 @visit_type_uint64(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %value, ptr noundef %errp) #20
   ret void
 }
 
@@ -6211,7 +6211,7 @@ entry:
 define internal void @property_set_uint64_ptr(ptr nocapture readnone %obj, ptr noundef %v, ptr noundef %name, ptr nocapture noundef writeonly %opaque, ptr noundef %errp) #0 {
 entry:
   %value = alloca i64, align 8
-  %call = call zeroext i1 @visit_type_uint64(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %value, ptr noundef %errp) #19
+  %call = call zeroext i1 @visit_type_uint64(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %value, ptr noundef %errp) #20
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -6236,14 +6236,14 @@ if.end.split:                                     ; preds = %entry
   br i1 %tobool.not.i, label %if.end4, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end.split
-  tail call void @__assert_fail(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.1, i32 noundef 1294, ptr noundef nonnull @__PRETTY_FUNCTION__.object_class_property_add) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.1, i32 noundef 1294, ptr noundef nonnull @__PRETTY_FUNCTION__.object_class_property_add) #19
   unreachable
 
 if.then3.split:                                   ; preds = %entry
   br i1 %tobool.not.i, label %if.end4, label %if.else.i6
 
 if.else.i6:                                       ; preds = %if.then3.split
-  tail call void @__assert_fail(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.1, i32 noundef 1294, ptr noundef nonnull @__PRETTY_FUNCTION__.object_class_property_add) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.1, i32 noundef 1294, ptr noundef nonnull @__PRETTY_FUNCTION__.object_class_property_add) #19
   unreachable
 
 if.end4:                                          ; preds = %if.then3.split, %if.end.split
@@ -6251,10 +6251,10 @@ if.end4:                                          ; preds = %if.then3.split, %if
   %and = and i32 %flags, 1
   %cmp.not = icmp eq i32 %and, 0
   %spec.select = select i1 %cmp.not, ptr null, ptr @property_get_uint64_ptr
-  %call1.i = tail call noalias dereferenceable_or_null(80) ptr @g_malloc0(i64 noundef 80) #22
-  %call2.i = tail call noalias ptr @g_strdup(ptr noundef %name) #19
+  %call1.i = tail call noalias dereferenceable_or_null(80) ptr @g_malloc0(i64 noundef 80) #23
+  %call2.i = tail call noalias ptr @g_strdup(ptr noundef %name) #20
   store ptr %call2.i, ptr %call1.i, align 8
-  %call4.i = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.47) #19
+  %call4.i = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.47) #20
   %type5.i = getelementptr inbounds i8, ptr %call1.i, i64 8
   store ptr %call4.i, ptr %type5.i, align 8
   %get6.i = getelementptr inbounds i8, ptr %call1.i, i64 24
@@ -6267,7 +6267,7 @@ if.end4:                                          ; preds = %if.then3.split, %if
   store ptr %v, ptr %opaque9.i, align 8
   %properties.i = getelementptr inbounds i8, ptr %klass, i64 88
   %0 = load ptr, ptr %properties.i, align 8
-  %call11.i = tail call i32 @g_hash_table_insert(ptr noundef %0, ptr noundef %call2.i, ptr noundef nonnull %call1.i) #19
+  %call11.i = tail call i32 @g_hash_table_insert(ptr noundef %0, ptr noundef %call2.i, ptr noundef nonnull %call1.i) #20
   ret ptr %call1.i
 }
 
@@ -6282,7 +6282,7 @@ entry:
 object_property_find.exit.i:                      ; preds = %entry
   %properties.i.i = getelementptr inbounds i8, ptr %target_obj, i64 16
   %1 = load ptr, ptr %properties.i.i, align 8
-  %call2.i.i = tail call ptr @g_hash_table_lookup(ptr noundef %1, ptr noundef %target_name) #19
+  %call2.i.i = tail call ptr @g_hash_table_lookup(ptr noundef %1, ptr noundef %target_name) #20
   %tobool.not.i = icmp eq ptr %call2.i.i, null
   br i1 %tobool.not.i, label %if.then.i, label %object_property_find_err.exit
 
@@ -6290,32 +6290,32 @@ if.then.i:                                        ; preds = %object_property_fin
   %2 = load ptr, ptr %target_obj, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull @error_abort, ptr noundef nonnull @.str.1, i32 noundef 1330, ptr noundef nonnull @__func__.object_property_find_err, ptr noundef nonnull @.str.21, ptr noundef %4, ptr noundef %target_name) #19
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull @error_abort, ptr noundef nonnull @.str.1, i32 noundef 1330, ptr noundef nonnull @__func__.object_property_find_err, ptr noundef nonnull @.str.21, ptr noundef %4, ptr noundef %target_name) #20
   br label %object_property_find_err.exit
 
 object_property_find_err.exit:                    ; preds = %entry, %object_property_find.exit.i, %if.then.i
   %retval.0.i6.i = phi ptr [ null, %if.then.i ], [ %call2.i.i, %object_property_find.exit.i ], [ %call1.i.i, %entry ]
   %5 = getelementptr i8, ptr %retval.0.i6.i, i64 8
   %call.val = load ptr, ptr %5, align 8
-  %call.i = tail call i32 @strstart(ptr noundef %call.val, ptr noundef nonnull @.str.80, ptr noundef null) #19
+  %call.i = tail call i32 @strstart(ptr noundef %call.val, ptr noundef nonnull @.str.80, ptr noundef null) #20
   %tobool.i.not = icmp eq i32 %call.i, 0
   %6 = load ptr, ptr %5, align 8
   br i1 %tobool.i.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %object_property_find_err.exit
   %add.ptr = getelementptr i8, ptr %6, i64 5
-  %call2 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.48, ptr noundef %add.ptr) #19
+  %call2 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.48, ptr noundef %add.ptr) #20
   br label %if.end
 
 if.else:                                          ; preds = %object_property_find_err.exit
-  %call4 = tail call noalias ptr @g_strdup(ptr noundef %6) #19
+  %call4 = tail call noalias ptr @g_strdup(ptr noundef %6) #20
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
   %storemerge = phi ptr [ %call4, %if.else ], [ %call2, %if.then ]
-  %call5 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #22
+  %call5 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #23
   store ptr %target_obj, ptr %call5, align 8
-  %call7 = tail call noalias ptr @g_strdup(ptr noundef %target_name) #19
+  %call7 = tail call noalias ptr @g_strdup(ptr noundef %target_name) #20
   %target_name8 = getelementptr inbounds i8, ptr %call5, i64 8
   store ptr %call7, ptr %target_name8, align 8
   %call.i16 = tail call ptr @object_property_try_add(ptr noundef readonly %obj, ptr noundef %name, ptr noundef %storemerge, ptr noundef nonnull @property_get_alias, ptr noundef nonnull @property_set_alias, ptr noundef nonnull @property_release_alias, ptr noundef nonnull %call5, ptr noundef nonnull @error_abort)
@@ -6347,7 +6347,7 @@ if.end17:                                         ; preds = %cond.end, %if.end
 object_property_find.exit.i.i:                    ; preds = %if.end17
   %properties.i.i.i = getelementptr inbounds i8, ptr %obj, i64 16
   %12 = load ptr, ptr %properties.i.i.i, align 8
-  %call2.i.i.i = tail call ptr @g_hash_table_lookup(ptr noundef %12, ptr noundef %9) #19
+  %call2.i.i.i = tail call ptr @g_hash_table_lookup(ptr noundef %12, ptr noundef %9) #20
   %tobool.not.i.i17 = icmp eq ptr %call2.i.i.i, null
   br i1 %tobool.not.i.i17, label %if.then.i.i, label %object_property_set_description.exit
 
@@ -6355,17 +6355,17 @@ if.then.i.i:                                      ; preds = %object_property_fin
   %13 = load ptr, ptr %obj, align 8
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %14, align 8
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull @error_abort, ptr noundef nonnull @.str.1, i32 noundef 1330, ptr noundef nonnull @__func__.object_property_find_err, ptr noundef nonnull @.str.21, ptr noundef %15, ptr noundef %9) #19
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull @error_abort, ptr noundef nonnull @.str.1, i32 noundef 1330, ptr noundef nonnull @__func__.object_property_find_err, ptr noundef nonnull @.str.21, ptr noundef %15, ptr noundef %9) #20
   unreachable
 
 object_property_set_description.exit:             ; preds = %if.end17, %object_property_find.exit.i.i
   %retval.0.i6.i.i = phi ptr [ %call2.i.i.i, %object_property_find.exit.i.i ], [ %call1.i.i.i, %if.end17 ]
   %description1.i = getelementptr inbounds i8, ptr %retval.0.i6.i.i, i64 16
   %16 = load ptr, ptr %description1.i, align 8
-  tail call void @g_free(ptr noundef %16) #19
-  %call2.i = tail call noalias ptr @g_strdup(ptr noundef %10) #19
+  tail call void @g_free(ptr noundef %16) #20
+  %call2.i = tail call noalias ptr @g_strdup(ptr noundef %10) #20
   store ptr %call2.i, ptr %description1.i, align 8
-  tail call void @g_free(ptr noundef %storemerge) #19
+  tail call void @g_free(ptr noundef %storemerge) #20
   ret ptr %call.i16
 }
 
@@ -6374,11 +6374,11 @@ define internal void @property_get_alias(ptr nocapture readnone %obj, ptr nounde
 entry:
   %target_name = getelementptr inbounds i8, ptr %opaque, i64 8
   %0 = load ptr, ptr %target_name, align 8
-  %call = tail call ptr @visitor_forward_field(ptr noundef %v, ptr noundef %0, ptr noundef %name) #19
+  %call = tail call ptr @visitor_forward_field(ptr noundef %v, ptr noundef %0, ptr noundef %name) #20
   %1 = load ptr, ptr %opaque, align 8
   %2 = load ptr, ptr %target_name, align 8
   %call2 = tail call zeroext i1 @object_property_get(ptr noundef %1, ptr noundef %2, ptr noundef %call, ptr noundef %errp)
-  tail call void @visit_free(ptr noundef %call) #19
+  tail call void @visit_free(ptr noundef %call) #20
   ret void
 }
 
@@ -6387,11 +6387,11 @@ define internal void @property_set_alias(ptr nocapture readnone %obj, ptr nounde
 entry:
   %target_name = getelementptr inbounds i8, ptr %opaque, i64 8
   %0 = load ptr, ptr %target_name, align 8
-  %call = tail call ptr @visitor_forward_field(ptr noundef %v, ptr noundef %0, ptr noundef %name) #19
+  %call = tail call ptr @visitor_forward_field(ptr noundef %v, ptr noundef %0, ptr noundef %name) #20
   %1 = load ptr, ptr %opaque, align 8
   %2 = load ptr, ptr %target_name, align 8
   %call2 = tail call zeroext i1 @object_property_set(ptr noundef %1, ptr noundef %2, ptr noundef %call, ptr noundef %errp)
-  tail call void @visit_free(ptr noundef %call) #19
+  tail call void @visit_free(ptr noundef %call) #20
   ret void
 }
 
@@ -6400,8 +6400,8 @@ define internal void @property_release_alias(ptr nocapture readnone %obj, ptr no
 entry:
   %target_name = getelementptr inbounds i8, ptr %opaque, i64 8
   %0 = load ptr, ptr %target_name, align 8
-  tail call void @g_free(ptr noundef %0) #19
-  tail call void @g_free(ptr noundef %opaque) #19
+  tail call void @g_free(ptr noundef %0) #20
+  tail call void @g_free(ptr noundef %opaque) #20
   ret void
 }
 
@@ -6419,7 +6419,7 @@ entry:
 object_property_find.exit.i:                      ; preds = %entry
   %properties.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %properties.i.i, align 8
-  %call2.i.i = tail call ptr @g_hash_table_lookup(ptr noundef %3, ptr noundef %1) #19
+  %call2.i.i = tail call ptr @g_hash_table_lookup(ptr noundef %3, ptr noundef %1) #20
   %cmp.i = icmp eq ptr %call2.i.i, null
   br i1 %cmp.i, label %object_resolve_path_component.exit, label %if.end.i
 
@@ -6433,7 +6433,7 @@ if.end.i:                                         ; preds = %object_property_fin
 if.then1.i:                                       ; preds = %if.end.i
   %opaque.i = getelementptr inbounds i8, ptr %retval.0.i8.i, i64 64
   %5 = load ptr, ptr %opaque.i, align 8
-  %call3.i = tail call ptr %4(ptr noundef nonnull %0, ptr noundef %5, ptr noundef %1) #19
+  %call3.i = tail call ptr %4(ptr noundef nonnull %0, ptr noundef %5, ptr noundef %1) #20
   br label %object_resolve_path_component.exit
 
 object_resolve_path_component.exit:               ; preds = %object_property_find.exit.i, %if.end.i, %if.then1.i
@@ -6452,7 +6452,7 @@ entry:
 object_property_find.exit.i:                      ; preds = %entry
   %properties.i.i = getelementptr inbounds i8, ptr %obj, i64 16
   %1 = load ptr, ptr %properties.i.i, align 8
-  %call2.i.i = tail call ptr @g_hash_table_lookup(ptr noundef %1, ptr noundef %name) #19
+  %call2.i.i = tail call ptr @g_hash_table_lookup(ptr noundef %1, ptr noundef %name) #20
   %tobool.not.i = icmp eq ptr %call2.i.i, null
   br i1 %tobool.not.i, label %if.then.i, label %object_property_find_err.exit
 
@@ -6460,15 +6460,15 @@ if.then.i:                                        ; preds = %object_property_fin
   %2 = load ptr, ptr %obj, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull @error_abort, ptr noundef nonnull @.str.1, i32 noundef 1330, ptr noundef nonnull @__func__.object_property_find_err, ptr noundef nonnull @.str.21, ptr noundef %4, ptr noundef %name) #19
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull @error_abort, ptr noundef nonnull @.str.1, i32 noundef 1330, ptr noundef nonnull @__func__.object_property_find_err, ptr noundef nonnull @.str.21, ptr noundef %4, ptr noundef %name) #20
   unreachable
 
 object_property_find_err.exit:                    ; preds = %entry, %object_property_find.exit.i
   %retval.0.i6.i = phi ptr [ %call2.i.i, %object_property_find.exit.i ], [ %call1.i.i, %entry ]
   %description1 = getelementptr inbounds i8, ptr %retval.0.i6.i, i64 16
   %5 = load ptr, ptr %description1, align 8
-  tail call void @g_free(ptr noundef %5) #19
-  %call2 = tail call noalias ptr @g_strdup(ptr noundef %description) #19
+  tail call void @g_free(ptr noundef %5) #20
+  %call2 = tail call noalias ptr @g_strdup(ptr noundef %description) #20
   store ptr %call2, ptr %description1, align 8
   ret void
 }
@@ -6478,11 +6478,11 @@ define dso_local void @object_class_property_set_description(ptr nocapture nound
 entry:
   %properties = getelementptr inbounds i8, ptr %klass, i64 88
   %0 = load ptr, ptr %properties, align 8
-  %call = tail call ptr @g_hash_table_lookup(ptr noundef %0, ptr noundef %name) #19
+  %call = tail call ptr @g_hash_table_lookup(ptr noundef %0, ptr noundef %name) #20
   %description1 = getelementptr inbounds i8, ptr %call, i64 16
   %1 = load ptr, ptr %description1, align 8
-  tail call void @g_free(ptr noundef %1) #19
-  %call2 = tail call noalias ptr @g_strdup(ptr noundef %description) #19
+  tail call void @g_free(ptr noundef %1) #20
+  %call2 = tail call noalias ptr @g_strdup(ptr noundef %description) #20
   store ptr %call2, ptr %description1, align 8
   ret void
 }
@@ -6490,7 +6490,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @do_qemu_init_register_types() #0 {
 entry:
-  tail call void @register_module_init(ptr noundef nonnull @register_types, i32 noundef 3) #19
+  tail call void @register_module_init(ptr noundef nonnull @register_types, i32 noundef 3) #20
   ret void
 }
 
@@ -6504,7 +6504,7 @@ entry:
   br i1 %.b2.i.i, label %if.else.i.i, label %if.end.i.i
 
 if.else.i.i:                                      ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.1, i32 noundef 95, ptr noundef nonnull @__PRETTY_FUNCTION__.type_table_add) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.1, i32 noundef 95, ptr noundef nonnull @__PRETTY_FUNCTION__.type_table_add) #19
   unreachable
 
 if.end.i.i:                                       ; preds = %entry
@@ -6513,21 +6513,21 @@ if.end.i.i:                                       ; preds = %entry
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %type_register_internal.exit
 
 if.then.i.i.i:                                    ; preds = %if.end.i.i
-  %call.i.i.i = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal) #19
+  %call.i.i.i = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal) #20
   store ptr %call.i.i.i, ptr @type_table_get.type_table, align 8
   br label %type_register_internal.exit
 
 type_register_internal.exit:                      ; preds = %if.end.i.i, %if.then.i.i.i
   %1 = phi ptr [ %call.i.i.i, %if.then.i.i.i ], [ %0, %if.end.i.i ]
   %2 = load ptr, ptr %call.i, align 8
-  %call1.i.i = tail call i32 @g_hash_table_insert(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %call.i) #19
+  %call1.i.i = tail call i32 @g_hash_table_insert(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %call.i) #20
   store ptr %call.i, ptr @type_interface, align 8
   %call.i1 = tail call fastcc ptr @type_new(ptr noundef nonnull readonly @register_types.object_info)
   %.b2.i.i2 = load i1, ptr @enumerating_types, align 1
   br i1 %.b2.i.i2, label %if.else.i.i8, label %if.end.i.i3
 
 if.else.i.i8:                                     ; preds = %type_register_internal.exit
-  tail call void @__assert_fail(ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.1, i32 noundef 95, ptr noundef nonnull @__PRETTY_FUNCTION__.type_table_add) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.1, i32 noundef 95, ptr noundef nonnull @__PRETTY_FUNCTION__.type_table_add) #19
   unreachable
 
 if.end.i.i3:                                      ; preds = %type_register_internal.exit
@@ -6536,27 +6536,27 @@ if.end.i.i3:                                      ; preds = %type_register_inter
   br i1 %cmp.i.i.i4, label %if.then.i.i.i6, label %type_register_internal.exit9
 
 if.then.i.i.i6:                                   ; preds = %if.end.i.i3
-  %call.i.i.i7 = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal) #19
+  %call.i.i.i7 = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal) #20
   store ptr %call.i.i.i7, ptr @type_table_get.type_table, align 8
   br label %type_register_internal.exit9
 
 type_register_internal.exit9:                     ; preds = %if.end.i.i3, %if.then.i.i.i6
   %4 = phi ptr [ %call.i.i.i7, %if.then.i.i.i6 ], [ %3, %if.end.i.i3 ]
   %5 = load ptr, ptr %call.i1, align 8
-  %call1.i.i5 = tail call i32 @g_hash_table_insert(ptr noundef %4, ptr noundef %5, ptr noundef nonnull %call.i1) #19
+  %call1.i.i5 = tail call i32 @g_hash_table_insert(ptr noundef %4, ptr noundef %5, ptr noundef nonnull %call.i1) #20
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc noalias noundef ptr @type_new(ptr nocapture noundef readonly %info) unnamed_addr #0 {
 entry:
-  %call = tail call noalias dereferenceable_or_null(376) ptr @g_malloc0(i64 noundef 376) #22
+  %call = tail call noalias dereferenceable_or_null(376) ptr @g_malloc0(i64 noundef 376) #23
   %0 = load ptr, ptr %info, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.else, label %do.end
 
 if.else:                                          ; preds = %entry
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 109, ptr noundef nonnull @__func__.type_new, ptr noundef nonnull @.str.49) #18
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 109, ptr noundef nonnull @__func__.type_new, ptr noundef nonnull @.str.49) #19
   unreachable
 
 do.end:                                           ; preds = %entry
@@ -6565,30 +6565,30 @@ do.end:                                           ; preds = %entry
   br i1 %cmp.i.i, label %if.then.i.i, label %type_table_lookup.exit
 
 if.then.i.i:                                      ; preds = %do.end
-  %call.i.i = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal) #19
+  %call.i.i = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal) #20
   store ptr %call.i.i, ptr @type_table_get.type_table, align 8
   br label %type_table_lookup.exit
 
 type_table_lookup.exit:                           ; preds = %do.end, %if.then.i.i
   %2 = phi ptr [ %call.i.i, %if.then.i.i ], [ %1, %do.end ]
-  %call1.i = tail call ptr @g_hash_table_lookup(ptr noundef %2, ptr noundef nonnull %0) #19
+  %call1.i = tail call ptr @g_hash_table_lookup(ptr noundef %2, ptr noundef nonnull %0) #20
   %cmp3.not = icmp eq ptr %call1.i, null
   br i1 %cmp3.not, label %if.end7, label %if.then4
 
 if.then4:                                         ; preds = %type_table_lookup.exit
   %3 = load ptr, ptr @stderr, align 8
   %4 = load ptr, ptr %info, align 8
-  %call6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.50, ptr noundef %4) #20
-  tail call void @abort() #18
+  %call6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.50, ptr noundef %4) #21
+  tail call void @abort() #19
   unreachable
 
 if.end7:                                          ; preds = %type_table_lookup.exit
   %5 = load ptr, ptr %info, align 8
-  %call9 = tail call noalias ptr @g_strdup(ptr noundef %5) #19
+  %call9 = tail call noalias ptr @g_strdup(ptr noundef %5) #20
   store ptr %call9, ptr %call, align 8
   %parent = getelementptr inbounds i8, ptr %info, i64 8
   %6 = load ptr, ptr %parent, align 8
-  %call11 = tail call noalias ptr @g_strdup(ptr noundef %6) #19
+  %call11 = tail call noalias ptr @g_strdup(ptr noundef %6) #20
   %parent12 = getelementptr inbounds i8, ptr %call, i64 88
   store ptr %call11, ptr %parent12, align 8
   %class_size = getelementptr inbounds i8, ptr %info, i64 64
@@ -6639,7 +6639,7 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %fo
   br i1 %tobool25.not, label %for.end, label %for.body
 
 for.body:                                         ; preds = %land.rhs
-  %call30 = tail call noalias ptr @g_strdup(ptr noundef nonnull %16) #19
+  %call30 = tail call noalias ptr @g_strdup(ptr noundef nonnull %16) #20
   %arrayidx33 = getelementptr [32 x %struct.InterfaceImpl], ptr %interfaces31, i64 0, i64 %idxprom
   store ptr %call30, ptr %arrayidx33, align 8
   %inc = add i32 %i.039, 1
@@ -6655,7 +6655,7 @@ for.end:                                          ; preds = %land.rhs, %for.body
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
 
 declare ptr @g_hash_table_new_full(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
@@ -6676,7 +6676,7 @@ lor.lhs.false.i:                                  ; preds = %entry
   br i1 %tobool1.not.i, label %if.else.i, label %land.lhs.true.i
 
 if.else.i:                                        ; preds = %lor.lhs.false.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.73, ptr noundef nonnull @.str.74, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.73, ptr noundef nonnull @.str.74, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #19
   unreachable
 
 land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
@@ -6686,7 +6686,7 @@ land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
   br i1 %cmp.i, label %if.then5.i, label %qobject_unref_impl.exit
 
 if.then5.i:                                       ; preds = %land.lhs.true.i
-  tail call void @qobject_destroy(ptr noundef nonnull %0) #19
+  tail call void @qobject_destroy(ptr noundef nonnull %0) #20
   br label %qobject_unref_impl.exit
 
 qobject_unref_impl.exit:                          ; preds = %land.lhs.true.i, %if.then5.i
@@ -6695,14 +6695,14 @@ qobject_unref_impl.exit:                          ; preds = %land.lhs.true.i, %i
 
 if.end:                                           ; preds = %qobject_unref_impl.exit, %entry
   %2 = load ptr, ptr %data, align 8
-  tail call void @g_free(ptr noundef %2) #19
+  tail call void @g_free(ptr noundef %2) #20
   %type = getelementptr inbounds i8, ptr %data, i64 8
   %3 = load ptr, ptr %type, align 8
-  tail call void @g_free(ptr noundef %3) #19
+  tail call void @g_free(ptr noundef %3) #20
   %description = getelementptr inbounds i8, ptr %data, i64 16
   %4 = load ptr, ptr %description, align 8
-  tail call void @g_free(ptr noundef %4) #19
-  tail call void @g_free(ptr noundef nonnull %data) #19
+  tail call void @g_free(ptr noundef %4) #20
+  tail call void @g_free(ptr noundef nonnull %data) #20
   ret void
 }
 
@@ -6726,13 +6726,13 @@ if.end.i.i:                                       ; preds = %if.then
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %type_get_by_name.exit.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end.i.i
-  %call.i.i.i.i = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal) #19
+  %call.i.i.i.i = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal) #20
   store ptr %call.i.i.i.i, ptr @type_table_get.type_table, align 8
   br label %type_get_by_name.exit.i
 
 type_get_by_name.exit.i:                          ; preds = %if.then.i.i.i.i, %if.end.i.i
   %3 = phi ptr [ %call.i.i.i.i, %if.then.i.i.i.i ], [ %2, %if.end.i.i ]
-  %call1.i.i.i = tail call ptr @g_hash_table_lookup(ptr noundef %3, ptr noundef nonnull %ti.val) #19
+  %call1.i.i.i = tail call ptr @g_hash_table_lookup(ptr noundef %3, ptr noundef nonnull %ti.val) #20
   store ptr %call1.i.i.i, ptr %parent_type.i, align 8
   %tobool5.not.i = icmp eq ptr %call1.i.i.i, null
   br i1 %tobool5.not.i, label %if.then6.i, label %type_get_parent.exit
@@ -6741,8 +6741,8 @@ if.then6.i:                                       ; preds = %type_get_by_name.ex
   %4 = load ptr, ptr @stderr, align 8
   %5 = load ptr, ptr %ti, align 8
   %6 = load ptr, ptr %0, align 8
-  %call8.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.70, ptr noundef %5, ptr noundef %6) #20
-  tail call void @abort() #18
+  %call8.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.70, ptr noundef %5, ptr noundef %6) #21
+  tail call void @abort() #19
   unreachable
 
 type_get_parent.exit:                             ; preds = %if.then, %type_get_by_name.exit.i
@@ -6757,7 +6757,7 @@ if.end:                                           ; preds = %type_get_parent.exi
   br i1 %tobool.not, label %if.end4, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  tail call void %8(ptr noundef %obj) #19
+  tail call void %8(ptr noundef %obj) #20
   br label %if.end4
 
 if.end4:                                          ; preds = %if.then2, %if.end
@@ -6771,14 +6771,14 @@ declare ptr @qemu_memalign(i64 noundef, i64 noundef) local_unnamed_addr #3
 declare void @qemu_vfree(ptr noundef) #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #3
 
 declare i32 @qemu_get_thread_id() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #13
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #14
 
 declare ptr @g_slist_append(ptr noundef, ptr noundef) local_unnamed_addr #3
 
@@ -6787,7 +6787,7 @@ declare ptr @g_hash_table_new(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare ptr @g_slist_prepend(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #14
+declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #15
 
 declare i32 @g_hash_table_add(ptr noundef, ptr noundef) local_unnamed_addr #3
 
@@ -6800,22 +6800,22 @@ define internal void @object_property_init_defval(ptr noundef %obj, ptr nocaptur
 entry:
   %defval = getelementptr inbounds i8, ptr %prop, i64 72
   %0 = load ptr, ptr %defval, align 8
-  %call = tail call ptr @qobject_input_visitor_new(ptr noundef %0) #19
+  %call = tail call ptr @qobject_input_visitor_new(ptr noundef %0) #20
   %set = getelementptr inbounds i8, ptr %prop, i64 32
   %1 = load ptr, ptr %set, align 8
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %if.else, label %if.end
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.78, ptr noundef nonnull @.str.1, i32 noundef 1567, ptr noundef nonnull @__PRETTY_FUNCTION__.object_property_init_defval) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.78, ptr noundef nonnull @.str.1, i32 noundef 1567, ptr noundef nonnull @__PRETTY_FUNCTION__.object_property_init_defval) #19
   unreachable
 
 if.end:                                           ; preds = %entry
   %2 = load ptr, ptr %prop, align 8
   %opaque = getelementptr inbounds i8, ptr %prop, i64 64
   %3 = load ptr, ptr %opaque, align 8
-  tail call void %1(ptr noundef %obj, ptr noundef %call, ptr noundef %2, ptr noundef %3, ptr noundef nonnull @error_abort) #19
-  tail call void @visit_free(ptr noundef %call) #19
+  tail call void %1(ptr noundef %obj, ptr noundef %call, ptr noundef %2, ptr noundef %3, ptr noundef nonnull @error_abort) #20
+  tail call void @visit_free(ptr noundef %call) #20
   ret void
 }
 
@@ -6862,49 +6862,50 @@ entry:
   %0 = load ptr, ptr %obj, align 8
   %1 = load ptr, ptr %0, align 8
   %2 = load ptr, ptr %1, align 8
-  %call1 = tail call noalias ptr @g_strdup(ptr noundef %2) #19
+  %call1 = tail call noalias ptr @g_strdup(ptr noundef %2) #20
   ret ptr %call1
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start.p0(ptr) #15
+declare void @llvm.va_start.p0(ptr) #16
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end.p0(ptr) #15
+declare void @llvm.va_end.p0(ptr) #16
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #16
+declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nounwind sspstrong willreturn memory(read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #14 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #16 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #17 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #18 = { noreturn nounwind }
-attributes #19 = { nounwind }
-attributes #20 = { cold }
-attributes #21 = { nounwind allocsize(0,1) }
-attributes #22 = { nounwind allocsize(0) }
-attributes #23 = { nounwind willreturn memory(read) }
+attributes #5 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree nounwind sspstrong willreturn memory(read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #15 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #17 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #18 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #19 = { noreturn nounwind }
+attributes #20 = { nounwind }
+attributes #21 = { cold }
+attributes #22 = { nounwind allocsize(0,1) }
+attributes #23 = { nounwind allocsize(0) }
+attributes #24 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

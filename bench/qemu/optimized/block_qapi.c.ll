@@ -88,22 +88,22 @@ entry:
 
 if.then4:                                         ; preds = %entry
   %node_name = getelementptr inbounds i8, ptr %bs, i64 16600
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str, i32 noundef 56, ptr noundef nonnull @__func__.bdrv_block_device_info, ptr noundef nonnull @.str.1, ptr noundef nonnull %node_name) #9
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str, i32 noundef 56, ptr noundef nonnull @__func__.bdrv_block_device_info, ptr noundef nonnull @.str.1, ptr noundef nonnull %node_name) #10
   br label %cleanup
 
 if.end5:                                          ; preds = %entry
-  tail call void @bdrv_refresh_filename(ptr noundef nonnull %bs) #9
-  %call = tail call noalias dereferenceable_or_null(360) ptr @g_malloc0(i64 noundef 360) #10
+  tail call void @bdrv_refresh_filename(ptr noundef nonnull %bs) #10
+  %call = tail call noalias dereferenceable_or_null(360) ptr @g_malloc0(i64 noundef 360) #11
   %filename = getelementptr inbounds i8, ptr %bs, i64 49
-  %call7 = tail call noalias ptr @g_strdup(ptr noundef nonnull %filename) #9
+  %call7 = tail call noalias ptr @g_strdup(ptr noundef nonnull %filename) #10
   store ptr %call7, ptr %call, align 8
-  %call8 = tail call zeroext i1 @bdrv_is_read_only(ptr noundef nonnull %bs) #9
+  %call8 = tail call zeroext i1 @bdrv_is_read_only(ptr noundef nonnull %bs) #10
   %ro = getelementptr inbounds i8, ptr %call, i64 16
   %frombool9 = zext i1 %call8 to i8
   store i8 %frombool9, ptr %ro, align 8
   %1 = load ptr, ptr %drv, align 8
   %2 = load ptr, ptr %1, align 8
-  %call11 = tail call noalias ptr @g_strdup(ptr noundef %2) #9
+  %call11 = tail call noalias ptr @g_strdup(ptr noundef %2) #10
   %drv12 = getelementptr inbounds i8, ptr %call, i64 24
   store ptr %call11, ptr %drv12, align 8
   %encrypted = getelementptr inbounds i8, ptr %bs, i64 4
@@ -111,14 +111,14 @@ if.end5:                                          ; preds = %entry
   %encrypted14 = getelementptr inbounds i8, ptr %call, i64 48
   %frombool15 = and i8 %3, 1
   store i8 %frombool15, ptr %encrypted14, align 8
-  %call16 = tail call noalias dereferenceable_or_null(3) ptr @g_malloc_n(i64 noundef 1, i64 noundef 3) #11
+  %call16 = tail call noalias dereferenceable_or_null(3) ptr @g_malloc_n(i64 noundef 1, i64 noundef 3) #12
   %cache = getelementptr inbounds i8, ptr %call, i64 328
   store ptr %call16, ptr %cache, align 8
   %tobool18 = icmp ne ptr %blk, null
   br i1 %tobool18, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %if.end5
-  %call19 = tail call zeroext i1 @blk_enable_write_cache(ptr noundef nonnull %blk) #9
+  %call19 = tail call zeroext i1 @blk_enable_write_cache(ptr noundef nonnull %blk) #10
   %4 = zext i1 %call19 to i8
   br label %cond.end
 
@@ -142,13 +142,13 @@ cond.end:                                         ; preds = %if.end5, %cond.true
   br i1 %tobool32.not, label %if.end38, label %if.then33
 
 if.then33:                                        ; preds = %cond.end
-  %call36 = tail call noalias ptr @g_strdup(ptr noundef nonnull %node_name31) #9
+  %call36 = tail call noalias ptr @g_strdup(ptr noundef nonnull %node_name31) #10
   %node_name37 = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %call36, ptr %node_name37, align 8
   br label %if.end38
 
 if.end38:                                         ; preds = %if.then33, %cond.end
-  %call.i = tail call ptr @bdrv_cow_child(ptr noundef nonnull %bs) #9
+  %call.i = tail call ptr @bdrv_cow_child(ptr noundef nonnull %bs) #10
   %tobool.not.i.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i.i, label %if.end45, label %bdrv_cow_bs.exit
 
@@ -159,7 +159,7 @@ bdrv_cow_bs.exit:                                 ; preds = %if.end38
 
 if.then41:                                        ; preds = %bdrv_cow_bs.exit
   %filename42 = getelementptr inbounds i8, ptr %10, i64 49
-  %call44 = tail call noalias ptr @g_strdup(ptr noundef nonnull %filename42) #9
+  %call44 = tail call noalias ptr @g_strdup(ptr noundef nonnull %filename42) #10
   %backing_file = getelementptr inbounds i8, ptr %call, i64 32
   store ptr %call44, ptr %backing_file, align 8
   br label %if.end45
@@ -173,7 +173,7 @@ if.end45:                                         ; preds = %if.end38, %if.then4
 if.then48:                                        ; preds = %if.end45
   %has_dirty_bitmaps = getelementptr inbounds i8, ptr %call, i64 344
   store i8 1, ptr %has_dirty_bitmaps, align 8
-  %call49 = tail call ptr @bdrv_query_dirty_bitmaps(ptr noundef nonnull %bs) #9
+  %call49 = tail call ptr @bdrv_query_dirty_bitmaps(ptr noundef nonnull %bs) #10
   %dirty_bitmaps50 = getelementptr inbounds i8, ptr %call, i64 352
   store ptr %call49, ptr %dirty_bitmaps50, align 8
   br label %if.end51
@@ -186,15 +186,15 @@ if.end51:                                         ; preds = %if.then48, %if.end4
   br i1 %tobool18, label %land.lhs.true, label %if.end163
 
 land.lhs.true:                                    ; preds = %if.end51
-  %call54 = tail call ptr @blk_get_public(ptr noundef nonnull %blk) #9
+  %call54 = tail call ptr @blk_get_public(ptr noundef nonnull %blk) #10
   %throttle_state = getelementptr inbounds i8, ptr %call54, i64 96
   %13 = load ptr, ptr %throttle_state, align 8
   %tobool55.not = icmp eq ptr %13, null
   br i1 %tobool55.not, label %if.end163, label %if.then56
 
 if.then56:                                        ; preds = %land.lhs.true
-  %call57 = tail call ptr @blk_get_public(ptr noundef nonnull %blk) #9
-  call void @throttle_group_get_config(ptr noundef %call57, ptr noundef nonnull %cfg) #9
+  %call57 = tail call ptr @blk_get_public(ptr noundef nonnull %blk) #10
+  call void @throttle_group_get_config(ptr noundef %call57, ptr noundef nonnull %cfg) #10
   %14 = load i64, ptr %cfg, align 8
   %bps = getelementptr inbounds i8, ptr %call, i64 56
   store i64 %14, ptr %bps, align 8
@@ -310,14 +310,14 @@ if.then56:                                        ; preds = %land.lhs.true
   store i8 %frombool158, ptr %has_iops_size, align 8
   %iops_size = getelementptr inbounds i8, ptr %call, i64 312
   store i64 %32, ptr %iops_size, align 8
-  %call161 = call ptr @throttle_group_get_name(ptr noundef %call57) #9
-  %call162 = call noalias ptr @g_strdup(ptr noundef %call161) #9
+  %call161 = call ptr @throttle_group_get_name(ptr noundef %call57) #10
+  %call162 = call noalias ptr @g_strdup(ptr noundef %call161) #10
   %group = getelementptr inbounds i8, ptr %call, i64 320
   store ptr %call162, ptr %group, align 8
   br label %if.end163
 
 if.end163:                                        ; preds = %if.then56, %land.lhs.true, %if.end51
-  %call164 = call i64 @bdrv_write_threshold_get(ptr noundef nonnull %bs) #9
+  %call164 = call i64 @bdrv_write_threshold_get(ptr noundef nonnull %bs) #10
   %write_threshold = getelementptr inbounds i8, ptr %call, i64 336
   store i64 %call164, ptr %write_threshold, align 8
   %image = getelementptr inbounds i8, ptr %call, i64 104
@@ -329,7 +329,7 @@ if.end163:                                        ; preds = %if.then56, %land.lh
   br i1 %tobool168.not, label %if.end170, label %if.then169
 
 if.then169:                                       ; preds = %if.end163
-  call void @qapi_free_BlockDeviceInfo(ptr noundef nonnull %call) #9
+  call void @qapi_free_BlockDeviceInfo(ptr noundef nonnull %call) #10
   br label %cleanup
 
 if.end170:                                        ; preds = %if.end163
@@ -357,7 +357,7 @@ cleanup:                                          ; preds = %while.body, %if.end
   %retval.0 = phi ptr [ null, %if.then169 ], [ null, %if.then4 ], [ %call, %if.end170 ], [ %call, %while.body ]
   %_auto_errp_prop.val = load ptr, ptr %_auto_errp_prop, align 8
   %_auto_errp_prop.val86 = load ptr, ptr %errp1, align 8
-  call void @error_propagate(ptr noundef %_auto_errp_prop.val86, ptr noundef %_auto_errp_prop.val) #9
+  call void @error_propagate(ptr noundef %_auto_errp_prop.val86, ptr noundef %_auto_errp_prop.val) #10
   ret ptr %retval.0
 }
 
@@ -398,7 +398,7 @@ entry:
   %cmp = icmp eq ptr %errp, @error_fatal
   %or.cond = or i1 %tobool, %cmp
   %spec.select = select i1 %or.cond, ptr %_auto_errp_prop, ptr %errp
-  %call = tail call noalias dereferenceable_or_null(120) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 120) #11
+  %call = tail call noalias dereferenceable_or_null(120) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 120) #12
   call fastcc void @bdrv_do_query_node_info(ptr noundef %bs, ptr noundef %call, ptr noundef %spec.select)
   %0 = load ptr, ptr %spec.select, align 8
   %tobool5.not = icmp eq ptr %0, null
@@ -408,7 +408,7 @@ if.end7:                                          ; preds = %entry
   br i1 %flat, label %if.end22, label %if.then9
 
 if.then9:                                         ; preds = %if.end7
-  %call.i = call ptr @bdrv_filter_or_cow_child(ptr noundef %bs) #9
+  %call.i = call ptr @bdrv_filter_or_cow_child(ptr noundef %bs) #10
   %tobool.not.i.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i.i, label %bdrv_filter_or_cow_bs.exit, label %cond.true.i.i
 
@@ -421,7 +421,7 @@ bdrv_filter_or_cow_bs.exit:                       ; preds = %if.then9, %cond.tru
   br i1 %skip_implicit_filters, label %if.then12, label %if.end14
 
 if.then12:                                        ; preds = %bdrv_filter_or_cow_bs.exit
-  %call13 = call ptr @bdrv_skip_implicit_filters(ptr noundef %cond.i.i) #9
+  %call13 = call ptr @bdrv_skip_implicit_filters(ptr noundef %cond.i.i) #10
   br label %if.end14
 
 if.end14:                                         ; preds = %if.then12, %bdrv_filter_or_cow_bs.exit
@@ -441,13 +441,13 @@ if.end22:                                         ; preds = %if.end14, %if.then1
   br label %cleanup
 
 if.end25:                                         ; preds = %entry, %if.then16
-  call void @qapi_free_ImageInfo(ptr noundef %call) #9
+  call void @qapi_free_ImageInfo(ptr noundef %call) #10
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end25, %if.end22
   %_auto_errp_prop.val = load ptr, ptr %_auto_errp_prop, align 8
   %_auto_errp_prop.val15 = load ptr, ptr %errp2, align 8
-  call void @error_propagate(ptr noundef %_auto_errp_prop.val15, ptr noundef %_auto_errp_prop.val) #9
+  call void @error_propagate(ptr noundef %_auto_errp_prop.val15, ptr noundef %_auto_errp_prop.val) #10
   ret void
 }
 
@@ -460,7 +460,7 @@ entry:
   %head = alloca ptr, align 8
   store ptr null, ptr %sn_tab, align 8
   store ptr null, ptr %head, align 8
-  %call = call i32 @bdrv_snapshot_list(ptr noundef %bs, ptr noundef nonnull %sn_tab) #9
+  %call = call i32 @bdrv_snapshot_list(ptr noundef %bs, ptr noundef nonnull %sn_tab) #10
   %cmp = icmp slt i32 %call, 0
   br i1 %cmp, label %if.then, label %for.cond.preheader
 
@@ -473,36 +473,36 @@ for.body.preheader:                               ; preds = %for.cond.preheader
   br label %for.body
 
 if.then:                                          ; preds = %entry
-  %call1 = call ptr @bdrv_get_device_name(ptr noundef %bs) #9
+  %call1 = call ptr @bdrv_get_device_name(ptr noundef %bs) #10
   switch i32 %call, label %sw.default [
     i32 -123, label %sw.bb
     i32 -95, label %sw.bb2
   ]
 
 sw.bb:                                            ; preds = %if.then
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 189, ptr noundef nonnull @__func__.bdrv_query_snapshot_info_list, ptr noundef nonnull @.str.2, ptr noundef %call1) #9
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 189, ptr noundef nonnull @__func__.bdrv_query_snapshot_info_list, ptr noundef nonnull @.str.2, ptr noundef %call1) #10
   br label %return
 
 sw.bb2:                                           ; preds = %if.then
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 194, ptr noundef nonnull @__func__.bdrv_query_snapshot_info_list, ptr noundef nonnull @.str.3, ptr noundef %call1) #9
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 194, ptr noundef nonnull @__func__.bdrv_query_snapshot_info_list, ptr noundef nonnull @.str.3, ptr noundef %call1) #10
   br label %return
 
 sw.default:                                       ; preds = %if.then
   %sub = sub i32 0, %call
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 198, ptr noundef nonnull @__func__.bdrv_query_snapshot_info_list, i32 noundef %sub, ptr noundef nonnull @.str.4, ptr noundef %call1) #9
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 198, ptr noundef nonnull @__func__.bdrv_query_snapshot_info_list, i32 noundef %sub, ptr noundef nonnull @.str.4, ptr noundef %call1) #10
   br label %return
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
   %tail.032 = phi ptr [ %head, %for.body.preheader ], [ %9, %for.body ]
-  %call4 = call noalias dereferenceable_or_null(72) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 72) #11
+  %call4 = call noalias dereferenceable_or_null(72) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 72) #12
   %0 = load ptr, ptr %sn_tab, align 8
   %arrayidx = getelementptr %struct.QEMUSnapshotInfo, ptr %0, i64 %indvars.iv
-  %call5 = call noalias ptr @g_strdup(ptr noundef %arrayidx) #9
+  %call5 = call noalias ptr @g_strdup(ptr noundef %arrayidx) #10
   store ptr %call5, ptr %call4, align 8
   %1 = load ptr, ptr %sn_tab, align 8
   %name = getelementptr %struct.QEMUSnapshotInfo, ptr %1, i64 %indvars.iv, i32 1
-  %call9 = call noalias ptr @g_strdup(ptr noundef %name) #9
+  %call9 = call noalias ptr @g_strdup(ptr noundef %name) #10
   %name10 = getelementptr inbounds i8, ptr %call4, i64 8
   store ptr %call9, ptr %name10, align 8
   %2 = load ptr, ptr %sn_tab, align 8
@@ -537,7 +537,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %has_icount = getelementptr inbounds i8, ptr %call4, i64 56
   %frombool = zext i1 %cmp33 to i8
   store i8 %frombool, ptr %has_icount, align 8
-  %call35 = call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #10
+  %call35 = call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #11
   store ptr %call35, ptr %tail.032, align 8
   %value = getelementptr inbounds i8, ptr %call35, i64 8
   store ptr %call4, ptr %value, align 8
@@ -553,7 +553,7 @@ for.end.loopexit:                                 ; preds = %for.body
 for.end:                                          ; preds = %for.end.loopexit, %for.cond.preheader
   %head.0.head.0.head.0. = phi ptr [ %head.0.head.0.head.0.head.0..pre, %for.end.loopexit ], [ null, %for.cond.preheader ]
   %10 = load ptr, ptr %sn_tab, align 8
-  call void @g_free(ptr noundef %10) #9
+  call void @g_free(ptr noundef %10) #10
   store ptr %head.0.head.0.head.0., ptr %p_list, align 8
   br label %return
 
@@ -579,9 +579,9 @@ entry:
   %bdi = alloca %struct.BlockDriverInfo, align 8
   %err = alloca ptr, align 8
   store ptr null, ptr %err, align 8
-  %call = tail call ptr @bdrv_get_aio_context(ptr noundef %bs) #9
-  tail call void @aio_context_acquire(ptr noundef %call) #9
-  %call1 = tail call i64 @bdrv_getlength(ptr noundef %bs) #9
+  %call = tail call ptr @bdrv_get_aio_context(ptr noundef %bs) #10
+  tail call void @aio_context_acquire(ptr noundef %call) #10
+  %call1 = tail call i64 @bdrv_getlength(ptr noundef %bs) #10
   %cmp = icmp slt i64 %call1, 0
   br i1 %cmp, label %if.then, label %if.end
 
@@ -589,21 +589,21 @@ if.then:                                          ; preds = %entry
   %0 = trunc i64 %call1 to i32
   %conv = sub i32 0, %0
   %exact_filename = getelementptr inbounds i8, ptr %bs, i64 12368
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 242, ptr noundef nonnull @__func__.bdrv_do_query_node_info, i32 noundef %conv, ptr noundef nonnull @.str.41, ptr noundef nonnull %exact_filename) #9
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 242, ptr noundef nonnull @__func__.bdrv_do_query_node_info, i32 noundef %conv, ptr noundef nonnull @.str.41, ptr noundef nonnull %exact_filename) #10
   br label %out
 
 if.end:                                           ; preds = %entry
-  tail call void @bdrv_refresh_filename(ptr noundef %bs) #9
+  tail call void @bdrv_refresh_filename(ptr noundef %bs) #10
   %filename = getelementptr inbounds i8, ptr %bs, i64 49
-  %call3 = tail call noalias ptr @g_strdup(ptr noundef nonnull %filename) #9
+  %call3 = tail call noalias ptr @g_strdup(ptr noundef nonnull %filename) #10
   store ptr %call3, ptr %info, align 8
-  %call5 = tail call ptr @bdrv_get_format_name(ptr noundef %bs) #9
-  %call6 = tail call noalias ptr @g_strdup(ptr noundef %call5) #9
+  %call5 = tail call ptr @bdrv_get_format_name(ptr noundef %bs) #10
+  %call6 = tail call noalias ptr @g_strdup(ptr noundef %call5) #10
   %format = getelementptr inbounds i8, ptr %info, i64 8
   store ptr %call6, ptr %format, align 8
   %virtual_size = getelementptr inbounds i8, ptr %info, i64 32
   store i64 %call1, ptr %virtual_size, align 8
-  %call7 = tail call i64 @bdrv_get_allocated_file_size(ptr noundef %bs) #9
+  %call7 = tail call i64 @bdrv_get_allocated_file_size(ptr noundef %bs) #10
   %actual_size = getelementptr inbounds i8, ptr %info, i64 24
   store i64 %call7, ptr %actual_size, align 8
   %cmp9 = icmp sgt i64 %call7, -1
@@ -623,7 +623,7 @@ if.then11:                                        ; preds = %if.end
   br label %if.end13
 
 if.end13:                                         ; preds = %if.then11, %if.end
-  %call14 = call i32 @bdrv_get_info(ptr noundef nonnull %bs, ptr noundef nonnull %bdi) #9
+  %call14 = call i32 @bdrv_get_info(ptr noundef nonnull %bs, ptr noundef nonnull %bdi) #10
   %cmp15 = icmp sgt i32 %call14, -1
   br i1 %cmp15, label %if.then17, label %if.end27
 
@@ -651,7 +651,7 @@ if.end24:                                         ; preds = %if.then20, %if.then
   br label %if.end27
 
 if.end27:                                         ; preds = %if.end24, %if.end13
-  %call28 = call ptr @bdrv_get_specific_info(ptr noundef nonnull %bs, ptr noundef nonnull %err) #9
+  %call28 = call ptr @bdrv_get_specific_info(ptr noundef nonnull %bs, ptr noundef nonnull %err) #10
   %format_specific = getelementptr inbounds i8, ptr %info, i64 104
   store ptr %call28, ptr %format_specific, align 8
   %4 = load ptr, ptr %err, align 8
@@ -659,7 +659,7 @@ if.end27:                                         ; preds = %if.end24, %if.end13
   br i1 %tobool29.not, label %if.end31, label %if.then30
 
 if.then30:                                        ; preds = %if.end27
-  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %4) #9
+  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %4) #10
   br label %out
 
 if.end31:                                         ; preds = %if.end27
@@ -669,15 +669,15 @@ if.end31:                                         ; preds = %if.end27
   br i1 %cmp34.not, label %if.end51, label %if.then36
 
 if.then36:                                        ; preds = %if.end31
-  %call37 = call noalias ptr @g_strdup(ptr noundef nonnull %backing_file) #9
+  %call37 = call noalias ptr @g_strdup(ptr noundef nonnull %backing_file) #10
   %backing_filename38 = getelementptr inbounds i8, ptr %info, i64 64
   store ptr %call37, ptr %backing_filename38, align 8
-  %call39 = call ptr @bdrv_get_full_backing_filename(ptr noundef nonnull %bs, ptr noundef null) #9
+  %call39 = call ptr @bdrv_get_full_backing_filename(ptr noundef nonnull %bs, ptr noundef null) #10
   %tobool40.not = icmp eq ptr %call39, null
   br i1 %tobool40.not, label %if.end43, label %if.then41
 
 if.then41:                                        ; preds = %if.then36
-  %call42 = call noalias ptr @g_strdup(ptr noundef nonnull %call39) #9
+  %call42 = call noalias ptr @g_strdup(ptr noundef nonnull %call39) #10
   %full_backing_filename = getelementptr inbounds i8, ptr %info, i64 72
   store ptr %call42, ptr %full_backing_filename, align 8
   br label %if.end43
@@ -689,13 +689,13 @@ if.end43:                                         ; preds = %if.then41, %if.then
   br i1 %tobool45.not, label %if.end50, label %if.then46
 
 if.then46:                                        ; preds = %if.end43
-  %call49 = call noalias ptr @g_strdup(ptr noundef nonnull %backing_format) #9
+  %call49 = call noalias ptr @g_strdup(ptr noundef nonnull %backing_format) #10
   %backing_filename_format = getelementptr inbounds i8, ptr %info, i64 80
   store ptr %call49, ptr %backing_filename_format, align 8
   br label %if.end50
 
 if.end50:                                         ; preds = %if.then46, %if.end43
-  call void @g_free(ptr noundef %call39) #9
+  call void @g_free(ptr noundef %call39) #10
   br label %if.end51
 
 if.end51:                                         ; preds = %if.end50, %if.end31
@@ -719,17 +719,17 @@ if.then55:                                        ; preds = %sw.bb
 
 sw.bb57:                                          ; preds = %if.end51, %if.end51
   %8 = load ptr, ptr %err, align 8
-  call void @error_free(ptr noundef %8) #9
+  call void @error_free(ptr noundef %8) #10
   br label %out
 
 sw.default:                                       ; preds = %if.end51
   %9 = load ptr, ptr %err, align 8
-  call void @error_propagate(ptr noundef %errp, ptr noundef %9) #9
+  call void @error_propagate(ptr noundef %errp, ptr noundef %9) #10
   br label %out
 
 out:                                              ; preds = %sw.bb57, %if.then55, %sw.bb, %sw.default, %if.then30, %if.then
-  %call58 = call ptr @bdrv_get_aio_context(ptr noundef %bs) #9
-  call void @aio_context_release(ptr noundef %call58) #9
+  %call58 = call ptr @bdrv_get_aio_context(ptr noundef %bs) #10
+  call void @aio_context_release(ptr noundef %call58) #10
   ret void
 }
 
@@ -751,7 +751,7 @@ entry:
   %cmp = icmp eq ptr %errp, @error_fatal
   %or.cond = or i1 %tobool, %cmp
   %spec.select = select i1 %or.cond, ptr %_auto_errp_prop, ptr %errp
-  %call = tail call noalias dereferenceable_or_null(120) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 120) #11
+  %call = tail call noalias dereferenceable_or_null(120) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 120) #12
   call fastcc void @bdrv_do_query_node_info(ptr noundef %bs, ptr noundef %call, ptr noundef %spec.select)
   %0 = load ptr, ptr %spec.select, align 8
   %tobool4.not = icmp eq ptr %0, null
@@ -776,15 +776,15 @@ for.cond:                                         ; preds = %for.body
 for.body:                                         ; preds = %for.body.preheader, %for.cond
   %c.023 = phi ptr [ %c.0, %for.cond ], [ %c.020, %for.body.preheader ]
   %children_list_tail.022 = phi ptr [ %1, %for.cond ], [ %children, %for.body.preheader ]
-  %call9 = call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #11
-  %call11 = call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #10
+  %call9 = call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #12
+  %call11 = call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #11
   store ptr %call11, ptr %children_list_tail.022, align 8
   %value = getelementptr inbounds i8, ptr %call11, i64 8
   store ptr %call9, ptr %value, align 8
   %1 = load ptr, ptr %children_list_tail.022, align 8
   %name = getelementptr inbounds i8, ptr %c.023, i64 8
   %2 = load ptr, ptr %name, align 8
-  %call14 = call noalias ptr @g_strdup(ptr noundef %2) #9
+  %call14 = call noalias ptr @g_strdup(ptr noundef %2) #10
   store ptr %call14, ptr %call9, align 8
   %3 = load ptr, ptr %c.023, align 8
   %info17 = getelementptr inbounds i8, ptr %call9, i64 8
@@ -798,13 +798,13 @@ for.end:                                          ; preds = %for.cond, %if.end6
   br label %cleanup
 
 if.end24:                                         ; preds = %for.body, %entry
-  call void @qapi_free_BlockGraphInfo(ptr noundef %call) #9
+  call void @qapi_free_BlockGraphInfo(ptr noundef %call) #10
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end24, %for.end
   %_auto_errp_prop.val = load ptr, ptr %_auto_errp_prop, align 8
   %_auto_errp_prop.val19 = load ptr, ptr %errp1, align 8
-  call void @error_propagate(ptr noundef %_auto_errp_prop.val19, ptr noundef %_auto_errp_prop.val) #9
+  call void @error_propagate(ptr noundef %_auto_errp_prop.val19, ptr noundef %_auto_errp_prop.val) #10
   ret void
 }
 
@@ -817,45 +817,45 @@ entry:
   %local_err = alloca ptr, align 8
   store ptr null, ptr %head, align 8
   store ptr null, ptr %local_err, align 8
-  tail call void @bdrv_graph_rdlock_main_loop() #9
-  %call1 = tail call ptr @blk_all_next(ptr noundef null) #9
+  tail call void @bdrv_graph_rdlock_main_loop() #10
+  %call1 = tail call ptr @blk_all_next(ptr noundef null) #10
   %tobool.not9 = icmp eq ptr %call1, null
   br i1 %tobool.not9, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %blk.011 = phi ptr [ %call10, %for.inc ], [ %call1, %entry ]
   %p_next.010 = phi ptr [ %p_next.1, %for.inc ], [ %head, %entry ]
-  %call2 = call ptr @blk_name(ptr noundef nonnull %blk.011) #9
+  %call2 = call ptr @blk_name(ptr noundef nonnull %blk.011) #10
   %0 = load i8, ptr %call2, align 1
   %tobool3.not = icmp eq i8 %0, 0
   br i1 %tobool3.not, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %for.body
-  %call4 = call ptr @blk_get_attached_dev(ptr noundef nonnull %blk.011) #9
+  %call4 = call ptr @blk_get_attached_dev(ptr noundef nonnull %blk.011) #10
   %tobool5.not = icmp eq ptr %call4, null
   br i1 %tobool5.not, label %for.inc, label %if.end
 
 if.end:                                           ; preds = %land.lhs.true, %for.body
-  %call6 = call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #10
+  %call6 = call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #11
   %value = getelementptr inbounds i8, ptr %call6, i64 8
-  %call.i = call noalias dereferenceable_or_null(48) ptr @g_malloc0(i64 noundef 48) #10
-  %call1.i = call ptr @blk_bs(ptr noundef nonnull %blk.011) #9
-  %call2.i = call ptr @bdrv_skip_implicit_filters(ptr noundef %call1.i) #9
-  %call3.i = call ptr @blk_name(ptr noundef nonnull %blk.011) #9
-  %call4.i = call noalias ptr @g_strdup(ptr noundef %call3.i) #9
+  %call.i = call noalias dereferenceable_or_null(48) ptr @g_malloc0(i64 noundef 48) #11
+  %call1.i = call ptr @blk_bs(ptr noundef nonnull %blk.011) #10
+  %call2.i = call ptr @bdrv_skip_implicit_filters(ptr noundef %call1.i) #10
+  %call3.i = call ptr @blk_name(ptr noundef nonnull %blk.011) #10
+  %call4.i = call noalias ptr @g_strdup(ptr noundef %call3.i) #10
   store ptr %call4.i, ptr %call.i, align 8
-  %call5.i = call noalias ptr @g_strdup(ptr noundef nonnull @.str.42) #9
+  %call5.i = call noalias ptr @g_strdup(ptr noundef nonnull @.str.42) #10
   %type.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr %call5.i, ptr %type.i, align 8
-  %call6.i = call zeroext i1 @blk_dev_is_medium_locked(ptr noundef nonnull %blk.011) #9
+  %call6.i = call zeroext i1 @blk_dev_is_medium_locked(ptr noundef nonnull %blk.011) #10
   %locked.i = getelementptr inbounds i8, ptr %call.i, i64 25
   %frombool.i = zext i1 %call6.i to i8
   store i8 %frombool.i, ptr %locked.i, align 1
-  %call7.i = call zeroext i1 @blk_dev_has_removable_media(ptr noundef nonnull %blk.011) #9
+  %call7.i = call zeroext i1 @blk_dev_has_removable_media(ptr noundef nonnull %blk.011) #10
   %removable.i = getelementptr inbounds i8, ptr %call.i, i64 24
   %frombool8.i = zext i1 %call7.i to i8
   store i8 %frombool8.i, ptr %removable.i, align 8
-  %call9.i = call ptr @blk_get_attached_dev_id(ptr noundef nonnull %blk.011) #9
+  %call9.i = call ptr @blk_get_attached_dev_id(ptr noundef nonnull %blk.011) #10
   %tobool.not.i = icmp eq ptr %call9.i, null
   br i1 %tobool.not.i, label %if.else.i, label %land.lhs.true.i
 
@@ -870,30 +870,30 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   br label %if.end.i
 
 if.else.i:                                        ; preds = %land.lhs.true.i, %if.end
-  call void @g_free(ptr noundef %call9.i) #9
+  call void @g_free(ptr noundef %call9.i) #10
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.else.i, %if.then.i
-  %call12.i = call zeroext i1 @blk_dev_has_tray(ptr noundef nonnull %blk.011) #9
+  %call12.i = call zeroext i1 @blk_dev_has_tray(ptr noundef nonnull %blk.011) #10
   br i1 %call12.i, label %if.then13.i, label %if.end16.i
 
 if.then13.i:                                      ; preds = %if.end.i
   %has_tray_open.i = getelementptr inbounds i8, ptr %call.i, i64 40
   store i8 1, ptr %has_tray_open.i, align 8
-  %call14.i = call zeroext i1 @blk_dev_is_tray_open(ptr noundef nonnull %blk.011) #9
+  %call14.i = call zeroext i1 @blk_dev_is_tray_open(ptr noundef nonnull %blk.011) #10
   %tray_open.i = getelementptr inbounds i8, ptr %call.i, i64 41
   %frombool15.i = zext i1 %call14.i to i8
   store i8 %frombool15.i, ptr %tray_open.i, align 1
   br label %if.end16.i
 
 if.end16.i:                                       ; preds = %if.then13.i, %if.end.i
-  %call17.i = call zeroext i1 @blk_iostatus_is_enabled(ptr noundef nonnull %blk.011) #9
+  %call17.i = call zeroext i1 @blk_iostatus_is_enabled(ptr noundef nonnull %blk.011) #10
   br i1 %call17.i, label %if.then18.i, label %if.end20.i
 
 if.then18.i:                                      ; preds = %if.end16.i
   %has_io_status.i = getelementptr inbounds i8, ptr %call.i, i64 42
   store i8 1, ptr %has_io_status.i, align 2
-  %call19.i = call i32 @blk_iostatus(ptr noundef nonnull %blk.011) #9
+  %call19.i = call i32 @blk_iostatus(ptr noundef nonnull %blk.011) #10
   %io_status.i = getelementptr inbounds i8, ptr %call.i, i64 44
   store i32 %call19.i, ptr %io_status.i, align 4
   br label %if.end20.i
@@ -920,7 +920,7 @@ if.end30.i:                                       ; preds = %if.then24.i, %land.
   br label %bdrv_query_info.exit
 
 err.i:                                            ; preds = %if.then24.i
-  call void @qapi_free_BlockInfo(ptr noundef nonnull %call.i) #9
+  call void @qapi_free_BlockInfo(ptr noundef nonnull %call.i) #10
   br label %bdrv_query_info.exit
 
 bdrv_query_info.exit:                             ; preds = %if.end30.i, %err.i
@@ -929,10 +929,10 @@ bdrv_query_info.exit:                             ; preds = %if.end30.i, %err.i
   br i1 %tobool7.not, label %if.end9, label %if.then8
 
 if.then8:                                         ; preds = %bdrv_query_info.exit
-  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %3) #9
-  call void @g_free(ptr noundef %call6) #9
+  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %3) #10
+  call void @g_free(ptr noundef %call6) #10
   %head.0.head.0.head.0.head.0. = load ptr, ptr %head, align 8
-  call void @qapi_free_BlockInfoList(ptr noundef %head.0.head.0.head.0.head.0.) #9
+  call void @qapi_free_BlockInfoList(ptr noundef %head.0.head.0.head.0.head.0.) #10
   br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
 if.end9:                                          ; preds = %bdrv_query_info.exit
@@ -941,7 +941,7 @@ if.end9:                                          ; preds = %bdrv_query_info.exi
 
 for.inc:                                          ; preds = %land.lhs.true, %if.end9
   %p_next.1 = phi ptr [ %call6, %if.end9 ], [ %p_next.010, %land.lhs.true ]
-  %call10 = call ptr @blk_all_next(ptr noundef nonnull %blk.011) #9
+  %call10 = call ptr @blk_all_next(ptr noundef nonnull %blk.011) #10
   %tobool.not = icmp eq ptr %call10, null
   br i1 %tobool.not, label %for.end.loopexit, label %for.body, !llvm.loop !9
 
@@ -951,7 +951,7 @@ for.end.loopexit:                                 ; preds = %for.inc
 
 glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %entry, %for.end.loopexit, %if.then8
   %retval.0 = phi ptr [ null, %if.then8 ], [ %head.0.head.0.head.0.head.0.8.pre, %for.end.loopexit ], [ null, %entry ]
-  call void @bdrv_graph_rdunlock_main_loop() #9
+  call void @bdrv_graph_rdunlock_main_loop() #10
   ret ptr %retval.0
 }
 
@@ -978,59 +978,59 @@ entry:
   %out_list.i.i.i = alloca ptr, align 8
   %head = alloca ptr, align 8
   store ptr null, ptr %head, align 8
-  tail call void @bdrv_graph_rdlock_main_loop() #9
+  tail call void @bdrv_graph_rdlock_main_loop() #10
   %brmerge.demorgan = and i1 %has_query_nodes, %query_nodes
   br i1 %brmerge.demorgan, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %call3 = tail call ptr @bdrv_next_node(ptr noundef null) #9
+  %call3 = tail call ptr @bdrv_next_node(ptr noundef null) #10
   %tobool4.not30 = icmp eq ptr %call3, null
   br i1 %tobool4.not30, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %for.body
 
 for.body:                                         ; preds = %if.then, %for.body
   %tail.032 = phi ptr [ %1, %for.body ], [ %head, %if.then ]
   %bs.031 = phi ptr [ %call8, %for.body ], [ %call3, %if.then ]
-  %call5 = tail call ptr @bdrv_get_aio_context(ptr noundef nonnull %bs.031) #9
-  tail call void @aio_context_acquire(ptr noundef %call5) #9
-  %call6 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #10
+  %call5 = tail call ptr @bdrv_get_aio_context(ptr noundef nonnull %bs.031) #10
+  tail call void @aio_context_acquire(ptr noundef %call5) #10
+  %call6 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #11
   store ptr %call6, ptr %tail.032, align 8
   %call7 = tail call fastcc ptr @bdrv_query_bds_stats(ptr noundef nonnull %bs.031, i1 noundef zeroext false)
   %0 = load ptr, ptr %tail.032, align 8
   %value = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %call7, ptr %value, align 8
   %1 = load ptr, ptr %tail.032, align 8
-  tail call void @aio_context_release(ptr noundef %call5) #9
-  %call8 = tail call ptr @bdrv_next_node(ptr noundef nonnull %bs.031) #9
+  tail call void @aio_context_release(ptr noundef %call5) #10
+  %call8 = tail call ptr @bdrv_next_node(ptr noundef nonnull %bs.031) #10
   %tobool4.not = icmp eq ptr %call8, null
   br i1 %tobool4.not, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %for.body, !llvm.loop !10
 
 if.else:                                          ; preds = %entry
-  %call9 = tail call ptr @blk_all_next(ptr noundef null) #9
+  %call9 = tail call ptr @blk_all_next(ptr noundef null) #10
   %tobool11.not27 = icmp eq ptr %call9, null
   br i1 %tobool11.not27, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %for.body12
 
 for.body12:                                       ; preds = %if.else, %for.inc39
   %tail.129 = phi ptr [ %tail.2, %for.inc39 ], [ %head, %if.else ]
   %blk.028 = phi ptr [ %call40, %for.inc39 ], [ %call9, %if.else ]
-  %call14 = tail call ptr @blk_get_aio_context(ptr noundef nonnull %blk.028) #9
-  %call15 = tail call ptr @blk_name(ptr noundef nonnull %blk.028) #9
+  %call14 = tail call ptr @blk_get_aio_context(ptr noundef nonnull %blk.028) #10
+  %call15 = tail call ptr @blk_name(ptr noundef nonnull %blk.028) #10
   %2 = load i8, ptr %call15, align 1
   %tobool16.not = icmp eq i8 %2, 0
   br i1 %tobool16.not, label %land.lhs.true17, label %if.end
 
 land.lhs.true17:                                  ; preds = %for.body12
-  %call18 = tail call ptr @blk_get_attached_dev(ptr noundef nonnull %blk.028) #9
+  %call18 = tail call ptr @blk_get_attached_dev(ptr noundef nonnull %blk.028) #10
   %tobool19.not = icmp eq ptr %call18, null
   br i1 %tobool19.not, label %for.inc39, label %if.end
 
 if.end:                                           ; preds = %land.lhs.true17, %for.body12
-  tail call void @aio_context_acquire(ptr noundef %call14) #9
-  %call21 = tail call ptr @blk_bs(ptr noundef nonnull %blk.028) #9
+  tail call void @aio_context_acquire(ptr noundef %call14) #10
+  %call21 = tail call ptr @blk_bs(ptr noundef nonnull %blk.028) #10
   %call22 = tail call fastcc ptr @bdrv_query_bds_stats(ptr noundef %call21, i1 noundef zeroext true)
-  %call23 = tail call ptr @blk_name(ptr noundef nonnull %blk.028) #9
-  %call24 = tail call noalias ptr @g_strdup(ptr noundef %call23) #9
+  %call23 = tail call ptr @blk_name(ptr noundef nonnull %blk.028) #10
+  %call24 = tail call noalias ptr @g_strdup(ptr noundef %call23) #10
   store ptr %call24, ptr %call22, align 8
-  %call25 = tail call ptr @blk_get_attached_dev_id(ptr noundef nonnull %blk.028) #9
+  %call25 = tail call ptr @blk_get_attached_dev_id(ptr noundef nonnull %blk.028) #10
   %tobool26.not = icmp eq ptr %call25, null
   br i1 %tobool26.not, label %if.else31, label %land.lhs.true27
 
@@ -1045,13 +1045,13 @@ if.then29:                                        ; preds = %land.lhs.true27
   br label %if.end32
 
 if.else31:                                        ; preds = %land.lhs.true27, %if.end
-  tail call void @g_free(ptr noundef %call25) #9
+  tail call void @g_free(ptr noundef %call25) #10
   br label %if.end32
 
 if.end32:                                         ; preds = %if.else31, %if.then29
   %stats = getelementptr inbounds i8, ptr %call22, i64 24
   %4 = load ptr, ptr %stats, align 8
-  %call.i = tail call ptr @blk_get_stats(ptr noundef nonnull %blk.028) #9
+  %call.i = tail call ptr @blk_get_stats(ptr noundef nonnull %blk.028) #10
   %arrayidx.i = getelementptr i8, ptr %call.i, i64 56
   %5 = load i64, ptr %arrayidx.i, align 8
   store i64 %5, ptr %4, align 8
@@ -1172,7 +1172,7 @@ if.end32:                                         ; preds = %if.else31, %if.then
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.end32
-  %call51.i = tail call i64 @block_acct_idle_time_ns(ptr noundef nonnull %call.i) #9
+  %call51.i = tail call i64 @block_acct_idle_time_ns(ptr noundef nonnull %call.i) #10
   %idle_time_ns.i = getelementptr inbounds i8, ptr %4, i64 160
   store i64 %call51.i, ptr %idle_time_ns.i, align 8
   br label %if.end.i
@@ -1188,7 +1188,7 @@ if.end.i:                                         ; preds = %if.then.i, %if.end3
   %account_failed56.i = getelementptr inbounds i8, ptr %4, i64 249
   %frombool57.i = and i8 %35, 1
   store i8 %frombool57.i, ptr %account_failed56.i, align 1
-  %call58235.i = tail call ptr @block_acct_interval_next(ptr noundef nonnull %call.i, ptr noundef null) #9
+  %call58235.i = tail call ptr @block_acct_interval_next(ptr noundef nonnull %call.i, ptr noundef null) #10
   %tobool59.not236.i = icmp eq ptr %call58235.i, null
   br i1 %tobool59.not236.i, label %while.end.i, label %while.body.lr.ph.i
 
@@ -1198,7 +1198,7 @@ while.body.lr.ph.i:                               ; preds = %if.end.i
 
 while.body.i:                                     ; preds = %while.body.i, %while.body.lr.ph.i
   %call58237.i = phi ptr [ %call58235.i, %while.body.lr.ph.i ], [ %call58.i, %while.body.i ]
-  %call60.i = tail call noalias dereferenceable_or_null(128) ptr @g_malloc0(i64 noundef 128) #10
+  %call60.i = tail call noalias dereferenceable_or_null(128) ptr @g_malloc0(i64 noundef 128) #11
   %arrayidx61.i = getelementptr i8, ptr %call58237.i, i64 104
   %arrayidx63.i = getelementptr i8, ptr %call58237.i, i64 200
   %arrayidx65.i = getelementptr i8, ptr %call58237.i, i64 392
@@ -1207,58 +1207,58 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %36 = load i32, ptr %interval_length.i, align 8
   %conv.i = zext i32 %36 to i64
   store i64 %conv.i, ptr %call60.i, align 8
-  %call69.i = tail call i64 @timed_average_min(ptr noundef %arrayidx61.i) #9
+  %call69.i = tail call i64 @timed_average_min(ptr noundef %arrayidx61.i) #10
   %min_rd_latency_ns.i = getelementptr inbounds i8, ptr %call60.i, i64 8
   store i64 %call69.i, ptr %min_rd_latency_ns.i, align 8
-  %call70.i = tail call i64 @timed_average_max(ptr noundef %arrayidx61.i) #9
+  %call70.i = tail call i64 @timed_average_max(ptr noundef %arrayidx61.i) #10
   %max_rd_latency_ns.i = getelementptr inbounds i8, ptr %call60.i, i64 16
   store i64 %call70.i, ptr %max_rd_latency_ns.i, align 8
-  %call71.i = tail call i64 @timed_average_avg(ptr noundef %arrayidx61.i) #9
+  %call71.i = tail call i64 @timed_average_avg(ptr noundef %arrayidx61.i) #10
   %avg_rd_latency_ns.i = getelementptr inbounds i8, ptr %call60.i, i64 24
   store i64 %call71.i, ptr %avg_rd_latency_ns.i, align 8
-  %call72.i = tail call i64 @timed_average_min(ptr noundef %arrayidx63.i) #9
+  %call72.i = tail call i64 @timed_average_min(ptr noundef %arrayidx63.i) #10
   %min_wr_latency_ns.i = getelementptr inbounds i8, ptr %call60.i, i64 32
   store i64 %call72.i, ptr %min_wr_latency_ns.i, align 8
-  %call73.i = tail call i64 @timed_average_max(ptr noundef %arrayidx63.i) #9
+  %call73.i = tail call i64 @timed_average_max(ptr noundef %arrayidx63.i) #10
   %max_wr_latency_ns.i = getelementptr inbounds i8, ptr %call60.i, i64 40
   store i64 %call73.i, ptr %max_wr_latency_ns.i, align 8
-  %call74.i = tail call i64 @timed_average_avg(ptr noundef %arrayidx63.i) #9
+  %call74.i = tail call i64 @timed_average_avg(ptr noundef %arrayidx63.i) #10
   %avg_wr_latency_ns.i = getelementptr inbounds i8, ptr %call60.i, i64 48
   store i64 %call74.i, ptr %avg_wr_latency_ns.i, align 8
-  %call75.i = tail call i64 @timed_average_min(ptr noundef %arrayidx65.i) #9
+  %call75.i = tail call i64 @timed_average_min(ptr noundef %arrayidx65.i) #10
   %min_zone_append_latency_ns.i = getelementptr inbounds i8, ptr %call60.i, i64 56
   store i64 %call75.i, ptr %min_zone_append_latency_ns.i, align 8
-  %call76.i = tail call i64 @timed_average_max(ptr noundef %arrayidx65.i) #9
+  %call76.i = tail call i64 @timed_average_max(ptr noundef %arrayidx65.i) #10
   %max_zone_append_latency_ns.i = getelementptr inbounds i8, ptr %call60.i, i64 64
   store i64 %call76.i, ptr %max_zone_append_latency_ns.i, align 8
-  %call77.i = tail call i64 @timed_average_avg(ptr noundef %arrayidx65.i) #9
+  %call77.i = tail call i64 @timed_average_avg(ptr noundef %arrayidx65.i) #10
   %avg_zone_append_latency_ns.i = getelementptr inbounds i8, ptr %call60.i, i64 72
   store i64 %call77.i, ptr %avg_zone_append_latency_ns.i, align 8
-  %call78.i = tail call i64 @timed_average_min(ptr noundef %arrayidx67.i) #9
+  %call78.i = tail call i64 @timed_average_min(ptr noundef %arrayidx67.i) #10
   %min_flush_latency_ns.i = getelementptr inbounds i8, ptr %call60.i, i64 80
   store i64 %call78.i, ptr %min_flush_latency_ns.i, align 8
-  %call79.i = tail call i64 @timed_average_max(ptr noundef %arrayidx67.i) #9
+  %call79.i = tail call i64 @timed_average_max(ptr noundef %arrayidx67.i) #10
   %max_flush_latency_ns.i = getelementptr inbounds i8, ptr %call60.i, i64 88
   store i64 %call79.i, ptr %max_flush_latency_ns.i, align 8
-  %call80.i = tail call i64 @timed_average_avg(ptr noundef %arrayidx67.i) #9
+  %call80.i = tail call i64 @timed_average_avg(ptr noundef %arrayidx67.i) #10
   %avg_flush_latency_ns.i = getelementptr inbounds i8, ptr %call60.i, i64 96
   store i64 %call80.i, ptr %avg_flush_latency_ns.i, align 8
-  %call81.i = tail call double @block_acct_queue_depth(ptr noundef nonnull %call58237.i, i32 noundef 1) #9
+  %call81.i = tail call double @block_acct_queue_depth(ptr noundef nonnull %call58237.i, i32 noundef 1) #10
   %avg_rd_queue_depth.i = getelementptr inbounds i8, ptr %call60.i, i64 104
   store double %call81.i, ptr %avg_rd_queue_depth.i, align 8
-  %call82.i = tail call double @block_acct_queue_depth(ptr noundef nonnull %call58237.i, i32 noundef 2) #9
+  %call82.i = tail call double @block_acct_queue_depth(ptr noundef nonnull %call58237.i, i32 noundef 2) #10
   %avg_wr_queue_depth.i = getelementptr inbounds i8, ptr %call60.i, i64 112
   store double %call82.i, ptr %avg_wr_queue_depth.i, align 8
-  %call83.i = tail call double @block_acct_queue_depth(ptr noundef nonnull %call58237.i, i32 noundef 4) #9
+  %call83.i = tail call double @block_acct_queue_depth(ptr noundef nonnull %call58237.i, i32 noundef 4) #10
   %avg_zone_append_queue_depth.i = getelementptr inbounds i8, ptr %call60.i, i64 120
   store double %call83.i, ptr %avg_zone_append_queue_depth.i, align 8
-  %call84.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #10
+  %call84.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #11
   %value.i = getelementptr inbounds i8, ptr %call84.i, i64 8
   store ptr %call60.i, ptr %value.i, align 8
   %37 = load ptr, ptr %timed_stats.i, align 8
   store ptr %37, ptr %call84.i, align 8
   store ptr %call84.i, ptr %timed_stats.i, align 8
-  %call58.i = tail call ptr @block_acct_interval_next(ptr noundef %call.i, ptr noundef nonnull %call58237.i) #9
+  %call58.i = tail call ptr @block_acct_interval_next(ptr noundef %call.i, ptr noundef nonnull %call58237.i) #10
   %tobool59.not.i = icmp eq ptr %call58.i, null
   br i1 %tobool59.not.i, label %while.end.i, label %while.body.i, !llvm.loop !11
 
@@ -1270,7 +1270,7 @@ while.end.i:                                      ; preds = %while.body.i, %if.e
   br i1 %tobool.not.i.i, label %bdrv_latency_histogram_stats.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %while.end.i
-  %call.i.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #11
+  %call.i.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #12
   %boundaries.i.i = getelementptr i8, ptr %call.i, i64 392
   %39 = load ptr, ptr %boundaries.i.i, align 8
   %40 = load i32, ptr %arrayidx86.i, align 8
@@ -1287,7 +1287,7 @@ do.body.preheader.i.i.i:                          ; preds = %if.end.i.i
 do.body.i.i.i:                                    ; preds = %do.body.i.i.i, %do.body.preheader.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %do.body.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %do.body.i.i.i ]
   %tail.07.i.i.i = phi ptr [ %out_list.i.i.i, %do.body.preheader.i.i.i ], [ %42, %do.body.i.i.i ]
-  %call.i.i.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #10
+  %call.i.i.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #11
   store ptr %call.i.i.i, ptr %tail.07.i.i.i, align 8
   %arrayidx.i.i.i = getelementptr i64, ptr %39, i64 %indvars.iv.i.i.i
   %41 = load i64, ptr %arrayidx.i.i.i, align 8
@@ -1321,7 +1321,7 @@ do.body.preheader.i10.i.i:                        ; preds = %uint64_list.exit.i.
 do.body.i12.i.i:                                  ; preds = %do.body.i12.i.i, %do.body.preheader.i10.i.i
   %indvars.iv.i13.i.i = phi i64 [ 0, %do.body.preheader.i10.i.i ], [ %indvars.iv.next.i18.i.i, %do.body.i12.i.i ]
   %tail.07.i14.i.i = phi ptr [ %out_list.i7.i.i, %do.body.preheader.i10.i.i ], [ %46, %do.body.i12.i.i ]
-  %call.i15.i.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #10
+  %call.i15.i.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #11
   store ptr %call.i15.i.i, ptr %tail.07.i14.i.i, align 8
   %arrayidx.i16.i.i = getelementptr i64, ptr %44, i64 %indvars.iv.i13.i.i
   %45 = load i64, ptr %arrayidx.i16.i.i, align 8
@@ -1354,7 +1354,7 @@ bdrv_latency_histogram_stats.exit.i:              ; preds = %uint64_list.exit22.
   br i1 %tobool.not.i112.i, label %bdrv_latency_histogram_stats.exit150.i, label %if.end.i113.i
 
 if.end.i113.i:                                    ; preds = %bdrv_latency_histogram_stats.exit.i
-  %call.i114.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #11
+  %call.i114.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #12
   %boundaries.i115.i = getelementptr i8, ptr %call.i, i64 416
   %48 = load ptr, ptr %boundaries.i115.i, align 8
   %49 = load i32, ptr %arrayidx88.i, align 8
@@ -1371,7 +1371,7 @@ do.body.preheader.i.i137.i:                       ; preds = %if.end.i113.i
 do.body.i.i139.i:                                 ; preds = %do.body.i.i139.i, %do.body.preheader.i.i137.i
   %indvars.iv.i.i140.i = phi i64 [ 0, %do.body.preheader.i.i137.i ], [ %indvars.iv.next.i.i145.i, %do.body.i.i139.i ]
   %tail.07.i.i141.i = phi ptr [ %out_list.i.i110.i, %do.body.preheader.i.i137.i ], [ %51, %do.body.i.i139.i ]
-  %call.i.i142.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #10
+  %call.i.i142.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #11
   store ptr %call.i.i142.i, ptr %tail.07.i.i141.i, align 8
   %arrayidx.i.i143.i = getelementptr i64, ptr %48, i64 %indvars.iv.i.i140.i
   %50 = load i64, ptr %arrayidx.i.i143.i, align 8
@@ -1405,7 +1405,7 @@ do.body.preheader.i10.i125.i:                     ; preds = %uint64_list.exit.i1
 do.body.i12.i127.i:                               ; preds = %do.body.i12.i127.i, %do.body.preheader.i10.i125.i
   %indvars.iv.i13.i128.i = phi i64 [ 0, %do.body.preheader.i10.i125.i ], [ %indvars.iv.next.i18.i133.i, %do.body.i12.i127.i ]
   %tail.07.i14.i129.i = phi ptr [ %out_list.i7.i109.i, %do.body.preheader.i10.i125.i ], [ %55, %do.body.i12.i127.i ]
-  %call.i15.i130.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #10
+  %call.i15.i130.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #11
   store ptr %call.i15.i130.i, ptr %tail.07.i14.i129.i, align 8
   %arrayidx.i16.i131.i = getelementptr i64, ptr %53, i64 %indvars.iv.i13.i128.i
   %54 = load i64, ptr %arrayidx.i16.i131.i, align 8
@@ -1438,7 +1438,7 @@ bdrv_latency_histogram_stats.exit150.i:           ; preds = %uint64_list.exit22.
   br i1 %tobool.not.i154.i, label %bdrv_latency_histogram_stats.exit192.i, label %if.end.i155.i
 
 if.end.i155.i:                                    ; preds = %bdrv_latency_histogram_stats.exit150.i
-  %call.i156.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #11
+  %call.i156.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #12
   %boundaries.i157.i = getelementptr i8, ptr %call.i, i64 464
   %57 = load ptr, ptr %boundaries.i157.i, align 8
   %58 = load i32, ptr %arrayidx90.i, align 8
@@ -1455,7 +1455,7 @@ do.body.preheader.i.i179.i:                       ; preds = %if.end.i155.i
 do.body.i.i181.i:                                 ; preds = %do.body.i.i181.i, %do.body.preheader.i.i179.i
   %indvars.iv.i.i182.i = phi i64 [ 0, %do.body.preheader.i.i179.i ], [ %indvars.iv.next.i.i187.i, %do.body.i.i181.i ]
   %tail.07.i.i183.i = phi ptr [ %out_list.i.i152.i, %do.body.preheader.i.i179.i ], [ %60, %do.body.i.i181.i ]
-  %call.i.i184.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #10
+  %call.i.i184.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #11
   store ptr %call.i.i184.i, ptr %tail.07.i.i183.i, align 8
   %arrayidx.i.i185.i = getelementptr i64, ptr %57, i64 %indvars.iv.i.i182.i
   %59 = load i64, ptr %arrayidx.i.i185.i, align 8
@@ -1489,7 +1489,7 @@ do.body.preheader.i10.i167.i:                     ; preds = %uint64_list.exit.i1
 do.body.i12.i169.i:                               ; preds = %do.body.i12.i169.i, %do.body.preheader.i10.i167.i
   %indvars.iv.i13.i170.i = phi i64 [ 0, %do.body.preheader.i10.i167.i ], [ %indvars.iv.next.i18.i175.i, %do.body.i12.i169.i ]
   %tail.07.i14.i171.i = phi ptr [ %out_list.i7.i151.i, %do.body.preheader.i10.i167.i ], [ %64, %do.body.i12.i169.i ]
-  %call.i15.i172.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #10
+  %call.i15.i172.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #11
   store ptr %call.i15.i172.i, ptr %tail.07.i14.i171.i, align 8
   %arrayidx.i16.i173.i = getelementptr i64, ptr %62, i64 %indvars.iv.i13.i170.i
   %63 = load i64, ptr %arrayidx.i16.i173.i, align 8
@@ -1522,7 +1522,7 @@ bdrv_latency_histogram_stats.exit192.i:           ; preds = %uint64_list.exit22.
   br i1 %tobool.not.i196.i, label %bdrv_query_blk_stats.exit, label %if.end.i197.i
 
 if.end.i197.i:                                    ; preds = %bdrv_latency_histogram_stats.exit192.i
-  %call.i198.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #11
+  %call.i198.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #12
   %boundaries.i199.i = getelementptr i8, ptr %call.i, i64 440
   %66 = load ptr, ptr %boundaries.i199.i, align 8
   %67 = load i32, ptr %arrayidx92.i, align 8
@@ -1539,7 +1539,7 @@ do.body.preheader.i.i221.i:                       ; preds = %if.end.i197.i
 do.body.i.i223.i:                                 ; preds = %do.body.i.i223.i, %do.body.preheader.i.i221.i
   %indvars.iv.i.i224.i = phi i64 [ 0, %do.body.preheader.i.i221.i ], [ %indvars.iv.next.i.i229.i, %do.body.i.i223.i ]
   %tail.07.i.i225.i = phi ptr [ %out_list.i.i194.i, %do.body.preheader.i.i221.i ], [ %69, %do.body.i.i223.i ]
-  %call.i.i226.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #10
+  %call.i.i226.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #11
   store ptr %call.i.i226.i, ptr %tail.07.i.i225.i, align 8
   %arrayidx.i.i227.i = getelementptr i64, ptr %66, i64 %indvars.iv.i.i224.i
   %68 = load i64, ptr %arrayidx.i.i227.i, align 8
@@ -1573,7 +1573,7 @@ do.body.preheader.i10.i209.i:                     ; preds = %uint64_list.exit.i2
 do.body.i12.i211.i:                               ; preds = %do.body.i12.i211.i, %do.body.preheader.i10.i209.i
   %indvars.iv.i13.i212.i = phi i64 [ 0, %do.body.preheader.i10.i209.i ], [ %indvars.iv.next.i18.i217.i, %do.body.i12.i211.i ]
   %tail.07.i14.i213.i = phi ptr [ %out_list.i7.i193.i, %do.body.preheader.i10.i209.i ], [ %73, %do.body.i12.i211.i ]
-  %call.i15.i214.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #10
+  %call.i15.i214.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #11
   store ptr %call.i15.i214.i, ptr %tail.07.i14.i213.i, align 8
   %arrayidx.i16.i215.i = getelementptr i64, ptr %71, i64 %indvars.iv.i13.i212.i
   %72 = load i64, ptr %arrayidx.i16.i215.i, align 8
@@ -1599,8 +1599,8 @@ bdrv_query_blk_stats.exit:                        ; preds = %bdrv_latency_histog
   %retval.0.i208.i = phi ptr [ %call.i198.i, %uint64_list.exit22.i205.i ], [ null, %bdrv_latency_histogram_stats.exit192.i ]
   %flush_latency_histogram.i = getelementptr inbounds i8, ptr %4, i64 288
   store ptr %retval.0.i208.i, ptr %flush_latency_histogram.i, align 8
-  tail call void @aio_context_release(ptr noundef %call14) #9
-  %call34 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #10
+  tail call void @aio_context_release(ptr noundef %call14) #10
+  %call34 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #11
   store ptr %call34, ptr %tail.129, align 8
   %value35 = getelementptr inbounds i8, ptr %call34, i64 8
   store ptr %call22, ptr %value35, align 8
@@ -1609,13 +1609,13 @@ bdrv_query_blk_stats.exit:                        ; preds = %bdrv_latency_histog
 
 for.inc39:                                        ; preds = %land.lhs.true17, %bdrv_query_blk_stats.exit
   %tail.2 = phi ptr [ %74, %bdrv_query_blk_stats.exit ], [ %tail.129, %land.lhs.true17 ]
-  %call40 = tail call ptr @blk_all_next(ptr noundef nonnull %blk.028) #9
+  %call40 = tail call ptr @blk_all_next(ptr noundef nonnull %blk.028) #10
   %tobool11.not = icmp eq ptr %call40, null
   br i1 %tobool11.not, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %for.body12, !llvm.loop !13
 
 glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %for.inc39, %for.body, %if.else, %if.then
   %head.0.head.0.head.0.head.0. = load ptr, ptr %head, align 8
-  tail call void @bdrv_graph_rdunlock_main_loop() #9
+  tail call void @bdrv_graph_rdunlock_main_loop() #10
   ret ptr %head.0.head.0.head.0.head.0.
 }
 
@@ -1628,8 +1628,8 @@ declare void @aio_context_acquire(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc noalias noundef ptr @bdrv_query_bds_stats(ptr noundef %bs, i1 noundef zeroext %blk_level) unnamed_addr #0 {
 entry:
-  %call = tail call noalias dereferenceable_or_null(56) ptr @g_malloc0(i64 noundef 56) #10
-  %call1 = tail call noalias dereferenceable_or_null(296) ptr @g_malloc0(i64 noundef 296) #10
+  %call = tail call noalias dereferenceable_or_null(56) ptr @g_malloc0(i64 noundef 56) #11
+  %call1 = tail call noalias dereferenceable_or_null(296) ptr @g_malloc0(i64 noundef 296) #11
   %stats = getelementptr inbounds i8, ptr %call, i64 24
   store ptr %call1, ptr %stats, align 8
   %tobool.not = icmp eq ptr %bs, null
@@ -1639,19 +1639,19 @@ if.end:                                           ; preds = %entry
   br i1 %blk_level, label %if.then3, label %if.end5
 
 if.then3:                                         ; preds = %if.end
-  %call4 = tail call ptr @bdrv_skip_implicit_filters(ptr noundef nonnull %bs) #9
+  %call4 = tail call ptr @bdrv_skip_implicit_filters(ptr noundef nonnull %bs) #10
   br label %if.end5
 
 if.end5:                                          ; preds = %if.then3, %if.end
   %bs.addr.0 = phi ptr [ %call4, %if.then3 ], [ %bs, %if.end ]
-  %call6 = tail call ptr @bdrv_get_node_name(ptr noundef %bs.addr.0) #9
+  %call6 = tail call ptr @bdrv_get_node_name(ptr noundef %bs.addr.0) #10
   %0 = load i8, ptr %call6, align 1
   %tobool7.not = icmp eq i8 %0, 0
   br i1 %tobool7.not, label %if.end11, label %if.then8
 
 if.then8:                                         ; preds = %if.end5
-  %call9 = tail call ptr @bdrv_get_node_name(ptr noundef %bs.addr.0) #9
-  %call10 = tail call noalias ptr @g_strdup(ptr noundef %call9) #9
+  %call9 = tail call ptr @bdrv_get_node_name(ptr noundef %bs.addr.0) #10
+  %call10 = tail call noalias ptr @g_strdup(ptr noundef %call9) #10
   %node_name = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %call10, ptr %node_name, align 8
   br label %if.end11
@@ -1661,10 +1661,10 @@ if.end11:                                         ; preds = %if.then8, %if.end5
   %1 = load atomic i64, ptr %wr_highest_offset monotonic, align 8
   %wr_highest_offset14 = getelementptr inbounds i8, ptr %call1, i64 112
   store i64 %1, ptr %wr_highest_offset14, align 8
-  %call15 = tail call ptr @bdrv_get_specific_stats(ptr noundef %bs.addr.0) #9
+  %call15 = tail call ptr @bdrv_get_specific_stats(ptr noundef %bs.addr.0) #10
   %driver_specific = getelementptr inbounds i8, ptr %call, i64 32
   store ptr %call15, ptr %driver_specific, align 8
-  %call16 = tail call ptr @bdrv_primary_child(ptr noundef %bs.addr.0) #9
+  %call16 = tail call ptr @bdrv_primary_child(ptr noundef %bs.addr.0) #10
   %tobool17.not = icmp eq ptr %call16, null
   br i1 %tobool17.not, label %if.then19, label %lor.lhs.false
 
@@ -1714,7 +1714,7 @@ if.then31:                                        ; preds = %lor.lhs.false, %if.
   br label %if.end35
 
 if.end35:                                         ; preds = %if.then24, %if.then19, %if.then31, %if.end29
-  %call.i = tail call ptr @bdrv_filter_or_cow_child(ptr noundef %bs.addr.0) #9
+  %call.i = tail call ptr @bdrv_filter_or_cow_child(ptr noundef %bs.addr.0) #10
   %tobool.not.i.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i.i, label %common.ret43, label %bdrv_filter_or_cow_bs.exit
 
@@ -1753,15 +1753,15 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %call = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13) #9
+  %call = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13) #10
   br label %if.end25
 
 if.else:                                          ; preds = %entry
   %date_sec = getelementptr inbounds i8, ptr %sn, i64 392
   %0 = load i32, ptr %date_sec, align 8
   %conv = zext i32 %0 to i64
-  %call1 = tail call ptr @g_date_time_new_from_unix_local(i64 noundef %conv) #9
-  %call2 = tail call noalias ptr @g_date_time_format(ptr noundef %call1, ptr noundef nonnull @.str.14) #9
+  %call1 = tail call ptr @g_date_time_new_from_unix_local(i64 noundef %conv) #10
+  %call2 = tail call noalias ptr @g_date_time_format(ptr noundef %call1, ptr noundef nonnull @.str.14) #10
   %vm_clock_nsec = getelementptr inbounds i8, ptr %sn, i64 400
   %1 = load i64, ptr %vm_clock_nsec, align 8
   %div = udiv i64 %1, 1000000000
@@ -1775,33 +1775,33 @@ if.else:                                          ; preds = %entry
   %div10 = udiv i64 %1, 1000000
   %rem11 = urem i64 %div10, 1000
   %conv12 = trunc nuw nsw i64 %rem11 to i32
-  %call13 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %clock_buf, i64 noundef 128, ptr noundef nonnull @.str.15, i32 noundef %conv4, i32 noundef %rem12, i32 noundef %conv8, i32 noundef %conv12) #9
+  %call13 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %clock_buf, i64 noundef 128, ptr noundef nonnull @.str.15, i32 noundef %conv4, i32 noundef %rem12, i32 noundef %conv8, i32 noundef %conv12) #10
   %vm_state_size = getelementptr inbounds i8, ptr %sn, i64 384
   %2 = load i64, ptr %vm_state_size, align 8
-  %call14 = tail call ptr @size_to_str(i64 noundef %2) #9
+  %call14 = tail call ptr @size_to_str(i64 noundef %2) #10
   %icount = getelementptr inbounds i8, ptr %sn, i64 408
   %3 = load i64, ptr %icount, align 8
   %cmp.not = icmp eq i64 %3, -1
   br i1 %cmp.not, label %if.end, label %if.then16
 
 if.then16:                                        ; preds = %if.else
-  %call19 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %icount_buf, i64 noundef 128, ptr noundef nonnull @.str.16, i64 noundef %3) #9
+  %call19 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %icount_buf, i64 noundef 128, ptr noundef nonnull @.str.16, i64 noundef %3) #10
   br label %if.end
 
 if.end:                                           ; preds = %if.then16, %if.else
   %name = getelementptr inbounds i8, ptr %sn, i64 128
-  %call24 = call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.17, ptr noundef nonnull %sn, ptr noundef nonnull %name, ptr noundef %call14, ptr noundef %call2, ptr noundef nonnull %clock_buf, ptr noundef nonnull %icount_buf) #9
-  call void @g_free(ptr noundef %call2) #9
+  %call24 = call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.17, ptr noundef nonnull %sn, ptr noundef nonnull %name, ptr noundef %call14, ptr noundef %call2, ptr noundef nonnull %clock_buf, ptr noundef nonnull %icount_buf) #10
+  call void @g_free(ptr noundef %call2) #10
   %tobool.not.i.i = icmp eq ptr %call1, null
   br i1 %tobool.not.i.i, label %if.end25, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end
-  call void @g_date_time_unref(ptr noundef nonnull %call1) #9
+  call void @g_date_time_unref(ptr noundef nonnull %call1) #10
   br label %if.end25
 
 if.end25:                                         ; preds = %if.then.i.i, %if.end, %if.then
   %sizing.0 = phi ptr [ null, %if.then ], [ %call14, %if.end ], [ %call14, %if.then.i.i ]
-  call void @g_free(ptr noundef %sizing.0) #9
+  call void @g_free(ptr noundef %sizing.0) #10
   ret void
 }
 
@@ -1825,9 +1825,9 @@ entry:
   %info_spec.addr = alloca ptr, align 8
   %obj = alloca ptr, align 8
   store ptr %info_spec, ptr %info_spec.addr, align 8
-  %call = call ptr @qobject_output_visitor_new(ptr noundef nonnull %obj) #9
-  %call1 = call zeroext i1 @visit_type_ImageInfoSpecific(ptr noundef %call, ptr noundef null, ptr noundef nonnull %info_spec.addr, ptr noundef nonnull @error_abort) #9
-  call void @visit_complete(ptr noundef %call, ptr noundef nonnull %obj) #9
+  %call = call ptr @qobject_output_visitor_new(ptr noundef nonnull %obj) #10
+  %call1 = call zeroext i1 @visit_type_ImageInfoSpecific(ptr noundef %call, ptr noundef null, ptr noundef nonnull %info_spec.addr, ptr noundef nonnull @error_abort) #10
+  call void @visit_complete(ptr noundef %call, ptr noundef nonnull %obj) #10
   %0 = load ptr, ptr %obj, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %if.else.i, label %land.lhs.true.i
@@ -1839,7 +1839,7 @@ land.lhs.true.i:                                  ; preds = %entry
   br i1 %or.cond.i.i, label %qobject_type.exit.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %land.lhs.true.i
-  call void @__assert_fail(ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.44, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_type) #12
+  call void @__assert_fail(ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.44, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_type) #13
   unreachable
 
 qobject_type.exit.i:                              ; preds = %land.lhs.true.i
@@ -1851,14 +1851,14 @@ if.else.i:                                        ; preds = %qobject_type.exit.i
 
 qobject_check_type.exit:                          ; preds = %qobject_type.exit.i, %if.else.i
   %retval.0.i = phi ptr [ null, %if.else.i ], [ %0, %qobject_type.exit.i ]
-  %call3 = call ptr @qdict_get(ptr noundef %retval.0.i, ptr noundef nonnull @.str.18) #9
+  %call3 = call ptr @qdict_get(ptr noundef %retval.0.i, ptr noundef nonnull @.str.18) #10
   %obj.val.i7 = load i32, ptr %call3, align 8
   %2 = add i32 %obj.val.i7, -1
   %or.cond.i.i8 = icmp ult i32 %2, 6
   br i1 %or.cond.i.i8, label %qobject_type.exit.i10, label %if.else.i.i9
 
 if.else.i.i9:                                     ; preds = %qobject_check_type.exit
-  call void @__assert_fail(ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.44, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_type) #12
+  call void @__assert_fail(ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.44, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_type) #13
   unreachable
 
 qobject_type.exit.i10:                            ; preds = %qobject_check_type.exit
@@ -1871,16 +1871,16 @@ qobject_type.exit.i10:                            ; preds = %qobject_check_type.
   ]
 
 qobject_check_type.exit13.i:                      ; preds = %qobject_type.exit.i10
-  %call6.i = call i32 @qlist_empty(ptr noundef nonnull %call3) #9
+  %call6.i = call i32 @qlist_empty(ptr noundef nonnull %call3) #10
   %tobool.i.not = icmp eq i32 %call6.i, 0
   br i1 %tobool.i.not, label %if.then, label %if.end7
 
 sw.default.i:                                     ; preds = %qobject_type.exit.i10
-  call void @abort() #12
+  call void @abort() #13
   unreachable
 
 qobject_is_empty_dump.exit:                       ; preds = %qobject_type.exit.i10
-  %call3.i = call i64 @qdict_size(ptr noundef nonnull %call3) #9
+  %call3.i = call i64 @qdict_size(ptr noundef nonnull %call3) #10
   %cmp.i12 = icmp eq i64 %call3.i, 0
   br i1 %cmp.i12, label %if.end7, label %if.then
 
@@ -1890,7 +1890,7 @@ if.then:                                          ; preds = %qobject_type.exit.i
 
 if.then5:                                         ; preds = %if.then
   %mul = shl i32 %indentation, 2
-  %call6 = call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.19, i32 noundef %mul, ptr noundef nonnull @.str.20, ptr noundef nonnull %prefix) #9
+  %call6 = call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.19, i32 noundef %mul, ptr noundef nonnull @.str.20, ptr noundef nonnull %prefix) #10
   br label %if.end
 
 if.end:                                           ; preds = %if.then5, %if.then
@@ -1910,7 +1910,7 @@ lor.lhs.false.i:                                  ; preds = %if.end7
   br i1 %tobool1.not.i, label %if.else.i16, label %land.lhs.true.i14
 
 if.else.i16:                                      ; preds = %lor.lhs.false.i
-  call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.44, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #12
+  call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.44, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #13
   unreachable
 
 land.lhs.true.i14:                                ; preds = %lor.lhs.false.i
@@ -1920,11 +1920,11 @@ land.lhs.true.i14:                                ; preds = %lor.lhs.false.i
   br i1 %cmp.i15, label %if.then5.i, label %qobject_unref_impl.exit
 
 if.then5.i:                                       ; preds = %land.lhs.true.i14
-  call void @qobject_destroy(ptr noundef nonnull %3) #9
+  call void @qobject_destroy(ptr noundef nonnull %3) #10
   br label %qobject_unref_impl.exit
 
 qobject_unref_impl.exit:                          ; preds = %if.end7, %land.lhs.true.i14, %if.then5.i
-  call void @visit_free(ptr noundef %call) #9
+  call void @visit_free(ptr noundef %call) #10
   ret void
 }
 
@@ -1945,7 +1945,7 @@ entry:
   br i1 %or.cond.i, label %qobject_type.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.44, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_type) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.44, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_type) #13
   unreachable
 
 qobject_type.exit:                                ; preds = %entry
@@ -1958,18 +1958,18 @@ qobject_type.exit:                                ; preds = %entry
   ]
 
 qobject_check_type.exit:                          ; preds = %qobject_type.exit
-  %call2 = tail call ptr @qnum_to_string(ptr noundef nonnull %obj) #9
-  %call3 = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.39, ptr noundef %call2) #9
-  tail call void @g_free(ptr noundef %call2) #9
+  %call2 = tail call ptr @qnum_to_string(ptr noundef nonnull %obj) #10
+  %call3 = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.39, ptr noundef %call2) #10
+  tail call void @g_free(ptr noundef %call2) #10
   br label %sw.epilog
 
 qobject_check_type.exit18:                        ; preds = %qobject_type.exit
-  %call7 = tail call ptr @qstring_get_str(ptr noundef nonnull %obj) #9
-  %call8 = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.39, ptr noundef %call7) #9
+  %call7 = tail call ptr @qstring_get_str(ptr noundef nonnull %obj) #10
+  %call8 = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.39, ptr noundef %call7) #10
   br label %sw.epilog
 
 qobject_check_type.exit28:                        ; preds = %qobject_type.exit
-  %call.i = tail call ptr @qdict_first(ptr noundef nonnull %obj) #9
+  %call.i = tail call ptr @qdict_first(ptr noundef nonnull %obj) #10
   %tobool.not.i2978 = icmp eq ptr %call.i, null
   br i1 %tobool.not.i2978, label %sw.epilog, label %for.body.i.lr.ph
 
@@ -1988,15 +1988,15 @@ for.body.i:                                       ; preds = %for.body.i.lr.ph, %
   br i1 %or.cond.i65, label %qobject_type.exit68, label %if.else.i66
 
 if.else.i66:                                      ; preds = %for.body.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.44, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_type) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.44, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_type) #13
   unreachable
 
 qobject_type.exit68:                              ; preds = %for.body.i
   %3 = and i32 %.val.i, 6
   %4 = load ptr, ptr %entry1.0.i79, align 8
-  %call5.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #13
+  %call5.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #14
   %add.i = add i64 %call5.i, 1
-  %call6.i = tail call noalias ptr @g_malloc(i64 noundef %add.i) #10
+  %call6.i = tail call noalias ptr @g_malloc(i64 noundef %add.i) #11
   br label %for.cond7.i
 
 for.cond7.i:                                      ; preds = %cond.end.i, %qobject_type.exit68
@@ -2025,18 +2025,18 @@ for.end.i:                                        ; preds = %for.cond7.i
   %arrayidx24.i = getelementptr i8, ptr %call6.i, i64 %idxprom.i
   store i8 0, ptr %arrayidx24.i, align 1
   %cond27.i = select i1 %7, i32 10, i32 32
-  %call28.i = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.47, i32 noundef %mul.i, ptr noundef nonnull @.str.20, ptr noundef %call6.i, i32 noundef %cond27.i) #9
+  %call28.i = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.47, i32 noundef %mul.i, ptr noundef nonnull @.str.20, ptr noundef %call6.i, i32 noundef %cond27.i) #10
   %8 = load ptr, ptr %value.i, align 8
   tail call fastcc void @dump_qobject(i32 noundef %add29.i, ptr noundef %8)
   br i1 %7, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.end.i
-  %call32.i = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.36) #9
+  %call32.i = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.36) #10
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %for.end.i
-  tail call void @g_free(ptr noundef nonnull %call6.i) #9
-  %call34.i = tail call ptr @qdict_next(ptr noundef nonnull %obj, ptr noundef nonnull %entry1.0.i79) #9
+  tail call void @g_free(ptr noundef nonnull %call6.i) #10
+  %call34.i = tail call ptr @qdict_next(ptr noundef nonnull %obj, ptr noundef nonnull %entry1.0.i79) #10
   %tobool.not.i29 = icmp eq ptr %call34.i, null
   br i1 %tobool.not.i29, label %sw.epilog, label %for.body.i, !llvm.loop !16
 
@@ -2061,20 +2061,20 @@ for.body.i45:                                     ; preds = %for.body.i45.lr.ph,
   br i1 %or.cond.i69, label %qobject_type.exit72, label %if.else.i70
 
 if.else.i70:                                      ; preds = %for.body.i45
-  tail call void @__assert_fail(ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.44, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_type) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.44, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_type) #13
   unreachable
 
 qobject_type.exit72:                              ; preds = %for.body.i45
   %12 = and i32 %.val.i46, 6
   %13 = icmp eq i32 %12, 4
   %cond.i49 = select i1 %13, i32 10, i32 32
-  %call5.i50 = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.48, i32 noundef %mul.i48, ptr noundef nonnull @.str.20, i32 noundef %i.0.i4276, i32 noundef %cond.i49) #9
+  %call5.i50 = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.48, i32 noundef %mul.i48, ptr noundef nonnull @.str.20, i32 noundef %i.0.i4276, i32 noundef %cond.i49) #10
   %14 = load ptr, ptr %entry1.0.i4377, align 8
   tail call fastcc void @dump_qobject(i32 noundef %add.i51, ptr noundef %14)
   br i1 %13, label %for.inc.i, label %if.then.i52
 
 if.then.i52:                                      ; preds = %qobject_type.exit72
-  %call8.i = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.36) #9
+  %call8.i = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.36) #10
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then.i52, %qobject_type.exit72
@@ -2085,13 +2085,13 @@ for.inc.i:                                        ; preds = %if.then.i52, %qobje
   br i1 %tobool.not.i44, label %sw.epilog, label %for.body.i45, !llvm.loop !17
 
 qobject_check_type.exit64:                        ; preds = %qobject_type.exit
-  %call18 = tail call zeroext i1 @qbool_get_bool(ptr noundef nonnull %obj) #9
+  %call18 = tail call zeroext i1 @qbool_get_bool(ptr noundef nonnull %obj) #10
   %cond = select i1 %call18, ptr @.str.45, ptr @.str.46
-  %call19 = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.39, ptr noundef nonnull %cond) #9
+  %call19 = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.39, ptr noundef nonnull %cond) #10
   br label %sw.epilog
 
 sw.default:                                       ; preds = %qobject_type.exit
-  tail call void @abort() #12
+  tail call void @abort() #13
   unreachable
 
 sw.epilog:                                        ; preds = %for.inc.i, %if.end.i, %qobject_check_type.exit39, %qobject_check_type.exit28, %qobject_check_type.exit64, %qobject_check_type.exit18, %qobject_check_type.exit
@@ -2105,7 +2105,7 @@ define dso_local void @bdrv_node_info_dump(ptr nocapture noundef readonly %info,
 entry:
   %sn = alloca %struct.QEMUSnapshotInfo, align 8
   %mul = shl i32 %indentation, 2
-  %call = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.21, i32 noundef %mul, ptr noundef nonnull @.str.20) #9
+  %call = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.21, i32 noundef %mul, ptr noundef nonnull @.str.20) #10
   %cmp = icmp ne i32 %indentation, 0
   %spec.select = and i1 %cmp, %protocol
   %has_actual_size = getelementptr inbounds i8, ptr %info, i64 18
@@ -2114,20 +2114,20 @@ entry:
   br i1 %tobool, label %if.else, label %if.then1
 
 if.then1:                                         ; preds = %entry
-  %call2 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.22) #9
+  %call2 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.22) #10
   br label %if.end4
 
 if.else:                                          ; preds = %entry
   %actual_size = getelementptr inbounds i8, ptr %info, i64 24
   %1 = load i64, ptr %actual_size, align 8
-  %call3 = tail call ptr @size_to_str(i64 noundef %1) #9
+  %call3 = tail call ptr @size_to_str(i64 noundef %1) #10
   br label %if.end4
 
 if.end4:                                          ; preds = %if.else, %if.then1
   %dsize_buf.0 = phi ptr [ %call3, %if.else ], [ %call2, %if.then1 ]
   %virtual_size = getelementptr inbounds i8, ptr %info, i64 32
   %2 = load i64, ptr %virtual_size, align 8
-  %call5 = tail call ptr @size_to_str(i64 noundef %2) #9
+  %call5 = tail call ptr @size_to_str(i64 noundef %2) #10
   %cond = select i1 %spec.select, ptr @.str.24, ptr @.str.25
   %3 = load ptr, ptr %info, align 8
   %cond8 = select i1 %spec.select, ptr @.str.26, ptr @.str.27
@@ -2135,9 +2135,9 @@ if.end4:                                          ; preds = %if.else, %if.then1
   %4 = load ptr, ptr %format, align 8
   %cond10 = select i1 %spec.select, ptr @.str.28, ptr @.str.29
   %5 = load i64, ptr %virtual_size, align 8
-  %call12 = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.23, ptr noundef %call, ptr noundef nonnull %cond, ptr noundef %3, ptr noundef %call, ptr noundef nonnull %cond8, ptr noundef %4, ptr noundef %call, ptr noundef nonnull %cond10, ptr noundef %call5, i64 noundef %5, ptr noundef %call, ptr noundef %dsize_buf.0) #9
-  tail call void @g_free(ptr noundef %call5) #9
-  tail call void @g_free(ptr noundef %dsize_buf.0) #9
+  %call12 = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.23, ptr noundef %call, ptr noundef nonnull %cond, ptr noundef %3, ptr noundef %call, ptr noundef nonnull %cond8, ptr noundef %4, ptr noundef %call, ptr noundef nonnull %cond10, ptr noundef %call5, i64 noundef %5, ptr noundef %call, ptr noundef %dsize_buf.0) #10
+  tail call void @g_free(ptr noundef %call5) #10
+  tail call void @g_free(ptr noundef %dsize_buf.0) #10
   %has_encrypted = getelementptr inbounds i8, ptr %info, i64 56
   %6 = load i8, ptr %has_encrypted, align 8
   %tobool13 = trunc i8 %6 to i1
@@ -2150,7 +2150,7 @@ land.lhs.true:                                    ; preds = %if.end4
   br i1 %tobool14, label %if.then15, label %if.end17
 
 if.then15:                                        ; preds = %land.lhs.true
-  %call16 = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.30, ptr noundef %call) #9
+  %call16 = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.30, ptr noundef %call) #10
   br label %if.end17
 
 if.end17:                                         ; preds = %if.then15, %land.lhs.true, %if.end4
@@ -2162,7 +2162,7 @@ if.end17:                                         ; preds = %if.then15, %land.lh
 if.then19:                                        ; preds = %if.end17
   %cluster_size = getelementptr inbounds i8, ptr %info, i64 48
   %9 = load i64, ptr %cluster_size, align 8
-  %call20 = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.31, ptr noundef %call, i64 noundef %9) #9
+  %call20 = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.31, ptr noundef %call, i64 noundef %9) #10
   br label %if.end21
 
 if.end21:                                         ; preds = %if.then19, %if.end17
@@ -2178,7 +2178,7 @@ land.lhs.true23:                                  ; preds = %if.end21
   br i1 %tobool24, label %if.then25, label %if.end27
 
 if.then25:                                        ; preds = %land.lhs.true23
-  %call26 = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.32, ptr noundef %call) #9
+  %call26 = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.32, ptr noundef %call) #10
   br label %if.end27
 
 if.end27:                                         ; preds = %if.then25, %land.lhs.true23, %if.end21
@@ -2188,35 +2188,35 @@ if.end27:                                         ; preds = %if.then25, %land.lh
   br i1 %tobool28.not, label %if.end51, label %if.then29
 
 if.then29:                                        ; preds = %if.end27
-  %call31 = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.33, ptr noundef %call, ptr noundef nonnull %12) #9
+  %call31 = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.33, ptr noundef %call, ptr noundef nonnull %12) #10
   %full_backing_filename = getelementptr inbounds i8, ptr %info, i64 72
   %13 = load ptr, ptr %full_backing_filename, align 8
   %tobool32.not = icmp eq ptr %13, null
   br i1 %tobool32.not, label %if.then33, label %if.else35
 
 if.then33:                                        ; preds = %if.then29
-  %call34 = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.34) #9
+  %call34 = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.34) #10
   br label %if.end44
 
 if.else35:                                        ; preds = %if.then29
   %14 = load ptr, ptr %backing_filename, align 8
-  %call38 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(1) %13) #13
+  %call38 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(1) %13) #14
   %cmp39.not = icmp eq i32 %call38, 0
   br i1 %cmp39.not, label %if.end44, label %if.then40
 
 if.then40:                                        ; preds = %if.else35
-  %call42 = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.35, ptr noundef nonnull %13) #9
+  %call42 = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.35, ptr noundef nonnull %13) #10
   br label %if.end44
 
 if.end44:                                         ; preds = %if.else35, %if.then40, %if.then33
-  %call45 = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.36) #9
+  %call45 = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.36) #10
   %backing_filename_format = getelementptr inbounds i8, ptr %info, i64 80
   %15 = load ptr, ptr %backing_filename_format, align 8
   %tobool46.not = icmp eq ptr %15, null
   br i1 %tobool46.not, label %if.end51, label %if.then47
 
 if.then47:                                        ; preds = %if.end44
-  %call49 = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.37, ptr noundef %call, ptr noundef nonnull %15) #9
+  %call49 = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.37, ptr noundef %call, ptr noundef nonnull %15) #10
   br label %if.end51
 
 if.end51:                                         ; preds = %if.end44, %if.then47, %if.end27
@@ -2226,11 +2226,11 @@ if.end51:                                         ; preds = %if.end44, %if.then4
   br i1 %tobool52, label %if.then53, label %if.end80
 
 if.then53:                                        ; preds = %if.end51
-  %call54 = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.38, ptr noundef %call) #9
-  %call55 = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.39, ptr noundef %call) #9
-  %call.i = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13) #9
-  tail call void @g_free(ptr noundef null) #9
-  %call56 = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.36) #9
+  %call54 = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.38, ptr noundef %call) #10
+  %call55 = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.39, ptr noundef %call) #10
+  %call.i = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13) #10
+  tail call void @g_free(ptr noundef null) #10
+  %call56 = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.36) #10
   %snapshots = getelementptr inbounds i8, ptr %info, i64 96
   %elem.051 = load ptr, ptr %snapshots, align 8
   %tobool57.not52 = icmp eq ptr %elem.051, null
@@ -2287,14 +2287,14 @@ cond.end:                                         ; preds = %for.body, %cond.tru
   store i64 %cond73, ptr %icount, align 8
   %29 = load ptr, ptr %value, align 8
   %30 = load ptr, ptr %29, align 8
-  call void @pstrcpy(ptr noundef nonnull %sn, i32 noundef 128, ptr noundef %30) #9
+  call void @pstrcpy(ptr noundef nonnull %sn, i32 noundef 128, ptr noundef %30) #10
   %31 = load ptr, ptr %value, align 8
   %name77 = getelementptr inbounds i8, ptr %31, i64 8
   %32 = load ptr, ptr %name77, align 8
-  call void @pstrcpy(ptr noundef nonnull %name, i32 noundef 256, ptr noundef %32) #9
-  %call78 = call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.39, ptr noundef %call) #9
+  call void @pstrcpy(ptr noundef nonnull %name, i32 noundef 256, ptr noundef %32) #10
+  %call78 = call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.39, ptr noundef %call) #10
   call void @bdrv_snapshot_dump(ptr noundef nonnull %sn)
-  %call79 = call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.36) #9
+  %call79 = call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.36) #10
   %elem.0 = load ptr, ptr %elem.053, align 8
   %tobool57.not = icmp eq ptr %elem.0, null
   br i1 %tobool57.not, label %if.end80, label %for.body, !llvm.loop !18
@@ -2310,7 +2310,7 @@ if.then82:                                        ; preds = %if.end80
   br label %if.end84
 
 if.end84:                                         ; preds = %if.then82, %if.end80
-  call void @g_free(ptr noundef %call) #9
+  call void @g_free(ptr noundef %call) #10
   ret void
 }
 
@@ -2386,8 +2386,8 @@ declare i64 @qdict_size(ptr noundef) local_unnamed_addr #1
 
 declare i32 @qlist_empty(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: noreturn nounwind
-declare void @abort() local_unnamed_addr #4
+; Function Attrs: cold nofree noreturn nounwind
+declare void @abort() local_unnamed_addr #8
 
 declare ptr @qnum_to_string(ptr noundef) local_unnamed_addr #1
 
@@ -2405,10 +2405,10 @@ declare ptr @qdict_next(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @qobject_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2418,12 +2418,13 @@ attributes #4 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="tr
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #6 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { nounwind }
-attributes #10 = { nounwind allocsize(0) }
-attributes #11 = { nounwind allocsize(0,1) }
-attributes #12 = { noreturn nounwind }
-attributes #13 = { nounwind willreturn memory(read) }
+attributes #8 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { nounwind }
+attributes #11 = { nounwind allocsize(0) }
+attributes #12 = { nounwind allocsize(0,1) }
+attributes #13 = { noreturn nounwind }
+attributes #14 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

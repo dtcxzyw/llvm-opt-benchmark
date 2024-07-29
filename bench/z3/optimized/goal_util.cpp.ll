@@ -782,7 +782,7 @@ sw.default:                                       ; preds = %if.end39
           to label %invoke.cont66 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont66:                                    ; preds = %sw.default
-  call void @exit(i32 noundef 114) #16
+  call void @exit(i32 noundef 114) #18
   unreachable
 
 while.cond21.backedge:                            ; preds = %if.end39, %land.rhs.i.i.i.i, %_ZNK11ast_manager6is_iteEPK4expr.exit.i.i, %call2.i.i.noexc, %invoke.cont34
@@ -1025,7 +1025,7 @@ sw.default104:                                    ; preds = %start
           to label %invoke.cont105 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont105:                                   ; preds = %sw.default104
-  call void @exit(i32 noundef 114) #16
+  call void @exit(i32 noundef 114) #18
   unreachable
 
 sw.epilog106:                                     ; preds = %call2.i.i.noexc181.sw.epilog106_crit_edge, %_ZNK11ast_manager6is_iteEPK4expr.exit.i.i174, %land.rhs.i.i.i.i170, %while.end, %while.end99, %sw.bb
@@ -1057,7 +1057,7 @@ return:                                           ; preds = %if.end.i.i.i.i.i278
 
 declare void @_Z26notify_assertion_violationPKciS0_(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1378,7 +1378,7 @@ sw.bb30:                                          ; preds = %for.body
 
 sw.bb38:                                          ; preds = %for.body
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.2, i32 noundef 587, ptr noundef nonnull @.str.1)
-  tail call void @exit(i32 noundef 114) #16
+  tail call void @exit(i32 noundef 114) #18
   unreachable
 
 if.end.i52:                                       ; preds = %sw.bb, %if.end25, %sw.bb30
@@ -2024,7 +2024,7 @@ _ZN14parray_managerIN11ast_manager17expr_array_configEE10rpush_backERPP4exprRjRK
 
 sw.bb11:                                          ; preds = %for.body
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.2, i32 noundef 231, ptr noundef nonnull @.str.1)
-  tail call void @exit(i32 noundef 114) #16
+  tail call void @exit(i32 noundef 114) #18
   unreachable
 
 default.unreachable70:                            ; preds = %for.body
@@ -2193,7 +2193,7 @@ attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stac
 attributes #2 = { nofree nounwind }
 attributes #3 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2206,6 +2206,7 @@ attributes #14 = { nocallback nofree nosync nounwind willreturn memory(argmem: r
 attributes #15 = { nounwind }
 attributes #16 = { noreturn nounwind }
 attributes #17 = { noreturn }
+attributes #18 = { cold noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

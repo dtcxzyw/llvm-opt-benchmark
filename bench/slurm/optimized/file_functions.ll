@@ -2777,7 +2777,7 @@ _init_sacctmgr_file_opts.exit:                    ; preds = %2, %6
 
 36:                                               ; preds = %.critedge2
   %37 = load ptr, ptr %4, align 8
-  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.89, ptr noundef %37) #17
+  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.89, ptr noundef %37) #18
   unreachable
 
 38:                                               ; preds = %.critedge2
@@ -4145,7 +4145,7 @@ define internal fastcc range(i32 0, 2) i32 @_mod_user(ptr nocapture noundef read
   br i1 %.not157, label %13, label %14
 
 13:                                               ; preds = %10, %3
-  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.137) #17
+  tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.137) #18
   unreachable
 
 14:                                               ; preds = %10
@@ -4708,7 +4708,7 @@ declare void @slurmdb_free_assoc_rec_members(ptr noundef) local_unnamed_addr #1
 
 declare ptr @slurmdb_clusters_modify(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #8
 
 declare ptr @slurmdb_accounts_modify(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -4755,7 +4755,7 @@ attributes #4 = { mustprogress nofree nounwind willreturn memory(argmem: read) "
 attributes #5 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nofree nounwind }
 attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #11 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
@@ -4764,7 +4764,8 @@ attributes #13 = { cold }
 attributes #14 = { nounwind willreturn memory(read) }
 attributes #15 = { cold nounwind }
 attributes #16 = { nounwind willreturn memory(none) }
-attributes #17 = { noreturn nounwind }
+attributes #17 = { cold noreturn nounwind }
+attributes #18 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
 

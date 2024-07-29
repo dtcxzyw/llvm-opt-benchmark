@@ -46,11 +46,11 @@ entry:
   br i1 %tobool.not, label %if.else, label %if.end
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 394, ptr noundef nonnull @__PRETTY_FUNCTION__.string_input_visitor_new) #6
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 394, ptr noundef nonnull @__PRETTY_FUNCTION__.string_input_visitor_new) #7
   unreachable
 
 if.end:                                           ; preds = %entry
-  %call = tail call noalias dereferenceable_or_null(264) ptr @g_malloc0(i64 noundef 264) #7
+  %call = tail call noalias dereferenceable_or_null(264) ptr @g_malloc0(i64 noundef 264) #8
   %type = getelementptr inbounds i8, ptr %call, i64 160
   store i32 1, ptr %type, align 8
   %type_int64 = getelementptr inbounds i8, ptr %call, i64 72
@@ -116,14 +116,14 @@ entry.sw.bb16_crit_edge:                          ; preds = %entry
 sw.bb:                                            ; preds = %entry
   %string = getelementptr inbounds i8, ptr %v, i64 256
   %1 = load ptr, ptr %string, align 8
-  %call1 = call i32 @qemu_strtoi64(ptr noundef %1, ptr noundef null, i32 noundef 0, ptr noundef nonnull %val) #8
+  %call1 = call i32 @qemu_strtoi64(ptr noundef %1, ptr noundef null, i32 noundef 0, ptr noundef nonnull %val) #9
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %sw.bb
   %tobool2.not = icmp eq ptr %name, null
   %cond = select i1 %tobool2.not, ptr @.str.3, ptr %name
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 193, ptr noundef nonnull @__func__.parse_type_int64, ptr noundef nonnull @.str.2, ptr noundef nonnull %cond, ptr noundef nonnull @.str.4) #8
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 193, ptr noundef nonnull @__func__.parse_type_int64, ptr noundef nonnull @.str.2, ptr noundef nonnull %cond, ptr noundef nonnull @.str.4) #9
   br label %return
 
 if.end:                                           ; preds = %sw.bb
@@ -137,7 +137,7 @@ sw.bb3:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i)
   %unparsed_string.i = getelementptr inbounds i8, ptr %v, i64 240
   %3 = load ptr, ptr %unparsed_string.i, align 8
-  %call.i = call i32 @qemu_strtoi64(ptr noundef %3, ptr noundef nonnull %endptr.i, i32 noundef 0, ptr noundef nonnull %start.i) #8
+  %call.i = call i32 @qemu_strtoi64(ptr noundef %3, ptr noundef nonnull %endptr.i, i32 noundef 0, ptr noundef nonnull %start.i) #9
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then6
 
@@ -158,7 +158,7 @@ sw.bb2.i:                                         ; preds = %if.end.i
 
 sw.bb4.i:                                         ; preds = %if.end.i
   %add.ptr5.i = getelementptr i8, ptr %5, i64 1
-  %call6.i = call i32 @qemu_strtoi64(ptr noundef %add.ptr5.i, ptr noundef nonnull %endptr.i, i32 noundef 0, ptr noundef nonnull %end.i) #8
+  %call6.i = call i32 @qemu_strtoi64(ptr noundef %add.ptr5.i, ptr noundef nonnull %endptr.i, i32 noundef 0, ptr noundef nonnull %end.i) #9
   %tobool7.not.i = icmp eq i32 %call6.i, 0
   br i1 %tobool7.not.i, label %if.end9.i, label %if.then6
 
@@ -189,7 +189,7 @@ if.then6:                                         ; preds = %sw.bb3, %sw.bb4.i, 
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i)
   %tobool7.not = icmp eq ptr %name, null
   %cond11 = select i1 %tobool7.not, ptr @.str.3, ptr %name
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 201, ptr noundef nonnull @__func__.parse_type_int64, ptr noundef nonnull @.str.2, ptr noundef nonnull %cond11, ptr noundef nonnull @.str.5) #8
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 201, ptr noundef nonnull @__func__.parse_type_int64, ptr noundef nonnull @.str.2, ptr noundef nonnull %cond11, ptr noundef nonnull @.str.5) #9
   br label %return
 
 if.end12:                                         ; preds = %sw.bb19.i, %if.end14.i, %sw.bb2.i, %if.end.i
@@ -214,7 +214,7 @@ sw.bb16:                                          ; preds = %if.end12, %entry.sw
   br i1 %cmp17.not, label %if.else19, label %if.end20
 
 if.else19:                                        ; preds = %sw.bb16
-  call void @__assert_fail(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.1, i32 noundef 208, ptr noundef nonnull @__PRETTY_FUNCTION__.parse_type_int64) #6
+  call void @__assert_fail(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.1, i32 noundef 208, ptr noundef nonnull @__PRETTY_FUNCTION__.parse_type_int64) #7
   unreachable
 
 if.end20:                                         ; preds = %sw.bb16
@@ -240,11 +240,11 @@ if.then26:                                        ; preds = %if.end20
   br label %return
 
 sw.bb31:                                          ; preds = %entry
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 217, ptr noundef nonnull @__func__.parse_type_int64, ptr noundef nonnull @.str.8) #8
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 217, ptr noundef nonnull @__func__.parse_type_int64, ptr noundef nonnull @.str.8) #9
   br label %return
 
 sw.default:                                       ; preds = %entry
-  tail call void @abort() #6
+  tail call void @abort() #7
   unreachable
 
 return:                                           ; preds = %if.then26, %if.end20, %sw.bb31, %if.then6, %if.end, %if.then
@@ -278,14 +278,14 @@ entry.sw.bb16_crit_edge:                          ; preds = %entry
 sw.bb:                                            ; preds = %entry
   %string = getelementptr inbounds i8, ptr %v, i64 256
   %1 = load ptr, ptr %string, align 8
-  %call1 = call i32 @qemu_strtou64(ptr noundef %1, ptr noundef null, i32 noundef 0, ptr noundef nonnull %val) #8
+  %call1 = call i32 @qemu_strtou64(ptr noundef %1, ptr noundef null, i32 noundef 0, ptr noundef nonnull %val) #9
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %sw.bb
   %tobool2.not = icmp eq ptr %name, null
   %cond = select i1 %tobool2.not, ptr @.str.3, ptr %name
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 283, ptr noundef nonnull @__func__.parse_type_uint64, ptr noundef nonnull @.str.2, ptr noundef nonnull %cond, ptr noundef nonnull @.str.9) #8
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 283, ptr noundef nonnull @__func__.parse_type_uint64, ptr noundef nonnull @.str.2, ptr noundef nonnull %cond, ptr noundef nonnull @.str.9) #9
   br label %return
 
 if.end:                                           ; preds = %sw.bb
@@ -299,7 +299,7 @@ sw.bb3:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i)
   %unparsed_string.i = getelementptr inbounds i8, ptr %v, i64 240
   %3 = load ptr, ptr %unparsed_string.i, align 8
-  %call.i = call i32 @qemu_strtou64(ptr noundef %3, ptr noundef nonnull %endptr.i, i32 noundef 0, ptr noundef nonnull %start.i) #8
+  %call.i = call i32 @qemu_strtou64(ptr noundef %3, ptr noundef nonnull %endptr.i, i32 noundef 0, ptr noundef nonnull %start.i) #9
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then6
 
@@ -320,7 +320,7 @@ sw.bb2.i:                                         ; preds = %if.end.i
 
 sw.bb4.i:                                         ; preds = %if.end.i
   %add.ptr5.i = getelementptr i8, ptr %5, i64 1
-  %call6.i = call i32 @qemu_strtou64(ptr noundef %add.ptr5.i, ptr noundef nonnull %endptr.i, i32 noundef 0, ptr noundef nonnull %end.i) #8
+  %call6.i = call i32 @qemu_strtou64(ptr noundef %add.ptr5.i, ptr noundef nonnull %endptr.i, i32 noundef 0, ptr noundef nonnull %end.i) #9
   %tobool7.not.i = icmp eq i32 %call6.i, 0
   br i1 %tobool7.not.i, label %if.end9.i, label %if.then6
 
@@ -351,7 +351,7 @@ if.then6:                                         ; preds = %sw.bb3, %sw.bb4.i, 
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i)
   %tobool7.not = icmp eq ptr %name, null
   %cond11 = select i1 %tobool7.not, ptr @.str.3, ptr %name
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 291, ptr noundef nonnull @__func__.parse_type_uint64, ptr noundef nonnull @.str.2, ptr noundef nonnull %cond11, ptr noundef nonnull @.str.10) #8
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 291, ptr noundef nonnull @__func__.parse_type_uint64, ptr noundef nonnull @.str.2, ptr noundef nonnull %cond11, ptr noundef nonnull @.str.10) #9
   br label %return
 
 if.end12:                                         ; preds = %sw.bb19.i, %if.end14.i, %sw.bb2.i, %if.end.i
@@ -376,7 +376,7 @@ sw.bb16:                                          ; preds = %if.end12, %entry.sw
   br i1 %cmp17.not, label %if.else19, label %if.end20
 
 if.else19:                                        ; preds = %sw.bb16
-  call void @__assert_fail(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.1, i32 noundef 298, ptr noundef nonnull @__PRETTY_FUNCTION__.parse_type_uint64) #6
+  call void @__assert_fail(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.1, i32 noundef 298, ptr noundef nonnull @__PRETTY_FUNCTION__.parse_type_uint64) #7
   unreachable
 
 if.end20:                                         ; preds = %sw.bb16
@@ -402,11 +402,11 @@ if.then26:                                        ; preds = %if.end20
   br label %return
 
 sw.bb31:                                          ; preds = %entry
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 307, ptr noundef nonnull @__func__.parse_type_uint64, ptr noundef nonnull @.str.8) #8
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 307, ptr noundef nonnull @__func__.parse_type_uint64, ptr noundef nonnull @.str.8) #9
   br label %return
 
 sw.default:                                       ; preds = %entry
-  tail call void @abort() #6
+  tail call void @abort() #7
   unreachable
 
 return:                                           ; preds = %if.then26, %if.end20, %sw.bb31, %if.then6, %if.end, %if.then
@@ -424,13 +424,13 @@ entry:
   br i1 %cmp, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.1, i32 noundef 320, ptr noundef nonnull @__PRETTY_FUNCTION__.parse_type_size) #6
+  tail call void @__assert_fail(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.1, i32 noundef 320, ptr noundef nonnull @__PRETTY_FUNCTION__.parse_type_size) #7
   unreachable
 
 if.end:                                           ; preds = %entry
   %string = getelementptr inbounds i8, ptr %v, i64 256
   %1 = load ptr, ptr %string, align 8
-  %call1 = call zeroext i1 @parse_option_size(ptr noundef %name, ptr noundef %1, ptr noundef nonnull %val, ptr noundef %errp) #8
+  %call1 = call zeroext i1 @parse_option_size(ptr noundef %name, ptr noundef %1, ptr noundef nonnull %val, ptr noundef %errp) #9
   br i1 %call1, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
@@ -451,7 +451,7 @@ entry:
   br i1 %cmp, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.1, i32 noundef 334, ptr noundef nonnull @__PRETTY_FUNCTION__.parse_type_bool) #6
+  tail call void @__assert_fail(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.1, i32 noundef 334, ptr noundef nonnull @__PRETTY_FUNCTION__.parse_type_bool) #7
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -459,7 +459,7 @@ if.end:                                           ; preds = %entry
   %cond = select i1 %tobool.not, ptr @.str.3, ptr %name
   %string = getelementptr inbounds i8, ptr %v, i64 256
   %1 = load ptr, ptr %string, align 8
-  %call1 = tail call zeroext i1 @qapi_bool_parse(ptr noundef nonnull %cond, ptr noundef %1, ptr noundef %obj, ptr noundef %errp) #8
+  %call1 = tail call zeroext i1 @qapi_bool_parse(ptr noundef nonnull %cond, ptr noundef %1, ptr noundef %obj, ptr noundef %errp) #9
   ret i1 %call1
 }
 
@@ -472,13 +472,13 @@ entry:
   br i1 %cmp, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.1, i32 noundef 343, ptr noundef nonnull @__PRETTY_FUNCTION__.parse_type_str) #6
+  tail call void @__assert_fail(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.1, i32 noundef 343, ptr noundef nonnull @__PRETTY_FUNCTION__.parse_type_str) #7
   unreachable
 
 if.end:                                           ; preds = %entry
   %string = getelementptr inbounds i8, ptr %v, i64 256
   %1 = load ptr, ptr %string, align 8
-  %call1 = tail call noalias ptr @g_strdup(ptr noundef %1) #8
+  %call1 = tail call noalias ptr @g_strdup(ptr noundef %1) #9
   store ptr %call1, ptr %obj, align 8
   ret i1 true
 }
@@ -493,20 +493,20 @@ entry:
   br i1 %cmp, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.1, i32 noundef 354, ptr noundef nonnull @__PRETTY_FUNCTION__.parse_type_number) #6
+  tail call void @__assert_fail(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.1, i32 noundef 354, ptr noundef nonnull @__PRETTY_FUNCTION__.parse_type_number) #7
   unreachable
 
 if.end:                                           ; preds = %entry
   %string = getelementptr inbounds i8, ptr %v, i64 256
   %1 = load ptr, ptr %string, align 8
-  %call1 = call i32 @qemu_strtod_finite(ptr noundef %1, ptr noundef null, ptr noundef nonnull %val) #8
+  %call1 = call i32 @qemu_strtod_finite(ptr noundef %1, ptr noundef null, ptr noundef nonnull %val) #9
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %if.end4, label %if.then2
 
 if.then2:                                         ; preds = %if.end
   %tobool3.not = icmp eq ptr %name, null
   %cond = select i1 %tobool3.not, ptr @.str.3, ptr %name
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 357, ptr noundef nonnull @__func__.parse_type_number, ptr noundef nonnull @.str.14, ptr noundef nonnull %cond, ptr noundef nonnull @.str.15) #8
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 357, ptr noundef nonnull @__func__.parse_type_number, ptr noundef nonnull @.str.14, ptr noundef nonnull %cond, ptr noundef nonnull @.str.15) #9
   br label %return
 
 if.end4:                                          ; preds = %if.end
@@ -527,7 +527,7 @@ entry:
   br i1 %cmp, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.1, i32 noundef 370, ptr noundef nonnull @__PRETTY_FUNCTION__.parse_type_null) #6
+  tail call void @__assert_fail(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.1, i32 noundef 370, ptr noundef nonnull @__PRETTY_FUNCTION__.parse_type_null) #7
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -541,7 +541,7 @@ if.end:                                           ; preds = %entry
 if.then1:                                         ; preds = %if.end
   %tobool2.not = icmp eq ptr %name, null
   %cond = select i1 %tobool2.not, ptr @.str.3, ptr %name
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 375, ptr noundef nonnull @__func__.parse_type_null, ptr noundef nonnull @.str.14, ptr noundef nonnull %cond, ptr noundef nonnull @.str.3) #8
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 375, ptr noundef nonnull @__func__.parse_type_null, ptr noundef nonnull @.str.14, ptr noundef nonnull %cond, ptr noundef nonnull @.str.3) #9
   br label %return
 
 if.end3:                                          ; preds = %if.end
@@ -564,7 +564,7 @@ entry:
   br i1 %cmp, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.1, i32 noundef 68, ptr noundef nonnull @__PRETTY_FUNCTION__.start_list) #6
+  tail call void @__assert_fail(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.1, i32 noundef 68, ptr noundef nonnull @__PRETTY_FUNCTION__.start_list) #7
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -586,7 +586,7 @@ if.else8:                                         ; preds = %if.end
   br i1 %tobool4.not, label %if.end14, label %if.then10
 
 if.then10:                                        ; preds = %if.else8
-  %call11 = tail call noalias ptr @g_malloc0(i64 noundef %size) #7
+  %call11 = tail call noalias ptr @g_malloc0(i64 noundef %size) #8
   br label %if.end14.sink.split
 
 if.end14.sink.split:                              ; preds = %if.then3, %if.then10
@@ -614,11 +614,11 @@ entry:
   ]
 
 sw.default:                                       ; preds = %entry
-  tail call void @abort() #6
+  tail call void @abort() #7
   unreachable
 
 sw.epilog:                                        ; preds = %entry, %entry, %entry
-  %call2 = tail call noalias ptr @g_malloc0(i64 noundef %size) #7
+  %call2 = tail call noalias ptr @g_malloc0(i64 noundef %size) #8
   store ptr %call2, ptr %tail, align 8
   br label %return
 
@@ -640,11 +640,11 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry, %entry, %entry
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 114, ptr noundef nonnull @__func__.check_list, ptr noundef nonnull @.str.8) #8
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 114, ptr noundef nonnull @__func__.check_list, ptr noundef nonnull @.str.8) #9
   br label %return
 
 sw.default:                                       ; preds = %entry
-  tail call void @abort() #6
+  tail call void @abort() #7
   unreachable
 
 return:                                           ; preds = %entry, %sw.bb
@@ -661,7 +661,7 @@ entry:
   br i1 %cmp.not, label %if.else, label %if.end
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.1, i32 noundef 127, ptr noundef nonnull @__PRETTY_FUNCTION__.end_list) #6
+  tail call void @__assert_fail(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.1, i32 noundef 127, ptr noundef nonnull @__PRETTY_FUNCTION__.end_list) #7
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -671,7 +671,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1, label %if.end4, label %if.else3
 
 if.else3:                                         ; preds = %if.end
-  tail call void @__assert_fail(ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.1, i32 noundef 128, ptr noundef nonnull @__PRETTY_FUNCTION__.end_list) #6
+  tail call void @__assert_fail(ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.1, i32 noundef 128, ptr noundef nonnull @__PRETTY_FUNCTION__.end_list) #7
   unreachable
 
 if.end4:                                          ; preds = %if.end
@@ -684,7 +684,7 @@ if.end4:                                          ; preds = %if.end
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @string_input_free(ptr noundef %v) #0 {
 entry:
-  tail call void @g_free(ptr noundef %v) #8
+  tail call void @g_free(ptr noundef %v) #9
   ret void
 }
 
@@ -692,8 +692,8 @@ declare i32 @qemu_strtoi64(ptr noundef, ptr noundef, i32 noundef, ptr noundef) l
 
 declare void @error_setg_internal(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
-; Function Attrs: noreturn nounwind
-declare void @abort() local_unnamed_addr #1
+; Function Attrs: cold nofree noreturn nounwind
+declare void @abort() local_unnamed_addr #4
 
 declare i32 @qemu_strtou64(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
@@ -708,23 +708,24 @@ declare i32 @qemu_strtod_finite(ptr noundef, ptr noundef, ptr noundef) local_unn
 declare void @g_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { noreturn nounwind }
-attributes #7 = { nounwind allocsize(0) }
-attributes #8 = { nounwind }
+attributes #4 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { noreturn nounwind }
+attributes #8 = { nounwind allocsize(0) }
+attributes #9 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

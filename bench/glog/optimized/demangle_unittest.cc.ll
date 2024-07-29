@@ -3782,7 +3782,7 @@ define linkonce_odr hidden noundef i32 @_ZN6google12base_logging12LogStreamBuf8o
 
 declare void @_ZN6google26GetExistingTempDirectoriesERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -4974,7 +4974,7 @@ define internal void @_GLOBAL__sub_I_demangle_unittest.cc() #19 section ".text.s
 18:                                               ; preds = %13
   %19 = load ptr, ptr @stderr, align 8, !noalias !49
   %20 = call i64 @fwrite(ptr nonnull @.str.74, i64 29, i64 1, ptr %19) #25, !noalias !49
-  call void @exit(i32 noundef 1) #23, !noalias !49
+  call void @exit(i32 noundef 1) #26, !noalias !49
   unreachable
 
 common.resume:                                    ; preds = %21, %30, %.body.i8, %.body.i1, %.body.i
@@ -5067,7 +5067,7 @@ __cxx_global_var_init.1.exit:                     ; preds = %_ZL10GetTempDirB5cx
 39:                                               ; preds = %__cxx_global_var_init.1.exit
   %40 = load i8, ptr %38, align 1
   %41 = sext i8 %40 to i32
-  %42 = call noundef ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.24, i32 noundef %41, i64 noundef 6) #26
+  %42 = call noundef ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.24, i32 noundef %41, i64 noundef 6) #27
   %43 = icmp ne ptr %42, null
   %44 = zext i1 %43 to i8
   br label %__cxx_global_var_init.22.exit
@@ -5430,7 +5430,7 @@ attributes #13 = { mustprogress nofree nounwind willreturn memory(argmem: read) 
 attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #15 = { mustprogress norecurse uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #18 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #19 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #20 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
@@ -5439,7 +5439,8 @@ attributes #22 = { noreturn }
 attributes #23 = { noreturn nounwind }
 attributes #24 = { nounwind allocsize(0) }
 attributes #25 = { cold }
-attributes #26 = { nounwind willreturn memory(read) }
+attributes #26 = { cold noreturn nounwind }
+attributes #27 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

@@ -114,7 +114,7 @@ for.end:                                          ; preds = %for.body, %entry
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
+; Function Attrs: mustprogress nofree nounwind uwtable
 define void @_ZN14arrow_vendored17double_conversion6Bignum19AssignDecimalStringENS0_6VectorIKcEE(ptr nocapture noundef nonnull align 4 dereferenceable(516) %this, ptr nocapture readonly %value.coerce0, i32 %value.coerce1) local_unnamed_addr #4 align 2 {
 entry:
   %other.i19 = alloca %"class.arrow_vendored::double_conversion::Bignum", align 4
@@ -285,7 +285,7 @@ _ZN14arrow_vendored17double_conversion6Bignum5ClampEv.exit: ; preds = %land.rhs.
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
+; Function Attrs: mustprogress nofree nounwind uwtable
 define void @_ZN14arrow_vendored17double_conversion6Bignum20MultiplyByPowerOfTenEi(ptr nocapture noundef nonnull align 4 dereferenceable(516) %this, i32 noundef %exponent) local_unnamed_addr #4 align 2 {
 entry:
   %cmp = icmp eq i32 %exponent, 0
@@ -590,7 +590,7 @@ return:                                           ; preds = %if.then.i2.i, %for.
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
+; Function Attrs: mustprogress nofree nounwind uwtable
 define void @_ZN14arrow_vendored17double_conversion6Bignum9AddUInt64Em(ptr nocapture noundef nonnull align 4 dereferenceable(516) %this, i64 noundef %operand) local_unnamed_addr #4 align 2 {
 entry:
   %other = alloca %"class.arrow_vendored::double_conversion::Bignum", align 4
@@ -664,7 +664,7 @@ if.end:                                           ; preds = %land.rhs, %if.then,
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
+; Function Attrs: mustprogress nofree nounwind uwtable
 define void @_ZN14arrow_vendored17double_conversion6Bignum15AssignHexStringENS0_6VectorIKcEE(ptr nocapture noundef nonnull align 4 dereferenceable(516) %this, ptr nocapture readonly %value.coerce0, i32 %value.coerce1) local_unnamed_addr #4 align 2 {
 entry:
   store i16 0, ptr %this, align 4
@@ -800,7 +800,7 @@ _ZN14arrow_vendored17double_conversion6Bignum5ClampEv.exit: ; preds = %land.rhs.
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
+; Function Attrs: mustprogress nofree nounwind uwtable
 define void @_ZN14arrow_vendored17double_conversion6Bignum9AddBignumERKS1_(ptr nocapture noundef nonnull align 4 dereferenceable(516) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(516) %other) local_unnamed_addr #4 align 2 {
 entry:
   %exponent_.i = getelementptr inbounds i8, ptr %this, i64 2
@@ -1001,7 +1001,7 @@ while.end:                                        ; preds = %for.cond13.preheade
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
+; Function Attrs: mustprogress nofree nounwind uwtable
 define void @_ZN14arrow_vendored17double_conversion6Bignum5AlignERKS1_(ptr nocapture noundef nonnull align 4 dereferenceable(516) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(516) %other) local_unnamed_addr #4 align 2 {
 entry:
   %exponent_ = getelementptr inbounds i8, ptr %this, i64 2
@@ -1074,7 +1074,7 @@ if.end:                                           ; preds = %for.end21, %entry
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
+; Function Attrs: mustprogress nofree nounwind uwtable
 define void @_ZN14arrow_vendored17double_conversion6Bignum14SubtractBignumERKS1_(ptr nocapture noundef nonnull align 4 dereferenceable(516) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(516) %other) local_unnamed_addr #4 align 2 {
 entry:
   %exponent_.i = getelementptr inbounds i8, ptr %this, i64 2
@@ -1238,7 +1238,7 @@ _ZN14arrow_vendored17double_conversion6Bignum5ClampEv.exit: ; preds = %land.rhs.
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
+; Function Attrs: mustprogress nofree nounwind uwtable
 define void @_ZN14arrow_vendored17double_conversion6Bignum9ShiftLeftEi(ptr nocapture noundef nonnull align 4 dereferenceable(516) %this, i32 noundef %shift_amount) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load i16, ptr %this, align 4
@@ -1344,7 +1344,7 @@ if.end:                                           ; preds = %entry, %if.then, %f
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
+; Function Attrs: mustprogress nofree nounwind uwtable
 define void @_ZN14arrow_vendored17double_conversion6Bignum16MultiplyByUInt32Ej(ptr nocapture noundef nonnull align 4 dereferenceable(516) %this, i32 noundef %factor) local_unnamed_addr #4 align 2 {
 entry:
   switch i32 %factor, label %if.end4 [
@@ -1420,7 +1420,7 @@ while.end:                                        ; preds = %_ZN14arrow_vendored
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
+; Function Attrs: mustprogress nofree nounwind uwtable
 define void @_ZN14arrow_vendored17double_conversion6Bignum16MultiplyByUInt64Em(ptr nocapture noundef nonnull align 4 dereferenceable(516) %this, i64 noundef %factor) local_unnamed_addr #4 align 2 {
 entry:
   switch i64 %factor, label %if.end4 [
@@ -1507,7 +1507,7 @@ while.end:                                        ; preds = %_ZN14arrow_vendored
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
+; Function Attrs: mustprogress nofree nounwind uwtable
 define void @_ZN14arrow_vendored17double_conversion6Bignum6SquareEv(ptr nocapture noundef nonnull align 4 dereferenceable(516) %this) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load i16, ptr %this, align 4
@@ -1698,10 +1698,10 @@ _ZN14arrow_vendored17double_conversion6Bignum5ClampEv.exit: ; preds = %land.rhs.
   ret void
 }
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: cold nofree noreturn nounwind
 declare void @abort() local_unnamed_addr #5
 
-; Function Attrs: mustprogress nounwind uwtable
+; Function Attrs: mustprogress nofree nounwind uwtable
 define void @_ZN14arrow_vendored17double_conversion6Bignum17AssignPowerUInt16Eti(ptr nocapture noundef nonnull align 4 dereferenceable(516) %this, i16 noundef zeroext %base, i32 noundef %power_exponent) local_unnamed_addr #4 align 2 {
 entry:
   %cmp = icmp eq i32 %power_exponent, 0
@@ -2026,7 +2026,7 @@ return:                                           ; preds = %return.sink.split, 
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
+; Function Attrs: mustprogress nofree nounwind uwtable
 define noundef zeroext i16 @_ZN14arrow_vendored17double_conversion6Bignum21DivideModuloIntBignumERKS1_(ptr nocapture noundef nonnull align 4 dereferenceable(516) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(516) %other) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load i16, ptr %this, align 4
@@ -2291,7 +2291,7 @@ return:                                           ; preds = %if.end.i.i, %if.end
   ret i16 %retval.0
 }
 
-; Function Attrs: mustprogress nounwind uwtable
+; Function Attrs: mustprogress nofree nounwind uwtable
 define void @_ZN14arrow_vendored17double_conversion6Bignum13SubtractTimesERKS1_i(ptr nocapture noundef nonnull align 4 dereferenceable(516) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(516) %other, i32 noundef %factor) local_unnamed_addr #4 align 2 {
 entry:
   %cmp = icmp slt i32 %factor, 3
@@ -2852,8 +2852,8 @@ attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #5 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #5 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }

@@ -90,14 +90,14 @@ entry:
 
 if.end:                                           ; preds = %entry
   %rate_limit = getelementptr inbounds i8, ptr %s, i64 160
-  tail call void @qemu_mutex_destroy(ptr noundef nonnull %rate_limit) #13
+  tail call void @qemu_mutex_destroy(ptr noundef nonnull %rate_limit) #14
   %copy_bitmap = getelementptr inbounds i8, ptr %s, i64 136
   %0 = load ptr, ptr %copy_bitmap, align 8
-  tail call void @bdrv_release_dirty_bitmap(ptr noundef %0) #13
+  tail call void @bdrv_release_dirty_bitmap(ptr noundef %0) #14
   %mem = getelementptr inbounds i8, ptr %s, i64 152
   %1 = load ptr, ptr %mem, align 8
-  tail call void @shres_destroy(ptr noundef %1) #13
-  tail call void @g_free(ptr noundef nonnull %s) #13
+  tail call void @shres_destroy(ptr noundef %1) #14
+  tail call void @g_free(ptr noundef nonnull %s) #14
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -144,34 +144,34 @@ entry:
   %cmp = icmp eq ptr %errp, @error_fatal
   %or.cond = or i1 %tobool, %cmp
   %spec.select = select i1 %or.cond, ptr %_auto_errp_prop, ptr %errp
-  %call = tail call zeroext i1 @qemu_in_main_thread() #13
+  %call = tail call zeroext i1 @qemu_in_main_thread() #14
   br i1 %call, label %do.end7, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 363, ptr noundef nonnull @__PRETTY_FUNCTION__.block_copy_state_new) #14
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 363, ptr noundef nonnull @__PRETTY_FUNCTION__.block_copy_state_new) #15
   unreachable
 
 do.end7:                                          ; preds = %entry
   %0 = load ptr, ptr %target, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %bdi.i)
-  %call.i = tail call zeroext i1 @qemu_in_main_thread() #13
+  %call.i = tail call zeroext i1 @qemu_in_main_thread() #14
   br i1 %call.i, label %do.end.i, label %if.else.i
 
 if.else.i:                                        ; preds = %do.end7
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 318, ptr noundef nonnull @__PRETTY_FUNCTION__.block_copy_calculate_cluster_size) #14
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 318, ptr noundef nonnull @__PRETTY_FUNCTION__.block_copy_calculate_cluster_size) #15
   unreachable
 
 do.end.i:                                         ; preds = %do.end7
-  tail call void @bdrv_graph_rdlock_main_loop() #13
-  %call2.i = tail call ptr @bdrv_backing_chain_next(ptr noundef %0) #13
+  tail call void @bdrv_graph_rdlock_main_loop() #14
+  %call2.i = tail call ptr @bdrv_backing_chain_next(ptr noundef %0) #14
   %tobool.not.i = icmp eq ptr %call2.i, null
-  %call3.i = call i32 @bdrv_get_info(ptr noundef %0, ptr noundef nonnull %bdi.i) #13
+  %call3.i = call i32 @bdrv_get_info(ptr noundef %0, ptr noundef nonnull %bdi.i) #14
   %cmp.i = icmp eq i32 %call3.i, -95
   %brmerge.not.i = select i1 %cmp.i, i1 %tobool.not.i, i1 false
   br i1 %brmerge.not.i, label %if.then5.i, label %if.else6.i
 
 if.then5.i:                                       ; preds = %do.end.i
-  call void (ptr, ...) @warn_report(ptr noundef nonnull @.str.6, i32 noundef 65536) #13
+  call void (ptr, ...) @warn_report(ptr noundef nonnull @.str.6, i32 noundef 65536) #14
   br label %block_copy_calculate_cluster_size.exit.thread
 
 if.else6.i:                                       ; preds = %do.end.i
@@ -192,49 +192,49 @@ if.end20.i:                                       ; preds = %if.else11.i
 
 block_copy_calculate_cluster_size.exit.thread:    ; preds = %if.end20.i, %if.then5.i, %if.else11.i
   %retval.0.i.ph = phi i64 [ 65536, %if.else11.i ], [ 65536, %if.then5.i ], [ %conv23.i, %if.end20.i ]
-  call void @bdrv_graph_rdunlock_main_loop() #13
+  call void @bdrv_graph_rdunlock_main_loop() #14
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %bdi.i)
   %2 = load ptr, ptr %source, align 8
   %conv = trunc nuw nsw i64 %retval.0.i.ph to i32
-  %call13 = call ptr @bdrv_create_dirty_bitmap(ptr noundef %2, i32 noundef %conv, ptr noundef null, ptr noundef nonnull %spec.select) #13
+  %call13 = call ptr @bdrv_create_dirty_bitmap(ptr noundef %2, i32 noundef %conv, ptr noundef null, ptr noundef nonnull %spec.select) #14
   %tobool14.not = icmp eq ptr %call13, null
   br i1 %tobool14.not, label %cleanup, label %if.end16
 
 block_copy_calculate_cluster_size.exit:           ; preds = %if.else6.i
   %sub.i = sub i32 0, %call3.i
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.1, i32 noundef 341, ptr noundef nonnull @__func__.block_copy_calculate_cluster_size, i32 noundef %sub.i, ptr noundef nonnull @.str.7) #13
-  call void (ptr, ptr, ...) @error_append_hint(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.8) #13
-  call void @bdrv_graph_rdunlock_main_loop() #13
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.1, i32 noundef 341, ptr noundef nonnull @__func__.block_copy_calculate_cluster_size, i32 noundef %sub.i, ptr noundef nonnull @.str.7) #14
+  call void (ptr, ptr, ...) @error_append_hint(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.8) #14
+  call void @bdrv_graph_rdunlock_main_loop() #14
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %bdi.i)
   br label %cleanup
 
 if.end16:                                         ; preds = %block_copy_calculate_cluster_size.exit.thread
-  call void @bdrv_disable_dirty_bitmap(ptr noundef nonnull %call13) #13
+  call void @bdrv_disable_dirty_bitmap(ptr noundef nonnull %call13) #14
   %tobool17.not = icmp eq ptr %bitmap, null
   br i1 %tobool17.not, label %if.else23, label %if.then18
 
 if.then18:                                        ; preds = %if.end16
-  %call19 = call zeroext i1 @bdrv_merge_dirty_bitmap(ptr noundef nonnull %call13, ptr noundef nonnull %bitmap, ptr noundef null, ptr noundef nonnull %spec.select) #13
+  %call19 = call zeroext i1 @bdrv_merge_dirty_bitmap(ptr noundef nonnull %call13, ptr noundef nonnull %bitmap, ptr noundef null, ptr noundef nonnull %spec.select) #14
   br i1 %call19, label %if.end25, label %if.then20
 
 if.then20:                                        ; preds = %if.then18
-  %call21 = call ptr @bdrv_dirty_bitmap_name(ptr noundef nonnull %bitmap) #13
-  call void (ptr, ptr, ...) @error_prepend(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.2, ptr noundef %call21) #13
-  call void @bdrv_release_dirty_bitmap(ptr noundef nonnull %call13) #13
+  %call21 = call ptr @bdrv_dirty_bitmap_name(ptr noundef nonnull %bitmap) #14
+  call void (ptr, ptr, ...) @error_prepend(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.2, ptr noundef %call21) #14
+  call void @bdrv_release_dirty_bitmap(ptr noundef nonnull %call13) #14
   br label %cleanup
 
 if.else23:                                        ; preds = %if.end16
-  %call24 = call i64 @bdrv_dirty_bitmap_size(ptr noundef nonnull %call13) #13
-  call void @bdrv_set_dirty_bitmap(ptr noundef nonnull %call13, i64 noundef 0, i64 noundef %call24) #13
+  %call24 = call i64 @bdrv_dirty_bitmap_size(ptr noundef nonnull %call13) #14
+  call void @bdrv_set_dirty_bitmap(ptr noundef nonnull %call13, i64 noundef 0, i64 noundef %call24) #14
   br label %if.end25
 
 if.end25:                                         ; preds = %if.then18, %if.else23
-  call void @bdrv_graph_rdlock_main_loop() #13
+  call void @bdrv_graph_rdlock_main_loop() #14
   %3 = load ptr, ptr %target, align 8
   %4 = load ptr, ptr %source, align 8
-  %call28 = call zeroext i1 @bdrv_chain_contains(ptr noundef %3, ptr noundef %4) #13
-  call void @bdrv_graph_rdunlock_main_loop() #13
-  %call29 = call noalias dereferenceable_or_null(248) ptr @g_malloc_n(i64 noundef 1, i64 noundef 248) #15
+  %call28 = call zeroext i1 @bdrv_chain_contains(ptr noundef %3, ptr noundef %4) #14
+  call void @bdrv_graph_rdunlock_main_loop() #14
+  %call29 = call noalias dereferenceable_or_null(248) ptr @g_malloc_n(i64 noundef 1, i64 noundef 248) #16
   %source.val = load ptr, ptr %source, align 8
   %target.val = load ptr, ptr %target, align 8
   %5 = getelementptr i8, ptr %source.val, i64 16504
@@ -252,9 +252,9 @@ if.end25:                                         ; preds = %if.then18, %if.else
   %9 = urem i32 %call33.fr, %conv
   %narrow = sub nuw i32 %call33.fr, %9
   %mul = zext i32 %narrow to i64
-  %call35 = call i64 @bdrv_dirty_bitmap_size(ptr noundef nonnull %call13) #13
+  %call35 = call i64 @bdrv_dirty_bitmap_size(ptr noundef nonnull %call13) #14
   %cond = select i1 %call28, i32 128, i32 0
-  %call39 = call ptr @shres_create(i64 noundef 134217728) #13
+  %call39 = call ptr @shres_create(i64 noundef 134217728) #14
   store ptr %source, ptr %call29, align 8
   %.compoundliteral.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %call29, i64 8
   store ptr %target, ptr %.compoundliteral.sroa.3.0..sroa_idx, align 8
@@ -280,9 +280,9 @@ if.end25:                                         ; preds = %if.then18, %if.else
   %.sink.i = zext i1 %cmp.i35 to i32
   %method5.i = getelementptr inbounds i8, ptr %call29, i64 104
   store i32 %.sink.i, ptr %method5.i, align 8
-  call void @qemu_mutex_init(ptr noundef nonnull %.compoundliteral.sroa.10.0..sroa_idx) #13
+  call void @qemu_mutex_init(ptr noundef nonnull %.compoundliteral.sroa.10.0..sroa_idx) #14
   %lock = getelementptr inbounds i8, ptr %call29, i64 48
-  call void @qemu_co_mutex_init(ptr noundef nonnull %lock) #13
+  call void @qemu_co_mutex_init(ptr noundef nonnull %lock) #14
   %reqs = getelementptr inbounds i8, ptr %call29, i64 112
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %reqs, i8 0, i64 16, i1 false)
   br label %cleanup
@@ -291,7 +291,7 @@ cleanup:                                          ; preds = %block_copy_calculat
   %retval.0 = phi ptr [ %call29, %if.end25 ], [ null, %if.then20 ], [ null, %block_copy_calculate_cluster_size.exit ], [ null, %block_copy_calculate_cluster_size.exit.thread ]
   %_auto_errp_prop.val = load ptr, ptr %_auto_errp_prop, align 8
   %_auto_errp_prop.val34 = load ptr, ptr %errp1, align 8
-  call void @error_propagate(ptr noundef %_auto_errp_prop.val34, ptr noundef %_auto_errp_prop.val) #13
+  call void @error_propagate(ptr noundef %_auto_errp_prop.val34, ptr noundef %_auto_errp_prop.val) #14
   ret ptr %retval.0
 }
 
@@ -345,10 +345,10 @@ entry:
 define dso_local void @block_copy_reset(ptr noundef %s, i64 noundef %offset, i64 noundef %bytes) local_unnamed_addr #0 {
 entry:
   %lock = getelementptr inbounds i8, ptr %s, i64 48
-  tail call void @qemu_co_mutex_lock(ptr noundef nonnull %lock) #13
+  tail call void @qemu_co_mutex_lock(ptr noundef nonnull %lock) #14
   %copy_bitmap = getelementptr inbounds i8, ptr %s, i64 136
   %0 = load ptr, ptr %copy_bitmap, align 8
-  tail call void @bdrv_reset_dirty_bitmap(ptr noundef %0, i64 noundef %offset, i64 noundef %bytes) #13
+  tail call void @bdrv_reset_dirty_bitmap(ptr noundef %0, i64 noundef %offset, i64 noundef %bytes) #14
   %progress = getelementptr inbounds i8, ptr %s, i64 144
   %1 = load ptr, ptr %progress, align 8
   %tobool.not = icmp eq ptr %1, null
@@ -356,15 +356,15 @@ entry:
 
 if.then:                                          ; preds = %entry
   %2 = load ptr, ptr %copy_bitmap, align 8
-  %call6 = tail call i64 @bdrv_get_dirty_count(ptr noundef %2) #13
+  %call6 = tail call i64 @bdrv_get_dirty_count(ptr noundef %2) #14
   %in_flight_bytes = getelementptr inbounds i8, ptr %s, i64 96
   %3 = load i64, ptr %in_flight_bytes, align 8
   %add = add i64 %3, %call6
-  tail call void @progress_set_remaining(ptr noundef nonnull %1, i64 noundef %add) #13
+  tail call void @progress_set_remaining(ptr noundef nonnull %1, i64 noundef %add) #14
   br label %glib_autoptr_cleanup_QemuLockable.exit
 
 glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %if.then, %entry
-  tail call void @qemu_co_mutex_unlock(ptr noundef nonnull %lock) #13
+  tail call void @qemu_co_mutex_unlock(ptr noundef nonnull %lock) #14
   ret void
 }
 
@@ -400,10 +400,10 @@ if.end:                                           ; preds = %entry
 
 if.then1:                                         ; preds = %if.end
   %lock.i = getelementptr inbounds i8, ptr %s, i64 48
-  tail call void @qemu_co_mutex_lock(ptr noundef nonnull %lock.i) #13
+  tail call void @qemu_co_mutex_lock(ptr noundef nonnull %lock.i) #14
   %copy_bitmap.i = getelementptr inbounds i8, ptr %s, i64 136
   %2 = load ptr, ptr %copy_bitmap.i, align 8
-  tail call void @bdrv_reset_dirty_bitmap(ptr noundef %2, i64 noundef %offset, i64 noundef %mul) #13
+  tail call void @bdrv_reset_dirty_bitmap(ptr noundef %2, i64 noundef %offset, i64 noundef %mul) #14
   %progress.i = getelementptr inbounds i8, ptr %s, i64 144
   %3 = load ptr, ptr %progress.i, align 8
   %tobool.not.i = icmp eq ptr %3, null
@@ -411,15 +411,15 @@ if.then1:                                         ; preds = %if.end
 
 if.then.i:                                        ; preds = %if.then1
   %4 = load ptr, ptr %copy_bitmap.i, align 8
-  %call6.i = tail call i64 @bdrv_get_dirty_count(ptr noundef %4) #13
+  %call6.i = tail call i64 @bdrv_get_dirty_count(ptr noundef %4) #14
   %in_flight_bytes.i = getelementptr inbounds i8, ptr %s, i64 96
   %5 = load i64, ptr %in_flight_bytes.i, align 8
   %add.i = add i64 %5, %call6.i
-  tail call void @progress_set_remaining(ptr noundef nonnull %3, i64 noundef %add.i) #13
+  tail call void @progress_set_remaining(ptr noundef nonnull %3, i64 noundef %add.i) #14
   br label %block_copy_reset.exit
 
 block_copy_reset.exit:                            ; preds = %if.then1, %if.then.i
-  tail call void @qemu_co_mutex_unlock(ptr noundef nonnull %lock.i) #13
+  tail call void @qemu_co_mutex_unlock(ptr noundef nonnull %lock.i) #14
   br label %if.end2
 
 if.end2:                                          ; preds = %block_copy_reset.exit, %if.end
@@ -448,12 +448,12 @@ while.body.preheader:                             ; preds = %entry
   %len = getelementptr inbounds i8, ptr %s, i64 32
   %3 = load i64, ptr %len, align 8
   %sub = sub i64 %3, %offset
-  %call23 = call i32 @bdrv_co_is_allocated(ptr noundef %1, i64 noundef %offset, i64 noundef %sub, ptr noundef nonnull %count) #13
+  %call23 = call i32 @bdrv_co_is_allocated(ptr noundef %1, i64 noundef %offset, i64 noundef %sub, ptr noundef nonnull %count) #14
   %cmp224 = icmp slt i32 %call23, 0
   br i1 %cmp224, label %return, label %if.end4
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.1, i32 noundef 640, ptr noundef nonnull @__PRETTY_FUNCTION__.block_copy_is_cluster_allocated) #14
+  tail call void @__assert_fail(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.1, i32 noundef 640, ptr noundef nonnull @__PRETTY_FUNCTION__.block_copy_is_cluster_allocated) #15
   unreachable
 
 if.end4:                                          ; preds = %while.body.preheader, %if.end17
@@ -481,7 +481,7 @@ if.end11:                                         ; preds = %if.end4
 if.end17:                                         ; preds = %if.end11
   %add18 = add i64 %4, %offset.addr.025
   %sub19 = sub i64 %bytes.027, %4
-  %call = call i32 @bdrv_co_is_allocated(ptr noundef %1, i64 noundef %add18, i64 noundef %sub19, ptr noundef nonnull %count) #13
+  %call = call i32 @bdrv_co_is_allocated(ptr noundef %1, i64 noundef %add18, i64 noundef %sub19, ptr noundef nonnull %count) #14
   %cmp2 = icmp slt i32 %call, 0
   br i1 %cmp2, label %return, label %if.end4
 
@@ -501,7 +501,7 @@ return:                                           ; preds = %if.end17, %return.s
 define dso_local void @block_copy_kick(ptr noundef %call_state) local_unnamed_addr #0 {
 entry:
   %sleep = getelementptr inbounds i8, ptr %call_state, i64 80
-  tail call void @qemu_co_sleep_wake(ptr noundef nonnull %sleep) #13
+  tail call void @qemu_co_sleep_wake(ptr noundef nonnull %sleep) #14
   ret void
 }
 
@@ -512,7 +512,7 @@ define dso_local i32 @block_copy(ptr noundef %s, i64 noundef %start, i64 noundef
 entry:
   %.compoundliteral.sroa.13 = alloca [23 x i8], align 1
   %frombool = zext i1 %ignore_ratelimit to i8
-  %call = tail call noalias dereferenceable_or_null(120) ptr @g_malloc_n(i64 noundef 1, i64 noundef 120) #15
+  %call = tail call noalias dereferenceable_or_null(120) ptr @g_malloc_n(i64 noundef 1, i64 noundef 120) #16
   %.compoundliteral.sroa.13.7.list.sroa_idx12 = getelementptr inbounds i8, ptr %.compoundliteral.sroa.13, i64 7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.compoundliteral.sroa.13.7.list.sroa_idx12, i8 0, i64 16, i1 false)
   store ptr %s, ptr %call, align 8
@@ -544,7 +544,7 @@ entry:
   store i8 0, ptr %.compoundliteral.sroa.14.0..sroa_idx, align 8
   %.compoundliteral.sroa.153.0..sroa_idx = getelementptr inbounds i8, ptr %call, i64 116
   store i32 0, ptr %.compoundliteral.sroa.153.0..sroa_idx, align 4
-  %call8 = tail call i32 @qemu_co_timeout(ptr noundef nonnull @block_copy_async_co_entry, ptr noundef nonnull %call, i64 noundef %timeout_ns, ptr noundef nonnull @g_free) #13
+  %call8 = tail call i32 @qemu_co_timeout(ptr noundef nonnull @block_copy_async_co_entry, ptr noundef nonnull %call, i64 noundef %timeout_ns, ptr noundef nonnull @g_free) #14
   %cmp = icmp slt i32 %call8, 0
   br i1 %cmp, label %if.then, label %if.end11
 
@@ -553,17 +553,17 @@ if.then:                                          ; preds = %entry
   br i1 %cmp9, label %if.end, label %if.else
 
 if.else:                                          ; preds = %if.then
-  tail call void @__assert_fail(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 932, ptr noundef nonnull @__PRETTY_FUNCTION__.block_copy) #14
+  tail call void @__assert_fail(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 932, ptr noundef nonnull @__PRETTY_FUNCTION__.block_copy) #15
   unreachable
 
 if.end:                                           ; preds = %if.then
   store atomic i8 1, ptr %.compoundliteral.sroa.12.0..sroa_idx monotonic, align 8
-  tail call void @qemu_co_sleep_wake(ptr noundef nonnull %.compoundliteral.sroa.11.sroa.1.0..compoundliteral.sroa.11.0..sroa_idx.sroa_idx) #13
+  tail call void @qemu_co_sleep_wake(ptr noundef nonnull %.compoundliteral.sroa.11.sroa.1.0..compoundliteral.sroa.11.0..sroa_idx.sroa_idx) #14
   br label %return
 
 if.end11:                                         ; preds = %entry
   %0 = load i32, ptr %.compoundliteral.sroa.153.0..sroa_idx, align 4
-  tail call void @g_free(ptr noundef nonnull %call) #13
+  tail call void @g_free(ptr noundef nonnull %call) #14
   br label %return
 
 return:                                           ; preds = %if.end11, %if.end
@@ -576,9 +576,9 @@ declare i32 @qemu_co_timeout(ptr noundef, ptr noundef, i64 noundef, ptr noundef)
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @block_copy_async_co_entry(ptr noundef %opaque) #0 {
 glib_autoptr_cleanup_GraphLockable.exit:
-  tail call void @bdrv_graph_co_rdlock() #13
+  tail call void @bdrv_graph_co_rdlock() #14
   %call1 = tail call i32 @block_copy_common(ptr noundef %opaque)
-  tail call void @bdrv_graph_co_rdunlock() #13
+  tail call void @bdrv_graph_co_rdunlock() #14
   ret void
 }
 
@@ -588,7 +588,7 @@ entry:
   %cancelled = getelementptr inbounds i8, ptr %call_state, i64 88
   store atomic i8 1, ptr %cancelled monotonic, align 8
   %sleep.i = getelementptr inbounds i8, ptr %call_state, i64 80
-  tail call void @qemu_co_sleep_wake(ptr noundef nonnull %sleep.i) #13
+  tail call void @qemu_co_sleep_wake(ptr noundef nonnull %sleep.i) #14
   ret void
 }
 
@@ -596,8 +596,8 @@ entry:
 define dso_local noundef ptr @block_copy_async(ptr noundef %s, i64 noundef %offset, i64 noundef %bytes, i32 noundef %max_workers, i64 noundef %max_chunk, ptr noundef %cb, ptr noundef %cb_opaque) local_unnamed_addr #0 {
 entry:
   %.compoundliteral.sroa.13 = alloca [23 x i8], align 1
-  %call = tail call noalias dereferenceable_or_null(120) ptr @g_malloc_n(i64 noundef 1, i64 noundef 120) #15
-  %call8 = tail call ptr @qemu_coroutine_create(ptr noundef nonnull @block_copy_async_co_entry, ptr noundef %call) #13
+  %call = tail call noalias dereferenceable_or_null(120) ptr @g_malloc_n(i64 noundef 1, i64 noundef 120) #16
+  %call8 = tail call ptr @qemu_coroutine_create(ptr noundef nonnull @block_copy_async_co_entry, ptr noundef %call) #14
   %.compoundliteral.sroa.13.7.list.sroa_idx8 = getelementptr inbounds i8, ptr %.compoundliteral.sroa.13, i64 7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.compoundliteral.sroa.13.7.list.sroa_idx8, i8 0, i64 16, i1 false)
   store ptr %s, ptr %call, align 8
@@ -629,7 +629,7 @@ entry:
   store i8 0, ptr %.compoundliteral.sroa.14.0..sroa_idx, align 8
   %.compoundliteral.sroa.153.0..sroa_idx = getelementptr inbounds i8, ptr %call, i64 116
   store i32 0, ptr %.compoundliteral.sroa.153.0..sroa_idx, align 4
-  tail call void @qemu_coroutine_enter(ptr noundef %call8) #13
+  tail call void @qemu_coroutine_enter(ptr noundef %call8) #14
   ret ptr %call
 }
 
@@ -650,11 +650,11 @@ while.end:                                        ; preds = %entry
   br i1 %tobool1, label %if.end4, label %if.else
 
 if.else:                                          ; preds = %while.end
-  tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 975, ptr noundef nonnull @__PRETTY_FUNCTION__.block_copy_call_free) #14
+  tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 975, ptr noundef nonnull @__PRETTY_FUNCTION__.block_copy_call_free) #15
   unreachable
 
 if.end4:                                          ; preds = %while.end
-  tail call void @g_free(ptr noundef nonnull %call_state) #13
+  tail call void @g_free(ptr noundef nonnull %call_state) #14
   br label %return
 
 return:                                           ; preds = %entry, %if.end4
@@ -738,7 +738,7 @@ entry:
   br i1 %tobool, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 1005, ptr noundef nonnull @__PRETTY_FUNCTION__.block_copy_call_status) #14
+  tail call void @__assert_fail(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 1005, ptr noundef nonnull @__PRETTY_FUNCTION__.block_copy_call_status) #15
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -789,7 +789,7 @@ entry:
   %rate_limit = getelementptr inbounds i8, ptr %s, i64 160
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
-  tail call void %1(ptr noundef nonnull %rate_limit, ptr noundef nonnull @.str.32, i32 noundef 122) #13
+  tail call void %1(ptr noundef nonnull %rate_limit, ptr noundef nonnull @.str.32, i32 noundef 122) #14
   %slice_ns4.i = getelementptr inbounds i8, ptr %s, i64 232
   store i64 100000000, ptr %slice_ns4.i, align 8
   %cmp.i = icmp eq i64 %speed, 0
@@ -808,7 +808,7 @@ ratelimit_set_speed.exit:                         ; preds = %entry, %if.else.i
   %conv8.sink.i = phi i64 [ %conv8.i, %if.else.i ], [ 0, %entry ]
   %2 = getelementptr inbounds i8, ptr %s, i64 224
   store i64 %conv8.sink.i, ptr %2, align 8
-  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %rate_limit, ptr noundef nonnull @.str.32, i32 noundef 132) #13
+  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %rate_limit, ptr noundef nonnull @.str.32, i32 noundef 132) #14
   ret void
 }
 
@@ -833,7 +833,7 @@ declare i32 @bdrv_co_is_allocated(ptr noundef, i64 noundef, i64 noundef, ptr nou
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef ptr @graph_lockable_auto_lock(ptr noundef readnone returned %x) #0 {
 entry:
-  tail call void @bdrv_graph_co_rdlock() #13
+  tail call void @bdrv_graph_co_rdlock() #14
   ret ptr %x
 }
 
@@ -842,7 +842,7 @@ define internal i32 @block_copy_common(ptr noundef %call_state) #0 {
 entry:
   %0 = load ptr, ptr %call_state, align 8
   %lock = getelementptr inbounds i8, ptr %0, i64 48
-  tail call void @qemu_co_mutex_lock(ptr noundef nonnull %lock) #13
+  tail call void @qemu_co_mutex_lock(ptr noundef nonnull %lock) #14
   %calls = getelementptr inbounds i8, ptr %0, i64 120
   %1 = load ptr, ptr %calls, align 8
   %list = getelementptr inbounds i8, ptr %call_state, i64 96
@@ -859,7 +859,7 @@ if.end:                                           ; preds = %if.then, %entry
   store ptr %call_state, ptr %calls, align 8
   %le_prev12 = getelementptr inbounds i8, ptr %call_state, i64 104
   store ptr %calls, ptr %le_prev12, align 8
-  tail call void @qemu_co_mutex_unlock(ptr noundef nonnull %lock) #13
+  tail call void @qemu_co_mutex_unlock(ptr noundef nonnull %lock) #14
   %cancelled = getelementptr inbounds i8, ptr %call_state, i64 88
   %reqs = getelementptr inbounds i8, ptr %0, i64 112
   %offset = getelementptr inbounds i8, ptr %call_state, i64 8
@@ -878,24 +878,24 @@ while.end:                                        ; preds = %do.body14
   br i1 %tobool, label %while.end57, label %if.then19
 
 if.then19:                                        ; preds = %while.end
-  tail call void @qemu_co_mutex_lock(ptr noundef nonnull %lock) #13
+  tail call void @qemu_co_mutex_lock(ptr noundef nonnull %lock) #14
   %3 = load i64, ptr %offset, align 8
   %4 = load i64, ptr %bytes, align 8
-  %call25.us = tail call zeroext i1 @reqlist_wait_one(ptr noundef nonnull %reqs, i64 noundef %3, i64 noundef %4, ptr noundef nonnull %lock) #13
+  %call25.us = tail call zeroext i1 @reqlist_wait_one(ptr noundef nonnull %reqs, i64 noundef %3, i64 noundef %4, ptr noundef nonnull %lock) #14
   br i1 %call25.us, label %qemu_lockable_auto_unlock.exit.us, label %if.then28.us
 
 if.then28.us:                                     ; preds = %if.then19
   %5 = load ptr, ptr %copy_bitmap, align 8
   %6 = load i64, ptr %offset, align 8
   %7 = load i64, ptr %bytes, align 8
-  %call31.us = tail call i64 @bdrv_dirty_bitmap_next_dirty(ptr noundef %5, i64 noundef %6, i64 noundef %7) #13
+  %call31.us = tail call i64 @bdrv_dirty_bitmap_next_dirty(ptr noundef %5, i64 noundef %6, i64 noundef %7) #14
   %cmp32.us = icmp sgt i64 %call31.us, -1
   %conv33.us = zext i1 %cmp32.us to i32
   br label %qemu_lockable_auto_unlock.exit.us
 
 qemu_lockable_auto_unlock.exit.us:                ; preds = %if.then28.us, %if.then19
   %ret.1.us = phi i32 [ %conv33.us, %if.then28.us ], [ 1, %if.then19 ]
-  tail call void @qemu_co_mutex_unlock(ptr noundef nonnull %lock) #13
+  tail call void @qemu_co_mutex_unlock(ptr noundef nonnull %lock) #14
   br label %do.cond
 
 do.cond:                                          ; preds = %qemu_lockable_auto_unlock.exit.us, %do.body14
@@ -920,11 +920,11 @@ while.end57:                                      ; preds = %while.end, %do.cond
 if.then61:                                        ; preds = %while.end57
   %cb_opaque = getelementptr inbounds i8, ptr %call_state, i64 56
   %10 = load ptr, ptr %cb_opaque, align 8
-  tail call void %9(ptr noundef %10) #13
+  tail call void %9(ptr noundef %10) #14
   br label %if.end63
 
 if.end63:                                         ; preds = %if.then61, %while.end57
-  tail call void @qemu_co_mutex_lock(ptr noundef nonnull %lock) #13
+  tail call void @qemu_co_mutex_lock(ptr noundef nonnull %lock) #14
   %11 = load ptr, ptr %list, align 8
   %cmp68.not = icmp eq ptr %11, null
   %.pre51 = load ptr, ptr %le_prev12, align 8
@@ -940,7 +940,7 @@ if.end77:                                         ; preds = %if.then70, %if.end6
   %12 = phi ptr [ %.pre, %if.then70 ], [ null, %if.end63 ]
   store ptr %12, ptr %.pre51, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %list, i8 0, i64 16, i1 false)
-  tail call void @qemu_co_mutex_unlock(ptr noundef nonnull %lock) #13
+  tail call void @qemu_co_mutex_unlock(ptr noundef nonnull %lock) #14
   ret i32 %ret.242
 }
 
@@ -949,7 +949,7 @@ declare void @bdrv_graph_co_rdlock() #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @graph_lockable_auto_unlock(ptr nocapture readnone %x) #0 {
 entry:
-  tail call void @bdrv_graph_co_rdunlock() #13
+  tail call void @bdrv_graph_co_rdunlock() #14
   ret void
 }
 
@@ -971,16 +971,16 @@ entry:
   %add = add i64 %2, %1
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %3, align 8
-  %call = tail call ptr @bdrv_get_aio_context(ptr noundef %4) #13
+  %call = tail call ptr @bdrv_get_aio_context(ptr noundef %4) #14
   %target = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %target, align 8
   %6 = load ptr, ptr %5, align 8
-  %call5 = tail call ptr @bdrv_get_aio_context(ptr noundef %6) #13
+  %call5 = tail call ptr @bdrv_get_aio_context(ptr noundef %6) #14
   %cmp = icmp eq ptr %call, %call5
   br i1 %cmp, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, i32 noundef 735, ptr noundef nonnull @__PRETTY_FUNCTION__.block_copy_dirty_clusters) #14
+  tail call void @__assert_fail(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, i32 noundef 735, ptr noundef nonnull @__PRETTY_FUNCTION__.block_copy_dirty_clusters) #15
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -991,7 +991,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp6, label %if.end9, label %if.else8
 
 if.else8:                                         ; preds = %if.end
-  tail call void @__assert_fail(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.1, i32 noundef 737, ptr noundef nonnull @__PRETTY_FUNCTION__.block_copy_dirty_clusters) #14
+  tail call void @__assert_fail(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.1, i32 noundef 737, ptr noundef nonnull @__PRETTY_FUNCTION__.block_copy_dirty_clusters) #15
   unreachable
 
 if.end9:                                          ; preds = %if.end
@@ -1023,7 +1023,7 @@ land.lhs.true.preheader.lr.ph:                    ; preds = %while.cond.preheade
   br label %land.lhs.true.outer
 
 if.else14:                                        ; preds = %if.end9
-  tail call void @__assert_fail(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.1, i32 noundef 738, ptr noundef nonnull @__PRETTY_FUNCTION__.block_copy_dirty_clusters) #14
+  tail call void @__assert_fail(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.1, i32 noundef 738, ptr noundef nonnull @__PRETTY_FUNCTION__.block_copy_dirty_clusters) #15
   unreachable
 
 land.lhs.true:                                    ; preds = %land.lhs.true.outer, %while.cond.backedge
@@ -1031,7 +1031,7 @@ land.lhs.true:                                    ; preds = %land.lhs.true.outer
   %ret.1 = phi i32 [ %ret.0.i, %while.cond.backedge ], [ %ret.1.ph, %land.lhs.true.outer ]
   %bytes.1 = phi i64 [ %bytes.0.be, %while.cond.backedge ], [ %bytes.1.ph, %land.lhs.true.outer ]
   %offset.1 = phi i64 [ %offset.0.be, %while.cond.backedge ], [ %offset.1.ph, %land.lhs.true.outer ]
-  %call16 = call i32 @aio_task_pool_status(ptr noundef %aio.1.ph) #13
+  %call16 = call i32 @aio_task_pool_status(ptr noundef %aio.1.ph) #14
   %cmp17 = icmp eq i32 %call16, 0
   br i1 %cmp17, label %while.end, label %out
 
@@ -1066,16 +1066,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #13
-  %call10.i.i = call i32 @qemu_get_thread_id() #13
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #14
+  %call10.i.i = call i32 @qemu_get_thread_id() #14
   %13 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %14 = load i64, ptr %tv_usec.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.27, i32 noundef %call10.i.i, i64 noundef %13, i64 noundef %14, ptr noundef nonnull %0, i64 noundef %offset.1, i64 noundef %bytes.1) #13
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.27, i32 noundef %call10.i.i, i64 noundef %13, i64 noundef %14, ptr noundef nonnull %0, i64 noundef %offset.1, i64 noundef %bytes.1) #14
   br label %trace_block_copy_skip_range.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.28, ptr noundef nonnull %0, i64 noundef %offset.1, i64 noundef %bytes.1) #13
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.28, ptr noundef nonnull %0, i64 noundef %offset.1, i64 noundef %bytes.1) #14
   br label %trace_block_copy_skip_range.exit
 
 trace_block_copy_skip_range.exit:                 ; preds = %if.then24, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -1110,15 +1110,15 @@ if.then.i.i82:                                    ; preds = %land.lhs.true5.i.i7
   br i1 %tobool7.i.i83, label %if.then8.i.i85, label %if.else.i.i84
 
 if.then8.i.i85:                                   ; preds = %if.then.i.i82
-  %call9.i.i86 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i75, ptr noundef null) #13
-  %call10.i.i87 = call i32 @qemu_get_thread_id() #13
+  %call9.i.i86 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i75, ptr noundef null) #14
+  %call10.i.i87 = call i32 @qemu_get_thread_id() #14
   %20 = load i64, ptr %_now.i.i75, align 8
   %21 = load i64, ptr %tv_usec.i.i88, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.27, i32 noundef %call10.i.i87, i64 noundef %20, i64 noundef %21, ptr noundef nonnull %0, i64 noundef %offset.1, i64 noundef %sub) #13
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.27, i32 noundef %call10.i.i87, i64 noundef %20, i64 noundef %21, ptr noundef nonnull %0, i64 noundef %offset.1, i64 noundef %sub) #14
   br label %trace_block_copy_skip_range.exit89
 
 if.else.i.i84:                                    ; preds = %if.then.i.i82
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.28, ptr noundef nonnull %0, i64 noundef %offset.1, i64 noundef %sub) #13
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.28, ptr noundef nonnull %0, i64 noundef %offset.1, i64 noundef %sub) #14
   br label %trace_block_copy_skip_range.exit89
 
 trace_block_copy_skip_range.exit89:               ; preds = %if.then28, %land.lhs.true5.i.i79, %if.then8.i.i85, %if.else.i.i84
@@ -1138,14 +1138,14 @@ if.end31:                                         ; preds = %trace_block_copy_sk
 if.then.i:                                        ; preds = %if.end31
   %25 = load ptr, ptr %0, align 8
   %26 = load ptr, ptr %25, align 8
-  %call.i = call ptr @bdrv_backing_chain_next(ptr noundef %26) #13
+  %call.i = call ptr @bdrv_backing_chain_next(ptr noundef %26) #14
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %if.end31
   %base.0.i = phi ptr [ %call.i, %if.then.i ], [ null, %if.end31 ]
   %27 = load ptr, ptr %0, align 8
   %28 = load ptr, ptr %27, align 8
-  %call4.i = call i32 @bdrv_co_block_status_above(ptr noundef %28, ptr noundef %base.0.i, i64 noundef %22, i64 noundef %23, ptr noundef nonnull %num.i, ptr noundef null, ptr noundef null) #13
+  %call4.i = call i32 @bdrv_co_block_status_above(ptr noundef %28, ptr noundef %base.0.i, i64 noundef %22, i64 noundef %23, ptr noundef nonnull %num.i, ptr noundef null, ptr noundef null) #14
   %cmp.i = icmp slt i32 %call4.i, 0
   br i1 %cmp.i, label %if.end.if.then6_crit_edge.i, label %lor.lhs.false.i
 
@@ -1203,7 +1203,7 @@ if.then58:                                        ; preds = %while.end50
   %s.i = getelementptr inbounds i8, ptr %call22, i64 24
   %37 = load ptr, ptr %s.i, align 8
   %lock.i = getelementptr inbounds i8, ptr %37, i64 48
-  call void @qemu_co_mutex_lock(ptr noundef nonnull %lock.i) #13
+  call void @qemu_co_mutex_lock(ptr noundef nonnull %lock.i) #14
   %38 = load i64, ptr %bytes35, align 8
   %39 = load ptr, ptr %s.i, align 8
   %in_flight_bytes.i = getelementptr inbounds i8, ptr %39, i64 96
@@ -1219,17 +1219,17 @@ if.then58:                                        ; preds = %while.end50
 if.then11.i:                                      ; preds = %if.then58
   %copy_bitmap15.i = getelementptr inbounds i8, ptr %41, i64 136
   %43 = load ptr, ptr %copy_bitmap15.i, align 8
-  %call16.i = call i64 @bdrv_get_dirty_count(ptr noundef %43) #13
+  %call16.i = call i64 @bdrv_get_dirty_count(ptr noundef %43) #14
   %44 = load ptr, ptr %s.i, align 8
   %in_flight_bytes18.i = getelementptr inbounds i8, ptr %44, i64 96
   %45 = load i64, ptr %in_flight_bytes18.i, align 8
   %add.i92 = add i64 %45, %call16.i
-  call void @progress_set_remaining(ptr noundef nonnull %42, i64 noundef %add.i92) #13
+  call void @progress_set_remaining(ptr noundef nonnull %42, i64 noundef %add.i92) #14
   br label %block_copy_task_end.exit
 
 block_copy_task_end.exit:                         ; preds = %if.then58, %if.then11.i
-  call void @reqlist_remove_req(ptr noundef nonnull %req) #13
-  call void @qemu_co_mutex_unlock(ptr noundef nonnull %lock.i) #13
+  call void @reqlist_remove_req(ptr noundef nonnull %req) #14
+  call void @qemu_co_mutex_unlock(ptr noundef nonnull %lock.i) #14
   %46 = load i64, ptr %req, align 8
   %47 = load i64, ptr %bytes35, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i93)
@@ -1252,15 +1252,15 @@ if.then.i.i100:                                   ; preds = %land.lhs.true5.i.i9
   br i1 %tobool7.i.i101, label %if.then8.i.i103, label %if.else.i.i102
 
 if.then8.i.i103:                                  ; preds = %if.then.i.i100
-  %call9.i.i104 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i93, ptr noundef null) #13
-  %call10.i.i105 = call i32 @qemu_get_thread_id() #13
+  %call9.i.i104 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i93, ptr noundef null) #14
+  %call10.i.i105 = call i32 @qemu_get_thread_id() #14
   %52 = load i64, ptr %_now.i.i93, align 8
   %53 = load i64, ptr %tv_usec.i.i106, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.27, i32 noundef %call10.i.i105, i64 noundef %52, i64 noundef %53, ptr noundef nonnull %0, i64 noundef %46, i64 noundef %47) #13
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.27, i32 noundef %call10.i.i105, i64 noundef %52, i64 noundef %53, ptr noundef nonnull %0, i64 noundef %46, i64 noundef %47) #14
   br label %trace_block_copy_skip_range.exit107
 
 if.else.i.i102:                                   ; preds = %if.then.i.i100
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.28, ptr noundef nonnull %0, i64 noundef %46, i64 noundef %47) #13
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.28, ptr noundef nonnull %0, i64 noundef %46, i64 noundef %47) #14
   br label %trace_block_copy_skip_range.exit107
 
 trace_block_copy_skip_range.exit107:              ; preds = %block_copy_task_end.exit, %land.lhs.true5.i.i97, %if.then8.i.i103, %if.else.i.i102
@@ -1269,7 +1269,7 @@ trace_block_copy_skip_range.exit107:              ; preds = %block_copy_task_end
   %call22.val72 = load i64, ptr %bytes35, align 8
   %add.i108 = add i64 %call22.val72, %call22.val
   %sub64 = sub i64 %add, %add.i108
-  call void @g_free(ptr noundef nonnull %call22) #13
+  call void @g_free(ptr noundef nonnull %call22) #14
   br label %while.cond.backedge
 
 while.cond.backedge:                              ; preds = %trace_block_copy_skip_range.exit107, %if.then74
@@ -1294,10 +1294,10 @@ if.end69:                                         ; preds = %if.then68, %if.end6
   br i1 %tobool70, label %if.end76, label %if.then71
 
 if.then71:                                        ; preds = %if.end69
-  %call.i109 = call i64 @qemu_clock_get_ns(i32 noundef 0) #13
+  %call.i109 = call i64 @qemu_clock_get_ns(i32 noundef 0) #14
   %55 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %56 = inttoptr i64 %55 to ptr
-  call void %56(ptr noundef nonnull %rate_limit, ptr noundef nonnull @.str.32, i32 noundef 122) #13
+  call void %56(ptr noundef nonnull %rate_limit, ptr noundef nonnull @.str.32, i32 noundef 122) #14
   %57 = load i64, ptr %slice_quota.i, align 8
   %tobool.not.i110 = icmp eq i64 %57, 0
   br i1 %tobool.not.i110, label %ratelimit_calculate_delay.exit.thread, label %if.end.i111
@@ -1308,7 +1308,7 @@ if.end.i111:                                      ; preds = %if.then71
   br i1 %tobool5.not.i, label %if.else.i, label %if.end7.i
 
 if.else.i:                                        ; preds = %if.end.i111
-  call void @__assert_fail(ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31, i32 noundef 50, ptr noundef nonnull @__PRETTY_FUNCTION__.ratelimit_calculate_delay) #14
+  call void @__assert_fail(ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31, i32 noundef 50, ptr noundef nonnull @__PRETTY_FUNCTION__.ratelimit_calculate_delay) #15
   unreachable
 
 if.end7.i:                                        ; preds = %if.end.i111
@@ -1333,7 +1333,7 @@ if.end11.i:                                       ; preds = %if.then8.i, %if.end
   br i1 %cmp16.i, label %ratelimit_calculate_delay.exit.thread, label %ratelimit_calculate_delay.exit
 
 ratelimit_calculate_delay.exit.thread:            ; preds = %if.then71, %if.end11.i
-  call void @qemu_mutex_unlock_impl(ptr noundef nonnull %rate_limit, ptr noundef nonnull @.str.32, i32 noundef 132) #13
+  call void @qemu_mutex_unlock_impl(ptr noundef nonnull %rate_limit, ptr noundef nonnull @.str.32, i32 noundef 132) #14
   br label %if.end76
 
 ratelimit_calculate_delay.exit:                   ; preds = %if.end11.i
@@ -1346,23 +1346,23 @@ ratelimit_calculate_delay.exit:                   ; preds = %if.end11.i
   %conv25.i = fptoui double %mul.i114 to i64
   %add26.i = add i64 %61, %conv25.i
   store i64 %add26.i, ptr %slice_end_time.i, align 8
-  call void @qemu_mutex_unlock_impl(ptr noundef nonnull %rate_limit, ptr noundef nonnull @.str.32, i32 noundef 132) #13
+  call void @qemu_mutex_unlock_impl(ptr noundef nonnull %rate_limit, ptr noundef nonnull @.str.32, i32 noundef 132) #14
   %cmp73.not = icmp eq i64 %add26.i, %call.i109
   br i1 %cmp73.not, label %if.end76, label %if.then74
 
 if.then74:                                        ; preds = %ratelimit_calculate_delay.exit
   %sub.i115 = sub i64 %add26.i, %call.i109
   call void @block_copy_task_end(ptr noundef nonnull %call22, i32 noundef -11)
-  call void @g_free(ptr noundef nonnull %call22) #13
-  call void @qemu_co_sleep_ns_wakeable(ptr noundef nonnull %sleep, i32 noundef 0, i64 noundef %sub.i115) #13
+  call void @g_free(ptr noundef nonnull %call22) #14
+  call void @qemu_co_sleep_ns_wakeable(ptr noundef nonnull %sleep, i32 noundef 0, i64 noundef %sub.i115) #14
   br label %while.cond.backedge
 
 if.end76:                                         ; preds = %ratelimit_calculate_delay.exit, %if.end69, %ratelimit_calculate_delay.exit.thread
   %62 = load i64, ptr %bytes35, align 8
-  %call.i117 = call i64 @qemu_clock_get_ns(i32 noundef 0) #13
+  %call.i117 = call i64 @qemu_clock_get_ns(i32 noundef 0) #14
   %63 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %64 = inttoptr i64 %63 to ptr
-  call void %64(ptr noundef nonnull %rate_limit, ptr noundef nonnull @.str.32, i32 noundef 122) #13
+  call void %64(ptr noundef nonnull %rate_limit, ptr noundef nonnull @.str.32, i32 noundef 122) #14
   %65 = load i64, ptr %slice_quota.i, align 8
   %tobool.not.i119 = icmp eq i64 %65, 0
   br i1 %tobool.not.i119, label %ratelimit_calculate_delay.exit147, label %if.end.i120
@@ -1373,7 +1373,7 @@ if.end.i120:                                      ; preds = %if.end76
   br i1 %tobool5.not.i122, label %if.else.i146, label %if.end7.i123
 
 if.else.i146:                                     ; preds = %if.end.i120
-  call void @__assert_fail(ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31, i32 noundef 50, ptr noundef nonnull @__PRETTY_FUNCTION__.ratelimit_calculate_delay) #14
+  call void @__assert_fail(ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31, i32 noundef 50, ptr noundef nonnull @__PRETTY_FUNCTION__.ratelimit_calculate_delay) #15
   unreachable
 
 if.end7.i123:                                     ; preds = %if.end.i120
@@ -1411,7 +1411,7 @@ if.end18.i132:                                    ; preds = %if.end11.i129
   br label %ratelimit_calculate_delay.exit147
 
 ratelimit_calculate_delay.exit147:                ; preds = %if.end76, %if.end11.i129, %if.end18.i132
-  call void @qemu_mutex_unlock_impl(ptr noundef nonnull %rate_limit, ptr noundef nonnull @.str.32, i32 noundef 132) #13
+  call void @qemu_mutex_unlock_impl(ptr noundef nonnull %rate_limit, ptr noundef nonnull @.str.32, i32 noundef 132) #14
   %70 = load i64, ptr %req, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i148)
   %71 = load i32, ptr @trace_events_enabled_count, align 4
@@ -1433,22 +1433,22 @@ if.then.i.i155:                                   ; preds = %land.lhs.true5.i.i1
   br i1 %tobool7.i.i156, label %if.then8.i.i158, label %if.else.i.i157
 
 if.then8.i.i158:                                  ; preds = %if.then.i.i155
-  %call9.i.i159 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i148, ptr noundef null) #13
-  %call10.i.i160 = call i32 @qemu_get_thread_id() #13
+  %call9.i.i159 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i148, ptr noundef null) #14
+  %call10.i.i160 = call i32 @qemu_get_thread_id() #14
   %75 = load i64, ptr %_now.i.i148, align 8
   %76 = load i64, ptr %tv_usec.i.i161, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.33, i32 noundef %call10.i.i160, i64 noundef %75, i64 noundef %76, ptr noundef nonnull %0, i64 noundef %70) #13
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.33, i32 noundef %call10.i.i160, i64 noundef %75, i64 noundef %76, ptr noundef nonnull %0, i64 noundef %70) #14
   br label %trace_block_copy_process.exit
 
 if.else.i.i157:                                   ; preds = %if.then.i.i155
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.34, ptr noundef nonnull %0, i64 noundef %70) #13
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.34, ptr noundef nonnull %0, i64 noundef %70) #14
   br label %trace_block_copy_process.exit
 
 trace_block_copy_process.exit:                    ; preds = %ratelimit_calculate_delay.exit147, %land.lhs.true5.i.i152, %if.then8.i.i158, %if.else.i.i157
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i148)
   %77 = load ptr, ptr %mem, align 8
   %78 = load i64, ptr %bytes35, align 8
-  call void @co_get_from_shres(ptr noundef %77, i64 noundef %78) #13
+  call void @co_get_from_shres(ptr noundef %77, i64 noundef %78) #14
   %call22.val73 = load i64, ptr %req, align 8
   %call22.val74 = load i64, ptr %bytes35, align 8
   %add.i162 = add i64 %call22.val74, %call22.val73
@@ -1460,7 +1460,7 @@ trace_block_copy_process.exit:                    ; preds = %ratelimit_calculate
 
 if.then90:                                        ; preds = %trace_block_copy_process.exit
   %79 = load i32, ptr %max_workers, align 8
-  %call91 = call ptr @aio_task_pool_new(i32 noundef %79) #13
+  %call91 = call ptr @aio_task_pool_new(i32 noundef %79) #14
   br label %if.end92
 
 if.end92:                                         ; preds = %if.then90, %trace_block_copy_process.exit
@@ -1486,22 +1486,22 @@ out:                                              ; preds = %while.cond.backedge
   br i1 %tobool98.not, label %if.end107, label %if.then99
 
 if.then99:                                        ; preds = %out
-  call void @aio_task_pool_wait_all(ptr noundef nonnull %aio.3) #13
+  call void @aio_task_pool_wait_all(ptr noundef nonnull %aio.3) #14
   %cmp100 = icmp sgt i32 %ret.2, -1
   br i1 %cmp100, label %if.end105, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.then99
-  %call101 = call i32 @aio_task_pool_status(ptr noundef nonnull %aio.3) #13
+  %call101 = call i32 @aio_task_pool_status(ptr noundef nonnull %aio.3) #14
   %cmp102 = icmp slt i32 %call101, 0
   br i1 %cmp102, label %if.end105, label %if.else104
 
 if.else104:                                       ; preds = %lor.lhs.false
-  call void @__assert_fail(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.1, i32 noundef 818, ptr noundef nonnull @__PRETTY_FUNCTION__.block_copy_dirty_clusters) #14
+  call void @__assert_fail(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.1, i32 noundef 818, ptr noundef nonnull @__PRETTY_FUNCTION__.block_copy_dirty_clusters) #15
   unreachable
 
 if.end105:                                        ; preds = %if.then99, %lor.lhs.false
-  %call106 = call i32 @aio_task_pool_status(ptr noundef nonnull %aio.3) #13
-  call void @aio_task_pool_free(ptr noundef nonnull %aio.3) #13
+  %call106 = call i32 @aio_task_pool_status(ptr noundef nonnull %aio.3) #14
+  call void @aio_task_pool_free(ptr noundef nonnull %aio.3) #14
   br label %if.end107
 
 if.end107:                                        ; preds = %if.end105, %out
@@ -1534,7 +1534,7 @@ entry:
   store i64 %offset, ptr %offset.addr, align 8
   store i64 %bytes, ptr %bytes.addr, align 8
   %lock = getelementptr inbounds i8, ptr %s, i64 48
-  tail call void @qemu_co_mutex_lock(ptr noundef nonnull %lock) #13
+  tail call void @qemu_co_mutex_lock(ptr noundef nonnull %lock) #14
   %method.i = getelementptr inbounds i8, ptr %s, i64 104
   %0 = load i32, ptr %method.i, align 8
   switch i32 %0, label %sw.default.i [
@@ -1568,7 +1568,7 @@ sw.bb9.i:                                         ; preds = %entry
   br label %block_copy_chunk_size.exit
 
 sw.default.i:                                     ; preds = %entry
-  tail call void @abort() #14
+  tail call void @abort() #15
   unreachable
 
 block_copy_chunk_size.exit:                       ; preds = %sw.bb.i, %sw.bb1.i, %sw.bb9.i
@@ -1583,7 +1583,7 @@ block_copy_chunk_size.exit:                       ; preds = %sw.bb.i, %sw.bb1.i,
   %copy_bitmap = getelementptr inbounds i8, ptr %s, i64 136
   %8 = load ptr, ptr %copy_bitmap, align 8
   %add = add i64 %bytes, %offset
-  %call12 = call zeroext i1 @bdrv_dirty_bitmap_next_dirty_area(ptr noundef %8, i64 noundef %offset, i64 noundef %add, i64 noundef %cond11, ptr noundef nonnull %offset.addr, ptr noundef nonnull %bytes.addr) #13
+  %call12 = call zeroext i1 @bdrv_dirty_bitmap_next_dirty_area(ptr noundef %8, i64 noundef %offset, i64 noundef %add, i64 noundef %cond11, ptr noundef nonnull %offset.addr, ptr noundef nonnull %bytes.addr) #14
   br i1 %call12, label %if.end, label %glib_autoptr_cleanup_QemuLockable.exit
 
 if.end:                                           ; preds = %block_copy_chunk_size.exit
@@ -1595,7 +1595,7 @@ if.end:                                           ; preds = %block_copy_chunk_si
   br i1 %cmp13, label %if.end15, label %if.else
 
 if.else:                                          ; preds = %if.end
-  call void @__assert_fail(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.1, i32 noundef 203, ptr noundef nonnull @__PRETTY_FUNCTION__.block_copy_task_create) #14
+  call void @__assert_fail(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.1, i32 noundef 203, ptr noundef nonnull @__PRETTY_FUNCTION__.block_copy_task_create) #15
   unreachable
 
 if.end15:                                         ; preds = %if.end
@@ -1607,25 +1607,25 @@ if.end15:                                         ; preds = %if.end
   %mul = sub nsw i64 %sub, %12
   store i64 %mul, ptr %bytes.addr, align 8
   %reqs = getelementptr inbounds i8, ptr %s, i64 112
-  %call20 = call ptr @reqlist_find_conflict(ptr noundef nonnull %reqs, i64 noundef %9, i64 noundef %mul) #13
+  %call20 = call ptr @reqlist_find_conflict(ptr noundef nonnull %reqs, i64 noundef %9, i64 noundef %mul) #14
   %tobool.not = icmp eq ptr %call20, null
   br i1 %tobool.not, label %if.end23, label %if.else22
 
 if.else22:                                        ; preds = %if.end15
-  call void @__assert_fail(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.1, i32 noundef 207, ptr noundef nonnull @__PRETTY_FUNCTION__.block_copy_task_create) #14
+  call void @__assert_fail(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.1, i32 noundef 207, ptr noundef nonnull @__PRETTY_FUNCTION__.block_copy_task_create) #15
   unreachable
 
 if.end23:                                         ; preds = %if.end15
   %13 = load ptr, ptr %copy_bitmap, align 8
   %14 = load i64, ptr %offset.addr, align 8
   %15 = load i64, ptr %bytes.addr, align 8
-  call void @bdrv_reset_dirty_bitmap(ptr noundef %13, i64 noundef %14, i64 noundef %15) #13
+  call void @bdrv_reset_dirty_bitmap(ptr noundef %13, i64 noundef %14, i64 noundef %15) #14
   %16 = load i64, ptr %bytes.addr, align 8
   %in_flight_bytes = getelementptr inbounds i8, ptr %s, i64 96
   %17 = load i64, ptr %in_flight_bytes, align 8
   %add25 = add i64 %17, %16
   store i64 %add25, ptr %in_flight_bytes, align 8
-  %call26 = call noalias dereferenceable_or_null(96) ptr @g_malloc_n(i64 noundef 1, i64 noundef 96) #15
+  %call26 = call noalias dereferenceable_or_null(96) ptr @g_malloc_n(i64 noundef 1, i64 noundef 96) #16
   %18 = load i32, ptr %method.i, align 8
   %.compoundliteral27.sroa.7.4.req.sroa_idx24 = getelementptr inbounds i8, ptr %.compoundliteral27.sroa.7, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %.compoundliteral27.sroa.7.4.req.sroa_idx24, i8 0, i64 48, i1 false)
@@ -1645,12 +1645,12 @@ if.end23:                                         ; preds = %if.end15
   %req33 = getelementptr inbounds i8, ptr %call26, i64 48
   %19 = load i64, ptr %offset.addr, align 8
   %20 = load i64, ptr %bytes.addr, align 8
-  call void @reqlist_init_req(ptr noundef nonnull %reqs, ptr noundef nonnull %req33, i64 noundef %19, i64 noundef %20) #13
+  call void @reqlist_init_req(ptr noundef nonnull %reqs, ptr noundef nonnull %req33, i64 noundef %19, i64 noundef %20) #14
   br label %glib_autoptr_cleanup_QemuLockable.exit
 
 glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %block_copy_chunk_size.exit, %if.end23
   %retval.0 = phi ptr [ %call26, %if.end23 ], [ null, %block_copy_chunk_size.exit ]
-  call void @qemu_co_mutex_unlock(ptr noundef nonnull %lock) #13
+  call void @qemu_co_mutex_unlock(ptr noundef nonnull %lock) #14
   ret ptr %retval.0
 }
 
@@ -1666,14 +1666,14 @@ entry:
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr %s, align 8
   %2 = load ptr, ptr %1, align 8
-  %call = tail call ptr @bdrv_backing_chain_next(ptr noundef %2) #13
+  %call = tail call ptr @bdrv_backing_chain_next(ptr noundef %2) #14
   br label %if.end
 
 if.end:                                           ; preds = %entry, %if.then
   %base.0 = phi ptr [ %call, %if.then ], [ null, %entry ]
   %3 = load ptr, ptr %s, align 8
   %4 = load ptr, ptr %3, align 8
-  %call4 = call i32 @bdrv_co_block_status_above(ptr noundef %4, ptr noundef %base.0, i64 noundef %offset, i64 noundef %bytes, ptr noundef nonnull %num, ptr noundef null, ptr noundef null) #13
+  %call4 = call i32 @bdrv_co_block_status_above(ptr noundef %4, ptr noundef %base.0, i64 noundef %offset, i64 noundef %bytes, ptr noundef nonnull %num, ptr noundef null, ptr noundef null) #14
   %cmp = icmp slt i32 %call4, 0
   br i1 %cmp, label %if.end.if.then6_crit_edge, label %lor.lhs.false
 
@@ -1723,7 +1723,7 @@ entry:
   %s = getelementptr inbounds i8, ptr %task, i64 24
   %0 = load ptr, ptr %s, align 8
   %lock = getelementptr inbounds i8, ptr %0, i64 48
-  tail call void @qemu_co_mutex_lock(ptr noundef nonnull %lock) #13
+  tail call void @qemu_co_mutex_lock(ptr noundef nonnull %lock) #14
   %req = getelementptr inbounds i8, ptr %task, i64 48
   %bytes = getelementptr inbounds i8, ptr %task, i64 56
   %1 = load i64, ptr %bytes, align 8
@@ -1737,7 +1737,7 @@ if.end:                                           ; preds = %entry
   br i1 %or.cond, label %if.end10, label %if.else
 
 if.else:                                          ; preds = %if.end
-  tail call void @__assert_fail(ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.1, i32 noundef 239, ptr noundef nonnull @__PRETTY_FUNCTION__.block_copy_task_shrink) #14
+  tail call void @__assert_fail(ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.1, i32 noundef 239, ptr noundef nonnull @__PRETTY_FUNCTION__.block_copy_task_shrink) #15
   unreachable
 
 if.end10:                                         ; preds = %if.end
@@ -1754,12 +1754,12 @@ if.end10:                                         ; preds = %if.end
   %add = add i64 %6, %new_bytes
   %7 = load i64, ptr %bytes, align 8
   %sub19 = sub i64 %7, %new_bytes
-  tail call void @bdrv_set_dirty_bitmap(ptr noundef %5, i64 noundef %add, i64 noundef %sub19) #13
-  tail call void @reqlist_shrink_req(ptr noundef nonnull %req, i64 noundef %new_bytes) #13
+  tail call void @bdrv_set_dirty_bitmap(ptr noundef %5, i64 noundef %add, i64 noundef %sub19) #14
+  tail call void @reqlist_shrink_req(ptr noundef nonnull %req, i64 noundef %new_bytes) #14
   br label %glib_autoptr_cleanup_QemuLockable.exit
 
 glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %entry, %if.end10
-  tail call void @qemu_co_mutex_unlock(ptr noundef nonnull %lock) #13
+  tail call void @qemu_co_mutex_unlock(ptr noundef nonnull %lock) #14
   ret void
 }
 
@@ -1769,7 +1769,7 @@ entry:
   %s = getelementptr inbounds i8, ptr %task, i64 24
   %0 = load ptr, ptr %s, align 8
   %lock = getelementptr inbounds i8, ptr %0, i64 48
-  tail call void @qemu_co_mutex_lock(ptr noundef nonnull %lock) #13
+  tail call void @qemu_co_mutex_lock(ptr noundef nonnull %lock) #14
   %req = getelementptr inbounds i8, ptr %task, i64 48
   %bytes = getelementptr inbounds i8, ptr %task, i64 56
   %1 = load i64, ptr %bytes, align 8
@@ -1787,7 +1787,7 @@ if.then:                                          ; preds = %entry
   %5 = load ptr, ptr %copy_bitmap, align 8
   %6 = load i64, ptr %req, align 8
   %7 = load i64, ptr %bytes, align 8
-  tail call void @bdrv_set_dirty_bitmap(ptr noundef %5, i64 noundef %6, i64 noundef %7) #13
+  tail call void @bdrv_set_dirty_bitmap(ptr noundef %5, i64 noundef %6, i64 noundef %7) #14
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -1800,17 +1800,17 @@ if.end:                                           ; preds = %if.then, %entry
 if.then11:                                        ; preds = %if.end
   %copy_bitmap15 = getelementptr inbounds i8, ptr %8, i64 136
   %10 = load ptr, ptr %copy_bitmap15, align 8
-  %call16 = tail call i64 @bdrv_get_dirty_count(ptr noundef %10) #13
+  %call16 = tail call i64 @bdrv_get_dirty_count(ptr noundef %10) #14
   %11 = load ptr, ptr %s, align 8
   %in_flight_bytes18 = getelementptr inbounds i8, ptr %11, i64 96
   %12 = load i64, ptr %in_flight_bytes18, align 8
   %add = add i64 %12, %call16
-  tail call void @progress_set_remaining(ptr noundef nonnull %9, i64 noundef %add) #13
+  tail call void @progress_set_remaining(ptr noundef nonnull %9, i64 noundef %add) #14
   br label %glib_autoptr_cleanup_QemuLockable.exit
 
 glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %if.then11, %if.end
-  tail call void @reqlist_remove_req(ptr noundef nonnull %req) #13
-  tail call void @qemu_co_mutex_unlock(ptr noundef nonnull %lock) #13
+  tail call void @reqlist_remove_req(ptr noundef nonnull %req) #14
+  tail call void @qemu_co_mutex_unlock(ptr noundef nonnull %lock) #14
   ret void
 }
 
@@ -1829,13 +1829,13 @@ entry:
 if.then:                                          ; preds = %entry
   %func = getelementptr inbounds i8, ptr %task, i64 8
   %0 = load ptr, ptr %func, align 8
-  %call = tail call i32 %0(ptr noundef %task) #13
-  tail call void @g_free(ptr noundef %task) #13
+  %call = tail call i32 %0(ptr noundef %task) #14
+  tail call void @g_free(ptr noundef %task) #14
   br label %return
 
 if.end:                                           ; preds = %entry
-  tail call void @aio_task_pool_wait_slot(ptr noundef nonnull %pool) #13
-  %call3 = tail call i32 @aio_task_pool_status(ptr noundef nonnull %pool) #13
+  tail call void @aio_task_pool_wait_slot(ptr noundef nonnull %pool) #14
+  %call3 = tail call i32 @aio_task_pool_status(ptr noundef nonnull %pool) #14
   %cmp = icmp slt i32 %call3, 0
   br i1 %cmp, label %if.then4, label %if.end5
 
@@ -1846,13 +1846,13 @@ if.then4:                                         ; preds = %if.end
   %2 = load ptr, ptr %mem, align 8
   %bytes = getelementptr inbounds i8, ptr %task, i64 56
   %3 = load i64, ptr %bytes, align 8
-  tail call void @co_put_to_shres(ptr noundef %2, i64 noundef %3) #13
+  tail call void @co_put_to_shres(ptr noundef %2, i64 noundef %3) #14
   tail call void @block_copy_task_end(ptr noundef %task, i32 noundef -125)
-  tail call void @g_free(ptr noundef %task) #13
+  tail call void @g_free(ptr noundef %task) #14
   br label %return
 
 if.end5:                                          ; preds = %if.end
-  tail call void @aio_task_pool_start_task(ptr noundef nonnull %pool, ptr noundef %task) #13
+  tail call void @aio_task_pool_start_task(ptr noundef nonnull %pool, ptr noundef %task) #14
   br label %return
 
 return:                                           ; preds = %if.end5, %if.then4, %if.then
@@ -1879,15 +1879,15 @@ entry:
   %method2 = getelementptr inbounds i8, ptr %task, i64 40
   %1 = load i32, ptr %method2, align 8
   store i32 %1, ptr %method, align 4
-  tail call void @bdrv_graph_co_rdlock() #13
+  tail call void @bdrv_graph_co_rdlock() #14
   %req = getelementptr inbounds i8, ptr %task, i64 48
   %bytes = getelementptr inbounds i8, ptr %task, i64 56
   %2 = load i64, ptr %req, align 8
   %3 = load i64, ptr %bytes, align 8
   %call4 = call i32 @block_copy_do_copy(ptr noundef %0, i64 noundef %2, i64 noundef %3, ptr noundef nonnull %method, ptr noundef nonnull %error_is_read)
-  tail call void @bdrv_graph_co_rdunlock() #13
+  tail call void @bdrv_graph_co_rdunlock() #14
   %lock = getelementptr inbounds i8, ptr %0, i64 48
-  tail call void @qemu_co_mutex_lock(ptr noundef nonnull %lock) #13
+  tail call void @qemu_co_mutex_lock(ptr noundef nonnull %lock) #14
   %method12 = getelementptr inbounds i8, ptr %0, i64 104
   %cmp15 = icmp slt i32 %call4, 0
   %4 = load i32, ptr %method, align 4
@@ -1935,23 +1935,23 @@ if.end.us29:                                      ; preds = %if.then.us28, %for.
 
 if.then27.us:                                     ; preds = %if.end.us29
   %12 = load i64, ptr %bytes, align 8
-  tail call void @progress_work_done(ptr noundef nonnull %11, i64 noundef %12) #13
+  tail call void @progress_work_done(ptr noundef nonnull %11, i64 noundef %12) #14
   br label %glib_autoptr_cleanup_QemuLockable.exit
 
 glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %if.end.us29, %if.then27.us, %if.end.us.us, %if.then19.us.us
-  tail call void @qemu_co_mutex_unlock(ptr noundef nonnull %lock) #13
+  tail call void @qemu_co_mutex_unlock(ptr noundef nonnull %lock) #14
   %mem = getelementptr inbounds i8, ptr %0, i64 152
   %13 = load ptr, ptr %mem, align 8
   %14 = load i64, ptr %bytes, align 8
-  tail call void @co_put_to_shres(ptr noundef %13, i64 noundef %14) #13
+  tail call void @co_put_to_shres(ptr noundef %13, i64 noundef %14) #14
   tail call void @block_copy_task_end(ptr noundef nonnull %task, i32 noundef %call4)
   ret i32 %call4
 }
 
 declare void @reqlist_init_req(ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
-; Function Attrs: noreturn nounwind
-declare void @abort() local_unnamed_addr #3
+; Function Attrs: cold nofree noreturn nounwind
+declare void @abort() local_unnamed_addr #10
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @block_copy_do_copy(ptr noundef %s, i64 noundef %offset, i64 noundef %bytes, ptr nocapture noundef %method, ptr nocapture noundef writeonly %error_is_read) #0 {
@@ -1976,7 +1976,7 @@ entry:
   br i1 %or.cond65, label %if.else, label %if.end
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.1, i32 noundef 489, ptr noundef nonnull @__PRETTY_FUNCTION__.block_copy_do_copy) #14
+  tail call void @__assert_fail(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.1, i32 noundef 489, ptr noundef nonnull @__PRETTY_FUNCTION__.block_copy_do_copy) #15
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -1987,7 +1987,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp6, label %if.end9, label %if.else8
 
 if.else8:                                         ; preds = %if.end
-  tail call void @__assert_fail(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.1, i32 noundef 490, ptr noundef nonnull @__PRETTY_FUNCTION__.block_copy_do_copy) #14
+  tail call void @__assert_fail(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.1, i32 noundef 490, ptr noundef nonnull @__PRETTY_FUNCTION__.block_copy_do_copy) #15
   unreachable
 
 if.end9:                                          ; preds = %if.end
@@ -1996,7 +1996,7 @@ if.end9:                                          ; preds = %if.end
   br i1 %cmp12, label %if.end15, label %if.else14
 
 if.else14:                                        ; preds = %if.end9
-  tail call void @__assert_fail(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.1, i32 noundef 491, ptr noundef nonnull @__PRETTY_FUNCTION__.block_copy_do_copy) #14
+  tail call void @__assert_fail(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.1, i32 noundef 491, ptr noundef nonnull @__PRETTY_FUNCTION__.block_copy_do_copy) #15
   unreachable
 
 if.end15:                                         ; preds = %if.end9
@@ -2004,7 +2004,7 @@ if.end15:                                         ; preds = %if.end9
   br i1 %cmp17, label %if.end20, label %if.else19
 
 if.else19:                                        ; preds = %if.end15
-  tail call void @__assert_fail(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.1, i32 noundef 492, ptr noundef nonnull @__PRETTY_FUNCTION__.block_copy_do_copy) #14
+  tail call void @__assert_fail(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.1, i32 noundef 492, ptr noundef nonnull @__PRETTY_FUNCTION__.block_copy_do_copy) #15
   unreachable
 
 if.end20:                                         ; preds = %if.end15
@@ -2021,7 +2021,7 @@ lor.lhs.false:                                    ; preds = %if.end20
   br i1 %cmp31, label %if.end34, label %if.else33
 
 if.else33:                                        ; preds = %lor.lhs.false
-  tail call void @__assert_fail(ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.1, i32 noundef 494, ptr noundef nonnull @__PRETTY_FUNCTION__.block_copy_do_copy) #14
+  tail call void @__assert_fail(ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.1, i32 noundef 494, ptr noundef nonnull @__PRETTY_FUNCTION__.block_copy_do_copy) #15
   unreachable
 
 if.end34:                                         ; preds = %if.end20, %lor.lhs.false
@@ -2029,7 +2029,7 @@ if.end34:                                         ; preds = %if.end20, %lor.lhs.
   br i1 %cmp35, label %if.end38, label %if.else37
 
 if.else37:                                        ; preds = %if.end34
-  tail call void @__assert_fail(ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.1, i32 noundef 495, ptr noundef nonnull @__PRETTY_FUNCTION__.block_copy_do_copy) #14
+  tail call void @__assert_fail(ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.1, i32 noundef 495, ptr noundef nonnull @__PRETTY_FUNCTION__.block_copy_do_copy) #15
   unreachable
 
 if.end38:                                         ; preds = %if.end34
@@ -2048,7 +2048,7 @@ sw.bb:                                            ; preds = %if.end38
   %write_flags = getelementptr inbounds i8, ptr %s, i64 40
   %5 = load i32, ptr %write_flags, align 8
   %and = and i32 %5, -33
-  %call = tail call i32 @bdrv_co_pwrite_zeroes(ptr noundef %4, i64 noundef %offset, i64 noundef %sub, i32 noundef %and) #13
+  %call = tail call i32 @bdrv_co_pwrite_zeroes(ptr noundef %4, i64 noundef %offset, i64 noundef %sub, i32 noundef %and) #14
   %cmp39 = icmp slt i32 %call, 0
   br i1 %cmp39, label %if.then40, label %return
 
@@ -2073,16 +2073,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #13
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #13
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #14
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #14
   %10 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %11 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.19, i32 noundef %call10.i.i, i64 noundef %10, i64 noundef %11, ptr noundef nonnull %s, i64 noundef %offset, i32 noundef %call) #13
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.19, i32 noundef %call10.i.i, i64 noundef %10, i64 noundef %11, ptr noundef nonnull %s, i64 noundef %offset, i32 noundef %call) #14
   br label %trace_block_copy_write_zeroes_fail.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.20, ptr noundef nonnull %s, i64 noundef %offset, i32 noundef %call) #13
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.20, ptr noundef nonnull %s, i64 noundef %offset, i32 noundef %call) #14
   br label %trace_block_copy_write_zeroes_fail.exit
 
 trace_block_copy_write_zeroes_fail.exit:          ; preds = %if.then40, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -2096,7 +2096,7 @@ sw.bb42:                                          ; preds = %if.end38, %if.end38
   %13 = load ptr, ptr %target43, align 8
   %write_flags44 = getelementptr inbounds i8, ptr %s, i64 40
   %14 = load i32, ptr %write_flags44, align 8
-  %call45 = tail call i32 @bdrv_co_copy_range(ptr noundef %12, i64 noundef %offset, ptr noundef %13, i64 noundef %offset, i64 noundef %sub, i32 noundef 0, i32 noundef %14) #13
+  %call45 = tail call i32 @bdrv_co_copy_range(ptr noundef %12, i64 noundef %offset, ptr noundef %13, i64 noundef %offset, i64 noundef %sub, i32 noundef 0, i32 noundef %14) #14
   %cmp46 = icmp sgt i32 %call45, -1
   br i1 %cmp46, label %if.then47, label %if.end48
 
@@ -2125,16 +2125,16 @@ if.then.i.i73:                                    ; preds = %land.lhs.true5.i.i7
   br i1 %tobool7.i.i74, label %if.then8.i.i76, label %if.else.i.i75
 
 if.then8.i.i76:                                   ; preds = %if.then.i.i73
-  %call9.i.i77 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i66, ptr noundef null) #13
-  %call10.i.i78 = tail call i32 @qemu_get_thread_id() #13
+  %call9.i.i77 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i66, ptr noundef null) #14
+  %call10.i.i78 = tail call i32 @qemu_get_thread_id() #14
   %19 = load i64, ptr %_now.i.i66, align 8
   %tv_usec.i.i79 = getelementptr inbounds i8, ptr %_now.i.i66, i64 8
   %20 = load i64, ptr %tv_usec.i.i79, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.21, i32 noundef %call10.i.i78, i64 noundef %19, i64 noundef %20, ptr noundef nonnull %s, i64 noundef %offset, i32 noundef %call45) #13
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.21, i32 noundef %call10.i.i78, i64 noundef %19, i64 noundef %20, ptr noundef nonnull %s, i64 noundef %offset, i32 noundef %call45) #14
   br label %trace_block_copy_copy_range_fail.exit
 
 if.else.i.i75:                                    ; preds = %if.then.i.i73
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.22, ptr noundef nonnull %s, i64 noundef %offset, i32 noundef %call45) #13
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.22, ptr noundef nonnull %s, i64 noundef %offset, i32 noundef %call45) #14
   br label %trace_block_copy_copy_range_fail.exit
 
 trace_block_copy_copy_range_fail.exit:            ; preds = %if.end48, %land.lhs.true5.i.i70, %if.then8.i.i76, %if.else.i.i75
@@ -2145,7 +2145,7 @@ trace_block_copy_copy_range_fail.exit:            ; preds = %if.end48, %land.lhs
 sw.bb49:                                          ; preds = %trace_block_copy_copy_range_fail.exit, %if.end38, %if.end38
   %21 = load ptr, ptr %s, align 8
   %22 = load ptr, ptr %21, align 8
-  %call51 = tail call ptr @qemu_blockalign(ptr noundef %22, i64 noundef %sub) #13
+  %call51 = tail call ptr @qemu_blockalign(ptr noundef %22, i64 noundef %sub) #14
   %23 = load ptr, ptr %s, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %qiov.i)
   %24 = getelementptr inbounds i8, ptr %qiov.i, i64 16
@@ -2157,8 +2157,8 @@ sw.bb49:                                          ; preds = %trace_block_copy_co
   store ptr %call51, ptr %local_iov.i, align 8
   %iov_len.i = getelementptr inbounds i8, ptr %qiov.i, i64 32
   store i64 %sub, ptr %iov_len.i, align 8
-  call void @assert_bdrv_graph_readable() #13
-  %call.i = call i32 @bdrv_co_preadv(ptr noundef %23, i64 noundef %offset, i64 noundef %sub, ptr noundef nonnull %qiov.i, i32 noundef 0) #13
+  call void @assert_bdrv_graph_readable() #14
+  %call.i = call i32 @bdrv_co_preadv(ptr noundef %23, i64 noundef %offset, i64 noundef %sub, ptr noundef nonnull %qiov.i, i32 noundef 0) #14
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %qiov.i)
   %cmp54 = icmp slt i32 %call.i, 0
   br i1 %cmp54, label %if.then55, label %if.end56
@@ -2184,16 +2184,16 @@ if.then.i.i87:                                    ; preds = %land.lhs.true5.i.i8
   br i1 %tobool7.i.i88, label %if.then8.i.i90, label %if.else.i.i89
 
 if.then8.i.i90:                                   ; preds = %if.then.i.i87
-  %call9.i.i91 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i80, ptr noundef null) #13
-  %call10.i.i92 = call i32 @qemu_get_thread_id() #13
+  %call9.i.i91 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i80, ptr noundef null) #14
+  %call10.i.i92 = call i32 @qemu_get_thread_id() #14
   %29 = load i64, ptr %_now.i.i80, align 8
   %tv_usec.i.i93 = getelementptr inbounds i8, ptr %_now.i.i80, i64 8
   %30 = load i64, ptr %tv_usec.i.i93, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.23, i32 noundef %call10.i.i92, i64 noundef %29, i64 noundef %30, ptr noundef nonnull %s, i64 noundef %offset, i32 noundef %call.i) #13
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.23, i32 noundef %call10.i.i92, i64 noundef %29, i64 noundef %30, ptr noundef nonnull %s, i64 noundef %offset, i32 noundef %call.i) #14
   br label %trace_block_copy_read_fail.exit
 
 if.else.i.i89:                                    ; preds = %if.then.i.i87
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.24, ptr noundef nonnull %s, i64 noundef %offset, i32 noundef %call.i) #13
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.24, ptr noundef nonnull %s, i64 noundef %offset, i32 noundef %call.i) #14
   br label %trace_block_copy_read_fail.exit
 
 trace_block_copy_read_fail.exit:                  ; preds = %if.then55, %land.lhs.true5.i.i84, %if.then8.i.i90, %if.else.i.i89
@@ -2215,8 +2215,8 @@ if.end56:                                         ; preds = %sw.bb49
   store ptr %call51, ptr %local_iov.i95, align 8
   %iov_len.i97 = getelementptr inbounds i8, ptr %qiov.i94, i64 32
   store i64 %sub, ptr %iov_len.i97, align 8
-  call void @assert_bdrv_graph_readable() #13
-  %call.i98 = call i32 @bdrv_co_pwritev(ptr noundef %31, i64 noundef %offset, i64 noundef %sub, ptr noundef nonnull %qiov.i94, i32 noundef %32) #13
+  call void @assert_bdrv_graph_readable() #14
+  %call.i98 = call i32 @bdrv_co_pwritev(ptr noundef %31, i64 noundef %offset, i64 noundef %sub, ptr noundef nonnull %qiov.i94, i32 noundef %32) #14
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %qiov.i94)
   %cmp60 = icmp slt i32 %call.i98, 0
   br i1 %cmp60, label %if.then61, label %out
@@ -2242,16 +2242,16 @@ if.then.i.i106:                                   ; preds = %land.lhs.true5.i.i1
   br i1 %tobool7.i.i107, label %if.then8.i.i109, label %if.else.i.i108
 
 if.then8.i.i109:                                  ; preds = %if.then.i.i106
-  %call9.i.i110 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i99, ptr noundef null) #13
-  %call10.i.i111 = call i32 @qemu_get_thread_id() #13
+  %call9.i.i110 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i99, ptr noundef null) #14
+  %call10.i.i111 = call i32 @qemu_get_thread_id() #14
   %38 = load i64, ptr %_now.i.i99, align 8
   %tv_usec.i.i112 = getelementptr inbounds i8, ptr %_now.i.i99, i64 8
   %39 = load i64, ptr %tv_usec.i.i112, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.25, i32 noundef %call10.i.i111, i64 noundef %38, i64 noundef %39, ptr noundef nonnull %s, i64 noundef %offset, i32 noundef %call.i98) #13
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.25, i32 noundef %call10.i.i111, i64 noundef %38, i64 noundef %39, ptr noundef nonnull %s, i64 noundef %offset, i32 noundef %call.i98) #14
   br label %trace_block_copy_write_fail.exit
 
 if.else.i.i108:                                   ; preds = %if.then.i.i106
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.26, ptr noundef nonnull %s, i64 noundef %offset, i32 noundef %call.i98) #13
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.26, ptr noundef nonnull %s, i64 noundef %offset, i32 noundef %call.i98) #14
   br label %trace_block_copy_write_fail.exit
 
 trace_block_copy_write_fail.exit:                 ; preds = %if.then61, %land.lhs.true5.i.i103, %if.then8.i.i109, %if.else.i.i108
@@ -2266,11 +2266,11 @@ out.sink.split:                                   ; preds = %trace_block_copy_re
 
 out:                                              ; preds = %out.sink.split, %if.end56
   %ret.0 = phi i32 [ %call.i98, %if.end56 ], [ %ret.0.ph, %out.sink.split ]
-  call void @qemu_vfree(ptr noundef %call51) #13
+  call void @qemu_vfree(ptr noundef %call51) #14
   br label %return
 
 sw.default:                                       ; preds = %if.end38
-  tail call void @abort() #14
+  tail call void @abort() #15
   unreachable
 
 return:                                           ; preds = %sw.bb, %trace_block_copy_write_zeroes_fail.exit, %out, %if.then47
@@ -2301,8 +2301,8 @@ entry:
   store ptr %buf, ptr %local_iov, align 8
   %iov_len = getelementptr inbounds i8, ptr %qiov, i64 32
   store i64 %bytes, ptr %iov_len, align 8
-  call void @assert_bdrv_graph_readable() #13
-  %call = call i32 @bdrv_co_preadv(ptr noundef %child, i64 noundef %offset, i64 noundef %bytes, ptr noundef nonnull %qiov, i32 noundef %flags) #13
+  call void @assert_bdrv_graph_readable() #14
+  %call = call i32 @bdrv_co_preadv(ptr noundef %child, i64 noundef %offset, i64 noundef %bytes, ptr noundef nonnull %qiov, i32 noundef %flags) #14
   ret i32 %call
 }
 
@@ -2319,15 +2319,15 @@ entry:
   store ptr %buf, ptr %local_iov, align 8
   %iov_len = getelementptr inbounds i8, ptr %qiov, i64 32
   store i64 %bytes, ptr %iov_len, align 8
-  call void @assert_bdrv_graph_readable() #13
-  %call = call i32 @bdrv_co_pwritev(ptr noundef %child, i64 noundef %offset, i64 noundef %bytes, ptr noundef nonnull %qiov, i32 noundef %flags) #13
+  call void @assert_bdrv_graph_readable() #14
+  %call = call i32 @bdrv_co_pwritev(ptr noundef %child, i64 noundef %offset, i64 noundef %bytes, ptr noundef nonnull %qiov, i32 noundef %flags) #14
   ret i32 %call
 }
 
 declare void @qemu_vfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #10
+declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #11
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 
@@ -2354,22 +2354,22 @@ declare void @aio_task_pool_wait_slot(ptr noundef) #1
 declare void @aio_task_pool_start_task(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #11
+declare i32 @llvm.smax.i32(i32, i32) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #11
+declare i64 @llvm.smax.i64(i64, i64) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #11
+declare i64 @llvm.smin.i64(i64, i64) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #11
+declare i64 @llvm.umin.i64(i64, i64) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2381,12 +2381,13 @@ attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #7 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nofree norecurse nounwind sspstrong willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #13 = { nounwind }
-attributes #14 = { noreturn nounwind }
-attributes #15 = { nounwind allocsize(0,1) }
+attributes #10 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #14 = { nounwind }
+attributes #15 = { noreturn nounwind }
+attributes #16 = { nounwind allocsize(0,1) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

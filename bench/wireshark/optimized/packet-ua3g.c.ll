@@ -3936,7 +3936,7 @@ define internal fastcc void @decode_set_lcd_contrast(ptr noundef %0, ptr noundef
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_beep(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) unnamed_addr #0 {
   %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %77, label %5
+  br i1 %.not, label %74, label %5
 
 5:                                                ; preds = %4
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 3) #9
@@ -4007,68 +4007,67 @@ define internal fastcc void @decode_beep(ptr noundef %0, ptr noundef %1, ptr noc
 
 .preheader.preheader:                             ; preds = %.preheader.lr.ph
   %.neg = mul nsw i32 %40, -3
-  %44 = add nsw i32 %.neg, 3
+  %invariant.op = add i32 -1, %.neg
   br label %.preheader
 
 .preheader.us:                                    ; preds = %.preheader.lr.ph, %.preheader.us
-  %.1110.us = phi i32 [ %47, %.preheader.us ], [ 6, %.preheader.lr.ph ]
-  %.194109.us = phi i32 [ %48, %.preheader.us ], [ %43, %.preheader.lr.ph ]
-  %45 = load i32, ptr @hf_ua3g_beep_terminator, align 4
-  %46 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %45, ptr noundef %1, i32 noundef %.1110.us, i32 noundef 1, i32 noundef 0) #9
-  %47 = add i32 %.1110.us, 1
-  %48 = add i32 %.194109.us, -1
-  %.not99.us = icmp eq i32 %48, 0
+  %.1110.us = phi i32 [ %46, %.preheader.us ], [ 6, %.preheader.lr.ph ]
+  %.194109.us = phi i32 [ %47, %.preheader.us ], [ %43, %.preheader.lr.ph ]
+  %44 = load i32, ptr @hf_ua3g_beep_terminator, align 4
+  %45 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %44, ptr noundef %1, i32 noundef %.1110.us, i32 noundef 1, i32 noundef 0) #9
+  %46 = add i32 %.1110.us, 1
+  %47 = add i32 %.194109.us, -1
+  %.not99.us = icmp eq i32 %47, 0
   br i1 %.not99.us, label %.loopexit, label %.preheader.us, !llvm.loop !23
 
 .preheader:                                       ; preds = %.preheader.preheader, %._crit_edge
-  %.1110 = phi i32 [ %75, %._crit_edge ], [ 6, %.preheader.preheader ]
-  %.194109 = phi i32 [ %76, %._crit_edge ], [ %43, %.preheader.preheader ]
-  br label %49
+  %.1110 = phi i32 [ %73, %._crit_edge ], [ 6, %.preheader.preheader ]
+  %.194109 = phi i32 [ %op.rdx3.reass, %._crit_edge ], [ %43, %.preheader.preheader ]
+  br label %48
 
-49:                                               ; preds = %.preheader, %49
-  %.2106 = phi i32 [ %.1110, %.preheader ], [ %70, %49 ]
-  %.096104 = phi i32 [ 1, %.preheader ], [ %71, %49 ]
-  %50 = load i32, ptr @ett_ua3g_note, align 4
-  %51 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %0, ptr noundef %1, i32 noundef %.2106, i32 noundef 3, i32 noundef %50, ptr noundef null, ptr noundef nonnull @.str.1158, i32 noundef %.096104) #9
-  %52 = load i32, ptr @hf_ua3g_beep_freq_sample, align 4
-  %53 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.2106) #9
-  %54 = zext i8 %53 to i32
-  %55 = tail call ptr @val_to_str_const(i32 noundef %., ptr noundef nonnull @str_beep_freq_sample_nb, ptr noundef nonnull @.str.1143) #9
-  %56 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.2106) #9
-  %57 = zext i8 %56 to i32
-  %58 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %51, i32 noundef %52, ptr noundef %1, i32 noundef %.2106, i32 noundef 1, i32 noundef %54, ptr noundef nonnull @.str.1159, ptr noundef %55, i32 noundef %57) #9
-  %59 = add i32 %.2106, 1
-  %60 = load i32, ptr @hf_ua3g_beep_level, align 4
-  %61 = tail call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %60, ptr noundef %1, i32 noundef %59, i32 noundef 1, i32 noundef 0) #9
-  %62 = add i32 %.2106, 2
-  %63 = load i32, ptr @hf_ua3g_beep_duration, align 4
-  %64 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %62) #9
-  %65 = zext i8 %64 to i32
-  %66 = tail call ptr @val_to_str_const(i32 noundef %., ptr noundef nonnull @str_beep_duration, ptr noundef nonnull @.str.1143) #9
-  %67 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %62) #9
-  %68 = zext i8 %67 to i32
-  %69 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %51, i32 noundef %63, ptr noundef %1, i32 noundef %62, i32 noundef 1, i32 noundef %65, ptr noundef nonnull @.str.1160, ptr noundef %66, i32 noundef %68) #9
-  %70 = add i32 %.2106, 3
-  %71 = add nuw nsw i32 %.096104, 1
+48:                                               ; preds = %.preheader, %48
+  %.2106 = phi i32 [ %.1110, %.preheader ], [ %69, %48 ]
+  %.096104 = phi i32 [ 1, %.preheader ], [ %70, %48 ]
+  %49 = load i32, ptr @ett_ua3g_note, align 4
+  %50 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %0, ptr noundef %1, i32 noundef %.2106, i32 noundef 3, i32 noundef %49, ptr noundef null, ptr noundef nonnull @.str.1158, i32 noundef %.096104) #9
+  %51 = load i32, ptr @hf_ua3g_beep_freq_sample, align 4
+  %52 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.2106) #9
+  %53 = zext i8 %52 to i32
+  %54 = tail call ptr @val_to_str_const(i32 noundef %., ptr noundef nonnull @str_beep_freq_sample_nb, ptr noundef nonnull @.str.1143) #9
+  %55 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.2106) #9
+  %56 = zext i8 %55 to i32
+  %57 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %50, i32 noundef %51, ptr noundef %1, i32 noundef %.2106, i32 noundef 1, i32 noundef %53, ptr noundef nonnull @.str.1159, ptr noundef %54, i32 noundef %56) #9
+  %58 = add i32 %.2106, 1
+  %59 = load i32, ptr @hf_ua3g_beep_level, align 4
+  %60 = tail call ptr @proto_tree_add_item(ptr noundef %50, i32 noundef %59, ptr noundef %1, i32 noundef %58, i32 noundef 1, i32 noundef 0) #9
+  %61 = add i32 %.2106, 2
+  %62 = load i32, ptr @hf_ua3g_beep_duration, align 4
+  %63 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %61) #9
+  %64 = zext i8 %63 to i32
+  %65 = tail call ptr @val_to_str_const(i32 noundef %., ptr noundef nonnull @str_beep_duration, ptr noundef nonnull @.str.1143) #9
+  %66 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %61) #9
+  %67 = zext i8 %66 to i32
+  %68 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %50, i32 noundef %62, ptr noundef %1, i32 noundef %61, i32 noundef 1, i32 noundef %64, ptr noundef nonnull @.str.1160, ptr noundef %65, i32 noundef %67) #9
+  %69 = add i32 %.2106, 3
+  %70 = add nuw nsw i32 %.096104, 1
   %exitcond.not = icmp eq i32 %.096104, %40
-  br i1 %exitcond.not, label %._crit_edge, label %49, !llvm.loop !24
+  br i1 %exitcond.not, label %._crit_edge, label %48, !llvm.loop !24
 
-._crit_edge:                                      ; preds = %49
-  %72 = add i32 %44, %.194109
-  %73 = load i32, ptr @hf_ua3g_beep_terminator, align 4
-  %74 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %73, ptr noundef %1, i32 noundef %70, i32 noundef 1, i32 noundef 0) #9
-  %75 = add i32 %.2106, 4
-  %76 = add i32 %72, -4
-  %.not99 = icmp eq i32 %76, 0
+._crit_edge:                                      ; preds = %48
+  %71 = load i32, ptr @hf_ua3g_beep_terminator, align 4
+  %72 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %71, ptr noundef %1, i32 noundef %69, i32 noundef 1, i32 noundef 0) #9
+  %73 = add i32 %.2106, 4
+  %op.rdx3.reass = add i32 %.194109, %invariant.op
+  %.not99 = icmp eq i32 %op.rdx3.reass, 0
   br i1 %.not99, label %.loopexit, label %.preheader, !llvm.loop !23
 
-77:                                               ; preds = %4
-  %78 = getelementptr inbounds i8, ptr %2, i64 8
-  %79 = load ptr, ptr %78, align 8
-  tail call void @col_append_str(ptr noundef %79, i32 noundef 25, ptr noundef nonnull @.str.1161) #9
+74:                                               ; preds = %4
+  %75 = getelementptr inbounds i8, ptr %2, i64 8
+  %76 = load ptr, ptr %75, align 8
+  tail call void @col_append_str(ptr noundef %76, i32 noundef 25, ptr noundef nonnull @.str.1161) #9
   br label %.loopexit
 
-.loopexit:                                        ; preds = %._crit_edge, %.preheader.us, %.lr.ph, %34, %13, %28, %5, %77
+.loopexit:                                        ; preds = %._crit_edge, %.preheader.us, %.lr.ph, %34, %13, %28, %5, %74
   ret void
 }
 

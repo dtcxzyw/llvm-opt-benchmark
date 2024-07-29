@@ -3764,7 +3764,7 @@ for.end19.i.i.i.i.i:                              ; preds = %for.cond11.preheade
           to label %.noexc145.i.i.i unwind label %lpad38.loopexit.split-lp.i.i.i
 
 .noexc145.i.i.i:                                  ; preds = %for.end19.i.i.i.i.i
-  call void @exit(i32 noundef 114) #20
+  call void @exit(i32 noundef 114) #22
   unreachable
 
 for.inc21.sink.split.i.i.i.i.i:                   ; preds = %for.body8.i.i.i.i.i, %for.body13.i.i.i.i.i
@@ -3911,7 +3911,7 @@ for.end56.i.i.i.i:                                ; preds = %for.cond27.preheade
           to label %.noexc49.i.i.i unwind label %lpad38.loopexit.split-lp.i.i.i
 
 .noexc49.i.i.i:                                   ; preds = %for.end56.i.i.i.i
-  call void @exit(i32 noundef 114) #20
+  call void @exit(i32 noundef 114) #22
   unreachable
 
 invoke.cont47.i.i.i:                              ; preds = %if.end48.i.i.i.i, %if.then37.i.i.i.i, %if.end21.i.i.i.i, %if.then14.i.i.i.i
@@ -4335,7 +4335,7 @@ sw.bb6.i:                                         ; preds = %entry
   br i1 %isnull.i.i, label %sw.epilog, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %sw.bb6.i
-  tail call void @_ZdlPv(ptr noundef nonnull %__dest.val.i) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %__dest.val.i) #23
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %delete.notnull.i.i, %sw.bb6.i, %sw.bb4.i, %sw.bb1, %sw.bb
@@ -4399,7 +4399,7 @@ declare noundef ptr @_ZN11ast_manager6mk_appEiiP4expr(ptr noundef nonnull align 
 
 declare void @_Z26notify_assertion_violationPKciS0_(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nobuiltin nounwind
@@ -4421,7 +4421,7 @@ entry:
 define internal void @"_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN3smt8parallelclERK10ref_vectorI4expr11ast_managerEE3$_1EEEEED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #18
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #23
   ret void
 }
 
@@ -5433,7 +5433,7 @@ attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #8 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { nofree nosync nounwind memory(none) }
@@ -5444,7 +5444,8 @@ attributes #18 = { nounwind }
 attributes #19 = { noreturn }
 attributes #20 = { noreturn nounwind }
 attributes #21 = { builtin allocsize(0) }
-attributes #22 = { builtin nounwind }
+attributes #22 = { cold noreturn nounwind }
+attributes #23 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

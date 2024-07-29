@@ -84,7 +84,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @do_qemu_init_gem_register_types() #0 {
 entry:
-  tail call void @register_module_init(ptr noundef nonnull @gem_register_types, i32 noundef 3) #8
+  tail call void @register_module_init(ptr noundef nonnull @gem_register_types, i32 noundef 3) #9
   ret void
 }
 
@@ -93,7 +93,7 @@ declare void @register_module_init(ptr noundef, i32 noundef) local_unnamed_addr 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @gem_register_types() #0 {
 entry:
-  %call = tail call ptr @type_register_static(ptr noundef nonnull @gem_info) #8
+  %call = tail call ptr @type_register_static(ptr noundef nonnull @gem_info) #9
   ret void
 }
 
@@ -102,8 +102,8 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @gem_init(ptr noundef %obj) #0 {
 entry:
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 30, ptr noundef nonnull @__func__.CADENCE_GEM) #8
-  %call.i6 = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #8
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 30, ptr noundef nonnull @__func__.CADENCE_GEM) #9
+  %call.i6 = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #9
   %regs_ro.i = getelementptr inbounds i8, ptr %call.i, i64 13580
   %0 = getelementptr inbounds i8, ptr %call.i, i64 13584
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(2048) %0, i8 0, i64 2044, i1 false)
@@ -205,19 +205,19 @@ for.body69.i:                                     ; preds = %for.body69.i, %for.
 
 gem_init_register_masks.exit:                     ; preds = %for.body69.i, %for.end51.i
   %iomem = getelementptr inbounds i8, ptr %call.i, i64 816
-  tail call void @memory_region_init_io(ptr noundef nonnull %iomem, ptr noundef nonnull %call.i, ptr noundef nonnull @gem_ops, ptr noundef nonnull %call.i, ptr noundef nonnull @.str.2, i64 noundef 2048) #8
-  %call.i7 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i6, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.15, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #8
-  tail call void @sysbus_init_mmio(ptr noundef %call.i7, ptr noundef nonnull %iomem) #8
+  tail call void @memory_region_init_io(ptr noundef nonnull %iomem, ptr noundef nonnull %call.i, ptr noundef nonnull @gem_ops, ptr noundef nonnull %call.i, ptr noundef nonnull @.str.2, i64 noundef 2048) #9
+  %call.i7 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i6, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.15, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #9
+  tail call void @sysbus_init_mmio(ptr noundef %call.i7, ptr noundef nonnull %iomem) #9
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @gem_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
 entry:
-  %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #8
+  %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #9
   %realize = getelementptr inbounds i8, ptr %call.i, i64 144
   store ptr @gem_realize, ptr %realize, align 8
-  tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @gem_properties) #8
+  tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @gem_properties) #9
   %vmsd = getelementptr inbounds i8, ptr %call.i, i64 160
   store ptr @vmstate_cadence_gem, ptr %vmsd, align 8
   %reset = getelementptr inbounds i8, ptr %call.i, i64 136
@@ -256,7 +256,7 @@ entry:
   %4 = load i32, ptr %arrayidx1.i, align 4
   %tobool.i = icmp ne i32 %4, 0
   %lnot.ext.i = zext i1 %tobool.i to i32
-  tail call void @qemu_set_irq(ptr noundef %3, i32 noundef %lnot.ext.i) #8
+  tail call void @qemu_set_irq(ptr noundef %3, i32 noundef %lnot.ext.i) #9
   %num_priority_queues.i = getelementptr inbounds i8, ptr %opaque, i64 9472
   %5 = load i8, ptr %num_priority_queues.i, align 16
   %cmp9.i = icmp ugt i8 %5, 1
@@ -271,7 +271,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %8 = load i32, ptr %arrayidx8.i, align 4
   %tobool9.i = icmp ne i32 %8, 0
   %lnot.ext13.i = zext i1 %tobool9.i to i32
-  tail call void @qemu_set_irq(ptr noundef %6, i32 noundef %lnot.ext13.i) #8
+  tail call void @qemu_set_irq(ptr noundef %6, i32 noundef %lnot.ext13.i) #9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %9 = load i8, ptr %num_priority_queues.i, align 16
   %10 = zext i8 %9 to i64
@@ -424,7 +424,7 @@ sw.bb1.i.i:                                       ; preds = %for.body43, %for.bo
   br label %gem_get_tx_queue_base_addr.exit
 
 do.body.i.i:                                      ; preds = %for.body43
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.12, i32 noundef 982, ptr noundef nonnull @__func__.gem_get_queue_base_addr, ptr noundef null) #9
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.12, i32 noundef 982, ptr noundef nonnull @__func__.gem_get_queue_base_addr, ptr noundef null) #10
   unreachable
 
 gem_get_tx_queue_base_addr.exit:                  ; preds = %for.body43, %sw.bb1.i.i
@@ -439,8 +439,8 @@ gem_get_tx_queue_base_addr.exit:                  ; preds = %for.body43, %sw.bb1
 if.end49:                                         ; preds = %gem_get_tx_queue_base_addr.exit, %for.cond38.preheader, %if.end33
   %nic = getelementptr inbounds i8, ptr %opaque, i64 1184
   %16 = load ptr, ptr %nic, align 16
-  %call50 = tail call ptr @qemu_get_queue(ptr noundef %16) #8
-  %call.i = tail call ptr @qemu_get_nic_opaque(ptr noundef %call50) #8
+  %call50 = tail call ptr @qemu_get_queue(ptr noundef %16) #9
+  %call.i = tail call ptr @qemu_get_nic_opaque(ptr noundef %call50) #9
   %regs.i = getelementptr inbounds i8, ptr %call.i, i64 9484
   %17 = load i32, ptr %regs.i, align 4
   %18 = and i32 %17, 4
@@ -513,8 +513,8 @@ if.then34.i:                                      ; preds = %if.end29.i
 
 if.then52:                                        ; preds = %if.then34.i, %if.end29.i
   %24 = load ptr, ptr %nic, align 16
-  %call54 = tail call ptr @qemu_get_queue(ptr noundef %24) #8
-  tail call void @qemu_flush_queued_packets(ptr noundef %call54) #8
+  %call54 = tail call ptr @qemu_get_queue(ptr noundef %24) #9
+  tail call void @qemu_flush_queued_packets(ptr noundef %call54) #9
   br label %do.end120
 
 sw.bb56:                                          ; preds = %entry
@@ -524,7 +524,7 @@ sw.bb56:                                          ; preds = %entry
   %26 = load i32, ptr %arrayidx1.i, align 4
   %tobool.i = icmp ne i32 %26, 0
   %lnot.ext.i = zext i1 %tobool.i to i32
-  tail call void @qemu_set_irq(ptr noundef %25, i32 noundef %lnot.ext.i) #8
+  tail call void @qemu_set_irq(ptr noundef %25, i32 noundef %lnot.ext.i) #9
   %num_priority_queues.i76 = getelementptr inbounds i8, ptr %opaque, i64 9472
   %27 = load i8, ptr %num_priority_queues.i76, align 16
   %cmp9.i = icmp ugt i8 %27, 1
@@ -539,7 +539,7 @@ for.body.i78:                                     ; preds = %sw.bb56, %for.body.
   %30 = load i32, ptr %arrayidx8.i, align 4
   %tobool9.i = icmp ne i32 %30, 0
   %lnot.ext13.i = zext i1 %tobool9.i to i32
-  tail call void @qemu_set_irq(ptr noundef %28, i32 noundef %lnot.ext13.i) #8
+  tail call void @qemu_set_irq(ptr noundef %28, i32 noundef %lnot.ext13.i) #9
   %indvars.iv.next.i80 = add nuw nsw i64 %indvars.iv.i79, 1
   %31 = load i8, ptr %num_priority_queues.i76, align 16
   %32 = zext i8 %31 to i64
@@ -577,7 +577,7 @@ sw.bb74:                                          ; preds = %entry
   %34 = load i32, ptr %arrayidx1.i83, align 4
   %tobool.i84 = icmp ne i32 %34, 0
   %lnot.ext.i85 = zext i1 %tobool.i84 to i32
-  tail call void @qemu_set_irq(ptr noundef %33, i32 noundef %lnot.ext.i85) #8
+  tail call void @qemu_set_irq(ptr noundef %33, i32 noundef %lnot.ext.i85) #9
   %num_priority_queues.i86 = getelementptr inbounds i8, ptr %opaque, i64 9472
   %35 = load i8, ptr %num_priority_queues.i86, align 16
   %cmp9.i87 = icmp ugt i8 %35, 1
@@ -592,7 +592,7 @@ for.body.i89:                                     ; preds = %sw.bb74, %for.body.
   %38 = load i32, ptr %arrayidx8.i92, align 4
   %tobool9.i93 = icmp ne i32 %38, 0
   %lnot.ext13.i94 = zext i1 %tobool9.i93 to i32
-  tail call void @qemu_set_irq(ptr noundef %36, i32 noundef %lnot.ext13.i94) #8
+  tail call void @qemu_set_irq(ptr noundef %36, i32 noundef %lnot.ext13.i94) #9
   %indvars.iv.next.i95 = add nuw nsw i64 %indvars.iv.i90, 1
   %39 = load i8, ptr %num_priority_queues.i86, align 16
   %40 = zext i8 %39 to i64
@@ -611,7 +611,7 @@ sw.bb75:                                          ; preds = %entry
   %44 = load i32, ptr %arrayidx1.i100, align 4
   %tobool.i101 = icmp ne i32 %44, 0
   %lnot.ext.i102 = zext i1 %tobool.i101 to i32
-  tail call void @qemu_set_irq(ptr noundef %43, i32 noundef %lnot.ext.i102) #8
+  tail call void @qemu_set_irq(ptr noundef %43, i32 noundef %lnot.ext.i102) #9
   %num_priority_queues.i103 = getelementptr inbounds i8, ptr %opaque, i64 9472
   %45 = load i8, ptr %num_priority_queues.i103, align 16
   %cmp9.i104 = icmp ugt i8 %45, 1
@@ -626,7 +626,7 @@ for.body.i106:                                    ; preds = %sw.bb75, %for.body.
   %48 = load i32, ptr %arrayidx8.i109, align 4
   %tobool9.i110 = icmp ne i32 %48, 0
   %lnot.ext13.i111 = zext i1 %tobool9.i110 to i32
-  tail call void @qemu_set_irq(ptr noundef %46, i32 noundef %lnot.ext13.i111) #8
+  tail call void @qemu_set_irq(ptr noundef %46, i32 noundef %lnot.ext13.i111) #9
   %indvars.iv.next.i112 = add nuw nsw i64 %indvars.iv.i107, 1
   %49 = load i8, ptr %num_priority_queues.i103, align 16
   %50 = zext i8 %49 to i64
@@ -652,7 +652,7 @@ sw.bb87:                                          ; preds = %entry, %entry, %ent
   %54 = load i32, ptr %arrayidx1.i117, align 4
   %tobool.i118 = icmp ne i32 %54, 0
   %lnot.ext.i119 = zext i1 %tobool.i118 to i32
-  tail call void @qemu_set_irq(ptr noundef %53, i32 noundef %lnot.ext.i119) #8
+  tail call void @qemu_set_irq(ptr noundef %53, i32 noundef %lnot.ext.i119) #9
   %num_priority_queues.i120 = getelementptr inbounds i8, ptr %opaque, i64 9472
   %55 = load i8, ptr %num_priority_queues.i120, align 16
   %cmp9.i121 = icmp ugt i8 %55, 1
@@ -667,7 +667,7 @@ for.body.i123:                                    ; preds = %sw.bb87, %for.body.
   %58 = load i32, ptr %arrayidx8.i126, align 4
   %tobool9.i127 = icmp ne i32 %58, 0
   %lnot.ext13.i128 = zext i1 %tobool9.i127 to i32
-  tail call void @qemu_set_irq(ptr noundef %56, i32 noundef %lnot.ext13.i128) #8
+  tail call void @qemu_set_irq(ptr noundef %56, i32 noundef %lnot.ext13.i128) #9
   %indvars.iv.next.i129 = add nuw nsw i64 %indvars.iv.i124, 1
   %59 = load i8, ptr %num_priority_queues.i120, align 16
   %60 = zext i8 %59 to i64
@@ -685,7 +685,7 @@ sw.bb96:                                          ; preds = %entry
   %63 = load i32, ptr %arrayidx1.i134, align 4
   %tobool.i135 = icmp ne i32 %63, 0
   %lnot.ext.i136 = zext i1 %tobool.i135 to i32
-  tail call void @qemu_set_irq(ptr noundef %62, i32 noundef %lnot.ext.i136) #8
+  tail call void @qemu_set_irq(ptr noundef %62, i32 noundef %lnot.ext.i136) #9
   %num_priority_queues.i137 = getelementptr inbounds i8, ptr %opaque, i64 9472
   %64 = load i8, ptr %num_priority_queues.i137, align 16
   %cmp9.i138 = icmp ugt i8 %64, 1
@@ -700,7 +700,7 @@ for.body.i140:                                    ; preds = %sw.bb96, %for.body.
   %67 = load i32, ptr %arrayidx8.i143, align 4
   %tobool9.i144 = icmp ne i32 %67, 0
   %lnot.ext13.i145 = zext i1 %tobool9.i144 to i32
-  tail call void @qemu_set_irq(ptr noundef %65, i32 noundef %lnot.ext13.i145) #8
+  tail call void @qemu_set_irq(ptr noundef %65, i32 noundef %lnot.ext13.i145) #9
   %indvars.iv.next.i146 = add nuw nsw i64 %indvars.iv.i141, 1
   %68 = load i8, ptr %num_priority_queues.i137, align 16
   %69 = zext i8 %68 to i64
@@ -719,7 +719,7 @@ sw.bb102:                                         ; preds = %entry, %entry, %ent
   %72 = load i32, ptr %arrayidx1.i151, align 4
   %tobool.i152 = icmp ne i32 %72, 0
   %lnot.ext.i153 = zext i1 %tobool.i152 to i32
-  tail call void @qemu_set_irq(ptr noundef %71, i32 noundef %lnot.ext.i153) #8
+  tail call void @qemu_set_irq(ptr noundef %71, i32 noundef %lnot.ext.i153) #9
   %num_priority_queues.i154 = getelementptr inbounds i8, ptr %opaque, i64 9472
   %73 = load i8, ptr %num_priority_queues.i154, align 16
   %cmp9.i155 = icmp ugt i8 %73, 1
@@ -734,7 +734,7 @@ for.body.i157:                                    ; preds = %sw.bb102, %for.body
   %76 = load i32, ptr %arrayidx8.i160, align 4
   %tobool9.i161 = icmp ne i32 %76, 0
   %lnot.ext13.i162 = zext i1 %tobool9.i161 to i32
-  tail call void @qemu_set_irq(ptr noundef %74, i32 noundef %lnot.ext13.i162) #8
+  tail call void @qemu_set_irq(ptr noundef %74, i32 noundef %lnot.ext13.i162) #9
   %indvars.iv.next.i163 = add nuw nsw i64 %indvars.iv.i158, 1
   %77 = load i8, ptr %num_priority_queues.i154, align 16
   %78 = zext i8 %77 to i64
@@ -837,7 +837,7 @@ if.then.i.i:                                      ; preds = %sw.bb.i.i168
   store i16 -31605, ptr %arrayidx36.i.i.i, align 2
   %nic.i.i.i.i = getelementptr inbounds i8, ptr %opaque, i64 1184
   %85 = load ptr, ptr %nic.i.i.i.i, align 16
-  %call.i.i.i.i = tail call ptr @qemu_get_queue(ptr noundef %85) #8
+  %call.i.i.i.i = tail call ptr @qemu_get_queue(ptr noundef %85) #9
   %link_down.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
   %86 = load i32, ptr %link_down.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq i32 %86, 0
@@ -923,7 +923,7 @@ gem_get_rx_desc_addr.exit:                        ; preds = %entry, %if.then.i.i
   %conv11.i.i = zext i32 %cond10.i.i to i64
   %or.i.i = or disjoint i64 %desc_addr.0.i.i, %conv11.i.i
   %dma_as = getelementptr inbounds i8, ptr %s, i64 1096
-  %call13.i = tail call i32 @address_space_read_full(ptr noundef nonnull %dma_as, i64 noundef %or.i.i, i32 1, ptr noundef %arrayidx, i64 noundef %mul) #8
+  %call13.i = tail call i32 @address_space_read_full(ptr noundef nonnull %dma_as, i64 noundef %or.i.i, i32 1, ptr noundef %arrayidx, i64 noundef %mul) #9
   %arrayidx.val = load i32, ptr %arrayidx, align 4
   %and.i40 = and i32 %arrayidx.val, 1
   %cmp.not = icmp eq i32 %and.i40, 0
@@ -957,7 +957,7 @@ do.end37:                                         ; preds = %gem_get_rx_desc_add
   %9 = load i32, ptr %arrayidx2.i, align 4
   %tobool.i = icmp ne i32 %9, 0
   %lnot.ext.i = zext i1 %tobool.i to i32
-  tail call void @qemu_set_irq(ptr noundef %8, i32 noundef %lnot.ext.i) #8
+  tail call void @qemu_set_irq(ptr noundef %8, i32 noundef %lnot.ext.i) #9
   %num_priority_queues.i = getelementptr inbounds i8, ptr %s, i64 9472
   %10 = load i8, ptr %num_priority_queues.i, align 16
   %cmp9.i = icmp ugt i8 %10, 1
@@ -972,7 +972,7 @@ for.body.i:                                       ; preds = %do.end37, %for.body
   %13 = load i32, ptr %arrayidx8.i, align 4
   %tobool9.i = icmp ne i32 %13, 0
   %lnot.ext13.i = zext i1 %tobool9.i to i32
-  tail call void @qemu_set_irq(ptr noundef %11, i32 noundef %lnot.ext13.i) #8
+  tail call void @qemu_set_irq(ptr noundef %11, i32 noundef %lnot.ext13.i) #9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %14 = load i8, ptr %num_priority_queues.i, align 16
   %15 = zext i8 %14 to i64
@@ -1063,7 +1063,7 @@ gem_get_tx_desc_addr.exit:                        ; preds = %for.body, %if.then.
   %ret.1.i = add nuw nsw i32 %spec.select.i, %10
   %11 = shl nuw nsw i32 %ret.1.i, 2
   %mul = zext nneg i32 %11 to i64
-  %call13.i410 = call i32 @address_space_read_full(ptr noundef nonnull %dma_as, i64 noundef %or.i.i, i32 1, ptr noundef nonnull %desc, i64 noundef %mul) #8
+  %call13.i410 = call i32 @address_space_read_full(ptr noundef nonnull %dma_as, i64 noundef %or.i.i, i32 1, ptr noundef nonnull %desc, i64 noundef %mul) #9
   %desc.val545 = load i32, ptr %3, align 4
   %cmp38546 = icmp sgt i32 %desc.val545, -1
   br i1 %cmp38546, label %while.body.lr.ph, label %if.then326
@@ -1136,7 +1136,7 @@ if.then4.i:                                       ; preds = %if.then.i
   br i1 %cmp.i.not.i, label %gem_get_max_buf_len.exit, label %if.then11.i
 
 if.then11.i:                                      ; preds = %if.then4.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.14, i32 noundef %conv.i215) #8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.14, i32 noundef %conv.i215) #9
   br label %gem_get_max_buf_len.exit
 
 gem_get_max_buf_len.exit:                         ; preds = %if.end59, %if.then.i, %if.then4.i, %if.then11.i
@@ -1170,14 +1170,14 @@ if.then.i223:                                     ; preds = %if.then76
   br i1 %cmp.i227, label %if.then11.i232, label %gem_get_max_buf_len.exit234
 
 if.then11.i232:                                   ; preds = %if.then.i223
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.14, i32 noundef %conv.i226) #8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.14, i32 noundef %conv.i226) #9
   br label %gem_get_max_buf_len.exit234
 
 gem_get_max_buf_len.exit234:                      ; preds = %if.then76, %if.then.i223, %if.then11.i232
   %size.0.i228 = phi i32 [ %conv.i226, %if.then11.i232 ], [ %28, %if.then.i223 ], [ 1518, %if.then76 ]
   %conv80 = zext nneg i32 %size.0.i228 to i64
   %sub86 = sub i64 %conv80, %sub.ptr.sub
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.13, i64 noundef %packet_desc_addr.0547, i32 noundef %and.i220, i64 noundef %sub86) #8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.13, i64 noundef %packet_desc_addr.0547, i32 noundef %and.i220, i64 noundef %sub86) #9
   %desc.val187.pre.pre = load i32, ptr %3, align 4
   br label %while.end
 
@@ -1197,7 +1197,7 @@ if.end89:                                         ; preds = %gem_get_max_buf_len
   %desc.val192 = load i32, ptr %desc, align 16
   %conv.i241 = zext i32 %desc.val192 to i64
   %ret.0.i246 = or disjoint i64 %or.i245, %conv.i241
-  %call13.i379 = call i32 @address_space_read_full(ptr noundef nonnull %dma_as, i64 noundef %ret.0.i246, i32 %bf.clear98, ptr noundef %p.1549, i64 noundef %conv126) #8
+  %call13.i379 = call i32 @address_space_read_full(ptr noundef nonnull %dma_as, i64 noundef %ret.0.i246, i32 %bf.clear98, ptr noundef %p.1549, i64 noundef %conv126) #9
   %desc.val198 = load i32, ptr %3, align 4
   %and.i281 = and i32 %desc.val198, 8191
   %idx.ext = zext nneg i32 %and.i281 to i64
@@ -1226,7 +1226,7 @@ gem_get_tx_desc_addr.exit296:                     ; preds = %if.then136, %if.the
   %or.i.i295 = or disjoint i64 %desc_addr.0.i.i289, %conv11.i.i294
   %bf.set142 = and i32 %.compoundliteral139.sroa.0.1552, -67108864
   %bf.clear144 = or disjoint i32 %bf.set142, 1
-  %call.i.i297 = call ptr @get_ptr_rcu_reader() #8
+  %call.i.i297 = call ptr @get_ptr_rcu_reader() #9
   %depth.i.i298 = getelementptr inbounds i8, ptr %call.i.i297, i64 12
   %36 = load i32, ptr %depth.i.i298, align 4
   %inc.i.i299 = add i32 %36, 1
@@ -1238,16 +1238,16 @@ while.end.i.i301:                                 ; preds = %gem_get_tx_desc_add
   %37 = load atomic i64, ptr @rcu_gp_ctr monotonic, align 8
   %conv8.i.i302 = and i64 %37, 4294967295
   store atomic i64 %conv8.i.i302, ptr %call.i.i297 monotonic, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !13
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !13
   fence seq_cst
   br label %rcu_read_auto_lock.exit303
 
 rcu_read_auto_lock.exit303:                       ; preds = %gem_get_tx_desc_addr.exit296, %while.end.i.i301
   %38 = load atomic i64, ptr %current_map.i monotonic, align 8
   %39 = inttoptr i64 %38 to ptr
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !14
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !14
   store i64 24, ptr %l.i341, align 8
-  %call4.i355 = call ptr @flatview_translate(ptr noundef %39, i64 noundef %or.i.i295, ptr noundef nonnull %addr1.i342, ptr noundef nonnull %l.i341, i1 noundef zeroext false, i32 %bf.clear144) #8
+  %call4.i355 = call ptr @flatview_translate(ptr noundef %39, i64 noundef %or.i.i295, ptr noundef nonnull %addr1.i342, ptr noundef nonnull %l.i341, i1 noundef zeroext false, i32 %bf.clear144) #9
   %40 = load i64, ptr %l.i341, align 8
   %cmp.i356 = icmp eq i64 %40, 24
   br i1 %cmp.i356, label %land.lhs.true.i360, label %if.else.i357
@@ -1259,7 +1259,7 @@ land.lhs.true.i360:                               ; preds = %rcu_read_auto_lock.
   br i1 %tobool.i.i306, label %land.lhs.true6.i313, label %lor.rhs.i307
 
 land.lhs.true6.i313:                              ; preds = %land.lhs.true.i360
-  %call7.i314 = call zeroext i1 @memory_region_is_ram_device(ptr noundef nonnull %call4.i355) #8
+  %call7.i314 = call zeroext i1 @memory_region_is_ram_device(ptr noundef nonnull %call4.i355) #9
   br i1 %call7.i314, label %lor.rhs.i307, label %if.then6.i362
 
 lor.rhs.i307:                                     ; preds = %land.lhs.true6.i313, %land.lhs.true.i360
@@ -1278,25 +1278,25 @@ if.then6.i362:                                    ; preds = %land.lhs.true6.i313
   %ram_block.i363 = getelementptr inbounds i8, ptr %call4.i355, i64 56
   %44 = load ptr, ptr %ram_block.i363, align 8
   %45 = load i64, ptr %addr1.i342, align 8
-  %call7.i364 = call ptr @qemu_map_ram_ptr(ptr noundef %44, i64 noundef %45) #8
+  %call7.i364 = call ptr @qemu_map_ram_ptr(ptr noundef %44, i64 noundef %45) #9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %desc_first, ptr noundef nonnull align 1 dereferenceable(24) %call7.i364, i64 24, i1 false)
   br label %if.then.i.i317
 
 if.else.i357:                                     ; preds = %lor.rhs.i307, %memory_access_is_direct.exit315, %rcu_read_auto_lock.exit303
   %46 = load i64, ptr %addr1.i342, align 8
   %47 = load i64, ptr %l.i341, align 8
-  %call9.i358 = call i32 @flatview_read_continue(ptr noundef %39, i64 noundef %or.i.i295, i32 %bf.clear144, ptr noundef nonnull %desc_first, i64 noundef 24, i64 noundef %46, i64 noundef %47, ptr noundef %call4.i355) #8
+  %call9.i358 = call i32 @flatview_read_continue(ptr noundef %39, i64 noundef %or.i.i295, i32 %bf.clear144, ptr noundef nonnull %desc_first, i64 noundef 24, i64 noundef %46, i64 noundef %47, ptr noundef %call4.i355) #9
   br label %if.then.i.i317
 
 if.then.i.i317:                                   ; preds = %if.then6.i362, %if.else.i357
-  %call.i.i.i.i318 = call ptr @get_ptr_rcu_reader() #8
+  %call.i.i.i.i318 = call ptr @get_ptr_rcu_reader() #9
   %depth.i.i.i.i319 = getelementptr inbounds i8, ptr %call.i.i.i.i318, i64 12
   %48 = load i32, ptr %depth.i.i.i.i319, align 4
   %cmp.not.i.i.i.i320 = icmp eq i32 %48, 0
   br i1 %cmp.not.i.i.i.i320, label %if.else.i.i.i.i328, label %if.end.i.i.i.i321
 
 if.else.i.i.i.i328:                               ; preds = %if.then.i.i317
-  call void @__assert_fail(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.8, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #9
+  call void @__assert_fail(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.8, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #10
   unreachable
 
 if.end.i.i.i.i321:                                ; preds = %if.then.i.i317
@@ -1307,7 +1307,7 @@ if.end.i.i.i.i321:                                ; preds = %if.then.i.i317
 
 while.end.i.i.i.i324:                             ; preds = %if.end.i.i.i.i321
   store atomic i64 0, ptr %call.i.i.i.i318 release, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !15
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !15
   fence seq_cst
   %waiting.i.i.i.i325 = getelementptr inbounds i8, ptr %call.i.i.i.i318, i64 8
   %49 = load atomic i8, ptr %waiting.i.i.i.i325 monotonic, align 8
@@ -1316,7 +1316,7 @@ while.end.i.i.i.i324:                             ; preds = %if.end.i.i.i.i321
 
 while.end21.i.i.i.i327:                           ; preds = %while.end.i.i.i.i324
   store atomic i8 0, ptr %waiting.i.i.i.i325 monotonic, align 8
-  call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #8
+  call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #9
   br label %glib_autoptr_cleanup_RCUReadAuto.exit329
 
 glib_autoptr_cleanup_RCUReadAuto.exit329:         ; preds = %if.end.i.i.i.i321, %while.end.i.i.i.i324, %while.end21.i.i.i.i327
@@ -1325,7 +1325,7 @@ glib_autoptr_cleanup_RCUReadAuto.exit329:         ; preds = %if.end.i.i.i.i321, 
   store i32 %or.i331, ptr %arrayidx.i330, align 4
   %bf.set178 = and i32 %.compoundliteral175.sroa.0.1553, -67108864
   %bf.clear180 = or disjoint i32 %bf.set178, 1
-  %call208 = call i32 @address_space_write(ptr noundef nonnull %dma_as, i64 noundef %or.i.i295, i32 %bf.clear180, ptr noundef nonnull %desc_first, i64 noundef 24) #8
+  %call208 = call i32 @address_space_write(ptr noundef nonnull %dma_as, i64 noundef %or.i.i295, i32 %bf.clear180, ptr noundef nonnull %desc_first, i64 noundef 24) #9
   %desc.val201 = load i32, ptr %3, align 4
   %51 = and i32 %desc.val201, 1073741824
   %tobool211.not = icmp eq i32 %51, 0
@@ -1347,7 +1347,7 @@ sw.bb1.i.i:                                       ; preds = %if.then212, %if.the
   br label %gem_get_tx_queue_base_addr.exit
 
 do.body.i.i:                                      ; preds = %if.then212
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.12, i32 noundef 982, ptr noundef nonnull @__func__.gem_get_queue_base_addr, ptr noundef null) #9
+  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.12, i32 noundef 982, ptr noundef nonnull @__func__.gem_get_queue_base_addr, ptr noundef null) #10
   unreachable
 
 gem_get_tx_queue_base_addr.exit:                  ; preds = %if.then212, %sw.bb1.i.i
@@ -1384,7 +1384,7 @@ do.end225:                                        ; preds = %if.else, %gem_get_t
   %58 = load i32, ptr %arrayidx2.i359, align 4
   %tobool.i = icmp ne i32 %58, 0
   %lnot.ext.i = zext i1 %tobool.i to i32
-  call void @qemu_set_irq(ptr noundef %57, i32 noundef %lnot.ext.i) #8
+  call void @qemu_set_irq(ptr noundef %57, i32 noundef %lnot.ext.i) #9
   %59 = load i8, ptr %num_priority_queues, align 16
   %cmp9.i = icmp ugt i8 %59, 1
   br i1 %cmp9.i, label %for.body.i, label %gem_update_int_status.exit
@@ -1398,7 +1398,7 @@ for.body.i:                                       ; preds = %do.end225, %for.bod
   %62 = load i32, ptr %arrayidx8.i, align 4
   %tobool9.i = icmp ne i32 %62, 0
   %lnot.ext13.i = zext i1 %tobool9.i to i32
-  call void @qemu_set_irq(ptr noundef %60, i32 noundef %lnot.ext13.i) #8
+  call void @qemu_set_irq(ptr noundef %60, i32 noundef %lnot.ext13.i) #9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %63 = load i8, ptr %num_priority_queues, align 16
   %64 = zext i8 %63 to i64
@@ -1412,7 +1412,7 @@ gem_update_int_status.exit:                       ; preds = %for.body.i, %do.end
   br i1 %tobool231.not, label %if.end235, label %if.then232
 
 if.then232:                                       ; preds = %gem_update_int_status.exit
-  call void @net_checksum_calculate(ptr noundef nonnull %tx_packet, i32 noundef %add, i32 noundef 7) #8
+  call void @net_checksum_calculate(ptr noundef nonnull %tx_packet, i32 noundef %add, i32 noundef 7) #9
   br label %if.end235
 
 if.end235:                                        ; preds = %if.then232, %gem_update_int_status.exit
@@ -1496,14 +1496,14 @@ lor.lhs.false240:                                 ; preds = %gem_transmit_update
 
 if.then245:                                       ; preds = %lor.lhs.false240, %gem_transmit_updatestats.exit
   %77 = load ptr, ptr %nic, align 16
-  %call246 = call ptr @qemu_get_queue(ptr noundef %77) #8
-  %call249 = call i64 @qemu_receive_packet(ptr noundef %call246, ptr noundef nonnull %tx_packet, i32 noundef %add) #8
+  %call246 = call ptr @qemu_get_queue(ptr noundef %77) #9
+  %call249 = call i64 @qemu_receive_packet(ptr noundef %call246, ptr noundef nonnull %tx_packet, i32 noundef %add) #9
   br label %if.end259
 
 if.else250:                                       ; preds = %lor.lhs.false240
   %78 = load ptr, ptr %nic, align 16
-  %call252 = call ptr @qemu_get_queue(ptr noundef %78) #8
-  %call255 = call i64 @qemu_send_packet(ptr noundef %call252, ptr noundef nonnull %tx_packet, i32 noundef %add) #8
+  %call252 = call ptr @qemu_get_queue(ptr noundef %78) #9
+  %call255 = call i64 @qemu_send_packet(ptr noundef %call252, ptr noundef nonnull %tx_packet, i32 noundef %add) #9
   br label %if.end259
 
 if.end259:                                        ; preds = %if.then245, %if.else250, %if.end89
@@ -1545,7 +1545,7 @@ sw.bb1.i.i385:                                    ; preds = %if.end273, %if.end2
   br label %gem_get_tx_queue_base_addr.exit395
 
 do.body.i.i394:                                   ; preds = %if.end273
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.12, i32 noundef 982, ptr noundef nonnull @__func__.gem_get_queue_base_addr, ptr noundef null) #9
+  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.12, i32 noundef 982, ptr noundef nonnull @__func__.gem_get_queue_base_addr, ptr noundef null) #10
   unreachable
 
 gem_get_tx_queue_base_addr.exit395:               ; preds = %if.end273, %sw.bb1.i.i385
@@ -1576,7 +1576,7 @@ do.end284:                                        ; preds = %if.else277, %gem_ge
   %packet_desc_addr.2 = phi i64 [ %add281, %if.else277 ], [ %or276, %gem_get_tx_queue_base_addr.exit395 ]
   %bf.set289 = and i32 %.compoundliteral286.sroa.0.1554, -67108864
   %bf.clear291 = or disjoint i32 %bf.set289, 1
-  %call13.i = call i32 @address_space_read_full(ptr noundef nonnull %dma_as, i64 noundef %packet_desc_addr.2, i32 %bf.clear291, ptr noundef nonnull %desc, i64 noundef %mul320.pre-phi) #8
+  %call13.i = call i32 @address_space_read_full(ptr noundef nonnull %dma_as, i64 noundef %packet_desc_addr.2, i32 %bf.clear291, ptr noundef nonnull %desc, i64 noundef %mul320.pre-phi) #9
   %desc.val = load i32, ptr %3, align 4
   %cmp38 = icmp sgt i32 %desc.val, -1
   br i1 %cmp38, label %while.body, label %if.then326, !llvm.loop !16
@@ -1619,7 +1619,7 @@ if.end333:                                        ; preds = %if.then332, %if.the
   %86 = load ptr, ptr %irq.i, align 16
   %tobool.i455 = icmp ne i32 %85, 0
   %lnot.ext.i456 = zext i1 %tobool.i455 to i32
-  call void @qemu_set_irq(ptr noundef %86, i32 noundef %lnot.ext.i456) #8
+  call void @qemu_set_irq(ptr noundef %86, i32 noundef %lnot.ext.i456) #9
   %87 = load i8, ptr %num_priority_queues, align 16
   %cmp9.i458 = icmp ugt i8 %87, 1
   br i1 %cmp9.i458, label %for.body.i459, label %for.inc
@@ -1633,7 +1633,7 @@ for.body.i459:                                    ; preds = %if.end333, %for.bod
   %90 = load i32, ptr %arrayidx8.i462, align 4
   %tobool9.i463 = icmp ne i32 %90, 0
   %lnot.ext13.i464 = zext i1 %tobool9.i463 to i32
-  call void @qemu_set_irq(ptr noundef %88, i32 noundef %lnot.ext13.i464) #8
+  call void @qemu_set_irq(ptr noundef %88, i32 noundef %lnot.ext13.i464) #9
   %indvars.iv.next.i465 = add nuw nsw i64 %indvars.iv.i460, 1
   %91 = load i8, ptr %num_priority_queues, align 16
   %92 = zext i8 %91 to i64
@@ -1657,7 +1657,7 @@ for.end:                                          ; preds = %for.inc, %while.bod
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef zeroext i1 @gem_can_receive(ptr noundef %nc) #0 {
 entry:
-  %call = tail call ptr @qemu_get_nic_opaque(ptr noundef %nc) #8
+  %call = tail call ptr @qemu_get_nic_opaque(ptr noundef %nc) #9
   %regs = getelementptr inbounds i8, ptr %call, i64 9484
   %0 = load i32, ptr %regs, align 4
   %1 = and i32 %0, 4
@@ -1775,7 +1775,7 @@ declare ptr @qemu_get_nic_opaque(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @gem_realize(ptr noundef %dev, ptr noundef %errp) #0 {
 entry:
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 30, ptr noundef nonnull @__func__.CADENCE_GEM) #8
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 30, ptr noundef nonnull @__func__.CADENCE_GEM) #9
   %dma_as = getelementptr inbounds i8, ptr %call.i, i64 1096
   %dma_mr = getelementptr inbounds i8, ptr %call.i, i64 1088
   %0 = load ptr, ptr %dma_mr, align 16
@@ -1783,12 +1783,12 @@ entry:
   br i1 %tobool.not, label %cond.false, label %cond.end
 
 cond.false:                                       ; preds = %entry
-  %call2 = tail call ptr @get_system_memory() #8
+  %call2 = tail call ptr @get_system_memory() #9
   br label %cond.end
 
 cond.end:                                         ; preds = %entry, %cond.false
   %cond = phi ptr [ %call2, %cond.false ], [ %0, %entry ]
-  tail call void @address_space_init(ptr noundef nonnull %dma_as, ptr noundef %cond, ptr noundef nonnull @.str.16) #8
+  tail call void @address_space_init(ptr noundef nonnull %dma_as, ptr noundef %cond, ptr noundef nonnull @.str.16) #9
   %num_priority_queues = getelementptr inbounds i8, ptr %call.i, i64 9472
   %1 = load i8, ptr %num_priority_queues, align 16
   %2 = add i8 %1, -9
@@ -1797,7 +1797,7 @@ cond.end:                                         ; preds = %entry, %cond.false
 
 if.then:                                          ; preds = %cond.end
   %conv9 = zext i8 %1 to i32
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.12, i32 noundef 1727, ptr noundef nonnull @__func__.gem_realize, ptr noundef nonnull @.str.17, i32 noundef %conv9) #8
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.12, i32 noundef 1727, ptr noundef nonnull @__func__.gem_realize, ptr noundef nonnull @.str.17, i32 noundef %conv9) #9
   br label %if.end37
 
 if.else:                                          ; preds = %cond.end
@@ -1808,7 +1808,7 @@ if.else:                                          ; preds = %cond.end
 
 if.then13:                                        ; preds = %if.else
   %conv10 = zext i8 %3 to i32
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.12, i32 noundef 1731, ptr noundef nonnull @__func__.gem_realize, ptr noundef nonnull @.str.18, i32 noundef %conv10) #8
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.12, i32 noundef 1731, ptr noundef nonnull @__func__.gem_realize, ptr noundef nonnull @.str.18, i32 noundef %conv10) #9
   br label %if.end37
 
 if.else16:                                        ; preds = %if.else
@@ -1823,14 +1823,14 @@ for.body.lr.ph:                                   ; preds = %if.else16
 
 if.then20:                                        ; preds = %if.else16
   %conv17 = zext i8 %4 to i32
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.12, i32 noundef 1735, ptr noundef nonnull @__func__.gem_realize, ptr noundef nonnull @.str.19, i32 noundef %conv17) #8
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.12, i32 noundef 1735, ptr noundef nonnull @__func__.gem_realize, ptr noundef nonnull @.str.19, i32 noundef %conv17) #9
   br label %if.end37
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %call.i26 = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.15, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #8
+  %call.i26 = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.15, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #9
   %arrayidx = getelementptr [8 x ptr], ptr %irq, i64 0, i64 %indvars.iv
-  tail call void @sysbus_init_irq(ptr noundef %call.i26, ptr noundef %arrayidx) #8
+  tail call void @sysbus_init_irq(ptr noundef %call.i26, ptr noundef %arrayidx) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %5 = load i8, ptr %num_priority_queues, align 16
   %6 = zext i8 %5 to i64
@@ -1839,12 +1839,12 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 for.end:                                          ; preds = %for.body
   %conf = getelementptr inbounds i8, ptr %call.i, i64 1192
-  tail call void @qemu_macaddr_default_if_unset(ptr noundef nonnull %conf) #8
-  %call31 = tail call ptr @object_get_typename(ptr noundef %dev) #8
+  tail call void @qemu_macaddr_default_if_unset(ptr noundef nonnull %conf) #9
+  %call31 = tail call ptr @object_get_typename(ptr noundef %dev) #9
   %id = getelementptr inbounds i8, ptr %dev, i64 40
   %7 = load ptr, ptr %id, align 8
   %mem_reentrancy_guard = getelementptr inbounds i8, ptr %dev, i64 152
-  %call32 = tail call ptr @qemu_new_nic(ptr noundef nonnull @net_gem_info, ptr noundef nonnull %conf, ptr noundef %call31, ptr noundef %7, ptr noundef nonnull %mem_reentrancy_guard, ptr noundef nonnull %call.i) #8
+  %call32 = tail call ptr @qemu_new_nic(ptr noundef nonnull @net_gem_info, ptr noundef nonnull %conf, ptr noundef %call31, ptr noundef %7, ptr noundef nonnull %mem_reentrancy_guard, ptr noundef nonnull %call.i) #9
   %nic = getelementptr inbounds i8, ptr %call.i, i64 1184
   store ptr %call32, ptr %nic, align 16
   %jumbo_max_len = getelementptr inbounds i8, ptr %call.i, i64 9480
@@ -1853,7 +1853,7 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp34, label %if.then36, label %if.end37
 
 if.then36:                                        ; preds = %for.end
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.12, i32 noundef 1751, ptr noundef nonnull @__func__.gem_realize, ptr noundef nonnull @.str.20, i32 noundef 16383) #8
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.12, i32 noundef 1751, ptr noundef nonnull @__func__.gem_realize, ptr noundef nonnull @.str.20, i32 noundef 16383) #9
   br label %if.end37
 
 if.end37:                                         ; preds = %if.then36, %for.end, %if.then20, %if.then13, %if.then
@@ -1865,7 +1865,7 @@ declare void @device_class_set_props(ptr noundef, ptr noundef) local_unnamed_add
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @gem_reset(ptr noundef %d) #0 {
 entry:
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %d, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 30, ptr noundef nonnull @__func__.CADENCE_GEM) #8
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %d, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 30, ptr noundef nonnull @__func__.CADENCE_GEM) #9
   %regs = getelementptr inbounds i8, ptr %call.i, i64 9484
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(2048) %regs, i8 0, i64 2048, i1 false)
   %arrayidx2 = getelementptr i8, ptr %call.i, i64 9488
@@ -1957,7 +1957,7 @@ if.end:                                           ; preds = %if.then, %entry
   store i16 -31605, ptr %arrayidx36.i, align 2
   %nic.i.i = getelementptr inbounds i8, ptr %call.i, i64 1184
   %7 = load ptr, ptr %nic.i.i, align 16
-  %call.i.i = tail call ptr @qemu_get_queue(ptr noundef %7) #8
+  %call.i.i = tail call ptr @qemu_get_queue(ptr noundef %7) #9
   %link_down.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   %8 = load i32, ptr %link_down.i.i, align 8
   %tobool.not.i.i = icmp eq i32 %8, 0
@@ -1977,7 +1977,7 @@ if.end:                                           ; preds = %if.then, %entry
   %14 = load i32, ptr %arrayidx1.i, align 4
   %tobool.i = icmp ne i32 %14, 0
   %lnot.ext.i = zext i1 %tobool.i to i32
-  tail call void @qemu_set_irq(ptr noundef %13, i32 noundef %lnot.ext.i) #8
+  tail call void @qemu_set_irq(ptr noundef %13, i32 noundef %lnot.ext.i) #9
   %15 = load i8, ptr %num_priority_queues, align 16
   %cmp9.i = icmp ugt i8 %15, 1
   br i1 %cmp9.i, label %for.body.i, label %gem_update_int_status.exit
@@ -1991,7 +1991,7 @@ for.body.i:                                       ; preds = %if.end, %for.body.i
   %18 = load i32, ptr %arrayidx8.i34, align 4
   %tobool9.i = icmp ne i32 %18, 0
   %lnot.ext13.i = zext i1 %tobool9.i to i32
-  tail call void @qemu_set_irq(ptr noundef %16, i32 noundef %lnot.ext13.i) #8
+  tail call void @qemu_set_irq(ptr noundef %16, i32 noundef %lnot.ext13.i) #9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %19 = load i8, ptr %num_priority_queues, align 16
   %20 = zext i8 %19 to i64
@@ -2021,7 +2021,7 @@ declare ptr @object_get_typename(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @gem_receive(ptr noundef %nc, ptr noundef %buf, i64 noundef %size) #0 {
 entry:
-  %call = tail call ptr @qemu_get_nic_opaque(ptr noundef %nc) #8
+  %call = tail call ptr @qemu_get_nic_opaque(ptr noundef %nc) #9
   %arrayidx.i = getelementptr i8, ptr %call, i64 9488
   %0 = load i32, ptr %arrayidx.i, align 4
   %1 = and i32 %0, 16
@@ -2225,7 +2225,7 @@ if.else:                                          ; preds = %if.end16
   %add.ptr = getelementptr i8, ptr %rx_packet, i64 %spec.store.select1
   %sub = xor i64 %spec.store.select1, 16383
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr, i8 0, i64 %sub, i1 false)
-  %call51 = tail call i64 @crc32(i64 noundef 0, ptr noundef nonnull %rx_packet, i32 noundef %conv41) #8
+  %call51 = tail call i64 @crc32(i64 noundef 0, ptr noundef nonnull %rx_packet, i32 noundef %conv41) #9
   %conv52 = trunc i64 %call51 to i32
   store i32 %conv52, ptr %add.ptr, align 1
   %add = add nuw nsw i32 %conv41, 4
@@ -2353,7 +2353,7 @@ do.body.i:                                        ; preds = %if.then42.i
   br i1 %cmp.i.not.i, label %if.end62.i, label %if.then60.i
 
 if.then60.i:                                      ; preds = %do.body.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.22, i32 noundef %and.i60.i) #8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.22, i32 noundef %and.i60.i) #9
   br label %if.end62.i
 
 if.end62.i:                                       ; preds = %if.then60.i, %do.body.i, %if.then42.i
@@ -2396,7 +2396,7 @@ do.body91.i:                                      ; preds = %if.end85.i
   br i1 %cmp.i73.not.i, label %if.end102.i, label %if.then99.i
 
 if.then99.i:                                      ; preds = %do.body91.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.23, i32 noundef %and.i64.i) #8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.23, i32 noundef %and.i64.i) #9
   br label %if.end102.i
 
 if.end102.i:                                      ; preds = %if.then99.i, %do.body91.i, %if.end85.i
@@ -2427,7 +2427,7 @@ do.body115.i:                                     ; preds = %if.end102.i
   br i1 %cmp.i79.not.i, label %do.end125.i, label %if.then123.i
 
 if.then123.i:                                     ; preds = %do.body115.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.24) #8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.24) #9
   br label %do.end125.i
 
 do.end125.i:                                      ; preds = %if.then123.i, %do.body115.i
@@ -2503,7 +2503,7 @@ if.then4.i:                                       ; preds = %if.then.i144
   br i1 %cmp.i.not.i146, label %gem_get_max_buf_len.exit, label %if.then11.i
 
 if.then11.i:                                      ; preds = %if.then4.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.14, i32 noundef %conv.i) #8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.14, i32 noundef %conv.i) #9
   br label %gem_get_max_buf_len.exit
 
 if.else.i:                                        ; preds = %get_queue_from_screen.exit
@@ -2554,7 +2554,7 @@ do.body65:                                        ; preds = %gem_get_max_buf_len
   br i1 %cmp.i149.not, label %do.end72, label %if.then70
 
 if.then70:                                        ; preds = %do.body65
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.21) #8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.21) #9
   br label %do.end72
 
 do.end72:                                         ; preds = %do.body65, %if.then70
@@ -2582,7 +2582,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %bytes_to_copy.1275 = phi i32 [ %bytes_to_copy.0, %while.body.lr.ph ], [ %sub136, %if.end248 ]
   %rxbuf_ptr.1274 = phi ptr [ %rxbuf_ptr.0, %while.body.lr.ph ], [ %add.ptr128, %if.end248 ]
   %65 = phi i32 [ 16384, %while.body.lr.ph ], [ 0, %if.end248 ]
-  %call.i = tail call ptr @qemu_get_nic_opaque(ptr noundef %nc) #8
+  %call.i = tail call ptr @qemu_get_nic_opaque(ptr noundef %nc) #9
   %regs.i157 = getelementptr inbounds i8, ptr %call.i, i64 9484
   %66 = load i32, ptr %regs.i157, align 4
   %67 = and i32 %66, 4
@@ -2674,7 +2674,7 @@ rx_desc_get_buffer.exit:                          ; preds = %do.end79, %if.then.
   %add84 = add i64 %ret.0.i, %conv83
   %cond118 = tail call i32 @llvm.umin.i32(i32 %bytes_to_copy.1275, i32 %spec.store.select)
   %conv119 = zext nneg i32 %cond118 to i64
-  %call120 = tail call i32 @address_space_write(ptr noundef nonnull %dma_as, i64 noundef %add84, i32 1, ptr noundef %rxbuf_ptr.1274, i64 noundef %conv119) #8
+  %call120 = tail call i32 @address_space_write(ptr noundef nonnull %dma_as, i64 noundef %add84, i32 1, ptr noundef %rxbuf_ptr.1274, i64 noundef %conv119) #9
   %add.ptr128 = getelementptr i8, ptr %rxbuf_ptr.1274, i64 %conv119
   %sub136 = sub i32 %bytes_to_copy.1275, %cond118
   %cmp148 = icmp eq i32 %sub136, 0
@@ -2706,7 +2706,7 @@ sw.bb175:                                         ; preds = %rx_desc_get_buffer.
   br label %sw.epilog.sink.split
 
 sw.bb180:                                         ; preds = %rx_desc_get_buffer.exit
-  tail call void @abort() #9
+  tail call void @abort() #10
   unreachable
 
 sw.default:                                       ; preds = %rx_desc_get_buffer.exit
@@ -2743,7 +2743,7 @@ gem_get_rx_desc_addr.exit:                        ; preds = %sw.epilog, %if.then
   %ret.1.i = add nuw nsw i32 %spec.select.i, %83
   %84 = shl nuw nsw i32 %ret.1.i, 2
   %mul224 = zext nneg i32 %84 to i64
-  %call226 = tail call i32 @address_space_write(ptr noundef nonnull %dma_as, i64 noundef %or.i.i195, i32 1, ptr noundef nonnull %arrayidx80, i64 noundef %mul224) #8
+  %call226 = tail call i32 @address_space_write(ptr noundef nonnull %dma_as, i64 noundef %or.i.i195, i32 1, ptr noundef nonnull %arrayidx80, i64 noundef %mul224) #9
   %arrayidx80.val = load i32, ptr %arrayidx80, align 4
   %85 = and i32 %arrayidx80.val, 2
   %tobool232.not = icmp eq i32 %85, 0
@@ -2765,7 +2765,7 @@ sw.bb1.i.i:                                       ; preds = %do.end235, %do.end2
   br label %gem_get_rx_queue_base_addr.exit
 
 do.body.i.i:                                      ; preds = %do.end235
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.12, i32 noundef 982, ptr noundef nonnull @__func__.gem_get_queue_base_addr, ptr noundef null) #9
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.12, i32 noundef 982, ptr noundef nonnull @__func__.gem_get_queue_base_addr, ptr noundef null) #10
   unreachable
 
 gem_get_rx_queue_base_addr.exit:                  ; preds = %do.end235, %sw.bb1.i.i
@@ -2894,7 +2894,7 @@ gem_receive_updatestats.exit:                     ; preds = %if.end23.i, %if.els
   %99 = load i32, ptr %arrayidx2.i241, align 4
   %tobool.i = icmp ne i32 %99, 0
   %lnot.ext.i = zext i1 %tobool.i to i32
-  tail call void @qemu_set_irq(ptr noundef %98, i32 noundef %lnot.ext.i) #8
+  tail call void @qemu_set_irq(ptr noundef %98, i32 noundef %lnot.ext.i) #9
   %num_priority_queues.i244 = getelementptr inbounds i8, ptr %call, i64 9472
   %100 = load i8, ptr %num_priority_queues.i244, align 16
   %cmp9.i245 = icmp ugt i8 %100, 1
@@ -2909,7 +2909,7 @@ for.body.i247:                                    ; preds = %gem_receive_updates
   %103 = load i32, ptr %arrayidx8.i, align 4
   %tobool9.i = icmp ne i32 %103, 0
   %lnot.ext13.i = zext i1 %tobool9.i to i32
-  tail call void @qemu_set_irq(ptr noundef %101, i32 noundef %lnot.ext13.i) #8
+  tail call void @qemu_set_irq(ptr noundef %101, i32 noundef %lnot.ext13.i) #9
   %indvars.iv.next.i249 = add nuw nsw i64 %indvars.iv.i248, 1
   %104 = load i8, ptr %num_priority_queues.i244, align 16
   %105 = zext i8 %104 to i64
@@ -2924,10 +2924,10 @@ return:                                           ; preds = %for.inc.i, %for.bod
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @gem_set_link(ptr noundef %nc) #0 {
 entry:
-  %call = tail call ptr @qemu_get_nic_opaque(ptr noundef %nc) #8
+  %call = tail call ptr @qemu_get_nic_opaque(ptr noundef %nc) #9
   %nic.i = getelementptr inbounds i8, ptr %call, i64 1184
   %0 = load ptr, ptr %nic.i, align 16
-  %call.i = tail call ptr @qemu_get_queue(ptr noundef %0) #8
+  %call.i = tail call ptr @qemu_get_queue(ptr noundef %0) #9
   %link_down.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %1 = load i32, ptr %link_down.i, align 8
   %tobool.not.i = icmp eq i32 %1, 0
@@ -2949,7 +2949,7 @@ entry:
   %7 = load i32, ptr %arrayidx1.i, align 4
   %tobool.i = icmp ne i32 %7, 0
   %lnot.ext.i = zext i1 %tobool.i to i32
-  tail call void @qemu_set_irq(ptr noundef %6, i32 noundef %lnot.ext.i) #8
+  tail call void @qemu_set_irq(ptr noundef %6, i32 noundef %lnot.ext.i) #9
   %num_priority_queues.i = getelementptr inbounds i8, ptr %call, i64 9472
   %8 = load i8, ptr %num_priority_queues.i, align 16
   %cmp9.i = icmp ugt i8 %8, 1
@@ -2964,7 +2964,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %11 = load i32, ptr %arrayidx8.i, align 4
   %tobool9.i = icmp ne i32 %11, 0
   %lnot.ext13.i = zext i1 %tobool9.i to i32
-  tail call void @qemu_set_irq(ptr noundef %9, i32 noundef %lnot.ext13.i) #8
+  tail call void @qemu_set_irq(ptr noundef %9, i32 noundef %lnot.ext13.i) #9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %12 = load i8, ptr %num_priority_queues.i, align 16
   %13 = zext i8 %12 to i64
@@ -2977,20 +2977,20 @@ gem_update_int_status.exit:                       ; preds = %for.body.i, %entry
 
 declare i64 @crc32(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: noreturn nounwind
-declare void @abort() local_unnamed_addr #3
+; Function Attrs: cold nofree noreturn nounwind
+declare void @abort() local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #6
+declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #7
+declare i64 @llvm.umax.i64(i64, i64) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #7
+declare i64 @llvm.umin.i64(i64, i64) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #7
+declare i32 @llvm.umin.i32(i32, i32) #8
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2998,10 +2998,11 @@ attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #3 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nounwind }
-attributes #9 = { noreturn nounwind }
+attributes #6 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nounwind }
+attributes #10 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

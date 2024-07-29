@@ -88,7 +88,7 @@ define i64 @zend_mm_gc(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not261, label %15, label %14
 
 14:                                               ; preds = %9
-  tail call fastcc void @zend_mm_panic() #34
+  tail call fastcc void @zend_mm_panic() #38
   unreachable
 
 15:                                               ; preds = %9
@@ -160,7 +160,7 @@ define i64 @zend_mm_gc(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not258, label %51, label %50
 
 50:                                               ; preds = %.lr.ph286
-  tail call fastcc void @zend_mm_panic() #34
+  tail call fastcc void @zend_mm_panic() #38
   unreachable
 
 51:                                               ; preds = %.lr.ph286
@@ -479,20 +479,20 @@ define i64 @zend_mm_gc(ptr noundef %0) local_unnamed_addr #0 {
 227:                                              ; preds = %.thread275
   %228 = getelementptr inbounds i8, ptr %.val, i64 8
   %229 = load ptr, ptr %228, align 8
-  tail call void %229(ptr noundef nonnull %.val, ptr noundef nonnull %.0232, i64 noundef 2097152) #35
+  tail call void %229(ptr noundef nonnull %.val, ptr noundef nonnull %.0232, i64 noundef 2097152) #39
   br label %zend_mm_chunk_free.exit
 
 230:                                              ; preds = %.thread275
-  %231 = tail call i32 @munmap(ptr noundef nonnull %.0232, i64 noundef 2097152) #35
+  %231 = tail call i32 @munmap(ptr noundef nonnull %.0232, i64 noundef 2097152) #39
   %.not.i.i = icmp eq i32 %231, 0
   br i1 %.not.i.i, label %zend_mm_chunk_free.exit, label %232
 
 232:                                              ; preds = %230
   %233 = load ptr, ptr @stderr, align 8
-  %234 = tail call ptr @__errno_location() #36
+  %234 = tail call ptr @__errno_location() #40
   %235 = load i32, ptr %234, align 4
-  %236 = tail call ptr @strerror(i32 noundef %235) #35
-  %237 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %233, ptr noundef nonnull @.str.4, i32 noundef %235, ptr noundef %236) #37
+  %236 = tail call ptr @strerror(i32 noundef %235) #39
+  %237 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %233, ptr noundef nonnull @.str.4, i32 noundef %235, ptr noundef %236) #41
   br label %zend_mm_chunk_free.exit
 
 238:                                              ; preds = %220
@@ -507,20 +507,20 @@ define i64 @zend_mm_gc(ptr noundef %0) local_unnamed_addr #0 {
 242:                                              ; preds = %238
   %243 = getelementptr inbounds i8, ptr %.val264, i64 8
   %244 = load ptr, ptr %243, align 8
-  tail call void %244(ptr noundef nonnull %.val264, ptr noundef %241, i64 noundef 2097152) #35
+  tail call void %244(ptr noundef nonnull %.val264, ptr noundef %241, i64 noundef 2097152) #39
   br label %zend_mm_chunk_free.exit267
 
 245:                                              ; preds = %238
-  %246 = tail call i32 @munmap(ptr noundef %241, i64 noundef 2097152) #35
+  %246 = tail call i32 @munmap(ptr noundef %241, i64 noundef 2097152) #39
   %.not.i.i266 = icmp eq i32 %246, 0
   br i1 %.not.i.i266, label %zend_mm_chunk_free.exit267, label %247
 
 247:                                              ; preds = %245
   %248 = load ptr, ptr @stderr, align 8
-  %249 = tail call ptr @__errno_location() #36
+  %249 = tail call ptr @__errno_location() #40
   %250 = load i32, ptr %249, align 4
-  %251 = tail call ptr @strerror(i32 noundef %250) #35
-  %252 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %248, ptr noundef nonnull @.str.4, i32 noundef %250, ptr noundef %251) #37
+  %251 = tail call ptr @strerror(i32 noundef %250) #39
+  %252 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %248, ptr noundef nonnull @.str.4, i32 noundef %250, ptr noundef %251) #41
   br label %zend_mm_chunk_free.exit267
 
 zend_mm_chunk_free.exit267:                       ; preds = %242, %245, %247
@@ -541,11 +541,11 @@ zend_mm_chunk_free.exit:                          ; preds = %._crit_edge300, %23
   ret i64 %.0225
 }
 
-; Function Attrs: noreturn nounwind uwtable
+; Function Attrs: nofree noreturn nounwind uwtable
 define internal fastcc void @zend_mm_panic() unnamed_addr #1 {
   %1 = load ptr, ptr @stderr, align 8
-  %2 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str) #37
-  tail call void @abort() #38
+  %2 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str) #41
+  tail call void @abort() #42
   unreachable
 }
 
@@ -615,7 +615,7 @@ define void @zend_mm_shutdown(ptr noundef %0, i1 noundef zeroext %1, i1 noundef 
 33:                                               ; preds = %29
   %34 = shl i64 %.0.i, 3
   %35 = inttoptr i64 %34 to ptr
-  tail call void @free(ptr noundef %35) #35
+  tail call void @free(ptr noundef %35) #39
   br label %36
 
 36:                                               ; preds = %33, %29
@@ -626,14 +626,14 @@ define void @zend_mm_shutdown(ptr noundef %0, i1 noundef zeroext %1, i1 noundef 
 tracked_free_all.exit:                            ; preds = %36, %10, %9
   %38 = getelementptr inbounds i8, ptr %0, i64 384
   %39 = load ptr, ptr %38, align 8
-  tail call void @zend_hash_clean(ptr noundef %39) #35
+  tail call void @zend_hash_clean(ptr noundef %39) #39
   br i1 %1, label %40, label %44
 
 40:                                               ; preds = %tracked_free_all.exit
   %41 = load ptr, ptr %38, align 8
-  tail call void @zend_hash_destroy(ptr noundef %41) #35
+  tail call void @zend_hash_destroy(ptr noundef %41) #39
   %42 = load ptr, ptr %38, align 8
-  tail call void @free(ptr noundef %42) #35
+  tail call void @free(ptr noundef %42) #39
   %43 = getelementptr inbounds i8, ptr %0, i64 368
   store ptr @__zend_free, ptr %43, align 8
   br label %44
@@ -649,7 +649,7 @@ tracked_free_all.exit:                            ; preds = %36, %10, %9
 47:                                               ; preds = %46
   %48 = getelementptr inbounds i8, ptr %0, i64 368
   %49 = load ptr, ptr %48, align 8
-  tail call void %49(ptr noundef nonnull %0) #35
+  tail call void %49(ptr noundef nonnull %0) #39
   br label %zend_mm_chunk_free.exit99
 
 50:                                               ; preds = %3
@@ -677,20 +677,20 @@ tracked_free_all.exit:                            ; preds = %36, %10, %9
 60:                                               ; preds = %54
   %61 = getelementptr inbounds i8, ptr %.val, i64 8
   %62 = load ptr, ptr %61, align 8
-  tail call void %62(ptr noundef nonnull %.val, ptr noundef %57, i64 noundef %59) #35
+  tail call void %62(ptr noundef nonnull %.val, ptr noundef %57, i64 noundef %59) #39
   br label %zend_mm_chunk_free.exit
 
 63:                                               ; preds = %54
-  %64 = tail call i32 @munmap(ptr noundef %57, i64 noundef %59) #35
+  %64 = tail call i32 @munmap(ptr noundef %57, i64 noundef %59) #39
   %.not.i.i = icmp eq i32 %64, 0
   br i1 %.not.i.i, label %zend_mm_chunk_free.exit, label %65
 
 65:                                               ; preds = %63
   %66 = load ptr, ptr @stderr, align 8
-  %67 = tail call ptr @__errno_location() #36
+  %67 = tail call ptr @__errno_location() #40
   %68 = load i32, ptr %67, align 4
-  %69 = tail call ptr @strerror(i32 noundef %68) #35
-  %70 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %66, ptr noundef nonnull @.str.4, i32 noundef %68, ptr noundef %69) #37
+  %69 = tail call ptr @strerror(i32 noundef %68) #39
+  %70 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %66, ptr noundef nonnull @.str.4, i32 noundef %68, ptr noundef %69) #41
   br label %zend_mm_chunk_free.exit
 
 zend_mm_chunk_free.exit:                          ; preds = %60, %63, %65
@@ -755,20 +755,20 @@ zend_mm_chunk_free.exit:                          ; preds = %60, %63, %65
 95:                                               ; preds = %91
   %96 = getelementptr inbounds i8, ptr %.val90, i64 8
   %97 = load ptr, ptr %96, align 8
-  tail call void %97(ptr noundef nonnull %.val90, ptr noundef nonnull %92, i64 noundef 2097152) #35
+  tail call void %97(ptr noundef nonnull %.val90, ptr noundef nonnull %92, i64 noundef 2097152) #39
   br label %zend_mm_chunk_free.exit96
 
 98:                                               ; preds = %91
-  %99 = tail call i32 @munmap(ptr noundef nonnull %92, i64 noundef 2097152) #35
+  %99 = tail call i32 @munmap(ptr noundef nonnull %92, i64 noundef 2097152) #39
   %.not.i.i95 = icmp eq i32 %99, 0
   br i1 %.not.i.i95, label %zend_mm_chunk_free.exit96, label %100
 
 100:                                              ; preds = %98
   %101 = load ptr, ptr @stderr, align 8
-  %102 = tail call ptr @__errno_location() #36
+  %102 = tail call ptr @__errno_location() #40
   %103 = load i32, ptr %102, align 4
-  %104 = tail call ptr @strerror(i32 noundef %103) #35
-  %105 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %101, ptr noundef nonnull @.str.4, i32 noundef %103, ptr noundef %104) #37
+  %104 = tail call ptr @strerror(i32 noundef %103) #39
+  %105 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %101, ptr noundef nonnull @.str.4, i32 noundef %103, ptr noundef %104) #41
   br label %zend_mm_chunk_free.exit96
 
 zend_mm_chunk_free.exit96:                        ; preds = %95, %98, %100
@@ -790,20 +790,20 @@ zend_mm_chunk_free.exit96:                        ; preds = %95, %98, %100
 109:                                              ; preds = %._crit_edge120
   %110 = getelementptr inbounds i8, ptr %.val91, i64 8
   %111 = load ptr, ptr %110, align 8
-  tail call void %111(ptr noundef nonnull %.val91, ptr noundef %107, i64 noundef 2097152) #35
+  tail call void %111(ptr noundef nonnull %.val91, ptr noundef %107, i64 noundef 2097152) #39
   br label %zend_mm_chunk_free.exit99
 
 112:                                              ; preds = %._crit_edge120
-  %113 = tail call i32 @munmap(ptr noundef %107, i64 noundef 2097152) #35
+  %113 = tail call i32 @munmap(ptr noundef %107, i64 noundef 2097152) #39
   %.not.i.i98 = icmp eq i32 %113, 0
   br i1 %.not.i.i98, label %zend_mm_chunk_free.exit99, label %114
 
 114:                                              ; preds = %112
   %115 = load ptr, ptr @stderr, align 8
-  %116 = tail call ptr @__errno_location() #36
+  %116 = tail call ptr @__errno_location() #40
   %117 = load i32, ptr %116, align 4
-  %118 = tail call ptr @strerror(i32 noundef %117) #35
-  %119 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %115, ptr noundef nonnull @.str.4, i32 noundef %117, ptr noundef %118) #37
+  %118 = tail call ptr @strerror(i32 noundef %117) #39
+  %119 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %115, ptr noundef nonnull @.str.4, i32 noundef %117, ptr noundef %118) #41
   br label %zend_mm_chunk_free.exit99
 
 120:                                              ; preds = %._crit_edge109
@@ -843,20 +843,20 @@ zend_mm_chunk_free.exit96:                        ; preds = %95, %98, %100
 140:                                              ; preds = %137
   %141 = getelementptr inbounds i8, ptr %.val92, i64 8
   %142 = load ptr, ptr %141, align 8
-  tail call void %142(ptr noundef nonnull %.val92, ptr noundef nonnull %136, i64 noundef 2097152) #35
+  tail call void %142(ptr noundef nonnull %.val92, ptr noundef nonnull %136, i64 noundef 2097152) #39
   br label %zend_mm_chunk_free.exit102
 
 143:                                              ; preds = %137
-  %144 = tail call i32 @munmap(ptr noundef nonnull %136, i64 noundef 2097152) #35
+  %144 = tail call i32 @munmap(ptr noundef nonnull %136, i64 noundef 2097152) #39
   %.not.i.i101 = icmp eq i32 %144, 0
   br i1 %.not.i.i101, label %zend_mm_chunk_free.exit102, label %145
 
 145:                                              ; preds = %143
   %146 = load ptr, ptr @stderr, align 8
-  %147 = tail call ptr @__errno_location() #36
+  %147 = tail call ptr @__errno_location() #40
   %148 = load i32, ptr %147, align 4
-  %149 = tail call ptr @strerror(i32 noundef %148) #35
-  %150 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %146, ptr noundef nonnull @.str.4, i32 noundef %148, ptr noundef %149) #37
+  %149 = tail call ptr @strerror(i32 noundef %148) #39
+  %150 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %146, ptr noundef nonnull @.str.4, i32 noundef %148, ptr noundef %149) #41
   br label %zend_mm_chunk_free.exit102
 
 zend_mm_chunk_free.exit102:                       ; preds = %140, %143, %145
@@ -945,16 +945,16 @@ define internal noundef ptr @tracked_malloc(i64 noundef %0) #0 {
   br i1 %.not, label %13, label %14
 
 13:                                               ; preds = %10
-  tail call fastcc void @zend_mm_safe_error(ptr noundef nonnull %3, ptr noundef nonnull @.str.5, i64 noundef %5, i64 noundef %0) #34
+  tail call fastcc void @zend_mm_safe_error(ptr noundef nonnull %3, ptr noundef nonnull @.str.5, i64 noundef %5, i64 noundef %0) #38
   unreachable
 
 14:                                               ; preds = %10, %1
-  %15 = tail call noalias ptr @malloc(i64 noundef %0) #39
+  %15 = tail call noalias ptr @malloc(i64 noundef %0) #43
   %.not25 = icmp eq ptr %15, null
   br i1 %.not25, label %16, label %17
 
 16:                                               ; preds = %14
-  tail call fastcc void @zend_out_of_memory() #34
+  tail call fastcc void @zend_out_of_memory() #38
   unreachable
 
 17:                                               ; preds = %14
@@ -969,7 +969,7 @@ define internal noundef ptr @tracked_malloc(i64 noundef %0) #0 {
   store i32 4, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %3, i64 384
   %25 = load ptr, ptr %24, align 8
-  %26 = call ptr @zend_hash_index_add_new(ptr noundef %25, i64 noundef %19, ptr noundef nonnull %2) #35
+  %26 = call ptr @zend_hash_index_add_new(ptr noundef %25, i64 noundef %19, ptr noundef nonnull %2) #39
   %27 = load i64, ptr %6, align 8
   %28 = add i64 %27, %0
   store i64 %28, ptr %6, align 8
@@ -985,7 +985,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define void @__zend_free(ptr nocapture noundef %0) #5 {
-  tail call void @free(ptr noundef %0) #35
+  tail call void @free(ptr noundef %0) #39
   ret void
 }
 
@@ -1172,7 +1172,7 @@ define void @_zend_mm_free(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0
   br i1 %.not, label %18, label %17
 
 17:                                               ; preds = %8
-  tail call fastcc void @zend_mm_panic() #34
+  tail call fastcc void @zend_mm_panic() #38
   unreachable
 
 18:                                               ; preds = %8
@@ -1202,7 +1202,7 @@ define void @_zend_mm_free(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0
   br i1 %.not39, label %34, label %33
 
 33:                                               ; preds = %31
-  tail call fastcc void @zend_mm_panic() #34
+  tail call fastcc void @zend_mm_panic() #38
   unreachable
 
 34:                                               ; preds = %31
@@ -1232,7 +1232,7 @@ define ptr @_zend_mm_realloc(ptr noundef %0, ptr noundef %1, i64 noundef %2) loc
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %7
-  %10 = tail call noalias ptr @_zend_mm_alloc(ptr noundef %0, i64 noundef %2) #40
+  %10 = tail call noalias ptr @_zend_mm_alloc(ptr noundef %0, i64 noundef %2) #44
   br label %340
 
 11:                                               ; preds = %7
@@ -1252,7 +1252,7 @@ define ptr @_zend_mm_realloc(ptr noundef %0, ptr noundef %1, i64 noundef %2) loc
   br i1 %.not, label %23, label %22
 
 22:                                               ; preds = %13
-  tail call fastcc void @zend_mm_panic() #34
+  tail call fastcc void @zend_mm_panic() #38
   unreachable
 
 23:                                               ; preds = %13
@@ -1481,7 +1481,7 @@ zend_mm_alloc_small_slow.exit:                    ; preds = %141, %106, %104
   br i1 %.not358, label %150, label %149
 
 149:                                              ; preds = %147
-  tail call fastcc void @zend_mm_panic() #34
+  tail call fastcc void @zend_mm_panic() #38
   unreachable
 
 150:                                              ; preds = %147
@@ -1795,7 +1795,7 @@ define ptr @_zend_mm_realloc2(ptr noundef %0, ptr noundef %1, i64 noundef %2, i6
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %8
-  %11 = tail call noalias ptr @_zend_mm_alloc(ptr noundef %0, i64 noundef %2) #40
+  %11 = tail call noalias ptr @_zend_mm_alloc(ptr noundef %0, i64 noundef %2) #44
   br label %343
 
 12:                                               ; preds = %8
@@ -1815,7 +1815,7 @@ define ptr @_zend_mm_realloc2(ptr noundef %0, ptr noundef %1, i64 noundef %2, i6
   br i1 %.not, label %24, label %23
 
 23:                                               ; preds = %14
-  tail call fastcc void @zend_mm_panic() #34
+  tail call fastcc void @zend_mm_panic() #38
   unreachable
 
 24:                                               ; preds = %14
@@ -2046,7 +2046,7 @@ zend_mm_alloc_small_slow.exit:                    ; preds = %143, %108, %106
   br i1 %.not358, label %153, label %152
 
 152:                                              ; preds = %150
-  tail call fastcc void @zend_mm_panic() #34
+  tail call fastcc void @zend_mm_panic() #38
   unreachable
 
 153:                                              ; preds = %150
@@ -2365,7 +2365,7 @@ define i64 @_zend_mm_block_size(ptr noundef readonly %0, ptr noundef %1) local_u
   %10 = lshr i64 %9, 3
   %11 = getelementptr inbounds i8, ptr %0, i64 384
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call ptr @zend_hash_index_find(ptr noundef %12, i64 noundef %10) #35
+  %13 = tail call ptr @zend_hash_index_find(ptr noundef %12, i64 noundef %10) #39
   %.not10 = icmp eq ptr %13, null
   br i1 %.not10, label %zend_mm_size.exit, label %14
 
@@ -2398,7 +2398,7 @@ define i64 @_zend_mm_block_size(ptr noundef readonly %0, ptr noundef %1) local_u
   br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 ._crit_edge.i.i:                                  ; preds = %24, %20
-  tail call fastcc void @zend_mm_panic() #34
+  tail call fastcc void @zend_mm_panic() #38
   unreachable
 
 zend_mm_get_huge_block_size.exit.i:               ; preds = %.lr.ph.i.i
@@ -2418,7 +2418,7 @@ zend_mm_get_huge_block_size.exit.i:               ; preds = %.lr.ph.i.i
   br i1 %.not.i, label %37, label %36
 
 36:                                               ; preds = %28
-  tail call fastcc void @zend_mm_panic() #34
+  tail call fastcc void @zend_mm_panic() #38
   unreachable
 
 37:                                               ; preds = %28
@@ -2472,7 +2472,7 @@ define noundef zeroext i1 @is_zend_ptr(ptr noundef %0) local_unnamed_addr #0 {
   %10 = lshr i64 %9, 3
   %11 = getelementptr inbounds i8, ptr %2, i64 384
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call ptr @zend_hash_index_find(ptr noundef %12, i64 noundef %10) #35
+  %13 = tail call ptr @zend_hash_index_find(ptr noundef %12, i64 noundef %10) #39
   %.not29 = icmp eq ptr %13, null
   br i1 %.not29, label %14, label %.loopexit
 
@@ -2538,7 +2538,7 @@ define noalias ptr @_emalloc_8() local_unnamed_addr #0 {
 3:                                                ; preds = %0
   %4 = getelementptr inbounds i8, ptr %1, i64 360
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call ptr %5(i64 noundef 8) #35
+  %6 = tail call ptr %5(i64 noundef 8) #39
   br label %zend_mm_alloc_small_slow.exit
 
 7:                                                ; preds = %0
@@ -2607,7 +2607,7 @@ define noalias ptr @_emalloc_16() local_unnamed_addr #0 {
 3:                                                ; preds = %0
   %4 = getelementptr inbounds i8, ptr %1, i64 360
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call ptr %5(i64 noundef 16) #35
+  %6 = tail call ptr %5(i64 noundef 16) #39
   br label %zend_mm_alloc_small_slow.exit
 
 7:                                                ; preds = %0
@@ -2676,7 +2676,7 @@ define noalias ptr @_emalloc_24() local_unnamed_addr #0 {
 3:                                                ; preds = %0
   %4 = getelementptr inbounds i8, ptr %1, i64 360
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call ptr %5(i64 noundef 24) #35
+  %6 = tail call ptr %5(i64 noundef 24) #39
   br label %zend_mm_alloc_small_slow.exit
 
 7:                                                ; preds = %0
@@ -2745,7 +2745,7 @@ define noalias ptr @_emalloc_32() local_unnamed_addr #0 {
 3:                                                ; preds = %0
   %4 = getelementptr inbounds i8, ptr %1, i64 360
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call ptr %5(i64 noundef 32) #35
+  %6 = tail call ptr %5(i64 noundef 32) #39
   br label %zend_mm_alloc_small_slow.exit
 
 7:                                                ; preds = %0
@@ -2814,7 +2814,7 @@ define noalias ptr @_emalloc_40() local_unnamed_addr #0 {
 3:                                                ; preds = %0
   %4 = getelementptr inbounds i8, ptr %1, i64 360
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call ptr %5(i64 noundef 40) #35
+  %6 = tail call ptr %5(i64 noundef 40) #39
   br label %zend_mm_alloc_small_slow.exit
 
 7:                                                ; preds = %0
@@ -2883,7 +2883,7 @@ define noalias ptr @_emalloc_48() local_unnamed_addr #0 {
 3:                                                ; preds = %0
   %4 = getelementptr inbounds i8, ptr %1, i64 360
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call ptr %5(i64 noundef 48) #35
+  %6 = tail call ptr %5(i64 noundef 48) #39
   br label %zend_mm_alloc_small_slow.exit
 
 7:                                                ; preds = %0
@@ -2952,7 +2952,7 @@ define noalias ptr @_emalloc_56() local_unnamed_addr #0 {
 3:                                                ; preds = %0
   %4 = getelementptr inbounds i8, ptr %1, i64 360
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call ptr %5(i64 noundef 56) #35
+  %6 = tail call ptr %5(i64 noundef 56) #39
   br label %zend_mm_alloc_small_slow.exit
 
 7:                                                ; preds = %0
@@ -3021,7 +3021,7 @@ define noalias ptr @_emalloc_64() local_unnamed_addr #0 {
 3:                                                ; preds = %0
   %4 = getelementptr inbounds i8, ptr %1, i64 360
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call ptr %5(i64 noundef 64) #35
+  %6 = tail call ptr %5(i64 noundef 64) #39
   br label %zend_mm_alloc_small_slow.exit
 
 7:                                                ; preds = %0
@@ -3090,7 +3090,7 @@ define noalias ptr @_emalloc_80() local_unnamed_addr #0 {
 3:                                                ; preds = %0
   %4 = getelementptr inbounds i8, ptr %1, i64 360
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call ptr %5(i64 noundef 80) #35
+  %6 = tail call ptr %5(i64 noundef 80) #39
   br label %zend_mm_alloc_small_slow.exit
 
 7:                                                ; preds = %0
@@ -3159,7 +3159,7 @@ define noalias ptr @_emalloc_96() local_unnamed_addr #0 {
 3:                                                ; preds = %0
   %4 = getelementptr inbounds i8, ptr %1, i64 360
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call ptr %5(i64 noundef 96) #35
+  %6 = tail call ptr %5(i64 noundef 96) #39
   br label %zend_mm_alloc_small_slow.exit
 
 7:                                                ; preds = %0
@@ -3228,7 +3228,7 @@ define noalias ptr @_emalloc_112() local_unnamed_addr #0 {
 3:                                                ; preds = %0
   %4 = getelementptr inbounds i8, ptr %1, i64 360
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call ptr %5(i64 noundef 112) #35
+  %6 = tail call ptr %5(i64 noundef 112) #39
   br label %zend_mm_alloc_small_slow.exit
 
 7:                                                ; preds = %0
@@ -3297,7 +3297,7 @@ define noalias ptr @_emalloc_128() local_unnamed_addr #0 {
 3:                                                ; preds = %0
   %4 = getelementptr inbounds i8, ptr %1, i64 360
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call ptr %5(i64 noundef 128) #35
+  %6 = tail call ptr %5(i64 noundef 128) #39
   br label %zend_mm_alloc_small_slow.exit
 
 7:                                                ; preds = %0
@@ -3366,7 +3366,7 @@ define noalias ptr @_emalloc_160() local_unnamed_addr #0 {
 3:                                                ; preds = %0
   %4 = getelementptr inbounds i8, ptr %1, i64 360
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call ptr %5(i64 noundef 160) #35
+  %6 = tail call ptr %5(i64 noundef 160) #39
   br label %zend_mm_alloc_small_slow.exit
 
 7:                                                ; preds = %0
@@ -3435,7 +3435,7 @@ define noalias ptr @_emalloc_192() local_unnamed_addr #0 {
 3:                                                ; preds = %0
   %4 = getelementptr inbounds i8, ptr %1, i64 360
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call ptr %5(i64 noundef 192) #35
+  %6 = tail call ptr %5(i64 noundef 192) #39
   br label %zend_mm_alloc_small_slow.exit
 
 7:                                                ; preds = %0
@@ -3504,7 +3504,7 @@ define noalias ptr @_emalloc_224() local_unnamed_addr #0 {
 3:                                                ; preds = %0
   %4 = getelementptr inbounds i8, ptr %1, i64 360
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call ptr %5(i64 noundef 224) #35
+  %6 = tail call ptr %5(i64 noundef 224) #39
   br label %zend_mm_alloc_small_slow.exit
 
 7:                                                ; preds = %0
@@ -3573,7 +3573,7 @@ define noalias ptr @_emalloc_256() local_unnamed_addr #0 {
 3:                                                ; preds = %0
   %4 = getelementptr inbounds i8, ptr %1, i64 360
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call ptr %5(i64 noundef 256) #35
+  %6 = tail call ptr %5(i64 noundef 256) #39
   br label %zend_mm_alloc_small_slow.exit
 
 7:                                                ; preds = %0
@@ -3642,7 +3642,7 @@ define noalias ptr @_emalloc_320() local_unnamed_addr #0 {
 3:                                                ; preds = %0
   %4 = getelementptr inbounds i8, ptr %1, i64 360
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call ptr %5(i64 noundef 320) #35
+  %6 = tail call ptr %5(i64 noundef 320) #39
   br label %zend_mm_alloc_small_slow.exit
 
 7:                                                ; preds = %0
@@ -3729,7 +3729,7 @@ define noalias ptr @_emalloc_384() local_unnamed_addr #0 {
 3:                                                ; preds = %0
   %4 = getelementptr inbounds i8, ptr %1, i64 360
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call ptr %5(i64 noundef 384) #35
+  %6 = tail call ptr %5(i64 noundef 384) #39
   br label %zend_mm_alloc_small_slow.exit
 
 7:                                                ; preds = %0
@@ -3816,7 +3816,7 @@ define noalias ptr @_emalloc_448() local_unnamed_addr #0 {
 3:                                                ; preds = %0
   %4 = getelementptr inbounds i8, ptr %1, i64 360
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call ptr %5(i64 noundef 448) #35
+  %6 = tail call ptr %5(i64 noundef 448) #39
   br label %zend_mm_alloc_small_slow.exit
 
 7:                                                ; preds = %0
@@ -3885,7 +3885,7 @@ define noalias ptr @_emalloc_512() local_unnamed_addr #0 {
 3:                                                ; preds = %0
   %4 = getelementptr inbounds i8, ptr %1, i64 360
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call ptr %5(i64 noundef 512) #35
+  %6 = tail call ptr %5(i64 noundef 512) #39
   br label %zend_mm_alloc_small_slow.exit
 
 7:                                                ; preds = %0
@@ -3954,7 +3954,7 @@ define noalias ptr @_emalloc_640() local_unnamed_addr #0 {
 3:                                                ; preds = %0
   %4 = getelementptr inbounds i8, ptr %1, i64 360
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call ptr %5(i64 noundef 640) #35
+  %6 = tail call ptr %5(i64 noundef 640) #39
   br label %zend_mm_alloc_small_slow.exit
 
 7:                                                ; preds = %0
@@ -4041,7 +4041,7 @@ define noalias ptr @_emalloc_768() local_unnamed_addr #0 {
 3:                                                ; preds = %0
   %4 = getelementptr inbounds i8, ptr %1, i64 360
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call ptr %5(i64 noundef 768) #35
+  %6 = tail call ptr %5(i64 noundef 768) #39
   br label %zend_mm_alloc_small_slow.exit
 
 7:                                                ; preds = %0
@@ -4128,7 +4128,7 @@ define noalias ptr @_emalloc_896() local_unnamed_addr #0 {
 3:                                                ; preds = %0
   %4 = getelementptr inbounds i8, ptr %1, i64 360
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call ptr %5(i64 noundef 896) #35
+  %6 = tail call ptr %5(i64 noundef 896) #39
   br label %zend_mm_alloc_small_slow.exit
 
 7:                                                ; preds = %0
@@ -4203,7 +4203,7 @@ define noalias ptr @_emalloc_1024() local_unnamed_addr #0 {
 3:                                                ; preds = %0
   %4 = getelementptr inbounds i8, ptr %1, i64 360
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call ptr %5(i64 noundef 1024) #35
+  %6 = tail call ptr %5(i64 noundef 1024) #39
   br label %zend_mm_alloc_small_slow.exit
 
 7:                                                ; preds = %0
@@ -4278,7 +4278,7 @@ define noalias ptr @_emalloc_1280() local_unnamed_addr #0 {
 3:                                                ; preds = %0
   %4 = getelementptr inbounds i8, ptr %1, i64 360
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call ptr %5(i64 noundef 1280) #35
+  %6 = tail call ptr %5(i64 noundef 1280) #39
   br label %zend_mm_alloc_small_slow.exit
 
 7:                                                ; preds = %0
@@ -4365,7 +4365,7 @@ define noalias ptr @_emalloc_1536() local_unnamed_addr #0 {
 3:                                                ; preds = %0
   %4 = getelementptr inbounds i8, ptr %1, i64 360
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call ptr %5(i64 noundef 1536) #35
+  %6 = tail call ptr %5(i64 noundef 1536) #39
   br label %zend_mm_alloc_small_slow.exit
 
 7:                                                ; preds = %0
@@ -4452,7 +4452,7 @@ define noalias ptr @_emalloc_1792() local_unnamed_addr #0 {
 3:                                                ; preds = %0
   %4 = getelementptr inbounds i8, ptr %1, i64 360
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call ptr %5(i64 noundef 1792) #35
+  %6 = tail call ptr %5(i64 noundef 1792) #39
   br label %zend_mm_alloc_small_slow.exit
 
 7:                                                ; preds = %0
@@ -4539,7 +4539,7 @@ define noalias ptr @_emalloc_2048() local_unnamed_addr #0 {
 3:                                                ; preds = %0
   %4 = getelementptr inbounds i8, ptr %1, i64 360
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call ptr %5(i64 noundef 2048) #35
+  %6 = tail call ptr %5(i64 noundef 2048) #39
   br label %zend_mm_alloc_small_slow.exit
 
 7:                                                ; preds = %0
@@ -4626,7 +4626,7 @@ define noalias ptr @_emalloc_2560() local_unnamed_addr #0 {
 3:                                                ; preds = %0
   %4 = getelementptr inbounds i8, ptr %1, i64 360
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call ptr %5(i64 noundef 2560) #35
+  %6 = tail call ptr %5(i64 noundef 2560) #39
   br label %zend_mm_alloc_small_slow.exit
 
 7:                                                ; preds = %0
@@ -4713,7 +4713,7 @@ define noalias ptr @_emalloc_3072() local_unnamed_addr #0 {
 3:                                                ; preds = %0
   %4 = getelementptr inbounds i8, ptr %1, i64 360
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call ptr %5(i64 noundef 3072) #35
+  %6 = tail call ptr %5(i64 noundef 3072) #39
   br label %zend_mm_alloc_small_slow.exit
 
 7:                                                ; preds = %0
@@ -4800,7 +4800,7 @@ define noalias ptr @_emalloc_large(i64 noundef %0) local_unnamed_addr #9 {
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %2, i64 360
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call ptr %6(i64 noundef %0) #35
+  %7 = tail call ptr %6(i64 noundef %0) #39
   br label %20
 
 8:                                                ; preds = %1
@@ -4835,7 +4835,7 @@ define noalias ptr @_emalloc_huge(i64 noundef %0) local_unnamed_addr #9 {
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %2, i64 360
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call ptr %6(i64 noundef %0) #35
+  %7 = tail call ptr %6(i64 noundef %0) #39
   br label %10
 
 8:                                                ; preds = %1
@@ -4858,7 +4858,7 @@ define internal fastcc ptr @zend_mm_alloc_huge(ptr noundef %0, i64 noundef %1) u
   br i1 %8, label %9, label %10
 
 9:                                                ; preds = %2
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 1, ptr noundef nonnull @.str.10, i64 noundef %1, i64 noundef %3) #38
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 1, ptr noundef nonnull @.str.10, i64 noundef %1, i64 noundef %3) #42
   unreachable
 
 10:                                               ; preds = %2
@@ -4890,7 +4890,7 @@ define internal fastcc ptr @zend_mm_alloc_huge(ptr noundef %0, i64 noundef %1) u
 
 27:                                               ; preds = %23
   %28 = load i64, ptr %11, align 8
-  tail call fastcc void @zend_mm_safe_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.5, i64 noundef %28, i64 noundef %1) #34
+  tail call fastcc void @zend_mm_safe_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.5, i64 noundef %28, i64 noundef %1) #38
   unreachable
 
 29:                                               ; preds = %19, %23, %10
@@ -4901,7 +4901,7 @@ define internal fastcc ptr @zend_mm_alloc_huge(ptr noundef %0, i64 noundef %1) u
 
 31:                                               ; preds = %29
   %32 = load ptr, ptr %.val, align 8
-  %33 = tail call ptr %32(ptr noundef nonnull %.val, i64 noundef %7, i64 noundef 2097152) #35
+  %33 = tail call ptr %32(ptr noundef nonnull %.val, i64 noundef %7, i64 noundef 2097152) #39
   %34 = getelementptr inbounds i8, ptr %33, i64 2097151
   %35 = ptrtoint ptr %34 to i64
   %36 = and i64 %35, 2097151
@@ -4931,7 +4931,7 @@ zend_mm_chunk_alloc.exit:                         ; preds = %31, %39
 
 45:                                               ; preds = %44
   %46 = load ptr, ptr %.val61, align 8
-  %47 = tail call ptr %46(ptr noundef nonnull %.val61, i64 noundef %7, i64 noundef 2097152) #35
+  %47 = tail call ptr %46(ptr noundef nonnull %.val61, i64 noundef %7, i64 noundef 2097152) #39
   %48 = getelementptr inbounds i8, ptr %47, i64 2097151
   %49 = ptrtoint ptr %48 to i64
   %50 = and i64 %49, 2097151
@@ -4951,7 +4951,7 @@ zend_mm_chunk_alloc.exit64:                       ; preds = %45, %53
 
 55:                                               ; preds = %zend_mm_chunk_alloc.exit64, %42
   %56 = load i64, ptr %13, align 8
-  tail call fastcc void @zend_mm_safe_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.7, i64 noundef %56, i64 noundef %1) #34
+  tail call fastcc void @zend_mm_safe_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.7, i64 noundef %56, i64 noundef %1) #38
   unreachable
 
 57:                                               ; preds = %zend_mm_chunk_alloc.exit64, %zend_mm_chunk_alloc.exit
@@ -5040,7 +5040,7 @@ define void @_efree_8(ptr noundef %0) local_unnamed_addr #0 {
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %2, i64 368
   %6 = load ptr, ptr %5, align 8
-  tail call void %6(ptr noundef %0) #35
+  tail call void %6(ptr noundef %0) #39
   br label %19
 
 7:                                                ; preds = %1
@@ -5052,7 +5052,7 @@ define void @_efree_8(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not12, label %13, label %12
 
 12:                                               ; preds = %7
-  tail call fastcc void @zend_mm_panic() #34
+  tail call fastcc void @zend_mm_panic() #38
   unreachable
 
 13:                                               ; preds = %7
@@ -5080,7 +5080,7 @@ define void @_efree_16(ptr noundef %0) local_unnamed_addr #0 {
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %2, i64 368
   %6 = load ptr, ptr %5, align 8
-  tail call void %6(ptr noundef %0) #35
+  tail call void %6(ptr noundef %0) #39
   br label %19
 
 7:                                                ; preds = %1
@@ -5092,7 +5092,7 @@ define void @_efree_16(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not12, label %13, label %12
 
 12:                                               ; preds = %7
-  tail call fastcc void @zend_mm_panic() #34
+  tail call fastcc void @zend_mm_panic() #38
   unreachable
 
 13:                                               ; preds = %7
@@ -5120,7 +5120,7 @@ define void @_efree_24(ptr noundef %0) local_unnamed_addr #0 {
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %2, i64 368
   %6 = load ptr, ptr %5, align 8
-  tail call void %6(ptr noundef %0) #35
+  tail call void %6(ptr noundef %0) #39
   br label %19
 
 7:                                                ; preds = %1
@@ -5132,7 +5132,7 @@ define void @_efree_24(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not12, label %13, label %12
 
 12:                                               ; preds = %7
-  tail call fastcc void @zend_mm_panic() #34
+  tail call fastcc void @zend_mm_panic() #38
   unreachable
 
 13:                                               ; preds = %7
@@ -5160,7 +5160,7 @@ define void @_efree_32(ptr noundef %0) local_unnamed_addr #0 {
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %2, i64 368
   %6 = load ptr, ptr %5, align 8
-  tail call void %6(ptr noundef %0) #35
+  tail call void %6(ptr noundef %0) #39
   br label %19
 
 7:                                                ; preds = %1
@@ -5172,7 +5172,7 @@ define void @_efree_32(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not12, label %13, label %12
 
 12:                                               ; preds = %7
-  tail call fastcc void @zend_mm_panic() #34
+  tail call fastcc void @zend_mm_panic() #38
   unreachable
 
 13:                                               ; preds = %7
@@ -5200,7 +5200,7 @@ define void @_efree_40(ptr noundef %0) local_unnamed_addr #0 {
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %2, i64 368
   %6 = load ptr, ptr %5, align 8
-  tail call void %6(ptr noundef %0) #35
+  tail call void %6(ptr noundef %0) #39
   br label %19
 
 7:                                                ; preds = %1
@@ -5212,7 +5212,7 @@ define void @_efree_40(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not12, label %13, label %12
 
 12:                                               ; preds = %7
-  tail call fastcc void @zend_mm_panic() #34
+  tail call fastcc void @zend_mm_panic() #38
   unreachable
 
 13:                                               ; preds = %7
@@ -5240,7 +5240,7 @@ define void @_efree_48(ptr noundef %0) local_unnamed_addr #0 {
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %2, i64 368
   %6 = load ptr, ptr %5, align 8
-  tail call void %6(ptr noundef %0) #35
+  tail call void %6(ptr noundef %0) #39
   br label %19
 
 7:                                                ; preds = %1
@@ -5252,7 +5252,7 @@ define void @_efree_48(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not12, label %13, label %12
 
 12:                                               ; preds = %7
-  tail call fastcc void @zend_mm_panic() #34
+  tail call fastcc void @zend_mm_panic() #38
   unreachable
 
 13:                                               ; preds = %7
@@ -5280,7 +5280,7 @@ define void @_efree_56(ptr noundef %0) local_unnamed_addr #0 {
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %2, i64 368
   %6 = load ptr, ptr %5, align 8
-  tail call void %6(ptr noundef %0) #35
+  tail call void %6(ptr noundef %0) #39
   br label %19
 
 7:                                                ; preds = %1
@@ -5292,7 +5292,7 @@ define void @_efree_56(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not12, label %13, label %12
 
 12:                                               ; preds = %7
-  tail call fastcc void @zend_mm_panic() #34
+  tail call fastcc void @zend_mm_panic() #38
   unreachable
 
 13:                                               ; preds = %7
@@ -5320,7 +5320,7 @@ define void @_efree_64(ptr noundef %0) local_unnamed_addr #0 {
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %2, i64 368
   %6 = load ptr, ptr %5, align 8
-  tail call void %6(ptr noundef %0) #35
+  tail call void %6(ptr noundef %0) #39
   br label %19
 
 7:                                                ; preds = %1
@@ -5332,7 +5332,7 @@ define void @_efree_64(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not12, label %13, label %12
 
 12:                                               ; preds = %7
-  tail call fastcc void @zend_mm_panic() #34
+  tail call fastcc void @zend_mm_panic() #38
   unreachable
 
 13:                                               ; preds = %7
@@ -5360,7 +5360,7 @@ define void @_efree_80(ptr noundef %0) local_unnamed_addr #0 {
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %2, i64 368
   %6 = load ptr, ptr %5, align 8
-  tail call void %6(ptr noundef %0) #35
+  tail call void %6(ptr noundef %0) #39
   br label %19
 
 7:                                                ; preds = %1
@@ -5372,7 +5372,7 @@ define void @_efree_80(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not12, label %13, label %12
 
 12:                                               ; preds = %7
-  tail call fastcc void @zend_mm_panic() #34
+  tail call fastcc void @zend_mm_panic() #38
   unreachable
 
 13:                                               ; preds = %7
@@ -5400,7 +5400,7 @@ define void @_efree_96(ptr noundef %0) local_unnamed_addr #0 {
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %2, i64 368
   %6 = load ptr, ptr %5, align 8
-  tail call void %6(ptr noundef %0) #35
+  tail call void %6(ptr noundef %0) #39
   br label %19
 
 7:                                                ; preds = %1
@@ -5412,7 +5412,7 @@ define void @_efree_96(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not12, label %13, label %12
 
 12:                                               ; preds = %7
-  tail call fastcc void @zend_mm_panic() #34
+  tail call fastcc void @zend_mm_panic() #38
   unreachable
 
 13:                                               ; preds = %7
@@ -5440,7 +5440,7 @@ define void @_efree_112(ptr noundef %0) local_unnamed_addr #0 {
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %2, i64 368
   %6 = load ptr, ptr %5, align 8
-  tail call void %6(ptr noundef %0) #35
+  tail call void %6(ptr noundef %0) #39
   br label %19
 
 7:                                                ; preds = %1
@@ -5452,7 +5452,7 @@ define void @_efree_112(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not12, label %13, label %12
 
 12:                                               ; preds = %7
-  tail call fastcc void @zend_mm_panic() #34
+  tail call fastcc void @zend_mm_panic() #38
   unreachable
 
 13:                                               ; preds = %7
@@ -5480,7 +5480,7 @@ define void @_efree_128(ptr noundef %0) local_unnamed_addr #0 {
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %2, i64 368
   %6 = load ptr, ptr %5, align 8
-  tail call void %6(ptr noundef %0) #35
+  tail call void %6(ptr noundef %0) #39
   br label %19
 
 7:                                                ; preds = %1
@@ -5492,7 +5492,7 @@ define void @_efree_128(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not12, label %13, label %12
 
 12:                                               ; preds = %7
-  tail call fastcc void @zend_mm_panic() #34
+  tail call fastcc void @zend_mm_panic() #38
   unreachable
 
 13:                                               ; preds = %7
@@ -5520,7 +5520,7 @@ define void @_efree_160(ptr noundef %0) local_unnamed_addr #0 {
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %2, i64 368
   %6 = load ptr, ptr %5, align 8
-  tail call void %6(ptr noundef %0) #35
+  tail call void %6(ptr noundef %0) #39
   br label %19
 
 7:                                                ; preds = %1
@@ -5532,7 +5532,7 @@ define void @_efree_160(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not12, label %13, label %12
 
 12:                                               ; preds = %7
-  tail call fastcc void @zend_mm_panic() #34
+  tail call fastcc void @zend_mm_panic() #38
   unreachable
 
 13:                                               ; preds = %7
@@ -5560,7 +5560,7 @@ define void @_efree_192(ptr noundef %0) local_unnamed_addr #0 {
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %2, i64 368
   %6 = load ptr, ptr %5, align 8
-  tail call void %6(ptr noundef %0) #35
+  tail call void %6(ptr noundef %0) #39
   br label %19
 
 7:                                                ; preds = %1
@@ -5572,7 +5572,7 @@ define void @_efree_192(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not12, label %13, label %12
 
 12:                                               ; preds = %7
-  tail call fastcc void @zend_mm_panic() #34
+  tail call fastcc void @zend_mm_panic() #38
   unreachable
 
 13:                                               ; preds = %7
@@ -5600,7 +5600,7 @@ define void @_efree_224(ptr noundef %0) local_unnamed_addr #0 {
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %2, i64 368
   %6 = load ptr, ptr %5, align 8
-  tail call void %6(ptr noundef %0) #35
+  tail call void %6(ptr noundef %0) #39
   br label %19
 
 7:                                                ; preds = %1
@@ -5612,7 +5612,7 @@ define void @_efree_224(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not12, label %13, label %12
 
 12:                                               ; preds = %7
-  tail call fastcc void @zend_mm_panic() #34
+  tail call fastcc void @zend_mm_panic() #38
   unreachable
 
 13:                                               ; preds = %7
@@ -5640,7 +5640,7 @@ define void @_efree_256(ptr noundef %0) local_unnamed_addr #0 {
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %2, i64 368
   %6 = load ptr, ptr %5, align 8
-  tail call void %6(ptr noundef %0) #35
+  tail call void %6(ptr noundef %0) #39
   br label %19
 
 7:                                                ; preds = %1
@@ -5652,7 +5652,7 @@ define void @_efree_256(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not12, label %13, label %12
 
 12:                                               ; preds = %7
-  tail call fastcc void @zend_mm_panic() #34
+  tail call fastcc void @zend_mm_panic() #38
   unreachable
 
 13:                                               ; preds = %7
@@ -5680,7 +5680,7 @@ define void @_efree_320(ptr noundef %0) local_unnamed_addr #0 {
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %2, i64 368
   %6 = load ptr, ptr %5, align 8
-  tail call void %6(ptr noundef %0) #35
+  tail call void %6(ptr noundef %0) #39
   br label %19
 
 7:                                                ; preds = %1
@@ -5692,7 +5692,7 @@ define void @_efree_320(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not12, label %13, label %12
 
 12:                                               ; preds = %7
-  tail call fastcc void @zend_mm_panic() #34
+  tail call fastcc void @zend_mm_panic() #38
   unreachable
 
 13:                                               ; preds = %7
@@ -5720,7 +5720,7 @@ define void @_efree_384(ptr noundef %0) local_unnamed_addr #0 {
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %2, i64 368
   %6 = load ptr, ptr %5, align 8
-  tail call void %6(ptr noundef %0) #35
+  tail call void %6(ptr noundef %0) #39
   br label %19
 
 7:                                                ; preds = %1
@@ -5732,7 +5732,7 @@ define void @_efree_384(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not12, label %13, label %12
 
 12:                                               ; preds = %7
-  tail call fastcc void @zend_mm_panic() #34
+  tail call fastcc void @zend_mm_panic() #38
   unreachable
 
 13:                                               ; preds = %7
@@ -5760,7 +5760,7 @@ define void @_efree_448(ptr noundef %0) local_unnamed_addr #0 {
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %2, i64 368
   %6 = load ptr, ptr %5, align 8
-  tail call void %6(ptr noundef %0) #35
+  tail call void %6(ptr noundef %0) #39
   br label %19
 
 7:                                                ; preds = %1
@@ -5772,7 +5772,7 @@ define void @_efree_448(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not12, label %13, label %12
 
 12:                                               ; preds = %7
-  tail call fastcc void @zend_mm_panic() #34
+  tail call fastcc void @zend_mm_panic() #38
   unreachable
 
 13:                                               ; preds = %7
@@ -5800,7 +5800,7 @@ define void @_efree_512(ptr noundef %0) local_unnamed_addr #0 {
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %2, i64 368
   %6 = load ptr, ptr %5, align 8
-  tail call void %6(ptr noundef %0) #35
+  tail call void %6(ptr noundef %0) #39
   br label %19
 
 7:                                                ; preds = %1
@@ -5812,7 +5812,7 @@ define void @_efree_512(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not12, label %13, label %12
 
 12:                                               ; preds = %7
-  tail call fastcc void @zend_mm_panic() #34
+  tail call fastcc void @zend_mm_panic() #38
   unreachable
 
 13:                                               ; preds = %7
@@ -5840,7 +5840,7 @@ define void @_efree_640(ptr noundef %0) local_unnamed_addr #0 {
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %2, i64 368
   %6 = load ptr, ptr %5, align 8
-  tail call void %6(ptr noundef %0) #35
+  tail call void %6(ptr noundef %0) #39
   br label %19
 
 7:                                                ; preds = %1
@@ -5852,7 +5852,7 @@ define void @_efree_640(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not12, label %13, label %12
 
 12:                                               ; preds = %7
-  tail call fastcc void @zend_mm_panic() #34
+  tail call fastcc void @zend_mm_panic() #38
   unreachable
 
 13:                                               ; preds = %7
@@ -5880,7 +5880,7 @@ define void @_efree_768(ptr noundef %0) local_unnamed_addr #0 {
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %2, i64 368
   %6 = load ptr, ptr %5, align 8
-  tail call void %6(ptr noundef %0) #35
+  tail call void %6(ptr noundef %0) #39
   br label %19
 
 7:                                                ; preds = %1
@@ -5892,7 +5892,7 @@ define void @_efree_768(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not12, label %13, label %12
 
 12:                                               ; preds = %7
-  tail call fastcc void @zend_mm_panic() #34
+  tail call fastcc void @zend_mm_panic() #38
   unreachable
 
 13:                                               ; preds = %7
@@ -5920,7 +5920,7 @@ define void @_efree_896(ptr noundef %0) local_unnamed_addr #0 {
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %2, i64 368
   %6 = load ptr, ptr %5, align 8
-  tail call void %6(ptr noundef %0) #35
+  tail call void %6(ptr noundef %0) #39
   br label %19
 
 7:                                                ; preds = %1
@@ -5932,7 +5932,7 @@ define void @_efree_896(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not12, label %13, label %12
 
 12:                                               ; preds = %7
-  tail call fastcc void @zend_mm_panic() #34
+  tail call fastcc void @zend_mm_panic() #38
   unreachable
 
 13:                                               ; preds = %7
@@ -5960,7 +5960,7 @@ define void @_efree_1024(ptr noundef %0) local_unnamed_addr #0 {
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %2, i64 368
   %6 = load ptr, ptr %5, align 8
-  tail call void %6(ptr noundef %0) #35
+  tail call void %6(ptr noundef %0) #39
   br label %19
 
 7:                                                ; preds = %1
@@ -5972,7 +5972,7 @@ define void @_efree_1024(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not12, label %13, label %12
 
 12:                                               ; preds = %7
-  tail call fastcc void @zend_mm_panic() #34
+  tail call fastcc void @zend_mm_panic() #38
   unreachable
 
 13:                                               ; preds = %7
@@ -6000,7 +6000,7 @@ define void @_efree_1280(ptr noundef %0) local_unnamed_addr #0 {
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %2, i64 368
   %6 = load ptr, ptr %5, align 8
-  tail call void %6(ptr noundef %0) #35
+  tail call void %6(ptr noundef %0) #39
   br label %19
 
 7:                                                ; preds = %1
@@ -6012,7 +6012,7 @@ define void @_efree_1280(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not12, label %13, label %12
 
 12:                                               ; preds = %7
-  tail call fastcc void @zend_mm_panic() #34
+  tail call fastcc void @zend_mm_panic() #38
   unreachable
 
 13:                                               ; preds = %7
@@ -6040,7 +6040,7 @@ define void @_efree_1536(ptr noundef %0) local_unnamed_addr #0 {
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %2, i64 368
   %6 = load ptr, ptr %5, align 8
-  tail call void %6(ptr noundef %0) #35
+  tail call void %6(ptr noundef %0) #39
   br label %19
 
 7:                                                ; preds = %1
@@ -6052,7 +6052,7 @@ define void @_efree_1536(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not12, label %13, label %12
 
 12:                                               ; preds = %7
-  tail call fastcc void @zend_mm_panic() #34
+  tail call fastcc void @zend_mm_panic() #38
   unreachable
 
 13:                                               ; preds = %7
@@ -6080,7 +6080,7 @@ define void @_efree_1792(ptr noundef %0) local_unnamed_addr #0 {
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %2, i64 368
   %6 = load ptr, ptr %5, align 8
-  tail call void %6(ptr noundef %0) #35
+  tail call void %6(ptr noundef %0) #39
   br label %19
 
 7:                                                ; preds = %1
@@ -6092,7 +6092,7 @@ define void @_efree_1792(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not12, label %13, label %12
 
 12:                                               ; preds = %7
-  tail call fastcc void @zend_mm_panic() #34
+  tail call fastcc void @zend_mm_panic() #38
   unreachable
 
 13:                                               ; preds = %7
@@ -6120,7 +6120,7 @@ define void @_efree_2048(ptr noundef %0) local_unnamed_addr #0 {
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %2, i64 368
   %6 = load ptr, ptr %5, align 8
-  tail call void %6(ptr noundef %0) #35
+  tail call void %6(ptr noundef %0) #39
   br label %19
 
 7:                                                ; preds = %1
@@ -6132,7 +6132,7 @@ define void @_efree_2048(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not12, label %13, label %12
 
 12:                                               ; preds = %7
-  tail call fastcc void @zend_mm_panic() #34
+  tail call fastcc void @zend_mm_panic() #38
   unreachable
 
 13:                                               ; preds = %7
@@ -6160,7 +6160,7 @@ define void @_efree_2560(ptr noundef %0) local_unnamed_addr #0 {
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %2, i64 368
   %6 = load ptr, ptr %5, align 8
-  tail call void %6(ptr noundef %0) #35
+  tail call void %6(ptr noundef %0) #39
   br label %19
 
 7:                                                ; preds = %1
@@ -6172,7 +6172,7 @@ define void @_efree_2560(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not12, label %13, label %12
 
 12:                                               ; preds = %7
-  tail call fastcc void @zend_mm_panic() #34
+  tail call fastcc void @zend_mm_panic() #38
   unreachable
 
 13:                                               ; preds = %7
@@ -6200,7 +6200,7 @@ define void @_efree_3072(ptr noundef %0) local_unnamed_addr #0 {
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %2, i64 368
   %6 = load ptr, ptr %5, align 8
-  tail call void %6(ptr noundef %0) #35
+  tail call void %6(ptr noundef %0) #39
   br label %19
 
 7:                                                ; preds = %1
@@ -6212,7 +6212,7 @@ define void @_efree_3072(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not12, label %13, label %12
 
 12:                                               ; preds = %7
-  tail call fastcc void @zend_mm_panic() #34
+  tail call fastcc void @zend_mm_panic() #38
   unreachable
 
 13:                                               ; preds = %7
@@ -6240,7 +6240,7 @@ define void @_efree_large(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %3, i64 368
   %7 = load ptr, ptr %6, align 8
-  tail call void %7(ptr noundef %0) #35
+  tail call void %7(ptr noundef %0) #39
   br label %36
 
 8:                                                ; preds = %2
@@ -6255,7 +6255,7 @@ define void @_efree_large(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 
   br i1 %.not22, label %16, label %17
 
 16:                                               ; preds = %8
-  tail call fastcc void @zend_mm_panic() #34
+  tail call fastcc void @zend_mm_panic() #38
   unreachable
 
 17:                                               ; preds = %8
@@ -6297,7 +6297,7 @@ define void @_efree_huge(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %3, i64 368
   %7 = load ptr, ptr %6, align 8
-  tail call void %7(ptr noundef %0) #35
+  tail call void %7(ptr noundef %0) #39
   br label %9
 
 8:                                                ; preds = %2
@@ -6316,7 +6316,7 @@ define internal fastcc void @zend_mm_free_huge(ptr noundef %0, ptr noundef %1) u
   br i1 %.not, label %6, label %5
 
 5:                                                ; preds = %2
-  tail call fastcc void @zend_mm_panic() #34
+  tail call fastcc void @zend_mm_panic() #38
   unreachable
 
 6:                                                ; preds = %2
@@ -6368,7 +6368,7 @@ define internal fastcc void @zend_mm_free_huge(ptr noundef %0, ptr noundef %1) u
   br i1 %.not54.i, label %31, label %30
 
 30:                                               ; preds = %21
-  tail call fastcc void @zend_mm_panic() #34
+  tail call fastcc void @zend_mm_panic() #38
   unreachable
 
 31:                                               ; preds = %21
@@ -6398,7 +6398,7 @@ define internal fastcc void @zend_mm_free_huge(ptr noundef %0, ptr noundef %1) u
   br i1 %.not56.i, label %47, label %46
 
 46:                                               ; preds = %44
-  tail call fastcc void @zend_mm_panic() #34
+  tail call fastcc void @zend_mm_panic() #38
   unreachable
 
 47:                                               ; preds = %44
@@ -6420,7 +6420,7 @@ define internal fastcc void @zend_mm_free_huge(ptr noundef %0, ptr noundef %1) u
   br i1 %.not.i, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph23, %6
-  tail call fastcc void @zend_mm_panic() #34
+  tail call fastcc void @zend_mm_panic() #38
   unreachable
 
 zend_mm_del_huge_block.exit:                      ; preds = %20, %32, %47
@@ -6432,20 +6432,20 @@ zend_mm_del_huge_block.exit:                      ; preds = %20, %32, %47
 56:                                               ; preds = %zend_mm_del_huge_block.exit
   %57 = getelementptr inbounds i8, ptr %.val, i64 8
   %58 = load ptr, ptr %57, align 8
-  tail call void %58(ptr noundef nonnull %.val, ptr noundef %1, i64 noundef %16) #35
+  tail call void %58(ptr noundef nonnull %.val, ptr noundef %1, i64 noundef %16) #39
   br label %zend_mm_chunk_free.exit
 
 59:                                               ; preds = %zend_mm_del_huge_block.exit
-  %60 = tail call i32 @munmap(ptr noundef %1, i64 noundef %16) #35
+  %60 = tail call i32 @munmap(ptr noundef %1, i64 noundef %16) #39
   %.not.i.i = icmp eq i32 %60, 0
   br i1 %.not.i.i, label %zend_mm_chunk_free.exit, label %61
 
 61:                                               ; preds = %59
   %62 = load ptr, ptr @stderr, align 8
-  %63 = tail call ptr @__errno_location() #36
+  %63 = tail call ptr @__errno_location() #40
   %64 = load i32, ptr %63, align 4
-  %65 = tail call ptr @strerror(i32 noundef %64) #35
-  %66 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %62, ptr noundef nonnull @.str.4, i32 noundef %64, ptr noundef %65) #37
+  %65 = tail call ptr @strerror(i32 noundef %64) #39
+  %66 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %62, ptr noundef nonnull @.str.4, i32 noundef %64, ptr noundef %65) #41
   br label %zend_mm_chunk_free.exit
 
 zend_mm_chunk_free.exit:                          ; preds = %56, %59, %61
@@ -6470,7 +6470,7 @@ define noalias ptr @_emalloc(i64 noundef %0) local_unnamed_addr #9 {
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %2, i64 360
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call ptr %6(i64 noundef %0) #35
+  %7 = tail call ptr %6(i64 noundef %0) #39
   br label %zend_mm_alloc_small_slow.exit
 
 8:                                                ; preds = %1
@@ -6634,7 +6634,7 @@ define void @_efree(ptr noundef %0) local_unnamed_addr #0 {
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %2, i64 368
   %6 = load ptr, ptr %5, align 8
-  tail call void %6(ptr noundef %0) #35
+  tail call void %6(ptr noundef %0) #39
   br label %46
 
 7:                                                ; preds = %1
@@ -6664,7 +6664,7 @@ define void @_efree(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not38, label %23, label %22
 
 22:                                               ; preds = %13
-  tail call fastcc void @zend_mm_panic() #34
+  tail call fastcc void @zend_mm_panic() #38
   unreachable
 
 23:                                               ; preds = %13
@@ -6694,7 +6694,7 @@ define void @_efree(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not40, label %39, label %38
 
 38:                                               ; preds = %36
-  tail call fastcc void @zend_mm_panic() #34
+  tail call fastcc void @zend_mm_panic() #38
   unreachable
 
 39:                                               ; preds = %36
@@ -6722,7 +6722,7 @@ define ptr @_erealloc(ptr noundef %0, i64 noundef %1) local_unnamed_addr #7 {
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %3, i64 376
   %7 = load ptr, ptr %6, align 8
-  %8 = tail call ptr %7(ptr noundef %0, i64 noundef %1) #35
+  %8 = tail call ptr %7(ptr noundef %0, i64 noundef %1) #39
   br label %313
 
 9:                                                ; preds = %2
@@ -6736,7 +6736,7 @@ define ptr @_erealloc(ptr noundef %0, i64 noundef %1) local_unnamed_addr #7 {
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %13
-  %16 = tail call noalias ptr @_zend_mm_alloc(ptr noundef nonnull %3, i64 noundef %1) #40
+  %16 = tail call noalias ptr @_zend_mm_alloc(ptr noundef nonnull %3, i64 noundef %1) #44
   br label %313
 
 17:                                               ; preds = %13
@@ -6756,7 +6756,7 @@ define ptr @_erealloc(ptr noundef %0, i64 noundef %1) local_unnamed_addr #7 {
   br i1 %.not360, label %29, label %28
 
 28:                                               ; preds = %19
-  tail call fastcc void @zend_mm_panic() #34
+  tail call fastcc void @zend_mm_panic() #38
   unreachable
 
 29:                                               ; preds = %19
@@ -6924,7 +6924,7 @@ define ptr @_erealloc(ptr noundef %0, i64 noundef %1) local_unnamed_addr #7 {
   br i1 %.not362, label %123, label %122
 
 122:                                              ; preds = %120
-  tail call fastcc void @zend_mm_panic() #34
+  tail call fastcc void @zend_mm_panic() #38
   unreachable
 
 123:                                              ; preds = %120
@@ -7236,7 +7236,7 @@ define ptr @_erealloc2(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unn
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %4, i64 376
   %8 = load ptr, ptr %7, align 8
-  %9 = tail call ptr %8(ptr noundef %0, i64 noundef %1) #35
+  %9 = tail call ptr %8(ptr noundef %0, i64 noundef %1) #39
   br label %316
 
 10:                                               ; preds = %3
@@ -7250,7 +7250,7 @@ define ptr @_erealloc2(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unn
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %14
-  %17 = tail call noalias ptr @_zend_mm_alloc(ptr noundef nonnull %4, i64 noundef %1) #40
+  %17 = tail call noalias ptr @_zend_mm_alloc(ptr noundef nonnull %4, i64 noundef %1) #44
   br label %316
 
 18:                                               ; preds = %14
@@ -7270,7 +7270,7 @@ define ptr @_erealloc2(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unn
   br i1 %.not360, label %30, label %29
 
 29:                                               ; preds = %20
-  tail call fastcc void @zend_mm_panic() #34
+  tail call fastcc void @zend_mm_panic() #38
   unreachable
 
 30:                                               ; preds = %20
@@ -7440,7 +7440,7 @@ define ptr @_erealloc2(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unn
   br i1 %.not362, label %126, label %125
 
 125:                                              ; preds = %123
-  tail call fastcc void @zend_mm_panic() #34
+  tail call fastcc void @zend_mm_panic() #38
   unreachable
 
 126:                                              ; preds = %123
@@ -7760,7 +7760,7 @@ define i64 @_zend_mem_block_size(ptr noundef %0) local_unnamed_addr #0 {
   %10 = lshr i64 %9, 3
   %11 = getelementptr inbounds i8, ptr %2, i64 384
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call ptr @zend_hash_index_find(ptr noundef %12, i64 noundef %10) #35
+  %13 = tail call ptr @zend_hash_index_find(ptr noundef %12, i64 noundef %10) #39
   %.not10.i = icmp eq ptr %13, null
   br i1 %.not10.i, label %_zend_mm_block_size.exit, label %14
 
@@ -7793,7 +7793,7 @@ define i64 @_zend_mem_block_size(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %24, %20
-  tail call fastcc void @zend_mm_panic() #34
+  tail call fastcc void @zend_mm_panic() #38
   unreachable
 
 zend_mm_get_huge_block_size.exit.i.i:             ; preds = %.lr.ph.i.i.i
@@ -7813,7 +7813,7 @@ zend_mm_get_huge_block_size.exit.i.i:             ; preds = %.lr.ph.i.i.i
   br i1 %.not.i.i, label %37, label %36
 
 36:                                               ; preds = %28
-  tail call fastcc void @zend_mm_panic() #34
+  tail call fastcc void @zend_mm_panic() #38
   unreachable
 
 37:                                               ; preds = %28
@@ -7841,51 +7841,51 @@ _zend_mm_block_size.exit:                         ; preds = %4, %8, %14, %zend_m
 
 ; Function Attrs: nounwind uwtable
 define noalias ptr @_safe_emalloc(i64 noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
-  %4 = tail call { i64, i64 } asm "mulq $3\0A\09add $4,$0\0A\09adc $$0,$1", "=&{ax},=&{dx},%0,rm,rm,~{dirflag},~{fpsr},~{flags}"(i64 %0, i64 %1, i64 %2) #41, !srcloc !4
+  %4 = tail call { i64, i64 } asm "mulq $3\0A\09add $4,$0\0A\09adc $$0,$1", "=&{ax},=&{dx},%0,rm,rm,~{dirflag},~{fpsr},~{flags}"(i64 %0, i64 %1, i64 %2) #45, !srcloc !4
   %.024 = extractvalue { i64, i64 } %4, 1
   %.not.not = icmp eq i64 %.024, 0
   br i1 %.not.not, label %6, label %5
 
 5:                                                ; preds = %3
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 1, ptr noundef nonnull @.str.11, i64 noundef %0, i64 noundef %1, i64 noundef %2) #38
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 1, ptr noundef nonnull @.str.11, i64 noundef %0, i64 noundef %1, i64 noundef %2) #42
   unreachable
 
 6:                                                ; preds = %3
   %.023 = extractvalue { i64, i64 } %4, 0
-  %7 = tail call noalias ptr @_emalloc(i64 noundef %.023) #42
+  %7 = tail call noalias ptr @_emalloc(i64 noundef %.023) #46
   ret ptr %7
 }
 
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @_safe_malloc(i64 noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
-  %4 = tail call { i64, i64 } asm "mulq $3\0A\09add $4,$0\0A\09adc $$0,$1", "=&{ax},=&{dx},%0,rm,rm,~{dirflag},~{fpsr},~{flags}"(i64 %0, i64 %1, i64 %2) #41, !srcloc !4
+  %4 = tail call { i64, i64 } asm "mulq $3\0A\09add $4,$0\0A\09adc $$0,$1", "=&{ax},=&{dx},%0,rm,rm,~{dirflag},~{fpsr},~{flags}"(i64 %0, i64 %1, i64 %2) #45, !srcloc !4
   %.024 = extractvalue { i64, i64 } %4, 1
   %.not.not = icmp eq i64 %.024, 0
   br i1 %.not.not, label %6, label %5
 
 5:                                                ; preds = %3
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 1, ptr noundef nonnull @.str.11, i64 noundef %0, i64 noundef %1, i64 noundef %2) #38
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 1, ptr noundef nonnull @.str.11, i64 noundef %0, i64 noundef %1, i64 noundef %2) #42
   unreachable
 
 6:                                                ; preds = %3
   %.023 = extractvalue { i64, i64 } %4, 0
-  %7 = tail call noalias ptr @malloc(i64 noundef %.023) #39
+  %7 = tail call noalias ptr @malloc(i64 noundef %.023) #43
   %8 = icmp ne ptr %7, null
   %.not.i = icmp eq i64 %.023, 0
   %9 = or i1 %.not.i, %8
   br i1 %9, label %__zend_malloc.exit, label %10
 
 10:                                               ; preds = %6
-  tail call fastcc void @zend_out_of_memory() #34
+  tail call fastcc void @zend_out_of_memory() #38
   unreachable
 
 __zend_malloc.exit:                               ; preds = %6
   ret ptr %7
 }
 
-; Function Attrs: nounwind allocsize(0) uwtable
-define noalias noundef ptr @__zend_malloc(i64 noundef %0) #9 {
-  %2 = tail call noalias ptr @malloc(i64 noundef %0) #39
+; Function Attrs: nofree nounwind allocsize(0) uwtable
+define noalias noundef ptr @__zend_malloc(i64 noundef %0) #10 {
+  %2 = tail call noalias ptr @malloc(i64 noundef %0) #43
   %3 = icmp ne ptr %2, null
   %.not = icmp eq i64 %0, 0
   %4 = or i1 %.not, %3
@@ -7895,48 +7895,48 @@ define noalias noundef ptr @__zend_malloc(i64 noundef %0) #9 {
   ret ptr %2
 
 6:                                                ; preds = %1
-  tail call fastcc void @zend_out_of_memory() #34
+  tail call fastcc void @zend_out_of_memory() #38
   unreachable
 }
 
 ; Function Attrs: nounwind uwtable
 define ptr @_safe_erealloc(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
-  %5 = tail call { i64, i64 } asm "mulq $3\0A\09add $4,$0\0A\09adc $$0,$1", "=&{ax},=&{dx},%0,rm,rm,~{dirflag},~{fpsr},~{flags}"(i64 %1, i64 %2, i64 %3) #41, !srcloc !4
+  %5 = tail call { i64, i64 } asm "mulq $3\0A\09add $4,$0\0A\09adc $$0,$1", "=&{ax},=&{dx},%0,rm,rm,~{dirflag},~{fpsr},~{flags}"(i64 %1, i64 %2, i64 %3) #45, !srcloc !4
   %.025 = extractvalue { i64, i64 } %5, 1
   %.not.not = icmp eq i64 %.025, 0
   br i1 %.not.not, label %7, label %6
 
 6:                                                ; preds = %4
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 1, ptr noundef nonnull @.str.11, i64 noundef %1, i64 noundef %2, i64 noundef %3) #38
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 1, ptr noundef nonnull @.str.11, i64 noundef %1, i64 noundef %2, i64 noundef %3) #42
   unreachable
 
 7:                                                ; preds = %4
   %.024 = extractvalue { i64, i64 } %5, 0
-  %8 = tail call ptr @_erealloc(ptr noundef %0, i64 noundef %.024) #40
+  %8 = tail call ptr @_erealloc(ptr noundef %0, i64 noundef %.024) #44
   ret ptr %8
 }
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @_safe_realloc(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
-  %5 = tail call { i64, i64 } asm "mulq $3\0A\09add $4,$0\0A\09adc $$0,$1", "=&{ax},=&{dx},%0,rm,rm,~{dirflag},~{fpsr},~{flags}"(i64 %1, i64 %2, i64 %3) #41, !srcloc !4
+  %5 = tail call { i64, i64 } asm "mulq $3\0A\09add $4,$0\0A\09adc $$0,$1", "=&{ax},=&{dx},%0,rm,rm,~{dirflag},~{fpsr},~{flags}"(i64 %1, i64 %2, i64 %3) #45, !srcloc !4
   %.025 = extractvalue { i64, i64 } %5, 1
   %.not.not = icmp eq i64 %.025, 0
   br i1 %.not.not, label %7, label %6
 
 6:                                                ; preds = %4
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 1, ptr noundef nonnull @.str.11, i64 noundef %1, i64 noundef %2, i64 noundef %3) #38
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 1, ptr noundef nonnull @.str.11, i64 noundef %1, i64 noundef %2, i64 noundef %3) #42
   unreachable
 
 7:                                                ; preds = %4
   %.024 = extractvalue { i64, i64 } %5, 0
-  %8 = tail call ptr @realloc(ptr noundef %0, i64 noundef %.024) #43
+  %8 = tail call ptr @realloc(ptr noundef %0, i64 noundef %.024) #47
   %9 = icmp ne ptr %8, null
   %.not.i = icmp eq i64 %.024, 0
   %10 = or i1 %.not.i, %9
   br i1 %10, label %__zend_realloc.exit, label %11
 
 11:                                               ; preds = %7
-  tail call fastcc void @zend_out_of_memory() #34
+  tail call fastcc void @zend_out_of_memory() #38
   unreachable
 
 __zend_realloc.exit:                              ; preds = %7
@@ -7945,7 +7945,7 @@ __zend_realloc.exit:                              ; preds = %7
 
 ; Function Attrs: nounwind allocsize(1) uwtable
 define noalias noundef ptr @__zend_realloc(ptr nocapture noundef %0, i64 noundef %1) #7 {
-  %3 = tail call ptr @realloc(ptr noundef %0, i64 noundef %1) #43
+  %3 = tail call ptr @realloc(ptr noundef %0, i64 noundef %1) #47
   %4 = icmp ne ptr %3, null
   %.not = icmp eq i64 %1, 0
   %5 = or i1 %.not, %4
@@ -7955,53 +7955,53 @@ define noalias noundef ptr @__zend_realloc(ptr nocapture noundef %0, i64 noundef
   ret ptr %3
 
 7:                                                ; preds = %2
-  tail call fastcc void @zend_out_of_memory() #34
+  tail call fastcc void @zend_out_of_memory() #38
   unreachable
 }
 
 ; Function Attrs: nounwind allocsize(0,1) uwtable
-define noalias ptr @_ecalloc(i64 noundef %0, i64 noundef %1) local_unnamed_addr #10 {
-  %3 = tail call { i64, i64 } asm "mulq $3\0A\09adc $$0,$1", "=&{ax},=&{dx},%0,rm,~{dirflag},~{fpsr},~{flags}"(i64 %0, i64 %1) #41, !srcloc !5
+define noalias ptr @_ecalloc(i64 noundef %0, i64 noundef %1) local_unnamed_addr #11 {
+  %3 = tail call { i64, i64 } asm "mulq $3\0A\09adc $$0,$1", "=&{ax},=&{dx},%0,rm,~{dirflag},~{fpsr},~{flags}"(i64 %0, i64 %1) #45, !srcloc !5
   %4 = extractvalue { i64, i64 } %3, 1
   %.not.not = icmp eq i64 %4, 0
   br i1 %.not.not, label %6, label %5
 
 5:                                                ; preds = %2
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 1, ptr noundef nonnull @.str.11, i64 noundef %0, i64 noundef %1, i64 noundef 0) #38
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 1, ptr noundef nonnull @.str.11, i64 noundef %0, i64 noundef %1, i64 noundef 0) #42
   unreachable
 
 6:                                                ; preds = %2
   %7 = extractvalue { i64, i64 } %3, 0
-  %8 = tail call noalias ptr @_emalloc(i64 noundef %7) #42
+  %8 = tail call noalias ptr @_emalloc(i64 noundef %7) #46
   tail call void @llvm.memset.p0.i64(ptr align 1 %8, i8 0, i64 %7, i1 false)
   ret ptr %8
 }
 
 ; Function Attrs: nounwind uwtable
 define noalias ptr @_estrdup(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #44
+  %2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #48
   %3 = add i64 %2, 1
   %4 = icmp eq i64 %3, 0
   br i1 %4, label %5, label %6
 
 5:                                                ; preds = %1
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 1, ptr noundef nonnull @.str.1, i64 noundef %2) #38
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 1, ptr noundef nonnull @.str.1, i64 noundef %2) #42
   unreachable
 
 6:                                                ; preds = %1
-  %7 = tail call noalias ptr @_emalloc(i64 noundef %3) #42
+  %7 = tail call noalias ptr @_emalloc(i64 noundef %3) #46
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %7, ptr align 1 %0, i64 %3, i1 false)
   ret ptr %7
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #11
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #12
 
 ; Function Attrs: noreturn
-declare void @zend_error_noreturn(i32 noundef, ptr noundef, ...) local_unnamed_addr #12
+declare void @zend_error_noreturn(i32 noundef, ptr noundef, ...) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #13
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #14
 
 ; Function Attrs: nounwind uwtable
 define noalias ptr @_estrndup(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #0 {
@@ -8010,11 +8010,11 @@ define noalias ptr @_estrndup(ptr nocapture noundef readonly %0, i64 noundef %1)
   br i1 %4, label %5, label %6
 
 5:                                                ; preds = %2
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 1, ptr noundef nonnull @.str.1, i64 noundef %1) #38
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 1, ptr noundef nonnull @.str.1, i64 noundef %1) #42
   unreachable
 
 6:                                                ; preds = %2
-  %7 = tail call noalias ptr @_emalloc(i64 noundef %3) #42
+  %7 = tail call noalias ptr @_emalloc(i64 noundef %3) #46
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %7, ptr align 1 %0, i64 %1, i1 false)
   %8 = getelementptr inbounds i8, ptr %7, i64 %1
   store i8 0, ptr %8, align 1
@@ -8028,16 +8028,16 @@ define noalias noundef ptr @zend_strndup(ptr nocapture noundef readonly %0, i64 
   br i1 %4, label %5, label %6
 
 5:                                                ; preds = %2
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 1, ptr noundef nonnull @.str.1, i64 noundef %1) #38
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 1, ptr noundef nonnull @.str.1, i64 noundef %1) #42
   unreachable
 
 6:                                                ; preds = %2
-  %7 = tail call noalias ptr @malloc(i64 noundef %3) #39
+  %7 = tail call noalias ptr @malloc(i64 noundef %3) #43
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %10
 
 9:                                                ; preds = %6
-  tail call fastcc void @zend_out_of_memory() #34
+  tail call fastcc void @zend_out_of_memory() #38
   unreachable
 
 10:                                               ; preds = %6
@@ -8055,13 +8055,13 @@ define noalias noundef ptr @zend_strndup(ptr nocapture noundef readonly %0, i64 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #14
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #15
 
-; Function Attrs: noreturn nounwind uwtable
+; Function Attrs: nofree noreturn nounwind uwtable
 define internal fastcc void @zend_out_of_memory() unnamed_addr #1 {
   %1 = load ptr, ptr @stderr, align 8
-  %2 = tail call i64 @fwrite(ptr nonnull @.str.12, i64 14, i64 1, ptr %1) #45
-  tail call void @exit(i32 noundef 1) #38
+  %2 = tail call i64 @fwrite(ptr nonnull @.str.12, i64 14, i64 1, ptr %1) #49
+  tail call void @exit(i32 noundef 1) #50
   unreachable
 }
 
@@ -8099,20 +8099,20 @@ define range(i32 -1, 1) i32 @zend_set_memory_limit(i64 noundef %0) local_unnamed
 18:                                               ; preds = %14
   %19 = getelementptr inbounds i8, ptr %.val, i64 8
   %20 = load ptr, ptr %19, align 8
-  tail call void %20(ptr noundef nonnull %.val, ptr noundef nonnull %15, i64 noundef 2097152) #35
+  tail call void %20(ptr noundef nonnull %.val, ptr noundef nonnull %15, i64 noundef 2097152) #39
   br label %zend_mm_chunk_free.exit
 
 21:                                               ; preds = %14
-  %22 = tail call i32 @munmap(ptr noundef nonnull %15, i64 noundef 2097152) #35
+  %22 = tail call i32 @munmap(ptr noundef nonnull %15, i64 noundef 2097152) #39
   %.not.i.i = icmp eq i32 %22, 0
   br i1 %.not.i.i, label %zend_mm_chunk_free.exit, label %23
 
 23:                                               ; preds = %21
   %24 = load ptr, ptr @stderr, align 8
-  %25 = tail call ptr @__errno_location() #36
+  %25 = tail call ptr @__errno_location() #40
   %26 = load i32, ptr %25, align 4
-  %27 = tail call ptr @strerror(i32 noundef %26) #35
-  %28 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.4, i32 noundef %26, ptr noundef %27) #37
+  %27 = tail call ptr @strerror(i32 noundef %26) #39
+  %28 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.4, i32 noundef %26, ptr noundef %27) #41
   br label %zend_mm_chunk_free.exit
 
 zend_mm_chunk_free.exit:                          ; preds = %18, %21, %23
@@ -8163,7 +8163,7 @@ define i64 @zend_memory_peak_usage(i1 noundef zeroext %0) local_unnamed_addr #8 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @zend_memory_reset_peak_usage() local_unnamed_addr #15 {
+define void @zend_memory_reset_peak_usage() local_unnamed_addr #16 {
   %1 = load ptr, ptr @alloc_globals.0, align 8
   %2 = getelementptr inbounds i8, ptr %1, i64 272
   %3 = load i64, ptr %2, align 8
@@ -8185,22 +8185,22 @@ define void @shutdown_memory_manager(i1 noundef zeroext %0, i1 noundef zeroext %
 
 ; Function Attrs: nounwind uwtable
 define void @start_memory_manager() local_unnamed_addr #0 {
-  %1 = tail call ptr @getenv(ptr noundef nonnull @.str.13) #35
+  %1 = tail call ptr @getenv(ptr noundef nonnull @.str.13) #39
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %19, label %2
 
 2:                                                ; preds = %0
-  %3 = tail call i64 @atoll(ptr nocapture noundef nonnull %1) #44
+  %3 = tail call i64 @atoll(ptr nocapture noundef nonnull %1) #48
   %.not21.i = icmp eq i64 %3, 0
   br i1 %.not21.i, label %4, label %19
 
 4:                                                ; preds = %2
-  %5 = tail call ptr @getenv(ptr noundef nonnull @.str.14) #35
+  %5 = tail call ptr @getenv(ptr noundef nonnull @.str.14) #39
   %.not22.i = icmp eq ptr %5, null
   br i1 %.not22.i, label %9, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call i64 @atoll(ptr nocapture noundef nonnull %5) #44
+  %7 = tail call i64 @atoll(ptr nocapture noundef nonnull %5) #48
   %8 = icmp ne i64 %7, 0
   br label %9
 
@@ -8226,19 +8226,19 @@ define void @start_memory_manager() local_unnamed_addr #0 {
   store ptr @tracked_malloc, ptr %12, align 8
   store ptr @tracked_free, ptr %13, align 8
   store ptr @tracked_realloc, ptr %14, align 8
-  %17 = tail call noalias dereferenceable_or_null(56) ptr @malloc(i64 noundef 56) #39
+  %17 = tail call noalias dereferenceable_or_null(56) ptr @malloc(i64 noundef 56) #43
   %18 = getelementptr inbounds i8, ptr %calloc.i, i64 384
   store ptr %17, ptr %18, align 8
-  tail call void @_zend_hash_init(ptr noundef %17, i32 noundef 1024, ptr noundef null, i1 noundef zeroext true) #35
+  tail call void @_zend_hash_init(ptr noundef %17, i32 noundef 1024, ptr noundef null, i1 noundef zeroext true) #39
   br label %alloc_globals_ctor.exit
 
 19:                                               ; preds = %2, %0
-  %20 = tail call ptr @getenv(ptr noundef nonnull @.str.15) #35
+  %20 = tail call ptr @getenv(ptr noundef nonnull @.str.15) #39
   %.not23.i = icmp eq ptr %20, null
   br i1 %.not23.i, label %24, label %21
 
 21:                                               ; preds = %19
-  %22 = tail call i64 @atoll(ptr nocapture noundef nonnull %20) #44
+  %22 = tail call i64 @atoll(ptr nocapture noundef nonnull %20) #48
   %.not24.i = icmp eq i64 %22, 0
   br i1 %.not24.i, label %24, label %23
 
@@ -8253,7 +8253,7 @@ define void @start_memory_manager() local_unnamed_addr #0 {
 
 27:                                               ; preds = %24
   %28 = load ptr, ptr @stderr, align 8
-  %29 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 22, i64 1, ptr %28) #45
+  %29 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 22, i64 1, ptr %28) #49
   br label %zend_mm_init.exit.i
 
 30:                                               ; preds = %24
@@ -8312,23 +8312,23 @@ zend_mm_init.exit.i:                              ; preds = %30, %27
   br label %alloc_globals_ctor.exit
 
 alloc_globals_ctor.exit:                          ; preds = %15, %16, %zend_mm_init.exit.i
-  %54 = tail call i64 @sysconf(i32 noundef 30) #35
+  %54 = tail call i64 @sysconf(i32 noundef 30) #39
   store i64 %54, ptr @_real_page_size, align 8
   ret void
 }
 
 ; Function Attrs: nounwind
-declare i64 @sysconf(i32 noundef) local_unnamed_addr #16
+declare i64 @sysconf(i32 noundef) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define ptr @zend_mm_set_heap(ptr noundef %0) local_unnamed_addr #17 {
+define ptr @zend_mm_set_heap(ptr noundef %0) local_unnamed_addr #18 {
   %2 = load ptr, ptr @alloc_globals.0, align 8
   store ptr %0, ptr @alloc_globals.0, align 8
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define ptr @zend_mm_get_heap() local_unnamed_addr #18 {
+define ptr @zend_mm_get_heap() local_unnamed_addr #19 {
   %1 = load ptr, ptr @alloc_globals.0, align 8
   ret ptr %1
 }
@@ -8342,7 +8342,7 @@ define zeroext i1 @zend_mm_is_custom_heap(ptr nocapture noundef readnone %0) loc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @zend_mm_set_custom_handlers(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #19 {
+define void @zend_mm_set_custom_handlers(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #20 {
   %5 = icmp ne ptr %1, null
   %6 = icmp ne ptr %2, null
   %or.cond = or i1 %5, %6
@@ -8366,7 +8366,7 @@ define void @zend_mm_set_custom_handlers(ptr nocapture noundef writeonly %0, ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @zend_mm_get_custom_handlers(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #20 {
+define void @zend_mm_get_custom_handlers(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #21 {
   %5 = load i32, ptr %0, align 8
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %13, label %6
@@ -8394,7 +8394,7 @@ define void @zend_mm_get_custom_handlers(ptr nocapture noundef readonly %0, ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @zend_mm_get_storage(ptr nocapture noundef readonly %0) local_unnamed_addr #21 {
+define ptr @zend_mm_get_storage(ptr nocapture noundef readonly %0) local_unnamed_addr #22 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
@@ -8408,7 +8408,7 @@ define ptr @zend_mm_startup() local_unnamed_addr #0 {
 
 3:                                                ; preds = %0
   %4 = load ptr, ptr @stderr, align 8
-  %5 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 22, i64 1, ptr %4) #45
+  %5 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 22, i64 1, ptr %4) #49
   br label %zend_mm_init.exit
 
 6:                                                ; preds = %0
@@ -8473,13 +8473,13 @@ define ptr @zend_mm_startup_ex(ptr nocapture noundef readonly %0, ptr noundef %1
   %5 = getelementptr inbounds i8, ptr %4, i64 32
   store ptr %1, ptr %5, align 8
   %6 = load ptr, ptr %0, align 8
-  %7 = call ptr %6(ptr noundef nonnull %4, i64 noundef 2097152, i64 noundef 2097152) #35
+  %7 = call ptr %6(ptr noundef nonnull %4, i64 noundef 2097152, i64 noundef 2097152) #39
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %3
   %10 = load ptr, ptr @stderr, align 8
-  %11 = call i64 @fwrite(ptr nonnull @.str.2, i64 22, i64 1, ptr %10) #45
+  %11 = call i64 @fwrite(ptr nonnull @.str.2, i64 22, i64 1, ptr %10) #49
   br label %49
 
 12:                                               ; preds = %3
@@ -8533,16 +8533,16 @@ define ptr @zend_mm_startup_ex(ptr nocapture noundef readonly %0, ptr noundef %1
   %36 = getelementptr inbounds i8, ptr %7, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %36, i8 0, i64 240, i1 false)
   %37 = add i64 %2, 40
-  %38 = call noalias ptr @_zend_mm_alloc(ptr noundef nonnull %13, i64 noundef %37) #40
+  %38 = call noalias ptr @_zend_mm_alloc(ptr noundef nonnull %13, i64 noundef %37) #44
   %.not = icmp eq ptr %38, null
   br i1 %.not, label %39, label %44
 
 39:                                               ; preds = %12
   %40 = getelementptr inbounds i8, ptr %0, i64 8
   %41 = load ptr, ptr %40, align 8
-  call void %41(ptr noundef nonnull %4, ptr noundef nonnull %7, i64 noundef 2097152) #35
+  call void %41(ptr noundef nonnull %4, ptr noundef nonnull %7, i64 noundef 2097152) #39
   %42 = load ptr, ptr @stderr, align 8
-  %43 = call i64 @fwrite(ptr nonnull @.str.2, i64 22, i64 1, ptr %42) #45
+  %43 = call i64 @fwrite(ptr nonnull @.str.2, i64 22, i64 1, ptr %42) #49
   br label %49
 
 44:                                               ; preds = %12
@@ -8567,29 +8567,29 @@ define ptr @zend_mm_startup_ex(ptr nocapture noundef readonly %0, ptr noundef %1
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #22
+declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #23
 
 ; Function Attrs: nounwind allocsize(0,1) uwtable
-define noalias noundef ptr @__zend_calloc(i64 noundef %0, i64 noundef %1) local_unnamed_addr #10 {
-  %3 = tail call { i64, i64 } asm "mulq $3\0A\09adc $$0,$1", "=&{ax},=&{dx},%0,rm,~{dirflag},~{fpsr},~{flags}"(i64 %0, i64 %1) #41, !srcloc !5
+define noalias noundef ptr @__zend_calloc(i64 noundef %0, i64 noundef %1) local_unnamed_addr #11 {
+  %3 = tail call { i64, i64 } asm "mulq $3\0A\09adc $$0,$1", "=&{ax},=&{dx},%0,rm,~{dirflag},~{fpsr},~{flags}"(i64 %0, i64 %1) #45, !srcloc !5
   %4 = extractvalue { i64, i64 } %3, 0
   %5 = extractvalue { i64, i64 } %3, 1
   %.not.not = icmp eq i64 %5, 0
   br i1 %.not.not, label %7, label %6
 
 6:                                                ; preds = %2
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 1, ptr noundef nonnull @.str.11, i64 noundef %0, i64 noundef %1, i64 noundef 0) #38
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 1, ptr noundef nonnull @.str.11, i64 noundef %0, i64 noundef %1, i64 noundef 0) #42
   unreachable
 
 7:                                                ; preds = %2
-  %8 = tail call noalias ptr @malloc(i64 noundef %4) #39
+  %8 = tail call noalias ptr @malloc(i64 noundef %4) #43
   %9 = icmp ne ptr %8, null
   %.not.i = icmp eq i64 %4, 0
   %10 = or i1 %.not.i, %9
   br i1 %10, label %__zend_malloc.exit, label %11
 
 11:                                               ; preds = %7
-  tail call fastcc void @zend_out_of_memory() #34
+  tail call fastcc void @zend_out_of_memory() #38
   unreachable
 
 __zend_malloc.exit:                               ; preds = %7
@@ -8598,11 +8598,11 @@ __zend_malloc.exit:                               ; preds = %7
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #23
+declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #24
 
-; Function Attrs: nounwind uwtable
-define noalias ptr @__zend_strdup(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = tail call noalias ptr @strdup(ptr noundef %0) #35
+; Function Attrs: nofree nounwind uwtable
+define noalias ptr @__zend_strdup(ptr nocapture noundef readonly %0) local_unnamed_addr #25 {
+  %2 = tail call noalias ptr @strdup(ptr noundef %0) #39
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %4, label %3
 
@@ -8610,27 +8610,27 @@ define noalias ptr @__zend_strdup(ptr nocapture noundef readonly %0) local_unnam
   ret ptr %2
 
 4:                                                ; preds = %1
-  tail call fastcc void @zend_out_of_memory() #34
+  tail call fastcc void @zend_out_of_memory() #38
   unreachable
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #24
+declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #26
 
-; Function Attrs: noreturn nounwind
-declare void @abort() local_unnamed_addr #25
+; Function Attrs: cold nofree noreturn nounwind
+declare void @abort() local_unnamed_addr #27
 
 ; Function Attrs: nounwind
-declare i32 @munmap(ptr noundef, i64 noundef) local_unnamed_addr #16
+declare i32 @munmap(ptr noundef, i64 noundef) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #26
+declare ptr @__errno_location() local_unnamed_addr #28
 
 ; Function Attrs: nounwind
-declare ptr @strerror(i32 noundef) local_unnamed_addr #16
+declare ptr @strerror(i32 noundef) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #27
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #29
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @zend_mm_realloc_huge(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #0 {
@@ -8652,7 +8652,7 @@ define internal fastcc ptr @zend_mm_realloc_huge(ptr noundef %0, ptr noundef %1,
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %8, %4
-  tail call fastcc void @zend_mm_panic() #34
+  tail call fastcc void @zend_mm_panic() #38
   unreachable
 
 zend_mm_get_huge_block_size.exit:                 ; preds = %.lr.ph.i
@@ -8706,20 +8706,20 @@ zend_mm_get_huge_block_size.exit:                 ; preds = %.lr.ph.i
 33:                                               ; preds = %28
   %34 = getelementptr inbounds i8, ptr %1, i64 %18
   %35 = sub i64 %11, %18
-  %36 = tail call i32 @munmap(ptr noundef %34, i64 noundef %35) #35
+  %36 = tail call i32 @munmap(ptr noundef %34, i64 noundef %35) #39
   %.not.i.i = icmp eq i32 %36, 0
   br i1 %.not.i.i, label %zend_mm_chunk_truncate.exit.thread, label %37
 
 37:                                               ; preds = %33
   %38 = load ptr, ptr @stderr, align 8
-  %39 = tail call ptr @__errno_location() #36
+  %39 = tail call ptr @__errno_location() #40
   %40 = load i32, ptr %39, align 4
-  %41 = tail call ptr @strerror(i32 noundef %40) #35
-  %42 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %38, ptr noundef nonnull @.str.4, i32 noundef %40, ptr noundef %41) #37
+  %41 = tail call ptr @strerror(i32 noundef %40) #39
+  %42 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %38, ptr noundef nonnull @.str.4, i32 noundef %40, ptr noundef %41) #41
   br label %zend_mm_chunk_truncate.exit.thread
 
 zend_mm_chunk_truncate.exit:                      ; preds = %30
-  %43 = tail call zeroext i1 %32(ptr noundef nonnull %.val, ptr noundef %1, i64 noundef %11, i64 noundef %18) #35
+  %43 = tail call zeroext i1 %32(ptr noundef nonnull %.val, ptr noundef %1, i64 noundef %11, i64 noundef %18) #39
   br i1 %43, label %zend_mm_chunk_truncate.exit.zend_mm_chunk_truncate.exit.thread_crit_edge, label %zend_mm_chunk_truncate.exit.thread108
 
 zend_mm_chunk_truncate.exit.zend_mm_chunk_truncate.exit.thread_crit_edge: ; preds = %zend_mm_chunk_truncate.exit
@@ -8787,7 +8787,7 @@ zend_mm_chunk_truncate.exit.thread:               ; preds = %zend_mm_chunk_trunc
 
 74:                                               ; preds = %70
   %75 = load i64, ptr %58, align 8
-  tail call fastcc void @zend_mm_safe_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.5, i64 noundef %75, i64 noundef %2) #34
+  tail call fastcc void @zend_mm_safe_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.5, i64 noundef %75, i64 noundef %2) #38
   unreachable
 
 76:                                               ; preds = %66, %70, %56
@@ -8803,11 +8803,11 @@ zend_mm_chunk_truncate.exit.thread:               ; preds = %zend_mm_chunk_trunc
   br i1 %.not16.i, label %zend_mm_chunk_truncate.exit.thread108, label %81
 
 81:                                               ; preds = %78
-  %82 = tail call zeroext i1 %80(ptr noundef nonnull %.val81, ptr noundef %1, i64 noundef %11, i64 noundef %18) #35
+  %82 = tail call zeroext i1 %80(ptr noundef nonnull %.val81, ptr noundef %1, i64 noundef %11, i64 noundef %18) #39
   br i1 %82, label %84, label %zend_mm_chunk_truncate.exit.thread108
 
 zend_mm_chunk_extend.exit:                        ; preds = %76
-  %83 = tail call ptr (ptr, i64, i64, i32, ...) @mremap(ptr noundef %1, i64 noundef %11, i64 noundef %18, i32 noundef 0) #35
+  %83 = tail call ptr (ptr, i64, i64, i32, ...) @mremap(ptr noundef %1, i64 noundef %11, i64 noundef %18, i32 noundef 0) #39
   %.not132 = icmp eq ptr %83, inttoptr (i64 -1 to ptr)
   br i1 %.not132, label %zend_mm_chunk_truncate.exit.thread108, label %84
 
@@ -9033,7 +9033,7 @@ zend_mm_alloc_small_slow.exit:                    ; preds = %76, %36, %34, %89, 
   br i1 %.not104, label %106, label %105
 
 105:                                              ; preds = %96
-  tail call fastcc void @zend_mm_panic() #34
+  tail call fastcc void @zend_mm_panic() #38
   unreachable
 
 106:                                              ; preds = %96
@@ -9063,7 +9063,7 @@ zend_mm_alloc_small_slow.exit:                    ; preds = %76, %36, %34, %89, 
   br i1 %.not106, label %122, label %121
 
 121:                                              ; preds = %119
-  tail call fastcc void @zend_mm_panic() #34
+  tail call fastcc void @zend_mm_panic() #38
   unreachable
 
 122:                                              ; preds = %119
@@ -9086,35 +9086,35 @@ zend_mm_alloc_small_slow.exit:                    ; preds = %76, %36, %34, %89, 
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal fastcc void @zend_mm_safe_error(ptr nocapture noundef writeonly %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #1 {
+define internal fastcc void @zend_mm_safe_error(ptr nocapture noundef writeonly %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #30 {
   %5 = alloca [1 x %struct.__jmp_buf_tag], align 16
   %6 = getelementptr inbounds i8, ptr %0, i64 296
   store i32 1, ptr %6, align 8
   %7 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
   store ptr %5, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
-  %8 = call i32 @__sigsetjmp(ptr noundef nonnull %5, i32 noundef 0) #46
+  %8 = call i32 @__sigsetjmp(ptr noundef nonnull %5, i32 noundef 0) #51
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %4
-  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 1, ptr noundef %1, i64 noundef %2, i64 noundef %3) #38
+  call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 1, ptr noundef %1, i64 noundef %2, i64 noundef %3) #42
   unreachable
 
 11:                                               ; preds = %4
   store ptr %7, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
   store i32 0, ptr %6, align 8
-  call void @_zend_bailout(ptr noundef nonnull @.str.6, i32 noundef 390) #38
+  call void @_zend_bailout(ptr noundef nonnull @.str.6, i32 noundef 390) #42
   unreachable
 }
 
 ; Function Attrs: nounwind returns_twice
-declare i32 @__sigsetjmp(ptr noundef, i32 noundef) local_unnamed_addr #28
+declare i32 @__sigsetjmp(ptr noundef, i32 noundef) local_unnamed_addr #31
 
 ; Function Attrs: noreturn
-declare void @_zend_bailout(ptr noundef, i32 noundef) local_unnamed_addr #12
+declare void @_zend_bailout(ptr noundef, i32 noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind
-declare ptr @mremap(ptr noundef, i64 noundef, i64 noundef, i32 noundef, ...) local_unnamed_addr #16
+declare ptr @mremap(ptr noundef, i64 noundef, i64 noundef, i32 noundef, ...) local_unnamed_addr #17
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @zend_mm_alloc_small_slow(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
@@ -9368,7 +9368,7 @@ define internal fastcc ptr @zend_mm_alloc_pages(ptr noundef %0, i32 noundef %1) 
   %86 = load i64, ptr %64, align 8
   %87 = shl i32 %1, 12
   %88 = zext i32 %87 to i64
-  tail call fastcc void @zend_mm_safe_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.5, i64 noundef %86, i64 noundef %88) #34
+  tail call fastcc void @zend_mm_safe_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.5, i64 noundef %86, i64 noundef %88) #38
   unreachable
 
 .loopexit:                                        ; preds = %74, %81
@@ -9379,7 +9379,7 @@ define internal fastcc ptr @zend_mm_alloc_pages(ptr noundef %0, i32 noundef %1) 
 
 90:                                               ; preds = %.loopexit
   %91 = load ptr, ptr %.val, align 8
-  %92 = tail call ptr %91(ptr noundef nonnull %.val, i64 noundef 2097152, i64 noundef 2097152) #35
+  %92 = tail call ptr %91(ptr noundef nonnull %.val, i64 noundef 2097152, i64 noundef 2097152) #39
   %93 = getelementptr inbounds i8, ptr %92, i64 2097151
   %94 = ptrtoint ptr %93 to i64
   %95 = and i64 %94, 2097151
@@ -9409,7 +9409,7 @@ zend_mm_chunk_alloc.exit:                         ; preds = %90, %98
 
 104:                                              ; preds = %103
   %105 = load ptr, ptr %.val210, align 8
-  %106 = tail call ptr %105(ptr noundef nonnull %.val210, i64 noundef 2097152, i64 noundef 2097152) #35
+  %106 = tail call ptr %105(ptr noundef nonnull %.val210, i64 noundef 2097152, i64 noundef 2097152) #39
   %107 = getelementptr inbounds i8, ptr %106, i64 2097151
   %108 = ptrtoint ptr %107 to i64
   %109 = and i64 %108, 2097151
@@ -9431,7 +9431,7 @@ zend_mm_chunk_alloc.exit213:                      ; preds = %104, %112
   %115 = load i64, ptr %65, align 8
   %116 = shl i32 %1, 12
   %117 = zext i32 %116 to i64
-  tail call fastcc void @zend_mm_safe_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.7, i64 noundef %115, i64 noundef %117) #34
+  tail call fastcc void @zend_mm_safe_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.7, i64 noundef %115, i64 noundef %117) #38
   unreachable
 
 118:                                              ; preds = %zend_mm_chunk_alloc.exit, %zend_mm_chunk_alloc.exit213
@@ -9624,7 +9624,7 @@ zend_mm_chunk_alloc.exit213:                      ; preds = %104, %112
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.cttz.i64(i64, i1 immarg) #27
+declare i64 @llvm.cttz.i64(i64, i1 immarg) #29
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @zend_mm_chunk_alloc_int(i64 noundef %0) unnamed_addr #0 {
@@ -9643,20 +9643,20 @@ define internal fastcc ptr @zend_mm_chunk_alloc_int(i64 noundef %0) unnamed_addr
   br i1 %.b3840, label %9, label %50
 
 9:                                                ; preds = %8
-  %10 = tail call i32 @madvise(ptr noundef nonnull %2, i64 noundef %0, i32 noundef 14) #35
+  %10 = tail call i32 @madvise(ptr noundef nonnull %2, i64 noundef %0, i32 noundef 14) #39
   br label %50
 
 11:                                               ; preds = %4
-  %12 = tail call i32 @munmap(ptr noundef nonnull %2, i64 noundef %0) #35
+  %12 = tail call i32 @munmap(ptr noundef nonnull %2, i64 noundef %0) #39
   %.not.i = icmp eq i32 %12, 0
   br i1 %.not.i, label %zend_mm_munmap.exit, label %13
 
 13:                                               ; preds = %11
   %14 = load ptr, ptr @stderr, align 8
-  %15 = tail call ptr @__errno_location() #36
+  %15 = tail call ptr @__errno_location() #40
   %16 = load i32, ptr %15, align 4
-  %17 = tail call ptr @strerror(i32 noundef %16) #35
-  %18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str.4, i32 noundef %16, ptr noundef %17) #37
+  %17 = tail call ptr @strerror(i32 noundef %16) #39
+  %18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str.4, i32 noundef %16, ptr noundef %17) #41
   br label %zend_mm_munmap.exit
 
 zend_mm_munmap.exit:                              ; preds = %11, %13
@@ -9671,16 +9671,16 @@ zend_mm_munmap.exit:                              ; preds = %11, %13
 
 25:                                               ; preds = %zend_mm_munmap.exit
   %26 = sub nuw nsw i64 2097152, %24
-  %27 = tail call i32 @munmap(ptr noundef %22, i64 noundef %26) #35
+  %27 = tail call i32 @munmap(ptr noundef %22, i64 noundef %26) #39
   %.not.i41 = icmp eq i32 %27, 0
   br i1 %.not.i41, label %zend_mm_munmap.exit42, label %28
 
 28:                                               ; preds = %25
   %29 = load ptr, ptr @stderr, align 8
-  %30 = tail call ptr @__errno_location() #36
+  %30 = tail call ptr @__errno_location() #40
   %31 = load i32, ptr %30, align 4
-  %32 = tail call ptr @strerror(i32 noundef %31) #35
-  %33 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %29, ptr noundef nonnull @.str.4, i32 noundef %31, ptr noundef %32) #37
+  %32 = tail call ptr @strerror(i32 noundef %31) #39
+  %33 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %29, ptr noundef nonnull @.str.4, i32 noundef %31, ptr noundef %32) #41
   br label %zend_mm_munmap.exit42
 
 zend_mm_munmap.exit42:                            ; preds = %25, %28
@@ -9697,16 +9697,16 @@ zend_mm_munmap.exit42:                            ; preds = %25, %28
 38:                                               ; preds = %35
   %39 = getelementptr inbounds i8, ptr %.0, i64 %0
   %40 = sub nuw nsw i64 %.033, %36
-  %41 = tail call i32 @munmap(ptr noundef %39, i64 noundef %40) #35
+  %41 = tail call i32 @munmap(ptr noundef %39, i64 noundef %40) #39
   %.not.i43 = icmp eq i32 %41, 0
   br i1 %.not.i43, label %zend_mm_munmap.exit44, label %42
 
 42:                                               ; preds = %38
   %43 = load ptr, ptr @stderr, align 8
-  %44 = tail call ptr @__errno_location() #36
+  %44 = tail call ptr @__errno_location() #40
   %45 = load i32, ptr %44, align 4
-  %46 = tail call ptr @strerror(i32 noundef %45) #35
-  %47 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %43, ptr noundef nonnull @.str.4, i32 noundef %45, ptr noundef %46) #37
+  %46 = tail call ptr @strerror(i32 noundef %45) #39
+  %47 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %43, ptr noundef nonnull @.str.4, i32 noundef %45, ptr noundef %46) #41
   br label %zend_mm_munmap.exit44
 
 zend_mm_munmap.exit44:                            ; preds = %42, %38, %35
@@ -9714,7 +9714,7 @@ zend_mm_munmap.exit44:                            ; preds = %42, %38, %35
   br i1 %.b39, label %48, label %50
 
 48:                                               ; preds = %zend_mm_munmap.exit44
-  %49 = tail call i32 @madvise(ptr noundef %.0, i64 noundef %0, i32 noundef 14) #35
+  %49 = tail call i32 @madvise(ptr noundef %.0, i64 noundef %0, i32 noundef 14) #39
   br label %50
 
 50:                                               ; preds = %zend_mm_munmap.exit44, %48, %8, %9, %1
@@ -9730,31 +9730,31 @@ define internal fastcc ptr @zend_mm_mmap(i64 noundef %0) unnamed_addr #0 {
   br i1 %or.cond, label %3, label %8
 
 3:                                                ; preds = %1
-  %4 = tail call ptr @mmap(ptr noundef null, i64 noundef 2097152, i32 noundef 3, i32 noundef 262178, i32 noundef -1, i64 noundef 0) #35
+  %4 = tail call ptr @mmap(ptr noundef null, i64 noundef 2097152, i32 noundef 3, i32 noundef 262178, i32 noundef -1, i64 noundef 0) #39
   %.not = icmp eq ptr %4, inttoptr (i64 -1 to ptr)
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %3
   %6 = ptrtoint ptr %4 to i64
-  %7 = tail call i32 (i32, ...) @prctl(i32 noundef 1398164801, i32 noundef 0, i64 noundef %6, i64 noundef 2097152, i64 noundef ptrtoint (ptr @.str.8 to i64)) #35
+  %7 = tail call i32 (i32, ...) @prctl(i32 noundef 1398164801, i32 noundef 0, i64 noundef %6, i64 noundef 2097152, i64 noundef ptrtoint (ptr @.str.8 to i64)) #39
   br label %20
 
 8:                                                ; preds = %3, %1
-  %9 = tail call ptr @mmap(ptr noundef null, i64 noundef %0, i32 noundef 3, i32 noundef 34, i32 noundef -1, i64 noundef 0) #35
+  %9 = tail call ptr @mmap(ptr noundef null, i64 noundef %0, i32 noundef 3, i32 noundef 34, i32 noundef -1, i64 noundef 0) #39
   %10 = icmp eq ptr %9, inttoptr (i64 -1 to ptr)
   br i1 %10, label %11, label %17
 
 11:                                               ; preds = %8
   %12 = load ptr, ptr @stderr, align 8
-  %13 = tail call ptr @__errno_location() #36
+  %13 = tail call ptr @__errno_location() #40
   %14 = load i32, ptr %13, align 4
-  %15 = tail call ptr @strerror(i32 noundef %14) #35
-  %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.9, i32 noundef %14, ptr noundef %15) #37
+  %15 = tail call ptr @strerror(i32 noundef %14) #39
+  %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.9, i32 noundef %14, ptr noundef %15) #41
   br label %20
 
 17:                                               ; preds = %8
   %18 = ptrtoint ptr %9 to i64
-  %19 = tail call i32 (i32, ...) @prctl(i32 noundef 1398164801, i32 noundef 0, i64 noundef %18, i64 noundef %0, i64 noundef ptrtoint (ptr @.str.8 to i64)) #35
+  %19 = tail call i32 (i32, ...) @prctl(i32 noundef 1398164801, i32 noundef 0, i64 noundef %18, i64 noundef %0, i64 noundef ptrtoint (ptr @.str.8 to i64)) #39
   br label %20
 
 20:                                               ; preds = %17, %11, %5
@@ -9763,13 +9763,13 @@ define internal fastcc ptr @zend_mm_mmap(i64 noundef %0) unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind
-declare ptr @mmap(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #16
+declare ptr @mmap(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #17
 
 ; Function Attrs: nounwind
-declare i32 @prctl(i32 noundef, ...) local_unnamed_addr #16
+declare i32 @prctl(i32 noundef, ...) local_unnamed_addr #17
 
 ; Function Attrs: nounwind
-declare i32 @madvise(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #16
+declare i32 @madvise(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #17
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @zend_mm_free_pages(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
@@ -9977,20 +9977,20 @@ define internal fastcc void @zend_mm_free_pages(ptr nocapture noundef %0, ptr no
 129:                                              ; preds = %.thread112
   %130 = getelementptr inbounds i8, ptr %.val101, i64 8
   %131 = load ptr, ptr %130, align 8
-  tail call void %131(ptr noundef nonnull %.val101, ptr noundef nonnull %1, i64 noundef 2097152) #35
+  tail call void %131(ptr noundef nonnull %.val101, ptr noundef nonnull %1, i64 noundef 2097152) #39
   br label %zend_mm_chunk_free.exit
 
 132:                                              ; preds = %.thread112
-  %133 = tail call i32 @munmap(ptr noundef nonnull %1, i64 noundef 2097152) #35
+  %133 = tail call i32 @munmap(ptr noundef nonnull %1, i64 noundef 2097152) #39
   %.not.i.i = icmp eq i32 %133, 0
   br i1 %.not.i.i, label %zend_mm_chunk_free.exit, label %134
 
 134:                                              ; preds = %132
   %135 = load ptr, ptr @stderr, align 8
-  %136 = tail call ptr @__errno_location() #36
+  %136 = tail call ptr @__errno_location() #40
   %137 = load i32, ptr %136, align 4
-  %138 = tail call ptr @strerror(i32 noundef %137) #35
-  %139 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %135, ptr noundef nonnull @.str.4, i32 noundef %137, ptr noundef %138) #37
+  %138 = tail call ptr @strerror(i32 noundef %137) #39
+  %139 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %135, ptr noundef nonnull @.str.4, i32 noundef %137, ptr noundef %138) #41
   br label %zend_mm_chunk_free.exit
 
 140:                                              ; preds = %120
@@ -10006,20 +10006,20 @@ define internal fastcc void @zend_mm_free_pages(ptr nocapture noundef %0, ptr no
 145:                                              ; preds = %140
   %146 = getelementptr inbounds i8, ptr %.val, i64 8
   %147 = load ptr, ptr %146, align 8
-  tail call void %147(ptr noundef nonnull %.val, ptr noundef %143, i64 noundef 2097152) #35
+  tail call void %147(ptr noundef nonnull %.val, ptr noundef %143, i64 noundef 2097152) #39
   br label %zend_mm_chunk_free.exit104
 
 148:                                              ; preds = %140
-  %149 = tail call i32 @munmap(ptr noundef %143, i64 noundef 2097152) #35
+  %149 = tail call i32 @munmap(ptr noundef %143, i64 noundef 2097152) #39
   %.not.i.i103 = icmp eq i32 %149, 0
   br i1 %.not.i.i103, label %zend_mm_chunk_free.exit104, label %150
 
 150:                                              ; preds = %148
   %151 = load ptr, ptr @stderr, align 8
-  %152 = tail call ptr @__errno_location() #36
+  %152 = tail call ptr @__errno_location() #40
   %153 = load i32, ptr %152, align 4
-  %154 = tail call ptr @strerror(i32 noundef %153) #35
-  %155 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %151, ptr noundef nonnull @.str.4, i32 noundef %153, ptr noundef %154) #37
+  %154 = tail call ptr @strerror(i32 noundef %153) #39
+  %155 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %151, ptr noundef nonnull @.str.4, i32 noundef %153, ptr noundef %154) #41
   br label %zend_mm_chunk_free.exit104
 
 zend_mm_chunk_free.exit104:                       ; preds = %145, %148, %150
@@ -10030,16 +10030,16 @@ zend_mm_chunk_free.exit:                          ; preds = %134, %132, %129, %1
   ret void
 }
 
-; Function Attrs: noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #25
+; Function Attrs: nofree noreturn nounwind
+declare void @exit(i32 noundef) local_unnamed_addr #32
 
 declare ptr @zend_hash_index_add_new(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #29
+declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #33
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i64 @atoll(ptr nocapture noundef) local_unnamed_addr #30
+declare i64 @atoll(ptr nocapture noundef) local_unnamed_addr #34
 
 ; Function Attrs: nounwind uwtable
 define internal void @tracked_free(ptr noundef %0) #0 {
@@ -10052,7 +10052,7 @@ define internal void @tracked_free(ptr noundef %0) #0 {
   %5 = lshr i64 %4, 3
   %6 = getelementptr inbounds i8, ptr %3, i64 384
   %7 = load ptr, ptr %6, align 8
-  %8 = tail call ptr @zend_hash_index_find(ptr noundef %7, i64 noundef %5) #35
+  %8 = tail call ptr @zend_hash_index_find(ptr noundef %7, i64 noundef %5) #39
   %9 = icmp ne ptr %8, null
   tail call void @llvm.assume(i1 %9)
   %10 = load i64, ptr %8, align 8
@@ -10061,8 +10061,8 @@ define internal void @tracked_free(ptr noundef %0) #0 {
   %13 = sub i64 %12, %10
   store i64 %13, ptr %11, align 8
   %14 = load ptr, ptr %6, align 8
-  tail call void @zend_hash_del_bucket(ptr noundef %14, ptr noundef nonnull %8) #35
-  tail call void @free(ptr noundef nonnull %0) #35
+  tail call void @zend_hash_del_bucket(ptr noundef %14, ptr noundef nonnull %8) #39
+  tail call void @free(ptr noundef nonnull %0) #39
   br label %15
 
 15:                                               ; preds = %1, %2
@@ -10081,7 +10081,7 @@ define internal noundef ptr @tracked_realloc(ptr noundef %0, i64 noundef %1) #0 
   %7 = lshr i64 %6, 3
   %8 = getelementptr inbounds i8, ptr %4, i64 384
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call ptr @zend_hash_index_find(ptr noundef %9, i64 noundef %7) #35
+  %10 = tail call ptr @zend_hash_index_find(ptr noundef %9, i64 noundef %7) #39
   %11 = icmp ne ptr %10, null
   tail call void @llvm.assume(i1 %11)
   %12 = load i64, ptr %10, align 8
@@ -10110,7 +10110,7 @@ define internal noundef ptr @tracked_realloc(ptr noundef %0, i64 noundef %1) #0 
   br i1 %.not44, label %26, label %27
 
 26:                                               ; preds = %23
-  tail call fastcc void @zend_mm_safe_error(ptr noundef nonnull %4, ptr noundef nonnull @.str.5, i64 noundef %18, i64 noundef %16) #34
+  tail call fastcc void @zend_mm_safe_error(ptr noundef nonnull %4, ptr noundef nonnull @.str.5, i64 noundef %18, i64 noundef %16) #38
   unreachable
 
 27:                                               ; preds = %15, %23, %13
@@ -10120,18 +10120,18 @@ define internal noundef ptr @tracked_realloc(ptr noundef %0, i64 noundef %1) #0 
 28:                                               ; preds = %27
   %29 = getelementptr inbounds i8, ptr %4, i64 384
   %30 = load ptr, ptr %29, align 8
-  tail call void @zend_hash_del_bucket(ptr noundef %30, ptr noundef nonnull %.040) #35
+  tail call void @zend_hash_del_bucket(ptr noundef %30, ptr noundef nonnull %.040) #39
   br label %31
 
 31:                                               ; preds = %28, %27
-  %32 = tail call ptr @realloc(ptr noundef %0, i64 noundef %1) #43
+  %32 = tail call ptr @realloc(ptr noundef %0, i64 noundef %1) #47
   %33 = icmp ne ptr %32, null
   %.not.i = icmp eq i64 %1, 0
   %34 = or i1 %.not.i, %33
   br i1 %34, label %__zend_realloc.exit, label %35
 
 35:                                               ; preds = %31
-  tail call fastcc void @zend_out_of_memory() #34
+  tail call fastcc void @zend_out_of_memory() #38
   unreachable
 
 __zend_realloc.exit:                              ; preds = %31
@@ -10146,7 +10146,7 @@ __zend_realloc.exit:                              ; preds = %31
   store i32 4, ptr %41, align 8
   %42 = getelementptr inbounds i8, ptr %4, i64 384
   %43 = load ptr, ptr %42, align 8
-  %44 = call ptr @zend_hash_index_add_new(ptr noundef %43, i64 noundef %37, ptr noundef nonnull %3) #35
+  %44 = call ptr @zend_hash_index_add_new(ptr noundef %43, i64 noundef %37, ptr noundef nonnull %3) #39
   %45 = sub i64 %1, %.0
   %46 = getelementptr inbounds i8, ptr %4, i64 16
   %47 = load i64, ptr %46, align 8
@@ -10160,25 +10160,25 @@ declare void @_zend_hash_init(ptr noundef, i32 noundef, ptr noundef, i1 noundef 
 declare void @zend_hash_del_bucket(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #31
+declare i64 @llvm.umin.i64(i64, i64) #35
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #32
+declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #36
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #31
+declare i32 @llvm.umin.i32(i32, i32) #35
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #31
+declare i64 @llvm.umax.i64(i64, i64) #35
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #31
+declare i32 @llvm.umax.i32(i32, i32) #35
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #33
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #37
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nofree noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -10187,43 +10187,48 @@ attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #7 = { nounwind allocsize(1) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nounwind allocsize(0) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nounwind allocsize(0,1) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #14 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #22 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #23 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #24 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #25 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #26 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #27 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #28 = { nounwind returns_twice "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #29 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #30 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #31 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #32 = { nofree nounwind }
-attributes #33 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
-attributes #34 = { noreturn }
-attributes #35 = { nounwind }
-attributes #36 = { nounwind willreturn memory(none) }
-attributes #37 = { cold nounwind }
-attributes #38 = { noreturn nounwind }
-attributes #39 = { nounwind allocsize(0) }
-attributes #40 = { allocsize(1) }
-attributes #41 = { nounwind memory(read) }
-attributes #42 = { allocsize(0) }
-attributes #43 = { nounwind allocsize(1) }
-attributes #44 = { nounwind willreturn memory(read) }
-attributes #45 = { cold }
-attributes #46 = { nounwind returns_twice }
+attributes #10 = { nofree nounwind allocsize(0) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nounwind allocsize(0,1) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #15 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #22 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #23 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #24 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #25 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #26 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #27 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #28 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #29 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #30 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #31 = { nounwind returns_twice "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #32 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #33 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #34 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #35 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #36 = { nofree nounwind }
+attributes #37 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
+attributes #38 = { noreturn }
+attributes #39 = { nounwind }
+attributes #40 = { nounwind willreturn memory(none) }
+attributes #41 = { cold nounwind }
+attributes #42 = { noreturn nounwind }
+attributes #43 = { nounwind allocsize(0) }
+attributes #44 = { allocsize(1) }
+attributes #45 = { nounwind memory(read) }
+attributes #46 = { allocsize(0) }
+attributes #47 = { nounwind allocsize(1) }
+attributes #48 = { nounwind willreturn memory(read) }
+attributes #49 = { cold }
+attributes #50 = { cold noreturn nounwind }
+attributes #51 = { nounwind returns_twice }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

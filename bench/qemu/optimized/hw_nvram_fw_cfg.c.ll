@@ -225,7 +225,7 @@ entry:
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i.i = tail call ptr @fw_cfg_arch_key_name(i16 noundef zeroext %key) #19
+  %call.i.i = tail call ptr @fw_cfg_arch_key_name(i16 noundef zeroext %key) #20
   br label %trace_key_name.exit
 
 if.end.i.i:                                       ; preds = %entry
@@ -262,18 +262,18 @@ if.then.i.i4:                                     ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i4
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #19
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #19
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #20
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #20
   %5 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i16 %key to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef %conv11.i.i, ptr noundef nonnull %cond.i, i64 noundef %len) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef %conv11.i.i, ptr noundef nonnull %cond.i, i64 noundef %len) #20
   br label %trace_fw_cfg_add_bytes.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i4
   %conv12.i.i = zext i16 %key to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.19, i32 noundef %conv12.i.i, ptr noundef nonnull %cond.i, i64 noundef %len) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.19, i32 noundef %conv12.i.i, ptr noundef nonnull %cond.i, i64 noundef %len) #20
   br label %trace_fw_cfg_add_bytes.exit
 
 trace_fw_cfg_add_bytes.exit:                      ; preds = %trace_key_name.exit, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -290,7 +290,7 @@ trace_fw_cfg_add_bytes.exit:                      ; preds = %trace_key_name.exit
   br i1 %or.cond.i, label %if.end.i, label %if.else.i
 
 if.else.i:                                        ; preds = %trace_fw_cfg_add_bytes.exit
-  tail call void @__assert_fail(ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.1, i32 noundef 707, ptr noundef nonnull @__PRETTY_FUNCTION__.fw_cfg_add_bytes_callback) #20
+  tail call void @__assert_fail(ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.1, i32 noundef 707, ptr noundef nonnull @__PRETTY_FUNCTION__.fw_cfg_add_bytes_callback) #21
   unreachable
 
 if.end.i:                                         ; preds = %trace_fw_cfg_add_bytes.exit
@@ -306,7 +306,7 @@ if.end.i:                                         ; preds = %trace_fw_cfg_add_by
   br i1 %cmp12.i, label %fw_cfg_add_bytes_callback.exit, label %if.else15.i
 
 if.else15.i:                                      ; preds = %if.end.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.1, i32 noundef 708, ptr noundef nonnull @__PRETTY_FUNCTION__.fw_cfg_add_bytes_callback) #20
+  tail call void @__assert_fail(ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.1, i32 noundef 708, ptr noundef nonnull @__PRETTY_FUNCTION__.fw_cfg_add_bytes_callback) #21
   unreachable
 
 fw_cfg_add_bytes_callback.exit:                   ; preds = %if.end.i
@@ -334,12 +334,12 @@ fw_cfg_add_bytes_callback.exit:                   ; preds = %if.end.i
 define dso_local void @fw_cfg_add_string(ptr nocapture noundef readonly %s, i16 noundef zeroext %key, ptr noundef %value) local_unnamed_addr #1 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %value) #21
+  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %value) #22
   %tobool.not.i.i = icmp sgt i16 %key, -1
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i.i = tail call ptr @fw_cfg_arch_key_name(i16 noundef zeroext %key) #19
+  %call.i.i = tail call ptr @fw_cfg_arch_key_name(i16 noundef zeroext %key) #20
   br label %trace_key_name.exit
 
 if.end.i.i:                                       ; preds = %entry
@@ -376,25 +376,25 @@ if.then.i.i6:                                     ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i6
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #19
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #19
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #20
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #20
   %5 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i16 %key to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.49, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef %conv11.i.i, ptr noundef nonnull %cond.i, ptr noundef %value) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.49, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef %conv11.i.i, ptr noundef nonnull %cond.i, ptr noundef %value) #20
   br label %trace_fw_cfg_add_string.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i6
   %conv12.i.i = zext i16 %key to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.50, i32 noundef %conv12.i.i, ptr noundef nonnull %cond.i, ptr noundef %value) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.50, i32 noundef %conv12.i.i, ptr noundef nonnull %cond.i, ptr noundef %value) #20
   br label %trace_fw_cfg_add_string.exit
 
 trace_fw_cfg_add_string.exit:                     ; preds = %trace_key_name.exit, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   %add = add i64 %call, 1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   %conv = trunc i64 %add to i32
-  %call2 = tail call ptr @g_memdup(ptr noundef %value, i32 noundef %conv) #22
+  %call2 = tail call ptr @g_memdup(ptr noundef %value, i32 noundef %conv) #23
   tail call void @fw_cfg_add_bytes(ptr noundef %s, i16 noundef zeroext %key, ptr noundef %call2, i64 noundef %add)
   ret void
 }
@@ -408,10 +408,10 @@ declare ptr @g_memdup(ptr noundef, i32 noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @fw_cfg_modify_string(ptr nocapture noundef readonly %s, i16 noundef zeroext %key, ptr noundef %value) local_unnamed_addr #1 {
 entry:
-  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %value) #21
+  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %value) #22
   %add = add i64 %call, 1
   %conv = trunc i64 %add to i32
-  %call1 = tail call ptr @g_memdup(ptr noundef %value, i32 noundef %conv) #22
+  %call1 = tail call ptr @g_memdup(ptr noundef %value, i32 noundef %conv) #23
   %0 = and i16 %key, 16383
   %conv5.i = zext nneg i16 %0 to i32
   %1 = getelementptr i8, ptr %s, i64 816
@@ -424,7 +424,7 @@ entry:
   br i1 %or.cond.i, label %fw_cfg_modify_bytes_read.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.1, i32 noundef 726, ptr noundef nonnull @__PRETTY_FUNCTION__.fw_cfg_modify_bytes_read) #20
+  tail call void @__assert_fail(ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.1, i32 noundef 726, ptr noundef nonnull @__PRETTY_FUNCTION__.fw_cfg_modify_bytes_read) #21
   unreachable
 
 fw_cfg_modify_bytes_read.exit:                    ; preds = %entry
@@ -446,7 +446,7 @@ fw_cfg_modify_bytes_read.exit:                    ; preds = %entry
   %6 = load ptr, ptr %arrayidx.i, align 8
   %allow_write.i = getelementptr %struct.FWCfgEntry, ptr %6, i64 %idxprom9.i, i32 1
   store i8 0, ptr %allow_write.i, align 4
-  tail call void @g_free(ptr noundef %3) #19
+  tail call void @g_free(ptr noundef %3) #20
   ret void
 }
 
@@ -456,13 +456,13 @@ declare void @g_free(ptr noundef) local_unnamed_addr #4
 define dso_local void @fw_cfg_add_i16(ptr nocapture noundef readonly %s, i16 noundef zeroext %key, i16 noundef zeroext %value) local_unnamed_addr #1 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %call = tail call noalias dereferenceable_or_null(2) ptr @g_malloc(i64 noundef 2) #23
+  %call = tail call noalias dereferenceable_or_null(2) ptr @g_malloc(i64 noundef 2) #24
   store i16 %value, ptr %call, align 2
   %tobool.not.i.i = icmp sgt i16 %key, -1
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i.i = tail call ptr @fw_cfg_arch_key_name(i16 noundef zeroext %key) #19
+  %call.i.i = tail call ptr @fw_cfg_arch_key_name(i16 noundef zeroext %key) #20
   br label %trace_key_name.exit
 
 if.end.i.i:                                       ; preds = %entry
@@ -499,20 +499,20 @@ if.then.i.i5:                                     ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i5
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #19
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #19
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #20
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #20
   %5 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i16 %key to i32
   %conv12.i.i = zext i16 %value to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.51, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef %conv11.i.i, ptr noundef nonnull %cond.i, i32 noundef %conv12.i.i) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.51, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef %conv11.i.i, ptr noundef nonnull %cond.i, i32 noundef %conv12.i.i) #20
   br label %trace_fw_cfg_add_i16.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i5
   %conv13.i.i = zext i16 %key to i32
   %conv14.i.i = zext i16 %value to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.52, i32 noundef %conv13.i.i, ptr noundef nonnull %cond.i, i32 noundef %conv14.i.i) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.52, i32 noundef %conv13.i.i, ptr noundef nonnull %cond.i, i32 noundef %conv14.i.i) #20
   br label %trace_fw_cfg_add_i16.exit
 
 trace_fw_cfg_add_i16.exit:                        ; preds = %trace_key_name.exit, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -527,7 +527,7 @@ declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #5
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @fw_cfg_modify_i16(ptr nocapture noundef readonly %s, i16 noundef zeroext %key, i16 noundef zeroext %value) local_unnamed_addr #1 {
 entry:
-  %call = tail call noalias dereferenceable_or_null(2) ptr @g_malloc(i64 noundef 2) #23
+  %call = tail call noalias dereferenceable_or_null(2) ptr @g_malloc(i64 noundef 2) #24
   store i16 %value, ptr %call, align 2
   %0 = and i16 %key, 16383
   %conv5.i = zext nneg i16 %0 to i32
@@ -539,7 +539,7 @@ entry:
   br i1 %cmp.i, label %fw_cfg_modify_bytes_read.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.1, i32 noundef 726, ptr noundef nonnull @__PRETTY_FUNCTION__.fw_cfg_modify_bytes_read) #20
+  tail call void @__assert_fail(ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.1, i32 noundef 726, ptr noundef nonnull @__PRETTY_FUNCTION__.fw_cfg_modify_bytes_read) #21
   unreachable
 
 fw_cfg_modify_bytes_read.exit:                    ; preds = %entry
@@ -561,7 +561,7 @@ fw_cfg_modify_bytes_read.exit:                    ; preds = %entry
   %6 = load ptr, ptr %arrayidx.i, align 8
   %allow_write.i = getelementptr %struct.FWCfgEntry, ptr %6, i64 %idxprom9.i, i32 1
   store i8 0, ptr %allow_write.i, align 4
-  tail call void @g_free(ptr noundef %3) #19
+  tail call void @g_free(ptr noundef %3) #20
   ret void
 }
 
@@ -569,13 +569,13 @@ fw_cfg_modify_bytes_read.exit:                    ; preds = %entry
 define dso_local void @fw_cfg_add_i32(ptr nocapture noundef readonly %s, i16 noundef zeroext %key, i32 noundef %value) local_unnamed_addr #1 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %call = tail call noalias dereferenceable_or_null(4) ptr @g_malloc(i64 noundef 4) #23
+  %call = tail call noalias dereferenceable_or_null(4) ptr @g_malloc(i64 noundef 4) #24
   store i32 %value, ptr %call, align 4
   %tobool.not.i.i = icmp sgt i16 %key, -1
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i.i = tail call ptr @fw_cfg_arch_key_name(i16 noundef zeroext %key) #19
+  %call.i.i = tail call ptr @fw_cfg_arch_key_name(i16 noundef zeroext %key) #20
   br label %trace_key_name.exit
 
 if.end.i.i:                                       ; preds = %entry
@@ -612,18 +612,18 @@ if.then.i.i5:                                     ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i5
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #19
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #19
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #20
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #20
   %5 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i16 %key to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.53, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef %conv11.i.i, ptr noundef nonnull %cond.i, i32 noundef %value) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.53, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef %conv11.i.i, ptr noundef nonnull %cond.i, i32 noundef %value) #20
   br label %trace_fw_cfg_add_i32.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i5
   %conv12.i.i = zext i16 %key to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.54, i32 noundef %conv12.i.i, ptr noundef nonnull %cond.i, i32 noundef %value) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.54, i32 noundef %conv12.i.i, ptr noundef nonnull %cond.i, i32 noundef %value) #20
   br label %trace_fw_cfg_add_i32.exit
 
 trace_fw_cfg_add_i32.exit:                        ; preds = %trace_key_name.exit, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -635,7 +635,7 @@ trace_fw_cfg_add_i32.exit:                        ; preds = %trace_key_name.exit
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @fw_cfg_modify_i32(ptr nocapture noundef readonly %s, i16 noundef zeroext %key, i32 noundef %value) local_unnamed_addr #1 {
 entry:
-  %call = tail call noalias dereferenceable_or_null(4) ptr @g_malloc(i64 noundef 4) #23
+  %call = tail call noalias dereferenceable_or_null(4) ptr @g_malloc(i64 noundef 4) #24
   store i32 %value, ptr %call, align 4
   %0 = and i16 %key, 16383
   %conv5.i = zext nneg i16 %0 to i32
@@ -647,7 +647,7 @@ entry:
   br i1 %cmp.i, label %fw_cfg_modify_bytes_read.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.1, i32 noundef 726, ptr noundef nonnull @__PRETTY_FUNCTION__.fw_cfg_modify_bytes_read) #20
+  tail call void @__assert_fail(ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.1, i32 noundef 726, ptr noundef nonnull @__PRETTY_FUNCTION__.fw_cfg_modify_bytes_read) #21
   unreachable
 
 fw_cfg_modify_bytes_read.exit:                    ; preds = %entry
@@ -669,7 +669,7 @@ fw_cfg_modify_bytes_read.exit:                    ; preds = %entry
   %6 = load ptr, ptr %arrayidx.i, align 8
   %allow_write.i = getelementptr %struct.FWCfgEntry, ptr %6, i64 %idxprom9.i, i32 1
   store i8 0, ptr %allow_write.i, align 4
-  tail call void @g_free(ptr noundef %3) #19
+  tail call void @g_free(ptr noundef %3) #20
   ret void
 }
 
@@ -677,13 +677,13 @@ fw_cfg_modify_bytes_read.exit:                    ; preds = %entry
 define dso_local void @fw_cfg_add_i64(ptr nocapture noundef readonly %s, i16 noundef zeroext %key, i64 noundef %value) local_unnamed_addr #1 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %call = tail call noalias dereferenceable_or_null(8) ptr @g_malloc(i64 noundef 8) #23
+  %call = tail call noalias dereferenceable_or_null(8) ptr @g_malloc(i64 noundef 8) #24
   store i64 %value, ptr %call, align 8
   %tobool.not.i.i = icmp sgt i16 %key, -1
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i.i = tail call ptr @fw_cfg_arch_key_name(i16 noundef zeroext %key) #19
+  %call.i.i = tail call ptr @fw_cfg_arch_key_name(i16 noundef zeroext %key) #20
   br label %trace_key_name.exit
 
 if.end.i.i:                                       ; preds = %entry
@@ -720,18 +720,18 @@ if.then.i.i5:                                     ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i5
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #19
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #19
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #20
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #20
   %5 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i16 %key to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.55, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef %conv11.i.i, ptr noundef nonnull %cond.i, i64 noundef %value) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.55, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef %conv11.i.i, ptr noundef nonnull %cond.i, i64 noundef %value) #20
   br label %trace_fw_cfg_add_i64.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i5
   %conv12.i.i = zext i16 %key to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.56, i32 noundef %conv12.i.i, ptr noundef nonnull %cond.i, i64 noundef %value) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.56, i32 noundef %conv12.i.i, ptr noundef nonnull %cond.i, i64 noundef %value) #20
   br label %trace_fw_cfg_add_i64.exit
 
 trace_fw_cfg_add_i64.exit:                        ; preds = %trace_key_name.exit, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -743,7 +743,7 @@ trace_fw_cfg_add_i64.exit:                        ; preds = %trace_key_name.exit
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @fw_cfg_modify_i64(ptr nocapture noundef readonly %s, i16 noundef zeroext %key, i64 noundef %value) local_unnamed_addr #1 {
 entry:
-  %call = tail call noalias dereferenceable_or_null(8) ptr @g_malloc(i64 noundef 8) #23
+  %call = tail call noalias dereferenceable_or_null(8) ptr @g_malloc(i64 noundef 8) #24
   store i64 %value, ptr %call, align 8
   %0 = and i16 %key, 16383
   %conv5.i = zext nneg i16 %0 to i32
@@ -755,7 +755,7 @@ entry:
   br i1 %cmp.i, label %fw_cfg_modify_bytes_read.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.1, i32 noundef 726, ptr noundef nonnull @__PRETTY_FUNCTION__.fw_cfg_modify_bytes_read) #20
+  tail call void @__assert_fail(ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.1, i32 noundef 726, ptr noundef nonnull @__PRETTY_FUNCTION__.fw_cfg_modify_bytes_read) #21
   unreachable
 
 fw_cfg_modify_bytes_read.exit:                    ; preds = %entry
@@ -777,7 +777,7 @@ fw_cfg_modify_bytes_read.exit:                    ; preds = %entry
   %6 = load ptr, ptr %arrayidx.i, align 8
   %allow_write.i = getelementptr %struct.FWCfgEntry, ptr %6, i64 %idxprom9.i, i32 1
   store i8 0, ptr %allow_write.i, align 4
-  tail call void @g_free(ptr noundef %3) #19
+  tail call void @g_free(ptr noundef %3) #20
   ret void
 }
 
@@ -790,7 +790,7 @@ entry:
   br i1 %cmp, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 823, ptr noundef nonnull @__PRETTY_FUNCTION__.fw_cfg_set_order_override) #20
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 823, ptr noundef nonnull @__PRETTY_FUNCTION__.fw_cfg_set_order_override) #21
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -810,7 +810,7 @@ entry:
   br i1 %cmp.not, label %if.else, label %if.end
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 829, ptr noundef nonnull @__PRETTY_FUNCTION__.fw_cfg_reset_order_override) #20
+  tail call void @__assert_fail(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 829, ptr noundef nonnull @__PRETTY_FUNCTION__.fw_cfg_reset_order_override) #21
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -822,9 +822,9 @@ if.end:                                           ; preds = %entry
 define dso_local void @fw_cfg_add_file_callback(ptr noundef %s, ptr noundef %filename, ptr noundef %select_cb, ptr noundef %write_cb, ptr noundef %callback_opaque, ptr noundef %data, i64 noundef %len, i1 noundef zeroext %read_only) local_unnamed_addr #1 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %call = tail call ptr @qdev_get_machine() #19
-  %call.i = tail call ptr @object_get_class(ptr noundef %call) #19
-  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.58, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE_GET_CLASS) #19
+  %call = tail call ptr @qdev_get_machine() #20
+  %call.i = tail call ptr @object_get_class(ptr noundef %call) #20
+  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.58, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE_GET_CLASS) #20
   %files = getelementptr inbounds i8, ptr %s, i64 848
   %0 = load ptr, ptr %files, align 16
   %tobool.not = icmp eq ptr %0, null
@@ -836,7 +836,7 @@ if.then:                                          ; preds = %entry
   %conv = zext i16 %s.val to i64
   %mul = shl nuw nsw i64 %conv, 6
   %add = or disjoint i64 %mul, 4
-  %call3 = tail call noalias ptr @g_malloc0(i64 noundef %add) #23
+  %call3 = tail call noalias ptr @g_malloc0(i64 noundef %add) #24
   store ptr %call3, ptr %files, align 16
   tail call void @fw_cfg_add_bytes(ptr noundef nonnull %s, i16 noundef zeroext 25, ptr noundef %call3, i64 noundef %add)
   %.pre = load ptr, ptr %files, align 16
@@ -853,7 +853,7 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %cmp, label %if.end13, label %if.else
 
 if.else:                                          ; preds = %if.end
-  tail call void @__assert_fail(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 935, ptr noundef nonnull @__PRETTY_FUNCTION__.fw_cfg_add_file_callback) #20
+  tail call void @__assert_fail(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 935, ptr noundef nonnull @__PRETTY_FUNCTION__.fw_cfg_add_file_callback) #21
   unreachable
 
 if.end13:                                         ; preds = %if.end
@@ -883,7 +883,7 @@ for.body.i:                                       ; preds = %if.then15, %for.inc
   br i1 %cmp5.i, label %for.inc.i, label %if.end8.i
 
 if.end8.i:                                        ; preds = %for.body.i
-  %call.i78 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %filename, ptr noundef nonnull dereferenceable(1) %9) #21
+  %call.i78 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %filename, ptr noundef nonnull dereferenceable(1) %9) #22
   %cmp12.i = icmp eq i32 %call.i78, 0
   br i1 %cmp12.i, label %if.then14.i, label %for.inc.i
 
@@ -898,7 +898,7 @@ for.inc.i:                                        ; preds = %if.end8.i, %for.bod
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !5
 
 for.end.i:                                        ; preds = %for.inc.i
-  tail call void (ptr, ...) @warn_report(ptr noundef nonnull @.str.59, ptr noundef %filename) #19
+  tail call void (ptr, ...) @warn_report(ptr noundef nonnull @.str.59, ptr noundef %filename) #20
   br label %get_fw_cfg_order.exit
 
 get_fw_cfg_order.exit:                            ; preds = %if.then15, %if.then14.i, %for.end.i
@@ -934,7 +934,7 @@ for.cond22:                                       ; preds = %for.cond22.preheade
 land.rhs25:                                       ; preds = %for.cond22
   %15 = add nsw i64 %indvars.iv, -1
   %name = getelementptr [0 x %struct.fw_cfg_file], ptr %f, i64 0, i64 %15, i32 3
-  %call30 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %filename, ptr noundef nonnull dereferenceable(1) %name) #21
+  %call30 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %filename, ptr noundef nonnull dereferenceable(1) %name) #22
   %cmp31 = icmp slt i32 %call30, 0
   br i1 %cmp31, label %for.cond22, label %if.end38, !llvm.loop !8
 
@@ -1002,7 +1002,7 @@ for.end78:                                        ; preds = %for.body42, %if.end
   %28 = load ptr, ptr %files, align 16
   %f89 = getelementptr inbounds i8, ptr %28, i64 4
   %name92 = getelementptr [0 x %struct.fw_cfg_file], ptr %f89, i64 0, i64 %idxprom81.pre-phi, i32 3
-  tail call void @pstrcpy(ptr noundef %name92, i32 noundef 56, ptr noundef %filename) #19
+  tail call void @pstrcpy(ptr noundef %name92, i32 noundef 56, ptr noundef %filename) #20
   %cmp95.not92 = icmp slt i32 %4, 0
   br i1 %cmp95.not92, label %for.end124, label %for.body97.preheader
 
@@ -1022,13 +1022,13 @@ land.lhs.true:                                    ; preds = %for.body97
   %f101 = getelementptr inbounds i8, ptr %31, i64 4
   %name104 = getelementptr [0 x %struct.fw_cfg_file], ptr %f101, i64 0, i64 %idxprom81.pre-phi, i32 3
   %name110 = getelementptr [0 x %struct.fw_cfg_file], ptr %f101, i64 0, i64 %indvars.iv102, i32 3
-  %call112 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name104, ptr noundef nonnull dereferenceable(1) %name110) #21
+  %call112 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name104, ptr noundef nonnull dereferenceable(1) %name110) #22
   %cmp113 = icmp eq i32 %call112, 0
   br i1 %cmp113, label %if.then115, label %for.inc123
 
 if.then115:                                       ; preds = %land.lhs.true
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.4, ptr noundef %name104) #19
-  tail call void @exit(i32 noundef 1) #20
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.4, ptr noundef %name104) #20
+  tail call void @exit(i32 noundef 1) #25
   unreachable
 
 for.inc123:                                       ; preds = %for.body97, %land.lhs.true
@@ -1048,7 +1048,7 @@ for.end124:                                       ; preds = %for.inc123, %for.en
   br i1 %or.cond.i, label %if.end.i, label %if.else.i
 
 if.else.i:                                        ; preds = %for.end124
-  tail call void @__assert_fail(ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.1, i32 noundef 707, ptr noundef nonnull @__PRETTY_FUNCTION__.fw_cfg_add_bytes_callback) #20
+  tail call void @__assert_fail(ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.1, i32 noundef 707, ptr noundef nonnull @__PRETTY_FUNCTION__.fw_cfg_add_bytes_callback) #21
   unreachable
 
 if.end.i:                                         ; preds = %for.end124
@@ -1064,7 +1064,7 @@ if.end.i:                                         ; preds = %for.end124
   br i1 %cmp12.i81, label %fw_cfg_add_bytes_callback.exit, label %if.else15.i
 
 if.else15.i:                                      ; preds = %if.end.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.1, i32 noundef 708, ptr noundef nonnull @__PRETTY_FUNCTION__.fw_cfg_add_bytes_callback) #20
+  tail call void @__assert_fail(ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.1, i32 noundef 708, ptr noundef nonnull @__PRETTY_FUNCTION__.fw_cfg_add_bytes_callback) #21
   unreachable
 
 fw_cfg_add_bytes_callback.exit:                   ; preds = %if.end.i
@@ -1124,16 +1124,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #19
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #19
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #20
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #20
   %50 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %51 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.77, i32 noundef %call10.i.i, i64 noundef %50, i64 noundef %51, ptr noundef nonnull %s, i32 noundef %index.2109, ptr noundef %name149, i64 noundef %len) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.77, i32 noundef %call10.i.i, i64 noundef %50, i64 noundef %51, ptr noundef nonnull %s, i32 noundef %index.2109, ptr noundef %name149, i64 noundef %len) #20
   br label %trace_fw_cfg_add_file.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.78, ptr noundef nonnull %s, i32 noundef %index.2109, ptr noundef %name149, i64 noundef %len) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.78, ptr noundef nonnull %s, i32 noundef %index.2109, ptr noundef %name149, i64 noundef %len) #20
   br label %trace_fw_cfg_add_file.exit
 
 trace_fw_cfg_add_file.exit:                       ; preds = %fw_cfg_add_bytes_callback.exit, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -1142,7 +1142,7 @@ trace_fw_cfg_add_file.exit:                       ; preds = %fw_cfg_add_bytes_ca
   %52 = tail call noundef i32 @llvm.bswap.i32(i32 %add151)
   %53 = load ptr, ptr %files, align 16
   store i32 %52, ptr %53, align 4
-  %call.i82 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %filename, ptr noundef nonnull dereferenceable(16) @.str.71) #21
+  %call.i82 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %filename, ptr noundef nonnull dereferenceable(16) @.str.71) #22
   %tobool.not.i = icmp eq i32 %call.i82, 0
   br i1 %tobool.not.i, label %if.then.i, label %if.else.i83
 
@@ -1152,7 +1152,7 @@ if.then.i:                                        ; preds = %trace_fw_cfg_add_fi
   br label %fw_cfg_acpi_mr_save.exit
 
 if.else.i83:                                      ; preds = %trace_fw_cfg_add_file.exit
-  %call1.i84 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %filename, ptr noundef nonnull dereferenceable(17) @.str.72) #21
+  %call1.i84 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %filename, ptr noundef nonnull dereferenceable(17) @.str.72) #22
   %tobool2.not.i = icmp eq i32 %call1.i84, 0
   br i1 %tobool2.not.i, label %if.then3.i, label %if.else4.i
 
@@ -1162,7 +1162,7 @@ if.then3.i:                                       ; preds = %if.else.i83
   br label %fw_cfg_acpi_mr_save.exit
 
 if.else4.i:                                       ; preds = %if.else.i83
-  %call5.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %filename, ptr noundef nonnull dereferenceable(14) @.str.74) #21
+  %call5.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %filename, ptr noundef nonnull dereferenceable(14) @.str.74) #22
   %tobool6.not.i = icmp eq i32 %call5.i, 0
   br i1 %tobool6.not.i, label %if.then7.i, label %fw_cfg_acpi_mr_save.exit
 
@@ -1193,8 +1193,8 @@ declare void @pstrcpy(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr 
 
 declare void @error_report(ptr noundef, ...) local_unnamed_addr #4
 
-; Function Attrs: noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #6
+; Function Attrs: nofree noreturn nounwind
+declare void @exit(i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @fw_cfg_add_file(ptr noundef %s, ptr noundef %filename, ptr noundef %data, i64 noundef %len) local_unnamed_addr #1 {
@@ -1212,7 +1212,7 @@ entry:
   br i1 %tobool.not, label %if.else, label %if.end
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 1008, ptr noundef nonnull @__PRETTY_FUNCTION__.fw_cfg_modify_file) #20
+  tail call void @__assert_fail(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 1008, ptr noundef nonnull @__PRETTY_FUNCTION__.fw_cfg_modify_file) #21
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -1229,7 +1229,7 @@ for.body.lr.ph:                                   ; preds = %if.end
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %name = getelementptr [0 x %struct.fw_cfg_file], ptr %f, i64 0, i64 %indvars.iv, i32 3
-  %call3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %filename, ptr noundef nonnull dereferenceable(1) %name) #21
+  %call3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %filename, ptr noundef nonnull dereferenceable(1) %name) #22
   %cmp4 = icmp eq i32 %call3, 0
   br i1 %cmp4, label %if.then5, label %for.inc
 
@@ -1248,7 +1248,7 @@ if.then5:                                         ; preds = %for.body
   br i1 %or.cond.i, label %fw_cfg_modify_bytes_read.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then5
-  tail call void @__assert_fail(ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.1, i32 noundef 726, ptr noundef nonnull @__PRETTY_FUNCTION__.fw_cfg_modify_bytes_read) #20
+  tail call void @__assert_fail(ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.1, i32 noundef 726, ptr noundef nonnull @__PRETTY_FUNCTION__.fw_cfg_modify_bytes_read) #21
   unreachable
 
 fw_cfg_modify_bytes_read.exit:                    ; preds = %if.then5
@@ -1276,7 +1276,7 @@ fw_cfg_modify_bytes_read.exit:                    ; preds = %if.then5
   %f10 = getelementptr inbounds i8, ptr %12, i64 4
   %arrayidx12 = getelementptr [0 x %struct.fw_cfg_file], ptr %f10, i64 0, i64 %indvars.iv
   store i32 %11, ptr %arrayidx12, align 4
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %filename, ptr noundef nonnull dereferenceable(16) @.str.71) #21
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %filename, ptr noundef nonnull dereferenceable(16) @.str.71) #22
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %if.then.i, label %if.else.i19
 
@@ -1286,7 +1286,7 @@ if.then.i:                                        ; preds = %fw_cfg_modify_bytes
   br label %return
 
 if.else.i19:                                      ; preds = %fw_cfg_modify_bytes_read.exit
-  %call1.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %filename, ptr noundef nonnull dereferenceable(17) @.str.72) #21
+  %call1.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %filename, ptr noundef nonnull dereferenceable(17) @.str.72) #22
   %tobool2.not.i = icmp eq i32 %call1.i, 0
   br i1 %tobool2.not.i, label %if.then3.i, label %if.else4.i
 
@@ -1296,7 +1296,7 @@ if.then3.i:                                       ; preds = %if.else.i19
   br label %return
 
 if.else4.i:                                       ; preds = %if.else.i19
-  %call5.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %filename, ptr noundef nonnull dereferenceable(14) @.str.74) #21
+  %call5.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %filename, ptr noundef nonnull dereferenceable(14) @.str.74) #22
   %tobool6.not.i = icmp eq i32 %call5.i, 0
   br i1 %tobool6.not.i, label %if.then7.i, label %return
 
@@ -1318,7 +1318,7 @@ for.end:                                          ; preds = %for.inc, %if.end
   br i1 %cmp16, label %if.end20, label %if.else19
 
 if.else19:                                        ; preds = %for.end
-  tail call void @__assert_fail(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.1, i32 noundef 1022, ptr noundef nonnull @__PRETTY_FUNCTION__.fw_cfg_modify_file) #20
+  tail call void @__assert_fail(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.1, i32 noundef 1022, ptr noundef nonnull @__PRETTY_FUNCTION__.fw_cfg_modify_file) #21
   unreachable
 
 if.end20:                                         ; preds = %for.end
@@ -1333,30 +1333,30 @@ return:                                           ; preds = %if.then7.i, %if.els
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef zeroext i1 @fw_cfg_add_from_generator(ptr noundef %s, ptr noundef %filename, ptr noundef %gen_id, ptr noundef %errp) local_unnamed_addr #1 {
 entry:
-  %call = tail call ptr @object_get_objects_root() #19
-  %call1 = tail call ptr @object_resolve_path_component(ptr noundef %call, ptr noundef %gen_id) #19
+  %call = tail call ptr @object_get_objects_root() #20
+  %call1 = tail call ptr @object_resolve_path_component(ptr noundef %call, ptr noundef %gen_id) #20
   %tobool.not = icmp eq ptr %call1, null
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 1039, ptr noundef nonnull @__func__.fw_cfg_add_from_generator, ptr noundef nonnull @.str.7, ptr noundef %gen_id) #19
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 1039, ptr noundef nonnull @__func__.fw_cfg_add_from_generator, ptr noundef nonnull @.str.7, ptr noundef %gen_id) #20
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call2 = tail call ptr @object_dynamic_cast(ptr noundef nonnull %call1, ptr noundef nonnull @.str.8) #19
+  %call2 = tail call ptr @object_dynamic_cast(ptr noundef nonnull %call1, ptr noundef nonnull @.str.8) #20
   %tobool3.not = icmp eq ptr %call2, null
   br i1 %tobool3.not, label %if.then4, label %if.end5
 
 if.then4:                                         ; preds = %if.end
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 1044, ptr noundef nonnull @__func__.fw_cfg_add_from_generator, ptr noundef nonnull @.str.9, ptr noundef %gen_id, ptr noundef nonnull @.str.8) #19
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 1044, ptr noundef nonnull @__func__.fw_cfg_add_from_generator, ptr noundef nonnull @.str.9, ptr noundef %gen_id, ptr noundef nonnull @.str.8) #20
   br label %return
 
 if.end5:                                          ; preds = %if.end
-  %call.i = tail call ptr @object_get_class(ptr noundef nonnull %call1) #19
-  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.79, i32 noundef 21, ptr noundef nonnull @__func__.FW_CFG_DATA_GENERATOR_GET_CLASS) #19
+  %call.i = tail call ptr @object_get_class(ptr noundef nonnull %call1) #20
+  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.79, i32 noundef 21, ptr noundef nonnull @__func__.FW_CFG_DATA_GENERATOR_GET_CLASS) #20
   %get_data = getelementptr inbounds i8, ptr %call1.i, i64 112
   %0 = load ptr, ptr %get_data, align 8
-  %call7 = tail call ptr %0(ptr noundef nonnull %call1, ptr noundef %errp) #19
+  %call7 = tail call ptr %0(ptr noundef nonnull %call1, ptr noundef %errp) #20
   %tobool8.not = icmp eq ptr %call7, null
   br i1 %tobool8.not, label %return, label %if.end10
 
@@ -1364,7 +1364,7 @@ if.end10:                                         ; preds = %if.end5
   %len = getelementptr inbounds i8, ptr %call7, i64 8
   %1 = load i32, ptr %len, align 8
   %conv = zext i32 %1 to i64
-  %call11 = tail call ptr @g_byte_array_free(ptr noundef nonnull %call7, i32 noundef 0) #19
+  %call11 = tail call ptr @g_byte_array_free(ptr noundef nonnull %call7, i32 noundef 0) #20
   tail call void @fw_cfg_add_file_callback(ptr noundef %s, ptr noundef %filename, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %call11, i64 noundef %conv, i1 noundef zeroext true)
   br label %return
 
@@ -1414,7 +1414,7 @@ for.end:                                          ; preds = %for.body
   br i1 %or.cond, label %if.then6, label %if.end9
 
 if.then6:                                         ; preds = %for.end
-  %call7 = tail call noalias dereferenceable_or_null(8) ptr @g_malloc(i64 noundef 8) #23
+  %call7 = tail call noalias dereferenceable_or_null(8) ptr @g_malloc(i64 noundef 8) #24
   %conv = sext i32 %spec.select to i64
   store i64 %conv, ptr %call7, align 8
   tail call void @fw_cfg_add_file_callback(ptr noundef nonnull %s, ptr noundef nonnull @.str.10, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %call7, i64 noundef 8, i1 noundef zeroext true)
@@ -1430,23 +1430,23 @@ entry:
   %tobool = icmp ne i32 %dma_iobase, 0
   %tobool1 = icmp ne ptr %dma_as, null
   %0 = and i1 %tobool, %tobool1
-  %call = tail call ptr @qdev_new(ptr noundef nonnull @.str.11) #19
+  %call = tail call ptr @qdev_new(ptr noundef nonnull @.str.11) #20
   br i1 %0, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call void @qdev_prop_set_bit(ptr noundef %call, ptr noundef nonnull @.str.12, i1 noundef zeroext false) #19
+  tail call void @qdev_prop_set_bit(ptr noundef %call, ptr noundef nonnull @.str.12, i1 noundef zeroext false) #20
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %call3 = tail call ptr @qdev_get_machine() #19
-  %call4 = tail call ptr @object_property_add_child(ptr noundef %call3, ptr noundef nonnull @.str.13, ptr noundef %call) #19
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call, ptr noundef nonnull @.str.80, ptr noundef nonnull @.str.81, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #19
-  %call6 = tail call zeroext i1 @sysbus_realize_and_unref(ptr noundef %call.i, ptr noundef nonnull @error_fatal) #19
-  %call.i13 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.79, i32 noundef 16, ptr noundef nonnull @__func__.FW_CFG_IO) #19
+  %call3 = tail call ptr @qdev_get_machine() #20
+  %call4 = tail call ptr @object_property_add_child(ptr noundef %call3, ptr noundef nonnull @.str.13, ptr noundef %call) #20
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call, ptr noundef nonnull @.str.80, ptr noundef nonnull @.str.81, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #20
+  %call6 = tail call zeroext i1 @sysbus_realize_and_unref(ptr noundef %call.i, ptr noundef nonnull @error_fatal) #20
+  %call.i13 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.79, i32 noundef 16, ptr noundef nonnull @__func__.FW_CFG_IO) #20
   %conv = zext i32 %iobase to i64
   %comb_iomem = getelementptr inbounds i8, ptr %call.i13, i64 1216
-  tail call void @sysbus_add_io(ptr noundef %call.i, i64 noundef %conv, ptr noundef nonnull %comb_iomem) #19
-  %call.i14 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.79, i32 noundef 15, ptr noundef nonnull @__func__.FW_CFG) #19
+  tail call void @sysbus_add_io(ptr noundef %call.i, i64 noundef %conv, ptr noundef nonnull %comb_iomem) #20
+  %call.i14 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.79, i32 noundef 15, ptr noundef nonnull @__func__.FW_CFG) #20
   %dma_enabled = getelementptr inbounds i8, ptr %call.i14, i64 892
   %1 = load i8, ptr %dma_enabled, align 4
   %tobool9 = trunc i8 %1 to i1
@@ -1459,7 +1459,7 @@ if.then10:                                        ; preds = %if.end
   store i64 0, ptr %dma_addr, align 16
   %conv12 = zext i32 %dma_iobase to i64
   %dma_iomem = getelementptr inbounds i8, ptr %call.i14, i64 912
-  tail call void @sysbus_add_io(ptr noundef %call.i, i64 noundef %conv12, ptr noundef nonnull %dma_iomem) #19
+  tail call void @sysbus_add_io(ptr noundef %call.i, i64 noundef %conv12, ptr noundef nonnull %dma_iomem) #20
   br label %if.end13
 
 if.end13:                                         ; preds = %if.then10, %if.end
@@ -1489,22 +1489,22 @@ entry:
   %tobool = icmp ne i64 %dma_addr, 0
   %tobool1 = icmp ne ptr %dma_as, null
   %0 = and i1 %tobool, %tobool1
-  %call = tail call ptr @qdev_new(ptr noundef nonnull @.str.14) #19
-  tail call void @qdev_prop_set_uint32(ptr noundef %call, ptr noundef nonnull @.str.15, i32 noundef %data_width) #19
+  %call = tail call ptr @qdev_new(ptr noundef nonnull @.str.14) #20
+  tail call void @qdev_prop_set_uint32(ptr noundef %call, ptr noundef nonnull @.str.15, i32 noundef %data_width) #20
   br i1 %0, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call void @qdev_prop_set_bit(ptr noundef %call, ptr noundef nonnull @.str.12, i1 noundef zeroext false) #19
+  tail call void @qdev_prop_set_bit(ptr noundef %call, ptr noundef nonnull @.str.12, i1 noundef zeroext false) #20
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %call3 = tail call ptr @qdev_get_machine() #19
-  %call4 = tail call ptr @object_property_add_child(ptr noundef %call3, ptr noundef nonnull @.str.13, ptr noundef %call) #19
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call, ptr noundef nonnull @.str.80, ptr noundef nonnull @.str.81, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #19
-  %call6 = tail call zeroext i1 @sysbus_realize_and_unref(ptr noundef %call.i, ptr noundef nonnull @error_fatal) #19
-  tail call void @sysbus_mmio_map(ptr noundef %call.i, i32 noundef 0, i64 noundef %ctl_addr) #19
-  tail call void @sysbus_mmio_map(ptr noundef %call.i, i32 noundef 1, i64 noundef %data_addr) #19
-  %call.i13 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.79, i32 noundef 15, ptr noundef nonnull @__func__.FW_CFG) #19
+  %call3 = tail call ptr @qdev_get_machine() #20
+  %call4 = tail call ptr @object_property_add_child(ptr noundef %call3, ptr noundef nonnull @.str.13, ptr noundef %call) #20
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call, ptr noundef nonnull @.str.80, ptr noundef nonnull @.str.81, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #20
+  %call6 = tail call zeroext i1 @sysbus_realize_and_unref(ptr noundef %call.i, ptr noundef nonnull @error_fatal) #20
+  tail call void @sysbus_mmio_map(ptr noundef %call.i, i32 noundef 0, i64 noundef %ctl_addr) #20
+  tail call void @sysbus_mmio_map(ptr noundef %call.i, i32 noundef 1, i64 noundef %data_addr) #20
+  %call.i13 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.79, i32 noundef 15, ptr noundef nonnull @__func__.FW_CFG) #20
   %dma_enabled = getelementptr inbounds i8, ptr %call.i13, i64 892
   %1 = load i8, ptr %dma_enabled, align 4
   %tobool8 = trunc i8 %1 to i1
@@ -1515,7 +1515,7 @@ if.then9:                                         ; preds = %if.end
   store ptr %dma_as, ptr %dma_as10, align 8
   %dma_addr11 = getelementptr inbounds i8, ptr %call.i13, i64 896
   store i64 0, ptr %dma_addr11, align 16
-  tail call void @sysbus_mmio_map(ptr noundef %call.i, i32 noundef 2, i64 noundef %dma_addr) #19
+  tail call void @sysbus_mmio_map(ptr noundef %call.i, i32 noundef 2, i64 noundef %dma_addr) #20
   br label %if.end12
 
 if.end12:                                         ; preds = %if.then9, %if.end
@@ -1536,8 +1536,8 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @fw_cfg_find() local_unnamed_addr #1 {
 entry:
-  %call = tail call ptr @object_resolve_path_type(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.13, ptr noundef null) #19
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.79, i32 noundef 15, ptr noundef nonnull @__func__.FW_CFG) #19
+  %call = tail call ptr @object_resolve_path_type(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.13, ptr noundef null) #20
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.79, i32 noundef 15, ptr noundef nonnull @__func__.FW_CFG) #20
   ret ptr %call.i
 }
 
@@ -1556,18 +1556,18 @@ if.end:                                           ; preds = %entry
   br i1 %try_decompress, label %if.end2, label %if.then4
 
 if.end2:                                          ; preds = %if.end
-  %call = call i64 @load_image_gzipped_buffer(ptr noundef nonnull %image_name, i64 noundef 268435456, ptr noundef nonnull %data) #19
+  %call = call i64 @load_image_gzipped_buffer(ptr noundef nonnull %image_name, i64 noundef 268435456, ptr noundef nonnull %data) #20
   %cmp3 = icmp eq i64 %call, -1
   br i1 %cmp3, label %if.then4, label %if.end9
 
 if.then4:                                         ; preds = %if.end, %if.end2
-  %call5 = call i32 @g_file_get_contents(ptr noundef nonnull %image_name, ptr noundef nonnull %contents, ptr noundef nonnull %length, ptr noundef null) #19
+  %call5 = call i32 @g_file_get_contents(ptr noundef nonnull %image_name, ptr noundef nonnull %contents, ptr noundef nonnull %length, ptr noundef null) #20
   %tobool6.not = icmp eq i32 %call5, 0
   br i1 %tobool6.not, label %if.then7, label %if.end8
 
 if.then7:                                         ; preds = %if.then4
-  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.17, ptr noundef nonnull %image_name) #19
-  call void @exit(i32 noundef 1) #20
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.17, ptr noundef nonnull %image_name) #20
+  call void @exit(i32 noundef 1) #25
   unreachable
 
 if.end8:                                          ; preds = %if.then4
@@ -1595,7 +1595,7 @@ declare i32 @g_file_get_contents(ptr noundef, ptr noundef, ptr noundef, ptr noun
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @do_qemu_init_fw_cfg_register_types() #1 {
 entry:
-  tail call void @register_module_init(ptr noundef nonnull @fw_cfg_register_types, i32 noundef 3) #19
+  tail call void @register_module_init(ptr noundef nonnull @fw_cfg_register_types, i32 noundef 3) #20
   ret void
 }
 
@@ -1604,14 +1604,14 @@ declare void @register_module_init(ptr noundef, i32 noundef) local_unnamed_addr 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @fw_cfg_register_types() #1 {
 entry:
-  %call = tail call ptr @type_register_static(ptr noundef nonnull @fw_cfg_info) #19
-  %call1 = tail call ptr @type_register_static(ptr noundef nonnull @fw_cfg_io_info) #19
-  %call2 = tail call ptr @type_register_static(ptr noundef nonnull @fw_cfg_mem_info) #19
+  %call = tail call ptr @type_register_static(ptr noundef nonnull @fw_cfg_info) #20
+  %call1 = tail call ptr @type_register_static(ptr noundef nonnull @fw_cfg_io_info) #20
+  %call2 = tail call ptr @type_register_static(ptr noundef nonnull @fw_cfg_mem_info) #20
   ret void
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #10
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #4
 
@@ -1624,12 +1624,12 @@ declare ptr @object_class_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noun
 declare ptr @object_get_class(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.bswap.i32(i32) #10
+declare i32 @llvm.bswap.i32(i32) #11
 
 declare void @warn_report(ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.bswap.i16(i16) #10
+declare i16 @llvm.bswap.i16(i16) #11
 
 declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
@@ -1661,7 +1661,7 @@ cond.end.thread:                                  ; preds = %entry
   br i1 %or.cond19, label %land.lhs.true19, label %if.else
 
 if.else:                                          ; preds = %cond.end.thread, %cond.end
-  tail call void @__assert_fail(ptr noundef nonnull @.str.82, ptr noundef nonnull @.str.1, i32 noundef 301, ptr noundef nonnull @__PRETTY_FUNCTION__.fw_cfg_data_read) #20
+  tail call void @__assert_fail(ptr noundef nonnull @.str.82, ptr noundef nonnull @.str.1, i32 noundef 301, ptr noundef nonnull @__PRETTY_FUNCTION__.fw_cfg_data_read) #21
   unreachable
 
 land.lhs.true19:                                  ; preds = %cond.end.thread
@@ -1727,16 +1727,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #19
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #19
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #20
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #20
   %16 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %17 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.83, i32 noundef %call10.i.i, i64 noundef %16, i64 noundef %17, ptr noundef %opaque, i64 noundef %value.1) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.83, i32 noundef %call10.i.i, i64 noundef %16, i64 noundef %17, ptr noundef %opaque, i64 noundef %value.1) #20
   br label %trace_fw_cfg_read.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.84, ptr noundef %opaque, i64 noundef %value.1) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.84, ptr noundef %opaque, i64 noundef %value.1) #20
   br label %trace_fw_cfg_read.exit
 
 trace_fw_cfg_read.exit:                           ; preds = %if.end36, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -1745,13 +1745,13 @@ trace_fw_cfg_read.exit:                           ; preds = %if.end36, %land.lhs
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal void @fw_cfg_data_mem_write(ptr nocapture readnone %opaque, i64 %addr, i64 %value, i32 %size) #11 {
+define internal void @fw_cfg_data_mem_write(ptr nocapture readnone %opaque, i64 %addr, i64 %value, i32 %size) #12 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i1 @fw_cfg_data_mem_valid(ptr nocapture readnone %opaque, i64 noundef %addr, i32 %size, i1 zeroext %is_write, i32 %attrs.coerce) #11 {
+define internal noundef zeroext i1 @fw_cfg_data_mem_valid(ptr nocapture readnone %opaque, i64 noundef %addr, i32 %size, i1 zeroext %is_write, i32 %attrs.coerce) #12 {
 entry:
   %cmp = icmp eq i64 %addr, 0
   ret i1 %cmp
@@ -1762,19 +1762,19 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #4
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @fw_cfg_class_init(ptr noundef %klass, ptr nocapture readnone %data) #1 {
 entry:
-  %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.86, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #19
+  %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.86, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #20
   %reset = getelementptr inbounds i8, ptr %call.i, i64 136
   store ptr @fw_cfg_reset, ptr %reset, align 8
   %vmsd = getelementptr inbounds i8, ptr %call.i, i64 160
   store ptr @vmstate_fw_cfg, ptr %vmsd, align 8
-  tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @fw_cfg_properties) #19
+  tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @fw_cfg_properties) #20
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @fw_cfg_reset(ptr noundef %d) #1 {
 entry:
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %d, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.79, i32 noundef 15, ptr noundef nonnull @__func__.FW_CFG) #19
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %d, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.79, i32 noundef 15, ptr noundef nonnull @__func__.FW_CFG) #20
   tail call fastcc void @fw_cfg_select(ptr noundef %call.i, i16 noundef zeroext 0)
   ret void
 }
@@ -1818,7 +1818,7 @@ if.else:                                          ; preds = %entry
 if.then11:                                        ; preds = %if.else
   %callback_opaque = getelementptr inbounds i8, ptr %arrayidx9, i64 16
   %4 = load ptr, ptr %callback_opaque, align 8
-  tail call void %3(ptr noundef %4) #19
+  tail call void %3(ptr noundef %4) #20
   br label %if.end13
 
 if.end13:                                         ; preds = %if.else, %if.then11, %if.then
@@ -1827,7 +1827,7 @@ if.end13:                                         ; preds = %if.else, %if.then11
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end13
-  %call.i.i = tail call ptr @fw_cfg_arch_key_name(i16 noundef zeroext %key) #19
+  %call.i.i = tail call ptr @fw_cfg_arch_key_name(i16 noundef zeroext %key) #20
   br label %trace_key_name.exit
 
 if.end.i.i:                                       ; preds = %if.end13
@@ -1864,18 +1864,18 @@ if.then.i.i14:                                    ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i14
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #19
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #19
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #20
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #20
   %10 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %11 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i16 %key to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.87, i32 noundef %call10.i.i, i64 noundef %10, i64 noundef %11, ptr noundef nonnull %s, i32 noundef %conv11.i.i, ptr noundef nonnull %cond.i, i32 noundef %ret.0) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.87, i32 noundef %call10.i.i, i64 noundef %10, i64 noundef %11, ptr noundef nonnull %s, i32 noundef %conv11.i.i, ptr noundef nonnull %cond.i, i32 noundef %ret.0) #20
   br label %trace_fw_cfg_select.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i14
   %conv12.i.i = zext i16 %key to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.88, ptr noundef nonnull %s, i32 noundef %conv12.i.i, ptr noundef nonnull %cond.i, i32 noundef %ret.0) #19
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.88, ptr noundef nonnull %s, i32 noundef %conv12.i.i, ptr noundef nonnull %cond.i, i32 noundef %ret.0) #20
   br label %trace_fw_cfg_select.exit
 
 trace_fw_cfg_select.exit:                         ; preds = %trace_key_name.exit, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -1884,7 +1884,7 @@ trace_fw_cfg_select.exit:                         ; preds = %trace_key_name.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i1 @is_version_1(ptr nocapture readnone %opaque, i32 noundef %version_id) #11 {
+define internal noundef zeroext i1 @is_version_1(ptr nocapture readnone %opaque, i32 noundef %version_id) #12 {
 entry:
   %cmp = icmp eq i32 %version_id, 1
   ret i1 %cmp
@@ -1893,18 +1893,18 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i32 @get_uint32_as_uint16(ptr noundef %f, ptr nocapture noundef writeonly %pv, i64 %size, ptr nocapture readnone %field) #1 {
 entry:
-  %call = tail call i32 @qemu_get_be16(ptr noundef %f) #19
+  %call = tail call i32 @qemu_get_be16(ptr noundef %f) #20
   store i32 %call, ptr %pv, align 4
   ret i32 0
 }
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal noundef i32 @put_unused(ptr nocapture readnone %f, ptr nocapture readnone %pv, i64 %size, ptr nocapture readnone %field, ptr nocapture readnone %vmdesc) #12 {
+define internal noundef i32 @put_unused(ptr nocapture readnone %f, ptr nocapture readnone %pv, i64 %size, ptr nocapture readnone %field, ptr nocapture readnone %vmdesc) #13 {
 entry:
   %0 = load ptr, ptr @stderr, align 8
-  %1 = tail call i64 @fwrite(ptr nonnull @.str.93, i64 58, i64 1, ptr %0) #24
+  %1 = tail call i64 @fwrite(ptr nonnull @.str.93, i64 58, i64 1, ptr %0) #26
   %2 = load ptr, ptr @stderr, align 8
-  %3 = tail call i64 @fwrite(ptr nonnull @.str.94, i64 36, i64 1, ptr %2) #24
+  %3 = tail call i64 @fwrite(ptr nonnull @.str.94, i64 36, i64 1, ptr %2) #26
   ret i32 0
 }
 
@@ -1922,7 +1922,7 @@ entry:
   br i1 %tobool.not, label %if.else, label %if.end
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 639, ptr noundef nonnull @__PRETTY_FUNCTION__.fw_cfg_acpi_mr_restore_post_load) #20
+  tail call void @__assert_fail(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 639, ptr noundef nonnull @__PRETTY_FUNCTION__.fw_cfg_acpi_mr_restore_post_load) #21
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -1945,7 +1945,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %4 = load ptr, ptr %files, align 16
   %f = getelementptr inbounds i8, ptr %4, i64 4
   %name = getelementptr [0 x %struct.fw_cfg_file], ptr %f, i64 0, i64 %indvars.iv, i32 3
-  %call3 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(16) @.str.71) #21
+  %call3 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(16) @.str.71) #22
   %tobool4.not = icmp eq i32 %call3, 0
   br i1 %tobool4.not, label %if.then5, label %if.else6
 
@@ -1963,7 +1963,7 @@ if.then5:                                         ; preds = %for.body
   br i1 %cmp.i, label %fw_cfg_update_mr.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then5
-  call void @__assert_fail(ptr noundef nonnull @.str.103, ptr noundef nonnull @.str.1, i32 noundef 626, ptr noundef nonnull @__PRETTY_FUNCTION__.fw_cfg_update_mr) #20
+  call void @__assert_fail(ptr noundef nonnull @.str.103, ptr noundef nonnull @.str.1, i32 noundef 626, ptr noundef nonnull @__PRETTY_FUNCTION__.fw_cfg_update_mr) #21
   unreachable
 
 fw_cfg_update_mr.exit:                            ; preds = %if.then5
@@ -1974,13 +1974,13 @@ fw_cfg_update_mr.exit:                            ; preds = %if.then5
   %idxprom7.i = zext nneg i16 %7 to i64
   %data.i = getelementptr %struct.FWCfgEntry, ptr %8, i64 %idxprom7.i, i32 2
   %9 = load ptr, ptr %data.i, align 8
-  %call9.i = call ptr @memory_region_from_host(ptr noundef %9, ptr noundef nonnull %offset.i) #19
-  call void @memory_region_ram_resize(ptr noundef %call9.i, i64 noundef %6, ptr noundef nonnull @error_abort) #19
+  %call9.i = call ptr @memory_region_from_host(ptr noundef %9, ptr noundef nonnull %offset.i) #20
+  call void @memory_region_ram_resize(ptr noundef %call9.i, i64 noundef %6, ptr noundef nonnull @error_abort) #20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %offset.i)
   br label %for.inc
 
 if.else6:                                         ; preds = %for.body
-  %call13 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(17) @.str.72) #21
+  %call13 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(17) @.str.72) #22
   %tobool14.not = icmp eq i32 %call13, 0
   br i1 %tobool14.not, label %if.then15, label %if.else18
 
@@ -1998,7 +1998,7 @@ if.then15:                                        ; preds = %if.else6
   br i1 %cmp.i23, label %fw_cfg_update_mr.exit32, label %if.else.i24
 
 if.else.i24:                                      ; preds = %if.then15
-  call void @__assert_fail(ptr noundef nonnull @.str.103, ptr noundef nonnull @.str.1, i32 noundef 626, ptr noundef nonnull @__PRETTY_FUNCTION__.fw_cfg_update_mr) #20
+  call void @__assert_fail(ptr noundef nonnull @.str.103, ptr noundef nonnull @.str.1, i32 noundef 626, ptr noundef nonnull @__PRETTY_FUNCTION__.fw_cfg_update_mr) #21
   unreachable
 
 fw_cfg_update_mr.exit32:                          ; preds = %if.then15
@@ -2009,13 +2009,13 @@ fw_cfg_update_mr.exit32:                          ; preds = %if.then15
   %idxprom7.i29 = zext nneg i16 %12 to i64
   %data.i30 = getelementptr %struct.FWCfgEntry, ptr %13, i64 %idxprom7.i29, i32 2
   %14 = load ptr, ptr %data.i30, align 8
-  %call9.i31 = call ptr @memory_region_from_host(ptr noundef %14, ptr noundef nonnull %offset.i18) #19
-  call void @memory_region_ram_resize(ptr noundef %call9.i31, i64 noundef %11, ptr noundef nonnull @error_abort) #19
+  %call9.i31 = call ptr @memory_region_from_host(ptr noundef %14, ptr noundef nonnull %offset.i18) #20
+  call void @memory_region_ram_resize(ptr noundef %call9.i31, i64 noundef %11, ptr noundef nonnull @error_abort) #20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %offset.i18)
   br label %for.inc
 
 if.else18:                                        ; preds = %if.else6
-  %call25 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(14) @.str.74) #21
+  %call25 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(14) @.str.74) #22
   %tobool26.not = icmp eq i32 %call25, 0
   br i1 %tobool26.not, label %if.then27, label %for.inc
 
@@ -2033,7 +2033,7 @@ if.then27:                                        ; preds = %if.else18
   br i1 %cmp.i38, label %fw_cfg_update_mr.exit47, label %if.else.i39
 
 if.else.i39:                                      ; preds = %if.then27
-  call void @__assert_fail(ptr noundef nonnull @.str.103, ptr noundef nonnull @.str.1, i32 noundef 626, ptr noundef nonnull @__PRETTY_FUNCTION__.fw_cfg_update_mr) #20
+  call void @__assert_fail(ptr noundef nonnull @.str.103, ptr noundef nonnull @.str.1, i32 noundef 626, ptr noundef nonnull @__PRETTY_FUNCTION__.fw_cfg_update_mr) #21
   unreachable
 
 fw_cfg_update_mr.exit47:                          ; preds = %if.then27
@@ -2044,8 +2044,8 @@ fw_cfg_update_mr.exit47:                          ; preds = %if.then27
   %idxprom7.i44 = zext nneg i16 %17 to i64
   %data.i45 = getelementptr %struct.FWCfgEntry, ptr %18, i64 %idxprom7.i44, i32 2
   %19 = load ptr, ptr %data.i45, align 8
-  %call9.i46 = call ptr @memory_region_from_host(ptr noundef %19, ptr noundef nonnull %offset.i33) #19
-  call void @memory_region_ram_resize(ptr noundef %call9.i46, i64 noundef %16, ptr noundef nonnull @error_abort) #19
+  %call9.i46 = call ptr @memory_region_from_host(ptr noundef %19, ptr noundef nonnull %offset.i33) #20
+  call void @memory_region_ram_resize(ptr noundef %call9.i46, i64 noundef %16, ptr noundef nonnull @error_abort) #20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %offset.i33)
   br label %for.inc
 
@@ -2059,11 +2059,11 @@ for.end:                                          ; preds = %for.inc, %if.end
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @fw_cfg_acpi_mr_restore(ptr nocapture noundef readonly %opaque) #13 {
+define internal zeroext i1 @fw_cfg_acpi_mr_restore(ptr nocapture noundef readonly %opaque) #14 {
 entry:
   %table_mr_size = getelementptr inbounds i8, ptr %opaque, i64 1192
   %0 = load i64, ptr %table_mr_size, align 8
-  %call.i = tail call i32 @getpagesize() #25
+  %call.i = tail call i32 @getpagesize() #27
   %conv.i = sext i32 %call.i to i64
   %rem = urem i64 %0, %conv.i
   %cmp = icmp eq i64 %rem, 0
@@ -2097,15 +2097,15 @@ declare ptr @memory_region_from_host(ptr noundef, ptr noundef) local_unnamed_add
 declare void @memory_region_ram_resize(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i32 @getpagesize() local_unnamed_addr #14
+declare i32 @getpagesize() local_unnamed_addr #15
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @fw_cfg_io_class_init(ptr noundef %klass, ptr nocapture readnone %data) #1 {
 entry:
-  %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.86, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #19
+  %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.86, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #20
   %realize = getelementptr inbounds i8, ptr %call.i, i64 144
   store ptr @fw_cfg_io_realize, ptr %realize, align 8
-  tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @fw_cfg_io_properties) #19
+  tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @fw_cfg_io_properties) #20
   ret void
 }
 
@@ -2120,8 +2120,8 @@ entry:
   %cmp = icmp eq ptr %errp, @error_fatal
   %or.cond = or i1 %tobool, %cmp
   %spec.select = select i1 %or.cond, ptr %_auto_errp_prop, ptr %errp
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.79, i32 noundef 16, ptr noundef nonnull @__func__.FW_CFG_IO) #19
-  %call.i15 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.79, i32 noundef 15, ptr noundef nonnull @__func__.FW_CFG) #19
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.79, i32 noundef 16, ptr noundef nonnull @__func__.FW_CFG_IO) #20
+  %call.i15 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.79, i32 noundef 15, ptr noundef nonnull @__func__.FW_CFG) #20
   call fastcc void @fw_cfg_file_slots_allocate(ptr noundef %call.i15, ptr noundef %spec.select)
   %0 = load ptr, ptr %spec.select, align 8
   %tobool4.not = icmp eq ptr %0, null
@@ -2129,19 +2129,19 @@ entry:
 
 if.end6:                                          ; preds = %entry
   %comb_iomem = getelementptr inbounds i8, ptr %call.i, i64 1216
-  %call.i16 = call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.79, i32 noundef 15, ptr noundef nonnull @__func__.FW_CFG) #19
-  call void @memory_region_init_io(ptr noundef nonnull %comb_iomem, ptr noundef %call.i, ptr noundef nonnull @fw_cfg_comb_mem_ops, ptr noundef %call.i16, ptr noundef nonnull @.str.105, i64 noundef 2) #19
-  %call.i17 = call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.79, i32 noundef 15, ptr noundef nonnull @__func__.FW_CFG) #19
+  %call.i16 = call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.79, i32 noundef 15, ptr noundef nonnull @__func__.FW_CFG) #20
+  call void @memory_region_init_io(ptr noundef nonnull %comb_iomem, ptr noundef %call.i, ptr noundef nonnull @fw_cfg_comb_mem_ops, ptr noundef %call.i16, ptr noundef nonnull @.str.105, i64 noundef 2) #20
+  %call.i17 = call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.79, i32 noundef 15, ptr noundef nonnull @__func__.FW_CFG) #20
   %dma_enabled = getelementptr inbounds i8, ptr %call.i17, i64 892
   %1 = load i8, ptr %dma_enabled, align 4
   %tobool9 = trunc i8 %1 to i1
   br i1 %tobool9, label %if.then10, label %if.end13
 
 if.then10:                                        ; preds = %if.end6
-  %call.i18 = call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.79, i32 noundef 15, ptr noundef nonnull @__func__.FW_CFG) #19
+  %call.i18 = call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.79, i32 noundef 15, ptr noundef nonnull @__func__.FW_CFG) #20
   %dma_iomem = getelementptr inbounds i8, ptr %call.i18, i64 912
-  %call.i19 = call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.79, i32 noundef 15, ptr noundef nonnull @__func__.FW_CFG) #19
-  call void @memory_region_init_io(ptr noundef nonnull %dma_iomem, ptr noundef %call.i, ptr noundef nonnull @fw_cfg_dma_mem_ops, ptr noundef %call.i19, ptr noundef nonnull @.str.106, i64 noundef 8) #19
+  %call.i19 = call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.79, i32 noundef 15, ptr noundef nonnull @__func__.FW_CFG) #20
+  call void @memory_region_init_io(ptr noundef nonnull %dma_iomem, ptr noundef %call.i, ptr noundef nonnull @fw_cfg_dma_mem_ops, ptr noundef %call.i19, ptr noundef nonnull @.str.106, i64 noundef 8) #20
   br label %if.end13
 
 if.end13:                                         ; preds = %if.then10, %if.end6
@@ -2151,7 +2151,7 @@ if.end13:                                         ; preds = %if.then10, %if.end6
 cleanup:                                          ; preds = %entry, %if.end13
   %_auto_errp_prop.val = load ptr, ptr %_auto_errp_prop, align 8
   %_auto_errp_prop.val14 = load ptr, ptr %errp1, align 8
-  call void @error_propagate(ptr noundef %_auto_errp_prop.val14, ptr noundef %_auto_errp_prop.val) #19
+  call void @error_propagate(ptr noundef %_auto_errp_prop.val14, ptr noundef %_auto_errp_prop.val) #20
   ret void
 }
 
@@ -2164,7 +2164,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 1281, ptr noundef nonnull @__func__.fw_cfg_file_slots_allocate, ptr noundef nonnull @.str.107, i32 noundef 16) #19
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 1281, ptr noundef nonnull @__func__.fw_cfg_file_slots_allocate, ptr noundef nonnull @.str.107, i32 noundef 16) #20
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -2172,25 +2172,25 @@ if.end:                                           ; preds = %entry
   br i1 %cmp5, label %if.then7, label %if.end9
 
 if.then7:                                         ; preds = %if.end
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 1291, ptr noundef nonnull @__func__.fw_cfg_file_slots_allocate, ptr noundef nonnull @.str.108, i32 noundef 16352) #19
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 1291, ptr noundef nonnull @__func__.fw_cfg_file_slots_allocate, ptr noundef nonnull @.str.108, i32 noundef 16352) #20
   br label %return
 
 if.end9:                                          ; preds = %if.end
   %narrow = add nuw nsw i16 %s.val10, 32
   %conv11 = zext nneg i16 %narrow to i64
-  %call12 = tail call noalias ptr @g_malloc0_n(i64 noundef %conv11, i64 noundef 40) #26
+  %call12 = tail call noalias ptr @g_malloc0_n(i64 noundef %conv11, i64 noundef 40) #28
   %entries = getelementptr inbounds i8, ptr %s, i64 824
   store ptr %call12, ptr %entries, align 8
   %s.val12 = load i16, ptr %0, align 16
   %conv.i14 = zext i16 %s.val12 to i64
   %add.i15 = add nuw nsw i64 %conv.i14, 32
-  %call15 = tail call noalias ptr @g_malloc0_n(i64 noundef %add.i15, i64 noundef 40) #26
+  %call15 = tail call noalias ptr @g_malloc0_n(i64 noundef %add.i15, i64 noundef 40) #28
   %arrayidx17 = getelementptr i8, ptr %s, i64 832
   store ptr %call15, ptr %arrayidx17, align 8
   %s.val11 = load i16, ptr %0, align 16
   %conv.i16 = zext i16 %s.val11 to i64
   %add.i17 = add nuw nsw i64 %conv.i16, 32
-  %call20 = tail call noalias ptr @g_malloc0_n(i64 noundef %add.i17, i64 noundef 4) #26
+  %call20 = tail call noalias ptr @g_malloc0_n(i64 noundef %add.i17, i64 noundef 4) #28
   %entry_order = getelementptr inbounds i8, ptr %s, i64 840
   store ptr %call20, ptr %entry_order, align 8
   br label %return
@@ -2209,16 +2209,16 @@ entry:
   %content.i.i = alloca ptr, align 8
   %file_size.i = alloca i64, align 8
   %bst_le16.i = alloca i16, align 2
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.79, i32 noundef 15, ptr noundef nonnull @__func__.FW_CFG) #19
-  %call1 = tail call ptr @qdev_get_machine() #19
-  %call.i13 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.58, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #19
-  %call.i14 = tail call ptr @object_resolve_path_type(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.13, ptr noundef null) #19
-  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i14, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.79, i32 noundef 15, ptr noundef nonnull @__func__.FW_CFG) #19
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.79, i32 noundef 15, ptr noundef nonnull @__func__.FW_CFG) #20
+  %call1 = tail call ptr @qdev_get_machine() #20
+  %call.i13 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.58, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #20
+  %call.i14 = tail call ptr @object_resolve_path_type(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.13, ptr noundef null) #20
+  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i14, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.79, i32 noundef 15, ptr noundef nonnull @__func__.FW_CFG) #20
   %tobool.not = icmp eq ptr %call.i.i, null
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 1117, ptr noundef nonnull @__func__.fw_cfg_common_realize, ptr noundef nonnull @.str.111, ptr noundef nonnull @.str.13) #19
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 1117, ptr noundef nonnull @__func__.fw_cfg_common_realize, ptr noundef nonnull @.str.111, ptr noundef nonnull @.str.13) #20
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -2260,14 +2260,14 @@ if.then.i:                                        ; preds = %land.end
   br i1 %or.cond.i, label %if.then3.i, label %if.end.i
 
 if.then3.i:                                       ; preds = %if.then.i
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.113) #19
-  tail call void @exit(i32 noundef 1) #20
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.113) #20
+  tail call void @exit(i32 noundef 1) #25
   unreachable
 
 if.end.i:                                         ; preds = %if.then.i
   %conv.i = trunc nuw i64 %9 to i16
   store i16 %conv.i, ptr %bst_le16.i, align 2
-  %call4.i = call dereferenceable_or_null(2) ptr @g_memdup(ptr noundef nonnull %bst_le16.i, i32 noundef 2) #22
+  %call4.i = call dereferenceable_or_null(2) ptr @g_memdup(ptr noundef nonnull %bst_le16.i, i32 noundef 2) #23
   call void @fw_cfg_add_file_callback(ptr noundef %call.i, ptr noundef nonnull @.str.60, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %call4.i, i64 noundef 2, i1 noundef zeroext true)
   %.pre.i = load ptr, ptr @current_machine, align 8
   br label %if.end5.i
@@ -2280,19 +2280,19 @@ if.end5.i:                                        ; preds = %if.end.i, %land.end
   br i1 %tobool7.not.i, label %fw_cfg_bootsplash.exit, label %if.then8.i
 
 if.then8.i:                                       ; preds = %if.end5.i
-  %call11.i = call ptr @qemu_find_file(i32 noundef 0, ptr noundef nonnull %11) #19
+  %call11.i = call ptr @qemu_find_file(i32 noundef 0, ptr noundef nonnull %11) #20
   %cmp12.i = icmp eq ptr %call11.i, null
   br i1 %cmp12.i, label %if.then14.i, label %if.end15.i
 
 if.then14.i:                                      ; preds = %if.then8.i
-  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.114, ptr noundef nonnull %11) #19
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.114, ptr noundef nonnull %11) #20
   br label %fw_cfg_bootsplash.exit
 
 if.end15.i:                                       ; preds = %if.then8.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %err.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %content.i.i)
   store ptr null, ptr %err.i.i, align 8
-  %call.i.i15 = call i32 @g_file_get_contents(ptr noundef nonnull %call11.i, ptr noundef nonnull %content.i.i, ptr noundef nonnull %file_size.i, ptr noundef nonnull %err.i.i) #19
+  %call.i.i15 = call i32 @g_file_get_contents(ptr noundef nonnull %call11.i, ptr noundef nonnull %content.i.i, ptr noundef nonnull %file_size.i, ptr noundef nonnull %err.i.i) #20
   %tobool.not.i.i = icmp eq i32 %call.i.i15, 0
   br i1 %tobool.not.i.i, label %if.then.i.i, label %if.end.i.i
 
@@ -2300,9 +2300,9 @@ if.then.i.i:                                      ; preds = %if.end15.i
   %12 = load ptr, ptr %err.i.i, align 8
   %message.i.i = getelementptr inbounds i8, ptr %12, i64 8
   %13 = load ptr, ptr %message.i.i, align 8
-  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.115, ptr noundef nonnull %call11.i, ptr noundef %13) #19
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.115, ptr noundef nonnull %call11.i, ptr noundef %13) #20
   %14 = load ptr, ptr %err.i.i, align 8
-  call void @g_error_free(ptr noundef %14) #19
+  call void @g_error_free(ptr noundef %14) #20
   br label %if.then19.i
 
 if.end.i.i:                                       ; preds = %if.end15.i
@@ -2325,22 +2325,22 @@ if.then12.i.i:                                    ; preds = %if.end2.i.i
   br i1 %cmp14.not.i.i, label %if.else.critedge.i, label %error.i.i
 
 error.i.i:                                        ; preds = %if.then12.i.i, %if.end2.i.i, %if.end.i.i
-  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.116, ptr noundef nonnull %call11.i) #19
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.116, ptr noundef nonnull %call11.i) #20
   %17 = load ptr, ptr %content.i.i, align 8
-  call void @g_free(ptr noundef %17) #19
+  call void @g_free(ptr noundef %17) #20
   br label %if.then19.i
 
 if.then19.i:                                      ; preds = %error.i.i, %if.then.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %err.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %content.i.i)
-  call void @g_free(ptr noundef nonnull %call11.i) #19
+  call void @g_free(ptr noundef nonnull %call11.i) #20
   br label %fw_cfg_bootsplash.exit
 
 if.end20.i:                                       ; preds = %if.end2.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %err.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %content.i.i)
   %18 = load ptr, ptr @boot_splash_filedata, align 8
-  call void @g_free(ptr noundef %18) #19
+  call void @g_free(ptr noundef %18) #20
   store ptr %16, ptr @boot_splash_filedata, align 8
   %19 = load i64, ptr %file_size.i, align 8
   call void @fw_cfg_add_file_callback(ptr noundef %call.i, ptr noundef nonnull @.str.61, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %16, i64 noundef %19, i1 noundef zeroext true)
@@ -2350,14 +2350,14 @@ if.else.critedge.i:                               ; preds = %if.then12.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %err.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %content.i.i)
   %20 = load ptr, ptr @boot_splash_filedata, align 8
-  call void @g_free(ptr noundef %20) #19
+  call void @g_free(ptr noundef %20) #20
   store ptr %16, ptr @boot_splash_filedata, align 8
   %21 = load i64, ptr %file_size.i, align 8
   call void @fw_cfg_add_file_callback(ptr noundef %call.i, ptr noundef nonnull @.str.62, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %16, i64 noundef %21, i1 noundef zeroext true)
   br label %if.end24.i
 
 if.end24.i:                                       ; preds = %if.else.critedge.i, %if.end20.i
-  call void @g_free(ptr noundef nonnull %call11.i) #19
+  call void @g_free(ptr noundef nonnull %call11.i) #20
   br label %fw_cfg_bootsplash.exit
 
 fw_cfg_bootsplash.exit:                           ; preds = %if.end5.i, %if.then14.i, %if.then19.i, %if.end24.i
@@ -2378,15 +2378,15 @@ if.then.i18:                                      ; preds = %fw_cfg_bootsplash.e
   br i1 %or.cond.i19, label %if.then3.i20, label %fw_cfg_reboot.exit
 
 if.then3.i20:                                     ; preds = %if.then.i18
-  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.117) #19
-  call void @exit(i32 noundef 1) #20
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.117) #20
+  call void @exit(i32 noundef 1) #25
   unreachable
 
 fw_cfg_reboot.exit:                               ; preds = %fw_cfg_bootsplash.exit, %if.then.i18
   %rt_val.0.i = phi i64 [ %24, %if.then.i18 ], [ -1, %fw_cfg_bootsplash.exit ]
   %conv.i17 = trunc i64 %rt_val.0.i to i32
   store i32 %conv.i17, ptr %rt_le32.i, align 4
-  %call5.i = call dereferenceable_or_null(4) ptr @g_memdup(ptr noundef nonnull %rt_le32.i, i32 noundef 4) #22
+  %call5.i = call dereferenceable_or_null(4) ptr @g_memdup(ptr noundef nonnull %rt_le32.i, i32 noundef 4) #23
   call void @fw_cfg_add_file_callback(ptr noundef %call.i, ptr noundef nonnull @.str.63, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %call5.i, i64 noundef 4, i1 noundef zeroext true)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %rt_le32.i)
   %dma_enabled = getelementptr inbounds i8, ptr %call.i, i64 892
@@ -2396,7 +2396,7 @@ fw_cfg_reboot.exit:                               ; preds = %fw_cfg_bootsplash.e
   call void @fw_cfg_add_i32(ptr noundef nonnull %call.i, i16 noundef zeroext 1, i32 noundef %.)
   %machine_ready = getelementptr inbounds i8, ptr %call.i, i64 864
   store ptr @fw_cfg_machine_ready, ptr %machine_ready, align 16
-  call void @qemu_add_machine_init_done_notifier(ptr noundef nonnull %machine_ready) #19
+  call void @qemu_add_machine_init_done_notifier(ptr noundef nonnull %machine_ready) #20
   br label %return
 
 return:                                           ; preds = %fw_cfg_reboot.exit, %if.then
@@ -2406,7 +2406,7 @@ return:                                           ; preds = %fw_cfg_reboot.exit,
 declare void @error_propagate(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: allocsize(0,1)
-declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #15
+declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #16
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @fw_cfg_comb_write(ptr noundef %opaque, i64 %addr, i64 noundef %value, i32 noundef %size) #1 {
@@ -2424,7 +2424,7 @@ sw.epilog:                                        ; preds = %entry, %sw.bb1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i1 @fw_cfg_comb_valid(ptr nocapture readnone %opaque, i64 %addr, i32 noundef %size, i1 noundef zeroext %is_write, i32 %attrs.coerce) #11 {
+define internal noundef zeroext i1 @fw_cfg_comb_valid(ptr nocapture readnone %opaque, i64 %addr, i32 noundef %size, i1 noundef zeroext %is_write, i32 %attrs.coerce) #12 {
 entry:
   %cmp = icmp eq i32 %size, 1
   br i1 %cmp, label %lor.end, label %lor.rhs
@@ -2455,7 +2455,7 @@ entry:
   br i1 %or.cond5.i, label %if.else.i, label %extract64.exit
 
 if.else.i:                                        ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.109, ptr noundef nonnull @.str.110, i32 noundef 395, ptr noundef nonnull @__PRETTY_FUNCTION__.extract64) #20
+  tail call void @__assert_fail(ptr noundef nonnull @.str.109, ptr noundef nonnull @.str.110, i32 noundef 395, ptr noundef nonnull @__PRETTY_FUNCTION__.extract64) #21
   unreachable
 
 extract64.exit:                                   ; preds = %entry
@@ -2511,7 +2511,7 @@ if.end13:                                         ; preds = %if.then, %if.else7,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i1 @fw_cfg_dma_mem_valid(ptr nocapture readnone %opaque, i64 noundef %addr, i32 noundef %size, i1 noundef zeroext %is_write, i32 %attrs.coerce) #11 {
+define internal noundef zeroext i1 @fw_cfg_dma_mem_valid(ptr nocapture readnone %opaque, i64 noundef %addr, i32 noundef %size, i1 noundef zeroext %is_write, i32 %attrs.coerce) #12 {
 entry:
   br i1 %is_write, label %lor.rhs, label %lor.end6
 
@@ -2545,9 +2545,9 @@ entry:
   store i64 0, ptr %dma_addr1, align 16
   %dma_as = getelementptr inbounds i8, ptr %s, i64 904
   %1 = load ptr, ptr %dma_as, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !15
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !15
   fence seq_cst
-  %call.i.i.i = call i32 @address_space_rw(ptr noundef %1, i64 noundef %0, i32 1, ptr noundef nonnull %dma, i64 noundef 16, i1 noundef zeroext false) #19
+  %call.i.i.i = call i32 @address_space_rw(ptr noundef %1, i64 noundef %0, i32 1, ptr noundef nonnull %dma, i64 noundef 16, i1 noundef zeroext false) #20
   %tobool.not = icmp eq i32 %call.i.i.i, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
@@ -2555,9 +2555,9 @@ if.then:                                          ; preds = %entry
   %2 = load ptr, ptr %dma_as, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.addr.i)
   store i32 16777216, ptr %val.addr.i, align 4
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !15
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !15
   fence seq_cst
-  %call.i.i.i.i = call i32 @address_space_rw(ptr noundef %2, i64 noundef %0, i32 1, ptr noundef nonnull %val.addr.i, i64 noundef 4, i1 noundef zeroext true) #19
+  %call.i.i.i.i = call i32 @address_space_rw(ptr noundef %2, i64 noundef %0, i32 1, ptr noundef nonnull %val.addr.i, i64 noundef 4, i1 noundef zeroext true) #20
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %val.addr.i)
   br label %return
 
@@ -2667,7 +2667,7 @@ if.then128:                                       ; preds = %if.then124
   %19 = load i64, ptr %address, align 8
   %bf.set134 = and i32 %.compoundliteral131.sroa.0.0112, -67108864
   %bf.clear136 = or disjoint i32 %bf.set134, 1
-  %call163 = call i32 @dma_memory_set(ptr noundef %18, i64 noundef %19, i8 noundef zeroext 0, i64 noundef %conv126, i32 %bf.clear136) #19
+  %call163 = call i32 @dma_memory_set(ptr noundef %18, i64 noundef %19, i8 noundef zeroext 0, i64 noundef %conv126, i32 %bf.clear136) #20
   %tobool164.not = icmp eq i32 %call163, 0
   %.pre116.pre = load i32, ptr %dma, align 8
   br i1 %tobool164.not, label %if.end168, label %if.then165
@@ -2700,9 +2700,9 @@ if.then190:                                       ; preds = %if.else174
   %arrayidx196 = getelementptr i8, ptr %15, i64 %idxprom195
   %bf.set200 = and i32 %.compoundliteral197.sroa.0.0113, -67108864
   %bf.clear202 = or disjoint i32 %bf.set200, 1
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !15
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !15
   fence seq_cst
-  %call.i.i.i105 = call i32 @address_space_rw(ptr noundef %20, i64 noundef %21, i32 %bf.clear202, ptr noundef %arrayidx196, i64 noundef %len.0, i1 noundef zeroext true) #19
+  %call.i.i.i105 = call i32 @address_space_rw(ptr noundef %20, i64 noundef %21, i32 %bf.clear202, ptr noundef %arrayidx196, i64 noundef %len.0, i1 noundef zeroext true) #20
   %tobool230.not = icmp eq i32 %call.i.i.i105, 0
   br i1 %tobool230.not, label %if.end235, label %if.then231
 
@@ -2733,9 +2733,9 @@ lor.lhs.false244:                                 ; preds = %if.then237
   %arrayidx250 = getelementptr i8, ptr %27, i64 %idxprom249
   %bf.set254 = and i32 %.compoundliteral251.sroa.0.0114, -67108864
   %bf.clear256 = or disjoint i32 %bf.set254, 1
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !15
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !15
   fence seq_cst
-  %call.i.i.i106 = call i32 @address_space_rw(ptr noundef %25, i64 noundef %26, i32 %bf.clear256, ptr noundef %arrayidx250, i64 noundef %len.0, i1 noundef zeroext false) #19
+  %call.i.i.i106 = call i32 @address_space_rw(ptr noundef %25, i64 noundef %26, i32 %bf.clear256, ptr noundef %arrayidx250, i64 noundef %len.0, i1 noundef zeroext false) #20
   %tobool284.not = icmp eq i32 %call.i.i.i106, 0
   br i1 %tobool284.not, label %if.else288, label %if.then285
 
@@ -2755,7 +2755,7 @@ if.then290:                                       ; preds = %if.else288
   %31 = load ptr, ptr %callback_opaque, align 8
   %32 = load i32, ptr %cur_offset, align 4
   %conv293 = zext i32 %32 to i64
-  call void %30(ptr noundef %31, i64 noundef %conv293, i64 noundef %len.0) #19
+  call void %30(ptr noundef %31, i64 noundef %conv293, i64 noundef %len.0) #20
   br label %if.end296
 
 if.end296:                                        ; preds = %if.then285, %if.then290, %if.else288, %if.end235
@@ -2791,9 +2791,9 @@ while.end:                                        ; preds = %if.end301, %if.end1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.addr.i107)
   %39 = call noundef i32 @llvm.bswap.i32(i32 %.lcssa)
   store i32 %39, ptr %val.addr.i107, align 4
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !15
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !15
   fence seq_cst
-  %call.i.i.i.i108 = call i32 @address_space_rw(ptr noundef %38, i64 noundef %0, i32 1, ptr noundef nonnull %val.addr.i107, i64 noundef 4, i1 noundef zeroext true) #19
+  %call.i.i.i.i108 = call i32 @address_space_rw(ptr noundef %38, i64 noundef %0, i32 1, ptr noundef nonnull %val.addr.i107, i64 noundef 4, i1 noundef zeroext true) #20
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %val.addr.i107)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %40 = load i32, ptr @trace_events_enabled_count, align 4
@@ -2815,16 +2815,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #19
-  %call10.i.i = call i32 @qemu_get_thread_id() #19
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #20
+  %call10.i.i = call i32 @qemu_get_thread_id() #20
   %44 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %45 = load i64, ptr %tv_usec.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.83, i32 noundef %call10.i.i, i64 noundef %44, i64 noundef %45, ptr noundef nonnull %s, i64 noundef 0) #19
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.83, i32 noundef %call10.i.i, i64 noundef %44, i64 noundef %45, ptr noundef nonnull %s, i64 noundef 0) #20
   br label %trace_fw_cfg_read.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.84, ptr noundef nonnull %s, i64 noundef 0) #19
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.84, ptr noundef nonnull %s, i64 noundef 0) #20
   br label %trace_fw_cfg_read.exit
 
 trace_fw_cfg_read.exit:                           ; preds = %while.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -2840,13 +2840,13 @@ declare i32 @dma_memory_set(ptr noundef, i64 noundef, i8 noundef zeroext, i64 no
 declare i32 @address_space_rw(ptr noundef, i64 noundef, i32, ptr noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.bswap.i64(i64) #10
+declare i64 @llvm.bswap.i64(i64) #11
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @fw_cfg_machine_ready(ptr noundef %n, ptr nocapture readnone %data) #1 {
 entry:
   %add.ptr = getelementptr i8, ptr %n, i64 -864
-  tail call void @qemu_register_reset(ptr noundef nonnull @fw_cfg_machine_reset, ptr noundef %add.ptr) #19
+  tail call void @qemu_register_reset(ptr noundef nonnull @fw_cfg_machine_reset, ptr noundef %add.ptr) #20
   ret void
 }
 
@@ -2862,13 +2862,13 @@ declare void @qemu_register_reset(ptr noundef, ptr noundef) local_unnamed_addr #
 define internal void @fw_cfg_machine_reset(ptr noundef %opaque) #1 {
 entry:
   %len = alloca i64, align 8
-  %call = tail call ptr @qdev_get_machine() #19
-  %call.i = tail call ptr @object_get_class(ptr noundef %call) #19
-  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.58, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE_GET_CLASS) #19
-  %call2 = call ptr @get_boot_devices_list(ptr noundef nonnull %len) #19
+  %call = tail call ptr @qdev_get_machine() #20
+  %call.i = tail call ptr @object_get_class(ptr noundef %call) #20
+  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.58, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE_GET_CLASS) #20
+  %call2 = call ptr @get_boot_devices_list(ptr noundef nonnull %len) #20
   %0 = load i64, ptr %len, align 8
   %call3 = call ptr @fw_cfg_modify_file(ptr noundef %opaque, ptr noundef nonnull @.str.75, ptr noundef %call2, i64 noundef %0)
-  call void @g_free(ptr noundef %call3) #19
+  call void @g_free(ptr noundef %call3) #20
   %legacy_fw_cfg_order = getelementptr inbounds i8, ptr %call1.i, i64 188
   %bf.load = load i8, ptr %legacy_fw_cfg_order, align 4
   %1 = and i8 %bf.load, 64
@@ -2876,10 +2876,10 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %call4 = call ptr @get_boot_devices_lchs_list(ptr noundef nonnull %len) #19
+  %call4 = call ptr @get_boot_devices_lchs_list(ptr noundef nonnull %len) #20
   %2 = load i64, ptr %len, align 8
   %call5 = call ptr @fw_cfg_modify_file(ptr noundef %opaque, ptr noundef nonnull @.str.118, ptr noundef %call4, i64 noundef %2)
-  call void @g_free(ptr noundef %call5) #19
+  call void @g_free(ptr noundef %call5) #20
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -2893,10 +2893,10 @@ declare ptr @get_boot_devices_lchs_list(ptr noundef) local_unnamed_addr #4
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @fw_cfg_mem_class_init(ptr noundef %klass, ptr nocapture readnone %data) #1 {
 entry:
-  %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.86, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #19
+  %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.86, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #20
   %realize = getelementptr inbounds i8, ptr %call.i, i64 144
   store ptr @fw_cfg_mem_realize, ptr %realize, align 8
-  tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @fw_cfg_mem_properties) #19
+  tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @fw_cfg_mem_properties) #20
   ret void
 }
 
@@ -2911,9 +2911,9 @@ entry:
   %cmp = icmp eq ptr %errp, @error_fatal
   %or.cond = or i1 %tobool, %cmp
   %spec.select = select i1 %or.cond, ptr %_auto_errp_prop, ptr %errp
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.79, i32 noundef 17, ptr noundef nonnull @__func__.FW_CFG_MEM) #19
-  %call.i34 = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.80, ptr noundef nonnull @.str.81, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #19
-  %call.i35 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.79, i32 noundef 15, ptr noundef nonnull @__func__.FW_CFG) #19
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.79, i32 noundef 17, ptr noundef nonnull @__func__.FW_CFG_MEM) #20
+  %call.i34 = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.80, ptr noundef nonnull @.str.81, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #20
+  %call.i35 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.79, i32 noundef 15, ptr noundef nonnull @__func__.FW_CFG) #20
   call fastcc void @fw_cfg_file_slots_allocate(ptr noundef %call.i35, ptr noundef %spec.select)
   %0 = load ptr, ptr %spec.select, align 8
   %tobool5.not = icmp eq ptr %0, null
@@ -2921,9 +2921,9 @@ entry:
 
 if.end7:                                          ; preds = %entry
   %ctl_iomem = getelementptr inbounds i8, ptr %call.i, i64 1216
-  %call.i36 = call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.79, i32 noundef 15, ptr noundef nonnull @__func__.FW_CFG) #19
-  call void @memory_region_init_io(ptr noundef nonnull %ctl_iomem, ptr noundef %call.i, ptr noundef nonnull @fw_cfg_ctl_mem_ops, ptr noundef %call.i36, ptr noundef nonnull @.str.120, i64 noundef 2) #19
-  call void @sysbus_init_mmio(ptr noundef %call.i34, ptr noundef nonnull %ctl_iomem) #19
+  %call.i36 = call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.79, i32 noundef 15, ptr noundef nonnull @__func__.FW_CFG) #20
+  call void @memory_region_init_io(ptr noundef nonnull %ctl_iomem, ptr noundef %call.i, ptr noundef nonnull @fw_cfg_ctl_mem_ops, ptr noundef %call.i36, ptr noundef nonnull @.str.120, i64 noundef 2) #20
+  call void @sysbus_init_mmio(ptr noundef %call.i34, ptr noundef nonnull %ctl_iomem) #20
   %data_width = getelementptr inbounds i8, ptr %call.i, i64 1760
   %1 = load i32, ptr %data_width, align 16
   %cmp10 = icmp ugt i32 %1, 1
@@ -2941,26 +2941,26 @@ if.then11:                                        ; preds = %if.end7
 if.end20:                                         ; preds = %if.then11, %if.end7
   %data_ops.0 = phi ptr [ %wide_data_ops, %if.then11 ], [ @fw_cfg_data_mem_ops, %if.end7 ]
   %data_iomem = getelementptr inbounds i8, ptr %call.i, i64 1488
-  %call.i37 = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.79, i32 noundef 15, ptr noundef nonnull @__func__.FW_CFG) #19
+  %call.i37 = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.79, i32 noundef 15, ptr noundef nonnull @__func__.FW_CFG) #20
   %max_access_size23 = getelementptr inbounds i8, ptr %data_ops.0, i64 44
   %2 = load i32, ptr %max_access_size23, align 4
   %conv = zext i32 %2 to i64
-  call void @memory_region_init_io(ptr noundef nonnull %data_iomem, ptr noundef nonnull %call.i, ptr noundef nonnull %data_ops.0, ptr noundef %call.i37, ptr noundef nonnull @.str.121, i64 noundef %conv) #19
-  call void @sysbus_init_mmio(ptr noundef %call.i34, ptr noundef nonnull %data_iomem) #19
-  %call.i38 = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.79, i32 noundef 15, ptr noundef nonnull @__func__.FW_CFG) #19
+  call void @memory_region_init_io(ptr noundef nonnull %data_iomem, ptr noundef nonnull %call.i, ptr noundef nonnull %data_ops.0, ptr noundef %call.i37, ptr noundef nonnull @.str.121, i64 noundef %conv) #20
+  call void @sysbus_init_mmio(ptr noundef %call.i34, ptr noundef nonnull %data_iomem) #20
+  %call.i38 = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.79, i32 noundef 15, ptr noundef nonnull @__func__.FW_CFG) #20
   %dma_enabled = getelementptr inbounds i8, ptr %call.i38, i64 892
   %3 = load i8, ptr %dma_enabled, align 4
   %tobool26 = trunc i8 %3 to i1
   br i1 %tobool26, label %if.then27, label %if.end32
 
 if.then27:                                        ; preds = %if.end20
-  %call.i39 = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.79, i32 noundef 15, ptr noundef nonnull @__func__.FW_CFG) #19
+  %call.i39 = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.79, i32 noundef 15, ptr noundef nonnull @__func__.FW_CFG) #20
   %dma_iomem = getelementptr inbounds i8, ptr %call.i39, i64 912
-  %call.i40 = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.79, i32 noundef 15, ptr noundef nonnull @__func__.FW_CFG) #19
-  call void @memory_region_init_io(ptr noundef nonnull %dma_iomem, ptr noundef nonnull %call.i, ptr noundef nonnull @fw_cfg_dma_mem_ops, ptr noundef %call.i40, ptr noundef nonnull @.str.106, i64 noundef 8) #19
-  %call.i41 = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.79, i32 noundef 15, ptr noundef nonnull @__func__.FW_CFG) #19
+  %call.i40 = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.79, i32 noundef 15, ptr noundef nonnull @__func__.FW_CFG) #20
+  call void @memory_region_init_io(ptr noundef nonnull %dma_iomem, ptr noundef nonnull %call.i, ptr noundef nonnull @fw_cfg_dma_mem_ops, ptr noundef %call.i40, ptr noundef nonnull @.str.106, i64 noundef 8) #20
+  %call.i41 = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.79, i32 noundef 15, ptr noundef nonnull @__func__.FW_CFG) #20
   %dma_iomem31 = getelementptr inbounds i8, ptr %call.i41, i64 912
-  call void @sysbus_init_mmio(ptr noundef %call.i34, ptr noundef nonnull %dma_iomem31) #19
+  call void @sysbus_init_mmio(ptr noundef %call.i34, ptr noundef nonnull %dma_iomem31) #20
   br label %if.end32
 
 if.end32:                                         ; preds = %if.then27, %if.end20
@@ -2970,14 +2970,14 @@ if.end32:                                         ; preds = %if.then27, %if.end2
 cleanup:                                          ; preds = %entry, %if.end32
   %_auto_errp_prop.val = load ptr, ptr %_auto_errp_prop, align 8
   %_auto_errp_prop.val33 = load ptr, ptr %errp1, align 8
-  call void @error_propagate(ptr noundef %_auto_errp_prop.val33, ptr noundef %_auto_errp_prop.val) #19
+  call void @error_propagate(ptr noundef %_auto_errp_prop.val33, ptr noundef %_auto_errp_prop.val) #20
   ret void
 }
 
 declare void @sysbus_init_mmio(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @fw_cfg_ctl_mem_read(ptr nocapture readnone %opaque, i64 %addr, i32 %size) #11 {
+define internal noundef i64 @fw_cfg_ctl_mem_read(ptr nocapture readnone %opaque, i64 %addr, i32 %size) #12 {
 entry:
   ret i64 0
 }
@@ -2991,7 +2991,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i1 @fw_cfg_ctl_mem_valid(ptr nocapture readnone %opaque, i64 %addr, i32 noundef %size, i1 noundef zeroext %is_write, i32 %attrs.coerce) #11 {
+define internal noundef zeroext i1 @fw_cfg_ctl_mem_valid(ptr nocapture readnone %opaque, i64 %addr, i32 noundef %size, i1 noundef zeroext %is_write, i32 %attrs.coerce) #12 {
 entry:
   %cmp = icmp eq i32 %size, 2
   %0 = and i1 %cmp, %is_write
@@ -2999,19 +2999,19 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #16
+declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #18
+declare i32 @llvm.smin.i32(i32, i32) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #18
+declare i32 @llvm.umin.i32(i32, i32) #19
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -3022,24 +3022,26 @@ attributes #5 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "
 attributes #6 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nofree nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { nofree nounwind }
-attributes #17 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #18 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #19 = { nounwind }
-attributes #20 = { noreturn nounwind }
-attributes #21 = { nounwind willreturn memory(read) }
-attributes #22 = { nounwind allocsize(1) }
-attributes #23 = { nounwind allocsize(0) }
-attributes #24 = { cold }
-attributes #25 = { nounwind willreturn memory(none) }
-attributes #26 = { nounwind allocsize(0,1) }
+attributes #9 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nofree nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { nofree nounwind }
+attributes #18 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #19 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #20 = { nounwind }
+attributes #21 = { noreturn nounwind }
+attributes #22 = { nounwind willreturn memory(read) }
+attributes #23 = { nounwind allocsize(1) }
+attributes #24 = { nounwind allocsize(0) }
+attributes #25 = { cold noreturn nounwind }
+attributes #26 = { cold }
+attributes #27 = { nounwind willreturn memory(none) }
+attributes #28 = { nounwind allocsize(0,1) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

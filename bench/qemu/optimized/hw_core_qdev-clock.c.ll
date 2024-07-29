@@ -65,15 +65,15 @@ land.lhs.true:                                    ; preds = %if.end
 if.then18:                                        ; preds = %land.lhs.true
   %clock = getelementptr inbounds i8, ptr %ncl.016, i64 8
   %5 = load ptr, ptr %clock, align 8
-  tail call void @clock_clear_callback(ptr noundef %5) #6
+  tail call void @clock_clear_callback(ptr noundef %5) #7
   %6 = load ptr, ptr %clock, align 8
-  tail call void @object_unref(ptr noundef %6) #6
+  tail call void @object_unref(ptr noundef %6) #7
   br label %if.end20
 
 if.end20:                                         ; preds = %if.then18, %land.lhs.true, %if.end
   %7 = load ptr, ptr %ncl.016, align 8
-  tail call void @g_free(ptr noundef %7) #6
-  tail call void @g_free(ptr noundef nonnull %ncl.016) #6
+  tail call void @g_free(ptr noundef %7) #7
+  tail call void @g_free(ptr noundef nonnull %ncl.016) #7
   br i1 %cmp.not, label %for.end, label %land.rhs, !llvm.loop !5
 
 for.end:                                          ; preds = %if.end20, %entry
@@ -93,7 +93,7 @@ entry:
   br i1 %tobool.not, label %if.else, label %if.end
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.qdev_init_clock_out) #7
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.qdev_init_clock_out) #8
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -115,13 +115,13 @@ entry:
   br i1 %tobool, label %if.else, label %if.end
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.1, i32 noundef 33, ptr noundef nonnull @__PRETTY_FUNCTION__.qdev_init_clocklist) #7
+  tail call void @__assert_fail(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.1, i32 noundef 33, ptr noundef nonnull @__PRETTY_FUNCTION__.qdev_init_clocklist) #8
   unreachable
 
 if.end:                                           ; preds = %entry
   %frombool = zext i1 %output to i8
-  %call = tail call noalias dereferenceable_or_null(40) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 40) #8
-  %call1 = tail call noalias ptr @g_strdup(ptr noundef %name) #6
+  %call = tail call noalias dereferenceable_or_null(40) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 40) #9
+  %call1 = tail call noalias ptr @g_strdup(ptr noundef %name) #7
   store ptr %call1, ptr %call, align 8
   %output4 = getelementptr inbounds i8, ptr %call, i64 16
   store i8 %frombool, ptr %output4, align 8
@@ -133,20 +133,20 @@ if.end:                                           ; preds = %entry
   br i1 %cmp7, label %if.then8, label %if.else15
 
 if.then8:                                         ; preds = %if.end
-  %call9 = tail call ptr @object_new(ptr noundef nonnull @.str.9) #6
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call9, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, i32 noundef 23, ptr noundef nonnull @__func__.CLOCK) #6
-  %call11 = tail call ptr @object_property_add_child(ptr noundef nonnull %dev, ptr noundef %name, ptr noundef %call.i) #6
+  %call9 = tail call ptr @object_new(ptr noundef nonnull @.str.9) #7
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call9, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, i32 noundef 23, ptr noundef nonnull @__func__.CLOCK) #7
+  %call11 = tail call ptr @object_property_add_child(ptr noundef nonnull %dev, ptr noundef %name, ptr noundef %call.i) #7
   br i1 %output, label %if.then13, label %if.end19
 
 if.then13:                                        ; preds = %if.then8
-  tail call void @object_unref(ptr noundef %call.i) #6
+  tail call void @object_unref(ptr noundef %call.i) #7
   br label %if.end19
 
 if.else15:                                        ; preds = %if.end
-  %call16 = tail call ptr @object_get_typename(ptr noundef nonnull %clk) #6
+  %call16 = tail call ptr @object_get_typename(ptr noundef nonnull %clk) #7
   %clock = getelementptr inbounds i8, ptr %call, i64 8
-  %call17 = tail call ptr @object_property_add_link(ptr noundef nonnull %dev, ptr noundef %name, ptr noundef %call16, ptr noundef nonnull %clock, ptr noundef null, i32 noundef 1) #6
-  %call18 = tail call ptr @object_ref(ptr noundef nonnull %clk) #6
+  %call17 = tail call ptr @object_property_add_link(ptr noundef nonnull %dev, ptr noundef %name, ptr noundef %call16, ptr noundef nonnull %clock, ptr noundef null, i32 noundef 1) #7
+  %call18 = tail call ptr @object_ref(ptr noundef nonnull %clk) #7
   br label %if.end19
 
 if.end19:                                         ; preds = %if.then8, %if.then13, %if.else15
@@ -179,7 +179,7 @@ entry:
   br i1 %tobool.not, label %if.else, label %if.end
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 119, ptr noundef nonnull @__PRETTY_FUNCTION__.qdev_init_clock_in) #7
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 119, ptr noundef nonnull @__PRETTY_FUNCTION__.qdev_init_clock_in) #8
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -190,7 +190,7 @@ if.end:                                           ; preds = %entry
 if.then2:                                         ; preds = %if.end
   %clock = getelementptr inbounds i8, ptr %call, i64 8
   %0 = load ptr, ptr %clock, align 8
-  tail call void @clock_set_callback(ptr noundef %0, ptr noundef nonnull %callback, ptr noundef %opaque, i32 noundef %events) #6
+  tail call void @clock_set_callback(ptr noundef %0, ptr noundef nonnull %callback, ptr noundef %opaque, i32 noundef %events) #7
   br label %if.end3
 
 if.end3:                                          ; preds = %if.then2, %if.end
@@ -217,7 +217,7 @@ for.body:                                         ; preds = %entry, %for.inc
   br i1 %cmp1, label %if.end, label %if.else
 
 if.else:                                          ; preds = %for.body
-  tail call void @__assert_fail(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 136, ptr noundef nonnull @__PRETTY_FUNCTION__.qdev_init_clocks) #7
+  tail call void @__assert_fail(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 136, ptr noundef nonnull @__PRETTY_FUNCTION__.qdev_init_clocks) #8
   unreachable
 
 if.end:                                           ; preds = %for.body
@@ -243,7 +243,7 @@ if.end.i:                                         ; preds = %if.end
 if.then2.i:                                       ; preds = %if.end.i
   %clock.i16 = getelementptr inbounds i8, ptr %call.i15, i64 8
   %6 = load ptr, ptr %clock.i16, align 8
-  tail call void @clock_set_callback(ptr noundef %6, ptr noundef nonnull %4, ptr noundef %dev, i32 noundef %5) #6
+  tail call void @clock_set_callback(ptr noundef %6, ptr noundef nonnull %4, ptr noundef %dev, i32 noundef %5) #7
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then2.i, %if.end.i, %qdev_init_clock_out.exit
@@ -267,7 +267,7 @@ entry:
   br i1 %tobool.not, label %if.else, label %if.end
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 164, ptr noundef nonnull @__PRETTY_FUNCTION__.qdev_get_clock_in) #7
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 164, ptr noundef nonnull @__PRETTY_FUNCTION__.qdev_get_clock_in) #8
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -279,7 +279,7 @@ if.end:                                           ; preds = %entry
 for.body.i:                                       ; preds = %if.end, %for.inc.i
   %ncl.06.i = phi ptr [ %ncl.0.i, %for.inc.i ], [ %ncl.04.i, %if.end ]
   %0 = load ptr, ptr %ncl.06.i, align 8
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %name, ptr noundef nonnull dereferenceable(1) %0) #9
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %name, ptr noundef nonnull dereferenceable(1) %0) #10
   %cmp.i = icmp eq i32 %call.i, 0
   br i1 %cmp.i, label %if.end4, label %for.inc.i
 
@@ -290,9 +290,9 @@ for.inc.i:                                        ; preds = %for.body.i
   br i1 %tobool.not.i, label %if.then2, label %for.body.i, !llvm.loop !8
 
 if.then2:                                         ; preds = %for.inc.i, %if.end
-  %call3 = tail call ptr @object_get_typename(ptr noundef %dev) #6
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.3, ptr noundef nonnull %name, ptr noundef %call3) #6
-  tail call void @abort() #7
+  %call3 = tail call ptr @object_get_typename(ptr noundef %dev) #7
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.3, ptr noundef nonnull %name, ptr noundef %call3) #7
+  tail call void @abort() #8
   unreachable
 
 if.end4:                                          ; preds = %for.body.i
@@ -302,7 +302,7 @@ if.end4:                                          ; preds = %for.body.i
   br i1 %tobool5, label %if.else7, label %if.end8
 
 if.else7:                                         ; preds = %if.end4
-  tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 172, ptr noundef nonnull @__PRETTY_FUNCTION__.qdev_get_clock_in) #7
+  tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 172, ptr noundef nonnull @__PRETTY_FUNCTION__.qdev_get_clock_in) #8
   unreachable
 
 if.end8:                                          ; preds = %if.end4
@@ -315,8 +315,8 @@ declare void @error_report(ptr noundef, ...) local_unnamed_addr #1
 
 declare ptr @object_get_typename(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: noreturn nounwind
-declare void @abort() local_unnamed_addr #2
+; Function Attrs: cold nofree noreturn nounwind
+declare void @abort() local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @qdev_get_clock_out(ptr noundef %dev, ptr noundef %name) local_unnamed_addr #0 {
@@ -325,7 +325,7 @@ entry:
   br i1 %tobool.not, label %if.else, label %if.end
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 181, ptr noundef nonnull @__PRETTY_FUNCTION__.qdev_get_clock_out) #7
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 181, ptr noundef nonnull @__PRETTY_FUNCTION__.qdev_get_clock_out) #8
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -337,7 +337,7 @@ if.end:                                           ; preds = %entry
 for.body.i:                                       ; preds = %if.end, %for.inc.i
   %ncl.06.i = phi ptr [ %ncl.0.i, %for.inc.i ], [ %ncl.04.i, %if.end ]
   %0 = load ptr, ptr %ncl.06.i, align 8
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %name, ptr noundef nonnull dereferenceable(1) %0) #9
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %name, ptr noundef nonnull dereferenceable(1) %0) #10
   %cmp.i = icmp eq i32 %call.i, 0
   br i1 %cmp.i, label %if.end4, label %for.inc.i
 
@@ -348,9 +348,9 @@ for.inc.i:                                        ; preds = %for.body.i
   br i1 %tobool.not.i, label %if.then2, label %for.body.i, !llvm.loop !8
 
 if.then2:                                         ; preds = %for.inc.i, %if.end
-  %call3 = tail call ptr @object_get_typename(ptr noundef %dev) #6
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.5, ptr noundef nonnull %name, ptr noundef %call3) #6
-  tail call void @abort() #7
+  %call3 = tail call ptr @object_get_typename(ptr noundef %dev) #7
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.5, ptr noundef nonnull %name, ptr noundef %call3) #7
+  tail call void @abort() #8
   unreachable
 
 if.end4:                                          ; preds = %for.body.i
@@ -360,7 +360,7 @@ if.end4:                                          ; preds = %for.body.i
   br i1 %tobool5, label %if.end8, label %if.else7
 
 if.else7:                                         ; preds = %if.end4
-  tail call void @__assert_fail(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.1, i32 noundef 189, ptr noundef nonnull @__PRETTY_FUNCTION__.qdev_get_clock_out) #7
+  tail call void @__assert_fail(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.1, i32 noundef 189, ptr noundef nonnull @__PRETTY_FUNCTION__.qdev_get_clock_out) #8
   unreachable
 
 if.end8:                                          ; preds = %if.end4
@@ -378,7 +378,7 @@ entry:
   br i1 %or.cond, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.1, i32 noundef 199, ptr noundef nonnull @__PRETTY_FUNCTION__.qdev_alias_clock) #7
+  tail call void @__assert_fail(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.1, i32 noundef 199, ptr noundef nonnull @__PRETTY_FUNCTION__.qdev_alias_clock) #8
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -389,7 +389,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.end
   %ncl.06.i.in = phi ptr [ %node.i, %for.body.i ], [ %clocks.i, %if.end ]
   %ncl.06.i = load ptr, ptr %ncl.06.i.in, align 8, !nonnull !9, !noundef !9
   %0 = load ptr, ptr %ncl.06.i, align 8
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %name, ptr noundef nonnull dereferenceable(1) %0) #9
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %name, ptr noundef nonnull dereferenceable(1) %0) #10
   %cmp.i = icmp eq i32 %call.i, 0
   %node.i = getelementptr inbounds i8, ptr %ncl.06.i, i64 24
   br i1 %cmp.i, label %qdev_get_clocklist.exit, label %for.body.i
@@ -414,19 +414,19 @@ entry:
   br i1 %tobool, label %if.else, label %if.end
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.1, i32 noundef 210, ptr noundef nonnull @__PRETTY_FUNCTION__.qdev_connect_clock_in) #7
+  tail call void @__assert_fail(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.1, i32 noundef 210, ptr noundef nonnull @__PRETTY_FUNCTION__.qdev_connect_clock_in) #8
   unreachable
 
 if.end:                                           ; preds = %entry
   %call = tail call ptr @qdev_get_clock_in(ptr noundef nonnull %dev, ptr noundef %name)
-  tail call void @clock_set_source(ptr noundef %call, ptr noundef %source) #6
+  tail call void @clock_set_source(ptr noundef %call, ptr noundef %source) #7
   ret void
 }
 
 declare void @clock_set_source(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: allocsize(0,1)
-declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #3
+declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #4
 
 declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #1
 
@@ -441,21 +441,22 @@ declare ptr @object_ref(ptr noundef) local_unnamed_addr #1
 declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { nounwind }
-attributes #7 = { noreturn nounwind }
-attributes #8 = { nounwind allocsize(0,1) }
-attributes #9 = { nounwind willreturn memory(read) }
+attributes #3 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { nounwind }
+attributes #8 = { noreturn nounwind }
+attributes #9 = { nounwind allocsize(0,1) }
+attributes #10 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

@@ -3561,7 +3561,7 @@ for.inc54:                                        ; preds = %for.body.i.i.i68, %
 
 for.end56:                                        ; preds = %for.inc54, %for.inc54.us, %for.cond27.preheader
   call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.2, i32 noundef 404, ptr noundef nonnull @.str.3)
-  call void @exit(i32 noundef 114) #21
+  call void @exit(i32 noundef 114) #23
   unreachable
 
 return:                                           ; preds = %_ZN18default_hash_entryI7svectorImjEE8set_dataEOS1_.exit99, %_ZN18default_hash_entryI7svectorImjEE8set_dataEOS1_.exit87, %_ZN18default_hash_entryI7svectorImjEE8set_dataEOS1_.exit47, %_ZN18default_hash_entryI7svectorImjEE8set_dataEOS1_.exit
@@ -3640,7 +3640,7 @@ _ZN14core_hashtableI18default_hash_entryI7svectorImjEEN7datalog17svector_hash_pr
 
 declare void @_Z26notify_assertion_violationPKciS0_(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
@@ -3747,7 +3747,7 @@ for.inc19:                                        ; preds = %for.body14
 
 for.end21:                                        ; preds = %for.cond12.preheader, %for.inc19
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.2, i32 noundef 212, ptr noundef nonnull @.str.3)
-  tail call void @exit(i32 noundef 114) #21
+  tail call void @exit(i32 noundef 114) #23
   unreachable
 
 for.inc23.sink.split:                             ; preds = %if.end.i.i.i25, %if.then.i.i.i.i27, %if.end.i.i.i, %if.then.i.i.i.i
@@ -5639,7 +5639,7 @@ attributes #8 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="t
 attributes #9 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #10 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -5650,6 +5650,7 @@ attributes #19 = { nounwind }
 attributes #20 = { noreturn }
 attributes #21 = { noreturn nounwind }
 attributes #22 = { builtin nounwind }
+attributes #23 = { cold noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

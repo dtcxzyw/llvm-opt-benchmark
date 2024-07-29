@@ -43,7 +43,7 @@ land.lhs.true:                                    ; preds = %entry
   ]
 
 sw.default.i:                                     ; preds = %land.lhs.true
-  tail call void @abort() #6
+  tail call void @abort() #7
   unreachable
 
 if.end:                                           ; preds = %land.lhs.true, %entry
@@ -60,12 +60,12 @@ land.lhs.true3:                                   ; preds = %if.end
   ]
 
 sw.default.i9:                                    ; preds = %land.lhs.true3
-  tail call void @abort() #6
+  tail call void @abort() #7
   unreachable
 
 return.sink.split:                                ; preds = %land.lhs.true3, %land.lhs.true
   %.str.1.sink = phi ptr [ @.str, %land.lhs.true ], [ @.str.1, %land.lhs.true3 ]
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_set_internal(ptr noundef %errp, ptr noundef nonnull @.str.3, i32 noundef 32, ptr noundef nonnull @__func__.compat_policy_input_ok1, i32 noundef %error_class, ptr noundef nonnull @.str.15, ptr noundef nonnull %.str.1.sink, ptr noundef %kind, ptr noundef %name) #7
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_set_internal(ptr noundef %errp, ptr noundef nonnull @.str.3, i32 noundef 32, ptr noundef nonnull @__func__.compat_policy_input_ok1, i32 noundef %error_class, ptr noundef nonnull @.str.15, ptr noundef nonnull %.str.1.sink, ptr noundef %kind, ptr noundef %name) #8
   br label %return
 
 return:                                           ; preds = %return.sink.split, %land.lhs.true3, %if.end
@@ -86,7 +86,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %cmp1, label %if.end, label %if.else
 
 if.else:                                          ; preds = %land.lhs.true, %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 63, ptr noundef nonnull @__PRETTY_FUNCTION__.qapi_enum_lookup) #6
+  tail call void @__assert_fail(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 63, ptr noundef nonnull @__PRETTY_FUNCTION__.qapi_enum_lookup) #7
   unreachable
 
 if.end:                                           ; preds = %land.lhs.true
@@ -121,7 +121,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %arrayidx = getelementptr ptr, ptr %1, i64 %indvars.iv
   %2 = load ptr, ptr %arrayidx, align 8
-  %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull dereferenceable(1) %2) #8
+  %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull dereferenceable(1) %2) #9
   %tobool1.not = icmp eq i32 %call, 0
   br i1 %tobool1.not, label %return.loopexit, label %for.inc
 
@@ -131,7 +131,7 @@ for.inc:                                          ; preds = %for.body
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !5
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.3, i32 noundef 83, ptr noundef nonnull @__func__.qapi_enum_parse, ptr noundef nonnull @.str.4, ptr noundef nonnull %buf) #7
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.3, i32 noundef 83, ptr noundef nonnull @__func__.qapi_enum_parse, ptr noundef nonnull @.str.4, ptr noundef nonnull %buf) #8
   br label %return
 
 return.loopexit:                                  ; preds = %for.body
@@ -151,22 +151,22 @@ declare void @error_setg_internal(ptr noundef, ptr noundef, i32 noundef, ptr nou
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef zeroext i1 @qapi_bool_parse(ptr noundef %name, ptr noundef %value, ptr nocapture noundef writeonly %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @g_str_equal(ptr noundef %value, ptr noundef nonnull @.str.5) #7
+  %call = tail call i32 @g_str_equal(ptr noundef %value, ptr noundef nonnull @.str.5) #8
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %lor.lhs.false, label %if.then
 
 lor.lhs.false:                                    ; preds = %entry
-  %call1 = tail call i32 @g_str_equal(ptr noundef %value, ptr noundef nonnull @.str.6) #7
+  %call1 = tail call i32 @g_str_equal(ptr noundef %value, ptr noundef nonnull @.str.6) #8
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %lor.lhs.false3, label %if.then
 
 lor.lhs.false3:                                   ; preds = %lor.lhs.false
-  %call4 = tail call i32 @g_str_equal(ptr noundef %value, ptr noundef nonnull @.str.7) #7
+  %call4 = tail call i32 @g_str_equal(ptr noundef %value, ptr noundef nonnull @.str.7) #8
   %tobool5.not = icmp eq i32 %call4, 0
   br i1 %tobool5.not, label %lor.lhs.false6, label %if.then
 
 lor.lhs.false6:                                   ; preds = %lor.lhs.false3
-  %call7 = tail call i32 @g_str_equal(ptr noundef %value, ptr noundef nonnull @.str.8) #7
+  %call7 = tail call i32 @g_str_equal(ptr noundef %value, ptr noundef nonnull @.str.8) #8
   %tobool8.not = icmp eq i32 %call7, 0
   br i1 %tobool8.not, label %if.end, label %if.then
 
@@ -175,22 +175,22 @@ if.then:                                          ; preds = %lor.lhs.false6, %lo
   br label %return
 
 if.end:                                           ; preds = %lor.lhs.false6
-  %call9 = tail call i32 @g_str_equal(ptr noundef %value, ptr noundef nonnull @.str.9) #7
+  %call9 = tail call i32 @g_str_equal(ptr noundef %value, ptr noundef nonnull @.str.9) #8
   %tobool10.not = icmp eq i32 %call9, 0
   br i1 %tobool10.not, label %lor.lhs.false11, label %if.then20
 
 lor.lhs.false11:                                  ; preds = %if.end
-  %call12 = tail call i32 @g_str_equal(ptr noundef %value, ptr noundef nonnull @.str.10) #7
+  %call12 = tail call i32 @g_str_equal(ptr noundef %value, ptr noundef nonnull @.str.10) #8
   %tobool13.not = icmp eq i32 %call12, 0
   br i1 %tobool13.not, label %lor.lhs.false14, label %if.then20
 
 lor.lhs.false14:                                  ; preds = %lor.lhs.false11
-  %call15 = tail call i32 @g_str_equal(ptr noundef %value, ptr noundef nonnull @.str.11) #7
+  %call15 = tail call i32 @g_str_equal(ptr noundef %value, ptr noundef nonnull @.str.11) #8
   %tobool16.not = icmp eq i32 %call15, 0
   br i1 %tobool16.not, label %lor.lhs.false17, label %if.then20
 
 lor.lhs.false17:                                  ; preds = %lor.lhs.false14
-  %call18 = tail call i32 @g_str_equal(ptr noundef %value, ptr noundef nonnull @.str.12) #7
+  %call18 = tail call i32 @g_str_equal(ptr noundef %value, ptr noundef nonnull @.str.12) #8
   %tobool19.not = icmp eq i32 %call18, 0
   br i1 %tobool19.not, label %if.end21, label %if.then20
 
@@ -199,7 +199,7 @@ if.then20:                                        ; preds = %lor.lhs.false17, %l
   br label %return
 
 if.end21:                                         ; preds = %lor.lhs.false17
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.3, i32 noundef 105, ptr noundef nonnull @__func__.qapi_bool_parse, ptr noundef nonnull @.str.13, ptr noundef %name, ptr noundef nonnull @.str.14) #7
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.3, i32 noundef 105, ptr noundef nonnull @__func__.qapi_bool_parse, ptr noundef nonnull @.str.13, ptr noundef %name, ptr noundef nonnull @.str.14) #8
   br label %return
 
 return:                                           ; preds = %if.end21, %if.then20, %if.then
@@ -217,7 +217,7 @@ entry:
   br i1 %cmp, label %if.then, label %entry.if.end25_crit_edge
 
 entry.if.end25_crit_edge:                         ; preds = %entry
-  %.pre35 = tail call ptr @__ctype_b_loc() #9
+  %.pre35 = tail call ptr @__ctype_b_loc() #10
   br label %if.end25
 
 if.then:                                          ; preds = %entry
@@ -234,7 +234,7 @@ while.cond:                                       ; preds = %if.then, %while.bod
   br i1 %tobool.not, label %return, label %while.body
 
 while.body:                                       ; preds = %while.cond
-  %call = tail call ptr @__ctype_b_loc() #9
+  %call = tail call ptr @__ctype_b_loc() #10
   %3 = load ptr, ptr %call, align 8
   %idxprom = zext i8 %2 to i64
   %arrayidx = getelementptr i16, ptr %3, i64 %idxprom
@@ -318,8 +318,8 @@ declare ptr @__ctype_b_loc() local_unnamed_addr #5
 
 declare void @error_set_internal(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
-; Function Attrs: noreturn nounwind
-declare void @abort() local_unnamed_addr #1
+; Function Attrs: cold nofree noreturn nounwind
+declare void @abort() local_unnamed_addr #6
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -327,10 +327,11 @@ attributes #2 = { mustprogress nofree nounwind willreturn memory(argmem: read) "
 attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nofree nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { noreturn nounwind }
-attributes #7 = { nounwind }
-attributes #8 = { nounwind willreturn memory(read) }
-attributes #9 = { nounwind willreturn memory(none) }
+attributes #6 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { noreturn nounwind }
+attributes #8 = { nounwind }
+attributes #9 = { nounwind willreturn memory(read) }
+attributes #10 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

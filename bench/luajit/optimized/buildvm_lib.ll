@@ -439,7 +439,7 @@ declare ptr @strerror(i32 noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #3
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
@@ -524,8 +524,8 @@ if.end20:                                         ; preds = %entry, %for.end
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @libdef_module(ptr nocapture noundef readonly %ctx, ptr noundef %p, i32 %arg) #0 {
+; Function Attrs: nofree nounwind uwtable
+define internal void @libdef_module(ptr nocapture noundef readonly %ctx, ptr noundef %p, i32 %arg) #6 {
 entry:
   %mode = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load i32, ptr %mode, align 8
@@ -569,8 +569,8 @@ if.end13:                                         ; preds = %if.end
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @libdef_func(ptr nocapture noundef readonly %ctx, ptr noundef %p, i32 noundef %arg) #0 {
+; Function Attrs: nofree nounwind uwtable
+define internal void @libdef_func(ptr nocapture noundef readonly %ctx, ptr noundef %p, i32 noundef %arg) #6 {
 entry:
   %cmp = icmp ne i32 %arg, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -799,8 +799,8 @@ if.end81:                                         ; preds = %if.then31, %for.end
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @libdef_lua(ptr nocapture noundef readonly %ctx, ptr noundef %p, i32 %arg) #0 {
+; Function Attrs: nofree nounwind uwtable
+define internal void @libdef_lua(ptr nocapture noundef readonly %ctx, ptr noundef %p, i32 %arg) #6 {
 entry:
   %mode = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load i32, ptr %mode, align 8
@@ -948,8 +948,8 @@ if.end16:                                         ; preds = %libdef_fixupbc.exit
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @libdef_rec(ptr nocapture noundef readonly %ctx, ptr noundef %p, i32 %arg) #0 {
+; Function Attrs: nofree nounwind uwtable
+define internal void @libdef_rec(ptr nocapture noundef readonly %ctx, ptr noundef %p, i32 %arg) #6 {
 entry:
   %mode = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load i32, ptr %mode, align 8
@@ -1055,8 +1055,8 @@ if.end16:                                         ; preds = %if.then10, %if.else
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @libdef_push(ptr nocapture noundef readonly %ctx, ptr noundef %p, i32 %arg) #0 {
+; Function Attrs: nofree nounwind uwtable
+define internal void @libdef_push(ptr nocapture noundef readonly %ctx, ptr noundef %p, i32 %arg) #6 {
 entry:
   %ep = alloca ptr, align 8
   %mode = getelementptr inbounds i8, ptr %ctx, i64 8
@@ -1213,8 +1213,8 @@ if.end69:                                         ; preds = %if.end58, %if.end44
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @libdef_set(ptr nocapture noundef readonly %ctx, ptr noundef %p, i32 %arg) #0 {
+; Function Attrs: nofree nounwind uwtable
+define internal void @libdef_set(ptr nocapture noundef readonly %ctx, ptr noundef %p, i32 %arg) #6 {
 entry:
   %mode = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load i32, ptr %mode, align 8
@@ -1288,8 +1288,8 @@ entry:
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
 declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #8
 
-; Function Attrs: nounwind uwtable
-define internal fastcc void @libdef_name(ptr noundef %p, i32 noundef %kind) unnamed_addr #0 {
+; Function Attrs: nofree nounwind uwtable
+define internal fastcc void @libdef_name(ptr noundef %p, i32 noundef %kind) unnamed_addr #6 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %p) #18
   %cmp.not = icmp eq i32 %kind, 192
@@ -1378,7 +1378,7 @@ attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-mat
 attributes #1 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1391,7 +1391,7 @@ attributes #13 = { nofree nounwind willreturn memory(argmem: read) }
 attributes #14 = { nounwind willreturn memory(none) }
 attributes #15 = { nounwind }
 attributes #16 = { cold }
-attributes #17 = { noreturn nounwind }
+attributes #17 = { cold noreturn nounwind }
 attributes #18 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

@@ -15,11 +15,11 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call = tail call ptr %0(i64 noundef %sz) #7
+  %call = tail call ptr %0(i64 noundef %sz) #8
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call1 = tail call noalias ptr @malloc(i64 noundef %sz) #8
+  %call1 = tail call noalias ptr @malloc(i64 noundef %sz) #9
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
@@ -38,11 +38,11 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call = tail call ptr %0(ptr noundef %p, i64 noundef %sz) #7
+  %call = tail call ptr %0(ptr noundef %p, i64 noundef %sz) #8
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call1 = tail call ptr @realloc(ptr noundef %p, i64 noundef %sz) #9
+  %call1 = tail call ptr @realloc(ptr noundef %p, i64 noundef %sz) #10
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
@@ -61,11 +61,11 @@ entry:
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call void %0(ptr noundef %p) #7
+  tail call void %0(ptr noundef %p) #8
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  tail call void @free(ptr noundef %p) #7
+  tail call void @free(ptr noundef %p) #8
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
@@ -83,11 +83,11 @@ entry:
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %call.i = tail call ptr %0(i64 noundef %sz) #7
+  %call.i = tail call ptr %0(i64 noundef %sz) #8
   br label %reftable_malloc.exit
 
 if.end.i:                                         ; preds = %entry
-  %call1.i = tail call noalias ptr @malloc(i64 noundef %sz) #8
+  %call1.i = tail call noalias ptr @malloc(i64 noundef %sz) #9
   br label %reftable_malloc.exit
 
 reftable_malloc.exit:                             ; preds = %if.then.i, %if.end.i
@@ -108,8 +108,8 @@ entry:
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define dso_local range(i32 20, 33) i32 @hash_size(i32 noundef %id) local_unnamed_addr #0 {
+; Function Attrs: nofree nounwind uwtable
+define dso_local range(i32 20, 33) i32 @hash_size(i32 noundef %id) local_unnamed_addr #6 {
 entry:
   switch i32 %id, label %sw.epilog [
     i32 0, label %return
@@ -121,7 +121,7 @@ sw.bb1:                                           ; preds = %entry
   br label %return
 
 sw.epilog:                                        ; preds = %entry
-  tail call void @abort() #10
+  tail call void @abort() #11
   unreachable
 
 return:                                           ; preds = %entry, %entry, %sw.bb1
@@ -129,8 +129,8 @@ return:                                           ; preds = %entry, %entry, %sw.
   ret i32 %retval.0
 }
 
-; Function Attrs: noreturn nounwind
-declare void @abort() local_unnamed_addr #6
+; Function Attrs: cold nofree noreturn nounwind
+declare void @abort() local_unnamed_addr #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -138,11 +138,12 @@ attributes #2 = { mustprogress nounwind willreturn allockind("realloc") allocsiz
 attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nounwind }
-attributes #8 = { nounwind allocsize(0) }
-attributes #9 = { nounwind allocsize(1) }
-attributes #10 = { noreturn nounwind }
+attributes #6 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nounwind }
+attributes #9 = { nounwind allocsize(0) }
+attributes #10 = { nounwind allocsize(1) }
+attributes #11 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

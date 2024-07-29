@@ -3485,13 +3485,13 @@ entry:
 if.then:                                          ; preds = %entry
   %call = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.11)
   %call1 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %call, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
-  tail call void @exit(i32 noundef 1) #32
+  tail call void @exit(i32 noundef 1) #33
   unreachable
 
 if.end:                                           ; preds = %entry
   %arrayidx = getelementptr inbounds i8, ptr %argv, i64 8
   %0 = load ptr, ptr %arrayidx, align 8
-  %call2 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(7) @.str.12) #33
+  %call2 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(7) @.str.12) #34
   %cmp3 = icmp eq i32 %call2, 0
   br i1 %cmp3, label %if.then4, label %if.else
 
@@ -3500,7 +3500,7 @@ if.then4:                                         ; preds = %if.end
   br label %if.end15
 
 if.else:                                          ; preds = %if.end
-  %call6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(17) @.str.13) #33
+  %call6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(17) @.str.13) #34
   %cmp7 = icmp eq i32 %call6, 0
   br i1 %cmp7, label %if.then8, label %if.else9
 
@@ -3513,14 +3513,14 @@ if.else9:                                         ; preds = %if.else
   %1 = load ptr, ptr %arrayidx, align 8
   %call12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call10, ptr noundef %1)
   %call13 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %call12, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
-  tail call void @exit(i32 noundef 1) #32
+  tail call void @exit(i32 noundef 1) #33
   unreachable
 
 if.end15:                                         ; preds = %if.then8, %if.then4
   ret i32 0
 }
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
@@ -9509,11 +9509,11 @@ if.then.i.i.i.i:                                  ; preds = %invoke.cont
   br i1 %cmp3.i.i.i.i.i.i.i, label %if.then4.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i
 
 if.then4.i.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i
-  %call5.i.i.i.i.i.i.i = tail call noalias ptr @malloc(i64 noundef %add.i.i.i.i.i.i.i) #34
+  %call5.i.i.i.i.i.i.i = tail call noalias ptr @malloc(i64 noundef %add.i.i.i.i.i.i.i) #35
   br label %_ZN2tf23SmallVectorTemplateBaseIiLb1EE4growEm.exit.i.i.i.i
 
 if.else.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i
-  %call8.i.i.i.i.i.i.i = tail call ptr @realloc(ptr noundef %6, i64 noundef %add.i.i.i.i.i.i.i) #35
+  %call8.i.i.i.i.i.i.i = tail call ptr @realloc(ptr noundef %6, i64 noundef %add.i.i.i.i.i.i.i) #36
   br label %_ZN2tf23SmallVectorTemplateBaseIiLb1EE4growEm.exit.i.i.i.i
 
 _ZN2tf23SmallVectorTemplateBaseIiLb1EE4growEm.exit.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i, %if.then4.i.i.i.i.i.i.i
@@ -9581,11 +9581,11 @@ if.then.i.i.i.i33:                                ; preds = %invoke.cont15
   br i1 %cmp3.i.i.i.i.i.i.i38, label %if.then4.i.i.i.i.i.i.i44, label %if.else.i.i.i.i.i.i.i39
 
 if.then4.i.i.i.i.i.i.i44:                         ; preds = %if.then.i.i.i.i33
-  %call5.i.i.i.i.i.i.i45 = call noalias ptr @malloc(i64 noundef %add.i.i.i.i.i.i.i36) #34
+  %call5.i.i.i.i.i.i.i45 = call noalias ptr @malloc(i64 noundef %add.i.i.i.i.i.i.i36) #35
   br label %_ZN2tf23SmallVectorTemplateBaseIiLb1EE4growEm.exit.i.i.i.i41
 
 if.else.i.i.i.i.i.i.i39:                          ; preds = %if.then.i.i.i.i33
-  %call8.i.i.i.i.i.i.i40 = call ptr @realloc(ptr noundef %12, i64 noundef %add.i.i.i.i.i.i.i36) #35
+  %call8.i.i.i.i.i.i.i40 = call ptr @realloc(ptr noundef %12, i64 noundef %add.i.i.i.i.i.i.i36) #36
   br label %_ZN2tf23SmallVectorTemplateBaseIiLb1EE4growEm.exit.i.i.i.i41
 
 _ZN2tf23SmallVectorTemplateBaseIiLb1EE4growEm.exit.i.i.i.i41: ; preds = %if.else.i.i.i.i.i.i.i39, %if.then4.i.i.i.i.i.i.i44
@@ -10799,12 +10799,12 @@ if.then.i.i:                                      ; preds = %if.then.i
   br i1 %cmp3.i.i.i.i.i, label %if.then4.i.i.i.i.i, label %if.else.i.i.i.i.i
 
 if.then4.i.i.i.i.i:                               ; preds = %if.then.i.i
-  %call5.i.i.i.i.i = tail call noalias ptr @malloc(i64 noundef %add.i.i.i.i.i) #34
+  %call5.i.i.i.i.i = tail call noalias ptr @malloc(i64 noundef %add.i.i.i.i.i) #35
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call5.i.i.i.i.i, ptr align 1 %10, i64 %sub.ptr.sub.i.i.i.i.i.i, i1 false)
   br label %_ZN2tf23SmallVectorTemplateBaseIPNS_4NodeELb1EE4growEm.exit.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %if.then.i.i
-  %call8.i.i.i.i.i = tail call ptr @realloc(ptr noundef %10, i64 noundef %add.i.i.i.i.i) #35
+  %call8.i.i.i.i.i = tail call ptr @realloc(ptr noundef %10, i64 noundef %add.i.i.i.i.i) #36
   br label %_ZN2tf23SmallVectorTemplateBaseIPNS_4NodeELb1EE4growEm.exit.i.i
 
 _ZN2tf23SmallVectorTemplateBaseIPNS_4NodeELb1EE4growEm.exit.i.i: ; preds = %if.else.i.i.i.i.i, %if.then4.i.i.i.i.i
@@ -12388,12 +12388,12 @@ if.then.i:                                        ; preds = %if.then
   br i1 %cmp3.i.i.i.i, label %if.then4.i.i.i.i, label %if.else.i.i.i.i
 
 if.then4.i.i.i.i:                                 ; preds = %if.then.i
-  %call5.i.i.i.i = tail call noalias ptr @malloc(i64 noundef %spec.select.i.i.i.i) #34
+  %call5.i.i.i.i = tail call noalias ptr @malloc(i64 noundef %spec.select.i.i.i.i) #35
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call5.i.i.i.i, ptr align 1 %0, i64 %sub.ptr.sub, i1 false)
   br label %_ZN2tf23SmallVectorTemplateBaseIPNS_4NodeELb1EE4growEm.exit.i
 
 if.else.i.i.i.i:                                  ; preds = %if.then.i
-  %call8.i.i.i.i = tail call ptr @realloc(ptr noundef %0, i64 noundef %spec.select.i.i.i.i) #35
+  %call8.i.i.i.i = tail call ptr @realloc(ptr noundef %0, i64 noundef %spec.select.i.i.i.i) #36
   br label %_ZN2tf23SmallVectorTemplateBaseIPNS_4NodeELb1EE4growEm.exit.i
 
 _ZN2tf23SmallVectorTemplateBaseIPNS_4NodeELb1EE4growEm.exit.i: ; preds = %if.else.i.i.i.i, %if.then4.i.i.i.i
@@ -12449,12 +12449,12 @@ if.then.i29:                                      ; preds = %if.end
   br i1 %cmp3.i.i.i.i35, label %if.then4.i.i.i.i42, label %if.else.i.i.i.i36
 
 if.then4.i.i.i.i42:                               ; preds = %if.then.i29
-  %call5.i.i.i.i43 = tail call noalias ptr @malloc(i64 noundef %spec.select.i.i.i.i34) #34
+  %call5.i.i.i.i43 = tail call noalias ptr @malloc(i64 noundef %spec.select.i.i.i.i34) #35
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call5.i.i.i.i43, ptr align 1 %0, i64 %sub.ptr.sub.i24, i1 false)
   br label %_ZN2tf23SmallVectorTemplateBaseIPNS_4NodeELb1EE4growEm.exit.i38
 
 if.else.i.i.i.i36:                                ; preds = %if.then.i29
-  %call8.i.i.i.i37 = tail call ptr @realloc(ptr noundef %0, i64 noundef %spec.select.i.i.i.i34) #35
+  %call8.i.i.i.i37 = tail call ptr @realloc(ptr noundef %0, i64 noundef %spec.select.i.i.i.i34) #36
   br label %_ZN2tf23SmallVectorTemplateBaseIPNS_4NodeELb1EE4growEm.exit.i38
 
 _ZN2tf23SmallVectorTemplateBaseIPNS_4NodeELb1EE4growEm.exit.i38: ; preds = %if.else.i.i.i.i36, %if.then4.i.i.i.i42
@@ -12502,12 +12502,12 @@ if.then.i62:                                      ; preds = %if.then22
   br i1 %cmp3.i.i.i.i72, label %if.then4.i.i.i.i79, label %if.else.i.i.i.i73
 
 if.then4.i.i.i.i79:                               ; preds = %if.then.i62
-  %call5.i.i.i.i80 = tail call noalias ptr @malloc(i64 noundef %spec.select.i.i.i.i71) #34
+  %call5.i.i.i.i80 = tail call noalias ptr @malloc(i64 noundef %spec.select.i.i.i.i71) #35
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call5.i.i.i.i80, ptr align 1 %10, i64 %sub.ptr.sub.i.i64, i1 false)
   br label %_ZN2tf23SmallVectorTemplateBaseIPNS_4NodeELb1EE4growEm.exit.i75
 
 if.else.i.i.i.i73:                                ; preds = %if.then.i62
-  %call8.i.i.i.i74 = tail call ptr @realloc(ptr noundef %10, i64 noundef %spec.select.i.i.i.i71) #35
+  %call8.i.i.i.i74 = tail call ptr @realloc(ptr noundef %10, i64 noundef %spec.select.i.i.i.i71) #36
   br label %_ZN2tf23SmallVectorTemplateBaseIPNS_4NodeELb1EE4growEm.exit.i75
 
 _ZN2tf23SmallVectorTemplateBaseIPNS_4NodeELb1EE4growEm.exit.i75: ; preds = %if.else.i.i.i.i73, %if.then4.i.i.i.i79
@@ -13046,12 +13046,12 @@ if.then.i.i:                                      ; preds = %if.then.i
   br i1 %cmp3.i.i.i.i.i, label %if.then4.i.i.i.i.i, label %if.else.i.i.i.i.i
 
 if.then4.i.i.i.i.i:                               ; preds = %if.then.i.i
-  %call5.i.i.i.i.i = call noalias ptr @malloc(i64 noundef %add.i.i.i.i.i) #34
+  %call5.i.i.i.i.i = call noalias ptr @malloc(i64 noundef %add.i.i.i.i.i) #35
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call5.i.i.i.i.i, ptr align 1 %11, i64 %sub.ptr.sub.i.i.i.i.i.i, i1 false)
   br label %_ZN2tf23SmallVectorTemplateBaseIPNS_4NodeELb1EE4growEm.exit.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %if.then.i.i
-  %call8.i.i.i.i.i = call ptr @realloc(ptr noundef %11, i64 noundef %add.i.i.i.i.i) #35
+  %call8.i.i.i.i.i = call ptr @realloc(ptr noundef %11, i64 noundef %add.i.i.i.i.i) #36
   br label %_ZN2tf23SmallVectorTemplateBaseIPNS_4NodeELb1EE4growEm.exit.i.i
 
 _ZN2tf23SmallVectorTemplateBaseIPNS_4NodeELb1EE4growEm.exit.i.i: ; preds = %if.else.i.i.i.i.i, %if.then4.i.i.i.i.i
@@ -13463,11 +13463,11 @@ if.then27:                                        ; preds = %if.end24
   br i1 %cmp3.i.i.i, label %if.then4.i.i.i, label %if.else.i.i.i
 
 if.then4.i.i.i:                                   ; preds = %if.then27
-  %call5.i.i.i = tail call noalias ptr @malloc(i64 noundef %spec.select.i.i.i) #34
+  %call5.i.i.i = tail call noalias ptr @malloc(i64 noundef %spec.select.i.i.i) #35
   br label %_ZN2tf23SmallVectorTemplateBaseIiLb1EE4growEm.exit
 
 if.else.i.i.i:                                    ; preds = %if.then27
-  %call8.i.i.i = tail call ptr @realloc(ptr noundef %7, i64 noundef %spec.select.i.i.i) #35
+  %call8.i.i.i = tail call ptr @realloc(ptr noundef %7, i64 noundef %spec.select.i.i.i) #36
   br label %_ZN2tf23SmallVectorTemplateBaseIiLb1EE4growEm.exit
 
 _ZN2tf23SmallVectorTemplateBaseIiLb1EE4growEm.exit: ; preds = %if.then4.i.i.i, %if.else.i.i.i
@@ -13576,12 +13576,12 @@ if.then.i.i:                                      ; preds = %if.then.i
   br i1 %cmp3.i.i.i.i.i, label %if.then4.i.i.i.i.i, label %if.else.i.i.i.i.i
 
 if.then4.i.i.i.i.i:                               ; preds = %if.then.i.i
-  %call5.i.i.i.i.i = call noalias ptr @malloc(i64 noundef %add.i.i.i.i.i) #34
+  %call5.i.i.i.i.i = call noalias ptr @malloc(i64 noundef %add.i.i.i.i.i) #35
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call5.i.i.i.i.i, ptr align 1 %9, i64 %sub.ptr.sub.i.i.i.i.i.i, i1 false)
   br label %_ZN2tf23SmallVectorTemplateBaseIPNS_4NodeELb1EE4growEm.exit.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %if.then.i.i
-  %call8.i.i.i.i.i = call ptr @realloc(ptr noundef %9, i64 noundef %add.i.i.i.i.i) #35
+  %call8.i.i.i.i.i = call ptr @realloc(ptr noundef %9, i64 noundef %add.i.i.i.i.i) #36
   br label %_ZN2tf23SmallVectorTemplateBaseIPNS_4NodeELb1EE4growEm.exit.i.i
 
 _ZN2tf23SmallVectorTemplateBaseIPNS_4NodeELb1EE4growEm.exit.i.i: ; preds = %if.else.i.i.i.i.i, %if.then4.i.i.i.i.i
@@ -14336,7 +14336,7 @@ for.end55:                                        ; preds = %for.inc53, %for.con
 
 invoke.cont56:                                    ; preds = %for.end55
   %call57 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #27
-  %fputs = call i32 @fputs(ptr %call57, ptr %30) #36
+  %fputs = call i32 @fputs(ptr %call57, ptr %30) #37
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #27
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %oss) #27
   br label %if.end60
@@ -24616,7 +24616,7 @@ attributes #3 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no
 attributes #4 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress norecurse uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
@@ -24642,10 +24642,11 @@ attributes #29 = { builtin nounwind }
 attributes #30 = { noreturn }
 attributes #31 = { nounwind willreturn memory(none) }
 attributes #32 = { noreturn nounwind }
-attributes #33 = { nounwind willreturn memory(read) }
-attributes #34 = { nounwind allocsize(0) }
-attributes #35 = { nounwind allocsize(1) }
-attributes #36 = { cold }
+attributes #33 = { cold noreturn nounwind }
+attributes #34 = { nounwind willreturn memory(read) }
+attributes #35 = { nounwind allocsize(0) }
+attributes #36 = { nounwind allocsize(1) }
+attributes #37 = { cold }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

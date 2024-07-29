@@ -181,7 +181,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @do_qemu_init_bdrv_vvfat_init() #0 {
 entry:
-  tail call void @register_module_init(ptr noundef nonnull @bdrv_vvfat_init, i32 noundef 1) #19
+  tail call void @register_module_init(ptr noundef nonnull @bdrv_vvfat_init, i32 noundef 1) #20
   ret void
 }
 
@@ -192,7 +192,7 @@ define internal void @bdrv_vvfat_init() #0 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) @child_vvfat_qcow, ptr noundef nonnull align 8 dereferenceable(128) @child_of_bds, i64 128, i1 false)
   store ptr @vvfat_qcow_options, ptr getelementptr inbounds (i8, ptr @child_vvfat_qcow, i64 8), align 8
-  tail call void @bdrv_register(ptr noundef nonnull @bdrv_vvfat) #19
+  tail call void @bdrv_register(ptr noundef nonnull @bdrv_vvfat) #20
   ret void
 }
 
@@ -202,9 +202,9 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @vvfat_qcow_options(i32 %role, i1 zeroext %parent_is_format, ptr nocapture readnone %child_flags, ptr noundef %child_options, i32 %parent_flags, ptr nocapture readnone %parent_options) #0 {
 entry:
-  tail call void @qdict_set_default_str(ptr noundef %child_options, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #19
-  tail call void @qdict_set_default_str(ptr noundef %child_options, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1) #19
-  tail call void @qdict_set_default_str(ptr noundef %child_options, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4) #19
+  tail call void @qdict_set_default_str(ptr noundef %child_options, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #20
+  tail call void @qdict_set_default_str(ptr noundef %child_options, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1) #20
+  tail call void @qdict_set_default_str(ptr noundef %child_options, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4) #20
   ret void
 }
 
@@ -215,37 +215,37 @@ declare void @qdict_set_default_str(ptr noundef, ptr noundef, ptr noundef) local
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @vvfat_parse_filename(ptr noundef %filename, ptr noundef %options, ptr noundef %errp) #0 {
 entry:
-  %call = tail call i32 @strstart(ptr noundef %filename, ptr noundef nonnull @.str.12, ptr noundef null) #19
+  %call = tail call i32 @strstart(ptr noundef %filename, ptr noundef nonnull @.str.12, ptr noundef null) #20
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.13, i32 noundef 1099, ptr noundef nonnull @__func__.vvfat_parse_filename, ptr noundef nonnull @.str.14) #19
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.13, i32 noundef 1099, ptr noundef nonnull @__func__.vvfat_parse_filename, ptr noundef nonnull @.str.14) #20
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call1 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %filename, ptr noundef nonnull dereferenceable(1) @.str.15) #20
+  %call1 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %filename, ptr noundef nonnull dereferenceable(1) @.str.15) #21
   %tobool2.not = icmp eq ptr %call1, null
   br i1 %tobool2.not, label %if.else, label %if.end13
 
 if.else:                                          ; preds = %if.end
-  %call4 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %filename, ptr noundef nonnull dereferenceable(1) @.str.16) #20
+  %call4 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %filename, ptr noundef nonnull dereferenceable(1) @.str.16) #21
   %tobool5.not = icmp eq ptr %call4, null
   br i1 %tobool5.not, label %if.else7, label %if.end13
 
 if.else7:                                         ; preds = %if.else
-  %call8 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %filename, ptr noundef nonnull dereferenceable(1) @.str.17) #20
+  %call8 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %filename, ptr noundef nonnull dereferenceable(1) @.str.17) #21
   %tobool9.not = icmp eq ptr %call8, null
   %spec.select = select i1 %tobool9.not, i64 0, i64 12
   br label %if.end13
 
 if.end13:                                         ; preds = %if.else7, %if.else, %if.end
   %fat_type.0 = phi i64 [ 32, %if.end ], [ 16, %if.else ], [ %spec.select, %if.else7 ]
-  %call14 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %filename, ptr noundef nonnull dereferenceable(1) @.str.18) #20
+  %call14 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %filename, ptr noundef nonnull dereferenceable(1) @.str.18) #21
   %tobool15.not = icmp ne ptr %call14, null
-  %call18 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %filename, ptr noundef nonnull dereferenceable(1) @.str.19) #20
+  %call18 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %filename, ptr noundef nonnull dereferenceable(1) @.str.19) #21
   %tobool19.not = icmp ne ptr %call18, null
-  %call22 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %filename, i32 noundef 58) #20
+  %call22 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %filename, i32 noundef 58) #21
   %sub.ptr.lhs.cast = ptrtoint ptr %call22 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %filename to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
@@ -254,7 +254,7 @@ if.end13:                                         ; preds = %if.else7, %if.else,
   br i1 %cmp, label %if.end26, label %if.else25
 
 if.else25:                                        ; preds = %if.end13
-  tail call void @__assert_fail(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.13, i32 noundef 1122, ptr noundef nonnull @__PRETTY_FUNCTION__.vvfat_parse_filename) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.13, i32 noundef 1122, ptr noundef nonnull @__PRETTY_FUNCTION__.vvfat_parse_filename) #22
   unreachable
 
 if.end26:                                         ; preds = %if.end13
@@ -266,7 +266,7 @@ if.end26:                                         ; preds = %if.end13
   br i1 %cmp28, label %land.lhs.true, label %if.else41
 
 land.lhs.true:                                    ; preds = %if.end26
-  %call30 = tail call ptr @__ctype_b_loc() #22
+  %call30 = tail call ptr @__ctype_b_loc() #23
   %1 = load ptr, ptr %call30, align 8
   %sub31 = add i64 %sub.ptr.sub, 4294967295
   %idxprom32 = and i64 %sub31, 4294967295
@@ -288,10 +288,10 @@ if.else41:                                        ; preds = %land.lhs.true, %if.
 
 if.end44:                                         ; preds = %land.lhs.true, %if.else41
   %filename.addr.0 = phi ptr [ %add.ptr43, %if.else41 ], [ %arrayidx33, %land.lhs.true ]
-  tail call void @qdict_put_str(ptr noundef %options, ptr noundef nonnull @.str.7, ptr noundef %filename.addr.0) #19
-  tail call void @qdict_put_int(ptr noundef %options, ptr noundef nonnull @.str.8, i64 noundef %fat_type.0) #19
-  tail call void @qdict_put_bool(ptr noundef %options, ptr noundef nonnull @.str.9, i1 noundef zeroext %tobool15.not) #19
-  tail call void @qdict_put_bool(ptr noundef %options, ptr noundef nonnull @.str.11, i1 noundef zeroext %tobool19.not) #19
+  tail call void @qdict_put_str(ptr noundef %options, ptr noundef nonnull @.str.7, ptr noundef %filename.addr.0) #20
+  tail call void @qdict_put_int(ptr noundef %options, ptr noundef nonnull @.str.8, i64 noundef %fat_type.0) #20
+  tail call void @qdict_put_bool(ptr noundef %options, ptr noundef nonnull @.str.9, i1 noundef zeroext %tobool15.not) #20
+  tail call void @qdict_put_bool(ptr noundef %options, ptr noundef nonnull @.str.11, i1 noundef zeroext %tobool19.not) #20
   br label %return
 
 return:                                           ; preds = %if.end44, %if.then
@@ -316,39 +316,39 @@ entry:
   %st.i.i = alloca %struct.stat, align 8
   %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
-  tail call void @bdrv_graph_rdlock_main_loop() #19
-  %call1 = tail call ptr @qemu_opts_create(ptr noundef nonnull @runtime_opts, ptr noundef null, i32 noundef 0, ptr noundef nonnull @error_abort) #19
-  %call2 = tail call zeroext i1 @qemu_opts_absorb_qdict(ptr noundef %call1, ptr noundef %options, ptr noundef %errp) #19
+  tail call void @bdrv_graph_rdlock_main_loop() #20
+  %call1 = tail call ptr @qemu_opts_create(ptr noundef nonnull @runtime_opts, ptr noundef null, i32 noundef 0, ptr noundef nonnull @error_abort) #20
+  %call2 = tail call zeroext i1 @qemu_opts_absorb_qdict(ptr noundef %call1, ptr noundef %options, ptr noundef %errp) #20
   br i1 %call2, label %if.end, label %fail
 
 if.end:                                           ; preds = %entry
-  %call3 = tail call ptr @qemu_opt_get(ptr noundef %call1, ptr noundef nonnull @.str.7) #19
+  %call3 = tail call ptr @qemu_opt_get(ptr noundef %call1, ptr noundef nonnull @.str.7) #20
   %tobool.not = icmp eq ptr %call3, null
   br i1 %tobool.not, label %if.then4, label %if.end5
 
 if.then4:                                         ; preds = %if.end
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.13, i32 noundef 1161, ptr noundef nonnull @__func__.vvfat_open, ptr noundef nonnull @.str.21) #19
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.13, i32 noundef 1161, ptr noundef nonnull @__func__.vvfat_open, ptr noundef nonnull @.str.21) #20
   br label %fail
 
 if.end5:                                          ; preds = %if.end
-  %call6 = tail call i64 @qemu_opt_get_number(ptr noundef %call1, ptr noundef nonnull @.str.8, i64 noundef 0) #19
+  %call6 = tail call i64 @qemu_opt_get_number(ptr noundef %call1, ptr noundef nonnull @.str.8, i64 noundef 0) #20
   %conv = trunc i64 %call6 to i32
   %fat_type = getelementptr inbounds i8, ptr %0, i64 32824
   store i32 %conv, ptr %fat_type, align 8
-  %call7 = tail call zeroext i1 @qemu_opt_get_bool(ptr noundef %call1, ptr noundef nonnull @.str.9, i1 noundef zeroext false) #19
+  %call7 = tail call zeroext i1 @qemu_opt_get_bool(ptr noundef %call1, ptr noundef nonnull @.str.9, i1 noundef zeroext false) #20
   %volume_label = getelementptr inbounds i8, ptr %0, i64 32904
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %volume_label, i8 32, i64 11, i1 false)
-  %call8 = tail call ptr @qemu_opt_get(ptr noundef %call1, ptr noundef nonnull @.str.10) #19
+  %call8 = tail call ptr @qemu_opt_get(ptr noundef %call1, ptr noundef nonnull @.str.10) #20
   %tobool9.not = icmp eq ptr %call8, null
   br i1 %tobool9.not, label %if.else, label %if.then10
 
 if.then10:                                        ; preds = %if.end5
-  %call11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call8) #20
+  %call11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call8) #21
   %cmp = icmp ugt i64 %call11, 11
   br i1 %cmp, label %if.then13, label %if.end14
 
 if.then13:                                        ; preds = %if.then10
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.13, i32 noundef 1174, ptr noundef nonnull @__func__.vvfat_open, ptr noundef nonnull @.str.22) #19
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.13, i32 noundef 1174, ptr noundef nonnull @__func__.vvfat_open, ptr noundef nonnull @.str.22) #20
   br label %fail
 
 if.end14:                                         ; preds = %if.then10
@@ -406,11 +406,11 @@ if.end42:                                         ; preds = %if.end37, %if.else2
   ]
 
 sw.bb:                                            ; preds = %if.end42
-  tail call void (ptr, ...) @warn_report(ptr noundef nonnull @.str.24) #19
+  tail call void (ptr, ...) @warn_report(ptr noundef nonnull @.str.24) #20
   br label %sw.epilog
 
 sw.default:                                       ; preds = %if.end42
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.13, i32 noundef 1214, ptr noundef nonnull @__func__.vvfat_open, ptr noundef nonnull @.str.25) #19
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.13, i32 noundef 1214, ptr noundef nonnull @__func__.vvfat_open, ptr noundef nonnull @.str.25) #20
   br label %fail
 
 sw.epilog:                                        ; preds = %if.end42.thread324, %if.end42.thread, %if.end42, %if.end42, %sw.bb
@@ -438,11 +438,11 @@ sw.epilog:                                        ; preds = %if.end42.thread324,
   %conv51 = zext nneg i32 %mul47 to i64
   %total_sectors = getelementptr inbounds i8, ptr %bs, i64 16888
   store i64 %conv51, ptr %total_sectors, align 8
-  %call52 = tail call zeroext i1 @qemu_opt_get_bool(ptr noundef %call1, ptr noundef nonnull @.str.11, i1 noundef zeroext false) #19
+  %call52 = tail call zeroext i1 @qemu_opt_get_bool(ptr noundef %call1, ptr noundef nonnull @.str.11, i1 noundef zeroext false) #20
   br i1 %call52, label %if.then53, label %if.else63
 
 if.then53:                                        ; preds = %sw.epilog
-  %call54 = tail call zeroext i1 @bdrv_is_read_only(ptr noundef nonnull %bs) #19
+  %call54 = tail call zeroext i1 @bdrv_is_read_only(ptr noundef nonnull %bs) #20
   br i1 %call54, label %if.else61, label %if.then55
 
 if.then55:                                        ; preds = %if.then53
@@ -460,47 +460,47 @@ if.then55:                                        ; preds = %if.then53
   %div.i.i = sdiv i64 %sub.i.i, %conv1.i.i
   %sext.i = shl i64 %div.i.i, 32
   %conv1.i = ashr exact i64 %sext.i, 32
-  %call2.i = tail call noalias ptr @g_malloc0(i64 noundef %conv1.i) #23
+  %call2.i = tail call noalias ptr @g_malloc0(i64 noundef %conv1.i) #24
   %used_clusters.i = getelementptr inbounds i8, ptr %3, i64 33024
   store ptr %call2.i, ptr %used_clusters.i, align 8
   %commits.i = getelementptr inbounds i8, ptr %3, i64 33032
   %item_size1.i.i = getelementptr inbounds i8, ptr %3, i64 33048
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %commits.i, i8 0, i64 16, i1 false)
   store i32 24, ptr %item_size1.i.i, align 8
-  %call3.i = tail call ptr @create_tmp_file(ptr noundef %errp) #19
+  %call3.i = tail call ptr @create_tmp_file(ptr noundef %errp) #20
   %qcow_filename.i = getelementptr inbounds i8, ptr %3, i64 33000
   store ptr %call3.i, ptr %qcow_filename.i, align 8
   %tobool.not.i = icmp eq ptr %call3.i, null
   br i1 %tobool.not.i, label %fail, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then55
-  %call5.i = tail call ptr @bdrv_find_format(ptr noundef nonnull @.str.34) #19
+  %call5.i = tail call ptr @bdrv_find_format(ptr noundef nonnull @.str.34) #20
   %tobool6.not.i = icmp eq ptr %call5.i, null
   br i1 %tobool6.not.i, label %if.then7.i, label %if.end8.i
 
 if.then7.i:                                       ; preds = %if.end.i
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.13, i32 noundef 3180, ptr noundef nonnull @__func__.enable_write_target, ptr noundef nonnull @.str.35) #19
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.13, i32 noundef 3180, ptr noundef nonnull @__func__.enable_write_target, ptr noundef nonnull @.str.35) #20
   br label %fail
 
 if.end8.i:                                        ; preds = %if.end.i
   %create_opts.i = getelementptr inbounds i8, ptr %call5.i, i64 32
   %7 = load ptr, ptr %create_opts.i, align 8
-  %call9.i = tail call ptr @qemu_opts_create(ptr noundef %7, ptr noundef null, i32 noundef 0, ptr noundef nonnull @error_abort) #19
+  %call9.i = tail call ptr @qemu_opts_create(ptr noundef %7, ptr noundef null, i32 noundef 0, ptr noundef nonnull @error_abort) #20
   %8 = load i64, ptr %total_sectors, align 8
   %mul.i = shl i64 %8, 9
-  %call10.i = tail call zeroext i1 @qemu_opt_set_number(ptr noundef %call9.i, ptr noundef nonnull @.str.36, i64 noundef %mul.i, ptr noundef nonnull @error_abort) #19
-  %call11.i = tail call zeroext i1 @qemu_opt_set(ptr noundef %call9.i, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.12, ptr noundef nonnull @error_abort) #19
+  %call10.i = tail call zeroext i1 @qemu_opt_set_number(ptr noundef %call9.i, ptr noundef nonnull @.str.36, i64 noundef %mul.i, ptr noundef nonnull @error_abort) #20
+  %call11.i = tail call zeroext i1 @qemu_opt_set(ptr noundef %call9.i, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.12, ptr noundef nonnull @error_abort) #20
   %9 = load ptr, ptr %qcow_filename.i, align 8
-  %call13.i = tail call i32 @bdrv_create(ptr noundef nonnull %call5.i, ptr noundef %9, ptr noundef %call9.i, ptr noundef %errp) #19
-  tail call void @qemu_opts_del(ptr noundef %call9.i) #19
+  %call13.i = tail call i32 @bdrv_create(ptr noundef nonnull %call5.i, ptr noundef %9, ptr noundef %call9.i, ptr noundef %errp) #20
+  tail call void @qemu_opts_del(ptr noundef %call9.i) #20
   %cmp.i = icmp slt i32 %call13.i, 0
   br i1 %cmp.i, label %fail, label %if.end16.i
 
 if.end16.i:                                       ; preds = %if.end8.i
-  %call17.i = tail call ptr @qdict_new() #19
-  tail call void @qdict_put_str(ptr noundef %call17.i, ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.34) #19
+  %call17.i = tail call ptr @qdict_new() #20
+  tail call void @qdict_put_str(ptr noundef %call17.i, ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.34) #20
   %10 = load ptr, ptr %qcow_filename.i, align 8
-  %call19.i = tail call ptr @bdrv_open_child(ptr noundef %10, ptr noundef %call17.i, ptr noundef nonnull @.str.39, ptr noundef nonnull %bs, ptr noundef nonnull @child_vvfat_qcow, i32 noundef 3, i1 noundef zeroext false, ptr noundef %errp) #19
+  %call19.i = tail call ptr @bdrv_open_child(ptr noundef %10, ptr noundef %call17.i, ptr noundef nonnull @.str.39, ptr noundef nonnull %bs, ptr noundef nonnull @child_vvfat_qcow, i32 noundef 3, i1 noundef zeroext false, ptr noundef %errp) #20
   %qcow.i = getelementptr inbounds i8, ptr %3, i64 33008
   store ptr %call19.i, ptr %qcow.i, align 8
   %tobool20.not.i = icmp eq ptr %call17.i, null
@@ -513,7 +513,7 @@ lor.lhs.false.i.i:                                ; preds = %if.end16.i
   br i1 %tobool1.not.i.i, label %if.else.i.i, label %land.lhs.true.i.i
 
 if.else.i.i:                                      ; preds = %lor.lhs.false.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.41, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.41, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #22
   unreachable
 
 land.lhs.true.i.i:                                ; preds = %lor.lhs.false.i.i
@@ -523,7 +523,7 @@ land.lhs.true.i.i:                                ; preds = %lor.lhs.false.i.i
   br i1 %cmp.i.i, label %if.then5.i.i, label %qobject_unref_impl.exitthread-pre-split.i
 
 if.then5.i.i:                                     ; preds = %land.lhs.true.i.i
-  tail call void @qobject_destroy(ptr noundef nonnull %call17.i) #19
+  tail call void @qobject_destroy(ptr noundef nonnull %call17.i) #20
   br label %qobject_unref_impl.exitthread-pre-split.i
 
 qobject_unref_impl.exitthread-pre-split.i:        ; preds = %if.then5.i.i, %land.lhs.true.i.i
@@ -537,15 +537,15 @@ qobject_unref_impl.exit.i:                        ; preds = %qobject_unref_impl.
 
 enable_write_target.exit:                         ; preds = %qobject_unref_impl.exit.i
   %13 = load ptr, ptr %qcow_filename.i, align 8
-  %call27.i = tail call i32 @unlink(ptr noundef %13) #19
+  %call27.i = tail call i32 @unlink(ptr noundef %13) #20
   br label %if.end69
 
 if.else61:                                        ; preds = %if.then53
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.13, i32 noundef 1247, ptr noundef nonnull @__func__.vvfat_open, ptr noundef nonnull @.str.26) #19
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.13, i32 noundef 1247, ptr noundef nonnull @__func__.vvfat_open, ptr noundef nonnull @.str.26) #20
   br label %fail
 
 if.else63:                                        ; preds = %sw.epilog
-  %call64 = tail call i32 @bdrv_apply_auto_read_only(ptr noundef nonnull %bs, ptr noundef null, ptr noundef %errp) #19
+  %call64 = tail call i32 @bdrv_apply_auto_read_only(ptr noundef nonnull %bs, ptr noundef null, ptr noundef %errp) #20
   %cmp65 = icmp slt i32 %call64, 0
   br i1 %cmp65, label %fail, label %if.end69
 
@@ -557,7 +557,7 @@ if.end69:                                         ; preds = %enable_write_target
   %cluster_size.i = getelementptr inbounds i8, ptr %0, i64 32920
   store i32 %mul.i76, ptr %cluster_size.i, align 8
   %conv.i77 = zext i32 %mul.i76 to i64
-  %call.i = tail call noalias ptr @g_malloc(i64 noundef %conv.i77) #23
+  %call.i = tail call noalias ptr @g_malloc(i64 noundef %conv.i77) #24
   %cluster_buffer.i = getelementptr inbounds i8, ptr %0, i64 32984
   store ptr %call.i, ptr %cluster_buffer.i, align 8
   %15 = load i32, ptr %sectors_per_cluster46, align 4
@@ -609,13 +609,13 @@ if.then.i.i:                                      ; preds = %if.end69
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %add1.i.i.i = or disjoint i32 %div16.i.i, 31
   %conv.i.i.i = zext nneg i32 %add1.i.i.i to i64
-  %call.i.i.i = tail call ptr @g_realloc(ptr noundef null, i64 noundef %conv.i.i.i) #19
+  %call.i.i.i = tail call ptr @g_realloc(ptr noundef null, i64 noundef %conv.i.i.i) #20
   store ptr %call.i.i.i, ptr %fat.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %call.i.i.i, null
   br i1 %tobool.not.i.i.i, label %if.else.i.i.i, label %if.end.i.i.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 115, ptr noundef nonnull @__PRETTY_FUNCTION__.array_ensure_allocated) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 115, ptr noundef nonnull @__PRETTY_FUNCTION__.array_ensure_allocated) #22
   unreachable
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i.i
@@ -646,13 +646,13 @@ if.then.i22.i.i:                                  ; preds = %if.else.i.i81
   %add1.i23.i.i = or disjoint i32 %div1036.i.i, 31
   %mul3.i24.i.i = shl i32 %add1.i23.i.i, %23
   %conv.i25.i.i = sext i32 %mul3.i24.i.i to i64
-  %call.i26.i.i = tail call ptr @g_realloc(ptr noundef null, i64 noundef %conv.i25.i.i) #19
+  %call.i26.i.i = tail call ptr @g_realloc(ptr noundef null, i64 noundef %conv.i25.i.i) #20
   store ptr %call.i26.i.i, ptr %fat.i.i, align 8
   %tobool.not.i27.i.i = icmp eq ptr %call.i26.i.i, null
   br i1 %tobool.not.i27.i.i, label %if.else.i34.i.i, label %if.end.i28.i.i
 
 if.else.i34.i.i:                                  ; preds = %if.then.i22.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 115, ptr noundef nonnull @__PRETTY_FUNCTION__.array_ensure_allocated) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 115, ptr noundef nonnull @__PRETTY_FUNCTION__.array_ensure_allocated) #22
   unreachable
 
 if.end.i28.i.i:                                   ; preds = %if.then.i22.i.i
@@ -721,10 +721,10 @@ init_fat.exit.i:                                  ; preds = %sw.default.i.i, %sw
   store i32 -1, ptr %info.i, align 8
   %first_mapping_index.i = getelementptr inbounds i8, ptr %call24.i, i64 12
   store i32 -1, ptr %first_mapping_index.i, align 4
-  %call25.i = tail call noalias ptr @g_strdup(ptr noundef nonnull %call3) #19
+  %call25.i = tail call noalias ptr @g_strdup(ptr noundef nonnull %call3) #20
   %path.i = getelementptr inbounds i8, ptr %call24.i, i64 24
   store ptr %call25.i, ptr %path.i, align 8
-  %call27.i86 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call25.i) #20
+  %call27.i86 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call25.i) #21
   %29 = and i64 %call27.i86, 4294967295
   %cmp.not.i = icmp eq i64 %29, 0
   br i1 %cmp.not.i, label %if.end.i87, label %land.lhs.true.i
@@ -791,7 +791,7 @@ for.body.i:                                       ; preds = %for.inc116.i, %for.
   br i1 %cmp.i137.i, label %if.end.i139.i, label %if.else.i138.i
 
 if.else.i138.i:                                   ; preds = %for.body.i
-  call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.13, i32 noundef 105, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.13, i32 noundef 105, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 if.end.i139.i:                                    ; preds = %for.body.i
@@ -800,7 +800,7 @@ if.end.i139.i:                                    ; preds = %for.body.i
   br i1 %tobool.not.i.i, label %if.else2.i.i, label %array_get.exit.i
 
 if.else2.i.i:                                     ; preds = %if.end.i139.i
-  call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 array_get.exit.i:                                 ; preds = %if.end.i139.i
@@ -824,7 +824,7 @@ if.then49.i:                                      ; preds = %array_get.exit.i
   br i1 %cmp.i.i.i, label %if.end.i.i141.i, label %if.else.i.i140.i
 
 if.else.i.i140.i:                                 ; preds = %if.then49.i
-  call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.13, i32 noundef 105, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.13, i32 noundef 105, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 if.end.i.i141.i:                                  ; preds = %if.then49.i
@@ -833,7 +833,7 @@ if.end.i.i141.i:                                  ; preds = %if.then49.i
   br i1 %tobool.not.i.i142.i, label %if.else2.i.i.i, label %array_get.exit.i.i
 
 if.else2.i.i.i:                                   ; preds = %if.end.i.i141.i
-  call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 array_get.exit.i.i:                               ; preds = %if.end.i.i141.i
@@ -854,7 +854,7 @@ cond.true.i.i:                                    ; preds = %array_get.exit.i.i
   br i1 %cmp.i111.i.i, label %cond.end.i.i, label %if.else.i112.i.i
 
 if.else.i112.i.i:                                 ; preds = %cond.true.i.i
-  call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.13, i32 noundef 105, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.13, i32 noundef 105, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 cond.end.i.i:                                     ; preds = %cond.true.i.i
@@ -878,7 +878,7 @@ cond.end7.i.i:                                    ; preds = %cond.true4.i.i, %co
   br i1 %tobool11.not.i.i, label %if.else.i159.i, label %if.end.i146.i
 
 if.else.i159.i:                                   ; preds = %cond.end7.i.i
-  call void @__assert_fail(ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.13, i32 noundef 760, ptr noundef nonnull @__PRETTY_FUNCTION__.read_directory) #21
+  call void @__assert_fail(ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.13, i32 noundef 760, ptr noundef nonnull @__PRETTY_FUNCTION__.read_directory) #22
   unreachable
 
 if.end.i146.i:                                    ; preds = %cond.end7.i.i
@@ -916,7 +916,7 @@ if.then23.i.i:                                    ; preds = %if.end15.i.i
 
 if.end26.i.i:                                     ; preds = %if.then23.i.i, %cond.end19.thread.i.i
   %cond20246.i.i = phi i32 [ 0, %cond.end19.thread.i.i ], [ %48, %if.then23.i.i ]
-  %call27263.i.i = call ptr @readdir64(ptr noundef nonnull %call9.i.i) #19
+  %call27263.i.i = call ptr @readdir64(ptr noundef nonnull %call9.i.i) #20
   %tobool28.not264.i.i = icmp eq ptr %call27263.i.i, null
   br i1 %tobool28.not264.i.i, label %while.end.i.i, label %while.body.lr.ph.i.i
 
@@ -931,10 +931,10 @@ while.body.lr.ph.i.i:                             ; preds = %if.end26.i.i
 
 while.body.i.i:                                   ; preds = %while.cond.backedge.i.i, %while.body.lr.ph.i.i
   %call27265.i.i = phi ptr [ %call27263.i.i, %while.body.lr.ph.i.i ], [ %call27.i.i, %while.cond.backedge.i.i ]
-  %call29.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %42) #20
+  %call29.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %42) #21
   %add.i.i = add i64 %call29.i.i, 2
   %d_name.i.i = getelementptr inbounds i8, ptr %call27265.i.i, i64 19
-  %call30.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %d_name.i.i) #20
+  %call30.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %d_name.i.i) #21
   %add31.i.i = add i64 %add.i.i, %call30.i.i
   %51 = load i8, ptr %d_name.i.i, align 1
   %.not.i.i = icmp eq i8 %51, 46
@@ -971,7 +971,7 @@ land.lhs.true.i.i92:                              ; preds = %while.body.tail.i.i
 
 if.then49.i.i:                                    ; preds = %land.lhs.true.i.i92
   %62 = load ptr, ptr @stderr, align 8
-  %63 = call i64 @fwrite(ptr nonnull @.str.54, i64 35, i64 1, ptr %62) #24
+  %63 = call i64 @fwrite(ptr nonnull @.str.54, i64 35, i64 1, ptr %62) #25
   %call51.i.i = call i32 @closedir(ptr noundef nonnull %call9.i.i)
   br label %if.then55.i
 
@@ -981,18 +981,18 @@ if.end52.i.i:                                     ; preds = %land.lhs.true.i.i92
 
 if.end59.i.i:                                     ; preds = %if.end52.i.i, %while.body.tail.i.i
   %conv60.i.i = and i64 %add31.i.i, 4294967295
-  %call61.i.i = call noalias ptr @g_malloc(i64 noundef %conv60.i.i) #23
-  %call65.i.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %call61.i.i, i64 noundef %conv60.i.i, ptr noundef nonnull @.str.55, ptr noundef %42, ptr noundef nonnull %d_name.i.i) #19
-  %call66.i.i = call i32 @stat64(ptr noundef %call61.i.i, ptr noundef nonnull %st.i.i) #19
+  %call61.i.i = call noalias ptr @g_malloc(i64 noundef %conv60.i.i) #24
+  %call65.i.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %call61.i.i, i64 noundef %conv60.i.i, ptr noundef nonnull @.str.55, ptr noundef %42, ptr noundef nonnull %d_name.i.i) #20
+  %call66.i.i = call i32 @stat64(ptr noundef %call61.i.i, ptr noundef nonnull %st.i.i) #20
   %cmp67.i.i = icmp slt i32 %call66.i.i, 0
   br i1 %cmp67.i.i, label %if.then69.i.i, label %if.end70.i.i
 
 if.then69.i.i:                                    ; preds = %if.end59.i.i
-  call void @g_free(ptr noundef %call61.i.i) #19
+  call void @g_free(ptr noundef %call61.i.i) #20
   br label %while.cond.backedge.i.i
 
 while.cond.backedge.i.i:                          ; preds = %if.else180.i.i, %if.then143.i.i, %if.then69.i.i, %if.end52.i.i
-  %call27.i.i = call ptr @readdir64(ptr noundef nonnull %call9.i.i) #19
+  %call27.i.i = call ptr @readdir64(ptr noundef nonnull %call9.i.i) #20
   %tobool28.not.i.i = icmp eq ptr %call27.i.i, null
   br i1 %tobool28.not.i.i, label %while.end.i.i, label %while.body.i.i, !llvm.loop !5
 
@@ -1003,13 +1003,13 @@ if.end70.i.i:                                     ; preds = %if.end59.i.i
 if.then74.i.i:                                    ; preds = %if.end70.i.i
   %64 = load i32, ptr %next.i147.i, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %length.i.i.i.i)
-  %call.i.i.i.i = call noalias ptr @g_utf8_to_utf16(ptr noundef nonnull %d_name.i.i, i64 noundef -1, ptr noundef null, ptr noundef nonnull %length.i.i.i.i, ptr noundef null) #19
+  %call.i.i.i.i = call noalias ptr @g_utf8_to_utf16(ptr noundef nonnull %d_name.i.i, i64 noundef -1, ptr noundef null, ptr noundef nonnull %length.i.i.i.i, ptr noundef null) #20
   %tobool.not.i.i.i.i = icmp eq ptr %call.i.i.i.i, null
   br i1 %tobool.not.i.i.i.i, label %if.then.i.i.i.i, label %if.end.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then74.i.i
   %65 = load ptr, ptr @stderr, align 8
-  %call2.i.i.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %65, ptr noundef nonnull @.str.57, ptr noundef nonnull %d_name.i.i) #24
+  %call2.i.i.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %65, ptr noundef nonnull @.str.57, ptr noundef nonnull %d_name.i.i) #25
   br label %create_long_filename.exit.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.then74.i.i
@@ -1045,13 +1045,13 @@ if.then.i.i249.i:                                 ; preds = %for.body.i.i.i.i
   %mul3.i.i251.i = mul i32 %68, %add1.i.i250.i
   %70 = load ptr, ptr %directory.i, align 8
   %conv.i.i252.i = sext i32 %mul3.i.i251.i to i64
-  %call.i.i253.i = call ptr @g_realloc(ptr noundef %70, i64 noundef %conv.i.i252.i) #19
+  %call.i.i253.i = call ptr @g_realloc(ptr noundef %70, i64 noundef %conv.i.i252.i) #20
   store ptr %call.i.i253.i, ptr %directory.i, align 8
   %tobool.not.i.i254.i = icmp eq ptr %call.i.i253.i, null
   br i1 %tobool.not.i.i254.i, label %if.else.i.i260.i, label %if.end.i.i255.i
 
 if.else.i.i260.i:                                 ; preds = %if.then.i.i249.i
-  call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 115, ptr noundef nonnull @__PRETTY_FUNCTION__.array_ensure_allocated) #21
+  call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 115, ptr noundef nonnull @__PRETTY_FUNCTION__.array_ensure_allocated) #22
   unreachable
 
 if.end.i.i255.i:                                  ; preds = %if.then.i.i249.i
@@ -1070,7 +1070,7 @@ array_ensure_allocated.exit.i239.i:               ; preds = %if.end.i.i255.i, %f
   br i1 %cmp.i7.not.i240.i, label %if.else.i8.i248.i, label %if.end.i9.i241.i
 
 if.else.i8.i248.i:                                ; preds = %array_ensure_allocated.exit.i239.i
-  call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.13, i32 noundef 105, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.13, i32 noundef 105, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 if.end.i9.i241.i:                                 ; preds = %array_ensure_allocated.exit.i239.i
@@ -1079,7 +1079,7 @@ if.end.i9.i241.i:                                 ; preds = %array_ensure_alloca
   br i1 %tobool.not.i10.i242.i, label %if.else2.i.i247.i, label %array_get_next.exit261.i
 
 if.else2.i.i247.i:                                ; preds = %if.end.i9.i241.i
-  call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 array_get_next.exit261.i:                         ; preds = %if.end.i9.i241.i
@@ -1120,7 +1120,7 @@ for.body14.i.i.i.i:                               ; preds = %for.inc67.i.i.i.i, 
   br i1 %cmp.i.i.i.i.i, label %if.end.i.i.i.i.i, label %if.else.i.i.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %for.body14.i.i.i.i
-  call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.13, i32 noundef 105, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.13, i32 noundef 105, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 if.end.i.i.i.i.i:                                 ; preds = %for.body14.i.i.i.i
@@ -1129,7 +1129,7 @@ if.end.i.i.i.i.i:                                 ; preds = %for.body14.i.i.i.i
   br i1 %tobool.not.i.i.i.i.i, label %if.else2.i.i.i.i.i, label %array_get.exit.i.i.i.i
 
 if.else2.i.i.i.i.i:                               ; preds = %if.end.i.i.i.i.i
-  call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 array_get.exit.i.i.i.i:                           ; preds = %if.end.i.i.i.i.i
@@ -1175,14 +1175,14 @@ for.inc67.i.i.i.i:                                ; preds = %if.else56.i.i.i.i, 
   br i1 %exitcond52.not.i.i.i.i, label %for.end69.i.i.i.i, label %for.body14.i.i.i.i, !llvm.loop !8
 
 for.end69.i.i.i.i:                                ; preds = %for.inc67.i.i.i.i, %for.cond10.preheader.i.i.i.i
-  call void @g_free(ptr noundef nonnull %call.i.i.i.i) #19
+  call void @g_free(ptr noundef nonnull %call.i.i.i.i) #20
   %83 = load i32, ptr %next.i147.i, align 4
   %sub73.i.i.i.i = sub i32 %83, %conv.i.i.i.i
   %cmp.i37.i.i.i.i = icmp ugt i32 %83, %sub73.i.i.i.i
   br i1 %cmp.i37.i.i.i.i, label %if.end.i39.i.i.i.i, label %if.else.i38.i.i.i.i
 
 if.else.i38.i.i.i.i:                              ; preds = %for.end69.i.i.i.i
-  call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.13, i32 noundef 105, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.13, i32 noundef 105, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 if.end.i39.i.i.i.i:                               ; preds = %for.end69.i.i.i.i
@@ -1191,7 +1191,7 @@ if.end.i39.i.i.i.i:                               ; preds = %for.end69.i.i.i.i
   br i1 %tobool.not.i40.i.i.i.i, label %if.else2.i45.i.i.i.i, label %array_get.exit46.i.i.i.i
 
 if.else2.i45.i.i.i.i:                             ; preds = %if.end.i39.i.i.i.i
-  call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 array_get.exit46.i.i.i.i:                         ; preds = %if.end.i39.i.i.i.i
@@ -1218,7 +1218,7 @@ for.cond.i.i.i.i:                                 ; preds = %for.inc.i.i.i.i, %i
   %last_dot.0.i.i.i.i = phi ptr [ null, %if.end.i20.i.i.i ], [ %last_dot.1.i.i.i.i, %for.inc.i.i.i.i ]
   %p.0.i.i.i.i = phi ptr [ %d_name.i.i, %if.end.i20.i.i.i ], [ %add.ptr.i.i.i.i, %for.inc.i.i.i.i ]
   %j.0.i.i.i.i = phi i32 [ 0, %if.end.i20.i.i.i ], [ %j.1.i.i.i.i, %for.inc.i.i.i.i ]
-  %call2.i21.i.i.i = call i32 @g_utf8_get_char(ptr noundef %p.0.i.i.i.i) #20
+  %call2.i21.i.i.i = call i32 @g_utf8_get_char(ptr noundef %p.0.i.i.i.i) #21
   switch i32 %call2.i21.i.i.i, label %if.else13.i.i.i.i [
     i32 0, label %for.end.i.i.i.i
     i32 46, label %if.then5.i.i.i.i
@@ -1238,7 +1238,7 @@ if.else13.i.i.i.i:                                ; preds = %for.cond.i.i.i.i
   br i1 %tobool14.not.i.i.i.i, label %if.then15.i.i.i.i, label %for.inc.i.i.i.i
 
 if.then15.i.i.i.i:                                ; preds = %if.else13.i.i.i.i
-  %call.i.i.i.i.i = call i32 @g_unichar_toupper(i32 noundef %call2.i21.i.i.i) #22
+  %call.i.i.i.i.i = call i32 @g_unichar_toupper(i32 noundef %call2.i21.i.i.i) #23
   %86 = add i32 %call.i.i.i.i.i, -48
   %or.cond.i.i.i.i.i = icmp ult i32 %86, 10
   %87 = add i32 %call.i.i.i.i.i, -65
@@ -1288,7 +1288,7 @@ if.then30.i.i.i.i:                                ; preds = %for.end.i.i.i.i
   %91 = load i8, ptr %arrayidx32.i.i.i.i, align 1
   %idx.ext34.i.i.i.i = sext i8 %91 to i64
   %add.ptr35.i.i.i.i = getelementptr i8, ptr %last_dot.0.i.i.i.i, i64 %idx.ext34.i.i.i.i
-  %call3769.i.i.i.i = call i32 @g_utf8_get_char(ptr noundef %add.ptr35.i.i.i.i) #20
+  %call3769.i.i.i.i = call i32 @g_utf8_get_char(ptr noundef %add.ptr35.i.i.i.i) #21
   %cmp3870.i.i.i.i = icmp eq i32 %call3769.i.i.i.i, 0
   br i1 %cmp3870.i.i.i.i, label %if.end64.i.i.i.i, label %if.else41.i.i.i.i
 
@@ -1297,7 +1297,7 @@ if.else41.i.i.i.i:                                ; preds = %if.then30.i.i.i.i, 
   %j.273.i.i.i.i = phi i32 [ %j.3.i.i.i.i, %for.inc57.i.i.i.i ], [ 0, %if.then30.i.i.i.i ]
   %p.172.i.i.i.i = phi ptr [ %add.ptr62.i.i.i.i, %for.inc57.i.i.i.i ], [ %add.ptr35.i.i.i.i, %if.then30.i.i.i.i ]
   %lossy_conversion.371.i.i.i.i = phi i8 [ %lossy_conversion.4.i.i.i.i, %for.inc57.i.i.i.i ], [ %lossy_conversion.0.i.i.i.i, %if.then30.i.i.i.i ]
-  %call.i49.i.i.i.i = call i32 @g_unichar_toupper(i32 noundef %call3774.i.i.i.i) #22
+  %call.i49.i.i.i.i = call i32 @g_unichar_toupper(i32 noundef %call3774.i.i.i.i) #23
   %92 = add i32 %call.i49.i.i.i.i, -48
   %or.cond.i50.i.i.i.i = icmp ult i32 %92, 10
   %93 = add i32 %call.i49.i.i.i.i, -65
@@ -1334,7 +1334,7 @@ for.inc57.i.i.i.i:                                ; preds = %if.then49.i.i.i.i, 
   %95 = load i8, ptr %arrayidx59.i24.i.i.i, align 1
   %idx.ext61.i.i.i.i = sext i8 %95 to i64
   %add.ptr62.i.i.i.i = getelementptr i8, ptr %p.172.i.i.i.i, i64 %idx.ext61.i.i.i.i
-  %call37.i.i.i.i = call i32 @g_utf8_get_char(ptr noundef %add.ptr62.i.i.i.i) #20
+  %call37.i.i.i.i = call i32 @g_utf8_get_char(ptr noundef %add.ptr62.i.i.i.i) #21
   %cmp38.i.i.i.i = icmp eq i32 %call37.i.i.i.i, 0
   br i1 %cmp38.i.i.i.i, label %if.end64.i.i.i.i, label %if.else41.i.i.i.i
 
@@ -1384,12 +1384,12 @@ for.body93.i.i.i.i:                               ; preds = %for.cond90.i.i.i.i,
   br i1 %cmp95.not.i.i.i.i, label %if.end114.i.i.i.i, label %if.then97.i.i.i.i
 
 if.then97.i.i.i.i:                                ; preds = %for.body93.i.i.i.i
-  %call99.i.i.i.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %tail.i.i.i.i, i64 noundef 8, ptr noundef nonnull @.str.58, i32 noundef %i.080.i.i.i.i) #19
+  %call99.i.i.i.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %tail.i.i.i.i, i64 noundef 8, ptr noundef nonnull @.str.58, i32 noundef %i.080.i.i.i.i) #20
   %cmp100.i.i.i.i = icmp slt i32 %call99.i.i.i.i, 8
   br i1 %cmp100.i.i.i.i, label %if.end104.i.i.i.i, label %if.else103.i.i.i.i
 
 if.else103.i.i.i.i:                               ; preds = %if.then97.i.i.i.i
-  call void @__assert_fail(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.13, i32 noundef 599, ptr noundef nonnull @__PRETTY_FUNCTION__.create_short_filename) #21
+  call void @__assert_fail(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.13, i32 noundef 599, ptr noundef nonnull @__PRETTY_FUNCTION__.create_short_filename) #22
   unreachable
 
 if.end104.i.i.i.i:                                ; preds = %if.then97.i.i.i.i
@@ -1407,7 +1407,7 @@ if.end114.i.i.i.i:                                ; preds = %if.end104.i.i.i.i, 
   br i1 %cmp.i.i32.i.i.i, label %if.end.i.i34.i.i.i, label %if.else.i.i33.i.i.i
 
 if.else.i.i33.i.i.i:                              ; preds = %if.end114.i.i.i.i
-  call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.13, i32 noundef 105, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.13, i32 noundef 105, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 if.end.i.i34.i.i.i:                               ; preds = %if.end114.i.i.i.i
@@ -1416,7 +1416,7 @@ if.end.i.i34.i.i.i:                               ; preds = %if.end114.i.i.i.i
   br i1 %tobool.not.i.i35.i.i.i, label %if.else2.i.i41.i.i.i, label %array_get.exit.i36.i.i.i
 
 if.else2.i.i41.i.i.i:                             ; preds = %if.end.i.i34.i.i.i
-  call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 array_get.exit.i36.i.i.i:                         ; preds = %if.end.i.i34.i.i.i
@@ -1472,7 +1472,7 @@ fat_chksum.exit.i.i.i:                            ; preds = %for.body.i44.i.i.i
   br i1 %cmp.i.i.i.i, label %if.end.i53.i.i.i, label %if.else.i.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %fat_chksum.exit.i.i.i
-  call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.13, i32 noundef 105, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.13, i32 noundef 105, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 if.end.i53.i.i.i:                                 ; preds = %fat_chksum.exit.i.i.i
@@ -1481,7 +1481,7 @@ if.end.i53.i.i.i:                                 ; preds = %fat_chksum.exit.i.i
   br i1 %tobool.not.i54.i.i.i, label %if.else2.i.i.i.i, label %array_get.exit.i.i.i
 
 if.else2.i.i.i.i:                                 ; preds = %if.end.i53.i.i.i
-  call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 array_get.exit.i.i.i:                             ; preds = %if.end.i53.i.i.i
@@ -1515,7 +1515,7 @@ if.else78.i.i:                                    ; preds = %if.end70.i.i
   br i1 %cmp.i131.i.i, label %if.end.i133.i.i, label %if.else.i132.i.i
 
 if.else.i132.i.i:                                 ; preds = %if.else78.i.i
-  call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.13, i32 noundef 105, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.13, i32 noundef 105, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 if.end.i133.i.i:                                  ; preds = %if.else78.i.i
@@ -1524,7 +1524,7 @@ if.end.i133.i.i:                                  ; preds = %if.else78.i.i
   br i1 %tobool.not.i134.i.i, label %if.else2.i139.i.i, label %array_get.exit140.i.i
 
 if.else2.i139.i.i:                                ; preds = %if.end.i133.i.i
-  call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 array_get.exit140.i.i:                            ; preds = %if.end.i133.i.i
@@ -1550,7 +1550,7 @@ if.end87.i.i:                                     ; preds = %while.body.i.i.i, %
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %time.addr.i.i.i)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %t1.i.i.i)
   store i64 %113, ptr %time.addr.i.i.i, align 8
-  %call.i141.i.i = call ptr @localtime_r(ptr noundef nonnull %time.addr.i.i.i, ptr noundef nonnull %t1.i.i.i) #19
+  %call.i141.i.i = call ptr @localtime_r(ptr noundef nonnull %time.addr.i.i.i, ptr noundef nonnull %t1.i.i.i) #20
   %114 = load i32, ptr %t1.i.i.i, align 8
   %div.i.i.i = sdiv i32 %114, 2
   %115 = load i32, ptr %tm_min.i.i.i, align 4
@@ -1567,7 +1567,7 @@ if.end87.i.i:                                     ; preds = %while.body.i.i.i, %
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %time.addr.i142.i.i)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %t1.i143.i.i)
   store i64 %113, ptr %time.addr.i142.i.i, align 8
-  %call.i144.i.i = call ptr @localtime_r(ptr noundef nonnull %time.addr.i142.i.i, ptr noundef nonnull %t1.i143.i.i) #19
+  %call.i144.i.i = call ptr @localtime_r(ptr noundef nonnull %time.addr.i142.i.i, ptr noundef nonnull %t1.i143.i.i) #20
   %117 = load i32, ptr %tm_mday.i.i.i, align 4
   %118 = load i32, ptr %tm_mon.i.i.i, align 8
   %add.i.i.i = shl i32 %118, 5
@@ -1586,7 +1586,7 @@ if.end87.i.i:                                     ; preds = %while.body.i.i.i, %
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %time.addr.i147.i.i)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %t1.i148.i.i)
   store i64 %120, ptr %time.addr.i147.i.i, align 8
-  %call.i149.i.i = call ptr @localtime_r(ptr noundef nonnull %time.addr.i147.i.i, ptr noundef nonnull %t1.i148.i.i) #19
+  %call.i149.i.i = call ptr @localtime_r(ptr noundef nonnull %time.addr.i147.i.i, ptr noundef nonnull %t1.i148.i.i) #20
   %121 = load i32, ptr %tm_mday.i151.i.i, align 4
   %122 = load i32, ptr %tm_mon.i152.i.i, align 8
   %add.i153.i.i = shl i32 %122, 5
@@ -1607,7 +1607,7 @@ if.end87.i.i:                                     ; preds = %while.body.i.i.i, %
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %time.addr.i161.i.i)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %t1.i162.i.i)
   store i64 %124, ptr %time.addr.i161.i.i, align 8
-  %call.i163.i.i = call ptr @localtime_r(ptr noundef nonnull %time.addr.i161.i.i, ptr noundef nonnull %t1.i162.i.i) #19
+  %call.i163.i.i = call ptr @localtime_r(ptr noundef nonnull %time.addr.i161.i.i, ptr noundef nonnull %t1.i162.i.i) #20
   %125 = load i32, ptr %t1.i162.i.i, align 8
   %div.i164.i.i = sdiv i32 %125, 2
   %126 = load i32, ptr %tm_min.i165.i.i, align 4
@@ -1624,7 +1624,7 @@ if.end87.i.i:                                     ; preds = %while.body.i.i.i, %
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %time.addr.i172.i.i)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %t1.i173.i.i)
   store i64 %124, ptr %time.addr.i172.i.i, align 8
-  %call.i174.i.i = call ptr @localtime_r(ptr noundef nonnull %time.addr.i172.i.i, ptr noundef nonnull %t1.i173.i.i) #19
+  %call.i174.i.i = call ptr @localtime_r(ptr noundef nonnull %time.addr.i172.i.i, ptr noundef nonnull %t1.i173.i.i) #20
   %128 = load i32, ptr %tm_mday.i176.i.i, align 4
   %129 = load i32, ptr %tm_mon.i177.i.i, align 8
   %add.i178.i.i = shl i32 %129, 5
@@ -1666,8 +1666,8 @@ if.end114.i.i:                                    ; preds = %if.else111.i.i, %if
 
 if.then117.i.i:                                   ; preds = %if.end114.i.i
   %132 = load ptr, ptr @stderr, align 8
-  %call118.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %132, ptr noundef nonnull @.str.56, ptr noundef %call61.i.i) #24
-  call void @g_free(ptr noundef %call61.i.i) #19
+  %call118.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %132, ptr noundef nonnull @.str.56, ptr noundef %call61.i.i) #25
+  call void @g_free(ptr noundef %call61.i.i) #20
   %call119.i.i = call i32 @closedir(ptr noundef nonnull %call9.i.i)
   br label %if.then55.i
 
@@ -1723,7 +1723,7 @@ if.then143.i.i:                                   ; preds = %land.lhs.true135.i.
   br label %while.cond.backedge.i.i
 
 if.else180.i.i:                                   ; preds = %land.lhs.true135.i.i, %if.end120.i.i
-  call void @g_free(ptr noundef %call61.i.i) #19
+  call void @g_free(ptr noundef %call61.i.i) #20
   br label %while.cond.backedge.i.i
 
 while.end.i.i:                                    ; preds = %while.cond.backedge.i.i, %if.end26.i.i
@@ -1749,13 +1749,13 @@ if.then.i.i221.i:                                 ; preds = %while.body187.i.i
   %mul3.i.i223.i = mul i32 %147, %add1.i.i222.i
   %149 = load ptr, ptr %directory.i, align 8
   %conv.i.i224.i = sext i32 %mul3.i.i223.i to i64
-  %call.i.i225.i = call ptr @g_realloc(ptr noundef %149, i64 noundef %conv.i.i224.i) #19
+  %call.i.i225.i = call ptr @g_realloc(ptr noundef %149, i64 noundef %conv.i.i224.i) #20
   store ptr %call.i.i225.i, ptr %directory.i, align 8
   %tobool.not.i.i226.i = icmp eq ptr %call.i.i225.i, null
   br i1 %tobool.not.i.i226.i, label %if.else.i.i232.i, label %if.end.i.i227.i
 
 if.else.i.i232.i:                                 ; preds = %if.then.i.i221.i
-  call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 115, ptr noundef nonnull @__PRETTY_FUNCTION__.array_ensure_allocated) #21
+  call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 115, ptr noundef nonnull @__PRETTY_FUNCTION__.array_ensure_allocated) #22
   unreachable
 
 if.end.i.i227.i:                                  ; preds = %if.then.i.i221.i
@@ -1774,7 +1774,7 @@ array_ensure_allocated.exit.i218.i:               ; preds = %if.end.i.i227.i, %w
   br i1 %cmp.i7.not.i.i, label %if.else.i8.i.i, label %if.end.i9.i.i
 
 if.else.i8.i.i:                                   ; preds = %array_ensure_allocated.exit.i218.i
-  call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.13, i32 noundef 105, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.13, i32 noundef 105, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 if.end.i9.i.i:                                    ; preds = %array_ensure_allocated.exit.i218.i
@@ -1783,7 +1783,7 @@ if.end.i9.i.i:                                    ; preds = %array_ensure_alloca
   br i1 %tobool.not.i10.i.i, label %if.else2.i.i220.i, label %array_get_next.exit.i
 
 if.else2.i.i220.i:                                ; preds = %if.end.i9.i.i
-  call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 array_get_next.exit.i:                            ; preds = %if.end.i9.i.i
@@ -1825,13 +1825,13 @@ if.then.i.i155.i:                                 ; preds = %if.then203.i.i
   %mul3.i.i.i = mul i32 %157, %add1.i.i156.i
   %159 = load ptr, ptr %directory.i, align 8
   %conv.i195.i.i = sext i32 %mul3.i.i.i to i64
-  %call.i196.i.i = call ptr @g_realloc(ptr noundef %159, i64 noundef %conv.i195.i.i) #19
+  %call.i196.i.i = call ptr @g_realloc(ptr noundef %159, i64 noundef %conv.i195.i.i) #20
   store ptr %call.i196.i.i, ptr %directory.i, align 8
   %tobool.not.i197.i.i = icmp eq ptr %call.i196.i.i, null
   br i1 %tobool.not.i197.i.i, label %if.else.i203.i.i, label %if.end.i198.i.i
 
 if.else.i203.i.i:                                 ; preds = %if.then.i.i155.i
-  call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 115, ptr noundef nonnull @__PRETTY_FUNCTION__.array_ensure_allocated) #21
+  call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 115, ptr noundef nonnull @__PRETTY_FUNCTION__.array_ensure_allocated) #22
   unreachable
 
 if.end.i198.i.i:                                  ; preds = %if.then.i.i155.i
@@ -1853,7 +1853,7 @@ array_ensure_allocated.exit.i.i:                  ; preds = %if.end.i198.i.i, %i
   br i1 %cmp.i205.i.i, label %if.end.i207.i.i, label %if.else.i206.i.i
 
 if.else.i206.i.i:                                 ; preds = %array_ensure_allocated.exit.i.i
-  call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.13, i32 noundef 105, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.13, i32 noundef 105, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 if.end.i207.i.i:                                  ; preds = %array_ensure_allocated.exit.i.i
@@ -1862,7 +1862,7 @@ if.end.i207.i.i:                                  ; preds = %array_ensure_alloca
   br i1 %tobool.not.i208.i.i, label %if.else2.i213.i.i, label %array_get.exit214.i.i
 
 if.else2.i213.i.i:                                ; preds = %if.end.i207.i.i
-  call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 array_get.exit214.i.i:                            ; preds = %if.end.i207.i.i
@@ -1882,7 +1882,7 @@ if.end221.i.i:                                    ; preds = %array_get.exit214.i
   br i1 %cmp.i216.i.i, label %if.end.i218.i.i, label %if.else.i217.i.i
 
 if.else.i217.i.i:                                 ; preds = %if.end221.i.i
-  call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.13, i32 noundef 105, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.13, i32 noundef 105, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 if.end.i218.i.i:                                  ; preds = %if.end221.i.i
@@ -1891,7 +1891,7 @@ if.end.i218.i.i:                                  ; preds = %if.end221.i.i
   br i1 %tobool.not.i219.i.i, label %if.else2.i224.i.i, label %array_get.exit225.i.i
 
 if.else2.i224.i.i:                                ; preds = %if.end.i218.i.i
-  call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 array_get.exit225.i.i:                            ; preds = %if.end.i218.i.i
@@ -1916,7 +1916,7 @@ array_get.exit225.i.i:                            ; preds = %if.end.i218.i.i
   br i1 %cmp.i227.i.i, label %if.end.i229.i.i, label %if.else.i228.i.i
 
 if.else.i228.i.i:                                 ; preds = %array_get.exit225.i.i
-  call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.13, i32 noundef 105, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.13, i32 noundef 105, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 if.end.i229.i.i:                                  ; preds = %array_get.exit225.i.i
@@ -1925,12 +1925,12 @@ if.end.i229.i.i:                                  ; preds = %array_get.exit225.i
   br i1 %tobool.not.i230.i.i, label %if.else2.i235.i.i, label %if.end56.i
 
 if.else2.i235.i.i:                                ; preds = %if.end.i229.i.i
-  call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 if.then55.i:                                      ; preds = %if.then117.i.i, %if.then49.i.i, %if.then13.i.i
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %st.i.i)
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.13, i32 noundef 964, ptr noundef nonnull @__func__.init_directories, ptr noundef nonnull @.str.42, ptr noundef %38) #19
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.13, i32 noundef 964, ptr noundef nonnull @__func__.init_directories, ptr noundef nonnull @.str.42, ptr noundef %38) #20
   br label %fail
 
 if.end56.i:                                       ; preds = %if.end.i229.i.i
@@ -1952,7 +1952,7 @@ if.end56.i:                                       ; preds = %if.end.i229.i.i
   br i1 %cmp.i162.i, label %if.end.i164.i, label %if.else.i163.i
 
 if.else.i163.i:                                   ; preds = %if.end56.i
-  call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.13, i32 noundef 105, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.13, i32 noundef 105, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 if.end.i164.i:                                    ; preds = %if.end56.i
@@ -1961,7 +1961,7 @@ if.end.i164.i:                                    ; preds = %if.end56.i
   br i1 %tobool.not.i165.i, label %if.else2.i170.i, label %array_get.exit171.i
 
 if.else2.i170.i:                                  ; preds = %if.end.i164.i
-  call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 array_get.exit171.i:                              ; preds = %if.end.i164.i
@@ -1976,7 +1976,7 @@ if.else.i:                                        ; preds = %array_get.exit.i
   br i1 %cmp60.i, label %if.end64.i, label %if.else63.i
 
 if.else63.i:                                      ; preds = %if.else.i
-  call void @__assert_fail(ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.13, i32 noundef 969, ptr noundef nonnull @__PRETTY_FUNCTION__.init_directories) #21
+  call void @__assert_fail(ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.13, i32 noundef 969, ptr noundef nonnull @__PRETTY_FUNCTION__.init_directories) #22
   unreachable
 
 if.end64.i:                                       ; preds = %if.else.i
@@ -1995,7 +1995,7 @@ if.then69.i:                                      ; preds = %if.end64.i
   br i1 %cmp.i173.i, label %if.end.i175.i, label %if.else.i174.i
 
 if.else.i174.i:                                   ; preds = %if.then69.i
-  call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.13, i32 noundef 105, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.13, i32 noundef 105, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 if.end.i175.i:                                    ; preds = %if.then69.i
@@ -2004,7 +2004,7 @@ if.end.i175.i:                                    ; preds = %if.then69.i
   br i1 %tobool.not.i176.i, label %if.else2.i181.i, label %array_get.exit182.i
 
 if.else2.i181.i:                                  ; preds = %if.end.i175.i
-  call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 array_get.exit182.i:                              ; preds = %if.end.i175.i
@@ -2042,7 +2042,7 @@ if.end85.i:                                       ; preds = %if.else81.i, %array
   br i1 %cmp88.i, label %if.end92.i, label %if.else91.i
 
 if.else91.i:                                      ; preds = %if.end85.i
-  call void @__assert_fail(ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.13, i32 noundef 984, ptr noundef nonnull @__PRETTY_FUNCTION__.init_directories) #21
+  call void @__assert_fail(ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.13, i32 noundef 984, ptr noundef nonnull @__PRETTY_FUNCTION__.init_directories) #22
   unreachable
 
 if.end92.i:                                       ; preds = %if.end85.i
@@ -2055,7 +2055,7 @@ if.then97.i:                                      ; preds = %if.end92.i
   %187 = load i32, ptr %sector_count, align 4
   %conv100.i = uitofp i32 %187 to double
   %div101.i = fdiv double %conv100.i, 2.000000e+03
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.13, i32 noundef 992, ptr noundef nonnull @__func__.init_directories, ptr noundef nonnull @.str.45, i32 noundef %186, double noundef %div101.i) #19
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.13, i32 noundef 992, ptr noundef nonnull @__func__.init_directories, ptr noundef nonnull @.str.45, i32 noundef %186, double noundef %div101.i) #20
   br label %fail
 
 if.end102.i:                                      ; preds = %if.end92.i
@@ -2081,7 +2081,7 @@ if.then.i187.i:                                   ; preds = %for.body111.i
   br i1 %cmp.i.i189.i, label %if.end.i.i191.i, label %if.else.i.i190.i
 
 if.else.i.i190.i:                                 ; preds = %if.then.i187.i
-  call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.13, i32 noundef 105, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.13, i32 noundef 105, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 if.end.i.i191.i:                                  ; preds = %if.then.i187.i
@@ -2090,7 +2090,7 @@ if.end.i.i191.i:                                  ; preds = %if.then.i187.i
   br i1 %tobool.not.i.i193.i, label %if.else2.i.i199.i, label %array_get.exit.i194.i
 
 if.else2.i.i199.i:                                ; preds = %if.end.i.i191.i
-  call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 array_get.exit.i194.i:                            ; preds = %if.end.i.i191.i
@@ -2107,7 +2107,7 @@ if.then5.i.i91:                                   ; preds = %for.body111.i
   br i1 %cmp.i20.i.i, label %if.end.i22.i.i, label %if.else.i21.i.i
 
 if.else.i21.i.i:                                  ; preds = %if.then5.i.i91
-  call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.13, i32 noundef 105, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.13, i32 noundef 105, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 if.end.i22.i.i:                                   ; preds = %if.then5.i.i91
@@ -2116,7 +2116,7 @@ if.end.i22.i.i:                                   ; preds = %if.then5.i.i91
   br i1 %tobool.not.i23.i.i, label %if.else2.i28.i.i, label %array_get.exit29.i.i
 
 if.else2.i28.i.i:                                 ; preds = %if.end.i22.i.i
-  call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 array_get.exit29.i.i:                             ; preds = %if.end.i22.i.i
@@ -2136,7 +2136,7 @@ if.else10.i.i:                                    ; preds = %for.body111.i
   br i1 %cmp.i31.i.i, label %if.end.i33.i.i, label %if.else.i32.i.i
 
 if.else.i32.i.i:                                  ; preds = %if.else10.i.i
-  call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.13, i32 noundef 105, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.13, i32 noundef 105, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 if.end.i33.i.i:                                   ; preds = %if.else10.i.i
@@ -2145,7 +2145,7 @@ if.end.i33.i.i:                                   ; preds = %if.else10.i.i
   br i1 %tobool.not.i34.i.i, label %if.else2.i39.i.i, label %array_get.exit40.i.i
 
 if.else2.i39.i.i:                                 ; preds = %if.end.i33.i.i
-  call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 array_get.exit40.i.i:                             ; preds = %if.end.i33.i.i
@@ -2205,7 +2205,7 @@ for.end118.i:                                     ; preds = %for.inc116.i
   br i1 %208, label %if.else.i204.i, label %if.end.i205.i
 
 if.else.i204.i:                                   ; preds = %for.end118.i, %if.end.i87
-  call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.13, i32 noundef 105, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.13, i32 noundef 105, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 if.end.i205.i:                                    ; preds = %for.end118.i
@@ -2214,7 +2214,7 @@ if.end.i205.i:                                    ; preds = %for.end118.i
   br i1 %tobool.not.i206.i, label %if.else2.i211.i, label %if.end73
 
 if.else2.i211.i:                                  ; preds = %if.end.i205.i
-  call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 if.end73:                                         ; preds = %if.end.i205.i
@@ -2314,9 +2314,9 @@ if.end73:                                         ; preds = %if.end.i205.i
 
 if.then79:                                        ; preds = %if.end73
   %migration_blocker = getelementptr inbounds i8, ptr %0, i64 33072
-  %call80 = call ptr @bdrv_get_device_or_node_name(ptr noundef %bs) #19
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %migration_blocker, ptr noundef nonnull @.str.13, i32 noundef 1270, ptr noundef nonnull @__func__.vvfat_open, ptr noundef nonnull @.str.27, ptr noundef %call80) #19
-  %call82 = call i32 @migrate_add_blocker_normal(ptr noundef nonnull %migration_blocker, ptr noundef %errp) #19
+  %call80 = call ptr @bdrv_get_device_or_node_name(ptr noundef %bs) #20
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %migration_blocker, ptr noundef nonnull @.str.13, i32 noundef 1270, ptr noundef nonnull @__func__.vvfat_open, ptr noundef nonnull @.str.27, ptr noundef %call80) #20
+  %call82 = call i32 @migrate_add_blocker_normal(ptr noundef nonnull %migration_blocker, ptr noundef %errp) #20
   %cmp83 = icmp slt i32 %call82, 0
   br i1 %cmp83, label %fail, label %if.end87
 
@@ -2330,29 +2330,29 @@ if.then91:                                        ; preds = %if.end87
   br label %if.end92
 
 if.end92:                                         ; preds = %if.then91, %if.end87
-  call void @qemu_co_mutex_init(ptr noundef nonnull %0) #19
+  call void @qemu_co_mutex_init(ptr noundef nonnull %0) #20
   br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
 fail:                                             ; preds = %if.then97.i, %if.then55.i, %qobject_unref_impl.exit.i, %if.then55, %if.then7.i, %if.end8.i, %entry, %if.then79, %if.else63, %if.else61, %sw.default, %if.then13, %if.then4
   %ret.0 = phi i32 [ -22, %if.then13 ], [ -22, %sw.default ], [ -1, %if.else61 ], [ %call82, %if.then79 ], [ %call64, %if.else63 ], [ -22, %if.then4 ], [ -22, %entry ], [ -22, %qobject_unref_impl.exit.i ], [ -2, %if.then55 ], [ -2, %if.then7.i ], [ %call13.i, %if.end8.i ], [ -5, %if.then55.i ], [ -5, %if.then97.i ]
   %qcow_filename93 = getelementptr inbounds i8, ptr %0, i64 33000
   %230 = load ptr, ptr %qcow_filename93, align 8
-  call void @g_free(ptr noundef %230) #19
+  call void @g_free(ptr noundef %230) #20
   store ptr null, ptr %qcow_filename93, align 8
   %cluster_buffer = getelementptr inbounds i8, ptr %0, i64 32984
   %231 = load ptr, ptr %cluster_buffer, align 8
-  call void @g_free(ptr noundef %231) #19
+  call void @g_free(ptr noundef %231) #20
   store ptr null, ptr %cluster_buffer, align 8
   %used_clusters = getelementptr inbounds i8, ptr %0, i64 33024
   %232 = load ptr, ptr %used_clusters, align 8
-  call void @g_free(ptr noundef %232) #19
+  call void @g_free(ptr noundef %232) #20
   store ptr null, ptr %used_clusters, align 8
   br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
 glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %fail, %if.end92
   %retval.0 = phi i32 [ %ret.0, %fail ], [ 0, %if.end92 ]
-  call void @qemu_opts_del(ptr noundef %call1) #19
-  call void @bdrv_graph_rdunlock_main_loop() #19
+  call void @qemu_opts_del(ptr noundef %call1) #20
+  call void @bdrv_graph_rdunlock_main_loop() #20
   ret i32 %retval.0
 }
 
@@ -2374,7 +2374,7 @@ if.then.i:                                        ; preds = %entry
   br i1 %tobool2.not.i, label %vvfat_close_current_file.exit, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.then.i
-  %call.i = tail call i32 @qemu_close(i32 noundef %2) #19
+  %call.i = tail call i32 @qemu_close(i32 noundef %2) #20
   store i32 0, ptr %current_fd.i, align 8
   br label %vvfat_close_current_file.exit
 
@@ -2383,28 +2383,28 @@ vvfat_close_current_file.exit:                    ; preds = %entry, %if.then.i, 
   store i32 -1, ptr %current_cluster.i, align 8
   %fat = getelementptr inbounds i8, ptr %0, i64 32832
   %3 = load ptr, ptr %fat, align 8
-  tail call void @g_free(ptr noundef %3) #19
+  tail call void @g_free(ptr noundef %3) #20
   %next.i = getelementptr inbounds i8, ptr %0, i64 32844
   store i32 0, ptr %next.i, align 4
   %size.i = getelementptr inbounds i8, ptr %0, i64 32840
   store i32 0, ptr %size.i, align 8
   %directory = getelementptr inbounds i8, ptr %0, i64 32856
   %4 = load ptr, ptr %directory, align 8
-  tail call void @g_free(ptr noundef %4) #19
+  tail call void @g_free(ptr noundef %4) #20
   %next.i7 = getelementptr inbounds i8, ptr %0, i64 32868
   store i32 0, ptr %next.i7, align 4
   %size.i8 = getelementptr inbounds i8, ptr %0, i64 32864
   store i32 0, ptr %size.i8, align 8
   %mapping = getelementptr inbounds i8, ptr %0, i64 32880
   %5 = load ptr, ptr %mapping, align 8
-  tail call void @g_free(ptr noundef %5) #19
+  tail call void @g_free(ptr noundef %5) #20
   %next.i9 = getelementptr inbounds i8, ptr %0, i64 32892
   store i32 0, ptr %next.i9, align 4
   %size.i10 = getelementptr inbounds i8, ptr %0, i64 32888
   store i32 0, ptr %size.i10, align 8
   %cluster_buffer = getelementptr inbounds i8, ptr %0, i64 32984
   %6 = load ptr, ptr %cluster_buffer, align 8
-  tail call void @g_free(ptr noundef %6) #19
+  tail call void @g_free(ptr noundef %6) #20
   %qcow = getelementptr inbounds i8, ptr %0, i64 33008
   %7 = load ptr, ptr %qcow, align 8
   %tobool.not = icmp eq ptr %7, null
@@ -2412,7 +2412,7 @@ vvfat_close_current_file.exit:                    ; preds = %entry, %if.then.i, 
 
 if.then:                                          ; preds = %vvfat_close_current_file.exit
   %migration_blocker = getelementptr inbounds i8, ptr %0, i64 33072
-  tail call void @migrate_del_blocker(ptr noundef nonnull %migration_blocker) #19
+  tail call void @migrate_del_blocker(ptr noundef nonnull %migration_blocker) #20
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %vvfat_close_current_file.exit
@@ -2435,7 +2435,7 @@ entry:
   br i1 %tobool.not, label %if.else, label %if.end
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.13, i32 noundef 3224, ptr noundef nonnull @__PRETTY_FUNCTION__.vvfat_child_perm) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.13, i32 noundef 3224, ptr noundef nonnull @__PRETTY_FUNCTION__.vvfat_child_perm) #22
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -2457,7 +2457,7 @@ entry:
   br i1 %cmp, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.13, i32 noundef 1545, ptr noundef nonnull @__PRETTY_FUNCTION__.vvfat_co_preadv) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.13, i32 noundef 1545, ptr noundef nonnull @__PRETTY_FUNCTION__.vvfat_co_preadv) #22
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -2466,22 +2466,22 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4, label %if.end8, label %if.else7
 
 if.else7:                                         ; preds = %if.end
-  tail call void @__assert_fail(ptr noundef nonnull @.str.63, ptr noundef nonnull @.str.13, i32 noundef 1546, ptr noundef nonnull @__PRETTY_FUNCTION__.vvfat_co_preadv) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.63, ptr noundef nonnull @.str.13, i32 noundef 1546, ptr noundef nonnull @__PRETTY_FUNCTION__.vvfat_co_preadv) #22
   unreachable
 
 if.end8:                                          ; preds = %if.end
-  %call = tail call noalias ptr @g_try_malloc(i64 noundef %bytes) #23
+  %call = tail call noalias ptr @g_try_malloc(i64 noundef %bytes) #24
   %tobool = icmp ne i64 %bytes, 0
   %cmp9 = icmp eq ptr %call, null
   %or.cond = select i1 %tobool, i1 %cmp9, i1 false
   br i1 %or.cond, label %return, label %if.end12
 
 if.end12:                                         ; preds = %if.end8
-  tail call void @qemu_co_mutex_lock(ptr noundef %0) #19
+  tail call void @qemu_co_mutex_lock(ptr noundef %0) #20
   %call13 = tail call i32 @vvfat_read(ptr noundef nonnull %bs, i64 noundef %shr, ptr noundef %call, i32 noundef %conv)
-  tail call void @qemu_co_mutex_unlock(ptr noundef %0) #19
-  %call15 = tail call i64 @qemu_iovec_from_buf(ptr noundef %qiov, i64 noundef 0, ptr noundef %call, i64 noundef %bytes) #19
-  tail call void @g_free(ptr noundef %call) #19
+  tail call void @qemu_co_mutex_unlock(ptr noundef %0) #20
+  %call15 = tail call i64 @qemu_iovec_from_buf(ptr noundef %qiov, i64 noundef 0, ptr noundef %call, i64 noundef %bytes) #20
+  tail call void @g_free(ptr noundef %call) #20
   br label %return
 
 return:                                           ; preds = %if.end8, %if.end12
@@ -2502,7 +2502,7 @@ entry:
   br i1 %cmp, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.13, i32 noundef 3120, ptr noundef nonnull @__PRETTY_FUNCTION__.vvfat_co_pwritev) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.13, i32 noundef 3120, ptr noundef nonnull @__PRETTY_FUNCTION__.vvfat_co_pwritev) #22
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -2511,22 +2511,22 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4, label %if.end8, label %if.else7
 
 if.else7:                                         ; preds = %if.end
-  tail call void @__assert_fail(ptr noundef nonnull @.str.63, ptr noundef nonnull @.str.13, i32 noundef 3121, ptr noundef nonnull @__PRETTY_FUNCTION__.vvfat_co_pwritev) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.63, ptr noundef nonnull @.str.13, i32 noundef 3121, ptr noundef nonnull @__PRETTY_FUNCTION__.vvfat_co_pwritev) #22
   unreachable
 
 if.end8:                                          ; preds = %if.end
-  %call = tail call noalias ptr @g_try_malloc(i64 noundef %bytes) #23
+  %call = tail call noalias ptr @g_try_malloc(i64 noundef %bytes) #24
   %tobool = icmp ne i64 %bytes, 0
   %cmp9 = icmp eq ptr %call, null
   %or.cond = select i1 %tobool, i1 %cmp9, i1 false
   br i1 %or.cond, label %return, label %if.end12
 
 if.end12:                                         ; preds = %if.end8
-  %call13 = tail call i64 @qemu_iovec_to_buf(ptr noundef %qiov, i64 noundef 0, ptr noundef %call, i64 noundef %bytes) #19
-  tail call void @qemu_co_mutex_lock(ptr noundef %0) #19
+  %call13 = tail call i64 @qemu_iovec_to_buf(ptr noundef %qiov, i64 noundef 0, ptr noundef %call, i64 noundef %bytes) #20
+  tail call void @qemu_co_mutex_lock(ptr noundef %0) #20
   %call14 = tail call i32 @vvfat_write(ptr noundef nonnull %bs, i64 noundef %shr, ptr noundef %call, i32 noundef %conv)
-  tail call void @qemu_co_mutex_unlock(ptr noundef %0) #19
-  tail call void @g_free(ptr noundef %call) #19
+  tail call void @qemu_co_mutex_unlock(ptr noundef %0) #20
+  tail call void @g_free(ptr noundef %call) #20
   br label %return
 
 return:                                           ; preds = %if.end8, %if.end12
@@ -2752,13 +2752,13 @@ if.then.i:                                        ; preds = %entry
   %mul3.i = mul i32 %1, %add1.i
   %3 = load ptr, ptr %array, align 8
   %conv.i = sext i32 %mul3.i to i64
-  %call.i = tail call ptr @g_realloc(ptr noundef %3, i64 noundef %conv.i) #19
+  %call.i = tail call ptr @g_realloc(ptr noundef %3, i64 noundef %conv.i) #20
   store ptr %call.i, ptr %array, align 8
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i, label %if.else.i, label %if.end.i
 
 if.else.i:                                        ; preds = %if.then.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 115, ptr noundef nonnull @__PRETTY_FUNCTION__.array_ensure_allocated) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 115, ptr noundef nonnull @__PRETTY_FUNCTION__.array_ensure_allocated) #22
   unreachable
 
 if.end.i:                                         ; preds = %if.then.i
@@ -2777,7 +2777,7 @@ array_ensure_allocated.exit:                      ; preds = %entry, %if.end.i
   br i1 %cmp.i7.not, label %if.else.i8, label %if.end.i9
 
 if.else.i8:                                       ; preds = %array_ensure_allocated.exit
-  tail call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.13, i32 noundef 105, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.13, i32 noundef 105, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 if.end.i9:                                        ; preds = %array_ensure_allocated.exit
@@ -2786,7 +2786,7 @@ if.end.i9:                                        ; preds = %array_ensure_alloca
   br i1 %tobool.not.i10, label %if.else2.i, label %array_get.exit
 
 if.else2.i:                                       ; preds = %if.end.i9
-  tail call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 array_get.exit:                                   ; preds = %if.end.i9
@@ -2816,7 +2816,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i, label %if.end.i, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then
-  tail call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.13, i32 noundef 105, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.13, i32 noundef 105, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 if.end.i:                                         ; preds = %if.then
@@ -2826,7 +2826,7 @@ if.end.i:                                         ; preds = %if.then
   br i1 %tobool.not.i, label %if.else2.i, label %array_get.exit
 
 if.else2.i:                                       ; preds = %if.end.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 array_get.exit:                                   ; preds = %if.end.i
@@ -2845,7 +2845,7 @@ if.then5:                                         ; preds = %entry
   br i1 %cmp.i20, label %if.end.i22, label %if.else.i21
 
 if.else.i21:                                      ; preds = %if.then5
-  tail call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.13, i32 noundef 105, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.13, i32 noundef 105, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 if.end.i22:                                       ; preds = %if.then5
@@ -2855,7 +2855,7 @@ if.end.i22:                                       ; preds = %if.then5
   br i1 %tobool.not.i23, label %if.else2.i28, label %array_get.exit29
 
 if.else2.i28:                                     ; preds = %if.end.i22
-  tail call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 array_get.exit29:                                 ; preds = %if.end.i22
@@ -2877,7 +2877,7 @@ if.else10:                                        ; preds = %entry
   br i1 %cmp.i31, label %if.end.i33, label %if.else.i32
 
 if.else.i32:                                      ; preds = %if.else10
-  tail call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.13, i32 noundef 105, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.13, i32 noundef 105, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 if.end.i33:                                       ; preds = %if.else10
@@ -2887,7 +2887,7 @@ if.end.i33:                                       ; preds = %if.else10
   br i1 %tobool.not.i34, label %if.else2.i39, label %array_get.exit40
 
 if.else2.i39:                                     ; preds = %if.end.i33
-  tail call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 array_get.exit40:                                 ; preds = %if.end.i33
@@ -3027,7 +3027,7 @@ if.then2:                                         ; preds = %if.end
   %sub = sub i32 %nb_sectors, %i.062
   %conv = sext i32 %sub to i64
   %mul5 = shl nsw i64 %conv, 9
-  %call = call i32 @bdrv_co_is_allocated(ptr noundef %4, i64 noundef %mul, i64 noundef %mul5, ptr noundef nonnull %n) #19
+  %call = call i32 @bdrv_co_is_allocated(ptr noundef %4, i64 noundef %mul, i64 noundef %mul5, ptr noundef nonnull %n) #20
   %cmp6 = icmp slt i32 %call, 0
   br i1 %cmp6, label %return, label %if.end9
 
@@ -3047,8 +3047,8 @@ if.then11:                                        ; preds = %if.end9
   store i32 -1, ptr %1, align 8
   store ptr %add.ptr, ptr %local_iov.i, align 8
   store i64 %6, ptr %iov_len.i, align 8
-  call void @assert_bdrv_graph_readable() #19
-  %call.i = call i32 @bdrv_co_preadv(ptr noundef %5, i64 noundef %mul, i64 noundef %6, ptr noundef nonnull %qiov.i, i32 noundef 0) #19
+  call void @assert_bdrv_graph_readable() #20
+  %call.i = call i32 @bdrv_co_preadv(ptr noundef %5, i64 noundef %mul, i64 noundef %6, ptr noundef nonnull %qiov.i, i32 noundef 0) #20
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %qiov.i)
   %cmp16 = icmp slt i32 %call.i, 0
   br i1 %cmp16, label %return, label %if.end19
@@ -3143,7 +3143,7 @@ lor.lhs.false2.i:                                 ; preds = %lor.lhs.false.i
   br i1 %tobool4.not.i, label %if.else.i, label %lor.lhs.false8.i
 
 if.else.i:                                        ; preds = %lor.lhs.false2.i
-  call void @__assert_fail(ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.13, i32 noundef 1382, ptr noundef nonnull @__PRETTY_FUNCTION__.read_cluster) #21
+  call void @__assert_fail(ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.13, i32 noundef 1382, ptr noundef nonnull @__PRETTY_FUNCTION__.read_cluster) #22
   unreachable
 
 lor.lhs.false8.i:                                 ; preds = %lor.lhs.false2.i, %lor.lhs.false.i
@@ -3170,7 +3170,7 @@ if.end.i.i.i:                                     ; preds = %if.then14.i
   br i1 %tobool.not.i.i.i, label %if.else2.i.i.i, label %array_get.exit.i.i
 
 if.else2.i.i.i:                                   ; preds = %if.end.i.i.i
-  call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 array_get.exit.i.i:                               ; preds = %if.end.i.i.i
@@ -3189,7 +3189,7 @@ land.lhs.true.i.i:                                ; preds = %array_get.exit.i.i
   br i1 %cmp11.i.i, label %land.lhs.true25.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %land.lhs.true.i.i
-  call void @__assert_fail(ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.13, i32 noundef 1355, ptr noundef nonnull @__PRETTY_FUNCTION__.find_mapping_for_cluster) #21
+  call void @__assert_fail(ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.13, i32 noundef 1355, ptr noundef nonnull @__PRETTY_FUNCTION__.find_mapping_for_cluster) #22
   unreachable
 
 land.lhs.true25.i:                                ; preds = %land.lhs.true.i.i
@@ -3214,7 +3214,7 @@ lor.lhs.false.i.i:                                ; preds = %if.end.i.i
   %31 = load ptr, ptr %path.i.i, align 8
   %path3.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 24
   %32 = load ptr, ptr %path3.i.i, align 8
-  %call.i60.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %31, ptr noundef nonnull dereferenceable(1) %32) #20
+  %call.i60.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %31, ptr noundef nonnull dereferenceable(1) %32) #21
   %tobool4.not.i.i = icmp eq i32 %call.i60.i, 0
   br i1 %tobool4.not.i.i, label %lor.lhs.false.i.if.end75_crit_edge.i, label %if.then5.i.i
 
@@ -3224,7 +3224,7 @@ lor.lhs.false.i.if.end75_crit_edge.i:             ; preds = %lor.lhs.false.i.i
 
 if.then5.i.i:                                     ; preds = %lor.lhs.false.i.i, %if.end.if.then5_crit_edge.i.i
   %33 = phi ptr [ %.pre.i.i, %if.end.if.then5_crit_edge.i.i ], [ %32, %lor.lhs.false.i.i ]
-  %call7.i.i = call i32 (ptr, i32, ...) @qemu_open_old(ptr noundef %33, i32 noundef 0) #19
+  %call7.i.i = call i32 (ptr, i32, ...) @qemu_open_old(ptr noundef %33, i32 noundef 0) #20
   %cmp.i.i = icmp slt i32 %call7.i.i, 0
   br i1 %cmp.i.i, label %if.then87, label %if.end9.i.i
 
@@ -3240,7 +3240,7 @@ if.then.i.i.i:                                    ; preds = %if.end9.i.i
   br i1 %tobool2.not.i.i.i, label %vvfat_close_current_file.exit.i.i, label %if.then3.i.i.i
 
 if.then3.i.i.i:                                   ; preds = %if.then.i.i.i
-  %call.i.i.i = call i32 @qemu_close(i32 noundef %35) #19
+  %call.i.i.i = call i32 @qemu_close(i32 noundef %35) #20
   br label %vvfat_close_current_file.exit.i.i
 
 vvfat_close_current_file.exit.i.i:                ; preds = %if.then3.i.i.i, %if.then.i.i.i, %if.end9.i.i
@@ -3259,7 +3259,7 @@ if.then.i.i:                                      ; preds = %if.then29.i
   br i1 %tobool2.not.i.i, label %vvfat_close_current_file.exit.i, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %if.then.i.i
-  %call.i66.i = call i32 @qemu_close(i32 noundef %36) #19
+  %call.i66.i = call i32 @qemu_close(i32 noundef %36) #20
   store i32 0, ptr %current_fd.i, align 8
   br label %vvfat_close_current_file.exit.i
 
@@ -3293,7 +3293,7 @@ read_cluster_directory.i:                         ; preds = %if.else68.i, %vvfat
   br i1 %cmp41.i, label %if.end45.i, label %if.else44.i
 
 if.else44.i:                                      ; preds = %read_cluster_directory.i
-  call void @__assert_fail(ptr noundef nonnull @.str.66, ptr noundef nonnull @.str.13, i32 noundef 1398, ptr noundef nonnull @__PRETTY_FUNCTION__.read_cluster) #21
+  call void @__assert_fail(ptr noundef nonnull @.str.66, ptr noundef nonnull @.str.13, i32 noundef 1398, ptr noundef nonnull @__PRETTY_FUNCTION__.read_cluster) #22
   unreachable
 
 if.end45.i:                                       ; preds = %read_cluster_directory.i
@@ -3311,7 +3311,7 @@ read_cluster.exit.thread57:                       ; preds = %if.end45.i
   br label %if.end91
 
 if.else60.i:                                      ; preds = %if.end45.i
-  call void @__assert_fail(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.13, i32 noundef 1399, ptr noundef nonnull @__PRETTY_FUNCTION__.read_cluster) #21
+  call void @__assert_fail(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.13, i32 noundef 1399, ptr noundef nonnull @__PRETTY_FUNCTION__.read_cluster) #22
   unreachable
 
 if.else68.i:                                      ; preds = %lor.lhs.false11.i
@@ -3328,7 +3328,7 @@ if.end75.i:                                       ; preds = %if.else68.i, %vvfat
   br i1 %tobool77.not.i, label %if.else79.i, label %if.end80.i
 
 if.else79.i:                                      ; preds = %if.end75.i
-  call void @__assert_fail(ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.13, i32 noundef 1409, ptr noundef nonnull @__PRETTY_FUNCTION__.read_cluster) #21
+  call void @__assert_fail(ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.13, i32 noundef 1409, ptr noundef nonnull @__PRETTY_FUNCTION__.read_cluster) #22
   unreachable
 
 if.end80.i:                                       ; preds = %if.end75.i
@@ -3340,7 +3340,7 @@ if.end80.i:                                       ; preds = %if.end75.i
   %49 = load i32, ptr %info87.i, align 8
   %add.i = add i32 %mul85.i, %49
   %conv89.i = zext i32 %add.i to i64
-  %call91.i = call i64 @lseek64(i32 noundef %46, i64 noundef %conv89.i, i32 noundef 0) #19
+  %call91.i = call i64 @lseek64(i32 noundef %46, i64 noundef %conv89.i, i32 noundef 0) #20
   %cmp92.not.i = icmp eq i64 %call91.i, %conv89.i
   br i1 %cmp92.not.i, label %read_cluster.exit, label %if.then87
 
@@ -3350,7 +3350,7 @@ read_cluster.exit:                                ; preds = %if.end80.i
   %51 = load i32, ptr %current_fd.i, align 8
   %52 = load i32, ptr %cluster_size.i, align 8
   %conv100.i = zext i32 %52 to i64
-  %call101.i = call i64 @read(i32 noundef %51, ptr noundef %50, i64 noundef %conv100.i) #19
+  %call101.i = call i64 @read(i32 noundef %51, ptr noundef %50, i64 noundef %conv100.i) #20
   %53 = and i64 %call101.i, 2147483648
   %cmp103.not.i.not = icmp eq i64 %53, 0
   %cluster_num..i = select i1 %cmp103.not.i.not, i32 %div, i32 -1
@@ -3407,8 +3407,8 @@ entry:
   store ptr %buf, ptr %local_iov, align 8
   %iov_len = getelementptr inbounds i8, ptr %qiov, i64 32
   store i64 %bytes, ptr %iov_len, align 8
-  call void @assert_bdrv_graph_readable() #19
-  %call = call i32 @bdrv_co_preadv(ptr noundef %child, i64 noundef %offset, i64 noundef %bytes, ptr noundef nonnull %qiov, i32 noundef %flags) #19
+  call void @assert_bdrv_graph_readable() #20
+  %call = call i32 @bdrv_co_preadv(ptr noundef %child, i64 noundef %offset, i64 noundef %bytes, ptr noundef nonnull %qiov, i32 noundef %flags) #20
   ret i32 %call
 }
 
@@ -3440,7 +3440,7 @@ while.body:                                       ; preds = %if.end19, %entry
   br i1 %cmp.i, label %if.end.i, label %if.else.i
 
 if.else.i:                                        ; preds = %while.body
-  tail call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.13, i32 noundef 105, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.13, i32 noundef 105, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 if.end.i:                                         ; preds = %while.body
@@ -3449,7 +3449,7 @@ if.end.i:                                         ; preds = %while.body
   br i1 %tobool.not.i, label %if.else2.i, label %array_get.exit
 
 if.else2.i:                                       ; preds = %if.end.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 array_get.exit:                                   ; preds = %if.end.i
@@ -3464,7 +3464,7 @@ array_get.exit:                                   ; preds = %if.end.i
   br i1 %cmp, label %if.end, label %if.else
 
 if.else:                                          ; preds = %array_get.exit
-  tail call void @__assert_fail(ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.13, i32 noundef 1326, ptr noundef nonnull @__PRETTY_FUNCTION__.find_mapping_for_cluster_aux) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.13, i32 noundef 1326, ptr noundef nonnull @__PRETTY_FUNCTION__.find_mapping_for_cluster_aux) #22
   unreachable
 
 if.end:                                           ; preds = %array_get.exit
@@ -3478,7 +3478,7 @@ if.then4:                                         ; preds = %if.end
   br i1 %or.cond, label %if.end9, label %if.else8
 
 if.else8:                                         ; preds = %if.then4
-  tail call void @__assert_fail(ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.13, i32 noundef 1328, ptr noundef nonnull @__PRETTY_FUNCTION__.find_mapping_for_cluster_aux) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.13, i32 noundef 1328, ptr noundef nonnull @__PRETTY_FUNCTION__.find_mapping_for_cluster_aux) #22
   unreachable
 
 if.end9:                                          ; preds = %if.then4
@@ -3501,7 +3501,7 @@ if.end19:                                         ; preds = %if.else13, %if.end9
   br i1 %cmp20.not, label %if.else22, label %while.body
 
 if.else22:                                        ; preds = %if.end19
-  tail call void @__assert_fail(ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.13, i32 noundef 1337, ptr noundef nonnull @__PRETTY_FUNCTION__.find_mapping_for_cluster_aux) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.13, i32 noundef 1337, ptr noundef nonnull @__PRETTY_FUNCTION__.find_mapping_for_cluster_aux) #22
   unreachable
 
 return:                                           ; preds = %if.end9, %if.then15
@@ -3538,7 +3538,7 @@ if.then.i:                                        ; preds = %if.end
   br i1 %tobool2.not.i, label %vvfat_close_current_file.exit, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.then.i
-  %call.i = tail call i32 @qemu_close(i32 noundef %3) #19
+  %call.i = tail call i32 @qemu_close(i32 noundef %3) #20
   store i32 0, ptr %current_fd.i, align 8
   br label %vvfat_close_current_file.exit
 
@@ -3575,7 +3575,7 @@ land.lhs.true11:                                  ; preds = %for.body
 
 if.then18:                                        ; preds = %land.lhs.true11
   %7 = load ptr, ptr @stderr, align 8
-  %8 = tail call i64 @fwrite(ptr nonnull @.str.72, i64 39, i64 1, ptr %7) #24
+  %8 = tail call i64 @fwrite(ptr nonnull @.str.72, i64 39, i64 1, ptr %7) #25
   br label %return
 
 for.inc:                                          ; preds = %for.body, %land.lhs.true11
@@ -3645,7 +3645,7 @@ if.end.i.i:                                       ; preds = %if.then37
   br i1 %tobool.not.i.i, label %if.else2.i.i, label %array_get.exit.i
 
 if.else2.i.i:                                     ; preds = %if.end.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 array_get.exit.i:                                 ; preds = %if.end.i.i
@@ -3664,7 +3664,7 @@ land.lhs.true.i:                                  ; preds = %array_get.exit.i
   br i1 %cmp11.i, label %if.then40, label %if.else.i
 
 if.else.i:                                        ; preds = %land.lhs.true.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.13, i32 noundef 1355, ptr noundef nonnull @__PRETTY_FUNCTION__.find_mapping_for_cluster) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.13, i32 noundef 1355, ptr noundef nonnull @__PRETTY_FUNCTION__.find_mapping_for_cluster) #22
   unreachable
 
 if.then40:                                        ; preds = %land.lhs.true.i
@@ -3677,7 +3677,7 @@ if.then42:                                        ; preds = %if.then40
   %21 = load ptr, ptr @stderr, align 8
   %path = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 24
   %22 = load ptr, ptr %path, align 8
-  %call43 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %21, ptr noundef nonnull @.str.73, ptr noundef %22) #24
+  %call43 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %21, ptr noundef nonnull @.str.73, ptr noundef %22) #25
   br label %return
 
 if.end44:                                         ; preds = %if.then40
@@ -3748,7 +3748,7 @@ if.then94:                                        ; preds = %switch.early.test
   br i1 %cmp.i, label %if.end.i, label %if.else.i81
 
 if.else.i81:                                      ; preds = %if.then94
-  tail call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.13, i32 noundef 105, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.13, i32 noundef 105, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 if.end.i:                                         ; preds = %if.then94
@@ -3757,7 +3757,7 @@ if.end.i:                                         ; preds = %if.then94
   br i1 %tobool.not.i82, label %if.else2.i, label %array_get.exit
 
 if.else2.i:                                       ; preds = %if.end.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 array_get.exit:                                   ; preds = %if.end.i
@@ -3770,7 +3770,7 @@ array_get.exit:                                   ; preds = %if.end.i
   br i1 %tobool100.not, label %for.inc104, label %if.then101
 
 if.then101:                                       ; preds = %array_get.exit
-  tail call void (ptr, ...) @warn_report(ptr noundef nonnull @.str.74) #19
+  tail call void (ptr, ...) @warn_report(ptr noundef nonnull @.str.74) #20
   br label %return
 
 for.inc104:                                       ; preds = %switch.early.test, %switch.early.test, %is_short_name.exit, %for.body82, %for.body82, %array_get.exit
@@ -3801,8 +3801,8 @@ for.end111:                                       ; preds = %if.end110, %if.end2
   store ptr %buf, ptr %local_iov.i, align 8
   %iov_len.i = getelementptr inbounds i8, ptr %qiov.i, i64 32
   store i64 %mul115, ptr %iov_len.i, align 8
-  call void @assert_bdrv_graph_readable() #19
-  %call.i84 = call i32 @bdrv_co_pwritev(ptr noundef %31, i64 noundef %mul113, i64 noundef %mul115, ptr noundef nonnull %qiov.i, i32 noundef 0) #19
+  call void @assert_bdrv_graph_readable() #20
+  %call.i84 = call i32 @bdrv_co_pwritev(ptr noundef %31, i64 noundef %mul113, i64 noundef %mul115, ptr noundef nonnull %qiov.i, i32 noundef 0) #20
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %qiov.i)
   %cmp117 = icmp slt i32 %call.i84, 0
   br i1 %cmp117, label %if.then119, label %for.cond122.preheader
@@ -3816,7 +3816,7 @@ for.body125.lr.ph:                                ; preds = %for.cond122.prehead
 
 if.then119:                                       ; preds = %for.end111
   %33 = load ptr, ptr @stderr, align 8
-  %34 = call i64 @fwrite(ptr nonnull @.str.75, i64 30, i64 1, ptr %33) #24
+  %34 = call i64 @fwrite(ptr nonnull @.str.75, i64 30, i64 1, ptr %33) #25
   br label %return
 
 for.body125:                                      ; preds = %for.body125.lr.ph, %for.inc134
@@ -3851,7 +3851,7 @@ if.then.i.i:                                      ; preds = %for.end136
   br i1 %tobool2.not.i.i, label %vvfat_close_current_file.exit.i, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %if.then.i.i
-  %call.i.i = call i32 @qemu_close(i32 noundef %39) #19
+  %call.i.i = call i32 @qemu_close(i32 noundef %39) #20
   store i32 0, ptr %current_fd.i.i, align 8
   br label %vvfat_close_current_file.exit.i
 
@@ -3883,8 +3883,8 @@ entry:
   store ptr %buf, ptr %local_iov, align 8
   %iov_len = getelementptr inbounds i8, ptr %qiov, i64 32
   store i64 %bytes, ptr %iov_len, align 8
-  call void @assert_bdrv_graph_readable() #19
-  %call = call i32 @bdrv_co_pwritev(ptr noundef %child, i64 noundef %offset, i64 noundef %bytes, ptr noundef nonnull %qiov, i32 noundef %flags) #19
+  call void @assert_bdrv_graph_readable() #20
+  %call = call i32 @bdrv_co_pwritev(ptr noundef %child, i64 noundef %offset, i64 noundef %bytes, ptr noundef nonnull %qiov, i32 noundef %flags) #20
   ret i32 %call
 }
 
@@ -3904,7 +3904,7 @@ if.then.i:                                        ; preds = %entry
   br i1 %tobool2.not.i, label %vvfat_close_current_file.exit, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.then.i
-  %call.i = tail call i32 @qemu_close(i32 noundef %1) #19
+  %call.i = tail call i32 @qemu_close(i32 noundef %1) #20
   store i32 0, ptr %current_fd.i, align 8
   br label %vvfat_close_current_file.exit
 
@@ -3939,7 +3939,7 @@ if.then:                                          ; preds = %entry
   %1 = load i32, ptr %sectors_per_fat, align 8
   %mul = shl i32 %1, 9
   %conv = sext i32 %mul to i64
-  %call = tail call noalias ptr @g_malloc(i64 noundef %conv) #23
+  %call = tail call noalias ptr @g_malloc(i64 noundef %conv) #24
   store ptr %call, ptr %fat2, align 8
   %fat = getelementptr inbounds i8, ptr %s, i64 32832
   %2 = load ptr, ptr %fat, align 8
@@ -3961,7 +3961,7 @@ if.end:                                           ; preds = %if.then, %entry
 
 if.then8:                                         ; preds = %if.end
   %7 = load ptr, ptr @stderr, align 8
-  %8 = tail call i64 @fwrite(ptr nonnull @.str.76, i64 19, i64 1, ptr %7) #24
+  %8 = tail call i64 @fwrite(ptr nonnull @.str.76, i64 19, i64 1, ptr %7) #25
   br label %return
 
 if.end10:                                         ; preds = %if.end
@@ -3987,7 +3987,7 @@ for.cond.preheader:                               ; preds = %if.end10
   br i1 %cmp1673, label %for.body, label %for.end
 
 if.else:                                          ; preds = %if.end10
-  tail call void @__assert_fail(ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.13, i32 noundef 2172, ptr noundef nonnull @__PRETTY_FUNCTION__.is_consistent) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.13, i32 noundef 2172, ptr noundef nonnull @__PRETTY_FUNCTION__.is_consistent) #22
   unreachable
 
 for.body:                                         ; preds = %for.cond.preheader, %for.body
@@ -4029,7 +4029,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   br i1 %cmp.i.i, label %if.end.i.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %for.body.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.13, i32 noundef 105, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.13, i32 noundef 105, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 if.end.i.i:                                       ; preds = %for.body.i
@@ -4038,7 +4038,7 @@ if.end.i.i:                                       ; preds = %for.body.i
   br i1 %tobool.not.i.i, label %if.else2.i.i, label %array_get.exit.i
 
 if.else2.i.i:                                     ; preds = %if.end.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 array_get.exit.i:                                 ; preds = %if.end.i.i
@@ -4057,19 +4057,19 @@ lor.lhs.false.i:                                  ; preds = %array_get.exit.i
   br i1 %cmp2.i, label %for.inc.i, label %if.else.i
 
 if.else.i:                                        ; preds = %lor.lhs.false.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.78, ptr noundef nonnull @.str.13, i32 noundef 1605, ptr noundef nonnull @__PRETTY_FUNCTION__.clear_commits) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.78, ptr noundef nonnull @.str.13, i32 noundef 1605, ptr noundef nonnull @__PRETTY_FUNCTION__.clear_commits) #22
   unreachable
 
 if.end.thread.i:                                  ; preds = %array_get.exit.i
   br i1 %cmp2.i, label %if.else16.i, label %if.end10.i
 
 if.end10.i:                                       ; preds = %if.end.thread.i
-  tail call void @g_free(ptr noundef nonnull %22) #19
+  tail call void @g_free(ptr noundef nonnull %22) #20
   %.pre.i = load i32, ptr %next.i, align 4
   br label %for.inc.i
 
 if.else16.i:                                      ; preds = %if.end.thread.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.80, ptr noundef nonnull @.str.13, i32 noundef 1610, ptr noundef nonnull @__PRETTY_FUNCTION__.clear_commits) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.80, ptr noundef nonnull @.str.13, i32 noundef 1610, ptr noundef nonnull @__PRETTY_FUNCTION__.clear_commits) #22
   unreachable
 
 for.inc.i:                                        ; preds = %if.end10.i, %lor.lhs.false.i
@@ -4103,7 +4103,7 @@ for.body26:                                       ; preds = %for.body26.lr.ph, %
   br i1 %cmp.i46, label %if.end.i, label %if.else.i47
 
 if.else.i47:                                      ; preds = %for.body26
-  tail call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.13, i32 noundef 105, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.13, i32 noundef 105, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 if.end.i:                                         ; preds = %for.body26
@@ -4112,7 +4112,7 @@ if.end.i:                                         ; preds = %for.body26
   br i1 %tobool.not.i48, label %if.else2.i, label %array_get.exit
 
 if.else2.i:                                       ; preds = %if.end.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 array_get.exit:                                   ; preds = %if.end.i
@@ -4292,7 +4292,7 @@ vvfat_close_current_file.exit.thread:             ; preds = %if.end, %if.then.i
   br label %for.body.lr.ph.lr.ph.i
 
 vvfat_close_current_file.exit:                    ; preds = %if.then.i
-  %call.i = tail call i32 @qemu_close(i32 noundef %2) #19
+  %call.i = tail call i32 @qemu_close(i32 noundef %2) #20
   store i32 0, ptr %current_fd.i, align 8
   %.pre = load i32, ptr %next, align 4
   %current_cluster.i = getelementptr inbounds i8, ptr %s, i64 32992
@@ -4327,7 +4327,7 @@ for.body.i:                                       ; preds = %for.cond.backedge.i
   br i1 %cmp.i.i, label %if.end.i.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %for.body.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.13, i32 noundef 105, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.13, i32 noundef 105, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 if.end.i.i:                                       ; preds = %for.body.i
@@ -4336,7 +4336,7 @@ if.end.i.i:                                       ; preds = %for.body.i
   br i1 %tobool.not.i.i, label %if.else2.i.i, label %array_get.exit.i
 
 if.else2.i.i:                                     ; preds = %if.end.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 array_get.exit.i:                                 ; preds = %if.end.i.i
@@ -4366,7 +4366,7 @@ if.end.i.i.i:                                     ; preds = %if.then.i20
   br i1 %tobool.not.i.i.i, label %if.else2.i.i.i, label %array_get.exit.i.i
 
 if.else2.i.i.i:                                   ; preds = %if.end.i.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 array_get.exit.i.i:                               ; preds = %if.end.i.i.i
@@ -4385,7 +4385,7 @@ land.lhs.true.i.i:                                ; preds = %array_get.exit.i.i
   br i1 %cmp11.i.i, label %if.end.i, label %if.else.i87.i
 
 if.else.i87.i:                                    ; preds = %land.lhs.true.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.13, i32 noundef 1355, ptr noundef nonnull @__PRETTY_FUNCTION__.find_mapping_for_cluster) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.13, i32 noundef 1355, ptr noundef nonnull @__PRETTY_FUNCTION__.find_mapping_for_cluster) #22
   unreachable
 
 if.end.i:                                         ; preds = %land.lhs.true.i.i
@@ -4396,12 +4396,12 @@ if.end.i:                                         ; preds = %land.lhs.true.i.i
   br i1 %tobool.not.i21, label %if.else.i, label %if.end8.i
 
 if.else.i:                                        ; preds = %if.end.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.79, ptr noundef nonnull @.str.13, i32 noundef 2682, ptr noundef nonnull @__PRETTY_FUNCTION__.handle_renames_and_mkdirs) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.79, ptr noundef nonnull @.str.13, i32 noundef 2682, ptr noundef nonnull @__PRETTY_FUNCTION__.handle_renames_and_mkdirs) #22
   unreachable
 
 if.end8.i:                                        ; preds = %if.end.i
   store ptr %18, ptr %path.i, align 8
-  %call12.i = tail call i32 @rename(ptr noundef %17, ptr noundef nonnull %18) #19
+  %call12.i = tail call i32 @rename(ptr noundef %17, ptr noundef nonnull %18) #20
   %tobool13.not.i = icmp eq i32 %call12.i, 0
   br i1 %tobool13.not.i, label %if.end15.i, label %if.then1
 
@@ -4414,9 +4414,9 @@ if.end15.i:                                       ; preds = %if.end8.i
 
 if.then17.i:                                      ; preds = %if.end15.i
   %20 = load ptr, ptr %path.i, align 8
-  %call19.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %20) #20
+  %call19.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %20) #21
   %conv.i = trunc i64 %call19.i to i32
-  %call20.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %17) #20
+  %call20.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %17) #21
   %conv21.i = trunc i64 %call20.i to i32
   %first_dir_index.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 20
   %21 = load i32, ptr %first_dir_index.i, align 4
@@ -4425,7 +4425,7 @@ if.then17.i:                                      ; preds = %if.end15.i
   br i1 %cmp.i89.i, label %if.end.i91.i, label %if.else.i90.i
 
 if.else.i90.i:                                    ; preds = %if.then17.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.13, i32 noundef 105, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.13, i32 noundef 105, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 if.end.i91.i:                                     ; preds = %if.then17.i
@@ -4434,7 +4434,7 @@ if.end.i91.i:                                     ; preds = %if.then17.i
   br i1 %tobool.not.i92.i, label %if.else2.i97.i, label %array_get.exit98.i
 
 if.else2.i97.i:                                   ; preds = %if.end.i91.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 array_get.exit98.i:                               ; preds = %if.end.i91.i
@@ -4524,7 +4524,7 @@ if.end.i.i115.i:                                  ; preds = %if.then33.i
   br i1 %tobool.not.i.i117.i, label %if.else2.i.i128.i, label %array_get.exit.i118.i
 
 if.else2.i.i128.i:                                ; preds = %if.end.i.i115.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 array_get.exit.i118.i:                            ; preds = %if.end.i.i115.i
@@ -4543,34 +4543,34 @@ land.lhs.true.i124.i:                             ; preds = %array_get.exit.i118
   br i1 %cmp11.i126.i, label %if.end39.i, label %if.else.i127.i
 
 if.else.i127.i:                                   ; preds = %land.lhs.true.i124.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.13, i32 noundef 1355, ptr noundef nonnull @__PRETTY_FUNCTION__.find_mapping_for_cluster) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.13, i32 noundef 1355, ptr noundef nonnull @__PRETTY_FUNCTION__.find_mapping_for_cluster) #22
   unreachable
 
 if.end39.i:                                       ; preds = %land.lhs.true.i124.i
   %path40.i = getelementptr inbounds i8, ptr %add.ptr.i.i122.i, i64 24
   %38 = load ptr, ptr %path40.i, align 8
-  %call41.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %38) #20
+  %call41.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %38) #21
   %conv42.i = trunc i64 %call41.i to i32
   %add43.i = add i32 %add.i, %conv42.i
   %conv44.i = sext i32 %add43.i to i64
-  %call45.i = tail call noalias ptr @g_malloc(i64 noundef %conv44.i) #23
+  %call45.i = tail call noalias ptr @g_malloc(i64 noundef %conv44.i) #24
   %39 = load ptr, ptr %path40.i, align 8
   %40 = load ptr, ptr %path.i, align 8
-  %call49.i = tail call i32 @strncmp(ptr noundef %39, ptr noundef %40, i64 noundef %conv48.i) #20
+  %call49.i = tail call i32 @strncmp(ptr noundef %39, ptr noundef %40, i64 noundef %conv48.i) #21
   %tobool50.not.i = icmp eq i32 %call49.i, 0
   br i1 %tobool50.not.i, label %if.end53.i, label %if.else52.i
 
 if.else52.i:                                      ; preds = %if.end39.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.97, ptr noundef nonnull @.str.13, i32 noundef 2712, ptr noundef nonnull @__PRETTY_FUNCTION__.handle_renames_and_mkdirs) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.97, ptr noundef nonnull @.str.13, i32 noundef 2712, ptr noundef nonnull @__PRETTY_FUNCTION__.handle_renames_and_mkdirs) #22
   unreachable
 
 if.end53.i:                                       ; preds = %if.end39.i
-  tail call void @pstrcpy(ptr noundef %call45.i, i32 noundef %add43.i, ptr noundef %40) #19
+  tail call void @pstrcpy(ptr noundef %call45.i, i32 noundef %add43.i, ptr noundef %40) #20
   %add.ptr58.i = getelementptr i8, ptr %call45.i, i64 %idx.ext57.i
   %sub61.i = sub i32 %add43.i, %conv.i
   %41 = load ptr, ptr %path40.i, align 8
   %add.ptr64.i = getelementptr i8, ptr %41, i64 %conv48.i
-  tail call void @pstrcpy(ptr noundef %add.ptr58.i, i32 noundef %sub61.i, ptr noundef %add.ptr64.i) #19
+  tail call void @pstrcpy(ptr noundef %add.ptr58.i, i32 noundef %sub61.i, ptr noundef %add.ptr64.i) #20
   %42 = load i32, ptr %add.ptr.i.i122.i, align 8
   %call.i130.i = tail call fastcc ptr @array_get_next(ptr noundef nonnull %commits.i123)
   store ptr %call45.i, ptr %call.i130.i, align 8
@@ -4596,11 +4596,11 @@ do.end.i:                                         ; preds = %if.end66.i
   br i1 %cmp.i99.not.i, label %if.end70.i, label %do.body.preheader.i, !llvm.loop !27
 
 if.end70.i:                                       ; preds = %do.end.i, %array_get.exit98.i, %if.end15.i
-  tail call void @g_free(ptr noundef %17) #19
+  tail call void @g_free(ptr noundef %17) #20
   br i1 %cmp.i.i152.i, label %if.end.i.i132.i, label %if.else.i.i.i
 
 if.else.i.i.i:                                    ; preds = %if.end70.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.100, ptr noundef nonnull @.str.13, i32 noundef 147, ptr noundef nonnull @__PRETTY_FUNCTION__.array_remove_slice) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.100, ptr noundef nonnull @.str.13, i32 noundef 147, ptr noundef nonnull @__PRETTY_FUNCTION__.array_remove_slice) #22
   unreachable
 
 if.end.i.i132.i:                                  ; preds = %if.end70.i
@@ -4609,7 +4609,7 @@ if.end.i.i132.i:                                  ; preds = %if.end70.i
   br i1 %cmp5.not.i.not.i.i, label %for.cond.backedge.i, label %if.else7.i.i.i
 
 if.else7.i.i.i:                                   ; preds = %if.end.i.i132.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.13, i32 noundef 149, ptr noundef nonnull @__PRETTY_FUNCTION__.array_remove_slice) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.13, i32 noundef 149, ptr noundef nonnull @__PRETTY_FUNCTION__.array_remove_slice) #22
   unreachable
 
 for.cond.backedge.i:                              ; preds = %if.end.i.i154.i, %if.end.i.i132.i
@@ -4634,7 +4634,7 @@ for.cond.backedge.i:                              ; preds = %if.end.i.i154.i, %i
 
 if.then77.i:                                      ; preds = %array_get.exit.i
   %47 = load ptr, ptr %add.ptr.i.i, align 8
-  %call81.i = tail call i32 @mkdir(ptr noundef %47, i32 noundef 493) #19
+  %call81.i = tail call i32 @mkdir(ptr noundef %47, i32 noundef 493) #20
   %tobool82.not.i = icmp eq i32 %call81.i, 0
   br i1 %tobool82.not.i, label %if.end84.i, label %if.then1
 
@@ -4659,7 +4659,7 @@ if.end94.i:                                       ; preds = %if.end84.i
   br i1 %tobool100.not.i, label %if.else102.i, label %if.end103.i
 
 if.else102.i:                                     ; preds = %if.end94.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.98, ptr noundef nonnull @.str.13, i32 noundef 2746, ptr noundef nonnull @__PRETTY_FUNCTION__.handle_renames_and_mkdirs) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.98, ptr noundef nonnull @.str.13, i32 noundef 2746, ptr noundef nonnull @__PRETTY_FUNCTION__.handle_renames_and_mkdirs) #22
   unreachable
 
 if.end103.i:                                      ; preds = %if.end94.i
@@ -4675,13 +4675,13 @@ if.end103.i:                                      ; preds = %if.end94.i
 
 for.body124.lr.ph.i:                              ; preds = %if.end103.i
   %53 = load ptr, ptr %add.ptr.i.i, align 8
-  %call.i137.i = tail call ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %53, i32 noundef 47) #20
+  %call.i137.i = tail call ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %53, i32 noundef 47) #21
   %cmp.i138.i = icmp eq ptr %call.i137.i, null
   %add.ptr.i139.i = getelementptr i8, ptr %call.i137.i, i64 1
   %retval.0.i140.i = select i1 %cmp.i138.i, ptr %53, ptr %add.ptr.i139.i
-  %call115.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %retval.0.i140.i) #20
+  %call115.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %retval.0.i140.i) #21
   %54 = xor i64 %call115.i, -1
-  %call112.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %53) #20
+  %call112.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %53) #21
   %sub117.i = add i64 %call112.i, %54
   %sext.i = shl i64 %sub117.i, 32
   %conv136.i = ashr exact i64 %sext.i, 32
@@ -4708,19 +4708,19 @@ if.end.i144.i:                                    ; preds = %for.body124.lr.ph.i
   br i1 %or.cond.i, label %for.inc.i, label %land.lhs.true133.i
 
 if.else2.i150.i:                                  ; preds = %for.body124.lr.ph.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 land.lhs.true133.i:                               ; preds = %if.end.i144.i
   %path134.i = getelementptr inbounds i8, ptr %add.ptr.i149.i, i64 24
   %60 = load ptr, ptr %path134.i, align 8
   %61 = load ptr, ptr %path97.i, align 8
-  %call137.i = tail call i32 @strncmp(ptr noundef %60, ptr noundef %61, i64 noundef %conv136.i) #20
+  %call137.i = tail call i32 @strncmp(ptr noundef %60, ptr noundef %61, i64 noundef %conv136.i) #21
   %tobool138.not.i = icmp eq i32 %call137.i, 0
   br i1 %tobool138.not.i, label %land.lhs.true139.i, label %for.inc.i
 
 land.lhs.true139.i:                               ; preds = %land.lhs.true133.i
-  %call141.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %60) #20
+  %call141.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %60) #21
   %cmp143.i = icmp eq i64 %call141.i, %conv136.i
   br i1 %cmp143.i, label %if.end154.i, label %for.inc.i
 
@@ -4730,7 +4730,7 @@ for.inc.i:                                        ; preds = %land.lhs.true139.i,
   br i1 %exitcond213.not.i, label %if.else153.i, label %if.end.i144.i, !llvm.loop !29
 
 if.else153.i:                                     ; preds = %if.end103.i, %for.inc.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.99, ptr noundef nonnull @.str.13, i32 noundef 2760, ptr noundef nonnull @__PRETTY_FUNCTION__.handle_renames_and_mkdirs) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.99, ptr noundef nonnull @.str.13, i32 noundef 2760, ptr noundef nonnull @__PRETTY_FUNCTION__.handle_renames_and_mkdirs) #22
   unreachable
 
 if.end154.i:                                      ; preds = %land.lhs.true139.i
@@ -4738,7 +4738,7 @@ if.end154.i:                                      ; preds = %land.lhs.true139.i
   br i1 %cmp.i.i152.i, label %if.end.i.i154.i, label %if.else.i.i153.i
 
 if.else.i.i153.i:                                 ; preds = %if.end154.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.100, ptr noundef nonnull @.str.13, i32 noundef 147, ptr noundef nonnull @__PRETTY_FUNCTION__.array_remove_slice) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.100, ptr noundef nonnull @.str.13, i32 noundef 147, ptr noundef nonnull @__PRETTY_FUNCTION__.array_remove_slice) #22
   unreachable
 
 if.end.i.i154.i:                                  ; preds = %if.end154.i
@@ -4747,7 +4747,7 @@ if.end.i.i154.i:                                  ; preds = %if.end154.i
   br i1 %cmp5.not.i.not.i156.i, label %for.cond.backedge.i, label %if.else7.i.i157.i
 
 if.else7.i.i157.i:                                ; preds = %if.end.i.i154.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.13, i32 noundef 149, ptr noundef nonnull @__PRETTY_FUNCTION__.array_remove_slice) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.13, i32 noundef 149, ptr noundef nonnull @__PRETTY_FUNCTION__.array_remove_slice) #22
   unreachable
 
 if.end159.i:                                      ; preds = %array_get.exit.i
@@ -4757,8 +4757,8 @@ if.end159.i:                                      ; preds = %array_get.exit.i
 if.then1:                                         ; preds = %if.end8.i, %if.then77.i, %if.end84.i, %if.then.i20, %array_get.exit.i.i, %if.then33.i, %array_get.exit.i118.i
   %retval.0.i.ph = phi i32 [ -1, %array_get.exit.i118.i ], [ -1, %if.then33.i ], [ -2, %if.end8.i ], [ -5, %if.then77.i ], [ -6, %if.end84.i ], [ -1, %if.then.i20 ], [ -1, %array_get.exit.i.i ]
   %63 = load ptr, ptr @stderr, align 8
-  %call2 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %63, ptr noundef nonnull @.str.93, i32 noundef %retval.0.i.ph) #24
-  tail call void @abort() #21
+  %call2 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %63, ptr noundef nonnull @.str.93, i32 noundef %retval.0.i.ph) #25
+  tail call void @abort() #22
   unreachable
 
 if.end3:                                          ; preds = %if.end159.i, %for.cond.backedge.i, %vvfat_close_current_file.exit
@@ -4777,8 +4777,8 @@ if.end3:                                          ; preds = %if.end159.i, %for.c
 
 if.then6:                                         ; preds = %if.end3
   %67 = load ptr, ptr @stderr, align 8
-  %call7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %67, ptr noundef nonnull @.str.94, i32 noundef %call4) #24
-  tail call void @abort() #21
+  %call7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %67, ptr noundef nonnull @.str.94, i32 noundef %call4) #25
+  tail call void @abort() #22
   unreachable
 
 if.end8:                                          ; preds = %if.end3
@@ -4788,8 +4788,8 @@ if.end8:                                          ; preds = %if.end3
 
 if.then11:                                        ; preds = %if.end8
   %68 = load ptr, ptr @stderr, align 8
-  %call12 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %68, ptr noundef nonnull @.str.95, i32 noundef %call9) #24
-  tail call void @abort() #21
+  %call12 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %68, ptr noundef nonnull @.str.95, i32 noundef %call9) #25
+  tail call void @abort() #22
   unreachable
 
 if.end13:                                         ; preds = %if.end8
@@ -4823,7 +4823,7 @@ for.body.i26:                                     ; preds = %for.cond.preheader.
   br i1 %cmp.i.i27, label %if.end.i.i29, label %if.else.i.i28
 
 if.else.i.i28:                                    ; preds = %for.body.i26
-  tail call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.13, i32 noundef 105, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.13, i32 noundef 105, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 if.end.i.i29:                                     ; preds = %for.body.i26
@@ -4832,7 +4832,7 @@ if.end.i.i29:                                     ; preds = %for.body.i26
   br i1 %tobool.not.i.i30, label %if.else2.i.i48, label %array_get.exit.i31
 
 if.else2.i.i48:                                   ; preds = %if.end.i.i29
-  tail call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 array_get.exit.i31:                               ; preds = %if.end.i.i29
@@ -4854,7 +4854,7 @@ if.then.i37:                                      ; preds = %array_get.exit.i31
   br i1 %cmp.i28.i, label %if.end.i30.i, label %if.else.i29.i
 
 if.else.i29.i:                                    ; preds = %if.then.i37
-  tail call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.13, i32 noundef 105, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.13, i32 noundef 105, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 if.end.i30.i:                                     ; preds = %if.then.i37
@@ -4863,7 +4863,7 @@ if.end.i30.i:                                     ; preds = %if.then.i37
   br i1 %tobool.not.i31.i, label %if.else2.i36.i, label %array_get.exit37.i
 
 if.else2.i36.i:                                   ; preds = %if.end.i30.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 array_get.exit37.i:                               ; preds = %if.end.i30.i
@@ -4887,7 +4887,7 @@ if.then13.i:                                      ; preds = %if.then9.i
   %81 = load i32, ptr %first_dir_index16.i, align 4
   %path.i38 = getelementptr inbounds i8, ptr %add.ptr.i.i34, i64 24
   %82 = load ptr, ptr %path.i38, align 8
-  %call17.i = tail call i32 @rmdir(ptr noundef %82) #19
+  %call17.i = tail call i32 @rmdir(ptr noundef %82) #20
   %cmp18.i = icmp slt i32 %call17.i, 0
   br i1 %cmp18.i, label %if.then19.i, label %for.cond23.preheader.i
 
@@ -4902,7 +4902,7 @@ for.body27.i.preheader:                           ; preds = %for.cond23.preheade
   br label %if.end.i42.i
 
 if.then19.i:                                      ; preds = %if.then13.i
-  %call20.i45 = tail call ptr @__errno_location() #22
+  %call20.i45 = tail call ptr @__errno_location() #23
   %85 = load i32, ptr %call20.i45, align 4
   %cmp21.i = icmp eq i32 %85, 39
   br i1 %cmp21.i, label %if.then22.i, label %if.then16
@@ -4917,7 +4917,7 @@ if.end.i42.i:                                     ; preds = %for.inc.i44, %for.b
   br i1 %tobool.not.i43.i, label %if.else2.i48.i, label %array_get.exit49.i
 
 if.else2.i48.i:                                   ; preds = %if.end.i42.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 array_get.exit49.i:                               ; preds = %if.end.i42.i
@@ -4955,7 +4955,7 @@ for.end.i:                                        ; preds = %for.inc.i44, %for.c
 if.else48.i:                                      ; preds = %array_get.exit37.i
   %path49.i = getelementptr inbounds i8, ptr %add.ptr.i.i34, i64 24
   %90 = load ptr, ptr %path49.i, align 8
-  %call50.i = tail call i32 @unlink(ptr noundef %90) #19
+  %call50.i = tail call i32 @unlink(ptr noundef %90) #20
   %tobool51.not.i = icmp eq i32 %call50.i, 0
   br i1 %tobool51.not.i, label %if.end53.i47, label %if.then16
 
@@ -4978,14 +4978,14 @@ for.inc58.i:                                      ; preds = %if.end55.i, %if.the
 
 if.then16:                                        ; preds = %if.else48.i, %if.then19.i
   %92 = load ptr, ptr @stderr, align 8
-  %93 = tail call i64 @fwrite(ptr nonnull @.str.96, i64 15, i64 1, ptr %92) #24
-  tail call void @abort() #21
+  %93 = tail call i64 @fwrite(ptr nonnull @.str.96, i64 15, i64 1, ptr %92) #25
+  tail call void @abort() #22
   unreachable
 
 if.end18:                                         ; preds = %for.cond.preheader.i, %while.cond.loopexit.i, %if.end13
   %qcow = getelementptr inbounds i8, ptr %s, i64 33008
   %94 = load ptr, ptr %qcow, align 8
-  %call19 = tail call i32 @bdrv_make_empty(ptr noundef %94, ptr noundef null) #19
+  %call19 = tail call i32 @bdrv_make_empty(ptr noundef %94, ptr noundef null) #20
   %used_clusters = getelementptr inbounds i8, ptr %s, i64 33024
   %95 = load ptr, ptr %used_clusters, align 8
   %sector_count = getelementptr inbounds i8, ptr %s, i64 32940
@@ -5017,7 +5017,7 @@ entry:
   %cluster_size = getelementptr inbounds i8, ptr %s, i64 32920
   %0 = load i32, ptr %cluster_size, align 8
   %conv = zext i32 %0 to i64
-  %call = tail call noalias ptr @g_malloc(i64 noundef %conv) #23
+  %call = tail call noalias ptr @g_malloc(i64 noundef %conv) #24
   %next.i = getelementptr inbounds i8, ptr %s, i64 32892
   %1 = load i32, ptr %next.i, align 4
   %call.i = tail call fastcc i32 @find_mapping_for_cluster_aux(ptr noundef readonly %s, i32 noundef %cluster_num, i32 noundef %1)
@@ -5032,7 +5032,7 @@ if.end.i.i:                                       ; preds = %entry
   br i1 %tobool.not.i.i, label %if.else2.i.i, label %array_get.exit.i
 
 if.else2.i.i:                                     ; preds = %if.end.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 array_get.exit.i:                                 ; preds = %if.end.i.i
@@ -5052,22 +5052,22 @@ land.lhs.true.i:                                  ; preds = %array_get.exit.i
   br i1 %cmp11.i, label %find_mapping_for_cluster.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %land.lhs.true.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.13, i32 noundef 1355, ptr noundef nonnull @__PRETTY_FUNCTION__.find_mapping_for_cluster) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.13, i32 noundef 1355, ptr noundef nonnull @__PRETTY_FUNCTION__.find_mapping_for_cluster) #22
   unreachable
 
 find_mapping_for_cluster.exit:                    ; preds = %entry, %array_get.exit.i, %land.lhs.true.i
   %retval.0.i = phi ptr [ null, %entry ], [ null, %array_get.exit.i ], [ %add.ptr.i.i, %land.lhs.true.i ]
-  %call2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %path) #20
+  %call2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %path) #21
   %conv3 = trunc i64 %call2 to i32
   %cmp = icmp slt i32 %conv3, 4096
   br i1 %cmp, label %if.end, label %if.else
 
 if.else:                                          ; preds = %find_mapping_for_cluster.exit
-  tail call void @__assert_fail(ptr noundef nonnull @.str.81, ptr noundef nonnull @.str.13, i32 noundef 2026, ptr noundef nonnull @__PRETTY_FUNCTION__.check_directory_consistency) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.81, ptr noundef nonnull @.str.13, i32 noundef 2026, ptr noundef nonnull @__PRETTY_FUNCTION__.check_directory_consistency) #22
   unreachable
 
 if.end:                                           ; preds = %find_mapping_for_cluster.exit
-  call void @pstrcpy(ptr noundef nonnull %path2, i32 noundef 4097, ptr noundef %path) #19
+  call void @pstrcpy(ptr noundef nonnull %path2, i32 noundef 4097, ptr noundef %path) #20
   %sext = shl i64 %call2, 32
   %idxprom = ashr exact i64 %sext, 32
   %arrayidx = getelementptr [4097 x i8], ptr %path2, i64 0, i64 %idxprom
@@ -5082,11 +5082,11 @@ if.end:                                           ; preds = %find_mapping_for_cl
 if.then7:                                         ; preds = %if.end
   %path8 = getelementptr inbounds i8, ptr %retval.0.i, i64 24
   %7 = load ptr, ptr %path8, align 8
-  %call.i86 = call ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %7, i32 noundef 47) #20
+  %call.i86 = call ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %7, i32 noundef 47) #21
   %cmp.i = icmp eq ptr %call.i86, null
   %add.ptr.i = getelementptr i8, ptr %call.i86, i64 1
   %retval.0.i87 = select i1 %cmp.i, ptr %7, ptr %add.ptr.i
-  %call.i88 = call ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %path, i32 noundef 47) #20
+  %call.i88 = call ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %path, i32 noundef 47) #21
   %cmp.i89 = icmp eq ptr %call.i88, null
   %add.ptr.i90 = getelementptr i8, ptr %call.i88, i64 1
   %retval.0.i91 = select i1 %cmp.i89, ptr %path, ptr %add.ptr.i90
@@ -5097,7 +5097,7 @@ if.then7:                                         ; preds = %if.end
   br i1 %tobool11.not, label %if.else13, label %if.end14
 
 if.else13:                                        ; preds = %if.then7
-  call void @__assert_fail(ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.13, i32 noundef 2035, ptr noundef nonnull @__PRETTY_FUNCTION__.check_directory_consistency) #21
+  call void @__assert_fail(ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.13, i32 noundef 2035, ptr noundef nonnull @__PRETTY_FUNCTION__.check_directory_consistency) #22
   unreachable
 
 if.end14:                                         ; preds = %if.then7
@@ -5106,19 +5106,19 @@ if.end14:                                         ; preds = %if.then7
   br i1 %tobool17.not, label %if.else19, label %if.end20
 
 if.else19:                                        ; preds = %if.end14
-  call void @__assert_fail(ptr noundef nonnull @.str.82, ptr noundef nonnull @.str.13, i32 noundef 2037, ptr noundef nonnull @__PRETTY_FUNCTION__.check_directory_consistency) #21
+  call void @__assert_fail(ptr noundef nonnull @.str.82, ptr noundef nonnull @.str.13, i32 noundef 2037, ptr noundef nonnull @__PRETTY_FUNCTION__.check_directory_consistency) #22
   unreachable
 
 if.end20:                                         ; preds = %if.end14
   %and22 = and i32 %8, -9
   store i32 %and22, ptr %mode, align 8
-  %call23 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %retval.0.i87, ptr noundef nonnull dereferenceable(1) %retval.0.i91) #20
+  %call23 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %retval.0.i87, ptr noundef nonnull dereferenceable(1) %retval.0.i91) #21
   %tobool24.not = icmp eq i32 %call23, 0
   br i1 %tobool24.not, label %if.end30, label %if.end30.sink.split
 
 if.end30.sink.split:                              ; preds = %if.end, %if.end20
   %.sink = phi i32 [ 0, %if.end20 ], [ 3, %if.end ]
-  %call26 = call noalias ptr @g_strdup(ptr noundef %path) #19
+  %call26 = call noalias ptr @g_strdup(ptr noundef %path) #20
   %commits.i = getelementptr inbounds i8, ptr %s, i64 33032
   %call.i92 = call fastcc ptr @array_get_next(ptr noundef nonnull %commits.i)
   store ptr %call26, ptr %call.i92, align 8
@@ -5164,7 +5164,7 @@ do.body:                                          ; preds = %modified_fat_get.ex
 
 if.then36:                                        ; preds = %do.body
   %16 = load ptr, ptr @stderr, align 8
-  %call37 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.83, i32 noundef %cluster_num.addr.0) #24
+  %call37 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.83, i32 noundef %cluster_num.addr.0) #25
   br label %return
 
 if.end38:                                         ; preds = %do.body
@@ -5188,7 +5188,7 @@ for.cond.preheader:                               ; preds = %if.end38
 
 if.then45:                                        ; preds = %if.end38
   %19 = load ptr, ptr @stderr, align 8
-  %20 = call i64 @fwrite(ptr nonnull @.str.84, i64 26, i64 1, ptr %19) #24
+  %20 = call i64 @fwrite(ptr nonnull @.str.84, i64 26, i64 1, ptr %19) #25
   br label %return
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
@@ -5349,7 +5349,7 @@ if.end85.i:                                       ; preds = %if.then83.i, %for.e
 if.then91.i:                                      ; preds = %if.end85.i
   %35 = load i32, ptr %len.i, align 4
   %conv94.i = sext i32 %35 to i64
-  %call95.i = call noalias ptr @g_utf16_to_utf8(ptr noundef nonnull %name2.i, i64 noundef %conv94.i, ptr noundef null, ptr noundef nonnull %olen.i, ptr noundef null) #19
+  %call95.i = call noalias ptr @g_utf16_to_utf8(ptr noundef nonnull %name2.i, i64 noundef %conv94.i, ptr noundef null, ptr noundef nonnull %olen.i, ptr noundef null) #20
   %tobool96.not.i = icmp eq ptr %call95.i, null
   br i1 %tobool96.not.i, label %if.then72, label %if.end98.i
 
@@ -5359,13 +5359,13 @@ if.end98.i:                                       ; preds = %if.then91.i
   store i32 %conv99.i, ptr %len.i, align 4
   %add103.i = add i64 %36, 1
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %lfn, ptr nonnull align 1 %call95.i, i64 %add103.i, i1 false)
-  call void @g_free(ptr noundef nonnull %call95.i) #19
+  call void @g_free(ptr noundef nonnull %call95.i) #20
   br label %if.end74.thread
 
 if.then72:                                        ; preds = %if.else.i108, %if.else18.i, %lor.lhs.false32.i, %lor.lhs.false.i, %if.else25.i, %if.then91.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %olen.i)
   %37 = load ptr, ptr @stderr, align 8
-  %38 = call i64 @fwrite(ptr nonnull @.str.85, i64 19, i64 1, ptr %37) #24
+  %38 = call i64 @fwrite(ptr nonnull @.str.85, i64 19, i64 1, ptr %37) #25
   br label %return
 
 if.end74.thread:                                  ; preds = %if.end98.i, %if.end85.i
@@ -5440,7 +5440,7 @@ for.body6.i:                                      ; preds = %for.inc37.i, %for.b
   %arrayidx9.i = getelementptr [11 x i8], ptr %add.ptr, i64 0, i64 %indvars.iv
   %43 = load i8, ptr %arrayidx9.i, align 1
   %conv10.i = zext i8 %43 to i32
-  %call.i.i = call i32 @g_unichar_toupper(i32 noundef %conv10.i) #22
+  %call.i.i = call i32 @g_unichar_toupper(i32 noundef %conv10.i) #23
   %44 = add i32 %call.i.i, -48
   %or.cond.i.i = icmp ult i32 %44, 10
   %45 = add i32 %call.i.i, -65
@@ -5468,7 +5468,7 @@ if.else.i128:                                     ; preds = %to_valid_short_char
   br i1 %tobool17.not.i, label %for.inc37.i, label %if.then18.i
 
 if.then18.i:                                      ; preds = %if.else.i128
-  %call23.i = call i32 @tolower(i32 noundef %conv10.i) #20
+  %call23.i = call i32 @tolower(i32 noundef %conv10.i) #21
   %conv24.i = trunc i32 %call23.i to i8
   br label %for.inc37.i
 
@@ -5517,7 +5517,7 @@ for.body69.i:                                     ; preds = %for.inc100.i, %for.
   %arrayidx74.i = getelementptr [11 x i8], ptr %add.ptr, i64 0, i64 %52
   %53 = load i8, ptr %arrayidx74.i, align 1
   %conv75.i = zext i8 %53 to i32
-  %call.i48.i = call i32 @g_unichar_toupper(i32 noundef %conv75.i) #22
+  %call.i48.i = call i32 @g_unichar_toupper(i32 noundef %conv75.i) #23
   %54 = add i32 %call.i48.i, -48
   %or.cond.i49.i = icmp ult i32 %54, 10
   %55 = add i32 %call.i48.i, -65
@@ -5545,7 +5545,7 @@ if.else82.i:                                      ; preds = %to_valid_short_char
   br i1 %tobool84.not.i, label %for.inc100.i, label %if.then85.i
 
 if.then85.i:                                      ; preds = %if.else82.i
-  %call87.i = call i32 @tolower(i32 noundef %conv75.i) #20
+  %call87.i = call i32 @tolower(i32 noundef %conv75.i) #21
   %conv88.i = trunc i32 %call87.i to i8
   br label %for.inc100.i
 
@@ -5576,11 +5576,11 @@ if.then115.i:                                     ; preds = %if.end109.i
 if.then97:                                        ; preds = %to_valid_short_char.exit.i, %to_valid_short_char.exit58.i
   %retval.0.i121 = phi i32 [ -2, %to_valid_short_char.exit58.i ], [ -1, %to_valid_short_char.exit.i ]
   %59 = load ptr, ptr @stderr, align 8
-  %call98 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %59, ptr noundef nonnull @.str.86, i32 noundef %retval.0.i121) #24
+  %call98 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %59, ptr noundef nonnull @.str.86, i32 noundef %retval.0.i121) #25
   br label %return
 
 if.end99:                                         ; preds = %if.end109.i, %if.then115.i
-  %call120.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %lfn) #20
+  %call120.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %lfn) #21
   %conv121.i = trunc i64 %call120.i to i32
   store i32 %conv121.i, ptr %len.i, align 4
   %lhsv = load i16, ptr %lfn, align 4
@@ -5647,7 +5647,7 @@ for.inc.i140:                                     ; preds = %lor.lhs.false28.i, 
 
 if.then118:                                       ; preds = %entry.tail.i, %lor.lhs.false.tail.i, %lor.lhs.false28.i
   %70 = load ptr, ptr @stderr, align 8
-  %71 = call i64 @fwrite(ptr nonnull @.str.87, i64 18, i64 1, ptr %70) #24
+  %71 = call i64 @fwrite(ptr nonnull @.str.87, i64 18, i64 1, ptr %70) #25
   br label %return
 
 if.end120:                                        ; preds = %for.inc.i140, %if.end113
@@ -5658,11 +5658,11 @@ if.end120:                                        ; preds = %for.inc.i140, %if.e
 
 if.then125:                                       ; preds = %if.end120
   %73 = load ptr, ptr @stderr, align 8
-  %call128 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %73, ptr noundef nonnull @.str.88, ptr noundef %path, ptr noundef nonnull %lfn) #24
+  %call128 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %73, ptr noundef nonnull @.str.88, ptr noundef %path, ptr noundef nonnull %lfn) #25
   br label %return
 
 if.end129:                                        ; preds = %if.end120
-  call void @pstrcpy(ptr noundef %add.ptr133, i32 noundef %conv136, ptr noundef nonnull %lfn) #19
+  call void @pstrcpy(ptr noundef %add.ptr133, i32 noundef %conv136, ptr noundef nonnull %lfn) #20
   %74 = load i8, ptr %21, align 1
   %75 = and i8 %74, 16
   %tobool.not.i = icmp eq i8 %75, 0
@@ -5720,7 +5720,7 @@ if.then165:                                       ; preds = %land.rhs.i156
   br i1 %cmp177.not, label %if.end183, label %return
 
 if.else181:                                       ; preds = %land.rhs.i156, %if.else160, %if.else160, %is_short_name.exit.i154, %is_short_name.exit.i154
-  call void @abort() #21
+  call void @abort() #22
   unreachable
 
 if.end183:                                        ; preds = %if.then165, %if.end150
@@ -5794,7 +5794,7 @@ modified_fat_get.exit:                            ; preds = %if.then.i, %if.then
 
 return:                                           ; preds = %modified_fat_get.exit, %if.then143, %if.end150, %if.then165, %if.then36, %if.then45, %if.then72, %if.then97, %if.then118, %if.then125
   %retval.0 = phi i32 [ 0, %if.then125 ], [ 0, %if.then118 ], [ 0, %if.then97 ], [ 0, %if.then72 ], [ 0, %if.then45 ], [ 0, %if.then36 ], [ 0, %if.then165 ], [ 0, %if.end150 ], [ 0, %if.then143 ], [ %ret.1.lcssa, %modified_fat_get.exit ]
-  call void @g_free(ptr noundef %call) #19
+  call void @g_free(ptr noundef %call) #20
   ret i32 %retval.0
 }
 
@@ -5825,7 +5825,7 @@ if.then.i:                                        ; preds = %entry
   br i1 %tobool2.not.i, label %vvfat_close_current_file.exit, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.then.i
-  %call.i = tail call i32 @qemu_close(i32 noundef %3) #19
+  %call.i = tail call i32 @qemu_close(i32 noundef %3) #20
   store i32 0, ptr %current_fd.i, align 8
   br label %vvfat_close_current_file.exit
 
@@ -5842,7 +5842,7 @@ if.end:                                           ; preds = %vvfat_close_current
   br i1 %tobool.not, label %if.end32, label %if.then1
 
 if.then1:                                         ; preds = %if.end
-  %call.i76 = tail call ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %path, i32 noundef 47) #20
+  %call.i76 = tail call ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %path, i32 noundef 47) #21
   %cmp.i = icmp eq ptr %call.i76, null
   %add.ptr.i = getelementptr i8, ptr %call.i76, i64 1
   %retval.0.i = select i1 %cmp.i, ptr %path, ptr %add.ptr.i
@@ -5860,7 +5860,7 @@ if.end.i.i:                                       ; preds = %if.then1
   br i1 %tobool.not.i.i, label %if.else2.i.i, label %array_get.exit.i
 
 if.else2.i.i:                                     ; preds = %if.end.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 array_get.exit.i:                                 ; preds = %if.end.i.i
@@ -5880,7 +5880,7 @@ land.lhs.true.i:                                  ; preds = %array_get.exit.i
   br i1 %cmp11.i, label %if.then5, label %if.else.i
 
 if.else.i:                                        ; preds = %land.lhs.true.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.13, i32 noundef 1355, ptr noundef nonnull @__PRETTY_FUNCTION__.find_mapping_for_cluster) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.13, i32 noundef 1355, ptr noundef nonnull @__PRETTY_FUNCTION__.find_mapping_for_cluster) #22
   unreachable
 
 if.then5:                                         ; preds = %land.lhs.true.i
@@ -5891,7 +5891,7 @@ if.then5:                                         ; preds = %land.lhs.true.i
   br i1 %tobool6.not, label %if.else, label %if.end8
 
 if.else:                                          ; preds = %if.then5
-  tail call void @__assert_fail(ptr noundef nonnull @.str.82, ptr noundef nonnull @.str.13, i32 noundef 1900, ptr noundef nonnull @__PRETTY_FUNCTION__.get_cluster_count_for_direntry) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.82, ptr noundef nonnull @.str.13, i32 noundef 1900, ptr noundef nonnull @__PRETTY_FUNCTION__.get_cluster_count_for_direntry) #22
   unreachable
 
 if.end8:                                          ; preds = %if.then5
@@ -5902,17 +5902,17 @@ if.end8:                                          ; preds = %if.then5
   br i1 %tobool15.not, label %if.else17, label %if.end18
 
 if.else17:                                        ; preds = %if.end8
-  tail call void @__assert_fail(ptr noundef nonnull @.str.90, ptr noundef nonnull @.str.13, i32 noundef 1905, ptr noundef nonnull @__PRETTY_FUNCTION__.get_cluster_count_for_direntry) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.90, ptr noundef nonnull @.str.13, i32 noundef 1905, ptr noundef nonnull @__PRETTY_FUNCTION__.get_cluster_count_for_direntry) #22
   unreachable
 
 if.end18:                                         ; preds = %if.end8
   %path11 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 24
   %12 = load ptr, ptr %path11, align 8
-  %call.i79 = tail call ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %12, i32 noundef 47) #20
+  %call.i79 = tail call ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %12, i32 noundef 47) #21
   %cmp.i80 = icmp eq ptr %call.i79, null
   %add.ptr.i81 = getelementptr i8, ptr %call.i79, i64 1
   %retval.0.i82 = select i1 %cmp.i80, ptr %12, ptr %add.ptr.i81
-  %call19 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %retval.0.i82, ptr noundef nonnull dereferenceable(1) %retval.0.i) #20
+  %call19 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %retval.0.i82, ptr noundef nonnull dereferenceable(1) %retval.0.i) #21
   %tobool20.not = icmp eq i32 %call19, 0
   br i1 %tobool20.not, label %if.end32, label %if.end32.sink.split
 
@@ -5939,13 +5939,13 @@ land.rhs.i:                                       ; preds = %is_short_name.exit.
   br i1 %or.cond193, label %if.end32.sink.split, label %if.else29
 
 if.else29:                                        ; preds = %land.rhs.i, %if.else24, %if.else24, %is_short_name.exit.i, %is_short_name.exit.i
-  tail call void @abort() #21
+  tail call void @abort() #22
   unreachable
 
 if.end32.sink.split:                              ; preds = %land.rhs.i, %if.end18
   %.sink = phi i32 [ 0, %if.end18 ], [ 2, %land.rhs.i ]
   %mapping.0.ph = phi ptr [ %add.ptr.i.i, %if.end18 ], [ null, %land.rhs.i ]
-  %call28 = tail call noalias ptr @g_strdup(ptr noundef %path) #19
+  %call28 = tail call noalias ptr @g_strdup(ptr noundef %path) #20
   %commits.i85 = getelementptr inbounds i8, ptr %s, i64 33032
   %call.i86 = tail call fastcc ptr @array_get_next(ptr noundef nonnull %commits.i85)
   store ptr %call28, ptr %call.i86, align 8
@@ -6012,7 +6012,7 @@ for.body.i:                                       ; preds = %land.rhs.i90
   %conv.i93 = sext i32 %i.08.i to i64
   %add.i = add nsw i64 %conv.i.i, %conv.i93
   %mul.i = shl nsw i64 %add.i, 9
-  %call3.i = call i32 @bdrv_co_is_allocated(ptr noundef %21, i64 noundef %mul.i, i64 noundef 512, ptr noundef null) #19
+  %call3.i = call i32 @bdrv_co_is_allocated(ptr noundef %21, i64 noundef %mul.i, i64 noundef 512, ptr noundef null) #20
   %inc.i = add nuw i32 %i.08.i, 1
   %tobool.not.i94 = icmp eq i32 %call3.i, 0
   br i1 %tobool.not.i94, label %land.rhs.i90, label %if.then38, !llvm.loop !42
@@ -6045,7 +6045,7 @@ if.end.i.i99:                                     ; preds = %if.then43
   br i1 %tobool.not.i.i101, label %if.else2.i.i112, label %array_get.exit.i102
 
 if.else2.i.i112:                                  ; preds = %if.end.i.i99
-  call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 array_get.exit.i102:                              ; preds = %if.end.i.i99
@@ -6064,7 +6064,7 @@ land.lhs.true.i108:                               ; preds = %array_get.exit.i102
   br i1 %cmp11.i110, label %land.lhs.true47, label %if.else.i111
 
 if.else.i111:                                     ; preds = %land.lhs.true.i108
-  call void @__assert_fail(ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.13, i32 noundef 1355, ptr noundef nonnull @__PRETTY_FUNCTION__.find_mapping_for_cluster) #21
+  call void @__assert_fail(ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.13, i32 noundef 1355, ptr noundef nonnull @__PRETTY_FUNCTION__.find_mapping_for_cluster) #22
   unreachable
 
 land.lhs.true47:                                  ; preds = %land.lhs.true.i108, %lor.lhs.false41
@@ -6087,7 +6087,7 @@ if.then51:                                        ; preds = %land.lhs.true47
   br i1 %cmp54.not, label %if.else56, label %if.then55
 
 if.then55:                                        ; preds = %if.then51
-  call void @abort() #21
+  call void @abort() #22
   unreachable
 
 if.else56:                                        ; preds = %if.then51
@@ -6097,11 +6097,11 @@ if.else56:                                        ; preds = %if.then51
 if.then58:                                        ; preds = %if.else56
   %path60 = getelementptr inbounds i8, ptr %mapping.2172, i64 24
   %34 = load ptr, ptr %path60, align 8
-  %call.i114 = call ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %34, i32 noundef 47) #20
+  %call.i114 = call ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %34, i32 noundef 47) #21
   %cmp.i115 = icmp eq ptr %call.i114, null
   %add.ptr.i116 = getelementptr i8, ptr %call.i114, i64 1
   %retval.0.i117 = select i1 %cmp.i115, ptr %34, ptr %add.ptr.i116
-  %call62 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %retval.0.i117, ptr noundef nonnull dereferenceable(1) %basename2.0) #20
+  %call62 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %retval.0.i117, ptr noundef nonnull dereferenceable(1) %basename2.0) #21
   %tobool63.not = icmp ne i32 %call62, 0
   %spec.select = zext i1 %tobool63.not to i32
   %35 = load ptr, ptr %mapping.i100, align 8
@@ -6116,7 +6116,7 @@ if.then58:                                        ; preds = %if.else56
   br i1 %cmp.i119, label %if.end.i, label %if.else.i120
 
 if.else.i120:                                     ; preds = %if.then58
-  call void @__assert_fail(ptr noundef nonnull @.str.91, ptr noundef nonnull @.str.13, i32 noundef 168, ptr noundef nonnull @__PRETTY_FUNCTION__.array_index) #21
+  call void @__assert_fail(ptr noundef nonnull @.str.91, ptr noundef nonnull @.str.13, i32 noundef 168, ptr noundef nonnull @__PRETTY_FUNCTION__.array_index) #22
   unreachable
 
 if.end.i:                                         ; preds = %if.then58
@@ -6126,7 +6126,7 @@ if.end.i:                                         ; preds = %if.then58
   br i1 %cmp6.i122, label %array_index.exit, label %if.else9.i
 
 if.else9.i:                                       ; preds = %if.end.i
-  call void @__assert_fail(ptr noundef nonnull @.str.92, ptr noundef nonnull @.str.13, i32 noundef 169, ptr noundef nonnull @__PRETTY_FUNCTION__.array_index) #21
+  call void @__assert_fail(ptr noundef nonnull @.str.92, ptr noundef nonnull @.str.13, i32 noundef 169, ptr noundef nonnull @__PRETTY_FUNCTION__.array_index) #22
   unreachable
 
 array_index.exit:                                 ; preds = %if.end.i
@@ -6144,7 +6144,7 @@ if.end69:                                         ; preds = %if.else56, %array_i
   br i1 %or.cond, label %if.end77, label %if.then76
 
 if.then76:                                        ; preds = %if.end69
-  call void @abort() #21
+  call void @abort() #22
   unreachable
 
 if.end77:                                         ; preds = %if.end69
@@ -6210,7 +6210,7 @@ if.then.i141:                                     ; preds = %if.then87
   br i1 %tobool2.not.i143, label %vvfat_close_current_file.exit147, label %if.then3.i144
 
 if.then3.i144:                                    ; preds = %if.then.i141
-  %call.i145 = call i32 @qemu_close(i32 noundef %42) #19
+  %call.i145 = call i32 @qemu_close(i32 noundef %42) #20
   store i32 0, ptr %current_fd.i142, align 8
   %.pre = load i32, ptr %sectors_per_cluster.i, align 4
   br label %vvfat_close_current_file.exit147
@@ -6232,7 +6232,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %conv92 = sext i32 %i.0199 to i64
   %add93 = add nsw i64 %conv92, %conv.i138
   %mul94 = shl nsw i64 %add93, 9
-  %call95 = call i32 @bdrv_co_is_allocated(ptr noundef %45, i64 noundef %mul94, i64 noundef 512, ptr noundef null) #19
+  %call95 = call i32 @bdrv_co_is_allocated(ptr noundef %45, i64 noundef %mul94, i64 noundef 512, ptr noundef null) #20
   %cmp96 = icmp slt i32 %call95, 0
   br i1 %cmp96, label %return, label %if.end99
 
@@ -6256,8 +6256,8 @@ if.end106:                                        ; preds = %if.then101
   store i32 -1, ptr %17, align 8
   store ptr %49, ptr %local_iov.i, align 8
   store i64 512, ptr %iov_len.i, align 8
-  call void @assert_bdrv_graph_readable() #19
-  %call.i148 = call i32 @bdrv_co_pwritev(ptr noundef %48, i64 noundef %mul108, i64 noundef 512, ptr noundef nonnull %qiov.i, i32 noundef 0) #19
+  call void @assert_bdrv_graph_readable() #20
+  %call.i148 = call i32 @bdrv_co_pwritev(ptr noundef %48, i64 noundef %mul108, i64 noundef 512, ptr noundef nonnull %qiov.i, i32 noundef 0) #20
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %qiov.i)
   %cmp111 = icmp slt i32 %call.i148, 0
   br i1 %cmp111, label %return, label %for.inc
@@ -6353,8 +6353,8 @@ return:                                           ; preds = %if.else131, %modifi
   ret i32 %retval.0
 }
 
-; Function Attrs: noreturn nounwind
-declare void @abort() local_unnamed_addr #5
+; Function Attrs: cold nofree noreturn nounwind
+declare void @abort() local_unnamed_addr #14
 
 declare noalias ptr @g_utf16_to_utf8(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -6390,7 +6390,7 @@ for.body:                                         ; preds = %land.rhs
   %conv = sext i32 %i.08 to i64
   %add = add nsw i64 %conv.i, %conv
   %mul = shl nsw i64 %add, 9
-  %call3 = tail call i32 @bdrv_co_is_allocated(ptr noundef %4, i64 noundef %mul, i64 noundef 512, ptr noundef null) #19
+  %call3 = tail call i32 @bdrv_co_is_allocated(ptr noundef %4, i64 noundef %mul, i64 noundef 512, ptr noundef null) #20
   %inc = add nuw i32 %i.08, 1
   %tobool.not = icmp eq i32 %call3, 0
   br i1 %tobool.not, label %land.rhs, label %return, !llvm.loop !42
@@ -6410,7 +6410,7 @@ entry:
   br i1 %cmp.i, label %if.end.i, label %if.else.i
 
 if.else.i:                                        ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.13, i32 noundef 105, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.13, i32 noundef 105, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 if.end.i:                                         ; preds = %entry
@@ -6419,7 +6419,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %tobool.not.i, label %if.else2.i, label %array_get.exit
 
 if.else2.i:                                       ; preds = %if.end.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 array_get.exit:                                   ; preds = %if.end.i
@@ -6458,7 +6458,7 @@ if.end.i.i:                                       ; preds = %cond.end
   br i1 %tobool.not.i.i, label %if.else2.i.i, label %array_get.exit.i
 
 if.else2.i.i:                                     ; preds = %if.end.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 array_get.exit.i:                                 ; preds = %if.end.i.i
@@ -6478,7 +6478,7 @@ land.lhs.true.i:                                  ; preds = %array_get.exit.i
   br i1 %cmp11.i, label %find_mapping_for_cluster.exit, label %if.else.i88
 
 if.else.i88:                                      ; preds = %land.lhs.true.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.13, i32 noundef 1355, ptr noundef nonnull @__PRETTY_FUNCTION__.find_mapping_for_cluster) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.13, i32 noundef 1355, ptr noundef nonnull @__PRETTY_FUNCTION__.find_mapping_for_cluster) #22
   unreachable
 
 find_mapping_for_cluster.exit:                    ; preds = %cond.end, %array_get.exit.i, %land.lhs.true.i
@@ -6490,7 +6490,7 @@ find_mapping_for_cluster.exit:                    ; preds = %cond.end, %array_ge
   br i1 %tobool.not, label %if.else, label %if.end
 
 if.else:                                          ; preds = %find_mapping_for_cluster.exit
-  tail call void @__assert_fail(ptr noundef nonnull @.str.103, ptr noundef nonnull @.str.13, i32 noundef 2431, ptr noundef nonnull @__PRETTY_FUNCTION__.commit_direntries) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.103, ptr noundef nonnull @.str.13, i32 noundef 2431, ptr noundef nonnull @__PRETTY_FUNCTION__.commit_direntries) #22
   unreachable
 
 if.end:                                           ; preds = %find_mapping_for_cluster.exit
@@ -6498,7 +6498,7 @@ if.end:                                           ; preds = %find_mapping_for_cl
   br i1 %tobool3.not, label %if.else5, label %if.end6
 
 if.else5:                                         ; preds = %if.end
-  tail call void @__assert_fail(ptr noundef nonnull @.str.104, ptr noundef nonnull @.str.13, i32 noundef 2432, ptr noundef nonnull @__PRETTY_FUNCTION__.commit_direntries) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.104, ptr noundef nonnull @.str.13, i32 noundef 2432, ptr noundef nonnull @__PRETTY_FUNCTION__.commit_direntries) #22
   unreachable
 
 if.end6:                                          ; preds = %if.end
@@ -6507,7 +6507,7 @@ if.end6:                                          ; preds = %if.end
   br i1 %cmp7, label %if.end10, label %if.else9
 
 if.else9:                                         ; preds = %if.end6
-  tail call void @__assert_fail(ptr noundef nonnull @.str.105, ptr noundef nonnull @.str.13, i32 noundef 2433, ptr noundef nonnull @__PRETTY_FUNCTION__.commit_direntries) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.105, ptr noundef nonnull @.str.13, i32 noundef 2433, ptr noundef nonnull @__PRETTY_FUNCTION__.commit_direntries) #22
   unreachable
 
 if.end10:                                         ; preds = %if.end6
@@ -6519,7 +6519,7 @@ if.end10:                                         ; preds = %if.end6
   br i1 %cmp13, label %if.end16, label %if.else15
 
 if.else15:                                        ; preds = %if.end10
-  tail call void @__assert_fail(ptr noundef nonnull @.str.106, ptr noundef nonnull @.str.13, i32 noundef 2434, ptr noundef nonnull @__PRETTY_FUNCTION__.commit_direntries) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.106, ptr noundef nonnull @.str.13, i32 noundef 2434, ptr noundef nonnull @__PRETTY_FUNCTION__.commit_direntries) #22
   unreachable
 
 if.end16:                                         ; preds = %if.end10
@@ -6530,7 +6530,7 @@ if.end16:                                         ; preds = %if.end10
   br i1 %tobool17.not, label %if.else19, label %if.end20
 
 if.else19:                                        ; preds = %if.end16
-  tail call void @__assert_fail(ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.13, i32 noundef 2435, ptr noundef nonnull @__PRETTY_FUNCTION__.commit_direntries) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.13, i32 noundef 2435, ptr noundef nonnull @__PRETTY_FUNCTION__.commit_direntries) #22
   unreachable
 
 if.end20:                                         ; preds = %if.end16
@@ -6549,7 +6549,7 @@ is_directory.exit:                                ; preds = %lor.lhs.false
   br i1 %cmp.i90.not, label %if.else25, label %if.end26
 
 if.else25:                                        ; preds = %lor.lhs.false, %is_directory.exit
-  tail call void @__assert_fail(ptr noundef nonnull @.str.107, ptr noundef nonnull @.str.13, i32 noundef 2436, ptr noundef nonnull @__PRETTY_FUNCTION__.commit_direntries) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.107, ptr noundef nonnull @.str.13, i32 noundef 2436, ptr noundef nonnull @__PRETTY_FUNCTION__.commit_direntries) #22
   unreachable
 
 if.end26:                                         ; preds = %if.end20, %is_directory.exit
@@ -6696,7 +6696,7 @@ for.body73:                                       ; preds = %for.body73.lr.ph, %
   br i1 %cmp.i106, label %if.end.i108, label %if.else.i107
 
 if.else.i107:                                     ; preds = %for.body73
-  tail call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.13, i32 noundef 105, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.13, i32 noundef 105, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 if.end.i108:                                      ; preds = %for.body73
@@ -6705,7 +6705,7 @@ if.end.i108:                                      ; preds = %for.body73
   br i1 %tobool.not.i109, label %if.else2.i114, label %array_get.exit115
 
 if.else2.i114:                                    ; preds = %if.end.i108
-  tail call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 array_get.exit115:                                ; preds = %if.end.i108
@@ -6730,7 +6730,7 @@ if.end81:                                         ; preds = %array_get.exit115
   br i1 %tobool85.not, label %if.end88, label %if.else87
 
 if.else87:                                        ; preds = %if.end81
-  tail call void @__assert_fail(ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.13, i32 noundef 2479, ptr noundef nonnull @__PRETTY_FUNCTION__.commit_direntries) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.13, i32 noundef 2479, ptr noundef nonnull @__PRETTY_FUNCTION__.commit_direntries) #22
   unreachable
 
 if.end88:                                         ; preds = %if.end81
@@ -6808,7 +6808,7 @@ for.body101:                                      ; preds = %for.body101.lr.ph, 
   br i1 %cmp.i148, label %if.end.i150, label %if.else.i149
 
 if.else.i149:                                     ; preds = %for.body101
-  tail call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.13, i32 noundef 105, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.13, i32 noundef 105, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 if.end.i150:                                      ; preds = %for.body101
@@ -6817,7 +6817,7 @@ if.end.i150:                                      ; preds = %for.body101
   br i1 %tobool.not.i151, label %if.else2.i156, label %array_get.exit157
 
 if.else2.i156:                                    ; preds = %if.end.i150
-  tail call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 array_get.exit157:                                ; preds = %if.end.i150
@@ -6855,7 +6855,7 @@ if.end.i.i171:                                    ; preds = %if.then110
   br i1 %tobool.not.i.i173, label %if.else2.i.i184, label %array_get.exit.i174
 
 if.else2.i.i184:                                  ; preds = %if.end.i.i171
-  tail call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 array_get.exit.i174:                              ; preds = %if.end.i.i171
@@ -6874,7 +6874,7 @@ land.lhs.true.i180:                               ; preds = %array_get.exit.i174
   br i1 %cmp11.i182, label %if.end115, label %if.else.i183
 
 if.else.i183:                                     ; preds = %land.lhs.true.i180
-  tail call void @__assert_fail(ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.13, i32 noundef 1355, ptr noundef nonnull @__PRETTY_FUNCTION__.find_mapping_for_cluster) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.13, i32 noundef 1355, ptr noundef nonnull @__PRETTY_FUNCTION__.find_mapping_for_cluster) #22
   unreachable
 
 if.end115:                                        ; preds = %land.lhs.true.i180
@@ -6885,7 +6885,7 @@ if.end115:                                        ; preds = %land.lhs.true.i180
   br i1 %tobool118.not, label %if.else120, label %if.end121
 
 if.else120:                                       ; preds = %if.end115
-  tail call void @__assert_fail(ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.13, i32 noundef 2496, ptr noundef nonnull @__PRETTY_FUNCTION__.commit_direntries) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.13, i32 noundef 2496, ptr noundef nonnull @__PRETTY_FUNCTION__.commit_direntries) #22
   unreachable
 
 if.end121:                                        ; preds = %if.end115
@@ -6895,7 +6895,7 @@ if.end121:                                        ; preds = %if.end115
   br i1 %cmp.i188, label %if.end.i190, label %if.else.i189
 
 if.else.i189:                                     ; preds = %if.end121
-  tail call void @__assert_fail(ptr noundef nonnull @.str.91, ptr noundef nonnull @.str.13, i32 noundef 168, ptr noundef nonnull @__PRETTY_FUNCTION__.array_index) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.91, ptr noundef nonnull @.str.13, i32 noundef 168, ptr noundef nonnull @__PRETTY_FUNCTION__.array_index) #22
   unreachable
 
 if.end.i190:                                      ; preds = %if.end121
@@ -6903,7 +6903,7 @@ if.end.i190:                                      ; preds = %if.end121
   br i1 %cmp6.i192, label %array_index.exit, label %if.else9.i
 
 if.else9.i:                                       ; preds = %if.end.i190
-  tail call void @__assert_fail(ptr noundef nonnull @.str.92, ptr noundef nonnull @.str.13, i32 noundef 169, ptr noundef nonnull @__PRETTY_FUNCTION__.array_index) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.92, ptr noundef nonnull @.str.13, i32 noundef 169, ptr noundef nonnull @__PRETTY_FUNCTION__.array_index) #22
   unreachable
 
 array_index.exit:                                 ; preds = %if.end.i190
@@ -6937,7 +6937,7 @@ if.then.i:                                        ; preds = %entry
   br i1 %tobool2.not.i, label %vvfat_close_current_file.exit, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.then.i
-  %call.i = tail call i32 @qemu_close(i32 noundef %1) #19
+  %call.i = tail call i32 @qemu_close(i32 noundef %1) #20
   store i32 0, ptr %current_fd.i, align 8
   br label %vvfat_close_current_file.exit
 
@@ -6964,7 +6964,7 @@ if.end.i:                                         ; preds = %vvfat_close_current
   br i1 %tobool.not.i48, label %if.else2.i, label %array_get.exit
 
 if.else2.i:                                       ; preds = %if.end.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 array_get.exit:                                   ; preds = %if.end.i
@@ -6982,7 +6982,7 @@ array_get.exit:                                   ; preds = %if.end.i
   ]
 
 sw.bb:                                            ; preds = %array_get.exit, %array_get.exit
-  tail call void @abort() #21
+  tail call void @abort() #22
   unreachable
 
 sw.bb2:                                           ; preds = %array_get.exit
@@ -6993,7 +6993,7 @@ sw.bb2:                                           ; preds = %array_get.exit
   br i1 %cmp.i50, label %if.end.i52, label %if.else.i51
 
 if.else.i51:                                      ; preds = %sw.bb2
-  tail call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.13, i32 noundef 105, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.13, i32 noundef 105, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 if.end.i52:                                       ; preds = %sw.bb2
@@ -7002,7 +7002,7 @@ if.end.i52:                                       ; preds = %sw.bb2
   br i1 %tobool.not.i53, label %if.else2.i58, label %array_get.exit59
 
 if.else2.i58:                                     ; preds = %if.end.i52
-  tail call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 array_get.exit59:                                 ; preds = %if.end.i52
@@ -7030,7 +7030,7 @@ if.end.i.i:                                       ; preds = %array_get.exit59
   br i1 %tobool.not.i.i, label %if.else2.i.i, label %array_get.exit.i
 
 if.else2.i.i:                                     ; preds = %if.end.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 array_get.exit.i:                                 ; preds = %if.end.i.i
@@ -7049,11 +7049,11 @@ land.lhs.true.i:                                  ; preds = %array_get.exit.i
   br i1 %cmp11.i, label %if.end, label %if.else.i62
 
 if.else.i62:                                      ; preds = %land.lhs.true.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.13, i32 noundef 1355, ptr noundef nonnull @__PRETTY_FUNCTION__.find_mapping_for_cluster) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.13, i32 noundef 1355, ptr noundef nonnull @__PRETTY_FUNCTION__.find_mapping_for_cluster) #22
   unreachable
 
 if.else:                                          ; preds = %array_get.exit.i, %array_get.exit59
-  tail call void @__assert_fail(ptr noundef nonnull @.str.104, ptr noundef nonnull @.str.13, i32 noundef 2794, ptr noundef nonnull @__PRETTY_FUNCTION__.handle_commits) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.104, ptr noundef nonnull @.str.13, i32 noundef 2794, ptr noundef nonnull @__PRETTY_FUNCTION__.handle_commits) #22
   unreachable
 
 if.end:                                           ; preds = %land.lhs.true.i
@@ -7061,7 +7061,7 @@ if.end:                                           ; preds = %land.lhs.true.i
   br i1 %cmp9, label %if.end12, label %if.else11
 
 if.else11:                                        ; preds = %if.end
-  tail call void @__assert_fail(ptr noundef nonnull @.str.110, ptr noundef nonnull @.str.13, i32 noundef 2795, ptr noundef nonnull @__PRETTY_FUNCTION__.handle_commits) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.110, ptr noundef nonnull @.str.13, i32 noundef 2795, ptr noundef nonnull @__PRETTY_FUNCTION__.handle_commits) #22
   unreachable
 
 if.end12:                                         ; preds = %if.end
@@ -7070,7 +7070,7 @@ if.end12:                                         ; preds = %if.end
   br i1 %cmp13, label %if.end16, label %if.else15
 
 if.else15:                                        ; preds = %if.end12
-  tail call void @__assert_fail(ptr noundef nonnull @.str.80, ptr noundef nonnull @.str.13, i32 noundef 2796, ptr noundef nonnull @__PRETTY_FUNCTION__.handle_commits) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.80, ptr noundef nonnull @.str.13, i32 noundef 2796, ptr noundef nonnull @__PRETTY_FUNCTION__.handle_commits) #22
   unreachable
 
 if.end16:                                         ; preds = %if.end12
@@ -7096,7 +7096,7 @@ if.end.i.i67:                                     ; preds = %sw.bb24
   br i1 %tobool.not.i.i69, label %if.else2.i.i80, label %array_get.exit.i70
 
 if.else2.i.i80:                                   ; preds = %if.end.i.i67
-  tail call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 array_get.exit.i70:                               ; preds = %if.end.i.i67
@@ -7115,7 +7115,7 @@ land.lhs.true.i76:                                ; preds = %array_get.exit.i70
   br i1 %cmp11.i78, label %find_mapping_for_cluster.exit81, label %if.else.i79
 
 if.else.i79:                                      ; preds = %land.lhs.true.i76
-  tail call void @__assert_fail(ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.13, i32 noundef 1355, ptr noundef nonnull @__PRETTY_FUNCTION__.find_mapping_for_cluster) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.13, i32 noundef 1355, ptr noundef nonnull @__PRETTY_FUNCTION__.find_mapping_for_cluster) #22
   unreachable
 
 find_mapping_for_cluster.exit81:                  ; preds = %sw.bb24, %array_get.exit.i70, %land.lhs.true.i76
@@ -7135,14 +7135,14 @@ for.body34:                                       ; preds = %for.body34.lr.ph, %
   br i1 %exitcond.not, label %if.else.i84, label %if.end.i85
 
 if.else.i84:                                      ; preds = %for.body34
-  tail call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.13, i32 noundef 105, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.13, i32 noundef 105, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 if.end.i85:                                       ; preds = %for.body34
   br i1 %tobool.not.i86, label %if.else2.i91, label %array_get.exit92
 
 if.else2.i91:                                     ; preds = %if.end.i85
-  tail call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 array_get.exit92:                                 ; preds = %if.end.i85
@@ -7214,7 +7214,7 @@ if.end61:                                         ; preds = %land.lhs.true51, %i
   br i1 %tobool63.not, label %if.else65, label %if.end66
 
 if.else65:                                        ; preds = %if.end61
-  tail call void @__assert_fail(ptr noundef nonnull @.str.79, ptr noundef nonnull @.str.13, i32 noundef 2831, ptr noundef nonnull @__PRETTY_FUNCTION__.handle_commits) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.79, ptr noundef nonnull @.str.13, i32 noundef 2831, ptr noundef nonnull @__PRETTY_FUNCTION__.handle_commits) #22
   unreachable
 
 if.end66:                                         ; preds = %if.end61
@@ -7231,7 +7231,7 @@ if.end66:                                         ; preds = %if.end61
   br i1 %tobool70.not, label %for.inc73, label %for.inc73.thread
 
 sw.default:                                       ; preds = %array_get.exit
-  tail call void @abort() #21
+  tail call void @abort() #22
   unreachable
 
 for.inc73.thread:                                 ; preds = %if.end16, %if.end66, %find_mapping_for_cluster.exit81, %for.inc
@@ -7257,7 +7257,7 @@ if.end4.i:                                        ; preds = %for.end75
   br i1 %cmp5.not.i, label %if.else7.i, label %array_remove_slice.exit
 
 if.else7.i:                                       ; preds = %if.end4.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.13, i32 noundef 149, ptr noundef nonnull @__PRETTY_FUNCTION__.array_remove_slice) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.13, i32 noundef 149, ptr noundef nonnull @__PRETTY_FUNCTION__.array_remove_slice) #22
   unreachable
 
 array_remove_slice.exit:                          ; preds = %if.end4.i
@@ -7304,7 +7304,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i, label %if.end.i, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then
-  tail call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.13, i32 noundef 105, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.13, i32 noundef 105, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 if.end.i:                                         ; preds = %if.then
@@ -7314,7 +7314,7 @@ if.end.i:                                         ; preds = %if.then
   br i1 %tobool.not.i, label %if.else2.i, label %array_get.exit
 
 if.else2.i:                                       ; preds = %if.end.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 array_get.exit:                                   ; preds = %if.end.i
@@ -7333,7 +7333,7 @@ if.then5:                                         ; preds = %entry
   br i1 %cmp.i11, label %if.end.i13, label %if.else.i12
 
 if.else.i12:                                      ; preds = %if.then5
-  tail call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.13, i32 noundef 105, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.13, i32 noundef 105, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 if.end.i13:                                       ; preds = %if.then5
@@ -7343,7 +7343,7 @@ if.end.i13:                                       ; preds = %if.then5
   br i1 %tobool.not.i14, label %if.else2.i19, label %array_get.exit20
 
 if.else2.i19:                                     ; preds = %if.end.i13
-  tail call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 array_get.exit20:                                 ; preds = %if.end.i13
@@ -7391,7 +7391,7 @@ entry:
   br i1 %cmp.i.not, label %if.else.i, label %if.end.i
 
 if.else.i:                                        ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.13, i32 noundef 105, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.13, i32 noundef 105, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 if.end.i:                                         ; preds = %entry
@@ -7400,7 +7400,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %tobool.not.i, label %if.else2.i, label %array_get.exit
 
 if.else2.i:                                       ; preds = %if.end.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 array_get.exit:                                   ; preds = %if.end.i
@@ -7430,7 +7430,7 @@ if.then:                                          ; preds = %land.lhs.true8
   br i1 %cmp.i40, label %if.end.i42, label %if.else.i41
 
 if.else.i41:                                      ; preds = %if.then
-  tail call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.13, i32 noundef 105, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.13, i32 noundef 105, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 if.end.i42:                                       ; preds = %if.then
@@ -7439,7 +7439,7 @@ if.end.i42:                                       ; preds = %if.then
   br i1 %tobool.not.i43, label %if.else2.i48, label %array_get.exit49
 
 if.else2.i48:                                     ; preds = %if.end.i42
-  tail call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 array_get.exit49:                                 ; preds = %if.end.i42
@@ -7474,7 +7474,7 @@ if.then19:                                        ; preds = %lor.lhs.false, %if.
 if.then.i:                                        ; preds = %if.then19
   %add4.i = add i32 %11, %10
   %conv.i = zext i32 %add4.i to i64
-  %call.i = tail call ptr @g_realloc(ptr noundef nonnull %.pre.i, i64 noundef %conv.i) #19
+  %call.i = tail call ptr @g_realloc(ptr noundef nonnull %.pre.i, i64 noundef %conv.i) #20
   store ptr %call.i, ptr %mapping, align 8
   %tobool.not.i56 = icmp ne ptr %call.i, null
   tail call void @llvm.assume(i1 %tobool.not.i56)
@@ -7521,7 +7521,7 @@ for.body.i:                                       ; preds = %if.end10.i, %for.in
   br i1 %cmp.i.i, label %if.end.i.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %for.body.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.13, i32 noundef 105, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.13, i32 noundef 105, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 if.end.i.i:                                       ; preds = %for.body.i
@@ -7530,7 +7530,7 @@ if.end.i.i:                                       ; preds = %for.body.i
   br i1 %tobool.not.i.i, label %if.else2.i.i, label %array_get.exit.i
 
 if.else2.i.i:                                     ; preds = %if.end.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 array_get.exit.i:                                 ; preds = %if.end.i.i
@@ -7598,7 +7598,7 @@ if.then29:                                        ; preds = %land.lhs.true26
   br i1 %cmp.i65, label %if.end.i67, label %if.else.i66
 
 if.else.i66:                                      ; preds = %if.then29
-  tail call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.13, i32 noundef 105, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.13, i32 noundef 105, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 if.end.i67:                                       ; preds = %if.then29
@@ -7606,7 +7606,7 @@ if.end.i67:                                       ; preds = %if.then29
   br i1 %tobool.not.i68, label %if.else2.i73, label %array_get.exit74
 
 if.else2.i73:                                     ; preds = %if.end.i67
-  tail call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 array_get.exit74:                                 ; preds = %if.end.i67
@@ -7641,7 +7641,7 @@ if.then.i:                                        ; preds = %entry
   %mul2.i = mul i32 %1, %count
   %add4.i = add i32 %2, %mul2.i
   %conv.i = zext i32 %add4.i to i64
-  %call.i = tail call ptr @g_realloc(ptr noundef %.pre.i, i64 noundef %conv.i) #19
+  %call.i = tail call ptr @g_realloc(ptr noundef %.pre.i, i64 noundef %conv.i) #20
   store ptr %call.i, ptr %directory, align 8
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i, label %return, label %if.end.i
@@ -7698,7 +7698,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   br i1 %cmp.i.i, label %if.end.i.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %for.body.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.13, i32 noundef 105, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.13, i32 noundef 105, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 if.end.i.i:                                       ; preds = %for.body.i
@@ -7707,7 +7707,7 @@ if.end.i.i:                                       ; preds = %for.body.i
   br i1 %tobool.not.i.i, label %if.else2.i.i, label %array_get.exit.i
 
 if.else2.i.i:                                     ; preds = %if.end.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 array_get.exit.i:                                 ; preds = %if.end.i.i
@@ -7765,7 +7765,7 @@ entry:
   br i1 %cmp.i, label %if.end.i, label %if.else.i
 
 if.else.i:                                        ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.100, ptr noundef nonnull @.str.13, i32 noundef 147, ptr noundef nonnull @__PRETTY_FUNCTION__.array_remove_slice) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.100, ptr noundef nonnull @.str.13, i32 noundef 147, ptr noundef nonnull @__PRETTY_FUNCTION__.array_remove_slice) #22
   unreachable
 
 if.end.i:                                         ; preds = %entry
@@ -7773,7 +7773,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp1.i, label %if.end4.i, label %if.else3.i
 
 if.else3.i:                                       ; preds = %if.end.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.101, ptr noundef nonnull @.str.13, i32 noundef 148, ptr noundef nonnull @__PRETTY_FUNCTION__.array_remove_slice) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.101, ptr noundef nonnull @.str.13, i32 noundef 148, ptr noundef nonnull @__PRETTY_FUNCTION__.array_remove_slice) #22
   unreachable
 
 if.end4.i:                                        ; preds = %if.end.i
@@ -7784,7 +7784,7 @@ if.end4.i:                                        ; preds = %if.end.i
   br i1 %cmp5.not.i, label %if.else7.i, label %array_remove_slice.exit
 
 if.else7.i:                                       ; preds = %if.end4.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.13, i32 noundef 149, ptr noundef nonnull @__PRETTY_FUNCTION__.array_remove_slice) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.13, i32 noundef 149, ptr noundef nonnull @__PRETTY_FUNCTION__.array_remove_slice) #22
   unreachable
 
 array_remove_slice.exit:                          ; preds = %if.end4.i
@@ -7821,7 +7821,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   br i1 %cmp.i.i, label %if.end.i.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %for.body.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.13, i32 noundef 105, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.13, i32 noundef 105, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 if.end.i.i:                                       ; preds = %for.body.i
@@ -7830,7 +7830,7 @@ if.end.i.i:                                       ; preds = %for.body.i
   br i1 %tobool.not.i.i, label %if.else2.i.i, label %array_get.exit.i
 
 if.else2.i.i:                                     ; preds = %if.end.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 array_get.exit.i:                                 ; preds = %if.end.i.i
@@ -7893,7 +7893,7 @@ if.end.i.i:                                       ; preds = %entry
   br i1 %tobool.not.i.i, label %if.else2.i.i, label %array_get.exit.i
 
 if.else2.i.i:                                     ; preds = %if.end.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 array_get.exit.i:                                 ; preds = %if.end.i.i
@@ -7913,7 +7913,7 @@ land.lhs.true.i:                                  ; preds = %array_get.exit.i
   br i1 %cmp11.i, label %find_mapping_for_cluster.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %land.lhs.true.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.13, i32 noundef 1355, ptr noundef nonnull @__PRETTY_FUNCTION__.find_mapping_for_cluster) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.13, i32 noundef 1355, ptr noundef nonnull @__PRETTY_FUNCTION__.find_mapping_for_cluster) #22
   unreachable
 
 find_mapping_for_cluster.exit:                    ; preds = %entry, %array_get.exit.i, %land.lhs.true.i
@@ -7924,7 +7924,7 @@ find_mapping_for_cluster.exit:                    ; preds = %entry, %array_get.e
   br i1 %cmp.i, label %if.end.i, label %if.else.i86
 
 if.else.i86:                                      ; preds = %find_mapping_for_cluster.exit
-  tail call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.13, i32 noundef 105, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.13, i32 noundef 105, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 if.end.i:                                         ; preds = %find_mapping_for_cluster.exit
@@ -7934,7 +7934,7 @@ if.end.i:                                         ; preds = %find_mapping_for_cl
   br i1 %tobool.not.i, label %if.else2.i, label %array_get.exit
 
 if.else2.i:                                       ; preds = %if.end.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 array_get.exit:                                   ; preds = %if.end.i
@@ -7956,7 +7956,7 @@ if.then.i:                                        ; preds = %array_get.exit
   br i1 %tobool2.not.i, label %vvfat_close_current_file.exit, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.then.i
-  %call.i88 = tail call i32 @qemu_close(i32 noundef %10) #19
+  %call.i88 = tail call i32 @qemu_close(i32 noundef %10) #20
   store i32 0, ptr %current_fd.i, align 8
   br label %vvfat_close_current_file.exit
 
@@ -7967,7 +7967,7 @@ vvfat_close_current_file.exit:                    ; preds = %array_get.exit, %if
   br i1 %tobool.not, label %if.else, label %if.end
 
 if.else:                                          ; preds = %vvfat_close_current_file.exit
-  tail call void @__assert_fail(ptr noundef nonnull @.str.104, ptr noundef nonnull @.str.13, i32 noundef 2350, ptr noundef nonnull @__PRETTY_FUNCTION__.commit_mappings) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.104, ptr noundef nonnull @.str.13, i32 noundef 2350, ptr noundef nonnull @__PRETTY_FUNCTION__.commit_mappings) #22
   unreachable
 
 if.end:                                           ; preds = %vvfat_close_current_file.exit
@@ -7976,7 +7976,7 @@ if.end:                                           ; preds = %vvfat_close_current
   br i1 %cmp, label %if.end4, label %if.else3
 
 if.else3:                                         ; preds = %if.end
-  tail call void @__assert_fail(ptr noundef nonnull @.str.105, ptr noundef nonnull @.str.13, i32 noundef 2351, ptr noundef nonnull @__PRETTY_FUNCTION__.commit_mappings) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.105, ptr noundef nonnull @.str.13, i32 noundef 2351, ptr noundef nonnull @__PRETTY_FUNCTION__.commit_mappings) #22
   unreachable
 
 if.end4:                                          ; preds = %if.end
@@ -8148,7 +8148,7 @@ if.then17:                                        ; preds = %for.end
   br i1 %cmp.i130, label %if.end.i132, label %if.else.i131
 
 if.else.i131:                                     ; preds = %if.then17
-  tail call void @__assert_fail(ptr noundef nonnull @.str.91, ptr noundef nonnull @.str.13, i32 noundef 168, ptr noundef nonnull @__PRETTY_FUNCTION__.array_index) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.91, ptr noundef nonnull @.str.13, i32 noundef 168, ptr noundef nonnull @__PRETTY_FUNCTION__.array_index) #22
   unreachable
 
 if.end.i132:                                      ; preds = %if.then17
@@ -8158,7 +8158,7 @@ if.end.i132:                                      ; preds = %if.then17
   br i1 %cmp6.i134, label %array_index.exit, label %if.else9.i
 
 if.else9.i:                                       ; preds = %if.end.i132
-  tail call void @__assert_fail(ptr noundef nonnull @.str.92, ptr noundef nonnull @.str.13, i32 noundef 169, ptr noundef nonnull @__PRETTY_FUNCTION__.array_index) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.92, ptr noundef nonnull @.str.13, i32 noundef 169, ptr noundef nonnull @__PRETTY_FUNCTION__.array_index) #22
   unreachable
 
 array_index.exit:                                 ; preds = %if.end.i132
@@ -8208,7 +8208,7 @@ if.end37:                                         ; preds = %while.body34, %arra
   br i1 %cmp.i136.not, label %if.else.i137, label %if.end.i138
 
 if.else.i137:                                     ; preds = %if.end37
-  tail call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.13, i32 noundef 105, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.13, i32 noundef 105, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 if.end.i138:                                      ; preds = %if.end37
@@ -8217,7 +8217,7 @@ if.end.i138:                                      ; preds = %if.end37
   br i1 %tobool.not.i139, label %if.else2.i144, label %array_get.exit145
 
 if.else2.i144:                                    ; preds = %if.end.i138
-  tail call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 array_get.exit145:                                ; preds = %if.end.i138
@@ -8235,7 +8235,7 @@ lor.lhs.false:                                    ; preds = %array_get.exit145
   br i1 %cmp47.not, label %if.else50, label %if.end51
 
 if.else50:                                        ; preds = %lor.lhs.false
-  tail call void @__assert_fail(ptr noundef nonnull @.str.109, ptr noundef nonnull @.str.13, i32 noundef 2372, ptr noundef nonnull @__PRETTY_FUNCTION__.commit_mappings) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.109, ptr noundef nonnull @.str.13, i32 noundef 2372, ptr noundef nonnull @__PRETTY_FUNCTION__.commit_mappings) #22
   unreachable
 
 if.end51:                                         ; preds = %array_get.exit145, %lor.lhs.false
@@ -8262,7 +8262,7 @@ if.end.i152:                                      ; preds = %if.then55
   br i1 %tobool.not.i153, label %if.else2.i158, label %cond.end
 
 if.else2.i158:                                    ; preds = %if.end.i152
-  tail call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 cond.end:                                         ; preds = %if.end.i152
@@ -8290,7 +8290,7 @@ if.then73:                                        ; preds = %if.then55.if.then73
   br i1 %cmp.i166, label %if.end.i168, label %if.else.i167
 
 if.else.i167:                                     ; preds = %if.then73
-  tail call void @__assert_fail(ptr noundef nonnull @.str.91, ptr noundef nonnull @.str.13, i32 noundef 168, ptr noundef nonnull @__PRETTY_FUNCTION__.array_index) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.91, ptr noundef nonnull @.str.13, i32 noundef 168, ptr noundef nonnull @__PRETTY_FUNCTION__.array_index) #22
   unreachable
 
 if.end.i168:                                      ; preds = %if.then73
@@ -8299,7 +8299,7 @@ if.end.i168:                                      ; preds = %if.then73
   br i1 %cmp6.i172, label %array_index.exit175, label %if.else9.i173
 
 if.else9.i173:                                    ; preds = %if.end.i168
-  tail call void @__assert_fail(ptr noundef nonnull @.str.92, ptr noundef nonnull @.str.13, i32 noundef 169, ptr noundef nonnull @__PRETTY_FUNCTION__.array_index) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.92, ptr noundef nonnull @.str.13, i32 noundef 169, ptr noundef nonnull @__PRETTY_FUNCTION__.array_index) #22
   unreachable
 
 array_index.exit175:                              ; preds = %if.end.i168
@@ -8314,7 +8314,7 @@ array_index.exit175:                              ; preds = %if.end.i168
   br i1 %cmp.i177, label %if.end.i179, label %if.else.i178
 
 if.else.i178:                                     ; preds = %array_index.exit175
-  tail call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.13, i32 noundef 105, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.13, i32 noundef 105, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 if.end.i179:                                      ; preds = %array_index.exit175
@@ -8323,7 +8323,7 @@ if.end.i179:                                      ; preds = %array_index.exit175
   br i1 %tobool.not.i180, label %if.else2.i185, label %array_get.exit186
 
 if.else2.i185:                                    ; preds = %if.end.i179
-  tail call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 array_get.exit186:                                ; preds = %if.end.i179
@@ -8358,7 +8358,7 @@ cond.true91:                                      ; preds = %if.end85
   br i1 %cmp.i193, label %if.end.i195, label %if.else.i194
 
 if.else.i194:                                     ; preds = %cond.true91
-  tail call void @__assert_fail(ptr noundef nonnull @.str.91, ptr noundef nonnull @.str.13, i32 noundef 168, ptr noundef nonnull @__PRETTY_FUNCTION__.array_index) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.91, ptr noundef nonnull @.str.13, i32 noundef 168, ptr noundef nonnull @__PRETTY_FUNCTION__.array_index) #22
   unreachable
 
 if.end.i195:                                      ; preds = %cond.true91
@@ -8368,7 +8368,7 @@ if.end.i195:                                      ; preds = %cond.true91
   br i1 %cmp6.i199, label %array_index.exit202, label %if.else9.i200
 
 if.else9.i200:                                    ; preds = %if.end.i195
-  tail call void @__assert_fail(ptr noundef nonnull @.str.92, ptr noundef nonnull @.str.13, i32 noundef 169, ptr noundef nonnull @__PRETTY_FUNCTION__.array_index) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.92, ptr noundef nonnull @.str.13, i32 noundef 169, ptr noundef nonnull @__PRETTY_FUNCTION__.array_index) #22
   unreachable
 
 array_index.exit202:                              ; preds = %if.end.i195
@@ -8446,7 +8446,7 @@ entry:
   br i1 %cmp.i, label %if.end.i, label %if.else.i
 
 if.else.i:                                        ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.13, i32 noundef 105, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.13, i32 noundef 105, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 if.end.i:                                         ; preds = %entry
@@ -8455,7 +8455,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %tobool.not.i, label %if.else2.i, label %array_get.exit23
 
 if.else2.i:                                       ; preds = %if.end.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 array_get.exit23:                                 ; preds = %if.end.i
@@ -8472,7 +8472,7 @@ array_get.exit23:                                 ; preds = %if.end.i
 if.then:                                          ; preds = %array_get.exit23
   %path = getelementptr inbounds i8, ptr %add.ptr.i, i64 24
   %4 = load ptr, ptr %path, align 8
-  tail call void @g_free(ptr noundef %4) #19
+  tail call void @g_free(ptr noundef %4) #20
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %array_get.exit23
@@ -8480,7 +8480,7 @@ if.end:                                           ; preds = %if.then, %array_get
   br i1 %cmp.i.i, label %if.end.i.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.end
-  tail call void @__assert_fail(ptr noundef nonnull @.str.100, ptr noundef nonnull @.str.13, i32 noundef 147, ptr noundef nonnull @__PRETTY_FUNCTION__.array_remove_slice) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.100, ptr noundef nonnull @.str.13, i32 noundef 147, ptr noundef nonnull @__PRETTY_FUNCTION__.array_remove_slice) #22
   unreachable
 
 if.end.i.i:                                       ; preds = %if.end
@@ -8489,7 +8489,7 @@ if.end.i.i:                                       ; preds = %if.end
   br i1 %cmp5.not.i.not.i, label %array_remove.exit, label %if.else7.i.i
 
 if.else7.i.i:                                     ; preds = %if.end.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.13, i32 noundef 149, ptr noundef nonnull @__PRETTY_FUNCTION__.array_remove_slice) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.13, i32 noundef 149, ptr noundef nonnull @__PRETTY_FUNCTION__.array_remove_slice) #22
   unreachable
 
 array_remove.exit:                                ; preds = %if.end.i.i
@@ -8519,7 +8519,7 @@ for.body.i:                                       ; preds = %array_remove.exit, 
   br i1 %cmp.i.i26, label %if.end.i.i28, label %if.else.i.i27
 
 if.else.i.i27:                                    ; preds = %for.body.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.13, i32 noundef 105, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.13, i32 noundef 105, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 if.end.i.i28:                                     ; preds = %for.body.i
@@ -8528,7 +8528,7 @@ if.end.i.i28:                                     ; preds = %for.body.i
   br i1 %tobool.not.i.i, label %if.else2.i.i, label %array_get.exit.i
 
 if.else2.i.i:                                     ; preds = %if.end.i.i28
-  tail call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 array_get.exit.i:                                 ; preds = %if.end.i.i28
@@ -8592,7 +8592,7 @@ if.then8:                                         ; preds = %land.lhs.true
   br i1 %cmp.i36, label %if.end.i38, label %if.else.i37
 
 if.else.i37:                                      ; preds = %if.then8
-  tail call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.13, i32 noundef 105, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.13, i32 noundef 105, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 if.end.i38:                                       ; preds = %if.then8
@@ -8600,7 +8600,7 @@ if.end.i38:                                       ; preds = %if.then8
   br i1 %tobool.not.i39, label %if.else2.i44, label %array_get.exit45
 
 if.else2.i44:                                     ; preds = %if.end.i38
-  tail call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 array_get.exit45:                                 ; preds = %if.end.i38
@@ -8624,7 +8624,7 @@ entry:
   br i1 %cmp.i, label %if.end.i, label %if.else.i
 
 if.else.i:                                        ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.13, i32 noundef 105, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.13, i32 noundef 105, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 if.end.i:                                         ; preds = %entry
@@ -8634,7 +8634,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %tobool.not.i, label %if.else2.i, label %array_get.exit
 
 if.else2.i:                                       ; preds = %if.end.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 array_get.exit:                                   ; preds = %if.end.i
@@ -8665,7 +8665,7 @@ if.end.i.i:                                       ; preds = %array_get.exit
   br i1 %tobool.not.i.i, label %if.else2.i.i, label %array_get.exit.i
 
 if.else2.i.i:                                     ; preds = %if.end.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.13, i32 noundef 106, ptr noundef nonnull @__PRETTY_FUNCTION__.array_get) #22
   unreachable
 
 array_get.exit.i:                                 ; preds = %if.end.i.i
@@ -8685,7 +8685,7 @@ land.lhs.true.i:                                  ; preds = %array_get.exit.i
   br i1 %cmp11.i, label %find_mapping_for_cluster.exit, label %if.else.i67
 
 if.else.i67:                                      ; preds = %land.lhs.true.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.13, i32 noundef 1355, ptr noundef nonnull @__PRETTY_FUNCTION__.find_mapping_for_cluster) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.13, i32 noundef 1355, ptr noundef nonnull @__PRETTY_FUNCTION__.find_mapping_for_cluster) #22
   unreachable
 
 find_mapping_for_cluster.exit:                    ; preds = %array_get.exit, %array_get.exit.i, %land.lhs.true.i
@@ -8696,7 +8696,7 @@ find_mapping_for_cluster.exit:                    ; preds = %array_get.exit, %ar
   br i1 %cmp, label %if.end, label %if.else
 
 if.else:                                          ; preds = %find_mapping_for_cluster.exit
-  tail call void @__assert_fail(ptr noundef nonnull @.str.111, ptr noundef nonnull @.str.13, i32 noundef 2521, ptr noundef nonnull @__PRETTY_FUNCTION__.commit_one_file) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.111, ptr noundef nonnull @.str.13, i32 noundef 2521, ptr noundef nonnull @__PRETTY_FUNCTION__.commit_one_file) #22
   unreachable
 
 if.end:                                           ; preds = %find_mapping_for_cluster.exit
@@ -8707,7 +8707,7 @@ if.end:                                           ; preds = %find_mapping_for_cl
   br i1 %cmp4, label %if.end7, label %if.else6
 
 if.else6:                                         ; preds = %if.end
-  tail call void @__assert_fail(ptr noundef nonnull @.str.112, ptr noundef nonnull @.str.13, i32 noundef 2522, ptr noundef nonnull @__PRETTY_FUNCTION__.commit_one_file) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.112, ptr noundef nonnull @.str.13, i32 noundef 2522, ptr noundef nonnull @__PRETTY_FUNCTION__.commit_one_file) #22
   unreachable
 
 if.end7:                                          ; preds = %if.end
@@ -8785,18 +8785,18 @@ for.end:                                          ; preds = %modified_fat_get.ex
   %c.0.lcssa = phi i32 [ %or.i, %for.cond.preheader ], [ %retval.0.i71, %modified_fat_get.exit ]
   %path = getelementptr inbounds i8, ptr %retval.0.i, i64 24
   %21 = load ptr, ptr %path, align 8
-  %call15 = tail call i32 (ptr, i32, ...) @qemu_open_old(ptr noundef %21, i32 noundef 66, i32 noundef 438) #19
+  %call15 = tail call i32 (ptr, i32, ...) @qemu_open_old(ptr noundef %21, i32 noundef 66, i32 noundef 438) #20
   %cmp16 = icmp slt i32 %call15, 0
   br i1 %cmp16, label %if.then17, label %if.end23
 
 if.then17:                                        ; preds = %for.end
   %22 = load ptr, ptr @stderr, align 8
   %23 = load ptr, ptr %path, align 8
-  %call19 = tail call ptr @__errno_location() #22
+  %call19 = tail call ptr @__errno_location() #23
   %24 = load i32, ptr %call19, align 4
-  %call20 = tail call ptr @strerror(i32 noundef %24) #19
+  %call20 = tail call ptr @strerror(i32 noundef %24) #20
   %25 = load i32, ptr %call19, align 4
-  %call22 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef nonnull @.str.113, ptr noundef %23, ptr noundef %call20, i32 noundef %25) #24
+  %call22 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef nonnull @.str.113, ptr noundef %23, ptr noundef %call20, i32 noundef %25) #25
   br label %return
 
 if.end23:                                         ; preds = %for.end
@@ -8805,18 +8805,18 @@ if.end23:                                         ; preds = %for.end
 
 if.then25:                                        ; preds = %if.end23
   %conv = zext i32 %offset to i64
-  %call26 = tail call i64 @lseek64(i32 noundef %call15, i64 noundef %conv, i32 noundef 0) #19
+  %call26 = tail call i64 @lseek64(i32 noundef %call15, i64 noundef %conv, i32 noundef 0) #20
   %cmp28.not = icmp eq i64 %call26, %conv
   br i1 %cmp28.not, label %while.body.lr.ph, label %if.then30
 
 if.then30:                                        ; preds = %if.then25
-  %call31 = tail call i32 @qemu_close(i32 noundef %call15) #19
+  %call31 = tail call i32 @qemu_close(i32 noundef %call15) #20
   br label %return
 
 while.body.lr.ph:                                 ; preds = %if.end23, %if.then25
   %26 = load i32, ptr %cluster_size, align 8
   %conv35 = zext i32 %26 to i64
-  %call36 = tail call noalias ptr @g_malloc(i64 noundef %conv35) #23
+  %call36 = tail call noalias ptr @g_malloc(i64 noundef %conv35) #24
   %last_cluster_of_root_directory.i75 = getelementptr inbounds i8, ptr %s, i64 32932
   %fat_type.i78 = getelementptr inbounds i8, ptr %s, i64 32824
   %fat218.i79 = getelementptr inbounds i8, ptr %s, i64 33016
@@ -8896,7 +8896,7 @@ land.lhs.true54:                                  ; preds = %modified_fat_get.ex
   br i1 %cmp.i105.not, label %if.else58, label %if.end59
 
 if.else58:                                        ; preds = %land.lhs.true54, %modified_fat_get.exit102
-  tail call void @__assert_fail(ptr noundef nonnull @.str.114, ptr noundef nonnull @.str.13, i32 noundef 2555, ptr noundef nonnull @__PRETTY_FUNCTION__.commit_one_file) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.114, ptr noundef nonnull @.str.13, i32 noundef 2555, ptr noundef nonnull @__PRETTY_FUNCTION__.commit_one_file) #22
   unreachable
 
 if.end59:                                         ; preds = %land.lhs.true54
@@ -8913,36 +8913,36 @@ if.end59:                                         ; preds = %land.lhs.true54
   br i1 %cmp64, label %if.then66, label %if.end68
 
 if.then66:                                        ; preds = %if.end59
-  %call67 = tail call i32 @qemu_close(i32 noundef %call15) #19
-  tail call void @g_free(ptr noundef %call36) #19
+  %call67 = tail call i32 @qemu_close(i32 noundef %call15) #20
+  tail call void @g_free(ptr noundef %call36) #20
   br label %return
 
 if.end68:                                         ; preds = %if.end59
   %conv69 = sext i32 %.sub to i64
-  %call70 = tail call i64 @write(i32 noundef %call15, ptr noundef %call36, i64 noundef %conv69) #19
+  %call70 = tail call i64 @write(i32 noundef %call15, ptr noundef %call36, i64 noundef %conv69) #20
   %cmp71 = icmp slt i64 %call70, 0
   br i1 %cmp71, label %if.then73, label %while.cond
 
 if.then73:                                        ; preds = %if.end68
-  %call74 = tail call i32 @qemu_close(i32 noundef %call15) #19
-  tail call void @g_free(ptr noundef %call36) #19
+  %call74 = tail call i32 @qemu_close(i32 noundef %call15) #20
+  tail call void @g_free(ptr noundef %call36) #20
   br label %return
 
 while.end:                                        ; preds = %while.cond
   %conv77 = zext i32 %call.val62 to i64
-  %call78 = tail call i32 @ftruncate64(i32 noundef %call15, i64 noundef %conv77) #19
+  %call78 = tail call i32 @ftruncate64(i32 noundef %call15, i64 noundef %conv77) #20
   %tobool79.not = icmp eq i32 %call78, 0
   br i1 %tobool79.not, label %if.end82, label %if.then80
 
 if.then80:                                        ; preds = %while.end
-  tail call void @perror(ptr noundef nonnull @.str.115) #24
-  %call81 = tail call i32 @qemu_close(i32 noundef %call15) #19
-  tail call void @g_free(ptr noundef %call36) #19
+  tail call void @perror(ptr noundef nonnull @.str.115) #25
+  %call81 = tail call i32 @qemu_close(i32 noundef %call15) #20
+  tail call void @g_free(ptr noundef %call36) #20
   br label %return
 
 if.end82:                                         ; preds = %while.end
-  %call83 = tail call i32 @qemu_close(i32 noundef %call15) #19
-  tail call void @g_free(ptr noundef %call36) #19
+  %call83 = tail call i32 @qemu_close(i32 noundef %call15) #20
+  tail call void @g_free(ptr noundef %call36) #20
   tail call fastcc void @commit_mappings(ptr noundef nonnull %s, i32 noundef %or.i, i32 noundef %dir_index)
   br label %return
 
@@ -8970,31 +8970,31 @@ declare void @perror(ptr nocapture noundef readonly) local_unnamed_addr #10
 declare noundef i32 @rmdir(ptr nocapture noundef readonly) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #14
+declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #15
+declare i32 @llvm.smin.i32(i32, i32) #16
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #16
+declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.fshl.i8(i8, i8, i8) #15
+declare i8 @llvm.fshl.i8(i8, i8, i8) #16
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare ptr @memchr(ptr, i32, i64) local_unnamed_addr #16
+declare ptr @memchr(ptr, i32, i64) local_unnamed_addr #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #18
+declare void @llvm.assume(i1 noundef) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #15
+declare i32 @llvm.umin.i32(i32, i32) #16
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -9010,17 +9010,18 @@ attributes #10 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="tru
 attributes #11 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { nofree nounwind }
-attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #16 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #17 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #18 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #19 = { nounwind }
-attributes #20 = { nounwind willreturn memory(read) }
-attributes #21 = { noreturn nounwind }
-attributes #22 = { nounwind willreturn memory(none) }
-attributes #23 = { nounwind allocsize(0) }
-attributes #24 = { cold }
+attributes #14 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { nofree nounwind }
+attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #17 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #18 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #19 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #20 = { nounwind }
+attributes #21 = { nounwind willreturn memory(read) }
+attributes #22 = { noreturn nounwind }
+attributes #23 = { nounwind willreturn memory(none) }
+attributes #24 = { nounwind allocsize(0) }
+attributes #25 = { cold }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

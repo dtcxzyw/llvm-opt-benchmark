@@ -328,7 +328,7 @@ if.then16:                                        ; preds = %for.end
   %call17 = call ptr @u_errorName_75(i32 noundef %14)
   %call18 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str.1, ptr noundef %call17) #17
   %16 = load i32, ptr %errorCode, align 4
-  call void @exit(i32 noundef %16) #18
+  call void @exit(i32 noundef %16) #19
   unreachable
 
 if.end19:                                         ; preds = %for.end
@@ -517,7 +517,7 @@ declare noalias ptr @uprv_malloc_75(i64 noundef) local_unnamed_addr #4
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -853,7 +853,7 @@ if.then:                                          ; preds = %entry
   %2 = load ptr, ptr %table, align 8
   %conv = sext i32 %storemerge to i64
   %mul7 = mul nsw i64 %conv, 12
-  %call = tail call ptr @uprv_realloc_75(ptr noundef %2, i64 noundef %mul7) #19
+  %call = tail call ptr @uprv_realloc_75(ptr noundef %2, i64 noundef %mul7) #20
   store ptr %call, ptr %table, align 8
   %cmp10 = icmp eq ptr %call, null
   br i1 %cmp10, label %if.then11, label %if.end14
@@ -3010,7 +3010,7 @@ if.end6:                                          ; preds = %if.end
 
 lor.lhs.false:                                    ; preds = %if.end6
   %add.ptr = getelementptr inbounds i8, ptr %s.1, i64 2
-  %call = call i64 @strtoul(ptr noundef nonnull %add.ptr, ptr noundef nonnull %end, i32 noundef 16) #20
+  %call = call i64 @strtoul(ptr noundef nonnull %add.ptr, ptr noundef nonnull %end, i32 noundef 16) #21
   %conv9 = trunc i64 %call to i8
   %3 = load ptr, ptr %end, align 8
   %add.ptr10 = getelementptr inbounds i8, ptr %s.1, i64 4
@@ -3093,7 +3093,7 @@ if.end6:                                          ; preds = %if.end
 
 lor.lhs.false:                                    ; preds = %if.end6
   %add.ptr = getelementptr inbounds i8, ptr %s.0, i64 2
-  %call = call i64 @strtoul(ptr noundef nonnull %add.ptr, ptr noundef nonnull %end, i32 noundef 16) #20
+  %call = call i64 @strtoul(ptr noundef nonnull %add.ptr, ptr noundef nonnull %end, i32 noundef 16) #21
   %conv9 = trunc i64 %call to i32
   %3 = load ptr, ptr %end, align 8
   %cmp11 = icmp eq ptr %3, %add.ptr
@@ -3205,7 +3205,7 @@ if.end6.i:                                        ; preds = %if.end.i.thread, %i
 
 lor.lhs.false.i:                                  ; preds = %if.end6.i
   %add.ptr.i = getelementptr inbounds i8, ptr %s.1.i66, i64 2
-  %call.i = call i64 @strtoul(ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %end.i, i32 noundef 16) #20
+  %call.i = call i64 @strtoul(ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %end.i, i32 noundef 16) #21
   %conv9.i = trunc i64 %call.i to i8
   %16 = load ptr, ptr %end.i, align 8
   %add.ptr10.i = getelementptr inbounds i8, ptr %s.1.i66, i64 4
@@ -3764,7 +3764,7 @@ attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protect
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
@@ -3776,9 +3776,10 @@ attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn mem
 attributes #15 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #16 = { allocsize(0) }
 attributes #17 = { cold }
-attributes #18 = { noreturn nounwind }
-attributes #19 = { allocsize(1) }
-attributes #20 = { nounwind }
+attributes #18 = { cold noreturn nounwind }
+attributes #19 = { noreturn nounwind }
+attributes #20 = { allocsize(1) }
+attributes #21 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

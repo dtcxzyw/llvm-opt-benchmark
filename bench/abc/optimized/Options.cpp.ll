@@ -432,14 +432,14 @@ _ZN5Gluco6Option13getOptionListEv.exit33:         ; preds = %_ZN5Gluco6Option13g
   %100 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %98, ptr noundef nonnull @.str.9, ptr noundef %99) #11
   %101 = load ptr, ptr @stderr, align 8
   %fputc = tail call i32 @fputc(i32 10, ptr %101)
-  tail call void @exit(i32 noundef 0) #12
+  tail call void @exit(i32 noundef 0) #14
   unreachable
 }
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -522,7 +522,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %2
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %11, i64 24
   %15 = load ptr, ptr %14, align 8
-  %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(1) %15) #14
+  %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(1) %15) #15
   %17 = icmp slt i32 %16, 0
   br i1 %17, label %_ZN5Gluco6Option8OptionLtclEPKS0_S3_.exit.thread.i, label %18
 
@@ -535,7 +535,7 @@ _ZN5Gluco6Option8OptionLtclEPKS0_S3_.exit.i:      ; preds = %18
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds i8, ptr %11, i64 32
   %23 = load ptr, ptr %22, align 8
-  %24 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(1) %23) #14
+  %24 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(1) %23) #15
   %.fr.i = freeze i32 %24
   %25 = icmp slt i32 %.fr.i, 0
   br i1 %25, label %_ZN5Gluco6Option8OptionLtclEPKS0_S3_.exit.thread.i, label %_ZN5Gluco6Option8OptionLtclEPKS0_S3_.exit.thread24.i
@@ -589,7 +589,7 @@ _ZN5Gluco6Option8OptionLtclEPKS0_S3_.exit.thread24.i: ; preds = %_ZN5Gluco6Optio
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 24
   %45 = load ptr, ptr %44, align 8
-  %46 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %45, ptr noundef nonnull dereferenceable(1) %40) #14
+  %46 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %45, ptr noundef nonnull dereferenceable(1) %40) #15
   %47 = icmp slt i32 %46, 0
   br i1 %47, label %.critedge.backedge, label %48
 
@@ -601,7 +601,7 @@ _ZN5Gluco6Option8OptionLtclEPKS0_S3_.exit.thread24.i: ; preds = %_ZN5Gluco6Optio
   %51 = getelementptr inbounds i8, ptr %43, i64 32
   %52 = load ptr, ptr %51, align 8
   %53 = load ptr, ptr %38, align 8
-  %54 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %52, ptr noundef nonnull dereferenceable(1) %53) #14
+  %54 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %52, ptr noundef nonnull dereferenceable(1) %53) #15
   %55 = icmp slt i32 %54, 0
   br i1 %55, label %.critedge.backedge, label %_ZN5Gluco6Option8OptionLtclEPKS0_S3_.exit.preheader
 
@@ -620,7 +620,7 @@ _ZN5Gluco6Option8OptionLtclEPKS0_S3_.exit:        ; preds = %_ZN5Gluco6Option8Op
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr inbounds i8, ptr %59, i64 24
   %61 = load ptr, ptr %60, align 8
-  %62 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %40, ptr noundef nonnull dereferenceable(1) %61) #14
+  %62 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %40, ptr noundef nonnull dereferenceable(1) %61) #15
   %63 = icmp slt i32 %62, 0
   br i1 %63, label %_ZN5Gluco6Option8OptionLtclEPKS0_S3_.exit.backedge, label %64
 
@@ -632,7 +632,7 @@ _ZN5Gluco6Option8OptionLtclEPKS0_S3_.exit:        ; preds = %_ZN5Gluco6Option8Op
   %67 = load ptr, ptr %38, align 8
   %68 = getelementptr inbounds i8, ptr %59, i64 32
   %69 = load ptr, ptr %68, align 8
-  %70 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %67, ptr noundef nonnull dereferenceable(1) %69) #14
+  %70 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %67, ptr noundef nonnull dereferenceable(1) %69) #15
   %71 = icmp slt i32 %70, 0
   br i1 %71, label %_ZN5Gluco6Option8OptionLtclEPKS0_S3_.exit.backedge, label %_ZN5Gluco6Option8OptionLtclEPKS0_S3_.exit37.thread
 
@@ -676,7 +676,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nofree nounwind }
 attributes #6 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -685,9 +685,10 @@ attributes #8 = { mustprogress nofree nounwind willreturn memory(argmem: read) "
 attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #10 = { nounwind }
 attributes #11 = { cold nounwind }
-attributes #12 = { noreturn nounwind }
+attributes #12 = { cold noreturn nounwind }
 attributes #13 = { cold }
-attributes #14 = { nounwind willreturn memory(read) }
+attributes #14 = { noreturn nounwind }
+attributes #15 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

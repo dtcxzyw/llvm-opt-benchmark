@@ -462,7 +462,7 @@ if.then.i:                                        ; preds = %invoke.cont2.i
           to label %invoke.cont4.i unwind label %lpad.i
 
 invoke.cont4.i:                                   ; preds = %if.then.i
-  call void @exit(i32 noundef 114) #15
+  call void @exit(i32 noundef 114) #16
   unreachable
 
 lpad.i:                                           ; preds = %if.then.i, %if.then16
@@ -847,7 +847,7 @@ if.then.i:                                        ; preds = %invoke.cont2.i
           to label %invoke.cont4.i unwind label %lpad.i
 
 invoke.cont4.i:                                   ; preds = %if.then.i
-  call void @exit(i32 noundef 114) #15
+  call void @exit(i32 noundef 114) #16
   unreachable
 
 lpad.i:                                           ; preds = %if.then.i, %if.then39
@@ -910,7 +910,7 @@ if.then.i121:                                     ; preds = %invoke.cont2.i120
           to label %invoke.cont4.i122 unwind label %lpad.i119
 
 invoke.cont4.i122:                                ; preds = %if.then.i121
-  call void @exit(i32 noundef 114) #15
+  call void @exit(i32 noundef 114) #16
   unreachable
 
 lpad.i119:                                        ; preds = %if.then.i121, %if.then44
@@ -1157,7 +1157,7 @@ if.then.i186:                                     ; preds = %invoke.cont2.i185
           to label %invoke.cont4.i187 unwind label %lpad.i184
 
 invoke.cont4.i187:                                ; preds = %if.then.i186
-  call void @exit(i32 noundef 114) #15
+  call void @exit(i32 noundef 114) #16
   unreachable
 
 lpad.i184:                                        ; preds = %if.then.i186, %if.then86
@@ -1728,7 +1728,7 @@ if.then.i:                                        ; preds = %invoke.cont2.i
           to label %invoke.cont4.i unwind label %lpad.i
 
 invoke.cont4.i:                                   ; preds = %if.then.i
-  call void @exit(i32 noundef 114) #15
+  call void @exit(i32 noundef 114) #16
   unreachable
 
 lpad.i:                                           ; preds = %if.then.i, %if.then39
@@ -1791,7 +1791,7 @@ if.then.i121:                                     ; preds = %invoke.cont2.i120
           to label %invoke.cont4.i122 unwind label %lpad.i119
 
 invoke.cont4.i122:                                ; preds = %if.then.i121
-  call void @exit(i32 noundef 114) #15
+  call void @exit(i32 noundef 114) #16
   unreachable
 
 lpad.i119:                                        ; preds = %if.then.i121, %if.then44
@@ -2038,7 +2038,7 @@ if.then.i186:                                     ; preds = %invoke.cont2.i185
           to label %invoke.cont4.i187 unwind label %lpad.i184
 
 invoke.cont4.i187:                                ; preds = %if.then.i186
-  call void @exit(i32 noundef 114) #15
+  call void @exit(i32 noundef 114) #16
   unreachable
 
 lpad.i184:                                        ; preds = %if.then.i186, %if.then86
@@ -2618,7 +2618,7 @@ if.then.i:                                        ; preds = %invoke.cont2.i
           to label %invoke.cont4.i unwind label %lpad.i
 
 invoke.cont4.i:                                   ; preds = %if.then.i
-  call void @exit(i32 noundef 114) #15
+  call void @exit(i32 noundef 114) #16
   unreachable
 
 lpad.i:                                           ; preds = %if.then.i, %if.then39
@@ -2681,7 +2681,7 @@ if.then.i121:                                     ; preds = %invoke.cont2.i120
           to label %invoke.cont4.i122 unwind label %lpad.i119
 
 invoke.cont4.i122:                                ; preds = %if.then.i121
-  call void @exit(i32 noundef 114) #15
+  call void @exit(i32 noundef 114) #16
   unreachable
 
 lpad.i119:                                        ; preds = %if.then.i121, %if.then44
@@ -2928,7 +2928,7 @@ if.then.i186:                                     ; preds = %invoke.cont2.i185
           to label %invoke.cont4.i187 unwind label %lpad.i184
 
 invoke.cont4.i187:                                ; preds = %if.then.i186
-  call void @exit(i32 noundef 114) #15
+  call void @exit(i32 noundef 114) #16
   unreachable
 
 lpad.i184:                                        ; preds = %if.then.i186, %if.then86
@@ -3490,7 +3490,7 @@ if.then.i:                                        ; preds = %invoke.cont2.i
           to label %invoke.cont4.i unwind label %lpad.i
 
 invoke.cont4.i:                                   ; preds = %if.then.i
-  call void @exit(i32 noundef 114) #15
+  call void @exit(i32 noundef 114) #16
   unreachable
 
 lpad.i:                                           ; preds = %if.then.i, %land.lhs.true
@@ -3683,7 +3683,7 @@ if.then.i158:                                     ; preds = %invoke.cont2.i157
           to label %invoke.cont4.i159 unwind label %lpad.i156
 
 invoke.cont4.i159:                                ; preds = %if.then.i158
-  call void @exit(i32 noundef 114) #15
+  call void @exit(i32 noundef 114) #16
   unreachable
 
 lpad.i156:                                        ; preds = %if.then.i158, %if.then70
@@ -3746,7 +3746,7 @@ if.then.i191:                                     ; preds = %invoke.cont2.i190
           to label %invoke.cont4.i192 unwind label %lpad.i189
 
 invoke.cont4.i192:                                ; preds = %if.then.i191
-  call void @exit(i32 noundef 114) #15
+  call void @exit(i32 noundef 114) #16
   unreachable
 
 lpad.i189:                                        ; preds = %if.then.i191, %if.then75
@@ -3993,7 +3993,7 @@ if.then.i261:                                     ; preds = %invoke.cont2.i260
           to label %invoke.cont4.i262 unwind label %lpad.i259
 
 invoke.cont4.i262:                                ; preds = %if.then.i261
-  call void @exit(i32 noundef 114) #15
+  call void @exit(i32 noundef 114) #16
   unreachable
 
 lpad.i259:                                        ; preds = %if.then.i261, %if.then118
@@ -4472,7 +4472,7 @@ if.then.i:                                        ; preds = %invoke.cont2.i
           to label %invoke.cont4.i unwind label %lpad.i
 
 invoke.cont4.i:                                   ; preds = %if.then.i
-  call void @exit(i32 noundef 114) #15
+  call void @exit(i32 noundef 114) #16
   unreachable
 
 lpad.i:                                           ; preds = %if.then.i, %land.lhs.true
@@ -4671,7 +4671,7 @@ if.then.i114:                                     ; preds = %invoke.cont2.i113
           to label %invoke.cont4.i115 unwind label %lpad.i112
 
 invoke.cont4.i115:                                ; preds = %if.then.i114
-  call void @exit(i32 noundef 114) #15
+  call void @exit(i32 noundef 114) #16
   unreachable
 
 lpad.i112:                                        ; preds = %if.then.i114, %invoke.cont59
@@ -5006,7 +5006,7 @@ if.then.i:                                        ; preds = %invoke.cont2.i
           to label %invoke.cont4.i unwind label %lpad.i
 
 invoke.cont4.i:                                   ; preds = %if.then.i
-  call void @exit(i32 noundef 114) #15
+  call void @exit(i32 noundef 114) #16
   unreachable
 
 lpad.i:                                           ; preds = %if.then.i, %invoke.cont26
@@ -5369,7 +5369,7 @@ if.then.i:                                        ; preds = %invoke.cont2.i
           to label %invoke.cont4.i unwind label %lpad.i
 
 invoke.cont4.i:                                   ; preds = %if.then.i
-  call void @exit(i32 noundef 114) #15
+  call void @exit(i32 noundef 114) #16
   unreachable
 
 lpad.i:                                           ; preds = %if.then.i, %if.then25
@@ -5432,7 +5432,7 @@ if.then.i101:                                     ; preds = %invoke.cont2.i100
           to label %invoke.cont4.i102 unwind label %lpad.i99
 
 invoke.cont4.i102:                                ; preds = %if.then.i101
-  call void @exit(i32 noundef 114) #15
+  call void @exit(i32 noundef 114) #16
   unreachable
 
 lpad.i99:                                         ; preds = %if.then.i101, %if.then30
@@ -5635,7 +5635,7 @@ if.then.i153:                                     ; preds = %invoke.cont2.i152
           to label %invoke.cont4.i154 unwind label %lpad.i151
 
 invoke.cont4.i154:                                ; preds = %if.then.i153
-  call void @exit(i32 noundef 114) #15
+  call void @exit(i32 noundef 114) #16
   unreachable
 
 lpad.i151:                                        ; preds = %if.then.i153, %if.then57
@@ -5960,7 +5960,7 @@ if.then.i:                                        ; preds = %invoke.cont2.i
           to label %invoke.cont4.i unwind label %lpad.i
 
 invoke.cont4.i:                                   ; preds = %if.then.i
-  call void @exit(i32 noundef 114) #15
+  call void @exit(i32 noundef 114) #16
   unreachable
 
 lpad.i:                                           ; preds = %if.then.i, %if.then25
@@ -6023,7 +6023,7 @@ if.then.i101:                                     ; preds = %invoke.cont2.i100
           to label %invoke.cont4.i102 unwind label %lpad.i99
 
 invoke.cont4.i102:                                ; preds = %if.then.i101
-  call void @exit(i32 noundef 114) #15
+  call void @exit(i32 noundef 114) #16
   unreachable
 
 lpad.i99:                                         ; preds = %if.then.i101, %if.then30
@@ -6230,7 +6230,7 @@ if.then.i153:                                     ; preds = %invoke.cont2.i152
           to label %invoke.cont4.i154 unwind label %lpad.i151
 
 invoke.cont4.i154:                                ; preds = %if.then.i153
-  call void @exit(i32 noundef 114) #15
+  call void @exit(i32 noundef 114) #16
   unreachable
 
 lpad.i151:                                        ; preds = %if.then.i153, %if.then57
@@ -7032,7 +7032,7 @@ if.then.i:                                        ; preds = %invoke.cont2.i
           to label %invoke.cont4.i unwind label %lpad.i.loopexit.split-lp
 
 invoke.cont4.i:                                   ; preds = %if.then.i
-  call void @exit(i32 noundef 114) #15
+  call void @exit(i32 noundef 114) #16
   unreachable
 
 lpad.i.loopexit:                                  ; preds = %if.then
@@ -8401,7 +8401,7 @@ declare noundef i32 @_ZN17algebraic_numbers7manager5get_iERKNS_4anumE(ptr nounde
 
 declare void @_Z26notify_assertion_violationPKciS0_(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #6
 
 declare noundef zeroext i1 @_ZNK10arith_util10is_numeralEPK4exprR8rationalRb(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #0
@@ -8780,7 +8780,7 @@ invoke.cont:                                      ; preds = %if.then17
   store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception, align 8
   %m_msg.i = getelementptr inbounds i8, ptr %exception, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #14
-  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #16
+  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #17
           to label %unreachable unwind label %ehcleanup
 
 ehcleanup:                                        ; preds = %invoke.cont
@@ -8830,7 +8830,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.3) #16
+  invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.3) #17
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
@@ -8983,7 +8983,7 @@ declare void @_ZN14context_params11updt_paramsEv(ptr noundef nonnull align 8 der
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN15vector_var2anumD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #17
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #18
   ret void
 }
 
@@ -9172,7 +9172,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then2.i.i.i.i.i.
   unreachable
 
 _ZN17Z3_ast_vector_refD2Ev.exit:                  ; preds = %entry, %invoke.cont8.i.i.i, %if.then.i.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #17
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #18
   ret void
 }
 
@@ -9225,7 +9225,7 @@ invoke.cont:                                      ; preds = %if.then17
   store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception, align 8
   %m_msg.i = getelementptr inbounds i8, ptr %exception, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #14
-  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #16
+  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #17
           to label %unreachable unwind label %ehcleanup
 
 ehcleanup:                                        ; preds = %invoke.cont
@@ -9290,7 +9290,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   unreachable
 
 _ZN9cancel_ehI8reslimitED2Ev.exit:                ; preds = %entry, %if.then.i
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #17
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #18
   ret void
 }
 
@@ -9345,7 +9345,7 @@ attributes #2 = { nofree nounwind }
 attributes #3 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -9355,8 +9355,9 @@ attributes #12 = { nocallback nofree nosync nounwind willreturn memory(argmem: r
 attributes #13 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #14 = { nounwind }
 attributes #15 = { noreturn nounwind }
-attributes #16 = { noreturn }
-attributes #17 = { builtin nounwind }
+attributes #16 = { cold noreturn nounwind }
+attributes #17 = { noreturn }
+attributes #18 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

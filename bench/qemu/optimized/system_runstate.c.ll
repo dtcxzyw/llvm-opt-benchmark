@@ -99,13 +99,13 @@ entry:
   br i1 %cmp, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 199, ptr noundef nonnull @__PRETTY_FUNCTION__.runstate_set) #11
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 199, ptr noundef nonnull @__PRETTY_FUNCTION__.runstate_set) #13
   unreachable
 
 if.end:                                           ; preds = %entry
   %0 = load i32, ptr @current_run_state, align 4
-  %call = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @RunState_lookup, i32 noundef %0) #12
-  %call1 = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @RunState_lookup, i32 noundef %new_state) #12
+  %call = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @RunState_lookup, i32 noundef %0) #14
+  %call1 = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @RunState_lookup, i32 noundef %new_state) #14
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %1 = load i32, ptr @trace_events_enabled_count, align 4
   %tobool.i.i = icmp ne i32 %1, 0
@@ -126,16 +126,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #12
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #12
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #14
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #14
   %5 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef %0, ptr noundef %call, i32 noundef %new_state, ptr noundef %call1) #12
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef %0, ptr noundef %call, i32 noundef %new_state, ptr noundef %call1) #14
   br label %trace_runstate_set.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, i32 noundef %0, ptr noundef %call, i32 noundef %new_state, ptr noundef %call1) #12
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, i32 noundef %0, ptr noundef %call, i32 noundef %new_state, ptr noundef %call1) #14
   br label %trace_runstate_set.exit
 
 trace_runstate_set.exit:                          ; preds = %if.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -153,10 +153,10 @@ if.end4:                                          ; preds = %trace_runstate_set.
   br i1 %tobool, label %if.end10, label %if.then7
 
 if.then7:                                         ; preds = %if.end4
-  %call8 = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @RunState_lookup, i32 noundef %7) #12
-  %call9 = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @RunState_lookup, i32 noundef %new_state) #12
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.2, ptr noundef %call8, ptr noundef %call9) #12
-  tail call void @abort() #11
+  %call8 = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @RunState_lookup, i32 noundef %7) #14
+  %call9 = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @RunState_lookup, i32 noundef %new_state) #14
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.2, ptr noundef %call8, ptr noundef %call9) #14
+  tail call void @abort() #13
   unreachable
 
 if.end10:                                         ; preds = %if.end4
@@ -174,8 +174,8 @@ declare ptr @qapi_enum_lookup(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 declare void @error_report(ptr noundef, ...) local_unnamed_addr #3
 
-; Function Attrs: noreturn nounwind
-declare void @abort() local_unnamed_addr #2
+; Function Attrs: cold nofree noreturn nounwind
+declare void @abort() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local range(i32 0, 16) i32 @runstate_get() local_unnamed_addr #0 {
@@ -205,9 +205,9 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noalias noundef ptr @qmp_query_status(ptr nocapture noundef readnone %errp) local_unnamed_addr #1 {
 entry:
-  %call = tail call noalias dereferenceable_or_null(8) ptr @g_malloc0(i64 noundef 8) #13
-  %call1 = tail call ptr @current_accel() #12
-  %call2 = tail call zeroext i1 @object_property_get_bool(ptr noundef %call1, ptr noundef nonnull @.str.3, ptr noundef null) #12
+  %call = tail call noalias dereferenceable_or_null(8) ptr @g_malloc0(i64 noundef 8) #15
+  %call1 = tail call ptr @current_accel() #14
+  %call2 = tail call zeroext i1 @object_property_get_bool(ptr noundef %call1, ptr noundef nonnull @.str.3, ptr noundef null) #14
   %singlestep = getelementptr inbounds i8, ptr %call, i64 1
   %frombool = zext i1 %call2 to i8
   store i8 %frombool, ptr %singlestep, align 1
@@ -221,7 +221,7 @@ entry:
 }
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #4
+declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #5
 
 declare ptr @current_accel() local_unnamed_addr #3
 
@@ -232,11 +232,11 @@ define dso_local zeroext i1 @qemu_vmstop_requested(ptr nocapture noundef %r) loc
 entry:
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
-  tail call void %1(ptr noundef nonnull @vmstop_lock, ptr noundef nonnull @.str.1, i32 noundef 254) #12
+  tail call void %1(ptr noundef nonnull @vmstop_lock, ptr noundef nonnull @.str.1, i32 noundef 254) #14
   %2 = load i32, ptr @vmstop_requested, align 4
   store i32 %2, ptr %r, align 4
   store i32 16, ptr @vmstop_requested, align 4
-  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @vmstop_lock, ptr noundef nonnull @.str.1, i32 noundef 257) #12
+  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @vmstop_lock, ptr noundef nonnull @.str.1, i32 noundef 257) #14
   %3 = load i32, ptr %r, align 4
   %cmp = icmp ult i32 %3, 16
   ret i1 %cmp
@@ -249,7 +249,7 @@ define dso_local void @qemu_system_vmstop_request_prepare() local_unnamed_addr #
 entry:
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
-  tail call void %1(ptr noundef nonnull @vmstop_lock, ptr noundef nonnull @.str.1, i32 noundef 263) #12
+  tail call void %1(ptr noundef nonnull @vmstop_lock, ptr noundef nonnull @.str.1, i32 noundef 263) #14
   ret void
 }
 
@@ -257,8 +257,8 @@ entry:
 define dso_local void @qemu_system_vmstop_request(i32 noundef %state) local_unnamed_addr #1 {
 entry:
   store i32 %state, ptr @vmstop_requested, align 4
-  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @vmstop_lock, ptr noundef nonnull @.str.1, i32 noundef 269) #12
-  tail call void @qemu_notify_event() #12
+  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @vmstop_lock, ptr noundef nonnull @.str.1, i32 noundef 269) #14
+  tail call void @qemu_notify_event() #14
   ret void
 }
 
@@ -267,7 +267,7 @@ declare void @qemu_notify_event() local_unnamed_addr #3
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef ptr @qemu_add_vm_change_state_handler_prio(ptr noundef %cb, ptr noundef %opaque, i32 noundef %priority) local_unnamed_addr #1 {
 entry:
-  %call.i = tail call noalias dereferenceable_or_null(48) ptr @g_malloc0(i64 noundef 48) #13
+  %call.i = tail call noalias dereferenceable_or_null(48) ptr @g_malloc0(i64 noundef 48) #15
   store ptr %cb, ptr %call.i, align 8
   %prepare_cb2.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr null, ptr %prepare_cb2.i, align 8
@@ -321,7 +321,7 @@ qemu_add_vm_change_state_handler_prio_full.exit:  ; preds = %do.body.i, %do.body
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef ptr @qemu_add_vm_change_state_handler_prio_full(ptr noundef %cb, ptr noundef %prepare_cb, ptr noundef %opaque, i32 noundef %priority) local_unnamed_addr #1 {
 entry:
-  %call = tail call noalias dereferenceable_or_null(48) ptr @g_malloc0(i64 noundef 48) #13
+  %call = tail call noalias dereferenceable_or_null(48) ptr @g_malloc0(i64 noundef 48) #15
   store ptr %cb, ptr %call, align 8
   %prepare_cb2 = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %prepare_cb, ptr %prepare_cb2, align 8
@@ -375,7 +375,7 @@ return:                                           ; preds = %do.body15, %do.body
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef ptr @qemu_add_vm_change_state_handler(ptr noundef %cb, ptr noundef %opaque) local_unnamed_addr #1 {
 entry:
-  %call.i.i = tail call noalias dereferenceable_or_null(48) ptr @g_malloc0(i64 noundef 48) #13
+  %call.i.i = tail call noalias dereferenceable_or_null(48) ptr @g_malloc0(i64 noundef 48) #15
   store ptr %cb, ptr %call.i.i, align 8
   %prepare_cb2.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store ptr null, ptr %prepare_cb2.i.i, align 8
@@ -450,7 +450,7 @@ if.end:                                           ; preds = %if.else, %if.then
   %2 = phi ptr [ null, %if.else ], [ %.pre, %if.then ]
   store ptr %2, ptr %1, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %entries, i8 0, i64 16, i1 false)
-  tail call void @g_free(ptr noundef nonnull %e) #12
+  tail call void @g_free(ptr noundef nonnull %e) #14
   ret void
 }
 
@@ -461,7 +461,7 @@ define dso_local void @vm_state_notify(i1 noundef zeroext %running, i32 noundef 
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %conv = zext i1 %running to i32
-  %call = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @RunState_lookup, i32 noundef %state) #12
+  %call = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @RunState_lookup, i32 noundef %state) #14
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %0 = load i32, ptr @trace_events_enabled_count, align 4
   %tobool.i.i = icmp ne i32 %0, 0
@@ -482,16 +482,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #12
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #12
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #14
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #14
   %4 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.13, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, i32 noundef %conv, i32 noundef %state, ptr noundef %call) #12
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.13, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, i32 noundef %conv, i32 noundef %state, ptr noundef %call) #14
   br label %trace_vm_state_notify.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.14, i32 noundef %conv, i32 noundef %state, ptr noundef %call) #12
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.14, i32 noundef %conv, i32 noundef %state, ptr noundef %call) #14
   br label %trace_vm_state_notify.exit
 
 trace_vm_state_notify.exit:                       ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -515,7 +515,7 @@ land.rhs:                                         ; preds = %if.then, %for.inc
 if.then4:                                         ; preds = %land.rhs
   %opaque = getelementptr inbounds i8, ptr %e.038, i64 16
   %9 = load ptr, ptr %opaque, align 8
-  tail call void %8(ptr noundef %9, i1 noundef zeroext true, i32 noundef %state) #12
+  tail call void %8(ptr noundef %9, i1 noundef zeroext true, i32 noundef %state) #14
   br label %for.inc
 
 for.inc:                                          ; preds = %land.rhs, %if.then4
@@ -534,7 +534,7 @@ land.rhs9:                                        ; preds = %for.end, %land.rhs9
   %11 = load ptr, ptr %e.140, align 8
   %opaque13 = getelementptr inbounds i8, ptr %e.140, i64 16
   %12 = load ptr, ptr %opaque13, align 8
-  tail call void %11(ptr noundef %12, i1 noundef zeroext true, i32 noundef %state) #12
+  tail call void %11(ptr noundef %12, i1 noundef zeroext true, i32 noundef %state) #14
   %tobool8.not = icmp eq ptr %10, null
   br i1 %tobool8.not, label %if.end51, label %land.rhs9, !llvm.loop !8
 
@@ -561,7 +561,7 @@ land.rhs19:                                       ; preds = %if.else, %for.inc33
 if.then28:                                        ; preds = %land.rhs19
   %opaque30 = getelementptr inbounds i8, ptr %e.234, i64 16
   %20 = load ptr, ptr %opaque30, align 8
-  tail call void %19(ptr noundef %20, i1 noundef zeroext false, i32 noundef %state) #12
+  tail call void %19(ptr noundef %20, i1 noundef zeroext false, i32 noundef %state) #14
   br label %for.inc33
 
 for.inc33:                                        ; preds = %land.rhs19, %if.then28
@@ -586,7 +586,7 @@ land.rhs39:                                       ; preds = %for.end34, %land.rh
   %24 = load ptr, ptr %e.336, align 8
   %opaque47 = getelementptr inbounds i8, ptr %e.336, i64 16
   %25 = load ptr, ptr %opaque47, align 8
-  tail call void %24(ptr noundef %25, i1 noundef zeroext false, i32 noundef %state) #12
+  tail call void %24(ptr noundef %25, i1 noundef zeroext false, i32 noundef %state) #14
   %tobool38.not = icmp eq ptr %23, null
   br i1 %tobool38.not, label %if.end51, label %land.rhs39, !llvm.loop !10
 
@@ -616,13 +616,13 @@ entry:
   br i1 %tobool.not, label %cond.end.thread, label %cond.end
 
 cond.end.thread:                                  ; preds = %entry
-  tail call void @cpu_synchronize_all_states() #12
+  tail call void @cpu_synchronize_all_states() #14
   br label %if.else
 
 cond.end:                                         ; preds = %entry
-  %call.i = tail call ptr @object_get_class(ptr noundef nonnull %0) #12
-  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE_GET_CLASS) #12
-  tail call void @cpu_synchronize_all_states() #12
+  %call.i = tail call ptr @object_get_class(ptr noundef nonnull %0) #14
+  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE_GET_CLASS) #14
+  tail call void @cpu_synchronize_all_states() #14
   %tobool1.not = icmp eq ptr %call1.i, null
   br i1 %tobool1.not, label %if.else, label %land.lhs.true
 
@@ -634,11 +634,11 @@ land.lhs.true:                                    ; preds = %cond.end
 
 if.then:                                          ; preds = %land.lhs.true
   %2 = load ptr, ptr @current_machine, align 8
-  tail call void %1(ptr noundef %2, i32 noundef %reason) #12
+  tail call void %1(ptr noundef %2, i32 noundef %reason) #14
   br label %if.end
 
 if.else:                                          ; preds = %cond.end.thread, %land.lhs.true, %cond.end
-  tail call void @qemu_devices_reset(i32 noundef %reason) #12
+  tail call void @qemu_devices_reset(i32 noundef %reason) #14
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
@@ -650,11 +650,11 @@ if.end:                                           ; preds = %if.else, %if.then
 
 sw.default:                                       ; preds = %if.end
   %cmp.i = icmp ugt i32 %reason, 5
-  tail call void @qapi_event_send_reset(i1 noundef zeroext %cmp.i, i32 noundef %reason) #12
+  tail call void @qapi_event_send_reset(i1 noundef zeroext %cmp.i, i32 noundef %reason) #14
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %if.end, %if.end, %if.end, %sw.default
-  tail call void @cpu_synchronize_all_post_reset() #12
+  tail call void @cpu_synchronize_all_post_reset() #14
   ret void
 }
 
@@ -675,7 +675,7 @@ entry:
   br i1 %cmp.i.not, label %do.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.4) #14
   br label %do.end
 
 do.end:                                           ; preds = %entry, %if.then
@@ -702,8 +702,8 @@ lor.lhs.false:                                    ; preds = %if.end4
   br i1 %or.cond, label %if.then10, label %if.else
 
 if.then10:                                        ; preds = %lor.lhs.false, %if.end4
-  tail call void @qapi_event_send_guest_panicked(i32 noundef 0, ptr noundef %info) #12
-  %call11 = tail call i32 @vm_stop(i32 noundef 14) #12
+  tail call void @qapi_event_send_guest_panicked(i32 noundef 0, ptr noundef %info) #14
+  %call11 = tail call i32 @vm_stop(i32 noundef 14) #14
   br label %if.end21
 
 if.else:                                          ; preds = %lor.lhs.false
@@ -711,13 +711,13 @@ if.else:                                          ; preds = %lor.lhs.false
   br i1 %or.cond1, label %if.then17, label %if.else19
 
 if.then17:                                        ; preds = %if.else
-  tail call void @qapi_event_send_guest_panicked(i32 noundef 1, ptr noundef %info) #12
-  %call18 = tail call i32 @vm_stop(i32 noundef 14) #12
+  tail call void @qapi_event_send_guest_panicked(i32 noundef 1, ptr noundef %info) #14
+  %call18 = tail call i32 @vm_stop(i32 noundef 14) #14
   tail call void @qemu_system_shutdown_request(i32 noundef 8)
   br label %if.end21
 
 if.else19:                                        ; preds = %if.else
-  tail call void @qapi_event_send_guest_panicked(i32 noundef 2, ptr noundef %info) #12
+  tail call void @qapi_event_send_guest_panicked(i32 noundef 2, ptr noundef %info) #14
   br label %if.end21
 
 if.end21:                                         ; preds = %if.then17, %if.else19, %if.then10
@@ -748,7 +748,7 @@ if.then35:                                        ; preds = %do.body27
   %10 = load i64, ptr %arg4, align 8
   %arg5 = getelementptr inbounds i8, ptr %info, i64 40
   %11 = load i64, ptr %arg5, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.5, i64 noundef %7, i64 noundef %8, i64 noundef %9, i64 noundef %10, i64 noundef %11) #12
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.5, i64 noundef %7, i64 noundef %8, i64 noundef %9, i64 noundef %10, i64 noundef %11) #14
   br label %if.end64
 
 do.body47:                                        ; preds = %if.then23
@@ -762,16 +762,16 @@ if.then55:                                        ; preds = %do.body47
   %13 = load i32, ptr %u56, align 8
   %reason = getelementptr inbounds i8, ptr %info, i64 32
   %14 = load i32, ptr %reason, align 8
-  %call58 = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @S390CrashReason_lookup, i32 noundef %14) #12
+  %call58 = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @S390CrashReason_lookup, i32 noundef %14) #14
   %psw_mask = getelementptr inbounds i8, ptr %info, i64 16
   %15 = load i64, ptr %psw_mask, align 8
   %psw_addr = getelementptr inbounds i8, ptr %info, i64 24
   %16 = load i64, ptr %psw_addr, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.6, i32 noundef %13, ptr noundef %call58, i64 noundef %15, i64 noundef %16) #12
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.6, i32 noundef %13, ptr noundef %call58, i64 noundef %15, i64 noundef %16) #14
   br label %if.end64
 
 if.end64:                                         ; preds = %if.then23, %do.body47, %if.then55, %if.then35, %do.body27
-  tail call void @qapi_free_GuestPanicInformation(ptr noundef nonnull %info) #12
+  tail call void @qapi_free_GuestPanicInformation(ptr noundef nonnull %info) #14
   br label %if.end65
 
 if.end65:                                         ; preds = %if.end64, %if.end21
@@ -781,7 +781,7 @@ if.end65:                                         ; preds = %if.end64, %if.end21
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #5
+declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #6
 
 declare void @qapi_event_send_guest_panicked(i32 noundef, ptr noundef) local_unnamed_addr #3
 
@@ -811,23 +811,23 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #12
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #12
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #14
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #14
   %4 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.19, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, i32 noundef %reason) #12
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.19, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, i32 noundef %reason) #14
   br label %trace_qemu_system_shutdown_request.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.20, i32 noundef %reason) #12
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.20, i32 noundef %reason) #14
   br label %trace_qemu_system_shutdown_request.exit
 
 trace_qemu_system_shutdown_request.exit:          ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  tail call void @replay_shutdown_request(i32 noundef %reason) #12
+  tail call void @replay_shutdown_request(i32 noundef %reason) #14
   store i32 %reason, ptr @shutdown_requested, align 4
-  tail call void @qemu_notify_event() #12
+  tail call void @qemu_notify_event() #14
   ret void
 }
 
@@ -842,12 +842,12 @@ entry:
   br i1 %cmp.i.not, label %do.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.7) #12
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.7) #14
   br label %do.end
 
 do.end:                                           ; preds = %entry, %if.then
-  tail call void @qapi_event_send_guest_crashloaded(i32 noundef 2, ptr noundef %info) #12
-  tail call void @qapi_free_GuestPanicInformation(ptr noundef %info) #12
+  tail call void @qapi_event_send_guest_crashloaded(i32 noundef 2, ptr noundef %info) #14
+  tail call void @qapi_free_GuestPanicInformation(ptr noundef %info) #14
   ret void
 }
 
@@ -863,18 +863,18 @@ entry:
   br i1 %or.cond, label %if.end4, label %if.else
 
 if.else:                                          ; preds = %entry
-  %call = tail call zeroext i1 @cpus_are_resettable() #12
+  %call = tail call zeroext i1 @cpus_are_resettable() #14
   br i1 %call, label %if.end4, label %if.then2
 
 if.then2:                                         ; preds = %if.else
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.8) #12
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.8) #14
   br label %if.end4
 
 if.end4:                                          ; preds = %if.else, %entry, %if.then2
   %shutdown_requested.sink = phi ptr [ @shutdown_requested, %if.then2 ], [ @shutdown_requested, %entry ], [ @reset_requested, %if.else ]
   store i32 %reason, ptr %shutdown_requested.sink, align 4
-  tail call void @cpu_stop_current() #12
-  tail call void @qemu_notify_event() #12
+  tail call void @cpu_stop_current() #14
+  tail call void @qemu_notify_event() #14
   ret void
 }
 
@@ -891,8 +891,8 @@ entry:
 
 if.end:                                           ; preds = %entry
   store i1 true, ptr @suspend_requested, align 4
-  tail call void @cpu_stop_current() #12
-  tail call void @qemu_notify_event() #12
+  tail call void @cpu_stop_current() #14
+  tail call void @qemu_notify_event() #14
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -902,7 +902,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qemu_register_suspend_notifier(ptr noundef %notifier) local_unnamed_addr #1 {
 entry:
-  tail call void @notifier_list_add(ptr noundef nonnull @suspend_notifiers, ptr noundef %notifier) #12
+  tail call void @notifier_list_add(ptr noundef nonnull @suspend_notifiers, ptr noundef %notifier) #14
   ret void
 }
 
@@ -932,16 +932,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #12
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #12
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #14
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #14
   %4 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.17, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, i32 noundef %reason) #12
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.17, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, i32 noundef %reason) #14
   br label %trace_system_wakeup_request.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, i32 noundef %reason) #12
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, i32 noundef %reason) #14
   br label %trace_system_wakeup_request.exit
 
 trace_system_wakeup_request.exit:                 ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -951,7 +951,7 @@ trace_system_wakeup_request.exit:                 ; preds = %entry, %land.lhs.tr
   br i1 %cmp.i, label %if.end, label %if.then
 
 if.then:                                          ; preds = %trace_system_wakeup_request.exit
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 618, ptr noundef nonnull @__func__.qemu_system_wakeup_request, ptr noundef nonnull @.str.9) #12
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 618, ptr noundef nonnull @__func__.qemu_system_wakeup_request, ptr noundef nonnull @.str.9) #14
   br label %return
 
 if.end:                                           ; preds = %trace_system_wakeup_request.exit
@@ -964,7 +964,7 @@ if.end:                                           ; preds = %trace_system_wakeup
 if.end2:                                          ; preds = %if.end
   tail call void @runstate_set(i32 noundef 9)
   store i32 %reason, ptr @wakeup_reason, align 4
-  tail call void @qemu_notify_event() #12
+  tail call void @qemu_notify_event() #14
   br label %return
 
 return:                                           ; preds = %if.end, %if.end2, %if.then
@@ -974,7 +974,7 @@ return:                                           ; preds = %if.end, %if.end2, %
 declare void @error_setg_internal(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define dso_local void @qemu_system_wakeup_enable(i32 noundef %reason, i1 noundef zeroext %enabled) local_unnamed_addr #6 {
+define dso_local void @qemu_system_wakeup_enable(i32 noundef %reason, i1 noundef zeroext %enabled) local_unnamed_addr #7 {
 entry:
   %shl = shl nuw i32 1, %reason
   br i1 %enabled, label %if.then, label %if.else
@@ -999,12 +999,12 @@ if.end:                                           ; preds = %if.else, %if.then
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qemu_register_wakeup_notifier(ptr noundef %notifier) local_unnamed_addr #1 {
 entry:
-  tail call void @notifier_list_add(ptr noundef nonnull @wakeup_notifiers, ptr noundef %notifier) #12
+  tail call void @notifier_list_add(ptr noundef nonnull @wakeup_notifiers, ptr noundef %notifier) #14
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define dso_local void @qemu_register_wakeup_support() local_unnamed_addr #7 {
+define dso_local void @qemu_register_wakeup_support() local_unnamed_addr #8 {
 entry:
   store i1 true, ptr @wakeup_suspend_enabled, align 1
   ret void
@@ -1024,7 +1024,7 @@ entry:
   store i32 %pid, ptr @shutdown_pid, align 4
   store i32 0, ptr @shutdown_action, align 4
   store i32 4, ptr @shutdown_requested, align 4
-  tail call void @qemu_notify_event() #12
+  tail call void @qemu_notify_event() #14
   ret void
 }
 
@@ -1062,36 +1062,36 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #12
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #12
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #14
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #14
   %4 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.21, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5) #12
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.21, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5) #14
   br label %trace_qemu_system_powerdown_request.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.22) #12
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.22) #14
   br label %trace_qemu_system_powerdown_request.exit
 
 trace_qemu_system_powerdown_request.exit:         ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   store i1 true, ptr @powerdown_requested, align 4
-  tail call void @qemu_notify_event() #12
+  tail call void @qemu_notify_event() #14
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qemu_register_powerdown_notifier(ptr noundef %notifier) local_unnamed_addr #1 {
 entry:
-  tail call void @notifier_list_add(ptr noundef nonnull @powerdown_notifiers, ptr noundef %notifier) #12
+  tail call void @notifier_list_add(ptr noundef nonnull @powerdown_notifiers, ptr noundef %notifier) #14
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qemu_register_shutdown_notifier(ptr noundef %notifier) local_unnamed_addr #1 {
 entry:
-  tail call void @notifier_list_add(ptr noundef nonnull @shutdown_notifiers, ptr noundef %notifier) #12
+  tail call void @notifier_list_add(ptr noundef nonnull @shutdown_notifiers, ptr noundef %notifier) #14
   ret void
 }
 
@@ -1099,7 +1099,7 @@ entry:
 define dso_local void @qemu_system_debug_request() local_unnamed_addr #1 {
 entry:
   store i1 true, ptr @debug_requested, align 4
-  tail call void @qemu_notify_event() #12
+  tail call void @qemu_notify_event() #14
   ret void
 }
 
@@ -1115,7 +1115,7 @@ while.cond:                                       ; preds = %while.body, %entry
   br i1 %.b.i.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %while.cond
-  %call1.i = call i32 @vm_stop(i32 noundef 0) #12
+  %call1.i = call i32 @vm_stop(i32 noundef 0) #14
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %while.cond
@@ -1123,15 +1123,15 @@ if.end.i:                                         ; preds = %if.then.i, %while.c
   br i1 %.b.i6.i, label %land.lhs.true.i.i, label %if.end5.i
 
 land.lhs.true.i.i:                                ; preds = %if.end.i
-  %call.i.i = call zeroext i1 @replay_checkpoint(i32 noundef 3) #12
+  %call.i.i = call zeroext i1 @replay_checkpoint(i32 noundef 3) #14
   br i1 %call.i.i, label %if.then4.i, label %if.end5.i
 
 if.then4.i:                                       ; preds = %land.lhs.true.i.i
   store i1 false, ptr @suspend_requested, align 4
-  call void @pause_all_vcpus() #12
-  call void @notifier_list_notify(ptr noundef nonnull @suspend_notifiers, ptr noundef null) #12
+  call void @pause_all_vcpus() #14
+  call void @notifier_list_notify(ptr noundef nonnull @suspend_notifiers, ptr noundef null) #14
   call void @runstate_set(i32 noundef 12)
-  call void @qapi_event_send_suspend() #12
+  call void @qapi_event_send_suspend() #14
   br label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.then4.i, %land.lhs.true.i.i, %if.end.i
@@ -1140,7 +1140,7 @@ if.end5.i:                                        ; preds = %if.then4.i, %land.l
   br i1 %tobool7.not.i, label %if.end20.i, label %if.then8.i
 
 if.then8.i:                                       ; preds = %if.end5.i
-  %call.i7.i = call zeroext i1 @qtest_driver() #12
+  %call.i7.i = call zeroext i1 @qtest_driver() #14
   %1 = load i32, ptr @shutdown_signal, align 4
   %tobool.i.i = icmp eq i32 %1, 0
   %or.cond.not.i.i = select i1 %call.i7.i, i1 true, i1 %tobool.i.i
@@ -1152,17 +1152,17 @@ if.then.i8.i:                                     ; preds = %if.then8.i
   br i1 %cmp.i.i, label %if.then1.i.i, label %if.else.i.i
 
 if.then1.i.i:                                     ; preds = %if.then.i8.i
-  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.23, i32 noundef %1) #12
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.23, i32 noundef %1) #14
   br label %if.end.i.i
 
 if.else.i.i:                                      ; preds = %if.then.i8.i
-  %call2.i.i = call ptr @qemu_get_pid_name(i32 noundef %2) #12
+  %call2.i.i = call ptr @qemu_get_pid_name(i32 noundef %2) #14
   %3 = load i32, ptr @shutdown_signal, align 4
   %4 = load i32, ptr @shutdown_pid, align 4
   %tobool3.not.i.i = icmp eq ptr %call2.i.i, null
   %cond.i.i = select i1 %tobool3.not.i.i, ptr @.str.25, ptr %call2.i.i
-  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.24, i32 noundef %3, i32 noundef %4, ptr noundef nonnull %cond.i.i) #12
-  call void @g_free(ptr noundef %call2.i.i) #12
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.24, i32 noundef %3, i32 noundef %4, ptr noundef nonnull %cond.i.i) #14
+  call void @g_free(ptr noundef %call2.i.i) #14
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.else.i.i, %if.then1.i.i
@@ -1173,15 +1173,15 @@ qemu_kill_report.exit.i:                          ; preds = %if.end.i.i, %if.the
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %cause.addr.i.i)
   store i32 %0, ptr %cause.addr.i.i, align 4
   %cmp.i.i.i = icmp ugt i32 %0, 5
-  call void @qapi_event_send_shutdown(i1 noundef zeroext %cmp.i.i.i, i32 noundef %0) #12
-  call void @notifier_list_notify(ptr noundef nonnull @shutdown_notifiers, ptr noundef nonnull %cause.addr.i.i) #12
+  call void @qapi_event_send_shutdown(i1 noundef zeroext %cmp.i.i.i, i32 noundef %0) #14
+  call void @notifier_list_notify(ptr noundef nonnull @shutdown_notifiers, ptr noundef nonnull %cause.addr.i.i) #14
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %cause.addr.i.i)
   %5 = load i32, ptr @shutdown_action, align 4
   %cmp.i = icmp eq i32 %5, 1
   br i1 %cmp.i, label %if.then9.i, label %if.else.i
 
 if.then9.i:                                       ; preds = %qemu_kill_report.exit.i
-  %call10.i = call i32 @vm_stop(i32 noundef 11) #12
+  %call10.i = call i32 @vm_stop(i32 noundef 11) #14
   br label %if.end20.i
 
 if.else.i:                                        ; preds = %qemu_kill_report.exit.i
@@ -1203,14 +1203,14 @@ if.end20.i:                                       ; preds = %if.then9.i, %if.end
   br i1 %tobool.not.i.i, label %if.end31.i, label %land.lhs.true.i9.i
 
 land.lhs.true.i9.i:                               ; preds = %if.end20.i
-  %call.i10.i = call zeroext i1 @replay_checkpoint(i32 noundef 2) #12
+  %call.i10.i = call zeroext i1 @replay_checkpoint(i32 noundef 2) #14
   br i1 %call.i10.i, label %if.then23.i, label %if.end31.i
 
 if.then23.i:                                      ; preds = %land.lhs.true.i9.i
   store i32 0, ptr @reset_requested, align 4
-  call void @pause_all_vcpus() #12
+  call void @pause_all_vcpus() #14
   call void @qemu_system_reset(i32 noundef %8)
-  call void @resume_all_vcpus() #12
+  call void @resume_all_vcpus() #14
   %9 = load i32, ptr @current_run_state, align 4
   switch i32 %9, label %if.then29.i [
     i32 9, label %if.end31.i
@@ -1228,14 +1228,14 @@ if.end31.i:                                       ; preds = %if.then29.i, %if.th
   br i1 %tobool33.not.i, label %if.end35.i, label %if.then34.i
 
 if.then34.i:                                      ; preds = %if.end31.i
-  call void @pause_all_vcpus() #12
+  call void @pause_all_vcpus() #14
   %11 = load ptr, ptr @current_machine, align 8
   %tobool.not.i16.i = icmp eq ptr %11, null
   br i1 %tobool.not.i16.i, label %qemu_system_wakeup.exit.i, label %cond.end.i.i
 
 cond.end.i.i:                                     ; preds = %if.then34.i
-  %call.i.i.i = call ptr @object_get_class(ptr noundef nonnull %11) #12
-  %call1.i.i.i = call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i.i, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE_GET_CLASS) #12
+  %call.i.i.i = call ptr @object_get_class(ptr noundef nonnull %11) #14
+  %call1.i.i.i = call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i.i, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE_GET_CLASS) #14
   %tobool1.not.i.i = icmp eq ptr %call1.i.i.i, null
   br i1 %tobool1.not.i.i, label %qemu_system_wakeup.exit.i, label %land.lhs.true.i17.i
 
@@ -1247,14 +1247,14 @@ land.lhs.true.i17.i:                              ; preds = %cond.end.i.i
 
 if.then.i18.i:                                    ; preds = %land.lhs.true.i17.i
   %13 = load ptr, ptr @current_machine, align 8
-  call void %12(ptr noundef %13) #12
+  call void %12(ptr noundef %13) #14
   br label %qemu_system_wakeup.exit.i
 
 qemu_system_wakeup.exit.i:                        ; preds = %if.then.i18.i, %land.lhs.true.i17.i, %cond.end.i.i, %if.then34.i
-  call void @notifier_list_notify(ptr noundef nonnull @wakeup_notifiers, ptr noundef nonnull @wakeup_reason) #12
+  call void @notifier_list_notify(ptr noundef nonnull @wakeup_notifiers, ptr noundef nonnull @wakeup_reason) #14
   store i32 0, ptr @wakeup_reason, align 4
-  call void @resume_all_vcpus() #12
-  call void @qapi_event_send_wakeup() #12
+  call void @resume_all_vcpus() #14
+  call void @qapi_event_send_wakeup() #14
   br label %if.end35.i
 
 if.end35.i:                                       ; preds = %qemu_system_wakeup.exit.i, %if.end31.i
@@ -1263,26 +1263,26 @@ if.end35.i:                                       ; preds = %qemu_system_wakeup.
   br i1 %.b.i20.i, label %if.then38.i, label %if.end39.i
 
 if.then38.i:                                      ; preds = %if.end35.i
-  call void @qapi_event_send_powerdown() #12
-  call void @notifier_list_notify(ptr noundef nonnull @powerdown_notifiers, ptr noundef null) #12
+  call void @qapi_event_send_powerdown() #14
+  call void @notifier_list_notify(ptr noundef nonnull @powerdown_notifiers, ptr noundef null) #14
   br label %if.end39.i
 
 if.end39.i:                                       ; preds = %if.then38.i, %if.end35.i
   %14 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %15 = inttoptr i64 %14 to ptr
-  call void %15(ptr noundef nonnull @vmstop_lock, ptr noundef nonnull @.str.1, i32 noundef 254) #12
+  call void %15(ptr noundef nonnull @vmstop_lock, ptr noundef nonnull @.str.1, i32 noundef 254) #14
   %16 = load i32, ptr @vmstop_requested, align 4
   store i32 16, ptr @vmstop_requested, align 4
-  call void @qemu_mutex_unlock_impl(ptr noundef nonnull @vmstop_lock, ptr noundef nonnull @.str.1, i32 noundef 257) #12
+  call void @qemu_mutex_unlock_impl(ptr noundef nonnull @vmstop_lock, ptr noundef nonnull @.str.1, i32 noundef 257) #14
   %cmp.i21.i = icmp ult i32 %16, 16
   br i1 %cmp.i21.i, label %if.then41.i, label %while.body
 
 if.then41.i:                                      ; preds = %if.end39.i
-  %call42.i = call i32 @vm_stop(i32 noundef %16) #12
+  %call42.i = call i32 @vm_stop(i32 noundef %16) #14
   br label %while.body
 
 while.body:                                       ; preds = %if.then41.i, %if.end39.i
-  call void @main_loop_wait(i32 noundef 0) #12
+  call void @main_loop_wait(i32 noundef 0) #14
   br label %while.cond, !llvm.loop !11
 
 while.end:                                        ; preds = %if.else13.i, %if.else.i
@@ -1295,14 +1295,14 @@ declare void @main_loop_wait(i32 noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qemu_add_exit_notifier(ptr noundef %notify) local_unnamed_addr #1 {
 entry:
-  tail call void @notifier_list_add(ptr noundef nonnull @exit_notifiers, ptr noundef %notify) #12
+  tail call void @notifier_list_add(ptr noundef nonnull @exit_notifiers, ptr noundef %notify) #14
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qemu_remove_exit_notifier(ptr noundef %notify) local_unnamed_addr #1 {
 entry:
-  tail call void @notifier_remove(ptr noundef %notify) #12
+  tail call void @notifier_remove(ptr noundef %notify) #14
   ret void
 }
 
@@ -1313,14 +1313,14 @@ define dso_local void @qemu_init_subsystems() local_unnamed_addr #1 {
 entry:
   %err = alloca ptr, align 8
   store ptr null, ptr %err, align 8
-  tail call void @os_set_line_buffering() #12
-  tail call void @module_call_init(i32 noundef 4) #12
-  tail call void @qemu_init_cpu_list() #12
-  tail call void @qemu_init_cpu_loop() #12
-  tail call void @qemu_mutex_lock_iothread_impl(ptr noundef nonnull @.str.1, i32 noundef 813) #12
-  %call = tail call i32 @atexit(ptr noundef nonnull @qemu_run_exit_notifiers) #12
-  tail call void @module_call_init(i32 noundef 3) #12
-  tail call void @module_call_init(i32 noundef 0) #12
+  tail call void @os_set_line_buffering() #14
+  tail call void @module_call_init(i32 noundef 4) #14
+  tail call void @qemu_init_cpu_list() #14
+  tail call void @qemu_init_cpu_loop() #14
+  tail call void @qemu_mutex_lock_iothread_impl(ptr noundef nonnull @.str.1, i32 noundef 813) #14
+  %call = tail call i32 @atexit(ptr noundef nonnull @qemu_run_exit_notifiers) #14
+  tail call void @module_call_init(i32 noundef 3) #14
+  tail call void @module_call_init(i32 noundef 0) #14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) @runstate_valid_transitions, i8 0, i64 256, i1 false)
   br label %for.body.i
 
@@ -1339,24 +1339,24 @@ for.body.i:                                       ; preds = %for.body.i, %entry
   br i1 %cmp.not.i, label %runstate_init.exit, label %for.body.i, !llvm.loop !12
 
 runstate_init.exit:                               ; preds = %for.body.i
-  tail call void @qemu_mutex_init(ptr noundef nonnull @vmstop_lock) #12
-  tail call void @precopy_infrastructure_init() #12
-  tail call void @postcopy_infrastructure_init() #12
-  tail call void @monitor_init_globals() #12
-  %call1 = call i32 @qcrypto_init(ptr noundef nonnull %err) #12
+  tail call void @qemu_mutex_init(ptr noundef nonnull @vmstop_lock) #14
+  tail call void @precopy_infrastructure_init() #14
+  tail call void @postcopy_infrastructure_init() #14
+  tail call void @monitor_init_globals() #14
+  %call1 = call i32 @qcrypto_init(ptr noundef nonnull %err) #14
   %cmp = icmp slt i32 %call1, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %runstate_init.exit
   %3 = load ptr, ptr %err, align 8
-  call void (ptr, ptr, ...) @error_reportf_err(ptr noundef %3, ptr noundef nonnull @.str.10) #12
-  call void @exit(i32 noundef 1) #11
+  call void (ptr, ptr, ...) @error_reportf_err(ptr noundef %3, ptr noundef nonnull @.str.10) #14
+  call void @exit(i32 noundef 1) #16
   unreachable
 
 if.end:                                           ; preds = %runstate_init.exit
-  call void @os_setup_early_signal_handling() #12
-  call void @bdrv_init_with_whitelist() #12
-  %call2 = call i32 @socket_init() #12
+  call void @os_setup_early_signal_handling() #14
+  call void @bdrv_init_with_whitelist() #14
+  %call2 = call i32 @socket_init() #14
   ret void
 }
 
@@ -1371,12 +1371,12 @@ declare void @qemu_init_cpu_loop() local_unnamed_addr #3
 declare void @qemu_mutex_lock_iothread_impl(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare i32 @atexit(ptr noundef) local_unnamed_addr #8
+declare i32 @atexit(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @qemu_run_exit_notifiers() #1 {
 entry:
-  tail call void @notifier_list_notify(ptr noundef nonnull @exit_notifiers, ptr noundef null) #12
+  tail call void @notifier_list_notify(ptr noundef nonnull @exit_notifiers, ptr noundef null) #14
   ret void
 }
 
@@ -1390,8 +1390,8 @@ declare i32 @qcrypto_init(ptr noundef) local_unnamed_addr #3
 
 declare void @error_reportf_err(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
-; Function Attrs: noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #2
+; Function Attrs: nofree noreturn nounwind
+declare void @exit(i32 noundef) local_unnamed_addr #10
 
 declare void @os_setup_early_signal_handling() local_unnamed_addr #3
 
@@ -1402,20 +1402,20 @@ declare i32 @socket_init() local_unnamed_addr #3
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qemu_cleanup(i32 noundef %status) local_unnamed_addr #1 {
 entry:
-  tail call void @gdb_exit(i32 noundef %status) #12
-  tail call void @migration_shutdown() #12
-  tail call void @blk_exp_close_all() #12
-  %call = tail call i32 @vm_shutdown() #12
-  tail call void @replay_finish() #12
-  tail call void @bdrv_drain_all_begin() #12
-  tail call void @job_cancel_sync_all() #12
-  tail call void @bdrv_close_all() #12
-  tail call void @tpm_cleanup() #12
-  tail call void @net_cleanup() #12
-  tail call void @audio_cleanup() #12
-  tail call void @monitor_cleanup() #12
-  tail call void @qemu_chr_cleanup() #12
-  tail call void @user_creatable_cleanup() #12
+  tail call void @gdb_exit(i32 noundef %status) #14
+  tail call void @migration_shutdown() #14
+  tail call void @blk_exp_close_all() #14
+  %call = tail call i32 @vm_shutdown() #14
+  tail call void @replay_finish() #14
+  tail call void @bdrv_drain_all_begin() #14
+  tail call void @job_cancel_sync_all() #14
+  tail call void @bdrv_close_all() #14
+  tail call void @tpm_cleanup() #14
+  tail call void @net_cleanup() #14
+  tail call void @audio_cleanup() #14
+  tail call void @monitor_cleanup() #14
+  tail call void @qemu_chr_cleanup() #14
+  tail call void @user_creatable_cleanup() #14
   ret void
 }
 
@@ -1448,7 +1448,7 @@ declare void @qemu_chr_cleanup() local_unnamed_addr #3
 declare void @user_creatable_cleanup() local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #9
 
 declare i32 @qemu_get_thread_id() local_unnamed_addr #3
 
@@ -1477,30 +1477,33 @@ declare void @qapi_event_send_shutdown(i1 noundef zeroext, i32 noundef) local_un
 declare void @qapi_event_send_powerdown() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
 
 declare void @qemu_mutex_init(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #10 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { noreturn nounwind }
-attributes #12 = { nounwind }
-attributes #13 = { nounwind allocsize(0) }
+attributes #4 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #12 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #13 = { noreturn nounwind }
+attributes #14 = { nounwind }
+attributes #15 = { nounwind allocsize(0) }
+attributes #16 = { cold noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

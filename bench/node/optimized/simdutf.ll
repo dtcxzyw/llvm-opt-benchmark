@@ -23667,7 +23667,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_16latin123utf8_length_from_latin1EPKcm.exit: ; pr
   %div357 = and i64 %length, -64
   %9 = tail call i64 @llvm.vector.reduce.add.v8i64(<8 x i64> %eight_64bits.0.lcssa)
   %op.rdx = add i64 %9, %answer.0.lcssa.i
-  %op.rdx379 = add i64 %div357, %sub82
+  %op.rdx379 = add i64 %sub82, %div357
   %op.rdx380 = add i64 %op.rdx, %op.rdx379
   ret i64 %op.rdx380
 }
@@ -36807,7 +36807,7 @@ _ZN7simdutf6scalar12_GLOBAL__N_16latin123utf8_length_from_latin1EPKcm.exit: ; pr
   %div31 = and i64 %len, -32
   %9 = tail call i64 @llvm.vector.reduce.add.v4i64(<4 x i64> %four_64bits.0.lcssa)
   %op.rdx = add i64 %9, %answer.0.lcssa.i
-  %op.rdx52 = add i64 %div31, %sub75
+  %op.rdx52 = add i64 %sub75, %div31
   %op.rdx53 = add i64 %op.rdx, %op.rdx52
   ret i64 %op.rdx53
 }

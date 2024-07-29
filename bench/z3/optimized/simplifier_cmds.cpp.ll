@@ -4715,7 +4715,7 @@ entry:
 define linkonce_odr hidden void @_ZN3cmd12set_next_argER11cmd_contextd(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(872) %ctx, double noundef %val) unnamed_addr #3 comdat align 2 {
 entry:
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.36, i32 noundef 105, ptr noundef nonnull @.str.37)
-  tail call void @exit(i32 noundef 114) #19
+  tail call void @exit(i32 noundef 114) #25
   unreachable
 }
 
@@ -4736,7 +4736,7 @@ declare void @_ZN14parametric_cmd12set_next_argER11cmd_contextRK6symbol(ptr noun
 define linkonce_odr hidden void @_ZN3cmd12set_next_argER11cmd_contextjPK6symbol(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(872) %ctx, i32 noundef %num, ptr noundef %slist) unnamed_addr #3 comdat align 2 {
 entry:
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.36, i32 noundef 108, ptr noundef nonnull @.str.37)
-  tail call void @exit(i32 noundef 114) #19
+  tail call void @exit(i32 noundef 114) #25
   unreachable
 }
 
@@ -4744,7 +4744,7 @@ entry:
 define linkonce_odr hidden void @_ZN14parametric_cmd12set_next_argER11cmd_contextP4sort(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(872) %ctx, ptr noundef %s) unnamed_addr #3 comdat align 2 {
 entry:
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.39, i32 noundef 61, ptr noundef nonnull @.str.40)
-  tail call void @exit(i32 noundef 107) #19
+  tail call void @exit(i32 noundef 107) #25
   unreachable
 }
 
@@ -4752,7 +4752,7 @@ entry:
 define linkonce_odr hidden void @_ZN3cmd12set_next_argER11cmd_contextjPKP4sort(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(872) %ctx, i32 noundef %num, ptr noundef %slist) unnamed_addr #3 comdat align 2 {
 entry:
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.36, i32 noundef 110, ptr noundef nonnull @.str.37)
-  tail call void @exit(i32 noundef 114) #19
+  tail call void @exit(i32 noundef 114) #25
   unreachable
 }
 
@@ -4760,7 +4760,7 @@ entry:
 define linkonce_odr hidden void @_ZN14parametric_cmd12set_next_argER11cmd_contextP4expr(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(872) %ctx, ptr noundef %t) unnamed_addr #3 comdat align 2 {
 entry:
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.39, i32 noundef 66, ptr noundef nonnull @.str.40)
-  tail call void @exit(i32 noundef 107) #19
+  tail call void @exit(i32 noundef 107) #25
   unreachable
 }
 
@@ -4768,7 +4768,7 @@ entry:
 define linkonce_odr hidden void @_ZN3cmd12set_next_argER11cmd_contextjPKP4expr(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(872) %ctx, i32 noundef %num, ptr noundef %tlist) unnamed_addr #3 comdat align 2 {
 entry:
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.36, i32 noundef 112, ptr noundef nonnull @.str.37)
-  tail call void @exit(i32 noundef 114) #19
+  tail call void @exit(i32 noundef 114) #25
   unreachable
 }
 
@@ -4776,7 +4776,7 @@ entry:
 define linkonce_odr hidden void @_ZN3cmd12set_next_argER11cmd_contextRKSt4pairI6symbolP4sortE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(872) %ctx, ptr noundef nonnull align 1 %sv) unnamed_addr #3 comdat align 2 {
 entry:
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.36, i32 noundef 113, ptr noundef nonnull @.str.37)
-  tail call void @exit(i32 noundef 114) #19
+  tail call void @exit(i32 noundef 114) #25
   unreachable
 }
 
@@ -4784,7 +4784,7 @@ entry:
 define linkonce_odr hidden void @_ZN3cmd12set_next_argER11cmd_contextjPKSt4pairI6symbolP4sortE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(872) %ctx, i32 noundef %num, ptr noundef %svlist) unnamed_addr #3 comdat align 2 {
 entry:
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.36, i32 noundef 114, ptr noundef nonnull @.str.37)
-  tail call void @exit(i32 noundef 114) #19
+  tail call void @exit(i32 noundef 114) #25
   unreachable
 }
 
@@ -4792,7 +4792,7 @@ entry:
 define linkonce_odr hidden void @_ZN14parametric_cmd12set_next_argER11cmd_contextP9func_decl(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(872) %ctx, ptr noundef %f) unnamed_addr #3 comdat align 2 {
 entry:
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.39, i32 noundef 71, ptr noundef nonnull @.str.40)
-  tail call void @exit(i32 noundef 107) #19
+  tail call void @exit(i32 noundef 107) #25
   unreachable
 }
 
@@ -4800,7 +4800,7 @@ entry:
 define linkonce_odr hidden void @_ZN3cmd12set_next_argER11cmd_contextjPKP9func_decl(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(872) %ctx, i32 noundef %num, ptr noundef %flist) unnamed_addr #3 comdat align 2 {
 entry:
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.36, i32 noundef 116, ptr noundef nonnull @.str.37)
-  tail call void @exit(i32 noundef 114) #19
+  tail call void @exit(i32 noundef 114) #25
   unreachable
 }
 
@@ -4991,7 +4991,7 @@ entry:
 define linkonce_odr hidden noundef i32 @_ZNK3cmd13next_arg_kindER11cmd_context(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(872) %ctx) unnamed_addr #3 comdat align 2 {
 entry:
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.36, i32 noundef 101, ptr noundef nonnull @.str.37)
-  tail call void @exit(i32 noundef 114) #19
+  tail call void @exit(i32 noundef 114) #25
   unreachable
 }
 
@@ -4999,7 +4999,7 @@ entry:
 define linkonce_odr hidden void @_ZN3cmd12set_next_argER11cmd_contextj(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(872) %ctx, i32 noundef %val) unnamed_addr #3 comdat align 2 {
 entry:
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.36, i32 noundef 102, ptr noundef nonnull @.str.37)
-  tail call void @exit(i32 noundef 114) #19
+  tail call void @exit(i32 noundef 114) #25
   unreachable
 }
 
@@ -5007,7 +5007,7 @@ entry:
 define linkonce_odr hidden void @_ZN3cmd12set_next_argER11cmd_contextb(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(872) %ctx, i1 noundef zeroext %val) unnamed_addr #3 comdat align 2 {
 entry:
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.36, i32 noundef 103, ptr noundef nonnull @.str.37)
-  tail call void @exit(i32 noundef 114) #19
+  tail call void @exit(i32 noundef 114) #25
   unreachable
 }
 
@@ -5015,7 +5015,7 @@ entry:
 define linkonce_odr hidden void @_ZN3cmd12set_next_argER11cmd_contextRK8rational(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(872) %ctx, ptr noundef nonnull align 8 dereferenceable(32) %val) unnamed_addr #3 comdat align 2 {
 entry:
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.36, i32 noundef 104, ptr noundef nonnull @.str.37)
-  tail call void @exit(i32 noundef 114) #19
+  tail call void @exit(i32 noundef 114) #25
   unreachable
 }
 
@@ -5023,7 +5023,7 @@ entry:
 define linkonce_odr hidden void @_ZN3cmd12set_next_argER11cmd_contextPKc(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(872) %ctx, ptr noundef %val) unnamed_addr #3 comdat align 2 {
 entry:
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.36, i32 noundef 106, ptr noundef nonnull @.str.37)
-  tail call void @exit(i32 noundef 114) #19
+  tail call void @exit(i32 noundef 114) #25
   unreachable
 }
 
@@ -5031,7 +5031,7 @@ entry:
 define linkonce_odr hidden void @_ZN3cmd12set_next_argER11cmd_contextRK6symbol(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(872) %ctx, ptr noundef nonnull align 8 dereferenceable(8) %s) unnamed_addr #3 comdat align 2 {
 entry:
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.36, i32 noundef 107, ptr noundef nonnull @.str.37)
-  tail call void @exit(i32 noundef 114) #19
+  tail call void @exit(i32 noundef 114) #25
   unreachable
 }
 
@@ -5039,7 +5039,7 @@ entry:
 define linkonce_odr hidden void @_ZN3cmd12set_next_argER11cmd_contextP4sort(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(872) %ctx, ptr noundef %s) unnamed_addr #3 comdat align 2 {
 entry:
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.36, i32 noundef 109, ptr noundef nonnull @.str.37)
-  tail call void @exit(i32 noundef 114) #19
+  tail call void @exit(i32 noundef 114) #25
   unreachable
 }
 
@@ -5047,7 +5047,7 @@ entry:
 define linkonce_odr hidden void @_ZN3cmd12set_next_argER11cmd_contextP4expr(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(872) %ctx, ptr noundef %t) unnamed_addr #3 comdat align 2 {
 entry:
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.36, i32 noundef 111, ptr noundef nonnull @.str.37)
-  tail call void @exit(i32 noundef 114) #19
+  tail call void @exit(i32 noundef 114) #25
   unreachable
 }
 
@@ -5055,7 +5055,7 @@ entry:
 define linkonce_odr hidden void @_ZN3cmd12set_next_argER11cmd_contextP9func_decl(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(872) %ctx, ptr noundef %f) unnamed_addr #3 comdat align 2 {
 entry:
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.36, i32 noundef 115, ptr noundef nonnull @.str.37)
-  tail call void @exit(i32 noundef 114) #19
+  tail call void @exit(i32 noundef 114) #25
   unreachable
 }
 
@@ -5063,7 +5063,7 @@ entry:
 define linkonce_odr hidden void @_ZN3cmd12set_next_argER11cmd_contextP5sexpr(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(872) %ctx, ptr noundef %n) unnamed_addr #3 comdat align 2 {
 entry:
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.36, i32 noundef 117, ptr noundef nonnull @.str.37)
-  tail call void @exit(i32 noundef 114) #19
+  tail call void @exit(i32 noundef 114) #25
   unreachable
 }
 
@@ -5075,7 +5075,7 @@ entry:
 
 declare void @_Z26notify_assertion_violationPKciS0_(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -5403,7 +5403,7 @@ attributes #9 = { mustprogress nofree nounwind willreturn memory(argmem: read) "
 attributes #10 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #13 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { nofree nosync nounwind memory(none) }
 attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
@@ -5415,6 +5415,7 @@ attributes #21 = { noreturn }
 attributes #22 = { nounwind willreturn memory(read) }
 attributes #23 = { builtin allocsize(0) }
 attributes #24 = { builtin nounwind }
+attributes #25 = { cold noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

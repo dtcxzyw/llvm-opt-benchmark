@@ -81,19 +81,19 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call fastcc void @die(ptr noundef nonnull @.str) #15
+  tail call fastcc void @die(ptr noundef nonnull @.str) #16
   unreachable
 
 if.end:                                           ; preds = %entry
   %0 = getelementptr inbounds i8, ptr %act, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %0, i8 0, i64 144, i1 false)
   store ptr inttoptr (i64 1 to ptr), ptr %act, align 8
-  %call = call i32 @sigaction(i32 noundef 13, ptr noundef nonnull %act, ptr noundef null) #16
+  %call = call i32 @sigaction(i32 noundef 13, ptr noundef nonnull %act, ptr noundef null) #17
   %arrayidx = getelementptr inbounds i8, ptr %argv, i64 8
   %1 = load ptr, ptr %arrayidx, align 8
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %delims.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %delims48.i)
-  %call.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #17
+  %call.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #18
   %cmp.i = icmp ult i64 %call.i, 9
   br i1 %cmp.i, label %if.then3, label %lor.lhs.false.i
 
@@ -139,7 +139,7 @@ for.body21.i:                                     ; preds = %for.inc29.i, %for.b
   %arrayidx22.i = getelementptr inbounds i8, ptr %1, i64 %i.178.i
   %4 = load i8, ptr %arrayidx22.i, align 1
   %conv23.i = sext i8 %4 to i32
-  %call24.i = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %delims.i, i32 noundef %conv23.i) #17
+  %call24.i = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %delims.i, i32 noundef %conv23.i) #18
   %cmp25.not.i = icmp eq ptr %call24.i, null
   br i1 %cmp25.not.i, label %for.inc29.i, label %for.end31.i
 
@@ -187,7 +187,7 @@ for.body54.i:                                     ; preds = %for.cond51.i
   %arrayidx56.i = getelementptr inbounds i8, ptr %1, i64 %i.2.i
   %7 = load i8, ptr %arrayidx56.i, align 1
   %conv57.i = sext i8 %7 to i32
-  %call58.i = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %delims48.i, i32 noundef %conv57.i) #17
+  %call58.i = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %delims48.i, i32 noundef %conv57.i) #18
   %cmp59.not.i = icmp eq ptr %call58.i, null
   br i1 %cmp59.not.i, label %if.end62.i, label %for.end84.i
 
@@ -246,7 +246,7 @@ for.end107.i:                                     ; preds = %for.inc105.i, %for.
 if.then3:                                         ; preds = %for.inc.i, %if.then71.i, %if.end62.i, %lor.lhs.false.i, %if.end, %if.end34.i, %for.end84.i, %if.then6.i
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %delims.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %delims48.i)
-  call fastcc void @die(ptr noundef nonnull @.str.1) #15
+  call fastcc void @die(ptr noundef nonnull @.str.1) #16
   unreachable
 
 if.end4:                                          ; preds = %for.end107.i, %if.end92.i
@@ -259,7 +259,7 @@ if.end4:                                          ; preds = %for.end107.i, %if.e
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %connection.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pollfds.i)
   %add.i.i.i = add i64 %uri.sroa.10.0, 1
-  %call.i.i.i = call noalias noundef ptr @malloc(i64 noundef %add.i.i.i) #18
+  %call.i.i.i = call noalias noundef ptr @malloc(i64 noundef %add.i.i.i) #19
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i.i.i, ptr nonnull readonly align 1 %uri.sroa.0.0, i64 %uri.sroa.10.0, i1 false)
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 %uri.sroa.10.0
   store i8 0, ptr %arrayidx.i.i.i, align 1
@@ -267,14 +267,14 @@ if.end4:                                          ; preds = %for.end107.i, %if.e
   %port2.i.i = getelementptr inbounds i8, ptr %req.i, i64 28
   store i16 %uri.sroa.16.0, ptr %port2.i.i, align 4
   %add.i11.i.i = add i64 %uri.sroa.6.0, 1
-  %call.i12.i.i = call noalias noundef ptr @malloc(i64 noundef %add.i11.i.i) #18
+  %call.i12.i.i = call noalias noundef ptr @malloc(i64 noundef %add.i11.i.i) #19
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i12.i.i, ptr readonly align 1 %uri.sroa.4.0, i64 %uri.sroa.6.0, i1 false)
   %arrayidx.i13.i.i = getelementptr inbounds i8, ptr %call.i12.i.i, i64 %uri.sroa.6.0
   store i8 0, ptr %arrayidx.i13.i.i, align 1
   %path4.i.i = getelementptr inbounds i8, ptr %req.i, i64 8
   store ptr %call.i12.i.i, ptr %path4.i.i, align 8
   %add.i14.i.i = add i64 %sub.ptr.sub.i, 1
-  %call.i15.i.i = call noalias noundef ptr @malloc(i64 noundef %add.i14.i.i) #18
+  %call.i15.i.i = call noalias noundef ptr @malloc(i64 noundef %add.i14.i.i) #19
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i15.i.i, ptr nonnull readonly align 1 %arrayidx.i, i64 %sub.ptr.sub.i, i1 false)
   %arrayidx.i16.i.i = getelementptr inbounds i8, ptr %call.i15.i.i, i64 %sub.ptr.sub.i
   store i8 0, ptr %arrayidx.i16.i.i, align 1
@@ -286,11 +286,11 @@ if.end4:                                          ; preds = %for.end107.i, %if.e
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %service.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %res.i.i)
   %conv.i.i = zext i16 %uri.sroa.16.0 to i32
-  %call.i.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %service.i.i, i64 noundef 32, ptr noundef nonnull @.str.15, i32 noundef %conv.i.i) #16
+  %call.i.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %service.i.i, i64 noundef 32, ptr noundef nonnull @.str.15, i32 noundef %conv.i.i) #17
   %ai_socktype.i.i = getelementptr inbounds i8, ptr %hints.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %hints.i.i, i8 0, i64 48, i1 false)
   store i32 1, ptr %ai_socktype.i.i, align 8
-  %call2.i.i = call i32 @getaddrinfo(ptr noundef %call.i.i.i, ptr noundef nonnull %service.i.i, ptr noundef nonnull %hints.i.i, ptr noundef nonnull %res.i.i) #16
+  %call2.i.i = call i32 @getaddrinfo(ptr noundef %call.i.i.i, ptr noundef nonnull %service.i.i, ptr noundef nonnull %hints.i.i, ptr noundef nonnull %res.i.i) #17
   %cmp.not.i.i = icmp eq i32 %call2.i.i, 0
   br i1 %cmp.not.i.i, label %for.cond.preheader.i.i, label %if.then.i.i
 
@@ -300,8 +300,8 @@ for.cond.preheader.i.i:                           ; preds = %if.end4
   br i1 %tobool.not14.i.i, label %connect_to.exit.thread.i, label %for.body.i.i
 
 if.then.i.i:                                      ; preds = %if.end4
-  %call4.i.i = call ptr @gai_strerror(i32 noundef %call2.i.i) #16
-  call fastcc void @dief(ptr noundef nonnull @.str.16, ptr noundef %call4.i.i) #15
+  %call4.i.i = call ptr @gai_strerror(i32 noundef %call2.i.i) #17
+  call fastcc void @dief(ptr noundef nonnull @.str.16, ptr noundef %call4.i.i) #16
   unreachable
 
 for.body.i.i:                                     ; preds = %for.cond.preheader.i.i, %for.inc.i.i
@@ -312,7 +312,7 @@ for.body.i.i:                                     ; preds = %for.cond.preheader.
   %11 = load i32, ptr %ai_socktype6.i.i, align 8
   %ai_protocol.i.i = getelementptr inbounds i8, ptr %rp.015.i.i, i64 12
   %12 = load i32, ptr %ai_protocol.i.i, align 4
-  %call7.i.i = call i32 @socket(i32 noundef %10, i32 noundef %11, i32 noundef %12) #16
+  %call7.i.i = call i32 @socket(i32 noundef %10, i32 noundef %11, i32 noundef %12) #17
   %cmp8.i.i = icmp eq i32 %call7.i.i, -1
   br i1 %cmp8.i.i, label %for.inc.i.i, label %while.cond.preheader.i.i
 
@@ -324,20 +324,20 @@ while.cond.preheader.i.i:                         ; preds = %for.body.i.i
 while.cond.i.i:                                   ; preds = %land.rhs.i.i, %while.cond.preheader.i.i
   %13 = load ptr, ptr %ai_addr.i.i, align 8
   %14 = load i32, ptr %ai_addrlen.i.i, align 8
-  %call12.i.i = call i32 @connect(i32 noundef %call7.i.i, ptr noundef %13, i32 noundef %14) #16
+  %call12.i.i = call i32 @connect(i32 noundef %call7.i.i, ptr noundef %13, i32 noundef %14) #17
   switch i32 %call12.i.i, label %if.end21.i.i [
     i32 -1, label %land.rhs.i.i
     i32 0, label %connect_to.exit.i
   ]
 
 land.rhs.i.i:                                     ; preds = %while.cond.i.i
-  %call15.i.i = tail call ptr @__errno_location() #19
+  %call15.i.i = tail call ptr @__errno_location() #20
   %15 = load i32, ptr %call15.i.i, align 4
   %cmp16.i.i = icmp eq i32 %15, 4
   br i1 %cmp16.i.i, label %while.cond.i.i, label %if.end21.i.i, !llvm.loop !10
 
 if.end21.i.i:                                     ; preds = %land.rhs.i.i, %while.cond.i.i
-  %call22.i.i = call i32 @close(i32 noundef %call7.i.i) #16
+  %call22.i.i = call i32 @close(i32 noundef %call7.i.i) #17
   br label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %if.end21.i.i, %for.body.i.i
@@ -352,66 +352,66 @@ connect_to.exit.thread.loopexit.i:                ; preds = %for.inc.i.i
 
 connect_to.exit.thread.i:                         ; preds = %connect_to.exit.thread.loopexit.i, %for.cond.preheader.i.i
   %16 = phi ptr [ %.pre92.i, %connect_to.exit.thread.loopexit.i ], [ null, %for.cond.preheader.i.i ]
-  call void @freeaddrinfo(ptr noundef %16) #16
+  call void @freeaddrinfo(ptr noundef %16) #17
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %hints.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %service.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %res.i.i)
-  call fastcc void @die(ptr noundef nonnull @.str.6) #15
+  call fastcc void @die(ptr noundef nonnull @.str.6) #16
   unreachable
 
 connect_to.exit.i:                                ; preds = %while.cond.i.i
   %17 = load ptr, ptr %res.i.i, align 8
-  call void @freeaddrinfo(ptr noundef %17) #16
+  call void @freeaddrinfo(ptr noundef %17) #17
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %hints.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %service.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %res.i.i)
-  %call1.i = call ptr @TLS_client_method() #16
-  %call2.i = call ptr @SSL_CTX_new(ptr noundef %call1.i) #16
+  %call1.i = call ptr @TLS_client_method() #17
+  %call2.i = call ptr @SSL_CTX_new(ptr noundef %call1.i) #17
   %cmp3.i = icmp eq ptr %call2.i, null
   br i1 %cmp3.i, label %if.then4.i, label %if.end7.i
 
 if.then4.i:                                       ; preds = %connect_to.exit.i
-  %call5.i = call i64 @ERR_get_error() #16
-  %call6.i = call ptr @ERR_error_string(i64 noundef %call5.i, ptr noundef null) #16
-  call fastcc void @dief(ptr noundef nonnull @.str.7, ptr noundef %call6.i) #15
+  %call5.i = call i64 @ERR_get_error() #17
+  %call6.i = call ptr @ERR_error_string(i64 noundef %call5.i, ptr noundef null) #17
+  call fastcc void @dief(ptr noundef nonnull @.str.7, ptr noundef %call6.i) #16
   unreachable
 
 if.end7.i:                                        ; preds = %connect_to.exit.i
-  %call.i19.i = call i64 @SSL_CTX_set_options(ptr noundef nonnull %call2.i, i64 noundef 2147485776) #16
-  %call1.i.i = call i64 @SSL_CTX_ctrl(ptr noundef nonnull %call2.i, i32 noundef 33, i64 noundef 4, ptr noundef null) #16
-  %call2.i20.i = call i64 @SSL_CTX_ctrl(ptr noundef nonnull %call2.i, i32 noundef 33, i64 noundef 16, ptr noundef null) #16
-  %call3.i.i = call i32 @SSL_CTX_set_alpn_protos(ptr noundef nonnull %call2.i, ptr noundef nonnull @.str.18, i32 noundef 3) #16
-  %call8.i = call ptr @SSL_new(ptr noundef nonnull %call2.i) #16
+  %call.i19.i = call i64 @SSL_CTX_set_options(ptr noundef nonnull %call2.i, i64 noundef 2147485776) #17
+  %call1.i.i = call i64 @SSL_CTX_ctrl(ptr noundef nonnull %call2.i, i32 noundef 33, i64 noundef 4, ptr noundef null) #17
+  %call2.i20.i = call i64 @SSL_CTX_ctrl(ptr noundef nonnull %call2.i, i32 noundef 33, i64 noundef 16, ptr noundef null) #17
+  %call3.i.i = call i32 @SSL_CTX_set_alpn_protos(ptr noundef nonnull %call2.i, ptr noundef nonnull @.str.18, i32 noundef 3) #17
+  %call8.i = call ptr @SSL_new(ptr noundef nonnull %call2.i) #17
   %cmp9.i = icmp eq ptr %call8.i, null
   br i1 %cmp9.i, label %if.then10.i, label %if.end13.i
 
 if.then10.i:                                      ; preds = %if.end7.i
-  %call11.i = call i64 @ERR_get_error() #16
-  %call12.i = call ptr @ERR_error_string(i64 noundef %call11.i, ptr noundef null) #16
-  call fastcc void @dief(ptr noundef nonnull @.str.8, ptr noundef %call12.i) #15
+  %call11.i = call i64 @ERR_get_error() #17
+  %call12.i = call ptr @ERR_error_string(i64 noundef %call11.i, ptr noundef null) #17
+  call fastcc void @dief(ptr noundef nonnull @.str.8, ptr noundef %call12.i) #16
   unreachable
 
 if.end13.i:                                       ; preds = %if.end7.i
-  %call.i21.i = call i32 @SSL_set_fd(ptr noundef nonnull %call8.i, i32 noundef %call7.i.i) #16
+  %call.i21.i = call i32 @SSL_set_fd(ptr noundef nonnull %call8.i, i32 noundef %call7.i.i) #17
   %cmp.i.i = icmp eq i32 %call.i21.i, 0
   br i1 %cmp.i.i, label %if.then.i24.i, label %if.end.i.i
 
 if.then.i24.i:                                    ; preds = %if.end13.i
-  %call1.i25.i = call i64 @ERR_get_error() #16
-  %call2.i26.i = call ptr @ERR_error_string(i64 noundef %call1.i25.i, ptr noundef null) #16
-  call fastcc void @dief(ptr noundef nonnull @.str.19, ptr noundef %call2.i26.i) #15
+  %call1.i25.i = call i64 @ERR_get_error() #17
+  %call2.i26.i = call ptr @ERR_error_string(i64 noundef %call1.i25.i, ptr noundef null) #17
+  call fastcc void @dief(ptr noundef nonnull @.str.19, ptr noundef %call2.i26.i) #16
   unreachable
 
 if.end.i.i:                                       ; preds = %if.end13.i
-  call void @ERR_clear_error() #16
-  %call3.i22.i = call i32 @SSL_connect(ptr noundef nonnull %call8.i) #16
+  call void @ERR_clear_error() #17
+  %call3.i22.i = call i32 @SSL_connect(ptr noundef nonnull %call8.i) #17
   %cmp4.i.i = icmp slt i32 %call3.i22.i, 1
   br i1 %cmp4.i.i, label %if.then5.i.i, label %ssl_handshake.exit.i
 
 if.then5.i.i:                                     ; preds = %if.end.i.i
-  %call6.i.i = call i64 @ERR_get_error() #16
-  %call7.i23.i = call ptr @ERR_error_string(i64 noundef %call6.i.i, ptr noundef null) #16
-  call fastcc void @dief(ptr noundef nonnull @.str.20, ptr noundef %call7.i23.i) #15
+  %call6.i.i = call i64 @ERR_get_error() #17
+  %call7.i23.i = call ptr @ERR_error_string(i64 noundef %call6.i.i, ptr noundef null) #17
+  call fastcc void @dief(ptr noundef nonnull @.str.20, ptr noundef %call7.i23.i) #16
   unreachable
 
 ssl_handshake.exit.i:                             ; preds = %if.end.i.i
@@ -421,7 +421,7 @@ ssl_handshake.exit.i:                             ; preds = %if.end.i.i
   br label %while.cond.i27.i
 
 while.cond.i27.i:                                 ; preds = %land.rhs.i32.i, %ssl_handshake.exit.i
-  %call.i28.i = call i32 (i32, i32, ...) @fcntl(i32 noundef %call7.i.i, i32 noundef 3, i32 noundef 0) #16
+  %call.i28.i = call i32 (i32, i32, ...) @fcntl(i32 noundef %call7.i.i, i32 noundef 3, i32 noundef 0) #17
   %cmp.i29.i = icmp eq i32 %call.i28.i, -1
   br i1 %cmp.i29.i, label %land.rhs.i32.i, label %while.cond6.preheader.i.i
 
@@ -430,85 +430,85 @@ while.cond6.preheader.i.i:                        ; preds = %while.cond.i27.i
   br label %while.cond6.i.i
 
 land.rhs.i32.i:                                   ; preds = %while.cond.i27.i
-  %call1.i33.i = tail call ptr @__errno_location() #19
+  %call1.i33.i = tail call ptr @__errno_location() #20
   %18 = load i32, ptr %call1.i33.i, align 4
   %cmp2.i.i = icmp eq i32 %18, 4
   br i1 %cmp2.i.i, label %while.cond.i27.i, label %if.then.i34.i, !llvm.loop !12
 
 if.then.i34.i:                                    ; preds = %land.rhs.i32.i
-  %call5.i.i = call ptr @strerror(i32 noundef %18) #16
-  call fastcc void @dief(ptr noundef nonnull @.str.21, ptr noundef %call5.i.i) #15
+  %call5.i.i = call ptr @strerror(i32 noundef %18) #17
+  call fastcc void @dief(ptr noundef nonnull @.str.21, ptr noundef %call5.i.i) #16
   unreachable
 
 while.cond6.i.i:                                  ; preds = %land.rhs9.i.i, %while.cond6.preheader.i.i
-  %call7.i30.i = call i32 (i32, i32, ...) @fcntl(i32 noundef %call7.i.i, i32 noundef 4, i32 noundef %or.i.i) #16
+  %call7.i30.i = call i32 (i32, i32, ...) @fcntl(i32 noundef %call7.i.i, i32 noundef 4, i32 noundef %or.i.i) #17
   %cmp8.i31.i = icmp eq i32 %call7.i30.i, -1
   br i1 %cmp8.i31.i, label %land.rhs9.i.i, label %make_non_block.exit.i
 
 land.rhs9.i.i:                                    ; preds = %while.cond6.i.i
-  %call10.i.i = tail call ptr @__errno_location() #19
+  %call10.i.i = tail call ptr @__errno_location() #20
   %19 = load i32, ptr %call10.i.i, align 4
   %cmp11.i.i = icmp eq i32 %19, 4
   br i1 %cmp11.i.i, label %while.cond6.i.i, label %if.then16.i.i, !llvm.loop !13
 
 if.then16.i.i:                                    ; preds = %land.rhs9.i.i
-  %call18.i.i = call ptr @strerror(i32 noundef %19) #16
-  call fastcc void @dief(ptr noundef nonnull @.str.21, ptr noundef %call18.i.i) #15
+  %call18.i.i = call ptr @strerror(i32 noundef %19) #17
+  call fastcc void @dief(ptr noundef nonnull @.str.21, ptr noundef %call18.i.i) #16
   unreachable
 
 make_non_block.exit.i:                            ; preds = %while.cond6.i.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.i.i)
   store i32 1, ptr %val.i.i, align 4
-  %call.i35.i = call i32 @setsockopt(i32 noundef %call7.i.i, i32 noundef 6, i32 noundef 1, ptr noundef nonnull %val.i.i, i32 noundef 4) #16
+  %call.i35.i = call i32 @setsockopt(i32 noundef %call7.i.i, i32 noundef 6, i32 noundef 1, ptr noundef nonnull %val.i.i, i32 noundef 4) #17
   %cmp.i36.i = icmp eq i32 %call.i35.i, -1
   br i1 %cmp.i36.i, label %if.then.i38.i, label %set_tcp_nodelay.exit.i
 
 if.then.i38.i:                                    ; preds = %make_non_block.exit.i
-  %call1.i39.i = tail call ptr @__errno_location() #19
+  %call1.i39.i = tail call ptr @__errno_location() #20
   %20 = load i32, ptr %call1.i39.i, align 4
-  %call2.i40.i = call ptr @strerror(i32 noundef %20) #16
-  call fastcc void @dief(ptr noundef nonnull @.str.22, ptr noundef %call2.i40.i) #15
+  %call2.i40.i = call ptr @strerror(i32 noundef %20) #17
+  call fastcc void @dief(ptr noundef nonnull @.str.22, ptr noundef %call2.i40.i) #16
   unreachable
 
 set_tcp_nodelay.exit.i:                           ; preds = %make_non_block.exit.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %val.i.i)
   %puts.i = call i32 @puts(ptr nonnull dereferenceable(1) @str)
-  %call16.i = call i32 @nghttp2_session_callbacks_new(ptr noundef nonnull %callbacks.i) #16
+  %call16.i = call i32 @nghttp2_session_callbacks_new(ptr noundef nonnull %callbacks.i) #17
   %cmp17.not.i = icmp eq i32 %call16.i, 0
   br i1 %cmp17.not.i, label %if.end19.i, label %if.then18.i
 
 if.then18.i:                                      ; preds = %set_tcp_nodelay.exit.i
-  call fastcc void @diec(ptr noundef nonnull @.str.10, i32 noundef %call16.i) #15
+  call fastcc void @diec(ptr noundef nonnull @.str.10, i32 noundef %call16.i) #16
   unreachable
 
 if.end19.i:                                       ; preds = %set_tcp_nodelay.exit.i
   %21 = load ptr, ptr %callbacks.i, align 8
-  call void @nghttp2_session_callbacks_set_send_callback(ptr noundef %21, ptr noundef nonnull @send_callback) #16
-  call void @nghttp2_session_callbacks_set_recv_callback(ptr noundef %21, ptr noundef nonnull @recv_callback) #16
-  call void @nghttp2_session_callbacks_set_on_frame_send_callback(ptr noundef %21, ptr noundef nonnull @on_frame_send_callback) #16
-  call void @nghttp2_session_callbacks_set_on_frame_recv_callback(ptr noundef %21, ptr noundef nonnull @on_frame_recv_callback) #16
-  call void @nghttp2_session_callbacks_set_on_stream_close_callback(ptr noundef %21, ptr noundef nonnull @on_stream_close_callback) #16
-  call void @nghttp2_session_callbacks_set_on_data_chunk_recv_callback(ptr noundef %21, ptr noundef nonnull @on_data_chunk_recv_callback) #16
+  call void @nghttp2_session_callbacks_set_send_callback(ptr noundef %21, ptr noundef nonnull @send_callback) #17
+  call void @nghttp2_session_callbacks_set_recv_callback(ptr noundef %21, ptr noundef nonnull @recv_callback) #17
+  call void @nghttp2_session_callbacks_set_on_frame_send_callback(ptr noundef %21, ptr noundef nonnull @on_frame_send_callback) #17
+  call void @nghttp2_session_callbacks_set_on_frame_recv_callback(ptr noundef %21, ptr noundef nonnull @on_frame_recv_callback) #17
+  call void @nghttp2_session_callbacks_set_on_stream_close_callback(ptr noundef %21, ptr noundef nonnull @on_stream_close_callback) #17
+  call void @nghttp2_session_callbacks_set_on_data_chunk_recv_callback(ptr noundef %21, ptr noundef nonnull @on_data_chunk_recv_callback) #17
   %session.i = getelementptr inbounds i8, ptr %connection.i, i64 8
   %22 = load ptr, ptr %callbacks.i, align 8
-  %call20.i = call i32 @nghttp2_session_client_new(ptr noundef nonnull %session.i, ptr noundef %22, ptr noundef nonnull %connection.i) #16
+  %call20.i = call i32 @nghttp2_session_client_new(ptr noundef nonnull %session.i, ptr noundef %22, ptr noundef nonnull %connection.i) #17
   %23 = load ptr, ptr %callbacks.i, align 8
-  call void @nghttp2_session_callbacks_del(ptr noundef %23) #16
+  call void @nghttp2_session_callbacks_del(ptr noundef %23) #17
   %cmp21.not.i = icmp eq i32 %call20.i, 0
   br i1 %cmp21.not.i, label %if.end23.i, label %if.then22.i
 
 if.then22.i:                                      ; preds = %if.end19.i
-  call fastcc void @diec(ptr noundef nonnull @.str.11, i32 noundef %call20.i) #15
+  call fastcc void @diec(ptr noundef nonnull @.str.11, i32 noundef %call20.i) #16
   unreachable
 
 if.end23.i:                                       ; preds = %if.end19.i
   %24 = load ptr, ptr %session.i, align 8
-  %call25.i = call i32 @nghttp2_submit_settings(ptr noundef %24, i8 noundef zeroext 0, ptr noundef null, i64 noundef 0) #16
+  %call25.i = call i32 @nghttp2_submit_settings(ptr noundef %24, i8 noundef zeroext 0, ptr noundef null, i64 noundef 0) #17
   %cmp26.not.i = icmp eq i32 %call25.i, 0
   br i1 %cmp26.not.i, label %if.end28.i, label %if.then27.i
 
 if.then27.i:                                      ; preds = %if.end23.i
-  call fastcc void @diec(ptr noundef nonnull @.str.12, i32 noundef %call25.i) #15
+  call fastcc void @diec(ptr noundef nonnull @.str.12, i32 noundef %call25.i) #16
   unreachable
 
 if.end28.i:                                       ; preds = %if.end23.i
@@ -530,7 +530,7 @@ if.end28.i:                                       ; preds = %if.end23.i
   %namelen3.i.i = getelementptr inbounds i8, ptr %nva.i.i, i64 56
   store i64 5, ptr %namelen3.i.i, align 8
   %valuelen4.i.i = getelementptr inbounds i8, ptr %nva.i.i, i64 64
-  %call.i42.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call.i12.i.i) #17
+  %call.i42.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call.i12.i.i) #18
   store i64 %call.i42.i, ptr %valuelen4.i.i, align 16
   %flags6.i.i = getelementptr inbounds i8, ptr %nva.i.i, i64 72
   store i8 0, ptr %flags6.i.i, align 8
@@ -551,7 +551,7 @@ if.end28.i:                                       ; preds = %if.end23.i
   %namelen16.i.i = getelementptr inbounds i8, ptr %nva.i.i, i64 136
   store i64 10, ptr %namelen16.i.i, align 8
   %valuelen17.i.i = getelementptr inbounds i8, ptr %nva.i.i, i64 144
-  %call19.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call.i15.i.i) #17
+  %call19.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call.i15.i.i) #18
   store i64 %call19.i.i, ptr %valuelen17.i.i, align 16
   %flags20.i.i = getelementptr inbounds i8, ptr %nva.i.i, i64 152
   store i8 0, ptr %flags20.i.i, align 8
@@ -575,12 +575,12 @@ if.end28.i:                                       ; preds = %if.end23.i
   store i64 15, ptr %valuelen31.i.i, align 16
   %flags32.i.i = getelementptr inbounds i8, ptr %nva.i.i, i64 232
   store i8 0, ptr %flags32.i.i, align 8
-  %call33.i.i = call i32 @nghttp2_submit_request(ptr noundef %connection.val.i, ptr noundef null, ptr noundef nonnull %nva.i.i, i64 noundef 6, ptr noundef null, ptr noundef nonnull %req.i) #16
+  %call33.i.i = call i32 @nghttp2_submit_request(ptr noundef %connection.val.i, ptr noundef null, ptr noundef nonnull %nva.i.i, i64 noundef 6, ptr noundef null, ptr noundef nonnull %req.i) #17
   %cmp.i44.i = icmp slt i32 %call33.i.i, 0
   br i1 %cmp.i44.i, label %if.then.i46.i, label %submit_request.exit.i
 
 if.then.i46.i:                                    ; preds = %if.end28.i
-  call fastcc void @diec(ptr noundef nonnull @.str.44, i32 noundef %call33.i.i) #15
+  call fastcc void @diec(ptr noundef nonnull @.str.44, i32 noundef %call33.i.i) #16
   unreachable
 
 submit_request.exit.i:                            ; preds = %if.end28.i
@@ -591,7 +591,7 @@ submit_request.exit.i:                            ; preds = %if.end28.i
   %events.i.i = getelementptr inbounds i8, ptr %pollfds.i, i64 4
   store i16 0, ptr %events.i.i, align 4
   %25 = load ptr, ptr %session.i, align 8
-  %call.i47.i = call i32 @nghttp2_session_want_read(ptr noundef %25) #16
+  %call.i47.i = call i32 @nghttp2_session_want_read(ptr noundef %25) #17
   %tobool.not.i48.i = icmp ne i32 %call.i47.i, 0
   %26 = load i32, ptr %want_io.i, align 8
   %cmp.i53.i = icmp eq i32 %26, 1
@@ -605,7 +605,7 @@ if.then.i49.i:                                    ; preds = %submit_request.exit
 if.end.i50.i:                                     ; preds = %if.then.i49.i, %submit_request.exit.i
   %27 = phi i16 [ 4, %submit_request.exit.i ], [ 5, %if.then.i49.i ]
   %28 = load ptr, ptr %session.i, align 8
-  %call4.i51.i = call i32 @nghttp2_session_want_write(ptr noundef %28) #16
+  %call4.i51.i = call i32 @nghttp2_session_want_write(ptr noundef %28) #17
   %tobool5.not.i.i = icmp ne i32 %call4.i51.i, 0
   %29 = load i32, ptr %want_io.i, align 8
   %cmp8.i52.i = icmp eq i32 %29, 2
@@ -622,26 +622,26 @@ ctl_poll.exit.i:                                  ; preds = %if.then10.i.i, %if.
 
 while.cond.i:                                     ; preds = %while.cond.i.backedge, %ctl_poll.exit.i
   %30 = load ptr, ptr %session.i, align 8
-  %call31.i = call i32 @nghttp2_session_want_read(ptr noundef %30) #16
+  %call31.i = call i32 @nghttp2_session_want_read(ptr noundef %30) #17
   %tobool.not.i = icmp eq i32 %call31.i, 0
   br i1 %tobool.not.i, label %lor.rhs.i, label %while.body.i
 
 lor.rhs.i:                                        ; preds = %while.cond.i
   %31 = load ptr, ptr %session.i, align 8
-  %call33.i = call i32 @nghttp2_session_want_write(ptr noundef %31) #16
+  %call33.i = call i32 @nghttp2_session_want_write(ptr noundef %31) #17
   %tobool34.not.i = icmp eq i32 %call33.i, 0
   br i1 %tobool34.not.i, label %fetch_uri.exit, label %while.body.i
 
 while.body.i:                                     ; preds = %lor.rhs.i, %while.cond.i
-  %call36.i = call i32 @poll(ptr noundef nonnull %pollfds.i, i64 noundef 1, i32 noundef -1) #16
+  %call36.i = call i32 @poll(ptr noundef nonnull %pollfds.i, i64 noundef 1, i32 noundef -1) #17
   %cmp37.i = icmp eq i32 %call36.i, -1
   br i1 %cmp37.i, label %if.then38.i, label %if.end41.i
 
 if.then38.i:                                      ; preds = %while.body.i
-  %call39.i = tail call ptr @__errno_location() #19
+  %call39.i = tail call ptr @__errno_location() #20
   %32 = load i32, ptr %call39.i, align 4
-  %call40.i = call ptr @strerror(i32 noundef %32) #16
-  call fastcc void @dief(ptr noundef nonnull @.str.13, ptr noundef %call40.i) #15
+  %call40.i = call ptr @strerror(i32 noundef %32) #17
+  call fastcc void @dief(ptr noundef nonnull @.str.13, ptr noundef %call40.i) #16
   unreachable
 
 if.end41.i:                                       ; preds = %while.body.i
@@ -652,17 +652,17 @@ if.end41.i:                                       ; preds = %while.body.i
 
 if.then44.i:                                      ; preds = %if.end41.i
   %35 = load ptr, ptr %session.i, align 8
-  %call.i55.i = call i32 @nghttp2_session_recv(ptr noundef %35) #16
+  %call.i55.i = call i32 @nghttp2_session_recv(ptr noundef %35) #17
   %cmp.not.i56.i = icmp eq i32 %call.i55.i, 0
   br i1 %cmp.not.i56.i, label %if.end.i58.i, label %if.then.i57.i
 
 if.then.i57.i:                                    ; preds = %if.then44.i
-  call fastcc void @diec(ptr noundef nonnull @.str.46, i32 noundef %call.i55.i) #15
+  call fastcc void @diec(ptr noundef nonnull @.str.46, i32 noundef %call.i55.i) #16
   unreachable
 
 if.end.i58.i:                                     ; preds = %if.then44.i
   %36 = load ptr, ptr %session.i, align 8
-  %call2.i59.i = call i32 @nghttp2_session_send(ptr noundef %36) #16
+  %call2.i59.i = call i32 @nghttp2_session_send(ptr noundef %36) #17
   %cmp3.not.i.i = icmp eq i32 %call2.i59.i, 0
   br i1 %cmp3.not.i.i, label %if.end.i58.if.end45_crit_edge.i, label %if.then4.i.i
 
@@ -671,7 +671,7 @@ if.end.i58.if.end45_crit_edge.i:                  ; preds = %if.end.i58.i
   br label %if.end45.i
 
 if.then4.i.i:                                     ; preds = %if.end.i58.i
-  call fastcc void @diec(ptr noundef nonnull @.str.47, i32 noundef %call2.i59.i) #15
+  call fastcc void @diec(ptr noundef nonnull @.str.47, i32 noundef %call2.i59.i) #16
   unreachable
 
 if.end45.i:                                       ; preds = %if.end.i58.if.end45_crit_edge.i, %if.end41.i
@@ -681,13 +681,13 @@ if.end45.i:                                       ; preds = %if.end.i58.if.end45
   br i1 %or.cond.i1, label %if.end57.i, label %if.then56.i
 
 if.then56.i:                                      ; preds = %if.end45.i
-  call fastcc void @die(ptr noundef nonnull @.str.14) #15
+  call fastcc void @die(ptr noundef nonnull @.str.14) #16
   unreachable
 
 if.end57.i:                                       ; preds = %if.end45.i
   store i16 0, ptr %events.i.i, align 4
   %39 = load ptr, ptr %session.i, align 8
-  %call.i62.i = call i32 @nghttp2_session_want_read(ptr noundef %39) #16
+  %call.i62.i = call i32 @nghttp2_session_want_read(ptr noundef %39) #17
   %tobool.not.i63.i = icmp ne i32 %call.i62.i, 0
   %40 = load i32, ptr %want_io.i, align 8
   %cmp.i74.i = icmp eq i32 %40, 1
@@ -702,7 +702,7 @@ if.then.i64.i:                                    ; preds = %if.end57.i
 
 if.end.i65.i:                                     ; preds = %if.then.i64.i, %if.end57.i
   %43 = load ptr, ptr %session.i, align 8
-  %call4.i66.i = call i32 @nghttp2_session_want_write(ptr noundef %43) #16
+  %call4.i66.i = call i32 @nghttp2_session_want_write(ptr noundef %43) #17
   %tobool5.not.i67.i = icmp ne i32 %call4.i66.i, 0
   %44 = load i32, ptr %want_io.i, align 8
   %cmp8.i71.i = icmp eq i32 %44, 2
@@ -720,18 +720,18 @@ while.cond.i.backedge:                            ; preds = %if.then10.i68.i, %i
 
 fetch_uri.exit:                                   ; preds = %lor.rhs.i
   %47 = load ptr, ptr %session.i, align 8
-  call void @nghttp2_session_del(ptr noundef %47) #16
-  %call60.i = call i32 @SSL_shutdown(ptr noundef nonnull %call8.i) #16
-  call void @SSL_free(ptr noundef nonnull %call8.i) #16
-  call void @SSL_CTX_free(ptr noundef nonnull %call2.i) #16
-  %call61.i = call i32 @shutdown(i32 noundef %call7.i.i, i32 noundef 1) #16
-  %call62.i = call i32 @close(i32 noundef %call7.i.i) #16
+  call void @nghttp2_session_del(ptr noundef %47) #17
+  %call60.i = call i32 @SSL_shutdown(ptr noundef nonnull %call8.i) #17
+  call void @SSL_free(ptr noundef nonnull %call8.i) #17
+  call void @SSL_CTX_free(ptr noundef nonnull %call2.i) #17
+  %call61.i = call i32 @shutdown(i32 noundef %call7.i.i, i32 noundef 1) #17
+  %call62.i = call i32 @close(i32 noundef %call7.i.i) #17
   %48 = load ptr, ptr %req.i, align 8
-  call void @free(ptr noundef %48) #16
+  call void @free(ptr noundef %48) #17
   %49 = load ptr, ptr %path4.i.i, align 8
-  call void @free(ptr noundef %49) #16
+  call void @free(ptr noundef %49) #17
   %50 = load ptr, ptr %hostport6.i.i, align 8
-  call void @free(ptr noundef %50) #16
+  call void @free(ptr noundef %50) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %callbacks.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %req.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %connection.i)
@@ -739,12 +739,12 @@ fetch_uri.exit:                                   ; preds = %lor.rhs.i
   ret i32 0
 }
 
-; Function Attrs: noreturn nounwind uwtable
+; Function Attrs: nofree noreturn nounwind uwtable
 define internal fastcc void @die(ptr noundef %msg) unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr @stderr, align 8
-  %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.2, ptr noundef %msg) #20
-  tail call void @exit(i32 noundef 1) #21
+  %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.2, ptr noundef %msg) #21
+  tail call void @exit(i32 noundef 1) #22
   unreachable
 }
 
@@ -757,7 +757,7 @@ declare i32 @sigaction(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
@@ -773,12 +773,12 @@ declare ptr @SSL_CTX_new(ptr noundef) local_unnamed_addr #8
 
 declare ptr @TLS_client_method() local_unnamed_addr #8
 
-; Function Attrs: noreturn nounwind uwtable
+; Function Attrs: nofree noreturn nounwind uwtable
 define internal fastcc void @dief(ptr noundef %func, ptr noundef %msg) unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr @stderr, align 8
-  %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.17, ptr noundef %func, ptr noundef %msg) #20
-  tail call void @exit(i32 noundef 1) #21
+  %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.17, ptr noundef %func, ptr noundef %msg) #21
+  tail call void @exit(i32 noundef 1) #22
   unreachable
 }
 
@@ -794,12 +794,12 @@ declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_a
 declare i32 @nghttp2_session_callbacks_new(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal fastcc void @diec(ptr noundef %func, i32 noundef %error_code) unnamed_addr #1 {
+define internal fastcc void @diec(ptr noundef %func, i32 noundef %error_code) unnamed_addr #9 {
 entry:
   %0 = load ptr, ptr @stderr, align 8
-  %call = tail call ptr @nghttp2_strerror(i32 noundef %error_code) #16
-  %call1 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.23, ptr noundef %func, i32 noundef %error_code, ptr noundef %call) #20
-  tail call void @exit(i32 noundef 1) #21
+  %call = tail call ptr @nghttp2_strerror(i32 noundef %error_code) #17
+  %call1 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.23, ptr noundef %func, i32 noundef %error_code, ptr noundef %call) #21
+  tail call void @exit(i32 noundef 1) #22
   unreachable
 }
 
@@ -819,7 +819,7 @@ declare i32 @poll(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #8
 declare ptr @strerror(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #9
+declare ptr @__errno_location() local_unnamed_addr #10
 
 declare void @nghttp2_session_del(ptr noundef) local_unnamed_addr #8
 
@@ -835,7 +835,7 @@ declare i32 @shutdown(i32 noundef, i32 noundef) local_unnamed_addr #3
 declare i32 @close(i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #10
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
@@ -879,16 +879,16 @@ define internal range(i64 -902, 2147483648) i64 @send_callback(ptr nocapture rea
 entry:
   %want_io = getelementptr inbounds i8, ptr %user_data, i64 16
   store i32 0, ptr %want_io, align 8
-  tail call void @ERR_clear_error() #16
+  tail call void @ERR_clear_error() #17
   %0 = load ptr, ptr %user_data, align 8
   %conv = trunc i64 %length to i32
-  %call = tail call i32 @SSL_write(ptr noundef %0, ptr noundef %data, i32 noundef %conv) #16
+  %call = tail call i32 @SSL_write(ptr noundef %0, ptr noundef %data, i32 noundef %conv) #17
   %cmp = icmp slt i32 %call, 1
   br i1 %cmp, label %if.then, label %if.end12
 
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr %user_data, align 8
-  %call3 = tail call i32 @SSL_get_error(ptr noundef %1, i32 noundef %call) #16
+  %call3 = tail call i32 @SSL_get_error(ptr noundef %1, i32 noundef %call) #17
   %2 = and i32 %call3, -2
   %or.cond = icmp eq i32 %2, 2
   br i1 %or.cond, label %if.then8, label %if.end12
@@ -912,16 +912,16 @@ define internal range(i64 -902, 2147483648) i64 @recv_callback(ptr nocapture rea
 entry:
   %want_io = getelementptr inbounds i8, ptr %user_data, i64 16
   store i32 0, ptr %want_io, align 8
-  tail call void @ERR_clear_error() #16
+  tail call void @ERR_clear_error() #17
   %0 = load ptr, ptr %user_data, align 8
   %conv = trunc i64 %length to i32
-  %call = tail call i32 @SSL_read(ptr noundef %0, ptr noundef %buf, i32 noundef %conv) #16
+  %call = tail call i32 @SSL_read(ptr noundef %0, ptr noundef %buf, i32 noundef %conv) #17
   %cmp = icmp slt i32 %call, 0
   br i1 %cmp, label %if.then, label %if.else12
 
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr %user_data, align 8
-  %call3 = tail call i32 @SSL_get_error(ptr noundef %1, i32 noundef %call) #16
+  %call3 = tail call i32 @SSL_get_error(ptr noundef %1, i32 noundef %call) #17
   %2 = and i32 %call3, -2
   %or.cond = icmp eq i32 %2, 2
   br i1 %or.cond, label %if.then8, label %if.end17
@@ -959,7 +959,7 @@ entry:
 sw.bb:                                            ; preds = %entry
   %stream_id = getelementptr inbounds i8, ptr %frame, i64 8
   %1 = load i32, ptr %stream_id, align 8
-  %call = tail call ptr @nghttp2_session_get_stream_user_data(ptr noundef %session, i32 noundef %1) #16
+  %call = tail call ptr @nghttp2_session_get_stream_user_data(ptr noundef %session, i32 noundef %1) #17
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %sw.epilog, label %if.then
 
@@ -1029,7 +1029,7 @@ if.then:                                          ; preds = %sw.bb
   %2 = load ptr, ptr %nva2, align 8
   %stream_id = getelementptr inbounds i8, ptr %frame, i64 8
   %3 = load i32, ptr %stream_id, align 8
-  %call = tail call ptr @nghttp2_session_get_stream_user_data(ptr noundef %session, i32 noundef %3) #16
+  %call = tail call ptr @nghttp2_session_get_stream_user_data(ptr noundef %session, i32 noundef %3) #17
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %sw.epilog, label %if.then3
 
@@ -1078,17 +1078,17 @@ declare void @nghttp2_session_callbacks_set_on_stream_close_callback(ptr noundef
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @on_stream_close_callback(ptr noundef %session, i32 noundef %stream_id, i32 %error_code, ptr nocapture readnone %user_data) #0 {
 entry:
-  %call = tail call ptr @nghttp2_session_get_stream_user_data(ptr noundef %session, i32 noundef %stream_id) #16
+  %call = tail call ptr @nghttp2_session_get_stream_user_data(ptr noundef %session, i32 noundef %stream_id) #17
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %if.end3, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call1 = tail call i32 @nghttp2_session_terminate_session(ptr noundef %session, i32 noundef 0) #16
+  %call1 = tail call i32 @nghttp2_session_terminate_session(ptr noundef %session, i32 noundef 0) #17
   %cmp.not = icmp eq i32 %call1, 0
   br i1 %cmp.not, label %if.end3, label %if.then2
 
 if.then2:                                         ; preds = %if.then
-  tail call fastcc void @diec(ptr noundef nonnull @.str.32, i32 noundef %call1) #15
+  tail call fastcc void @diec(ptr noundef nonnull @.str.32, i32 noundef %call1) #16
   unreachable
 
 if.end3:                                          ; preds = %if.then, %entry
@@ -1100,7 +1100,7 @@ declare void @nghttp2_session_callbacks_set_on_data_chunk_recv_callback(ptr noun
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @on_data_chunk_recv_callback(ptr noundef %session, i8 zeroext %flags, i32 noundef %stream_id, ptr nocapture noundef %data, i64 noundef %len, ptr nocapture readnone %user_data) #0 {
 entry:
-  %call = tail call ptr @nghttp2_session_get_stream_user_data(ptr noundef %session, i32 noundef %stream_id) #16
+  %call = tail call ptr @nghttp2_session_get_stream_user_data(ptr noundef %session, i32 noundef %stream_id) #17
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %if.end, label %if.then
 
@@ -1135,45 +1135,46 @@ declare i32 @nghttp2_session_recv(ptr noundef) local_unnamed_addr #8
 declare i32 @nghttp2_session_send(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #11
+declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #12
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #12
+declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #13
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #13
+declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #14
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #13
+declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nofree noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #13 = { nofree nounwind }
-attributes #14 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #15 = { noreturn }
-attributes #16 = { nounwind }
-attributes #17 = { nounwind willreturn memory(read) }
-attributes #18 = { nounwind allocsize(0) }
-attributes #19 = { nounwind willreturn memory(none) }
-attributes #20 = { cold }
-attributes #21 = { noreturn nounwind }
+attributes #9 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #14 = { nofree nounwind }
+attributes #15 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #16 = { noreturn }
+attributes #17 = { nounwind }
+attributes #18 = { nounwind willreturn memory(read) }
+attributes #19 = { nounwind allocsize(0) }
+attributes #20 = { nounwind willreturn memory(none) }
+attributes #21 = { cold }
+attributes #22 = { cold noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

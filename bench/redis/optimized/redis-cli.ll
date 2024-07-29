@@ -6903,7 +6903,7 @@ declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readon
 
 declare ptr @redisCommand(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #16
 
 declare void @freeReplyObject(ptr noundef) local_unnamed_addr #3
@@ -7292,7 +7292,7 @@ entry:
   tail call fastcc void @cliInitHelp()
   %call = tail call fastcc ptr @getHintForInput(ptr noundef %input)
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) %call)
-  tail call void @exit(i32 noundef 0) #39
+  tail call void @exit(i32 noundef 0) #40
   unreachable
 }
 
@@ -8164,7 +8164,7 @@ while.end44:                                      ; preds = %readHintSuiteLine.e
   %cond = select i1 %cmp46, ptr @.str.122, ptr @.str.123
   %add = add nsw i32 %pass.0.ph, %fail.0.ph
   %call48 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.121, ptr noundef nonnull %cond, i32 noundef %pass.0.ph, i32 noundef %add)
-  call void @exit(i32 noundef %fail.0.ph) #39
+  call void @exit(i32 noundef %fail.0.ph) #40
   unreachable
 }
 
@@ -8333,7 +8333,7 @@ if.then12.i:                                      ; preds = %if.else.i
   %19 = tail call i64 @fwrite(ptr nonnull @.str.566, i64 1753, i64 1, ptr %18)
   %20 = tail call i64 @fwrite(ptr nonnull @.str.567, i64 846, i64 1, ptr %18)
   tail call void @hi_sdsfree(ptr noundef %call.i.i) #33
-  tail call void @exit(i32 noundef 0) #39
+  tail call void @exit(i32 noundef 0) #40
   unreachable
 
 if.else13.i:                                      ; preds = %if.else.i
@@ -8349,7 +8349,7 @@ if.then18.i:                                      ; preds = %if.else13.i
   %22 = tail call i64 @fwrite(ptr nonnull @.str.566, i64 1753, i64 1, ptr %21)
   %23 = tail call i64 @fwrite(ptr nonnull @.str.567, i64 846, i64 1, ptr %21)
   tail call void @hi_sdsfree(ptr noundef %call.i422.i) #33
-  tail call void @exit(i32 noundef 0) #39
+  tail call void @exit(i32 noundef 0) #40
   unreachable
 
 sub_0433.i:                                       ; preds = %if.else13.i
@@ -9191,7 +9191,7 @@ while.end.i:                                      ; preds = %while.body.i, %whil
   br i1 %tobool484.not.i, label %for.inc929.i, label %if.then485.i
 
 if.then485.i:                                     ; preds = %while.end.i
-  tail call void @exit(i32 noundef %call483.i) #39
+  tail call void @exit(i32 noundef %call483.i) #40
   unreachable
 
 if.else487.i:                                     ; preds = %if.else453.i
@@ -9600,7 +9600,7 @@ if.then760.i:                                     ; preds = %lor.lhs.false755.i,
   %call761.i = tail call fastcc ptr @cliVersion()
   %call762.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.549, ptr noundef %call761.i)
   tail call void @hi_sdsfree(ptr noundef %call761.i) #33
-  tail call void @exit(i32 noundef 0) #39
+  tail call void @exit(i32 noundef 0) #40
   unreachable
 
 sub_0492.i:                                       ; preds = %lor.lhs.false755.i
@@ -9983,7 +9983,7 @@ if.end3.i:                                        ; preds = %if.end3.sink.split.
   tail call fastcc void @freeClusterManager()
   %tobool4.not.i = icmp eq i32 %call.i36, 0
   %cond.i = zext i1 %tobool4.not.i to i32
-  tail call void @exit(i32 noundef %cond.i) #39
+  tail call void @exit(i32 noundef %cond.i) #40
   unreachable
 
 if.end24:                                         ; preds = %if.end14
@@ -10156,7 +10156,7 @@ if.else34.i:                                      ; preds = %if.else31.i
 
 if.then39.i:                                      ; preds = %if.else34.i
   tail call fastcc void @latencyModePrint(i64 noundef %min.2.i, i64 noundef %max.2.i, double noundef %avg.0.i, i64 noundef %inc.i45)
-  tail call void @exit(i32 noundef 0) #39
+  tail call void @exit(i32 noundef 0) #40
   unreachable
 
 if.end42.i:                                       ; preds = %if.else34.i, %if.then11.i37.i, %if.then7.i39.i, %if.then3.i41.i, %if.then11.i.i, %if.then7.i.i, %if.then3.i.i, %if.then.i.i, %if.then29.i
@@ -10777,7 +10777,7 @@ if.then159.i93:                                   ; preds = %while.end156.i
   unreachable
 
 if.else160.i:                                     ; preds = %while.end156.i
-  call void @exit(i32 noundef 0) #39
+  call void @exit(i32 noundef 0) #40
   unreachable
 
 if.end73:                                         ; preds = %if.end65
@@ -11182,7 +11182,7 @@ for.inc119.i:                                     ; preds = %if.then110.i, %for.
   br i1 %exitcond91.not.i, label %for.end121.i, label %for.body105.i, !llvm.loop !99
 
 for.end121.i:                                     ; preds = %for.inc119.i
-  call void @exit(i32 noundef 0) #39
+  call void @exit(i32 noundef 0) #40
   unreachable
 
 if.end97:                                         ; preds = %if.end89
@@ -11734,7 +11734,7 @@ do.cond.i217:                                     ; preds = %if.then24.i215, %fo
   br i1 %456, label %do.body.i200, label %do.end.i218, !llvm.loop !102
 
 do.end.i218:                                      ; preds = %do.cond.i217
-  tail call void @exit(i32 noundef 0) #39
+  tail call void @exit(i32 noundef 0) #40
   unreachable
 
 if.end117:                                        ; preds = %if.end109
@@ -12029,7 +12029,7 @@ if.then16.i:                                      ; preds = %if.end10.i271
   %conv18.i276 = uitofp nneg i64 %max_latency.1.i to double
   %div19.i = fdiv double %conv18.i276, %div.i274
   %call20.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.721, double noundef %div19.i)
-  tail call void @exit(i32 noundef 0) #39
+  tail call void @exit(i32 noundef 0) #40
   unreachable
 
 if.end128:                                        ; preds = %if.end125
@@ -12041,7 +12041,7 @@ if.then130:                                       ; preds = %if.end128
   tail call fastcc void @cliInitHelp()
   %call.i278 = tail call fastcc ptr @getHintForInput(ptr noundef nonnull %492)
   %puts.i279 = tail call i32 @puts(ptr nonnull dereferenceable(1) %call.i278)
-  tail call void @exit(i32 noundef 0) #39
+  tail call void @exit(i32 noundef 0) #40
   unreachable
 
 if.end131:                                        ; preds = %if.end128
@@ -13063,7 +13063,7 @@ if.then92:                                        ; preds = %if.end89
   ret void
 
 if.end93:                                         ; preds = %if.end89
-  call void @exit(i32 noundef 0) #39
+  call void @exit(i32 noundef 0) #40
   unreachable
 }
 
@@ -13886,7 +13886,7 @@ cond.end151:                                      ; preds = %while.body141, %con
 while.end175:                                     ; preds = %cond.end151, %while.end
   call void @dictReleaseIterator(ptr noundef %call137) #33
   call void @dictRelease(ptr noundef %call) #33
-  call void @exit(i32 noundef 0) #39
+  call void @exit(i32 noundef 0) #40
   unreachable
 }
 
@@ -14401,7 +14401,7 @@ lor.lhs.false85:                                  ; preds = %if.end80
   br i1 %cmp88, label %if.then90, label %if.else91
 
 if.then90:                                        ; preds = %lor.lhs.false85, %if.end80
-  call void @exit(i32 noundef 0) #39
+  call void @exit(i32 noundef 0) #40
   unreachable
 
 if.else91:                                        ; preds = %lor.lhs.false85
@@ -14867,7 +14867,7 @@ cliWaitForMessagesOrStdin.exit:                   ; preds = %while.end.i, %if.th
   br label %while.body.backedge.sink.split
 
 while.end:                                        ; preds = %if.then15, %if.then17
-  call void @exit(i32 noundef 0) #39
+  call void @exit(i32 noundef 0) #40
   unreachable
 }
 
@@ -24356,7 +24356,7 @@ entry:
   %2 = tail call i64 @fwrite(ptr nonnull @.str.566, i64 1753, i64 1, ptr %cond)
   %3 = tail call i64 @fwrite(ptr nonnull @.str.567, i64 846, i64 1, ptr %cond)
   tail call void @hi_sdsfree(ptr noundef %call) #33
-  tail call void @exit(i32 noundef %err) #39
+  tail call void @exit(i32 noundef %err) #40
   unreachable
 }
 
@@ -27395,7 +27395,7 @@ attributes #12 = { mustprogress nofree nounwind willreturn memory(read) "frame-p
 attributes #13 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #16 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #17 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #18 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #19 = { nofree norecurse nosync nounwind memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -27418,7 +27418,8 @@ attributes #35 = { nounwind allocsize(0) }
 attributes #36 = { nounwind willreturn memory(none) }
 attributes #37 = { cold nounwind }
 attributes #38 = { cold }
-attributes #39 = { noreturn nounwind }
+attributes #39 = { cold noreturn nounwind }
+attributes #40 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

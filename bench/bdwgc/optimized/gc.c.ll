@@ -704,7 +704,7 @@ define void @GC_init_gcj_malloc_mp(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %.b7, label %4, label %GC_lock.exit
 
 4:                                                ; preds = %2
-  %5 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %5 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %GC_lock.exit, label %6
 
@@ -719,14 +719,14 @@ define void @GC_init_gcj_malloc_mp(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %.not.i, label %11, label %GC_generic_lock.exit.sink.split.i
 
 11:                                               ; preds = %9
-  %12 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %12 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %GC_lock.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %11, %17
   %.079.i.i = phi i32 [ %18, %17 ], [ 1, %11 ]
   fence syncscope("singlethread") seq_cst
-  %14 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %14 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %14, label %15 [
     i32 0, label %GC_lock.exit
     i32 16, label %17
@@ -734,8 +734,8 @@ define void @GC_init_gcj_malloc_mp(i32 noundef %0, ptr noundef %1) local_unnamed
 
 15:                                               ; preds = %.preheader.i.i
   %16 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %16(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %16(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 17:                                               ; preds = %.preheader.i.i
@@ -744,7 +744,7 @@ define void @GC_init_gcj_malloc_mp(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %19, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %17, %9, %6
-  %20 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %20 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit
 
 GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC_generic_lock.exit.sink.split.i, %11, %2, %4
@@ -757,7 +757,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   br i1 %.b6, label %.sink.split, label %84
 
 23:                                               ; preds = %GC_lock.exit
-  %24 = tail call ptr @getenv(ptr noundef nonnull @.str) #38
+  %24 = tail call ptr @getenv(ptr noundef nonnull @.str) #40
   %.not9 = icmp eq ptr %24, null
   %25 = load i32, ptr @GC_print_stats, align 4
   %.not10 = icmp eq i32 %25, 0
@@ -778,8 +778,8 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
 
 31:                                               ; preds = %27
   %32 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %32(ptr noundef nonnull @.str.2) #38
-  tail call void @abort() #44
+  tail call void %32(ptr noundef nonnull @.str.2) #40
+  tail call void @abort() #46
   unreachable
 
 33:                                               ; preds = %27
@@ -789,8 +789,8 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
 
 36:                                               ; preds = %33
   %37 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %37(ptr noundef nonnull @.str.94) #38
-  tail call void @abort() #44
+  tail call void %37(ptr noundef nonnull @.str.94) #40
+  tail call void @abort() #46
   unreachable
 
 GC_new_free_list_inner.exit:                      ; preds = %33
@@ -805,8 +805,8 @@ GC_new_free_list_inner.exit:                      ; preds = %33
 
 41:                                               ; preds = %40
   %42 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %42(ptr noundef nonnull @.str.95) #38
-  tail call void @abort() #44
+  tail call void %42(ptr noundef nonnull @.str.95) #40
+  tail call void @abort() #46
   unreachable
 
 GC_new_kind_inner.exit:                           ; preds = %40
@@ -833,8 +833,8 @@ GC_new_kind_inner.exit:                           ; preds = %40
 
 52:                                               ; preds = %51
   %53 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %53(ptr noundef nonnull @.str.95) #38
-  tail call void @abort() #44
+  tail call void %53(ptr noundef nonnull @.str.95) #40
+  tail call void @abort() #46
   unreachable
 
 GC_new_kind_inner.exit12:                         ; preds = %51
@@ -862,8 +862,8 @@ GC_new_kind_inner.exit12:                         ; preds = %51
 
 65:                                               ; preds = %GC_new_kind_inner.exit12
   %66 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %66(ptr noundef nonnull @.str.94) #38
-  tail call void @abort() #44
+  tail call void %66(ptr noundef nonnull @.str.94) #40
+  tail call void @abort() #46
   unreachable
 
 GC_new_free_list_inner.exit13:                    ; preds = %GC_new_kind_inner.exit12
@@ -874,8 +874,8 @@ GC_new_free_list_inner.exit13:                    ; preds = %GC_new_kind_inner.e
 
 69:                                               ; preds = %GC_new_free_list_inner.exit13
   %70 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %70(ptr noundef nonnull @.str.95) #38
-  tail call void @abort() #44
+  tail call void %70(ptr noundef nonnull @.str.95) #40
+  tail call void @abort() #46
   unreachable
 
 GC_new_kind_inner.exit14:                         ; preds = %GC_new_free_list_inner.exit13
@@ -907,7 +907,7 @@ GC_new_kind_inner.exit14:                         ; preds = %GC_new_free_list_in
   br i1 %.b, label %.sink.split, label %84
 
 .sink.split:                                      ; preds = %82, %22
-  %83 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %83 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %84
 
 84:                                               ; preds = %.sink.split, %82, %22
@@ -922,8 +922,8 @@ define internal noundef ptr @GC_gcj_fake_mark_proc(ptr nocapture readnone %0, pt
 
 7:                                                ; preds = %4
   %8 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %8(ptr noundef nonnull @.str.120) #38
-  tail call void @abort() #44
+  tail call void %8(ptr noundef nonnull @.str.120) #40
+  tail call void @abort() #46
   unreachable
 
 9:                                                ; preds = %4
@@ -945,8 +945,8 @@ define void @GC_init() local_unnamed_addr #1 {
   br i1 %.b, label %512, label %10
 
 10:                                               ; preds = %0
-  %11 = call i32 @pthread_setcancelstate(i32 noundef 1, ptr noundef nonnull %9) #38
-  %12 = tail call i32 @getpagesize() #45
+  %11 = call i32 @pthread_setcancelstate(i32 noundef 1, ptr noundef nonnull %9) #40
+  %12 = tail call i32 @getpagesize() #47
   %13 = zext i32 %12 to i64
   store i64 %13, ptr @GC_page_size, align 8
   %14 = icmp eq i32 %12, 0
@@ -954,8 +954,8 @@ define void @GC_init() local_unnamed_addr #1 {
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr @GC_on_abort, align 8
-  call void %16(ptr noundef nonnull @.str.258) #38
-  call void @abort() #44
+  call void %16(ptr noundef nonnull @.str.258) #40
+  call void @abort() #46
   unreachable
 
 17:                                               ; preds = %10
@@ -970,8 +970,8 @@ define void @GC_init() local_unnamed_addr #1 {
 
 20:                                               ; preds = %17
   %21 = load ptr, ptr @GC_on_abort, align 8
-  call void %21(ptr noundef nonnull @.str.259) #38
-  call void @abort() #44
+  call void %21(ptr noundef nonnull @.str.259) #40
+  call void @abort() #46
   unreachable
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
@@ -985,12 +985,12 @@ define void @GC_init() local_unnamed_addr #1 {
 GC_setpagesize.exit:                              ; preds = %.lr.ph.i, %.preheader.i
   %.0.lcssa.i = phi i32 [ 0, %.preheader.i ], [ %22, %.lr.ph.i ]
   store i32 %.0.lcssa.i, ptr @GC_log_pagesize, align 4
-  %25 = call ptr @getenv(ptr noundef nonnull @.str.60) #38
+  %25 = call ptr @getenv(ptr noundef nonnull @.str.60) #40
   %.not = icmp eq ptr %25, null
   br i1 %.not, label %26, label %.sink.split
 
 26:                                               ; preds = %GC_setpagesize.exit
-  %27 = call ptr @getenv(ptr noundef nonnull @.str.61) #38
+  %27 = call ptr @getenv(ptr noundef nonnull @.str.61) #40
   %.not78 = icmp eq ptr %27, null
   br i1 %.not78, label %28, label %.sink.split
 
@@ -1000,12 +1000,12 @@ GC_setpagesize.exit:                              ; preds = %.lr.ph.i, %.prehead
   br label %28
 
 28:                                               ; preds = %.sink.split, %26
-  %29 = call ptr @getenv(ptr noundef nonnull @.str.62) #38
+  %29 = call ptr @getenv(ptr noundef nonnull @.str.62) #40
   %.not79 = icmp eq ptr %29, null
   br i1 %.not79, label %45, label %30
 
 30:                                               ; preds = %28
-  %31 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull %29, i32 noundef 1089, i32 noundef 420) #38
+  %31 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull %29, i32 noundef 1089, i32 noundef 420) #40
   %32 = icmp slt i32 %31, 0
   br i1 %32, label %33, label %34
 
@@ -1015,7 +1015,7 @@ GC_setpagesize.exit:                              ; preds = %.lr.ph.i, %.prehead
 
 34:                                               ; preds = %30
   store i32 %31, ptr @GC_log, align 4
-  %35 = call ptr @getenv(ptr noundef nonnull @.str.64) #38
+  %35 = call ptr @getenv(ptr noundef nonnull @.str.64) #40
   %36 = icmp eq ptr %35, null
   br i1 %36, label %44, label %37
 
@@ -1036,7 +1036,7 @@ GC_setpagesize.exit:                              ; preds = %.lr.ph.i, %.prehead
   br label %45
 
 45:                                               ; preds = %33, %44, %40, %37, %28
-  %46 = call ptr @getenv(ptr noundef nonnull @.str.65) #38
+  %46 = call ptr @getenv(ptr noundef nonnull @.str.65) #40
   %.not80 = icmp eq ptr %46, null
   br i1 %.not80, label %48, label %47
 
@@ -1045,7 +1045,7 @@ GC_setpagesize.exit:                              ; preds = %.lr.ph.i, %.prehead
   br label %48
 
 48:                                               ; preds = %47, %45
-  %49 = call ptr @getenv(ptr noundef nonnull @.str.66) #38
+  %49 = call ptr @getenv(ptr noundef nonnull @.str.66) #40
   %.not81 = icmp eq ptr %49, null
   br i1 %.not81, label %51, label %50
 
@@ -1054,7 +1054,7 @@ GC_setpagesize.exit:                              ; preds = %.lr.ph.i, %.prehead
   br label %51
 
 51:                                               ; preds = %50, %48
-  %52 = call ptr @getenv(ptr noundef nonnull @.str.67) #38
+  %52 = call ptr @getenv(ptr noundef nonnull @.str.67) #40
   %.not82 = icmp eq ptr %52, null
   br i1 %.not82, label %54, label %53
 
@@ -1063,7 +1063,7 @@ GC_setpagesize.exit:                              ; preds = %.lr.ph.i, %.prehead
   br label %54
 
 54:                                               ; preds = %53, %51
-  %55 = call ptr @getenv(ptr noundef nonnull @.str.68) #38
+  %55 = call ptr @getenv(ptr noundef nonnull @.str.68) #40
   %.not83 = icmp eq ptr %55, null
   br i1 %.not83, label %57, label %56
 
@@ -1072,7 +1072,7 @@ GC_setpagesize.exit:                              ; preds = %.lr.ph.i, %.prehead
   br label %57
 
 57:                                               ; preds = %56, %54
-  %58 = call ptr @getenv(ptr noundef nonnull @.str.69) #38
+  %58 = call ptr @getenv(ptr noundef nonnull @.str.69) #40
   %.not84 = icmp eq ptr %58, null
   br i1 %.not84, label %60, label %59
 
@@ -1081,7 +1081,7 @@ GC_setpagesize.exit:                              ; preds = %.lr.ph.i, %.prehead
   br label %60
 
 60:                                               ; preds = %59, %57
-  %61 = call ptr @getenv(ptr noundef nonnull @.str.70) #38
+  %61 = call ptr @getenv(ptr noundef nonnull @.str.70) #40
   %.not85 = icmp eq ptr %61, null
   br i1 %.not85, label %63, label %62
 
@@ -1090,7 +1090,7 @@ GC_setpagesize.exit:                              ; preds = %.lr.ph.i, %.prehead
   br label %63
 
 63:                                               ; preds = %62, %60
-  %64 = call ptr @getenv(ptr noundef nonnull @.str.71) #38
+  %64 = call ptr @getenv(ptr noundef nonnull @.str.71) #40
   %.not86 = icmp eq ptr %64, null
   br i1 %.not86, label %66, label %65
 
@@ -1099,22 +1099,22 @@ GC_setpagesize.exit:                              ; preds = %.lr.ph.i, %.prehead
   br label %66
 
 66:                                               ; preds = %65, %63
-  %67 = call ptr @getenv(ptr noundef nonnull @.str.72) #38
+  %67 = call ptr @getenv(ptr noundef nonnull @.str.72) #40
   %.not87 = icmp eq ptr %67, null
   br i1 %.not87, label %70, label %68
 
 68:                                               ; preds = %66
   %69 = load ptr, ptr @GC_current_warn_proc, align 8
-  call void %69(ptr noundef nonnull @.str.73, i64 noundef 0) #38
+  call void %69(ptr noundef nonnull @.str.73, i64 noundef 0) #40
   br label %70
 
 70:                                               ; preds = %68, %66
-  %71 = call ptr @getenv(ptr noundef nonnull @.str.74) #38
+  %71 = call ptr @getenv(ptr noundef nonnull @.str.74) #40
   %.not88 = icmp eq ptr %71, null
   br i1 %.not88, label %76, label %72
 
 72:                                               ; preds = %70
-  %73 = call i64 @atol(ptr nocapture noundef nonnull %71) #46
+  %73 = call i64 @atol(ptr nocapture noundef nonnull %71) #48
   %74 = icmp sgt i64 %73, 0
   br i1 %74, label %75, label %76
 
@@ -1123,12 +1123,12 @@ GC_setpagesize.exit:                              ; preds = %.lr.ph.i, %.prehead
   br label %76
 
 76:                                               ; preds = %72, %75, %70
-  %77 = call ptr @getenv(ptr noundef nonnull @.str.75) #38
+  %77 = call ptr @getenv(ptr noundef nonnull @.str.75) #40
   %.not89 = icmp eq ptr %77, null
   br i1 %.not89, label %82, label %78
 
 78:                                               ; preds = %76
-  %79 = call i32 @atoi(ptr nocapture noundef nonnull %77) #46
+  %79 = call i32 @atoi(ptr nocapture noundef nonnull %77) #48
   %80 = icmp sgt i32 %79, 0
   br i1 %80, label %81, label %82
 
@@ -1137,18 +1137,18 @@ GC_setpagesize.exit:                              ; preds = %.lr.ph.i, %.prehead
   br label %82
 
 82:                                               ; preds = %78, %81, %76
-  %83 = call ptr @getenv(ptr noundef nonnull @.str.76) #38
+  %83 = call ptr @getenv(ptr noundef nonnull @.str.76) #40
   %.not90 = icmp eq ptr %83, null
   br i1 %.not90, label %90, label %84
 
 84:                                               ; preds = %82
-  %85 = call i64 @atol(ptr nocapture noundef nonnull %83) #46
+  %85 = call i64 @atol(ptr nocapture noundef nonnull %83) #48
   %86 = icmp slt i64 %85, 1
   br i1 %86, label %87, label %89
 
 87:                                               ; preds = %84
   %88 = load ptr, ptr @GC_current_warn_proc, align 8
-  call void %88(ptr noundef nonnull @.str.77, i64 noundef 0) #38
+  call void %88(ptr noundef nonnull @.str.77, i64 noundef 0) #40
   br label %90
 
 89:                                               ; preds = %84
@@ -1156,12 +1156,12 @@ GC_setpagesize.exit:                              ; preds = %.lr.ph.i, %.prehead
   br label %90
 
 90:                                               ; preds = %87, %89, %82
-  %91 = call ptr @getenv(ptr noundef nonnull @.str.78) #38
+  %91 = call ptr @getenv(ptr noundef nonnull @.str.78) #40
   %.not91 = icmp eq ptr %91, null
   br i1 %.not91, label %97, label %92
 
 92:                                               ; preds = %90
-  %93 = call i32 @atoi(ptr nocapture noundef nonnull %91) #46
+  %93 = call i32 @atoi(ptr nocapture noundef nonnull %91) #48
   %94 = icmp sgt i32 %93, 0
   br i1 %94, label %95, label %97
 
@@ -1171,7 +1171,7 @@ GC_setpagesize.exit:                              ; preds = %.lr.ph.i, %.prehead
   br label %97
 
 97:                                               ; preds = %92, %95, %90
-  %98 = call ptr @getenv(ptr noundef nonnull @.str.79) #38
+  %98 = call ptr @getenv(ptr noundef nonnull @.str.79) #40
   %.not92 = icmp eq ptr %98, null
   br i1 %.not92, label %109, label %99
 
@@ -1187,7 +1187,7 @@ GC_setpagesize.exit:                              ; preds = %.lr.ph.i, %.prehead
   br i1 %105, label %.sink.split159, label %106
 
 106:                                              ; preds = %102, %99
-  %107 = call i32 @atoi(ptr nocapture noundef nonnull %98) #46
+  %107 = call i32 @atoi(ptr nocapture noundef nonnull %98) #48
   %108 = icmp sgt i32 %107, 0
   br i1 %108, label %.sink.split159, label %109
 
@@ -1197,7 +1197,7 @@ GC_setpagesize.exit:                              ; preds = %.lr.ph.i, %.prehead
   br label %109
 
 109:                                              ; preds = %.sink.split159, %106, %97
-  %110 = call ptr @getenv(ptr noundef nonnull @.str.80) #38
+  %110 = call ptr @getenv(ptr noundef nonnull @.str.80) #40
   %.not93 = icmp eq ptr %110, null
   br i1 %.not93, label %119, label %111
 
@@ -1221,7 +1221,7 @@ GC_setpagesize.exit:                              ; preds = %.lr.ph.i, %.prehead
   br label %119
 
 119:                                              ; preds = %.sink.split161, %109
-  %120 = call ptr @getenv(ptr noundef nonnull @.str.81) #38
+  %120 = call ptr @getenv(ptr noundef nonnull @.str.81) #40
   %.not94 = icmp eq ptr %120, null
   br i1 %.not94, label %129, label %121
 
@@ -1245,14 +1245,14 @@ GC_setpagesize.exit:                              ; preds = %.lr.ph.i, %.prehead
   br label %129
 
 129:                                              ; preds = %.sink.split163, %119
-  %130 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull @GC_init_time) #38
+  %130 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull @GC_init_time) #40
   %131 = icmp eq i32 %130, -1
   br i1 %131, label %132, label %134
 
 132:                                              ; preds = %129
   %133 = load ptr, ptr @GC_on_abort, align 8
-  call void %133(ptr noundef nonnull @.str.82) #38
-  call void @abort() #44
+  call void %133(ptr noundef nonnull @.str.82) #40
+  call void @abort() #46
   unreachable
 
 134:                                              ; preds = %129
@@ -1260,14 +1260,14 @@ GC_setpagesize.exit:                              ; preds = %.lr.ph.i, %.prehead
   br i1 %.b.i, label %maybe_install_looping_handler.exit, label %135
 
 135:                                              ; preds = %134
-  %136 = call ptr @getenv(ptr noundef nonnull @.str.225) #38
+  %136 = call ptr @getenv(ptr noundef nonnull @.str.225) #40
   %.not.i106 = icmp eq ptr %136, null
   br i1 %.not.i106, label %maybe_install_looping_handler.exit, label %137
 
 137:                                              ; preds = %135
-  %138 = call ptr @signal(i32 noundef 11, ptr noundef nonnull @looping_handler) #38
+  %138 = call ptr @signal(i32 noundef 11, ptr noundef nonnull @looping_handler) #40
   store ptr %138, ptr @old_segv_hand, align 8
-  %139 = call ptr @signal(i32 noundef 7, ptr noundef nonnull @looping_handler) #38
+  %139 = call ptr @signal(i32 noundef 7, ptr noundef nonnull @looping_handler) #40
   store ptr %139, ptr @old_bus_hand, align 8
   store i1 true, ptr @installed_looping_handler, align 4
   br label %maybe_install_looping_handler.exit
@@ -1302,8 +1302,8 @@ maybe_install_looping_handler.exit:               ; preds = %134, %135, %137
 150:                                              ; preds = %147
   call void (ptr, ...) @GC_err_printf(ptr noundef nonnull @.str.227)
   %151 = load ptr, ptr @GC_on_abort, align 8
-  call void %151(ptr noundef null) #38
-  call void @exit(i32 noundef 1) #44
+  call void %151(ptr noundef null) #40
+  call void @exit(i32 noundef 1) #49
   unreachable
 
 152:                                              ; preds = %147
@@ -1343,7 +1343,7 @@ GC_init_linux_data_start.exit:                    ; preds = %156, %158
   br i1 %.not97, label %162, label %164
 
 162:                                              ; preds = %160
-  %163 = call ptr @getenv(ptr noundef nonnull @.str.83) #38
+  %163 = call ptr @getenv(ptr noundef nonnull @.str.83) #40
   %.not98 = icmp eq ptr %163, null
   br i1 %.not98, label %165, label %164
 
@@ -1364,8 +1364,8 @@ GC_init_linux_data_start.exit:                    ; preds = %156, %158
 170:                                              ; preds = %166
   call void (ptr, ...) @GC_log_printf(ptr noundef nonnull @.str.108, ptr noundef %167, ptr noundef nonnull @_end)
   %171 = load ptr, ptr @GC_on_abort, align 8
-  call void %171(ptr noundef nonnull @.str.109) #38
-  call void @abort() #44
+  call void %171(ptr noundef nonnull @.str.109) #40
+  call void @abort() #46
   unreachable
 
 GC_register_data_segments.exit:                   ; preds = %166
@@ -1394,8 +1394,8 @@ GC_register_data_segments.exit:                   ; preds = %166
 182:                                              ; preds = %176
   call void (ptr, ...) @GC_err_printf(ptr noundef nonnull @.str.253)
   %183 = load ptr, ptr @GC_on_abort, align 8
-  call void %183(ptr noundef null) #38
-  call void @exit(i32 noundef 1) #44
+  call void %183(ptr noundef null) #40
+  call void @exit(i32 noundef 1) #49
   unreachable
 
 184:                                              ; preds = %176
@@ -1417,15 +1417,15 @@ GC_bl_init_no_interiors.exit.i:                   ; preds = %184, %172
 190:                                              ; preds = %GC_bl_init_no_interiors.exit.i
   call void (ptr, ...) @GC_err_printf(ptr noundef nonnull @.str.253)
   %191 = load ptr, ptr @GC_on_abort, align 8
-  call void %191(ptr noundef null) #38
-  call void @exit(i32 noundef 1) #44
+  call void %191(ptr noundef null) #40
+  call void @exit(i32 noundef 1) #49
   unreachable
 
 GC_bl_init.exit:                                  ; preds = %GC_bl_init_no_interiors.exit.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32768) %187, i8 0, i64 32768, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32768) %186, i8 0, i64 32768, i1 false)
   call fastcc void @alloc_mark_stack(i64 noundef 4096)
-  %192 = call ptr @getenv(ptr noundef nonnull @.str.84) #38
+  %192 = call ptr @getenv(ptr noundef nonnull @.str.84) #40
   %.not100 = icmp eq ptr %192, null
   br i1 %.not100, label %211, label %193
 
@@ -1436,7 +1436,7 @@ GC_bl_init.exit:                                  ; preds = %GC_bl_init_no_inter
   br i1 %195, label %GC_parse_mem_size_arg.exit.thread, label %196
 
 196:                                              ; preds = %193
-  %197 = call i64 @strtoul(ptr noundef nonnull %192, ptr noundef nonnull %8, i32 noundef 10) #38
+  %197 = call i64 @strtoul(ptr noundef nonnull %192, ptr noundef nonnull %8, i32 noundef 10) #40
   %198 = load ptr, ptr %8, align 8
   %199 = load i8, ptr %198, align 1
   %.not.i110 = icmp eq i8 %199, 0
@@ -1482,12 +1482,12 @@ GC_parse_mem_size_arg.exit:                       ; preds = %196
 208:                                              ; preds = %GC_parse_mem_size_arg.exit.thread, %GC_parse_mem_size_arg.exit
   %209 = load ptr, ptr @GC_current_warn_proc, align 8
   %210 = ptrtoint ptr %192 to i64
-  call void %209(ptr noundef nonnull @.str.85, i64 noundef %210) #38
+  call void %209(ptr noundef nonnull @.str.85, i64 noundef %210) #40
   br label %211
 
 211:                                              ; preds = %GC_parse_mem_size_arg.exit.thread145, %GC_parse_mem_size_arg.exit, %208, %GC_bl_init.exit
   %.0 = phi i64 [ 65536, %208 ], [ 65536, %GC_bl_init.exit ], [ %197, %GC_parse_mem_size_arg.exit ], [ %206, %GC_parse_mem_size_arg.exit.thread145 ]
-  %212 = call ptr @getenv(ptr noundef nonnull @.str.86) #38
+  %212 = call ptr @getenv(ptr noundef nonnull @.str.86) #40
   %.not101 = icmp eq ptr %212, null
   br i1 %.not101, label %240, label %213
 
@@ -1498,7 +1498,7 @@ GC_parse_mem_size_arg.exit:                       ; preds = %196
   br i1 %215, label %GC_parse_mem_size_arg.exit114.thread, label %216
 
 216:                                              ; preds = %213
-  %217 = call i64 @strtoul(ptr noundef nonnull %212, ptr noundef nonnull %7, i32 noundef 10) #38
+  %217 = call i64 @strtoul(ptr noundef nonnull %212, ptr noundef nonnull %7, i32 noundef 10) #40
   %218 = load ptr, ptr %7, align 8
   %219 = load i8, ptr %218, align 1
   %.not.i111 = icmp eq i8 %219, 0
@@ -1547,7 +1547,7 @@ GC_parse_mem_size_arg.exit114:                    ; preds = %216, %224, %226, %2
 232:                                              ; preds = %GC_parse_mem_size_arg.exit114.thread, %GC_parse_mem_size_arg.exit114
   %233 = load ptr, ptr @GC_current_warn_proc, align 8
   %234 = ptrtoint ptr %212 to i64
-  call void %233(ptr noundef nonnull @.str.87, i64 noundef %234) #38
+  call void %233(ptr noundef nonnull @.str.87, i64 noundef %234) #40
   br label %240
 
 235:                                              ; preds = %GC_parse_mem_size_arg.exit114
@@ -1576,8 +1576,8 @@ GC_parse_mem_size_arg.exit114:                    ; preds = %216, %224, %226, %2
 244:                                              ; preds = %241
   call void (ptr, ...) @GC_err_printf(ptr noundef nonnull @.str.88)
   %245 = load ptr, ptr @GC_on_abort, align 8
-  call void %245(ptr noundef null) #38
-  call void @exit(i32 noundef 1) #44
+  call void %245(ptr noundef null) #40
+  call void @exit(i32 noundef 1) #49
   unreachable
 
 246:                                              ; preds = %241
@@ -1642,7 +1642,7 @@ GC_init_size_map.exit:                            ; preds = %258, %GC_register_d
   br i1 %.not.i142, label %GC_setup_atfork.exit, label %265
 
 265:                                              ; preds = %GC_init_size_map.exit
-  %266 = call i32 @pthread_atfork(ptr noundef nonnull @fork_prepare_proc, ptr noundef nonnull @fork_parent_proc, ptr noundef nonnull @fork_child_proc) #38
+  %266 = call i32 @pthread_atfork(ptr noundef nonnull @fork_prepare_proc, ptr noundef nonnull @fork_parent_proc, ptr noundef nonnull @fork_child_proc) #40
   %267 = icmp eq i32 %266, 0
   br i1 %267, label %268, label %269
 
@@ -1657,53 +1657,53 @@ GC_init_size_map.exit:                            ; preds = %258, %GC_register_d
 
 271:                                              ; preds = %269
   %272 = load ptr, ptr @GC_on_abort, align 8
-  call void %272(ptr noundef nonnull @.str.320) #38
-  call void @abort() #44
+  call void %272(ptr noundef nonnull @.str.320) #40
+  call void @abort() #46
   unreachable
 
 GC_setup_atfork.exit:                             ; preds = %GC_init_size_map.exit, %268, %269
-  %273 = call ptr @getenv(ptr noundef nonnull @.str.314) #38
+  %273 = call ptr @getenv(ptr noundef nonnull @.str.314) #40
   store i32 -1, ptr @GC_nprocs, align 4
   %.not.i118 = icmp eq ptr %273, null
   br i1 %.not.i118, label %.thread153, label %274
 
 274:                                              ; preds = %GC_setup_atfork.exit
-  %275 = call i32 @atoi(ptr nocapture noundef nonnull %273) #46
+  %275 = call i32 @atoi(ptr nocapture noundef nonnull %273) #48
   store i32 %275, ptr @GC_nprocs, align 4
   %276 = icmp slt i32 %275, 1
   br i1 %276, label %.thread153, label %.thread154
 
 .thread153:                                       ; preds = %GC_setup_atfork.exit, %274
   call void @llvm.lifetime.start.p0(i64 1701, ptr nonnull %1)
-  %277 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull @.str.321, i32 noundef 0) #38
+  %277 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull @.str.321, i32 noundef 0) #40
   %278 = icmp slt i32 %277, 0
   br i1 %278, label %279, label %281
 
 279:                                              ; preds = %.thread153
   %280 = load ptr, ptr @GC_current_warn_proc, align 8
-  call void %280(ptr noundef nonnull @.str.322, i64 noundef 0) #38
+  call void %280(ptr noundef nonnull @.str.322, i64 noundef 0) #40
   br label %.thread155
 
 281:                                              ; preds = %.thread153
-  %282 = call i64 @read(i32 noundef %277, ptr noundef nonnull %1, i64 noundef 1700) #38
+  %282 = call i64 @read(i32 noundef %277, ptr noundef nonnull %1, i64 noundef 1700) #40
   %283 = trunc i64 %282 to i32
   %284 = icmp slt i32 %283, 0
   br i1 %284, label %285, label %291
 
 285:                                              ; preds = %281
   %286 = load ptr, ptr @GC_current_warn_proc, align 8
-  %287 = tail call ptr @__errno_location() #45
+  %287 = tail call ptr @__errno_location() #47
   %288 = load i32, ptr %287, align 4
   %289 = sext i32 %288 to i64
-  call void %286(ptr noundef nonnull @.str.323, i64 noundef %289) #38
-  %290 = call i32 @close(i32 noundef %277) #38
+  call void %286(ptr noundef nonnull @.str.323, i64 noundef %289) #40
+  %290 = call i32 @close(i32 noundef %277) #40
   br label %.thread155
 
 291:                                              ; preds = %281
   %292 = and i64 %282, 2147483647
   %293 = getelementptr inbounds [1701 x i8], ptr %1, i64 0, i64 %292
   store i8 0, ptr %293, align 1
-  %294 = call i32 @close(i32 noundef %277) #38
+  %294 = call i32 @close(i32 noundef %277) #40
   %295 = icmp ugt i32 %283, 4
   br i1 %295, label %.lr.ph.preheader.i, label %.thread155
 
@@ -1744,7 +1744,7 @@ GC_setup_atfork.exit:                             ; preds = %GC_init_size_map.ex
 315:                                              ; preds = %310
   %316 = add nuw nsw i64 %indvars.iv.i138, 4
   %317 = getelementptr inbounds [1701 x i8], ptr %1, i64 0, i64 %316
-  %318 = call i32 @atoi(ptr nocapture noundef nonnull %317) #46
+  %318 = call i32 @atoi(ptr nocapture noundef nonnull %317) #48
   %.not.i141 = icmp slt i32 %318, %.01925.i
   %319 = add nuw nsw i32 %318, 1
   %spec.select.i = select i1 %.not.i141, i32 %.01925.i, i32 %319
@@ -1769,18 +1769,18 @@ GC_setup_atfork.exit:                             ; preds = %GC_init_size_map.ex
 322:                                              ; preds = %320
   %323 = load ptr, ptr @GC_current_warn_proc, align 8
   %324 = sext i32 %.1.i139 to i64
-  call void %323(ptr noundef nonnull @.str.315, i64 noundef %324) #38
+  call void %323(ptr noundef nonnull @.str.315, i64 noundef %324) #40
   store i32 2, ptr @GC_nprocs, align 4
   br label %340
 
 .thread154:                                       ; preds = %274, %.thread155, %320
   %325 = phi i32 [ %.1.i139, %320 ], [ 1, %.thread155 ], [ %275, %274 ]
-  %326 = call ptr @getenv(ptr noundef nonnull @.str.316) #38
+  %326 = call ptr @getenv(ptr noundef nonnull @.str.316) #40
   %.not18.i = icmp eq ptr %326, null
   br i1 %.not18.i, label %333, label %327
 
 327:                                              ; preds = %.thread154
-  %328 = call i32 @atoi(ptr nocapture noundef nonnull %326) #46
+  %328 = call i32 @atoi(ptr nocapture noundef nonnull %326) #48
   %329 = add i32 %328, -17
   %or.cond.i119 = icmp ult i32 %329, -16
   br i1 %or.cond.i119, label %330, label %338
@@ -1788,7 +1788,7 @@ GC_setup_atfork.exit:                             ; preds = %GC_init_size_map.ex
 330:                                              ; preds = %327
   %331 = load ptr, ptr @GC_current_warn_proc, align 8
   %332 = sext i32 %328 to i64
-  call void %331(ptr noundef nonnull @.str.317, i64 noundef %332) #38
+  call void %331(ptr noundef nonnull @.str.317, i64 noundef %332) #40
   br label %338
 
 333:                                              ; preds = %.thread154
@@ -1837,27 +1837,27 @@ GC_setup_atfork.exit:                             ; preds = %GC_init_size_map.ex
   br label %352
 
 352:                                              ; preds = %351, %348
-  %353 = call i32 @sem_init(ptr noundef nonnull @GC_suspend_ack_sem, i32 noundef 0, i32 noundef 0) #38
+  %353 = call i32 @sem_init(ptr noundef nonnull @GC_suspend_ack_sem, i32 noundef 0, i32 noundef 0) #40
   %.not.i128 = icmp eq i32 %353, 0
   br i1 %.not.i128, label %356, label %354
 
 354:                                              ; preds = %352
   %355 = load ptr, ptr @GC_on_abort, align 8
-  call void %355(ptr noundef nonnull @.str.117) #38
-  call void @abort() #44
+  call void %355(ptr noundef nonnull @.str.117) #40
+  call void @abort() #46
   unreachable
 
 356:                                              ; preds = %352
   store volatile i64 1, ptr @GC_stop_count, align 8
   %357 = getelementptr inbounds i8, ptr %3, i64 8
-  %358 = call i32 @sigfillset(ptr noundef nonnull %357) #38
+  %358 = call i32 @sigfillset(ptr noundef nonnull %357) #40
   %.not3.i129 = icmp eq i32 %358, 0
   br i1 %.not3.i129, label %361, label %359
 
 359:                                              ; preds = %356
   %360 = load ptr, ptr @GC_on_abort, align 8
-  call void %360(ptr noundef nonnull @.str.304) #38
-  call void @abort() #44
+  call void %360(ptr noundef nonnull @.str.304) #40
+  call void @abort() #46
   unreachable
 
 361:                                              ; preds = %356
@@ -1866,14 +1866,14 @@ GC_setup_atfork.exit:                             ; preds = %GC_init_size_map.ex
   store i32 268435460, ptr %362, align 8
   store ptr @GC_suspend_sigaction, ptr %3, align 8
   %363 = load i32, ptr @GC_sig_suspend, align 4
-  %364 = call i32 @sigaction(i32 noundef %363, ptr noundef nonnull %3, ptr noundef null) #38
+  %364 = call i32 @sigaction(i32 noundef %363, ptr noundef nonnull %3, ptr noundef null) #40
   %.not4.i130 = icmp eq i32 %364, 0
   br i1 %.not4.i130, label %367, label %365
 
 365:                                              ; preds = %361
   %366 = load ptr, ptr @GC_on_abort, align 8
-  call void %366(ptr noundef nonnull @.str.324) #38
-  call void @abort() #44
+  call void %366(ptr noundef nonnull @.str.324) #40
+  call void @abort() #46
   unreachable
 
 367:                                              ; preds = %361
@@ -1887,14 +1887,14 @@ GC_setup_atfork.exit:                             ; preds = %GC_init_size_map.ex
   %372 = and i32 %371, -5
   store i32 %372, ptr %362, align 8
   store ptr @GC_restart_handler, ptr %3, align 8
-  %373 = call i32 @sigaction(i32 noundef %369, ptr noundef nonnull %3, ptr noundef null) #38
+  %373 = call i32 @sigaction(i32 noundef %369, ptr noundef nonnull %3, ptr noundef null) #40
   %.not7.i = icmp eq i32 %373, 0
   br i1 %.not7.i, label %379, label %374
 
 374:                                              ; preds = %370
   %375 = load ptr, ptr @GC_on_abort, align 8
-  call void %375(ptr noundef nonnull @.str.325) #38
-  call void @abort() #44
+  call void %375(ptr noundef nonnull @.str.325) #40
+  call void @abort() #46
   unreachable
 
 376:                                              ; preds = %367
@@ -1907,32 +1907,32 @@ GC_setup_atfork.exit:                             ; preds = %GC_init_size_map.ex
   br label %379
 
 379:                                              ; preds = %378, %376, %370
-  %380 = call i32 @sigfillset(ptr noundef nonnull @suspend_handler_mask) #38
+  %380 = call i32 @sigfillset(ptr noundef nonnull @suspend_handler_mask) #40
   %.not8.i132 = icmp eq i32 %380, 0
   br i1 %.not8.i132, label %383, label %381
 
 381:                                              ; preds = %379
   %382 = load ptr, ptr @GC_on_abort, align 8
-  call void %382(ptr noundef nonnull @.str.304) #38
-  call void @abort() #44
+  call void %382(ptr noundef nonnull @.str.304) #40
+  call void @abort() #46
   unreachable
 
 383:                                              ; preds = %379
   call fastcc void @GC_remove_allowed_signals(ptr noundef nonnull @suspend_handler_mask)
   %384 = load i32, ptr @GC_sig_thr_restart, align 4
-  %385 = call i32 @sigdelset(ptr noundef nonnull @suspend_handler_mask, i32 noundef %384) #38
+  %385 = call i32 @sigdelset(ptr noundef nonnull @suspend_handler_mask, i32 noundef %384) #40
   %.not9.i = icmp eq i32 %385, 0
   br i1 %.not9.i, label %388, label %386
 
 386:                                              ; preds = %383
   %387 = load ptr, ptr @GC_on_abort, align 8
-  call void %387(ptr noundef nonnull @.str.115) #38
-  call void @abort() #44
+  call void %387(ptr noundef nonnull @.str.115) #40
+  call void @abort() #46
   unreachable
 
 388:                                              ; preds = %383
   store i32 1, ptr @GC_retry_signals, align 4
-  %389 = call ptr @getenv(ptr noundef nonnull @.str.327) #38
+  %389 = call ptr @getenv(ptr noundef nonnull @.str.327) #40
   %.not10.i133 = icmp eq ptr %389, null
   br i1 %.not10.i133, label %400, label %390
 
@@ -1967,23 +1967,23 @@ GC_setup_atfork.exit:                             ; preds = %GC_init_size_map.ex
 
 403:                                              ; preds = %402, %400
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2)
-  %404 = call i32 @sigemptyset(ptr noundef nonnull %2) #38
+  %404 = call i32 @sigemptyset(ptr noundef nonnull %2) #40
   %405 = load i32, ptr @GC_sig_suspend, align 4
   %.not.i.i.i = icmp eq i32 %405, -1
   %406 = select i1 %.not.i.i.i, i32 30, i32 %405
-  %407 = call i32 @sigaddset(ptr noundef nonnull %2, i32 noundef %406) #38
+  %407 = call i32 @sigaddset(ptr noundef nonnull %2, i32 noundef %406) #40
   %408 = load i32, ptr @GC_sig_thr_restart, align 4
   %.not.i1.i.i = icmp eq i32 %408, -1
   %409 = select i1 %.not.i1.i.i, i32 24, i32 %408
-  %410 = call i32 @sigaddset(ptr noundef nonnull %2, i32 noundef %409) #38
-  %411 = call i32 @pthread_sigmask(i32 noundef 1, ptr noundef nonnull %2, ptr noundef null) #38
+  %410 = call i32 @sigaddset(ptr noundef nonnull %2, i32 noundef %409) #40
+  %411 = call i32 @pthread_sigmask(i32 noundef 1, ptr noundef nonnull %2, ptr noundef null) #40
   %.not.i.i135 = icmp eq i32 %411, 0
   br i1 %.not.i.i135, label %GC_stop_init.exit, label %412
 
 412:                                              ; preds = %403
   %413 = load ptr, ptr @GC_on_abort, align 8
-  call void %413(ptr noundef nonnull @.str.332) #38
-  call void @abort() #44
+  call void %413(ptr noundef nonnull @.str.332) #40
+  call void @abort() #46
   unreachable
 
 GC_stop_init.exit:                                ; preds = %403
@@ -2005,9 +2005,9 @@ GC_stop_init.exit:                                ; preds = %403
 
 419:                                              ; preds = %GC_stop_init.exit
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
-  %420 = call ptr @gnu_get_libc_version() #38
+  %420 = call ptr @gnu_get_libc_version() #40
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  %421 = call i64 @strtoul(ptr noundef %420, ptr noundef nonnull %4, i32 noundef 10) #38
+  %421 = call i64 @strtoul(ptr noundef %420, ptr noundef nonnull %4, i32 noundef 10) #40
   %422 = trunc i64 %421 to i32
   %423 = icmp slt i32 %422, 0
   br i1 %423, label %.thread.i, label %424
@@ -2026,7 +2026,7 @@ GC_stop_init.exit:                                ; preds = %403
 
 429:                                              ; preds = %427
   %430 = getelementptr inbounds i8, ptr %425, i64 1
-  %431 = call i64 @strtoul(ptr noundef nonnull %430, ptr noundef nonnull %4, i32 noundef 10) #38
+  %431 = call i64 @strtoul(ptr noundef nonnull %430, ptr noundef nonnull %4, i32 noundef 10) #40
   %432 = trunc i64 %431 to i32
   %or.cond18.i.i = icmp ult i64 %431, 2147483648
   br i1 %or.cond18.i.i, label %GC_parse_version.exit.i, label %.thread.i
@@ -2048,40 +2048,40 @@ GC_parse_version.exit.i:                          ; preds = %429, %427
   br i1 %or.cond.i126, label %437, label %setup_mark_lock.exit
 
 437:                                              ; preds = %434, %GC_parse_version.exit.i
-  %438 = call i32 @pthread_mutexattr_init(ptr noundef nonnull %5) #38
+  %438 = call i32 @pthread_mutexattr_init(ptr noundef nonnull %5) #40
   %.not.i127 = icmp eq i32 %438, 0
   br i1 %.not.i127, label %441, label %439
 
 439:                                              ; preds = %437
   %440 = load ptr, ptr @GC_on_abort, align 8
-  call void %440(ptr noundef nonnull @.str.333) #38
-  call void @abort() #44
+  call void %440(ptr noundef nonnull @.str.333) #40
+  call void @abort() #46
   unreachable
 
 441:                                              ; preds = %437
-  %442 = call i32 @pthread_mutexattr_settype(ptr noundef nonnull %5, i32 noundef 0) #38
+  %442 = call i32 @pthread_mutexattr_settype(ptr noundef nonnull %5, i32 noundef 0) #40
   %.not3.i = icmp eq i32 %442, 0
   br i1 %.not3.i, label %445, label %443
 
 443:                                              ; preds = %441
   %444 = load ptr, ptr @GC_on_abort, align 8
-  call void %444(ptr noundef nonnull @.str.334) #38
-  call void @abort() #44
+  call void %444(ptr noundef nonnull @.str.334) #40
+  call void @abort() #46
   unreachable
 
 445:                                              ; preds = %441
-  %446 = call i32 @pthread_mutex_init(ptr noundef nonnull @mark_mutex, ptr noundef nonnull %5) #38
+  %446 = call i32 @pthread_mutex_init(ptr noundef nonnull @mark_mutex, ptr noundef nonnull %5) #40
   %.not4.i = icmp eq i32 %446, 0
   br i1 %.not4.i, label %449, label %447
 
 447:                                              ; preds = %445
   %448 = load ptr, ptr @GC_on_abort, align 8
-  call void %448(ptr noundef nonnull @.str.335) #38
-  call void @abort() #44
+  call void %448(ptr noundef nonnull @.str.335) #40
+  call void @abort() #46
   unreachable
 
 449:                                              ; preds = %445
-  %450 = call i32 @pthread_mutexattr_destroy(ptr noundef nonnull %5) #38
+  %450 = call i32 @pthread_mutexattr_destroy(ptr noundef nonnull %5) #40
   br label %setup_mark_lock.exit
 
 setup_mark_lock.exit:                             ; preds = %.thread.i, %434, %449
@@ -2089,7 +2089,7 @@ setup_mark_lock.exit:                             ; preds = %.thread.i, %434, %4
   br label %GC_thr_init.exit
 
 GC_thr_init.exit:                                 ; preds = %416, %418, %setup_mark_lock.exit
-  %451 = tail call i64 @pthread_self() #45
+  %451 = tail call i64 @pthread_self() #47
   %452 = load ptr, ptr @GC_stackbottom, align 8
   store ptr %452, ptr %6, align 8
   %453 = call fastcc ptr @GC_register_my_thread_inner(ptr noundef nonnull %6, i64 noundef %451)
@@ -2131,7 +2131,7 @@ GC_thr_init.exit:                                 ; preds = %416, %418, %setup_m
   br i1 %.not105, label %470, label %468
 
 468:                                              ; preds = %466
-  %469 = call i32 @atexit(ptr noundef nonnull @GC_exit_check) #38
+  %469 = call i32 @atexit(ptr noundef nonnull @GC_exit_check) #40
   br label %470
 
 470:                                              ; preds = %468, %466
@@ -2139,7 +2139,7 @@ GC_thr_init.exit:                                 ; preds = %416, %418, %setup_m
   br i1 %.b1.i, label %471, label %GC_lock.exit.i
 
 471:                                              ; preds = %470
-  %472 = call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %472 = call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not.i123 = icmp eq i32 %472, 0
   br i1 %.not.i123, label %GC_lock.exit.i, label %473
 
@@ -2154,14 +2154,14 @@ GC_thr_init.exit:                                 ; preds = %416, %418, %setup_m
   br i1 %.not.i.i, label %478, label %GC_generic_lock.exit.sink.split.i.i
 
 478:                                              ; preds = %476
-  %479 = call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %479 = call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %480 = icmp eq i32 %479, 0
   br i1 %480, label %GC_lock.exit.i, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %478, %484
   %.079.i.i.i = phi i32 [ %485, %484 ], [ 1, %478 ]
   fence syncscope("singlethread") seq_cst
-  %481 = call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %481 = call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %481, label %482 [
     i32 0, label %GC_lock.exit.i
     i32 16, label %484
@@ -2169,8 +2169,8 @@ GC_thr_init.exit:                                 ; preds = %416, %418, %setup_m
 
 482:                                              ; preds = %.preheader.i.i.i
   %483 = load ptr, ptr @GC_on_abort, align 8
-  call void %483(ptr noundef nonnull @.str.340) #38
-  call void @abort() #44
+  call void %483(ptr noundef nonnull @.str.340) #40
+  call void @abort() #46
   unreachable
 
 484:                                              ; preds = %.preheader.i.i.i
@@ -2179,7 +2179,7 @@ GC_thr_init.exit:                                 ; preds = %416, %418, %setup_m
   br i1 %486, label %.preheader.i.i.i, label %GC_generic_lock.exit.sink.split.i.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i.i:              ; preds = %484, %476, %473
-  %487 = call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %487 = call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit.i
 
 GC_lock.exit.i:                                   ; preds = %.preheader.i.i.i, %GC_generic_lock.exit.sink.split.i.i, %478, %471, %470
@@ -2243,12 +2243,12 @@ GC_init_thread_local.exit.i:                      ; preds = %506
   br i1 %.b.i122, label %508, label %GC_init_parallel.exit
 
 508:                                              ; preds = %GC_init_thread_local.exit.i
-  %509 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %509 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_init_parallel.exit
 
 GC_init_parallel.exit:                            ; preds = %GC_init_thread_local.exit.i, %508
   %510 = load i32, ptr %9, align 4
-  %511 = call i32 @pthread_setcancelstate(i32 noundef %510, ptr noundef null) #38
+  %511 = call i32 @pthread_setcancelstate(i32 noundef %510, ptr noundef null) #40
   br label %512
 
 512:                                              ; preds = %0, %GC_init_parallel.exit
@@ -2270,14 +2270,14 @@ define internal fastcc void @GC_lock() unnamed_addr #1 {
   br i1 %.not, label %5, label %GC_generic_lock.exit.sink.split
 
 5:                                                ; preds = %3
-  %6 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %6 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %GC_generic_lock.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %5, %11
   %.079.i = phi i32 [ %12, %11 ], [ 1, %5 ]
   fence syncscope("singlethread") seq_cst
-  %8 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %8 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %8, label %9 [
     i32 0, label %GC_generic_lock.exit
     i32 16, label %11
@@ -2285,8 +2285,8 @@ define internal fastcc void @GC_lock() unnamed_addr #1 {
 
 9:                                                ; preds = %.preheader.i
   %10 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %10(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %10(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 11:                                               ; preds = %.preheader.i
@@ -2295,7 +2295,7 @@ define internal fastcc void @GC_lock() unnamed_addr #1 {
   br i1 %13, label %.preheader.i, label %GC_generic_lock.exit.sink.split, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split:                  ; preds = %11, %0, %3
-  %14 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %14 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_generic_lock.exit
 
 GC_generic_lock.exit:                             ; preds = %.preheader.i, %GC_generic_lock.exit.sink.split, %5
@@ -2316,7 +2316,7 @@ define void @GC_log_printf(ptr nocapture noundef readonly %0, ...) local_unnamed
   call void @llvm.va_start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds i8, ptr %3, i64 1024
   store i8 21, ptr %5, align 16
-  %6 = call i32 @vsnprintf(ptr noundef nonnull %3, i64 noundef 1024, ptr noundef %0, ptr noundef nonnull %4) #38
+  %6 = call i32 @vsnprintf(ptr noundef nonnull %3, i64 noundef 1024, ptr noundef %0, ptr noundef nonnull %4) #40
   call void @llvm.va_end.p0(ptr nonnull %4)
   %7 = load i8, ptr %5, align 16
   %.not = icmp eq i8 %7, 21
@@ -2324,21 +2324,21 @@ define void @GC_log_printf(ptr nocapture noundef readonly %0, ...) local_unnamed
 
 8:                                                ; preds = %1
   %9 = load ptr, ptr @GC_on_abort, align 8
-  call void %9(ptr noundef nonnull @.str.90) #38
-  call void @abort() #44
+  call void %9(ptr noundef nonnull @.str.90) #40
+  call void @abort() #46
   unreachable
 
 10:                                               ; preds = %1
   %11 = load i32, ptr @GC_log, align 4
-  %12 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #46
+  %12 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #48
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
-  %13 = call i32 @pthread_setcancelstate(i32 noundef 1, ptr noundef nonnull %2) #38
+  %13 = call i32 @pthread_setcancelstate(i32 noundef 1, ptr noundef nonnull %2) #40
   %.not.i = icmp eq i64 %12, 0
   br i1 %.not.i, label %GC_write.exit.thread3, label %.outer.split.i
 
 GC_write.exit.thread3:                            ; preds = %10
   %.sink.i5 = load i32, ptr %2, align 4
-  %14 = call i32 @pthread_setcancelstate(i32 noundef %.sink.i5, ptr noundef null) #38
+  %14 = call i32 @pthread_setcancelstate(i32 noundef %.sink.i5, ptr noundef null) #40
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   br label %36
 
@@ -2349,20 +2349,20 @@ GC_write.exit.thread3:                            ; preds = %10
   br label %17
 
 17:                                               ; preds = %21, %.outer.split.i
-  %18 = call i64 @write(i32 noundef %11, ptr noundef %16, i64 noundef %15) #38
+  %18 = call i64 @write(i32 noundef %11, ptr noundef %16, i64 noundef %15) #40
   %19 = trunc i64 %18 to i32
   %20 = icmp eq i32 %19, -1
   br i1 %20, label %21, label %.outer.i
 
 21:                                               ; preds = %17
-  %22 = tail call ptr @__errno_location() #45
+  %22 = tail call ptr @__errno_location() #47
   %23 = load i32, ptr %22, align 4
   %24 = icmp eq i32 %23, 11
   br i1 %24, label %17, label %GC_write.exit.thread, !llvm.loop !13
 
 GC_write.exit.thread:                             ; preds = %21
   %.sink.i2 = load i32, ptr %2, align 4
-  %25 = call i32 @pthread_setcancelstate(i32 noundef %.sink.i2, ptr noundef null) #38
+  %25 = call i32 @pthread_setcancelstate(i32 noundef %.sink.i2, ptr noundef null) #40
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   br label %34
 
@@ -2377,22 +2377,22 @@ GC_write.exit.thread:                             ; preds = %21
 
 GC_write.exit:                                    ; preds = %.outer.i
   %.sink.i = load i32, ptr %2, align 4
-  %32 = call i32 @pthread_setcancelstate(i32 noundef %.sink.i, ptr noundef null) #38
+  %32 = call i32 @pthread_setcancelstate(i32 noundef %.sink.i, ptr noundef null) #40
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   %33 = icmp slt i32 %26, 0
   br i1 %33, label %34, label %36
 
 34:                                               ; preds = %GC_write.exit.thread, %GC_write.exit
   %35 = load ptr, ptr @GC_on_abort, align 8
-  call void %35(ptr noundef nonnull @.str.92) #38
-  call void @abort() #44
+  call void %35(ptr noundef nonnull @.str.92) #40
+  call void @abort() #46
   unreachable
 
 36:                                               ; preds = %GC_write.exit.thread3, %GC_write.exit
   ret void
 }
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: cold nofree noreturn nounwind
 declare void @abort() local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
@@ -2403,8 +2403,8 @@ define noundef ptr @GC_new_free_list_inner() local_unnamed_addr #1 {
 
 3:                                                ; preds = %0
   %4 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %4(ptr noundef nonnull @.str.94) #38
-  tail call void @abort() #44
+  tail call void %4(ptr noundef nonnull @.str.94) #40
+  tail call void @abort() #46
   unreachable
 
 5:                                                ; preds = %0
@@ -2440,8 +2440,8 @@ define range(i32 0, 24) i32 @GC_new_kind_inner(ptr noundef nonnull %0, i64 nound
 
 17:                                               ; preds = %4
   %18 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %18(ptr noundef nonnull @.str.95) #38
-  tail call void @abort() #44
+  tail call void %18(ptr noundef nonnull @.str.95) #40
+  tail call void @abort() #46
   unreachable
 }
 
@@ -2458,7 +2458,7 @@ define internal fastcc ptr @GC_core_gcj_malloc(i64 noundef %0, ptr noundef %1, i
   br i1 %.b22, label %5, label %GC_lock.exit
 
 5:                                                ; preds = %3
-  %6 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %6 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %GC_lock.exit, label %7
 
@@ -2473,14 +2473,14 @@ define internal fastcc ptr @GC_core_gcj_malloc(i64 noundef %0, ptr noundef %1, i
   br i1 %.not.i, label %12, label %GC_generic_lock.exit.sink.split.i
 
 12:                                               ; preds = %10
-  %13 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %13 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %GC_lock.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %12, %18
   %.079.i.i = phi i32 [ %19, %18 ], [ 1, %12 ]
   fence syncscope("singlethread") seq_cst
-  %15 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %15 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %15, label %16 [
     i32 0, label %GC_lock.exit
     i32 16, label %18
@@ -2488,8 +2488,8 @@ define internal fastcc ptr @GC_core_gcj_malloc(i64 noundef %0, ptr noundef %1, i
 
 16:                                               ; preds = %.preheader.i.i
   %17 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %17(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %17(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 18:                                               ; preds = %.preheader.i.i
@@ -2498,7 +2498,7 @@ define internal fastcc ptr @GC_core_gcj_malloc(i64 noundef %0, ptr noundef %1, i
   br i1 %20, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %18, %10, %7
-  %21 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %21 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit
 
 GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC_generic_lock.exit.sink.split.i, %12, %3, %5
@@ -2616,11 +2616,11 @@ GC_clear_stack.exit:                              ; preds = %GC_generic_malloc_i
   br i1 %.b.pre27, label %79, label %81
 
 79:                                               ; preds = %77
-  %80 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %80 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %81
 
 81:                                               ; preds = %77, %79
-  %82 = tail call ptr %78(i64 noundef %0) #38
+  %82 = tail call ptr %78(i64 noundef %0) #40
   br label %97
 
 83:                                               ; preds = %GC_clear_stack.exit
@@ -2629,7 +2629,7 @@ GC_clear_stack.exit:                              ; preds = %GC_generic_malloc_i
 
 84:                                               ; preds = %34, %83
   %.01730 = phi ptr [ %33, %34 ], [ %.014.i, %83 ]
-  %85 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %85 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %86
 
 86:                                               ; preds = %34, %83, %84
@@ -2649,7 +2649,7 @@ GC_clear_stack.exit:                              ; preds = %GC_generic_malloc_i
   br label %96
 
 96:                                               ; preds = %86, %87
-  tail call void asm sideeffect " ", "X,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %1) #38, !srcloc !14
+  tail call void asm sideeffect " ", "X,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %1) #40, !srcloc !14
   br label %97
 
 97:                                               ; preds = %96, %81
@@ -2663,7 +2663,7 @@ define noalias ptr @GC_debug_gcj_malloc(i64 noundef %0, ptr noundef %1, ptr noun
   br i1 %.b20, label %5, label %GC_lock.exit
 
 5:                                                ; preds = %4
-  %6 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %6 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %GC_lock.exit, label %7
 
@@ -2678,14 +2678,14 @@ define noalias ptr @GC_debug_gcj_malloc(i64 noundef %0, ptr noundef %1, ptr noun
   br i1 %.not.i, label %12, label %GC_generic_lock.exit.sink.split.i
 
 12:                                               ; preds = %10
-  %13 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %13 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %GC_lock.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %12, %18
   %.079.i.i = phi i32 [ %19, %18 ], [ 1, %12 ]
   fence syncscope("singlethread") seq_cst
-  %15 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %15 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %15, label %16 [
     i32 0, label %GC_lock.exit
     i32 16, label %18
@@ -2693,8 +2693,8 @@ define noalias ptr @GC_debug_gcj_malloc(i64 noundef %0, ptr noundef %1, ptr noun
 
 16:                                               ; preds = %.preheader.i.i
   %17 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %17(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %17(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 18:                                               ; preds = %.preheader.i.i
@@ -2703,7 +2703,7 @@ define noalias ptr @GC_debug_gcj_malloc(i64 noundef %0, ptr noundef %1, ptr noun
   br i1 %20, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %18, %10, %7
-  %21 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %21 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit
 
 GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC_generic_lock.exit.sink.split.i, %12, %4, %5
@@ -2766,12 +2766,12 @@ GC_generic_malloc_inner.exit.thread27:            ; preds = %31, %GC_generic_mal
   br i1 %.b19, label %48, label %50
 
 48:                                               ; preds = %GC_generic_malloc_inner.exit.thread27
-  %49 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %49 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %50
 
 50:                                               ; preds = %GC_generic_malloc_inner.exit.thread27, %48
   tail call void (ptr, ...) @GC_err_printf(ptr noundef nonnull @.str.3, i64 noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3)
-  %51 = tail call ptr %47(i64 noundef %0) #38
+  %51 = tail call ptr %47(i64 noundef %0) #40
   br label %103
 
 GC_generic_malloc_inner.exit.thread:              ; preds = %40
@@ -2850,7 +2850,7 @@ GC_store_debug_info_inner.exit:                   ; preds = %75
   br i1 %.b, label %91, label %93
 
 91:                                               ; preds = %GC_store_debug_info_inner.exit
-  %92 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %92 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %93
 
 93:                                               ; preds = %GC_store_debug_info_inner.exit, %91
@@ -2868,7 +2868,7 @@ GC_store_debug_info_inner.exit:                   ; preds = %75
   br label %102
 
 102:                                              ; preds = %93, %94
-  tail call void asm sideeffect " ", "X,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %1) #38, !srcloc !16
+  tail call void asm sideeffect " ", "X,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %1) #40, !srcloc !16
   br label %103
 
 103:                                              ; preds = %102, %50
@@ -2890,7 +2890,7 @@ define internal fastcc void @maybe_finalize() unnamed_addr #1 {
   br i1 %.b3, label %5, label %7
 
 5:                                                ; preds = %4
-  %6 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %6 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %7
 
 7:                                                ; preds = %4, %5
@@ -2899,7 +2899,7 @@ define internal fastcc void @maybe_finalize() unnamed_addr #1 {
   br i1 %.b, label %8, label %GC_lock.exit
 
 8:                                                ; preds = %7
-  %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %GC_lock.exit, label %10
 
@@ -2914,14 +2914,14 @@ define internal fastcc void @maybe_finalize() unnamed_addr #1 {
   br i1 %.not.i, label %15, label %GC_generic_lock.exit.sink.split.i
 
 15:                                               ; preds = %13
-  %16 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %16 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %GC_lock.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %15, %21
   %.079.i.i = phi i32 [ %22, %21 ], [ 1, %15 ]
   fence syncscope("singlethread") seq_cst
-  %18 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %18 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %18, label %19 [
     i32 0, label %GC_lock.exit
     i32 16, label %21
@@ -2929,8 +2929,8 @@ define internal fastcc void @maybe_finalize() unnamed_addr #1 {
 
 19:                                               ; preds = %.preheader.i.i
   %20 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %20(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %20(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 21:                                               ; preds = %.preheader.i.i
@@ -2939,7 +2939,7 @@ define internal fastcc void @maybe_finalize() unnamed_addr #1 {
   br i1 %23, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %21, %13, %10
-  %24 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %24 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit
 
 GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC_generic_lock.exit.sink.split.i, %15, %7, %8
@@ -2959,7 +2959,7 @@ define void @GC_err_printf(ptr nocapture noundef readonly %0, ...) local_unnamed
   call void @llvm.va_start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds i8, ptr %3, i64 1024
   store i8 21, ptr %5, align 16
-  %6 = call i32 @vsnprintf(ptr noundef nonnull %3, i64 noundef 1024, ptr noundef %0, ptr noundef nonnull %4) #38
+  %6 = call i32 @vsnprintf(ptr noundef nonnull %3, i64 noundef 1024, ptr noundef %0, ptr noundef nonnull %4) #40
   call void @llvm.va_end.p0(ptr nonnull %4)
   %7 = load i8, ptr %5, align 16
   %.not = icmp eq i8 %7, 21
@@ -2967,15 +2967,15 @@ define void @GC_err_printf(ptr nocapture noundef readonly %0, ...) local_unnamed
 
 8:                                                ; preds = %1
   %9 = load ptr, ptr @GC_on_abort, align 8
-  call void %9(ptr noundef nonnull @.str.90) #38
-  call void @abort() #44
+  call void %9(ptr noundef nonnull @.str.90) #40
+  call void @abort() #46
   unreachable
 
 10:                                               ; preds = %1
   %11 = load i32, ptr @GC_stderr, align 4
-  %12 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %3) #46
+  %12 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %3) #48
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
-  %13 = call i32 @pthread_setcancelstate(i32 noundef 1, ptr noundef nonnull %2) #38
+  %13 = call i32 @pthread_setcancelstate(i32 noundef 1, ptr noundef nonnull %2) #40
   %.not.i.i = icmp eq i64 %12, 0
   br i1 %.not.i.i, label %GC_err_puts.exit, label %.outer.split.i.i
 
@@ -2986,13 +2986,13 @@ define void @GC_err_printf(ptr nocapture noundef readonly %0, ...) local_unnamed
   br label %16
 
 16:                                               ; preds = %20, %.outer.split.i.i
-  %17 = call i64 @write(i32 noundef %11, ptr noundef %15, i64 noundef %14) #38
+  %17 = call i64 @write(i32 noundef %11, ptr noundef %15, i64 noundef %14) #40
   %18 = trunc i64 %17 to i32
   %19 = icmp eq i32 %18, -1
   br i1 %19, label %20, label %.outer.i.i
 
 20:                                               ; preds = %16
-  %21 = tail call ptr @__errno_location() #45
+  %21 = tail call ptr @__errno_location() #47
   %22 = load i32, ptr %21, align 4
   %23 = icmp eq i32 %22, 11
   br i1 %23, label %16, label %GC_err_puts.exit, !llvm.loop !13
@@ -3008,7 +3008,7 @@ define void @GC_err_printf(ptr nocapture noundef readonly %0, ...) local_unnamed
 
 GC_err_puts.exit:                                 ; preds = %.outer.i.i, %20, %10
   %.sink.i.i = load i32, ptr %2, align 4
-  %30 = call i32 @pthread_setcancelstate(i32 noundef %.sink.i.i, ptr noundef null) #38
+  %30 = call i32 @pthread_setcancelstate(i32 noundef %.sink.i.i, ptr noundef null) #40
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   ret void
 }
@@ -3045,7 +3045,7 @@ define void @GC_apply_to_all_blocks(ptr nocapture noundef nonnull readonly %0, i
   %16 = shl i64 %.01720, 12
   %17 = add i64 %15, %16
   %18 = inttoptr i64 %17 to ptr
-  tail call void %0(ptr noundef %18, i64 noundef %1) #38
+  tail call void %0(ptr noundef %18, i64 noundef %1) #40
   br label %19
 
 19:                                               ; preds = %13, %9
@@ -3085,7 +3085,7 @@ define void @GC_register_displacement(i64 noundef %0) local_unnamed_addr #1 {
   br i1 %.b1, label %2, label %GC_lock.exit
 
 2:                                                ; preds = %1
-  %3 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %3 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %GC_lock.exit, label %4
 
@@ -3100,14 +3100,14 @@ define void @GC_register_displacement(i64 noundef %0) local_unnamed_addr #1 {
   br i1 %.not.i, label %9, label %GC_generic_lock.exit.sink.split.i
 
 9:                                                ; preds = %7
-  %10 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %10 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %GC_lock.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %9, %15
   %.079.i.i = phi i32 [ %16, %15 ], [ 1, %9 ]
   fence syncscope("singlethread") seq_cst
-  %12 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %12 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %12, label %13 [
     i32 0, label %GC_lock.exit
     i32 16, label %15
@@ -3115,8 +3115,8 @@ define void @GC_register_displacement(i64 noundef %0) local_unnamed_addr #1 {
 
 13:                                               ; preds = %.preheader.i.i
   %14 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %14(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %14(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 15:                                               ; preds = %.preheader.i.i
@@ -3125,7 +3125,7 @@ define void @GC_register_displacement(i64 noundef %0) local_unnamed_addr #1 {
   br i1 %17, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %15, %7, %4
-  %18 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %18 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit
 
 GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC_generic_lock.exit.sink.split.i, %9, %1, %2
@@ -3134,8 +3134,8 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
 
 20:                                               ; preds = %GC_lock.exit
   %21 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %21(ptr noundef nonnull @.str.121) #38
-  tail call void @abort() #44
+  tail call void %21(ptr noundef nonnull @.str.121) #40
+  tail call void @abort() #46
   unreachable
 
 22:                                               ; preds = %GC_lock.exit
@@ -3156,7 +3156,7 @@ GC_register_displacement_inner.exit:              ; preds = %22, %25
   br i1 %.b, label %28, label %30
 
 28:                                               ; preds = %GC_register_displacement_inner.exit
-  %29 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %29 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %30
 
 30:                                               ; preds = %GC_register_displacement_inner.exit, %28
@@ -3167,8 +3167,8 @@ GC_register_displacement_inner.exit:              ; preds = %22, %25
 define internal void @GC_default_same_obj_print_proc(ptr noundef %0, ptr noundef %1) #6 {
   tail call void (ptr, ...) @GC_log_printf(ptr noundef nonnull @.str.122, ptr noundef %0, ptr noundef %1)
   %3 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %3(ptr noundef nonnull @.str.123) #38
-  tail call void @abort() #44
+  tail call void %3(ptr noundef nonnull @.str.123) #40
+  tail call void @abort() #46
   unreachable
 }
 
@@ -3337,7 +3337,7 @@ GC_find_starting_hblk.exit:                       ; preds = %GC_find_header.exit
 
 87:                                               ; preds = %85, %74, %72, %GC_find_starting_hblk.exit, %GC_find_header.exit54
   %88 = load ptr, ptr @GC_same_obj_print_proc, align 8
-  tail call void %88(ptr noundef %0, ptr noundef %1) #38
+  tail call void %88(ptr noundef %0, ptr noundef %1) #40
   br label %89
 
 89:                                               ; preds = %85, %GC_find_starting_hblk.exit, %22, %GC_find_header.exit54, %87
@@ -3348,8 +3348,8 @@ GC_find_starting_hblk.exit:                       ; preds = %GC_find_header.exit
 define internal void @GC_default_is_valid_displacement_print_proc(ptr noundef %0) #6 {
   tail call void (ptr, ...) @GC_log_printf(ptr noundef nonnull @.str.124, ptr noundef %0)
   %2 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %2(ptr noundef nonnull @.str.125) #38
-  tail call void @abort() #44
+  tail call void %2(ptr noundef nonnull @.str.125) #40
+  tail call void @abort() #46
   unreachable
 }
 
@@ -3493,7 +3493,7 @@ GC_find_header.exit31:                            ; preds = %68
 
 80:                                               ; preds = %GC_find_starting_hblk.exit, %55, %GC_find_header.exit31, %47
   %81 = load ptr, ptr @GC_is_valid_displacement_print_proc, align 8
-  tail call void %81(ptr noundef nonnull %0) #38
+  tail call void %81(ptr noundef nonnull %0) #40
   br label %82
 
 82:                                               ; preds = %58, %GC_find_header.exit31, %GC_find_header.exit, %3, %80
@@ -3504,8 +3504,8 @@ GC_find_header.exit31:                            ; preds = %68
 define internal void @GC_default_is_visible_print_proc(ptr noundef %0) #6 {
   tail call void (ptr, ...) @GC_log_printf(ptr noundef nonnull @.str.126, ptr noundef %0)
   %2 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %2(ptr noundef nonnull @.str.127) #38
-  tail call void @abort() #44
+  tail call void %2(ptr noundef nonnull @.str.127) #40
+  tail call void @abort() #46
   unreachable
 }
 
@@ -3641,7 +3641,7 @@ GC_find_starting_hblk.exit.i:                     ; preds = %GC_find_header.exit
 
 GC_base.exit.thread:                              ; preds = %58, %GC_find_starting_hblk.exit.i, %29, %22, %1
   %73 = load ptr, ptr @GC_is_visible_print_proc, align 8
-  tail call void %73(ptr noundef %0) #38
+  tail call void %73(ptr noundef %0) #40
   br label %74
 
 74:                                               ; preds = %58, %GC_find_header.exit, %GC_base.exit.thread
@@ -3841,7 +3841,7 @@ define void @GC_iterate_free_hblks(ptr nocapture noundef nonnull readonly %0, i6
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %GC_find_header.exit
   %.011 = phi ptr [ %.0, %GC_find_header.exit ], [ %.09, %.lr.ph.preheader ]
-  tail call void %0(ptr noundef nonnull %.011, i32 noundef %5, i64 noundef %1) #38
+  tail call void %0(ptr noundef nonnull %.011, i32 noundef %5, i64 noundef %1) #40
   %6 = ptrtoint ptr %.011 to i64
   %7 = lshr i64 %6, 22
   %8 = and i64 %7, 2047
@@ -4207,7 +4207,7 @@ define void @GC_printf(ptr nocapture noundef readonly %0, ...) local_unnamed_add
   call void @llvm.va_start.p0(ptr nonnull %4)
   %7 = getelementptr inbounds i8, ptr %3, i64 1024
   store i8 21, ptr %7, align 16
-  %8 = call i32 @vsnprintf(ptr noundef nonnull %3, i64 noundef 1024, ptr noundef %0, ptr noundef nonnull %4) #38
+  %8 = call i32 @vsnprintf(ptr noundef nonnull %3, i64 noundef 1024, ptr noundef %0, ptr noundef nonnull %4) #40
   call void @llvm.va_end.p0(ptr nonnull %4)
   %9 = load i8, ptr %7, align 16
   %.not1 = icmp eq i8 %9, 21
@@ -4215,21 +4215,21 @@ define void @GC_printf(ptr nocapture noundef readonly %0, ...) local_unnamed_add
 
 10:                                               ; preds = %6
   %11 = load ptr, ptr @GC_on_abort, align 8
-  call void %11(ptr noundef nonnull @.str.90) #38
-  call void @abort() #44
+  call void %11(ptr noundef nonnull @.str.90) #40
+  call void @abort() #46
   unreachable
 
 12:                                               ; preds = %6
   %13 = load i32, ptr @GC_stdout, align 4
-  %14 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #46
+  %14 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #48
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
-  %15 = call i32 @pthread_setcancelstate(i32 noundef 1, ptr noundef nonnull %2) #38
+  %15 = call i32 @pthread_setcancelstate(i32 noundef 1, ptr noundef nonnull %2) #40
   %.not.i = icmp eq i64 %14, 0
   br i1 %.not.i, label %GC_write.exit.thread4, label %.outer.split.i
 
 GC_write.exit.thread4:                            ; preds = %12
   %.sink.i6 = load i32, ptr %2, align 4
-  %16 = call i32 @pthread_setcancelstate(i32 noundef %.sink.i6, ptr noundef null) #38
+  %16 = call i32 @pthread_setcancelstate(i32 noundef %.sink.i6, ptr noundef null) #40
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   br label %38
 
@@ -4240,20 +4240,20 @@ GC_write.exit.thread4:                            ; preds = %12
   br label %19
 
 19:                                               ; preds = %23, %.outer.split.i
-  %20 = call i64 @write(i32 noundef %13, ptr noundef %18, i64 noundef %17) #38
+  %20 = call i64 @write(i32 noundef %13, ptr noundef %18, i64 noundef %17) #40
   %21 = trunc i64 %20 to i32
   %22 = icmp eq i32 %21, -1
   br i1 %22, label %23, label %.outer.i
 
 23:                                               ; preds = %19
-  %24 = tail call ptr @__errno_location() #45
+  %24 = tail call ptr @__errno_location() #47
   %25 = load i32, ptr %24, align 4
   %26 = icmp eq i32 %25, 11
   br i1 %26, label %19, label %GC_write.exit.thread, !llvm.loop !13
 
 GC_write.exit.thread:                             ; preds = %23
   %.sink.i3 = load i32, ptr %2, align 4
-  %27 = call i32 @pthread_setcancelstate(i32 noundef %.sink.i3, ptr noundef null) #38
+  %27 = call i32 @pthread_setcancelstate(i32 noundef %.sink.i3, ptr noundef null) #40
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   br label %36
 
@@ -4268,15 +4268,15 @@ GC_write.exit.thread:                             ; preds = %23
 
 GC_write.exit:                                    ; preds = %.outer.i
   %.sink.i = load i32, ptr %2, align 4
-  %34 = call i32 @pthread_setcancelstate(i32 noundef %.sink.i, ptr noundef null) #38
+  %34 = call i32 @pthread_setcancelstate(i32 noundef %.sink.i, ptr noundef null) #40
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   %35 = icmp slt i32 %28, 0
   br i1 %35, label %36, label %38
 
 36:                                               ; preds = %GC_write.exit.thread, %GC_write.exit
   %37 = load ptr, ptr @GC_on_abort, align 8
-  call void %37(ptr noundef nonnull @.str.91) #38
-  call void @abort() #44
+  call void %37(ptr noundef nonnull @.str.91) #40
+  call void @abort() #46
   unreachable
 
 38:                                               ; preds = %GC_write.exit.thread4, %GC_write.exit, %1
@@ -4515,7 +4515,7 @@ GC_lock.exit.thread:                              ; preds = %1
   br label %21
 
 2:                                                ; preds = %1
-  %3 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %3 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %GC_lock.exit, label %4
 
@@ -4530,14 +4530,14 @@ GC_lock.exit.thread:                              ; preds = %1
   br i1 %.not.i, label %9, label %GC_generic_lock.exit.sink.split.i
 
 9:                                                ; preds = %7
-  %10 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %10 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %GC_lock.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %9, %15
   %.079.i.i = phi i32 [ %16, %15 ], [ 1, %9 ]
   fence syncscope("singlethread") seq_cst
-  %12 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %12 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %12, label %13 [
     i32 0, label %GC_lock.exit
     i32 16, label %15
@@ -4545,8 +4545,8 @@ GC_lock.exit.thread:                              ; preds = %1
 
 13:                                               ; preds = %.preheader.i.i
   %14 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %14(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %14(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 15:                                               ; preds = %.preheader.i.i
@@ -4555,7 +4555,7 @@ GC_lock.exit.thread:                              ; preds = %1
   br i1 %17, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %15, %7, %4
-  %18 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %18 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit
 
 GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC_generic_lock.exit.sink.split.i, %9, %2
@@ -4564,7 +4564,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   br i1 %.b.pr, label %19, label %21
 
 19:                                               ; preds = %GC_lock.exit
-  %20 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %20 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %21
 
 21:                                               ; preds = %GC_lock.exit.thread, %GC_lock.exit, %19
@@ -4581,7 +4581,7 @@ GC_lock.exit.thread:                              ; preds = %0
   br label %22
 
 2:                                                ; preds = %0
-  %3 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %3 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %GC_lock.exit, label %4
 
@@ -4596,14 +4596,14 @@ GC_lock.exit.thread:                              ; preds = %0
   br i1 %.not.i, label %9, label %GC_generic_lock.exit.sink.split.i
 
 9:                                                ; preds = %7
-  %10 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %10 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %GC_lock.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %9, %15
   %.079.i.i = phi i32 [ %16, %15 ], [ 1, %9 ]
   fence syncscope("singlethread") seq_cst
-  %12 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %12 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %12, label %13 [
     i32 0, label %GC_lock.exit
     i32 16, label %15
@@ -4611,8 +4611,8 @@ GC_lock.exit.thread:                              ; preds = %0
 
 13:                                               ; preds = %.preheader.i.i
   %14 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %14(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %14(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 15:                                               ; preds = %.preheader.i.i
@@ -4621,7 +4621,7 @@ GC_lock.exit.thread:                              ; preds = %0
   br i1 %17, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %15, %7, %4
-  %18 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %18 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit
 
 GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC_generic_lock.exit.sink.split.i, %9, %2
@@ -4630,7 +4630,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   br i1 %.b.pr, label %20, label %22
 
 20:                                               ; preds = %GC_lock.exit
-  %21 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %21 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %22
 
 22:                                               ; preds = %GC_lock.exit.thread, %GC_lock.exit, %20
@@ -4669,7 +4669,7 @@ GC_lock.exit.thread:                              ; preds = %1
   br label %21
 
 2:                                                ; preds = %1
-  %3 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %3 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %GC_lock.exit, label %4
 
@@ -4684,14 +4684,14 @@ GC_lock.exit.thread:                              ; preds = %1
   br i1 %.not.i, label %9, label %GC_generic_lock.exit.sink.split.i
 
 9:                                                ; preds = %7
-  %10 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %10 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %GC_lock.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %9, %15
   %.079.i.i = phi i32 [ %16, %15 ], [ 1, %9 ]
   fence syncscope("singlethread") seq_cst
-  %12 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %12 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %12, label %13 [
     i32 0, label %GC_lock.exit
     i32 16, label %15
@@ -4699,8 +4699,8 @@ GC_lock.exit.thread:                              ; preds = %1
 
 13:                                               ; preds = %.preheader.i.i
   %14 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %14(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %14(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 15:                                               ; preds = %.preheader.i.i
@@ -4709,7 +4709,7 @@ GC_lock.exit.thread:                              ; preds = %1
   br i1 %17, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %15, %7, %4
-  %18 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %18 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit
 
 GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC_generic_lock.exit.sink.split.i, %9, %2
@@ -4718,7 +4718,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   br i1 %.b.pr, label %19, label %21
 
 19:                                               ; preds = %GC_lock.exit
-  %20 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %20 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %21
 
 21:                                               ; preds = %GC_lock.exit.thread, %GC_lock.exit, %19
@@ -4735,7 +4735,7 @@ GC_lock.exit.thread:                              ; preds = %0
   br label %22
 
 2:                                                ; preds = %0
-  %3 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %3 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %GC_lock.exit, label %4
 
@@ -4750,14 +4750,14 @@ GC_lock.exit.thread:                              ; preds = %0
   br i1 %.not.i, label %9, label %GC_generic_lock.exit.sink.split.i
 
 9:                                                ; preds = %7
-  %10 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %10 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %GC_lock.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %9, %15
   %.079.i.i = phi i32 [ %16, %15 ], [ 1, %9 ]
   fence syncscope("singlethread") seq_cst
-  %12 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %12 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %12, label %13 [
     i32 0, label %GC_lock.exit
     i32 16, label %15
@@ -4765,8 +4765,8 @@ GC_lock.exit.thread:                              ; preds = %0
 
 13:                                               ; preds = %.preheader.i.i
   %14 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %14(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %14(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 15:                                               ; preds = %.preheader.i.i
@@ -4775,7 +4775,7 @@ GC_lock.exit.thread:                              ; preds = %0
   br i1 %17, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %15, %7, %4
-  %18 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %18 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit
 
 GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC_generic_lock.exit.sink.split.i, %9, %2
@@ -4784,7 +4784,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   br i1 %.b.pr, label %20, label %22
 
 20:                                               ; preds = %GC_lock.exit
-  %21 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %21 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %22
 
 22:                                               ; preds = %GC_lock.exit.thread, %GC_lock.exit, %20
@@ -4810,7 +4810,7 @@ define void @GC_start_incremental_collection() local_unnamed_addr #1 {
   br i1 %.b2, label %1, label %GC_lock.exit
 
 1:                                                ; preds = %0
-  %2 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %2 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %GC_lock.exit, label %3
 
@@ -4825,14 +4825,14 @@ define void @GC_start_incremental_collection() local_unnamed_addr #1 {
   br i1 %.not.i, label %8, label %GC_generic_lock.exit.sink.split.i
 
 8:                                                ; preds = %6
-  %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %GC_lock.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %8, %14
   %.079.i.i = phi i32 [ %15, %14 ], [ 1, %8 ]
   fence syncscope("singlethread") seq_cst
-  %11 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %11 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %11, label %12 [
     i32 0, label %GC_lock.exit
     i32 16, label %14
@@ -4840,8 +4840,8 @@ define void @GC_start_incremental_collection() local_unnamed_addr #1 {
 
 12:                                               ; preds = %.preheader.i.i
   %13 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %13(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %13(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 14:                                               ; preds = %.preheader.i.i
@@ -4850,7 +4850,7 @@ define void @GC_start_incremental_collection() local_unnamed_addr #1 {
   br i1 %16, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %14, %6, %3
-  %17 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %17 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit
 
 GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC_generic_lock.exit.sink.split.i, %8, %0, %1
@@ -4875,7 +4875,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   br i1 %.b, label %23, label %25
 
 23:                                               ; preds = %22
-  %24 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %24 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %25
 
 25:                                               ; preds = %22, %23
@@ -4885,7 +4885,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @GC_collect_a_little_inner(i32 noundef %0) unnamed_addr #1 {
   %2 = alloca i32, align 4
-  %3 = call i32 @pthread_setcancelstate(i32 noundef 1, ptr noundef nonnull %2) #38
+  %3 = call i32 @pthread_setcancelstate(i32 noundef 1, ptr noundef nonnull %2) #40
   %4 = load i32, ptr @GC_incremental, align 4
   %.not = icmp eq i32 %4, 0
   %5 = load i32, ptr getelementptr inbounds (i8, ptr @GC_arrays, i64 272), align 8
@@ -4952,7 +4952,7 @@ define internal fastcc void @GC_collect_a_little_inner(i32 noundef %0) unnamed_a
   br i1 %or.cond29, label %26, label %31
 
 26:                                               ; preds = %23
-  %27 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull @GC_start_time) #38
+  %27 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull @GC_start_time) #40
   %28 = icmp eq i32 %27, -1
   br i1 %28, label %29, label %._crit_edge22
 
@@ -4963,8 +4963,8 @@ define internal fastcc void @GC_collect_a_little_inner(i32 noundef %0) unnamed_a
 
 29:                                               ; preds = %26
   %30 = load ptr, ptr @GC_on_abort, align 8
-  call void %30(ptr noundef nonnull @.str.82) #38
-  call void @abort() #44
+  call void %30(ptr noundef nonnull @.str.82) #40
+  call void @abort() #46
   unreachable
 
 31:                                               ; preds = %._crit_edge22, %23
@@ -5054,7 +5054,7 @@ define internal fastcc void @GC_collect_a_little_inner(i32 noundef %0) unnamed_a
   br i1 %.not.i16, label %GC_notify_full_gc.exit, label %70
 
 70:                                               ; preds = %67
-  call void %69() #38
+  call void %69() #40
   br label %GC_notify_full_gc.exit
 
 GC_notify_full_gc.exit:                           ; preds = %67, %70
@@ -5183,14 +5183,14 @@ GC_clear_marks.exit:                              ; preds = %126, %GC_notify_ful
   br i1 %.not6.i, label %137, label %132
 
 132:                                              ; preds = %130
-  %133 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull @GC_start_time) #38
+  %133 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull @GC_start_time) #40
   %134 = icmp eq i32 %133, -1
   br i1 %134, label %135, label %137
 
 135:                                              ; preds = %132
   %136 = load ptr, ptr @GC_on_abort, align 8
-  call void %136(ptr noundef nonnull @.str.82) #38
-  call void @abort() #44
+  call void %136(ptr noundef nonnull @.str.82) #40
+  call void @abort() #46
   unreachable
 
 137:                                              ; preds = %132, %130
@@ -5214,7 +5214,7 @@ GC_clear_marks.exit:                              ; preds = %126, %GC_notify_ful
 
 GC_maybe_gc.exit:                                 ; preds = %141, %140, %139, %51, %48, %44, %41, %46
   %144 = load i32, ptr %2, align 4
-  %145 = call i32 @pthread_setcancelstate(i32 noundef %144, ptr noundef null) #38
+  %145 = call i32 @pthread_setcancelstate(i32 noundef %144, ptr noundef null) #40
   ret void
 }
 
@@ -5228,7 +5228,7 @@ GC_lock.exit.thread:                              ; preds = %1
   br label %21
 
 2:                                                ; preds = %1
-  %3 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %3 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %GC_lock.exit, label %4
 
@@ -5243,14 +5243,14 @@ GC_lock.exit.thread:                              ; preds = %1
   br i1 %.not.i, label %9, label %GC_generic_lock.exit.sink.split.i
 
 9:                                                ; preds = %7
-  %10 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %10 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %GC_lock.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %9, %15
   %.079.i.i = phi i32 [ %16, %15 ], [ 1, %9 ]
   fence syncscope("singlethread") seq_cst
-  %12 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %12 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %12, label %13 [
     i32 0, label %GC_lock.exit
     i32 16, label %15
@@ -5258,8 +5258,8 @@ GC_lock.exit.thread:                              ; preds = %1
 
 13:                                               ; preds = %.preheader.i.i
   %14 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %14(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %14(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 15:                                               ; preds = %.preheader.i.i
@@ -5268,7 +5268,7 @@ GC_lock.exit.thread:                              ; preds = %1
   br i1 %17, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %15, %7, %4
-  %18 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %18 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit
 
 GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC_generic_lock.exit.sink.split.i, %9, %2
@@ -5277,7 +5277,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   br i1 %.b.pr, label %19, label %21
 
 19:                                               ; preds = %GC_lock.exit
-  %20 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %20 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %21
 
 21:                                               ; preds = %GC_lock.exit.thread, %GC_lock.exit, %19
@@ -5294,7 +5294,7 @@ GC_lock.exit.thread:                              ; preds = %0
   br label %22
 
 2:                                                ; preds = %0
-  %3 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %3 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %GC_lock.exit, label %4
 
@@ -5309,14 +5309,14 @@ GC_lock.exit.thread:                              ; preds = %0
   br i1 %.not.i, label %9, label %GC_generic_lock.exit.sink.split.i
 
 9:                                                ; preds = %7
-  %10 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %10 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %GC_lock.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %9, %15
   %.079.i.i = phi i32 [ %16, %15 ], [ 1, %9 ]
   fence syncscope("singlethread") seq_cst
-  %12 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %12 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %12, label %13 [
     i32 0, label %GC_lock.exit
     i32 16, label %15
@@ -5324,8 +5324,8 @@ GC_lock.exit.thread:                              ; preds = %0
 
 13:                                               ; preds = %.preheader.i.i
   %14 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %14(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %14(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 15:                                               ; preds = %.preheader.i.i
@@ -5334,7 +5334,7 @@ GC_lock.exit.thread:                              ; preds = %0
   br i1 %17, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %15, %7, %4
-  %18 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %18 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit
 
 GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC_generic_lock.exit.sink.split.i, %9, %2
@@ -5343,7 +5343,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   br i1 %.b.pr, label %20, label %22
 
 20:                                               ; preds = %GC_lock.exit
-  %21 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %21 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %22
 
 22:                                               ; preds = %GC_lock.exit.thread, %GC_lock.exit, %20
@@ -5361,7 +5361,7 @@ GC_lock.exit.thread:                              ; preds = %1
   br label %21
 
 2:                                                ; preds = %1
-  %3 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %3 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %GC_lock.exit, label %4
 
@@ -5376,14 +5376,14 @@ GC_lock.exit.thread:                              ; preds = %1
   br i1 %.not.i, label %9, label %GC_generic_lock.exit.sink.split.i
 
 9:                                                ; preds = %7
-  %10 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %10 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %GC_lock.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %9, %15
   %.079.i.i = phi i32 [ %16, %15 ], [ 1, %9 ]
   fence syncscope("singlethread") seq_cst
-  %12 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %12 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %12, label %13 [
     i32 0, label %GC_lock.exit
     i32 16, label %15
@@ -5391,8 +5391,8 @@ GC_lock.exit.thread:                              ; preds = %1
 
 13:                                               ; preds = %.preheader.i.i
   %14 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %14(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %14(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 15:                                               ; preds = %.preheader.i.i
@@ -5401,7 +5401,7 @@ GC_lock.exit.thread:                              ; preds = %1
   br i1 %17, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %15, %7, %4
-  %18 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %18 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit
 
 GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC_generic_lock.exit.sink.split.i, %9, %2
@@ -5410,7 +5410,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   br i1 %.b.pr, label %19, label %21
 
 19:                                               ; preds = %GC_lock.exit
-  %20 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %20 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %21
 
 21:                                               ; preds = %GC_lock.exit.thread, %GC_lock.exit, %19
@@ -5427,7 +5427,7 @@ GC_lock.exit.thread:                              ; preds = %0
   br label %22
 
 2:                                                ; preds = %0
-  %3 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %3 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %GC_lock.exit, label %4
 
@@ -5442,14 +5442,14 @@ GC_lock.exit.thread:                              ; preds = %0
   br i1 %.not.i, label %9, label %GC_generic_lock.exit.sink.split.i
 
 9:                                                ; preds = %7
-  %10 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %10 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %GC_lock.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %9, %15
   %.079.i.i = phi i32 [ %16, %15 ], [ 1, %9 ]
   fence syncscope("singlethread") seq_cst
-  %12 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %12 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %12, label %13 [
     i32 0, label %GC_lock.exit
     i32 16, label %15
@@ -5457,8 +5457,8 @@ GC_lock.exit.thread:                              ; preds = %0
 
 13:                                               ; preds = %.preheader.i.i
   %14 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %14(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %14(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 15:                                               ; preds = %.preheader.i.i
@@ -5467,7 +5467,7 @@ GC_lock.exit.thread:                              ; preds = %0
   br i1 %17, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %15, %7, %4
-  %18 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %18 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit
 
 GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC_generic_lock.exit.sink.split.i, %9, %2
@@ -5476,7 +5476,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   br i1 %.b.pr, label %20, label %22
 
 20:                                               ; preds = %GC_lock.exit
-  %21 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %21 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %22
 
 22:                                               ; preds = %GC_lock.exit.thread, %GC_lock.exit, %20
@@ -5522,7 +5522,7 @@ define range(i32 0, 2) i32 @GC_collect_a_little() local_unnamed_addr #1 {
   br i1 %.b5, label %3, label %GC_lock.exit
 
 3:                                                ; preds = %2
-  %4 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %4 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %GC_lock.exit, label %5
 
@@ -5537,14 +5537,14 @@ define range(i32 0, 2) i32 @GC_collect_a_little() local_unnamed_addr #1 {
   br i1 %.not.i, label %10, label %GC_generic_lock.exit.sink.split.i
 
 10:                                               ; preds = %8
-  %11 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %11 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %GC_lock.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %10, %16
   %.079.i.i = phi i32 [ %17, %16 ], [ 1, %10 ]
   fence syncscope("singlethread") seq_cst
-  %13 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %13 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %13, label %14 [
     i32 0, label %GC_lock.exit
     i32 16, label %16
@@ -5552,8 +5552,8 @@ define range(i32 0, 2) i32 @GC_collect_a_little() local_unnamed_addr #1 {
 
 14:                                               ; preds = %.preheader.i.i
   %15 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %15(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %15(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 16:                                               ; preds = %.preheader.i.i
@@ -5562,7 +5562,7 @@ define range(i32 0, 2) i32 @GC_collect_a_little() local_unnamed_addr #1 {
   br i1 %18, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %16, %8, %5
-  %19 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %19 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit
 
 GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC_generic_lock.exit.sink.split.i, %10, %2, %3
@@ -5575,7 +5575,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   br i1 %.b, label %22, label %24
 
 22:                                               ; preds = %GC_lock.exit
-  %23 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %23 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %24
 
 24:                                               ; preds = %GC_lock.exit, %22
@@ -5599,7 +5599,7 @@ define void @GC_stop_world_external() local_unnamed_addr #1 {
   br i1 %.b, label %1, label %GC_lock.exit
 
 1:                                                ; preds = %0
-  %2 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %2 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %GC_lock.exit, label %3
 
@@ -5614,14 +5614,14 @@ define void @GC_stop_world_external() local_unnamed_addr #1 {
   br i1 %.not.i, label %8, label %GC_generic_lock.exit.sink.split.i
 
 8:                                                ; preds = %6
-  %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %GC_lock.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %8, %14
   %.079.i.i = phi i32 [ %15, %14 ], [ 1, %8 ]
   fence syncscope("singlethread") seq_cst
-  %11 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %11 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %11, label %12 [
     i32 0, label %GC_lock.exit
     i32 16, label %14
@@ -5629,8 +5629,8 @@ define void @GC_stop_world_external() local_unnamed_addr #1 {
 
 12:                                               ; preds = %.preheader.i.i
   %13 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %13(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %13(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 14:                                               ; preds = %.preheader.i.i
@@ -5639,7 +5639,7 @@ define void @GC_stop_world_external() local_unnamed_addr #1 {
   br i1 %16, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %14, %6, %3
-  %17 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %17 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit
 
 GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC_generic_lock.exit.sink.split.i, %8, %0, %1
@@ -5655,14 +5655,14 @@ define internal fastcc void @GC_stop_world() unnamed_addr #1 {
   br i1 %.not, label %GC_acquire_mark_lock.exit, label %2
 
 2:                                                ; preds = %0
-  %3 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @mark_mutex) #38
+  %3 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @mark_mutex) #40
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %GC_acquire_mark_lock.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %2, %8
   %.079.i.i = phi i32 [ %9, %8 ], [ 1, %2 ]
   fence syncscope("singlethread") seq_cst
-  %5 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @mark_mutex) #38
+  %5 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @mark_mutex) #40
   switch i32 %5, label %6 [
     i32 0, label %GC_acquire_mark_lock.exit
     i32 16, label %8
@@ -5670,8 +5670,8 @@ define internal fastcc void @GC_stop_world() unnamed_addr #1 {
 
 6:                                                ; preds = %.preheader.i.i
   %7 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %7(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %7(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 8:                                                ; preds = %.preheader.i.i
@@ -5680,7 +5680,7 @@ define internal fastcc void @GC_stop_world() unnamed_addr #1 {
   br i1 %10, label %.preheader.i.i, label %11, !llvm.loop !4
 
 11:                                               ; preds = %8
-  %12 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @mark_mutex) #38
+  %12 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @mark_mutex) #40
   br label %GC_acquire_mark_lock.exit
 
 GC_acquire_mark_lock.exit:                        ; preds = %.preheader.i.i, %11, %2, %0
@@ -5705,20 +5705,20 @@ GC_acquire_mark_lock.exit:                        ; preds = %.preheader.i.i, %11
   br label %20
 
 20:                                               ; preds = %22, %.preheader.i
-  %21 = tail call i32 @sem_wait(ptr noundef nonnull @GC_suspend_ack_sem) #38
+  %21 = tail call i32 @sem_wait(ptr noundef nonnull @GC_suspend_ack_sem) #40
   %.not.i = icmp eq i32 %21, 0
   br i1 %.not.i, label %27, label %22
 
 22:                                               ; preds = %20
-  %23 = tail call ptr @__errno_location() #45
+  %23 = tail call ptr @__errno_location() #47
   %24 = load i32, ptr %23, align 4
   %.not3.i = icmp eq i32 %24, 4
   br i1 %.not3.i, label %20, label %25, !llvm.loop !30
 
 25:                                               ; preds = %22
   %26 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %26(ptr noundef nonnull @.str.119) #38
-  tail call void @abort() #44
+  tail call void %26(ptr noundef nonnull @.str.119) #40
+  tail call void @abort() #46
   unreachable
 
 27:                                               ; preds = %20
@@ -5732,14 +5732,14 @@ suspend_restart_barrier.exit:                     ; preds = %27, %18, %17
   br i1 %.not5, label %GC_release_mark_lock.exit, label %30
 
 30:                                               ; preds = %suspend_restart_barrier.exit
-  %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @mark_mutex) #38
+  %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @mark_mutex) #40
   %.not.i6 = icmp eq i32 %31, 0
   br i1 %.not.i6, label %GC_release_mark_lock.exit, label %32
 
 32:                                               ; preds = %30
   %33 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %33(ptr noundef nonnull @.str.341) #38
-  tail call void @abort() #44
+  tail call void %33(ptr noundef nonnull @.str.341) #40
+  tail call void @abort() #46
   unreachable
 
 GC_release_mark_lock.exit:                        ; preds = %30, %suspend_restart_barrier.exit
@@ -5754,7 +5754,7 @@ define void @GC_start_world_external() local_unnamed_addr #1 {
   br i1 %.b, label %1, label %3
 
 1:                                                ; preds = %0
-  %2 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %2 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %3
 
 3:                                                ; preds = %0, %1
@@ -5788,20 +5788,20 @@ define internal fastcc void @GC_start_world() unnamed_addr #1 {
   br label %11
 
 11:                                               ; preds = %13, %.preheader.i
-  %12 = tail call i32 @sem_wait(ptr noundef nonnull @GC_suspend_ack_sem) #38
+  %12 = tail call i32 @sem_wait(ptr noundef nonnull @GC_suspend_ack_sem) #40
   %.not.i = icmp eq i32 %12, 0
   br i1 %.not.i, label %18, label %13
 
 13:                                               ; preds = %11
-  %14 = tail call ptr @__errno_location() #45
+  %14 = tail call ptr @__errno_location() #47
   %15 = load i32, ptr %14, align 4
   %.not3.i = icmp eq i32 %15, 4
   br i1 %.not3.i, label %11, label %16, !llvm.loop !30
 
 16:                                               ; preds = %13
   %17 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %17(ptr noundef nonnull @.str.119) #38
-  tail call void @abort() #44
+  tail call void %17(ptr noundef nonnull @.str.119) #40
+  tail call void @abort() #46
   unreachable
 
 18:                                               ; preds = %11
@@ -5843,7 +5843,7 @@ define internal fastcc range(i32 0, 2) i32 @GC_try_to_collect_general(ptr nounde
   br i1 %.b10, label %8, label %GC_lock.exit
 
 8:                                                ; preds = %7
-  %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %GC_lock.exit, label %10
 
@@ -5858,14 +5858,14 @@ define internal fastcc range(i32 0, 2) i32 @GC_try_to_collect_general(ptr nounde
   br i1 %.not.i, label %15, label %GC_generic_lock.exit.sink.split.i
 
 15:                                               ; preds = %13
-  %16 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %16 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %GC_lock.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %15, %21
   %.079.i.i = phi i32 [ %22, %21 ], [ 1, %15 ]
   fence syncscope("singlethread") seq_cst
-  %18 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %18 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %18, label %19 [
     i32 0, label %GC_lock.exit
     i32 16, label %21
@@ -5873,8 +5873,8 @@ define internal fastcc range(i32 0, 2) i32 @GC_try_to_collect_general(ptr nounde
 
 19:                                               ; preds = %.preheader.i.i
   %20 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %20(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %20(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 21:                                               ; preds = %.preheader.i.i
@@ -5883,7 +5883,7 @@ define internal fastcc range(i32 0, 2) i32 @GC_try_to_collect_general(ptr nounde
   br i1 %23, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %21, %13, %10
-  %24 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %24 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit
 
 GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC_generic_lock.exit.sink.split.i, %15, %7, %8
@@ -5893,12 +5893,12 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
 25:                                               ; preds = %GC_lock.exit
   %26 = load i64, ptr @GC_arrays, align 8
   store i64 %26, ptr @GC_heapsize_at_forced_unmap, align 8
-  %27 = call i32 @pthread_setcancelstate(i32 noundef 1, ptr noundef nonnull %3) #38
+  %27 = call i32 @pthread_setcancelstate(i32 noundef 1, ptr noundef nonnull %3) #40
   %28 = load i32, ptr @GC_unmap_threshold, align 4
   br label %35
 
 29:                                               ; preds = %GC_lock.exit
-  %30 = call i32 @pthread_setcancelstate(i32 noundef 1, ptr noundef nonnull %3) #38
+  %30 = call i32 @pthread_setcancelstate(i32 noundef 1, ptr noundef nonnull %3) #40
   %31 = load i32, ptr @GC_unmap_threshold, align 4
   %32 = load i32, ptr @GC_force_unmap_on_gcollect, align 4
   %33 = icmp ne i32 %32, 0
@@ -5922,12 +5922,12 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   store atomic volatile i8 0, ptr @GC_collecting monotonic, align 1
   store i32 %38, ptr @GC_unmap_threshold, align 4
   %42 = load i32, ptr %3, align 4
-  %43 = call i32 @pthread_setcancelstate(i32 noundef %42, ptr noundef null) #38
+  %43 = call i32 @pthread_setcancelstate(i32 noundef %42, ptr noundef null) #40
   %.b = load i1, ptr @GC_need_to_lock, align 4
   br i1 %.b, label %44, label %46
 
 44:                                               ; preds = %37
-  %45 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %45 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %46
 
 46:                                               ; preds = %37, %44
@@ -5973,7 +5973,7 @@ define internal fastcc void @GC_print_all_errors() unnamed_addr #1 {
   br i1 %.b18, label %2, label %GC_lock.exit
 
 2:                                                ; preds = %0
-  %3 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %3 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %GC_lock.exit, label %4
 
@@ -5988,14 +5988,14 @@ define internal fastcc void @GC_print_all_errors() unnamed_addr #1 {
   br i1 %.not.i, label %9, label %GC_generic_lock.exit.sink.split.i
 
 9:                                                ; preds = %7
-  %10 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %10 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %GC_lock.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %9, %15
   %.079.i.i = phi i32 [ %16, %15 ], [ 1, %9 ]
   fence syncscope("singlethread") seq_cst
-  %12 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %12 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %12, label %13 [
     i32 0, label %GC_lock.exit
     i32 16, label %15
@@ -6003,8 +6003,8 @@ define internal fastcc void @GC_print_all_errors() unnamed_addr #1 {
 
 13:                                               ; preds = %.preheader.i.i
   %14 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %14(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %14(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 15:                                               ; preds = %.preheader.i.i
@@ -6013,7 +6013,7 @@ define internal fastcc void @GC_print_all_errors() unnamed_addr #1 {
   br i1 %17, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %15, %7, %4
-  %18 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %18 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit
 
 GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC_generic_lock.exit.sink.split.i, %9, %0, %2
@@ -6025,7 +6025,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   br i1 %.b17, label %20, label %59
 
 20:                                               ; preds = %19
-  %21 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %21 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %59
 
 22:                                               ; preds = %GC_lock.exit
@@ -6048,7 +6048,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   br i1 %.b16, label %29, label %31
 
 29:                                               ; preds = %28
-  %30 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %30 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %31
 
 31:                                               ; preds = %28, %29
@@ -6072,7 +6072,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   %33 = getelementptr inbounds [40 x ptr], ptr %1, i64 0, i64 %indvars.iv
   %34 = load ptr, ptr %33, align 8
   %35 = load ptr, ptr @GC_print_heap_obj, align 8
-  tail call void %35(ptr noundef %34) #38, !callees !32
+  tail call void %35(ptr noundef %34) #40, !callees !32
   tail call void @GC_free(ptr noundef %34)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -6084,14 +6084,14 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   br i1 %.not22, label %._crit_edge.thread41, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.lr.ph, %._crit_edge
-  %37 = tail call ptr @getenv(ptr noundef nonnull @.str.220) #38
+  %37 = tail call ptr @getenv(ptr noundef nonnull @.str.220) #40
   %.not23 = icmp eq ptr %37, null
   br i1 %.not23, label %._crit_edge.thread41, label %38
 
 38:                                               ; preds = %._crit_edge.thread
   %39 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %39(ptr noundef nonnull @.str.221) #38
-  tail call void @abort() #44
+  tail call void %39(ptr noundef nonnull @.str.221) #40
+  tail call void @abort() #46
   unreachable
 
 ._crit_edge.thread41:                             ; preds = %.thread38, %._crit_edge, %._crit_edge.thread
@@ -6103,7 +6103,7 @@ GC_lock.exit29.thread:                            ; preds = %._crit_edge.thread4
   br label %59
 
 40:                                               ; preds = %._crit_edge.thread41
-  %41 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %41 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not24 = icmp eq i32 %41, 0
   br i1 %.not24, label %GC_lock.exit29, label %42
 
@@ -6118,14 +6118,14 @@ GC_lock.exit29.thread:                            ; preds = %._crit_edge.thread4
   br i1 %.not.i25, label %47, label %GC_generic_lock.exit.sink.split.i26
 
 47:                                               ; preds = %45
-  %48 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %48 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %49 = icmp eq i32 %48, 0
   br i1 %49, label %GC_lock.exit29, label %.preheader.i.i27
 
 .preheader.i.i27:                                 ; preds = %47, %53
   %.079.i.i28 = phi i32 [ %54, %53 ], [ 1, %47 ]
   fence syncscope("singlethread") seq_cst
-  %50 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %50 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %50, label %51 [
     i32 0, label %GC_lock.exit29
     i32 16, label %53
@@ -6133,8 +6133,8 @@ GC_lock.exit29.thread:                            ; preds = %._crit_edge.thread4
 
 51:                                               ; preds = %.preheader.i.i27
   %52 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %52(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %52(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 53:                                               ; preds = %.preheader.i.i27
@@ -6143,7 +6143,7 @@ GC_lock.exit29.thread:                            ; preds = %._crit_edge.thread4
   br i1 %55, label %.preheader.i.i27, label %GC_generic_lock.exit.sink.split.i26, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i26:              ; preds = %53, %45, %42
-  %56 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %56 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit29
 
 GC_lock.exit29:                                   ; preds = %.preheader.i.i27, %GC_generic_lock.exit.sink.split.i26, %47, %40
@@ -6152,7 +6152,7 @@ GC_lock.exit29:                                   ; preds = %.preheader.i.i27, %
   br i1 %.b.pr, label %57, label %59
 
 57:                                               ; preds = %GC_lock.exit29
-  %58 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %58 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %59
 
 59:                                               ; preds = %GC_lock.exit29.thread, %GC_lock.exit29, %57, %20, %19
@@ -6344,7 +6344,7 @@ define range(i32 0, 2) i32 @GC_expand_hp(i64 noundef %0) local_unnamed_addr #1 {
   br i1 %.b7, label %6, label %GC_lock.exit
 
 6:                                                ; preds = %5
-  %7 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %7 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %GC_lock.exit, label %8
 
@@ -6359,14 +6359,14 @@ define range(i32 0, 2) i32 @GC_expand_hp(i64 noundef %0) local_unnamed_addr #1 {
   br i1 %.not.i, label %13, label %GC_generic_lock.exit.sink.split.i
 
 13:                                               ; preds = %11
-  %14 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %14 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %GC_lock.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %13, %19
   %.079.i.i = phi i32 [ %20, %19 ], [ 1, %13 ]
   fence syncscope("singlethread") seq_cst
-  %16 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %16 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %16, label %17 [
     i32 0, label %GC_lock.exit
     i32 16, label %19
@@ -6374,8 +6374,8 @@ define range(i32 0, 2) i32 @GC_expand_hp(i64 noundef %0) local_unnamed_addr #1 {
 
 17:                                               ; preds = %.preheader.i.i
   %18 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %18(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %18(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 19:                                               ; preds = %.preheader.i.i
@@ -6384,7 +6384,7 @@ define range(i32 0, 2) i32 @GC_expand_hp(i64 noundef %0) local_unnamed_addr #1 {
   br i1 %21, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %19, %11, %8
-  %22 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %22 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit
 
 GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC_generic_lock.exit.sink.split.i, %13, %5, %6
@@ -6414,7 +6414,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   br i1 %.b, label %35, label %37
 
 35:                                               ; preds = %34
-  %36 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %36 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %37
 
 37:                                               ; preds = %34, %35
@@ -6510,7 +6510,7 @@ GC_compute_heap_usage_percent.exit:               ; preds = %12, %23, %27
 GC_os_get_mem.exit:                               ; preds = %44
   %52 = load ptr, ptr @GC_current_warn_proc, align 8
   %53 = lshr i64 %10, 10
-  tail call void %52(ptr noundef nonnull @.str.183, i64 noundef %53) #38
+  tail call void %52(ptr noundef nonnull @.str.183, i64 noundef %53) #40
   br label %110
 
 54:                                               ; preds = %47, %51
@@ -6618,7 +6618,7 @@ min_bytes_allocd.exit:                            ; preds = %64, %66
 
 108:                                              ; preds = %106
   %109 = load i64, ptr @GC_arrays, align 8
-  tail call void %107(i64 noundef %109) #38
+  tail call void %107(i64 noundef %109) #40
   br label %110
 
 110:                                              ; preds = %106, %108, %38, %40, %GC_os_get_mem.exit
@@ -6657,7 +6657,7 @@ define void @GC_debug_register_displacement(i64 noundef %0) local_unnamed_addr #
   br i1 %.b2, label %2, label %GC_lock.exit
 
 2:                                                ; preds = %1
-  %3 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %3 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %GC_lock.exit, label %4
 
@@ -6672,14 +6672,14 @@ define void @GC_debug_register_displacement(i64 noundef %0) local_unnamed_addr #
   br i1 %.not.i, label %9, label %GC_generic_lock.exit.sink.split.i
 
 9:                                                ; preds = %7
-  %10 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %10 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %GC_lock.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %9, %15
   %.079.i.i = phi i32 [ %16, %15 ], [ 1, %9 ]
   fence syncscope("singlethread") seq_cst
-  %12 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %12 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %12, label %13 [
     i32 0, label %GC_lock.exit
     i32 16, label %15
@@ -6687,8 +6687,8 @@ define void @GC_debug_register_displacement(i64 noundef %0) local_unnamed_addr #
 
 13:                                               ; preds = %.preheader.i.i
   %14 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %14(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %14(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 15:                                               ; preds = %.preheader.i.i
@@ -6697,7 +6697,7 @@ define void @GC_debug_register_displacement(i64 noundef %0) local_unnamed_addr #
   br i1 %17, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %15, %7, %4
-  %18 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %18 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit
 
 GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC_generic_lock.exit.sink.split.i, %9, %1, %2
@@ -6706,8 +6706,8 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
 
 20:                                               ; preds = %GC_lock.exit
   %21 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %21(ptr noundef nonnull @.str.121) #38
-  tail call void @abort() #44
+  tail call void %21(ptr noundef nonnull @.str.121) #40
+  tail call void @abort() #46
   unreachable
 
 22:                                               ; preds = %GC_lock.exit
@@ -6729,8 +6729,8 @@ GC_register_displacement_inner.exit:              ; preds = %22, %25
 
 29:                                               ; preds = %GC_register_displacement_inner.exit
   %30 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %30(ptr noundef nonnull @.str.121) #38
-  tail call void @abort() #44
+  tail call void %30(ptr noundef nonnull @.str.121) #40
+  tail call void @abort() #46
   unreachable
 
 31:                                               ; preds = %GC_register_displacement_inner.exit
@@ -6752,7 +6752,7 @@ GC_register_displacement_inner.exit5:             ; preds = %31, %35
   br i1 %.b, label %38, label %40
 
 38:                                               ; preds = %GC_register_displacement_inner.exit5
-  %39 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %39 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %40
 
 40:                                               ; preds = %GC_register_displacement_inner.exit5, %38
@@ -6768,14 +6768,14 @@ define noalias ptr @GC_debug_malloc(i64 noundef %0, ptr noundef %1, i32 noundef 
   %reass.sub = add i64 %0, 40
   %8 = sub i64 %reass.sub, %5
   %9 = select i1 %7, i64 %8, i64 -1
-  %10 = tail call noalias ptr @GC_malloc_kind(i64 noundef %9, i32 noundef 1) #47
+  %10 = tail call noalias ptr @GC_malloc_kind(i64 noundef %9, i32 noundef 1) #50
   %11 = tail call fastcc ptr @store_debug_info(ptr noundef %10, i64 noundef %0, ptr noundef nonnull @.str.16, ptr noundef %1, i32 noundef %2)
   ret ptr %11
 }
 
 ; Function Attrs: nounwind allocsize(0) uwtable
 define noalias ptr @GC_malloc(i64 noundef %0) local_unnamed_addr #5 {
-  %2 = tail call noalias ptr @GC_malloc_kind(i64 noundef %0, i32 noundef 1) #47
+  %2 = tail call noalias ptr @GC_malloc_kind(i64 noundef %0, i32 noundef 1) #50
   ret ptr %2
 }
 
@@ -6793,7 +6793,7 @@ define internal fastcc ptr @store_debug_info(ptr noundef %0, i64 noundef %1, ptr
   br i1 %.b11, label %9, label %GC_lock.exit
 
 9:                                                ; preds = %8
-  %10 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %10 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %GC_lock.exit, label %11
 
@@ -6808,14 +6808,14 @@ define internal fastcc ptr @store_debug_info(ptr noundef %0, i64 noundef %1, ptr
   br i1 %.not.i, label %16, label %GC_generic_lock.exit.sink.split.i
 
 16:                                               ; preds = %14
-  %17 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %17 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %GC_lock.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %16, %22
   %.079.i.i = phi i32 [ %23, %22 ], [ 1, %16 ]
   fence syncscope("singlethread") seq_cst
-  %19 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %19 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %19, label %20 [
     i32 0, label %GC_lock.exit
     i32 16, label %22
@@ -6823,8 +6823,8 @@ define internal fastcc ptr @store_debug_info(ptr noundef %0, i64 noundef %1, ptr
 
 20:                                               ; preds = %.preheader.i.i
   %21 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %21(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %21(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 22:                                               ; preds = %.preheader.i.i
@@ -6833,7 +6833,7 @@ define internal fastcc ptr @store_debug_info(ptr noundef %0, i64 noundef %1, ptr
   br i1 %24, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %22, %14, %11
-  %25 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %25 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit
 
 GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC_generic_lock.exit.sink.split.i, %16, %8, %9
@@ -6902,7 +6902,7 @@ GC_store_debug_info_inner.exit:                   ; preds = %45
   br i1 %.b, label %61, label %63
 
 61:                                               ; preds = %GC_store_debug_info_inner.exit
-  %62 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %62 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %63
 
 63:                                               ; preds = %61, %GC_store_debug_info_inner.exit, %7
@@ -6959,7 +6959,7 @@ define noalias ptr @GC_debug_malloc_stubborn(i64 noundef %0, ptr noundef %1, i32
   %reass.sub.i = add i64 %0, 40
   %8 = sub i64 %reass.sub.i, %5
   %9 = select i1 %7, i64 %8, i64 -1
-  %10 = tail call noalias ptr @GC_malloc_kind(i64 noundef %9, i32 noundef 1) #47
+  %10 = tail call noalias ptr @GC_malloc_kind(i64 noundef %9, i32 noundef 1) #50
   %11 = tail call fastcc noalias ptr @store_debug_info(ptr noundef %10, i64 noundef %0, ptr noundef nonnull @.str.16, ptr noundef %1, i32 noundef %2)
   ret ptr %11
 }
@@ -7072,8 +7072,8 @@ GC_find_starting_hblk.exit.i:                     ; preds = %GC_find_header.exit
 GC_base.exit.thread:                              ; preds = %46, %GC_find_starting_hblk.exit.i, %15, %1
   tail call void (ptr, ...) @GC_log_printf(ptr noundef nonnull @.str.19, ptr noundef nonnull %0)
   %61 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %61(ptr noundef nonnull @.str.20) #38
-  tail call void @abort() #44
+  tail call void %61(ptr noundef nonnull @.str.20) #40
+  tail call void @abort() #46
   unreachable
 
 62:                                               ; preds = %46
@@ -7121,7 +7121,7 @@ define void @GC_debug_ptr_store_and_dirty(ptr noundef %0, ptr noundef %1) local_
   %4 = tail call ptr @GC_is_visible(ptr noundef %0)
   store ptr %1, ptr %0, align 8
   tail call void @GC_debug_end_stubborn_change(ptr noundef %0)
-  tail call void asm sideeffect " ", "X,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %1) #38, !srcloc !36
+  tail call void asm sideeffect " ", "X,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %1) #40, !srcloc !36
   ret void
 }
 
@@ -7134,14 +7134,14 @@ define noalias ptr @GC_debug_malloc_atomic(i64 noundef %0, ptr noundef %1, i32 n
   %reass.sub = add i64 %0, 40
   %8 = sub i64 %reass.sub, %5
   %9 = select i1 %7, i64 %8, i64 -1
-  %10 = tail call noalias ptr @GC_malloc_kind(i64 noundef %9, i32 noundef 0) #47
+  %10 = tail call noalias ptr @GC_malloc_kind(i64 noundef %9, i32 noundef 0) #50
   %11 = tail call fastcc ptr @store_debug_info(ptr noundef %10, i64 noundef %0, ptr noundef nonnull @.str.21, ptr noundef %1, i32 noundef %2)
   ret ptr %11
 }
 
 ; Function Attrs: nounwind allocsize(0) uwtable
 define noalias ptr @GC_malloc_atomic(i64 noundef %0) local_unnamed_addr #5 {
-  %2 = tail call noalias ptr @GC_malloc_kind(i64 noundef %0, i32 noundef 0) #47
+  %2 = tail call noalias ptr @GC_malloc_kind(i64 noundef %0, i32 noundef 0) #50
   ret ptr %2
 }
 
@@ -7160,7 +7160,7 @@ define noalias ptr @GC_debug_strdup(ptr noundef readonly %0, ptr noundef %1, i32
   br label %23
 
 8:                                                ; preds = %3
-  %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #46
+  %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #48
   %10 = add i64 %9, 1
   %11 = load i32, ptr @GC_all_interior_pointers, align 4
   %12 = sext i32 %11 to i64
@@ -7169,13 +7169,13 @@ define noalias ptr @GC_debug_strdup(ptr noundef readonly %0, ptr noundef %1, i32
   %reass.sub.i = add i64 %9, 41
   %15 = sub i64 %reass.sub.i, %12
   %16 = select i1 %14, i64 %15, i64 -1
-  %17 = tail call noalias ptr @GC_malloc_kind(i64 noundef %16, i32 noundef 0) #47
+  %17 = tail call noalias ptr @GC_malloc_kind(i64 noundef %16, i32 noundef 0) #50
   %18 = tail call fastcc noalias ptr @store_debug_info(ptr noundef %17, i64 noundef %10, ptr noundef nonnull @.str.21, ptr noundef %1, i32 noundef %2)
   %19 = icmp eq ptr %18, null
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %8
-  %21 = tail call ptr @__errno_location() #45
+  %21 = tail call ptr @__errno_location() #47
   store i32 12, ptr %21, align 4
   br label %23
 
@@ -7199,7 +7199,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: nounwind uwtable
 define noalias ptr @GC_debug_strndup(ptr nocapture noundef nonnull readonly %0, i64 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #1 {
-  %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #46
+  %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #48
   %spec.select = tail call i64 @llvm.umin.i64(i64 %5, i64 %1)
   %6 = add i64 %spec.select, 1
   %7 = load i32, ptr @GC_all_interior_pointers, align 4
@@ -7209,13 +7209,13 @@ define noalias ptr @GC_debug_strndup(ptr nocapture noundef nonnull readonly %0, 
   %reass.sub.i = add i64 %spec.select, 41
   %11 = sub i64 %reass.sub.i, %8
   %12 = select i1 %10, i64 %11, i64 -1
-  %13 = tail call noalias ptr @GC_malloc_kind(i64 noundef %12, i32 noundef 0) #47
+  %13 = tail call noalias ptr @GC_malloc_kind(i64 noundef %12, i32 noundef 0) #50
   %14 = tail call fastcc noalias ptr @store_debug_info(ptr noundef %13, i64 noundef %6, ptr noundef nonnull @.str.21, ptr noundef %2, i32 noundef %3)
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %4
-  %17 = tail call ptr @__errno_location() #45
+  %17 = tail call ptr @__errno_location() #47
   store i32 12, ptr %17, align 4
   br label %22
 
@@ -7238,7 +7238,7 @@ define noalias ptr @GC_debug_strndup(ptr nocapture noundef nonnull readonly %0, 
 
 ; Function Attrs: nounwind uwtable
 define noalias ptr @GC_debug_wcsdup(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
-  %4 = tail call i64 @wcslen(ptr noundef nonnull %0) #46
+  %4 = tail call i64 @wcslen(ptr noundef nonnull %0) #48
   %5 = shl i64 %4, 2
   %6 = add i64 %5, 4
   %7 = load i32, ptr @GC_all_interior_pointers, align 4
@@ -7248,13 +7248,13 @@ define noalias ptr @GC_debug_wcsdup(ptr nocapture noundef nonnull readonly %0, p
   %reass.sub.i = add i64 %5, 44
   %11 = sub i64 %reass.sub.i, %8
   %12 = select i1 %10, i64 %11, i64 -1
-  %13 = tail call noalias ptr @GC_malloc_kind(i64 noundef %12, i32 noundef 0) #47
+  %13 = tail call noalias ptr @GC_malloc_kind(i64 noundef %12, i32 noundef 0) #50
   %14 = tail call fastcc noalias ptr @store_debug_info(ptr noundef %13, i64 noundef %6, ptr noundef nonnull @.str.21, ptr noundef %1, i32 noundef %2)
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %3
-  %17 = tail call ptr @__errno_location() #45
+  %17 = tail call ptr @__errno_location() #47
   store i32 12, ptr %17, align 4
   br label %19
 
@@ -7272,28 +7272,28 @@ declare i64 @wcslen(ptr nocapture noundef) local_unnamed_addr #11
 ; Function Attrs: nounwind allocsize(0) uwtable
 define noalias ptr @GC_debug_malloc_uncollectable(i64 noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #5 {
   %4 = tail call i64 @llvm.uadd.sat.i64(i64 %0, i64 40)
-  %5 = tail call noalias ptr @GC_generic_malloc_uncollectable(i64 noundef %4, i32 noundef 2) #47
+  %5 = tail call noalias ptr @GC_generic_malloc_uncollectable(i64 noundef %4, i32 noundef 2) #50
   %6 = tail call fastcc ptr @store_debug_info(ptr noundef %5, i64 noundef %0, ptr noundef nonnull @.str.23, ptr noundef %1, i32 noundef %2)
   ret ptr %6
 }
 
 ; Function Attrs: nounwind allocsize(0) uwtable
 define noalias ptr @GC_malloc_uncollectable(i64 noundef %0) local_unnamed_addr #5 {
-  %2 = tail call noalias ptr @GC_generic_malloc_uncollectable(i64 noundef %0, i32 noundef 2) #47
+  %2 = tail call noalias ptr @GC_generic_malloc_uncollectable(i64 noundef %0, i32 noundef 2) #50
   ret ptr %2
 }
 
 ; Function Attrs: nounwind allocsize(0) uwtable
 define noalias ptr @GC_debug_malloc_atomic_uncollectable(i64 noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #5 {
   %4 = tail call i64 @llvm.uadd.sat.i64(i64 %0, i64 40)
-  %5 = tail call noalias ptr @GC_generic_malloc_uncollectable(i64 noundef %4, i32 noundef 3) #47
+  %5 = tail call noalias ptr @GC_generic_malloc_uncollectable(i64 noundef %4, i32 noundef 3) #50
   %6 = tail call fastcc ptr @store_debug_info(ptr noundef %5, i64 noundef %0, ptr noundef nonnull @.str.24, ptr noundef %1, i32 noundef %2)
   ret ptr %6
 }
 
 ; Function Attrs: nounwind allocsize(0) uwtable
 define noalias ptr @GC_malloc_atomic_uncollectable(i64 noundef %0) local_unnamed_addr #5 {
-  %2 = tail call noalias ptr @GC_generic_malloc_uncollectable(i64 noundef %0, i32 noundef 3) #47
+  %2 = tail call noalias ptr @GC_generic_malloc_uncollectable(i64 noundef %0, i32 noundef 3) #50
   ret ptr %2
 }
 
@@ -7404,8 +7404,8 @@ GC_find_starting_hblk.exit.i:                     ; preds = %GC_find_header.exit
 GC_base.exit.thread:                              ; preds = %48, %GC_find_starting_hblk.exit.i, %17, %3
   tail call void (ptr, ...) @GC_log_printf(ptr noundef nonnull @.str.25, ptr noundef nonnull %0)
   %63 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %63(ptr noundef nonnull @.str.26) #38
-  tail call void @abort() #44
+  tail call void %63(ptr noundef nonnull @.str.26) #40
+  tail call void @abort() #46
   unreachable
 
 64:                                               ; preds = %48
@@ -7589,7 +7589,7 @@ GC_lock.exit.thread:                              ; preds = %._crit_edge
   br label %173
 
 152:                                              ; preds = %._crit_edge
-  %153 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %153 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not42 = icmp eq i32 %153, 0
   br i1 %.not42, label %GC_lock.exit, label %154
 
@@ -7604,14 +7604,14 @@ GC_lock.exit.thread:                              ; preds = %._crit_edge
   br i1 %.not.i49, label %159, label %GC_generic_lock.exit.sink.split.i
 
 159:                                              ; preds = %157
-  %160 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %160 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %161 = icmp eq i32 %160, 0
   br i1 %161, label %GC_lock.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %159, %165
   %.079.i.i = phi i32 [ %166, %165 ], [ 1, %159 ]
   fence syncscope("singlethread") seq_cst
-  %162 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %162 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %162, label %163 [
     i32 0, label %GC_lock.exit
     i32 16, label %165
@@ -7619,8 +7619,8 @@ GC_lock.exit.thread:                              ; preds = %._crit_edge
 
 163:                                              ; preds = %.preheader.i.i
   %164 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %164(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %164(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 165:                                              ; preds = %.preheader.i.i
@@ -7629,7 +7629,7 @@ GC_lock.exit.thread:                              ; preds = %._crit_edge
   br i1 %167, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %165, %157, %154
-  %168 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %168 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit
 
 GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC_generic_lock.exit.sink.split.i, %159, %152
@@ -7640,7 +7640,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   br i1 %.b.pr, label %171, label %173
 
 171:                                              ; preds = %GC_lock.exit
-  %172 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %172 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %173
 
 173:                                              ; preds = %GC_lock.exit.thread, %142, %GC_lock.exit, %171, %1, %127, %122
@@ -7876,7 +7876,7 @@ GC_find_header.exit:                              ; preds = %8
   br i1 %.b4, label %19, label %GC_lock.exit
 
 19:                                               ; preds = %GC_find_header.exit
-  %20 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %20 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not5 = icmp eq i32 %20, 0
   br i1 %.not5, label %GC_lock.exit, label %21
 
@@ -7891,14 +7891,14 @@ GC_find_header.exit:                              ; preds = %8
   br i1 %.not.i, label %26, label %GC_generic_lock.exit.sink.split.i
 
 26:                                               ; preds = %24
-  %27 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %27 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %GC_lock.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %26, %32
   %.079.i.i = phi i32 [ %33, %32 ], [ 1, %26 ]
   fence syncscope("singlethread") seq_cst
-  %29 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %29 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %29, label %30 [
     i32 0, label %GC_lock.exit
     i32 16, label %32
@@ -7906,8 +7906,8 @@ GC_find_header.exit:                              ; preds = %8
 
 30:                                               ; preds = %.preheader.i.i
   %31 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %31(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %31(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 32:                                               ; preds = %.preheader.i.i
@@ -7916,7 +7916,7 @@ GC_find_header.exit:                              ; preds = %8
   br i1 %34, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %32, %24, %21
-  %35 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %35 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit
 
 GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC_generic_lock.exit.sink.split.i, %26, %GC_find_header.exit, %19
@@ -7989,7 +7989,7 @@ free_internal.exit:                               ; preds = %57, %68
   br i1 %.b, label %71, label %73
 
 71:                                               ; preds = %free_internal.exit
-  %72 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %72 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %73
 
 73:                                               ; preds = %free_internal.exit, %71, %1
@@ -8009,7 +8009,7 @@ define ptr @GC_debug_realloc(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32
   %reass.sub.i = add i64 %1, 40
   %11 = sub i64 %reass.sub.i, %8
   %12 = select i1 %10, i64 %11, i64 -1
-  %13 = tail call noalias ptr @GC_malloc_kind(i64 noundef %12, i32 noundef 1) #47
+  %13 = tail call noalias ptr @GC_malloc_kind(i64 noundef %12, i32 noundef 1) #50
   %14 = tail call fastcc noalias ptr @store_debug_info(ptr noundef %13, i64 noundef %1, ptr noundef nonnull @.str.16, ptr noundef %2, i32 noundef %3)
   br label %109
 
@@ -8123,8 +8123,8 @@ GC_find_starting_hblk.exit.i:                     ; preds = %GC_find_header.exit
 GC_base.exit.thread:                              ; preds = %63, %GC_find_starting_hblk.exit.i, %32, %18
   tail call void (ptr, ...) @GC_log_printf(ptr noundef nonnull @.str.30, ptr noundef nonnull %0)
   %78 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %78(ptr noundef nonnull @.str.31) #38
-  tail call void @abort() #44
+  tail call void %78(ptr noundef nonnull @.str.31) #40
+  tail call void @abort() #46
   unreachable
 
 79:                                               ; preds = %63
@@ -8135,7 +8135,7 @@ GC_base.exit.thread:                              ; preds = %63, %GC_find_starti
 
 82:                                               ; preds = %79
   tail call void (ptr, ...) @GC_err_printf(ptr noundef nonnull @.str.32, ptr noundef nonnull %0)
-  %83 = tail call ptr @GC_realloc(ptr noundef nonnull %0, i64 noundef %1) #48
+  %83 = tail call ptr @GC_realloc(ptr noundef nonnull %0, i64 noundef %1) #51
   br label %109
 
 84:                                               ; preds = %79
@@ -8163,7 +8163,7 @@ GC_find_header.exit:                              ; preds = %88
   %99 = getelementptr inbounds i8, ptr %98, i64 24
   %100 = load i8, ptr %99, align 8
   %101 = zext i8 %100 to i32
-  %102 = tail call noalias ptr @GC_debug_generic_or_special_malloc(i64 noundef %1, i32 noundef %101, ptr noundef %2, i32 noundef %3) #47
+  %102 = tail call noalias ptr @GC_debug_generic_or_special_malloc(i64 noundef %1, i32 noundef %101, ptr noundef %2, i32 noundef %3) #50
   %.not35 = icmp eq ptr %102, null
   br i1 %.not35, label %109, label %103
 
@@ -8194,7 +8194,7 @@ define ptr @GC_realloc(ptr noundef %0, i64 noundef %1) local_unnamed_addr #14 {
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %2
-  %6 = tail call noalias ptr @GC_malloc_kind(i64 noundef %1, i32 noundef 1) #47
+  %6 = tail call noalias ptr @GC_malloc_kind(i64 noundef %1, i32 noundef 1) #50
   br label %75
 
 7:                                                ; preds = %2
@@ -8311,11 +8311,11 @@ GC_find_header.exit:                              ; preds = %15
   ]
 
 68:                                               ; preds = %67, %67
-  %69 = tail call noalias ptr @GC_malloc_kind(i64 noundef %1, i32 noundef %30) #47
+  %69 = tail call noalias ptr @GC_malloc_kind(i64 noundef %1, i32 noundef %30) #50
   br label %GC_generic_or_special_malloc.exit
 
 70:                                               ; preds = %67, %67
-  %71 = tail call noalias ptr @GC_generic_malloc_uncollectable(i64 noundef %1, i32 noundef %30) #47
+  %71 = tail call noalias ptr @GC_generic_malloc_uncollectable(i64 noundef %1, i32 noundef %30) #50
   br label %GC_generic_or_special_malloc.exit
 
 72:                                               ; preds = %67
@@ -8354,7 +8354,7 @@ define noalias ptr @GC_debug_generic_or_special_malloc(i64 noundef %0, i32 nound
   %reass.sub.i = add i64 %0, 40
   %10 = sub i64 %reass.sub.i, %7
   %11 = select i1 %9, i64 %10, i64 -1
-  %12 = tail call noalias ptr @GC_malloc_kind(i64 noundef %11, i32 noundef 0) #47
+  %12 = tail call noalias ptr @GC_malloc_kind(i64 noundef %11, i32 noundef 0) #50
   %13 = tail call fastcc noalias ptr @store_debug_info(ptr noundef %12, i64 noundef %0, ptr noundef nonnull @.str.21, ptr noundef %2, i32 noundef %3)
   br label %40
 
@@ -8366,19 +8366,19 @@ define noalias ptr @GC_debug_generic_or_special_malloc(i64 noundef %0, i32 nound
   %reass.sub.i17 = add i64 %0, 40
   %19 = sub i64 %reass.sub.i17, %16
   %20 = select i1 %18, i64 %19, i64 -1
-  %21 = tail call noalias ptr @GC_malloc_kind(i64 noundef %20, i32 noundef 1) #47
+  %21 = tail call noalias ptr @GC_malloc_kind(i64 noundef %20, i32 noundef 1) #50
   %22 = tail call fastcc noalias ptr @store_debug_info(ptr noundef %21, i64 noundef %0, ptr noundef nonnull @.str.16, ptr noundef %2, i32 noundef %3)
   br label %40
 
 23:                                               ; preds = %4
   %24 = tail call i64 @llvm.uadd.sat.i64(i64 %0, i64 40)
-  %25 = tail call noalias ptr @GC_generic_malloc_uncollectable(i64 noundef %24, i32 noundef 2) #47
+  %25 = tail call noalias ptr @GC_generic_malloc_uncollectable(i64 noundef %24, i32 noundef 2) #50
   %26 = tail call fastcc noalias ptr @store_debug_info(ptr noundef %25, i64 noundef %0, ptr noundef nonnull @.str.23, ptr noundef %2, i32 noundef %3)
   br label %40
 
 27:                                               ; preds = %4
   %28 = tail call i64 @llvm.uadd.sat.i64(i64 %0, i64 40)
-  %29 = tail call noalias ptr @GC_generic_malloc_uncollectable(i64 noundef %28, i32 noundef 3) #47
+  %29 = tail call noalias ptr @GC_generic_malloc_uncollectable(i64 noundef %28, i32 noundef 3) #50
   %30 = tail call fastcc noalias ptr @store_debug_info(ptr noundef %29, i64 noundef %0, ptr noundef nonnull @.str.24, ptr noundef %2, i32 noundef %3)
   br label %40
 
@@ -8538,7 +8538,7 @@ GC_base.exit.thread:                              ; preds = %52, %GC_find_starti
   br label %81
 
 77:                                               ; preds = %74
-  %78 = tail call noalias dereferenceable_or_null(16) ptr @GC_malloc_kind(i64 noundef 16, i32 noundef 1) #47
+  %78 = tail call noalias dereferenceable_or_null(16) ptr @GC_malloc_kind(i64 noundef 16, i32 noundef 1) #50
   %.not.i25 = icmp eq ptr %78, null
   br i1 %.not.i25, label %store_old.exit, label %79
 
@@ -8617,7 +8617,7 @@ define internal void @GC_debug_invoke_finalizer(ptr noundef %0, ptr nocapture no
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
-  tail call void %3(ptr noundef nonnull %4, ptr noundef %6) #38
+  tail call void %3(ptr noundef nonnull %4, ptr noundef %6) #40
   ret void
 }
 
@@ -8760,7 +8760,7 @@ GC_base.exit.thread:                              ; preds = %52, %GC_find_starti
   br label %81
 
 77:                                               ; preds = %74
-  %78 = tail call noalias dereferenceable_or_null(16) ptr @GC_malloc_kind(i64 noundef 16, i32 noundef 1) #47
+  %78 = tail call noalias dereferenceable_or_null(16) ptr @GC_malloc_kind(i64 noundef 16, i32 noundef 1) #50
   %.not.i25 = icmp eq ptr %78, null
   br i1 %.not.i25, label %store_old.exit, label %79
 
@@ -8972,7 +8972,7 @@ GC_base.exit.thread:                              ; preds = %52, %GC_find_starti
   br label %81
 
 77:                                               ; preds = %74
-  %78 = tail call noalias dereferenceable_or_null(16) ptr @GC_malloc_kind(i64 noundef 16, i32 noundef 1) #47
+  %78 = tail call noalias dereferenceable_or_null(16) ptr @GC_malloc_kind(i64 noundef 16, i32 noundef 1) #50
   %.not.i25 = icmp eq ptr %78, null
   br i1 %.not.i25, label %store_old.exit, label %79
 
@@ -9184,7 +9184,7 @@ GC_base.exit.thread:                              ; preds = %52, %GC_find_starti
   br label %81
 
 77:                                               ; preds = %74
-  %78 = tail call noalias dereferenceable_or_null(16) ptr @GC_malloc_kind(i64 noundef 16, i32 noundef 1) #47
+  %78 = tail call noalias dereferenceable_or_null(16) ptr @GC_malloc_kind(i64 noundef 16, i32 noundef 1) #50
   %.not.i25 = icmp eq ptr %78, null
   br i1 %.not.i25, label %store_old.exit, label %79
 
@@ -9378,7 +9378,7 @@ define range(i32 0, 3) i32 @GC_toggleref_add(ptr noundef nonnull %0, i32 noundef
   br i1 %.b5, label %3, label %GC_lock.exit
 
 3:                                                ; preds = %2
-  %4 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %4 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %GC_lock.exit, label %5
 
@@ -9393,14 +9393,14 @@ define range(i32 0, 3) i32 @GC_toggleref_add(ptr noundef nonnull %0, i32 noundef
   br i1 %.not.i, label %10, label %GC_generic_lock.exit.sink.split.i
 
 10:                                               ; preds = %8
-  %11 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %11 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %GC_lock.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %10, %16
   %.079.i.i = phi i32 [ %17, %16 ], [ 1, %10 ]
   fence syncscope("singlethread") seq_cst
-  %13 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %13 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %13, label %14 [
     i32 0, label %GC_lock.exit
     i32 16, label %16
@@ -9408,8 +9408,8 @@ define range(i32 0, 3) i32 @GC_toggleref_add(ptr noundef nonnull %0, i32 noundef
 
 14:                                               ; preds = %.preheader.i.i
   %15 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %15(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %15(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 16:                                               ; preds = %.preheader.i.i
@@ -9418,7 +9418,7 @@ define range(i32 0, 3) i32 @GC_toggleref_add(ptr noundef nonnull %0, i32 noundef
   br i1 %18, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %16, %8, %5
-  %19 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %19 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit
 
 GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC_generic_lock.exit.sink.split.i, %10, %2, %3
@@ -9648,7 +9648,7 @@ ensure_toggleref_capacity.exit.thread:            ; preds = %34, %43, %GC_generi
   br i1 %.b, label %134, label %136
 
 134:                                              ; preds = %ensure_toggleref_capacity.exit.thread
-  %135 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %135 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %136
 
 136:                                              ; preds = %ensure_toggleref_capacity.exit.thread, %134
@@ -9664,14 +9664,14 @@ define noalias ptr @GC_debug_malloc_replacement(i64 noundef %0) local_unnamed_ad
   %reass.sub.i = add i64 %0, 40
   %6 = sub i64 %reass.sub.i, %3
   %7 = select i1 %5, i64 %6, i64 -1
-  %8 = tail call noalias ptr @GC_malloc_kind(i64 noundef %7, i32 noundef 1) #47
+  %8 = tail call noalias ptr @GC_malloc_kind(i64 noundef %7, i32 noundef 1) #50
   %9 = tail call fastcc noalias ptr @store_debug_info(ptr noundef %8, i64 noundef %0, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.38, i32 noundef 0)
   ret ptr %9
 }
 
 ; Function Attrs: nounwind allocsize(1) uwtable
 define ptr @GC_debug_realloc_replacement(ptr noundef %0, i64 noundef %1) local_unnamed_addr #14 {
-  %3 = tail call ptr @GC_debug_realloc(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.38, i32 noundef 0) #48
+  %3 = tail call ptr @GC_debug_realloc(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.38, i32 noundef 0) #51
   ret ptr %3
 }
 
@@ -10240,8 +10240,8 @@ GC_find_starting_hblk.exit.i:                     ; preds = %GC_find_header.exit
 
 GC_base.exit.thread:                              ; preds = %46, %GC_find_starting_hblk.exit.i, %15, %1
   %61 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %61(ptr noundef nonnull @.str.39) #38
-  tail call void @abort() #44
+  tail call void %61(ptr noundef nonnull @.str.39) #40
+  tail call void @abort() #46
   unreachable
 
 62:                                               ; preds = %46
@@ -10251,8 +10251,8 @@ GC_base.exit.thread:                              ; preds = %46, %GC_find_starti
 
 64:                                               ; preds = %62
   %65 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %65(ptr noundef nonnull @.str.40) #38
-  tail call void @abort() #44
+  tail call void %65(ptr noundef nonnull @.str.40) #40
+  tail call void @abort() #46
   unreachable
 
 GC_general_register_disappearing_link.exit:       ; preds = %62
@@ -10269,8 +10269,8 @@ define range(i32 0, 4) i32 @GC_general_register_disappearing_link(ptr noundef no
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %6(ptr noundef nonnull @.str.40) #38
-  tail call void @abort() #44
+  tail call void %6(ptr noundef nonnull @.str.40) #40
+  tail call void @abort() #46
   unreachable
 
 7:                                                ; preds = %2
@@ -10289,7 +10289,7 @@ define internal fastcc range(i32 0, 4) i32 @GC_register_disappearing_link_inner(
   br i1 %.b59, label %7, label %GC_lock.exit
 
 7:                                                ; preds = %6
-  %8 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %8 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not62 = icmp eq i32 %8, 0
   br i1 %.not62, label %GC_lock.exit, label %9
 
@@ -10304,14 +10304,14 @@ define internal fastcc range(i32 0, 4) i32 @GC_register_disappearing_link_inner(
   br i1 %.not.i, label %14, label %GC_generic_lock.exit.sink.split.i
 
 14:                                               ; preds = %12
-  %15 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %15 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %GC_lock.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %14, %20
   %.079.i.i = phi i32 [ %21, %20 ], [ 1, %14 ]
   fence syncscope("singlethread") seq_cst
-  %17 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %17 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %17, label %18 [
     i32 0, label %GC_lock.exit
     i32 16, label %20
@@ -10319,8 +10319,8 @@ define internal fastcc range(i32 0, 4) i32 @GC_register_disappearing_link_inner(
 
 18:                                               ; preds = %.preheader.i.i
   %19 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %19(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %19(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 20:                                               ; preds = %.preheader.i.i
@@ -10329,7 +10329,7 @@ define internal fastcc range(i32 0, 4) i32 @GC_register_disappearing_link_inner(
   br i1 %22, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %20, %12, %9
-  %23 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %23 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit
 
 GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC_generic_lock.exit.sink.split.i, %14, %6, %7
@@ -10396,7 +10396,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   br i1 %.b58, label %62, label %143
 
 62:                                               ; preds = %58
-  %63 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %63 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %143
 
 64:                                               ; preds = %.lr.ph
@@ -10416,11 +10416,11 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   br i1 %.b57, label %70, label %72
 
 70:                                               ; preds = %68
-  %71 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %71 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %72
 
 72:                                               ; preds = %68, %70
-  %73 = tail call ptr %69(i64 noundef 24) #38
+  %73 = tail call ptr %69(i64 noundef 24) #40
   %74 = icmp eq ptr %73, null
   br i1 %74, label %143, label %75
 
@@ -10429,7 +10429,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   br i1 %.b56, label %76, label %79
 
 76:                                               ; preds = %75
-  %77 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %77 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not65 = icmp eq i32 %77, 0
   br i1 %.not65, label %79, label %78
 
@@ -10469,7 +10469,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   br i1 %.b55, label %97, label %99
 
 97:                                               ; preds = %93
-  %98 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %98 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %99
 
 99:                                               ; preds = %93, %97
@@ -10542,7 +10542,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   br i1 %.b, label %141, label %143
 
 141:                                              ; preds = %140
-  %142 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %142 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %143
 
 143:                                              ; preds = %141, %140, %72, %62, %58, %4, %99
@@ -10562,7 +10562,7 @@ define range(i32 0, 2) i32 @GC_unregister_disappearing_link(ptr noundef %0) loca
   br i1 %.b5, label %5, label %GC_lock.exit
 
 5:                                                ; preds = %4
-  %6 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %6 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not6 = icmp eq i32 %6, 0
   br i1 %.not6, label %GC_lock.exit, label %7
 
@@ -10577,14 +10577,14 @@ define range(i32 0, 2) i32 @GC_unregister_disappearing_link(ptr noundef %0) loca
   br i1 %.not.i, label %12, label %GC_generic_lock.exit.sink.split.i
 
 12:                                               ; preds = %10
-  %13 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %13 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %GC_lock.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %12, %18
   %.079.i.i = phi i32 [ %19, %18 ], [ 1, %12 ]
   fence syncscope("singlethread") seq_cst
-  %15 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %15 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %15, label %16 [
     i32 0, label %GC_lock.exit
     i32 16, label %18
@@ -10592,8 +10592,8 @@ define range(i32 0, 2) i32 @GC_unregister_disappearing_link(ptr noundef %0) loca
 
 16:                                               ; preds = %.preheader.i.i
   %17 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %17(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %17(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 18:                                               ; preds = %.preheader.i.i
@@ -10602,7 +10602,7 @@ define range(i32 0, 2) i32 @GC_unregister_disappearing_link(ptr noundef %0) loca
   br i1 %20, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %18, %10, %7
-  %21 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %21 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit
 
 GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC_generic_lock.exit.sink.split.i, %12, %4, %5
@@ -10691,7 +10691,7 @@ GC_unregister_disappearing_link_inner.exit:       ; preds = %.lr.ph, %GC_lock.ex
   br i1 %.b, label %63, label %65
 
 63:                                               ; preds = %GC_unregister_disappearing_link_inner.exit
-  %64 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %64 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %65
 
 65:                                               ; preds = %GC_unregister_disappearing_link_inner.exit, %63
@@ -10717,7 +10717,7 @@ GC_lock.exit.thread:                              ; preds = %1
   br label %21
 
 2:                                                ; preds = %1
-  %3 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %3 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %GC_lock.exit, label %4
 
@@ -10732,14 +10732,14 @@ GC_lock.exit.thread:                              ; preds = %1
   br i1 %.not.i, label %9, label %GC_generic_lock.exit.sink.split.i
 
 9:                                                ; preds = %7
-  %10 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %10 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %GC_lock.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %9, %15
   %.079.i.i = phi i32 [ %16, %15 ], [ 1, %9 ]
   fence syncscope("singlethread") seq_cst
-  %12 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %12 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %12, label %13 [
     i32 0, label %GC_lock.exit
     i32 16, label %15
@@ -10747,8 +10747,8 @@ GC_lock.exit.thread:                              ; preds = %1
 
 13:                                               ; preds = %.preheader.i.i
   %14 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %14(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %14(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 15:                                               ; preds = %.preheader.i.i
@@ -10757,7 +10757,7 @@ GC_lock.exit.thread:                              ; preds = %1
   br i1 %17, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %15, %7, %4
-  %18 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %18 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit
 
 GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC_generic_lock.exit.sink.split.i, %9, %2
@@ -10766,7 +10766,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   br i1 %.b.pr, label %19, label %21
 
 19:                                               ; preds = %GC_lock.exit
-  %20 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %20 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %21
 
 21:                                               ; preds = %GC_lock.exit.thread, %GC_lock.exit, %19
@@ -10783,7 +10783,7 @@ GC_lock.exit.thread:                              ; preds = %0
   br label %22
 
 2:                                                ; preds = %0
-  %3 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %3 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %GC_lock.exit, label %4
 
@@ -10798,14 +10798,14 @@ GC_lock.exit.thread:                              ; preds = %0
   br i1 %.not.i, label %9, label %GC_generic_lock.exit.sink.split.i
 
 9:                                                ; preds = %7
-  %10 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %10 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %GC_lock.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %9, %15
   %.079.i.i = phi i32 [ %16, %15 ], [ 1, %9 ]
   fence syncscope("singlethread") seq_cst
-  %12 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %12 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %12, label %13 [
     i32 0, label %GC_lock.exit
     i32 16, label %15
@@ -10813,8 +10813,8 @@ GC_lock.exit.thread:                              ; preds = %0
 
 13:                                               ; preds = %.preheader.i.i
   %14 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %14(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %14(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 15:                                               ; preds = %.preheader.i.i
@@ -10823,7 +10823,7 @@ GC_lock.exit.thread:                              ; preds = %0
   br i1 %17, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %15, %7, %4
-  %18 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %18 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit
 
 GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC_generic_lock.exit.sink.split.i, %9, %2
@@ -10832,7 +10832,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   br i1 %.b.pr, label %20, label %22
 
 20:                                               ; preds = %GC_lock.exit
-  %21 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %21 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %22
 
 22:                                               ; preds = %GC_lock.exit.thread, %GC_lock.exit, %20
@@ -10850,7 +10850,7 @@ GC_lock.exit.thread:                              ; preds = %1
   br label %21
 
 2:                                                ; preds = %1
-  %3 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %3 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %GC_lock.exit, label %4
 
@@ -10865,14 +10865,14 @@ GC_lock.exit.thread:                              ; preds = %1
   br i1 %.not.i, label %9, label %GC_generic_lock.exit.sink.split.i
 
 9:                                                ; preds = %7
-  %10 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %10 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %GC_lock.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %9, %15
   %.079.i.i = phi i32 [ %16, %15 ], [ 1, %9 ]
   fence syncscope("singlethread") seq_cst
-  %12 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %12 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %12, label %13 [
     i32 0, label %GC_lock.exit
     i32 16, label %15
@@ -10880,8 +10880,8 @@ GC_lock.exit.thread:                              ; preds = %1
 
 13:                                               ; preds = %.preheader.i.i
   %14 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %14(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %14(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 15:                                               ; preds = %.preheader.i.i
@@ -10890,7 +10890,7 @@ GC_lock.exit.thread:                              ; preds = %1
   br i1 %17, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %15, %7, %4
-  %18 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %18 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit
 
 GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC_generic_lock.exit.sink.split.i, %9, %2
@@ -10899,7 +10899,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   br i1 %.b.pr, label %19, label %21
 
 19:                                               ; preds = %GC_lock.exit
-  %20 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %20 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %21
 
 21:                                               ; preds = %GC_lock.exit.thread, %GC_lock.exit, %19
@@ -10916,7 +10916,7 @@ GC_lock.exit.thread:                              ; preds = %0
   br label %22
 
 2:                                                ; preds = %0
-  %3 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %3 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %GC_lock.exit, label %4
 
@@ -10931,14 +10931,14 @@ GC_lock.exit.thread:                              ; preds = %0
   br i1 %.not.i, label %9, label %GC_generic_lock.exit.sink.split.i
 
 9:                                                ; preds = %7
-  %10 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %10 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %GC_lock.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %9, %15
   %.079.i.i = phi i32 [ %16, %15 ], [ 1, %9 ]
   fence syncscope("singlethread") seq_cst
-  %12 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %12 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %12, label %13 [
     i32 0, label %GC_lock.exit
     i32 16, label %15
@@ -10946,8 +10946,8 @@ GC_lock.exit.thread:                              ; preds = %0
 
 13:                                               ; preds = %.preheader.i.i
   %14 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %14(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %14(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 15:                                               ; preds = %.preheader.i.i
@@ -10956,7 +10956,7 @@ GC_lock.exit.thread:                              ; preds = %0
   br i1 %17, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %15, %7, %4
-  %18 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %18 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit
 
 GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC_generic_lock.exit.sink.split.i, %9, %2
@@ -10965,7 +10965,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   br i1 %.b.pr, label %20, label %22
 
 20:                                               ; preds = %GC_lock.exit
-  %21 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %21 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %22
 
 22:                                               ; preds = %GC_lock.exit.thread, %GC_lock.exit, %20
@@ -10982,8 +10982,8 @@ define range(i32 0, 4) i32 @GC_register_long_link(ptr noundef nonnull %0, ptr no
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %6(ptr noundef nonnull @.str.42) #38
-  tail call void @abort() #44
+  tail call void %6(ptr noundef nonnull @.str.42) #40
+  tail call void @abort() #46
   unreachable
 
 7:                                                ; preds = %2
@@ -11003,7 +11003,7 @@ define range(i32 0, 2) i32 @GC_unregister_long_link(ptr noundef %0) local_unname
   br i1 %.b5, label %5, label %GC_lock.exit
 
 5:                                                ; preds = %4
-  %6 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %6 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not6 = icmp eq i32 %6, 0
   br i1 %.not6, label %GC_lock.exit, label %7
 
@@ -11018,14 +11018,14 @@ define range(i32 0, 2) i32 @GC_unregister_long_link(ptr noundef %0) local_unname
   br i1 %.not.i, label %12, label %GC_generic_lock.exit.sink.split.i
 
 12:                                               ; preds = %10
-  %13 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %13 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %GC_lock.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %12, %18
   %.079.i.i = phi i32 [ %19, %18 ], [ 1, %12 ]
   fence syncscope("singlethread") seq_cst
-  %15 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %15 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %15, label %16 [
     i32 0, label %GC_lock.exit
     i32 16, label %18
@@ -11033,8 +11033,8 @@ define range(i32 0, 2) i32 @GC_unregister_long_link(ptr noundef %0) local_unname
 
 16:                                               ; preds = %.preheader.i.i
   %17 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %17(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %17(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 18:                                               ; preds = %.preheader.i.i
@@ -11043,7 +11043,7 @@ define range(i32 0, 2) i32 @GC_unregister_long_link(ptr noundef %0) local_unname
   br i1 %20, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %18, %10, %7
-  %21 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %21 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit
 
 GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC_generic_lock.exit.sink.split.i, %12, %4, %5
@@ -11132,7 +11132,7 @@ GC_unregister_disappearing_link_inner.exit:       ; preds = %.lr.ph, %GC_lock.ex
   br i1 %.b, label %63, label %65
 
 63:                                               ; preds = %GC_unregister_disappearing_link_inner.exit
-  %64 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %64 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %65
 
 65:                                               ; preds = %GC_unregister_disappearing_link_inner.exit, %63
@@ -11157,8 +11157,8 @@ define range(i32 0, 5) i32 @GC_move_disappearing_link(ptr noundef %0, ptr nounde
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %6(ptr noundef nonnull @.str.44) #38
-  tail call void @abort() #44
+  tail call void %6(ptr noundef nonnull @.str.44) #40
+  tail call void @abort() #46
   unreachable
 
 7:                                                ; preds = %2
@@ -11176,7 +11176,7 @@ GC_lock.exit.thread:                              ; preds = %10
   br label %32
 
 12:                                               ; preds = %10
-  %13 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %13 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not5 = icmp eq i32 %13, 0
   br i1 %.not5, label %GC_lock.exit, label %14
 
@@ -11191,14 +11191,14 @@ GC_lock.exit.thread:                              ; preds = %10
   br i1 %.not.i, label %19, label %GC_generic_lock.exit.sink.split.i
 
 19:                                               ; preds = %17
-  %20 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %20 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %GC_lock.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %19, %25
   %.079.i.i = phi i32 [ %26, %25 ], [ 1, %19 ]
   fence syncscope("singlethread") seq_cst
-  %22 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %22 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %22, label %23 [
     i32 0, label %GC_lock.exit
     i32 16, label %25
@@ -11206,8 +11206,8 @@ GC_lock.exit.thread:                              ; preds = %10
 
 23:                                               ; preds = %.preheader.i.i
   %24 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %24(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %24(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 25:                                               ; preds = %.preheader.i.i
@@ -11216,7 +11216,7 @@ GC_lock.exit.thread:                              ; preds = %10
   br i1 %27, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %25, %17, %14
-  %28 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %28 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit
 
 GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC_generic_lock.exit.sink.split.i, %19, %12
@@ -11225,7 +11225,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   br i1 %.b.pr, label %30, label %32
 
 30:                                               ; preds = %GC_lock.exit
-  %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %32
 
 32:                                               ; preds = %GC_lock.exit.thread, %30, %GC_lock.exit, %7
@@ -11398,8 +11398,8 @@ define range(i32 0, 5) i32 @GC_move_long_link(ptr noundef %0, ptr noundef nonnul
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %6(ptr noundef nonnull @.str.45) #38
-  tail call void @abort() #44
+  tail call void %6(ptr noundef nonnull @.str.45) #40
+  tail call void @abort() #46
   unreachable
 
 7:                                                ; preds = %2
@@ -11417,7 +11417,7 @@ GC_lock.exit.thread:                              ; preds = %10
   br label %32
 
 12:                                               ; preds = %10
-  %13 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %13 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not5 = icmp eq i32 %13, 0
   br i1 %.not5, label %GC_lock.exit, label %14
 
@@ -11432,14 +11432,14 @@ GC_lock.exit.thread:                              ; preds = %10
   br i1 %.not.i, label %19, label %GC_generic_lock.exit.sink.split.i
 
 19:                                               ; preds = %17
-  %20 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %20 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %GC_lock.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %19, %25
   %.079.i.i = phi i32 [ %26, %25 ], [ 1, %19 ]
   fence syncscope("singlethread") seq_cst
-  %22 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %22 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %22, label %23 [
     i32 0, label %GC_lock.exit
     i32 16, label %25
@@ -11447,8 +11447,8 @@ GC_lock.exit.thread:                              ; preds = %10
 
 23:                                               ; preds = %.preheader.i.i
   %24 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %24(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %24(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 25:                                               ; preds = %.preheader.i.i
@@ -11457,7 +11457,7 @@ GC_lock.exit.thread:                              ; preds = %10
   br i1 %27, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %25, %17, %14
-  %28 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %28 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit
 
 GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC_generic_lock.exit.sink.split.i, %19, %12
@@ -11466,7 +11466,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   br i1 %.b.pr, label %30, label %32
 
 30:                                               ; preds = %GC_lock.exit
-  %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %32
 
 32:                                               ; preds = %GC_lock.exit.thread, %30, %GC_lock.exit, %7
@@ -11485,7 +11485,7 @@ define internal fastcc void @GC_register_finalizer_inner(ptr noundef %0, ptr nou
   br i1 %.b102, label %9, label %GC_lock.exit
 
 9:                                                ; preds = %8
-  %10 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %10 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not109 = icmp eq i32 %10, 0
   br i1 %.not109, label %GC_lock.exit, label %11
 
@@ -11500,14 +11500,14 @@ define internal fastcc void @GC_register_finalizer_inner(ptr noundef %0, ptr nou
   br i1 %.not.i, label %16, label %GC_generic_lock.exit.sink.split.i
 
 16:                                               ; preds = %14
-  %17 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %17 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %GC_lock.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %16, %22
   %.079.i.i = phi i32 [ %23, %22 ], [ 1, %16 ]
   fence syncscope("singlethread") seq_cst
-  %19 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %19 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %19, label %20 [
     i32 0, label %GC_lock.exit
     i32 16, label %22
@@ -11515,8 +11515,8 @@ define internal fastcc void @GC_register_finalizer_inner(ptr noundef %0, ptr nou
 
 20:                                               ; preds = %.preheader.i.i
   %21 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %21(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %21(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 22:                                               ; preds = %.preheader.i.i
@@ -11525,7 +11525,7 @@ define internal fastcc void @GC_register_finalizer_inner(ptr noundef %0, ptr nou
   br i1 %24, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %22, %14, %11
-  %25 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %25 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit
 
 GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC_generic_lock.exit.sink.split.i, %16, %8, %9
@@ -11771,7 +11771,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   br i1 %.b101, label %153, label %155
 
 153:                                              ; preds = %.thread129
-  %154 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %154 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %155
 
 155:                                              ; preds = %.thread129, %153
@@ -11814,7 +11814,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   br i1 %.b100, label %163, label %.loopexit
 
 163:                                              ; preds = %162
-  %164 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %164 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %.loopexit
 
 165:                                              ; preds = %165, %157
@@ -11855,7 +11855,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   br i1 %.b99, label %181, label %.loopexit
 
 181:                                              ; preds = %180
-  %182 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %182 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %.loopexit
 
 183:                                              ; preds = %172
@@ -11869,11 +11869,11 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   br i1 %.b98, label %187, label %189
 
 187:                                              ; preds = %185
-  %188 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %188 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %189
 
 189:                                              ; preds = %185, %187
-  %190 = tail call ptr %186(i64 noundef 48) #38
+  %190 = tail call ptr %186(i64 noundef 48) #40
   %191 = icmp eq ptr %190, null
   br i1 %191, label %.loopexit, label %192
 
@@ -11882,7 +11882,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   br i1 %.b97, label %193, label %.split.backedge
 
 193:                                              ; preds = %192
-  %194 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %194 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not114 = icmp eq i32 %194, 0
   br i1 %.not114, label %.split.backedge, label %195
 
@@ -11897,14 +11897,14 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   br i1 %.not.i123, label %200, label %GC_generic_lock.exit.sink.split.i124
 
 200:                                              ; preds = %198
-  %201 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %201 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %202 = icmp eq i32 %201, 0
   br i1 %202, label %.split.backedge, label %.preheader.i.i125
 
 .preheader.i.i125:                                ; preds = %200, %206
   %.079.i.i126 = phi i32 [ %207, %206 ], [ 1, %200 ]
   fence syncscope("singlethread") seq_cst
-  %203 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %203 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %203, label %204 [
     i32 0, label %.split.backedge
     i32 16, label %206
@@ -11912,8 +11912,8 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
 
 204:                                              ; preds = %.preheader.i.i125
   %205 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %205(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %205(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 206:                                              ; preds = %.preheader.i.i125
@@ -11922,7 +11922,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   br i1 %208, label %.preheader.i.i125, label %GC_generic_lock.exit.sink.split.i124, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i124:             ; preds = %206, %198, %195
-  %209 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %209 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %.split.backedge
 
 .split.backedge:                                  ; preds = %.preheader.i.i125, %GC_generic_lock.exit.sink.split.i124, %200, %192, %193
@@ -12008,7 +12008,7 @@ GC_generic_lock.exit.sink.split.i124:             ; preds = %206, %198, %195
   br i1 %.b, label %254, label %.loopexit
 
 254:                                              ; preds = %253
-  %255 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %255 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %.loopexit
 
 .loopexit:                                        ; preds = %189, %253, %254, %181, %180, %163, %162, %6, %155
@@ -12379,7 +12379,7 @@ define void @GC_finalize_all() local_unnamed_addr #1 {
   br i1 %.b3, label %1, label %GC_lock.exit
 
 1:                                                ; preds = %0
-  %2 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %2 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %GC_lock.exit, label %3
 
@@ -12394,14 +12394,14 @@ define void @GC_finalize_all() local_unnamed_addr #1 {
   br i1 %.not.i, label %8, label %GC_generic_lock.exit.sink.split.i
 
 8:                                                ; preds = %6
-  %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %GC_lock.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %8, %14
   %.079.i.i = phi i32 [ %15, %14 ], [ 1, %8 ]
   fence syncscope("singlethread") seq_cst
-  %11 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %11 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %11, label %12 [
     i32 0, label %GC_lock.exit
     i32 16, label %14
@@ -12409,8 +12409,8 @@ define void @GC_finalize_all() local_unnamed_addr #1 {
 
 12:                                               ; preds = %.preheader.i.i
   %13 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %13(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %13(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 14:                                               ; preds = %.preheader.i.i
@@ -12419,7 +12419,7 @@ define void @GC_finalize_all() local_unnamed_addr #1 {
   br i1 %16, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %14, %6, %3
-  %17 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %17 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit
 
 GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC_generic_lock.exit.sink.split.i, %8, %0, %1
@@ -12625,7 +12625,7 @@ GC_enqueue_all_finalizers.exit:                   ; preds = %._crit_edge.i, %.lr
   br i1 %.b2, label %110, label %112
 
 110:                                              ; preds = %GC_enqueue_all_finalizers.exit
-  %111 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %111 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %112
 
 112:                                              ; preds = %GC_enqueue_all_finalizers.exit, %110
@@ -12634,7 +12634,7 @@ GC_enqueue_all_finalizers.exit:                   ; preds = %._crit_edge.i, %.lr
   br i1 %.b1, label %114, label %GC_lock.exit12
 
 114:                                              ; preds = %112
-  %115 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %115 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not5 = icmp eq i32 %115, 0
   br i1 %.not5, label %GC_lock.exit12, label %116
 
@@ -12649,14 +12649,14 @@ GC_enqueue_all_finalizers.exit:                   ; preds = %._crit_edge.i, %.lr
   br i1 %.not.i8, label %121, label %GC_generic_lock.exit.sink.split.i9
 
 121:                                              ; preds = %119
-  %122 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %122 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %123 = icmp eq i32 %122, 0
   br i1 %123, label %GC_lock.exit12, label %.preheader.i.i10
 
 .preheader.i.i10:                                 ; preds = %121, %127
   %.079.i.i11 = phi i32 [ %128, %127 ], [ 1, %121 ]
   fence syncscope("singlethread") seq_cst
-  %124 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %124 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %124, label %125 [
     i32 0, label %GC_lock.exit12
     i32 16, label %127
@@ -12664,8 +12664,8 @@ GC_enqueue_all_finalizers.exit:                   ; preds = %._crit_edge.i, %.lr
 
 125:                                              ; preds = %.preheader.i.i10
   %126 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %126(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %126(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 127:                                              ; preds = %.preheader.i.i10
@@ -12674,7 +12674,7 @@ GC_enqueue_all_finalizers.exit:                   ; preds = %._crit_edge.i, %.lr
   br i1 %129, label %.preheader.i.i10, label %GC_generic_lock.exit.sink.split.i9, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i9:               ; preds = %127, %119, %116
-  %130 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %130 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit12
 
 GC_lock.exit12:                                   ; preds = %.preheader.i.i10, %GC_generic_lock.exit.sink.split.i9, %121, %112, %114
@@ -12687,7 +12687,7 @@ GC_lock.exit12:                                   ; preds = %.preheader.i.i10, %
   br i1 %.b, label %132, label %134
 
 132:                                              ; preds = %._crit_edge
-  %133 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %133 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %134
 
 134:                                              ; preds = %._crit_edge, %132
@@ -12707,7 +12707,7 @@ define i32 @GC_invoke_finalizers() local_unnamed_addr #1 {
   br i1 %.b22, label %2, label %GC_lock.exit
 
 2:                                                ; preds = %.lr.ph
-  %3 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %3 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not23 = icmp eq i32 %3, 0
   br i1 %.not23, label %GC_lock.exit, label %4
 
@@ -12722,14 +12722,14 @@ define i32 @GC_invoke_finalizers() local_unnamed_addr #1 {
   br i1 %.not.i, label %9, label %GC_generic_lock.exit.sink.split.i
 
 9:                                                ; preds = %7
-  %10 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %10 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %GC_lock.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %9, %15
   %.079.i.i = phi i32 [ %16, %15 ], [ 1, %9 ]
   fence syncscope("singlethread") seq_cst
-  %12 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %12 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %12, label %13 [
     i32 0, label %GC_lock.exit
     i32 16, label %15
@@ -12737,8 +12737,8 @@ define i32 @GC_invoke_finalizers() local_unnamed_addr #1 {
 
 13:                                               ; preds = %.preheader.i.i
   %14 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %14(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %14(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 15:                                               ; preds = %.preheader.i.i
@@ -12747,7 +12747,7 @@ define i32 @GC_invoke_finalizers() local_unnamed_addr #1 {
   br i1 %17, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %15, %7, %4
-  %18 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %18 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit
 
 GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC_generic_lock.exit.sink.split.i, %9, %.lr.ph, %2
@@ -12787,7 +12787,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   br i1 %.b19, label %34, label %36
 
 34:                                               ; preds = %30
-  %35 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %35 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %36
 
 36:                                               ; preds = %30, %34
@@ -12798,7 +12798,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds i8, ptr %27, i64 24
   %42 = load ptr, ptr %41, align 8
-  tail call void %40(ptr noundef %38, ptr noundef %42) #38
+  tail call void %40(ptr noundef %38, ptr noundef %42) #40
   store ptr null, ptr %41, align 8
   %43 = add i32 %.046, 1
   %44 = load atomic volatile i64, ptr getelementptr inbounds (i8, ptr @GC_arrays, i64 368) monotonic, align 8
@@ -12807,7 +12807,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
 
 .loopexit.sink.split:                             ; preds = %29, %25
   %.2.ph = phi i64 [ %.01545, %25 ], [ %.1, %29 ]
-  %45 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %45 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %.loopexit
 
 .loopexit:                                        ; preds = %36, %.loopexit.sink.split, %29, %25
@@ -12831,7 +12831,7 @@ GC_lock.exit34.thread:                            ; preds = %47
   br label %.loopexit.thread
 
 51:                                               ; preds = %47
-  %52 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %52 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not28 = icmp eq i32 %52, 0
   br i1 %.not28, label %GC_lock.exit34, label %53
 
@@ -12846,14 +12846,14 @@ GC_lock.exit34.thread:                            ; preds = %47
   br i1 %.not.i30, label %58, label %GC_generic_lock.exit.sink.split.i31
 
 58:                                               ; preds = %56
-  %59 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %59 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %60 = icmp eq i32 %59, 0
   br i1 %60, label %GC_lock.exit34, label %.preheader.i.i32
 
 .preheader.i.i32:                                 ; preds = %58, %64
   %.079.i.i33 = phi i32 [ %65, %64 ], [ 1, %58 ]
   fence syncscope("singlethread") seq_cst
-  %61 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %61 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %61, label %62 [
     i32 0, label %GC_lock.exit34
     i32 16, label %64
@@ -12861,8 +12861,8 @@ GC_lock.exit34.thread:                            ; preds = %47
 
 62:                                               ; preds = %.preheader.i.i32
   %63 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %63(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %63(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 64:                                               ; preds = %.preheader.i.i32
@@ -12871,7 +12871,7 @@ GC_lock.exit34.thread:                            ; preds = %47
   br i1 %66, label %.preheader.i.i32, label %GC_generic_lock.exit.sink.split.i31, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i31:              ; preds = %64, %56, %53
-  %67 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %67 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit34
 
 GC_lock.exit34:                                   ; preds = %.preheader.i.i32, %GC_generic_lock.exit.sink.split.i31, %58, %51
@@ -12884,7 +12884,7 @@ GC_lock.exit34:                                   ; preds = %.preheader.i.i32, %
   br i1 %.b.pr, label %72, label %.loopexit.thread
 
 72:                                               ; preds = %GC_lock.exit34
-  %73 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %73 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %0, %GC_lock.exit34.thread, %72, %GC_lock.exit34, %.loopexit
@@ -12902,7 +12902,7 @@ GC_lock.exit.thread:                              ; preds = %1
   br label %21
 
 2:                                                ; preds = %1
-  %3 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %3 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %GC_lock.exit, label %4
 
@@ -12917,14 +12917,14 @@ GC_lock.exit.thread:                              ; preds = %1
   br i1 %.not.i, label %9, label %GC_generic_lock.exit.sink.split.i
 
 9:                                                ; preds = %7
-  %10 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %10 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %GC_lock.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %9, %15
   %.079.i.i = phi i32 [ %16, %15 ], [ 1, %9 ]
   fence syncscope("singlethread") seq_cst
-  %12 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %12 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %12, label %13 [
     i32 0, label %GC_lock.exit
     i32 16, label %15
@@ -12932,8 +12932,8 @@ GC_lock.exit.thread:                              ; preds = %1
 
 13:                                               ; preds = %.preheader.i.i
   %14 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %14(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %14(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 15:                                               ; preds = %.preheader.i.i
@@ -12942,7 +12942,7 @@ GC_lock.exit.thread:                              ; preds = %1
   br i1 %17, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %15, %7, %4
-  %18 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %18 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit
 
 GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC_generic_lock.exit.sink.split.i, %9, %2
@@ -12951,7 +12951,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   br i1 %.b.pr, label %19, label %21
 
 19:                                               ; preds = %GC_lock.exit
-  %20 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %20 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %21
 
 21:                                               ; preds = %GC_lock.exit.thread, %GC_lock.exit, %19
@@ -12968,7 +12968,7 @@ GC_lock.exit.thread:                              ; preds = %0
   br label %22
 
 2:                                                ; preds = %0
-  %3 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %3 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %GC_lock.exit, label %4
 
@@ -12983,14 +12983,14 @@ GC_lock.exit.thread:                              ; preds = %0
   br i1 %.not.i, label %9, label %GC_generic_lock.exit.sink.split.i
 
 9:                                                ; preds = %7
-  %10 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %10 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %GC_lock.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %9, %15
   %.079.i.i = phi i32 [ %16, %15 ], [ 1, %9 ]
   fence syncscope("singlethread") seq_cst
-  %12 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %12 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %12, label %13 [
     i32 0, label %GC_lock.exit
     i32 16, label %15
@@ -12998,8 +12998,8 @@ GC_lock.exit.thread:                              ; preds = %0
 
 13:                                               ; preds = %.preheader.i.i
   %14 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %14(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %14(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 15:                                               ; preds = %.preheader.i.i
@@ -13008,7 +13008,7 @@ GC_lock.exit.thread:                              ; preds = %0
   br i1 %17, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %15, %7, %4
-  %18 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %18 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit
 
 GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC_generic_lock.exit.sink.split.i, %9, %2
@@ -13017,7 +13017,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   br i1 %.b.pr, label %20, label %22
 
 20:                                               ; preds = %GC_lock.exit
-  %21 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %21 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %22
 
 22:                                               ; preds = %GC_lock.exit.thread, %GC_lock.exit, %20
@@ -13040,7 +13040,7 @@ define void @GC_init_finalized_malloc() local_unnamed_addr #1 {
   br i1 %.b2, label %1, label %GC_lock.exit
 
 1:                                                ; preds = %0
-  %2 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %2 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %GC_lock.exit, label %3
 
@@ -13055,14 +13055,14 @@ define void @GC_init_finalized_malloc() local_unnamed_addr #1 {
   br i1 %.not.i, label %8, label %GC_generic_lock.exit.sink.split.i
 
 8:                                                ; preds = %6
-  %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %GC_lock.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %8, %14
   %.079.i.i = phi i32 [ %15, %14 ], [ 1, %8 ]
   fence syncscope("singlethread") seq_cst
-  %11 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %11 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %11, label %12 [
     i32 0, label %GC_lock.exit
     i32 16, label %14
@@ -13070,8 +13070,8 @@ define void @GC_init_finalized_malloc() local_unnamed_addr #1 {
 
 12:                                               ; preds = %.preheader.i.i
   %13 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %13(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %13(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 14:                                               ; preds = %.preheader.i.i
@@ -13080,7 +13080,7 @@ define void @GC_init_finalized_malloc() local_unnamed_addr #1 {
   br i1 %16, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %14, %6, %3
-  %17 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %17 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit
 
 GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC_generic_lock.exit.sink.split.i, %8, %0, %1
@@ -13129,8 +13129,8 @@ GC_register_displacement_inner.exit8:             ; preds = %GC_register_displac
 
 29:                                               ; preds = %GC_register_displacement_inner.exit8
   %30 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %30(ptr noundef nonnull @.str.94) #38
-  tail call void @abort() #44
+  tail call void %30(ptr noundef nonnull @.str.94) #40
+  tail call void @abort() #46
   unreachable
 
 GC_new_free_list_inner.exit:                      ; preds = %GC_register_displacement_inner.exit8
@@ -13141,8 +13141,8 @@ GC_new_free_list_inner.exit:                      ; preds = %GC_register_displac
 
 33:                                               ; preds = %GC_new_free_list_inner.exit
   %34 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %34(ptr noundef nonnull @.str.95) #38
-  tail call void @abort() #44
+  tail call void %34(ptr noundef nonnull @.str.95) #40
+  tail call void @abort() #46
   unreachable
 
 GC_new_kind_inner.exit:                           ; preds = %GC_new_free_list_inner.exit
@@ -13176,7 +13176,7 @@ GC_register_disclaim_proc_inner.exit:             ; preds = %GC_new_kind_inner.e
   br i1 %.b, label %.sink.split, label %46
 
 .sink.split:                                      ; preds = %GC_register_disclaim_proc_inner.exit, %19
-  %45 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %45 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %46
 
 46:                                               ; preds = %.sink.split, %GC_register_disclaim_proc_inner.exit, %19
@@ -13197,7 +13197,7 @@ define internal noundef i32 @GC_finalized_disclaim(ptr noundef %0) #1 {
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   %9 = getelementptr inbounds i8, ptr %6, i64 8
   %10 = load ptr, ptr %9, align 8
-  tail call void %7(ptr noundef nonnull %8, ptr noundef %10) #38
+  tail call void %7(ptr noundef nonnull %8, ptr noundef %10) #40
   br label %11
 
 11:                                               ; preds = %4, %1
@@ -13210,7 +13210,7 @@ define void @GC_register_disclaim_proc(i32 noundef %0, ptr noundef %1, i32 nound
   br i1 %.b2, label %4, label %GC_lock.exit
 
 4:                                                ; preds = %3
-  %5 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %5 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %GC_lock.exit, label %6
 
@@ -13225,14 +13225,14 @@ define void @GC_register_disclaim_proc(i32 noundef %0, ptr noundef %1, i32 nound
   br i1 %.not.i, label %11, label %GC_generic_lock.exit.sink.split.i
 
 11:                                               ; preds = %9
-  %12 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %12 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %GC_lock.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %11, %17
   %.079.i.i = phi i32 [ %18, %17 ], [ 1, %11 ]
   fence syncscope("singlethread") seq_cst
-  %14 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %14 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %14, label %15 [
     i32 0, label %GC_lock.exit
     i32 16, label %17
@@ -13240,8 +13240,8 @@ define void @GC_register_disclaim_proc(i32 noundef %0, ptr noundef %1, i32 nound
 
 15:                                               ; preds = %.preheader.i.i
   %16 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %16(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %16(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 17:                                               ; preds = %.preheader.i.i
@@ -13250,7 +13250,7 @@ define void @GC_register_disclaim_proc(i32 noundef %0, ptr noundef %1, i32 nound
   br i1 %19, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %17, %9, %6
-  %20 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %20 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit
 
 GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC_generic_lock.exit.sink.split.i, %11, %3, %4
@@ -13272,7 +13272,7 @@ GC_register_disclaim_proc_inner.exit:             ; preds = %GC_lock.exit, %22
   br i1 %.b, label %27, label %29
 
 27:                                               ; preds = %GC_register_disclaim_proc_inner.exit
-  %28 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %28 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %29
 
 29:                                               ; preds = %GC_register_disclaim_proc_inner.exit, %27
@@ -13283,7 +13283,7 @@ GC_register_disclaim_proc_inner.exit:             ; preds = %GC_lock.exit, %22
 define noalias ptr @GC_finalized_malloc(i64 noundef %0, ptr noundef nonnull %1) local_unnamed_addr #5 {
   %3 = tail call i64 @llvm.uadd.sat.i64(i64 %0, i64 8)
   %4 = load i32, ptr getelementptr inbounds (i8, ptr @GC_arrays, i64 408), align 8
-  %5 = tail call noalias ptr @GC_malloc_kind(i64 noundef %3, i32 noundef %4) #47
+  %5 = tail call noalias ptr @GC_malloc_kind(i64 noundef %3, i32 noundef %4) #50
   %6 = icmp eq ptr %5, null
   br i1 %6, label %21, label %7
 
@@ -13306,7 +13306,7 @@ define noalias ptr @GC_finalized_malloc(i64 noundef %0, ptr noundef nonnull %1) 
   br label %19
 
 19:                                               ; preds = %7, %10
-  tail call void asm sideeffect " ", "X,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %1) #38, !srcloc !59
+  tail call void asm sideeffect " ", "X,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %1) #40, !srcloc !59
   %20 = getelementptr inbounds i8, ptr %5, i64 8
   br label %21
 
@@ -13394,7 +13394,7 @@ define noalias ptr @GC_malloc_kind(i64 noundef %0, i32 noundef %1) local_unnamed
   br label %GC_end_stubborn_change.exit
 
 GC_end_stubborn_change.exit:                      ; preds = %38, %39
-  tail call void asm sideeffect " ", "X,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %35) #38, !srcloc !60
+  tail call void asm sideeffect " ", "X,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %35) #40, !srcloc !60
   br label %62
 
 48:                                               ; preds = %32
@@ -13419,7 +13419,7 @@ GC_end_stubborn_change.exit:                      ; preds = %38, %39
 
 59:                                               ; preds = %56
   %60 = tail call ptr @GC_get_oom_fn()
-  %61 = tail call ptr %60(i64 noundef %30) #38
+  %61 = tail call ptr %60(i64 noundef %30) #40
   br label %62
 
 62:                                               ; preds = %.thread, %51, %59, %GC_end_stubborn_change.exit, %22, %10, %4
@@ -13472,7 +13472,7 @@ define internal fastcc ptr @GC_generic_malloc_aligned(i64 noundef %0, i32 nounde
   br i1 %.b55, label %16, label %GC_lock.exit
 
 16:                                               ; preds = %15
-  %17 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %17 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not61 = icmp eq i32 %17, 0
   br i1 %.not61, label %GC_lock.exit, label %18
 
@@ -13487,14 +13487,14 @@ define internal fastcc ptr @GC_generic_malloc_aligned(i64 noundef %0, i32 nounde
   br i1 %.not.i, label %23, label %GC_generic_lock.exit.sink.split.i
 
 23:                                               ; preds = %21
-  %24 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %24 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %GC_lock.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %23, %29
   %.079.i.i = phi i32 [ %30, %29 ], [ 1, %23 ]
   fence syncscope("singlethread") seq_cst
-  %26 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %26 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %26, label %27 [
     i32 0, label %GC_lock.exit
     i32 16, label %29
@@ -13502,8 +13502,8 @@ define internal fastcc ptr @GC_generic_malloc_aligned(i64 noundef %0, i32 nounde
 
 27:                                               ; preds = %.preheader.i.i
   %28 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %28(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %28(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 29:                                               ; preds = %.preheader.i.i
@@ -13512,7 +13512,7 @@ define internal fastcc ptr @GC_generic_malloc_aligned(i64 noundef %0, i32 nounde
   br i1 %31, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %29, %21, %18
-  %32 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %32 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit
 
 GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC_generic_lock.exit.sink.split.i, %23, %15, %16
@@ -13521,7 +13521,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   br i1 %.b54, label %34, label %91
 
 34:                                               ; preds = %GC_lock.exit
-  %35 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %35 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %91
 
 36:                                               ; preds = %9
@@ -13563,7 +13563,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   br i1 %.b53, label %56, label %GC_lock.exit67
 
 56:                                               ; preds = %51
-  %57 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %57 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not59 = icmp eq i32 %57, 0
   br i1 %.not59, label %GC_lock.exit67, label %58
 
@@ -13578,14 +13578,14 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   br i1 %.not.i63, label %63, label %GC_generic_lock.exit.sink.split.i64
 
 63:                                               ; preds = %61
-  %64 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %64 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %65 = icmp eq i32 %64, 0
   br i1 %65, label %GC_lock.exit67, label %.preheader.i.i65
 
 .preheader.i.i65:                                 ; preds = %63, %69
   %.079.i.i66 = phi i32 [ %70, %69 ], [ 1, %63 ]
   fence syncscope("singlethread") seq_cst
-  %66 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %66 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %66, label %67 [
     i32 0, label %GC_lock.exit67
     i32 16, label %69
@@ -13593,8 +13593,8 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
 
 67:                                               ; preds = %.preheader.i.i65
   %68 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %68(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %68(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 69:                                               ; preds = %.preheader.i.i65
@@ -13603,7 +13603,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   br i1 %71, label %.preheader.i.i65, label %GC_generic_lock.exit.sink.split.i64, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i64:              ; preds = %69, %61, %58
-  %72 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %72 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit67
 
 GC_lock.exit67:                                   ; preds = %.preheader.i.i65, %GC_generic_lock.exit.sink.split.i64, %63, %51, %56
@@ -13634,7 +13634,7 @@ GC_lock.exit67:                                   ; preds = %.preheader.i.i65, %
   br i1 %.b, label %83, label %85
 
 83:                                               ; preds = %82
-  %84 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %84 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %85
 
 85:                                               ; preds = %82, %83
@@ -13660,7 +13660,7 @@ GC_lock.exit67:                                   ; preds = %.preheader.i.i65, %
 
 93:                                               ; preds = %91
   %94 = tail call ptr @GC_get_oom_fn()
-  %95 = tail call ptr %94(i64 noundef %.1) #38
+  %95 = tail call ptr %94(i64 noundef %.1) #40
   br label %96
 
 96:                                               ; preds = %.thread69, %93, %91
@@ -13698,7 +13698,7 @@ define internal fastcc ptr @GC_malloc_kind_aligned_global(i64 noundef %0, i32 no
   br i1 %.b28, label %13, label %GC_lock.exit
 
 13:                                               ; preds = %12
-  %14 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %14 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not29 = icmp eq i32 %14, 0
   br i1 %.not29, label %GC_lock.exit, label %15
 
@@ -13713,14 +13713,14 @@ define internal fastcc ptr @GC_malloc_kind_aligned_global(i64 noundef %0, i32 no
   br i1 %.not.i, label %20, label %GC_generic_lock.exit.sink.split.i
 
 20:                                               ; preds = %18
-  %21 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %21 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %GC_lock.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %20, %26
   %.079.i.i = phi i32 [ %27, %26 ], [ 1, %20 ]
   fence syncscope("singlethread") seq_cst
-  %23 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %23 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %23, label %24 [
     i32 0, label %GC_lock.exit
     i32 16, label %26
@@ -13728,8 +13728,8 @@ define internal fastcc ptr @GC_malloc_kind_aligned_global(i64 noundef %0, i32 no
 
 24:                                               ; preds = %.preheader.i.i
   %25 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %25(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %25(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 26:                                               ; preds = %.preheader.i.i
@@ -13738,7 +13738,7 @@ define internal fastcc ptr @GC_malloc_kind_aligned_global(i64 noundef %0, i32 no
   br i1 %28, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %26, %18, %15
-  %29 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %29 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit
 
 GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC_generic_lock.exit.sink.split.i, %20, %12, %13
@@ -13789,7 +13789,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   br i1 %.b27, label %50, label %GC_clear_stack.exit
 
 50:                                               ; preds = %46
-  %51 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %51 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_clear_stack.exit
 
 52:                                               ; preds = %.loopexit
@@ -13797,7 +13797,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   br i1 %.b, label %53, label %55
 
 53:                                               ; preds = %52
-  %54 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %54 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %55
 
 55:                                               ; preds = %53, %52, %11, %6
@@ -13855,7 +13855,7 @@ define noalias ptr @GC_generic_malloc_uncollectable(i64 noundef %0, i32 noundef 
   br i1 %.b39, label %11, label %GC_lock.exit
 
 11:                                               ; preds = %10
-  %12 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %12 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not45 = icmp eq i32 %12, 0
   br i1 %.not45, label %GC_lock.exit, label %13
 
@@ -13870,14 +13870,14 @@ define noalias ptr @GC_generic_malloc_uncollectable(i64 noundef %0, i32 noundef 
   br i1 %.not.i, label %18, label %GC_generic_lock.exit.sink.split.i
 
 18:                                               ; preds = %16
-  %19 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %19 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %GC_lock.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %18, %24
   %.079.i.i = phi i32 [ %25, %24 ], [ 1, %18 ]
   fence syncscope("singlethread") seq_cst
-  %21 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %21 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %21, label %22 [
     i32 0, label %GC_lock.exit
     i32 16, label %24
@@ -13885,8 +13885,8 @@ define noalias ptr @GC_generic_malloc_uncollectable(i64 noundef %0, i32 noundef 
 
 22:                                               ; preds = %.preheader.i.i
   %23 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %23(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %23(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 24:                                               ; preds = %.preheader.i.i
@@ -13895,7 +13895,7 @@ define noalias ptr @GC_generic_malloc_uncollectable(i64 noundef %0, i32 noundef 
   br i1 %26, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %24, %16, %13
-  %27 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %27 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit
 
 GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC_generic_lock.exit.sink.split.i, %18, %10, %11
@@ -13934,11 +13934,11 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   br i1 %.b37.pre54, label %47, label %49
 
 47:                                               ; preds = %45
-  %48 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %48 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %49
 
 49:                                               ; preds = %45, %47
-  %50 = tail call ptr %46(i64 noundef %0) #38
+  %50 = tail call ptr %46(i64 noundef %0) #40
   br label %96
 
 51:                                               ; preds = %42
@@ -13946,7 +13946,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
 
 52:                                               ; preds = %35, %51
   %.02956 = phi ptr [ %34, %35 ], [ %43, %51 ]
-  %53 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %53 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %96
 
 54:                                               ; preds = %2
@@ -13989,7 +13989,7 @@ GC_lock.exit51.thread:                            ; preds = %GC_find_header.exit
   br label %96
 
 75:                                               ; preds = %GC_find_header.exit
-  %76 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %76 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not43 = icmp eq i32 %76, 0
   br i1 %.not43, label %GC_lock.exit51, label %77
 
@@ -14004,14 +14004,14 @@ GC_lock.exit51.thread:                            ; preds = %GC_find_header.exit
   br i1 %.not.i47, label %82, label %GC_generic_lock.exit.sink.split.i48
 
 82:                                               ; preds = %80
-  %83 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %83 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %84 = icmp eq i32 %83, 0
   br i1 %84, label %GC_lock.exit51, label %.preheader.i.i49
 
 .preheader.i.i49:                                 ; preds = %82, %88
   %.079.i.i50 = phi i32 [ %89, %88 ], [ 1, %82 ]
   fence syncscope("singlethread") seq_cst
-  %85 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %85 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %85, label %86 [
     i32 0, label %GC_lock.exit51
     i32 16, label %88
@@ -14019,8 +14019,8 @@ GC_lock.exit51.thread:                            ; preds = %GC_find_header.exit
 
 86:                                               ; preds = %.preheader.i.i49
   %87 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %87(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %87(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 88:                                               ; preds = %.preheader.i.i49
@@ -14029,7 +14029,7 @@ GC_lock.exit51.thread:                            ; preds = %GC_find_header.exit
   br i1 %90, label %.preheader.i.i49, label %GC_generic_lock.exit.sink.split.i48, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i48:              ; preds = %88, %80, %77
-  %91 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %91 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit51
 
 GC_lock.exit51:                                   ; preds = %.preheader.i.i49, %GC_generic_lock.exit.sink.split.i48, %82, %75
@@ -14041,7 +14041,7 @@ GC_lock.exit51:                                   ; preds = %.preheader.i.i49, %
   br i1 %.b.pr, label %94, label %96
 
 94:                                               ; preds = %GC_lock.exit51
-  %95 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %95 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %96
 
 96:                                               ; preds = %35, %GC_lock.exit51.thread, %51, %52, %94, %GC_lock.exit51, %54, %49
@@ -14060,7 +14060,7 @@ define internal fastcc void @GC_notify_or_invoke_finalizers() unnamed_addr #1 {
   br i1 %.b9, label %3, label %.critedge
 
 3:                                                ; preds = %2
-  %4 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %4 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not11 = icmp eq i32 %4, 0
   br i1 %.not11, label %GC_lock.exitthread-pre-split, label %5
 
@@ -14075,14 +14075,14 @@ define internal fastcc void @GC_notify_or_invoke_finalizers() unnamed_addr #1 {
   br i1 %.not.i, label %10, label %GC_generic_lock.exit.sink.split.i
 
 10:                                               ; preds = %8
-  %11 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %11 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %GC_lock.exitthread-pre-split, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %10, %16
   %.079.i.i = phi i32 [ %17, %16 ], [ 1, %10 ]
   fence syncscope("singlethread") seq_cst
-  %13 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %13 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %13, label %14 [
     i32 0, label %GC_lock.exitthread-pre-split
     i32 16, label %16
@@ -14090,8 +14090,8 @@ define internal fastcc void @GC_notify_or_invoke_finalizers() unnamed_addr #1 {
 
 14:                                               ; preds = %.preheader.i.i
   %15 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %15(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %15(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 16:                                               ; preds = %.preheader.i.i
@@ -14100,7 +14100,7 @@ define internal fastcc void @GC_notify_or_invoke_finalizers() unnamed_addr #1 {
   br i1 %18, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %16, %8, %5
-  %19 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %19 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exitthread-pre-split
 
 GC_lock.exitthread-pre-split:                     ; preds = %.preheader.i.i, %3, %10, %GC_generic_lock.exit.sink.split.i
@@ -14113,7 +14113,7 @@ GC_lock.exitthread-pre-split:                     ; preds = %.preheader.i.i, %3,
   br i1 %.b8, label %22, label %71
 
 22:                                               ; preds = %21
-  %23 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %23 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %71
 
 .critedge:                                        ; preds = %2, %GC_lock.exitthread-pre-split
@@ -14130,11 +14130,11 @@ GC_lock.exitthread-pre-split:                     ; preds = %.preheader.i.i, %3,
   br i1 %.b7, label %27, label %71
 
 27:                                               ; preds = %26
-  %28 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %28 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %71
 
 29:                                               ; preds = %25
-  %30 = tail call i64 @pthread_self() #45
+  %30 = tail call i64 @pthread_self() #47
   %31 = lshr i64 %30, 8
   %32 = xor i64 %31, %30
   %33 = lshr i64 %32, 16
@@ -14189,7 +14189,7 @@ GC_check_finalizer_nested.exit:                   ; preds = %46, %54
   br i1 %.b6, label %56, label %58
 
 56:                                               ; preds = %GC_check_finalizer_nested.exit
-  %57 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %57 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %58
 
 58:                                               ; preds = %GC_check_finalizer_nested.exit, %56
@@ -14218,7 +14218,7 @@ GC_check_finalizer_nested.exit:                   ; preds = %46, %54
   br i1 %.b, label %67, label %69
 
 67:                                               ; preds = %66
-  %68 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %68 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %69
 
 69:                                               ; preds = %66, %67
@@ -14226,7 +14226,7 @@ GC_check_finalizer_nested.exit:                   ; preds = %46, %54
   br i1 %.not15, label %71, label %70
 
 70:                                               ; preds = %69
-  tail call void %.0() #38
+  tail call void %.0() #40
   br label %71
 
 71:                                               ; preds = %58, %59, %27, %26, %22, %21, %0, %70, %69
@@ -14258,7 +14258,7 @@ define internal fastcc noundef ptr @GC_generic_malloc_inner_small(i64 noundef %0
   br i1 %.b35, label %15, label %17
 
 15:                                               ; preds = %14
-  %16 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %16 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %17
 
 17:                                               ; preds = %14, %15
@@ -14267,7 +14267,7 @@ define internal fastcc noundef ptr @GC_generic_malloc_inner_small(i64 noundef %0
   br i1 %.b, label %18, label %.loopexit
 
 18:                                               ; preds = %17
-  %19 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %19 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not = icmp eq i32 %19, 0
   br i1 %.not, label %.loopexit, label %20
 
@@ -14282,14 +14282,14 @@ define internal fastcc noundef ptr @GC_generic_malloc_inner_small(i64 noundef %0
   br i1 %.not.i, label %25, label %GC_generic_lock.exit.sink.split.i
 
 25:                                               ; preds = %23
-  %26 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %26 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %.loopexit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %25, %31
   %.079.i.i = phi i32 [ %32, %31 ], [ 1, %25 ]
   fence syncscope("singlethread") seq_cst
-  %28 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %28 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %28, label %29 [
     i32 0, label %.loopexit
     i32 16, label %31
@@ -14297,8 +14297,8 @@ define internal fastcc noundef ptr @GC_generic_malloc_inner_small(i64 noundef %0
 
 29:                                               ; preds = %.preheader.i.i
   %30 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %30(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %30(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 31:                                               ; preds = %.preheader.i.i
@@ -14307,7 +14307,7 @@ define internal fastcc noundef ptr @GC_generic_malloc_inner_small(i64 noundef %0
   br i1 %33, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %31, %23, %20
-  %34 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %34 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader.i.i, %18, %17, %25, %GC_generic_lock.exit.sink.split.i
@@ -14906,11 +14906,11 @@ define noalias ptr @GC_generic_or_special_malloc(i64 noundef %0, i32 noundef %1)
   ]
 
 3:                                                ; preds = %2, %2
-  %4 = tail call noalias ptr @GC_malloc_kind(i64 noundef %0, i32 noundef %1) #47
+  %4 = tail call noalias ptr @GC_malloc_kind(i64 noundef %0, i32 noundef %1) #50
   br label %9
 
 5:                                                ; preds = %2, %2
-  %6 = tail call noalias ptr @GC_generic_malloc_uncollectable(i64 noundef %0, i32 noundef %1) #47
+  %6 = tail call noalias ptr @GC_generic_malloc_uncollectable(i64 noundef %0, i32 noundef %1) #50
   br label %9
 
 7:                                                ; preds = %2
@@ -15016,7 +15016,7 @@ GC_is_heap_ptr.exit:                              ; preds = %22
   %37 = and i64 %29, 63
   %38 = shl nuw i64 1, %37
   %39 = atomicrmw volatile or ptr %36, i64 %38 monotonic, align 8
-  tail call void asm sideeffect " ", "X,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %13) #38, !srcloc !74
+  tail call void asm sideeffect " ", "X,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %13) #40, !srcloc !74
   br label %GC_clear_stack.exit
 
 40:                                               ; preds = %3
@@ -15045,7 +15045,7 @@ GC_is_heap_ptr.exit:                              ; preds = %22
   br i1 %.b88, label %48, label %GC_lock.exit
 
 48:                                               ; preds = %47
-  %49 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %49 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not94 = icmp eq i32 %49, 0
   br i1 %.not94, label %GC_lock.exit, label %50
 
@@ -15060,14 +15060,14 @@ GC_is_heap_ptr.exit:                              ; preds = %22
   br i1 %.not.i, label %55, label %GC_generic_lock.exit.sink.split.i
 
 55:                                               ; preds = %53
-  %56 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %56 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %57 = icmp eq i32 %56, 0
   br i1 %57, label %GC_lock.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %55, %61
   %.079.i.i = phi i32 [ %62, %61 ], [ 1, %55 ]
   fence syncscope("singlethread") seq_cst
-  %58 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %58 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %58, label %59 [
     i32 0, label %GC_lock.exit
     i32 16, label %61
@@ -15075,8 +15075,8 @@ GC_is_heap_ptr.exit:                              ; preds = %22
 
 59:                                               ; preds = %.preheader.i.i
   %60 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %60(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %60(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 61:                                               ; preds = %.preheader.i.i
@@ -15085,7 +15085,7 @@ GC_is_heap_ptr.exit:                              ; preds = %22
   br i1 %63, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %61, %53, %50
-  %64 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %64 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit
 
 GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC_generic_lock.exit.sink.split.i, %55, %47, %48
@@ -15171,14 +15171,14 @@ GC_find_header.exit:                              ; preds = %86
   br label %109
 
 109:                                              ; preds = %104, %102
-  %110 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @mark_mutex) #38
+  %110 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @mark_mutex) #40
   %111 = icmp eq i32 %110, 0
   br i1 %111, label %GC_acquire_mark_lock.exit, label %.preheader.i.i112
 
 .preheader.i.i112:                                ; preds = %109, %115
   %.079.i.i113 = phi i32 [ %116, %115 ], [ 1, %109 ]
   fence syncscope("singlethread") seq_cst
-  %112 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @mark_mutex) #38
+  %112 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @mark_mutex) #40
   switch i32 %112, label %113 [
     i32 0, label %GC_acquire_mark_lock.exit
     i32 16, label %115
@@ -15186,8 +15186,8 @@ GC_find_header.exit:                              ; preds = %86
 
 113:                                              ; preds = %.preheader.i.i112
   %114 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %114(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %114(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 115:                                              ; preds = %.preheader.i.i112
@@ -15196,7 +15196,7 @@ GC_find_header.exit:                              ; preds = %86
   br i1 %117, label %.preheader.i.i112, label %118, !llvm.loop !4
 
 118:                                              ; preds = %115
-  %119 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @mark_mutex) #38
+  %119 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @mark_mutex) #40
   br label %GC_acquire_mark_lock.exit
 
 GC_acquire_mark_lock.exit:                        ; preds = %.preheader.i.i112, %109, %118
@@ -15207,18 +15207,18 @@ GC_acquire_mark_lock.exit:                        ; preds = %.preheader.i.i112, 
   br i1 %.b87, label %122, label %124
 
 122:                                              ; preds = %GC_acquire_mark_lock.exit
-  %123 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %123 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %124
 
 124:                                              ; preds = %GC_acquire_mark_lock.exit, %122
-  %125 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @mark_mutex) #38
+  %125 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @mark_mutex) #40
   %.not.i114 = icmp eq i32 %125, 0
   br i1 %.not.i114, label %GC_release_mark_lock.exit, label %126
 
 126:                                              ; preds = %124
   %127 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %127(ptr noundef nonnull @.str.341) #38
-  tail call void @abort() #44
+  tail call void %127(ptr noundef nonnull @.str.341) #40
+  tail call void @abort() #46
   unreachable
 
 GC_release_mark_lock.exit:                        ; preds = %124, %GC_find_header.exit
@@ -15236,14 +15236,14 @@ GC_release_mark_lock.exit:                        ; preds = %124, %GC_find_heade
   store ptr %129, ptr %2, align 8
   %133 = load i64, ptr %7, align 8
   %134 = atomicrmw volatile add ptr @GC_bytes_allocd_tmp, i64 %133 monotonic, align 8
-  %135 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @mark_mutex) #38
+  %135 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @mark_mutex) #40
   %136 = icmp eq i32 %135, 0
   br i1 %136, label %GC_acquire_mark_lock.exit117, label %.preheader.i.i115
 
 .preheader.i.i115:                                ; preds = %132, %140
   %.079.i.i116 = phi i32 [ %141, %140 ], [ 1, %132 ]
   fence syncscope("singlethread") seq_cst
-  %137 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @mark_mutex) #38
+  %137 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @mark_mutex) #40
   switch i32 %137, label %138 [
     i32 0, label %GC_acquire_mark_lock.exit117
     i32 16, label %140
@@ -15251,8 +15251,8 @@ GC_release_mark_lock.exit:                        ; preds = %124, %GC_find_heade
 
 138:                                              ; preds = %.preheader.i.i115
   %139 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %139(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %139(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 140:                                              ; preds = %.preheader.i.i115
@@ -15261,7 +15261,7 @@ GC_release_mark_lock.exit:                        ; preds = %124, %GC_find_heade
   br i1 %142, label %.preheader.i.i115, label %143, !llvm.loop !4
 
 143:                                              ; preds = %140
-  %144 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @mark_mutex) #38
+  %144 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @mark_mutex) #40
   br label %GC_acquire_mark_lock.exit117
 
 GC_acquire_mark_lock.exit117:                     ; preds = %.preheader.i.i115, %132, %143
@@ -15272,14 +15272,14 @@ GC_acquire_mark_lock.exit117:                     ; preds = %.preheader.i.i115, 
   br i1 %147, label %148, label %GC_notify_all_builder.exit
 
 148:                                              ; preds = %GC_acquire_mark_lock.exit117
-  %149 = tail call i32 @pthread_cond_broadcast(ptr noundef nonnull @builder_cv) #38
+  %149 = tail call i32 @pthread_cond_broadcast(ptr noundef nonnull @builder_cv) #40
   %.not.i118 = icmp eq i32 %149, 0
   br i1 %.not.i118, label %GC_notify_all_builder.exit, label %150
 
 150:                                              ; preds = %148
   %151 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %151(ptr noundef nonnull @.str.139) #38
-  tail call void @abort() #44
+  tail call void %151(ptr noundef nonnull @.str.139) #40
+  tail call void @abort() #46
   unreachable
 
 GC_notify_all_builder.exit:                       ; preds = %148, %GC_acquire_mark_lock.exit117
@@ -15287,14 +15287,14 @@ GC_notify_all_builder.exit:                       ; preds = %148, %GC_acquire_ma
   %153 = load i64, ptr @GC_bytes_found, align 8
   %154 = add nsw i64 %153, %152
   store i64 %154, ptr @GC_bytes_found, align 8
-  %155 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @mark_mutex) #38
+  %155 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @mark_mutex) #40
   %.not.i119 = icmp eq i32 %155, 0
   br i1 %.not.i119, label %GC_release_mark_lock.exit120, label %156
 
 156:                                              ; preds = %GC_notify_all_builder.exit
   %157 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %157(ptr noundef nonnull @.str.341) #38
-  tail call void @abort() #44
+  tail call void %157(ptr noundef nonnull @.str.341) #40
+  tail call void @abort() #46
   unreachable
 
 GC_release_mark_lock.exit120:                     ; preds = %GC_notify_all_builder.exit
@@ -15331,14 +15331,14 @@ GC_release_mark_lock.exit120:                     ; preds = %GC_notify_all_build
   br i1 %.not100, label %216, label %176
 
 176:                                              ; preds = %175
-  %177 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @mark_mutex) #38
+  %177 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @mark_mutex) #40
   %178 = icmp eq i32 %177, 0
   br i1 %178, label %GC_acquire_mark_lock.exit123, label %.preheader.i.i121
 
 .preheader.i.i121:                                ; preds = %176, %182
   %.079.i.i122 = phi i32 [ %183, %182 ], [ 1, %176 ]
   fence syncscope("singlethread") seq_cst
-  %179 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @mark_mutex) #38
+  %179 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @mark_mutex) #40
   switch i32 %179, label %180 [
     i32 0, label %GC_acquire_mark_lock.exit123
     i32 16, label %182
@@ -15346,8 +15346,8 @@ GC_release_mark_lock.exit120:                     ; preds = %GC_notify_all_build
 
 180:                                              ; preds = %.preheader.i.i121
   %181 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %181(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %181(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 182:                                              ; preds = %.preheader.i.i121
@@ -15356,7 +15356,7 @@ GC_release_mark_lock.exit120:                     ; preds = %GC_notify_all_build
   br i1 %184, label %.preheader.i.i121, label %185, !llvm.loop !4
 
 185:                                              ; preds = %182
-  %186 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @mark_mutex) #38
+  %186 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @mark_mutex) #40
   br label %GC_acquire_mark_lock.exit123
 
 GC_acquire_mark_lock.exit123:                     ; preds = %.preheader.i.i121, %176, %185
@@ -15367,25 +15367,25 @@ GC_acquire_mark_lock.exit123:                     ; preds = %.preheader.i.i121, 
   br i1 %189, label %190, label %GC_notify_all_builder.exit125
 
 190:                                              ; preds = %GC_acquire_mark_lock.exit123
-  %191 = tail call i32 @pthread_cond_broadcast(ptr noundef nonnull @builder_cv) #38
+  %191 = tail call i32 @pthread_cond_broadcast(ptr noundef nonnull @builder_cv) #40
   %.not.i124 = icmp eq i32 %191, 0
   br i1 %.not.i124, label %GC_notify_all_builder.exit125, label %192
 
 192:                                              ; preds = %190
   %193 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %193(ptr noundef nonnull @.str.139) #38
-  tail call void @abort() #44
+  tail call void %193(ptr noundef nonnull @.str.139) #40
+  tail call void @abort() #46
   unreachable
 
 GC_notify_all_builder.exit125:                    ; preds = %190, %GC_acquire_mark_lock.exit123
-  %194 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @mark_mutex) #38
+  %194 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @mark_mutex) #40
   %.not.i126 = icmp eq i32 %194, 0
   br i1 %.not.i126, label %GC_release_mark_lock.exit127, label %195
 
 195:                                              ; preds = %GC_notify_all_builder.exit125
   %196 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %196(ptr noundef nonnull @.str.341) #38
-  tail call void @abort() #44
+  tail call void %196(ptr noundef nonnull @.str.341) #40
+  tail call void @abort() #46
   unreachable
 
 GC_release_mark_lock.exit127:                     ; preds = %GC_notify_all_builder.exit125
@@ -15393,7 +15393,7 @@ GC_release_mark_lock.exit127:                     ; preds = %GC_notify_all_build
   br i1 %.b86, label %197, label %GC_lock.exit132
 
 197:                                              ; preds = %GC_release_mark_lock.exit127
-  %198 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %198 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not101 = icmp eq i32 %198, 0
   br i1 %.not101, label %GC_lock.exit132, label %199
 
@@ -15408,14 +15408,14 @@ GC_release_mark_lock.exit127:                     ; preds = %GC_notify_all_build
   br i1 %.not.i128, label %204, label %GC_generic_lock.exit.sink.split.i129
 
 204:                                              ; preds = %202
-  %205 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %205 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %206 = icmp eq i32 %205, 0
   br i1 %206, label %GC_lock.exit132, label %.preheader.i.i130
 
 .preheader.i.i130:                                ; preds = %204, %210
   %.079.i.i131 = phi i32 [ %211, %210 ], [ 1, %204 ]
   fence syncscope("singlethread") seq_cst
-  %207 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %207 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %207, label %208 [
     i32 0, label %GC_lock.exit132
     i32 16, label %210
@@ -15423,8 +15423,8 @@ GC_release_mark_lock.exit127:                     ; preds = %GC_notify_all_build
 
 208:                                              ; preds = %.preheader.i.i130
   %209 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %209(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %209(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 210:                                              ; preds = %.preheader.i.i130
@@ -15433,7 +15433,7 @@ GC_release_mark_lock.exit127:                     ; preds = %GC_notify_all_build
   br i1 %212, label %.preheader.i.i130, label %GC_generic_lock.exit.sink.split.i129, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i129:             ; preds = %210, %202, %199
-  %213 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %213 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit132
 
 GC_lock.exit132:                                  ; preds = %.preheader.i.i130, %GC_generic_lock.exit.sink.split.i129, %204, %GC_release_mark_lock.exit127, %197
@@ -15562,14 +15562,14 @@ GC_set_hdr_marks.exit:                            ; preds = %266
   br i1 %.not105, label %387, label %277
 
 277:                                              ; preds = %272
-  %278 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @mark_mutex) #38
+  %278 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @mark_mutex) #40
   %279 = icmp eq i32 %278, 0
   br i1 %279, label %GC_acquire_mark_lock.exit139, label %.preheader.i.i137
 
 .preheader.i.i137:                                ; preds = %277, %283
   %.079.i.i138 = phi i32 [ %284, %283 ], [ 1, %277 ]
   fence syncscope("singlethread") seq_cst
-  %280 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @mark_mutex) #38
+  %280 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @mark_mutex) #40
   switch i32 %280, label %281 [
     i32 0, label %GC_acquire_mark_lock.exit139
     i32 16, label %283
@@ -15577,8 +15577,8 @@ GC_set_hdr_marks.exit:                            ; preds = %266
 
 281:                                              ; preds = %.preheader.i.i137
   %282 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %282(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %282(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 283:                                              ; preds = %.preheader.i.i137
@@ -15587,7 +15587,7 @@ GC_set_hdr_marks.exit:                            ; preds = %266
   br i1 %285, label %.preheader.i.i137, label %286, !llvm.loop !4
 
 286:                                              ; preds = %283
-  %287 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @mark_mutex) #38
+  %287 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @mark_mutex) #40
   br label %GC_acquire_mark_lock.exit139
 
 GC_acquire_mark_lock.exit139:                     ; preds = %.preheader.i.i137, %277, %286
@@ -15598,18 +15598,18 @@ GC_acquire_mark_lock.exit139:                     ; preds = %.preheader.i.i137, 
   br i1 %.b85, label %290, label %292
 
 290:                                              ; preds = %GC_acquire_mark_lock.exit139
-  %291 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %291 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %292
 
 292:                                              ; preds = %GC_acquire_mark_lock.exit139, %290
-  %293 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @mark_mutex) #38
+  %293 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @mark_mutex) #40
   %.not.i140 = icmp eq i32 %293, 0
   br i1 %.not.i140, label %GC_release_mark_lock.exit141, label %294
 
 294:                                              ; preds = %292
   %295 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %295(ptr noundef nonnull @.str.341) #38
-  tail call void @abort() #44
+  tail call void %295(ptr noundef nonnull @.str.341) #40
+  tail call void @abort() #46
   unreachable
 
 GC_release_mark_lock.exit141:                     ; preds = %292
@@ -15779,14 +15779,14 @@ GC_build_fl4.exit.i:                              ; preds = %341
 GC_build_fl.exit:                                 ; preds = %GC_build_fl_clear2.exit.i, %GC_build_fl2.exit.i, %GC_build_fl_clear4.exit.i, %GC_build_fl4.exit.i, %._crit_edge.i
   %.036.i = phi ptr [ %.0.lcssa.i, %._crit_edge.i ], [ %338, %GC_build_fl_clear4.exit.i ], [ %348, %GC_build_fl4.exit.i ], [ %317, %GC_build_fl_clear2.exit.i ], [ %327, %GC_build_fl2.exit.i ]
   store ptr %.036.i, ptr %2, align 8
-  %356 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @mark_mutex) #38
+  %356 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @mark_mutex) #40
   %357 = icmp eq i32 %356, 0
   br i1 %357, label %GC_acquire_mark_lock.exit144, label %.preheader.i.i142
 
 .preheader.i.i142:                                ; preds = %GC_build_fl.exit, %361
   %.079.i.i143 = phi i32 [ %362, %361 ], [ 1, %GC_build_fl.exit ]
   fence syncscope("singlethread") seq_cst
-  %358 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @mark_mutex) #38
+  %358 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @mark_mutex) #40
   switch i32 %358, label %359 [
     i32 0, label %GC_acquire_mark_lock.exit144
     i32 16, label %361
@@ -15794,8 +15794,8 @@ GC_build_fl.exit:                                 ; preds = %GC_build_fl_clear2.
 
 359:                                              ; preds = %.preheader.i.i142
   %360 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %360(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %360(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 361:                                              ; preds = %.preheader.i.i142
@@ -15804,7 +15804,7 @@ GC_build_fl.exit:                                 ; preds = %GC_build_fl_clear2.
   br i1 %363, label %.preheader.i.i142, label %364, !llvm.loop !4
 
 364:                                              ; preds = %361
-  %365 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @mark_mutex) #38
+  %365 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @mark_mutex) #40
   br label %GC_acquire_mark_lock.exit144
 
 GC_acquire_mark_lock.exit144:                     ; preds = %.preheader.i.i142, %GC_build_fl.exit, %364
@@ -15815,25 +15815,25 @@ GC_acquire_mark_lock.exit144:                     ; preds = %.preheader.i.i142, 
   br i1 %368, label %369, label %GC_notify_all_builder.exit146
 
 369:                                              ; preds = %GC_acquire_mark_lock.exit144
-  %370 = tail call i32 @pthread_cond_broadcast(ptr noundef nonnull @builder_cv) #38
+  %370 = tail call i32 @pthread_cond_broadcast(ptr noundef nonnull @builder_cv) #40
   %.not.i145 = icmp eq i32 %370, 0
   br i1 %.not.i145, label %GC_notify_all_builder.exit146, label %371
 
 371:                                              ; preds = %369
   %372 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %372(ptr noundef nonnull @.str.139) #38
-  tail call void @abort() #44
+  tail call void %372(ptr noundef nonnull @.str.139) #40
+  tail call void @abort() #46
   unreachable
 
 GC_notify_all_builder.exit146:                    ; preds = %369, %GC_acquire_mark_lock.exit144
-  %373 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @mark_mutex) #38
+  %373 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @mark_mutex) #40
   %.not.i147 = icmp eq i32 %373, 0
   br i1 %.not.i147, label %GC_release_mark_lock.exit148, label %374
 
 374:                                              ; preds = %GC_notify_all_builder.exit146
   %375 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %375(ptr noundef nonnull @.str.341) #38
-  tail call void @abort() #44
+  tail call void %375(ptr noundef nonnull @.str.341) #40
+  tail call void @abort() #46
   unreachable
 
 GC_release_mark_lock.exit148:                     ; preds = %GC_notify_all_builder.exit146
@@ -16071,7 +16071,7 @@ GC_build_fl.exit185:                              ; preds = %454, %._crit_edge.i
   br i1 %.b, label %467, label %469
 
 467:                                              ; preds = %GC_build_fl.exit185
-  %468 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %468 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %469
 
 469:                                              ; preds = %GC_build_fl.exit185, %467
@@ -16174,7 +16174,7 @@ define internal fastcc ptr @GC_reclaim_generic(ptr noundef %0, ptr noundef %1, i
   br label %41
 
 31:                                               ; preds = %.lr.ph.split.us.i
-  %32 = tail call i32 %19(ptr noundef %.02934.us.i) #38
+  %32 = tail call i32 %19(ptr noundef %.02934.us.i) #40
   %.not32.us.i = icmp eq i32 %32, 0
   br i1 %.not32.us.i, label %.lr.ph.i.preheader.us.i, label %33
 
@@ -16231,7 +16231,7 @@ GC_clear_block.exit.loopexit.us.i:                ; preds = %.lr.ph.i.us.i
   br label %58
 
 49:                                               ; preds = %.lr.ph.split.i
-  %50 = tail call i32 %19(ptr noundef %.02934.i) #38
+  %50 = tail call i32 %19(ptr noundef %.02934.i) #40
   %.not32.i = icmp eq i32 %50, 0
   br i1 %.not32.i, label %GC_clear_block.exit.i, label %51
 
@@ -16610,7 +16610,7 @@ define noalias ptr @GC_memalign(i64 noundef %0, i64 noundef %1) local_unnamed_ad
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %5
-  %8 = tail call noalias ptr @GC_malloc_kind(i64 noundef %1, i32 noundef 1) #47
+  %8 = tail call noalias ptr @GC_malloc_kind(i64 noundef %1, i32 noundef 1) #50
   br label %11
 
 9:                                                ; preds = %5
@@ -16640,7 +16640,7 @@ define range(i32 0, 23) i32 @GC_posix_memalign(ptr nocapture noundef nonnull wri
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %10
-  %13 = tail call noalias ptr @GC_malloc_kind(i64 noundef %2, i32 noundef 1) #47
+  %13 = tail call noalias ptr @GC_malloc_kind(i64 noundef %2, i32 noundef 1) #50
   br label %GC_memalign.exit
 
 14:                                               ; preds = %10
@@ -16682,7 +16682,7 @@ define noalias ptr @GC_valloc(i64 noundef %0) local_unnamed_addr #5 {
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %7
-  %10 = tail call noalias ptr @GC_malloc_kind(i64 noundef %0, i32 noundef 1) #47
+  %10 = tail call noalias ptr @GC_malloc_kind(i64 noundef %0, i32 noundef 1) #50
   br label %GC_memalign.exit
 
 11:                                               ; preds = %7
@@ -16720,7 +16720,7 @@ define noalias ptr @GC_pvalloc(i64 noundef %0) local_unnamed_addr #5 {
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %12
-  %15 = tail call noalias ptr @GC_malloc_kind(i64 noundef %10, i32 noundef 1) #47
+  %15 = tail call noalias ptr @GC_malloc_kind(i64 noundef %10, i32 noundef 1) #50
   br label %GC_memalign.exit
 
 16:                                               ; preds = %12
@@ -16738,14 +16738,14 @@ define noalias ptr @GC_strdup(ptr noundef readonly %0) local_unnamed_addr #1 {
   br i1 %2, label %11, label %3
 
 3:                                                ; preds = %1
-  %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #46
+  %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #48
   %5 = add i64 %4, 1
-  %6 = tail call noalias ptr @GC_malloc_kind(i64 noundef %5, i32 noundef 0) #47
+  %6 = tail call noalias ptr @GC_malloc_kind(i64 noundef %5, i32 noundef 0) #50
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %3
-  %9 = tail call ptr @__errno_location() #45
+  %9 = tail call ptr @__errno_location() #47
   store i32 12, ptr %9, align 4
   br label %11
 
@@ -16760,15 +16760,15 @@ define noalias ptr @GC_strdup(ptr noundef readonly %0) local_unnamed_addr #1 {
 
 ; Function Attrs: nounwind uwtable
 define noalias ptr @GC_strndup(ptr nocapture noundef nonnull readonly %0, i64 noundef %1) local_unnamed_addr #1 {
-  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #46
+  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #48
   %spec.select = tail call i64 @llvm.umin.i64(i64 %3, i64 %1)
   %4 = add i64 %spec.select, 1
-  %5 = tail call noalias ptr @GC_malloc_kind(i64 noundef %4, i32 noundef 0) #47
+  %5 = tail call noalias ptr @GC_malloc_kind(i64 noundef %4, i32 noundef 0) #50
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %2
-  %8 = tail call ptr @__errno_location() #45
+  %8 = tail call ptr @__errno_location() #47
   store i32 12, ptr %8, align 4
   br label %13
 
@@ -16791,15 +16791,15 @@ define noalias ptr @GC_strndup(ptr nocapture noundef nonnull readonly %0, i64 no
 
 ; Function Attrs: nounwind uwtable
 define noalias ptr @GC_wcsdup(ptr nocapture noundef nonnull readonly %0) local_unnamed_addr #1 {
-  %2 = tail call i64 @wcslen(ptr noundef nonnull %0) #46
+  %2 = tail call i64 @wcslen(ptr noundef nonnull %0) #48
   %3 = shl i64 %2, 2
   %4 = add i64 %3, 4
-  %5 = tail call noalias ptr @GC_malloc_kind(i64 noundef %4, i32 noundef 0) #47
+  %5 = tail call noalias ptr @GC_malloc_kind(i64 noundef %4, i32 noundef 0) #50
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %1
-  %8 = tail call ptr @__errno_location() #45
+  %8 = tail call ptr @__errno_location() #47
   store i32 12, ptr %8, align 4
   br label %10
 
@@ -16813,7 +16813,7 @@ define noalias ptr @GC_wcsdup(ptr nocapture noundef nonnull readonly %0) local_u
 
 ; Function Attrs: nounwind uwtable
 define noalias ptr @GC_malloc_stubborn(i64 noundef %0) local_unnamed_addr #1 {
-  %2 = tail call noalias ptr @GC_malloc_kind(i64 noundef %0, i32 noundef 1) #47
+  %2 = tail call noalias ptr @GC_malloc_kind(i64 noundef %0, i32 noundef 1) #50
   ret ptr %2
 }
 
@@ -16840,7 +16840,7 @@ define void @GC_ptr_store_and_dirty(ptr noundef %0, ptr noundef %1) local_unname
   br label %12
 
 12:                                               ; preds = %2, %3
-  tail call void asm sideeffect " ", "X,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %1) #38, !srcloc !83
+  tail call void asm sideeffect " ", "X,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %1) #40, !srcloc !83
   ret void
 }
 
@@ -16863,8 +16863,8 @@ define void @GC_set_pointer_mask(i64 noundef %0) local_unnamed_addr #1 {
 
 2:                                                ; preds = %1
   %3 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %3(ptr noundef nonnull @.str.50) #38
-  tail call void @abort() #44
+  tail call void %3(ptr noundef nonnull @.str.50) #40
+  tail call void @abort() #46
   unreachable
 
 4:                                                ; preds = %1
@@ -16883,8 +16883,8 @@ define void @GC_set_pointer_shift(i32 noundef %0) local_unnamed_addr #1 {
 
 2:                                                ; preds = %1
   %3 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %3(ptr noundef nonnull @.str.50) #38
-  tail call void @abort() #44
+  tail call void %3(ptr noundef nonnull @.str.50) #40
+  tail call void @abort() #46
   unreachable
 
 4:                                                ; preds = %1
@@ -17037,7 +17037,7 @@ GC_lock.exit.thread:                              ; preds = %1
   br label %21
 
 2:                                                ; preds = %1
-  %3 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %3 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %GC_lock.exit, label %4
 
@@ -17052,14 +17052,14 @@ GC_lock.exit.thread:                              ; preds = %1
   br i1 %.not.i, label %9, label %GC_generic_lock.exit.sink.split.i
 
 9:                                                ; preds = %7
-  %10 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %10 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %GC_lock.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %9, %15
   %.079.i.i = phi i32 [ %16, %15 ], [ 1, %9 ]
   fence syncscope("singlethread") seq_cst
-  %12 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %12 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %12, label %13 [
     i32 0, label %GC_lock.exit
     i32 16, label %15
@@ -17067,8 +17067,8 @@ GC_lock.exit.thread:                              ; preds = %1
 
 13:                                               ; preds = %.preheader.i.i
   %14 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %14(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %14(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 15:                                               ; preds = %.preheader.i.i
@@ -17077,7 +17077,7 @@ GC_lock.exit.thread:                              ; preds = %1
   br i1 %17, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %15, %7, %4
-  %18 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %18 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit
 
 GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC_generic_lock.exit.sink.split.i, %9, %2
@@ -17086,7 +17086,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   br i1 %.b.pr, label %19, label %21
 
 19:                                               ; preds = %GC_lock.exit
-  %20 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %20 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %21
 
 21:                                               ; preds = %GC_lock.exit.thread, %GC_lock.exit, %19
@@ -17103,7 +17103,7 @@ GC_lock.exit.thread:                              ; preds = %0
   br label %22
 
 2:                                                ; preds = %0
-  %3 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %3 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %GC_lock.exit, label %4
 
@@ -17118,14 +17118,14 @@ GC_lock.exit.thread:                              ; preds = %0
   br i1 %.not.i, label %9, label %GC_generic_lock.exit.sink.split.i
 
 9:                                                ; preds = %7
-  %10 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %10 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %GC_lock.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %9, %15
   %.079.i.i = phi i32 [ %16, %15 ], [ 1, %9 ]
   fence syncscope("singlethread") seq_cst
-  %12 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %12 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %12, label %13 [
     i32 0, label %GC_lock.exit
     i32 16, label %15
@@ -17133,8 +17133,8 @@ GC_lock.exit.thread:                              ; preds = %0
 
 13:                                               ; preds = %.preheader.i.i
   %14 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %14(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %14(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 15:                                               ; preds = %.preheader.i.i
@@ -17143,7 +17143,7 @@ GC_lock.exit.thread:                              ; preds = %0
   br i1 %17, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %15, %7, %4
-  %18 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %18 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit
 
 GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC_generic_lock.exit.sink.split.i, %9, %2
@@ -17152,7 +17152,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   br i1 %.b.pr, label %20, label %22
 
 20:                                               ; preds = %GC_lock.exit
-  %21 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %21 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %22
 
 22:                                               ; preds = %GC_lock.exit.thread, %GC_lock.exit, %20
@@ -17180,8 +17180,8 @@ define void @GC_push_all(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
 
 13:                                               ; preds = %9
   %14 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %14(ptr noundef nonnull @.str.51) #38
-  tail call void @abort() #44
+  tail call void %14(ptr noundef nonnull @.str.51) #40
+  tail call void @abort() #46
   unreachable
 
 15:                                               ; preds = %9
@@ -17356,8 +17356,8 @@ define void @GC_push_conditional(ptr noundef %0, ptr noundef %1, i32 noundef %2)
 
 16:                                               ; preds = %12
   %17 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %17(ptr noundef nonnull @.str.51) #38
-  tail call void @abort() #44
+  tail call void %17(ptr noundef nonnull @.str.51) #40
+  tail call void @abort() #46
   unreachable
 
 18:                                               ; preds = %12
@@ -17389,7 +17389,7 @@ define internal fastcc void @GC_push_selected(ptr noundef %0, ptr noundef %1, pt
   %13 = inttoptr i64 %12 to ptr
   %.not34 = icmp ugt i64 %8, %12
   %14 = getelementptr inbounds i8, ptr %13, i64 -4096
-  %15 = tail call i32 %2(ptr noundef nonnull %14) #38
+  %15 = tail call i32 %2(ptr noundef nonnull %14) #40
   %.not35 = icmp eq i32 %15, 0
   br i1 %.not34, label %25, label %16
 
@@ -17405,8 +17405,8 @@ define internal fastcc void @GC_push_selected(ptr noundef %0, ptr noundef %1, pt
 
 21:                                               ; preds = %17
   %22 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %22(ptr noundef nonnull @.str.51) #38
-  tail call void @abort() #44
+  tail call void %22(ptr noundef nonnull @.str.51) #40
+  tail call void @abort() #46
   unreachable
 
 23:                                               ; preds = %17
@@ -17440,8 +17440,8 @@ define internal fastcc void @GC_push_selected(ptr noundef %0, ptr noundef %1, pt
 
 42:                                               ; preds = %38
   %43 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %43(ptr noundef nonnull @.str.51) #38
-  tail call void @abort() #44
+  tail call void %43(ptr noundef nonnull @.str.51) #40
+  tail call void @abort() #46
   unreachable
 
 44:                                               ; preds = %38
@@ -17461,8 +17461,8 @@ define internal fastcc void @GC_push_selected(ptr noundef %0, ptr noundef %1, pt
 
 50:                                               ; preds = %46
   %51 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %51(ptr noundef nonnull @.str.51) #38
-  tail call void @abort() #44
+  tail call void %51(ptr noundef nonnull @.str.51) #40
+  tail call void @abort() #46
   unreachable
 
 52:                                               ; preds = %46
@@ -17483,7 +17483,7 @@ GC_push_all.exit46:                               ; preds = %52, %45, %25
   %57 = phi i64 [ %95, %GC_push_all.exit52 ], [ %56, %GC_push_all.exit46 ]
   %58 = phi ptr [ %94, %GC_push_all.exit52 ], [ %55, %GC_push_all.exit46 ]
   %.059 = phi ptr [ %58, %GC_push_all.exit52 ], [ %13, %GC_push_all.exit46 ]
-  %59 = tail call i32 %2(ptr noundef %.059) #38, !callees !84
+  %59 = tail call i32 %2(ptr noundef %.059) #40, !callees !84
   %.not39 = icmp eq i32 %59, 0
   br i1 %.not39, label %GC_push_all.exit52, label %60
 
@@ -17517,8 +17517,8 @@ GC_push_all.exit46:                               ; preds = %52, %45, %25
 
 80:                                               ; preds = %76
   %81 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %81(ptr noundef nonnull @.str.51) #38
-  tail call void @abort() #44
+  tail call void %81(ptr noundef nonnull @.str.51) #40
+  tail call void @abort() #46
   unreachable
 
 82:                                               ; preds = %76
@@ -17539,8 +17539,8 @@ GC_push_all.exit46:                               ; preds = %52, %45, %25
 
 89:                                               ; preds = %85
   %90 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %90(ptr noundef nonnull @.str.51) #38
-  tail call void @abort() #44
+  tail call void %90(ptr noundef nonnull @.str.51) #40
+  tail call void @abort() #46
   unreachable
 
 91:                                               ; preds = %85
@@ -17563,7 +17563,7 @@ GC_push_all.exit52:                               ; preds = %91, %83, %.lr.ph
   br i1 %.not37, label %GC_push_all.exit, label %96
 
 96:                                               ; preds = %._crit_edge
-  %97 = tail call i32 %2(ptr noundef %.0.lcssa) #38, !callees !84
+  %97 = tail call i32 %2(ptr noundef %.0.lcssa) #40, !callees !84
   %.not38 = icmp eq i32 %97, 0
   br i1 %.not38, label %GC_push_all.exit, label %98
 
@@ -17584,8 +17584,8 @@ GC_push_all.exit52:                               ; preds = %91, %83, %.lr.ph
 
 107:                                              ; preds = %103
   %108 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %108(ptr noundef nonnull @.str.51) #38
-  tail call void @abort() #44
+  tail call void %108(ptr noundef nonnull @.str.51) #40
+  tail call void @abort() #46
   unreachable
 
 109:                                              ; preds = %103
@@ -18358,7 +18358,7 @@ define void @GC_add_roots(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 
   br i1 %.b2, label %5, label %GC_lock.exit
 
 5:                                                ; preds = %4
-  %6 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %6 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %GC_lock.exit, label %7
 
@@ -18373,14 +18373,14 @@ define void @GC_add_roots(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 
   br i1 %.not.i, label %12, label %GC_generic_lock.exit.sink.split.i
 
 12:                                               ; preds = %10
-  %13 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %13 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %GC_lock.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %12, %18
   %.079.i.i = phi i32 [ %19, %18 ], [ 1, %12 ]
   fence syncscope("singlethread") seq_cst
-  %15 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %15 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %15, label %16 [
     i32 0, label %GC_lock.exit
     i32 16, label %18
@@ -18388,8 +18388,8 @@ define void @GC_add_roots(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 
 
 16:                                               ; preds = %.preheader.i.i
   %17 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %17(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %17(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 18:                                               ; preds = %.preheader.i.i
@@ -18398,7 +18398,7 @@ define void @GC_add_roots(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 
   br i1 %20, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %18, %10, %7
-  %21 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %21 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit
 
 GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC_generic_lock.exit.sink.split.i, %12, %4, %5
@@ -18407,7 +18407,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   br i1 %.b, label %22, label %24
 
 22:                                               ; preds = %GC_lock.exit
-  %23 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %23 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %24
 
 24:                                               ; preds = %GC_lock.exit, %22
@@ -18490,8 +18490,8 @@ GC_roots_present.exit.thread:                     ; preds = %24, %10, %33
 
 42:                                               ; preds = %GC_roots_present.exit.thread
   %43 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %43(ptr noundef nonnull @.str.216) #38
-  tail call void @abort() #44
+  tail call void %43(ptr noundef nonnull @.str.216) #40
+  tail call void @abort() #46
   unreachable
 
 44:                                               ; preds = %GC_roots_present.exit.thread
@@ -18552,7 +18552,7 @@ GC_lock.exit.thread:                              ; preds = %2
   br label %22
 
 3:                                                ; preds = %2
-  %4 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %4 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %GC_lock.exit, label %5
 
@@ -18567,14 +18567,14 @@ GC_lock.exit.thread:                              ; preds = %2
   br i1 %.not.i, label %10, label %GC_generic_lock.exit.sink.split.i
 
 10:                                               ; preds = %8
-  %11 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %11 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %GC_lock.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %10, %16
   %.079.i.i = phi i32 [ %17, %16 ], [ 1, %10 ]
   fence syncscope("singlethread") seq_cst
-  %13 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %13 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %13, label %14 [
     i32 0, label %GC_lock.exit
     i32 16, label %16
@@ -18582,8 +18582,8 @@ GC_lock.exit.thread:                              ; preds = %2
 
 14:                                               ; preds = %.preheader.i.i
   %15 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %15(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %15(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 16:                                               ; preds = %.preheader.i.i
@@ -18592,7 +18592,7 @@ GC_lock.exit.thread:                              ; preds = %2
   br i1 %18, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %16, %8, %5
-  %19 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %19 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit
 
 GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC_generic_lock.exit.sink.split.i, %10, %3
@@ -18604,7 +18604,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   br i1 %.b.pr, label %20, label %22
 
 20:                                               ; preds = %GC_lock.exit
-  %21 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %21 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %22
 
 22:                                               ; preds = %GC_lock.exit.thread, %GC_lock.exit, %20
@@ -18626,7 +18626,7 @@ define void @GC_remove_roots(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   br i1 %.b4, label %9, label %GC_lock.exit
 
 9:                                                ; preds = %8
-  %10 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %10 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not5 = icmp eq i32 %10, 0
   br i1 %.not5, label %GC_lock.exit, label %11
 
@@ -18641,14 +18641,14 @@ define void @GC_remove_roots(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   br i1 %.not.i, label %16, label %GC_generic_lock.exit.sink.split.i
 
 16:                                               ; preds = %14
-  %17 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %17 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %GC_lock.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %16, %22
   %.079.i.i = phi i32 [ %23, %22 ], [ 1, %16 ]
   fence syncscope("singlethread") seq_cst
-  %19 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %19 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %19, label %20 [
     i32 0, label %GC_lock.exit
     i32 16, label %22
@@ -18656,8 +18656,8 @@ define void @GC_remove_roots(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
 
 20:                                               ; preds = %.preheader.i.i
   %21 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %21(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %21(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 22:                                               ; preds = %.preheader.i.i
@@ -18666,7 +18666,7 @@ define void @GC_remove_roots(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   br i1 %24, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %22, %14, %11
-  %25 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %25 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit
 
 GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC_generic_lock.exit.sink.split.i, %16, %8, %9
@@ -18764,7 +18764,7 @@ GC_remove_roots_inner.exit:                       ; preds = %.lr.ph.i.i, %GC_loc
   br i1 %.b, label %69, label %71
 
 69:                                               ; preds = %GC_remove_roots_inner.exit
-  %70 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %70 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %71
 
 71:                                               ; preds = %GC_remove_roots_inner.exit, %69, %2
@@ -18777,7 +18777,7 @@ define i32 @GC_is_tmp_root(ptr noundef readnone %0) local_unnamed_addr #1 {
   br i1 %.b18, label %2, label %GC_lock.exit
 
 2:                                                ; preds = %1
-  %3 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %3 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %GC_lock.exit, label %4
 
@@ -18792,14 +18792,14 @@ define i32 @GC_is_tmp_root(ptr noundef readnone %0) local_unnamed_addr #1 {
   br i1 %.not.i, label %9, label %GC_generic_lock.exit.sink.split.i
 
 9:                                                ; preds = %7
-  %10 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %10 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %GC_lock.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %9, %15
   %.079.i.i = phi i32 [ %16, %15 ], [ 1, %9 ]
   fence syncscope("singlethread") seq_cst
-  %12 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %12 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %12, label %13 [
     i32 0, label %GC_lock.exit
     i32 16, label %15
@@ -18807,8 +18807,8 @@ define i32 @GC_is_tmp_root(ptr noundef readnone %0) local_unnamed_addr #1 {
 
 13:                                               ; preds = %.preheader.i.i
   %14 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %14(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %14(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 15:                                               ; preds = %.preheader.i.i
@@ -18817,7 +18817,7 @@ define i32 @GC_is_tmp_root(ptr noundef readnone %0) local_unnamed_addr #1 {
   br i1 %17, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %15, %7, %4
-  %18 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %18 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit
 
 GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC_generic_lock.exit.sink.split.i, %9, %1, %2
@@ -18883,7 +18883,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   br i1 %.b, label %46, label %48
 
 46:                                               ; preds = %.loopexit
-  %47 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %47 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %48
 
 48:                                               ; preds = %.loopexit, %46
@@ -18915,7 +18915,7 @@ define void @GC_exclude_static_roots(ptr noundef %0, ptr noundef %1) local_unnam
   br i1 %.b10, label %13, label %GC_lock.exit
 
 13:                                               ; preds = %4
-  %14 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %14 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %GC_lock.exit, label %15
 
@@ -18930,14 +18930,14 @@ define void @GC_exclude_static_roots(ptr noundef %0, ptr noundef %1) local_unnam
   br i1 %.not.i, label %20, label %GC_generic_lock.exit.sink.split.i
 
 20:                                               ; preds = %18
-  %21 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %21 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %GC_lock.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %20, %26
   %.079.i.i = phi i32 [ %27, %26 ], [ 1, %20 ]
   fence syncscope("singlethread") seq_cst
-  %23 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %23 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %23, label %24 [
     i32 0, label %GC_lock.exit
     i32 16, label %26
@@ -18945,8 +18945,8 @@ define void @GC_exclude_static_roots(ptr noundef %0, ptr noundef %1) local_unnam
 
 24:                                               ; preds = %.preheader.i.i
   %25 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %25(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %25(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 26:                                               ; preds = %.preheader.i.i
@@ -18955,7 +18955,7 @@ define void @GC_exclude_static_roots(ptr noundef %0, ptr noundef %1) local_unnam
   br i1 %28, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %26, %18, %15
-  %29 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %29 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit
 
 GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC_generic_lock.exit.sink.split.i, %20, %4, %13
@@ -18964,7 +18964,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   br i1 %.b, label %30, label %32
 
 30:                                               ; preds = %GC_lock.exit
-  %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %32
 
 32:                                               ; preds = %GC_lock.exit, %30, %2
@@ -19016,8 +19016,8 @@ GC_next_exclusion.exit:                           ; preds = %._crit_edge.i.threa
 
 20:                                               ; preds = %GC_next_exclusion.exit
   %21 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %21(ptr noundef nonnull @.str.217) #38
-  tail call void @abort() #44
+  tail call void %21(ptr noundef nonnull @.str.217) #40
+  tail call void @abort() #46
   unreachable
 
 22:                                               ; preds = %GC_next_exclusion.exit
@@ -19038,8 +19038,8 @@ GC_next_exclusion.exit.thread:                    ; preds = %._crit_edge.i
 
 27:                                               ; preds = %.thread, %GC_next_exclusion.exit.thread
   %28 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %28(ptr noundef nonnull @.str.218) #38
-  tail call void @abort() #44
+  tail call void %28(ptr noundef nonnull @.str.218) #40
+  tail call void @abort() #46
   unreachable
 
 29:                                               ; preds = %.thread
@@ -19415,7 +19415,7 @@ GC_find_header.exit.i:                            ; preds = %22
   br i1 %.not23.i, label %48, label %47
 
 47:                                               ; preds = %44
-  tail call void %0(ptr noundef %.01926.i, i64 noundef %34, ptr noundef %1) #38
+  tail call void %0(ptr noundef %.01926.i, i64 noundef %34, ptr noundef %1) #40
   br label %48
 
 48:                                               ; preds = %47, %44
@@ -19466,7 +19466,7 @@ define i64 @GC_make_descriptor(ptr nocapture noundef readonly %0, i64 noundef %1
   br i1 %.b39, label %5, label %GC_lock.exit
 
 5:                                                ; preds = %4
-  %6 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %6 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not40 = icmp eq i32 %6, 0
   br i1 %.not40, label %GC_lock.exit, label %7
 
@@ -19481,14 +19481,14 @@ define i64 @GC_make_descriptor(ptr nocapture noundef readonly %0, i64 noundef %1
   br i1 %.not.i, label %12, label %GC_generic_lock.exit.sink.split.i
 
 12:                                               ; preds = %10
-  %13 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %13 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %GC_lock.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %12, %18
   %.079.i.i = phi i32 [ %19, %18 ], [ 1, %12 ]
   fence syncscope("singlethread") seq_cst
-  %15 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %15 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %15, label %16 [
     i32 0, label %GC_lock.exit
     i32 16, label %18
@@ -19496,8 +19496,8 @@ define i64 @GC_make_descriptor(ptr nocapture noundef readonly %0, i64 noundef %1
 
 16:                                               ; preds = %.preheader.i.i
   %17 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %17(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %17(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 18:                                               ; preds = %.preheader.i.i
@@ -19506,7 +19506,7 @@ define i64 @GC_make_descriptor(ptr nocapture noundef readonly %0, i64 noundef %1
   br i1 %20, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %18, %10, %7
-  %21 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %21 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit
 
 GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC_generic_lock.exit.sink.split.i, %12, %4, %5
@@ -19521,8 +19521,8 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
 
 26:                                               ; preds = %23
   %27 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %27(ptr noundef nonnull @.str.96) #38
-  tail call void @abort() #44
+  tail call void %27(ptr noundef nonnull @.str.96) #40
+  tail call void @abort() #46
   unreachable
 
 GC_new_proc_inner.exit.i:                         ; preds = %23
@@ -19538,8 +19538,8 @@ GC_new_proc_inner.exit.i:                         ; preds = %23
 
 33:                                               ; preds = %GC_new_proc_inner.exit.i
   %34 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %34(ptr noundef nonnull @.str.94) #38
-  tail call void @abort() #44
+  tail call void %34(ptr noundef nonnull @.str.94) #40
+  tail call void @abort() #46
   unreachable
 
 GC_new_free_list_inner.exit.i:                    ; preds = %GC_new_proc_inner.exit.i
@@ -19550,8 +19550,8 @@ GC_new_free_list_inner.exit.i:                    ; preds = %GC_new_proc_inner.e
 
 37:                                               ; preds = %GC_new_free_list_inner.exit.i
   %38 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %38(ptr noundef nonnull @.str.95) #38
-  tail call void @abort() #44
+  tail call void %38(ptr noundef nonnull @.str.95) #40
+  tail call void @abort() #46
   unreachable
 
 GC_new_kind_inner.exit.i:                         ; preds = %GC_new_free_list_inner.exit.i
@@ -19579,8 +19579,8 @@ GC_new_kind_inner.exit.i:                         ; preds = %GC_new_free_list_in
 
 50:                                               ; preds = %GC_new_kind_inner.exit.i
   %51 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %51(ptr noundef nonnull @.str.96) #38
-  tail call void @abort() #44
+  tail call void %51(ptr noundef nonnull @.str.96) #40
+  tail call void @abort() #46
   unreachable
 
 GC_new_proc_inner.exit4.i:                        ; preds = %GC_new_kind_inner.exit.i
@@ -19596,8 +19596,8 @@ GC_new_proc_inner.exit4.i:                        ; preds = %GC_new_kind_inner.e
 
 57:                                               ; preds = %GC_new_proc_inner.exit4.i
   %58 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %58(ptr noundef nonnull @.str.94) #38
-  tail call void @abort() #44
+  tail call void %58(ptr noundef nonnull @.str.94) #40
+  tail call void @abort() #46
   unreachable
 
 GC_new_free_list_inner.exit5.i:                   ; preds = %GC_new_proc_inner.exit4.i
@@ -19608,8 +19608,8 @@ GC_new_free_list_inner.exit5.i:                   ; preds = %GC_new_proc_inner.e
 
 61:                                               ; preds = %GC_new_free_list_inner.exit5.i
   %62 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %62(ptr noundef nonnull @.str.95) #38
-  tail call void @abort() #44
+  tail call void %62(ptr noundef nonnull @.str.95) #40
+  tail call void @abort() #46
   unreachable
 
 GC_new_kind_inner.exit6.i:                        ; preds = %GC_new_free_list_inner.exit5.i
@@ -19658,7 +19658,7 @@ GC_init_explicit_typing.exit:                     ; preds = %76
   br i1 %.b, label %82, label %.preheader
 
 82:                                               ; preds = %81
-  %83 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %83 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %.preheader
 
 .preheader:                                       ; preds = %82, %81, %2
@@ -19748,7 +19748,7 @@ GC_init_explicit_typing.exit:                     ; preds = %76
   br i1 %.b39.i, label %120, label %GC_lock.exit.i
 
 120:                                              ; preds = %117
-  %121 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %121 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not.i46 = icmp eq i32 %121, 0
   br i1 %.not.i46, label %GC_lock.exit.i, label %122
 
@@ -19763,14 +19763,14 @@ GC_init_explicit_typing.exit:                     ; preds = %76
   br i1 %.not.i.i, label %127, label %GC_generic_lock.exit.sink.split.i.i
 
 127:                                              ; preds = %125
-  %128 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %128 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %129 = icmp eq i32 %128, 0
   br i1 %129, label %GC_lock.exit.i, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %127, %133
   %.079.i.i.i = phi i32 [ %134, %133 ], [ 1, %127 ]
   fence syncscope("singlethread") seq_cst
-  %130 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %130 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %130, label %131 [
     i32 0, label %GC_lock.exit.i
     i32 16, label %133
@@ -19778,8 +19778,8 @@ GC_init_explicit_typing.exit:                     ; preds = %76
 
 131:                                              ; preds = %.preheader.i.i.i
   %132 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %132(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %132(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 133:                                              ; preds = %.preheader.i.i.i
@@ -19788,7 +19788,7 @@ GC_init_explicit_typing.exit:                     ; preds = %76
   br i1 %135, label %.preheader.i.i.i, label %GC_generic_lock.exit.sink.split.i.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i.i:              ; preds = %133, %125, %122
-  %136 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %136 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit.i
 
 GC_lock.exit.i:                                   ; preds = %.preheader.i.i.i, %GC_generic_lock.exit.sink.split.i.i, %127, %120, %117
@@ -19815,7 +19815,7 @@ GC_lock.exit.i:                                   ; preds = %.preheader.i.i.i, %
   br i1 %.b38.i, label %144, label %152
 
 144:                                              ; preds = %143
-  %145 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %145 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %152
 
 146:                                              ; preds = %.lr.ph.i
@@ -19823,7 +19823,7 @@ GC_lock.exit.i:                                   ; preds = %.preheader.i.i.i, %
   br i1 %.b37.i, label %147, label %149
 
 147:                                              ; preds = %146
-  %148 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %148 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %149
 
 149:                                              ; preds = %147, %146
@@ -19834,7 +19834,7 @@ GC_lock.exit.i:                                   ; preds = %.preheader.i.i.i, %
 152:                                              ; preds = %149, %144, %143
   %.030.i = phi i64 [ %150, %149 ], [ 100, %143 ], [ 100, %144 ]
   %153 = shl nuw nsw i64 %.030.i, 4
-  %154 = tail call noalias ptr @GC_malloc_kind(i64 noundef %153, i32 noundef 0) #47
+  %154 = tail call noalias ptr @GC_malloc_kind(i64 noundef %153, i32 noundef 0) #50
   %155 = icmp eq ptr %154, null
   br i1 %155, label %GC_add_ext_descriptor.exit.thread, label %156
 
@@ -19843,7 +19843,7 @@ GC_lock.exit.i:                                   ; preds = %.preheader.i.i.i, %
   br i1 %.b36.i, label %157, label %GC_lock.exit47.i
 
 157:                                              ; preds = %156
-  %158 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %158 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not41.i = icmp eq i32 %158, 0
   br i1 %.not41.i, label %GC_lock.exit47.i, label %159
 
@@ -19858,14 +19858,14 @@ GC_lock.exit.i:                                   ; preds = %.preheader.i.i.i, %
   br i1 %.not.i43.i, label %164, label %GC_generic_lock.exit.sink.split.i44.i
 
 164:                                              ; preds = %162
-  %165 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %165 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %166 = icmp eq i32 %165, 0
   br i1 %166, label %GC_lock.exit47.i, label %.preheader.i.i45.i
 
 .preheader.i.i45.i:                               ; preds = %164, %170
   %.079.i.i46.i = phi i32 [ %171, %170 ], [ 1, %164 ]
   fence syncscope("singlethread") seq_cst
-  %167 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %167 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %167, label %168 [
     i32 0, label %GC_lock.exit47.i
     i32 16, label %170
@@ -19873,8 +19873,8 @@ GC_lock.exit.i:                                   ; preds = %.preheader.i.i.i, %
 
 168:                                              ; preds = %.preheader.i.i45.i
   %169 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %169(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %169(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 170:                                              ; preds = %.preheader.i.i45.i
@@ -19883,7 +19883,7 @@ GC_lock.exit.i:                                   ; preds = %.preheader.i.i.i, %
   br i1 %172, label %.preheader.i.i45.i, label %GC_generic_lock.exit.sink.split.i44.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i44.i:            ; preds = %170, %162, %159
-  %173 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %173 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit47.i
 
 GC_lock.exit47.i:                                 ; preds = %.preheader.i.i45.i, %GC_generic_lock.exit.sink.split.i44.i, %164, %157, %156
@@ -19949,7 +19949,7 @@ GC_lock.exit47.i:                                 ; preds = %.preheader.i.i45.i,
   br i1 %.b.i, label %205, label %GC_add_ext_descriptor.exit
 
 205:                                              ; preds = %._crit_edge.i
-  %206 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %206 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_add_ext_descriptor.exit
 
 GC_add_ext_descriptor.exit:                       ; preds = %._crit_edge.i, %205
@@ -19985,7 +19985,7 @@ define noalias ptr @GC_malloc_explicitly_typed(i64 noundef %0, i64 noundef %1) l
   %7 = sub i64 %reass.sub, %4
   %8 = select i1 %6, i64 %7, i64 -1
   %9 = load i32, ptr @GC_explicit_kind, align 4
-  %10 = tail call noalias ptr @GC_malloc_kind(i64 noundef %8, i32 noundef %9) #47
+  %10 = tail call noalias ptr @GC_malloc_kind(i64 noundef %8, i32 noundef %9) #50
   %11 = icmp eq ptr %10, null
   br i1 %11, label %45, label %12
 
@@ -20035,7 +20035,7 @@ GC_size.exit:                                     ; preds = %18
   br label %44
 
 44:                                               ; preds = %GC_size.exit, %35
-  tail call void asm sideeffect " ", "X,~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %1) #38, !srcloc !104
+  tail call void asm sideeffect " ", "X,~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %1) #40, !srcloc !104
   br label %45
 
 45:                                               ; preds = %2, %44
@@ -20058,7 +20058,7 @@ define noalias ptr @GC_malloc_explicitly_typed_ignore_off_page(i64 noundef %0, i
   %10 = sub nsw i64 %reass.sub.i, %7
   %11 = select i1 %9, i64 %10, i64 -1
   %12 = load i32, ptr @GC_explicit_kind, align 4
-  %13 = tail call noalias ptr @GC_malloc_kind(i64 noundef %11, i32 noundef %12) #47
+  %13 = tail call noalias ptr @GC_malloc_kind(i64 noundef %11, i32 noundef %12) #50
   %14 = icmp eq ptr %13, null
   br i1 %14, label %GC_malloc_explicitly_typed.exit, label %15
 
@@ -20108,7 +20108,7 @@ GC_size.exit.i:                                   ; preds = %21
   br label %47
 
 47:                                               ; preds = %38, %GC_size.exit.i
-  tail call void asm sideeffect " ", "X,~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %1) #38, !srcloc !104
+  tail call void asm sideeffect " ", "X,~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %1) #40, !srcloc !104
   br label %GC_malloc_explicitly_typed.exit
 
 48:                                               ; preds = %2
@@ -20184,7 +20184,7 @@ GC_size.exit:                                     ; preds = %70
   br label %96
 
 96:                                               ; preds = %GC_size.exit, %87
-  tail call void asm sideeffect " ", "X,~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %1) #38, !srcloc !105
+  tail call void asm sideeffect " ", "X,~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %1) #40, !srcloc !105
   br label %GC_malloc_explicitly_typed.exit
 
 GC_malloc_explicitly_typed.exit:                  ; preds = %47, %5, %GC_clear_stack.exit, %96
@@ -20334,7 +20334,7 @@ GC_double_descr.exit:                             ; preds = %24, %28
   br i1 %or.cond57, label %GC_make_leaf_descriptor.exit.thread, label %39
 
 39:                                               ; preds = %GC_double_descr.exit
-  %40 = tail call noalias dereferenceable_or_null(32) ptr @GC_malloc_kind(i64 noundef 32, i32 noundef 0) #47
+  %40 = tail call noalias dereferenceable_or_null(32) ptr @GC_malloc_kind(i64 noundef 32, i32 noundef 0) #50
   %41 = icmp eq ptr %40, null
   br i1 %41, label %GC_make_leaf_descriptor.exit.thread, label %42
 
@@ -20357,7 +20357,7 @@ GC_double_descr.exit:                             ; preds = %24, %28
 
 48:                                               ; preds = %42
   %49 = load i64, ptr %3, align 8
-  %50 = tail call noalias dereferenceable_or_null(32) ptr @GC_malloc_kind(i64 noundef 32, i32 noundef 0) #47
+  %50 = tail call noalias dereferenceable_or_null(32) ptr @GC_malloc_kind(i64 noundef 32, i32 noundef 0) #50
   %51 = icmp eq ptr %50, null
   br i1 %51, label %GC_make_leaf_descriptor.exit.thread, label %52
 
@@ -20376,7 +20376,7 @@ GC_double_descr.exit:                             ; preds = %24, %28
   %58 = load <2 x i64>, ptr %57, align 8
   %59 = getelementptr inbounds i8, ptr %5, i64 24
   %60 = load i64, ptr %59, align 8
-  %61 = tail call noalias dereferenceable_or_null(32) ptr @GC_malloc_kind(i64 noundef 32, i32 noundef 0) #47
+  %61 = tail call noalias dereferenceable_or_null(32) ptr @GC_malloc_kind(i64 noundef 32, i32 noundef 0) #50
   %62 = icmp eq ptr %61, null
   br i1 %62, label %GC_make_leaf_descriptor.exit.thread, label %63
 
@@ -20390,7 +20390,7 @@ GC_double_descr.exit:                             ; preds = %24, %28
 
 GC_make_leaf_descriptor.exit58:                   ; preds = %52, %63, %46
   %.048 = phi ptr [ %47, %46 ], [ %50, %52 ], [ %61, %63 ]
-  %66 = tail call noalias dereferenceable_or_null(24) ptr @GC_malloc_kind(i64 noundef 24, i32 noundef 1) #47
+  %66 = tail call noalias dereferenceable_or_null(24) ptr @GC_malloc_kind(i64 noundef 24, i32 noundef 1) #50
   %67 = icmp eq ptr %66, null
   br i1 %67, label %GC_make_sequence_descriptor.exit, label %68
 
@@ -20415,8 +20415,8 @@ GC_make_leaf_descriptor.exit58:                   ; preds = %52, %63, %46
   br label %80
 
 80:                                               ; preds = %71, %68
-  tail call void asm sideeffect " ", "X,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %.048) #38, !srcloc !106
-  tail call void asm sideeffect " ", "X,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %40) #38, !srcloc !107
+  tail call void asm sideeffect " ", "X,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %.048) #40, !srcloc !106
+  tail call void asm sideeffect " ", "X,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %40) #40, !srcloc !107
   br label %GC_make_sequence_descriptor.exit
 
 GC_make_sequence_descriptor.exit:                 ; preds = %GC_make_leaf_descriptor.exit58, %80
@@ -20453,7 +20453,7 @@ define noalias ptr @GC_calloc_do_explicitly_typed(ptr nocapture noundef readonly
   %6 = tail call ptr @GC_get_oom_fn()
   %7 = getelementptr inbounds i8, ptr %0, i64 48
   %8 = load i64, ptr %7, align 8
-  %9 = tail call ptr %6(i64 noundef %8) #38
+  %9 = tail call ptr %6(i64 noundef %8) #40
   br label %GC_malloc_explicitly_typed.exit
 
 10:                                               ; preds = %2
@@ -20470,7 +20470,7 @@ define noalias ptr @GC_calloc_do_explicitly_typed(ptr nocapture noundef readonly
   %19 = sub i64 %reass.sub.i, %16
   %20 = select i1 %18, i64 %19, i64 -1
   %21 = load i32, ptr @GC_explicit_kind, align 4
-  %22 = tail call noalias ptr @GC_malloc_kind(i64 noundef %20, i32 noundef %21) #47
+  %22 = tail call noalias ptr @GC_malloc_kind(i64 noundef %20, i32 noundef %21) #50
   %23 = icmp eq ptr %22, null
   br i1 %23, label %GC_malloc_explicitly_typed.exit, label %24
 
@@ -20520,7 +20520,7 @@ GC_size.exit.i:                                   ; preds = %30
   br label %56
 
 56:                                               ; preds = %47, %GC_size.exit.i
-  tail call void asm sideeffect " ", "X,~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %14) #38, !srcloc !104
+  tail call void asm sideeffect " ", "X,~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %14) #40, !srcloc !104
   br label %GC_malloc_explicitly_typed.exit
 
 57:                                               ; preds = %2
@@ -20530,15 +20530,15 @@ GC_size.exit.i:                                   ; preds = %30
 
 60:                                               ; preds = %57
   %61 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %61(ptr noundef nonnull @.str.59) #38
-  tail call void @abort() #44
+  tail call void %61(ptr noundef nonnull @.str.59) #40
+  tail call void @abort() #46
   unreachable
 
 62:                                               ; preds = %2, %2
   %63 = getelementptr inbounds i8, ptr %0, i64 48
   %64 = load i64, ptr %63, align 8
   %65 = load i32, ptr @GC_array_kind, align 4
-  %66 = tail call noalias ptr @GC_malloc_kind(i64 noundef %64, i32 noundef %65) #47
+  %66 = tail call noalias ptr @GC_malloc_kind(i64 noundef %64, i32 noundef %65) #50
   %67 = icmp eq ptr %66, null
   br i1 %67, label %GC_malloc_explicitly_typed.exit, label %68
 
@@ -20596,7 +20596,7 @@ GC_lock.exit.thread:                              ; preds = %91
   br label %GC_malloc_explicitly_typed.exit
 
 102:                                              ; preds = %91
-  %103 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %103 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not36 = icmp eq i32 %103, 0
   br i1 %.not36, label %GC_lock.exit, label %104
 
@@ -20611,14 +20611,14 @@ GC_lock.exit.thread:                              ; preds = %91
   br i1 %.not.i, label %109, label %GC_generic_lock.exit.sink.split.i
 
 109:                                              ; preds = %107
-  %110 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %110 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %111 = icmp eq i32 %110, 0
   br i1 %111, label %GC_lock.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %109, %115
   %.079.i.i = phi i32 [ %116, %115 ], [ 1, %109 ]
   fence syncscope("singlethread") seq_cst
-  %112 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %112 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %112, label %113 [
     i32 0, label %GC_lock.exit
     i32 16, label %115
@@ -20626,8 +20626,8 @@ GC_lock.exit.thread:                              ; preds = %91
 
 113:                                              ; preds = %.preheader.i.i
   %114 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %114(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %114(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 115:                                              ; preds = %.preheader.i.i
@@ -20636,7 +20636,7 @@ GC_lock.exit.thread:                              ; preds = %91
   br i1 %117, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %115, %107, %104
-  %118 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %118 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit
 
 GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC_generic_lock.exit.sink.split.i, %109, %102
@@ -20647,7 +20647,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   br i1 %.b33.pr, label %121, label %GC_malloc_explicitly_typed.exit
 
 121:                                              ; preds = %GC_lock.exit
-  %122 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %122 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_malloc_explicitly_typed.exit
 
 123:                                              ; preds = %GC_size.exit
@@ -20664,7 +20664,7 @@ GC_lock.exit41.thread:                            ; preds = %123
   br label %153
 
 129:                                              ; preds = %123
-  %130 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %130 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not = icmp eq i32 %130, 0
   br i1 %.not, label %GC_lock.exit41, label %131
 
@@ -20679,14 +20679,14 @@ GC_lock.exit41.thread:                            ; preds = %123
   br i1 %.not.i37, label %136, label %GC_generic_lock.exit.sink.split.i38
 
 136:                                              ; preds = %134
-  %137 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %137 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %138 = icmp eq i32 %137, 0
   br i1 %138, label %GC_lock.exit41, label %.preheader.i.i39
 
 .preheader.i.i39:                                 ; preds = %136, %142
   %.079.i.i40 = phi i32 [ %143, %142 ], [ 1, %136 ]
   fence syncscope("singlethread") seq_cst
-  %139 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %139 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %139, label %140 [
     i32 0, label %GC_lock.exit41
     i32 16, label %142
@@ -20694,8 +20694,8 @@ GC_lock.exit41.thread:                            ; preds = %123
 
 140:                                              ; preds = %.preheader.i.i39
   %141 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %141(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %141(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 142:                                              ; preds = %.preheader.i.i39
@@ -20704,7 +20704,7 @@ GC_lock.exit41.thread:                            ; preds = %123
   br i1 %144, label %.preheader.i.i39, label %GC_generic_lock.exit.sink.split.i38, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i38:              ; preds = %142, %134, %131
-  %145 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %145 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit41
 
 GC_lock.exit41:                                   ; preds = %.preheader.i.i39, %GC_generic_lock.exit.sink.split.i38, %136, %129
@@ -20718,7 +20718,7 @@ GC_lock.exit41:                                   ; preds = %.preheader.i.i39, %
   br i1 %.b.pr, label %151, label %153
 
 151:                                              ; preds = %GC_lock.exit41
-  %152 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %152 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %153
 
 153:                                              ; preds = %GC_lock.exit41.thread, %GC_lock.exit41, %151
@@ -20740,7 +20740,7 @@ GC_lock.exit41:                                   ; preds = %.preheader.i.i39, %
 
 165:                                              ; preds = %153, %156
   %166 = load ptr, ptr %155, align 8
-  tail call void asm sideeffect " ", "X,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %166) #38, !srcloc !108
+  tail call void asm sideeffect " ", "X,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %166) #40, !srcloc !108
   %167 = getelementptr inbounds ptr, ptr %66, i64 %88
   %168 = getelementptr inbounds i8, ptr %167, i64 -8
   %169 = ptrtoint ptr %168 to i64
@@ -20750,8 +20750,8 @@ GC_lock.exit41:                                   ; preds = %.preheader.i.i39, %
 
 171:                                              ; preds = %165
   %172 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %172(ptr noundef nonnull @.str.40) #38
-  tail call void @abort() #44
+  tail call void %172(ptr noundef nonnull @.str.40) #40
+  tail call void @abort() #46
   unreachable
 
 GC_general_register_disappearing_link.exit:       ; preds = %165
@@ -20762,7 +20762,7 @@ GC_general_register_disappearing_link.exit:       ; preds = %165
 175:                                              ; preds = %GC_general_register_disappearing_link.exit
   %176 = tail call ptr @GC_get_oom_fn()
   %177 = load i64, ptr %63, align 8
-  %178 = tail call ptr %176(i64 noundef %177) #38
+  %178 = tail call ptr %176(i64 noundef %177) #40
   br label %GC_malloc_explicitly_typed.exit
 
 GC_malloc_explicitly_typed.exit:                  ; preds = %GC_lock.exit.thread, %56, %10, %GC_lock.exit, %121, %GC_general_register_disappearing_link.exit, %62, %57, %175, %5
@@ -20780,7 +20780,7 @@ GC_lock.exit.thread:                              ; preds = %0
   br label %22
 
 2:                                                ; preds = %0
-  %3 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %3 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %GC_lock.exit, label %4
 
@@ -20795,14 +20795,14 @@ GC_lock.exit.thread:                              ; preds = %0
   br i1 %.not.i, label %9, label %GC_generic_lock.exit.sink.split.i
 
 9:                                                ; preds = %7
-  %10 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %10 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %GC_lock.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %9, %15
   %.079.i.i = phi i32 [ %16, %15 ], [ 1, %9 ]
   fence syncscope("singlethread") seq_cst
-  %12 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %12 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %12, label %13 [
     i32 0, label %GC_lock.exit
     i32 16, label %15
@@ -20810,8 +20810,8 @@ GC_lock.exit.thread:                              ; preds = %0
 
 13:                                               ; preds = %.preheader.i.i
   %14 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %14(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %14(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 15:                                               ; preds = %.preheader.i.i
@@ -20820,7 +20820,7 @@ GC_lock.exit.thread:                              ; preds = %0
   br i1 %17, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %15, %7, %4
-  %18 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %18 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit
 
 GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC_generic_lock.exit.sink.split.i, %9, %2
@@ -20829,7 +20829,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   br i1 %.b.pr, label %20, label %22
 
 20:                                               ; preds = %GC_lock.exit
-  %21 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %21 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %22
 
 22:                                               ; preds = %GC_lock.exit.thread, %GC_lock.exit, %20
@@ -21022,7 +21022,7 @@ define void @GC_get_heap_usage_safe(ptr noundef writeonly %0, ptr noundef writeo
   br i1 %.b14, label %6, label %GC_lock.exit
 
 6:                                                ; preds = %5
-  %7 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %7 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %GC_lock.exit, label %8
 
@@ -21037,14 +21037,14 @@ define void @GC_get_heap_usage_safe(ptr noundef writeonly %0, ptr noundef writeo
   br i1 %.not.i, label %13, label %GC_generic_lock.exit.sink.split.i
 
 13:                                               ; preds = %11
-  %14 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %14 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %GC_lock.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %13, %19
   %.079.i.i = phi i32 [ %20, %19 ], [ 1, %13 ]
   fence syncscope("singlethread") seq_cst
-  %16 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %16 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %16, label %17 [
     i32 0, label %GC_lock.exit
     i32 16, label %19
@@ -21052,8 +21052,8 @@ define void @GC_get_heap_usage_safe(ptr noundef writeonly %0, ptr noundef writeo
 
 17:                                               ; preds = %.preheader.i.i
   %18 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %18(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %18(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 19:                                               ; preds = %.preheader.i.i
@@ -21062,7 +21062,7 @@ define void @GC_get_heap_usage_safe(ptr noundef writeonly %0, ptr noundef writeo
   br i1 %21, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %19, %11, %8
-  %22 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %22 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit
 
 GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC_generic_lock.exit.sink.split.i, %13, %5, %6
@@ -21121,7 +21121,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   br i1 %.b, label %44, label %46
 
 44:                                               ; preds = %43
-  %45 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %45 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %46
 
 46:                                               ; preds = %43, %44
@@ -21135,7 +21135,7 @@ define range(i64 0, 97) i64 @GC_get_prof_stats(ptr nocapture noundef writeonly %
   br i1 %.b11, label %4, label %GC_lock.exit
 
 4:                                                ; preds = %2
-  %5 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %5 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %GC_lock.exit, label %6
 
@@ -21150,14 +21150,14 @@ define range(i64 0, 97) i64 @GC_get_prof_stats(ptr nocapture noundef writeonly %
   br i1 %.not.i, label %11, label %GC_generic_lock.exit.sink.split.i
 
 11:                                               ; preds = %9
-  %12 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %12 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %GC_lock.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %11, %17
   %.079.i.i = phi i32 [ %18, %17 ], [ 1, %11 ]
   fence syncscope("singlethread") seq_cst
-  %14 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %14 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %14, label %15 [
     i32 0, label %GC_lock.exit
     i32 16, label %17
@@ -21165,8 +21165,8 @@ define range(i64 0, 97) i64 @GC_get_prof_stats(ptr nocapture noundef writeonly %
 
 15:                                               ; preds = %.preheader.i.i
   %16 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %16(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %16(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 17:                                               ; preds = %.preheader.i.i
@@ -21175,7 +21175,7 @@ define range(i64 0, 97) i64 @GC_get_prof_stats(ptr nocapture noundef writeonly %
   br i1 %19, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %17, %9, %6
-  %20 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %20 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit
 
 GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC_generic_lock.exit.sink.split.i, %11, %2, %4
@@ -21233,7 +21233,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   br i1 %.b, label %37, label %39
 
 37:                                               ; preds = %GC_lock.exit
-  %38 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %38 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %39
 
 39:                                               ; preds = %GC_lock.exit, %37
@@ -21416,18 +21416,18 @@ define hidden ptr @GC_get_main_stack_base() local_unnamed_addr #1 {
   %2 = alloca %union.pthread_attr_t, align 8
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  %5 = tail call i64 @pthread_self() #45
-  %6 = call i32 @pthread_getattr_np(i64 noundef %5, ptr noundef nonnull %2) #38
+  %5 = tail call i64 @pthread_self() #47
+  %6 = call i32 @pthread_getattr_np(i64 noundef %5, ptr noundef nonnull %2) #40
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %8, label %18
 
 8:                                                ; preds = %0
-  %9 = call i32 @pthread_attr_getstack(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4) #38
+  %9 = call i32 @pthread_attr_getstack(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4) #40
   %10 = icmp eq i32 %9, 0
   %11 = load ptr, ptr %3, align 8
   %12 = icmp ne ptr %11, null
   %or.cond = select i1 %10, i1 %12, i1 false
-  %13 = call i32 @pthread_attr_destroy(ptr noundef nonnull %2) #38
+  %13 = call i32 @pthread_attr_destroy(ptr noundef nonnull %2) #40
   br i1 %or.cond, label %14, label %18
 
 14:                                               ; preds = %8
@@ -21438,7 +21438,7 @@ define hidden ptr @GC_get_main_stack_base() local_unnamed_addr #1 {
 
 18:                                               ; preds = %8, %0
   %19 = load ptr, ptr @GC_current_warn_proc, align 8
-  call void %19(ptr noundef nonnull @.str.105, i64 noundef 0) #38
+  call void %19(ptr noundef nonnull @.str.105, i64 noundef 0) #40
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %1)
   %.not.i = icmp eq ptr @__libc_stack_end, null
   br i1 %.not.i, label %22, label %20
@@ -21449,24 +21449,24 @@ define hidden ptr @GC_get_main_stack_base() local_unnamed_addr #1 {
   br i1 %.not45.i, label %22, label %GC_linux_main_stack_base.exit
 
 22:                                               ; preds = %20, %18
-  %23 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull @.str.260, i32 noundef 0) #38
+  %23 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull @.str.260, i32 noundef 0) #40
   %24 = icmp eq i32 %23, -1
   br i1 %24, label %25, label %.lr.ph.i.i
 
 25:                                               ; preds = %22
-  %26 = tail call ptr @__errno_location() #45
+  %26 = tail call ptr @__errno_location() #47
   %27 = load i32, ptr %26, align 4
   call void (ptr, ...) @GC_log_printf(ptr noundef nonnull @.str.261, i32 noundef %27)
   %28 = load ptr, ptr @GC_on_abort, align 8
-  call void %28(ptr noundef nonnull @.str.262) #38
-  call void @abort() #44
+  call void %28(ptr noundef nonnull @.str.262) #40
+  call void @abort() #46
   unreachable
 
 .lr.ph.i.i:                                       ; preds = %22, %35
   %.01316.i.i = phi i64 [ %36, %35 ], [ 0, %22 ]
   %29 = getelementptr inbounds i8, ptr %1, i64 %.01316.i.i
   %30 = sub nuw nsw i64 4096, %.01316.i.i
-  %31 = call i64 @read(i32 noundef %23, ptr noundef nonnull %29, i64 noundef %30) #38
+  %31 = call i64 @read(i32 noundef %23, ptr noundef nonnull %29, i64 noundef %30) #40
   %32 = icmp slt i64 %31, 0
   br i1 %32, label %GC_repeat_read.exit.i, label %33
 
@@ -21480,17 +21480,17 @@ define hidden ptr @GC_get_main_stack_base() local_unnamed_addr #1 {
   br i1 %37, label %.lr.ph.i.i, label %41, !llvm.loop !109
 
 GC_repeat_read.exit.i:                            ; preds = %.lr.ph.i.i
-  %38 = tail call ptr @__errno_location() #45
+  %38 = tail call ptr @__errno_location() #47
   %39 = load i32, ptr %38, align 4
   call void (ptr, ...) @GC_log_printf(ptr noundef nonnull @.str.263, i32 noundef %39)
   %40 = load ptr, ptr @GC_on_abort, align 8
-  call void %40(ptr noundef nonnull @.str.264) #38
-  call void @abort() #44
+  call void %40(ptr noundef nonnull @.str.264) #40
+  call void @abort() #46
   unreachable
 
 41:                                               ; preds = %35, %33
   %.0.i.ph.i = phi i64 [ %.01316.i.i, %33 ], [ %36, %35 ]
-  %42 = call i32 @close(i32 noundef %23) #38
+  %42 = call i32 @close(i32 noundef %23) #40
   br label %.preheader54.i
 
 .preheader54.i:                                   ; preds = %.critedge2.i, %41
@@ -21504,7 +21504,7 @@ GC_repeat_read.exit.i:                            ; preds = %.lr.ph.i.i
   br i1 %43, label %.lr.ph.i, label %.critedge4.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
-  %44 = tail call ptr @__ctype_b_loc() #45
+  %44 = tail call ptr @__ctype_b_loc() #47
   %45 = load ptr, ptr %44, align 8
   br label %69
 
@@ -21514,7 +21514,7 @@ GC_repeat_read.exit.i:                            ; preds = %.lr.ph.i.i
   br i1 %exitcond.not.i, label %.critedge.i, label %47
 
 47:                                               ; preds = %46
-  %48 = tail call ptr @__ctype_b_loc() #45
+  %48 = tail call ptr @__ctype_b_loc() #47
   %49 = load ptr, ptr %48, align 8
   %50 = add i64 %.1.i, 1
   %51 = getelementptr inbounds [4096 x i8], ptr %1, i64 0, i64 %.1.i
@@ -21537,7 +21537,7 @@ GC_repeat_read.exit.i:                            ; preds = %.lr.ph.i.i
   br i1 %exitcond65.not.i, label %.critedge2.i, label %58
 
 58:                                               ; preds = %57
-  %59 = tail call ptr @__ctype_b_loc() #45
+  %59 = tail call ptr @__ctype_b_loc() #47
   %60 = load ptr, ptr %59, align 8
   %61 = add i64 %.3.i, 1
   %62 = getelementptr inbounds [4096 x i8], ptr %1, i64 0, i64 %.3.i
@@ -21577,7 +21577,7 @@ GC_repeat_read.exit.i:                            ; preds = %.lr.ph.i.i
   br i1 %79, label %.lr.ph62.i, label %._crit_edge.i
 
 .lr.ph62.i:                                       ; preds = %.critedge4.i
-  %80 = tail call ptr @__ctype_b_loc() #45
+  %80 = tail call ptr @__ctype_b_loc() #47
   %81 = load ptr, ptr %80, align 8
   %invariant.op.i = add nsw i64 %.5.lcssa.i, 1
   br label %85
@@ -21602,15 +21602,15 @@ GC_repeat_read.exit.i:                            ; preds = %.lr.ph.i.i
 
 ._crit_edge.i:                                    ; preds = %76, %82, %.critedge4.i
   %93 = load ptr, ptr @GC_on_abort, align 8
-  call void %93(ptr noundef nonnull @.str.265) #38
-  call void @abort() #44
+  call void %93(ptr noundef nonnull @.str.265) #40
+  call void @abort() #46
   unreachable
 
 94:                                               ; preds = %85
   %95 = getelementptr inbounds [4096 x i8], ptr %1, i64 0, i64 %86
   store i8 0, ptr %95, align 1
   %96 = getelementptr inbounds i8, ptr %1, i64 %.5.lcssa.i
-  %97 = call i64 @strtoul(ptr nocapture noundef nonnull %96, ptr noundef null, i32 noundef 10) #38
+  %97 = call i64 @strtoul(ptr nocapture noundef nonnull %96, ptr noundef null, i32 noundef 10) #40
   %98 = icmp ugt i64 %97, 1048575
   %99 = and i64 %97, 7
   %.not49.i = icmp eq i64 %99, 0
@@ -21620,8 +21620,8 @@ GC_repeat_read.exit.i:                            ; preds = %.lr.ph.i.i
 100:                                              ; preds = %94
   call void (ptr, ...) @GC_log_printf(ptr noundef nonnull @.str.266, i64 noundef %97)
   %101 = load ptr, ptr @GC_on_abort, align 8
-  call void %101(ptr noundef nonnull @.str.267) #38
-  call void @abort() #44
+  call void %101(ptr noundef nonnull @.str.267) #40
+  call void @abort() #46
   unreachable
 
 102:                                              ; preds = %94
@@ -21678,11 +21678,11 @@ define internal fastcc void @set_incremental_mode_on() unnamed_addr #1 {
   store i32 268435460, ptr %17, align 8
   store ptr @GC_write_fault_handler, ptr %4, align 8
   %18 = getelementptr inbounds i8, ptr %4, i64 8
-  %19 = call i32 @sigemptyset(ptr noundef nonnull %18) #38
+  %19 = call i32 @sigemptyset(ptr noundef nonnull %18) #40
   %20 = load i32, ptr @GC_sig_suspend, align 4
   %.not.i.i = icmp eq i32 %20, -1
   %21 = select i1 %.not.i.i, i32 30, i32 %20
-  %22 = call i32 @sigaddset(ptr noundef nonnull %18, i32 noundef %21) #38
+  %22 = call i32 @sigaddset(ptr noundef nonnull %18, i32 noundef %21) #40
   %23 = load i32, ptr @GC_print_stats, align 4
   %.not.i = icmp eq i32 %23, 2
   br i1 %.not.i, label %24, label %25
@@ -21699,12 +21699,12 @@ define internal fastcc void @set_incremental_mode_on() unnamed_addr #1 {
 
 28:                                               ; preds = %25
   %29 = load ptr, ptr @GC_on_abort, align 8
-  call void %29(ptr noundef nonnull @.str.230) #38
-  call void @abort() #44
+  call void %29(ptr noundef nonnull @.str.230) #40
+  call void @abort() #46
   unreachable
 
 30:                                               ; preds = %25
-  %31 = call ptr @getenv(ptr noundef nonnull @.str.239) #38
+  %31 = call ptr @getenv(ptr noundef nonnull @.str.239) #40
   %.not.i10.i = icmp eq ptr %31, null
   br i1 %.not.i10.i, label %39, label %32
 
@@ -21721,7 +21721,7 @@ define internal fastcc void @set_incremental_mode_on() unnamed_addr #1 {
 
 39:                                               ; preds = %35, %32, %30
   call void @llvm.lifetime.start.p0(i64 390, ptr nonnull %3)
-  %40 = call i32 @uname(ptr noundef nonnull %3) #38
+  %40 = call i32 @uname(ptr noundef nonnull %3) #40
   %41 = icmp eq i32 %40, -1
   br i1 %41, label %ensure_min_linux_ver.exit.thread.i.i, label %42
 
@@ -21733,13 +21733,13 @@ define internal fastcc void @set_incremental_mode_on() unnamed_addr #1 {
 43:                                               ; preds = %42
   %44 = load ptr, ptr @GC_current_warn_proc, align 8
   %45 = ptrtoint ptr %3 to i64
-  call void %44(ptr noundef nonnull @.str.244, i64 noundef %45) #38
+  call void %44(ptr noundef nonnull @.str.244, i64 noundef %45) #40
   br label %ensure_min_linux_ver.exit.thread.i.i
 
 46:                                               ; preds = %42
   %47 = getelementptr inbounds i8, ptr %3, i64 130
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  %48 = call i64 @strtoul(ptr noundef nonnull %47, ptr noundef nonnull %2, i32 noundef 10) #38
+  %48 = call i64 @strtoul(ptr noundef nonnull %47, ptr noundef nonnull %2, i32 noundef 10) #40
   %49 = trunc i64 %48 to i32
   %50 = icmp slt i32 %49, 0
   br i1 %50, label %ensure_min_linux_ver.exit.thread19.i.i, label %51
@@ -21758,7 +21758,7 @@ define internal fastcc void @set_incremental_mode_on() unnamed_addr #1 {
 
 56:                                               ; preds = %54
   %57 = getelementptr inbounds i8, ptr %52, i64 1
-  %58 = call i64 @strtoul(ptr noundef nonnull %57, ptr noundef nonnull %2, i32 noundef 10) #38
+  %58 = call i64 @strtoul(ptr noundef nonnull %57, ptr noundef nonnull %2, i32 noundef 10) #40
   %59 = trunc i64 %58 to i32
   %or.cond18.i.i.i.i = icmp ult i64 %58, 2147483648
   br i1 %or.cond18.i.i.i.i, label %GC_parse_version.exit.i.i.i, label %ensure_min_linux_ver.exit.thread19.i.i
@@ -21811,8 +21811,8 @@ ensure_min_linux_ver.exit.i.i:                    ; preds = %GC_parse_version.ex
 
 71:                                               ; preds = %68
   %72 = load ptr, ptr @GC_on_abort, align 8
-  call void %72(ptr noundef nonnull @.str.241) #38
-  call void @abort() #44
+  call void %72(ptr noundef nonnull @.str.241) #40
+  call void @abort() #46
   unreachable
 
 73:                                               ; preds = %68
@@ -21824,13 +21824,13 @@ ensure_min_linux_ver.exit.i.i:                    ; preds = %GC_parse_version.ex
   %77 = lshr i64 %74, %76
   %78 = shl i64 %77, 3
   %79 = load i32, ptr @pagemap_fd, align 4
-  %80 = call i64 @lseek(i32 noundef %79, i64 noundef %78, i32 noundef 0) #38
+  %80 = call i64 @lseek(i32 noundef %79, i64 noundef %78, i32 noundef 0) #40
   %81 = icmp eq i64 %80, -1
   br i1 %81, label %.loopexit.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %73, %clear_soft_dirty_bits.exit.i.i.i
   %82 = load i32, ptr @pagemap_fd, align 4
-  %83 = call i64 @read(i32 noundef %82, ptr noundef nonnull %1, i64 noundef 8) #38
+  %83 = call i64 @read(i32 noundef %82, ptr noundef nonnull %1, i64 noundef 8) #40
   %.not.i10.i.i = icmp eq i64 %83, 8
   br i1 %.not.i10.i.i, label %84, label %.loopexit.i.i
 
@@ -21847,7 +21847,7 @@ ensure_min_linux_ver.exit.i.i:                    ; preds = %GC_parse_version.ex
 
 91:                                               ; preds = %88
   %92 = load i32, ptr @clear_refs_fd, align 4
-  %93 = call i64 @write(i32 noundef %92, ptr noundef nonnull @.str.250, i64 noundef 2) #38
+  %93 = call i64 @write(i32 noundef %92, ptr noundef nonnull @.str.250, i64 noundef 2) #40
   %.not.i.i12.i.i = icmp eq i64 %93, 2
   br i1 %.not.i.i12.i.i, label %clear_soft_dirty_bits.exit.i.i.i, label %94
 
@@ -21856,7 +21856,7 @@ ensure_min_linux_ver.exit.i.i:                    ; preds = %GC_parse_version.ex
   br i1 %95, label %96, label %99
 
 96:                                               ; preds = %94
-  %97 = tail call ptr @__errno_location() #45
+  %97 = tail call ptr @__errno_location() #47
   %98 = load i32, ptr %97, align 4
   br label %99
 
@@ -21864,14 +21864,14 @@ ensure_min_linux_ver.exit.i.i:                    ; preds = %GC_parse_version.ex
   %100 = phi i32 [ %98, %96 ], [ 0, %94 ]
   call void (ptr, ...) @GC_log_printf(ptr noundef nonnull @.str.251, i32 noundef %100)
   %101 = load ptr, ptr @GC_on_abort, align 8
-  call void %101(ptr noundef nonnull @.str.252) #38
-  call void @abort() #44
+  call void %101(ptr noundef nonnull @.str.252) #40
+  call void @abort() #46
   unreachable
 
 clear_soft_dirty_bits.exit.i.i.i:                 ; preds = %91
   store i8 0, ptr %69, align 1
   %102 = load i32, ptr @pagemap_fd, align 4
-  %103 = call i64 @lseek(i32 noundef %102, i64 noundef %78, i32 noundef 0) #38
+  %103 = call i64 @lseek(i32 noundef %102, i64 noundef %78, i32 noundef 0) #40
   %104 = icmp eq i64 %103, -1
   br i1 %104, label %.loopexit.i.i, label %.lr.ph.i.i.i
 
@@ -21924,10 +21924,10 @@ clear_soft_dirty_bits.exit.i.i.i:                 ; preds = %91
 GC_scratch_recycle_inner.exit.i.i:                ; preds = %124, %123, %107
   store ptr null, ptr @soft_vdb_buf, align 8
   %127 = load i32, ptr @clear_refs_fd, align 4
-  %128 = call i32 @close(i32 noundef %127) #38
+  %128 = call i32 @close(i32 noundef %127) #40
   store i32 -1, ptr @clear_refs_fd, align 4
   %129 = load i32, ptr @pagemap_fd, align 4
-  %130 = call i32 @close(i32 noundef %129) #38
+  %130 = call i32 @close(i32 noundef %129) #40
   br label %134
 
 131:                                              ; preds = %88
@@ -21941,14 +21941,14 @@ GC_scratch_recycle_inner.exit.i.i:                ; preds = %124, %123, %107
   br label %GC_dirty_init.exit
 
 134:                                              ; preds = %GC_scratch_recycle_inner.exit.i.i, %66, %65, %63, %35
-  %135 = call i32 @sigaction(i32 noundef 11, ptr noundef nonnull %4, ptr noundef nonnull %5) #38
+  %135 = call i32 @sigaction(i32 noundef 11, ptr noundef nonnull %4, ptr noundef nonnull %5) #40
   %.not4.i = icmp eq i32 %135, 0
   br i1 %.not4.i, label %138, label %136
 
 136:                                              ; preds = %134
   %137 = load ptr, ptr @GC_on_abort, align 8
-  call void %137(ptr noundef nonnull @.str.232) #38
-  call void @abort() #44
+  call void %137(ptr noundef nonnull @.str.232) #40
+  call void @abort() #46
   unreachable
 
 138:                                              ; preds = %134
@@ -21964,7 +21964,7 @@ GC_scratch_recycle_inner.exit.i.i:                ; preds = %124, %123, %107
 
 .thread.i:                                        ; preds = %138
   %143 = load ptr, ptr @GC_current_warn_proc, align 8
-  call void %143(ptr noundef nonnull @.str.233, i64 noundef 0) #38
+  call void %143(ptr noundef nonnull @.str.233, i64 noundef 0) #40
   store ptr null, ptr @GC_old_segv_handler, align 8
   br label %GC_dirty_init.exit
 
@@ -22002,8 +22002,8 @@ define hidden void @GC_register_data_segments() local_unnamed_addr #1 {
 4:                                                ; preds = %0
   tail call void (ptr, ...) @GC_log_printf(ptr noundef nonnull @.str.108, ptr noundef %1, ptr noundef nonnull @_end)
   %5 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %5(ptr noundef nonnull @.str.109) #38
-  tail call void @abort() #44
+  tail call void %5(ptr noundef nonnull @.str.109) #40
+  tail call void @abort() #46
   unreachable
 
 6:                                                ; preds = %0
@@ -22011,20 +22011,20 @@ define hidden void @GC_register_data_segments() local_unnamed_addr #1 {
   ret void
 }
 
-; Function Attrs: noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #4
+; Function Attrs: nofree noreturn nounwind
+declare void @exit(i32 noundef) local_unnamed_addr #30
 
 ; Function Attrs: nounwind uwtable
 define void @GC_dump_named(ptr noundef %0) local_unnamed_addr #1 {
   %2 = alloca %struct.timespec, align 8
-  %3 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #38
+  %3 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #40
   %4 = icmp eq i32 %3, -1
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr @GC_on_abort, align 8
-  call void %6(ptr noundef nonnull @.str.82) #38
-  call void @abort() #44
+  call void %6(ptr noundef nonnull @.str.82) #40
+  call void @abort() #46
   unreachable
 
 7:                                                ; preds = %1
@@ -22133,7 +22133,7 @@ define internal fastcc range(i32 0, 2) i32 @GC_try_to_collect_inner(ptr noundef 
   br i1 %.not, label %5, label %.loopexit
 
 5:                                                ; preds = %1
-  %6 = tail call i32 %0() #38
+  %6 = tail call i32 %0() #40
   %.not18 = icmp eq i32 %6, 0
   br i1 %.not18, label %7, label %.loopexit
 
@@ -22143,7 +22143,7 @@ define internal fastcc range(i32 0, 2) i32 @GC_try_to_collect_inner(ptr noundef 
   br i1 %.not19, label %10, label %9
 
 9:                                                ; preds = %7
-  tail call void %8(i32 noundef 0) #38
+  tail call void %8(i32 noundef 0) #40
   br label %10
 
 10:                                               ; preds = %9, %7
@@ -22167,7 +22167,7 @@ define internal fastcc range(i32 0, 2) i32 @GC_try_to_collect_inner(ptr noundef 
   br label %16
 
 16:                                               ; preds = %.preheader, %18
-  %17 = tail call i32 %0() #38
+  %17 = tail call i32 %0() #40
   %.not23 = icmp eq i32 %17, 0
   br i1 %.not23, label %18, label %.loopexit
 
@@ -22185,7 +22185,7 @@ define internal fastcc range(i32 0, 2) i32 @GC_try_to_collect_inner(ptr noundef 
   br i1 %.not.i, label %GC_notify_full_gc.exit, label %21
 
 21:                                               ; preds = %.loopexit38
-  tail call void %20() #38
+  tail call void %20() #40
   br label %GC_notify_full_gc.exit
 
 GC_notify_full_gc.exit:                           ; preds = %.loopexit38, %21
@@ -22205,14 +22205,14 @@ GC_notify_full_gc.exit:                           ; preds = %.loopexit38, %21
   br label %27
 
 27:                                               ; preds = %26, %25
-  %28 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #38
+  %28 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #40
   %29 = icmp eq i32 %28, -1
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %27
   %31 = load ptr, ptr @GC_on_abort, align 8
-  call void %31(ptr noundef nonnull @.str.82) #38
-  call void @abort() #44
+  call void %31(ptr noundef nonnull @.str.82) #40
+  call void @abort() #46
   unreachable
 
 32:                                               ; preds = %27, %GC_notify_full_gc.exit
@@ -22388,14 +22388,14 @@ GC_unpromote_black_lists.exit:                    ; preds = %104, %108
   br i1 %.not25, label %146, label %114
 
 114:                                              ; preds = %113
-  %115 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #38
+  %115 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #40
   %116 = icmp eq i32 %115, -1
   br i1 %116, label %117, label %119
 
 117:                                              ; preds = %114
   %118 = load ptr, ptr @GC_on_abort, align 8
-  call void %118(ptr noundef nonnull @.str.82) #38
-  call void @abort() #44
+  call void %118(ptr noundef nonnull @.str.82) #40
+  call void @abort() #46
   unreachable
 
 119:                                              ; preds = %114
@@ -22449,7 +22449,7 @@ GC_unpromote_black_lists.exit:                    ; preds = %104, %108
   br i1 %.not33, label %.loopexit, label %148
 
 148:                                              ; preds = %146
-  call void %147(i32 noundef 5) #38
+  call void %147(i32 noundef 5) #40
   br label %.loopexit
 
 .loopexit:                                        ; preds = %16, %146, %148, %102, %GC_unpromote_black_lists.exit, %39, %1, %5
@@ -22467,19 +22467,19 @@ define internal fastcc void @GC_with_callee_saves_pushed(ptr noundef %0, ptr nou
   %8 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
   store volatile ptr null, ptr %5, align 8
-  call void asm sideeffect "fstcw $0", "=*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i16) %7) #38, !srcloc !116
+  call void asm sideeffect "fstcw $0", "=*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i16) %7) #40, !srcloc !116
   %9 = load i8, ptr @GC_with_callee_saves_pushed.getcontext_works, align 1
   %10 = icmp sgt i8 %9, -1
   br i1 %10, label %11, label %22
 
 11:                                               ; preds = %2
-  %12 = call i32 @getcontext(ptr noundef nonnull %6) #49
+  %12 = call i32 @getcontext(ptr noundef nonnull %6) #52
   %13 = icmp slt i32 %12, 0
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %11
   %15 = load ptr, ptr @GC_current_warn_proc, align 8
-  call void %15(ptr noundef nonnull @.str.293, i64 noundef 0) #38
+  call void %15(ptr noundef nonnull @.str.293, i64 noundef 0) #40
   br label %17
 
 16:                                               ; preds = %11
@@ -22499,8 +22499,8 @@ define internal fastcc void @GC_with_callee_saves_pushed(ptr noundef %0, ptr nou
   br label %22
 
 22:                                               ; preds = %17, %20, %2
-  call void asm sideeffect "fldcw $0", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i16) %7) #38, !srcloc !117
-  call void asm sideeffect "stmxcsr $0", "=*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %8) #38, !srcloc !118
+  call void asm sideeffect "fldcw $0", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i16) %7) #40, !srcloc !117
+  call void asm sideeffect "stmxcsr $0", "=*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %8) #40, !srcloc !118
   %23 = load i32, ptr %8, align 4
   %24 = and i32 %23, -7809
   %25 = load i16, ptr %7, align 2
@@ -22509,7 +22509,7 @@ define internal fastcc void @GC_with_callee_saves_pushed(ptr noundef %0, ptr nou
   %28 = zext nneg i16 %27 to i32
   %29 = or disjoint i32 %24, %28
   store i32 %29, ptr %8, align 4
-  call void asm sideeffect "ldmxcsr $0", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %8) #38, !srcloc !119
+  call void asm sideeffect "ldmxcsr $0", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %8) #40, !srcloc !119
   %.0..0..0..0.1 = load volatile ptr, ptr %5, align 8
   %30 = icmp eq ptr %.0..0..0..0.1, null
   br i1 %30, label %31, label %32
@@ -22521,7 +22521,7 @@ define internal fastcc void @GC_with_callee_saves_pushed(ptr noundef %0, ptr nou
 32:                                               ; preds = %31, %22
   %.0..0..0..0.4 = load volatile ptr, ptr %3, align 8
   %.0..0..0..0.2 = load volatile ptr, ptr %5, align 8
-  call void %.0..0..0..0.4(ptr noundef %1, ptr noundef %.0..0..0..0.2) #38
+  call void %.0..0..0..0.4(ptr noundef %1, ptr noundef %.0..0..0..0.2) #40
   %33 = ptrtoint ptr %4 to i64
   store volatile i64 %33, ptr @GC_noop_sink, align 8
   ret void
@@ -22533,7 +22533,7 @@ define internal void @callee_saves_pushed_dummy_fn(ptr nocapture readnone %0, pt
 }
 
 ; Function Attrs: nofree nounwind
-declare i32 @atexit(ptr noundef) local_unnamed_addr #30
+declare i32 @atexit(ptr noundef) local_unnamed_addr #31
 
 ; Function Attrs: nounwind uwtable
 define internal void @GC_exit_check() #1 {
@@ -22545,7 +22545,7 @@ define internal void @GC_exit_check() #1 {
 
 3:                                                ; preds = %0
   %4 = load i64, ptr @GC_main_thread_id, align 8
-  %5 = tail call i64 @pthread_self() #45
+  %5 = tail call i64 @pthread_self() #47
   %.not = icmp eq i64 %4, %5
   br i1 %.not, label %6, label %GC_gcollect.exit
 
@@ -22577,7 +22577,7 @@ define void @GC_enable_incremental() local_unnamed_addr #1 {
   br i1 %.not, label %3, label %69
 
 3:                                                ; preds = %0
-  %4 = tail call ptr @getenv(ptr noundef nonnull @.str.89) #38
+  %4 = tail call ptr @getenv(ptr noundef nonnull @.str.89) #40
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %69
 
@@ -22586,7 +22586,7 @@ define void @GC_enable_incremental() local_unnamed_addr #1 {
   br i1 %.b4, label %7, label %GC_lock.exit
 
 7:                                                ; preds = %6
-  %8 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %8 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not6 = icmp eq i32 %8, 0
   br i1 %.not6, label %GC_lock.exit, label %9
 
@@ -22601,14 +22601,14 @@ define void @GC_enable_incremental() local_unnamed_addr #1 {
   br i1 %.not.i, label %14, label %GC_generic_lock.exit.sink.split.i
 
 14:                                               ; preds = %12
-  %15 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %15 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %GC_lock.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %14, %20
   %.079.i.i = phi i32 [ %21, %20 ], [ 1, %14 ]
   fence syncscope("singlethread") seq_cst
-  %17 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %17 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %17, label %18 [
     i32 0, label %GC_lock.exit
     i32 16, label %20
@@ -22616,8 +22616,8 @@ define void @GC_enable_incremental() local_unnamed_addr #1 {
 
 18:                                               ; preds = %.preheader.i.i
   %19 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %19(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %19(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 20:                                               ; preds = %.preheader.i.i
@@ -22626,7 +22626,7 @@ define void @GC_enable_incremental() local_unnamed_addr #1 {
   br i1 %22, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %20, %12, %9
-  %23 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %23 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit
 
 GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC_generic_lock.exit.sink.split.i, %14, %6, %7
@@ -22635,7 +22635,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   br i1 %.not7, label %25, label %66
 
 25:                                               ; preds = %GC_lock.exit
-  %26 = tail call i32 @getpagesize() #45
+  %26 = tail call i32 @getpagesize() #47
   %27 = zext i32 %26 to i64
   store i64 %27, ptr @GC_page_size, align 8
   %28 = icmp eq i32 %26, 0
@@ -22643,8 +22643,8 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
 
 29:                                               ; preds = %25
   %30 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %30(ptr noundef nonnull @.str.258) #38
-  tail call void @abort() #44
+  tail call void %30(ptr noundef nonnull @.str.258) #40
+  tail call void @abort() #46
   unreachable
 
 31:                                               ; preds = %25
@@ -22659,8 +22659,8 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
 
 34:                                               ; preds = %31
   %35 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %35(ptr noundef nonnull @.str.259) #38
-  tail call void @abort() #44
+  tail call void %35(ptr noundef nonnull @.str.259) #40
+  tail call void @abort() #46
   unreachable
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
@@ -22678,14 +22678,14 @@ GC_setpagesize.exit:                              ; preds = %.lr.ph.i, %.prehead
   br i1 %.b.i, label %maybe_install_looping_handler.exit, label %39
 
 39:                                               ; preds = %GC_setpagesize.exit
-  %40 = tail call ptr @getenv(ptr noundef nonnull @.str.225) #38
+  %40 = tail call ptr @getenv(ptr noundef nonnull @.str.225) #40
   %.not.i11 = icmp eq ptr %40, null
   br i1 %.not.i11, label %maybe_install_looping_handler.exit, label %41
 
 41:                                               ; preds = %39
-  %42 = tail call ptr @signal(i32 noundef 11, ptr noundef nonnull @looping_handler) #38
+  %42 = tail call ptr @signal(i32 noundef 11, ptr noundef nonnull @looping_handler) #40
   store ptr %42, ptr @old_segv_hand, align 8
-  %43 = tail call ptr @signal(i32 noundef 7, ptr noundef nonnull @looping_handler) #38
+  %43 = tail call ptr @signal(i32 noundef 7, ptr noundef nonnull @looping_handler) #40
   store ptr %43, ptr @old_bus_hand, align 8
   store i1 true, ptr @installed_looping_handler, align 4
   br label %maybe_install_looping_handler.exit
@@ -22700,7 +22700,7 @@ maybe_install_looping_handler.exit:               ; preds = %GC_setpagesize.exit
   br i1 %.b3, label %45, label %47
 
 45:                                               ; preds = %44
-  %46 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %46 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %47
 
 47:                                               ; preds = %44, %45
@@ -22709,7 +22709,7 @@ maybe_install_looping_handler.exit:               ; preds = %GC_setpagesize.exit
   br i1 %.b2, label %48, label %52
 
 48:                                               ; preds = %47
-  %49 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %49 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not8 = icmp eq i32 %49, 0
   br i1 %.not8, label %52, label %50
 
@@ -22730,7 +22730,7 @@ maybe_install_looping_handler.exit:               ; preds = %GC_setpagesize.exit
   br i1 %or.cond, label %66, label %57
 
 57:                                               ; preds = %52
-  %58 = call i32 @pthread_setcancelstate(i32 noundef 1, ptr noundef nonnull %1) #38
+  %58 = call i32 @pthread_setcancelstate(i32 noundef 1, ptr noundef nonnull %1) #40
   %59 = load i64, ptr getelementptr inbounds (i8, ptr @GC_arrays, i64 72), align 8
   %.not9 = icmp eq i64 %59, 0
   br i1 %.not9, label %62, label %60
@@ -22745,7 +22745,7 @@ maybe_install_looping_handler.exit:               ; preds = %GC_setpagesize.exit
 
 63:                                               ; preds = %60, %62
   %64 = load i32, ptr %1, align 4
-  %65 = call i32 @pthread_setcancelstate(i32 noundef %64, ptr noundef null) #38
+  %65 = call i32 @pthread_setcancelstate(i32 noundef %64, ptr noundef null) #40
   br label %66
 
 66:                                               ; preds = %GC_lock.exit, %63, %52
@@ -22753,7 +22753,7 @@ maybe_install_looping_handler.exit:               ; preds = %GC_setpagesize.exit
   br i1 %.b, label %67, label %70
 
 67:                                               ; preds = %66
-  %68 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %68 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %70
 
 69:                                               ; preds = %3, %0
@@ -22803,29 +22803,29 @@ define internal fastcc void @GC_read_dirty(i32 noundef %0) unnamed_addr #1 {
   %16 = load i32, ptr @GC_pages_executable, align 4
   %.not63.i = icmp eq i32 %16, 0
   %17 = select i1 %.not63.i, i32 1, i32 5
-  %18 = tail call i32 @mprotect(ptr noundef %11, i64 noundef %13, i32 noundef %17) #38
+  %18 = tail call i32 @mprotect(ptr noundef %11, i64 noundef %13, i32 noundef %17) #40
   %19 = icmp sgt i32 %18, -1
   br i1 %19, label %.loopexit.i, label %20
 
 20:                                               ; preds = %15
   %21 = load i32, ptr @GC_pages_executable, align 4
   %.not64.i = icmp eq i32 %21, 0
-  %22 = tail call ptr @__errno_location() #45
+  %22 = tail call ptr @__errno_location() #47
   %23 = load i32, ptr %22, align 4
   br i1 %.not64.i, label %26, label %24
 
 24:                                               ; preds = %20
   tail call void (ptr, ...) @GC_log_printf(ptr noundef nonnull @.str.274, ptr noundef %11, i64 noundef %13, i32 noundef %23)
   %25 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %25(ptr noundef nonnull @.str.275) #38
-  tail call void @abort() #44
+  tail call void %25(ptr noundef nonnull @.str.275) #40
+  tail call void @abort() #46
   unreachable
 
 26:                                               ; preds = %20
   tail call void (ptr, ...) @GC_log_printf(ptr noundef nonnull @.str.276, ptr noundef %11, i64 noundef %13, i32 noundef %23)
   %27 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %27(ptr noundef nonnull @.str.277) #38
-  tail call void @abort() #44
+  tail call void %27(ptr noundef nonnull @.str.277) #40
+  tail call void @abort() #46
   unreachable
 
 28:                                               ; preds = %.lr.ph.i
@@ -22908,29 +22908,29 @@ define internal fastcc void @GC_read_dirty(i32 noundef %0) unnamed_addr #1 {
   %69 = load i32, ptr @GC_pages_executable, align 4
   %.not60.i = icmp eq i32 %69, 0
   %70 = select i1 %.not60.i, i32 1, i32 5
-  %71 = tail call i32 @mprotect(ptr noundef %.050.i.ph, i64 noundef %68, i32 noundef %70) #38
+  %71 = tail call i32 @mprotect(ptr noundef %.050.i.ph, i64 noundef %68, i32 noundef %70) #40
   %72 = icmp sgt i32 %71, -1
   br i1 %72, label %81, label %73
 
 73:                                               ; preds = %66
   %74 = load i32, ptr @GC_pages_executable, align 4
   %.not61.i = icmp eq i32 %74, 0
-  %75 = tail call ptr @__errno_location() #45
+  %75 = tail call ptr @__errno_location() #47
   %76 = load i32, ptr %75, align 4
   br i1 %.not61.i, label %79, label %77
 
 77:                                               ; preds = %73
   tail call void (ptr, ...) @GC_log_printf(ptr noundef nonnull @.str.274, ptr noundef %.050.i.ph, i64 noundef %68, i32 noundef %76)
   %78 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %78(ptr noundef nonnull @.str.275) #38
-  tail call void @abort() #44
+  tail call void %78(ptr noundef nonnull @.str.275) #40
+  tail call void @abort() #46
   unreachable
 
 79:                                               ; preds = %73
   tail call void (ptr, ...) @GC_log_printf(ptr noundef nonnull @.str.276, ptr noundef %.050.i.ph, i64 noundef %68, i32 noundef %76)
   %80 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %80(ptr noundef nonnull @.str.277) #38
-  tail call void @abort() #44
+  tail call void %80(ptr noundef nonnull @.str.277) #40
+  tail call void @abort() #46
   unreachable
 
 81:                                               ; preds = %66, %.thread.i
@@ -23023,7 +23023,7 @@ define internal fastcc void @GC_read_dirty(i32 noundef %0) unnamed_addr #1 {
 
 .loopexit.i5:                                     ; preds = %.lr.ph21._crit_edge.i, %.preheader.i, %90
   %128 = load i32, ptr @clear_refs_fd, align 4
-  %129 = tail call i64 @write(i32 noundef %128, ptr noundef nonnull @.str.250, i64 noundef 2) #38
+  %129 = tail call i64 @write(i32 noundef %128, ptr noundef nonnull @.str.250, i64 noundef 2) #40
   %.not.i.i = icmp eq i64 %129, 2
   br i1 %.not.i.i, label %GC_protect_heap.exit, label %130
 
@@ -23032,7 +23032,7 @@ define internal fastcc void @GC_read_dirty(i32 noundef %0) unnamed_addr #1 {
   br i1 %131, label %132, label %135
 
 132:                                              ; preds = %130
-  %133 = tail call ptr @__errno_location() #45
+  %133 = tail call ptr @__errno_location() #47
   %134 = load i32, ptr %133, align 4
   br label %135
 
@@ -23040,8 +23040,8 @@ define internal fastcc void @GC_read_dirty(i32 noundef %0) unnamed_addr #1 {
   %136 = phi i32 [ %134, %132 ], [ 0, %130 ]
   tail call void (ptr, ...) @GC_log_printf(ptr noundef nonnull @.str.251, i32 noundef %136)
   %137 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %137(ptr noundef nonnull @.str.252) #38
-  tail call void @abort() #44
+  tail call void %137(ptr noundef nonnull @.str.252) #40
+  tail call void @abort() #46
   unreachable
 
 GC_protect_heap.exit:                             ; preds = %.loopexit.i, %.loopexit.i5, %6
@@ -23055,12 +23055,12 @@ define void @GC_start_mark_threads() local_unnamed_addr #1 {
   %3 = alloca %struct.__sigset_t, align 8
   %4 = alloca i64, align 8
   %5 = alloca i32, align 4
-  %6 = call i32 @pthread_setcancelstate(i32 noundef 1, ptr noundef nonnull %5) #38
+  %6 = call i32 @pthread_setcancelstate(i32 noundef 1, ptr noundef nonnull %5) #40
   %.b1 = load i1, ptr @GC_need_to_lock, align 4
   br i1 %.b1, label %7, label %GC_lock.exit
 
 7:                                                ; preds = %0
-  %8 = call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %8 = call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %GC_lock.exit, label %9
 
@@ -23075,14 +23075,14 @@ define void @GC_start_mark_threads() local_unnamed_addr #1 {
   br i1 %.not.i, label %14, label %GC_generic_lock.exit.sink.split.i
 
 14:                                               ; preds = %12
-  %15 = call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %15 = call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %GC_lock.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %14, %20
   %.079.i.i = phi i32 [ %21, %20 ], [ 1, %14 ]
   fence syncscope("singlethread") seq_cst
-  %17 = call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %17 = call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %17, label %18 [
     i32 0, label %GC_lock.exit
     i32 16, label %20
@@ -23090,8 +23090,8 @@ define void @GC_start_mark_threads() local_unnamed_addr #1 {
 
 18:                                               ; preds = %.preheader.i.i
   %19 = load ptr, ptr @GC_on_abort, align 8
-  call void %19(ptr noundef nonnull @.str.340) #38
-  call void @abort() #44
+  call void %19(ptr noundef nonnull @.str.340) #40
+  call void @abort() #46
   unreachable
 
 20:                                               ; preds = %.preheader.i.i
@@ -23100,7 +23100,7 @@ define void @GC_start_mark_threads() local_unnamed_addr #1 {
   br i1 %22, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %20, %12, %9
-  %23 = call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %23 = call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit
 
 GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC_generic_lock.exit.sink.split.i, %14, %0, %7
@@ -23118,43 +23118,43 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
 28:                                               ; preds = %GC_lock.exit
   call fastcc void @GC_wait_for_gc_completion(i32 noundef 1)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) @mark_cv, i8 0, i64 48, i1 false)
-  %29 = call i32 @pthread_attr_init(ptr noundef nonnull %1) #38
+  %29 = call i32 @pthread_attr_init(ptr noundef nonnull %1) #40
   %.not.i2 = icmp eq i32 %29, 0
   br i1 %.not.i2, label %32, label %30
 
 30:                                               ; preds = %28
   %31 = load ptr, ptr @GC_on_abort, align 8
-  call void %31(ptr noundef nonnull @.str.302) #38
-  call void @abort() #44
+  call void %31(ptr noundef nonnull @.str.302) #40
+  call void @abort() #46
   unreachable
 
 32:                                               ; preds = %28
-  %33 = call i32 @pthread_attr_setdetachstate(ptr noundef nonnull %1, i32 noundef 1) #38
+  %33 = call i32 @pthread_attr_setdetachstate(ptr noundef nonnull %1, i32 noundef 1) #40
   %.not6.i = icmp eq i32 %33, 0
   br i1 %.not6.i, label %36, label %34
 
 34:                                               ; preds = %32
   %35 = load ptr, ptr @GC_on_abort, align 8
-  call void %35(ptr noundef nonnull @.str.303) #38
-  call void @abort() #44
+  call void %35(ptr noundef nonnull @.str.303) #40
+  call void @abort() #46
   unreachable
 
 36:                                               ; preds = %32
-  %37 = call i32 @sigfillset(ptr noundef nonnull %2) #38
+  %37 = call i32 @sigfillset(ptr noundef nonnull %2) #40
   %.not7.i = icmp eq i32 %37, 0
   br i1 %.not7.i, label %40, label %38
 
 38:                                               ; preds = %36
   %39 = load ptr, ptr @GC_on_abort, align 8
-  call void %39(ptr noundef nonnull @.str.304) #38
-  call void @abort() #44
+  call void %39(ptr noundef nonnull @.str.304) #40
+  call void @abort() #46
   unreachable
 
 40:                                               ; preds = %36
   %41 = load i32, ptr @GC_sig_suspend, align 4
   %.not.i.i = icmp eq i32 %41, -1
   %42 = select i1 %.not.i.i, i32 30, i32 %41
-  %43 = call i32 @sigdelset(ptr noundef nonnull %2, i32 noundef %42) #38
+  %43 = call i32 @sigdelset(ptr noundef nonnull %2, i32 noundef %42) #40
   %.not8.i = icmp eq i32 %43, 0
   br i1 %.not8.i, label %44, label %48
 
@@ -23162,26 +23162,26 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   %45 = load i32, ptr @GC_sig_thr_restart, align 4
   %.not.i12.i = icmp eq i32 %45, -1
   %46 = select i1 %.not.i12.i, i32 24, i32 %45
-  %47 = call i32 @sigdelset(ptr noundef nonnull %2, i32 noundef %46) #38
+  %47 = call i32 @sigdelset(ptr noundef nonnull %2, i32 noundef %46) #40
   %.not9.i = icmp eq i32 %47, 0
   br i1 %.not9.i, label %50, label %48
 
 48:                                               ; preds = %44, %40
   %49 = load ptr, ptr @GC_on_abort, align 8
-  call void %49(ptr noundef nonnull @.str.115) #38
-  call void @abort() #44
+  call void %49(ptr noundef nonnull @.str.115) #40
+  call void @abort() #46
   unreachable
 
 50:                                               ; preds = %44
-  %51 = call i32 @pthread_sigmask(i32 noundef 0, ptr noundef nonnull %2, ptr noundef nonnull %3) #38
+  %51 = call i32 @pthread_sigmask(i32 noundef 0, ptr noundef nonnull %2, ptr noundef nonnull %3) #40
   %52 = icmp slt i32 %51, 0
   br i1 %52, label %53, label %56
 
 53:                                               ; preds = %50
   %54 = load ptr, ptr @GC_current_warn_proc, align 8
-  call void %54(ptr noundef nonnull @.str.305, i64 noundef 0) #38
+  call void %54(ptr noundef nonnull @.str.305, i64 noundef 0) #40
   store i32 0, ptr @GC_parallel, align 4
-  %55 = call i32 @pthread_attr_destroy(ptr noundef nonnull %1) #38
+  %55 = call i32 @pthread_attr_destroy(ptr noundef nonnull %1) #40
   br label %GC_start_mark_threads_inner.exit
 
 56:                                               ; preds = %50
@@ -23193,14 +23193,14 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
 .lr.ph.i:                                         ; preds = %56, %64
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %64 ], [ 0, %56 ]
   %59 = inttoptr i64 %indvars.iv.i to ptr
-  %60 = call i32 @pthread_create(ptr noundef nonnull %4, ptr noundef nonnull %1, ptr noundef nonnull @GC_mark_thread, ptr noundef %59) #38
+  %60 = call i32 @pthread_create(ptr noundef nonnull %4, ptr noundef nonnull %1, ptr noundef nonnull @GC_mark_thread, ptr noundef %59) #40
   %.not10.i = icmp eq i32 %60, 0
   br i1 %.not10.i, label %64, label %61
 
 61:                                               ; preds = %.lr.ph.i
   %62 = trunc nuw nsw i64 %indvars.iv.i to i32
   %63 = load ptr, ptr @GC_current_warn_proc, align 8
-  call void %63(ptr noundef nonnull @.str.306, i64 noundef %indvars.iv.i) #38
+  call void %63(ptr noundef nonnull @.str.306, i64 noundef %indvars.iv.i) #40
   store i32 %62, ptr @GC_parallel, align 4
   br label %.loopexit.i
 
@@ -23212,17 +23212,17 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   br i1 %67, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !124
 
 .loopexit.i:                                      ; preds = %64, %61, %56
-  %68 = call i32 @pthread_sigmask(i32 noundef 2, ptr noundef nonnull %3, ptr noundef null) #38
+  %68 = call i32 @pthread_sigmask(i32 noundef 2, ptr noundef nonnull %3, ptr noundef null) #40
   %69 = icmp slt i32 %68, 0
   br i1 %69, label %70, label %72
 
 70:                                               ; preds = %.loopexit.i
   %71 = load ptr, ptr @GC_current_warn_proc, align 8
-  call void %71(ptr noundef nonnull @.str.307, i64 noundef 0) #38
+  call void %71(ptr noundef nonnull @.str.307, i64 noundef 0) #40
   br label %72
 
 72:                                               ; preds = %70, %.loopexit.i
-  %73 = call i32 @pthread_attr_destroy(ptr noundef nonnull %1) #38
+  %73 = call i32 @pthread_attr_destroy(ptr noundef nonnull %1) #40
   %74 = load i32, ptr @GC_parallel, align 4
   %75 = icmp eq i32 %74, 0
   br i1 %75, label %GC_wait_for_markers_init.exit.i, label %76
@@ -23263,19 +23263,19 @@ GC_os_get_mem.exit.thread.i.i:                    ; preds = %92, %88
 93:                                               ; preds = %79
   store ptr null, ptr getelementptr inbounds (i8, ptr @GC_arrays, i64 248), align 8
   %94 = load ptr, ptr @GC_on_abort, align 8
-  call void %94(ptr noundef nonnull @.str.311) #38
-  call void @abort() #44
+  call void %94(ptr noundef nonnull @.str.311) #40
+  call void @abort() #46
   unreachable
 
 95:                                               ; preds = %GC_os_get_mem.exit.thread.i.i, %76
-  %96 = call i32 @pthread_mutex_trylock(ptr noundef nonnull @mark_mutex) #38
+  %96 = call i32 @pthread_mutex_trylock(ptr noundef nonnull @mark_mutex) #40
   %97 = icmp eq i32 %96, 0
   br i1 %97, label %GC_acquire_mark_lock.exit.i.i, label %.preheader.i.i.i.i
 
 .preheader.i.i.i.i:                               ; preds = %95, %101
   %.079.i.i.i.i = phi i32 [ %102, %101 ], [ 1, %95 ]
   fence syncscope("singlethread") seq_cst
-  %98 = call i32 @pthread_mutex_trylock(ptr noundef nonnull @mark_mutex) #38
+  %98 = call i32 @pthread_mutex_trylock(ptr noundef nonnull @mark_mutex) #40
   switch i32 %98, label %99 [
     i32 0, label %GC_acquire_mark_lock.exit.i.i
     i32 16, label %101
@@ -23283,8 +23283,8 @@ GC_os_get_mem.exit.thread.i.i:                    ; preds = %92, %88
 
 99:                                               ; preds = %.preheader.i.i.i.i
   %100 = load ptr, ptr @GC_on_abort, align 8
-  call void %100(ptr noundef nonnull @.str.340) #38
-  call void @abort() #44
+  call void %100(ptr noundef nonnull @.str.340) #40
+  call void @abort() #46
   unreachable
 
 101:                                              ; preds = %.preheader.i.i.i.i
@@ -23293,7 +23293,7 @@ GC_os_get_mem.exit.thread.i.i:                    ; preds = %92, %88
   br i1 %103, label %.preheader.i.i.i.i, label %104, !llvm.loop !4
 
 104:                                              ; preds = %101
-  %105 = call i32 @pthread_mutex_lock(ptr noundef nonnull @mark_mutex) #38
+  %105 = call i32 @pthread_mutex_lock(ptr noundef nonnull @mark_mutex) #40
   br label %GC_acquire_mark_lock.exit.i.i
 
 GC_acquire_mark_lock.exit.i.i:                    ; preds = %.preheader.i.i.i.i, %104, %95
@@ -23302,14 +23302,14 @@ GC_acquire_mark_lock.exit.i.i:                    ; preds = %.preheader.i.i.i.i,
   %108 = load i64, ptr @GC_fl_builder_count, align 8
   %109 = add nsw i64 %108, %107
   store i64 %109, ptr @GC_fl_builder_count, align 8
-  %110 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @mark_mutex) #38
+  %110 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @mark_mutex) #40
   %.not.i2.i.i = icmp eq i32 %110, 0
   br i1 %.not.i2.i.i, label %GC_release_mark_lock.exit.i.i, label %111
 
 111:                                              ; preds = %GC_acquire_mark_lock.exit.i.i
   %112 = load ptr, ptr @GC_on_abort, align 8
-  call void %112(ptr noundef nonnull @.str.341) #38
-  call void @abort() #44
+  call void %112(ptr noundef nonnull @.str.341) #40
+  call void @abort() #46
   unreachable
 
 GC_release_mark_lock.exit.i.i:                    ; preds = %GC_acquire_mark_lock.exit.i.i
@@ -23339,12 +23339,12 @@ GC_start_mark_threads_inner.exit:                 ; preds = %GC_lock.exit, %53, 
   br i1 %.b, label %117, label %119
 
 117:                                              ; preds = %GC_start_mark_threads_inner.exit
-  %118 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %118 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %119
 
 119:                                              ; preds = %117, %GC_start_mark_threads_inner.exit
   %120 = load i32, ptr %5, align 4
-  %121 = call i32 @pthread_setcancelstate(i32 noundef %120, ptr noundef null) #38
+  %121 = call i32 @pthread_setcancelstate(i32 noundef %120, ptr noundef null) #40
   ret void
 }
 
@@ -23364,15 +23364,15 @@ define void @GC_deinit() local_unnamed_addr #18 {
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #30
+declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #31
 
 ; Function Attrs: nounwind uwtable
 define hidden void @GC_err_puts(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
   %2 = alloca i32, align 4
   %3 = load i32, ptr @GC_stderr, align 4
-  %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #46
+  %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #48
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
-  %5 = call i32 @pthread_setcancelstate(i32 noundef 1, ptr noundef nonnull %2) #38
+  %5 = call i32 @pthread_setcancelstate(i32 noundef 1, ptr noundef nonnull %2) #40
   %.not.i = icmp eq i64 %4, 0
   br i1 %.not.i, label %GC_write.exit, label %.outer.split.i
 
@@ -23383,13 +23383,13 @@ define hidden void @GC_err_puts(ptr nocapture noundef readonly %0) local_unnamed
   br label %8
 
 8:                                                ; preds = %12, %.outer.split.i
-  %9 = call i64 @write(i32 noundef %3, ptr noundef %7, i64 noundef %6) #38
+  %9 = call i64 @write(i32 noundef %3, ptr noundef %7, i64 noundef %6) #40
   %10 = trunc i64 %9 to i32
   %11 = icmp eq i32 %10, -1
   br i1 %11, label %12, label %.outer.i
 
 12:                                               ; preds = %8
-  %13 = tail call ptr @__errno_location() #45
+  %13 = tail call ptr @__errno_location() #47
   %14 = load i32, ptr %13, align 4
   %15 = icmp eq i32 %14, 11
   br i1 %15, label %8, label %GC_write.exit, !llvm.loop !13
@@ -23405,7 +23405,7 @@ define hidden void @GC_err_puts(ptr nocapture noundef readonly %0) local_unnamed
 
 GC_write.exit:                                    ; preds = %.outer.i, %12, %1
   %.sink.i = load i32, ptr %2, align 4
-  %22 = call i32 @pthread_setcancelstate(i32 noundef %.sink.i, ptr noundef null) #38
+  %22 = call i32 @pthread_setcancelstate(i32 noundef %.sink.i, ptr noundef null) #40
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   ret void
 }
@@ -23440,7 +23440,7 @@ GC_lock.exit.thread:                              ; preds = %1
   br label %21
 
 2:                                                ; preds = %1
-  %3 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %3 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %GC_lock.exit, label %4
 
@@ -23455,14 +23455,14 @@ GC_lock.exit.thread:                              ; preds = %1
   br i1 %.not.i, label %9, label %GC_generic_lock.exit.sink.split.i
 
 9:                                                ; preds = %7
-  %10 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %10 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %GC_lock.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %9, %15
   %.079.i.i = phi i32 [ %16, %15 ], [ 1, %9 ]
   fence syncscope("singlethread") seq_cst
-  %12 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %12 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %12, label %13 [
     i32 0, label %GC_lock.exit
     i32 16, label %15
@@ -23470,8 +23470,8 @@ GC_lock.exit.thread:                              ; preds = %1
 
 13:                                               ; preds = %.preheader.i.i
   %14 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %14(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %14(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 15:                                               ; preds = %.preheader.i.i
@@ -23480,7 +23480,7 @@ GC_lock.exit.thread:                              ; preds = %1
   br i1 %17, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %15, %7, %4
-  %18 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %18 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit
 
 GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC_generic_lock.exit.sink.split.i, %9, %2
@@ -23489,7 +23489,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   br i1 %.b.pr, label %19, label %21
 
 19:                                               ; preds = %GC_lock.exit
-  %20 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %20 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %21
 
 21:                                               ; preds = %GC_lock.exit.thread, %GC_lock.exit, %19
@@ -23506,7 +23506,7 @@ GC_lock.exit.thread:                              ; preds = %0
   br label %22
 
 2:                                                ; preds = %0
-  %3 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %3 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %GC_lock.exit, label %4
 
@@ -23521,14 +23521,14 @@ GC_lock.exit.thread:                              ; preds = %0
   br i1 %.not.i, label %9, label %GC_generic_lock.exit.sink.split.i
 
 9:                                                ; preds = %7
-  %10 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %10 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %GC_lock.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %9, %15
   %.079.i.i = phi i32 [ %16, %15 ], [ 1, %9 ]
   fence syncscope("singlethread") seq_cst
-  %12 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %12 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %12, label %13 [
     i32 0, label %GC_lock.exit
     i32 16, label %15
@@ -23536,8 +23536,8 @@ GC_lock.exit.thread:                              ; preds = %0
 
 13:                                               ; preds = %.preheader.i.i
   %14 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %14(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %14(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 15:                                               ; preds = %.preheader.i.i
@@ -23546,7 +23546,7 @@ GC_lock.exit.thread:                              ; preds = %0
   br i1 %17, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %15, %7, %4
-  %18 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %18 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit
 
 GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC_generic_lock.exit.sink.split.i, %9, %2
@@ -23555,7 +23555,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   br i1 %.b.pr, label %20, label %22
 
 20:                                               ; preds = %GC_lock.exit
-  %21 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %21 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %22
 
 22:                                               ; preds = %GC_lock.exit.thread, %GC_lock.exit, %20
@@ -23573,15 +23573,15 @@ define internal void @GC_default_on_abort(ptr noundef readonly %0) #1 {
 
 4:                                                ; preds = %1
   %5 = load i32, ptr @GC_stderr, align 4
-  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #46
+  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #48
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
-  %7 = call i32 @pthread_setcancelstate(i32 noundef 1, ptr noundef nonnull %3) #38
+  %7 = call i32 @pthread_setcancelstate(i32 noundef 1, ptr noundef nonnull %3) #40
   %.not.i = icmp eq i64 %6, 0
   br i1 %.not.i, label %GC_write.exit.thread, label %.outer.split.i
 
 GC_write.exit.thread:                             ; preds = %4
   %.sink.i13 = load i32, ptr %3, align 4
-  %8 = call i32 @pthread_setcancelstate(i32 noundef %.sink.i13, ptr noundef null) #38
+  %8 = call i32 @pthread_setcancelstate(i32 noundef %.sink.i13, ptr noundef null) #40
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   br label %28
 
@@ -23592,20 +23592,20 @@ GC_write.exit.thread:                             ; preds = %4
   br label %11
 
 11:                                               ; preds = %15, %.outer.split.i
-  %12 = call i64 @write(i32 noundef %5, ptr noundef %10, i64 noundef %9) #38
+  %12 = call i64 @write(i32 noundef %5, ptr noundef %10, i64 noundef %9) #40
   %13 = trunc i64 %12 to i32
   %14 = icmp eq i32 %13, -1
   br i1 %14, label %15, label %.outer.i
 
 15:                                               ; preds = %11
-  %16 = tail call ptr @__errno_location() #45
+  %16 = tail call ptr @__errno_location() #47
   %17 = load i32, ptr %16, align 4
   %18 = icmp eq i32 %17, 11
   br i1 %18, label %11, label %GC_write.exit.thread14, !llvm.loop !13
 
 GC_write.exit.thread14:                           ; preds = %15
   %.sink.i16 = load i32, ptr %3, align 4
-  %19 = call i32 @pthread_setcancelstate(i32 noundef %.sink.i16, ptr noundef null) #38
+  %19 = call i32 @pthread_setcancelstate(i32 noundef %.sink.i16, ptr noundef null) #40
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   br label %46
 
@@ -23620,7 +23620,7 @@ GC_write.exit.thread14:                           ; preds = %15
 
 GC_write.exit:                                    ; preds = %.outer.i
   %.sink.i = load i32, ptr %3, align 4
-  %26 = call i32 @pthread_setcancelstate(i32 noundef %.sink.i, ptr noundef null) #38
+  %26 = call i32 @pthread_setcancelstate(i32 noundef %.sink.i, ptr noundef null) #40
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   %27 = icmp sgt i32 %20, -1
   br i1 %27, label %28, label %46
@@ -23628,7 +23628,7 @@ GC_write.exit:                                    ; preds = %.outer.i
 28:                                               ; preds = %GC_write.exit.thread, %GC_write.exit
   %29 = load i32, ptr @GC_stderr, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
-  %30 = call i32 @pthread_setcancelstate(i32 noundef 1, ptr noundef nonnull %2) #38
+  %30 = call i32 @pthread_setcancelstate(i32 noundef 1, ptr noundef nonnull %2) #40
   br label %.outer.split.i4
 
 .outer.split.i4:                                  ; preds = %.outer.i6, %28
@@ -23637,13 +23637,13 @@ GC_write.exit:                                    ; preds = %.outer.i
   br label %33
 
 33:                                               ; preds = %37, %.outer.split.i4
-  %34 = call i64 @write(i32 noundef %29, ptr noundef nonnull %32, i64 noundef %31) #38
+  %34 = call i64 @write(i32 noundef %29, ptr noundef nonnull %32, i64 noundef %31) #40
   %35 = trunc i64 %34 to i32
   %36 = icmp eq i32 %35, -1
   br i1 %36, label %37, label %.outer.i6
 
 37:                                               ; preds = %33
-  %38 = tail call ptr @__errno_location() #45
+  %38 = tail call ptr @__errno_location() #47
   %39 = load i32, ptr %38, align 4
   %40 = icmp eq i32 %39, 11
   br i1 %40, label %33, label %GC_write.exit11, !llvm.loop !13
@@ -23658,12 +23658,12 @@ GC_write.exit:                                    ; preds = %.outer.i
 
 GC_write.exit11:                                  ; preds = %.outer.i6, %37
   %.sink.i10 = load i32, ptr %2, align 4
-  %45 = call i32 @pthread_setcancelstate(i32 noundef %.sink.i10, ptr noundef null) #38
+  %45 = call i32 @pthread_setcancelstate(i32 noundef %.sink.i10, ptr noundef null) #40
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   br label %46
 
 46:                                               ; preds = %GC_write.exit.thread14, %GC_write.exit, %GC_write.exit11, %1
-  %47 = call ptr @getenv(ptr noundef nonnull @.str.225) #38
+  %47 = call ptr @getenv(ptr noundef nonnull @.str.225) #40
   %.not3 = icmp eq ptr %47, null
   br i1 %.not3, label %48, label %.preheader
 
@@ -23684,7 +23684,7 @@ GC_lock.exit.thread:                              ; preds = %1
   br label %21
 
 2:                                                ; preds = %1
-  %3 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %3 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %GC_lock.exit, label %4
 
@@ -23699,14 +23699,14 @@ GC_lock.exit.thread:                              ; preds = %1
   br i1 %.not.i, label %9, label %GC_generic_lock.exit.sink.split.i
 
 9:                                                ; preds = %7
-  %10 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %10 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %GC_lock.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %9, %15
   %.079.i.i = phi i32 [ %16, %15 ], [ 1, %9 ]
   fence syncscope("singlethread") seq_cst
-  %12 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %12 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %12, label %13 [
     i32 0, label %GC_lock.exit
     i32 16, label %15
@@ -23714,8 +23714,8 @@ GC_lock.exit.thread:                              ; preds = %1
 
 13:                                               ; preds = %.preheader.i.i
   %14 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %14(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %14(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 15:                                               ; preds = %.preheader.i.i
@@ -23724,7 +23724,7 @@ GC_lock.exit.thread:                              ; preds = %1
   br i1 %17, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %15, %7, %4
-  %18 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %18 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit
 
 GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC_generic_lock.exit.sink.split.i, %9, %2
@@ -23733,7 +23733,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   br i1 %.b.pr, label %19, label %21
 
 19:                                               ; preds = %GC_lock.exit
-  %20 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %20 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %21
 
 21:                                               ; preds = %GC_lock.exit.thread, %GC_lock.exit, %19
@@ -23750,7 +23750,7 @@ GC_lock.exit.thread:                              ; preds = %0
   br label %22
 
 2:                                                ; preds = %0
-  %3 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %3 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %GC_lock.exit, label %4
 
@@ -23765,14 +23765,14 @@ GC_lock.exit.thread:                              ; preds = %0
   br i1 %.not.i, label %9, label %GC_generic_lock.exit.sink.split.i
 
 9:                                                ; preds = %7
-  %10 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %10 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %GC_lock.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %9, %15
   %.079.i.i = phi i32 [ %16, %15 ], [ 1, %9 ]
   fence syncscope("singlethread") seq_cst
-  %12 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %12 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %12, label %13 [
     i32 0, label %GC_lock.exit
     i32 16, label %15
@@ -23780,8 +23780,8 @@ GC_lock.exit.thread:                              ; preds = %0
 
 13:                                               ; preds = %.preheader.i.i
   %14 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %14(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %14(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 15:                                               ; preds = %.preheader.i.i
@@ -23790,7 +23790,7 @@ GC_lock.exit.thread:                              ; preds = %0
   br i1 %17, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %15, %7, %4
-  %18 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %18 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit
 
 GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC_generic_lock.exit.sink.split.i, %9, %2
@@ -23799,7 +23799,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   br i1 %.b.pr, label %20, label %22
 
 20:                                               ; preds = %GC_lock.exit
-  %21 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %21 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %22
 
 22:                                               ; preds = %GC_lock.exit.thread, %GC_lock.exit, %20
@@ -23813,7 +23813,7 @@ define void @GC_enable() local_unnamed_addr #1 {
   br i1 %.b2, label %1, label %GC_lock.exit
 
 1:                                                ; preds = %0
-  %2 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %2 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %GC_lock.exit, label %3
 
@@ -23828,14 +23828,14 @@ define void @GC_enable() local_unnamed_addr #1 {
   br i1 %.not.i, label %8, label %GC_generic_lock.exit.sink.split.i
 
 8:                                                ; preds = %6
-  %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %GC_lock.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %8, %14
   %.079.i.i = phi i32 [ %15, %14 ], [ 1, %8 ]
   fence syncscope("singlethread") seq_cst
-  %11 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %11 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %11, label %12 [
     i32 0, label %GC_lock.exit
     i32 16, label %14
@@ -23843,8 +23843,8 @@ define void @GC_enable() local_unnamed_addr #1 {
 
 12:                                               ; preds = %.preheader.i.i
   %13 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %13(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %13(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 14:                                               ; preds = %.preheader.i.i
@@ -23853,7 +23853,7 @@ define void @GC_enable() local_unnamed_addr #1 {
   br i1 %16, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %14, %6, %3
-  %17 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %17 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit
 
 GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC_generic_lock.exit.sink.split.i, %8, %0, %1
@@ -23873,7 +23873,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   %25 = load ptr, ptr @GC_current_warn_proc, align 8
   %26 = sub nuw i64 %21, %22
   %27 = lshr i64 %26, 10
-  tail call void %25(ptr noundef nonnull @.str.93, i64 noundef %27) #38
+  tail call void %25(ptr noundef nonnull @.str.93, i64 noundef %27) #40
   br label %28
 
 28:                                               ; preds = %GC_lock.exit, %20, %24
@@ -23881,7 +23881,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   br i1 %.b, label %29, label %31
 
 29:                                               ; preds = %28
-  %30 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %30 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %31
 
 31:                                               ; preds = %28, %29
@@ -23894,7 +23894,7 @@ define void @GC_disable() local_unnamed_addr #1 {
   br i1 %.b1, label %1, label %GC_lock.exit
 
 1:                                                ; preds = %0
-  %2 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %2 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %GC_lock.exit, label %3
 
@@ -23909,14 +23909,14 @@ define void @GC_disable() local_unnamed_addr #1 {
   br i1 %.not.i, label %8, label %GC_generic_lock.exit.sink.split.i
 
 8:                                                ; preds = %6
-  %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %GC_lock.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %8, %14
   %.079.i.i = phi i32 [ %15, %14 ], [ 1, %8 ]
   fence syncscope("singlethread") seq_cst
-  %11 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %11 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %11, label %12 [
     i32 0, label %GC_lock.exit
     i32 16, label %14
@@ -23924,8 +23924,8 @@ define void @GC_disable() local_unnamed_addr #1 {
 
 12:                                               ; preds = %.preheader.i.i
   %13 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %13(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %13(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 14:                                               ; preds = %.preheader.i.i
@@ -23934,7 +23934,7 @@ define void @GC_disable() local_unnamed_addr #1 {
   br i1 %16, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %14, %6, %3
-  %17 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %17 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit
 
 GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC_generic_lock.exit.sink.split.i, %8, %0, %1
@@ -23954,7 +23954,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   br i1 %.b, label %23, label %25
 
 23:                                               ; preds = %21
-  %24 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %24 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %25
 
 25:                                               ; preds = %21, %23
@@ -23975,7 +23975,7 @@ define noundef ptr @GC_new_free_list() local_unnamed_addr #1 {
   br i1 %.b1, label %1, label %GC_lock.exit
 
 1:                                                ; preds = %0
-  %2 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %2 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %GC_lock.exit, label %3
 
@@ -23990,14 +23990,14 @@ define noundef ptr @GC_new_free_list() local_unnamed_addr #1 {
   br i1 %.not.i, label %8, label %GC_generic_lock.exit.sink.split.i
 
 8:                                                ; preds = %6
-  %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %GC_lock.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %8, %14
   %.079.i.i = phi i32 [ %15, %14 ], [ 1, %8 ]
   fence syncscope("singlethread") seq_cst
-  %11 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %11 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %11, label %12 [
     i32 0, label %GC_lock.exit
     i32 16, label %14
@@ -24005,8 +24005,8 @@ define noundef ptr @GC_new_free_list() local_unnamed_addr #1 {
 
 12:                                               ; preds = %.preheader.i.i
   %13 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %13(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %13(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 14:                                               ; preds = %.preheader.i.i
@@ -24015,7 +24015,7 @@ define noundef ptr @GC_new_free_list() local_unnamed_addr #1 {
   br i1 %16, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %14, %6, %3
-  %17 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %17 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit
 
 GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC_generic_lock.exit.sink.split.i, %8, %0, %1
@@ -24025,8 +24025,8 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
 
 20:                                               ; preds = %GC_lock.exit
   %21 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %21(ptr noundef nonnull @.str.94) #38
-  tail call void @abort() #44
+  tail call void %21(ptr noundef nonnull @.str.94) #40
+  tail call void @abort() #46
   unreachable
 
 GC_new_free_list_inner.exit:                      ; preds = %GC_lock.exit
@@ -24035,7 +24035,7 @@ GC_new_free_list_inner.exit:                      ; preds = %GC_lock.exit
   br i1 %.b, label %22, label %24
 
 22:                                               ; preds = %GC_new_free_list_inner.exit
-  %23 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %23 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %24
 
 24:                                               ; preds = %GC_new_free_list_inner.exit, %22
@@ -24048,7 +24048,7 @@ define range(i32 0, 24) i32 @GC_new_kind(ptr noundef nonnull %0, i64 noundef %1,
   br i1 %.b4, label %5, label %GC_lock.exit
 
 5:                                                ; preds = %4
-  %6 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %6 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %GC_lock.exit, label %7
 
@@ -24063,14 +24063,14 @@ define range(i32 0, 24) i32 @GC_new_kind(ptr noundef nonnull %0, i64 noundef %1,
   br i1 %.not.i, label %12, label %GC_generic_lock.exit.sink.split.i
 
 12:                                               ; preds = %10
-  %13 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %13 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %GC_lock.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %12, %18
   %.079.i.i = phi i32 [ %19, %18 ], [ 1, %12 ]
   fence syncscope("singlethread") seq_cst
-  %15 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %15 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %15, label %16 [
     i32 0, label %GC_lock.exit
     i32 16, label %18
@@ -24078,8 +24078,8 @@ define range(i32 0, 24) i32 @GC_new_kind(ptr noundef nonnull %0, i64 noundef %1,
 
 16:                                               ; preds = %.preheader.i.i
   %17 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %17(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %17(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 18:                                               ; preds = %.preheader.i.i
@@ -24088,7 +24088,7 @@ define range(i32 0, 24) i32 @GC_new_kind(ptr noundef nonnull %0, i64 noundef %1,
   br i1 %20, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %18, %10, %7
-  %21 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %21 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit
 
 GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC_generic_lock.exit.sink.split.i, %12, %4, %5
@@ -24098,8 +24098,8 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
 
 24:                                               ; preds = %GC_lock.exit
   %25 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %25(ptr noundef nonnull @.str.95) #38
-  tail call void @abort() #44
+  tail call void %25(ptr noundef nonnull @.str.95) #40
+  tail call void @abort() #46
   unreachable
 
 GC_new_kind_inner.exit:                           ; preds = %GC_lock.exit
@@ -24124,7 +24124,7 @@ GC_new_kind_inner.exit:                           ; preds = %GC_lock.exit
   br i1 %.b, label %35, label %37
 
 35:                                               ; preds = %GC_new_kind_inner.exit
-  %36 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %36 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %37
 
 37:                                               ; preds = %GC_new_kind_inner.exit, %35
@@ -24147,8 +24147,8 @@ define range(i32 0, 64) i32 @GC_new_proc_inner(ptr noundef %0) local_unnamed_add
 
 8:                                                ; preds = %1
   %9 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %9(ptr noundef nonnull @.str.96) #38
-  tail call void @abort() #44
+  tail call void %9(ptr noundef nonnull @.str.96) #40
+  tail call void @abort() #46
   unreachable
 }
 
@@ -24158,7 +24158,7 @@ define range(i32 0, 64) i32 @GC_new_proc(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %.b1, label %2, label %GC_lock.exit
 
 2:                                                ; preds = %1
-  %3 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %3 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %GC_lock.exit, label %4
 
@@ -24173,14 +24173,14 @@ define range(i32 0, 64) i32 @GC_new_proc(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %.not.i, label %9, label %GC_generic_lock.exit.sink.split.i
 
 9:                                                ; preds = %7
-  %10 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %10 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %GC_lock.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %9, %15
   %.079.i.i = phi i32 [ %16, %15 ], [ 1, %9 ]
   fence syncscope("singlethread") seq_cst
-  %12 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %12 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %12, label %13 [
     i32 0, label %GC_lock.exit
     i32 16, label %15
@@ -24188,8 +24188,8 @@ define range(i32 0, 64) i32 @GC_new_proc(ptr noundef %0) local_unnamed_addr #1 {
 
 13:                                               ; preds = %.preheader.i.i
   %14 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %14(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %14(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 15:                                               ; preds = %.preheader.i.i
@@ -24198,7 +24198,7 @@ define range(i32 0, 64) i32 @GC_new_proc(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %17, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %15, %7, %4
-  %18 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %18 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit
 
 GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC_generic_lock.exit.sink.split.i, %9, %1, %2
@@ -24208,8 +24208,8 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
 
 21:                                               ; preds = %GC_lock.exit
   %22 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %22(ptr noundef nonnull @.str.96) #38
-  tail call void @abort() #44
+  tail call void %22(ptr noundef nonnull @.str.96) #40
+  tail call void @abort() #46
   unreachable
 
 GC_new_proc_inner.exit:                           ; preds = %GC_lock.exit
@@ -24222,7 +24222,7 @@ GC_new_proc_inner.exit:                           ; preds = %GC_lock.exit
   br i1 %.b, label %26, label %28
 
 26:                                               ; preds = %GC_new_proc_inner.exit
-  %27 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %27 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %28
 
 28:                                               ; preds = %GC_new_proc_inner.exit, %26
@@ -24235,7 +24235,7 @@ define ptr @GC_call_with_alloc_lock(ptr nocapture noundef nonnull readonly %0, p
   br i1 %.b3, label %3, label %GC_lock.exit
 
 3:                                                ; preds = %2
-  %4 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %4 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %GC_lock.exit, label %5
 
@@ -24250,14 +24250,14 @@ define ptr @GC_call_with_alloc_lock(ptr nocapture noundef nonnull readonly %0, p
   br i1 %.not.i, label %10, label %GC_generic_lock.exit.sink.split.i
 
 10:                                               ; preds = %8
-  %11 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %11 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %GC_lock.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %10, %16
   %.079.i.i = phi i32 [ %17, %16 ], [ 1, %10 ]
   fence syncscope("singlethread") seq_cst
-  %13 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %13 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %13, label %14 [
     i32 0, label %GC_lock.exit
     i32 16, label %16
@@ -24265,8 +24265,8 @@ define ptr @GC_call_with_alloc_lock(ptr nocapture noundef nonnull readonly %0, p
 
 14:                                               ; preds = %.preheader.i.i
   %15 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %15(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %15(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 16:                                               ; preds = %.preheader.i.i
@@ -24275,16 +24275,16 @@ define ptr @GC_call_with_alloc_lock(ptr nocapture noundef nonnull readonly %0, p
   br i1 %18, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %16, %8, %5
-  %19 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %19 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit
 
 GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC_generic_lock.exit.sink.split.i, %10, %2, %3
-  %20 = tail call ptr %0(ptr noundef %1) #38
+  %20 = tail call ptr %0(ptr noundef %1) #40
   %.b = load i1, ptr @GC_need_to_lock, align 4
   br i1 %.b, label %21, label %23
 
 21:                                               ; preds = %GC_lock.exit
-  %22 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %22 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %23
 
 23:                                               ; preds = %GC_lock.exit, %21
@@ -24297,7 +24297,7 @@ define void @GC_alloc_lock() local_unnamed_addr #1 {
   br i1 %.b, label %1, label %GC_lock.exit
 
 1:                                                ; preds = %0
-  %2 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %2 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %GC_lock.exit, label %3
 
@@ -24312,14 +24312,14 @@ define void @GC_alloc_lock() local_unnamed_addr #1 {
   br i1 %.not.i, label %8, label %GC_generic_lock.exit.sink.split.i
 
 8:                                                ; preds = %6
-  %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %GC_lock.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %8, %14
   %.079.i.i = phi i32 [ %15, %14 ], [ 1, %8 ]
   fence syncscope("singlethread") seq_cst
-  %11 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %11 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %11, label %12 [
     i32 0, label %GC_lock.exit
     i32 16, label %14
@@ -24327,8 +24327,8 @@ define void @GC_alloc_lock() local_unnamed_addr #1 {
 
 12:                                               ; preds = %.preheader.i.i
   %13 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %13(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %13(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 14:                                               ; preds = %.preheader.i.i
@@ -24337,7 +24337,7 @@ define void @GC_alloc_lock() local_unnamed_addr #1 {
   br i1 %16, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %14, %6, %3
-  %17 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %17 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit
 
 GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC_generic_lock.exit.sink.split.i, %8, %0, %1
@@ -24350,7 +24350,7 @@ define void @GC_alloc_unlock() local_unnamed_addr #1 {
   br i1 %.b, label %1, label %3
 
 1:                                                ; preds = %0
-  %2 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %2 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %3
 
 3:                                                ; preds = %0, %1
@@ -24363,7 +24363,7 @@ define ptr @GC_call_with_reader_lock(ptr nocapture noundef nonnull readonly %0, 
   br i1 %.b3, label %4, label %GC_lock.exit
 
 4:                                                ; preds = %3
-  %5 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %5 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %GC_lock.exit, label %6
 
@@ -24378,14 +24378,14 @@ define ptr @GC_call_with_reader_lock(ptr nocapture noundef nonnull readonly %0, 
   br i1 %.not.i, label %11, label %GC_generic_lock.exit.sink.split.i
 
 11:                                               ; preds = %9
-  %12 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %12 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %GC_lock.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %11, %17
   %.079.i.i = phi i32 [ %18, %17 ], [ 1, %11 ]
   fence syncscope("singlethread") seq_cst
-  %14 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %14 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %14, label %15 [
     i32 0, label %GC_lock.exit
     i32 16, label %17
@@ -24393,8 +24393,8 @@ define ptr @GC_call_with_reader_lock(ptr nocapture noundef nonnull readonly %0, 
 
 15:                                               ; preds = %.preheader.i.i
   %16 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %16(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %16(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 17:                                               ; preds = %.preheader.i.i
@@ -24403,16 +24403,16 @@ define ptr @GC_call_with_reader_lock(ptr nocapture noundef nonnull readonly %0, 
   br i1 %19, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %17, %9, %6
-  %20 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %20 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit
 
 GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC_generic_lock.exit.sink.split.i, %11, %3, %4
-  %21 = tail call ptr %0(ptr noundef %1) #38
+  %21 = tail call ptr %0(ptr noundef %1) #40
   %.b = load i1, ptr @GC_need_to_lock, align 4
   br i1 %.b, label %22, label %24
 
 22:                                               ; preds = %GC_lock.exit
-  %23 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %23 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %24
 
 24:                                               ; preds = %GC_lock.exit, %22
@@ -24426,7 +24426,7 @@ define ptr @GC_call_with_stack_base(ptr noundef nonnull %0, ptr noundef %1) loca
   store ptr %0, ptr %3, align 8
   store ptr %4, ptr %4, align 8
   %.0..0..0..0.2 = load volatile ptr, ptr %3, align 8
-  %5 = call ptr %.0..0..0..0.2(ptr noundef nonnull %4, ptr noundef %1) #38
+  %5 = call ptr %.0..0..0..0.2(ptr noundef nonnull %4, ptr noundef %1) #40
   %6 = ptrtoint ptr %4 to i64
   store volatile i64 %6, ptr @GC_noop_sink, align 8
   ret ptr %5
@@ -24452,7 +24452,7 @@ define internal void @GC_do_blocking_inner(ptr nocapture noundef %0, ptr nocaptu
   br i1 %.b13, label %6, label %GC_lock.exit
 
 6:                                                ; preds = %2
-  %7 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %7 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %GC_lock.exit, label %8
 
@@ -24467,14 +24467,14 @@ define internal void @GC_do_blocking_inner(ptr nocapture noundef %0, ptr nocaptu
   br i1 %.not.i, label %13, label %GC_generic_lock.exit.sink.split.i
 
 13:                                               ; preds = %11
-  %14 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %14 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %GC_lock.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %13, %19
   %.079.i.i = phi i32 [ %20, %19 ], [ 1, %13 ]
   fence syncscope("singlethread") seq_cst
-  %16 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %16 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %16, label %17 [
     i32 0, label %GC_lock.exit
     i32 16, label %19
@@ -24482,8 +24482,8 @@ define internal void @GC_do_blocking_inner(ptr nocapture noundef %0, ptr nocaptu
 
 17:                                               ; preds = %.preheader.i.i
   %18 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %18(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %18(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 19:                                               ; preds = %.preheader.i.i
@@ -24492,11 +24492,11 @@ define internal void @GC_do_blocking_inner(ptr nocapture noundef %0, ptr nocaptu
   br i1 %21, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %19, %11, %8
-  %22 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %22 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit
 
 GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC_generic_lock.exit.sink.split.i, %13, %2, %6
-  %23 = tail call i64 @pthread_self() #45
+  %23 = tail call i64 @pthread_self() #47
   %24 = lshr i64 %23, 8
   %25 = xor i64 %24, %23
   %26 = lshr i64 %25, 16
@@ -24537,20 +24537,20 @@ GC_lookup_thread.exit:                            ; preds = %30, %31
   br i1 %.b12, label %44, label %46
 
 44:                                               ; preds = %GC_lookup_thread.exit
-  %45 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %45 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %46
 
 46:                                               ; preds = %GC_lookup_thread.exit, %44
   %47 = load ptr, ptr %0, align 8
   %48 = getelementptr inbounds i8, ptr %0, i64 8
   %49 = load ptr, ptr %48, align 8
-  %50 = tail call ptr %47(ptr noundef %49) #38
+  %50 = tail call ptr %47(ptr noundef %49) #40
   store ptr %50, ptr %48, align 8
   %.b11 = load i1, ptr @GC_need_to_lock, align 4
   br i1 %.b11, label %51, label %GC_lock.exit22
 
 51:                                               ; preds = %46
-  %52 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %52 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not14 = icmp eq i32 %52, 0
   br i1 %.not14, label %GC_lock.exit22, label %53
 
@@ -24565,14 +24565,14 @@ GC_lookup_thread.exit:                            ; preds = %30, %31
   br i1 %.not.i18, label %58, label %GC_generic_lock.exit.sink.split.i19
 
 58:                                               ; preds = %56
-  %59 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %59 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %60 = icmp eq i32 %59, 0
   br i1 %60, label %GC_lock.exit22, label %.preheader.i.i20
 
 .preheader.i.i20:                                 ; preds = %58, %64
   %.079.i.i21 = phi i32 [ %65, %64 ], [ 1, %58 ]
   fence syncscope("singlethread") seq_cst
-  %61 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %61 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %61, label %62 [
     i32 0, label %GC_lock.exit22
     i32 16, label %64
@@ -24580,8 +24580,8 @@ GC_lookup_thread.exit:                            ; preds = %30, %31
 
 62:                                               ; preds = %.preheader.i.i20
   %63 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %63(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %63(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 64:                                               ; preds = %.preheader.i.i20
@@ -24590,7 +24590,7 @@ GC_lookup_thread.exit:                            ; preds = %30, %31
   br i1 %66, label %.preheader.i.i20, label %GC_generic_lock.exit.sink.split.i19, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i19:              ; preds = %64, %56, %53
-  %67 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %67 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit22
 
 GC_lock.exit22:                                   ; preds = %.preheader.i.i20, %GC_generic_lock.exit.sink.split.i19, %58, %46, %51
@@ -24610,12 +24610,12 @@ GC_lock.exit22:                                   ; preds = %.preheader.i.i20, %
   br i1 %.b10, label %74, label %76
 
 74:                                               ; preds = %72
-  %75 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %75 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %76
 
 76:                                               ; preds = %72, %74
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
-  %77 = call i32 @pthread_setcancelstate(i32 noundef 1, ptr noundef nonnull %4) #38
+  %77 = call i32 @pthread_setcancelstate(i32 noundef 1, ptr noundef nonnull %4) #40
   %78 = load atomic volatile i64, ptr %68 acquire, align 8
   %79 = icmp eq i64 %78, %73
   br i1 %79, label %.lr.ph.i, label %GC_suspend_self_inner.exit
@@ -24624,7 +24624,7 @@ GC_lock.exit22:                                   ; preds = %.preheader.i.i20, %
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   store i64 0, ptr %3, align 8
   store i64 7500, ptr %71, align 8
-  %80 = call i32 @select(i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %3) #38
+  %80 = call i32 @select(i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %3) #40
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   %81 = load atomic volatile i64, ptr %68 acquire, align 8
   %82 = icmp eq i64 %81, %73
@@ -24632,13 +24632,13 @@ GC_lock.exit22:                                   ; preds = %.preheader.i.i20, %
 
 GC_suspend_self_inner.exit:                       ; preds = %.lr.ph.i, %76
   %83 = load i32, ptr %4, align 4
-  %84 = call i32 @pthread_setcancelstate(i32 noundef %83, ptr noundef null) #38
+  %84 = call i32 @pthread_setcancelstate(i32 noundef %83, ptr noundef null) #40
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   %.b9 = load i1, ptr @GC_need_to_lock, align 4
   br i1 %.b9, label %85, label %GC_lock.exit27
 
 85:                                               ; preds = %GC_suspend_self_inner.exit
-  %86 = call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %86 = call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not16 = icmp eq i32 %86, 0
   br i1 %.not16, label %GC_lock.exit27, label %87
 
@@ -24653,14 +24653,14 @@ GC_suspend_self_inner.exit:                       ; preds = %.lr.ph.i, %76
   br i1 %.not.i23, label %92, label %GC_generic_lock.exit.sink.split.i24
 
 92:                                               ; preds = %90
-  %93 = call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %93 = call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %94 = icmp eq i32 %93, 0
   br i1 %94, label %GC_lock.exit27, label %.preheader.i.i25
 
 .preheader.i.i25:                                 ; preds = %92, %98
   %.079.i.i26 = phi i32 [ %99, %98 ], [ 1, %92 ]
   fence syncscope("singlethread") seq_cst
-  %95 = call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %95 = call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %95, label %96 [
     i32 0, label %GC_lock.exit27
     i32 16, label %98
@@ -24668,8 +24668,8 @@ GC_suspend_self_inner.exit:                       ; preds = %.lr.ph.i, %76
 
 96:                                               ; preds = %.preheader.i.i25
   %97 = load ptr, ptr @GC_on_abort, align 8
-  call void %97(ptr noundef nonnull @.str.340) #38
-  call void @abort() #44
+  call void %97(ptr noundef nonnull @.str.340) #40
+  call void @abort() #46
   unreachable
 
 98:                                               ; preds = %.preheader.i.i25
@@ -24678,7 +24678,7 @@ GC_suspend_self_inner.exit:                       ; preds = %.lr.ph.i, %76
   br i1 %100, label %.preheader.i.i25, label %GC_generic_lock.exit.sink.split.i24, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i24:              ; preds = %98, %90, %87
-  %101 = call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %101 = call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit27
 
 GC_lock.exit27:                                   ; preds = %.preheader.i.i25, %GC_generic_lock.exit.sink.split.i24, %92, %GC_suspend_self_inner.exit, %85
@@ -24695,7 +24695,7 @@ GC_lock.exit27:                                   ; preds = %.preheader.i.i25, %
   br i1 %.b, label %106, label %108
 
 106:                                              ; preds = %._crit_edge
-  %107 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %107 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %108
 
 108:                                              ; preds = %._crit_edge, %106
@@ -24708,7 +24708,7 @@ define void @GC_dump() local_unnamed_addr #1 {
   br i1 %.b1, label %1, label %GC_lock.exit
 
 1:                                                ; preds = %0
-  %2 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %2 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %GC_lock.exit, label %3
 
@@ -24723,14 +24723,14 @@ define void @GC_dump() local_unnamed_addr #1 {
   br i1 %.not.i, label %8, label %GC_generic_lock.exit.sink.split.i
 
 8:                                                ; preds = %6
-  %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %GC_lock.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %8, %14
   %.079.i.i = phi i32 [ %15, %14 ], [ 1, %8 ]
   fence syncscope("singlethread") seq_cst
-  %11 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %11 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %11, label %12 [
     i32 0, label %GC_lock.exit
     i32 16, label %14
@@ -24738,8 +24738,8 @@ define void @GC_dump() local_unnamed_addr #1 {
 
 12:                                               ; preds = %.preheader.i.i
   %13 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %13(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %13(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 14:                                               ; preds = %.preheader.i.i
@@ -24748,7 +24748,7 @@ define void @GC_dump() local_unnamed_addr #1 {
   br i1 %16, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %14, %6, %3
-  %17 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %17 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit
 
 GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC_generic_lock.exit.sink.split.i, %8, %0, %1
@@ -24757,7 +24757,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   br i1 %.b, label %18, label %20
 
 18:                                               ; preds = %GC_lock.exit
-  %19 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %19 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %20
 
 20:                                               ; preds = %GC_lock.exit, %18
@@ -24770,7 +24770,7 @@ define i64 @GC_get_memory_use() local_unnamed_addr #1 {
   br i1 %.b1, label %1, label %GC_lock.exit
 
 1:                                                ; preds = %0
-  %2 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %2 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %GC_lock.exit, label %3
 
@@ -24785,14 +24785,14 @@ define i64 @GC_get_memory_use() local_unnamed_addr #1 {
   br i1 %.not.i, label %8, label %GC_generic_lock.exit.sink.split.i
 
 8:                                                ; preds = %6
-  %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %GC_lock.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %8, %14
   %.079.i.i = phi i32 [ %15, %14 ], [ 1, %8 ]
   fence syncscope("singlethread") seq_cst
-  %11 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %11 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %11, label %12 [
     i32 0, label %GC_lock.exit
     i32 16, label %14
@@ -24800,8 +24800,8 @@ define i64 @GC_get_memory_use() local_unnamed_addr #1 {
 
 12:                                               ; preds = %.preheader.i.i
   %13 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %13(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %13(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 14:                                               ; preds = %.preheader.i.i
@@ -24810,7 +24810,7 @@ define i64 @GC_get_memory_use() local_unnamed_addr #1 {
   br i1 %16, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %14, %6, %3
-  %17 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %17 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit
 
 GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC_generic_lock.exit.sink.split.i, %8, %0, %1
@@ -24911,7 +24911,7 @@ GC_apply_to_all_blocks.exit:                      ; preds = %65, %GC_lock.exit
   br i1 %.b, label %67, label %69
 
 67:                                               ; preds = %GC_apply_to_all_blocks.exit
-  %68 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %68 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %69
 
 69:                                               ; preds = %GC_apply_to_all_blocks.exit, %67
@@ -24940,7 +24940,7 @@ GC_lock.exit.thread:                              ; preds = %1
   br label %21
 
 2:                                                ; preds = %1
-  %3 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %3 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %GC_lock.exit, label %4
 
@@ -24955,14 +24955,14 @@ GC_lock.exit.thread:                              ; preds = %1
   br i1 %.not.i, label %9, label %GC_generic_lock.exit.sink.split.i
 
 9:                                                ; preds = %7
-  %10 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %10 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %GC_lock.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %9, %15
   %.079.i.i = phi i32 [ %16, %15 ], [ 1, %9 ]
   fence syncscope("singlethread") seq_cst
-  %12 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %12 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %12, label %13 [
     i32 0, label %GC_lock.exit
     i32 16, label %15
@@ -24970,8 +24970,8 @@ GC_lock.exit.thread:                              ; preds = %1
 
 13:                                               ; preds = %.preheader.i.i
   %14 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %14(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %14(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 15:                                               ; preds = %.preheader.i.i
@@ -24980,7 +24980,7 @@ GC_lock.exit.thread:                              ; preds = %1
   br i1 %17, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %15, %7, %4
-  %18 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %18 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit
 
 GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC_generic_lock.exit.sink.split.i, %9, %2
@@ -24989,7 +24989,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   br i1 %.b.pr, label %19, label %21
 
 19:                                               ; preds = %GC_lock.exit
-  %20 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %20 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %21
 
 21:                                               ; preds = %GC_lock.exit.thread, %GC_lock.exit, %19
@@ -25006,7 +25006,7 @@ GC_lock.exit.thread:                              ; preds = %1
   br label %21
 
 2:                                                ; preds = %1
-  %3 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %3 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %GC_lock.exit, label %4
 
@@ -25021,14 +25021,14 @@ GC_lock.exit.thread:                              ; preds = %1
   br i1 %.not.i, label %9, label %GC_generic_lock.exit.sink.split.i
 
 9:                                                ; preds = %7
-  %10 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %10 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %GC_lock.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %9, %15
   %.079.i.i = phi i32 [ %16, %15 ], [ 1, %9 ]
   fence syncscope("singlethread") seq_cst
-  %12 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %12 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %12, label %13 [
     i32 0, label %GC_lock.exit
     i32 16, label %15
@@ -25036,8 +25036,8 @@ GC_lock.exit.thread:                              ; preds = %1
 
 13:                                               ; preds = %.preheader.i.i
   %14 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %14(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %14(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 15:                                               ; preds = %.preheader.i.i
@@ -25046,7 +25046,7 @@ GC_lock.exit.thread:                              ; preds = %1
   br i1 %17, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %15, %7, %4
-  %18 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %18 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit
 
 GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC_generic_lock.exit.sink.split.i, %9, %2
@@ -25055,7 +25055,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   br i1 %.b.pr, label %19, label %21
 
 19:                                               ; preds = %GC_lock.exit
-  %20 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %20 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %21
 
 21:                                               ; preds = %GC_lock.exit.thread, %GC_lock.exit, %19
@@ -25072,7 +25072,7 @@ GC_lock.exit.thread:                              ; preds = %0
   br label %22
 
 2:                                                ; preds = %0
-  %3 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %3 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %GC_lock.exit, label %4
 
@@ -25087,14 +25087,14 @@ GC_lock.exit.thread:                              ; preds = %0
   br i1 %.not.i, label %9, label %GC_generic_lock.exit.sink.split.i
 
 9:                                                ; preds = %7
-  %10 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %10 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %GC_lock.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %9, %15
   %.079.i.i = phi i32 [ %16, %15 ], [ 1, %9 ]
   fence syncscope("singlethread") seq_cst
-  %12 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %12 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %12, label %13 [
     i32 0, label %GC_lock.exit
     i32 16, label %15
@@ -25102,8 +25102,8 @@ GC_lock.exit.thread:                              ; preds = %0
 
 13:                                               ; preds = %.preheader.i.i
   %14 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %14(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %14(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 15:                                               ; preds = %.preheader.i.i
@@ -25112,7 +25112,7 @@ GC_lock.exit.thread:                              ; preds = %0
   br i1 %17, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %15, %7, %4
-  %18 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %18 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit
 
 GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC_generic_lock.exit.sink.split.i, %9, %2
@@ -25121,7 +25121,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   br i1 %.b.pr, label %20, label %22
 
 20:                                               ; preds = %GC_lock.exit
-  %21 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %21 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %22
 
 22:                                               ; preds = %GC_lock.exit.thread, %GC_lock.exit, %20
@@ -25139,7 +25139,7 @@ GC_lock.exit.thread:                              ; preds = %1
   br label %21
 
 2:                                                ; preds = %1
-  %3 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %3 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %GC_lock.exit, label %4
 
@@ -25154,14 +25154,14 @@ GC_lock.exit.thread:                              ; preds = %1
   br i1 %.not.i, label %9, label %GC_generic_lock.exit.sink.split.i
 
 9:                                                ; preds = %7
-  %10 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %10 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %GC_lock.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %9, %15
   %.079.i.i = phi i32 [ %16, %15 ], [ 1, %9 ]
   fence syncscope("singlethread") seq_cst
-  %12 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %12 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %12, label %13 [
     i32 0, label %GC_lock.exit
     i32 16, label %15
@@ -25169,8 +25169,8 @@ GC_lock.exit.thread:                              ; preds = %1
 
 13:                                               ; preds = %.preheader.i.i
   %14 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %14(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %14(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 15:                                               ; preds = %.preheader.i.i
@@ -25179,7 +25179,7 @@ GC_lock.exit.thread:                              ; preds = %1
   br i1 %17, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %15, %7, %4
-  %18 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %18 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit
 
 GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC_generic_lock.exit.sink.split.i, %9, %2
@@ -25188,7 +25188,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   br i1 %.b.pr, label %19, label %21
 
 19:                                               ; preds = %GC_lock.exit
-  %20 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %20 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %21
 
 21:                                               ; preds = %GC_lock.exit.thread, %GC_lock.exit, %19
@@ -25205,7 +25205,7 @@ GC_lock.exit.thread:                              ; preds = %0
   br label %22
 
 2:                                                ; preds = %0
-  %3 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %3 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %GC_lock.exit, label %4
 
@@ -25220,14 +25220,14 @@ GC_lock.exit.thread:                              ; preds = %0
   br i1 %.not.i, label %9, label %GC_generic_lock.exit.sink.split.i
 
 9:                                                ; preds = %7
-  %10 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %10 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %GC_lock.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %9, %15
   %.079.i.i = phi i32 [ %16, %15 ], [ 1, %9 ]
   fence syncscope("singlethread") seq_cst
-  %12 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %12 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %12, label %13 [
     i32 0, label %GC_lock.exit
     i32 16, label %15
@@ -25235,8 +25235,8 @@ GC_lock.exit.thread:                              ; preds = %0
 
 13:                                               ; preds = %.preheader.i.i
   %14 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %14(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %14(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 15:                                               ; preds = %.preheader.i.i
@@ -25245,7 +25245,7 @@ GC_lock.exit.thread:                              ; preds = %0
   br i1 %17, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %15, %7, %4
-  %18 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %18 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit
 
 GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC_generic_lock.exit.sink.split.i, %9, %2
@@ -25254,7 +25254,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   br i1 %.b.pr, label %20, label %22
 
 20:                                               ; preds = %GC_lock.exit
-  %21 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %21 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %22
 
 22:                                               ; preds = %GC_lock.exit.thread, %GC_lock.exit, %20
@@ -25287,7 +25287,7 @@ define void @GC_set_all_interior_pointers(i32 noundef %0) local_unnamed_addr #1 
   br i1 %.b1, label %4, label %GC_lock.exit
 
 4:                                                ; preds = %3
-  %5 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %5 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not3 = icmp eq i32 %5, 0
   br i1 %.not3, label %GC_lock.exitthread-pre-split, label %6
 
@@ -25302,14 +25302,14 @@ define void @GC_set_all_interior_pointers(i32 noundef %0) local_unnamed_addr #1 
   br i1 %.not.i, label %11, label %GC_generic_lock.exit.sink.split.i
 
 11:                                               ; preds = %9
-  %12 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %12 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %GC_lock.exitthread-pre-split, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %11, %17
   %.079.i.i = phi i32 [ %18, %17 ], [ 1, %11 ]
   fence syncscope("singlethread") seq_cst
-  %14 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %14 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %14, label %15 [
     i32 0, label %GC_lock.exitthread-pre-split
     i32 16, label %17
@@ -25317,8 +25317,8 @@ define void @GC_set_all_interior_pointers(i32 noundef %0) local_unnamed_addr #1 
 
 15:                                               ; preds = %.preheader.i.i
   %16 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %16(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %16(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 17:                                               ; preds = %.preheader.i.i
@@ -25327,7 +25327,7 @@ define void @GC_set_all_interior_pointers(i32 noundef %0) local_unnamed_addr #1 
   br i1 %19, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %17, %9, %6
-  %20 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %20 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exitthread-pre-split
 
 GC_lock.exitthread-pre-split:                     ; preds = %.preheader.i.i, %4, %11, %GC_generic_lock.exit.sink.split.i
@@ -25364,8 +25364,8 @@ GC_initialize_offsets.exit:                       ; preds = %GC_lock.exit
 31:                                               ; preds = %25
   tail call void (ptr, ...) @GC_err_printf(ptr noundef nonnull @.str.253)
   %32 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %32(ptr noundef null) #38
-  tail call void @exit(i32 noundef 1) #44
+  tail call void %32(ptr noundef null) #40
+  tail call void @exit(i32 noundef 1) #49
   unreachable
 
 33:                                               ; preds = %25
@@ -25378,7 +25378,7 @@ GC_bl_init_no_interiors.exit:                     ; preds = %33, %22, %GC_initia
   br i1 %.b, label %34, label %36
 
 34:                                               ; preds = %GC_bl_init_no_interiors.exit
-  %35 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %35 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %36
 
 36:                                               ; preds = %34, %GC_bl_init_no_interiors.exit, %1
@@ -25527,8 +25527,8 @@ define i32 @GC_get_force_unmap_on_gcollect() local_unnamed_addr #8 {
 define void @GC_abort_on_oom() local_unnamed_addr #6 {
   tail call void (ptr, ...) @GC_err_printf(ptr noundef nonnull @.str.104)
   %1 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %1(ptr noundef null) #38
-  tail call void @exit(i32 noundef 1) #44
+  tail call void %1(ptr noundef null) #40
+  tail call void @exit(i32 noundef 1) #49
   unreachable
 }
 
@@ -25547,11 +25547,11 @@ define hidden ptr @GC_find_limit(ptr noundef %0, i32 noundef %1) local_unnamed_a
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @GC_find_limit_with_bound(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #1 {
-  %4 = call ptr @signal(i32 noundef 11, ptr noundef nonnull @GC_fault_handler) #38
+  %4 = call ptr @signal(i32 noundef 11, ptr noundef nonnull @GC_fault_handler) #40
   store ptr %4, ptr @old_segv_hand, align 8
-  %5 = call ptr @signal(i32 noundef 7, ptr noundef nonnull @GC_fault_handler) #38
+  %5 = call ptr @signal(i32 noundef 7, ptr noundef nonnull @GC_fault_handler) #40
   store ptr %5, ptr @old_bus_hand, align 8
-  %6 = call i32 @__sigsetjmp(ptr noundef nonnull @GC_jmp_buf, i32 noundef 1) #49
+  %6 = call i32 @__sigsetjmp(ptr noundef nonnull @GC_jmp_buf, i32 noundef 1) #52
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %8, label %32
 
@@ -25613,9 +25613,9 @@ define internal fastcc ptr @GC_find_limit_with_bound(ptr noundef %0, i32 noundef
 
 32:                                               ; preds = %.sink.split, %3
   %33 = load ptr, ptr @old_segv_hand, align 8
-  %34 = call ptr @signal(i32 noundef 11, ptr noundef %33) #38
+  %34 = call ptr @signal(i32 noundef 11, ptr noundef %33) #40
   %35 = load ptr, ptr @old_bus_hand, align 8
-  %36 = call ptr @signal(i32 noundef 7, ptr noundef %35) #38
+  %36 = call ptr @signal(i32 noundef 7, ptr noundef %35) #40
   %.not8 = icmp eq i32 %1, 0
   %37 = load volatile ptr, ptr @GC_find_limit_with_bound.result, align 8
   %.idx = select i1 %.not8, i64 256, i64 0
@@ -25639,29 +25639,29 @@ declare i32 @pthread_attr_destroy(ptr noundef) local_unnamed_addr #2
 define range(i32 0, 4) i32 @GC_get_stack_base(ptr noundef nonnull %0) local_unnamed_addr #1 {
   %2 = alloca %union.pthread_attr_t, align 8
   %3 = alloca i64, align 8
-  %4 = tail call i64 @pthread_self() #45
-  %5 = call i32 @pthread_getattr_np(i64 noundef %4, ptr noundef nonnull %2) #38
+  %4 = tail call i64 @pthread_self() #47
+  %5 = call i32 @pthread_getattr_np(i64 noundef %4, ptr noundef nonnull %2) #40
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %8, label %6
 
 6:                                                ; preds = %1
   %7 = load ptr, ptr @GC_current_warn_proc, align 8
-  call void %7(ptr noundef nonnull @.str.106, i64 noundef 0) #38
+  call void %7(ptr noundef nonnull @.str.106, i64 noundef 0) #40
   br label %17
 
 8:                                                ; preds = %1
-  %9 = call i32 @pthread_attr_getstack(ptr noundef nonnull %2, ptr noundef nonnull %0, ptr noundef nonnull %3) #38
+  %9 = call i32 @pthread_attr_getstack(ptr noundef nonnull %2, ptr noundef nonnull %0, ptr noundef nonnull %3) #40
   %.not3 = icmp eq i32 %9, 0
   br i1 %.not3, label %12, label %10
 
 10:                                               ; preds = %8
   %11 = load ptr, ptr @GC_on_abort, align 8
-  call void %11(ptr noundef nonnull @.str.107) #38
-  call void @abort() #44
+  call void %11(ptr noundef nonnull @.str.107) #40
+  call void @abort() #46
   unreachable
 
 12:                                               ; preds = %8
-  %13 = call i32 @pthread_attr_destroy(ptr noundef nonnull %2) #38
+  %13 = call i32 @pthread_attr_destroy(ptr noundef nonnull %2) #40
   %14 = load ptr, ptr %0, align 8
   %15 = load i64, ptr %3, align 8
   %16 = getelementptr inbounds i8, ptr %14, i64 %15
@@ -25683,8 +25683,8 @@ define hidden ptr @GC_unix_get_mem(i64 noundef %0) local_unnamed_addr #1 {
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %6(ptr noundef nonnull @.str.268) #38
-  tail call void @abort() #44
+  tail call void %6(ptr noundef nonnull @.str.268) #40
+  tail call void @abort() #46
   unreachable
 
 7:                                                ; preds = %1
@@ -25692,7 +25692,7 @@ define hidden ptr @GC_unix_get_mem(i64 noundef %0) local_unnamed_addr #1 {
   %9 = load i32, ptr @GC_pages_executable, align 4
   %.not10.i = icmp eq i32 %9, 0
   %10 = select i1 %.not10.i, i32 3, i32 7
-  %11 = tail call ptr @mmap(ptr noundef %8, i64 noundef %0, i32 noundef %10, i32 noundef 34, i32 noundef -1, i64 noundef 0) #38
+  %11 = tail call ptr @mmap(ptr noundef %8, i64 noundef %0, i32 noundef %10, i32 noundef 34, i32 noundef -1, i64 noundef 0) #40
   %12 = icmp eq ptr %11, inttoptr (i64 -1 to ptr)
   br i1 %12, label %13, label %23
 
@@ -25705,7 +25705,7 @@ define hidden ptr @GC_unix_get_mem(i64 noundef %0) local_unnamed_addr #1 {
   br i1 %or.cond.i, label %18, label %GC_unix_mmap_get_mem.exit
 
 18:                                               ; preds = %13
-  %19 = tail call ptr @__errno_location() #45
+  %19 = tail call ptr @__errno_location() #47
   %20 = load i32, ptr %19, align 4
   switch i32 %20, label %GC_unix_mmap_get_mem.exit [
     i32 13, label %21
@@ -25714,8 +25714,8 @@ define hidden ptr @GC_unix_get_mem(i64 noundef %0) local_unnamed_addr #1 {
 
 21:                                               ; preds = %18, %18
   %22 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %22(ptr noundef nonnull @.str.269) #38
-  tail call void @abort() #44
+  tail call void %22(ptr noundef nonnull @.str.269) #40
+  tail call void @abort() #46
   unreachable
 
 23:                                               ; preds = %7
@@ -25735,8 +25735,8 @@ define hidden ptr @GC_unix_get_mem(i64 noundef %0) local_unnamed_addr #1 {
 
 34:                                               ; preds = %23
   %35 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %35(ptr noundef nonnull @.str.270) #38
-  tail call void @abort() #44
+  tail call void %35(ptr noundef nonnull @.str.270) #40
+  tail call void @abort() #46
   unreachable
 
 GC_unix_mmap_get_mem.exit:                        ; preds = %13, %18, %23
@@ -25749,7 +25749,7 @@ define internal void @GC_default_push_other_roots() #1 {
   %1 = alloca i64, align 8
   %2 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  %3 = tail call i64 @pthread_self() #45
+  %3 = tail call i64 @pthread_self() #47
   br label %4
 
 4:                                                ; preds = %._crit_edge.i, %0
@@ -25823,8 +25823,8 @@ define internal void @GC_default_push_other_roots() #1 {
 
 36:                                               ; preds = %32
   %37 = load ptr, ptr @GC_on_abort, align 8
-  call void %37(ptr noundef nonnull @.str.271) #38
-  call void @abort() #44
+  call void %37(ptr noundef nonnull @.str.271) #40
+  call void @abort() #46
   unreachable
 
 38:                                               ; preds = %32
@@ -25854,7 +25854,7 @@ define internal void @GC_default_push_other_roots() #1 {
 
 50:                                               ; preds = %48
   %51 = inttoptr i64 %16 to ptr
-  call void %49(ptr noundef nonnull %2, ptr noundef %51) #38
+  call void %49(ptr noundef nonnull %2, ptr noundef %51) #40
   %.pre.i = load ptr, ptr %2, align 8
   br label %52
 
@@ -25903,8 +25903,8 @@ define internal void @GC_default_push_other_roots() #1 {
 
 73:                                               ; preds = %70
   %74 = load ptr, ptr @GC_on_abort, align 8
-  call void %74(ptr noundef nonnull @.str.51) #38
-  call void @abort() #44
+  call void %74(ptr noundef nonnull @.str.51) #40
+  call void @abort() #46
   unreachable
 
 75:                                               ; preds = %70
@@ -25966,8 +25966,8 @@ GC_push_all_stack.exit.i.i:                       ; preds = %78, %75, %63
 
 102:                                              ; preds = %99
   %103 = load ptr, ptr @GC_on_abort, align 8
-  call void %103(ptr noundef nonnull @.str.51) #38
-  call void @abort() #44
+  call void %103(ptr noundef nonnull @.str.51) #40
+  call void @abort() #46
   unreachable
 
 104:                                              ; preds = %99
@@ -26024,8 +26024,8 @@ GC_push_all_stack_sections.exit.i:                ; preds = %107, %104, %92
 
 118:                                              ; preds = %116
   %119 = load ptr, ptr @GC_on_abort, align 8
-  call void %119(ptr noundef nonnull @.str.273) #38
-  call void @abort() #44
+  call void %119(ptr noundef nonnull @.str.273) #40
+  call void @abort() #46
   unreachable
 
 GC_push_all_stacks.exit:                          ; preds = %116
@@ -26097,7 +26097,7 @@ define hidden void @GC_print_address_map() local_unnamed_addr #1 {
   %1 = alloca i32, align 4
   %2 = alloca [500 x i8], align 16
   %3 = alloca [500 x i8], align 16
-  %4 = tail call i32 (ptr, i32, ...) @open(ptr noundef nonnull @.str.286, i32 noundef 0) #38
+  %4 = tail call i32 (ptr, i32, ...) @open(ptr noundef nonnull @.str.286, i32 noundef 0) #40
   %5 = icmp slt i32 %4, 0
   br i1 %5, label %GC_get_maps_len.exit.thread.i, label %6
 
@@ -26107,13 +26107,13 @@ define hidden void @GC_print_address_map() local_unnamed_addr #1 {
 
 7:                                                ; preds = %11, %6
   %.07.i.i.i = phi i64 [ 0, %6 ], [ %12, %11 ]
-  %8 = call i64 @read(i32 noundef %4, ptr noundef nonnull %3, i64 noundef 500) #38
+  %8 = call i64 @read(i32 noundef %4, ptr noundef nonnull %3, i64 noundef 500) #40
   %9 = icmp eq i64 %8, -1
   br i1 %9, label %GC_get_maps_len.exit.thread54.i, label %11
 
 GC_get_maps_len.exit.thread54.i:                  ; preds = %7
   call void @llvm.lifetime.end.p0(i64 500, ptr nonnull %3)
-  %10 = tail call i32 @close(i32 noundef %4) #38
+  %10 = tail call i32 @close(i32 noundef %4) #40
   br label %GC_get_maps_len.exit.thread.i
 
 11:                                               ; preds = %7
@@ -26123,14 +26123,14 @@ GC_get_maps_len.exit.thread54.i:                  ; preds = %7
 
 GC_get_maps_len.exit.i:                           ; preds = %11
   call void @llvm.lifetime.end.p0(i64 500, ptr nonnull %3)
-  %14 = tail call i32 @close(i32 noundef %4) #38
+  %14 = tail call i32 @close(i32 noundef %4) #40
   %15 = icmp eq i64 %12, 0
   br i1 %15, label %GC_get_maps_len.exit.thread.i, label %.preheader73.i
 
 GC_get_maps_len.exit.thread.i:                    ; preds = %GC_get_maps_len.exit.i, %GC_get_maps_len.exit.thread54.i, %0
   %16 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %16(ptr noundef nonnull @.str.283) #38
-  tail call void @abort() #44
+  tail call void %16(ptr noundef nonnull @.str.283) #40
+  tail call void @abort() #46
   unreachable
 
 .preheader73.i:                                   ; preds = %GC_get_maps_len.exit.i, %.preheader73.i.backedge
@@ -26223,7 +26223,7 @@ GC_scratch_recycle_inner.exit.i:                  ; preds = %35, %34, %18
   %57 = load i32, ptr @GC_pages_executable, align 4
   %.not10.i.i48.i = icmp eq i32 %57, 0
   %58 = select i1 %.not10.i.i48.i, i32 3, i32 7
-  %59 = tail call ptr @mmap(ptr noundef %50, i64 noundef %56, i32 noundef %58, i32 noundef 34, i32 noundef -1, i64 noundef 0) #38
+  %59 = tail call ptr @mmap(ptr noundef %50, i64 noundef %56, i32 noundef %58, i32 noundef 34, i32 noundef -1, i64 noundef 0) #40
   %60 = icmp eq ptr %59, inttoptr (i64 -1 to ptr)
   br i1 %60, label %61, label %71
 
@@ -26236,7 +26236,7 @@ GC_scratch_recycle_inner.exit.i:                  ; preds = %35, %34, %18
   br i1 %or.cond.i.i51.i, label %66, label %GC_unix_get_mem.exit52.thread.i
 
 66:                                               ; preds = %61
-  %67 = tail call ptr @__errno_location() #45
+  %67 = tail call ptr @__errno_location() #47
   %68 = load i32, ptr %67, align 4
   switch i32 %68, label %GC_unix_get_mem.exit52.thread.i [
     i32 13, label %69
@@ -26245,8 +26245,8 @@ GC_scratch_recycle_inner.exit.i:                  ; preds = %35, %34, %18
 
 69:                                               ; preds = %66, %66
   %70 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %70(ptr noundef nonnull @.str.269) #38
-  tail call void @abort() #44
+  tail call void %70(ptr noundef nonnull @.str.269) #40
+  tail call void @abort() #46
   unreachable
 
 71:                                               ; preds = %.preheader.i
@@ -26266,8 +26266,8 @@ GC_scratch_recycle_inner.exit.i:                  ; preds = %35, %34, %18
 
 82:                                               ; preds = %71
   %83 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %83(ptr noundef nonnull @.str.270) #38
-  tail call void @abort() #44
+  tail call void %83(ptr noundef nonnull @.str.270) #40
+  tail call void @abort() #46
   unreachable
 
 GC_unix_get_mem.exit52.i:                         ; preds = %71
@@ -26285,7 +26285,7 @@ GC_unix_get_mem.exit52.i:                         ; preds = %71
   %93 = load i32, ptr @GC_pages_executable, align 4
   %.not10.i.i42.i = icmp eq i32 %93, 0
   %94 = select i1 %.not10.i.i42.i, i32 3, i32 7
-  %95 = tail call ptr @mmap(ptr noundef %92, i64 noundef %91, i32 noundef %94, i32 noundef 34, i32 noundef -1, i64 noundef 0) #38
+  %95 = tail call ptr @mmap(ptr noundef %92, i64 noundef %91, i32 noundef %94, i32 noundef 34, i32 noundef -1, i64 noundef 0) #40
   %96 = icmp eq ptr %95, inttoptr (i64 -1 to ptr)
   br i1 %96, label %97, label %107
 
@@ -26298,7 +26298,7 @@ GC_unix_get_mem.exit52.i:                         ; preds = %71
   br i1 %or.cond.i.i45.i, label %102, label %GC_scratch_alloc.exit.thread.i
 
 102:                                              ; preds = %97
-  %103 = tail call ptr @__errno_location() #45
+  %103 = tail call ptr @__errno_location() #47
   %104 = load i32, ptr %103, align 4
   switch i32 %104, label %GC_scratch_alloc.exit.thread.i [
     i32 13, label %105
@@ -26307,8 +26307,8 @@ GC_unix_get_mem.exit52.i:                         ; preds = %71
 
 105:                                              ; preds = %102, %102
   %106 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %106(ptr noundef nonnull @.str.269) #38
-  tail call void @abort() #44
+  tail call void %106(ptr noundef nonnull @.str.269) #40
+  tail call void @abort() #46
   unreachable
 
 107:                                              ; preds = %85
@@ -26328,8 +26328,8 @@ GC_unix_get_mem.exit52.i:                         ; preds = %71
 
 118:                                              ; preds = %107
   %119 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %119(ptr noundef nonnull @.str.270) #38
-  tail call void @abort() #44
+  tail call void %119(ptr noundef nonnull @.str.270) #40
+  tail call void @abort() #46
   unreachable
 
 GC_unix_get_mem.exit46.i:                         ; preds = %107
@@ -26360,7 +26360,7 @@ GC_unix_get_mem.exit46.i:                         ; preds = %107
 
 GC_unix_get_mem.exit52.thread.i:                  ; preds = %GC_unix_get_mem.exit52.i, %66, %61
   %130 = load ptr, ptr @GC_current_warn_proc, align 8
-  tail call void %130(ptr noundef nonnull @.str.147, i64 noundef %43) #38
+  tail call void %130(ptr noundef nonnull @.str.147, i64 noundef %43) #40
   %131 = load i64, ptr @GC_page_size, align 8
   %132 = sub nsw i64 0, %131
   %133 = icmp ult i64 %43, %132
@@ -26372,7 +26372,7 @@ GC_unix_get_mem.exit52.thread.i:                  ; preds = %GC_unix_get_mem.exi
   %139 = load i32, ptr @GC_pages_executable, align 4
   %.not10.i.i.i = icmp eq i32 %139, 0
   %140 = select i1 %.not10.i.i.i, i32 3, i32 7
-  %141 = tail call ptr @mmap(ptr noundef %138, i64 noundef %137, i32 noundef %140, i32 noundef 34, i32 noundef -1, i64 noundef 0) #38
+  %141 = tail call ptr @mmap(ptr noundef %138, i64 noundef %137, i32 noundef %140, i32 noundef 34, i32 noundef -1, i64 noundef 0) #40
   %142 = icmp eq ptr %141, inttoptr (i64 -1 to ptr)
   br i1 %142, label %143, label %153
 
@@ -26385,7 +26385,7 @@ GC_unix_get_mem.exit52.thread.i:                  ; preds = %GC_unix_get_mem.exi
   br i1 %or.cond.i.i.i, label %148, label %GC_scratch_alloc.exit.thread.i
 
 148:                                              ; preds = %143
-  %149 = tail call ptr @__errno_location() #45
+  %149 = tail call ptr @__errno_location() #47
   %150 = load i32, ptr %149, align 4
   switch i32 %150, label %GC_scratch_alloc.exit.thread.i [
     i32 13, label %151
@@ -26394,8 +26394,8 @@ GC_unix_get_mem.exit52.thread.i:                  ; preds = %GC_unix_get_mem.exi
 
 151:                                              ; preds = %148, %148
   %152 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %152(ptr noundef nonnull @.str.269) #38
-  tail call void @abort() #44
+  tail call void %152(ptr noundef nonnull @.str.269) #40
+  tail call void @abort() #46
   unreachable
 
 153:                                              ; preds = %GC_unix_get_mem.exit52.thread.i
@@ -26415,8 +26415,8 @@ GC_unix_get_mem.exit52.thread.i:                  ; preds = %GC_unix_get_mem.exi
 
 164:                                              ; preds = %153
   %165 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %165(ptr noundef nonnull @.str.270) #38
-  tail call void @abort() #44
+  tail call void %165(ptr noundef nonnull @.str.270) #40
+  tail call void @abort() #46
   unreachable
 
 GC_unix_get_mem.exit.i:                           ; preds = %153
@@ -26466,8 +26466,8 @@ GC_scratch_alloc.exit.i:                          ; preds = %40
   %177 = phi i64 [ %.pre120.i, %GC_scratch_alloc.exit.thread.i ], [ %.lcssa.i, %GC_scratch_alloc.exit.i ]
   tail call void (ptr, ...) @GC_log_printf(ptr noundef nonnull @.str.284, i64 noundef %177)
   %178 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %178(ptr noundef nonnull @.str.285) #38
-  tail call void @abort() #44
+  tail call void %178(ptr noundef nonnull @.str.285) #40
+  tail call void @abort() #46
   unreachable
 
 .sink.split.i:                                    ; preds = %GC_scratch_alloc.exit.thread61.sink.split.i, %GC_scratch_alloc.exit.thread63.i, %167, %121
@@ -26476,7 +26476,7 @@ GC_scratch_alloc.exit.i:                          ; preds = %40
   br label %179
 
 179:                                              ; preds = %.sink.split.i, %GC_scratch_alloc.exit.i
-  %180 = tail call i32 (ptr, i32, ...) @open(ptr noundef nonnull @.str.286, i32 noundef 0) #38
+  %180 = tail call i32 (ptr, i32, ...) @open(ptr noundef nonnull @.str.286, i32 noundef 0) #40
   %181 = icmp slt i32 %180, 0
   br i1 %181, label %GC_get_maps_len.exit34.thread.i, label %182
 
@@ -26486,13 +26486,13 @@ GC_scratch_alloc.exit.i:                          ; preds = %40
 
 183:                                              ; preds = %187, %182
   %.07.i.i30.i = phi i64 [ 0, %182 ], [ %188, %187 ]
-  %184 = call i64 @read(i32 noundef %180, ptr noundef nonnull %2, i64 noundef 500) #38
+  %184 = call i64 @read(i32 noundef %180, ptr noundef nonnull %2, i64 noundef 500) #40
   %185 = icmp eq i64 %184, -1
   br i1 %185, label %GC_get_maps_len.exit34.thread66.i, label %187
 
 GC_get_maps_len.exit34.thread66.i:                ; preds = %183
   call void @llvm.lifetime.end.p0(i64 500, ptr nonnull %2)
-  %186 = tail call i32 @close(i32 noundef %180) #38
+  %186 = tail call i32 @close(i32 noundef %180) #40
   br label %GC_get_maps_len.exit34.thread.i
 
 187:                                              ; preds = %183
@@ -26502,7 +26502,7 @@ GC_get_maps_len.exit34.thread66.i:                ; preds = %183
 
 GC_get_maps_len.exit34.i:                         ; preds = %187
   call void @llvm.lifetime.end.p0(i64 500, ptr nonnull %2)
-  %190 = tail call i32 @close(i32 noundef %180) #38
+  %190 = tail call i32 @close(i32 noundef %180) #40
   %191 = icmp eq i64 %188, 0
   br i1 %191, label %GC_get_maps_len.exit34.thread.i, label %.preheader73.i.backedge
 
@@ -26512,12 +26512,12 @@ GC_get_maps_len.exit34.i:                         ; preds = %187
 
 GC_get_maps_len.exit34.thread.i:                  ; preds = %GC_get_maps_len.exit34.i, %179, %GC_get_maps_len.exit34.thread66.i
   %192 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %192(ptr noundef nonnull @.str.283) #38
-  tail call void @abort() #44
+  tail call void %192(ptr noundef nonnull @.str.283) #40
+  tail call void @abort() #46
   unreachable
 
 193:                                              ; preds = %.preheader73.i
-  %194 = tail call i32 (ptr, i32, ...) @open(ptr noundef nonnull @.str.286, i32 noundef 0) #38
+  %194 = tail call i32 (ptr, i32, ...) @open(ptr noundef nonnull @.str.286, i32 noundef 0) #40
   %195 = icmp eq i32 %194, -1
   br i1 %195, label %196, label %.preheader72.preheader.i
 
@@ -26526,12 +26526,12 @@ GC_get_maps_len.exit34.thread.i:                  ; preds = %GC_get_maps_len.exi
   br label %.preheader72.i
 
 196:                                              ; preds = %193
-  %197 = tail call ptr @__errno_location() #45
+  %197 = tail call ptr @__errno_location() #47
   %198 = load i32, ptr %197, align 4
   tail call void (ptr, ...) @GC_log_printf(ptr noundef nonnull @.str.287, i32 noundef %198)
   %199 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %199(ptr noundef nonnull @.str.288) #38
-  tail call void @abort() #44
+  tail call void %199(ptr noundef nonnull @.str.288) #40
+  tail call void @abort() #46
   unreachable
 
 .preheader72.i:                                   ; preds = %GC_repeat_read.exit.thread69.i, %.preheader72.preheader.i
@@ -26546,7 +26546,7 @@ GC_get_maps_len.exit34.thread.i:                  ; preds = %GC_get_maps_len.exi
   %.01316.i.i = phi i64 [ %210, %209 ], [ 0, %.preheader72.i ]
   %203 = getelementptr inbounds i8, ptr %201, i64 %.01316.i.i
   %204 = sub nuw i64 %202, %.01316.i.i
-  %205 = tail call i64 @read(i32 noundef %194, ptr noundef %203, i64 noundef %204) #38
+  %205 = tail call i64 @read(i32 noundef %194, ptr noundef %203, i64 noundef %204) #40
   %206 = icmp slt i64 %205, 0
   br i1 %206, label %GC_repeat_read.exit.thread.i, label %207
 
@@ -26560,12 +26560,12 @@ GC_get_maps_len.exit34.thread.i:                  ; preds = %GC_get_maps_len.exi
   br i1 %211, label %.lr.ph.i36.i, label %GC_repeat_read.exit.thread69.loopexit.i, !llvm.loop !109
 
 GC_repeat_read.exit.thread.i:                     ; preds = %.lr.ph.i36.i
-  %212 = tail call ptr @__errno_location() #45
+  %212 = tail call ptr @__errno_location() #47
   %213 = load i32, ptr %212, align 4
   tail call void (ptr, ...) @GC_log_printf(ptr noundef nonnull @.str.289, i32 noundef %213)
   %214 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %214(ptr noundef nonnull @.str.290) #38
-  tail call void @abort() #44
+  tail call void %214(ptr noundef nonnull @.str.290) #40
+  tail call void @abort() #46
   unreachable
 
 GC_repeat_read.exit.thread69.loopexit.i:          ; preds = %209, %207
@@ -26583,14 +26583,14 @@ GC_repeat_read.exit.thread69.i:                   ; preds = %GC_repeat_read.exit
   br i1 %217, label %.preheader72.i, label %218, !llvm.loop !133
 
 218:                                              ; preds = %GC_repeat_read.exit.thread69.i
-  %219 = tail call i32 @close(i32 noundef %194) #38
+  %219 = tail call i32 @close(i32 noundef %194) #40
   %220 = icmp eq i64 %216, 0
   br i1 %220, label %221, label %223
 
 221:                                              ; preds = %218
   %222 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %222(ptr noundef nonnull @.str.291) #38
-  tail call void @abort() #44
+  tail call void %222(ptr noundef nonnull @.str.291) #40
+  tail call void @abort() #46
   unreachable
 
 223:                                              ; preds = %218
@@ -26599,7 +26599,7 @@ GC_repeat_read.exit.thread69.i:                   ; preds = %GC_repeat_read.exit
 
 225:                                              ; preds = %223
   %226 = load ptr, ptr @GC_current_warn_proc, align 8
-  tail call void %226(ptr noundef nonnull @.str.292, i64 noundef %216) #38
+  tail call void %226(ptr noundef nonnull @.str.292, i64 noundef %216) #40
   br label %227
 
 227:                                              ; preds = %225, %223
@@ -26615,9 +26615,9 @@ GC_get_maps.exit:                                 ; preds = %227
   store i8 0, ptr %233, align 1
   tail call void (ptr, ...) @GC_err_printf(ptr noundef nonnull @.str.110)
   %234 = load i32, ptr @GC_stderr, align 4
-  %235 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %232) #46
+  %235 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %232) #48
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1)
-  %236 = call i32 @pthread_setcancelstate(i32 noundef 1, ptr noundef nonnull %1) #38
+  %236 = call i32 @pthread_setcancelstate(i32 noundef 1, ptr noundef nonnull %1) #40
   %.not.i.i1 = icmp eq i64 %235, 0
   br i1 %.not.i.i1, label %GC_err_puts.exit, label %.outer.split.i.i
 
@@ -26628,13 +26628,13 @@ GC_get_maps.exit:                                 ; preds = %227
   br label %239
 
 239:                                              ; preds = %243, %.outer.split.i.i
-  %240 = call i64 @write(i32 noundef %234, ptr noundef %238, i64 noundef %237) #38
+  %240 = call i64 @write(i32 noundef %234, ptr noundef %238, i64 noundef %237) #40
   %241 = trunc i64 %240 to i32
   %242 = icmp eq i32 %241, -1
   br i1 %242, label %243, label %.outer.i.i
 
 243:                                              ; preds = %239
-  %244 = tail call ptr @__errno_location() #45
+  %244 = tail call ptr @__errno_location() #47
   %245 = load i32, ptr %244, align 4
   %246 = icmp eq i32 %245, 11
   br i1 %246, label %239, label %GC_err_puts.exit, !llvm.loop !13
@@ -26650,7 +26650,7 @@ GC_get_maps.exit:                                 ; preds = %227
 
 GC_err_puts.exit:                                 ; preds = %.outer.i.i, %243, %GC_get_maps.exit
   %.sink.i.i = load i32, ptr %1, align 4
-  %253 = call i32 @pthread_setcancelstate(i32 noundef %.sink.i.i, ptr noundef null) #38
+  %253 = call i32 @pthread_setcancelstate(i32 noundef %.sink.i.i, ptr noundef null) #40
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1)
   call void (ptr, ...) @GC_err_printf(ptr noundef nonnull @.str.111)
   ret void
@@ -26725,7 +26725,7 @@ define noalias ptr @GC_gcj_malloc(i64 noundef %0, ptr noundef %1) local_unnamed_
   br label %GC_end_stubborn_change.exit
 
 GC_end_stubborn_change.exit:                      ; preds = %33, %34
-  tail call void asm sideeffect " ", "X,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %30) #38, !srcloc !134
+  tail call void asm sideeffect " ", "X,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %30) #40, !srcloc !134
   br label %58
 
 43:                                               ; preds = %27
@@ -26751,7 +26751,7 @@ GC_end_stubborn_change.exit:                      ; preds = %33, %34
 
 55:                                               ; preds = %51
   %56 = tail call ptr @GC_get_oom_fn()
-  %57 = tail call ptr %56(i64 noundef %25) #38
+  %57 = tail call ptr %56(i64 noundef %25) #40
   br label %58
 
 58:                                               ; preds = %46, %55, %GC_end_stubborn_change.exit, %29, %16, %4
@@ -26760,7 +26760,7 @@ GC_end_stubborn_change.exit:                      ; preds = %33, %34
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #31
+declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #32
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define void @GC_register_has_static_roots_callback(ptr noundef %0) local_unnamed_addr #7 {
@@ -26774,7 +26774,7 @@ define ptr @GC_dlopen(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
   br i1 %.b2.i, label %3, label %GC_lock.exit.i
 
 3:                                                ; preds = %2
-  %4 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %4 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not.i = icmp eq i32 %4, 0
   br i1 %.not.i, label %GC_lock.exit.i, label %5
 
@@ -26789,14 +26789,14 @@ define ptr @GC_dlopen(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
   br i1 %.not.i.i, label %10, label %GC_generic_lock.exit.sink.split.i.i
 
 10:                                               ; preds = %8
-  %11 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %11 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %GC_lock.exit.i, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %10, %16
   %.079.i.i.i = phi i32 [ %17, %16 ], [ 1, %10 ]
   fence syncscope("singlethread") seq_cst
-  %13 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %13 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %13, label %14 [
     i32 0, label %GC_lock.exit.i
     i32 16, label %16
@@ -26804,8 +26804,8 @@ define ptr @GC_dlopen(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
 
 14:                                               ; preds = %.preheader.i.i.i
   %15 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %15(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %15(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 16:                                               ; preds = %.preheader.i.i.i
@@ -26814,7 +26814,7 @@ define ptr @GC_dlopen(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
   br i1 %18, label %.preheader.i.i.i, label %GC_generic_lock.exit.sink.split.i.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i.i:              ; preds = %16, %8, %5
-  %19 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %19 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit.i
 
 GC_lock.exit.i:                                   ; preds = %.preheader.i.i.i, %GC_generic_lock.exit.sink.split.i.i, %10, %3, %2
@@ -26844,11 +26844,11 @@ GC_lock.exit.i:                                   ; preds = %.preheader.i.i.i, %
   br i1 %.b.i, label %26, label %disable_gc_for_dlopen.exit
 
 26:                                               ; preds = %.critedge.i
-  %27 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %27 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %disable_gc_for_dlopen.exit
 
 disable_gc_for_dlopen.exit:                       ; preds = %.critedge.i, %26
-  %28 = tail call ptr @dlopen(ptr noundef %0, i32 noundef %1) #38
+  %28 = tail call ptr @dlopen(ptr noundef %0, i32 noundef %1) #40
   tail call void @GC_enable()
   ret ptr %28
 }
@@ -26905,7 +26905,7 @@ define void @GC_suspend_thread(i64 noundef %0) local_unnamed_addr #1 {
   br i1 %.b22, label %3, label %GC_lock.exit
 
 3:                                                ; preds = %1
-  %4 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %4 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %GC_lock.exit, label %5
 
@@ -26920,14 +26920,14 @@ define void @GC_suspend_thread(i64 noundef %0) local_unnamed_addr #1 {
   br i1 %.not.i, label %10, label %GC_generic_lock.exit.sink.split.i
 
 10:                                               ; preds = %8
-  %11 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %11 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %GC_lock.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %10, %16
   %.079.i.i = phi i32 [ %17, %16 ], [ 1, %10 ]
   fence syncscope("singlethread") seq_cst
-  %13 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %13 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %13, label %14 [
     i32 0, label %GC_lock.exit
     i32 16, label %16
@@ -26935,8 +26935,8 @@ define void @GC_suspend_thread(i64 noundef %0) local_unnamed_addr #1 {
 
 14:                                               ; preds = %.preheader.i.i
   %15 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %15(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %15(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 16:                                               ; preds = %.preheader.i.i
@@ -26945,7 +26945,7 @@ define void @GC_suspend_thread(i64 noundef %0) local_unnamed_addr #1 {
   br i1 %18, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %16, %8, %5
-  %19 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %19 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit
 
 GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC_generic_lock.exit.sink.split.i, %10, %1, %3
@@ -26974,7 +26974,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   br i1 %.b21, label %32, label %86
 
 32:                                               ; preds = %31
-  %33 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %33 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %86
 
 GC_lookup_thread.exit:                            ; preds = %27
@@ -26990,7 +26990,7 @@ GC_lookup_thread.exit:                            ; preds = %27
   br i1 %.b20, label %39, label %86
 
 39:                                               ; preds = %38
-  %40 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %40 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %86
 
 41:                                               ; preds = %GC_lookup_thread.exit
@@ -27007,11 +27007,11 @@ GC_lookup_thread.exit:                            ; preds = %27
   br i1 %.b19, label %47, label %86
 
 47:                                               ; preds = %45
-  %48 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %48 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %86
 
 49:                                               ; preds = %41
-  %50 = tail call i64 @pthread_self() #45
+  %50 = tail call i64 @pthread_self() #47
   %51 = icmp eq i64 %50, %0
   br i1 %51, label %52, label %56
 
@@ -27023,11 +27023,11 @@ GC_lookup_thread.exit:                            ; preds = %27
   br i1 %.b18, label %54, label %86
 
 54:                                               ; preds = %52
-  %55 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %55 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %86
 
 56:                                               ; preds = %49
-  %57 = call i32 @pthread_setcancelstate(i32 noundef 1, ptr noundef nonnull %2) #38
+  %57 = call i32 @pthread_setcancelstate(i32 noundef 1, ptr noundef nonnull %2) #40
   %58 = load i32, ptr @GC_parallel, align 4
   %.not27 = icmp eq i32 %58, 0
   br i1 %.not27, label %60, label %59
@@ -27044,16 +27044,16 @@ GC_lookup_thread.exit:                            ; preds = %27
   store atomic volatile i64 %63, ptr %35 release, align 8
   %64 = load i32, ptr @GC_sig_suspend, align 4
   %65 = load i64, ptr %34, align 8
-  %66 = call i32 @pthread_kill(i64 noundef %65, i32 noundef %64) #38
+  %66 = call i32 @pthread_kill(i64 noundef %65, i32 noundef %64) #40
   %.not.i29 = icmp eq i32 %66, 11
   br i1 %.not.i29, label %.lr.ph.i, label %raise_signal.exit
 
 .lr.ph.i:                                         ; preds = %60, %.lr.ph.i
   %.06.i = phi i32 [ %68, %.lr.ph.i ], [ 0, %60 ]
-  %67 = call i32 @usleep(i32 noundef 3000) #38
+  %67 = call i32 @usleep(i32 noundef 3000) #40
   %68 = add nuw nsw i32 %.06.i, 1
   %69 = load i64, ptr %34, align 8
-  %70 = call i32 @pthread_kill(i64 noundef %69, i32 noundef %64) #38
+  %70 = call i32 @pthread_kill(i64 noundef %69, i32 noundef %64) #40
   %71 = icmp ne i32 %70, 11
   %72 = icmp ugt i32 %.06.i, 14
   %or.cond.i = select i1 %71, i1 true, i1 %72
@@ -27066,37 +27066,37 @@ raise_signal.exit:                                ; preds = %.lr.ph.i, %60
 
 73:                                               ; preds = %raise_signal.exit
   %74 = load ptr, ptr @GC_on_abort, align 8
-  call void %74(ptr noundef nonnull @.str.112) #38
-  call void @abort() #44
+  call void %74(ptr noundef nonnull @.str.112) #40
+  call void @abort() #46
   unreachable
 
 .preheader.i.preheader:                           ; preds = %raise_signal.exit, %76
-  %75 = call i32 @sem_wait(ptr noundef nonnull @GC_suspend_ack_sem) #38
+  %75 = call i32 @sem_wait(ptr noundef nonnull @GC_suspend_ack_sem) #40
   %.not.i30 = icmp eq i32 %75, 0
   br i1 %.not.i30, label %suspend_restart_barrier.exit, label %76
 
 76:                                               ; preds = %.preheader.i.preheader
-  %77 = tail call ptr @__errno_location() #45
+  %77 = tail call ptr @__errno_location() #47
   %78 = load i32, ptr %77, align 4
   %.not3.i = icmp eq i32 %78, 4
   br i1 %.not3.i, label %.preheader.i.preheader, label %79, !llvm.loop !30
 
 79:                                               ; preds = %76
   %80 = load ptr, ptr @GC_on_abort, align 8
-  call void %80(ptr noundef nonnull @.str.119) #38
-  call void @abort() #44
+  call void %80(ptr noundef nonnull @.str.119) #40
+  call void @abort() #46
   unreachable
 
 suspend_restart_barrier.exit:                     ; preds = %.preheader.i.preheader
   %81 = or i64 %62, 1
   store atomic volatile i64 %81, ptr @GC_stop_count monotonic, align 8
   %82 = load i32, ptr %2, align 4
-  %83 = call i32 @pthread_setcancelstate(i32 noundef %82, ptr noundef null) #38
+  %83 = call i32 @pthread_setcancelstate(i32 noundef %82, ptr noundef null) #40
   %.b = load i1, ptr @GC_need_to_lock, align 4
   br i1 %.b, label %84, label %86
 
 84:                                               ; preds = %suspend_restart_barrier.exit
-  %85 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %85 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %86
 
 86:                                               ; preds = %suspend_restart_barrier.exit, %84, %54, %52, %47, %45, %39, %38, %32, %31
@@ -27139,12 +27139,12 @@ define internal void @GC_suspend_self_blocked(ptr noundef %0, ptr nocapture read
   br i1 %.b6, label %21, label %23
 
 21:                                               ; preds = %19
-  %22 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %22 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %23
 
 23:                                               ; preds = %19, %21
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
-  %24 = call i32 @pthread_setcancelstate(i32 noundef 1, ptr noundef nonnull %4) #38
+  %24 = call i32 @pthread_setcancelstate(i32 noundef 1, ptr noundef nonnull %4) #40
   %25 = load atomic volatile i64, ptr %15 acquire, align 8
   %26 = icmp eq i64 %25, %20
   br i1 %26, label %.lr.ph.i, label %GC_suspend_self_inner.exit
@@ -27153,7 +27153,7 @@ define internal void @GC_suspend_self_blocked(ptr noundef %0, ptr nocapture read
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   store i64 0, ptr %3, align 8
   store i64 7500, ptr %18, align 8
-  %27 = call i32 @select(i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %3) #38
+  %27 = call i32 @select(i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %3) #40
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   %28 = load atomic volatile i64, ptr %15 acquire, align 8
   %29 = icmp eq i64 %28, %20
@@ -27161,13 +27161,13 @@ define internal void @GC_suspend_self_blocked(ptr noundef %0, ptr nocapture read
 
 GC_suspend_self_inner.exit:                       ; preds = %.lr.ph.i, %23
   %30 = load i32, ptr %4, align 4
-  %31 = call i32 @pthread_setcancelstate(i32 noundef %30, ptr noundef null) #38
+  %31 = call i32 @pthread_setcancelstate(i32 noundef %30, ptr noundef null) #40
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   %.b = load i1, ptr @GC_need_to_lock, align 4
   br i1 %.b, label %32, label %GC_lock.exit
 
 32:                                               ; preds = %GC_suspend_self_inner.exit
-  %33 = call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %33 = call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not7 = icmp eq i32 %33, 0
   br i1 %.not7, label %GC_lock.exit, label %34
 
@@ -27182,14 +27182,14 @@ GC_suspend_self_inner.exit:                       ; preds = %.lr.ph.i, %23
   br i1 %.not.i, label %39, label %GC_generic_lock.exit.sink.split.i
 
 39:                                               ; preds = %37
-  %40 = call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %40 = call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %41 = icmp eq i32 %40, 0
   br i1 %41, label %GC_lock.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %39, %45
   %.079.i.i = phi i32 [ %46, %45 ], [ 1, %39 ]
   fence syncscope("singlethread") seq_cst
-  %42 = call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %42 = call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %42, label %43 [
     i32 0, label %GC_lock.exit
     i32 16, label %45
@@ -27197,8 +27197,8 @@ GC_suspend_self_inner.exit:                       ; preds = %.lr.ph.i, %23
 
 43:                                               ; preds = %.preheader.i.i
   %44 = load ptr, ptr @GC_on_abort, align 8
-  call void %44(ptr noundef nonnull @.str.340) #38
-  call void @abort() #44
+  call void %44(ptr noundef nonnull @.str.340) #40
+  call void @abort() #46
   unreachable
 
 45:                                               ; preds = %.preheader.i.i
@@ -27207,7 +27207,7 @@ GC_suspend_self_inner.exit:                       ; preds = %.lr.ph.i, %23
   br i1 %47, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %45, %37, %34
-  %48 = call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %48 = call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit
 
 GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC_generic_lock.exit.sink.split.i, %39, %GC_suspend_self_inner.exit, %32
@@ -27229,14 +27229,14 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @GC_wait_for_reclaim() unnamed_addr #1 {
-  %1 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @mark_mutex) #38
+  %1 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @mark_mutex) #40
   %2 = icmp eq i32 %1, 0
   br i1 %2, label %GC_wait_builder.exit.preheader, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %0, %6
   %.079.i.i = phi i32 [ %7, %6 ], [ 1, %0 ]
   fence syncscope("singlethread") seq_cst
-  %3 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @mark_mutex) #38
+  %3 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @mark_mutex) #40
   switch i32 %3, label %4 [
     i32 0, label %GC_wait_builder.exit.preheader
     i32 16, label %6
@@ -27244,8 +27244,8 @@ define internal fastcc void @GC_wait_for_reclaim() unnamed_addr #1 {
 
 4:                                                ; preds = %.preheader.i.i
   %5 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %5(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %5(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 6:                                                ; preds = %.preheader.i.i
@@ -27254,7 +27254,7 @@ define internal fastcc void @GC_wait_for_reclaim() unnamed_addr #1 {
   br i1 %8, label %.preheader.i.i, label %9, !llvm.loop !4
 
 9:                                                ; preds = %6
-  %10 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @mark_mutex) #38
+  %10 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @mark_mutex) #40
   br label %GC_wait_builder.exit.preheader
 
 GC_wait_builder.exit.preheader:                   ; preds = %.preheader.i.i, %0, %9
@@ -27266,25 +27266,25 @@ GC_wait_builder.exit:                             ; preds = %GC_wait_builder.exi
   br i1 %12, label %13, label %17
 
 13:                                               ; preds = %GC_wait_builder.exit
-  %14 = tail call i32 @pthread_cond_wait(ptr noundef nonnull @builder_cv, ptr noundef nonnull @mark_mutex) #38
+  %14 = tail call i32 @pthread_cond_wait(ptr noundef nonnull @builder_cv, ptr noundef nonnull @mark_mutex) #40
   %.not.i = icmp eq i32 %14, 0
   br i1 %.not.i, label %GC_wait_builder.exit, label %15, !llvm.loop !137
 
 15:                                               ; preds = %13
   %16 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %16(ptr noundef nonnull @.str.143) #38
-  tail call void @abort() #44
+  tail call void %16(ptr noundef nonnull @.str.143) #40
+  tail call void @abort() #46
   unreachable
 
 17:                                               ; preds = %GC_wait_builder.exit
-  %18 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @mark_mutex) #38
+  %18 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @mark_mutex) #40
   %.not.i1 = icmp eq i32 %18, 0
   br i1 %.not.i1, label %GC_release_mark_lock.exit, label %19
 
 19:                                               ; preds = %17
   %20 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %20(ptr noundef nonnull @.str.341) #38
-  tail call void @abort() #44
+  tail call void %20(ptr noundef nonnull @.str.341) #40
+  tail call void @abort() #46
   unreachable
 
 GC_release_mark_lock.exit:                        ; preds = %17
@@ -27298,7 +27298,7 @@ define void @GC_resume_thread(i64 noundef %0) local_unnamed_addr #1 {
   br i1 %.b11, label %3, label %GC_lock.exit
 
 3:                                                ; preds = %1
-  %4 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %4 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %GC_lock.exit, label %5
 
@@ -27313,14 +27313,14 @@ define void @GC_resume_thread(i64 noundef %0) local_unnamed_addr #1 {
   br i1 %.not.i, label %10, label %GC_generic_lock.exit.sink.split.i
 
 10:                                               ; preds = %8
-  %11 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %11 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %GC_lock.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %10, %16
   %.079.i.i = phi i32 [ %17, %16 ], [ 1, %10 ]
   fence syncscope("singlethread") seq_cst
-  %13 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %13 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %13, label %14 [
     i32 0, label %GC_lock.exit
     i32 16, label %16
@@ -27328,8 +27328,8 @@ define void @GC_resume_thread(i64 noundef %0) local_unnamed_addr #1 {
 
 14:                                               ; preds = %.preheader.i.i
   %15 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %15(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %15(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 16:                                               ; preds = %.preheader.i.i
@@ -27338,7 +27338,7 @@ define void @GC_resume_thread(i64 noundef %0) local_unnamed_addr #1 {
   br i1 %18, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %16, %8, %5
-  %19 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %19 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit
 
 GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC_generic_lock.exit.sink.split.i, %10, %1, %3
@@ -27381,16 +27381,16 @@ GC_lookup_thread.exit:                            ; preds = %27
 
 41:                                               ; preds = %35
   %42 = load i32, ptr @GC_sig_thr_restart, align 4
-  %43 = tail call i32 @pthread_kill(i64 noundef %0, i32 noundef %42) #38
+  %43 = tail call i32 @pthread_kill(i64 noundef %0, i32 noundef %42) #40
   %.not.i17 = icmp eq i32 %43, 11
   br i1 %.not.i17, label %.lr.ph.i, label %raise_signal.exit
 
 .lr.ph.i:                                         ; preds = %41, %.lr.ph.i
   %.06.i = phi i32 [ %45, %.lr.ph.i ], [ 0, %41 ]
-  %44 = tail call i32 @usleep(i32 noundef 3000) #38
+  %44 = tail call i32 @usleep(i32 noundef 3000) #40
   %45 = add nuw nsw i32 %.06.i, 1
   %46 = load i64, ptr %31, align 8
-  %47 = tail call i32 @pthread_kill(i64 noundef %46, i32 noundef %42) #38
+  %47 = tail call i32 @pthread_kill(i64 noundef %46, i32 noundef %42) #40
   %48 = icmp ne i32 %47, 11
   %49 = icmp ugt i32 %.06.i, 14
   %or.cond.i = select i1 %48, i1 true, i1 %49
@@ -27404,8 +27404,8 @@ raise_signal.exit:                                ; preds = %.lr.ph.i, %41
 50:                                               ; preds = %raise_signal.exit
   tail call void (ptr, ...) @GC_log_printf(ptr noundef nonnull @.str.113, i32 noundef %.lcssa.i)
   %51 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %51(ptr noundef nonnull @.str.114) #38
-  tail call void @abort() #44
+  tail call void %51(ptr noundef nonnull @.str.114) #40
+  tail call void @abort() #46
   unreachable
 
 52:                                               ; preds = %raise_signal.exit
@@ -27420,29 +27420,29 @@ raise_signal.exit:                                ; preds = %.lr.ph.i, %41
   br i1 %57, label %.preheader.i, label %GC_lookup_thread.exit.thread
 
 .preheader.i:                                     ; preds = %52, %54
-  %58 = call i32 @pthread_setcancelstate(i32 noundef 1, ptr noundef nonnull %2) #38
+  %58 = call i32 @pthread_setcancelstate(i32 noundef 1, ptr noundef nonnull %2) #40
   br label %59
 
 59:                                               ; preds = %61, %.preheader.i
-  %60 = call i32 @sem_wait(ptr noundef nonnull @GC_suspend_ack_sem) #38
+  %60 = call i32 @sem_wait(ptr noundef nonnull @GC_suspend_ack_sem) #40
   %.not.i18 = icmp eq i32 %60, 0
   br i1 %.not.i18, label %suspend_restart_barrier.exit, label %61
 
 61:                                               ; preds = %59
-  %62 = tail call ptr @__errno_location() #45
+  %62 = tail call ptr @__errno_location() #47
   %63 = load i32, ptr %62, align 4
   %.not3.i = icmp eq i32 %63, 4
   br i1 %.not3.i, label %59, label %64, !llvm.loop !30
 
 64:                                               ; preds = %61
   %65 = load ptr, ptr @GC_on_abort, align 8
-  call void %65(ptr noundef nonnull @.str.119) #38
-  call void @abort() #44
+  call void %65(ptr noundef nonnull @.str.119) #40
+  call void @abort() #46
   unreachable
 
 suspend_restart_barrier.exit:                     ; preds = %59
   %66 = load i32, ptr %2, align 4
-  %67 = call i32 @pthread_setcancelstate(i32 noundef %66, ptr noundef null) #38
+  %67 = call i32 @pthread_setcancelstate(i32 noundef %66, ptr noundef null) #40
   br label %GC_lookup_thread.exit.thread
 
 GC_lookup_thread.exit.thread:                     ; preds = %26, %35, %suspend_restart_barrier.exit, %54, %GC_lookup_thread.exit
@@ -27450,7 +27450,7 @@ GC_lookup_thread.exit.thread:                     ; preds = %26, %35, %suspend_r
   br i1 %.b, label %68, label %70
 
 68:                                               ; preds = %GC_lookup_thread.exit.thread
-  %69 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %69 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %70
 
 70:                                               ; preds = %GC_lookup_thread.exit.thread, %68
@@ -27463,7 +27463,7 @@ define range(i32 0, 2) i32 @GC_is_thread_suspended(i64 noundef %0) local_unnamed
   br i1 %.b4, label %2, label %GC_lock.exit
 
 2:                                                ; preds = %1
-  %3 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %3 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %GC_lock.exit, label %4
 
@@ -27478,14 +27478,14 @@ define range(i32 0, 2) i32 @GC_is_thread_suspended(i64 noundef %0) local_unnamed
   br i1 %.not.i, label %9, label %GC_generic_lock.exit.sink.split.i
 
 9:                                                ; preds = %7
-  %10 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %10 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %GC_lock.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %9, %15
   %.079.i.i = phi i32 [ %16, %15 ], [ 1, %9 ]
   fence syncscope("singlethread") seq_cst
-  %12 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %12 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %12, label %13 [
     i32 0, label %GC_lock.exit
     i32 16, label %15
@@ -27493,8 +27493,8 @@ define range(i32 0, 2) i32 @GC_is_thread_suspended(i64 noundef %0) local_unnamed
 
 13:                                               ; preds = %.preheader.i.i
   %14 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %14(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %14(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 15:                                               ; preds = %.preheader.i.i
@@ -27503,7 +27503,7 @@ define range(i32 0, 2) i32 @GC_is_thread_suspended(i64 noundef %0) local_unnamed
   br i1 %17, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %15, %7, %4
-  %18 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %18 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit
 
 GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC_generic_lock.exit.sink.split.i, %9, %1, %2
@@ -27540,7 +27540,7 @@ GC_lookup_thread.exit.thread:                     ; preds = %25, %GC_lookup_thre
   br i1 %.b, label %33, label %35
 
 33:                                               ; preds = %GC_lookup_thread.exit.thread
-  %34 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %34 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %35
 
 35:                                               ; preds = %GC_lookup_thread.exit.thread, %33
@@ -27563,8 +27563,8 @@ define hidden void @GC_push_thread_structures() local_unnamed_addr #1 {
 
 7:                                                ; preds = %3
   %8 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %8(ptr noundef nonnull @.str.51) #38
-  tail call void @abort() #44
+  tail call void %8(ptr noundef nonnull @.str.51) #40
+  tail call void @abort() #46
   unreachable
 
 9:                                                ; preds = %3
@@ -27587,7 +27587,7 @@ define range(i32 0, 2) i32 @GC_thread_is_registered() local_unnamed_addr #1 {
   br i1 %.b1.i, label %1, label %GC_lock.exit.i
 
 1:                                                ; preds = %0
-  %2 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %2 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not.i = icmp eq i32 %2, 0
   br i1 %.not.i, label %GC_lock.exit.i, label %3
 
@@ -27602,14 +27602,14 @@ define range(i32 0, 2) i32 @GC_thread_is_registered() local_unnamed_addr #1 {
   br i1 %.not.i.i, label %8, label %GC_generic_lock.exit.sink.split.i.i
 
 8:                                                ; preds = %6
-  %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %GC_lock.exit.i, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %8, %14
   %.079.i.i.i = phi i32 [ %15, %14 ], [ 1, %8 ]
   fence syncscope("singlethread") seq_cst
-  %11 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %11 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %11, label %12 [
     i32 0, label %GC_lock.exit.i
     i32 16, label %14
@@ -27617,8 +27617,8 @@ define range(i32 0, 2) i32 @GC_thread_is_registered() local_unnamed_addr #1 {
 
 12:                                               ; preds = %.preheader.i.i.i
   %13 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %13(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %13(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 14:                                               ; preds = %.preheader.i.i.i
@@ -27627,11 +27627,11 @@ define range(i32 0, 2) i32 @GC_thread_is_registered() local_unnamed_addr #1 {
   br i1 %16, label %.preheader.i.i.i, label %GC_generic_lock.exit.sink.split.i.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i.i:              ; preds = %14, %6, %3
-  %17 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %17 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit.i
 
 GC_lock.exit.i:                                   ; preds = %.preheader.i.i.i, %GC_generic_lock.exit.sink.split.i.i, %8, %1, %0
-  %18 = tail call i64 @pthread_self() #45
+  %18 = tail call i64 @pthread_self() #47
   %19 = lshr i64 %18, 8
   %20 = xor i64 %19, %18
   %21 = lshr i64 %20, 16
@@ -27657,7 +27657,7 @@ GC_lookup_thread.exit.i:                          ; preds = %26, %25
   br i1 %.b.i, label %30, label %GC_self_thread.exit
 
 30:                                               ; preds = %GC_lookup_thread.exit.i
-  %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_self_thread.exit
 
 GC_self_thread.exit:                              ; preds = %GC_lookup_thread.exit.i, %30
@@ -27682,7 +27682,7 @@ define void @GC_register_altstack(ptr noundef %0, i64 noundef %1, ptr noundef %2
   br i1 %.b9, label %5, label %GC_lock.exit
 
 5:                                                ; preds = %4
-  %6 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %6 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %GC_lock.exit, label %7
 
@@ -27697,14 +27697,14 @@ define void @GC_register_altstack(ptr noundef %0, i64 noundef %1, ptr noundef %2
   br i1 %.not.i, label %12, label %GC_generic_lock.exit.sink.split.i
 
 12:                                               ; preds = %10
-  %13 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %13 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %GC_lock.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %12, %18
   %.079.i.i = phi i32 [ %19, %18 ], [ 1, %12 ]
   fence syncscope("singlethread") seq_cst
-  %15 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %15 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %15, label %16 [
     i32 0, label %GC_lock.exit
     i32 16, label %18
@@ -27712,8 +27712,8 @@ define void @GC_register_altstack(ptr noundef %0, i64 noundef %1, ptr noundef %2
 
 16:                                               ; preds = %.preheader.i.i
   %17 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %17(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %17(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 18:                                               ; preds = %.preheader.i.i
@@ -27722,11 +27722,11 @@ define void @GC_register_altstack(ptr noundef %0, i64 noundef %1, ptr noundef %2
   br i1 %20, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %18, %10, %7
-  %21 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %21 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit
 
 GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC_generic_lock.exit.sink.split.i, %12, %4, %5
-  %22 = tail call i64 @pthread_self() #45
+  %22 = tail call i64 @pthread_self() #47
   %23 = lshr i64 %22, 8
   %24 = xor i64 %23, %22
   %25 = lshr i64 %24, 16
@@ -27763,7 +27763,7 @@ GC_lookup_thread.exit:                            ; preds = %29, %30
   br i1 %.b, label %40, label %42
 
 40:                                               ; preds = %GC_lookup_thread.exit
-  %41 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %41 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %42
 
 42:                                               ; preds = %GC_lookup_thread.exit, %40
@@ -27798,7 +27798,7 @@ define internal void @fork_prepare_proc() #1 {
   br i1 %.b, label %1, label %GC_lock.exit
 
 1:                                                ; preds = %0
-  %2 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %2 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %GC_lock.exit, label %3
 
@@ -27813,14 +27813,14 @@ define internal void @fork_prepare_proc() #1 {
   br i1 %.not.i, label %8, label %GC_generic_lock.exit.sink.split.i
 
 8:                                                ; preds = %6
-  %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %GC_lock.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %8, %14
   %.079.i.i = phi i32 [ %15, %14 ], [ 1, %8 ]
   fence syncscope("singlethread") seq_cst
-  %11 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %11 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %11, label %12 [
     i32 0, label %GC_lock.exit
     i32 16, label %14
@@ -27828,8 +27828,8 @@ define internal void @fork_prepare_proc() #1 {
 
 12:                                               ; preds = %.preheader.i.i
   %13 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %13(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %13(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 14:                                               ; preds = %.preheader.i.i
@@ -27838,11 +27838,11 @@ define internal void @fork_prepare_proc() #1 {
   br i1 %16, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %14, %6, %3
-  %17 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %17 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit
 
 GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC_generic_lock.exit.sink.split.i, %8, %1, %0
-  %18 = tail call i32 @pthread_setcancelstate(i32 noundef 1, ptr noundef nonnull @fork_cancel_state) #38
+  %18 = tail call i32 @pthread_setcancelstate(i32 noundef 1, ptr noundef nonnull @fork_cancel_state) #40
   %19 = load i32, ptr @GC_parallel, align 4
   %.not1 = icmp eq i32 %19, 0
   br i1 %.not1, label %21, label %20
@@ -27858,14 +27858,14 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   br i1 %.not2, label %GC_acquire_mark_lock.exit, label %23
 
 23:                                               ; preds = %21
-  %24 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @mark_mutex) #38
+  %24 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @mark_mutex) #40
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %GC_acquire_mark_lock.exit, label %.preheader.i.i3
 
 .preheader.i.i3:                                  ; preds = %23, %29
   %.079.i.i4 = phi i32 [ %30, %29 ], [ 1, %23 ]
   fence syncscope("singlethread") seq_cst
-  %26 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @mark_mutex) #38
+  %26 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @mark_mutex) #40
   switch i32 %26, label %27 [
     i32 0, label %GC_acquire_mark_lock.exit
     i32 16, label %29
@@ -27873,8 +27873,8 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
 
 27:                                               ; preds = %.preheader.i.i3
   %28 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %28(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %28(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 29:                                               ; preds = %.preheader.i.i3
@@ -27883,7 +27883,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   br i1 %31, label %.preheader.i.i3, label %32, !llvm.loop !4
 
 32:                                               ; preds = %29
-  %33 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @mark_mutex) #38
+  %33 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @mark_mutex) #40
   br label %GC_acquire_mark_lock.exit
 
 GC_acquire_mark_lock.exit:                        ; preds = %.preheader.i.i3, %32, %23, %21
@@ -27902,24 +27902,24 @@ define void @GC_atfork_parent() local_unnamed_addr #1 {
   br i1 %.not.i, label %GC_release_mark_lock.exit.i, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @mark_mutex) #38
+  %6 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @mark_mutex) #40
   %.not.i.i = icmp eq i32 %6, 0
   br i1 %.not.i.i, label %GC_release_mark_lock.exit.i, label %7
 
 7:                                                ; preds = %5
   %8 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %8(ptr noundef nonnull @.str.341) #38
-  tail call void @abort() #44
+  tail call void %8(ptr noundef nonnull @.str.341) #40
+  tail call void @abort() #46
   unreachable
 
 GC_release_mark_lock.exit.i:                      ; preds = %5, %3
   %9 = load i32, ptr @fork_cancel_state, align 4
-  %10 = tail call i32 @pthread_setcancelstate(i32 noundef %9, ptr noundef null) #38
+  %10 = tail call i32 @pthread_setcancelstate(i32 noundef %9, ptr noundef null) #40
   %.b.i = load i1, ptr @GC_need_to_lock, align 4
   br i1 %.b.i, label %11, label %fork_parent_proc.exit
 
 11:                                               ; preds = %GC_release_mark_lock.exit.i
-  %12 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %12 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %fork_parent_proc.exit
 
 fork_parent_proc.exit:                            ; preds = %11, %GC_release_mark_lock.exit.i, %0
@@ -27933,24 +27933,24 @@ define internal void @fork_parent_proc() #1 {
   br i1 %.not, label %GC_release_mark_lock.exit, label %2
 
 2:                                                ; preds = %0
-  %3 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @mark_mutex) #38
+  %3 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @mark_mutex) #40
   %.not.i = icmp eq i32 %3, 0
   br i1 %.not.i, label %GC_release_mark_lock.exit, label %4
 
 4:                                                ; preds = %2
   %5 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %5(ptr noundef nonnull @.str.341) #38
-  tail call void @abort() #44
+  tail call void %5(ptr noundef nonnull @.str.341) #40
+  tail call void @abort() #46
   unreachable
 
 GC_release_mark_lock.exit:                        ; preds = %2, %0
   %6 = load i32, ptr @fork_cancel_state, align 4
-  %7 = tail call i32 @pthread_setcancelstate(i32 noundef %6, ptr noundef null) #38
+  %7 = tail call i32 @pthread_setcancelstate(i32 noundef %6, ptr noundef null) #40
   %.b = load i1, ptr @GC_need_to_lock, align 4
   br i1 %.b, label %8, label %10
 
 8:                                                ; preds = %GC_release_mark_lock.exit
-  %9 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %9 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %10
 
 10:                                               ; preds = %GC_release_mark_lock.exit, %8
@@ -27978,9 +27978,9 @@ define internal void @fork_child_proc() #1 {
   br i1 %2, label %GC_dirty_update_child.exit, label %3
 
 3:                                                ; preds = %0
-  %4 = tail call i32 @close(i32 noundef %1) #38
+  %4 = tail call i32 @close(i32 noundef %1) #40
   %5 = load i32, ptr @pagemap_fd, align 4
-  %6 = tail call i32 @close(i32 noundef %5) #38
+  %6 = tail call i32 @close(i32 noundef %5) #40
   %7 = tail call fastcc i32 @soft_dirty_open_files()
   %.not.i = icmp eq i32 %7, 0
   br i1 %.not.i, label %8, label %GC_dirty_update_child.exit
@@ -27995,14 +27995,14 @@ GC_dirty_update_child.exit:                       ; preds = %0, %3, %8
   br i1 %.not, label %14, label %10
 
 10:                                               ; preds = %GC_dirty_update_child.exit
-  %11 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @mark_mutex) #38
+  %11 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @mark_mutex) #40
   %.not.i2 = icmp eq i32 %11, 0
   br i1 %.not.i2, label %GC_release_mark_lock.exit, label %12
 
 12:                                               ; preds = %10
   %13 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %13(ptr noundef nonnull @.str.341) #38
-  tail call void @abort() #44
+  tail call void %13(ptr noundef nonnull @.str.341) #40
+  tail call void @abort() #46
   unreachable
 
 GC_release_mark_lock.exit:                        ; preds = %10
@@ -28010,7 +28010,7 @@ GC_release_mark_lock.exit:                        ; preds = %10
   br label %14
 
 14:                                               ; preds = %GC_release_mark_lock.exit, %GC_dirty_update_child.exit
-  %15 = tail call i64 @pthread_self() #45
+  %15 = tail call i64 @pthread_self() #47
   br label %16
 
 16:                                               ; preds = %._crit_edge.i, %14
@@ -28243,24 +28243,24 @@ GC_remove_all_threads_but_me.exit:                ; preds = %._crit_edge.i
   %139 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @GC_thread_key)
   store ptr %138, ptr %139, align 8
   %140 = load i32, ptr @fork_cancel_state, align 4
-  %141 = tail call i32 @pthread_setcancelstate(i32 noundef %140, ptr noundef null) #38
+  %141 = tail call i32 @pthread_setcancelstate(i32 noundef %140, ptr noundef null) #40
   %.b = load i1, ptr @GC_need_to_lock, align 4
   br i1 %.b, label %142, label %144
 
 142:                                              ; preds = %GC_remove_all_threads_but_me.exit
-  %143 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %143 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %144
 
 144:                                              ; preds = %GC_remove_all_threads_but_me.exit, %142
-  %145 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull @GC_allocate_ml) #38
-  %146 = tail call i32 @pthread_mutex_init(ptr noundef nonnull @GC_allocate_ml, ptr noundef null) #38
+  %145 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull @GC_allocate_ml) #40
+  %146 = tail call i32 @pthread_mutex_init(ptr noundef nonnull @GC_allocate_ml, ptr noundef null) #40
   %.not1 = icmp eq i32 %146, 0
   br i1 %.not1, label %149, label %147
 
 147:                                              ; preds = %144
   %148 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %148(ptr noundef nonnull @.str.312) #38
-  tail call void @abort() #44
+  tail call void %148(ptr noundef nonnull @.str.312) #40
+  tail call void @abort() #46
   unreachable
 
 149:                                              ; preds = %144
@@ -28290,19 +28290,19 @@ define i32 @GC_pthread_sigmask(i32 noundef %0, ptr noundef %1, ptr noundef %2) l
   %.not.i = icmp eq i32 %8, -1
   %9 = select i1 %.not.i, i32 30, i32 %8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %4, ptr noundef nonnull align 8 dereferenceable(128) %1, i64 128, i1 false)
-  %10 = call i32 @sigdelset(ptr noundef nonnull %4, i32 noundef %9) #38
+  %10 = call i32 @sigdelset(ptr noundef nonnull %4, i32 noundef %9) #40
   %.not9 = icmp eq i32 %10, 0
   br i1 %.not9, label %13, label %11
 
 11:                                               ; preds = %7
   %12 = load ptr, ptr @GC_on_abort, align 8
-  call void %12(ptr noundef nonnull @.str.115) #38
-  call void @abort() #44
+  call void %12(ptr noundef nonnull @.str.115) #40
+  call void @abort() #46
   unreachable
 
 13:                                               ; preds = %7, %5, %3
   %.0 = phi ptr [ %1, %5 ], [ null, %3 ], [ %4, %7 ]
-  %14 = call i32 @pthread_sigmask(i32 noundef %0, ptr noundef %.0, ptr noundef %2) #38
+  %14 = call i32 @pthread_sigmask(i32 noundef %0, ptr noundef %.0, ptr noundef %2) #40
   ret i32 %14
 }
 
@@ -28313,7 +28313,7 @@ declare i32 @sigdelset(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare i32 @pthread_sigmask(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @GC_set_stackbottom(ptr noundef readonly %0, ptr nocapture noundef nonnull readonly %1) local_unnamed_addr #32 {
+define void @GC_set_stackbottom(ptr noundef readonly %0, ptr nocapture noundef nonnull readonly %1) local_unnamed_addr #33 {
   %.b = load i1, ptr @GC_is_initialized, align 4
   br i1 %.b, label %3, label %19
 
@@ -28322,7 +28322,7 @@ define void @GC_set_stackbottom(ptr noundef readonly %0, ptr nocapture noundef n
   br i1 %4, label %5, label %GC_lookup_thread.exit
 
 5:                                                ; preds = %3
-  %6 = tail call i64 @pthread_self() #45
+  %6 = tail call i64 @pthread_self() #47
   %7 = lshr i64 %6, 8
   %8 = xor i64 %7, %6
   %9 = lshr i64 %8, 16
@@ -28358,7 +28358,7 @@ define ptr @GC_get_my_stackbottom(ptr nocapture noundef nonnull writeonly %0) lo
   br i1 %.b4, label %2, label %GC_lock.exit
 
 2:                                                ; preds = %1
-  %3 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %3 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %GC_lock.exit, label %4
 
@@ -28373,14 +28373,14 @@ define ptr @GC_get_my_stackbottom(ptr nocapture noundef nonnull writeonly %0) lo
   br i1 %.not.i, label %9, label %GC_generic_lock.exit.sink.split.i
 
 9:                                                ; preds = %7
-  %10 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %10 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %GC_lock.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %9, %15
   %.079.i.i = phi i32 [ %16, %15 ], [ 1, %9 ]
   fence syncscope("singlethread") seq_cst
-  %12 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %12 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %12, label %13 [
     i32 0, label %GC_lock.exit
     i32 16, label %15
@@ -28388,8 +28388,8 @@ define ptr @GC_get_my_stackbottom(ptr nocapture noundef nonnull writeonly %0) lo
 
 13:                                               ; preds = %.preheader.i.i
   %14 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %14(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %14(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 15:                                               ; preds = %.preheader.i.i
@@ -28398,11 +28398,11 @@ define ptr @GC_get_my_stackbottom(ptr nocapture noundef nonnull writeonly %0) lo
   br i1 %17, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %15, %7, %4
-  %18 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %18 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit
 
 GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC_generic_lock.exit.sink.split.i, %9, %1, %2
-  %19 = tail call i64 @pthread_self() #45
+  %19 = tail call i64 @pthread_self() #47
   %20 = lshr i64 %19, 8
   %21 = xor i64 %20, %19
   %22 = lshr i64 %21, 16
@@ -28432,7 +28432,7 @@ GC_lookup_thread.exit:                            ; preds = %26, %27
   br i1 %.b, label %34, label %36
 
 34:                                               ; preds = %GC_lookup_thread.exit
-  %35 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %35 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %36
 
 36:                                               ; preds = %GC_lookup_thread.exit, %34
@@ -28450,7 +28450,7 @@ define ptr @GC_call_with_gc_active(ptr noundef nonnull %0, ptr noundef %1) local
   br i1 %.b27, label %7, label %GC_lock.exit
 
 7:                                                ; preds = %2
-  %8 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %8 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %GC_lock.exit, label %9
 
@@ -28465,14 +28465,14 @@ define ptr @GC_call_with_gc_active(ptr noundef nonnull %0, ptr noundef %1) local
   br i1 %.not.i, label %14, label %GC_generic_lock.exit.sink.split.i
 
 14:                                               ; preds = %12
-  %15 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %15 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %GC_lock.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %14, %20
   %.079.i.i = phi i32 [ %21, %20 ], [ 1, %14 ]
   fence syncscope("singlethread") seq_cst
-  %17 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %17 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %17, label %18 [
     i32 0, label %GC_lock.exit
     i32 16, label %20
@@ -28480,8 +28480,8 @@ define ptr @GC_call_with_gc_active(ptr noundef nonnull %0, ptr noundef %1) local
 
 18:                                               ; preds = %.preheader.i.i
   %19 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %19(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %19(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 20:                                               ; preds = %.preheader.i.i
@@ -28490,11 +28490,11 @@ define ptr @GC_call_with_gc_active(ptr noundef nonnull %0, ptr noundef %1) local
   br i1 %22, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %20, %12, %9
-  %23 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %23 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit
 
 GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC_generic_lock.exit.sink.split.i, %14, %2, %7
-  %24 = tail call i64 @pthread_self() #45
+  %24 = tail call i64 @pthread_self() #47
   %25 = lshr i64 %24, 8
   %26 = xor i64 %25, %24
   %27 = lshr i64 %26, 16
@@ -28550,12 +28550,12 @@ GC_lookup_thread.exit:                            ; preds = %31, %32
   br i1 %.b26, label %52, label %54
 
 52:                                               ; preds = %51
-  %53 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %53 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %54
 
 54:                                               ; preds = %51, %52
   %.0..0..0..0.19 = load volatile ptr, ptr %5, align 8
-  %55 = call ptr %.0..0..0..0.19(ptr noundef %1) #38
+  %55 = call ptr %.0..0..0..0.19(ptr noundef %1) #40
   store volatile i64 %39, ptr @GC_noop_sink, align 8
   br label %122
 
@@ -28565,12 +28565,12 @@ GC_lookup_thread.exit:                            ; preds = %31, %32
   br i1 %.b25, label %58, label %60
 
 58:                                               ; preds = %56
-  %59 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %59 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %60
 
 60:                                               ; preds = %56, %58
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
-  %61 = call i32 @pthread_setcancelstate(i32 noundef 1, ptr noundef nonnull %4) #38
+  %61 = call i32 @pthread_setcancelstate(i32 noundef 1, ptr noundef nonnull %4) #40
   %62 = load atomic volatile i64, ptr %47 acquire, align 8
   %63 = icmp eq i64 %62, %57
   br i1 %63, label %.lr.ph.i, label %GC_suspend_self_inner.exit
@@ -28579,7 +28579,7 @@ GC_lookup_thread.exit:                            ; preds = %31, %32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   store i64 0, ptr %3, align 8
   store i64 7500, ptr %50, align 8
-  %64 = call i32 @select(i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %3) #38
+  %64 = call i32 @select(i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %3) #40
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   %65 = load atomic volatile i64, ptr %47 acquire, align 8
   %66 = icmp eq i64 %65, %57
@@ -28587,13 +28587,13 @@ GC_lookup_thread.exit:                            ; preds = %31, %32
 
 GC_suspend_self_inner.exit:                       ; preds = %.lr.ph.i, %60
   %67 = load i32, ptr %4, align 4
-  %68 = call i32 @pthread_setcancelstate(i32 noundef %67, ptr noundef null) #38
+  %68 = call i32 @pthread_setcancelstate(i32 noundef %67, ptr noundef null) #40
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   %.b24 = load i1, ptr @GC_need_to_lock, align 4
   br i1 %.b24, label %69, label %GC_lock.exit36
 
 69:                                               ; preds = %GC_suspend_self_inner.exit
-  %70 = call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %70 = call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not30 = icmp eq i32 %70, 0
   br i1 %.not30, label %GC_lock.exit36, label %71
 
@@ -28608,14 +28608,14 @@ GC_suspend_self_inner.exit:                       ; preds = %.lr.ph.i, %60
   br i1 %.not.i32, label %76, label %GC_generic_lock.exit.sink.split.i33
 
 76:                                               ; preds = %74
-  %77 = call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %77 = call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %78 = icmp eq i32 %77, 0
   br i1 %78, label %GC_lock.exit36, label %.preheader.i.i34
 
 .preheader.i.i34:                                 ; preds = %76, %82
   %.079.i.i35 = phi i32 [ %83, %82 ], [ 1, %76 ]
   fence syncscope("singlethread") seq_cst
-  %79 = call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %79 = call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %79, label %80 [
     i32 0, label %GC_lock.exit36
     i32 16, label %82
@@ -28623,8 +28623,8 @@ GC_suspend_self_inner.exit:                       ; preds = %.lr.ph.i, %60
 
 80:                                               ; preds = %.preheader.i.i34
   %81 = load ptr, ptr @GC_on_abort, align 8
-  call void %81(ptr noundef nonnull @.str.340) #38
-  call void @abort() #44
+  call void %81(ptr noundef nonnull @.str.340) #40
+  call void @abort() #46
   unreachable
 
 82:                                               ; preds = %.preheader.i.i34
@@ -28633,7 +28633,7 @@ GC_suspend_self_inner.exit:                       ; preds = %.lr.ph.i, %60
   br i1 %84, label %.preheader.i.i34, label %GC_generic_lock.exit.sink.split.i33, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i33:              ; preds = %82, %74, %71
-  %85 = call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %85 = call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit36
 
 GC_lock.exit36:                                   ; preds = %.preheader.i.i34, %GC_generic_lock.exit.sink.split.i33, %76, %GC_suspend_self_inner.exit, %69
@@ -28662,17 +28662,17 @@ GC_lock.exit36:                                   ; preds = %.preheader.i.i34, %
   br i1 %.b23, label %95, label %97
 
 95:                                               ; preds = %._crit_edge
-  %96 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %96 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %97
 
 97:                                               ; preds = %._crit_edge, %95
   %.0..0..0..0.20 = load volatile ptr, ptr %5, align 8
-  %98 = call ptr %.0..0..0..0.20(ptr noundef %1) #38
+  %98 = call ptr %.0..0..0..0.20(ptr noundef %1) #40
   %.b22 = load i1, ptr @GC_need_to_lock, align 4
   br i1 %.b22, label %99, label %GC_lock.exit41
 
 99:                                               ; preds = %97
-  %100 = call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %100 = call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not29 = icmp eq i32 %100, 0
   br i1 %.not29, label %GC_lock.exit41, label %101
 
@@ -28687,14 +28687,14 @@ GC_lock.exit36:                                   ; preds = %.preheader.i.i34, %
   br i1 %.not.i37, label %106, label %GC_generic_lock.exit.sink.split.i38
 
 106:                                              ; preds = %104
-  %107 = call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %107 = call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %108 = icmp eq i32 %107, 0
   br i1 %108, label %GC_lock.exit41, label %.preheader.i.i39
 
 .preheader.i.i39:                                 ; preds = %106, %112
   %.079.i.i40 = phi i32 [ %113, %112 ], [ 1, %106 ]
   fence syncscope("singlethread") seq_cst
-  %109 = call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %109 = call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %109, label %110 [
     i32 0, label %GC_lock.exit41
     i32 16, label %112
@@ -28702,8 +28702,8 @@ GC_lock.exit36:                                   ; preds = %.preheader.i.i34, %
 
 110:                                              ; preds = %.preheader.i.i39
   %111 = load ptr, ptr @GC_on_abort, align 8
-  call void %111(ptr noundef nonnull @.str.340) #38
-  call void @abort() #44
+  call void %111(ptr noundef nonnull @.str.340) #40
+  call void @abort() #46
   unreachable
 
 112:                                              ; preds = %.preheader.i.i39
@@ -28712,7 +28712,7 @@ GC_lock.exit36:                                   ; preds = %.preheader.i.i34, %
   br i1 %114, label %.preheader.i.i39, label %GC_generic_lock.exit.sink.split.i38, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i38:              ; preds = %112, %104, %101
-  %115 = call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %115 = call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit41
 
 GC_lock.exit41:                                   ; preds = %.preheader.i.i39, %GC_generic_lock.exit.sink.split.i38, %106, %97, %99
@@ -28727,7 +28727,7 @@ GC_lock.exit41:                                   ; preds = %.preheader.i.i39, %
   br i1 %.b, label %120, label %122
 
 120:                                              ; preds = %GC_lock.exit41
-  %121 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %121 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %122
 
 122:                                              ; preds = %120, %GC_lock.exit41, %54
@@ -28742,7 +28742,7 @@ define noundef i32 @GC_unregister_my_thread() local_unnamed_addr #1 {
   br i1 %.b1, label %2, label %GC_lock.exit
 
 2:                                                ; preds = %0
-  %3 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %3 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %GC_lock.exit, label %4
 
@@ -28757,14 +28757,14 @@ define noundef i32 @GC_unregister_my_thread() local_unnamed_addr #1 {
   br i1 %.not.i, label %9, label %GC_generic_lock.exit.sink.split.i
 
 9:                                                ; preds = %7
-  %10 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %10 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %GC_lock.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %9, %15
   %.079.i.i = phi i32 [ %16, %15 ], [ 1, %9 ]
   fence syncscope("singlethread") seq_cst
-  %12 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %12 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %12, label %13 [
     i32 0, label %GC_lock.exit
     i32 16, label %15
@@ -28772,8 +28772,8 @@ define noundef i32 @GC_unregister_my_thread() local_unnamed_addr #1 {
 
 13:                                               ; preds = %.preheader.i.i
   %14 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %14(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %14(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 15:                                               ; preds = %.preheader.i.i
@@ -28782,13 +28782,13 @@ define noundef i32 @GC_unregister_my_thread() local_unnamed_addr #1 {
   br i1 %17, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %15, %7, %4
-  %18 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %18 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit
 
 GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC_generic_lock.exit.sink.split.i, %9, %2, %0
-  %19 = call i32 @pthread_setcancelstate(i32 noundef 1, ptr noundef nonnull %1) #38
+  %19 = call i32 @pthread_setcancelstate(i32 noundef 1, ptr noundef nonnull %1) #40
   call fastcc void @GC_wait_for_gc_completion(i32 noundef 0)
-  %20 = tail call i64 @pthread_self() #45
+  %20 = tail call i64 @pthread_self() #47
   %21 = lshr i64 %20, 8
   %22 = xor i64 %21, %20
   %23 = lshr i64 %22, 16
@@ -28812,12 +28812,12 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
 GC_lookup_thread.exit:                            ; preds = %27, %28
   call fastcc void @GC_unregister_my_thread_inner(ptr noundef %.0.i)
   %32 = load i32, ptr %1, align 4
-  %33 = call i32 @pthread_setcancelstate(i32 noundef %32, ptr noundef null) #38
+  %33 = call i32 @pthread_setcancelstate(i32 noundef %32, ptr noundef null) #40
   %.b = load i1, ptr @GC_need_to_lock, align 4
   br i1 %.b, label %34, label %36
 
 34:                                               ; preds = %GC_lookup_thread.exit
-  %35 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %35 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %36
 
 36:                                               ; preds = %GC_lookup_thread.exit, %34
@@ -28848,16 +28848,16 @@ define internal fastcc void @GC_wait_for_gc_completion(i32 noundef %0) unnamed_a
   br i1 %.b4, label %8, label %10
 
 8:                                                ; preds = %7
-  %9 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %9 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %10
 
 10:                                               ; preds = %7, %8
-  %11 = tail call i32 @sched_yield() #38
+  %11 = tail call i32 @sched_yield() #40
   %.b = load i1, ptr @GC_need_to_lock, align 4
   br i1 %.b, label %12, label %GC_lock.exit
 
 12:                                               ; preds = %10
-  %13 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %13 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not6 = icmp eq i32 %13, 0
   br i1 %.not6, label %GC_lock.exit, label %14
 
@@ -28872,14 +28872,14 @@ define internal fastcc void @GC_wait_for_gc_completion(i32 noundef %0) unnamed_a
   br i1 %.not.i, label %19, label %GC_generic_lock.exit.sink.split.i
 
 19:                                               ; preds = %17
-  %20 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %20 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %GC_lock.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %19, %25
   %.079.i.i = phi i32 [ %26, %25 ], [ 1, %19 ]
   fence syncscope("singlethread") seq_cst
-  %22 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %22 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %22, label %23 [
     i32 0, label %GC_lock.exit
     i32 16, label %25
@@ -28887,8 +28887,8 @@ define internal fastcc void @GC_wait_for_gc_completion(i32 noundef %0) unnamed_a
 
 23:                                               ; preds = %.preheader.i.i
   %24 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %24(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %24(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 25:                                               ; preds = %.preheader.i.i
@@ -28897,7 +28897,7 @@ define internal fastcc void @GC_wait_for_gc_completion(i32 noundef %0) unnamed_a
   br i1 %27, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %25, %17, %14
-  %28 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %28 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit
 
 GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC_generic_lock.exit.sink.split.i, %19, %12, %10
@@ -29108,7 +29108,7 @@ define i32 @GC_pthread_cancel(i64 noundef %0) local_unnamed_addr #1 {
   br i1 %.b4, label %2, label %GC_lock.exit
 
 2:                                                ; preds = %1
-  %3 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %3 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %GC_lock.exit, label %4
 
@@ -29123,14 +29123,14 @@ define i32 @GC_pthread_cancel(i64 noundef %0) local_unnamed_addr #1 {
   br i1 %.not.i, label %9, label %GC_generic_lock.exit.sink.split.i
 
 9:                                                ; preds = %7
-  %10 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %10 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %GC_lock.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %9, %15
   %.079.i.i = phi i32 [ %16, %15 ], [ 1, %9 ]
   fence syncscope("singlethread") seq_cst
-  %12 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %12 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %12, label %13 [
     i32 0, label %GC_lock.exit
     i32 16, label %15
@@ -29138,8 +29138,8 @@ define i32 @GC_pthread_cancel(i64 noundef %0) local_unnamed_addr #1 {
 
 13:                                               ; preds = %.preheader.i.i
   %14 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %14(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %14(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 15:                                               ; preds = %.preheader.i.i
@@ -29148,7 +29148,7 @@ define i32 @GC_pthread_cancel(i64 noundef %0) local_unnamed_addr #1 {
   br i1 %17, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %15, %7, %4
-  %18 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %18 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit
 
 GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC_generic_lock.exit.sink.split.i, %9, %1, %2
@@ -29192,11 +29192,11 @@ GC_lookup_thread.exit.thread:                     ; preds = %25, %GC_lookup_thre
   br i1 %.b, label %38, label %40
 
 38:                                               ; preds = %GC_lookup_thread.exit.thread
-  %39 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %39 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %40
 
 40:                                               ; preds = %GC_lookup_thread.exit.thread, %38
-  %41 = tail call i32 @pthread_cancel(i64 noundef %0) #38
+  %41 = tail call i32 @pthread_cancel(i64 noundef %0) #40
   ret i32 %41
 }
 
@@ -29208,7 +29208,7 @@ define void @GC_pthread_exit(ptr noundef %0) local_unnamed_addr #6 {
   br i1 %.b4, label %2, label %GC_lock.exit
 
 2:                                                ; preds = %1
-  %3 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %3 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %GC_lock.exit, label %4
 
@@ -29223,14 +29223,14 @@ define void @GC_pthread_exit(ptr noundef %0) local_unnamed_addr #6 {
   br i1 %.not.i, label %9, label %GC_generic_lock.exit.sink.split.i
 
 9:                                                ; preds = %7
-  %10 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %10 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %GC_lock.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %9, %15
   %.079.i.i = phi i32 [ %16, %15 ], [ 1, %9 ]
   fence syncscope("singlethread") seq_cst
-  %12 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %12 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %12, label %13 [
     i32 0, label %GC_lock.exit
     i32 16, label %15
@@ -29238,8 +29238,8 @@ define void @GC_pthread_exit(ptr noundef %0) local_unnamed_addr #6 {
 
 13:                                               ; preds = %.preheader.i.i
   %14 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %14(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %14(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 15:                                               ; preds = %.preheader.i.i
@@ -29248,11 +29248,11 @@ define void @GC_pthread_exit(ptr noundef %0) local_unnamed_addr #6 {
   br i1 %17, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %15, %7, %4
-  %18 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %18 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit
 
 GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC_generic_lock.exit.sink.split.i, %9, %1, %2
-  %19 = tail call i64 @pthread_self() #45
+  %19 = tail call i64 @pthread_self() #47
   %20 = lshr i64 %19, 8
   %21 = xor i64 %20, %19
   %22 = lshr i64 %21, 16
@@ -29293,16 +29293,16 @@ GC_lookup_thread.exit.thread:                     ; preds = %26, %GC_lookup_thre
   br i1 %.b, label %39, label %41
 
 39:                                               ; preds = %GC_lookup_thread.exit.thread
-  %40 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %40 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %41
 
 41:                                               ; preds = %GC_lookup_thread.exit.thread, %39
-  tail call void @pthread_exit(ptr noundef %0) #44
+  tail call void @pthread_exit(ptr noundef %0) #46
   unreachable
 }
 
 ; Function Attrs: noreturn
-declare void @pthread_exit(ptr noundef) local_unnamed_addr #33
+declare void @pthread_exit(ptr noundef) local_unnamed_addr #34
 
 ; Function Attrs: nounwind uwtable
 define void @GC_allow_register_threads() local_unnamed_addr #1 {
@@ -29318,12 +29318,12 @@ define range(i32 0, 2) i32 @GC_register_my_thread(ptr nocapture noundef nonnull 
 
 2:                                                ; preds = %1
   %3 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %3(ptr noundef nonnull @.str.116) #38
-  tail call void @abort() #44
+  tail call void %3(ptr noundef nonnull @.str.116) #40
+  tail call void @abort() #46
   unreachable
 
 4:                                                ; preds = %1
-  %5 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %5 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %GC_lock.exit, label %6
 
@@ -29338,14 +29338,14 @@ define range(i32 0, 2) i32 @GC_register_my_thread(ptr nocapture noundef nonnull 
   br i1 %.not.i, label %11, label %GC_generic_lock.exit.sink.split.i
 
 11:                                               ; preds = %9
-  %12 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %12 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %GC_lock.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %11, %17
   %.079.i.i = phi i32 [ %18, %17 ], [ 1, %11 ]
   fence syncscope("singlethread") seq_cst
-  %14 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %14 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %14, label %15 [
     i32 0, label %GC_lock.exit
     i32 16, label %17
@@ -29353,8 +29353,8 @@ define range(i32 0, 2) i32 @GC_register_my_thread(ptr nocapture noundef nonnull 
 
 15:                                               ; preds = %.preheader.i.i
   %16 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %16(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %16(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 17:                                               ; preds = %.preheader.i.i
@@ -29363,11 +29363,11 @@ define range(i32 0, 2) i32 @GC_register_my_thread(ptr nocapture noundef nonnull 
   br i1 %19, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %17, %9, %6
-  %20 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %20 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit
 
 GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC_generic_lock.exit.sink.split.i, %11, %4
-  %21 = tail call i64 @pthread_self() #45
+  %21 = tail call i64 @pthread_self() #47
   %22 = lshr i64 %21, 8
   %23 = xor i64 %22, %21
   %24 = lshr i64 %23, 16
@@ -29415,8 +29415,8 @@ GC_lookup_thread.exit:                            ; preds = %29
 
 47:                                               ; preds = %41
   %48 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %48(ptr noundef nonnull @.str.337) #38
-  tail call void @abort() #44
+  tail call void %48(ptr noundef nonnull @.str.337) #40
+  tail call void @abort() #46
   unreachable
 
 GC_record_stack_base.exit:                        ; preds = %41
@@ -29482,7 +29482,7 @@ GC_init_thread_local.exit:                        ; preds = %60
 
 .sink.split:                                      ; preds = %66, %51
   %.010.ph = phi i32 [ 1, %51 ], [ 0, %66 ]
-  %67 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %67 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %68
 
 68:                                               ; preds = %.sink.split, %66, %51
@@ -29523,8 +29523,8 @@ define internal fastcc noundef ptr @GC_register_my_thread_inner(ptr nocapture no
 
 17:                                               ; preds = %12
   %18 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %18(ptr noundef nonnull @.str.336) #38
-  tail call void @abort() #44
+  tail call void %18(ptr noundef nonnull @.str.336) #40
+  tail call void @abort() #46
   unreachable
 
 19:                                               ; preds = %12
@@ -29565,8 +29565,8 @@ GC_new_thread.exit:                               ; preds = %.thread, %19, %24
 
 39:                                               ; preds = %GC_new_thread.exit
   %40 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %40(ptr noundef nonnull @.str.337) #38
-  tail call void @abort() #44
+  tail call void %40(ptr noundef nonnull @.str.337) #40
+  tail call void @abort() #46
   unreachable
 
 GC_record_stack_base.exit:                        ; preds = %GC_new_thread.exit
@@ -29580,7 +29580,7 @@ define hidden void @GC_thread_exit_proc(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %.b2, label %3, label %GC_lock.exit
 
 3:                                                ; preds = %1
-  %4 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %4 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %GC_lock.exit, label %5
 
@@ -29595,14 +29595,14 @@ define hidden void @GC_thread_exit_proc(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %.not.i, label %10, label %GC_generic_lock.exit.sink.split.i
 
 10:                                               ; preds = %8
-  %11 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %11 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %GC_lock.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %10, %16
   %.079.i.i = phi i32 [ %17, %16 ], [ 1, %10 ]
   fence syncscope("singlethread") seq_cst
-  %13 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %13 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %13, label %14 [
     i32 0, label %GC_lock.exit
     i32 16, label %16
@@ -29610,8 +29610,8 @@ define hidden void @GC_thread_exit_proc(ptr noundef %0) local_unnamed_addr #1 {
 
 14:                                               ; preds = %.preheader.i.i
   %15 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %15(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %15(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 16:                                               ; preds = %.preheader.i.i
@@ -29620,20 +29620,20 @@ define hidden void @GC_thread_exit_proc(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %18, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %16, %8, %5
-  %19 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %19 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit
 
 GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC_generic_lock.exit.sink.split.i, %10, %3, %1
-  %20 = call i32 @pthread_setcancelstate(i32 noundef 1, ptr noundef nonnull %2) #38
+  %20 = call i32 @pthread_setcancelstate(i32 noundef 1, ptr noundef nonnull %2) #40
   call fastcc void @GC_wait_for_gc_completion(i32 noundef 0)
   call fastcc void @GC_unregister_my_thread_inner(ptr noundef %0)
   %21 = load i32, ptr %2, align 4
-  %22 = call i32 @pthread_setcancelstate(i32 noundef %21, ptr noundef null) #38
+  %22 = call i32 @pthread_setcancelstate(i32 noundef %21, ptr noundef null) #40
   %.b = load i1, ptr @GC_need_to_lock, align 4
   br i1 %.b, label %23, label %25
 
 23:                                               ; preds = %GC_lock.exit
-  %24 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %24 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %25
 
 25:                                               ; preds = %GC_lock.exit, %23
@@ -29646,7 +29646,7 @@ define i32 @GC_pthread_join(i64 noundef %0, ptr noundef %1) local_unnamed_addr #
   br i1 %.b8, label %3, label %GC_lock.exit
 
 3:                                                ; preds = %2
-  %4 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %4 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %GC_lock.exit, label %5
 
@@ -29661,14 +29661,14 @@ define i32 @GC_pthread_join(i64 noundef %0, ptr noundef %1) local_unnamed_addr #
   br i1 %.not.i, label %10, label %GC_generic_lock.exit.sink.split.i
 
 10:                                               ; preds = %8
-  %11 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %11 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %GC_lock.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %10, %16
   %.079.i.i = phi i32 [ %17, %16 ], [ 1, %10 ]
   fence syncscope("singlethread") seq_cst
-  %13 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %13 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %13, label %14 [
     i32 0, label %GC_lock.exit
     i32 16, label %16
@@ -29676,8 +29676,8 @@ define i32 @GC_pthread_join(i64 noundef %0, ptr noundef %1) local_unnamed_addr #
 
 14:                                               ; preds = %.preheader.i.i
   %15 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %15(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %15(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 16:                                               ; preds = %.preheader.i.i
@@ -29686,7 +29686,7 @@ define i32 @GC_pthread_join(i64 noundef %0, ptr noundef %1) local_unnamed_addr #
   br i1 %18, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %16, %8, %5
-  %19 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %19 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit
 
 GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC_generic_lock.exit.sink.split.i, %10, %2, %3
@@ -29715,11 +29715,11 @@ GC_lookup_thread.exit:                            ; preds = %26, %27
   br i1 %.b7, label %31, label %33
 
 31:                                               ; preds = %GC_lookup_thread.exit
-  %32 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %32 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %33
 
 33:                                               ; preds = %GC_lookup_thread.exit, %31
-  %34 = tail call i32 @pthread_join(i64 noundef %0, ptr noundef %1) #38
+  %34 = tail call i32 @pthread_join(i64 noundef %0, ptr noundef %1) #40
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %36, label %61
 
@@ -29728,7 +29728,7 @@ GC_lookup_thread.exit:                            ; preds = %26, %27
   br i1 %.b6, label %37, label %GC_lock.exit16
 
 37:                                               ; preds = %36
-  %38 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %38 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not9 = icmp eq i32 %38, 0
   br i1 %.not9, label %GC_lock.exit16, label %39
 
@@ -29743,14 +29743,14 @@ GC_lookup_thread.exit:                            ; preds = %26, %27
   br i1 %.not.i12, label %44, label %GC_generic_lock.exit.sink.split.i13
 
 44:                                               ; preds = %42
-  %45 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %45 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %46 = icmp eq i32 %45, 0
   br i1 %46, label %GC_lock.exit16, label %.preheader.i.i14
 
 .preheader.i.i14:                                 ; preds = %44, %50
   %.079.i.i15 = phi i32 [ %51, %50 ], [ 1, %44 ]
   fence syncscope("singlethread") seq_cst
-  %47 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %47 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %47, label %48 [
     i32 0, label %GC_lock.exit16
     i32 16, label %50
@@ -29758,8 +29758,8 @@ GC_lookup_thread.exit:                            ; preds = %26, %27
 
 48:                                               ; preds = %.preheader.i.i14
   %49 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %49(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %49(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 50:                                               ; preds = %.preheader.i.i14
@@ -29768,7 +29768,7 @@ GC_lookup_thread.exit:                            ; preds = %26, %27
   br i1 %52, label %.preheader.i.i14, label %GC_generic_lock.exit.sink.split.i13, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i13:              ; preds = %50, %42, %39
-  %53 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %53 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit16
 
 GC_lock.exit16:                                   ; preds = %.preheader.i.i14, %GC_generic_lock.exit.sink.split.i13, %44, %36, %37
@@ -29787,7 +29787,7 @@ GC_lock.exit16:                                   ; preds = %.preheader.i.i14, %
   br i1 %.b, label %59, label %61
 
 59:                                               ; preds = %58
-  %60 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %60 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %61
 
 61:                                               ; preds = %59, %58, %33
@@ -30031,7 +30031,7 @@ define i32 @GC_pthread_detach(i64 noundef %0) local_unnamed_addr #1 {
   br i1 %.b8, label %2, label %GC_lock.exit
 
 2:                                                ; preds = %1
-  %3 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %3 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %GC_lock.exit, label %4
 
@@ -30046,14 +30046,14 @@ define i32 @GC_pthread_detach(i64 noundef %0) local_unnamed_addr #1 {
   br i1 %.not.i, label %9, label %GC_generic_lock.exit.sink.split.i
 
 9:                                                ; preds = %7
-  %10 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %10 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %GC_lock.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %9, %15
   %.079.i.i = phi i32 [ %16, %15 ], [ 1, %9 ]
   fence syncscope("singlethread") seq_cst
-  %12 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %12 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %12, label %13 [
     i32 0, label %GC_lock.exit
     i32 16, label %15
@@ -30061,8 +30061,8 @@ define i32 @GC_pthread_detach(i64 noundef %0) local_unnamed_addr #1 {
 
 13:                                               ; preds = %.preheader.i.i
   %14 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %14(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %14(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 15:                                               ; preds = %.preheader.i.i
@@ -30071,7 +30071,7 @@ define i32 @GC_pthread_detach(i64 noundef %0) local_unnamed_addr #1 {
   br i1 %17, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %15, %7, %4
-  %18 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %18 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit
 
 GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC_generic_lock.exit.sink.split.i, %9, %1, %2
@@ -30100,11 +30100,11 @@ GC_lookup_thread.exit:                            ; preds = %25, %26
   br i1 %.b7, label %30, label %32
 
 30:                                               ; preds = %GC_lookup_thread.exit
-  %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %32
 
 32:                                               ; preds = %GC_lookup_thread.exit, %30
-  %33 = tail call i32 @pthread_detach(i64 noundef %0) #38
+  %33 = tail call i32 @pthread_detach(i64 noundef %0) #40
   %34 = icmp eq i32 %33, 0
   br i1 %34, label %35, label %62
 
@@ -30113,7 +30113,7 @@ GC_lookup_thread.exit:                            ; preds = %25, %26
   br i1 %.b6, label %36, label %GC_lock.exit16
 
 36:                                               ; preds = %35
-  %37 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %37 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not9 = icmp eq i32 %37, 0
   br i1 %.not9, label %GC_lock.exit16, label %38
 
@@ -30128,14 +30128,14 @@ GC_lookup_thread.exit:                            ; preds = %25, %26
   br i1 %.not.i12, label %43, label %GC_generic_lock.exit.sink.split.i13
 
 43:                                               ; preds = %41
-  %44 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %44 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %45 = icmp eq i32 %44, 0
   br i1 %45, label %GC_lock.exit16, label %.preheader.i.i14
 
 .preheader.i.i14:                                 ; preds = %43, %49
   %.079.i.i15 = phi i32 [ %50, %49 ], [ 1, %43 ]
   fence syncscope("singlethread") seq_cst
-  %46 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %46 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %46, label %47 [
     i32 0, label %GC_lock.exit16
     i32 16, label %49
@@ -30143,8 +30143,8 @@ GC_lookup_thread.exit:                            ; preds = %25, %26
 
 47:                                               ; preds = %.preheader.i.i14
   %48 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %48(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %48(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 49:                                               ; preds = %.preheader.i.i14
@@ -30153,7 +30153,7 @@ GC_lookup_thread.exit:                            ; preds = %25, %26
   br i1 %51, label %.preheader.i.i14, label %GC_generic_lock.exit.sink.split.i13, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i13:              ; preds = %49, %41, %38
-  %52 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %52 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit16
 
 GC_lock.exit16:                                   ; preds = %.preheader.i.i14, %GC_generic_lock.exit.sink.split.i13, %43, %35, %36
@@ -30177,7 +30177,7 @@ GC_lock.exit16:                                   ; preds = %.preheader.i.i14, %
   br i1 %.b, label %60, label %62
 
 60:                                               ; preds = %59
-  %61 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %61 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %62
 
 62:                                               ; preds = %60, %59, %32
@@ -30189,12 +30189,12 @@ declare i32 @pthread_detach(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef ptr @GC_start_rtn_prepare_thread(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2, ptr noundef %3) local_unnamed_addr #1 {
-  %5 = tail call i64 @pthread_self() #45
+  %5 = tail call i64 @pthread_self() #47
   %.b11 = load i1, ptr @GC_need_to_lock, align 4
   br i1 %.b11, label %6, label %GC_lock.exit
 
 6:                                                ; preds = %4
-  %7 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %7 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %GC_lock.exit, label %8
 
@@ -30209,14 +30209,14 @@ define hidden noundef ptr @GC_start_rtn_prepare_thread(ptr nocapture noundef wri
   br i1 %.not.i, label %13, label %GC_generic_lock.exit.sink.split.i
 
 13:                                               ; preds = %11
-  %14 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %14 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %GC_lock.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %13, %19
   %.079.i.i = phi i32 [ %20, %19 ], [ 1, %13 ]
   fence syncscope("singlethread") seq_cst
-  %16 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %16 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %16, label %17 [
     i32 0, label %GC_lock.exit
     i32 16, label %19
@@ -30224,8 +30224,8 @@ define hidden noundef ptr @GC_start_rtn_prepare_thread(ptr nocapture noundef wri
 
 17:                                               ; preds = %.preheader.i.i
   %18 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %18(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %18(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 19:                                               ; preds = %.preheader.i.i
@@ -30234,7 +30234,7 @@ define hidden noundef ptr @GC_start_rtn_prepare_thread(ptr nocapture noundef wri
   br i1 %21, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %19, %11, %8
-  %22 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %22 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit
 
 GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC_generic_lock.exit.sink.split.i, %13, %4, %6
@@ -30282,7 +30282,7 @@ GC_init_thread_local.exit:                        ; preds = %34
   br i1 %.b, label %36, label %38
 
 36:                                               ; preds = %GC_init_thread_local.exit
-  %37 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %37 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %38
 
 38:                                               ; preds = %GC_init_thread_local.exit, %36
@@ -30292,7 +30292,7 @@ GC_init_thread_local.exit:                        ; preds = %34
   %41 = load ptr, ptr %40, align 8
   store ptr %41, ptr %1, align 8
   %42 = getelementptr inbounds i8, ptr %3, i64 16
-  %43 = tail call i32 @sem_post(ptr noundef nonnull %42) #38
+  %43 = tail call i32 @sem_post(ptr noundef nonnull %42) #40
   ret ptr %23
 }
 
@@ -30313,14 +30313,14 @@ define i32 @GC_pthread_create(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
 
 9:                                                ; preds = %8, %4
   %10 = getelementptr inbounds i8, ptr %5, i64 16
-  %11 = call i32 @sem_init(ptr noundef nonnull %10, i32 noundef 0, i32 noundef 0) #38
+  %11 = call i32 @sem_init(ptr noundef nonnull %10, i32 noundef 0, i32 noundef 0) #40
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %14, label %12
 
 12:                                               ; preds = %9
   %13 = load ptr, ptr @GC_on_abort, align 8
-  call void %13(ptr noundef nonnull @.str.117) #38
-  call void @abort() #44
+  call void %13(ptr noundef nonnull @.str.117) #40
+  call void @abort() #46
   unreachable
 
 14:                                               ; preds = %9
@@ -30333,14 +30333,14 @@ define i32 @GC_pthread_create(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   br i1 %.not7, label %27, label %17
 
 17:                                               ; preds = %14
-  %18 = call i32 @pthread_attr_getdetachstate(ptr noundef nonnull %1, ptr noundef nonnull %6) #38
+  %18 = call i32 @pthread_attr_getdetachstate(ptr noundef nonnull %1, ptr noundef nonnull %6) #40
   %.not8 = icmp eq i32 %18, 0
   br i1 %.not8, label %21, label %19
 
 19:                                               ; preds = %17
   %20 = load ptr, ptr @GC_on_abort, align 8
-  call void %20(ptr noundef nonnull @.str.118) #38
-  call void @abort() #44
+  call void %20(ptr noundef nonnull @.str.118) #40
+  call void @abort() #46
   unreachable
 
 21:                                               ; preds = %17
@@ -30368,38 +30368,38 @@ define i32 @GC_pthread_create(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
 
 33:                                               ; preds = %32, %27
   store i1 true, ptr @GC_need_to_lock, align 4
-  %34 = call i32 @pthread_create(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @GC_pthread_start, ptr noundef nonnull %5) #38
+  %34 = call i32 @pthread_create(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @GC_pthread_start, ptr noundef nonnull %5) #40
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %36, label %48
 
 36:                                               ; preds = %33
-  %37 = call i32 @pthread_setcancelstate(i32 noundef 1, ptr noundef nonnull %7) #38
+  %37 = call i32 @pthread_setcancelstate(i32 noundef 1, ptr noundef nonnull %7) #40
   br label %38
 
 38:                                               ; preds = %40, %36
-  %39 = call i32 @sem_wait(ptr noundef nonnull %10) #38
+  %39 = call i32 @sem_wait(ptr noundef nonnull %10) #40
   %.not10 = icmp eq i32 %39, 0
   br i1 %.not10, label %45, label %40
 
 40:                                               ; preds = %38
-  %41 = tail call ptr @__errno_location() #45
+  %41 = tail call ptr @__errno_location() #47
   %42 = load i32, ptr %41, align 4
   %.not11 = icmp eq i32 %42, 4
   br i1 %.not11, label %38, label %43, !llvm.loop !147
 
 43:                                               ; preds = %40
   %44 = load ptr, ptr @GC_on_abort, align 8
-  call void %44(ptr noundef nonnull @.str.119) #38
-  call void @abort() #44
+  call void %44(ptr noundef nonnull @.str.119) #40
+  call void @abort() #46
   unreachable
 
 45:                                               ; preds = %38
   %46 = load i32, ptr %7, align 4
-  %47 = call i32 @pthread_setcancelstate(i32 noundef %46, ptr noundef null) #38
+  %47 = call i32 @pthread_setcancelstate(i32 noundef %46, ptr noundef null) #40
   br label %48
 
 48:                                               ; preds = %45, %33
-  %49 = call i32 @sem_destroy(ptr noundef nonnull %10) #38
+  %49 = call i32 @sem_destroy(ptr noundef nonnull %10) #40
   ret i32 %34
 }
 
@@ -30421,7 +30421,7 @@ define internal ptr @GC_pthread_start(ptr noundef %0) #1 {
   store ptr @GC_pthread_start_inner, ptr %2, align 8
   store ptr %3, ptr %3, align 8
   %.0..0..0..0..0..0.2.i = load volatile ptr, ptr %2, align 8
-  %4 = call ptr %.0..0..0..0..0..0.2.i(ptr noundef nonnull %3, ptr noundef %0) #38
+  %4 = call ptr %.0..0..0..0..0..0.2.i(ptr noundef nonnull %3, ptr noundef %0) #40
   %5 = ptrtoint ptr %3 to i64
   store volatile i64 %5, ptr @GC_noop_sink, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
@@ -30444,7 +30444,7 @@ GC_lock.exit.thread:                              ; preds = %1
   br label %21
 
 2:                                                ; preds = %1
-  %3 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %3 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %GC_lock.exit, label %4
 
@@ -30459,14 +30459,14 @@ GC_lock.exit.thread:                              ; preds = %1
   br i1 %.not.i, label %9, label %GC_generic_lock.exit.sink.split.i
 
 9:                                                ; preds = %7
-  %10 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %10 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %GC_lock.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %9, %15
   %.079.i.i = phi i32 [ %16, %15 ], [ 1, %9 ]
   fence syncscope("singlethread") seq_cst
-  %12 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %12 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %12, label %13 [
     i32 0, label %GC_lock.exit
     i32 16, label %15
@@ -30474,8 +30474,8 @@ GC_lock.exit.thread:                              ; preds = %1
 
 13:                                               ; preds = %.preheader.i.i
   %14 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %14(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %14(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 15:                                               ; preds = %.preheader.i.i
@@ -30484,7 +30484,7 @@ GC_lock.exit.thread:                              ; preds = %1
   br i1 %17, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %15, %7, %4
-  %18 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %18 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit
 
 GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC_generic_lock.exit.sink.split.i, %9, %2
@@ -30493,7 +30493,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   br i1 %.b.pr, label %19, label %21
 
 19:                                               ; preds = %GC_lock.exit
-  %20 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %20 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %21
 
 21:                                               ; preds = %GC_lock.exit.thread, %GC_lock.exit, %19
@@ -30510,7 +30510,7 @@ GC_lock.exit.thread:                              ; preds = %0
   br label %22
 
 2:                                                ; preds = %0
-  %3 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %3 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %GC_lock.exit, label %4
 
@@ -30525,14 +30525,14 @@ GC_lock.exit.thread:                              ; preds = %0
   br i1 %.not.i, label %9, label %GC_generic_lock.exit.sink.split.i
 
 9:                                                ; preds = %7
-  %10 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %10 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %GC_lock.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %9, %15
   %.079.i.i = phi i32 [ %16, %15 ], [ 1, %9 ]
   fence syncscope("singlethread") seq_cst
-  %12 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %12 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %12, label %13 [
     i32 0, label %GC_lock.exit
     i32 16, label %15
@@ -30540,8 +30540,8 @@ GC_lock.exit.thread:                              ; preds = %0
 
 13:                                               ; preds = %.preheader.i.i
   %14 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %14(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %14(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 15:                                               ; preds = %.preheader.i.i
@@ -30550,7 +30550,7 @@ GC_lock.exit.thread:                              ; preds = %0
   br i1 %17, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %15, %7, %4
-  %18 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %18 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit
 
 GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC_generic_lock.exit.sink.split.i, %9, %2
@@ -30559,7 +30559,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   br i1 %.b.pr, label %20, label %22
 
 20:                                               ; preds = %GC_lock.exit
-  %21 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %21 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %22
 
 22:                                               ; preds = %GC_lock.exit.thread, %GC_lock.exit, %20
@@ -30577,7 +30577,7 @@ GC_lock.exit.thread:                              ; preds = %1
   br label %21
 
 2:                                                ; preds = %1
-  %3 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %3 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %GC_lock.exit, label %4
 
@@ -30592,14 +30592,14 @@ GC_lock.exit.thread:                              ; preds = %1
   br i1 %.not.i, label %9, label %GC_generic_lock.exit.sink.split.i
 
 9:                                                ; preds = %7
-  %10 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %10 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %GC_lock.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %9, %15
   %.079.i.i = phi i32 [ %16, %15 ], [ 1, %9 ]
   fence syncscope("singlethread") seq_cst
-  %12 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %12 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %12, label %13 [
     i32 0, label %GC_lock.exit
     i32 16, label %15
@@ -30607,8 +30607,8 @@ GC_lock.exit.thread:                              ; preds = %1
 
 13:                                               ; preds = %.preheader.i.i
   %14 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %14(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %14(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 15:                                               ; preds = %.preheader.i.i
@@ -30617,7 +30617,7 @@ GC_lock.exit.thread:                              ; preds = %1
   br i1 %17, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %15, %7, %4
-  %18 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %18 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit
 
 GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC_generic_lock.exit.sink.split.i, %9, %2
@@ -30626,7 +30626,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   br i1 %.b.pr, label %19, label %21
 
 19:                                               ; preds = %GC_lock.exit
-  %20 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %20 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %21
 
 21:                                               ; preds = %GC_lock.exit.thread, %GC_lock.exit, %19
@@ -30643,7 +30643,7 @@ GC_lock.exit.thread:                              ; preds = %0
   br label %22
 
 2:                                                ; preds = %0
-  %3 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %3 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %GC_lock.exit, label %4
 
@@ -30658,14 +30658,14 @@ GC_lock.exit.thread:                              ; preds = %0
   br i1 %.not.i, label %9, label %GC_generic_lock.exit.sink.split.i
 
 9:                                                ; preds = %7
-  %10 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %10 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %GC_lock.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %9, %15
   %.079.i.i = phi i32 [ %16, %15 ], [ 1, %9 ]
   fence syncscope("singlethread") seq_cst
-  %12 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %12 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %12, label %13 [
     i32 0, label %GC_lock.exit
     i32 16, label %15
@@ -30673,8 +30673,8 @@ GC_lock.exit.thread:                              ; preds = %0
 
 13:                                               ; preds = %.preheader.i.i
   %14 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %14(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %14(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 15:                                               ; preds = %.preheader.i.i
@@ -30683,7 +30683,7 @@ GC_lock.exit.thread:                              ; preds = %0
   br i1 %17, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %15, %7, %4
-  %18 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %18 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit
 
 GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC_generic_lock.exit.sink.split.i, %9, %2
@@ -30692,7 +30692,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   br i1 %.b.pr, label %20, label %22
 
 20:                                               ; preds = %GC_lock.exit
-  %21 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %21 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %22
 
 22:                                               ; preds = %GC_lock.exit.thread, %GC_lock.exit, %20
@@ -30743,8 +30743,8 @@ define internal fastcc range(i32 0, 2) i32 @GC_mark_some(ptr noundef %0) unnamed
 
 17:                                               ; preds = %13
   %18 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %18(ptr noundef nonnull @.str.135) #38
-  tail call void @abort() #44
+  tail call void %18(ptr noundef nonnull @.str.135) #40
+  tail call void @abort() #46
   unreachable
 
 19:                                               ; preds = %GC_block_was_dirty.exit.thread52.i, %.preheader.i
@@ -31622,14 +31622,14 @@ GC_push_next_marked_uncollectable.exit:           ; preds = %.preheader34.i.i61,
   br i1 %or.cond, label %489, label %433
 
 433:                                              ; preds = %430
-  %434 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @mark_mutex) #38
+  %434 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @mark_mutex) #40
   %435 = icmp eq i32 %434, 0
   br i1 %435, label %GC_acquire_mark_lock.exit.i, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %433, %439
   %.079.i.i.i = phi i32 [ %440, %439 ], [ 1, %433 ]
   fence syncscope("singlethread") seq_cst
-  %436 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @mark_mutex) #38
+  %436 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @mark_mutex) #40
   switch i32 %436, label %437 [
     i32 0, label %GC_acquire_mark_lock.exit.i
     i32 16, label %439
@@ -31637,8 +31637,8 @@ GC_push_next_marked_uncollectable.exit:           ; preds = %.preheader34.i.i61,
 
 437:                                              ; preds = %.preheader.i.i.i
   %438 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %438(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %438(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 439:                                              ; preds = %.preheader.i.i.i
@@ -31647,7 +31647,7 @@ GC_push_next_marked_uncollectable.exit:           ; preds = %.preheader34.i.i61,
   br i1 %441, label %.preheader.i.i.i, label %442, !llvm.loop !4
 
 442:                                              ; preds = %439
-  %443 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @mark_mutex) #38
+  %443 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @mark_mutex) #40
   br label %GC_acquire_mark_lock.exit.i
 
 GC_acquire_mark_lock.exit.i:                      ; preds = %.preheader.i.i.i, %442, %433
@@ -31662,8 +31662,8 @@ GC_acquire_mark_lock.exit.i:                      ; preds = %.preheader.i.i.i, %
 
 448:                                              ; preds = %GC_acquire_mark_lock.exit.i
   %449 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %449(ptr noundef nonnull @.str.136) #38
-  tail call void @abort() #44
+  tail call void %449(ptr noundef nonnull @.str.136) #40
+  tail call void @abort() #46
   unreachable
 
 450:                                              ; preds = %GC_acquire_mark_lock.exit.i
@@ -31683,14 +31683,14 @@ GC_acquire_mark_lock.exit.i:                      ; preds = %.preheader.i.i.i, %
   store i32 0, ptr @GC_active_count, align 4
   store i32 1, ptr @GC_helper_count, align 4
   store i1 true, ptr @GC_help_wanted, align 4
-  %457 = tail call i32 @pthread_cond_broadcast(ptr noundef nonnull @mark_cv) #38
+  %457 = tail call i32 @pthread_cond_broadcast(ptr noundef nonnull @mark_cv) #40
   %.not.i.i67 = icmp eq i32 %457, 0
   br i1 %.not.i.i67, label %GC_notify_all_marker.exit.i, label %458
 
 458:                                              ; preds = %454
   %459 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %459(ptr noundef nonnull @.str.139) #38
-  tail call void @abort() #44
+  tail call void %459(ptr noundef nonnull @.str.139) #40
+  tail call void @abort() #46
   unreachable
 
 GC_notify_all_marker.exit.i:                      ; preds = %454
@@ -31705,14 +31705,14 @@ GC_wait_marker.exit.i:                            ; preds = %462, %GC_notify_all
   br i1 %.not4.i, label %466, label %462
 
 462:                                              ; preds = %GC_wait_marker.exit.i
-  %463 = tail call i32 @pthread_cond_wait(ptr noundef nonnull @mark_cv, ptr noundef nonnull @mark_mutex) #38
+  %463 = tail call i32 @pthread_cond_wait(ptr noundef nonnull @mark_cv, ptr noundef nonnull @mark_mutex) #40
   %.not.i6.i = icmp eq i32 %463, 0
   br i1 %.not.i6.i, label %GC_wait_marker.exit.i, label %464, !llvm.loop !155
 
 464:                                              ; preds = %462
   %465 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %465(ptr noundef nonnull @.str.143) #38
-  tail call void @abort() #44
+  tail call void %465(ptr noundef nonnull @.str.143) #40
+  tail call void @abort() #46
   unreachable
 
 466:                                              ; preds = %GC_wait_marker.exit.i
@@ -31729,25 +31729,25 @@ GC_wait_marker.exit.i:                            ; preds = %462, %GC_notify_all
   %471 = load i64, ptr @GC_mark_no, align 8
   %472 = add i64 %471, 1
   store i64 %472, ptr @GC_mark_no, align 8
-  %473 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @mark_mutex) #38
+  %473 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @mark_mutex) #40
   %.not.i7.i = icmp eq i32 %473, 0
   br i1 %.not.i7.i, label %GC_release_mark_lock.exit.i, label %474
 
 474:                                              ; preds = %470
   %475 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %475(ptr noundef nonnull @.str.341) #38
-  tail call void @abort() #44
+  tail call void %475(ptr noundef nonnull @.str.341) #40
+  tail call void @abort() #46
   unreachable
 
 GC_release_mark_lock.exit.i:                      ; preds = %470
-  %476 = tail call i32 @pthread_cond_broadcast(ptr noundef nonnull @mark_cv) #38
+  %476 = tail call i32 @pthread_cond_broadcast(ptr noundef nonnull @mark_cv) #40
   %.not.i8.i = icmp eq i32 %476, 0
   br i1 %.not.i8.i, label %GC_do_parallel_mark.exit, label %477
 
 477:                                              ; preds = %GC_release_mark_lock.exit.i
   %478 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %478(ptr noundef nonnull @.str.139) #38
-  tail call void @abort() #44
+  tail call void %478(ptr noundef nonnull @.str.139) #40
+  tail call void @abort() #46
   unreachable
 
 GC_do_parallel_mark.exit:                         ; preds = %GC_release_mark_lock.exit.i
@@ -31795,7 +31795,7 @@ GC_do_parallel_mark.exit:                         ; preds = %GC_release_mark_loc
 499:                                              ; preds = %497
   %500 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @GC_arrays, i64 168), align 8
   %501 = load ptr, ptr getelementptr inbounds (i8, ptr @GC_arrays, i64 160), align 8
-  %502 = tail call ptr %498(ptr noundef %500, ptr noundef %501) #38
+  %502 = tail call ptr %498(ptr noundef %500, ptr noundef %501) #40
   store volatile ptr %502, ptr getelementptr inbounds (i8, ptr @GC_arrays, i64 168), align 8
   %503 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @GC_arrays, i64 168), align 8
   %504 = load ptr, ptr getelementptr inbounds (i8, ptr @GC_arrays, i64 152), align 8
@@ -32141,8 +32141,8 @@ GC_push_next_marked.exit:                         ; preds = %567, %586, %.prehea
 
 657:                                              ; preds = %1
   %658 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %658(ptr noundef nonnull @.str.134) #38
-  tail call void @abort() #44
+  tail call void %658(ptr noundef nonnull @.str.134) #40
+  tail call void @abort() #46
   unreachable
 
 659:                                              ; preds = %492, %513, %517, %229, %7, %GC_push_next_marked_uncollectable.exit, %239, %485, %499, %656, %GC_push_next_marked.exit, %1, %510, %488
@@ -32276,7 +32276,7 @@ GC_remove_tmp_roots.exit.i:                       ; preds = %.lr.ph.i.i.i, %37, 
 
 58:                                               ; preds = %57, %56
   store i32 0, ptr %2, align 4
-  %59 = call i32 @dl_iterate_phdr(ptr noundef nonnull @GC_register_dynlib_callback, ptr noundef nonnull %2) #38
+  %59 = call i32 @dl_iterate_phdr(ptr noundef nonnull @GC_register_dynlib_callback, ptr noundef nonnull %2) #40
   %60 = load i32, ptr %2, align 4
   %.not18.i.i.i = icmp eq i32 %60, 0
   br i1 %.not18.i.i.i, label %80, label %.preheader.i.i.i
@@ -32330,8 +32330,8 @@ GC_remove_tmp_roots.exit.i:                       ; preds = %.lr.ph.i.i.i, %37, 
 84:                                               ; preds = %80
   call void (ptr, ...) @GC_log_printf(ptr noundef nonnull @.str.108, ptr noundef %.0..0..0..0..0..0..0..0..0..0.3.i.i.i, ptr noundef nonnull @_end)
   %85 = load ptr, ptr @GC_on_abort, align 8
-  call void %85(ptr noundef nonnull @.str.109) #38
-  call void @abort() #44
+  call void %85(ptr noundef nonnull @.str.109) #40
+  call void @abort() #46
   unreachable
 
 86:                                               ; preds = %80
@@ -32502,8 +32502,8 @@ GC_roots_present.exit.thread.i.i.i:               ; preds = %146, %155, %132
 
 161:                                              ; preds = %GC_roots_present.exit.thread.i.i.i
   %162 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %162(ptr noundef nonnull @.str.216) #38
-  tail call void @abort() #44
+  tail call void %162(ptr noundef nonnull @.str.216) #40
+  tail call void @abort() #46
   unreachable
 
 163:                                              ; preds = %GC_roots_present.exit.thread.i.i.i
@@ -32578,7 +32578,7 @@ GC_cond_register_dynamic_libraries.exit:          ; preds = %.preheader.i21.i.i,
 
 202:                                              ; preds = %.lr.ph.i
   %203 = load ptr, ptr @GC_toggleref_callback, align 8
-  %204 = call i32 %203(ptr noundef nonnull %.0.i) #38
+  %204 = call i32 %203(ptr noundef nonnull %.0.i) #40
   switch i32 %204, label %215 [
     i32 0, label %217
     i32 1, label %205
@@ -32603,8 +32603,8 @@ GC_cond_register_dynamic_libraries.exit:          ; preds = %.preheader.i21.i.i,
 
 215:                                              ; preds = %202
   %216 = load ptr, ptr @GC_on_abort, align 8
-  call void %216(ptr noundef nonnull @.str.167) #38
-  call void @abort() #44
+  call void %216(ptr noundef nonnull @.str.167) #40
+  call void @abort() #46
   unreachable
 
 217:                                              ; preds = %209, %205, %202, %.lr.ph.i
@@ -32667,14 +32667,14 @@ GC_process_togglerefs.exit:                       ; preds = %GC_cond_register_dy
   br i1 %or.cond, label %247, label %252
 
 247:                                              ; preds = %244
-  %248 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #38
+  %248 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #40
   %249 = icmp eq i32 %248, -1
   br i1 %249, label %250, label %252
 
 250:                                              ; preds = %247
   %251 = load ptr, ptr @GC_on_abort, align 8
-  call void %251(ptr noundef nonnull @.str.82) #38
-  call void @abort() #44
+  call void %251(ptr noundef nonnull @.str.82) #40
+  call void @abort() #46
   unreachable
 
 252:                                              ; preds = %247, %244
@@ -32683,7 +32683,7 @@ GC_process_togglerefs.exit:                       ; preds = %GC_cond_register_dy
   br i1 %.not47, label %255, label %254
 
 254:                                              ; preds = %252
-  call void %253(i32 noundef 6) #38
+  call void %253(i32 noundef 6) #40
   br label %255
 
 255:                                              ; preds = %254, %252
@@ -32697,14 +32697,14 @@ GC_process_togglerefs.exit:                       ; preds = %GC_cond_register_dy
   br label %259
 
 257:                                              ; preds = %255
-  call void %256(i32 noundef 7) #38
+  call void %256(i32 noundef 7) #40
   %.pr = load ptr, ptr @GC_on_collection_event, align 8
   store i1 true, ptr @GC_world_stopped, align 4
   %.not49 = icmp eq ptr %.pr, null
   br i1 %.not49, label %259, label %258
 
 258:                                              ; preds = %257
-  call void %.pr(i32 noundef 1) #38
+  call void %.pr(i32 noundef 1) #40
   br label %259
 
 259:                                              ; preds = %.thread, %258, %257
@@ -32740,7 +32740,7 @@ GC_initiate_gc.exit:                              ; preds = %265, %268
   br label %270
 
 270:                                              ; preds = %269, %GC_initiate_gc.exit
-  %271 = call i32 %0() #38
+  %271 = call i32 %0() #40
   %.not5185 = icmp eq i32 %271, 0
   br i1 %.not5185, label %.lr.ph, label %._crit_edge
 
@@ -32766,7 +32766,7 @@ GC_initiate_gc.exit:                              ; preds = %265, %268
 
 278:                                              ; preds = %.lr.ph
   %279 = add nuw nsw i32 %.03386, 1
-  %280 = call i32 %0() #38
+  %280 = call i32 %0() #40
   %.not51 = icmp eq i32 %280, 0
   br i1 %.not51, label %.lr.ph, label %._crit_edge, !llvm.loop !162
 
@@ -33035,7 +33035,7 @@ GC_check_heap_proc.exit:                          ; preds = %414, %283, %.thread
   br i1 %.not54, label %.thread76, label %417
 
 417:                                              ; preds = %GC_check_heap_proc.exit
-  call void %416(i32 noundef 2) #38
+  call void %416(i32 noundef 2) #40
   br label %418
 
 418:                                              ; preds = %417, %._crit_edge
@@ -33046,7 +33046,7 @@ GC_check_heap_proc.exit:                          ; preds = %414, %283, %.thread
   br i1 %.not55, label %.thread76, label %419
 
 419:                                              ; preds = %418
-  call void %.pr75(i32 noundef 8) #38
+  call void %.pr75(i32 noundef 8) #40
   br label %.thread76
 
 .thread76:                                        ; preds = %GC_check_heap_proc.exit, %419, %418
@@ -33059,21 +33059,21 @@ GC_check_heap_proc.exit:                          ; preds = %414, %283, %.thread
   br i1 %.not56, label %423, label %422
 
 422:                                              ; preds = %.thread76
-  call void %421(i32 noundef 9) #38
+  call void %421(i32 noundef 9) #40
   br label %423
 
 423:                                              ; preds = %422, %.thread76
   br i1 %or.cond, label %424, label %468
 
 424:                                              ; preds = %423
-  %425 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #38
+  %425 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #40
   %426 = icmp eq i32 %425, -1
   br i1 %426, label %427, label %429
 
 427:                                              ; preds = %424
   %428 = load ptr, ptr @GC_on_abort, align 8
-  call void %428(ptr noundef nonnull @.str.82) #38
-  call void @abort() #44
+  call void %428(ptr noundef nonnull @.str.82) #40
+  call void @abort() #46
   unreachable
 
 429:                                              ; preds = %424
@@ -33161,7 +33161,7 @@ GC_check_heap_proc.exit:                          ; preds = %414, %283, %.thread
 define internal range(i32 0, 2) i32 @GC_timeout_stop_func() #1 {
   %1 = alloca %struct.timespec, align 8
   %2 = load ptr, ptr @GC_default_stop_func, align 8
-  %3 = tail call i32 %2() #38
+  %3 = tail call i32 %2() #40
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %37
 
@@ -33179,14 +33179,14 @@ define internal range(i32 0, 2) i32 @GC_timeout_stop_func() #1 {
   br i1 %.not8, label %11, label %37
 
 11:                                               ; preds = %7
-  %12 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %1) #38
+  %12 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %1) #40
   %13 = icmp eq i32 %12, -1
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %11
   %15 = load ptr, ptr @GC_on_abort, align 8
-  call void %15(ptr noundef nonnull @.str.82) #38
-  call void @abort() #44
+  call void %15(ptr noundef nonnull @.str.82) #40
+  call void @abort() #46
   unreachable
 
 16:                                               ; preds = %11
@@ -33242,14 +33242,14 @@ define internal fastcc void @GC_finish_collection() unnamed_addr #1 {
   br i1 %.not, label %11, label %6
 
 6:                                                ; preds = %0
-  %7 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #38
+  %7 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #40
   %8 = icmp eq i32 %7, -1
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %6
   %10 = load ptr, ptr @GC_on_abort, align 8
-  call void %10(ptr noundef nonnull @.str.82) #38
-  call void @abort() #44
+  call void %10(ptr noundef nonnull @.str.82) #40
+  call void @abort() #46
   unreachable
 
 11:                                               ; preds = %6, %0
@@ -33258,7 +33258,7 @@ define internal fastcc void @GC_finish_collection() unnamed_addr #1 {
   br i1 %.not26, label %14, label %13
 
 13:                                               ; preds = %11
-  call void %12(i32 noundef 3) #38
+  call void %12(i32 noundef 3) #40
   br label %14
 
 14:                                               ; preds = %13, %11
@@ -33274,7 +33274,7 @@ define internal fastcc void @GC_finish_collection() unnamed_addr #1 {
 
 20:                                               ; preds = %17, %14
   store i64 0, ptr @GC_bytes_found, align 8
-  %21 = call ptr @getenv(ptr noundef nonnull @.str.169) #38
+  %21 = call ptr @getenv(ptr noundef nonnull @.str.169) #40
   %.not27 = icmp eq ptr %21, null
   br i1 %.not27, label %23, label %22
 
@@ -33685,7 +33685,7 @@ GC_is_marked.exit.i:                              ; preds = %202
   %219 = inttoptr i64 %198 to ptr
   %220 = getelementptr inbounds i8, ptr %.0167.i, i64 40
   %221 = load ptr, ptr %220, align 8
-  call void %221(ptr noundef %219) #38
+  call void %221(ptr noundef %219) #40
   %222 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @GC_arrays, i64 168), align 8
   %223 = load ptr, ptr getelementptr inbounds (i8, ptr @GC_arrays, i64 152), align 8
   %.not2.i.i = icmp ult ptr %222, %223
@@ -33729,7 +33729,7 @@ GC_is_marked.exit111.i:                           ; preds = %232
 
 244:                                              ; preds = %GC_is_marked.exit111.i
   %245 = load ptr, ptr @GC_current_warn_proc, align 8
-  call void %245(ptr noundef nonnull @.str.175, i64 noundef %198) #38
+  call void %245(ptr noundef nonnull @.str.175, i64 noundef %198) #40
   %.pre.i = load ptr, ptr getelementptr inbounds (i8, ptr @GC_arrays, i64 232), align 8
   br label %246
 
@@ -33895,7 +33895,7 @@ GC_set_mark_bit.exit.i:                           ; preds = %289, %GC_find_heade
 
 321:                                              ; preds = %318, %.thread156.i
   %322 = phi ptr [ %299, %.thread156.i ], [ %.pr.i, %318 ]
-  call void %322(ptr noundef nonnull %266) #38
+  call void %322(ptr noundef nonnull %266) #40
   br label %323
 
 323:                                              ; preds = %321, %318, %.thread.i
@@ -34374,7 +34374,7 @@ GC_clear_togglerefs.exit.i:                       ; preds = %556, %525
   br i1 %.not94.i, label %GC_finalize.exit, label %562
 
 562:                                              ; preds = %GC_clear_togglerefs.exit.i
-  %563 = tail call i64 @pthread_self() #45
+  %563 = tail call i64 @pthread_self() #47
   %564 = lshr i64 %563, 8
   %565 = xor i64 %564, %563
   %566 = lshr i64 %565, 16
@@ -34408,14 +34408,14 @@ GC_finalize.exit:                                 ; preds = %GC_clear_togglerefs
   br i1 %.not29, label %584, label %579
 
 579:                                              ; preds = %GC_finalize.exit
-  %580 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #38
+  %580 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #40
   %581 = icmp eq i32 %580, -1
   br i1 %581, label %582, label %584
 
 582:                                              ; preds = %579
   %583 = load ptr, ptr @GC_on_abort, align 8
-  call void %583(ptr noundef nonnull @.str.82) #38
-  call void @abort() #44
+  call void %583(ptr noundef nonnull @.str.82) #40
+  call void @abort() #46
   unreachable
 
 584:                                              ; preds = %579, %GC_finalize.exit
@@ -34716,7 +34716,7 @@ min_bytes_allocd.exit:                            ; preds = %708, %710
   br i1 %.not35, label %739, label %738
 
 738:                                              ; preds = %732
-  call void %737(i32 noundef 4) #38
+  call void %737(i32 noundef 4) #40
   br label %739
 
 739:                                              ; preds = %738, %732
@@ -34725,14 +34725,14 @@ min_bytes_allocd.exit:                            ; preds = %708, %710
   br i1 %.not36, label %781, label %741
 
 741:                                              ; preds = %739
-  %742 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #38
+  %742 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #40
   %743 = icmp eq i32 %742, -1
   br i1 %743, label %744, label %746
 
 744:                                              ; preds = %741
   %745 = load ptr, ptr @GC_on_abort, align 8
-  call void %745(ptr noundef nonnull @.str.82) #38
-  call void @abort() #44
+  call void %745(ptr noundef nonnull @.str.82) #40
+  call void @abort() #46
   unreachable
 
 746:                                              ; preds = %741
@@ -35057,7 +35057,7 @@ default.unreachable:                              ; preds = %54
   %105 = getelementptr inbounds [64 x ptr], ptr getelementptr inbounds (i8, ptr @GC_arrays, i64 448), i64 0, i64 %104
   %106 = load ptr, ptr %105, align 8
   %107 = lshr i64 %.us-phi224, 8
-  %108 = tail call ptr %106(ptr noundef %.us-phi222, ptr noundef nonnull %101, ptr noundef %2, i64 noundef %107) #38
+  %108 = tail call ptr %106(ptr noundef %.us-phi222, ptr noundef nonnull %101, ptr noundef %2, i64 noundef %107) #40
   br label %.outer171.backedge
 
 .outer171.backedge:                               ; preds = %98, %.split217.split.us, %.split221.split.us
@@ -35582,8 +35582,8 @@ GC_next_exclusion.exit.thread.i.i:                ; preds = %GC_next_exclusion.e
 
 .split.us.i.i:                                    ; preds = %171, %40
   %175 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %175(ptr noundef nonnull @.str.51) #38
-  tail call void @abort() #44
+  tail call void %175(ptr noundef nonnull @.str.51) #40
+  tail call void @abort() #46
   unreachable
 
 176:                                              ; preds = %171
@@ -35643,8 +35643,8 @@ GC_push_conditional_with_exclusions.exit.i:       ; preds = %GC_push_conditional
 
 197:                                              ; preds = %193
   %198 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %198(ptr noundef nonnull @.str.51) #38
-  tail call void @abort() #44
+  tail call void %198(ptr noundef nonnull @.str.51) #40
+  tail call void @abort() #46
   unreachable
 
 199:                                              ; preds = %193
@@ -35926,7 +35926,7 @@ GC_push_regs_and_stack.exit.i:                    ; preds = %321, %GC_mark_threa
   br i1 %.not16.i, label %GC_push_roots.exit, label %323
 
 323:                                              ; preds = %GC_push_regs_and_stack.exit.i
-  tail call void %322() #38
+  tail call void %322() #40
   br label %GC_push_roots.exit
 
 GC_push_roots.exit:                               ; preds = %GC_push_regs_and_stack.exit.i, %323
@@ -36004,7 +36004,7 @@ GC_scratch_recycle_inner.exit:                    ; preds = %22, %23
 
 29:                                               ; preds = %6
   %30 = load ptr, ptr @GC_current_warn_proc, align 8
-  tail call void %30(ptr noundef nonnull @.str.145, i64 noundef %0) #38
+  tail call void %30(ptr noundef nonnull @.str.145, i64 noundef %0) #40
   br label %36
 
 31:                                               ; preds = %1
@@ -36013,8 +36013,8 @@ GC_scratch_recycle_inner.exit:                    ; preds = %22, %23
 32:                                               ; preds = %31
   tail call void (ptr, ...) @GC_err_printf(ptr noundef nonnull @.str.146)
   %33 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %33(ptr noundef null) #38
-  tail call void @exit(i32 noundef 1) #44
+  tail call void %33(ptr noundef null) #40
+  tail call void @exit(i32 noundef 1) #49
   unreachable
 
 34:                                               ; preds = %31
@@ -36032,7 +36032,7 @@ GC_scratch_recycle_inner.exit:                    ; preds = %22, %23
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc ptr @GC_header_cache_miss(ptr noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #34 {
+define internal fastcc ptr @GC_header_cache_miss(ptr noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #35 {
   %3 = ptrtoint ptr %0 to i64
   %4 = lshr i64 %3, 22
   %5 = and i64 %4, 2047
@@ -36437,7 +36437,7 @@ define internal fastcc void @GC_mark_local(ptr noundef %0, i32 noundef %1) unnam
   br label %9
 
 9:                                                ; preds = %2, %8
-  %10 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @mark_mutex) #38
+  %10 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @mark_mutex) #40
   %.not.i = icmp eq i32 %10, 0
   br i1 %.not.i, label %GC_release_mark_lock.exit.preheader, label %15
 
@@ -36450,8 +36450,8 @@ GC_release_mark_lock.exit.preheader:              ; preds = %9
 
 15:                                               ; preds = %9
   %16 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %16(ptr noundef nonnull @.str.341) #38
-  tail call void @abort() #44
+  tail call void %16(ptr noundef nonnull @.str.341) #40
+  tail call void @abort() #46
   unreachable
 
 GC_release_mark_lock.exit:                        ; preds = %GC_release_mark_lock.exit.backedge, %GC_release_mark_lock.exit.preheader
@@ -36481,14 +36481,14 @@ GC_release_mark_lock.exit:                        ; preds = %GC_release_mark_loc
   br i1 %28, label %29, label %83
 
 29:                                               ; preds = %26
-  %30 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @mark_mutex) #38
+  %30 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @mark_mutex) #40
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %GC_acquire_mark_lock.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %29, %35
   %.079.i.i = phi i32 [ %36, %35 ], [ 1, %29 ]
   fence syncscope("singlethread") seq_cst
-  %32 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @mark_mutex) #38
+  %32 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @mark_mutex) #40
   switch i32 %32, label %33 [
     i32 0, label %GC_acquire_mark_lock.exit
     i32 16, label %35
@@ -36496,8 +36496,8 @@ GC_release_mark_lock.exit:                        ; preds = %GC_release_mark_loc
 
 33:                                               ; preds = %.preheader.i.i
   %34 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %34(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %34(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 35:                                               ; preds = %.preheader.i.i
@@ -36506,7 +36506,7 @@ GC_release_mark_lock.exit:                        ; preds = %GC_release_mark_loc
   br i1 %37, label %.preheader.i.i, label %38, !llvm.loop !4
 
 38:                                               ; preds = %35
-  %39 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @mark_mutex) #38
+  %39 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @mark_mutex) #40
   br label %GC_acquire_mark_lock.exit
 
 GC_acquire_mark_lock.exit:                        ; preds = %.preheader.i.i, %29, %38
@@ -36529,14 +36529,14 @@ GC_wait_marker.exit.preheader:                    ; preds = %50, %46
   br label %GC_wait_marker.exit
 
 50:                                               ; preds = %46
-  %51 = tail call i32 @pthread_cond_broadcast(ptr noundef nonnull @mark_cv) #38
+  %51 = tail call i32 @pthread_cond_broadcast(ptr noundef nonnull @mark_cv) #40
   %.not.i32 = icmp eq i32 %51, 0
   br i1 %.not.i32, label %GC_wait_marker.exit.preheader, label %52
 
 52:                                               ; preds = %50
   %53 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %53(ptr noundef nonnull @.str.139) #38
-  tail call void @abort() #44
+  tail call void %53(ptr noundef nonnull @.str.139) #40
+  tail call void @abort() #46
   unreachable
 
 GC_wait_marker.exit:                              ; preds = %GC_wait_marker.exit.preheader, %60
@@ -36552,14 +36552,14 @@ GC_wait_marker.exit:                              ; preds = %GC_wait_marker.exit
   br i1 %58, label %60, label %.critedge
 
 60:                                               ; preds = %59
-  %61 = tail call i32 @pthread_cond_wait(ptr noundef nonnull @mark_cv, ptr noundef nonnull @mark_mutex) #38
+  %61 = tail call i32 @pthread_cond_wait(ptr noundef nonnull @mark_cv, ptr noundef nonnull @mark_mutex) #40
   %.not.i33 = icmp eq i32 %61, 0
   br i1 %.not.i33, label %GC_wait_marker.exit, label %62, !llvm.loop !188
 
 62:                                               ; preds = %60
   %63 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %63(ptr noundef nonnull @.str.143) #38
-  tail call void @abort() #44
+  tail call void %63(ptr noundef nonnull @.str.143) #40
+  tail call void @abort() #46
   unreachable
 
 64:                                               ; preds = %GC_wait_marker.exit
@@ -36582,14 +36582,14 @@ GC_wait_marker.exit:                              ; preds = %GC_wait_marker.exit
   br i1 %.not31, label %71, label %GC_notify_all_marker.exit35
 
 71:                                               ; preds = %70
-  %72 = tail call i32 @pthread_cond_broadcast(ptr noundef nonnull @mark_cv) #38
+  %72 = tail call i32 @pthread_cond_broadcast(ptr noundef nonnull @mark_cv) #40
   %.not.i34 = icmp eq i32 %72, 0
   br i1 %.not.i34, label %GC_notify_all_marker.exit35, label %73
 
 73:                                               ; preds = %71
   %74 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %74(ptr noundef nonnull @.str.139) #38
-  tail call void @abort() #44
+  tail call void %74(ptr noundef nonnull @.str.139) #40
+  tail call void @abort() #46
   unreachable
 
 GC_notify_all_marker.exit35:                      ; preds = %71, %70
@@ -36598,25 +36598,25 @@ GC_notify_all_marker.exit35:                      ; preds = %71, %70
 .critedge:                                        ; preds = %59, %64
   %75 = add i32 %54, 1
   store i32 %75, ptr @GC_active_count, align 4
-  %76 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @mark_mutex) #38
+  %76 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @mark_mutex) #40
   %.not.i36 = icmp eq i32 %76, 0
   br i1 %.not.i36, label %GC_release_mark_lock.exit.backedge, label %77
 
 77:                                               ; preds = %.critedge
   %78 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %78(ptr noundef nonnull @.str.341) #38
-  tail call void @abort() #44
+  tail call void %78(ptr noundef nonnull @.str.341) #40
+  tail call void @abort() #46
   unreachable
 
 79:                                               ; preds = %GC_acquire_mark_lock.exit
-  %80 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @mark_mutex) #38
+  %80 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @mark_mutex) #40
   %.not.i38 = icmp eq i32 %80, 0
   br i1 %.not.i38, label %GC_release_mark_lock.exit39, label %81
 
 81:                                               ; preds = %79
   %82 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %82(ptr noundef nonnull @.str.341) #38
-  tail call void @abort() #44
+  tail call void %82(ptr noundef nonnull @.str.341) #40
+  tail call void @abort() #46
   unreachable
 
 83:                                               ; preds = %26
@@ -36704,14 +36704,14 @@ GC_steal_mark_stack.exit:                         ; preds = %102, %GC_release_ma
 117:                                              ; preds = %113
   %118 = ashr exact i64 %115, 4
   %119 = add nsw i64 %118, 1
-  %120 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @mark_mutex) #38
+  %120 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @mark_mutex) #40
   %121 = icmp eq i32 %120, 0
   br i1 %121, label %GC_acquire_mark_lock.exit.i, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %117, %125
   %.079.i.i.i = phi i32 [ %126, %125 ], [ 1, %117 ]
   fence syncscope("singlethread") seq_cst
-  %122 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @mark_mutex) #38
+  %122 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @mark_mutex) #40
   switch i32 %122, label %123 [
     i32 0, label %GC_acquire_mark_lock.exit.i
     i32 16, label %125
@@ -36719,8 +36719,8 @@ GC_steal_mark_stack.exit:                         ; preds = %102, %GC_release_ma
 
 123:                                              ; preds = %.preheader.i.i.i
   %124 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %124(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %124(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 125:                                              ; preds = %.preheader.i.i.i
@@ -36729,7 +36729,7 @@ GC_steal_mark_stack.exit:                         ; preds = %102, %GC_release_ma
   br i1 %127, label %.preheader.i.i.i, label %128, !llvm.loop !4
 
 128:                                              ; preds = %125
-  %129 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @mark_mutex) #38
+  %129 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @mark_mutex) #40
   br label %GC_acquire_mark_lock.exit.i
 
 GC_acquire_mark_lock.exit.i:                      ; preds = %.preheader.i.i.i, %128, %117
@@ -36768,18 +36768,18 @@ GC_acquire_mark_lock.exit.i:                      ; preds = %.preheader.i.i.i, %
   br label %148
 
 148:                                              ; preds = %144, %143
-  %149 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @mark_mutex) #38
+  %149 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @mark_mutex) #40
   %.not.i.i = icmp eq i32 %149, 0
   br i1 %.not.i.i, label %GC_release_mark_lock.exit.i, label %150
 
 150:                                              ; preds = %148
   %151 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %151(ptr noundef nonnull @.str.341) #38
-  tail call void @abort() #44
+  tail call void %151(ptr noundef nonnull @.str.341) #40
+  tail call void @abort() #46
   unreachable
 
 GC_release_mark_lock.exit.i:                      ; preds = %148
-  %152 = tail call i32 @pthread_cond_broadcast(ptr noundef nonnull @mark_cv) #38
+  %152 = tail call i32 @pthread_cond_broadcast(ptr noundef nonnull @mark_cv) #40
   %.not.i13.i = icmp eq i32 %152, 0
   br i1 %.not.i13.i, label %GC_release_mark_lock.exit.backedge, label %153
 
@@ -36789,8 +36789,8 @@ GC_release_mark_lock.exit.backedge:               ; preds = %110, %GC_release_ma
 
 153:                                              ; preds = %GC_release_mark_lock.exit.i
   %154 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %154(ptr noundef nonnull @.str.139) #38
-  tail call void @abort() #44
+  tail call void %154(ptr noundef nonnull @.str.139) #40
+  tail call void @abort() #46
   unreachable
 
 155:                                              ; preds = %108
@@ -36803,14 +36803,14 @@ GC_release_mark_lock.exit.backedge:               ; preds = %110, %GC_release_ma
   br i1 %brmerge, label %.backedge, label %159
 
 159:                                              ; preds = %155
-  %160 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @mark_mutex) #38
+  %160 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @mark_mutex) #40
   %161 = icmp eq i32 %160, 0
   br i1 %161, label %GC_acquire_mark_lock.exit.i.i, label %.preheader.i.i.i.i
 
 .preheader.i.i.i.i:                               ; preds = %159, %165
   %.079.i.i.i.i = phi i32 [ %166, %165 ], [ 1, %159 ]
   fence syncscope("singlethread") seq_cst
-  %162 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @mark_mutex) #38
+  %162 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @mark_mutex) #40
   switch i32 %162, label %163 [
     i32 0, label %GC_acquire_mark_lock.exit.i.i
     i32 16, label %165
@@ -36818,8 +36818,8 @@ GC_release_mark_lock.exit.backedge:               ; preds = %110, %GC_release_ma
 
 163:                                              ; preds = %.preheader.i.i.i.i
   %164 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %164(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %164(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 165:                                              ; preds = %.preheader.i.i.i.i
@@ -36828,20 +36828,20 @@ GC_release_mark_lock.exit.backedge:               ; preds = %110, %GC_release_ma
   br i1 %167, label %.preheader.i.i.i.i, label %168, !llvm.loop !4
 
 168:                                              ; preds = %165
-  %169 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @mark_mutex) #38
+  %169 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @mark_mutex) #40
   br label %GC_acquire_mark_lock.exit.i.i
 
 GC_acquire_mark_lock.exit.i.i:                    ; preds = %.preheader.i.i.i.i, %168, %159
   %170 = load i32, ptr @GC_active_count, align 4
   %171 = load i32, ptr @GC_helper_count, align 4
-  %172 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @mark_mutex) #38
+  %172 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @mark_mutex) #40
   %.not.i.i.i = icmp eq i32 %172, 0
   br i1 %.not.i.i.i, label %has_inactive_helpers.exit.i, label %173
 
 173:                                              ; preds = %GC_acquire_mark_lock.exit.i.i
   %174 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %174(ptr noundef nonnull @.str.341) #38
-  tail call void @abort() #44
+  tail call void %174(ptr noundef nonnull @.str.341) #40
+  tail call void @abort() #46
   unreachable
 
 has_inactive_helpers.exit.i:                      ; preds = %GC_acquire_mark_lock.exit.i.i
@@ -36882,14 +36882,14 @@ define internal fastcc void @GC_return_mark_stack(ptr noundef %0, ptr noundef %1
   %7 = sub i64 %6, %5
   %8 = ashr exact i64 %7, 4
   %9 = add nsw i64 %8, 1
-  %10 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @mark_mutex) #38
+  %10 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @mark_mutex) #40
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %GC_acquire_mark_lock.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %4, %15
   %.079.i.i = phi i32 [ %16, %15 ], [ 1, %4 ]
   fence syncscope("singlethread") seq_cst
-  %12 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @mark_mutex) #38
+  %12 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @mark_mutex) #40
   switch i32 %12, label %13 [
     i32 0, label %GC_acquire_mark_lock.exit
     i32 16, label %15
@@ -36897,8 +36897,8 @@ define internal fastcc void @GC_return_mark_stack(ptr noundef %0, ptr noundef %1
 
 13:                                               ; preds = %.preheader.i.i
   %14 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %14(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %14(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 15:                                               ; preds = %.preheader.i.i
@@ -36907,7 +36907,7 @@ define internal fastcc void @GC_return_mark_stack(ptr noundef %0, ptr noundef %1
   br i1 %17, label %.preheader.i.i, label %18, !llvm.loop !4
 
 18:                                               ; preds = %15
-  %19 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @mark_mutex) #38
+  %19 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @mark_mutex) #40
   br label %GC_acquire_mark_lock.exit
 
 GC_acquire_mark_lock.exit:                        ; preds = %.preheader.i.i, %4, %18
@@ -36946,25 +36946,25 @@ GC_acquire_mark_lock.exit:                        ; preds = %.preheader.i.i, %4,
   br label %38
 
 38:                                               ; preds = %34, %33
-  %39 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @mark_mutex) #38
+  %39 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @mark_mutex) #40
   %.not.i = icmp eq i32 %39, 0
   br i1 %.not.i, label %GC_release_mark_lock.exit, label %40
 
 40:                                               ; preds = %38
   %41 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %41(ptr noundef nonnull @.str.341) #38
-  tail call void @abort() #44
+  tail call void %41(ptr noundef nonnull @.str.341) #40
+  tail call void @abort() #46
   unreachable
 
 GC_release_mark_lock.exit:                        ; preds = %38
-  %42 = tail call i32 @pthread_cond_broadcast(ptr noundef nonnull @mark_cv) #38
+  %42 = tail call i32 @pthread_cond_broadcast(ptr noundef nonnull @mark_cv) #40
   %.not.i13 = icmp eq i32 %42, 0
   br i1 %.not.i13, label %GC_notify_all_marker.exit, label %43
 
 43:                                               ; preds = %GC_release_mark_lock.exit
   %44 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %44(ptr noundef nonnull @.str.139) #38
-  tail call void @abort() #44
+  tail call void %44(ptr noundef nonnull @.str.139) #40
+  tail call void @abort() #46
   unreachable
 
 GC_notify_all_marker.exit:                        ; preds = %GC_release_mark_lock.exit, %2
@@ -37048,7 +37048,7 @@ define internal fastcc ptr @GC_scratch_alloc(i64 noundef %0) unnamed_addr #1 {
 
 GC_os_get_mem.exit27:                             ; preds = %.lr.ph.split
   %39 = load ptr, ptr @GC_current_warn_proc, align 8
-  tail call void %39(ptr noundef nonnull @.str.147, i64 noundef %4) #38
+  tail call void %39(ptr noundef nonnull @.str.147, i64 noundef %4) #40
   %40 = load i64, ptr @GC_page_size, align 8
   %41 = sub nsw i64 0, %40
   %42 = icmp ult i64 %4, %41
@@ -37115,8 +37115,8 @@ tailrecurse:                                      ; preds = %127, %2
 
 18:                                               ; preds = %12
   %19 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %19(ptr noundef nonnull @.str.150) #38
-  tail call void @abort() #44
+  tail call void %19(ptr noundef nonnull @.str.150) #40
+  tail call void @abort() #46
   unreachable
 
 20:                                               ; preds = %12, %6
@@ -37264,7 +37264,7 @@ tailrecurse:                                      ; preds = %127, %2
   %92 = load i32, ptr @GC_pages_executable, align 4
   %.not.i.i = icmp eq i32 %92, 0
   %93 = select i1 %.not.i.i, i32 3, i32 7
-  %94 = tail call i32 @mprotect(ptr noundef %89, i64 noundef %91, i32 noundef %93) #38
+  %94 = tail call i32 @mprotect(ptr noundef %89, i64 noundef %91, i32 noundef %93) #40
   %95 = icmp sgt i32 %94, -1
   br i1 %95, label %81, label %96
 
@@ -37276,28 +37276,28 @@ tailrecurse:                                      ; preds = %127, %2
   %100 = load ptr, ptr %99, align 8
   %101 = getelementptr inbounds i8, ptr %99, i64 8
   %102 = load i64, ptr %101, align 8
-  %103 = tail call ptr @__errno_location() #45
+  %103 = tail call ptr @__errno_location() #47
   %104 = load i32, ptr %103, align 4
   br i1 %.not9.i.i, label %107, label %105
 
 105:                                              ; preds = %96
   tail call void (ptr, ...) @GC_log_printf(ptr noundef nonnull @.str.156, ptr noundef %100, i64 noundef %102, i32 noundef %104)
   %106 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %106(ptr noundef nonnull @.str.157) #38
-  tail call void @abort() #44
+  tail call void %106(ptr noundef nonnull @.str.157) #40
+  tail call void @abort() #46
   unreachable
 
 107:                                              ; preds = %96
   tail call void (ptr, ...) @GC_log_printf(ptr noundef nonnull @.str.158, ptr noundef %100, i64 noundef %102, i32 noundef %104)
   %108 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %108(ptr noundef nonnull @.str.159) #38
-  tail call void @abort() #44
+  tail call void %108(ptr noundef nonnull @.str.159) #40
+  tail call void @abort() #46
   unreachable
 
 GC_unprotect_all_heap.exit.i:                     ; preds = %81, %79
   store i32 0, ptr @GC_incremental, align 4
   %109 = load ptr, ptr @GC_current_warn_proc, align 8
-  tail call void %109(ptr noundef nonnull @.str.155, i64 noundef 0) #38
+  tail call void %109(ptr noundef nonnull @.str.155, i64 noundef 0) #40
   br label %GC_handle_protected_regions_limit.exit
 
 GC_handle_protected_regions_limit.exit:           ; preds = %70, %75, %GC_unprotect_all_heap.exit.i
@@ -37517,8 +37517,8 @@ define internal fastcc void @GC_freehblk(ptr noundef %0) unnamed_addr #1 {
 
 23:                                               ; preds = %14
   %24 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %24(ptr noundef nonnull @.str.152) #38
-  tail call void @abort() #44
+  tail call void %24(ptr noundef nonnull @.str.152) #40
+  tail call void @abort() #46
   unreachable
 
 25:                                               ; preds = %14
@@ -37602,8 +37602,8 @@ GC_remove_counts.exit:                            ; preds = %59, %25, %GC_find_h
 72:                                               ; preds = %GC_remove_counts.exit
   tail call void (ptr, ...) @GC_log_printf(ptr noundef nonnull @.str.153, ptr noundef %0)
   %73 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %73(ptr noundef nonnull @.str.154) #38
-  tail call void @abort() #44
+  tail call void %73(ptr noundef nonnull @.str.154) #40
+  tail call void @abort() #46
   unreachable
 
 74:                                               ; preds = %GC_remove_counts.exit
@@ -38305,7 +38305,7 @@ define internal range(i32 -1, 1) i32 @GC_register_dynlib_callback(ptr nocapture 
 
 28:                                               ; preds = %19
   %29 = load ptr, ptr %9, align 8
-  %30 = tail call i32 %14(ptr noundef %29, ptr noundef %24, i64 noundef %26) #38
+  %30 = tail call i32 %14(ptr noundef %29, ptr noundef %24, i64 noundef %26) #40
   %.not57 = icmp eq i32 %30, 0
   br i1 %.not57, label %47, label %31
 
@@ -38323,7 +38323,7 @@ define internal range(i32 -1, 1) i32 @GC_register_dynlib_callback(ptr nocapture 
 
 38:                                               ; preds = %37
   %39 = load ptr, ptr @GC_current_warn_proc, align 8
-  tail call void %39(ptr noundef nonnull @.str.164, i64 noundef 0) #38
+  tail call void %39(ptr noundef nonnull @.str.164, i64 noundef 0) #40
   store i1 true, ptr @load_segs_overflow, align 4
   br label %40
 
@@ -38407,7 +38407,7 @@ define internal range(i32 -1, 1) i32 @GC_register_dynlib_callback(ptr nocapture 
 
 79:                                               ; preds = %76
   %80 = load ptr, ptr @GC_current_warn_proc, align 8
-  tail call void %80(ptr noundef nonnull @.str.165, i64 noundef 0) #38
+  tail call void %80(ptr noundef nonnull @.str.165, i64 noundef 0) #40
   br label %.loopexit
 
 81:                                               ; preds = %76
@@ -38425,7 +38425,7 @@ define internal range(i32 -1, 1) i32 @GC_register_dynlib_callback(ptr nocapture 
 
 .thread:                                          ; preds = %84
   %86 = load ptr, ptr @GC_current_warn_proc, align 8
-  tail call void %86(ptr noundef nonnull @.str.166, i64 noundef 0) #38
+  tail call void %86(ptr noundef nonnull @.str.166, i64 noundef 0) #40
   br label %.loopexit
 
 87:                                               ; preds = %84
@@ -38626,7 +38626,7 @@ GC_find_header.exit.i27:                          ; preds = %41
 68:                                               ; preds = %64
   %69 = getelementptr inbounds i8, ptr %55, i64 40
   %70 = load ptr, ptr %69, align 8
-  %71 = tail call i32 %70(ptr noundef %48) #38
+  %71 = tail call i32 %70(ptr noundef %48) #40
   %.not52.i = icmp eq i32 %71, 0
   br i1 %.not52.i, label %73, label %72
 
@@ -39258,17 +39258,17 @@ GC_find_header.exit:                              ; preds = %10
   br i1 %or.cond.i.i, label %50, label %GC_unmap.exit
 
 50:                                               ; preds = %32
-  %51 = tail call i32 @madvise(ptr noundef nonnull %..i.i, i64 noundef %47, i32 noundef 4) #38
+  %51 = tail call i32 @madvise(ptr noundef nonnull %..i.i, i64 noundef %47, i32 noundef 4) #40
   %52 = icmp eq i32 %51, -1
   br i1 %52, label %53, label %57
 
 53:                                               ; preds = %50
-  %54 = tail call ptr @__errno_location() #45
+  %54 = tail call ptr @__errno_location() #47
   %55 = load i32, ptr %54, align 4
   tail call void (ptr, ...) @GC_log_printf(ptr noundef nonnull @.str.176, ptr noundef nonnull %..i.i, i64 noundef %47, i32 noundef %55)
   %56 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %56(ptr noundef nonnull @.str.177) #38
-  tail call void @abort() #44
+  tail call void %56(ptr noundef nonnull @.str.177) #40
+  tail call void @abort() #46
   unreachable
 
 57:                                               ; preds = %50
@@ -40049,14 +40049,14 @@ define internal fastcc range(i32 0, 2) i32 @GC_reclaim_all(ptr noundef readonly 
   br i1 %6, label %7, label %12
 
 7:                                                ; preds = %2
-  %8 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #38
+  %8 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #40
   %9 = icmp eq i32 %8, -1
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %7
   %11 = load ptr, ptr @GC_on_abort, align 8
-  call void %11(ptr noundef nonnull @.str.82) #38
-  call void @abort() #44
+  call void %11(ptr noundef nonnull @.str.82) #40
+  call void @abort() #46
   unreachable
 
 12:                                               ; preds = %7, %2
@@ -40089,7 +40089,7 @@ define internal fastcc range(i32 0, 2) i32 @GC_reclaim_all(ptr noundef readonly 
   br i1 %.not23, label %25, label %23
 
 23:                                               ; preds = %.lr.ph
-  %24 = call i32 %0() #38
+  %24 = call i32 %0() #40
   %.not24 = icmp eq i32 %24, 0
   br i1 %.not24, label %25, label %.loopexit
 
@@ -40196,14 +40196,14 @@ GC_reclaim_small_nonempty_block.exit:             ; preds = %54
   br i1 %84, label %85, label %.loopexit
 
 85:                                               ; preds = %._crit_edge32
-  %86 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #38
+  %86 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #40
   %87 = icmp eq i32 %86, -1
   br i1 %87, label %88, label %90
 
 88:                                               ; preds = %85
   %89 = load ptr, ptr @GC_on_abort, align 8
-  call void %89(ptr noundef nonnull @.str.82) #38
-  call void @abort() #44
+  call void %89(ptr noundef nonnull @.str.82) #40
+  call void @abort() #46
   unreachable
 
 90:                                               ; preds = %85
@@ -40564,7 +40564,7 @@ GC_is_marked.exit.i:                              ; preds = %116
 132:                                              ; preds = %GC_is_marked.exit.i
   %133 = getelementptr inbounds i8, ptr %2, i64 40
   store i8 0, ptr %133, align 8
-  call void %110(ptr noundef nonnull %89, ptr noundef nonnull %2) #38
+  call void %110(ptr noundef nonnull %89, ptr noundef nonnull %2) #40
   br label %137
 
 134:                                              ; preds = %GC_is_marked.exit.i, %GC_find_header.exit.i
@@ -40781,10 +40781,10 @@ define internal fastcc void @GC_grow_table(ptr nocapture noundef %0, ptr nocaptu
   br i1 %or.cond, label %23, label %14
 
 14:                                               ; preds = %3
-  %15 = call i32 @pthread_setcancelstate(i32 noundef 1, ptr noundef nonnull %4) #38
+  %15 = call i32 @pthread_setcancelstate(i32 noundef 1, ptr noundef nonnull %4) #40
   %16 = call fastcc i32 @GC_try_to_collect_inner(ptr noundef nonnull @GC_never_stop_func)
   %17 = load i32, ptr %4, align 4
-  %18 = call i32 @pthread_setcancelstate(i32 noundef %17, ptr noundef null) #38
+  %18 = call i32 @pthread_setcancelstate(i32 noundef %17, ptr noundef null) #40
   %19 = load i64, ptr %2, align 8
   %20 = lshr i64 %19, 2
   %21 = sub i64 %9, %20
@@ -40889,8 +40889,8 @@ GC_generic_malloc_inner.exit.thread:              ; preds = %30, %GC_generic_mal
 
 70:                                               ; preds = %GC_generic_malloc_inner.exit.thread
   %71 = load ptr, ptr @GC_on_abort, align 8
-  call void %71(ptr noundef nonnull @.str.204) #38
-  call void @abort() #44
+  call void %71(ptr noundef nonnull @.str.204) #40
+  call void @abort() #46
   unreachable
 
 .lr.ph45.split.split:                             ; preds = %.lr.ph45, %._crit_edge.split
@@ -40958,7 +40958,7 @@ define internal fastcc ptr @GC_alloc_large(i64 noundef %0, i32 noundef %1, i32 n
   br i1 %.b40, label %11, label %13
 
 11:                                               ; preds = %10
-  %12 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #38
+  %12 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %13
 
 13:                                               ; preds = %10, %11
@@ -40967,7 +40967,7 @@ define internal fastcc ptr @GC_alloc_large(i64 noundef %0, i32 noundef %1, i32 n
   br i1 %.b, label %14, label %GC_lock.exit
 
 14:                                               ; preds = %13
-  %15 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %15 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %.not = icmp eq i32 %15, 0
   br i1 %.not, label %GC_lock.exit, label %16
 
@@ -40982,14 +40982,14 @@ define internal fastcc ptr @GC_alloc_large(i64 noundef %0, i32 noundef %1, i32 n
   br i1 %.not.i, label %21, label %GC_generic_lock.exit.sink.split.i
 
 21:                                               ; preds = %19
-  %22 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %22 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %GC_lock.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %21, %27
   %.079.i.i = phi i32 [ %28, %27 ], [ 1, %21 ]
   fence syncscope("singlethread") seq_cst
-  %24 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #38
+  %24 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @GC_allocate_ml) #40
   switch i32 %24, label %25 [
     i32 0, label %GC_lock.exit
     i32 16, label %27
@@ -40997,8 +40997,8 @@ define internal fastcc ptr @GC_alloc_large(i64 noundef %0, i32 noundef %1, i32 n
 
 25:                                               ; preds = %.preheader.i.i
   %26 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %26(ptr noundef nonnull @.str.340) #38
-  tail call void @abort() #44
+  tail call void %26(ptr noundef nonnull @.str.340) #40
+  tail call void @abort() #46
   unreachable
 
 27:                                               ; preds = %.preheader.i.i
@@ -41007,7 +41007,7 @@ define internal fastcc ptr @GC_alloc_large(i64 noundef %0, i32 noundef %1, i32 n
   br i1 %29, label %.preheader.i.i, label %GC_generic_lock.exit.sink.split.i, !llvm.loop !4
 
 GC_generic_lock.exit.sink.split.i:                ; preds = %27, %19, %16
-  %30 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #38
+  %30 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @GC_allocate_ml) #40
   br label %GC_lock.exit
 
 GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC_generic_lock.exit.sink.split.i, %21, %14, %13, %4
@@ -41166,17 +41166,17 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   br i1 %or.cond.i.i.i, label %128, label %GC_unmap.exit.i
 
 128:                                              ; preds = %114
-  %129 = tail call i32 @madvise(ptr noundef nonnull %..i.i.i, i64 noundef %125, i32 noundef 4) #38
+  %129 = tail call i32 @madvise(ptr noundef nonnull %..i.i.i, i64 noundef %125, i32 noundef 4) #40
   %130 = icmp eq i32 %129, -1
   br i1 %130, label %131, label %135
 
 131:                                              ; preds = %128
-  %132 = tail call ptr @__errno_location() #45
+  %132 = tail call ptr @__errno_location() #47
   %133 = load i32, ptr %132, align 4
   tail call void (ptr, ...) @GC_log_printf(ptr noundef nonnull @.str.176, ptr noundef nonnull %..i.i.i, i64 noundef %125, i32 noundef %133)
   %134 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %134(ptr noundef nonnull @.str.177) #38
-  tail call void @abort() #44
+  tail call void %134(ptr noundef nonnull @.str.177) #40
+  tail call void @abort() #46
   unreachable
 
 135:                                              ; preds = %128
@@ -41226,17 +41226,17 @@ GC_unmap.exit.i:                                  ; preds = %135, %114
   br i1 %or.cond.i.i96.i, label %163, label %GC_unmap.exit97.i
 
 163:                                              ; preds = %149
-  %164 = tail call i32 @madvise(ptr noundef nonnull %..i.i95.i, i64 noundef %160, i32 noundef 4) #38
+  %164 = tail call i32 @madvise(ptr noundef nonnull %..i.i95.i, i64 noundef %160, i32 noundef 4) #40
   %165 = icmp eq i32 %164, -1
   br i1 %165, label %166, label %170
 
 166:                                              ; preds = %163
-  %167 = tail call ptr @__errno_location() #45
+  %167 = tail call ptr @__errno_location() #47
   %168 = load i32, ptr %167, align 4
   tail call void (ptr, ...) @GC_log_printf(ptr noundef nonnull @.str.176, ptr noundef nonnull %..i.i95.i, i64 noundef %160, i32 noundef %168)
   %169 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %169(ptr noundef nonnull @.str.177) #38
-  tail call void @abort() #44
+  tail call void %169(ptr noundef nonnull @.str.177) #40
+  tail call void @abort() #46
   unreachable
 
 170:                                              ; preds = %163
@@ -41620,7 +41620,7 @@ GC_add_to_fl.exit.i:                              ; preds = %352, %GC_hblk_fl_fr
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @GC_collect_or_expand(i64 noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #1 {
   %4 = alloca i32, align 4
-  %5 = call i32 @pthread_setcancelstate(i32 noundef 1, ptr noundef nonnull %4) #38
+  %5 = call i32 @pthread_setcancelstate(i32 noundef 1, ptr noundef nonnull %4) #40
   %6 = load i32, ptr @GC_incremental, align 4
   %7 = icmp ne i32 %6, 0
   %8 = load i32, ptr @GC_dont_gc, align 4
@@ -41791,7 +41791,7 @@ define internal fastcc range(i32 0, 2) i32 @GC_collect_or_expand(i64 noundef %0,
 
 87:                                               ; preds = %81
   %88 = load ptr, ptr @GC_current_warn_proc, align 8
-  call void %88(ptr noundef nonnull @.str.207, i64 noundef 0) #38
+  call void %88(ptr noundef nonnull @.str.207, i64 noundef 0) #40
   %89 = call fastcc i32 @GC_try_to_collect_inner(ptr noundef nonnull @GC_never_stop_func)
   br label %103
 
@@ -41805,11 +41805,11 @@ define internal fastcc range(i32 0, 2) i32 @GC_collect_or_expand(i64 noundef %0,
 
 96:                                               ; preds = %90
   %97 = lshr i64 %95, 20
-  call void %93(ptr noundef nonnull @.str.208, i64 noundef %97) #38
+  call void %93(ptr noundef nonnull @.str.208, i64 noundef %97) #40
   br label %103
 
 98:                                               ; preds = %90
-  call void %93(ptr noundef nonnull @.str.209, i64 noundef %95) #38
+  call void %93(ptr noundef nonnull @.str.209, i64 noundef %95) #40
   br label %103
 
 99:                                               ; preds = %76, %72
@@ -41827,7 +41827,7 @@ define internal fastcc range(i32 0, 2) i32 @GC_collect_or_expand(i64 noundef %0,
 103:                                              ; preds = %99, %102, %79, %87, %98, %96, %38
   %.0 = phi i32 [ 1, %38 ], [ 0, %96 ], [ 0, %98 ], [ 1, %87 ], [ 1, %79 ], [ 1, %102 ], [ 1, %99 ]
   %.sink = load i32, ptr %4, align 4
-  %104 = call i32 @pthread_setcancelstate(i32 noundef %.sink, ptr noundef null) #38
+  %104 = call i32 @pthread_setcancelstate(i32 noundef %.sink, ptr noundef null) #40
   ret i32 %.0
 }
 
@@ -41874,17 +41874,17 @@ define internal fastcc void @GC_unmap_gap(ptr noundef %0, i64 noundef %1, ptr no
   br i1 %or.cond.i, label %39, label %block_unmap_inner.exit
 
 39:                                               ; preds = %4
-  %40 = tail call i32 @madvise(ptr noundef nonnull %.018, i64 noundef %36, i32 noundef 4) #38
+  %40 = tail call i32 @madvise(ptr noundef nonnull %.018, i64 noundef %36, i32 noundef 4) #40
   %41 = icmp eq i32 %40, -1
   br i1 %41, label %42, label %46
 
 42:                                               ; preds = %39
-  %43 = tail call ptr @__errno_location() #45
+  %43 = tail call ptr @__errno_location() #47
   %44 = load i32, ptr %43, align 4
   tail call void (ptr, ...) @GC_log_printf(ptr noundef nonnull @.str.176, ptr noundef nonnull %.018, i64 noundef %36, i32 noundef %44)
   %45 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %45(ptr noundef nonnull @.str.177) #38
-  tail call void @abort() #44
+  tail call void %45(ptr noundef nonnull @.str.177) #40
+  tail call void @abort() #46
   unreachable
 
 46:                                               ; preds = %39
@@ -42485,7 +42485,7 @@ GC_find_header.exit:                              ; preds = %311
 330:                                              ; preds = %326
   %331 = load ptr, ptr @GC_current_warn_proc, align 8
   %332 = lshr exact i64 %8, 10
-  tail call void %331(ptr noundef nonnull @.str.211, i64 noundef %332) #38
+  tail call void %331(ptr noundef nonnull @.str.211, i64 noundef %332) #40
   store i64 0, ptr @GC_large_alloc_warn_suppressed, align 8
   br label %333
 
@@ -42846,7 +42846,7 @@ GC_remove_from_fl_at.exit.i167:                   ; preds = %528, %509
 
 GC_get_first_part.exit.thread:                    ; preds = %536
   %540 = load ptr, ptr @GC_current_warn_proc, align 8
-  tail call void %540(ptr noundef nonnull @.str.212, i64 noundef 0) #38
+  tail call void %540(ptr noundef nonnull @.str.212, i64 noundef 0) #40
   br label %GC_remove_counts.exit
 
 541:                                              ; preds = %536
@@ -43475,29 +43475,29 @@ define internal fastcc void @GC_remove_protection(ptr noundef %0, i64 noundef %1
   %46 = load i32, ptr @GC_pages_executable, align 4
   %.not = icmp eq i32 %46, 0
   %47 = select i1 %.not, i32 3, i32 7
-  %48 = tail call i32 @mprotect(ptr noundef %13, i64 noundef %45, i32 noundef %47) #38
+  %48 = tail call i32 @mprotect(ptr noundef %13, i64 noundef %45, i32 noundef %47) #40
   %49 = icmp sgt i32 %48, -1
   br i1 %49, label %58, label %50
 
 50:                                               ; preds = %._crit_edge
   %51 = load i32, ptr @GC_pages_executable, align 4
   %.not30 = icmp eq i32 %51, 0
-  %52 = tail call ptr @__errno_location() #45
+  %52 = tail call ptr @__errno_location() #47
   %53 = load i32, ptr %52, align 4
   br i1 %.not30, label %56, label %54
 
 54:                                               ; preds = %50
   tail call void (ptr, ...) @GC_log_printf(ptr noundef nonnull @.str.156, ptr noundef %13, i64 noundef %45, i32 noundef %53)
   %55 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %55(ptr noundef nonnull @.str.157) #38
-  tail call void @abort() #44
+  tail call void %55(ptr noundef nonnull @.str.157) #40
+  tail call void @abort() #46
   unreachable
 
 56:                                               ; preds = %50
   tail call void (ptr, ...) @GC_log_printf(ptr noundef nonnull @.str.158, ptr noundef %13, i64 noundef %45, i32 noundef %53)
   %57 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %57(ptr noundef nonnull @.str.159) #38
-  tail call void @abort() #44
+  tail call void %57(ptr noundef nonnull @.str.159) #40
+  tail call void @abort() #46
   unreachable
 
 58:                                               ; preds = %._crit_edge, %3
@@ -43675,8 +43675,8 @@ GC_find_header.exit:                              ; preds = %10
 
 35:                                               ; preds = %33
   %36 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %36(ptr noundef nonnull @.str.223) #38
-  tail call void @abort() #44
+  tail call void %36(ptr noundef nonnull @.str.223) #40
+  tail call void @abort() #46
   unreachable
 
 37:                                               ; preds = %33
@@ -43791,8 +43791,8 @@ tailrecurse:                                      ; preds = %39, %4
 
 43:                                               ; preds = %tailrecurse
   %44 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %44(ptr noundef nonnull @.str.224) #38
-  tail call void @abort() #44
+  tail call void %44(ptr noundef nonnull @.str.224) #40
+  tail call void @abort() #46
   unreachable
 
 .loopexit:                                        ; preds = %32, %.lr.ph, %29, %.lr.ph74, %21, %.preheader, %6
@@ -43852,8 +43852,8 @@ common.ret:                                       ; preds = %3, %23, %15
 
 26:                                               ; preds = %23
   %27 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %27(ptr noundef nonnull @.str.224) #38
-  tail call void @abort() #44
+  tail call void %27(ptr noundef nonnull @.str.224) #40
+  tail call void @abort() #46
   unreachable
 }
 
@@ -43864,7 +43864,7 @@ define internal void @GC_push_typed_structures_proc() #1 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare ptr @llvm.frameaddress.p0(i32 immarg) #35
+declare ptr @llvm.frameaddress.p0(i32 immarg) #36
 
 ; Function Attrs: noreturn nounwind uwtable
 define internal void @looping_handler(i32 noundef %0) #6 {
@@ -43924,8 +43924,8 @@ is_header_found_async.exit:                       ; preds = %16
 31:                                               ; preds = %28
   tail call void (ptr, ...) @GC_log_printf(ptr noundef nonnull @.str.235, ptr noundef %5)
   %32 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %32(ptr noundef nonnull @.str.236) #38
-  tail call void @abort() #44
+  tail call void %32(ptr noundef nonnull @.str.236) #40
+  tail call void @abort() #46
   unreachable
 
 33:                                               ; preds = %28
@@ -43933,18 +43933,18 @@ is_header_found_async.exit:                       ; preds = %16
   br i1 %.b, label %34, label %35
 
 34:                                               ; preds = %33
-  tail call void %29(i32 noundef 11, ptr noundef %1, ptr noundef %2) #38
+  tail call void %29(i32 noundef 11, ptr noundef %1, ptr noundef %2) #40
   br label %.loopexit
 
 35:                                               ; preds = %33
-  tail call void %29(i32 noundef 11) #38
+  tail call void %29(i32 noundef 11) #40
   br label %.loopexit
 
 36:                                               ; preds = %is_header_found_async.exit
   %37 = load i32, ptr @GC_pages_executable, align 4
   %.not25 = icmp eq i32 %37, 0
   %38 = select i1 %.not25, i32 3, i32 7
-  %39 = tail call i32 @mprotect(ptr noundef %23, i64 noundef %9, i32 noundef %38) #38
+  %39 = tail call i32 @mprotect(ptr noundef %23, i64 noundef %9, i32 noundef %38) #40
   %40 = icmp sgt i32 %39, -1
   br i1 %40, label %.preheader, label %43
 
@@ -43958,22 +43958,22 @@ is_header_found_async.exit:                       ; preds = %16
   %44 = load i32, ptr @GC_pages_executable, align 4
   %.not26 = icmp eq i32 %44, 0
   %45 = load i64, ptr @GC_page_size, align 8
-  %46 = tail call ptr @__errno_location() #45
+  %46 = tail call ptr @__errno_location() #47
   %47 = load i32, ptr %46, align 4
   br i1 %.not26, label %50, label %48
 
 48:                                               ; preds = %43
   tail call void (ptr, ...) @GC_log_printf(ptr noundef nonnull @.str.156, ptr noundef %23, i64 noundef %45, i32 noundef %47)
   %49 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %49(ptr noundef nonnull @.str.157) #38
-  tail call void @abort() #44
+  tail call void %49(ptr noundef nonnull @.str.157) #40
+  tail call void @abort() #46
   unreachable
 
 50:                                               ; preds = %43
   tail call void (ptr, ...) @GC_log_printf(ptr noundef nonnull @.str.158, ptr noundef %23, i64 noundef %45, i32 noundef %47)
   %51 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %51(ptr noundef nonnull @.str.159) #38
-  tail call void @abort() #44
+  tail call void %51(ptr noundef nonnull @.str.159) #40
+  tail call void @abort() #46
   unreachable
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
@@ -43994,8 +43994,8 @@ is_header_found_async.exit:                       ; preds = %16
 62:                                               ; preds = %3
   tail call void (ptr, ...) @GC_log_printf(ptr noundef nonnull @.str.237, ptr noundef %5)
   %63 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %63(ptr noundef nonnull @.str.238) #38
-  tail call void @abort() #44
+  tail call void %63(ptr noundef nonnull @.str.238) #40
+  tail call void @abort() #46
   unreachable
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %34, %35
@@ -44015,29 +44015,29 @@ declare i32 @sigaction(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr
 define internal fastcc range(i32 0, 2) i32 @soft_dirty_open_files() unnamed_addr #1 {
   %1 = alloca [40 x i8], align 16
   %2 = alloca [40 x i8], align 16
-  %3 = tail call i32 @getpid() #38
+  %3 = tail call i32 @getpid() #40
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2)
   %4 = sext i32 %3 to i64
-  %5 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 40, ptr noundef nonnull @.str.247, i64 noundef %4, ptr noundef nonnull @.str.245) #38
+  %5 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 40, ptr noundef nonnull @.str.247, i64 noundef %4, ptr noundef nonnull @.str.245) #40
   %6 = getelementptr inbounds i8, ptr %2, i64 39
   store i8 0, ptr %6, align 1
-  %7 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull %2, i32 noundef 1) #38
+  %7 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull %2, i32 noundef 1) #40
   %8 = icmp eq i32 %7, -1
   br i1 %8, label %open_proc_fd.exit, label %9
 
 9:                                                ; preds = %0
-  %10 = tail call i32 (i32, i32, ...) @fcntl(i32 noundef %7, i32 noundef 2, i32 noundef 1) #38
+  %10 = tail call i32 (i32, i32, ...) @fcntl(i32 noundef %7, i32 noundef 2, i32 noundef 1) #40
   %11 = icmp eq i32 %10, -1
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %9
   %13 = load ptr, ptr @GC_current_warn_proc, align 8
-  tail call void %13(ptr noundef nonnull @.str.249, i64 noundef 0) #38
+  tail call void %13(ptr noundef nonnull @.str.249, i64 noundef 0) #40
   br label %15
 
 open_proc_fd.exit:                                ; preds = %0
   %14 = load ptr, ptr @GC_current_warn_proc, align 8
-  tail call void %14(ptr noundef nonnull @.str.248, i64 noundef ptrtoint (ptr @.str.245 to i64)) #38
+  tail call void %14(ptr noundef nonnull @.str.248, i64 noundef ptrtoint (ptr @.str.245 to i64)) #40
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2)
   store i32 -1, ptr @clear_refs_fd, align 4
   br label %29
@@ -44046,21 +44046,21 @@ open_proc_fd.exit:                                ; preds = %0
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2)
   store i32 %7, ptr @clear_refs_fd, align 4
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %1)
-  %16 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %1, i64 noundef 40, ptr noundef nonnull @.str.247, i64 noundef %4, ptr noundef nonnull @.str.246) #38
+  %16 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %1, i64 noundef 40, ptr noundef nonnull @.str.247, i64 noundef %4, ptr noundef nonnull @.str.246) #40
   %17 = getelementptr inbounds i8, ptr %1, i64 39
   store i8 0, ptr %17, align 1
-  %18 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull %1, i32 noundef 0) #38
+  %18 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull %1, i32 noundef 0) #40
   %19 = icmp eq i32 %18, -1
   br i1 %19, label %25, label %20
 
 20:                                               ; preds = %15
-  %21 = tail call i32 (i32, i32, ...) @fcntl(i32 noundef %18, i32 noundef 2, i32 noundef 1) #38
+  %21 = tail call i32 (i32, i32, ...) @fcntl(i32 noundef %18, i32 noundef 2, i32 noundef 1) #40
   %22 = icmp eq i32 %21, -1
   br i1 %22, label %23, label %open_proc_fd.exit3.thread
 
 23:                                               ; preds = %20
   %24 = load ptr, ptr @GC_current_warn_proc, align 8
-  tail call void %24(ptr noundef nonnull @.str.249, i64 noundef 0) #38
+  tail call void %24(ptr noundef nonnull @.str.249, i64 noundef 0) #40
   br label %open_proc_fd.exit3.thread
 
 open_proc_fd.exit3.thread:                        ; preds = %20, %23
@@ -44070,11 +44070,11 @@ open_proc_fd.exit3.thread:                        ; preds = %20, %23
 
 25:                                               ; preds = %15
   %26 = load ptr, ptr @GC_current_warn_proc, align 8
-  tail call void %26(ptr noundef nonnull @.str.248, i64 noundef ptrtoint (ptr @.str.246 to i64)) #38
+  tail call void %26(ptr noundef nonnull @.str.248, i64 noundef ptrtoint (ptr @.str.246 to i64)) #40
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %1)
   store i32 -1, ptr @pagemap_fd, align 4
   %27 = load i32, ptr @clear_refs_fd, align 4
-  %28 = tail call i32 @close(i32 noundef %27) #38
+  %28 = tail call i32 @close(i32 noundef %27) #40
   store i32 -1, ptr @clear_refs_fd, align 4
   br label %29
 
@@ -44086,16 +44086,16 @@ open_proc_fd.exit3.thread:                        ; preds = %20, %23
 declare i32 @close(i32 noundef) local_unnamed_addr #27
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @uname(ptr nocapture noundef) local_unnamed_addr #30
+declare noundef i32 @uname(ptr nocapture noundef) local_unnamed_addr #31
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #36
+declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #37
 
 ; Function Attrs: nounwind
 declare i32 @getpid() local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #30
+declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #31
 
 declare i32 @fcntl(i32 noundef, i32 noundef, ...) local_unnamed_addr #27
 
@@ -44112,16 +44112,16 @@ declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noun
 declare i32 @getpagesize() local_unnamed_addr #12
 
 ; Function Attrs: nounwind returns_twice
-declare i32 @__sigsetjmp(ptr noundef, i32 noundef) local_unnamed_addr #37
+declare i32 @__sigsetjmp(ptr noundef, i32 noundef) local_unnamed_addr #38
 
 ; Function Attrs: noreturn nounwind uwtable
 define internal void @GC_fault_handler(i32 %0) #6 {
-  tail call void @siglongjmp(ptr noundef nonnull @GC_jmp_buf, i32 noundef 1) #44
+  tail call void @siglongjmp(ptr noundef nonnull @GC_jmp_buf, i32 noundef 1) #46
   unreachable
 }
 
 ; Function Attrs: noreturn nounwind
-declare void @siglongjmp(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare void @siglongjmp(ptr noundef, i32 noundef) local_unnamed_addr #39
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__ctype_b_loc() local_unnamed_addr #12
@@ -44201,17 +44201,17 @@ define internal fastcc void @soft_set_grungy_pages(ptr noundef %0, ptr noundef %
 
 45:                                               ; preds = %42, %39
   %46 = load i32, ptr @pagemap_fd, align 4
-  %47 = tail call i64 @lseek(i32 noundef %46, i64 noundef %.032.i, i32 noundef 0) #38
+  %47 = tail call i64 @lseek(i32 noundef %46, i64 noundef %.032.i, i32 noundef 0) #40
   %48 = icmp eq i64 %47, -1
   br i1 %48, label %49, label %53
 
 49:                                               ; preds = %45
-  %50 = tail call ptr @__errno_location() #45
+  %50 = tail call ptr @__errno_location() #47
   %51 = load i32, ptr %50, align 4
   tail call void (ptr, ...) @GC_log_printf(ptr noundef nonnull @.str.279, i64 noundef %21, i32 noundef %51)
   %52 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %52(ptr noundef nonnull @.str.280) #38
-  tail call void @abort() #44
+  tail call void %52(ptr noundef nonnull @.str.280) #40
+  tail call void @abort() #46
   unreachable
 
 53:                                               ; preds = %45, %42
@@ -44225,7 +44225,7 @@ define internal fastcc void @soft_set_grungy_pages(ptr noundef %0, ptr noundef %
   %.0.i = select i1 %or.cond.i, i64 16384, i64 %spec.store.select.i
   %59 = load i32, ptr @pagemap_fd, align 4
   %60 = load ptr, ptr @soft_vdb_buf, align 8
-  %61 = tail call i64 @read(i32 noundef %59, ptr noundef %60, i64 noundef %.0.i) #38
+  %61 = tail call i64 @read(i32 noundef %59, ptr noundef %60, i64 noundef %.0.i) #40
   %62 = icmp sgt i64 %61, %54
   br i1 %62, label %73, label %63
 
@@ -44238,7 +44238,7 @@ define internal fastcc void @soft_set_grungy_pages(ptr noundef %0, ptr noundef %
   br i1 %66, label %67, label %70
 
 67:                                               ; preds = %65
-  %68 = tail call ptr @__errno_location() #45
+  %68 = tail call ptr @__errno_location() #47
   %69 = load i32, ptr %68, align 4
   br label %70
 
@@ -44246,8 +44246,8 @@ define internal fastcc void @soft_set_grungy_pages(ptr noundef %0, ptr noundef %
   %71 = phi i32 [ %69, %67 ], [ 0, %65 ]
   tail call void (ptr, ...) @GC_log_printf(ptr noundef nonnull @.str.281, i32 noundef %71)
   %72 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %72(ptr noundef nonnull @.str.282) #38
-  tail call void @abort() #44
+  tail call void %72(ptr noundef nonnull @.str.282) #40
+  tail call void @abort() #46
   unreachable
 
 73:                                               ; preds = %53
@@ -44268,7 +44268,7 @@ pagemap_buffered_read.exit:                       ; preds = %32, %73
 78:                                               ; preds = %pagemap_buffered_read.exit
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32768) getelementptr inbounds (i8, ptr @GC_arrays, i64 27128), i8 -1, i64 32768, i1 false)
   %79 = load ptr, ptr @GC_current_warn_proc, align 8
-  tail call void %79(ptr noundef nonnull @.str.278, i64 noundef 0) #38
+  tail call void %79(ptr noundef nonnull @.str.278, i64 noundef 0) #40
   br label %.loopexit36
 
 80:                                               ; preds = %pagemap_buffered_read.exit
@@ -44332,10 +44332,10 @@ pagemap_buffered_read.exit:                       ; preds = %32, %73
 }
 
 ; Function Attrs: nounwind returns_twice
-declare i32 @getcontext(ptr noundef) local_unnamed_addr #37
+declare i32 @getcontext(ptr noundef) local_unnamed_addr #38
 
 ; Function Attrs: nounwind
-declare void @llvm.eh.unwind.init() #38
+declare void @llvm.eh.unwind.init() #40
 
 ; Function Attrs: nounwind
 declare i32 @pthread_kill(i64 noundef, i32 noundef) local_unnamed_addr #2
@@ -44344,7 +44344,7 @@ declare i32 @usleep(i32 noundef) local_unnamed_addr #27
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @GC_suspend_all() #1 {
-  %1 = tail call i64 @pthread_self() #45
+  %1 = tail call i64 @pthread_self() #47
   br label %2
 
 2:                                                ; preds = %0, %._crit_edge
@@ -44387,16 +44387,16 @@ define internal i32 @GC_suspend_all() #1 {
 20:                                               ; preds = %15
   %21 = add nsw i32 %.127, 1
   %22 = load i32, ptr @GC_sig_suspend, align 4
-  %23 = tail call i32 @pthread_kill(i64 noundef %5, i32 noundef %22) #38
+  %23 = tail call i32 @pthread_kill(i64 noundef %5, i32 noundef %22) #40
   %.not.i = icmp eq i32 %23, 11
   br i1 %.not.i, label %.lr.ph.i, label %raise_signal.exit
 
 .lr.ph.i:                                         ; preds = %20, %.lr.ph.i
   %.06.i = phi i32 [ %25, %.lr.ph.i ], [ 0, %20 ]
-  %24 = tail call i32 @usleep(i32 noundef 3000) #38
+  %24 = tail call i32 @usleep(i32 noundef 3000) #40
   %25 = add nuw nsw i32 %.06.i, 1
   %26 = load i64, ptr %4, align 8
-  %27 = tail call i32 @pthread_kill(i64 noundef %26, i32 noundef %22) #38
+  %27 = tail call i32 @pthread_kill(i64 noundef %26, i32 noundef %22) #40
   %28 = icmp ne i32 %27, 11
   %29 = icmp ugt i32 %.06.i, 14
   %or.cond.i = select i1 %28, i1 true, i1 %29
@@ -44417,14 +44417,14 @@ raise_signal.exit:                                ; preds = %.lr.ph.i, %20
 32:                                               ; preds = %30
   %33 = load i64, ptr %4, align 8
   %34 = inttoptr i64 %33 to ptr
-  tail call void %31(i32 noundef 10, ptr noundef %34) #38
+  tail call void %31(i32 noundef 10, ptr noundef %34) #40
   br label %37
 
 35:                                               ; preds = %raise_signal.exit
   tail call void (ptr, ...) @GC_log_printf(ptr noundef nonnull @.str.294, i32 noundef %.lcssa.i)
   %36 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %36(ptr noundef nonnull @.str.295) #38
-  tail call void @abort() #44
+  tail call void %36(ptr noundef nonnull @.str.295) #40
+  tail call void @abort() #46
   unreachable
 
 37:                                               ; preds = %raise_signal.exit, %.lr.ph, %30, %32, %15, %11, %7
@@ -44455,7 +44455,7 @@ define internal fastcc void @resend_lost_signals_retry(i32 noundef %0, ptr nocap
   br label %resend_lost_signals.exit.thread
 
 6:                                                ; preds = %2
-  %7 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %4) #38
+  %7 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %4) #40
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %.thread
 
@@ -44484,7 +44484,7 @@ define internal fastcc void @resend_lost_signals_retry(i32 noundef %0, ptr nocap
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %19
   %.018 = phi i32 [ %20, %19 ], [ 0, %.lr.ph.preheader ]
-  %18 = call i32 @sem_timedwait(ptr noundef nonnull @GC_suspend_ack_sem, ptr noundef nonnull %4) #38
+  %18 = call i32 @sem_timedwait(ptr noundef nonnull @GC_suspend_ack_sem, ptr noundef nonnull %4) #40
   %.not = icmp eq i32 %18, 0
   br i1 %.not, label %19, label %._crit_edge
 
@@ -44502,7 +44502,7 @@ define internal fastcc void @resend_lost_signals_retry(i32 noundef %0, ptr nocap
 
 .preheader.i:                                     ; preds = %.thread, %._crit_edge
   %.0814 = phi i32 [ %0, %.thread ], [ %21, %._crit_edge ]
-  %23 = call i32 @sem_getvalue(ptr noundef nonnull @GC_suspend_ack_sem, ptr noundef nonnull %3) #38
+  %23 = call i32 @sem_getvalue(ptr noundef nonnull @GC_suspend_ack_sem, ptr noundef nonnull %3) #40
   %24 = load i32, ptr %3, align 4
   %25 = icmp eq i32 %24, %.0814
   br i1 %25, label %resend_lost_signals.exit.thread21, label %.lr.ph.i
@@ -44520,7 +44520,7 @@ resend_lost_signals.exit.thread21:                ; preds = %.preheader.i
   br i1 %26, label %27, label %47
 
 27:                                               ; preds = %.lr.ph.i
-  %28 = call i32 %1() #38, !callees !258
+  %28 = call i32 %1() #40, !callees !258
   %.not.i = icmp eq i32 %28, %.01429.i
   br i1 %.not.i, label %29, label %35
 
@@ -44533,8 +44533,8 @@ resend_lost_signals.exit.thread21:                ; preds = %.preheader.i
   %33 = load i64, ptr @GC_gc_no, align 8
   call void (ptr, ...) @GC_log_printf(ptr noundef nonnull @.str.296, i64 noundef %33)
   %34 = load ptr, ptr @GC_on_abort, align 8
-  call void %34(ptr noundef nonnull @.str.297) #38
-  call void @abort() #44
+  call void %34(ptr noundef nonnull @.str.297) #40
+  call void @abort() #46
   unreachable
 
 35:                                               ; preds = %29, %27
@@ -44548,7 +44548,7 @@ resend_lost_signals.exit.thread21:                ; preds = %.preheader.i
   br label %38
 
 38:                                               ; preds = %37, %35
-  %39 = call i32 @sem_getvalue(ptr noundef nonnull @GC_suspend_ack_sem, ptr noundef nonnull %3) #38
+  %39 = call i32 @sem_getvalue(ptr noundef nonnull @GC_suspend_ack_sem, ptr noundef nonnull %3) #40
   %40 = load i32, ptr %3, align 4
   %41 = sub nsw i32 %.030.i, %40
   %42 = icmp slt i32 %28, %41
@@ -44556,7 +44556,7 @@ resend_lost_signals.exit.thread21:                ; preds = %.preheader.i
 
 43:                                               ; preds = %38
   %44 = load ptr, ptr @GC_current_warn_proc, align 8
-  call void %44(ptr noundef nonnull @.str.299, i64 noundef 0) #38
+  call void %44(ptr noundef nonnull @.str.299, i64 noundef 0) #40
   %45 = load i32, ptr %3, align 4
   %46 = add nsw i32 %45, %28
   br label %47
@@ -44566,9 +44566,9 @@ resend_lost_signals.exit.thread21:                ; preds = %.preheader.i
   %.218.i = phi i32 [ %.01628.i, %.lr.ph.i ], [ %.117.i, %43 ], [ %.117.i, %38 ]
   %.115.i = phi i32 [ %.01429.i, %.lr.ph.i ], [ %28, %43 ], [ %28, %38 ]
   %.2.i = phi i32 [ %.030.i, %.lr.ph.i ], [ %46, %43 ], [ %.030.i, %38 ]
-  %48 = call i32 @usleep(i32 noundef 3000) #38
+  %48 = call i32 @usleep(i32 noundef 3000) #40
   %49 = add nuw nsw i64 %.120.i, 3000
-  %50 = call i32 @sem_getvalue(ptr noundef nonnull @GC_suspend_ack_sem, ptr noundef nonnull %3) #38
+  %50 = call i32 @sem_getvalue(ptr noundef nonnull @GC_suspend_ack_sem, ptr noundef nonnull %3) #40
   %51 = load i32, ptr %3, align 4
   %52 = icmp eq i32 %51, %.2.i
   br i1 %52, label %resend_lost_signals.exit, label %.lr.ph.i
@@ -44591,20 +44591,20 @@ resend_lost_signals.exit:                         ; preds = %47
   br label %54
 
 54:                                               ; preds = %56, %.preheader.i11
-  %55 = call i32 @sem_wait(ptr noundef nonnull @GC_suspend_ack_sem) #38
+  %55 = call i32 @sem_wait(ptr noundef nonnull @GC_suspend_ack_sem) #40
   %.not.i12 = icmp eq i32 %55, 0
   br i1 %.not.i12, label %61, label %56
 
 56:                                               ; preds = %54
-  %57 = tail call ptr @__errno_location() #45
+  %57 = tail call ptr @__errno_location() #47
   %58 = load i32, ptr %57, align 4
   %.not3.i = icmp eq i32 %58, 4
   br i1 %.not3.i, label %54, label %59, !llvm.loop !30
 
 59:                                               ; preds = %56
   %60 = load ptr, ptr @GC_on_abort, align 8
-  call void %60(ptr noundef nonnull @.str.119) #38
-  call void @abort() #44
+  call void %60(ptr noundef nonnull @.str.119) #40
+  call void @abort() #46
   unreachable
 
 61:                                               ; preds = %54
@@ -44623,7 +44623,7 @@ declare i32 @sem_getvalue(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @GC_restart_all() #1 {
-  %1 = tail call i64 @pthread_self() #45
+  %1 = tail call i64 @pthread_self() #47
   br label %2
 
 2:                                                ; preds = %0, %._crit_edge
@@ -44671,16 +44671,16 @@ define internal i32 @GC_restart_all() #1 {
 22:                                               ; preds = %17, %15
   %23 = add nsw i32 %.128, 1
   %24 = load i32, ptr @GC_sig_thr_restart, align 4
-  %25 = tail call i32 @pthread_kill(i64 noundef %5, i32 noundef %24) #38
+  %25 = tail call i32 @pthread_kill(i64 noundef %5, i32 noundef %24) #40
   %.not.i = icmp eq i32 %25, 11
   br i1 %.not.i, label %.lr.ph.i, label %raise_signal.exit
 
 .lr.ph.i:                                         ; preds = %22, %.lr.ph.i
   %.06.i = phi i32 [ %27, %.lr.ph.i ], [ 0, %22 ]
-  %26 = tail call i32 @usleep(i32 noundef 3000) #38
+  %26 = tail call i32 @usleep(i32 noundef 3000) #40
   %27 = add nuw nsw i32 %.06.i, 1
   %28 = load i64, ptr %4, align 8
-  %29 = tail call i32 @pthread_kill(i64 noundef %28, i32 noundef %24) #38
+  %29 = tail call i32 @pthread_kill(i64 noundef %28, i32 noundef %24) #40
   %30 = icmp ne i32 %29, 11
   %31 = icmp ugt i32 %.06.i, 14
   %or.cond.i = select i1 %30, i1 true, i1 %31
@@ -44701,14 +44701,14 @@ raise_signal.exit:                                ; preds = %.lr.ph.i, %22
 34:                                               ; preds = %32
   %35 = load i64, ptr %4, align 8
   %36 = inttoptr i64 %35 to ptr
-  tail call void %33(i32 noundef 11, ptr noundef %36) #38
+  tail call void %33(i32 noundef 11, ptr noundef %36) #40
   br label %39
 
 37:                                               ; preds = %raise_signal.exit
   tail call void (ptr, ...) @GC_log_printf(ptr noundef nonnull @.str.300, i32 noundef %.lcssa.i)
   %38 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %38(ptr noundef nonnull @.str.301) #38
-  tail call void @abort() #44
+  tail call void %38(ptr noundef nonnull @.str.301) #40
+  tail call void @abort() #46
   unreachable
 
 39:                                               ; preds = %raise_signal.exit, %.lr.ph, %32, %34, %17, %11, %7
@@ -44749,7 +44749,7 @@ define internal noundef ptr @GC_mark_thread(ptr noundef %0) #1 {
 
 7:                                                ; preds = %1
   %8 = ptrtoint ptr %0 to i64
-  %9 = call i32 @pthread_setcancelstate(i32 noundef 1, ptr noundef nonnull %4) #38
+  %9 = call i32 @pthread_setcancelstate(i32 noundef 1, ptr noundef nonnull %4) #40
   %10 = trunc i64 %8 to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(10) %3, ptr noundef nonnull align 1 dereferenceable(10) @.str.309, i64 10, i1 false)
@@ -44777,26 +44777,26 @@ define internal noundef ptr @GC_mark_thread(ptr noundef %0) #1 {
   %25 = zext nneg i32 %24 to i64
   %26 = getelementptr inbounds [16 x i8], ptr %3, i64 0, i64 %25
   store i8 0, ptr %26, align 1
-  %27 = tail call i64 @pthread_self() #45
-  %28 = call i32 @pthread_setname_np(i64 noundef %27, ptr noundef nonnull %3) #38
+  %27 = tail call i64 @pthread_self() #47
+  %28 = call i32 @pthread_setname_np(i64 noundef %27, ptr noundef nonnull %3) #40
   %.not.i = icmp eq i32 %28, 0
   br i1 %.not.i, label %set_marker_thread_name.exit, label %29
 
 29:                                               ; preds = %18
   %30 = load ptr, ptr @GC_current_warn_proc, align 8
-  call void %30(ptr noundef nonnull @.str.310, i64 noundef 0) #38
+  call void %30(ptr noundef nonnull @.str.310, i64 noundef 0) #40
   br label %set_marker_thread_name.exit
 
 set_marker_thread_name.exit:                      ; preds = %18, %29
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  %31 = call i32 @pthread_mutex_trylock(ptr noundef nonnull @mark_mutex) #38
+  %31 = call i32 @pthread_mutex_trylock(ptr noundef nonnull @mark_mutex) #40
   %32 = icmp eq i32 %31, 0
   br i1 %32, label %GC_acquire_mark_lock.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %set_marker_thread_name.exit, %36
   %.079.i.i = phi i32 [ %37, %36 ], [ 1, %set_marker_thread_name.exit ]
   fence syncscope("singlethread") seq_cst
-  %33 = call i32 @pthread_mutex_trylock(ptr noundef nonnull @mark_mutex) #38
+  %33 = call i32 @pthread_mutex_trylock(ptr noundef nonnull @mark_mutex) #40
   switch i32 %33, label %34 [
     i32 0, label %GC_acquire_mark_lock.exit
     i32 16, label %36
@@ -44804,8 +44804,8 @@ set_marker_thread_name.exit:                      ; preds = %18, %29
 
 34:                                               ; preds = %.preheader.i.i
   %35 = load ptr, ptr @GC_on_abort, align 8
-  call void %35(ptr noundef nonnull @.str.340) #38
-  call void @abort() #44
+  call void %35(ptr noundef nonnull @.str.340) #40
+  call void @abort() #46
   unreachable
 
 36:                                               ; preds = %.preheader.i.i
@@ -44814,7 +44814,7 @@ set_marker_thread_name.exit:                      ; preds = %18, %29
   br i1 %38, label %.preheader.i.i, label %39, !llvm.loop !4
 
 39:                                               ; preds = %36
-  %40 = call i32 @pthread_mutex_lock(ptr noundef nonnull @mark_mutex) #38
+  %40 = call i32 @pthread_mutex_lock(ptr noundef nonnull @mark_mutex) #40
   br label %GC_acquire_mark_lock.exit
 
 GC_acquire_mark_lock.exit:                        ; preds = %.preheader.i.i, %set_marker_thread_name.exit, %39
@@ -44825,14 +44825,14 @@ GC_acquire_mark_lock.exit:                        ; preds = %.preheader.i.i, %se
   br i1 %43, label %44, label %GC_notify_all_builder.exit
 
 44:                                               ; preds = %GC_acquire_mark_lock.exit
-  %45 = call i32 @pthread_cond_broadcast(ptr noundef nonnull @builder_cv) #38
+  %45 = call i32 @pthread_cond_broadcast(ptr noundef nonnull @builder_cv) #40
   %.not.i5 = icmp eq i32 %45, 0
   br i1 %.not.i5, label %GC_notify_all_builder.exit, label %46
 
 46:                                               ; preds = %44
   %47 = load ptr, ptr @GC_on_abort, align 8
-  call void %47(ptr noundef nonnull @.str.139) #38
-  call void @abort() #44
+  call void %47(ptr noundef nonnull @.str.139) #40
+  call void @abort() #46
   unreachable
 
 GC_notify_all_builder.exit:                       ; preds = %44, %GC_acquire_mark_lock.exit
@@ -44860,14 +44860,14 @@ GC_wait_marker.exit.i:                            ; preds = %.critedge.i, %48
   br i1 %.not6.i, label %59, label %.critedge.i
 
 .critedge.i:                                      ; preds = %54, %GC_wait_marker.exit.i
-  %56 = call i32 @pthread_cond_wait(ptr noundef nonnull @mark_cv, ptr noundef nonnull @mark_mutex) #38
+  %56 = call i32 @pthread_cond_wait(ptr noundef nonnull @mark_cv, ptr noundef nonnull @mark_mutex) #40
   %.not.i.i = icmp eq i32 %56, 0
   br i1 %.not.i.i, label %GC_wait_marker.exit.i, label %57, !llvm.loop !261
 
 57:                                               ; preds = %.critedge.i
   %58 = load ptr, ptr @GC_on_abort, align 8
-  call void %58(ptr noundef nonnull @.str.143) #38
-  call void @abort() #44
+  call void %58(ptr noundef nonnull @.str.143) #40
+  call void @abort() #46
   unreachable
 
 59:                                               ; preds = %54
@@ -44905,45 +44905,45 @@ declare i32 @pthread_atfork(ptr noundef, ptr noundef, ptr noundef) local_unnamed
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @GC_remove_allowed_signals(ptr noundef %0) unnamed_addr #1 {
-  %2 = tail call i32 @sigdelset(ptr noundef %0, i32 noundef 2) #38
+  %2 = tail call i32 @sigdelset(ptr noundef %0, i32 noundef 2) #40
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %3, label %9
 
 3:                                                ; preds = %1
-  %4 = tail call i32 @sigdelset(ptr noundef %0, i32 noundef 3) #38
+  %4 = tail call i32 @sigdelset(ptr noundef %0, i32 noundef 3) #40
   %.not6 = icmp eq i32 %4, 0
   br i1 %.not6, label %5, label %9
 
 5:                                                ; preds = %3
-  %6 = tail call i32 @sigdelset(ptr noundef %0, i32 noundef 6) #38
+  %6 = tail call i32 @sigdelset(ptr noundef %0, i32 noundef 6) #40
   %.not7 = icmp eq i32 %6, 0
   br i1 %.not7, label %7, label %9
 
 7:                                                ; preds = %5
-  %8 = tail call i32 @sigdelset(ptr noundef %0, i32 noundef 15) #38
+  %8 = tail call i32 @sigdelset(ptr noundef %0, i32 noundef 15) #40
   %.not8 = icmp eq i32 %8, 0
   br i1 %.not8, label %11, label %9
 
 9:                                                ; preds = %7, %5, %3, %1
   %10 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %10(ptr noundef nonnull @.str.115) #38
-  tail call void @abort() #44
+  tail call void %10(ptr noundef nonnull @.str.115) #40
+  tail call void @abort() #46
   unreachable
 
 11:                                               ; preds = %7
-  %12 = tail call i32 @sigdelset(ptr noundef %0, i32 noundef 11) #38
+  %12 = tail call i32 @sigdelset(ptr noundef %0, i32 noundef 11) #40
   %.not9 = icmp eq i32 %12, 0
   br i1 %.not9, label %13, label %15
 
 13:                                               ; preds = %11
-  %14 = tail call i32 @sigdelset(ptr noundef %0, i32 noundef 7) #38
+  %14 = tail call i32 @sigdelset(ptr noundef %0, i32 noundef 7) #40
   %.not10 = icmp eq i32 %14, 0
   br i1 %.not10, label %17, label %15
 
 15:                                               ; preds = %13, %11
   %16 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %16(ptr noundef nonnull @.str.115) #38
-  tail call void @abort() #44
+  tail call void %16(ptr noundef nonnull @.str.115) #40
+  tail call void @abort() #46
   unreachable
 
 17:                                               ; preds = %13
@@ -44960,12 +44960,12 @@ define internal void @GC_suspend_sigaction(i32 noundef %0, ptr nocapture readnon
 
 7:                                                ; preds = %3
   %8 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %8(ptr noundef nonnull @.str.329) #38
-  tail call void @abort() #44
+  tail call void %8(ptr noundef nonnull @.str.329) #40
+  tail call void @abort() #46
   unreachable
 
 9:                                                ; preds = %3
-  %10 = tail call ptr @__errno_location() #45
+  %10 = tail call ptr @__errno_location() #47
   %11 = load i32, ptr %10, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   %12 = load atomic volatile i64, ptr @GC_stop_count acquire, align 8
@@ -44974,8 +44974,8 @@ define internal void @GC_suspend_sigaction(i32 noundef %0, ptr nocapture readnon
   br i1 %.not.i, label %14, label %GC_suspend_handler_inner.exit
 
 14:                                               ; preds = %9
-  %15 = call i32 @pthread_setcancelstate(i32 noundef 1, ptr noundef nonnull %5) #38
-  %16 = tail call i64 @pthread_self() #45
+  %15 = call i32 @pthread_setcancelstate(i32 noundef 1, ptr noundef nonnull %5) #40
+  %16 = tail call i64 @pthread_self() #47
   %17 = lshr i64 %16, 8
   %18 = xor i64 %17, %16
   %19 = lshr i64 %18, 16
@@ -45010,7 +45010,7 @@ GC_lookup_thread.exit.i:                          ; preds = %24, %23
 
 34:                                               ; preds = %32
   %35 = load ptr, ptr @GC_current_warn_proc, align 8
-  call void %35(ptr noundef nonnull @.str.330, i64 noundef %16) #38
+  call void %35(ptr noundef nonnull @.str.330, i64 noundef %16) #40
   br label %.sink.split.i
 
 36:                                               ; preds = %GC_lookup_thread.exit.i
@@ -45027,20 +45027,20 @@ GC_lookup_thread.exit.i:                          ; preds = %24, %23
   %42 = getelementptr inbounds i8, ptr %.0.i.i, i64 40
   %43 = load atomic volatile i64, ptr %42 monotonic, align 8
   %.fr1.i = freeze i64 %43
-  %44 = call i32 @sem_post(ptr noundef nonnull @GC_suspend_ack_sem) #38
+  %44 = call i32 @sem_post(ptr noundef nonnull @GC_suspend_ack_sem) #40
   store atomic volatile i64 %12, ptr %28 release, align 8
   %45 = and i64 %.fr1.i, 1
   %.not21.i = icmp eq i64 %45, 0
   br i1 %.not21.i, label %.critedge.us.i, label %.critedge.i
 
 .critedge.us.i:                                   ; preds = %36, %.critedge.us.i
-  %46 = call i32 @sigsuspend(ptr noundef nonnull @suspend_handler_mask) #38
+  %46 = call i32 @sigsuspend(ptr noundef nonnull @suspend_handler_mask) #40
   %47 = load atomic volatile i64, ptr @GC_stop_count acquire, align 8
   %48 = icmp eq i64 %47, %12
   br i1 %48, label %.critedge.us.i, label %.critedge2.i, !llvm.loop !262
 
 .critedge.i:                                      ; preds = %36, %.critedge.i.backedge
-  %49 = call i32 @sigsuspend(ptr noundef nonnull @suspend_handler_mask) #38
+  %49 = call i32 @sigsuspend(ptr noundef nonnull @suspend_handler_mask) #40
   %50 = load atomic volatile i64, ptr @GC_stop_count acquire, align 8
   %51 = icmp eq i64 %50, %12
   br i1 %51, label %.critedge.i.backedge, label %52
@@ -45065,7 +45065,7 @@ GC_lookup_thread.exit.i:                          ; preds = %24, %23
   br i1 %59, label %60, label %.sink.split.i
 
 60:                                               ; preds = %56, %.critedge2.i
-  %61 = call i32 @sem_post(ptr noundef nonnull @GC_suspend_ack_sem) #38
+  %61 = call i32 @sem_post(ptr noundef nonnull @GC_suspend_ack_sem) #40
   %62 = load i32, ptr @GC_retry_signals, align 4
   %.not23.i = icmp eq i32 %62, 0
   br i1 %.not23.i, label %.sink.split.i, label %63
@@ -45077,7 +45077,7 @@ GC_lookup_thread.exit.i:                          ; preds = %24, %23
 
 .sink.split.i:                                    ; preds = %56, %60, %63, %32, %34
   %.sink.i = load i32, ptr %5, align 4
-  %65 = call i32 @pthread_setcancelstate(i32 noundef %.sink.i, ptr noundef null) #38
+  %65 = call i32 @pthread_setcancelstate(i32 noundef %.sink.i, ptr noundef null) #40
   br label %GC_suspend_handler_inner.exit
 
 GC_suspend_handler_inner.exit:                    ; preds = %9, %.sink.split.i
@@ -45094,8 +45094,8 @@ define internal void @GC_restart_handler(i32 noundef %0) #1 {
 
 3:                                                ; preds = %1
   %4 = load ptr, ptr @GC_on_abort, align 8
-  tail call void %4(ptr noundef nonnull @.str.331) #38
-  tail call void @abort() #44
+  tail call void %4(ptr noundef nonnull @.str.331) #40
+  tail call void @abort() #46
   unreachable
 
 5:                                                ; preds = %1
@@ -45127,58 +45127,58 @@ declare ptr @GC_pthread_start_inner(ptr noundef, ptr noundef) #27
 declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start.p0(ptr) #39
+declare void @llvm.va_start.p0(ptr) #41
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end.p0(ptr) #39
+declare void @llvm.va_end.p0(ptr) #41
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.uadd.sat.i64(i64, i64) #40
+declare i64 @llvm.uadd.sat.i64(i64, i64) #42
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #40
+declare i32 @llvm.smax.i32(i32, i32) #42
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #40
+declare i64 @llvm.umax.i64(i64, i64) #42
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #40
+declare i64 @llvm.umin.i64(i64, i64) #42
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctpop.i64(i64) #40
+declare i64 @llvm.ctpop.i64(i64) #42
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #40
+declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #42
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #40
+declare i64 @llvm.smax.i64(i64, i64) #42
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #40
+declare i32 @llvm.umin.i32(i32, i32) #42
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #41
+declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #43
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #42
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #44
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #42
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #44
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #40
+declare i64 @llvm.smin.i64(i64, i64) #42
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #43
+declare void @llvm.assume(i1 noundef) #45
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.usub.sat.i64(i64, i64) #40
+declare i64 @llvm.usub.sat.i64(i64, i64) #42
 
 attributes #0 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nounwind allocsize(0) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -45204,26 +45204,29 @@ attributes #26 = { mustprogress nofree norecurse nosync nounwind willreturn memo
 attributes #27 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #28 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #29 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #30 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #31 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #32 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #33 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #34 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #35 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
-attributes #36 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #37 = { nounwind returns_twice "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #38 = { nounwind }
-attributes #39 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #40 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #41 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #42 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #43 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #44 = { noreturn nounwind }
-attributes #45 = { nounwind willreturn memory(none) }
-attributes #46 = { nounwind willreturn memory(read) }
-attributes #47 = { allocsize(0) }
-attributes #48 = { allocsize(1) }
-attributes #49 = { nounwind returns_twice }
+attributes #30 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #31 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #32 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #33 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #34 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #35 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #36 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #37 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #38 = { nounwind returns_twice "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #39 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #40 = { nounwind }
+attributes #41 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #42 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #43 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #44 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #45 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #46 = { noreturn nounwind }
+attributes #47 = { nounwind willreturn memory(none) }
+attributes #48 = { nounwind willreturn memory(read) }
+attributes #49 = { cold noreturn nounwind }
+attributes #50 = { allocsize(0) }
+attributes #51 = { allocsize(1) }
+attributes #52 = { nounwind returns_twice }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

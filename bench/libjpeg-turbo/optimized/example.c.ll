@@ -51,12 +51,12 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonl
 13:                                               ; preds = %2
   %14 = getelementptr inbounds i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8
-  %16 = tail call i32 @strcasecmp(ptr noundef %15, ptr noundef nonnull @.str) #9
+  %16 = tail call i32 @strcasecmp(ptr noundef %15, ptr noundef nonnull @.str) #11
   %.not.not = icmp eq i32 %16, 0
   br i1 %.not.not, label %.lr.ph.preheader, label %17
 
 17:                                               ; preds = %13
-  %18 = tail call i32 @strcasecmp(ptr noundef %15, ptr noundef nonnull @.str.1) #9
+  %18 = tail call i32 @strcasecmp(ptr noundef %15, ptr noundef nonnull @.str.1) #11
   %.not46 = icmp eq i32 %18, 0
   br i1 %.not46, label %.lr.ph.preheader, label %19
 
@@ -79,7 +79,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonl
 
 25:                                               ; preds = %.lr.ph
   %26 = getelementptr inbounds i8, ptr %23, i64 1
-  %27 = call i32 @strncasecmp(ptr noundef nonnull %26, ptr noundef nonnull @.str.2, i64 noundef 1) #9
+  %27 = call i32 @strncasecmp(ptr noundef nonnull %26, ptr noundef nonnull @.str.2, i64 noundef 1) #11
   %.not48 = icmp eq i32 %27, 0
   br i1 %.not48, label %28, label %43
 
@@ -97,7 +97,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonl
   %33 = sext i32 %29 to i64
   %34 = getelementptr inbounds ptr, ptr %1, i64 %33
   %35 = load ptr, ptr %34, align 8
-  %36 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %35, ptr noundef nonnull @.str.3, ptr noundef nonnull %9) #10
+  %36 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %35, ptr noundef nonnull @.str.3, ptr noundef nonnull %9) #12
   %37 = icmp slt i32 %36, 1
   br i1 %37, label %41, label %38
 
@@ -113,7 +113,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonl
   unreachable
 
 43:                                               ; preds = %25
-  %44 = call i32 @strncasecmp(ptr noundef nonnull %26, ptr noundef nonnull @.str.4, i64 noundef 1) #9
+  %44 = call i32 @strncasecmp(ptr noundef nonnull %26, ptr noundef nonnull @.str.4, i64 noundef 1) #11
   %.not50 = icmp eq i32 %44, 0
   br i1 %.not50, label %45, label %62
 
@@ -131,7 +131,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonl
   %50 = sext i32 %46 to i64
   %51 = getelementptr inbounds ptr, ptr %1, i64 %50
   %52 = load ptr, ptr %51, align 8
-  %53 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %52, ptr noundef nonnull @.str.3, ptr noundef nonnull %8) #10
+  %53 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %52, ptr noundef nonnull @.str.3, ptr noundef nonnull %8) #12
   %54 = icmp slt i32 %53, 1
   %55 = load i32, ptr %8, align 4
   %56 = icmp ugt i32 %55, 100
@@ -173,9 +173,9 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonl
   call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  %71 = call ptr @jpeg_std_error(ptr noundef nonnull %5) #10
+  %71 = call ptr @jpeg_std_error(ptr noundef nonnull %5) #12
   store ptr %71, ptr %4, align 8
-  call void @jpeg_CreateCompress(ptr noundef nonnull %4, i32 noundef 62, i64 noundef 520) #10
+  call void @jpeg_CreateCompress(ptr noundef nonnull %4, i32 noundef 62, i64 noundef 520) #12
   %72 = call noalias ptr @fopen(ptr noundef nonnull readonly %23, ptr noundef nonnull @.str.12)
   %73 = icmp eq ptr %72, null
   br i1 %73, label %74, label %78
@@ -185,18 +185,18 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonl
   %76 = getelementptr inbounds i8, ptr %75, i64 40
   store i32 37, ptr %76, align 8
   %77 = load ptr, ptr %75, align 8
-  call void %77(ptr noundef nonnull %4) #10
+  call void %77(ptr noundef nonnull %4) #12
   br label %78
 
 78:                                               ; preds = %74, %68
-  call void @jpeg_stdio_dest(ptr noundef nonnull %4, ptr noundef %72) #10
+  call void @jpeg_stdio_dest(ptr noundef nonnull %4, ptr noundef %72) #12
   %79 = getelementptr inbounds i8, ptr %4, i64 48
   %80 = getelementptr inbounds i8, ptr %4, i64 52
   store <4 x i32> <i32 640, i32 480, i32 3, i32 2>, ptr %79, align 8
   %81 = getelementptr inbounds i8, ptr %4, i64 72
   store i32 %70, ptr %81, align 8
-  call void @jpeg_set_defaults(ptr noundef nonnull %4) #10
-  call void @jpeg_set_quality(ptr noundef nonnull %4, i32 noundef %69, i32 noundef 1) #10
+  call void @jpeg_set_defaults(ptr noundef nonnull %4) #12
+  call void @jpeg_set_quality(ptr noundef nonnull %4, i32 noundef %69, i32 noundef 1) #12
   %82 = getelementptr inbounds i8, ptr %4, i64 88
   %83 = load ptr, ptr %82, align 8
   %84 = getelementptr inbounds i8, ptr %83, i64 12
@@ -204,14 +204,14 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonl
   %85 = load ptr, ptr %82, align 8
   %86 = getelementptr inbounds i8, ptr %85, i64 8
   store i32 1, ptr %86, align 8
-  call void @jpeg_start_compress(ptr noundef nonnull %4, i32 noundef 1) #10
+  call void @jpeg_start_compress(ptr noundef nonnull %4, i32 noundef 1) #12
   %87 = load i32, ptr %81, align 8
   %88 = icmp eq i32 %87, 12
   %89 = getelementptr inbounds i8, ptr %4, i64 8
   %90 = load ptr, ptr %89, align 8
   %91 = getelementptr inbounds i8, ptr %90, i64 16
   %92 = load ptr, ptr %91, align 8
-  %93 = call ptr %92(ptr noundef nonnull %4, i32 noundef 1, i32 noundef 1920, i32 noundef 480) #10
+  %93 = call ptr %92(ptr noundef nonnull %4, i32 noundef 1, i32 noundef 1920, i32 noundef 480) #12
   br i1 %88, label %.preheader50.i, label %.preheader52.i
 
 .preheader50.i:                                   ; preds = %78, %115
@@ -315,7 +315,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonl
   %144 = getelementptr inbounds ptr, ptr %.045.i, i64 %143
   %145 = load ptr, ptr %144, align 8
   store ptr %145, ptr %7, align 8
-  %146 = call i32 @jpeg12_write_scanlines(ptr noundef nonnull %4, ptr noundef nonnull %7, i32 noundef 1) #10
+  %146 = call i32 @jpeg12_write_scanlines(ptr noundef nonnull %4, ptr noundef nonnull %7, i32 noundef 1) #12
   %147 = load i32, ptr %138, align 8
   %148 = load i32, ptr %80, align 4
   %149 = icmp ult i32 %147, %148
@@ -327,16 +327,16 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonl
   %152 = getelementptr inbounds ptr, ptr %.044.i, i64 %151
   %153 = load ptr, ptr %152, align 8
   store ptr %153, ptr %6, align 8
-  %154 = call i32 @jpeg_write_scanlines(ptr noundef nonnull %4, ptr noundef nonnull %6, i32 noundef 1) #10
+  %154 = call i32 @jpeg_write_scanlines(ptr noundef nonnull %4, ptr noundef nonnull %6, i32 noundef 1) #12
   %155 = load i32, ptr %138, align 8
   %156 = load i32, ptr %80, align 4
   %157 = icmp ult i32 %155, %156
   br i1 %157, label %.lr.ph.i, label %write_JPEG_file.exit, !llvm.loop !12
 
 write_JPEG_file.exit:                             ; preds = %.lr.ph.i, %.lr.ph58.i, %.preheader48.i, %.preheader.i
-  call void @jpeg_finish_compress(ptr noundef nonnull %4) #10
+  call void @jpeg_finish_compress(ptr noundef nonnull %4) #12
   %158 = call i32 @fclose(ptr noundef %72)
-  call void @jpeg_destroy_compress(ptr noundef nonnull %4) #10
+  call void @jpeg_destroy_compress(ptr noundef nonnull %4) #12
   call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -365,23 +365,23 @@ write_JPEG_file.exit:                             ; preds = %.lr.ph.i, %.lr.ph58
   ret i32 0
 }
 
-; Function Attrs: noreturn nounwind uwtable
+; Function Attrs: nofree noreturn nounwind uwtable
 define internal fastcc void @usage(ptr noundef %0) unnamed_addr #1 {
   %2 = load ptr, ptr @stderr, align 8
-  %3 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.5, ptr noundef %0) #11
+  %3 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.5, ptr noundef %0) #13
   %4 = load ptr, ptr @stderr, align 8
-  %5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.6, ptr noundef %0) #11
+  %5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.6, ptr noundef %0) #13
   %6 = load ptr, ptr @stderr, align 8
-  %7 = tail call i64 @fwrite(ptr nonnull @.str.7, i64 37, i64 1, ptr %6) #12
+  %7 = tail call i64 @fwrite(ptr nonnull @.str.7, i64 37, i64 1, ptr %6) #14
   %8 = load ptr, ptr @stderr, align 8
-  %9 = tail call i64 @fwrite(ptr nonnull @.str.8, i64 60, i64 1, ptr %8) #12
+  %9 = tail call i64 @fwrite(ptr nonnull @.str.8, i64 60, i64 1, ptr %8) #14
   %10 = load ptr, ptr @stderr, align 8
-  %11 = tail call i64 @fwrite(ptr nonnull @.str.9, i64 46, i64 1, ptr %10) #12
+  %11 = tail call i64 @fwrite(ptr nonnull @.str.9, i64 46, i64 1, ptr %10) #14
   %12 = load ptr, ptr @stderr, align 8
-  %13 = tail call i64 @fwrite(ptr nonnull @.str.10, i64 73, i64 1, ptr %12) #12
+  %13 = tail call i64 @fwrite(ptr nonnull @.str.10, i64 73, i64 1, ptr %12) #14
   %14 = load ptr, ptr @stderr, align 8
-  %15 = tail call i64 @fwrite(ptr nonnull @.str.11, i64 32, i64 1, ptr %14) #12
-  tail call void @exit(i32 noundef 1) #13
+  %15 = tail call i64 @fwrite(ptr nonnull @.str.11, i64 32, i64 1, ptr %14) #14
+  tail call void @exit(i32 noundef 1) #15
   unreachable
 }
 
@@ -397,7 +397,7 @@ declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocaptu
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #4
 
 declare ptr @jpeg_std_error(ptr noundef) local_unnamed_addr #5
@@ -435,7 +435,7 @@ define internal fastcc void @do_read_JPEG_file(ptr noundef %0, ptr noundef %1, p
 
 7:                                                ; preds = %3
   %8 = load ptr, ptr @stderr, align 8
-  %9 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.14, ptr noundef %1) #11
+  %9 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.14, ptr noundef %1) #13
   br label %81
 
 10:                                               ; preds = %3
@@ -445,35 +445,35 @@ define internal fastcc void @do_read_JPEG_file(ptr noundef %0, ptr noundef %1, p
 
 13:                                               ; preds = %10
   %14 = load ptr, ptr @stderr, align 8
-  %15 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str.14, ptr noundef %2) #11
+  %15 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str.14, ptr noundef %2) #13
   %16 = call i32 @fclose(ptr noundef nonnull %5)
   br label %81
 
 17:                                               ; preds = %10
-  %18 = call ptr @jpeg_std_error(ptr noundef nonnull %4) #10
+  %18 = call ptr @jpeg_std_error(ptr noundef nonnull %4) #12
   store ptr %18, ptr %0, align 8
   store ptr @my_error_exit, ptr %4, align 8
   %19 = getelementptr inbounds i8, ptr %4, i64 168
-  %20 = call i32 @_setjmp(ptr noundef nonnull %19) #14
+  %20 = call i32 @_setjmp(ptr noundef nonnull %19) #16
   %.not = icmp eq i32 %20, 0
   br i1 %.not, label %24, label %21
 
 21:                                               ; preds = %17
-  call void @jpeg_destroy_decompress(ptr noundef nonnull %0) #10
+  call void @jpeg_destroy_decompress(ptr noundef nonnull %0) #12
   %22 = call i32 @fclose(ptr noundef nonnull %5)
   %23 = call i32 @fclose(ptr noundef nonnull %11)
   br label %81
 
 24:                                               ; preds = %17
-  call void @jpeg_CreateDecompress(ptr noundef nonnull %0, i32 noundef 62, i64 noundef 632) #10
-  call void @jpeg_stdio_src(ptr noundef nonnull %0, ptr noundef nonnull %5) #10
-  %25 = call i32 @jpeg_read_header(ptr noundef nonnull %0, i32 noundef 1) #10
+  call void @jpeg_CreateDecompress(ptr noundef nonnull %0, i32 noundef 62, i64 noundef 632) #12
+  call void @jpeg_stdio_src(ptr noundef nonnull %0, ptr noundef nonnull %5) #12
+  %25 = call i32 @jpeg_read_header(ptr noundef nonnull %0, i32 noundef 1) #12
   %26 = getelementptr inbounds i8, ptr %0, i64 296
   %27 = load i32, ptr %26, align 8
   %28 = icmp eq i32 %27, 12
   %29 = select i1 %28, i32 4095, i32 255
-  %30 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %11, ptr noundef nonnull @.str.15, i32 noundef 640, i32 noundef 480, i32 noundef %29) #10
-  %31 = call i32 @jpeg_start_decompress(ptr noundef nonnull %0) #10
+  %30 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %11, ptr noundef nonnull @.str.15, i32 noundef 640, i32 noundef 480, i32 noundef %29) #12
+  %31 = call i32 @jpeg_start_decompress(ptr noundef nonnull %0) #12
   %32 = getelementptr inbounds i8, ptr %0, i64 136
   %33 = load i32, ptr %32, align 8
   %34 = getelementptr inbounds i8, ptr %0, i64 148
@@ -486,7 +486,7 @@ define internal fastcc void @do_read_JPEG_file(ptr noundef %0, ptr noundef %1, p
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds i8, ptr %40, i64 16
   %42 = load ptr, ptr %41, align 8
-  %43 = call ptr %42(ptr noundef nonnull %0, i32 noundef 1, i32 noundef %.fr63, i32 noundef 1) #10
+  %43 = call ptr %42(ptr noundef nonnull %0, i32 noundef 1, i32 noundef %.fr63, i32 noundef 1) #12
   %. = select i1 %38, ptr %43, ptr null
   %.69 = select i1 %38, ptr null, ptr %43
   %44 = load i32, ptr %26, align 8
@@ -519,7 +519,7 @@ define internal fastcc void @do_read_JPEG_file(ptr noundef %0, ptr noundef %1, p
   br label %.lr.ph61.us
 
 .lr.ph61.us:                                      ; preds = %.lr.ph61.us.preheader, %._crit_edge.us
-  %55 = call i32 @jpeg12_read_scanlines(ptr noundef nonnull %0, ptr noundef %., i32 noundef 1) #10
+  %55 = call i32 @jpeg12_read_scanlines(ptr noundef nonnull %0, ptr noundef %., i32 noundef 1) #12
   br label %56
 
 56:                                               ; preds = %.lr.ph61.us, %56
@@ -542,7 +542,7 @@ define internal fastcc void @do_read_JPEG_file(ptr noundef %0, ptr noundef %1, p
   br i1 %64, label %.lr.ph61.us, label %.loopexit, !llvm.loop !14
 
 .lr.ph62.split:                                   ; preds = %.lr.ph62, %.lr.ph62.split
-  %65 = call i32 @jpeg12_read_scanlines(ptr noundef nonnull %0, ptr noundef %., i32 noundef 1) #10
+  %65 = call i32 @jpeg12_read_scanlines(ptr noundef nonnull %0, ptr noundef %., i32 noundef 1) #12
   %66 = load ptr, ptr %., align 8
   %67 = call i64 @fwrite(ptr noundef %66, i64 noundef 1, i64 noundef %54, ptr noundef nonnull %11)
   %68 = load i32, ptr %46, align 8
@@ -551,7 +551,7 @@ define internal fastcc void @do_read_JPEG_file(ptr noundef %0, ptr noundef %1, p
   br i1 %70, label %.lr.ph62.split, label %.loopexit, !llvm.loop !14
 
 71:                                               ; preds = %.lr.ph, %71
-  %72 = call i32 @jpeg_read_scanlines(ptr noundef nonnull %0, ptr noundef %.69, i32 noundef 1) #10
+  %72 = call i32 @jpeg_read_scanlines(ptr noundef nonnull %0, ptr noundef %.69, i32 noundef 1) #12
   %73 = load ptr, ptr %.69, align 8
   %74 = call i64 @fwrite(ptr noundef %73, i64 noundef 1, i64 noundef %51, ptr noundef nonnull %11)
   %75 = load i32, ptr %46, align 8
@@ -560,8 +560,8 @@ define internal fastcc void @do_read_JPEG_file(ptr noundef %0, ptr noundef %1, p
   br i1 %77, label %71, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %71, %.lr.ph62.split, %._crit_edge.us, %.preheader58, %.preheader
-  %78 = call i32 @jpeg_finish_decompress(ptr noundef nonnull %0) #10
-  call void @jpeg_destroy_decompress(ptr noundef nonnull %0) #10
+  %78 = call i32 @jpeg_finish_decompress(ptr noundef nonnull %0) #12
+  call void @jpeg_destroy_decompress(ptr noundef nonnull %0) #12
   %79 = call i32 @fclose(ptr noundef nonnull %5)
   %80 = call i32 @fclose(ptr noundef nonnull %11)
   br label %81
@@ -571,18 +571,18 @@ define internal fastcc void @do_read_JPEG_file(ptr noundef %0, ptr noundef %1, p
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal void @my_error_exit(ptr noundef %0) #1 {
+define internal void @my_error_exit(ptr noundef %0) #6 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   %4 = load ptr, ptr %3, align 8
-  tail call void %4(ptr noundef nonnull %0) #10
+  tail call void %4(ptr noundef nonnull %0) #12
   %5 = getelementptr inbounds i8, ptr %2, i64 168
-  tail call void @longjmp(ptr noundef nonnull %5, i32 noundef 1) #13
+  tail call void @longjmp(ptr noundef nonnull %5, i32 noundef 1) #17
   unreachable
 }
 
 ; Function Attrs: nounwind returns_twice
-declare i32 @_setjmp(ptr noundef) local_unnamed_addr #6
+declare i32 @_setjmp(ptr noundef) local_unnamed_addr #7
 
 declare void @jpeg_destroy_decompress(ptr noundef) local_unnamed_addr #5
 
@@ -604,32 +604,35 @@ declare i32 @jpeg_read_scanlines(ptr noundef, ptr noundef, i32 noundef) local_un
 declare i32 @jpeg_finish_decompress(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: noreturn nounwind
-declare void @longjmp(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare void @longjmp(ptr noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.bswap.i16(i16) #7
+declare i16 @llvm.bswap.i16(i16) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nofree noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind returns_twice "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { nounwind willreturn memory(read) }
-attributes #10 = { nounwind }
-attributes #11 = { cold nounwind }
-attributes #12 = { cold }
-attributes #13 = { noreturn nounwind }
-attributes #14 = { nounwind returns_twice }
+attributes #6 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind returns_twice "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #11 = { nounwind willreturn memory(read) }
+attributes #12 = { nounwind }
+attributes #13 = { cold nounwind }
+attributes #14 = { cold }
+attributes #15 = { cold noreturn nounwind }
+attributes #16 = { nounwind returns_twice }
+attributes #17 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

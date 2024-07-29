@@ -646,7 +646,7 @@ sub_2176:                                         ; preds = %sub_1175
 
 204:                                              ; preds = %202
   %205 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.54, ptr noundef %.085, ptr noundef nonnull @.str.55)
-  tail call void @exit(i32 noundef 0) #19
+  tail call void @exit(i32 noundef 0) #21
   unreachable
 
 sub_0179:                                         ; preds = %202
@@ -673,7 +673,7 @@ sub_1180:                                         ; preds = %sub_0179
 212:                                              ; preds = %.tail178.thread, %.tail178
   %213 = load ptr, ptr @stdout, align 8
   tail call void @usage(ptr noundef %.085, ptr noundef %213)
-  tail call void @exit(i32 noundef 0) #19
+  tail call void @exit(i32 noundef 0) #21
   unreachable
 
 214:                                              ; preds = %.tail178.thread
@@ -750,7 +750,7 @@ hwloc_utils_check_api_version.exit._crit_edge:    ; preds = %hwloc_utils_check_a
   br i1 %245, label %246, label %247
 
 246:                                              ; preds = %243
-  call void @perror(ptr noundef nonnull @.str.60) #21
+  call void @perror(ptr noundef nonnull @.str.60) #22
   br label %run_json_server.exit
 
 247:                                              ; preds = %243
@@ -767,7 +767,7 @@ hwloc_utils_check_api_version.exit._crit_edge:    ; preds = %hwloc_utils_check_a
   br i1 %254, label %255, label %257
 
 255:                                              ; preds = %247
-  call void @perror(ptr noundef nonnull @.str.61) #21
+  call void @perror(ptr noundef nonnull @.str.61) #22
   %256 = call i32 @close(i32 noundef %244) #16
   br label %run_json_server.exit
 
@@ -777,7 +777,7 @@ hwloc_utils_check_api_version.exit._crit_edge:    ; preds = %hwloc_utils_check_a
   br i1 %259, label %260, label %262
 
 260:                                              ; preds = %257
-  call void @perror(ptr noundef nonnull @.str.62) #21
+  call void @perror(ptr noundef nonnull @.str.62) #22
   %261 = call i32 @close(i32 noundef %244) #16
   br label %run_json_server.exit
 
@@ -792,7 +792,7 @@ hwloc_utils_check_api_version.exit._crit_edge:    ; preds = %hwloc_utils_check_a
   br i1 %266, label %267, label %268
 
 267:                                              ; preds = %.backedge.i
-  call void @perror(ptr noundef nonnull @.str.64) #21
+  call void @perror(ptr noundef nonnull @.str.64) #22
   br label %.backedge.i.backedge
 
 268:                                              ; preds = %.backedge.i
@@ -809,7 +809,7 @@ hwloc_utils_check_api_version.exit._crit_edge:    ; preds = %hwloc_utils_check_a
   br i1 %272, label %._crit_edge.i, label %.lr.ph.i
 
 273:                                              ; preds = %268
-  call void @perror(ptr noundef nonnull @.str.67) #21
+  call void @perror(ptr noundef nonnull @.str.67) #22
   %274 = call i32 @close(i32 noundef %265) #16
   br label %.backedge.i.backedge
 
@@ -944,7 +944,7 @@ hwloc_utils_check_api_version.exit._crit_edge:    ; preds = %hwloc_utils_check_a
   br label %319
 
 318:                                              ; preds = %._crit_edge.i
-  call void @perror(ptr noundef nonnull @.str.78) #21
+  call void @perror(ptr noundef nonnull @.str.78) #22
   br label %319
 
 319:                                              ; preds = %318, %317, %._crit_edge.i
@@ -1009,7 +1009,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #4
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
@@ -1806,7 +1806,7 @@ attributes #1 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true
 attributes #2 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1820,9 +1820,10 @@ attributes #15 = { nocallback nofree nosync nounwind willreturn memory(argmem: r
 attributes #16 = { nounwind }
 attributes #17 = { nounwind willreturn memory(read) }
 attributes #18 = { cold nounwind }
-attributes #19 = { noreturn nounwind }
+attributes #19 = { cold noreturn nounwind }
 attributes #20 = { nounwind willreturn memory(none) }
-attributes #21 = { cold }
+attributes #21 = { noreturn nounwind }
+attributes #22 = { cold }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

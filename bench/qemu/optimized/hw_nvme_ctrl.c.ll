@@ -881,16 +881,16 @@ if.then.i.i.i:                                    ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.i.i.i, label %if.then8.i.i.i, label %if.else.i.i.i
 
 if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
-  %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #17
-  %call10.i.i.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #19
+  %call10.i.i.i = tail call i32 @qemu_get_thread_id() #19
   %10 = load i64, ptr %_now.i.i.i, align 8
   %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %11 = load i64, ptr %tv_usec.i.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.2, i32 noundef %call10.i.i.i, i64 noundef %10, i64 noundef %11, i64 noundef %cond.i, i32 noundef %conv5, i64 noundef %2, i64 noundef %3, i32 noundef %add.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.2, i32 noundef %call10.i.i.i, i64 noundef %10, i64 noundef %11, i64 noundef %cond.i, i32 noundef %conv5, i64 noundef %2, i64 noundef %3, i32 noundef %add.i) #19
   br label %trace_pci_nvme_map_prp.exit.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.3, i64 noundef %cond.i, i32 noundef %conv5, i64 noundef %2, i64 noundef %3, i32 noundef %add.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.3, i64 noundef %cond.i, i32 noundef %conv5, i64 noundef %2, i64 noundef %3, i32 noundef %add.i) #19
   br label %trace_pci_nvme_map_prp.exit.i
 
 trace_pci_nvme_map_prp.exit.i:                    ; preds = %if.else.i.i.i, %if.then8.i.i.i, %land.lhs.true5.i.i.i, %sw.bb
@@ -907,7 +907,7 @@ if.end.i.i.i:                                     ; preds = %trace_pci_nvme_map_
   br i1 %cmp.i.i.i.i, label %nvme_addr_is_cmb.exit.i.i, label %if.else.i.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %if.end.i.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 33, ptr noundef nonnull @__PRETTY_FUNCTION__.int128_get64) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 33, ptr noundef nonnull @__PRETTY_FUNCTION__.int128_get64) #20
   unreachable
 
 nvme_addr_is_cmb.exit.i.i:                        ; preds = %if.end.i.i.i
@@ -947,7 +947,7 @@ if.end.i6.i.i:                                    ; preds = %lor.rhs.i.i
   br i1 %cmp.i.i8.i.i, label %nvme_addr_is_dma.exit.i, label %if.else.i.i9.i.i
 
 if.else.i.i9.i.i:                                 ; preds = %if.end.i6.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 33, ptr noundef nonnull @__PRETTY_FUNCTION__.int128_get64) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 33, ptr noundef nonnull @__PRETTY_FUNCTION__.int128_get64) #20
   unreachable
 
 nvme_addr_is_dma.exit.i:                          ; preds = %if.end.i6.i.i
@@ -963,15 +963,15 @@ nvme_addr_is_dma.exit.i:                          ; preds = %if.end.i6.i.i
 
 if.then.i.i:                                      ; preds = %nvme_addr_is_dma.exit.i, %nvme_addr_is_dma.exit.thread.i
   %23 = phi ptr [ %18, %nvme_addr_is_dma.exit.thread.i ], [ %22, %nvme_addr_is_dma.exit.i ]
-  %call.i.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %n, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #17
-  %call.i.i.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i.i.i, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #17
+  %call.i.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %n, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #19
+  %call.i.i.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i.i.i, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #19
   %bus_master_as.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 576
-  tail call void @qemu_sglist_init(ptr noundef nonnull %23, ptr noundef %call.i.i.i.i, i32 noundef 0, ptr noundef nonnull %bus_master_as.i.i.i.i) #17
+  tail call void @qemu_sglist_init(ptr noundef nonnull %23, ptr noundef %call.i.i.i.i, i32 noundef 0, ptr noundef nonnull %bus_master_as.i.i.i.i) #19
   br label %nvme_sg_init.exit.i
 
 if.else.i.i:                                      ; preds = %nvme_addr_is_dma.exit.i, %nvme_addr_is_dma.exit.thread111.i
   %24 = phi ptr [ %16, %nvme_addr_is_dma.exit.thread111.i ], [ %22, %nvme_addr_is_dma.exit.i ]
-  tail call void @qemu_iovec_init(ptr noundef nonnull %24, i32 noundef 0) #17
+  tail call void @qemu_iovec_init(ptr noundef nonnull %24, i32 noundef 0) #19
   %.pre.i.i = load i32, ptr %sg, align 8
   %25 = or i32 %.pre.i.i, 1
   br label %nvme_sg_init.exit.i
@@ -999,7 +999,7 @@ if.then15.i:                                      ; preds = %if.then11.i
   %max_prp_ents.i = getelementptr inbounds i8, ptr %n, i64 7426
   %29 = load i16, ptr %max_prp_ents.i, align 2
   %conv16.i = zext i16 %29 to i64
-  %call17.i = tail call noalias ptr @g_malloc_n(i64 noundef %conv16.i, i64 noundef 8) #19
+  %call17.i = tail call noalias ptr @g_malloc_n(i64 noundef %conv16.i, i64 noundef 8) #21
   %30 = load i32, ptr %page_size.i, align 4
   %conv19.i = zext i32 %30 to i64
   %sub21.i = add i32 %30, -1
@@ -1037,16 +1037,16 @@ if.then.i.i86.i:                                  ; preds = %land.lhs.true5.i.i8
   br i1 %tobool7.i.i87.i, label %if.then8.i.i89.i, label %if.else.i.i88.i
 
 if.then8.i.i89.i:                                 ; preds = %if.then.i.i86.i
-  %call9.i.i90.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i79.i, ptr noundef null) #17
-  %call10.i.i91.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i90.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i79.i, ptr noundef null) #19
+  %call10.i.i91.i = tail call i32 @qemu_get_thread_id() #19
   %37 = load i64, ptr %_now.i.i79.i, align 8
   %tv_usec.i.i92.i = getelementptr inbounds i8, ptr %_now.i.i79.i, i64 8
   %38 = load i64, ptr %tv_usec.i.i92.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.17, i32 noundef %call10.i.i91.i, i64 noundef %37, i64 noundef %38, i64 noundef %3) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.17, i32 noundef %call10.i.i91.i, i64 noundef %37, i64 noundef %38, i64 noundef %3) #19
   br label %trace_pci_nvme_err_addr_read.exit.i
 
 if.else.i.i88.i:                                  ; preds = %if.then.i.i86.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, i64 noundef %3) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, i64 noundef %3) #19
   br label %trace_pci_nvme_err_addr_read.exit.i
 
 trace_pci_nvme_err_addr_read.exit.i:              ; preds = %if.else.i.i88.i, %if.then8.i.i89.i, %land.lhs.true5.i.i83.i, %if.then39.i
@@ -1130,11 +1130,11 @@ if.end112.i:                                      ; preds = %if.end99.i
 
 cleanup.thread.i:                                 ; preds = %if.end99.i, %if.then98.i, %if.then81.i, %if.then59.i, %trace_pci_nvme_err_addr_read.exit.i
   %status.1.ph.i = phi i16 [ 16403, %if.then98.i ], [ 4, %if.then81.i ], [ 16403, %if.then59.i ], [ 4, %trace_pci_nvme_err_addr_read.exit.i ], [ %call109.i, %if.end99.i ]
-  tail call void @g_free(ptr noundef %call17.i) #17
+  tail call void @g_free(ptr noundef %call17.i) #19
   br label %unmap.i
 
 cleanup.i:                                        ; preds = %if.end112.i
-  tail call void @g_free(ptr noundef nonnull %call17.i) #17
+  tail call void @g_free(ptr noundef nonnull %call17.i) #19
   br label %return
 
 if.else.i:                                        ; preds = %if.then11.i
@@ -1165,16 +1165,16 @@ if.then.i.i100.i:                                 ; preds = %land.lhs.true5.i.i9
   br i1 %tobool7.i.i101.i, label %if.then8.i.i103.i, label %if.else.i.i102.i
 
 if.then8.i.i103.i:                                ; preds = %if.then.i.i100.i
-  %call9.i.i104.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i93.i, ptr noundef null) #17
-  %call10.i.i105.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i104.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i93.i, ptr noundef null) #19
+  %call10.i.i105.i = tail call i32 @qemu_get_thread_id() #19
   %49 = load i64, ptr %_now.i.i93.i, align 8
   %tv_usec.i.i106.i = getelementptr inbounds i8, ptr %_now.i.i93.i, i64 8
   %50 = load i64, ptr %tv_usec.i.i106.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.21, i32 noundef %call10.i.i105.i, i64 noundef %49, i64 noundef %50, i64 noundef %3) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.21, i32 noundef %call10.i.i105.i, i64 noundef %49, i64 noundef %50, i64 noundef %3) #19
   br label %trace_pci_nvme_err_invalid_prp2_align.exit.i
 
 if.else.i.i102.i:                                 ; preds = %if.then.i.i100.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.22, i64 noundef %3) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.22, i64 noundef %3) #19
   br label %trace_pci_nvme_err_invalid_prp2_align.exit.i
 
 trace_pci_nvme_err_invalid_prp2_align.exit.i:     ; preds = %if.else.i.i102.i, %if.then8.i.i103.i, %land.lhs.true5.i.i97.i, %if.then127.i
@@ -1200,11 +1200,11 @@ if.end.i.i:                                       ; preds = %unmap.i
   br i1 %tobool3.not.i.i, label %if.else.i107.i, label %if.then4.i.i
 
 if.then4.i.i:                                     ; preds = %if.end.i.i
-  tail call void @qemu_sglist_destroy(ptr noundef nonnull %26) #17
+  tail call void @qemu_sglist_destroy(ptr noundef nonnull %26) #19
   br label %if.end5.i.i
 
 if.else.i107.i:                                   ; preds = %if.end.i.i
-  tail call void @qemu_iovec_destroy(ptr noundef nonnull %26) #17
+  tail call void @qemu_iovec_destroy(ptr noundef nonnull %26) #19
   br label %if.end5.i.i
 
 if.end5.i.i:                                      ; preds = %if.else.i107.i, %if.then4.i.i
@@ -1261,17 +1261,17 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #19
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #19
   %5 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   %7 = trunc nuw nsw i64 %sum.shift to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.23, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef %7, i64 noundef %len) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.23, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef %7, i64 noundef %len) #19
   br label %trace_pci_nvme_map_sgl.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.24, i32 noundef %conv12.i.i, i64 noundef %len) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.24, i32 noundef %conv12.i.i, i64 noundef %len) #19
   br label %trace_pci_nvme_map_sgl.exit
 
 trace_pci_nvme_map_sgl.exit:                      ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -1288,7 +1288,7 @@ if.end.i.i:                                       ; preds = %trace_pci_nvme_map_
   br i1 %cmp.i.i.i, label %nvme_addr_is_cmb.exit.i, label %if.else.i.i.i
 
 if.else.i.i.i:                                    ; preds = %if.end.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 33, ptr noundef nonnull @__PRETTY_FUNCTION__.int128_get64) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 33, ptr noundef nonnull @__PRETTY_FUNCTION__.int128_get64) #20
   unreachable
 
 nvme_addr_is_cmb.exit.i:                          ; preds = %if.end.i.i
@@ -1328,7 +1328,7 @@ if.end.i6.i:                                      ; preds = %lor.rhs.i
   br i1 %cmp.i.i8.i, label %nvme_addr_is_dma.exit, label %if.else.i.i9.i
 
 if.else.i.i9.i:                                   ; preds = %if.end.i6.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 33, ptr noundef nonnull @__PRETTY_FUNCTION__.int128_get64) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 33, ptr noundef nonnull @__PRETTY_FUNCTION__.int128_get64) #20
   unreachable
 
 nvme_addr_is_dma.exit:                            ; preds = %if.end.i6.i
@@ -1344,15 +1344,15 @@ nvme_addr_is_dma.exit:                            ; preds = %if.end.i6.i
 
 if.then.i:                                        ; preds = %nvme_addr_is_dma.exit.thread, %nvme_addr_is_dma.exit
   %19 = phi ptr [ %14, %nvme_addr_is_dma.exit.thread ], [ %18, %nvme_addr_is_dma.exit ]
-  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %n, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #17
-  %call.i.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #17
+  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %n, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #19
+  %call.i.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #19
   %bus_master_as.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 576
-  tail call void @qemu_sglist_init(ptr noundef nonnull %19, ptr noundef %call.i.i.i, i32 noundef 0, ptr noundef nonnull %bus_master_as.i.i.i) #17
+  tail call void @qemu_sglist_init(ptr noundef nonnull %19, ptr noundef %call.i.i.i, i32 noundef 0, ptr noundef nonnull %bus_master_as.i.i.i) #19
   br label %nvme_sg_init.exit
 
 if.else.i:                                        ; preds = %nvme_addr_is_dma.exit.thread2, %nvme_addr_is_dma.exit
   %20 = phi ptr [ %12, %nvme_addr_is_dma.exit.thread2 ], [ %18, %nvme_addr_is_dma.exit ]
-  tail call void @qemu_iovec_init(ptr noundef nonnull %20, i32 noundef 0) #17
+  tail call void @qemu_iovec_init(ptr noundef nonnull %20, i32 noundef 0) #19
   %.pre.i = load i32, ptr %sg, align 8
   %21 = or i32 %.pre.i, 1
   br label %nvme_sg_init.exit
@@ -1426,16 +1426,16 @@ if.then.i.i48:                                    ; preds = %land.lhs.true5.i.i4
   br i1 %tobool7.i.i49, label %if.then8.i.i51, label %if.else.i.i50
 
 if.then8.i.i51:                                   ; preds = %if.then.i.i48
-  %call9.i.i52 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i41, ptr noundef null) #17
-  %call10.i.i53 = call i32 @qemu_get_thread_id() #17
+  %call9.i.i52 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i41, ptr noundef null) #19
+  %call10.i.i53 = call i32 @qemu_get_thread_id() #19
   %30 = load i64, ptr %_now.i.i41, align 8
   %tv_usec.i.i54 = getelementptr inbounds i8, ptr %_now.i.i41, i64 8
   %31 = load i64, ptr %tv_usec.i.i54, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.17, i32 noundef %call10.i.i53, i64 noundef %30, i64 noundef %31, i64 noundef %addr.115) #17
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.17, i32 noundef %call10.i.i53, i64 noundef %30, i64 noundef %31, i64 noundef %addr.115) #19
   br label %trace_pci_nvme_err_addr_read.exit
 
 if.else.i.i50:                                    ; preds = %if.then.i.i48
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, i64 noundef %addr.115) #17
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, i64 noundef %addr.115) #19
   br label %trace_pci_nvme_err_addr_read.exit
 
 trace_pci_nvme_err_addr_read.exit:                ; preds = %if.then33, %land.lhs.true5.i.i45, %if.then8.i.i51, %if.else.i.i50
@@ -1509,11 +1509,11 @@ if.end.i:                                         ; preds = %unmap
   br i1 %tobool3.not.i, label %if.else.i55, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.end.i
-  call void @qemu_sglist_destroy(ptr noundef nonnull %22) #17
+  call void @qemu_sglist_destroy(ptr noundef nonnull %22) #19
   br label %if.end5.i
 
 if.else.i55:                                      ; preds = %if.end.i
-  call void @qemu_iovec_destroy(ptr noundef nonnull %22) #17
+  call void @qemu_iovec_destroy(ptr noundef nonnull %22) #19
   br label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.else.i55, %if.then4.i
@@ -1606,7 +1606,7 @@ while.body.lr.ph.lr.ph:                           ; preds = %while.cond.preheade
   br label %while.body.lr.ph
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.1, i32 noundef 1292, ptr noundef nonnull @__PRETTY_FUNCTION__.nvme_tx_interleaved) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.1, i32 noundef 1292, ptr noundef nonnull @__PRETTY_FUNCTION__.nvme_tx_interleaved) #20
   unreachable
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.cond.backedge
@@ -1688,7 +1688,7 @@ if.end.i.i:                                       ; preds = %land.lhs.true.i
   br i1 %cmp.i.i.i, label %nvme_addr_is_cmb.exit.i, label %if.else.i.i.i
 
 if.else.i.i.i:                                    ; preds = %if.end.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 33, ptr noundef nonnull @__PRETTY_FUNCTION__.int128_get64) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 33, ptr noundef nonnull @__PRETTY_FUNCTION__.int128_get64) #20
   unreachable
 
 nvme_addr_is_cmb.exit.i:                          ; preds = %if.end.i.i
@@ -1723,7 +1723,7 @@ if.end.i47.i:                                     ; preds = %if.end9.i
   br i1 %cmp.i.i49.i, label %nvme_addr_is_pmr.exit.i, label %if.else.i.i50.i
 
 if.else.i.i50.i:                                  ; preds = %if.end.i47.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 33, ptr noundef nonnull @__PRETTY_FUNCTION__.int128_get64) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 33, ptr noundef nonnull @__PRETTY_FUNCTION__.int128_get64) #20
   unreachable
 
 nvme_addr_is_pmr.exit.i:                          ; preds = %if.end.i47.i
@@ -1739,16 +1739,16 @@ nvme_addr_is_pmr.exit.i:                          ; preds = %if.end.i47.i
 
 if.then15.i:                                      ; preds = %nvme_addr_is_pmr.exit.i
   %mr.i.i = getelementptr inbounds i8, ptr %13, i64 112
-  %call.i.i = tail call ptr @memory_region_get_ram_ptr(ptr noundef nonnull %mr.i.i) #17
+  %call.i.i = tail call ptr @memory_region_get_ram_ptr(ptr noundef nonnull %mr.i.i) #19
   %17 = load i64, ptr %cba.i.i, align 16
   br label %if.end50.sink.split
 
 if.end18.i:                                       ; preds = %nvme_addr_is_pmr.exit.i, %if.end9.i
-  %call.i73.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %n, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #17
+  %call.i73.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %n, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #19
   %bus_master_as.i.i.i.i = getelementptr inbounds i8, ptr %call.i73.i, i64 576
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !8
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !8
   fence seq_cst
-  %call.i.i.i.i.i = tail call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i, i64 noundef %addr.0, i32 1, ptr noundef %ptr.addr.0.ph89, i64 noundef %conv.i, i1 noundef zeroext true) #17
+  %call.i.i.i.i.i = tail call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i, i64 noundef %addr.0, i32 1, ptr noundef %ptr.addr.0.ph89, i64 noundef %conv.i, i1 noundef zeroext true) #19
   br label %if.end47
 
 if.end47:                                         ; preds = %if.end18.i, %if.then44
@@ -1826,7 +1826,7 @@ entry:
   br i1 %tobool.not, label %if.else, label %if.end
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.1, i32 noundef 1345, ptr noundef nonnull @__PRETTY_FUNCTION__.nvme_tx) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.1, i32 noundef 1345, ptr noundef nonnull @__PRETTY_FUNCTION__.nvme_tx) #20
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -1841,11 +1841,11 @@ if.then4:                                         ; preds = %if.end
   br i1 %cmp18, label %if.then5, label %if.else6
 
 if.then5:                                         ; preds = %if.then4
-  %call = call i32 @dma_buf_write(ptr noundef %ptr, i64 noundef %conv, ptr noundef nonnull %residual, ptr noundef nonnull %1, i32 1) #17
+  %call = call i32 @dma_buf_write(ptr noundef %ptr, i64 noundef %conv, ptr noundef nonnull %residual, ptr noundef nonnull %1, i32 1) #19
   br label %if.end10
 
 if.else6:                                         ; preds = %if.then4
-  %call9 = call i32 @dma_buf_read(ptr noundef %ptr, i64 noundef %conv, ptr noundef nonnull %residual, ptr noundef nonnull %1, i32 1) #17
+  %call9 = call i32 @dma_buf_read(ptr noundef %ptr, i64 noundef %conv, ptr noundef nonnull %residual, ptr noundef nonnull %1, i32 1) #19
   br label %if.end10
 
 if.end10:                                         ; preds = %if.else6, %if.then5
@@ -1874,16 +1874,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
-  %call10.i.i = call i32 @qemu_get_thread_id() #17
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #19
+  %call10.i.i = call i32 @qemu_get_thread_id() #19
   %7 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.28, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8) #17
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.28, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8) #19
   br label %trace_pci_nvme_err_invalid_dma.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.29) #17
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.29) #19
   br label %trace_pci_nvme_err_invalid_dma.exit
 
 trace_pci_nvme_err_invalid_dma.exit:              ; preds = %if.then15, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -1896,11 +1896,11 @@ if.else17:                                        ; preds = %if.end
   br i1 %cmp18, label %if.then20, label %if.else23
 
 if.then20:                                        ; preds = %if.else17
-  %call22 = tail call i64 @qemu_iovec_to_buf(ptr noundef nonnull %9, i64 noundef 0, ptr noundef %ptr, i64 noundef %conv21) #17
+  %call22 = tail call i64 @qemu_iovec_to_buf(ptr noundef nonnull %9, i64 noundef 0, ptr noundef %ptr, i64 noundef %conv21) #19
   br label %if.end26
 
 if.else23:                                        ; preds = %if.else17
-  %call25 = tail call i64 @qemu_iovec_from_buf(ptr noundef nonnull %9, i64 noundef 0, ptr noundef %ptr, i64 noundef %conv21) #17
+  %call25 = tail call i64 @qemu_iovec_from_buf(ptr noundef nonnull %9, i64 noundef 0, ptr noundef %ptr, i64 noundef %conv21) #19
   br label %if.end26
 
 if.end26:                                         ; preds = %if.else23, %if.then20
@@ -1929,16 +1929,16 @@ if.then.i.i22:                                    ; preds = %land.lhs.true5.i.i1
   br i1 %tobool7.i.i23, label %if.then8.i.i25, label %if.else.i.i24
 
 if.then8.i.i25:                                   ; preds = %if.then.i.i22
-  %call9.i.i26 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i15, ptr noundef null) #17
-  %call10.i.i27 = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i26 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i15, ptr noundef null) #19
+  %call10.i.i27 = tail call i32 @qemu_get_thread_id() #19
   %14 = load i64, ptr %_now.i.i15, align 8
   %tv_usec.i.i28 = getelementptr inbounds i8, ptr %_now.i.i15, i64 8
   %15 = load i64, ptr %tv_usec.i.i28, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.28, i32 noundef %call10.i.i27, i64 noundef %14, i64 noundef %15) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.28, i32 noundef %call10.i.i27, i64 noundef %14, i64 noundef %15) #19
   br label %trace_pci_nvme_err_invalid_dma.exit29
 
 if.else.i.i24:                                    ; preds = %if.then.i.i22
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.29) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.29) #19
   br label %trace_pci_nvme_err_invalid_dma.exit29
 
 trace_pci_nvme_err_invalid_dma.exit29:            ; preds = %if.then36, %land.lhs.true5.i.i19, %if.then8.i.i25, %if.else.i.i24
@@ -1985,11 +1985,11 @@ if.end.i:                                         ; preds = %if.end
   br i1 %tobool3.not.i, label %if.else.i, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.end.i
-  tail call void @qemu_sglist_destroy(ptr noundef nonnull %6) #17
+  tail call void @qemu_sglist_destroy(ptr noundef nonnull %6) #19
   br label %if.end5.i
 
 if.else.i:                                        ; preds = %if.end.i
-  tail call void @qemu_iovec_destroy(ptr noundef nonnull %6) #17
+  tail call void @qemu_iovec_destroy(ptr noundef nonnull %6) #19
   br label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.else.i, %if.then4.i
@@ -2051,7 +2051,7 @@ if.end.i.i:                                       ; preds = %if.end14
   br i1 %cmp.i.i.i, label %nvme_addr_is_cmb.exit.i, label %if.else.i.i.i
 
 if.else.i.i.i:                                    ; preds = %if.end.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 33, ptr noundef nonnull @__PRETTY_FUNCTION__.int128_get64) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 33, ptr noundef nonnull @__PRETTY_FUNCTION__.int128_get64) #20
   unreachable
 
 nvme_addr_is_cmb.exit.i:                          ; preds = %if.end.i.i
@@ -2091,7 +2091,7 @@ if.end.i6.i:                                      ; preds = %lor.rhs.i
   br i1 %cmp.i.i8.i, label %nvme_addr_is_dma.exit, label %if.else.i.i9.i
 
 if.else.i.i9.i:                                   ; preds = %if.end.i6.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 33, ptr noundef nonnull @__PRETTY_FUNCTION__.int128_get64) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 33, ptr noundef nonnull @__PRETTY_FUNCTION__.int128_get64) #20
   unreachable
 
 nvme_addr_is_dma.exit:                            ; preds = %if.end.i6.i
@@ -2107,15 +2107,15 @@ nvme_addr_is_dma.exit:                            ; preds = %if.end.i6.i
 
 if.then.i:                                        ; preds = %nvme_addr_is_dma.exit.thread, %nvme_addr_is_dma.exit
   %15 = phi ptr [ %10, %nvme_addr_is_dma.exit.thread ], [ %14, %nvme_addr_is_dma.exit ]
-  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %n, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #17
-  %call.i.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #17
+  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %n, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #19
+  %call.i.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #19
   %bus_master_as.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 576
-  tail call void @qemu_sglist_init(ptr noundef nonnull %15, ptr noundef %call.i.i.i, i32 noundef 0, ptr noundef nonnull %bus_master_as.i.i.i) #17
+  tail call void @qemu_sglist_init(ptr noundef nonnull %15, ptr noundef %call.i.i.i, i32 noundef 0, ptr noundef nonnull %bus_master_as.i.i.i) #19
   br label %nvme_sg_init.exit
 
 if.else.i:                                        ; preds = %nvme_addr_is_dma.exit.thread2, %nvme_addr_is_dma.exit
   %16 = phi ptr [ %8, %nvme_addr_is_dma.exit.thread2 ], [ %14, %nvme_addr_is_dma.exit ]
-  tail call void @qemu_iovec_init(ptr noundef nonnull %16, i32 noundef 0) #17
+  tail call void @qemu_iovec_init(ptr noundef nonnull %16, i32 noundef 0) #19
   %.pre.i = load i32, ptr %sg, align 8
   %17 = or i32 %.pre.i, 1
   br label %nvme_sg_init.exit
@@ -2140,11 +2140,11 @@ if.end.i:                                         ; preds = %if.then18
   br i1 %tobool3.not.i, label %if.else.i17, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.end.i
-  tail call void @qemu_sglist_destroy(ptr noundef nonnull %18) #17
+  tail call void @qemu_sglist_destroy(ptr noundef nonnull %18) #19
   br label %if.end5.i
 
 if.else.i17:                                      ; preds = %if.end.i
-  tail call void @qemu_iovec_destroy(ptr noundef nonnull %18) #17
+  tail call void @qemu_iovec_destroy(ptr noundef nonnull %18) #19
   br label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.else.i17, %if.then4.i
@@ -2166,10 +2166,10 @@ nvme_cid.exit:
   %blkconf = getelementptr inbounds i8, ptr %0, i64 160
   %1 = load ptr, ptr %blkconf, align 8
   %acct3 = getelementptr inbounds i8, ptr %opaque, i64 120
-  %call = tail call ptr @blk_get_stats(ptr noundef %1) #17
+  %call = tail call ptr @blk_get_stats(ptr noundef %1) #19
   %cid.i = getelementptr inbounds i8, ptr %opaque, i64 52
   %2 = load i16, ptr %cid.i, align 4
-  %call5 = tail call ptr @blk_name(ptr noundef %1) #17
+  %call5 = tail call ptr @blk_name(ptr noundef %1) #19
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %3 = load i32, ptr @trace_events_enabled_count, align 4
   %tobool.i.i = icmp ne i32 %3, 0
@@ -2190,18 +2190,18 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #19
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #19
   %7 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i16 %2 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.30, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, i32 noundef %conv11.i.i, ptr noundef %call5) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.30, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, i32 noundef %conv11.i.i, ptr noundef %call5) #19
   br label %trace_pci_nvme_rw_complete_cb.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
   %conv12.i.i = zext i16 %2 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.31, i32 noundef %conv12.i.i, ptr noundef %call5) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.31, i32 noundef %conv12.i.i, ptr noundef %call5) #19
   br label %trace_pci_nvme_rw_complete_cb.exit
 
 trace_pci_nvme_rw_complete_cb.exit:               ; preds = %nvme_cid.exit, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -2210,12 +2210,12 @@ trace_pci_nvme_rw_complete_cb.exit:               ; preds = %nvme_cid.exit, %lan
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %trace_pci_nvme_rw_complete_cb.exit
-  tail call void @block_acct_failed(ptr noundef %call, ptr noundef nonnull %acct3) #17
+  tail call void @block_acct_failed(ptr noundef %call, ptr noundef nonnull %acct3) #19
   tail call fastcc void @nvme_aio_err(ptr noundef nonnull %opaque, i32 noundef %ret)
   br label %if.end
 
 if.else:                                          ; preds = %trace_pci_nvme_rw_complete_cb.exit
-  tail call void @block_acct_done(ptr noundef %call, ptr noundef nonnull %acct3) #17
+  tail call void @block_acct_done(ptr noundef %call, ptr noundef nonnull %acct3) #19
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
@@ -2273,7 +2273,7 @@ nvme_get_zone_by_slba.exit.i:                     ; preds = %nvme_zone_idx.exit.
   br i1 %tobool.not.i18, label %if.else.i, label %if.end.i19
 
 if.else.i:                                        ; preds = %nvme_get_zone_by_slba.exit.i, %nvme_zone_idx.exit.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.1, i32 noundef 2108, ptr noundef nonnull @__PRETTY_FUNCTION__.nvme_finalize_zoned_write) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.1, i32 noundef 2108, ptr noundef nonnull @__PRETTY_FUNCTION__.nvme_finalize_zoned_write) #20
   unreachable
 
 if.end.i19:                                       ; preds = %nvme_get_zone_by_slba.exit.i
@@ -2330,16 +2330,16 @@ if.then.i.i.i.i:                                  ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.i.i.i.i, label %if.then8.i.i.i.i, label %if.else.i.i.i.i
 
 if.then8.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
-  %call9.i.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i.i, ptr noundef null) #17
-  %call10.i.i.i.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i.i, ptr noundef null) #19
+  %call10.i.i.i.i = tail call i32 @qemu_get_thread_id() #19
   %27 = load i64, ptr %_now.i.i.i.i, align 8
   %tv_usec.i.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i.i, i64 8
   %28 = load i64, ptr %tv_usec.i.i.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.36, i32 noundef %call10.i.i.i.i, i64 noundef %27, i64 noundef %28, i64 noundef %22, i32 noundef %mul.i.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.36, i32 noundef %call10.i.i.i.i, i64 noundef %27, i64 noundef %28, i64 noundef %22, i32 noundef %mul.i.i) #19
   br label %trace_pci_nvme_zoned_zrwa_implicit_flush.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %if.then.i.i.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.37, i64 noundef %22, i32 noundef %mul.i.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.37, i64 noundef %22, i32 noundef %mul.i.i) #19
   br label %trace_pci_nvme_zoned_zrwa_implicit_flush.exit.i.i
 
 trace_pci_nvme_zoned_zrwa_implicit_flush.exit.i.i: ; preds = %if.else.i.i.i.i, %if.then8.i.i.i.i, %land.lhs.true5.i.i.i.i, %if.then14.i
@@ -2426,7 +2426,7 @@ nvme_cid.exit:                                    ; preds = %entry, %sw.default,
   %cid.i = getelementptr inbounds i8, ptr %req, i64 52
   %1 = load i16, ptr %cid.i, align 4
   %sub = sub i32 0, %ret
-  %call2 = tail call ptr @strerror(i32 noundef %sub) #17
+  %call2 = tail call ptr @strerror(i32 noundef %sub) #19
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %2 = load i32, ptr @trace_events_enabled_count, align 4
   %tobool.i.i = icmp ne i32 %2, 0
@@ -2447,27 +2447,27 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #19
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #19
   %6 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i16 %1 to i32
   %conv12.i.i = zext nneg i16 %status.0 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.33, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i32 noundef %conv11.i.i, ptr noundef %call2, i32 noundef %conv12.i.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.33, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i32 noundef %conv11.i.i, ptr noundef %call2, i32 noundef %conv12.i.i) #19
   br label %trace_pci_nvme_err_aio.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
   %conv13.i.i = zext i16 %1 to i32
   %conv14.i.i = zext nneg i16 %status.0 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.34, i32 noundef %conv13.i.i, ptr noundef %call2, i32 noundef %conv14.i.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.34, i32 noundef %conv13.i.i, ptr noundef %call2, i32 noundef %conv14.i.i) #19
   br label %trace_pci_nvme_err_aio.exit
 
 trace_pci_nvme_err_aio.exit:                      ; preds = %nvme_cid.exit, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef nonnull %local_err, ptr noundef nonnull @.str.1, i32 noundef 1764, ptr noundef nonnull @__func__.nvme_aio_err, i32 noundef %sub, ptr noundef nonnull @.str.32) #17
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef nonnull %local_err, ptr noundef nonnull @.str.1, i32 noundef 1764, ptr noundef nonnull @__func__.nvme_aio_err, i32 noundef %sub, ptr noundef nonnull @.str.32) #19
   %8 = load ptr, ptr %local_err, align 8
-  call void @error_report_err(ptr noundef %8) #17
+  call void @error_report_err(ptr noundef %8) #19
   %status4 = getelementptr inbounds i8, ptr %req, i64 24
   %9 = load i16, ptr %status4, align 8
   %tobool = icmp ne i16 %9, 0
@@ -2498,7 +2498,7 @@ entry:
   br i1 %cmp, label %nvme_cid.exit, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.1, i32 noundef 1535, ptr noundef nonnull @__PRETTY_FUNCTION__.nvme_enqueue_req_completion) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.1, i32 noundef 1535, ptr noundef nonnull @__PRETTY_FUNCTION__.nvme_enqueue_req_completion) #20
   unreachable
 
 nvme_cid.exit:                                    ; preds = %entry
@@ -2530,22 +2530,22 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #19
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #19
   %11 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %12 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i16 %3 to i32
   %conv12.i.i = zext i16 %0 to i32
   %conv13.i.i = zext i16 %6 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i, i64 noundef %11, i64 noundef %12, i32 noundef %conv11.i.i, i32 noundef %conv12.i.i, i32 noundef %4, i32 noundef %5, i32 noundef %conv13.i.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i, i64 noundef %11, i64 noundef %12, i32 noundef %conv11.i.i, i32 noundef %conv12.i.i, i32 noundef %4, i32 noundef %5, i32 noundef %conv13.i.i) #19
   br label %trace_pci_nvme_enqueue_req_completion.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
   %conv14.i.i = zext i16 %3 to i32
   %conv15.i.i = zext i16 %0 to i32
   %conv16.i.i = zext i16 %6 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.46, i32 noundef %conv14.i.i, i32 noundef %conv15.i.i, i32 noundef %4, i32 noundef %5, i32 noundef %conv16.i.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.46, i32 noundef %conv14.i.i, i32 noundef %conv15.i.i, i32 noundef %4, i32 noundef %5, i32 noundef %conv16.i.i) #19
   br label %trace_pci_nvme_enqueue_req_completion.exit
 
 trace_pci_nvme_enqueue_req_completion.exit:       ; preds = %nvme_cid.exit, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -2590,22 +2590,22 @@ if.then.i.i43:                                    ; preds = %land.lhs.true5.i.i4
   br i1 %tobool7.i.i44, label %if.then8.i.i49, label %if.else.i.i45
 
 if.then8.i.i49:                                   ; preds = %if.then.i.i43
-  %call9.i.i50 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i36, ptr noundef null) #17
-  %call10.i.i51 = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i50 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i36, ptr noundef null) #19
+  %call10.i.i51 = tail call i32 @qemu_get_thread_id() #19
   %22 = load i64, ptr %_now.i.i36, align 8
   %tv_usec.i.i52 = getelementptr inbounds i8, ptr %_now.i.i36, i64 8
   %23 = load i64, ptr %tv_usec.i.i52, align 8
   %conv11.i.i53 = zext i16 %14 to i32
   %conv12.i.i54 = zext i16 %13 to i32
   %conv13.i.i55 = zext i8 %17 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.47, i32 noundef %call10.i.i51, i64 noundef %22, i64 noundef %23, i32 noundef %conv11.i.i53, i32 noundef %retval.0.i35, i32 noundef %conv12.i.i54, i32 noundef %conv13.i.i55) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.47, i32 noundef %call10.i.i51, i64 noundef %22, i64 noundef %23, i32 noundef %conv11.i.i53, i32 noundef %retval.0.i35, i32 noundef %conv12.i.i54, i32 noundef %conv13.i.i55) #19
   br label %trace_pci_nvme_err_req_status.exit
 
 if.else.i.i45:                                    ; preds = %if.then.i.i43
   %conv14.i.i46 = zext i16 %14 to i32
   %conv15.i.i47 = zext i16 %13 to i32
   %conv16.i.i48 = zext i8 %17 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.48, i32 noundef %conv14.i.i46, i32 noundef %retval.0.i35, i32 noundef %conv15.i.i47, i32 noundef %conv16.i.i48) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.48, i32 noundef %conv14.i.i46, i32 noundef %retval.0.i35, i32 noundef %conv15.i.i47, i32 noundef %conv16.i.i48) #19
   br label %trace_pci_nvme_err_req_status.exit
 
 trace_pci_nvme_err_req_status.exit:               ; preds = %nvme_nsid.exit, %land.lhs.true5.i.i40, %if.then8.i.i49, %if.else.i.i45
@@ -2643,7 +2643,7 @@ if.end27:                                         ; preds = %if.else22, %if.then
   store ptr %entry14, ptr %tql_prev38, align 8
   %bh = getelementptr inbounds i8, ptr %cq, i64 56
   %29 = load ptr, ptr %bh, align 8
-  tail call void @qemu_bh_schedule(ptr noundef %29) #17
+  tail call void @qemu_bh_schedule(ptr noundef %29) #19
   ret void
 }
 
@@ -2657,7 +2657,7 @@ entry:
   br i1 %or.cond, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 8293, ptr noundef nonnull @__PRETTY_FUNCTION__.nvme_attach_ns) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 8293, ptr noundef nonnull @__PRETTY_FUNCTION__.nvme_attach_ns) #20
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -2692,7 +2692,7 @@ declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @do_qemu_init_nvme_register_types() #0 {
 entry:
-  tail call void @register_module_init(ptr noundef nonnull @nvme_register_types, i32 noundef 3) #17
+  tail call void @register_module_init(ptr noundef nonnull @nvme_register_types, i32 noundef 3) #19
   ret void
 }
 
@@ -2701,8 +2701,8 @@ declare void @register_module_init(ptr noundef, i32 noundef) local_unnamed_addr 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @nvme_register_types() #0 {
 entry:
-  %call = tail call ptr @type_register_static(ptr noundef nonnull @nvme_info) #17
-  %call1 = tail call ptr @type_register_static(ptr noundef nonnull @nvme_bus_info) #17
+  %call = tail call ptr @type_register_static(ptr noundef nonnull @nvme_info) #19
+  %call1 = tail call ptr @type_register_static(ptr noundef nonnull @nvme_bus_info) #19
   ret void
 }
 
@@ -2735,16 +2735,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #19
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #19
   %4 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, i64 noundef %addr, i64 noundef %len) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, i64 noundef %addr, i64 noundef %len) #19
   br label %trace_pci_nvme_map_addr.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, i64 noundef %addr, i64 noundef %len) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, i64 noundef %addr, i64 noundef %len) #19
   br label %trace_pci_nvme_map_addr.exit
 
 trace_pci_nvme_map_addr.exit:                     ; preds = %if.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -2755,7 +2755,7 @@ trace_pci_nvme_map_addr.exit:                     ; preds = %if.end, %land.lhs.t
   br i1 %cmp.i.i, label %nvme_addr_is_iomem.exit, label %if.else.i.i23
 
 if.else.i.i23:                                    ; preds = %trace_pci_nvme_map_addr.exit
-  tail call void @__assert_fail(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 33, ptr noundef nonnull @__PRETTY_FUNCTION__.int128_get64) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 33, ptr noundef nonnull @__PRETTY_FUNCTION__.int128_get64) #20
   unreachable
 
 nvme_addr_is_iomem.exit:                          ; preds = %trace_pci_nvme_map_addr.exit
@@ -2781,7 +2781,7 @@ if.end.i:                                         ; preds = %if.end2
   br i1 %cmp.i.i24, label %nvme_addr_is_cmb.exit, label %if.else.i.i25
 
 if.else.i.i25:                                    ; preds = %if.end.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 33, ptr noundef nonnull @__PRETTY_FUNCTION__.int128_get64) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 33, ptr noundef nonnull @__PRETTY_FUNCTION__.int128_get64) #20
   unreachable
 
 nvme_addr_is_cmb.exit:                            ; preds = %if.end.i
@@ -2813,7 +2813,7 @@ if.end.i32:                                       ; preds = %if.else
   br i1 %cmp.i.i34, label %int128_get64.exit.i36, label %if.else.i.i35
 
 if.else.i.i35:                                    ; preds = %if.end.i32
-  tail call void @__assert_fail(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 33, ptr noundef nonnull @__PRETTY_FUNCTION__.int128_get64) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 33, ptr noundef nonnull @__PRETTY_FUNCTION__.int128_get64) #20
   unreachable
 
 int128_get64.exit.i36:                            ; preds = %if.end.i32
@@ -2867,7 +2867,7 @@ if.end27:                                         ; preds = %if.end22
 
 if.end31:                                         ; preds = %if.end27
   %23 = getelementptr inbounds i8, ptr %sg, i64 8
-  tail call void @qemu_sglist_add(ptr noundef nonnull %23, i64 noundef %addr, i64 noundef %len) #17
+  tail call void @qemu_sglist_add(ptr noundef nonnull %23, i64 noundef %addr, i64 noundef %len) #19
   br label %return
 
 do.body:                                          ; preds = %if.end14, %if.end27
@@ -2891,16 +2891,16 @@ if.then.i.i47:                                    ; preds = %land.lhs.true5.i.i4
   br i1 %tobool7.i.i48, label %if.then8.i.i50, label %if.else.i.i49
 
 if.then8.i.i50:                                   ; preds = %if.then.i.i47
-  %call9.i.i51 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i40, ptr noundef null) #17
-  %call10.i.i52 = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i51 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i40, ptr noundef null) #19
+  %call10.i.i52 = tail call i32 @qemu_get_thread_id() #19
   %28 = load i64, ptr %_now.i.i40, align 8
   %tv_usec.i.i53 = getelementptr inbounds i8, ptr %_now.i.i40, i64 8
   %29 = load i64, ptr %tv_usec.i.i53, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.15, i32 noundef %call10.i.i52, i64 noundef %28, i64 noundef %29) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.15, i32 noundef %call10.i.i52, i64 noundef %28, i64 noundef %29) #19
   br label %trace_pci_nvme_ub_too_many_mappings.exit
 
 if.else.i.i49:                                    ; preds = %if.then.i.i47
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.16) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.16) #19
   br label %trace_pci_nvme_ub_too_many_mappings.exit
 
 trace_pci_nvme_ub_too_many_mappings.exit:         ; preds = %do.body, %land.lhs.true5.i.i44, %if.then8.i.i50, %if.else.i.i49
@@ -2911,7 +2911,7 @@ trace_pci_nvme_ub_too_many_mappings.exit:         ; preds = %do.body, %land.lhs.
   br i1 %cmp.i54.not, label %return, label %if.then36
 
 if.then36:                                        ; preds = %trace_pci_nvme_ub_too_many_mappings.exit
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.10, ptr noundef nonnull @__func__.nvme_map_addr) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.10, ptr noundef nonnull @__func__.nvme_map_addr) #19
   br label %return
 
 return:                                           ; preds = %trace_pci_nvme_ub_too_many_mappings.exit, %if.then36, %if.end22, %if.then11, %nvme_addr_is_iomem.exit, %entry, %if.end31, %if.else20, %if.then18
@@ -2950,7 +2950,7 @@ if.end.i:                                         ; preds = %land.lhs.true
   br i1 %cmp.i.i, label %nvme_addr_is_cmb.exit, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.end.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 33, ptr noundef nonnull @__PRETTY_FUNCTION__.int128_get64) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 33, ptr noundef nonnull @__PRETTY_FUNCTION__.int128_get64) #20
   unreachable
 
 nvme_addr_is_cmb.exit:                            ; preds = %if.end.i
@@ -2996,7 +2996,7 @@ if.end.i47:                                       ; preds = %if.end9
   br i1 %cmp.i.i49, label %nvme_addr_is_pmr.exit, label %if.else.i.i50
 
 if.else.i.i50:                                    ; preds = %if.end.i47
-  tail call void @__assert_fail(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 33, ptr noundef nonnull @__PRETTY_FUNCTION__.int128_get64) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 33, ptr noundef nonnull @__PRETTY_FUNCTION__.int128_get64) #20
   unreachable
 
 nvme_addr_is_pmr.exit:                            ; preds = %if.end.i47
@@ -3017,7 +3017,7 @@ nvme_addr_is_pmr.exit69:                          ; preds = %nvme_addr_is_pmr.ex
 
 if.then15:                                        ; preds = %nvme_addr_is_pmr.exit69
   %mr.i = getelementptr inbounds i8, ptr %8, i64 112
-  %call.i = tail call ptr @memory_region_get_ram_ptr(ptr noundef nonnull %mr.i) #17
+  %call.i = tail call ptr @memory_region_get_ram_ptr(ptr noundef nonnull %mr.i) #19
   %13 = load i64, ptr %cba.i, align 16
   %sub.i72 = sub i64 %addr, %13
   %add.ptr.i = getelementptr i8, ptr %call.i, i64 %sub.i72
@@ -3025,11 +3025,11 @@ if.then15:                                        ; preds = %nvme_addr_is_pmr.ex
   br label %return
 
 if.end18:                                         ; preds = %if.end9, %nvme_addr_is_pmr.exit69, %nvme_addr_is_pmr.exit
-  %call.i73 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %n, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #17
+  %call.i73 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %n, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #19
   %bus_master_as.i.i.i = getelementptr inbounds i8, ptr %call.i73, i64 576
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !8
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !8
   fence seq_cst
-  %call.i.i.i.i = tail call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i, i64 noundef %addr, i32 1, ptr noundef %buf, i64 noundef %conv, i1 noundef zeroext false) #17
+  %call.i.i.i.i = tail call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i, i64 noundef %addr, i32 1, ptr noundef %buf, i64 noundef %conv, i1 noundef zeroext false) #19
   br label %return
 
 return:                                           ; preds = %entry, %if.end18, %if.then15, %if.then6
@@ -3061,16 +3061,16 @@ if.then.i:                                        ; preds = %land.lhs.true5.i
   br i1 %tobool7.i, label %if.then8.i, label %if.else.i
 
 if.then8.i:                                       ; preds = %if.then.i
-  %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #17
-  %call10.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #19
+  %call10.i = tail call i32 @qemu_get_thread_id() #19
   %4 = load i64, ptr %_now.i, align 8
   %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %5 = load i64, ptr %tv_usec.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.17, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, i64 noundef %addr) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.17, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, i64 noundef %addr) #19
   br label %_nocheck__trace_pci_nvme_err_addr_read.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, i64 noundef %addr) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, i64 noundef %addr) #19
   br label %_nocheck__trace_pci_nvme_err_addr_read.exit
 
 _nocheck__trace_pci_nvme_err_addr_read.exit:      ; preds = %entry, %land.lhs.true5.i, %if.then8.i, %if.else.i
@@ -3102,16 +3102,16 @@ if.then.i:                                        ; preds = %land.lhs.true5.i
   br i1 %tobool7.i, label %if.then8.i, label %if.else.i
 
 if.then8.i:                                       ; preds = %if.then.i
-  %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #17
-  %call10.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #19
+  %call10.i = tail call i32 @qemu_get_thread_id() #19
   %4 = load i64, ptr %_now.i, align 8
   %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %5 = load i64, ptr %tv_usec.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.19, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, i64 noundef %prplist) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.19, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, i64 noundef %prplist) #19
   br label %_nocheck__trace_pci_nvme_err_invalid_prplist_ent.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.20, i64 noundef %prplist) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.20, i64 noundef %prplist) #19
   br label %_nocheck__trace_pci_nvme_err_invalid_prplist_ent.exit
 
 _nocheck__trace_pci_nvme_err_invalid_prplist_ent.exit: ; preds = %entry, %land.lhs.true5.i, %if.then8.i, %if.else.i
@@ -3156,16 +3156,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #19
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #19
   %4 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.13, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, i64 noundef %addr, i64 noundef %len) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.13, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, i64 noundef %addr, i64 noundef %len) #19
   br label %trace_pci_nvme_map_addr_cmb.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.14, i64 noundef %addr, i64 noundef %len) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.14, i64 noundef %addr, i64 noundef %len) #19
   br label %trace_pci_nvme_map_addr_cmb.exit
 
 trace_pci_nvme_map_addr_cmb.exit:                 ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -3182,7 +3182,7 @@ if.end.i:                                         ; preds = %trace_pci_nvme_map_
   br i1 %cmp.i.i, label %nvme_addr_is_cmb.exit, label %if.else.i.i9
 
 if.else.i.i9:                                     ; preds = %if.end.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 33, ptr noundef nonnull @__PRETTY_FUNCTION__.int128_get64) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 33, ptr noundef nonnull @__PRETTY_FUNCTION__.int128_get64) #20
   unreachable
 
 nvme_addr_is_cmb.exit:                            ; preds = %if.end.i
@@ -3212,7 +3212,7 @@ if.end3:                                          ; preds = %nvme_addr_is_cmb.ex
   %11 = load ptr, ptr %buf.i, align 16
   %sub.i = sub i64 %addr, %cond.i
   %arrayidx.i = getelementptr i8, ptr %11, i64 %sub.i
-  tail call void @qemu_iovec_add(ptr noundef %iov, ptr noundef %arrayidx.i, i64 noundef %len) #17
+  tail call void @qemu_iovec_add(ptr noundef %iov, ptr noundef %arrayidx.i, i64 noundef %len) #19
   br label %return
 
 return:                                           ; preds = %trace_pci_nvme_map_addr_cmb.exit, %nvme_addr_is_cmb.exit, %nvme_addr_is_cmb.exit27, %if.end3
@@ -3237,7 +3237,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp.i.i, label %nvme_addr_is_pmr.exit, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.end.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 33, ptr noundef nonnull @__PRETTY_FUNCTION__.int128_get64) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 33, ptr noundef nonnull @__PRETTY_FUNCTION__.int128_get64) #20
   unreachable
 
 nvme_addr_is_pmr.exit:                            ; preds = %if.end.i
@@ -3260,11 +3260,11 @@ nvme_addr_is_pmr.exit21:                          ; preds = %nvme_addr_is_pmr.ex
 
 if.end3:                                          ; preds = %nvme_addr_is_pmr.exit21
   %mr.i = getelementptr inbounds i8, ptr %1, i64 112
-  %call.i = tail call ptr @memory_region_get_ram_ptr(ptr noundef nonnull %mr.i) #17
+  %call.i = tail call ptr @memory_region_get_ram_ptr(ptr noundef nonnull %mr.i) #19
   %6 = load i64, ptr %cba.i, align 16
   %sub.i = sub i64 %addr, %6
   %add.ptr.i = getelementptr i8, ptr %call.i, i64 %sub.i
-  tail call void @qemu_iovec_add(ptr noundef %iov, ptr noundef %add.ptr.i, i64 noundef %len) #17
+  tail call void @qemu_iovec_add(ptr noundef %iov, ptr noundef %add.ptr.i, i64 noundef %len) #19
   br label %return
 
 return:                                           ; preds = %entry, %nvme_addr_is_pmr.exit, %nvme_addr_is_pmr.exit21, %if.end3
@@ -3344,16 +3344,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #19
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #19
   %9 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %10 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.25, i32 noundef %call10.i.i, i64 noundef %9, i64 noundef %10, i32 noundef %2) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.25, i32 noundef %call10.i.i, i64 noundef %9, i64 noundef %10, i32 noundef %2) #19
   br label %trace_pci_nvme_err_invalid_sgl_excess_length.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.26, i32 noundef %2) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.26, i32 noundef %2) #19
   br label %trace_pci_nvme_err_invalid_sgl_excess_length.exit
 
 trace_pci_nvme_err_invalid_sgl_excess_length.exit: ; preds = %if.end18, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -3442,7 +3442,7 @@ if.then.i:                                        ; preds = %sw.bb1
   br i1 %cmp.i, label %if.end3.thread.i, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.39, i32 noundef 339, ptr noundef nonnull @__PRETTY_FUNCTION__.nvme_aor_dec_open) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.39, i32 noundef 339, ptr noundef nonnull @__PRETTY_FUNCTION__.nvme_aor_dec_open) #20
   unreachable
 
 if.end3.thread.i:                                 ; preds = %if.then.i
@@ -3455,7 +3455,7 @@ if.end3.i:                                        ; preds = %sw.bb1
   br i1 %3, label %sw.bb2, label %if.else7.i
 
 if.else7.i:                                       ; preds = %if.end3.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.39, i32 noundef 342, ptr noundef nonnull @__PRETTY_FUNCTION__.nvme_aor_dec_open) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.39, i32 noundef 342, ptr noundef nonnull @__PRETTY_FUNCTION__.nvme_aor_dec_open) #20
   unreachable
 
 sw.bb2:                                           ; preds = %if.end3.i, %if.end3.thread.i, %entry
@@ -3471,7 +3471,7 @@ if.then.i10:                                      ; preds = %sw.bb2
   br i1 %cmp.i11, label %if.end.i, label %if.else.i12
 
 if.else.i12:                                      ; preds = %if.then.i10
-  tail call void @__assert_fail(ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.39, i32 noundef 357, ptr noundef nonnull @__PRETTY_FUNCTION__.nvme_aor_dec_active) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.39, i32 noundef 357, ptr noundef nonnull @__PRETTY_FUNCTION__.nvme_aor_dec_active) #20
   unreachable
 
 if.end.i:                                         ; preds = %if.then.i10
@@ -3483,7 +3483,7 @@ if.end.i:                                         ; preds = %if.then.i10
   br i1 %cmp4.not.not.i, label %nvme_aor_dec_active.exit, label %if.else6.i
 
 if.else6.i:                                       ; preds = %if.end.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.39, i32 noundef 359, ptr noundef nonnull @__PRETTY_FUNCTION__.nvme_aor_dec_active) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.39, i32 noundef 359, ptr noundef nonnull @__PRETTY_FUNCTION__.nvme_aor_dec_active) #20
   unreachable
 
 if.end8.i:                                        ; preds = %sw.bb2
@@ -3491,7 +3491,7 @@ if.end8.i:                                        ; preds = %sw.bb2
   br i1 %6, label %nvme_aor_dec_active.exit, label %if.else12.i
 
 if.else12.i:                                      ; preds = %if.end8.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.39, i32 noundef 361, ptr noundef nonnull @__PRETTY_FUNCTION__.nvme_aor_dec_active) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.39, i32 noundef 361, ptr noundef nonnull @__PRETTY_FUNCTION__.nvme_aor_dec_active) #20
   unreachable
 
 nvme_aor_dec_active.exit:                         ; preds = %if.end.i, %if.end8.i
@@ -3582,19 +3582,19 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @nvme_instance_init(ptr noundef %obj) #0 {
 entry:
-  %call = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.1, i32 noundef 8526, ptr noundef nonnull @__func__.nvme_instance_init) #17
+  %call = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.1, i32 noundef 8526, ptr noundef nonnull @__func__.nvme_instance_init) #19
   %bootindex = getelementptr inbounds i8, ptr %call, i64 8124
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #17
-  tail call void @device_add_bootindex_property(ptr noundef %obj, ptr noundef nonnull %bootindex, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.52, ptr noundef %call.i) #17
-  %call2 = tail call ptr @object_property_add(ptr noundef %obj, ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.54, ptr noundef nonnull @nvme_get_smart_warning, ptr noundef nonnull @nvme_set_smart_warning, ptr noundef null, ptr noundef null) #17
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #19
+  tail call void @device_add_bootindex_property(ptr noundef %obj, ptr noundef nonnull %bootindex, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.52, ptr noundef %call.i) #19
+  %call2 = tail call ptr @object_property_add(ptr noundef %obj, ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.54, ptr noundef nonnull @nvme_get_smart_warning, ptr noundef nonnull @nvme_set_smart_warning, ptr noundef null, ptr noundef null) #19
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @nvme_class_init(ptr noundef %oc, ptr nocapture readnone %data) #0 {
 entry:
-  %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #17
-  %call.i10 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE_CLASS) #17
+  %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #19
+  %call.i10 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE_CLASS) #19
   %realize = getelementptr inbounds i8, ptr %call.i10, i64 176
   store ptr @nvme_realize, ptr %realize, align 8
   %config_write = getelementptr inbounds i8, ptr %call.i10, i64 200
@@ -3611,7 +3611,7 @@ entry:
   store i64 %or.i, ptr %categories, align 8
   %desc = getelementptr inbounds i8, ptr %call.i, i64 112
   store ptr @.str.68, ptr %desc, align 8
-  tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @nvme_props) #17
+  tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @nvme_props) #19
   %vmsd = getelementptr inbounds i8, ptr %call.i, i64 160
   store ptr @nvme_vmstate, ptr %vmsd, align 8
   %reset = getelementptr inbounds i8, ptr %call.i, i64 136
@@ -3627,11 +3627,11 @@ declare ptr @object_property_add(ptr noundef, ptr noundef, ptr noundef, ptr noun
 define internal void @nvme_get_smart_warning(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr nocapture readnone %opaque, ptr noundef %errp) #0 {
 entry:
   %value = alloca i8, align 1
-  %call = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.1, i32 noundef 8421, ptr noundef nonnull @__func__.nvme_get_smart_warning) #17
+  %call = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.1, i32 noundef 8421, ptr noundef nonnull @__func__.nvme_get_smart_warning) #19
   %smart_critical_warning = getelementptr inbounds i8, ptr %call, i64 7474
   %0 = load i8, ptr %smart_critical_warning, align 2
   store i8 %0, ptr %value, align 1
-  %call1 = call zeroext i1 @visit_type_uint8(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %value, ptr noundef %errp) #17
+  %call1 = call zeroext i1 @visit_type_uint8(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %value, ptr noundef %errp) #19
   ret void
 }
 
@@ -3639,8 +3639,8 @@ entry:
 define internal void @nvme_set_smart_warning(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr nocapture readnone %opaque, ptr noundef %errp) #0 {
 entry:
   %value = alloca i8, align 1
-  %call = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.1, i32 noundef 8430, ptr noundef nonnull @__func__.nvme_set_smart_warning) #17
-  %call1 = call zeroext i1 @visit_type_uint8(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %value, ptr noundef %errp) #17
+  %call = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.1, i32 noundef 8430, ptr noundef nonnull @__func__.nvme_set_smart_warning) #19
+  %call1 = call zeroext i1 @visit_type_uint8(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %value, ptr noundef %errp) #19
   br i1 %call1, label %if.end, label %for.end
 
 if.end:                                           ; preds = %entry
@@ -3657,7 +3657,7 @@ if.end:                                           ; preds = %entry
 if.then12:                                        ; preds = %if.end
   %not = xor i32 %spec.select, -1
   %and15 = and i32 %not, %conv7
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 8445, ptr noundef nonnull @__func__.nvme_set_smart_warning, ptr noundef nonnull @.str.55, i32 noundef %and15) #17
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 8445, ptr noundef nonnull @__func__.nvme_set_smart_warning, ptr noundef nonnull @.str.55, i32 noundef %and15) #19
   br label %for.end
 
 if.end16:                                         ; preds = %if.end
@@ -3745,22 +3745,22 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #19
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #19
   %4 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext nneg i8 %event_type to i32
   %conv12.i.i = zext nneg i8 %event_info to i32
   %conv13.i.i = zext nneg i8 %log_page to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.56, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, i32 noundef %conv11.i.i, i32 noundef %conv12.i.i, i32 noundef %conv13.i.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.56, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, i32 noundef %conv11.i.i, i32 noundef %conv12.i.i, i32 noundef %conv13.i.i) #19
   br label %trace_pci_nvme_enqueue_event.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
   %conv14.i.i = zext nneg i8 %event_type to i32
   %conv15.i.i = zext nneg i8 %event_info to i32
   %conv16.i.i = zext nneg i8 %log_page to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.57, i32 noundef %conv14.i.i, i32 noundef %conv15.i.i, i32 noundef %conv16.i.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.57, i32 noundef %conv14.i.i, i32 noundef %conv15.i.i, i32 noundef %conv16.i.i) #19
   br label %trace_pci_nvme_enqueue_event.exit
 
 trace_pci_nvme_enqueue_event.exit:                ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -3793,16 +3793,16 @@ if.then.i.i22:                                    ; preds = %land.lhs.true5.i.i1
   br i1 %tobool7.i.i23, label %if.then8.i.i25, label %if.else.i.i24
 
 if.then8.i.i25:                                   ; preds = %if.then.i.i22
-  %call9.i.i26 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i15, ptr noundef null) #17
-  %call10.i.i27 = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i26 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i15, ptr noundef null) #19
+  %call10.i.i27 = tail call i32 @qemu_get_thread_id() #19
   %12 = load i64, ptr %_now.i.i15, align 8
   %tv_usec.i.i28 = getelementptr inbounds i8, ptr %_now.i.i15, i64 8
   %13 = load i64, ptr %tv_usec.i.i28, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.58, i32 noundef %call10.i.i27, i64 noundef %12, i64 noundef %13, i32 noundef %6) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.58, i32 noundef %call10.i.i27, i64 noundef %12, i64 noundef %13, i32 noundef %6) #19
   br label %trace_pci_nvme_enqueue_event_noqueue.exit
 
 if.else.i.i24:                                    ; preds = %if.then.i.i22
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.59, i32 noundef %6) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.59, i32 noundef %6) #19
   br label %trace_pci_nvme_enqueue_event_noqueue.exit
 
 trace_pci_nvme_enqueue_event_noqueue.exit:        ; preds = %if.then, %land.lhs.true5.i.i19, %if.then8.i.i25, %if.else.i.i24
@@ -3810,7 +3810,7 @@ trace_pci_nvme_enqueue_event_noqueue.exit:        ; preds = %if.then, %land.lhs.
   br label %return
 
 if.end:                                           ; preds = %trace_pci_nvme_enqueue_event.exit
-  %call = tail call noalias dereferenceable_or_null(24) ptr @g_malloc_n(i64 noundef 1, i64 noundef 24) #19
+  %call = tail call noalias dereferenceable_or_null(24) ptr @g_malloc_n(i64 noundef 1, i64 noundef 24) #21
   %result = getelementptr inbounds i8, ptr %call, i64 16
   store i8 %event_type, ptr %result, align 8
   %.compoundliteral.sroa.2.0.result.sroa_idx = getelementptr inbounds i8, ptr %call, i64 17
@@ -3865,16 +3865,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #19
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #19
   %5 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.60, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef %0) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.60, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef %0) #19
   br label %trace_pci_nvme_process_aers.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.61, i32 noundef %0) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.61, i32 noundef %0) #19
   br label %trace_pci_nvme_process_aers.exit
 
 trace_pci_nvme_process_aers.exit:                 ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -3922,16 +3922,16 @@ if.then.i.i42:                                    ; preds = %land.lhs.true5.i.i3
   br i1 %tobool7.i.i43, label %if.then8.i.i45, label %if.else.i.i44
 
 if.then8.i.i45:                                   ; preds = %if.then.i.i42
-  %call9.i.i46 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i35, ptr noundef null) #17
-  %call10.i.i47 = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i46 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i35, ptr noundef null) #19
+  %call10.i.i47 = tail call i32 @qemu_get_thread_id() #19
   %14 = load i64, ptr %_now.i.i35, align 8
   %tv_usec.i.i48 = getelementptr inbounds i8, ptr %_now.i.i35, i64 8
   %15 = load i64, ptr %tv_usec.i.i48, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.62, i32 noundef %call10.i.i47, i64 noundef %14, i64 noundef %15) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.62, i32 noundef %call10.i.i47, i64 noundef %14, i64 noundef %15) #19
   br label %trace_pci_nvme_no_outstanding_aers.exit
 
 if.else.i.i44:                                    ; preds = %if.then.i.i42
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.63) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.63) #19
   br label %trace_pci_nvme_no_outstanding_aers.exit
 
 trace_pci_nvme_no_outstanding_aers.exit:          ; preds = %if.then, %land.lhs.true5.i.i39, %if.then8.i.i45, %if.else.i.i44
@@ -3970,15 +3970,15 @@ if.then.i.i56:                                    ; preds = %land.lhs.true5.i.i5
   br i1 %tobool7.i.i57, label %if.then8.i.i59, label %if.else.i.i58
 
 if.then8.i.i59:                                   ; preds = %if.then.i.i56
-  %call9.i.i60 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i49, ptr noundef null) #17
-  %call10.i.i61 = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i60 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i49, ptr noundef null) #19
+  %call10.i.i61 = tail call i32 @qemu_get_thread_id() #19
   %22 = load i64, ptr %_now.i.i49, align 8
   %23 = load i64, ptr %tv_usec.i.i62, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.64, i32 noundef %call10.i.i61, i64 noundef %22, i64 noundef %23, i32 noundef %conv4, i32 noundef %conv) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.64, i32 noundef %call10.i.i61, i64 noundef %22, i64 noundef %23, i32 noundef %conv4, i32 noundef %conv) #19
   br label %trace_pci_nvme_aer_masked.exit
 
 if.else.i.i58:                                    ; preds = %if.then.i.i56
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.65, i32 noundef %conv4, i32 noundef %conv) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.65, i32 noundef %conv4, i32 noundef %conv) #19
   br label %trace_pci_nvme_aer_masked.exit
 
 trace_pci_nvme_aer_masked.exit:                   ; preds = %if.then6, %land.lhs.true5.i.i53, %if.then8.i.i59, %if.else.i.i58
@@ -4023,7 +4023,7 @@ do.body:                                          ; preds = %if.end
   %35 = load i8, ptr %log_page, align 2
   %log_page49 = getelementptr inbounds i8, ptr %32, i64 42
   store i8 %35, ptr %log_page49, align 1
-  tail call void @g_free(ptr noundef nonnull %event.082) #17
+  tail call void @g_free(ptr noundef nonnull %event.082) #19
   %36 = load i8, ptr %cqe, align 1
   %37 = load i8, ptr %event_info47, align 1
   %38 = load i8, ptr %log_page49, align 1
@@ -4047,21 +4047,21 @@ if.then.i.i70:                                    ; preds = %land.lhs.true5.i.i6
   br i1 %tobool7.i.i71, label %if.then8.i.i74, label %if.else.i.i72
 
 if.then8.i.i74:                                   ; preds = %if.then.i.i70
-  %call9.i.i75 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i63, ptr noundef null) #17
-  %call10.i.i76 = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i75 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i63, ptr noundef null) #19
+  %call10.i.i76 = tail call i32 @qemu_get_thread_id() #19
   %43 = load i64, ptr %_now.i.i63, align 8
   %44 = load i64, ptr %tv_usec.i.i77, align 8
   %conv11.i.i78 = zext i8 %36 to i32
   %conv12.i.i79 = zext i8 %37 to i32
   %conv13.i.i80 = zext i8 %38 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.66, i32 noundef %call10.i.i76, i64 noundef %43, i64 noundef %44, i32 noundef %conv11.i.i78, i32 noundef %conv12.i.i79, i32 noundef %conv13.i.i80) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.66, i32 noundef %call10.i.i76, i64 noundef %43, i64 noundef %44, i32 noundef %conv11.i.i78, i32 noundef %conv12.i.i79, i32 noundef %conv13.i.i80) #19
   br label %trace_pci_nvme_aer_post_cqe.exit
 
 if.else.i.i72:                                    ; preds = %if.then.i.i70
   %conv14.i.i73 = zext i8 %36 to i32
   %conv15.i.i = zext i8 %37 to i32
   %conv16.i.i = zext i8 %38 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.67, i32 noundef %conv14.i.i73, i32 noundef %conv15.i.i, i32 noundef %conv16.i.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.67, i32 noundef %conv14.i.i73, i32 noundef %conv15.i.i, i32 noundef %conv16.i.i) #19
   br label %trace_pci_nvme_aer_post_cqe.exit
 
 trace_pci_nvme_aer_post_cqe.exit:                 ; preds = %do.body, %land.lhs.true5.i.i67, %if.then8.i.i74, %if.else.i.i72
@@ -4082,10 +4082,10 @@ define internal void @nvme_realize(ptr noundef %pci_dev, ptr noundef %errp) #0 {
 entry:
   %err.i.i = alloca ptr, align 8
   %_auto_errp_prop.i = alloca %struct.ErrorPropagator, align 8
-  %call = tail call ptr @object_dynamic_cast_assert(ptr noundef %pci_dev, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.1, i32 noundef 8304, ptr noundef nonnull @__func__.nvme_realize) #17
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %pci_dev, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #17
-  %call2 = tail call ptr @pcie_sriov_get_pf(ptr noundef %pci_dev) #17
-  %call3 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call2, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.1, i32 noundef 8307, ptr noundef nonnull @__func__.nvme_realize) #17
+  %call = tail call ptr @object_dynamic_cast_assert(ptr noundef %pci_dev, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.1, i32 noundef 8304, ptr noundef nonnull @__func__.nvme_realize) #19
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %pci_dev, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #19
+  %call2 = tail call ptr @pcie_sriov_get_pf(ptr noundef %pci_dev) #19
+  %call3 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call2, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.1, i32 noundef 8307, ptr noundef nonnull @__func__.nvme_realize) #19
   %0 = getelementptr i8, ptr %pci_dev, i64 2232
   %pci_dev.val = load ptr, ptr %0, align 8
   %cmp.i.not = icmp eq ptr %pci_dev.val, null
@@ -4109,7 +4109,7 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  tail call void (ptr, ...) @warn_report(ptr noundef nonnull @.str.70) #17
+  tail call void (ptr, ...) @warn_report(ptr noundef nonnull @.str.70) #19
   %3 = load i32, ptr %num_queues.i, align 8
   %sub.i = add i32 %3, -1
   %max_ioqpairs.i = getelementptr inbounds i8, ptr %call, i64 7260
@@ -4129,7 +4129,7 @@ land.lhs.true.i:                                  ; preds = %if.end.i
   br i1 %tobool4.not.i, label %if.end6.i, label %if.then5.i
 
 if.then5.i:                                       ; preds = %land.lhs.true.i
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 7777, ptr noundef nonnull @__func__.nvme_check_params, ptr noundef nonnull @.str.71) #17
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 7777, ptr noundef nonnull @__func__.nvme_check_params, ptr noundef nonnull @.str.71) #19
   br label %if.end25
 
 if.end6.i:                                        ; preds = %land.lhs.true.i, %if.end.i
@@ -4140,7 +4140,7 @@ if.end6.i:                                        ; preds = %land.lhs.true.i, %i
   br i1 %or.cond.i, label %if.then10.i, label %if.end11.i
 
 if.then10.i:                                      ; preds = %if.end6.i
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 7784, ptr noundef nonnull @__func__.nvme_check_params, ptr noundef nonnull @.str.72, i32 noundef 65535) #17
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 7784, ptr noundef nonnull @__func__.nvme_check_params, ptr noundef nonnull @.str.72, i32 noundef 65535) #19
   br label %if.end25
 
 if.end11.i:                                       ; preds = %if.end6.i
@@ -4151,7 +4151,7 @@ if.end11.i:                                       ; preds = %if.end6.i
   br i1 %or.cond62.i, label %if.then19.i, label %if.end20.i
 
 if.then19.i:                                      ; preds = %if.end11.i
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 7791, ptr noundef nonnull @__func__.nvme_check_params, ptr noundef nonnull @.str.73, i32 noundef 2048) #17
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 7791, ptr noundef nonnull @__func__.nvme_check_params, ptr noundef nonnull @.str.73, i32 noundef 2048) #19
   br label %if.end25
 
 if.end20.i:                                       ; preds = %if.end11.i
@@ -4160,7 +4160,7 @@ if.end20.i:                                       ; preds = %if.end11.i
   br i1 %tobool21.not.i, label %if.then22.i, label %if.end23.i
 
 if.then22.i:                                      ; preds = %if.end20.i
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 7796, ptr noundef nonnull @__func__.nvme_check_params, ptr noundef nonnull @.str.74) #17
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 7796, ptr noundef nonnull @__func__.nvme_check_params, ptr noundef nonnull @.str.74) #19
   br label %if.end25
 
 if.end23.i:                                       ; preds = %if.end20.i
@@ -4170,13 +4170,13 @@ if.end23.i:                                       ; preds = %if.end20.i
   br i1 %tobool24.not.i, label %if.end40.i, label %if.then25.i
 
 if.then25.i:                                      ; preds = %if.end23.i
-  %call.i23 = tail call zeroext i1 @host_memory_backend_is_mapped(ptr noundef nonnull %11) #17
+  %call.i23 = tail call zeroext i1 @host_memory_backend_is_mapped(ptr noundef nonnull %11) #19
   %12 = load ptr, ptr %pmr.i, align 16
   br i1 %call.i23, label %if.then28.i, label %if.end32.i
 
 if.then28.i:                                      ; preds = %if.then25.i
-  %call31.i = tail call ptr @object_get_canonical_path_component(ptr noundef %12) #17
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 7803, ptr noundef nonnull @__func__.nvme_check_params, ptr noundef nonnull @.str.75, ptr noundef %call31.i) #17
+  %call31.i = tail call ptr @object_get_canonical_path_component(ptr noundef %12) #19
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 7803, ptr noundef nonnull @__func__.nvme_check_params, ptr noundef nonnull @.str.75, ptr noundef %call31.i) #19
   br label %if.end25
 
 if.end32.i:                                       ; preds = %if.then25.i
@@ -4187,11 +4187,11 @@ if.end32.i:                                       ; preds = %if.then25.i
   br i1 %or.cond64.i, label %if.end37.i, label %if.then36.i
 
 if.then36.i:                                      ; preds = %if.end32.i
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 7808, ptr noundef nonnull @__func__.nvme_check_params, ptr noundef nonnull @.str.76) #17
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 7808, ptr noundef nonnull @__func__.nvme_check_params, ptr noundef nonnull @.str.76) #19
   br label %if.end25
 
 if.end37.i:                                       ; preds = %if.end32.i
-  tail call void @host_memory_backend_set_mapped(ptr noundef nonnull %12, i1 noundef zeroext true) #17
+  tail call void @host_memory_backend_set_mapped(ptr noundef nonnull %12, i1 noundef zeroext true) #19
   br label %if.end40.i
 
 if.end40.i:                                       ; preds = %if.end37.i, %if.end23.i
@@ -4203,7 +4203,7 @@ if.end40.i:                                       ; preds = %if.end37.i, %if.end
   br i1 %cmp45.i, label %if.then47.i, label %if.end48.i
 
 if.then47.i:                                      ; preds = %if.end40.i
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 7817, ptr noundef nonnull @__func__.nvme_check_params, ptr noundef nonnull @.str.77) #17
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 7817, ptr noundef nonnull @__func__.nvme_check_params, ptr noundef nonnull @.str.77) #19
   br label %if.end25
 
 if.end48.i:                                       ; preds = %if.end40.i
@@ -4213,7 +4213,7 @@ if.end48.i:                                       ; preds = %if.end40.i
   br i1 %tobool50.not.i, label %if.then51.i, label %if.end52.i
 
 if.then51.i:                                      ; preds = %if.end48.i
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 7822, ptr noundef nonnull @__func__.nvme_check_params, ptr noundef nonnull @.str.78) #17
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 7822, ptr noundef nonnull @__func__.nvme_check_params, ptr noundef nonnull @.str.78) #19
   br label %if.end25
 
 if.end52.i:                                       ; preds = %if.end48.i
@@ -4229,7 +4229,7 @@ if.then54.i:                                      ; preds = %if.end52.i
   br i1 %tobool56.not.i, label %if.then57.i, label %if.end58.i
 
 if.then57.i:                                      ; preds = %if.then54.i
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 7828, ptr noundef nonnull @__func__.nvme_check_params, ptr noundef nonnull @.str.79) #17
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 7828, ptr noundef nonnull @__func__.nvme_check_params, ptr noundef nonnull @.str.79) #19
   br label %if.end25
 
 if.end58.i:                                       ; preds = %if.then54.i
@@ -4238,7 +4238,7 @@ if.end58.i:                                       ; preds = %if.then54.i
   br i1 %cmp61.i, label %if.then63.i, label %if.end64.i
 
 if.then63.i:                                      ; preds = %if.end58.i
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 7834, ptr noundef nonnull @__func__.nvme_check_params, ptr noundef nonnull @.str.80, i32 noundef 127) #17
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 7834, ptr noundef nonnull @__func__.nvme_check_params, ptr noundef nonnull @.str.80, i32 noundef 127) #19
   br label %if.end25
 
 if.end64.i:                                       ; preds = %if.end58.i
@@ -4248,7 +4248,7 @@ if.end64.i:                                       ; preds = %if.end58.i
   br i1 %tobool65.not.i, label %if.end67.i, label %if.then66.i
 
 if.then66.i:                                      ; preds = %if.end64.i
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 7839, ptr noundef nonnull @__func__.nvme_check_params, ptr noundef nonnull @.str.81) #17
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 7839, ptr noundef nonnull @__func__.nvme_check_params, ptr noundef nonnull @.str.81) #19
   br label %if.end25
 
 if.end67.i:                                       ; preds = %if.end64.i
@@ -4257,7 +4257,7 @@ if.end67.i:                                       ; preds = %if.end64.i
   br i1 %tobool70.not.i, label %if.end72.i, label %if.then71.i
 
 if.then71.i:                                      ; preds = %if.end67.i
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 7844, ptr noundef nonnull @__func__.nvme_check_params, ptr noundef nonnull @.str.82) #17
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 7844, ptr noundef nonnull @__func__.nvme_check_params, ptr noundef nonnull @.str.82) #19
   br label %if.end25
 
 if.end72.i:                                       ; preds = %if.end67.i
@@ -4273,7 +4273,7 @@ lor.lhs.false74.i:                                ; preds = %if.end72.i
   br i1 %tobool75.not.i, label %if.then76.i, label %if.end77.i
 
 if.then76.i:                                      ; preds = %lor.lhs.false74.i, %if.end72.i
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 7850, ptr noundef nonnull @__func__.nvme_check_params, ptr noundef nonnull @.str.83) #17
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 7850, ptr noundef nonnull @__func__.nvme_check_params, ptr noundef nonnull @.str.83) #19
   br label %if.end25
 
 if.end77.i:                                       ; preds = %lor.lhs.false74.i
@@ -4283,7 +4283,7 @@ if.end77.i:                                       ; preds = %lor.lhs.false74.i
   br i1 %cmp82.i, label %if.then84.i, label %if.end88.i
 
 if.then84.i:                                      ; preds = %if.end77.i
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 7856, ptr noundef nonnull @__func__.nvme_check_params, ptr noundef nonnull @.str.84, i32 noundef %mul.i) #17
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 7856, ptr noundef nonnull @__func__.nvme_check_params, ptr noundef nonnull @.str.84, i32 noundef %mul.i) #19
   br label %if.end25
 
 if.end88.i:                                       ; preds = %if.end77.i
@@ -4293,7 +4293,7 @@ if.end88.i:                                       ; preds = %if.end77.i
   br i1 %cmp92.i, label %if.then94.i, label %if.end95.i
 
 if.then94.i:                                      ; preds = %if.end88.i
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 7862, ptr noundef nonnull @__func__.nvme_check_params, ptr noundef nonnull @.str.85) #17
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 7862, ptr noundef nonnull @__func__.nvme_check_params, ptr noundef nonnull @.str.85) #19
   br label %if.end25
 
 if.end95.i:                                       ; preds = %if.end88.i
@@ -4302,7 +4302,7 @@ if.end95.i:                                       ; preds = %if.end88.i
   br i1 %cmp100.i, label %if.then102.i, label %if.end105.i
 
 if.then102.i:                                     ; preds = %if.end95.i
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 7868, ptr noundef nonnull @__func__.nvme_check_params, ptr noundef nonnull @.str.86, i32 noundef %conv60.i) #17
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 7868, ptr noundef nonnull @__func__.nvme_check_params, ptr noundef nonnull @.str.86, i32 noundef %conv60.i) #19
   br label %if.end25
 
 if.end105.i:                                      ; preds = %if.end95.i
@@ -4311,7 +4311,7 @@ if.end105.i:                                      ; preds = %if.end95.i
   br i1 %cmp111.not.i, label %if.end114.i, label %if.then113.i
 
 if.then113.i:                                     ; preds = %if.end105.i
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 7874, ptr noundef nonnull @__func__.nvme_check_params, ptr noundef nonnull @.str.87) #17
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 7874, ptr noundef nonnull @__func__.nvme_check_params, ptr noundef nonnull @.str.87) #19
   br label %if.end25
 
 if.end114.i:                                      ; preds = %if.end105.i
@@ -4321,21 +4321,21 @@ if.end114.i:                                      ; preds = %if.end105.i
   br i1 %cond.i, label %if.then137.i, label %if.end9
 
 if.then137.i:                                     ; preds = %if.end114.i
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 7891, ptr noundef nonnull @__func__.nvme_check_params, ptr noundef nonnull @.str.89, i32 noundef 1) #17
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 7891, ptr noundef nonnull @__func__.nvme_check_params, ptr noundef nonnull @.str.89, i32 noundef 1) #19
   br label %if.end25
 
 if.end9:                                          ; preds = %if.end114.i, %if.end52.i
   %bus = getelementptr inbounds i8, ptr %call, i64 7296
   %id = getelementptr inbounds i8, ptr %call.i, i64 40
   %28 = load ptr, ptr %id, align 8
-  tail call void @qbus_init(ptr noundef nonnull %bus, i64 noundef 120, ptr noundef nonnull @.str.69, ptr noundef %call.i, ptr noundef %28) #17
+  tail call void @qbus_init(ptr noundef nonnull %bus, i64 noundef 120, ptr noundef nonnull @.str.69, ptr noundef %call.i, ptr noundef %28) #19
   %subsys.i24 = getelementptr inbounds i8, ptr %call, i64 7928
   %29 = load ptr, ptr %subsys.i24, align 8
   %tobool.not.i25 = icmp eq ptr %29, null
   br i1 %tobool.not.i25, label %if.end13, label %if.end.i26
 
 if.end.i26:                                       ; preds = %if.end9
-  %call.i27 = tail call i32 @nvme_subsys_register_ctrl(ptr noundef nonnull %call, ptr noundef %errp) #17
+  %call.i27 = tail call i32 @nvme_subsys_register_ctrl(ptr noundef nonnull %call, ptr noundef %errp) #19
   %cmp.i28 = icmp slt i32 %call.i27, 0
   br i1 %cmp.i28, label %if.end25, label %if.end2.i
 
@@ -4348,21 +4348,21 @@ if.end2.i:                                        ; preds = %if.end.i26
 if.end13:                                         ; preds = %if.end2.i, %if.end9
   %pri_ctrl_cap.i = getelementptr inbounds i8, ptr %call, i64 23672
   %sec_ctrl_list.i = getelementptr inbounds i8, ptr %call, i64 27768
-  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #17
+  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #19
   %30 = getelementptr i8, ptr %call.i.i, i64 2232
   %call.val73.i = load ptr, ptr %30, align 8
   %cmp.i.not.i = icmp eq ptr %call.val73.i, null
   br i1 %cmp.i.not.i, label %if.else.i, label %if.then.i31
 
 if.then.i31:                                      ; preds = %if.end13
-  %call.i74.i = tail call ptr @pcie_sriov_get_pf(ptr noundef nonnull %call) #17
-  %call1.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i74.i, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.39, i32 noundef 647, ptr noundef nonnull @__func__.nvme_sctrl) #17
+  %call.i74.i = tail call ptr @pcie_sriov_get_pf(ptr noundef nonnull %call) #19
+  %call1.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i74.i, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.39, i32 noundef 647, ptr noundef nonnull @__func__.nvme_sctrl) #19
   %31 = getelementptr i8, ptr %call, i64 2232
   %n.val.i.i = load ptr, ptr %31, align 8
   %cmp.i.not.i.i = icmp ne ptr %n.val.i.i, null
   tail call void @llvm.assume(i1 %cmp.i.not.i.i)
   %sec.i.i = getelementptr inbounds i8, ptr %call1.i.i, i64 27800
-  %call3.i.i = tail call zeroext i16 @pcie_sriov_vf_number(ptr noundef nonnull %call) #17
+  %call3.i.i = tail call zeroext i16 @pcie_sriov_vf_number(ptr noundef nonnull %call) #19
   %idxprom.i.i = zext i16 %call3.i.i to i64
   %arrayidx.i.i = getelementptr [127 x %struct.NvmeSecCtrlEntry], ptr %sec.i.i, i64 0, i64 %idxprom.i.i
   %nvq.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 10
@@ -4396,20 +4396,20 @@ if.end.i35:                                       ; preds = %if.else.i, %if.then
   store i32 %cond15.sink.i, ptr %38, align 4
   %add.i36 = add i32 %37, 1
   %conv23.i = zext i32 %add.i36 to i64
-  %call24.i = tail call noalias ptr @g_malloc0_n(i64 noundef %conv23.i, i64 noundef 8) #19
+  %call24.i = tail call noalias ptr @g_malloc0_n(i64 noundef %conv23.i, i64 noundef 8) #21
   %sq.i = getelementptr inbounds i8, ptr %call, i64 18800
   store ptr %call24.i, ptr %sq.i, align 16
   %39 = load i32, ptr %max_ioqpairs7.i, align 4
   %add27.i = add i32 %39, 1
   %conv28.i = zext i32 %add27.i to i64
-  %call29.i = tail call noalias ptr @g_malloc0_n(i64 noundef %conv28.i, i64 noundef 8) #19
+  %call29.i = tail call noalias ptr @g_malloc0_n(i64 noundef %conv28.i, i64 noundef 8) #21
   %cq.i = getelementptr inbounds i8, ptr %call, i64 18808
   store ptr %call29.i, ptr %cq.i, align 8
   %temperature.i = getelementptr inbounds i8, ptr %call, i64 7472
   store i16 323, ptr %temperature.i, align 16
   %features.i = getelementptr inbounds i8, ptr %call, i64 23152
   store i16 343, ptr %features.i, align 16
-  %call.i75.i = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #17
+  %call.i75.i = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #19
   %div.i.i = sdiv i64 %call.i75.i, 1000000
   %starttime_ms.i = getelementptr inbounds i8, ptr %call, i64 7464
   store i64 %div.i.i, ptr %starttime_ms.i, align 8
@@ -4417,7 +4417,7 @@ if.end.i35:                                       ; preds = %if.else.i, %if.then
   %40 = load i8, ptr %aerl.i, align 8
   %conv32.i = zext i8 %40 to i64
   %add33.i = add nuw nsw i64 %conv32.i, 1
-  %call35.i = tail call noalias ptr @g_malloc0_n(i64 noundef %add33.i, i64 noundef 8) #19
+  %call35.i = tail call noalias ptr @g_malloc0_n(i64 noundef %add33.i, i64 noundef 8) #21
   %aer_reqs.i = getelementptr inbounds i8, ptr %call, i64 7856
   store ptr %call35.i, ptr %aer_reqs.i, align 16
   %aer_queue.i = getelementptr inbounds i8, ptr %call, i64 7864
@@ -4574,13 +4574,13 @@ nvme_init_state.exit:                             ; preds = %if.then98.i, %cond.
   store i16 264, ptr %arrayidx.i52.i, align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %err.i.i)
   store ptr null, ptr %err.i.i, align 8
-  %call.i.i48 = call i32 @pci_add_capability(ptr noundef nonnull %pci_dev, i8 noundef zeroext 1, i8 noundef zeroext 96, i8 noundef zeroext 8, ptr noundef nonnull %err.i.i) #17
+  %call.i.i48 = call i32 @pci_add_capability(ptr noundef nonnull %pci_dev, i8 noundef zeroext 1, i8 noundef zeroext 96, i8 noundef zeroext 8, ptr noundef nonnull %err.i.i) #19
   %58 = load ptr, ptr %err.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %58, null
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %nvme_init_state.exit
-  call void @error_report_err(ptr noundef nonnull %58) #17
+  call void @error_report_err(ptr noundef nonnull %58) #19
   br label %nvme_add_pm_capability.exit.i
 
 if.end.i.i:                                       ; preds = %nvme_init_state.exit
@@ -4598,14 +4598,14 @@ if.end.i.i:                                       ; preds = %nvme_init_state.exi
 
 nvme_add_pm_capability.exit.i:                    ; preds = %if.end.i.i, %if.then.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %err.i.i)
-  %call6.i = call i32 @pcie_endpoint_cap_init(ptr noundef nonnull %pci_dev, i8 noundef zeroext -128) #17
-  call void @pcie_cap_flr_init(ptr noundef nonnull %pci_dev) #17
+  %call6.i = call i32 @pcie_endpoint_cap_init(ptr noundef nonnull %pci_dev, i8 noundef zeroext -128) #19
+  call void @pcie_cap_flr_init(ptr noundef nonnull %pci_dev) #19
   %62 = load i8, ptr %sriov_max_vfs.i, align 1
   %tobool8.not.i = icmp eq i8 %62, 0
   br i1 %tobool8.not.i, label %if.end10.i, label %if.then9.i
 
 if.then9.i:                                       ; preds = %nvme_add_pm_capability.exit.i
-  call void @pcie_ari_init(ptr noundef nonnull %pci_dev, i16 noundef zeroext 256) #17
+  call void @pcie_ari_init(ptr noundef nonnull %pci_dev, i16 noundef zeroext 256) #19
   br label %if.end10.i
 
 if.end10.i:                                       ; preds = %if.then9.i, %nvme_add_pm_capability.exit.i
@@ -4635,32 +4635,32 @@ if.end10.i:                                       ; preds = %if.then9.i, %nvme_a
   %sh_prom.i.i.i = and i64 %sub2.i.i.i, 4294967295
   %shr.i.i.i = lshr exact i64 -9223372036854775808, %sh_prom.i.i.i
   %bar0.i = getelementptr inbounds i8, ptr %call, i64 2608
-  call void @memory_region_init(ptr noundef nonnull %bar0.i, ptr noundef nonnull %call, ptr noundef nonnull @.str.90, i64 noundef %shr.i.i.i) #17
+  call void @memory_region_init(ptr noundef nonnull %bar0.i, ptr noundef nonnull %call, ptr noundef nonnull @.str.90, i64 noundef %shr.i.i.i) #19
   %iomem.i = getelementptr inbounds i8, ptr %call, i64 2880
   %conv14.i = and i64 %sub.i.i, 4294963200
-  call void @memory_region_init_io(ptr noundef nonnull %iomem.i, ptr noundef nonnull %call, ptr noundef nonnull @nvme_mmio_ops, ptr noundef nonnull %call, ptr noundef nonnull @.str.49, i64 noundef %conv14.i) #17
-  call void @memory_region_add_subregion(ptr noundef nonnull %bar0.i, i64 noundef 0, ptr noundef nonnull %iomem.i) #17
+  call void @memory_region_init_io(ptr noundef nonnull %iomem.i, ptr noundef nonnull %call, ptr noundef nonnull @nvme_mmio_ops, ptr noundef nonnull %call, ptr noundef nonnull @.str.49, i64 noundef %conv14.i) #19
+  call void @memory_region_add_subregion(ptr noundef nonnull %bar0.i, i64 noundef 0, ptr noundef nonnull %iomem.i) #19
   %pci_dev.val48.i = load ptr, ptr %0, align 8
   %cmp.i.not.i54 = icmp eq ptr %pci_dev.val48.i, null
   br i1 %cmp.i.not.i54, label %if.else21.i, label %if.then19.i55
 
 if.then19.i55:                                    ; preds = %if.end10.i
-  call void @pcie_sriov_vf_register_bar(ptr noundef nonnull %pci_dev, i32 noundef 0, ptr noundef nonnull %bar0.i) #17
+  call void @pcie_sriov_vf_register_bar(ptr noundef nonnull %pci_dev, i32 noundef 0, ptr noundef nonnull %bar0.i) #19
   br label %if.end23.i56
 
 if.else21.i:                                      ; preds = %if.end10.i
-  call void @pci_register_bar(ptr noundef nonnull %pci_dev, i32 noundef 0, i8 noundef zeroext 4, ptr noundef nonnull %bar0.i) #17
+  call void @pci_register_bar(ptr noundef nonnull %pci_dev, i32 noundef 0, i8 noundef zeroext 4, ptr noundef nonnull %bar0.i) #19
   br label %if.end23.i56
 
 if.end23.i56:                                     ; preds = %if.else21.i, %if.then19.i55
   %66 = load i16, ptr %msix_qsize.i, align 16
-  %call28.i = call i32 @msix_init(ptr noundef nonnull %pci_dev, i16 noundef zeroext %66, ptr noundef nonnull %bar0.i, i8 noundef zeroext 0, i32 noundef %conv4.i.i, ptr noundef nonnull %bar0.i, i8 noundef zeroext 0, i32 noundef %conv14.i.i, i8 noundef zeroext 0, ptr noundef nonnull %spec.select.i) #17
+  %call28.i = call i32 @msix_init(ptr noundef nonnull %pci_dev, i16 noundef zeroext %66, ptr noundef nonnull %bar0.i, i8 noundef zeroext 0, i32 noundef %conv4.i.i, ptr noundef nonnull %bar0.i, i8 noundef zeroext 0, i32 noundef %conv14.i.i, i8 noundef zeroext 0, ptr noundef nonnull %spec.select.i) #19
   %cmp29.i = icmp eq i32 %call28.i, -95
   br i1 %cmp29.i, label %if.then31.i, label %if.else32.i
 
 if.then31.i:                                      ; preds = %if.end23.i56
   %67 = load ptr, ptr %spec.select.i, align 8
-  call void @warn_report_err(ptr noundef %67) #17
+  call void @warn_report_err(ptr noundef %67) #19
   store ptr null, ptr %spec.select.i, align 8
   br label %if.end37.i57
 
@@ -4670,7 +4670,7 @@ if.else32.i:                                      ; preds = %if.end23.i56
 
 if.end37.i57:                                     ; preds = %if.else32.i, %if.then31.i
   %68 = load i32, ptr %38, align 4
-  %call.i57.i = call i32 @msix_present(ptr noundef nonnull %pci_dev) #17
+  %call.i57.i = call i32 @msix_present(ptr noundef nonnull %pci_dev) #19
   %tobool.not.i58.i = icmp eq i32 %call.i57.i, 0
   br i1 %tobool.not.i58.i, label %nvme_update_msixcap_ts.exit.i, label %if.end.i59.i
 
@@ -4685,7 +4685,7 @@ land.lhs.true.i.i:                                ; preds = %if.end.i59.i
   br i1 %cmp1.not.i.i, label %if.else.i.i, label %if.end3.i.i
 
 if.else.i.i:                                      ; preds = %land.lhs.true.i.i, %if.end.i59.i
-  call void @__assert_fail(ptr noundef nonnull @.str.479, ptr noundef nonnull @.str.1, i32 noundef 7048, ptr noundef nonnull @__PRETTY_FUNCTION__.nvme_update_msixcap_ts) #18
+  call void @__assert_fail(ptr noundef nonnull @.str.479, ptr noundef nonnull @.str.1, i32 noundef 7048, ptr noundef nonnull @__PRETTY_FUNCTION__.nvme_update_msixcap_ts) #20
   unreachable
 
 if.end3.i.i:                                      ; preds = %land.lhs.true.i.i
@@ -4715,12 +4715,12 @@ if.then40.i:                                      ; preds = %nvme_update_msixcap
   %mul.i.i = shl nuw nsw i64 %conv.i60.i, 20
   %bar.i.i = getelementptr inbounds i8, ptr %call, i64 3152
   %bar.val.i.i = load i64, ptr %bar.i.i, align 1
-  %call2.i.i = call noalias ptr @g_malloc0(i64 noundef %mul.i.i) #20
+  %call2.i.i = call noalias ptr @g_malloc0(i64 noundef %mul.i.i) #22
   %cmb.i.i = getelementptr inbounds i8, ptr %call, i64 7520
   %buf.i.i = getelementptr inbounds i8, ptr %call, i64 7792
   store ptr %call2.i.i, ptr %buf.i.i, align 16
-  call void @memory_region_init_io(ptr noundef nonnull %cmb.i.i, ptr noundef nonnull %call, ptr noundef nonnull @nvme_cmb_ops, ptr noundef nonnull %call, ptr noundef nonnull @.str.482, i64 noundef %mul.i.i) #17
-  call void @pci_register_bar(ptr noundef nonnull %pci_dev, i32 noundef 2, i8 noundef zeroext 12, ptr noundef nonnull %cmb.i.i) #17
+  call void @memory_region_init_io(ptr noundef nonnull %cmb.i.i, ptr noundef nonnull %call, ptr noundef nonnull @nvme_cmb_ops, ptr noundef nonnull %call, ptr noundef nonnull @.str.482, i64 noundef %mul.i.i) #19
+  call void @pci_register_bar(ptr noundef nonnull %pci_dev, i32 noundef 2, i8 noundef zeroext 12, ptr noundef nonnull %cmb.i.i) #19
   %or.i.i = or i64 %bar.val.i.i, 144115188075855872
   store i64 %or.i.i, ptr %bar.i.i, align 1
   %legacy_cmb.i.i = getelementptr inbounds i8, ptr %call, i64 7285
@@ -4755,10 +4755,10 @@ if.then43.i:                                      ; preds = %if.end41.i
   %82 = or i32 %pmrcap1.val.i.i, 16779416
   store i32 %82, ptr %pmrcap1.i.i, align 1
   %mr.i.i = getelementptr inbounds i8, ptr %81, i64 112
-  call void @pci_register_bar(ptr noundef nonnull %pci_dev, i32 noundef 4, i8 noundef zeroext 12, ptr noundef nonnull %mr.i.i) #17
+  call void @pci_register_bar(ptr noundef nonnull %pci_dev, i32 noundef 4, i8 noundef zeroext 12, ptr noundef nonnull %mr.i.i) #19
   %83 = load ptr, ptr %pmr.i, align 16
   %mr19.i.i = getelementptr inbounds i8, ptr %83, i64 112
-  call void @memory_region_set_enabled(ptr noundef nonnull %mr19.i.i, i1 noundef zeroext false) #17
+  call void @memory_region_set_enabled(ptr noundef nonnull %mr19.i.i, i1 noundef zeroext false) #19
   br label %if.end44.i
 
 if.end44.i:                                       ; preds = %if.then43.i, %if.end41.i
@@ -4800,28 +4800,28 @@ if.then51.i63:                                    ; preds = %land.lhs.true.i61
   %sh_prom.i.i.i.i = and i64 %sub2.i.i.i.i, 4294967295
   %shr.i.i.i.i = lshr exact i64 -9223372036854775808, %sh_prom.i.i.i.i
   %conv6.i68.i = zext i8 %84 to i16
-  call void @pcie_sriov_pf_init(ptr noundef nonnull %pci_dev, i16 noundef zeroext 288, ptr noundef nonnull @.str.49, i16 noundef zeroext %conv.i66.i, i16 noundef zeroext %conv6.i68.i, i16 noundef zeroext %conv6.i68.i, i16 noundef zeroext 1, i16 noundef zeroext 1) #17
-  call void @pcie_sriov_pf_init_vf_bar(ptr noundef nonnull %pci_dev, i32 noundef 0, i8 noundef zeroext 4, i64 noundef %shr.i.i.i.i) #17
+  call void @pcie_sriov_pf_init(ptr noundef nonnull %pci_dev, i16 noundef zeroext 288, ptr noundef nonnull @.str.49, i16 noundef zeroext %conv.i66.i, i16 noundef zeroext %conv6.i68.i, i16 noundef zeroext %conv6.i68.i, i16 noundef zeroext 1, i16 noundef zeroext 1) #19
+  call void @pcie_sriov_pf_init_vf_bar(ptr noundef nonnull %pci_dev, i32 noundef 0, i8 noundef zeroext 4, i64 noundef %shr.i.i.i.i) #19
   br label %if.end16
 
 nvme_init_pci.exit:                               ; preds = %if.else32.i
   %_auto_errp_prop.val.i = load ptr, ptr %_auto_errp_prop.i, align 8
   %_auto_errp_prop.val49.i = load ptr, ptr %errp1.i, align 8
-  call void @error_propagate(ptr noundef %_auto_errp_prop.val49.i, ptr noundef %_auto_errp_prop.val.i) #17
+  call void @error_propagate(ptr noundef %_auto_errp_prop.val49.i, ptr noundef %_auto_errp_prop.val.i) #19
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_auto_errp_prop.i)
   br label %if.end25
 
 if.end16:                                         ; preds = %if.then51.i63, %land.lhs.true.i61, %if.end44.i
   %_auto_errp_prop.val.i98 = load ptr, ptr %_auto_errp_prop.i, align 8
   %_auto_errp_prop.val49.i99 = load ptr, ptr %errp1.i, align 8
-  call void @error_propagate(ptr noundef %_auto_errp_prop.val49.i99, ptr noundef %_auto_errp_prop.val.i98) #17
+  call void @error_propagate(ptr noundef %_auto_errp_prop.val49.i99, ptr noundef %_auto_errp_prop.val.i98) #19
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_auto_errp_prop.i)
   %id_ctrl.i = getelementptr inbounds i8, ptr %call, i64 19056
   %89 = load ptr, ptr %config.i, align 8
   %bar.i = getelementptr inbounds i8, ptr %call, i64 3152
   %bar.val.i = load i64, ptr %bar.i, align 1
-  %call.i.i65 = call ptr @pcie_sriov_get_pf(ptr noundef nonnull %call) #17
-  %call1.i.i66 = call ptr @object_dynamic_cast_assert(ptr noundef %call.i.i65, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.39, i32 noundef 647, ptr noundef nonnull @__func__.nvme_sctrl) #17
+  %call.i.i65 = call ptr @pcie_sriov_get_pf(ptr noundef nonnull %call) #19
+  %call1.i.i66 = call ptr @object_dynamic_cast_assert(ptr noundef %call.i.i65, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.39, i32 noundef 647, ptr noundef nonnull @__func__.nvme_sctrl) #19
   %90 = getelementptr i8, ptr %call, i64 2232
   %n.val.i.i67 = load ptr, ptr %90, align 8
   %cmp.i.not.i.i68 = icmp eq ptr %n.val.i.i67, null
@@ -4829,7 +4829,7 @@ if.end16:                                         ; preds = %if.then51.i63, %lan
 
 if.then.i.i69:                                    ; preds = %if.end16
   %sec.i.i70 = getelementptr inbounds i8, ptr %call1.i.i66, i64 27800
-  %call3.i.i71 = call zeroext i16 @pcie_sriov_vf_number(ptr noundef nonnull %call) #17
+  %call3.i.i71 = call zeroext i16 @pcie_sriov_vf_number(ptr noundef nonnull %call) #19
   %idxprom.i.i72 = zext i16 %call3.i.i71 to i64
   %arrayidx.i.i73 = getelementptr [127 x %struct.NvmeSecCtrlEntry], ptr %sec.i.i70, i64 0, i64 %idxprom.i.i72
   br label %nvme_sctrl.exit.i
@@ -4843,12 +4843,12 @@ nvme_sctrl.exit.i:                                ; preds = %if.then.i.i69, %if.
   %ssvid.i = getelementptr inbounds i8, ptr %call, i64 19058
   store i16 %add.ptr5.val.i, ptr %ssvid.i, align 1
   %mn.i = getelementptr inbounds i8, ptr %call, i64 19080
-  call void @strpadcpy(ptr noundef nonnull %mn.i, i32 noundef 40, ptr noundef nonnull @.str.483, i8 noundef signext 32) #17
+  call void @strpadcpy(ptr noundef nonnull %mn.i, i32 noundef 40, ptr noundef nonnull @.str.483, i8 noundef signext 32) #19
   %fr.i = getelementptr inbounds i8, ptr %call, i64 19120
-  call void @strpadcpy(ptr noundef nonnull %fr.i, i32 noundef 8, ptr noundef nonnull @.str.484, i8 noundef signext 32) #17
+  call void @strpadcpy(ptr noundef nonnull %fr.i, i32 noundef 8, ptr noundef nonnull @.str.484, i8 noundef signext 32) #19
   %sn.i = getelementptr inbounds i8, ptr %call, i64 19060
   %91 = load ptr, ptr %params1.i, align 16
-  call void @strpadcpy(ptr noundef nonnull %sn.i, i32 noundef 20, ptr noundef %91, i8 noundef signext 32) #17
+  call void @strpadcpy(ptr noundef nonnull %sn.i, i32 noundef 20, ptr noundef %91, i8 noundef signext 32) #19
   %cntlid.i74 = getelementptr inbounds i8, ptr %call, i64 7416
   %92 = load i16, ptr %cntlid.i74, align 8
   %cntlid11.i = getelementptr inbounds i8, ptr %call, i64 19134
@@ -4911,12 +4911,12 @@ nvme_sctrl.exit.i:                                ; preds = %if.then.i.i69, %if.
 
 if.then.i67.i:                                    ; preds = %nvme_sctrl.exit.i
   %100 = load ptr, ptr %params1.i, align 16
-  %call.i68.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %subnqn.i.i, i64 noundef 256, ptr noundef nonnull @.str.485, ptr noundef %100) #17
+  %call.i68.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %subnqn.i.i, i64 noundef 256, ptr noundef nonnull @.str.485, ptr noundef %100) #19
   br label %nvme_init_subnqn.exit.i
 
 if.else.i.i81:                                    ; preds = %nvme_sctrl.exit.i
   %subnqn4.i.i = getelementptr inbounds i8, ptr %99, i64 280
-  call void @pstrcpy(ptr noundef nonnull %subnqn.i.i, i32 noundef 256, ptr noundef nonnull %subnqn4.i.i) #17
+  call void @pstrcpy(ptr noundef nonnull %subnqn.i.i, i32 noundef 256, ptr noundef nonnull %subnqn4.i.i) #19
   br label %nvme_init_subnqn.exit.i
 
 nvme_init_subnqn.exit.i:                          ; preds = %if.else.i.i81, %if.then.i67.i
@@ -4987,7 +4987,7 @@ nvme_init_ctrl.exit:                              ; preds = %if.end54.i, %land.l
 if.then18:                                        ; preds = %nvme_init_ctrl.exit
   %nsid = getelementptr inbounds i8, ptr %call, i64 16596
   store i32 1, ptr %nsid, align 4
-  %call21 = call i32 @nvme_ns_setup(ptr noundef nonnull %namespace, ptr noundef %errp) #17
+  %call21 = call i32 @nvme_ns_setup(ptr noundef nonnull %namespace, ptr noundef %errp) #19
   %tobool22.not = icmp eq i32 %call21, 0
   br i1 %tobool22.not, label %if.end24, label %if.end25
 
@@ -4998,7 +4998,7 @@ if.end24:                                         ; preds = %if.then18
   br i1 %or.cond.i88, label %nvme_attach_ns.exit, label %if.else.i89
 
 if.else.i89:                                      ; preds = %if.end24
-  call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 8293, ptr noundef nonnull @__PRETTY_FUNCTION__.nvme_attach_ns) #18
+  call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 8293, ptr noundef nonnull @__PRETTY_FUNCTION__.nvme_attach_ns) #20
   unreachable
 
 nvme_attach_ns.exit:                              ; preds = %if.end24
@@ -5033,7 +5033,7 @@ if.end25:                                         ; preds = %if.then22.i, %if.th
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @nvme_pci_write_config(ptr noundef %dev, i32 noundef %address, i32 noundef %val, i32 noundef %len) #0 {
 entry:
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.1, i32 noundef 8472, ptr noundef nonnull @__func__.nvme_sriov_pre_write_ctrl) #17
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.1, i32 noundef 8472, ptr noundef nonnull @__func__.nvme_sriov_pre_write_ctrl) #19
   %sriov_cap1.i = getelementptr inbounds i8, ptr %dev, i64 2196
   %0 = load i16, ptr %sriov_cap1.i, align 4
   %tobool.not.i = icmp eq i16 %0, 0
@@ -5079,15 +5079,15 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   br i1 %exitcond.not.i, label %nvme_sriov_pre_write_ctrl.exit, label %for.body.i, !llvm.loop !14
 
 nvme_sriov_pre_write_ctrl.exit:                   ; preds = %for.body.i, %entry, %if.end.i, %if.then8.i
-  tail call void @pci_default_write_config(ptr noundef %dev, i32 noundef %address, i32 noundef %val, i32 noundef %len) #17
-  tail call void @pcie_cap_flr_write_config(ptr noundef %dev, i32 noundef %address, i32 noundef %val, i32 noundef %len) #17
+  tail call void @pci_default_write_config(ptr noundef %dev, i32 noundef %address, i32 noundef %val, i32 noundef %len) #19
+  tail call void @pcie_cap_flr_write_config(ptr noundef %dev, i32 noundef %address, i32 noundef %val, i32 noundef %len) #19
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @nvme_exit(ptr noundef %pci_dev) #0 {
 entry:
-  %call = tail call ptr @object_dynamic_cast_assert(ptr noundef %pci_dev, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.1, i32 noundef 8348, ptr noundef nonnull @__func__.nvme_exit) #17
+  %call = tail call ptr @object_dynamic_cast_assert(ptr noundef %pci_dev, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.1, i32 noundef 8348, ptr noundef nonnull @__func__.nvme_exit) #19
   tail call fastcc void @nvme_ctrl_reset(ptr noundef %call, i32 noundef 0)
   %subsys = getelementptr inbounds i8, ptr %call, i64 7928
   %0 = load ptr, ptr %subsys, align 8
@@ -5119,19 +5119,19 @@ for.inc:                                          ; preds = %nvme_ns.exit, %if.t
 
 for.end:                                          ; preds = %for.inc
   %3 = load ptr, ptr %subsys, align 8
-  tail call void @nvme_subsys_unregister_ctrl(ptr noundef %3, ptr noundef nonnull %call) #17
+  tail call void @nvme_subsys_unregister_ctrl(ptr noundef %3, ptr noundef nonnull %call) #19
   br label %if.end5
 
 if.end5:                                          ; preds = %for.end, %entry
   %cq = getelementptr inbounds i8, ptr %call, i64 18808
   %4 = load ptr, ptr %cq, align 8
-  tail call void @g_free(ptr noundef %4) #17
+  tail call void @g_free(ptr noundef %4) #19
   %sq = getelementptr inbounds i8, ptr %call, i64 18800
   %5 = load ptr, ptr %sq, align 16
-  tail call void @g_free(ptr noundef %5) #17
+  tail call void @g_free(ptr noundef %5) #19
   %aer_reqs = getelementptr inbounds i8, ptr %call, i64 7856
   %6 = load ptr, ptr %aer_reqs, align 16
-  tail call void @g_free(ptr noundef %6) #17
+  tail call void @g_free(ptr noundef %6) #19
   %cmb_size_mb = getelementptr inbounds i8, ptr %call, i64 7268
   %7 = load i32, ptr %cmb_size_mb, align 4
   %tobool6.not = icmp eq i32 %7, 0
@@ -5140,7 +5140,7 @@ if.end5:                                          ; preds = %for.end, %entry
 if.then7:                                         ; preds = %if.end5
   %buf = getelementptr inbounds i8, ptr %call, i64 7792
   %8 = load ptr, ptr %buf, align 16
-  tail call void @g_free(ptr noundef %8) #17
+  tail call void @g_free(ptr noundef %8) #19
   br label %if.end8
 
 if.end8:                                          ; preds = %if.then7, %if.end5
@@ -5150,7 +5150,7 @@ if.end8:                                          ; preds = %if.then7, %if.end5
   br i1 %tobool9.not, label %if.end13, label %if.then10
 
 if.then10:                                        ; preds = %if.end8
-  tail call void @host_memory_backend_set_mapped(ptr noundef nonnull %9, i1 noundef zeroext false) #17
+  tail call void @host_memory_backend_set_mapped(ptr noundef nonnull %9, i1 noundef zeroext false) #19
   br label %if.end13
 
 if.end13:                                         ; preds = %if.then10, %if.end8
@@ -5166,14 +5166,14 @@ land.lhs.true:                                    ; preds = %if.end13
   br i1 %tobool17.not, label %if.end19, label %if.then18
 
 if.then18:                                        ; preds = %land.lhs.true
-  tail call void @pcie_sriov_pf_exit(ptr noundef nonnull %pci_dev) #17
+  tail call void @pcie_sriov_pf_exit(ptr noundef nonnull %pci_dev) #19
   br label %if.end19
 
 if.end19:                                         ; preds = %if.then18, %land.lhs.true, %if.end13
   %bar0 = getelementptr inbounds i8, ptr %call, i64 2608
-  tail call void @msix_uninit(ptr noundef nonnull %pci_dev, ptr noundef nonnull %bar0, ptr noundef nonnull %bar0) #17
+  tail call void @msix_uninit(ptr noundef nonnull %pci_dev, ptr noundef nonnull %bar0, ptr noundef nonnull %bar0) #19
   %iomem = getelementptr inbounds i8, ptr %call, i64 2880
-  tail call void @memory_region_del_subregion(ptr noundef nonnull %bar0, ptr noundef nonnull %iomem) #17
+  tail call void @memory_region_del_subregion(ptr noundef nonnull %bar0, ptr noundef nonnull %iomem) #19
   ret void
 }
 
@@ -5183,8 +5183,8 @@ declare void @device_class_set_props(ptr noundef, ptr noundef) local_unnamed_add
 define internal void @nvme_pci_reset(ptr noundef %qdev) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %qdev, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #17
-  %call1 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.1, i32 noundef 8463, ptr noundef nonnull @__func__.nvme_pci_reset) #17
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %qdev, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #19
+  %call1 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.1, i32 noundef 8463, ptr noundef nonnull @__func__.nvme_pci_reset) #19
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %0 = load i32, ptr @trace_events_enabled_count, align 4
   %tobool.i.i = icmp ne i32 %0, 0
@@ -5205,16 +5205,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #19
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #19
   %4 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.520, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.520, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5) #19
   br label %trace_pci_nvme_pci_reset.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.521) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.521) #19
   br label %trace_pci_nvme_pci_reset.exit
 
 trace_pci_nvme_pci_reset.exit:                    ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -5304,16 +5304,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #19
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #19
   %4 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.94, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, i64 noundef %addr, i32 noundef %size) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.94, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, i64 noundef %addr, i32 noundef %size) #19
   br label %trace_pci_nvme_mmio_read.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.95, i64 noundef %addr, i32 noundef %size) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.95, i64 noundef %addr, i32 noundef %size) #19
   br label %trace_pci_nvme_mmio_read.exit
 
 trace_pci_nvme_mmio_read.exit:                    ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -5343,16 +5343,16 @@ if.then.i.i29:                                    ; preds = %land.lhs.true5.i.i2
   br i1 %tobool7.i.i30, label %if.then8.i.i32, label %if.else.i.i31
 
 if.then8.i.i32:                                   ; preds = %if.then.i.i29
-  %call9.i.i33 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i22, ptr noundef null) #17
-  %call10.i.i34 = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i33 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i22, ptr noundef null) #19
+  %call10.i.i34 = tail call i32 @qemu_get_thread_id() #19
   %10 = load i64, ptr %_now.i.i22, align 8
   %tv_usec.i.i35 = getelementptr inbounds i8, ptr %_now.i.i22, i64 8
   %11 = load i64, ptr %tv_usec.i.i35, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.96, i32 noundef %call10.i.i34, i64 noundef %10, i64 noundef %11, i64 noundef %addr) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.96, i32 noundef %call10.i.i34, i64 noundef %10, i64 noundef %11, i64 noundef %addr) #19
   br label %trace_pci_nvme_ub_mmiord_misaligned32.exit
 
 if.else.i.i31:                                    ; preds = %if.then.i.i29
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.97, i64 noundef %addr) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.97, i64 noundef %addr) #19
   br label %trace_pci_nvme_ub_mmiord_misaligned32.exit
 
 trace_pci_nvme_ub_mmiord_misaligned32.exit:       ; preds = %do.body, %land.lhs.true5.i.i26, %if.then8.i.i32, %if.else.i.i31
@@ -5387,16 +5387,16 @@ if.then.i.i43:                                    ; preds = %land.lhs.true5.i.i4
   br i1 %tobool7.i.i44, label %if.then8.i.i46, label %if.else.i.i45
 
 if.then8.i.i46:                                   ; preds = %if.then.i.i43
-  %call9.i.i47 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i36, ptr noundef null) #17
-  %call10.i.i48 = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i47 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i36, ptr noundef null) #19
+  %call10.i.i48 = tail call i32 @qemu_get_thread_id() #19
   %17 = load i64, ptr %_now.i.i36, align 8
   %tv_usec.i.i49 = getelementptr inbounds i8, ptr %_now.i.i36, i64 8
   %18 = load i64, ptr %tv_usec.i.i49, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.98, i32 noundef %call10.i.i48, i64 noundef %17, i64 noundef %18, i64 noundef %addr) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.98, i32 noundef %call10.i.i48, i64 noundef %17, i64 noundef %18, i64 noundef %addr) #19
   br label %trace_pci_nvme_ub_mmiord_toosmall.exit
 
 if.else.i.i45:                                    ; preds = %if.then.i.i43
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.99, i64 noundef %addr) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.99, i64 noundef %addr) #19
   br label %trace_pci_nvme_ub_mmiord_toosmall.exit
 
 trace_pci_nvme_ub_mmiord_toosmall.exit:           ; preds = %do.body21, %land.lhs.true5.i.i40, %if.then8.i.i46, %if.else.i.i45
@@ -5408,7 +5408,7 @@ trace_pci_nvme_ub_mmiord_toosmall.exit:           ; preds = %do.body21, %land.lh
 
 if.end35.sink.split:                              ; preds = %trace_pci_nvme_ub_mmiord_toosmall.exit, %trace_pci_nvme_ub_mmiord_misaligned32.exit
   %.str.92.sink = phi ptr [ @.str.91, %trace_pci_nvme_ub_mmiord_misaligned32.exit ], [ @.str.92, %trace_pci_nvme_ub_mmiord_toosmall.exit ]
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull %.str.92.sink, ptr noundef nonnull @__func__.nvme_mmio_read, i64 noundef %addr) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull %.str.92.sink, ptr noundef nonnull @__func__.nvme_mmio_read, i64 noundef %addr) #19
   br label %if.end35
 
 if.end35:                                         ; preds = %if.end35.sink.split, %if.else, %trace_pci_nvme_ub_mmiord_toosmall.exit, %trace_pci_nvme_ub_mmiord_misaligned32.exit
@@ -5438,16 +5438,16 @@ if.then.i.i59:                                    ; preds = %land.lhs.true5.i.i5
   br i1 %tobool7.i.i60, label %if.then8.i.i62, label %if.else.i.i61
 
 if.then8.i.i62:                                   ; preds = %if.then.i.i59
-  %call9.i.i63 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i52, ptr noundef null) #17
-  %call10.i.i64 = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i63 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i52, ptr noundef null) #19
+  %call10.i.i64 = tail call i32 @qemu_get_thread_id() #19
   %24 = load i64, ptr %_now.i.i52, align 8
   %tv_usec.i.i65 = getelementptr inbounds i8, ptr %_now.i.i52, i64 8
   %25 = load i64, ptr %tv_usec.i.i65, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.100, i32 noundef %call10.i.i64, i64 noundef %24, i64 noundef %25, i64 noundef %addr) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.100, i32 noundef %call10.i.i64, i64 noundef %24, i64 noundef %25, i64 noundef %addr) #19
   br label %trace_pci_nvme_ub_mmiord_invalid_ofs.exit
 
 if.else.i.i61:                                    ; preds = %if.then.i.i59
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.101, i64 noundef %addr) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.101, i64 noundef %addr) #19
   br label %trace_pci_nvme_ub_mmiord_invalid_ofs.exit
 
 trace_pci_nvme_ub_mmiord_invalid_ofs.exit:        ; preds = %do.body40, %land.lhs.true5.i.i56, %if.then8.i.i62, %if.else.i.i61
@@ -5458,25 +5458,25 @@ trace_pci_nvme_ub_mmiord_invalid_ofs.exit:        ; preds = %do.body40, %land.lh
   br i1 %cmp.i67.not, label %return, label %if.then49
 
 if.then49:                                        ; preds = %trace_pci_nvme_ub_mmiord_invalid_ofs.exit
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.93, ptr noundef nonnull @__func__.nvme_mmio_read, i64 noundef %addr) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.93, ptr noundef nonnull @__func__.nvme_mmio_read, i64 noundef %addr) #19
   br label %return
 
 if.end53:                                         ; preds = %if.end35
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #17
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #19
   %27 = getelementptr i8, ptr %call.i, i64 2232
   %call54.val = load ptr, ptr %27, align 8
   %cmp.i68.not = icmp eq ptr %call54.val, null
   br i1 %cmp.i68.not, label %if.end63, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end53
-  %call.i69 = tail call ptr @pcie_sriov_get_pf(ptr noundef %opaque) #17
-  %call1.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i69, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.39, i32 noundef 647, ptr noundef nonnull @__func__.nvme_sctrl) #17
+  %call.i69 = tail call ptr @pcie_sriov_get_pf(ptr noundef %opaque) #19
+  %call1.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i69, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.39, i32 noundef 647, ptr noundef nonnull @__func__.nvme_sctrl) #19
   %28 = getelementptr i8, ptr %opaque, i64 2232
   %n.val.i = load ptr, ptr %28, align 8
   %cmp.i.not.i = icmp ne ptr %n.val.i, null
   tail call void @llvm.assume(i1 %cmp.i.not.i)
   %sec.i = getelementptr inbounds i8, ptr %call1.i, i64 27800
-  %call3.i = tail call zeroext i16 @pcie_sriov_vf_number(ptr noundef nonnull %opaque) #17
+  %call3.i = tail call zeroext i16 @pcie_sriov_vf_number(ptr noundef nonnull %opaque) #19
   %idxprom.i = zext i16 %call3.i to i64
   %scs = getelementptr [127 x %struct.NvmeSecCtrlEntry], ptr %sec.i, i64 0, i64 %idxprom.i, i32 2
   %29 = load i8, ptr %scs, align 1
@@ -5506,16 +5506,16 @@ if.then.i.i77:                                    ; preds = %land.lhs.true5.i.i7
   br i1 %tobool7.i.i78, label %if.then8.i.i80, label %if.else.i.i79
 
 if.then8.i.i80:                                   ; preds = %if.then.i.i77
-  %call9.i.i81 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i70, ptr noundef null) #17
-  %call10.i.i82 = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i81 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i70, ptr noundef null) #19
+  %call10.i.i82 = tail call i32 @qemu_get_thread_id() #19
   %34 = load i64, ptr %_now.i.i70, align 8
   %tv_usec.i.i83 = getelementptr inbounds i8, ptr %_now.i.i70, i64 8
   %35 = load i64, ptr %tv_usec.i.i83, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.102, i32 noundef %call10.i.i82, i64 noundef %34, i64 noundef %35, i64 noundef %addr, i32 noundef %size) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.102, i32 noundef %call10.i.i82, i64 noundef %34, i64 noundef %35, i64 noundef %addr, i32 noundef %size) #19
   br label %trace_pci_nvme_err_ignored_mmio_vf_offline.exit
 
 if.else.i.i79:                                    ; preds = %if.then.i.i77
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.103, i64 noundef %addr, i32 noundef %size) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.103, i64 noundef %addr, i32 noundef %size) #19
   br label %trace_pci_nvme_err_ignored_mmio_vf_offline.exit
 
 trace_pci_nvme_err_ignored_mmio_vf_offline.exit:  ; preds = %if.then62, %land.lhs.true5.i.i74, %if.then8.i.i80, %if.else.i.i79
@@ -5539,7 +5539,7 @@ if.then72:                                        ; preds = %land.lhs.true66
   %mr = getelementptr inbounds i8, ptr %37, i64 112
   %size75 = getelementptr inbounds i8, ptr %37, i64 40
   %38 = load i64, ptr %size75, align 8
-  tail call void @memory_region_msync(ptr noundef nonnull %mr, i64 noundef 0, i64 noundef %38) #17
+  tail call void @memory_region_msync(ptr noundef nonnull %mr, i64 noundef 0, i64 noundef %38) #19
   br label %if.end76
 
 if.end76:                                         ; preds = %if.then72, %land.lhs.true66, %if.end63
@@ -5571,7 +5571,7 @@ sw.bb7.i:                                         ; preds = %if.end76
   br label %return
 
 do.body.i:                                        ; preds = %if.end76
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.104, i32 noundef 419, ptr noundef nonnull @__func__.ldn_le_p, ptr noundef null) #18
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.104, i32 noundef 419, ptr noundef nonnull @__func__.ldn_le_p, ptr noundef null) #20
   unreachable
 
 return:                                           ; preds = %sw.bb7.i, %sw.bb4.i, %sw.bb1.i, %sw.bb.i, %trace_pci_nvme_ub_mmiord_invalid_ofs.exit, %if.then49, %trace_pci_nvme_err_ignored_mmio_vf_offline.exit
@@ -5640,35 +5640,35 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #19
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #19
   %4 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.105, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, i64 noundef %addr, i64 noundef %data, i32 noundef %size) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.105, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, i64 noundef %addr, i64 noundef %data, i32 noundef %size) #19
   br label %trace_pci_nvme_mmio_write.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.106, i64 noundef %addr, i64 noundef %data, i32 noundef %size) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.106, i64 noundef %addr, i64 noundef %data, i32 noundef %size) #19
   br label %trace_pci_nvme_mmio_write.exit
 
 trace_pci_nvme_mmio_write.exit:                   ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #17
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #19
   %6 = getelementptr i8, ptr %call.i, i64 2232
   %call.val = load ptr, ptr %6, align 8
   %cmp.i.not = icmp eq ptr %call.val, null
   br i1 %cmp.i.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %trace_pci_nvme_mmio_write.exit
-  %call.i13 = tail call ptr @pcie_sriov_get_pf(ptr noundef %opaque) #17
-  %call1.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i13, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.39, i32 noundef 647, ptr noundef nonnull @__func__.nvme_sctrl) #17
+  %call.i13 = tail call ptr @pcie_sriov_get_pf(ptr noundef %opaque) #19
+  %call1.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i13, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.39, i32 noundef 647, ptr noundef nonnull @__func__.nvme_sctrl) #19
   %7 = getelementptr i8, ptr %opaque, i64 2232
   %n.val.i = load ptr, ptr %7, align 8
   %cmp.i.not.i = icmp ne ptr %n.val.i, null
   tail call void @llvm.assume(i1 %cmp.i.not.i)
   %sec.i = getelementptr inbounds i8, ptr %call1.i, i64 27800
-  %call3.i = tail call zeroext i16 @pcie_sriov_vf_number(ptr noundef nonnull %opaque) #17
+  %call3.i = tail call zeroext i16 @pcie_sriov_vf_number(ptr noundef nonnull %opaque) #19
   %idxprom.i = zext i16 %call3.i to i64
   %scs = getelementptr [127 x %struct.NvmeSecCtrlEntry], ptr %sec.i, i64 0, i64 %idxprom.i, i32 2
   %8 = load i8, ptr %scs, align 1
@@ -5698,16 +5698,16 @@ if.then.i.i21:                                    ; preds = %land.lhs.true5.i.i1
   br i1 %tobool7.i.i22, label %if.then8.i.i24, label %if.else.i.i23
 
 if.then8.i.i24:                                   ; preds = %if.then.i.i21
-  %call9.i.i25 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i14, ptr noundef null) #17
-  %call10.i.i26 = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i25 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i14, ptr noundef null) #19
+  %call10.i.i26 = tail call i32 @qemu_get_thread_id() #19
   %13 = load i64, ptr %_now.i.i14, align 8
   %tv_usec.i.i27 = getelementptr inbounds i8, ptr %_now.i.i14, i64 8
   %14 = load i64, ptr %tv_usec.i.i27, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.102, i32 noundef %call10.i.i26, i64 noundef %13, i64 noundef %14, i64 noundef %addr, i32 noundef %size) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.102, i32 noundef %call10.i.i26, i64 noundef %13, i64 noundef %14, i64 noundef %addr, i32 noundef %size) #19
   br label %trace_pci_nvme_err_ignored_mmio_vf_offline.exit
 
 if.else.i.i23:                                    ; preds = %if.then.i.i21
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.103, i64 noundef %addr, i32 noundef %size) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.103, i64 noundef %addr, i32 noundef %size) #19
   br label %trace_pci_nvme_err_ignored_mmio_vf_offline.exit
 
 trace_pci_nvme_err_ignored_mmio_vf_offline.exit:  ; preds = %if.then, %land.lhs.true5.i.i18, %if.then8.i.i24, %if.else.i.i23
@@ -5719,7 +5719,7 @@ if.end:                                           ; preds = %land.lhs.true, %tra
   br i1 %cmp5, label %if.then6, label %if.else
 
 if.then6:                                         ; preds = %if.end
-  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #17
+  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #19
   %bar.i = getelementptr inbounds i8, ptr %opaque, i64 3152
   %bar.val.i = load i64, ptr %bar.i, align 1
   %cc4.i = getelementptr inbounds i8, ptr %opaque, i64 3172
@@ -5755,16 +5755,16 @@ if.then.i.i.i:                                    ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.i.i.i, label %if.then8.i.i.i, label %if.else.i.i.i
 
 if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
-  %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #17
-  %call10.i.i.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #19
+  %call10.i.i.i = tail call i32 @qemu_get_thread_id() #19
   %19 = load i64, ptr %_now.i.i.i, align 8
   %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %20 = load i64, ptr %tv_usec.i.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.120, i32 noundef %call10.i.i.i, i64 noundef %19, i64 noundef %20, i64 noundef %addr) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.120, i32 noundef %call10.i.i.i, i64 noundef %19, i64 noundef %20, i64 noundef %addr) #19
   br label %trace_pci_nvme_ub_mmiowr_misaligned32.exit.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.121, i64 noundef %addr) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.121, i64 noundef %addr) #19
   br label %trace_pci_nvme_ub_mmiowr_misaligned32.exit.i
 
 trace_pci_nvme_ub_mmiowr_misaligned32.exit.i:     ; preds = %if.else.i.i.i, %if.then8.i.i.i, %land.lhs.true5.i.i.i, %do.body.i
@@ -5775,7 +5775,7 @@ trace_pci_nvme_ub_mmiowr_misaligned32.exit.i:     ; preds = %if.else.i.i.i, %if.
   br i1 %cmp.i.not.i28, label %if.end27.i, label %if.then25.i
 
 if.then25.i:                                      ; preds = %trace_pci_nvme_ub_mmiowr_misaligned32.exit.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.107, ptr noundef nonnull @__func__.nvme_write_bar, i64 noundef %addr) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.107, ptr noundef nonnull @__func__.nvme_write_bar, i64 noundef %addr) #19
   br label %if.end27.i
 
 if.end27.i:                                       ; preds = %if.then25.i, %trace_pci_nvme_ub_mmiowr_misaligned32.exit.i, %if.then6
@@ -5803,16 +5803,16 @@ if.then.i.i132.i:                                 ; preds = %land.lhs.true5.i.i1
   br i1 %tobool7.i.i133.i, label %if.then8.i.i135.i, label %if.else.i.i134.i
 
 if.then8.i.i135.i:                                ; preds = %if.then.i.i132.i
-  %call9.i.i136.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i125.i, ptr noundef null) #17
-  %call10.i.i137.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i136.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i125.i, ptr noundef null) #19
+  %call10.i.i137.i = tail call i32 @qemu_get_thread_id() #19
   %26 = load i64, ptr %_now.i.i125.i, align 8
   %tv_usec.i.i138.i = getelementptr inbounds i8, ptr %_now.i.i125.i, i64 8
   %27 = load i64, ptr %tv_usec.i.i138.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.122, i32 noundef %call10.i.i137.i, i64 noundef %26, i64 noundef %27, i64 noundef %addr, i32 noundef %size) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.122, i32 noundef %call10.i.i137.i, i64 noundef %26, i64 noundef %27, i64 noundef %addr, i32 noundef %size) #19
   br label %trace_pci_nvme_ub_mmiowr_toosmall.exit.i
 
 if.else.i.i134.i:                                 ; preds = %if.then.i.i132.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.123, i64 noundef %addr, i32 noundef %size) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.123, i64 noundef %addr, i32 noundef %size) #19
   br label %trace_pci_nvme_ub_mmiowr_toosmall.exit.i
 
 trace_pci_nvme_ub_mmiowr_toosmall.exit.i:         ; preds = %if.else.i.i134.i, %if.then8.i.i135.i, %land.lhs.true5.i.i129.i, %do.body37.i
@@ -5823,7 +5823,7 @@ trace_pci_nvme_ub_mmiowr_toosmall.exit.i:         ; preds = %if.else.i.i134.i, %
   br i1 %cmp.i140.not.i, label %if.end50.i, label %if.then46.i
 
 if.then46.i:                                      ; preds = %trace_pci_nvme_ub_mmiowr_toosmall.exit.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.108, ptr noundef nonnull @__func__.nvme_write_bar, i64 noundef %addr, i32 noundef %size) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.108, ptr noundef nonnull @__func__.nvme_write_bar, i64 noundef %addr, i32 noundef %size) #19
   br label %if.end50.i
 
 if.end50.i:                                       ; preds = %if.then46.i, %trace_pci_nvme_ub_mmiowr_toosmall.exit.i, %if.end27.i
@@ -5852,7 +5852,7 @@ if.end50.i:                                       ; preds = %if.then46.i, %trace
   ]
 
 sw.bb.i:                                          ; preds = %if.end50.i
-  %call51.i = tail call i32 @msix_enabled(ptr noundef %call.i.i) #17
+  %call51.i = tail call i32 @msix_enabled(ptr noundef %call.i.i) #19
   %tobool52.not.i = icmp eq i32 %call51.i, 0
   br i1 %tobool52.not.i, label %if.end73.i, label %do.body60.i
 
@@ -5877,16 +5877,16 @@ if.then.i.i148.i:                                 ; preds = %land.lhs.true5.i.i1
   br i1 %tobool7.i.i149.i, label %if.then8.i.i151.i, label %if.else.i.i150.i
 
 if.then8.i.i151.i:                                ; preds = %if.then.i.i148.i
-  %call9.i.i152.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i141.i, ptr noundef null) #17
-  %call10.i.i153.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i152.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i141.i, ptr noundef null) #19
+  %call10.i.i153.i = tail call i32 @qemu_get_thread_id() #19
   %33 = load i64, ptr %_now.i.i141.i, align 8
   %tv_usec.i.i154.i = getelementptr inbounds i8, ptr %_now.i.i141.i, i64 8
   %34 = load i64, ptr %tv_usec.i.i154.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.124, i32 noundef %call10.i.i153.i, i64 noundef %33, i64 noundef %34) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.124, i32 noundef %call10.i.i153.i, i64 noundef %33, i64 noundef %34) #19
   br label %trace_pci_nvme_ub_mmiowr_intmask_with_msix.exit.i
 
 if.else.i.i150.i:                                 ; preds = %if.then.i.i148.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.125) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.125) #19
   br label %trace_pci_nvme_ub_mmiowr_intmask_with_msix.exit.i
 
 trace_pci_nvme_ub_mmiowr_intmask_with_msix.exit.i: ; preds = %if.else.i.i150.i, %if.then8.i.i151.i, %land.lhs.true5.i.i145.i, %do.body60.i
@@ -5897,7 +5897,7 @@ trace_pci_nvme_ub_mmiowr_intmask_with_msix.exit.i: ; preds = %if.else.i.i150.i, 
   br i1 %cmp.i156.not.i, label %if.end73.i, label %if.then69.i
 
 if.then69.i:                                      ; preds = %trace_pci_nvme_ub_mmiowr_intmask_with_msix.exit.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.109, ptr noundef nonnull @__func__.nvme_write_bar) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.109, ptr noundef nonnull @__func__.nvme_write_bar) #19
   br label %if.end73.i
 
 if.end73.i:                                       ; preds = %if.then69.i, %trace_pci_nvme_ub_mmiowr_intmask_with_msix.exit.i, %sw.bb.i
@@ -5928,23 +5928,23 @@ if.then.i.i164.i:                                 ; preds = %land.lhs.true5.i.i1
   br i1 %tobool7.i.i165.i, label %if.then8.i.i167.i, label %if.else.i.i166.i
 
 if.then8.i.i167.i:                                ; preds = %if.then.i.i164.i
-  %call9.i.i168.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i157.i, ptr noundef null) #17
-  %call10.i.i169.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i168.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i157.i, ptr noundef null) #19
+  %call10.i.i169.i = tail call i32 @qemu_get_thread_id() #19
   %41 = load i64, ptr %_now.i.i157.i, align 8
   %tv_usec.i.i170.i = getelementptr inbounds i8, ptr %_now.i.i157.i, i64 8
   %42 = load i64, ptr %tv_usec.i.i170.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.126, i32 noundef %call10.i.i169.i, i64 noundef %41, i64 noundef %42, i64 noundef %and81.i, i64 noundef %conv82.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.126, i32 noundef %call10.i.i169.i, i64 noundef %41, i64 noundef %42, i64 noundef %and81.i, i64 noundef %conv82.i) #19
   br label %trace_pci_nvme_mmio_intm_set.exit.i
 
 if.else.i.i166.i:                                 ; preds = %if.then.i.i164.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.127, i64 noundef %and81.i, i64 noundef %conv82.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.127, i64 noundef %and81.i, i64 noundef %conv82.i) #19
   br label %trace_pci_nvme_mmio_intm_set.exit.i
 
 trace_pci_nvme_mmio_intm_set.exit.i:              ; preds = %if.else.i.i166.i, %if.then8.i.i167.i, %land.lhs.true5.i.i161.i, %if.end73.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i157.i)
-  %call.i.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %opaque, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #17
+  %call.i.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %opaque, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #19
   %intms1.val.i.i = load i32, ptr %intms7.i, align 1
-  %call3.i.i = tail call i32 @msix_enabled(ptr noundef %call.i.i.i) #17
+  %call3.i.i = tail call i32 @msix_enabled(ptr noundef %call.i.i.i) #19
   %tobool.not.i.i = icmp eq i32 %call3.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.end7
 
@@ -5955,11 +5955,11 @@ if.end.i.i:                                       ; preds = %trace_pci_nvme_mmio
   %and.i171.i = and i32 %43, %not.i.i
   %tobool4.not.i.i = icmp ne i32 %and.i171.i, 0
   %..i.i = zext i1 %tobool4.not.i.i to i32
-  tail call void @pci_set_irq(ptr noundef %call.i.i.i, i32 noundef %..i.i) #17
+  tail call void @pci_set_irq(ptr noundef %call.i.i.i, i32 noundef %..i.i) #19
   br label %if.end7
 
 sw.bb83.i:                                        ; preds = %if.end50.i
-  %call84.i = tail call i32 @msix_enabled(ptr noundef %call.i.i) #17
+  %call84.i = tail call i32 @msix_enabled(ptr noundef %call.i.i) #19
   %tobool85.not.i = icmp eq i32 %call84.i, 0
   br i1 %tobool85.not.i, label %if.end106.i, label %do.body93.i
 
@@ -5984,16 +5984,16 @@ if.then.i.i179.i:                                 ; preds = %land.lhs.true5.i.i1
   br i1 %tobool7.i.i180.i, label %if.then8.i.i182.i, label %if.else.i.i181.i
 
 if.then8.i.i182.i:                                ; preds = %if.then.i.i179.i
-  %call9.i.i183.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i172.i, ptr noundef null) #17
-  %call10.i.i184.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i183.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i172.i, ptr noundef null) #19
+  %call10.i.i184.i = tail call i32 @qemu_get_thread_id() #19
   %48 = load i64, ptr %_now.i.i172.i, align 8
   %tv_usec.i.i185.i = getelementptr inbounds i8, ptr %_now.i.i172.i, i64 8
   %49 = load i64, ptr %tv_usec.i.i185.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.124, i32 noundef %call10.i.i184.i, i64 noundef %48, i64 noundef %49) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.124, i32 noundef %call10.i.i184.i, i64 noundef %48, i64 noundef %49) #19
   br label %trace_pci_nvme_ub_mmiowr_intmask_with_msix.exit186.i
 
 if.else.i.i181.i:                                 ; preds = %if.then.i.i179.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.125) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.125) #19
   br label %trace_pci_nvme_ub_mmiowr_intmask_with_msix.exit186.i
 
 trace_pci_nvme_ub_mmiowr_intmask_with_msix.exit186.i: ; preds = %if.else.i.i181.i, %if.then8.i.i182.i, %land.lhs.true5.i.i176.i, %do.body93.i
@@ -6004,7 +6004,7 @@ trace_pci_nvme_ub_mmiowr_intmask_with_msix.exit186.i: ; preds = %if.else.i.i181.
   br i1 %cmp.i188.not.i, label %if.end106.i, label %if.then102.i
 
 if.then102.i:                                     ; preds = %trace_pci_nvme_ub_mmiowr_intmask_with_msix.exit186.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.110, ptr noundef nonnull @__func__.nvme_write_bar) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.110, ptr noundef nonnull @__func__.nvme_write_bar) #19
   br label %if.end106.i
 
 if.end106.i:                                      ; preds = %if.then102.i, %trace_pci_nvme_ub_mmiowr_intmask_with_msix.exit186.i, %sw.bb83.i
@@ -6036,23 +6036,23 @@ if.then.i.i196.i:                                 ; preds = %land.lhs.true5.i.i1
   br i1 %tobool7.i.i197.i, label %if.then8.i.i199.i, label %if.else.i.i198.i
 
 if.then8.i.i199.i:                                ; preds = %if.then.i.i196.i
-  %call9.i.i200.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i189.i, ptr noundef null) #17
-  %call10.i.i201.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i200.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i189.i, ptr noundef null) #19
+  %call10.i.i201.i = tail call i32 @qemu_get_thread_id() #19
   %57 = load i64, ptr %_now.i.i189.i, align 8
   %tv_usec.i.i202.i = getelementptr inbounds i8, ptr %_now.i.i189.i, i64 8
   %58 = load i64, ptr %tv_usec.i.i202.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.128, i32 noundef %call10.i.i201.i, i64 noundef %57, i64 noundef %58, i64 noundef %and116.i, i64 noundef %conv117.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.128, i32 noundef %call10.i.i201.i, i64 noundef %57, i64 noundef %58, i64 noundef %and116.i, i64 noundef %conv117.i) #19
   br label %trace_pci_nvme_mmio_intm_clr.exit.i
 
 if.else.i.i198.i:                                 ; preds = %if.then.i.i196.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.129, i64 noundef %and116.i, i64 noundef %conv117.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.129, i64 noundef %and116.i, i64 noundef %conv117.i) #19
   br label %trace_pci_nvme_mmio_intm_clr.exit.i
 
 trace_pci_nvme_mmio_intm_clr.exit.i:              ; preds = %if.else.i.i198.i, %if.then8.i.i199.i, %land.lhs.true5.i.i193.i, %if.end106.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i189.i)
-  %call.i.i203.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %opaque, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #17
+  %call.i.i203.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %opaque, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #19
   %intms1.val.i205.i = load i32, ptr %intms7.i, align 1
-  %call3.i206.i = tail call i32 @msix_enabled(ptr noundef %call.i.i203.i) #17
+  %call3.i206.i = tail call i32 @msix_enabled(ptr noundef %call.i.i203.i) #19
   %tobool.not.i207.i = icmp eq i32 %call3.i206.i, 0
   br i1 %tobool.not.i207.i, label %if.end.i208.i, label %if.end7
 
@@ -6063,7 +6063,7 @@ if.end.i208.i:                                    ; preds = %trace_pci_nvme_mmio
   %and.i211.i = and i32 %59, %not.i209.i
   %tobool4.not.i212.i = icmp ne i32 %and.i211.i, 0
   %..i213.i = zext i1 %tobool4.not.i212.i to i32
-  tail call void @pci_set_irq(ptr noundef %call.i.i203.i, i32 noundef %..i213.i) #17
+  tail call void @pci_set_irq(ptr noundef %call.i.i203.i, i32 noundef %..i213.i) #19
   br label %if.end7
 
 sw.bb118.i:                                       ; preds = %if.end50.i
@@ -6090,16 +6090,16 @@ if.then.i.i222.i:                                 ; preds = %land.lhs.true5.i.i2
   br i1 %tobool7.i.i223.i, label %if.then8.i.i225.i, label %if.else.i.i224.i
 
 if.then8.i.i225.i:                                ; preds = %if.then.i.i222.i
-  %call9.i.i226.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i215.i, ptr noundef null) #17
-  %call10.i.i227.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i226.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i215.i, ptr noundef null) #19
+  %call10.i.i227.i = tail call i32 @qemu_get_thread_id() #19
   %64 = load i64, ptr %_now.i.i215.i, align 8
   %tv_usec.i.i228.i = getelementptr inbounds i8, ptr %_now.i.i215.i, i64 8
   %65 = load i64, ptr %tv_usec.i.i228.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.130, i32 noundef %call10.i.i227.i, i64 noundef %64, i64 noundef %65, i64 noundef %and122.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.130, i32 noundef %call10.i.i227.i, i64 noundef %64, i64 noundef %65, i64 noundef %and122.i) #19
   br label %trace_pci_nvme_mmio_cfg.exit.i
 
 if.else.i.i224.i:                                 ; preds = %if.then.i.i222.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.131, i64 noundef %and122.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.131, i64 noundef %and122.i) #19
   br label %trace_pci_nvme_mmio_cfg.exit.i
 
 trace_pci_nvme_mmio_cfg.exit.i:                   ; preds = %if.else.i.i224.i, %if.then8.i.i225.i, %land.lhs.true5.i.i219.i, %sw.bb118.i
@@ -6132,16 +6132,16 @@ if.then.i.i236.i:                                 ; preds = %land.lhs.true5.i.i2
   br i1 %tobool7.i.i237.i, label %if.then8.i.i239.i, label %if.else.i.i238.i
 
 if.then8.i.i239.i:                                ; preds = %if.then.i.i236.i
-  %call9.i.i240.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i229.i, ptr noundef null) #17
-  %call10.i.i241.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i240.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i229.i, ptr noundef null) #19
+  %call10.i.i241.i = tail call i32 @qemu_get_thread_id() #19
   %72 = load i64, ptr %_now.i.i229.i, align 8
   %tv_usec.i.i242.i = getelementptr inbounds i8, ptr %_now.i.i229.i, i64 8
   %73 = load i64, ptr %tv_usec.i.i242.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.132, i32 noundef %call10.i.i241.i, i64 noundef %72, i64 noundef %73) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.132, i32 noundef %call10.i.i241.i, i64 noundef %72, i64 noundef %73) #19
   br label %trace_pci_nvme_mmio_shutdown_set.exit.i
 
 if.else.i.i238.i:                                 ; preds = %if.then.i.i236.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.133) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.133) #19
   br label %trace_pci_nvme_mmio_shutdown_set.exit.i
 
 trace_pci_nvme_mmio_shutdown_set.exit.i:          ; preds = %if.else.i.i238.i, %if.then8.i.i239.i, %land.lhs.true5.i.i233.i, %if.then128.i
@@ -6155,7 +6155,7 @@ if.then.i.i32:                                    ; preds = %trace_pci_nvme_mmio
   %mr.i.i = getelementptr inbounds i8, ptr %74, i64 112
   %size.i.i = getelementptr inbounds i8, ptr %74, i64 40
   %75 = load i64, ptr %size.i.i, align 8
-  tail call void @memory_region_msync(ptr noundef nonnull %mr.i.i, i64 noundef 0, i64 noundef %75) #17
+  tail call void @memory_region_msync(ptr noundef nonnull %mr.i.i, i64 noundef 0, i64 noundef %75) #19
   br label %if.end.i244.i
 
 if.end.i244.i:                                    ; preds = %if.then.i.i32, %trace_pci_nvme_mmio_shutdown_set.exit.i
@@ -6170,7 +6170,7 @@ nvme_ns.exit.i.i:                                 ; preds = %for.inc.i.i, %if.en
   br i1 %tobool5.not.i.i, label %for.inc.i.i, label %if.end7.i.i
 
 if.end7.i.i:                                      ; preds = %nvme_ns.exit.i.i
-  tail call void @nvme_ns_shutdown(ptr noundef nonnull %76) #17
+  tail call void @nvme_ns_shutdown(ptr noundef nonnull %76) #19
   br label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %if.end7.i.i, %nvme_ns.exit.i.i
@@ -6213,8 +6213,8 @@ if.then149.i:                                     ; preds = %if.end141.i
   %shr.i.i = lshr i32 %cc3.val.i.i, 7
   %and.i245.i = and i32 %shr.i.i, 15
   %shl.i.i = shl nuw nsw i32 4096, %and.i245.i
-  %call.i.i246.i = tail call ptr @pcie_sriov_get_pf(ptr noundef nonnull %opaque) #17
-  %call1.i.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i.i246.i, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.39, i32 noundef 647, ptr noundef nonnull @__func__.nvme_sctrl) #17
+  %call.i.i246.i = tail call ptr @pcie_sriov_get_pf(ptr noundef nonnull %opaque) #19
+  %call1.i.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i.i246.i, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.39, i32 noundef 647, ptr noundef nonnull @__func__.nvme_sctrl) #19
   %77 = getelementptr i8, ptr %opaque, i64 2232
   %n.val.i.i.i = load ptr, ptr %77, align 8
   %cmp.i.not.i.i247.i = icmp eq ptr %n.val.i.i.i, null
@@ -6222,14 +6222,14 @@ if.then149.i:                                     ; preds = %if.end141.i
 
 if.then.i.i248.i:                                 ; preds = %if.then149.i
   %sec.i.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 27800
-  %call3.i.i.i = tail call zeroext i16 @pcie_sriov_vf_number(ptr noundef nonnull %opaque) #17
+  %call3.i.i.i = tail call zeroext i16 @pcie_sriov_vf_number(ptr noundef nonnull %opaque) #19
   %idxprom.i.i.i = zext i16 %call3.i.i.i to i64
   %arrayidx.i.i249.i = getelementptr [127 x %struct.NvmeSecCtrlEntry], ptr %sec.i.i.i, i64 0, i64 %idxprom.i.i.i
   br label %nvme_sctrl.exit.i.i
 
 nvme_sctrl.exit.i.i:                              ; preds = %if.then.i.i248.i, %if.then149.i
   %retval.0.i.i.i = phi ptr [ %arrayidx.i.i249.i, %if.then.i.i248.i ], [ null, %if.then149.i ]
-  %call.i41.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %opaque, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #17
+  %call.i41.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %opaque, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #19
   %78 = getelementptr i8, ptr %call.i41.i.i, i64 2232
   %call15.val.i.i = load ptr, ptr %78, align 8
   %cmp.i.not.i.i31 = icmp eq ptr %call15.val.i.i, null
@@ -6266,20 +6266,20 @@ if.then.i.i.i.i:                                  ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.i.i.i.i, label %if.then8.i.i.i.i, label %if.else.i.i.i.i
 
 if.then8.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
-  %call9.i.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i.i, ptr noundef null) #17
-  %call10.i.i.i.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i.i, ptr noundef null) #19
+  %call10.i.i.i.i = tail call i32 @qemu_get_thread_id() #19
   %86 = load i64, ptr %_now.i.i.i.i, align 8
   %tv_usec.i.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i.i, i64 8
   %87 = load i64, ptr %tv_usec.i.i.i.i, align 8
   %conv11.i.i.i.i = zext i16 %80 to i32
   %conv12.i.i.i.i = zext i16 %81 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.136, i32 noundef %call10.i.i.i.i, i64 noundef %86, i64 noundef %87, i32 noundef %conv11.i.i.i.i, i32 noundef %conv12.i.i.i.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.136, i32 noundef %call10.i.i.i.i, i64 noundef %86, i64 noundef %87, i32 noundef %conv11.i.i.i.i, i32 noundef %conv12.i.i.i.i) #19
   br label %trace_pci_nvme_err_startfail_virt_state.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %if.then.i.i.i.i
   %conv13.i.i.i.i = zext i16 %80 to i32
   %conv14.i.i.i.i = zext i16 %81 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.137, i32 noundef %conv13.i.i.i.i, i32 noundef %conv14.i.i.i.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.137, i32 noundef %conv13.i.i.i.i, i32 noundef %conv14.i.i.i.i) #19
   br label %trace_pci_nvme_err_startfail_virt_state.exit.i.i
 
 trace_pci_nvme_err_startfail_virt_state.exit.i.i: ; preds = %if.else.i.i.i.i, %if.then8.i.i.i.i, %land.lhs.true5.i.i.i.i, %if.then.i252.i
@@ -6314,16 +6314,16 @@ if.then.i.i49.i.i:                                ; preds = %land.lhs.true5.i.i4
   br i1 %tobool7.i.i50.i.i, label %if.then8.i.i52.i.i, label %if.else.i.i51.i.i
 
 if.then8.i.i52.i.i:                               ; preds = %if.then.i.i49.i.i
-  %call9.i.i53.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i42.i.i, ptr noundef null) #17
-  %call10.i.i54.i.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i53.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i42.i.i, ptr noundef null) #19
+  %call10.i.i54.i.i = tail call i32 @qemu_get_thread_id() #19
   %94 = load i64, ptr %_now.i.i42.i.i, align 8
   %tv_usec.i.i55.i.i = getelementptr inbounds i8, ptr %_now.i.i42.i.i, i64 8
   %95 = load i64, ptr %tv_usec.i.i55.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.138, i32 noundef %call10.i.i54.i.i, i64 noundef %94, i64 noundef %95) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.138, i32 noundef %call10.i.i54.i.i, i64 noundef %94, i64 noundef %95) #19
   br label %trace_pci_nvme_err_startfail_cq.exit.i.i
 
 if.else.i.i51.i.i:                                ; preds = %if.then.i.i49.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.139) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.139) #19
   br label %trace_pci_nvme_err_startfail_cq.exit.i.i
 
 trace_pci_nvme_err_startfail_cq.exit.i.i:         ; preds = %if.else.i.i51.i.i, %if.then8.i.i52.i.i, %land.lhs.true5.i.i46.i.i, %if.then23.i.i
@@ -6358,16 +6358,16 @@ if.then.i.i63.i.i:                                ; preds = %land.lhs.true5.i.i6
   br i1 %tobool7.i.i64.i.i, label %if.then8.i.i66.i.i, label %if.else.i.i65.i.i
 
 if.then8.i.i66.i.i:                               ; preds = %if.then.i.i63.i.i
-  %call9.i.i67.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i56.i.i, ptr noundef null) #17
-  %call10.i.i68.i.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i67.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i56.i.i, ptr noundef null) #19
+  %call10.i.i68.i.i = tail call i32 @qemu_get_thread_id() #19
   %102 = load i64, ptr %_now.i.i56.i.i, align 8
   %tv_usec.i.i69.i.i = getelementptr inbounds i8, ptr %_now.i.i56.i.i, i64 8
   %103 = load i64, ptr %tv_usec.i.i69.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.140, i32 noundef %call10.i.i68.i.i, i64 noundef %102, i64 noundef %103) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.140, i32 noundef %call10.i.i68.i.i, i64 noundef %102, i64 noundef %103) #19
   br label %trace_pci_nvme_err_startfail_sq.exit.i.i
 
 if.else.i.i65.i.i:                                ; preds = %if.then.i.i63.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.141) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.141) #19
   br label %trace_pci_nvme_err_startfail_sq.exit.i.i
 
 trace_pci_nvme_err_startfail_sq.exit.i.i:         ; preds = %if.else.i.i65.i.i, %if.then8.i.i66.i.i, %land.lhs.true5.i.i60.i.i, %if.then33.i.i
@@ -6402,16 +6402,16 @@ if.then.i.i77.i.i:                                ; preds = %land.lhs.true5.i.i7
   br i1 %tobool7.i.i78.i.i, label %if.then8.i.i80.i.i, label %if.else.i.i79.i.i
 
 if.then8.i.i80.i.i:                               ; preds = %if.then.i.i77.i.i
-  %call9.i.i81.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i70.i.i, ptr noundef null) #17
-  %call10.i.i82.i.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i81.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i70.i.i, ptr noundef null) #19
+  %call10.i.i82.i.i = tail call i32 @qemu_get_thread_id() #19
   %108 = load i64, ptr %_now.i.i70.i.i, align 8
   %tv_usec.i.i83.i.i = getelementptr inbounds i8, ptr %_now.i.i70.i.i, i64 8
   %109 = load i64, ptr %tv_usec.i.i83.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.142, i32 noundef %call10.i.i82.i.i, i64 noundef %108, i64 noundef %109, i64 noundef %asq9.val.i.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.142, i32 noundef %call10.i.i82.i.i, i64 noundef %108, i64 noundef %109, i64 noundef %asq9.val.i.i) #19
   br label %trace_pci_nvme_err_startfail_asq_misaligned.exit.i.i
 
 if.else.i.i79.i.i:                                ; preds = %if.then.i.i77.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.143, i64 noundef %asq9.val.i.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.143, i64 noundef %asq9.val.i.i) #19
   br label %trace_pci_nvme_err_startfail_asq_misaligned.exit.i.i
 
 trace_pci_nvme_err_startfail_asq_misaligned.exit.i.i: ; preds = %if.else.i.i79.i.i, %if.then8.i.i80.i.i, %land.lhs.true5.i.i74.i.i, %if.then44.i.i
@@ -6444,16 +6444,16 @@ if.then.i.i91.i.i:                                ; preds = %land.lhs.true5.i.i8
   br i1 %tobool7.i.i92.i.i, label %if.then8.i.i94.i.i, label %if.else.i.i93.i.i
 
 if.then8.i.i94.i.i:                               ; preds = %if.then.i.i91.i.i
-  %call9.i.i95.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i84.i.i, ptr noundef null) #17
-  %call10.i.i96.i.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i95.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i84.i.i, ptr noundef null) #19
+  %call10.i.i96.i.i = tail call i32 @qemu_get_thread_id() #19
   %114 = load i64, ptr %_now.i.i84.i.i, align 8
   %tv_usec.i.i97.i.i = getelementptr inbounds i8, ptr %_now.i.i84.i.i, i64 8
   %115 = load i64, ptr %tv_usec.i.i97.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.144, i32 noundef %call10.i.i96.i.i, i64 noundef %114, i64 noundef %115, i64 noundef %acq12.val.i.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.144, i32 noundef %call10.i.i96.i.i, i64 noundef %114, i64 noundef %115, i64 noundef %acq12.val.i.i) #19
   br label %trace_pci_nvme_err_startfail_acq_misaligned.exit.i.i
 
 if.else.i.i93.i.i:                                ; preds = %if.then.i.i91.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.145, i64 noundef %acq12.val.i.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.145, i64 noundef %acq12.val.i.i) #19
   br label %trace_pci_nvme_err_startfail_acq_misaligned.exit.i.i
 
 trace_pci_nvme_err_startfail_acq_misaligned.exit.i.i: ; preds = %if.else.i.i93.i.i, %if.then8.i.i94.i.i, %land.lhs.true5.i.i88.i.i, %if.then56.i.i
@@ -6587,16 +6587,16 @@ if.then.i.i260.i:                                 ; preds = %land.lhs.true5.i.i2
   br i1 %tobool7.i.i261.i, label %if.then8.i.i263.i, label %if.else.i.i262.i
 
 if.then8.i.i263.i:                                ; preds = %if.then.i.i260.i
-  %call9.i.i264.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i253.i, ptr noundef null) #17
-  %call10.i.i265.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i264.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i253.i, ptr noundef null) #19
+  %call10.i.i265.i = tail call i32 @qemu_get_thread_id() #19
   %124 = load i64, ptr %_now.i.i253.i, align 8
   %tv_usec.i.i266.i = getelementptr inbounds i8, ptr %_now.i.i253.i, i64 8
   %125 = load i64, ptr %tv_usec.i.i266.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.430, i32 noundef %call10.i.i265.i, i64 noundef %124, i64 noundef %125) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.430, i32 noundef %call10.i.i265.i, i64 noundef %124, i64 noundef %125) #19
   br label %trace_pci_nvme_ub_mmiowr_ssreset_w1c_unsupported.exit.i
 
 if.else.i.i262.i:                                 ; preds = %if.then.i.i260.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.431) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.431) #19
   br label %trace_pci_nvme_ub_mmiowr_ssreset_w1c_unsupported.exit.i
 
 trace_pci_nvme_ub_mmiowr_ssreset_w1c_unsupported.exit.i: ; preds = %if.else.i.i262.i, %if.then8.i.i263.i, %land.lhs.true5.i.i257.i, %do.body178.i
@@ -6607,7 +6607,7 @@ trace_pci_nvme_ub_mmiowr_ssreset_w1c_unsupported.exit.i: ; preds = %if.else.i.i2
   br i1 %cmp.i268.not.i, label %if.end7, label %if.then187.i
 
 if.then187.i:                                     ; preds = %trace_pci_nvme_ub_mmiowr_ssreset_w1c_unsupported.exit.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.111, ptr noundef nonnull @__func__.nvme_write_bar) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.111, ptr noundef nonnull @__func__.nvme_write_bar) #19
   br label %if.end7
 
 if.else191.i:                                     ; preds = %sw.bb174.i
@@ -6622,7 +6622,7 @@ do.body195.i:                                     ; preds = %if.else191.i
   br i1 %cmp.i270.not.i, label %if.end7, label %if.then204.i
 
 if.then204.i:                                     ; preds = %do.body195.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.112, ptr noundef nonnull @__func__.nvme_write_bar) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.112, ptr noundef nonnull @__func__.nvme_write_bar) #19
   br label %if.end7
 
 sw.bb210.i:                                       ; preds = %if.end50.i
@@ -6650,16 +6650,16 @@ if.then.i.i278.i:                                 ; preds = %land.lhs.true5.i.i2
   br i1 %tobool7.i.i279.i, label %if.then8.i.i281.i, label %if.else.i.i280.i
 
 if.then8.i.i281.i:                                ; preds = %if.then.i.i278.i
-  %call9.i.i282.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i271.i, ptr noundef null) #17
-  %call10.i.i283.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i282.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i271.i, ptr noundef null) #19
+  %call10.i.i283.i = tail call i32 @qemu_get_thread_id() #19
   %132 = load i64, ptr %_now.i.i271.i, align 8
   %tv_usec.i.i284.i = getelementptr inbounds i8, ptr %_now.i.i271.i, i64 8
   %133 = load i64, ptr %tv_usec.i.i284.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.434, i32 noundef %call10.i.i283.i, i64 noundef %132, i64 noundef %133) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.434, i32 noundef %call10.i.i283.i, i64 noundef %132, i64 noundef %133) #19
   br label %trace_pci_nvme_ub_mmiowr_ssreset_unsupported.exit.i
 
 if.else.i.i280.i:                                 ; preds = %if.then.i.i278.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.435) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.435) #19
   br label %trace_pci_nvme_ub_mmiowr_ssreset_unsupported.exit.i
 
 trace_pci_nvme_ub_mmiowr_ssreset_unsupported.exit.i: ; preds = %if.else.i.i280.i, %if.then8.i.i281.i, %land.lhs.true5.i.i275.i, %if.then213.i
@@ -6691,16 +6691,16 @@ if.then.i.i292.i:                                 ; preds = %land.lhs.true5.i.i2
   br i1 %tobool7.i.i293.i, label %if.then8.i.i295.i, label %if.else.i.i294.i
 
 if.then8.i.i295.i:                                ; preds = %if.then.i.i292.i
-  %call9.i.i296.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i285.i, ptr noundef null) #17
-  %call10.i.i297.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i296.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i285.i, ptr noundef null) #19
+  %call10.i.i297.i = tail call i32 @qemu_get_thread_id() #19
   %138 = load i64, ptr %_now.i.i285.i, align 8
   %tv_usec.i.i298.i = getelementptr inbounds i8, ptr %_now.i.i285.i, i64 8
   %139 = load i64, ptr %tv_usec.i.i298.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.436, i32 noundef %call10.i.i297.i, i64 noundef %138, i64 noundef %139, i64 noundef %and219.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.436, i32 noundef %call10.i.i297.i, i64 noundef %138, i64 noundef %139, i64 noundef %and219.i) #19
   br label %trace_pci_nvme_mmio_aqattr.exit.i
 
 if.else.i.i294.i:                                 ; preds = %if.then.i.i292.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.437, i64 noundef %and219.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.437, i64 noundef %and219.i) #19
   br label %trace_pci_nvme_mmio_aqattr.exit.i
 
 trace_pci_nvme_mmio_aqattr.exit.i:                ; preds = %if.else.i.i294.i, %if.then8.i.i295.i, %land.lhs.true5.i.i289.i, %sw.bb216.i
@@ -6736,7 +6736,7 @@ sw.bb5.i.i:                                       ; preds = %sw.bb220.i
   br label %stn_le_p.exit.i
 
 do.body.i.i:                                      ; preds = %sw.bb220.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.104, i32 noundef 419, ptr noundef nonnull @__func__.stn_le_p, ptr noundef null) #18
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.104, i32 noundef 419, ptr noundef nonnull @__func__.stn_le_p, ptr noundef null) #20
   unreachable
 
 stn_le_p.exit.i:                                  ; preds = %sw.bb5.i.i, %sw.bb3.i.i, %sw.bb1.i.i, %sw.bb.i.i
@@ -6760,16 +6760,16 @@ if.then.i.i306.i:                                 ; preds = %land.lhs.true5.i.i3
   br i1 %tobool7.i.i307.i, label %if.then8.i.i309.i, label %if.else.i.i308.i
 
 if.then8.i.i309.i:                                ; preds = %if.then.i.i306.i
-  %call9.i.i310.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i299.i, ptr noundef null) #17
-  %call10.i.i311.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i310.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i299.i, ptr noundef null) #19
+  %call10.i.i311.i = tail call i32 @qemu_get_thread_id() #19
   %144 = load i64, ptr %_now.i.i299.i, align 8
   %tv_usec.i.i312.i = getelementptr inbounds i8, ptr %_now.i.i299.i, i64 8
   %145 = load i64, ptr %tv_usec.i.i312.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.438, i32 noundef %call10.i.i311.i, i64 noundef %144, i64 noundef %145, i64 noundef %data) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.438, i32 noundef %call10.i.i311.i, i64 noundef %144, i64 noundef %145, i64 noundef %data) #19
   br label %trace_pci_nvme_mmio_asqaddr.exit.i
 
 if.else.i.i308.i:                                 ; preds = %if.then.i.i306.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.439, i64 noundef %data) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.439, i64 noundef %data) #19
   br label %trace_pci_nvme_mmio_asqaddr.exit.i
 
 trace_pci_nvme_mmio_asqaddr.exit.i:               ; preds = %if.else.i.i308.i, %if.then8.i.i309.i, %land.lhs.true5.i.i303.i, %stn_le_p.exit.i
@@ -6802,16 +6802,16 @@ if.then.i.i320.i:                                 ; preds = %land.lhs.true5.i.i3
   br i1 %tobool7.i.i321.i, label %if.then8.i.i323.i, label %if.else.i.i322.i
 
 if.then8.i.i323.i:                                ; preds = %if.then.i.i320.i
-  %call9.i.i324.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i313.i, ptr noundef null) #17
-  %call10.i.i325.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i324.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i313.i, ptr noundef null) #19
+  %call10.i.i325.i = tail call i32 @qemu_get_thread_id() #19
   %150 = load i64, ptr %_now.i.i313.i, align 8
   %tv_usec.i.i326.i = getelementptr inbounds i8, ptr %_now.i.i313.i, i64 8
   %151 = load i64, ptr %tv_usec.i.i326.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.440, i32 noundef %call10.i.i325.i, i64 noundef %150, i64 noundef %151, i64 noundef %data, i64 noundef %asq224.val.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.440, i32 noundef %call10.i.i325.i, i64 noundef %150, i64 noundef %151, i64 noundef %data, i64 noundef %asq224.val.i) #19
   br label %trace_pci_nvme_mmio_asqaddr_hi.exit.i
 
 if.else.i.i322.i:                                 ; preds = %if.then.i.i320.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.441, i64 noundef %data, i64 noundef %asq224.val.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.441, i64 noundef %data, i64 noundef %asq224.val.i) #19
   br label %trace_pci_nvme_mmio_asqaddr_hi.exit.i
 
 trace_pci_nvme_mmio_asqaddr_hi.exit.i:            ; preds = %if.else.i.i322.i, %if.then8.i.i323.i, %land.lhs.true5.i.i317.i, %sw.bb222.i
@@ -6839,16 +6839,16 @@ if.then.i.i334.i:                                 ; preds = %land.lhs.true5.i.i3
   br i1 %tobool7.i.i335.i, label %if.then8.i.i337.i, label %if.else.i.i336.i
 
 if.then8.i.i337.i:                                ; preds = %if.then.i.i334.i
-  %call9.i.i338.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i327.i, ptr noundef null) #17
-  %call10.i.i339.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i338.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i327.i, ptr noundef null) #19
+  %call10.i.i339.i = tail call i32 @qemu_get_thread_id() #19
   %156 = load i64, ptr %_now.i.i327.i, align 8
   %tv_usec.i.i340.i = getelementptr inbounds i8, ptr %_now.i.i327.i, i64 8
   %157 = load i64, ptr %tv_usec.i.i340.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.442, i32 noundef %call10.i.i339.i, i64 noundef %156, i64 noundef %157, i64 noundef %data) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.442, i32 noundef %call10.i.i339.i, i64 noundef %156, i64 noundef %157, i64 noundef %data) #19
   br label %trace_pci_nvme_mmio_acqaddr.exit.i
 
 if.else.i.i336.i:                                 ; preds = %if.then.i.i334.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.443, i64 noundef %data) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.443, i64 noundef %data) #19
   br label %trace_pci_nvme_mmio_acqaddr.exit.i
 
 trace_pci_nvme_mmio_acqaddr.exit.i:               ; preds = %if.else.i.i336.i, %if.then8.i.i337.i, %land.lhs.true5.i.i331.i, %sw.bb229.i
@@ -6881,7 +6881,7 @@ sw.bb5.i341.i:                                    ; preds = %trace_pci_nvme_mmio
   br label %if.end7
 
 do.body.i348.i:                                   ; preds = %trace_pci_nvme_mmio_acqaddr.exit.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.104, i32 noundef 419, ptr noundef nonnull @__func__.stn_le_p, ptr noundef null) #18
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.104, i32 noundef 419, ptr noundef nonnull @__func__.stn_le_p, ptr noundef null) #20
   unreachable
 
 sw.bb231.i:                                       ; preds = %if.end50.i
@@ -6910,16 +6910,16 @@ if.then.i.i357.i:                                 ; preds = %land.lhs.true5.i.i3
   br i1 %tobool7.i.i358.i, label %if.then8.i.i360.i, label %if.else.i.i359.i
 
 if.then8.i.i360.i:                                ; preds = %if.then.i.i357.i
-  %call9.i.i361.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i350.i, ptr noundef null) #17
-  %call10.i.i362.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i361.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i350.i, ptr noundef null) #19
+  %call10.i.i362.i = tail call i32 @qemu_get_thread_id() #19
   %162 = load i64, ptr %_now.i.i350.i, align 8
   %tv_usec.i.i363.i = getelementptr inbounds i8, ptr %_now.i.i350.i, i64 8
   %163 = load i64, ptr %tv_usec.i.i363.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.444, i32 noundef %call10.i.i362.i, i64 noundef %162, i64 noundef %163, i64 noundef %data, i64 noundef %acq233.val.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.444, i32 noundef %call10.i.i362.i, i64 noundef %162, i64 noundef %163, i64 noundef %data, i64 noundef %acq233.val.i) #19
   br label %trace_pci_nvme_mmio_acqaddr_hi.exit.i
 
 if.else.i.i359.i:                                 ; preds = %if.then.i.i357.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.445, i64 noundef %data, i64 noundef %acq233.val.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.445, i64 noundef %data, i64 noundef %acq233.val.i) #19
   br label %trace_pci_nvme_mmio_acqaddr_hi.exit.i
 
 trace_pci_nvme_mmio_acqaddr_hi.exit.i:            ; preds = %if.else.i.i359.i, %if.then8.i.i360.i, %land.lhs.true5.i.i354.i, %sw.bb231.i
@@ -6947,16 +6947,16 @@ if.then.i.i371.i:                                 ; preds = %land.lhs.true5.i.i3
   br i1 %tobool7.i.i372.i, label %if.then8.i.i374.i, label %if.else.i.i373.i
 
 if.then8.i.i374.i:                                ; preds = %if.then.i.i371.i
-  %call9.i.i375.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i364.i, ptr noundef null) #17
-  %call10.i.i376.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i375.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i364.i, ptr noundef null) #19
+  %call10.i.i376.i = tail call i32 @qemu_get_thread_id() #19
   %168 = load i64, ptr %_now.i.i364.i, align 8
   %tv_usec.i.i377.i = getelementptr inbounds i8, ptr %_now.i.i364.i, i64 8
   %169 = load i64, ptr %tv_usec.i.i377.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.446, i32 noundef %call10.i.i376.i, i64 noundef %168, i64 noundef %169) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.446, i32 noundef %call10.i.i376.i, i64 noundef %168, i64 noundef %169) #19
   br label %trace_pci_nvme_ub_mmiowr_cmbloc_reserved.exit.i
 
 if.else.i.i373.i:                                 ; preds = %if.then.i.i371.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.447) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.447) #19
   br label %trace_pci_nvme_ub_mmiowr_cmbloc_reserved.exit.i
 
 trace_pci_nvme_ub_mmiowr_cmbloc_reserved.exit.i:  ; preds = %if.else.i.i373.i, %if.then8.i.i374.i, %land.lhs.true5.i.i368.i, %do.body240.i
@@ -6967,7 +6967,7 @@ trace_pci_nvme_ub_mmiowr_cmbloc_reserved.exit.i:  ; preds = %if.else.i.i373.i, %
   br i1 %cmp.i379.not.i, label %if.end7, label %if.then249.i
 
 if.then249.i:                                     ; preds = %trace_pci_nvme_ub_mmiowr_cmbloc_reserved.exit.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.113, ptr noundef nonnull @__func__.nvme_write_bar) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.113, ptr noundef nonnull @__func__.nvme_write_bar) #19
   br label %if.end7
 
 do.body254.i:                                     ; preds = %if.end50.i
@@ -6991,16 +6991,16 @@ if.then.i.i387.i:                                 ; preds = %land.lhs.true5.i.i3
   br i1 %tobool7.i.i388.i, label %if.then8.i.i390.i, label %if.else.i.i389.i
 
 if.then8.i.i390.i:                                ; preds = %if.then.i.i387.i
-  %call9.i.i391.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i380.i, ptr noundef null) #17
-  %call10.i.i392.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i391.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i380.i, ptr noundef null) #19
+  %call10.i.i392.i = tail call i32 @qemu_get_thread_id() #19
   %175 = load i64, ptr %_now.i.i380.i, align 8
   %tv_usec.i.i393.i = getelementptr inbounds i8, ptr %_now.i.i380.i, i64 8
   %176 = load i64, ptr %tv_usec.i.i393.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.448, i32 noundef %call10.i.i392.i, i64 noundef %175, i64 noundef %176) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.448, i32 noundef %call10.i.i392.i, i64 noundef %175, i64 noundef %176) #19
   br label %trace_pci_nvme_ub_mmiowr_cmbsz_readonly.exit.i
 
 if.else.i.i389.i:                                 ; preds = %if.then.i.i387.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.449) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.449) #19
   br label %trace_pci_nvme_ub_mmiowr_cmbsz_readonly.exit.i
 
 trace_pci_nvme_ub_mmiowr_cmbsz_readonly.exit.i:   ; preds = %if.else.i.i389.i, %if.then8.i.i390.i, %land.lhs.true5.i.i384.i, %do.body254.i
@@ -7011,7 +7011,7 @@ trace_pci_nvme_ub_mmiowr_cmbsz_readonly.exit.i:   ; preds = %if.else.i.i389.i, %
   br i1 %cmp.i395.not.i, label %if.end7, label %if.then263.i
 
 if.then263.i:                                     ; preds = %trace_pci_nvme_ub_mmiowr_cmbsz_readonly.exit.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.114, ptr noundef nonnull @__func__.nvme_write_bar) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.114, ptr noundef nonnull @__func__.nvme_write_bar) #19
   br label %if.end7
 
 sw.bb267.i:                                       ; preds = %if.end50.i
@@ -7048,7 +7048,7 @@ sw.bb5.i396.i:                                    ; preds = %if.end272.i
   br label %stn_le_p.exit404.i
 
 do.body.i403.i:                                   ; preds = %if.end272.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.104, i32 noundef 419, ptr noundef nonnull @__func__.stn_le_p, ptr noundef null) #18
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.104, i32 noundef 419, ptr noundef nonnull @__func__.stn_le_p, ptr noundef null) #20
   unreachable
 
 stn_le_p.exit404.i:                               ; preds = %sw.bb5.i396.i, %sw.bb3.i397.i, %sw.bb1.i399.i, %sw.bb.i401.i
@@ -7084,7 +7084,7 @@ if.then281.i:                                     ; preds = %if.then277.i
   br i1 %cmp.i405.i, label %int128_get64.exit.i, label %if.else.i.i30
 
 if.else.i.i30:                                    ; preds = %if.then281.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 33, ptr noundef nonnull @__PRETTY_FUNCTION__.int128_get64) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 33, ptr noundef nonnull @__PRETTY_FUNCTION__.int128_get64) #20
   unreachable
 
 int128_get64.exit.i:                              ; preds = %if.then281.i
@@ -7140,16 +7140,16 @@ if.then.i.i414.i:                                 ; preds = %land.lhs.true5.i.i4
   br i1 %tobool7.i.i415.i, label %if.then8.i.i417.i, label %if.else.i.i416.i
 
 if.then8.i.i417.i:                                ; preds = %if.then.i.i414.i
-  %call9.i.i418.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i407.i, ptr noundef null) #17
-  %call10.i.i419.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i418.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i407.i, ptr noundef null) #19
+  %call10.i.i419.i = tail call i32 @qemu_get_thread_id() #19
   %191 = load i64, ptr %_now.i.i407.i, align 8
   %tv_usec.i.i420.i = getelementptr inbounds i8, ptr %_now.i.i407.i, i64 8
   %192 = load i64, ptr %tv_usec.i.i420.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.450, i32 noundef %call10.i.i419.i, i64 noundef %191, i64 noundef %192) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.450, i32 noundef %call10.i.i419.i, i64 noundef %191, i64 noundef %192) #19
   br label %trace_pci_nvme_ub_mmiowr_pmrcap_readonly.exit.i
 
 if.else.i.i416.i:                                 ; preds = %if.then.i.i414.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.451) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.451) #19
   br label %trace_pci_nvme_ub_mmiowr_pmrcap_readonly.exit.i
 
 trace_pci_nvme_ub_mmiowr_pmrcap_readonly.exit.i:  ; preds = %if.else.i.i416.i, %if.then8.i.i417.i, %land.lhs.true5.i.i411.i, %do.body318.i
@@ -7160,7 +7160,7 @@ trace_pci_nvme_ub_mmiowr_pmrcap_readonly.exit.i:  ; preds = %if.else.i.i416.i, %
   br i1 %cmp.i422.not.i, label %if.end7, label %if.then327.i
 
 if.then327.i:                                     ; preds = %trace_pci_nvme_ub_mmiowr_pmrcap_readonly.exit.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.115, ptr noundef nonnull @__func__.nvme_write_bar) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.115, ptr noundef nonnull @__func__.nvme_write_bar) #19
   br label %if.end7
 
 sw.bb331.i:                                       ; preds = %if.end50.i
@@ -7180,11 +7180,11 @@ if.end336.i:                                      ; preds = %sw.bb331.i
   br i1 %tobool341.not.i, label %if.else343.i, label %if.then342.i
 
 if.then342.i:                                     ; preds = %if.end336.i
-  tail call void @memory_region_set_enabled(ptr noundef nonnull %mr346.i, i1 noundef zeroext true) #17
+  tail call void @memory_region_set_enabled(ptr noundef nonnull %mr346.i, i1 noundef zeroext true) #19
   br label %if.end352.i
 
 if.else343.i:                                     ; preds = %if.end336.i
-  tail call void @memory_region_set_enabled(ptr noundef nonnull %mr346.i, i1 noundef zeroext false) #17
+  tail call void @memory_region_set_enabled(ptr noundef nonnull %mr346.i, i1 noundef zeroext false) #19
   %196 = or i32 %pmrsts13.val.i, 256
   %cmse351.i = getelementptr inbounds i8, ptr %opaque, i64 7832
   store i8 0, ptr %cmse351.i, align 8
@@ -7216,16 +7216,16 @@ if.then.i.i430.i:                                 ; preds = %land.lhs.true5.i.i4
   br i1 %tobool7.i.i431.i, label %if.then8.i.i433.i, label %if.else.i.i432.i
 
 if.then8.i.i433.i:                                ; preds = %if.then.i.i430.i
-  %call9.i.i434.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i423.i, ptr noundef null) #17
-  %call10.i.i435.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i434.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i423.i, ptr noundef null) #19
+  %call10.i.i435.i = tail call i32 @qemu_get_thread_id() #19
   %201 = load i64, ptr %_now.i.i423.i, align 8
   %tv_usec.i.i436.i = getelementptr inbounds i8, ptr %_now.i.i423.i, i64 8
   %202 = load i64, ptr %tv_usec.i.i436.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.452, i32 noundef %call10.i.i435.i, i64 noundef %201, i64 noundef %202) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.452, i32 noundef %call10.i.i435.i, i64 noundef %201, i64 noundef %202) #19
   br label %trace_pci_nvme_ub_mmiowr_pmrsts_readonly.exit.i
 
 if.else.i.i432.i:                                 ; preds = %if.then.i.i430.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.453) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.453) #19
   br label %trace_pci_nvme_ub_mmiowr_pmrsts_readonly.exit.i
 
 trace_pci_nvme_ub_mmiowr_pmrsts_readonly.exit.i:  ; preds = %if.else.i.i432.i, %if.then8.i.i433.i, %land.lhs.true5.i.i427.i, %do.body356.i
@@ -7236,7 +7236,7 @@ trace_pci_nvme_ub_mmiowr_pmrsts_readonly.exit.i:  ; preds = %if.else.i.i432.i, %
   br i1 %cmp.i438.not.i, label %if.end7, label %if.then365.i
 
 if.then365.i:                                     ; preds = %trace_pci_nvme_ub_mmiowr_pmrsts_readonly.exit.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.116, ptr noundef nonnull @__func__.nvme_write_bar) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.116, ptr noundef nonnull @__func__.nvme_write_bar) #19
   br label %if.end7
 
 do.body370.i:                                     ; preds = %if.end50.i
@@ -7260,16 +7260,16 @@ if.then.i.i446.i:                                 ; preds = %land.lhs.true5.i.i4
   br i1 %tobool7.i.i447.i, label %if.then8.i.i449.i, label %if.else.i.i448.i
 
 if.then8.i.i449.i:                                ; preds = %if.then.i.i446.i
-  %call9.i.i450.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i439.i, ptr noundef null) #17
-  %call10.i.i451.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i450.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i439.i, ptr noundef null) #19
+  %call10.i.i451.i = tail call i32 @qemu_get_thread_id() #19
   %208 = load i64, ptr %_now.i.i439.i, align 8
   %tv_usec.i.i452.i = getelementptr inbounds i8, ptr %_now.i.i439.i, i64 8
   %209 = load i64, ptr %tv_usec.i.i452.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.454, i32 noundef %call10.i.i451.i, i64 noundef %208, i64 noundef %209) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.454, i32 noundef %call10.i.i451.i, i64 noundef %208, i64 noundef %209) #19
   br label %trace_pci_nvme_ub_mmiowr_pmrebs_readonly.exit.i
 
 if.else.i.i448.i:                                 ; preds = %if.then.i.i446.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.455) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.455) #19
   br label %trace_pci_nvme_ub_mmiowr_pmrebs_readonly.exit.i
 
 trace_pci_nvme_ub_mmiowr_pmrebs_readonly.exit.i:  ; preds = %if.else.i.i448.i, %if.then8.i.i449.i, %land.lhs.true5.i.i443.i, %do.body370.i
@@ -7280,7 +7280,7 @@ trace_pci_nvme_ub_mmiowr_pmrebs_readonly.exit.i:  ; preds = %if.else.i.i448.i, %
   br i1 %cmp.i454.not.i, label %if.end7, label %if.then379.i
 
 if.then379.i:                                     ; preds = %trace_pci_nvme_ub_mmiowr_pmrebs_readonly.exit.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.117, ptr noundef nonnull @__func__.nvme_write_bar) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.117, ptr noundef nonnull @__func__.nvme_write_bar) #19
   br label %if.end7
 
 do.body384.i:                                     ; preds = %if.end50.i
@@ -7304,16 +7304,16 @@ if.then.i.i462.i:                                 ; preds = %land.lhs.true5.i.i4
   br i1 %tobool7.i.i463.i, label %if.then8.i.i465.i, label %if.else.i.i464.i
 
 if.then8.i.i465.i:                                ; preds = %if.then.i.i462.i
-  %call9.i.i466.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i455.i, ptr noundef null) #17
-  %call10.i.i467.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i466.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i455.i, ptr noundef null) #19
+  %call10.i.i467.i = tail call i32 @qemu_get_thread_id() #19
   %215 = load i64, ptr %_now.i.i455.i, align 8
   %tv_usec.i.i468.i = getelementptr inbounds i8, ptr %_now.i.i455.i, i64 8
   %216 = load i64, ptr %tv_usec.i.i468.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.456, i32 noundef %call10.i.i467.i, i64 noundef %215, i64 noundef %216) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.456, i32 noundef %call10.i.i467.i, i64 noundef %215, i64 noundef %216) #19
   br label %trace_pci_nvme_ub_mmiowr_pmrswtp_readonly.exit.i
 
 if.else.i.i464.i:                                 ; preds = %if.then.i.i462.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.457) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.457) #19
   br label %trace_pci_nvme_ub_mmiowr_pmrswtp_readonly.exit.i
 
 trace_pci_nvme_ub_mmiowr_pmrswtp_readonly.exit.i: ; preds = %if.else.i.i464.i, %if.then8.i.i465.i, %land.lhs.true5.i.i459.i, %do.body384.i
@@ -7324,7 +7324,7 @@ trace_pci_nvme_ub_mmiowr_pmrswtp_readonly.exit.i: ; preds = %if.else.i.i464.i, %
   br i1 %cmp.i470.not.i, label %if.end7, label %if.then393.i
 
 if.then393.i:                                     ; preds = %trace_pci_nvme_ub_mmiowr_pmrswtp_readonly.exit.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.118, ptr noundef nonnull @__func__.nvme_write_bar) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.118, ptr noundef nonnull @__func__.nvme_write_bar) #19
   br label %if.end7
 
 sw.bb397.i:                                       ; preds = %if.end50.i
@@ -7357,7 +7357,7 @@ if.then410.i:                                     ; preds = %if.end402.i
   br i1 %cmp.i471.i, label %int128_get64.exit474.i, label %if.else.i472.i
 
 if.else.i472.i:                                   ; preds = %if.then410.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 33, ptr noundef nonnull @__PRETTY_FUNCTION__.int128_get64) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 33, ptr noundef nonnull @__PRETTY_FUNCTION__.int128_get64) #20
   unreachable
 
 int128_get64.exit474.i:                           ; preds = %if.then410.i
@@ -7409,16 +7409,16 @@ if.then.i.i482.i:                                 ; preds = %land.lhs.true5.i.i4
   br i1 %tobool7.i.i483.i, label %if.then8.i.i485.i, label %if.else.i.i484.i
 
 if.then8.i.i485.i:                                ; preds = %if.then.i.i482.i
-  %call9.i.i486.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i475.i, ptr noundef null) #17
-  %call10.i.i487.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i486.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i475.i, ptr noundef null) #19
+  %call10.i.i487.i = tail call i32 @qemu_get_thread_id() #19
   %229 = load i64, ptr %_now.i.i475.i, align 8
   %tv_usec.i.i488.i = getelementptr inbounds i8, ptr %_now.i.i475.i, i64 8
   %230 = load i64, ptr %tv_usec.i.i488.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.458, i32 noundef %call10.i.i487.i, i64 noundef %229, i64 noundef %230, i64 noundef %addr, i64 noundef %data) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.458, i32 noundef %call10.i.i487.i, i64 noundef %229, i64 noundef %230, i64 noundef %addr, i64 noundef %data) #19
   br label %trace_pci_nvme_ub_mmiowr_invalid.exit.i
 
 if.else.i.i484.i:                                 ; preds = %if.then.i.i482.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.459, i64 noundef %addr, i64 noundef %data) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.459, i64 noundef %addr, i64 noundef %data) #19
   br label %trace_pci_nvme_ub_mmiowr_invalid.exit.i
 
 trace_pci_nvme_ub_mmiowr_invalid.exit.i:          ; preds = %if.else.i.i484.i, %if.then8.i.i485.i, %land.lhs.true5.i.i479.i, %do.body451.i
@@ -7429,12 +7429,12 @@ trace_pci_nvme_ub_mmiowr_invalid.exit.i:          ; preds = %if.else.i.i484.i, %
   br i1 %cmp.i490.not.i, label %if.end7, label %if.then460.i
 
 if.then460.i:                                     ; preds = %trace_pci_nvme_ub_mmiowr_invalid.exit.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.119, ptr noundef nonnull @__func__.nvme_write_bar, i64 noundef %addr, i64 noundef %data) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.119, ptr noundef nonnull @__func__.nvme_write_bar, i64 noundef %addr, i64 noundef %data) #19
   br label %if.end7
 
 if.else:                                          ; preds = %if.end
   %conv = trunc i64 %data to i32
-  %call.i.i34 = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #17
+  %call.i.i34 = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #19
   %and.i35 = and i64 %addr, 3
   %tobool.not.i36 = icmp eq i64 %and.i35, 0
   br i1 %tobool.not.i36, label %if.end13.i, label %do.body.i37
@@ -7460,16 +7460,16 @@ if.then.i.i.i46:                                  ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.i.i.i47, label %if.then8.i.i.i49, label %if.else.i.i.i48
 
 if.then8.i.i.i49:                                 ; preds = %if.then.i.i.i46
-  %call9.i.i.i50 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i33, ptr noundef null) #17
-  %call10.i.i.i51 = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i.i50 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i33, ptr noundef null) #19
+  %call10.i.i.i51 = tail call i32 @qemu_get_thread_id() #19
   %236 = load i64, ptr %_now.i.i.i33, align 8
   %tv_usec.i.i.i52 = getelementptr inbounds i8, ptr %_now.i.i.i33, i64 8
   %237 = load i64, ptr %tv_usec.i.i.i52, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.465, i32 noundef %call10.i.i.i51, i64 noundef %236, i64 noundef %237, i64 noundef %addr) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.465, i32 noundef %call10.i.i.i51, i64 noundef %236, i64 noundef %237, i64 noundef %addr) #19
   br label %trace_pci_nvme_ub_db_wr_misaligned.exit.i
 
 if.else.i.i.i48:                                  ; preds = %if.then.i.i.i46
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.466, i64 noundef %addr) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.466, i64 noundef %addr) #19
   br label %trace_pci_nvme_ub_db_wr_misaligned.exit.i
 
 trace_pci_nvme_ub_db_wr_misaligned.exit.i:        ; preds = %if.else.i.i.i48, %if.then8.i.i.i49, %land.lhs.true5.i.i.i43, %do.body.i37
@@ -7480,7 +7480,7 @@ trace_pci_nvme_ub_db_wr_misaligned.exit.i:        ; preds = %if.else.i.i.i48, %i
   br i1 %cmp.i.not.i42, label %if.end7, label %if.then11.i
 
 if.then11.i:                                      ; preds = %trace_pci_nvme_ub_db_wr_misaligned.exit.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.460, ptr noundef nonnull @__func__.nvme_process_db, i64 noundef %addr) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.460, ptr noundef nonnull @__func__.nvme_process_db, i64 noundef %addr) #19
   br label %if.end7
 
 if.end13.i:                                       ; preds = %if.else
@@ -7529,16 +7529,16 @@ if.then.i.i91.i:                                  ; preds = %land.lhs.true5.i.i8
   br i1 %tobool7.i.i92.i, label %if.then8.i.i94.i, label %if.else.i.i93.i
 
 if.then8.i.i94.i:                                 ; preds = %if.then.i.i91.i
-  %call9.i.i95.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i84.i, ptr noundef null) #17
-  %call10.i.i96.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i95.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i84.i, ptr noundef null) #19
+  %call10.i.i96.i = tail call i32 @qemu_get_thread_id() #19
   %247 = load i64, ptr %_now.i.i84.i, align 8
   %tv_usec.i.i97.i = getelementptr inbounds i8, ptr %_now.i.i84.i, i64 8
   %248 = load i64, ptr %tv_usec.i.i97.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.467, i32 noundef %call10.i.i96.i, i64 noundef %247, i64 noundef %248, i32 noundef %conv21.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.467, i32 noundef %call10.i.i96.i, i64 noundef %247, i64 noundef %248, i32 noundef %conv21.i) #19
   br label %trace_pci_nvme_ub_db_wr_invalid_cq.exit.i
 
 if.else.i.i93.i:                                  ; preds = %if.then.i.i91.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.468, i32 noundef %conv21.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.468, i32 noundef %conv21.i) #19
   br label %trace_pci_nvme_ub_db_wr_invalid_cq.exit.i
 
 trace_pci_nvme_ub_db_wr_invalid_cq.exit.i:        ; preds = %if.else.i.i93.i, %if.then8.i.i94.i, %land.lhs.true5.i.i88.i, %do.body32.i
@@ -7549,7 +7549,7 @@ trace_pci_nvme_ub_db_wr_invalid_cq.exit.i:        ; preds = %if.else.i.i93.i, %i
   br i1 %cmp.i99.not.i, label %do.end44.i, label %if.then41.i
 
 if.then41.i:                                      ; preds = %trace_pci_nvme_ub_db_wr_invalid_cq.exit.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.461, ptr noundef nonnull @__func__.nvme_process_db, i32 noundef %conv21.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.461, ptr noundef nonnull @__func__.nvme_process_db, i32 noundef %conv21.i) #19
   br label %do.end44.i
 
 do.end44.i:                                       ; preds = %if.then41.i, %trace_pci_nvme_ub_db_wr_invalid_cq.exit.i
@@ -7593,16 +7593,16 @@ if.then.i.i107.i:                                 ; preds = %land.lhs.true5.i.i1
   br i1 %tobool7.i.i108.i, label %if.then8.i.i110.i, label %if.else.i.i109.i
 
 if.then8.i.i110.i:                                ; preds = %if.then.i.i107.i
-  %call9.i.i111.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i100.i, ptr noundef null) #17
-  %call10.i.i112.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i111.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i100.i, ptr noundef null) #19
+  %call10.i.i112.i = tail call i32 @qemu_get_thread_id() #19
   %257 = load i64, ptr %_now.i.i100.i, align 8
   %tv_usec.i.i113.i = getelementptr inbounds i8, ptr %_now.i.i100.i, i64 8
   %258 = load i64, ptr %tv_usec.i.i113.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.469, i32 noundef %call10.i.i112.i, i64 noundef %257, i64 noundef %258, i32 noundef %conv21.i, i32 noundef %conv50.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.469, i32 noundef %call10.i.i112.i, i64 noundef %257, i64 noundef %258, i32 noundef %conv21.i, i32 noundef %conv50.i) #19
   br label %trace_pci_nvme_ub_db_wr_invalid_cqhead.exit.i
 
 if.else.i.i109.i:                                 ; preds = %if.then.i.i107.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.470, i32 noundef %conv21.i, i32 noundef %conv50.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.470, i32 noundef %conv21.i, i32 noundef %conv50.i) #19
   br label %trace_pci_nvme_ub_db_wr_invalid_cqhead.exit.i
 
 trace_pci_nvme_ub_db_wr_invalid_cqhead.exit.i:    ; preds = %if.else.i.i109.i, %if.then8.i.i110.i, %land.lhs.true5.i.i104.i, %do.body59.i
@@ -7613,7 +7613,7 @@ trace_pci_nvme_ub_db_wr_invalid_cqhead.exit.i:    ; preds = %if.else.i.i109.i, %
   br i1 %cmp.i115.not.i, label %do.end72.i, label %if.then68.i
 
 if.then68.i:                                      ; preds = %trace_pci_nvme_ub_db_wr_invalid_cqhead.exit.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.462, ptr noundef nonnull @__func__.nvme_process_db, i32 noundef %conv21.i, i32 noundef %conv50.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.462, ptr noundef nonnull @__func__.nvme_process_db, i32 noundef %conv21.i, i32 noundef %conv50.i) #19
   br label %do.end72.i
 
 do.end72.i:                                       ; preds = %if.then68.i, %trace_pci_nvme_ub_db_wr_invalid_cqhead.exit.i
@@ -7649,18 +7649,18 @@ if.then.i.i123.i:                                 ; preds = %land.lhs.true5.i.i1
   br i1 %tobool7.i.i124.i, label %if.then8.i.i126.i, label %if.else.i.i125.i
 
 if.then8.i.i126.i:                                ; preds = %if.then.i.i123.i
-  %call9.i.i127.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i116.i, ptr noundef null) #17
-  %call10.i.i128.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i127.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i116.i, ptr noundef null) #19
+  %call10.i.i128.i = tail call i32 @qemu_get_thread_id() #19
   %266 = load i64, ptr %_now.i.i116.i, align 8
   %tv_usec.i.i129.i = getelementptr inbounds i8, ptr %_now.i.i116.i, i64 8
   %267 = load i64, ptr %tv_usec.i.i129.i, align 8
   %conv11.i.i130.i = zext i16 %261 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.471, i32 noundef %call10.i.i128.i, i64 noundef %266, i64 noundef %267, i32 noundef %conv11.i.i130.i, i32 noundef %conv50.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.471, i32 noundef %call10.i.i128.i, i64 noundef %266, i64 noundef %267, i32 noundef %conv11.i.i130.i, i32 noundef %conv50.i) #19
   br label %trace_pci_nvme_mmio_doorbell_cq.exit.i
 
 if.else.i.i125.i:                                 ; preds = %if.then.i.i123.i
   %conv13.i.i.i = zext i16 %261 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.472, i32 noundef %conv13.i.i.i, i32 noundef %conv50.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.472, i32 noundef %conv13.i.i.i, i32 noundef %conv50.i) #19
   br label %trace_pci_nvme_mmio_doorbell_cq.exit.i
 
 trace_pci_nvme_mmio_doorbell_cq.exit.i:           ; preds = %if.else.i.i125.i, %if.then8.i.i126.i, %land.lhs.true5.i.i120.i, %if.end77.i
@@ -7689,9 +7689,9 @@ if.then85.i:                                      ; preds = %land.lhs.true.i
   %bus_master_as.i.i.i = getelementptr inbounds i8, ptr %call.i.i34, i64 576
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.addr.i.i.i)
   store i32 %conv50.i, ptr %val.addr.i.i.i, align 4
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !8
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !8
   fence seq_cst
-  %call.i.i.i.i.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i, i64 noundef %272, i32 1, ptr noundef nonnull %val.addr.i.i.i, i64 noundef 4, i1 noundef zeroext true) #17
+  %call.i.i.i.i.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i, i64 noundef %272, i32 1, ptr noundef nonnull %val.addr.i.i.i, i64 noundef 4, i1 noundef zeroext true) #19
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %val.addr.i.i.i)
   br label %if.end115.i
 
@@ -7708,7 +7708,7 @@ for.body.i:                                       ; preds = %if.then117.i, %for.
   %sq.0204.i = phi ptr [ %sq.0.i, %for.body.i ], [ %sq.0202.i, %if.then117.i ]
   %bh.i = getelementptr inbounds i8, ptr %sq.0204.i, i64 48
   %273 = load ptr, ptr %bh.i, align 8
-  call void @qemu_bh_schedule(ptr noundef %273) #17
+  call void @qemu_bh_schedule(ptr noundef %273) #19
   %entry119.i = getelementptr inbounds i8, ptr %sq.0204.i, i64 112
   %sq.0.i = load ptr, ptr %entry119.i, align 8
   %tobool118.not.i = icmp eq ptr %sq.0.i, null
@@ -7717,7 +7717,7 @@ for.body.i:                                       ; preds = %if.then117.i, %for.
 for.end.i:                                        ; preds = %for.body.i, %if.then117.i
   %bh120.i = getelementptr inbounds i8, ptr %251, i64 56
   %274 = load ptr, ptr %bh120.i, align 8
-  call void @qemu_bh_schedule(ptr noundef %274) #17
+  call void @qemu_bh_schedule(ptr noundef %274) #19
   br label %if.end121.i
 
 if.end121.i:                                      ; preds = %for.end.i, %if.end115.i
@@ -7781,16 +7781,16 @@ if.then.i.i150.i:                                 ; preds = %land.lhs.true5.i.i1
   br i1 %tobool7.i.i151.i, label %if.then8.i.i153.i, label %if.else.i.i152.i
 
 if.then8.i.i153.i:                                ; preds = %if.then.i.i150.i
-  %call9.i.i154.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i143.i, ptr noundef null) #17
-  %call10.i.i155.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i154.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i143.i, ptr noundef null) #19
+  %call10.i.i155.i = tail call i32 @qemu_get_thread_id() #19
   %285 = load i64, ptr %_now.i.i143.i, align 8
   %tv_usec.i.i156.i = getelementptr inbounds i8, ptr %_now.i.i143.i, i64 8
   %286 = load i64, ptr %tv_usec.i.i156.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.473, i32 noundef %call10.i.i155.i, i64 noundef %285, i64 noundef %286, i32 noundef %conv135.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.473, i32 noundef %call10.i.i155.i, i64 noundef %285, i64 noundef %286, i32 noundef %conv135.i) #19
   br label %trace_pci_nvme_ub_db_wr_invalid_sq.exit.i
 
 if.else.i.i152.i:                                 ; preds = %if.then.i.i150.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.474, i32 noundef %conv135.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.474, i32 noundef %conv135.i) #19
   br label %trace_pci_nvme_ub_db_wr_invalid_sq.exit.i
 
 trace_pci_nvme_ub_db_wr_invalid_sq.exit.i:        ; preds = %if.else.i.i152.i, %if.then8.i.i153.i, %land.lhs.true5.i.i147.i, %do.body146.i
@@ -7801,7 +7801,7 @@ trace_pci_nvme_ub_db_wr_invalid_sq.exit.i:        ; preds = %if.else.i.i152.i, %
   br i1 %cmp.i158.not.i, label %do.end158.i, label %if.then155.i
 
 if.then155.i:                                     ; preds = %trace_pci_nvme_ub_db_wr_invalid_sq.exit.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.463, ptr noundef nonnull @__func__.nvme_process_db, i32 noundef %conv135.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.463, ptr noundef nonnull @__func__.nvme_process_db, i32 noundef %conv135.i) #19
   br label %do.end158.i
 
 do.end158.i:                                      ; preds = %if.then155.i, %trace_pci_nvme_ub_db_wr_invalid_sq.exit.i
@@ -7845,16 +7845,16 @@ if.then.i.i166.i:                                 ; preds = %land.lhs.true5.i.i1
   br i1 %tobool7.i.i167.i, label %if.then8.i.i170.i, label %if.else.i.i168.i
 
 if.then8.i.i170.i:                                ; preds = %if.then.i.i166.i
-  %call9.i.i171.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i159.i, ptr noundef null) #17
-  %call10.i.i172.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i171.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i159.i, ptr noundef null) #19
+  %call10.i.i172.i = tail call i32 @qemu_get_thread_id() #19
   %295 = load i64, ptr %_now.i.i159.i, align 8
   %tv_usec.i.i173.i = getelementptr inbounds i8, ptr %_now.i.i159.i, i64 8
   %296 = load i64, ptr %tv_usec.i.i173.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.475, i32 noundef %call10.i.i172.i, i64 noundef %295, i64 noundef %296, i32 noundef %conv135.i, i32 noundef %conv167.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.475, i32 noundef %call10.i.i172.i, i64 noundef %295, i64 noundef %296, i32 noundef %conv135.i, i32 noundef %conv167.i) #19
   br label %trace_pci_nvme_ub_db_wr_invalid_sqtail.exit.i
 
 if.else.i.i168.i:                                 ; preds = %if.then.i.i166.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.476, i32 noundef %conv135.i, i32 noundef %conv167.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.476, i32 noundef %conv135.i, i32 noundef %conv167.i) #19
   br label %trace_pci_nvme_ub_db_wr_invalid_sqtail.exit.i
 
 trace_pci_nvme_ub_db_wr_invalid_sqtail.exit.i:    ; preds = %if.else.i.i168.i, %if.then8.i.i170.i, %land.lhs.true5.i.i163.i, %do.body178.i60
@@ -7865,7 +7865,7 @@ trace_pci_nvme_ub_db_wr_invalid_sqtail.exit.i:    ; preds = %if.else.i.i168.i, %
   br i1 %cmp.i176.not.i, label %do.end191.i, label %if.then187.i61
 
 if.then187.i61:                                   ; preds = %trace_pci_nvme_ub_db_wr_invalid_sqtail.exit.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.464, ptr noundef nonnull @__func__.nvme_process_db, i32 noundef %conv135.i, i32 noundef %conv167.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.464, ptr noundef nonnull @__func__.nvme_process_db, i32 noundef %conv135.i, i32 noundef %conv167.i) #19
   br label %do.end191.i
 
 do.end191.i:                                      ; preds = %if.then187.i61, %trace_pci_nvme_ub_db_wr_invalid_sqtail.exit.i
@@ -7901,18 +7901,18 @@ if.then.i.i184.i:                                 ; preds = %land.lhs.true5.i.i1
   br i1 %tobool7.i.i185.i, label %if.then8.i.i189.i, label %if.else.i.i186.i
 
 if.then8.i.i189.i:                                ; preds = %if.then.i.i184.i
-  %call9.i.i190.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i177.i, ptr noundef null) #17
-  %call10.i.i191.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i190.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i177.i, ptr noundef null) #19
+  %call10.i.i191.i = tail call i32 @qemu_get_thread_id() #19
   %304 = load i64, ptr %_now.i.i177.i, align 8
   %tv_usec.i.i192.i = getelementptr inbounds i8, ptr %_now.i.i177.i, i64 8
   %305 = load i64, ptr %tv_usec.i.i192.i, align 8
   %conv11.i.i193.i = zext i16 %299 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.477, i32 noundef %call10.i.i191.i, i64 noundef %304, i64 noundef %305, i32 noundef %conv11.i.i193.i, i32 noundef %conv167.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.477, i32 noundef %call10.i.i191.i, i64 noundef %304, i64 noundef %305, i32 noundef %conv11.i.i193.i, i32 noundef %conv167.i) #19
   br label %trace_pci_nvme_mmio_doorbell_sq.exit.i
 
 if.else.i.i186.i:                                 ; preds = %if.then.i.i184.i
   %conv13.i.i187.i = zext i16 %299 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.478, i32 noundef %conv13.i.i187.i, i32 noundef %conv167.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.478, i32 noundef %conv13.i.i187.i, i32 noundef %conv167.i) #19
   br label %trace_pci_nvme_mmio_doorbell_sq.exit.i
 
 trace_pci_nvme_mmio_doorbell_sq.exit.i:           ; preds = %if.else.i.i186.i, %if.then8.i.i189.i, %land.lhs.true5.i.i181.i, %if.end196.i
@@ -7934,16 +7934,16 @@ if.then204.i62:                                   ; preds = %land.lhs.true200.i
   %bus_master_as.i.i196.i = getelementptr inbounds i8, ptr %call.i.i34, i64 576
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.addr.i.i195.i)
   store i32 %conv167.i, ptr %val.addr.i.i195.i, align 4
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !8
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !8
   fence seq_cst
-  %call.i.i.i.i.i197.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i196.i, i64 noundef %307, i32 1, ptr noundef nonnull %val.addr.i.i195.i, i64 noundef 4, i1 noundef zeroext true) #17
+  %call.i.i.i.i.i197.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i196.i, i64 noundef %307, i32 1, ptr noundef nonnull %val.addr.i.i195.i, i64 noundef 4, i1 noundef zeroext true) #19
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %val.addr.i.i195.i)
   br label %if.end240.i
 
 if.end240.i:                                      ; preds = %if.then204.i62, %land.lhs.true200.i, %trace_pci_nvme_mmio_doorbell_sq.exit.i
   %bh241.i = getelementptr inbounds i8, ptr %289, i64 48
   %308 = load ptr, ptr %bh241.i, align 8
-  call void @qemu_bh_schedule(ptr noundef %308) #17
+  call void @qemu_bh_schedule(ptr noundef %308) #19
   br label %if.end7
 
 if.end7:                                          ; preds = %if.end240.i, %if.then194.i, %do.end191.i, %if.then161.i, %do.end158.i, %if.end128.i, %if.end121.i, %if.then75.i, %do.end72.i, %if.then46.i54, %do.end44.i, %if.then11.i, %trace_pci_nvme_ub_db_wr_misaligned.exit.i, %if.then460.i, %trace_pci_nvme_ub_mmiowr_invalid.exit.i, %if.end447.i, %sw.bb442.i, %if.end436.i, %if.then430.i, %if.end402.i, %sw.bb397.i, %if.then393.i, %trace_pci_nvme_ub_mmiowr_pmrswtp_readonly.exit.i, %if.then379.i, %trace_pci_nvme_ub_mmiowr_pmrebs_readonly.exit.i, %if.then365.i, %trace_pci_nvme_ub_mmiowr_pmrsts_readonly.exit.i, %if.end352.i, %sw.bb331.i, %if.then327.i, %trace_pci_nvme_ub_mmiowr_pmrcap_readonly.exit.i, %sw.bb312.i, %if.else308.i, %if.end302.i, %if.then293.i, %if.then277.i, %sw.bb267.i, %if.then263.i, %trace_pci_nvme_ub_mmiowr_cmbsz_readonly.exit.i, %if.then249.i, %trace_pci_nvme_ub_mmiowr_cmbloc_reserved.exit.i, %trace_pci_nvme_mmio_acqaddr_hi.exit.i, %sw.bb5.i341.i, %sw.bb3.i342.i, %sw.bb1.i344.i, %sw.bb.i346.i, %trace_pci_nvme_mmio_asqaddr_hi.exit.i, %trace_pci_nvme_mmio_asqaddr.exit.i, %trace_pci_nvme_mmio_aqattr.exit.i, %trace_pci_nvme_ub_mmiowr_ssreset_unsupported.exit.i, %sw.bb210.i, %if.then204.i, %do.body195.i, %if.else191.i, %if.then187.i, %trace_pci_nvme_ub_mmiowr_ssreset_w1c_unsupported.exit.i, %if.end171.i, %if.then169.i, %if.end.i208.i, %trace_pci_nvme_mmio_intm_clr.exit.i, %if.end.i.i, %trace_pci_nvme_mmio_intm_set.exit.i, %trace_pci_nvme_err_ignored_mmio_vf_offline.exit
@@ -7981,16 +7981,16 @@ if.then.i:                                        ; preds = %land.lhs.true5.i
   br i1 %tobool7.i, label %if.then8.i, label %if.else.i
 
 if.then8.i:                                       ; preds = %if.then.i
-  %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #17
-  %call10.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #19
+  %call10.i = tail call i32 @qemu_get_thread_id() #19
   %4 = load i64, ptr %_now.i, align 8
   %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %5 = load i64, ptr %tv_usec.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.134, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.134, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5) #19
   br label %_nocheck__trace_pci_nvme_mmio_shutdown_cleared.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.135) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.135) #19
   br label %_nocheck__trace_pci_nvme_mmio_shutdown_cleared.exit
 
 _nocheck__trace_pci_nvme_mmio_shutdown_cleared.exit: ; preds = %entry, %land.lhs.true5.i, %if.then8.i, %if.else.i
@@ -8022,16 +8022,16 @@ if.then.i:                                        ; preds = %land.lhs.true5.i
   br i1 %tobool7.i, label %if.then8.i, label %if.else.i
 
 if.then8.i:                                       ; preds = %if.then.i
-  %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #17
-  %call10.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #19
+  %call10.i = tail call i32 @qemu_get_thread_id() #19
   %4 = load i64, ptr %_now.i, align 8
   %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %5 = load i64, ptr %tv_usec.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.424, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.424, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5) #19
   br label %_nocheck__trace_pci_nvme_err_startfail.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.425) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.425) #19
   br label %_nocheck__trace_pci_nvme_err_startfail.exit
 
 _nocheck__trace_pci_nvme_err_startfail.exit:      ; preds = %entry, %land.lhs.true5.i, %if.then8.i, %if.else.i
@@ -8063,16 +8063,16 @@ if.then.i:                                        ; preds = %land.lhs.true5.i
   br i1 %tobool7.i, label %if.then8.i, label %if.else.i
 
 if.then8.i:                                       ; preds = %if.then.i
-  %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #17
-  %call10.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #19
+  %call10.i = tail call i32 @qemu_get_thread_id() #19
   %4 = load i64, ptr %_now.i, align 8
   %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %5 = load i64, ptr %tv_usec.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.426, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.426, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5) #19
   br label %_nocheck__trace_pci_nvme_mmio_start_success.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.427) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.427) #19
   br label %_nocheck__trace_pci_nvme_mmio_start_success.exit
 
 _nocheck__trace_pci_nvme_mmio_start_success.exit: ; preds = %entry, %land.lhs.true5.i, %if.then8.i, %if.else.i
@@ -8104,16 +8104,16 @@ if.then.i:                                        ; preds = %land.lhs.true5.i
   br i1 %tobool7.i, label %if.then8.i, label %if.else.i
 
 if.then8.i:                                       ; preds = %if.then.i
-  %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #17
-  %call10.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #19
+  %call10.i = tail call i32 @qemu_get_thread_id() #19
   %4 = load i64, ptr %_now.i, align 8
   %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %5 = load i64, ptr %tv_usec.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.428, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.428, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5) #19
   br label %_nocheck__trace_pci_nvme_mmio_stopped.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.429) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.429) #19
   br label %_nocheck__trace_pci_nvme_mmio_stopped.exit
 
 _nocheck__trace_pci_nvme_mmio_stopped.exit:       ; preds = %entry, %land.lhs.true5.i, %if.then8.i, %if.else.i
@@ -8124,7 +8124,7 @@ _nocheck__trace_pci_nvme_mmio_stopped.exit:       ; preds = %entry, %land.lhs.tr
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @nvme_ctrl_reset(ptr noundef %n, i32 noundef %rst) unnamed_addr #0 {
 entry:
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %n, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #17
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %n, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #19
   %namespaces.i = getelementptr inbounds i8, ptr %n, i64 16744
   br label %nvme_ns.exit
 
@@ -8146,7 +8146,7 @@ nvme_ns.exit:                                     ; preds = %entry, %for.inc
   br i1 %tobool.not, label %for.inc, label %if.end
 
 if.end:                                           ; preds = %nvme_ns.exit
-  tail call void @nvme_ns_drain(ptr noundef nonnull %1) #17
+  tail call void @nvme_ns_drain(ptr noundef nonnull %1) #19
   br label %for.inc
 
 for.inc:                                          ; preds = %nvme_ns.exit, %if.end
@@ -8228,7 +8228,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %14 = load ptr, ptr %11, align 8
   store ptr %14, ptr %13, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
-  tail call void @g_free(ptr noundef nonnull %11) #17
+  tail call void @g_free(ptr noundef nonnull %11) #19
   %15 = load ptr, ptr %aer_queue, align 8
   %cmp31.not = icmp eq ptr %15, null
   br i1 %cmp31.not, label %while.end, label %while.body, !llvm.loop !21
@@ -8271,7 +8271,7 @@ for.end70:                                        ; preds = %for.body62, %for.co
   br i1 %cond62, label %if.end80, label %if.end75.thread
 
 if.end75.thread:                                  ; preds = %for.end70
-  tail call void @pcie_sriov_pf_disable_vfs(ptr noundef %call.i) #17
+  tail call void @pcie_sriov_pf_disable_vfs(ptr noundef %call.i) #19
   br label %if.then78
 
 if.end75:                                         ; preds = %if.then55
@@ -8279,7 +8279,7 @@ if.end75:                                         ; preds = %if.then55
   br i1 %cmp76.not, label %if.end80, label %if.then78
 
 if.then78:                                        ; preds = %if.end75.thread, %if.end75
-  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %n, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #17
+  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %n, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #19
   %22 = getelementptr i8, ptr %call.i.i, i64 2232
   %call.val.i = load ptr, ptr %22, align 8
   %cmp.i.not.i = icmp eq ptr %call.val.i, null
@@ -8287,14 +8287,14 @@ if.then78:                                        ; preds = %if.end75.thread, %i
   br i1 %cmp.i.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then78
-  %call.i21.i = tail call ptr @pcie_sriov_get_pf(ptr noundef nonnull %n) #17
-  %call1.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i21.i, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.39, i32 noundef 647, ptr noundef nonnull @__func__.nvme_sctrl) #17
+  %call.i21.i = tail call ptr @pcie_sriov_get_pf(ptr noundef nonnull %n) #19
+  %call1.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i21.i, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.39, i32 noundef 647, ptr noundef nonnull @__func__.nvme_sctrl) #19
   %23 = getelementptr i8, ptr %n, i64 2232
   %n.val.i.i = load ptr, ptr %23, align 8
   %cmp.i.not.i.i = icmp ne ptr %n.val.i.i, null
   tail call void @llvm.assume(i1 %cmp.i.not.i.i)
   %sec.i.i = getelementptr inbounds i8, ptr %call1.i.i, i64 27800
-  %call3.i.i = tail call zeroext i16 @pcie_sriov_vf_number(ptr noundef nonnull %n) #17
+  %call3.i.i = tail call zeroext i16 @pcie_sriov_vf_number(ptr noundef nonnull %n) #19
   %idxprom.i.i = zext i16 %call3.i.i to i64
   %arrayidx.i.i = getelementptr [127 x %struct.NvmeSecCtrlEntry], ptr %sec.i.i, i64 0, i64 %idxprom.i.i
   %nvq.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 10
@@ -8356,7 +8356,7 @@ if.end80:                                         ; preds = %for.end70, %if.end7
   store i8 0, ptr %qs_created, align 2
   %conf_msix_qsize = getelementptr inbounds i8, ptr %n, i64 7476
   %33 = load i32, ptr %conf_msix_qsize, align 4
-  %call.i65 = tail call i32 @msix_present(ptr noundef %call.i) #17
+  %call.i65 = tail call i32 @msix_present(ptr noundef %call.i) #19
   %tobool.not.i = icmp eq i32 %call.i65, 0
   br i1 %tobool.not.i, label %nvme_update_msixcap_ts.exit, label %if.end.i66
 
@@ -8371,7 +8371,7 @@ land.lhs.true.i:                                  ; preds = %if.end.i66
   br i1 %cmp1.not.i, label %if.else.i67, label %if.end3.i
 
 if.else.i67:                                      ; preds = %land.lhs.true.i, %if.end.i66
-  tail call void @__assert_fail(ptr noundef nonnull @.str.479, ptr noundef nonnull @.str.1, i32 noundef 7048, ptr noundef nonnull @__PRETTY_FUNCTION__.nvme_update_msixcap_ts) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.479, ptr noundef nonnull @.str.1, i32 noundef 7048, ptr noundef nonnull @__PRETTY_FUNCTION__.nvme_update_msixcap_ts) #20
   unreachable
 
 if.end3.i:                                        ; preds = %land.lhs.true.i
@@ -8398,14 +8398,14 @@ nvme_update_msixcap_ts.exit:                      ; preds = %if.end80, %if.end3.
   br i1 %cmp.i68.not, label %if.end90, label %if.then83
 
 if.then83:                                        ; preds = %nvme_update_msixcap_ts.exit
-  %call.i70 = tail call ptr @pcie_sriov_get_pf(ptr noundef nonnull %n) #17
-  %call1.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i70, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.39, i32 noundef 647, ptr noundef nonnull @__func__.nvme_sctrl) #17
+  %call.i70 = tail call ptr @pcie_sriov_get_pf(ptr noundef nonnull %n) #19
+  %call1.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i70, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.39, i32 noundef 647, ptr noundef nonnull @__func__.nvme_sctrl) #19
   %41 = getelementptr i8, ptr %n, i64 2232
   %n.val.i = load ptr, ptr %41, align 8
   %cmp.i.not.i71 = icmp ne ptr %n.val.i, null
   tail call void @llvm.assume(i1 %cmp.i.not.i71)
   %sec.i = getelementptr inbounds i8, ptr %call1.i, i64 27800
-  %call3.i = tail call zeroext i16 @pcie_sriov_vf_number(ptr noundef nonnull %n) #17
+  %call3.i = tail call zeroext i16 @pcie_sriov_vf_number(ptr noundef nonnull %n) #19
   %idxprom.i73 = zext i16 %call3.i to i64
   %scs = getelementptr [127 x %struct.NvmeSecCtrlEntry], ptr %sec.i, i64 0, i64 %idxprom.i73, i32 2
   %42 = load i8, ptr %scs, align 1
@@ -8452,16 +8452,16 @@ if.then.i:                                        ; preds = %land.lhs.true5.i
   br i1 %tobool7.i, label %if.then8.i, label %if.else.i
 
 if.then8.i:                                       ; preds = %if.then.i
-  %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #17
-  %call10.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #19
+  %call10.i = tail call i32 @qemu_get_thread_id() #19
   %4 = load i64, ptr %_now.i, align 8
   %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %5 = load i64, ptr %tv_usec.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.432, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.432, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5) #19
   br label %_nocheck__trace_pci_nvme_ub_mmiowr_ro_csts.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.433) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.433) #19
   br label %_nocheck__trace_pci_nvme_ub_mmiowr_ro_csts.exit
 
 _nocheck__trace_pci_nvme_ub_mmiowr_ro_csts.exit:  ; preds = %entry, %land.lhs.true5.i, %if.then8.i, %if.else.i
@@ -8499,18 +8499,18 @@ if.then.i:                                        ; preds = %land.lhs.true5.i
   br i1 %tobool7.i, label %if.then8.i, label %if.else.i
 
 if.then8.i:                                       ; preds = %if.then.i
-  %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #17
-  %call10.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #19
+  %call10.i = tail call i32 @qemu_get_thread_id() #19
   %4 = load i64, ptr %_now.i, align 8
   %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %5 = load i64, ptr %tv_usec.i, align 8
   %conv11.i = zext nneg i8 %css to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.146, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, i32 noundef %conv11.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.146, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, i32 noundef %conv11.i) #19
   br label %_nocheck__trace_pci_nvme_err_startfail_css.exit
 
 if.else.i:                                        ; preds = %if.then.i
   %conv12.i = zext nneg i8 %css to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.147, i32 noundef %conv12.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.147, i32 noundef %conv12.i) #19
   br label %_nocheck__trace_pci_nvme_err_startfail_css.exit
 
 _nocheck__trace_pci_nvme_err_startfail_css.exit:  ; preds = %entry, %land.lhs.true5.i, %if.then8.i, %if.else.i
@@ -8542,20 +8542,20 @@ if.then.i:                                        ; preds = %land.lhs.true5.i
   br i1 %tobool7.i, label %if.then8.i, label %if.else.i
 
 if.then8.i:                                       ; preds = %if.then.i
-  %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #17
-  %call10.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #19
+  %call10.i = tail call i32 @qemu_get_thread_id() #19
   %4 = load i64, ptr %_now.i, align 8
   %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %5 = load i64, ptr %tv_usec.i, align 8
   %conv11.i = zext nneg i8 %log2ps to i32
   %conv12.i = zext nneg i8 %maxlog2ps to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.148, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, i32 noundef %conv11.i, i32 noundef %conv12.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.148, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, i32 noundef %conv11.i, i32 noundef %conv12.i) #19
   br label %_nocheck__trace_pci_nvme_err_startfail_page_too_small.exit
 
 if.else.i:                                        ; preds = %if.then.i
   %conv13.i = zext nneg i8 %log2ps to i32
   %conv14.i = zext nneg i8 %maxlog2ps to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.149, i32 noundef %conv13.i, i32 noundef %conv14.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.149, i32 noundef %conv13.i, i32 noundef %conv14.i) #19
   br label %_nocheck__trace_pci_nvme_err_startfail_page_too_small.exit
 
 _nocheck__trace_pci_nvme_err_startfail_page_too_small.exit: ; preds = %entry, %land.lhs.true5.i, %if.then8.i, %if.else.i
@@ -8587,20 +8587,20 @@ if.then.i:                                        ; preds = %land.lhs.true5.i
   br i1 %tobool7.i, label %if.then8.i, label %if.else.i
 
 if.then8.i:                                       ; preds = %if.then.i
-  %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #17
-  %call10.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #19
+  %call10.i = tail call i32 @qemu_get_thread_id() #19
   %4 = load i64, ptr %_now.i, align 8
   %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %5 = load i64, ptr %tv_usec.i, align 8
   %conv11.i = zext nneg i8 %log2ps to i32
   %conv12.i = zext nneg i8 %maxlog2ps to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.150, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, i32 noundef %conv11.i, i32 noundef %conv12.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.150, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, i32 noundef %conv11.i, i32 noundef %conv12.i) #19
   br label %_nocheck__trace_pci_nvme_err_startfail_page_too_large.exit
 
 if.else.i:                                        ; preds = %if.then.i
   %conv13.i = zext nneg i8 %log2ps to i32
   %conv14.i = zext nneg i8 %maxlog2ps to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.151, i32 noundef %conv13.i, i32 noundef %conv14.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.151, i32 noundef %conv13.i, i32 noundef %conv14.i) #19
   br label %_nocheck__trace_pci_nvme_err_startfail_page_too_large.exit
 
 _nocheck__trace_pci_nvme_err_startfail_page_too_large.exit: ; preds = %entry, %land.lhs.true5.i, %if.then8.i, %if.else.i
@@ -8632,16 +8632,16 @@ if.then.i:                                        ; preds = %land.lhs.true5.i
   br i1 %tobool7.i, label %if.then8.i, label %if.else.i
 
 if.then8.i:                                       ; preds = %if.then.i
-  %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #17
-  %call10.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #19
+  %call10.i = tail call i32 @qemu_get_thread_id() #19
   %4 = load i64, ptr %_now.i, align 8
   %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %5 = load i64, ptr %tv_usec.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.152, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.152, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5) #19
   br label %_nocheck__trace_pci_nvme_err_startfail_asqent_sz_zero.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.153) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.153) #19
   br label %_nocheck__trace_pci_nvme_err_startfail_asqent_sz_zero.exit
 
 _nocheck__trace_pci_nvme_err_startfail_asqent_sz_zero.exit: ; preds = %entry, %land.lhs.true5.i, %if.then8.i, %if.else.i
@@ -8673,16 +8673,16 @@ if.then.i:                                        ; preds = %land.lhs.true5.i
   br i1 %tobool7.i, label %if.then8.i, label %if.else.i
 
 if.then8.i:                                       ; preds = %if.then.i
-  %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #17
-  %call10.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #19
+  %call10.i = tail call i32 @qemu_get_thread_id() #19
   %4 = load i64, ptr %_now.i, align 8
   %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %5 = load i64, ptr %tv_usec.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.154, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.154, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5) #19
   br label %_nocheck__trace_pci_nvme_err_startfail_acqent_sz_zero.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.155) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.155) #19
   br label %_nocheck__trace_pci_nvme_err_startfail_acqent_sz_zero.exit
 
 _nocheck__trace_pci_nvme_err_startfail_acqent_sz_zero.exit: ; preds = %entry, %land.lhs.true5.i, %if.then8.i, %if.else.i
@@ -8693,14 +8693,14 @@ _nocheck__trace_pci_nvme_err_startfail_acqent_sz_zero.exit: ; preds = %entry, %l
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @nvme_init_cq(ptr noundef %cq, ptr noundef %n, i64 noundef %dma_addr, i16 noundef zeroext %cqid, i16 noundef zeroext %vector, i16 noundef zeroext %size, i16 noundef zeroext %irq_enabled) unnamed_addr #0 {
 entry:
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %n, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #17
-  %call1 = tail call i32 @msix_enabled(ptr noundef %call.i) #17
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %n, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #19
+  %call1 = tail call i32 @msix_enabled(ptr noundef %call.i) #19
   %tobool.not = icmp eq i32 %call1, 0
   %.pre = zext i16 %vector to i32
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call void @msix_vector_use(ptr noundef %call.i, i32 noundef %.pre) #17
+  tail call void @msix_vector_use(ptr noundef %call.i, i32 noundef %.pre) #19
   br label %if.end
 
 if.end:                                           ; preds = %entry, %if.then
@@ -8762,17 +8762,17 @@ if.then17:                                        ; preds = %if.end
 
 if.then30:                                        ; preds = %if.then17
   %notifier.i = getelementptr inbounds i8, ptr %cq, i64 64
-  %call.i35 = tail call i32 @event_notifier_init(ptr noundef nonnull %notifier.i, i32 noundef 0) #17
+  %call.i35 = tail call i32 @event_notifier_init(ptr noundef nonnull %notifier.i, i32 noundef 0) #19
   %cmp.i = icmp slt i32 %call.i35, 0
   br i1 %cmp.i, label %if.end36, label %if.then33
 
 if.then33:                                        ; preds = %if.then30
   %shl.i = shl i16 %cqid, 3
-  tail call void @event_notifier_set_handler(ptr noundef nonnull %notifier.i, ptr noundef nonnull @nvme_cq_notifier) #17
+  tail call void @event_notifier_set_handler(ptr noundef nonnull %notifier.i, ptr noundef nonnull @nvme_cq_notifier) #19
   %iomem.i = getelementptr inbounds i8, ptr %n, i64 2880
   %4 = zext i16 %shl.i to i64
   %add5.i = add nuw nsw i64 %4, 4100
-  tail call void @memory_region_add_eventfd(ptr noundef nonnull %iomem.i, i64 noundef %add5.i, i32 noundef 4, i1 noundef zeroext false, i64 noundef 0, ptr noundef nonnull %notifier.i) #17
+  tail call void @memory_region_add_eventfd(ptr noundef nonnull %iomem.i, i64 noundef %add5.i, i32 noundef 4, i1 noundef zeroext false, i64 noundef 0, ptr noundef nonnull %notifier.i) #19
   %ioeventfd_enabled = getelementptr inbounds i8, ptr %cq, i64 76
   store i8 1, ptr %ioeventfd_enabled, align 4
   br label %if.end36
@@ -8784,9 +8784,9 @@ if.end36:                                         ; preds = %if.end.if.end36_cri
   %arrayidx = getelementptr ptr, ptr %5, i64 %idxprom.pre-phi
   store ptr %cq, ptr %arrayidx, align 8
   %6 = load ptr, ptr %cq, align 8
-  %call.i36 = tail call ptr @object_dynamic_cast_assert(ptr noundef %6, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #17
+  %call.i36 = tail call ptr @object_dynamic_cast_assert(ptr noundef %6, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #19
   %mem_reentrancy_guard = getelementptr inbounds i8, ptr %call.i36, i64 152
-  %call40 = tail call ptr @qemu_bh_new_full(ptr noundef nonnull @nvme_post_cqes, ptr noundef nonnull %cq, ptr noundef nonnull @.str.156, ptr noundef nonnull %mem_reentrancy_guard) #17
+  %call40 = tail call ptr @qemu_bh_new_full(ptr noundef nonnull @nvme_post_cqes, ptr noundef nonnull %cq, ptr noundef nonnull @.str.156, ptr noundef nonnull %mem_reentrancy_guard) #19
   %bh = getelementptr inbounds i8, ptr %cq, i64 56
   store ptr %call40, ptr %bh, align 8
   ret void
@@ -8810,7 +8810,7 @@ entry:
   %head = getelementptr inbounds i8, ptr %sq, i64 12
   store i32 0, ptr %head, align 4
   %conv6 = zext i16 %size to i64
-  %call = tail call noalias ptr @g_malloc0_n(i64 noundef %conv6, i64 noundef 208) #19
+  %call = tail call noalias ptr @g_malloc0_n(i64 noundef %conv6, i64 noundef 208) #21
   %io_req = getelementptr inbounds i8, ptr %sq, i64 72
   store ptr %call, ptr %io_req, align 8
   %req_list = getelementptr inbounds i8, ptr %sq, i64 80
@@ -8851,9 +8851,9 @@ for.body:                                         ; preds = %entry, %for.body
 
 for.end:                                          ; preds = %for.body, %entry
   %8 = load ptr, ptr %sq, align 8
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %8, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #17
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %8, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #19
   %mem_reentrancy_guard = getelementptr inbounds i8, ptr %call.i, i64 152
-  %call44 = tail call ptr @qemu_bh_new_full(ptr noundef nonnull @nvme_process_sq, ptr noundef nonnull %sq, ptr noundef nonnull @.str.172, ptr noundef nonnull %mem_reentrancy_guard) #17
+  %call44 = tail call ptr @qemu_bh_new_full(ptr noundef nonnull @nvme_process_sq, ptr noundef nonnull %sq, ptr noundef nonnull @.str.172, ptr noundef nonnull %mem_reentrancy_guard) #19
   %bh = getelementptr inbounds i8, ptr %sq, i64 48
   store ptr %call44, ptr %bh, align 8
   %dbbuf_enabled = getelementptr inbounds i8, ptr %n, i64 7504
@@ -8887,17 +8887,17 @@ land.lhs.true:                                    ; preds = %if.then
 if.then57:                                        ; preds = %land.lhs.true
   %14 = load ptr, ptr %sq, align 8
   %notifier.i = getelementptr inbounds i8, ptr %sq, i64 56
-  %call.i58 = tail call i32 @event_notifier_init(ptr noundef nonnull %notifier.i, i32 noundef 0) #17
+  %call.i58 = tail call i32 @event_notifier_init(ptr noundef nonnull %notifier.i, i32 noundef 0) #19
   %cmp.i = icmp slt i32 %call.i58, 0
   br i1 %cmp.i, label %if.end62, label %if.then60
 
 if.then60:                                        ; preds = %if.then57
   %shl.i = shl i16 %13, 3
-  tail call void @event_notifier_set_handler(ptr noundef nonnull %notifier.i, ptr noundef nonnull @nvme_sq_notifier) #17
+  tail call void @event_notifier_set_handler(ptr noundef nonnull %notifier.i, ptr noundef nonnull @nvme_sq_notifier) #19
   %iomem.i = getelementptr inbounds i8, ptr %14, i64 2880
   %conv4.i = zext i16 %shl.i to i64
   %add.i = add nuw nsw i64 %conv4.i, 4096
-  tail call void @memory_region_add_eventfd(ptr noundef nonnull %iomem.i, i64 noundef %add.i, i32 noundef 4, i1 noundef zeroext false, i64 noundef 0, ptr noundef nonnull %notifier.i) #17
+  tail call void @memory_region_add_eventfd(ptr noundef nonnull %iomem.i, i64 noundef %add.i, i32 noundef 4, i1 noundef zeroext false, i64 noundef 0, ptr noundef nonnull %notifier.i) #19
   %ioeventfd_enabled = getelementptr inbounds i8, ptr %sq, i64 68
   store i8 1, ptr %ioeventfd_enabled, align 4
   br label %if.end62
@@ -8912,7 +8912,7 @@ if.end62:                                         ; preds = %if.then57, %if.then
   br i1 %tobool66.not, label %if.else, label %if.end68
 
 if.else:                                          ; preds = %if.end62
-  tail call void @__assert_fail(ptr noundef nonnull @.str.173, ptr noundef nonnull @.str.1, i32 noundef 4652, ptr noundef nonnull @__PRETTY_FUNCTION__.nvme_init_sq) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.173, ptr noundef nonnull @.str.1, i32 noundef 4652, ptr noundef nonnull @__PRETTY_FUNCTION__.nvme_init_sq) #20
   unreachable
 
 if.end68:                                         ; preds = %if.end62
@@ -8956,23 +8956,23 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #19
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #19
   %4 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.422, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, i64 noundef %ts) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.422, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, i64 noundef %ts) #19
   br label %trace_pci_nvme_setfeat_timestamp.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.423, i64 noundef %ts) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.423, i64 noundef %ts) #19
   br label %trace_pci_nvme_setfeat_timestamp.exit
 
 trace_pci_nvme_setfeat_timestamp.exit:            ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   %host_timestamp = getelementptr inbounds i8, ptr %n, i64 7448
   store i64 %ts, ptr %host_timestamp, align 8
-  %call.i = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #17
+  %call.i = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #19
   %div.i = sdiv i64 %call.i, 1000000
   %timestamp_set_qemu_clock_ms = getelementptr inbounds i8, ptr %n, i64 7456
   store i64 %div.i, ptr %timestamp_set_qemu_clock_ms, align 16
@@ -9101,33 +9101,33 @@ if.then.i.i.i:                                    ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.i.i.i, label %if.then8.i.i.i, label %if.else.i.i.i
 
 if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
-  %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #17
-  %call10.i.i.i = call i32 @qemu_get_thread_id() #17
+  %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #19
+  %call10.i.i.i = call i32 @qemu_get_thread_id() #19
   %11 = load i64, ptr %_now.i.i.i, align 8
   %12 = load i64, ptr %tv_usec.i.i.i, align 8
   %conv11.i.i.i = zext i16 %6 to i32
   %conv12.i.i.i = and i32 %.pre87, 65535
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.160, i32 noundef %call10.i.i.i, i64 noundef %11, i64 noundef %12, i32 noundef %conv11.i.i.i, i32 noundef %conv12.i.i.i) #17
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.160, i32 noundef %call10.i.i.i, i64 noundef %11, i64 noundef %12, i32 noundef %conv11.i.i.i, i32 noundef %conv12.i.i.i) #19
   br label %nvme_update_cq_eventidx.exit
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
   %conv13.i.i.i = zext i16 %6 to i32
   %conv14.i.i.i = and i32 %.pre87, 65535
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.161, i32 noundef %conv13.i.i.i, i32 noundef %conv14.i.i.i) #17
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.161, i32 noundef %conv13.i.i.i, i32 noundef %conv14.i.i.i) #19
   br label %nvme_update_cq_eventidx.exit
 
 nvme_update_cq_eventidx.exit:                     ; preds = %if.then, %land.lhs.true5.i.i.i, %if.then8.i.i.i, %if.else.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i)
   %13 = load ptr, ptr %opaque, align 8
-  %call.i.i = call ptr @object_dynamic_cast_assert(ptr noundef %13, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #17
+  %call.i.i = call ptr @object_dynamic_cast_assert(ptr noundef %13, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #19
   %14 = load i64, ptr %ei_addr.i, align 8
   %15 = load i32, ptr %head, align 8
   %bus_master_as.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 576
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.addr.i.i.i)
   store i32 %15, ptr %val.addr.i.i.i, align 4
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !8
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !8
   fence seq_cst
-  %call.i.i.i.i.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i, i64 noundef %14, i32 1, ptr noundef nonnull %val.addr.i.i.i, i64 noundef 4, i1 noundef zeroext true) #17
+  %call.i.i.i.i.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i, i64 noundef %14, i32 1, ptr noundef nonnull %val.addr.i.i.i, i64 noundef 4, i1 noundef zeroext true) #19
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %val.addr.i.i.i)
   call fastcc void @nvme_update_cq_head(ptr noundef nonnull %opaque)
   %.pre = load i32, ptr %head, align 8
@@ -9167,11 +9167,11 @@ if.end5:                                          ; preds = %if.end
   %shl18 = shl i32 %25, 4
   %conv19 = zext i32 %shl18 to i64
   %add = add i64 %24, %conv19
-  %call.i = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #17
+  %call.i = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #19
   %bus_master_as.i.i.i47 = getelementptr inbounds i8, ptr %call.i, i64 576
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !8
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !8
   fence seq_cst
-  %call.i.i.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i47, i64 noundef %add, i32 1, ptr noundef nonnull %cqe, i64 noundef 16, i1 noundef zeroext true) #17
+  %call.i.i.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i47, i64 noundef %add, i32 1, ptr noundef nonnull %cqe, i64 noundef 16, i1 noundef zeroext true) #19
   %tobool23.not = icmp eq i32 %call.i.i.i.i, 0
   br i1 %tobool23.not, label %do.body, label %if.then24
 
@@ -9196,16 +9196,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
-  %call10.i.i = call i32 @qemu_get_thread_id() #17
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #19
+  %call10.i.i = call i32 @qemu_get_thread_id() #19
   %30 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %31 = load i64, ptr %tv_usec.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.162, i32 noundef %call10.i.i, i64 noundef %30, i64 noundef %31, i64 noundef %add) #17
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.162, i32 noundef %call10.i.i, i64 noundef %30, i64 noundef %31, i64 noundef %add) #19
   br label %trace_pci_nvme_err_addr_write.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.163, i64 noundef %add) #17
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.163, i64 noundef %add) #19
   br label %trace_pci_nvme_err_addr_write.exit
 
 trace_pci_nvme_err_addr_write.exit:               ; preds = %if.then24, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -9230,16 +9230,16 @@ if.then.i.i55:                                    ; preds = %land.lhs.true5.i.i5
   br i1 %tobool7.i.i56, label %if.then8.i.i58, label %if.else.i.i57
 
 if.then8.i.i58:                                   ; preds = %if.then.i.i55
-  %call9.i.i59 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i48, ptr noundef null) #17
-  %call10.i.i60 = call i32 @qemu_get_thread_id() #17
+  %call9.i.i59 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i48, ptr noundef null) #19
+  %call10.i.i60 = call i32 @qemu_get_thread_id() #19
   %36 = load i64, ptr %_now.i.i48, align 8
   %tv_usec.i.i61 = getelementptr inbounds i8, ptr %_now.i.i48, i64 8
   %37 = load i64, ptr %tv_usec.i.i61, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.164, i32 noundef %call10.i.i60, i64 noundef %36, i64 noundef %37) #17
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.164, i32 noundef %call10.i.i60, i64 noundef %36, i64 noundef %37) #19
   br label %trace_pci_nvme_err_cfs.exit
 
 if.else.i.i57:                                    ; preds = %if.then.i.i55
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.165) #17
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.165) #19
   br label %trace_pci_nvme_err_cfs.exit
 
 trace_pci_nvme_err_cfs.exit:                      ; preds = %trace_pci_nvme_err_addr_write.exit, %land.lhs.true5.i.i52, %if.then8.i.i58, %if.else.i.i57
@@ -9289,11 +9289,11 @@ if.end.i:                                         ; preds = %nvme_inc_cq_tail.ex
   br i1 %tobool3.not.i, label %if.else.i, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.end.i
-  call void @qemu_sglist_destroy(ptr noundef nonnull %45) #17
+  call void @qemu_sglist_destroy(ptr noundef nonnull %45) #19
   br label %if.end5.i
 
 if.else.i:                                        ; preds = %if.end.i
-  call void @qemu_iovec_destroy(ptr noundef nonnull %45) #17
+  call void @qemu_iovec_destroy(ptr noundef nonnull %45) #19
   br label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.else.i, %if.then4.i
@@ -9331,13 +9331,13 @@ if.then68:                                        ; preds = %if.then64
   br label %if.end69
 
 if.end69:                                         ; preds = %if.then64, %if.then68
-  %call.i.i66 = call ptr @object_dynamic_cast_assert(ptr noundef %0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #17
+  %call.i.i66 = call ptr @object_dynamic_cast_assert(ptr noundef %0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #19
   %51 = load i16, ptr %irq_enabled, align 4
   %tobool.not.i67 = icmp eq i16 %51, 0
   br i1 %tobool.not.i67, label %if.else10.i, label %if.then.i68
 
 if.then.i68:                                      ; preds = %if.end69
-  %call1.i = call i32 @msix_enabled(ptr noundef %call.i.i66) #17
+  %call1.i = call i32 @msix_enabled(ptr noundef %call.i.i66) #19
   %tobool2.not.i = icmp eq i32 %call1.i, 0
   br i1 %tobool2.not.i, label %if.else.i82, label %if.then3.i
 
@@ -9364,22 +9364,22 @@ if.then.i.i.i75:                                  ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.i.i.i76, label %if.then8.i.i.i78, label %if.else.i.i.i77
 
 if.then8.i.i.i78:                                 ; preds = %if.then.i.i.i75
-  %call9.i.i.i79 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i65, ptr noundef null) #17
-  %call10.i.i.i80 = call i32 @qemu_get_thread_id() #17
+  %call9.i.i.i79 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i65, ptr noundef null) #19
+  %call10.i.i.i80 = call i32 @qemu_get_thread_id() #19
   %57 = load i64, ptr %_now.i.i.i65, align 8
   %tv_usec.i.i.i81 = getelementptr inbounds i8, ptr %_now.i.i.i65, i64 8
   %58 = load i64, ptr %tv_usec.i.i.i81, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.166, i32 noundef %call10.i.i.i80, i64 noundef %57, i64 noundef %58, i32 noundef %52) #17
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.166, i32 noundef %call10.i.i.i80, i64 noundef %57, i64 noundef %58, i32 noundef %52) #19
   br label %trace_pci_nvme_irq_msix.exit.i
 
 if.else.i.i.i77:                                  ; preds = %if.then.i.i.i75
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.167, i32 noundef %52) #17
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.167, i32 noundef %52) #19
   br label %trace_pci_nvme_irq_msix.exit.i
 
 trace_pci_nvme_irq_msix.exit.i:                   ; preds = %if.else.i.i.i77, %if.then8.i.i.i78, %land.lhs.true5.i.i.i72, %if.then3.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i65)
   %59 = load i32, ptr %vector.i, align 8
-  call void @msix_notify(ptr noundef %call.i.i66, i32 noundef %59) #17
+  call void @msix_notify(ptr noundef %call.i.i66, i32 noundef %59) #19
   br label %if.end70
 
 if.else.i82:                                      ; preds = %if.then.i68
@@ -9403,16 +9403,16 @@ if.then.i.i15.i:                                  ; preds = %land.lhs.true5.i.i1
   br i1 %tobool7.i.i16.i, label %if.then8.i.i18.i, label %if.else.i.i17.i
 
 if.then8.i.i18.i:                                 ; preds = %if.then.i.i15.i
-  %call9.i.i19.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i8.i, ptr noundef null) #17
-  %call10.i.i20.i = call i32 @qemu_get_thread_id() #17
+  %call9.i.i19.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i8.i, ptr noundef null) #19
+  %call10.i.i20.i = call i32 @qemu_get_thread_id() #19
   %64 = load i64, ptr %_now.i.i8.i, align 8
   %tv_usec.i.i21.i = getelementptr inbounds i8, ptr %_now.i.i8.i, i64 8
   %65 = load i64, ptr %tv_usec.i.i21.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.168, i32 noundef %call10.i.i20.i, i64 noundef %64, i64 noundef %65) #17
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.168, i32 noundef %call10.i.i20.i, i64 noundef %64, i64 noundef %65) #19
   br label %trace_pci_nvme_irq_pin.exit.i
 
 if.else.i.i17.i:                                  ; preds = %if.then.i.i15.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.169) #17
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.169) #19
   br label %trace_pci_nvme_irq_pin.exit.i
 
 trace_pci_nvme_irq_pin.exit.i:                    ; preds = %if.else.i.i17.i, %if.then8.i.i18.i, %land.lhs.true5.i.i12.i, %if.else.i82
@@ -9423,7 +9423,7 @@ trace_pci_nvme_irq_pin.exit.i:                    ; preds = %if.else.i.i17.i, %i
   br i1 %cmp.i83, label %if.end.i84, label %if.else7.i
 
 if.else7.i:                                       ; preds = %trace_pci_nvme_irq_pin.exit.i
-  call void @__assert_fail(ptr noundef nonnull @.str.159, ptr noundef nonnull @.str.1, i32 noundef 672, ptr noundef nonnull @__PRETTY_FUNCTION__.nvme_irq_assert) #18
+  call void @__assert_fail(ptr noundef nonnull @.str.159, ptr noundef nonnull @.str.1, i32 noundef 672, ptr noundef nonnull @__PRETTY_FUNCTION__.nvme_irq_assert) #20
   unreachable
 
 if.end.i84:                                       ; preds = %trace_pci_nvme_irq_pin.exit.i
@@ -9432,10 +9432,10 @@ if.end.i84:                                       ; preds = %trace_pci_nvme_irq_
   %67 = load i32, ptr %irq_status.i, align 4
   %or.i = or i32 %67, %shl.i
   store i32 %or.i, ptr %irq_status.i, align 4
-  %call.i.i.i = call ptr @object_dynamic_cast_assert(ptr noundef %0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #17
+  %call.i.i.i = call ptr @object_dynamic_cast_assert(ptr noundef %0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #19
   %intms1.i.i = getelementptr inbounds i8, ptr %0, i64 3164
   %intms1.val.i.i = load i32, ptr %intms1.i.i, align 1
-  %call3.i.i = call i32 @msix_enabled(ptr noundef %call.i.i.i) #17
+  %call3.i.i = call i32 @msix_enabled(ptr noundef %call.i.i.i) #19
   %tobool.not.i.i = icmp eq i32 %call3.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.end70
 
@@ -9445,7 +9445,7 @@ if.end.i.i:                                       ; preds = %if.end.i84
   %and.i.i = and i32 %68, %not.i.i
   %tobool4.not.i.i = icmp ne i32 %and.i.i, 0
   %..i.i = zext i1 %tobool4.not.i.i to i32
-  call void @pci_set_irq(ptr noundef %call.i.i.i, i32 noundef %..i.i) #17
+  call void @pci_set_irq(ptr noundef %call.i.i.i, i32 noundef %..i.i) #19
   br label %if.end70
 
 if.else10.i:                                      ; preds = %if.end69
@@ -9469,16 +9469,16 @@ if.then.i.i29.i:                                  ; preds = %land.lhs.true5.i.i2
   br i1 %tobool7.i.i30.i, label %if.then8.i.i32.i, label %if.else.i.i31.i
 
 if.then8.i.i32.i:                                 ; preds = %if.then.i.i29.i
-  %call9.i.i33.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i22.i, ptr noundef null) #17
-  %call10.i.i34.i = call i32 @qemu_get_thread_id() #17
+  %call9.i.i33.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i22.i, ptr noundef null) #19
+  %call10.i.i34.i = call i32 @qemu_get_thread_id() #19
   %73 = load i64, ptr %_now.i.i22.i, align 8
   %tv_usec.i.i35.i = getelementptr inbounds i8, ptr %_now.i.i22.i, i64 8
   %74 = load i64, ptr %tv_usec.i.i35.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.170, i32 noundef %call10.i.i34.i, i64 noundef %73, i64 noundef %74) #17
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.170, i32 noundef %call10.i.i34.i, i64 noundef %73, i64 noundef %74) #19
   br label %trace_pci_nvme_irq_masked.exit.i
 
 if.else.i.i31.i:                                  ; preds = %if.then.i.i29.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.171) #17
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.171) #19
   br label %trace_pci_nvme_irq_masked.exit.i
 
 trace_pci_nvme_irq_masked.exit.i:                 ; preds = %if.else.i.i31.i, %if.then8.i.i32.i, %land.lhs.true5.i.i26.i, %if.else10.i
@@ -9498,7 +9498,7 @@ define internal void @nvme_cq_notifier(ptr noundef %e) #0 {
 entry:
   %add.ptr = getelementptr i8, ptr %e, i64 -64
   %0 = load ptr, ptr %add.ptr, align 8
-  %call = tail call i32 @event_notifier_test_and_clear(ptr noundef %e) #17
+  %call = tail call i32 @event_notifier_test_and_clear(ptr noundef %e) #19
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end
 
@@ -9531,7 +9531,7 @@ if.end4:                                          ; preds = %if.then3, %if.then1
 if.end5:                                          ; preds = %if.end4, %if.end
   %bh = getelementptr i8, ptr %e, i64 -8
   %5 = load ptr, ptr %bh, align 8
-  tail call void @qemu_bh_schedule(ptr noundef %5) #17
+  tail call void @qemu_bh_schedule(ptr noundef %5) #19
   br label %return
 
 return:                                           ; preds = %entry, %if.end5
@@ -9547,14 +9547,14 @@ define internal fastcc void @nvme_update_cq_head(ptr noundef %cq) unnamed_addr #
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %0 = load ptr, ptr %cq, align 8
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #17
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #19
   %db_addr = getelementptr inbounds i8, ptr %cq, i64 40
   %1 = load i64, ptr %db_addr, align 8
   %head = getelementptr inbounds i8, ptr %cq, i64 16
   %bus_master_as.i.i = getelementptr inbounds i8, ptr %call.i, i64 576
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !8
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !8
   fence seq_cst
-  %call.i.i.i.i.i = tail call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i, i64 noundef %1, i32 1, ptr noundef nonnull %head, i64 noundef 4, i1 noundef zeroext false) #17
+  %call.i.i.i.i.i = tail call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i, i64 noundef %1, i32 1, ptr noundef nonnull %head, i64 noundef 4, i1 noundef zeroext false) #19
   %cqid = getelementptr inbounds i8, ptr %cq, i64 10
   %2 = load i16, ptr %cqid, align 2
   %3 = load i32, ptr %head, align 8
@@ -9578,20 +9578,20 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #19
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #19
   %8 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i16 %2 to i32
   %conv12.i.i = and i32 %3, 65535
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.157, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, i32 noundef %conv11.i.i, i32 noundef %conv12.i.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.157, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, i32 noundef %conv11.i.i, i32 noundef %conv12.i.i) #19
   br label %trace_pci_nvme_update_cq_head.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
   %conv13.i.i = zext i16 %2 to i32
   %conv14.i.i = and i32 %3, 65535
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.158, i32 noundef %conv13.i.i, i32 noundef %conv14.i.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.158, i32 noundef %conv13.i.i, i32 noundef %conv14.i.i) #19
   br label %trace_pci_nvme_update_cq_head.exit
 
 trace_pci_nvme_update_cq_head.exit:               ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -9608,8 +9608,8 @@ entry:
   br i1 %tobool.not, label %if.end11, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %n, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #17
-  %call1 = tail call i32 @msix_enabled(ptr noundef %call.i) #17
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %n, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #19
+  %call1 = tail call i32 @msix_enabled(ptr noundef %call.i) #19
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %if.else, label %if.end11
 
@@ -9620,7 +9620,7 @@ if.else:                                          ; preds = %if.then
   br i1 %cmp, label %if.end, label %if.else5
 
 if.else5:                                         ; preds = %if.else
-  tail call void @__assert_fail(ptr noundef nonnull @.str.159, ptr noundef nonnull @.str.1, i32 noundef 687, ptr noundef nonnull @__PRETTY_FUNCTION__.nvme_irq_deassert) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.159, ptr noundef nonnull @.str.1, i32 noundef 687, ptr noundef nonnull @__PRETTY_FUNCTION__.nvme_irq_deassert) #20
   unreachable
 
 if.end:                                           ; preds = %if.else
@@ -9639,10 +9639,10 @@ if.then7:                                         ; preds = %if.end
   br label %if.end9
 
 if.end9:                                          ; preds = %if.then7, %if.end
-  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %n, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #17
+  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %n, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #19
   %intms1.i = getelementptr inbounds i8, ptr %n, i64 3164
   %intms1.val.i = load i32, ptr %intms1.i, align 1
-  %call3.i = tail call i32 @msix_enabled(ptr noundef %call.i.i) #17
+  %call3.i = tail call i32 @msix_enabled(ptr noundef %call.i.i) #19
   %tobool.not.i = icmp eq i32 %call3.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.end11
 
@@ -9653,7 +9653,7 @@ if.end.i:                                         ; preds = %if.end9
   %and.i = and i32 %4, %not.i
   %tobool4.not.i = icmp ne i32 %and.i, 0
   %..i = zext i1 %tobool4.not.i to i32
-  tail call void @pci_set_irq(ptr noundef %call.i.i, i32 noundef %..i) #17
+  tail call void @pci_set_irq(ptr noundef %call.i.i, i32 noundef %..i) #19
   br label %if.end11
 
 if.end11:                                         ; preds = %if.end.i, %if.end9, %if.then, %entry
@@ -9866,16 +9866,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
-  %call10.i.i = call i32 @qemu_get_thread_id() #17
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #19
+  %call10.i.i = call i32 @qemu_get_thread_id() #19
   %15 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %16 = load i64, ptr %tv_usec.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.17, i32 noundef %call10.i.i, i64 noundef %15, i64 noundef %16, i64 noundef %add) #17
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.17, i32 noundef %call10.i.i, i64 noundef %15, i64 noundef %16, i64 noundef %add) #19
   br label %trace_pci_nvme_err_addr_read.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, i64 noundef %add) #17
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, i64 noundef %add) #19
   br label %trace_pci_nvme_err_addr_read.exit
 
 trace_pci_nvme_err_addr_read.exit:                ; preds = %if.then7, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -9900,16 +9900,16 @@ if.then.i.i51:                                    ; preds = %land.lhs.true5.i.i4
   br i1 %tobool7.i.i52, label %if.then8.i.i54, label %if.else.i.i53
 
 if.then8.i.i54:                                   ; preds = %if.then.i.i51
-  %call9.i.i55 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i44, ptr noundef null) #17
-  %call10.i.i56 = call i32 @qemu_get_thread_id() #17
+  %call9.i.i55 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i44, ptr noundef null) #19
+  %call10.i.i56 = call i32 @qemu_get_thread_id() #19
   %21 = load i64, ptr %_now.i.i44, align 8
   %tv_usec.i.i57 = getelementptr inbounds i8, ptr %_now.i.i44, i64 8
   %22 = load i64, ptr %tv_usec.i.i57, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.164, i32 noundef %call10.i.i56, i64 noundef %21, i64 noundef %22) #17
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.164, i32 noundef %call10.i.i56, i64 noundef %21, i64 noundef %22) #19
   br label %trace_pci_nvme_err_cfs.exit
 
 if.else.i.i53:                                    ; preds = %if.then.i.i51
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.165) #17
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.165) #19
   br label %trace_pci_nvme_err_cfs.exit
 
 trace_pci_nvme_err_cfs.exit:                      ; preds = %trace_pci_nvme_err_addr_read.exit, %land.lhs.true5.i.i48, %if.then8.i.i54, %if.else.i.i53
@@ -10030,21 +10030,21 @@ if.then.i.i.i:                                    ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.i.i.i, label %if.then8.i.i.i, label %if.else.i.i.i
 
 if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
-  %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #17
-  %call10.i.i.i = call i32 @qemu_get_thread_id() #17
+  %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #19
+  %call10.i.i.i = call i32 @qemu_get_thread_id() #19
   %39 = load i64, ptr %_now.i.i.i, align 8
   %40 = load i64, ptr %tv_usec.i.i.i, align 8
   %conv11.i.i.i = zext i16 %30 to i32
   %conv12.i.i.i = zext i16 %req.val.val.i to i32
   %conv13.i.i.i = zext i8 %34 to i32
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.177, i32 noundef %call10.i.i.i, i64 noundef %39, i64 noundef %40, i32 noundef %conv11.i.i.i, i32 noundef %32, i32 noundef %conv12.i.i.i, i32 noundef %conv13.i.i.i, ptr noundef nonnull %retval.0.i44.i) #17
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.177, i32 noundef %call10.i.i.i, i64 noundef %39, i64 noundef %40, i32 noundef %conv11.i.i.i, i32 noundef %32, i32 noundef %conv12.i.i.i, i32 noundef %conv13.i.i.i, ptr noundef nonnull %retval.0.i44.i) #19
   br label %trace_pci_nvme_io_cmd.exit.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
   %conv14.i.i.i = zext i16 %30 to i32
   %conv15.i.i.i = zext i16 %req.val.val.i to i32
   %conv16.i.i.i = zext i8 %34 to i32
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.178, i32 noundef %conv14.i.i.i, i32 noundef %32, i32 noundef %conv15.i.i.i, i32 noundef %conv16.i.i.i, ptr noundef nonnull %retval.0.i44.i) #17
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.178, i32 noundef %conv14.i.i.i, i32 noundef %32, i32 noundef %conv15.i.i.i, i32 noundef %conv16.i.i.i, ptr noundef nonnull %retval.0.i44.i) #19
   br label %trace_pci_nvme_io_cmd.exit.i
 
 trace_pci_nvme_io_cmd.exit.i:                     ; preds = %if.else.i.i.i, %if.then8.i.i.i, %land.lhs.true5.i.i.i, %nvme_io_opc_str.exit.i
@@ -10062,7 +10062,7 @@ if.end.i:                                         ; preds = %trace_pci_nvme_io_c
 
 if.then12.i:                                      ; preds = %if.end.i
   %45 = load i32, ptr %nsid1.i, align 4
-  %call2.i.i = call ptr @qemu_aio_get(ptr noundef nonnull @nvme_flush_aiocb_info, ptr noundef null, ptr noundef nonnull @nvme_misc_cb, ptr noundef nonnull %25) #17
+  %call2.i.i = call ptr @qemu_aio_get(ptr noundef nonnull @nvme_flush_aiocb_info, ptr noundef null, ptr noundef nonnull @nvme_misc_cb, ptr noundef nonnull %25) #19
   %req3.i.i = getelementptr inbounds i8, ptr %call2.i.i, i64 48
   store ptr %25, ptr %req3.i.i, align 8
   %ret.i.i = getelementptr inbounds i8, ptr %call2.i.i, i64 56
@@ -10102,7 +10102,7 @@ if.end15.i.i:                                     ; preds = %if.end13.i.i, %if.t
 
 out.i.i:                                          ; preds = %nvme_ns.exit.i.i, %if.then.i.i60
   %status.0.i.i = phi i16 [ 16395, %if.then.i.i60 ], [ 16386, %nvme_ns.exit.i.i ]
-  call void @qemu_aio_unref(ptr noundef nonnull %call2.i.i) #17
+  call void @qemu_aio_unref(ptr noundef nonnull %call2.i.i) #19
   br label %if.then55
 
 if.end14.i:                                       ; preds = %if.end.i
@@ -10148,17 +10148,17 @@ if.then.i.i56.i:                                  ; preds = %land.lhs.true5.i.i5
   br i1 %tobool7.i.i57.i, label %if.then8.i.i60.i, label %if.else.i.i58.i
 
 if.then8.i.i60.i:                                 ; preds = %if.then.i.i56.i
-  %call9.i.i61.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i49.i, ptr noundef null) #17
-  %call10.i.i62.i = call i32 @qemu_get_thread_id() #17
+  %call9.i.i61.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i49.i, ptr noundef null) #19
+  %call10.i.i62.i = call i32 @qemu_get_thread_id() #19
   %57 = load i64, ptr %_now.i.i49.i, align 8
   %58 = load i64, ptr %tv_usec.i.i63.i, align 8
   %conv11.i.i64.i = zext i8 %44 to i32
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.195, i32 noundef %call10.i.i62.i, i64 noundef %57, i64 noundef %58, i32 noundef %conv11.i.i64.i) #17
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.195, i32 noundef %call10.i.i62.i, i64 noundef %57, i64 noundef %58, i32 noundef %conv11.i.i64.i) #19
   br label %trace_pci_nvme_err_invalid_opc.exit.i
 
 if.else.i.i58.i:                                  ; preds = %if.then.i.i56.i
   %conv12.i.i59.i = zext i8 %44 to i32
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.196, i32 noundef %conv12.i.i59.i) #17
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.196, i32 noundef %conv12.i.i59.i) #19
   br label %trace_pci_nvme_err_invalid_opc.exit.i
 
 trace_pci_nvme_err_invalid_opc.exit.i:            ; preds = %if.else.i.i58.i, %if.then8.i.i60.i, %land.lhs.true5.i.i53.i, %if.then25.i
@@ -10244,7 +10244,7 @@ sw.bb64.i:                                        ; preds = %if.end38.i
   br label %cond.end
 
 sw.default.i:                                     ; preds = %if.end38.i
-  call void @__assert_fail(ptr noundef nonnull @.str.176, ptr noundef nonnull @.str.1, i32 noundef 4483, ptr noundef nonnull @__PRETTY_FUNCTION__.nvme_io_cmd) #18
+  call void @__assert_fail(ptr noundef nonnull @.str.176, ptr noundef nonnull @.str.1, i32 noundef 4483, ptr noundef nonnull @__PRETTY_FUNCTION__.nvme_io_cmd) #20
   unreachable
 
 nvme_cid.exit.i:                                  ; preds = %if.end8
@@ -10341,21 +10341,21 @@ if.then.i.i.i83:                                  ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.i.i.i84, label %if.then8.i.i.i89, label %if.else.i.i.i85
 
 if.then8.i.i.i89:                                 ; preds = %if.then.i.i.i83
-  %call9.i.i.i90 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i61, ptr noundef null) #17
-  %call10.i.i.i91 = call i32 @qemu_get_thread_id() #17
+  %call9.i.i.i90 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i61, ptr noundef null) #19
+  %call10.i.i.i91 = call i32 @qemu_get_thread_id() #19
   %68 = load i64, ptr %_now.i.i.i61, align 8
   %69 = load i64, ptr %tv_usec.i.i.i92, align 8
   %conv11.i.i.i93 = zext i16 %30 to i32
   %conv12.i.i.i94 = zext i16 %req.val.val.i64 to i32
   %conv13.i.i.i95 = zext i8 %63 to i32
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.290, i32 noundef %call10.i.i.i91, i64 noundef %68, i64 noundef %69, i32 noundef %conv11.i.i.i93, i32 noundef %conv12.i.i.i94, i32 noundef %conv13.i.i.i95, ptr noundef nonnull %retval.0.i42.i) #17
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.290, i32 noundef %call10.i.i.i91, i64 noundef %68, i64 noundef %69, i32 noundef %conv11.i.i.i93, i32 noundef %conv12.i.i.i94, i32 noundef %conv13.i.i.i95, ptr noundef nonnull %retval.0.i42.i) #19
   br label %trace_pci_nvme_admin_cmd.exit.i
 
 if.else.i.i.i85:                                  ; preds = %if.then.i.i.i83
   %conv14.i.i.i86 = zext i16 %30 to i32
   %conv15.i.i.i87 = zext i16 %req.val.val.i64 to i32
   %conv16.i.i.i88 = zext i8 %63 to i32
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.291, i32 noundef %conv14.i.i.i86, i32 noundef %conv15.i.i.i87, i32 noundef %conv16.i.i.i88, ptr noundef nonnull %retval.0.i42.i) #17
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.291, i32 noundef %conv14.i.i.i86, i32 noundef %conv15.i.i.i87, i32 noundef %conv16.i.i.i88, ptr noundef nonnull %retval.0.i42.i) #19
   br label %trace_pci_nvme_admin_cmd.exit.i
 
 trace_pci_nvme_admin_cmd.exit.i:                  ; preds = %if.else.i.i.i85, %if.then8.i.i.i89, %land.lhs.true5.i.i.i80, %nvme_adm_opc_str.exit.i
@@ -10389,17 +10389,17 @@ if.then.i.i50.i:                                  ; preds = %land.lhs.true5.i.i4
   br i1 %tobool7.i.i51.i, label %if.then8.i.i54.i, label %if.else.i.i52.i
 
 if.then8.i.i54.i:                                 ; preds = %if.then.i.i50.i
-  %call9.i.i55.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i43.i, ptr noundef null) #17
-  %call10.i.i56.i = call i32 @qemu_get_thread_id() #17
+  %call9.i.i55.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i43.i, ptr noundef null) #19
+  %call10.i.i56.i = call i32 @qemu_get_thread_id() #19
   %76 = load i64, ptr %_now.i.i43.i, align 8
   %77 = load i64, ptr %tv_usec.i.i57.i, align 8
   %conv11.i.i58.i = zext i8 %70 to i32
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.310, i32 noundef %call10.i.i56.i, i64 noundef %76, i64 noundef %77, i32 noundef %conv11.i.i58.i) #17
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.310, i32 noundef %call10.i.i56.i, i64 noundef %76, i64 noundef %77, i32 noundef %conv11.i.i58.i) #19
   br label %trace_pci_nvme_err_invalid_admin_opc.exit.i
 
 if.else.i.i52.i:                                  ; preds = %if.then.i.i50.i
   %conv12.i.i53.i = zext i8 %70 to i32
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.311, i32 noundef %conv12.i.i53.i) #17
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.311, i32 noundef %conv12.i.i53.i) #19
   br label %trace_pci_nvme_err_invalid_admin_opc.exit.i
 
 trace_pci_nvme_err_invalid_admin_opc.exit.i:      ; preds = %if.else.i.i52.i, %if.then8.i.i54.i, %land.lhs.true5.i.i47.i, %if.then.i
@@ -10479,17 +10479,17 @@ if.then.i.i.i657:                                 ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.i.i.i658, label %if.then8.i.i.i661, label %if.else.i.i.i659
 
 if.then8.i.i.i661:                                ; preds = %if.then.i.i.i657
-  %call9.i.i.i662 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i642, ptr noundef null) #17
-  %call10.i.i.i663 = call i32 @qemu_get_thread_id() #17
+  %call9.i.i.i662 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i642, ptr noundef null) #19
+  %call10.i.i.i663 = call i32 @qemu_get_thread_id() #19
   %88 = load i64, ptr %_now.i.i.i642, align 8
   %89 = load i64, ptr %tv_usec.i.i.i664, align 8
   %conv11.i.i.i665 = zext i16 %req.val40.i to i32
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.314, i32 noundef %call10.i.i.i663, i64 noundef %88, i64 noundef %89, i32 noundef %conv11.i.i.i665) #17
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.314, i32 noundef %call10.i.i.i663, i64 noundef %88, i64 noundef %89, i32 noundef %conv11.i.i.i665) #19
   br label %trace_pci_nvme_err_invalid_del_sq.exit.i
 
 if.else.i.i.i659:                                 ; preds = %if.then.i.i.i657
   %conv12.i.i.i660 = zext i16 %req.val40.i to i32
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.315, i32 noundef %conv12.i.i.i660) #17
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.315, i32 noundef %conv12.i.i.i660) #19
   br label %trace_pci_nvme_err_invalid_del_sq.exit.i
 
 trace_pci_nvme_err_invalid_del_sq.exit.i:         ; preds = %if.else.i.i.i659, %if.then8.i.i.i661, %land.lhs.true5.i.i.i654, %if.then.i649
@@ -10517,15 +10517,15 @@ if.then.i.i57.i:                                  ; preds = %land.lhs.true5.i.i5
   br i1 %tobool7.i.i58.i, label %if.then8.i.i61.i, label %if.else.i.i59.i
 
 if.then8.i.i61.i:                                 ; preds = %if.then.i.i57.i
-  %call9.i.i62.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i50.i, ptr noundef null) #17
-  %call10.i.i63.i = call i32 @qemu_get_thread_id() #17
+  %call9.i.i62.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i50.i, ptr noundef null) #19
+  %call10.i.i63.i = call i32 @qemu_get_thread_id() #19
   %94 = load i64, ptr %_now.i.i50.i, align 8
   %95 = load i64, ptr %tv_usec.i.i64.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.316, i32 noundef %call10.i.i63.i, i64 noundef %94, i64 noundef %95, i32 noundef %conv.i.i645) #17
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.316, i32 noundef %call10.i.i63.i, i64 noundef %94, i64 noundef %95, i32 noundef %conv.i.i645) #19
   br label %trace_pci_nvme_del_sq.exit.i
 
 if.else.i.i59.i:                                  ; preds = %if.then.i.i57.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.317, i32 noundef %conv.i.i645) #17
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.317, i32 noundef %conv.i.i645) #19
   br label %trace_pci_nvme_del_sq.exit.i
 
 trace_pci_nvme_del_sq.exit.i:                     ; preds = %if.else.i.i59.i, %if.then8.i.i61.i, %land.lhs.true5.i.i54.i, %if.end.i669
@@ -10546,11 +10546,11 @@ while.body.i:                                     ; preds = %trace_pci_nvme_del_
   br i1 %tobool11.not.i672, label %if.else.i683, label %if.end13.i673
 
 if.else.i683:                                     ; preds = %while.body.i
-  call void @__assert_fail(ptr noundef nonnull @.str.312, ptr noundef nonnull @.str.1, i32 noundef 4594, ptr noundef nonnull @__PRETTY_FUNCTION__.nvme_del_sq) #18
+  call void @__assert_fail(ptr noundef nonnull @.str.312, ptr noundef nonnull @.str.1, i32 noundef 4594, ptr noundef nonnull @__PRETTY_FUNCTION__.nvme_del_sq) #20
   unreachable
 
 if.end13.i673:                                    ; preds = %while.body.i
-  call void @blk_aio_cancel(ptr noundef nonnull %100) #17
+  call void @blk_aio_cancel(ptr noundef nonnull %100) #19
   %101 = load ptr, ptr %out_req_list.i, align 8
   %cmp.not.i674 = icmp eq ptr %101, null
   br i1 %cmp.not.i674, label %if.end20.i675, label %while.body.i, !llvm.loop !26
@@ -10659,15 +10659,15 @@ if.then.i.i.i627:                                 ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.i.i.i628, label %if.then8.i.i.i634, label %if.else.i.i.i629
 
 if.then8.i.i.i634:                                ; preds = %if.then.i.i.i627
-  %call9.i.i.i635 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i589, ptr noundef null) #17
-  %call10.i.i.i636 = call i32 @qemu_get_thread_id() #17
+  %call9.i.i.i635 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i589, ptr noundef null) #19
+  %call10.i.i.i636 = call i32 @qemu_get_thread_id() #19
   %124 = load i64, ptr %_now.i.i.i589, align 8
   %125 = load i64, ptr %tv_usec.i.i.i637, align 8
   %conv11.i.i.i638 = zext i16 %116 to i32
   %conv12.i.i.i639 = zext i16 %115 to i32
   %conv13.i.i.i640 = zext i16 %117 to i32
   %conv14.i.i.i641 = zext i16 %118 to i32
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.318, i32 noundef %call10.i.i.i636, i64 noundef %124, i64 noundef %125, i64 noundef %119, i32 noundef %conv11.i.i.i638, i32 noundef %conv12.i.i.i639, i32 noundef %conv13.i.i.i640, i32 noundef %conv14.i.i.i641) #17
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.318, i32 noundef %call10.i.i.i636, i64 noundef %124, i64 noundef %125, i64 noundef %119, i32 noundef %conv11.i.i.i638, i32 noundef %conv12.i.i.i639, i32 noundef %conv13.i.i.i640, i32 noundef %conv14.i.i.i641) #19
   br label %trace_pci_nvme_create_sq.exit.i
 
 if.else.i.i.i629:                                 ; preds = %if.then.i.i.i627
@@ -10675,7 +10675,7 @@ if.else.i.i.i629:                                 ; preds = %if.then.i.i.i627
   %conv16.i.i.i631 = zext i16 %115 to i32
   %conv17.i.i.i632 = zext i16 %117 to i32
   %conv18.i.i.i633 = zext i16 %118 to i32
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.319, i64 noundef %119, i32 noundef %conv15.i.i.i630, i32 noundef %conv16.i.i.i631, i32 noundef %conv17.i.i.i632, i32 noundef %conv18.i.i.i633) #17
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.319, i64 noundef %119, i32 noundef %conv15.i.i.i630, i32 noundef %conv16.i.i.i631, i32 noundef %conv17.i.i.i632, i32 noundef %conv18.i.i.i633) #19
   br label %trace_pci_nvme_create_sq.exit.i
 
 trace_pci_nvme_create_sq.exit.i:                  ; preds = %if.else.i.i.i629, %if.then8.i.i.i634, %land.lhs.true5.i.i.i624, %sw.bb25.i
@@ -10719,17 +10719,17 @@ if.then.i.i35.i:                                  ; preds = %land.lhs.true5.i.i3
   br i1 %tobool7.i.i36.i, label %if.then8.i.i39.i, label %if.else.i.i37.i
 
 if.then8.i.i39.i:                                 ; preds = %if.then.i.i35.i
-  %call9.i.i40.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i28.i, ptr noundef null) #17
-  %call10.i.i41.i = call i32 @qemu_get_thread_id() #17
+  %call9.i.i40.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i28.i, ptr noundef null) #19
+  %call10.i.i41.i = call i32 @qemu_get_thread_id() #19
   %133 = load i64, ptr %_now.i.i28.i, align 8
   %134 = load i64, ptr %tv_usec.i.i42.i, align 8
   %conv11.i.i43.i = zext i16 %115 to i32
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.320, i32 noundef %call10.i.i41.i, i64 noundef %133, i64 noundef %134, i32 noundef %conv11.i.i43.i) #17
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.320, i32 noundef %call10.i.i41.i, i64 noundef %133, i64 noundef %134, i32 noundef %conv11.i.i43.i) #19
   br label %trace_pci_nvme_err_invalid_create_sq_cqid.exit.i
 
 if.else.i.i37.i:                                  ; preds = %if.then.i.i35.i
   %conv12.i.i38.i = zext i16 %115 to i32
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.321, i32 noundef %conv12.i.i38.i) #17
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.321, i32 noundef %conv12.i.i38.i) #19
   br label %trace_pci_nvme_err_invalid_create_sq_cqid.exit.i
 
 trace_pci_nvme_err_invalid_create_sq_cqid.exit.i: ; preds = %if.else.i.i37.i, %if.then8.i.i39.i, %land.lhs.true5.i.i32.i, %if.then.i600
@@ -10772,15 +10772,15 @@ if.then.i.i51.i:                                  ; preds = %land.lhs.true5.i.i4
   br i1 %tobool7.i.i52.i, label %if.then8.i.i55.i, label %if.else.i.i53.i
 
 if.then8.i.i55.i:                                 ; preds = %if.then.i.i51.i
-  %call9.i.i56.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i44.i, ptr noundef null) #17
-  %call10.i.i57.i = call i32 @qemu_get_thread_id() #17
+  %call9.i.i56.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i44.i, ptr noundef null) #19
+  %call10.i.i57.i = call i32 @qemu_get_thread_id() #19
   %141 = load i64, ptr %_now.i.i44.i, align 8
   %142 = load i64, ptr %tv_usec.i.i58.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.322, i32 noundef %call10.i.i57.i, i64 noundef %141, i64 noundef %142, i32 noundef %conv14.i609) #17
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.322, i32 noundef %call10.i.i57.i, i64 noundef %141, i64 noundef %142, i32 noundef %conv14.i609) #19
   br label %trace_pci_nvme_err_invalid_create_sq_sqid.exit.i
 
 if.else.i.i53.i:                                  ; preds = %if.then.i.i51.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.323, i32 noundef %conv14.i609) #17
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.323, i32 noundef %conv14.i609) #19
   br label %trace_pci_nvme_err_invalid_create_sq_sqid.exit.i
 
 trace_pci_nvme_err_invalid_create_sq_sqid.exit.i: ; preds = %if.else.i.i53.i, %if.then8.i.i55.i, %land.lhs.true5.i.i48.i, %if.then27.i
@@ -10824,7 +10824,7 @@ if.then66.i:                                      ; preds = %if.end54.i
   br label %if.then55
 
 if.end70.i:                                       ; preds = %if.end54.i
-  %call71.i622 = call noalias dereferenceable_or_null(128) ptr @g_malloc0(i64 noundef 128) #20
+  %call71.i622 = call noalias dereferenceable_or_null(128) ptr @g_malloc0(i64 noundef 128) #22
   %add.i623 = add i16 %117, 1
   call fastcc void @nvme_init_sq(ptr noundef %call71.i622, ptr noundef nonnull %0, i64 noundef %119, i16 noundef zeroext %116, i16 noundef zeroext %115, i16 noundef zeroext %add.i623)
   br label %if.then55
@@ -10883,21 +10883,21 @@ if.then.i.i.i576:                                 ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.i.i.i577, label %if.then8.i.i.i582, label %if.else.i.i.i578
 
 if.then8.i.i.i582:                                ; preds = %if.then.i.i.i576
-  %call9.i.i.i583 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i527, ptr noundef null) #17
-  %call10.i.i.i584 = call i32 @qemu_get_thread_id() #17
+  %call9.i.i.i583 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i527, ptr noundef null) #19
+  %call10.i.i.i584 = call i32 @qemu_get_thread_id() #19
   %156 = load i64, ptr %_now.i.i.i527, align 8
   %157 = load i64, ptr %tv_usec.i.i.i585, align 8
   %conv11.i.i.i586 = zext i16 %151 to i32
   %conv12.i.i.i587 = and i32 %145, 255
   %conv14.i.i.i588 = and i32 %shr7.i, 1
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.330, i32 noundef %call10.i.i.i584, i64 noundef %156, i64 noundef %157, i32 noundef %conv11.i.i.i586, i32 noundef %conv12.i.i.i587, i32 noundef %conv6.i, i32 noundef %conv14.i.i.i588, i32 noundef %shl18.i, i64 noundef %or21.i) #17
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.330, i32 noundef %call10.i.i.i584, i64 noundef %156, i64 noundef %157, i32 noundef %conv11.i.i.i586, i32 noundef %conv12.i.i.i587, i32 noundef %conv6.i, i32 noundef %conv14.i.i.i588, i32 noundef %shl18.i, i64 noundef %or21.i) #19
   br label %trace_pci_nvme_get_log.exit.i
 
 if.else.i.i.i578:                                 ; preds = %if.then.i.i.i576
   %conv15.i.i.i579 = zext i16 %151 to i32
   %conv16.i.i.i580 = and i32 %145, 255
   %conv18.i.i.i581 = and i32 %shr7.i, 1
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.331, i32 noundef %conv15.i.i.i579, i32 noundef %conv16.i.i.i580, i32 noundef %conv6.i, i32 noundef %conv18.i.i.i581, i32 noundef %shl18.i, i64 noundef %or21.i) #17
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.331, i32 noundef %conv15.i.i.i579, i32 noundef %conv16.i.i.i580, i32 noundef %conv6.i, i32 noundef %conv18.i.i.i581, i32 noundef %shl18.i, i64 noundef %or21.i) #19
   br label %trace_pci_nvme_get_log.exit.i
 
 trace_pci_nvme_get_log.exit.i:                    ; preds = %if.else.i.i.i578, %if.then8.i.i.i582, %land.lhs.true5.i.i.i573, %nvme_cid.exit.i536
@@ -10934,15 +10934,15 @@ if.then.i.i.i.i566:                               ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.i.i.i.i567, label %if.then8.i.i.i.i569, label %if.else.i.i.i.i568
 
 if.then8.i.i.i.i569:                              ; preds = %if.then.i.i.i.i566
-  %call9.i.i.i.i570 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i.i526, ptr noundef null) #17
-  %call10.i.i.i.i571 = call i32 @qemu_get_thread_id() #17
+  %call9.i.i.i.i570 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i.i526, ptr noundef null) #19
+  %call10.i.i.i.i571 = call i32 @qemu_get_thread_id() #19
   %164 = load i64, ptr %_now.i.i.i.i526, align 8
   %165 = load i64, ptr %tv_usec.i.i.i.i572, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.199, i32 noundef %call10.i.i.i.i571, i64 noundef %164, i64 noundef %165, i64 noundef %conv19.i) #17
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.199, i32 noundef %call10.i.i.i.i571, i64 noundef %164, i64 noundef %165, i64 noundef %conv19.i) #19
   br label %nvme_check_mdts.exit.i
 
 if.else.i.i.i.i568:                               ; preds = %if.then.i.i.i.i566
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.200, i64 noundef %conv19.i) #17
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.200, i64 noundef %conv19.i) #19
   br label %nvme_check_mdts.exit.i
 
 nvme_check_mdts.exit.i:                           ; preds = %if.else.i.i.i.i568, %if.then8.i.i.i.i569, %land.lhs.true5.i.i.i.i563, %if.then.i.i559
@@ -11052,17 +11052,17 @@ if.then.i.i.i505:                                 ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.i.i.i506, label %if.then8.i.i.i509, label %if.else.i.i.i507
 
 if.then8.i.i.i509:                                ; preds = %if.then.i.i.i505
-  %call9.i.i.i510 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i491, ptr noundef null) #17
-  %call10.i.i.i511 = call i32 @qemu_get_thread_id() #17
+  %call9.i.i.i510 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i491, ptr noundef null) #19
+  %call10.i.i.i511 = call i32 @qemu_get_thread_id() #19
   %176 = load i64, ptr %_now.i.i.i491, align 8
   %177 = load i64, ptr %tv_usec.i.i.i512, align 8
   %conv11.i.i.i513 = zext i16 %req.val41.i to i32
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.341, i32 noundef %call10.i.i.i511, i64 noundef %176, i64 noundef %177, i32 noundef %conv11.i.i.i513) #17
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.341, i32 noundef %call10.i.i.i511, i64 noundef %176, i64 noundef %177, i32 noundef %conv11.i.i.i513) #19
   br label %trace_pci_nvme_err_invalid_del_cq_cqid.exit.i
 
 if.else.i.i.i507:                                 ; preds = %if.then.i.i.i505
   %conv12.i.i.i508 = zext i16 %req.val41.i to i32
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.342, i32 noundef %conv12.i.i.i508) #17
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.342, i32 noundef %conv12.i.i.i508) #19
   br label %trace_pci_nvme_err_invalid_del_cq_cqid.exit.i
 
 trace_pci_nvme_err_invalid_del_cq_cqid.exit.i:    ; preds = %if.else.i.i.i507, %if.then8.i.i.i509, %land.lhs.true5.i.i.i502, %if.then.i497
@@ -11096,15 +11096,15 @@ if.then.i.i22.i:                                  ; preds = %land.lhs.true5.i.i1
   br i1 %tobool7.i.i23.i, label %if.then8.i.i26.i, label %if.else.i.i24.i
 
 if.then8.i.i26.i:                                 ; preds = %if.then.i.i22.i
-  %call9.i.i27.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i15.i, ptr noundef null) #17
-  %call10.i.i28.i = call i32 @qemu_get_thread_id() #17
+  %call9.i.i27.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i15.i, ptr noundef null) #19
+  %call10.i.i28.i = call i32 @qemu_get_thread_id() #19
   %183 = load i64, ptr %_now.i.i15.i, align 8
   %184 = load i64, ptr %tv_usec.i.i29.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.343, i32 noundef %call10.i.i28.i, i64 noundef %183, i64 noundef %184, i32 noundef %conv.i.i494) #17
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.343, i32 noundef %call10.i.i28.i, i64 noundef %183, i64 noundef %184, i32 noundef %conv.i.i494) #19
   br label %trace_pci_nvme_err_invalid_del_cq_notempty.exit.i
 
 if.else.i.i24.i:                                  ; preds = %if.then.i.i22.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.344, i32 noundef %conv.i.i494) #17
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.344, i32 noundef %conv.i.i494) #19
   br label %trace_pci_nvme_err_invalid_del_cq_notempty.exit.i
 
 trace_pci_nvme_err_invalid_del_cq_notempty.exit.i: ; preds = %if.else.i.i24.i, %if.then8.i.i26.i, %land.lhs.true5.i.i19.i, %if.then16.i519
@@ -11153,15 +11153,15 @@ if.then.i.i38.i:                                  ; preds = %land.lhs.true5.i.i3
   br i1 %tobool7.i.i39.i, label %if.then8.i.i42.i, label %if.else.i.i40.i
 
 if.then8.i.i42.i:                                 ; preds = %if.then.i.i38.i
-  %call9.i.i43.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i31.i, ptr noundef null) #17
-  %call10.i.i44.i = call i32 @qemu_get_thread_id() #17
+  %call9.i.i43.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i31.i, ptr noundef null) #19
+  %call10.i.i44.i = call i32 @qemu_get_thread_id() #19
   %193 = load i64, ptr %_now.i.i31.i, align 8
   %194 = load i64, ptr %tv_usec.i.i45.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.345, i32 noundef %call10.i.i44.i, i64 noundef %193, i64 noundef %194, i32 noundef %conv.i.i494) #17
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.345, i32 noundef %call10.i.i44.i, i64 noundef %193, i64 noundef %194, i32 noundef %conv.i.i494) #19
   br label %trace_pci_nvme_del_cq.exit.i
 
 if.else.i.i40.i:                                  ; preds = %if.then.i.i38.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.346, i32 noundef %conv.i.i494) #17
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.346, i32 noundef %conv.i.i494) #19
   br label %trace_pci_nvme_del_cq.exit.i
 
 trace_pci_nvme_del_cq.exit.i:                     ; preds = %if.else.i.i40.i, %if.then8.i.i42.i, %land.lhs.true5.i.i35.i, %if.end23.i
@@ -11210,21 +11210,21 @@ if.then.i.i.i478:                                 ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.i.i.i479, label %if.then8.i.i.i484, label %if.else.i.i.i480
 
 if.then8.i.i.i484:                                ; preds = %if.then.i.i.i478
-  %call9.i.i.i485 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i452, ptr noundef null) #17
-  %call10.i.i.i486 = call i32 @qemu_get_thread_id() #17
+  %call9.i.i.i485 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i452, ptr noundef null) #19
+  %call10.i.i.i486 = call i32 @qemu_get_thread_id() #19
   %206 = load i64, ptr %_now.i.i.i452, align 8
   %207 = load i64, ptr %tv_usec.i.i.i487, align 8
   %conv11.i.i.i488 = zext i16 %195 to i32
   %conv12.i.i.i489 = zext i16 %196 to i32
   %conv13.i.i.i490 = zext i16 %197 to i32
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.347, i32 noundef %call10.i.i.i486, i64 noundef %206, i64 noundef %207, i64 noundef %199, i32 noundef %conv11.i.i.i488, i32 noundef %conv12.i.i.i489, i32 noundef %conv13.i.i.i490, i32 noundef %conv14.i, i32 noundef %and16.i) #17
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.347, i32 noundef %call10.i.i.i486, i64 noundef %206, i64 noundef %207, i64 noundef %199, i32 noundef %conv11.i.i.i488, i32 noundef %conv12.i.i.i489, i32 noundef %conv13.i.i.i490, i32 noundef %conv14.i, i32 noundef %and16.i) #19
   br label %trace_pci_nvme_create_cq.exit.i
 
 if.else.i.i.i480:                                 ; preds = %if.then.i.i.i478
   %conv15.i.i.i481 = zext i16 %195 to i32
   %conv16.i.i.i482 = zext i16 %196 to i32
   %conv17.i.i.i483 = zext i16 %197 to i32
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.348, i64 noundef %199, i32 noundef %conv15.i.i.i481, i32 noundef %conv16.i.i.i482, i32 noundef %conv17.i.i.i483, i32 noundef %conv14.i, i32 noundef %and16.i) #17
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.348, i64 noundef %199, i32 noundef %conv15.i.i.i481, i32 noundef %conv16.i.i.i482, i32 noundef %conv17.i.i.i483, i32 noundef %conv14.i, i32 noundef %and16.i) #19
   br label %trace_pci_nvme_create_cq.exit.i
 
 trace_pci_nvme_create_cq.exit.i:                  ; preds = %if.else.i.i.i480, %if.then8.i.i.i484, %land.lhs.true5.i.i.i475, %sw.bb31.i
@@ -11255,19 +11255,19 @@ if.then.i.i46.i:                                  ; preds = %land.lhs.true5.i.i4
   br i1 %tobool7.i.i47.i, label %if.then8.i.i51.i, label %if.else.i.i48.i
 
 if.then8.i.i51.i:                                 ; preds = %if.then.i.i46.i
-  %call9.i.i52.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i39.i, ptr noundef null) #17
-  %call10.i.i53.i = call i32 @qemu_get_thread_id() #17
+  %call9.i.i52.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i39.i, ptr noundef null) #19
+  %call10.i.i53.i = call i32 @qemu_get_thread_id() #19
   %212 = load i64, ptr %_now.i.i39.i, align 8
   %213 = load i64, ptr %tv_usec.i.i54.i, align 8
   %conv11.i.i55.i = zext nneg i8 %conv13.i to i32
   %conv12.i.i56.i = zext nneg i8 %conv10.i to i32
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.349, i32 noundef %call10.i.i53.i, i64 noundef %212, i64 noundef %213, i32 noundef %conv11.i.i55.i, i32 noundef %conv12.i.i56.i) #17
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.349, i32 noundef %call10.i.i53.i, i64 noundef %212, i64 noundef %213, i32 noundef %conv11.i.i55.i, i32 noundef %conv12.i.i56.i) #19
   br label %trace_pci_nvme_err_invalid_create_cq_entry_size.exit.i
 
 if.else.i.i48.i:                                  ; preds = %if.then.i.i46.i
   %conv13.i.i49.i = zext nneg i8 %conv13.i to i32
   %conv14.i.i50.i = zext nneg i8 %conv10.i to i32
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.350, i32 noundef %conv13.i.i49.i, i32 noundef %conv14.i.i50.i) #17
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.350, i32 noundef %conv13.i.i49.i, i32 noundef %conv14.i.i50.i) #19
   br label %trace_pci_nvme_err_invalid_create_cq_entry_size.exit.i
 
 trace_pci_nvme_err_invalid_create_cq_entry_size.exit.i: ; preds = %if.else.i.i48.i, %if.then8.i.i51.i, %land.lhs.true5.i.i43.i, %if.then.i474
@@ -11313,17 +11313,17 @@ if.then.i.i64.i:                                  ; preds = %land.lhs.true5.i.i6
   br i1 %tobool7.i.i65.i, label %if.then8.i.i68.i, label %if.else.i.i66.i
 
 if.then8.i.i68.i:                                 ; preds = %if.then.i.i64.i
-  %call9.i.i69.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i57.i, ptr noundef null) #17
-  %call10.i.i70.i = call i32 @qemu_get_thread_id() #17
+  %call9.i.i69.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i57.i, ptr noundef null) #19
+  %call10.i.i70.i = call i32 @qemu_get_thread_id() #19
   %221 = load i64, ptr %_now.i.i57.i, align 8
   %222 = load i64, ptr %tv_usec.i.i71.i, align 8
   %conv11.i.i72.i = zext i16 %195 to i32
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.351, i32 noundef %call10.i.i70.i, i64 noundef %221, i64 noundef %222, i32 noundef %conv11.i.i72.i) #17
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.351, i32 noundef %call10.i.i70.i, i64 noundef %221, i64 noundef %222, i32 noundef %conv11.i.i72.i) #19
   br label %trace_pci_nvme_err_invalid_create_cq_cqid.exit.i
 
 if.else.i.i66.i:                                  ; preds = %if.then.i.i64.i
   %conv12.i.i67.i = zext i16 %195 to i32
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.352, i32 noundef %conv12.i.i67.i) #17
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.352, i32 noundef %conv12.i.i67.i) #19
   br label %trace_pci_nvme_err_invalid_create_cq_cqid.exit.i
 
 trace_pci_nvme_err_invalid_create_cq_cqid.exit.i: ; preds = %if.else.i.i66.i, %if.then8.i.i68.i, %land.lhs.true5.i.i61.i, %if.then34.i
@@ -11362,17 +11362,17 @@ if.then.i.i80.i:                                  ; preds = %land.lhs.true5.i.i7
   br i1 %tobool7.i.i81.i, label %if.then8.i.i84.i, label %if.else.i.i82.i
 
 if.then8.i.i84.i:                                 ; preds = %if.then.i.i80.i
-  %call9.i.i85.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i73.i, ptr noundef null) #17
-  %call10.i.i86.i = call i32 @qemu_get_thread_id() #17
+  %call9.i.i85.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i73.i, ptr noundef null) #19
+  %call10.i.i86.i = call i32 @qemu_get_thread_id() #19
   %227 = load i64, ptr %_now.i.i73.i, align 8
   %228 = load i64, ptr %tv_usec.i.i87.i, align 8
   %conv11.i.i88.i = zext i16 %197 to i32
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.353, i32 noundef %call10.i.i86.i, i64 noundef %227, i64 noundef %228, i32 noundef %conv11.i.i88.i) #17
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.353, i32 noundef %call10.i.i86.i, i64 noundef %227, i64 noundef %228, i32 noundef %conv11.i.i88.i) #19
   br label %trace_pci_nvme_err_invalid_create_cq_size.exit.i
 
 if.else.i.i82.i:                                  ; preds = %if.then.i.i80.i
   %conv12.i.i83.i = zext i16 %197 to i32
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.354, i32 noundef %conv12.i.i83.i) #17
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.354, i32 noundef %conv12.i.i83.i) #19
   br label %trace_pci_nvme_err_invalid_create_cq_size.exit.i
 
 trace_pci_nvme_err_invalid_create_cq_size.exit.i: ; preds = %if.else.i.i82.i, %if.then8.i.i84.i, %land.lhs.true5.i.i77.i, %if.then52.i
@@ -11392,8 +11392,8 @@ if.then63.i:                                      ; preds = %if.end53.i464
   br label %if.then55
 
 if.end64.i:                                       ; preds = %if.end53.i464
-  %call.i.i467 = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #17
-  %call66.i = call i32 @msix_enabled(ptr noundef %call.i.i467) #17
+  %call.i.i467 = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #19
+  %call66.i = call i32 @msix_enabled(ptr noundef %call.i.i467) #19
   %tobool67.not.i468 = icmp eq i32 %call66.i, 0
   %tobool69.i = icmp ne i16 %196, 0
   %230 = select i1 %tobool67.not.i468, i1 %tobool69.i, i1 false
@@ -11423,7 +11423,7 @@ if.then100.i:                                     ; preds = %if.end88.i
   br label %if.then55
 
 if.end104.i470:                                   ; preds = %if.end88.i
-  %call105.i471 = call noalias dereferenceable_or_null(112) ptr @g_malloc0(i64 noundef 112) #20
+  %call105.i471 = call noalias dereferenceable_or_null(112) ptr @g_malloc0(i64 noundef 112) #22
   %add.i472 = add i16 %197, 1
   %conv111.i = trunc nuw nsw i32 %and16.i to i16
   call fastcc void @nvme_init_cq(ptr noundef %call105.i471, ptr noundef nonnull %0, i64 noundef %199, i16 noundef zeroext %195, i16 noundef zeroext %196, i16 noundef zeroext %add.i472, i16 noundef zeroext %conv111.i)
@@ -11458,15 +11458,15 @@ if.then.i.i.i439:                                 ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.i.i.i440, label %if.then8.i.i.i444, label %if.else.i.i.i441
 
 if.then8.i.i.i444:                                ; preds = %if.then.i.i.i439
-  %call9.i.i.i445 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i398, ptr noundef null) #17
-  %call10.i.i.i446 = call i32 @qemu_get_thread_id() #17
+  %call9.i.i.i445 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i398, ptr noundef null) #19
+  %call10.i.i.i446 = call i32 @qemu_get_thread_id() #19
   %240 = load i64, ptr %_now.i.i.i398, align 8
   %241 = load i64, ptr %tv_usec.i.i.i447, align 8
   %conv11.i.i.i448 = zext i16 %232 to i32
   %conv12.i.i.i449 = zext i8 %233 to i32
   %conv13.i.i.i450 = zext i16 %234 to i32
   %conv14.i.i.i451 = zext i8 %235 to i32
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.361, i32 noundef %call10.i.i.i446, i64 noundef %240, i64 noundef %241, i32 noundef %conv11.i.i.i448, i32 noundef %conv12.i.i.i449, i32 noundef %conv13.i.i.i450, i32 noundef %conv14.i.i.i451) #17
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.361, i32 noundef %call10.i.i.i446, i64 noundef %240, i64 noundef %241, i32 noundef %conv11.i.i.i448, i32 noundef %conv12.i.i.i449, i32 noundef %conv13.i.i.i450, i32 noundef %conv14.i.i.i451) #19
   br label %trace_pci_nvme_identify.exit.i
 
 if.else.i.i.i441:                                 ; preds = %if.then.i.i.i439
@@ -11474,7 +11474,7 @@ if.else.i.i.i441:                                 ; preds = %if.then.i.i.i439
   %conv16.i.i.i443 = zext i8 %233 to i32
   %conv17.i.i.i = zext i16 %234 to i32
   %conv18.i.i.i = zext i8 %235 to i32
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.362, i32 noundef %conv15.i.i.i442, i32 noundef %conv16.i.i.i443, i32 noundef %conv17.i.i.i, i32 noundef %conv18.i.i.i) #17
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.362, i32 noundef %conv15.i.i.i442, i32 noundef %conv16.i.i.i443, i32 noundef %conv17.i.i.i, i32 noundef %conv18.i.i.i) #19
   br label %trace_pci_nvme_identify.exit.i
 
 trace_pci_nvme_identify.exit.i:                   ; preds = %if.else.i.i.i441, %if.then8.i.i.i444, %land.lhs.true5.i.i.i436, %nvme_cid.exit.i402
@@ -11537,17 +11537,17 @@ if.then.i.i.i.i:                                  ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.i.i.i.i, label %if.then8.i.i.i.i, label %if.else.i.i.i.i
 
 if.then8.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
-  %call9.i.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i.i, ptr noundef null) #17
-  %call10.i.i.i.i = call i32 @qemu_get_thread_id() #17
+  %call9.i.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i.i, ptr noundef null) #19
+  %call10.i.i.i.i = call i32 @qemu_get_thread_id() #19
   %248 = load i64, ptr %_now.i.i.i.i, align 8
   %249 = load i64, ptr %tv_usec.i.i.i.i, align 8
   %conv11.i.i.i.i = zext i16 %243 to i32
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.367, i32 noundef %call10.i.i.i.i, i64 noundef %248, i64 noundef %249, i32 noundef %conv11.i.i.i.i) #17
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.367, i32 noundef %call10.i.i.i.i, i64 noundef %248, i64 noundef %249, i32 noundef %conv11.i.i.i.i) #19
   br label %trace_pci_nvme_identify_pri_ctrl_cap.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %if.then.i.i.i.i
   %conv12.i.i.i.i = zext i16 %243 to i32
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.368, i32 noundef %conv12.i.i.i.i) #17
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.368, i32 noundef %conv12.i.i.i.i) #19
   br label %trace_pci_nvme_identify_pri_ctrl_cap.exit.i.i
 
 trace_pci_nvme_identify_pri_ctrl_cap.exit.i.i:    ; preds = %if.else.i.i.i.i, %if.then8.i.i.i.i, %land.lhs.true5.i.i.i.i, %sw.bb10.i
@@ -11618,17 +11618,17 @@ if.then.i.i.i53.i:                                ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.i.i.i54.i, label %if.then8.i.i.i56.i, label %if.else.i.i.i55.i
 
 if.then8.i.i.i56.i:                               ; preds = %if.then.i.i.i53.i
-  %call9.i.i.i57.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i37.i, ptr noundef null) #17
-  %call10.i.i.i58.i = call i32 @qemu_get_thread_id() #17
+  %call9.i.i.i57.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i37.i, ptr noundef null) #19
+  %call10.i.i.i58.i = call i32 @qemu_get_thread_id() #19
   %260 = load i64, ptr %_now.i.i.i37.i, align 8
   %261 = load i64, ptr %tv_usec.i.i.i59.i, align 8
   %conv11.i.i.i60.i = zext i16 %250 to i32
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.369, i32 noundef %call10.i.i.i58.i, i64 noundef %260, i64 noundef %261, i32 noundef %conv11.i.i.i60.i, i32 noundef %conv12.i.i.i39.i) #17
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.369, i32 noundef %call10.i.i.i58.i, i64 noundef %260, i64 noundef %261, i32 noundef %conv11.i.i.i60.i, i32 noundef %conv12.i.i.i39.i) #19
   br label %trace_pci_nvme_identify_sec_ctrl_list.exit.i.i
 
 if.else.i.i.i55.i:                                ; preds = %if.then.i.i.i53.i
   %conv13.i.i.i.i = zext i16 %250 to i32
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.370, i32 noundef %conv13.i.i.i.i, i32 noundef %conv12.i.i.i39.i) #17
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.370, i32 noundef %conv13.i.i.i.i, i32 noundef %conv12.i.i.i39.i) #19
   br label %trace_pci_nvme_identify_sec_ctrl_list.exit.i.i
 
 trace_pci_nvme_identify_sec_ctrl_list.exit.i.i:   ; preds = %if.else.i.i.i55.i, %if.then8.i.i.i56.i, %land.lhs.true5.i.i.i50.i, %for.end.i.i
@@ -11676,15 +11676,15 @@ if.then.i.i.i75.i:                                ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.i.i.i76.i, label %if.then8.i.i.i78.i, label %if.else.i.i.i77.i
 
 if.then8.i.i.i78.i:                               ; preds = %if.then.i.i.i75.i
-  %call9.i.i.i79.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i61.i, ptr noundef null) #17
-  %call10.i.i.i80.i = call i32 @qemu_get_thread_id() #17
+  %call9.i.i.i79.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i61.i, ptr noundef null) #19
+  %call10.i.i.i80.i = call i32 @qemu_get_thread_id() #19
   %266 = load i64, ptr %_now.i.i.i61.i, align 8
   %267 = load i64, ptr %tv_usec.i.i.i81.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.373, i32 noundef %call10.i.i.i80.i, i64 noundef %266, i64 noundef %267) #17
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.373, i32 noundef %call10.i.i.i80.i, i64 noundef %266, i64 noundef %267) #19
   br label %trace_pci_nvme_identify_ctrl.exit.i.i
 
 if.else.i.i.i77.i:                                ; preds = %if.then.i.i.i75.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.374) #17
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.374) #19
   br label %trace_pci_nvme_identify_ctrl.exit.i.i
 
 trace_pci_nvme_identify_ctrl.exit.i.i:            ; preds = %if.else.i.i.i77.i, %if.then8.i.i.i78.i, %land.lhs.true5.i.i.i72.i, %sw.bb18.i
@@ -11722,17 +11722,17 @@ if.then.i.i.i96.i:                                ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.i.i.i97.i, label %if.then8.i.i.i100.i, label %if.else.i.i.i98.i
 
 if.then8.i.i.i100.i:                              ; preds = %if.then.i.i.i96.i
-  %call9.i.i.i101.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i82.i, ptr noundef null) #17
-  %call10.i.i.i102.i = call i32 @qemu_get_thread_id() #17
+  %call9.i.i.i101.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i82.i, ptr noundef null) #19
+  %call10.i.i.i102.i = call i32 @qemu_get_thread_id() #19
   %273 = load i64, ptr %_now.i.i.i82.i, align 8
   %274 = load i64, ptr %tv_usec.i.i.i103.i, align 8
   %conv11.i.i.i104.i = zext i8 %268 to i32
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.375, i32 noundef %call10.i.i.i102.i, i64 noundef %273, i64 noundef %274, i32 noundef %conv11.i.i.i104.i) #17
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.375, i32 noundef %call10.i.i.i102.i, i64 noundef %273, i64 noundef %274, i32 noundef %conv11.i.i.i104.i) #19
   br label %trace_pci_nvme_identify_ctrl_csi.exit.i.i
 
 if.else.i.i.i98.i:                                ; preds = %if.then.i.i.i96.i
   %conv12.i.i.i99.i = zext i8 %268 to i32
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.376, i32 noundef %conv12.i.i.i99.i) #17
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.376, i32 noundef %conv12.i.i.i99.i) #19
   br label %trace_pci_nvme_identify_ctrl_csi.exit.i.i
 
 trace_pci_nvme_identify_ctrl_csi.exit.i.i:        ; preds = %if.else.i.i.i98.i, %if.then8.i.i.i100.i, %land.lhs.true5.i.i.i93.i, %sw.bb20.i421
@@ -11812,15 +11812,15 @@ if.then.i.i.i119.i:                               ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.i.i.i120.i, label %if.then8.i.i.i122.i, label %if.else.i.i.i121.i
 
 if.then8.i.i.i122.i:                              ; preds = %if.then.i.i.i119.i
-  %call9.i.i.i123.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i105.i, ptr noundef null) #17
-  %call10.i.i.i124.i = call i32 @qemu_get_thread_id() #17
+  %call9.i.i.i123.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i105.i, ptr noundef null) #19
+  %call10.i.i.i124.i = call i32 @qemu_get_thread_id() #19
   %284 = load i64, ptr %_now.i.i.i105.i, align 8
   %285 = load i64, ptr %tv_usec.i.i.i125.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.381, i32 noundef %call10.i.i.i124.i, i64 noundef %284, i64 noundef %285, i32 noundef %.fr24.i.i) #17
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.381, i32 noundef %call10.i.i.i124.i, i64 noundef %284, i64 noundef %285, i32 noundef %.fr24.i.i) #19
   br label %trace_pci_nvme_identify_ns_descr_list.exit.i.i
 
 if.else.i.i.i121.i:                               ; preds = %if.then.i.i.i119.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.382, i32 noundef %.fr24.i.i) #17
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.382, i32 noundef %.fr24.i.i) #19
   br label %trace_pci_nvme_identify_ns_descr_list.exit.i.i
 
 trace_pci_nvme_identify_ns_descr_list.exit.i.i:   ; preds = %if.else.i.i.i121.i, %if.then8.i.i.i122.i, %land.lhs.true5.i.i.i116.i, %sw.bb30.i
@@ -11844,7 +11844,7 @@ nvme_ns.exit.i.i409:                              ; preds = %switch.early.test.i
 
 if.end8.i.i:                                      ; preds = %nvme_ns.exit.i.i409
   %uuid9.i.i = getelementptr inbounds i8, ptr %288, i64 8664
-  %call10.i.i413 = call i32 @qemu_uuid_is_null(ptr noundef nonnull %uuid9.i.i) #17
+  %call10.i.i413 = call i32 @qemu_uuid_is_null(ptr noundef nonnull %uuid9.i.i) #19
   %tobool11.not.i.i414 = icmp eq i32 %call10.i.i413, 0
   br i1 %tobool11.not.i.i414, label %if.then12.i.i415, label %if.end18.i.i
 
@@ -11922,15 +11922,15 @@ if.then.i.i.i141.i:                               ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.i.i.i142.i, label %if.then8.i.i.i144.i, label %if.else.i.i.i143.i
 
 if.then8.i.i.i144.i:                              ; preds = %if.then.i.i.i141.i
-  %call9.i.i.i145.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i126.i, ptr noundef null) #17
-  %call10.i.i.i146.i = call i32 @qemu_get_thread_id() #17
+  %call9.i.i.i145.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i126.i, ptr noundef null) #19
+  %call10.i.i.i146.i = call i32 @qemu_get_thread_id() #19
   %296 = load i64, ptr %_now.i.i.i126.i, align 8
   %297 = load i64, ptr %tv_usec.i.i.i147.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.383, i32 noundef %call10.i.i.i146.i, i64 noundef %296, i64 noundef %297) #17
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.383, i32 noundef %call10.i.i.i146.i, i64 noundef %296, i64 noundef %297) #19
   br label %trace_pci_nvme_identify_cmd_set.exit.i.i
 
 if.else.i.i.i143.i:                               ; preds = %if.then.i.i.i141.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.384) #17
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.384) #19
   br label %trace_pci_nvme_identify_cmd_set.exit.i.i
 
 trace_pci_nvme_identify_cmd_set.exit.i.i:         ; preds = %if.else.i.i.i143.i, %if.then8.i.i.i144.i, %land.lhs.true5.i.i.i138.i, %sw.bb32.i
@@ -11971,17 +11971,17 @@ if.then.i.i155.i:                                 ; preds = %land.lhs.true5.i.i1
   br i1 %tobool7.i.i156.i, label %if.then8.i.i159.i, label %if.else.i.i157.i
 
 if.then8.i.i159.i:                                ; preds = %if.then.i.i155.i
-  %call9.i.i160.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i148.i, ptr noundef null) #17
-  %call10.i.i161.i = call i32 @qemu_get_thread_id() #17
+  %call9.i.i160.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i148.i, ptr noundef null) #19
+  %call10.i.i161.i = call i32 @qemu_get_thread_id() #19
   %302 = load i64, ptr %_now.i.i148.i, align 8
   %303 = load i64, ptr %tv_usec.i.i162.i, align 8
   %conv11.i.i163.i = zext i8 %242 to i32
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.385, i32 noundef %call10.i.i161.i, i64 noundef %302, i64 noundef %303, i32 noundef %conv11.i.i163.i) #17
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.385, i32 noundef %call10.i.i161.i, i64 noundef %302, i64 noundef %303, i32 noundef %conv11.i.i163.i) #19
   br label %trace_pci_nvme_err_invalid_identify_cns.exit.i
 
 if.else.i.i157.i:                                 ; preds = %if.then.i.i155.i
   %conv12.i.i158.i = zext i8 %242 to i32
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.386, i32 noundef %conv12.i.i158.i) #17
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.386, i32 noundef %conv12.i.i158.i) #19
   br label %trace_pci_nvme_err_invalid_identify_cns.exit.i
 
 trace_pci_nvme_err_invalid_identify_cns.exit.i:   ; preds = %if.else.i.i157.i, %if.then8.i.i159.i, %land.lhs.true5.i.i152.i, %sw.default.i435
@@ -12040,19 +12040,19 @@ if.then.i.i.i387:                                 ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.i.i.i388, label %if.then8.i.i.i392, label %if.else.i.i.i389
 
 if.then8.i.i.i392:                                ; preds = %if.then.i.i.i387
-  %call9.i.i.i393 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i342, ptr noundef null) #17
-  %call10.i.i.i394 = call i32 @qemu_get_thread_id() #17
+  %call9.i.i.i393 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i342, ptr noundef null) #19
+  %call10.i.i.i394 = call i32 @qemu_get_thread_id() #19
   %316 = load i64, ptr %_now.i.i.i342, align 8
   %317 = load i64, ptr %tv_usec.i.i.i395, align 8
   %conv11.i.i.i396 = zext i16 %311 to i32
   %conv12.i.i.i397 = and i32 %308, 255
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.388, i32 noundef %call10.i.i.i394, i64 noundef %316, i64 noundef %317, i32 noundef %conv11.i.i.i396, i32 noundef %310, i32 noundef %conv12.i.i.i397, i32 noundef %shr.i347, i32 noundef %.fr.i) #17
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.388, i32 noundef %call10.i.i.i394, i64 noundef %316, i64 noundef %317, i32 noundef %conv11.i.i.i396, i32 noundef %310, i32 noundef %conv12.i.i.i397, i32 noundef %shr.i347, i32 noundef %.fr.i) #19
   br label %trace_pci_nvme_setfeat.exit.i
 
 if.else.i.i.i389:                                 ; preds = %if.then.i.i.i387
   %conv14.i.i.i390 = zext i16 %311 to i32
   %conv15.i.i.i391 = and i32 %308, 255
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.389, i32 noundef %conv14.i.i.i390, i32 noundef %310, i32 noundef %conv15.i.i.i391, i32 noundef %shr.i347, i32 noundef %.fr.i) #17
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.389, i32 noundef %conv14.i.i.i390, i32 noundef %310, i32 noundef %conv15.i.i.i391, i32 noundef %shr.i347, i32 noundef %.fr.i) #19
   br label %trace_pci_nvme_setfeat.exit.i
 
 trace_pci_nvme_setfeat.exit.i:                    ; preds = %if.else.i.i.i389, %if.then8.i.i.i392, %land.lhs.true5.i.i.i384, %sw.bb37.i
@@ -12143,7 +12143,7 @@ nvme_ns.exit108.us.i:                             ; preds = %for.cond115.prehead
 if.end122.us.i:                                   ; preds = %nvme_ns.exit108.us.i
   %blkconf133.us.i = getelementptr inbounds i8, ptr %326, i64 160
   %327 = load ptr, ptr %blkconf133.us.i, align 8
-  call void @blk_set_enable_write_cache(ptr noundef %327, i1 noundef zeroext true) #17
+  call void @blk_set_enable_write_cache(ptr noundef %327, i1 noundef zeroext true) #19
   br label %for.inc137.us.i
 
 for.inc137.us.i:                                  ; preds = %if.end122.us.i, %nvme_ns.exit108.us.i
@@ -12229,7 +12229,7 @@ if.end99.i:                                       ; preds = %sw.bb82.i
   br i1 %tobool100.not.i, label %if.else102.i, label %if.end103.i
 
 if.else102.i:                                     ; preds = %if.end99.i
-  call void @__assert_fail(ptr noundef nonnull @.str.387, ptr noundef nonnull @.str.1, i32 noundef 6219, ptr noundef nonnull @__PRETTY_FUNCTION__.nvme_set_feature) #18
+  call void @__assert_fail(ptr noundef nonnull @.str.387, ptr noundef nonnull @.str.1, i32 noundef 6219, ptr noundef nonnull @__PRETTY_FUNCTION__.nvme_set_feature) #20
   unreachable
 
 if.end103.i:                                      ; preds = %if.end99.i
@@ -12254,17 +12254,17 @@ nvme_ns.exit108.i:                                ; preds = %for.cond115.prehead
 if.end122.i:                                      ; preds = %nvme_ns.exit108.i
   %blkconf.i375 = getelementptr inbounds i8, ptr %338, i64 160
   %339 = load ptr, ptr %blkconf.i375, align 8
-  %call126.i = call zeroext i1 @blk_enable_write_cache(ptr noundef %339) #17
+  %call126.i = call zeroext i1 @blk_enable_write_cache(ptr noundef %339) #19
   br i1 %call126.i, label %if.then128.i, label %if.end132.i
 
 if.then128.i:                                     ; preds = %if.end122.i
   %340 = load ptr, ptr %blkconf.i375, align 8
-  %call131.i = call i32 @blk_flush(ptr noundef %340) #17
+  %call131.i = call i32 @blk_flush(ptr noundef %340) #19
   br label %if.end132.i
 
 if.end132.i:                                      ; preds = %if.then128.i, %if.end122.i
   %341 = load ptr, ptr %blkconf.i375, align 8
-  call void @blk_set_enable_write_cache(ptr noundef %341, i1 noundef zeroext false) #17
+  call void @blk_set_enable_write_cache(ptr noundef %341, i1 noundef zeroext false) #19
   br label %for.inc137.i
 
 for.inc137.i:                                     ; preds = %if.end132.i, %nvme_ns.exit108.i
@@ -12390,19 +12390,19 @@ if.then.i.i.i330:                                 ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.i.i.i331, label %if.then8.i.i.i335, label %if.else.i.i.i332
 
 if.then8.i.i.i335:                                ; preds = %if.then.i.i.i330
-  %call9.i.i.i336 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i294, ptr noundef null) #17
-  %call10.i.i.i337 = call i32 @qemu_get_thread_id() #17
+  %call9.i.i.i336 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i294, ptr noundef null) #19
+  %call10.i.i.i337 = call i32 @qemu_get_thread_id() #19
   %358 = load i64, ptr %_now.i.i.i294, align 8
   %359 = load i64, ptr %tv_usec.i.i.i338, align 8
   %conv11.i.i.i339 = zext i16 %353 to i32
   %conv12.i.i.i340 = and i32 %350, 255
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.398, i32 noundef %call10.i.i.i337, i64 noundef %358, i64 noundef %359, i32 noundef %conv11.i.i.i339, i32 noundef %.fr133.i, i32 noundef %conv12.i.i.i340, i32 noundef %and5.i, i32 noundef %351) #17
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.398, i32 noundef %call10.i.i.i337, i64 noundef %358, i64 noundef %359, i32 noundef %conv11.i.i.i339, i32 noundef %.fr133.i, i32 noundef %conv12.i.i.i340, i32 noundef %and5.i, i32 noundef %351) #19
   br label %trace_pci_nvme_getfeat.exit.i
 
 if.else.i.i.i332:                                 ; preds = %if.then.i.i.i330
   %conv14.i.i.i333 = zext i16 %353 to i32
   %conv15.i.i.i334 = and i32 %350, 255
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.399, i32 noundef %conv14.i.i.i333, i32 noundef %.fr133.i, i32 noundef %conv15.i.i.i334, i32 noundef %and5.i, i32 noundef %351) #17
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.399, i32 noundef %conv14.i.i.i333, i32 noundef %.fr133.i, i32 noundef %conv15.i.i.i334, i32 noundef %and5.i, i32 noundef %351) #19
   br label %trace_pci_nvme_getfeat.exit.i
 
 trace_pci_nvme_getfeat.exit.i:                    ; preds = %if.else.i.i.i332, %if.then8.i.i.i335, %land.lhs.true5.i.i.i327, %sw.bb39.i
@@ -12517,7 +12517,7 @@ nvme_ns.exit85.i:                                 ; preds = %sw.epilog.i319, %fo
 if.end61.i:                                       ; preds = %nvme_ns.exit85.i
   %blkconf.i = getelementptr inbounds i8, ptr %374, i64 160
   %375 = load ptr, ptr %blkconf.i, align 8
-  %call62.i = call zeroext i1 @blk_enable_write_cache(ptr noundef %375) #17
+  %call62.i = call zeroext i1 @blk_enable_write_cache(ptr noundef %375) #19
   br i1 %call62.i, label %for.end.i324, label %for.inc.i322
 
 for.inc.i322:                                     ; preds = %if.end61.i, %nvme_ns.exit85.i
@@ -12626,15 +12626,15 @@ if.then.i.i104.i:                                 ; preds = %land.lhs.true5.i.i1
   br i1 %tobool7.i.i105.i, label %if.then8.i.i107.i, label %if.else.i.i106.i
 
 if.then8.i.i107.i:                                ; preds = %if.then.i.i104.i
-  %call9.i.i108.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i97.i, ptr noundef null) #17
-  %call10.i.i109.i = call i32 @qemu_get_thread_id() #17
+  %call9.i.i108.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i97.i, ptr noundef null) #19
+  %call10.i.i109.i = call i32 @qemu_get_thread_id() #19
   %390 = load i64, ptr %_now.i.i97.i, align 8
   %391 = load i64, ptr %tv_usec.i.i110.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.404, i32 noundef %call10.i.i109.i, i64 noundef %390, i64 noundef %391, i32 noundef %or.i) #17
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.404, i32 noundef %call10.i.i109.i, i64 noundef %390, i64 noundef %391, i32 noundef %or.i) #19
   br label %trace_pci_nvme_getfeat_numq.exit.i
 
 if.else.i.i106.i:                                 ; preds = %if.then.i.i104.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.405, i32 noundef %or.i) #17
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.405, i32 noundef %or.i) #19
   br label %trace_pci_nvme_getfeat_numq.exit.i
 
 trace_pci_nvme_getfeat_numq.exit.i:               ; preds = %if.else.i.i106.i, %if.then8.i.i107.i, %land.lhs.true5.i.i101.i, %sw.bb124.i
@@ -12710,15 +12710,15 @@ if.then.i.i.i286:                                 ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.i.i.i287, label %if.then8.i.i.i289, label %if.else.i.i.i288
 
 if.then8.i.i.i289:                                ; preds = %if.then.i.i.i286
-  %call9.i.i.i290 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i267, ptr noundef null) #17
-  %call10.i.i.i291 = call i32 @qemu_get_thread_id() #17
+  %call9.i.i.i290 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i267, ptr noundef null) #19
+  %call10.i.i.i291 = call i32 @qemu_get_thread_id() #19
   %404 = load i64, ptr %_now.i.i.i267, align 8
   %405 = load i64, ptr %tv_usec.i.i.i292, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.406, i32 noundef %call10.i.i.i291, i64 noundef %404, i64 noundef %405, i32 noundef %399) #17
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.406, i32 noundef %call10.i.i.i291, i64 noundef %404, i64 noundef %405, i32 noundef %399) #19
   br label %trace_pci_nvme_aer.exit.i
 
 if.else.i.i.i288:                                 ; preds = %if.then.i.i.i286
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.407, i32 noundef %399) #17
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.407, i32 noundef %399) #19
   br label %trace_pci_nvme_aer.exit.i
 
 trace_pci_nvme_aer.exit.i:                        ; preds = %if.else.i.i.i288, %if.then8.i.i.i289, %land.lhs.true5.i.i.i283, %nvme_cid.exit.i271
@@ -12749,15 +12749,15 @@ if.then.i.i15.i:                                  ; preds = %land.lhs.true5.i.i1
   br i1 %tobool7.i.i16.i, label %if.then8.i.i18.i, label %if.else.i.i17.i
 
 if.then8.i.i18.i:                                 ; preds = %if.then.i.i15.i
-  %call9.i.i19.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i8.i, ptr noundef null) #17
-  %call10.i.i20.i = call i32 @qemu_get_thread_id() #17
+  %call9.i.i19.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i8.i, ptr noundef null) #19
+  %call10.i.i20.i = call i32 @qemu_get_thread_id() #19
   %412 = load i64, ptr %_now.i.i8.i, align 8
   %413 = load i64, ptr %tv_usec.i.i21.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.408, i32 noundef %call10.i.i20.i, i64 noundef %412, i64 noundef %413) #17
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.408, i32 noundef %call10.i.i20.i, i64 noundef %412, i64 noundef %413) #19
   br label %trace_pci_nvme_aer_aerl_exceeded.exit.i
 
 if.else.i.i17.i:                                  ; preds = %if.then.i.i15.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.409) #17
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.409) #19
   br label %trace_pci_nvme_aer_aerl_exceeded.exit.i
 
 trace_pci_nvme_aer_aerl_exceeded.exit.i:          ; preds = %if.else.i.i17.i, %if.then8.i.i18.i, %land.lhs.true5.i.i12.i, %if.then.i282
@@ -12809,17 +12809,17 @@ if.then.i.i.i258:                                 ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.i.i.i259, label %if.then8.i.i.i262, label %if.else.i.i.i260
 
 if.then8.i.i.i262:                                ; preds = %if.then.i.i.i258
-  %call9.i.i.i263 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i219, ptr noundef null) #17
-  %call10.i.i.i264 = call i32 @qemu_get_thread_id() #17
+  %call9.i.i.i263 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i219, ptr noundef null) #19
+  %call10.i.i.i264 = call i32 @qemu_get_thread_id() #19
   %424 = load i64, ptr %_now.i.i.i219, align 8
   %425 = load i64, ptr %tv_usec.i.i.i265, align 8
   %conv11.i.i.i266 = zext i16 %419 to i32
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.410, i32 noundef %call10.i.i.i264, i64 noundef %424, i64 noundef %425, i32 noundef %conv11.i.i.i266, i32 noundef %conv.i222) #17
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.410, i32 noundef %call10.i.i.i264, i64 noundef %424, i64 noundef %425, i32 noundef %conv11.i.i.i266, i32 noundef %conv.i222) #19
   br label %trace_pci_nvme_ns_attachment.exit.i
 
 if.else.i.i.i260:                                 ; preds = %if.then.i.i.i258
   %conv13.i.i.i261 = zext i16 %419 to i32
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.411, i32 noundef %conv13.i.i.i261, i32 noundef %conv.i222) #17
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.411, i32 noundef %conv13.i.i.i261, i32 noundef %conv.i222) #19
   br label %trace_pci_nvme_ns_attachment.exit.i
 
 trace_pci_nvme_ns_attachment.exit.i:              ; preds = %if.else.i.i.i260, %if.then8.i.i.i262, %land.lhs.true5.i.i.i255, %sw.bb43.i
@@ -12927,7 +12927,7 @@ if.end40.i248:                                    ; preds = %land.lhs.true.i247,
   br i1 %or.cond.i51.i, label %nvme_attach_ns.exit.i, label %if.else.i.i249
 
 if.else.i.i249:                                   ; preds = %if.end40.i248
-  call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 8293, ptr noundef nonnull @__PRETTY_FUNCTION__.nvme_attach_ns) #18
+  call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 8293, ptr noundef nonnull @__PRETTY_FUNCTION__.nvme_attach_ns) #20
   unreachable
 
 nvme_attach_ns.exit.i:                            ; preds = %if.end40.i248
@@ -13085,17 +13085,17 @@ if.then.i.i.i209:                                 ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.i.i.i210, label %if.then8.i.i.i213, label %if.else.i.i.i211
 
 if.then8.i.i.i213:                                ; preds = %if.then.i.i.i209
-  %call9.i.i.i214 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i186, ptr noundef null) #17
-  %call10.i.i.i215 = call i32 @qemu_get_thread_id() #17
+  %call9.i.i.i214 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i186, ptr noundef null) #19
+  %call10.i.i.i215 = call i32 @qemu_get_thread_id() #19
   %467 = load i64, ptr %_now.i.i.i186, align 8
   %468 = load i64, ptr %tv_usec.i.i.i216, align 8
   %conv11.i.i.i217 = zext i16 %462 to i32
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.414, i32 noundef %call10.i.i.i215, i64 noundef %467, i64 noundef %468, i32 noundef %conv11.i.i.i217, i32 noundef %conv.i189, i32 noundef %shr5.i, ptr noundef nonnull %cond.i, i32 noundef %and8.i190) #17
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.414, i32 noundef %call10.i.i.i215, i64 noundef %467, i64 noundef %468, i32 noundef %conv11.i.i.i217, i32 noundef %conv.i189, i32 noundef %shr5.i, ptr noundef nonnull %cond.i, i32 noundef %and8.i190) #19
   br label %trace_pci_nvme_virt_mngmt.exit.i
 
 if.else.i.i.i211:                                 ; preds = %if.then.i.i.i209
   %conv15.i.i.i212 = zext i16 %462 to i32
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.415, i32 noundef %conv15.i.i.i212, i32 noundef %conv.i189, i32 noundef %shr5.i, ptr noundef nonnull %cond.i, i32 noundef %and8.i190) #17
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.415, i32 noundef %conv15.i.i.i212, i32 noundef %conv.i189, i32 noundef %shr5.i, ptr noundef nonnull %cond.i, i32 noundef %and8.i190) #19
   br label %trace_pci_nvme_virt_mngmt.exit.i
 
 trace_pci_nvme_virt_mngmt.exit.i:                 ; preds = %if.else.i.i.i211, %if.then8.i.i.i213, %land.lhs.true5.i.i.i206, %sw.bb45.i
@@ -13231,7 +13231,7 @@ sw.bb24.i:                                        ; preds = %if.end.i198
   br label %if.then55
 
 sw.bb47.i:                                        ; preds = %if.end20.i
-  %call.i.i152 = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #17
+  %call.i.i152 = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #19
   %dptr.i = getelementptr inbounds i8, ptr %25, i64 80
   %476 = load i64, ptr %dptr.i, align 8
   %prp2.i = getelementptr inbounds i8, ptr %25, i64 88
@@ -13289,9 +13289,9 @@ if.then16.i:                                      ; preds = %for.body.i
   %bf.clear24.i = or disjoint i32 %bf.set.i, 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.addr.i.i.i151)
   store i32 %484, ptr %val.addr.i.i.i151, align 4
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !8
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !8
   fence seq_cst
-  %call.i.i.i.i.i.i165 = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i159, i64 noundef %add18.i, i32 %bf.clear24.i, ptr noundef nonnull %val.addr.i.i.i151, i64 noundef 4, i1 noundef zeroext true) #17
+  %call.i.i.i.i.i.i165 = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i159, i64 noundef %add18.i, i32 %bf.clear24.i, ptr noundef nonnull %val.addr.i.i.i151, i64 noundef 4, i1 noundef zeroext true) #19
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %val.addr.i.i.i151)
   %485 = load i8, ptr %ioeventfd.i, align 2
   %tobool52.i = trunc i8 %485 to i1
@@ -13306,17 +13306,17 @@ land.lhs.true.i182:                               ; preds = %if.then16.i
 if.then57.i:                                      ; preds = %land.lhs.true.i182
   %487 = load ptr, ptr %481, align 8
   %notifier.i.i = getelementptr inbounds i8, ptr %481, i64 56
-  %call.i63.i = call i32 @event_notifier_init(ptr noundef nonnull %notifier.i.i, i32 noundef 0) #17
+  %call.i63.i = call i32 @event_notifier_init(ptr noundef nonnull %notifier.i.i, i32 noundef 0) #19
   %cmp.i.i184 = icmp slt i32 %call.i63.i, 0
   br i1 %cmp.i.i184, label %if.end63.i, label %if.then60.i
 
 if.then60.i:                                      ; preds = %if.then57.i
   %shl.i.i = shl i16 %486, 3
-  call void @event_notifier_set_handler(ptr noundef nonnull %notifier.i.i, ptr noundef nonnull @nvme_sq_notifier) #17
+  call void @event_notifier_set_handler(ptr noundef nonnull %notifier.i.i, ptr noundef nonnull @nvme_sq_notifier) #19
   %iomem.i.i = getelementptr inbounds i8, ptr %487, i64 2880
   %conv4.i.i = zext i16 %shl.i.i to i64
   %add.i.i = add nuw nsw i64 %conv4.i.i, 4096
-  call void @memory_region_add_eventfd(ptr noundef nonnull %iomem.i.i, i64 noundef %add.i.i, i32 noundef 4, i1 noundef zeroext false, i64 noundef 0, ptr noundef nonnull %notifier.i.i) #17
+  call void @memory_region_add_eventfd(ptr noundef nonnull %iomem.i.i, i64 noundef %add.i.i, i32 noundef 4, i1 noundef zeroext false, i64 noundef 0, ptr noundef nonnull %notifier.i.i) #19
   %ioeventfd_enabled.i = getelementptr inbounds i8, ptr %481, i64 68
   store i8 1, ptr %ioeventfd_enabled.i, align 4
   br label %if.end63.i
@@ -13341,9 +13341,9 @@ if.then65.i:                                      ; preds = %if.end63.i
   %bf.clear82.i = or disjoint i32 %bf.set80.i, 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.addr.i.i64.i)
   store i32 %488, ptr %val.addr.i.i64.i, align 4
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !8
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !8
   fence seq_cst
-  %call.i.i.i.i.i66.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i159, i64 noundef %add69.i, i32 %bf.clear82.i, ptr noundef nonnull %val.addr.i.i64.i, i64 noundef 4, i1 noundef zeroext true) #17
+  %call.i.i.i.i.i66.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i159, i64 noundef %add69.i, i32 %bf.clear82.i, ptr noundef nonnull %val.addr.i.i64.i, i64 noundef 4, i1 noundef zeroext true) #19
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %val.addr.i.i64.i)
   %489 = load i8, ptr %ioeventfd.i, align 2
   %tobool112.i = trunc i8 %489 to i1
@@ -13358,17 +13358,17 @@ land.lhs.true114.i:                               ; preds = %if.then65.i
 if.then118.i:                                     ; preds = %land.lhs.true114.i
   %491 = load ptr, ptr %483, align 8
   %notifier.i67.i = getelementptr inbounds i8, ptr %483, i64 64
-  %call.i68.i = call i32 @event_notifier_init(ptr noundef nonnull %notifier.i67.i, i32 noundef 0) #17
+  %call.i68.i = call i32 @event_notifier_init(ptr noundef nonnull %notifier.i67.i, i32 noundef 0) #19
   %cmp.i69.i = icmp slt i32 %call.i68.i, 0
   br i1 %cmp.i69.i, label %for.inc.i, label %if.then121.i
 
 if.then121.i:                                     ; preds = %if.then118.i
   %shl.i71.i = shl i16 %490, 3
-  call void @event_notifier_set_handler(ptr noundef nonnull %notifier.i67.i, ptr noundef nonnull @nvme_cq_notifier) #17
+  call void @event_notifier_set_handler(ptr noundef nonnull %notifier.i67.i, ptr noundef nonnull @nvme_cq_notifier) #19
   %iomem.i72.i = getelementptr inbounds i8, ptr %491, i64 2880
   %492 = zext i16 %shl.i71.i to i64
   %add5.i.i = add nuw nsw i64 %492, 4100
-  call void @memory_region_add_eventfd(ptr noundef nonnull %iomem.i72.i, i64 noundef %add5.i.i, i32 noundef 4, i1 noundef zeroext false, i64 noundef 0, ptr noundef nonnull %notifier.i67.i) #17
+  call void @memory_region_add_eventfd(ptr noundef nonnull %iomem.i72.i, i64 noundef %add5.i.i, i32 noundef 4, i1 noundef zeroext false, i64 noundef 0, ptr noundef nonnull %notifier.i67.i) #19
   %ioeventfd_enabled122.i = getelementptr inbounds i8, ptr %483, i64 76
   store i8 1, ptr %ioeventfd_enabled122.i, align 4
   br label %for.inc.i
@@ -13402,15 +13402,15 @@ if.then.i.i.i175:                                 ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.i.i.i176, label %if.then8.i.i.i178, label %if.else.i.i.i177
 
 if.then8.i.i.i178:                                ; preds = %if.then.i.i.i175
-  %call9.i.i.i179 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i150, ptr noundef null) #17
-  %call10.i.i.i180 = call i32 @qemu_get_thread_id() #17
+  %call9.i.i.i179 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i150, ptr noundef null) #19
+  %call10.i.i.i180 = call i32 @qemu_get_thread_id() #19
   %498 = load i64, ptr %_now.i.i.i150, align 8
   %499 = load i64, ptr %tv_usec.i.i.i181, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.416, i32 noundef %call10.i.i.i180, i64 noundef %498, i64 noundef %499, i64 noundef %476, i64 noundef %477) #17
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.416, i32 noundef %call10.i.i.i180, i64 noundef %498, i64 noundef %499, i64 noundef %476, i64 noundef %477) #19
   br label %trace_pci_nvme_dbbuf_config.exit.i
 
 if.else.i.i.i177:                                 ; preds = %if.then.i.i.i175
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.417, i64 noundef %476, i64 noundef %477) #17
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.417, i64 noundef %476, i64 noundef %477) #19
   br label %trace_pci_nvme_dbbuf_config.exit.i
 
 trace_pci_nvme_dbbuf_config.exit.i:               ; preds = %if.else.i.i.i177, %if.then8.i.i.i178, %land.lhs.true5.i.i.i172, %for.end.i
@@ -13430,7 +13430,7 @@ sw.bb49.i:                                        ; preds = %if.end20.i
   %shr9.i = lshr i32 %501, 8
   %505 = trunc i32 %shr9.i to i8
   %conv11.i = and i8 %505, 1
-  %call15.i = call ptr @qemu_aio_get(ptr noundef nonnull @nvme_format_aiocb_info, ptr noundef null, ptr noundef nonnull @nvme_misc_cb, ptr noundef nonnull %25) #17
+  %call15.i = call ptr @qemu_aio_get(ptr noundef nonnull @nvme_format_aiocb_info, ptr noundef null, ptr noundef nonnull @nvme_misc_cb, ptr noundef nonnull %25) #19
   %req16.i = getelementptr inbounds i8, ptr %call15.i, i64 48
   store ptr %25, ptr %req16.i, align 8
   %ret.i = getelementptr inbounds i8, ptr %call15.i, i64 56
@@ -13487,7 +13487,7 @@ if.end39.i:                                       ; preds = %nvme_ns.exit.i145, 
 
 out.i:                                            ; preds = %nvme_ns.exit.i145, %if.then29.i
   %status.0.i = phi i16 [ 16395, %if.then29.i ], [ 16386, %nvme_ns.exit.i145 ]
-  call void @qemu_aio_unref(ptr noundef nonnull %call15.i) #17
+  call void @qemu_aio_unref(ptr noundef nonnull %call15.i) #19
   br label %if.then55
 
 sw.bb53.i:                                        ; preds = %if.end20.i
@@ -13553,7 +13553,7 @@ nvme_directive_receive.exit:                      ; preds = %sw.bb53.i, %nvme_ns
   br label %cond.end
 
 sw.default.i79:                                   ; preds = %if.end20.i
-  call void @__assert_fail(ptr noundef nonnull @.str.176, ptr noundef nonnull @.str.1, i32 noundef 6972, ptr noundef nonnull @__PRETTY_FUNCTION__.nvme_admin_cmd) #18
+  call void @__assert_fail(ptr noundef nonnull @.str.176, ptr noundef nonnull @.str.1, i32 noundef 6972, ptr noundef nonnull @__PRETTY_FUNCTION__.nvme_admin_cmd) #20
   unreachable
 
 cond.end:                                         ; preds = %nvme_directive_receive.exit, %nvme_ns_attachment.exit, %nvme_get_feature.exit, %sw.bb.i558, %sw.bb32.i557, %sw.bb35.i556, %sw.bb38.i555, %sw.bb41.i554, %sw.bb44.i553, %sw.bb47.i551, %sw.bb50.i550, %sw.bb53.i548, %sw.bb56.i547, %sw.bb.i434, %sw.bb4.i, %sw.bb6.i, %sw.bb8.i, %trace_pci_nvme_identify_pri_ctrl_cap.exit.i.i, %nvme_identify_sec_ctrl_list.exit.i, %sw.bb14.i, %sw.bb16.i, %trace_pci_nvme_identify_ctrl.exit.i.i, %nvme_identify_ctrl_csi.exit.i, %sw.bb22.i419, %sw.bb24.i417, %sw.bb26.i, %sw.bb28.i, %nvme_identify_ns_descr_list.exit.i, %nvme_identify_cmd_set.exit.i, %sw.bb165.i, %sw.bb167.i, %sw.bb208.i, %if.end30.i.i, %if.end17.i.i, %sw.bb64.i, %sw.bb62.i, %sw.bb60.i, %sw.bb58.i, %sw.bb56.i, %sw.bb54.i, %sw.bb52.i, %sw.bb50.i, %sw.bb48.i, %sw.bb46.i, %sw.bb44.i, %sw.bb.i, %if.end28.i
@@ -13596,33 +13596,33 @@ if.then.i.i.i115:                                 ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.i.i.i116, label %if.then8.i.i.i120, label %if.else.i.i.i117
 
 if.then8.i.i.i120:                                ; preds = %if.then.i.i.i115
-  %call9.i.i.i121 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i107, ptr noundef null) #17
-  %call10.i.i.i122 = call i32 @qemu_get_thread_id() #17
+  %call9.i.i.i121 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i107, ptr noundef null) #19
+  %call10.i.i.i122 = call i32 @qemu_get_thread_id() #19
   %529 = load i64, ptr %_now.i.i.i107, align 8
   %530 = load i64, ptr %tv_usec.i.i.i123, align 8
   %conv11.i.i.i124 = zext i16 %523 to i32
   %conv12.i.i.i125 = and i32 %524, 65535
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.420, i32 noundef %call10.i.i.i122, i64 noundef %529, i64 noundef %530, i32 noundef %conv11.i.i.i124, i32 noundef %conv12.i.i.i125) #17
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.420, i32 noundef %call10.i.i.i122, i64 noundef %529, i64 noundef %530, i32 noundef %conv11.i.i.i124, i32 noundef %conv12.i.i.i125) #19
   br label %nvme_update_sq_eventidx.exit
 
 if.else.i.i.i117:                                 ; preds = %if.then.i.i.i115
   %conv13.i.i.i118 = zext i16 %523 to i32
   %conv14.i.i.i119 = and i32 %524, 65535
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.421, i32 noundef %conv13.i.i.i118, i32 noundef %conv14.i.i.i119) #17
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.421, i32 noundef %conv13.i.i.i118, i32 noundef %conv14.i.i.i119) #19
   br label %nvme_update_sq_eventidx.exit
 
 nvme_update_sq_eventidx.exit:                     ; preds = %if.then60, %land.lhs.true5.i.i.i112, %if.then8.i.i.i120, %if.else.i.i.i117
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i107)
   %531 = load ptr, ptr %opaque, align 8
-  %call.i.i111 = call ptr @object_dynamic_cast_assert(ptr noundef %531, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #17
+  %call.i.i111 = call ptr @object_dynamic_cast_assert(ptr noundef %531, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #19
   %532 = load i64, ptr %ei_addr.i, align 8
   %533 = load i32, ptr %6, align 8
   %bus_master_as.i.i.i = getelementptr inbounds i8, ptr %call.i.i111, i64 576
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.addr.i.i.i)
   store i32 %533, ptr %val.addr.i.i.i, align 4
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !8
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !8
   fence seq_cst
-  %call.i.i.i.i.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i, i64 noundef %532, i32 1, ptr noundef nonnull %val.addr.i.i.i, i64 noundef 4, i1 noundef zeroext true) #17
+  %call.i.i.i.i.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i, i64 noundef %532, i32 1, ptr noundef nonnull %val.addr.i.i.i, i64 noundef 4, i1 noundef zeroext true) #19
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %val.addr.i.i.i)
   call fastcc void @nvme_update_sq_tail(ptr noundef nonnull %opaque)
   br label %if.end61
@@ -13642,14 +13642,14 @@ define internal fastcc void @nvme_update_sq_tail(ptr noundef %sq) unnamed_addr #
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %0 = load ptr, ptr %sq, align 8
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #17
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %0, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #19
   %db_addr = getelementptr inbounds i8, ptr %sq, i64 32
   %1 = load i64, ptr %db_addr, align 8
   %tail = getelementptr inbounds i8, ptr %sq, i64 16
   %bus_master_as.i.i = getelementptr inbounds i8, ptr %call.i, i64 576
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !8
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !8
   fence seq_cst
-  %call.i.i.i.i.i = tail call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i, i64 noundef %1, i32 1, ptr noundef nonnull %tail, i64 noundef 4, i1 noundef zeroext false) #17
+  %call.i.i.i.i.i = tail call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i, i64 noundef %1, i32 1, ptr noundef nonnull %tail, i64 noundef 4, i1 noundef zeroext false) #19
   %sqid = getelementptr inbounds i8, ptr %sq, i64 8
   %2 = load i16, ptr %sqid, align 8
   %3 = load i32, ptr %tail, align 8
@@ -13673,20 +13673,20 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #19
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #19
   %8 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i16 %2 to i32
   %conv12.i.i = and i32 %3, 65535
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.174, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, i32 noundef %conv11.i.i, i32 noundef %conv12.i.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.174, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, i32 noundef %conv11.i.i, i32 noundef %conv12.i.i) #19
   br label %trace_pci_nvme_update_sq_tail.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
   %conv13.i.i = zext i16 %2 to i32
   %conv14.i.i = and i32 %3, 65535
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.175, i32 noundef %conv13.i.i, i32 noundef %conv14.i.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.175, i32 noundef %conv13.i.i, i32 noundef %conv14.i.i) #19
   br label %trace_pci_nvme_update_sq_tail.exit
 
 trace_pci_nvme_update_sq_tail.exit:               ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -13775,18 +13775,18 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #19
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #19
   %19 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %20 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i16 %13 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.231, i32 noundef %call10.i.i, i64 noundef %19, i64 noundef %20, i32 noundef %conv11.i.i, i32 noundef %14, i32 noundef %add, i64 noundef %mapped_size.0, i64 noundef %1) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.231, i32 noundef %call10.i.i, i64 noundef %19, i64 noundef %20, i32 noundef %conv11.i.i, i32 noundef %14, i32 noundef %add, i64 noundef %mapped_size.0, i64 noundef %1) #19
   br label %trace_pci_nvme_read.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
   %conv12.i.i = zext i16 %13 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.232, i32 noundef %conv12.i.i, i32 noundef %14, i32 noundef %add, i64 noundef %mapped_size.0, i64 noundef %1) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.232, i32 noundef %conv12.i.i, i32 noundef %14, i32 noundef %add, i64 noundef %mapped_size.0, i64 noundef %1) #19
   br label %trace_pci_nvme_read.exit
 
 trace_pci_nvme_read.exit:                         ; preds = %nvme_nsid.exit, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -13826,16 +13826,16 @@ if.then.i.i.i:                                    ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.i.i.i, label %if.then8.i.i.i, label %if.else.i.i.i
 
 if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
-  %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #17
-  %call10.i.i.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #19
+  %call10.i.i.i = tail call i32 @qemu_get_thread_id() #19
   %27 = load i64, ptr %_now.i.i.i, align 8
   %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %28 = load i64, ptr %tv_usec.i.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.199, i32 noundef %call10.i.i.i, i64 noundef %27, i64 noundef %28, i64 noundef %mapped_size.0) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.199, i32 noundef %call10.i.i.i, i64 noundef %27, i64 noundef %28, i64 noundef %mapped_size.0) #19
   br label %nvme_check_mdts.exit
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.200, i64 noundef %mapped_size.0) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.200, i64 noundef %mapped_size.0) #19
   br label %nvme_check_mdts.exit
 
 nvme_check_mdts.exit:                             ; preds = %if.then.i61, %land.lhs.true5.i.i.i, %if.then8.i.i.i, %if.else.i.i.i
@@ -13873,16 +13873,16 @@ if.then.i.i.i73:                                  ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.i.i.i74, label %if.then8.i.i.i76, label %if.else.i.i.i75
 
 if.then8.i.i.i76:                                 ; preds = %if.then.i.i.i73
-  %call9.i.i.i77 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i62, ptr noundef null) #17
-  %call10.i.i.i78 = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i.i77 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i62, ptr noundef null) #19
+  %call10.i.i.i78 = tail call i32 @qemu_get_thread_id() #19
   %35 = load i64, ptr %_now.i.i.i62, align 8
   %tv_usec.i.i.i79 = getelementptr inbounds i8, ptr %_now.i.i.i62, i64 8
   %36 = load i64, ptr %tv_usec.i.i.i79, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.201, i32 noundef %call10.i.i.i78, i64 noundef %35, i64 noundef %36, i64 noundef %1, i64 noundef %conv8, i64 noundef %.val53) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.201, i32 noundef %call10.i.i.i78, i64 noundef %35, i64 noundef %36, i64 noundef %1, i64 noundef %conv8, i64 noundef %.val53) #19
   br label %nvme_check_bounds.exit
 
 if.else.i.i.i75:                                  ; preds = %if.then.i.i.i73
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.202, i64 noundef %1, i64 noundef %conv8, i64 noundef %.val53) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.202, i64 noundef %1, i64 noundef %conv8, i64 noundef %.val53) #19
   br label %nvme_check_bounds.exit
 
 nvme_check_bounds.exit:                           ; preds = %if.then.i66, %land.lhs.true5.i.i.i70, %if.then8.i.i.i76, %if.else.i.i.i75
@@ -13929,7 +13929,7 @@ nvme_get_zone_by_slba.exit.i:                     ; preds = %nvme_zone_idx.exit.
   br i1 %tobool.not.i80, label %if.else.i, label %if.end.i81
 
 if.else.i:                                        ; preds = %nvme_get_zone_by_slba.exit.i, %nvme_zone_idx.exit.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.1, i32 noundef 1883, ptr noundef nonnull @__PRETTY_FUNCTION__.nvme_check_zone_read) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.1, i32 noundef 1883, ptr noundef nonnull @__PRETTY_FUNCTION__.nvme_check_zone_read) #20
   unreachable
 
 if.end.i81:                                       ; preds = %nvme_get_zone_by_slba.exit.i
@@ -13989,18 +13989,18 @@ if.then.i.i92:                                    ; preds = %land.lhs.true5.i.i8
   br i1 %tobool7.i.i93, label %if.then8.i.i96, label %if.else.i.i94
 
 if.then8.i.i96:                                   ; preds = %if.then.i.i92
-  %call9.i.i97 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i85, ptr noundef null) #17
-  %call10.i.i98 = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i97 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i85, ptr noundef null) #19
+  %call10.i.i98 = tail call i32 @qemu_get_thread_id() #19
   %50 = load i64, ptr %_now.i.i85, align 8
   %tv_usec.i.i99 = getelementptr inbounds i8, ptr %_now.i.i85, i64 8
   %51 = load i64, ptr %tv_usec.i.i99, align 8
   %conv11.i.i100 = zext nneg i16 %status.0.i.ph to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.233, i32 noundef %call10.i.i98, i64 noundef %50, i64 noundef %51, i64 noundef %1, i32 noundef %add, i32 noundef %conv11.i.i100) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.233, i32 noundef %call10.i.i98, i64 noundef %50, i64 noundef %51, i64 noundef %1, i32 noundef %add, i32 noundef %conv11.i.i100) #19
   br label %trace_pci_nvme_err_zone_read_not_ok.exit
 
 if.else.i.i94:                                    ; preds = %if.then.i.i92
   %conv12.i.i95 = zext nneg i16 %status.0.i.ph to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.234, i64 noundef %1, i32 noundef %add, i32 noundef %conv12.i.i95) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.234, i64 noundef %1, i32 noundef %add, i32 noundef %conv12.i.i95) #19
   br label %trace_pci_nvme_err_zone_read_not_ok.exit
 
 trace_pci_nvme_err_zone_read_not_ok.exit:         ; preds = %if.then43, %land.lhs.true5.i.i89, %if.then8.i.i96, %if.else.i.i94
@@ -14027,9 +14027,9 @@ if.then.i102:                                     ; preds = %if.then48
 
 if.then1.i:                                       ; preds = %if.then.i102
   %sub.i105 = sub i32 0, %call.i
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef nonnull %err.i, ptr noundef nonnull @.str.1, i32 noundef 1729, ptr noundef nonnull @__func__.nvme_check_dulbe, i32 noundef %sub.i105, ptr noundef nonnull @.str.235) #17
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef nonnull %err.i, ptr noundef nonnull @.str.1, i32 noundef 1729, ptr noundef nonnull @__func__.nvme_check_dulbe, i32 noundef %sub.i105, ptr noundef nonnull @.str.235) #19
   %53 = load ptr, ptr %err.i, align 8
-  call void @error_report_err(ptr noundef %53) #17
+  call void @error_report_err(ptr noundef %53) #19
   br label %nvme_check_dulbe.exit.thread
 
 nvme_check_dulbe.exit.thread:                     ; preds = %if.then1.i, %if.then.i102
@@ -14049,7 +14049,7 @@ if.end53:                                         ; preds = %nvme_check_dulbe.ex
   br i1 %tobool58.not, label %if.end61, label %if.then59
 
 if.then59:                                        ; preds = %if.end53
-  %call60 = tail call zeroext i16 @nvme_dif_rw(ptr noundef %n, ptr noundef %req) #17
+  %call60 = tail call zeroext i16 @nvme_dif_rw(ptr noundef %n, ptr noundef %req) #19
   br label %return
 
 if.end61:                                         ; preds = %if.end53
@@ -14061,16 +14061,16 @@ if.end65:                                         ; preds = %if.end61
   %.val50 = load i8, ptr %3, align 2
   %sh_prom.i106 = zext nneg i8 %.val50 to i64
   %shl.i107 = shl i64 %1, %sh_prom.i106
-  %call67 = tail call ptr @blk_get_stats(ptr noundef %4) #17
+  %call67 = tail call ptr @blk_get_stats(ptr noundef %4) #19
   %acct = getelementptr inbounds i8, ptr %req, i64 120
-  tail call void @block_acct_start(ptr noundef %call67, ptr noundef nonnull %acct, i64 noundef %shl.i, i32 noundef 1) #17
+  tail call void @block_acct_start(ptr noundef %call67, ptr noundef nonnull %acct, i64 noundef %shl.i, i32 noundef 1) #19
   tail call fastcc void @nvme_blk_read(ptr noundef %4, i64 noundef %shl.i107, i32 noundef 512, ptr noundef nonnull @nvme_rw_cb, ptr noundef %req)
   br label %return
 
 invalid:                                          ; preds = %nvme_check_dulbe.exit.thread, %nvme_check_bounds.exit, %nvme_check_mdts.exit, %if.end61, %trace_pci_nvme_err_zone_read_not_ok.exit
   %status.0 = phi i16 [ 16386, %nvme_check_mdts.exit ], [ 16512, %nvme_check_bounds.exit ], [ %status.0.i.ph, %trace_pci_nvme_err_zone_read_not_ok.exit ], [ %call62, %if.end61 ], [ %retval.0.i104.ph, %nvme_check_dulbe.exit.thread ]
-  %call68 = call ptr @blk_get_stats(ptr noundef %4) #17
-  call void @block_acct_invalid(ptr noundef %call68, i32 noundef 1) #17
+  %call68 = call ptr @blk_get_stats(ptr noundef %4) #19
+  call void @block_acct_invalid(ptr noundef %call68, i32 noundef 1) #19
   %56 = or i16 %status.0, 16384
   br label %return
 
@@ -14129,18 +14129,18 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #19
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #19
   %12 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %13 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i16 %6 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.238, i32 noundef %call10.i.i, i64 noundef %12, i64 noundef %13, i32 noundef %conv11.i.i, i32 noundef %7, i64 noundef %2, i32 noundef %add) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.238, i32 noundef %call10.i.i, i64 noundef %12, i64 noundef %13, i32 noundef %conv11.i.i, i32 noundef %7, i64 noundef %2, i32 noundef %add) #19
   br label %trace_pci_nvme_compare.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
   %conv12.i.i = zext i16 %6 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.239, i32 noundef %conv12.i.i, i32 noundef %7, i64 noundef %2, i32 noundef %add) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.239, i32 noundef %conv12.i.i, i32 noundef %7, i64 noundef %2, i32 noundef %add) #19
   br label %trace_pci_nvme_compare.exit
 
 trace_pci_nvme_compare.exit:                      ; preds = %nvme_nsid.exit, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -14206,16 +14206,16 @@ if.then.i.i.i:                                    ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.i.i.i, label %if.then8.i.i.i, label %if.else.i.i.i
 
 if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
-  %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #17
-  %call10.i.i.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #19
+  %call10.i.i.i = tail call i32 @qemu_get_thread_id() #19
   %26 = load i64, ptr %_now.i.i.i, align 8
   %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %27 = load i64, ptr %tv_usec.i.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.199, i32 noundef %call10.i.i.i, i64 noundef %26, i64 noundef %27, i64 noundef %len.0) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.199, i32 noundef %call10.i.i.i, i64 noundef %26, i64 noundef %27, i64 noundef %len.0) #19
   br label %nvme_check_mdts.exit
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.200, i64 noundef %len.0) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.200, i64 noundef %len.0) #19
   br label %nvme_check_mdts.exit
 
 nvme_check_mdts.exit:                             ; preds = %if.then.i58, %land.lhs.true5.i.i.i, %if.then8.i.i.i, %if.else.i.i.i
@@ -14253,16 +14253,16 @@ if.then.i.i.i70:                                  ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.i.i.i71, label %if.then8.i.i.i73, label %if.else.i.i.i72
 
 if.then8.i.i.i73:                                 ; preds = %if.then.i.i.i70
-  %call9.i.i.i74 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i59, ptr noundef null) #17
-  %call10.i.i.i75 = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i.i74 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i59, ptr noundef null) #19
+  %call10.i.i.i75 = tail call i32 @qemu_get_thread_id() #19
   %34 = load i64, ptr %_now.i.i.i59, align 8
   %tv_usec.i.i.i76 = getelementptr inbounds i8, ptr %_now.i.i.i59, i64 8
   %35 = load i64, ptr %tv_usec.i.i.i76, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.201, i32 noundef %call10.i.i.i75, i64 noundef %34, i64 noundef %35, i64 noundef %2, i64 noundef %conv9, i64 noundef %.val49) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.201, i32 noundef %call10.i.i.i75, i64 noundef %34, i64 noundef %35, i64 noundef %2, i64 noundef %conv9, i64 noundef %.val49) #19
   br label %nvme_check_bounds.exit
 
 if.else.i.i.i72:                                  ; preds = %if.then.i.i.i70
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.202, i64 noundef %2, i64 noundef %conv9, i64 noundef %.val49) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.202, i64 noundef %2, i64 noundef %conv9, i64 noundef %.val49) #19
   br label %nvme_check_bounds.exit
 
 nvme_check_bounds.exit:                           ; preds = %if.then.i63, %land.lhs.true5.i.i.i67, %if.then8.i.i.i73, %if.else.i.i.i72
@@ -14289,9 +14289,9 @@ if.then.i78:                                      ; preds = %if.then35
 
 if.then1.i:                                       ; preds = %if.then.i78
   %sub.i81 = sub i32 0, %call.i
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef nonnull %err.i, ptr noundef nonnull @.str.1, i32 noundef 1729, ptr noundef nonnull @__func__.nvme_check_dulbe, i32 noundef %sub.i81, ptr noundef nonnull @.str.235) #17
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef nonnull %err.i, ptr noundef nonnull @.str.1, i32 noundef 1729, ptr noundef nonnull @__func__.nvme_check_dulbe, i32 noundef %sub.i81, ptr noundef nonnull @.str.235) #19
   %37 = load ptr, ptr %err.i, align 8
-  call void @error_report_err(ptr noundef %37) #17
+  call void @error_report_err(ptr noundef %37) #19
   br label %nvme_check_dulbe.exit.thread
 
 nvme_check_dulbe.exit.thread:                     ; preds = %if.then1.i, %if.then.i78
@@ -14310,19 +14310,19 @@ if.end40:                                         ; preds = %nvme_check_dulbe.ex
   br i1 %tobool43.not, label %if.end45, label %return
 
 if.end45:                                         ; preds = %if.end40
-  %call46 = tail call noalias dereferenceable_or_null(96) ptr @g_malloc_n(i64 noundef 1, i64 noundef 96) #19
-  %call47 = tail call noalias ptr @g_malloc(i64 noundef %shl.i) #20
+  %call46 = tail call noalias dereferenceable_or_null(96) ptr @g_malloc_n(i64 noundef 1, i64 noundef 96) #21
+  %call47 = tail call noalias ptr @g_malloc(i64 noundef %shl.i) #22
   %bounce = getelementptr inbounds i8, ptr %call46, i64 40
   store ptr %call47, ptr %bounce, align 8
   %opaque = getelementptr inbounds i8, ptr %req, i64 32
   store ptr %call46, ptr %opaque, align 8
-  tail call void @qemu_iovec_init(ptr noundef %call46, i32 noundef 1) #17
+  tail call void @qemu_iovec_init(ptr noundef %call46, i32 noundef 1) #19
   %38 = load ptr, ptr %bounce, align 8
-  tail call void @qemu_iovec_add(ptr noundef %call46, ptr noundef %38, i64 noundef %shl.i) #17
-  %call53 = tail call ptr @blk_get_stats(ptr noundef %1) #17
+  tail call void @qemu_iovec_add(ptr noundef %call46, ptr noundef %38, i64 noundef %shl.i) #19
+  %call53 = tail call ptr @blk_get_stats(ptr noundef %1) #19
   %acct = getelementptr inbounds i8, ptr %req, i64 120
-  tail call void @block_acct_start(ptr noundef %call53, ptr noundef nonnull %acct, i64 noundef %shl.i, i32 noundef 1) #17
-  %call56 = tail call ptr @blk_aio_preadv(ptr noundef %1, i64 noundef %shl.i51, ptr noundef %call46, i32 noundef 0, ptr noundef nonnull @nvme_compare_data_cb, ptr noundef nonnull %req) #17
+  tail call void @block_acct_start(ptr noundef %call53, ptr noundef nonnull %acct, i64 noundef %shl.i, i32 noundef 1) #19
+  %call56 = tail call ptr @blk_aio_preadv(ptr noundef %1, i64 noundef %shl.i51, ptr noundef %call46, i32 noundef 0, ptr noundef nonnull @nvme_compare_data_cb, ptr noundef nonnull %req) #19
   %aiocb = getelementptr inbounds i8, ptr %req, i64 16
   store ptr %call56, ptr %aiocb, align 8
   br label %return
@@ -14364,16 +14364,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #19
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #19
   %7 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.244, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, i32 noundef %add, i32 noundef %1) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.244, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, i32 noundef %add, i32 noundef %1) #19
   br label %trace_pci_nvme_dsm.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.245, i32 noundef %add, i32 noundef %1) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.245, i32 noundef %add, i32 noundef %1) #19
   br label %trace_pci_nvme_dsm.exit
 
 trace_pci_nvme_dsm.exit:                          ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -14385,13 +14385,13 @@ trace_pci_nvme_dsm.exit:                          ; preds = %entry, %land.lhs.tr
 if.then:                                          ; preds = %trace_pci_nvme_dsm.exit
   %blkconf = getelementptr inbounds i8, ptr %0, i64 160
   %9 = load ptr, ptr %blkconf, align 8
-  %call5 = tail call ptr @blk_aio_get(ptr noundef nonnull @nvme_dsm_aiocb_info, ptr noundef %9, ptr noundef nonnull @nvme_misc_cb, ptr noundef nonnull %req) #17
+  %call5 = tail call ptr @blk_aio_get(ptr noundef nonnull @nvme_dsm_aiocb_info, ptr noundef %9, ptr noundef nonnull @nvme_misc_cb, ptr noundef nonnull %req) #19
   %req6 = getelementptr inbounds i8, ptr %call5, i64 48
   store ptr %req, ptr %req6, align 8
   %ret = getelementptr inbounds i8, ptr %call5, i64 56
   store i32 0, ptr %ret, align 8
   %conv = zext nneg i32 %add to i64
-  %call7 = tail call noalias ptr @g_malloc_n(i64 noundef %conv, i64 noundef 16) #19
+  %call7 = tail call noalias ptr @g_malloc_n(i64 noundef %conv, i64 noundef 16) #21
   %range = getelementptr inbounds i8, ptr %call5, i64 64
   store ptr %call7, ptr %range, align 8
   %nr8 = getelementptr inbounds i8, ptr %call5, i64 72
@@ -14414,8 +14414,8 @@ nvme_h2c.exit:                                    ; preds = %if.then
 if.then14:                                        ; preds = %if.then, %nvme_h2c.exit
   %retval.0.i24 = phi i16 [ %call2.i, %nvme_h2c.exit ], [ %call.i, %if.then ]
   %10 = load ptr, ptr %range, align 8
-  tail call void @g_free(ptr noundef %10) #17
-  tail call void @qemu_aio_unref(ptr noundef nonnull %call5) #17
+  tail call void @g_free(ptr noundef %10) #19
+  tail call void @qemu_aio_unref(ptr noundef nonnull %call5) #19
   br label %return
 
 if.end:                                           ; preds = %nvme_h2c.exit
@@ -14479,18 +14479,18 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #19
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #19
   %13 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %14 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i16 %7 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.251, i32 noundef %call10.i.i, i64 noundef %13, i64 noundef %14, i32 noundef %conv11.i.i, i32 noundef %8, i64 noundef %2, i32 noundef %add) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.251, i32 noundef %call10.i.i, i64 noundef %13, i64 noundef %14, i32 noundef %conv11.i.i, i32 noundef %8, i64 noundef %2, i32 noundef %add) #19
   br label %trace_pci_nvme_verify.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
   %conv12.i.i = zext i16 %7 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.252, i32 noundef %conv12.i.i, i32 noundef %8, i64 noundef %2, i32 noundef %add) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.252, i32 noundef %conv12.i.i, i32 noundef %8, i64 noundef %2, i32 noundef %add) #19
   br label %trace_pci_nvme_verify.exit
 
 trace_pci_nvme_verify.exit:                       ; preds = %nvme_nsid.exit, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -14506,7 +14506,7 @@ if.then:                                          ; preds = %trace_pci_nvme_veri
   %18 = trunc nuw nsw i16 %17 to i8
   %conv11 = and i8 %18, 15
   %conv18 = zext i32 %6 to i64
-  %call19 = tail call zeroext i16 @nvme_check_prinfo(ptr noundef nonnull %0, i8 noundef zeroext %conv11, i64 noundef %2, i64 noundef %conv18) #17
+  %call19 = tail call zeroext i16 @nvme_check_prinfo(ptr noundef nonnull %0, i8 noundef zeroext %conv11, i64 noundef %2, i64 noundef %conv18) #19
   %tobool20.not = icmp eq i16 %call19, 0
   br i1 %tobool20.not, label %if.end, label %return
 
@@ -14557,16 +14557,16 @@ if.then.i.i.i:                                    ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.i.i.i, label %if.then8.i.i.i, label %if.else.i.i.i
 
 if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
-  %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #17
-  %call10.i.i.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #19
+  %call10.i.i.i = tail call i32 @qemu_get_thread_id() #19
   %28 = load i64, ptr %_now.i.i.i, align 8
   %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %29 = load i64, ptr %tv_usec.i.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.201, i32 noundef %call10.i.i.i, i64 noundef %28, i64 noundef %29, i64 noundef %2, i64 noundef %conv6, i64 noundef %.val42) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.201, i32 noundef %call10.i.i.i, i64 noundef %28, i64 noundef %29, i64 noundef %2, i64 noundef %conv6, i64 noundef %.val42) #19
   br label %nvme_check_bounds.exit
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.202, i64 noundef %2, i64 noundef %conv6, i64 noundef %.val42) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.202, i64 noundef %2, i64 noundef %conv6, i64 noundef %.val42) #19
   br label %nvme_check_bounds.exit
 
 nvme_check_bounds.exit:                           ; preds = %if.then.i48, %land.lhs.true5.i.i.i, %if.then8.i.i.i, %if.else.i.i.i
@@ -14593,9 +14593,9 @@ if.then.i50:                                      ; preds = %if.then39
 
 if.then1.i:                                       ; preds = %if.then.i50
   %sub.i53 = sub i32 0, %call.i
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef nonnull %err.i, ptr noundef nonnull @.str.1, i32 noundef 1729, ptr noundef nonnull @__func__.nvme_check_dulbe, i32 noundef %sub.i53, ptr noundef nonnull @.str.235) #17
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef nonnull %err.i, ptr noundef nonnull @.str.1, i32 noundef 1729, ptr noundef nonnull @__func__.nvme_check_dulbe, i32 noundef %sub.i53, ptr noundef nonnull @.str.235) #19
   %31 = load ptr, ptr %err.i, align 8
-  call void @error_report_err(ptr noundef %31) #17
+  call void @error_report_err(ptr noundef %31) #19
   br label %nvme_check_dulbe.exit.thread
 
 nvme_check_dulbe.exit.thread:                     ; preds = %if.then1.i, %if.then.i50
@@ -14608,22 +14608,22 @@ nvme_check_dulbe.exit:                            ; preds = %if.then39
   br label %if.end44
 
 if.end44:                                         ; preds = %nvme_check_dulbe.exit, %if.end36
-  %call45 = tail call noalias dereferenceable_or_null(104) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 104) #19
+  %call45 = tail call noalias dereferenceable_or_null(104) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 104) #21
   store ptr %req, ptr %call45, align 8
-  %call47 = tail call noalias ptr @g_malloc(i64 noundef %shl.i) #20
+  %call47 = tail call noalias ptr @g_malloc(i64 noundef %shl.i) #22
   %data = getelementptr inbounds i8, ptr %call45, i64 8
   %bounce = getelementptr inbounds i8, ptr %call45, i64 48
   store ptr %call47, ptr %bounce, align 8
-  tail call void @qemu_iovec_init(ptr noundef nonnull %data, i32 noundef 1) #17
+  tail call void @qemu_iovec_init(ptr noundef nonnull %data, i32 noundef 1) #19
   %32 = load ptr, ptr %bounce, align 8
-  tail call void @qemu_iovec_add(ptr noundef nonnull %data, ptr noundef %32, i64 noundef %shl.i) #17
-  %call53 = tail call ptr @blk_get_stats(ptr noundef %1) #17
+  tail call void @qemu_iovec_add(ptr noundef nonnull %data, ptr noundef %32, i64 noundef %shl.i) #19
+  %call53 = tail call ptr @blk_get_stats(ptr noundef %1) #19
   %acct = getelementptr inbounds i8, ptr %req, i64 120
   %size = getelementptr inbounds i8, ptr %call45, i64 40
   %33 = load i64, ptr %size, align 8
-  tail call void @block_acct_start(ptr noundef %call53, ptr noundef nonnull %acct, i64 noundef %33, i32 noundef 1) #17
+  tail call void @block_acct_start(ptr noundef %call53, ptr noundef nonnull %acct, i64 noundef %33, i32 noundef 1) #19
   %34 = load ptr, ptr %blkconf, align 8
-  %call60 = tail call ptr @blk_aio_preadv(ptr noundef %34, i64 noundef %shl.i44, ptr noundef nonnull %data, i32 noundef 0, ptr noundef nonnull @nvme_verify_mdata_in_cb, ptr noundef nonnull %call45) #17
+  %call60 = tail call ptr @blk_aio_preadv(ptr noundef %34, i64 noundef %shl.i44, ptr noundef nonnull %data, i32 noundef 0, ptr noundef nonnull @nvme_verify_mdata_in_cb, ptr noundef nonnull %call45) #19
   %aiocb = getelementptr inbounds i8, ptr %req, i64 16
   store ptr %call60, ptr %aiocb, align 8
   br label %return
@@ -14642,7 +14642,7 @@ nvme_nsid.exit:
   %0 = load ptr, ptr %ns1, align 8
   %blkconf = getelementptr inbounds i8, ptr %0, i64 160
   %1 = load ptr, ptr %blkconf, align 8
-  %call = tail call ptr @blk_aio_get(ptr noundef nonnull @nvme_copy_aiocb_info, ptr noundef %1, ptr noundef nonnull @nvme_misc_cb, ptr noundef %req) #17
+  %call = tail call ptr @blk_aio_get(ptr noundef nonnull @nvme_copy_aiocb_info, ptr noundef %1, ptr noundef nonnull @nvme_misc_cb, ptr noundef %req) #19
   %nr2 = getelementptr inbounds i8, ptr %req, i64 104
   %2 = load i8, ptr %nr2, align 1
   %conv = zext i8 %2 to i16
@@ -14676,22 +14676,22 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #19
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #19
   %11 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %12 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i16 %5 to i32
   %conv12.i.i = zext nneg i16 %add to i32
   %conv13.i.i = zext nneg i8 %and to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.257, i32 noundef %call10.i.i, i64 noundef %11, i64 noundef %12, i32 noundef %conv11.i.i, i32 noundef %6, i32 noundef %conv12.i.i, i32 noundef %conv13.i.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.257, i32 noundef %call10.i.i, i64 noundef %11, i64 noundef %12, i32 noundef %conv11.i.i, i32 noundef %6, i32 noundef %conv12.i.i, i32 noundef %conv13.i.i) #19
   br label %trace_pci_nvme_copy.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
   %conv14.i.i = zext i16 %5 to i32
   %conv15.i.i = zext nneg i16 %add to i32
   %conv16.i.i = zext nneg i8 %and to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.258, i32 noundef %conv14.i.i, i32 noundef %6, i32 noundef %conv15.i.i, i32 noundef %conv16.i.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.258, i32 noundef %conv14.i.i, i32 noundef %6, i32 noundef %conv15.i.i, i32 noundef %conv16.i.i) #19
   br label %trace_pci_nvme_copy.exit
 
 trace_pci_nvme_copy.exit:                         ; preds = %nvme_nsid.exit, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -14745,16 +14745,16 @@ if.then.i.i78:                                    ; preds = %land.lhs.true5.i.i7
   br i1 %tobool7.i.i79, label %if.then8.i.i82, label %if.else.i.i80
 
 if.then8.i.i82:                                   ; preds = %if.then.i.i78
-  %call9.i.i83 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i71, ptr noundef null) #17
-  %call10.i.i84 = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i83 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i71, ptr noundef null) #19
+  %call10.i.i84 = tail call i32 @qemu_get_thread_id() #19
   %24 = load i64, ptr %_now.i.i71, align 8
   %tv_usec.i.i85 = getelementptr inbounds i8, ptr %_now.i.i71, i64 8
   %25 = load i64, ptr %tv_usec.i.i85, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.259, i32 noundef %call10.i.i84, i64 noundef %24, i64 noundef %25, i32 noundef %conv27) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.259, i32 noundef %call10.i.i84, i64 noundef %24, i64 noundef %25, i32 noundef %conv27) #19
   br label %trace_pci_nvme_err_copy_invalid_format.exit
 
 if.else.i.i80:                                    ; preds = %if.then.i.i78
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.260, i32 noundef %conv27) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.260, i32 noundef %conv27) #19
   br label %trace_pci_nvme_err_copy_invalid_format.exit
 
 trace_pci_nvme_err_copy_invalid_format.exit:      ; preds = %if.then30, %land.lhs.true5.i.i75, %if.then8.i.i82, %if.else.i.i80
@@ -14789,7 +14789,7 @@ if.end56:                                         ; preds = %lor.lhs.false
   %format62 = getelementptr inbounds i8, ptr %call, i64 72
   store i32 %conv27, ptr %format62, align 8
   %conv63 = zext nneg i16 %add to i64
-  %call64 = tail call noalias ptr @g_malloc_n(i64 noundef %conv63, i64 noundef %spec.select) #19
+  %call64 = tail call noalias ptr @g_malloc_n(i64 noundef %conv63, i64 noundef %spec.select) #21
   store ptr %call64, ptr %ranges, align 8
   %mul = mul nuw nsw i64 %spec.select, %conv63
   %sg.i = getelementptr inbounds i8, ptr %req, i64 144
@@ -14891,19 +14891,19 @@ if.end92:                                         ; preds = %if.end88
   %38 = load i16, ptr %lbaf, align 8
   %conv106 = zext i16 %38 to i64
   %add107 = add i64 %37, %conv106
-  %call108 = tail call noalias ptr @g_malloc_n(i64 noundef %conv105, i64 noundef %add107) #19
+  %call108 = tail call noalias ptr @g_malloc_n(i64 noundef %conv105, i64 noundef %add107) #21
   %bounce = getelementptr inbounds i8, ptr %call, i64 88
   store ptr %call108, ptr %bounce, align 8
   %iov = getelementptr inbounds i8, ptr %call, i64 96
-  tail call void @qemu_iovec_init(ptr noundef nonnull %iov, i32 noundef 1) #17
+  tail call void @qemu_iovec_init(ptr noundef nonnull %iov, i32 noundef 1) #19
   %39 = load ptr, ptr %blkconf, align 8
-  %call111 = tail call ptr @blk_get_stats(ptr noundef %39) #17
+  %call111 = tail call ptr @blk_get_stats(ptr noundef %39) #19
   %acct = getelementptr inbounds i8, ptr %call, i64 136
-  tail call void @block_acct_start(ptr noundef %call111, ptr noundef nonnull %acct, i64 noundef 0, i32 noundef 1) #17
+  tail call void @block_acct_start(ptr noundef %call111, ptr noundef nonnull %acct, i64 noundef 0, i32 noundef 1) #19
   %40 = load ptr, ptr %blkconf, align 8
-  %call114 = tail call ptr @blk_get_stats(ptr noundef %40) #17
+  %call114 = tail call ptr @blk_get_stats(ptr noundef %40) #19
   %write = getelementptr inbounds i8, ptr %call, i64 160
-  tail call void @block_acct_start(ptr noundef %call114, ptr noundef nonnull %write, i64 noundef 0, i32 noundef 2) #17
+  tail call void @block_acct_start(ptr noundef %call114, ptr noundef nonnull %write, i64 noundef 0, i32 noundef 2) #19
   %aiocb = getelementptr inbounds i8, ptr %req, i64 16
   store ptr %call, ptr %aiocb, align 8
   tail call fastcc void @nvme_do_copy(ptr noundef nonnull %call)
@@ -14912,8 +14912,8 @@ if.end92:                                         ; preds = %if.end88
 invalid:                                          ; preds = %if.end56, %nvme_get_zone_by_slba.exit.thread, %nvme_get_zone_by_slba.exit, %if.end39, %lor.lhs.false, %if.end31, %land.lhs.true, %if.end88, %if.end82, %nvme_h2c.exit, %trace_pci_nvme_err_copy_invalid_format.exit
   %status.0 = phi i16 [ %call2.i, %nvme_h2c.exit ], [ %call.i92, %if.end82 ], [ %call89, %if.end88 ], [ 16386, %trace_pci_nvme_err_copy_invalid_format.exit ], [ 16386, %land.lhs.true ], [ 16771, %if.end31 ], [ 16650, %lor.lhs.false ], [ 16650, %if.end39 ], [ 16512, %nvme_get_zone_by_slba.exit ], [ 16512, %nvme_get_zone_by_slba.exit.thread ], [ %call.i, %if.end56 ]
   %41 = load ptr, ptr %ranges, align 8
-  tail call void @g_free(ptr noundef %41) #17
-  tail call void @qemu_aio_unref(ptr noundef nonnull %call) #17
+  tail call void @g_free(ptr noundef %41) #19
+  tail call void @qemu_aio_unref(ptr noundef nonnull %call) #19
   br label %return
 
 return:                                           ; preds = %invalid, %if.end92
@@ -14995,18 +14995,18 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #19
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #19
   %12 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %13 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i8 %1 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.266, i32 noundef %call10.i.i, i64 noundef %12, i64 noundef %13, i32 noundef %conv11.i.i, i64 noundef %4, i64 noundef %7) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.266, i32 noundef %call10.i.i, i64 noundef %12, i64 noundef %13, i32 noundef %conv11.i.i, i64 noundef %4, i64 noundef %7) #19
   br label %trace_pci_nvme_err_unaligned_zone_cmd.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
   %conv12.i.i = zext i8 %1 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.267, i32 noundef %conv12.i.i, i64 noundef %4, i64 noundef %7) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.267, i32 noundef %conv12.i.i, i64 noundef %4, i64 noundef %7) #19
   br label %trace_pci_nvme_err_unaligned_zone_cmd.exit
 
 trace_pci_nvme_err_unaligned_zone_cmd.exit:       ; preds = %if.then13, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -15048,16 +15048,16 @@ if.then.i.i79:                                    ; preds = %land.lhs.true5.i.i7
   br i1 %tobool7.i.i80, label %if.then8.i.i82, label %if.else.i.i81
 
 if.then8.i.i82:                                   ; preds = %if.then.i.i79
-  %call9.i.i83 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i72, ptr noundef null) #17
-  %call10.i.i84 = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i83 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i72, ptr noundef null) #19
+  %call10.i.i84 = tail call i32 @qemu_get_thread_id() #19
   %19 = load i64, ptr %_now.i.i72, align 8
   %tv_usec.i.i85 = getelementptr inbounds i8, ptr %_now.i.i72, i64 8
   %20 = load i64, ptr %tv_usec.i.i85, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.268, i32 noundef %call10.i.i84, i64 noundef %19, i64 noundef %20, i64 noundef %4, i32 noundef %5, i32 noundef %conv22) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.268, i32 noundef %call10.i.i84, i64 noundef %19, i64 noundef %20, i64 noundef %4, i32 noundef %5, i32 noundef %conv22) #19
   br label %trace_pci_nvme_open_zone.exit
 
 if.else.i.i81:                                    ; preds = %if.then.i.i79
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.269, i64 noundef %4, i32 noundef %5, i32 noundef %conv22) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.269, i64 noundef %4, i32 noundef %5, i32 noundef %conv22) #19
   br label %trace_pci_nvme_open_zone.exit
 
 trace_pci_nvme_open_zone.exit:                    ; preds = %sw.bb, %land.lhs.true5.i.i76, %if.then8.i.i82, %if.else.i.i81
@@ -15087,16 +15087,16 @@ if.then.i.i93:                                    ; preds = %land.lhs.true5.i.i9
   br i1 %tobool7.i.i94, label %if.then8.i.i96, label %if.else.i.i95
 
 if.then8.i.i96:                                   ; preds = %if.then.i.i93
-  %call9.i.i97 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i86, ptr noundef null) #17
-  %call10.i.i98 = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i97 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i86, ptr noundef null) #19
+  %call10.i.i98 = tail call i32 @qemu_get_thread_id() #19
   %25 = load i64, ptr %_now.i.i86, align 8
   %tv_usec.i.i99 = getelementptr inbounds i8, ptr %_now.i.i86, i64 8
   %26 = load i64, ptr %tv_usec.i.i99, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.270, i32 noundef %call10.i.i98, i64 noundef %25, i64 noundef %26, i64 noundef %4, i32 noundef %5, i32 noundef %conv29) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.270, i32 noundef %call10.i.i98, i64 noundef %25, i64 noundef %26, i64 noundef %4, i32 noundef %5, i32 noundef %conv29) #19
   br label %trace_pci_nvme_close_zone.exit
 
 if.else.i.i95:                                    ; preds = %if.then.i.i93
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.271, i64 noundef %4, i32 noundef %5, i32 noundef %conv29) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.271, i64 noundef %4, i32 noundef %5, i32 noundef %conv29) #19
   br label %trace_pci_nvme_close_zone.exit
 
 trace_pci_nvme_close_zone.exit:                   ; preds = %sw.bb24, %land.lhs.true5.i.i90, %if.then8.i.i96, %if.else.i.i95
@@ -15182,16 +15182,16 @@ if.then.i.i107:                                   ; preds = %land.lhs.true5.i.i1
   br i1 %tobool7.i.i108, label %if.then8.i.i110, label %if.else.i.i109
 
 if.then8.i.i110:                                  ; preds = %if.then.i.i107
-  %call9.i.i111 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i100, ptr noundef null) #17
-  %call10.i.i112 = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i111 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i100, ptr noundef null) #19
+  %call10.i.i112 = tail call i32 @qemu_get_thread_id() #19
   %41 = load i64, ptr %_now.i.i100, align 8
   %tv_usec.i.i113 = getelementptr inbounds i8, ptr %_now.i.i100, i64 8
   %42 = load i64, ptr %tv_usec.i.i113, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.272, i32 noundef %call10.i.i112, i64 noundef %41, i64 noundef %42, i64 noundef %4, i32 noundef %5, i32 noundef %conv36) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.272, i32 noundef %call10.i.i112, i64 noundef %41, i64 noundef %42, i64 noundef %4, i32 noundef %5, i32 noundef %conv36) #19
   br label %trace_pci_nvme_finish_zone.exit
 
 if.else.i.i109:                                   ; preds = %if.then.i.i107
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.273, i64 noundef %4, i32 noundef %5, i32 noundef %conv36) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.273, i64 noundef %4, i32 noundef %5, i32 noundef %conv36) #19
   br label %trace_pci_nvme_finish_zone.exit
 
 trace_pci_nvme_finish_zone.exit:                  ; preds = %sw.bb31, %land.lhs.true5.i.i104, %if.then8.i.i110, %if.else.i.i109
@@ -15340,23 +15340,23 @@ if.then.i.i172:                                   ; preds = %land.lhs.true5.i.i1
   br i1 %tobool7.i.i173, label %if.then8.i.i175, label %if.else.i.i174
 
 if.then8.i.i175:                                  ; preds = %if.then.i.i172
-  %call9.i.i176 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i165, ptr noundef null) #17
-  %call10.i.i177 = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i176 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i165, ptr noundef null) #19
+  %call10.i.i177 = tail call i32 @qemu_get_thread_id() #19
   %66 = load i64, ptr %_now.i.i165, align 8
   %tv_usec.i.i178 = getelementptr inbounds i8, ptr %_now.i.i165, i64 8
   %67 = load i64, ptr %tv_usec.i.i178, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.274, i32 noundef %call10.i.i177, i64 noundef %66, i64 noundef %67, i64 noundef %4, i32 noundef %5, i32 noundef %conv40) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.274, i32 noundef %call10.i.i177, i64 noundef %66, i64 noundef %67, i64 noundef %4, i32 noundef %5, i32 noundef %conv40) #19
   br label %trace_pci_nvme_reset_zone.exit
 
 if.else.i.i174:                                   ; preds = %if.then.i.i172
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.275, i64 noundef %4, i32 noundef %5, i32 noundef %conv40) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.275, i64 noundef %4, i32 noundef %5, i32 noundef %conv40) #19
   br label %trace_pci_nvme_reset_zone.exit
 
 trace_pci_nvme_reset_zone.exit:                   ; preds = %sw.bb38, %land.lhs.true5.i.i169, %if.then8.i.i175, %if.else.i.i174
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i165)
   %blkconf = getelementptr inbounds i8, ptr %0, i64 160
   %68 = load ptr, ptr %blkconf, align 8
-  %call41 = tail call ptr @blk_aio_get(ptr noundef nonnull @nvme_zone_reset_aiocb_info, ptr noundef %68, ptr noundef nonnull @nvme_misc_cb, ptr noundef nonnull %req) #17
+  %call41 = tail call ptr @blk_aio_get(ptr noundef nonnull @nvme_zone_reset_aiocb_info, ptr noundef %68, ptr noundef nonnull @nvme_misc_cb, ptr noundef nonnull %req) #19
   %req42 = getelementptr inbounds i8, ptr %call41, i64 48
   store ptr %req, ptr %req42, align 8
   %ret = getelementptr inbounds i8, ptr %call41, i64 56
@@ -15396,16 +15396,16 @@ if.then.i.i186:                                   ; preds = %land.lhs.true5.i.i1
   br i1 %tobool7.i.i187, label %if.then8.i.i189, label %if.else.i.i188
 
 if.then8.i.i189:                                  ; preds = %if.then.i.i186
-  %call9.i.i190 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i179, ptr noundef null) #17
-  %call10.i.i191 = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i190 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i179, ptr noundef null) #19
+  %call10.i.i191 = tail call i32 @qemu_get_thread_id() #19
   %74 = load i64, ptr %_now.i.i179, align 8
   %tv_usec.i.i192 = getelementptr inbounds i8, ptr %_now.i.i179, i64 8
   %75 = load i64, ptr %tv_usec.i.i192, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.278, i32 noundef %call10.i.i191, i64 noundef %74, i64 noundef %75, i64 noundef %4, i32 noundef %5, i32 noundef %conv52) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.278, i32 noundef %call10.i.i191, i64 noundef %74, i64 noundef %75, i64 noundef %4, i32 noundef %5, i32 noundef %conv52) #19
   br label %trace_pci_nvme_offline_zone.exit
 
 if.else.i.i188:                                   ; preds = %if.then.i.i186
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.279, i64 noundef %4, i32 noundef %5, i32 noundef %conv52) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.279, i64 noundef %4, i32 noundef %5, i32 noundef %conv52) #19
   br label %trace_pci_nvme_offline_zone.exit
 
 trace_pci_nvme_offline_zone.exit:                 ; preds = %sw.bb47, %land.lhs.true5.i.i183, %if.then8.i.i189, %if.else.i.i188
@@ -15434,16 +15434,16 @@ if.then.i.i200:                                   ; preds = %land.lhs.true5.i.i1
   br i1 %tobool7.i.i201, label %if.then8.i.i203, label %if.else.i.i202
 
 if.then8.i.i203:                                  ; preds = %if.then.i.i200
-  %call9.i.i204 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i193, ptr noundef null) #17
-  %call10.i.i205 = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i204 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i193, ptr noundef null) #19
+  %call10.i.i205 = tail call i32 @qemu_get_thread_id() #19
   %80 = load i64, ptr %_now.i.i193, align 8
   %tv_usec.i.i206 = getelementptr inbounds i8, ptr %_now.i.i193, i64 8
   %81 = load i64, ptr %tv_usec.i.i206, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.280, i32 noundef %call10.i.i205, i64 noundef %80, i64 noundef %81, i64 noundef %4, i32 noundef %5) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.280, i32 noundef %call10.i.i205, i64 noundef %80, i64 noundef %81, i64 noundef %4, i32 noundef %5) #19
   br label %trace_pci_nvme_set_descriptor_extension.exit
 
 if.else.i.i202:                                   ; preds = %if.then.i.i200
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.281, i64 noundef %4, i32 noundef %5) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.281, i64 noundef %4, i32 noundef %5) #19
   br label %trace_pci_nvme_set_descriptor_extension.exit
 
 trace_pci_nvme_set_descriptor_extension.exit:     ; preds = %sw.bb54, %land.lhs.true5.i.i197, %if.then8.i.i203, %if.else.i.i202
@@ -15570,18 +15570,18 @@ if.then.i.i216:                                   ; preds = %land.lhs.true5.i.i2
   br i1 %tobool7.i.i217, label %if.then8.i.i220, label %if.else.i.i218
 
 if.then8.i.i220:                                  ; preds = %if.then.i.i216
-  %call9.i.i221 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i209, ptr noundef null) #17
-  %call10.i.i222 = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i221 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i209, ptr noundef null) #19
+  %call10.i.i222 = tail call i32 @qemu_get_thread_id() #19
   %100 = load i64, ptr %_now.i.i209, align 8
   %tv_usec.i.i223 = getelementptr inbounds i8, ptr %_now.i.i209, i64 8
   %101 = load i64, ptr %tv_usec.i.i223, align 8
   %conv11.i.i224 = zext i8 %1 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.286, i32 noundef %call10.i.i222, i64 noundef %100, i64 noundef %101, i32 noundef %conv11.i.i224) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.286, i32 noundef %call10.i.i222, i64 noundef %100, i64 noundef %101, i32 noundef %conv11.i.i224) #19
   br label %sw.epilog.thread248
 
 if.else.i.i218:                                   ; preds = %if.then.i.i216
   %conv12.i.i219 = zext i8 %1 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.287, i32 noundef %conv12.i.i219) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.287, i32 noundef %conv12.i.i219) #19
   br label %sw.epilog.thread248
 
 sw.epilog.thread248:                              ; preds = %if.else.i.i218, %if.then8.i.i220, %land.lhs.true5.i.i213, %sw.default
@@ -15618,20 +15618,20 @@ if.then.i.i232:                                   ; preds = %land.lhs.true5.i.i2
   br i1 %tobool7.i.i233, label %if.then8.i.i235, label %if.else.i.i234
 
 if.then8.i.i235:                                  ; preds = %if.then.i.i232
-  %call9.i.i236 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i225, ptr noundef null) #17
-  %call10.i.i237 = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i236 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i225, ptr noundef null) #19
+  %call10.i.i237 = tail call i32 @qemu_get_thread_id() #19
   %107 = load i64, ptr %_now.i.i225, align 8
   %tv_usec.i.i238 = getelementptr inbounds i8, ptr %_now.i.i225, i64 8
   %108 = load i64, ptr %tv_usec.i.i238, align 8
   %conv11.i.i239 = zext i8 %1 to i32
   %conv12.i.i240 = zext i8 %102 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.288, i32 noundef %call10.i.i237, i64 noundef %107, i64 noundef %108, i32 noundef %conv11.i.i239, i64 noundef %4, i32 noundef %conv12.i.i240) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.288, i32 noundef %call10.i.i237, i64 noundef %107, i64 noundef %108, i32 noundef %conv11.i.i239, i64 noundef %4, i32 noundef %conv12.i.i240) #19
   br label %trace_pci_nvme_err_invalid_zone_state_transition.exit
 
 if.else.i.i234:                                   ; preds = %if.then.i.i232
   %conv13.i.i = zext i8 %1 to i32
   %conv14.i.i = zext i8 %102 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.289, i32 noundef %conv13.i.i, i64 noundef %4, i32 noundef %conv14.i.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.289, i32 noundef %conv13.i.i, i64 noundef %4, i32 noundef %conv14.i.i) #19
   br label %trace_pci_nvme_err_invalid_zone_state_transition.exit
 
 trace_pci_nvme_err_invalid_zone_state_transition.exit: ; preds = %if.then81, %land.lhs.true5.i.i229, %if.then8.i.i235, %if.else.i.i234
@@ -15731,16 +15731,16 @@ if.then.i.i.i:                                    ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.i.i.i, label %if.then8.i.i.i, label %if.else.i.i.i
 
 if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
-  %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #17
-  %call10.i.i.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #19
+  %call10.i.i.i = tail call i32 @qemu_get_thread_id() #19
   %10 = load i64, ptr %_now.i.i.i, align 8
   %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %11 = load i64, ptr %tv_usec.i.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.199, i32 noundef %call10.i.i.i, i64 noundef %10, i64 noundef %11, i64 noundef %conv) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.199, i32 noundef %call10.i.i.i, i64 noundef %10, i64 noundef %11, i64 noundef %conv) #19
   br label %nvme_check_mdts.exit
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.200, i64 noundef %conv) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.200, i64 noundef %conv) #19
   br label %nvme_check_mdts.exit
 
 nvme_check_mdts.exit:                             ; preds = %if.then.i, %land.lhs.true5.i.i.i, %if.then8.i.i.i, %if.else.i.i.i
@@ -15761,7 +15761,7 @@ if.end36:                                         ; preds = %if.then31, %if.end2
   %zone_entry_sz.0 = phi i64 [ %add35, %if.then31 ], [ 64, %if.end26 ]
   %sub = add nsw i64 %conv, -64
   %div = udiv i64 %sub, %zone_entry_sz.0
-  %call39 = tail call noalias ptr @g_malloc0(i64 noundef %conv) #20
+  %call39 = tail call noalias ptr @g_malloc0(i64 noundef %conv) #22
   %zone_array = getelementptr inbounds i8, ptr %0, i64 8536
   %13 = load i32, ptr %zone_idx, align 4
   %num_zones = getelementptr inbounds i8, ptr %0, i64 8608
@@ -16051,7 +16051,7 @@ for.inc105:                                       ; preds = %sw.bb2.i75, %sw.bb4
 
 for.end107:                                       ; preds = %for.inc105, %for.end.thread, %for.end
   %call108 = tail call fastcc zeroext i16 @nvme_c2h(ptr noundef %n, ptr noundef nonnull %call39, i32 noundef %shl, ptr noundef %req)
-  tail call void @g_free(ptr noundef nonnull %call39) #17
+  tail call void @g_free(ptr noundef nonnull %call39) #19
   br label %return
 
 return:                                           ; preds = %nvme_check_mdts.exit, %if.end17, %if.end13, %land.lhs.true10, %if.end, %entry, %for.end107
@@ -16110,7 +16110,7 @@ if.end11.i:                                       ; preds = %if.end6.i
   %conv16.i = zext i32 %mul.i to i64
   %mul17.i = shl nuw nsw i64 %conv16.i, 5
   %add.i = or disjoint i64 %mul17.i, 16
-  %call.i = tail call noalias ptr @g_malloc(i64 noundef %add.i) #20
+  %call.i = tail call noalias ptr @g_malloc(i64 noundef %add.i) #22
   %cond.i = tail call i64 @llvm.umin.i64(i64 %add.i, i64 %conv4)
   %conv20.i = trunc i32 %mul.i to i16
   %nruhsd22.i = getelementptr inbounds i8, ptr %call.i, i64 14
@@ -16207,7 +16207,7 @@ if.end.i.i:                                       ; preds = %for.end50.i
 nvme_io_mgmt_recv_ruhs.exit:                      ; preds = %sw.bb6, %if.end.i, %if.end.i, %if.end6.i, %for.end50.i, %if.end.i.i
   %buf.0.i = phi ptr [ null, %sw.bb6 ], [ null, %if.end6.i ], [ null, %if.end.i ], [ null, %if.end.i ], [ %call.i, %for.end50.i ], [ %call.i, %if.end.i.i ]
   %retval.0.i = phi i16 [ 16386, %sw.bb6 ], [ 16425, %if.end6.i ], [ 16395, %if.end.i ], [ 16395, %if.end.i ], [ %call.i.i, %for.end50.i ], [ %call2.i.i, %if.end.i.i ]
-  tail call void @g_free(ptr noundef %buf.0.i) #17
+  tail call void @g_free(ptr noundef %buf.0.i) #19
   br label %return
 
 sw.default:                                       ; preds = %entry
@@ -16261,7 +16261,7 @@ if.end.i:                                         ; preds = %lor.lhs.false.i
 
 if.end19.i:                                       ; preds = %if.end.i
   %conv20.i = zext nneg i32 %add.i to i64
-  %call21.i = tail call noalias ptr @g_malloc_n(i64 noundef %conv20.i, i64 noundef 2) #19
+  %call21.i = tail call noalias ptr @g_malloc_n(i64 noundef %conv20.i, i64 noundef 2) #21
   %mul23.i = shl nuw nsw i32 %add.i, 1
   %sg.i.i = getelementptr inbounds i8, ptr %req, i64 144
   %conv.i.i = zext nneg i32 %mul23.i to i64
@@ -16290,7 +16290,7 @@ for.body.i:                                       ; preds = %nvme_h2c.exit.i, %f
 nvme_io_mgmt_send_ruh_update.exit:                ; preds = %for.cond.i, %for.body.i, %sw.bb4, %lor.lhs.false.i, %if.end.i, %if.end19.i, %nvme_h2c.exit.i
   %pids.0.i = phi ptr [ null, %sw.bb4 ], [ %call21.i, %nvme_h2c.exit.i ], [ null, %if.end.i ], [ null, %lor.lhs.false.i ], [ %call21.i, %if.end19.i ], [ %call21.i, %for.body.i ], [ %call21.i, %for.cond.i ]
   %retval.0.i = phi i16 [ 16425, %sw.bb4 ], [ %call2.i.i, %nvme_h2c.exit.i ], [ 16386, %if.end.i ], [ 16425, %lor.lhs.false.i ], [ %call.i.i, %if.end19.i ], [ 0, %for.cond.i ], [ 16386, %for.body.i ]
-  tail call void @g_free(ptr noundef %pids.0.i) #17
+  tail call void @g_free(ptr noundef %pids.0.i) #19
   br label %return
 
 sw.default:                                       ; preds = %entry
@@ -16338,16 +16338,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #19
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #19
   %6 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.191, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i32 noundef %retval.0.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.191, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i32 noundef %retval.0.i) #19
   br label %trace_pci_nvme_misc_cb.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.192, i32 noundef %retval.0.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.192, i32 noundef %retval.0.i) #19
   br label %trace_pci_nvme_misc_cb.exit
 
 trace_pci_nvme_misc_cb.exit:                      ; preds = %nvme_cid.exit, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -16454,16 +16454,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #19
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #19
   %11 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %12 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.193, i32 noundef %call10.i.i, i64 noundef %11, i64 noundef %12, i32 noundef %6) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.193, i32 noundef %call10.i.i, i64 noundef %11, i64 noundef %12, i32 noundef %6) #19
   br label %trace_pci_nvme_flush_ns.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.194, i32 noundef %6) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.194, i32 noundef %6) #19
   br label %trace_pci_nvme_flush_ns.exit
 
 trace_pci_nvme_flush_ns.exit:                     ; preds = %if.then7.i, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -16471,7 +16471,7 @@ trace_pci_nvme_flush_ns.exit:                     ; preds = %if.then7.i, %land.l
   store ptr null, ptr %ns11, align 8
   %blkconf.i = getelementptr inbounds i8, ptr %5, i64 160
   %13 = load ptr, ptr %blkconf.i, align 8
-  %call.i = tail call ptr @blk_aio_flush(ptr noundef %13, ptr noundef nonnull @nvme_flush_ns_cb, ptr noundef nonnull %iocb) #17
+  %call.i = tail call ptr @blk_aio_flush(ptr noundef %13, ptr noundef nonnull @nvme_flush_ns_cb, ptr noundef nonnull %iocb) #19
   %aiocb.i = getelementptr inbounds i8, ptr %iocb, i64 40
   store ptr %call.i, ptr %aiocb.i, align 8
   br label %return
@@ -16481,8 +16481,8 @@ done:                                             ; preds = %if.end10, %entry
   %14 = load ptr, ptr %cb, align 8
   %opaque = getelementptr inbounds i8, ptr %iocb, i64 24
   %15 = load ptr, ptr %opaque, align 8
-  tail call void %14(ptr noundef %15, i32 noundef %1) #17
-  tail call void @qemu_aio_unref(ptr noundef nonnull %iocb) #17
+  tail call void %14(ptr noundef %15, i32 noundef %1) #19
+  tail call void @qemu_aio_unref(ptr noundef nonnull %iocb) #19
   br label %return
 
 return:                                           ; preds = %trace_pci_nvme_flush_ns.exit, %done
@@ -16502,7 +16502,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call void @blk_aio_cancel_async(ptr noundef nonnull %0) #17
+  tail call void @blk_aio_cancel_async(ptr noundef nonnull %0) #19
   store ptr null, ptr %aiocb, align 8
   br label %if.end
 
@@ -16556,16 +16556,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #19
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #19
   %7 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.193, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, i32 noundef %2) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.193, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, i32 noundef %2) #19
   br label %trace_pci_nvme_flush_ns.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.194, i32 noundef %2) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.194, i32 noundef %2) #19
   br label %trace_pci_nvme_flush_ns.exit
 
 trace_pci_nvme_flush_ns.exit:                     ; preds = %if.then7, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -16573,7 +16573,7 @@ trace_pci_nvme_flush_ns.exit:                     ; preds = %if.then7, %land.lhs
   store ptr null, ptr %ns1, align 8
   %blkconf = getelementptr inbounds i8, ptr %0, i64 160
   %9 = load ptr, ptr %blkconf, align 8
-  %call = tail call ptr @blk_aio_flush(ptr noundef %9, ptr noundef nonnull @nvme_flush_ns_cb, ptr noundef nonnull %opaque) #17
+  %call = tail call ptr @blk_aio_flush(ptr noundef %9, ptr noundef nonnull @nvme_flush_ns_cb, ptr noundef nonnull %opaque) #19
   %aiocb = getelementptr inbounds i8, ptr %opaque, i64 40
   store ptr %call, ptr %aiocb, align 8
   br label %return
@@ -16719,18 +16719,18 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #19
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #19
   %20 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %21 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i16 %13 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.197, i32 noundef %call10.i.i, i64 noundef %20, i64 noundef %21, i32 noundef %conv11.i.i, ptr noundef nonnull %retval.0.i99, i32 noundef %15, i32 noundef %add, i64 noundef %mapped_size.0, i64 noundef %1) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.197, i32 noundef %call10.i.i, i64 noundef %20, i64 noundef %21, i32 noundef %conv11.i.i, ptr noundef nonnull %retval.0.i99, i32 noundef %15, i32 noundef %add, i64 noundef %mapped_size.0, i64 noundef %1) #19
   br label %trace_pci_nvme_write.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
   %conv12.i.i = zext i16 %13 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.198, i32 noundef %conv12.i.i, ptr noundef nonnull %retval.0.i99, i32 noundef %15, i32 noundef %add, i64 noundef %mapped_size.0, i64 noundef %1) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.198, i32 noundef %conv12.i.i, ptr noundef nonnull %retval.0.i99, i32 noundef %15, i32 noundef %add, i64 noundef %mapped_size.0, i64 noundef %1) #19
   br label %trace_pci_nvme_write.exit
 
 trace_pci_nvme_write.exit:                        ; preds = %nvme_nsid.exit, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -16773,16 +16773,16 @@ if.then.i.i.i:                                    ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.i.i.i, label %if.then8.i.i.i, label %if.else.i.i.i
 
 if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
-  %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #17
-  %call10.i.i.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #19
+  %call10.i.i.i = tail call i32 @qemu_get_thread_id() #19
   %28 = load i64, ptr %_now.i.i.i, align 8
   %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %29 = load i64, ptr %tv_usec.i.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.199, i32 noundef %call10.i.i.i, i64 noundef %28, i64 noundef %29, i64 noundef %mapped_size.0) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.199, i32 noundef %call10.i.i.i, i64 noundef %28, i64 noundef %29, i64 noundef %mapped_size.0) #19
   br label %nvme_check_mdts.exit
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.200, i64 noundef %mapped_size.0) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.200, i64 noundef %mapped_size.0) #19
   br label %nvme_check_mdts.exit
 
 nvme_check_mdts.exit:                             ; preds = %if.then.i106, %land.lhs.true5.i.i.i, %if.then8.i.i.i, %if.else.i.i.i
@@ -16820,16 +16820,16 @@ if.then.i.i.i118:                                 ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.i.i.i119, label %if.then8.i.i.i121, label %if.else.i.i.i120
 
 if.then8.i.i.i121:                                ; preds = %if.then.i.i.i118
-  %call9.i.i.i122 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i107, ptr noundef null) #17
-  %call10.i.i.i123 = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i.i122 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i107, ptr noundef null) #19
+  %call10.i.i.i123 = tail call i32 @qemu_get_thread_id() #19
   %36 = load i64, ptr %_now.i.i.i107, align 8
   %tv_usec.i.i.i124 = getelementptr inbounds i8, ptr %_now.i.i.i107, i64 8
   %37 = load i64, ptr %tv_usec.i.i.i124, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.201, i32 noundef %call10.i.i.i123, i64 noundef %36, i64 noundef %37, i64 noundef %1, i64 noundef %conv9, i64 noundef %.val95) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.201, i32 noundef %call10.i.i.i123, i64 noundef %36, i64 noundef %37, i64 noundef %1, i64 noundef %conv9, i64 noundef %.val95) #19
   br label %nvme_check_bounds.exit
 
 if.else.i.i.i120:                                 ; preds = %if.then.i.i.i118
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.202, i64 noundef %1, i64 noundef %conv9, i64 noundef %.val95) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.202, i64 noundef %1, i64 noundef %conv9, i64 noundef %.val95) #19
   br label %nvme_check_bounds.exit
 
 nvme_check_bounds.exit:                           ; preds = %if.then.i111, %land.lhs.true5.i.i.i115, %if.then8.i.i.i121, %if.else.i.i.i120
@@ -16876,7 +16876,7 @@ nvme_get_zone_by_slba.exit:                       ; preds = %nvme_zone_idx.exit.
   br i1 %tobool50.not, label %if.else, label %if.end52
 
 if.else:                                          ; preds = %nvme_zone_idx.exit.i, %nvme_get_zone_by_slba.exit
-  tail call void @__assert_fail(ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.1, i32 noundef 3554, ptr noundef nonnull @__PRETTY_FUNCTION__.nvme_do_write) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.1, i32 noundef 3554, ptr noundef nonnull @__PRETTY_FUNCTION__.nvme_do_write) #20
   unreachable
 
 if.end52:                                         ; preds = %nvme_get_zone_by_slba.exit
@@ -17091,7 +17091,7 @@ if.end150:                                        ; preds = %if.end24.i, %if.the
   br i1 %tobool156.not, label %if.end159, label %if.then157
 
 if.then157:                                       ; preds = %if.end150
-  %call158 = tail call zeroext i16 @nvme_dif_rw(ptr noundef %n, ptr noundef %req) #17
+  %call158 = tail call zeroext i16 @nvme_dif_rw(ptr noundef %n, ptr noundef %req) #19
   br label %return
 
 if.end159:                                        ; preds = %if.end150
@@ -17103,22 +17103,22 @@ if.then161:                                       ; preds = %if.end159
   br i1 %tobool163.not, label %if.end165, label %invalid
 
 if.end165:                                        ; preds = %if.then161
-  %call166 = tail call ptr @blk_get_stats(ptr noundef %5) #17
+  %call166 = tail call ptr @blk_get_stats(ptr noundef %5) #19
   %acct = getelementptr inbounds i8, ptr %req, i64 120
-  tail call void @block_acct_start(ptr noundef %call166, ptr noundef nonnull %acct, i64 noundef %shl.i, i32 noundef 2) #17
+  tail call void @block_acct_start(ptr noundef %call166, ptr noundef nonnull %acct, i64 noundef %shl.i, i32 noundef 2) #19
   tail call fastcc void @nvme_blk_write(ptr noundef %5, i64 noundef %shl.i136, i32 noundef 512, ptr noundef nonnull @nvme_rw_cb, ptr noundef %req)
   br label %return
 
 if.else167:                                       ; preds = %if.end159
-  %call168 = tail call ptr @blk_aio_pwrite_zeroes(ptr noundef %5, i64 noundef %shl.i136, i64 noundef %shl.i, i32 noundef 4, ptr noundef nonnull @nvme_rw_cb, ptr noundef %req) #17
+  %call168 = tail call ptr @blk_aio_pwrite_zeroes(ptr noundef %5, i64 noundef %shl.i136, i64 noundef %shl.i, i32 noundef 4, ptr noundef nonnull @nvme_rw_cb, ptr noundef %req) #19
   %aiocb = getelementptr inbounds i8, ptr %req, i64 16
   store ptr %call168, ptr %aiocb, align 8
   br label %return
 
 invalid:                                          ; preds = %nvme_check_bounds.exit, %nvme_check_mdts.exit, %if.then161, %if.end127, %if.end123, %if.then78
   %status.0 = phi i16 [ 16512, %nvme_check_bounds.exit ], [ 2, %if.then78 ], [ %call124, %if.end123 ], [ %call.i, %if.end127 ], [ %call162, %if.then161 ], [ 16386, %nvme_check_mdts.exit ]
-  %call170 = tail call ptr @blk_get_stats(ptr noundef %5) #17
-  tail call void @block_acct_invalid(ptr noundef %call170, i32 noundef 2) #17
+  %call170 = tail call ptr @blk_get_stats(ptr noundef %5) #19
+  tail call void @block_acct_invalid(ptr noundef %call170, i32 noundef 2) #19
   %84 = or i16 %status.0, 16384
   br label %return
 
@@ -17151,16 +17151,16 @@ if.then.i:                                        ; preds = %land.lhs.true5.i
   br i1 %tobool7.i, label %if.then8.i, label %if.else.i
 
 if.then8.i:                                       ; preds = %if.then.i
-  %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #17
-  %call10.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #19
+  %call10.i = tail call i32 @qemu_get_thread_id() #19
   %4 = load i64, ptr %_now.i, align 8
   %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %5 = load i64, ptr %tv_usec.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.203, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, i64 noundef %slba, i64 noundef %zone) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.203, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, i64 noundef %slba, i64 noundef %zone) #19
   br label %_nocheck__trace_pci_nvme_err_append_not_at_start.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.204, i64 noundef %slba, i64 noundef %zone) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.204, i64 noundef %slba, i64 noundef %zone) #19
   br label %_nocheck__trace_pci_nvme_err_append_not_at_start.exit
 
 _nocheck__trace_pci_nvme_err_append_not_at_start.exit: ; preds = %entry, %land.lhs.true5.i, %if.then8.i, %if.else.i
@@ -17192,16 +17192,16 @@ if.then.i:                                        ; preds = %land.lhs.true5.i
   br i1 %tobool7.i, label %if.then8.i, label %if.else.i
 
 if.then8.i:                                       ; preds = %if.then.i
-  %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #17
-  %call10.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #19
+  %call10.i = tail call i32 @qemu_get_thread_id() #19
   %4 = load i64, ptr %_now.i, align 8
   %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %5 = load i64, ptr %tv_usec.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.205, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, i64 noundef %len) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.205, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, i64 noundef %len) #19
   br label %_nocheck__trace_pci_nvme_err_zasl.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.206, i64 noundef %len) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.206, i64 noundef %len) #19
   br label %_nocheck__trace_pci_nvme_err_zasl.exit
 
 _nocheck__trace_pci_nvme_err_zasl.exit:           ; preds = %entry, %land.lhs.true5.i, %if.then8.i, %if.else.i
@@ -17257,16 +17257,16 @@ if.then.i.i.i:                                    ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.i.i.i, label %if.then8.i.i.i, label %if.else.i.i.i
 
 if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
-  %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #17
-  %call10.i.i.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #19
+  %call10.i.i.i = tail call i32 @qemu_get_thread_id() #19
   %8 = load i64, ptr %_now.i.i.i, align 8
   %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.207, i32 noundef %call10.i.i.i, i64 noundef %8, i64 noundef %9, i64 noundef %zone.val19) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.207, i32 noundef %call10.i.i.i, i64 noundef %8, i64 noundef %9, i64 noundef %zone.val19) #19
   br label %trace_pci_nvme_err_zone_is_full.exit.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.208, i64 noundef %zone.val19) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.208, i64 noundef %zone.val19) #19
   br label %trace_pci_nvme_err_zone_is_full.exit.i
 
 trace_pci_nvme_err_zone_is_full.exit.i:           ; preds = %if.else.i.i.i, %if.then8.i.i.i, %land.lhs.true5.i.i.i, %sw.bb2.i
@@ -17294,16 +17294,16 @@ if.then.i.i11.i:                                  ; preds = %land.lhs.true5.i.i8
   br i1 %tobool7.i.i12.i, label %if.then8.i.i14.i, label %if.else.i.i13.i
 
 if.then8.i.i14.i:                                 ; preds = %if.then.i.i11.i
-  %call9.i.i15.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i4.i, ptr noundef null) #17
-  %call10.i.i16.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i15.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i4.i, ptr noundef null) #19
+  %call10.i.i16.i = tail call i32 @qemu_get_thread_id() #19
   %14 = load i64, ptr %_now.i.i4.i, align 8
   %tv_usec.i.i17.i = getelementptr inbounds i8, ptr %_now.i.i4.i, i64 8
   %15 = load i64, ptr %tv_usec.i.i17.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.209, i32 noundef %call10.i.i16.i, i64 noundef %14, i64 noundef %15, i64 noundef %zone.val19) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.209, i32 noundef %call10.i.i16.i, i64 noundef %14, i64 noundef %15, i64 noundef %zone.val19) #19
   br label %trace_pci_nvme_err_zone_is_offline.exit.i
 
 if.else.i.i13.i:                                  ; preds = %if.then.i.i11.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.210, i64 noundef %zone.val19) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.210, i64 noundef %zone.val19) #19
   br label %trace_pci_nvme_err_zone_is_offline.exit.i
 
 trace_pci_nvme_err_zone_is_offline.exit.i:        ; preds = %if.else.i.i13.i, %if.then8.i.i14.i, %land.lhs.true5.i.i8.i, %sw.bb3.i
@@ -17331,16 +17331,16 @@ if.then.i.i25.i:                                  ; preds = %land.lhs.true5.i.i2
   br i1 %tobool7.i.i26.i, label %if.then8.i.i28.i, label %if.else.i.i27.i
 
 if.then8.i.i28.i:                                 ; preds = %if.then.i.i25.i
-  %call9.i.i29.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i18.i, ptr noundef null) #17
-  %call10.i.i30.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i29.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i18.i, ptr noundef null) #19
+  %call10.i.i30.i = tail call i32 @qemu_get_thread_id() #19
   %20 = load i64, ptr %_now.i.i18.i, align 8
   %tv_usec.i.i31.i = getelementptr inbounds i8, ptr %_now.i.i18.i, i64 8
   %21 = load i64, ptr %tv_usec.i.i31.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.211, i32 noundef %call10.i.i30.i, i64 noundef %20, i64 noundef %21, i64 noundef %zone.val19) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.211, i32 noundef %call10.i.i30.i, i64 noundef %20, i64 noundef %21, i64 noundef %zone.val19) #19
   br label %trace_pci_nvme_err_zone_is_read_only.exit.i
 
 if.else.i.i27.i:                                  ; preds = %if.then.i.i25.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.212, i64 noundef %zone.val19) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.212, i64 noundef %zone.val19) #19
   br label %trace_pci_nvme_err_zone_is_read_only.exit.i
 
 trace_pci_nvme_err_zone_is_read_only.exit.i:      ; preds = %if.else.i.i27.i, %if.then8.i.i28.i, %land.lhs.true5.i.i22.i, %sw.bb4.i
@@ -17348,7 +17348,7 @@ trace_pci_nvme_err_zone_is_read_only.exit.i:      ; preds = %if.else.i.i27.i, %i
   br label %return
 
 sw.default.i:                                     ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.176, ptr noundef nonnull @.str.1, i32 noundef 1815, ptr noundef nonnull @__PRETTY_FUNCTION__.nvme_check_zone_state_for_write) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.176, ptr noundef nonnull @.str.1, i32 noundef 1815, ptr noundef nonnull @__PRETTY_FUNCTION__.nvme_check_zone_state_for_write) #20
   unreachable
 
 if.end:                                           ; preds = %entry, %entry, %entry, %entry
@@ -17396,16 +17396,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #19
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #19
   %30 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %31 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.213, i32 noundef %call10.i.i, i64 noundef %30, i64 noundef %31, i64 noundef %slba, i64 noundef %24) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.213, i32 noundef %call10.i.i, i64 noundef %30, i64 noundef %31, i64 noundef %slba, i64 noundef %24) #19
   br label %trace_pci_nvme_err_zone_invalid_write.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.214, i64 noundef %slba, i64 noundef %24) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.214, i64 noundef %slba, i64 noundef %24) #19
   br label %trace_pci_nvme_err_zone_invalid_write.exit
 
 trace_pci_nvme_err_zone_invalid_write.exit:       ; preds = %if.then12, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -17442,16 +17442,16 @@ if.then.i.i29:                                    ; preds = %land.lhs.true5.i.i2
   br i1 %tobool7.i.i30, label %if.then8.i.i32, label %if.else.i.i31
 
 if.then8.i.i32:                                   ; preds = %if.then.i.i29
-  %call9.i.i33 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i22, ptr noundef null) #17
-  %call10.i.i34 = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i33 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i22, ptr noundef null) #19
+  %call10.i.i34 = tail call i32 @qemu_get_thread_id() #19
   %36 = load i64, ptr %_now.i.i22, align 8
   %tv_usec.i.i35 = getelementptr inbounds i8, ptr %_now.i.i22, i64 8
   %37 = load i64, ptr %tv_usec.i.i35, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.215, i32 noundef %call10.i.i34, i64 noundef %36, i64 noundef %37, i64 noundef %slba, i64 noundef %zone.val19, i64 noundef %24) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.215, i32 noundef %call10.i.i34, i64 noundef %36, i64 noundef %37, i64 noundef %slba, i64 noundef %zone.val19, i64 noundef %24) #19
   br label %trace_pci_nvme_err_write_not_at_wp.exit
 
 if.else.i.i31:                                    ; preds = %if.then.i.i29
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.216, i64 noundef %slba, i64 noundef %zone.val19, i64 noundef %24) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.216, i64 noundef %slba, i64 noundef %zone.val19, i64 noundef %24) #19
   br label %trace_pci_nvme_err_write_not_at_wp.exit
 
 trace_pci_nvme_err_write_not_at_wp.exit:          ; preds = %if.then21, %land.lhs.true5.i.i26, %if.then8.i.i32, %if.else.i.i31
@@ -17484,16 +17484,16 @@ if.then.i.i43:                                    ; preds = %land.lhs.true5.i.i4
   br i1 %tobool7.i.i44, label %if.then8.i.i46, label %if.else.i.i45
 
 if.then8.i.i46:                                   ; preds = %if.then.i.i43
-  %call9.i.i47 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i36, ptr noundef null) #17
-  %call10.i.i48 = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i47 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i36, ptr noundef null) #19
+  %call10.i.i48 = tail call i32 @qemu_get_thread_id() #19
   %42 = load i64, ptr %_now.i.i36, align 8
   %tv_usec.i.i49 = getelementptr inbounds i8, ptr %_now.i.i36, i64 8
   %43 = load i64, ptr %tv_usec.i.i49, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.217, i32 noundef %call10.i.i48, i64 noundef %42, i64 noundef %43, i64 noundef %slba, i32 noundef %nlb, i64 noundef %add.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.217, i32 noundef %call10.i.i48, i64 noundef %42, i64 noundef %43, i64 noundef %slba, i32 noundef %nlb, i64 noundef %add.i) #19
   br label %trace_pci_nvme_err_zone_boundary.exit
 
 if.else.i.i45:                                    ; preds = %if.then.i.i43
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.218, i64 noundef %slba, i32 noundef %nlb, i64 noundef %add.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.218, i64 noundef %slba, i32 noundef %nlb, i64 noundef %add.i) #19
   br label %trace_pci_nvme_err_zone_boundary.exit
 
 trace_pci_nvme_err_zone_boundary.exit:            ; preds = %if.then36, %land.lhs.true5.i.i40, %if.then8.i.i46, %if.else.i.i45
@@ -17564,14 +17564,14 @@ if.end:                                           ; preds = %if.then
   br i1 %tobool30.not, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  %call.i.i = call ptr @object_dynamic_cast_assert(ptr noundef %n, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #17
-  %call.i.i.i = call ptr @object_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #17
+  %call.i.i = call ptr @object_dynamic_cast_assert(ptr noundef %n, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #19
+  %call.i.i.i = call ptr @object_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #19
   %bus_master_as.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 576
-  call void @qemu_sglist_init(ptr noundef nonnull %10, ptr noundef %call.i.i.i, i32 noundef 0, ptr noundef nonnull %bus_master_as.i.i.i) #17
+  call void @qemu_sglist_init(ptr noundef nonnull %10, ptr noundef %call.i.i.i, i32 noundef 0, ptr noundef nonnull %bus_master_as.i.i.i) #19
   br label %nvme_sg_init.exit
 
 if.else.i:                                        ; preds = %if.end
-  call void @qemu_iovec_init(ptr noundef nonnull %10, i32 noundef 0) #17
+  call void @qemu_iovec_init(ptr noundef nonnull %10, i32 noundef 0) #19
   %.pre.i = load i32, ptr %sg28, align 8
   %11 = or i32 %.pre.i, 1
   br label %nvme_sg_init.exit
@@ -17592,11 +17592,11 @@ if.end.i:                                         ; preds = %nvme_sg_init.exit
   br i1 %tobool3.not.i, label %if.else.i23, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.end.i
-  call void @qemu_sglist_destroy(ptr noundef nonnull %13) #17
+  call void @qemu_sglist_destroy(ptr noundef nonnull %13) #19
   br label %return
 
 if.else.i23:                                      ; preds = %if.end.i
-  call void @qemu_iovec_destroy(ptr noundef nonnull %13) #17
+  call void @qemu_iovec_destroy(ptr noundef nonnull %13) #19
   br label %return
 
 if.end32:                                         ; preds = %land.lhs.true18, %entry
@@ -17621,7 +17621,7 @@ entry:
   br i1 %tobool.not, label %if.else, label %if.end
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.228, ptr noundef nonnull @.str.1, i32 noundef 1460, ptr noundef nonnull @__PRETTY_FUNCTION__.nvme_blk_write) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.228, ptr noundef nonnull @.str.1, i32 noundef 1460, ptr noundef nonnull @__PRETTY_FUNCTION__.nvme_blk_write) #20
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -17631,11 +17631,11 @@ if.end:                                           ; preds = %entry
   br i1 %tobool4.not, label %if.else7, label %if.then5
 
 if.then5:                                         ; preds = %if.end
-  %call = tail call ptr @dma_blk_write(ptr noundef %blk, ptr noundef nonnull %1, i64 noundef %offset, i32 noundef %align, ptr noundef %cb, ptr noundef nonnull %req) #17
+  %call = tail call ptr @dma_blk_write(ptr noundef %blk, ptr noundef nonnull %1, i64 noundef %offset, i32 noundef %align, ptr noundef %cb, ptr noundef nonnull %req) #19
   br label %if.end11
 
 if.else7:                                         ; preds = %if.end
-  %call9 = tail call ptr @blk_aio_pwritev(ptr noundef %blk, i64 noundef %offset, ptr noundef nonnull %1, i32 noundef 0, ptr noundef %cb, ptr noundef nonnull %req) #17
+  %call9 = tail call ptr @blk_aio_pwritev(ptr noundef %blk, i64 noundef %offset, ptr noundef nonnull %1, i32 noundef 0, ptr noundef %cb, ptr noundef nonnull %req) #19
   br label %if.end11
 
 if.end11:                                         ; preds = %if.else7, %if.then5
@@ -17656,7 +17656,7 @@ nvme_cid.exit:
   %1 = load ptr, ptr %blkconf, align 8
   %cid.i = getelementptr inbounds i8, ptr %opaque, i64 52
   %2 = load i16, ptr %cid.i, align 4
-  %call3 = tail call ptr @blk_name(ptr noundef %1) #17
+  %call3 = tail call ptr @blk_name(ptr noundef %1) #19
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %3 = load i32, ptr @trace_events_enabled_count, align 4
   %tobool.i.i = icmp ne i32 %3, 0
@@ -17677,18 +17677,18 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #19
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #19
   %7 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i16 %2 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.229, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, i32 noundef %conv11.i.i, ptr noundef %call3) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.229, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, i32 noundef %conv11.i.i, ptr noundef %call3) #19
   br label %trace_pci_nvme_rw_cb.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
   %conv12.i.i = zext i16 %2 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.230, i32 noundef %conv12.i.i, ptr noundef %call3) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.230, i32 noundef %conv12.i.i, ptr noundef %call3) #19
   br label %trace_pci_nvme_rw_cb.exit
 
 trace_pci_nvme_rw_cb.exit:                        ; preds = %nvme_cid.exit, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -17722,7 +17722,7 @@ if.then5:                                         ; preds = %if.end
 if.then14:                                        ; preds = %if.then5
   %conv15 = zext nneg i32 %add to i64
   %mul.i = mul nuw nsw i64 %conv15, %conv.i.i
-  %call17 = tail call ptr @blk_aio_pwrite_zeroes(ptr noundef %1, i64 noundef %add.i, i64 noundef %mul.i, i32 noundef 4, ptr noundef nonnull @nvme_rw_complete_cb, ptr noundef nonnull %opaque) #17
+  %call17 = tail call ptr @blk_aio_pwrite_zeroes(ptr noundef %1, i64 noundef %add.i, i64 noundef %mul.i, i32 noundef 4, ptr noundef nonnull @nvme_rw_complete_cb, ptr noundef nonnull %opaque) #19
   %aiocb = getelementptr inbounds i8, ptr %opaque, i64 16
   store ptr %call17, ptr %aiocb, align 8
   br label %return
@@ -17754,11 +17754,11 @@ if.end.i30:                                       ; preds = %if.then23
   br i1 %tobool3.not.i, label %if.else.i, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.end.i30
-  tail call void @qemu_sglist_destroy(ptr noundef nonnull %18) #17
+  tail call void @qemu_sglist_destroy(ptr noundef nonnull %18) #19
   br label %if.end5.i
 
 if.else.i:                                        ; preds = %if.end.i30
-  tail call void @qemu_iovec_destroy(ptr noundef nonnull %18) #17
+  tail call void @qemu_iovec_destroy(ptr noundef nonnull %18) #19
   br label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.else.i, %if.then4.i
@@ -17803,14 +17803,14 @@ if.end.i37:                                       ; preds = %if.then.i
   br i1 %tobool8.not.i, label %if.else.i.i40, label %if.then.i.i39
 
 if.then.i.i39:                                    ; preds = %if.end.i37
-  %call.i.i.i = call ptr @object_dynamic_cast_assert(ptr noundef %opaque.val.val, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #17
-  %call.i.i.i.i = call ptr @object_dynamic_cast_assert(ptr noundef %call.i.i.i, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #17
+  %call.i.i.i = call ptr @object_dynamic_cast_assert(ptr noundef %opaque.val.val, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #19
+  %call.i.i.i.i = call ptr @object_dynamic_cast_assert(ptr noundef %call.i.i.i, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #19
   %bus_master_as.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 576
-  call void @qemu_sglist_init(ptr noundef nonnull %25, ptr noundef %call.i.i.i.i, i32 noundef 0, ptr noundef nonnull %bus_master_as.i.i.i.i) #17
+  call void @qemu_sglist_init(ptr noundef nonnull %25, ptr noundef %call.i.i.i.i, i32 noundef 0, ptr noundef nonnull %bus_master_as.i.i.i.i) #19
   br label %nvme_sg_init.exit.i
 
 if.else.i.i40:                                    ; preds = %if.end.i37
-  call void @qemu_iovec_init(ptr noundef nonnull %25, i32 noundef 0) #17
+  call void @qemu_iovec_init(ptr noundef nonnull %25, i32 noundef 0) #19
   %.pre.i.i = load i32, ptr %sg, align 8
   %26 = or i32 %.pre.i.i, 1
   br label %nvme_sg_init.exit.i
@@ -17831,11 +17831,11 @@ if.end.i.i:                                       ; preds = %nvme_sg_init.exit.i
   br i1 %tobool3.not.i.i, label %if.else.i18.i, label %if.then4.i.i
 
 if.then4.i.i:                                     ; preds = %if.end.i.i
-  call void @qemu_sglist_destroy(ptr noundef nonnull %28) #17
+  call void @qemu_sglist_destroy(ptr noundef nonnull %28) #19
   br label %nvme_map_mdata.exit.thread
 
 if.else.i18.i:                                    ; preds = %if.end.i.i
-  call void @qemu_iovec_destroy(ptr noundef nonnull %28) #17
+  call void @qemu_iovec_destroy(ptr noundef nonnull %28) #19
   br label %nvme_map_mdata.exit.thread
 
 nvme_map_mdata.exit.thread:                       ; preds = %nvme_sg_init.exit.i, %if.else.i18.i, %if.then4.i.i
@@ -17953,7 +17953,7 @@ if.then8:                                         ; preds = %if.end6
   br i1 %cmp.i15, label %if.end.i, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then8
-  tail call void @__assert_fail(ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.39, i32 noundef 347, ptr noundef nonnull @__PRETTY_FUNCTION__.nvme_aor_inc_active) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.39, i32 noundef 347, ptr noundef nonnull @__PRETTY_FUNCTION__.nvme_aor_inc_active) #20
   unreachable
 
 if.end.i:                                         ; preds = %if.then8
@@ -17969,7 +17969,7 @@ if.then1.i:                                       ; preds = %if.end.i
   br i1 %cmp6.not.not.i, label %if.end9, label %if.else8.i
 
 if.else8.i:                                       ; preds = %if.then1.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.223, ptr noundef nonnull @.str.39, i32 noundef 350, ptr noundef nonnull @__PRETTY_FUNCTION__.nvme_aor_inc_active) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.223, ptr noundef nonnull @.str.39, i32 noundef 350, ptr noundef nonnull @__PRETTY_FUNCTION__.nvme_aor_inc_active) #20
   unreachable
 
 if.end9:                                          ; preds = %if.then1.i, %if.end.i, %if.end6
@@ -17979,7 +17979,7 @@ if.end9:                                          ; preds = %if.then1.i, %if.end
   br i1 %cmp.i18, label %if.end.i20, label %if.else.i19
 
 if.else.i19:                                      ; preds = %if.end9
-  tail call void @__assert_fail(ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.39, i32 noundef 329, ptr noundef nonnull @__PRETTY_FUNCTION__.nvme_aor_inc_open) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.39, i32 noundef 329, ptr noundef nonnull @__PRETTY_FUNCTION__.nvme_aor_inc_open) #20
   unreachable
 
 if.end.i20:                                       ; preds = %if.end9
@@ -17995,7 +17995,7 @@ if.then1.i23:                                     ; preds = %if.end.i20
   br i1 %cmp6.not.not.i25, label %nvme_aor_inc_open.exit, label %if.else8.i26
 
 if.else8.i26:                                     ; preds = %if.then1.i23
-  tail call void @__assert_fail(ptr noundef nonnull @.str.224, ptr noundef nonnull @.str.39, i32 noundef 332, ptr noundef nonnull @__PRETTY_FUNCTION__.nvme_aor_inc_open) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.224, ptr noundef nonnull @.str.39, i32 noundef 332, ptr noundef nonnull @__PRETTY_FUNCTION__.nvme_aor_inc_open) #20
   unreachable
 
 nvme_aor_inc_open.exit:                           ; preds = %if.end.i20, %if.then1.i23
@@ -18169,16 +18169,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #19
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #19
   %6 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.219, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i32 noundef %0) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.219, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i32 noundef %0) #19
   br label %trace_pci_nvme_err_insuff_active_res.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.220, i32 noundef %0) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.220, i32 noundef %0) #19
   br label %trace_pci_nvme_err_insuff_active_res.exit
 
 trace_pci_nvme_err_insuff_active_res.exit:        ; preds = %if.then, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -18219,16 +18219,16 @@ if.then.i.i17:                                    ; preds = %land.lhs.true5.i.i1
   br i1 %tobool7.i.i18, label %if.then8.i.i20, label %if.else.i.i19
 
 if.then8.i.i20:                                   ; preds = %if.then.i.i17
-  %call9.i.i21 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i10, ptr noundef null) #17
-  %call10.i.i22 = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i21 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i10, ptr noundef null) #19
+  %call10.i.i22 = tail call i32 @qemu_get_thread_id() #19
   %14 = load i64, ptr %_now.i.i10, align 8
   %tv_usec.i.i23 = getelementptr inbounds i8, ptr %_now.i.i10, i64 8
   %15 = load i64, ptr %tv_usec.i.i23, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.221, i32 noundef %call10.i.i22, i64 noundef %14, i64 noundef %15, i32 noundef %8) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.221, i32 noundef %call10.i.i22, i64 noundef %14, i64 noundef %15, i32 noundef %8) #19
   br label %trace_pci_nvme_err_insuff_open_res.exit
 
 if.else.i.i19:                                    ; preds = %if.then.i.i17
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.222, i32 noundef %8) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.222, i32 noundef %8) #19
   br label %trace_pci_nvme_err_insuff_open_res.exit
 
 trace_pci_nvme_err_insuff_open_res.exit:          ; preds = %if.then13, %land.lhs.true5.i.i14, %if.then8.i.i20, %if.else.i.i19
@@ -18272,7 +18272,7 @@ if.then.i:                                        ; preds = %sw.bb
   br i1 %cmp.i, label %if.end3.thread.i, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.39, i32 noundef 339, ptr noundef nonnull @__PRETTY_FUNCTION__.nvme_aor_dec_open) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.39, i32 noundef 339, ptr noundef nonnull @__PRETTY_FUNCTION__.nvme_aor_dec_open) #20
   unreachable
 
 if.end3.thread.i:                                 ; preds = %if.then.i
@@ -18285,7 +18285,7 @@ if.end3.i:                                        ; preds = %sw.bb
   br i1 %3, label %nvme_aor_dec_open.exit, label %if.else7.i
 
 if.else7.i:                                       ; preds = %if.end3.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.39, i32 noundef 342, ptr noundef nonnull @__PRETTY_FUNCTION__.nvme_aor_dec_open) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.39, i32 noundef 342, ptr noundef nonnull @__PRETTY_FUNCTION__.nvme_aor_dec_open) #20
   unreachable
 
 nvme_aor_dec_open.exit:                           ; preds = %if.end3.thread.i, %if.end3.i
@@ -18493,7 +18493,7 @@ return:                                           ; preds = %entry, %nvme_parse_
 define internal fastcc i64 @nvme_get_timestamp(ptr nocapture noundef readonly %n) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %call.i = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #17
+  %call.i = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #19
   %div.i = sdiv i64 %call.i, 1000000
   %timestamp_set_qemu_clock_ms = getelementptr inbounds i8, ptr %n, i64 7456
   %0 = load i64, ptr %timestamp_set_qemu_clock_ms, align 16
@@ -18525,16 +18525,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #19
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #19
   %6 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.226, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i64 noundef %bf.set5) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.226, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i64 noundef %bf.set5) #19
   br label %trace_pci_nvme_getfeat_timestamp.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.227, i64 noundef %bf.set5) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.227, i64 noundef %bf.set5) #19
   br label %trace_pci_nvme_getfeat_timestamp.exit
 
 trace_pci_nvme_getfeat_timestamp.exit:            ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -18591,7 +18591,7 @@ if.then34.us:                                     ; preds = %while.body.us
   %arrayidx44.us = getelementptr %struct.iovec, ptr %3, i64 %idxprom13.us
   %5 = load ptr, ptr %arrayidx44.us, align 8
   %add.ptr.us = getelementptr i8, ptr %5, i64 %offset.045.us
-  tail call void @qemu_iovec_add(ptr noundef nonnull %4, ptr noundef %add.ptr.us, i64 noundef %cond31.us) #17
+  tail call void @qemu_iovec_add(ptr noundef nonnull %4, ptr noundef %add.ptr.us, i64 noundef %cond31.us) #19
   br label %if.end47.us
 
 if.end47.us:                                      ; preds = %if.then34.us, %while.body.us
@@ -18632,7 +18632,7 @@ if.end71.us:                                      ; preds = %cond.end68.us, %if.
   br i1 %tobool7.not.us, label %while.end, label %while.body.us, !llvm.loop !50
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.1, i32 noundef 748, ptr noundef nonnull @__PRETTY_FUNCTION__.nvme_sg_split) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.1, i32 noundef 748, ptr noundef nonnull @__PRETTY_FUNCTION__.nvme_sg_split) #20
   unreachable
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end71
@@ -18658,7 +18658,7 @@ if.then34:                                        ; preds = %while.body
   %arrayidx39 = getelementptr %struct.ScatterGatherEntry, ptr %8, i64 %idxprom
   %10 = load i64, ptr %arrayidx39, align 8
   %add = add i64 %10, %offset.045
-  tail call void @qemu_sglist_add(ptr noundef nonnull %9, i64 noundef %add, i64 noundef %cond31) #17
+  tail call void @qemu_sglist_add(ptr noundef nonnull %9, i64 noundef %add, i64 noundef %cond31) #19
   br label %if.end47
 
 if.end47:                                         ; preds = %if.then34, %while.body
@@ -18716,7 +18716,7 @@ entry:
   br i1 %tobool.not, label %if.else, label %if.end
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.228, ptr noundef nonnull @.str.1, i32 noundef 1447, ptr noundef nonnull @__PRETTY_FUNCTION__.nvme_blk_read) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.228, ptr noundef nonnull @.str.1, i32 noundef 1447, ptr noundef nonnull @__PRETTY_FUNCTION__.nvme_blk_read) #20
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -18726,11 +18726,11 @@ if.end:                                           ; preds = %entry
   br i1 %tobool4.not, label %if.else7, label %if.then5
 
 if.then5:                                         ; preds = %if.end
-  %call = tail call ptr @dma_blk_read(ptr noundef %blk, ptr noundef nonnull %1, i64 noundef %offset, i32 noundef %align, ptr noundef %cb, ptr noundef nonnull %req) #17
+  %call = tail call ptr @dma_blk_read(ptr noundef %blk, ptr noundef nonnull %1, i64 noundef %offset, i32 noundef %align, ptr noundef %cb, ptr noundef nonnull %req) #19
   br label %if.end11
 
 if.else7:                                         ; preds = %if.end
-  %call9 = tail call ptr @blk_aio_preadv(ptr noundef %blk, i64 noundef %offset, ptr noundef nonnull %1, i32 noundef 0, ptr noundef %cb, ptr noundef nonnull %req) #17
+  %call9 = tail call ptr @blk_aio_preadv(ptr noundef %blk, i64 noundef %offset, ptr noundef nonnull %1, i32 noundef 0, ptr noundef %cb, ptr noundef nonnull %req) #19
   br label %if.end11
 
 if.end11:                                         ; preds = %if.else7, %if.then5
@@ -18784,16 +18784,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #19
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #19
   %7 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.209, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, i64 noundef %2) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.209, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, i64 noundef %2) #19
   br label %trace_pci_nvme_err_zone_is_offline.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.210, i64 noundef %2) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.210, i64 noundef %2) #19
   br label %trace_pci_nvme_err_zone_is_offline.exit
 
 trace_pci_nvme_err_zone_is_offline.exit:          ; preds = %sw.bb1, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -18801,7 +18801,7 @@ trace_pci_nvme_err_zone_is_offline.exit:          ; preds = %sw.bb1, %land.lhs.t
   br label %return
 
 sw.default:                                       ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.176, ptr noundef nonnull @.str.1, i32 noundef 1869, ptr noundef nonnull @__PRETTY_FUNCTION__.nvme_check_zone_state_for_read) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.176, ptr noundef nonnull @.str.1, i32 noundef 1869, ptr noundef nonnull @__PRETTY_FUNCTION__.nvme_check_zone_state_for_read) #20
   unreachable
 
 return:                                           ; preds = %entry, %entry, %entry, %entry, %entry, %entry, %trace_pci_nvme_err_zone_is_offline.exit
@@ -18816,7 +18816,7 @@ entry:
   %pnum = alloca i64, align 8
   %blkconf = getelementptr inbounds i8, ptr %ns, i64 160
   %0 = load ptr, ptr %blkconf, align 8
-  %call = tail call ptr @blk_bs(ptr noundef %0) #17
+  %call = tail call ptr @blk_bs(ptr noundef %0) #19
   store i64 0, ptr %pnum, align 8
   %conv = zext i32 %nlb to i64
   %1 = getelementptr i8, ptr %ns, i64 8466
@@ -18832,7 +18832,7 @@ do.body:                                          ; preds = %if.end9, %entry
   %bytes.0 = phi i64 [ %shl.i, %entry ], [ %sub, %if.end9 ]
   %offset.0 = phi i64 [ %shl.i14, %entry ], [ %add, %if.end9 ]
   %sub = sub i64 %bytes.0, %2
-  %call3 = call i32 @bdrv_block_status(ptr noundef %call, i64 noundef %offset.0, i64 noundef %sub, ptr noundef nonnull %pnum, ptr noundef null, ptr noundef null) #17
+  %call3 = call i32 @bdrv_block_status(ptr noundef %call, i64 noundef %offset.0, i64 noundef %sub, ptr noundef nonnull %pnum, ptr noundef null, ptr noundef null) #19
   %cmp = icmp slt i32 %call3, 0
   br i1 %cmp, label %return, label %if.end
 
@@ -18859,17 +18859,17 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
-  %call10.i.i = call i32 @qemu_get_thread_id() #17
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #19
+  %call10.i.i = call i32 @qemu_get_thread_id() #19
   %8 = load i64, ptr %_now.i.i, align 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
   %and.lobit15 = lshr exact i32 %and, 1
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.236, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, i64 noundef %offset.0, i64 noundef %sub, i64 noundef %3, i32 noundef %call3, i32 noundef %and.lobit15) #17
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.236, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, i64 noundef %offset.0, i64 noundef %sub, i64 noundef %3, i32 noundef %call3, i32 noundef %and.lobit15) #19
   br label %trace_pci_nvme_block_status.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
   %and.lobit = lshr exact i32 %and, 1
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.237, i64 noundef %offset.0, i64 noundef %sub, i64 noundef %3, i32 noundef %call3, i32 noundef %and.lobit) #17
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.237, i64 noundef %offset.0, i64 noundef %sub, i64 noundef %3, i32 noundef %call3, i32 noundef %and.lobit) #19
   br label %trace_pci_nvme_block_status.exit
 
 trace_pci_nvme_block_status.exit:                 ; preds = %if.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -18907,7 +18907,7 @@ nvme_cid.exit:
   %blkconf = getelementptr inbounds i8, ptr %0, i64 160
   %1 = load ptr, ptr %blkconf, align 8
   %acct3 = getelementptr inbounds i8, ptr %opaque, i64 120
-  %call4 = tail call ptr @blk_get_stats(ptr noundef %1) #17
+  %call4 = tail call ptr @blk_get_stats(ptr noundef %1) #19
   %opaque5 = getelementptr inbounds i8, ptr %opaque, i64 32
   %2 = load ptr, ptr %opaque5, align 8
   %cid.i = getelementptr inbounds i8, ptr %opaque, i64 52
@@ -18932,18 +18932,18 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #19
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #19
   %8 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i16 %3 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.240, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, i32 noundef %conv11.i.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.240, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, i32 noundef %conv11.i.i) #19
   br label %trace_pci_nvme_compare_data_cb.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
   %conv12.i.i = zext i16 %3 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.241, i32 noundef %conv12.i.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.241, i32 noundef %conv12.i.i) #19
   br label %trace_pci_nvme_compare_data_cb.exit
 
 trace_pci_nvme_compare_data_cb.exit:              ; preds = %nvme_cid.exit, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -18952,14 +18952,14 @@ trace_pci_nvme_compare_data_cb.exit:              ; preds = %nvme_cid.exit, %lan
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %trace_pci_nvme_compare_data_cb.exit
-  tail call void @block_acct_failed(ptr noundef %call4, ptr noundef nonnull %acct3) #17
+  tail call void @block_acct_failed(ptr noundef %call4, ptr noundef nonnull %acct3) #19
   tail call fastcc void @nvme_aio_err(ptr noundef nonnull %opaque, i32 noundef %ret)
   br label %out
 
 if.end:                                           ; preds = %trace_pci_nvme_compare_data_cb.exit
   %size = getelementptr inbounds i8, ptr %2, i64 32
   %10 = load i64, ptr %size, align 8
-  %call7 = tail call noalias ptr @g_malloc(i64 noundef %10) #20
+  %call7 = tail call noalias ptr @g_malloc(i64 noundef %10) #22
   %11 = load i64, ptr %size, align 8
   %conv = trunc i64 %11 to i32
   %12 = load ptr, ptr %ns1, align 8
@@ -19048,29 +19048,29 @@ if.then26:                                        ; preds = %if.end24
   %.val37 = load i64, ptr %26, align 8
   %mul.i.i = mul i64 %24, %conv.i
   %add.i = add i64 %.val37, %mul.i.i
-  %call35 = tail call noalias ptr @g_malloc(i64 noundef %mul.i) #20
+  %call35 = tail call noalias ptr @g_malloc(i64 noundef %mul.i) #22
   %mdata = getelementptr inbounds i8, ptr %2, i64 48
   %bounce36 = getelementptr inbounds i8, ptr %2, i64 88
   store ptr %call35, ptr %bounce36, align 8
-  tail call void @qemu_iovec_init(ptr noundef nonnull %mdata, i32 noundef 1) #17
+  tail call void @qemu_iovec_init(ptr noundef nonnull %mdata, i32 noundef 1) #19
   %27 = load ptr, ptr %bounce36, align 8
-  tail call void @qemu_iovec_add(ptr noundef nonnull %mdata, ptr noundef %27, i64 noundef %mul.i) #17
-  %call45 = tail call ptr @blk_aio_preadv(ptr noundef %1, i64 noundef %add.i, ptr noundef nonnull %mdata, i32 noundef 0, ptr noundef nonnull @nvme_compare_mdata_cb, ptr noundef nonnull %opaque) #17
+  tail call void @qemu_iovec_add(ptr noundef nonnull %mdata, ptr noundef %27, i64 noundef %mul.i) #19
+  %call45 = tail call ptr @blk_aio_preadv(ptr noundef %1, i64 noundef %add.i, ptr noundef nonnull %mdata, i32 noundef 0, ptr noundef nonnull @nvme_compare_mdata_cb, ptr noundef nonnull %opaque) #19
   %aiocb = getelementptr inbounds i8, ptr %opaque, i64 16
   store ptr %call45, ptr %aiocb, align 8
   br label %cleanup
 
 if.end46:                                         ; preds = %if.end24
-  tail call void @block_acct_done(ptr noundef %call4, ptr noundef nonnull %acct3) #17
+  tail call void @block_acct_done(ptr noundef %call4, ptr noundef nonnull %acct3) #19
   br label %out
 
 out:                                              ; preds = %if.end46, %if.then22, %if.then13, %if.then
   %buf.0 = phi ptr [ %call7, %if.end46 ], [ %call7, %if.then22 ], [ %call7, %if.then13 ], [ null, %if.then ]
-  tail call void @qemu_iovec_destroy(ptr noundef %2) #17
+  tail call void @qemu_iovec_destroy(ptr noundef %2) #19
   %bounce50 = getelementptr inbounds i8, ptr %2, i64 40
   %28 = load ptr, ptr %bounce50, align 8
-  tail call void @g_free(ptr noundef %28) #17
-  tail call void @g_free(ptr noundef %2) #17
+  tail call void @g_free(ptr noundef %28) #19
+  tail call void @g_free(ptr noundef %2) #19
   %opaque.val = load ptr, ptr %opaque, align 8
   %opaque.val.val = load ptr, ptr %opaque.val, align 8
   %29 = getelementptr i8, ptr %opaque.val, i64 10
@@ -19085,7 +19085,7 @@ out:                                              ; preds = %if.end46, %if.then2
 
 cleanup:                                          ; preds = %out, %if.then26
   %buf.1 = phi ptr [ %buf.0, %out ], [ %call7, %if.then26 ]
-  tail call void @g_free(ptr noundef %buf.1) #17
+  tail call void @g_free(ptr noundef %buf.1) #19
   ret void
 }
 
@@ -19118,7 +19118,7 @@ nvme_cid.exit:
   %blkconf = getelementptr inbounds i8, ptr %0, i64 160
   %9 = load ptr, ptr %blkconf, align 8
   %acct16 = getelementptr inbounds i8, ptr %opaque, i64 120
-  %call17 = tail call ptr @blk_get_stats(ptr noundef %9) #17
+  %call17 = tail call ptr @blk_get_stats(ptr noundef %9) #19
   %shl = shl nuw i64 %conv13, 32
   %or = or disjoint i64 %shl, %conv10
   store i64 %or, ptr %reftag, align 8
@@ -19144,18 +19144,18 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #19
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #19
   %15 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %16 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i16 %10 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.242, i32 noundef %call10.i.i, i64 noundef %15, i64 noundef %16, i32 noundef %conv11.i.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.242, i32 noundef %call10.i.i, i64 noundef %15, i64 noundef %16, i32 noundef %conv11.i.i) #19
   br label %trace_pci_nvme_compare_mdata_cb.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
   %conv12.i.i = zext i16 %10 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.243, i32 noundef %conv12.i.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.243, i32 noundef %conv12.i.i) #19
   br label %trace_pci_nvme_compare_mdata_cb.exit
 
 trace_pci_nvme_compare_mdata_cb.exit:             ; preds = %nvme_cid.exit, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -19164,14 +19164,14 @@ trace_pci_nvme_compare_mdata_cb.exit:             ; preds = %nvme_cid.exit, %lan
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %trace_pci_nvme_compare_mdata_cb.exit
-  tail call void @block_acct_failed(ptr noundef %call17, ptr noundef nonnull %acct16) #17
+  tail call void @block_acct_failed(ptr noundef %call17, ptr noundef nonnull %acct16) #19
   tail call fastcc void @nvme_aio_err(ptr noundef nonnull %opaque, i32 noundef %ret)
   br label %out
 
 if.end:                                           ; preds = %trace_pci_nvme_compare_mdata_cb.exit
   %size = getelementptr inbounds i8, ptr %8, i64 80
   %17 = load i64, ptr %size, align 8
-  %call19 = tail call noalias ptr @g_malloc(i64 noundef %17) #20
+  %call19 = tail call noalias ptr @g_malloc(i64 noundef %17) #22
   %18 = load i64, ptr %size, align 8
   %conv23 = trunc i64 %18 to i32
   %call24 = tail call zeroext i16 @nvme_bounce_mdata(ptr noundef %opaque.val55.val, ptr noundef %call19, i32 noundef %conv23, i32 noundef 0, ptr noundef nonnull %opaque)
@@ -19201,7 +19201,7 @@ if.then32:                                        ; preds = %if.end28
   %24 = load ptr, ptr %bounce39, align 8
   %size42 = getelementptr inbounds i8, ptr %8, i64 32
   %25 = load i64, ptr %size42, align 8
-  %call48 = call zeroext i16 @nvme_dif_check(ptr noundef nonnull %0, ptr noundef %24, i64 noundef %25, ptr noundef %22, i64 noundef %23, i8 noundef zeroext %conv3, i64 noundef %21, i16 noundef zeroext %4, i16 noundef zeroext %5, ptr noundef nonnull %reftag) #17
+  %call48 = call zeroext i16 @nvme_dif_check(ptr noundef nonnull %0, ptr noundef %24, i64 noundef %25, ptr noundef %22, i64 noundef %23, i8 noundef zeroext %conv3, i64 noundef %21, i16 noundef zeroext %4, i16 noundef zeroext %5, ptr noundef nonnull %reftag) #19
   %tobool49.not = icmp eq i16 %call48, 0
   br i1 %tobool49.not, label %if.end52, label %if.then50
 
@@ -19276,21 +19276,21 @@ if.then98:                                        ; preds = %if.end90
   br label %out
 
 if.end100:                                        ; preds = %if.end90
-  tail call void @block_acct_done(ptr noundef %call17, ptr noundef nonnull %acct16) #17
+  tail call void @block_acct_done(ptr noundef %call17, ptr noundef nonnull %acct16) #19
   br label %out
 
 out:                                              ; preds = %for.inc, %if.end62, %if.end100, %if.then98, %if.then77, %if.then50, %if.then26, %if.then
   %buf.0 = phi ptr [ %call19, %if.end100 ], [ %call19, %if.then98 ], [ %call19, %if.then77 ], [ %call19, %if.then50 ], [ %call19, %if.then26 ], [ null, %if.then ], [ %call19, %if.end62 ], [ %call19, %for.inc ]
-  call void @qemu_iovec_destroy(ptr noundef %8) #17
+  call void @qemu_iovec_destroy(ptr noundef %8) #19
   %bounce104 = getelementptr inbounds i8, ptr %8, i64 40
   %34 = load ptr, ptr %bounce104, align 8
-  call void @g_free(ptr noundef %34) #17
+  call void @g_free(ptr noundef %34) #19
   %mdata105 = getelementptr inbounds i8, ptr %8, i64 48
-  call void @qemu_iovec_destroy(ptr noundef nonnull %mdata105) #17
+  call void @qemu_iovec_destroy(ptr noundef nonnull %mdata105) #19
   %bounce108 = getelementptr inbounds i8, ptr %8, i64 88
   %35 = load ptr, ptr %bounce108, align 8
-  call void @g_free(ptr noundef %35) #17
-  call void @g_free(ptr noundef %8) #17
+  call void @g_free(ptr noundef %35) #19
+  call void @g_free(ptr noundef %8) #19
   %opaque.val = load ptr, ptr %opaque, align 8
   %opaque.val.val = load ptr, ptr %opaque.val, align 8
   %36 = getelementptr i8, ptr %opaque.val, i64 10
@@ -19301,7 +19301,7 @@ out:                                              ; preds = %for.inc, %if.end62,
   %arrayidx.i = getelementptr ptr, ptr %opaque.val.val.val, i64 %idxprom.i
   %38 = load ptr, ptr %arrayidx.i, align 8
   call fastcc void @nvme_enqueue_req_completion(ptr noundef %38, ptr noundef nonnull %opaque)
-  call void @g_free(ptr noundef %buf.0) #17
+  call void @g_free(ptr noundef %buf.0) #19
   ret void
 }
 
@@ -19403,15 +19403,15 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #19
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #19
   %14 = load i64, ptr %_now.i.i, align 8
   %15 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.247, i32 noundef %call10.i.i, i64 noundef %14, i64 noundef %15, i64 noundef %8, i32 noundef %9) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.247, i32 noundef %call10.i.i, i64 noundef %14, i64 noundef %15, i64 noundef %8, i32 noundef %9) #19
   br label %trace_pci_nvme_dsm_deallocate.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.248, i64 noundef %8, i32 noundef %9) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.248, i64 noundef %8, i32 noundef %9) #19
   br label %trace_pci_nvme_dsm_deallocate.exit
 
 trace_pci_nvme_dsm_deallocate.exit:               ; preds = %if.end10, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -19441,15 +19441,15 @@ if.then.i.i41:                                    ; preds = %land.lhs.true5.i.i3
   br i1 %tobool7.i.i42, label %if.then8.i.i44, label %if.else.i.i43
 
 if.then8.i.i44:                                   ; preds = %if.then.i.i41
-  %call9.i.i45 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i34, ptr noundef null) #17
-  %call10.i.i46 = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i45 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i34, ptr noundef null) #19
+  %call10.i.i46 = tail call i32 @qemu_get_thread_id() #19
   %21 = load i64, ptr %_now.i.i34, align 8
   %22 = load i64, ptr %tv_usec.i.i47, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.249, i32 noundef %call10.i.i46, i64 noundef %21, i64 noundef %22, i32 noundef %9, i32 noundef %16) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.249, i32 noundef %call10.i.i46, i64 noundef %21, i64 noundef %22, i32 noundef %9, i32 noundef %16) #19
   br label %trace_pci_nvme_dsm_single_range_limit_exceeded.exit
 
 if.else.i.i43:                                    ; preds = %if.then.i.i41
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.250, i32 noundef %9, i32 noundef %16) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.250, i32 noundef %9, i32 noundef %16) #19
   br label %trace_pci_nvme_dsm_single_range_limit_exceeded.exit
 
 trace_pci_nvme_dsm_single_range_limit_exceeded.exit: ; preds = %if.then18, %land.lhs.true5.i.i38, %if.then8.i.i44, %if.else.i.i43
@@ -19493,15 +19493,15 @@ if.then.i.i.i:                                    ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.i.i.i, label %if.then8.i.i.i, label %if.else.i.i.i
 
 if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
-  %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #17
-  %call10.i.i.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #19
+  %call10.i.i.i = tail call i32 @qemu_get_thread_id() #19
   %30 = load i64, ptr %_now.i.i.i, align 8
   %31 = load i64, ptr %tv_usec.i.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.201, i32 noundef %call10.i.i.i, i64 noundef %30, i64 noundef %31, i64 noundef %8, i64 noundef %conv.i, i64 noundef %.val33) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.201, i32 noundef %call10.i.i.i, i64 noundef %30, i64 noundef %31, i64 noundef %8, i64 noundef %conv.i, i64 noundef %.val33) #19
   br label %if.then22
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.202, i64 noundef %8, i64 noundef %conv.i, i64 noundef %.val33) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.202, i64 noundef %8, i64 noundef %conv.i, i64 noundef %.val33) #19
   br label %if.then22
 
 if.then22:                                        ; preds = %if.else.i.i.i, %if.then8.i.i.i, %land.lhs.true5.i.i.i, %if.then.i
@@ -19527,15 +19527,15 @@ if.then.i.i55:                                    ; preds = %land.lhs.true5.i.i5
   br i1 %tobool7.i.i56, label %if.then8.i.i58, label %if.else.i.i57
 
 if.then8.i.i58:                                   ; preds = %if.then.i.i55
-  %call9.i.i59 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i48, ptr noundef null) #17
-  %call10.i.i60 = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i59 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i48, ptr noundef null) #19
+  %call10.i.i60 = tail call i32 @qemu_get_thread_id() #19
   %37 = load i64, ptr %_now.i.i48, align 8
   %38 = load i64, ptr %tv_usec.i.i61, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.201, i32 noundef %call10.i.i60, i64 noundef %37, i64 noundef %38, i64 noundef %8, i64 noundef %conv.i, i64 noundef %32) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.201, i32 noundef %call10.i.i60, i64 noundef %37, i64 noundef %38, i64 noundef %8, i64 noundef %conv.i, i64 noundef %32) #19
   br label %trace_pci_nvme_err_invalid_lba_range.exit
 
 if.else.i.i57:                                    ; preds = %if.then.i.i55
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.202, i64 noundef %8, i64 noundef %conv.i, i64 noundef %32) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.202, i64 noundef %8, i64 noundef %conv.i, i64 noundef %32) #19
   br label %trace_pci_nvme_err_invalid_lba_range.exit
 
 trace_pci_nvme_err_invalid_lba_range.exit:        ; preds = %if.then22, %land.lhs.true5.i.i52, %if.then8.i.i58, %if.else.i.i57
@@ -19550,7 +19550,7 @@ if.end23:                                         ; preds = %if.end20
   %sh_prom.i = zext nneg i8 %.val31 to i64
   %shl.i = shl i64 %8, %sh_prom.i
   %shl.i63 = shl i64 %conv.i, %sh_prom.i
-  %call27 = tail call ptr @blk_aio_pdiscard(ptr noundef %39, i64 noundef %shl.i, i64 noundef %shl.i63, ptr noundef nonnull @nvme_dsm_md_cb, ptr noundef nonnull %opaque) #17
+  %call27 = tail call ptr @blk_aio_pdiscard(ptr noundef %39, i64 noundef %shl.i, i64 noundef %shl.i63, ptr noundef nonnull @nvme_dsm_md_cb, ptr noundef nonnull %opaque) #19
   %aiocb = getelementptr inbounds i8, ptr %opaque, i64 40
   store ptr %call27, ptr %aiocb, align 8
   br label %return
@@ -19567,8 +19567,8 @@ done:                                             ; preds = %done.loopexit, %nex
   %42 = load ptr, ptr %cb, align 8
   %opaque30 = getelementptr inbounds i8, ptr %opaque, i64 24
   %43 = load ptr, ptr %opaque30, align 8
-  tail call void %42(ptr noundef %43, i32 noundef %41) #17
-  tail call void @qemu_aio_unref(ptr noundef nonnull %opaque) #17
+  tail call void %42(ptr noundef %43, i32 noundef %41) #19
+  tail call void @qemu_aio_unref(ptr noundef nonnull %opaque) #19
   br label %return
 
 return:                                           ; preds = %done, %if.end23
@@ -19590,7 +19590,7 @@ entry:
   br i1 %tobool.not, label %if.end8, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call void @blk_aio_cancel_async(ptr noundef nonnull %1) #17
+  tail call void @blk_aio_cancel_async(ptr noundef nonnull %1) #19
   store ptr null, ptr %aiocb1, align 8
   br label %if.end8
 
@@ -19657,7 +19657,7 @@ if.end16:                                         ; preds = %if.end
   %add.i = add i64 %mul.i.i, %.val18
   %conv = zext i32 %7 to i64
   %mul.i = mul nuw nsw i64 %conv.i.i, %conv
-  %call19 = tail call ptr @blk_aio_pwrite_zeroes(ptr noundef %8, i64 noundef %add.i, i64 noundef %mul.i, i32 noundef 4, ptr noundef nonnull @nvme_dsm_cb, ptr noundef nonnull %opaque) #17
+  %call19 = tail call ptr @blk_aio_pwrite_zeroes(ptr noundef %8, i64 noundef %add.i, i64 noundef %mul.i, i32 noundef 4, ptr noundef nonnull @nvme_dsm_cb, ptr noundef nonnull %opaque) #19
   %aiocb = getelementptr inbounds i8, ptr %opaque, i64 40
   store ptr %call19, ptr %aiocb, align 8
   br label %return
@@ -19698,7 +19698,7 @@ nvme_cid.exit:
   %6 = load ptr, ptr %blkconf, align 8
   %cid.i = getelementptr inbounds i8, ptr %0, i64 52
   %7 = load i16, ptr %cid.i, align 4
-  %call11 = tail call ptr @blk_name(ptr noundef %6) #17
+  %call11 = tail call ptr @blk_name(ptr noundef %6) #19
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %8 = load i32, ptr @trace_events_enabled_count, align 4
   %tobool.i.i = icmp ne i32 %8, 0
@@ -19719,18 +19719,18 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #19
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #19
   %12 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %13 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i16 %7 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.253, i32 noundef %call10.i.i, i64 noundef %12, i64 noundef %13, i32 noundef %conv11.i.i, ptr noundef %call11) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.253, i32 noundef %call10.i.i, i64 noundef %12, i64 noundef %13, i32 noundef %conv11.i.i, ptr noundef %call11) #19
   br label %trace_pci_nvme_verify_mdata_in_cb.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
   %conv12.i.i = zext i16 %7 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.254, i32 noundef %conv12.i.i, ptr noundef %call11) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.254, i32 noundef %conv12.i.i, ptr noundef %call11) #19
   br label %trace_pci_nvme_verify_mdata_in_cb.exit
 
 trace_pci_nvme_verify_mdata_in_cb.exit:           ; preds = %nvme_cid.exit, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -19739,14 +19739,14 @@ trace_pci_nvme_verify_mdata_in_cb.exit:           ; preds = %nvme_cid.exit, %lan
   br i1 %tobool.not, label %if.end, label %out
 
 if.end:                                           ; preds = %trace_pci_nvme_verify_mdata_in_cb.exit
-  %call12 = tail call noalias ptr @g_malloc(i64 noundef %mul.i) #20
+  %call12 = tail call noalias ptr @g_malloc(i64 noundef %mul.i) #22
   %mdata = getelementptr inbounds i8, ptr %opaque, i64 56
   %bounce = getelementptr inbounds i8, ptr %opaque, i64 96
   store ptr %call12, ptr %bounce, align 8
-  tail call void @qemu_iovec_reset(ptr noundef nonnull %mdata) #17
+  tail call void @qemu_iovec_reset(ptr noundef nonnull %mdata) #19
   %14 = load ptr, ptr %bounce, align 8
-  tail call void @qemu_iovec_add(ptr noundef nonnull %mdata, ptr noundef %14, i64 noundef %mul.i) #17
-  %call20 = tail call ptr @blk_aio_preadv(ptr noundef %6, i64 noundef %add.i, ptr noundef nonnull %mdata, i32 noundef 0, ptr noundef nonnull @nvme_verify_cb, ptr noundef nonnull %opaque) #17
+  tail call void @qemu_iovec_add(ptr noundef nonnull %mdata, ptr noundef %14, i64 noundef %mul.i) #19
+  %call20 = tail call ptr @blk_aio_preadv(ptr noundef %6, i64 noundef %add.i, ptr noundef nonnull %mdata, i32 noundef 0, ptr noundef nonnull @nvme_verify_cb, ptr noundef nonnull %opaque) #19
   %aiocb = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %call20, ptr %aiocb, align 8
   br label %return
@@ -19772,7 +19772,7 @@ nvme_cid.exit:
   %blkconf = getelementptr inbounds i8, ptr %1, i64 160
   %2 = load ptr, ptr %blkconf, align 8
   %acct4 = getelementptr inbounds i8, ptr %0, i64 120
-  %call = tail call ptr @blk_get_stats(ptr noundef %2) #17
+  %call = tail call ptr @blk_get_stats(ptr noundef %2) #19
   %slba5 = getelementptr inbounds i8, ptr %0, i64 96
   %3 = load i64, ptr %slba5, align 1
   %control = getelementptr inbounds i8, ptr %0, i64 106
@@ -19815,8 +19815,8 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #19
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #19
   %16 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %17 = load i64, ptr %tv_usec.i.i, align 8
@@ -19824,7 +19824,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %conv12.i.i = zext nneg i8 %conv8 to i32
   %conv13.i.i = zext i16 %7 to i32
   %conv14.i.i = zext i16 %8 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.255, i32 noundef %call10.i.i, i64 noundef %16, i64 noundef %17, i32 noundef %conv11.i.i, i32 noundef %conv12.i.i, i32 noundef %conv13.i.i, i32 noundef %conv14.i.i, i32 noundef %9) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.255, i32 noundef %call10.i.i, i64 noundef %16, i64 noundef %17, i32 noundef %conv11.i.i, i32 noundef %conv12.i.i, i32 noundef %conv13.i.i, i32 noundef %conv14.i.i, i32 noundef %9) #19
   br label %trace_pci_nvme_verify_cb.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -19832,7 +19832,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
   %conv16.i.i = zext nneg i8 %conv8 to i32
   %conv17.i.i = zext i16 %7 to i32
   %conv18.i.i = zext i16 %8 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.256, i32 noundef %conv15.i.i, i32 noundef %conv16.i.i, i32 noundef %conv17.i.i, i32 noundef %conv18.i.i, i32 noundef %9) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.256, i32 noundef %conv15.i.i, i32 noundef %conv16.i.i, i32 noundef %conv17.i.i, i32 noundef %conv18.i.i, i32 noundef %9) #19
   br label %trace_pci_nvme_verify_cb.exit
 
 trace_pci_nvme_verify_cb.exit:                    ; preds = %nvme_cid.exit, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -19841,12 +19841,12 @@ trace_pci_nvme_verify_cb.exit:                    ; preds = %nvme_cid.exit, %lan
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %trace_pci_nvme_verify_cb.exit
-  tail call void @block_acct_failed(ptr noundef %call, ptr noundef nonnull %acct4) #17
+  tail call void @block_acct_failed(ptr noundef %call, ptr noundef nonnull %acct4) #19
   tail call fastcc void @nvme_aio_err(ptr noundef nonnull %0, i32 noundef %ret)
   br label %out
 
 if.end:                                           ; preds = %trace_pci_nvme_verify_cb.exit
-  tail call void @block_acct_done(ptr noundef %call, ptr noundef nonnull %acct4) #17
+  tail call void @block_acct_done(ptr noundef %call, ptr noundef nonnull %acct4) #19
   %dps = getelementptr inbounds i8, ptr %1, i64 301
   %18 = load i8, ptr %dps, align 1
   %19 = and i8 %18, 7
@@ -19858,7 +19858,7 @@ if.then24:                                        ; preds = %if.end
   %20 = load ptr, ptr %bounce, align 8
   %size = getelementptr inbounds i8, ptr %opaque, i64 88
   %21 = load i64, ptr %size, align 8
-  %call26 = tail call zeroext i16 @nvme_dif_mangle_mdata(ptr noundef nonnull %1, ptr noundef %20, i64 noundef %21, i64 noundef %3) #17
+  %call26 = tail call zeroext i16 @nvme_dif_mangle_mdata(ptr noundef nonnull %1, ptr noundef %20, i64 noundef %21, i64 noundef %3) #19
   %tobool27.not = icmp eq i16 %call26, 0
   br i1 %tobool27.not, label %if.end30, label %if.then28
 
@@ -19874,23 +19874,23 @@ if.end30:                                         ; preds = %if.then24
   %23 = load i64, ptr %size34, align 8
   %24 = load ptr, ptr %bounce, align 8
   %25 = load i64, ptr %size, align 8
-  %call40 = call zeroext i16 @nvme_dif_check(ptr noundef nonnull %1, ptr noundef %22, i64 noundef %23, ptr noundef %24, i64 noundef %25, i8 noundef zeroext %conv8, i64 noundef %3, i16 noundef zeroext %7, i16 noundef zeroext %8, ptr noundef nonnull %reftag) #17
+  %call40 = call zeroext i16 @nvme_dif_check(ptr noundef nonnull %1, ptr noundef %22, i64 noundef %23, ptr noundef %24, i64 noundef %25, i8 noundef zeroext %conv8, i64 noundef %3, i16 noundef zeroext %7, i16 noundef zeroext %8, ptr noundef nonnull %reftag) #19
   %status41 = getelementptr inbounds i8, ptr %0, i64 24
   store i16 %call40, ptr %status41, align 8
   br label %out
 
 out:                                              ; preds = %if.end, %if.end30, %if.then28, %if.then
   %data43 = getelementptr inbounds i8, ptr %opaque, i64 8
-  call void @qemu_iovec_destroy(ptr noundef nonnull %data43) #17
+  call void @qemu_iovec_destroy(ptr noundef nonnull %data43) #19
   %bounce46 = getelementptr inbounds i8, ptr %opaque, i64 48
   %26 = load ptr, ptr %bounce46, align 8
-  call void @g_free(ptr noundef %26) #17
+  call void @g_free(ptr noundef %26) #19
   %mdata47 = getelementptr inbounds i8, ptr %opaque, i64 56
-  call void @qemu_iovec_destroy(ptr noundef nonnull %mdata47) #17
+  call void @qemu_iovec_destroy(ptr noundef nonnull %mdata47) #19
   %bounce50 = getelementptr inbounds i8, ptr %opaque, i64 96
   %27 = load ptr, ptr %bounce50, align 8
-  call void @g_free(ptr noundef %27) #17
-  call void @g_free(ptr noundef nonnull %opaque) #17
+  call void @g_free(ptr noundef %27) #19
+  call void @g_free(ptr noundef nonnull %opaque) #19
   %.val = load ptr, ptr %0, align 8
   %.val.val = load ptr, ptr %.val, align 8
   %28 = getelementptr i8, ptr %.val, i64 10
@@ -19906,8 +19906,8 @@ out:                                              ; preds = %if.end, %if.end30, 
 
 declare zeroext i16 @nvme_dif_mangle_mdata(ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext range(i16 0, 16772) i16 @nvme_check_copy_mcl(ptr nocapture noundef readonly %ns, ptr nocapture noundef readonly %iocb, i16 noundef zeroext %nr) unnamed_addr #0 {
+; Function Attrs: nofree nounwind sspstrong uwtable
+define internal fastcc zeroext range(i16 0, 16772) i16 @nvme_check_copy_mcl(ptr nocapture noundef readonly %ns, ptr nocapture noundef readonly %iocb, i16 noundef zeroext %nr) unnamed_addr #12 {
 entry:
   %cmp6.not = icmp eq i16 %nr, 0
   br i1 %cmp6.not, label %for.end, label %for.body.lr.ph
@@ -19951,7 +19951,7 @@ for.body:                                         ; preds = %for.body.lr.ph.spli
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !53
 
 sw.default.i:                                     ; preds = %for.body.lr.ph
-  tail call void @abort() #18
+  tail call void @abort() #20
   unreachable
 
 for.end:                                          ; preds = %for.body, %for.body.us, %entry
@@ -20010,7 +20010,7 @@ sw.bb1.i:                                         ; preds = %if.end5
   br label %nvme_copy_source_range_parse.exit
 
 sw.default.i:                                     ; preds = %if.end5
-  tail call void @abort() #18
+  tail call void @abort() #20
   unreachable
 
 nvme_copy_source_range_parse.exit:                ; preds = %sw.bb.i, %sw.bb1.i
@@ -20045,16 +20045,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #19
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #19
   %12 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %13 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.261, i32 noundef %call10.i.i, i64 noundef %12, i64 noundef %13, i64 noundef %slba.0, i32 noundef %nlb.0) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.261, i32 noundef %call10.i.i, i64 noundef %12, i64 noundef %13, i64 noundef %slba.0, i32 noundef %nlb.0) #19
   br label %trace_pci_nvme_copy_source_range.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.262, i64 noundef %slba.0, i32 noundef %nlb.0) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.262, i64 noundef %slba.0, i32 noundef %nlb.0) #19
   br label %trace_pci_nvme_copy_source_range.exit
 
 trace_pci_nvme_copy_source_range.exit:            ; preds = %nvme_copy_source_range_parse.exit, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -20095,16 +20095,16 @@ if.then.i.i.i:                                    ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.i.i.i, label %if.then8.i.i.i, label %if.else.i.i.i
 
 if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
-  %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #17
-  %call10.i.i.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #19
+  %call10.i.i.i = tail call i32 @qemu_get_thread_id() #19
   %21 = load i64, ptr %_now.i.i.i, align 8
   %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %22 = load i64, ptr %tv_usec.i.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.201, i32 noundef %call10.i.i.i, i64 noundef %21, i64 noundef %22, i64 noundef %slba.0, i64 noundef %conv7, i64 noundef %.val28) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.201, i32 noundef %call10.i.i.i, i64 noundef %21, i64 noundef %22, i64 noundef %slba.0, i64 noundef %conv7, i64 noundef %.val28) #19
   br label %nvme_check_bounds.exit
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.202, i64 noundef %slba.0, i64 noundef %conv7, i64 noundef %.val28) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.202, i64 noundef %slba.0, i64 noundef %conv7, i64 noundef %.val28) #19
   br label %nvme_check_bounds.exit
 
 nvme_check_bounds.exit:                           ; preds = %if.then.i, %land.lhs.true5.i.i.i, %if.then8.i.i.i, %if.else.i.i.i
@@ -20131,9 +20131,9 @@ if.then.i29:                                      ; preds = %if.then18
 
 if.then1.i:                                       ; preds = %if.then.i29
   %sub.i32 = sub i32 0, %call.i
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef nonnull %err.i, ptr noundef nonnull @.str.1, i32 noundef 1729, ptr noundef nonnull @__func__.nvme_check_dulbe, i32 noundef %sub.i32, ptr noundef nonnull @.str.235) #17
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef nonnull %err.i, ptr noundef nonnull @.str.1, i32 noundef 1729, ptr noundef nonnull @__func__.nvme_check_dulbe, i32 noundef %sub.i32, ptr noundef nonnull @.str.235) #19
   %24 = load ptr, ptr %err.i, align 8
-  call void @error_report_err(ptr noundef %24) #17
+  call void @error_report_err(ptr noundef %24) #19
   br label %nvme_check_dulbe.exit.thread
 
 nvme_check_dulbe.exit.thread:                     ; preds = %if.then1.i, %if.then.i29
@@ -20185,7 +20185,7 @@ nvme_get_zone_by_slba.exit.i:                     ; preds = %nvme_zone_idx.exit.
   br i1 %tobool.not.i34, label %if.else.i, label %if.end.i
 
 if.else.i:                                        ; preds = %nvme_get_zone_by_slba.exit.i, %nvme_zone_idx.exit.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.1, i32 noundef 1883, ptr noundef nonnull @__PRETTY_FUNCTION__.nvme_check_zone_read) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.1, i32 noundef 1883, ptr noundef nonnull @__PRETTY_FUNCTION__.nvme_check_zone_read) #20
   unreachable
 
 if.end.i:                                         ; preds = %nvme_get_zone_by_slba.exit.i
@@ -20225,16 +20225,16 @@ do.cond.i:                                        ; preds = %do.body.i
 
 if.end30:                                         ; preds = %do.cond.i, %if.else5.i, %if.end23
   %iov = getelementptr inbounds i8, ptr %iocb, i64 96
-  tail call void @qemu_iovec_reset(ptr noundef nonnull %iov) #17
+  tail call void @qemu_iovec_reset(ptr noundef nonnull %iov) #19
   %bounce = getelementptr inbounds i8, ptr %iocb, i64 88
   %34 = load ptr, ptr %bounce, align 8
-  tail call void @qemu_iovec_add(ptr noundef nonnull %iov, ptr noundef %34, i64 noundef %shl.i) #17
+  tail call void @qemu_iovec_add(ptr noundef nonnull %iov, ptr noundef %34, i64 noundef %shl.i) #19
   %blkconf = getelementptr inbounds i8, ptr %1, i64 160
   %35 = load ptr, ptr %blkconf, align 8
   %.val = load i8, ptr %7, align 2
   %sh_prom.i39 = zext nneg i8 %.val to i64
   %shl.i40 = shl i64 %slba.0, %sh_prom.i39
-  %call34 = tail call ptr @blk_aio_preadv(ptr noundef %35, i64 noundef %shl.i40, ptr noundef nonnull %iov, i32 noundef 0, ptr noundef nonnull @nvme_copy_in_cb, ptr noundef %iocb) #17
+  %call34 = tail call ptr @blk_aio_preadv(ptr noundef %35, i64 noundef %shl.i40, ptr noundef nonnull %iov, i32 noundef 0, ptr noundef nonnull @nvme_copy_in_cb, ptr noundef %iocb) #19
   %aiocb = getelementptr inbounds i8, ptr %iocb, i64 40
   store ptr %call34, ptr %aiocb, align 8
   br label %return
@@ -20254,7 +20254,7 @@ done:                                             ; preds = %if.end, %entry, %in
   %37 = phi ptr [ %0, %if.end ], [ %0, %entry ], [ %.pre, %invalid ]
   %blkconf.i = getelementptr inbounds i8, ptr %36, i64 160
   %38 = load ptr, ptr %blkconf.i, align 8
-  %call.i41 = call ptr @blk_get_stats(ptr noundef %38) #17
+  %call.i41 = call ptr @blk_get_stats(ptr noundef %38) #19
   %idx.i = getelementptr inbounds i8, ptr %iocb, i64 80
   %39 = load i32, ptr %idx.i, align 8
   %nr.i = getelementptr inbounds i8, ptr %iocb, i64 76
@@ -20269,10 +20269,10 @@ if.then.i42:                                      ; preds = %done
 
 if.end.i43:                                       ; preds = %if.then.i42, %done
   %iov.i = getelementptr inbounds i8, ptr %iocb, i64 96
-  call void @qemu_iovec_destroy(ptr noundef nonnull %iov.i) #17
+  call void @qemu_iovec_destroy(ptr noundef nonnull %iov.i) #19
   %bounce.i = getelementptr inbounds i8, ptr %iocb, i64 88
   %41 = load ptr, ptr %bounce.i, align 8
-  call void @g_free(ptr noundef %41) #17
+  call void @g_free(ptr noundef %41) #19
   %42 = load i32, ptr %ret, align 8
   %cmp5.i = icmp slt i32 %42, 0
   %acct.i = getelementptr inbounds i8, ptr %iocb, i64 136
@@ -20280,13 +20280,13 @@ if.end.i43:                                       ; preds = %if.then.i42, %done
   br i1 %cmp5.i, label %if.then6.i, label %if.else.i44
 
 if.then6.i:                                       ; preds = %if.end.i43
-  call void @block_acct_failed(ptr noundef %call.i41, ptr noundef nonnull %acct.i) #17
-  call void @block_acct_failed(ptr noundef %call.i41, ptr noundef nonnull %write.i) #17
+  call void @block_acct_failed(ptr noundef %call.i41, ptr noundef nonnull %acct.i) #19
+  call void @block_acct_failed(ptr noundef %call.i41, ptr noundef nonnull %write.i) #19
   br label %nvme_copy_done.exit
 
 if.else.i44:                                      ; preds = %if.end.i43
-  call void @block_acct_done(ptr noundef %call.i41, ptr noundef nonnull %acct.i) #17
-  call void @block_acct_done(ptr noundef %call.i41, ptr noundef nonnull %write.i) #17
+  call void @block_acct_done(ptr noundef %call.i41, ptr noundef nonnull %acct.i) #19
+  call void @block_acct_done(ptr noundef %call.i41, ptr noundef nonnull %write.i) #19
   br label %nvme_copy_done.exit
 
 nvme_copy_done.exit:                              ; preds = %if.then6.i, %if.else.i44
@@ -20295,8 +20295,8 @@ nvme_copy_done.exit:                              ; preds = %if.then6.i, %if.els
   %opaque.i = getelementptr inbounds i8, ptr %iocb, i64 24
   %44 = load ptr, ptr %opaque.i, align 8
   %45 = load i32, ptr %ret, align 8
-  call void %43(ptr noundef %44, i32 noundef %45) #17
-  call void @qemu_aio_unref(ptr noundef nonnull %iocb) #17
+  call void %43(ptr noundef %44, i32 noundef %45) #19
+  call void @qemu_aio_unref(ptr noundef nonnull %iocb) #19
   br label %return
 
 return:                                           ; preds = %nvme_copy_done.exit, %if.end30
@@ -20314,7 +20314,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call void @blk_aio_cancel_async(ptr noundef nonnull %0) #17
+  tail call void @blk_aio_cancel_async(ptr noundef nonnull %0) #19
   store ptr null, ptr %aiocb1, align 8
   br label %if.end
 
@@ -20322,8 +20322,8 @@ if.end:                                           ; preds = %if.then, %entry
   ret void
 }
 
-; Function Attrs: noreturn nounwind
-declare void @abort() local_unnamed_addr #2
+; Function Attrs: cold nofree noreturn nounwind
+declare void @abort() local_unnamed_addr #13
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @nvme_copy_in_cb(ptr noundef %opaque, i32 noundef %ret) #0 {
@@ -20373,7 +20373,7 @@ sw.bb1.i:                                         ; preds = %if.end
   br label %nvme_copy_source_range_parse.exit
 
 sw.default.i:                                     ; preds = %if.end
-  tail call void @abort() #18
+  tail call void @abort() #20
   unreachable
 
 nvme_copy_source_range_parse.exit:                ; preds = %sw.bb.i, %sw.bb1.i
@@ -20384,7 +20384,7 @@ nvme_copy_source_range_parse.exit:                ; preds = %sw.bb.i, %sw.bb1.i
   %nlb.0 = add nuw nsw i64 %nlb.0.in, 1
   %slba.0 = load i64, ptr %slba.0.in, align 1
   %iov = getelementptr inbounds i8, ptr %opaque, i64 96
-  tail call void @qemu_iovec_reset(ptr noundef nonnull %iov) #17
+  tail call void @qemu_iovec_reset(ptr noundef nonnull %iov) #19
   %bounce = getelementptr inbounds i8, ptr %opaque, i64 88
   %7 = load ptr, ptr %bounce, align 8
   %8 = getelementptr i8, ptr %1, i64 8466
@@ -20395,7 +20395,7 @@ nvme_copy_source_range_parse.exit:                ; preds = %sw.bb.i, %sw.bb1.i
   %.val17 = load i16, ptr %lbaf, align 8
   %conv.i = zext i16 %.val17 to i64
   %mul.i = mul nuw nsw i64 %nlb.0, %conv.i
-  tail call void @qemu_iovec_add(ptr noundef nonnull %iov, ptr noundef %add.ptr, i64 noundef %mul.i) #17
+  tail call void @qemu_iovec_add(ptr noundef nonnull %iov, ptr noundef %add.ptr, i64 noundef %mul.i) #19
   %blkconf = getelementptr inbounds i8, ptr %1, i64 160
   %9 = load ptr, ptr %blkconf, align 8
   %10 = getelementptr i8, ptr %1, i64 264
@@ -20404,7 +20404,7 @@ nvme_copy_source_range_parse.exit:                ; preds = %sw.bb.i, %sw.bb1.i
   %conv.i.i20 = zext i16 %.val19 to i64
   %mul.i.i = mul i64 %slba.0, %conv.i.i20
   %add.i = add i64 %mul.i.i, %.val18
-  %call12 = tail call ptr @blk_aio_preadv(ptr noundef %9, i64 noundef %add.i, ptr noundef nonnull %iov, i32 noundef 0, ptr noundef nonnull @nvme_copy_in_completed_cb, ptr noundef nonnull %opaque) #17
+  %call12 = tail call ptr @blk_aio_preadv(ptr noundef %9, i64 noundef %add.i, ptr noundef nonnull %iov, i32 noundef 0, ptr noundef nonnull @nvme_copy_in_completed_cb, ptr noundef nonnull %opaque) #19
   %aiocb = getelementptr inbounds i8, ptr %opaque, i64 40
   store ptr %call12, ptr %aiocb, align 8
   br label %return
@@ -20498,7 +20498,7 @@ sw.bb1.i:                                         ; preds = %if.end7
   br label %nvme_copy_source_range_parse.exit
 
 sw.default.i:                                     ; preds = %if.end7
-  tail call void @abort() #18
+  tail call void @abort() #20
   unreachable
 
 nvme_copy_source_range_parse.exit:                ; preds = %sw.bb.i, %sw.bb1.i
@@ -20541,16 +20541,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #19
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #19
   %19 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %20 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.263, i32 noundef %call10.i.i, i64 noundef %19, i64 noundef %20, i64 noundef %14, i32 noundef %nlb.0) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.263, i32 noundef %call10.i.i, i64 noundef %19, i64 noundef %20, i64 noundef %14, i32 noundef %nlb.0) #19
   br label %trace_pci_nvme_copy_out.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.264, i64 noundef %14, i32 noundef %nlb.0) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.264, i64 noundef %14, i32 noundef %nlb.0) #19
   br label %trace_pci_nvme_copy_out.exit
 
 trace_pci_nvme_copy_out.exit:                     ; preds = %nvme_copy_source_range_parse.exit, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -20578,14 +20578,14 @@ if.then11:                                        ; preds = %trace_pci_nvme_copy
   %sh_prom.i70 = zext nneg i8 %.val66 to i64
   %shl.i71 = shl i64 %conv8, %sh_prom.i70
   %add.ptr = getelementptr i8, ptr %28, i64 %shl.i71
-  %call25 = tail call zeroext i16 @nvme_dif_mangle_mdata(ptr noundef nonnull %1, ptr noundef %add.ptr, i64 noundef %mul.i, i64 noundef %slba.0) #17
+  %call25 = tail call zeroext i16 @nvme_dif_mangle_mdata(ptr noundef nonnull %1, ptr noundef %add.ptr, i64 noundef %mul.i, i64 noundef %slba.0) #19
   %tobool26.not = icmp eq i16 %call25, 0
   br i1 %tobool26.not, label %if.end28, label %invalid
 
 if.end28:                                         ; preds = %if.then11
   %29 = lshr i8 %23, 4
   %30 = load ptr, ptr %bounce, align 8
-  %call31 = call zeroext i16 @nvme_dif_check(ptr noundef nonnull %1, ptr noundef %30, i64 noundef %shl.i, ptr noundef %add.ptr, i64 noundef %mul.i, i8 noundef zeroext %29, i64 noundef %slba.0, i16 noundef zeroext %apptag.0, i16 noundef zeroext %appmask.0, ptr noundef nonnull %reftag) #17
+  %call31 = call zeroext i16 @nvme_dif_check(ptr noundef nonnull %1, ptr noundef %30, i64 noundef %shl.i, ptr noundef %add.ptr, i64 noundef %mul.i, i8 noundef zeroext %29, i64 noundef %slba.0, i16 noundef zeroext %apptag.0, i16 noundef zeroext %appmask.0, ptr noundef nonnull %reftag) #19
   %tobool32.not = icmp eq i16 %call31, 0
   br i1 %tobool32.not, label %if.end34, label %invalid
 
@@ -20600,13 +20600,13 @@ if.then42:                                        ; preds = %if.end34
   %33 = load i64, ptr %slba9, align 8
   %reftag45 = getelementptr inbounds i8, ptr %opaque, i64 184
   %34 = load i64, ptr %reftag45, align 8
-  %call46 = call zeroext i16 @nvme_check_prinfo(ptr noundef nonnull %1, i8 noundef zeroext %26, i64 noundef %33, i64 noundef %34) #17
+  %call46 = call zeroext i16 @nvme_check_prinfo(ptr noundef nonnull %1, i8 noundef zeroext %26, i64 noundef %33, i64 noundef %34) #19
   %tobool47.not = icmp eq i16 %call46, 0
   br i1 %tobool47.not, label %if.end49, label %invalid
 
 if.end49:                                         ; preds = %if.then42
   %35 = load ptr, ptr %bounce, align 8
-  call void @nvme_dif_pract_generate_dif(ptr noundef nonnull %1, ptr noundef %35, i64 noundef %shl.i, ptr noundef %add.ptr, i64 noundef %mul.i, i16 noundef zeroext %31, ptr noundef nonnull %reftag45) #17
+  call void @nvme_dif_pract_generate_dif(ptr noundef nonnull %1, ptr noundef %35, i64 noundef %shl.i, ptr noundef %add.ptr, i64 noundef %mul.i, i16 noundef zeroext %31, ptr noundef nonnull %reftag45) #19
   br label %if.end62
 
 if.else52:                                        ; preds = %if.end34
@@ -20615,7 +20615,7 @@ if.else52:                                        ; preds = %if.end34
   %37 = load ptr, ptr %bounce, align 8
   %38 = load i64, ptr %slba9, align 8
   %reftag56 = getelementptr inbounds i8, ptr %opaque, i64 184
-  %call57 = call zeroext i16 @nvme_dif_check(ptr noundef nonnull %1, ptr noundef %37, i64 noundef %shl.i, ptr noundef %add.ptr, i64 noundef %mul.i, i8 noundef zeroext %26, i64 noundef %38, i16 noundef zeroext %31, i16 noundef zeroext %36, ptr noundef nonnull %reftag56) #17
+  %call57 = call zeroext i16 @nvme_dif_check(ptr noundef nonnull %1, ptr noundef %37, i64 noundef %shl.i, ptr noundef %add.ptr, i64 noundef %mul.i, i8 noundef zeroext %26, i64 noundef %38, i16 noundef zeroext %31, i16 noundef zeroext %36, ptr noundef nonnull %reftag56) #19
   %tobool58.not = icmp eq i16 %call57, 0
   br i1 %tobool58.not, label %if.end62, label %invalid
 
@@ -20651,16 +20651,16 @@ if.then.i.i.i:                                    ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.i.i.i, label %if.then8.i.i.i, label %if.else.i.i.i
 
 if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
-  %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #17
-  %call10.i.i.i = call i32 @qemu_get_thread_id() #17
+  %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #19
+  %call10.i.i.i = call i32 @qemu_get_thread_id() #19
   %46 = load i64, ptr %_now.i.i.i, align 8
   %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %47 = load i64, ptr %tv_usec.i.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.201, i32 noundef %call10.i.i.i, i64 noundef %46, i64 noundef %47, i64 noundef %39, i64 noundef %conv8, i64 noundef %.val69) #17
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.201, i32 noundef %call10.i.i.i, i64 noundef %46, i64 noundef %47, i64 noundef %39, i64 noundef %conv8, i64 noundef %.val69) #19
   br label %nvme_check_bounds.exit
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.202, i64 noundef %39, i64 noundef %conv8, i64 noundef %.val69) #17
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.202, i64 noundef %39, i64 noundef %conv8, i64 noundef %.val69) #19
   br label %nvme_check_bounds.exit
 
 nvme_check_bounds.exit:                           ; preds = %if.then.i, %land.lhs.true5.i.i.i, %if.then8.i.i.i, %if.else.i.i.i
@@ -20697,17 +20697,17 @@ if.then79:                                        ; preds = %if.end74
 
 if.end83:                                         ; preds = %if.end74, %if.then79, %if.end67
   %iov = getelementptr inbounds i8, ptr %opaque, i64 96
-  call void @qemu_iovec_reset(ptr noundef nonnull %iov) #17
+  call void @qemu_iovec_reset(ptr noundef nonnull %iov) #19
   %bounce85 = getelementptr inbounds i8, ptr %opaque, i64 88
   %54 = load ptr, ptr %bounce85, align 8
-  call void @qemu_iovec_add(ptr noundef nonnull %iov, ptr noundef %54, i64 noundef %shl.i) #17
+  call void @qemu_iovec_add(ptr noundef nonnull %iov, ptr noundef %54, i64 noundef %shl.i) #19
   %blkconf = getelementptr inbounds i8, ptr %1, i64 160
   %55 = load ptr, ptr %blkconf, align 8
   %56 = load i64, ptr %slba9, align 8
   %.val = load i8, ptr %13, align 2
   %sh_prom.i73 = zext nneg i8 %.val to i64
   %shl.i74 = shl i64 %56, %sh_prom.i73
-  %call89 = call ptr @blk_aio_pwritev(ptr noundef %55, i64 noundef %shl.i74, ptr noundef nonnull %iov, i32 noundef 0, ptr noundef nonnull @nvme_copy_out_cb, ptr noundef nonnull %opaque) #17
+  %call89 = call ptr @blk_aio_pwritev(ptr noundef %55, i64 noundef %shl.i74, ptr noundef nonnull %iov, i32 noundef 0, ptr noundef nonnull @nvme_copy_out_cb, ptr noundef nonnull %opaque) #19
   %aiocb = getelementptr inbounds i8, ptr %opaque, i64 40
   store ptr %call89, ptr %aiocb, align 8
   br label %return
@@ -20779,7 +20779,7 @@ sw.bb1.i:                                         ; preds = %if.end
   br label %nvme_copy_source_range_parse.exit
 
 sw.default.i:                                     ; preds = %if.end
-  tail call void @abort() #18
+  tail call void @abort() #20
   unreachable
 
 nvme_copy_source_range_parse.exit:                ; preds = %sw.bb.i, %sw.bb1.i
@@ -20797,8 +20797,8 @@ nvme_copy_source_range_parse.exit:                ; preds = %sw.bb.i, %sw.bb1.i
   %shl.i = shl i64 %nlb.0, %sh_prom.i
   %add.ptr = getelementptr i8, ptr %7, i64 %shl.i
   %iov = getelementptr inbounds i8, ptr %opaque, i64 96
-  tail call void @qemu_iovec_reset(ptr noundef nonnull %iov) #17
-  tail call void @qemu_iovec_add(ptr noundef nonnull %iov, ptr noundef %add.ptr, i64 noundef %mul.i) #17
+  tail call void @qemu_iovec_reset(ptr noundef nonnull %iov) #19
+  tail call void @qemu_iovec_add(ptr noundef nonnull %iov, ptr noundef %add.ptr, i64 noundef %mul.i) #19
   %blkconf = getelementptr inbounds i8, ptr %1, i64 160
   %9 = load ptr, ptr %blkconf, align 8
   %slba = getelementptr inbounds i8, ptr %opaque, i64 192
@@ -20809,7 +20809,7 @@ nvme_copy_source_range_parse.exit:                ; preds = %sw.bb.i, %sw.bb1.i
   %conv.i.i21 = zext i16 %.val20 to i64
   %mul.i.i = mul i64 %10, %conv.i.i21
   %add.i = add i64 %mul.i.i, %.val19
-  %call12 = tail call ptr @blk_aio_pwritev(ptr noundef %9, i64 noundef %add.i, ptr noundef nonnull %iov, i32 noundef 0, ptr noundef nonnull @nvme_copy_out_completed_cb, ptr noundef nonnull %opaque) #17
+  %call12 = tail call ptr @blk_aio_pwritev(ptr noundef %9, i64 noundef %add.i, ptr noundef nonnull %iov, i32 noundef 0, ptr noundef nonnull @nvme_copy_out_completed_cb, ptr noundef nonnull %opaque) #19
   %aiocb = getelementptr inbounds i8, ptr %opaque, i64 40
   store ptr %call12, ptr %aiocb, align 8
   br label %return
@@ -20852,7 +20852,7 @@ sw.bb1.i:                                         ; preds = %entry
   br label %nvme_copy_source_range_parse.exit
 
 sw.default.i:                                     ; preds = %entry
-  tail call void @abort() #18
+  tail call void @abort() #20
   unreachable
 
 nvme_copy_source_range_parse.exit:                ; preds = %sw.bb.i, %sw.bb1.i
@@ -20951,18 +20951,18 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #19
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #19
   %6 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i8 %1 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.195, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i32 noundef %conv11.i.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.195, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i32 noundef %conv11.i.i) #19
   br label %trace_pci_nvme_err_invalid_opc.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
   %conv12.i.i = zext i8 %1 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.196, i32 noundef %conv12.i.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.196, i32 noundef %conv12.i.i) #19
   br label %trace_pci_nvme_err_invalid_opc.exit
 
 trace_pci_nvme_err_invalid_opc.exit:              ; preds = %if.then, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -21005,16 +21005,16 @@ if.then.i.i19:                                    ; preds = %land.lhs.true5.i.i1
   br i1 %tobool7.i.i20, label %if.then8.i.i22, label %if.else.i.i21
 
 if.then8.i.i22:                                   ; preds = %if.then.i.i19
-  %call9.i.i23 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i12, ptr noundef null) #17
-  %call10.i.i24 = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i23 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i12, ptr noundef null) #19
+  %call10.i.i24 = tail call i32 @qemu_get_thread_id() #19
   %15 = load i64, ptr %_now.i.i12, align 8
   %tv_usec.i.i25 = getelementptr inbounds i8, ptr %_now.i.i12, i64 8
   %16 = load i64, ptr %tv_usec.i.i25, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.201, i32 noundef %call10.i.i24, i64 noundef %15, i64 noundef %16, i64 noundef %or, i64 noundef 0, i64 noundef %10) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.201, i32 noundef %call10.i.i24, i64 noundef %15, i64 noundef %16, i64 noundef %or, i64 noundef 0, i64 noundef %10) #19
   br label %trace_pci_nvme_err_invalid_lba_range.exit
 
 if.else.i.i21:                                    ; preds = %if.then.i.i19
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.202, i64 noundef %or, i64 noundef 0, i64 noundef %10) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.202, i64 noundef %or, i64 noundef 0, i64 noundef %10) #19
   br label %trace_pci_nvme_err_invalid_lba_range.exit
 
 trace_pci_nvme_err_invalid_lba_range.exit:        ; preds = %if.then7, %land.lhs.true5.i.i16, %if.then8.i.i22, %if.else.i.i21
@@ -21049,7 +21049,7 @@ nvme_zone_idx.exit:                               ; preds = %cond.true.i, %cond.
   br i1 %cmp12, label %return, label %if.else
 
 if.else:                                          ; preds = %nvme_zone_idx.exit
-  tail call void @__assert_fail(ptr noundef nonnull @.str.265, ptr noundef nonnull @.str.1, i32 noundef 3683, ptr noundef nonnull @__PRETTY_FUNCTION__.nvme_get_mgmt_zone_slba_idx) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.265, ptr noundef nonnull @.str.1, i32 noundef 3683, ptr noundef nonnull @__PRETTY_FUNCTION__.nvme_get_mgmt_zone_slba_idx) #20
   unreachable
 
 return:                                           ; preds = %nvme_zone_idx.exit, %trace_pci_nvme_err_invalid_lba_range.exit, %trace_pci_nvme_err_invalid_opc.exit
@@ -21068,7 +21068,7 @@ if.then:                                          ; preds = %entry
   %zone.val = load i8, ptr %0, align 1
   %1 = lshr i8 %zone.val, 4
   %shr.i = zext nneg i8 %1 to i32
-  %call1 = tail call zeroext i16 %op_hndlr(ptr noundef %ns, ptr noundef %zone, i32 noundef %shr.i, ptr noundef %req) #17, !callees !54
+  %call1 = tail call zeroext i16 %op_hndlr(ptr noundef %ns, ptr noundef %zone, i32 noundef %shr.i, ptr noundef %req) #19, !callees !54
   br label %out
 
 if.else:                                          ; preds = %entry
@@ -21120,7 +21120,7 @@ sw.epilog.i:                                      ; preds = %land.rhs, %land.rhs
   br i1 %tobool13.i, label %nvme_bulk_proc_zone.exit, label %for.cond
 
 nvme_bulk_proc_zone.exit:                         ; preds = %sw.epilog.i
-  %call14.i = tail call zeroext i16 %op_hndlr(ptr noundef %ns, ptr noundef nonnull %zone.addr.0109, i32 noundef %shr.i.i, ptr noundef %req) #17, !callees !54
+  %call14.i = tail call zeroext i16 %op_hndlr(ptr noundef %ns, ptr noundef nonnull %zone.addr.0109, i32 noundef %shr.i.i, ptr noundef %req) #19, !callees !54
   %9 = add i16 %call14.i, -1
   %or.cond = icmp ult i16 %9, -2
   br i1 %or.cond, label %out, label %for.cond, !llvm.loop !41
@@ -21176,7 +21176,7 @@ sw.epilog.i66:                                    ; preds = %land.rhs17, %land.r
   br i1 %tobool13.i68, label %nvme_bulk_proc_zone.exit74, label %for.cond15
 
 nvme_bulk_proc_zone.exit74:                       ; preds = %sw.epilog.i66
-  %call14.i71 = tail call zeroext i16 %op_hndlr(ptr noundef %ns, ptr noundef nonnull %zone.addr.2111, i32 noundef %shr.i.i64, ptr noundef %req) #17, !callees !54
+  %call14.i71 = tail call zeroext i16 %op_hndlr(ptr noundef %ns, ptr noundef nonnull %zone.addr.2111, i32 noundef %shr.i.i64, ptr noundef %req) #19, !callees !54
   %17 = add i16 %call14.i71, -1
   %or.cond1 = icmp ult i16 %17, -2
   br i1 %or.cond1, label %out, label %for.cond15, !llvm.loop !39
@@ -21226,7 +21226,7 @@ sw.epilog.i78:                                    ; preds = %land.rhs34, %land.r
   br i1 %tobool13.i80, label %nvme_bulk_proc_zone.exit86, label %for.cond32
 
 nvme_bulk_proc_zone.exit86:                       ; preds = %sw.epilog.i78
-  %call14.i83 = tail call zeroext i16 %op_hndlr(ptr noundef %ns, ptr noundef nonnull %zone.addr.3114, i32 noundef %shr.i.i76, ptr noundef %req) #17, !callees !54
+  %call14.i83 = tail call zeroext i16 %op_hndlr(ptr noundef %ns, ptr noundef nonnull %zone.addr.3114, i32 noundef %shr.i.i76, ptr noundef %req) #19, !callees !54
   %25 = add i16 %call14.i83, -1
   %or.cond2 = icmp ult i16 %25, -2
   br i1 %or.cond2, label %out, label %for.cond32, !llvm.loop !40
@@ -21277,7 +21277,7 @@ sw.epilog.i90:                                    ; preds = %for.body77, %for.bo
   br i1 %tobool13.i92, label %nvme_bulk_proc_zone.exit98, label %for.inc87
 
 nvme_bulk_proc_zone.exit98:                       ; preds = %sw.epilog.i90
-  %call14.i95 = tail call zeroext i16 %op_hndlr(ptr noundef nonnull %ns, ptr noundef nonnull %zone.addr.7117, i32 noundef %shr.i.i88, ptr noundef %req) #17, !callees !54
+  %call14.i95 = tail call zeroext i16 %op_hndlr(ptr noundef nonnull %ns, ptr noundef nonnull %zone.addr.7117, i32 noundef %shr.i.i88, ptr noundef %req) #19, !callees !54
   %33 = add i16 %call14.i95, -1
   %or.cond4 = icmp ult i16 %33, -2
   br i1 %or.cond4, label %out, label %nvme_bulk_proc_zone.exit98.for.inc87_crit_edge
@@ -21390,7 +21390,7 @@ if.then.i.i:                                      ; preds = %sw.bb.i
   br i1 %cmp.i.i, label %if.end3.thread.i.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.39, i32 noundef 339, ptr noundef nonnull @__PRETTY_FUNCTION__.nvme_aor_dec_open) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.39, i32 noundef 339, ptr noundef nonnull @__PRETTY_FUNCTION__.nvme_aor_dec_open) #20
   unreachable
 
 if.end3.thread.i.i:                               ; preds = %if.then.i.i
@@ -21403,7 +21403,7 @@ if.end3.i.i:                                      ; preds = %sw.bb.i
   br i1 %7, label %sw.bb1.i, label %if.else7.i.i
 
 if.else7.i.i:                                     ; preds = %if.end3.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.39, i32 noundef 342, ptr noundef nonnull @__PRETTY_FUNCTION__.nvme_aor_dec_open) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.39, i32 noundef 342, ptr noundef nonnull @__PRETTY_FUNCTION__.nvme_aor_dec_open) #20
   unreachable
 
 sw.bb1.i:                                         ; preds = %if.end3.i.i, %if.end3.thread.i.i, %if.then8
@@ -21419,7 +21419,7 @@ if.then.i13.i:                                    ; preds = %sw.bb1.i
   br i1 %cmp.i14.i, label %if.end.i.i, label %if.else.i15.i
 
 if.else.i15.i:                                    ; preds = %if.then.i13.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.39, i32 noundef 357, ptr noundef nonnull @__PRETTY_FUNCTION__.nvme_aor_dec_active) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.39, i32 noundef 357, ptr noundef nonnull @__PRETTY_FUNCTION__.nvme_aor_dec_active) #20
   unreachable
 
 if.end.i.i:                                       ; preds = %if.then.i13.i
@@ -21431,7 +21431,7 @@ if.end.i.i:                                       ; preds = %if.then.i13.i
   br i1 %cmp4.not.not.i.i, label %nvme_aor_dec_active.exit.i, label %if.else6.i.i
 
 if.else6.i.i:                                     ; preds = %if.end.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.39, i32 noundef 359, ptr noundef nonnull @__PRETTY_FUNCTION__.nvme_aor_dec_active) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.39, i32 noundef 359, ptr noundef nonnull @__PRETTY_FUNCTION__.nvme_aor_dec_active) #20
   unreachable
 
 if.end8.i.i:                                      ; preds = %sw.bb1.i
@@ -21439,7 +21439,7 @@ if.end8.i.i:                                      ; preds = %sw.bb1.i
   br i1 %10, label %nvme_aor_dec_active.exit.i, label %if.else12.i.i
 
 if.else12.i.i:                                    ; preds = %if.end8.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.39, i32 noundef 361, ptr noundef nonnull @__PRETTY_FUNCTION__.nvme_aor_dec_active) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.39, i32 noundef 361, ptr noundef nonnull @__PRETTY_FUNCTION__.nvme_aor_dec_active) #20
   unreachable
 
 nvme_aor_dec_active.exit.i:                       ; preds = %if.end8.i.i, %if.end.i.i
@@ -21585,16 +21585,16 @@ if.then.i.i29:                                    ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i30
 
 if.then8.i.i:                                     ; preds = %if.then.i.i29
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #19
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #19
   %35 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %36 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.276, i32 noundef %call10.i.i, i64 noundef %35, i64 noundef %36, i64 noundef %30) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.276, i32 noundef %call10.i.i, i64 noundef %35, i64 noundef %36, i64 noundef %30) #19
   br label %trace_pci_nvme_zns_zone_reset.exit
 
 if.else.i.i30:                                    ; preds = %if.then.i.i29
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.277, i64 noundef %30) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.277, i64 noundef %30) #19
   br label %trace_pci_nvme_zns_zone_reset.exit
 
 trace_pci_nvme_zns_zone_reset.exit:               ; preds = %sw.bb22, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i30
@@ -21609,7 +21609,7 @@ trace_pci_nvme_zns_zone_reset.exit:               ; preds = %sw.bb22, %land.lhs.
   %zone_size = getelementptr inbounds i8, ptr %1, i64 8616
   %40 = load i64, ptr %zone_size, align 8
   %shl.i32 = shl i64 %40, %sh_prom.i
-  %call28 = tail call ptr @blk_aio_pwrite_zeroes(ptr noundef %37, i64 noundef %shl.i, i64 noundef %shl.i32, i32 noundef 4, ptr noundef nonnull @nvme_zone_reset_epilogue_cb, ptr noundef nonnull %opaque) #17
+  %call28 = tail call ptr @blk_aio_pwrite_zeroes(ptr noundef %37, i64 noundef %shl.i, i64 noundef %shl.i32, i32 noundef 4, ptr noundef nonnull @nvme_zone_reset_epilogue_cb, ptr noundef nonnull %opaque) #19
   %aiocb = getelementptr inbounds i8, ptr %opaque, i64 40
   store ptr %call28, ptr %aiocb, align 8
   br label %return
@@ -21622,8 +21622,8 @@ done:                                             ; preds = %sw.bb, %while.cond.
   %opaque31 = getelementptr inbounds i8, ptr %opaque, i64 24
   %42 = load ptr, ptr %opaque31, align 8
   %43 = load i32, ptr %ret3, align 8
-  tail call void %41(ptr noundef %42, i32 noundef %43) #17
-  tail call void @qemu_aio_unref(ptr noundef nonnull %opaque) #17
+  tail call void %41(ptr noundef %42, i32 noundef %43) #19
+  tail call void @qemu_aio_unref(ptr noundef nonnull %opaque) #19
   br label %return
 
 return:                                           ; preds = %done, %trace_pci_nvme_zns_zone_reset.exit
@@ -21631,7 +21631,7 @@ return:                                           ; preds = %done, %trace_pci_nv
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal zeroext range(i16 0, 448) i16 @nvme_offline_zone(ptr nocapture noundef writeonly %ns, ptr nocapture noundef %zone, i32 noundef %state, ptr nocapture readnone %req) #12 {
+define internal zeroext range(i16 0, 448) i16 @nvme_offline_zone(ptr nocapture noundef writeonly %ns, ptr nocapture noundef %zone, i32 noundef %state, ptr nocapture readnone %req) #14 {
 entry:
   switch i32 %state, label %sw.default [
     i32 13, label %sw.bb
@@ -21718,16 +21718,16 @@ if.then.i:                                        ; preds = %land.lhs.true5.i
   br i1 %tobool7.i, label %if.then8.i, label %if.else.i
 
 if.then8.i:                                       ; preds = %if.then.i
-  %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #17
-  %call10.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #19
+  %call10.i = tail call i32 @qemu_get_thread_id() #19
   %4 = load i64, ptr %_now.i, align 8
   %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %5 = load i64, ptr %tv_usec.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.282, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, i32 noundef %zone_idx) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.282, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, i32 noundef %zone_idx) #19
   br label %_nocheck__trace_pci_nvme_err_zd_extension_map_error.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.283, i32 noundef %zone_idx) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.283, i32 noundef %zone_idx) #19
   br label %_nocheck__trace_pci_nvme_err_zd_extension_map_error.exit
 
 _nocheck__trace_pci_nvme_err_zd_extension_map_error.exit: ; preds = %entry, %land.lhs.true5.i, %if.then8.i, %if.else.i
@@ -21756,7 +21756,7 @@ if.end:                                           ; preds = %if.then
   br i1 %cmp.i, label %if.end.i, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end
-  tail call void @__assert_fail(ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.39, i32 noundef 347, ptr noundef nonnull @__PRETTY_FUNCTION__.nvme_aor_inc_active) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.39, i32 noundef 347, ptr noundef nonnull @__PRETTY_FUNCTION__.nvme_aor_inc_active) #20
   unreachable
 
 if.end.i:                                         ; preds = %if.end
@@ -21772,7 +21772,7 @@ if.then1.i:                                       ; preds = %if.end.i
   br i1 %cmp6.not.not.i, label %nvme_aor_inc_active.exit, label %if.else8.i
 
 if.else8.i:                                       ; preds = %if.then1.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.223, ptr noundef nonnull @.str.39, i32 noundef 350, ptr noundef nonnull @__PRETTY_FUNCTION__.nvme_aor_inc_active) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.223, ptr noundef nonnull @.str.39, i32 noundef 350, ptr noundef nonnull @__PRETTY_FUNCTION__.nvme_aor_inc_active) #20
   unreachable
 
 nvme_aor_inc_active.exit:                         ; preds = %if.end.i, %if.then1.i
@@ -21859,16 +21859,16 @@ if.then.i:                                        ; preds = %land.lhs.true5.i
   br i1 %tobool7.i, label %if.then8.i, label %if.else.i
 
 if.then8.i:                                       ; preds = %if.then.i
-  %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #17
-  %call10.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #19
+  %call10.i = tail call i32 @qemu_get_thread_id() #19
   %4 = load i64, ptr %_now.i, align 8
   %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %5 = load i64, ptr %tv_usec.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.284, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, i32 noundef %zone_idx) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.284, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, i32 noundef %zone_idx) #19
   br label %_nocheck__trace_pci_nvme_zd_extension_set.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.285, i32 noundef %zone_idx) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.285, i32 noundef %zone_idx) #19
   br label %_nocheck__trace_pci_nvme_zd_extension_set.exit
 
 _nocheck__trace_pci_nvme_zd_extension_set.exit:   ; preds = %entry, %land.lhs.true5.i, %if.then8.i, %if.else.i
@@ -21895,7 +21895,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call void @blk_aio_cancel_async(ptr noundef nonnull %3) #17
+  tail call void @blk_aio_cancel_async(ptr noundef nonnull %3) #19
   store ptr null, ptr %aiocb3, align 8
   br label %if.end
 
@@ -21942,7 +21942,7 @@ if.end:                                           ; preds = %lor.lhs.false5
   %mul.i = shl nuw nsw i64 %conv.i.i, 32
   %sext = mul i64 %mul.i, %7
   %conv7 = ashr exact i64 %sext, 32
-  %call8 = tail call ptr @blk_aio_pwrite_zeroes(ptr noundef %8, i64 noundef %add.i, i64 noundef %conv7, i32 noundef 4, ptr noundef nonnull @nvme_zone_reset_cb, ptr noundef nonnull %opaque) #17
+  %call8 = tail call ptr @blk_aio_pwrite_zeroes(ptr noundef %8, i64 noundef %add.i, i64 noundef %conv7, i32 noundef 4, ptr noundef nonnull @nvme_zone_reset_cb, ptr noundef nonnull %opaque) #19
   %aiocb = getelementptr inbounds i8, ptr %opaque, i64 40
   store ptr %call8, ptr %aiocb, align 8
   br label %return
@@ -21991,7 +21991,7 @@ entry:
   store ptr null, ptr %arrayidx, align 8
   %bh = getelementptr inbounds i8, ptr %sq, i64 48
   %2 = load ptr, ptr %bh, align 8
-  tail call void @qemu_bh_delete(ptr noundef %2) #17
+  tail call void @qemu_bh_delete(ptr noundef %2) #19
   %ioeventfd_enabled = getelementptr inbounds i8, ptr %sq, i64 68
   %3 = load i8, ptr %ioeventfd_enabled, align 4
   %tobool = trunc i8 %3 to i1
@@ -22003,21 +22003,21 @@ if.then:                                          ; preds = %entry
   %conv4 = zext i16 %shl to i64
   %add = add nuw nsw i64 %conv4, 4096
   %notifier = getelementptr inbounds i8, ptr %sq, i64 56
-  tail call void @memory_region_del_eventfd(ptr noundef nonnull %iomem, i64 noundef %add, i32 noundef 4, i1 noundef zeroext false, i64 noundef 0, ptr noundef nonnull %notifier) #17
-  tail call void @event_notifier_set_handler(ptr noundef nonnull %notifier, ptr noundef null) #17
-  tail call void @event_notifier_cleanup(ptr noundef nonnull %notifier) #17
+  tail call void @memory_region_del_eventfd(ptr noundef nonnull %iomem, i64 noundef %add, i32 noundef 4, i1 noundef zeroext false, i64 noundef 0, ptr noundef nonnull %notifier) #19
+  tail call void @event_notifier_set_handler(ptr noundef nonnull %notifier, ptr noundef null) #19
+  tail call void @event_notifier_cleanup(ptr noundef nonnull %notifier) #19
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
   %io_req = getelementptr inbounds i8, ptr %sq, i64 72
   %4 = load ptr, ptr %io_req, align 8
-  tail call void @g_free(ptr noundef %4) #17
+  tail call void @g_free(ptr noundef %4) #19
   %5 = load i16, ptr %sqid, align 8
   %tobool9.not = icmp eq i16 %5, 0
   br i1 %tobool9.not, label %if.end11, label %if.then10
 
 if.then10:                                        ; preds = %if.end
-  tail call void @g_free(ptr noundef nonnull %sq) #17
+  tail call void @g_free(ptr noundef nonnull %sq) #19
   br label %if.end11
 
 if.end11:                                         ; preds = %if.then10, %if.end
@@ -22054,18 +22054,18 @@ if.then.i:                                        ; preds = %land.lhs.true5.i
   br i1 %tobool7.i, label %if.then8.i, label %if.else.i
 
 if.then8.i:                                       ; preds = %if.then.i
-  %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #17
-  %call10.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #19
+  %call10.i = tail call i32 @qemu_get_thread_id() #19
   %4 = load i64, ptr %_now.i, align 8
   %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %5 = load i64, ptr %tv_usec.i, align 8
   %conv11.i = zext i16 %qsize to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.324, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, i32 noundef %conv11.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.324, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, i32 noundef %conv11.i) #19
   br label %_nocheck__trace_pci_nvme_err_invalid_create_sq_size.exit
 
 if.else.i:                                        ; preds = %if.then.i
   %conv12.i = zext i16 %qsize to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.325, i32 noundef %conv12.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.325, i32 noundef %conv12.i) #19
   br label %_nocheck__trace_pci_nvme_err_invalid_create_sq_size.exit
 
 _nocheck__trace_pci_nvme_err_invalid_create_sq_size.exit: ; preds = %entry, %land.lhs.true5.i, %if.then8.i, %if.else.i
@@ -22097,16 +22097,16 @@ if.then.i:                                        ; preds = %land.lhs.true5.i
   br i1 %tobool7.i, label %if.then8.i, label %if.else.i
 
 if.then8.i:                                       ; preds = %if.then.i
-  %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #17
-  %call10.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #19
+  %call10.i = tail call i32 @qemu_get_thread_id() #19
   %4 = load i64, ptr %_now.i, align 8
   %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %5 = load i64, ptr %tv_usec.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.326, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, i64 noundef %addr) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.326, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, i64 noundef %addr) #19
   br label %_nocheck__trace_pci_nvme_err_invalid_create_sq_addr.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.327, i64 noundef %addr) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.327, i64 noundef %addr) #19
   br label %_nocheck__trace_pci_nvme_err_invalid_create_sq_addr.exit
 
 _nocheck__trace_pci_nvme_err_invalid_create_sq_addr.exit: ; preds = %entry, %land.lhs.true5.i, %if.then8.i, %if.else.i
@@ -22138,18 +22138,18 @@ if.then.i:                                        ; preds = %land.lhs.true5.i
   br i1 %tobool7.i, label %if.then8.i, label %if.else.i
 
 if.then8.i:                                       ; preds = %if.then.i
-  %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #17
-  %call10.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #19
+  %call10.i = tail call i32 @qemu_get_thread_id() #19
   %4 = load i64, ptr %_now.i, align 8
   %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %5 = load i64, ptr %tv_usec.i, align 8
   %conv11.i = zext nneg i16 %qflags to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.328, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, i32 noundef %conv11.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.328, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, i32 noundef %conv11.i) #19
   br label %_nocheck__trace_pci_nvme_err_invalid_create_sq_qflags.exit
 
 if.else.i:                                        ; preds = %if.then.i
   %conv12.i = zext nneg i16 %qflags to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.329, i32 noundef %conv12.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.329, i32 noundef %conv12.i) #19
   br label %_nocheck__trace_pci_nvme_err_invalid_create_sq_qflags.exit
 
 _nocheck__trace_pci_nvme_err_invalid_create_sq_qflags.exit: ; preds = %entry, %land.lhs.true5.i, %if.then8.i, %if.else.i
@@ -22238,7 +22238,7 @@ nvme_ns.exit:                                     ; preds = %if.then3
 if.end6:                                          ; preds = %nvme_ns.exit
   %4 = getelementptr i8, ptr %3, i64 160
   %call4.val = load ptr, ptr %4, align 8
-  %call.i = tail call ptr @blk_get_stats(ptr noundef %call4.val) #17
+  %call.i = tail call ptr @blk_get_stats(ptr noundef %call4.val) #19
   %arrayidx.i22 = getelementptr i8, ptr %call.i, i64 56
   %5 = load i64, ptr %arrayidx.i22, align 8
   %arrayidx2.i = getelementptr i8, ptr %call.i, i64 64
@@ -22263,7 +22263,7 @@ nvme_ns.exit29:                                   ; preds = %for.cond.preheader,
 if.end11:                                         ; preds = %nvme_ns.exit29
   %10 = getelementptr i8, ptr %9, i64 160
   %call8.val = load ptr, ptr %10, align 8
-  %call.i30 = tail call ptr @blk_get_stats(ptr noundef %call8.val) #17
+  %call.i30 = tail call ptr @blk_get_stats(ptr noundef %call8.val) #19
   %arrayidx.i31 = getelementptr i8, ptr %call.i30, i64 56
   %11 = load i64, ptr %arrayidx.i31, align 8
   %add.i32 = add i64 %11, %stats.sroa.0.065
@@ -22334,7 +22334,7 @@ if.then41:                                        ; preds = %lor.lhs.false, %if.
   br label %if.end45
 
 if.end45:                                         ; preds = %if.then41, %lor.lhs.false
-  %call.i42 = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #17
+  %call.i42 = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #19
   %div.i = sdiv i64 %call.i42, 1000000
   %starttime_ms = getelementptr inbounds i8, ptr %n, i64 7464
   %20 = load i64, ptr %starttime_ms, align 8
@@ -22388,7 +22388,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %frs1 = getelementptr inbounds i8, ptr %fw_log, i64 8
-  call void @strpadcpy(ptr noundef nonnull %frs1, i32 noundef 8, ptr noundef nonnull @.str.332, i8 noundef signext 32) #17
+  call void @strpadcpy(ptr noundef nonnull %frs1, i32 noundef 8, ptr noundef nonnull @.str.332, i8 noundef signext 32) #19
   %sub = sub nuw nsw i64 512, %off
   %conv = zext i32 %buf_len to i64
   %cond = call i64 @llvm.umin.i64(i64 %sub, i64 %conv)
@@ -22438,16 +22438,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #19
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #19
   %4 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.333, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, i64 noundef %off, i64 noundef 4096) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.333, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, i64 noundef %off, i64 noundef 4096) #19
   br label %trace_pci_nvme_err_invalid_log_page_offset.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.334, i64 noundef %off, i64 noundef 4096) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.334, i64 noundef %off, i64 noundef 4096) #19
   br label %trace_pci_nvme_err_invalid_log_page_offset.exit
 
 trace_pci_nvme_err_invalid_log_page_offset.exit:  ; preds = %if.then, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -22585,16 +22585,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #19
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #19
   %4 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.333, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, i64 noundef %off, i64 noundef 4096) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.333, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, i64 noundef %off, i64 noundef 4096) #19
   br label %trace_pci_nvme_err_invalid_log_page_offset.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.334, i64 noundef %off, i64 noundef 4096) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.334, i64 noundef %off, i64 noundef 4096) #19
   br label %trace_pci_nvme_err_invalid_log_page_offset.exit
 
 trace_pci_nvme_err_invalid_log_page_offset.exit:  ; preds = %if.then, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -22689,7 +22689,7 @@ nvme_subsys_ns.exit:                              ; preds = %for.body
 if.end13:                                         ; preds = %nvme_subsys_ns.exit
   %4 = getelementptr i8, ptr %3, i64 160
   %call10.val = load ptr, ptr %4, align 8
-  %call.i = tail call ptr @blk_get_stats(ptr noundef %call10.val) #17
+  %call.i = tail call ptr @blk_get_stats(ptr noundef %call10.val) #19
   %arrayidx.i13 = getelementptr i8, ptr %call.i, i64 56
   %5 = load i64, ptr %arrayidx.i13, align 8
   %add.i = add i64 %5, %stats.sroa.0.028
@@ -22790,7 +22790,7 @@ if.end13:                                         ; preds = %if.end7
   %conv15 = zext i32 %buf_len to i64
   %cond = tail call i64 @llvm.umin.i64(i64 %sub, i64 %conv15)
   %conv18 = trunc nuw nsw i64 %cond to i32
-  %call20 = tail call noalias ptr @g_malloc0(i64 noundef %conv9) #20
+  %call20 = tail call noalias ptr @g_malloc0(i64 noundef %conv9) #22
   %add.ptr = getelementptr i8, ptr %call20, i64 16
   %add.ptr22 = getelementptr i8, ptr %call20, i64 80
   store i16 0, ptr %call20, align 1
@@ -22872,7 +22872,7 @@ if.end.i:                                         ; preds = %if.end80
 cleanup:                                          ; preds = %if.end.i, %if.end80, %if.end7, %entry, %lor.lhs.false
   %buf.0 = phi ptr [ null, %lor.lhs.false ], [ null, %if.end7 ], [ null, %entry ], [ %call20, %if.end80 ], [ %call20, %if.end.i ]
   %retval.0 = phi i16 [ 16386, %lor.lhs.false ], [ 16386, %if.end7 ], [ 16386, %entry ], [ %call.i, %if.end80 ], [ %call2.i, %if.end.i ]
-  tail call void @g_free(ptr noundef %buf.0) #17
+  tail call void @g_free(ptr noundef %buf.0) #19
   ret i16 %retval.0
 }
 
@@ -22908,7 +22908,7 @@ if.end12:                                         ; preds = %if.end5
   %conv14 = zext i32 %buf_len to i64
   %cond = tail call i64 @llvm.umin.i64(i64 %sub, i64 %conv14)
   %conv17 = trunc nuw nsw i64 %cond to i32
-  %call = tail call noalias ptr @g_malloc0(i64 noundef %add) #20
+  %call = tail call noalias ptr @g_malloc0(i64 noundef %add) #22
   %ruhs = getelementptr inbounds i8, ptr %0, i64 12792
   %3 = load ptr, ptr %ruhs, align 8
   %4 = load i16, ptr %nruh, align 8
@@ -22946,7 +22946,7 @@ if.end.i:                                         ; preds = %for.end
 cleanup:                                          ; preds = %if.end.i, %for.end, %if.end5, %if.end, %entry, %lor.lhs.false
   %buf.0 = phi ptr [ null, %lor.lhs.false ], [ null, %if.end5 ], [ null, %if.end ], [ null, %entry ], [ %call, %for.end ], [ %call, %if.end.i ]
   %retval.0 = phi i16 [ 16386, %lor.lhs.false ], [ 16386, %if.end5 ], [ 16425, %if.end ], [ 16386, %entry ], [ %call.i, %for.end ], [ %call2.i, %if.end.i ]
-  tail call void @g_free(ptr noundef %buf.0) #17
+  tail call void @g_free(ptr noundef %buf.0) #19
   ret i16 %retval.0
 }
 
@@ -23043,7 +23043,7 @@ if.end19:                                         ; preds = %if.end7
   %conv21 = zext i32 %buf_len to i64
   %cond = tail call i64 @llvm.umin.i64(i64 %sub, i64 %conv21)
   %conv24 = trunc nuw i64 %cond to i32
-  %call = tail call noalias ptr @g_malloc0(i64 noundef %conv15) #20
+  %call = tail call noalias ptr @g_malloc0(i64 noundef %conv15) #22
   %5 = load i32, ptr %nelems, align 4
   store i32 %5, ptr %call, align 1
   %add.ptr = getelementptr i8, ptr %call, i64 64
@@ -23099,7 +23099,7 @@ if.end.i:                                         ; preds = %if.end60
 cleanup:                                          ; preds = %if.end.i, %if.end60, %if.end7, %if.end, %entry, %lor.lhs.false
   %elog.0 = phi ptr [ null, %lor.lhs.false ], [ null, %if.end7 ], [ null, %if.end ], [ null, %entry ], [ %call, %if.end60 ], [ %call, %if.end.i ]
   %retval.0 = phi i16 [ 16386, %lor.lhs.false ], [ 16386, %if.end7 ], [ 16425, %if.end ], [ 16386, %entry ], [ %call.i, %if.end60 ], [ %call2.i, %if.end.i ]
-  tail call void @g_free(ptr noundef %elog.0) #17
+  tail call void @g_free(ptr noundef %elog.0) #19
   ret i16 %retval.0
 }
 
@@ -23127,20 +23127,20 @@ if.then.i:                                        ; preds = %land.lhs.true5.i
   br i1 %tobool7.i, label %if.then8.i, label %if.else.i
 
 if.then8.i:                                       ; preds = %if.then.i
-  %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #17
-  %call10.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #19
+  %call10.i = tail call i32 @qemu_get_thread_id() #19
   %4 = load i64, ptr %_now.i, align 8
   %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %5 = load i64, ptr %tv_usec.i, align 8
   %conv11.i = zext i16 %cid to i32
   %conv12.i = zext nneg i16 %lid to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.339, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, i32 noundef %conv11.i, i32 noundef %conv12.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.339, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, i32 noundef %conv11.i, i32 noundef %conv12.i) #19
   br label %_nocheck__trace_pci_nvme_err_invalid_log_page.exit
 
 if.else.i:                                        ; preds = %if.then.i
   %conv13.i = zext i16 %cid to i32
   %conv14.i = zext nneg i16 %lid to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.340, i32 noundef %conv13.i, i32 noundef %conv14.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.340, i32 noundef %conv13.i, i32 noundef %conv14.i) #19
   br label %_nocheck__trace_pci_nvme_err_invalid_log_page.exit
 
 _nocheck__trace_pci_nvme_err_invalid_log_page.exit: ; preds = %entry, %land.lhs.true5.i, %if.then8.i, %if.else.i
@@ -23156,7 +23156,7 @@ declare i64 @llvm.cttz.i64(i64, i1 immarg) #8
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @nvme_free_cq(ptr noundef %cq, ptr noundef %n) unnamed_addr #0 {
 entry:
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %n, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #17
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %n, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #19
   %cqid = getelementptr inbounds i8, ptr %cq, i64 10
   %0 = load i16, ptr %cqid, align 2
   %cq2 = getelementptr inbounds i8, ptr %n, i64 18808
@@ -23166,7 +23166,7 @@ entry:
   store ptr null, ptr %arrayidx, align 8
   %bh = getelementptr inbounds i8, ptr %cq, i64 56
   %2 = load ptr, ptr %bh, align 8
-  tail call void @qemu_bh_delete(ptr noundef %2) #17
+  tail call void @qemu_bh_delete(ptr noundef %2) #19
   %ioeventfd_enabled = getelementptr inbounds i8, ptr %cq, i64 76
   %3 = load i8, ptr %ioeventfd_enabled, align 4
   %tobool = trunc i8 %3 to i1
@@ -23178,20 +23178,20 @@ if.then:                                          ; preds = %entry
   %4 = zext i16 %shl to i64
   %add5 = add nuw nsw i64 %4, 4100
   %notifier = getelementptr inbounds i8, ptr %cq, i64 64
-  tail call void @memory_region_del_eventfd(ptr noundef nonnull %iomem, i64 noundef %add5, i32 noundef 4, i1 noundef zeroext false, i64 noundef 0, ptr noundef nonnull %notifier) #17
-  tail call void @event_notifier_set_handler(ptr noundef nonnull %notifier, ptr noundef null) #17
-  tail call void @event_notifier_cleanup(ptr noundef nonnull %notifier) #17
+  tail call void @memory_region_del_eventfd(ptr noundef nonnull %iomem, i64 noundef %add5, i32 noundef 4, i1 noundef zeroext false, i64 noundef 0, ptr noundef nonnull %notifier) #19
+  tail call void @event_notifier_set_handler(ptr noundef nonnull %notifier, ptr noundef null) #19
+  tail call void @event_notifier_cleanup(ptr noundef nonnull %notifier) #19
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %call9 = tail call i32 @msix_enabled(ptr noundef %call.i) #17
+  %call9 = tail call i32 @msix_enabled(ptr noundef %call.i) #19
   %tobool10.not = icmp eq i32 %call9, 0
   br i1 %tobool10.not, label %if.end12, label %if.then11
 
 if.then11:                                        ; preds = %if.end
   %vector = getelementptr inbounds i8, ptr %cq, i64 24
   %5 = load i32, ptr %vector, align 8
-  tail call void @msix_vector_unuse(ptr noundef %call.i, i32 noundef %5) #17
+  tail call void @msix_vector_unuse(ptr noundef %call.i, i32 noundef %5) #19
   br label %if.end12
 
 if.end12:                                         ; preds = %if.then11, %if.end
@@ -23200,7 +23200,7 @@ if.end12:                                         ; preds = %if.then11, %if.end
   br i1 %tobool14.not, label %if.end16, label %if.then15
 
 if.then15:                                        ; preds = %if.end12
-  tail call void @g_free(ptr noundef nonnull %cq) #17
+  tail call void @g_free(ptr noundef nonnull %cq) #19
   br label %if.end16
 
 if.end16:                                         ; preds = %if.then15, %if.end12
@@ -23233,16 +23233,16 @@ if.then.i:                                        ; preds = %land.lhs.true5.i
   br i1 %tobool7.i, label %if.then8.i, label %if.else.i
 
 if.then8.i:                                       ; preds = %if.then.i
-  %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #17
-  %call10.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #19
+  %call10.i = tail call i32 @qemu_get_thread_id() #19
   %4 = load i64, ptr %_now.i, align 8
   %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %5 = load i64, ptr %tv_usec.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.355, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, i64 noundef %addr) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.355, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, i64 noundef %addr) #19
   br label %_nocheck__trace_pci_nvme_err_invalid_create_cq_addr.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.356, i64 noundef %addr) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.356, i64 noundef %addr) #19
   br label %_nocheck__trace_pci_nvme_err_invalid_create_cq_addr.exit
 
 _nocheck__trace_pci_nvme_err_invalid_create_cq_addr.exit: ; preds = %entry, %land.lhs.true5.i, %if.then8.i, %if.else.i
@@ -23274,18 +23274,18 @@ if.then.i:                                        ; preds = %land.lhs.true5.i
   br i1 %tobool7.i, label %if.then8.i, label %if.else.i
 
 if.then8.i:                                       ; preds = %if.then.i
-  %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #17
-  %call10.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #19
+  %call10.i = tail call i32 @qemu_get_thread_id() #19
   %4 = load i64, ptr %_now.i, align 8
   %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %5 = load i64, ptr %tv_usec.i, align 8
   %conv11.i = zext i16 %vector to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.357, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, i32 noundef %conv11.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.357, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, i32 noundef %conv11.i) #19
   br label %_nocheck__trace_pci_nvme_err_invalid_create_cq_vector.exit
 
 if.else.i:                                        ; preds = %if.then.i
   %conv12.i = zext i16 %vector to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.358, i32 noundef %conv12.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.358, i32 noundef %conv12.i) #19
   br label %_nocheck__trace_pci_nvme_err_invalid_create_cq_vector.exit
 
 _nocheck__trace_pci_nvme_err_invalid_create_cq_vector.exit: ; preds = %entry, %land.lhs.true5.i, %if.then8.i, %if.else.i
@@ -23317,18 +23317,18 @@ if.then.i:                                        ; preds = %land.lhs.true5.i
   br i1 %tobool7.i, label %if.then8.i, label %if.else.i
 
 if.then8.i:                                       ; preds = %if.then.i
-  %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #17
-  %call10.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #19
+  %call10.i = tail call i32 @qemu_get_thread_id() #19
   %4 = load i64, ptr %_now.i, align 8
   %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %5 = load i64, ptr %tv_usec.i, align 8
   %conv11.i = zext nneg i16 %qflags to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.359, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, i32 noundef %conv11.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.359, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, i32 noundef %conv11.i) #19
   br label %_nocheck__trace_pci_nvme_err_invalid_create_cq_qflags.exit
 
 if.else.i:                                        ; preds = %if.then.i
   %conv12.i = zext nneg i16 %qflags to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.360, i32 noundef %conv12.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.360, i32 noundef %conv12.i) #19
   br label %_nocheck__trace_pci_nvme_err_invalid_create_cq_qflags.exit
 
 _nocheck__trace_pci_nvme_err_invalid_create_cq_qflags.exit: ; preds = %entry, %land.lhs.true5.i, %if.then8.i, %if.else.i
@@ -23365,16 +23365,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #19
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #19
   %5 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.363, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef %.fr41) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.363, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef %.fr41) #19
   br label %trace_pci_nvme_identify_ns.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.364, i32 noundef %.fr41) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.364, i32 noundef %.fr41) #19
   br label %trace_pci_nvme_identify_ns.exit
 
 trace_pci_nvme_identify_ns.exit:                  ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -23512,20 +23512,20 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #19
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #19
   %7 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i8 %2 to i32
   %conv12.i.i = zext i16 %1 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.365, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, i32 noundef %conv11.i.i, i32 noundef %conv12.i.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.365, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, i32 noundef %conv11.i.i, i32 noundef %conv12.i.i) #19
   br label %trace_pci_nvme_identify_ctrl_list.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
   %conv13.i.i = zext i8 %2 to i32
   %conv14.i.i = zext i16 %1 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.366, i32 noundef %conv13.i.i, i32 noundef %conv14.i.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.366, i32 noundef %conv13.i.i, i32 noundef %conv14.i.i) #19
   br label %trace_pci_nvme_identify_ctrl_list.exit
 
 trace_pci_nvme_identify_ctrl_list.exit:           ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -23680,18 +23680,18 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #19
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #19
   %6 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i8 %1 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.371, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i32 noundef %.fr51, i32 noundef %conv11.i.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.371, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i32 noundef %.fr51, i32 noundef %conv11.i.i) #19
   br label %trace_pci_nvme_identify_ns_csi.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
   %conv12.i.i = zext i8 %1 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.372, i32 noundef %.fr51, i32 noundef %conv12.i.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.372, i32 noundef %.fr51, i32 noundef %conv12.i.i) #19
   br label %trace_pci_nvme_identify_ns_csi.exit
 
 trace_pci_nvme_identify_ns_csi.exit:              ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -23839,16 +23839,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #19
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #19
   %5 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.377, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef %0) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.377, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef %0) #19
   br label %trace_pci_nvme_identify_nslist.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.378, i32 noundef %0) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.378, i32 noundef %0) #19
   br label %trace_pci_nvme_identify_nslist.exit
 
 trace_pci_nvme_identify_nslist.exit:              ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -23976,20 +23976,20 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #19
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #19
   %6 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = and i32 %0, 65535
   %conv12.i.i = zext i8 %1 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.379, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i32 noundef %conv11.i.i, i32 noundef %conv12.i.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.379, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i32 noundef %conv11.i.i, i32 noundef %conv12.i.i) #19
   br label %trace_pci_nvme_identify_nslist_csi.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
   %conv13.i.i = and i32 %0, 65535
   %conv14.i.i = zext i8 %1 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.380, i32 noundef %conv13.i.i, i32 noundef %conv14.i.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.380, i32 noundef %conv13.i.i, i32 noundef %conv14.i.i) #19
   br label %trace_pci_nvme_identify_nslist_csi.exit
 
 trace_pci_nvme_identify_nslist_csi.exit:          ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -24141,16 +24141,16 @@ if.then.i:                                        ; preds = %land.lhs.true5.i
   br i1 %tobool7.i, label %if.then8.i, label %if.else.i
 
 if.then8.i:                                       ; preds = %if.then.i
-  %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #17
-  %call10.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #19
+  %call10.i = tail call i32 @qemu_get_thread_id() #19
   %4 = load i64, ptr %_now.i, align 8
   %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %5 = load i64, ptr %tv_usec.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.392, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, i32 noundef %reqcq, i32 noundef %reqsq, i32 noundef %gotcq, i32 noundef %gotsq) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.392, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, i32 noundef %reqcq, i32 noundef %reqsq, i32 noundef %gotcq, i32 noundef %gotsq) #19
   br label %_nocheck__trace_pci_nvme_setfeat_numq.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.393, i32 noundef %reqcq, i32 noundef %reqsq, i32 noundef %gotcq, i32 noundef %gotsq) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.393, i32 noundef %reqcq, i32 noundef %reqsq, i32 noundef %gotcq, i32 noundef %gotsq) #19
   br label %_nocheck__trace_pci_nvme_setfeat_numq.exit
 
 _nocheck__trace_pci_nvme_setfeat_numq.exit:       ; preds = %entry, %land.lhs.true5.i, %if.then8.i, %if.else.i
@@ -24207,16 +24207,16 @@ if.then.i:                                        ; preds = %land.lhs.true5.i
   br i1 %tobool7.i, label %if.then8.i, label %if.else.i
 
 if.then8.i:                                       ; preds = %if.then.i
-  %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #17
-  %call10.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #19
+  %call10.i = tail call i32 @qemu_get_thread_id() #19
   %4 = load i64, ptr %_now.i, align 8
   %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %5 = load i64, ptr %tv_usec.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.394, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, i32 noundef %idx) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.394, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, i32 noundef %idx) #19
   br label %_nocheck__trace_pci_nvme_err_invalid_iocsci.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.395, i32 noundef %idx) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.395, i32 noundef %idx) #19
   br label %_nocheck__trace_pci_nvme_err_invalid_iocsci.exit
 
 _nocheck__trace_pci_nvme_err_invalid_iocsci.exit: ; preds = %entry, %land.lhs.true5.i, %if.then8.i, %if.else.i
@@ -24235,12 +24235,12 @@ entry:
   %1 = load i32, ptr %cdw12, align 1
   %conv4.mask = and i32 %shr, 255
   %conv8 = zext nneg i32 %conv4.mask to i64
-  %call9 = tail call noalias ptr @g_malloc0(i64 noundef %conv8) #20
+  %call9 = tail call noalias ptr @g_malloc0(i64 noundef %conv8) #22
   %tobool.not = icmp eq ptr %ns, null
   br i1 %tobool.not, label %if.else, label %if.end
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.387, ptr noundef nonnull @.str.1, i32 noundef 6102, ptr noundef nonnull @__PRETTY_FUNCTION__.nvme_set_feature_fdp_events) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.387, ptr noundef nonnull @.str.1, i32 noundef 6102, ptr noundef nonnull @__PRETTY_FUNCTION__.nvme_set_feature_fdp_events) #20
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -24321,7 +24321,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
 
 cleanup:                                          ; preds = %for.end, %if.end17, %nvme_h2c.exit, %if.end14, %if.end, %lor.lhs.false
   %retval.0 = phi i16 [ 16425, %lor.lhs.false ], [ 16425, %if.end ], [ 16386, %if.end14 ], [ %call2.i, %nvme_h2c.exit ], [ %call.i, %if.end17 ], [ 0, %for.end ]
-  tail call void @g_free(ptr noundef %call9) #17
+  tail call void @g_free(ptr noundef %call9) #19
   ret i16 %retval.0
 }
 
@@ -24349,16 +24349,16 @@ if.then.i:                                        ; preds = %land.lhs.true5.i
   br i1 %tobool7.i, label %if.then8.i, label %if.else.i
 
 if.then8.i:                                       ; preds = %if.then.i
-  %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #17
-  %call10.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #19
+  %call10.i = tail call i32 @qemu_get_thread_id() #19
   %4 = load i64, ptr %_now.i, align 8
   %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %5 = load i64, ptr %tv_usec.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.400, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, ptr noundef %result) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.400, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, ptr noundef %result) #19
   br label %_nocheck__trace_pci_nvme_getfeat_vwcache.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.401, ptr noundef %result) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.401, ptr noundef %result) #19
   br label %_nocheck__trace_pci_nvme_getfeat_vwcache.exit
 
 _nocheck__trace_pci_nvme_getfeat_vwcache.exit:    ; preds = %entry, %land.lhs.true5.i, %if.then8.i, %if.else.i
@@ -24397,7 +24397,7 @@ entry:
   %conv4.mask = shl nuw nsw i32 %shr, 1
   %1 = and i32 %conv4.mask, 510
   %mul = zext nneg i32 %1 to i64
-  %call6 = tail call noalias ptr @g_malloc0(i64 noundef %mul) #20
+  %call6 = tail call noalias ptr @g_malloc0(i64 noundef %mul) #22
   %subsys = getelementptr inbounds i8, ptr %n, i64 7928
   %2 = load ptr, ptr %subsys, align 8
   %tobool.not = icmp eq ptr %2, null
@@ -24430,7 +24430,7 @@ if.end11:                                         ; preds = %if.end
   br i1 %tobool18.not, label %if.else, label %if.end20
 
 if.else:                                          ; preds = %if.end11
-  tail call void @__assert_fail(ptr noundef nonnull @.str.403, ptr noundef nonnull @.str.1, i32 noundef 5842, ptr noundef nonnull @__PRETTY_FUNCTION__.nvme_get_feature_fdp_events) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.403, ptr noundef nonnull @.str.1, i32 noundef 5842, ptr noundef nonnull @__PRETTY_FUNCTION__.nvme_get_feature_fdp_events) #20
   unreachable
 
 if.end20:                                         ; preds = %if.end11
@@ -24497,14 +24497,14 @@ if.end56:                                         ; preds = %nvme_c2h.exit
 
 cleanup:                                          ; preds = %for.end, %nvme_c2h.exit, %if.end20, %if.end, %entry, %lor.lhs.false, %if.end56
   %retval.0 = phi i16 [ 0, %if.end56 ], [ 16425, %lor.lhs.false ], [ 16425, %entry ], [ 16386, %if.end ], [ 16386, %if.end20 ], [ %call2.i, %nvme_c2h.exit ], [ %call.i, %for.end ]
-  tail call void @g_free(ptr noundef %call6) #17
+  tail call void @g_free(ptr noundef %call6) #19
   ret i16 %retval.0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc zeroext range(i16 0, 16673) i16 @nvme_virt_set_state(ptr noundef %n, i16 noundef zeroext %cntlid, i1 noundef zeroext %online) unnamed_addr #0 {
 entry:
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %n, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #17
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %n, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #19
   %sec_ctrl_list.i = getelementptr inbounds i8, ptr %n, i64 27768
   %sec.i = getelementptr inbounds i8, ptr %n, i64 27800
   %0 = load i8, ptr %sec_ctrl_list.i, align 1
@@ -24538,8 +24538,8 @@ if.then4:                                         ; preds = %if.end
   %3 = load i16, ptr %vfn, align 1
   %conv = zext i16 %3 to i32
   %sub = add nsw i32 %conv, -1
-  %call6 = tail call ptr @pcie_sriov_get_vf_at_index(ptr noundef nonnull %call.i, i32 noundef %sub) #17
-  %call7 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call6, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.1, i32 noundef 6751, ptr noundef nonnull @__func__.nvme_virt_set_state) #17
+  %call6 = tail call ptr @pcie_sriov_get_vf_at_index(ptr noundef nonnull %call.i, i32 noundef %sub) #19
+  %call7 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call6, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.1, i32 noundef 6751, ptr noundef nonnull @__func__.nvme_virt_set_state) #19
   br label %if.end8
 
 if.end8:                                          ; preds = %if.then4, %if.end
@@ -24719,8 +24719,8 @@ done:                                             ; preds = %if.end15, %entry, %
   %13 = load ptr, ptr %cb, align 8
   %opaque = getelementptr inbounds i8, ptr %iocb, i64 24
   %14 = load ptr, ptr %opaque, align 8
-  tail call void %13(ptr noundef %14, i32 noundef %12) #17
-  tail call void @qemu_aio_unref(ptr noundef nonnull %iocb) #17
+  tail call void %13(ptr noundef %14, i32 noundef %12) #19
+  tail call void @qemu_aio_unref(ptr noundef nonnull %iocb) #19
   br label %return
 
 return:                                           ; preds = %done, %if.end25
@@ -24738,7 +24738,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call void @blk_aio_cancel_async(ptr noundef nonnull %0) #17
+  tail call void @blk_aio_cancel_async(ptr noundef nonnull %0) #19
   store ptr null, ptr %aiocb1, align 8
   br label %if.end
 
@@ -24770,7 +24770,7 @@ if.end6:                                          ; preds = %if.else
   br i1 %tobool.not, label %if.else8, label %if.end9
 
 if.else8:                                         ; preds = %if.end6
-  tail call void @__assert_fail(ptr noundef nonnull @.str.387, ptr noundef nonnull @.str.1, i32 noundef 6506, ptr noundef nonnull @__PRETTY_FUNCTION__.nvme_format_ns_cb) #18
+  tail call void @__assert_fail(ptr noundef nonnull @.str.387, ptr noundef nonnull @.str.1, i32 noundef 6506, ptr noundef nonnull @__PRETTY_FUNCTION__.nvme_format_ns_cb) #20
   unreachable
 
 if.end9:                                          ; preds = %if.end6
@@ -24786,7 +24786,7 @@ if.then11:                                        ; preds = %if.end9
   %cond = tail call i64 @llvm.umin.i64(i64 %sub, i64 2147483136)
   %blkconf = getelementptr inbounds i8, ptr %0, i64 160
   %4 = load ptr, ptr %blkconf, align 8
-  %call = tail call ptr @blk_aio_pwrite_zeroes(ptr noundef %4, i64 noundef %2, i64 noundef %cond, i32 noundef 4, ptr noundef nonnull @nvme_format_ns_cb, ptr noundef nonnull %opaque) #17
+  %call = tail call ptr @blk_aio_pwrite_zeroes(ptr noundef %4, i64 noundef %2, i64 noundef %cond, i32 noundef 4, ptr noundef nonnull @nvme_format_ns_cb, ptr noundef nonnull %opaque) #19
   %aiocb = getelementptr inbounds i8, ptr %opaque, i64 40
   store ptr %call, ptr %aiocb, align 8
   %5 = load i64, ptr %offset, align 8
@@ -24825,8 +24825,8 @@ if.then.i.i.i:                                    ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.i.i.i, label %if.then8.i.i.i, label %if.else.i.i.i
 
 if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
-  %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #17
-  %call10.i.i.i = tail call i32 @qemu_get_thread_id() #17
+  %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #19
+  %call10.i.i.i = tail call i32 @qemu_get_thread_id() #19
   %15 = load i64, ptr %_now.i.i.i, align 8
   %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %16 = load i64, ptr %tv_usec.i.i.i, align 8
@@ -24834,7 +24834,7 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %conv12.i.i.i = zext i8 %7 to i32
   %conv13.i.i.i = zext i8 %8 to i32
   %conv14.i.i.i = zext i8 %9 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.418, i32 noundef %call10.i.i.i, i64 noundef %15, i64 noundef %16, i32 noundef %10, i32 noundef %conv11.i.i.i, i32 noundef %conv12.i.i.i, i32 noundef %conv13.i.i.i, i32 noundef %conv14.i.i.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.418, i32 noundef %call10.i.i.i, i64 noundef %15, i64 noundef %16, i32 noundef %10, i32 noundef %conv11.i.i.i, i32 noundef %conv12.i.i.i, i32 noundef %conv13.i.i.i, i32 noundef %conv14.i.i.i) #19
   br label %nvme_format_set.exit
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
@@ -24842,7 +24842,7 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i.i
   %conv16.i.i.i = zext i8 %7 to i32
   %conv17.i.i.i = zext i8 %8 to i32
   %conv18.i.i.i = zext i8 %9 to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.419, i32 noundef %10, i32 noundef %conv15.i.i.i, i32 noundef %conv16.i.i.i, i32 noundef %conv17.i.i.i, i32 noundef %conv18.i.i.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.419, i32 noundef %10, i32 noundef %conv15.i.i.i, i32 noundef %conv16.i.i.i, i32 noundef %conv17.i.i.i, i32 noundef %conv18.i.i.i) #19
   br label %nvme_format_set.exit
 
 nvme_format_set.exit:                             ; preds = %if.end19, %land.lhs.true5.i.i.i, %if.then8.i.i.i, %if.else.i.i.i
@@ -24859,7 +24859,7 @@ nvme_format_set.exit:                             ; preds = %if.end19, %land.lhs
   %or13.i = or i8 %or11.i, %shl8.i
   %flbas.i = getelementptr inbounds i8, ptr %0, i64 298
   store i8 %or13.i, ptr %flbas.i, align 2
-  tail call void @nvme_ns_init_format(ptr noundef nonnull %0) #17
+  tail call void @nvme_ns_init_format(ptr noundef nonnull %0) #19
   %status = getelementptr inbounds i8, ptr %0, i64 8490
   store i16 0, ptr %status, align 2
   store ptr null, ptr %ns1, align 8
@@ -24879,7 +24879,7 @@ declare void @nvme_ns_init_format(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @nvme_sq_notifier(ptr noundef %e) #0 {
 entry:
-  %call = tail call i32 @event_notifier_test_and_clear(ptr noundef %e) #17
+  %call = tail call i32 @event_notifier_test_and_clear(ptr noundef %e) #19
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end
 
@@ -24931,7 +24931,7 @@ sw.bb7.i:                                         ; preds = %entry
   br label %ldn_le_p.exit
 
 do.body.i:                                        ; preds = %entry
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.104, i32 noundef 419, ptr noundef nonnull @__func__.ldn_le_p, ptr noundef null) #18
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.104, i32 noundef 419, ptr noundef nonnull @__func__.ldn_le_p, ptr noundef null) #20
   unreachable
 
 ldn_le_p.exit:                                    ; preds = %sw.bb.i, %sw.bb1.i, %sw.bb4.i, %sw.bb7.i
@@ -24972,7 +24972,7 @@ sw.bb5.i:                                         ; preds = %entry
   br label %stn_le_p.exit
 
 do.body.i:                                        ; preds = %entry
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.104, i32 noundef 419, ptr noundef nonnull @__func__.stn_le_p, ptr noundef null) #18
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.104, i32 noundef 419, ptr noundef nonnull @__func__.stn_le_p, ptr noundef null) #20
   unreachable
 
 stn_le_p.exit:                                    ; preds = %sw.bb.i, %sw.bb1.i, %sw.bb3.i, %sw.bb5.i
@@ -25001,43 +25001,43 @@ declare void @msix_uninit(ptr noundef, ptr noundef, ptr noundef) local_unnamed_a
 declare void @memory_region_del_subregion(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #13
+declare i64 @llvm.umin.i64(i64, i64) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #13
+declare i32 @llvm.umin.i32(i32, i32) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #13
+declare i32 @llvm.umax.i32(i32, i32) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctpop.i64(i64) #13
+declare i64 @llvm.ctpop.i64(i64) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.uadd.sat.i64(i64, i64) #13
+declare i64 @llvm.uadd.sat.i64(i64, i64) #15
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #14
+declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #13
+declare i32 @llvm.fshl.i32(i32, i32, i32) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.umin.i8(i8, i8) #13
+declare i8 @llvm.umin.i8(i8, i8) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.umin.i16(i16, i16) #13
+declare i16 @llvm.umin.i16(i16, i16) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #16
+declare void @llvm.assume(i1 noundef) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.umax.i16(i16, i16) #13
+declare i16 @llvm.umax.i16(i16, i16) #15
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -25051,15 +25051,17 @@ attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable wi
 attributes #9 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #14 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #15 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #16 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #17 = { nounwind }
-attributes #18 = { noreturn nounwind }
-attributes #19 = { nounwind allocsize(0,1) }
-attributes #20 = { nounwind allocsize(0) }
+attributes #12 = { nofree nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #16 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #17 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #18 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #19 = { nounwind }
+attributes #20 = { noreturn nounwind }
+attributes #21 = { nounwind allocsize(0,1) }
+attributes #22 = { nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

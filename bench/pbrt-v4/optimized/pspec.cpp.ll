@@ -3113,7 +3113,7 @@ if.else46.i:                                      ; preds = %if.else39.i
 .noexc372:                                        ; preds = %if.else46.i
   call fastcc void @_ZL5usageRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i), !noalias !93
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #29, !noalias !93
-  call void @exit(i32 noundef 1) #31, !noalias !93
+  call void @exit(i32 noundef 1) #35, !noalias !93
   unreachable
 
 for.cond334.preheader.i:                          ; preds = %call42.i354.noexc, %call35.i.noexc, %invoke.cont31.i, %invoke.cont24.i, %call14.i.noexc, %call7.i.noexc, %call2.i364.noexc
@@ -4170,7 +4170,7 @@ for.body.i:                                       ; preds = %if.end, %for.inc.i
 
 if.then.i:                                        ; preds = %for.body.i
   %conv.i = zext i8 %3 to i32
-  %call8.i = call i32 @tolower(i32 noundef %conv.i) #35
+  %call8.i = call i32 @tolower(i32 noundef %conv.i) #36
   %conv9.i = trunc i32 %call8.i to i8
   %call10.i = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7, i8 noundef signext %conv9.i)
           to label %for.inc.i unwind label %lpad.i
@@ -4217,7 +4217,7 @@ for.body.i21:                                     ; preds = %invoke.cont12, %for
 
 if.then.i26:                                      ; preds = %for.body.i21
   %conv.i27 = zext i8 %6 to i32
-  %call8.i28 = call i32 @tolower(i32 noundef %conv.i27) #35
+  %call8.i28 = call i32 @tolower(i32 noundef %conv.i27) #36
   %conv9.i29 = trunc i32 %call8.i28 to i8
   %call10.i30 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp9, i8 noundef signext %conv9.i29)
           to label %for.inc.i23 unwind label %lpad.i31
@@ -4352,7 +4352,7 @@ for.body.i45:                                     ; preds = %if.else32.critedge,
 
 if.then.i50:                                      ; preds = %for.body.i45
   %conv.i51 = zext i8 %16 to i32
-  %call8.i52 = call i32 @tolower(i32 noundef %conv.i51) #35
+  %call8.i52 = call i32 @tolower(i32 noundef %conv.i51) #36
   %conv9.i53 = trunc i32 %call8.i52 to i8
   %call10.i54 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp33, i8 noundef signext %conv9.i53)
           to label %for.inc.i47 unwind label %lpad.i55
@@ -4385,7 +4385,7 @@ for.body.i62:                                     ; preds = %invoke.cont34, %for
 
 if.then.i67:                                      ; preds = %for.body.i62
   %conv.i68 = zext i8 %18 to i32
-  %call8.i69 = call i32 @tolower(i32 noundef %conv.i68) #35
+  %call8.i69 = call i32 @tolower(i32 noundef %conv.i68) #36
   %conv9.i70 = trunc i32 %call8.i69 to i8
   %call10.i71 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp35, i8 noundef signext %conv9.i70)
           to label %for.inc.i64 unwind label %lpad.i72
@@ -4630,7 +4630,7 @@ for.body.i:                                       ; preds = %if.end, %for.inc.i
 
 if.then.i:                                        ; preds = %for.body.i
   %conv.i = zext i8 %3 to i32
-  %call8.i = call i32 @tolower(i32 noundef %conv.i) #35
+  %call8.i = call i32 @tolower(i32 noundef %conv.i) #36
   %conv9.i = trunc i32 %call8.i to i8
   %call10.i = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7, i8 noundef signext %conv9.i)
           to label %for.inc.i unwind label %lpad.i
@@ -4677,7 +4677,7 @@ for.body.i21:                                     ; preds = %invoke.cont12, %for
 
 if.then.i26:                                      ; preds = %for.body.i21
   %conv.i27 = zext i8 %6 to i32
-  %call8.i28 = call i32 @tolower(i32 noundef %conv.i27) #35
+  %call8.i28 = call i32 @tolower(i32 noundef %conv.i27) #36
   %conv9.i29 = trunc i32 %call8.i28 to i8
   %call10.i30 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp9, i8 noundef signext %conv9.i29)
           to label %for.inc.i23 unwind label %lpad.i31
@@ -4821,7 +4821,7 @@ for.body.i50:                                     ; preds = %if.else29.critedge,
 
 if.then.i55:                                      ; preds = %for.body.i50
   %conv.i56 = zext i8 %16 to i32
-  %call8.i57 = call i32 @tolower(i32 noundef %conv.i56) #35
+  %call8.i57 = call i32 @tolower(i32 noundef %conv.i56) #36
   %conv9.i58 = trunc i32 %call8.i57 to i8
   %call10.i59 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp30, i8 noundef signext %conv9.i58)
           to label %for.inc.i52 unwind label %lpad.i60
@@ -4854,7 +4854,7 @@ for.body.i67:                                     ; preds = %invoke.cont31, %for
 
 if.then.i72:                                      ; preds = %for.body.i67
   %conv.i73 = zext i8 %18 to i32
-  %call8.i74 = call i32 @tolower(i32 noundef %conv.i73) #35
+  %call8.i74 = call i32 @tolower(i32 noundef %conv.i73) #36
   %conv9.i75 = trunc i32 %call8.i74 to i8
   %call10.i76 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp32, i8 noundef signext %conv9.i75)
           to label %for.inc.i69 unwind label %lpad.i77
@@ -7574,7 +7574,7 @@ if.end:                                           ; preds = %entry, %_ZN4pbrt7Wa
   ret void
 }
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress uwtable
@@ -10844,7 +10844,7 @@ land.lhs.true:                                    ; preds = %lor.lhs.false
 if.end:                                           ; preds = %land.lhs.true, %lor.lhs.false
   %call.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %str) #29
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__endptr.i.i)
-  %call.i.i.i = tail call ptr @__errno_location() #36
+  %call.i.i.i = tail call ptr @__errno_location() #37
   %2 = load i32, ptr %call.i.i.i, align 4
   store i32 0, ptr %call.i.i.i, align 4
   %call.i.i = call noundef i64 @strtol(ptr noundef %call.i, ptr noundef nonnull %__endptr.i.i, i32 noundef 10)
@@ -11218,7 +11218,7 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4data
 define internal void @"_ZNSt17_Function_handlerIFvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEZ4mainE3$_0E9_M_invokeERKSt9_Any_dataOS5_"(ptr nocapture nonnull readnone align 8 %__functor, ptr noundef nonnull align 8 dereferenceable(32) %__args) #22 align 2 {
 entry:
   tail call fastcc void @_ZL5usageRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %__args)
-  tail call void @exit(i32 noundef 1) #31
+  tail call void @exit(i32 noundef 1) #35
   unreachable
 }
 
@@ -12388,7 +12388,7 @@ attributes #12 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-mat
 attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #14 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #16 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #17 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #18 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #19 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -12407,8 +12407,9 @@ attributes #31 = { noreturn nounwind }
 attributes #32 = { builtin allocsize(0) }
 attributes #33 = { noreturn }
 attributes #34 = { builtin nounwind }
-attributes #35 = { nounwind willreturn memory(read) }
-attributes #36 = { nounwind willreturn memory(none) }
+attributes #35 = { cold noreturn nounwind }
+attributes #36 = { nounwind willreturn memory(read) }
+attributes #37 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

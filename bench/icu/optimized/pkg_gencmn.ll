@@ -477,7 +477,7 @@ if.then100:                                       ; preds = %for.end
   %call101 = call ptr @u_errorName_75(i32 noundef %43)
   %call102 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %44, ptr noundef nonnull @.str.11, ptr noundef %destDir.addr.0, ptr noundef nonnull %spec.store.select, ptr noundef nonnull %spec.store.select2, ptr noundef %call101) #13
   %45 = load i32, ptr %errorCode, align 4
-  call void @exit(i32 noundef %45) #14
+  call void @exit(i32 noundef %45) #18
   unreachable
 
 if.end103:                                        ; preds = %for.end
@@ -644,7 +644,7 @@ if.then204:                                       ; preds = %if.end200
   %call205 = call ptr @u_errorName_75(i32 noundef %74)
   %call206 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %75, ptr noundef nonnull @.str.18, ptr noundef %call205) #13
   %76 = load i32, ptr %errorCode, align 4
-  call void @exit(i32 noundef %76) #14
+  call void @exit(i32 noundef %76) #18
   unreachable
 
 if.else208:                                       ; preds = %if.end73
@@ -775,7 +775,7 @@ declare noalias ptr @uprv_malloc_75(i64 noundef) local_unnamed_addr #1
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #3
 
 declare ptr @u_getDataDirectory_75() local_unnamed_addr #4
@@ -860,7 +860,7 @@ declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -871,10 +871,11 @@ attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: readwrit
 attributes #11 = { nofree nounwind }
 attributes #12 = { allocsize(0) }
 attributes #13 = { cold }
-attributes #14 = { noreturn nounwind }
+attributes #14 = { cold noreturn nounwind }
 attributes #15 = { allocsize(1) }
 attributes #16 = { nounwind willreturn memory(read) }
 attributes #17 = { nounwind }
+attributes #18 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

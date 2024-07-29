@@ -111,7 +111,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @do_qemu_init_register_types() #0 {
 entry:
-  tail call void @register_module_init(ptr noundef nonnull @register_types, i32 noundef 3) #9
+  tail call void @register_module_init(ptr noundef nonnull @register_types, i32 noundef 3) #10
   ret void
 }
 
@@ -120,7 +120,7 @@ declare void @register_module_init(ptr noundef, i32 noundef) local_unnamed_addr 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @register_types() #0 {
 entry:
-  %call = tail call ptr @type_register_static(ptr noundef nonnull @char_socket_type_info) #9
+  %call = tail call ptr @type_register_static(ptr noundef nonnull @char_socket_type_info) #10
   ret void
 }
 
@@ -130,8 +130,8 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 define internal void @char_socket_finalize(ptr noundef %obj) #0 {
 entry:
   %.compoundliteral = alloca %struct.YankInstance, align 8
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV) #9
-  %call.i18 = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #9
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV) #10
+  %call.i18 = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #10
   tail call fastcc void @tcp_chr_free_connection(ptr noundef %call.i)
   %reconnect_timer.i = getelementptr inbounds i8, ptr %call.i18, i64 296
   %0 = load ptr, ptr %reconnect_timer.i, align 8
@@ -139,32 +139,32 @@ entry:
   br i1 %tobool.not.i, label %tcp_chr_reconn_timer_cancel.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void @g_source_destroy(ptr noundef nonnull %0) #9
+  tail call void @g_source_destroy(ptr noundef nonnull %0) #10
   %1 = load ptr, ptr %reconnect_timer.i, align 8
-  tail call void @g_source_unref(ptr noundef %1) #9
+  tail call void @g_source_unref(ptr noundef %1) #10
   store ptr null, ptr %reconnect_timer.i, align 8
   br label %tcp_chr_reconn_timer_cancel.exit
 
 tcp_chr_reconn_timer_cancel.exit:                 ; preds = %entry, %if.then.i
   %addr = getelementptr inbounds i8, ptr %call.i18, i64 256
   %2 = load ptr, ptr %addr, align 8
-  tail call void @qapi_free_SocketAddress(ptr noundef %2) #9
+  tail call void @qapi_free_SocketAddress(ptr noundef %2) #10
   %telnet_source.i = getelementptr inbounds i8, ptr %call.i18, i64 272
   %3 = load ptr, ptr %telnet_source.i, align 8
   %tobool.not.i19 = icmp eq ptr %3, null
   br i1 %tobool.not.i19, label %tcp_chr_telnet_destroy.exit, label %if.then.i20
 
 if.then.i20:                                      ; preds = %tcp_chr_reconn_timer_cancel.exit
-  tail call void @g_source_destroy(ptr noundef nonnull %3) #9
+  tail call void @g_source_destroy(ptr noundef nonnull %3) #10
   %4 = load ptr, ptr %telnet_source.i, align 8
-  tail call void @g_source_unref(ptr noundef %4) #9
+  tail call void @g_source_unref(ptr noundef %4) #10
   store ptr null, ptr %telnet_source.i, align 8
   br label %tcp_chr_telnet_destroy.exit
 
 tcp_chr_telnet_destroy.exit:                      ; preds = %tcp_chr_reconn_timer_cancel.exit, %if.then.i20
   %telnet_init = getelementptr inbounds i8, ptr %call.i18, i64 280
   %5 = load ptr, ptr %telnet_init, align 8
-  tail call void @g_free(ptr noundef %5) #9
+  tail call void @g_free(ptr noundef %5) #10
   %listener = getelementptr inbounds i8, ptr %call.i18, i64 168
   %6 = load ptr, ptr %listener, align 8
   %tobool.not = icmp eq ptr %6, null
@@ -173,9 +173,9 @@ tcp_chr_telnet_destroy.exit:                      ; preds = %tcp_chr_reconn_time
 if.then:                                          ; preds = %tcp_chr_telnet_destroy.exit
   %gcontext = getelementptr inbounds i8, ptr %call.i, i64 136
   %7 = load ptr, ptr %gcontext, align 8
-  tail call void @qio_net_listener_set_client_func_full(ptr noundef nonnull %6, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %7) #9
+  tail call void @qio_net_listener_set_client_func_full(ptr noundef nonnull %6, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %7) #10
   %8 = load ptr, ptr %listener, align 8
-  tail call void @object_unref(ptr noundef %8) #9
+  tail call void @object_unref(ptr noundef %8) #10
   store ptr null, ptr %listener, align 8
   br label %if.end
 
@@ -186,13 +186,13 @@ if.end:                                           ; preds = %if.then, %tcp_chr_t
   br i1 %tobool5.not, label %if.end8, label %if.then6
 
 if.then6:                                         ; preds = %if.end
-  tail call void @object_unref(ptr noundef nonnull %9) #9
+  tail call void @object_unref(ptr noundef nonnull %9) #10
   br label %if.end8
 
 if.end8:                                          ; preds = %if.then6, %if.end
   %tls_authz = getelementptr inbounds i8, ptr %call.i18, i64 192
   %10 = load ptr, ptr %tls_authz, align 8
-  tail call void @g_free(ptr noundef %10) #9
+  tail call void @g_free(ptr noundef %10) #10
   %registered_yank = getelementptr inbounds i8, ptr %call.i18, i64 248
   %11 = load i8, ptr %registered_yank, align 8
   %tobool9 = trunc i8 %11 to i1
@@ -210,18 +210,18 @@ if.then12:                                        ; preds = %if.then10
   %label = getelementptr inbounds i8, ptr %call.i, i64 96
   %13 = load ptr, ptr %label, align 8
   store ptr %13, ptr %u, align 8
-  call void @yank_unregister_instance(ptr noundef nonnull %.compoundliteral) #9
+  call void @yank_unregister_instance(ptr noundef nonnull %.compoundliteral) #10
   br label %if.end14
 
 if.end14:                                         ; preds = %if.then10, %if.then12, %if.end8
-  call void @qemu_chr_be_event(ptr noundef %call.i, i32 noundef 4) #9
+  call void @qemu_chr_be_event(ptr noundef %call.i, i32 noundef 4) #10
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @char_socket_class_init(ptr noundef %oc, ptr nocapture readnone %data) #0 {
 entry:
-  %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV_CLASS) #9
+  %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV_CLASS) #10
   %supports_yank = getelementptr inbounds i8, ptr %call.i, i64 97
   store i8 1, ptr %supports_yank, align 1
   %parse = getelementptr inbounds i8, ptr %call.i, i64 104
@@ -246,8 +246,8 @@ entry:
   store ptr @tcp_chr_add_watch, ptr %chr_add_watch, align 8
   %chr_update_read_handler = getelementptr inbounds i8, ptr %call.i, i64 144
   store ptr @tcp_chr_update_read_handler, ptr %chr_update_read_handler, align 8
-  %call1 = tail call ptr @object_class_property_add(ptr noundef %oc, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull @char_socket_get_addr, ptr noundef null, ptr noundef null, ptr noundef null) #9
-  %call2 = tail call ptr @object_class_property_add_bool(ptr noundef %oc, ptr noundef nonnull @.str.11, ptr noundef nonnull @char_socket_get_connected, ptr noundef null) #9
+  %call1 = tail call ptr @object_class_property_add(ptr noundef %oc, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull @char_socket_get_addr, ptr noundef null, ptr noundef null, ptr noundef null) #10
+  %call2 = tail call ptr @object_class_property_add_bool(ptr noundef %oc, ptr noundef nonnull @.str.11, ptr noundef nonnull @char_socket_get_connected, ptr noundef null) #10
   ret void
 }
 
@@ -255,7 +255,7 @@ entry:
 define internal fastcc void @tcp_chr_free_connection(ptr noundef %chr) unnamed_addr #0 {
 entry:
   %.compoundliteral = alloca %struct.YankInstance, align 8
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #9
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #10
   %read_msgfds_num = getelementptr inbounds i8, ptr %call.i, i64 224
   %0 = load i64, ptr %read_msgfds_num, align 8
   %tobool.not = icmp eq i64 %0, 0
@@ -271,7 +271,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %1 = load ptr, ptr %read_msgfds, align 8
   %arrayidx = getelementptr i32, ptr %1, i64 %conv27
   %2 = load i32, ptr %arrayidx, align 4
-  %call3 = tail call i32 @close(i32 noundef %2) #9
+  %call3 = tail call i32 @close(i32 noundef %2) #10
   %inc = add i32 %i.026, 1
   %conv = sext i32 %inc to i64
   %3 = load i64, ptr %read_msgfds_num, align 8
@@ -281,7 +281,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 for.end:                                          ; preds = %for.body
   %read_msgfds4 = getelementptr inbounds i8, ptr %call.i, i64 216
   %4 = load ptr, ptr %read_msgfds4, align 8
-  tail call void @g_free(ptr noundef %4) #9
+  tail call void @g_free(ptr noundef %4) #10
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %read_msgfds4, i8 0, i64 16, i1 false)
   br label %if.end
 
@@ -292,17 +292,17 @@ if.end:                                           ; preds = %for.end, %entry
   br i1 %cmp.not.i, label %remove_hup_source.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  tail call void @g_source_destroy(ptr noundef nonnull %5) #9
+  tail call void @g_source_destroy(ptr noundef nonnull %5) #10
   %6 = load ptr, ptr %hup_source.i, align 8
-  tail call void @g_source_unref(ptr noundef %6) #9
+  tail call void @g_source_unref(ptr noundef %6) #10
   store ptr null, ptr %hup_source.i, align 8
   br label %remove_hup_source.exit
 
 remove_hup_source.exit:                           ; preds = %if.end, %if.then.i
-  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #9
+  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #10
   %write_msgfds.i = getelementptr inbounds i8, ptr %call.i.i, i64 232
   %7 = load ptr, ptr %write_msgfds.i, align 8
-  tail call void @g_free(ptr noundef %7) #9
+  tail call void @g_free(ptr noundef %7) #10
   %write_msgfds_num.i = getelementptr inbounds i8, ptr %call.i.i, i64 240
   %state.i = getelementptr inbounds i8, ptr %call.i.i, i64 200
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %write_msgfds.i, i8 0, i64 16, i1 false)
@@ -313,7 +313,7 @@ remove_hup_source.exit:                           ; preds = %if.end, %if.then.i
 lor.lhs.false.i:                                  ; preds = %remove_hup_source.exit
   %ioc.i = getelementptr inbounds i8, ptr %call.i.i, i64 152
   %9 = load ptr, ptr %ioc.i, align 8
-  %call2.i = tail call zeroext i1 @qio_channel_has_feature(ptr noundef %9, i32 noundef 0) #9
+  %call2.i = tail call zeroext i1 @qio_channel_has_feature(ptr noundef %9, i32 noundef 0) #10
   br i1 %call2.i, label %if.end.i, label %tcp_set_msgfds.exit
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
@@ -321,7 +321,7 @@ if.end.i:                                         ; preds = %lor.lhs.false.i
   br label %tcp_set_msgfds.exit
 
 tcp_set_msgfds.exit:                              ; preds = %remove_hup_source.exit, %lor.lhs.false.i, %if.end.i
-  tail call void @remove_fd_in_watch(ptr noundef %chr) #9
+  tail call void @remove_fd_in_watch(ptr noundef %chr) #10
   %registered_yank = getelementptr inbounds i8, ptr %call.i, i64 248
   %10 = load i8, ptr %registered_yank, align 8
   %tobool8 = trunc i8 %10 to i1
@@ -342,22 +342,22 @@ if.then15:                                        ; preds = %land.lhs.true
   store ptr %12, ptr %u, align 8
   %sioc = getelementptr inbounds i8, ptr %call.i, i64 160
   %13 = load ptr, ptr %sioc, align 8
-  %call.i24 = tail call ptr @object_dynamic_cast_assert(ptr noundef %13, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #9
-  call void @yank_unregister_function(ptr noundef nonnull %.compoundliteral, ptr noundef nonnull @char_socket_yank_iochannel, ptr noundef %call.i24) #9
+  %call.i24 = tail call ptr @object_dynamic_cast_assert(ptr noundef %13, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #10
+  call void @yank_unregister_function(ptr noundef nonnull %.compoundliteral, ptr noundef nonnull @char_socket_yank_iochannel, ptr noundef %call.i24) #10
   br label %if.end17
 
 if.end17:                                         ; preds = %land.lhs.true, %if.then15, %tcp_set_msgfds.exit
   %sioc18 = getelementptr inbounds i8, ptr %call.i, i64 160
   %14 = load ptr, ptr %sioc18, align 8
-  call void @object_unref(ptr noundef %14) #9
+  call void @object_unref(ptr noundef %14) #10
   store ptr null, ptr %sioc18, align 8
   %ioc = getelementptr inbounds i8, ptr %call.i, i64 152
   %15 = load ptr, ptr %ioc, align 8
-  call void @object_unref(ptr noundef %15) #9
+  call void @object_unref(ptr noundef %15) #10
   store ptr null, ptr %ioc, align 8
   %filename = getelementptr inbounds i8, ptr %chr, i64 104
   %16 = load ptr, ptr %filename, align 8
-  call void @g_free(ptr noundef %16) #9
+  call void @g_free(ptr noundef %16) #10
   store ptr null, ptr %filename, align 8
   %state9.i = getelementptr inbounds i8, ptr %call.i, i64 200
   store i32 0, ptr %state9.i, align 8
@@ -383,10 +383,10 @@ declare i32 @close(i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i32 -1, 1) i32 @tcp_set_msgfds(ptr noundef %chr, ptr nocapture noundef readonly %fds, i32 noundef %num) #0 {
 entry:
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #9
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #10
   %write_msgfds = getelementptr inbounds i8, ptr %call.i, i64 232
   %0 = load ptr, ptr %write_msgfds, align 8
-  tail call void @g_free(ptr noundef %0) #9
+  tail call void @g_free(ptr noundef %0) #10
   %write_msgfds_num = getelementptr inbounds i8, ptr %call.i, i64 240
   %state = getelementptr inbounds i8, ptr %call.i, i64 200
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %write_msgfds, i8 0, i64 16, i1 false)
@@ -397,7 +397,7 @@ entry:
 lor.lhs.false:                                    ; preds = %entry
   %ioc = getelementptr inbounds i8, ptr %call.i, i64 152
   %2 = load ptr, ptr %ioc, align 8
-  %call2 = tail call zeroext i1 @qio_channel_has_feature(ptr noundef %2, i32 noundef 0) #9
+  %call2 = tail call zeroext i1 @qio_channel_has_feature(ptr noundef %2, i32 noundef 0) #10
   br i1 %call2, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false
@@ -406,7 +406,7 @@ if.end:                                           ; preds = %lor.lhs.false
 
 if.then3:                                         ; preds = %if.end
   %conv = sext i32 %num to i64
-  %call4 = tail call noalias ptr @g_malloc_n(i64 noundef %conv, i64 noundef 4) #10
+  %call4 = tail call noalias ptr @g_malloc_n(i64 noundef %conv, i64 noundef 4) #11
   store ptr %call4, ptr %write_msgfds, align 8
   %mul = shl nsw i64 %conv, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %call4, ptr align 4 %fds, i64 %mul, i1 false)
@@ -429,8 +429,8 @@ declare void @yank_unregister_function(ptr noundef, ptr noundef, ptr noundef) lo
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @char_socket_yank_iochannel(ptr noundef %opaque) #0 {
 entry:
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #9
-  %call1 = tail call i32 @qio_channel_shutdown(ptr noundef %call.i, i32 noundef 3, ptr noundef null) #9
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #10
+  %call1 = tail call i32 @qio_channel_shutdown(ptr noundef %call.i, i32 noundef 3, ptr noundef null) #10
   ret void
 }
 
@@ -454,13 +454,13 @@ declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @qemu_chr_parse_socket(ptr noundef %opts, ptr nocapture noundef writeonly %backend, ptr noundef %errp) #0 {
 entry:
-  %call = tail call ptr @qemu_opt_get(ptr noundef %opts, ptr noundef nonnull @.str.12) #9
-  %call1 = tail call ptr @qemu_opt_get(ptr noundef %opts, ptr noundef nonnull @.str.13) #9
-  %call2 = tail call ptr @qemu_opt_get(ptr noundef %opts, ptr noundef nonnull @.str.14) #9
-  %call3 = tail call ptr @qemu_opt_get(ptr noundef %opts, ptr noundef nonnull @.str.15) #9
-  %call4 = tail call zeroext i1 @qemu_opt_get_bool(ptr noundef %opts, ptr noundef nonnull @.str.16, i1 noundef zeroext true) #9
+  %call = tail call ptr @qemu_opt_get(ptr noundef %opts, ptr noundef nonnull @.str.12) #10
+  %call1 = tail call ptr @qemu_opt_get(ptr noundef %opts, ptr noundef nonnull @.str.13) #10
+  %call2 = tail call ptr @qemu_opt_get(ptr noundef %opts, ptr noundef nonnull @.str.14) #10
+  %call3 = tail call ptr @qemu_opt_get(ptr noundef %opts, ptr noundef nonnull @.str.15) #10
+  %call4 = tail call zeroext i1 @qemu_opt_get_bool(ptr noundef %opts, ptr noundef nonnull @.str.16, i1 noundef zeroext true) #10
   %frombool = zext i1 %call4 to i8
-  %call5 = tail call zeroext i1 @qemu_opt_get_bool(ptr noundef %opts, ptr noundef nonnull @.str.17, i1 noundef zeroext false) #9
+  %call5 = tail call zeroext i1 @qemu_opt_get_bool(ptr noundef %opts, ptr noundef nonnull @.str.17, i1 noundef zeroext false) #10
   %frombool6 = zext i1 %call5 to i8
   %tobool = icmp ne ptr %call, null
   %lnot.ext = zext i1 %tobool to i32
@@ -474,7 +474,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.7, i32 noundef 1433, ptr noundef nonnull @__func__.qemu_chr_parse_socket, ptr noundef nonnull @.str.18) #9
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.7, i32 noundef 1433, ptr noundef nonnull @__func__.qemu_chr_parse_socket, ptr noundef nonnull @.str.18) #10
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -484,35 +484,35 @@ if.end:                                           ; preds = %entry
   br i1 %or.cond, label %if.end22, label %if.then21
 
 if.then21:                                        ; preds = %if.end
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.7, i32 noundef 1438, ptr noundef nonnull @__func__.qemu_chr_parse_socket, ptr noundef nonnull @.str.19) #9
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.7, i32 noundef 1438, ptr noundef nonnull @__func__.qemu_chr_parse_socket, ptr noundef nonnull @.str.19) #10
   br label %return
 
 if.end22:                                         ; preds = %if.end
   store i32 4, ptr %backend, align 8
-  %call23 = tail call noalias dereferenceable_or_null(64) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 64) #10
+  %call23 = tail call noalias dereferenceable_or_null(64) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 64) #11
   %u = getelementptr inbounds i8, ptr %backend, i64 8
   store ptr %call23, ptr %u, align 8
-  tail call void @qemu_chr_parse_common(ptr noundef %opts, ptr noundef %call23) #9
-  %call25 = tail call ptr @qemu_opt_get(ptr noundef %opts, ptr noundef nonnull @.str.20) #9
+  tail call void @qemu_chr_parse_common(ptr noundef %opts, ptr noundef %call23) #10
+  %call25 = tail call ptr @qemu_opt_get(ptr noundef %opts, ptr noundef nonnull @.str.20) #10
   %tobool26.not = icmp eq ptr %call25, null
   br i1 %tobool26.not, label %if.end31, label %land.lhs.true27
 
 land.lhs.true27:                                  ; preds = %if.end22
-  %call28 = tail call ptr @qemu_opt_get(ptr noundef %opts, ptr noundef nonnull @.str.21) #9
+  %call28 = tail call ptr @qemu_opt_get(ptr noundef %opts, ptr noundef nonnull @.str.21) #10
   %tobool29.not = icmp eq ptr %call28, null
   br i1 %tobool29.not, label %if.end31, label %if.then30
 
 if.then30:                                        ; preds = %land.lhs.true27
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.7, i32 noundef 1447, ptr noundef nonnull @__func__.qemu_chr_parse_socket, ptr noundef nonnull @.str.22) #9
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.7, i32 noundef 1447, ptr noundef nonnull @__func__.qemu_chr_parse_socket, ptr noundef nonnull @.str.22) #10
   br label %return
 
 if.end31:                                         ; preds = %land.lhs.true27, %if.end22
-  %call32 = tail call ptr @qemu_opt_get(ptr noundef %opts, ptr noundef nonnull @.str.20) #9
+  %call32 = tail call ptr @qemu_opt_get(ptr noundef %opts, ptr noundef nonnull @.str.20) #10
   %tobool33.not = icmp eq ptr %call32, null
   br i1 %tobool33.not, label %lor.rhs, label %lor.end
 
 lor.rhs:                                          ; preds = %if.end31
-  %call34 = tail call ptr @qemu_opt_get(ptr noundef %opts, ptr noundef nonnull @.str.21) #9
+  %call34 = tail call ptr @qemu_opt_get(ptr noundef %opts, ptr noundef nonnull @.str.21) #10
   %tobool35 = icmp ne ptr %call34, null
   %0 = zext i1 %tobool35 to i8
   br label %lor.end
@@ -521,11 +521,11 @@ lor.end:                                          ; preds = %lor.rhs, %if.end31
   %frombool36 = phi i8 [ 1, %if.end31 ], [ %0, %lor.rhs ]
   %has_nodelay = getelementptr inbounds i8, ptr %call23, i64 44
   store i8 %frombool36, ptr %has_nodelay, align 4
-  %call37 = tail call zeroext i1 @qemu_opt_get_bool(ptr noundef %opts, ptr noundef nonnull @.str.20, i1 noundef zeroext true) #9
+  %call37 = tail call zeroext i1 @qemu_opt_get_bool(ptr noundef %opts, ptr noundef nonnull @.str.20, i1 noundef zeroext true) #10
   br i1 %call37, label %lor.rhs38, label %lor.end40
 
 lor.rhs38:                                        ; preds = %lor.end
-  %call39 = tail call zeroext i1 @qemu_opt_get_bool(ptr noundef %opts, ptr noundef nonnull @.str.21, i1 noundef zeroext false) #9
+  %call39 = tail call zeroext i1 @qemu_opt_get_bool(ptr noundef %opts, ptr noundef nonnull @.str.21, i1 noundef zeroext false) #10
   %1 = zext i1 %call39 to i8
   br label %lor.end40
 
@@ -535,38 +535,38 @@ lor.end40:                                        ; preds = %lor.rhs38, %lor.end
   store i8 %frombool41, ptr %nodelay, align 1
   %has_server = getelementptr inbounds i8, ptr %call23, i64 40
   store i8 1, ptr %has_server, align 8
-  %call42 = tail call zeroext i1 @qemu_opt_get_bool(ptr noundef %opts, ptr noundef nonnull @.str.23, i1 noundef zeroext false) #9
+  %call42 = tail call zeroext i1 @qemu_opt_get_bool(ptr noundef %opts, ptr noundef nonnull @.str.23, i1 noundef zeroext false) #10
   %server = getelementptr inbounds i8, ptr %call23, i64 41
   %frombool43 = zext i1 %call42 to i8
   store i8 %frombool43, ptr %server, align 1
-  %call44 = tail call ptr @qemu_opt_get(ptr noundef %opts, ptr noundef nonnull @.str.24) #9
+  %call44 = tail call ptr @qemu_opt_get(ptr noundef %opts, ptr noundef nonnull @.str.24) #10
   %tobool45 = icmp ne ptr %call44, null
   %has_telnet = getelementptr inbounds i8, ptr %call23, i64 46
   %frombool46 = zext i1 %tobool45 to i8
   store i8 %frombool46, ptr %has_telnet, align 2
-  %call47 = tail call zeroext i1 @qemu_opt_get_bool(ptr noundef %opts, ptr noundef nonnull @.str.24, i1 noundef zeroext false) #9
+  %call47 = tail call zeroext i1 @qemu_opt_get_bool(ptr noundef %opts, ptr noundef nonnull @.str.24, i1 noundef zeroext false) #10
   %telnet = getelementptr inbounds i8, ptr %call23, i64 47
   %frombool48 = zext i1 %call47 to i8
   store i8 %frombool48, ptr %telnet, align 1
-  %call49 = tail call ptr @qemu_opt_get(ptr noundef %opts, ptr noundef nonnull @.str.25) #9
+  %call49 = tail call ptr @qemu_opt_get(ptr noundef %opts, ptr noundef nonnull @.str.25) #10
   %tobool50 = icmp ne ptr %call49, null
   %has_tn3270 = getelementptr inbounds i8, ptr %call23, i64 48
   %frombool51 = zext i1 %tobool50 to i8
   store i8 %frombool51, ptr %has_tn3270, align 8
-  %call52 = tail call zeroext i1 @qemu_opt_get_bool(ptr noundef %opts, ptr noundef nonnull @.str.25, i1 noundef zeroext false) #9
+  %call52 = tail call zeroext i1 @qemu_opt_get_bool(ptr noundef %opts, ptr noundef nonnull @.str.25, i1 noundef zeroext false) #10
   %tn3270 = getelementptr inbounds i8, ptr %call23, i64 49
   %frombool53 = zext i1 %call52 to i8
   store i8 %frombool53, ptr %tn3270, align 1
-  %call54 = tail call ptr @qemu_opt_get(ptr noundef %opts, ptr noundef nonnull @.str.26) #9
+  %call54 = tail call ptr @qemu_opt_get(ptr noundef %opts, ptr noundef nonnull @.str.26) #10
   %tobool55 = icmp ne ptr %call54, null
   %has_websocket = getelementptr inbounds i8, ptr %call23, i64 50
   %frombool56 = zext i1 %tobool55 to i8
   store i8 %frombool56, ptr %has_websocket, align 2
-  %call57 = tail call zeroext i1 @qemu_opt_get_bool(ptr noundef %opts, ptr noundef nonnull @.str.26, i1 noundef zeroext false) #9
+  %call57 = tail call zeroext i1 @qemu_opt_get_bool(ptr noundef %opts, ptr noundef nonnull @.str.26, i1 noundef zeroext false) #10
   %websocket = getelementptr inbounds i8, ptr %call23, i64 51
   %frombool58 = zext i1 %call57 to i8
   store i8 %frombool58, ptr %websocket, align 1
-  %call59 = tail call ptr @qemu_opt_find(ptr noundef %opts, ptr noundef nonnull @.str.27) #9
+  %call59 = tail call ptr @qemu_opt_find(ptr noundef %opts, ptr noundef nonnull @.str.27) #10
   %tobool60.not = icmp eq ptr %call59, null
   br i1 %tobool60.not, label %lor.rhs61, label %lor.end64
 
@@ -579,35 +579,35 @@ lor.end64:                                        ; preds = %lor.rhs61, %lor.end
   %frombool65 = phi i8 [ 1, %lor.end40 ], [ %3, %lor.rhs61 ]
   %has_wait = getelementptr inbounds i8, ptr %call23, i64 42
   store i8 %frombool65, ptr %has_wait, align 2
-  %call66 = tail call zeroext i1 @qemu_opt_get_bool(ptr noundef %opts, ptr noundef nonnull @.str.27, i1 noundef zeroext true) #9
+  %call66 = tail call zeroext i1 @qemu_opt_get_bool(ptr noundef %opts, ptr noundef nonnull @.str.27, i1 noundef zeroext true) #10
   %wait = getelementptr inbounds i8, ptr %call23, i64 43
   %frombool67 = zext i1 %call66 to i8
   store i8 %frombool67, ptr %wait, align 1
-  %call68 = tail call ptr @qemu_opt_find(ptr noundef %opts, ptr noundef nonnull @.str.28) #9
+  %call68 = tail call ptr @qemu_opt_find(ptr noundef %opts, ptr noundef nonnull @.str.28) #10
   %tobool69 = icmp ne ptr %call68, null
   %has_reconnect = getelementptr inbounds i8, ptr %call23, i64 52
   %frombool70 = zext i1 %tobool69 to i8
   store i8 %frombool70, ptr %has_reconnect, align 4
-  %call71 = tail call i64 @qemu_opt_get_number(ptr noundef %opts, ptr noundef nonnull @.str.28, i64 noundef 0) #9
+  %call71 = tail call i64 @qemu_opt_get_number(ptr noundef %opts, ptr noundef nonnull @.str.28, i64 noundef 0) #10
   %reconnect = getelementptr inbounds i8, ptr %call23, i64 56
   store i64 %call71, ptr %reconnect, align 8
-  %call72 = tail call ptr @qemu_opt_get(ptr noundef %opts, ptr noundef nonnull @.str.29) #9
-  %call73 = tail call noalias ptr @g_strdup(ptr noundef %call72) #9
+  %call72 = tail call ptr @qemu_opt_get(ptr noundef %opts, ptr noundef nonnull @.str.29) #10
+  %call73 = tail call noalias ptr @g_strdup(ptr noundef %call72) #10
   %tls_creds = getelementptr inbounds i8, ptr %call23, i64 24
   store ptr %call73, ptr %tls_creds, align 8
-  %call74 = tail call ptr @qemu_opt_get(ptr noundef %opts, ptr noundef nonnull @.str.30) #9
-  %call75 = tail call noalias ptr @g_strdup(ptr noundef %call74) #9
+  %call74 = tail call ptr @qemu_opt_get(ptr noundef %opts, ptr noundef nonnull @.str.30) #10
+  %call75 = tail call noalias ptr @g_strdup(ptr noundef %call74) #10
   %tls_authz = getelementptr inbounds i8, ptr %call23, i64 32
   store ptr %call75, ptr %tls_authz, align 8
-  %call76 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #10
+  %call76 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #11
   br i1 %tobool, label %if.then78, label %if.else
 
 if.then78:                                        ; preds = %lor.end64
   store i32 1, ptr %call76, align 8
-  %call80 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #10
+  %call80 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #11
   %u81 = getelementptr inbounds i8, ptr %call76, i64 8
   store ptr %call80, ptr %u81, align 8
-  %call83 = tail call noalias ptr @g_strdup(ptr noundef nonnull %call) #9
+  %call83 = tail call noalias ptr @g_strdup(ptr noundef nonnull %call) #10
   store ptr %call83, ptr %call80, align 8
   %has_tight = getelementptr inbounds i8, ptr %call80, i64 10
   store i8 1, ptr %has_tight, align 2
@@ -625,24 +625,24 @@ if.else:                                          ; preds = %lor.end64
 
 if.then92:                                        ; preds = %if.else
   store i32 0, ptr %call76, align 8
-  %call94 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc_n(i64 noundef 1, i64 noundef 32) #10
+  %call94 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc_n(i64 noundef 1, i64 noundef 32) #11
   store ptr %call94, ptr %u95, align 8
-  %call100 = tail call noalias ptr @g_strdup(ptr noundef nonnull %call1) #9
-  %call102 = tail call noalias ptr @g_strdup(ptr noundef %call2) #9
-  %call103 = tail call ptr @qemu_opt_get(ptr noundef %opts, ptr noundef nonnull @.str.31) #9
+  %call100 = tail call noalias ptr @g_strdup(ptr noundef nonnull %call1) #10
+  %call102 = tail call noalias ptr @g_strdup(ptr noundef %call2) #10
+  %call103 = tail call ptr @qemu_opt_get(ptr noundef %opts, ptr noundef nonnull @.str.31) #10
   %tobool104 = icmp ne ptr %call103, null
   %frombool105 = zext i1 %tobool104 to i8
-  %call106 = tail call i64 @qemu_opt_get_number(ptr noundef %opts, ptr noundef nonnull @.str.31, i64 noundef 0) #9
+  %call106 = tail call i64 @qemu_opt_get_number(ptr noundef %opts, ptr noundef nonnull @.str.31, i64 noundef 0) #10
   %conv = trunc i64 %call106 to i16
-  %call107 = tail call ptr @qemu_opt_get(ptr noundef %opts, ptr noundef nonnull @.str.32) #9
+  %call107 = tail call ptr @qemu_opt_get(ptr noundef %opts, ptr noundef nonnull @.str.32) #10
   %tobool108 = icmp ne ptr %call107, null
   %frombool109 = zext i1 %tobool108 to i8
-  %call110 = tail call zeroext i1 @qemu_opt_get_bool(ptr noundef %opts, ptr noundef nonnull @.str.32, i1 noundef zeroext false) #9
+  %call110 = tail call zeroext i1 @qemu_opt_get_bool(ptr noundef %opts, ptr noundef nonnull @.str.32, i1 noundef zeroext false) #10
   %frombool111 = zext i1 %call110 to i8
-  %call112 = tail call ptr @qemu_opt_get(ptr noundef %opts, ptr noundef nonnull @.str.33) #9
+  %call112 = tail call ptr @qemu_opt_get(ptr noundef %opts, ptr noundef nonnull @.str.33) #10
   %tobool113 = icmp ne ptr %call112, null
   %frombool114 = zext i1 %tobool113 to i8
-  %call115 = tail call zeroext i1 @qemu_opt_get_bool(ptr noundef %opts, ptr noundef nonnull @.str.33, i1 noundef zeroext false) #9
+  %call115 = tail call zeroext i1 @qemu_opt_get_bool(ptr noundef %opts, ptr noundef nonnull @.str.33, i1 noundef zeroext false) #10
   %frombool116 = zext i1 %call115 to i8
   store ptr %call100, ptr %call94, align 8
   %.compoundliteral.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %call94, i64 8
@@ -669,9 +669,9 @@ if.then92:                                        ; preds = %if.else
 
 if.else117:                                       ; preds = %if.else
   store i32 3, ptr %call76, align 8
-  %call119 = tail call noalias dereferenceable_or_null(8) ptr @g_malloc_n(i64 noundef 1, i64 noundef 8) #10
+  %call119 = tail call noalias dereferenceable_or_null(8) ptr @g_malloc_n(i64 noundef 1, i64 noundef 8) #11
   store ptr %call119, ptr %u95, align 8
-  %call122 = tail call noalias ptr @g_strdup(ptr noundef %call3) #9
+  %call122 = tail call noalias ptr @g_strdup(ptr noundef %call3) #10
   store ptr %call122, ptr %call119, align 8
   br label %if.end126
 
@@ -688,7 +688,7 @@ return:                                           ; preds = %if.end126, %if.then
 define internal void @qmp_chardev_open_socket(ptr noundef %chr, ptr nocapture noundef readonly %backend, ptr nocapture noundef writeonly %be_opened, ptr noundef %errp) #0 {
 entry:
   %.compoundliteral = alloca %struct.YankInstance, align 8
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #9
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #10
   %u = getelementptr inbounds i8, ptr %backend, i64 8
   %0 = load ptr, ptr %u, align 8
   %has_nodelay = getelementptr inbounds i8, ptr %0, i64 44
@@ -805,19 +805,19 @@ cond.end58:                                       ; preds = %cond.end49, %cond.t
   br i1 %tobool75.not, label %if.end98, label %if.then
 
 if.then:                                          ; preds = %cond.end58
-  %call76 = tail call ptr @object_get_objects_root() #9
+  %call76 = tail call ptr @object_get_objects_root() #10
   %27 = load ptr, ptr %tls_creds, align 8
-  %call78 = tail call ptr @object_resolve_path_component(ptr noundef %call76, ptr noundef %27) #9
+  %call78 = tail call ptr @object_resolve_path_component(ptr noundef %call76, ptr noundef %27) #10
   %tobool79.not = icmp eq ptr %call78, null
   br i1 %tobool79.not, label %if.then80, label %if.end
 
 if.then80:                                        ; preds = %if.then
   %28 = load ptr, ptr %tls_creds, align 8
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.7, i32 noundef 1353, ptr noundef nonnull @__func__.qmp_chardev_open_socket, ptr noundef nonnull @.str.34, ptr noundef %28) #9
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.7, i32 noundef 1353, ptr noundef nonnull @__func__.qmp_chardev_open_socket, ptr noundef nonnull @.str.34, ptr noundef %28) #10
   br label %if.end136
 
 if.end:                                           ; preds = %if.then
-  %call82 = tail call ptr @object_dynamic_cast(ptr noundef nonnull %call78, ptr noundef nonnull @.str.29) #9
+  %call82 = tail call ptr @object_dynamic_cast(ptr noundef nonnull %call78, ptr noundef nonnull @.str.29) #10
   %tls_creds83 = getelementptr inbounds i8, ptr %call.i, i64 184
   store ptr %call82, ptr %tls_creds83, align 8
   %tobool85.not = icmp eq ptr %call82, null
@@ -825,25 +825,25 @@ if.end:                                           ; preds = %if.then
 
 if.then86:                                        ; preds = %if.end
   %29 = load ptr, ptr %tls_creds, align 8
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.7, i32 noundef 1361, ptr noundef nonnull @__func__.qmp_chardev_open_socket, ptr noundef nonnull @.str.35, ptr noundef %29) #9
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.7, i32 noundef 1361, ptr noundef nonnull @__func__.qmp_chardev_open_socket, ptr noundef nonnull @.str.35, ptr noundef %29) #10
   br label %if.end136
 
 if.end88:                                         ; preds = %if.end
-  %call90 = tail call ptr @object_ref(ptr noundef nonnull %call82) #9
+  %call90 = tail call ptr @object_ref(ptr noundef nonnull %call82) #10
   %30 = load ptr, ptr %tls_creds83, align 8
   %cond94 = zext i1 %cond10 to i32
-  %call95 = tail call zeroext i1 @qcrypto_tls_creds_check_endpoint(ptr noundef %30, i32 noundef %cond94, ptr noundef %errp) #9
+  %call95 = tail call zeroext i1 @qcrypto_tls_creds_check_endpoint(ptr noundef %30, i32 noundef %cond94, ptr noundef %errp) #10
   br i1 %call95, label %if.end98, label %if.end136
 
 if.end98:                                         ; preds = %if.end88, %cond.end58
   %tls_authz = getelementptr inbounds i8, ptr %0, i64 32
   %31 = load ptr, ptr %tls_authz, align 8
-  %call99 = tail call noalias ptr @g_strdup(ptr noundef %31) #9
+  %call99 = tail call noalias ptr @g_strdup(ptr noundef %31) #10
   %tls_authz100 = getelementptr inbounds i8, ptr %call.i, i64 192
   store ptr %call99, ptr %tls_authz100, align 8
   %addr101 = getelementptr inbounds i8, ptr %0, i64 16
   %32 = load ptr, ptr %addr101, align 8
-  %call102 = tail call ptr @socket_address_flatten(ptr noundef %32) #9
+  %call102 = tail call ptr @socket_address_flatten(ptr noundef %32) #10
   %addr103 = getelementptr inbounds i8, ptr %call.i, i64 256
   store ptr %call102, ptr %addr103, align 8
   %call102.val = load i32, ptr %call102, align 8
@@ -859,7 +859,7 @@ sw.bb.i:                                          ; preds = %if.end98
   br i1 %tobool.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %sw.bb.i
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.7, i32 noundef 1260, ptr noundef nonnull @__func__.qmp_chardev_validate_socket, ptr noundef nonnull @.str.36) #9
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.7, i32 noundef 1260, ptr noundef nonnull @__func__.qmp_chardev_validate_socket, ptr noundef nonnull @.str.36) #10
   br label %if.end136
 
 if.end.i:                                         ; preds = %sw.bb.i
@@ -879,7 +879,7 @@ land.lhs.true3.i:                                 ; preds = %land.lhs.true.i
   br i1 %tobool4.i, label %sw.epilog.i, label %if.then5.i
 
 if.then5.i:                                       ; preds = %land.lhs.true3.i, %land.lhs.true.i
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.7, i32 noundef 1267, ptr noundef nonnull @__func__.qmp_chardev_validate_socket, ptr noundef nonnull @.str.37) #9
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.7, i32 noundef 1267, ptr noundef nonnull @__func__.qmp_chardev_validate_socket, ptr noundef nonnull @.str.37) #10
   br label %if.end136
 
 sw.bb7.i:                                         ; preds = %if.end98
@@ -888,7 +888,7 @@ sw.bb7.i:                                         ; preds = %if.end98
   br i1 %tobool9.not.i, label %sw.epilog.i, label %if.then10.i
 
 if.then10.i:                                      ; preds = %sw.bb7.i
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.7, i32 noundef 1276, ptr noundef nonnull @__func__.qmp_chardev_validate_socket, ptr noundef nonnull @.str.38) #9
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.7, i32 noundef 1276, ptr noundef nonnull @__func__.qmp_chardev_validate_socket, ptr noundef nonnull @.str.38) #10
   br label %if.end136
 
 sw.bb13.i:                                        ; preds = %if.end98
@@ -897,7 +897,7 @@ sw.bb13.i:                                        ; preds = %if.end98
   br i1 %tobool15.not.i, label %sw.epilog.i, label %if.then16.i
 
 if.then16.i:                                      ; preds = %sw.bb13.i
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.7, i32 noundef 1288, ptr noundef nonnull @__func__.qmp_chardev_validate_socket, ptr noundef nonnull @.str.39) #9
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.7, i32 noundef 1288, ptr noundef nonnull @__func__.qmp_chardev_validate_socket, ptr noundef nonnull @.str.39) #10
   br label %if.end136
 
 sw.epilog.i:                                      ; preds = %sw.bb13.i, %sw.bb7.i, %land.lhs.true3.i, %if.end.i, %if.end98
@@ -911,7 +911,7 @@ land.lhs.true19.i:                                ; preds = %sw.epilog.i
   br i1 %tobool21.not.i, label %if.then22.i, label %if.end23.i
 
 if.then22.i:                                      ; preds = %land.lhs.true19.i
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.7, i32 noundef 1297, ptr noundef nonnull @__func__.qmp_chardev_validate_socket, ptr noundef nonnull @.str.40) #9
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.7, i32 noundef 1297, ptr noundef nonnull @__func__.qmp_chardev_validate_socket, ptr noundef nonnull @.str.40) #10
   br label %if.end136
 
 if.end23.i:                                       ; preds = %land.lhs.true19.i, %sw.epilog.i
@@ -931,7 +931,7 @@ if.then28.i:                                      ; preds = %lor.lhs.false.i, %i
   br i1 %tobool30.i, label %if.then31.i, label %if.end106
 
 if.then31.i:                                      ; preds = %if.then28.i
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.7, i32 noundef 1306, ptr noundef nonnull @__func__.qmp_chardev_validate_socket, ptr noundef nonnull @.str.41) #9
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.7, i32 noundef 1306, ptr noundef nonnull @__func__.qmp_chardev_validate_socket, ptr noundef nonnull @.str.41) #10
   br label %if.end136
 
 if.else.i:                                        ; preds = %lor.lhs.false.i
@@ -946,7 +946,7 @@ land.lhs.true34.i:                                ; preds = %if.else.i
   br i1 %tobool35.i, label %if.then36.i, label %if.end37.i
 
 if.then36.i:                                      ; preds = %land.lhs.true34.i
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.7, i32 noundef 1311, ptr noundef nonnull @__func__.qmp_chardev_validate_socket, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.43) #9
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.7, i32 noundef 1311, ptr noundef nonnull @__func__.qmp_chardev_validate_socket, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.43) #10
   br label %if.end136
 
 if.end37.i:                                       ; preds = %land.lhs.true34.i, %if.else.i
@@ -955,17 +955,17 @@ if.end37.i:                                       ; preds = %land.lhs.true34.i, 
   br i1 %tobool38.i, label %if.then39.i, label %if.end106
 
 if.then39.i:                                      ; preds = %if.end37.i
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.7, i32 noundef 1317, ptr noundef nonnull @__func__.qmp_chardev_validate_socket, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.44) #9
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.7, i32 noundef 1317, ptr noundef nonnull @__func__.qmp_chardev_validate_socket, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.44) #10
   br label %if.end136
 
 if.end106:                                        ; preds = %if.end37.i, %if.then28.i
-  tail call void @qemu_chr_set_feature(ptr noundef %chr, i32 noundef 0) #9
+  tail call void @qemu_chr_set_feature(ptr noundef %chr, i32 noundef 0) #10
   %47 = load i32, ptr %call102, align 8
   %cmp = icmp eq i32 %47, 1
   br i1 %cmp, label %if.then108, label %if.end109
 
 if.then108:                                       ; preds = %if.end106
-  tail call void @qemu_chr_set_feature(ptr noundef %chr, i32 noundef 1) #9
+  tail call void @qemu_chr_set_feature(ptr noundef %chr, i32 noundef 1) #10
   br label %if.end109
 
 if.end109:                                        ; preds = %if.then108, %if.end106
@@ -980,7 +980,7 @@ if.then111:                                       ; preds = %if.end109
   %label = getelementptr inbounds i8, ptr %chr, i64 96
   %49 = load ptr, ptr %label, align 8
   store ptr %49, ptr %u113, align 8
-  %call114 = call zeroext i1 @yank_register_instance(ptr noundef nonnull %.compoundliteral, ptr noundef %errp) #9
+  %call114 = call zeroext i1 @yank_register_instance(ptr noundef nonnull %.compoundliteral, ptr noundef %errp) #10
   br i1 %call114, label %if.end117, label %if.end136
 
 if.end117:                                        ; preds = %if.then111, %if.end109
@@ -994,7 +994,7 @@ if.end117:                                        ; preds = %if.then111, %if.end
 
 if.then120:                                       ; preds = %if.end117
   %51 = select i1 %cond20, i1 true, i1 %cond30
-  %call.i.i = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #9
+  %call.i.i = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #10
   br i1 %51, label %if.then.i56, label %if.end.i51
 
 if.then.i56:                                      ; preds = %if.then120
@@ -1003,15 +1003,15 @@ if.then.i56:                                      ; preds = %if.then120
   br label %if.end.i51
 
 if.end.i51:                                       ; preds = %if.then.i56, %if.then120
-  %call2.i = call ptr @qio_net_listener_new() #9
+  %call2.i = call ptr @qio_net_listener_new() #10
   %listener.i = getelementptr inbounds i8, ptr %call.i.i, i64 168
   store ptr %call2.i, ptr %listener.i, align 8
   %label.i = getelementptr inbounds i8, ptr %chr, i64 96
   %52 = load ptr, ptr %label.i, align 8
-  %call3.i = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.56, ptr noundef %52) #9
+  %call3.i = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.56, ptr noundef %52) #10
   %53 = load ptr, ptr %listener.i, align 8
-  call void @qio_net_listener_set_name(ptr noundef %53, ptr noundef %call3.i) #9
-  call void @g_free(ptr noundef %call3.i) #9
+  call void @qio_net_listener_set_name(ptr noundef %53, ptr noundef %call3.i) #10
+  call void @g_free(ptr noundef %call3.i) #10
   %addr.i = getelementptr inbounds i8, ptr %call.i.i, i64 256
   %54 = load ptr, ptr %addr.i, align 8
   %55 = load i32, ptr %54, align 8
@@ -1027,26 +1027,26 @@ land.lhs.true.i55:                                ; preds = %if.end.i51
 
 if.end8.i:                                        ; preds = %land.lhs.true.i55, %if.end.i51
   %58 = load ptr, ptr %listener.i, align 8
-  %call11.i = call i32 @qio_net_listener_open_sync(ptr noundef %58, ptr noundef nonnull %54, i32 noundef 1, ptr noundef %errp) #9
+  %call11.i = call i32 @qio_net_listener_open_sync(ptr noundef %58, ptr noundef nonnull %54, i32 noundef 1, ptr noundef %errp) #10
   %cmp12.i = icmp slt i32 %call11.i, 0
   br i1 %cmp12.i, label %if.then13.i, label %if.end16.i
 
 if.then13.i:                                      ; preds = %if.end8.i
   %59 = load ptr, ptr %listener.i, align 8
-  call void @object_unref(ptr noundef %59) #9
+  call void @object_unref(ptr noundef %59) #10
   store ptr null, ptr %listener.i, align 8
   br label %if.end136
 
 if.end16.i:                                       ; preds = %if.end8.i
   %60 = load ptr, ptr %addr.i, align 8
-  call void @qapi_free_SocketAddress(ptr noundef %60) #9
+  call void @qapi_free_SocketAddress(ptr noundef %60) #10
   %61 = load ptr, ptr %listener.i, align 8
   %sioc.i = getelementptr inbounds i8, ptr %61, i64 48
   %62 = load ptr, ptr %sioc.i, align 8
   %63 = load ptr, ptr %62, align 8
   %fd.i = getelementptr inbounds i8, ptr %63, i64 96
   %64 = load i32, ptr %fd.i, align 8
-  %call19.i = call ptr @socket_local_address(i32 noundef %64, ptr noundef %errp) #9
+  %call19.i = call ptr @socket_local_address(i32 noundef %64, ptr noundef %errp) #10
   store ptr %call19.i, ptr %addr.i, align 8
   br label %skip_listen.i
 
@@ -1062,11 +1062,11 @@ if.else.i52:                                      ; preds = %skip_listen.i
   %65 = load ptr, ptr %listener.i, align 8
   %gcontext.i = getelementptr inbounds i8, ptr %chr, i64 136
   %66 = load ptr, ptr %gcontext.i, align 8
-  call void @qio_net_listener_set_client_func_full(ptr noundef %65, ptr noundef nonnull @tcp_chr_accept, ptr noundef nonnull %chr, ptr noundef null, ptr noundef %66) #9
+  call void @qio_net_listener_set_client_func_full(ptr noundef %65, ptr noundef nonnull @tcp_chr_accept, ptr noundef nonnull %chr, ptr noundef null, ptr noundef %66) #10
   br label %if.end136
 
 if.else:                                          ; preds = %if.end117
-  %call.i.i57 = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #9
+  %call.i.i57 = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #10
   %cmp.i58 = icmp sgt i64 %cond59, 0
   br i1 %cmp.i58, label %if.then.i61, label %if.else.i59
 
@@ -1089,7 +1089,7 @@ define internal range(i32 -1, 1) i32 @tcp_chr_wait_connected(ptr noundef %chr, p
 entry:
   %optset = alloca [4 x i8], align 1
   %err = alloca ptr, align 8
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #9
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #10
   %is_telnet = getelementptr inbounds i8, ptr %call.i, i64 265
   %0 = load i8, ptr %is_telnet, align 1
   %frombool = and i8 %0, 1
@@ -1122,7 +1122,7 @@ for.body:                                         ; preds = %entry, %for.inc
 if.then:                                          ; preds = %for.body
   %arrayidx10 = getelementptr [4 x ptr], ptr @__const.tcp_chr_wait_connected.opts, i64 0, i64 %i.023
   %5 = load ptr, ptr %arrayidx10, align 8
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.7, i32 noundef 988, ptr noundef nonnull @__func__.tcp_chr_wait_connected, ptr noundef nonnull @.str.76, ptr noundef %5) #9
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.7, i32 noundef 988, ptr noundef nonnull @__func__.tcp_chr_wait_connected, ptr noundef nonnull @.str.76, ptr noundef %5) #10
   br label %return
 
 for.inc:                                          ; preds = %for.body
@@ -1137,9 +1137,9 @@ for.end:                                          ; preds = %for.inc
   br i1 %tobool.not.i, label %tcp_chr_reconn_timer_cancel.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %for.end
-  tail call void @g_source_destroy(ptr noundef nonnull %6) #9
+  tail call void @g_source_destroy(ptr noundef nonnull %6) #10
   %7 = load ptr, ptr %reconnect_timer.i, align 8
-  tail call void @g_source_unref(ptr noundef %7) #9
+  tail call void @g_source_unref(ptr noundef %7) #10
   store ptr null, ptr %reconnect_timer.i, align 8
   br label %tcp_chr_reconn_timer_cancel.exit
 
@@ -1156,17 +1156,17 @@ if.then12:                                        ; preds = %tcp_chr_reconn_time
   br i1 %tobool13.not, label %if.then14, label %if.end15
 
 if.then14:                                        ; preds = %if.then12
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.7, i32 noundef 1010, ptr noundef nonnull @__func__.tcp_chr_wait_connected, ptr noundef nonnull @.str.77) #9
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.7, i32 noundef 1010, ptr noundef nonnull @__func__.tcp_chr_wait_connected, ptr noundef nonnull @.str.77) #10
   br label %return
 
 if.end15:                                         ; preds = %if.then12
   %gcontext = getelementptr inbounds i8, ptr %chr, i64 136
   %10 = load ptr, ptr %gcontext, align 8
-  %call16 = tail call i32 @g_main_context_acquire(ptr noundef %10) #9
+  %call16 = tail call i32 @g_main_context_acquire(ptr noundef %10) #10
   %11 = load ptr, ptr %connect_task, align 8
-  tail call void @qio_task_wait_thread(ptr noundef %11) #9
+  tail call void @qio_task_wait_thread(ptr noundef %11) #10
   %12 = load ptr, ptr %gcontext, align 8
-  tail call void @g_main_context_release(ptr noundef %12) #9
+  tail call void @g_main_context_release(ptr noundef %12) #10
   %13 = load ptr, ptr %connect_task, align 8
   %tobool20.not = icmp eq ptr %13, null
   br i1 %tobool20.not, label %if.end15.if.end23_crit_edge, label %if.else
@@ -1176,7 +1176,7 @@ if.end15.if.end23_crit_edge:                      ; preds = %if.end15
   br label %if.end23
 
 if.else:                                          ; preds = %if.end15
-  tail call void @__assert_fail(ptr noundef nonnull @.str.78, ptr noundef nonnull @.str.7, i32 noundef 1033, ptr noundef nonnull @__PRETTY_FUNCTION__.tcp_chr_wait_connected) #11
+  tail call void @__assert_fail(ptr noundef nonnull @.str.78, ptr noundef nonnull @.str.7, i32 noundef 1033, ptr noundef nonnull @__PRETTY_FUNCTION__.tcp_chr_wait_connected) #12
   unreachable
 
 if.end23:                                         ; preds = %if.end15.if.end23_crit_edge, %tcp_chr_reconn_timer_cancel.exit
@@ -1211,14 +1211,14 @@ if.then31:                                        ; preds = %if.else28
   br i1 %tobool32.not, label %if.else36, label %if.then33
 
 if.then33:                                        ; preds = %if.then31
-  call void @error_free(ptr noundef %17) #9
+  call void @error_free(ptr noundef %17) #10
   %18 = load i64, ptr %reconnect_time, align 8
   %mul35 = mul i64 %18, 1000000
-  call void @g_usleep(i64 noundef %mul35) #9
+  call void @g_usleep(i64 noundef %mul35) #10
   br label %if.end39
 
 if.else36:                                        ; preds = %if.then31
-  call void @error_propagate(ptr noundef %errp, ptr noundef %17) #9
+  call void @error_propagate(ptr noundef %errp, ptr noundef %17) #10
   br label %return
 
 if.end39:                                         ; preds = %if.else28, %if.then33, %if.then27
@@ -1234,7 +1234,7 @@ return:                                           ; preds = %if.end39, %if.end23
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @tcp_chr_write(ptr noundef %chr, ptr noundef %buf, i32 noundef %len) #0 {
 entry:
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #9
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #10
   %state = getelementptr inbounds i8, ptr %call.i, i64 200
   %0 = load i32, ptr %state, align 8
   %cmp = icmp eq i32 %0, 2
@@ -1248,12 +1248,12 @@ if.then:                                          ; preds = %entry
   %2 = load ptr, ptr %write_msgfds, align 8
   %write_msgfds_num = getelementptr inbounds i8, ptr %call.i, i64 240
   %3 = load i64, ptr %write_msgfds_num, align 8
-  %call1 = tail call i32 @io_channel_send_full(ptr noundef %1, ptr noundef %buf, i64 noundef %conv, ptr noundef %2, i64 noundef %3) #9
+  %call1 = tail call i32 @io_channel_send_full(ptr noundef %1, ptr noundef %buf, i64 noundef %conv, ptr noundef %2, i64 noundef %3) #10
   %cmp2 = icmp slt i32 %call1, 0
   br i1 %cmp2, label %land.lhs.true, label %land.lhs.true7
 
 land.lhs.true:                                    ; preds = %if.then
-  %call4 = tail call ptr @__errno_location() #12
+  %call4 = tail call ptr @__errno_location() #13
   %4 = load i32, ptr %call4, align 4
   %cmp5 = icmp eq i32 %4, 11
   br i1 %cmp5, label %return, label %land.lhs.true7
@@ -1265,7 +1265,7 @@ land.lhs.true7:                                   ; preds = %land.lhs.true, %if.
 
 if.then9:                                         ; preds = %land.lhs.true7
   %6 = load ptr, ptr %write_msgfds, align 8
-  tail call void @g_free(ptr noundef %6) #9
+  tail call void @g_free(ptr noundef %6) #10
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %write_msgfds, i8 0, i64 16, i1 false)
   br label %if.end
 
@@ -1273,21 +1273,21 @@ if.end:                                           ; preds = %if.then9, %land.lhs
   br i1 %cmp2, label %land.lhs.true15, label %return
 
 land.lhs.true15:                                  ; preds = %if.end
-  %.pre = tail call ptr @__errno_location() #12
+  %.pre = tail call ptr @__errno_location() #13
   %.pr = load i32, ptr %.pre, align 4
   %cmp17.not = icmp eq i32 %.pr, 11
   br i1 %cmp17.not, label %return, label %if.then19
 
 if.then19:                                        ; preds = %land.lhs.true15
-  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV) #9
-  %call.i4.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #9
+  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV) #10
+  %call.i4.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #10
   %state.i = getelementptr inbounds i8, ptr %call.i4.i, i64 200
   %7 = load i32, ptr %state.i, align 8
   %cmp.not.i = icmp eq i32 %7, 2
   br i1 %cmp.not.i, label %tcp_chr_read_poll.exit, label %if.then23
 
 tcp_chr_read_poll.exit:                           ; preds = %if.then19
-  %call2.i = tail call i32 @qemu_chr_be_can_write(ptr noundef %call.i.i) #9
+  %call2.i = tail call i32 @qemu_chr_be_can_write(ptr noundef %call.i.i) #10
   %max_size.i = getelementptr inbounds i8, ptr %call.i4.i, i64 204
   store i32 %call2.i, ptr %max_size.i, align 4
   %cmp21 = icmp slt i32 %call2.i, 1
@@ -1298,7 +1298,7 @@ if.then23:                                        ; preds = %if.then19, %tcp_chr
   br label %return
 
 if.else:                                          ; preds = %entry
-  %call26 = tail call ptr @__errno_location() #12
+  %call26 = tail call ptr @__errno_location() #13
   store i32 5, ptr %call26, align 4
   br label %return
 
@@ -1310,7 +1310,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @tcp_chr_sync_read(ptr noundef %chr, ptr noundef %buf, i32 noundef %len) #0 {
 entry:
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #9
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #10
   %state = getelementptr inbounds i8, ptr %call.i, i64 200
   %0 = load i32, ptr %state, align 8
   %cmp.not = icmp eq i32 %0, 2
@@ -1319,11 +1319,11 @@ entry:
 if.end:                                           ; preds = %entry
   %ioc = getelementptr inbounds i8, ptr %call.i, i64 152
   %1 = load ptr, ptr %ioc, align 8
-  %call1 = tail call i32 @qio_channel_set_blocking(ptr noundef %1, i1 noundef zeroext true, ptr noundef null) #9
+  %call1 = tail call i32 @qio_channel_set_blocking(ptr noundef %1, i1 noundef zeroext true, ptr noundef null) #10
   %conv = sext i32 %len to i64
   %call2 = tail call fastcc i64 @tcp_chr_recv(ptr noundef %chr, ptr noundef %buf, i64 noundef %conv)
   %conv3 = trunc nsw i64 %call2 to i32
-  %call4 = tail call ptr @__errno_location() #12
+  %call4 = tail call ptr @__errno_location() #13
   %2 = load i32, ptr %call4, align 4
   %3 = load i32, ptr %state, align 8
   %cmp6.not = icmp eq i32 %3, 0
@@ -1331,7 +1331,7 @@ if.end:                                           ; preds = %entry
 
 if.then8:                                         ; preds = %if.end
   %4 = load ptr, ptr %ioc, align 8
-  %call10 = tail call i32 @qio_channel_set_blocking(ptr noundef %4, i1 noundef zeroext false, ptr noundef null) #9
+  %call10 = tail call i32 @qio_channel_set_blocking(ptr noundef %4, i1 noundef zeroext false, ptr noundef null) #10
   br label %if.end11
 
 if.end11:                                         ; preds = %if.then8, %if.end
@@ -1342,9 +1342,9 @@ if.then14:                                        ; preds = %if.end11
   %5 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %6 = inttoptr i64 %5 to ptr
   %chr_write_lock.i = getelementptr inbounds i8, ptr %chr, i64 40
-  tail call void %6(ptr noundef nonnull %chr_write_lock.i, ptr noundef nonnull @.str.7, i32 noundef 479) #9
+  tail call void %6(ptr noundef nonnull %chr_write_lock.i, ptr noundef nonnull @.str.7, i32 noundef 479) #10
   tail call fastcc void @tcp_chr_disconnect_locked(ptr noundef %chr)
-  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %chr_write_lock.i, ptr noundef nonnull @.str.7, i32 noundef 481) #9
+  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %chr_write_lock.i, ptr noundef nonnull @.str.7, i32 noundef 481) #10
   br label %if.end15
 
 if.end15:                                         ; preds = %if.then14, %if.end11
@@ -1362,16 +1362,16 @@ entry:
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
   %chr_write_lock = getelementptr inbounds i8, ptr %chr, i64 40
-  tail call void %1(ptr noundef nonnull %chr_write_lock, ptr noundef nonnull @.str.7, i32 noundef 479) #9
+  tail call void %1(ptr noundef nonnull %chr_write_lock, ptr noundef nonnull @.str.7, i32 noundef 479) #10
   tail call fastcc void @tcp_chr_disconnect_locked(ptr noundef %chr)
-  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %chr_write_lock, ptr noundef nonnull @.str.7, i32 noundef 481) #9
+  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %chr_write_lock, ptr noundef nonnull @.str.7, i32 noundef 481) #10
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @tcp_get_msgfds(ptr noundef %chr, ptr nocapture noundef writeonly %fds, i32 noundef %num) #0 {
 entry:
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #9
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #10
   %read_msgfds_num = getelementptr inbounds i8, ptr %call.i, i64 224
   %0 = load i64, ptr %read_msgfds_num, align 8
   %conv = sext i32 %num to i64
@@ -1382,7 +1382,7 @@ entry:
   br i1 %cmp5, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.79, ptr noundef nonnull @.str.7, i32 noundef 229, ptr noundef nonnull @__PRETTY_FUNCTION__.tcp_get_msgfds) #11
+  tail call void @__assert_fail(ptr noundef nonnull @.str.79, ptr noundef nonnull @.str.7, i32 noundef 229, ptr noundef nonnull @__PRETTY_FUNCTION__.tcp_get_msgfds) #12
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -1405,7 +1405,7 @@ for.body:                                         ; preds = %if.then7, %for.body
   %4 = load ptr, ptr %read_msgfds, align 8
   %arrayidx = getelementptr i32, ptr %4, i64 %conv918
   %5 = load i32, ptr %arrayidx, align 4
-  %call14 = tail call i32 @close(i32 noundef %5) #9
+  %call14 = tail call i32 @close(i32 noundef %5) #10
   %inc = add i32 %i.017, 1
   %conv9 = sext i32 %inc to i64
   %6 = load i64, ptr %read_msgfds_num, align 8
@@ -1414,7 +1414,7 @@ for.body:                                         ; preds = %if.then7, %for.body
 
 for.end:                                          ; preds = %for.body, %if.then7
   %7 = load ptr, ptr %read_msgfds, align 8
-  tail call void @g_free(ptr noundef %7) #9
+  tail call void @g_free(ptr noundef %7) #10
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %read_msgfds, i8 0, i64 16, i1 false)
   br label %if.end18
 
@@ -1426,14 +1426,14 @@ if.end18:                                         ; preds = %for.end, %if.end
 define internal range(i32 -1, 1) i32 @tcp_chr_add_client(ptr noundef %chr, i32 noundef %fd) #0 {
 entry:
   %.compoundliteral = alloca %struct.YankInstance, align 8
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #9
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #10
   %state = getelementptr inbounds i8, ptr %call.i, i64 200
   %0 = load i32, ptr %state, align 8
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %call1 = tail call ptr @qio_channel_socket_new_fd(i32 noundef %fd, ptr noundef null) #9
+  %call1 = tail call ptr @qio_channel_socket_new_fd(i32 noundef %fd, ptr noundef null) #10
   %tobool.not = icmp eq ptr %call1, null
   br i1 %tobool.not, label %return, label %if.end3
 
@@ -1443,22 +1443,22 @@ if.end3:                                          ; preds = %if.end
   br i1 %cmp.i, label %tcp_chr_change_state.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end3
-  tail call void @__assert_fail(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 49, ptr noundef nonnull @__PRETTY_FUNCTION__.tcp_chr_change_state) #11
+  tail call void @__assert_fail(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 49, ptr noundef nonnull @__PRETTY_FUNCTION__.tcp_chr_change_state) #12
   unreachable
 
 tcp_chr_change_state.exit:                        ; preds = %if.end3
   store i32 1, ptr %state, align 8
-  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #9
+  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #10
   %is_listen.i = getelementptr inbounds i8, ptr %call.i.i, i64 264
   %2 = load i8, ptr %is_listen.i, align 8
   %tobool.i = trunc i8 %2 to i1
   %cond.i = select i1 %tobool.i, ptr @.str.23, ptr @.str.59
   %label.i = getelementptr inbounds i8, ptr %chr, i64 96
   %3 = load ptr, ptr %label.i, align 8
-  %call1.i = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.58, ptr noundef nonnull %cond.i, ptr noundef %3) #9
-  %call.i3.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #9
-  tail call void @qio_channel_set_name(ptr noundef %call.i3.i, ptr noundef %call1.i) #9
-  tail call void @g_free(ptr noundef %call1.i) #9
+  %call1.i = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.58, ptr noundef nonnull %cond.i, ptr noundef %3) #10
+  %call.i3.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #10
+  tail call void @qio_channel_set_name(ptr noundef %call.i3.i, ptr noundef %call1.i) #10
+  tail call void @g_free(ptr noundef %call1.i) #10
   %registered_yank = getelementptr inbounds i8, ptr %call.i, i64 248
   %4 = load i8, ptr %registered_yank, align 8
   %tobool4 = trunc i8 %4 to i1
@@ -1469,13 +1469,13 @@ if.then5:                                         ; preds = %tcp_chr_change_stat
   %u = getelementptr inbounds i8, ptr %.compoundliteral, i64 8
   %5 = load ptr, ptr %label.i, align 8
   store ptr %5, ptr %u, align 8
-  %call.i10 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #9
-  call void @yank_register_function(ptr noundef nonnull %.compoundliteral, ptr noundef nonnull @char_socket_yank_iochannel, ptr noundef %call.i10) #9
+  %call.i10 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #10
+  call void @yank_register_function(ptr noundef nonnull %.compoundliteral, ptr noundef nonnull @char_socket_yank_iochannel, ptr noundef %call.i10) #10
   br label %if.end7
 
 if.end7:                                          ; preds = %if.then5, %tcp_chr_change_state.exit
   %call8 = call fastcc i32 @tcp_chr_new_client(ptr noundef nonnull %chr, ptr noundef nonnull %call1)
-  call void @object_unref(ptr noundef nonnull %call1) #9
+  call void @object_unref(ptr noundef nonnull %call1) #10
   br label %return
 
 return:                                           ; preds = %if.end, %entry, %if.end7
@@ -1486,14 +1486,14 @@ return:                                           ; preds = %if.end, %entry, %if
 ; Function Attrs: nounwind sspstrong uwtable
 define internal ptr @tcp_chr_add_watch(ptr noundef %chr, i32 noundef %cond) #0 {
 entry:
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #9
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #10
   %ioc = getelementptr inbounds i8, ptr %call.i, i64 152
   %0 = load ptr, ptr %ioc, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call2 = tail call ptr @qio_channel_create_watch(ptr noundef nonnull %0, i32 noundef %cond) #9
+  %call2 = tail call ptr @qio_channel_create_watch(ptr noundef nonnull %0, i32 noundef %cond) #10
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -1504,7 +1504,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @tcp_chr_update_read_handler(ptr noundef %chr) #0 {
 entry:
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #9
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #10
   %listener = getelementptr inbounds i8, ptr %call.i, i64 168
   %0 = load ptr, ptr %listener, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -1519,7 +1519,7 @@ land.lhs.true:                                    ; preds = %entry
 if.then:                                          ; preds = %land.lhs.true
   %gcontext = getelementptr inbounds i8, ptr %chr, i64 136
   %2 = load ptr, ptr %gcontext, align 8
-  tail call void @qio_net_listener_set_client_func_full(ptr noundef nonnull %0, ptr noundef nonnull @tcp_chr_accept, ptr noundef %chr, ptr noundef null, ptr noundef %2) #9
+  tail call void @qio_net_listener_set_client_func_full(ptr noundef nonnull %0, ptr noundef nonnull @tcp_chr_accept, ptr noundef %chr, ptr noundef null, ptr noundef %2) #10
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %land.lhs.true, %entry
@@ -1529,7 +1529,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
   br i1 %tobool2.not, label %if.end5, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  %call.i8 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV) #9
+  %call.i8 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV) #10
   tail call fastcc void @tcp_chr_telnet_init(ptr noundef %call.i8)
   br label %if.end5
 
@@ -1543,9 +1543,9 @@ declare ptr @object_class_property_add(ptr noundef, ptr noundef, ptr noundef, pt
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @char_socket_get_addr(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr nocapture readnone %opaque, ptr noundef %errp) #0 {
 entry:
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #9
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #10
   %addr = getelementptr inbounds i8, ptr %call.i, i64 256
-  %call1 = tail call zeroext i1 @visit_type_SocketAddress(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %addr, ptr noundef %errp) #9
+  %call1 = tail call zeroext i1 @visit_type_SocketAddress(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %addr, ptr noundef %errp) #10
   ret void
 }
 
@@ -1554,7 +1554,7 @@ declare ptr @object_class_property_add_bool(ptr noundef, ptr noundef, ptr nounde
 ; Function Attrs: nounwind sspstrong uwtable
 define internal zeroext i1 @char_socket_get_connected(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
 entry:
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #9
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #10
   %state = getelementptr inbounds i8, ptr %call.i, i64 200
   %0 = load i32, ptr %state, align 8
   %cmp = icmp eq i32 %0, 2
@@ -1599,10 +1599,10 @@ declare zeroext i1 @yank_register_instance(ptr noundef, ptr noundef) local_unnam
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @update_disconnected_filename(ptr noundef %s) unnamed_addr #0 {
 entry:
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %s, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV) #9
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %s, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV) #10
   %filename = getelementptr inbounds i8, ptr %call.i, i64 104
   %0 = load ptr, ptr %filename, align 8
-  tail call void @g_free(ptr noundef %0) #9
+  tail call void @g_free(ptr noundef %0) #10
   %addr = getelementptr inbounds i8, ptr %s, i64 256
   %1 = load ptr, ptr %addr, align 8
   %tobool.not = icmp eq ptr %1, null
@@ -1640,7 +1640,7 @@ qemu_chr_socket_protocol.exit.i:                  ; preds = %if.end.i.i, %sw.bb.
   %7 = load i8, ptr %is_listen.i, align 8
   %tobool.i = trunc i8 %7 to i1
   %cond.i = select i1 %tobool.i, ptr @.str.48, ptr @.str.49
-  %call4.i = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.45, ptr noundef nonnull %retval.0.i.i, ptr noundef %5, ptr noundef %6, ptr noundef nonnull %cond.i) #9
+  %call4.i = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.45, ptr noundef nonnull %retval.0.i.i, ptr noundef %5, ptr noundef %6, ptr noundef nonnull %cond.i) #10
   br label %if.end
 
 sw.bb5.i:                                         ; preds = %if.then
@@ -1677,7 +1677,7 @@ if.end16.i:                                       ; preds = %land.lhs.true12.i, 
   %13 = load i8, ptr %is_listen17.i, align 8
   %tobool18.i = trunc i8 %13 to i1
   %cond19.i = select i1 %tobool18.i, ptr @.str.48, ptr @.str.49
-  %call20.i = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.45, ptr noundef %12, ptr noundef nonnull %abstract.0.i, ptr noundef nonnull %tight.0.i, ptr noundef nonnull %cond19.i) #9
+  %call20.i = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.45, ptr noundef %12, ptr noundef nonnull %abstract.0.i, ptr noundef nonnull %tight.0.i, ptr noundef nonnull %cond19.i) #10
   br label %if.end
 
 sw.bb21.i:                                        ; preds = %if.then
@@ -1687,7 +1687,7 @@ sw.bb21.i:                                        ; preds = %if.then
   %15 = load i8, ptr %is_listen24.i, align 8
   %tobool25.i = trunc i8 %15 to i1
   %cond26.i = select i1 %tobool25.i, ptr @.str.48, ptr @.str.49
-  %call27.i = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.45, ptr noundef %14, ptr noundef nonnull %cond26.i) #9
+  %call27.i = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.45, ptr noundef %14, ptr noundef nonnull %cond26.i) #10
   br label %if.end
 
 sw.bb28.i:                                        ; preds = %if.then
@@ -1695,15 +1695,15 @@ sw.bb28.i:                                        ; preds = %if.then
   %16 = load ptr, ptr %u30.i, align 8
   %port33.i = getelementptr inbounds i8, ptr %1, i64 16
   %17 = load ptr, ptr %port33.i, align 8
-  %call34.i = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.45, ptr noundef %16, ptr noundef %17) #9
+  %call34.i = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.45, ptr noundef %16, ptr noundef %17) #10
   br label %if.end
 
 sw.default.i:                                     ; preds = %if.then
-  tail call void @abort() #11
+  tail call void @abort() #12
   unreachable
 
 if.else:                                          ; preds = %entry
-  %call3 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.46) #9
+  %call3 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.46) #10
   br label %if.end
 
 if.end:                                           ; preds = %sw.bb28.i, %sw.bb21.i, %if.end16.i, %qemu_chr_socket_protocol.exit.i, %if.else
@@ -1714,8 +1714,8 @@ if.end:                                           ; preds = %sw.bb28.i, %sw.bb21
 
 declare noalias ptr @g_strdup_printf(ptr noundef, ...) local_unnamed_addr #1
 
-; Function Attrs: noreturn nounwind
-declare void @abort() local_unnamed_addr #4
+; Function Attrs: cold nofree noreturn nounwind
+declare void @abort() local_unnamed_addr #5
 
 declare ptr @qio_net_listener_new() local_unnamed_addr #1
 
@@ -1729,35 +1729,35 @@ declare ptr @socket_local_address(i32 noundef, ptr noundef) local_unnamed_addr #
 define internal fastcc void @tcp_chr_accept_server_sync(ptr noundef %chr) unnamed_addr #0 {
 entry:
   %.compoundliteral = alloca %struct.YankInstance, align 8
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #9
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #10
   %filename = getelementptr inbounds i8, ptr %chr, i64 104
   %0 = load ptr, ptr %filename, align 8
-  tail call void (ptr, ...) @info_report(ptr noundef nonnull @.str.57, ptr noundef %0) #9
+  tail call void (ptr, ...) @info_report(ptr noundef nonnull @.str.57, ptr noundef %0) #10
   %state2.i = getelementptr inbounds i8, ptr %call.i, i64 200
   %1 = load i32, ptr %state2.i, align 8
   %cmp.i = icmp eq i32 %1, 0
   br i1 %cmp.i, label %tcp_chr_change_state.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 49, ptr noundef nonnull @__PRETTY_FUNCTION__.tcp_chr_change_state) #11
+  tail call void @__assert_fail(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 49, ptr noundef nonnull @__PRETTY_FUNCTION__.tcp_chr_change_state) #12
   unreachable
 
 tcp_chr_change_state.exit:                        ; preds = %entry
   store i32 1, ptr %state2.i, align 8
   %listener = getelementptr inbounds i8, ptr %call.i, i64 168
   %2 = load ptr, ptr %listener, align 8
-  %call1 = tail call ptr @qio_net_listener_wait_client(ptr noundef %2) #9
-  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #9
+  %call1 = tail call ptr @qio_net_listener_wait_client(ptr noundef %2) #10
+  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #10
   %is_listen.i = getelementptr inbounds i8, ptr %call.i.i, i64 264
   %3 = load i8, ptr %is_listen.i, align 8
   %tobool.i = trunc i8 %3 to i1
   %cond.i = select i1 %tobool.i, ptr @.str.23, ptr @.str.59
   %label.i = getelementptr inbounds i8, ptr %chr, i64 96
   %4 = load ptr, ptr %label.i, align 8
-  %call1.i = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.58, ptr noundef nonnull %cond.i, ptr noundef %4) #9
-  %call.i3.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #9
-  tail call void @qio_channel_set_name(ptr noundef %call.i3.i, ptr noundef %call1.i) #9
-  tail call void @g_free(ptr noundef %call1.i) #9
+  %call1.i = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.58, ptr noundef nonnull %cond.i, ptr noundef %4) #10
+  %call.i3.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #10
+  tail call void @qio_channel_set_name(ptr noundef %call.i3.i, ptr noundef %call1.i) #10
+  tail call void @g_free(ptr noundef %call1.i) #10
   %registered_yank = getelementptr inbounds i8, ptr %call.i, i64 248
   %5 = load i8, ptr %registered_yank, align 8
   %tobool = trunc i8 %5 to i1
@@ -1768,13 +1768,13 @@ if.then:                                          ; preds = %tcp_chr_change_stat
   %u = getelementptr inbounds i8, ptr %.compoundliteral, i64 8
   %6 = load ptr, ptr %label.i, align 8
   store ptr %6, ptr %u, align 8
-  %call.i10 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #9
-  call void @yank_register_function(ptr noundef nonnull %.compoundliteral, ptr noundef nonnull @char_socket_yank_iochannel, ptr noundef %call.i10) #9
+  %call.i10 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #10
+  call void @yank_register_function(ptr noundef nonnull %.compoundliteral, ptr noundef nonnull @char_socket_yank_iochannel, ptr noundef %call.i10) #10
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %tcp_chr_change_state.exit
   %call3 = call fastcc i32 @tcp_chr_new_client(ptr noundef nonnull %chr, ptr noundef %call1)
-  call void @object_unref(ptr noundef %call1) #9
+  call void @object_unref(ptr noundef %call1) #10
   ret void
 }
 
@@ -1782,30 +1782,30 @@ if.end:                                           ; preds = %if.then, %tcp_chr_c
 define internal void @tcp_chr_accept(ptr nocapture readnone %listener, ptr noundef %cioc, ptr noundef %opaque) #0 {
 entry:
   %.compoundliteral = alloca %struct.YankInstance, align 8
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV) #9
-  %call.i7 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #9
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV) #10
+  %call.i7 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #10
   %state2.i = getelementptr inbounds i8, ptr %call.i7, i64 200
   %0 = load i32, ptr %state2.i, align 8
   %cmp.i = icmp eq i32 %0, 0
   br i1 %cmp.i, label %tcp_chr_change_state.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 49, ptr noundef nonnull @__PRETTY_FUNCTION__.tcp_chr_change_state) #11
+  tail call void @__assert_fail(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 49, ptr noundef nonnull @__PRETTY_FUNCTION__.tcp_chr_change_state) #12
   unreachable
 
 tcp_chr_change_state.exit:                        ; preds = %entry
   store i32 1, ptr %state2.i, align 8
-  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #9
+  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #10
   %is_listen.i = getelementptr inbounds i8, ptr %call.i.i, i64 264
   %1 = load i8, ptr %is_listen.i, align 8
   %tobool.i = trunc i8 %1 to i1
   %cond.i = select i1 %tobool.i, ptr @.str.23, ptr @.str.59
   %label.i = getelementptr inbounds i8, ptr %call.i, i64 96
   %2 = load ptr, ptr %label.i, align 8
-  %call1.i = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.58, ptr noundef nonnull %cond.i, ptr noundef %2) #9
-  %call.i3.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %cioc, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #9
-  tail call void @qio_channel_set_name(ptr noundef %call.i3.i, ptr noundef %call1.i) #9
-  tail call void @g_free(ptr noundef %call1.i) #9
+  %call1.i = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.58, ptr noundef nonnull %cond.i, ptr noundef %2) #10
+  %call.i3.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %cioc, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #10
+  tail call void @qio_channel_set_name(ptr noundef %call.i3.i, ptr noundef %call1.i) #10
+  tail call void @g_free(ptr noundef %call1.i) #10
   %registered_yank = getelementptr inbounds i8, ptr %call.i7, i64 248
   %3 = load i8, ptr %registered_yank, align 8
   %tobool = trunc i8 %3 to i1
@@ -1816,8 +1816,8 @@ if.then:                                          ; preds = %tcp_chr_change_stat
   %u = getelementptr inbounds i8, ptr %.compoundliteral, i64 8
   %4 = load ptr, ptr %label.i, align 8
   store ptr %4, ptr %u, align 8
-  %call.i8 = tail call ptr @object_dynamic_cast_assert(ptr noundef %cioc, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #9
-  call void @yank_register_function(ptr noundef nonnull %.compoundliteral, ptr noundef nonnull @char_socket_yank_iochannel, ptr noundef %call.i8) #9
+  %call.i8 = tail call ptr @object_dynamic_cast_assert(ptr noundef %cioc, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #10
+  call void @yank_register_function(ptr noundef nonnull %.compoundliteral, ptr noundef nonnull @char_socket_yank_iochannel, ptr noundef %call.i8) #10
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %tcp_chr_change_state.exit
@@ -1834,22 +1834,22 @@ declare void @yank_register_function(ptr noundef, ptr noundef, ptr noundef) loca
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc range(i32 -1, 1) i32 @tcp_chr_new_client(ptr noundef %chr, ptr noundef %sioc) unnamed_addr #0 {
 entry:
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #9
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #10
   %state = getelementptr inbounds i8, ptr %call.i, i64 200
   %0 = load i32, ptr %state, align 8
   %cmp.not = icmp eq i32 %0, 1
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %call.i19 = tail call ptr @object_dynamic_cast_assert(ptr noundef %sioc, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #9
+  %call.i19 = tail call ptr @object_dynamic_cast_assert(ptr noundef %sioc, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #10
   %ioc = getelementptr inbounds i8, ptr %call.i, i64 152
   store ptr %call.i19, ptr %ioc, align 8
-  %call2 = tail call ptr @object_ref(ptr noundef %sioc) #9
+  %call2 = tail call ptr @object_ref(ptr noundef %sioc) #10
   %sioc3 = getelementptr inbounds i8, ptr %call.i, i64 160
   store ptr %sioc, ptr %sioc3, align 8
-  %call4 = tail call ptr @object_ref(ptr noundef %sioc) #9
+  %call4 = tail call ptr @object_ref(ptr noundef %sioc) #10
   %1 = load ptr, ptr %ioc, align 8
-  %call6 = tail call i32 @qio_channel_set_blocking(ptr noundef %1, i1 noundef zeroext false, ptr noundef null) #9
+  %call6 = tail call i32 @qio_channel_set_blocking(ptr noundef %1, i1 noundef zeroext false, ptr noundef null) #10
   %do_nodelay = getelementptr inbounds i8, ptr %call.i, i64 212
   %2 = load i32, ptr %do_nodelay, align 4
   %tobool.not = icmp eq i32 %2, 0
@@ -1857,7 +1857,7 @@ if.end:                                           ; preds = %entry
 
 if.then7:                                         ; preds = %if.end
   %3 = load ptr, ptr %ioc, align 8
-  tail call void @qio_channel_set_delay(ptr noundef %3, i1 noundef zeroext false) #9
+  tail call void @qio_channel_set_delay(ptr noundef %3, i1 noundef zeroext false) #10
   br label %if.end9
 
 if.end9:                                          ; preds = %if.then7, %if.end
@@ -1869,7 +1869,7 @@ if.end9:                                          ; preds = %if.then7, %if.end
 if.then11:                                        ; preds = %if.end9
   %gcontext = getelementptr inbounds i8, ptr %chr, i64 136
   %5 = load ptr, ptr %gcontext, align 8
-  tail call void @qio_net_listener_set_client_func_full(ptr noundef nonnull %4, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %5) #9
+  tail call void @qio_net_listener_set_client_func_full(ptr noundef nonnull %4, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %5) #10
   br label %if.end13
 
 if.end13:                                         ; preds = %if.then11, %if.end9
@@ -1879,7 +1879,7 @@ if.end13:                                         ; preds = %if.then11, %if.end9
   br i1 %tobool14.not, label %if.else, label %if.then15
 
 if.then15:                                        ; preds = %if.end13
-  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #9
+  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #10
   %is_listen.i = getelementptr inbounds i8, ptr %call.i.i, i64 264
   %7 = load i8, ptr %is_listen.i, align 8
   %tobool.i = trunc i8 %7 to i1
@@ -1892,7 +1892,7 @@ if.then15:                                        ; preds = %if.end13
 if.then.i:                                        ; preds = %if.then15
   %tls_authz.i = getelementptr inbounds i8, ptr %call.i.i, i64 192
   %10 = load ptr, ptr %tls_authz.i, align 8
-  %call1.i = tail call ptr @qio_channel_tls_new_server(ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef null) #9
+  %call1.i = tail call ptr @qio_channel_tls_new_server(ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef null) #10
   br label %if.end.i
 
 if.else.i:                                        ; preds = %if.then15
@@ -1900,7 +1900,7 @@ if.else.i:                                        ; preds = %if.then15
   %11 = load ptr, ptr %addr.i, align 8
   %u.i = getelementptr inbounds i8, ptr %11, i64 8
   %12 = load ptr, ptr %u.i, align 8
-  %call4.i = tail call ptr @qio_channel_tls_new_client(ptr noundef %8, ptr noundef %9, ptr noundef %12, ptr noundef null) #9
+  %call4.i = tail call ptr @qio_channel_tls_new_client(ptr noundef %8, ptr noundef %9, ptr noundef %12, ptr noundef null) #10
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.else.i, %if.then.i
@@ -1912,9 +1912,9 @@ if.then5.i:                                       ; preds = %if.end.i
   %13 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %14 = inttoptr i64 %13 to ptr
   %chr_write_lock.i.i = getelementptr inbounds i8, ptr %chr, i64 40
-  tail call void %14(ptr noundef nonnull %chr_write_lock.i.i, ptr noundef nonnull @.str.7, i32 noundef 479) #9
+  tail call void %14(ptr noundef nonnull %chr_write_lock.i.i, ptr noundef nonnull @.str.7, i32 noundef 479) #10
   tail call fastcc void @tcp_chr_disconnect_locked(ptr noundef %chr)
-  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %chr_write_lock.i.i, ptr noundef nonnull @.str.7, i32 noundef 481) #9
+  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %chr_write_lock.i.i, ptr noundef nonnull @.str.7, i32 noundef 481) #10
   br label %return
 
 if.end6.i:                                        ; preds = %if.end.i
@@ -1923,17 +1923,17 @@ if.end6.i:                                        ; preds = %if.end.i
   %cond.i = select i1 %tobool8.i, ptr @.str.23, ptr @.str.59
   %label.i = getelementptr inbounds i8, ptr %chr, i64 96
   %16 = load ptr, ptr %label.i, align 8
-  %call9.i = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.60, ptr noundef nonnull %cond.i, ptr noundef %16) #9
-  %call.i18.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %tioc.0.i, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #9
-  tail call void @qio_channel_set_name(ptr noundef %call.i18.i, ptr noundef %call9.i) #9
-  tail call void @g_free(ptr noundef %call9.i) #9
+  %call9.i = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.60, ptr noundef nonnull %cond.i, ptr noundef %16) #10
+  %call.i18.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %tioc.0.i, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #10
+  tail call void @qio_channel_set_name(ptr noundef %call.i18.i, ptr noundef %call9.i) #10
+  tail call void @g_free(ptr noundef %call9.i) #10
   %17 = load ptr, ptr %ioc.i, align 8
-  tail call void @object_unref(ptr noundef %17) #9
-  %call.i19.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %tioc.0.i, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #9
+  tail call void @object_unref(ptr noundef %17) #10
+  %call.i19.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %tioc.0.i, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #10
   store ptr %call.i19.i, ptr %ioc.i, align 8
   %gcontext.i = getelementptr inbounds i8, ptr %chr, i64 136
   %18 = load ptr, ptr %gcontext.i, align 8
-  tail call void @qio_channel_tls_handshake(ptr noundef nonnull %tioc.0.i, ptr noundef nonnull @tcp_chr_tls_handshake, ptr noundef %chr, ptr noundef null, ptr noundef %18) #9
+  tail call void @qio_channel_tls_handshake(ptr noundef nonnull %tioc.0.i, ptr noundef nonnull @tcp_chr_tls_handshake, ptr noundef %chr, ptr noundef null, ptr noundef %18) #10
   br label %return
 
 if.else:                                          ; preds = %if.end13
@@ -1974,37 +1974,37 @@ declare void @qio_channel_set_delay(ptr noundef, i1 noundef zeroext) local_unnam
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @tcp_chr_websock_init(ptr noundef %chr) unnamed_addr #0 {
 entry:
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #9
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #10
   %ioc = getelementptr inbounds i8, ptr %call.i, i64 152
   %0 = load ptr, ptr %ioc, align 8
-  %call1 = tail call ptr @qio_channel_websock_new_server(ptr noundef %0) #9
+  %call1 = tail call ptr @qio_channel_websock_new_server(ptr noundef %0) #10
   %label = getelementptr inbounds i8, ptr %chr, i64 96
   %1 = load ptr, ptr %label, align 8
-  %call2 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.62, ptr noundef %1) #9
-  %call.i8 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #9
-  tail call void @qio_channel_set_name(ptr noundef %call.i8, ptr noundef %call2) #9
-  tail call void @g_free(ptr noundef %call2) #9
+  %call2 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.62, ptr noundef %1) #10
+  %call.i8 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #10
+  tail call void @qio_channel_set_name(ptr noundef %call.i8, ptr noundef %call2) #10
+  tail call void @g_free(ptr noundef %call2) #10
   %2 = load ptr, ptr %ioc, align 8
-  tail call void @object_unref(ptr noundef %2) #9
-  %call.i9 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #9
+  tail call void @object_unref(ptr noundef %2) #10
+  %call.i9 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #10
   store ptr %call.i9, ptr %ioc, align 8
-  tail call void @qio_channel_websock_handshake(ptr noundef %call1, ptr noundef nonnull @tcp_chr_websock_handshake, ptr noundef %chr, ptr noundef null) #9
+  tail call void @qio_channel_websock_handshake(ptr noundef %call1, ptr noundef nonnull @tcp_chr_websock_handshake, ptr noundef %chr, ptr noundef null) #10
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @tcp_chr_telnet_init(ptr noundef %chr) unnamed_addr #0 {
 entry:
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #9
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #10
   %telnet_source.i = getelementptr inbounds i8, ptr %call.i, i64 272
   %0 = load ptr, ptr %telnet_source.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %tcp_chr_telnet_destroy.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void @g_source_destroy(ptr noundef nonnull %0) #9
+  tail call void @g_source_destroy(ptr noundef nonnull %0) #10
   %1 = load ptr, ptr %telnet_source.i, align 8
-  tail call void @g_source_unref(ptr noundef %1) #9
+  tail call void @g_source_unref(ptr noundef %1) #10
   store ptr null, ptr %telnet_source.i, align 8
   br label %tcp_chr_telnet_destroy.exit
 
@@ -2015,7 +2015,7 @@ tcp_chr_telnet_destroy.exit:                      ; preds = %entry, %if.then.i
   br i1 %tobool.not, label %if.end, label %cont
 
 if.end:                                           ; preds = %tcp_chr_telnet_destroy.exit
-  %call1 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 32) #10
+  %call1 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 32) #11
   store ptr %call1, ptr %telnet_init, align 8
   %is_tn3270 = getelementptr inbounds i8, ptr %call.i, i64 266
   %3 = load i8, ptr %is_tn3270, align 2
@@ -2044,7 +2044,7 @@ cont:                                             ; preds = %if.then5, %if.else,
   %4 = load ptr, ptr %ioc, align 8
   %gcontext = getelementptr inbounds i8, ptr %chr, i64 136
   %5 = load ptr, ptr %gcontext, align 8
-  %call124 = tail call ptr @qio_channel_add_watch_source(ptr noundef %4, i32 noundef 4, ptr noundef nonnull @tcp_chr_telnet_init_io, ptr noundef nonnull %call.i, ptr noundef null, ptr noundef %5) #9
+  %call124 = tail call ptr @qio_channel_add_watch_source(ptr noundef %4, i32 noundef 4, ptr noundef nonnull @tcp_chr_telnet_init_io, ptr noundef nonnull %call.i, ptr noundef null, ptr noundef %5) #10
   store ptr %call124, ptr %telnet_source.i, align 8
   ret void
 }
@@ -2056,11 +2056,11 @@ entry:
   %sserv.i = alloca [32 x i8], align 16
   %phost.i = alloca [1025 x i8], align 16
   %pserv.i = alloca [32 x i8], align 16
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV) #9
-  %call.i6 = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #9
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV) #10
+  %call.i6 = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #10
   %filename = getelementptr inbounds i8, ptr %call.i, i64 104
   %0 = load ptr, ptr %filename, align 8
-  tail call void @g_free(ptr noundef %0) #9
+  tail call void @g_free(ptr noundef %0) #10
   call void @llvm.lifetime.start.p0(i64 1025, ptr nonnull %shost.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %sserv.i)
   call void @llvm.lifetime.start.p0(i64 1025, ptr nonnull %phost.i)
@@ -2086,7 +2086,7 @@ sw.bb.i:                                          ; preds = %entry
   %5 = load i8, ptr %is_listen.i, align 8
   %tobool.i = trunc i8 %5 to i1
   %cond.i = select i1 %tobool.i, ptr @.str.48, ptr @.str.49
-  %call.i7 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.65, ptr noundef nonnull %sun_path.i, ptr noundef nonnull %cond.i) #9
+  %call.i7 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.65, ptr noundef nonnull %sun_path.i, ptr noundef nonnull %cond.i) #10
   br label %qemu_chr_compute_filename.exit
 
 sw.bb5.i:                                         ; preds = %entry
@@ -2095,8 +2095,8 @@ sw.bb5.i:                                         ; preds = %entry
 sw.bb6.i:                                         ; preds = %sw.bb5.i, %entry
   %left.0.i = phi ptr [ @.str.49, %entry ], [ @.str.66, %sw.bb5.i ]
   %right.0.i = phi ptr [ @.str.49, %entry ], [ @.str.67, %sw.bb5.i ]
-  %call9.i = call i32 @getnameinfo(ptr noundef nonnull %localAddr.i, i32 noundef %2, ptr noundef nonnull %shost.i, i32 noundef 1025, ptr noundef nonnull %sserv.i, i32 noundef 32, i32 noundef 3) #9
-  %call12.i = call i32 @getnameinfo(ptr noundef nonnull %remoteAddr.i, i32 noundef %3, ptr noundef nonnull %phost.i, i32 noundef 1025, ptr noundef nonnull %pserv.i, i32 noundef 32, i32 noundef 3) #9
+  %call9.i = call i32 @getnameinfo(ptr noundef nonnull %localAddr.i, i32 noundef %2, ptr noundef nonnull %shost.i, i32 noundef 1025, ptr noundef nonnull %sserv.i, i32 noundef 32, i32 noundef 3) #10
+  %call12.i = call i32 @getnameinfo(ptr noundef nonnull %remoteAddr.i, i32 noundef %3, ptr noundef nonnull %phost.i, i32 noundef 1025, ptr noundef nonnull %pserv.i, i32 noundef 32, i32 noundef 3) #10
   %is_telnet.i.i = getelementptr inbounds i8, ptr %call.i6, i64 265
   %6 = load i8, ptr %is_telnet.i.i, align 1
   %tobool.i.i = trunc i8 %6 to i1
@@ -2115,11 +2115,11 @@ qemu_chr_socket_protocol.exit.i:                  ; preds = %if.end.i.i, %sw.bb6
   %8 = load i8, ptr %is_listen16.i, align 8
   %tobool17.i = trunc i8 %8 to i1
   %cond19.i = select i1 %tobool17.i, ptr @.str.48, ptr @.str.49
-  %call22.i = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.68, ptr noundef nonnull %retval.0.i.i, ptr noundef nonnull %left.0.i, ptr noundef nonnull %shost.i, ptr noundef nonnull %right.0.i, ptr noundef nonnull %sserv.i, ptr noundef nonnull %cond19.i, ptr noundef nonnull %left.0.i, ptr noundef nonnull %phost.i, ptr noundef nonnull %right.0.i, ptr noundef nonnull %pserv.i) #9
+  %call22.i = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.68, ptr noundef nonnull %retval.0.i.i, ptr noundef nonnull %left.0.i, ptr noundef nonnull %shost.i, ptr noundef nonnull %right.0.i, ptr noundef nonnull %sserv.i, ptr noundef nonnull %cond19.i, ptr noundef nonnull %left.0.i, ptr noundef nonnull %phost.i, ptr noundef nonnull %right.0.i, ptr noundef nonnull %pserv.i) #10
   br label %qemu_chr_compute_filename.exit
 
 sw.default.i:                                     ; preds = %entry
-  %call23.i = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.69) #9
+  %call23.i = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.69) #10
   br label %qemu_chr_compute_filename.exit
 
 qemu_chr_compute_filename.exit:                   ; preds = %sw.bb.i, %qemu_chr_socket_protocol.exit.i, %sw.default.i
@@ -2135,13 +2135,13 @@ qemu_chr_compute_filename.exit:                   ; preds = %sw.bb.i, %qemu_chr_
   br i1 %cmp5.i, label %tcp_chr_change_state.exit, label %if.else7.i
 
 if.else7.i:                                       ; preds = %qemu_chr_compute_filename.exit
-  call void @__assert_fail(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.7, i32 noundef 52, ptr noundef nonnull @__PRETTY_FUNCTION__.tcp_chr_change_state) #11
+  call void @__assert_fail(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.7, i32 noundef 52, ptr noundef nonnull @__PRETTY_FUNCTION__.tcp_chr_change_state) #12
   unreachable
 
 tcp_chr_change_state.exit:                        ; preds = %qemu_chr_compute_filename.exit
   store i32 2, ptr %state4.i, align 8
   call fastcc void @update_ioc_handlers(ptr noundef nonnull %call.i6)
-  call void @qemu_chr_be_event(ptr noundef nonnull %call.i, i32 noundef 1) #9
+  call void @qemu_chr_be_event(ptr noundef nonnull %call.i, i32 noundef 1) #10
   ret void
 }
 
@@ -2156,20 +2156,20 @@ define internal void @tcp_chr_tls_handshake(ptr noundef %task, ptr noundef %user
 entry:
   %err = alloca ptr, align 8
   store ptr null, ptr %err, align 8
-  %call = call zeroext i1 @qio_task_propagate_error(ptr noundef %task, ptr noundef nonnull %err) #9
+  %call = call zeroext i1 @qio_task_propagate_error(ptr noundef %task, ptr noundef nonnull %err) #10
   br i1 %call, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %err, align 8
   %label = getelementptr inbounds i8, ptr %user_data, i64 96
   %1 = load ptr, ptr %label, align 8
-  call void (ptr, ptr, ...) @error_reportf_err(ptr noundef %0, ptr noundef nonnull @.str.61, ptr noundef %1) #9
+  call void (ptr, ptr, ...) @error_reportf_err(ptr noundef %0, ptr noundef nonnull @.str.61, ptr noundef %1) #10
   %2 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %3 = inttoptr i64 %2 to ptr
   %chr_write_lock.i = getelementptr inbounds i8, ptr %user_data, i64 40
-  call void %3(ptr noundef nonnull %chr_write_lock.i, ptr noundef nonnull @.str.7, i32 noundef 479) #9
+  call void %3(ptr noundef nonnull %chr_write_lock.i, ptr noundef nonnull @.str.7, i32 noundef 479) #10
   call fastcc void @tcp_chr_disconnect_locked(ptr noundef %user_data)
-  call void @qemu_mutex_unlock_impl(ptr noundef nonnull %chr_write_lock.i, ptr noundef nonnull @.str.7, i32 noundef 481) #9
+  call void @qemu_mutex_unlock_impl(ptr noundef nonnull %chr_write_lock.i, ptr noundef nonnull @.str.7, i32 noundef 481) #10
   br label %if.end7
 
 if.else:                                          ; preds = %entry
@@ -2213,20 +2213,20 @@ define internal void @tcp_chr_websock_handshake(ptr noundef %task, ptr noundef %
 entry:
   %err = alloca ptr, align 8
   store ptr null, ptr %err, align 8
-  %call = call zeroext i1 @qio_task_propagate_error(ptr noundef %task, ptr noundef nonnull %err) #9
+  %call = call zeroext i1 @qio_task_propagate_error(ptr noundef %task, ptr noundef nonnull %err) #10
   br i1 %call, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %err, align 8
   %label = getelementptr inbounds i8, ptr %user_data, i64 96
   %1 = load ptr, ptr %label, align 8
-  call void (ptr, ptr, ...) @error_reportf_err(ptr noundef %0, ptr noundef nonnull @.str.63, ptr noundef %1) #9
+  call void (ptr, ptr, ...) @error_reportf_err(ptr noundef %0, ptr noundef nonnull @.str.63, ptr noundef %1) #10
   %2 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %3 = inttoptr i64 %2 to ptr
   %chr_write_lock.i = getelementptr inbounds i8, ptr %user_data, i64 40
-  call void %3(ptr noundef nonnull %chr_write_lock.i, ptr noundef nonnull @.str.7, i32 noundef 479) #9
+  call void %3(ptr noundef nonnull %chr_write_lock.i, ptr noundef nonnull @.str.7, i32 noundef 479) #10
   call fastcc void @tcp_chr_disconnect_locked(ptr noundef %user_data)
-  call void @qemu_mutex_unlock_impl(ptr noundef nonnull %chr_write_lock.i, ptr noundef nonnull @.str.7, i32 noundef 481) #9
+  call void @qemu_mutex_unlock_impl(ptr noundef nonnull %chr_write_lock.i, ptr noundef nonnull @.str.7, i32 noundef 481) #10
   br label %if.end3
 
 if.else:                                          ; preds = %entry
@@ -2252,20 +2252,20 @@ declare ptr @qio_channel_add_watch_source(ptr noundef, i32 noundef, ptr noundef,
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i32 0, 2) i32 @tcp_chr_telnet_init_io(ptr noundef %ioc, i32 %cond, ptr noundef %user_data) #0 {
 entry:
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %user_data, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV) #9
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %user_data, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV) #10
   %telnet_init = getelementptr inbounds i8, ptr %user_data, i64 280
   %0 = load ptr, ptr %telnet_init, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.else, label %if.end
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.7, i32 noundef 657, ptr noundef nonnull @__PRETTY_FUNCTION__.tcp_chr_telnet_init_io) #11
+  tail call void @__assert_fail(ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.7, i32 noundef 657, ptr noundef nonnull @__PRETTY_FUNCTION__.tcp_chr_telnet_init_io) #12
   unreachable
 
 if.end:                                           ; preds = %entry
   %buflen = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load i64, ptr %buflen, align 8
-  %call1 = tail call i64 @qio_channel_write(ptr noundef %ioc, ptr noundef nonnull %0, i64 noundef %1, ptr noundef null) #9
+  %call1 = tail call i64 @qio_channel_write(ptr noundef %ioc, ptr noundef nonnull %0, i64 noundef %1, ptr noundef null) #10
   %cmp = icmp slt i64 %call1, 0
   br i1 %cmp, label %if.then2, label %if.end7
 
@@ -2277,9 +2277,9 @@ if.else5:                                         ; preds = %if.then2
   %2 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %3 = inttoptr i64 %2 to ptr
   %chr_write_lock.i = getelementptr inbounds i8, ptr %call.i, i64 40
-  tail call void %3(ptr noundef nonnull %chr_write_lock.i, ptr noundef nonnull @.str.7, i32 noundef 479) #9
+  tail call void %3(ptr noundef nonnull %chr_write_lock.i, ptr noundef nonnull @.str.7, i32 noundef 479) #10
   tail call fastcc void @tcp_chr_disconnect_locked(ptr noundef %call.i)
-  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %chr_write_lock.i, ptr noundef nonnull @.str.7, i32 noundef 481) #9
+  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %chr_write_lock.i, ptr noundef nonnull @.str.7, i32 noundef 481) #10
   br label %end
 
 if.end7:                                          ; preds = %if.then2, %if.end
@@ -2301,11 +2301,11 @@ if.end12:                                         ; preds = %if.end7
 
 end:                                              ; preds = %if.then11, %if.else5
   %5 = load ptr, ptr %telnet_init, align 8
-  tail call void @g_free(ptr noundef %5) #9
+  tail call void @g_free(ptr noundef %5) #10
   store ptr null, ptr %telnet_init, align 8
   %telnet_source = getelementptr inbounds i8, ptr %user_data, i64 272
   %6 = load ptr, ptr %telnet_source, align 8
-  tail call void @g_source_unref(ptr noundef %6) #9
+  tail call void @g_source_unref(ptr noundef %6) #10
   store ptr null, ptr %telnet_source, align 8
   br label %return
 
@@ -2322,19 +2322,19 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @update_ioc_handlers(ptr noundef %s) unnamed_addr #0 {
 entry:
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %s, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV) #9
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %s, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV) #10
   %state = getelementptr inbounds i8, ptr %s, i64 200
   %0 = load i32, ptr %state, align 8
   %cmp.not = icmp eq i32 %0, 2
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  tail call void @remove_fd_in_watch(ptr noundef %call.i) #9
+  tail call void @remove_fd_in_watch(ptr noundef %call.i) #10
   %ioc = getelementptr inbounds i8, ptr %s, i64 152
   %1 = load ptr, ptr %ioc, align 8
   %gcontext = getelementptr inbounds i8, ptr %call.i, i64 136
   %2 = load ptr, ptr %gcontext, align 8
-  %call1 = tail call ptr @io_add_watch_poll(ptr noundef %call.i, ptr noundef %1, ptr noundef nonnull @tcp_chr_read_poll, ptr noundef nonnull @tcp_chr_read, ptr noundef %call.i, ptr noundef %2) #9
+  %call1 = tail call ptr @io_add_watch_poll(ptr noundef %call.i, ptr noundef %1, ptr noundef nonnull @tcp_chr_read_poll, ptr noundef nonnull @tcp_chr_read, ptr noundef %call.i, ptr noundef %2) #10
   %gsource = getelementptr inbounds i8, ptr %call.i, i64 128
   store ptr %call1, ptr %gsource, align 8
   %hup_source.i = getelementptr inbounds i8, ptr %s, i64 176
@@ -2343,20 +2343,20 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.not.i, label %remove_hup_source.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  tail call void @g_source_destroy(ptr noundef nonnull %3) #9
+  tail call void @g_source_destroy(ptr noundef nonnull %3) #10
   %4 = load ptr, ptr %hup_source.i, align 8
-  tail call void @g_source_unref(ptr noundef %4) #9
+  tail call void @g_source_unref(ptr noundef %4) #10
   store ptr null, ptr %hup_source.i, align 8
   br label %remove_hup_source.exit
 
 remove_hup_source.exit:                           ; preds = %if.end, %if.then.i
   %5 = load ptr, ptr %ioc, align 8
-  %call3 = tail call ptr @qio_channel_create_watch(ptr noundef %5, i32 noundef 16) #9
+  %call3 = tail call ptr @qio_channel_create_watch(ptr noundef %5, i32 noundef 16) #10
   store ptr %call3, ptr %hup_source.i, align 8
-  tail call void @g_source_set_callback(ptr noundef %call3, ptr noundef nonnull @tcp_chr_hup, ptr noundef nonnull %call.i, ptr noundef null) #9
+  tail call void @g_source_set_callback(ptr noundef %call3, ptr noundef nonnull @tcp_chr_hup, ptr noundef nonnull %call.i, ptr noundef null) #10
   %6 = load ptr, ptr %hup_source.i, align 8
   %7 = load ptr, ptr %gcontext, align 8
-  %call7 = tail call i32 @g_source_attach(ptr noundef %6, ptr noundef %7) #9
+  %call7 = tail call i32 @g_source_attach(ptr noundef %6, ptr noundef %7) #10
   br label %return
 
 return:                                           ; preds = %entry, %remove_hup_source.exit
@@ -2370,15 +2370,15 @@ declare ptr @io_add_watch_poll(ptr noundef, ptr noundef, ptr noundef, ptr nounde
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @tcp_chr_read_poll(ptr noundef %opaque) #0 {
 entry:
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV) #9
-  %call.i4 = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #9
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV) #10
+  %call.i4 = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #10
   %state = getelementptr inbounds i8, ptr %call.i4, i64 200
   %0 = load i32, ptr %state, align 8
   %cmp.not = icmp eq i32 %0, 2
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %call2 = tail call i32 @qemu_chr_be_can_write(ptr noundef %call.i) #9
+  %call2 = tail call i32 @qemu_chr_be_can_write(ptr noundef %call.i) #10
   %max_size = getelementptr inbounds i8, ptr %call.i4, i64 204
   store i32 %call2, ptr %max_size, align 4
   br label %return
@@ -2392,8 +2392,8 @@ return:                                           ; preds = %entry, %if.end
 define internal noundef i32 @tcp_chr_read(ptr nocapture readnone %chan, i32 %cond, ptr noundef %opaque) #0 {
 entry:
   %buf = alloca [4096 x i8], align 16
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV) #9
-  %call.i12 = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #9
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV) #10
+  %call.i12 = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #10
   %state = getelementptr inbounds i8, ptr %call.i12, i64 200
   %0 = load i32, ptr %state, align 8
   %cmp.not = icmp eq i32 %0, 2
@@ -2416,7 +2416,7 @@ if.end:                                           ; preds = %lor.lhs.false
   ]
 
 land.lhs.true:                                    ; preds = %if.end
-  %call15 = tail call ptr @__errno_location() #12
+  %call15 = tail call ptr @__errno_location() #13
   %2 = load i32, ptr %call15, align 4
   %cmp16.not = icmp eq i32 %2, 11
   br i1 %cmp16.not, label %return, label %if.then18
@@ -2425,9 +2425,9 @@ if.then18:                                        ; preds = %if.end, %land.lhs.t
   %3 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %4 = inttoptr i64 %3 to ptr
   %chr_write_lock.i = getelementptr inbounds i8, ptr %call.i, i64 40
-  call void %4(ptr noundef nonnull %chr_write_lock.i, ptr noundef nonnull @.str.7, i32 noundef 479) #9
+  call void %4(ptr noundef nonnull %chr_write_lock.i, ptr noundef nonnull @.str.7, i32 noundef 479) #10
   call fastcc void @tcp_chr_disconnect_locked(ptr noundef %call.i)
-  call void @qemu_mutex_unlock_impl(ptr noundef nonnull %chr_write_lock.i, ptr noundef nonnull @.str.7, i32 noundef 481) #9
+  call void @qemu_mutex_unlock_impl(ptr noundef nonnull %chr_write_lock.i, ptr noundef nonnull @.str.7, i32 noundef 481) #10
   br label %return
 
 if.else:                                          ; preds = %if.end
@@ -2481,7 +2481,7 @@ if.else.i:                                        ; preds = %if.then.i
   br i1 %brmerge.not.i, label %if.then25.i, label %if.else28.i
 
 if.then25.i:                                      ; preds = %if.else.i
-  call void @qemu_chr_be_event(ptr noundef %call.i, i32 noundef 0) #9
+  call void @qemu_chr_be_event(ptr noundef %call.i, i32 noundef 0) #10
   %.pre = load i32, ptr %do_telnetopt, align 8
   br label %if.end90.sink.split.i
 
@@ -2574,7 +2574,7 @@ if.end24:                                         ; preds = %for.inc.i
 
 if.then27:                                        ; preds = %if.then21, %if.end24
   %size.019 = phi i32 [ %j.3.i, %if.end24 ], [ %conv9, %if.then21 ]
-  call void @qemu_chr_be_write(ptr noundef %call.i, ptr noundef nonnull %buf, i32 noundef %size.019) #9
+  call void @qemu_chr_be_write(ptr noundef %call.i, ptr noundef nonnull %buf, i32 noundef %size.019) #10
   br label %return
 
 return:                                           ; preds = %land.lhs.true, %if.then18, %if.end24, %if.then27, %if.else, %entry, %lor.lhs.false
@@ -2588,13 +2588,13 @@ declare void @g_source_set_callback(ptr noundef, ptr noundef, ptr noundef, ptr n
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i32 @tcp_chr_hup(ptr nocapture readnone %channel, i32 %cond, ptr noundef %opaque) #0 {
 entry:
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV) #9
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV) #10
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
   %chr_write_lock.i = getelementptr inbounds i8, ptr %call.i, i64 40
-  tail call void %1(ptr noundef nonnull %chr_write_lock.i, ptr noundef nonnull @.str.7, i32 noundef 479) #9
+  tail call void %1(ptr noundef nonnull %chr_write_lock.i, ptr noundef nonnull @.str.7, i32 noundef 479) #10
   tail call fastcc void @tcp_chr_disconnect_locked(ptr noundef %call.i)
-  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %chr_write_lock.i, ptr noundef nonnull @.str.7, i32 noundef 481) #9
+  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %chr_write_lock.i, ptr noundef nonnull @.str.7, i32 noundef 481) #10
   ret i32 0
 }
 
@@ -2608,7 +2608,7 @@ entry:
   %iov = alloca %struct.iovec, align 8
   %msgfds = alloca ptr, align 8
   %msgfds_num = alloca i64, align 8
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #9
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #10
   store ptr %buf, ptr %iov, align 8
   %iov_len = getelementptr inbounds i8, ptr %iov, i64 8
   store i64 %len, ptr %iov_len, align 8
@@ -2616,17 +2616,17 @@ entry:
   store i64 0, ptr %msgfds_num, align 8
   %ioc = getelementptr inbounds i8, ptr %call.i, i64 152
   %0 = load ptr, ptr %ioc, align 8
-  %call1 = tail call zeroext i1 @qio_channel_has_feature(ptr noundef %0, i32 noundef 0) #9
+  %call1 = tail call zeroext i1 @qio_channel_has_feature(ptr noundef %0, i32 noundef 0) #10
   %1 = load ptr, ptr %ioc, align 8
   br i1 %call1, label %if.end, label %if.end.thread
 
 if.end.thread:                                    ; preds = %entry
-  %call5 = call i64 @qio_channel_readv_full(ptr noundef %1, ptr noundef nonnull %iov, i64 noundef 1, ptr noundef null, ptr noundef null, i32 noundef 0, ptr noundef null) #9
+  %call5 = call i64 @qio_channel_readv_full(ptr noundef %1, ptr noundef nonnull %iov, i64 noundef 1, ptr noundef null, ptr noundef null, i32 noundef 0, ptr noundef null) #10
   %ret.030 = trunc i64 %call5 to i32
   br label %if.end.if.end17_crit_edge
 
 if.end:                                           ; preds = %entry
-  %call3 = call i64 @qio_channel_readv_full(ptr noundef %1, ptr noundef nonnull %iov, i64 noundef 1, ptr noundef nonnull %msgfds, ptr noundef nonnull %msgfds_num, i32 noundef 0, ptr noundef null) #9
+  %call3 = call i64 @qio_channel_readv_full(ptr noundef %1, ptr noundef nonnull %iov, i64 noundef 1, ptr noundef nonnull %msgfds, ptr noundef nonnull %msgfds_num, i32 noundef 0, ptr noundef null) #10
   %.pre = load i64, ptr %msgfds_num, align 8
   %2 = icmp eq i64 %.pre, 0
   %ret.0 = trunc i64 %call3 to i32
@@ -2654,7 +2654,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %4 = load ptr, ptr %read_msgfds, align 8
   %arrayidx = getelementptr i32, ptr %4, i64 %i.022
   %5 = load i32, ptr %arrayidx, align 4
-  %call9 = call i32 @close(i32 noundef %5) #9
+  %call9 = call i32 @close(i32 noundef %5) #10
   %inc = add nuw i64 %i.022, 1
   %6 = load i64, ptr %read_msgfds_num, align 8
   %cmp = icmp ult i64 %inc, %6
@@ -2667,7 +2667,7 @@ for.end:                                          ; preds = %for.body
 if.then12:                                        ; preds = %for.end
   %read_msgfds13 = getelementptr inbounds i8, ptr %call.i, i64 216
   %8 = load ptr, ptr %read_msgfds13, align 8
-  call void @g_free(ptr noundef %8) #9
+  call void @g_free(ptr noundef %8) #10
   br label %if.end14
 
 if.end14:                                         ; preds = %for.cond.preheader, %if.then12, %for.end
@@ -2700,7 +2700,7 @@ for.body22:                                       ; preds = %for.body22.lr.ph, %
   br i1 %cmp25, label %for.inc29, label %if.end28
 
 if.end28:                                         ; preds = %for.body22
-  call void @qemu_socket_set_block(i32 noundef %14) #9
+  call void @qemu_socket_set_block(i32 noundef %14) #10
   %.pre27 = load i64, ptr %read_msgfds_num19, align 8
   br label %for.inc29
 
@@ -2721,7 +2721,7 @@ if.then39:                                        ; preds = %for.end31
 
 if.end42.sink.split:                              ; preds = %for.end31, %if.then39
   %.sink = phi i32 [ 5, %if.then39 ], [ 11, %for.end31 ]
-  %call40 = tail call ptr @__errno_location() #12
+  %call40 = tail call ptr @__errno_location() #13
   store i32 %.sink, ptr %call40, align 4
   br label %if.end42
 
@@ -2733,7 +2733,7 @@ if.end42:                                         ; preds = %if.end42.sink.split
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #5
+declare ptr @__errno_location() local_unnamed_addr #6
 
 declare void @qemu_chr_be_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -2745,30 +2745,30 @@ declare void @qemu_socket_set_block(i32 noundef) local_unnamed_addr #1
 define internal fastcc void @tcp_chr_connect_client_async(ptr noundef %chr) unnamed_addr #0 {
 entry:
   %.compoundliteral = alloca %struct.YankInstance, align 8
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #9
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #10
   %state2.i = getelementptr inbounds i8, ptr %call.i, i64 200
   %0 = load i32, ptr %state2.i, align 8
   %cmp.i = icmp eq i32 %0, 0
   br i1 %cmp.i, label %tcp_chr_change_state.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 49, ptr noundef nonnull @__PRETTY_FUNCTION__.tcp_chr_change_state) #11
+  tail call void @__assert_fail(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 49, ptr noundef nonnull @__PRETTY_FUNCTION__.tcp_chr_change_state) #12
   unreachable
 
 tcp_chr_change_state.exit:                        ; preds = %entry
   store i32 1, ptr %state2.i, align 8
-  %call1 = tail call ptr @qio_channel_socket_new() #9
-  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #9
+  %call1 = tail call ptr @qio_channel_socket_new() #10
+  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #10
   %is_listen.i = getelementptr inbounds i8, ptr %call.i.i, i64 264
   %1 = load i8, ptr %is_listen.i, align 8
   %tobool.i = trunc i8 %1 to i1
   %cond.i = select i1 %tobool.i, ptr @.str.23, ptr @.str.59
   %label.i = getelementptr inbounds i8, ptr %chr, i64 96
   %2 = load ptr, ptr %label.i, align 8
-  %call1.i = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.58, ptr noundef nonnull %cond.i, ptr noundef %2) #9
-  %call.i3.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #9
-  tail call void @qio_channel_set_name(ptr noundef %call.i3.i, ptr noundef %call1.i) #9
-  tail call void @g_free(ptr noundef %call1.i) #9
+  %call1.i = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.58, ptr noundef nonnull %cond.i, ptr noundef %2) #10
+  %call.i3.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #10
+  tail call void @qio_channel_set_name(ptr noundef %call.i3.i, ptr noundef %call1.i) #10
+  tail call void @g_free(ptr noundef %call1.i) #10
   %registered_yank = getelementptr inbounds i8, ptr %call.i, i64 248
   %3 = load i8, ptr %registered_yank, align 8
   %tobool = trunc i8 %3 to i1
@@ -2779,20 +2779,20 @@ if.then:                                          ; preds = %tcp_chr_change_stat
   %u = getelementptr inbounds i8, ptr %.compoundliteral, i64 8
   %4 = load ptr, ptr %label.i, align 8
   store ptr %4, ptr %u, align 8
-  %call.i11 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #9
-  call void @yank_register_function(ptr noundef nonnull %.compoundliteral, ptr noundef nonnull @char_socket_yank_iochannel, ptr noundef %call.i11) #9
+  %call.i11 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #10
+  call void @yank_register_function(ptr noundef nonnull %.compoundliteral, ptr noundef nonnull @char_socket_yank_iochannel, ptr noundef %call.i11) #10
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %tcp_chr_change_state.exit
-  %call3 = call ptr @object_ref(ptr noundef nonnull %chr) #9
-  %call4 = call ptr @qio_task_new(ptr noundef %call1, ptr noundef nonnull @qemu_chr_socket_connected, ptr noundef %call3, ptr noundef nonnull @object_unref) #9
+  %call3 = call ptr @object_ref(ptr noundef nonnull %chr) #10
+  %call4 = call ptr @qio_task_new(ptr noundef %call1, ptr noundef nonnull @qemu_chr_socket_connected, ptr noundef %call3, ptr noundef nonnull @object_unref) #10
   %connect_task = getelementptr inbounds i8, ptr %call.i, i64 320
   store ptr %call4, ptr %connect_task, align 8
   %addr = getelementptr inbounds i8, ptr %call.i, i64 256
   %5 = load ptr, ptr %addr, align 8
   %gcontext = getelementptr inbounds i8, ptr %chr, i64 136
   %6 = load ptr, ptr %gcontext, align 8
-  call void @qio_task_run_in_thread(ptr noundef %call4, ptr noundef nonnull @tcp_chr_connect_client_task, ptr noundef %5, ptr noundef null, ptr noundef %6) #9
+  call void @qio_task_run_in_thread(ptr noundef %call4, ptr noundef nonnull @tcp_chr_connect_client_task, ptr noundef %5, ptr noundef null, ptr noundef %6) #10
   ret void
 }
 
@@ -2800,39 +2800,39 @@ if.end:                                           ; preds = %if.then, %tcp_chr_c
 define internal fastcc range(i32 -1, 1) i32 @tcp_chr_connect_client_sync(ptr noundef %chr, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %.compoundliteral = alloca %struct.YankInstance, align 8
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #9
-  %call1 = tail call ptr @qio_channel_socket_new() #9
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #10
+  %call1 = tail call ptr @qio_channel_socket_new() #10
   %state2.i = getelementptr inbounds i8, ptr %call.i, i64 200
   %0 = load i32, ptr %state2.i, align 8
   %cmp.i = icmp eq i32 %0, 0
   br i1 %cmp.i, label %tcp_chr_change_state.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 49, ptr noundef nonnull @__PRETTY_FUNCTION__.tcp_chr_change_state) #11
+  tail call void @__assert_fail(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 49, ptr noundef nonnull @__PRETTY_FUNCTION__.tcp_chr_change_state) #12
   unreachable
 
 tcp_chr_change_state.exit:                        ; preds = %entry
   store i32 1, ptr %state2.i, align 8
-  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #9
+  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #10
   %is_listen.i = getelementptr inbounds i8, ptr %call.i.i, i64 264
   %1 = load i8, ptr %is_listen.i, align 8
   %tobool.i = trunc i8 %1 to i1
   %cond.i = select i1 %tobool.i, ptr @.str.23, ptr @.str.59
   %label.i = getelementptr inbounds i8, ptr %chr, i64 96
   %2 = load ptr, ptr %label.i, align 8
-  %call1.i = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.58, ptr noundef nonnull %cond.i, ptr noundef %2) #9
-  %call.i3.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #9
-  tail call void @qio_channel_set_name(ptr noundef %call.i3.i, ptr noundef %call1.i) #9
-  tail call void @g_free(ptr noundef %call1.i) #9
+  %call1.i = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.58, ptr noundef nonnull %cond.i, ptr noundef %2) #10
+  %call.i3.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #10
+  tail call void @qio_channel_set_name(ptr noundef %call.i3.i, ptr noundef %call1.i) #10
+  tail call void @g_free(ptr noundef %call1.i) #10
   %addr = getelementptr inbounds i8, ptr %call.i, i64 256
   %3 = load ptr, ptr %addr, align 8
-  %call2 = tail call i32 @qio_channel_socket_connect_sync(ptr noundef %call1, ptr noundef %3, ptr noundef %errp) #9
+  %call2 = tail call i32 @qio_channel_socket_connect_sync(ptr noundef %call1, ptr noundef %3, ptr noundef %errp) #10
   %cmp = icmp slt i32 %call2, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %tcp_chr_change_state.exit
   store i32 0, ptr %state2.i, align 8
-  tail call void @object_unref(ptr noundef %call1) #9
+  tail call void @object_unref(ptr noundef %call1) #10
   br label %return
 
 if.end:                                           ; preds = %tcp_chr_change_state.exit
@@ -2846,13 +2846,13 @@ if.then3:                                         ; preds = %if.end
   %u = getelementptr inbounds i8, ptr %.compoundliteral, i64 8
   %5 = load ptr, ptr %label.i, align 8
   store ptr %5, ptr %u, align 8
-  %call.i13 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #9
-  call void @yank_register_function(ptr noundef nonnull %.compoundliteral, ptr noundef nonnull @char_socket_yank_iochannel, ptr noundef %call.i13) #9
+  %call.i13 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #10
+  call void @yank_register_function(ptr noundef nonnull %.compoundliteral, ptr noundef nonnull @char_socket_yank_iochannel, ptr noundef %call.i13) #10
   br label %if.end5
 
 if.end5:                                          ; preds = %if.then3, %if.end
   %call6 = call fastcc i32 @tcp_chr_new_client(ptr noundef nonnull %chr, ptr noundef %call1)
-  call void @object_unref(ptr noundef %call1) #9
+  call void @object_unref(ptr noundef %call1) #10
   br label %return
 
 return:                                           ; preds = %if.end5, %if.then
@@ -2869,14 +2869,14 @@ define internal void @qemu_chr_socket_connected(ptr noundef %task, ptr noundef %
 entry:
   %err = alloca ptr, align 8
   %.compoundliteral = alloca %struct.YankInstance, align 8
-  %call = tail call ptr @qio_task_get_source(ptr noundef %task) #9
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call, ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.71, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL_SOCKET) #9
-  %call.i10 = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV) #9
-  %call.i11 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i10, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #9
+  %call = tail call ptr @qio_task_get_source(ptr noundef %task) #10
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call, ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.71, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL_SOCKET) #10
+  %call.i10 = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV) #10
+  %call.i11 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i10, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #10
   store ptr null, ptr %err, align 8
   %connect_task = getelementptr inbounds i8, ptr %call.i11, i64 320
   store ptr null, ptr %connect_task, align 8
-  %call4 = call zeroext i1 @qio_task_propagate_error(ptr noundef %task, ptr noundef nonnull %err) #9
+  %call4 = call zeroext i1 @qio_task_propagate_error(ptr noundef %task, ptr noundef nonnull %err) #10
   br i1 %call4, label %if.then, label %if.end7
 
 if.then:                                          ; preds = %entry
@@ -2893,13 +2893,13 @@ if.then5:                                         ; preds = %if.then
   %label = getelementptr inbounds i8, ptr %call.i10, i64 96
   %1 = load ptr, ptr %label, align 8
   store ptr %1, ptr %u, align 8
-  %call.i12 = call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #9
-  call void @yank_unregister_function(ptr noundef nonnull %.compoundliteral, ptr noundef nonnull @char_socket_yank_iochannel, ptr noundef %call.i12) #9
+  %call.i12 = call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #10
+  call void @yank_unregister_function(ptr noundef nonnull %.compoundliteral, ptr noundef nonnull @char_socket_yank_iochannel, ptr noundef %call.i12) #10
   br label %if.end
 
 if.end:                                           ; preds = %if.then5, %if.then
   %2 = load ptr, ptr %err, align 8
-  %call.i.i = call ptr @object_dynamic_cast_assert(ptr noundef %call.i10, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #9
+  %call.i.i = call ptr @object_dynamic_cast_assert(ptr noundef %call.i10, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #10
   %connect_err_reported.i = getelementptr inbounds i8, ptr %call.i.i, i64 312
   %3 = load i8, ptr %connect_err_reported.i, align 8
   %tobool.i = trunc i8 %3 to i1
@@ -2908,12 +2908,12 @@ if.end:                                           ; preds = %if.then5, %if.then
 if.then.i:                                        ; preds = %if.end
   %label.i = getelementptr inbounds i8, ptr %call.i10, i64 96
   %4 = load ptr, ptr %label.i, align 8
-  call void (ptr, ptr, ...) @error_reportf_err(ptr noundef %2, ptr noundef nonnull @.str.72, ptr noundef %4) #9
+  call void (ptr, ptr, ...) @error_reportf_err(ptr noundef %2, ptr noundef nonnull @.str.72, ptr noundef %4) #10
   store i8 1, ptr %connect_err_reported.i, align 8
   br label %check_report_connect_error.exit
 
 if.else.i:                                        ; preds = %if.end
-  call void @error_free(ptr noundef %2) #9
+  call void @error_free(ptr noundef %2) #10
   br label %check_report_connect_error.exit
 
 check_report_connect_error.exit:                  ; preds = %if.then.i, %if.else.i
@@ -2927,7 +2927,7 @@ if.end7:                                          ; preds = %entry
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end7, %check_report_connect_error.exit
-  call void @object_unref(ptr noundef %call.i) #9
+  call void @object_unref(ptr noundef %call.i) #10
   ret void
 }
 
@@ -2937,12 +2937,12 @@ declare void @qio_task_run_in_thread(ptr noundef, ptr noundef, ptr noundef, ptr 
 define internal void @tcp_chr_connect_client_task(ptr noundef %task, ptr noundef %opaque) #0 {
 entry:
   %err = alloca ptr, align 8
-  %call = tail call ptr @qio_task_get_source(ptr noundef %task) #9
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call, ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.71, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL_SOCKET) #9
+  %call = tail call ptr @qio_task_get_source(ptr noundef %task) #10
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call, ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.71, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL_SOCKET) #10
   store ptr null, ptr %err, align 8
-  %call2 = call i32 @qio_channel_socket_connect_sync(ptr noundef %call.i, ptr noundef %opaque, ptr noundef nonnull %err) #9
+  %call2 = call i32 @qio_channel_socket_connect_sync(ptr noundef %call.i, ptr noundef %opaque, ptr noundef nonnull %err) #10
   %0 = load ptr, ptr %err, align 8
-  call void @qio_task_set_error(ptr noundef %task, ptr noundef %0) #9
+  call void @qio_task_set_error(ptr noundef %task, ptr noundef %0) #10
   ret void
 }
 
@@ -2953,14 +2953,14 @@ declare void @error_free(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @qemu_chr_socket_restart_timer(ptr noundef %chr) unnamed_addr #0 {
 entry:
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #9
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #10
   %state = getelementptr inbounds i8, ptr %call.i, i64 200
   %0 = load i32, ptr %state, align 8
   %cmp = icmp eq i32 %0, 0
   br i1 %cmp, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 72, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_chr_socket_restart_timer) #11
+  tail call void @__assert_fail(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 72, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_chr_socket_restart_timer) #12
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -2970,21 +2970,21 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.end3, label %if.else2
 
 if.else2:                                         ; preds = %if.end
-  tail call void @__assert_fail(ptr noundef nonnull @.str.73, ptr noundef nonnull @.str.7, i32 noundef 73, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_chr_socket_restart_timer) #11
+  tail call void @__assert_fail(ptr noundef nonnull @.str.73, ptr noundef nonnull @.str.7, i32 noundef 73, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_chr_socket_restart_timer) #12
   unreachable
 
 if.end3:                                          ; preds = %if.end
   %label = getelementptr inbounds i8, ptr %chr, i64 96
   %2 = load ptr, ptr %label, align 8
-  %call4 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.74, ptr noundef %2) #9
+  %call4 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.74, ptr noundef %2) #10
   %reconnect_time = getelementptr inbounds i8, ptr %call.i, i64 304
   %3 = load i64, ptr %reconnect_time, align 8
   %4 = trunc i64 %3 to i32
   %conv = mul i32 %4, 1000
-  %call5 = tail call ptr @qemu_chr_timeout_add_ms(ptr noundef %chr, i32 noundef %conv, ptr noundef nonnull @socket_reconnect_timeout, ptr noundef %chr) #9
+  %call5 = tail call ptr @qemu_chr_timeout_add_ms(ptr noundef %chr, i32 noundef %conv, ptr noundef nonnull @socket_reconnect_timeout, ptr noundef %chr) #10
   store ptr %call5, ptr %reconnect_timer, align 8
-  tail call void @g_source_set_name(ptr noundef %call5, ptr noundef %call4) #9
-  tail call void @g_free(ptr noundef %call4) #9
+  tail call void @g_source_set_name(ptr noundef %call5, ptr noundef %call4) #10
+  tail call void @g_free(ptr noundef %call4) #10
   ret void
 }
 
@@ -2993,17 +2993,17 @@ declare ptr @qemu_chr_timeout_add_ms(ptr noundef, i32 noundef, ptr noundef, ptr 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i32 @socket_reconnect_timeout(ptr noundef %opaque) #0 {
 entry:
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV) #9
-  %call.i6 = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #9
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV) #10
+  %call.i6 = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #10
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
   %chr_write_lock = getelementptr inbounds i8, ptr %call.i, i64 40
-  tail call void %1(ptr noundef nonnull %chr_write_lock, ptr noundef nonnull @.str.7, i32 noundef 1174) #9
+  tail call void %1(ptr noundef nonnull %chr_write_lock, ptr noundef nonnull @.str.7, i32 noundef 1174) #10
   %reconnect_timer = getelementptr inbounds i8, ptr %call.i6, i64 296
   %2 = load ptr, ptr %reconnect_timer, align 8
-  tail call void @g_source_unref(ptr noundef %2) #9
+  tail call void @g_source_unref(ptr noundef %2) #10
   store ptr null, ptr %reconnect_timer, align 8
-  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %chr_write_lock, ptr noundef nonnull @.str.7, i32 noundef 1177) #9
+  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %chr_write_lock, ptr noundef nonnull @.str.7, i32 noundef 1177) #10
   %be_open = getelementptr inbounds i8, ptr %call.i, i64 116
   %3 = load i32, ptr %be_open, align 4
   %tobool.not = icmp eq i32 %3, 0
@@ -3040,7 +3040,7 @@ declare i32 @io_channel_send_full(ptr noundef, ptr noundef, i64 noundef, ptr nou
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @tcp_chr_disconnect_locked(ptr noundef %chr) unnamed_addr #0 {
 entry:
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #9
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @__func__.SOCKET_CHARDEV) #10
   %state = getelementptr inbounds i8, ptr %call.i, i64 200
   %0 = load i32, ptr %state, align 8
   %cmp = icmp eq i32 %0, 2
@@ -3053,7 +3053,7 @@ entry:
 if.then:                                          ; preds = %entry
   %gcontext = getelementptr inbounds i8, ptr %chr, i64 136
   %2 = load ptr, ptr %gcontext, align 8
-  tail call void @qio_net_listener_set_client_func_full(ptr noundef nonnull %1, ptr noundef nonnull @tcp_chr_accept, ptr noundef %chr, ptr noundef null, ptr noundef %2) #9
+  tail call void @qio_net_listener_set_client_func_full(ptr noundef nonnull %1, ptr noundef nonnull @tcp_chr_accept, ptr noundef %chr, ptr noundef null, ptr noundef %2) #10
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -3061,7 +3061,7 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %cmp, label %if.then3, label %if.end4
 
 if.then3:                                         ; preds = %if.end
-  tail call void @qemu_chr_be_event(ptr noundef %chr, i32 noundef 4) #9
+  tail call void @qemu_chr_be_event(ptr noundef %chr, i32 noundef 4) #10
   br label %if.end4
 
 if.end4:                                          ; preds = %if.then3, %if.end
@@ -3089,30 +3089,31 @@ declare ptr @qio_channel_socket_new_fd(i32 noundef, ptr noundef) local_unnamed_a
 declare zeroext i1 @visit_type_SocketAddress(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #8
+declare i32 @llvm.umin.i32(i32, i32) #9
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { nounwind }
-attributes #10 = { nounwind allocsize(0,1) }
-attributes #11 = { noreturn nounwind }
-attributes #12 = { nounwind willreturn memory(none) }
+attributes #5 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nounwind }
+attributes #11 = { nounwind allocsize(0,1) }
+attributes #12 = { noreturn nounwind }
+attributes #13 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

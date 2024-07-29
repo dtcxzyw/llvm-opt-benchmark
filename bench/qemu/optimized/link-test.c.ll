@@ -21,15 +21,15 @@ define dso_local noundef i32 @main(i32 noundef %argc, ptr nocapture noundef read
 entry:
   %dev = alloca %struct.VuDev, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1464) %dev, i8 0, i64 1464, i1 false)
-  %call = call zeroext i1 @vu_init(ptr noundef nonnull %dev, i16 noundef zeroext 2, i32 noundef 0, ptr noundef nonnull @panic, ptr noundef null, ptr noundef nonnull @set_watch, ptr noundef nonnull @remove_watch, ptr noundef nonnull @iface) #5
+  %call = call zeroext i1 @vu_init(ptr noundef nonnull %dev, i16 noundef zeroext 2, i32 noundef 0, ptr noundef nonnull @panic, ptr noundef null, ptr noundef nonnull @set_watch, ptr noundef nonnull @remove_watch, ptr noundef nonnull @iface) #6
   br i1 %call, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 41, ptr noundef nonnull @__PRETTY_FUNCTION__.main) #6
+  call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 41, ptr noundef nonnull @__PRETTY_FUNCTION__.main) #7
   unreachable
 
 if.end:                                           ; preds = %entry
-  call void @vu_deinit(ptr noundef nonnull %dev) #5
+  call void @vu_deinit(ptr noundef nonnull %dev) #6
   ret i32 0
 }
 
@@ -38,24 +38,24 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 declare zeroext i1 @vu_init(ptr noundef, i16 noundef zeroext, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: noreturn nounwind uwtable
+; Function Attrs: nofree noreturn nounwind uwtable
 define internal void @panic(ptr nocapture readnone %dev, ptr nocapture readnone %err) #3 {
 entry:
-  tail call void @abort() #6
+  tail call void @abort() #7
   unreachable
 }
 
-; Function Attrs: noreturn nounwind uwtable
+; Function Attrs: nofree noreturn nounwind uwtable
 define internal void @set_watch(ptr nocapture readnone %dev, i32 %fd, i32 %condition, ptr nocapture readnone %cb, ptr nocapture readnone %data) #3 {
 entry:
-  tail call void @abort() #6
+  tail call void @abort() #7
   unreachable
 }
 
-; Function Attrs: noreturn nounwind uwtable
+; Function Attrs: nofree noreturn nounwind uwtable
 define internal void @remove_watch(ptr nocapture readnone %dev, i32 %fd) #3 {
 entry:
-  tail call void @abort() #6
+  tail call void @abort() #7
   unreachable
 }
 
@@ -64,16 +64,17 @@ declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) 
 
 declare void @vu_deinit(ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: noreturn nounwind
-declare void @abort() local_unnamed_addr #4
+; Function Attrs: cold nofree noreturn nounwind
+declare void @abort() local_unnamed_addr #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind }
-attributes #6 = { noreturn nounwind }
+attributes #5 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind }
+attributes #7 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

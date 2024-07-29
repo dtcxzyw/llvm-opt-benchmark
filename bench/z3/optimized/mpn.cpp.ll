@@ -586,7 +586,7 @@ terminate.lpad.i.i:                               ; preds = %if.end.i.i.i.i.i
   %37 = landingpad { ptr, i32 }
           catch ptr null
   %38 = extractvalue { ptr, i32 } %37, 0
-  call void @__clang_call_terminate(ptr %38) #15
+  call void @__clang_call_terminate(ptr %38) #17
   unreachable
 
 _ZN7sbufferIjLj16EED2Ev.exit:                     ; preds = %invoke.cont83, %if.end.i.i.i.i.i
@@ -604,7 +604,7 @@ terminate.lpad.i.i85:                             ; preds = %if.end.i.i.i.i.i84
   %40 = landingpad { ptr, i32 }
           catch ptr null
   %41 = extractvalue { ptr, i32 } %40, 0
-  call void @__clang_call_terminate(ptr %41) #15
+  call void @__clang_call_terminate(ptr %41) #17
   unreachable
 
 _ZN7sbufferIjLj16EED2Ev.exit86:                   ; preds = %_ZN7sbufferIjLj16EED2Ev.exit, %if.end.i.i.i.i.i84
@@ -622,7 +622,7 @@ terminate.lpad.i.i92:                             ; preds = %if.end.i.i.i.i.i91
   %43 = landingpad { ptr, i32 }
           catch ptr null
   %44 = extractvalue { ptr, i32 } %43, 0
-  call void @__clang_call_terminate(ptr %44) #15
+  call void @__clang_call_terminate(ptr %44) #17
   unreachable
 
 _ZN7sbufferIjLj16EED2Ev.exit93:                   ; preds = %_ZN7sbufferIjLj16EED2Ev.exit86, %if.end.i.i.i.i.i91
@@ -640,7 +640,7 @@ terminate.lpad.i.i99:                             ; preds = %if.end.i.i.i.i.i98
   %46 = landingpad { ptr, i32 }
           catch ptr null
   %47 = extractvalue { ptr, i32 } %46, 0
-  call void @__clang_call_terminate(ptr %47) #15
+  call void @__clang_call_terminate(ptr %47) #17
   unreachable
 
 return:                                           ; preds = %for.body52, %cond.end, %if.then32, %_ZN7sbufferIjLj16EED2Ev.exit93, %if.end.i.i.i.i.i98
@@ -650,7 +650,7 @@ return:                                           ; preds = %for.body52, %cond.e
 
 declare void @_Z26notify_assertion_violationPKciS0_(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #8
 
 declare i32 @__gxx_personality_v0(...)
@@ -1520,7 +1520,7 @@ terminate.lpad.i:                                 ; preds = %if.end.i.i.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #15
+  tail call void @__clang_call_terminate(ptr %2) #17
   unreachable
 
 _ZN6bufferIjLb0ELj16EED2Ev.exit:                  ; preds = %entry, %if.end.i.i.i.i
@@ -1985,7 +1985,7 @@ terminate.lpad.i.i:                               ; preds = %if.end.i.i.i.i.i
   %53 = landingpad { ptr, i32 }
           catch ptr null
   %54 = extractvalue { ptr, i32 } %53, 0
-  call void @__clang_call_terminate(ptr %54) #15
+  call void @__clang_call_terminate(ptr %54) #17
   unreachable
 
 _ZN7sbufferIjLj16EED2Ev.exit:                     ; preds = %for.end61, %if.end.i.i.i.i.i
@@ -2003,7 +2003,7 @@ terminate.lpad.i.i135:                            ; preds = %if.end.i.i.i.i.i134
   %56 = landingpad { ptr, i32 }
           catch ptr null
   %57 = extractvalue { ptr, i32 } %56, 0
-  call void @__clang_call_terminate(ptr %57) #15
+  call void @__clang_call_terminate(ptr %57) #17
   unreachable
 
 _ZN7sbufferIjLj16EED2Ev.exit136:                  ; preds = %_ZN7sbufferIjLj16EED2Ev.exit, %if.end.i.i.i.i.i134
@@ -2021,7 +2021,7 @@ terminate.lpad.i.i142:                            ; preds = %if.end.i.i.i.i.i141
   %59 = landingpad { ptr, i32 }
           catch ptr null
   %60 = extractvalue { ptr, i32 } %59, 0
-  call void @__clang_call_terminate(ptr %60) #15
+  call void @__clang_call_terminate(ptr %60) #17
   unreachable
 
 ehcleanup:                                        ; preds = %lpad7.loopexit, %lpad7.loopexit.split-lp
@@ -2080,7 +2080,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef no
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #11 comdat {
   %2 = tail call ptr @__cxa_begin_catch(ptr %0) #16
-  tail call void @_ZSt9terminatev() #15
+  tail call void @_ZSt9terminatev() #17
   unreachable
 }
 
@@ -2117,15 +2117,16 @@ attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #5 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #13 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #15 = { noreturn nounwind }
+attributes #15 = { cold noreturn nounwind }
 attributes #16 = { nounwind }
+attributes #17 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

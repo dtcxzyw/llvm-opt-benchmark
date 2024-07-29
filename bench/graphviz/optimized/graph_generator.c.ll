@@ -26,13 +26,13 @@ define dso_local void @makePath(i32 noundef %0, ptr nocapture noundef readonly %
   br i1 %.not8, label %.loopexit, label %.lr.ph
 
 4:                                                ; preds = %2
-  tail call void %1(i32 noundef 1, i32 noundef 0) #13
+  tail call void %1(i32 noundef 1, i32 noundef 0) #14
   br label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.09 = phi i32 [ %6, %.lr.ph ], [ 2, %.preheader ]
   %5 = add nsw i32 %.09, -1
-  tail call void %1(i32 noundef %5, i32 noundef %.09) #13
+  tail call void %1(i32 noundef %5, i32 noundef %.09) #14
   %6 = add nuw i32 %.09, 1
   %exitcond.not = icmp eq i32 %.09, %0
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph
@@ -51,7 +51,7 @@ define dso_local void @makeComplete(i32 noundef %0, ptr nocapture noundef readon
   br i1 %4, label %.lr.ph.preheader, label %.loopexit13
 
 5:                                                ; preds = %2
-  tail call void %1(i32 noundef 1, i32 noundef 0) #13
+  tail call void %1(i32 noundef 1, i32 noundef 0) #14
   br label %.loopexit13
 
 .loopexit:                                        ; preds = %.lr.ph
@@ -65,7 +65,7 @@ define dso_local void @makeComplete(i32 noundef %0, ptr nocapture noundef readon
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.015 = phi i32 [ %7, %.lr.ph ], [ %6, %.lr.ph.preheader ]
-  tail call void %1(i32 noundef %.01116, i32 noundef %.015) #13
+  tail call void %1(i32 noundef %.01116, i32 noundef %.015) #14
   %7 = add nuw i32 %.015, 1
   %exitcond.not = icmp eq i32 %.015, %0
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph
@@ -81,7 +81,7 @@ define dso_local void @makeCircle(i32 noundef %0, ptr nocapture noundef readonly
 
 4:                                                ; preds = %2
   %5 = load ptr, ptr @stderr, align 8
-  %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str, i32 noundef %0) #14
+  %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str, i32 noundef %0) #15
   switch i32 %0, label %makePath.exit [
     i32 1, label %makePath.exit.sink.split
     i32 2, label %makePath.exit.loopexit
@@ -90,7 +90,7 @@ define dso_local void @makeCircle(i32 noundef %0, ptr nocapture noundef readonly
 .preheader:                                       ; preds = %2, %.preheader
   %.012 = phi i32 [ %7, %.preheader ], [ 1, %2 ]
   %7 = add nuw nsw i32 %.012, 1
-  tail call void %1(i32 noundef %.012, i32 noundef %7) #13
+  tail call void %1(i32 noundef %.012, i32 noundef %7) #14
   %exitcond.not = icmp eq i32 %7, %0
   br i1 %exitcond.not, label %makePath.exit.sink.split, label %.preheader
 
@@ -99,7 +99,7 @@ makePath.exit.loopexit:                           ; preds = %4
 
 makePath.exit.sink.split:                         ; preds = %.preheader, %4, %makePath.exit.loopexit
   %.sink = phi i32 [ %0, %makePath.exit.loopexit ], [ 0, %4 ], [ %0, %.preheader ]
-  tail call void %1(i32 noundef 1, i32 noundef %.sink) #13
+  tail call void %1(i32 noundef 1, i32 noundef %.sink) #14
   br label %makePath.exit
 
 makePath.exit:                                    ; preds = %makePath.exit.sink.split, %4
@@ -116,7 +116,7 @@ define dso_local void @makeStar(i32 noundef %0, ptr nocapture noundef readonly %
 
 4:                                                ; preds = %2
   %5 = load ptr, ptr @stderr, align 8
-  %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.1, i32 noundef %0) #14
+  %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.1, i32 noundef %0) #15
   switch i32 %0, label %makePath.exit [
     i32 1, label %makePath.exit.sink.split
     i32 2, label %makePath.exit.loopexit
@@ -124,7 +124,7 @@ define dso_local void @makeStar(i32 noundef %0, ptr nocapture noundef readonly %
 
 .preheader:                                       ; preds = %2, %.preheader
   %.010 = phi i32 [ %7, %.preheader ], [ 2, %2 ]
-  tail call void %1(i32 noundef 1, i32 noundef %.010) #13
+  tail call void %1(i32 noundef 1, i32 noundef %.010) #14
   %7 = add nuw i32 %.010, 1
   %exitcond.not = icmp eq i32 %.010, %0
   br i1 %exitcond.not, label %makePath.exit, label %.preheader
@@ -134,7 +134,7 @@ makePath.exit.loopexit:                           ; preds = %4
 
 makePath.exit.sink.split:                         ; preds = %4, %makePath.exit.loopexit
   %.sink = phi i32 [ 2, %makePath.exit.loopexit ], [ 0, %4 ]
-  tail call void %1(i32 noundef 1, i32 noundef %.sink) #13
+  tail call void %1(i32 noundef 1, i32 noundef %.sink) #14
   br label %makePath.exit
 
 makePath.exit:                                    ; preds = %.preheader, %makePath.exit.sink.split, %4
@@ -148,7 +148,7 @@ define dso_local void @makeWheel(i32 noundef %0, ptr nocapture noundef readonly 
 
 4:                                                ; preds = %2
   %5 = load ptr, ptr @stderr, align 8
-  %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.2, i32 noundef %0) #14
+  %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.2, i32 noundef %0) #15
   %7 = icmp eq i32 %0, 1
   br i1 %7, label %9, label %.preheader.i
 
@@ -157,7 +157,7 @@ define dso_local void @makeWheel(i32 noundef %0, ptr nocapture noundef readonly 
   br i1 %8, label %.lr.ph.preheader.i, label %makeComplete.exit
 
 9:                                                ; preds = %4
-  tail call void %1(i32 noundef 1, i32 noundef 0) #13
+  tail call void %1(i32 noundef 1, i32 noundef 0) #14
   br label %makeComplete.exit
 
 .loopexit.i:                                      ; preds = %.lr.ph.i
@@ -171,14 +171,14 @@ define dso_local void @makeWheel(i32 noundef %0, ptr nocapture noundef readonly 
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %.015.i = phi i32 [ %11, %.lr.ph.i ], [ %10, %.lr.ph.preheader.i ]
-  tail call void %1(i32 noundef %.01116.i, i32 noundef %.015.i) #13
+  tail call void %1(i32 noundef %.01116.i, i32 noundef %.015.i) #14
   %11 = add nuw i32 %.015.i, 1
   %exitcond.not.i = icmp eq i32 %.015.i, %0
   br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i
 
 .preheader.i14:                                   ; preds = %2, %.preheader.i14
   %.010.i = phi i32 [ %12, %.preheader.i14 ], [ 2, %2 ]
-  tail call void %1(i32 noundef 1, i32 noundef %.010.i) #13
+  tail call void %1(i32 noundef 1, i32 noundef %.010.i) #14
   %12 = add nuw i32 %.010.i, 1
   %exitcond.not.i15 = icmp eq i32 %.010.i, %0
   br i1 %exitcond.not.i15, label %makeStar.exit, label %.preheader.i14
@@ -186,12 +186,12 @@ define dso_local void @makeWheel(i32 noundef %0, ptr nocapture noundef readonly 
 makeStar.exit:                                    ; preds = %.preheader.i14, %makeStar.exit
   %.016 = phi i32 [ %13, %makeStar.exit ], [ 2, %.preheader.i14 ]
   %13 = add nuw nsw i32 %.016, 1
-  tail call void %1(i32 noundef %.016, i32 noundef %13) #13
+  tail call void %1(i32 noundef %.016, i32 noundef %13) #14
   %exitcond.not = icmp eq i32 %13, %0
   br i1 %exitcond.not, label %makeStar.exit._crit_edge, label %makeStar.exit
 
 makeStar.exit._crit_edge:                         ; preds = %makeStar.exit
-  tail call void %1(i32 noundef 2, i32 noundef %0) #13
+  tail call void %1(i32 noundef 2, i32 noundef %0) #14
   br label %makeComplete.exit
 
 makeComplete.exit:                                ; preds = %.loopexit.i, %9, %.preheader.i, %makeStar.exit._crit_edge
@@ -212,7 +212,7 @@ define dso_local void @makeCompleteB(i32 noundef %0, i32 noundef %1, ptr nocaptu
 4:                                                ; preds = %.preheader, %4
   %.013 = phi i32 [ 1, %.preheader ], [ %6, %4 ]
   %5 = add nuw nsw i32 %.013, %0
-  tail call void %2(i32 noundef %.0915, i32 noundef %5) #13
+  tail call void %2(i32 noundef %.0915, i32 noundef %5) #14
   %6 = add nuw i32 %.013, 1
   %exitcond.not = icmp eq i32 %.013, %1
   br i1 %exitcond.not, label %._crit_edge, label %4
@@ -245,14 +245,14 @@ define dso_local void @makeTorus(i32 noundef %0, i32 noundef %1, ptr nocapture n
   %.03443.us = phi i32 [ 1, %.preheader42.us ], [ %7, %5 ]
   %6 = add nuw nsw i32 %.03443.us, %.046.us
   %.reass.us = add nuw i32 %.03443.us, %invariant.op.us
-  tail call void %2(i32 noundef %6, i32 noundef %.reass.us) #13
+  tail call void %2(i32 noundef %6, i32 noundef %.reass.us) #14
   %7 = add nuw nsw i32 %.03443.us, 1
   %exitcond54.not = icmp eq i32 %7, %1
   br i1 %exitcond54.not, label %._crit_edge.us, label %5
 
 ._crit_edge.us:                                   ; preds = %5
   %8 = add nuw nsw i32 %.046.us, %1
-  tail call void %2(i32 noundef %invariant.op.us, i32 noundef %8) #13
+  tail call void %2(i32 noundef %invariant.op.us, i32 noundef %8) #14
   %9 = add nuw i32 %.03545.us, 1
   %exitcond55.not = icmp eq i32 %.03545.us, %0
   br i1 %exitcond55.not, label %.preheader41, label %.preheader42.us
@@ -262,7 +262,7 @@ define dso_local void @makeTorus(i32 noundef %0, i32 noundef %1, ptr nocapture n
   %.03545 = phi i32 [ %12, %.preheader42 ], [ 1, %.preheader42.lr.ph ]
   %10 = add nsw i32 %.046, 1
   %11 = add nsw i32 %.046, %1
-  tail call void %2(i32 noundef %10, i32 noundef %11) #13
+  tail call void %2(i32 noundef %10, i32 noundef %11) #14
   %12 = add nuw i32 %.03545, 1
   %exitcond.not = icmp eq i32 %.03545, %0
   br i1 %exitcond.not, label %.preheader41, label %.preheader42
@@ -288,14 +288,14 @@ define dso_local void @makeTorus(i32 noundef %0, i32 noundef %1, ptr nocapture n
   %19 = add nsw i32 %18, %.13649.us
   %20 = mul nuw nsw i32 %.147.us, %1
   %21 = add nuw nsw i32 %20, %.13649.us
-  tail call void %2(i32 noundef %19, i32 noundef %21) #13
+  tail call void %2(i32 noundef %19, i32 noundef %21) #14
   %22 = add nuw nsw i32 %.147.us, 1
   %exitcond57.not = icmp eq i32 %22, %0
   br i1 %exitcond57.not, label %._crit_edge.us51, label %16
 
 ._crit_edge.us51:                                 ; preds = %16
   %23 = add nsw i32 %.13649.us, %15
-  tail call void %2(i32 noundef %.13649.us, i32 noundef %23) #13
+  tail call void %2(i32 noundef %.13649.us, i32 noundef %23) #14
   %24 = add nuw i32 %.13649.us, 1
   %exitcond58.not = icmp eq i32 %.13649.us, %1
   br i1 %exitcond58.not, label %._crit_edge50, label %.preheader.us
@@ -303,7 +303,7 @@ define dso_local void @makeTorus(i32 noundef %0, i32 noundef %1, ptr nocapture n
 .preheader:                                       ; preds = %.preheader.lr.ph, %.preheader
   %.13649 = phi i32 [ %26, %.preheader ], [ 1, %.preheader.lr.ph ]
   %25 = add nsw i32 %.13649, %15
-  tail call void %2(i32 noundef %.13649, i32 noundef %25) #13
+  tail call void %2(i32 noundef %.13649, i32 noundef %25) #14
   %26 = add nuw i32 %.13649, 1
   %exitcond56.not = icmp eq i32 %.13649, %1
   br i1 %exitcond56.not, label %._crit_edge50, label %.preheader
@@ -339,12 +339,12 @@ define dso_local void @makeTwistedTorus(i32 noundef %0, i32 noundef %1, i32 noun
   %19 = add nuw i32 %10, %18
   %20 = mul nuw nsw i32 %iv.rem, %0
   %21 = add i32 %11, %20
-  tail call void %4(i32 noundef %19, i32 noundef %21) #13
+  tail call void %4(i32 noundef %19, i32 noundef %21) #14
   %22 = add nsw i32 %.02932.us, %3
   %23 = srem i32 %22, %1
   %24 = mul nsw i32 %23, %0
   %25 = add i32 %14, %24
-  tail call void %4(i32 noundef %19, i32 noundef %25) #13
+  tail call void %4(i32 noundef %19, i32 noundef %25) #14
   %exitcond.not = icmp eq i32 %16, %1
   br i1 %exitcond.not, label %._crit_edge.us, label %15
 
@@ -375,14 +375,14 @@ define dso_local void @makeCylinder(i32 noundef %0, i32 noundef %1, ptr nocaptur
   %.02938.us = phi i32 [ 1, %.preheader37.us ], [ %7, %5 ]
   %6 = add nuw nsw i32 %.02938.us, %.041.us
   %.reass.us = add nuw i32 %.02938.us, %invariant.op.us
-  tail call void %2(i32 noundef %6, i32 noundef %.reass.us) #13
+  tail call void %2(i32 noundef %6, i32 noundef %.reass.us) #14
   %7 = add nuw nsw i32 %.02938.us, 1
   %exitcond49.not = icmp eq i32 %7, %1
   br i1 %exitcond49.not, label %._crit_edge.us, label %5
 
 ._crit_edge.us:                                   ; preds = %5
   %8 = add nuw nsw i32 %.041.us, %1
-  tail call void %2(i32 noundef %invariant.op.us, i32 noundef %8) #13
+  tail call void %2(i32 noundef %invariant.op.us, i32 noundef %8) #14
   %9 = add nuw i32 %.03040.us, 1
   %exitcond50.not = icmp eq i32 %.03040.us, %0
   br i1 %exitcond50.not, label %.preheader36, label %.preheader37.us
@@ -392,7 +392,7 @@ define dso_local void @makeCylinder(i32 noundef %0, i32 noundef %1, ptr nocaptur
   %.03040 = phi i32 [ %12, %.preheader37 ], [ 1, %.preheader37.lr.ph ]
   %10 = add nsw i32 %.041, 1
   %11 = add nsw i32 %.041, %1
-  tail call void %2(i32 noundef %10, i32 noundef %11) #13
+  tail call void %2(i32 noundef %10, i32 noundef %11) #14
   %12 = add nuw i32 %.03040, 1
   %exitcond.not = icmp eq i32 %.03040, %0
   br i1 %exitcond.not, label %.preheader36, label %.preheader37
@@ -414,7 +414,7 @@ define dso_local void @makeCylinder(i32 noundef %0, i32 noundef %1, ptr nocaptur
   %17 = add nsw i32 %16, %.13144.us
   %18 = mul nuw nsw i32 %.142.us, %1
   %19 = add nuw nsw i32 %18, %.13144.us
-  tail call void %2(i32 noundef %17, i32 noundef %19) #13
+  tail call void %2(i32 noundef %17, i32 noundef %19) #14
   %20 = add nuw nsw i32 %.142.us, 1
   %exitcond51.not = icmp eq i32 %20, %0
   br i1 %exitcond51.not, label %._crit_edge.us46, label %14
@@ -483,7 +483,7 @@ define dso_local void @makeSquareGrid(i32 noundef %0, i32 noundef %1, i32 nounde
 
 33:                                               ; preds = %31
   %.reass132.us = add i32 %.0108130.us, %invariant.op131.us
-  tail call void %4(i32 noundef %.reass.us, i32 noundef %.reass132.us) #13
+  tail call void %4(i32 noundef %.reass.us, i32 noundef %.reass132.us) #14
   br label %34
 
 34:                                               ; preds = %31, %33, %28
@@ -491,7 +491,7 @@ define dso_local void @makeSquareGrid(i32 noundef %0, i32 noundef %1, i32 nounde
 
 35:                                               ; preds = %34
   %36 = add i32 %24, %.0108130.us
-  tail call void %4(i32 noundef %.reass.us, i32 noundef %36) #13
+  tail call void %4(i32 noundef %.reass.us, i32 noundef %36) #14
   br label %37
 
 37:                                               ; preds = %35, %34
@@ -553,7 +553,7 @@ define dso_local void @makeSquareGrid(i32 noundef %0, i32 noundef %1, i32 nounde
 
 .sink.split:                                      ; preds = %59, %57, %54, %48, %46, %42
   %.sink = phi i32 [ %17, %42 ], [ %18, %46 ], [ %1, %48 ], [ %17, %54 ], [ %1, %57 ], [ %18, %59 ]
-  tail call void %4(i32 noundef %.reass.us, i32 noundef %.sink) #13
+  tail call void %4(i32 noundef %.reass.us, i32 noundef %.sink) #14
   br label %61
 
 61:                                               ; preds = %.sink.split, %54, %59, %57, %48, %46, %42, %37
@@ -610,7 +610,7 @@ ipow.exit:                                        ; preds = %.lr.ph.i, %3, %4
 11:                                               ; preds = %.preheader.us, %11
   %.113.us = phi i32 [ %.01216.us, %.preheader.us ], [ %12, %11 ]
   %12 = add i32 %.113.us, 1
-  tail call void %2(i32 noundef %.01117.us, i32 noundef %.113.us) #13
+  tail call void %2(i32 noundef %.01117.us, i32 noundef %.113.us) #14
   %exitcond.not = icmp eq i32 %12, %10
   br i1 %exitcond.not, label %._crit_edge.us, label %11
 
@@ -631,9 +631,9 @@ define dso_local void @makeBinaryTree(i32 noundef %0, ptr nocapture noundef read
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.011 = phi i32 [ %5, %.lr.ph ], [ 1, %2 ]
   %3 = shl nuw nsw i32 %.011, 1
-  tail call void %1(i32 noundef %.011, i32 noundef %3) #13
+  tail call void %1(i32 noundef %.011, i32 noundef %3) #14
   %4 = or disjoint i32 %3, 1
-  tail call void %1(i32 noundef %.011, i32 noundef %4) #13
+  tail call void %1(i32 noundef %.011, i32 noundef %4) #14
   %5 = add nuw nsw i32 %.011, 1
   %.0.highbits = lshr i32 %5, %0
   %.not.not = icmp eq i32 %.0.highbits, 0
@@ -647,7 +647,7 @@ define dso_local void @makeBinaryTree(i32 noundef %0, ptr nocapture noundef read
 define dso_local void @makeSierpinski(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = add nsw i32 %0, -1
   %4 = sitofp i32 %3 to double
-  %5 = tail call double @pow(double noundef 3.000000e+00, double noundef %4) #13
+  %5 = tail call double @pow(double noundef 3.000000e+00, double noundef %4) #14
   %6 = fadd double %5, 5.000000e-01
   %7 = fptosi double %6 to i32
   %8 = add nsw i32 %7, -1
@@ -714,7 +714,7 @@ define dso_local void @makeSierpinski(i32 noundef %0, ptr nocapture noundef read
   br i1 %32, label %33, label %34
 
 33:                                               ; preds = %26
-  tail call void %1(i32 noundef %25, i32 noundef %30) #13
+  tail call void %1(i32 noundef %25, i32 noundef %30) #14
   %.pre = load i32, ptr %21, align 8
   br label %34
 
@@ -733,21 +733,21 @@ define dso_local void @makeSierpinski(i32 noundef %0, ptr nocapture noundef read
 ._crit_edge44:                                    ; preds = %._crit_edge41, %._crit_edge.thread, %._crit_edge
   %38 = getelementptr inbounds i8, ptr %14, i64 24
   %39 = load ptr, ptr %38, align 8
-  tail call void @free(ptr noundef %39) #13
-  tail call void @free(ptr noundef %14) #13
+  tail call void @free(ptr noundef %39) #14
+  tail call void @free(ptr noundef %14) #14
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
 declare double @pow(double noundef, double noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
-define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef %0, i64 noundef %1) unnamed_addr #0 {
+; Function Attrs: nofree nounwind uwtable
+define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef %0, i64 noundef %1) unnamed_addr #3 {
   %.not = icmp eq i64 %0, 0
   br i1 %.not, label %.thread, label %4
 
 .thread:                                          ; preds = %2
-  %3 = tail call noalias ptr @calloc(i64 noundef 0, i64 noundef %1) #15
+  %3 = tail call noalias ptr @calloc(i64 noundef 0, i64 noundef %1) #16
   br label %15
 
 4:                                                ; preds = %2
@@ -757,20 +757,20 @@ define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef %0, i64 nounde
 
 5:                                                ; preds = %4
   %6 = load ptr, ptr @stderr, align 8
-  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.4, i64 noundef %0, i64 noundef %1) #14
-  tail call fastcc void @graphviz_exit() #16
+  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.4, i64 noundef %0, i64 noundef %1) #15
+  tail call fastcc void @graphviz_exit() #17
   unreachable
 
 8:                                                ; preds = %4
-  %9 = tail call noalias ptr @calloc(i64 noundef %0, i64 noundef %1) #15
+  %9 = tail call noalias ptr @calloc(i64 noundef %0, i64 noundef %1) #16
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %15
 
 11:                                               ; preds = %8
   %12 = load ptr, ptr @stderr, align 8
   %13 = mul nsw i64 %1, %0
-  %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.5, i64 noundef %13) #14
-  tail call fastcc void @graphviz_exit() #16
+  %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.5, i64 noundef %13) #15
+  tail call fastcc void @graphviz_exit() #17
   unreachable
 
 15:                                               ; preds = %.thread, %8
@@ -779,7 +779,7 @@ define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef %0, i64 nounde
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @constructSierpinski(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #3 {
+define internal fastcc void @constructSierpinski(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #4 {
   %6 = icmp sgt i32 %3, 0
   br i1 %6, label %tailrecurse, label %tailrecurse._crit_edge
 
@@ -849,14 +849,14 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %5
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @makeTetrix(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = add nsw i32 %0, -1
   %4 = sitofp i32 %3 to double
   %mul = fmul double %4, 2.000000e+00
-  %exp2 = tail call double @exp2(double %mul) #13
+  %exp2 = tail call double @exp2(double %mul) #14
   %5 = fadd double %exp2, 5.000000e-01
   %6 = fptosi double %5 to i32
   %7 = shl i32 %6, 1
@@ -921,7 +921,7 @@ define dso_local void @makeTetrix(i32 noundef %0, ptr nocapture noundef readonly
   br i1 %29, label %30, label %31
 
 30:                                               ; preds = %23
-  tail call void %1(i32 noundef %22, i32 noundef %27) #13
+  tail call void %1(i32 noundef %22, i32 noundef %27) #14
   %.pre = load i32, ptr %18, align 8
   br label %31
 
@@ -940,13 +940,13 @@ define dso_local void @makeTetrix(i32 noundef %0, ptr nocapture noundef readonly
 ._crit_edge44:                                    ; preds = %._crit_edge41, %._crit_edge.thread, %._crit_edge
   %35 = getelementptr inbounds i8, ptr %11, i64 24
   %36 = load ptr, ptr %35, align 8
-  tail call void @free(ptr noundef %36) #13
-  tail call void @free(ptr noundef %11) #13
+  tail call void @free(ptr noundef %36) #14
+  tail call void @free(ptr noundef %11) #14
   ret void
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @constructTetrix(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #3 {
+define internal fastcc void @constructTetrix(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #4 {
   %7 = icmp sgt i32 %4, 0
   br i1 %7, label %tailrecurse, label %tailrecurse._crit_edge
 
@@ -1077,7 +1077,7 @@ define dso_local void @makeHypercube(i32 noundef %0, ptr nocapture noundef reado
 
 9:                                                ; preds = %6
   %10 = add nsw i32 %8, 1
-  tail call void %1(i32 noundef %5, i32 noundef %10) #13
+  tail call void %1(i32 noundef %5, i32 noundef %10) #14
   br label %11
 
 11:                                               ; preds = %9, %6
@@ -1099,12 +1099,12 @@ define dso_local void @makeTriMesh(i32 noundef %0, ptr nocapture noundef readonl
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %2
-  tail call void %1(i32 noundef 1, i32 noundef 0) #13
+  tail call void %1(i32 noundef 1, i32 noundef 0) #14
   br label %.loopexit
 
 5:                                                ; preds = %2
-  tail call void %1(i32 noundef 1, i32 noundef 2) #13
-  tail call void %1(i32 noundef 1, i32 noundef 3) #13
+  tail call void %1(i32 noundef 1, i32 noundef 2) #14
+  tail call void %1(i32 noundef 1, i32 noundef 3) #14
   %6 = icmp sgt i32 %0, 2
   br i1 %6, label %.preheader34, label %.preheader
 
@@ -1124,15 +1124,15 @@ define dso_local void @makeTriMesh(i32 noundef %0, ptr nocapture noundef readonl
   %.136 = phi i32 [ %.038, %.preheader34 ], [ %12, %._crit_edge ]
   %.03035 = phi i32 [ 1, %.preheader34 ], [ %14, %._crit_edge ]
   %10 = add nsw i32 %.136, %.03237
-  tail call void %1(i32 noundef %.136, i32 noundef %10) #13
+  tail call void %1(i32 noundef %.136, i32 noundef %10) #14
   %.reass = add i32 %.136, %invariant.op
-  tail call void %1(i32 noundef %.136, i32 noundef %.reass) #13
+  tail call void %1(i32 noundef %.136, i32 noundef %.reass) #14
   %11 = icmp ult i32 %.03035, %.03237
   %12 = add i32 %.136, 1
   br i1 %11, label %13, label %._crit_edge
 
 13:                                               ; preds = %9
-  tail call void %1(i32 noundef %.136, i32 noundef %12) #13
+  tail call void %1(i32 noundef %.136, i32 noundef %12) #14
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %9, %13
@@ -1148,7 +1148,7 @@ define dso_local void @makeTriMesh(i32 noundef %0, ptr nocapture noundef readonl
   %.240 = phi i32 [ %16, %.lr.ph ], [ %.0.lcssa, %.preheader ]
   %.13139 = phi i32 [ %17, %.lr.ph ], [ 1, %.preheader ]
   %16 = add nsw i32 %.240, 1
-  tail call void %1(i32 noundef %.240, i32 noundef %16) #13
+  tail call void %1(i32 noundef %.240, i32 noundef %16) #14
   %17 = add nuw nsw i32 %.13139, 1
   %exitcond42.not = icmp eq i32 %17, %0
   br i1 %exitcond42.not, label %.loopexit, label %.lr.ph
@@ -1176,14 +1176,14 @@ define dso_local void @makeBall(i32 noundef %0, i32 noundef %1, ptr nocapture no
   %.02938.us.i = phi i32 [ 1, %.preheader37.us.i ], [ %7, %5 ]
   %6 = add nuw nsw i32 %.02938.us.i, %.041.us.i
   %.reass.us.i = add nuw i32 %.02938.us.i, %invariant.op.us.i
-  tail call void %2(i32 noundef %6, i32 noundef %.reass.us.i) #13
+  tail call void %2(i32 noundef %6, i32 noundef %.reass.us.i) #14
   %7 = add nuw nsw i32 %.02938.us.i, 1
   %exitcond49.not.i = icmp eq i32 %7, %1
   br i1 %exitcond49.not.i, label %._crit_edge.us.i, label %5
 
 ._crit_edge.us.i:                                 ; preds = %5
   %8 = add nuw nsw i32 %.041.us.i, %1
-  tail call void %2(i32 noundef %invariant.op.us.i, i32 noundef %8) #13
+  tail call void %2(i32 noundef %invariant.op.us.i, i32 noundef %8) #14
   %9 = add nuw i32 %.03040.us.i, 1
   %exitcond50.not.i = icmp eq i32 %.03040.us.i, %0
   br i1 %exitcond50.not.i, label %.preheader36.i, label %.preheader37.us.i
@@ -1193,7 +1193,7 @@ define dso_local void @makeBall(i32 noundef %0, i32 noundef %1, ptr nocapture no
   %.03040.i = phi i32 [ %12, %.preheader37.i ], [ 1, %.preheader37.lr.ph.i ]
   %10 = add nsw i32 %.041.i, 1
   %11 = add nsw i32 %.041.i, %1
-  tail call void %2(i32 noundef %10, i32 noundef %11) #13
+  tail call void %2(i32 noundef %10, i32 noundef %11) #14
   %12 = add nuw i32 %.03040.i, 1
   %exitcond.not.i = icmp eq i32 %.03040.i, %0
   br i1 %exitcond.not.i, label %.preheader36.i, label %.preheader37.i
@@ -1215,7 +1215,7 @@ define dso_local void @makeBall(i32 noundef %0, i32 noundef %1, ptr nocapture no
   %17 = add nsw i32 %16, %.13144.us.i
   %18 = mul nuw nsw i32 %.142.us.i, %1
   %19 = add nuw nsw i32 %18, %.13144.us.i
-  tail call void %2(i32 noundef %17, i32 noundef %19) #13
+  tail call void %2(i32 noundef %17, i32 noundef %19) #14
   %20 = add nuw nsw i32 %.142.us.i, 1
   %exitcond51.not.i = icmp eq i32 %20, %0
   br i1 %exitcond51.not.i, label %._crit_edge.us46.i, label %14
@@ -1231,7 +1231,7 @@ makeCylinder.exit:                                ; preds = %._crit_edge.us46.i,
 
 .lr.ph:                                           ; preds = %makeCylinder.exit, %.lr.ph
   %.024 = phi i32 [ %22, %.lr.ph ], [ 1, %makeCylinder.exit ]
-  tail call void %2(i32 noundef 0, i32 noundef %.024) #13
+  tail call void %2(i32 noundef 0, i32 noundef %.024) #14
   %22 = add nuw i32 %.024, 1
   %exitcond.not = icmp eq i32 %.024, %1
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
@@ -1247,7 +1247,7 @@ makeCylinder.exit:                                ; preds = %._crit_edge.us46.i,
 .lr.ph28:                                         ; preds = %._crit_edge, %.lr.ph28
   %.1.in26 = phi i32 [ %.1, %.lr.ph28 ], [ %26, %._crit_edge ]
   %.1 = add nsw i32 %.1.in26, 1
-  tail call void %2(i32 noundef %.1, i32 noundef %24) #13
+  tail call void %2(i32 noundef %.1, i32 noundef %24) #14
   %exitcond31.not = icmp eq i32 %.1, %23
   br i1 %exitcond31.not, label %._crit_edge29, label %.lr.ph28
 
@@ -1257,10 +1257,10 @@ makeCylinder.exit:                                ; preds = %._crit_edge.us46.i,
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @makeRandom(i32 noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
-  %4 = tail call i64 @time(ptr noundef null) #13
+  %4 = tail call i64 @time(ptr noundef null) #14
   %5 = trunc i64 %4 to i32
-  tail call void @srand(i32 noundef %5) #13
-  %6 = tail call i32 @rand() #13
+  tail call void @srand(i32 noundef %5) #14
+  %6 = tail call i32 @rand() #14
   %.not52 = icmp slt i32 %0, 0
   br i1 %.not52, label %._crit_edge, label %.lr.ph
 
@@ -1291,9 +1291,9 @@ define dso_local void @makeRandom(i32 noundef %0, i32 noundef %1, ptr nocapture 
 .lr.ph.i:                                         ; preds = %14, %.lr.ph.i
   %.011.i = phi i32 [ %17, %.lr.ph.i ], [ 1, %14 ]
   %15 = shl nuw nsw i32 %.011.i, 1
-  tail call void %2(i32 noundef %.011.i, i32 noundef %15) #13
+  tail call void %2(i32 noundef %.011.i, i32 noundef %15) #14
   %16 = or disjoint i32 %15, 1
-  tail call void %2(i32 noundef %.011.i, i32 noundef %16) #13
+  tail call void %2(i32 noundef %.011.i, i32 noundef %16) #14
   %17 = add nuw nsw i32 %.011.i, 1
   %.0.highbits.i = lshr i32 %17, %12
   %.not.not.i = icmp eq i32 %.0.highbits.i, 0
@@ -1308,13 +1308,13 @@ define dso_local void @makeRandom(i32 noundef %0, i32 noundef %1, ptr nocapture 
   br i1 %.not8.i, label %._crit_edge62, label %.lr.ph.i47
 
 20:                                               ; preds = %18
-  tail call void %2(i32 noundef 1, i32 noundef 0) #13
+  tail call void %2(i32 noundef 1, i32 noundef 0) #14
   br label %._crit_edge62
 
 .lr.ph.i47:                                       ; preds = %.preheader.i, %.lr.ph.i47
   %.09.i = phi i32 [ %22, %.lr.ph.i47 ], [ 2, %.preheader.i ]
   %21 = add nsw i32 %.09.i, -1
-  tail call void %2(i32 noundef %21, i32 noundef %.09.i) #13
+  tail call void %2(i32 noundef %21, i32 noundef %.09.i) #14
   %22 = add nuw i32 %.09.i, 1
   %exitcond.not.i = icmp eq i32 %.09.i, %11
   br i1 %exitcond.not.i, label %makeBinaryTree.exit, label %.lr.ph.i47
@@ -1342,13 +1342,13 @@ makeBinaryTree.exit:                              ; preds = %.lr.ph.i, %.lr.ph.i
 
 .lr.ph57.split.us:                                ; preds = %.lr.ph57, %31
   %.03956.us = phi i32 [ %32, %31 ], [ 1, %.lr.ph57 ]
-  %28 = tail call i32 @rand() #13
+  %28 = tail call i32 @rand() #14
   %29 = srem i32 %28, %23
   %or.cond = icmp sgt i32 %29, %invariant.smax
   br i1 %or.cond, label %31, label %30
 
 30:                                               ; preds = %.lr.ph57.split.us
-  tail call void %2(i32 noundef %.03956.us, i32 noundef %.060) #13
+  tail call void %2(i32 noundef %.03956.us, i32 noundef %.060) #14
   br label %31
 
 31:                                               ; preds = %.lr.ph57.split.us, %30
@@ -1358,7 +1358,7 @@ makeBinaryTree.exit:                              ; preds = %.lr.ph.i, %.lr.ph.i
 
 .lr.ph57.split:                                   ; preds = %.lr.ph57, %39
   %.03956 = phi i32 [ %40, %39 ], [ 1, %.lr.ph57 ]
-  %33 = tail call i32 @rand() #13
+  %33 = tail call i32 @rand() #14
   %34 = srem i32 %33, %23
   %.not44 = icmp sgt i32 %34, %24
   br i1 %.not44, label %37, label %35
@@ -1374,7 +1374,7 @@ makeBinaryTree.exit:                              ; preds = %.lr.ph.i, %.lr.ph.i
   br i1 %.not45.old, label %39, label %38
 
 38:                                               ; preds = %35, %37
-  tail call void %2(i32 noundef %.03956, i32 noundef %.060) #13
+  tail call void %2(i32 noundef %.03956, i32 noundef %.060) #14
   br label %39
 
 39:                                               ; preds = %35, %37, %38
@@ -1393,13 +1393,13 @@ makeBinaryTree.exit:                              ; preds = %.lr.ph.i, %.lr.ph.i
 }
 
 ; Function Attrs: nounwind
-declare void @srand(i32 noundef) local_unnamed_addr #5
+declare void @srand(i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind
-declare i64 @time(ptr noundef) local_unnamed_addr #5
+declare i64 @time(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind
-declare i32 @rand() local_unnamed_addr #5
+declare i32 @rand() local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @makeMobius(i32 noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
@@ -1408,7 +1408,7 @@ define dso_local void @makeMobius(i32 noundef %0, i32 noundef %1, ptr nocapture 
 
 5:                                                ; preds = %3
   %6 = load ptr, ptr @stderr, align 8
-  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.3, i32 noundef %0) #14
+  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.3, i32 noundef %0) #15
   %8 = icmp eq i32 %0, 1
   br i1 %8, label %makePath.exit.sink.split, label %.preheader.i
 
@@ -1419,7 +1419,7 @@ define dso_local void @makeMobius(i32 noundef %0, i32 noundef %1, ptr nocapture 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   %.09.i = phi i32 [ %10, %.lr.ph.i ], [ 2, %.preheader.i ]
   %9 = add nsw i32 %.09.i, -1
-  tail call void %2(i32 noundef %9, i32 noundef %.09.i) #13
+  tail call void %2(i32 noundef %9, i32 noundef %.09.i) #14
   %10 = add nuw i32 %.09.i, 1
   %exitcond.not.i = icmp eq i32 %.09.i, %0
   br i1 %exitcond.not.i, label %makePath.exit, label %.lr.ph.i
@@ -1449,10 +1449,10 @@ define dso_local void @makeMobius(i32 noundef %0, i32 noundef %1, ptr nocapture 
   %.068.us = phi i32 [ 1, %.preheader66.us ], [ %22, %19 ]
   %20 = add nuw nsw i32 %.068.us, %16
   %21 = add nuw nsw i32 %.068.us, %18
-  tail call void %2(i32 noundef %20, i32 noundef %21) #13
+  tail call void %2(i32 noundef %20, i32 noundef %21) #14
   %22 = add nuw nsw i32 %.068.us, 1
   %.reass.us = add nuw i32 %.068.us, %invariant.op.us
-  tail call void %2(i32 noundef %20, i32 noundef %.reass.us) #13
+  tail call void %2(i32 noundef %20, i32 noundef %.reass.us) #14
   %exitcond.not = icmp eq i32 %22, %1
   br i1 %exitcond.not, label %._crit_edge.us, label %19
 
@@ -1462,14 +1462,14 @@ define dso_local void @makeMobius(i32 noundef %0, i32 noundef %1, ptr nocapture 
 
 .preheader.i58:                                   ; preds = %11
   %23 = load ptr, ptr @stderr, align 8
-  %24 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.3, i32 noundef %1) #14
+  %24 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.3, i32 noundef %1) #15
   %.not8.i59 = icmp slt i32 %1, 2
   br i1 %.not8.i59, label %makePath.exit, label %.lr.ph.i60
 
 .lr.ph.i60:                                       ; preds = %.preheader.i58, %.lr.ph.i60
   %.09.i61 = phi i32 [ %26, %.lr.ph.i60 ], [ 2, %.preheader.i58 ]
   %25 = add nsw i32 %.09.i61, -1
-  tail call void %2(i32 noundef %25, i32 noundef %.09.i61) #13
+  tail call void %2(i32 noundef %25, i32 noundef %.09.i61) #14
   %26 = add nuw i32 %.09.i61, 1
   %exitcond.not.i62 = icmp eq i32 %.09.i61, %1
   br i1 %exitcond.not.i62, label %makePath.exit, label %.lr.ph.i60
@@ -1494,7 +1494,7 @@ define dso_local void @makeMobius(i32 noundef %0, i32 noundef %1, ptr nocapture 
   %30 = add nsw i32 %.170, %28
   %31 = add nuw nsw i32 %.170, 1
   %.reass = add i32 %.170, %invariant.op
-  tail call void %2(i32 noundef %30, i32 noundef %.reass) #13
+  tail call void %2(i32 noundef %30, i32 noundef %.reass) #14
   %exitcond76.not = icmp eq i32 %31, %1
   br i1 %exitcond76.not, label %.preheader, label %29
 
@@ -1503,11 +1503,11 @@ define dso_local void @makeMobius(i32 noundef %0, i32 noundef %1, ptr nocapture 
   %32 = mul nsw i32 %.271, %1
   %33 = add nuw nsw i32 %.271, 1
   %34 = mul nsw i32 %33, %1
-  tail call void %2(i32 noundef %32, i32 noundef %34) #13
+  tail call void %2(i32 noundef %32, i32 noundef %34) #14
   %35 = sub nsw i32 %0, %.271
   %36 = mul nsw i32 %35, %1
   %37 = add nsw i32 %36, 1
-  tail call void %2(i32 noundef %32, i32 noundef %37) #13
+  tail call void %2(i32 noundef %32, i32 noundef %37) #14
   %exitcond77.not = icmp eq i32 %33, %0
   br i1 %exitcond77.not, label %._crit_edge, label %.lr.ph72
 
@@ -1517,7 +1517,7 @@ define dso_local void @makeMobius(i32 noundef %0, i32 noundef %1, ptr nocapture 
 
 makePath.exit.sink.split:                         ; preds = %5, %._crit_edge
   %.sink = phi i32 [ %38, %._crit_edge ], [ 0, %5 ]
-  tail call void %2(i32 noundef 1, i32 noundef %.sink) #13
+  tail call void %2(i32 noundef 1, i32 noundef %.sink) #14
   br label %makePath.exit
 
 makePath.exit:                                    ; preds = %.lr.ph.i60, %.lr.ph.i, %makePath.exit.sink.split, %.preheader.i58, %.preheader.i
@@ -1526,14 +1526,14 @@ makePath.exit:                                    ; preds = %.lr.ph.i60, %.lr.ph
 
 ; Function Attrs: nounwind uwtable
 define dso_local noalias noundef ptr @makeTreeGen(i32 noundef %0) local_unnamed_addr #0 {
-  %2 = tail call noalias dereferenceable_or_null(48) ptr @calloc(i64 noundef 1, i64 noundef 48) #15
+  %2 = tail call noalias dereferenceable_or_null(48) ptr @calloc(i64 noundef 1, i64 noundef 48) #16
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %gv_alloc.exit
 
 4:                                                ; preds = %1
   %5 = load ptr, ptr @stderr, align 8
-  %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.5, i64 noundef 48) #14
-  tail call fastcc void @graphviz_exit() #16
+  %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.5, i64 noundef 48) #15
+  tail call fastcc void @graphviz_exit() #17
   unreachable
 
 gv_alloc.exit:                                    ; preds = %1
@@ -1605,14 +1605,14 @@ gv_alloc.exit:                                    ; preds = %1
 genCnt.exit:                                      ; preds = %31, %gv_alloc.exit
   %34 = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %9, ptr %34, align 8
-  %35 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #15
+  %35 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #16
   %36 = icmp eq ptr %35, null
   br i1 %36, label %37, label %mkTree.exit
 
 37:                                               ; preds = %genCnt.exit
   %38 = load ptr, ptr @stderr, align 8
-  %39 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %38, ptr noundef nonnull @.str.5, i64 noundef 16) #14
-  tail call fastcc void @graphviz_exit() #16
+  %39 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %38, ptr noundef nonnull @.str.5, i64 noundef 16) #15
+  tail call fastcc void @graphviz_exit() #17
   unreachable
 
 mkTree.exit:                                      ; preds = %genCnt.exit
@@ -1621,14 +1621,14 @@ mkTree.exit:                                      ; preds = %genCnt.exit
   store ptr %40, ptr %41, align 8
   %42 = getelementptr inbounds i8, ptr %2, i64 40
   store ptr %35, ptr %42, align 8
-  %43 = tail call i64 @time(ptr noundef null) #13
+  %43 = tail call i64 @time(ptr noundef null) #14
   %44 = trunc i64 %43 to i32
-  tail call void @srand(i32 noundef %44) #13
+  tail call void @srand(i32 noundef %44) #14
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @makeRandomTree(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
@@ -1662,7 +1662,7 @@ define dso_local void @makeRandomTree(ptr nocapture noundef %0, ptr nocapture no
   %20 = load i32, ptr %19, align 4
   %21 = mul nsw i32 %20, %17
   %22 = sitofp i32 %21 to double
-  %23 = tail call i32 @rand() #13
+  %23 = tail call i32 @rand() #14
   %24 = sitofp i32 %23 to double
   %25 = fdiv double %24, 0x41DFFFFFFFC00000
   %26 = fmul double %25, %22
@@ -1726,7 +1726,7 @@ define dso_local void @makeRandomTree(ptr nocapture noundef %0, ptr nocapture no
 53:                                               ; preds = %50
   %54 = load ptr, ptr %3, align 8
   %55 = shl nuw i64 %spec.select.i.i.i53.i, 2
-  %56 = tail call ptr @realloc(ptr noundef %54, i64 noundef %55) #17
+  %56 = tail call ptr @realloc(ptr noundef %54, i64 noundef %55) #18
   %57 = icmp eq ptr %56, null
   br i1 %57, label %64, label %58
 
@@ -1745,9 +1745,9 @@ define dso_local void @makeRandomTree(ptr nocapture noundef %0, ptr nocapture no
 64:                                               ; preds = %53, %50
   %.0.i.ph.i.i56.i = phi i32 [ 12, %53 ], [ 34, %50 ]
   %65 = load ptr, ptr @stderr, align 8
-  %66 = tail call ptr @strerror(i32 noundef %.0.i.ph.i.i56.i) #13
-  %67 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %65, ptr noundef nonnull @.str.6, ptr noundef %66) #14
-  tail call fastcc void @graphviz_exit() #16
+  %66 = tail call ptr @strerror(i32 noundef %.0.i.ph.i.i56.i) #14
+  %67 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %65, ptr noundef nonnull @.str.6, ptr noundef %66) #15
+  tail call fastcc void @graphviz_exit() #17
   unreachable
 
 int_stack_push.exit57.i:                          ; preds = %58, %._crit_edge.i.i.i51.i
@@ -1776,7 +1776,7 @@ int_stack_push.exit57.i:                          ; preds = %58, %._crit_edge.i.
 78:                                               ; preds = %75
   %79 = load ptr, ptr %3, align 8
   %80 = shl nuw i64 %spec.select.i.i.i.i, 2
-  %81 = tail call ptr @realloc(ptr noundef %79, i64 noundef %80) #17
+  %81 = tail call ptr @realloc(ptr noundef %79, i64 noundef %80) #18
   %82 = icmp eq ptr %81, null
   br i1 %82, label %89, label %83
 
@@ -1795,9 +1795,9 @@ int_stack_push.exit57.i:                          ; preds = %58, %._crit_edge.i.
 89:                                               ; preds = %78, %75
   %.0.i.ph.i.i.i = phi i32 [ 12, %78 ], [ 34, %75 ]
   %90 = load ptr, ptr @stderr, align 8
-  %91 = tail call ptr @strerror(i32 noundef %.0.i.ph.i.i.i) #13
-  %92 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %90, ptr noundef nonnull @.str.6, ptr noundef %91) #14
-  tail call fastcc void @graphviz_exit() #16
+  %91 = tail call ptr @strerror(i32 noundef %.0.i.ph.i.i.i) #14
+  %92 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %90, ptr noundef nonnull @.str.6, ptr noundef %91) #15
+  tail call fastcc void @graphviz_exit() #17
   unreachable
 
 int_stack_push.exit.i:                            ; preds = %83, %._crit_edge.i.i.i.i
@@ -1956,7 +1956,7 @@ genTree.exit:                                     ; preds = %150
   %171 = getelementptr inbounds i32, ptr %170, i64 %indvars.iv.i9
   %172 = load i32, ptr %171, align 4
   %173 = trunc nuw nsw i64 %indvars.iv.i9 to i32
-  tail call void %1(i32 noundef %172, i32 noundef %173) #13
+  tail call void %1(i32 noundef %172, i32 noundef %173) #14
   %indvars.iv.next.i10 = add nuw nsw i64 %indvars.iv.i9, 1
   %174 = load i32, ptr %166, align 8
   %175 = sext i32 %174 to i64
@@ -1968,37 +1968,37 @@ writeTree.exit:                                   ; preds = %169, %genTree.exit
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define dso_local void @freeTreeGen(ptr nocapture noundef %0) local_unnamed_addr #7 {
+define dso_local void @freeTreeGen(ptr nocapture noundef %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  tail call void @free(ptr noundef %3) #13
+  tail call void @free(ptr noundef %3) #14
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 0, ptr %5, align 8
   %6 = load ptr, ptr %4, align 8
-  tail call void @free(ptr noundef %6) #13
+  tail call void @free(ptr noundef %6) #14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %7 = getelementptr inbounds i8, ptr %0, i64 40
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
-  tail call void @free(ptr noundef %10) #13
-  tail call void @free(ptr noundef %8) #13
-  tail call void @free(ptr noundef %0) #13
+  tail call void @free(ptr noundef %10) #14
+  tail call void @free(ptr noundef %8) #14
+  tail call void @free(ptr noundef %0) #14
   ret void
 }
 
-; Function Attrs: noreturn nounwind uwtable
-define internal fastcc void @graphviz_exit() unnamed_addr #8 {
-  tail call void @exit(i32 noundef 1) #18
+; Function Attrs: nofree noreturn nounwind uwtable
+define internal fastcc void @graphviz_exit() unnamed_addr #9 {
+  tail call void @exit(i32 noundef 1) #19
   unreachable
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #9
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #10
 
-; Function Attrs: noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #10
+; Function Attrs: nofree noreturn nounwind
+declare void @exit(i32 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @int_stack_push(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
@@ -2023,7 +2023,7 @@ define internal fastcc void @int_stack_push(ptr nocapture noundef %0, i32 nounde
 11:                                               ; preds = %8
   %12 = load ptr, ptr %0, align 8
   %13 = shl nuw i64 %spec.select.i.i, 2
-  %14 = tail call ptr @realloc(ptr noundef %12, i64 noundef %13) #17
+  %14 = tail call ptr @realloc(ptr noundef %12, i64 noundef %13) #18
   %15 = icmp eq ptr %14, null
   br i1 %15, label %22, label %16
 
@@ -2042,9 +2042,9 @@ define internal fastcc void @int_stack_push(ptr nocapture noundef %0, i32 nounde
 22:                                               ; preds = %11, %8
   %.0.i.ph.i = phi i32 [ 12, %11 ], [ 34, %8 ]
   %23 = load ptr, ptr @stderr, align 8
-  %24 = tail call ptr @strerror(i32 noundef %.0.i.ph.i) #13
-  %25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.6, ptr noundef %24) #14
-  tail call fastcc void @graphviz_exit() #16
+  %24 = tail call ptr @strerror(i32 noundef %.0.i.ph.i) #14
+  %25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.6, ptr noundef %24) #15
+  tail call fastcc void @graphviz_exit() #17
   unreachable
 
 int_stack_append.exit:                            ; preds = %._crit_edge.i.i, %16
@@ -2059,38 +2059,39 @@ int_stack_append.exit:                            ; preds = %._crit_edge.i.i, %1
 }
 
 ; Function Attrs: nounwind
-declare ptr @strerror(i32 noundef) local_unnamed_addr #5
+declare ptr @strerror(i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #11
+declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #12
+declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #13
 
 declare double @exp2(double) local_unnamed_addr
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #12
+declare i32 @llvm.smax.i32(i32, i32) #13
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { mustprogress nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #13 = { nounwind }
-attributes #14 = { cold nounwind }
-attributes #15 = { nounwind allocsize(0,1) }
-attributes #16 = { noreturn }
-attributes #17 = { nounwind allocsize(1) }
-attributes #18 = { noreturn nounwind }
+attributes #3 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { mustprogress nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nofree noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { nounwind }
+attributes #15 = { cold nounwind }
+attributes #16 = { nounwind allocsize(0,1) }
+attributes #17 = { noreturn }
+attributes #18 = { nounwind allocsize(1) }
+attributes #19 = { cold noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

@@ -81,7 +81,7 @@ if.then1:                                         ; preds = %if.end
   %3 = load ptr, ptr %queue, align 8
   %conv = zext i32 %inc to i64
   %mul = shl nuw nsw i64 %conv, 4
-  %call = tail call ptr @g_realloc(ptr noundef %3, i64 noundef %mul) #10
+  %call = tail call ptr @g_realloc(ptr noundef %3, i64 noundef %mul) #11
   store ptr %call, ptr %queue, align 8
   %.pre47 = load i32, ptr %qindex, align 8
   br label %if.end5
@@ -126,7 +126,7 @@ for.body46.lr.ph:                                 ; preds = %for.cond42.preheade
 for.body:                                         ; preds = %for.body.lr.ph, %if.end36
   %i.040 = phi i32 [ 0, %for.body.lr.ph ], [ %inc41, %if.end36 ]
   %11 = load ptr, ptr %evt, align 8
-  %call25 = tail call ptr @virtqueue_pop(ptr noundef %11, i64 noundef 56) #10
+  %call25 = tail call ptr @virtqueue_pop(ptr noundef %11, i64 noundef 56) #11
   %tobool26.not = icmp eq ptr %call25, null
   br i1 %tobool26.not, label %while.cond.preheader, label %if.end36
 
@@ -142,7 +142,7 @@ while.body:                                       ; preds = %while.cond.preheade
   %idxprom32 = zext nneg i32 %dec45 to i64
   %elem34 = getelementptr %struct.anon, ptr %13, i64 %idxprom32, i32 1
   %14 = load ptr, ptr %elem34, align 8
-  tail call void @virtqueue_unpop(ptr noundef %12, ptr noundef %14, i32 noundef 0) #10
+  tail call void @virtqueue_unpop(ptr noundef %12, ptr noundef %14, i32 noundef 0) #11
   %dec = add nsw i32 %dec45, -1
   %cmp28.not = icmp eq i32 %dec45, 0
   br i1 %cmp28.not, label %while.end, label %while.body, !llvm.loop !5
@@ -169,16 +169,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #10
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #10
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #11
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #11
   %19 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %20 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.2, i32 noundef %call10.i.i, i64 noundef %19, i64 noundef %20) #10
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.2, i32 noundef %call10.i.i, i64 noundef %19, i64 noundef %20) #11
   br label %trace_virtio_input_queue_full.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.3) #10
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.3) #11
   br label %trace_virtio_input_queue_full.exit
 
 trace_virtio_input_queue_full.exit:               ; preds = %while.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -222,25 +222,25 @@ if.then.i:                                        ; preds = %land.lhs.true2.i
   br label %iov_from_buf.exit
 
 if.else.i:                                        ; preds = %land.lhs.true2.i, %for.body46
-  %call.i = tail call i64 @iov_from_buf_full(ptr noundef %25, i32 noundef %26, i64 noundef 0, ptr noundef %arrayidx49, i64 noundef 8) #10
+  %call.i = tail call i64 @iov_from_buf_full(ptr noundef %25, i32 noundef %26, i64 noundef 0, ptr noundef %arrayidx49, i64 noundef 8) #11
   br label %iov_from_buf.exit
 
 iov_from_buf.exit:                                ; preds = %if.then.i, %if.else.i
   %retval.0.i = phi i64 [ 8, %if.then.i ], [ %call.i, %if.else.i ]
   %conv56 = trunc i64 %retval.0.i to i32
   %30 = load ptr, ptr %evt57, align 8
-  tail call void @virtqueue_push(ptr noundef %30, ptr noundef nonnull %24, i32 noundef %conv56) #10
-  tail call void @g_free(ptr noundef nonnull %24) #10
+  tail call void @virtqueue_push(ptr noundef %30, ptr noundef nonnull %24, i32 noundef %conv56) #11
+  tail call void @g_free(ptr noundef nonnull %24) #11
   %inc59 = add nuw i32 %i.242, 1
   %31 = load i32, ptr %qindex, align 8
   %cmp44 = icmp ult i32 %inc59, %31
   br i1 %cmp44, label %for.body46, label %for.end60, !llvm.loop !8
 
 for.end60:                                        ; preds = %iov_from_buf.exit, %for.cond.preheader, %for.cond42.preheader
-  %call.i37 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %vinput, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #10
+  %call.i37 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %vinput, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #11
   %evt62 = getelementptr inbounds i8, ptr %vinput, i64 544
   %32 = load ptr, ptr %evt62, align 8
-  tail call void @virtio_notify(ptr noundef %call.i37, ptr noundef %32) #10
+  tail call void @virtio_notify(ptr noundef %call.i37, ptr noundef %32) #11
   store i32 0, ptr %qindex, align 8
   br label %return
 
@@ -327,12 +327,12 @@ if.then:                                          ; preds = %land.lhs.true.i
   %4 = load ptr, ptr @stderr, align 8
   %conv = zext i8 %0 to i32
   %conv3 = zext i8 %1 to i32
-  %call4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str, ptr noundef nonnull @__func__.virtio_input_add_config, i32 noundef %conv, i32 noundef %conv3) #11
-  tail call void @abort() #12
+  %call4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str, ptr noundef nonnull @__func__.virtio_input_add_config, i32 noundef %conv, i32 noundef %conv3) #12
+  tail call void @abort() #13
   unreachable
 
 if.end:                                           ; preds = %for.inc.i, %entry
-  %call5 = tail call noalias dereferenceable_or_null(152) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 152) #13
+  %call5 = tail call noalias dereferenceable_or_null(152) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 152) #14
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %call5, ptr noundef nonnull align 4 dereferenceable(136) %config, i64 136, i1 false)
   %node = getelementptr inbounds i8, ptr %call5, i64 136
   store ptr null, ptr %node, align 8
@@ -348,7 +348,7 @@ if.end:                                           ; preds = %for.inc.i, %entry
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: cold nofree noreturn nounwind
 declare void @abort() local_unnamed_addr #5
 
 ; Function Attrs: allocsize(0,1)
@@ -397,12 +397,12 @@ if.then.i:                                        ; preds = %land.lhs.true.i.i
   %5 = load ptr, ptr @stderr, align 8
   %conv.i = zext i8 %1 to i32
   %conv3.i = zext i8 %2 to i32
-  %call4.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str, ptr noundef nonnull @__func__.virtio_input_add_config, i32 noundef %conv.i, i32 noundef %conv3.i) #11
-  tail call void @abort() #12
+  %call4.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str, ptr noundef nonnull @__func__.virtio_input_add_config, i32 noundef %conv.i, i32 noundef %conv3.i) #12
+  tail call void @abort() #13
   unreachable
 
 virtio_input_add_config.exit:                     ; preds = %for.inc.i.i, %while.body
-  %call5.i = tail call noalias dereferenceable_or_null(152) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 152) #13
+  %call5.i = tail call noalias dereferenceable_or_null(152) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 152) #14
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %call5.i, ptr noundef nonnull readonly align 4 dereferenceable(136) %arrayidx11, i64 136, i1 false)
   %node.i = getelementptr inbounds i8, ptr %call5.i, i64 136
   store ptr null, ptr %node.i, align 8
@@ -433,7 +433,7 @@ if.end:                                           ; preds = %entry
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(136) %id, i8 0, i64 136, i1 false)
   store i8 %select, ptr %id, align 4
   %u = getelementptr inbounds i8, ptr %id, i64 8
-  %call = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %u, i64 noundef 128, ptr noundef nonnull @.str.1, ptr noundef nonnull %string) #10
+  %call = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %u, i64 noundef 128, ptr noundef nonnull @.str.1, ptr noundef nonnull %string) #11
   %conv = trunc i32 %call to i8
   %size = getelementptr inbounds i8, ptr %id, i64 2
   store i8 %conv, ptr %size, align 2
@@ -467,12 +467,12 @@ if.then.i:                                        ; preds = %land.lhs.true.i.i
   %4 = load ptr, ptr @stderr, align 8
   %conv.i = zext i8 %0 to i32
   %conv3.i = zext i8 %1 to i32
-  %call4.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str, ptr noundef nonnull @__func__.virtio_input_add_config, i32 noundef %conv.i, i32 noundef %conv3.i) #11
-  tail call void @abort() #12
+  %call4.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str, ptr noundef nonnull @__func__.virtio_input_add_config, i32 noundef %conv.i, i32 noundef %conv3.i) #12
+  tail call void @abort() #13
   unreachable
 
 virtio_input_add_config.exit:                     ; preds = %for.inc.i.i, %if.end
-  %call5.i = tail call noalias dereferenceable_or_null(152) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 152) #13
+  %call5.i = tail call noalias dereferenceable_or_null(152) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 152) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %call5.i, ptr noundef nonnull readonly align 4 dereferenceable(136) %id, i64 136, i1 false)
   %node.i = getelementptr inbounds i8, ptr %call5.i, i64 136
   store ptr null, ptr %node.i, align 8
@@ -497,7 +497,7 @@ declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 nound
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @do_qemu_init_virtio_register_types() #0 {
 entry:
-  tail call void @register_module_init(ptr noundef nonnull @virtio_register_types, i32 noundef 3) #10
+  tail call void @register_module_init(ptr noundef nonnull @virtio_register_types, i32 noundef 3) #11
   ret void
 }
 
@@ -506,7 +506,7 @@ declare void @register_module_init(ptr noundef, i32 noundef) local_unnamed_addr 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @virtio_register_types() #0 {
 entry:
-  %call = tail call ptr @type_register_static(ptr noundef nonnull @virtio_input_info) #10
+  %call = tail call ptr @type_register_static(ptr noundef nonnull @virtio_input_info) #11
   ret void
 }
 
@@ -526,7 +526,7 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @virtio_input_finalize(ptr noundef %obj) #0 {
 entry:
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 23, ptr noundef nonnull @__func__.VIRTIO_INPUT) #10
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 23, ptr noundef nonnull @__func__.VIRTIO_INPUT) #11
   %cfg_list = getelementptr inbounds i8, ptr %call.i, i64 528
   %0 = load ptr, ptr %cfg_list, align 8
   %tobool.not14 = icmp eq ptr %0, null
@@ -549,22 +549,22 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %la
   %3 = load ptr, ptr %node, align 8
   store ptr %3, ptr %2, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %node, i8 0, i64 16, i1 false)
-  tail call void @g_free(ptr noundef nonnull %cfg.015) #10
+  tail call void @g_free(ptr noundef nonnull %cfg.015) #11
   br i1 %cmp.not, label %for.end, label %land.rhs, !llvm.loop !11
 
 for.end:                                          ; preds = %land.rhs, %entry
   %queue = getelementptr inbounds i8, ptr %call.i, i64 568
   %4 = load ptr, ptr %queue, align 8
-  tail call void @g_free(ptr noundef %4) #10
+  tail call void @g_free(ptr noundef %4) #11
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @virtio_input_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
 entry:
-  %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #10
-  %call.i10 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_CLASS) #10
-  tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @virtio_input_properties) #10
+  %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #11
+  %call.i10 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_CLASS) #11
+  tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @virtio_input_properties) #11
   %vmsd = getelementptr inbounds i8, ptr %call.i, i64 160
   store ptr @vmstate_virtio_input, ptr %vmsd, align 8
   %categories = getelementptr inbounds i8, ptr %call.i, i64 96
@@ -594,10 +594,10 @@ declare void @device_class_set_props(ptr noundef, ptr noundef) local_unnamed_add
 define internal void @virtio_input_device_realize(ptr noundef %dev, ptr noundef %errp) #0 {
 entry:
   %local_err = alloca ptr, align 8
-  %call.i = tail call ptr @object_get_class(ptr noundef %dev) #10
-  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 23, ptr noundef nonnull @__func__.VIRTIO_INPUT_GET_CLASS) #10
-  %call.i20 = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #10
-  %call.i21 = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 23, ptr noundef nonnull @__func__.VIRTIO_INPUT) #10
+  %call.i = tail call ptr @object_get_class(ptr noundef %dev) #11
+  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 23, ptr noundef nonnull @__func__.VIRTIO_INPUT_GET_CLASS) #11
+  %call.i20 = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #11
+  %call.i21 = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 23, ptr noundef nonnull @__func__.VIRTIO_INPUT) #11
   store ptr null, ptr %local_err, align 8
   %realize = getelementptr inbounds i8, ptr %call1.i, i64 368
   %0 = load ptr, ptr %realize, align 8
@@ -605,13 +605,13 @@ entry:
   br i1 %tobool.not, label %if.end6, label %if.then
 
 if.then:                                          ; preds = %entry
-  call void %0(ptr noundef %dev, ptr noundef nonnull %local_err) #10
+  call void %0(ptr noundef %dev, ptr noundef nonnull %local_err) #11
   %1 = load ptr, ptr %local_err, align 8
   %tobool4.not = icmp eq ptr %1, null
   br i1 %tobool4.not, label %if.end6, label %if.then5
 
 if.then5:                                         ; preds = %if.then
-  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %1) #10
+  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %1) #11
   br label %return
 
 if.end6:                                          ; preds = %if.then, %entry
@@ -654,16 +654,16 @@ for.end:                                          ; preds = %for.inc, %if.end6
   br i1 %cmp18, label %if.end21, label %if.else
 
 if.else:                                          ; preds = %for.end
-  call void @__assert_fail(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14, i32 noundef 258, ptr noundef nonnull @__PRETTY_FUNCTION__.virtio_input_device_realize) #12
+  call void @__assert_fail(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14, i32 noundef 258, ptr noundef nonnull @__PRETTY_FUNCTION__.virtio_input_device_realize) #13
   unreachable
 
 if.end21:                                         ; preds = %for.end
   %conv17 = zext nneg i32 %add to i64
-  call void @virtio_init(ptr noundef %call.i20, i16 noundef zeroext 18, i64 noundef %conv17) #10
-  %call24 = call ptr @virtio_add_queue(ptr noundef %call.i20, i32 noundef 64, ptr noundef nonnull @virtio_input_handle_evt) #10
+  call void @virtio_init(ptr noundef %call.i20, i16 noundef zeroext 18, i64 noundef %conv17) #11
+  %call24 = call ptr @virtio_add_queue(ptr noundef %call.i20, i32 noundef 64, ptr noundef nonnull @virtio_input_handle_evt) #11
   %evt = getelementptr inbounds i8, ptr %call.i21, i64 544
   store ptr %call24, ptr %evt, align 8
-  %call25 = call ptr @virtio_add_queue(ptr noundef %call.i20, i32 noundef 64, ptr noundef nonnull @virtio_input_handle_sts) #10
+  %call25 = call ptr @virtio_add_queue(ptr noundef %call.i20, i32 noundef 64, ptr noundef nonnull @virtio_input_handle_sts) #11
   %sts = getelementptr inbounds i8, ptr %call.i21, i64 552
   store ptr %call25, ptr %sts, align 8
   br label %return
@@ -675,34 +675,34 @@ return:                                           ; preds = %if.end21, %if.then5
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @virtio_input_device_unrealize(ptr noundef %dev) #0 {
 entry:
-  %call.i = tail call ptr @object_get_class(ptr noundef %dev) #10
-  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 23, ptr noundef nonnull @__func__.VIRTIO_INPUT_GET_CLASS) #10
-  %call.i6 = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #10
-  %call.i7 = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 23, ptr noundef nonnull @__func__.VIRTIO_INPUT) #10
+  %call.i = tail call ptr @object_get_class(ptr noundef %dev) #11
+  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 23, ptr noundef nonnull @__func__.VIRTIO_INPUT_GET_CLASS) #11
+  %call.i6 = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #11
+  %call.i7 = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 23, ptr noundef nonnull @__func__.VIRTIO_INPUT) #11
   %unrealize = getelementptr inbounds i8, ptr %call1.i, i64 376
   %0 = load ptr, ptr %unrealize, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call void %0(ptr noundef %dev) #10
+  tail call void %0(ptr noundef %dev) #11
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
   %evt = getelementptr inbounds i8, ptr %call.i7, i64 544
   %1 = load ptr, ptr %evt, align 8
-  tail call void @virtio_delete_queue(ptr noundef %1) #10
+  tail call void @virtio_delete_queue(ptr noundef %1) #11
   %sts = getelementptr inbounds i8, ptr %call.i7, i64 552
   %2 = load ptr, ptr %sts, align 8
-  tail call void @virtio_delete_queue(ptr noundef %2) #10
-  tail call void @virtio_cleanup(ptr noundef %call.i6) #10
+  tail call void @virtio_delete_queue(ptr noundef %2) #11
+  tail call void @virtio_cleanup(ptr noundef %call.i6) #11
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @virtio_input_get_config(ptr noundef %vdev, ptr nocapture noundef writeonly %config_data) #0 {
 entry:
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 23, ptr noundef nonnull @__func__.VIRTIO_INPUT) #10
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 23, ptr noundef nonnull @__func__.VIRTIO_INPUT) #11
   %cfg_select = getelementptr inbounds i8, ptr %call.i, i64 520
   %0 = load i8, ptr %cfg_select, align 8
   %cfg_subsel = getelementptr inbounds i8, ptr %call.i, i64 521
@@ -751,7 +751,7 @@ if.end:                                           ; preds = %if.else, %if.then
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @virtio_input_set_config(ptr noundef %vdev, ptr nocapture noundef readonly %config_data) #0 {
 entry:
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 23, ptr noundef nonnull @__func__.VIRTIO_INPUT) #10
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 23, ptr noundef nonnull @__func__.VIRTIO_INPUT) #11
   %0 = load i8, ptr %config_data, align 4
   %cfg_select = getelementptr inbounds i8, ptr %call.i, i64 520
   store i8 %0, ptr %cfg_select, align 8
@@ -759,7 +759,7 @@ entry:
   %1 = load i8, ptr %subsel, align 1
   %cfg_subsel = getelementptr inbounds i8, ptr %call.i, i64 521
   store i8 %1, ptr %cfg_subsel, align 1
-  tail call void @virtio_notify_config(ptr noundef %vdev) #10
+  tail call void @virtio_notify_config(ptr noundef %vdev) #11
   ret void
 }
 
@@ -772,9 +772,9 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @virtio_input_set_status(ptr noundef %vdev, i8 noundef zeroext %val) #0 {
 entry:
-  %call.i = tail call ptr @object_get_class(ptr noundef %vdev) #10
-  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 23, ptr noundef nonnull @__func__.VIRTIO_INPUT_GET_CLASS) #10
-  %call.i5 = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 23, ptr noundef nonnull @__func__.VIRTIO_INPUT) #10
+  %call.i = tail call ptr @object_get_class(ptr noundef %vdev) #11
+  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 23, ptr noundef nonnull @__func__.VIRTIO_INPUT_GET_CLASS) #11
+  %call.i5 = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 23, ptr noundef nonnull @__func__.VIRTIO_INPUT) #11
   %0 = and i8 %val, 4
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %if.end9, label %if.then
@@ -793,7 +793,7 @@ if.then3:                                         ; preds = %if.then
   br i1 %tobool5.not, label %if.end9, label %if.then6
 
 if.then6:                                         ; preds = %if.then3
-  tail call void %2(ptr noundef nonnull %call.i5) #10
+  tail call void %2(ptr noundef nonnull %call.i5) #11
   br label %if.end9
 
 if.end9:                                          ; preds = %if.then, %if.then6, %if.then3, %entry
@@ -803,9 +803,9 @@ if.end9:                                          ; preds = %if.then, %if.then6,
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @virtio_input_reset(ptr noundef %vdev) #0 {
 entry:
-  %call.i = tail call ptr @object_get_class(ptr noundef %vdev) #10
-  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 23, ptr noundef nonnull @__func__.VIRTIO_INPUT_GET_CLASS) #10
-  %call.i5 = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 23, ptr noundef nonnull @__func__.VIRTIO_INPUT) #10
+  %call.i = tail call ptr @object_get_class(ptr noundef %vdev) #11
+  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 23, ptr noundef nonnull @__func__.VIRTIO_INPUT_GET_CLASS) #11
+  %call.i5 = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 23, ptr noundef nonnull @__func__.VIRTIO_INPUT) #11
   %active = getelementptr inbounds i8, ptr %call.i5, i64 584
   %0 = load i8, ptr %active, align 8
   %tobool = trunc i8 %0 to i1
@@ -819,7 +819,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool3.not, label %if.end6, label %if.then4
 
 if.then4:                                         ; preds = %if.then
-  tail call void %1(ptr noundef nonnull %call.i5) #10
+  tail call void %1(ptr noundef nonnull %call.i5) #11
   br label %if.end6
 
 if.end6:                                          ; preds = %if.then, %if.then4, %entry
@@ -831,9 +831,9 @@ declare ptr @object_class_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noun
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i32 @virtio_input_post_load(ptr noundef %opaque, i32 %version_id) #0 {
 entry:
-  %call.i = tail call ptr @object_get_class(ptr noundef %opaque) #10
-  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 23, ptr noundef nonnull @__func__.VIRTIO_INPUT_GET_CLASS) #10
-  %call.i5 = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #10
+  %call.i = tail call ptr @object_get_class(ptr noundef %opaque) #11
+  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 23, ptr noundef nonnull @__func__.VIRTIO_INPUT_GET_CLASS) #11
+  %call.i5 = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #11
   %status = getelementptr inbounds i8, ptr %call.i5, i64 168
   %0 = load i8, ptr %status, align 8
   %active = getelementptr inbounds i8, ptr %opaque, i64 584
@@ -846,7 +846,7 @@ entry:
   br i1 %tobool2.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call void %2(ptr noundef nonnull %opaque) #10
+  tail call void %2(ptr noundef nonnull %opaque) #11
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -858,7 +858,7 @@ declare ptr @object_get_class(ptr noundef) local_unnamed_addr #1
 declare void @error_propagate(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn nounwind
-declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
+declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #9
 
 declare void @virtio_init(ptr noundef, i16 noundef zeroext, i64 noundef) local_unnamed_addr #1
 
@@ -874,12 +874,12 @@ entry:
 define internal void @virtio_input_handle_sts(ptr noundef %vdev, ptr nocapture readnone %vq) #0 {
 entry:
   %event = alloca %struct.virtio_input_event, align 8
-  %call.i = tail call ptr @object_get_class(ptr noundef %vdev) #10
-  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 23, ptr noundef nonnull @__func__.VIRTIO_INPUT_GET_CLASS) #10
-  %call.i11 = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 23, ptr noundef nonnull @__func__.VIRTIO_INPUT) #10
+  %call.i = tail call ptr @object_get_class(ptr noundef %vdev) #11
+  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 23, ptr noundef nonnull @__func__.VIRTIO_INPUT_GET_CLASS) #11
+  %call.i11 = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 23, ptr noundef nonnull @__func__.VIRTIO_INPUT) #11
   %sts = getelementptr inbounds i8, ptr %call.i11, i64 552
   %0 = load ptr, ptr %sts, align 8
-  %call213 = tail call ptr @virtqueue_pop(ptr noundef %0, i64 noundef 56) #10
+  %call213 = tail call ptr @virtqueue_pop(ptr noundef %0, i64 noundef 56) #11
   %tobool.not14 = icmp eq ptr %call213, null
   br i1 %tobool.not14, label %for.end, label %if.end.lr.ph
 
@@ -910,7 +910,7 @@ if.then.i:                                        ; preds = %land.lhs.true2.i
   br label %iov_to_buf.exit
 
 if.else.i:                                        ; preds = %land.lhs.true2.i, %if.end
-  %call.i12 = call i64 @iov_to_buf_full(ptr noundef %1, i32 noundef %2, i64 noundef 0, ptr noundef nonnull %event, i64 noundef 8) #10
+  %call.i12 = call i64 @iov_to_buf_full(ptr noundef %1, i32 noundef %2, i64 noundef 0, ptr noundef nonnull %event, i64 noundef 8) #11
   br label %iov_to_buf.exit
 
 iov_to_buf.exit:                                  ; preds = %if.then.i, %if.else.i
@@ -921,21 +921,21 @@ iov_to_buf.exit:                                  ; preds = %if.then.i, %if.else
   br i1 %tobool4.not, label %if.end7, label %if.then5
 
 if.then5:                                         ; preds = %iov_to_buf.exit
-  call void %6(ptr noundef nonnull %call.i11, ptr noundef nonnull %event) #10
+  call void %6(ptr noundef nonnull %call.i11, ptr noundef nonnull %event) #11
   br label %if.end7
 
 if.end7:                                          ; preds = %if.then5, %iov_to_buf.exit
   %7 = load ptr, ptr %sts, align 8
-  call void @virtqueue_push(ptr noundef %7, ptr noundef nonnull %call215, i32 noundef %conv) #10
-  call void @g_free(ptr noundef nonnull %call215) #10
+  call void @virtqueue_push(ptr noundef %7, ptr noundef nonnull %call215, i32 noundef %conv) #11
+  call void @g_free(ptr noundef nonnull %call215) #11
   %8 = load ptr, ptr %sts, align 8
-  %call2 = call ptr @virtqueue_pop(ptr noundef %8, i64 noundef 56) #10
+  %call2 = call ptr @virtqueue_pop(ptr noundef %8, i64 noundef 56) #11
   %tobool.not = icmp eq ptr %call2, null
   br i1 %tobool.not, label %for.end, label %if.end
 
 for.end:                                          ; preds = %if.end7, %entry
   %9 = load ptr, ptr %sts, align 8
-  call void @virtio_notify(ptr noundef %vdev, ptr noundef %9) #10
+  call void @virtio_notify(ptr noundef %vdev, ptr noundef %9) #11
   ret void
 }
 
@@ -948,25 +948,26 @@ declare void @virtio_cleanup(ptr noundef) local_unnamed_addr #1
 declare void @virtio_notify_config(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #8 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { nounwind }
-attributes #11 = { cold }
-attributes #12 = { noreturn nounwind }
-attributes #13 = { nounwind allocsize(0,1) }
+attributes #9 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #11 = { nounwind }
+attributes #12 = { cold }
+attributes #13 = { noreturn nounwind }
+attributes #14 = { nounwind allocsize(0,1) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

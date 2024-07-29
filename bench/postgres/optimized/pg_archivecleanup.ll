@@ -193,7 +193,7 @@ sub_221:                                          ; preds = %sub_120
 56:                                               ; preds = %48
   %57 = load ptr, ptr @progname, align 8
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 2, ptr noundef nonnull @.str.11, ptr noundef %57) #12
-  tail call void @exit(i32 noundef 2) #14
+  tail call void @exit(i32 noundef 2) #15
   unreachable
 
 58:                                               ; preds = %48
@@ -215,7 +215,7 @@ sub_221:                                          ; preds = %sub_120
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.12) #12
   %68 = load ptr, ptr @progname, align 8
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 2, ptr noundef nonnull @.str.11, ptr noundef %68) #12
-  tail call void @exit(i32 noundef 2) #14
+  tail call void @exit(i32 noundef 2) #15
   unreachable
 
 69:                                               ; preds = %61
@@ -232,14 +232,14 @@ sub_221:                                          ; preds = %sub_120
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.13) #12
   %76 = load ptr, ptr @progname, align 8
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 2, ptr noundef nonnull @.str.11, ptr noundef %76) #12
-  tail call void @exit(i32 noundef 2) #14
+  tail call void @exit(i32 noundef 2) #15
   unreachable
 
 77:                                               ; preds = %69
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.14) #12
   %78 = load ptr, ptr @progname, align 8
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 2, ptr noundef nonnull @.str.11, ptr noundef %78) #12
-  tail call void @exit(i32 noundef 2) #14
+  tail call void @exit(i32 noundef 2) #15
   unreachable
 
 79:                                               ; preds = %69
@@ -258,7 +258,7 @@ sub_221:                                          ; preds = %sub_120
 86:                                               ; preds = %81, %79
   %87 = load ptr, ptr @archiveLocation, align 8
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.33, ptr noundef %87) #12
-  tail call void @exit(i32 noundef 2) #14
+  tail call void @exit(i32 noundef 2) #15
   unreachable
 
 Initialize.exit:                                  ; preds = %81
@@ -383,7 +383,7 @@ IsBackupHistoryFileName.exit.thread.i:            ; preds = %137, %IsBackupHisto
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.36) #12
   %145 = load ptr, ptr @progname, align 8
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 2, ptr noundef nonnull @.str.11, ptr noundef %145) #12
-  call void @exit(i32 noundef 2) #14
+  call void @exit(i32 noundef 2) #15
   unreachable
 
 SetWALFileNameForCleanup.exit:                    ; preds = %113, %124, %140
@@ -439,7 +439,7 @@ define internal fastcc void @usage() unnamed_addr #3 {
   ret void
 }
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
@@ -464,7 +464,7 @@ define internal fastcc void @CleanupPriorWALFiles() unnamed_addr #3 {
   br i1 %5, label %10, label %.preheader
 
 .preheader:                                       ; preds = %0
-  %6 = tail call ptr @__errno_location() #15
+  %6 = tail call ptr @__errno_location() #16
   %invariant.gep = getelementptr i8, ptr %1, i64 -7
   store i32 0, ptr %6, align 4
   %7 = tail call ptr @readdir(ptr noundef nonnull %4) #12
@@ -479,7 +479,7 @@ define internal fastcc void @CleanupPriorWALFiles() unnamed_addr #3 {
 10:                                               ; preds = %0
   %11 = load ptr, ptr @archiveLocation, align 8
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.41, ptr noundef %11) #12
-  tail call void @exit(i32 noundef 1) #14
+  tail call void @exit(i32 noundef 1) #15
   unreachable
 
 12:                                               ; preds = %.lr.ph, %.backedge
@@ -612,7 +612,7 @@ IsBackupHistoryFileName.exit:                     ; preds = %.thread9
 
 74:                                               ; preds = %72
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.46, ptr noundef nonnull %2) #12
-  call void @exit(i32 noundef 1) #14
+  call void @exit(i32 noundef 1) #15
   unreachable
 
 ._crit_edge:                                      ; preds = %.backedge, %.preheader
@@ -623,7 +623,7 @@ IsBackupHistoryFileName.exit:                     ; preds = %.thread9
 76:                                               ; preds = %._crit_edge
   %77 = load ptr, ptr @archiveLocation, align 8
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.47, ptr noundef %77) #12
-  call void @exit(i32 noundef 1) #14
+  call void @exit(i32 noundef 1) #15
   unreachable
 
 78:                                               ; preds = %._crit_edge
@@ -634,7 +634,7 @@ IsBackupHistoryFileName.exit:                     ; preds = %.thread9
 80:                                               ; preds = %78
   %81 = load ptr, ptr @archiveLocation, align 8
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.48, ptr noundef %81) #12
-  call void @exit(i32 noundef 1) #14
+  call void @exit(i32 noundef 1) #15
   unreachable
 
 82:                                               ; preds = %78
@@ -690,7 +690,7 @@ attributes #0 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vec
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -701,7 +701,8 @@ attributes #11 = { nocallback nofree nosync nounwind willreturn memory(argmem: r
 attributes #12 = { nounwind }
 attributes #13 = { nounwind willreturn memory(read) }
 attributes #14 = { noreturn nounwind }
-attributes #15 = { nounwind willreturn memory(none) }
+attributes #15 = { cold noreturn nounwind }
+attributes #16 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

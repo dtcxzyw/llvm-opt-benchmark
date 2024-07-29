@@ -7203,7 +7203,7 @@ define void @_ZN7Minisat6Solver8toDimacsEPKcRKNS_3vecINS_3LitEiEE(ptr nocapture 
 ; Function Attrs: nofree nounwind
 declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #7
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
@@ -8617,7 +8617,7 @@ define linkonce_odr void @_ZN7Minisat6OptionD2Ev(ptr noundef nonnull align 8 der
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7Minisat6OptionD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @llvm.trap() #31
+  tail call void @llvm.trap() #32
   unreachable
 }
 
@@ -8770,7 +8770,7 @@ define linkonce_odr void @_ZN7Minisat9IntOption4helpEb(ptr noundef nonnull align
   br i1 %11, label %13, label %15
 
 13:                                               ; preds = %2
-  %14 = tail call i64 @fwrite(ptr nonnull @.str.71, i64 4, i64 1, ptr %12) #32
+  %14 = tail call i64 @fwrite(ptr nonnull @.str.71, i64 4, i64 1, ptr %12) #33
   br label %17
 
 15:                                               ; preds = %2
@@ -8779,7 +8779,7 @@ define linkonce_odr void @_ZN7Minisat9IntOption4helpEb(ptr noundef nonnull align
 
 17:                                               ; preds = %15, %13
   %18 = load ptr, ptr @stderr, align 8
-  %19 = tail call i64 @fwrite(ptr nonnull @.str.73, i64 4, i64 1, ptr %18) #32
+  %19 = tail call i64 @fwrite(ptr nonnull @.str.73, i64 4, i64 1, ptr %18) #33
   %20 = getelementptr inbounds i8, ptr %0, i64 44
   %21 = load i32, ptr %20, align 4
   %22 = icmp eq i32 %21, 2147483647
@@ -8787,7 +8787,7 @@ define linkonce_odr void @_ZN7Minisat9IntOption4helpEb(ptr noundef nonnull align
   br i1 %22, label %24, label %26
 
 24:                                               ; preds = %17
-  %25 = tail call i64 @fwrite(ptr nonnull @.str.74, i64 4, i64 1, ptr %23) #32
+  %25 = tail call i64 @fwrite(ptr nonnull @.str.74, i64 4, i64 1, ptr %23) #33
   br label %28
 
 26:                                               ; preds = %17
@@ -8857,7 +8857,7 @@ _ZN7MinisatL5matchIPKcEEbRT_S2_.exit11:           ; preds = %.lr.ph.i4, %._crit_
   %.1 = phi ptr [ %11, %._crit_edge.i10 ], [ %4, %.lr.ph.i4 ]
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8
-  %14 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.1, ptr noundef nonnull dereferenceable(1) %13) #33
+  %14 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.1, ptr noundef nonnull dereferenceable(1) %13) #34
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %_ZN7MinisatL5matchIPKcEEbRT_S2_.exit
 
@@ -8879,7 +8879,7 @@ define linkonce_odr void @_ZN7Minisat10BoolOption4helpEb(ptr noundef nonnull ali
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.78, ptr noundef %5, ptr noundef %5) #30
   %7 = load ptr, ptr %4, align 8
-  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #33
+  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #34
   %.mask = and i64 %8, 9223372036854775807
   %.not = icmp eq i64 %.mask, 16
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -8891,7 +8891,7 @@ define linkonce_odr void @_ZN7Minisat10BoolOption4helpEb(ptr noundef nonnull ali
   %10 = add i32 %.05, 1
   %11 = zext i32 %10 to i64
   %12 = load ptr, ptr %4, align 8
-  %13 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %12) #33
+  %13 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %12) #34
   %14 = shl i64 %13, 1
   %15 = sub i64 32, %14
   %16 = icmp ugt i64 %15, %11
@@ -10177,7 +10177,7 @@ attributes #6 = { mustprogress nofree norecurse nosync nounwind memory(readwrite
 attributes #7 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -10198,9 +10198,10 @@ attributes #27 = { nounwind allocsize(1) }
 attributes #28 = { nounwind willreturn memory(none) }
 attributes #29 = { noreturn }
 attributes #30 = { cold nounwind }
-attributes #31 = { noreturn nounwind }
-attributes #32 = { cold }
-attributes #33 = { nounwind willreturn memory(read) }
+attributes #31 = { cold noreturn nounwind }
+attributes #32 = { noreturn nounwind }
+attributes #33 = { cold }
+attributes #34 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.3 = private unnamed_addr constant [21 x i8] c"_JAVA_LAUNCHER_DEBUG\00", align 1
 @.str.4 = private unnamed_addr constant [12 x i8] c"----%s----\0A\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nofree nounwind uwtable
 define noalias noundef ptr @JLI_MemAlloc(i64 noundef %0) local_unnamed_addr #0 {
   %2 = tail call noalias ptr @malloc(i64 noundef %0) #17
   %3 = icmp eq ptr %2, null
@@ -34,11 +34,11 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 ; Function Attrs: nofree nounwind
 declare void @perror(ptr nocapture noundef readonly) local_unnamed_addr #2
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden noalias noundef ptr @JLI_MemRealloc(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define hidden noalias noundef ptr @JLI_MemRealloc(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #4 {
   %3 = tail call ptr @realloc(ptr noundef %0, i64 noundef %1) #20
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %6
@@ -53,9 +53,9 @@ define hidden noalias noundef ptr @JLI_MemRealloc(ptr nocapture noundef %0, i64 
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #4
+declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #5
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nofree nounwind uwtable
 define noalias ptr @JLI_StringDup(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = tail call noalias ptr @strdup(ptr noundef %0) #21
   %3 = icmp eq ptr %2, null
@@ -71,19 +71,19 @@ define noalias ptr @JLI_StringDup(ptr nocapture noundef readonly %0) local_unnam
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #5
+declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @JLI_MemFree(ptr nocapture noundef %0) local_unnamed_addr #6 {
+define void @JLI_MemFree(ptr nocapture noundef %0) local_unnamed_addr #7 {
   tail call void @free(ptr noundef %0) #21
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
+declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define hidden zeroext range(i8 0, 2) i8 @JLI_HasSuffix(ptr noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #8 {
+define hidden zeroext range(i8 0, 2) i8 @JLI_HasSuffix(ptr noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #9 {
   %3 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 46) #22
   %4 = icmp eq ptr %3, null
   br i1 %4, label %12, label %5
@@ -105,13 +105,13 @@ define hidden zeroext range(i8 0, 2) i8 @JLI_HasSuffix(ptr noundef readonly %0, 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #9
+declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #10
+declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden void @JLI_TraceLauncher(ptr nocapture noundef readonly %0, ...) local_unnamed_addr #11 {
+define hidden void @JLI_TraceLauncher(ptr nocapture noundef readonly %0, ...) local_unnamed_addr #0 {
   %2 = alloca [1 x %struct.__va_list_tag], align 16
   %.b = load i1, ptr @_launcher_debug, align 1
   br i1 %.b, label %3, label %7
@@ -141,7 +141,7 @@ declare void @llvm.va_end.p0(ptr) #12
 declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
-define void @JLI_SetTraceLauncher() local_unnamed_addr #11 {
+define void @JLI_SetTraceLauncher() local_unnamed_addr #0 {
   %1 = tail call ptr @getenv(ptr noundef nonnull @.str.3) #21
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %3, label %2
@@ -173,12 +173,12 @@ define hidden i32 @JLI_StrCCmp(ptr nocapture noundef readonly %0, ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #9
+declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #10
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nofree nounwind uwtable
 define noalias noundef ptr @JLI_List_new(i64 noundef %0) local_unnamed_addr #0 {
   %2 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #17
   %3 = icmp eq ptr %2, null
@@ -210,7 +210,7 @@ JLI_MemAlloc.exit5:                               ; preds = %JLI_MemAlloc.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @JLI_List_free(ptr noundef %0) local_unnamed_addr #0 {
+define hidden void @JLI_List_free(ptr noundef %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %14, label %2
 
@@ -254,7 +254,7 @@ define hidden void @JLI_List_free(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @JLI_List_ensureCapacity(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define hidden void @JLI_List_ensureCapacity(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8
   %5 = icmp ult i64 %4, %1
@@ -288,7 +288,7 @@ JLI_MemRealloc.exit:                              ; preds = %9
 }
 
 ; Function Attrs: nounwind uwtable
-define void @JLI_List_add(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @JLI_List_add(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, 1
@@ -337,7 +337,7 @@ JLI_List_ensureCapacity.exit:                     ; preds = %.JLI_List_ensureCap
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @JLI_List_addSubstring(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 {
+define hidden void @JLI_List_addSubstring(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #4 {
   %4 = add i64 %2, 1
   %5 = tail call noalias ptr @malloc(i64 noundef %4) #17
   %6 = icmp eq ptr %5, null
@@ -402,7 +402,7 @@ JLI_List_ensureCapacity.exit:                     ; preds = %JLI_MemAlloc.exit.J
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #16
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nofree nounwind uwtable
 define hidden noalias noundef ptr @JLI_List_combine(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
@@ -462,7 +462,7 @@ JLI_MemAlloc.exit._crit_edge:                     ; preds = %JLI_MemAlloc.exit, 
   ret ptr %22
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nofree nounwind uwtable
 define hidden noalias noundef ptr @JLI_List_join(ptr nocapture noundef readonly %0, i8 noundef signext %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
@@ -536,7 +536,7 @@ JLI_MemAlloc.exit._crit_edge:                     ; preds = %JLI_MemAlloc.exit, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noalias noundef ptr @JLI_List_split(ptr noundef %0, i8 noundef signext %1) local_unnamed_addr #0 {
+define hidden noalias noundef ptr @JLI_List_split(ptr noundef %0, i8 noundef signext %1) local_unnamed_addr #4 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #22
   %4 = getelementptr inbounds i8, ptr %0, i64 %3
   %5 = icmp sgt i64 %3, 0
@@ -627,18 +627,18 @@ JLI_List_new.exit:                                ; preds = %JLI_MemAlloc.exit.i
   br i1 %.not, label %.loopexit.outer, label %.lr.ph37, !llvm.loop !14
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nounwind willreturn memory(read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree nounwind willreturn memory(read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #13 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -646,7 +646,7 @@ attributes #15 = { mustprogress nofree nounwind willreturn memory(argmem: read) 
 attributes #16 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #17 = { nounwind allocsize(0) }
 attributes #18 = { cold }
-attributes #19 = { noreturn nounwind }
+attributes #19 = { cold noreturn nounwind }
 attributes #20 = { nounwind allocsize(1) }
 attributes #21 = { nounwind }
 attributes #22 = { nounwind willreturn memory(read) }

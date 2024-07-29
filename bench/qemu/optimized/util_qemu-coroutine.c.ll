@@ -48,7 +48,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ptr.i)
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @co_tls_alloc_pool)
   store ptr %0, ptr %ptr.i, align 8
-  call void asm sideeffect "", "=*rm,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %ptr.i, ptr nonnull %0) #9, !srcloc !5
+  call void asm sideeffect "", "=*rm,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %ptr.i, ptr nonnull %0) #10, !srcloc !5
   %1 = load ptr, ptr %ptr.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ptr.i)
   %2 = load ptr, ptr %1, align 8
@@ -62,7 +62,7 @@ if.then2:                                         ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ptr.i16)
   %4 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @co_tls_coroutine_pool_cleanup_notifier)
   store ptr %4, ptr %ptr.i16, align 8
-  call void asm sideeffect "", "=*rm,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %ptr.i16, ptr nonnull %4) #9, !srcloc !6
+  call void asm sideeffect "", "=*rm,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %ptr.i16, ptr nonnull %4) #10, !srcloc !6
   %5 = load ptr, ptr %ptr.i16, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ptr.i16)
   %6 = load ptr, ptr %5, align 8
@@ -71,12 +71,12 @@ if.then2:                                         ; preds = %entry
 
 if.then5:                                         ; preds = %if.then2
   store ptr @coroutine_pool_cleanup, ptr %5, align 8
-  call void @qemu_thread_atexit_add(ptr noundef nonnull %5) #9
+  call void @qemu_thread_atexit_add(ptr noundef nonnull %5) #10
   br label %while.end
 
 while.end:                                        ; preds = %if.then5, %if.then2
   %7 = atomicrmw xchg ptr @release_pool_size, i32 0 seq_cst, align 4
-  call void asm sideeffect "", "~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !7
+  call void asm sideeffect "", "~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !7
   %8 = call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @co_tls_alloc_pool_size)
   store i32 %7, ptr %8, align 4
   %9 = atomicrmw xchg ptr @release_pool, i64 0 seq_cst, align 8
@@ -94,16 +94,16 @@ do.body25:                                        ; preds = %if.end22
   %12 = load ptr, ptr %pool_next, align 8
   store ptr %12, ptr %1, align 8
   store ptr null, ptr %pool_next, align 8
-  call void asm sideeffect "", "~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !8
+  call void asm sideeffect "", "~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !8
   %13 = call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @co_tls_alloc_pool_size)
   %14 = load i32, ptr %13, align 4
   %sub = add i32 %14, -1
-  call void asm sideeffect "", "~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !7
+  call void asm sideeffect "", "~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !7
   store i32 %sub, ptr %13, align 4
   br label %if.end36
 
 if.then34:                                        ; preds = %if.end22
-  %call35 = call ptr @qemu_coroutine_new() #9
+  %call35 = call ptr @qemu_coroutine_new() #10
   br label %if.end36
 
 if.end36:                                         ; preds = %do.body25, %if.then34
@@ -125,7 +125,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ptr.i)
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @co_tls_alloc_pool)
   store ptr %0, ptr %ptr.i, align 8
-  call void asm sideeffect "", "=*rm,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %ptr.i, ptr nonnull %0) #9, !srcloc !5
+  call void asm sideeffect "", "=*rm,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %ptr.i, ptr nonnull %0) #10, !srcloc !5
   %1 = load ptr, ptr %ptr.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ptr.i)
   %2 = load ptr, ptr %1, align 8
@@ -141,7 +141,7 @@ land.rhs:                                         ; preds = %entry, %land.rhs
   %5 = load ptr, ptr %pool_next2, align 8
   store ptr %5, ptr %1, align 8
   store ptr null, ptr %pool_next2, align 8
-  call void @qemu_coroutine_delete(ptr noundef nonnull %co.07) #9
+  call void @qemu_coroutine_delete(ptr noundef nonnull %co.07) #10
   %tobool.not = icmp eq ptr %3, null
   br i1 %tobool.not, label %for.end, label %land.rhs, !llvm.loop !9
 
@@ -164,7 +164,7 @@ entry:
   store ptr null, ptr %pending, align 8
   %sqh_last = getelementptr inbounds i8, ptr %pending, i64 8
   store ptr %pending, ptr %sqh_last, align 8
-  %call = call ptr @qemu_coroutine_self() #9
+  %call = call ptr @qemu_coroutine_self() #10
   %co_queue_next = getelementptr inbounds i8, ptr %co, i64 56
   store ptr null, ptr %co_queue_next, align 8
   %0 = load ptr, ptr %sqh_last, align 8
@@ -183,7 +183,7 @@ while.body.lr.ph:                                 ; preds = %entry
 
 while.body:                                       ; preds = %while.body.lr.ph, %sw.epilog
   %4 = phi ptr [ %1, %while.body.lr.ph ], [ %47, %sw.epilog ]
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !11
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !11
   %scheduled12 = getelementptr inbounds i8, ptr %4, i64 48
   %5 = load atomic i64, ptr %scheduled12 monotonic, align 8
   %6 = load ptr, ptr %pending, align 8
@@ -221,15 +221,15 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
-  %call10.i.i = call i32 @qemu_get_thread_id() #9
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #10
+  %call10.i.i = call i32 @qemu_get_thread_id() #10
   %13 = load i64, ptr %_now.i.i, align 8
   %14 = load i64, ptr %tv_usec.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.5, i32 noundef %call10.i.i, i64 noundef %13, i64 noundef %14, ptr noundef %ctx, ptr noundef %call, ptr noundef nonnull %4, ptr noundef %8) #9
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.5, i32 noundef %call10.i.i, i64 noundef %13, i64 noundef %14, ptr noundef %ctx, ptr noundef %call, ptr noundef nonnull %4, ptr noundef %8) #10
   br label %trace_qemu_aio_coroutine_enter.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.6, ptr noundef %ctx, ptr noundef %call, ptr noundef nonnull %4, ptr noundef %8) #9
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.6, ptr noundef %ctx, ptr noundef %call, ptr noundef nonnull %4, ptr noundef %8) #10
   br label %trace_qemu_aio_coroutine_enter.exit
 
 trace_qemu_aio_coroutine_enter.exit:              ; preds = %if.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -240,8 +240,8 @@ trace_qemu_aio_coroutine_enter.exit:              ; preds = %if.end, %land.lhs.t
 if.then24:                                        ; preds = %trace_qemu_aio_coroutine_enter.exit
   %15 = inttoptr i64 %5 to ptr
   %16 = load ptr, ptr @stderr, align 8
-  %call25 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.qemu_aio_coroutine_enter, ptr noundef nonnull %15) #10
-  call void @abort() #11
+  %call25 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.qemu_aio_coroutine_enter, ptr noundef nonnull %15) #11
+  call void @abort() #12
   unreachable
 
 if.end26:                                         ; preds = %trace_qemu_aio_coroutine_enter.exit
@@ -252,17 +252,17 @@ if.end26:                                         ; preds = %trace_qemu_aio_coro
 
 if.then28:                                        ; preds = %if.end26
   %18 = load ptr, ptr @stderr, align 8
-  %19 = call i64 @fwrite(ptr nonnull @.str.2, i64 34, i64 1, ptr %18) #10
-  call void @abort() #11
+  %19 = call i64 @fwrite(ptr nonnull @.str.2, i64 34, i64 1, ptr %18) #11
+  call void @abort() #12
   unreachable
 
 if.end30:                                         ; preds = %if.end26
   store ptr %call, ptr %caller, align 8
   %ctx32 = getelementptr inbounds i8, ptr %4, i64 40
   store ptr %ctx, ptr %ctx32, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !12
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !12
   fence release
-  %call33 = call i32 @qemu_coroutine_switch(ptr noundef %call, ptr noundef nonnull %4, i32 noundef 3) #9
+  %call33 = call i32 @qemu_coroutine_switch(ptr noundef %call, ptr noundef nonnull %4, i32 noundef 3) #10
   %co_queue_wakeup = getelementptr inbounds i8, ptr %4, i64 64
   %20 = load ptr, ptr %co_queue_wakeup, align 8
   %cmp36 = icmp eq ptr %20, null
@@ -292,7 +292,7 @@ sw.bb54:                                          ; preds = %do.end53
   br i1 %tobool55.not, label %if.end57, label %if.else
 
 if.else:                                          ; preds = %sw.bb54
-  call void @__assert_fail(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, i32 noundef 176, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_aio_coroutine_enter) #11
+  call void @__assert_fail(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, i32 noundef 176, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_aio_coroutine_enter) #12
   unreachable
 
 if.end57:                                         ; preds = %sw.bb54
@@ -316,15 +316,15 @@ if.then.i.i30:                                    ; preds = %land.lhs.true5.i.i2
   br i1 %tobool7.i.i31, label %if.then8.i.i33, label %if.else.i.i32
 
 if.then8.i.i33:                                   ; preds = %if.then.i.i30
-  %call9.i.i34 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i23, ptr noundef null) #9
-  %call10.i.i35 = call i32 @qemu_get_thread_id() #9
+  %call9.i.i34 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i23, ptr noundef null) #10
+  %call10.i.i35 = call i32 @qemu_get_thread_id() #10
   %29 = load i64, ptr %_now.i.i23, align 8
   %30 = load i64, ptr %tv_usec.i.i36, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.7, i32 noundef %call10.i.i35, i64 noundef %29, i64 noundef %30, ptr noundef nonnull %4) #9
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.7, i32 noundef %call10.i.i35, i64 noundef %29, i64 noundef %30, ptr noundef nonnull %4) #10
   br label %trace_qemu_coroutine_terminate.exit
 
 if.else.i.i32:                                    ; preds = %if.then.i.i30
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.8, ptr noundef nonnull %4) #9
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.8, ptr noundef nonnull %4) #10
   br label %trace_qemu_coroutine_terminate.exit
 
 trace_qemu_coroutine_terminate.exit:              ; preds = %if.end57, %land.lhs.true5.i.i27, %if.then8.i.i33, %if.else.i.i32
@@ -358,7 +358,7 @@ do.end14.i:                                       ; preds = %do.body2.i
   br label %sw.epilog
 
 if.end.i:                                         ; preds = %trace_qemu_coroutine_terminate.exit
-  call void asm sideeffect "", "~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !8
+  call void asm sideeffect "", "~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !8
   %41 = load i32, ptr %2, align 4
   %42 = load atomic i32, ptr @pool_max_size monotonic, align 4
   %cmp25.i = icmp ult i32 %41, %42
@@ -367,7 +367,7 @@ if.end.i:                                         ; preds = %trace_qemu_coroutin
 do.body27.i:                                      ; preds = %if.end.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ptr.i.i)
   store ptr %3, ptr %ptr.i.i, align 8
-  call void asm sideeffect "", "=*rm,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %ptr.i.i, ptr nonnull %3) #9, !srcloc !5
+  call void asm sideeffect "", "=*rm,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %ptr.i.i, ptr nonnull %3) #10, !srcloc !5
   %43 = load ptr, ptr %ptr.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ptr.i.i)
   %44 = load ptr, ptr %43, align 8
@@ -375,23 +375,23 @@ do.body27.i:                                      ; preds = %if.end.i
   store ptr %44, ptr %pool_next29.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ptr.i7.i)
   store ptr %3, ptr %ptr.i7.i, align 8
-  call void asm sideeffect "", "=*rm,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %ptr.i7.i, ptr nonnull %3) #9, !srcloc !5
+  call void asm sideeffect "", "=*rm,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %ptr.i7.i, ptr nonnull %3) #10, !srcloc !5
   %45 = load ptr, ptr %ptr.i7.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ptr.i7.i)
   store ptr %4, ptr %45, align 8
-  call void asm sideeffect "", "~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !8
+  call void asm sideeffect "", "~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !8
   %46 = load i32, ptr %2, align 4
   %add.i = add i32 %46, 1
-  call void asm sideeffect "", "~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !7
+  call void asm sideeffect "", "~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !7
   store i32 %add.i, ptr %2, align 4
   br label %sw.epilog
 
 if.end36.i:                                       ; preds = %if.end.i
-  call void @qemu_coroutine_delete(ptr noundef nonnull %4) #9
+  call void @qemu_coroutine_delete(ptr noundef nonnull %4) #10
   br label %sw.epilog
 
 sw.default:                                       ; preds = %do.end53
-  call void @abort() #11
+  call void @abort() #12
   unreachable
 
 sw.epilog:                                        ; preds = %if.end36.i, %do.body27.i, %do.end14.i, %do.end53
@@ -408,18 +408,18 @@ declare ptr @qemu_coroutine_self() local_unnamed_addr #1
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: cold nofree noreturn nounwind
 declare void @abort() local_unnamed_addr #3
 
 declare i32 @qemu_coroutine_switch(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn nounwind
-declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qemu_coroutine_enter(ptr noundef %co) local_unnamed_addr #0 {
 entry:
-  %call = tail call ptr @qemu_get_current_aio_context() #9
+  %call = tail call ptr @qemu_get_current_aio_context() #10
   tail call void @qemu_aio_coroutine_enter(ptr noundef %call, ptr noundef %co)
   ret void
 }
@@ -435,7 +435,7 @@ entry:
   br i1 %tobool.i.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %call.i = tail call ptr @qemu_get_current_aio_context() #9
+  %call.i = tail call ptr @qemu_get_current_aio_context() #10
   tail call void @qemu_aio_coroutine_enter(ptr noundef %call.i, ptr noundef nonnull %co)
   br label %if.end
 
@@ -444,7 +444,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local zeroext i1 @qemu_coroutine_entered(ptr nocapture noundef readonly %co) local_unnamed_addr #4 {
+define dso_local zeroext i1 @qemu_coroutine_entered(ptr nocapture noundef readonly %co) local_unnamed_addr #5 {
 entry:
   %caller = getelementptr inbounds i8, ptr %co, i64 16
   %0 = load ptr, ptr %caller, align 8
@@ -456,7 +456,7 @@ entry:
 define dso_local void @qemu_coroutine_yield() #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %call = tail call ptr @qemu_coroutine_self() #9
+  %call = tail call ptr @qemu_coroutine_self() #10
   %caller = getelementptr inbounds i8, ptr %call, i64 16
   %0 = load ptr, ptr %caller, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -479,16 +479,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #9
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #10
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #10
   %5 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.9, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef nonnull %call, ptr noundef %0) #9
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.9, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef nonnull %call, ptr noundef %0) #10
   br label %trace_qemu_coroutine_yield.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.10, ptr noundef nonnull %call, ptr noundef %0) #9
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.10, ptr noundef nonnull %call, ptr noundef %0) #10
   br label %trace_qemu_coroutine_yield.exit
 
 trace_qemu_coroutine_yield.exit:                  ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -498,18 +498,18 @@ trace_qemu_coroutine_yield.exit:                  ; preds = %entry, %land.lhs.tr
 
 if.then:                                          ; preds = %trace_qemu_coroutine_yield.exit
   %7 = load ptr, ptr @stderr, align 8
-  %8 = tail call i64 @fwrite(ptr nonnull @.str.4, i64 33, i64 1, ptr %7) #10
-  tail call void @abort() #11
+  %8 = tail call i64 @fwrite(ptr nonnull @.str.4, i64 33, i64 1, ptr %7) #11
+  tail call void @abort() #12
   unreachable
 
 if.end:                                           ; preds = %trace_qemu_coroutine_yield.exit
   store ptr null, ptr %caller, align 8
-  %call3 = tail call i32 @qemu_coroutine_switch(ptr noundef nonnull %call, ptr noundef nonnull %0, i32 noundef 1) #9
+  %call3 = tail call i32 @qemu_coroutine_switch(ptr noundef nonnull %call, ptr noundef nonnull %0, i32 noundef 1) #10
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local ptr @qemu_coroutine_get_aio_context(ptr nocapture noundef readonly %co) local_unnamed_addr #4 {
+define dso_local ptr @qemu_coroutine_get_aio_context(ptr nocapture noundef readonly %co) local_unnamed_addr #5 {
 entry:
   %ctx = getelementptr inbounds i8, ptr %co, i64 40
   %0 = load ptr, ptr %ctx, align 8
@@ -517,21 +517,21 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind sspstrong willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define dso_local void @qemu_coroutine_inc_pool_size(i32 noundef %additional_pool_size) local_unnamed_addr #5 {
+define dso_local void @qemu_coroutine_inc_pool_size(i32 noundef %additional_pool_size) local_unnamed_addr #6 {
 entry:
   %0 = atomicrmw add ptr @pool_max_size, i32 %additional_pool_size seq_cst, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind sspstrong willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define dso_local void @qemu_coroutine_dec_pool_size(i32 noundef %removing_pool_size) local_unnamed_addr #5 {
+define dso_local void @qemu_coroutine_dec_pool_size(i32 noundef %removing_pool_size) local_unnamed_addr #6 {
 entry:
   %0 = atomicrmw sub ptr @pool_max_size, i32 %removing_pool_size seq_cst, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #6
+declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #7
 
 declare void @qemu_coroutine_delete(ptr noundef) local_unnamed_addr #1
 
@@ -543,26 +543,27 @@ declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 declare i32 @qemu_get_thread_id() local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nounwind sspstrong willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nofree nounwind }
-attributes #8 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { nounwind }
-attributes #10 = { cold }
-attributes #11 = { noreturn nounwind }
+attributes #3 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nounwind sspstrong willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nofree nounwind }
+attributes #9 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { nounwind }
+attributes #11 = { cold }
+attributes #12 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

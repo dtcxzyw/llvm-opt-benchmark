@@ -24,7 +24,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define i32 @stress_majorization_cola(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
-  %9 = tail call i32 @initLayout(i32 noundef %1, i32 noundef %4, ptr noundef %2, ptr noundef %3) #11
+  %9 = tail call i32 @initLayout(i32 noundef %1, i32 noundef %4, ptr noundef %2, ptr noundef %3) #12
   %10 = icmp eq i32 %1, 1
   br i1 %10, label %397, label %.preheader511
 
@@ -77,7 +77,7 @@ define i32 @stress_majorization_cola(ptr noundef %0, i32 noundef %1, ptr noundef
   br i1 %.not, label %26, label %25
 
 25:                                               ; preds = %23
-  tail call void @start_timer() #11
+  tail call void @start_timer() #12
   br label %26
 
 26:                                               ; preds = %25, %23
@@ -94,21 +94,21 @@ define i32 @stress_majorization_cola(ptr noundef %0, i32 noundef %1, ptr noundef
 
 29:                                               ; preds = %27
   %30 = load ptr, ptr @stderr, align 8
-  %31 = tail call i64 @fwrite(ptr nonnull @.str, i64 24, i64 1, ptr %30) #12
+  %31 = tail call i64 @fwrite(ptr nonnull @.str, i64 24, i64 1, ptr %30) #13
   br label %32
 
 32:                                               ; preds = %29, %27
-  %33 = tail call ptr @compute_apsp_artificial_weights_packed(ptr noundef %0, i32 noundef %1) #11
+  %33 = tail call ptr @compute_apsp_artificial_weights_packed(ptr noundef %0, i32 noundef %1) #12
   br label %46
 
 34:                                               ; preds = %26
-  %35 = tail call ptr @circuitModel(ptr noundef %0, i32 noundef %1) #11
+  %35 = tail call ptr @circuitModel(ptr noundef %0, i32 noundef %1) #12
   %.not474 = icmp eq ptr %35, null
   br i1 %.not474, label %36, label %.thread494
 
 36:                                               ; preds = %34
-  %37 = tail call i32 (i32, ptr, ...) @agerr(i32 noundef 0, ptr noundef nonnull @.str.1) #11
-  %38 = tail call i32 (i32, ptr, ...) @agerr(i32 noundef 3, ptr noundef nonnull @.str.2) #11
+  %37 = tail call i32 (i32, ptr, ...) @agerr(i32 noundef 0, ptr noundef nonnull @.str.1) #12
+  %38 = tail call i32 (i32, ptr, ...) @agerr(i32 noundef 3, ptr noundef nonnull @.str.2) #12
   br label %.thread
 
 39:                                               ; preds = %26
@@ -118,11 +118,11 @@ define i32 @stress_majorization_cola(ptr noundef %0, i32 noundef %1, ptr noundef
 
 41:                                               ; preds = %39
   %42 = load ptr, ptr @stderr, align 8
-  %43 = tail call i64 @fwrite(ptr nonnull @.str.3, i64 21, i64 1, ptr %42) #12
+  %43 = tail call i64 @fwrite(ptr nonnull @.str.3, i64 21, i64 1, ptr %42) #13
   br label %44
 
 44:                                               ; preds = %41, %39
-  %45 = tail call ptr @mdsModel(ptr noundef %0, i32 noundef %1) #11
+  %45 = tail call ptr @mdsModel(ptr noundef %0, i32 noundef %1) #12
   br label %46
 
 46:                                               ; preds = %44, %32
@@ -137,11 +137,11 @@ define i32 @stress_majorization_cola(ptr noundef %0, i32 noundef %1, ptr noundef
 
 48:                                               ; preds = %.thread
   %49 = load ptr, ptr @stderr, align 8
-  %50 = tail call i64 @fwrite(ptr nonnull @.str.4, i64 26, i64 1, ptr %49) #12
+  %50 = tail call i64 @fwrite(ptr nonnull @.str.4, i64 26, i64 1, ptr %49) #13
   br label %51
 
 51:                                               ; preds = %48, %.thread
-  %52 = tail call ptr @compute_apsp_packed(ptr noundef %0, i32 noundef %1) #11
+  %52 = tail call ptr @compute_apsp_packed(ptr noundef %0, i32 noundef %1) #12
   br label %.thread494
 
 .thread494:                                       ; preds = %34, %51, %46
@@ -152,11 +152,11 @@ define i32 @stress_majorization_cola(ptr noundef %0, i32 noundef %1, ptr noundef
 
 54:                                               ; preds = %.thread494
   %55 = load ptr, ptr @stderr, align 8
-  %56 = tail call double @elapsed_sec() #11
-  %57 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %55, ptr noundef nonnull @.str.5, double noundef %56) #13
+  %56 = tail call double @elapsed_sec() #12
+  %57 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %55, ptr noundef nonnull @.str.5, double noundef %56) #14
   %58 = load ptr, ptr @stderr, align 8
-  %59 = tail call i64 @fwrite(ptr nonnull @.str.6, i64 25, i64 1, ptr %58) #12
-  tail call void @start_timer() #11
+  %59 = tail call i64 @fwrite(ptr nonnull @.str.6, i64 25, i64 1, ptr %58) #13
+  tail call void @start_timer() #12
   br label %.preheader509
 
 .preheader509:                                    ; preds = %54, %.thread494
@@ -242,7 +242,7 @@ define i32 @stress_majorization_cola(ptr noundef %0, i32 noundef %1, ptr noundef
   %indvars.iv707 = phi i64 [ 0, %.lr.ph537.preheader ], [ %indvars.iv.next708, %.lr.ph537 ]
   %79 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv707
   %80 = load ptr, ptr %79, align 8
-  tail call void @orthog1(i32 noundef %1, ptr noundef %80) #11
+  tail call void @orthog1(i32 noundef %1, ptr noundef %80) #12
   %indvars.iv.next708 = add nuw nsw i64 %indvars.iv707, 1
   %exitcond711.not = icmp eq i64 %indvars.iv.next708, %wide.trip.count710
   br i1 %exitcond711.not, label %._crit_edge538, label %.lr.ph537
@@ -275,13 +275,13 @@ define i32 @stress_majorization_cola(ptr noundef %0, i32 noundef %1, ptr noundef
 
 89:                                               ; preds = %._crit_edge542
   %90 = load ptr, ptr @stderr, align 8
-  %91 = tail call double @elapsed_sec() #11
-  %92 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %90, ptr noundef nonnull @.str.7, double noundef %91) #13
+  %91 = tail call double @elapsed_sec() #12
+  %92 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %90, ptr noundef nonnull @.str.7, double noundef %91) #14
   br label %93
 
 93:                                               ; preds = %89, %._crit_edge542
-  tail call void @square_vec(i32 noundef %63, ptr noundef %.1447) #11
-  tail call void @invert_vec(i32 noundef %63, ptr noundef %.1447) #11
+  tail call void @square_vec(i32 noundef %63, ptr noundef %.1447) #12
+  tail call void @invert_vec(i32 noundef %63, ptr noundef %.1447) #12
   %94 = getelementptr inbounds i8, ptr %7, i64 48
   %95 = load ptr, ptr %94, align 8
   %96 = getelementptr inbounds i8, ptr %95, i64 4
@@ -490,7 +490,7 @@ define i32 @stress_majorization_cola(ptr noundef %0, i32 noundef %1, ptr noundef
   br i1 %exitcond736.not, label %._crit_edge578, label %.preheader504
 
 ._crit_edge578:                                   ; preds = %._crit_edge547, %99
-  tail call void @free(ptr noundef %.1447) #11
+  tail call void @free(ptr noundef %.1447) #12
   br label %178
 
 178:                                              ; preds = %._crit_edge578, %93
@@ -500,7 +500,7 @@ define i32 @stress_majorization_cola(ptr noundef %0, i32 noundef %1, ptr noundef
   %.0409 = phi i32 [ %101, %._crit_edge578 ], [ %1, %93 ]
   %179 = sext i32 %.0409 to i64
   %180 = tail call fastcc ptr @gv_calloc(i64 noundef %179, i64 noundef 8)
-  tail call void @set_vector_val(i32 noundef %.0409, double noundef 0.000000e+00, ptr noundef %180) #11
+  tail call void @set_vector_val(i32 noundef %.0409, double noundef 0.000000e+00, ptr noundef %180) #12
   %181 = icmp sgt i32 %.0409, 1
   br i1 %181, label %.preheader503.preheader, label %.preheader502
 
@@ -660,13 +660,13 @@ define i32 @stress_majorization_cola(ptr noundef %0, i32 noundef %1, ptr noundef
 ._crit_edge606:                                   ; preds = %.lr.ph605, %._crit_edge602
   %233 = tail call fastcc ptr @gv_calloc(i64 noundef %179, i64 noundef 4)
   %234 = tail call fastcc ptr @gv_calloc(i64 noundef %179, i64 noundef 4)
-  %235 = tail call ptr @initCMajVPSC(i32 noundef %.0409, ptr noundef %.0452, ptr noundef %0, ptr noundef %7, i32 noundef 0) #11
+  %235 = tail call ptr @initCMajVPSC(i32 noundef %.0409, ptr noundef %.0452, ptr noundef %0, ptr noundef %7, i32 noundef 0) #12
   %236 = icmp eq ptr %235, null
   br i1 %236, label %.loopexit, label %237
 
 237:                                              ; preds = %._crit_edge606
   %238 = load i32, ptr %7, align 8
-  %239 = tail call ptr @initCMajVPSC(i32 noundef %.0409, ptr noundef %.0452, ptr noundef %0, ptr noundef nonnull %7, i32 noundef %238) #11
+  %239 = tail call ptr @initCMajVPSC(i32 noundef %.0409, ptr noundef %.0452, ptr noundef %0, ptr noundef nonnull %7, i32 noundef %238) #12
   %240 = icmp eq ptr %239, null
   br i1 %240, label %.loopexit, label %241
 
@@ -697,8 +697,8 @@ define i32 @stress_majorization_cola(ptr noundef %0, i32 noundef %1, ptr noundef
   %.0410645 = phi i32 [ 0, %.lr.ph647 ], [ %373, %372 ]
   %.0420644 = phi double [ 0.000000e+00, %.lr.ph647 ], [ %.1421, %372 ]
   %.0430643 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph647 ], [ %.2429.lcssa, %372 ]
-  tail call void @set_vector_val(i32 noundef %.0409, double noundef 0.000000e+00, ptr noundef %180) #11
-  tail call void @sqrt_vecf(i32 noundef %.0451, ptr noundef %.0452, ptr noundef %243) #11
+  tail call void @set_vector_val(i32 noundef %.0409, double noundef 0.000000e+00, ptr noundef %180) #12
+  tail call void @sqrt_vecf(i32 noundef %.0451, ptr noundef %.0452, ptr noundef %243) #12
   br i1 %181, label %.lr.ph625, label %.preheader501
 
 .preheader501:                                    ; preds = %._crit_edge619, %252
@@ -711,7 +711,7 @@ define i32 @stress_majorization_cola(ptr noundef %0, i32 noundef %1, ptr noundef
   %253 = trunc nuw nsw i64 %indvars.iv798 to i32
   %254 = xor i32 %253, -1
   %255 = add nsw i32 %.0409, %254
-  tail call void @set_vector_valf(i32 noundef %.0409, float noundef 0.000000e+00, ptr noundef %234) #11
+  tail call void @set_vector_valf(i32 noundef %.0409, float noundef 0.000000e+00, ptr noundef %234) #12
   br i1 %64, label %._crit_edge610, label %.lr.ph609
 
 .lr.ph609:                                        ; preds = %.lr.ph625, %.lr.ph609
@@ -720,19 +720,19 @@ define i32 @stress_majorization_cola(ptr noundef %0, i32 noundef %1, ptr noundef
   %257 = load ptr, ptr %256, align 8
   %258 = getelementptr inbounds float, ptr %257, i64 %indvars.iv798
   %259 = load float, ptr %258, align 4
-  tail call void @set_vector_valf(i32 noundef %255, float noundef %259, ptr noundef %233) #11
+  tail call void @set_vector_valf(i32 noundef %255, float noundef %259, ptr noundef %233) #12
   %260 = load ptr, ptr %256, align 8
   %261 = getelementptr inbounds float, ptr %260, i64 %indvars.iv798
   %262 = getelementptr inbounds i8, ptr %261, i64 4
-  tail call void @vectors_mult_additionf(i32 noundef %255, ptr noundef %233, float noundef -1.000000e+00, ptr noundef nonnull %262) #11
-  tail call void @square_vec(i32 noundef %255, ptr noundef %233) #11
-  tail call void @vectors_additionf(i32 noundef %255, ptr noundef %233, ptr noundef %234, ptr noundef %234) #11
+  tail call void @vectors_mult_additionf(i32 noundef %255, ptr noundef %233, float noundef -1.000000e+00, ptr noundef nonnull %262) #12
+  tail call void @square_vec(i32 noundef %255, ptr noundef %233) #12
+  tail call void @vectors_additionf(i32 noundef %255, ptr noundef %233, ptr noundef %234, ptr noundef %234) #12
   %indvars.iv.next778 = add nuw nsw i64 %indvars.iv777, 1
   %exitcond781.not = icmp eq i64 %indvars.iv.next778, %wide.trip.count780
   br i1 %exitcond781.not, label %._crit_edge610, label %.lr.ph609
 
 ._crit_edge610:                                   ; preds = %.lr.ph609, %.lr.ph625
-  tail call void @invert_sqrt_vec(i32 noundef %255, ptr noundef %234) #11
+  tail call void @invert_sqrt_vec(i32 noundef %255, ptr noundef %234) #12
   %263 = icmp sgt i32 %255, 0
   br i1 %263, label %.lr.ph613.preheader, label %.preheader498.thread
 
@@ -838,7 +838,7 @@ define i32 @stress_majorization_cola(ptr noundef %0, i32 noundef %1, ptr noundef
   %292 = load ptr, ptr %291, align 8
   %293 = getelementptr inbounds ptr, ptr %227, i64 %indvars.iv812
   %294 = load ptr, ptr %293, align 8
-  tail call void @right_mult_with_vector_ff(ptr noundef %243, i32 noundef %.0409, ptr noundef %292, ptr noundef %294) #11
+  tail call void @right_mult_with_vector_ff(ptr noundef %243, i32 noundef %.0409, ptr noundef %292, ptr noundef %294) #12
   %indvars.iv.next813 = add nuw nsw i64 %indvars.iv812, 1
   %exitcond816.not = icmp eq i64 %indvars.iv.next813, %wide.trip.count815
   br i1 %exitcond816.not, label %.preheader499, label %.lr.ph631
@@ -850,7 +850,7 @@ define i32 @stress_majorization_cola(ptr noundef %0, i32 noundef %1, ptr noundef
   %296 = load ptr, ptr %295, align 8
   %297 = getelementptr inbounds ptr, ptr %227, i64 %indvars.iv817
   %298 = load ptr, ptr %297, align 8
-  %299 = tail call double @vectors_inner_productf(i32 noundef %.0409, ptr noundef %296, ptr noundef %298) #11
+  %299 = tail call double @vectors_inner_productf(i32 noundef %.0409, ptr noundef %296, ptr noundef %298) #12
   %300 = fadd double %.1428633, %299
   %indvars.iv.next818 = add nuw nsw i64 %indvars.iv817, 1
   %exitcond821.not = icmp eq i64 %indvars.iv.next818, %wide.trip.count820
@@ -866,9 +866,9 @@ define i32 @stress_majorization_cola(ptr noundef %0, i32 noundef %1, ptr noundef
   %.2429638 = phi double [ %307, %.lr.ph640 ], [ %302, %._crit_edge635 ]
   %303 = getelementptr inbounds ptr, ptr %203, i64 %indvars.iv822
   %304 = load ptr, ptr %303, align 8
-  tail call void @right_mult_with_vector_ff(ptr noundef %.0452, i32 noundef %.0409, ptr noundef %304, ptr noundef %233) #11
+  tail call void @right_mult_with_vector_ff(ptr noundef %.0452, i32 noundef %.0409, ptr noundef %304, ptr noundef %233) #12
   %305 = load ptr, ptr %303, align 8
-  %306 = tail call double @vectors_inner_productf(i32 noundef %.0409, ptr noundef %305, ptr noundef %233) #11
+  %306 = tail call double @vectors_inner_productf(i32 noundef %.0409, ptr noundef %305, ptr noundef %233) #12
   %307 = fsub double %.2429638, %306
   %indvars.iv.next823 = add nuw nsw i64 %indvars.iv822, 1
   %exitcond826.not = icmp eq i64 %indvars.iv.next823, %wide.trip.count825
@@ -882,7 +882,7 @@ define i32 @stress_majorization_cola(ptr noundef %0, i32 noundef %1, ptr noundef
 
 309:                                              ; preds = %._crit_edge641
   %310 = load ptr, ptr @stderr, align 8
-  %311 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %310, ptr noundef nonnull @.str.8, double noundef %.2429.lcssa) #13
+  %311 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %310, ptr noundef nonnull @.str.8, double noundef %.2429.lcssa) #14
   %312 = srem i32 %.0410645, 10
   %313 = icmp eq i32 %312, 0
   br i1 %313, label %314, label %316
@@ -926,7 +926,7 @@ define i32 @stress_majorization_cola(ptr noundef %0, i32 noundef %1, ptr noundef
 
 333:                                              ; preds = %330
   %334 = load ptr, ptr @stderr, align 8
-  %335 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %334, ptr noundef nonnull @.str.10, double noundef %331, i32 noundef %.0410645) #13
+  %335 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %334, ptr noundef nonnull @.str.10, double noundef %331, i32 noundef %.0410645) #14
   %.pre = load i32, ptr %247, align 8
   br label %336
 
@@ -943,7 +943,7 @@ define i32 @stress_majorization_cola(ptr noundef %0, i32 noundef %1, ptr noundef
 340:                                              ; preds = %336
   %341 = fptrunc double %.1421 to float
   %342 = fcmp oge double %.1421, 5.000000e-01
-  tail call void @generateNonoverlapConstraints(ptr noundef nonnull %235, float noundef %341, ptr noundef %203, i32 noundef 0, i1 noundef zeroext %342, ptr noundef nonnull %7) #11
+  tail call void @generateNonoverlapConstraints(ptr noundef nonnull %235, float noundef %341, ptr noundef %203, i32 noundef 0, i1 noundef zeroext %342, ptr noundef nonnull %7) #12
   br label %343
 
 343:                                              ; preds = %340, %336
@@ -954,13 +954,13 @@ define i32 @stress_majorization_cola(ptr noundef %0, i32 noundef %1, ptr noundef
 346:                                              ; preds = %343
   %347 = load ptr, ptr %227, align 8
   %348 = load ptr, ptr %203, align 8
-  %349 = tail call i32 @constrained_majorization_vpsc(ptr noundef nonnull %235, ptr noundef %347, ptr noundef %348, i32 noundef 1000) #11
+  %349 = tail call i32 @constrained_majorization_vpsc(ptr noundef nonnull %235, ptr noundef %347, ptr noundef %348, i32 noundef 1000) #12
   br label %355
 
 350:                                              ; preds = %343
   %351 = load ptr, ptr %203, align 8
   %352 = load ptr, ptr %227, align 8
-  %353 = tail call i32 @conjugate_gradient_mkernel(ptr noundef %.0452, ptr noundef %351, ptr noundef %352, i32 noundef %.0409, double noundef 1.000000e-03, i32 noundef %.0409) #11
+  %353 = tail call i32 @conjugate_gradient_mkernel(ptr noundef %.0452, ptr noundef %351, ptr noundef %352, i32 noundef %.0409, double noundef 1.000000e-03, i32 noundef %.0409) #12
   %354 = icmp slt i32 %353, 0
   br i1 %354, label %.preheader497, label %355
 
@@ -972,7 +972,7 @@ define i32 @stress_majorization_cola(ptr noundef %0, i32 noundef %1, ptr noundef
 
 358:                                              ; preds = %355
   %359 = fptrunc double %.1421 to float
-  tail call void @generateNonoverlapConstraints(ptr noundef nonnull %239, float noundef %359, ptr noundef nonnull %203, i32 noundef 1, i1 noundef zeroext false, ptr noundef nonnull %7) #11
+  tail call void @generateNonoverlapConstraints(ptr noundef nonnull %239, float noundef %359, ptr noundef nonnull %203, i32 noundef 1, i1 noundef zeroext false, ptr noundef nonnull %7) #12
   br label %360
 
 360:                                              ; preds = %358, %355
@@ -983,14 +983,14 @@ define i32 @stress_majorization_cola(ptr noundef %0, i32 noundef %1, ptr noundef
 363:                                              ; preds = %360
   %364 = load ptr, ptr %251, align 8
   %365 = load ptr, ptr %250, align 8
-  %366 = tail call i32 @constrained_majorization_vpsc(ptr noundef nonnull %239, ptr noundef %364, ptr noundef %365, i32 noundef 1000) #11
+  %366 = tail call i32 @constrained_majorization_vpsc(ptr noundef nonnull %239, ptr noundef %364, ptr noundef %365, i32 noundef 1000) #12
   %367 = icmp slt i32 %366, 0
   br i1 %367, label %.preheader497, label %372
 
 368:                                              ; preds = %360
   %369 = load ptr, ptr %250, align 8
   %370 = load ptr, ptr %251, align 8
-  %371 = tail call i32 @conjugate_gradient_mkernel(ptr noundef %.0452, ptr noundef %369, ptr noundef %370, i32 noundef %.0409, double noundef 1.000000e-03, i32 noundef %.0409) #11
+  %371 = tail call i32 @conjugate_gradient_mkernel(ptr noundef %.0452, ptr noundef %369, ptr noundef %370, i32 noundef %.0409, double noundef 1.000000e-03, i32 noundef %.0409) #12
   br label %372
 
 372:                                              ; preds = %368, %363
@@ -1008,20 +1008,20 @@ define i32 @stress_majorization_cola(ptr noundef %0, i32 noundef %1, ptr noundef
 
 376:                                              ; preds = %._crit_edge648
   %377 = load ptr, ptr @stderr, align 8
-  %378 = tail call double @elapsed_sec() #11
-  %379 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %377, ptr noundef nonnull @.str.11, double noundef %.0427.lcssa, i32 noundef %.0410.lcssa, double noundef %378) #13
+  %378 = tail call double @elapsed_sec() #12
+  %379 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %377, ptr noundef nonnull @.str.11, double noundef %.0427.lcssa, i32 noundef %.0410.lcssa, double noundef %378) #14
   br label %380
 
 380:                                              ; preds = %376, %._crit_edge648
-  tail call void @deleteCMajEnvVPSC(ptr noundef nonnull %235) #11
-  tail call void @deleteCMajEnvVPSC(ptr noundef nonnull %239) #11
+  tail call void @deleteCMajEnvVPSC(ptr noundef nonnull %235) #12
+  tail call void @deleteCMajEnvVPSC(ptr noundef nonnull %239) #12
   %381 = getelementptr inbounds i8, ptr %7, i64 16
   %382 = load i32, ptr %381, align 8
   %383 = icmp eq i32 %382, 2
   br i1 %383, label %384, label %.loopexit
 
 384:                                              ; preds = %380
-  tail call void @removeoverlaps(i32 noundef %1, ptr noundef %203, ptr noundef nonnull %7) #11
+  tail call void @removeoverlaps(i32 noundef %1, ptr noundef %203, ptr noundef nonnull %7) #12
   br label %.loopexit
 
 .loopexit:                                        ; preds = %237, %._crit_edge606, %380, %384
@@ -1067,21 +1067,21 @@ define i32 @stress_majorization_cola(ptr noundef %0, i32 noundef %1, ptr noundef
 
 ._crit_edge655:                                   ; preds = %._crit_edge653.us, %.preheader497
   %394 = load ptr, ptr %203, align 8
-  tail call void @free(ptr noundef %394) #11
-  tail call void @free(ptr noundef nonnull %203) #11
+  tail call void @free(ptr noundef %394) #12
+  tail call void @free(ptr noundef nonnull %203) #12
   br label %395
 
 395:                                              ; preds = %.loopexit, %._crit_edge655
   %.2412853 = phi i32 [ %.2412, %.loopexit ], [ %.2412852, %._crit_edge655 ]
   %.0450851 = phi ptr [ %.0450, %.loopexit ], [ %.0450850, %._crit_edge655 ]
   %396 = load ptr, ptr %227, align 8
-  tail call void @free(ptr noundef %396) #11
-  tail call void @free(ptr noundef %227) #11
-  tail call void @free(ptr noundef %233) #11
-  tail call void @free(ptr noundef %234) #11
-  tail call void @free(ptr noundef %180) #11
-  tail call void @free(ptr noundef %.0452) #11
-  tail call void @free(ptr noundef %.0450851) #11
+  tail call void @free(ptr noundef %396) #12
+  tail call void @free(ptr noundef %227) #12
+  tail call void @free(ptr noundef %233) #12
+  tail call void @free(ptr noundef %234) #12
+  tail call void @free(ptr noundef %180) #12
+  tail call void @free(ptr noundef %.0452) #12
+  tail call void @free(ptr noundef %.0450851) #12
   br label %397
 
 397:                                              ; preds = %._crit_edge518, %8, %395
@@ -1120,13 +1120,13 @@ declare void @square_vec(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 declare void @invert_vec(i32 noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
-define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef %0, i64 noundef %1) unnamed_addr #0 {
+; Function Attrs: nofree nounwind uwtable
+define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef %0, i64 noundef %1) unnamed_addr #4 {
   %.not = icmp eq i64 %0, 0
   br i1 %.not, label %.thread, label %4
 
 .thread:                                          ; preds = %2
-  %3 = tail call noalias ptr @calloc(i64 noundef 0, i64 noundef %1) #14
+  %3 = tail call noalias ptr @calloc(i64 noundef 0, i64 noundef %1) #15
   br label %15
 
 4:                                                ; preds = %2
@@ -1136,20 +1136,20 @@ define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef %0, i64 nounde
 
 5:                                                ; preds = %4
   %6 = load ptr, ptr @stderr, align 8
-  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.12, i64 noundef %0, i64 noundef %1) #13
-  tail call fastcc void @graphviz_exit() #15
+  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.12, i64 noundef %0, i64 noundef %1) #14
+  tail call fastcc void @graphviz_exit() #16
   unreachable
 
 8:                                                ; preds = %4
-  %9 = tail call noalias ptr @calloc(i64 noundef %0, i64 noundef %1) #14
+  %9 = tail call noalias ptr @calloc(i64 noundef %0, i64 noundef %1) #15
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %15
 
 11:                                               ; preds = %8
   %12 = load ptr, ptr @stderr, align 8
   %13 = mul nsw i64 %1, %0
-  %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.13, i64 noundef %13) #13
-  tail call fastcc void @graphviz_exit() #15
+  %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.13, i64 noundef %13) #14
+  tail call fastcc void @graphviz_exit() #16
   unreachable
 
 15:                                               ; preds = %.thread, %8
@@ -1158,7 +1158,7 @@ define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef %0, i64 nounde
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
 
 declare void @set_vector_val(i32 noundef, double noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1188,47 +1188,48 @@ declare void @deleteCMajEnvVPSC(ptr noundef) local_unnamed_addr #1
 
 declare void @removeoverlaps(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: noreturn nounwind uwtable
-define internal fastcc void @graphviz_exit() unnamed_addr #5 {
-  tail call void @exit(i32 noundef 1) #16
+; Function Attrs: nofree noreturn nounwind uwtable
+define internal fastcc void @graphviz_exit() unnamed_addr #6 {
+  tail call void @exit(i32 noundef 1) #17
   unreachable
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #6
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #7
 
-; Function Attrs: noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #7
-
-; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #8
+; Function Attrs: nofree noreturn nounwind
+declare void @exit(i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #9
+
+; Function Attrs: nofree nounwind
+declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #9
+declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree nounwind }
-attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #11 = { nounwind }
-attributes #12 = { cold }
-attributes #13 = { cold nounwind }
-attributes #14 = { nounwind allocsize(0,1) }
-attributes #15 = { noreturn }
-attributes #16 = { noreturn nounwind }
+attributes #4 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nofree nounwind }
+attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #12 = { nounwind }
+attributes #13 = { cold }
+attributes #14 = { cold nounwind }
+attributes #15 = { nounwind allocsize(0,1) }
+attributes #16 = { noreturn }
+attributes #17 = { cold noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

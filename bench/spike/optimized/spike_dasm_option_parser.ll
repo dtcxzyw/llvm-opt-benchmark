@@ -359,7 +359,7 @@ define noundef ptr @_ZN15option_parser_t5parseEPKPKc(ptr nocapture noundef nonnu
   br label %59
 
 59:                                               ; preds = %58, %52
-  call void @exit(i32 noundef 1) #14
+  call void @exit(i32 noundef 1) #17
   unreachable
 
 .critedge56:                                      ; preds = %.critedge54, %41, %47
@@ -383,7 +383,7 @@ define noundef ptr @_ZN15option_parser_t5parseEPKPKc(ptr nocapture noundef nonnu
   br label %69
 
 69:                                               ; preds = %68, %62
-  call void @exit(i32 noundef 1) #14
+  call void @exit(i32 noundef 1) #17
   unreachable
 
 70:                                               ; preds = %.thread92, %.critedge56
@@ -397,7 +397,7 @@ define noundef ptr @_ZN15option_parser_t5parseEPKPKc(ptr nocapture noundef nonnu
   br i1 %.not.i.i, label %74, label %.critedge57.loopexit
 
 74:                                               ; preds = %70
-  call void @_ZSt25__throw_bad_function_callv() #17
+  call void @_ZSt25__throw_bad_function_callv() #18
   unreachable
 
 .thread83:                                        ; preds = %.thread, %34, %26, %30, %31
@@ -419,7 +419,7 @@ define noundef ptr @_ZN15option_parser_t5parseEPKPKc(ptr nocapture noundef nonnu
   br label %83
 
 83:                                               ; preds = %82, %.critedge2
-  call void @exit(i32 noundef 1) #14
+  call void @exit(i32 noundef 1) #17
   unreachable
 
 .critedge:                                        ; preds = %10, %.critedge57.loopexit, %2
@@ -449,14 +449,14 @@ define void @_ZN15option_parser_t5errorEPKcS1_S1_(ptr nocapture noundef nonnull 
   br label %11
 
 11:                                               ; preds = %10, %4
-  tail call void @exit(i32 noundef 1) #14
+  tail call void @exit(i32 noundef 1) #17
   unreachable
 }
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
@@ -471,7 +471,7 @@ define linkonce_odr void @_ZNSt6vectorIN15option_parser_t8option_tESaIS1_EE17_M_
   br i1 %10, label %11, label %_ZNKSt6vectorIN15option_parser_t8option_tESaIS1_EE12_M_check_lenEmPKc.exit
 
 11:                                               ; preds = %3
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #17
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #18
   unreachable
 
 _ZNKSt6vectorIN15option_parser_t8option_tESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %3
@@ -489,7 +489,7 @@ _ZNKSt6vectorIN15option_parser_t8option_tESaIS1_EE12_M_check_lenEmPKc.exit: ; pr
 
 20:                                               ; preds = %_ZNKSt6vectorIN15option_parser_t8option_tESaIS1_EE12_M_check_lenEmPKc.exit
   %21 = mul nuw nsw i64 %16, 56
-  %22 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #18
+  %22 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #19
   br label %_ZNSt12_Vector_baseIN15option_parser_t8option_tESaIS1_EE11_M_allocateEm.exit
 
 _ZNSt12_Vector_baseIN15option_parser_t8option_tESaIS1_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN15option_parser_t8option_tESaIS1_EE12_M_check_lenEmPKc.exit, %20
@@ -593,7 +593,7 @@ _ZNSt6vectorIN15option_parser_t8option_tESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.ex
   br i1 %.not.i26, label %_ZNSt12_Vector_baseIN15option_parser_t8option_tESaIS1_EE13_M_deallocateEPS1_m.exit, label %55
 
 55:                                               ; preds = %_ZNSt6vectorIN15option_parser_t8option_tESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit25
-  tail call void @_ZdlPv(ptr noundef nonnull %6) #19
+  tail call void @_ZdlPv(ptr noundef nonnull %6) #20
   br label %_ZNSt12_Vector_baseIN15option_parser_t8option_tESaIS1_EE13_M_deallocateEPS1_m.exit
 
 _ZNSt12_Vector_baseIN15option_parser_t8option_tESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN15option_parser_t8option_tESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit25, %55
@@ -613,7 +613,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #7 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #20
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #21
   tail call void @_ZSt9terminatev() #14
   unreachable
 }
@@ -653,7 +653,7 @@ attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-w
 attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #7 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -666,10 +666,11 @@ attributes #13 = { nocallback nofree nosync nounwind willreturn memory(argmem: r
 attributes #14 = { noreturn nounwind }
 attributes #15 = { nounwind willreturn memory(read) }
 attributes #16 = { cold nounwind }
-attributes #17 = { noreturn }
-attributes #18 = { builtin allocsize(0) }
-attributes #19 = { builtin nounwind }
-attributes #20 = { nounwind }
+attributes #17 = { cold noreturn nounwind }
+attributes #18 = { noreturn }
+attributes #19 = { builtin allocsize(0) }
+attributes #20 = { builtin nounwind }
+attributes #21 = { nounwind }
 
 !llvm.linker.options = !{}
 !llvm.module.flags = !{!0, !1, !2, !3}

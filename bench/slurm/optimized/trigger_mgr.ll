@@ -4715,7 +4715,7 @@ _trigger_clone.exit:                              ; preds = %747, %750
 
 820:                                              ; preds = %813
   %821 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.76) #14
-  call void @exit(i32 noundef 1) #16
+  call void @exit(i32 noundef 1) #18
   unreachable
 
 822:                                              ; preds = %813
@@ -4726,7 +4726,7 @@ _trigger_clone.exit:                              ; preds = %747, %750
 
 825:                                              ; preds = %822
   %826 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.77) #14
-  call void @exit(i32 noundef 1) #16
+  call void @exit(i32 noundef 1) #18
   unreachable
 
 827:                                              ; preds = %822
@@ -4737,12 +4737,12 @@ _trigger_clone.exit:                              ; preds = %747, %750
 
 830:                                              ; preds = %827
   %831 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.78) #14
-  call void @exit(i32 noundef 1) #16
+  call void @exit(i32 noundef 1) #18
   unreachable
 
 832:                                              ; preds = %827
   %833 = call i32 @execv(ptr noundef %785, ptr noundef nonnull %4) #14
-  call void @exit(i32 noundef 1) #16
+  call void @exit(i32 noundef 1) #18
   unreachable
 
 834:                                              ; preds = %811
@@ -5173,7 +5173,7 @@ declare i32 @setsid() local_unnamed_addr #2
 
 declare i32 @initgroups(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind
@@ -5212,7 +5212,7 @@ attributes #6 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-
 attributes #7 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #12 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: write) }
@@ -5220,6 +5220,7 @@ attributes #14 = { nounwind }
 attributes #15 = { nounwind willreturn memory(none) }
 attributes #16 = { noreturn nounwind }
 attributes #17 = { nounwind willreturn memory(read) }
+attributes #18 = { cold noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
 

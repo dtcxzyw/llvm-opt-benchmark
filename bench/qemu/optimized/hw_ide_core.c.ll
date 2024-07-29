@@ -439,7 +439,7 @@ if.end131:                                        ; preds = %land.lhs.true115, %
   %ret.0 = phi i32 [ %conv130, %if.else129 ], [ 0, %land.lhs.true125 ], [ 0, %land.lhs.true115 ]
   %irq = getelementptr inbounds i8, ptr %opaque, i64 2136
   %31 = load ptr, ptr %irq, align 8
-  tail call void @qemu_set_irq(ptr noundef %31, i32 noundef 0) #16
+  tail call void @qemu_set_irq(ptr noundef %31, i32 noundef 0) #17
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %land.lhs.true101, %land.lhs.true82, %land.lhs.true63, %land.lhs.true44, %land.lhs.true25, %land.lhs.true, %land.lhs.true11, %if.else107, %if.else92, %if.then90, %if.else73, %if.then71, %if.else54, %if.then52, %if.else35, %if.then33, %if.else17, %if.then15, %if.end131, %sw.bb
@@ -467,16 +467,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #16
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #17
   %37 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %38 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.74, i32 noundef %call10.i.i, i64 noundef %37, i64 noundef %38, i32 noundef %addr, ptr noundef %32, i32 noundef %ret.1, ptr noundef nonnull %opaque, ptr noundef %add.ptr.i) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.74, i32 noundef %call10.i.i, i64 noundef %37, i64 noundef %38, i32 noundef %addr, ptr noundef %32, i32 noundef %ret.1, ptr noundef nonnull %opaque, ptr noundef %add.ptr.i) #17
   br label %trace_ide_ioport_read.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.75, i32 noundef %addr, ptr noundef %32, i32 noundef %ret.1, ptr noundef nonnull %opaque, ptr noundef %add.ptr.i) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.75, i32 noundef %addr, ptr noundef %32, i32 noundef %ret.1, ptr noundef nonnull %opaque, ptr noundef %add.ptr.i) #17
   br label %trace_ide_ioport_read.exit
 
 trace_ide_ioport_read.exit:                       ; preds = %sw.epilog, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -517,16 +517,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #16
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #17
   %6 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.61, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i32 noundef %addr, ptr noundef %1, i32 noundef %val, ptr noundef nonnull %opaque, ptr noundef %add.ptr.i) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.61, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i32 noundef %addr, ptr noundef %1, i32 noundef %val, ptr noundef nonnull %opaque, ptr noundef %add.ptr.i) #17
   br label %trace_ide_ioport_write.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.62, i32 noundef %addr, ptr noundef %1, i32 noundef %val, ptr noundef nonnull %opaque, ptr noundef %add.ptr.i) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.62, i32 noundef %addr, ptr noundef %1, i32 noundef %val, ptr noundef nonnull %opaque, ptr noundef %add.ptr.i) #17
   br label %trace_ide_ioport_write.exit
 
 trace_ide_ioport_write.exit:                      ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -669,7 +669,7 @@ sw.bb108:                                         ; preds = %trace_ide_ioport_wr
   store i8 %35, ptr %cmd.i67, align 1
   %irq = getelementptr inbounds i8, ptr %opaque, i64 2136
   %36 = load ptr, ptr %irq, align 8
-  tail call void @qemu_set_irq(ptr noundef %36, i32 noundef 0) #16
+  tail call void @qemu_set_irq(ptr noundef %36, i32 noundef 0) #17
   tail call void @ide_bus_exec_cmd(ptr noundef nonnull %opaque, i32 noundef %val)
   br label %sw.epilog
 
@@ -711,7 +711,7 @@ if.else.i:                                        ; preds = %lor.lhs.false
   br i1 %or.cond8.i, label %if.end, label %if.end15.i
 
 if.end15.i:                                       ; preds = %if.else.i
-  tail call void @abort() #17
+  tail call void @abort() #18
   unreachable
 
 if.end:                                           ; preds = %if.else.i
@@ -754,7 +754,7 @@ if.end17:                                         ; preds = %if.end13, %if.end6
 if.then22:                                        ; preds = %if.end17
   %9 = and i8 %1, -9
   store i8 %9, ptr %status, align 1
-  tail call void %call.val(ptr noundef %add.ptr.i) #16
+  tail call void %call.val(ptr noundef %add.ptr.i) #17
   br label %if.end27
 
 if.end27:                                         ; preds = %if.then22, %if.end17
@@ -778,16 +778,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #16
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #17
   %14 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %15 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.82, i32 noundef %call10.i.i, i64 noundef %14, i64 noundef %15, i32 noundef %addr, i32 noundef %ret.0, ptr noundef nonnull %opaque, ptr noundef %add.ptr.i) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.82, i32 noundef %call10.i.i, i64 noundef %14, i64 noundef %15, i32 noundef %addr, i32 noundef %ret.0, ptr noundef nonnull %opaque, ptr noundef %add.ptr.i) #17
   br label %trace_ide_data_readw.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.83, i32 noundef %addr, i32 noundef %ret.0, ptr noundef nonnull %opaque, ptr noundef %add.ptr.i) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.83, i32 noundef %addr, i32 noundef %ret.0, ptr noundef nonnull %opaque, ptr noundef %add.ptr.i) #17
   br label %trace_ide_data_readw.exit
 
 trace_ide_data_readw.exit:                        ; preds = %if.end27, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -828,16 +828,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #16
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #17
   %5 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.80, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef %addr, i32 noundef %val, ptr noundef nonnull %opaque, ptr noundef %add.ptr.i) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.80, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef %addr, i32 noundef %val, ptr noundef nonnull %opaque, ptr noundef %add.ptr.i) #17
   br label %trace_ide_data_writew.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.81, i32 noundef %addr, i32 noundef %val, ptr noundef nonnull %opaque, ptr noundef %add.ptr.i) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.81, i32 noundef %addr, i32 noundef %val, ptr noundef nonnull %opaque, ptr noundef %add.ptr.i) #17
   br label %trace_ide_data_writew.exit
 
 trace_ide_data_writew.exit:                       ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -867,7 +867,7 @@ if.else.i:                                        ; preds = %lor.lhs.false
   br i1 %or.cond8.i, label %if.end28, label %if.end15.i
 
 if.end15.i:                                       ; preds = %if.else.i
-  tail call void @abort() #17
+  tail call void @abort() #18
   unreachable
 
 if.end:                                           ; preds = %lor.lhs.false
@@ -913,7 +913,7 @@ if.then23:                                        ; preds = %if.end18
   %15 = and i8 %14, -9
   store i8 %15, ptr %status, align 1
   %16 = load ptr, ptr %9, align 8
-  tail call void %16(ptr noundef %add.ptr.i) #16
+  tail call void %16(ptr noundef %add.ptr.i) #17
   br label %if.end28
 
 if.end28:                                         ; preds = %if.else.i, %if.else, %if.then4, %trace_ide_data_writew.exit, %if.then23, %if.end18
@@ -954,7 +954,7 @@ if.else.i:                                        ; preds = %lor.lhs.false
   br i1 %or.cond8.i, label %if.end, label %if.end15.i
 
 if.end15.i:                                       ; preds = %if.else.i
-  tail call void @abort() #17
+  tail call void @abort() #18
   unreachable
 
 if.end:                                           ; preds = %if.else.i
@@ -975,7 +975,7 @@ if.end4:                                          ; preds = %if.end
 if.then11:                                        ; preds = %if.end4
   %7 = and i8 %1, -9
   store i8 %7, ptr %status, align 1
-  tail call void %call.val(ptr noundef %add.ptr.i) #16
+  tail call void %call.val(ptr noundef %add.ptr.i) #17
   br label %out
 
 out:                                              ; preds = %lor.lhs.false, %entry, %if.end4, %if.then11
@@ -1000,16 +1000,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #16
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #17
   %12 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %13 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.86, i32 noundef %call10.i.i, i64 noundef %12, i64 noundef %13, i32 noundef %addr, i32 noundef %ret.0, ptr noundef nonnull %opaque, ptr noundef %add.ptr.i) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.86, i32 noundef %call10.i.i, i64 noundef %12, i64 noundef %13, i32 noundef %addr, i32 noundef %ret.0, ptr noundef nonnull %opaque, ptr noundef %add.ptr.i) #17
   br label %trace_ide_data_readl.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.87, i32 noundef %addr, i32 noundef %ret.0, ptr noundef nonnull %opaque, ptr noundef %add.ptr.i) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.87, i32 noundef %addr, i32 noundef %ret.0, ptr noundef nonnull %opaque, ptr noundef %add.ptr.i) #17
   br label %trace_ide_data_readl.exit
 
 trace_ide_data_readl.exit:                        ; preds = %out, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -1050,16 +1050,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #16
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #17
   %5 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.84, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef %addr, i32 noundef %val, ptr noundef nonnull %opaque, ptr noundef %add.ptr.i) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.84, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef %addr, i32 noundef %val, ptr noundef nonnull %opaque, ptr noundef %add.ptr.i) #17
   br label %trace_ide_data_writel.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.85, i32 noundef %addr, i32 noundef %val, ptr noundef nonnull %opaque, ptr noundef %add.ptr.i) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.85, i32 noundef %addr, i32 noundef %val, ptr noundef nonnull %opaque, ptr noundef %add.ptr.i) #17
   br label %trace_ide_data_writel.exit
 
 trace_ide_data_writel.exit:                       ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -1089,7 +1089,7 @@ if.else.i:                                        ; preds = %lor.lhs.false
   br i1 %or.cond8.i, label %if.end17, label %if.end15.i
 
 if.end15.i:                                       ; preds = %if.else.i
-  tail call void @abort() #17
+  tail call void @abort() #18
   unreachable
 
 if.end:                                           ; preds = %lor.lhs.false
@@ -1113,7 +1113,7 @@ if.then12:                                        ; preds = %if.end5
   %14 = and i8 %13, -9
   store i8 %14, ptr %status, align 1
   %15 = load ptr, ptr %9, align 8
-  tail call void %15(ptr noundef %add.ptr.i) #16
+  tail call void %15(ptr noundef %add.ptr.i) #17
   br label %if.end17
 
 if.end17:                                         ; preds = %if.else.i, %if.end, %trace_ide_data_writel.exit, %if.then12, %if.end5
@@ -1178,16 +1178,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #16
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #17
   %9 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %10 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.76, i32 noundef %call10.i.i, i64 noundef %9, i64 noundef %10, i32 noundef %addr, i32 noundef %ret.0, ptr noundef nonnull %opaque, ptr noundef %add.ptr.i) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.76, i32 noundef %call10.i.i, i64 noundef %9, i64 noundef %10, i32 noundef %addr, i32 noundef %ret.0, ptr noundef nonnull %opaque, ptr noundef %add.ptr.i) #17
   br label %trace_ide_status_read.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.77, i32 noundef %addr, i32 noundef %ret.0, ptr noundef nonnull %opaque, ptr noundef %add.ptr.i) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.77, i32 noundef %addr, i32 noundef %ret.0, ptr noundef nonnull %opaque, ptr noundef %add.ptr.i) #17
   br label %trace_ide_status_read.exit
 
 trace_ide_status_read.exit:                       ; preds = %if.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -1219,16 +1219,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #16
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #17
   %4 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.78, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, i32 noundef %addr, i32 noundef %val, ptr noundef %opaque) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.78, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, i32 noundef %addr, i32 noundef %val, ptr noundef %opaque) #17
   br label %trace_ide_ctrl_write.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.79, i32 noundef %addr, i32 noundef %val, ptr noundef %opaque) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.79, i32 noundef %addr, i32 noundef %val, ptr noundef %opaque) #17
   br label %trace_ide_ctrl_write.exit
 
 trace_ide_ctrl_write.exit:                        ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -1251,8 +1251,8 @@ for.cond.preheader:                               ; preds = %trace_ide_ctrl_writ
   %10 = load i8, ptr %status.c, align 1
   %11 = or i8 %10, -128
   store i8 %11, ptr %status.c, align 1
-  %call = tail call ptr @qemu_get_aio_context() #16
-  tail call void @replay_bh_schedule_oneshot_event(ptr noundef %call, ptr noundef nonnull @ide_bus_perform_srst, ptr noundef nonnull %opaque) #16
+  %call = tail call ptr @qemu_get_aio_context() #17
+  tail call void @replay_bh_schedule_oneshot_event(ptr noundef %call, ptr noundef nonnull @ide_bus_perform_srst, ptr noundef nonnull %opaque) #17
   br label %if.end
 
 if.end:                                           ; preds = %for.cond.preheader, %trace_ide_ctrl_write.exit
@@ -1273,14 +1273,14 @@ entry:
   %cond = load ptr, ptr %master, align 8
   %blk = getelementptr inbounds i8, ptr %opaque, i64 672
   %2 = load ptr, ptr %blk, align 8
-  tail call void @blk_inc_in_flight(ptr noundef %2) #16
+  tail call void @blk_inc_in_flight(ptr noundef %2) #17
   %3 = load ptr, ptr %blk, align 8
-  %call = tail call ptr @blk_aio_get(ptr noundef nonnull @trim_aiocb_info, ptr noundef %3, ptr noundef %cb, ptr noundef %cb_opaque) #16
+  %call = tail call ptr @blk_aio_get(ptr noundef nonnull @trim_aiocb_info, ptr noundef %3, ptr noundef %cb, ptr noundef %cb_opaque) #17
   %s3 = getelementptr inbounds i8, ptr %call, i64 40
   store ptr %opaque, ptr %s3, align 8
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %cond, ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.53, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #16
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %cond, ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.53, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #17
   %mem_reentrancy_guard = getelementptr inbounds i8, ptr %call.i, i64 152
-  %call5 = tail call ptr @qemu_bh_new_full(ptr noundef nonnull @ide_trim_bh_cb, ptr noundef %call, ptr noundef nonnull @.str.4, ptr noundef nonnull %mem_reentrancy_guard) #16
+  %call5 = tail call ptr @qemu_bh_new_full(ptr noundef nonnull @ide_trim_bh_cb, ptr noundef %call, ptr noundef nonnull @.str.4, ptr noundef nonnull %mem_reentrancy_guard) #17
   %bh = getelementptr inbounds i8, ptr %call, i64 48
   store ptr %call5, ptr %bh, align 8
   %ret = getelementptr inbounds i8, ptr %call, i64 56
@@ -1314,13 +1314,13 @@ entry:
   %3 = load ptr, ptr %opaque3, align 8
   %ret = getelementptr inbounds i8, ptr %opaque, i64 56
   %4 = load i32, ptr %ret, align 8
-  tail call void %2(ptr noundef %3, i32 noundef %4) #16
+  tail call void %2(ptr noundef %3, i32 noundef %4) #17
   %bh = getelementptr inbounds i8, ptr %opaque, i64 48
   %5 = load ptr, ptr %bh, align 8
-  tail call void @qemu_bh_delete(ptr noundef %5) #16
+  tail call void @qemu_bh_delete(ptr noundef %5) #17
   store ptr null, ptr %bh, align 8
-  tail call void @qemu_aio_unref(ptr noundef %opaque) #16
-  tail call void @blk_dec_in_flight(ptr noundef %1) #16
+  tail call void @qemu_aio_unref(ptr noundef %opaque) #17
+  tail call void @blk_dec_in_flight(ptr noundef %1) #17
   ret void
 }
 
@@ -1339,16 +1339,16 @@ entry:
 if.then:                                          ; preds = %entry
   %blk = getelementptr inbounds i8, ptr %0, i64 672
   %2 = load ptr, ptr %blk, align 8
-  %call = tail call ptr @blk_get_stats(ptr noundef %2) #16
+  %call = tail call ptr @blk_get_stats(ptr noundef %2) #17
   %acct = getelementptr inbounds i8, ptr %0, i64 720
   br i1 %cmp2, label %if.end7.thread41, label %if.end7.thread
 
 if.end7.thread41:                                 ; preds = %if.then
-  tail call void @block_acct_done(ptr noundef %call, ptr noundef nonnull %acct) #16
+  tail call void @block_acct_done(ptr noundef %call, ptr noundef nonnull %acct) #17
   br label %while.cond.preheader
 
 if.end7.thread:                                   ; preds = %if.then
-  tail call void @block_acct_failed(ptr noundef %call, ptr noundef nonnull %acct) #16
+  tail call void @block_acct_failed(ptr noundef %call, ptr noundef nonnull %acct) #17
   br label %done.sink.split
 
 if.end7:                                          ; preds = %entry
@@ -1400,7 +1400,7 @@ if.end34:                                         ; preds = %while.body18
   %12 = getelementptr i8, ptr %0, i64 672
   %.val = load ptr, ptr %12, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %total_sectors.i)
-  call void @blk_get_geometry(ptr noundef %.val, ptr noundef nonnull %total_sectors.i) #16
+  call void @blk_get_geometry(ptr noundef %.val, ptr noundef nonnull %total_sectors.i) #17
   %13 = load i64, ptr %total_sectors.i, align 8
   %cmp.i = icmp uge i64 %13, %and.le
   %sub.i = sub nuw i64 %13, %and.le
@@ -1408,20 +1408,20 @@ if.end34:                                         ; preds = %while.body18
   %or.cond.not.i = select i1 %cmp.i, i1 %cmp1.i, i1 false
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %total_sectors.i)
   %14 = load ptr, ptr %12, align 8
-  %call43 = call ptr @blk_get_stats(ptr noundef %14) #16
+  %call43 = call ptr @blk_get_stats(ptr noundef %14) #17
   br i1 %or.cond.not.i, label %if.end41, label %if.then37
 
 if.then37:                                        ; preds = %if.end34
-  call void @block_acct_invalid(ptr noundef %call43, i32 noundef 5) #16
+  call void @block_acct_invalid(ptr noundef %call43, i32 noundef 5) #17
   br label %done.sink.split
 
 if.end41:                                         ; preds = %if.end34
   %acct44 = getelementptr inbounds i8, ptr %0, i64 720
   %shl = shl nuw nsw i64 %shr.le, 9
-  call void @block_acct_start(ptr noundef %call43, ptr noundef nonnull %acct44, i64 noundef %shl, i32 noundef 5) #16
+  call void @block_acct_start(ptr noundef %call43, ptr noundef nonnull %acct44, i64 noundef %shl, i32 noundef 5) #17
   %15 = load ptr, ptr %12, align 8
   %shl48 = shl nuw nsw i64 %and.le, 9
-  %call52 = call ptr @blk_aio_pdiscard(ptr noundef %15, i64 noundef %shl48, i64 noundef %shl, ptr noundef nonnull @ide_issue_trim_cb, ptr noundef nonnull %opaque) #16
+  %call52 = call ptr @blk_aio_pdiscard(ptr noundef %15, i64 noundef %shl48, i64 noundef %shl, ptr noundef nonnull @ide_issue_trim_cb, ptr noundef nonnull %opaque) #17
   %aiocb = getelementptr inbounds i8, ptr %opaque, i64 72
   store ptr %call52, ptr %aiocb, align 8
   br label %if.end63
@@ -1451,7 +1451,7 @@ done:                                             ; preds = %while.end, %done.si
   br i1 %tobool.not, label %if.end63, label %if.then61
 
 if.then61:                                        ; preds = %done
-  call void @replay_bh_schedule_event(ptr noundef nonnull %19) #16
+  call void @replay_bh_schedule_event(ptr noundef nonnull %19) #17
   br label %if.end63
 
 if.end63:                                         ; preds = %if.then61, %done, %if.end41
@@ -1483,7 +1483,7 @@ entry:
   br i1 %tobool.not.i.i, label %ide_transfer_stop.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  tail call void %3(ptr noundef nonnull %s.val.val.i) #16
+  tail call void %3(ptr noundef nonnull %s.val.val.i) #17
   br label %ide_transfer_stop.exit
 
 ide_transfer_stop.exit:                           ; preds = %entry, %if.then.i.i
@@ -1515,7 +1515,7 @@ entry:
   br i1 %tobool.not.i, label %ide_cmd_done.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void %5(ptr noundef nonnull %s.val.val) #16
+  tail call void %5(ptr noundef nonnull %s.val.val) #17
   br label %ide_cmd_done.exit
 
 ide_cmd_done.exit:                                ; preds = %entry, %if.then.i
@@ -1652,7 +1652,7 @@ if.then5:                                         ; preds = %if.end
   br label %return
 
 if.end7:                                          ; preds = %if.end
-  tail call void %29(ptr noundef nonnull %27) #16
+  tail call void %29(ptr noundef nonnull %27) #17
   br label %return
 
 return:                                           ; preds = %if.end7, %if.then5
@@ -1666,7 +1666,7 @@ entry:
   br i1 %call, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call void %end_transfer_func(ptr noundef %s) #16
+  tail call void %end_transfer_func(ptr noundef %s) #17
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -1875,11 +1875,11 @@ for.end:                                          ; preds = %for.cond
 if.then:                                          ; preds = %for.end
   %blk = getelementptr inbounds i8, ptr %s, i64 672
   %0 = load ptr, ptr %blk, align 8
-  %call = tail call ptr @blk_abort_aio_request(ptr noundef %0, ptr noundef %cb, ptr noundef %opaque, i32 noundef -5) #16
+  %call = tail call ptr @blk_abort_aio_request(ptr noundef %0, ptr noundef %cb, ptr noundef %opaque, i32 noundef -5) #17
   br label %return
 
 if.end:                                           ; preds = %for.end
-  %call1 = tail call noalias dereferenceable_or_null(88) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 88) #18
+  %call1 = tail call noalias dereferenceable_or_null(88) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 88) #19
   %original_qiov = getelementptr inbounds i8, ptr %call1, i64 56
   store ptr %iov, ptr %original_qiov, align 8
   %original_cb = getelementptr inbounds i8, ptr %call1, i64 64
@@ -1891,7 +1891,7 @@ if.end:                                           ; preds = %for.end
   %1 = load ptr, ptr %blk2, align 8
   %size = getelementptr inbounds i8, ptr %iov, i64 32
   %2 = load i64, ptr %size, align 8
-  %call3 = tail call ptr @blk_blockalign(ptr noundef %1, i64 noundef %2) #16
+  %call3 = tail call ptr @blk_blockalign(ptr noundef %1, i64 noundef %2) #17
   %3 = load i64, ptr %size, align 8
   %4 = getelementptr inbounds i8, ptr %call1, i64 32
   %local_iov.i = getelementptr inbounds i8, ptr %call1, i64 40
@@ -1904,7 +1904,7 @@ if.end:                                           ; preds = %for.end
   store i64 %3, ptr %.compoundliteral.sroa.5.0..sroa_idx.i, align 8
   %5 = load ptr, ptr %blk2, align 8
   %shl = shl i64 %sector_num, 9
-  %call7 = tail call ptr @blk_aio_preadv(ptr noundef %5, i64 noundef %shl, ptr noundef nonnull %qiov, i32 noundef 0, ptr noundef nonnull @ide_buffered_readv_cb, ptr noundef %call1) #16
+  %call7 = tail call ptr @blk_aio_preadv(ptr noundef %5, i64 noundef %shl, ptr noundef nonnull %qiov, i32 noundef 0, ptr noundef nonnull @ide_buffered_readv_cb, ptr noundef %call1) #17
   %6 = load ptr, ptr %buffered_requests, align 8
   store ptr %6, ptr %call1, align 8
   %cmp12.not = icmp eq ptr %6, null
@@ -1958,13 +1958,13 @@ if.then2:                                         ; preds = %if.then
   br i1 %cmp, label %if.end, label %if.else
 
 if.else:                                          ; preds = %if.then2
-  tail call void @__assert_fail(ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.6, i32 noundef 679, ptr noundef nonnull @__PRETTY_FUNCTION__.ide_buffered_readv_cb) #17
+  tail call void @__assert_fail(ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.6, i32 noundef 679, ptr noundef nonnull @__PRETTY_FUNCTION__.ide_buffered_readv_cb) #18
   unreachable
 
 if.end:                                           ; preds = %if.then2
   %local_iov = getelementptr inbounds i8, ptr %opaque, i64 40
   %4 = load ptr, ptr %local_iov, align 8
-  %call = tail call i64 @qemu_iovec_from_buf(ptr noundef nonnull %2, i64 noundef 0, ptr noundef %4, i64 noundef %1) #16
+  %call = tail call i64 @qemu_iovec_from_buf(ptr noundef nonnull %2, i64 noundef 0, ptr noundef %4, i64 noundef %1) #17
   br label %if.end9
 
 if.end9:                                          ; preds = %if.end, %if.then
@@ -1972,7 +1972,7 @@ if.end9:                                          ; preds = %if.end, %if.then
   %5 = load ptr, ptr %original_cb, align 8
   %original_opaque = getelementptr inbounds i8, ptr %opaque, i64 72
   %6 = load ptr, ptr %original_opaque, align 8
-  tail call void %5(ptr noundef %6, i32 noundef %ret) #16
+  tail call void %5(ptr noundef %6, i32 noundef %ret) #17
   br label %do.body
 
 do.body:                                          ; preds = %entry, %if.end9
@@ -2005,13 +2005,13 @@ land.lhs.true.i:                                  ; preds = %if.end18
   br i1 %cmp1.i, label %qemu_iovec_buf.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %land.lhs.true.i, %if.end18
-  tail call void @__assert_fail(ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.56, i32 noundef 218, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_iovec_buf) #17
+  tail call void @__assert_fail(ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.56, i32 noundef 218, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_iovec_buf) #18
   unreachable
 
 qemu_iovec_buf.exit:                              ; preds = %land.lhs.true.i
   %12 = load ptr, ptr %local_iov.i, align 8
-  tail call void @qemu_vfree(ptr noundef %12) #16
-  tail call void @g_free(ptr noundef nonnull %opaque) #16
+  tail call void @qemu_vfree(ptr noundef %12) #17
+  tail call void @g_free(ptr noundef nonnull %opaque) #17
   ret void
 }
 
@@ -2059,15 +2059,15 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #16
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #17
   %6 = load i64, ptr %_now.i.i, align 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.57, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef %1, ptr noundef nonnull %req.027) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.57, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef %1, ptr noundef nonnull %req.027) #17
   br label %trace_ide_cancel_dma_sync_buffered.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.58, ptr noundef %1, ptr noundef nonnull %req.027) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.58, ptr noundef %1, ptr noundef nonnull %req.027) #17
   br label %trace_ide_cancel_dma_sync_buffered.exit
 
 trace_ide_cancel_dma_sync_buffered.exit:          ; preds = %if.then, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -2075,7 +2075,7 @@ trace_ide_cancel_dma_sync_buffered.exit:          ; preds = %if.then, %land.lhs.
   %8 = load ptr, ptr %original_cb, align 8
   %original_opaque = getelementptr inbounds i8, ptr %req.027, i64 72
   %9 = load ptr, ptr %original_opaque, align 8
-  tail call void %8(ptr noundef %9, i32 noundef -125) #16
+  tail call void %8(ptr noundef %9, i32 noundef -125) #17
   br label %if.end
 
 if.end:                                           ; preds = %trace_ide_cancel_dma_sync_buffered.exit, %for.body
@@ -2114,23 +2114,23 @@ if.then.i.i18:                                    ; preds = %land.lhs.true5.i.i1
   br i1 %tobool7.i.i19, label %if.then8.i.i21, label %if.else.i.i20
 
 if.then8.i.i21:                                   ; preds = %if.then.i.i18
-  %call9.i.i22 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i11, ptr noundef null) #16
-  %call10.i.i23 = tail call i32 @qemu_get_thread_id() #16
+  %call9.i.i22 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i11, ptr noundef null) #17
+  %call10.i.i23 = tail call i32 @qemu_get_thread_id() #17
   %17 = load i64, ptr %_now.i.i11, align 8
   %tv_usec.i.i24 = getelementptr inbounds i8, ptr %_now.i.i11, i64 8
   %18 = load i64, ptr %tv_usec.i.i24, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.59, i32 noundef %call10.i.i23, i64 noundef %17, i64 noundef %18) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.59, i32 noundef %call10.i.i23, i64 noundef %17, i64 noundef %18) #17
   br label %trace_ide_cancel_dma_sync_remaining.exit
 
 if.else.i.i20:                                    ; preds = %if.then.i.i18
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.60) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.60) #17
   br label %trace_ide_cancel_dma_sync_remaining.exit
 
 trace_ide_cancel_dma_sync_remaining.exit:         ; preds = %if.then5, %land.lhs.true5.i.i15, %if.then8.i.i21, %if.else.i.i20
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i11)
   %blk = getelementptr inbounds i8, ptr %s, i64 672
   %19 = load ptr, ptr %blk, align 8
-  tail call void @blk_drain(ptr noundef %19) #16
+  tail call void @blk_drain(ptr noundef %19) #17
   %20 = load ptr, ptr %s, align 8
   %dma7 = getelementptr inbounds i8, ptr %20, i64 2120
   %21 = load ptr, ptr %dma7, align 8
@@ -2140,7 +2140,7 @@ trace_ide_cancel_dma_sync_remaining.exit:         ; preds = %if.then5, %land.lhs
   br i1 %cmp, label %if.end11, label %if.else
 
 if.else:                                          ; preds = %trace_ide_cancel_dma_sync_remaining.exit
-  tail call void @__assert_fail(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 758, ptr noundef nonnull @__PRETTY_FUNCTION__.ide_cancel_dma_sync) #17
+  tail call void @__assert_fail(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 758, ptr noundef nonnull @__PRETTY_FUNCTION__.ide_cancel_dma_sync) #18
   unreachable
 
 if.end11:                                         ; preds = %trace_ide_cancel_dma_sync_remaining.exit, %for.end
@@ -2165,7 +2165,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call void %3(ptr noundef nonnull %1, i32 noundef %tx_bytes) #16
+  tail call void %3(ptr noundef nonnull %1, i32 noundef %tx_bytes) #17
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -2175,7 +2175,7 @@ if.end:                                           ; preds = %if.then, %entry
   %add = add i64 %4, %conv
   store i64 %add, ptr %io_buffer_offset, align 8
   %sg = getelementptr inbounds i8, ptr %s, i64 816
-  tail call void @qemu_sglist_destroy(ptr noundef nonnull %sg) #16
+  tail call void @qemu_sglist_destroy(ptr noundef nonnull %sg) #17
   ret void
 }
 
@@ -2208,7 +2208,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call void %8(ptr noundef nonnull %6, i1 noundef zeroext %more) #16
+  tail call void %8(ptr noundef nonnull %6, i1 noundef zeroext %more) #17
   %s.val.pre = load ptr, ptr %s, align 8
   %.phi.trans.insert = getelementptr i8, ptr %s.val.pre, i64 2120
   %s.val.val.pre = load ptr, ptr %.phi.trans.insert, align 8
@@ -2224,7 +2224,7 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %tobool.not.i, label %ide_cmd_done.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  tail call void %10(ptr noundef nonnull %s.val.val) #16
+  tail call void %10(ptr noundef nonnull %s.val.val) #17
   br label %ide_cmd_done.exit
 
 ide_cmd_done.exit:                                ; preds = %if.end, %if.then.i
@@ -2244,12 +2244,12 @@ entry:
   br i1 %tobool.not.i, label %dma_buf_commit.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void %3(ptr noundef nonnull %1, i32 noundef 0) #16
+  tail call void %3(ptr noundef nonnull %1, i32 noundef 0) #17
   br label %dma_buf_commit.exit
 
 dma_buf_commit.exit:                              ; preds = %entry, %if.then.i
   %sg.i = getelementptr inbounds i8, ptr %s, i64 816
-  tail call void @qemu_sglist_destroy(ptr noundef nonnull %sg.i) #16
+  tail call void @qemu_sglist_destroy(ptr noundef nonnull %sg.i) #17
   %status.i = getelementptr inbounds i8, ptr %s, i64 665
   %error.i = getelementptr inbounds i8, ptr %s, i64 649
   store i8 4, ptr %error.i, align 1
@@ -2272,7 +2272,7 @@ dma_buf_commit.exit:                              ; preds = %entry, %if.then.i
   br i1 %tobool.not.i.i.i, label %ide_abort_command.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %dma_buf_commit.exit
-  tail call void %7(ptr noundef nonnull %s.val.val.i.i) #16
+  tail call void %7(ptr noundef nonnull %s.val.val.i.i) #17
   %.pre = load ptr, ptr %s, align 8
   %dma.i4.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 2120
   %.pre10 = load ptr, ptr %dma.i4.phi.trans.insert, align 8
@@ -2301,7 +2301,7 @@ ide_abort_command.exit:                           ; preds = %dma_buf_commit.exit
   br i1 %tobool.not.i5, label %if.end.i, label %if.then.i6
 
 if.then.i6:                                       ; preds = %ide_abort_command.exit
-  tail call void %15(ptr noundef nonnull %13, i1 noundef zeroext false) #16
+  tail call void %15(ptr noundef nonnull %13, i1 noundef zeroext false) #17
   %s.val.pre.i = load ptr, ptr %s, align 8
   %.phi.trans.insert.i = getelementptr i8, ptr %s.val.pre.i, i64 2120
   %s.val.val.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
@@ -2318,7 +2318,7 @@ if.end.i:                                         ; preds = %if.then.i6, %ide_ab
   br i1 %tobool.not.i.i, label %ide_set_inactive.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
-  tail call void %18(ptr noundef nonnull %s.val.val.i) #16
+  tail call void %18(ptr noundef nonnull %s.val.val.i) #17
   %.pre11 = load ptr, ptr %s, align 8
   br label %ide_set_inactive.exit
 
@@ -2333,7 +2333,7 @@ ide_set_inactive.exit:                            ; preds = %if.end.i, %if.then.
 if.then.i9:                                       ; preds = %ide_set_inactive.exit
   %irq.i = getelementptr inbounds i8, ptr %19, i64 2136
   %22 = load ptr, ptr %irq.i, align 8
-  tail call void @qemu_set_irq(ptr noundef %22, i32 noundef 1) #16
+  tail call void @qemu_set_irq(ptr noundef %22, i32 noundef 1) #17
   br label %ide_bus_set_irq.exit
 
 ide_bus_set_irq.exit:                             ; preds = %ide_set_inactive.exit, %if.then.i9
@@ -2352,7 +2352,7 @@ entry:
 if.then:                                          ; preds = %entry
   %irq = getelementptr inbounds i8, ptr %bus, i64 2136
   %2 = load ptr, ptr %irq, align 8
-  tail call void @qemu_set_irq(ptr noundef %2, i32 noundef 1) #16
+  tail call void @qemu_set_irq(ptr noundef %2, i32 noundef 1) #17
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -2366,7 +2366,7 @@ entry:
   %cmp = icmp ne i32 %and, 0
   %blk = getelementptr inbounds i8, ptr %s, i64 672
   %0 = load ptr, ptr %blk, align 8
-  %call = tail call i32 @blk_get_error_action(ptr noundef %0, i1 noundef zeroext %cmp, i32 noundef %error) #16
+  %call = tail call i32 @blk_get_error_action(ptr noundef %0, i1 noundef zeroext %cmp, i32 noundef %error) #17
   switch i32 %call, label %if.end25 [
     i32 2, label %if.then
     i32 1, label %if.then10
@@ -2382,7 +2382,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp3, label %if.end, label %if.else
 
 if.else:                                          ; preds = %if.then
-  tail call void @__assert_fail(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.6, i32 noundef 863, ptr noundef nonnull @__PRETTY_FUNCTION__.ide_handle_rw_error) #17
+  tail call void @__assert_fail(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.6, i32 noundef 863, ptr noundef nonnull @__PRETTY_FUNCTION__.ide_handle_rw_error) #18
   unreachable
 
 if.end:                                           ; preds = %if.then
@@ -2392,9 +2392,9 @@ if.end:                                           ; preds = %if.then
 
 if.then10:                                        ; preds = %entry
   %4 = load ptr, ptr %blk, align 8
-  %call12 = tail call ptr @blk_get_stats(ptr noundef %4) #16
+  %call12 = tail call ptr @blk_get_stats(ptr noundef %4) #17
   %acct = getelementptr inbounds i8, ptr %s, i64 720
-  tail call void @block_acct_failed(ptr noundef %call12, ptr noundef nonnull %acct) #16
+  tail call void @block_acct_failed(ptr noundef %call12, ptr noundef nonnull %acct) #17
   %and13 = and i32 %op, 8
   %tobool14.not = icmp eq i32 %and13, 0
   br i1 %tobool14.not, label %if.else16, label %if.then15
@@ -2410,7 +2410,7 @@ if.else16:                                        ; preds = %if.then10
 
 if.then20:                                        ; preds = %if.else16
   %sub = sub i32 0, %error
-  tail call void @ide_atapi_io_error(ptr noundef nonnull %s, i32 noundef %sub) #16
+  tail call void @ide_atapi_io_error(ptr noundef nonnull %s, i32 noundef %sub) #17
   br label %if.end25
 
 if.else21:                                        ; preds = %if.else16
@@ -2436,7 +2436,7 @@ if.else21:                                        ; preds = %if.else16
   br i1 %tobool.not.i.i.i.i, label %ide_abort_command.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.else21
-  tail call void %8(ptr noundef nonnull %s.val.val.i.i.i) #16
+  tail call void %8(ptr noundef nonnull %s.val.val.i.i.i) #17
   %.pre.i = load ptr, ptr %s, align 8
   br label %ide_abort_command.exit.i
 
@@ -2451,12 +2451,12 @@ ide_abort_command.exit.i:                         ; preds = %if.then.i.i.i.i, %i
 if.then.i.i:                                      ; preds = %ide_abort_command.exit.i
   %irq.i.i = getelementptr inbounds i8, ptr %9, i64 2136
   %12 = load ptr, ptr %irq.i.i, align 8
-  tail call void @qemu_set_irq(ptr noundef %12, i32 noundef 1) #16
+  tail call void @qemu_set_irq(ptr noundef %12, i32 noundef 1) #17
   br label %if.end25
 
 if.end25:                                         ; preds = %if.then.i.i, %ide_abort_command.exit.i, %entry, %if.then20, %if.then15, %if.end
   %13 = load ptr, ptr %blk, align 8
-  tail call void @blk_error_action(ptr noundef %13, i32 noundef %call, i1 noundef zeroext %cmp, i32 noundef %error) #16
+  tail call void @blk_error_action(ptr noundef %13, i32 noundef %call, i1 noundef zeroext %cmp, i32 noundef %error) #17
   %cmp28 = icmp ne i32 %call, 0
   %conv29 = zext i1 %cmp28 to i32
   ret i32 %conv29
@@ -2580,7 +2580,7 @@ ide_set_retry.exit:                               ; preds = %if.then2.i.i, %if.e
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %ide_set_retry.exit
-  tail call void %27(ptr noundef nonnull %25, ptr noundef nonnull %s, ptr noundef %cb) #16
+  tail call void %27(ptr noundef nonnull %25, ptr noundef nonnull %s, ptr noundef %cb) #17
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %ide_set_retry.exit
@@ -2616,16 +2616,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #16
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #17
   %5 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.63, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef nonnull %bus, ptr noundef %add.ptr.i, i32 noundef %val) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.63, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef nonnull %bus, ptr noundef %add.ptr.i, i32 noundef %val) #17
   br label %trace_ide_bus_exec_cmd.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.64, ptr noundef nonnull %bus, ptr noundef %add.ptr.i, i32 noundef %val) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.64, ptr noundef nonnull %bus, ptr noundef %add.ptr.i, i32 noundef %val) #17
   br label %trace_ide_bus_exec_cmd.exit
 
 trace_ide_bus_exec_cmd.exit:                      ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -2693,7 +2693,7 @@ if.then11:                                        ; preds = %if.end.split, %if.e
   br i1 %tobool.not.i.i.i, label %ide_abort_command.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then11
-  tail call void %16(ptr noundef nonnull %s.val.val.i.i) #16
+  tail call void %16(ptr noundef nonnull %s.val.val.i.i) #17
   %.pre41 = load ptr, ptr %add.ptr.i, align 8
   br label %ide_abort_command.exit
 
@@ -2715,7 +2715,7 @@ if.end13:                                         ; preds = %lor.lhs.false, %if.
   %arrayidx = getelementptr [256 x %struct.anon.3], ptr @ide_cmd_table, i64 0, i64 %idxprom.pre-phi
   %20 = load ptr, ptr %arrayidx, align 16
   %conv15 = trunc i32 %val to i8
-  %call16 = tail call zeroext i1 %20(ptr noundef %add.ptr.i, i8 noundef zeroext %conv15) #16
+  %call16 = tail call zeroext i1 %20(ptr noundef %add.ptr.i, i8 noundef zeroext %conv15) #17
   br i1 %call16, label %if.then18, label %if.end51
 
 if.then18:                                        ; preds = %if.end13
@@ -2729,7 +2729,7 @@ if.then18:                                        ; preds = %if.end13
   br i1 %25, label %if.else, label %if.end37
 
 if.else:                                          ; preds = %if.then18
-  tail call void @__assert_fail(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.6, i32 noundef 2174, ptr noundef nonnull @__PRETTY_FUNCTION__.ide_bus_exec_cmd) #17
+  tail call void @__assert_fail(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.6, i32 noundef 2174, ptr noundef nonnull @__PRETTY_FUNCTION__.ide_bus_exec_cmd) #18
   unreachable
 
 if.end37:                                         ; preds = %if.then18
@@ -2756,7 +2756,7 @@ if.end49:                                         ; preds = %if.end37, %if.then4
   br i1 %tobool.not.i33, label %ide_cmd_done.exit, label %if.then.i34
 
 if.then.i34:                                      ; preds = %if.end49
-  tail call void %30(ptr noundef nonnull %call.val.val) #16
+  tail call void %30(ptr noundef nonnull %call.val.val) #17
   %.pre = load ptr, ptr %add.ptr.i, align 8
   br label %ide_cmd_done.exit
 
@@ -2772,7 +2772,7 @@ if.end51.sink.split:                              ; preds = %ide_cmd_done.exit, 
   %.sink = phi ptr [ %17, %ide_abort_command.exit ], [ %31, %ide_cmd_done.exit ]
   %irq.i38 = getelementptr inbounds i8, ptr %.sink, i64 2136
   %34 = load ptr, ptr %irq.i38, align 8
-  tail call void @qemu_set_irq(ptr noundef %34, i32 noundef 1) #16
+  tail call void @qemu_set_irq(ptr noundef %34, i32 noundef 1) #17
   br label %if.end51
 
 if.end51:                                         ; preds = %if.end51.sink.split, %ide_cmd_done.exit, %ide_abort_command.exit, %if.then2, %lor.lhs.false, %land.lhs.true, %if.end13
@@ -2851,7 +2851,7 @@ if.then.i.i:                                      ; preds = %for.body
 if.then.i9.i.i:                                   ; preds = %if.else.i.i.i
   %irq.i.i.i = getelementptr inbounds i8, ptr %6, i64 2136
   %9 = load ptr, ptr %irq.i.i.i, align 8
-  tail call void @qemu_set_irq(ptr noundef %9, i32 noundef 1) #16
+  tail call void @qemu_set_irq(ptr noundef %9, i32 noundef 1) #17
   br label %ide_perform_srst.exit
 
 ide_perform_srst.exit:                            ; preds = %if.else.i.i.i, %if.then.i.i, %if.then.i9.i.i
@@ -2897,16 +2897,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #16
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #17
   %6 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.88, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.88, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7) #17
   br label %trace_ide_bus_reset_aio.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.89) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.89) #17
   br label %trace_ide_bus_reset_aio.exit
 
 trace_ide_bus_reset_aio.exit:                     ; preds = %if.then, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -2914,7 +2914,7 @@ trace_ide_bus_reset_aio.exit:                     ; preds = %if.then, %land.lhs.
   %8 = load ptr, ptr %dma, align 8
   %aiocb2 = getelementptr inbounds i8, ptr %8, i64 48
   %9 = load ptr, ptr %aiocb2, align 8
-  tail call void @blk_aio_cancel(ptr noundef %9) #16
+  tail call void @blk_aio_cancel(ptr noundef %9) #17
   %10 = load ptr, ptr %dma, align 8
   %aiocb4 = getelementptr inbounds i8, ptr %10, i64 48
   store ptr null, ptr %aiocb4, align 8
@@ -2940,7 +2940,7 @@ if.end:                                           ; preds = %trace_ide_bus_reset
   br i1 %tobool8.not, label %if.end14, label %if.then9
 
 if.then9:                                         ; preds = %if.end
-  tail call void %15(ptr noundef nonnull %13) #16
+  tail call void %15(ptr noundef nonnull %13) #17
   br label %if.end14
 
 if.end14:                                         ; preds = %if.then9, %if.end
@@ -2973,16 +2973,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #16
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #17
   %4 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.90, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, ptr noundef %s) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.90, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, ptr noundef %s) #17
   br label %trace_ide_reset.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.91, ptr noundef %s) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.91, ptr noundef %s) #17
   br label %trace_ide_reset.exit
 
 trace_ide_reset.exit:                             ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -2993,7 +2993,7 @@ trace_ide_reset.exit:                             ; preds = %entry, %land.lhs.tr
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %trace_ide_reset.exit
-  tail call void @blk_aio_cancel(ptr noundef nonnull %6) #16
+  tail call void @blk_aio_cancel(ptr noundef nonnull %6) #17
   store ptr null, ptr %pio_aiocb, align 8
   br label %if.end
 
@@ -3095,7 +3095,7 @@ entry:
   store ptr %blk, ptr %blk1, align 8
   %drive_kind = getelementptr inbounds i8, ptr %s, i64 12
   store i32 %kind, ptr %drive_kind, align 4
-  call void @blk_get_geometry(ptr noundef %blk, ptr noundef nonnull %nb_sectors) #16
+  call void @blk_get_geometry(ptr noundef %blk, ptr noundef nonnull %nb_sectors) #17
   %cylinders2 = getelementptr inbounds i8, ptr %s, i64 24
   store i32 %cylinders, ptr %cylinders2, align 8
   %drive_heads = getelementptr inbounds i8, ptr %s, i64 16
@@ -3126,36 +3126,36 @@ entry:
 
 if.else:                                          ; preds = %entry
   %1 = load ptr, ptr %blk1, align 8
-  %call = call zeroext i1 @blk_is_inserted(ptr noundef %1) #16
+  %call = call zeroext i1 @blk_is_inserted(ptr noundef %1) #17
   br i1 %call, label %if.end, label %if.then8
 
 if.then8:                                         ; preds = %if.else
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.6, i32 noundef 2620, ptr noundef nonnull @__func__.ide_init_drive, ptr noundef nonnull @.str.19) #16
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.6, i32 noundef 2620, ptr noundef nonnull @__func__.ide_init_drive, ptr noundef nonnull @.str.19) #17
   br label %return
 
 if.end:                                           ; preds = %if.else
-  %call9 = call zeroext i1 @blk_is_writable(ptr noundef %blk) #16
+  %call9 = call zeroext i1 @blk_is_writable(ptr noundef %blk) #17
   br i1 %call9, label %if.end12, label %if.then10
 
 if.then10:                                        ; preds = %if.end
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.6, i32 noundef 2624, ptr noundef nonnull @__func__.ide_init_drive, ptr noundef nonnull @.str.20) #16
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.6, i32 noundef 2624, ptr noundef nonnull @__func__.ide_init_drive, ptr noundef nonnull @.str.20) #17
   br label %return
 
 if.end12:                                         ; preds = %if.end, %entry
   %ide_hd_block_ops.sink = phi ptr [ @ide_cd_block_ops, %entry ], [ @ide_hd_block_ops, %if.end ]
-  call void @blk_set_dev_ops(ptr noundef %blk, ptr noundef nonnull %ide_hd_block_ops.sink, ptr noundef nonnull %s) #16
+  call void @blk_set_dev_ops(ptr noundef %blk, ptr noundef nonnull %ide_hd_block_ops.sink, ptr noundef nonnull %s) #17
   %tobool.not = icmp eq ptr %serial, null
   %drive_serial_str15 = getelementptr inbounds i8, ptr %s, i64 572
   br i1 %tobool.not, label %if.else14, label %if.then13
 
 if.then13:                                        ; preds = %if.end12
-  call void @pstrcpy(ptr noundef nonnull %drive_serial_str15, i32 noundef 21, ptr noundef nonnull %serial) #16
+  call void @pstrcpy(ptr noundef nonnull %drive_serial_str15, i32 noundef 21, ptr noundef nonnull %serial) #17
   br label %if.end18
 
 if.else14:                                        ; preds = %if.end12
   %drive_serial = getelementptr inbounds i8, ptr %s, i64 568
   %2 = load i32, ptr %drive_serial, align 8
-  %call17 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %drive_serial_str15, i64 noundef 21, ptr noundef nonnull @.str.21, i32 noundef %2) #16
+  %call17 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %drive_serial_str15, i64 noundef 21, ptr noundef nonnull @.str.21, i32 noundef %2) #17
   br label %if.end18
 
 if.end18:                                         ; preds = %if.else14, %if.then13
@@ -3164,7 +3164,7 @@ if.end18:                                         ; preds = %if.else14, %if.then
   br i1 %tobool19.not, label %if.else22, label %if.then20
 
 if.then20:                                        ; preds = %if.end18
-  call void @pstrcpy(ptr noundef nonnull %drive_model_str30, i32 noundef 41, ptr noundef nonnull %model) #16
+  call void @pstrcpy(ptr noundef nonnull %drive_model_str30, i32 noundef 41, ptr noundef nonnull %model) #17
   br label %if.end33
 
 if.else22:                                        ; preds = %if.end18
@@ -3174,15 +3174,15 @@ if.else22:                                        ; preds = %if.end18
   ]
 
 sw.bb:                                            ; preds = %if.else22
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %drive_model_str30, ptr noundef nonnull align 1 dereferenceable(13) @.str.22, i64 13, i1 false) #16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %drive_model_str30, ptr noundef nonnull align 1 dereferenceable(13) @.str.22, i64 13, i1 false) #17
   br label %if.end33
 
 sw.bb26:                                          ; preds = %if.else22
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %drive_model_str30, ptr noundef nonnull align 1 dereferenceable(16) @.str.23, i64 16, i1 false) #16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %drive_model_str30, ptr noundef nonnull align 1 dereferenceable(16) @.str.23, i64 16, i1 false) #17
   br label %if.end33
 
 sw.default:                                       ; preds = %if.else22
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(14) %drive_model_str30, ptr noundef nonnull align 1 dereferenceable(14) @.str.24, i64 14, i1 false) #16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(14) %drive_model_str30, ptr noundef nonnull align 1 dereferenceable(14) @.str.24, i64 14, i1 false) #17
   br label %if.end33
 
 if.end33:                                         ; preds = %sw.bb, %sw.bb26, %sw.default, %if.then20
@@ -3191,17 +3191,17 @@ if.end33:                                         ; preds = %sw.bb, %sw.bb26, %s
   br i1 %tobool34.not, label %if.else38, label %if.then35
 
 if.then35:                                        ; preds = %if.end33
-  call void @pstrcpy(ptr noundef nonnull %version39, i32 noundef 9, ptr noundef nonnull %version) #16
+  call void @pstrcpy(ptr noundef nonnull %version39, i32 noundef 9, ptr noundef nonnull %version) #17
   br label %if.end42
 
 if.else38:                                        ; preds = %if.end33
-  %call41 = call ptr @qemu_hw_version() #16
-  call void @pstrcpy(ptr noundef nonnull %version39, i32 noundef 9, ptr noundef %call41) #16
+  %call41 = call ptr @qemu_hw_version() #17
+  call void @pstrcpy(ptr noundef nonnull %version39, i32 noundef 9, ptr noundef %call41) #17
   br label %if.end42
 
 if.end42:                                         ; preds = %if.else38, %if.then35
   call fastcc void @ide_reset(ptr noundef nonnull %s)
-  call void @blk_iostatus_enable(ptr noundef %blk) #16
+  call void @blk_iostatus_enable(ptr noundef %blk) #17
   br label %return
 
 return:                                           ; preds = %if.end42, %if.then10, %if.then8
@@ -3240,7 +3240,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call = tail call ptr @qemu_add_vm_change_state_handler(ptr noundef nonnull @ide_restart_cb, ptr noundef nonnull %bus) #16
+  %call = tail call ptr @qemu_add_vm_change_state_handler(ptr noundef nonnull @ide_restart_cb, ptr noundef nonnull %bus) #17
   %vmstate = getelementptr inbounds i8, ptr %bus, i64 2296
   store ptr %call, ptr %vmstate, align 8
   br label %if.end
@@ -3263,9 +3263,9 @@ if.end:                                           ; preds = %entry
   br i1 %tobool1.not, label %if.then2, label %if.end5
 
 if.then2:                                         ; preds = %if.end
-  %call = tail call ptr @qemu_bh_new_full(ptr noundef nonnull @ide_restart_bh, ptr noundef nonnull %opaque, ptr noundef nonnull @.str.93, ptr noundef null) #16
+  %call = tail call ptr @qemu_bh_new_full(ptr noundef nonnull @ide_restart_bh, ptr noundef nonnull %opaque, ptr noundef nonnull @.str.93, ptr noundef null) #17
   store ptr %call, ptr %bh, align 8
-  tail call void @qemu_bh_schedule(ptr noundef %call) #16
+  tail call void @qemu_bh_schedule(ptr noundef %call) #17
   br label %if.end5
 
 if.end5:                                          ; preds = %entry, %if.then2, %if.end
@@ -3293,7 +3293,7 @@ for.body:                                         ; preds = %entry, %for.body
   store i32 %0, ptr %drive_serial.i, align 8
   %io_buffer_total_len.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 896
   store i32 131076, ptr %io_buffer_total_len.i, align 8
-  %call.i = tail call ptr @qemu_memalign(i64 noundef 2048, i64 noundef 131076) #16
+  %call.i = tail call ptr @qemu_memalign(i64 noundef 2048, i64 noundef 131076) #17
   %io_buffer.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 888
   store ptr %call.i, ptr %io_buffer.i, align 8
   %1 = load i32, ptr %io_buffer_total_len.i, align 8
@@ -3301,12 +3301,12 @@ for.body:                                         ; preds = %entry, %for.body
   tail call void @llvm.memset.p0.i64(ptr align 1 %call.i, i8 0, i64 %conv7.i, i1 false)
   %blk.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 672
   %2 = load ptr, ptr %blk.i, align 8
-  %call8.i = tail call ptr @blk_blockalign(ptr noundef %2, i64 noundef 512) #16
+  %call8.i = tail call ptr @blk_blockalign(ptr noundef %2, i64 noundef 512) #17
   %smart_selftest_data.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 968
   store ptr %call8.i, ptr %smart_selftest_data.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(512) %call8.i, i8 0, i64 512, i1 false)
-  %call.i.i.i.i = tail call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #18
-  tail call void @timer_init_full(ptr noundef %call.i.i.i.i, ptr noundef null, i32 noundef 1, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @ide_sector_write_timer_cb, ptr noundef nonnull %arrayidx.i) #16
+  %call.i.i.i.i = tail call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #19
+  tail call void @timer_init_full(ptr noundef %call.i.i.i.i, ptr noundef null, i32 noundef 1, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @ide_sector_write_timer_cb, ptr noundef nonnull %arrayidx.i) #17
   %sector_write_timer.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 912
   store ptr %call.i.i.i.i, ptr %sector_write_timer.i, align 8
   tail call fastcc void @ide_reset(ptr noundef nonnull %arrayidx.i)
@@ -3329,17 +3329,17 @@ entry:
   br i1 %tobool.not.i, label %timer_free.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void @timer_del(ptr noundef nonnull %0) #16
-  tail call void @g_free(ptr noundef nonnull %0) #16
+  tail call void @timer_del(ptr noundef nonnull %0) #17
+  tail call void @g_free(ptr noundef nonnull %0) #17
   br label %timer_free.exit
 
 timer_free.exit:                                  ; preds = %entry, %if.then.i
   %smart_selftest_data = getelementptr inbounds i8, ptr %s, i64 968
   %1 = load ptr, ptr %smart_selftest_data, align 8
-  tail call void @qemu_vfree(ptr noundef %1) #16
+  tail call void @qemu_vfree(ptr noundef %1) #17
   %io_buffer = getelementptr inbounds i8, ptr %s, i64 888
   %2 = load ptr, ptr %io_buffer, align 8
-  tail call void @qemu_vfree(ptr noundef %2) #16
+  tail call void @qemu_vfree(ptr noundef %2) #17
   ret void
 }
 
@@ -3364,7 +3364,7 @@ if.then:                                          ; preds = %land.lhs.true
   %2 = load i8, ptr %arrayidx, align 1
   %3 = and i8 %2, 32
   %tobool3 = icmp ne i8 %3, 0
-  tail call void @blk_set_enable_write_cache(ptr noundef nonnull %0, i1 noundef zeroext %tobool3) #16
+  tail call void @blk_set_enable_write_cache(ptr noundef nonnull %0, i1 noundef zeroext %tobool3) #17
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %land.lhs.true, %entry
@@ -3393,7 +3393,7 @@ for.body.preheader:                               ; preds = %entry
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
   %0 = trunc nuw nsw i64 %indvars.iv to i32
-  %call = tail call ptr @drive_get_by_index(i32 noundef 1, i32 noundef %0) #16
+  %call = tail call ptr @drive_get_by_index(i32 noundef 1, i32 noundef %0) #17
   %arrayidx = getelementptr ptr, ptr %hd, i64 %indvars.iv
   store ptr %call, ptr %arrayidx, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3433,7 +3433,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call void @blk_aio_cancel_async(ptr noundef nonnull %5) #16
+  tail call void @blk_aio_cancel_async(ptr noundef nonnull %5) #17
   store ptr null, ptr %aiocb, align 8
   br label %if.end
 
@@ -3494,7 +3494,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %irq.i = getelementptr inbounds i8, ptr %0, i64 2136
   %3 = load ptr, ptr %irq.i, align 8
-  tail call void @qemu_set_irq(ptr noundef %3, i32 noundef 1) #16
+  tail call void @qemu_set_irq(ptr noundef %3, i32 noundef 1) #17
   br label %ide_bus_set_irq.exit
 
 ide_bus_set_irq.exit:                             ; preds = %entry, %if.then.i
@@ -3548,7 +3548,7 @@ sw.epilog:                                        ; preds = %sw.bb, %entry
   br i1 %tobool.not.i.i.i, label %return, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %sw.epilog
-  tail call void %5(ptr noundef nonnull %s.val.val.i.i) #16
+  tail call void %5(ptr noundef nonnull %s.val.val.i.i) #17
   br label %return
 
 return:                                           ; preds = %if.then.i.i.i, %sw.epilog, %if.then
@@ -3627,7 +3627,7 @@ ide_set_signature.exit:                           ; preds = %entry
   br i1 %tobool.not.i.i.i, label %return, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %ide_set_signature.exit
-  tail call void %6(ptr noundef nonnull %s.val.val.i.i) #16
+  tail call void %6(ptr noundef nonnull %s.val.val.i.i) #17
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -3659,7 +3659,7 @@ if.then4:                                         ; preds = %if.end
   br i1 %tobool.not.i.i.i17, label %return, label %if.then.i.i.i18
 
 if.then.i.i.i18:                                  ; preds = %if.then4
-  tail call void %11(ptr noundef nonnull %s.val.val.i.i15) #16
+  tail call void %11(ptr noundef nonnull %s.val.val.i.i15) #17
   br label %return
 
 if.end5:                                          ; preds = %if.end
@@ -3734,7 +3734,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool.not.i.i.i, label %return, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then
-  tail call void %4(ptr noundef nonnull %s.val.val.i.i) #16
+  tail call void %4(ptr noundef nonnull %s.val.val.i.i) #17
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -3775,12 +3775,12 @@ ide_cmd_lba48_transform.exit:                     ; preds = %if.then.i, %if.end1
   store i32 0, ptr %io_buffer_size.i, align 8
   %dma_cmd1.i = getelementptr inbounds i8, ptr %s, i64 948
   store i32 0, ptr %dma_cmd1.i, align 4
-  %call4.i = tail call ptr @blk_get_stats(ptr noundef nonnull %0) #16
+  %call4.i = tail call ptr @blk_get_stats(ptr noundef nonnull %0) #17
   %acct5.i = getelementptr inbounds i8, ptr %s, i64 720
   %7 = load i32, ptr %nsector.i, align 4
   %conv7.i = zext i32 %7 to i64
   %mul8.i = shl nuw nsw i64 %conv7.i, 9
-  tail call void @block_acct_start(ptr noundef %call4.i, ptr noundef nonnull %acct5.i, i64 noundef %mul8.i, i32 noundef 1) #16
+  tail call void @block_acct_start(ptr noundef %call4.i, ptr noundef nonnull %acct5.i, i64 noundef %mul8.i, i32 noundef 1) #17
   tail call void @ide_start_dma(ptr noundef nonnull %s, ptr noundef nonnull @ide_dma_cb)
   br label %return
 
@@ -3819,7 +3819,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool.not.i.i.i, label %return, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then
-  tail call void %4(ptr noundef nonnull %s.val.val.i.i) #16
+  tail call void %4(ptr noundef nonnull %s.val.val.i.i) #17
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -4011,7 +4011,7 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
   br i1 %tobool.not.i.i.i, label %return, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then
-  tail call void %5(ptr noundef nonnull %s.val.val.i.i) #16
+  tail call void %5(ptr noundef nonnull %s.val.val.i.i) #17
   br label %return
 
 if.end:                                           ; preds = %lor.lhs.false
@@ -4086,7 +4086,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool.not.i.i.i, label %return, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then
-  tail call void %4(ptr noundef nonnull %s.val.val.i.i) #16
+  tail call void %4(ptr noundef nonnull %s.val.val.i.i) #17
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -4131,7 +4131,7 @@ ide_cmd_lba48_transform.exit:                     ; preds = %if.then.i, %if.end1
   br i1 %call.i, label %if.then.i8, label %ide_transfer_start.exit
 
 if.then.i8:                                       ; preds = %ide_cmd_lba48_transform.exit
-  tail call void @ide_sector_write(ptr noundef nonnull %s) #16
+  tail call void @ide_sector_write(ptr noundef nonnull %s) #17
   br label %ide_transfer_start.exit
 
 ide_transfer_start.exit:                          ; preds = %ide_cmd_lba48_transform.exit, %if.then.i8
@@ -4174,7 +4174,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool.not.i.i.i, label %return, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then
-  tail call void %4(ptr noundef nonnull %s.val.val.i.i) #16
+  tail call void %4(ptr noundef nonnull %s.val.val.i.i) #17
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -4215,12 +4215,12 @@ ide_cmd_lba48_transform.exit:                     ; preds = %if.then.i, %if.end1
   store i32 0, ptr %io_buffer_size.i, align 8
   %dma_cmd1.i = getelementptr inbounds i8, ptr %s, i64 948
   store i32 1, ptr %dma_cmd1.i, align 4
-  %call4.i = tail call ptr @blk_get_stats(ptr noundef nonnull %0) #16
+  %call4.i = tail call ptr @blk_get_stats(ptr noundef nonnull %0) #17
   %acct5.i = getelementptr inbounds i8, ptr %s, i64 720
   %7 = load i32, ptr %nsector.i, align 4
   %conv7.i = zext i32 %7 to i64
   %mul8.i = shl nuw nsw i64 %conv7.i, 9
-  tail call void @block_acct_start(ptr noundef %call4.i, ptr noundef nonnull %acct5.i, i64 noundef %mul8.i, i32 noundef 2) #16
+  tail call void @block_acct_start(ptr noundef %call4.i, ptr noundef nonnull %acct5.i, i64 noundef %mul8.i, i32 noundef 2) #17
   tail call void @ide_start_dma(ptr noundef nonnull %s, ptr noundef nonnull @ide_dma_cb)
   %media_changed = getelementptr inbounds i8, ptr %s, i64 944
   store i32 1, ptr %media_changed, align 8
@@ -4268,7 +4268,7 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
   br i1 %tobool.not.i.i.i, label %return, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then
-  tail call void %5(ptr noundef nonnull %s.val.val.i.i) #16
+  tail call void %5(ptr noundef nonnull %s.val.val.i.i) #17
   br label %return
 
 if.end:                                           ; preds = %lor.lhs.false
@@ -4315,7 +4315,7 @@ ide_cmd_lba48_transform.exit:                     ; preds = %if.then.i, %if.end1
   br i1 %call.i, label %if.then.i14, label %ide_transfer_start.exit
 
 if.then.i14:                                      ; preds = %ide_cmd_lba48_transform.exit
-  tail call void @ide_sector_write(ptr noundef nonnull %s) #16
+  tail call void @ide_sector_write(ptr noundef nonnull %s) #17
   br label %ide_transfer_start.exit
 
 ide_transfer_start.exit:                          ; preds = %ide_cmd_lba48_transform.exit, %if.then.i14
@@ -4535,7 +4535,7 @@ if.then.i127:                                     ; preds = %ide_get_sector.exit
   br i1 %tobool.not.i.i, label %ide_transfer_start.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i127
-  tail call void %47(ptr noundef nonnull %s.val.val.i) #16
+  tail call void %47(ptr noundef nonnull %s.val.val.i) #17
   %.pre = load ptr, ptr %s, align 8
   br label %ide_transfer_start.exit
 
@@ -4550,7 +4550,7 @@ ide_transfer_start.exit:                          ; preds = %if.then.i.i, %if.th
 if.then.i129:                                     ; preds = %ide_transfer_start.exit
   %irq.i = getelementptr inbounds i8, ptr %48, i64 2136
   %51 = load ptr, ptr %irq.i, align 8
-  tail call void @qemu_set_irq(ptr noundef %51, i32 noundef 1) #16
+  tail call void @qemu_set_irq(ptr noundef %51, i32 noundef 1) #17
   br label %ide_bus_set_irq.exit
 
 ide_bus_set_irq.exit:                             ; preds = %ide_transfer_start.exit, %if.then.i129
@@ -4605,7 +4605,7 @@ if.then:                                          ; preds = %entry
 if.then.i9:                                       ; preds = %if.else.i
   %irq.i = getelementptr inbounds i8, ptr %2, i64 2136
   %5 = load ptr, ptr %irq.i, align 8
-  tail call void @qemu_set_irq(ptr noundef %5, i32 noundef 1) #16
+  tail call void @qemu_set_irq(ptr noundef %5, i32 noundef 1) #17
   br label %if.end
 
 if.end:                                           ; preds = %if.then.i9, %if.else.i, %if.then
@@ -4648,7 +4648,7 @@ if.then:                                          ; preds = %land.lhs.true
 if.then.i:                                        ; preds = %if.then
   %irq.i = getelementptr inbounds i8, ptr %5, i64 2136
   %8 = load ptr, ptr %irq.i, align 8
-  tail call void @qemu_set_irq(ptr noundef %8, i32 noundef 1) #16
+  tail call void @qemu_set_irq(ptr noundef %8, i32 noundef 1) #17
   br label %if.end
 
 if.else:                                          ; preds = %land.lhs.true, %entry
@@ -4674,7 +4674,7 @@ if.else:                                          ; preds = %land.lhs.true, %ent
   br i1 %tobool.not.i.i.i, label %if.end, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.else
-  tail call void %12(ptr noundef nonnull %s.val.val.i.i) #16
+  tail call void %12(ptr noundef nonnull %s.val.val.i.i) #17
   br label %if.end
 
 if.end:                                           ; preds = %if.then.i.i.i, %if.else, %if.then.i, %if.then
@@ -4721,7 +4721,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool.not.i.i.i, label %return, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then
-  tail call void %5(ptr noundef nonnull %s.val.val.i.i) #16
+  tail call void %5(ptr noundef nonnull %s.val.val.i.i) #17
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -4747,7 +4747,7 @@ if.end7:                                          ; preds = %if.then6, %if.end
   br i1 %call.i, label %if.then.i, label %return
 
 if.then.i:                                        ; preds = %if.end7
-  tail call void @ide_atapi_cmd(ptr noundef nonnull %s) #16
+  tail call void @ide_atapi_cmd(ptr noundef nonnull %s) #17
   br label %return
 
 return:                                           ; preds = %if.then.i, %if.end7, %if.then.i.i.i, %if.then
@@ -4935,7 +4935,7 @@ if.then.i:                                        ; preds = %ide_atapi_identify.
   br i1 %tobool.not.i.i9, label %ide_transfer_start.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
-  tail call void %16(ptr noundef nonnull %s.val.val.i) #16
+  tail call void %16(ptr noundef nonnull %s.val.val.i) #17
   %.pre = load ptr, ptr %s, align 8
   br label %ide_transfer_start.exit
 
@@ -4950,7 +4950,7 @@ ide_transfer_start.exit:                          ; preds = %if.then.i.i, %if.th
 if.then.i8:                                       ; preds = %ide_transfer_start.exit
   %irq.i = getelementptr inbounds i8, ptr %17, i64 2136
   %20 = load ptr, ptr %irq.i, align 8
-  tail call void @qemu_set_irq(ptr noundef %20, i32 noundef 1) #16
+  tail call void @qemu_set_irq(ptr noundef %20, i32 noundef 1) #17
   br label %ide_bus_set_irq.exit
 
 ide_bus_set_irq.exit:                             ; preds = %ide_transfer_start.exit, %if.then.i8
@@ -5106,7 +5106,7 @@ if.then.i:                                        ; preds = %for.end63
   br i1 %tobool.not.i.i, label %ide_transfer_start.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
-  tail call void %26(ptr noundef nonnull %s.val.val.i) #16
+  tail call void %26(ptr noundef nonnull %s.val.val.i) #17
   %.pre215 = load ptr, ptr %s, align 8
   br label %ide_transfer_start.exit
 
@@ -5121,7 +5121,7 @@ ide_transfer_start.exit:                          ; preds = %if.then.i.i, %if.th
 if.then.i128:                                     ; preds = %ide_transfer_start.exit
   %irq.i = getelementptr inbounds i8, ptr %27, i64 2136
   %30 = load ptr, ptr %irq.i, align 8
-  tail call void @qemu_set_irq(ptr noundef %30, i32 noundef 1) #16
+  tail call void @qemu_set_irq(ptr noundef %30, i32 noundef 1) #17
   br label %return
 
 sw.bb71:                                          ; preds = %if.end9
@@ -5260,7 +5260,7 @@ if.then.i130:                                     ; preds = %for.end157
   br i1 %tobool.not.i.i153, label %ide_transfer_start.exit131, label %if.then.i.i154
 
 if.then.i.i154:                                   ; preds = %if.then.i130
-  tail call void %65(ptr noundef nonnull %s.val.val.i151) #16
+  tail call void %65(ptr noundef nonnull %s.val.val.i151) #17
   %.pre213 = load ptr, ptr %s, align 8
   br label %ide_transfer_start.exit131
 
@@ -5275,7 +5275,7 @@ ide_transfer_start.exit131:                       ; preds = %if.then.i.i154, %if
 if.then.i134:                                     ; preds = %ide_transfer_start.exit131
   %irq.i135 = getelementptr inbounds i8, ptr %66, i64 2136
   %69 = load ptr, ptr %irq.i135, align 8
-  tail call void @qemu_set_irq(ptr noundef %69, i32 noundef 1) #16
+  tail call void @qemu_set_irq(ptr noundef %69, i32 noundef 1) #17
   br label %return
 
 sw.bb168:                                         ; preds = %if.end9
@@ -5407,7 +5407,7 @@ if.then.i138:                                     ; preds = %sw.epilog262
   br i1 %tobool.not.i.i164, label %ide_transfer_start.exit139, label %if.then.i.i165
 
 if.then.i.i165:                                   ; preds = %if.then.i138
-  tail call void %99(ptr noundef nonnull %s.val.val.i162) #16
+  tail call void %99(ptr noundef nonnull %s.val.val.i162) #17
   %.pre211 = load ptr, ptr %s, align 8
   br label %ide_transfer_start.exit139
 
@@ -5422,7 +5422,7 @@ ide_transfer_start.exit139:                       ; preds = %if.then.i.i165, %if
 if.then.i142:                                     ; preds = %ide_transfer_start.exit139
   %irq.i143 = getelementptr inbounds i8, ptr %100, i64 2136
   %103 = load ptr, ptr %irq.i143, align 8
-  tail call void @qemu_set_irq(ptr noundef %103, i32 noundef 1) #16
+  tail call void @qemu_set_irq(ptr noundef %103, i32 noundef 1) #17
   br label %return
 
 sw.bb266:                                         ; preds = %if.end9
@@ -5482,7 +5482,7 @@ abort_cmd:                                        ; preds = %sw.bb266, %if.end9,
   br i1 %tobool.not.i.i.i, label %return, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %abort_cmd
-  tail call void %118(ptr noundef nonnull %s.val.val.i.i) #16
+  tail call void %118(ptr noundef nonnull %s.val.val.i.i) #17
   br label %return
 
 return:                                           ; preds = %if.then.i.i.i, %abort_cmd, %if.then.i142, %ide_transfer_start.exit139, %if.then.i134, %ide_transfer_start.exit131, %if.then.i128, %ide_transfer_start.exit, %sw.bb17, %sw.bb18, %sw.bb269, %sw.bb20, %sw.bb13, %sw.bb
@@ -5656,7 +5656,7 @@ sw.default:                                       ; preds = %entry
   br i1 %tobool.not.i.i.i, label %return, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %sw.default
-  tail call void %31(ptr noundef nonnull %s.val.val.i.i) #16
+  tail call void %31(ptr noundef nonnull %s.val.val.i.i) #17
   br label %return
 
 sw.epilog:                                        ; preds = %if.end.i23, %if.then.i31, %if.end.i, %if.then.i, %sw.bb
@@ -5687,7 +5687,7 @@ if.then.i37:                                      ; preds = %sw.epilog
   br i1 %tobool.not.i.i, label %ide_transfer_start.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i37
-  tail call void %38(ptr noundef nonnull %s.val.val.i) #16
+  tail call void %38(ptr noundef nonnull %s.val.val.i) #17
   %.pre = load ptr, ptr %s, align 8
   br label %ide_transfer_start.exit
 
@@ -5704,7 +5704,7 @@ ide_transfer_start.exit:                          ; preds = %if.then.i.i, %if.th
 if.then.i39:                                      ; preds = %ide_transfer_start.exit
   %irq.i = getelementptr inbounds i8, ptr %39, i64 2136
   %42 = load ptr, ptr %irq.i, align 8
-  tail call void @qemu_set_irq(ptr noundef %42, i32 noundef 1) #16
+  tail call void @qemu_set_irq(ptr noundef %42, i32 noundef 1) #17
   br label %return
 
 return:                                           ; preds = %if.then.i39, %ide_transfer_start.exit, %if.then.i.i.i, %sw.default
@@ -5786,7 +5786,7 @@ if.then12:                                        ; preds = %land.lhs.true4
   br i1 %tobool.not.i.i.i, label %if.end17, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then12
-  tail call void %6(ptr noundef nonnull %s.val.val.i.i) #16
+  tail call void %6(ptr noundef nonnull %s.val.val.i.i) #17
   br label %if.end17
 
 if.else13:                                        ; preds = %land.lhs.true4, %if.else
@@ -6015,7 +6015,7 @@ if.end59.i:                                       ; preds = %if.then55.i, %if.en
   %17 = getelementptr i8, ptr %s, i64 224
   store i16 %spec.select.i, ptr %17, align 2
   %18 = load ptr, ptr %blk, align 8
-  %call.i = tail call zeroext i1 @blk_enable_write_cache(ptr noundef %18) #16
+  %call.i = tail call zeroext i1 @blk_enable_write_cache(ptr noundef %18) #17
   %.sink144.i = select i1 %call.i, i16 16417, i16 16385
   %19 = getelementptr i8, ptr %s, i64 226
   store i16 %.sink144.i, ptr %19, align 2
@@ -6333,7 +6333,7 @@ if.then.i:                                        ; preds = %if.end
   br i1 %tobool.not.i.i73, label %ide_transfer_start.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
-  tail call void %46(ptr noundef nonnull %s.val.val.i) #16
+  tail call void %46(ptr noundef nonnull %s.val.val.i) #17
   %.pre = load ptr, ptr %s, align 8
   br label %ide_transfer_start.exit
 
@@ -6348,7 +6348,7 @@ ide_transfer_start.exit:                          ; preds = %if.then.i.i, %if.th
 if.then.i69:                                      ; preds = %ide_transfer_start.exit
   %irq.i = getelementptr inbounds i8, ptr %47, i64 2136
   %50 = load ptr, ptr %irq.i, align 8
-  tail call void @qemu_set_irq(ptr noundef %50, i32 noundef 1) #16
+  tail call void @qemu_set_irq(ptr noundef %50, i32 noundef 1) #17
   br label %return
 
 if.else4:                                         ; preds = %entry
@@ -6393,7 +6393,7 @@ if.end8:                                          ; preds = %ide_set_signature.e
   br i1 %tobool.not.i.i.i, label %return, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end8
-  tail call void %57(ptr noundef nonnull %s.val.val.i.i) #16
+  tail call void %57(ptr noundef nonnull %s.val.val.i.i) #17
   br label %return
 
 return:                                           ; preds = %if.then.i.i.i, %if.end8, %if.then.i69, %ide_transfer_start.exit
@@ -6432,7 +6432,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool.not.i.i.i, label %return, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then
-  tail call void %4(ptr noundef nonnull %s.val.val.i.i) #16
+  tail call void %4(ptr noundef nonnull %s.val.val.i.i) #17
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -6472,13 +6472,13 @@ if.end3:                                          ; preds = %sw.bb
   br label %return
 
 sw.bb7:                                           ; preds = %if.end
-  tail call void @blk_set_enable_write_cache(ptr noundef nonnull %0, i1 noundef zeroext true) #16
+  tail call void @blk_set_enable_write_cache(ptr noundef nonnull %0, i1 noundef zeroext true) #17
   %add.ptr = getelementptr i8, ptr %s, i64 226
   store i16 16417, ptr %add.ptr, align 2
   br label %return
 
 sw.bb10:                                          ; preds = %if.end
-  tail call void @blk_set_enable_write_cache(ptr noundef nonnull %0, i1 noundef zeroext false) #16
+  tail call void @blk_set_enable_write_cache(ptr noundef nonnull %0, i1 noundef zeroext false) #17
   %add.ptr14 = getelementptr i8, ptr %s, i64 226
   store i16 16385, ptr %add.ptr14, align 2
   tail call fastcc void @ide_flush_cache(ptr noundef nonnull %s)
@@ -6577,7 +6577,7 @@ abort_cmd:                                        ; preds = %if.end, %sw.bb19, %
   br i1 %tobool.not.i.i.i43, label %return, label %if.then.i.i.i44
 
 if.then.i.i.i44:                                  ; preds = %abort_cmd
-  tail call void %14(ptr noundef nonnull %s.val.val.i.i41) #16
+  tail call void %14(ptr noundef nonnull %s.val.val.i.i41) #17
   br label %return
 
 return:                                           ; preds = %if.then.i.i.i44, %abort_cmd, %if.then.i.i.i, %if.then, %sw.bb25, %sw.bb29, %sw.bb34, %sw.bb42, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %if.end, %sw.bb16, %sw.bb15, %sw.bb10, %sw.bb7, %if.end3
@@ -6621,7 +6621,7 @@ sw.default:                                       ; preds = %entry
   br i1 %tobool.not.i.i.i, label %return, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %sw.default
-  tail call void %4(ptr noundef nonnull %s.val.val.i.i) #16
+  tail call void %4(ptr noundef nonnull %s.val.val.i.i) #17
   br label %return
 
 return:                                           ; preds = %if.then.i.i.i, %sw.default, %sw.bb
@@ -6681,12 +6681,12 @@ if.then5:                                         ; preds = %ide_dma_cmd_to_retr
   br i1 %tobool.not.i, label %dma_buf_commit.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then5
-  tail call void %9(ptr noundef nonnull %7, i32 noundef 0) #16
+  tail call void %9(ptr noundef nonnull %7, i32 noundef 0) #17
   br label %dma_buf_commit.exit
 
 dma_buf_commit.exit:                              ; preds = %if.then5, %if.then.i
   %sg.i = getelementptr inbounds i8, ptr %opaque, i64 816
-  tail call void @qemu_sglist_destroy(ptr noundef nonnull %sg.i) #16
+  tail call void @qemu_sglist_destroy(ptr noundef nonnull %sg.i) #17
   br label %return
 
 if.end7:                                          ; preds = %ide_dma_cmd_to_retry.exit, %if.end
@@ -6791,7 +6791,7 @@ if.then17:                                        ; preds = %ide_get_sector.exit
   br i1 %cmp20, label %if.end24, label %if.else23
 
 if.else23:                                        ; preds = %if.then17
-  tail call void @__assert_fail(ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.6, i32 noundef 914, ptr noundef nonnull @__PRETTY_FUNCTION__.ide_dma_cb) #17
+  tail call void @__assert_fail(ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.6, i32 noundef 914, ptr noundef nonnull @__PRETTY_FUNCTION__.ide_dma_cb) #18
   unreachable
 
 if.end24:                                         ; preds = %if.then17
@@ -6805,7 +6805,7 @@ if.end24:                                         ; preds = %if.then17
   br i1 %tobool.not.i80, label %dma_buf_commit.exit86, label %if.then.i81
 
 if.then.i81:                                      ; preds = %if.end24
-  tail call void %35(ptr noundef nonnull %33, i32 noundef %mul18) #16
+  tail call void %35(ptr noundef nonnull %33, i32 noundef %mul18) #17
   br label %dma_buf_commit.exit86
 
 dma_buf_commit.exit86:                            ; preds = %if.end24, %if.then.i81
@@ -6815,7 +6815,7 @@ dma_buf_commit.exit86:                            ; preds = %if.end24, %if.then.
   %add.i84 = add i64 %36, %conv.i82
   store i64 %add.i84, ptr %io_buffer_offset.i83, align 8
   %sg.i85 = getelementptr inbounds i8, ptr %opaque, i64 816
-  tail call void @qemu_sglist_destroy(ptr noundef nonnull %sg.i85) #16
+  tail call void @qemu_sglist_destroy(ptr noundef nonnull %sg.i85) #17
   %conv28 = zext nneg i32 %n.0 to i64
   %add = add nsw i64 %sector_num.0.i, %conv28
   %37 = load i8, ptr %select.i, align 8
@@ -6929,7 +6929,7 @@ if.then35:                                        ; preds = %if.end31
 if.then.i107:                                     ; preds = %if.then35
   %irq.i = getelementptr inbounds i8, ptr %47, i64 2136
   %50 = load ptr, ptr %irq.i, align 8
-  tail call void @qemu_set_irq(ptr noundef %50, i32 noundef 1) #16
+  tail call void @qemu_set_irq(ptr noundef %50, i32 noundef 1) #17
   br label %eot
 
 if.end37:                                         ; preds = %if.end31
@@ -6943,14 +6943,14 @@ if.end37:                                         ; preds = %if.end31
   %53 = load ptr, ptr %52, align 8
   %prepare_buf = getelementptr inbounds i8, ptr %53, i64 16
   %54 = load ptr, ptr %prepare_buf, align 8
-  %call46 = tail call i32 %54(ptr noundef nonnull %52, i32 noundef %mul39) #16
+  %call46 = tail call i32 %54(ptr noundef nonnull %52, i32 noundef %mul39) #17
   %cmp47 = icmp slt i32 %call46, 0
   %cmp50.not = icmp sgt i32 %call46, %mul39
   %or.cond = or i1 %cmp47, %cmp50.not
   br i1 %or.cond, label %if.else53, label %if.end54
 
 if.else53:                                        ; preds = %if.end37
-  tail call void @__assert_fail(ptr noundef nonnull @.str.66, ptr noundef nonnull @.str.6, i32 noundef 934, ptr noundef nonnull @__PRETTY_FUNCTION__.ide_dma_cb) #17
+  tail call void @__assert_fail(ptr noundef nonnull @.str.66, ptr noundef nonnull @.str.6, i32 noundef 934, ptr noundef nonnull @__PRETTY_FUNCTION__.ide_dma_cb) #18
   unreachable
 
 if.end54:                                         ; preds = %if.end37
@@ -6970,12 +6970,12 @@ if.then58:                                        ; preds = %if.end54
   br i1 %tobool.not.i110, label %dma_buf_commit.exit115, label %if.then.i111
 
 if.then.i111:                                     ; preds = %if.then58
-  tail call void %58(ptr noundef nonnull %56, i32 noundef 0) #16
+  tail call void %58(ptr noundef nonnull %56, i32 noundef 0) #17
   br label %dma_buf_commit.exit115
 
 dma_buf_commit.exit115:                           ; preds = %if.then58, %if.then.i111
   %sg.i114 = getelementptr inbounds i8, ptr %opaque, i64 816
-  tail call void @qemu_sglist_destroy(ptr noundef nonnull %sg.i114) #16
+  tail call void @qemu_sglist_destroy(ptr noundef nonnull %sg.i114) #17
   br label %eot
 
 if.end60:                                         ; preds = %if.end54
@@ -7012,16 +7012,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #16
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #17
   %65 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %66 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.67, i32 noundef %call10.i.i, i64 noundef %65, i64 noundef %66, ptr noundef nonnull %opaque, i64 noundef %sector_num.0, i32 noundef %46, ptr noundef %retval.0.i116) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.67, i32 noundef %call10.i.i, i64 noundef %65, i64 noundef %66, ptr noundef nonnull %opaque, i64 noundef %sector_num.0, i32 noundef %46, ptr noundef %retval.0.i116) #17
   br label %trace_ide_dma_cb.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.68, ptr noundef nonnull %opaque, i64 noundef %sector_num.0, i32 noundef %46, ptr noundef %retval.0.i116) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.68, ptr noundef nonnull %opaque, i64 noundef %sector_num.0, i32 noundef %46, ptr noundef %retval.0.i116) #17
   br label %trace_ide_dma_cb.exit
 
 trace_ide_dma_cb.exit:                            ; preds = %IDE_DMA_CMD_str.exit, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -7035,7 +7035,7 @@ land.lhs.true69:                                  ; preds = %trace_ide_dma_cb.ex
   %68 = getelementptr i8, ptr %opaque, i64 672
   %opaque.val = load ptr, ptr %68, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %total_sectors.i)
-  call void @blk_get_geometry(ptr noundef %opaque.val, ptr noundef nonnull %total_sectors.i) #16
+  call void @blk_get_geometry(ptr noundef %opaque.val, ptr noundef nonnull %total_sectors.i) #17
   %69 = load i64, ptr %total_sectors.i, align 8
   %cmp.i118 = icmp uge i64 %69, %sector_num.0
   %sub.i119 = sub nuw i64 %69, %sector_num.0
@@ -7047,10 +7047,10 @@ land.lhs.true69:                                  ; preds = %trace_ide_dma_cb.ex
 if.then72:                                        ; preds = %land.lhs.true69
   call void @ide_dma_error(ptr noundef nonnull %opaque)
   %70 = load ptr, ptr %68, align 8
-  %call73 = call ptr @blk_get_stats(ptr noundef %70) #16
+  %call73 = call ptr @blk_get_stats(ptr noundef %70) #17
   %type = getelementptr inbounds i8, ptr %opaque, i64 736
   %71 = load i32, ptr %type, align 8
-  call void @block_acct_invalid(ptr noundef %call73, i32 noundef %71) #16
+  call void @block_acct_invalid(ptr noundef %call73, i32 noundef %71) #17
   br label %return
 
 if.end74thread-pre-split:                         ; preds = %land.lhs.true69
@@ -7070,7 +7070,7 @@ sw.bb:                                            ; preds = %if.end74
   %blk76 = getelementptr inbounds i8, ptr %opaque, i64 672
   %73 = load ptr, ptr %blk76, align 8
   %sg77 = getelementptr inbounds i8, ptr %opaque, i64 816
-  %call78 = call ptr @dma_blk_read(ptr noundef %73, ptr noundef nonnull %sg77, i64 noundef %shl, i32 noundef 512, ptr noundef nonnull @ide_dma_cb, ptr noundef nonnull %opaque) #16
+  %call78 = call ptr @dma_blk_read(ptr noundef %73, ptr noundef nonnull %sg77, i64 noundef %shl, i32 noundef 512, ptr noundef nonnull @ide_dma_cb, ptr noundef nonnull %opaque) #17
   %74 = load ptr, ptr %opaque, align 8
   %dma80 = getelementptr inbounds i8, ptr %74, i64 2120
   %75 = load ptr, ptr %dma80, align 8
@@ -7082,7 +7082,7 @@ sw.bb82:                                          ; preds = %if.end74
   %blk83 = getelementptr inbounds i8, ptr %opaque, i64 672
   %76 = load ptr, ptr %blk83, align 8
   %sg84 = getelementptr inbounds i8, ptr %opaque, i64 816
-  %call85 = call ptr @dma_blk_write(ptr noundef %76, ptr noundef nonnull %sg84, i64 noundef %shl, i32 noundef 512, ptr noundef nonnull @ide_dma_cb, ptr noundef nonnull %opaque) #16
+  %call85 = call ptr @dma_blk_write(ptr noundef %76, ptr noundef nonnull %sg84, i64 noundef %shl, i32 noundef 512, ptr noundef nonnull @ide_dma_cb, ptr noundef nonnull %opaque) #17
   %77 = load ptr, ptr %opaque, align 8
   %dma87 = getelementptr inbounds i8, ptr %77, i64 2120
   %78 = load ptr, ptr %dma87, align 8
@@ -7093,9 +7093,9 @@ sw.bb82:                                          ; preds = %if.end74
 sw.bb89:                                          ; preds = %if.end74
   %blk90 = getelementptr inbounds i8, ptr %opaque, i64 672
   %79 = load ptr, ptr %blk90, align 8
-  %call91 = call ptr @blk_get_aio_context(ptr noundef %79) #16
+  %call91 = call ptr @blk_get_aio_context(ptr noundef %79) #17
   %sg92 = getelementptr inbounds i8, ptr %opaque, i64 816
-  %call93 = call ptr @dma_blk_io(ptr noundef %call91, ptr noundef nonnull %sg92, i64 noundef %shl, i32 noundef 512, ptr noundef nonnull @ide_issue_trim, ptr noundef nonnull %opaque, ptr noundef nonnull @ide_dma_cb, ptr noundef nonnull %opaque, i32 noundef 0) #16
+  %call93 = call ptr @dma_blk_io(ptr noundef %call91, ptr noundef nonnull %sg92, i64 noundef %shl, i32 noundef 512, ptr noundef nonnull @ide_issue_trim, ptr noundef nonnull %opaque, ptr noundef nonnull @ide_dma_cb, ptr noundef nonnull %opaque, i32 noundef 0) #17
   %80 = load ptr, ptr %opaque, align 8
   %dma95 = getelementptr inbounds i8, ptr %80, i64 2120
   %81 = load ptr, ptr %dma95, align 8
@@ -7104,7 +7104,7 @@ sw.bb89:                                          ; preds = %if.end74
   br label %return
 
 sw.default:                                       ; preds = %if.end74
-  call void @abort() #17
+  call void @abort() #18
   unreachable
 
 eot:                                              ; preds = %if.then.i107, %if.then35, %dma_buf_commit.exit115
@@ -7116,9 +7116,9 @@ eot:                                              ; preds = %if.then.i107, %if.t
 if.then104:                                       ; preds = %eot
   %blk105 = getelementptr inbounds i8, ptr %opaque, i64 672
   %83 = load ptr, ptr %blk105, align 8
-  %call106 = tail call ptr @blk_get_stats(ptr noundef %83) #16
+  %call106 = tail call ptr @blk_get_stats(ptr noundef %83) #17
   %acct107 = getelementptr inbounds i8, ptr %opaque, i64 720
-  tail call void @block_acct_done(ptr noundef %call106, ptr noundef nonnull %acct107) #16
+  tail call void @block_acct_done(ptr noundef %call106, ptr noundef nonnull %acct107) #17
   br label %if.end108
 
 if.end108:                                        ; preds = %eot, %if.then104
@@ -7146,7 +7146,7 @@ if.end108:                                        ; preds = %eot, %if.then104
   br i1 %tobool.not.i121, label %if.end.i, label %if.then.i122
 
 if.then.i122:                                     ; preds = %if.end108
-  tail call void %92(ptr noundef nonnull %90, i1 noundef zeroext %cmp8) #16
+  tail call void %92(ptr noundef nonnull %90, i1 noundef zeroext %cmp8) #17
   %s.val.pre.i = load ptr, ptr %opaque, align 8
   %.phi.trans.insert.i = getelementptr i8, ptr %s.val.pre.i, i64 2120
   %s.val.val.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
@@ -7162,7 +7162,7 @@ if.end.i:                                         ; preds = %if.then.i122, %if.e
   br i1 %tobool.not.i.i, label %return, label %if.then.i.i123
 
 if.then.i.i123:                                   ; preds = %if.end.i
-  tail call void %94(ptr noundef nonnull %s.val.val.i) #16
+  tail call void %94(ptr noundef nonnull %s.val.val.i) #17
   br label %return
 
 return:                                           ; preds = %if.then.i.i123, %if.end.i, %sw.bb, %sw.bb82, %sw.bb89, %if.then72, %dma_buf_commit.exit, %if.then
@@ -7177,8 +7177,8 @@ declare ptr @dma_blk_io(ptr noundef, ptr noundef, i64 noundef, i32 noundef, ptr 
 
 declare ptr @blk_get_aio_context(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: noreturn nounwind
-declare void @abort() local_unnamed_addr #5
+; Function Attrs: cold nofree noreturn nounwind
+declare void @abort() local_unnamed_addr #10
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @ide_sector_read(ptr noundef %s) #0 {
@@ -7294,7 +7294,7 @@ if.then:                                          ; preds = %ide_get_sector.exit
   br i1 %tobool.not.i.i, label %return, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then
-  tail call void %23(ptr noundef nonnull %s.val.val.i) #16
+  tail call void %23(ptr noundef nonnull %s.val.val.i) #17
   br label %return
 
 if.end:                                           ; preds = %ide_get_sector.exit
@@ -7322,16 +7322,16 @@ if.then.i.i28:                                    ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i28
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #16
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #17
   %29 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %30 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.70, i32 noundef %call10.i.i, i64 noundef %29, i64 noundef %30, i64 noundef %sector_num.0.i, i32 noundef %spec.select) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.70, i32 noundef %call10.i.i, i64 noundef %29, i64 noundef %30, i64 noundef %sector_num.0.i, i32 noundef %spec.select) #17
   br label %trace_ide_sector_read.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i28
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.71, i64 noundef %sector_num.0.i, i32 noundef %spec.select) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.71, i64 noundef %sector_num.0.i, i32 noundef %spec.select) #17
   br label %trace_ide_sector_read.exit
 
 trace_ide_sector_read.exit:                       ; preds = %if.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -7340,7 +7340,7 @@ trace_ide_sector_read.exit:                       ; preds = %if.end, %land.lhs.t
   %31 = getelementptr i8, ptr %s, i64 672
   %s.val = load ptr, ptr %31, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %total_sectors.i)
-  call void @blk_get_geometry(ptr noundef %s.val, ptr noundef nonnull %total_sectors.i) #16
+  call void @blk_get_geometry(ptr noundef %s.val, ptr noundef nonnull %total_sectors.i) #17
   %32 = load i64, ptr %total_sectors.i, align 8
   %cmp.i = icmp uge i64 %32, %sector_num.0.i
   %sub.i29 = sub nuw i64 %32, %sector_num.0.i
@@ -7370,7 +7370,7 @@ if.then10:                                        ; preds = %trace_ide_sector_re
   br i1 %tobool.not.i.i.i.i, label %ide_abort_command.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then10
-  call void %36(ptr noundef nonnull %s.val.val.i.i.i) #16
+  call void %36(ptr noundef nonnull %s.val.val.i.i.i) #17
   %.pre.i = load ptr, ptr %s, align 8
   br label %ide_abort_command.exit.i
 
@@ -7385,13 +7385,13 @@ ide_abort_command.exit.i:                         ; preds = %if.then.i.i.i.i, %i
 if.then.i.i32:                                    ; preds = %ide_abort_command.exit.i
   %irq.i.i = getelementptr inbounds i8, ptr %37, i64 2136
   %40 = load ptr, ptr %irq.i.i, align 8
-  call void @qemu_set_irq(ptr noundef %40, i32 noundef 1) #16
+  call void @qemu_set_irq(ptr noundef %40, i32 noundef 1) #17
   br label %ide_rw_error.exit
 
 ide_rw_error.exit:                                ; preds = %ide_abort_command.exit.i, %if.then.i.i32
   %41 = load ptr, ptr %31, align 8
-  %call11 = call ptr @blk_get_stats(ptr noundef %41) #16
-  call void @block_acct_invalid(ptr noundef %call11, i32 noundef 1) #16
+  %call11 = call ptr @blk_get_stats(ptr noundef %41) #17
+  call void @block_acct_invalid(ptr noundef %call11, i32 noundef 1) #17
   br label %return
 
 if.end12:                                         ; preds = %trace_ide_sector_read.exit
@@ -7409,9 +7409,9 @@ if.end12:                                         ; preds = %trace_ide_sector_re
   %.compoundliteral.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %s, i64 784
   store i64 %mul, ptr %.compoundliteral.sroa.5.0..sroa_idx.i, align 8
   %44 = load ptr, ptr %31, align 8
-  %call15 = call ptr @blk_get_stats(ptr noundef %44) #16
+  %call15 = call ptr @blk_get_stats(ptr noundef %44) #17
   %acct = getelementptr inbounds i8, ptr %s, i64 720
-  call void @block_acct_start(ptr noundef %call15, ptr noundef nonnull %acct, i64 noundef %mul, i32 noundef 1) #16
+  call void @block_acct_start(ptr noundef %call15, ptr noundef nonnull %acct, i64 noundef %mul, i32 noundef 1) #17
   %call19 = call ptr @ide_buffered_readv(ptr noundef nonnull %s, i64 noundef %sector_num.0.i, ptr noundef nonnull %qiov, i32 poison, ptr noundef nonnull @ide_sector_read_cb, ptr noundef nonnull %s)
   %pio_aiocb = getelementptr inbounds i8, ptr %s, i64 744
   store ptr %call19, ptr %pio_aiocb, align 8
@@ -7442,9 +7442,9 @@ if.then:                                          ; preds = %entry
 if.end4:                                          ; preds = %if.then, %entry
   %blk = getelementptr inbounds i8, ptr %opaque, i64 672
   %2 = load ptr, ptr %blk, align 8
-  %call5 = tail call ptr @blk_get_stats(ptr noundef %2) #16
+  %call5 = tail call ptr @blk_get_stats(ptr noundef %2) #17
   %acct = getelementptr inbounds i8, ptr %opaque, i64 720
-  tail call void @block_acct_done(ptr noundef %call5, ptr noundef nonnull %acct) #16
+  tail call void @block_acct_done(ptr noundef %call5, ptr noundef nonnull %acct) #17
   %nsector = getelementptr inbounds i8, ptr %opaque, i64 652
   %3 = load i32, ptr %nsector, align 4
   %req_nb_sectors = getelementptr inbounds i8, ptr %opaque, i64 856
@@ -7607,7 +7607,7 @@ ide_set_sector.exit:                              ; preds = %if.then2.i27, %if.e
   br i1 %call.i, label %if.then.i38, label %ide_transfer_start.exit
 
 if.then.i38:                                      ; preds = %ide_set_sector.exit
-  tail call void @ide_sector_read(ptr noundef nonnull %opaque) #16
+  tail call void @ide_sector_read(ptr noundef nonnull %opaque) #17
   br label %ide_transfer_start.exit
 
 ide_transfer_start.exit:                          ; preds = %ide_set_sector.exit, %if.then.i38
@@ -7621,7 +7621,7 @@ ide_transfer_start.exit:                          ; preds = %ide_set_sector.exit
 if.then.i40:                                      ; preds = %ide_transfer_start.exit
   %irq.i = getelementptr inbounds i8, ptr %29, i64 2136
   %32 = load ptr, ptr %irq.i, align 8
-  tail call void @qemu_set_irq(ptr noundef %32, i32 noundef 1) #16
+  tail call void @qemu_set_irq(ptr noundef %32, i32 noundef 1) #17
   br label %return
 
 return:                                           ; preds = %if.then.i40, %ide_transfer_start.exit, %if.then
@@ -7741,16 +7741,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #16
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #17
   %25 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %26 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.72, i32 noundef %call10.i.i, i64 noundef %25, i64 noundef %26, i64 noundef %sector_num.0.i, i32 noundef %spec.select) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.72, i32 noundef %call10.i.i, i64 noundef %25, i64 noundef %26, i64 noundef %sector_num.0.i, i32 noundef %spec.select) #17
   br label %trace_ide_sector_write.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.73, i64 noundef %sector_num.0.i, i32 noundef %spec.select) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.73, i64 noundef %sector_num.0.i, i32 noundef %spec.select) #17
   br label %trace_ide_sector_write.exit
 
 trace_ide_sector_write.exit:                      ; preds = %ide_get_sector.exit, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -7759,7 +7759,7 @@ trace_ide_sector_write.exit:                      ; preds = %ide_get_sector.exit
   %27 = getelementptr i8, ptr %s, i64 672
   %s.val = load ptr, ptr %27, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %total_sectors.i)
-  call void @blk_get_geometry(ptr noundef %s.val, ptr noundef nonnull %total_sectors.i) #16
+  call void @blk_get_geometry(ptr noundef %s.val, ptr noundef nonnull %total_sectors.i) #17
   %28 = load i64, ptr %total_sectors.i, align 8
   %cmp.i = icmp uge i64 %28, %sector_num.0.i
   %sub.i23 = sub nuw i64 %28, %sector_num.0.i
@@ -7790,7 +7790,7 @@ if.then3:                                         ; preds = %trace_ide_sector_wr
   br i1 %tobool.not.i.i.i.i, label %ide_abort_command.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then3
-  call void %32(ptr noundef nonnull %s.val.val.i.i.i) #16
+  call void %32(ptr noundef nonnull %s.val.val.i.i.i) #17
   %.pre.i = load ptr, ptr %s, align 8
   br label %ide_abort_command.exit.i
 
@@ -7805,13 +7805,13 @@ ide_abort_command.exit.i:                         ; preds = %if.then.i.i.i.i, %i
 if.then.i.i24:                                    ; preds = %ide_abort_command.exit.i
   %irq.i.i = getelementptr inbounds i8, ptr %33, i64 2136
   %36 = load ptr, ptr %irq.i.i, align 8
-  call void @qemu_set_irq(ptr noundef %36, i32 noundef 1) #16
+  call void @qemu_set_irq(ptr noundef %36, i32 noundef 1) #17
   br label %ide_rw_error.exit
 
 ide_rw_error.exit:                                ; preds = %ide_abort_command.exit.i, %if.then.i.i24
   %37 = load ptr, ptr %27, align 8
-  %call4 = call ptr @blk_get_stats(ptr noundef %37) #16
-  call void @block_acct_invalid(ptr noundef %call4, i32 noundef 2) #16
+  %call4 = call ptr @blk_get_stats(ptr noundef %37) #17
+  call void @block_acct_invalid(ptr noundef %call4, i32 noundef 2) #17
   br label %return
 
 if.end5:                                          ; preds = %trace_ide_sector_write.exit
@@ -7829,12 +7829,12 @@ if.end5:                                          ; preds = %trace_ide_sector_wr
   %.compoundliteral.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %s, i64 784
   store i64 %mul, ptr %.compoundliteral.sroa.5.0..sroa_idx.i, align 8
   %40 = load ptr, ptr %27, align 8
-  %call8 = call ptr @blk_get_stats(ptr noundef %40) #16
+  %call8 = call ptr @blk_get_stats(ptr noundef %40) #17
   %acct = getelementptr inbounds i8, ptr %s, i64 720
-  call void @block_acct_start(ptr noundef %call8, ptr noundef nonnull %acct, i64 noundef %mul, i32 noundef 2) #16
+  call void @block_acct_start(ptr noundef %call8, ptr noundef nonnull %acct, i64 noundef %mul, i32 noundef 2) #17
   %41 = load ptr, ptr %27, align 8
   %shl = shl nsw i64 %sector_num.0.i, 9
-  %call13 = call ptr @blk_aio_pwritev(ptr noundef %41, i64 noundef %shl, ptr noundef nonnull %qiov, i32 noundef 0, ptr noundef nonnull @ide_sector_write_cb, ptr noundef nonnull %s) #16
+  %call13 = call ptr @blk_aio_pwritev(ptr noundef %41, i64 noundef %shl, ptr noundef nonnull %qiov, i32 noundef 0, ptr noundef nonnull @ide_sector_write_cb, ptr noundef nonnull %s) #17
   %pio_aiocb = getelementptr inbounds i8, ptr %s, i64 744
   store ptr %call13, ptr %pio_aiocb, align 8
   br label %return
@@ -7866,9 +7866,9 @@ if.then:                                          ; preds = %entry
 if.end4:                                          ; preds = %if.then, %entry
   %blk = getelementptr inbounds i8, ptr %opaque, i64 672
   %2 = load ptr, ptr %blk, align 8
-  %call5 = tail call ptr @blk_get_stats(ptr noundef %2) #16
+  %call5 = tail call ptr @blk_get_stats(ptr noundef %2) #17
   %acct = getelementptr inbounds i8, ptr %opaque, i64 720
-  tail call void @block_acct_done(ptr noundef %call5, ptr noundef nonnull %acct) #16
+  tail call void @block_acct_done(ptr noundef %call5, ptr noundef nonnull %acct) #17
   %nsector = getelementptr inbounds i8, ptr %opaque, i64 652
   %3 = load i32, ptr %nsector, align 4
   %req_nb_sectors = getelementptr inbounds i8, ptr %opaque, i64 856
@@ -8049,7 +8049,7 @@ if.then18:                                        ; preds = %ide_set_sector.exit
   br i1 %tobool.not.i.i, label %if.end28, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then18
-  tail call void %33(ptr noundef nonnull %s.val.val.i) #16
+  tail call void %33(ptr noundef nonnull %s.val.val.i) #17
   br label %if.end28
 
 if.else:                                          ; preds = %ide_set_sector.exit
@@ -8061,7 +8061,7 @@ if.else:                                          ; preds = %ide_set_sector.exit
   br i1 %call.i, label %if.then.i48, label %if.end28
 
 if.then.i48:                                      ; preds = %if.else
-  tail call void @ide_sector_write(ptr noundef nonnull %opaque) #16
+  tail call void @ide_sector_write(ptr noundef nonnull %opaque) #17
   br label %if.end28
 
 if.end28:                                         ; preds = %if.then.i48, %if.else, %if.then.i.i, %if.then18
@@ -8081,9 +8081,9 @@ land.lhs.true:                                    ; preds = %if.end28
 if.then32:                                        ; preds = %land.lhs.true
   %sector_write_timer = getelementptr inbounds i8, ptr %opaque, i64 912
   %37 = load ptr, ptr %sector_write_timer, align 8
-  %call33 = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #16
+  %call33 = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #17
   %add34 = add i64 %call33, 1000000
-  tail call void @timer_mod(ptr noundef %37, i64 noundef %add34) #16
+  tail call void @timer_mod(ptr noundef %37, i64 noundef %add34) #17
   br label %if.end36
 
 if.else35:                                        ; preds = %land.lhs.true, %if.end28
@@ -8097,7 +8097,7 @@ if.else35:                                        ; preds = %land.lhs.true, %if.
 if.then.i50:                                      ; preds = %if.else35
   %irq.i = getelementptr inbounds i8, ptr %38, i64 2136
   %41 = load ptr, ptr %irq.i, align 8
-  tail call void @qemu_set_irq(ptr noundef %41, i32 noundef 1) #16
+  tail call void @qemu_set_irq(ptr noundef %41, i32 noundef 1) #17
   br label %if.end36
 
 if.end36:                                         ; preds = %if.then.i50, %if.else35, %if.then, %if.then32
@@ -8109,7 +8109,7 @@ declare void @timer_mod(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare i64 @qemu_clock_get_ns(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
 
 declare void @ide_atapi_cmd(ptr noundef) #1
 
@@ -8136,7 +8136,7 @@ if.end7.i:                                        ; preds = %entry
   br i1 %tobool.not.i.i, label %ide_cmd_done.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end7.i
-  tail call void %3(ptr noundef nonnull %opaque.val.val.i) #16
+  tail call void %3(ptr noundef nonnull %opaque.val.val.i) #17
   %.pre.i = load ptr, ptr %s, align 8
   br label %ide_cmd_done.exit.i
 
@@ -8151,7 +8151,7 @@ ide_cmd_done.exit.i:                              ; preds = %if.then.i.i, %if.en
 if.then.i10.i:                                    ; preds = %ide_cmd_done.exit.i
   %irq.i.i = getelementptr inbounds i8, ptr %4, i64 2136
   %7 = load ptr, ptr %irq.i.i, align 8
-  tail call void @qemu_set_irq(ptr noundef %7, i32 noundef 1) #16
+  tail call void @qemu_set_irq(ptr noundef %7, i32 noundef 1) #17
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -8254,11 +8254,11 @@ ide_set_retry.exit:                               ; preds = %if.then2.i.i, %if.e
   %retry_nsector.i = getelementptr inbounds i8, ptr %33, i64 2160
   store i32 %32, ptr %retry_nsector.i, align 8
   %34 = load ptr, ptr %blk, align 8
-  %call = tail call ptr @blk_get_stats(ptr noundef %34) #16
+  %call = tail call ptr @blk_get_stats(ptr noundef %34) #17
   %acct = getelementptr inbounds i8, ptr %s, i64 720
-  tail call void @block_acct_start(ptr noundef %call, ptr noundef nonnull %acct, i64 noundef 0, i32 noundef 3) #16
+  tail call void @block_acct_start(ptr noundef %call, ptr noundef nonnull %acct, i64 noundef 0, i32 noundef 3) #17
   %35 = load ptr, ptr %blk, align 8
-  %call4 = tail call ptr @blk_aio_flush(ptr noundef %35, ptr noundef nonnull @ide_flush_cb, ptr noundef nonnull %s) #16
+  %call4 = tail call ptr @blk_aio_flush(ptr noundef %35, ptr noundef nonnull @ide_flush_cb, ptr noundef nonnull %s) #17
   %pio_aiocb = getelementptr inbounds i8, ptr %s, i64 744
   store ptr %call4, ptr %pio_aiocb, align 8
   br label %return
@@ -8288,9 +8288,9 @@ if.end2:                                          ; preds = %if.then, %entry
   br i1 %tobool3.not, label %if.end7, label %if.then4
 
 if.then4:                                         ; preds = %if.end2
-  %call6 = tail call ptr @blk_get_stats(ptr noundef nonnull %0) #16
+  %call6 = tail call ptr @blk_get_stats(ptr noundef nonnull %0) #17
   %acct = getelementptr inbounds i8, ptr %opaque, i64 720
-  tail call void @block_acct_done(ptr noundef %call6, ptr noundef nonnull %acct) #16
+  tail call void @block_acct_done(ptr noundef %call6, ptr noundef nonnull %acct) #17
   br label %if.end7
 
 if.end7:                                          ; preds = %if.then4, %if.end2
@@ -8306,7 +8306,7 @@ if.end7:                                          ; preds = %if.then4, %if.end2
   br i1 %tobool.not.i, label %ide_cmd_done.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end7
-  tail call void %3(ptr noundef nonnull %opaque.val.val) #16
+  tail call void %3(ptr noundef nonnull %opaque.val.val) #17
   %.pre = load ptr, ptr %opaque, align 8
   br label %ide_cmd_done.exit
 
@@ -8321,7 +8321,7 @@ ide_cmd_done.exit:                                ; preds = %if.end7, %if.then.i
 if.then.i10:                                      ; preds = %ide_cmd_done.exit
   %irq.i = getelementptr inbounds i8, ptr %4, i64 2136
   %7 = load ptr, ptr %irq.i, align 8
-  tail call void @qemu_set_irq(ptr noundef %7, i32 noundef 1) #16
+  tail call void @qemu_set_irq(ptr noundef %7, i32 noundef 1) #17
   br label %return
 
 return:                                           ; preds = %if.then.i10, %ide_cmd_done.exit, %if.then
@@ -8337,7 +8337,7 @@ declare void @blk_set_enable_write_cache(ptr noundef, i1 noundef zeroext) local_
 declare void @ide_atapi_cmd_reply_end(ptr noundef) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @ide_dummy_transfer_stop(ptr nocapture noundef %s) #11 {
+define internal void @ide_dummy_transfer_stop(ptr nocapture noundef %s) #12 {
 entry:
   %io_buffer = getelementptr inbounds i8, ptr %s, i64 888
   %0 = load ptr, ptr %io_buffer, align 8
@@ -8368,7 +8368,7 @@ entry:
   store i8 %frombool1, ptr %tray_open, align 1
   %blk = getelementptr inbounds i8, ptr %opaque, i64 672
   %0 = load ptr, ptr %blk, align 8
-  call void @blk_get_geometry(ptr noundef %0, ptr noundef nonnull %nb_sectors) #16
+  call void @blk_get_geometry(ptr noundef %0, ptr noundef nonnull %nb_sectors) #17
   %1 = load i64, ptr %nb_sectors, align 8
   %nb_sectors2 = getelementptr inbounds i8, ptr %opaque, i64 40
   store i64 %1, ptr %nb_sectors2, align 8
@@ -8388,7 +8388,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %irq.i = getelementptr inbounds i8, ptr %2, i64 2136
   %5 = load ptr, ptr %irq.i, align 8
-  call void @qemu_set_irq(ptr noundef %5, i32 noundef 1) #16
+  call void @qemu_set_irq(ptr noundef %5, i32 noundef 1) #17
   br label %ide_bus_set_irq.exit
 
 ide_bus_set_irq.exit:                             ; preds = %entry, %if.then.i
@@ -8418,7 +8418,7 @@ if.end:                                           ; preds = %if.then, %entry
 if.then.i:                                        ; preds = %if.end
   %irq.i = getelementptr inbounds i8, ptr %0, i64 2136
   %3 = load ptr, ptr %irq.i, align 8
-  tail call void @qemu_set_irq(ptr noundef %3, i32 noundef 1) #16
+  tail call void @qemu_set_irq(ptr noundef %3, i32 noundef 1) #17
   br label %ide_bus_set_irq.exit
 
 ide_bus_set_irq.exit:                             ; preds = %if.end, %if.then.i
@@ -8455,7 +8455,7 @@ entry:
 if.end:                                           ; preds = %entry
   %blk = getelementptr inbounds i8, ptr %opaque, i64 672
   %1 = load ptr, ptr %blk, align 8
-  call void @blk_get_geometry(ptr noundef %1, ptr noundef nonnull %nb_sectors) #16
+  call void @blk_get_geometry(ptr noundef %1, ptr noundef nonnull %nb_sectors) #17
   %2 = load i64, ptr %nb_sectors, align 8
   %nb_sectors1 = getelementptr inbounds i8, ptr %opaque, i64 40
   store i64 %2, ptr %nb_sectors1, align 8
@@ -8481,7 +8481,7 @@ if.then2:                                         ; preds = %if.end
   br label %if.end8
 
 if.else6:                                         ; preds = %if.end
-  call void @__assert_fail(ptr noundef nonnull @.str.92, ptr noundef nonnull @.str.6, i32 noundef 2576, ptr noundef nonnull @__PRETTY_FUNCTION__.ide_resize_cb) #17
+  call void @__assert_fail(ptr noundef nonnull @.str.92, ptr noundef nonnull @.str.6, i32 noundef 2576, ptr noundef nonnull @__PRETTY_FUNCTION__.ide_resize_cb) #18
   unreachable
 
 if.end7:                                          ; preds = %if.end
@@ -8519,7 +8519,7 @@ define internal void @ide_restart_bh(ptr noundef %opaque) #0 {
 entry:
   %bh = getelementptr inbounds i8, ptr %opaque, i64 2104
   %0 = load ptr, ptr %bh, align 8
-  tail call void @qemu_bh_delete(ptr noundef %0) #16
+  tail call void @qemu_bh_delete(ptr noundef %0) #17
   store ptr null, ptr %bh, align 8
   %error_status2 = getelementptr inbounds i8, ptr %opaque, i64 2144
   %1 = load i32, ptr %error_status2, align 8
@@ -8550,7 +8550,7 @@ if.then8:                                         ; preds = %if.end
   br i1 %tobool10.not, label %if.end53, label %if.then11
 
 if.then11:                                        ; preds = %if.then8
-  tail call void %6(ptr noundef nonnull %4) #16
+  tail call void %6(ptr noundef nonnull %4) #17
   br label %if.end53
 
 if.else:                                          ; preds = %if.end
@@ -8610,15 +8610,15 @@ if.then43:                                        ; preds = %if.else40
   br i1 %cmp44, label %if.end47, label %if.else46
 
 if.else46:                                        ; preds = %if.then43
-  tail call void @__assert_fail(ptr noundef nonnull @.str.94, ptr noundef nonnull @.str.6, i32 noundef 2756, ptr noundef nonnull @__PRETTY_FUNCTION__.ide_restart_bh) #17
+  tail call void @__assert_fail(ptr noundef nonnull @.str.94, ptr noundef nonnull @.str.6, i32 noundef 2756, ptr noundef nonnull @__PRETTY_FUNCTION__.ide_restart_bh) #18
   unreachable
 
 if.end47:                                         ; preds = %if.then43
-  tail call void @ide_atapi_dma_restart(ptr noundef %add.ptr.i) #16
+  tail call void @ide_atapi_dma_restart(ptr noundef %add.ptr.i) #17
   br label %if.end53
 
 if.else48:                                        ; preds = %if.else40
-  tail call void @abort() #17
+  tail call void @abort() #18
   unreachable
 
 if.end53:                                         ; preds = %if.else25, %if.then24, %if.then39, %if.end47, %if.then33, %if.else34, %if.then8, %if.then11, %entry
@@ -8734,7 +8734,7 @@ ide_set_sector.exit:                              ; preds = %if.then2.i, %if.els
   %13 = load ptr, ptr %12, align 8
   %restart_dma = getelementptr inbounds i8, ptr %13, i64 48
   %14 = load ptr, ptr %restart_dma, align 8
-  tail call void %14(ptr noundef nonnull %12) #16
+  tail call void %14(ptr noundef nonnull %12) #17
   %io_buffer_size = getelementptr inbounds i8, ptr %s, i64 808
   store i32 0, ptr %io_buffer_size, align 8
   %dma_cmd6 = getelementptr inbounds i8, ptr %s, i64 948
@@ -8760,7 +8760,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %irq.i = getelementptr inbounds i8, ptr %0, i64 2136
   %3 = load ptr, ptr %irq.i, align 8
-  tail call void @qemu_set_irq(ptr noundef %3, i32 noundef 1) #16
+  tail call void @qemu_set_irq(ptr noundef %3, i32 noundef 1) #17
   br label %ide_bus_set_irq.exit
 
 ide_bus_set_irq.exit:                             ; preds = %entry, %if.then.i
@@ -8831,7 +8831,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal noundef i32 @ide_drive_pio_pre_save(ptr nocapture noundef %opaque) #12 {
+define internal noundef i32 @ide_drive_pio_pre_save(ptr nocapture noundef %opaque) #13 {
 entry:
   %data_ptr = getelementptr inbounds i8, ptr %opaque, i64 872
   %0 = load ptr, ptr %data_ptr, align 8
@@ -8868,7 +8868,7 @@ for.inc.i:                                        ; preds = %for.body.i
 
 if.then:                                          ; preds = %for.inc.i
   %5 = load ptr, ptr @stderr, align 8
-  %call7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.104, ptr noundef nonnull @__func__.ide_drive_pio_pre_save) #19
+  %call7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.104, ptr noundef nonnull @__func__.ide_drive_pio_pre_save) #20
   br label %if.end
 
 if.else:                                          ; preds = %for.body.i
@@ -8883,7 +8883,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define internal zeroext i1 @ide_drive_pio_state_needed(ptr nocapture noundef readonly %opaque) #13 {
+define internal zeroext i1 @ide_drive_pio_state_needed(ptr nocapture noundef readonly %opaque) #14 {
 entry:
   %status = getelementptr inbounds i8, ptr %opaque, i64 665
   %0 = load i8, ptr %status, align 1
@@ -8955,22 +8955,22 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #14
+declare i32 @llvm.umin.i32(i32, i32) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctpop.i32(i32) #14
+declare i32 @llvm.ctpop.i32(i32) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #14
+declare i64 @llvm.smin.i64(i64, i64) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #14
+declare i32 @llvm.smin.i32(i32, i32) #15
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -8982,16 +8982,17 @@ attributes #6 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nofree nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #15 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #16 = { nounwind }
-attributes #17 = { noreturn nounwind }
-attributes #18 = { nounwind allocsize(0,1) }
-attributes #19 = { cold }
+attributes #10 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #12 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nofree nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #16 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #17 = { nounwind }
+attributes #18 = { noreturn nounwind }
+attributes #19 = { nounwind allocsize(0,1) }
+attributes #20 = { cold }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

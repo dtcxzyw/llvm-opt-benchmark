@@ -590,7 +590,7 @@ if.then:                                          ; preds = %entry
   %5 = load ptr, ptr @stderr, align 8
   %call8.i = tail call ptr @u_getDataDirectory_75()
   %call9.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.37, ptr noundef %call8.i) #19
-  tail call void @exit(i32 noundef 1) #18
+  tail call void @exit(i32 noundef 1) #20
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -626,7 +626,7 @@ if.then7:                                         ; preds = %if.end5
   %17 = load ptr, ptr @stderr, align 8
   %call8.i81 = tail call ptr @u_getDataDirectory_75()
   %call9.i82 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.37, ptr noundef %call8.i81) #19
-  tail call void @exit(i32 noundef 1) #18
+  tail call void @exit(i32 noundef 1) #20
   unreachable
 
 if.end9:                                          ; preds = %if.end5
@@ -663,7 +663,7 @@ if.then21:                                        ; preds = %if.end15
   %29 = load ptr, ptr @stderr, align 8
   %call8.i85 = tail call ptr @u_getDataDirectory_75()
   %call9.i86 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %29, ptr noundef nonnull @.str.37, ptr noundef %call8.i85) #19
-  tail call void @exit(i32 noundef 1) #18
+  tail call void @exit(i32 noundef 1) #20
   unreachable
 
 if.end23:                                         ; preds = %if.end15
@@ -681,7 +681,7 @@ if.then27:                                        ; preds = %if.end23
   %35 = load ptr, ptr @stderr, align 8
   %call8.i89 = tail call ptr @u_getDataDirectory_75()
   %call9.i90 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %35, ptr noundef nonnull @.str.37, ptr noundef %call8.i89) #19
-  tail call void @exit(i32 noundef 1) #18
+  tail call void @exit(i32 noundef 1) #20
   unreachable
 
 if.end29:                                         ; preds = %if.end23
@@ -1147,7 +1147,7 @@ lor.lhs.false140:                                 ; preds = %invoke.cont134
   br i1 %cmp142.not, label %lor.lhs.false143, label %while.cond.outer237.backedge
 
 lor.lhs.false143:                                 ; preds = %lor.lhs.false140
-  %call145 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %s) #20
+  %call145 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %s) #21
   %conv146 = trunc i64 %call145 to i32
   %cmp147 = icmp ne i32 %sub128, %conv146
   %cmp149 = icmp ugt i64 %call137, 4294967295
@@ -1523,7 +1523,7 @@ if.end306:                                        ; preds = %invoke.cont293
 if.then309:                                       ; preds = %if.end306
   %132 = load ptr, ptr @stderr, align 8
   %call311 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %132, ptr noundef nonnull @.str.26, ptr noundef %18) #19
-  call void @exit(i32 noundef 5) #18
+  call void @exit(i32 noundef 5) #20
   unreachable
 
 if.end312:                                        ; preds = %if.end306
@@ -1660,7 +1660,7 @@ declare ptr @ucbuf_open(ptr noundef, ptr noundef, i8 noundef signext, i8 noundef
 
 declare noundef ptr @_ZNK6icu_759ErrorCode9errorNameEv(ptr noundef nonnull align 8 dereferenceable(12)) local_unnamed_addr #5
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #8
 
 declare noundef i32 @_ZN6icu_759ErrorCode5resetEv(ptr noundef nonnull align 8 dereferenceable(12)) local_unnamed_addr #5
@@ -1669,7 +1669,7 @@ declare noundef i32 @_ZN6icu_759ErrorCode5resetEv(ptr noundef nonnull align 8 de
 define linkonce_odr dso_local void @_ZN8DataDict12setTransformEPKc(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %t) local_unnamed_addr #1 comdat align 2 {
 entry:
   %end = alloca ptr, align 8
-  %call = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %t, ptr noundef nonnull dereferenceable(8) @.str.38, i64 noundef 7) #20
+  %call = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %t, ptr noundef nonnull dereferenceable(8) @.str.38, i64 noundef 7) #21
   %cmp = icmp eq i32 %call, 0
   br i1 %cmp, label %if.then, label %if.else
 
@@ -1696,7 +1696,7 @@ if.then8:                                         ; preds = %lor.lhs.false, %if.
   %5 = load ptr, ptr @stderr, align 8
   %call8.i = tail call ptr @u_getDataDirectory_75()
   %call9.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.37, ptr noundef %call8.i) #19
-  tail call void @exit(i32 noundef 1) #18
+  tail call void @exit(i32 noundef 1) #20
   unreachable
 
 if.end:                                           ; preds = %lor.lhs.false
@@ -1717,7 +1717,7 @@ if.else:                                          ; preds = %entry
   %10 = load ptr, ptr @stderr, align 8
   %call8.i7 = tail call ptr @u_getDataDirectory_75()
   %call9.i8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.37, ptr noundef %call8.i7) #19
-  tail call void @exit(i32 noundef 1) #18
+  tail call void @exit(i32 noundef 1) #20
   unreachable
 }
 
@@ -1816,7 +1816,7 @@ if.then9.i:                                       ; preds = %if.end6.i
   %conv.i = sext i32 %call2 to i64
   %conv11.i = sext i32 %5 to i64
   %call.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.41, i64 noundef %conv.i, i64 noundef %conv11.i) #19
-  tail call void @exit(i32 noundef 1) #18
+  tail call void @exit(i32 noundef 1) #20
   unreachable
 
 if.end12.i:                                       ; preds = %if.end6.i
@@ -1883,7 +1883,7 @@ attributes #4 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "
 attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress norecurse uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1895,7 +1895,8 @@ attributes #16 = { nounwind }
 attributes #17 = { allocsize(0) }
 attributes #18 = { noreturn nounwind }
 attributes #19 = { cold }
-attributes #20 = { nounwind willreturn memory(read) }
+attributes #20 = { cold noreturn nounwind }
+attributes #21 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

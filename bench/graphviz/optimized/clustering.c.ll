@@ -14,32 +14,32 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define void @modularity_clustering(ptr noundef %0, i1 noundef zeroext %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #0 {
   %7 = alloca ptr, align 8
-  %8 = tail call ptr @SparseMatrix_symmetrize(ptr noundef %0, i1 noundef zeroext false) #12
+  %8 = tail call ptr @SparseMatrix_symmetrize(ptr noundef %0, i1 noundef zeroext false) #13
   %9 = icmp ne ptr %8, %0
   %or.cond.not = select i1 %1, i1 true, i1 %9
   br i1 %or.cond.not, label %12, label %10
 
 10:                                               ; preds = %6
-  %11 = tail call ptr @SparseMatrix_copy(ptr noundef %0) #12
+  %11 = tail call ptr @SparseMatrix_copy(ptr noundef %0) #13
   br label %12
 
 12:                                               ; preds = %10, %6
   %.0 = phi ptr [ %8, %6 ], [ %11, %10 ]
-  %13 = tail call ptr @SparseMatrix_remove_diagonal(ptr noundef %.0) #12
+  %13 = tail call ptr @SparseMatrix_remove_diagonal(ptr noundef %.0) #13
   %14 = getelementptr inbounds i8, ptr %13, i64 16
   %15 = load i32, ptr %14, align 8
   %.not = icmp eq i32 %15, 1
   br i1 %.not, label %18, label %16
 
 16:                                               ; preds = %12
-  %17 = tail call ptr @SparseMatrix_set_entries_to_real_one(ptr noundef nonnull %13) #12
+  %17 = tail call ptr @SparseMatrix_set_entries_to_real_one(ptr noundef nonnull %13) #13
   br label %18
 
 18:                                               ; preds = %16, %12
   %.1 = phi ptr [ %17, %16 ], [ %13, %12 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   store double 0.000000e+00, ptr %5, align 8
-  %19 = tail call zeroext i1 @SparseMatrix_is_symmetric(ptr noundef %.1, i1 noundef zeroext false) #12
+  %19 = tail call zeroext i1 @SparseMatrix_is_symmetric(ptr noundef %.1, i1 noundef zeroext false) #13
   br i1 %19, label %20, label %23
 
 20:                                               ; preds = %18
@@ -49,7 +49,7 @@ define void @modularity_clustering(ptr noundef %0, i1 noundef zeroext %1, i32 no
   br i1 %.not.i.i, label %25, label %23
 
 23:                                               ; preds = %20, %18
-  %24 = tail call ptr @SparseMatrix_get_real_adjacency_matrix_symmetrized(ptr noundef %.1) #12
+  %24 = tail call ptr @SparseMatrix_get_real_adjacency_matrix_symmetrized(ptr noundef %.1) #13
   br label %25
 
 25:                                               ; preds = %23, %20
@@ -117,8 +117,8 @@ Multilevel_Modularity_Clustering_new.exit.i:      ; preds = %Multilevel_Modulari
   store ptr null, ptr %7, align 8
   %52 = getelementptr inbounds i8, ptr %50, i64 16
   %53 = load ptr, ptr %52, align 8
-  call void @SparseMatrix_multiply_vector(ptr noundef %53, ptr noundef %.048.i, ptr noundef nonnull %7) #12
-  call void @free(ptr noundef %.048.i) #12
+  call void @SparseMatrix_multiply_vector(ptr noundef %53, ptr noundef %.048.i, ptr noundef nonnull %7) #13
+  call void @free(ptr noundef %.048.i) #13
   %54 = load ptr, ptr %7, align 8
   %55 = load ptr, ptr %51, align 8
   %56 = getelementptr inbounds i8, ptr %55, i64 32
@@ -161,14 +161,14 @@ Multilevel_Modularity_Clustering_new.exit.i:      ; preds = %Multilevel_Modulari
   br i1 %74, label %.lr.ph55.i, label %hierachical_modularity_clustering.exit
 
 hierachical_modularity_clustering.exit:           ; preds = %.lr.ph55.i, %64
-  call void @free(ptr noundef %.0.lcssa.i) #12
+  call void @free(ptr noundef %.0.lcssa.i) #13
   call fastcc void @Multilevel_Modularity_Clustering_delete(ptr noundef nonnull %26)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   %.not17 = icmp eq ptr %.1, %0
   br i1 %.not17, label %76, label %75
 
 75:                                               ; preds = %hierachical_modularity_clustering.exit
-  call void @SparseMatrix_delete(ptr noundef %.1) #12
+  call void @SparseMatrix_delete(ptr noundef %.1) #13
   br label %76
 
 76:                                               ; preds = %75, %hierachical_modularity_clustering.exit
@@ -185,13 +185,13 @@ declare ptr @SparseMatrix_set_entries_to_real_one(ptr noundef) local_unnamed_add
 
 declare void @SparseMatrix_delete(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
-define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef %0, i64 noundef %1) unnamed_addr #0 {
+; Function Attrs: nofree nounwind uwtable
+define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef %0, i64 noundef %1) unnamed_addr #2 {
   %.not = icmp eq i64 %0, 0
   br i1 %.not, label %.thread, label %4
 
 .thread:                                          ; preds = %2
-  %3 = tail call noalias ptr @calloc(i64 noundef 0, i64 noundef %1) #13
+  %3 = tail call noalias ptr @calloc(i64 noundef 0, i64 noundef %1) #14
   br label %15
 
 4:                                                ; preds = %2
@@ -201,20 +201,20 @@ define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef %0, i64 nounde
 
 5:                                                ; preds = %4
   %6 = load ptr, ptr @stderr, align 8
-  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.3, i64 noundef %0, i64 noundef %1) #14
-  tail call fastcc void @graphviz_exit() #15
+  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.3, i64 noundef %0, i64 noundef %1) #15
+  tail call fastcc void @graphviz_exit() #16
   unreachable
 
 8:                                                ; preds = %4
-  %9 = tail call noalias ptr @calloc(i64 noundef %0, i64 noundef %1) #13
+  %9 = tail call noalias ptr @calloc(i64 noundef %0, i64 noundef %1) #14
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %15
 
 11:                                               ; preds = %8
   %12 = load ptr, ptr @stderr, align 8
   %13 = mul nsw i64 %1, %0
-  %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.4, i64 noundef %13) #14
-  tail call fastcc void @graphviz_exit() #15
+  %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.4, i64 noundef %13) #15
+  tail call fastcc void @graphviz_exit() #16
   unreachable
 
 15:                                               ; preds = %.thread, %8
@@ -225,7 +225,7 @@ define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef %0, i64 nounde
 declare void @SparseMatrix_multiply_vector(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
+declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @Multilevel_Modularity_Clustering_delete(ptr noundef %0) unnamed_addr #0 {
@@ -253,23 +253,23 @@ common.ret13:                                     ; preds = %1, %12
   ret void
 
 .sink.split:                                      ; preds = %5, %8
-  tail call void @SparseMatrix_delete(ptr noundef nonnull %4) #12
+  tail call void @SparseMatrix_delete(ptr noundef nonnull %4) #13
   br label %12
 
 12:                                               ; preds = %.sink.split, %8, %2
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
-  tail call void @SparseMatrix_delete(ptr noundef %14) #12
+  tail call void @SparseMatrix_delete(ptr noundef %14) #13
   %15 = getelementptr inbounds i8, ptr %0, i64 48
   %16 = load ptr, ptr %15, align 8
-  tail call void @free(ptr noundef %16) #12
+  tail call void @free(ptr noundef %16) #13
   %17 = getelementptr inbounds i8, ptr %0, i64 72
   %18 = load ptr, ptr %17, align 8
-  tail call void @free(ptr noundef %18) #12
+  tail call void @free(ptr noundef %18) #13
   %19 = getelementptr inbounds i8, ptr %0, i64 24
   %20 = load ptr, ptr %19, align 8
   tail call fastcc void @Multilevel_Modularity_Clustering_delete(ptr noundef %20)
-  tail call void @free(ptr noundef nonnull %0) #12
+  tail call void @free(ptr noundef nonnull %0) #13
   br label %common.ret13
 }
 
@@ -281,14 +281,14 @@ declare ptr @SparseMatrix_get_real_adjacency_matrix_symmetrized(ptr noundef) loc
 define internal fastcc noalias noundef ptr @Multilevel_Modularity_Clustering_init(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %5 = tail call noalias dereferenceable_or_null(88) ptr @calloc(i64 noundef 1, i64 noundef 88) #13
+  %5 = tail call noalias dereferenceable_or_null(88) ptr @calloc(i64 noundef 1, i64 noundef 88) #14
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %gv_alloc.exit
 
 7:                                                ; preds = %2
   %8 = load ptr, ptr @stderr, align 8
-  %9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.4, i64 noundef 88) #14
-  tail call fastcc void @graphviz_exit() #15
+  %9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.4, i64 noundef 88) #15
+  tail call fastcc void @graphviz_exit() #16
   unreachable
 
 gv_alloc.exit:                                    ; preds = %2
@@ -401,7 +401,7 @@ gv_alloc.exit:                                    ; preds = %2
   store ptr %25, ptr %15, align 8
   %60 = getelementptr inbounds i8, ptr %5, i64 56
   store double %.076.lcssa, ptr %60, align 8
-  tail call void @free(ptr noundef %26) #12
+  tail call void @free(ptr noundef %26) #13
   br label %61
 
 61:                                               ; preds = %gv_alloc.exit, %._crit_edge89
@@ -669,7 +669,7 @@ tailrecurse:                                      ; preds = %200, %2
 144:                                              ; preds = %._crit_edge324
   %145 = load ptr, ptr @stderr, align 8
   %146 = fadd double %23, %.0236.lcssa
-  %147 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %145, ptr noundef nonnull @.str, double noundef %23, double noundef %146, i32 noundef %15, i32 noundef %14, i32 noundef %.0228.lcssa, double noundef %.0236.lcssa) #14
+  %147 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %145, ptr noundef nonnull @.str, double noundef %23, double noundef %146, i32 noundef %15, i32 noundef %14, i32 noundef %.0228.lcssa, double noundef %.0236.lcssa) #15
   br label %148
 
 148:                                              ; preds = %144, %._crit_edge324
@@ -689,7 +689,7 @@ tailrecurse:                                      ; preds = %200, %2
 
 .lr.ph328.preheader:                              ; preds = %150
   %154 = load ptr, ptr @stderr, align 8
-  %155 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %154, ptr noundef nonnull @.str.1, i32 noundef %1, i32 noundef %14) #14
+  %155 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %154, ptr noundef nonnull @.str.1, i32 noundef %1, i32 noundef %14) #15
   %wide.trip.count391 = zext nneg i32 %14 to i64
   br label %.lr.ph328
 
@@ -703,7 +703,7 @@ tailrecurse:                                      ; preds = %200, %2
   br i1 %exitcond392.not, label %._crit_edge329, label %.lr.ph328
 
 ._crit_edge329:                                   ; preds = %.lr.ph328
-  tail call void @free(ptr noundef %25) #12
+  tail call void @free(ptr noundef %25) #13
   br label %204
 
 158:                                              ; preds = %149
@@ -711,7 +711,7 @@ tailrecurse:                                      ; preds = %200, %2
 
 159:                                              ; preds = %158
   %160 = load ptr, ptr @stderr, align 8
-  %161 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 11, i64 1, ptr %160) #16
+  %161 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 11, i64 1, ptr %160) #17
   br i1 %28, label %.lr.ph340.preheader, label %._crit_edge341
 
 .lr.ph340.preheader:                              ; preds = %159
@@ -728,7 +728,7 @@ tailrecurse:                                      ; preds = %200, %2
   br i1 %exitcond407.not, label %._crit_edge341, label %.lr.ph340
 
 ._crit_edge341:                                   ; preds = %.lr.ph340, %159
-  tail call void @free(ptr noundef %25) #12
+  tail call void @free(ptr noundef %25) #13
   br label %204
 
 164:                                              ; preds = %150, %158, %148
@@ -743,7 +743,7 @@ tailrecurse:                                      ; preds = %200, %2
 
 169:                                              ; preds = %166
   store double 1.000000e+00, ptr %3, align 8
-  %170 = tail call ptr @SparseMatrix_new(i32 noundef %.0228.lcssa, i32 noundef %14, i32 noundef 1, i32 noundef 1, i32 noundef 1) #12
+  %170 = tail call ptr @SparseMatrix_new(i32 noundef %.0228.lcssa, i32 noundef %14, i32 noundef 1, i32 noundef 1, i32 noundef 1) #13
   br i1 %28, label %.lr.ph336.preheader, label %._crit_edge337
 
 .lr.ph336.preheader:                              ; preds = %169
@@ -755,32 +755,32 @@ tailrecurse:                                      ; preds = %200, %2
   %171 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv398
   %172 = load i32, ptr %171, align 4
   %173 = trunc nuw nsw i64 %indvars.iv398 to i32
-  %174 = call ptr @SparseMatrix_coordinate_form_add_entry(ptr noundef %170, i32 noundef %172, i32 noundef %173, ptr noundef nonnull %3) #12
+  %174 = call ptr @SparseMatrix_coordinate_form_add_entry(ptr noundef %170, i32 noundef %172, i32 noundef %173, ptr noundef nonnull %3) #13
   %indvars.iv.next399 = add nuw nsw i64 %indvars.iv398, 1
   %exitcond402.not = icmp eq i64 %indvars.iv.next399, %wide.trip.count401
   br i1 %exitcond402.not, label %._crit_edge337, label %.lr.ph336
 
 ._crit_edge337:                                   ; preds = %.lr.ph336, %169
-  %175 = call ptr @SparseMatrix_from_coordinate_format(ptr noundef %170) #12
-  call void @SparseMatrix_delete(ptr noundef %170) #12
-  %176 = call ptr @SparseMatrix_transpose(ptr noundef %175) #12
-  %177 = call ptr @SparseMatrix_multiply(ptr noundef %175, ptr noundef %13) #12
-  call void @SparseMatrix_delete(ptr noundef %175) #12
+  %175 = call ptr @SparseMatrix_from_coordinate_format(ptr noundef %170) #13
+  call void @SparseMatrix_delete(ptr noundef %170) #13
+  %176 = call ptr @SparseMatrix_transpose(ptr noundef %175) #13
+  %177 = call ptr @SparseMatrix_multiply(ptr noundef %175, ptr noundef %13) #13
+  call void @SparseMatrix_delete(ptr noundef %175) #13
   %.not253 = icmp eq ptr %177, null
   br i1 %.not253, label %178, label %179
 
 178:                                              ; preds = %._crit_edge337
-  call void @free(ptr noundef %25) #12
+  call void @free(ptr noundef %25) #13
   br label %204
 
 179:                                              ; preds = %._crit_edge337
-  %180 = call ptr @SparseMatrix_multiply(ptr noundef nonnull %177, ptr noundef %176) #12
-  call void @SparseMatrix_delete(ptr noundef nonnull %177) #12
+  %180 = call ptr @SparseMatrix_multiply(ptr noundef nonnull %177, ptr noundef %176) #13
+  call void @SparseMatrix_delete(ptr noundef nonnull %177) #13
   %.not254 = icmp eq ptr %180, null
   br i1 %.not254, label %181, label %182
 
 181:                                              ; preds = %179
-  call void @free(ptr noundef %25) #12
+  call void @free(ptr noundef %25) #13
   br label %204
 
 182:                                              ; preds = %179
@@ -816,9 +816,9 @@ tailrecurse:                                      ; preds = %200, %2
 
 200:                                              ; preds = %197
   store i8 1, ptr %10, align 8
-  tail call void @free(ptr noundef %26) #12
-  tail call void @free(ptr noundef %27) #12
-  tail call void @free(ptr noundef %25) #12
+  tail call void @free(ptr noundef %26) #13
+  tail call void @free(ptr noundef %27) #13
+  tail call void @free(ptr noundef %25) #13
   br label %tailrecurse
 
 201:                                              ; preds = %197, %195
@@ -838,23 +838,23 @@ tailrecurse:                                      ; preds = %200, %2
   br i1 %exitcond397.not, label %._crit_edge333, label %.lr.ph332
 
 ._crit_edge333:                                   ; preds = %.lr.ph332, %201
-  tail call void @free(ptr noundef %25) #12
+  tail call void @free(ptr noundef %25) #13
   br label %204
 
 204:                                              ; preds = %182, %._crit_edge333, %181, %178, %._crit_edge341, %._crit_edge329
-  call void @free(ptr noundef %26) #12
-  call void @free(ptr noundef %27) #12
+  call void @free(ptr noundef %26) #13
+  call void @free(ptr noundef %27) #13
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.maxnum.f64(double, double) #3
+declare double @llvm.maxnum.f64(double, double) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #3
+declare double @llvm.fmuladd.f64(double, double, double) #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
 
 declare ptr @SparseMatrix_new(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -866,51 +866,52 @@ declare ptr @SparseMatrix_transpose(ptr noundef) local_unnamed_addr #1
 
 declare ptr @SparseMatrix_multiply(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: noreturn nounwind uwtable
-define internal fastcc void @graphviz_exit() unnamed_addr #5 {
-  tail call void @exit(i32 noundef 1) #17
+; Function Attrs: nofree noreturn nounwind uwtable
+define internal fastcc void @graphviz_exit() unnamed_addr #6 {
+  tail call void @exit(i32 noundef 1) #18
   unreachable
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #6
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #7
 
-; Function Attrs: noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #7
+; Function Attrs: nofree noreturn nounwind
+declare void @exit(i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #8
+declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { nofree nounwind }
-attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #11 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { nounwind }
-attributes #13 = { nounwind allocsize(0,1) }
-attributes #14 = { cold nounwind }
-attributes #15 = { noreturn }
-attributes #16 = { cold }
-attributes #17 = { noreturn nounwind }
+attributes #2 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nofree nounwind }
+attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #12 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #13 = { nounwind }
+attributes #14 = { nounwind allocsize(0,1) }
+attributes #15 = { cold nounwind }
+attributes #16 = { noreturn }
+attributes #17 = { cold }
+attributes #18 = { cold noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

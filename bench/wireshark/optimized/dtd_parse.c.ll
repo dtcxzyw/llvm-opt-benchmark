@@ -88,13 +88,13 @@ define hidden noundef i32 @Dtd_Parse_lex(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not258, label %30, label %48
 
 24:                                               ; preds = %16
-  %25 = tail call noalias dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #22
+  %25 = tail call noalias dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #23
   store ptr %25, ptr %17, align 8
   %.not26.i = icmp eq ptr %25, null
   br i1 %.not26.i, label %26, label %27
 
 26:                                               ; preds = %24
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.19) #23
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.19) #24
   unreachable
 
 27:                                               ; preds = %24
@@ -115,13 +115,13 @@ define hidden noundef i32 @Dtd_Parse_lex(ptr noundef %0) local_unnamed_addr #0 {
 34:                                               ; preds = %30
   %35 = add i64 %32, 8
   %36 = shl i64 %35, 3
-  %37 = tail call ptr @realloc(ptr noundef nonnull %18, i64 noundef %36) #24
+  %37 = tail call ptr @realloc(ptr noundef nonnull %18, i64 noundef %36) #25
   store ptr %37, ptr %17, align 8
   %.not28.i = icmp eq ptr %37, null
   br i1 %.not28.i, label %38, label %39
 
 38:                                               ; preds = %34
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.19) #23
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.19) #24
   unreachable
 
 39:                                               ; preds = %34
@@ -412,9 +412,9 @@ Dtd_Parse_ensure_buffer_stack.exit:               ; preds = %27, %30, %39
   %145 = load ptr, ptr %0, align 8
   %146 = getelementptr inbounds i8, ptr %145, i64 32
   %147 = load ptr, ptr %146, align 8
-  tail call void @g_free(ptr noundef %147) #25
+  tail call void @g_free(ptr noundef %147) #26
   %148 = load ptr, ptr %71, align 8
-  %149 = tail call noalias ptr @g_strdup(ptr noundef %148) #25
+  %149 = tail call noalias ptr @g_strdup(ptr noundef %148) #26
   %150 = load ptr, ptr %0, align 8
   %151 = getelementptr inbounds i8, ptr %150, i64 32
   store ptr %149, ptr %151, align 8
@@ -427,7 +427,7 @@ Dtd_Parse_ensure_buffer_stack.exit:               ; preds = %27, %30, %39
 
 153:                                              ; preds = %132
   %154 = load ptr, ptr %71, align 8
-  %155 = tail call noalias ptr @g_ascii_strdown(ptr noundef %154, i64 noundef -1) #25
+  %155 = tail call noalias ptr @g_ascii_strdown(ptr noundef %154, i64 noundef -1) #26
   %156 = load ptr, ptr %0, align 8
   %157 = getelementptr inbounds i8, ptr %156, i64 40
   store ptr %155, ptr %157, align 8
@@ -445,7 +445,7 @@ Dtd_Parse_ensure_buffer_stack.exit:               ; preds = %27, %30, %39
   %163 = load ptr, ptr %0, align 8
   %164 = getelementptr inbounds i8, ptr %163, i64 32
   %165 = load ptr, ptr %164, align 8
-  tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %162, ptr noundef nonnull @.str, ptr noundef %165) #25
+  tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %162, ptr noundef nonnull @.str, ptr noundef %165) #26
   br label %.loopexit343
 
 .loopexit342:                                     ; preds = %132, %172
@@ -454,7 +454,7 @@ Dtd_Parse_ensure_buffer_stack.exit:               ; preds = %27, %30, %39
   %167 = load ptr, ptr %0, align 8
   %168 = getelementptr inbounds i8, ptr %167, i64 40
   %169 = load ptr, ptr %168, align 8
-  %170 = tail call i32 @g_ascii_strcasecmp(ptr noundef %169, ptr noundef nonnull %166) #25
+  %170 = tail call i32 @g_ascii_strcasecmp(ptr noundef %169, ptr noundef nonnull %166) #26
   %171 = icmp eq i32 %170, 0
   br i1 %171, label %186, label %172
 
@@ -473,22 +473,22 @@ Dtd_Parse_ensure_buffer_stack.exit:               ; preds = %27, %30, %39
   %180 = load ptr, ptr %179, align 8
   %181 = getelementptr inbounds i8, ptr %178, i64 40
   %182 = load ptr, ptr %181, align 8
-  tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %177, ptr noundef nonnull @.str.6, ptr noundef %180, ptr noundef %182) #25
+  tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %177, ptr noundef nonnull @.str.6, ptr noundef %180, ptr noundef %182) #26
   %183 = load ptr, ptr %0, align 8
   %184 = getelementptr inbounds i8, ptr %183, i64 40
   %185 = load ptr, ptr %184, align 8
-  tail call void @g_free(ptr noundef %185) #25
+  tail call void @g_free(ptr noundef %185) #26
   br label %.loopexit343
 
 186:                                              ; preds = %.loopexit342
   %187 = getelementptr inbounds i8, ptr %.0243528, i64 8
   %188 = load ptr, ptr %187, align 8
   %189 = load ptr, ptr %71, align 8
-  tail call void %188(ptr noundef %189) #25
+  tail call void %188(ptr noundef %189) #26
   %190 = load ptr, ptr %0, align 8
   %191 = getelementptr inbounds i8, ptr %190, i64 40
   %192 = load ptr, ptr %191, align 8
-  tail call void @g_free(ptr noundef %192) #25
+  tail call void @g_free(ptr noundef %192) #26
   store i32 17, ptr %68, align 4
   br label %.loopexit.backedge
 
@@ -507,14 +507,14 @@ Dtd_Parse_ensure_buffer_stack.exit:               ; preds = %27, %30, %39
   %199 = load ptr, ptr %71, align 8
   %200 = getelementptr inbounds i8, ptr %196, i64 32
   %201 = load ptr, ptr %200, align 8
-  %202 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #26
-  %203 = tail call noalias ptr @g_strdup(ptr noundef %199) #25
+  %202 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #27
+  %203 = tail call noalias ptr @g_strdup(ptr noundef %199) #26
   store ptr %203, ptr %202, align 8
-  %204 = tail call noalias ptr @g_strdup(ptr noundef %201) #25
+  %204 = tail call noalias ptr @g_strdup(ptr noundef %201) #26
   %205 = getelementptr inbounds i8, ptr %202, i64 8
   store ptr %204, ptr %205, align 8
   %206 = load ptr, ptr @build_data, align 8
-  tail call void @DtdParse(ptr noundef %198, i32 noundef 1, ptr noundef nonnull %202, ptr noundef %206) #25
+  tail call void @DtdParse(ptr noundef %198, i32 noundef 1, ptr noundef nonnull %202, ptr noundef %206) #26
   %207 = load ptr, ptr @build_data, align 8
   %208 = getelementptr inbounds i8, ptr %207, i64 56
   %209 = load ptr, ptr %208, align 8
@@ -530,14 +530,14 @@ Dtd_Parse_ensure_buffer_stack.exit:               ; preds = %27, %30, %39
   %216 = load ptr, ptr %71, align 8
   %217 = getelementptr inbounds i8, ptr %213, i64 32
   %218 = load ptr, ptr %217, align 8
-  %219 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #26
-  %220 = tail call noalias ptr @g_strdup(ptr noundef %216) #25
+  %219 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #27
+  %220 = tail call noalias ptr @g_strdup(ptr noundef %216) #26
   store ptr %220, ptr %219, align 8
-  %221 = tail call noalias ptr @g_strdup(ptr noundef %218) #25
+  %221 = tail call noalias ptr @g_strdup(ptr noundef %218) #26
   %222 = getelementptr inbounds i8, ptr %219, i64 8
   store ptr %221, ptr %222, align 8
   %223 = load ptr, ptr @build_data, align 8
-  tail call void @DtdParse(ptr noundef %215, i32 noundef 6, ptr noundef nonnull %219, ptr noundef %223) #25
+  tail call void @DtdParse(ptr noundef %215, i32 noundef 6, ptr noundef nonnull %219, ptr noundef %223) #26
   %224 = load ptr, ptr @build_data, align 8
   %225 = getelementptr inbounds i8, ptr %224, i64 56
   %226 = load ptr, ptr %225, align 8
@@ -553,14 +553,14 @@ Dtd_Parse_ensure_buffer_stack.exit:               ; preds = %27, %30, %39
   %233 = load ptr, ptr %71, align 8
   %234 = getelementptr inbounds i8, ptr %230, i64 32
   %235 = load ptr, ptr %234, align 8
-  %236 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #26
-  %237 = tail call noalias ptr @g_strdup(ptr noundef %233) #25
+  %236 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #27
+  %237 = tail call noalias ptr @g_strdup(ptr noundef %233) #26
   store ptr %237, ptr %236, align 8
-  %238 = tail call noalias ptr @g_strdup(ptr noundef %235) #25
+  %238 = tail call noalias ptr @g_strdup(ptr noundef %235) #26
   %239 = getelementptr inbounds i8, ptr %236, i64 8
   store ptr %238, ptr %239, align 8
   %240 = load ptr, ptr @build_data, align 8
-  tail call void @DtdParse(ptr noundef %232, i32 noundef 7, ptr noundef nonnull %236, ptr noundef %240) #25
+  tail call void @DtdParse(ptr noundef %232, i32 noundef 7, ptr noundef nonnull %236, ptr noundef %240) #26
   %241 = load ptr, ptr @build_data, align 8
   %242 = getelementptr inbounds i8, ptr %241, i64 56
   %243 = load ptr, ptr %242, align 8
@@ -576,14 +576,14 @@ Dtd_Parse_ensure_buffer_stack.exit:               ; preds = %27, %30, %39
   %250 = load ptr, ptr %71, align 8
   %251 = getelementptr inbounds i8, ptr %247, i64 32
   %252 = load ptr, ptr %251, align 8
-  %253 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #26
-  %254 = tail call noalias ptr @g_strdup(ptr noundef %250) #25
+  %253 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #27
+  %254 = tail call noalias ptr @g_strdup(ptr noundef %250) #26
   store ptr %254, ptr %253, align 8
-  %255 = tail call noalias ptr @g_strdup(ptr noundef %252) #25
+  %255 = tail call noalias ptr @g_strdup(ptr noundef %252) #26
   %256 = getelementptr inbounds i8, ptr %253, i64 8
   store ptr %255, ptr %256, align 8
   %257 = load ptr, ptr @build_data, align 8
-  tail call void @DtdParse(ptr noundef %249, i32 noundef 8, ptr noundef nonnull %253, ptr noundef %257) #25
+  tail call void @DtdParse(ptr noundef %249, i32 noundef 8, ptr noundef nonnull %253, ptr noundef %257) #26
   %258 = load ptr, ptr @build_data, align 8
   %259 = getelementptr inbounds i8, ptr %258, i64 56
   %260 = load ptr, ptr %259, align 8
@@ -599,14 +599,14 @@ Dtd_Parse_ensure_buffer_stack.exit:               ; preds = %27, %30, %39
   %267 = load ptr, ptr %71, align 8
   %268 = getelementptr inbounds i8, ptr %264, i64 32
   %269 = load ptr, ptr %268, align 8
-  %270 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #26
-  %271 = tail call noalias ptr @g_strdup(ptr noundef %267) #25
+  %270 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #27
+  %271 = tail call noalias ptr @g_strdup(ptr noundef %267) #26
   store ptr %271, ptr %270, align 8
-  %272 = tail call noalias ptr @g_strdup(ptr noundef %269) #25
+  %272 = tail call noalias ptr @g_strdup(ptr noundef %269) #26
   %273 = getelementptr inbounds i8, ptr %270, i64 8
   store ptr %272, ptr %273, align 8
   %274 = load ptr, ptr @build_data, align 8
-  tail call void @DtdParse(ptr noundef %266, i32 noundef 2, ptr noundef nonnull %270, ptr noundef %274) #25
+  tail call void @DtdParse(ptr noundef %266, i32 noundef 2, ptr noundef nonnull %270, ptr noundef %274) #26
   %275 = load ptr, ptr @build_data, align 8
   %276 = getelementptr inbounds i8, ptr %275, i64 56
   %277 = load ptr, ptr %276, align 8
@@ -622,14 +622,14 @@ Dtd_Parse_ensure_buffer_stack.exit:               ; preds = %27, %30, %39
   %284 = load ptr, ptr %71, align 8
   %285 = getelementptr inbounds i8, ptr %281, i64 32
   %286 = load ptr, ptr %285, align 8
-  %287 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #26
-  %288 = tail call noalias ptr @g_strdup(ptr noundef %284) #25
+  %287 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #27
+  %288 = tail call noalias ptr @g_strdup(ptr noundef %284) #26
   store ptr %288, ptr %287, align 8
-  %289 = tail call noalias ptr @g_strdup(ptr noundef %286) #25
+  %289 = tail call noalias ptr @g_strdup(ptr noundef %286) #26
   %290 = getelementptr inbounds i8, ptr %287, i64 8
   store ptr %289, ptr %290, align 8
   %291 = load ptr, ptr @build_data, align 8
-  tail call void @DtdParse(ptr noundef %283, i32 noundef 21, ptr noundef nonnull %287, ptr noundef %291) #25
+  tail call void @DtdParse(ptr noundef %283, i32 noundef 21, ptr noundef nonnull %287, ptr noundef %291) #26
   %292 = load ptr, ptr @build_data, align 8
   %293 = getelementptr inbounds i8, ptr %292, i64 56
   %294 = load ptr, ptr %293, align 8
@@ -645,14 +645,14 @@ Dtd_Parse_ensure_buffer_stack.exit:               ; preds = %27, %30, %39
   %301 = load ptr, ptr %71, align 8
   %302 = getelementptr inbounds i8, ptr %298, i64 32
   %303 = load ptr, ptr %302, align 8
-  %304 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #26
-  %305 = tail call noalias ptr @g_strdup(ptr noundef %301) #25
+  %304 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #27
+  %305 = tail call noalias ptr @g_strdup(ptr noundef %301) #26
   store ptr %305, ptr %304, align 8
-  %306 = tail call noalias ptr @g_strdup(ptr noundef %303) #25
+  %306 = tail call noalias ptr @g_strdup(ptr noundef %303) #26
   %307 = getelementptr inbounds i8, ptr %304, i64 8
   store ptr %306, ptr %307, align 8
   %308 = load ptr, ptr @build_data, align 8
-  tail call void @DtdParse(ptr noundef %300, i32 noundef 21, ptr noundef nonnull %304, ptr noundef %308) #25
+  tail call void @DtdParse(ptr noundef %300, i32 noundef 21, ptr noundef nonnull %304, ptr noundef %308) #26
   %309 = load ptr, ptr @build_data, align 8
   %310 = getelementptr inbounds i8, ptr %309, i64 56
   %311 = load ptr, ptr %310, align 8
@@ -668,14 +668,14 @@ Dtd_Parse_ensure_buffer_stack.exit:               ; preds = %27, %30, %39
   %318 = load ptr, ptr %71, align 8
   %319 = getelementptr inbounds i8, ptr %315, i64 32
   %320 = load ptr, ptr %319, align 8
-  %321 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #26
-  %322 = tail call noalias ptr @g_strdup(ptr noundef %318) #25
+  %321 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #27
+  %322 = tail call noalias ptr @g_strdup(ptr noundef %318) #26
   store ptr %322, ptr %321, align 8
-  %323 = tail call noalias ptr @g_strdup(ptr noundef %320) #25
+  %323 = tail call noalias ptr @g_strdup(ptr noundef %320) #26
   %324 = getelementptr inbounds i8, ptr %321, i64 8
   store ptr %323, ptr %324, align 8
   %325 = load ptr, ptr @build_data, align 8
-  tail call void @DtdParse(ptr noundef %317, i32 noundef 21, ptr noundef nonnull %321, ptr noundef %325) #25
+  tail call void @DtdParse(ptr noundef %317, i32 noundef 21, ptr noundef nonnull %321, ptr noundef %325) #26
   %326 = load ptr, ptr @build_data, align 8
   %327 = getelementptr inbounds i8, ptr %326, i64 56
   %328 = load ptr, ptr %327, align 8
@@ -691,14 +691,14 @@ Dtd_Parse_ensure_buffer_stack.exit:               ; preds = %27, %30, %39
   %335 = load ptr, ptr %71, align 8
   %336 = getelementptr inbounds i8, ptr %332, i64 32
   %337 = load ptr, ptr %336, align 8
-  %338 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #26
-  %339 = tail call noalias ptr @g_strdup(ptr noundef %335) #25
+  %338 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #27
+  %339 = tail call noalias ptr @g_strdup(ptr noundef %335) #26
   store ptr %339, ptr %338, align 8
-  %340 = tail call noalias ptr @g_strdup(ptr noundef %337) #25
+  %340 = tail call noalias ptr @g_strdup(ptr noundef %337) #26
   %341 = getelementptr inbounds i8, ptr %338, i64 8
   store ptr %340, ptr %341, align 8
   %342 = load ptr, ptr @build_data, align 8
-  tail call void @DtdParse(ptr noundef %334, i32 noundef 23, ptr noundef nonnull %338, ptr noundef %342) #25
+  tail call void @DtdParse(ptr noundef %334, i32 noundef 23, ptr noundef nonnull %338, ptr noundef %342) #26
   %343 = load ptr, ptr @build_data, align 8
   %344 = getelementptr inbounds i8, ptr %343, i64 56
   %345 = load ptr, ptr %344, align 8
@@ -714,14 +714,14 @@ Dtd_Parse_ensure_buffer_stack.exit:               ; preds = %27, %30, %39
   %352 = load ptr, ptr %71, align 8
   %353 = getelementptr inbounds i8, ptr %349, i64 32
   %354 = load ptr, ptr %353, align 8
-  %355 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #26
-  %356 = tail call noalias ptr @g_strdup(ptr noundef %352) #25
+  %355 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #27
+  %356 = tail call noalias ptr @g_strdup(ptr noundef %352) #26
   store ptr %356, ptr %355, align 8
-  %357 = tail call noalias ptr @g_strdup(ptr noundef %354) #25
+  %357 = tail call noalias ptr @g_strdup(ptr noundef %354) #26
   %358 = getelementptr inbounds i8, ptr %355, i64 8
   store ptr %357, ptr %358, align 8
   %359 = load ptr, ptr @build_data, align 8
-  tail call void @DtdParse(ptr noundef %351, i32 noundef 9, ptr noundef nonnull %355, ptr noundef %359) #25
+  tail call void @DtdParse(ptr noundef %351, i32 noundef 9, ptr noundef nonnull %355, ptr noundef %359) #26
   %360 = load ptr, ptr @build_data, align 8
   %361 = getelementptr inbounds i8, ptr %360, i64 56
   %362 = load ptr, ptr %361, align 8
@@ -737,14 +737,14 @@ Dtd_Parse_ensure_buffer_stack.exit:               ; preds = %27, %30, %39
   %369 = load ptr, ptr %71, align 8
   %370 = getelementptr inbounds i8, ptr %366, i64 32
   %371 = load ptr, ptr %370, align 8
-  %372 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #26
-  %373 = tail call noalias ptr @g_strdup(ptr noundef %369) #25
+  %372 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #27
+  %373 = tail call noalias ptr @g_strdup(ptr noundef %369) #26
   store ptr %373, ptr %372, align 8
-  %374 = tail call noalias ptr @g_strdup(ptr noundef %371) #25
+  %374 = tail call noalias ptr @g_strdup(ptr noundef %371) #26
   %375 = getelementptr inbounds i8, ptr %372, i64 8
   store ptr %374, ptr %375, align 8
   %376 = load ptr, ptr @build_data, align 8
-  tail call void @DtdParse(ptr noundef %368, i32 noundef 9, ptr noundef nonnull %372, ptr noundef %376) #25
+  tail call void @DtdParse(ptr noundef %368, i32 noundef 9, ptr noundef nonnull %372, ptr noundef %376) #26
   %377 = load ptr, ptr @build_data, align 8
   %378 = getelementptr inbounds i8, ptr %377, i64 56
   %379 = load ptr, ptr %378, align 8
@@ -760,14 +760,14 @@ Dtd_Parse_ensure_buffer_stack.exit:               ; preds = %27, %30, %39
   %386 = load ptr, ptr %71, align 8
   %387 = getelementptr inbounds i8, ptr %383, i64 32
   %388 = load ptr, ptr %387, align 8
-  %389 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #26
-  %390 = tail call noalias ptr @g_strdup(ptr noundef %386) #25
+  %389 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #27
+  %390 = tail call noalias ptr @g_strdup(ptr noundef %386) #26
   store ptr %390, ptr %389, align 8
-  %391 = tail call noalias ptr @g_strdup(ptr noundef %388) #25
+  %391 = tail call noalias ptr @g_strdup(ptr noundef %388) #26
   %392 = getelementptr inbounds i8, ptr %389, i64 8
   store ptr %391, ptr %392, align 8
   %393 = load ptr, ptr @build_data, align 8
-  tail call void @DtdParse(ptr noundef %385, i32 noundef 9, ptr noundef nonnull %389, ptr noundef %393) #25
+  tail call void @DtdParse(ptr noundef %385, i32 noundef 9, ptr noundef nonnull %389, ptr noundef %393) #26
   %394 = load ptr, ptr @build_data, align 8
   %395 = getelementptr inbounds i8, ptr %394, i64 56
   %396 = load ptr, ptr %395, align 8
@@ -783,14 +783,14 @@ Dtd_Parse_ensure_buffer_stack.exit:               ; preds = %27, %30, %39
   %403 = load ptr, ptr %71, align 8
   %404 = getelementptr inbounds i8, ptr %400, i64 32
   %405 = load ptr, ptr %404, align 8
-  %406 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #26
-  %407 = tail call noalias ptr @g_strdup(ptr noundef %403) #25
+  %406 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #27
+  %407 = tail call noalias ptr @g_strdup(ptr noundef %403) #26
   store ptr %407, ptr %406, align 8
-  %408 = tail call noalias ptr @g_strdup(ptr noundef %405) #25
+  %408 = tail call noalias ptr @g_strdup(ptr noundef %405) #26
   %409 = getelementptr inbounds i8, ptr %406, i64 8
   store ptr %408, ptr %409, align 8
   %410 = load ptr, ptr @build_data, align 8
-  tail call void @DtdParse(ptr noundef %402, i32 noundef 9, ptr noundef nonnull %406, ptr noundef %410) #25
+  tail call void @DtdParse(ptr noundef %402, i32 noundef 9, ptr noundef nonnull %406, ptr noundef %410) #26
   %411 = load ptr, ptr @build_data, align 8
   %412 = getelementptr inbounds i8, ptr %411, i64 56
   %413 = load ptr, ptr %412, align 8
@@ -806,14 +806,14 @@ Dtd_Parse_ensure_buffer_stack.exit:               ; preds = %27, %30, %39
   %420 = load ptr, ptr %71, align 8
   %421 = getelementptr inbounds i8, ptr %417, i64 32
   %422 = load ptr, ptr %421, align 8
-  %423 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #26
-  %424 = tail call noalias ptr @g_strdup(ptr noundef %420) #25
+  %423 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #27
+  %424 = tail call noalias ptr @g_strdup(ptr noundef %420) #26
   store ptr %424, ptr %423, align 8
-  %425 = tail call noalias ptr @g_strdup(ptr noundef %422) #25
+  %425 = tail call noalias ptr @g_strdup(ptr noundef %422) #26
   %426 = getelementptr inbounds i8, ptr %423, i64 8
   store ptr %425, ptr %426, align 8
   %427 = load ptr, ptr @build_data, align 8
-  tail call void @DtdParse(ptr noundef %419, i32 noundef 9, ptr noundef nonnull %423, ptr noundef %427) #25
+  tail call void @DtdParse(ptr noundef %419, i32 noundef 9, ptr noundef nonnull %423, ptr noundef %427) #26
   %428 = load ptr, ptr @build_data, align 8
   %429 = getelementptr inbounds i8, ptr %428, i64 56
   %430 = load ptr, ptr %429, align 8
@@ -829,14 +829,14 @@ Dtd_Parse_ensure_buffer_stack.exit:               ; preds = %27, %30, %39
   %437 = load ptr, ptr %71, align 8
   %438 = getelementptr inbounds i8, ptr %434, i64 32
   %439 = load ptr, ptr %438, align 8
-  %440 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #26
-  %441 = tail call noalias ptr @g_strdup(ptr noundef %437) #25
+  %440 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #27
+  %441 = tail call noalias ptr @g_strdup(ptr noundef %437) #26
   store ptr %441, ptr %440, align 8
-  %442 = tail call noalias ptr @g_strdup(ptr noundef %439) #25
+  %442 = tail call noalias ptr @g_strdup(ptr noundef %439) #26
   %443 = getelementptr inbounds i8, ptr %440, i64 8
   store ptr %442, ptr %443, align 8
   %444 = load ptr, ptr @build_data, align 8
-  tail call void @DtdParse(ptr noundef %436, i32 noundef 9, ptr noundef nonnull %440, ptr noundef %444) #25
+  tail call void @DtdParse(ptr noundef %436, i32 noundef 9, ptr noundef nonnull %440, ptr noundef %444) #26
   %445 = load ptr, ptr @build_data, align 8
   %446 = getelementptr inbounds i8, ptr %445, i64 56
   %447 = load ptr, ptr %446, align 8
@@ -852,14 +852,14 @@ Dtd_Parse_ensure_buffer_stack.exit:               ; preds = %27, %30, %39
   %454 = load ptr, ptr %71, align 8
   %455 = getelementptr inbounds i8, ptr %451, i64 32
   %456 = load ptr, ptr %455, align 8
-  %457 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #26
-  %458 = tail call noalias ptr @g_strdup(ptr noundef %454) #25
+  %457 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #27
+  %458 = tail call noalias ptr @g_strdup(ptr noundef %454) #26
   store ptr %458, ptr %457, align 8
-  %459 = tail call noalias ptr @g_strdup(ptr noundef %456) #25
+  %459 = tail call noalias ptr @g_strdup(ptr noundef %456) #26
   %460 = getelementptr inbounds i8, ptr %457, i64 8
   store ptr %459, ptr %460, align 8
   %461 = load ptr, ptr @build_data, align 8
-  tail call void @DtdParse(ptr noundef %453, i32 noundef 9, ptr noundef nonnull %457, ptr noundef %461) #25
+  tail call void @DtdParse(ptr noundef %453, i32 noundef 9, ptr noundef nonnull %457, ptr noundef %461) #26
   %462 = load ptr, ptr @build_data, align 8
   %463 = getelementptr inbounds i8, ptr %462, i64 56
   %464 = load ptr, ptr %463, align 8
@@ -875,14 +875,14 @@ Dtd_Parse_ensure_buffer_stack.exit:               ; preds = %27, %30, %39
   %471 = load ptr, ptr %71, align 8
   %472 = getelementptr inbounds i8, ptr %468, i64 32
   %473 = load ptr, ptr %472, align 8
-  %474 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #26
-  %475 = tail call noalias ptr @g_strdup(ptr noundef %471) #25
+  %474 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #27
+  %475 = tail call noalias ptr @g_strdup(ptr noundef %471) #26
   store ptr %475, ptr %474, align 8
-  %476 = tail call noalias ptr @g_strdup(ptr noundef %473) #25
+  %476 = tail call noalias ptr @g_strdup(ptr noundef %473) #26
   %477 = getelementptr inbounds i8, ptr %474, i64 8
   store ptr %476, ptr %477, align 8
   %478 = load ptr, ptr @build_data, align 8
-  tail call void @DtdParse(ptr noundef %470, i32 noundef 9, ptr noundef nonnull %474, ptr noundef %478) #25
+  tail call void @DtdParse(ptr noundef %470, i32 noundef 9, ptr noundef nonnull %474, ptr noundef %478) #26
   %479 = load ptr, ptr @build_data, align 8
   %480 = getelementptr inbounds i8, ptr %479, i64 56
   %481 = load ptr, ptr %480, align 8
@@ -898,14 +898,14 @@ Dtd_Parse_ensure_buffer_stack.exit:               ; preds = %27, %30, %39
   %488 = load ptr, ptr %71, align 8
   %489 = getelementptr inbounds i8, ptr %485, i64 32
   %490 = load ptr, ptr %489, align 8
-  %491 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #26
-  %492 = tail call noalias ptr @g_strdup(ptr noundef %488) #25
+  %491 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #27
+  %492 = tail call noalias ptr @g_strdup(ptr noundef %488) #26
   store ptr %492, ptr %491, align 8
-  %493 = tail call noalias ptr @g_strdup(ptr noundef %490) #25
+  %493 = tail call noalias ptr @g_strdup(ptr noundef %490) #26
   %494 = getelementptr inbounds i8, ptr %491, i64 8
   store ptr %493, ptr %494, align 8
   %495 = load ptr, ptr @build_data, align 8
-  tail call void @DtdParse(ptr noundef %487, i32 noundef 9, ptr noundef nonnull %491, ptr noundef %495) #25
+  tail call void @DtdParse(ptr noundef %487, i32 noundef 9, ptr noundef nonnull %491, ptr noundef %495) #26
   %496 = load ptr, ptr @build_data, align 8
   %497 = getelementptr inbounds i8, ptr %496, i64 56
   %498 = load ptr, ptr %497, align 8
@@ -921,14 +921,14 @@ Dtd_Parse_ensure_buffer_stack.exit:               ; preds = %27, %30, %39
   %505 = load ptr, ptr %71, align 8
   %506 = getelementptr inbounds i8, ptr %502, i64 32
   %507 = load ptr, ptr %506, align 8
-  %508 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #26
-  %509 = tail call noalias ptr @g_strdup(ptr noundef %505) #25
+  %508 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #27
+  %509 = tail call noalias ptr @g_strdup(ptr noundef %505) #26
   store ptr %509, ptr %508, align 8
-  %510 = tail call noalias ptr @g_strdup(ptr noundef %507) #25
+  %510 = tail call noalias ptr @g_strdup(ptr noundef %507) #26
   %511 = getelementptr inbounds i8, ptr %508, i64 8
   store ptr %510, ptr %511, align 8
   %512 = load ptr, ptr @build_data, align 8
-  tail call void @DtdParse(ptr noundef %504, i32 noundef 11, ptr noundef nonnull %508, ptr noundef %512) #25
+  tail call void @DtdParse(ptr noundef %504, i32 noundef 11, ptr noundef nonnull %508, ptr noundef %512) #26
   %513 = load ptr, ptr @build_data, align 8
   %514 = getelementptr inbounds i8, ptr %513, i64 56
   %515 = load ptr, ptr %514, align 8
@@ -944,14 +944,14 @@ Dtd_Parse_ensure_buffer_stack.exit:               ; preds = %27, %30, %39
   %522 = load ptr, ptr %71, align 8
   %523 = getelementptr inbounds i8, ptr %519, i64 32
   %524 = load ptr, ptr %523, align 8
-  %525 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #26
-  %526 = tail call noalias ptr @g_strdup(ptr noundef %522) #25
+  %525 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #27
+  %526 = tail call noalias ptr @g_strdup(ptr noundef %522) #26
   store ptr %526, ptr %525, align 8
-  %527 = tail call noalias ptr @g_strdup(ptr noundef %524) #25
+  %527 = tail call noalias ptr @g_strdup(ptr noundef %524) #26
   %528 = getelementptr inbounds i8, ptr %525, i64 8
   store ptr %527, ptr %528, align 8
   %529 = load ptr, ptr @build_data, align 8
-  tail call void @DtdParse(ptr noundef %521, i32 noundef 11, ptr noundef nonnull %525, ptr noundef %529) #25
+  tail call void @DtdParse(ptr noundef %521, i32 noundef 11, ptr noundef nonnull %525, ptr noundef %529) #26
   %530 = load ptr, ptr @build_data, align 8
   %531 = getelementptr inbounds i8, ptr %530, i64 56
   %532 = load ptr, ptr %531, align 8
@@ -967,14 +967,14 @@ Dtd_Parse_ensure_buffer_stack.exit:               ; preds = %27, %30, %39
   %539 = load ptr, ptr %71, align 8
   %540 = getelementptr inbounds i8, ptr %536, i64 32
   %541 = load ptr, ptr %540, align 8
-  %542 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #26
-  %543 = tail call noalias ptr @g_strdup(ptr noundef %539) #25
+  %542 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #27
+  %543 = tail call noalias ptr @g_strdup(ptr noundef %539) #26
   store ptr %543, ptr %542, align 8
-  %544 = tail call noalias ptr @g_strdup(ptr noundef %541) #25
+  %544 = tail call noalias ptr @g_strdup(ptr noundef %541) #26
   %545 = getelementptr inbounds i8, ptr %542, i64 8
   store ptr %544, ptr %545, align 8
   %546 = load ptr, ptr @build_data, align 8
-  tail call void @DtdParse(ptr noundef %538, i32 noundef 10, ptr noundef nonnull %542, ptr noundef %546) #25
+  tail call void @DtdParse(ptr noundef %538, i32 noundef 10, ptr noundef nonnull %542, ptr noundef %546) #26
   %547 = load ptr, ptr @build_data, align 8
   %548 = getelementptr inbounds i8, ptr %547, i64 56
   %549 = load ptr, ptr %548, align 8
@@ -990,14 +990,14 @@ Dtd_Parse_ensure_buffer_stack.exit:               ; preds = %27, %30, %39
   %556 = load ptr, ptr %71, align 8
   %557 = getelementptr inbounds i8, ptr %553, i64 32
   %558 = load ptr, ptr %557, align 8
-  %559 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #26
-  %560 = tail call noalias ptr @g_strdup(ptr noundef %556) #25
+  %559 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #27
+  %560 = tail call noalias ptr @g_strdup(ptr noundef %556) #26
   store ptr %560, ptr %559, align 8
-  %561 = tail call noalias ptr @g_strdup(ptr noundef %558) #25
+  %561 = tail call noalias ptr @g_strdup(ptr noundef %558) #26
   %562 = getelementptr inbounds i8, ptr %559, i64 8
   store ptr %561, ptr %562, align 8
   %563 = load ptr, ptr @build_data, align 8
-  tail call void @DtdParse(ptr noundef %555, i32 noundef 10, ptr noundef nonnull %559, ptr noundef %563) #25
+  tail call void @DtdParse(ptr noundef %555, i32 noundef 10, ptr noundef nonnull %559, ptr noundef %563) #26
   %564 = load ptr, ptr @build_data, align 8
   %565 = getelementptr inbounds i8, ptr %564, i64 56
   %566 = load ptr, ptr %565, align 8
@@ -1013,14 +1013,14 @@ Dtd_Parse_ensure_buffer_stack.exit:               ; preds = %27, %30, %39
   %573 = load ptr, ptr %71, align 8
   %574 = getelementptr inbounds i8, ptr %570, i64 32
   %575 = load ptr, ptr %574, align 8
-  %576 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #26
-  %577 = tail call noalias ptr @g_strdup(ptr noundef %573) #25
+  %576 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #27
+  %577 = tail call noalias ptr @g_strdup(ptr noundef %573) #26
   store ptr %577, ptr %576, align 8
-  %578 = tail call noalias ptr @g_strdup(ptr noundef %575) #25
+  %578 = tail call noalias ptr @g_strdup(ptr noundef %575) #26
   %579 = getelementptr inbounds i8, ptr %576, i64 8
   store ptr %578, ptr %579, align 8
   %580 = load ptr, ptr @build_data, align 8
-  tail call void @DtdParse(ptr noundef %572, i32 noundef 18, ptr noundef nonnull %576, ptr noundef %580) #25
+  tail call void @DtdParse(ptr noundef %572, i32 noundef 18, ptr noundef nonnull %576, ptr noundef %580) #26
   %581 = load ptr, ptr @build_data, align 8
   %582 = getelementptr inbounds i8, ptr %581, i64 56
   %583 = load ptr, ptr %582, align 8
@@ -1036,14 +1036,14 @@ Dtd_Parse_ensure_buffer_stack.exit:               ; preds = %27, %30, %39
   %590 = load ptr, ptr %71, align 8
   %591 = getelementptr inbounds i8, ptr %587, i64 32
   %592 = load ptr, ptr %591, align 8
-  %593 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #26
-  %594 = tail call noalias ptr @g_strdup(ptr noundef %590) #25
+  %593 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #27
+  %594 = tail call noalias ptr @g_strdup(ptr noundef %590) #26
   store ptr %594, ptr %593, align 8
-  %595 = tail call noalias ptr @g_strdup(ptr noundef %592) #25
+  %595 = tail call noalias ptr @g_strdup(ptr noundef %592) #26
   %596 = getelementptr inbounds i8, ptr %593, i64 8
   store ptr %595, ptr %596, align 8
   %597 = load ptr, ptr @build_data, align 8
-  tail call void @DtdParse(ptr noundef %589, i32 noundef 20, ptr noundef nonnull %593, ptr noundef %597) #25
+  tail call void @DtdParse(ptr noundef %589, i32 noundef 20, ptr noundef nonnull %593, ptr noundef %597) #26
   %598 = load ptr, ptr @build_data, align 8
   %599 = getelementptr inbounds i8, ptr %598, i64 56
   %600 = load ptr, ptr %599, align 8
@@ -1059,14 +1059,14 @@ Dtd_Parse_ensure_buffer_stack.exit:               ; preds = %27, %30, %39
   %607 = load ptr, ptr %71, align 8
   %608 = getelementptr inbounds i8, ptr %604, i64 32
   %609 = load ptr, ptr %608, align 8
-  %610 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #26
-  %611 = tail call noalias ptr @g_strdup(ptr noundef %607) #25
+  %610 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #27
+  %611 = tail call noalias ptr @g_strdup(ptr noundef %607) #26
   store ptr %611, ptr %610, align 8
-  %612 = tail call noalias ptr @g_strdup(ptr noundef %609) #25
+  %612 = tail call noalias ptr @g_strdup(ptr noundef %609) #26
   %613 = getelementptr inbounds i8, ptr %610, i64 8
   store ptr %612, ptr %613, align 8
   %614 = load ptr, ptr @build_data, align 8
-  tail call void @DtdParse(ptr noundef %606, i32 noundef 19, ptr noundef nonnull %610, ptr noundef %614) #25
+  tail call void @DtdParse(ptr noundef %606, i32 noundef 19, ptr noundef nonnull %610, ptr noundef %614) #26
   %615 = load ptr, ptr @build_data, align 8
   %616 = getelementptr inbounds i8, ptr %615, i64 56
   %617 = load ptr, ptr %616, align 8
@@ -1082,14 +1082,14 @@ Dtd_Parse_ensure_buffer_stack.exit:               ; preds = %27, %30, %39
   %624 = load ptr, ptr %71, align 8
   %625 = getelementptr inbounds i8, ptr %621, i64 32
   %626 = load ptr, ptr %625, align 8
-  %627 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #26
-  %628 = tail call noalias ptr @g_strdup(ptr noundef %624) #25
+  %627 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #27
+  %628 = tail call noalias ptr @g_strdup(ptr noundef %624) #26
   store ptr %628, ptr %627, align 8
-  %629 = tail call noalias ptr @g_strdup(ptr noundef %626) #25
+  %629 = tail call noalias ptr @g_strdup(ptr noundef %626) #26
   %630 = getelementptr inbounds i8, ptr %627, i64 8
   store ptr %629, ptr %630, align 8
   %631 = load ptr, ptr @build_data, align 8
-  tail call void @DtdParse(ptr noundef %623, i32 noundef 22, ptr noundef nonnull %627, ptr noundef %631) #25
+  tail call void @DtdParse(ptr noundef %623, i32 noundef 22, ptr noundef nonnull %627, ptr noundef %631) #26
   %632 = load ptr, ptr @build_data, align 8
   %633 = getelementptr inbounds i8, ptr %632, i64 56
   %634 = load ptr, ptr %633, align 8
@@ -1105,14 +1105,14 @@ Dtd_Parse_ensure_buffer_stack.exit:               ; preds = %27, %30, %39
   %641 = load ptr, ptr %71, align 8
   %642 = getelementptr inbounds i8, ptr %638, i64 32
   %643 = load ptr, ptr %642, align 8
-  %644 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #26
-  %645 = tail call noalias ptr @g_strdup(ptr noundef %641) #25
+  %644 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #27
+  %645 = tail call noalias ptr @g_strdup(ptr noundef %641) #26
   store ptr %645, ptr %644, align 8
-  %646 = tail call noalias ptr @g_strdup(ptr noundef %643) #25
+  %646 = tail call noalias ptr @g_strdup(ptr noundef %643) #26
   %647 = getelementptr inbounds i8, ptr %644, i64 8
   store ptr %646, ptr %647, align 8
   %648 = load ptr, ptr @build_data, align 8
-  tail call void @DtdParse(ptr noundef %640, i32 noundef 15, ptr noundef nonnull %644, ptr noundef %648) #25
+  tail call void @DtdParse(ptr noundef %640, i32 noundef 15, ptr noundef nonnull %644, ptr noundef %648) #26
   %649 = load ptr, ptr @build_data, align 8
   %650 = getelementptr inbounds i8, ptr %649, i64 56
   %651 = load ptr, ptr %650, align 8
@@ -1128,14 +1128,14 @@ Dtd_Parse_ensure_buffer_stack.exit:               ; preds = %27, %30, %39
   %658 = load ptr, ptr %71, align 8
   %659 = getelementptr inbounds i8, ptr %655, i64 32
   %660 = load ptr, ptr %659, align 8
-  %661 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #26
-  %662 = tail call noalias ptr @g_strdup(ptr noundef %658) #25
+  %661 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #27
+  %662 = tail call noalias ptr @g_strdup(ptr noundef %658) #26
   store ptr %662, ptr %661, align 8
-  %663 = tail call noalias ptr @g_strdup(ptr noundef %660) #25
+  %663 = tail call noalias ptr @g_strdup(ptr noundef %660) #26
   %664 = getelementptr inbounds i8, ptr %661, i64 8
   store ptr %663, ptr %664, align 8
   %665 = load ptr, ptr @build_data, align 8
-  tail call void @DtdParse(ptr noundef %657, i32 noundef 16, ptr noundef nonnull %661, ptr noundef %665) #25
+  tail call void @DtdParse(ptr noundef %657, i32 noundef 16, ptr noundef nonnull %661, ptr noundef %665) #26
   %666 = load ptr, ptr @build_data, align 8
   %667 = getelementptr inbounds i8, ptr %666, i64 56
   %668 = load ptr, ptr %667, align 8
@@ -1151,14 +1151,14 @@ Dtd_Parse_ensure_buffer_stack.exit:               ; preds = %27, %30, %39
   %675 = load ptr, ptr %71, align 8
   %676 = getelementptr inbounds i8, ptr %672, i64 32
   %677 = load ptr, ptr %676, align 8
-  %678 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #26
-  %679 = tail call noalias ptr @g_strdup(ptr noundef %675) #25
+  %678 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #27
+  %679 = tail call noalias ptr @g_strdup(ptr noundef %675) #26
   store ptr %679, ptr %678, align 8
-  %680 = tail call noalias ptr @g_strdup(ptr noundef %677) #25
+  %680 = tail call noalias ptr @g_strdup(ptr noundef %677) #26
   %681 = getelementptr inbounds i8, ptr %678, i64 8
   store ptr %680, ptr %681, align 8
   %682 = load ptr, ptr @build_data, align 8
-  tail call void @DtdParse(ptr noundef %674, i32 noundef 4, ptr noundef nonnull %678, ptr noundef %682) #25
+  tail call void @DtdParse(ptr noundef %674, i32 noundef 4, ptr noundef nonnull %678, ptr noundef %682) #26
   %683 = load ptr, ptr @build_data, align 8
   %684 = getelementptr inbounds i8, ptr %683, i64 56
   %685 = load ptr, ptr %684, align 8
@@ -1174,14 +1174,14 @@ Dtd_Parse_ensure_buffer_stack.exit:               ; preds = %27, %30, %39
   %692 = load ptr, ptr %71, align 8
   %693 = getelementptr inbounds i8, ptr %689, i64 32
   %694 = load ptr, ptr %693, align 8
-  %695 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #26
-  %696 = tail call noalias ptr @g_strdup(ptr noundef %692) #25
+  %695 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #27
+  %696 = tail call noalias ptr @g_strdup(ptr noundef %692) #26
   store ptr %696, ptr %695, align 8
-  %697 = tail call noalias ptr @g_strdup(ptr noundef %694) #25
+  %697 = tail call noalias ptr @g_strdup(ptr noundef %694) #26
   %698 = getelementptr inbounds i8, ptr %695, i64 8
   store ptr %697, ptr %698, align 8
   %699 = load ptr, ptr @build_data, align 8
-  tail call void @DtdParse(ptr noundef %691, i32 noundef 5, ptr noundef nonnull %695, ptr noundef %699) #25
+  tail call void @DtdParse(ptr noundef %691, i32 noundef 5, ptr noundef nonnull %695, ptr noundef %699) #26
   %700 = load ptr, ptr @build_data, align 8
   %701 = getelementptr inbounds i8, ptr %700, i64 56
   %702 = load ptr, ptr %701, align 8
@@ -1197,14 +1197,14 @@ Dtd_Parse_ensure_buffer_stack.exit:               ; preds = %27, %30, %39
   %709 = load ptr, ptr %71, align 8
   %710 = getelementptr inbounds i8, ptr %706, i64 32
   %711 = load ptr, ptr %710, align 8
-  %712 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #26
-  %713 = tail call noalias ptr @g_strdup(ptr noundef %709) #25
+  %712 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #27
+  %713 = tail call noalias ptr @g_strdup(ptr noundef %709) #26
   store ptr %713, ptr %712, align 8
-  %714 = tail call noalias ptr @g_strdup(ptr noundef %711) #25
+  %714 = tail call noalias ptr @g_strdup(ptr noundef %711) #26
   %715 = getelementptr inbounds i8, ptr %712, i64 8
   store ptr %714, ptr %715, align 8
   %716 = load ptr, ptr @build_data, align 8
-  tail call void @DtdParse(ptr noundef %708, i32 noundef 17, ptr noundef nonnull %712, ptr noundef %716) #25
+  tail call void @DtdParse(ptr noundef %708, i32 noundef 17, ptr noundef nonnull %712, ptr noundef %716) #26
   %717 = load ptr, ptr @build_data, align 8
   %718 = getelementptr inbounds i8, ptr %717, i64 56
   %719 = load ptr, ptr %718, align 8
@@ -1220,14 +1220,14 @@ Dtd_Parse_ensure_buffer_stack.exit:               ; preds = %27, %30, %39
   %726 = load ptr, ptr %71, align 8
   %727 = getelementptr inbounds i8, ptr %723, i64 32
   %728 = load ptr, ptr %727, align 8
-  %729 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #26
-  %730 = tail call noalias ptr @g_strdup(ptr noundef %726) #25
+  %729 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #27
+  %730 = tail call noalias ptr @g_strdup(ptr noundef %726) #26
   store ptr %730, ptr %729, align 8
-  %731 = tail call noalias ptr @g_strdup(ptr noundef %728) #25
+  %731 = tail call noalias ptr @g_strdup(ptr noundef %728) #26
   %732 = getelementptr inbounds i8, ptr %729, i64 8
   store ptr %731, ptr %732, align 8
   %733 = load ptr, ptr @build_data, align 8
-  tail call void @DtdParse(ptr noundef %725, i32 noundef 12, ptr noundef nonnull %729, ptr noundef %733) #25
+  tail call void @DtdParse(ptr noundef %725, i32 noundef 12, ptr noundef nonnull %729, ptr noundef %733) #26
   %734 = load ptr, ptr @build_data, align 8
   %735 = getelementptr inbounds i8, ptr %734, i64 56
   %736 = load ptr, ptr %735, align 8
@@ -1243,14 +1243,14 @@ Dtd_Parse_ensure_buffer_stack.exit:               ; preds = %27, %30, %39
   %743 = load ptr, ptr %71, align 8
   %744 = getelementptr inbounds i8, ptr %740, i64 32
   %745 = load ptr, ptr %744, align 8
-  %746 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #26
-  %747 = tail call noalias ptr @g_strdup(ptr noundef %743) #25
+  %746 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #27
+  %747 = tail call noalias ptr @g_strdup(ptr noundef %743) #26
   store ptr %747, ptr %746, align 8
-  %748 = tail call noalias ptr @g_strdup(ptr noundef %745) #25
+  %748 = tail call noalias ptr @g_strdup(ptr noundef %745) #26
   %749 = getelementptr inbounds i8, ptr %746, i64 8
   store ptr %748, ptr %749, align 8
   %750 = load ptr, ptr @build_data, align 8
-  tail call void @DtdParse(ptr noundef %742, i32 noundef 3, ptr noundef nonnull %746, ptr noundef %750) #25
+  tail call void @DtdParse(ptr noundef %742, i32 noundef 3, ptr noundef nonnull %746, ptr noundef %750) #26
   %751 = load ptr, ptr @build_data, align 8
   %752 = getelementptr inbounds i8, ptr %751, i64 56
   %753 = load ptr, ptr %752, align 8
@@ -1465,7 +1465,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i301, %846
   br i1 %876, label %877, label %878
 
 877:                                              ; preds = %871
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.16) #23
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.16) #24
   unreachable
 
 878:                                              ; preds = %871
@@ -1567,13 +1567,13 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i301, %846
   store i32 %storemerge107.i, ptr %918, align 8
   %925 = add i32 %storemerge107.i, 2
   %926 = sext i32 %925 to i64
-  %927 = tail call ptr @realloc(ptr noundef %911, i64 noundef %926) #24
+  %927 = tail call ptr @realloc(ptr noundef %911, i64 noundef %926) #25
   store ptr %927, ptr %910, align 8
   %.not108.i = icmp eq ptr %927, null
   br i1 %.not108.i, label %.loopexit.i, label %928
 
 .loopexit.i:                                      ; preds = %924, %.thread.i
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.17) #23
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.17) #24
   unreachable
 
 928:                                              ; preds = %924
@@ -1698,7 +1698,7 @@ my_yyinput.exit.i:                                ; preds = %.sink.split.i.i, %.
   %996 = getelementptr inbounds i8, ptr %989, i64 8
   %997 = load ptr, ptr %996, align 8
   %998 = sext i32 %995 to i64
-  %999 = tail call ptr @realloc(ptr noundef %997, i64 noundef %998) #24
+  %999 = tail call ptr @realloc(ptr noundef %997, i64 noundef %998) #25
   %1000 = load ptr, ptr %73, align 8
   %1001 = load i64, ptr %74, align 8
   %1002 = getelementptr ptr, ptr %1000, i64 %1001
@@ -1715,7 +1715,7 @@ my_yyinput.exit.i:                                ; preds = %.sink.split.i.i, %.
   br i1 %.not110.i, label %1011, label %1012
 
 1011:                                             ; preds = %993
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.18) #23
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.18) #24
   unreachable
 
 1012:                                             ; preds = %993
@@ -1964,7 +1964,7 @@ yy_get_next_buffer.exit.thread339:                ; preds = %884, %yy_get_next_b
   br i1 %exitcond.not.i336, label %.outer.backedge, label %.lr.ph31.i324, !llvm.loop !9
 
 1140:                                             ; preds = %132
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.7) #23
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.7) #24
   unreachable
 
 default.unreachable631:                           ; preds = %yy_get_next_buffer.exit
@@ -1974,14 +1974,14 @@ default.unreachable631:                           ; preds = %yy_get_next_buffer.
   ret i32 0
 }
 
-; Function Attrs: nounwind uwtable
-define hidden noundef ptr @Dtd_Parse__create_buffer(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
-  %4 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #22
+; Function Attrs: nofree nounwind uwtable
+define hidden noundef ptr @Dtd_Parse__create_buffer(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #1 {
+  %4 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #23
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %6
 
 5:                                                ; preds = %3
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.8) #23
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.8) #24
   unreachable
 
 6:                                                ; preds = %3
@@ -1989,20 +1989,20 @@ define hidden noundef ptr @Dtd_Parse__create_buffer(ptr noundef %0, i32 noundef 
   store i32 %1, ptr %7, align 8
   %8 = add i32 %1, 2
   %9 = sext i32 %8 to i64
-  %10 = tail call noalias ptr @malloc(i64 noundef %9) #22
+  %10 = tail call noalias ptr @malloc(i64 noundef %9) #23
   %11 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %10, ptr %11, align 8
   %.not12 = icmp eq ptr %10, null
   br i1 %.not12, label %12, label %13
 
 12:                                               ; preds = %6
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.8) #23
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.8) #24
   unreachable
 
 13:                                               ; preds = %6
   %14 = getelementptr inbounds i8, ptr %4, i64 32
   store i32 1, ptr %14, align 8
-  %15 = tail call ptr @__errno_location() #27
+  %15 = tail call ptr @__errno_location() #28
   %16 = load i32, ptr %15, align 4
   %17 = getelementptr inbounds i8, ptr %4, i64 28
   store i32 0, ptr %17, align 4
@@ -2088,20 +2088,20 @@ Dtd_Parse__init_buffer.exit:                      ; preds = %52, %54
   ret ptr %4
 }
 
-declare void @g_free(ptr noundef) #1
+declare void @g_free(ptr noundef) #2
 
-declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #1
+declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #2
 
-declare noalias ptr @g_ascii_strdown(ptr noundef, i64 noundef) local_unnamed_addr #1
+declare noalias ptr @g_ascii_strdown(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @g_string_append_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
+declare void @g_string_append_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal void @set_proto_name(ptr noundef %0) #0 {
   %2 = load ptr, ptr @build_data, align 8
   %3 = load ptr, ptr %2, align 8
-  tail call void @g_free(ptr noundef %3) #25
-  %4 = tail call noalias ptr @g_strdup(ptr noundef %0) #25
+  tail call void @g_free(ptr noundef %3) #26
+  %4 = tail call noalias ptr @g_strdup(ptr noundef %0) #26
   %5 = load ptr, ptr @build_data, align 8
   store ptr %4, ptr %5, align 8
   ret void
@@ -2112,8 +2112,8 @@ define internal void @set_media_type(ptr noundef %0) #0 {
   %2 = load ptr, ptr @build_data, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load ptr, ptr %3, align 8
-  tail call void @g_free(ptr noundef %4) #25
-  %5 = tail call noalias ptr @g_strdup(ptr noundef %0) #25
+  tail call void @g_free(ptr noundef %4) #26
+  %5 = tail call noalias ptr @g_strdup(ptr noundef %0) #26
   %6 = load ptr, ptr @build_data, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %5, ptr %7, align 8
@@ -2125,8 +2125,8 @@ define internal void @set_proto_root(ptr noundef %0) #0 {
   %2 = load ptr, ptr @build_data, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 24
   %4 = load ptr, ptr %3, align 8
-  tail call void @g_free(ptr noundef %4) #25
-  %5 = tail call noalias ptr @g_strdup(ptr noundef %0) #25
+  tail call void @g_free(ptr noundef %4) #26
+  %5 = tail call noalias ptr @g_strdup(ptr noundef %0) #26
   %6 = load ptr, ptr @build_data, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 24
   store ptr %5, ptr %7, align 8
@@ -2138,8 +2138,8 @@ define internal void @set_description(ptr noundef %0) #0 {
   %2 = load ptr, ptr @build_data, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   %4 = load ptr, ptr %3, align 8
-  tail call void @g_free(ptr noundef %4) #25
-  %5 = tail call noalias ptr @g_strdup(ptr noundef %0) #25
+  tail call void @g_free(ptr noundef %4) #26
+  %5 = tail call noalias ptr @g_strdup(ptr noundef %0) #26
   %6 = load ptr, ptr @build_data, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 16
   store ptr %5, ptr %7, align 8
@@ -2148,7 +2148,7 @@ define internal void @set_description(ptr noundef %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal void @set_recursive(ptr noundef %0) #0 {
-  %2 = tail call i32 @g_ascii_strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.15) #25
+  %2 = tail call i32 @g_ascii_strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.15) #26
   %3 = icmp eq i32 %2, 0
   %4 = zext i1 %3 to i32
   %5 = load ptr, ptr @build_data, align 8
@@ -2157,18 +2157,18 @@ define internal void @set_recursive(ptr noundef %0) #0 {
   ret void
 }
 
-declare i32 @g_ascii_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare i32 @g_ascii_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @DtdParse(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare void @DtdParse(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #3
 
-; Function Attrs: noreturn nounwind uwtable
-define internal fastcc void @yy_fatal_error(ptr noundef %0) unnamed_addr #3 {
+; Function Attrs: nofree noreturn nounwind uwtable
+define internal fastcc void @yy_fatal_error(ptr noundef %0) unnamed_addr #4 {
   %2 = load ptr, ptr @stderr, align 8
-  %3 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.20, ptr noundef %0) #28
-  tail call void @exit(i32 noundef 2) #29
+  %3 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.20, ptr noundef %0) #29
+  tail call void @exit(i32 noundef 2) #30
   unreachable
 }
 
@@ -2188,13 +2188,13 @@ define hidden void @Dtd_Parse_restart(ptr noundef %0, ptr nocapture noundef %1) 
   br i1 %.not16, label %16, label %.thread
 
 10:                                               ; preds = %2
-  %11 = tail call noalias dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #22
+  %11 = tail call noalias dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #23
   store ptr %11, ptr %3, align 8
   %.not26.i = icmp eq ptr %11, null
   br i1 %.not26.i, label %12, label %13
 
 12:                                               ; preds = %10
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.19) #23
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.19) #24
   unreachable
 
 13:                                               ; preds = %10
@@ -2215,13 +2215,13 @@ define hidden void @Dtd_Parse_restart(ptr noundef %0, ptr nocapture noundef %1) 
 20:                                               ; preds = %16
   %21 = add i64 %18, 8
   %22 = shl i64 %21, 3
-  %23 = tail call ptr @realloc(ptr noundef nonnull %4, i64 noundef %22) #24
+  %23 = tail call ptr @realloc(ptr noundef nonnull %4, i64 noundef %22) #25
   store ptr %23, ptr %3, align 8
   %.not28.i = icmp eq ptr %23, null
   br i1 %.not28.i, label %24, label %25
 
 24:                                               ; preds = %20
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.19) #23
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.19) #24
   unreachable
 
 25:                                               ; preds = %20
@@ -2245,7 +2245,7 @@ define hidden void @Dtd_Parse_restart(ptr noundef %0, ptr nocapture noundef %1) 
   br i1 %.not17, label %.thread19, label %.thread
 
 .thread19:                                        ; preds = %28
-  %36 = tail call ptr @__errno_location() #27
+  %36 = tail call ptr @__errno_location() #28
   %37 = load i32, ptr %36, align 4
   br label %Dtd_Parse__flush_buffer.exit.i
 
@@ -2255,7 +2255,7 @@ define hidden void @Dtd_Parse_restart(ptr noundef %0, ptr nocapture noundef %1) 
   %40 = load i64, ptr %39, align 8
   %41 = getelementptr ptr, ptr %38, i64 %40
   %42 = load ptr, ptr %41, align 8
-  %43 = tail call ptr @__errno_location() #27
+  %43 = tail call ptr @__errno_location() #28
   %44 = load i32, ptr %43, align 4
   %.not.i.i = icmp eq ptr %42, null
   br i1 %.not.i.i, label %Dtd_Parse__flush_buffer.exit.i, label %45
@@ -2383,13 +2383,13 @@ define hidden void @Dtd_Parse__switch_to_buffer(ptr noundef %0, ptr nocapture no
   br i1 %.not.i, label %5, label %11
 
 5:                                                ; preds = %2
-  %6 = tail call noalias dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #22
+  %6 = tail call noalias dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #23
   store ptr %6, ptr %3, align 8
   %.not26.i = icmp eq ptr %6, null
   br i1 %.not26.i, label %7, label %8
 
 7:                                                ; preds = %5
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.19) #23
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.19) #24
   unreachable
 
 8:                                                ; preds = %5
@@ -2412,13 +2412,13 @@ define hidden void @Dtd_Parse__switch_to_buffer(ptr noundef %0, ptr nocapture no
 17:                                               ; preds = %11
   %18 = add i64 %15, 8
   %19 = shl i64 %18, 3
-  %20 = tail call ptr @realloc(ptr noundef nonnull %4, i64 noundef %19) #24
+  %20 = tail call ptr @realloc(ptr noundef nonnull %4, i64 noundef %19) #25
   store ptr %20, ptr %3, align 8
   %.not28.i = icmp eq ptr %20, null
   br i1 %.not28.i, label %21, label %22
 
 21:                                               ; preds = %17
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.19) #23
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.19) #24
   unreachable
 
 22:                                               ; preds = %17
@@ -2502,10 +2502,10 @@ define hidden void @Dtd_Parse__switch_to_buffer(ptr noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define hidden void @Dtd_Parse__delete_buffer(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #5 {
+define hidden void @Dtd_Parse__delete_buffer(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %25, label %3
 
@@ -2543,11 +2543,11 @@ define hidden void @Dtd_Parse__delete_buffer(ptr noundef %0, ptr nocapture nound
 21:                                               ; preds = %18
   %22 = getelementptr inbounds i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8
-  tail call void @free(ptr noundef %23) #25
+  tail call void @free(ptr noundef %23) #26
   br label %24
 
 24:                                               ; preds = %21, %18
-  tail call void @free(ptr noundef nonnull %0) #25
+  tail call void @free(ptr noundef nonnull %0) #26
   br label %25
 
 25:                                               ; preds = %2, %24
@@ -2555,10 +2555,10 @@ define hidden void @Dtd_Parse__delete_buffer(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @Dtd_Parse__flush_buffer(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #7 {
+define hidden void @Dtd_Parse__flush_buffer(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #8 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %41, label %3
 
@@ -2636,13 +2636,13 @@ define hidden void @Dtd_Parse_push_buffer_state(ptr noundef %0, ptr nocapture no
   br i1 %.not.i, label %7, label %13
 
 7:                                                ; preds = %4
-  %8 = tail call noalias dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #22
+  %8 = tail call noalias dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #23
   store ptr %8, ptr %5, align 8
   %.not26.i = icmp eq ptr %8, null
   br i1 %.not26.i, label %9, label %10
 
 9:                                                ; preds = %7
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.19) #23
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.19) #24
   unreachable
 
 10:                                               ; preds = %7
@@ -2665,13 +2665,13 @@ define hidden void @Dtd_Parse_push_buffer_state(ptr noundef %0, ptr nocapture no
 19:                                               ; preds = %13
   %20 = add i64 %17, 8
   %21 = shl i64 %20, 3
-  %22 = tail call ptr @realloc(ptr noundef nonnull %6, i64 noundef %21) #24
+  %22 = tail call ptr @realloc(ptr noundef nonnull %6, i64 noundef %21) #25
   store ptr %22, ptr %5, align 8
   %.not28.i = icmp eq ptr %22, null
   br i1 %.not28.i, label %23, label %24
 
 23:                                               ; preds = %19
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.19) #23
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.19) #24
   unreachable
 
 24:                                               ; preds = %19
@@ -2760,7 +2760,7 @@ Dtd_Parse_ensure_buffer_stack.exit:               ; preds = %10, %13, %24
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define hidden void @Dtd_Parse_pop_buffer_state(ptr nocapture noundef %0) local_unnamed_addr #5 {
+define hidden void @Dtd_Parse_pop_buffer_state(ptr nocapture noundef %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -2784,11 +2784,11 @@ define hidden void @Dtd_Parse_pop_buffer_state(ptr nocapture noundef %0) local_u
 12:                                               ; preds = %9
   %13 = getelementptr inbounds i8, ptr %8, i64 8
   %14 = load ptr, ptr %13, align 8
-  tail call void @free(ptr noundef %14) #25
+  tail call void @free(ptr noundef %14) #26
   br label %Dtd_Parse__delete_buffer.exit
 
 Dtd_Parse__delete_buffer.exit:                    ; preds = %9, %12
-  tail call void @free(ptr noundef nonnull %8) #25
+  tail call void @free(ptr noundef nonnull %8) #26
   %15 = load ptr, ptr %2, align 8
   %16 = load i64, ptr %5, align 8
   %17 = getelementptr ptr, ptr %15, i64 %16
@@ -2861,12 +2861,12 @@ define hidden noundef ptr @Dtd_Parse__scan_buffer(ptr noundef %0, i64 noundef %1
   br i1 %.not25, label %13, label %27
 
 13:                                               ; preds = %9
-  %14 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #22
+  %14 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #23
   %.not26 = icmp eq ptr %14, null
   br i1 %.not26, label %15, label %16
 
 15:                                               ; preds = %13
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.9) #23
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.9) #24
   unreachable
 
 16:                                               ; preds = %13
@@ -2900,7 +2900,7 @@ define hidden noundef ptr @Dtd_Parse__scan_buffer(ptr noundef %0, i64 noundef %1
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef ptr @Dtd_Parse__scan_string(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
-  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #30
+  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #31
   %4 = trunc i64 %3 to i32
   %5 = tail call ptr @Dtd_Parse__scan_bytes(ptr noundef %0, i32 noundef %4, ptr noundef %1)
   ret ptr %5
@@ -2910,7 +2910,7 @@ define hidden noundef ptr @Dtd_Parse__scan_string(ptr nocapture noundef readonly
 define hidden noundef ptr @Dtd_Parse__scan_bytes(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
   %4 = add i32 %1, 2
   %5 = sext i32 %4 to i64
-  %6 = tail call noalias ptr @malloc(i64 noundef %5) #22
+  %6 = tail call noalias ptr @malloc(i64 noundef %5) #23
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %14, label %.preheader
 
@@ -2931,7 +2931,7 @@ define hidden noundef ptr @Dtd_Parse__scan_bytes(ptr nocapture noundef readonly 
   br label %21
 
 14:                                               ; preds = %3
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.10) #23
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.10) #24
   unreachable
 
 ._crit_edge:                                      ; preds = %.preheader
@@ -2960,16 +2960,16 @@ define hidden noundef ptr @Dtd_Parse__scan_bytes(ptr nocapture noundef readonly 
   br i1 %.not25.i, label %29, label %32
 
 29:                                               ; preds = %25
-  %30 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #22
+  %30 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #23
   %.not26.i = icmp eq ptr %30, null
   br i1 %.not26.i, label %31, label %33
 
 31:                                               ; preds = %29
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.9) #23
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.9) #24
   unreachable
 
 32:                                               ; preds = %25, %21, %._crit_edge
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.11) #23
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.11) #24
   unreachable
 
 33:                                               ; preds = %29
@@ -2999,16 +2999,16 @@ define hidden noundef ptr @Dtd_Parse__scan_bytes(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @Dtd_Parse_get_extra(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
+define hidden ptr @Dtd_Parse_get_extra(ptr nocapture noundef readonly %0) local_unnamed_addr #10 {
   %2 = load ptr, ptr %0, align 8
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @Dtd_Parse_get_lineno(ptr nocapture noundef readonly %0) local_unnamed_addr #10 {
+define hidden i32 @Dtd_Parse_get_lineno(ptr nocapture noundef readonly %0) local_unnamed_addr #11 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -3033,7 +3033,7 @@ define hidden i32 @Dtd_Parse_get_lineno(ptr nocapture noundef readonly %0) local
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @Dtd_Parse_get_column(ptr nocapture noundef readonly %0) local_unnamed_addr #10 {
+define hidden i32 @Dtd_Parse_get_column(ptr nocapture noundef readonly %0) local_unnamed_addr #11 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -3058,41 +3058,41 @@ define hidden i32 @Dtd_Parse_get_column(ptr nocapture noundef readonly %0) local
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @Dtd_Parse_get_in(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
+define hidden ptr @Dtd_Parse_get_in(ptr nocapture noundef readonly %0) local_unnamed_addr #10 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @Dtd_Parse_get_out(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
+define hidden ptr @Dtd_Parse_get_out(ptr nocapture noundef readonly %0) local_unnamed_addr #10 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @Dtd_Parse_get_leng(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
+define hidden i32 @Dtd_Parse_get_leng(ptr nocapture noundef readonly %0) local_unnamed_addr #10 {
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @Dtd_Parse_get_text(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
+define hidden ptr @Dtd_Parse_get_text(ptr nocapture noundef readonly %0) local_unnamed_addr #10 {
   %2 = getelementptr inbounds i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @Dtd_Parse_set_extra(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #11 {
+define hidden void @Dtd_Parse_set_extra(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #12 {
   store ptr %0, ptr %1, align 8
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define hidden void @Dtd_Parse_set_lineno(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+; Function Attrs: nofree nounwind uwtable
+define hidden void @Dtd_Parse_set_lineno(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -3107,7 +3107,7 @@ define hidden void @Dtd_Parse_set_lineno(i32 noundef %0, ptr nocapture noundef r
   br i1 %.not8, label %10, label %11
 
 10:                                               ; preds = %2, %5
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.12) #23
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.12) #24
   unreachable
 
 11:                                               ; preds = %5
@@ -3116,8 +3116,8 @@ define hidden void @Dtd_Parse_set_lineno(i32 noundef %0, ptr nocapture noundef r
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define hidden void @Dtd_Parse_set_column(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+; Function Attrs: nofree nounwind uwtable
+define hidden void @Dtd_Parse_set_column(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -3132,7 +3132,7 @@ define hidden void @Dtd_Parse_set_column(i32 noundef %0, ptr nocapture noundef r
   br i1 %.not8, label %10, label %11
 
 10:                                               ; preds = %2, %5
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.13) #23
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.13) #24
   unreachable
 
 11:                                               ; preds = %5
@@ -3142,35 +3142,35 @@ define hidden void @Dtd_Parse_set_column(i32 noundef %0, ptr nocapture noundef r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @Dtd_Parse_set_in(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #11 {
+define hidden void @Dtd_Parse_set_in(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #12 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   store ptr %0, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @Dtd_Parse_set_out(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #11 {
+define hidden void @Dtd_Parse_set_out(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #12 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   store ptr %0, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @Dtd_Parse_get_debug(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
+define hidden i32 @Dtd_Parse_get_debug(ptr nocapture noundef readonly %0) local_unnamed_addr #10 {
   %2 = getelementptr inbounds i8, ptr %0, i64 124
   %3 = load i32, ptr %2, align 4
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @Dtd_Parse_set_debug(i32 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #11 {
+define hidden void @Dtd_Parse_set_debug(i32 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #12 {
   %3 = getelementptr inbounds i8, ptr %1, i64 124
   store i32 %0, ptr %3, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define hidden range(i32 0, 2) i32 @Dtd_Parse_lex_init(ptr noundef writeonly %0) local_unnamed_addr #12 {
+define hidden range(i32 0, 2) i32 @Dtd_Parse_lex_init(ptr noundef writeonly %0) local_unnamed_addr #13 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.sink.split, label %3
 
@@ -3182,7 +3182,7 @@ define hidden range(i32 0, 2) i32 @Dtd_Parse_lex_init(ptr noundef writeonly %0) 
 
 .sink.split:                                      ; preds = %3, %1
   %.sink = phi i32 [ 22, %1 ], [ 12, %3 ]
-  %5 = tail call ptr @__errno_location() #27
+  %5 = tail call ptr @__errno_location() #28
   store i32 %.sink, ptr %5, align 4
   br label %6
 
@@ -3192,18 +3192,18 @@ define hidden range(i32 0, 2) i32 @Dtd_Parse_lex_init(ptr noundef writeonly %0) 
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #13
+declare ptr @__errno_location() local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define hidden range(i32 0, 2) i32 @Dtd_Parse_lex_init_extra(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #12 {
+define hidden range(i32 0, 2) i32 @Dtd_Parse_lex_init_extra(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #13 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %4, label %6
 
 4:                                                ; preds = %2
-  %5 = tail call ptr @__errno_location() #27
+  %5 = tail call ptr @__errno_location() #28
   store i32 22, ptr %5, align 4
   br label %11
 
@@ -3214,7 +3214,7 @@ define hidden range(i32 0, 2) i32 @Dtd_Parse_lex_init_extra(ptr noundef %0, ptr 
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %6
-  %9 = tail call ptr @__errno_location() #27
+  %9 = tail call ptr @__errno_location() #28
   store i32 12, ptr %9, align 4
   br label %11
 
@@ -3260,11 +3260,11 @@ define hidden noundef i32 @Dtd_Parse_lex_destroy(ptr nocapture noundef %0) local
 18:                                               ; preds = %.lr.ph31
   %19 = getelementptr inbounds i8, ptr %14, i64 8
   %20 = load ptr, ptr %19, align 8
-  tail call void @free(ptr noundef %20) #25
+  tail call void @free(ptr noundef %20) #26
   br label %Dtd_Parse__delete_buffer.exit
 
 Dtd_Parse__delete_buffer.exit:                    ; preds = %.lr.ph31, %18
-  tail call void @free(ptr noundef nonnull %14) #25
+  tail call void @free(ptr noundef nonnull %14) #26
   %.pre28 = load i64, ptr %2, align 8
   %.pre = load ptr, ptr %3, align 8
   %21 = getelementptr ptr, ptr %.pre, i64 %.pre28
@@ -3290,11 +3290,11 @@ Dtd_Parse__delete_buffer.exit:                    ; preds = %.lr.ph31, %18
 30:                                               ; preds = %27
   %31 = getelementptr inbounds i8, ptr %26, i64 8
   %32 = load ptr, ptr %31, align 8
-  tail call void @free(ptr noundef %32) #25
+  tail call void @free(ptr noundef %32) #26
   br label %Dtd_Parse__delete_buffer.exit.i
 
 Dtd_Parse__delete_buffer.exit.i:                  ; preds = %30, %27
-  tail call void @free(ptr noundef nonnull %26) #25
+  tail call void @free(ptr noundef nonnull %26) #26
   %33 = load ptr, ptr %3, align 8
   %34 = load i64, ptr %2, align 8
   %35 = getelementptr ptr, ptr %33, i64 %34
@@ -3347,12 +3347,12 @@ Dtd_Parse_pop_buffer_state.exit:                  ; preds = %23, %42, %45
 
 .thread:                                          ; preds = %Dtd_Parse_pop_buffer_state.exit, %Dtd_Parse__delete_buffer.exit, %39, %.lr.ph, %1
   %.lcssa = phi ptr [ null, %1 ], [ %4, %.lr.ph ], [ null, %39 ], [ null, %Dtd_Parse__delete_buffer.exit ], [ %54, %Dtd_Parse_pop_buffer_state.exit ]
-  tail call void @free(ptr noundef %.lcssa) #25
+  tail call void @free(ptr noundef %.lcssa) #26
   store ptr null, ptr %3, align 8
   %58 = getelementptr inbounds i8, ptr %0, i64 96
   %59 = load ptr, ptr %58, align 8
-  tail call void @free(ptr noundef %59) #25
-  tail call void @free(ptr noundef nonnull %0) #25
+  tail call void @free(ptr noundef %59) #26
+  tail call void @free(ptr noundef nonnull %0) #26
   ret i32 0
 }
 
@@ -3364,7 +3364,7 @@ define hidden ptr @dtd_parse(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %3, label %Dtd_Parse_lex_init.exit, label %5
 
 Dtd_Parse_lex_init.exit:                          ; preds = %1
-  %4 = tail call ptr @__errno_location() #27
+  %4 = tail call ptr @__errno_location() #28
   store i32 12, ptr %4, align 4
   br label %30
 
@@ -3376,21 +3376,21 @@ Dtd_Parse_lex_init.exit:                          ; preds = %1
   %8 = load i64, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %2, i64 16
   store i64 %8, ptr %9, align 8
-  %10 = tail call ptr @DtdParseAlloc(ptr noundef nonnull @g_malloc) #25
+  %10 = tail call ptr @DtdParseAlloc(ptr noundef nonnull @g_malloc) #26
   %11 = getelementptr inbounds i8, ptr %2, i64 24
   store ptr %10, ptr %11, align 8
-  %12 = tail call noalias dereferenceable_or_null(64) ptr @g_malloc_n(i64 noundef 1, i64 noundef 64) #26
+  %12 = tail call noalias dereferenceable_or_null(64) ptr @g_malloc_n(i64 noundef 1, i64 noundef 64) #27
   store ptr %12, ptr @build_data, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %12, i8 0, i64 36, i1 false)
-  %13 = tail call ptr @g_ptr_array_new() #25
+  %13 = tail call ptr @g_ptr_array_new() #26
   %14 = load ptr, ptr @build_data, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 40
   store ptr %13, ptr %15, align 8
-  %16 = tail call ptr @g_ptr_array_new() #25
+  %16 = tail call ptr @g_ptr_array_new() #26
   %17 = load ptr, ptr @build_data, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 48
   store ptr %16, ptr %18, align 8
-  %19 = tail call ptr @g_string_new(ptr noundef nonnull @.str.14) #25
+  %19 = tail call ptr @g_string_new(ptr noundef nonnull @.str.14) #26
   %20 = load ptr, ptr @build_data, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 56
   store ptr %19, ptr %21, align 8
@@ -3400,12 +3400,12 @@ Dtd_Parse_lex_init.exit:                          ; preds = %1
   %23 = call i32 @Dtd_Parse_lex(ptr noundef nonnull %calloc.i)
   %24 = load ptr, ptr %11, align 8
   %25 = load ptr, ptr @build_data, align 8
-  call void @DtdParse(ptr noundef %24, i32 noundef 0, ptr noundef null, ptr noundef %25) #25
+  call void @DtdParse(ptr noundef %24, i32 noundef 0, ptr noundef null, ptr noundef %25) #26
   %26 = call i32 @Dtd_Parse_lex_destroy(ptr noundef nonnull %calloc.i)
   %27 = load ptr, ptr %22, align 8
-  call void @g_free(ptr noundef %27) #25
+  call void @g_free(ptr noundef %27) #26
   %28 = load ptr, ptr %11, align 8
-  call void @DtdParseFree(ptr noundef %28, ptr noundef nonnull @g_free) #25
+  call void @DtdParseFree(ptr noundef %28, ptr noundef nonnull @g_free) #26
   %29 = load ptr, ptr @build_data, align 8
   br label %30
 
@@ -3414,69 +3414,70 @@ Dtd_Parse_lex_init.exit:                          ; preds = %1
   ret ptr %.0
 }
 
-declare ptr @DtdParseAlloc(ptr noundef) local_unnamed_addr #1
+declare ptr @DtdParseAlloc(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @g_malloc(i64 noundef) #15
+declare noalias ptr @g_malloc(i64 noundef) #16
 
 ; Function Attrs: allocsize(0,1)
-declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #16
+declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #17
 
-declare ptr @g_ptr_array_new() local_unnamed_addr #1
+declare ptr @g_ptr_array_new() local_unnamed_addr #2
 
-declare ptr @g_string_new(ptr noundef) local_unnamed_addr #1
+declare ptr @g_string_new(ptr noundef) local_unnamed_addr #2
 
-declare void @DtdParseFree(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare void @DtdParseFree(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #17
+declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #18
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #19
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
 
-; Function Attrs: noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #19
+; Function Attrs: nofree noreturn nounwind
+declare void @exit(i32 noundef) local_unnamed_addr #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #20
+declare i32 @llvm.umin.i32(i32, i32) #21
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #21
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #22
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #15 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #19 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #21 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
-attributes #22 = { nounwind allocsize(0) }
-attributes #23 = { noreturn }
-attributes #24 = { nounwind allocsize(1) }
-attributes #25 = { nounwind }
-attributes #26 = { nounwind allocsize(0,1) }
-attributes #27 = { nounwind willreturn memory(none) }
-attributes #28 = { cold nounwind }
-attributes #29 = { noreturn nounwind }
-attributes #30 = { nounwind willreturn memory(read) }
+attributes #1 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #16 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #20 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #22 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
+attributes #23 = { nounwind allocsize(0) }
+attributes #24 = { noreturn }
+attributes #25 = { nounwind allocsize(1) }
+attributes #26 = { nounwind }
+attributes #27 = { nounwind allocsize(0,1) }
+attributes #28 = { nounwind willreturn memory(none) }
+attributes #29 = { cold nounwind }
+attributes #30 = { cold noreturn nounwind }
+attributes #31 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -491,7 +491,7 @@ define internal fastcc void @_ZN9Stockfish12_GLOBAL__N_16Logger5startERKNSt7__cx
   %28 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.34) #21
   %29 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull align 8 dereferenceable(32) %0) #21
   %30 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_) #21
-  tail call void @exit(i32 noundef 1) #22
+  tail call void @exit(i32 noundef 1) #23
   unreachable
 
 31:                                               ; preds = %25
@@ -522,7 +522,7 @@ declare void @llvm.prefetch.p0(ptr nocapture readonly, i32 immarg, i32 immarg, i
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable
 define dso_local noundef ptr @_ZN9Stockfish17std_aligned_allocEmm(i64 noundef %0, i64 noundef %1) local_unnamed_addr #9 {
-  %3 = tail call noalias ptr @aligned_alloc(i64 noundef %0, i64 noundef %1) #23
+  %3 = tail call noalias ptr @aligned_alloc(i64 noundef %0, i64 noundef %1) #24
   call void @llvm.assume(i1 true) [ "align"(ptr %3, i64 %0) ]
   ret ptr %3
 }
@@ -546,7 +546,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #13
 define dso_local noundef ptr @_ZN9Stockfish25aligned_large_pages_allocEm(i64 noundef %0) local_unnamed_addr #3 {
   %2 = add i64 %0, 2097151
   %3 = and i64 %2, -2097152
-  %4 = tail call noalias noundef align 2097152 ptr @aligned_alloc(i64 noundef 2097152, i64 noundef %3) #23
+  %4 = tail call noalias noundef align 2097152 ptr @aligned_alloc(i64 noundef 2097152, i64 noundef %3) #24
   call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 2097152) ]
   %5 = tail call i32 @madvise(ptr noundef %4, i64 noundef %3, i32 noundef 14) #21
   ret ptr %4
@@ -769,7 +769,7 @@ declare void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEE4openERKNSt7__cxx1112bas
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #16
 
 declare void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(248)) unnamed_addr #0
@@ -789,7 +789,7 @@ define internal void @_ZN9Stockfish12_GLOBAL__N_13TieD2Ev(ptr noundef nonnull al
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN9Stockfish12_GLOBAL__N_13TieD0Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #3 align 2 {
   tail call void @_ZNSt15basic_streambufIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) #21
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #25
   ret void
 }
 
@@ -997,15 +997,16 @@ attributes #12 = { mustprogress nounwind willreturn memory(argmem: readwrite, in
 attributes #13 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #17 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #18 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #19 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #20 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #21 = { nounwind }
 attributes #22 = { noreturn nounwind }
-attributes #23 = { nounwind allocsize(1) }
-attributes #24 = { builtin nounwind }
+attributes #23 = { cold noreturn nounwind }
+attributes #24 = { nounwind allocsize(1) }
+attributes #25 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

@@ -12,7 +12,7 @@ define range(i32 0, 2) i32 @IMDS_given_dim(ptr noundef %0, i32 noundef %1, ptr n
   %6 = sext i32 %1 to i64
   %7 = tail call fastcc ptr @gv_calloc(i64 noundef %6, i64 noundef 8)
   %8 = tail call fastcc ptr @gv_calloc(i64 noundef %6, i64 noundef 8)
-  %9 = tail call ptr @compute_apsp(ptr noundef %0, i32 noundef %1) #12
+  %9 = tail call ptr @compute_apsp(ptr noundef %0, i32 noundef %1) #13
   %10 = icmp sgt i32 %1, 0
   br i1 %10, label %.preheader240.us.preheader, label %._crit_edge259
 
@@ -91,7 +91,7 @@ define range(i32 0, 2) i32 @IMDS_given_dim(ptr noundef %0, i32 noundef %1, ptr n
   %43 = phi i1 [ false, %.preheader239 ], [ %17, %42 ]
   %44 = phi <2 x double> [ zeroinitializer, %.preheader239 ], [ %41, %42 ]
   %45 = extractelement <2 x double> %44, i64 1
-  %46 = tail call double @llvm.fabs.f64(double %45) #13
+  %46 = tail call double @llvm.fabs.f64(double %45) #14
   %47 = fcmp une double %46, 0x7FF0000000000000
   %48 = extractelement <2 x double> %44, i64 0
   %49 = fdiv double %48, %45
@@ -224,7 +224,7 @@ define range(i32 0, 2) i32 @IMDS_given_dim(ptr noundef %0, i32 noundef %1, ptr n
 
 gv_calloc.exit.i:                                 ; preds = %108, %._crit_edge.thread.i.i
   %109 = phi ptr [ %62, %._crit_edge.thread.i.i ], [ %67, %108 ]
-  tail call void @free(ptr noundef %109) #12
+  tail call void @free(ptr noundef %109) #13
   %110 = tail call fastcc ptr @gv_calloc(i64 noundef %6, i64 noundef 8)
   br i1 %10, label %.lr.ph.preheader.i36.i, label %._crit_edge27.i.i
 
@@ -261,14 +261,14 @@ gv_calloc.exit.i:                                 ; preds = %108, %._crit_edge.t
 
 ._crit_edge27.i.i:                                ; preds = %.lr.ph26.i.i, %gv_calloc.exit.i
   %121 = add nsw i32 %1, -1
-  %122 = tail call double @norm(ptr noundef %110, i32 noundef %121) #12
+  %122 = tail call double @norm(ptr noundef %110, i32 noundef %121) #13
   %123 = tail call double @llvm.fabs.f64(double %122)
   %124 = fcmp olt double %123, 0x3CB0000000000000
   br i1 %124, label %standardize.exit.i, label %125
 
 125:                                              ; preds = %._crit_edge27.i.i
   %126 = fdiv double 1.000000e+00, %122
-  tail call void @vectors_scalar_mult(i32 noundef %1, ptr noundef %110, double noundef %126, ptr noundef %110) #12
+  tail call void @vectors_scalar_mult(i32 noundef %1, ptr noundef %110, double noundef %126, ptr noundef %110) #13
   br label %standardize.exit.i
 
 standardize.exit.i:                               ; preds = %125, %._crit_edge27.i.i
@@ -283,7 +283,7 @@ standardize.exit.i:                               ; preds = %125, %._crit_edge27
 
 .lr.ph.us.i.i:                                    ; preds = %.lr.ph.us.i.i.backedge, %.lr.ph.us.preheader.i.i
   %indvars.iv.i42.i = phi i64 [ 0, %.lr.ph.us.preheader.i.i ], [ %indvars.iv.i42.i.be, %.lr.ph.us.i.i.backedge ]
-  %130 = tail call i32 @rand() #12
+  %130 = tail call i32 @rand() #13
   %131 = srem i32 %130, 100
   %132 = sitofp i32 %131 to double
   %133 = getelementptr inbounds double, ptr %3, i64 %indvars.iv.i42.i
@@ -297,20 +297,20 @@ standardize.exit.i:                               ; preds = %125, %._crit_edge27
   br label %.lr.ph.us.i.i
 
 ._crit_edge.us.i.i:                               ; preds = %.lr.ph.us.i.i
-  %134 = tail call double @vectors_inner_product(i32 noundef %1, ptr noundef %110, ptr noundef nonnull %3) #12
+  %134 = tail call double @vectors_inner_product(i32 noundef %1, ptr noundef %110, ptr noundef nonnull %3) #13
   %135 = fneg double %134
-  tail call void @scadd(ptr noundef nonnull %3, i32 noundef %121, double noundef %135, ptr noundef %110) #12
-  %136 = tail call double @norm(ptr noundef nonnull %3, i32 noundef %121) #12
+  tail call void @scadd(ptr noundef nonnull %3, i32 noundef %121, double noundef %135, ptr noundef %110) #13
+  %136 = tail call double @norm(ptr noundef nonnull %3, i32 noundef %121) #13
   %137 = fcmp olt double %136, 1.000000e-10
   br i1 %137, label %.lr.ph.us.i.i.backedge, label %.split178.us.i.i
 
 .split178.us.i.i:                                 ; preds = %._crit_edge.us.i.i
   %138 = fdiv double 1.000000e+00, %136
-  tail call void @vectors_scalar_mult(i32 noundef %1, ptr noundef nonnull %3, double noundef %138, ptr noundef nonnull %3) #12
+  tail call void @vectors_scalar_mult(i32 noundef %1, ptr noundef nonnull %3, double noundef %138, ptr noundef nonnull %3) #13
   br label %.preheader.us.i.preheader.i.i
 
 .preheader.us.i.preheader.i.i:                    ; preds = %153, %.split178.us.i.i
-  tail call void @copy_vector(i32 noundef %1, ptr noundef nonnull %3, ptr noundef %128) #12
+  tail call void @copy_vector(i32 noundef %1, ptr noundef nonnull %3, ptr noundef %128) #13
   br label %.preheader.us.i.i45.i
 
 .preheader.us.i.i45.i:                            ; preds = %._crit_edge.us.i.i49.i, %.preheader.us.i.preheader.i.i
@@ -340,18 +340,18 @@ standardize.exit.i:                               ; preds = %125, %._crit_edge27
   br i1 %exitcond35.not.i.i.i, label %mat_mult_vec_orthog.exit.i.i, label %.preheader.us.i.i45.i
 
 mat_mult_vec_orthog.exit.i.i:                     ; preds = %._crit_edge.us.i.i49.i
-  %149 = tail call double @vectors_inner_product(i32 noundef %1, ptr noundef nonnull %127, ptr noundef %110) #12
+  %149 = tail call double @vectors_inner_product(i32 noundef %1, ptr noundef nonnull %127, ptr noundef %110) #13
   %150 = fneg double %149
-  tail call void @scadd(ptr noundef nonnull %127, i32 noundef %121, double noundef %150, ptr noundef %110) #12
-  tail call void @copy_vector(i32 noundef %1, ptr noundef nonnull %127, ptr noundef nonnull %3) #12
-  %151 = tail call double @norm(ptr noundef nonnull %3, i32 noundef %121) #12
+  tail call void @scadd(ptr noundef nonnull %127, i32 noundef %121, double noundef %150, ptr noundef %110) #13
+  tail call void @copy_vector(i32 noundef %1, ptr noundef nonnull %127, ptr noundef nonnull %3) #13
+  %151 = tail call double @norm(ptr noundef nonnull %3, i32 noundef %121) #13
   %152 = fcmp olt double %151, 1.000000e-10
   br i1 %152, label %.loopexit.i.i, label %153
 
 153:                                              ; preds = %mat_mult_vec_orthog.exit.i.i
   %154 = fdiv double 1.000000e+00, %151
-  tail call void @vectors_scalar_mult(i32 noundef %1, ptr noundef nonnull %3, double noundef %154, ptr noundef nonnull %3) #12
-  %155 = tail call double @vectors_inner_product(i32 noundef %1, ptr noundef nonnull %3, ptr noundef %128) #12
+  tail call void @vectors_scalar_mult(i32 noundef %1, ptr noundef nonnull %3, double noundef %154, ptr noundef nonnull %3) #13
+  %155 = tail call double @vectors_inner_product(i32 noundef %1, ptr noundef nonnull %3, ptr noundef %128) #13
   %156 = tail call double @llvm.fabs.f64(double %155)
   %157 = fcmp olt double %156, %129
   br i1 %157, label %.preheader.us.i.preheader.i.i, label %.loopexit.thread.i.i
@@ -362,7 +362,7 @@ mat_mult_vec_orthog.exit.i.i:                     ; preds = %._crit_edge.us.i.i4
 
 .loopexit.i.i:                                    ; preds = %mat_mult_vec_orthog.exit.i.i, %.loopexit.i.i
   %indvars.iv194.i.i = phi i64 [ %indvars.iv.next195.i.i, %.loopexit.i.i ], [ 0, %mat_mult_vec_orthog.exit.i.i ]
-  %159 = tail call i32 @rand() #12
+  %159 = tail call i32 @rand() #13
   %160 = srem i32 %159, 100
   %161 = sitofp i32 %160 to double
   %162 = getelementptr inbounds double, ptr %3, i64 %indvars.iv194.i.i
@@ -372,15 +372,15 @@ mat_mult_vec_orthog.exit.i.i:                     ; preds = %._crit_edge.us.i.i4
   br i1 %exitcond198.not.i.i, label %._crit_edge.us186.i.i, label %.loopexit.i.i
 
 ._crit_edge.us186.i.i:                            ; preds = %.loopexit.i.i
-  %163 = tail call double @norm(ptr noundef nonnull %3, i32 noundef %121) #12
+  %163 = tail call double @norm(ptr noundef nonnull %3, i32 noundef %121) #13
   %164 = fdiv double 1.000000e+00, %163
-  tail call void @vectors_scalar_mult(i32 noundef %1, ptr noundef nonnull %3, double noundef %164, ptr noundef nonnull %3) #12
+  tail call void @vectors_scalar_mult(i32 noundef %1, ptr noundef nonnull %3, double noundef %164, ptr noundef nonnull %3) #13
   br label %power_iteration_orthog.exit.i
 
 power_iteration_orthog.exit.i:                    ; preds = %._crit_edge.us186.i.i, %.loopexit.thread.i.i, %standardize.exit.i
   %165 = phi double [ 0.000000e+00, %standardize.exit.i ], [ %158, %.loopexit.thread.i.i ], [ 0.000000e+00, %._crit_edge.us186.i.i ]
-  tail call void @free(ptr noundef %127) #12
-  tail call void @free(ptr noundef %128) #12
+  tail call void @free(ptr noundef %127) #13
+  tail call void @free(ptr noundef %128) #13
   br i1 %10, label %.lr.ph59.i, label %CMDS_orthog.exit
 
 .lr.ph59.i:                                       ; preds = %power_iteration_orthog.exit.i
@@ -401,9 +401,9 @@ power_iteration_orthog.exit.i:                    ; preds = %._crit_edge.us186.i
 
 CMDS_orthog.exit:                                 ; preds = %167, %power_iteration_orthog.exit.i
   %171 = load ptr, ptr %61, align 8
-  tail call void @free(ptr noundef %171) #12
-  tail call void @free(ptr noundef %61) #12
-  tail call void @free(ptr noundef %110) #12
+  tail call void @free(ptr noundef %171) #13
+  tail call void @free(ptr noundef %61) #13
+  tail call void @free(ptr noundef %110) #13
   %172 = tail call fastcc ptr @gv_calloc(i64 noundef %59, i64 noundef 4)
   br i1 %10, label %.lr.ph267, label %.preheader237
 
@@ -488,7 +488,7 @@ CMDS_orthog.exit:                                 ; preds = %167, %power_iterati
   br i1 %205, label %206, label %209
 
 206:                                              ; preds = %194
-  %207 = tail call double @sqrt(double noundef %204) #12
+  %207 = tail call double @sqrt(double noundef %204) #13
   %208 = fptosi double %207 to i32
   br label %209
 
@@ -576,7 +576,7 @@ CMDS_orthog.exit:                                 ; preds = %167, %power_iterati
 
 245:                                              ; preds = %.preheader234, %._crit_edge286.split.us
   %.0288 = phi i32 [ 0, %.preheader234 ], [ %283, %._crit_edge286.split.us ]
-  %246 = tail call i32 @conjugate_gradient_f(ptr noundef %7, ptr noundef %3, ptr noundef %8, i32 noundef %1, double noundef %4, i32 noundef %1, i1 noundef zeroext true) #12
+  %246 = tail call i32 @conjugate_gradient_f(ptr noundef %7, ptr noundef %3, ptr noundef %8, i32 noundef %1, double noundef %4, i32 noundef %1, i1 noundef zeroext true) #13
   %247 = icmp sgt i32 %246, -1
   %brmerge.not = and i1 %247, %10
   br i1 %brmerge.not, label %.lr.ph280.us, label %.loopexit.loopexit383
@@ -677,22 +677,22 @@ CMDS_orthog.exit:                                 ; preds = %167, %power_iterati
 .loopexit:                                        ; preds = %.lr.ph290.split, %.loopexit.loopexit383, %.preheader
   %.0217 = phi i32 [ 0, %.preheader ], [ %.mux, %.loopexit.loopexit383 ], [ 0, %.lr.ph290.split ]
   %291 = load ptr, ptr %9, align 8
-  tail call void @free(ptr noundef %291) #12
-  tail call void @free(ptr noundef %9) #12
+  tail call void @free(ptr noundef %291) #13
+  tail call void @free(ptr noundef %9) #13
   %292 = load ptr, ptr %7, align 8
-  tail call void @free(ptr noundef %292) #12
-  tail call void @free(ptr noundef %7) #12
-  tail call void @free(ptr noundef %8) #12
+  tail call void @free(ptr noundef %292) #13
+  tail call void @free(ptr noundef %7) #13
+  tail call void @free(ptr noundef %8) #13
   ret i32 %.0217
 }
 
-; Function Attrs: nounwind uwtable
-define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef %0, i64 noundef %1) unnamed_addr #0 {
+; Function Attrs: nofree nounwind uwtable
+define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef %0, i64 noundef %1) unnamed_addr #1 {
   %.not = icmp eq i64 %0, 0
   br i1 %.not, label %.thread, label %4
 
 .thread:                                          ; preds = %2
-  %3 = tail call noalias ptr @calloc(i64 noundef 0, i64 noundef %1) #14
+  %3 = tail call noalias ptr @calloc(i64 noundef 0, i64 noundef %1) #15
   br label %15
 
 4:                                                ; preds = %2
@@ -702,20 +702,20 @@ define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef %0, i64 nounde
 
 5:                                                ; preds = %4
   %6 = load ptr, ptr @stderr, align 8
-  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str, i64 noundef %0, i64 noundef %1) #15
-  tail call fastcc void @graphviz_exit() #16
+  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str, i64 noundef %0, i64 noundef %1) #16
+  tail call fastcc void @graphviz_exit() #17
   unreachable
 
 8:                                                ; preds = %4
-  %9 = tail call noalias ptr @calloc(i64 noundef %0, i64 noundef %1) #14
+  %9 = tail call noalias ptr @calloc(i64 noundef %0, i64 noundef %1) #15
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %15
 
 11:                                               ; preds = %8
   %12 = load ptr, ptr @stderr, align 8
   %13 = mul nsw i64 %1, %0
-  %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.1, i64 noundef %13) #15
-  tail call fastcc void @graphviz_exit() #16
+  %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.1, i64 noundef %13) #16
+  tail call fastcc void @graphviz_exit() #17
   unreachable
 
 15:                                               ; preds = %.thread, %8
@@ -723,83 +723,84 @@ define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef %0, i64 nounde
   ret ptr %16
 }
 
-declare ptr @compute_apsp(ptr noundef, i32 noundef) local_unnamed_addr #1
+declare ptr @compute_apsp(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #2
+declare double @llvm.fabs.f64(double) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #2
+declare double @llvm.fmuladd.f64(double, double, double) #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @sqrt(double noundef) local_unnamed_addr #3
+declare double @sqrt(double noundef) local_unnamed_addr #4
 
-declare i32 @conjugate_gradient_f(ptr noundef, ptr noundef, ptr noundef, i32 noundef, double noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
+declare i32 @conjugate_gradient_f(ptr noundef, ptr noundef, ptr noundef, i32 noundef, double noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
 
-; Function Attrs: noreturn nounwind uwtable
-define internal fastcc void @graphviz_exit() unnamed_addr #6 {
-  tail call void @exit(i32 noundef 1) #17
+; Function Attrs: nofree noreturn nounwind uwtable
+define internal fastcc void @graphviz_exit() unnamed_addr #7 {
+  tail call void @exit(i32 noundef 1) #18
   unreachable
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #7
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #8
 
-; Function Attrs: noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #8
+; Function Attrs: nofree noreturn nounwind
+declare void @exit(i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #2
+declare float @llvm.fmuladd.f32(float, float, float) #3
 
-declare double @norm(ptr noundef, i32 noundef) local_unnamed_addr #1
+declare double @norm(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @vectors_scalar_mult(i32 noundef, ptr noundef, double noundef, ptr noundef) local_unnamed_addr #1
+declare void @vectors_scalar_mult(i32 noundef, ptr noundef, double noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare i32 @rand() local_unnamed_addr #9
+declare i32 @rand() local_unnamed_addr #10
 
-declare double @vectors_inner_product(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+declare double @vectors_inner_product(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @scadd(ptr noundef, i32 noundef, double noundef, ptr noundef) local_unnamed_addr #1
+declare void @scadd(ptr noundef, i32 noundef, double noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @copy_vector(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #10
+declare void @copy_vector(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.sqrt.f64(double) #10
+declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #11
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.sqrt.f64(double) #11
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x double> @llvm.fmuladd.v2f64(<2 x double>, <2 x double>, <2 x double>) #10
+declare <2 x double> @llvm.fmuladd.v2f64(<2 x double>, <2 x double>, <2 x double>) #11
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #3 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { nounwind }
-attributes #13 = { memory(none) }
-attributes #14 = { nounwind allocsize(0,1) }
-attributes #15 = { cold nounwind }
-attributes #16 = { noreturn }
-attributes #17 = { noreturn nounwind }
+attributes #1 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #13 = { nounwind }
+attributes #14 = { memory(none) }
+attributes #15 = { nounwind allocsize(0,1) }
+attributes #16 = { cold nounwind }
+attributes #17 = { noreturn }
+attributes #18 = { cold noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

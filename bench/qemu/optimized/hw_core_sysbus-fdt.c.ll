@@ -87,17 +87,17 @@ entry:
   br i1 %tobool.not, label %if.else, label %if.end
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 541, ptr noundef nonnull @__PRETTY_FUNCTION__.platform_bus_add_all_fdt_nodes) #9
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 541, ptr noundef nonnull @__PRETTY_FUNCTION__.platform_bus_add_all_fdt_nodes) #10
   unreachable
 
 if.end:                                           ; preds = %entry
-  %call = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.2, i64 noundef %addr) #10
-  %call1 = tail call i32 @qemu_fdt_add_subnode(ptr noundef nonnull %fdt, ptr noundef %call) #10
-  %call2 = call i32 @qemu_fdt_setprop(ptr noundef nonnull %fdt, ptr noundef %call, ptr noundef nonnull @.str.3, ptr noundef nonnull %platcomp, i32 noundef 25) #10
+  %call = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.2, i64 noundef %addr) #11
+  %call1 = tail call i32 @qemu_fdt_add_subnode(ptr noundef nonnull %fdt, ptr noundef %call) #11
+  %call2 = call i32 @qemu_fdt_setprop(ptr noundef nonnull %fdt, ptr noundef %call, ptr noundef nonnull @.str.3, ptr noundef nonnull %platcomp, i32 noundef 25) #11
   store i32 16777216, ptr %qdt_tmp, align 4
-  %call8 = call i32 @qemu_fdt_setprop(ptr noundef nonnull %fdt, ptr noundef %call, ptr noundef nonnull @.str.4, ptr noundef nonnull %qdt_tmp, i32 noundef 4) #10
+  %call8 = call i32 @qemu_fdt_setprop(ptr noundef nonnull %fdt, ptr noundef %call, ptr noundef nonnull @.str.4, ptr noundef nonnull %qdt_tmp, i32 noundef 4) #11
   store i32 16777216, ptr %qdt_tmp10, align 4
-  %call26 = call i32 @qemu_fdt_setprop(ptr noundef nonnull %fdt, ptr noundef %call, ptr noundef nonnull @.str.6, ptr noundef nonnull %qdt_tmp10, i32 noundef 4) #10
+  %call26 = call i32 @qemu_fdt_setprop(ptr noundef nonnull %fdt, ptr noundef %call, ptr noundef nonnull @.str.6, ptr noundef nonnull %qdt_tmp10, i32 noundef 4) #11
   store i32 0, ptr %qdt_tmp29, align 16
   %arrayinit.element = getelementptr inbounds i8, ptr %qdt_tmp29, i64 4
   %shr = lshr i64 %addr, 32
@@ -122,11 +122,11 @@ for.body40:                                       ; preds = %if.end, %for.body40
   br i1 %exitcond.not, label %for.end48, label %for.body40, !llvm.loop !5
 
 for.end48:                                        ; preds = %for.body40
-  %call50 = call i32 @qemu_fdt_setprop(ptr noundef nonnull %fdt, ptr noundef %call, ptr noundef nonnull @.str.7, ptr noundef nonnull %qdt_tmp29, i32 noundef 16) #10
-  %call52 = call i32 @qemu_fdt_setprop_phandle(ptr noundef nonnull %fdt, ptr noundef %call, ptr noundef nonnull @.str.8, ptr noundef %intc) #10
-  %call53 = call ptr @sysbus_get_default() #10
-  %call54 = call ptr @qdev_find_recursive(ptr noundef %call53, ptr noundef nonnull @.str.9) #10
-  %call.i = call ptr @object_dynamic_cast_assert(ptr noundef %call54, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, i32 noundef 30, ptr noundef nonnull @__func__.PLATFORM_BUS_DEVICE) #10
+  %call50 = call i32 @qemu_fdt_setprop(ptr noundef nonnull %fdt, ptr noundef %call, ptr noundef nonnull @.str.7, ptr noundef nonnull %qdt_tmp29, i32 noundef 16) #11
+  %call52 = call i32 @qemu_fdt_setprop_phandle(ptr noundef nonnull %fdt, ptr noundef %call, ptr noundef nonnull @.str.8, ptr noundef %intc) #11
+  %call53 = call ptr @sysbus_get_default() #11
+  %call54 = call ptr @qdev_find_recursive(ptr noundef %call53, ptr noundef nonnull @.str.9) #11
+  %call.i = call ptr @object_dynamic_cast_assert(ptr noundef %call54, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, i32 noundef 30, ptr noundef nonnull @__func__.PLATFORM_BUS_DEVICE) #11
   store ptr %fdt, ptr %data, align 8
   %irq_start57 = getelementptr inbounds i8, ptr %data, i64 8
   store i32 %irq_start, ptr %irq_start57, align 8
@@ -134,8 +134,8 @@ for.end48:                                        ; preds = %for.body40
   store ptr %call, ptr %pbus_node_name, align 8
   %pbus58 = getelementptr inbounds i8, ptr %data, i64 24
   store ptr %call.i, ptr %pbus58, align 8
-  call void @foreach_dynamic_sysbus_device(ptr noundef nonnull @add_fdt_node, ptr noundef nonnull %data) #10
-  call void @g_free(ptr noundef %call) #10
+  call void @foreach_dynamic_sysbus_device(ptr noundef nonnull @add_fdt_node, ptr noundef nonnull %data) #11
+  call void @g_free(ptr noundef %call) #11
   ret void
 }
 
@@ -167,9 +167,9 @@ entry:
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
   %arrayidx = getelementptr [6 x %struct.BindingEntry], ptr @bindings, i64 0, i64 %indvars.iv
-  %call.i = tail call ptr @object_get_typename(ptr noundef %sbdev) #10
+  %call.i = tail call ptr @object_get_typename(ptr noundef %sbdev) #11
   %0 = load ptr, ptr %arrayidx, align 16
-  %call2.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i, ptr noundef nonnull dereferenceable(1) %0) #11
+  %call2.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i, ptr noundef nonnull dereferenceable(1) %0) #12
   %tobool.not.i = icmp eq i32 %call2.i, 0
   br i1 %tobool.not.i, label %if.then, label %for.inc
 
@@ -180,18 +180,18 @@ if.then:                                          ; preds = %for.body
   br i1 %tobool.not, label %if.then5, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.then
-  %call3 = tail call zeroext i1 %1(ptr noundef %sbdev, ptr noundef nonnull %arrayidx) #10
+  %call3 = tail call zeroext i1 %1(ptr noundef %sbdev, ptr noundef nonnull %arrayidx) #11
   br i1 %call3, label %if.then5, label %for.inc
 
 if.then5:                                         ; preds = %lor.lhs.false, %if.then
   %add_fn = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %2 = load ptr, ptr %add_fn, align 8
-  %call6 = tail call i32 %2(ptr noundef %sbdev, ptr noundef %opaque) #10
+  %call6 = tail call i32 %2(ptr noundef %sbdev, ptr noundef %opaque) #11
   %tobool7.not = icmp eq i32 %call6, 0
   br i1 %tobool7.not, label %if.end, label %if.else
 
 if.else:                                          ; preds = %if.then5
-  tail call void @__assert_fail(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.1, i32 noundef 523, ptr noundef nonnull @__PRETTY_FUNCTION__.add_fdt_node) #9
+  tail call void @__assert_fail(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.1, i32 noundef 523, ptr noundef nonnull @__PRETTY_FUNCTION__.add_fdt_node) #10
   unreachable
 
 if.end:                                           ; preds = %if.then5
@@ -204,9 +204,9 @@ for.inc:                                          ; preds = %for.body, %lor.lhs.
 
 for.end:                                          ; preds = %for.inc
   %call11 = tail call fastcc ptr @DEVICE(ptr noundef %sbdev)
-  %call12 = tail call ptr @qdev_fw_name(ptr noundef %call11) #10
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.12, ptr noundef %call12) #10
-  tail call void @exit(i32 noundef 1) #9
+  %call12 = tail call ptr @qdev_fw_name(ptr noundef %call11) #11
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.12, ptr noundef %call12) #11
+  tail call void @exit(i32 noundef 1) #13
   unreachable
 }
 
@@ -224,12 +224,12 @@ declare ptr @qdev_fw_name(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc ptr @DEVICE(ptr noundef %obj) unnamed_addr #0 {
 entry:
-  %call = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.55, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #10
+  %call = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.55, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #11
   ret ptr %call
 }
 
-; Function Attrs: noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #2
+; Function Attrs: nofree noreturn nounwind
+declare void @exit(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i32 @add_calxeda_midway_xgmac_fdt_node(ptr noundef %sbdev, ptr nocapture noundef readonly %opaque) #0 {
@@ -239,24 +239,24 @@ entry:
   %1 = load ptr, ptr %opaque, align 8
   %pbus_node_name = getelementptr inbounds i8, ptr %opaque, i64 16
   %2 = load ptr, ptr %pbus_node_name, align 8
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %sbdev, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.24, i32 noundef 74, ptr noundef nonnull @__func__.VFIO_PLATFORM_DEVICE) #10
-  %call4 = tail call i64 @platform_bus_get_mmio_addr(ptr noundef %0, ptr noundef %sbdev, i32 noundef 0) #10
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %sbdev, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.24, i32 noundef 74, ptr noundef nonnull @__func__.VFIO_PLATFORM_DEVICE) #11
+  %call4 = tail call i64 @platform_bus_get_mmio_addr(ptr noundef %0, ptr noundef %sbdev, i32 noundef 0) #11
   %name = getelementptr inbounds i8, ptr %call.i, i64 888
   %3 = load ptr, ptr %name, align 8
-  %call5 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.20, ptr noundef %2, ptr noundef %3, i64 noundef %call4) #10
-  %call6 = tail call i32 @qemu_fdt_add_subnode(ptr noundef %1, ptr noundef %call5) #10
+  %call5 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.20, ptr noundef %2, ptr noundef %3, i64 noundef %call4) #11
+  %call6 = tail call i32 @qemu_fdt_add_subnode(ptr noundef %1, ptr noundef %call5) #11
   %compat = getelementptr inbounds i8, ptr %call.i, i64 1000
   %4 = load ptr, ptr %compat, align 8
-  %call7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #11
+  %call7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #12
   %5 = trunc i64 %call7 to i32
   %conv = add i32 %5, 1
-  %call9 = tail call i32 @qemu_fdt_setprop(ptr noundef %1, ptr noundef %call5, ptr noundef nonnull @.str.3, ptr noundef %4, i32 noundef %conv) #10
-  %call10 = tail call i32 @qemu_fdt_setprop(ptr noundef %1, ptr noundef %call5, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.19, i32 noundef 0) #10
+  %call9 = tail call i32 @qemu_fdt_setprop(ptr noundef %1, ptr noundef %call5, ptr noundef nonnull @.str.3, ptr noundef %4, i32 noundef %conv) #11
+  %call10 = tail call i32 @qemu_fdt_setprop(ptr noundef %1, ptr noundef %call5, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.19, i32 noundef 0) #11
   %num_regions = getelementptr inbounds i8, ptr %call.i, i64 932
   %6 = load i32, ptr %num_regions, align 4
   %mul = shl i32 %6, 1
   %conv11 = zext i32 %mul to i64
-  %call12 = tail call noalias ptr @g_malloc_n(i64 noundef %conv11, i64 noundef 4) #12
+  %call12 = tail call noalias ptr @g_malloc_n(i64 noundef %conv11, i64 noundef 4) #14
   %7 = load i32, ptr %num_regions, align 4
   %cmp48.not = icmp eq i32 %7, 0
   br i1 %cmp48.not, label %for.end, label %for.body.lr.ph
@@ -267,7 +267,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %i.049 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
-  %call15 = tail call i64 @platform_bus_get_mmio_addr(ptr noundef %0, ptr noundef %sbdev, i32 noundef %i.049) #10
+  %call15 = tail call i64 @platform_bus_get_mmio_addr(ptr noundef %0, ptr noundef %sbdev, i32 noundef %i.049) #11
   %conv16 = trunc i64 %call15 to i32
   %8 = tail call noundef i32 @llvm.bswap.i32(i32 %conv16)
   %mul18 = shl i32 %i.049, 1
@@ -280,7 +280,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %10 = load ptr, ptr %arrayidx20, align 8
   %mem = getelementptr inbounds i8, ptr %10, i64 16
   %11 = load ptr, ptr %mem, align 8
-  %call21 = tail call i64 @memory_region_size(ptr noundef %11) #10
+  %call21 = tail call i64 @memory_region_size(ptr noundef %11) #11
   %conv22 = trunc i64 %call21 to i32
   %12 = tail call noundef i32 @llvm.bswap.i32(i32 %conv22)
   %add25 = or disjoint i32 %mul18, 1
@@ -298,12 +298,12 @@ for.end.loopexit:                                 ; preds = %for.body
 
 for.end:                                          ; preds = %for.end.loopexit, %entry
   %.lcssa47 = phi i32 [ 0, %entry ], [ %14, %for.end.loopexit ]
-  %call33 = tail call i32 @qemu_fdt_setprop(ptr noundef %1, ptr noundef %call5, ptr noundef nonnull @.str.22, ptr noundef %call12, i32 noundef %.lcssa47) #10
+  %call33 = tail call i32 @qemu_fdt_setprop(ptr noundef %1, ptr noundef %call5, ptr noundef nonnull @.str.22, ptr noundef %call12, i32 noundef %.lcssa47) #11
   %num_irqs = getelementptr inbounds i8, ptr %call.i, i64 928
   %15 = load i32, ptr %num_irqs, align 8
   %mul34 = mul i32 %15, 3
   %conv35 = zext i32 %mul34 to i64
-  %call36 = tail call noalias ptr @g_malloc_n(i64 noundef %conv35, i64 noundef 4) #12
+  %call36 = tail call noalias ptr @g_malloc_n(i64 noundef %conv35, i64 noundef 4) #14
   %16 = load i32, ptr %num_irqs, align 8
   %cmp3950.not = icmp eq i32 %16, 0
   br i1 %cmp3950.not, label %for.end62, label %for.body41.lr.ph
@@ -314,7 +314,7 @@ for.body41.lr.ph:                                 ; preds = %for.end
 
 for.body41:                                       ; preds = %for.body41.lr.ph, %for.body41
   %i.151 = phi i32 [ 0, %for.body41.lr.ph ], [ %inc61, %for.body41 ]
-  %call42 = tail call i32 @platform_bus_get_irqn(ptr noundef %0, ptr noundef %sbdev, i32 noundef %i.151) #10
+  %call42 = tail call i32 @platform_bus_get_irqn(ptr noundef %0, ptr noundef %sbdev, i32 noundef %i.151) #11
   %17 = load i32, ptr %irq_start, align 8
   %add43 = add i32 %17, %call42
   %mul46 = mul i32 %i.151, 3
@@ -341,10 +341,10 @@ for.end62.loopexit:                               ; preds = %for.body41
 
 for.end62:                                        ; preds = %for.end62.loopexit, %for.end
   %.lcssa = phi i32 [ 0, %for.end ], [ %20, %for.end62.loopexit ]
-  %call68 = tail call i32 @qemu_fdt_setprop(ptr noundef %1, ptr noundef %call5, ptr noundef nonnull @.str.23, ptr noundef %call36, i32 noundef %.lcssa) #10
-  tail call void @g_free(ptr noundef %call36) #10
-  tail call void @g_free(ptr noundef %call12) #10
-  tail call void @g_free(ptr noundef %call5) #10
+  %call68 = tail call i32 @qemu_fdt_setprop(ptr noundef %1, ptr noundef %call5, ptr noundef nonnull @.str.23, ptr noundef %call36, i32 noundef %.lcssa) #11
+  tail call void @g_free(ptr noundef %call36) #11
+  tail call void @g_free(ptr noundef %call12) #11
+  tail call void @g_free(ptr noundef %call5) #11
   ret i32 0
 }
 
@@ -355,14 +355,14 @@ entry:
   %qdt_tmp = alloca [2 x i32], align 4
   %pbus1 = getelementptr inbounds i8, ptr %opaque, i64 24
   %0 = load ptr, ptr %pbus1, align 8
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %sbdev, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.24, i32 noundef 74, ptr noundef nonnull @__func__.VFIO_PLATFORM_DEVICE) #10
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %sbdev, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.24, i32 noundef 74, ptr noundef nonnull @__func__.VFIO_PLATFORM_DEVICE) #11
   %pbus_node_name = getelementptr inbounds i8, ptr %opaque, i64 16
   %1 = load ptr, ptr %pbus_node_name, align 8
   %2 = load ptr, ptr %opaque, align 8
-  %call3 = tail call ptr @load_device_tree_from_sysfs() #10
+  %call3 = tail call ptr @load_device_tree_from_sysfs() #11
   %name = getelementptr inbounds i8, ptr %call.i, i64 888
   %3 = load ptr, ptr %name, align 8
-  %call.i82 = tail call ptr @g_strsplit(ptr noundef %3, ptr noundef nonnull @.str.31, i32 noundef 2) #10
+  %call.i82 = tail call ptr @g_strsplit(ptr noundef %3, ptr noundef nonnull @.str.31, i32 noundef 2) #11
   %tobool.not.i = icmp eq ptr %call.i82, null
   br i1 %tobool.not.i, label %sysfs_to_dt_name.exit.thread, label %lor.lhs.false.i
 
@@ -378,25 +378,25 @@ lor.lhs.false2.i:                                 ; preds = %lor.lhs.false.i
   br i1 %tobool4.not.i, label %sysfs_to_dt_name.exit.thread, label %sysfs_to_dt_name.exit
 
 sysfs_to_dt_name.exit.thread:                     ; preds = %lor.lhs.false2.i, %lor.lhs.false.i, %entry
-  tail call void @g_strfreev(ptr noundef %call.i82) #10
+  tail call void @g_strfreev(ptr noundef %call.i82) #11
   br label %if.then
 
 sysfs_to_dt_name.exit:                            ; preds = %lor.lhs.false2.i
-  %call7.i = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.32, ptr noundef nonnull %5, ptr noundef nonnull %4) #10
-  tail call void @g_strfreev(ptr noundef nonnull %call.i82) #10
+  %call7.i = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.32, ptr noundef nonnull %5, ptr noundef nonnull %4) #11
+  tail call void @g_strfreev(ptr noundef nonnull %call.i82) #11
   %tobool.not = icmp eq ptr %call7.i, null
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %sysfs_to_dt_name.exit.thread, %sysfs_to_dt_name.exit
   %6 = load ptr, ptr %name, align 8
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.25, ptr noundef nonnull @__func__.add_amd_xgbe_fdt_node, ptr noundef %6) #10
-  tail call void @exit(i32 noundef 1) #9
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.25, ptr noundef nonnull @__func__.add_amd_xgbe_fdt_node, ptr noundef %6) #11
+  tail call void @exit(i32 noundef 1) #13
   unreachable
 
 if.end:                                           ; preds = %sysfs_to_dt_name.exit
   %compat = getelementptr inbounds i8, ptr %call.i, i64 1000
   %7 = load ptr, ptr %compat, align 8
-  %call6 = tail call ptr @qemu_fdt_node_path(ptr noundef %call3, ptr noundef nonnull %call7.i, ptr noundef %7, ptr noundef nonnull @error_fatal) #10
+  %call6 = tail call ptr @qemu_fdt_node_path(ptr noundef %call3, ptr noundef nonnull %call7.i, ptr noundef %7, ptr noundef nonnull @error_fatal) #11
   %tobool7.not = icmp eq ptr %call6, null
   br i1 %tobool7.not, label %if.then9, label %lor.lhs.false
 
@@ -407,8 +407,8 @@ lor.lhs.false:                                    ; preds = %if.end
 
 if.then9:                                         ; preds = %lor.lhs.false, %if.end
   %9 = load ptr, ptr %compat, align 8
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.26, ptr noundef nonnull @__func__.add_amd_xgbe_fdt_node, ptr noundef nonnull %call7.i, ptr noundef %9) #10
-  tail call void @exit(i32 noundef 1) #9
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.26, ptr noundef nonnull @__func__.add_amd_xgbe_fdt_node, ptr noundef nonnull %call7.i, ptr noundef %9) #11
+  tail call void @exit(i32 noundef 1) #13
   unreachable
 
 if.end11:                                         ; preds = %lor.lhs.false
@@ -419,37 +419,37 @@ if.end11:                                         ; preds = %lor.lhs.false
 
 if.then14:                                        ; preds = %if.end11
   %11 = load ptr, ptr %compat, align 8
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.27, ptr noundef nonnull @__func__.add_amd_xgbe_fdt_node, ptr noundef nonnull %call7.i, ptr noundef %11) #10
-  tail call void @exit(i32 noundef 1) #9
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.27, ptr noundef nonnull @__func__.add_amd_xgbe_fdt_node, ptr noundef nonnull %call7.i, ptr noundef %11) #11
+  tail call void @exit(i32 noundef 1) #13
   unreachable
 
 if.end16:                                         ; preds = %if.end11
-  tail call void @g_free(ptr noundef nonnull %call7.i) #10
+  tail call void @g_free(ptr noundef nonnull %call7.i) #11
   %num_regions = getelementptr inbounds i8, ptr %call.i, i64 932
   %12 = load i32, ptr %num_regions, align 4
   %cmp.not = icmp eq i32 %12, 5
   br i1 %cmp.not, label %if.end18, label %if.then17
 
 if.then17:                                        ; preds = %if.end16
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.28, ptr noundef nonnull @__func__.add_amd_xgbe_fdt_node) #10
-  tail call void @exit(i32 noundef 1) #9
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.28, ptr noundef nonnull @__func__.add_amd_xgbe_fdt_node) #11
+  tail call void @exit(i32 noundef 1) #13
   unreachable
 
 if.end18:                                         ; preds = %if.end16
   %13 = load ptr, ptr %call6, align 8
-  %call20 = call ptr @qemu_fdt_getprop(ptr noundef %call3, ptr noundef %13, ptr noundef nonnull @.str.29, ptr noundef nonnull %prop_len, ptr noundef nonnull @error_fatal) #10
+  %call20 = call ptr @qemu_fdt_getprop(ptr noundef %call3, ptr noundef %13, ptr noundef nonnull @.str.29, ptr noundef nonnull %prop_len, ptr noundef nonnull @error_fatal) #11
   %14 = load i32, ptr %prop_len, align 4
   %cmp21.not = icmp eq i32 %14, 8
   br i1 %cmp21.not, label %if.end23, label %if.then22
 
 if.then22:                                        ; preds = %if.end18
-  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.30, ptr noundef nonnull @__func__.add_amd_xgbe_fdt_node) #10
-  call void @exit(i32 noundef 1) #9
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.30, ptr noundef nonnull @__func__.add_amd_xgbe_fdt_node) #11
+  call void @exit(i32 noundef 1) #13
   unreachable
 
 if.end23:                                         ; preds = %if.end18
-  %call24 = call i32 @qemu_fdt_alloc_phandle(ptr noundef %2) #10
-  %call26 = call i32 @qemu_fdt_alloc_phandle(ptr noundef %2) #10
+  %call24 = call i32 @qemu_fdt_alloc_phandle(ptr noundef %2) #11
+  %call26 = call i32 @qemu_fdt_alloc_phandle(ptr noundef %2) #11
   %15 = load i32, ptr %call20, align 4
   %16 = call noundef i32 @llvm.bswap.i32(i32 %15)
   call fastcc void @fdt_build_clock_node(ptr noundef %call3, ptr noundef %2, i32 noundef %16, i32 noundef %call24)
@@ -457,10 +457,10 @@ if.end23:                                         ; preds = %if.end18
   %17 = load i32, ptr %arrayidx31, align 4
   %18 = call noundef i32 @llvm.bswap.i32(i32 %17)
   call fastcc void @fdt_build_clock_node(ptr noundef %call3, ptr noundef %2, i32 noundef %18, i32 noundef %call26)
-  %call34 = call i64 @platform_bus_get_mmio_addr(ptr noundef %0, ptr noundef %sbdev, i32 noundef 0) #10
+  %call34 = call i64 @platform_bus_get_mmio_addr(ptr noundef %0, ptr noundef %sbdev, i32 noundef 0) #11
   %19 = load ptr, ptr %name, align 8
-  %call36 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.20, ptr noundef %1, ptr noundef %19, i64 noundef %call34) #10
-  %call37 = call i32 @qemu_fdt_add_subnode(ptr noundef %2, ptr noundef %call36) #10
+  %call36 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.20, ptr noundef %1, ptr noundef %19, i64 noundef %call34) #11
+  %call37 = call i32 @qemu_fdt_add_subnode(ptr noundef %2, ptr noundef %call36) #11
   %20 = load ptr, ptr %call6, align 8
   call fastcc void @copy_properties_from_host(ptr noundef nonnull @amd_xgbe_copied_properties, i32 noundef 13, ptr noundef %call3, ptr noundef %2, ptr noundef %20, ptr noundef %call36)
   store i32 %call24, ptr %qdt_tmp, align 4
@@ -471,11 +471,11 @@ if.end23:                                         ; preds = %if.end18
   %arrayidx43.c = getelementptr inbounds i8, ptr %qdt_tmp, i64 4
   %22 = call noundef i32 @llvm.bswap.i32(i32 %call26)
   store i32 %22, ptr %arrayidx43.c, align 4
-  %call47 = call i32 @qemu_fdt_setprop(ptr noundef %2, ptr noundef %call36, ptr noundef nonnull @.str.29, ptr noundef nonnull %qdt_tmp, i32 noundef 8) #10
+  %call47 = call i32 @qemu_fdt_setprop(ptr noundef %2, ptr noundef %call36, ptr noundef nonnull @.str.29, ptr noundef nonnull %qdt_tmp, i32 noundef 8) #11
   %23 = load i32, ptr %num_regions, align 4
   %mul = shl i32 %23, 1
   %conv49 = zext i32 %mul to i64
-  %call50 = call noalias ptr @g_malloc_n(i64 noundef %conv49, i64 noundef 4) #12
+  %call50 = call noalias ptr @g_malloc_n(i64 noundef %conv49, i64 noundef 4) #14
   %24 = load i32, ptr %num_regions, align 4
   %cmp5387.not = icmp eq i32 %24, 0
   br i1 %cmp5387.not, label %for.end72, label %for.body55.lr.ph
@@ -486,7 +486,7 @@ for.body55.lr.ph:                                 ; preds = %if.end23
 
 for.body55:                                       ; preds = %for.body55.lr.ph, %for.body55
   %i.088 = phi i32 [ 0, %for.body55.lr.ph ], [ %inc71, %for.body55 ]
-  %call56 = call i64 @platform_bus_get_mmio_addr(ptr noundef %0, ptr noundef %sbdev, i32 noundef %i.088) #10
+  %call56 = call i64 @platform_bus_get_mmio_addr(ptr noundef %0, ptr noundef %sbdev, i32 noundef %i.088) #11
   %conv57 = trunc i64 %call56 to i32
   %25 = call noundef i32 @llvm.bswap.i32(i32 %conv57)
   %mul59 = shl i32 %i.088, 1
@@ -499,7 +499,7 @@ for.body55:                                       ; preds = %for.body55.lr.ph, %
   %27 = load ptr, ptr %arrayidx63, align 8
   %mem = getelementptr inbounds i8, ptr %27, i64 16
   %28 = load ptr, ptr %mem, align 8
-  %call64 = call i64 @memory_region_size(ptr noundef %28) #10
+  %call64 = call i64 @memory_region_size(ptr noundef %28) #11
   %conv65 = trunc i64 %call64 to i32
   %29 = call noundef i32 @llvm.bswap.i32(i32 %conv65)
   %add = or disjoint i32 %mul59, 1
@@ -517,12 +517,12 @@ for.end72.loopexit:                               ; preds = %for.body55
 
 for.end72:                                        ; preds = %for.end72.loopexit, %if.end23
   %.lcssa85 = phi i32 [ 0, %if.end23 ], [ %31, %for.end72.loopexit ]
-  %call78 = call i32 @qemu_fdt_setprop(ptr noundef %2, ptr noundef %call36, ptr noundef nonnull @.str.22, ptr noundef %call50, i32 noundef %.lcssa85) #10
+  %call78 = call i32 @qemu_fdt_setprop(ptr noundef %2, ptr noundef %call36, ptr noundef nonnull @.str.22, ptr noundef %call50, i32 noundef %.lcssa85) #11
   %num_irqs = getelementptr inbounds i8, ptr %call.i, i64 928
   %32 = load i32, ptr %num_irqs, align 8
   %mul79 = mul i32 %32, 3
   %conv80 = zext i32 %mul79 to i64
-  %call81 = call noalias ptr @g_malloc_n(i64 noundef %conv80, i64 noundef 4) #12
+  %call81 = call noalias ptr @g_malloc_n(i64 noundef %conv80, i64 noundef 4) #14
   %33 = load i32, ptr %num_irqs, align 8
   %cmp8489.not = icmp eq i32 %33, 0
   br i1 %cmp8489.not, label %for.end125, label %for.body86.lr.ph
@@ -534,7 +534,7 @@ for.body86.lr.ph:                                 ; preds = %for.end72
 
 for.body86:                                       ; preds = %for.body86.lr.ph, %for.end109
   %i.190 = phi i32 [ 0, %for.body86.lr.ph ], [ %inc124, %for.end109 ]
-  %call87 = call i32 @platform_bus_get_irqn(ptr noundef %0, ptr noundef %sbdev, i32 noundef %i.190) #10
+  %call87 = call i32 @platform_bus_get_irqn(ptr noundef %0, ptr noundef %sbdev, i32 noundef %i.190) #11
   %34 = load i32, ptr %irq_start, align 8
   %add88 = add i32 %34, %call87
   %mul91 = mul i32 %i.190, 3
@@ -582,19 +582,19 @@ for.end125.loopexit:                              ; preds = %for.end109
 
 for.end125:                                       ; preds = %for.end125.loopexit, %for.end72
   %.lcssa = phi i32 [ 0, %for.end72 ], [ %39, %for.end125.loopexit ]
-  %call131 = call i32 @qemu_fdt_setprop(ptr noundef %2, ptr noundef %call36, ptr noundef nonnull @.str.23, ptr noundef %call81, i32 noundef %.lcssa) #10
-  call void @g_free(ptr noundef %call3) #10
-  call void @g_strfreev(ptr noundef nonnull %call6) #10
-  call void @g_free(ptr noundef %call81) #10
-  call void @g_free(ptr noundef %call50) #10
-  call void @g_free(ptr noundef %call36) #10
+  %call131 = call i32 @qemu_fdt_setprop(ptr noundef %2, ptr noundef %call36, ptr noundef nonnull @.str.23, ptr noundef %call81, i32 noundef %.lcssa) #11
+  call void @g_free(ptr noundef %call3) #11
+  call void @g_strfreev(ptr noundef nonnull %call6) #11
+  call void @g_free(ptr noundef %call81) #11
+  call void @g_free(ptr noundef %call50) #11
+  call void @g_free(ptr noundef %call36) #11
   ret i32 0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef zeroext i1 @vfio_platform_match(ptr noundef %sbdev, ptr nocapture noundef readonly %entry1) #0 {
 entry:
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %sbdev, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.24, i32 noundef 74, ptr noundef nonnull @__func__.VFIO_PLATFORM_DEVICE) #10
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %sbdev, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.24, i32 noundef 74, ptr noundef nonnull @__func__.VFIO_PLATFORM_DEVICE) #11
   %num_compat = getelementptr inbounds i8, ptr %call.i, i64 1008
   %0 = load i32, ptr %num_compat, align 8
   %cmp.not5.not = icmp eq i32 %0, 0
@@ -610,13 +610,13 @@ for.body.lr.ph:                                   ; preds = %entry
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %n.07 = phi i32 [ %0, %for.body.lr.ph ], [ %dec, %for.inc ]
   %compat.06 = phi ptr [ %1, %for.body.lr.ph ], [ %add.ptr, %for.inc ]
-  %call4 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %compat.06) #11
+  %call4 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %compat.06) #12
   %tobool.not = icmp eq i32 %call4, 0
   br i1 %tobool.not, label %return, label %for.inc
 
 for.inc:                                          ; preds = %for.body
   %dec = add i32 %n.07, -1
-  %call5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %compat.06) #11
+  %call5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %compat.06) #12
   %add = add i64 %call5, 1
   %add.ptr = getelementptr i8, ptr %compat.06, i64 %add
   %cmp.not.not = icmp eq i32 %dec, 0
@@ -636,22 +636,22 @@ entry:
   %1 = load ptr, ptr %opaque, align 8
   %pbus_node_name = getelementptr inbounds i8, ptr %opaque, i64 16
   %2 = load ptr, ptr %pbus_node_name, align 8
-  %call = tail call i64 @platform_bus_get_mmio_addr(ptr noundef %0, ptr noundef %sbdev, i32 noundef 0) #10
-  %call3 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.52, ptr noundef %2, i64 noundef %call) #10
-  %call4 = tail call i32 @qemu_fdt_add_subnode(ptr noundef %1, ptr noundef %call3) #10
-  %call5 = tail call i32 @qemu_fdt_setprop_string(ptr noundef %1, ptr noundef %call3, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.53) #10
+  %call = tail call i64 @platform_bus_get_mmio_addr(ptr noundef %0, ptr noundef %sbdev, i32 noundef 0) #11
+  %call3 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.52, ptr noundef %2, i64 noundef %call) #11
+  %call4 = tail call i32 @qemu_fdt_add_subnode(ptr noundef %1, ptr noundef %call3) #11
+  %call5 = tail call i32 @qemu_fdt_setprop_string(ptr noundef %1, ptr noundef %call3, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.53) #11
   %conv = trunc i64 %call to i32
   %3 = tail call noundef i32 @llvm.bswap.i32(i32 %conv)
   store i32 %3, ptr %reg_attr, align 4
   %arrayidx8 = getelementptr inbounds i8, ptr %reg_attr, i64 4
   store i32 5242880, ptr %arrayidx8, align 4
-  %call9 = call i32 @qemu_fdt_setprop(ptr noundef %1, ptr noundef %call3, ptr noundef nonnull @.str.22, ptr noundef nonnull %reg_attr, i32 noundef 8) #10
-  call void @g_free(ptr noundef %call3) #10
+  %call9 = call i32 @qemu_fdt_setprop(ptr noundef %1, ptr noundef %call3, ptr noundef nonnull @.str.22, ptr noundef nonnull %reg_attr, i32 noundef 8) #11
+  call void @g_free(ptr noundef %call3) #11
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i32 @no_fdt_node(ptr nocapture readnone %sbdev, ptr nocapture readnone %opaque) #5 {
+define internal noundef i32 @no_fdt_node(ptr nocapture readnone %sbdev, ptr nocapture readnone %opaque) #6 {
 entry:
   ret i32 0
 }
@@ -659,10 +659,10 @@ entry:
 declare i64 @platform_bus_get_mmio_addr(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: allocsize(0,1)
-declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #7
+declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #8
 
 declare i64 @memory_region_size(ptr noundef) local_unnamed_addr #3
 
@@ -680,18 +680,18 @@ declare i32 @qemu_fdt_alloc_phandle(ptr noundef) local_unnamed_addr #3
 define internal fastcc void @fdt_build_clock_node(ptr noundef %host_fdt, ptr noundef %guest_fdt, i32 noundef %host_phandle, i32 noundef %guest_phandle) unnamed_addr #0 {
 entry:
   %prop_len = alloca i32, align 4
-  %call = tail call i32 @fdt_node_offset_by_phandle(ptr noundef %host_fdt, i32 noundef %host_phandle) #10
+  %call = tail call i32 @fdt_node_offset_by_phandle(ptr noundef %host_fdt, i32 noundef %host_phandle) #11
   %cmp = icmp slt i32 %call, 1
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.33, i32 noundef %host_phandle) #10
-  tail call void @exit(i32 noundef 1) #9
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.33, i32 noundef %host_phandle) #11
+  tail call void @exit(i32 noundef 1) #13
   unreachable
 
 if.end:                                           ; preds = %entry
-  %call1 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #13
-  %call220 = tail call i32 @fdt_get_path(ptr noundef %host_fdt, i32 noundef %call, ptr noundef %call1, i32 noundef 16) #10
+  %call1 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #15
+  %call220 = tail call i32 @fdt_get_path(ptr noundef %host_fdt, i32 noundef %call, ptr noundef %call1, i32 noundef 16) #11
   %cmp321 = icmp eq i32 %call220, -3
   br i1 %cmp321, label %while.body, label %while.end
 
@@ -700,8 +700,8 @@ while.body:                                       ; preds = %if.end, %while.body
   %node_path.022 = phi ptr [ %call6, %while.body ], [ %call1, %if.end ]
   %add = add i32 %path_len.023, 16
   %conv5 = sext i32 %add to i64
-  %call6 = tail call ptr @g_realloc(ptr noundef %node_path.022, i64 noundef %conv5) #10
-  %call2 = tail call i32 @fdt_get_path(ptr noundef %host_fdt, i32 noundef %call, ptr noundef %call6, i32 noundef %add) #10
+  %call6 = tail call ptr @g_realloc(ptr noundef %node_path.022, i64 noundef %conv5) #11
+  %call2 = tail call i32 @fdt_get_path(ptr noundef %host_fdt, i32 noundef %call, ptr noundef %call6, i32 noundef %add) #11
   %cmp3 = icmp eq i32 %call2, -3
   br i1 %cmp3, label %while.body, label %while.end, !llvm.loop !14
 
@@ -712,27 +712,27 @@ while.end:                                        ; preds = %while.body, %if.end
   br i1 %cmp7, label %if.then9, label %if.end10
 
 if.then9:                                         ; preds = %while.end
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.34, i32 noundef %host_phandle) #10
-  tail call void @exit(i32 noundef 1) #9
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.34, i32 noundef %host_phandle) #11
+  tail call void @exit(i32 noundef 1) #13
   unreachable
 
 if.end10:                                         ; preds = %while.end
-  %call11 = call ptr @qemu_fdt_getprop(ptr noundef %host_fdt, ptr noundef %node_path.0.lcssa, ptr noundef nonnull @.str.3, ptr noundef nonnull %prop_len, ptr noundef nonnull @error_fatal) #10
-  %call12 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call11, ptr noundef nonnull dereferenceable(12) @.str.35) #11
+  %call11 = call ptr @qemu_fdt_getprop(ptr noundef %host_fdt, ptr noundef %node_path.0.lcssa, ptr noundef nonnull @.str.3, ptr noundef nonnull %prop_len, ptr noundef nonnull @error_fatal) #11
+  %call12 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call11, ptr noundef nonnull dereferenceable(12) @.str.35) #12
   %tobool.not = icmp eq i32 %call12, 0
   br i1 %tobool.not, label %if.end14, label %if.then13
 
 if.then13:                                        ; preds = %if.end10
-  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.36, i32 noundef %host_phandle) #10
-  call void @exit(i32 noundef 1) #9
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.36, i32 noundef %host_phandle) #11
+  call void @exit(i32 noundef 1) #13
   unreachable
 
 if.end14:                                         ; preds = %if.end10
-  %call15 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %node_path.0.lcssa, i32 noundef 47) #11
-  %call16 = call i32 @qemu_fdt_add_subnode(ptr noundef %guest_fdt, ptr noundef %call15) #10
+  %call15 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %node_path.0.lcssa, i32 noundef 47) #12
+  %call16 = call i32 @qemu_fdt_add_subnode(ptr noundef %guest_fdt, ptr noundef %call15) #11
   call fastcc void @copy_properties_from_host(ptr noundef nonnull @clock_copied_properties, i32 noundef 4, ptr noundef %host_fdt, ptr noundef %guest_fdt, ptr noundef %node_path.0.lcssa, ptr noundef %call15)
-  %call17 = call i32 @qemu_fdt_setprop_cell(ptr noundef %guest_fdt, ptr noundef %call15, ptr noundef nonnull @.str.37, i32 noundef %guest_phandle) #10
-  call void @g_free(ptr noundef %node_path.0.lcssa) #10
+  %call17 = call i32 @qemu_fdt_setprop_cell(ptr noundef %guest_fdt, ptr noundef %call15, ptr noundef nonnull @.str.37, i32 noundef %guest_phandle) #11
+  call void @g_free(ptr noundef %node_path.0.lcssa) #11
   ret void
 }
 
@@ -753,14 +753,14 @@ for.body:                                         ; preds = %for.body.preheader,
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
   %arrayidx = getelementptr %struct.HostProperty, ptr %props, i64 %indvars.iv
   %0 = load ptr, ptr %arrayidx, align 8
-  %call = call ptr @qemu_fdt_getprop(ptr noundef %host_fdt, ptr noundef %node_path, ptr noundef %0, ptr noundef nonnull %prop_len, ptr noundef nonnull %err) #10
+  %call = call ptr @qemu_fdt_getprop(ptr noundef %host_fdt, ptr noundef %node_path, ptr noundef %0, ptr noundef nonnull %prop_len, ptr noundef nonnull %err) #11
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %for.body
   %1 = load ptr, ptr %arrayidx, align 8
   %2 = load i32, ptr %prop_len, align 4
-  %call4 = call i32 @qemu_fdt_setprop(ptr noundef %guest_fdt, ptr noundef %nodename, ptr noundef %1, ptr noundef nonnull %call, i32 noundef %2) #10
+  %call4 = call i32 @qemu_fdt_setprop(ptr noundef %guest_fdt, ptr noundef %nodename, ptr noundef %1, ptr noundef nonnull %call, i32 noundef %2) #11
   br label %for.inc
 
 if.else:                                          ; preds = %for.body
@@ -774,11 +774,11 @@ if.else:                                          ; preds = %for.body
   br i1 %or.cond, label %if.then9, label %if.else10
 
 if.then9:                                         ; preds = %if.else
-  call void @error_free(ptr noundef %5) #10
+  call void @error_free(ptr noundef %5) #11
   br label %if.end
 
 if.else10:                                        ; preds = %if.else
-  call void @error_report_err(ptr noundef %5) #10
+  call void @error_report_err(ptr noundef %5) #11
   br label %if.end
 
 if.end:                                           ; preds = %if.else10, %if.then9
@@ -787,7 +787,7 @@ if.end:                                           ; preds = %if.else10, %if.then
   br i1 %tobool14, label %if.end16, label %if.then15
 
 if.then15:                                        ; preds = %if.end
-  call void @exit(i32 noundef 1) #9
+  call void @exit(i32 noundef 1) #13
   unreachable
 
 if.end16:                                         ; preds = %if.end
@@ -810,17 +810,17 @@ declare ptr @g_strsplit(ptr noundef, ptr noundef, i32 noundef) local_unnamed_add
 declare i32 @fdt_node_offset_by_phandle(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #8
+declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #9
 
 declare i32 @fdt_get_path(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 declare ptr @g_realloc(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #6
+declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #7
 
 declare i32 @qemu_fdt_setprop_cell(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
@@ -837,15 +837,17 @@ attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #2 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { noreturn nounwind }
-attributes #10 = { nounwind }
-attributes #11 = { nounwind willreturn memory(read) }
-attributes #12 = { nounwind allocsize(0,1) }
-attributes #13 = { nounwind allocsize(0) }
+attributes #5 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { noreturn nounwind }
+attributes #11 = { nounwind }
+attributes #12 = { nounwind willreturn memory(read) }
+attributes #13 = { cold noreturn nounwind }
+attributes #14 = { nounwind allocsize(0,1) }
+attributes #15 = { nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

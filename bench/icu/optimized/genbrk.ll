@@ -61,7 +61,7 @@ declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_a
 
 declare ptr @u_getDataDirectory_75() local_unnamed_addr #2
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress norecurse uwtable
@@ -90,7 +90,7 @@ if.then:                                          ; preds = %entry
   %call.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef %3)
   %call1.i = tail call ptr @u_getDataDirectory_75()
   %call2.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef %call1.i)
-  tail call void @exit(i32 noundef 1) #9
+  tail call void @exit(i32 noundef 1) #11
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -124,7 +124,7 @@ if.then8:                                         ; preds = %if.end5
   %call.i47 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef %11)
   %call1.i48 = tail call ptr @u_getDataDirectory_75()
   %call2.i49 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef %call1.i48)
-  tail call void @exit(i32 noundef 1) #9
+  tail call void @exit(i32 noundef 1) #11
   unreachable
 
 if.end10:                                         ; preds = %if.end5
@@ -158,7 +158,7 @@ if.then22:                                        ; preds = %if.end13
   %21 = load ptr, ptr %argv, align 8
   %call24 = call ptr @u_errorName_75(i32 noundef %19)
   %call25 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef nonnull @.str.5, ptr noundef %21, ptr noundef %call24) #10
-  call void @exit(i32 noundef 1) #9
+  call void @exit(i32 noundef 1) #11
   unreachable
 
 if.end26:                                         ; preds = %if.end13
@@ -170,7 +170,7 @@ if.end26:                                         ; preds = %if.end13
 if.then29:                                        ; preds = %if.end26
   %22 = load ptr, ptr @stderr, align 8
   %call30 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef nonnull @.str.7, ptr noundef %12) #10
-  call void @exit(i32 noundef -1) #9
+  call void @exit(i32 noundef -1) #11
   unreachable
 
 if.end31:                                         ; preds = %if.end26
@@ -178,7 +178,7 @@ if.end31:                                         ; preds = %if.end26
   %call33 = call i64 @ftell(ptr noundef nonnull %call27)
   %call34 = call i32 @fseek(ptr noundef nonnull %call27, i64 noundef 0, i32 noundef 0)
   %add = add nsw i64 %call33, 10
-  %call35 = call noalias noundef nonnull ptr @_Znam(i64 noundef %add) #11
+  %call35 = call noalias noundef nonnull ptr @_Znam(i64 noundef %add) #12
   %call36 = call i64 @fread(ptr noundef nonnull %call35, i64 noundef 1, i64 noundef %call33, ptr noundef nonnull %call27)
   %cmp37.not = icmp eq i64 %call36, %call33
   br i1 %cmp37.not, label %if.end40, label %if.then38
@@ -186,7 +186,7 @@ if.end31:                                         ; preds = %if.end26
 if.then38:                                        ; preds = %if.end31
   %23 = load ptr, ptr @stderr, align 8
   %call39 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.8, ptr noundef %12) #10
-  call void @exit(i32 noundef -1) #9
+  call void @exit(i32 noundef -1) #11
   unreachable
 
 if.end40:                                         ; preds = %if.end31
@@ -244,7 +244,7 @@ if.end67:                                         ; preds = %if.end60
   %add68 = add i32 %call62, 1
   %conv69 = zext i32 %add68 to i64
   %32 = shl nuw nsw i64 %conv69, 1
-  %call70 = call noalias noundef nonnull ptr @_Znam(i64 noundef %32) #11
+  %call70 = call noalias noundef nonnull ptr @_Znam(i64 noundef %32) #12
   %call73 = call i32 @ucnv_toUChars_75(ptr noundef %call54, ptr noundef nonnull %call70, i32 noundef %add68, ptr noundef nonnull %ruleSourceC.0, i32 noundef %conv61, ptr noundef nonnull %status)
   %33 = load i32, ptr %status, align 4
   %cmp.i55 = icmp slt i32 %33, 1
@@ -266,11 +266,11 @@ if.end79:                                         ; preds = %if.end67
 
 invoke.cont:                                      ; preds = %if.end79
   %36 = load ptr, ptr %agg.tmp, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %36) #12, !srcloc !5
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %36) #13, !srcloc !5
   store i32 0, ptr %parseError, align 4
   %offset = getelementptr inbounds i8, ptr %parseError, i64 4
   store i32 0, ptr %offset, align 4
-  %call80 = call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 752) #12
+  %call80 = call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 752) #13
   %new.isnull = icmp eq ptr %call80, null
   br i1 %new.isnull, label %new.cont, label %new.notnull
 
@@ -300,13 +300,13 @@ lpad:                                             ; preds = %if.end79
   %42 = landingpad { ptr, i32 }
           cleanup
   %43 = load ptr, ptr %agg.tmp, align 8
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %43) #12, !srcloc !5
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %43) #13, !srcloc !5
   br label %eh.resume
 
 lpad81:                                           ; preds = %new.notnull
   %44 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call80) #12
+  call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call80) #13
   br label %ehcleanup
 
 lpad83:                                           ; preds = %delete.notnull, %invoke.cont108, %if.end107, %if.then102, %invoke.cont95, %if.end94, %if.then87
@@ -373,16 +373,16 @@ if.end118:                                        ; preds = %invoke.cont109
 if.then121:                                       ; preds = %if.end118
   %56 = load ptr, ptr @stderr, align 8
   %call123 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %56, ptr noundef nonnull @.str.15, ptr noundef %13) #10
-  call void @exit(i32 noundef -1) #9
+  call void @exit(i32 noundef -1) #11
   unreachable
 
 delete.notnull:                                   ; preds = %if.end118
   %vtable125 = load ptr, ptr %call80, align 8
   %vfn126 = getelementptr inbounds i8, ptr %vtable125, i64 8
   %57 = load ptr, ptr %vfn126, align 8
-  call void %57(ptr noundef nonnull align 8 dereferenceable(745) %call80) #12
-  call void @_ZdaPv(ptr noundef nonnull %call70) #13
-  call void @_ZdaPv(ptr noundef nonnull %call35) #13
+  call void %57(ptr noundef nonnull align 8 dereferenceable(745) %call80) #13
+  call void @_ZdaPv(ptr noundef nonnull %call70) #14
+  call void @_ZdaPv(ptr noundef nonnull %call35) #14
   invoke void @u_cleanup_75()
           to label %invoke.cont133 unwind label %lpad83
 
@@ -396,12 +396,12 @@ if.then135:                                       ; preds = %invoke.cont133
   br label %if.end138
 
 if.end138:                                        ; preds = %if.then135, %invoke.cont133
-  call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ruleSourceS) #12
+  call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ruleSourceS) #13
   ret i32 0
 
 ehcleanup:                                        ; preds = %lpad81, %lpad83
   %.pn = phi { ptr, i32 } [ %45, %lpad83 ], [ %44, %lpad81 ]
-  call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ruleSourceS) #12
+  call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ruleSourceS) #13
   br label %eh.resume
 
 eh.resume:                                        ; preds = %ehcleanup, %lpad
@@ -481,7 +481,7 @@ declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #8
 attributes #0 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress norecurse uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -489,9 +489,10 @@ attributes #7 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="t
 attributes #8 = { nofree nounwind }
 attributes #9 = { noreturn nounwind }
 attributes #10 = { cold }
-attributes #11 = { builtin allocsize(0) }
-attributes #12 = { nounwind }
-attributes #13 = { builtin nounwind }
+attributes #11 = { cold noreturn nounwind }
+attributes #12 = { builtin allocsize(0) }
+attributes #13 = { nounwind }
+attributes #14 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

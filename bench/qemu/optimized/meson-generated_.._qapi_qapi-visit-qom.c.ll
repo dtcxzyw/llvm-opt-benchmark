@@ -149,28 +149,28 @@ entry:
   %tobool2 = icmp ne ptr %1, null
   %frombool5 = zext i1 %tobool2 to i8
   store i8 %frombool5, ptr %has_default_value, align 1
-  %call = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str, ptr noundef %obj, ptr noundef %errp) #4
+  %call = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str, ptr noundef %obj, ptr noundef %errp) #5
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
   %type = getelementptr inbounds i8, ptr %obj, i64 8
-  %call6 = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.1, ptr noundef nonnull %type, ptr noundef %errp) #4
+  %call6 = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.1, ptr noundef nonnull %type, ptr noundef %errp) #5
   br i1 %call6, label %if.end8, label %return
 
 if.end8:                                          ; preds = %if.end
-  %call9 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.2, ptr noundef nonnull %has_description) #4
+  %call9 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.2, ptr noundef nonnull %has_description) #5
   br i1 %call9, label %if.then10, label %if.end15
 
 if.then10:                                        ; preds = %if.end8
-  %call12 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.2, ptr noundef nonnull %description, ptr noundef %errp) #4
+  %call12 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.2, ptr noundef nonnull %description, ptr noundef %errp) #5
   br i1 %call12, label %if.end15, label %return
 
 if.end15:                                         ; preds = %if.then10, %if.end8
-  %call16 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.3, ptr noundef nonnull %has_default_value) #4
+  %call16 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.3, ptr noundef nonnull %has_default_value) #5
   br i1 %call16, label %if.then17, label %if.end22
 
 if.then17:                                        ; preds = %if.end15
-  %call19 = call zeroext i1 @visit_type_any(ptr noundef %v, ptr noundef nonnull @.str.3, ptr noundef nonnull %default_value, ptr noundef %errp) #4
+  %call19 = call zeroext i1 @visit_type_any(ptr noundef %v, ptr noundef nonnull @.str.3, ptr noundef nonnull %default_value, ptr noundef %errp) #5
   br i1 %call19, label %if.end22, label %return
 
 if.end22:                                         ; preds = %if.then17, %if.end15
@@ -190,7 +190,7 @@ declare zeroext i1 @visit_type_any(ptr noundef, ptr noundef, ptr noundef, ptr no
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef zeroext i1 @visit_type_ObjectPropertyInfo(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 32, ptr noundef %errp) #4
+  %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 32, ptr noundef %errp) #5
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -199,15 +199,15 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.then1, label %if.end5
 
 if.then1:                                         ; preds = %if.end
-  %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #4
+  %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #5
   br i1 %call2, label %out_obj.thread, label %if.else
 
 out_obj.thread:                                   ; preds = %if.then1
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %return
 
 if.else:                                          ; preds = %if.then1
-  tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 52, ptr noundef nonnull @__PRETTY_FUNCTION__.visit_type_ObjectPropertyInfo) #5
+  tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 52, ptr noundef nonnull @__PRETTY_FUNCTION__.visit_type_ObjectPropertyInfo) #6
   unreachable
 
 if.end5:                                          ; preds = %if.end
@@ -215,21 +215,21 @@ if.end5:                                          ; preds = %if.end
   br i1 %call6, label %out_obj, label %out_obj.thread15
 
 out_obj.thread15:                                 ; preds = %if.end5
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %land.lhs.true
 
 out_obj:                                          ; preds = %if.end5
-  %call9 = tail call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #4
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  %call9 = tail call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #5
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br i1 %call9, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %out_obj.thread15, %out_obj
-  %call11 = tail call zeroext i1 @visit_is_input(ptr noundef %v) #4
+  %call11 = tail call zeroext i1 @visit_is_input(ptr noundef %v) #5
   br i1 %call11, label %if.then12, label %return
 
 if.then12:                                        ; preds = %land.lhs.true
   %1 = load ptr, ptr %obj, align 8
-  tail call void @qapi_free_ObjectPropertyInfo(ptr noundef %1) #4
+  tail call void @qapi_free_ObjectPropertyInfo(ptr noundef %1) #5
   store ptr null, ptr %obj, align 8
   br label %return
 
@@ -256,14 +256,14 @@ declare void @qapi_free_ObjectPropertyInfo(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local zeroext i1 @visit_type_q_obj_qom_list_arg_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %call = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.6, ptr noundef %obj, ptr noundef %errp) #4
+  %call = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.6, ptr noundef %obj, ptr noundef %errp) #5
   ret i1 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef zeroext i1 @visit_type_ObjectPropertyInfoList(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %call = tail call zeroext i1 @visit_start_list(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 16, ptr noundef %errp) #4
+  %call = tail call zeroext i1 @visit_start_list(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 16, ptr noundef %errp) #5
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -278,26 +278,26 @@ for.body:                                         ; preds = %if.end, %for.inc
   br i1 %call1, label %for.inc, label %out_obj.thread
 
 out_obj.thread:                                   ; preds = %for.body
-  tail call void @visit_end_list(ptr noundef %v, ptr noundef nonnull %obj) #4
+  tail call void @visit_end_list(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %land.lhs.true
 
 for.inc:                                          ; preds = %for.body
-  %call4 = tail call ptr @visit_next_list(ptr noundef %v, ptr noundef nonnull %tail.019, i64 noundef 16) #4
+  %call4 = tail call ptr @visit_next_list(ptr noundef %v, ptr noundef nonnull %tail.019, i64 noundef 16) #5
   %tobool.not = icmp eq ptr %call4, null
   br i1 %tobool.not, label %out_obj, label %for.body, !llvm.loop !5
 
 out_obj:                                          ; preds = %for.inc, %if.end
-  %call5 = tail call zeroext i1 @visit_check_list(ptr noundef %v, ptr noundef %errp) #4
-  tail call void @visit_end_list(ptr noundef %v, ptr noundef nonnull %obj) #4
+  %call5 = tail call zeroext i1 @visit_check_list(ptr noundef %v, ptr noundef %errp) #5
+  tail call void @visit_end_list(ptr noundef %v, ptr noundef nonnull %obj) #5
   br i1 %call5, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %out_obj.thread, %out_obj
-  %call7 = tail call zeroext i1 @visit_is_input(ptr noundef %v) #4
+  %call7 = tail call zeroext i1 @visit_is_input(ptr noundef %v) #5
   br i1 %call7, label %if.then8, label %return
 
 if.then8:                                         ; preds = %land.lhs.true
   %1 = load ptr, ptr %obj, align 8
-  tail call void @qapi_free_ObjectPropertyInfoList(ptr noundef %1) #4
+  tail call void @qapi_free_ObjectPropertyInfoList(ptr noundef %1) #5
   store ptr null, ptr %obj, align 8
   br label %return
 
@@ -319,12 +319,12 @@ declare void @qapi_free_ObjectPropertyInfoList(ptr noundef) local_unnamed_addr #
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local zeroext i1 @visit_type_q_obj_qom_get_arg_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %call = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.6, ptr noundef %obj, ptr noundef %errp) #4
+  %call = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.6, ptr noundef %obj, ptr noundef %errp) #5
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
   %property = getelementptr inbounds i8, ptr %obj, i64 8
-  %call1 = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef nonnull %property, ptr noundef %errp) #4
+  %call1 = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef nonnull %property, ptr noundef %errp) #5
   br label %return
 
 return:                                           ; preds = %if.end, %entry
@@ -335,17 +335,17 @@ return:                                           ; preds = %if.end, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local zeroext i1 @visit_type_q_obj_qom_set_arg_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %call = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.6, ptr noundef %obj, ptr noundef %errp) #4
+  %call = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.6, ptr noundef %obj, ptr noundef %errp) #5
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
   %property = getelementptr inbounds i8, ptr %obj, i64 8
-  %call1 = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef nonnull %property, ptr noundef %errp) #4
+  %call1 = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef nonnull %property, ptr noundef %errp) #5
   br i1 %call1, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
   %value = getelementptr inbounds i8, ptr %obj, i64 16
-  %call4 = tail call zeroext i1 @visit_type_any(ptr noundef %v, ptr noundef nonnull @.str.8, ptr noundef nonnull %value, ptr noundef %errp) #4
+  %call4 = tail call zeroext i1 @visit_type_any(ptr noundef %v, ptr noundef nonnull @.str.8, ptr noundef nonnull %value, ptr noundef %errp) #5
   br label %return
 
 return:                                           ; preds = %if.end3, %if.end, %entry
@@ -362,25 +362,25 @@ entry:
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %has_parent, align 1
-  %call = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str, ptr noundef %obj, ptr noundef %errp) #4
+  %call = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str, ptr noundef %obj, ptr noundef %errp) #5
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
   %has_abstract = getelementptr inbounds i8, ptr %obj, i64 8
-  %call2 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.9, ptr noundef nonnull %has_abstract) #4
+  %call2 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.9, ptr noundef nonnull %has_abstract) #5
   br i1 %call2, label %if.then3, label %if.end7
 
 if.then3:                                         ; preds = %if.end
   %abstract = getelementptr inbounds i8, ptr %obj, i64 9
-  %call4 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.9, ptr noundef nonnull %abstract, ptr noundef %errp) #4
+  %call4 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.9, ptr noundef nonnull %abstract, ptr noundef %errp) #5
   br i1 %call4, label %if.end7, label %return
 
 if.end7:                                          ; preds = %if.then3, %if.end
-  %call8 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.10, ptr noundef nonnull %has_parent) #4
+  %call8 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.10, ptr noundef nonnull %has_parent) #5
   br i1 %call8, label %if.then9, label %if.end14
 
 if.then9:                                         ; preds = %if.end7
-  %call11 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.10, ptr noundef nonnull %parent, ptr noundef %errp) #4
+  %call11 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.10, ptr noundef nonnull %parent, ptr noundef %errp) #5
   br i1 %call11, label %if.end14, label %return
 
 if.end14:                                         ; preds = %if.then9, %if.end7
@@ -397,7 +397,7 @@ declare zeroext i1 @visit_type_bool(ptr noundef, ptr noundef, ptr noundef, ptr n
 define dso_local noundef zeroext i1 @visit_type_ObjectTypeInfo(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %has_parent.i = alloca i8, align 1
-  %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 24, ptr noundef %errp) #4
+  %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 24, ptr noundef %errp) #5
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -406,15 +406,15 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.then1, label %if.end5
 
 if.then1:                                         ; preds = %if.end
-  %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #4
+  %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #5
   br i1 %call2, label %out_obj.thread, label %if.else
 
 out_obj.thread:                                   ; preds = %if.then1
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %return
 
 if.else:                                          ; preds = %if.then1
-  tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 160, ptr noundef nonnull @__PRETTY_FUNCTION__.visit_type_ObjectTypeInfo) #5
+  tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 160, ptr noundef nonnull @__PRETTY_FUNCTION__.visit_type_ObjectTypeInfo) #6
   unreachable
 
 if.end5:                                          ; preds = %if.end
@@ -424,45 +424,45 @@ if.end5:                                          ; preds = %if.end
   %tobool.i = icmp ne ptr %1, null
   %frombool.i = zext i1 %tobool.i to i8
   store i8 %frombool.i, ptr %has_parent.i, align 1
-  %call.i = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str, ptr noundef nonnull %0, ptr noundef %errp) #4
+  %call.i = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str, ptr noundef nonnull %0, ptr noundef %errp) #5
   br i1 %call.i, label %if.end.i, label %out_obj.thread16
 
 if.end.i:                                         ; preds = %if.end5
   %has_abstract.i = getelementptr inbounds i8, ptr %0, i64 8
-  %call2.i = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.9, ptr noundef nonnull %has_abstract.i) #4
+  %call2.i = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.9, ptr noundef nonnull %has_abstract.i) #5
   br i1 %call2.i, label %if.then3.i, label %if.end7.i
 
 if.then3.i:                                       ; preds = %if.end.i
   %abstract.i = getelementptr inbounds i8, ptr %0, i64 9
-  %call4.i = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.9, ptr noundef nonnull %abstract.i, ptr noundef %errp) #4
+  %call4.i = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.9, ptr noundef nonnull %abstract.i, ptr noundef %errp) #5
   br i1 %call4.i, label %if.end7.i, label %out_obj.thread16
 
 if.end7.i:                                        ; preds = %if.then3.i, %if.end.i
-  %call8.i = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.10, ptr noundef nonnull %has_parent.i) #4
+  %call8.i = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.10, ptr noundef nonnull %has_parent.i) #5
   br i1 %call8.i, label %if.then9.i, label %out_obj
 
 if.then9.i:                                       ; preds = %if.end7.i
-  %call11.i = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.10, ptr noundef nonnull %parent.i, ptr noundef %errp) #4
+  %call11.i = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.10, ptr noundef nonnull %parent.i, ptr noundef %errp) #5
   br i1 %call11.i, label %out_obj, label %out_obj.thread16
 
 out_obj.thread16:                                 ; preds = %if.then9.i, %if.then3.i, %if.end5
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_parent.i)
-  call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %land.lhs.true
 
 out_obj:                                          ; preds = %if.end7.i, %if.then9.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_parent.i)
-  %call9 = call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #4
-  call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  %call9 = call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #5
+  call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br i1 %call9, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %out_obj.thread16, %out_obj
-  %call11 = call zeroext i1 @visit_is_input(ptr noundef %v) #4
+  %call11 = call zeroext i1 @visit_is_input(ptr noundef %v) #5
   br i1 %call11, label %if.then12, label %return
 
 if.then12:                                        ; preds = %land.lhs.true
   %2 = load ptr, ptr %obj, align 8
-  call void @qapi_free_ObjectTypeInfo(ptr noundef %2) #4
+  call void @qapi_free_ObjectTypeInfo(ptr noundef %2) #5
   store ptr null, ptr %obj, align 8
   br label %return
 
@@ -481,21 +481,21 @@ entry:
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %has_implements, align 1
-  %call = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.11, ptr noundef nonnull %has_implements) #4
+  %call = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.11, ptr noundef nonnull %has_implements) #5
   br i1 %call, label %if.then, label %if.end5
 
 if.then:                                          ; preds = %entry
-  %call3 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.11, ptr noundef nonnull %obj, ptr noundef %errp) #4
+  %call3 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.11, ptr noundef nonnull %obj, ptr noundef %errp) #5
   br i1 %call3, label %if.end5, label %return
 
 if.end5:                                          ; preds = %if.then, %entry
   %has_abstract = getelementptr inbounds i8, ptr %obj, i64 8
-  %call6 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.9, ptr noundef nonnull %has_abstract) #4
+  %call6 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.9, ptr noundef nonnull %has_abstract) #5
   br i1 %call6, label %if.then7, label %if.end11
 
 if.then7:                                         ; preds = %if.end5
   %abstract = getelementptr inbounds i8, ptr %obj, i64 9
-  %call8 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.9, ptr noundef nonnull %abstract, ptr noundef %errp) #4
+  %call8 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.9, ptr noundef nonnull %abstract, ptr noundef %errp) #5
   br i1 %call8, label %if.end11, label %return
 
 if.end11:                                         ; preds = %if.then7, %if.end5
@@ -509,7 +509,7 @@ return:                                           ; preds = %if.then7, %if.then,
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef zeroext i1 @visit_type_ObjectTypeInfoList(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %call = tail call zeroext i1 @visit_start_list(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 16, ptr noundef %errp) #4
+  %call = tail call zeroext i1 @visit_start_list(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 16, ptr noundef %errp) #5
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -524,26 +524,26 @@ for.body:                                         ; preds = %if.end, %for.inc
   br i1 %call1, label %for.inc, label %out_obj.thread
 
 out_obj.thread:                                   ; preds = %for.body
-  tail call void @visit_end_list(ptr noundef %v, ptr noundef nonnull %obj) #4
+  tail call void @visit_end_list(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %land.lhs.true
 
 for.inc:                                          ; preds = %for.body
-  %call4 = tail call ptr @visit_next_list(ptr noundef %v, ptr noundef nonnull %tail.019, i64 noundef 16) #4
+  %call4 = tail call ptr @visit_next_list(ptr noundef %v, ptr noundef nonnull %tail.019, i64 noundef 16) #5
   %tobool.not = icmp eq ptr %call4, null
   br i1 %tobool.not, label %out_obj, label %for.body, !llvm.loop !7
 
 out_obj:                                          ; preds = %for.inc, %if.end
-  %call5 = tail call zeroext i1 @visit_check_list(ptr noundef %v, ptr noundef %errp) #4
-  tail call void @visit_end_list(ptr noundef %v, ptr noundef nonnull %obj) #4
+  %call5 = tail call zeroext i1 @visit_check_list(ptr noundef %v, ptr noundef %errp) #5
+  tail call void @visit_end_list(ptr noundef %v, ptr noundef nonnull %obj) #5
   br i1 %call5, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %out_obj.thread, %out_obj
-  %call7 = tail call zeroext i1 @visit_is_input(ptr noundef %v) #4
+  %call7 = tail call zeroext i1 @visit_is_input(ptr noundef %v) #5
   br i1 %call7, label %if.then8, label %return
 
 if.then8:                                         ; preds = %land.lhs.true
   %1 = load ptr, ptr %obj, align 8
-  tail call void @qapi_free_ObjectTypeInfoList(ptr noundef %1) #4
+  tail call void @qapi_free_ObjectTypeInfoList(ptr noundef %1) #5
   store ptr null, ptr %obj, align 8
   br label %return
 
@@ -557,19 +557,19 @@ declare void @qapi_free_ObjectTypeInfoList(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local zeroext i1 @visit_type_q_obj_qom_list_properties_arg_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %call = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.12, ptr noundef %obj, ptr noundef %errp) #4
+  %call = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.12, ptr noundef %obj, ptr noundef %errp) #5
   ret i1 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local zeroext i1 @visit_type_CanHostSocketcanProperties_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %call = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.13, ptr noundef %obj, ptr noundef %errp) #4
+  %call = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.13, ptr noundef %obj, ptr noundef %errp) #5
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
   %canbus = getelementptr inbounds i8, ptr %obj, i64 8
-  %call1 = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.14, ptr noundef nonnull %canbus, ptr noundef %errp) #4
+  %call1 = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.14, ptr noundef nonnull %canbus, ptr noundef %errp) #5
   br label %return
 
 return:                                           ; preds = %if.end, %entry
@@ -580,7 +580,7 @@ return:                                           ; preds = %if.end, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef zeroext i1 @visit_type_CanHostSocketcanProperties(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 16, ptr noundef %errp) #4
+  %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 16, ptr noundef %errp) #5
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -589,42 +589,42 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.then1, label %if.end5
 
 if.then1:                                         ; preds = %if.end
-  %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #4
+  %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #5
   br i1 %call2, label %out_obj.thread17, label %if.else
 
 out_obj.thread17:                                 ; preds = %if.then1
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %return
 
 if.else:                                          ; preds = %if.then1
-  tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 251, ptr noundef nonnull @__PRETTY_FUNCTION__.visit_type_CanHostSocketcanProperties) #5
+  tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 251, ptr noundef nonnull @__PRETTY_FUNCTION__.visit_type_CanHostSocketcanProperties) #6
   unreachable
 
 if.end5:                                          ; preds = %if.end
-  %call.i = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.13, ptr noundef nonnull %0, ptr noundef %errp) #4
+  %call.i = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.13, ptr noundef nonnull %0, ptr noundef %errp) #5
   br i1 %call.i, label %visit_type_CanHostSocketcanProperties_members.exit, label %out_obj.thread
 
 visit_type_CanHostSocketcanProperties_members.exit: ; preds = %if.end5
   %canbus.i = getelementptr inbounds i8, ptr %0, i64 8
-  %call1.i = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.14, ptr noundef nonnull %canbus.i, ptr noundef %errp) #4
+  %call1.i = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.14, ptr noundef nonnull %canbus.i, ptr noundef %errp) #5
   br i1 %call1.i, label %out_obj, label %out_obj.thread
 
 out_obj.thread:                                   ; preds = %visit_type_CanHostSocketcanProperties_members.exit, %if.end5
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %land.lhs.true
 
 out_obj:                                          ; preds = %visit_type_CanHostSocketcanProperties_members.exit
-  %call9 = tail call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #4
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  %call9 = tail call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #5
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br i1 %call9, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %out_obj.thread, %out_obj
-  %call11 = tail call zeroext i1 @visit_is_input(ptr noundef %v) #4
+  %call11 = tail call zeroext i1 @visit_is_input(ptr noundef %v) #5
   br i1 %call11, label %if.then12, label %return
 
 if.then12:                                        ; preds = %land.lhs.true
   %1 = load ptr, ptr %obj, align 8
-  tail call void @qapi_free_CanHostSocketcanProperties(ptr noundef %1) #4
+  tail call void @qapi_free_CanHostSocketcanProperties(ptr noundef %1) #5
   store ptr null, ptr %obj, align 8
   br label %return
 
@@ -644,70 +644,70 @@ entry:
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %has_notify_dev, align 1
-  %call = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.15, ptr noundef %obj, ptr noundef %errp) #4
+  %call = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.15, ptr noundef %obj, ptr noundef %errp) #5
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
   %secondary_in = getelementptr inbounds i8, ptr %obj, i64 8
-  %call2 = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.16, ptr noundef nonnull %secondary_in, ptr noundef %errp) #4
+  %call2 = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.16, ptr noundef nonnull %secondary_in, ptr noundef %errp) #5
   br i1 %call2, label %if.end4, label %return
 
 if.end4:                                          ; preds = %if.end
   %outdev = getelementptr inbounds i8, ptr %obj, i64 16
-  %call5 = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.17, ptr noundef nonnull %outdev, ptr noundef %errp) #4
+  %call5 = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.17, ptr noundef nonnull %outdev, ptr noundef %errp) #5
   br i1 %call5, label %if.end7, label %return
 
 if.end7:                                          ; preds = %if.end4
   %iothread = getelementptr inbounds i8, ptr %obj, i64 24
-  %call8 = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.18, ptr noundef nonnull %iothread, ptr noundef %errp) #4
+  %call8 = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.18, ptr noundef nonnull %iothread, ptr noundef %errp) #5
   br i1 %call8, label %if.end10, label %return
 
 if.end10:                                         ; preds = %if.end7
-  %call11 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.19, ptr noundef nonnull %has_notify_dev) #4
+  %call11 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.19, ptr noundef nonnull %has_notify_dev) #5
   br i1 %call11, label %if.then12, label %if.end17
 
 if.then12:                                        ; preds = %if.end10
-  %call14 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.19, ptr noundef nonnull %notify_dev, ptr noundef %errp) #4
+  %call14 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.19, ptr noundef nonnull %notify_dev, ptr noundef %errp) #5
   br i1 %call14, label %if.end17, label %return
 
 if.end17:                                         ; preds = %if.then12, %if.end10
   %has_compare_timeout = getelementptr inbounds i8, ptr %obj, i64 40
-  %call18 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.20, ptr noundef nonnull %has_compare_timeout) #4
+  %call18 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.20, ptr noundef nonnull %has_compare_timeout) #5
   br i1 %call18, label %if.then19, label %if.end23
 
 if.then19:                                        ; preds = %if.end17
   %compare_timeout = getelementptr inbounds i8, ptr %obj, i64 48
-  %call20 = call zeroext i1 @visit_type_uint64(ptr noundef %v, ptr noundef nonnull @.str.20, ptr noundef nonnull %compare_timeout, ptr noundef %errp) #4
+  %call20 = call zeroext i1 @visit_type_uint64(ptr noundef %v, ptr noundef nonnull @.str.20, ptr noundef nonnull %compare_timeout, ptr noundef %errp) #5
   br i1 %call20, label %if.end23, label %return
 
 if.end23:                                         ; preds = %if.then19, %if.end17
   %has_expired_scan_cycle = getelementptr inbounds i8, ptr %obj, i64 56
-  %call24 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.21, ptr noundef nonnull %has_expired_scan_cycle) #4
+  %call24 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.21, ptr noundef nonnull %has_expired_scan_cycle) #5
   br i1 %call24, label %if.then25, label %if.end29
 
 if.then25:                                        ; preds = %if.end23
   %expired_scan_cycle = getelementptr inbounds i8, ptr %obj, i64 60
-  %call26 = call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef nonnull @.str.21, ptr noundef nonnull %expired_scan_cycle, ptr noundef %errp) #4
+  %call26 = call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef nonnull @.str.21, ptr noundef nonnull %expired_scan_cycle, ptr noundef %errp) #5
   br i1 %call26, label %if.end29, label %return
 
 if.end29:                                         ; preds = %if.then25, %if.end23
   %has_max_queue_size = getelementptr inbounds i8, ptr %obj, i64 64
-  %call30 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.22, ptr noundef nonnull %has_max_queue_size) #4
+  %call30 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.22, ptr noundef nonnull %has_max_queue_size) #5
   br i1 %call30, label %if.then31, label %if.end35
 
 if.then31:                                        ; preds = %if.end29
   %max_queue_size = getelementptr inbounds i8, ptr %obj, i64 68
-  %call32 = call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef nonnull @.str.22, ptr noundef nonnull %max_queue_size, ptr noundef %errp) #4
+  %call32 = call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef nonnull @.str.22, ptr noundef nonnull %max_queue_size, ptr noundef %errp) #5
   br i1 %call32, label %if.end35, label %return
 
 if.end35:                                         ; preds = %if.then31, %if.end29
   %has_vnet_hdr_support = getelementptr inbounds i8, ptr %obj, i64 72
-  %call36 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.23, ptr noundef nonnull %has_vnet_hdr_support) #4
+  %call36 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.23, ptr noundef nonnull %has_vnet_hdr_support) #5
   br i1 %call36, label %if.then37, label %if.end41
 
 if.then37:                                        ; preds = %if.end35
   %vnet_hdr_support = getelementptr inbounds i8, ptr %obj, i64 73
-  %call38 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.23, ptr noundef nonnull %vnet_hdr_support, ptr noundef %errp) #4
+  %call38 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.23, ptr noundef nonnull %vnet_hdr_support, ptr noundef %errp) #5
   br i1 %call38, label %if.end41, label %return
 
 if.end41:                                         ; preds = %if.then37, %if.end35
@@ -725,7 +725,7 @@ declare zeroext i1 @visit_type_uint32(ptr noundef, ptr noundef, ptr noundef, ptr
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef zeroext i1 @visit_type_ColoCompareProperties(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 80, ptr noundef %errp) #4
+  %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 80, ptr noundef %errp) #5
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -734,15 +734,15 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.then1, label %if.end5
 
 if.then1:                                         ; preds = %if.end
-  %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #4
+  %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #5
   br i1 %call2, label %out_obj.thread, label %if.else
 
 out_obj.thread:                                   ; preds = %if.then1
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %return
 
 if.else:                                          ; preds = %if.then1
-  tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 322, ptr noundef nonnull @__PRETTY_FUNCTION__.visit_type_ColoCompareProperties) #5
+  tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 322, ptr noundef nonnull @__PRETTY_FUNCTION__.visit_type_ColoCompareProperties) #6
   unreachable
 
 if.end5:                                          ; preds = %if.end
@@ -750,21 +750,21 @@ if.end5:                                          ; preds = %if.end
   br i1 %call6, label %out_obj, label %out_obj.thread15
 
 out_obj.thread15:                                 ; preds = %if.end5
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %land.lhs.true
 
 out_obj:                                          ; preds = %if.end5
-  %call9 = tail call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #4
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  %call9 = tail call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #5
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br i1 %call9, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %out_obj.thread15, %out_obj
-  %call11 = tail call zeroext i1 @visit_is_input(ptr noundef %v) #4
+  %call11 = tail call zeroext i1 @visit_is_input(ptr noundef %v) #5
   br i1 %call11, label %if.then12, label %return
 
 if.then12:                                        ; preds = %land.lhs.true
   %1 = load ptr, ptr %obj, align 8
-  tail call void @qapi_free_ColoCompareProperties(ptr noundef %1) #4
+  tail call void @qapi_free_ColoCompareProperties(ptr noundef %1) #5
   store ptr null, ptr %obj, align 8
   br label %return
 
@@ -778,32 +778,32 @@ declare void @qapi_free_ColoCompareProperties(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef zeroext i1 @visit_type_CryptodevBackendProperties_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %call = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.24, ptr noundef %obj) #4
+  %call = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.24, ptr noundef %obj) #5
   br i1 %call, label %if.then, label %if.end3
 
 if.then:                                          ; preds = %entry
   %queues = getelementptr inbounds i8, ptr %obj, i64 4
-  %call1 = tail call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef nonnull @.str.24, ptr noundef nonnull %queues, ptr noundef %errp) #4
+  %call1 = tail call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef nonnull @.str.24, ptr noundef nonnull %queues, ptr noundef %errp) #5
   br i1 %call1, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.then, %entry
   %has_throttle_bps = getelementptr inbounds i8, ptr %obj, i64 8
-  %call4 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.25, ptr noundef nonnull %has_throttle_bps) #4
+  %call4 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.25, ptr noundef nonnull %has_throttle_bps) #5
   br i1 %call4, label %if.then5, label %if.end9
 
 if.then5:                                         ; preds = %if.end3
   %throttle_bps = getelementptr inbounds i8, ptr %obj, i64 16
-  %call6 = tail call zeroext i1 @visit_type_uint64(ptr noundef %v, ptr noundef nonnull @.str.25, ptr noundef nonnull %throttle_bps, ptr noundef %errp) #4
+  %call6 = tail call zeroext i1 @visit_type_uint64(ptr noundef %v, ptr noundef nonnull @.str.25, ptr noundef nonnull %throttle_bps, ptr noundef %errp) #5
   br i1 %call6, label %if.end9, label %return
 
 if.end9:                                          ; preds = %if.then5, %if.end3
   %has_throttle_ops = getelementptr inbounds i8, ptr %obj, i64 24
-  %call10 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.26, ptr noundef nonnull %has_throttle_ops) #4
+  %call10 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.26, ptr noundef nonnull %has_throttle_ops) #5
   br i1 %call10, label %if.then11, label %if.end15
 
 if.then11:                                        ; preds = %if.end9
   %throttle_ops = getelementptr inbounds i8, ptr %obj, i64 32
-  %call12 = tail call zeroext i1 @visit_type_uint64(ptr noundef %v, ptr noundef nonnull @.str.26, ptr noundef nonnull %throttle_ops, ptr noundef %errp) #4
+  %call12 = tail call zeroext i1 @visit_type_uint64(ptr noundef %v, ptr noundef nonnull @.str.26, ptr noundef nonnull %throttle_ops, ptr noundef %errp) #5
   br i1 %call12, label %if.end15, label %return
 
 if.end15:                                         ; preds = %if.then11, %if.end9
@@ -817,7 +817,7 @@ return:                                           ; preds = %if.then11, %if.then
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef zeroext i1 @visit_type_CryptodevBackendProperties(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 40, ptr noundef %errp) #4
+  %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 40, ptr noundef %errp) #5
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -826,15 +826,15 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.then1, label %if.end5
 
 if.then1:                                         ; preds = %if.end
-  %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #4
+  %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #5
   br i1 %call2, label %out_obj.thread, label %if.else
 
 out_obj.thread:                                   ; preds = %if.then1
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %return
 
 if.else:                                          ; preds = %if.then1
-  tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 369, ptr noundef nonnull @__PRETTY_FUNCTION__.visit_type_CryptodevBackendProperties) #5
+  tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 369, ptr noundef nonnull @__PRETTY_FUNCTION__.visit_type_CryptodevBackendProperties) #6
   unreachable
 
 if.end5:                                          ; preds = %if.end
@@ -842,21 +842,21 @@ if.end5:                                          ; preds = %if.end
   br i1 %call6, label %out_obj, label %out_obj.thread15
 
 out_obj.thread15:                                 ; preds = %if.end5
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %land.lhs.true
 
 out_obj:                                          ; preds = %if.end5
-  %call9 = tail call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #4
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  %call9 = tail call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #5
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br i1 %call9, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %out_obj.thread15, %out_obj
-  %call11 = tail call zeroext i1 @visit_is_input(ptr noundef %v) #4
+  %call11 = tail call zeroext i1 @visit_is_input(ptr noundef %v) #5
   br i1 %call11, label %if.then12, label %return
 
 if.then12:                                        ; preds = %land.lhs.true
   %1 = load ptr, ptr %obj, align 8
-  tail call void @qapi_free_CryptodevBackendProperties(ptr noundef %1) #4
+  tail call void @qapi_free_CryptodevBackendProperties(ptr noundef %1) #5
   store ptr null, ptr %obj, align 8
   br label %return
 
@@ -875,7 +875,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %chardev = getelementptr inbounds i8, ptr %obj, i64 40
-  %call1 = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.27, ptr noundef nonnull %chardev, ptr noundef %errp) #4
+  %call1 = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.27, ptr noundef nonnull %chardev, ptr noundef %errp) #5
   br label %return
 
 return:                                           ; preds = %if.end, %entry
@@ -886,7 +886,7 @@ return:                                           ; preds = %if.end, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef zeroext i1 @visit_type_CryptodevVhostUserProperties(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 48, ptr noundef %errp) #4
+  %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 48, ptr noundef %errp) #5
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -895,15 +895,15 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.then1, label %if.end5
 
 if.then1:                                         ; preds = %if.end
-  %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #4
+  %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #5
   br i1 %call2, label %out_obj.thread17, label %if.else
 
 out_obj.thread17:                                 ; preds = %if.then1
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %return
 
 if.else:                                          ; preds = %if.then1
-  tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 407, ptr noundef nonnull @__PRETTY_FUNCTION__.visit_type_CryptodevVhostUserProperties) #5
+  tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 407, ptr noundef nonnull @__PRETTY_FUNCTION__.visit_type_CryptodevVhostUserProperties) #6
   unreachable
 
 if.end5:                                          ; preds = %if.end
@@ -912,25 +912,25 @@ if.end5:                                          ; preds = %if.end
 
 visit_type_CryptodevVhostUserProperties_members.exit: ; preds = %if.end5
   %chardev.i = getelementptr inbounds i8, ptr %0, i64 40
-  %call1.i = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.27, ptr noundef nonnull %chardev.i, ptr noundef %errp) #4
+  %call1.i = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.27, ptr noundef nonnull %chardev.i, ptr noundef %errp) #5
   br i1 %call1.i, label %out_obj, label %out_obj.thread
 
 out_obj.thread:                                   ; preds = %visit_type_CryptodevVhostUserProperties_members.exit, %if.end5
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %land.lhs.true
 
 out_obj:                                          ; preds = %visit_type_CryptodevVhostUserProperties_members.exit
-  %call9 = tail call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #4
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  %call9 = tail call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #5
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br i1 %call9, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %out_obj.thread, %out_obj
-  %call11 = tail call zeroext i1 @visit_is_input(ptr noundef %v) #4
+  %call11 = tail call zeroext i1 @visit_is_input(ptr noundef %v) #5
   br i1 %call11, label %if.then12, label %return
 
 if.then12:                                        ; preds = %land.lhs.true
   %1 = load ptr, ptr %obj, align 8
-  tail call void @qapi_free_CryptodevVhostUserProperties(ptr noundef %1) #4
+  tail call void @qapi_free_CryptodevVhostUserProperties(ptr noundef %1) #5
   store ptr null, ptr %obj, align 8
   br label %return
 
@@ -950,15 +950,15 @@ entry:
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %has_id_list, align 1
-  %call = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.28, ptr noundef %obj, ptr noundef %errp) #4
+  %call = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.28, ptr noundef %obj, ptr noundef %errp) #5
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %call2 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.29, ptr noundef nonnull %has_id_list) #4
+  %call2 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.29, ptr noundef nonnull %has_id_list) #5
   br i1 %call2, label %if.then3, label %if.end8
 
 if.then3:                                         ; preds = %if.end
-  %call5 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.29, ptr noundef nonnull %id_list, ptr noundef %errp) #4
+  %call5 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.29, ptr noundef nonnull %id_list, ptr noundef %errp) #5
   br i1 %call5, label %if.end8, label %return
 
 if.end8:                                          ; preds = %if.then3, %if.end
@@ -973,7 +973,7 @@ return:                                           ; preds = %if.then3, %entry, %
 define dso_local noundef zeroext i1 @visit_type_DBusVMStateProperties(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %has_id_list.i = alloca i8, align 1
-  %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 16, ptr noundef %errp) #4
+  %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 16, ptr noundef %errp) #5
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -982,15 +982,15 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.then1, label %if.end5
 
 if.then1:                                         ; preds = %if.end
-  %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #4
+  %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #5
   br i1 %call2, label %out_obj.thread, label %if.else
 
 out_obj.thread:                                   ; preds = %if.then1
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %return
 
 if.else:                                          ; preds = %if.then1
-  tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 449, ptr noundef nonnull @__PRETTY_FUNCTION__.visit_type_DBusVMStateProperties) #5
+  tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 449, ptr noundef nonnull @__PRETTY_FUNCTION__.visit_type_DBusVMStateProperties) #6
   unreachable
 
 if.end5:                                          ; preds = %if.end
@@ -1000,35 +1000,35 @@ if.end5:                                          ; preds = %if.end
   %tobool.i = icmp ne ptr %1, null
   %frombool.i = zext i1 %tobool.i to i8
   store i8 %frombool.i, ptr %has_id_list.i, align 1
-  %call.i = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.28, ptr noundef nonnull %0, ptr noundef %errp) #4
+  %call.i = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.28, ptr noundef nonnull %0, ptr noundef %errp) #5
   br i1 %call.i, label %if.end.i, label %out_obj.thread16
 
 if.end.i:                                         ; preds = %if.end5
-  %call2.i = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.29, ptr noundef nonnull %has_id_list.i) #4
+  %call2.i = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.29, ptr noundef nonnull %has_id_list.i) #5
   br i1 %call2.i, label %if.then3.i, label %out_obj
 
 if.then3.i:                                       ; preds = %if.end.i
-  %call5.i = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.29, ptr noundef nonnull %id_list.i, ptr noundef %errp) #4
+  %call5.i = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.29, ptr noundef nonnull %id_list.i, ptr noundef %errp) #5
   br i1 %call5.i, label %out_obj, label %out_obj.thread16
 
 out_obj.thread16:                                 ; preds = %if.then3.i, %if.end5
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_id_list.i)
-  call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %land.lhs.true
 
 out_obj:                                          ; preds = %if.end.i, %if.then3.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_id_list.i)
-  %call9 = call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #4
-  call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  %call9 = call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #5
+  call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br i1 %call9, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %out_obj.thread16, %out_obj
-  %call11 = call zeroext i1 @visit_is_input(ptr noundef %v) #4
+  %call11 = call zeroext i1 @visit_is_input(ptr noundef %v) #5
   br i1 %call11, label %if.then12, label %return
 
 if.then12:                                        ; preds = %land.lhs.true
   %2 = load ptr, ptr %obj, align 8
-  call void @qapi_free_DBusVMStateProperties(ptr noundef %2) #4
+  call void @qapi_free_DBusVMStateProperties(ptr noundef %2) #5
   store ptr null, ptr %obj, align 8
   br label %return
 
@@ -1045,7 +1045,7 @@ entry:
   %value = alloca i32, align 4
   %0 = load i32, ptr %obj, align 4
   store i32 %0, ptr %value, align 4
-  %call = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %value, ptr noundef nonnull @NetfilterInsert_lookup, ptr noundef %errp) #4
+  %call = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %value, ptr noundef nonnull @NetfilterInsert_lookup, ptr noundef %errp) #5
   %1 = load i32, ptr %value, align 4
   store i32 %1, ptr %obj, align 4
   ret i1 %call
@@ -1069,38 +1069,38 @@ entry:
   %tobool2 = icmp ne ptr %1, null
   %frombool5 = zext i1 %tobool2 to i8
   store i8 %frombool5, ptr %has_position, align 1
-  %call = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.30, ptr noundef %obj, ptr noundef %errp) #4
+  %call = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.30, ptr noundef %obj, ptr noundef %errp) #5
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
   %has_queue = getelementptr inbounds i8, ptr %obj, i64 8
-  %call6 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.31, ptr noundef nonnull %has_queue) #4
+  %call6 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.31, ptr noundef nonnull %has_queue) #5
   br i1 %call6, label %if.then7, label %if.end11
 
 if.then7:                                         ; preds = %if.end
   %queue = getelementptr inbounds i8, ptr %obj, i64 12
-  %call8 = tail call zeroext i1 @visit_type_NetFilterDirection(ptr noundef %v, ptr noundef nonnull @.str.31, ptr noundef nonnull %queue, ptr noundef %errp) #4
+  %call8 = tail call zeroext i1 @visit_type_NetFilterDirection(ptr noundef %v, ptr noundef nonnull @.str.31, ptr noundef nonnull %queue, ptr noundef %errp) #5
   br i1 %call8, label %if.end11, label %return
 
 if.end11:                                         ; preds = %if.then7, %if.end
-  %call12 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.32, ptr noundef nonnull %has_status) #4
+  %call12 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.32, ptr noundef nonnull %has_status) #5
   br i1 %call12, label %if.then13, label %if.end18
 
 if.then13:                                        ; preds = %if.end11
-  %call15 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.32, ptr noundef nonnull %status, ptr noundef %errp) #4
+  %call15 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.32, ptr noundef nonnull %status, ptr noundef %errp) #5
   br i1 %call15, label %if.end18, label %return
 
 if.end18:                                         ; preds = %if.then13, %if.end11
-  %call19 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.33, ptr noundef nonnull %has_position) #4
+  %call19 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.33, ptr noundef nonnull %has_position) #5
   br i1 %call19, label %if.then20, label %if.end25
 
 if.then20:                                        ; preds = %if.end18
-  %call22 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.33, ptr noundef nonnull %position, ptr noundef %errp) #4
+  %call22 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.33, ptr noundef nonnull %position, ptr noundef %errp) #5
   br i1 %call22, label %if.end25, label %return
 
 if.end25:                                         ; preds = %if.then20, %if.end18
   %has_insert = getelementptr inbounds i8, ptr %obj, i64 32
-  %call26 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.34, ptr noundef nonnull %has_insert) #4
+  %call26 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.34, ptr noundef nonnull %has_insert) #5
   br i1 %call26, label %if.then27, label %if.end31
 
 if.then27:                                        ; preds = %if.end25
@@ -1108,7 +1108,7 @@ if.then27:                                        ; preds = %if.end25
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
   %2 = load i32, ptr %insert, align 4
   store i32 %2, ptr %value.i, align 4
-  %call.i = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef nonnull @.str.34, ptr noundef nonnull %value.i, ptr noundef nonnull @NetfilterInsert_lookup, ptr noundef %errp) #4
+  %call.i = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef nonnull @.str.34, ptr noundef nonnull %value.i, ptr noundef nonnull @NetfilterInsert_lookup, ptr noundef %errp) #5
   %3 = load i32, ptr %value.i, align 4
   store i32 %3, ptr %insert, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.i)
@@ -1127,7 +1127,7 @@ declare zeroext i1 @visit_type_NetFilterDirection(ptr noundef, ptr noundef, ptr 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef zeroext i1 @visit_type_NetfilterProperties(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 40, ptr noundef %errp) #4
+  %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 40, ptr noundef %errp) #5
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -1136,15 +1136,15 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.then1, label %if.end5
 
 if.then1:                                         ; preds = %if.end
-  %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #4
+  %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #5
   br i1 %call2, label %out_obj.thread, label %if.else
 
 out_obj.thread:                                   ; preds = %if.then1
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %return
 
 if.else:                                          ; preds = %if.then1
-  tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 516, ptr noundef nonnull @__PRETTY_FUNCTION__.visit_type_NetfilterProperties) #5
+  tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 516, ptr noundef nonnull @__PRETTY_FUNCTION__.visit_type_NetfilterProperties) #6
   unreachable
 
 if.end5:                                          ; preds = %if.end
@@ -1152,21 +1152,21 @@ if.end5:                                          ; preds = %if.end
   br i1 %call6, label %out_obj, label %out_obj.thread15
 
 out_obj.thread15:                                 ; preds = %if.end5
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %land.lhs.true
 
 out_obj:                                          ; preds = %if.end5
-  %call9 = tail call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #4
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  %call9 = tail call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #5
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br i1 %call9, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %out_obj.thread15, %out_obj
-  %call11 = tail call zeroext i1 @visit_is_input(ptr noundef %v) #4
+  %call11 = tail call zeroext i1 @visit_is_input(ptr noundef %v) #5
   br i1 %call11, label %if.then12, label %return
 
 if.then12:                                        ; preds = %land.lhs.true
   %1 = load ptr, ptr %obj, align 8
-  tail call void @qapi_free_NetfilterProperties(ptr noundef %1) #4
+  tail call void @qapi_free_NetfilterProperties(ptr noundef %1) #5
   store ptr null, ptr %obj, align 8
   br label %return
 
@@ -1185,7 +1185,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %interval = getelementptr inbounds i8, ptr %obj, i64 40
-  %call1 = tail call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef nonnull @.str.35, ptr noundef nonnull %interval, ptr noundef %errp) #4
+  %call1 = tail call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef nonnull @.str.35, ptr noundef nonnull %interval, ptr noundef %errp) #5
   br label %return
 
 return:                                           ; preds = %if.end, %entry
@@ -1196,7 +1196,7 @@ return:                                           ; preds = %if.end, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef zeroext i1 @visit_type_FilterBufferProperties(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 48, ptr noundef %errp) #4
+  %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 48, ptr noundef %errp) #5
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -1205,15 +1205,15 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.then1, label %if.end5
 
 if.then1:                                         ; preds = %if.end
-  %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #4
+  %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #5
   br i1 %call2, label %out_obj.thread17, label %if.else
 
 out_obj.thread17:                                 ; preds = %if.then1
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %return
 
 if.else:                                          ; preds = %if.then1
-  tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 554, ptr noundef nonnull @__PRETTY_FUNCTION__.visit_type_FilterBufferProperties) #5
+  tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 554, ptr noundef nonnull @__PRETTY_FUNCTION__.visit_type_FilterBufferProperties) #6
   unreachable
 
 if.end5:                                          ; preds = %if.end
@@ -1222,25 +1222,25 @@ if.end5:                                          ; preds = %if.end
 
 visit_type_FilterBufferProperties_members.exit:   ; preds = %if.end5
   %interval.i = getelementptr inbounds i8, ptr %0, i64 40
-  %call1.i = tail call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef nonnull @.str.35, ptr noundef nonnull %interval.i, ptr noundef %errp) #4
+  %call1.i = tail call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef nonnull @.str.35, ptr noundef nonnull %interval.i, ptr noundef %errp) #5
   br i1 %call1.i, label %out_obj, label %out_obj.thread
 
 out_obj.thread:                                   ; preds = %visit_type_FilterBufferProperties_members.exit, %if.end5
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %land.lhs.true
 
 out_obj:                                          ; preds = %visit_type_FilterBufferProperties_members.exit
-  %call9 = tail call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #4
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  %call9 = tail call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #5
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br i1 %call9, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %out_obj.thread, %out_obj
-  %call11 = tail call zeroext i1 @visit_is_input(ptr noundef %v) #4
+  %call11 = tail call zeroext i1 @visit_is_input(ptr noundef %v) #5
   br i1 %call11, label %if.then12, label %return
 
 if.then12:                                        ; preds = %land.lhs.true
   %1 = load ptr, ptr %obj, align 8
-  tail call void @qapi_free_FilterBufferProperties(ptr noundef %1) #4
+  tail call void @qapi_free_FilterBufferProperties(ptr noundef %1) #5
   store ptr null, ptr %obj, align 8
   br label %return
 
@@ -1259,17 +1259,17 @@ entry:
 
 if.end:                                           ; preds = %entry
   %file = getelementptr inbounds i8, ptr %obj, i64 40
-  %call1 = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.36, ptr noundef nonnull %file, ptr noundef %errp) #4
+  %call1 = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.36, ptr noundef nonnull %file, ptr noundef %errp) #5
   br i1 %call1, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
   %has_maxlen = getelementptr inbounds i8, ptr %obj, i64 48
-  %call4 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.37, ptr noundef nonnull %has_maxlen) #4
+  %call4 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.37, ptr noundef nonnull %has_maxlen) #5
   br i1 %call4, label %if.then5, label %if.end9
 
 if.then5:                                         ; preds = %if.end3
   %maxlen = getelementptr inbounds i8, ptr %obj, i64 52
-  %call6 = tail call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef nonnull @.str.37, ptr noundef nonnull %maxlen, ptr noundef %errp) #4
+  %call6 = tail call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef nonnull @.str.37, ptr noundef nonnull %maxlen, ptr noundef %errp) #5
   br i1 %call6, label %if.end9, label %return
 
 if.end9:                                          ; preds = %if.then5, %if.end3
@@ -1283,7 +1283,7 @@ return:                                           ; preds = %if.then5, %if.end, 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef zeroext i1 @visit_type_FilterDumpProperties(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 56, ptr noundef %errp) #4
+  %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 56, ptr noundef %errp) #5
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -1292,15 +1292,15 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.then1, label %if.end5
 
 if.then1:                                         ; preds = %if.end
-  %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #4
+  %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #5
   br i1 %call2, label %out_obj.thread, label %if.else
 
 out_obj.thread:                                   ; preds = %if.then1
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %return
 
 if.else:                                          ; preds = %if.then1
-  tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 597, ptr noundef nonnull @__PRETTY_FUNCTION__.visit_type_FilterDumpProperties) #5
+  tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 597, ptr noundef nonnull @__PRETTY_FUNCTION__.visit_type_FilterDumpProperties) #6
   unreachable
 
 if.end5:                                          ; preds = %if.end
@@ -1309,35 +1309,35 @@ if.end5:                                          ; preds = %if.end
 
 if.end.i:                                         ; preds = %if.end5
   %file.i = getelementptr inbounds i8, ptr %0, i64 40
-  %call1.i = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.36, ptr noundef nonnull %file.i, ptr noundef %errp) #4
+  %call1.i = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.36, ptr noundef nonnull %file.i, ptr noundef %errp) #5
   br i1 %call1.i, label %if.end3.i, label %out_obj.thread16
 
 if.end3.i:                                        ; preds = %if.end.i
   %has_maxlen.i = getelementptr inbounds i8, ptr %0, i64 48
-  %call4.i = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.37, ptr noundef nonnull %has_maxlen.i) #4
+  %call4.i = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.37, ptr noundef nonnull %has_maxlen.i) #5
   br i1 %call4.i, label %if.then5.i, label %out_obj
 
 if.then5.i:                                       ; preds = %if.end3.i
   %maxlen.i = getelementptr inbounds i8, ptr %0, i64 52
-  %call6.i = tail call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef nonnull @.str.37, ptr noundef nonnull %maxlen.i, ptr noundef %errp) #4
+  %call6.i = tail call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef nonnull @.str.37, ptr noundef nonnull %maxlen.i, ptr noundef %errp) #5
   br i1 %call6.i, label %out_obj, label %out_obj.thread16
 
 out_obj.thread16:                                 ; preds = %if.then5.i, %if.end.i, %if.end5
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %land.lhs.true
 
 out_obj:                                          ; preds = %if.end3.i, %if.then5.i
-  %call9 = tail call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #4
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  %call9 = tail call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #5
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br i1 %call9, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %out_obj.thread16, %out_obj
-  %call11 = tail call zeroext i1 @visit_is_input(ptr noundef %v) #4
+  %call11 = tail call zeroext i1 @visit_is_input(ptr noundef %v) #5
   br i1 %call11, label %if.then12, label %return
 
 if.then12:                                        ; preds = %land.lhs.true
   %1 = load ptr, ptr %obj, align 8
-  tail call void @qapi_free_FilterDumpProperties(ptr noundef %1) #4
+  tail call void @qapi_free_FilterDumpProperties(ptr noundef %1) #5
   store ptr null, ptr %obj, align 8
   br label %return
 
@@ -1356,17 +1356,17 @@ entry:
 
 if.end:                                           ; preds = %entry
   %outdev = getelementptr inbounds i8, ptr %obj, i64 40
-  %call1 = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.17, ptr noundef nonnull %outdev, ptr noundef %errp) #4
+  %call1 = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.17, ptr noundef nonnull %outdev, ptr noundef %errp) #5
   br i1 %call1, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
   %has_vnet_hdr_support = getelementptr inbounds i8, ptr %obj, i64 48
-  %call4 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.23, ptr noundef nonnull %has_vnet_hdr_support) #4
+  %call4 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.23, ptr noundef nonnull %has_vnet_hdr_support) #5
   br i1 %call4, label %if.then5, label %if.end9
 
 if.then5:                                         ; preds = %if.end3
   %vnet_hdr_support = getelementptr inbounds i8, ptr %obj, i64 49
-  %call6 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.23, ptr noundef nonnull %vnet_hdr_support, ptr noundef %errp) #4
+  %call6 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.23, ptr noundef nonnull %vnet_hdr_support, ptr noundef %errp) #5
   br i1 %call6, label %if.end9, label %return
 
 if.end9:                                          ; preds = %if.then5, %if.end3
@@ -1380,7 +1380,7 @@ return:                                           ; preds = %if.then5, %if.end, 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef zeroext i1 @visit_type_FilterMirrorProperties(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 56, ptr noundef %errp) #4
+  %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 56, ptr noundef %errp) #5
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -1389,15 +1389,15 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.then1, label %if.end5
 
 if.then1:                                         ; preds = %if.end
-  %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #4
+  %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #5
   br i1 %call2, label %out_obj.thread, label %if.else
 
 out_obj.thread:                                   ; preds = %if.then1
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %return
 
 if.else:                                          ; preds = %if.then1
-  tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 640, ptr noundef nonnull @__PRETTY_FUNCTION__.visit_type_FilterMirrorProperties) #5
+  tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 640, ptr noundef nonnull @__PRETTY_FUNCTION__.visit_type_FilterMirrorProperties) #6
   unreachable
 
 if.end5:                                          ; preds = %if.end
@@ -1406,35 +1406,35 @@ if.end5:                                          ; preds = %if.end
 
 if.end.i:                                         ; preds = %if.end5
   %outdev.i = getelementptr inbounds i8, ptr %0, i64 40
-  %call1.i = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.17, ptr noundef nonnull %outdev.i, ptr noundef %errp) #4
+  %call1.i = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.17, ptr noundef nonnull %outdev.i, ptr noundef %errp) #5
   br i1 %call1.i, label %if.end3.i, label %out_obj.thread16
 
 if.end3.i:                                        ; preds = %if.end.i
   %has_vnet_hdr_support.i = getelementptr inbounds i8, ptr %0, i64 48
-  %call4.i = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.23, ptr noundef nonnull %has_vnet_hdr_support.i) #4
+  %call4.i = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.23, ptr noundef nonnull %has_vnet_hdr_support.i) #5
   br i1 %call4.i, label %if.then5.i, label %out_obj
 
 if.then5.i:                                       ; preds = %if.end3.i
   %vnet_hdr_support.i = getelementptr inbounds i8, ptr %0, i64 49
-  %call6.i = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.23, ptr noundef nonnull %vnet_hdr_support.i, ptr noundef %errp) #4
+  %call6.i = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.23, ptr noundef nonnull %vnet_hdr_support.i, ptr noundef %errp) #5
   br i1 %call6.i, label %out_obj, label %out_obj.thread16
 
 out_obj.thread16:                                 ; preds = %if.then5.i, %if.end.i, %if.end5
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %land.lhs.true
 
 out_obj:                                          ; preds = %if.end3.i, %if.then5.i
-  %call9 = tail call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #4
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  %call9 = tail call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #5
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br i1 %call9, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %out_obj.thread16, %out_obj
-  %call11 = tail call zeroext i1 @visit_is_input(ptr noundef %v) #4
+  %call11 = tail call zeroext i1 @visit_is_input(ptr noundef %v) #5
   br i1 %call11, label %if.then12, label %return
 
 if.then12:                                        ; preds = %land.lhs.true
   %1 = load ptr, ptr %obj, align 8
-  tail call void @qapi_free_FilterMirrorProperties(ptr noundef %1) #4
+  tail call void @qapi_free_FilterMirrorProperties(ptr noundef %1) #5
   store ptr null, ptr %obj, align 8
   br label %return
 
@@ -1464,29 +1464,29 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %call6 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.38, ptr noundef nonnull %has_indev) #4
+  %call6 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.38, ptr noundef nonnull %has_indev) #5
   br i1 %call6, label %if.then7, label %if.end12
 
 if.then7:                                         ; preds = %if.end
-  %call9 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.38, ptr noundef nonnull %indev, ptr noundef %errp) #4
+  %call9 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.38, ptr noundef nonnull %indev, ptr noundef %errp) #5
   br i1 %call9, label %if.end12, label %return
 
 if.end12:                                         ; preds = %if.then7, %if.end
-  %call13 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.17, ptr noundef nonnull %has_outdev) #4
+  %call13 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.17, ptr noundef nonnull %has_outdev) #5
   br i1 %call13, label %if.then14, label %if.end19
 
 if.then14:                                        ; preds = %if.end12
-  %call16 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.17, ptr noundef nonnull %outdev, ptr noundef %errp) #4
+  %call16 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.17, ptr noundef nonnull %outdev, ptr noundef %errp) #5
   br i1 %call16, label %if.end19, label %return
 
 if.end19:                                         ; preds = %if.then14, %if.end12
   %has_vnet_hdr_support = getelementptr inbounds i8, ptr %obj, i64 56
-  %call20 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.23, ptr noundef nonnull %has_vnet_hdr_support) #4
+  %call20 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.23, ptr noundef nonnull %has_vnet_hdr_support) #5
   br i1 %call20, label %if.then21, label %if.end25
 
 if.then21:                                        ; preds = %if.end19
   %vnet_hdr_support = getelementptr inbounds i8, ptr %obj, i64 57
-  %call22 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.23, ptr noundef nonnull %vnet_hdr_support, ptr noundef %errp) #4
+  %call22 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.23, ptr noundef nonnull %vnet_hdr_support, ptr noundef %errp) #5
   br i1 %call22, label %if.end25, label %return
 
 if.end25:                                         ; preds = %if.then21, %if.end19
@@ -1500,7 +1500,7 @@ return:                                           ; preds = %if.then21, %if.then
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef zeroext i1 @visit_type_FilterRedirectorProperties(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 64, ptr noundef %errp) #4
+  %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 64, ptr noundef %errp) #5
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -1509,15 +1509,15 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.then1, label %if.end5
 
 if.then1:                                         ; preds = %if.end
-  %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #4
+  %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #5
   br i1 %call2, label %out_obj.thread, label %if.else
 
 out_obj.thread:                                   ; preds = %if.then1
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %return
 
 if.else:                                          ; preds = %if.then1
-  tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 693, ptr noundef nonnull @__PRETTY_FUNCTION__.visit_type_FilterRedirectorProperties) #5
+  tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 693, ptr noundef nonnull @__PRETTY_FUNCTION__.visit_type_FilterRedirectorProperties) #6
   unreachable
 
 if.end5:                                          ; preds = %if.end
@@ -1525,21 +1525,21 @@ if.end5:                                          ; preds = %if.end
   br i1 %call6, label %out_obj, label %out_obj.thread15
 
 out_obj.thread15:                                 ; preds = %if.end5
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %land.lhs.true
 
 out_obj:                                          ; preds = %if.end5
-  %call9 = tail call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #4
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  %call9 = tail call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #5
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br i1 %call9, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %out_obj.thread15, %out_obj
-  %call11 = tail call zeroext i1 @visit_is_input(ptr noundef %v) #4
+  %call11 = tail call zeroext i1 @visit_is_input(ptr noundef %v) #5
   br i1 %call11, label %if.then12, label %return
 
 if.then12:                                        ; preds = %land.lhs.true
   %1 = load ptr, ptr %obj, align 8
-  tail call void @qapi_free_FilterRedirectorProperties(ptr noundef %1) #4
+  tail call void @qapi_free_FilterRedirectorProperties(ptr noundef %1) #5
   store ptr null, ptr %obj, align 8
   br label %return
 
@@ -1558,12 +1558,12 @@ entry:
 
 if.end:                                           ; preds = %entry
   %has_vnet_hdr_support = getelementptr inbounds i8, ptr %obj, i64 40
-  %call1 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.23, ptr noundef nonnull %has_vnet_hdr_support) #4
+  %call1 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.23, ptr noundef nonnull %has_vnet_hdr_support) #5
   br i1 %call1, label %if.then2, label %if.end6
 
 if.then2:                                         ; preds = %if.end
   %vnet_hdr_support = getelementptr inbounds i8, ptr %obj, i64 41
-  %call3 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.23, ptr noundef nonnull %vnet_hdr_support, ptr noundef %errp) #4
+  %call3 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.23, ptr noundef nonnull %vnet_hdr_support, ptr noundef %errp) #5
   br i1 %call3, label %if.end6, label %return
 
 if.end6:                                          ; preds = %if.then2, %if.end
@@ -1577,7 +1577,7 @@ return:                                           ; preds = %if.then2, %entry, %
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef zeroext i1 @visit_type_FilterRewriterProperties(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 48, ptr noundef %errp) #4
+  %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 48, ptr noundef %errp) #5
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -1586,15 +1586,15 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.then1, label %if.end5
 
 if.then1:                                         ; preds = %if.end
-  %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #4
+  %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #5
   br i1 %call2, label %out_obj.thread, label %if.else
 
 out_obj.thread:                                   ; preds = %if.then1
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %return
 
 if.else:                                          ; preds = %if.then1
-  tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 733, ptr noundef nonnull @__PRETTY_FUNCTION__.visit_type_FilterRewriterProperties) #5
+  tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 733, ptr noundef nonnull @__PRETTY_FUNCTION__.visit_type_FilterRewriterProperties) #6
   unreachable
 
 if.end5:                                          ; preds = %if.end
@@ -1603,30 +1603,30 @@ if.end5:                                          ; preds = %if.end
 
 if.end.i:                                         ; preds = %if.end5
   %has_vnet_hdr_support.i = getelementptr inbounds i8, ptr %0, i64 40
-  %call1.i = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.23, ptr noundef nonnull %has_vnet_hdr_support.i) #4
+  %call1.i = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.23, ptr noundef nonnull %has_vnet_hdr_support.i) #5
   br i1 %call1.i, label %if.then2.i, label %out_obj
 
 if.then2.i:                                       ; preds = %if.end.i
   %vnet_hdr_support.i = getelementptr inbounds i8, ptr %0, i64 41
-  %call3.i = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.23, ptr noundef nonnull %vnet_hdr_support.i, ptr noundef %errp) #4
+  %call3.i = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.23, ptr noundef nonnull %vnet_hdr_support.i, ptr noundef %errp) #5
   br i1 %call3.i, label %out_obj, label %out_obj.thread16
 
 out_obj.thread16:                                 ; preds = %if.then2.i, %if.end5
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %land.lhs.true
 
 out_obj:                                          ; preds = %if.end.i, %if.then2.i
-  %call9 = tail call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #4
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  %call9 = tail call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #5
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br i1 %call9, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %out_obj.thread16, %out_obj
-  %call11 = tail call zeroext i1 @visit_is_input(ptr noundef %v) #4
+  %call11 = tail call zeroext i1 @visit_is_input(ptr noundef %v) #5
   br i1 %call11, label %if.then12, label %return
 
 if.then12:                                        ; preds = %land.lhs.true
   %1 = load ptr, ptr %obj, align 8
-  tail call void @qapi_free_FilterRewriterProperties(ptr noundef %1) #4
+  tail call void @qapi_free_FilterRewriterProperties(ptr noundef %1) #5
   store ptr null, ptr %obj, align 8
   br label %return
 
@@ -1676,55 +1676,55 @@ entry:
   %tobool18 = icmp ne ptr %5, null
   %frombool21 = zext i1 %tobool18 to i8
   store i8 %frombool21, ptr %has_height, align 1
-  %call = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str, ptr noundef %obj, ptr noundef %errp) #4
+  %call = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str, ptr noundef %obj, ptr noundef %errp) #5
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %call22 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.39, ptr noundef nonnull %has_server) #4
+  %call22 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.39, ptr noundef nonnull %has_server) #5
   br i1 %call22, label %if.then23, label %if.end28
 
 if.then23:                                        ; preds = %if.end
-  %call25 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.39, ptr noundef nonnull %server, ptr noundef %errp) #4
+  %call25 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.39, ptr noundef nonnull %server, ptr noundef %errp) #5
   br i1 %call25, label %if.end28, label %return
 
 if.end28:                                         ; preds = %if.then23, %if.end
-  %call29 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.40, ptr noundef nonnull %has_port) #4
+  %call29 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.40, ptr noundef nonnull %has_port) #5
   br i1 %call29, label %if.then30, label %if.end35
 
 if.then30:                                        ; preds = %if.end28
-  %call32 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.40, ptr noundef nonnull %port, ptr noundef %errp) #4
+  %call32 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.40, ptr noundef nonnull %port, ptr noundef %errp) #5
   br i1 %call32, label %if.end35, label %return
 
 if.end35:                                         ; preds = %if.then30, %if.end28
-  %call36 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.41, ptr noundef nonnull %has_x_origin) #4
+  %call36 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.41, ptr noundef nonnull %has_x_origin) #5
   br i1 %call36, label %if.then37, label %if.end42
 
 if.then37:                                        ; preds = %if.end35
-  %call39 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.41, ptr noundef nonnull %x_origin, ptr noundef %errp) #4
+  %call39 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.41, ptr noundef nonnull %x_origin, ptr noundef %errp) #5
   br i1 %call39, label %if.end42, label %return
 
 if.end42:                                         ; preds = %if.then37, %if.end35
-  %call43 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.42, ptr noundef nonnull %has_y_origin) #4
+  %call43 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.42, ptr noundef nonnull %has_y_origin) #5
   br i1 %call43, label %if.then44, label %if.end49
 
 if.then44:                                        ; preds = %if.end42
-  %call46 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.42, ptr noundef nonnull %y_origin, ptr noundef %errp) #4
+  %call46 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.42, ptr noundef nonnull %y_origin, ptr noundef %errp) #5
   br i1 %call46, label %if.end49, label %return
 
 if.end49:                                         ; preds = %if.then44, %if.end42
-  %call50 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.43, ptr noundef nonnull %has_width) #4
+  %call50 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.43, ptr noundef nonnull %has_width) #5
   br i1 %call50, label %if.then51, label %if.end56
 
 if.then51:                                        ; preds = %if.end49
-  %call53 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.43, ptr noundef nonnull %width, ptr noundef %errp) #4
+  %call53 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.43, ptr noundef nonnull %width, ptr noundef %errp) #5
   br i1 %call53, label %if.end56, label %return
 
 if.end56:                                         ; preds = %if.then51, %if.end49
-  %call57 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.44, ptr noundef nonnull %has_height) #4
+  %call57 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.44, ptr noundef nonnull %has_height) #5
   br i1 %call57, label %if.then58, label %if.end63
 
 if.then58:                                        ; preds = %if.end56
-  %call60 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.44, ptr noundef nonnull %height, ptr noundef %errp) #4
+  %call60 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.44, ptr noundef nonnull %height, ptr noundef %errp) #5
   br i1 %call60, label %if.end63, label %return
 
 if.end63:                                         ; preds = %if.then58, %if.end56
@@ -1738,7 +1738,7 @@ return:                                           ; preds = %if.then58, %if.then
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef zeroext i1 @visit_type_InputBarrierProperties(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 56, ptr noundef %errp) #4
+  %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 56, ptr noundef %errp) #5
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -1747,15 +1747,15 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.then1, label %if.end5
 
 if.then1:                                         ; preds = %if.end
-  %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #4
+  %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #5
   br i1 %call2, label %out_obj.thread, label %if.else
 
 out_obj.thread:                                   ; preds = %if.then1
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %return
 
 if.else:                                          ; preds = %if.then1
-  tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 805, ptr noundef nonnull @__PRETTY_FUNCTION__.visit_type_InputBarrierProperties) #5
+  tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 805, ptr noundef nonnull @__PRETTY_FUNCTION__.visit_type_InputBarrierProperties) #6
   unreachable
 
 if.end5:                                          ; preds = %if.end
@@ -1763,21 +1763,21 @@ if.end5:                                          ; preds = %if.end
   br i1 %call6, label %out_obj, label %out_obj.thread15
 
 out_obj.thread15:                                 ; preds = %if.end5
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %land.lhs.true
 
 out_obj:                                          ; preds = %if.end5
-  %call9 = tail call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #4
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  %call9 = tail call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #5
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br i1 %call9, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %out_obj.thread15, %out_obj
-  %call11 = tail call zeroext i1 @visit_is_input(ptr noundef %v) #4
+  %call11 = tail call zeroext i1 @visit_is_input(ptr noundef %v) #5
   br i1 %call11, label %if.then12, label %return
 
 if.then12:                                        ; preds = %land.lhs.true
   %1 = load ptr, ptr %obj, align 8
-  tail call void @qapi_free_InputBarrierProperties(ptr noundef %1) #4
+  tail call void @qapi_free_InputBarrierProperties(ptr noundef %1) #5
   store ptr null, ptr %obj, align 8
   br label %return
 
@@ -1791,37 +1791,37 @@ declare void @qapi_free_InputBarrierProperties(ptr noundef) local_unnamed_addr #
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef zeroext i1 @visit_type_InputLinuxProperties_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %call = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.45, ptr noundef %obj, ptr noundef %errp) #4
+  %call = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.45, ptr noundef %obj, ptr noundef %errp) #5
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
   %has_grab_all = getelementptr inbounds i8, ptr %obj, i64 8
-  %call1 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.46, ptr noundef nonnull %has_grab_all) #4
+  %call1 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.46, ptr noundef nonnull %has_grab_all) #5
   br i1 %call1, label %if.then2, label %if.end6
 
 if.then2:                                         ; preds = %if.end
   %grab_all = getelementptr inbounds i8, ptr %obj, i64 9
-  %call3 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.46, ptr noundef nonnull %grab_all, ptr noundef %errp) #4
+  %call3 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.46, ptr noundef nonnull %grab_all, ptr noundef %errp) #5
   br i1 %call3, label %if.end6, label %return
 
 if.end6:                                          ; preds = %if.then2, %if.end
   %has_repeat = getelementptr inbounds i8, ptr %obj, i64 10
-  %call7 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.47, ptr noundef nonnull %has_repeat) #4
+  %call7 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.47, ptr noundef nonnull %has_repeat) #5
   br i1 %call7, label %if.then8, label %if.end12
 
 if.then8:                                         ; preds = %if.end6
   %repeat = getelementptr inbounds i8, ptr %obj, i64 11
-  %call9 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.47, ptr noundef nonnull %repeat, ptr noundef %errp) #4
+  %call9 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.47, ptr noundef nonnull %repeat, ptr noundef %errp) #5
   br i1 %call9, label %if.end12, label %return
 
 if.end12:                                         ; preds = %if.then8, %if.end6
   %has_grab_toggle = getelementptr inbounds i8, ptr %obj, i64 12
-  %call13 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.48, ptr noundef nonnull %has_grab_toggle) #4
+  %call13 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.48, ptr noundef nonnull %has_grab_toggle) #5
   br i1 %call13, label %if.then14, label %if.end18
 
 if.then14:                                        ; preds = %if.end12
   %grab_toggle = getelementptr inbounds i8, ptr %obj, i64 16
-  %call15 = tail call zeroext i1 @visit_type_GrabToggleKeys(ptr noundef %v, ptr noundef nonnull @.str.48, ptr noundef nonnull %grab_toggle, ptr noundef %errp) #4
+  %call15 = tail call zeroext i1 @visit_type_GrabToggleKeys(ptr noundef %v, ptr noundef nonnull @.str.48, ptr noundef nonnull %grab_toggle, ptr noundef %errp) #5
   br i1 %call15, label %if.end18, label %return
 
 if.end18:                                         ; preds = %if.then14, %if.end12
@@ -1837,7 +1837,7 @@ declare zeroext i1 @visit_type_GrabToggleKeys(ptr noundef, ptr noundef, ptr noun
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef zeroext i1 @visit_type_InputLinuxProperties(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 24, ptr noundef %errp) #4
+  %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 24, ptr noundef %errp) #5
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -1846,15 +1846,15 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.then1, label %if.end5
 
 if.then1:                                         ; preds = %if.end
-  %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #4
+  %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #5
   br i1 %call2, label %out_obj.thread, label %if.else
 
 out_obj.thread:                                   ; preds = %if.then1
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %return
 
 if.else:                                          ; preds = %if.then1
-  tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 855, ptr noundef nonnull @__PRETTY_FUNCTION__.visit_type_InputLinuxProperties) #5
+  tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 855, ptr noundef nonnull @__PRETTY_FUNCTION__.visit_type_InputLinuxProperties) #6
   unreachable
 
 if.end5:                                          ; preds = %if.end
@@ -1862,21 +1862,21 @@ if.end5:                                          ; preds = %if.end
   br i1 %call6, label %out_obj, label %out_obj.thread15
 
 out_obj.thread15:                                 ; preds = %if.end5
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %land.lhs.true
 
 out_obj:                                          ; preds = %if.end5
-  %call9 = tail call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #4
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  %call9 = tail call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #5
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br i1 %call9, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %out_obj.thread15, %out_obj
-  %call11 = tail call zeroext i1 @visit_is_input(ptr noundef %v) #4
+  %call11 = tail call zeroext i1 @visit_is_input(ptr noundef %v) #5
   br i1 %call11, label %if.then12, label %return
 
 if.then12:                                        ; preds = %land.lhs.true
   %1 = load ptr, ptr %obj, align 8
-  tail call void @qapi_free_InputLinuxProperties(ptr noundef %1) #4
+  tail call void @qapi_free_InputLinuxProperties(ptr noundef %1) #5
   store ptr null, ptr %obj, align 8
   br label %return
 
@@ -1890,32 +1890,32 @@ declare void @qapi_free_InputLinuxProperties(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef zeroext i1 @visit_type_EventLoopBaseProperties_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %call = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.49, ptr noundef %obj) #4
+  %call = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.49, ptr noundef %obj) #5
   br i1 %call, label %if.then, label %if.end3
 
 if.then:                                          ; preds = %entry
   %aio_max_batch = getelementptr inbounds i8, ptr %obj, i64 8
-  %call1 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.49, ptr noundef nonnull %aio_max_batch, ptr noundef %errp) #4
+  %call1 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.49, ptr noundef nonnull %aio_max_batch, ptr noundef %errp) #5
   br i1 %call1, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.then, %entry
   %has_thread_pool_min = getelementptr inbounds i8, ptr %obj, i64 16
-  %call4 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.50, ptr noundef nonnull %has_thread_pool_min) #4
+  %call4 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.50, ptr noundef nonnull %has_thread_pool_min) #5
   br i1 %call4, label %if.then5, label %if.end9
 
 if.then5:                                         ; preds = %if.end3
   %thread_pool_min = getelementptr inbounds i8, ptr %obj, i64 24
-  %call6 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.50, ptr noundef nonnull %thread_pool_min, ptr noundef %errp) #4
+  %call6 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.50, ptr noundef nonnull %thread_pool_min, ptr noundef %errp) #5
   br i1 %call6, label %if.end9, label %return
 
 if.end9:                                          ; preds = %if.then5, %if.end3
   %has_thread_pool_max = getelementptr inbounds i8, ptr %obj, i64 32
-  %call10 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.51, ptr noundef nonnull %has_thread_pool_max) #4
+  %call10 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.51, ptr noundef nonnull %has_thread_pool_max) #5
   br i1 %call10, label %if.then11, label %if.end15
 
 if.then11:                                        ; preds = %if.end9
   %thread_pool_max = getelementptr inbounds i8, ptr %obj, i64 40
-  %call12 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.51, ptr noundef nonnull %thread_pool_max, ptr noundef %errp) #4
+  %call12 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.51, ptr noundef nonnull %thread_pool_max, ptr noundef %errp) #5
   br i1 %call12, label %if.end15, label %return
 
 if.end15:                                         ; preds = %if.then11, %if.end9
@@ -1931,7 +1931,7 @@ declare zeroext i1 @visit_type_int(ptr noundef, ptr noundef, ptr noundef, ptr no
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef zeroext i1 @visit_type_EventLoopBaseProperties(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 48, ptr noundef %errp) #4
+  %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 48, ptr noundef %errp) #5
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -1940,15 +1940,15 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.then1, label %if.end5
 
 if.then1:                                         ; preds = %if.end
-  %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #4
+  %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #5
   br i1 %call2, label %out_obj.thread, label %if.else
 
 out_obj.thread:                                   ; preds = %if.then1
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %return
 
 if.else:                                          ; preds = %if.then1
-  tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 902, ptr noundef nonnull @__PRETTY_FUNCTION__.visit_type_EventLoopBaseProperties) #5
+  tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 902, ptr noundef nonnull @__PRETTY_FUNCTION__.visit_type_EventLoopBaseProperties) #6
   unreachable
 
 if.end5:                                          ; preds = %if.end
@@ -1956,21 +1956,21 @@ if.end5:                                          ; preds = %if.end
   br i1 %call6, label %out_obj, label %out_obj.thread15
 
 out_obj.thread15:                                 ; preds = %if.end5
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %land.lhs.true
 
 out_obj:                                          ; preds = %if.end5
-  %call9 = tail call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #4
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  %call9 = tail call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #5
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br i1 %call9, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %out_obj.thread15, %out_obj
-  %call11 = tail call zeroext i1 @visit_is_input(ptr noundef %v) #4
+  %call11 = tail call zeroext i1 @visit_is_input(ptr noundef %v) #5
   br i1 %call11, label %if.then12, label %return
 
 if.then12:                                        ; preds = %land.lhs.true
   %1 = load ptr, ptr %obj, align 8
-  tail call void @qapi_free_EventLoopBaseProperties(ptr noundef %1) #4
+  tail call void @qapi_free_EventLoopBaseProperties(ptr noundef %1) #5
   store ptr null, ptr %obj, align 8
   br label %return
 
@@ -1989,32 +1989,32 @@ entry:
 
 if.end:                                           ; preds = %entry
   %has_poll_max_ns = getelementptr inbounds i8, ptr %obj, i64 48
-  %call1 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.52, ptr noundef nonnull %has_poll_max_ns) #4
+  %call1 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.52, ptr noundef nonnull %has_poll_max_ns) #5
   br i1 %call1, label %if.then2, label %if.end6
 
 if.then2:                                         ; preds = %if.end
   %poll_max_ns = getelementptr inbounds i8, ptr %obj, i64 56
-  %call3 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.52, ptr noundef nonnull %poll_max_ns, ptr noundef %errp) #4
+  %call3 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.52, ptr noundef nonnull %poll_max_ns, ptr noundef %errp) #5
   br i1 %call3, label %if.end6, label %return
 
 if.end6:                                          ; preds = %if.then2, %if.end
   %has_poll_grow = getelementptr inbounds i8, ptr %obj, i64 64
-  %call7 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.53, ptr noundef nonnull %has_poll_grow) #4
+  %call7 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.53, ptr noundef nonnull %has_poll_grow) #5
   br i1 %call7, label %if.then8, label %if.end12
 
 if.then8:                                         ; preds = %if.end6
   %poll_grow = getelementptr inbounds i8, ptr %obj, i64 72
-  %call9 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.53, ptr noundef nonnull %poll_grow, ptr noundef %errp) #4
+  %call9 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.53, ptr noundef nonnull %poll_grow, ptr noundef %errp) #5
   br i1 %call9, label %if.end12, label %return
 
 if.end12:                                         ; preds = %if.then8, %if.end6
   %has_poll_shrink = getelementptr inbounds i8, ptr %obj, i64 80
-  %call13 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.54, ptr noundef nonnull %has_poll_shrink) #4
+  %call13 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.54, ptr noundef nonnull %has_poll_shrink) #5
   br i1 %call13, label %if.then14, label %if.end18
 
 if.then14:                                        ; preds = %if.end12
   %poll_shrink = getelementptr inbounds i8, ptr %obj, i64 88
-  %call15 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.54, ptr noundef nonnull %poll_shrink, ptr noundef %errp) #4
+  %call15 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.54, ptr noundef nonnull %poll_shrink, ptr noundef %errp) #5
   br i1 %call15, label %if.end18, label %return
 
 if.end18:                                         ; preds = %if.then14, %if.end12
@@ -2028,7 +2028,7 @@ return:                                           ; preds = %if.then14, %if.then
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef zeroext i1 @visit_type_IothreadProperties(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 96, ptr noundef %errp) #4
+  %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 96, ptr noundef %errp) #5
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -2037,15 +2037,15 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.then1, label %if.end5
 
 if.then1:                                         ; preds = %if.end
-  %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #4
+  %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #5
   br i1 %call2, label %out_obj.thread, label %if.else
 
 out_obj.thread:                                   ; preds = %if.then1
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %return
 
 if.else:                                          ; preds = %if.then1
-  tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 952, ptr noundef nonnull @__PRETTY_FUNCTION__.visit_type_IothreadProperties) #5
+  tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 952, ptr noundef nonnull @__PRETTY_FUNCTION__.visit_type_IothreadProperties) #6
   unreachable
 
 if.end5:                                          ; preds = %if.end
@@ -2053,21 +2053,21 @@ if.end5:                                          ; preds = %if.end
   br i1 %call6, label %out_obj, label %out_obj.thread15
 
 out_obj.thread15:                                 ; preds = %if.end5
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %land.lhs.true
 
 out_obj:                                          ; preds = %if.end5
-  %call9 = tail call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #4
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  %call9 = tail call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #5
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br i1 %call9, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %out_obj.thread15, %out_obj
-  %call11 = tail call zeroext i1 @visit_is_input(ptr noundef %v) #4
+  %call11 = tail call zeroext i1 @visit_is_input(ptr noundef %v) #5
   br i1 %call11, label %if.then12, label %return
 
 if.then12:                                        ; preds = %land.lhs.true
   %1 = load ptr, ptr %obj, align 8
-  tail call void @qapi_free_IothreadProperties(ptr noundef %1) #4
+  tail call void @qapi_free_IothreadProperties(ptr noundef %1) #5
   store ptr null, ptr %obj, align 8
   br label %return
 
@@ -2088,7 +2088,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef zeroext i1 @visit_type_MainLoopProperties(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 48, ptr noundef %errp) #4
+  %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 48, ptr noundef %errp) #5
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -2097,15 +2097,15 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.then1, label %if.end5
 
 if.then1:                                         ; preds = %if.end
-  %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #4
+  %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #5
   br i1 %call2, label %out_obj.thread, label %if.else
 
 out_obj.thread:                                   ; preds = %if.then1
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %return
 
 if.else:                                          ; preds = %if.then1
-  tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 987, ptr noundef nonnull @__PRETTY_FUNCTION__.visit_type_MainLoopProperties) #5
+  tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 987, ptr noundef nonnull @__PRETTY_FUNCTION__.visit_type_MainLoopProperties) #6
   unreachable
 
 if.end5:                                          ; preds = %if.end
@@ -2113,21 +2113,21 @@ if.end5:                                          ; preds = %if.end
   br i1 %call.i, label %out_obj, label %out_obj.thread15
 
 out_obj.thread15:                                 ; preds = %if.end5
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %land.lhs.true
 
 out_obj:                                          ; preds = %if.end5
-  %call9 = tail call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #4
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  %call9 = tail call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #5
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br i1 %call9, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %out_obj.thread15, %out_obj
-  %call11 = tail call zeroext i1 @visit_is_input(ptr noundef %v) #4
+  %call11 = tail call zeroext i1 @visit_is_input(ptr noundef %v) #5
   br i1 %call11, label %if.then12, label %return
 
 if.then12:                                        ; preds = %land.lhs.true
   %1 = load ptr, ptr %obj, align 8
-  tail call void @qapi_free_MainLoopProperties(ptr noundef %1) #4
+  tail call void @qapi_free_MainLoopProperties(ptr noundef %1) #5
   store ptr null, ptr %obj, align 8
   br label %return
 
@@ -2147,105 +2147,105 @@ entry:
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %has_prealloc_context, align 1
-  %call = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.55, ptr noundef %obj) #4
+  %call = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.55, ptr noundef %obj) #5
   br i1 %call, label %if.then, label %if.end4
 
 if.then:                                          ; preds = %entry
   %dump = getelementptr inbounds i8, ptr %obj, i64 1
-  %call2 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.55, ptr noundef nonnull %dump, ptr noundef %errp) #4
+  %call2 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.55, ptr noundef nonnull %dump, ptr noundef %errp) #5
   br i1 %call2, label %if.end4, label %return
 
 if.end4:                                          ; preds = %if.then, %entry
   %has_host_nodes = getelementptr inbounds i8, ptr %obj, i64 2
-  %call5 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.56, ptr noundef nonnull %has_host_nodes) #4
+  %call5 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.56, ptr noundef nonnull %has_host_nodes) #5
   br i1 %call5, label %if.then6, label %if.end10
 
 if.then6:                                         ; preds = %if.end4
   %host_nodes = getelementptr inbounds i8, ptr %obj, i64 8
-  %call7 = tail call zeroext i1 @visit_type_uint16List(ptr noundef %v, ptr noundef nonnull @.str.56, ptr noundef nonnull %host_nodes, ptr noundef %errp) #4
+  %call7 = tail call zeroext i1 @visit_type_uint16List(ptr noundef %v, ptr noundef nonnull @.str.56, ptr noundef nonnull %host_nodes, ptr noundef %errp) #5
   br i1 %call7, label %if.end10, label %return
 
 if.end10:                                         ; preds = %if.then6, %if.end4
   %has_merge = getelementptr inbounds i8, ptr %obj, i64 16
-  %call11 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.57, ptr noundef nonnull %has_merge) #4
+  %call11 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.57, ptr noundef nonnull %has_merge) #5
   br i1 %call11, label %if.then12, label %if.end16
 
 if.then12:                                        ; preds = %if.end10
   %merge = getelementptr inbounds i8, ptr %obj, i64 17
-  %call13 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.57, ptr noundef nonnull %merge, ptr noundef %errp) #4
+  %call13 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.57, ptr noundef nonnull %merge, ptr noundef %errp) #5
   br i1 %call13, label %if.end16, label %return
 
 if.end16:                                         ; preds = %if.then12, %if.end10
   %has_policy = getelementptr inbounds i8, ptr %obj, i64 18
-  %call17 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.58, ptr noundef nonnull %has_policy) #4
+  %call17 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.58, ptr noundef nonnull %has_policy) #5
   br i1 %call17, label %if.then18, label %if.end22
 
 if.then18:                                        ; preds = %if.end16
   %policy = getelementptr inbounds i8, ptr %obj, i64 20
-  %call19 = tail call zeroext i1 @visit_type_HostMemPolicy(ptr noundef %v, ptr noundef nonnull @.str.58, ptr noundef nonnull %policy, ptr noundef %errp) #4
+  %call19 = tail call zeroext i1 @visit_type_HostMemPolicy(ptr noundef %v, ptr noundef nonnull @.str.58, ptr noundef nonnull %policy, ptr noundef %errp) #5
   br i1 %call19, label %if.end22, label %return
 
 if.end22:                                         ; preds = %if.then18, %if.end16
   %has_prealloc = getelementptr inbounds i8, ptr %obj, i64 24
-  %call23 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.59, ptr noundef nonnull %has_prealloc) #4
+  %call23 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.59, ptr noundef nonnull %has_prealloc) #5
   br i1 %call23, label %if.then24, label %if.end28
 
 if.then24:                                        ; preds = %if.end22
   %prealloc = getelementptr inbounds i8, ptr %obj, i64 25
-  %call25 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.59, ptr noundef nonnull %prealloc, ptr noundef %errp) #4
+  %call25 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.59, ptr noundef nonnull %prealloc, ptr noundef %errp) #5
   br i1 %call25, label %if.end28, label %return
 
 if.end28:                                         ; preds = %if.then24, %if.end22
   %has_prealloc_threads = getelementptr inbounds i8, ptr %obj, i64 26
-  %call29 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.60, ptr noundef nonnull %has_prealloc_threads) #4
+  %call29 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.60, ptr noundef nonnull %has_prealloc_threads) #5
   br i1 %call29, label %if.then30, label %if.end34
 
 if.then30:                                        ; preds = %if.end28
   %prealloc_threads = getelementptr inbounds i8, ptr %obj, i64 28
-  %call31 = tail call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef nonnull @.str.60, ptr noundef nonnull %prealloc_threads, ptr noundef %errp) #4
+  %call31 = tail call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef nonnull @.str.60, ptr noundef nonnull %prealloc_threads, ptr noundef %errp) #5
   br i1 %call31, label %if.end34, label %return
 
 if.end34:                                         ; preds = %if.then30, %if.end28
-  %call35 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.61, ptr noundef nonnull %has_prealloc_context) #4
+  %call35 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.61, ptr noundef nonnull %has_prealloc_context) #5
   br i1 %call35, label %if.then36, label %if.end41
 
 if.then36:                                        ; preds = %if.end34
-  %call38 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.61, ptr noundef nonnull %prealloc_context, ptr noundef %errp) #4
+  %call38 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.61, ptr noundef nonnull %prealloc_context, ptr noundef %errp) #5
   br i1 %call38, label %if.end41, label %return
 
 if.end41:                                         ; preds = %if.then36, %if.end34
   %has_share = getelementptr inbounds i8, ptr %obj, i64 40
-  %call42 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.62, ptr noundef nonnull %has_share) #4
+  %call42 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.62, ptr noundef nonnull %has_share) #5
   br i1 %call42, label %if.then43, label %if.end47
 
 if.then43:                                        ; preds = %if.end41
   %share = getelementptr inbounds i8, ptr %obj, i64 41
-  %call44 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.62, ptr noundef nonnull %share, ptr noundef %errp) #4
+  %call44 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.62, ptr noundef nonnull %share, ptr noundef %errp) #5
   br i1 %call44, label %if.end47, label %return
 
 if.end47:                                         ; preds = %if.then43, %if.end41
   %has_reserve = getelementptr inbounds i8, ptr %obj, i64 42
-  %call48 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.63, ptr noundef nonnull %has_reserve) #4
+  %call48 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.63, ptr noundef nonnull %has_reserve) #5
   br i1 %call48, label %if.then49, label %if.end53
 
 if.then49:                                        ; preds = %if.end47
   %reserve = getelementptr inbounds i8, ptr %obj, i64 43
-  %call50 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.63, ptr noundef nonnull %reserve, ptr noundef %errp) #4
+  %call50 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.63, ptr noundef nonnull %reserve, ptr noundef %errp) #5
   br i1 %call50, label %if.end53, label %return
 
 if.end53:                                         ; preds = %if.then49, %if.end47
   %size = getelementptr inbounds i8, ptr %obj, i64 48
-  %call54 = call zeroext i1 @visit_type_size(ptr noundef %v, ptr noundef nonnull @.str.64, ptr noundef nonnull %size, ptr noundef %errp) #4
+  %call54 = call zeroext i1 @visit_type_size(ptr noundef %v, ptr noundef nonnull @.str.64, ptr noundef nonnull %size, ptr noundef %errp) #5
   br i1 %call54, label %if.end56, label %return
 
 if.end56:                                         ; preds = %if.end53
   %has_x_use_canonical_path_for_ramblock_id = getelementptr inbounds i8, ptr %obj, i64 56
-  %call57 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.65, ptr noundef nonnull %has_x_use_canonical_path_for_ramblock_id) #4
+  %call57 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.65, ptr noundef nonnull %has_x_use_canonical_path_for_ramblock_id) #5
   br i1 %call57, label %if.then58, label %if.end62
 
 if.then58:                                        ; preds = %if.end56
   %x_use_canonical_path_for_ramblock_id = getelementptr inbounds i8, ptr %obj, i64 57
-  %call59 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.65, ptr noundef nonnull %x_use_canonical_path_for_ramblock_id, ptr noundef %errp) #4
+  %call59 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.65, ptr noundef nonnull %x_use_canonical_path_for_ramblock_id, ptr noundef %errp) #5
   br i1 %call59, label %if.end62, label %return
 
 if.end62:                                         ; preds = %if.then58, %if.end56
@@ -2265,7 +2265,7 @@ declare zeroext i1 @visit_type_size(ptr noundef, ptr noundef, ptr noundef, ptr n
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef zeroext i1 @visit_type_MemoryBackendProperties(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 64, ptr noundef %errp) #4
+  %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 64, ptr noundef %errp) #5
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -2274,15 +2274,15 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.then1, label %if.end5
 
 if.then1:                                         ; preds = %if.end
-  %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #4
+  %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #5
   br i1 %call2, label %out_obj.thread, label %if.else
 
 out_obj.thread:                                   ; preds = %if.then1
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %return
 
 if.else:                                          ; preds = %if.then1
-  tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 1074, ptr noundef nonnull @__PRETTY_FUNCTION__.visit_type_MemoryBackendProperties) #5
+  tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 1074, ptr noundef nonnull @__PRETTY_FUNCTION__.visit_type_MemoryBackendProperties) #6
   unreachable
 
 if.end5:                                          ; preds = %if.end
@@ -2290,21 +2290,21 @@ if.end5:                                          ; preds = %if.end
   br i1 %call6, label %out_obj, label %out_obj.thread15
 
 out_obj.thread15:                                 ; preds = %if.end5
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %land.lhs.true
 
 out_obj:                                          ; preds = %if.end5
-  %call9 = tail call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #4
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  %call9 = tail call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #5
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br i1 %call9, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %out_obj.thread15, %out_obj
-  %call11 = tail call zeroext i1 @visit_is_input(ptr noundef %v) #4
+  %call11 = tail call zeroext i1 @visit_is_input(ptr noundef %v) #5
   br i1 %call11, label %if.then12, label %return
 
 if.then12:                                        ; preds = %land.lhs.true
   %1 = load ptr, ptr %obj, align 8
-  tail call void @qapi_free_MemoryBackendProperties(ptr noundef %1) #4
+  tail call void @qapi_free_MemoryBackendProperties(ptr noundef %1) #5
   store ptr null, ptr %obj, align 8
   br label %return
 
@@ -2323,57 +2323,57 @@ entry:
 
 if.end:                                           ; preds = %entry
   %has_align = getelementptr inbounds i8, ptr %obj, i64 58
-  %call1 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.66, ptr noundef nonnull %has_align) #4
+  %call1 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.66, ptr noundef nonnull %has_align) #5
   br i1 %call1, label %if.then2, label %if.end6
 
 if.then2:                                         ; preds = %if.end
   %align = getelementptr inbounds i8, ptr %obj, i64 64
-  %call3 = tail call zeroext i1 @visit_type_size(ptr noundef %v, ptr noundef nonnull @.str.66, ptr noundef nonnull %align, ptr noundef %errp) #4
+  %call3 = tail call zeroext i1 @visit_type_size(ptr noundef %v, ptr noundef nonnull @.str.66, ptr noundef nonnull %align, ptr noundef %errp) #5
   br i1 %call3, label %if.end6, label %return
 
 if.end6:                                          ; preds = %if.then2, %if.end
   %has_offset = getelementptr inbounds i8, ptr %obj, i64 72
-  %call7 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.67, ptr noundef nonnull %has_offset) #4
+  %call7 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.67, ptr noundef nonnull %has_offset) #5
   br i1 %call7, label %if.then8, label %if.end12
 
 if.then8:                                         ; preds = %if.end6
   %offset = getelementptr inbounds i8, ptr %obj, i64 80
-  %call9 = tail call zeroext i1 @visit_type_size(ptr noundef %v, ptr noundef nonnull @.str.67, ptr noundef nonnull %offset, ptr noundef %errp) #4
+  %call9 = tail call zeroext i1 @visit_type_size(ptr noundef %v, ptr noundef nonnull @.str.67, ptr noundef nonnull %offset, ptr noundef %errp) #5
   br i1 %call9, label %if.end12, label %return
 
 if.end12:                                         ; preds = %if.then8, %if.end6
   %has_discard_data = getelementptr inbounds i8, ptr %obj, i64 88
-  %call13 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.68, ptr noundef nonnull %has_discard_data) #4
+  %call13 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.68, ptr noundef nonnull %has_discard_data) #5
   br i1 %call13, label %if.then14, label %if.end18
 
 if.then14:                                        ; preds = %if.end12
   %discard_data = getelementptr inbounds i8, ptr %obj, i64 89
-  %call15 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.68, ptr noundef nonnull %discard_data, ptr noundef %errp) #4
+  %call15 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.68, ptr noundef nonnull %discard_data, ptr noundef %errp) #5
   br i1 %call15, label %if.end18, label %return
 
 if.end18:                                         ; preds = %if.then14, %if.end12
   %mem_path = getelementptr inbounds i8, ptr %obj, i64 96
-  %call19 = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.69, ptr noundef nonnull %mem_path, ptr noundef %errp) #4
+  %call19 = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.69, ptr noundef nonnull %mem_path, ptr noundef %errp) #5
   br i1 %call19, label %if.end21, label %return
 
 if.end21:                                         ; preds = %if.end18
   %has_readonly = getelementptr inbounds i8, ptr %obj, i64 104
-  %call22 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.70, ptr noundef nonnull %has_readonly) #4
+  %call22 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.70, ptr noundef nonnull %has_readonly) #5
   br i1 %call22, label %if.then23, label %if.end27
 
 if.then23:                                        ; preds = %if.end21
   %readonly = getelementptr inbounds i8, ptr %obj, i64 105
-  %call24 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.70, ptr noundef nonnull %readonly, ptr noundef %errp) #4
+  %call24 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.70, ptr noundef nonnull %readonly, ptr noundef %errp) #5
   br i1 %call24, label %if.end27, label %return
 
 if.end27:                                         ; preds = %if.then23, %if.end21
   %has_rom = getelementptr inbounds i8, ptr %obj, i64 106
-  %call28 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.71, ptr noundef nonnull %has_rom) #4
+  %call28 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.71, ptr noundef nonnull %has_rom) #5
   br i1 %call28, label %if.then29, label %if.end33
 
 if.then29:                                        ; preds = %if.end27
   %rom = getelementptr inbounds i8, ptr %obj, i64 108
-  %call30 = tail call zeroext i1 @visit_type_OnOffAuto(ptr noundef %v, ptr noundef nonnull @.str.71, ptr noundef nonnull %rom, ptr noundef %errp) #4
+  %call30 = tail call zeroext i1 @visit_type_OnOffAuto(ptr noundef %v, ptr noundef nonnull @.str.71, ptr noundef nonnull %rom, ptr noundef %errp) #5
   br i1 %call30, label %if.end33, label %return
 
 if.end33:                                         ; preds = %if.then29, %if.end27
@@ -2389,7 +2389,7 @@ declare zeroext i1 @visit_type_OnOffAuto(ptr noundef, ptr noundef, ptr noundef, 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef zeroext i1 @visit_type_MemoryBackendFileProperties(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 112, ptr noundef %errp) #4
+  %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 112, ptr noundef %errp) #5
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -2398,15 +2398,15 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.then1, label %if.end5
 
 if.then1:                                         ; preds = %if.end
-  %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #4
+  %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #5
   br i1 %call2, label %out_obj.thread, label %if.else
 
 out_obj.thread:                                   ; preds = %if.then1
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %return
 
 if.else:                                          ; preds = %if.then1
-  tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 1144, ptr noundef nonnull @__PRETTY_FUNCTION__.visit_type_MemoryBackendFileProperties) #5
+  tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 1144, ptr noundef nonnull @__PRETTY_FUNCTION__.visit_type_MemoryBackendFileProperties) #6
   unreachable
 
 if.end5:                                          ; preds = %if.end
@@ -2414,21 +2414,21 @@ if.end5:                                          ; preds = %if.end
   br i1 %call6, label %out_obj, label %out_obj.thread15
 
 out_obj.thread15:                                 ; preds = %if.end5
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %land.lhs.true
 
 out_obj:                                          ; preds = %if.end5
-  %call9 = tail call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #4
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  %call9 = tail call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #5
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br i1 %call9, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %out_obj.thread15, %out_obj
-  %call11 = tail call zeroext i1 @visit_is_input(ptr noundef %v) #4
+  %call11 = tail call zeroext i1 @visit_is_input(ptr noundef %v) #5
   br i1 %call11, label %if.then12, label %return
 
 if.then12:                                        ; preds = %land.lhs.true
   %1 = load ptr, ptr %obj, align 8
-  tail call void @qapi_free_MemoryBackendFileProperties(ptr noundef %1) #4
+  tail call void @qapi_free_MemoryBackendFileProperties(ptr noundef %1) #5
   store ptr null, ptr %obj, align 8
   br label %return
 
@@ -2447,32 +2447,32 @@ entry:
 
 if.end:                                           ; preds = %entry
   %has_hugetlb = getelementptr inbounds i8, ptr %obj, i64 58
-  %call1 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.72, ptr noundef nonnull %has_hugetlb) #4
+  %call1 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.72, ptr noundef nonnull %has_hugetlb) #5
   br i1 %call1, label %if.then2, label %if.end6
 
 if.then2:                                         ; preds = %if.end
   %hugetlb = getelementptr inbounds i8, ptr %obj, i64 59
-  %call3 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.72, ptr noundef nonnull %hugetlb, ptr noundef %errp) #4
+  %call3 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.72, ptr noundef nonnull %hugetlb, ptr noundef %errp) #5
   br i1 %call3, label %if.end6, label %return
 
 if.end6:                                          ; preds = %if.then2, %if.end
   %has_hugetlbsize = getelementptr inbounds i8, ptr %obj, i64 60
-  %call7 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.73, ptr noundef nonnull %has_hugetlbsize) #4
+  %call7 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.73, ptr noundef nonnull %has_hugetlbsize) #5
   br i1 %call7, label %if.then8, label %if.end12
 
 if.then8:                                         ; preds = %if.end6
   %hugetlbsize = getelementptr inbounds i8, ptr %obj, i64 64
-  %call9 = tail call zeroext i1 @visit_type_size(ptr noundef %v, ptr noundef nonnull @.str.73, ptr noundef nonnull %hugetlbsize, ptr noundef %errp) #4
+  %call9 = tail call zeroext i1 @visit_type_size(ptr noundef %v, ptr noundef nonnull @.str.73, ptr noundef nonnull %hugetlbsize, ptr noundef %errp) #5
   br i1 %call9, label %if.end12, label %return
 
 if.end12:                                         ; preds = %if.then8, %if.end6
   %has_seal = getelementptr inbounds i8, ptr %obj, i64 72
-  %call13 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.74, ptr noundef nonnull %has_seal) #4
+  %call13 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.74, ptr noundef nonnull %has_seal) #5
   br i1 %call13, label %if.then14, label %if.end18
 
 if.then14:                                        ; preds = %if.end12
   %seal = getelementptr inbounds i8, ptr %obj, i64 73
-  %call15 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.74, ptr noundef nonnull %seal, ptr noundef %errp) #4
+  %call15 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.74, ptr noundef nonnull %seal, ptr noundef %errp) #5
   br i1 %call15, label %if.end18, label %return
 
 if.end18:                                         ; preds = %if.then14, %if.end12
@@ -2486,7 +2486,7 @@ return:                                           ; preds = %if.then14, %if.then
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef zeroext i1 @visit_type_MemoryBackendMemfdProperties(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 80, ptr noundef %errp) #4
+  %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 80, ptr noundef %errp) #5
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -2495,15 +2495,15 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.then1, label %if.end5
 
 if.then1:                                         ; preds = %if.end
-  %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #4
+  %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #5
   br i1 %call2, label %out_obj.thread, label %if.else
 
 out_obj.thread:                                   ; preds = %if.then1
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %return
 
 if.else:                                          ; preds = %if.then1
-  tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 1194, ptr noundef nonnull @__PRETTY_FUNCTION__.visit_type_MemoryBackendMemfdProperties) #5
+  tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 1194, ptr noundef nonnull @__PRETTY_FUNCTION__.visit_type_MemoryBackendMemfdProperties) #6
   unreachable
 
 if.end5:                                          ; preds = %if.end
@@ -2511,21 +2511,21 @@ if.end5:                                          ; preds = %if.end
   br i1 %call6, label %out_obj, label %out_obj.thread15
 
 out_obj.thread15:                                 ; preds = %if.end5
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %land.lhs.true
 
 out_obj:                                          ; preds = %if.end5
-  %call9 = tail call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #4
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  %call9 = tail call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #5
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br i1 %call9, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %out_obj.thread15, %out_obj
-  %call11 = tail call zeroext i1 @visit_is_input(ptr noundef %v) #4
+  %call11 = tail call zeroext i1 @visit_is_input(ptr noundef %v) #5
   br i1 %call11, label %if.then12, label %return
 
 if.then12:                                        ; preds = %land.lhs.true
   %1 = load ptr, ptr %obj, align 8
-  tail call void @qapi_free_MemoryBackendMemfdProperties(ptr noundef %1) #4
+  tail call void @qapi_free_MemoryBackendMemfdProperties(ptr noundef %1) #5
   store ptr null, ptr %obj, align 8
   br label %return
 
@@ -2546,7 +2546,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef zeroext i1 @visit_type_MemoryBackendEpcProperties(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 64, ptr noundef %errp) #4
+  %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 64, ptr noundef %errp) #5
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -2555,15 +2555,15 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.then1, label %if.end5
 
 if.then1:                                         ; preds = %if.end
-  %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #4
+  %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #5
   br i1 %call2, label %out_obj.thread, label %if.else
 
 out_obj.thread:                                   ; preds = %if.then1
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %return
 
 if.else:                                          ; preds = %if.then1
-  tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 1229, ptr noundef nonnull @__PRETTY_FUNCTION__.visit_type_MemoryBackendEpcProperties) #5
+  tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 1229, ptr noundef nonnull @__PRETTY_FUNCTION__.visit_type_MemoryBackendEpcProperties) #6
   unreachable
 
 if.end5:                                          ; preds = %if.end
@@ -2571,21 +2571,21 @@ if.end5:                                          ; preds = %if.end
   br i1 %call.i, label %out_obj, label %out_obj.thread15
 
 out_obj.thread15:                                 ; preds = %if.end5
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %land.lhs.true
 
 out_obj:                                          ; preds = %if.end5
-  %call9 = tail call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #4
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  %call9 = tail call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #5
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br i1 %call9, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %out_obj.thread15, %out_obj
-  %call11 = tail call zeroext i1 @visit_is_input(ptr noundef %v) #4
+  %call11 = tail call zeroext i1 @visit_is_input(ptr noundef %v) #5
   br i1 %call11, label %if.then12, label %return
 
 if.then12:                                        ; preds = %land.lhs.true
   %1 = load ptr, ptr %obj, align 8
-  tail call void @qapi_free_MemoryBackendEpcProperties(ptr noundef %1) #4
+  tail call void @qapi_free_MemoryBackendEpcProperties(ptr noundef %1) #5
   store ptr null, ptr %obj, align 8
   br label %return
 
@@ -2599,14 +2599,14 @@ declare void @qapi_free_MemoryBackendEpcProperties(ptr noundef) local_unnamed_ad
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local zeroext i1 @visit_type_PrManagerHelperProperties_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %call = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.6, ptr noundef %obj, ptr noundef %errp) #4
+  %call = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.6, ptr noundef %obj, ptr noundef %errp) #5
   ret i1 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef zeroext i1 @visit_type_PrManagerHelperProperties(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 8, ptr noundef %errp) #4
+  %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 8, ptr noundef %errp) #5
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -2615,37 +2615,37 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.then1, label %if.end5
 
 if.then1:                                         ; preds = %if.end
-  %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #4
+  %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #5
   br i1 %call2, label %out_obj.thread, label %if.else
 
 out_obj.thread:                                   ; preds = %if.then1
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %return
 
 if.else:                                          ; preds = %if.then1
-  tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 1264, ptr noundef nonnull @__PRETTY_FUNCTION__.visit_type_PrManagerHelperProperties) #5
+  tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 1264, ptr noundef nonnull @__PRETTY_FUNCTION__.visit_type_PrManagerHelperProperties) #6
   unreachable
 
 if.end5:                                          ; preds = %if.end
-  %call.i = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.6, ptr noundef nonnull %0, ptr noundef %errp) #4
+  %call.i = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.6, ptr noundef nonnull %0, ptr noundef %errp) #5
   br i1 %call.i, label %out_obj, label %out_obj.thread15
 
 out_obj.thread15:                                 ; preds = %if.end5
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %land.lhs.true
 
 out_obj:                                          ; preds = %if.end5
-  %call9 = tail call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #4
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  %call9 = tail call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #5
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br i1 %call9, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %out_obj.thread15, %out_obj
-  %call11 = tail call zeroext i1 @visit_is_input(ptr noundef %v) #4
+  %call11 = tail call zeroext i1 @visit_is_input(ptr noundef %v) #5
   br i1 %call11, label %if.then12, label %return
 
 if.then12:                                        ; preds = %land.lhs.true
   %1 = load ptr, ptr %obj, align 8
-  tail call void @qapi_free_PrManagerHelperProperties(ptr noundef %1) #4
+  tail call void @qapi_free_PrManagerHelperProperties(ptr noundef %1) #5
   store ptr null, ptr %obj, align 8
   br label %return
 
@@ -2665,15 +2665,15 @@ entry:
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %has_log, align 1
-  %call = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.27, ptr noundef %obj, ptr noundef %errp) #4
+  %call = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.27, ptr noundef %obj, ptr noundef %errp) #5
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %call2 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.75, ptr noundef nonnull %has_log) #4
+  %call2 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.75, ptr noundef nonnull %has_log) #5
   br i1 %call2, label %if.then3, label %if.end8
 
 if.then3:                                         ; preds = %if.end
-  %call5 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.75, ptr noundef nonnull %log, ptr noundef %errp) #4
+  %call5 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.75, ptr noundef nonnull %log, ptr noundef %errp) #5
   br i1 %call5, label %if.end8, label %return
 
 if.end8:                                          ; preds = %if.then3, %if.end
@@ -2688,7 +2688,7 @@ return:                                           ; preds = %if.then3, %entry, %
 define dso_local noundef zeroext i1 @visit_type_QtestProperties(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %has_log.i = alloca i8, align 1
-  %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 16, ptr noundef %errp) #4
+  %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 16, ptr noundef %errp) #5
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -2697,15 +2697,15 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.then1, label %if.end5
 
 if.then1:                                         ; preds = %if.end
-  %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #4
+  %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #5
   br i1 %call2, label %out_obj.thread, label %if.else
 
 out_obj.thread:                                   ; preds = %if.then1
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %return
 
 if.else:                                          ; preds = %if.then1
-  tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 1306, ptr noundef nonnull @__PRETTY_FUNCTION__.visit_type_QtestProperties) #5
+  tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 1306, ptr noundef nonnull @__PRETTY_FUNCTION__.visit_type_QtestProperties) #6
   unreachable
 
 if.end5:                                          ; preds = %if.end
@@ -2715,35 +2715,35 @@ if.end5:                                          ; preds = %if.end
   %tobool.i = icmp ne ptr %1, null
   %frombool.i = zext i1 %tobool.i to i8
   store i8 %frombool.i, ptr %has_log.i, align 1
-  %call.i = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.27, ptr noundef nonnull %0, ptr noundef %errp) #4
+  %call.i = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.27, ptr noundef nonnull %0, ptr noundef %errp) #5
   br i1 %call.i, label %if.end.i, label %out_obj.thread16
 
 if.end.i:                                         ; preds = %if.end5
-  %call2.i = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.75, ptr noundef nonnull %has_log.i) #4
+  %call2.i = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.75, ptr noundef nonnull %has_log.i) #5
   br i1 %call2.i, label %if.then3.i, label %out_obj
 
 if.then3.i:                                       ; preds = %if.end.i
-  %call5.i = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.75, ptr noundef nonnull %log.i, ptr noundef %errp) #4
+  %call5.i = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.75, ptr noundef nonnull %log.i, ptr noundef %errp) #5
   br i1 %call5.i, label %out_obj, label %out_obj.thread16
 
 out_obj.thread16:                                 ; preds = %if.then3.i, %if.end5
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_log.i)
-  call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %land.lhs.true
 
 out_obj:                                          ; preds = %if.end.i, %if.then3.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_log.i)
-  %call9 = call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #4
-  call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  %call9 = call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #5
+  call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br i1 %call9, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %out_obj.thread16, %out_obj
-  %call11 = call zeroext i1 @visit_is_input(ptr noundef %v) #4
+  %call11 = call zeroext i1 @visit_is_input(ptr noundef %v) #5
   br i1 %call11, label %if.then12, label %return
 
 if.then12:                                        ; preds = %land.lhs.true
   %2 = load ptr, ptr %obj, align 8
-  call void @qapi_free_QtestProperties(ptr noundef %2) #4
+  call void @qapi_free_QtestProperties(ptr noundef %2) #5
   store ptr null, ptr %obj, align 8
   br label %return
 
@@ -2757,12 +2757,12 @@ declare void @qapi_free_QtestProperties(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local zeroext i1 @visit_type_RemoteObjectProperties_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %call = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.76, ptr noundef %obj, ptr noundef %errp) #4
+  %call = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.76, ptr noundef %obj, ptr noundef %errp) #5
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
   %devid = getelementptr inbounds i8, ptr %obj, i64 8
-  %call1 = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.77, ptr noundef nonnull %devid, ptr noundef %errp) #4
+  %call1 = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.77, ptr noundef nonnull %devid, ptr noundef %errp) #5
   br label %return
 
 return:                                           ; preds = %if.end, %entry
@@ -2773,7 +2773,7 @@ return:                                           ; preds = %if.end, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef zeroext i1 @visit_type_RemoteObjectProperties(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 16, ptr noundef %errp) #4
+  %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 16, ptr noundef %errp) #5
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -2782,42 +2782,42 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.then1, label %if.end5
 
 if.then1:                                         ; preds = %if.end
-  %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #4
+  %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #5
   br i1 %call2, label %out_obj.thread17, label %if.else
 
 out_obj.thread17:                                 ; preds = %if.then1
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %return
 
 if.else:                                          ; preds = %if.then1
-  tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 1344, ptr noundef nonnull @__PRETTY_FUNCTION__.visit_type_RemoteObjectProperties) #5
+  tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 1344, ptr noundef nonnull @__PRETTY_FUNCTION__.visit_type_RemoteObjectProperties) #6
   unreachable
 
 if.end5:                                          ; preds = %if.end
-  %call.i = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.76, ptr noundef nonnull %0, ptr noundef %errp) #4
+  %call.i = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.76, ptr noundef nonnull %0, ptr noundef %errp) #5
   br i1 %call.i, label %visit_type_RemoteObjectProperties_members.exit, label %out_obj.thread
 
 visit_type_RemoteObjectProperties_members.exit:   ; preds = %if.end5
   %devid.i = getelementptr inbounds i8, ptr %0, i64 8
-  %call1.i = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.77, ptr noundef nonnull %devid.i, ptr noundef %errp) #4
+  %call1.i = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.77, ptr noundef nonnull %devid.i, ptr noundef %errp) #5
   br i1 %call1.i, label %out_obj, label %out_obj.thread
 
 out_obj.thread:                                   ; preds = %visit_type_RemoteObjectProperties_members.exit, %if.end5
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %land.lhs.true
 
 out_obj:                                          ; preds = %visit_type_RemoteObjectProperties_members.exit
-  %call9 = tail call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #4
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  %call9 = tail call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #5
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br i1 %call9, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %out_obj.thread, %out_obj
-  %call11 = tail call zeroext i1 @visit_is_input(ptr noundef %v) #4
+  %call11 = tail call zeroext i1 @visit_is_input(ptr noundef %v) #5
   br i1 %call11, label %if.then12, label %return
 
 if.then12:                                        ; preds = %land.lhs.true
   %1 = load ptr, ptr %obj, align 8
-  tail call void @qapi_free_RemoteObjectProperties(ptr noundef %1) #4
+  tail call void @qapi_free_RemoteObjectProperties(ptr noundef %1) #5
   store ptr null, ptr %obj, align 8
   br label %return
 
@@ -2831,12 +2831,12 @@ declare void @qapi_free_RemoteObjectProperties(ptr noundef) local_unnamed_addr #
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local zeroext i1 @visit_type_VfioUserServerProperties_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %call = tail call zeroext i1 @visit_type_SocketAddress(ptr noundef %v, ptr noundef nonnull @.str.78, ptr noundef %obj, ptr noundef %errp) #4
+  %call = tail call zeroext i1 @visit_type_SocketAddress(ptr noundef %v, ptr noundef nonnull @.str.78, ptr noundef %obj, ptr noundef %errp) #5
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
   %device = getelementptr inbounds i8, ptr %obj, i64 8
-  %call1 = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.79, ptr noundef nonnull %device, ptr noundef %errp) #4
+  %call1 = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.79, ptr noundef nonnull %device, ptr noundef %errp) #5
   br label %return
 
 return:                                           ; preds = %if.end, %entry
@@ -2849,7 +2849,7 @@ declare zeroext i1 @visit_type_SocketAddress(ptr noundef, ptr noundef, ptr nound
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef zeroext i1 @visit_type_VfioUserServerProperties(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 16, ptr noundef %errp) #4
+  %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 16, ptr noundef %errp) #5
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -2858,42 +2858,42 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.then1, label %if.end5
 
 if.then1:                                         ; preds = %if.end
-  %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #4
+  %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #5
   br i1 %call2, label %out_obj.thread17, label %if.else
 
 out_obj.thread17:                                 ; preds = %if.then1
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %return
 
 if.else:                                          ; preds = %if.then1
-  tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 1382, ptr noundef nonnull @__PRETTY_FUNCTION__.visit_type_VfioUserServerProperties) #5
+  tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 1382, ptr noundef nonnull @__PRETTY_FUNCTION__.visit_type_VfioUserServerProperties) #6
   unreachable
 
 if.end5:                                          ; preds = %if.end
-  %call.i = tail call zeroext i1 @visit_type_SocketAddress(ptr noundef %v, ptr noundef nonnull @.str.78, ptr noundef nonnull %0, ptr noundef %errp) #4
+  %call.i = tail call zeroext i1 @visit_type_SocketAddress(ptr noundef %v, ptr noundef nonnull @.str.78, ptr noundef nonnull %0, ptr noundef %errp) #5
   br i1 %call.i, label %visit_type_VfioUserServerProperties_members.exit, label %out_obj.thread
 
 visit_type_VfioUserServerProperties_members.exit: ; preds = %if.end5
   %device.i = getelementptr inbounds i8, ptr %0, i64 8
-  %call1.i = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.79, ptr noundef nonnull %device.i, ptr noundef %errp) #4
+  %call1.i = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.79, ptr noundef nonnull %device.i, ptr noundef %errp) #5
   br i1 %call1.i, label %out_obj, label %out_obj.thread
 
 out_obj.thread:                                   ; preds = %visit_type_VfioUserServerProperties_members.exit, %if.end5
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %land.lhs.true
 
 out_obj:                                          ; preds = %visit_type_VfioUserServerProperties_members.exit
-  %call9 = tail call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #4
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  %call9 = tail call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #5
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br i1 %call9, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %out_obj.thread, %out_obj
-  %call11 = tail call zeroext i1 @visit_is_input(ptr noundef %v) #4
+  %call11 = tail call zeroext i1 @visit_is_input(ptr noundef %v) #5
   br i1 %call11, label %if.then12, label %return
 
 if.then12:                                        ; preds = %land.lhs.true
   %1 = load ptr, ptr %obj, align 8
-  tail call void @qapi_free_VfioUserServerProperties(ptr noundef %1) #4
+  tail call void @qapi_free_VfioUserServerProperties(ptr noundef %1) #5
   store ptr null, ptr %obj, align 8
   br label %return
 
@@ -2907,20 +2907,20 @@ declare void @qapi_free_VfioUserServerProperties(ptr noundef) local_unnamed_addr
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef zeroext i1 @visit_type_RngProperties_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %call = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.80, ptr noundef %obj) #4
+  %call = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.80, ptr noundef %obj) #5
   br i1 %call, label %if.then, label %if.end9
 
 if.then:                                          ; preds = %entry
-  %call1 = tail call zeroext i1 @visit_policy_reject(ptr noundef %v, ptr noundef nonnull @.str.80, i32 noundef 1, ptr noundef %errp) #4
+  %call1 = tail call zeroext i1 @visit_policy_reject(ptr noundef %v, ptr noundef nonnull @.str.80, i32 noundef 1, ptr noundef %errp) #5
   br i1 %call1, label %return, label %if.end
 
 if.end:                                           ; preds = %if.then
-  %call3 = tail call zeroext i1 @visit_policy_skip(ptr noundef %v, ptr noundef nonnull @.str.80, i32 noundef 1) #4
+  %call3 = tail call zeroext i1 @visit_policy_skip(ptr noundef %v, ptr noundef nonnull @.str.80, i32 noundef 1) #5
   br i1 %call3, label %if.end9, label %if.then4
 
 if.then4:                                         ; preds = %if.end
   %opened = getelementptr inbounds i8, ptr %obj, i64 1
-  %call5 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.80, ptr noundef nonnull %opened, ptr noundef %errp) #4
+  %call5 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.80, ptr noundef nonnull %opened, ptr noundef %errp) #5
   br i1 %call5, label %if.end9, label %return
 
 if.end9:                                          ; preds = %if.end, %if.then4, %entry
@@ -2938,7 +2938,7 @@ declare zeroext i1 @visit_policy_skip(ptr noundef, ptr noundef, i32 noundef) loc
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef zeroext i1 @visit_type_RngProperties(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 2, ptr noundef %errp) #4
+  %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 2, ptr noundef %errp) #5
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -2947,50 +2947,50 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.then1, label %if.end5
 
 if.then1:                                         ; preds = %if.end
-  %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #4
+  %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #5
   br i1 %call2, label %out_obj.thread, label %if.else
 
 out_obj.thread:                                   ; preds = %if.then1
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %return
 
 if.else:                                          ; preds = %if.then1
-  tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 1424, ptr noundef nonnull @__PRETTY_FUNCTION__.visit_type_RngProperties) #5
+  tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 1424, ptr noundef nonnull @__PRETTY_FUNCTION__.visit_type_RngProperties) #6
   unreachable
 
 if.end5:                                          ; preds = %if.end
-  %call.i = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.80, ptr noundef nonnull %0) #4
+  %call.i = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.80, ptr noundef nonnull %0) #5
   br i1 %call.i, label %if.then.i, label %out_obj
 
 if.then.i:                                        ; preds = %if.end5
-  %call1.i = tail call zeroext i1 @visit_policy_reject(ptr noundef %v, ptr noundef nonnull @.str.80, i32 noundef 1, ptr noundef %errp) #4
+  %call1.i = tail call zeroext i1 @visit_policy_reject(ptr noundef %v, ptr noundef nonnull @.str.80, i32 noundef 1, ptr noundef %errp) #5
   br i1 %call1.i, label %out_obj.thread16, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i
-  %call3.i = tail call zeroext i1 @visit_policy_skip(ptr noundef %v, ptr noundef nonnull @.str.80, i32 noundef 1) #4
+  %call3.i = tail call zeroext i1 @visit_policy_skip(ptr noundef %v, ptr noundef nonnull @.str.80, i32 noundef 1) #5
   br i1 %call3.i, label %out_obj, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.end.i
   %opened.i = getelementptr inbounds i8, ptr %0, i64 1
-  %call5.i = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.80, ptr noundef nonnull %opened.i, ptr noundef %errp) #4
+  %call5.i = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.80, ptr noundef nonnull %opened.i, ptr noundef %errp) #5
   br i1 %call5.i, label %out_obj, label %out_obj.thread16
 
 out_obj.thread16:                                 ; preds = %if.then4.i, %if.then.i
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %land.lhs.true
 
 out_obj:                                          ; preds = %if.end5, %if.end.i, %if.then4.i
-  %call9 = tail call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #4
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  %call9 = tail call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #5
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br i1 %call9, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %out_obj.thread16, %out_obj
-  %call11 = tail call zeroext i1 @visit_is_input(ptr noundef %v) #4
+  %call11 = tail call zeroext i1 @visit_is_input(ptr noundef %v) #5
   br i1 %call11, label %if.then12, label %return
 
 if.then12:                                        ; preds = %land.lhs.true
   %1 = load ptr, ptr %obj, align 8
-  tail call void @qapi_free_RngProperties(ptr noundef %1) #4
+  tail call void @qapi_free_RngProperties(ptr noundef %1) #5
   store ptr null, ptr %obj, align 8
   br label %return
 
@@ -3004,25 +3004,25 @@ declare void @qapi_free_RngProperties(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local zeroext i1 @visit_type_RngEgdProperties_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %call.i = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.80, ptr noundef %obj) #4
+  %call.i = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.80, ptr noundef %obj) #5
   br i1 %call.i, label %if.then.i, label %if.end
 
 if.then.i:                                        ; preds = %entry
-  %call1.i = tail call zeroext i1 @visit_policy_reject(ptr noundef %v, ptr noundef nonnull @.str.80, i32 noundef 1, ptr noundef %errp) #4
+  %call1.i = tail call zeroext i1 @visit_policy_reject(ptr noundef %v, ptr noundef nonnull @.str.80, i32 noundef 1, ptr noundef %errp) #5
   br i1 %call1.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i
-  %call3.i = tail call zeroext i1 @visit_policy_skip(ptr noundef %v, ptr noundef nonnull @.str.80, i32 noundef 1) #4
+  %call3.i = tail call zeroext i1 @visit_policy_skip(ptr noundef %v, ptr noundef nonnull @.str.80, i32 noundef 1) #5
   br i1 %call3.i, label %if.end, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.end.i
   %opened.i = getelementptr inbounds i8, ptr %obj, i64 1
-  %call5.i = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.80, ptr noundef nonnull %opened.i, ptr noundef %errp) #4
+  %call5.i = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.80, ptr noundef nonnull %opened.i, ptr noundef %errp) #5
   br i1 %call5.i, label %if.end, label %return
 
 if.end:                                           ; preds = %if.then4.i, %if.end.i, %entry
   %chardev = getelementptr inbounds i8, ptr %obj, i64 8
-  %call1 = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.27, ptr noundef nonnull %chardev, ptr noundef %errp) #4
+  %call1 = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.27, ptr noundef nonnull %chardev, ptr noundef %errp) #5
   br label %return
 
 return:                                           ; preds = %if.then4.i, %if.then.i, %if.end
@@ -3033,7 +3033,7 @@ return:                                           ; preds = %if.then4.i, %if.the
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef zeroext i1 @visit_type_RngEgdProperties(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 16, ptr noundef %errp) #4
+  %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 16, ptr noundef %errp) #5
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -3042,55 +3042,55 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.then1, label %if.end5
 
 if.then1:                                         ; preds = %if.end
-  %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #4
+  %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #5
   br i1 %call2, label %out_obj.thread17, label %if.else
 
 out_obj.thread17:                                 ; preds = %if.then1
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %return
 
 if.else:                                          ; preds = %if.then1
-  tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 1462, ptr noundef nonnull @__PRETTY_FUNCTION__.visit_type_RngEgdProperties) #5
+  tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 1462, ptr noundef nonnull @__PRETTY_FUNCTION__.visit_type_RngEgdProperties) #6
   unreachable
 
 if.end5:                                          ; preds = %if.end
-  %call.i.i = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.80, ptr noundef nonnull %0) #4
+  %call.i.i = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.80, ptr noundef nonnull %0) #5
   br i1 %call.i.i, label %if.then.i.i, label %visit_type_RngEgdProperties_members.exit
 
 if.then.i.i:                                      ; preds = %if.end5
-  %call1.i.i = tail call zeroext i1 @visit_policy_reject(ptr noundef %v, ptr noundef nonnull @.str.80, i32 noundef 1, ptr noundef %errp) #4
+  %call1.i.i = tail call zeroext i1 @visit_policy_reject(ptr noundef %v, ptr noundef nonnull @.str.80, i32 noundef 1, ptr noundef %errp) #5
   br i1 %call1.i.i, label %out_obj.thread, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i
-  %call3.i.i = tail call zeroext i1 @visit_policy_skip(ptr noundef %v, ptr noundef nonnull @.str.80, i32 noundef 1) #4
+  %call3.i.i = tail call zeroext i1 @visit_policy_skip(ptr noundef %v, ptr noundef nonnull @.str.80, i32 noundef 1) #5
   br i1 %call3.i.i, label %visit_type_RngEgdProperties_members.exit, label %if.then4.i.i
 
 if.then4.i.i:                                     ; preds = %if.end.i.i
   %opened.i.i = getelementptr inbounds i8, ptr %0, i64 1
-  %call5.i.i = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.80, ptr noundef nonnull %opened.i.i, ptr noundef %errp) #4
+  %call5.i.i = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.80, ptr noundef nonnull %opened.i.i, ptr noundef %errp) #5
   br i1 %call5.i.i, label %visit_type_RngEgdProperties_members.exit, label %out_obj.thread
 
 visit_type_RngEgdProperties_members.exit:         ; preds = %if.end5, %if.end.i.i, %if.then4.i.i
   %chardev.i = getelementptr inbounds i8, ptr %0, i64 8
-  %call1.i = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.27, ptr noundef nonnull %chardev.i, ptr noundef %errp) #4
+  %call1.i = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.27, ptr noundef nonnull %chardev.i, ptr noundef %errp) #5
   br i1 %call1.i, label %out_obj, label %out_obj.thread
 
 out_obj.thread:                                   ; preds = %visit_type_RngEgdProperties_members.exit, %if.then.i.i, %if.then4.i.i
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %land.lhs.true
 
 out_obj:                                          ; preds = %visit_type_RngEgdProperties_members.exit
-  %call9 = tail call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #4
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  %call9 = tail call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #5
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br i1 %call9, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %out_obj.thread, %out_obj
-  %call11 = tail call zeroext i1 @visit_is_input(ptr noundef %v) #4
+  %call11 = tail call zeroext i1 @visit_is_input(ptr noundef %v) #5
   br i1 %call11, label %if.then12, label %return
 
 if.then12:                                        ; preds = %land.lhs.true
   %1 = load ptr, ptr %obj, align 8
-  tail call void @qapi_free_RngEgdProperties(ptr noundef %1) #4
+  tail call void @qapi_free_RngEgdProperties(ptr noundef %1) #5
   store ptr null, ptr %obj, align 8
   br label %return
 
@@ -3110,28 +3110,28 @@ entry:
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %has_filename, align 1
-  %call.i = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.80, ptr noundef %obj) #4
+  %call.i = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.80, ptr noundef %obj) #5
   br i1 %call.i, label %if.then.i, label %if.end
 
 if.then.i:                                        ; preds = %entry
-  %call1.i = tail call zeroext i1 @visit_policy_reject(ptr noundef %v, ptr noundef nonnull @.str.80, i32 noundef 1, ptr noundef %errp) #4
+  %call1.i = tail call zeroext i1 @visit_policy_reject(ptr noundef %v, ptr noundef nonnull @.str.80, i32 noundef 1, ptr noundef %errp) #5
   br i1 %call1.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i
-  %call3.i = tail call zeroext i1 @visit_policy_skip(ptr noundef %v, ptr noundef nonnull @.str.80, i32 noundef 1) #4
+  %call3.i = tail call zeroext i1 @visit_policy_skip(ptr noundef %v, ptr noundef nonnull @.str.80, i32 noundef 1) #5
   br i1 %call3.i, label %if.end, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.end.i
   %opened.i = getelementptr inbounds i8, ptr %obj, i64 1
-  %call5.i = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.80, ptr noundef nonnull %opened.i, ptr noundef %errp) #4
+  %call5.i = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.80, ptr noundef nonnull %opened.i, ptr noundef %errp) #5
   br i1 %call5.i, label %if.end, label %return
 
 if.end:                                           ; preds = %if.then4.i, %if.end.i, %entry
-  %call2 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.81, ptr noundef nonnull %has_filename) #4
+  %call2 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.81, ptr noundef nonnull %has_filename) #5
   br i1 %call2, label %if.then3, label %if.end8
 
 if.then3:                                         ; preds = %if.end
-  %call5 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.81, ptr noundef nonnull %filename, ptr noundef %errp) #4
+  %call5 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.81, ptr noundef nonnull %filename, ptr noundef %errp) #5
   br i1 %call5, label %if.end8, label %return
 
 if.end8:                                          ; preds = %if.then3, %if.end
@@ -3145,7 +3145,7 @@ return:                                           ; preds = %if.then4.i, %if.the
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef zeroext i1 @visit_type_RngRandomProperties(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 16, ptr noundef %errp) #4
+  %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 16, ptr noundef %errp) #5
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -3154,15 +3154,15 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.then1, label %if.end5
 
 if.then1:                                         ; preds = %if.end
-  %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #4
+  %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #5
   br i1 %call2, label %out_obj.thread, label %if.else
 
 out_obj.thread:                                   ; preds = %if.then1
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %return
 
 if.else:                                          ; preds = %if.then1
-  tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 1504, ptr noundef nonnull @__PRETTY_FUNCTION__.visit_type_RngRandomProperties) #5
+  tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 1504, ptr noundef nonnull @__PRETTY_FUNCTION__.visit_type_RngRandomProperties) #6
   unreachable
 
 if.end5:                                          ; preds = %if.end
@@ -3170,21 +3170,21 @@ if.end5:                                          ; preds = %if.end
   br i1 %call6, label %out_obj, label %out_obj.thread15
 
 out_obj.thread15:                                 ; preds = %if.end5
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %land.lhs.true
 
 out_obj:                                          ; preds = %if.end5
-  %call9 = tail call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #4
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  %call9 = tail call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #5
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br i1 %call9, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %out_obj.thread15, %out_obj
-  %call11 = tail call zeroext i1 @visit_is_input(ptr noundef %v) #4
+  %call11 = tail call zeroext i1 @visit_is_input(ptr noundef %v) #5
   br i1 %call11, label %if.then12, label %return
 
 if.then12:                                        ; preds = %land.lhs.true
   %1 = load ptr, ptr %obj, align 8
-  tail call void @qapi_free_RngRandomProperties(ptr noundef %1) #4
+  tail call void @qapi_free_RngRandomProperties(ptr noundef %1) #5
   store ptr null, ptr %obj, align 8
   br label %return
 
@@ -3215,72 +3215,72 @@ entry:
   %tobool6 = icmp ne ptr %2, null
   %frombool9 = zext i1 %tobool6 to i8
   store i8 %frombool9, ptr %has_session_file, align 1
-  %call = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.82, ptr noundef nonnull %has_sev_device) #4
+  %call = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.82, ptr noundef nonnull %has_sev_device) #5
   br i1 %call, label %if.then, label %if.end13
 
 if.then:                                          ; preds = %entry
-  %call11 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.82, ptr noundef nonnull %obj, ptr noundef %errp) #4
+  %call11 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.82, ptr noundef nonnull %obj, ptr noundef %errp) #5
   br i1 %call11, label %if.end13, label %return
 
 if.end13:                                         ; preds = %if.then, %entry
-  %call14 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.83, ptr noundef nonnull %has_dh_cert_file) #4
+  %call14 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.83, ptr noundef nonnull %has_dh_cert_file) #5
   br i1 %call14, label %if.then15, label %if.end20
 
 if.then15:                                        ; preds = %if.end13
-  %call17 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.83, ptr noundef nonnull %dh_cert_file, ptr noundef %errp) #4
+  %call17 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.83, ptr noundef nonnull %dh_cert_file, ptr noundef %errp) #5
   br i1 %call17, label %if.end20, label %return
 
 if.end20:                                         ; preds = %if.then15, %if.end13
-  %call21 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.84, ptr noundef nonnull %has_session_file) #4
+  %call21 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.84, ptr noundef nonnull %has_session_file) #5
   br i1 %call21, label %if.then22, label %if.end27
 
 if.then22:                                        ; preds = %if.end20
-  %call24 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.84, ptr noundef nonnull %session_file, ptr noundef %errp) #4
+  %call24 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.84, ptr noundef nonnull %session_file, ptr noundef %errp) #5
   br i1 %call24, label %if.end27, label %return
 
 if.end27:                                         ; preds = %if.then22, %if.end20
   %has_policy = getelementptr inbounds i8, ptr %obj, i64 24
-  %call28 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.58, ptr noundef nonnull %has_policy) #4
+  %call28 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.58, ptr noundef nonnull %has_policy) #5
   br i1 %call28, label %if.then29, label %if.end33
 
 if.then29:                                        ; preds = %if.end27
   %policy = getelementptr inbounds i8, ptr %obj, i64 28
-  %call30 = call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef nonnull @.str.58, ptr noundef nonnull %policy, ptr noundef %errp) #4
+  %call30 = call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef nonnull @.str.58, ptr noundef nonnull %policy, ptr noundef %errp) #5
   br i1 %call30, label %if.end33, label %return
 
 if.end33:                                         ; preds = %if.then29, %if.end27
   %has_handle = getelementptr inbounds i8, ptr %obj, i64 32
-  %call34 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.85, ptr noundef nonnull %has_handle) #4
+  %call34 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.85, ptr noundef nonnull %has_handle) #5
   br i1 %call34, label %if.then35, label %if.end39
 
 if.then35:                                        ; preds = %if.end33
   %handle = getelementptr inbounds i8, ptr %obj, i64 36
-  %call36 = call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef nonnull @.str.85, ptr noundef nonnull %handle, ptr noundef %errp) #4
+  %call36 = call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef nonnull @.str.85, ptr noundef nonnull %handle, ptr noundef %errp) #5
   br i1 %call36, label %if.end39, label %return
 
 if.end39:                                         ; preds = %if.then35, %if.end33
   %has_cbitpos = getelementptr inbounds i8, ptr %obj, i64 40
-  %call40 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.86, ptr noundef nonnull %has_cbitpos) #4
+  %call40 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.86, ptr noundef nonnull %has_cbitpos) #5
   br i1 %call40, label %if.then41, label %if.end45
 
 if.then41:                                        ; preds = %if.end39
   %cbitpos = getelementptr inbounds i8, ptr %obj, i64 44
-  %call42 = call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef nonnull @.str.86, ptr noundef nonnull %cbitpos, ptr noundef %errp) #4
+  %call42 = call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef nonnull @.str.86, ptr noundef nonnull %cbitpos, ptr noundef %errp) #5
   br i1 %call42, label %if.end45, label %return
 
 if.end45:                                         ; preds = %if.then41, %if.end39
   %reduced_phys_bits = getelementptr inbounds i8, ptr %obj, i64 48
-  %call46 = call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef nonnull @.str.87, ptr noundef nonnull %reduced_phys_bits, ptr noundef %errp) #4
+  %call46 = call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef nonnull @.str.87, ptr noundef nonnull %reduced_phys_bits, ptr noundef %errp) #5
   br i1 %call46, label %if.end48, label %return
 
 if.end48:                                         ; preds = %if.end45
   %has_kernel_hashes = getelementptr inbounds i8, ptr %obj, i64 52
-  %call49 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.88, ptr noundef nonnull %has_kernel_hashes) #4
+  %call49 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.88, ptr noundef nonnull %has_kernel_hashes) #5
   br i1 %call49, label %if.then50, label %if.end54
 
 if.then50:                                        ; preds = %if.end48
   %kernel_hashes = getelementptr inbounds i8, ptr %obj, i64 53
-  %call51 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.88, ptr noundef nonnull %kernel_hashes, ptr noundef %errp) #4
+  %call51 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.88, ptr noundef nonnull %kernel_hashes, ptr noundef %errp) #5
   br i1 %call51, label %if.end54, label %return
 
 if.end54:                                         ; preds = %if.then50, %if.end48
@@ -3294,7 +3294,7 @@ return:                                           ; preds = %if.then50, %if.end4
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef zeroext i1 @visit_type_SevGuestProperties(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 56, ptr noundef %errp) #4
+  %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 56, ptr noundef %errp) #5
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -3303,15 +3303,15 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.then1, label %if.end5
 
 if.then1:                                         ; preds = %if.end
-  %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #4
+  %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #5
   br i1 %call2, label %out_obj.thread, label %if.else
 
 out_obj.thread:                                   ; preds = %if.then1
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %return
 
 if.else:                                          ; preds = %if.then1
-  tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 1578, ptr noundef nonnull @__PRETTY_FUNCTION__.visit_type_SevGuestProperties) #5
+  tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 1578, ptr noundef nonnull @__PRETTY_FUNCTION__.visit_type_SevGuestProperties) #6
   unreachable
 
 if.end5:                                          ; preds = %if.end
@@ -3319,21 +3319,21 @@ if.end5:                                          ; preds = %if.end
   br i1 %call6, label %out_obj, label %out_obj.thread15
 
 out_obj.thread15:                                 ; preds = %if.end5
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %land.lhs.true
 
 out_obj:                                          ; preds = %if.end5
-  %call9 = tail call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #4
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  %call9 = tail call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #5
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br i1 %call9, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %out_obj.thread15, %out_obj
-  %call11 = tail call zeroext i1 @visit_is_input(ptr noundef %v) #4
+  %call11 = tail call zeroext i1 @visit_is_input(ptr noundef %v) #5
   br i1 %call11, label %if.then12, label %return
 
 if.then12:                                        ; preds = %land.lhs.true
   %1 = load ptr, ptr %obj, align 8
-  tail call void @qapi_free_SevGuestProperties(ptr noundef %1) #4
+  tail call void @qapi_free_SevGuestProperties(ptr noundef %1) #5
   store ptr null, ptr %obj, align 8
   br label %return
 
@@ -3347,22 +3347,22 @@ declare void @qapi_free_SevGuestProperties(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef zeroext i1 @visit_type_ThreadContextProperties_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %call = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.89, ptr noundef %obj) #4
+  %call = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.89, ptr noundef %obj) #5
   br i1 %call, label %if.then, label %if.end3
 
 if.then:                                          ; preds = %entry
   %cpu_affinity = getelementptr inbounds i8, ptr %obj, i64 8
-  %call1 = tail call zeroext i1 @visit_type_uint16List(ptr noundef %v, ptr noundef nonnull @.str.89, ptr noundef nonnull %cpu_affinity, ptr noundef %errp) #4
+  %call1 = tail call zeroext i1 @visit_type_uint16List(ptr noundef %v, ptr noundef nonnull @.str.89, ptr noundef nonnull %cpu_affinity, ptr noundef %errp) #5
   br i1 %call1, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.then, %entry
   %has_node_affinity = getelementptr inbounds i8, ptr %obj, i64 16
-  %call4 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.90, ptr noundef nonnull %has_node_affinity) #4
+  %call4 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.90, ptr noundef nonnull %has_node_affinity) #5
   br i1 %call4, label %if.then5, label %if.end9
 
 if.then5:                                         ; preds = %if.end3
   %node_affinity = getelementptr inbounds i8, ptr %obj, i64 24
-  %call6 = tail call zeroext i1 @visit_type_uint16List(ptr noundef %v, ptr noundef nonnull @.str.90, ptr noundef nonnull %node_affinity, ptr noundef %errp) #4
+  %call6 = tail call zeroext i1 @visit_type_uint16List(ptr noundef %v, ptr noundef nonnull @.str.90, ptr noundef nonnull %node_affinity, ptr noundef %errp) #5
   br i1 %call6, label %if.end9, label %return
 
 if.end9:                                          ; preds = %if.then5, %if.end3
@@ -3376,7 +3376,7 @@ return:                                           ; preds = %if.then5, %if.then,
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef zeroext i1 @visit_type_ThreadContextProperties(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 32, ptr noundef %errp) #4
+  %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 32, ptr noundef %errp) #5
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -3385,52 +3385,52 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.then1, label %if.end5
 
 if.then1:                                         ; preds = %if.end
-  %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #4
+  %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #5
   br i1 %call2, label %out_obj.thread, label %if.else
 
 out_obj.thread:                                   ; preds = %if.then1
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %return
 
 if.else:                                          ; preds = %if.then1
-  tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 1620, ptr noundef nonnull @__PRETTY_FUNCTION__.visit_type_ThreadContextProperties) #5
+  tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 1620, ptr noundef nonnull @__PRETTY_FUNCTION__.visit_type_ThreadContextProperties) #6
   unreachable
 
 if.end5:                                          ; preds = %if.end
-  %call.i = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.89, ptr noundef nonnull %0) #4
+  %call.i = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.89, ptr noundef nonnull %0) #5
   br i1 %call.i, label %if.then.i, label %if.end3.i
 
 if.then.i:                                        ; preds = %if.end5
   %cpu_affinity.i = getelementptr inbounds i8, ptr %0, i64 8
-  %call1.i = tail call zeroext i1 @visit_type_uint16List(ptr noundef %v, ptr noundef nonnull @.str.89, ptr noundef nonnull %cpu_affinity.i, ptr noundef %errp) #4
+  %call1.i = tail call zeroext i1 @visit_type_uint16List(ptr noundef %v, ptr noundef nonnull @.str.89, ptr noundef nonnull %cpu_affinity.i, ptr noundef %errp) #5
   br i1 %call1.i, label %if.end3.i, label %out_obj.thread16
 
 if.end3.i:                                        ; preds = %if.then.i, %if.end5
   %has_node_affinity.i = getelementptr inbounds i8, ptr %0, i64 16
-  %call4.i = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.90, ptr noundef nonnull %has_node_affinity.i) #4
+  %call4.i = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.90, ptr noundef nonnull %has_node_affinity.i) #5
   br i1 %call4.i, label %if.then5.i, label %out_obj
 
 if.then5.i:                                       ; preds = %if.end3.i
   %node_affinity.i = getelementptr inbounds i8, ptr %0, i64 24
-  %call6.i = tail call zeroext i1 @visit_type_uint16List(ptr noundef %v, ptr noundef nonnull @.str.90, ptr noundef nonnull %node_affinity.i, ptr noundef %errp) #4
+  %call6.i = tail call zeroext i1 @visit_type_uint16List(ptr noundef %v, ptr noundef nonnull @.str.90, ptr noundef nonnull %node_affinity.i, ptr noundef %errp) #5
   br i1 %call6.i, label %out_obj, label %out_obj.thread16
 
 out_obj.thread16:                                 ; preds = %if.then5.i, %if.then.i
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %land.lhs.true
 
 out_obj:                                          ; preds = %if.end3.i, %if.then5.i
-  %call9 = tail call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #4
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  %call9 = tail call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #5
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br i1 %call9, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %out_obj.thread16, %out_obj
-  %call11 = tail call zeroext i1 @visit_is_input(ptr noundef %v) #4
+  %call11 = tail call zeroext i1 @visit_is_input(ptr noundef %v) #5
   br i1 %call11, label %if.then12, label %return
 
 if.then12:                                        ; preds = %land.lhs.true
   %1 = load ptr, ptr %obj, align 8
-  tail call void @qapi_free_ThreadContextProperties(ptr noundef %1) #4
+  tail call void @qapi_free_ThreadContextProperties(ptr noundef %1) #5
   store ptr null, ptr %obj, align 8
   br label %return
 
@@ -3447,7 +3447,7 @@ entry:
   %value = alloca i32, align 4
   %0 = load i32, ptr %obj, align 4
   store i32 %0, ptr %value, align 4
-  %call = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %value, ptr noundef nonnull @ObjectType_lookup, ptr noundef %errp) #4
+  %call = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %value, ptr noundef nonnull @ObjectType_lookup, ptr noundef %errp) #5
   %1 = load i32, ptr %value, align 4
   store i32 %1, ptr %obj, align 4
   ret i1 %call
@@ -3460,7 +3460,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
   %0 = load i32, ptr %obj, align 4
   store i32 %0, ptr %value.i, align 4
-  %call.i = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef nonnull @.str.91, ptr noundef nonnull %value.i, ptr noundef nonnull @ObjectType_lookup, ptr noundef %errp) #4
+  %call.i = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef nonnull @.str.91, ptr noundef nonnull %value.i, ptr noundef nonnull @ObjectType_lookup, ptr noundef %errp) #5
   %1 = load i32, ptr %value.i, align 4
   store i32 %1, ptr %obj, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.i)
@@ -3468,7 +3468,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %id = getelementptr inbounds i8, ptr %obj, i64 8
-  %call1 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.92, ptr noundef nonnull %id, ptr noundef %errp) #4
+  %call1 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.92, ptr noundef nonnull %id, ptr noundef %errp) #5
   br label %return
 
 return:                                           ; preds = %if.end, %entry
@@ -3483,7 +3483,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i.i)
   %0 = load i32, ptr %obj, align 4
   store i32 %0, ptr %value.i.i, align 4
-  %call.i.i = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef nonnull @.str.91, ptr noundef nonnull %value.i.i, ptr noundef nonnull @ObjectType_lookup, ptr noundef %errp) #4
+  %call.i.i = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef nonnull @.str.91, ptr noundef nonnull %value.i.i, ptr noundef nonnull @ObjectType_lookup, ptr noundef %errp) #5
   %1 = load i32, ptr %value.i.i, align 4
   store i32 %1, ptr %obj, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.i.i)
@@ -3491,7 +3491,7 @@ entry:
 
 visit_type_q_obj_ObjectOptions_base_members.exit: ; preds = %entry
   %id.i = getelementptr inbounds i8, ptr %obj, i64 8
-  %call1.i = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.92, ptr noundef nonnull %id.i, ptr noundef %errp) #4
+  %call1.i = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.92, ptr noundef nonnull %id.i, ptr noundef %errp) #5
   br i1 %call1.i, label %if.end, label %return
 
 if.end:                                           ; preds = %visit_type_q_obj_ObjectOptions_base_members.exit
@@ -3545,22 +3545,22 @@ if.end:                                           ; preds = %visit_type_q_obj_Ob
 
 sw.bb:                                            ; preds = %if.end
   %u = getelementptr inbounds i8, ptr %obj, i64 16
-  %call1 = call zeroext i1 @visit_type_AuthZListProperties_members(ptr noundef %v, ptr noundef nonnull %u, ptr noundef %errp) #4
+  %call1 = call zeroext i1 @visit_type_AuthZListProperties_members(ptr noundef %v, ptr noundef nonnull %u, ptr noundef %errp) #5
   br label %return
 
 sw.bb2:                                           ; preds = %if.end
   %u3 = getelementptr inbounds i8, ptr %obj, i64 16
-  %call4 = call zeroext i1 @visit_type_AuthZListFileProperties_members(ptr noundef %v, ptr noundef nonnull %u3, ptr noundef %errp) #4
+  %call4 = call zeroext i1 @visit_type_AuthZListFileProperties_members(ptr noundef %v, ptr noundef nonnull %u3, ptr noundef %errp) #5
   br label %return
 
 sw.bb5:                                           ; preds = %if.end
   %u6 = getelementptr inbounds i8, ptr %obj, i64 16
-  %call7 = call zeroext i1 @visit_type_AuthZPAMProperties_members(ptr noundef %v, ptr noundef nonnull %u6, ptr noundef %errp) #4
+  %call7 = call zeroext i1 @visit_type_AuthZPAMProperties_members(ptr noundef %v, ptr noundef nonnull %u6, ptr noundef %errp) #5
   br label %return
 
 sw.bb8:                                           ; preds = %if.end
   %u9 = getelementptr inbounds i8, ptr %obj, i64 16
-  %call10 = call zeroext i1 @visit_type_AuthZSimpleProperties_members(ptr noundef %v, ptr noundef nonnull %u9, ptr noundef %errp) #4
+  %call10 = call zeroext i1 @visit_type_AuthZSimpleProperties_members(ptr noundef %v, ptr noundef nonnull %u9, ptr noundef %errp) #5
   br label %return
 
 sw.bb11:                                          ; preds = %if.end
@@ -3670,7 +3670,7 @@ sw.bb71:                                          ; preds = %if.end
 
 sw.bb74:                                          ; preds = %if.end
   %u75 = getelementptr inbounds i8, ptr %obj, i64 16
-  %call.i126 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.6, ptr noundef nonnull %u75, ptr noundef %errp) #4
+  %call.i126 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.6, ptr noundef nonnull %u75, ptr noundef %errp) #5
   br label %return
 
 sw.bb77:                                          ; preds = %if.end
@@ -3695,12 +3695,12 @@ sw.bb86:                                          ; preds = %if.end
 
 sw.bb89:                                          ; preds = %if.end
   %u90 = getelementptr inbounds i8, ptr %obj, i64 16
-  %call91 = call zeroext i1 @visit_type_SecretProperties_members(ptr noundef %v, ptr noundef nonnull %u90, ptr noundef %errp) #4
+  %call91 = call zeroext i1 @visit_type_SecretProperties_members(ptr noundef %v, ptr noundef nonnull %u90, ptr noundef %errp) #5
   br label %return
 
 sw.bb92:                                          ; preds = %if.end
   %u93 = getelementptr inbounds i8, ptr %obj, i64 16
-  %call94 = call zeroext i1 @visit_type_SecretKeyringProperties_members(ptr noundef %v, ptr noundef nonnull %u93, ptr noundef %errp) #4
+  %call94 = call zeroext i1 @visit_type_SecretKeyringProperties_members(ptr noundef %v, ptr noundef nonnull %u93, ptr noundef %errp) #5
   br label %return
 
 sw.bb95:                                          ; preds = %if.end
@@ -3715,27 +3715,27 @@ sw.bb98:                                          ; preds = %if.end
 
 sw.bb101:                                         ; preds = %if.end
   %u102 = getelementptr inbounds i8, ptr %obj, i64 16
-  %call103 = call zeroext i1 @visit_type_ThrottleGroupProperties_members(ptr noundef %v, ptr noundef nonnull %u102, ptr noundef %errp) #4
+  %call103 = call zeroext i1 @visit_type_ThrottleGroupProperties_members(ptr noundef %v, ptr noundef nonnull %u102, ptr noundef %errp) #5
   br label %return
 
 sw.bb104:                                         ; preds = %if.end
   %u105 = getelementptr inbounds i8, ptr %obj, i64 16
-  %call106 = call zeroext i1 @visit_type_TlsCredsAnonProperties_members(ptr noundef %v, ptr noundef nonnull %u105, ptr noundef %errp) #4
+  %call106 = call zeroext i1 @visit_type_TlsCredsAnonProperties_members(ptr noundef %v, ptr noundef nonnull %u105, ptr noundef %errp) #5
   br label %return
 
 sw.bb107:                                         ; preds = %if.end
   %u108 = getelementptr inbounds i8, ptr %obj, i64 16
-  %call109 = call zeroext i1 @visit_type_TlsCredsPskProperties_members(ptr noundef %v, ptr noundef nonnull %u108, ptr noundef %errp) #4
+  %call109 = call zeroext i1 @visit_type_TlsCredsPskProperties_members(ptr noundef %v, ptr noundef nonnull %u108, ptr noundef %errp) #5
   br label %return
 
 sw.bb110:                                         ; preds = %if.end
   %u111 = getelementptr inbounds i8, ptr %obj, i64 16
-  %call112 = call zeroext i1 @visit_type_TlsCredsX509Properties_members(ptr noundef %v, ptr noundef nonnull %u111, ptr noundef %errp) #4
+  %call112 = call zeroext i1 @visit_type_TlsCredsX509Properties_members(ptr noundef %v, ptr noundef nonnull %u111, ptr noundef %errp) #5
   br label %return
 
 sw.bb113:                                         ; preds = %if.end
   %u114 = getelementptr inbounds i8, ptr %obj, i64 16
-  %call115 = call zeroext i1 @visit_type_TlsCredsProperties_members(ptr noundef %v, ptr noundef nonnull %u114, ptr noundef %errp) #4
+  %call115 = call zeroext i1 @visit_type_TlsCredsProperties_members(ptr noundef %v, ptr noundef nonnull %u114, ptr noundef %errp) #5
   br label %return
 
 sw.bb116:                                         ; preds = %if.end
@@ -3749,7 +3749,7 @@ sw.bb119:                                         ; preds = %if.end
   br label %return
 
 sw.default:                                       ; preds = %if.end
-  call void @abort() #5
+  call void @abort() #6
   unreachable
 
 return:                                           ; preds = %entry, %if.end, %if.end, %if.end, %visit_type_q_obj_ObjectOptions_base_members.exit, %sw.bb119, %sw.bb116, %sw.bb113, %sw.bb110, %sw.bb107, %sw.bb104, %sw.bb101, %sw.bb98, %sw.bb95, %sw.bb92, %sw.bb89, %sw.bb86, %sw.bb83, %sw.bb80, %sw.bb77, %sw.bb74, %sw.bb71, %sw.bb68, %sw.bb65, %sw.bb62, %sw.bb59, %sw.bb56, %sw.bb53, %sw.bb50, %sw.bb47, %sw.bb44, %sw.bb41, %sw.bb38, %sw.bb35, %sw.bb32, %sw.bb29, %sw.bb26, %sw.bb23, %sw.bb20, %sw.bb17, %sw.bb14, %sw.bb11, %sw.bb8, %sw.bb5, %sw.bb2, %sw.bb
@@ -3779,13 +3779,13 @@ declare zeroext i1 @visit_type_TlsCredsX509Properties_members(ptr noundef, ptr n
 
 declare zeroext i1 @visit_type_TlsCredsProperties_members(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: noreturn nounwind
-declare void @abort() local_unnamed_addr #2
+; Function Attrs: cold nofree noreturn nounwind
+declare void @abort() local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef zeroext i1 @visit_type_ObjectOptions(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 328, ptr noundef %errp) #4
+  %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 328, ptr noundef %errp) #5
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -3794,15 +3794,15 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.then1, label %if.end5
 
 if.then1:                                         ; preds = %if.end
-  %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #4
+  %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #5
   br i1 %call2, label %out_obj.thread, label %if.else
 
 out_obj.thread:                                   ; preds = %if.then1
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %return
 
 if.else:                                          ; preds = %if.then1
-  tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 1783, ptr noundef nonnull @__PRETTY_FUNCTION__.visit_type_ObjectOptions) #5
+  tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 1783, ptr noundef nonnull @__PRETTY_FUNCTION__.visit_type_ObjectOptions) #6
   unreachable
 
 if.end5:                                          ; preds = %if.end
@@ -3810,21 +3810,21 @@ if.end5:                                          ; preds = %if.end
   br i1 %call6, label %out_obj, label %out_obj.thread15
 
 out_obj.thread15:                                 ; preds = %if.end5
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %land.lhs.true
 
 out_obj:                                          ; preds = %if.end5
-  %call9 = tail call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #4
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  %call9 = tail call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #5
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br i1 %call9, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %out_obj.thread15, %out_obj
-  %call11 = tail call zeroext i1 @visit_is_input(ptr noundef %v) #4
+  %call11 = tail call zeroext i1 @visit_is_input(ptr noundef %v) #5
   br i1 %call11, label %if.then12, label %return
 
 if.then12:                                        ; preds = %land.lhs.true
   %1 = load ptr, ptr %obj, align 8
-  tail call void @qapi_free_ObjectOptions(ptr noundef %1) #4
+  tail call void @qapi_free_ObjectOptions(ptr noundef %1) #5
   store ptr null, ptr %obj, align 8
   br label %return
 
@@ -3838,22 +3838,23 @@ declare void @qapi_free_ObjectOptions(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local zeroext i1 @visit_type_q_obj_object_del_arg_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %call = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.92, ptr noundef %obj, ptr noundef %errp) #4
+  %call = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.92, ptr noundef %obj, ptr noundef %errp) #5
   ret i1 %call
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nounwind }
-attributes #5 = { noreturn nounwind }
+attributes #3 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { nounwind }
+attributes #6 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

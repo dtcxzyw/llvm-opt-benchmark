@@ -88,7 +88,7 @@ entry:
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #10
+  %call = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #11
   %1 = load i8, ptr %idle, align 4
   %conv = zext i8 %1 to i64
   %div = mul nuw nsw i64 %conv, 4000000
@@ -99,14 +99,14 @@ if.then:                                          ; preds = %entry
   br i1 %tobool3.not, label %if.then4, label %if.end
 
 if.then4:                                         ; preds = %if.then
-  %call.i.i.i = tail call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #11
-  tail call void @timer_init_full(ptr noundef %call.i.i.i, ptr noundef null, i32 noundef 1, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @hid_idle_timer, ptr noundef nonnull %hs) #10
+  %call.i.i.i = tail call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #12
+  tail call void @timer_init_full(ptr noundef %call.i.i.i, ptr noundef null, i32 noundef 1, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @hid_idle_timer, ptr noundef nonnull %hs) #11
   store ptr %call.i.i.i, ptr %idle_timer, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then4, %if.then
   %3 = phi ptr [ %call.i.i.i, %if.then4 ], [ %2, %if.then ]
-  tail call void @timer_mod_ns(ptr noundef %3, i64 noundef %add) #10
+  tail call void @timer_mod_ns(ptr noundef %3, i64 noundef %add) #11
   br label %if.end8
 
 if.else:                                          ; preds = %entry
@@ -116,8 +116,8 @@ if.else:                                          ; preds = %entry
   br i1 %tobool.not.i, label %if.end8, label %if.then.i
 
 if.then.i:                                        ; preds = %if.else
-  tail call void @timer_del(ptr noundef nonnull %4) #10
-  tail call void @g_free(ptr noundef nonnull %4) #10
+  tail call void @timer_del(ptr noundef nonnull %4) #11
+  tail call void @g_free(ptr noundef nonnull %4) #11
   store ptr null, ptr %idle_timer.i, align 8
   br label %if.end8
 
@@ -134,7 +134,7 @@ entry:
   store i8 1, ptr %idle_pending, align 1
   %event = getelementptr inbounds i8, ptr %opaque, i64 288
   %0 = load ptr, ptr %event, align 8
-  tail call void %0(ptr noundef %opaque) #10
+  tail call void %0(ptr noundef %opaque) #11
   ret void
 }
 
@@ -151,7 +151,7 @@ entry:
 if.then:                                          ; preds = %entry
   %s = getelementptr inbounds i8, ptr %hs, i64 296
   %1 = load ptr, ptr %s, align 8
-  tail call void @qemu_input_handler_activate(ptr noundef %1) #10
+  tail call void @qemu_input_handler_activate(ptr noundef %1) #11
   store i32 1, ptr %mouse_grabbed, align 8
   br label %if.end
 
@@ -174,7 +174,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %s.i = getelementptr inbounds i8, ptr %hs, i64 296
   %1 = load ptr, ptr %s.i, align 8
-  tail call void @qemu_input_handler_activate(ptr noundef %1) #10
+  tail call void @qemu_input_handler_activate(ptr noundef %1) #11
   store i32 1, ptr %mouse_grabbed.i, align 8
   br label %hid_pointer_activate.exit
 
@@ -367,7 +367,7 @@ if.end107:                                        ; preds = %if.then101, %if.end
   br i1 %cmp108, label %sw.epilog.sink.split, label %sw.epilog
 
 sw.default:                                       ; preds = %if.end30
-  tail call void @abort() #12
+  tail call void @abort() #13
   unreachable
 
 sw.epilog.sink.split:                             ; preds = %if.end107, %if.end54
@@ -385,7 +385,7 @@ sw.epilog:                                        ; preds = %sw.epilog.sink.spli
   ret i32 %l.8
 }
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: cold nofree noreturn nounwind
 declare void @abort() local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -439,16 +439,16 @@ if.then.i.i.i:                                    ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.i.i.i, label %if.then8.i.i.i, label %if.else.i.i.i
 
 if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
-  %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #10
-  %call10.i.i.i = tail call i32 @qemu_get_thread_id() #10
+  %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #11
+  %call10.i.i.i = tail call i32 @qemu_get_thread_id() #11
   %7 = load i64, ptr %_now.i.i.i, align 8
   %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.15, i32 noundef %call10.i.i.i, i64 noundef %7, i64 noundef %8) #10
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.15, i32 noundef %call10.i.i.i, i64 noundef %7, i64 noundef %8) #11
   br label %trace_hid_kbd_queue_empty.exit.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.16) #10
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.16) #11
   br label %trace_hid_kbd_queue_empty.exit.i
 
 trace_hid_kbd_queue_empty.exit.i:                 ; preds = %if.else.i.i.i, %if.then8.i.i.i, %land.lhs.true5.i.i.i, %if.then6.i
@@ -494,7 +494,7 @@ sw.bb20.i:                                        ; preds = %if.end7.i
   br i1 %cmp22.i, label %if.end25.i, label %if.else.i
 
 if.else.i:                                        ; preds = %sw.bb20.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14, i32 noundef 275, ptr noundef nonnull @__PRETTY_FUNCTION__.hid_keyboard_process_keycode) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14, i32 noundef 275, ptr noundef nonnull @__PRETTY_FUNCTION__.hid_keyboard_process_keycode) #13
   unreachable
 
 if.end25.i:                                       ; preds = %sw.bb20.i
@@ -530,7 +530,7 @@ sw.bb46.i:                                        ; preds = %sw.bb35.i, %if.end7
   br label %hid_keyboard_process_keycode.exit
 
 sw.bb54.i:                                        ; preds = %if.end7.i, %if.end7.i, %if.end7.i, %if.end7.i, %if.end7.i, %if.end7.i
-  tail call void @abort() #12
+  tail call void @abort() #13
   unreachable
 
 sw.epilog.i:                                      ; preds = %if.end7.i
@@ -650,7 +650,7 @@ if.then:                                          ; preds = %entry
   %3 = and i8 %2, 6
   %ledstate.28 = or disjoint i8 %.lobit, %3
   %ledstate.2 = zext nneg i8 %ledstate.28 to i32
-  tail call void @kbd_put_ledstate(i32 noundef %ledstate.2) #10
+  tail call void @kbd_put_ledstate(i32 noundef %ledstate.2) #11
   br label %if.end17
 
 if.end17:                                         ; preds = %if.then, %entry
@@ -699,8 +699,8 @@ sw.epilog:                                        ; preds = %sw.bb2, %sw.bb, %en
   br i1 %tobool.not.i, label %hid_del_idle_timer.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %sw.epilog
-  tail call void @timer_del(ptr noundef nonnull %1) #10
-  tail call void @g_free(ptr noundef nonnull %1) #10
+  tail call void @timer_del(ptr noundef nonnull %1) #11
+  tail call void @g_free(ptr noundef nonnull %1) #11
   store ptr null, ptr %idle_timer.i, align 8
   br label %hid_del_idle_timer.exit
 
@@ -713,15 +713,15 @@ define dso_local void @hid_free(ptr nocapture noundef %hs) local_unnamed_addr #1
 entry:
   %s = getelementptr inbounds i8, ptr %hs, i64 296
   %0 = load ptr, ptr %s, align 8
-  tail call void @qemu_input_handler_unregister(ptr noundef %0) #10
+  tail call void @qemu_input_handler_unregister(ptr noundef %0) #11
   %idle_timer.i = getelementptr inbounds i8, ptr %hs, i64 280
   %1 = load ptr, ptr %idle_timer.i, align 8
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %hid_del_idle_timer.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void @timer_del(ptr noundef nonnull %1) #10
-  tail call void @g_free(ptr noundef nonnull %1) #10
+  tail call void @timer_del(ptr noundef nonnull %1) #11
+  tail call void @g_free(ptr noundef nonnull %1) #11
   store ptr null, ptr %idle_timer.i, align 8
   br label %hid_del_idle_timer.exit
 
@@ -745,20 +745,20 @@ entry:
   ]
 
 if.then:                                          ; preds = %entry
-  %call = tail call ptr @qemu_input_handler_register(ptr noundef nonnull %hs, ptr noundef nonnull @hid_keyboard_handler) #10
+  %call = tail call ptr @qemu_input_handler_register(ptr noundef nonnull %hs, ptr noundef nonnull @hid_keyboard_handler) #11
   %s = getelementptr inbounds i8, ptr %hs, i64 296
   store ptr %call, ptr %s, align 8
-  tail call void @qemu_input_handler_activate(ptr noundef %call) #10
+  tail call void @qemu_input_handler_activate(ptr noundef %call) #11
   br label %if.end17
 
 if.then7:                                         ; preds = %entry
-  %call8 = tail call ptr @qemu_input_handler_register(ptr noundef nonnull %hs, ptr noundef nonnull @hid_mouse_handler) #10
+  %call8 = tail call ptr @qemu_input_handler_register(ptr noundef nonnull %hs, ptr noundef nonnull @hid_mouse_handler) #11
   %s9 = getelementptr inbounds i8, ptr %hs, i64 296
   store ptr %call8, ptr %s9, align 8
   br label %if.end17
 
 if.then13:                                        ; preds = %entry
-  %call14 = tail call ptr @qemu_input_handler_register(ptr noundef nonnull %hs, ptr noundef nonnull @hid_tablet_handler) #10
+  %call14 = tail call ptr @qemu_input_handler_register(ptr noundef nonnull %hs, ptr noundef nonnull @hid_tablet_handler) #11
   %s15 = getelementptr inbounds i8, ptr %hs, i64 296
   store ptr %call14, ptr %s15, align 8
   br label %if.end17
@@ -822,10 +822,10 @@ declare void @timer_del(ptr noundef) local_unnamed_addr #2
 declare void @g_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: noreturn nounwind
-declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #2
 
@@ -842,7 +842,7 @@ entry:
   %down = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i8, ptr %down, align 8
   %tobool = trunc i8 %2 to i1
-  %call = call i32 @qemu_input_key_value_to_scancode(ptr noundef %1, i1 noundef zeroext %tobool, ptr noundef nonnull %scancodes) #10
+  %call = call i32 @qemu_input_key_value_to_scancode(ptr noundef %1, i1 noundef zeroext %tobool, ptr noundef nonnull %scancodes) #11
   %n = getelementptr inbounds i8, ptr %dev, i64 264
   %3 = load i32, ptr %n, align 8
   %add = add i32 %3, %call
@@ -880,16 +880,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #10
-  %call10.i.i = call i32 @qemu_get_thread_id() #10
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #11
+  %call10.i.i = call i32 @qemu_get_thread_id() #11
   %9 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %10 = load i64, ptr %tv_usec.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.19, i32 noundef %call10.i.i, i64 noundef %9, i64 noundef %10) #10
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.19, i32 noundef %call10.i.i, i64 noundef %9, i64 noundef %10) #11
   br label %trace_hid_kbd_queue_full.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.20) #10
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.20) #11
   br label %trace_hid_kbd_queue_full.exit
 
 trace_hid_kbd_queue_full.exit:                    ; preds = %if.then, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -918,7 +918,7 @@ for.cond.for.end_crit_edge:                       ; preds = %for.body
 for.end:                                          ; preds = %for.cond.for.end_crit_edge, %for.cond.preheader
   %event = getelementptr inbounds i8, ptr %dev, i64 288
   %13 = load ptr, ptr %event, align 8
-  call void %13(ptr noundef nonnull %dev) #10
+  call void %13(ptr noundef nonnull %dev) #11
   br label %return
 
 return:                                           ; preds = %for.end, %trace_hid_kbd_queue_full.exit
@@ -936,7 +936,7 @@ entry:
   br i1 %cmp, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.14, i32 noundef 125, ptr noundef nonnull @__PRETTY_FUNCTION__.hid_pointer_event) #12
+  tail call void @__assert_fail(ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.14, i32 noundef 125, ptr noundef nonnull @__PRETTY_FUNCTION__.hid_pointer_event) #13
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -1150,7 +1150,7 @@ if.end53:                                         ; preds = %if.else42, %if.else
   store i32 %inc, ptr %n, align 8
   %event = getelementptr inbounds i8, ptr %dev, i64 288
   %16 = load ptr, ptr %event, align 8
-  tail call void %16(ptr noundef nonnull %dev) #10
+  tail call void %16(ptr noundef nonnull %dev) #11
   br label %if.end58
 
 if.end58:                                         ; preds = %entry, %if.end53, %if.end38
@@ -1158,30 +1158,31 @@ if.end58:                                         ; preds = %entry, %if.end53, %
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #8
+declare i32 @llvm.smin.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #8
+declare i32 @llvm.smax.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { nounwind }
-attributes #11 = { nounwind allocsize(0,1) }
-attributes #12 = { noreturn nounwind }
+attributes #7 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #11 = { nounwind }
+attributes #12 = { nounwind allocsize(0,1) }
+attributes #13 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

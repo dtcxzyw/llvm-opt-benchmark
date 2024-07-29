@@ -681,7 +681,7 @@ if.then:                                          ; preds = %entry
   call void @u_versionToString_75(ptr noundef nonnull %unicodeVersion, ptr noundef nonnull %buffer)
   %0 = load ptr, ptr @stderr, align 8
   %call13 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull %buffer, ptr noundef %v) #21
-  call void @exit(i32 noundef 1) #19
+  call void @exit(i32 noundef 1) #22
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -697,7 +697,7 @@ declare void @u_versionToString_75(ptr noundef, ptr noundef) local_unnamed_addr 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #9
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
@@ -741,7 +741,7 @@ if.then8:                                         ; preds = %if.then3.if.then8_c
   %6 = load ptr, ptr @stderr, align 8
   %conv = sext i32 %c to i64
   %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.1, i32 noundef %5, i64 noundef %conv, i32 noundef %4) #21
-  tail call void @exit(i32 noundef 3) #19
+  tail call void @exit(i32 noundef 3) #22
   unreachable
 
 if.end:                                           ; preds = %if.then3, %land.lhs.true
@@ -848,7 +848,7 @@ if.then:                                          ; preds = %_ZN6icu_75L12isWell
   %7 = load i32, ptr %phase, align 8
   %conv = sext i32 %c to i64
   %call2 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.2, i32 noundef %7, i64 noundef %conv) #21
-  call void @exit(i32 noundef 3) #19
+  call void @exit(i32 noundef 3) #22
   unreachable
 
 if.end:                                           ; preds = %_ZN6icu_75L12isWellFormedERKNS_13UnicodeStringE.exit
@@ -891,7 +891,7 @@ if.then8.i:                                       ; preds = %land.lhs.true.i, %i
   %14 = load ptr, ptr @stderr, align 8
   %conv.i7 = sext i32 %c to i64
   %call.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str.1, i32 noundef %13, i64 noundef %conv.i7, i32 noundef %12) #21
-  call void @exit(i32 noundef 3) #19
+  call void @exit(i32 noundef 3) #22
   unreachable
 
 if.end.i:                                         ; preds = %land.lhs.true.i, %if.then3.i
@@ -988,7 +988,7 @@ if.then:                                          ; preds = %entry
   %1 = load i32, ptr %phase, align 8
   %conv = zext nneg i32 %c to i64
   %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.3, i32 noundef %1, i64 noundef %conv) #21
-  tail call void @exit(i32 noundef 3) #19
+  tail call void @exit(i32 noundef 3) #22
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -1039,7 +1039,7 @@ if.then3:                                         ; preds = %_ZN6icu_75L12isWell
   %9 = load i32, ptr %phase4, align 8
   %conv5 = sext i32 %c to i64
   %call6 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.4, i32 noundef %9, i64 noundef %conv5) #21
-  call void @exit(i32 noundef 3) #19
+  call void @exit(i32 noundef 3) #22
   unreachable
 
 if.end7:                                          ; preds = %_ZN6icu_75L12isWellFormedERKNS_13UnicodeStringE.exit
@@ -1082,7 +1082,7 @@ if.then13:                                        ; preds = %_ZNK6icu_7513Unicod
   %16 = load i32, ptr %phase14, align 8
   %conv15 = sext i32 %c to i64
   %call16 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str.5, i32 noundef %16, i64 noundef %conv15, i32 noundef %call11) #21
-  call void @exit(i32 noundef 3) #19
+  call void @exit(i32 noundef 3) #22
   unreachable
 
 if.end17:                                         ; preds = %_ZNK6icu_7513UnicodeString9getBufferEv.exit
@@ -1125,7 +1125,7 @@ if.then8.i:                                       ; preds = %land.lhs.true.i, %i
   %23 = load ptr, ptr @stderr, align 8
   %conv.i15 = sext i32 %c to i64
   %call.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.1, i32 noundef %22, i64 noundef %conv.i15, i32 noundef %21) #21
-  call void @exit(i32 noundef 3) #19
+  call void @exit(i32 noundef 3) #22
   unreachable
 
 if.end.i:                                         ; preds = %land.lhs.true.i, %if.then3.i
@@ -1221,7 +1221,7 @@ if.then8.i:                                       ; preds = %land.lhs.true.i, %i
   %6 = load ptr, ptr @stderr, align 8
   %conv.i = sext i32 %c to i64
   %call.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.1, i32 noundef %5, i64 noundef %conv.i, i32 noundef %4) #21
-  tail call void @exit(i32 noundef 3) #19
+  tail call void @exit(i32 noundef 3) #22
   unreachable
 
 if.end.i:                                         ; preds = %land.lhs.true.i, %if.then3.i
@@ -2035,7 +2035,7 @@ sw.bb66:                                          ; preds = %if.end
   br label %sw.epilog
 
 sw.default:                                       ; preds = %if.end
-  tail call void @exit(i32 noundef 5) #19
+  tail call void @exit(i32 noundef 5) #22
   unreachable
 
 sw.epilog:                                        ; preds = %if.end, %sw.bb66, %sw.bb62, %sw.bb56, %if.end54, %sw.bb32, %sw.bb26, %sw.bb20, %sw.bb14, %sw.bb8, %sw.bb5, %sw.bb4
@@ -2150,7 +2150,7 @@ if.then:                                          ; preds = %for.body
   %2 = load ptr, ptr @stderr, align 8
   %conv = sext i32 %c.025 to i64
   %call5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.10, i64 noundef %conv) #21
-  tail call void @exit(i32 noundef 3) #19
+  tail call void @exit(i32 noundef 3) #22
   unreachable
 
 for.inc:                                          ; preds = %for.body
@@ -2580,7 +2580,7 @@ if.end:                                           ; preds = %_ZN6icu_7513Unicode
 if.then109:                                       ; preds = %if.end
   %58 = load ptr, ptr @stderr, align 8
   %59 = call i64 @fwrite(ptr nonnull @.str.12, i64 75, i64 1, ptr %58) #21
-  call void @exit(i32 noundef 15) #19
+  call void @exit(i32 noundef 15) #22
   unreachable
 
 invoke.cont119:                                   ; preds = %if.end
@@ -2632,7 +2632,7 @@ if.then136:                                       ; preds = %invoke.cont132
   %61 = load ptr, ptr @stderr, align 8
   %conv137 = zext i32 %60 to i64
   %call139 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %61, ptr noundef nonnull @.str.14, i32 noundef %call133, i64 noundef %conv137) #21
-  call void @exit(i32 noundef 5) #19
+  call void @exit(i32 noundef 5) #22
   unreachable
 
 lpad120:                                          ; preds = %invoke.cont123, %invoke.cont119
@@ -2816,7 +2816,7 @@ invoke.cont245:                                   ; preds = %if.end244
 invoke.cont246:                                   ; preds = %invoke.cont245
   %74 = load i32, ptr %norm16TrieLength, align 8
   %conv249 = sext i32 %74 to i64
-  %call251 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %conv249) #22
+  %call251 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %conv249) #23
           to label %invoke.cont250 unwind label %lpad227
 
 invoke.cont250:                                   ; preds = %invoke.cont246
@@ -3242,7 +3242,7 @@ if.then41:                                        ; preds = %if.end39
   %conv = sext i32 %call28 to i64
   %conv42 = sext i32 %16 to i64
   %call44 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.37, i64 noundef %conv, i64 noundef %conv42) #21
-  call void @exit(i32 noundef 5) #19
+  call void @exit(i32 noundef 5) #22
   unreachable
 
 if.end45:                                         ; preds = %if.end39
@@ -3324,7 +3324,7 @@ lpad.i28:                                         ; preds = %.noexc29
   br label %ehcleanup
 
 invoke.cont11:                                    ; preds = %.noexc29
-  %call12 = call noundef ptr @strrchr(ptr noundef nonnull dereferenceable(1) %call, i32 noundef 46) #23
+  %call12 = call noundef ptr @strrchr(ptr noundef nonnull dereferenceable(1) %call, i32 noundef 46) #24
   %cmp.not = icmp eq ptr %call12, null
   br i1 %cmp.not, label %if.end, label %if.then
 
@@ -3368,7 +3368,7 @@ invoke.cont25:                                    ; preds = %invoke.cont22
 if.then28:                                        ; preds = %invoke.cont25
   %12 = load ptr, ptr @stderr, align 8
   %call30 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.40, ptr noundef %filename) #21
-  call void @exit(i32 noundef 4) #19
+  call void @exit(i32 noundef 4) #22
   unreachable
 
 if.end31:                                         ; preds = %invoke.cont25
@@ -3502,7 +3502,7 @@ entry:
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr @stderr, align 8
   %call2 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.53, ptr noundef %filename) #21
-  tail call void @exit(i32 noundef 4) #19
+  tail call void @exit(i32 noundef 4) #22
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -4195,7 +4195,7 @@ attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #7 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -4207,8 +4207,9 @@ attributes #18 = { allocsize(0) }
 attributes #19 = { noreturn nounwind }
 attributes #20 = { builtin nounwind }
 attributes #21 = { cold }
-attributes #22 = { builtin allocsize(0) }
-attributes #23 = { nounwind willreturn memory(read) }
+attributes #22 = { cold noreturn nounwind }
+attributes #23 = { builtin allocsize(0) }
+attributes #24 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

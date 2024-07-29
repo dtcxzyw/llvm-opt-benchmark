@@ -415,7 +415,7 @@ sub_253:                                          ; preds = %sub_152
   br i1 %124, label %126, label %125
 
 125:                                              ; preds = %122
-  call void @exit(i32 noundef 1) #14
+  call void @exit(i32 noundef 1) #15
   unreachable
 
 126:                                              ; preds = %122
@@ -428,7 +428,7 @@ sub_253:                                          ; preds = %sub_152
   %130 = load ptr, ptr @stderr, align 8
   %131 = load ptr, ptr @os_info, align 8
   %132 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %130, ptr noundef nonnull @.str.32, ptr noundef %131) #12
-  call void @exit(i32 noundef 1) #14
+  call void @exit(i32 noundef 1) #15
   unreachable
 
 133:                                              ; preds = %.preheader
@@ -707,7 +707,7 @@ define internal fastcc void @usage() unnamed_addr #0 {
   ret void
 }
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
@@ -787,7 +787,7 @@ define dso_local void @adjust_data_dir(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %30, label %31, label %35
 
 31:                                               ; preds = %28, %19
-  %32 = tail call ptr @__errno_location() #15
+  %32 = tail call ptr @__errno_location() #16
   %33 = load i32, ptr %32, align 4
   %34 = call ptr @pg_strerror(i32 noundef %33) #12
   call void (ptr, ...) @pg_fatal(ptr noundef nonnull @.str.59, ptr noundef nonnull %3, ptr noundef %34) #14
@@ -876,7 +876,7 @@ define dso_local void @get_sock_dir(ptr nocapture noundef %0, i1 noundef zeroext
   br i1 %18, label %._crit_edge, label %.lr.ph
 
 19:                                               ; preds = %8
-  %20 = tail call ptr @__errno_location() #15
+  %20 = tail call ptr @__errno_location() #16
   %21 = load i32, ptr %20, align 4
   %22 = call ptr @pg_strerror(i32 noundef %21) #12
   call void (ptr, ...) @pg_fatal(ptr noundef nonnull @.str.61, ptr noundef nonnull %3, ptr noundef %22) #14
@@ -884,7 +884,7 @@ define dso_local void @get_sock_dir(ptr nocapture noundef %0, i1 noundef zeroext
 
 ._crit_edge:                                      ; preds = %28, %.preheader
   %.020.lcssa = phi i32 [ 1, %.preheader ], [ %29, %28 ]
-  %23 = tail call ptr @__errno_location() #15
+  %23 = tail call ptr @__errno_location() #16
   %24 = load i32, ptr %23, align 4
   %25 = call ptr @pg_strerror(i32 noundef %24) #12
   call void (ptr, ...) @pg_fatal(ptr noundef nonnull @.str.62, i32 noundef %.020.lcssa, ptr noundef nonnull %3, ptr noundef %25) #14
@@ -950,7 +950,7 @@ attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protect
 attributes #2 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -960,7 +960,8 @@ attributes #11 = { nocallback nofree nosync nounwind willreturn memory(argmem: r
 attributes #12 = { nounwind }
 attributes #13 = { nounwind willreturn memory(read) }
 attributes #14 = { noreturn nounwind }
-attributes #15 = { nounwind willreturn memory(none) }
+attributes #15 = { cold noreturn nounwind }
+attributes #16 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

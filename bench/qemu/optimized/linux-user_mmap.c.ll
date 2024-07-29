@@ -66,7 +66,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %call = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @mmap_mutex) #13
+  %call = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @mmap_mutex) #14
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -88,7 +88,7 @@ entry:
   br i1 %cmp, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 45, ptr noundef nonnull @__PRETTY_FUNCTION__.mmap_unlock) #14
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 45, ptr noundef nonnull @__PRETTY_FUNCTION__.mmap_unlock) #15
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -98,7 +98,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
-  %call = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @mmap_mutex) #13
+  %call = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @mmap_mutex) #14
   br label %if.end3
 
 if.end3:                                          ; preds = %if.then2, %if.end
@@ -129,16 +129,16 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call void @abort() #14
+  tail call void @abort() #15
   unreachable
 
 if.end:                                           ; preds = %entry
-  %call = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @mmap_mutex) #13
+  %call = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @mmap_mutex) #14
   ret void
 }
 
-; Function Attrs: noreturn nounwind
-declare void @abort() local_unnamed_addr #3
+; Function Attrs: cold nofree noreturn nounwind
+declare void @abort() local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @mmap_fork_end(i32 noundef %child) local_unnamed_addr #0 {
@@ -147,11 +147,11 @@ entry:
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call = tail call i32 @pthread_mutex_init(ptr noundef nonnull @mmap_mutex, ptr noundef null) #13
+  %call = tail call i32 @pthread_mutex_init(ptr noundef nonnull @mmap_mutex, ptr noundef null) #14
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %call1 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @mmap_mutex) #13
+  %call1 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @mmap_mutex) #14
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
@@ -188,16 +188,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #13
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #13
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #14
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #14
   %4 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.8, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, i64 noundef %start, i64 noundef %len, i32 noundef %target_prot) #13
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.8, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, i64 noundef %start, i64 noundef %len, i32 noundef %target_prot) #14
   br label %trace_target_mprotect.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.9, i64 noundef %start, i64 noundef %len, i32 noundef %target_prot) #13
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.9, i64 noundef %start, i64 noundef %len, i32 noundef %target_prot) #14
   br label %trace_target_mprotect.exit
 
 trace_target_mprotect.exit:                       ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -250,7 +250,7 @@ if.end9:                                          ; preds = %if.end5
   br i1 %cmp.i, label %if.then.i, label %mmap_lock.exit
 
 if.then.i:                                        ; preds = %if.end9
-  %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @mmap_mutex) #13
+  %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @mmap_mutex) #14
   %.pre = load i64, ptr @qemu_host_page_size, align 8
   br label %mmap_lock.exit
 
@@ -272,7 +272,7 @@ for.cond25.preheader:                             ; preds = %for.body, %for.cond
 for.body:                                         ; preds = %for.cond.preheader, %for.body
   %a.091 = phi i64 [ %add23, %for.body ], [ %and12, %for.cond.preheader ]
   %prot1.090 = phi i32 [ %or, %for.body ], [ %target_prot, %for.cond.preheader ]
-  %call22 = tail call i32 @page_get_flags(i64 noundef %a.091) #13
+  %call22 = tail call i32 @page_get_flags(i64 noundef %a.091) #14
   %or = or i32 %call22, %prot1.090
   %add23 = add i64 %a.091, 4096
   %cmp21 = icmp ult i64 %add23, %start
@@ -282,7 +282,7 @@ for.body27:                                       ; preds = %for.cond25.preheade
   %a24.095 = phi i64 [ %add32, %for.body27 ], [ %sub11, %for.cond25.preheader ]
   %prot1.194 = phi i32 [ %or30, %for.body27 ], [ %prot1.0.lcssa, %for.cond25.preheader ]
   %add28 = add nuw i64 %a24.095, 1
-  %call29 = tail call i32 @page_get_flags(i64 noundef %add28) #13
+  %call29 = tail call i32 @page_get_flags(i64 noundef %add28) #14
   %or30 = or i32 %call29, %prot1.194
   %add32 = add i64 %a24.095, 4096
   %cmp26 = icmp ult i64 %add32, %sub17
@@ -302,7 +302,7 @@ if.else:                                          ; preds = %mmap_lock.exit
 for.body43:                                       ; preds = %if.else, %for.body43
   %a40.086 = phi i64 [ %add47, %for.body43 ], [ %and12, %if.else ]
   %prot1.285 = phi i32 [ %or45, %for.body43 ], [ %target_prot, %if.else ]
-  %call44 = tail call i32 @page_get_flags(i64 noundef %a40.086) #13
+  %call44 = tail call i32 @page_get_flags(i64 noundef %a40.086) #14
   %or45 = or i32 %call44, %prot1.285
   %add47 = add i64 %a40.086, 4096
   %cmp42 = icmp ult i64 %add47, %start
@@ -330,7 +330,7 @@ for.body66:                                       ; preds = %if.end60, %for.body
   %a63.088 = phi i64 [ %add71, %for.body66 ], [ %sub11, %if.end60 ]
   %prot1.387 = phi i32 [ %or69, %for.body66 ], [ %target_prot, %if.end60 ]
   %add67 = add nuw i64 %a63.088, 1
-  %call68 = tail call i32 @page_get_flags(i64 noundef %add67) #13
+  %call68 = tail call i32 @page_get_flags(i64 noundef %add67) #14
   %or69 = or i32 %call68, %prot1.387
   %add71 = add i64 %a63.088, 4096
   %cmp65 = icmp ult i64 %add71, %sub17
@@ -403,12 +403,12 @@ for.body101:                                      ; preds = %for.body101.prehead
   %and1.i = lshr i32 %20, 2
   %and1.lobit.i = and i32 %and1.i, 1
   %or.i81 = or i32 %and1.lobit.i, %and.i80
-  %call110 = tail call i32 @mprotect(ptr noundef %18, i64 noundef %19, i32 noundef %or.i81) #13
+  %call110 = tail call i32 @mprotect(ptr noundef %18, i64 noundef %19, i32 noundef %or.i81) #14
   %cmp111.not = icmp eq i32 %call110, 0
   br i1 %cmp111.not, label %for.cond99, label %error
 
 for.end116:                                       ; preds = %for.cond99, %if.end98
-  tail call void @page_set_flags(i64 noundef %start, i64 noundef %sub11, i32 noundef %cond.i) #13
+  tail call void @page_set_flags(i64 noundef %start, i64 noundef %sub11, i32 noundef %cond.i) #14
   br label %error
 
 error:                                            ; preds = %for.body101, %for.end116
@@ -418,7 +418,7 @@ error:                                            ; preds = %for.body101, %for.e
   br i1 %cmp.i82, label %if.end.i, label %if.else.i
 
 if.else.i:                                        ; preds = %error
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 45, ptr noundef nonnull @__PRETTY_FUNCTION__.mmap_unlock) #14
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 45, ptr noundef nonnull @__PRETTY_FUNCTION__.mmap_unlock) #15
   unreachable
 
 if.end.i:                                         ; preds = %error
@@ -428,7 +428,7 @@ if.end.i:                                         ; preds = %error
   br i1 %cmp1.i, label %if.then2.i, label %return
 
 if.then2.i:                                       ; preds = %if.end.i
-  %call.i83 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @mmap_mutex) #13
+  %call.i83 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @mmap_mutex) #14
   br label %return
 
 return:                                           ; preds = %if.then2.i, %if.end.i, %if.end5, %if.end2, %if.end, %trace_target_mprotect.exit
@@ -436,12 +436,12 @@ return:                                           ; preds = %if.then2.i, %if.end
   ret i32 %retval.0
 }
 
-declare i32 @page_get_flags(i64 noundef) local_unnamed_addr #5
+declare i32 @page_get_flags(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind
 declare i32 @mprotect(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @page_set_flags(i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #5
+declare void @page_set_flags(i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @mmap_find_vma(i64 noundef %start, i64 noundef %size, i64 noundef %align) local_unnamed_addr #0 {
@@ -469,12 +469,12 @@ for.cond.preheader:                               ; preds = %entry
   %4 = load i64, ptr @guest_base, align 8
   %add.i49 = add i64 %4, %and3
   %5 = inttoptr i64 %add.i49 to ptr
-  %call1150 = tail call ptr @mmap64(ptr noundef %5, i64 noundef %and7, i32 noundef 0, i32 noundef 16418, i32 noundef -1, i64 noundef 0) #13
+  %call1150 = tail call ptr @mmap64(ptr noundef %5, i64 noundef %and7, i32 noundef 0, i32 noundef 16418, i32 noundef -1, i64 noundef 0) #14
   %cmp1251 = icmp eq ptr %call1150, inttoptr (i64 -1 to ptr)
   br i1 %cmp1251, label %return, label %if.end14
 
 if.then8:                                         ; preds = %entry
-  %call.i = tail call i64 @page_find_range_empty(i64 noundef %and3, i64 noundef %3, i64 noundef %and7, i64 noundef %cond) #13
+  %call.i = tail call i64 @page_find_range_empty(i64 noundef %and3, i64 noundef %3, i64 noundef %and7, i64 noundef %cond) #14
   %cmp.i = icmp eq i64 %call.i, -1
   br i1 %cmp.i, label %land.lhs.true.i, label %return
 
@@ -485,7 +485,7 @@ land.lhs.true.i:                                  ; preds = %if.then8
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   %sub.i = add i64 %and3, -1
-  %call2.i = tail call i64 @page_find_range_empty(i64 noundef %6, i64 noundef %sub.i, i64 noundef %and7, i64 noundef %cond) #13
+  %call2.i = tail call i64 @page_find_range_empty(i64 noundef %6, i64 noundef %sub.i, i64 noundef %and7, i64 noundef %cond) #14
   br label %return
 
 if.end14:                                         ; preds = %for.cond.preheader, %for.inc
@@ -514,7 +514,7 @@ if.then29:                                        ; preds = %if.end14
   br i1 %cmp36.not, label %if.else38, label %if.end39
 
 if.else38:                                        ; preds = %if.then29
-  tail call void @__assert_fail(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 423, ptr noundef nonnull @__PRETTY_FUNCTION__.mmap_find_vma) #14
+  tail call void @__assert_fail(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 423, ptr noundef nonnull @__PRETTY_FUNCTION__.mmap_find_vma) #15
   unreachable
 
 if.end39:                                         ; preds = %if.then29
@@ -543,7 +543,7 @@ if.end52:                                         ; preds = %if.end39
   ]
 
 if.end64.thread41:                                ; preds = %if.end52
-  %call6543 = tail call i32 @munmap(ptr noundef %call1155, i64 noundef %and7) #13
+  %call6543 = tail call i32 @munmap(ptr noundef %call1155, i64 noundef %and7) #14
   br label %if.then72
 
 sw.bb:                                            ; preds = %if.end52
@@ -556,7 +556,7 @@ sw.bb57:                                          ; preds = %if.end52
   br label %if.end64
 
 if.end64.thread:                                  ; preds = %if.end52
-  %call6540 = tail call i32 @munmap(ptr noundef %call1155, i64 noundef %and7) #13
+  %call6540 = tail call i32 @munmap(ptr noundef %call1155, i64 noundef %and7) #14
   br label %return
 
 if.else61:                                        ; preds = %if.end14
@@ -566,7 +566,7 @@ if.else61:                                        ; preds = %if.end14
 
 if.end64:                                         ; preds = %sw.bb, %sw.bb57, %if.else61
   %addr.1 = phi i64 [ %and59, %sw.bb57 ], [ %and56, %sw.bb ], [ %conv, %if.else61 ]
-  %call65 = tail call i32 @munmap(ptr noundef %call1155, i64 noundef %and7) #13
+  %call65 = tail call i32 @munmap(ptr noundef %call1155, i64 noundef %and7) #14
   switch i64 %addr.1, label %if.else85 [
     i64 -1, label %return
     i64 0, label %if.then72
@@ -598,7 +598,7 @@ for.inc:                                          ; preds = %if.else85, %land.lh
   %14 = load i64, ptr @guest_base, align 8
   %add.i = add i64 %14, %addr.2
   %15 = inttoptr i64 %add.i to ptr
-  %call11 = tail call ptr @mmap64(ptr noundef %15, i64 noundef %and7, i32 noundef 0, i32 noundef 16418, i32 noundef -1, i64 noundef 0) #13
+  %call11 = tail call ptr @mmap64(ptr noundef %15, i64 noundef %and7, i32 noundef 0, i32 noundef 16418, i32 noundef -1, i64 noundef 0) #14
   %cmp12 = icmp eq ptr %call11, inttoptr (i64 -1 to ptr)
   br i1 %cmp12, label %return, label %if.end14
 
@@ -626,7 +626,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %mmap_lock.exit
 
 if.then.i:                                        ; preds = %entry
-  %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @mmap_mutex) #13
+  %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @mmap_mutex) #14
   br label %mmap_lock.exit
 
 mmap_lock.exit:                                   ; preds = %entry, %if.then.i
@@ -650,16 +650,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #13
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #13
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #14
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #14
   %6 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.10, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i64 noundef %start, i64 noundef %len, i32 noundef %target_prot, i32 noundef %flags, i32 noundef %fd, i64 noundef %offset) #13
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.10, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i64 noundef %start, i64 noundef %len, i32 noundef %target_prot, i32 noundef %flags, i32 noundef %fd, i64 noundef %offset) #14
   br label %trace_target_mmap.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i64 noundef %start, i64 noundef %len, i32 noundef %target_prot, i32 noundef %flags, i32 noundef %fd, i64 noundef %offset) #13
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i64 noundef %start, i64 noundef %len, i32 noundef %target_prot, i32 noundef %flags, i32 noundef %fd, i64 noundef %offset) #14
   br label %trace_target_mmap.exit
 
 trace_target_mmap.exit:                           ; preds = %mmap_lock.exit, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -668,7 +668,7 @@ trace_target_mmap.exit:                           ; preds = %mmap_lock.exit, %la
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %trace_target_mmap.exit
-  %call = tail call ptr @__errno_location() #15
+  %call = tail call ptr @__errno_location() #16
   store i32 22, ptr %call, align 4
   br label %fail
 
@@ -679,7 +679,7 @@ if.end:                                           ; preds = %trace_target_mmap.e
   br i1 %tobool.not.i, label %if.then3, label %if.end5
 
 if.then3:                                         ; preds = %if.end
-  %call4 = tail call ptr @__errno_location() #15
+  %call4 = tail call ptr @__errno_location() #16
   store i32 22, ptr %call4, align 4
   br label %fail
 
@@ -690,7 +690,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %tobool6.not, label %if.then7, label %if.end9
 
 if.then7:                                         ; preds = %if.end5
-  %call8 = tail call ptr @__errno_location() #15
+  %call8 = tail call ptr @__errno_location() #16
   store i32 12, ptr %call8, align 4
   br label %fail
 
@@ -700,7 +700,7 @@ if.end9:                                          ; preds = %if.end5
   br i1 %tobool11.not, label %if.end14, label %if.then12
 
 if.then12:                                        ; preds = %if.end9
-  %call13 = tail call ptr @__errno_location() #15
+  %call13 = tail call ptr @__errno_location() #16
   store i32 22, ptr %call13, align 4
   br label %fail
 
@@ -721,7 +721,7 @@ if.then17:                                        ; preds = %if.end14
 if.then20:                                        ; preds = %if.then17
   %or = or disjoint i32 %10, 32768
   store i32 %or, ptr %tcg_cflags, align 16
-  tail call void @tb_flush(ptr noundef nonnull %9) #13
+  tail call void @tb_flush(ptr noundef nonnull %9) #14
   br label %if.end23
 
 if.end23:                                         ; preds = %if.then17, %if.then20, %if.end14
@@ -745,13 +745,13 @@ if.then28:                                        ; preds = %if.end23
   br i1 %cmp, label %if.then36, label %if.end39
 
 if.then36:                                        ; preds = %if.then28
-  %call37 = tail call ptr @__errno_location() #15
+  %call37 = tail call ptr @__errno_location() #16
   store i32 12, ptr %call37, align 4
   br label %fail
 
 if.end39:                                         ; preds = %if.then28, %if.end23
   %start.addr.0 = phi i64 [ %start, %if.end23 ], [ %call35, %if.then28 ]
-  %call.i153 = tail call i32 @getpagesize() #15
+  %call.i153 = tail call i32 @getpagesize() #16
   %conv.i = sext i32 %call.i153 to i64
   %13 = load i64, ptr @qemu_host_page_size, align 8
   %cmp41 = icmp ugt i64 %13, %conv.i
@@ -761,7 +761,7 @@ if.end39:                                         ; preds = %if.then28, %if.end2
   br i1 %or.cond, label %if.then44, label %if.end61
 
 if.then44:                                        ; preds = %if.end39
-  %call45 = call i32 @fstat64(i32 noundef %fd, ptr noundef nonnull %sb) #13
+  %call45 = call i32 @fstat64(i32 noundef %fd, ptr noundef nonnull %sb) #14
   %cmp46 = icmp eq i32 %call45, -1
   br i1 %cmp46, label %fail, label %if.end48
 
@@ -801,7 +801,7 @@ if.then64:                                        ; preds = %if.end61
   %18 = inttoptr i64 %add.i to ptr
   %or73 = or disjoint i32 %flags, 16
   %or74 = or i32 %flags, 48
-  %call75 = tail call ptr @mmap64(ptr noundef %18, i64 noundef %and70, i32 noundef %or.i159, i32 noundef %or74, i32 noundef -1, i64 noundef 0) #13
+  %call75 = tail call ptr @mmap64(ptr noundef %18, i64 noundef %and70, i32 noundef %or.i159, i32 noundef %or74, i32 noundef -1, i64 noundef 0) #14
   %cmp76 = icmp eq ptr %call75, inttoptr (i64 -1 to ptr)
   br i1 %cmp76, label %fail, label %if.end78
 
@@ -813,7 +813,7 @@ if.then81:                                        ; preds = %if.end78
   %20 = load i64, ptr @guest_base, align 8
   %add.i160 = add i64 %20, %start.addr.0
   %21 = inttoptr i64 %add.i160 to ptr
-  %call84 = tail call ptr @mmap64(ptr noundef %21, i64 noundef %len.addr.0, i32 noundef %or.i159, i32 noundef %or73, i32 noundef %fd, i64 noundef %and25) #13
+  %call84 = tail call ptr @mmap64(ptr noundef %21, i64 noundef %len.addr.0, i32 noundef %or.i159, i32 noundef %or73, i32 noundef %fd, i64 noundef %and25) #14
   %cmp85 = icmp eq ptr %call84, inttoptr (i64 -1 to ptr)
   br i1 %cmp85, label %if.then86, label %if.end89
 
@@ -821,7 +821,7 @@ if.then86:                                        ; preds = %if.then81
   %22 = load i64, ptr @guest_base, align 8
   %add.i161 = add i64 %22, %start.addr.0
   %23 = inttoptr i64 %add.i161 to ptr
-  %call88 = tail call i32 @munmap(ptr noundef %23, i64 noundef %and70) #13
+  %call88 = tail call i32 @munmap(ptr noundef %23, i64 noundef %and70) #14
   br label %fail
 
 if.end89:                                         ; preds = %if.then81
@@ -840,7 +840,7 @@ if.end92:                                         ; preds = %if.end89, %if.end78
   br i1 %cmp95.not, label %if.else, label %if.end97
 
 if.else:                                          ; preds = %if.end92
-  tail call void @__assert_fail(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 619, ptr noundef nonnull @__PRETTY_FUNCTION__.target_mmap) #14
+  tail call void @__assert_fail(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 619, ptr noundef nonnull @__PRETTY_FUNCTION__.target_mmap) #15
   unreachable
 
 if.end97:                                         ; preds = %if.end92
@@ -854,7 +854,7 @@ if.else102:                                       ; preds = %if.end61
   br i1 %tobool104.not, label %if.end107, label %if.then105
 
 if.then105:                                       ; preds = %if.else102
-  %call106 = tail call ptr @__errno_location() #15
+  %call106 = tail call ptr @__errno_location() #16
   store i32 22, ptr %call106, align 4
   br label %fail
 
@@ -883,7 +883,7 @@ lor.lhs.false:                                    ; preds = %if.end107
   br i1 %28, label %if.end119, label %if.then117
 
 if.then117:                                       ; preds = %lor.lhs.false, %if.end107
-  %call118 = tail call ptr @__errno_location() #15
+  %call118 = tail call ptr @__errno_location() #16
   store i32 12, ptr %call118, align 4
   br label %fail
 
@@ -893,11 +893,11 @@ if.end119:                                        ; preds = %lor.lhs.false
   br i1 %tobool121.not, label %if.end132, label %if.then122
 
 if.then122:                                       ; preds = %if.end119
-  %call123 = tail call zeroext i1 @page_check_range_empty(i64 noundef %start.addr.0, i64 noundef %sub109) #13
+  %call123 = tail call zeroext i1 @page_check_range_empty(i64 noundef %start.addr.0, i64 noundef %sub109) #14
   br i1 %call123, label %if.end126, label %if.then124
 
 if.then124:                                       ; preds = %if.then122
-  %call125 = tail call ptr @__errno_location() #15
+  %call125 = tail call ptr @__errno_location() #16
   store i32 17, ptr %call125, align 4
   br label %fail
 
@@ -934,7 +934,7 @@ if.then140:                                       ; preds = %land.lhs.true135
   br i1 %or.cond152, label %if.end148, label %if.then146
 
 if.then146:                                       ; preds = %if.then140
-  %call147 = tail call ptr @__errno_location() #15
+  %call147 = tail call ptr @__errno_location() #16
   store i32 22, ptr %call147, align 4
   br label %fail
 
@@ -950,7 +950,7 @@ if.end156:                                        ; preds = %if.end148
   %33 = load i64, ptr @guest_base, align 8
   %add.i164 = add i64 %33, %start.addr.0
   %34 = inttoptr i64 %add.i164 to ptr
-  %call158 = tail call i64 @pread64(i32 noundef %fd, ptr noundef %34, i64 noundef %len.addr.0, i64 noundef %offset) #13
+  %call158 = tail call i64 @pread64(i32 noundef %fd, ptr noundef %34, i64 noundef %len.addr.0, i64 noundef %offset) #14
   %cmp159 = icmp eq i64 %call158, -1
   br i1 %cmp159, label %fail, label %if.end161
 
@@ -963,7 +963,7 @@ if.then164:                                       ; preds = %if.end161
   br i1 %cmp166, label %the_end, label %if.else169
 
 if.else169:                                       ; preds = %if.then164
-  tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 690, ptr noundef nonnull @__PRETTY_FUNCTION__.target_mmap) #14
+  tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 690, ptr noundef nonnull @__PRETTY_FUNCTION__.target_mmap) #15
   unreachable
 
 if.end172:                                        ; preds = %land.lhs.true135, %if.end132
@@ -1027,7 +1027,7 @@ if.then206:                                       ; preds = %if.end203
   %and1.i167 = lshr i32 %target_prot, 2
   %and1.lobit.i168 = and i32 %and1.i167, 1
   %or.i169 = or i32 %and1.lobit.i168, %and.i166
-  %call219 = tail call ptr @mmap64(ptr noundef %40, i64 noundef %add216, i32 noundef %or.i169, i32 noundef %flags.addr.0, i32 noundef %fd, i64 noundef %offset1.0) #13
+  %call219 = tail call ptr @mmap64(ptr noundef %40, i64 noundef %add216, i32 noundef %or.i169, i32 noundef %flags.addr.0, i32 noundef %fd, i64 noundef %offset1.0) #14
   %cmp220.not = icmp eq ptr %call219, %40
   br i1 %cmp220.not, label %the_end1, label %if.then222
 
@@ -1036,8 +1036,8 @@ if.then222:                                       ; preds = %if.then206
   br i1 %cmp223.not, label %fail, label %if.then225
 
 if.then225:                                       ; preds = %if.then222
-  %call226 = tail call i32 @munmap(ptr noundef %call219, i64 noundef %add216) #13
-  %call227 = tail call ptr @__errno_location() #15
+  %call226 = tail call i32 @munmap(ptr noundef %call219, i64 noundef %add216) #14
+  %call227 = tail call ptr @__errno_location() #16
   store i32 17, ptr %call227, align 4
   br label %fail
 
@@ -1065,7 +1065,7 @@ if.then240:                                       ; preds = %the_end1.thread, %t
   %or237189 = phi i32 [ %or237183, %the_end1.thread ], [ %or237, %the_end1 ]
   %start.addr.1187 = phi i64 [ %start.addr.0, %the_end1.thread ], [ %start.addr.1, %the_end1 ]
   %last.0185 = phi i64 [ %sub109, %the_end1.thread ], [ %last.0, %the_end1 ]
-  tail call void @page_set_flags(i64 noundef %start.addr.1187, i64 noundef %last.0185, i32 noundef %or237189) #13
+  tail call void @page_set_flags(i64 noundef %start.addr.1187, i64 noundef %last.0185, i32 noundef %or237189) #14
   br label %if.end253
 
 if.else241:                                       ; preds = %the_end1
@@ -1074,18 +1074,18 @@ if.else241:                                       ; preds = %the_end1
 
 if.then244:                                       ; preds = %if.else241
   %sub245 = add i64 %passthrough_start.0, -1
-  tail call void @page_set_flags(i64 noundef %start.addr.1, i64 noundef %sub245, i32 noundef %or237) #13
+  tail call void @page_set_flags(i64 noundef %start.addr.1, i64 noundef %sub245, i32 noundef %or237) #14
   br label %if.end246
 
 if.end246:                                        ; preds = %if.then244, %if.else241
   %or247 = or disjoint i32 %spec.select, 2112
-  tail call void @page_set_flags(i64 noundef %passthrough_start.0, i64 noundef %passthrough_last.0, i32 noundef %or247) #13
+  tail call void @page_set_flags(i64 noundef %passthrough_start.0, i64 noundef %passthrough_last.0, i32 noundef %or247) #14
   %cmp248 = icmp ult i64 %passthrough_last.0, %last.0
   br i1 %cmp248, label %if.then250, label %if.end253
 
 if.then250:                                       ; preds = %if.end246
   %add251 = add nuw i64 %passthrough_last.0, 1
-  tail call void @page_set_flags(i64 noundef %add251, i64 noundef %last.0, i32 noundef %or237) #13
+  tail call void @page_set_flags(i64 noundef %add251, i64 noundef %last.0, i32 noundef %or237) #14
   br label %if.end253
 
 if.end253:                                        ; preds = %if.end246, %if.then250, %if.then240
@@ -1103,14 +1103,14 @@ the_end:                                          ; preds = %if.end161, %if.then
   br i1 %cmp.i171.not, label %if.end261, label %if.then255
 
 if.then255:                                       ; preds = %the_end
-  %call256 = tail call ptr @qemu_log_trylock() #13
+  %call256 = tail call ptr @qemu_log_trylock() #14
   %tobool257.not = icmp eq ptr %call256, null
   br i1 %tobool257.not, label %if.end261, label %if.then258
 
 if.then258:                                       ; preds = %if.then255
   %44 = tail call i64 @fwrite(ptr nonnull @.str.5, i64 35, i64 1, ptr nonnull %call256)
-  tail call void @page_dump(ptr noundef nonnull %call256) #13
-  tail call void @qemu_log_unlock(ptr noundef nonnull %call256) #13
+  tail call void @page_dump(ptr noundef nonnull %call256) #14
+  tail call void @qemu_log_unlock(ptr noundef nonnull %call256) #14
   br label %if.end261
 
 if.end261:                                        ; preds = %if.then255, %if.then258, %the_end
@@ -1123,7 +1123,7 @@ fail:                                             ; preds = %if.then222, %if.the
   br i1 %cmp.i172, label %if.end.i, label %if.else.i
 
 if.else.i:                                        ; preds = %fail
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 45, ptr noundef nonnull @__PRETTY_FUNCTION__.mmap_unlock) #14
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 45, ptr noundef nonnull @__PRETTY_FUNCTION__.mmap_unlock) #15
   unreachable
 
 if.end.i:                                         ; preds = %fail
@@ -1133,7 +1133,7 @@ if.end.i:                                         ; preds = %fail
   br i1 %cmp1.i, label %if.then2.i, label %return
 
 if.then2.i:                                       ; preds = %if.end.i
-  %call.i173 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @mmap_mutex) #13
+  %call.i173 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @mmap_mutex) #14
   br label %return
 
 return:                                           ; preds = %if.then2.i, %if.end.i, %if.end261
@@ -1142,16 +1142,16 @@ return:                                           ; preds = %if.then2.i, %if.end
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #6
+declare ptr @__errno_location() local_unnamed_addr #7
 
-declare void @tb_flush(ptr noundef) local_unnamed_addr #5
+declare void @tb_flush(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fstat64(i32 noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i32 @fstat64(i32 noundef, ptr nocapture noundef) local_unnamed_addr #8
 
-declare zeroext i1 @page_check_range_empty(i64 noundef, i64 noundef) local_unnamed_addr #5
+declare zeroext i1 @page_check_range_empty(i64 noundef, i64 noundef) local_unnamed_addr #6
 
-declare i64 @pread64(i32 noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #5
+declare i64 @pread64(i32 noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc noundef zeroext i1 @mmap_frag(i64 noundef %real_start, i64 noundef %start, i64 noundef %last, i32 noundef %prot, i32 noundef %flags, i32 noundef %fd, i64 noundef %offset) unnamed_addr #0 {
@@ -1166,7 +1166,7 @@ entry:
   br i1 %or.cond32, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call = tail call ptr @__errno_location() #15
+  %call = tail call ptr @__errno_location() #16
   store i32 22, ptr %call, align 4
   br label %return
 
@@ -1188,7 +1188,7 @@ for.cond10.preheader:                             ; preds = %for.body, %if.end
 for.body:                                         ; preds = %if.end, %for.body
   %a.045 = phi i64 [ %add8, %for.body ], [ %real_start, %if.end ]
   %prot_old.044 = phi i32 [ %or, %for.body ], [ 0, %if.end ]
-  %call7 = tail call i32 @page_get_flags(i64 noundef %a.045) #13
+  %call7 = tail call i32 @page_get_flags(i64 noundef %a.045) #14
   %or = or i32 %call7, %prot_old.044
   %add8 = add i64 %a.045, 4096
   %cmp6 = icmp ult i64 %add8, %start
@@ -1197,7 +1197,7 @@ for.body:                                         ; preds = %if.end, %for.body
 for.body12:                                       ; preds = %for.cond10.preheader, %for.body12
   %a9.048 = phi i64 [ %sub16, %for.body12 ], [ %sub, %for.cond10.preheader ]
   %prot_old.147 = phi i32 [ %or14, %for.body12 ], [ %prot_old.0.lcssa, %for.cond10.preheader ]
-  %call13 = tail call i32 @page_get_flags(i64 noundef %a9.048) #13
+  %call13 = tail call i32 @page_get_flags(i64 noundef %a9.048) #14
   %or14 = or i32 %call13, %prot_old.147
   %sub16 = add i64 %a9.048, -4096
   %cmp11 = icmp ugt i64 %sub16, %last
@@ -1222,7 +1222,7 @@ if.then19:                                        ; preds = %for.end17
   %and1.lobit.i = and i32 %and1.i, 1
   %or.i = or i32 %and1.lobit.i, %and.i
   %or21 = or i32 %flags, 32
-  %call22 = tail call ptr @mmap64(ptr noundef %3, i64 noundef %4, i32 noundef %or.i, i32 noundef %or21, i32 noundef -1, i64 noundef 0) #13
+  %call22 = tail call ptr @mmap64(ptr noundef %3, i64 noundef %4, i32 noundef %or.i, i32 noundef %or21, i32 noundef -1, i64 noundef 0) #14
   %cmp23.not = icmp eq ptr %call22, %3
   br i1 %cmp23.not, label %if.end31, label %if.then24
 
@@ -1232,8 +1232,8 @@ if.then24:                                        ; preds = %if.then19
 
 if.then26:                                        ; preds = %if.then24
   %5 = load i64, ptr @qemu_host_page_size, align 8
-  %call27 = tail call i32 @munmap(ptr noundef %call22, i64 noundef %5) #13
-  %call28 = tail call ptr @__errno_location() #15
+  %call27 = tail call i32 @munmap(ptr noundef %call22, i64 noundef %5) #14
+  %call28 = tail call ptr @__errno_location() #16
   store i32 17, ptr %call28, align 4
   br label %return
 
@@ -1252,7 +1252,7 @@ if.end31:                                         ; preds = %for.end17.if.end31_
 if.then37:                                        ; preds = %if.end31
   %or38 = or disjoint i32 %or.i36.pre-phi, 2
   %6 = load i64, ptr @qemu_host_page_size, align 8
-  %call39 = tail call i32 @mprotect(ptr noundef %3, i64 noundef %6, i32 noundef %or38) #13
+  %call39 = tail call i32 @mprotect(ptr noundef %3, i64 noundef %6, i32 noundef %or38) #14
   br label %if.end40
 
 if.end40:                                         ; preds = %if.then37, %if.end31
@@ -1269,7 +1269,7 @@ if.then43:                                        ; preds = %if.end40
   br label %if.end54
 
 if.else:                                          ; preds = %if.end40
-  %call50 = tail call i64 @pread64(i32 noundef %fd, ptr noundef %8, i64 noundef %add49, i64 noundef %offset) #13
+  %call50 = tail call i64 @pread64(i32 noundef %fd, ptr noundef %8, i64 noundef %add49, i64 noundef %offset) #14
   %cmp51 = icmp eq i64 %call50, -1
   br i1 %cmp51, label %return, label %if.end54
 
@@ -1279,7 +1279,7 @@ if.end54:                                         ; preds = %if.else, %if.then43
 
 if.then56:                                        ; preds = %if.end54
   %9 = load i64, ptr @qemu_host_page_size, align 8
-  %call57 = tail call i32 @mprotect(ptr noundef %3, i64 noundef %9, i32 noundef %or.i40) #13
+  %call57 = tail call i32 @mprotect(ptr noundef %3, i64 noundef %9, i32 noundef %or.i40) #14
   br label %return
 
 return:                                           ; preds = %if.end54, %if.then56, %if.else, %if.then24, %if.then26, %if.then
@@ -1290,13 +1290,13 @@ return:                                           ; preds = %if.end54, %if.then5
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @shm_region_rm_complete(i64 noundef %start, i64 noundef %last) unnamed_addr #0 {
 entry:
-  %call = tail call ptr @interval_tree_iter_first(ptr noundef nonnull @shm_regions, i64 noundef %start, i64 noundef %last) #13
+  %call = tail call ptr @interval_tree_iter_first(ptr noundef nonnull @shm_regions, i64 noundef %start, i64 noundef %last) #14
   %tobool.not10 = icmp eq ptr %call, null
   br i1 %tobool.not10, label %for.end, label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %i.011 = phi ptr [ %call1, %for.inc ], [ %call, %entry ]
-  %call1 = tail call ptr @interval_tree_iter_next(ptr noundef nonnull %i.011, i64 noundef %start, i64 noundef %last) #13
+  %call1 = tail call ptr @interval_tree_iter_next(ptr noundef nonnull %i.011, i64 noundef %start, i64 noundef %last) #14
   %start2 = getelementptr inbounds i8, ptr %i.011, i64 24
   %0 = load i64, ptr %start2, align 8
   %cmp.not = icmp ult i64 %0, %start
@@ -1309,8 +1309,8 @@ land.lhs.true:                                    ; preds = %for.body
   br i1 %cmp4.not, label %for.inc, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  tail call void @interval_tree_remove(ptr noundef nonnull %i.011, ptr noundef nonnull @shm_regions) #13
-  tail call void @g_free(ptr noundef nonnull %i.011) #13
+  tail call void @interval_tree_remove(ptr noundef nonnull %i.011, ptr noundef nonnull @shm_regions) #14
+  tail call void @g_free(ptr noundef nonnull %i.011) #14
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %land.lhs.true, %if.then
@@ -1345,16 +1345,16 @@ if.then.i:                                        ; preds = %land.lhs.true5.i
   br i1 %tobool7.i, label %if.then8.i, label %if.else.i
 
 if.then8.i:                                       ; preds = %if.then.i
-  %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #13
-  %call10.i = tail call i32 @qemu_get_thread_id() #13
+  %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #14
+  %call10.i = tail call i32 @qemu_get_thread_id() #14
   %4 = load i64, ptr %_now.i, align 8
   %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %5 = load i64, ptr %tv_usec.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, i64 noundef %retaddr) #13
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, i64 noundef %retaddr) #14
   br label %_nocheck__trace_target_mmap_complete.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.13, i64 noundef %retaddr) #13
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.13, i64 noundef %retaddr) #14
   br label %_nocheck__trace_target_mmap_complete.exit
 
 _nocheck__trace_target_mmap_complete.exit:        ; preds = %entry, %land.lhs.true5.i, %if.then8.i, %if.else.i
@@ -1362,11 +1362,11 @@ _nocheck__trace_target_mmap_complete.exit:        ; preds = %entry, %land.lhs.tr
   ret void
 }
 
-declare ptr @qemu_log_trylock() local_unnamed_addr #5
+declare ptr @qemu_log_trylock() local_unnamed_addr #6
 
-declare void @page_dump(ptr noundef) local_unnamed_addr #5
+declare void @page_dump(ptr noundef) local_unnamed_addr #6
 
-declare void @qemu_log_unlock(ptr noundef) local_unnamed_addr #5
+declare void @qemu_log_unlock(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @target_munmap(i64 noundef %start, i64 noundef %len) local_unnamed_addr #0 {
@@ -1392,16 +1392,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #13
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #13
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #14
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #14
   %4 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.14, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, i64 noundef %start, i64 noundef %len) #13
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.14, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, i64 noundef %start, i64 noundef %len) #14
   br label %trace_target_munmap.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.15, i64 noundef %start, i64 noundef %len) #13
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.15, i64 noundef %start, i64 noundef %len) #14
   br label %trace_target_munmap.exit
 
 trace_target_munmap.exit:                         ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -1411,7 +1411,7 @@ trace_target_munmap.exit:                         ; preds = %entry, %land.lhs.tr
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %trace_target_munmap.exit
-  %call = tail call ptr @__errno_location() #15
+  %call = tail call ptr @__errno_location() #16
   store i32 22, ptr %call, align 4
   br label %return
 
@@ -1434,7 +1434,7 @@ lor.lhs.false:                                    ; preds = %if.end
   br i1 %7, label %if.end5, label %if.then3
 
 if.then3:                                         ; preds = %lor.lhs.false, %if.end
-  %call4 = tail call ptr @__errno_location() #15
+  %call4 = tail call ptr @__errno_location() #16
   store i32 22, ptr %call4, align 4
   br label %return
 
@@ -1447,7 +1447,7 @@ if.end5:                                          ; preds = %lor.lhs.false
   br i1 %cmp.i, label %if.then.i, label %mmap_lock.exit
 
 if.then.i:                                        ; preds = %if.end5
-  %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @mmap_mutex) #13
+  %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @mmap_mutex) #14
   br label %mmap_lock.exit
 
 mmap_lock.exit:                                   ; preds = %if.end5, %if.then.i
@@ -1458,14 +1458,14 @@ mmap_lock.exit:                                   ; preds = %if.end5, %if.then.i
 if.then10:                                        ; preds = %mmap_lock.exit
   %add11 = add i64 %start, -1
   %sub12 = add i64 %add11, %and1
-  tail call void @page_set_flags(i64 noundef %start, i64 noundef %sub12, i32 noundef 0) #13
-  %call.i15 = tail call ptr @interval_tree_iter_first(ptr noundef nonnull @shm_regions, i64 noundef %start, i64 noundef %sub12) #13
+  tail call void @page_set_flags(i64 noundef %start, i64 noundef %sub12, i32 noundef 0) #14
+  %call.i15 = tail call ptr @interval_tree_iter_first(ptr noundef nonnull @shm_regions, i64 noundef %start, i64 noundef %sub12) #14
   %tobool.not10.i = icmp eq ptr %call.i15, null
   br i1 %tobool.not10.i, label %if.end15, label %for.body.i
 
 for.body.i:                                       ; preds = %if.then10, %for.inc.i
   %i.011.i = phi ptr [ %call1.i, %for.inc.i ], [ %call.i15, %if.then10 ]
-  %call1.i = tail call ptr @interval_tree_iter_next(ptr noundef nonnull %i.011.i, i64 noundef %start, i64 noundef %sub12) #13
+  %call1.i = tail call ptr @interval_tree_iter_next(ptr noundef nonnull %i.011.i, i64 noundef %start, i64 noundef %sub12) #14
   %start2.i = getelementptr inbounds i8, ptr %i.011.i, i64 24
   %10 = load i64, ptr %start2.i, align 8
   %cmp.not.i16 = icmp ult i64 %10, %start
@@ -1478,8 +1478,8 @@ land.lhs.true.i:                                  ; preds = %for.body.i
   br i1 %cmp4.not.i, label %for.inc.i, label %if.then.i17
 
 if.then.i17:                                      ; preds = %land.lhs.true.i
-  tail call void @interval_tree_remove(ptr noundef nonnull %i.011.i, ptr noundef nonnull @shm_regions) #13
-  tail call void @g_free(ptr noundef nonnull %i.011.i) #13
+  tail call void @interval_tree_remove(ptr noundef nonnull %i.011.i, ptr noundef nonnull @shm_regions) #14
+  tail call void @g_free(ptr noundef nonnull %i.011.i) #14
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then.i17, %land.lhs.true.i, %for.body.i
@@ -1492,7 +1492,7 @@ if.end15:                                         ; preds = %for.inc.i, %if.then
   br i1 %cmp.i19, label %if.end.i, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end15
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 45, ptr noundef nonnull @__PRETTY_FUNCTION__.mmap_unlock) #14
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 45, ptr noundef nonnull @__PRETTY_FUNCTION__.mmap_unlock) #15
   unreachable
 
 if.end.i:                                         ; preds = %if.end15
@@ -1502,7 +1502,7 @@ if.end.i:                                         ; preds = %if.end15
   br i1 %cmp1.i, label %if.then2.i, label %return
 
 if.then2.i:                                       ; preds = %if.end.i
-  %call.i20 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @mmap_mutex) #13
+  %call.i20 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @mmap_mutex) #14
   br label %return
 
 return:                                           ; preds = %if.then2.i, %if.end.i, %if.then3, %if.then
@@ -1542,7 +1542,7 @@ for.cond9.preheader:                              ; preds = %for.body, %for.cond
 for.body:                                         ; preds = %for.cond.preheader, %for.body
   %prot.046 = phi i32 [ %or, %for.body ], [ 0, %for.cond.preheader ]
   %a.045 = phi i64 [ %add8, %for.body ], [ %and, %for.cond.preheader ]
-  %call = tail call i32 @page_get_flags(i64 noundef %a.045) #13
+  %call = tail call i32 @page_get_flags(i64 noundef %a.045) #14
   %or = or i32 %call, %prot.046
   %add8 = add i64 %a.045, 4096
   %cmp7 = icmp ult i64 %add8, %start
@@ -1552,7 +1552,7 @@ for.body11:                                       ; preds = %for.cond9.preheader
   %prot.150 = phi i32 [ %or14, %for.body11 ], [ %prot.0.lcssa, %for.cond9.preheader ]
   %a.149 = phi i64 [ %add16, %for.body11 ], [ %sub, %for.cond9.preheader ]
   %add12 = add nuw i64 %a.149, 1
-  %call13 = tail call i32 @page_get_flags(i64 noundef %add12) #13
+  %call13 = tail call i32 @page_get_flags(i64 noundef %add12) #14
   %or14 = or i32 %call13, %prot.150
   %add16 = add i64 %a.149, 4096
   %cmp10 = icmp ult i64 %add16, %sub5
@@ -1566,7 +1566,7 @@ for.end17:                                        ; preds = %for.body11, %for.co
 for.body22:                                       ; preds = %for.cond20.preheader, %for.body22
   %prot.239 = phi i32 [ %or24, %for.body22 ], [ 0, %for.cond20.preheader ]
   %a.238 = phi i64 [ %add26, %for.body22 ], [ %and, %for.cond20.preheader ]
-  %call23 = tail call i32 @page_get_flags(i64 noundef %a.238) #13
+  %call23 = tail call i32 @page_get_flags(i64 noundef %a.238) #14
   %or24 = or i32 %call23, %prot.239
   %add26 = add i64 %a.238, 4096
   %cmp21 = icmp ult i64 %add26, %start
@@ -1588,7 +1588,7 @@ for.body34:                                       ; preds = %for.end27, %for.bod
   %prot.342 = phi i32 [ %or37, %for.body34 ], [ 0, %for.end27 ]
   %a.341 = phi i64 [ %add39, %for.body34 ], [ %sub, %for.end27 ]
   %add35 = add nuw i64 %a.341, 1
-  %call36 = tail call i32 @page_get_flags(i64 noundef %add35) #13
+  %call36 = tail call i32 @page_get_flags(i64 noundef %add35) #14
   %or37 = or i32 %call36, %prot.342
   %add39 = add i64 %a.341, 4096
   %cmp33 = icmp ult i64 %add39, %sub5
@@ -1622,13 +1622,13 @@ if.end48:                                         ; preds = %for.end40.if.end48_
   br i1 %tobool.not, label %if.end55, label %if.then52
 
 if.then52:                                        ; preds = %if.end48
-  %call53 = tail call ptr @mmap64(ptr noundef %7, i64 noundef %add50, i32 noundef 0, i32 noundef 16434, i32 noundef -1, i64 noundef 0) #13
+  %call53 = tail call ptr @mmap64(ptr noundef %7, i64 noundef %add50, i32 noundef 0, i32 noundef 16434, i32 noundef -1, i64 noundef 0) #14
   %cmp54 = icmp ne ptr %call53, %7
   %cond = sext i1 %cmp54 to i32
   br label %return
 
 if.end55:                                         ; preds = %if.end48
-  %call56 = tail call i32 @munmap(ptr noundef %7, i64 noundef %add50) #13
+  %call56 = tail call i32 @munmap(ptr noundef %7, i64 noundef %add50) #14
   br label %return
 
 return:                                           ; preds = %for.end40, %for.end17, %if.end55, %if.then52
@@ -1679,7 +1679,7 @@ land.lhs.true4:                                   ; preds = %lor.lhs.false2
   br i1 %3, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true4, %land.lhs.true, %entry
-  %call6 = tail call ptr @__errno_location() #15
+  %call6 = tail call ptr @__errno_location() #16
   store i32 12, ptr %call6, align 4
   br label %return
 
@@ -1692,7 +1692,7 @@ if.end:                                           ; preds = %land.lhs.true4, %lo
   br i1 %cmp.i, label %if.then.i, label %mmap_lock.exit
 
 if.then.i:                                        ; preds = %if.end
-  %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @mmap_mutex) #13
+  %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @mmap_mutex) #14
   br label %mmap_lock.exit
 
 mmap_lock.exit:                                   ; preds = %if.end, %if.then.i
@@ -1705,7 +1705,7 @@ if.then9:                                         ; preds = %mmap_lock.exit
   %conv = trunc i64 %flags to i32
   %add.i86 = add i64 %6, %new_addr
   %8 = inttoptr i64 %add.i86 to ptr
-  %call12 = tail call ptr (ptr, i64, i64, i32, ...) @mremap(ptr noundef %7, i64 noundef %old_size, i64 noundef %new_size, i32 noundef %conv, ptr noundef %8) #13
+  %call12 = tail call ptr (ptr, i64, i64, i32, ...) @mremap(ptr noundef %7, i64 noundef %old_size, i64 noundef %new_size, i32 noundef %conv, ptr noundef %8) #14
   %9 = load i64, ptr @reserved_va, align 8
   %tobool13 = icmp ne i64 %9, 0
   %cmp15 = icmp ne ptr %call12, inttoptr (i64 -1 to ptr)
@@ -1732,7 +1732,7 @@ if.else28:                                        ; preds = %if.then22
   %conv30 = or disjoint i32 %12, 2
   %add.i88 = add i64 %10, %call23
   %13 = inttoptr i64 %add.i88 to ptr
-  %call32 = tail call ptr (ptr, i64, i64, i32, ...) @mremap(ptr noundef %11, i64 noundef %old_size, i64 noundef %new_size, i32 noundef %conv30, ptr noundef %13) #13
+  %call32 = tail call ptr (ptr, i64, i64, i32, ...) @mremap(ptr noundef %11, i64 noundef %old_size, i64 noundef %new_size, i32 noundef %conv30, ptr noundef %13) #14
   %14 = load i64, ptr @reserved_va, align 8
   %tobool33.not = icmp eq i64 %14, 0
   br i1 %tobool33.not, label %if.end89, label %if.then34
@@ -1757,7 +1757,7 @@ if.then43:                                        ; preds = %if.else38
 for.body:                                         ; preds = %if.then43, %for.body
   %page_flags.0129 = phi i32 [ %or48, %for.body ], [ 0, %if.then43 ]
   %addr.0128 = phi i64 [ %inc, %for.body ], [ %add, %if.then43 ]
-  %call47 = tail call i32 @page_get_flags(i64 noundef %addr.0128) #13
+  %call47 = tail call i32 @page_get_flags(i64 noundef %addr.0128) #14
   %or48 = or i32 %call47, %page_flags.0129
   %inc = add i64 %addr.0128, 1
   %exitcond.not = icmp eq i64 %inc, %add44
@@ -1772,7 +1772,7 @@ if.then52:                                        ; preds = %if.then43, %if.else
   %add.i89 = add i64 %17, %old_addr
   %18 = inttoptr i64 %add.i89 to ptr
   %conv54 = trunc i64 %flags to i32
-  %call55 = tail call ptr (ptr, i64, i64, i32, ...) @mremap(ptr noundef %18, i64 noundef %old_size, i64 noundef %new_size, i32 noundef %conv54) #13
+  %call55 = tail call ptr (ptr, i64, i64, i32, ...) @mremap(ptr noundef %18, i64 noundef %old_size, i64 noundef %new_size, i32 noundef %conv54) #14
   %cmp56.not = icmp eq ptr %call55, inttoptr (i64 -1 to ptr)
   br i1 %cmp56.not, label %if.end120, label %if.then58
 
@@ -1787,7 +1787,7 @@ if.then58:                                        ; preds = %if.then52
   br i1 %cmp60.not, label %if.else63, label %if.end64
 
 if.else63:                                        ; preds = %if.then58
-  tail call void @__assert_fail(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.1, i32 noundef 936, ptr noundef nonnull @__PRETTY_FUNCTION__.target_mremap) #14
+  tail call void @__assert_fail(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.1, i32 noundef 936, ptr noundef nonnull @__PRETTY_FUNCTION__.target_mremap) #15
   unreachable
 
 if.end64:                                         ; preds = %if.then58
@@ -1804,7 +1804,7 @@ if.end64:                                         ; preds = %if.then58
 if.then68:                                        ; preds = %if.end64
   %add.i97 = add i64 %20, %old_addr
   %23 = inttoptr i64 %add.i97 to ptr
-  %call71 = tail call ptr (ptr, i64, i64, i32, ...) @mremap(ptr noundef %23, i64 noundef %new_size, i64 noundef %old_size, i32 noundef %conv54) #13
+  %call71 = tail call ptr (ptr, i64, i64, i32, ...) @mremap(ptr noundef %23, i64 noundef %new_size, i64 noundef %old_size, i32 noundef %conv54) #14
   br label %if.end120.sink.split
 
 if.else73:                                        ; preds = %if.end64
@@ -1835,21 +1835,21 @@ if.else93:                                        ; preds = %if.else73, %if.then
   br i1 %cmp100.not, label %if.else103, label %if.end104
 
 if.else103:                                       ; preds = %if.else93
-  tail call void @__assert_fail(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.1, i32 noundef 956, ptr noundef nonnull @__PRETTY_FUNCTION__.target_mremap) #14
+  tail call void @__assert_fail(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.1, i32 noundef 956, ptr noundef nonnull @__PRETTY_FUNCTION__.target_mremap) #15
   unreachable
 
 if.end104:                                        ; preds = %if.else93
-  %call109 = tail call i32 @page_get_flags(i64 noundef %old_addr) #13
+  %call109 = tail call i32 @page_get_flags(i64 noundef %old_addr) #14
   %add110 = add i64 %old_size, %old_addr
   %sub111 = add i64 %add110, -1
-  tail call void @page_set_flags(i64 noundef %old_addr, i64 noundef %sub111, i32 noundef 0) #13
-  %call.i98 = tail call ptr @interval_tree_iter_first(ptr noundef nonnull @shm_regions, i64 noundef %old_addr, i64 noundef %sub111) #13
+  tail call void @page_set_flags(i64 noundef %old_addr, i64 noundef %sub111, i32 noundef 0) #14
+  %call.i98 = tail call ptr @interval_tree_iter_first(ptr noundef nonnull @shm_regions, i64 noundef %old_addr, i64 noundef %sub111) #14
   %tobool.not10.i = icmp eq ptr %call.i98, null
   br i1 %tobool.not10.i, label %shm_region_rm_complete.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %if.end104, %for.inc.i
   %i.011.i = phi ptr [ %call1.i, %for.inc.i ], [ %call.i98, %if.end104 ]
-  %call1.i = tail call ptr @interval_tree_iter_next(ptr noundef nonnull %i.011.i, i64 noundef %old_addr, i64 noundef %sub111) #13
+  %call1.i = tail call ptr @interval_tree_iter_next(ptr noundef nonnull %i.011.i, i64 noundef %old_addr, i64 noundef %sub111) #14
   %start2.i = getelementptr inbounds i8, ptr %i.011.i, i64 24
   %27 = load i64, ptr %start2.i, align 8
   %cmp.not.i99 = icmp ult i64 %27, %old_addr
@@ -1862,8 +1862,8 @@ land.lhs.true.i:                                  ; preds = %for.body.i
   br i1 %cmp4.not.i, label %for.inc.i, label %if.then.i100
 
 if.then.i100:                                     ; preds = %land.lhs.true.i
-  tail call void @interval_tree_remove(ptr noundef nonnull %i.011.i, ptr noundef nonnull @shm_regions) #13
-  tail call void @g_free(ptr noundef nonnull %i.011.i) #13
+  tail call void @interval_tree_remove(ptr noundef nonnull %i.011.i, ptr noundef nonnull @shm_regions) #14
+  tail call void @g_free(ptr noundef nonnull %i.011.i) #14
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then.i100, %land.lhs.true.i, %for.body.i
@@ -1874,14 +1874,14 @@ shm_region_rm_complete.exit:                      ; preds = %for.inc.i, %if.end1
   %add114 = add i64 %new_size, -1
   %sub115 = add i64 %add114, %sub94
   %or117 = or i32 %call109, 72
-  tail call void @page_set_flags(i64 noundef %sub94, i64 noundef %sub115, i32 noundef %or117) #13
-  %call.i102 = tail call ptr @interval_tree_iter_first(ptr noundef nonnull @shm_regions, i64 noundef %sub94, i64 noundef %sub115) #13
+  tail call void @page_set_flags(i64 noundef %sub94, i64 noundef %sub115, i32 noundef %or117) #14
+  %call.i102 = tail call ptr @interval_tree_iter_first(ptr noundef nonnull @shm_regions, i64 noundef %sub94, i64 noundef %sub115) #14
   %tobool.not10.i103 = icmp eq ptr %call.i102, null
   br i1 %tobool.not10.i103, label %if.end120, label %for.body.i104
 
 for.body.i104:                                    ; preds = %shm_region_rm_complete.exit, %for.inc.i113
   %i.011.i105 = phi ptr [ %call1.i106, %for.inc.i113 ], [ %call.i102, %shm_region_rm_complete.exit ]
-  %call1.i106 = tail call ptr @interval_tree_iter_next(ptr noundef nonnull %i.011.i105, i64 noundef %sub94, i64 noundef %sub115) #13
+  %call1.i106 = tail call ptr @interval_tree_iter_next(ptr noundef nonnull %i.011.i105, i64 noundef %sub94, i64 noundef %sub115) #14
   %start2.i107 = getelementptr inbounds i8, ptr %i.011.i105, i64 24
   %29 = load i64, ptr %start2.i107, align 8
   %cmp.not.i108 = icmp ult i64 %29, %sub94
@@ -1894,8 +1894,8 @@ land.lhs.true.i109:                               ; preds = %for.body.i104
   br i1 %cmp4.not.i111, label %for.inc.i113, label %if.then.i112
 
 if.then.i112:                                     ; preds = %land.lhs.true.i109
-  tail call void @interval_tree_remove(ptr noundef nonnull %i.011.i105, ptr noundef nonnull @shm_regions) #13
-  tail call void @g_free(ptr noundef nonnull %i.011.i105) #13
+  tail call void @interval_tree_remove(ptr noundef nonnull %i.011.i105, ptr noundef nonnull @shm_regions) #14
+  tail call void @g_free(ptr noundef nonnull %i.011.i105) #14
   br label %for.inc.i113
 
 for.inc.i113:                                     ; preds = %if.then.i112, %land.lhs.true.i109, %for.body.i104
@@ -1903,7 +1903,7 @@ for.inc.i113:                                     ; preds = %if.then.i112, %land
   br i1 %tobool.not.i114, label %if.end120, label %for.body.i104, !llvm.loop !13
 
 if.end120.sink.split:                             ; preds = %if.end49, %if.then22, %if.then68
-  %call86 = tail call ptr @__errno_location() #15
+  %call86 = tail call ptr @__errno_location() #16
   store i32 12, ptr %call86, align 4
   br label %if.end120
 
@@ -1914,7 +1914,7 @@ if.end120:                                        ; preds = %for.inc.i113, %if.e
   br i1 %cmp.i116, label %if.end.i, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end120
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 45, ptr noundef nonnull @__PRETTY_FUNCTION__.mmap_unlock) #14
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 45, ptr noundef nonnull @__PRETTY_FUNCTION__.mmap_unlock) #15
   unreachable
 
 if.end.i:                                         ; preds = %if.end120
@@ -1924,7 +1924,7 @@ if.end.i:                                         ; preds = %if.end120
   br i1 %cmp1.i, label %if.then2.i, label %return
 
 if.then2.i:                                       ; preds = %if.end.i
-  %call.i117 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @mmap_mutex) #13
+  %call.i117 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @mmap_mutex) #14
   br label %return
 
 return:                                           ; preds = %if.then2.i, %if.end.i, %if.then
@@ -1973,7 +1973,7 @@ if.end6:                                          ; preds = %lor.lhs.false
   br i1 %cmp.i, label %if.then.i, label %mmap_lock.exit
 
 if.then.i:                                        ; preds = %if.end6
-  %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @mmap_mutex) #13
+  %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @mmap_mutex) #14
   br label %mmap_lock.exit
 
 mmap_lock.exit:                                   ; preds = %if.end6, %if.then.i
@@ -1988,16 +1988,16 @@ sw.bb9:                                           ; preds = %mmap_lock.exit, %mm
 
 sw.bb10:                                          ; preds = %sw.bb9, %mmap_lock.exit
   %ret.0 = phi i64 [ 0, %mmap_lock.exit ], [ -22, %sw.bb9 ]
-  %call11 = tail call zeroext i1 @page_check_range(i64 noundef %start, i64 noundef %and3, i32 noundef 2048) #13
+  %call11 = tail call zeroext i1 @page_check_range(i64 noundef %start, i64 noundef %and3, i32 noundef 2048) #14
   br i1 %call11, label %if.then12, label %sw.epilog26
 
 if.then12:                                        ; preds = %sw.bb10
   %4 = load i64, ptr @guest_base, align 8
   %add.i15 = add i64 %4, %start
   %5 = inttoptr i64 %add.i15 to ptr
-  %call14 = tail call i32 @madvise(ptr noundef %5, i64 noundef %and3, i32 noundef %advice) #13
+  %call14 = tail call i32 @madvise(ptr noundef %5, i64 noundef %and3, i32 noundef %advice) #14
   %conv = sext i32 %call14 to i64
-  %call15 = tail call i64 @get_errno(i64 noundef %conv) #13
+  %call15 = tail call i64 @get_errno(i64 noundef %conv) #14
   %cmp17 = icmp eq i32 %advice, 4
   %6 = and i64 %call15, 4294967295
   %cmp19 = icmp eq i64 %6, 0
@@ -2007,7 +2007,7 @@ if.then12:                                        ; preds = %sw.bb10
 if.then21:                                        ; preds = %if.then12
   %add22 = add i64 %start, -1
   %sub23 = add i64 %add22, %and3
-  tail call void @page_reset_target_data(i64 noundef %start, i64 noundef %sub23) #13
+  tail call void @page_reset_target_data(i64 noundef %start, i64 noundef %sub23) #14
   br label %sw.epilog26
 
 sw.epilog26:                                      ; preds = %sw.bb10, %if.then21, %if.then12, %mmap_lock.exit
@@ -2017,7 +2017,7 @@ sw.epilog26:                                      ; preds = %sw.bb10, %if.then21
   br i1 %cmp.i16, label %if.end.i, label %if.else.i
 
 if.else.i:                                        ; preds = %sw.epilog26
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 45, ptr noundef nonnull @__PRETTY_FUNCTION__.mmap_unlock) #14
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 45, ptr noundef nonnull @__PRETTY_FUNCTION__.mmap_unlock) #15
   unreachable
 
 if.end.i:                                         ; preds = %sw.epilog26
@@ -2027,7 +2027,7 @@ if.end.i:                                         ; preds = %sw.epilog26
   br i1 %cmp1.i, label %if.then2.i, label %mmap_unlock.exit
 
 if.then2.i:                                       ; preds = %if.end.i
-  %call.i17 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @mmap_mutex) #13
+  %call.i17 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @mmap_mutex) #14
   br label %mmap_unlock.exit
 
 mmap_unlock.exit:                                 ; preds = %if.end.i, %if.then2.i
@@ -2040,23 +2040,23 @@ return:                                           ; preds = %if.end2, %lor.lhs.f
   ret i64 %retval.0
 }
 
-declare zeroext i1 @page_check_range(i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #5
+declare zeroext i1 @page_check_range(i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #6
 
-declare i64 @get_errno(i64 noundef) local_unnamed_addr #5
+declare i64 @get_errno(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind
 declare i32 @madvise(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @page_reset_target_data(i64 noundef, i64 noundef) local_unnamed_addr #5
+declare void @page_reset_target_data(i64 noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @target_shmat(ptr noundef %cpu_env, i32 noundef %shmid, i64 noundef %shmaddr, i32 noundef %shmflg) local_unnamed_addr #0 {
 entry:
   %shm_info = alloca %struct.shmid_ds, align 8
   %add.ptr.i = getelementptr i8, ptr %cpu_env, i64 -10176
-  %call1 = call i32 @shmctl(i32 noundef %shmid, i32 noundef 2, ptr noundef nonnull %shm_info) #13
+  %call1 = call i32 @shmctl(i32 noundef %shmid, i32 noundef 2, ptr noundef nonnull %shm_info) #14
   %conv = sext i32 %call1 to i64
-  %call2 = call i64 @get_errno(i64 noundef %conv) #13
+  %call2 = call i64 @get_errno(i64 noundef %conv) #14
   %sext = shl i64 %call2, 32
   %conv4 = ashr exact i64 %sext, 32
   %cmp.i = icmp ult i64 %conv4, -4096
@@ -2100,7 +2100,7 @@ if.end19:                                         ; preds = %if.end16
   br i1 %cmp.i28, label %if.then.i, label %mmap_lock.exit
 
 if.then.i:                                        ; preds = %if.end19
-  %call.i = call i32 @pthread_mutex_lock(ptr noundef nonnull @mmap_mutex) #13
+  %call.i = call i32 @pthread_mutex_lock(ptr noundef nonnull @mmap_mutex) #14
   br label %mmap_lock.exit
 
 mmap_lock.exit:                                   ; preds = %if.end19, %if.then.i
@@ -2113,7 +2113,7 @@ mmap_lock.exit:                                   ; preds = %if.end19, %if.then.
 if.else25:                                        ; preds = %mmap_lock.exit
   %or = or i32 %shmflg, 16384
   %6 = load i64, ptr %shm_segsz, align 8
-  %call27 = tail call i32 @__getpagesize() #15
+  %call27 = tail call i32 @__getpagesize() #16
   %7 = call i32 @llvm.umax.i32(i32 %call27, i32 4096)
   %cond = sext i32 %7 to i64
   %call31 = call i64 @mmap_find_vma(i64 noundef 0, i64 noundef %6, i64 noundef %cond)
@@ -2126,12 +2126,12 @@ if.end38:                                         ; preds = %if.else25, %mmap_lo
   %8 = load i64, ptr @guest_base, align 8
   %add.i30 = add i64 %8, %call31.sink
   %9 = inttoptr i64 %add.i30 to ptr
-  %call37 = call ptr @shmat(i32 noundef %shmid, ptr noundef %9, i32 noundef %or.sink) #13
+  %call37 = call ptr @shmat(i32 noundef %shmid, ptr noundef %9, i32 noundef %or.sink) #14
   %cmp39 = icmp eq ptr %call37, inttoptr (i64 -1 to ptr)
   br i1 %cmp39, label %if.then41, label %if.end43
 
 if.then41:                                        ; preds = %if.end38
-  %call42 = call i64 @get_errno(i64 noundef -1) #13
+  %call42 = call i64 @get_errno(i64 noundef -1) #14
   br label %cleanup
 
 if.end43:                                         ; preds = %if.end38
@@ -2145,21 +2145,21 @@ if.end43:                                         ; preds = %if.end38
   br i1 %cmp50.not, label %if.else53, label %if.end54
 
 if.else53:                                        ; preds = %if.end43
-  call void @__assert_fail(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.1, i32 noundef 1112, ptr noundef nonnull @__PRETTY_FUNCTION__.target_shmat) #14
+  call void @__assert_fail(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.1, i32 noundef 1112, ptr noundef nonnull @__PRETTY_FUNCTION__.target_shmat) #15
   unreachable
 
 if.end54:                                         ; preds = %if.end43
   %13 = load i64, ptr %shm_segsz, align 8
   %add = add i64 %sub44, -1
   %sub59 = add i64 %add, %13
-  call void @page_set_flags(i64 noundef %sub44, i64 noundef %sub59, i32 noundef %or63) #13
-  %call.i31 = call ptr @interval_tree_iter_first(ptr noundef nonnull @shm_regions, i64 noundef %sub44, i64 noundef %sub59) #13
+  call void @page_set_flags(i64 noundef %sub44, i64 noundef %sub59, i32 noundef %or63) #14
+  %call.i31 = call ptr @interval_tree_iter_first(ptr noundef nonnull @shm_regions, i64 noundef %sub44, i64 noundef %sub59) #14
   %tobool.not10.i = icmp eq ptr %call.i31, null
   br i1 %tobool.not10.i, label %shm_region_rm_complete.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %if.end54, %for.inc.i
   %i.011.i = phi ptr [ %call1.i, %for.inc.i ], [ %call.i31, %if.end54 ]
-  %call1.i = call ptr @interval_tree_iter_next(ptr noundef nonnull %i.011.i, i64 noundef %sub44, i64 noundef %sub59) #13
+  %call1.i = call ptr @interval_tree_iter_next(ptr noundef nonnull %i.011.i, i64 noundef %sub44, i64 noundef %sub59) #14
   %start2.i = getelementptr inbounds i8, ptr %i.011.i, i64 24
   %14 = load i64, ptr %start2.i, align 8
   %cmp.not.i32 = icmp ult i64 %14, %sub44
@@ -2172,8 +2172,8 @@ land.lhs.true.i:                                  ; preds = %for.body.i
   br i1 %cmp4.not.i, label %for.inc.i, label %if.then.i33
 
 if.then.i33:                                      ; preds = %land.lhs.true.i
-  call void @interval_tree_remove(ptr noundef nonnull %i.011.i, ptr noundef nonnull @shm_regions) #13
-  call void @g_free(ptr noundef nonnull %i.011.i) #13
+  call void @interval_tree_remove(ptr noundef nonnull %i.011.i, ptr noundef nonnull @shm_regions) #14
+  call void @g_free(ptr noundef nonnull %i.011.i) #14
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then.i33, %land.lhs.true.i, %for.body.i
@@ -2181,12 +2181,12 @@ for.inc.i:                                        ; preds = %if.then.i33, %land.
   br i1 %tobool.not.i34, label %shm_region_rm_complete.exit, label %for.body.i, !llvm.loop !13
 
 shm_region_rm_complete.exit:                      ; preds = %for.inc.i, %if.end54
-  %call.i35 = call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #16
+  %call.i35 = call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #17
   %start1.i = getelementptr inbounds i8, ptr %call.i35, i64 24
   store i64 %sub44, ptr %start1.i, align 8
   %last2.i = getelementptr inbounds i8, ptr %call.i35, i64 32
   store i64 %sub59, ptr %last2.i, align 8
-  call void @interval_tree_insert(ptr noundef %call.i35, ptr noundef nonnull @shm_regions) #13
+  call void @interval_tree_insert(ptr noundef %call.i35, ptr noundef nonnull @shm_regions) #14
   br label %cleanup, !llvm.loop !19
 
 cleanup:                                          ; preds = %if.else25, %shm_region_rm_complete.exit, %if.then41
@@ -2198,7 +2198,7 @@ cleanup:                                          ; preds = %if.else25, %shm_reg
   br i1 %cmp.i.i, label %if.end.i.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %cleanup
-  call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 45, ptr noundef nonnull @__PRETTY_FUNCTION__.mmap_unlock) #14
+  call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 45, ptr noundef nonnull @__PRETTY_FUNCTION__.mmap_unlock) #15
   unreachable
 
 if.end.i.i:                                       ; preds = %cleanup
@@ -2208,7 +2208,7 @@ if.end.i.i:                                       ; preds = %cleanup
   br i1 %cmp1.i.i, label %if.then2.i.i, label %mmap_unlock_guard.exit
 
 if.then2.i.i:                                     ; preds = %if.end.i.i
-  %call.i.i = call i32 @pthread_mutex_unlock(ptr noundef nonnull @mmap_mutex) #13
+  %call.i.i = call i32 @pthread_mutex_unlock(ptr noundef nonnull @mmap_mutex) #14
   br label %mmap_unlock_guard.exit
 
 mmap_unlock_guard.exit:                           ; preds = %if.end.i.i, %if.then2.i.i
@@ -2224,7 +2224,7 @@ for.end:                                          ; preds = %mmap_unlock_guard.e
 if.then66:                                        ; preds = %for.end
   %or68 = or disjoint i32 %17, 32768
   store i32 %or68, ptr %tcg_cflags, align 16
-  call void @tb_flush(ptr noundef %add.ptr.i) #13
+  call void @tb_flush(ptr noundef %add.ptr.i) #14
   br label %return
 
 return:                                           ; preds = %for.end, %if.then66, %mmap_unlock_guard.exit, %if.end16, %if.then9, %entry
@@ -2239,7 +2239,7 @@ declare i32 @shmctl(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 declare ptr @shmat(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i32 @__getpagesize() local_unnamed_addr #6
+declare i32 @__getpagesize() local_unnamed_addr #7
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @target_shmdt(i64 noundef %shmaddr) local_unnamed_addr #0 {
@@ -2252,11 +2252,11 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %mmap_lock.exit
 
 if.then.i:                                        ; preds = %entry
-  %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @mmap_mutex) #13
+  %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @mmap_mutex) #14
   br label %mmap_lock.exit
 
 mmap_lock.exit:                                   ; preds = %entry, %if.then.i
-  %call.i10 = tail call ptr @interval_tree_iter_first(ptr noundef nonnull @shm_regions, i64 noundef %shmaddr, i64 noundef %shmaddr) #13
+  %call.i10 = tail call ptr @interval_tree_iter_first(ptr noundef nonnull @shm_regions, i64 noundef %shmaddr, i64 noundef %shmaddr) #14
   %tobool.not9.i = icmp eq ptr %call.i10, null
   br i1 %tobool.not9.i, label %cleanup, label %for.body.i
 
@@ -2268,7 +2268,7 @@ for.body.i:                                       ; preds = %mmap_lock.exit, %fo
   br i1 %cmp.i11, label %shm_region_find.exit, label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.body.i
-  %call2.i = tail call ptr @interval_tree_iter_next(ptr noundef nonnull %i.010.i, i64 noundef %shmaddr, i64 noundef %shmaddr) #13
+  %call2.i = tail call ptr @interval_tree_iter_next(ptr noundef nonnull %i.010.i, i64 noundef %shmaddr, i64 noundef %shmaddr) #14
   %tobool.not.i = icmp eq ptr %call2.i, null
   br i1 %tobool.not.i, label %cleanup, label %for.body.i, !llvm.loop !20
 
@@ -2282,23 +2282,23 @@ if.end:                                           ; preds = %shm_region_find.exi
   %4 = load i64, ptr @guest_base, align 8
   %add.i = add i64 %4, %shmaddr
   %5 = inttoptr i64 %add.i to ptr
-  %call3 = tail call i32 @shmdt(ptr noundef %5) #13
+  %call3 = tail call i32 @shmdt(ptr noundef %5) #14
   %conv = sext i32 %call3 to i64
-  %call4 = tail call i64 @get_errno(i64 noundef %conv) #13
+  %call4 = tail call i64 @get_errno(i64 noundef %conv) #14
   %cmp5 = icmp eq i64 %call4, 0
   br i1 %cmp5, label %if.then7, label %cleanup, !llvm.loop !21
 
 if.then7:                                         ; preds = %if.end
   %reass.sub = sub i64 %3, %shmaddr
   %add = add i64 %reass.sub, 1
-  tail call void @page_set_flags(i64 noundef %shmaddr, i64 noundef %3, i32 noundef 0) #13
-  %call.i13 = tail call ptr @interval_tree_iter_first(ptr noundef nonnull @shm_regions, i64 noundef %shmaddr, i64 noundef %3) #13
+  tail call void @page_set_flags(i64 noundef %shmaddr, i64 noundef %3, i32 noundef 0) #14
+  %call.i13 = tail call ptr @interval_tree_iter_first(ptr noundef nonnull @shm_regions, i64 noundef %shmaddr, i64 noundef %3) #14
   %tobool.not10.i = icmp eq ptr %call.i13, null
   br i1 %tobool.not10.i, label %shm_region_rm_complete.exit, label %for.body.i14
 
 for.body.i14:                                     ; preds = %if.then7, %for.inc.i16
   %i.011.i = phi ptr [ %call1.i, %for.inc.i16 ], [ %call.i13, %if.then7 ]
-  %call1.i = tail call ptr @interval_tree_iter_next(ptr noundef nonnull %i.011.i, i64 noundef %shmaddr, i64 noundef %3) #13
+  %call1.i = tail call ptr @interval_tree_iter_next(ptr noundef nonnull %i.011.i, i64 noundef %shmaddr, i64 noundef %3) #14
   %start2.i = getelementptr inbounds i8, ptr %i.011.i, i64 24
   %6 = load i64, ptr %start2.i, align 8
   %cmp.not.i = icmp ult i64 %6, %shmaddr
@@ -2311,8 +2311,8 @@ land.lhs.true.i:                                  ; preds = %for.body.i14
   br i1 %cmp4.not.i, label %for.inc.i16, label %if.then.i15
 
 if.then.i15:                                      ; preds = %land.lhs.true.i
-  tail call void @interval_tree_remove(ptr noundef nonnull %i.011.i, ptr noundef nonnull @shm_regions) #13
-  tail call void @g_free(ptr noundef nonnull %i.011.i) #13
+  tail call void @interval_tree_remove(ptr noundef nonnull %i.011.i, ptr noundef nonnull @shm_regions) #14
+  tail call void @g_free(ptr noundef nonnull %i.011.i) #14
   br label %for.inc.i16
 
 for.inc.i16:                                      ; preds = %if.then.i15, %land.lhs.true.i, %for.body.i14
@@ -2330,7 +2330,7 @@ cleanup:                                          ; preds = %for.inc.i, %mmap_lo
   br i1 %cmp.i.i, label %if.end.i.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %cleanup
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 45, ptr noundef nonnull @__PRETTY_FUNCTION__.mmap_unlock) #14
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 45, ptr noundef nonnull @__PRETTY_FUNCTION__.mmap_unlock) #15
   unreachable
 
 if.end.i.i:                                       ; preds = %cleanup
@@ -2340,7 +2340,7 @@ if.end.i.i:                                       ; preds = %cleanup
   br i1 %cmp1.i.i, label %if.then2.i.i, label %mmap_unlock_guard.exit
 
 if.then2.i.i:                                     ; preds = %if.end.i.i
-  %call.i.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @mmap_mutex) #13
+  %call.i.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @mmap_mutex) #14
   br label %mmap_unlock_guard.exit
 
 mmap_unlock_guard.exit:                           ; preds = %if.end.i.i, %if.then2.i.i
@@ -2351,65 +2351,66 @@ mmap_unlock_guard.exit:                           ; preds = %if.end.i.i, %if.the
 declare i32 @shmdt(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
 
-declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #5
+declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #6
 
-declare i32 @qemu_get_thread_id() local_unnamed_addr #5
+declare i32 @qemu_get_thread_id() local_unnamed_addr #6
 
-declare i64 @page_find_range_empty(i64 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #5
+declare i64 @page_find_range_empty(i64 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i32 @getpagesize() local_unnamed_addr #6
+declare i32 @getpagesize() local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
 
-declare ptr @interval_tree_iter_first(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #5
+declare ptr @interval_tree_iter_first(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #6
 
-declare ptr @interval_tree_iter_next(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #5
+declare ptr @interval_tree_iter_next(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #6
 
-declare void @interval_tree_remove(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare void @interval_tree_remove(ptr noundef, ptr noundef) local_unnamed_addr #6
 
-declare void @g_free(ptr noundef) local_unnamed_addr #5
+declare void @g_free(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: allocsize(0,1)
-declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #9
+declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #10
 
-declare void @interval_tree_insert(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare void @interval_tree_insert(ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #10
+declare i64 @llvm.umax.i64(i64, i64) #11
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #11
+declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #10
+declare i32 @llvm.umax.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { nofree nounwind }
-attributes #12 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #13 = { nounwind }
-attributes #14 = { noreturn nounwind }
-attributes #15 = { nounwind willreturn memory(none) }
-attributes #16 = { nounwind allocsize(0,1) }
+attributes #5 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #10 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { nofree nounwind }
+attributes #13 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #14 = { nounwind }
+attributes #15 = { noreturn nounwind }
+attributes #16 = { nounwind willreturn memory(none) }
+attributes #17 = { nounwind allocsize(0,1) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

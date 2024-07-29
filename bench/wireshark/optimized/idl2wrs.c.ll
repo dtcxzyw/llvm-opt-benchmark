@@ -534,7 +534,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonly %
 70:                                               ; preds = %67
   %71 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %71, ptr noundef nonnull @.str.48)
-  call void @exit(i32 noundef 10) #14
+  call void @exit(i32 noundef 10) #17
   unreachable
 
 72:                                               ; preds = %67
@@ -591,7 +591,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonly %
 103:                                              ; preds = %97
   %104 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %104, ptr noundef nonnull @.str.48)
-  call void @exit(i32 noundef 10) #14
+  call void @exit(i32 noundef 10) #17
   unreachable
 
 register_dissector_param_value.exit.i:            ; preds = %97
@@ -648,7 +648,7 @@ register_dissector_param_value.exit.i:            ; preds = %97
 136:                                              ; preds = %130
   %137 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %137, ptr noundef nonnull @.str.48)
-  call void @exit(i32 noundef 10) #14
+  call void @exit(i32 noundef 10) #17
   unreachable
 
 register_hf_rename.exit.i:                        ; preds = %130
@@ -678,7 +678,7 @@ register_hf_rename.exit.i:                        ; preds = %130
   br i1 %149, label %151, label %150
 
 150:                                              ; preds = %145
-  call void @exit(i32 noundef 10) #14
+  call void @exit(i32 noundef 10) #17
   unreachable
 
 151:                                              ; preds = %145
@@ -689,7 +689,7 @@ register_hf_rename.exit.i:                        ; preds = %130
 153:                                              ; preds = %151
   %154 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %154, ptr noundef nonnull @.str.48)
-  call void @exit(i32 noundef 10) #14
+  call void @exit(i32 noundef 10) #17
   unreachable
 
 155:                                              ; preds = %151
@@ -720,7 +720,7 @@ register_hf_rename.exit.i:                        ; preds = %130
 167:                                              ; preds = %163
   %168 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %168, ptr noundef nonnull @.str.48)
-  call void @exit(i32 noundef 10) #14
+  call void @exit(i32 noundef 10) #17
   unreachable
 
 preparetrimprefix.exit.i:                         ; preds = %163
@@ -735,7 +735,7 @@ preparetrimprefix.exit.i:                         ; preds = %163
 172:                                              ; preds = %162
   %173 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %173, ptr noundef nonnull @.str.63, ptr noundef nonnull %6)
-  call void @exit(i32 noundef 10) #14
+  call void @exit(i32 noundef 10) #17
   unreachable
 
 .backedge.i:                                      ; preds = %preparetrimprefix.exit.i, %155, %register_hf_rename.exit.i, %111, %register_dissector_param_value.exit.i, %87, %77, %72, %59
@@ -1006,7 +1006,7 @@ rename_tokens.exit158:                            ; preds = %235
   %238 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %238, ptr noundef nonnull @.str.74)
   call fastcc void @printtokenlist()
-  call void @exit(i32 noundef 10) #14
+  call void @exit(i32 noundef 10) #17
   unreachable
 
 239:                                              ; preds = %rename_tokens.exit158
@@ -1027,7 +1027,7 @@ rename_tokens.exit158:                            ; preds = %235
   %245 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %245, ptr noundef nonnull @.str.74)
   call fastcc void @printtokenlist()
-  call void @exit(i32 noundef 10) #14
+  call void @exit(i32 noundef 10) #17
   unreachable
 
 .lr.ph.i161:                                      ; preds = %.preheader.i160, %296
@@ -1130,7 +1130,7 @@ rename_tokens.exit158:                            ; preds = %235
   %295 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %295, ptr noundef nonnull @.str.74)
   call fastcc void @printtokenlist()
-  call void @exit(i32 noundef 10) #14
+  call void @exit(i32 noundef 10) #17
   unreachable
 
 296:                                              ; preds = %292, %285, %276, %258, %249
@@ -1154,7 +1154,7 @@ thread-pre-split.thread.i:                        ; preds = %thread-pre-split.i,
   %299 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %299, ptr noundef nonnull @.str.74)
   call fastcc void @printtokenlist()
-  call void @exit(i32 noundef 10) #14
+  call void @exit(i32 noundef 10) #17
   unreachable
 
 300:                                              ; preds = %thread-pre-split.i
@@ -1170,7 +1170,7 @@ thread-pre-split.thread.i:                        ; preds = %thread-pre-split.i,
   %306 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %306, ptr noundef nonnull @.str.74)
   call fastcc void @printtokenlist()
-  call void @exit(i32 noundef 10) #14
+  call void @exit(i32 noundef 10) #17
   unreachable
 
 307:                                              ; preds = %300
@@ -1186,7 +1186,7 @@ thread-pre-split.thread.i:                        ; preds = %thread-pre-split.i,
   %312 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %312, ptr noundef nonnull @.str.74)
   call fastcc void @printtokenlist()
-  call void @exit(i32 noundef 10) #14
+  call void @exit(i32 noundef 10) #17
   unreachable
 
 313:                                              ; preds = %307
@@ -1223,7 +1223,7 @@ thread-pre-split.thread.i:                        ; preds = %thread-pre-split.i,
   %336 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %336, ptr noundef nonnull @.str.74)
   call fastcc void @printtokenlist()
-  call void @exit(i32 noundef 10) #14
+  call void @exit(i32 noundef 10) #17
   unreachable
 
 337:                                              ; preds = %313
@@ -1240,7 +1240,7 @@ thread-pre-split.thread.i:                        ; preds = %thread-pre-split.i,
   %343 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %343, ptr noundef nonnull @.str.74)
   call fastcc void @printtokenlist()
-  call void @exit(i32 noundef 10) #14
+  call void @exit(i32 noundef 10) #17
   unreachable
 
 parseheader.exit:                                 ; preds = %337
@@ -1382,7 +1382,7 @@ parseheader.exit:                                 ; preds = %337
 463:                                              ; preds = %parseheader.exit
   %464 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %464, ptr noundef nonnull @.str.48)
-  call void @exit(i32 noundef 10) #14
+  call void @exit(i32 noundef 10) #17
   unreachable
 
 preparetrimprefix.exit:                           ; preds = %parseheader.exit
@@ -1413,7 +1413,7 @@ trimprefix.exit.preheader:                        ; preds = %..loopexit_crit_edg
   %.0917.i = phi ptr [ %.09.i166, %..loopexit_crit_edge.i ], [ %.0915.i, %.lr.ph18.i ]
   %468 = getelementptr inbounds i8, ptr %.0917.i, i64 8
   %469 = load ptr, ptr %468, align 8
-  %470 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %469) #17
+  %470 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %469) #18
   br label %471
 
 471:                                              ; preds = %478, %.lr.ph.i163
@@ -1421,7 +1421,7 @@ trimprefix.exit.preheader:                        ; preds = %..loopexit_crit_edg
   %472 = getelementptr inbounds i8, ptr %.014.i, i64 8
   %473 = load ptr, ptr %472, align 8
   %474 = load ptr, ptr %468, align 8
-  %475 = call i32 @strncmp(ptr noundef %473, ptr noundef %474, i64 noundef %470) #17
+  %475 = call i32 @strncmp(ptr noundef %473, ptr noundef %474, i64 noundef %470) #18
   %.not11.i164 = icmp eq i32 %475, 0
   br i1 %.not11.i164, label %476, label %478
 
@@ -1538,7 +1538,7 @@ trimprefix.exit.backedge:                         ; preds = %484, %496, %532, %p
   br i1 %.not57, label %541, label %578
 
 541:                                              ; preds = %533
-  %542 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %540, ptr noundef nonnull dereferenceable(6) @.str.30, i64 noundef 5) #17
+  %542 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %540, ptr noundef nonnull dereferenceable(6) @.str.30, i64 noundef 5) #18
   %.not.i169 = icmp eq i32 %542, 0
   br i1 %.not.i169, label %546, label %543
 
@@ -1548,7 +1548,7 @@ trimprefix.exit.backedge:                         ; preds = %484, %496, %532, %p
   %545 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %545, ptr noundef nonnull @.str.74)
   call fastcc void @printtokenlist()
-  call void @exit(i32 noundef 10) #14
+  call void @exit(i32 noundef 10) #17
   unreachable
 
 546:                                              ; preds = %541
@@ -1567,7 +1567,7 @@ trimprefix.exit.backedge:                         ; preds = %484, %496, %532, %p
   %555 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %555, ptr noundef nonnull @.str.74)
   call fastcc void @printtokenlist()
-  call void @exit(i32 noundef 10) #14
+  call void @exit(i32 noundef 10) #17
   unreachable
 
 556:                                              ; preds = %546
@@ -1585,7 +1585,7 @@ trimprefix.exit.backedge:                         ; preds = %484, %496, %532, %p
   %564 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %564, ptr noundef nonnull @.str.74)
   call fastcc void @printtokenlist()
-  call void @exit(i32 noundef 10) #14
+  call void @exit(i32 noundef 10) #17
   unreachable
 
 565:                                              ; preds = %556
@@ -1603,7 +1603,7 @@ trimprefix.exit.backedge:                         ; preds = %484, %496, %532, %p
   %573 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %573, ptr noundef nonnull @.str.74)
   call fastcc void @printtokenlist()
-  call void @exit(i32 noundef 10) #14
+  call void @exit(i32 noundef 10) #17
   unreachable
 
 parseconst.exit:                                  ; preds = %565
@@ -1750,7 +1750,7 @@ parseconst.exit:                                  ; preds = %565
   %648 = load ptr, ptr @token_list, align 8
   %649 = getelementptr inbounds i8, ptr %648, i64 8
   %650 = load ptr, ptr %649, align 8
-  %651 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %650, ptr noundef nonnull dereferenceable(8) @.str.35, i64 noundef 7) #17
+  %651 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %650, ptr noundef nonnull dereferenceable(8) @.str.35, i64 noundef 7) #18
   %.not.i172 = icmp eq i32 %651, 0
   br i1 %.not.i172, label %.preheader.i173, label %653
 
@@ -1765,7 +1765,7 @@ parseconst.exit:                                  ; preds = %565
   %655 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %655, ptr noundef nonnull @.str.74)
   call fastcc void @printtokenlist()
-  call void @exit(i32 noundef 10) #14
+  call void @exit(i32 noundef 10) #17
   unreachable
 
 .lr.ph.i174:                                      ; preds = %.preheader.i173, %.lr.ph.i174
@@ -1817,7 +1817,7 @@ skipdeclare.exit:                                 ; preds = %.lr.ph.i174, %.preh
   %686 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %686, ptr noundef nonnull @.str.37)
   call fastcc void @printtokenlist()
-  call void @exit(i32 noundef 10) #14
+  call void @exit(i32 noundef 10) #17
   unreachable
 
 .preheader206:                                    ; preds = %682, %687
@@ -1837,7 +1837,7 @@ skipdeclare.exit:                                 ; preds = %.lr.ph.i174, %.preh
   %692 = getelementptr inbounds i8, ptr %.0.i178, i64 16
   %693 = load ptr, ptr %692, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %691, ptr noundef nonnull @.str.397, ptr noundef %693)
-  call void @exit(i32 noundef 10) #14
+  call void @exit(i32 noundef 10) #17
   unreachable
 
 check_hf_rename_refcount.exit:                    ; preds = %.preheader206
@@ -1859,7 +1859,7 @@ check_hf_rename_refcount.exit:                    ; preds = %.preheader206
 701:                                              ; preds = %check_hf_rename_refcount.exit
   %702 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %702, ptr noundef nonnull @.str.40, ptr noundef nonnull %33)
-  call void @exit(i32 noundef 10) #14
+  call void @exit(i32 noundef 10) #17
   unreachable
 
 .lr.ph:                                           ; preds = %.preheader204, %.backedge205
@@ -1976,7 +1976,7 @@ check_hf_rename_refcount.exit:                    ; preds = %.preheader206
 738:                                              ; preds = %._crit_edge
   %739 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %739, ptr noundef nonnull @.str.40, ptr noundef nonnull %33)
-  call void @exit(i32 noundef 10) #14
+  call void @exit(i32 noundef 10) #17
   unreachable
 
 .lr.ph218:                                        ; preds = %.preheader, %.backedge
@@ -2167,7 +2167,7 @@ define internal fastcc void @usage() unnamed_addr #1 {
   ret void
 }
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
@@ -2195,7 +2195,7 @@ define internal void @FPRINTF(ptr noundef %0, ptr nocapture noundef readonly %1,
   ret void
 }
 
-; Function Attrs: noreturn nounwind uwtable
+; Function Attrs: nofree noreturn nounwind uwtable
 define internal fastcc void @Exit(i32 noundef %0) unnamed_addr #4 {
   %2 = load ptr, ptr @stderr, align 8
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %2, ptr noundef nonnull @.str.74)
@@ -2314,7 +2314,7 @@ define internal fastcc void @tokenize(ptr nocapture noundef %0) unnamed_addr #0 
 41:                                               ; preds = %33
   %42 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %42, ptr noundef nonnull @.str.48)
-  call void @exit(i32 noundef 10) #14
+  call void @exit(i32 noundef 10) #17
   unreachable
 
 pushtoken.exit:                                   ; preds = %33
@@ -2374,7 +2374,7 @@ pushtoken.exit:                                   ; preds = %33
 58:                                               ; preds = %53
   %59 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %59, ptr noundef nonnull @.str.48)
-  call void @exit(i32 noundef 10) #14
+  call void @exit(i32 noundef 10) #17
   unreachable
 
 pushtoken.exit59:                                 ; preds = %53
@@ -2417,7 +2417,7 @@ pushtoken.exit59:                                 ; preds = %53
 75:                                               ; preds = %70
   %76 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %76, ptr noundef nonnull @.str.48)
-  call void @exit(i32 noundef 10) #14
+  call void @exit(i32 noundef 10) #17
   unreachable
 
 pushtoken.exit63:                                 ; preds = %70
@@ -2448,7 +2448,7 @@ pushtoken.exit63:                                 ; preds = %70
 86:                                               ; preds = %81
   %87 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %87, ptr noundef nonnull @.str.48)
-  call void @exit(i32 noundef 10) #14
+  call void @exit(i32 noundef 10) #17
   unreachable
 
 pushtoken.exit67:                                 ; preds = %81
@@ -2475,7 +2475,7 @@ pushtoken.exit67:                                 ; preds = %81
 95:                                               ; preds = %91
   %96 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %96, ptr noundef nonnull @.str.48)
-  call void @exit(i32 noundef 10) #14
+  call void @exit(i32 noundef 10) #17
   unreachable
 
 pushtoken.exit71:                                 ; preds = %91
@@ -2526,7 +2526,7 @@ define internal fastcc ptr @parsebrackets(ptr nocapture noundef readonly %0, ptr
   %8 = load ptr, ptr @stderr, align 8
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %8, ptr noundef nonnull @.str.74)
   tail call fastcc void @printtokenlist()
-  tail call void @exit(i32 noundef 10) #14
+  tail call void @exit(i32 noundef 10) #17
   unreachable
 
 9:                                                ; preds = %2
@@ -2538,7 +2538,7 @@ define internal fastcc ptr @parsebrackets(ptr nocapture noundef readonly %0, ptr
 12:                                               ; preds = %9
   %13 = load ptr, ptr @stderr, align 8
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %13, ptr noundef nonnull @.str.48)
-  tail call void @exit(i32 noundef 10) #14
+  tail call void @exit(i32 noundef 10) #17
   unreachable
 
 14:                                               ; preds = %9
@@ -2574,7 +2574,7 @@ define internal fastcc ptr @parsebrackets(ptr nocapture noundef readonly %0, ptr
   %27 = load ptr, ptr @stderr, align 8
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %27, ptr noundef nonnull @.str.74)
   tail call fastcc void @printtokenlist()
-  tail call void @exit(i32 noundef 10) #14
+  tail call void @exit(i32 noundef 10) #17
   unreachable
 
 28:                                               ; preds = %22
@@ -2589,7 +2589,7 @@ define internal fastcc ptr @parsebrackets(ptr nocapture noundef readonly %0, ptr
   %33 = load ptr, ptr @stderr, align 8
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %33, ptr noundef nonnull @.str.74)
   tail call fastcc void @printtokenlist()
-  tail call void @exit(i32 noundef 10) #14
+  tail call void @exit(i32 noundef 10) #17
   unreachable
 
 34:                                               ; preds = %28
@@ -2645,7 +2645,7 @@ define internal fastcc ptr @parsebrackets(ptr nocapture noundef readonly %0, ptr
   %58 = load ptr, ptr @stderr, align 8
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %58, ptr noundef nonnull @.str.74)
   tail call fastcc void @printtokenlist()
-  tail call void @exit(i32 noundef 10) #14
+  tail call void @exit(i32 noundef 10) #17
   unreachable
 
 59:                                               ; preds = %49
@@ -2666,7 +2666,7 @@ define internal fastcc ptr @parsebrackets(ptr nocapture noundef readonly %0, ptr
   %69 = load ptr, ptr @stderr, align 8
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %69, ptr noundef nonnull @.str.74)
   tail call fastcc void @printtokenlist()
-  tail call void @exit(i32 noundef 10) #14
+  tail call void @exit(i32 noundef 10) #17
   unreachable
 
 70:                                               ; preds = %46
@@ -2781,7 +2781,7 @@ define internal fastcc ptr @parsebrackets(ptr nocapture noundef readonly %0, ptr
   %121 = load ptr, ptr @stderr, align 8
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %121, ptr noundef nonnull @.str.74)
   tail call fastcc void @printtokenlist()
-  tail call void @exit(i32 noundef 10) #14
+  tail call void @exit(i32 noundef 10) #17
   unreachable
 
 .preheader:                                       ; preds = %114, %.preheader.backedge
@@ -2842,7 +2842,7 @@ define internal fastcc ptr @parsebrackets(ptr nocapture noundef readonly %0, ptr
   %145 = load ptr, ptr @stderr, align 8
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %145, ptr noundef nonnull @.str.74)
   tail call fastcc void @printtokenlist()
-  tail call void @exit(i32 noundef 10) #14
+  tail call void @exit(i32 noundef 10) #17
   unreachable
 
 .preheader203:                                    ; preds = %138, %.preheader203.backedge
@@ -3074,7 +3074,7 @@ define internal fastcc ptr @parsebrackets(ptr nocapture noundef readonly %0, ptr
 249:                                              ; preds = %245
   %250 = load ptr, ptr @stderr, align 8
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %250, ptr noundef nonnull @.str.48)
-  tail call void @exit(i32 noundef 10) #14
+  tail call void @exit(i32 noundef 10) #17
   unreachable
 
 251:                                              ; preds = %245
@@ -3118,7 +3118,7 @@ define internal fastcc void @parsetypedefenum() unnamed_addr #0 {
   %11 = load ptr, ptr @stderr, align 8
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %11, ptr noundef nonnull @.str.74)
   tail call fastcc void @printtokenlist()
-  tail call void @exit(i32 noundef 10) #14
+  tail call void @exit(i32 noundef 10) #17
   unreachable
 
 12:                                               ; preds = %0
@@ -3143,7 +3143,7 @@ define internal fastcc void @parsetypedefenum() unnamed_addr #0 {
   %24 = load ptr, ptr @stderr, align 8
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %24, ptr noundef nonnull @.str.74)
   tail call fastcc void @printtokenlist()
-  tail call void @exit(i32 noundef 10) #14
+  tail call void @exit(i32 noundef 10) #17
   unreachable
 
 25:                                               ; preds = %17
@@ -3160,7 +3160,7 @@ define internal fastcc void @parsetypedefenum() unnamed_addr #0 {
   %32 = load ptr, ptr @stderr, align 8
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %32, ptr noundef nonnull @.str.74)
   tail call fastcc void @printtokenlist()
-  tail call void @exit(i32 noundef 10) #14
+  tail call void @exit(i32 noundef 10) #17
   unreachable
 
 33:                                               ; preds = %25
@@ -3182,7 +3182,7 @@ define internal fastcc void @parsetypedefenum() unnamed_addr #0 {
   %41 = load ptr, ptr @stderr, align 8
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %41, ptr noundef nonnull @.str.74)
   tail call fastcc void @printtokenlist()
-  tail call void @exit(i32 noundef 10) #14
+  tail call void @exit(i32 noundef 10) #17
   unreachable
 
 42:                                               ; preds = %35
@@ -3207,7 +3207,7 @@ define internal fastcc void @parsetypedefenum() unnamed_addr #0 {
   %52 = load ptr, ptr @stderr, align 8
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %52, ptr noundef nonnull @.str.74)
   tail call fastcc void @printtokenlist()
-  tail call void @exit(i32 noundef 10) #14
+  tail call void @exit(i32 noundef 10) #17
   unreachable
 
 53:                                               ; preds = %90
@@ -3232,7 +3232,7 @@ define internal fastcc void @parsetypedefenum() unnamed_addr #0 {
 60:                                               ; preds = %.lr.ph
   %61 = load ptr, ptr @stderr, align 8
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %61, ptr noundef nonnull @.str.48)
-  tail call void @exit(i32 noundef 10) #14
+  tail call void @exit(i32 noundef 10) #17
   unreachable
 
 62:                                               ; preds = %.lr.ph
@@ -3277,7 +3277,7 @@ define internal fastcc void @parsetypedefenum() unnamed_addr #0 {
   %83 = load ptr, ptr @stderr, align 8
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %83, ptr noundef nonnull @.str.74)
   tail call fastcc void @printtokenlist()
-  tail call void @exit(i32 noundef 10) #14
+  tail call void @exit(i32 noundef 10) #17
   unreachable
 
 84:                                               ; preds = %79
@@ -3314,7 +3314,7 @@ define internal fastcc void @parsetypedefenum() unnamed_addr #0 {
   %101 = load ptr, ptr @stderr, align 8
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %101, ptr noundef nonnull @.str.74)
   tail call fastcc void @printtokenlist()
-  tail call void @exit(i32 noundef 10) #14
+  tail call void @exit(i32 noundef 10) #17
   unreachable
 
 .loopexit:                                        ; preds = %53, %.preheader, %95
@@ -3334,7 +3334,7 @@ define internal fastcc void @parsetypedefenum() unnamed_addr #0 {
   %108 = load ptr, ptr @stderr, align 8
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %108, ptr noundef nonnull @.str.74)
   tail call fastcc void @printtokenlist()
-  tail call void @exit(i32 noundef 10) #14
+  tail call void @exit(i32 noundef 10) #17
   unreachable
 
 109:                                              ; preds = %.loopexit
@@ -3427,7 +3427,7 @@ define internal fastcc void @parsetypedefenum() unnamed_addr #0 {
   %149 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %149, ptr noundef nonnull @.str.74)
   call fastcc void @printtokenlist()
-  call void @exit(i32 noundef 10) #14
+  call void @exit(i32 noundef 10) #17
   unreachable
 
 150:                                              ; preds = %._crit_edge113, %146
@@ -3462,7 +3462,7 @@ define internal fastcc void @parsetypedefenum() unnamed_addr #0 {
   %164 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %164, ptr noundef nonnull @.str.74)
   call fastcc void @printtokenlist()
-  call void @exit(i32 noundef 10) #14
+  call void @exit(i32 noundef 10) #17
   unreachable
 
 165:                                              ; preds = %159, %156
@@ -3495,7 +3495,7 @@ define internal fastcc void @parsetypedefstruct(i32 noundef %0) unnamed_addr #0 
   %15 = load ptr, ptr @stderr, align 8
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %15, ptr noundef nonnull @.str.74)
   tail call fastcc void @printtokenlist()
-  tail call void @exit(i32 noundef 10) #14
+  tail call void @exit(i32 noundef 10) #17
   unreachable
 
 16:                                               ; preds = %1
@@ -3523,7 +3523,7 @@ define internal fastcc void @parsetypedefstruct(i32 noundef %0) unnamed_addr #0 
   %27 = load ptr, ptr @stderr, align 8
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %27, ptr noundef nonnull @.str.74)
   tail call fastcc void @printtokenlist()
-  tail call void @exit(i32 noundef 10) #14
+  tail call void @exit(i32 noundef 10) #17
   unreachable
 
 .thread457:                                       ; preds = %16, %23, %21
@@ -3540,7 +3540,7 @@ define internal fastcc void @parsetypedefstruct(i32 noundef %0) unnamed_addr #0 
   %33 = load ptr, ptr @stderr, align 8
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %33, ptr noundef nonnull @.str.74)
   tail call fastcc void @printtokenlist()
-  tail call void @exit(i32 noundef 10) #14
+  tail call void @exit(i32 noundef 10) #17
   unreachable
 
 34:                                               ; preds = %.thread457
@@ -3557,7 +3557,7 @@ define internal fastcc void @parsetypedefstruct(i32 noundef %0) unnamed_addr #0 
   %41 = load ptr, ptr @stderr, align 8
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %41, ptr noundef nonnull @.str.74)
   tail call fastcc void @printtokenlist()
-  tail call void @exit(i32 noundef 10) #14
+  tail call void @exit(i32 noundef 10) #17
   unreachable
 
 .lr.ph.preheader:                                 ; preds = %34
@@ -3612,7 +3612,7 @@ define internal fastcc void @parsetypedefstruct(i32 noundef %0) unnamed_addr #0 
   %62 = load ptr, ptr @stderr, align 8
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %62, ptr noundef nonnull @.str.74)
   tail call fastcc void @printtokenlist()
-  tail call void @exit(i32 noundef 10) #14
+  tail call void @exit(i32 noundef 10) #17
   unreachable
 
 63:                                               ; preds = %59
@@ -3698,7 +3698,7 @@ check_if_to_emit.exit:                            ; preds = %68
   %97 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %97, ptr noundef nonnull @.str.74)
   call fastcc void @printtokenlist()
-  call void @exit(i32 noundef 10) #14
+  call void @exit(i32 noundef 10) #17
   unreachable
 
 .sink.split:                                      ; preds = %89, %93, %94
@@ -3797,7 +3797,7 @@ check_if_to_emit.exit:                            ; preds = %68
   %133 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %133, ptr noundef nonnull @.str.74)
   call fastcc void @printtokenlist()
-  call void @exit(i32 noundef 10) #14
+  call void @exit(i32 noundef 10) #17
   unreachable
 
 134:                                              ; preds = %128, %126
@@ -3821,7 +3821,7 @@ check_if_to_emit.exit:                            ; preds = %68
   %143 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %143, ptr noundef nonnull @.str.74)
   call fastcc void @printtokenlist()
-  call void @exit(i32 noundef 10) #14
+  call void @exit(i32 noundef 10) #17
   unreachable
 
 .lr.ph385:                                        ; preds = %.preheader, %148
@@ -3880,7 +3880,7 @@ check_if_to_emit.exit:                            ; preds = %68
 159:                                              ; preds = %.lr.ph28.i
   %160 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %160, ptr noundef nonnull @.str.48)
-  call void @exit(i32 noundef 10) #14
+  call void @exit(i32 noundef 10) #17
   unreachable
 
 161:                                              ; preds = %.lr.ph28.i
@@ -3928,7 +3928,7 @@ prepend_pointer_list.exit:                        ; preds = %161, %.preheader.i
   %184 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %184, ptr noundef nonnull @.str.74)
   call fastcc void @printtokenlist()
-  call void @exit(i32 noundef 10) #14
+  call void @exit(i32 noundef 10) #17
   unreachable
 
 185:                                              ; preds = %176
@@ -3977,7 +3977,7 @@ prepend_pointer_list.exit:                        ; preds = %161, %.preheader.i
 198:                                              ; preds = %.lr.ph28.i240
   %199 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %199, ptr noundef nonnull @.str.48)
-  call void @exit(i32 noundef 10) #14
+  call void @exit(i32 noundef 10) #17
   unreachable
 
 200:                                              ; preds = %.lr.ph28.i240
@@ -4008,7 +4008,7 @@ prepend_pointer_list.exit246:                     ; preds = %200, %.preheader.i2
   %211 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %211, ptr noundef nonnull @.str.74)
   call fastcc void @printtokenlist()
-  call void @exit(i32 noundef 10) #14
+  call void @exit(i32 noundef 10) #17
   unreachable
 
 212:                                              ; preds = %205
@@ -4033,7 +4033,7 @@ prepend_pointer_list.exit246:                     ; preds = %200, %.preheader.i2
   %222 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %222, ptr noundef nonnull @.str.74)
   call fastcc void @printtokenlist()
-  call void @exit(i32 noundef 10) #14
+  call void @exit(i32 noundef 10) #17
   unreachable
 
 223:                                              ; preds = %214
@@ -4170,7 +4170,7 @@ check_if_to_emit.exit263:                         ; preds = %271
 285:                                              ; preds = %283
   %286 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %286, ptr noundef nonnull @.str.295, ptr noundef %268)
-  call void @exit(i32 noundef 10) #14
+  call void @exit(i32 noundef 10) #17
   unreachable
 
 ptr_to_define.exit:                               ; preds = %check_if_to_emit.exit263, %281, %283
@@ -4381,7 +4381,7 @@ check_if_to_emit.exit296:                         ; preds = %349
 363:                                              ; preds = %361
   %364 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %364, ptr noundef nonnull @.str.295, ptr noundef %346)
-  call void @exit(i32 noundef 10) #14
+  call void @exit(i32 noundef 10) #17
   unreachable
 
 ptr_to_define.exit301:                            ; preds = %check_if_to_emit.exit296, %359, %361
@@ -4502,7 +4502,7 @@ ptr_to_define.exit301:                            ; preds = %check_if_to_emit.ex
   %408 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %408, ptr noundef nonnull @.str.74)
   call fastcc void @printtokenlist()
-  call void @exit(i32 noundef 10) #14
+  call void @exit(i32 noundef 10) #17
   unreachable
 
 409:                                              ; preds = %402
@@ -4549,7 +4549,7 @@ ptr_to_define.exit301:                            ; preds = %check_if_to_emit.ex
   %426 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %426, ptr noundef nonnull @.str.74)
   call fastcc void @printtokenlist()
-  call void @exit(i32 noundef 10) #14
+  call void @exit(i32 noundef 10) #17
   unreachable
 
 427:                                              ; preds = %420
@@ -4571,7 +4571,7 @@ ptr_to_define.exit301:                            ; preds = %check_if_to_emit.ex
   %436 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %436, ptr noundef nonnull @.str.74)
   call fastcc void @printtokenlist()
-  call void @exit(i32 noundef 10) #14
+  call void @exit(i32 noundef 10) #17
   unreachable
 
 437:                                              ; preds = %430
@@ -4604,7 +4604,7 @@ define internal fastcc void @parsetypedefunion(i32 noundef %0) unnamed_addr #0 {
   %13 = load ptr, ptr @stderr, align 8
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %13, ptr noundef nonnull @.str.74)
   tail call fastcc void @printtokenlist()
-  tail call void @exit(i32 noundef 10) #14
+  tail call void @exit(i32 noundef 10) #17
   unreachable
 
 14:                                               ; preds = %1
@@ -4633,7 +4633,7 @@ define internal fastcc void @parsetypedefunion(i32 noundef %0) unnamed_addr #0 {
   %26 = load ptr, ptr @stderr, align 8
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %26, ptr noundef nonnull @.str.74)
   tail call fastcc void @printtokenlist()
-  tail call void @exit(i32 noundef 10) #14
+  tail call void @exit(i32 noundef 10) #17
   unreachable
 
 .thread311:                                       ; preds = %14, %21, %19
@@ -4652,7 +4652,7 @@ define internal fastcc void @parsetypedefunion(i32 noundef %0) unnamed_addr #0 {
   %33 = load ptr, ptr @stderr, align 8
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %33, ptr noundef nonnull @.str.74)
   tail call fastcc void @printtokenlist()
-  tail call void @exit(i32 noundef 10) #14
+  tail call void @exit(i32 noundef 10) #17
   unreachable
 
 34:                                               ; preds = %.thread311
@@ -4669,7 +4669,7 @@ define internal fastcc void @parsetypedefunion(i32 noundef %0) unnamed_addr #0 {
   %41 = load ptr, ptr @stderr, align 8
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %41, ptr noundef nonnull @.str.74)
   tail call fastcc void @printtokenlist()
-  tail call void @exit(i32 noundef 10) #14
+  tail call void @exit(i32 noundef 10) #17
   unreachable
 
 42:                                               ; preds = %34
@@ -4721,7 +4721,7 @@ define internal fastcc void @parsetypedefunion(i32 noundef %0) unnamed_addr #0 {
   %60 = load ptr, ptr @stderr, align 8
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %60, ptr noundef nonnull @.str.74)
   tail call fastcc void @printtokenlist()
-  tail call void @exit(i32 noundef 10) #14
+  tail call void @exit(i32 noundef 10) #17
   unreachable
 
 61:                                               ; preds = %57
@@ -4762,7 +4762,7 @@ define internal fastcc void @parsetypedefunion(i32 noundef %0) unnamed_addr #0 {
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %77, ptr noundef nonnull @.str.335, ptr noundef %63)
   %78 = load ptr, ptr @stderr, align 8
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %78, ptr noundef nonnull @.str.336)
-  tail call void @exit(i32 noundef 10) #14
+  tail call void @exit(i32 noundef 10) #17
   unreachable
 
 get_union_tag_size.exit:                          ; preds = %72
@@ -4820,7 +4820,7 @@ get_union_tag_size.exit:                          ; preds = %72
   %100 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %100, ptr noundef nonnull @.str.74)
   call fastcc void @printtokenlist()
-  call void @exit(i32 noundef 10) #14
+  call void @exit(i32 noundef 10) #17
   unreachable
 
 .sink.split:                                      ; preds = %84, %96
@@ -4864,7 +4864,7 @@ get_union_tag_size.exit:                          ; preds = %72
   %116 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %116, ptr noundef nonnull @.str.74)
   call fastcc void @printtokenlist()
-  call void @exit(i32 noundef 10) #14
+  call void @exit(i32 noundef 10) #17
   unreachable
 
 .sink.split353:                                   ; preds = %105, %112
@@ -4946,7 +4946,7 @@ get_union_tag_size.exit:                          ; preds = %72
   %142 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %142, ptr noundef nonnull @.str.74)
   call fastcc void @printtokenlist()
-  call void @exit(i32 noundef 10) #14
+  call void @exit(i32 noundef 10) #17
   unreachable
 
 143:                                              ; preds = %138
@@ -4961,7 +4961,7 @@ get_union_tag_size.exit:                          ; preds = %72
   %148 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %148, ptr noundef nonnull @.str.74)
   call fastcc void @printtokenlist()
-  call void @exit(i32 noundef 10) #14
+  call void @exit(i32 noundef 10) #17
   unreachable
 
 149:                                              ; preds = %143
@@ -4975,7 +4975,7 @@ get_union_tag_size.exit:                          ; preds = %72
   %153 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %153, ptr noundef nonnull @.str.74)
   call fastcc void @printtokenlist()
-  call void @exit(i32 noundef 10) #14
+  call void @exit(i32 noundef 10) #17
   unreachable
 
 154:                                              ; preds = %149
@@ -5001,7 +5001,7 @@ get_union_tag_size.exit:                          ; preds = %72
   %165 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %165, ptr noundef nonnull @.str.74)
   call fastcc void @printtokenlist()
-  call void @exit(i32 noundef 10) #14
+  call void @exit(i32 noundef 10) #17
   unreachable
 
 .preheader:                                       ; preds = %159, %.preheader
@@ -5220,7 +5220,7 @@ case2str.exit167:                                 ; preds = %239, %243
   %262 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %262, ptr noundef nonnull @.str.74)
   call fastcc void @printtokenlist()
-  call void @exit(i32 noundef 10) #14
+  call void @exit(i32 noundef 10) #17
   unreachable
 
 .sink.split354:                                   ; preds = %257, %258, %259
@@ -5252,7 +5252,7 @@ case2str.exit167:                                 ; preds = %239, %243
   %275 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %275, ptr noundef nonnull @.str.74)
   call fastcc void @printtokenlist()
-  call void @exit(i32 noundef 10) #14
+  call void @exit(i32 noundef 10) #17
   unreachable
 
 .outer:                                           ; preds = %268
@@ -5293,7 +5293,7 @@ case2str.exit167:                                 ; preds = %239, %243
   %288 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %288, ptr noundef nonnull @.str.74)
   call fastcc void @printtokenlist()
-  call void @exit(i32 noundef 10) #14
+  call void @exit(i32 noundef 10) #17
   unreachable
 
 289:                                              ; preds = %277, %284
@@ -5315,7 +5315,7 @@ case2str.exit167:                                 ; preds = %239, %243
   %298 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %298, ptr noundef nonnull @.str.74)
   call fastcc void @printtokenlist()
-  call void @exit(i32 noundef 10) #14
+  call void @exit(i32 noundef 10) #17
   unreachable
 
 299:                                              ; preds = %292
@@ -5337,7 +5337,7 @@ case2str.exit167:                                 ; preds = %239, %243
   %308 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %308, ptr noundef nonnull @.str.74)
   call fastcc void @printtokenlist()
-  call void @exit(i32 noundef 10) #14
+  call void @exit(i32 noundef 10) #17
   unreachable
 
 309:                                              ; preds = %302
@@ -5372,7 +5372,7 @@ define internal fastcc void @parsetypedefbitmap(i32 noundef %0) unnamed_addr #0 
   %15 = load ptr, ptr @stderr, align 8
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %15, ptr noundef nonnull @.str.74)
   tail call fastcc void @printtokenlist()
-  tail call void @exit(i32 noundef 10) #14
+  tail call void @exit(i32 noundef 10) #17
   unreachable
 
 16:                                               ; preds = %1
@@ -5401,7 +5401,7 @@ define internal fastcc void @parsetypedefbitmap(i32 noundef %0) unnamed_addr #0 
   %28 = load ptr, ptr @stderr, align 8
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %28, ptr noundef nonnull @.str.74)
   tail call fastcc void @printtokenlist()
-  tail call void @exit(i32 noundef 10) #14
+  tail call void @exit(i32 noundef 10) #17
   unreachable
 
 29:                                               ; preds = %23
@@ -5425,7 +5425,7 @@ define internal fastcc void @parsetypedefbitmap(i32 noundef %0) unnamed_addr #0 
   %36 = load ptr, ptr @stderr, align 8
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %36, ptr noundef nonnull @.str.74)
   tail call fastcc void @printtokenlist()
-  tail call void @exit(i32 noundef 10) #14
+  tail call void @exit(i32 noundef 10) #17
   unreachable
 
 37:                                               ; preds = %.thread135
@@ -5442,7 +5442,7 @@ define internal fastcc void @parsetypedefbitmap(i32 noundef %0) unnamed_addr #0 
   %44 = load ptr, ptr @stderr, align 8
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %44, ptr noundef nonnull @.str.74)
   tail call fastcc void @printtokenlist()
-  tail call void @exit(i32 noundef 10) #14
+  tail call void @exit(i32 noundef 10) #17
   unreachable
 
 45:                                               ; preds = %37
@@ -5464,7 +5464,7 @@ define internal fastcc void @parsetypedefbitmap(i32 noundef %0) unnamed_addr #0 
   %52 = load ptr, ptr @stderr, align 8
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %52, ptr noundef nonnull @.str.74)
   tail call fastcc void @printtokenlist()
-  tail call void @exit(i32 noundef 10) #14
+  tail call void @exit(i32 noundef 10) #17
   unreachable
 
 53:                                               ; preds = %.lr.ph
@@ -5487,7 +5487,7 @@ define internal fastcc void @parsetypedefbitmap(i32 noundef %0) unnamed_addr #0 
   %60 = load ptr, ptr @stderr, align 8
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %60, ptr noundef nonnull @.str.74)
   tail call fastcc void @printtokenlist()
-  tail call void @exit(i32 noundef 10) #14
+  tail call void @exit(i32 noundef 10) #17
   unreachable
 
 61:                                               ; preds = %58
@@ -5535,7 +5535,7 @@ define internal fastcc void @parsetypedefbitmap(i32 noundef %0) unnamed_addr #0 
   %83 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %83, ptr noundef nonnull @.str.74)
   call fastcc void @printtokenlist()
-  call void @exit(i32 noundef 10) #14
+  call void @exit(i32 noundef 10) #17
   unreachable
 
 84:                                               ; preds = %67, %79
@@ -5572,7 +5572,7 @@ define internal fastcc void @parsetypedefbitmap(i32 noundef %0) unnamed_addr #0 
   %97 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %97, ptr noundef nonnull @.str.74)
   call fastcc void @printtokenlist()
-  call void @exit(i32 noundef 10) #14
+  call void @exit(i32 noundef 10) #17
   unreachable
 
 98:                                               ; preds = %84, %94
@@ -5610,7 +5610,7 @@ define internal fastcc void @parsetypedefbitmap(i32 noundef %0) unnamed_addr #0 
   %114 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %114, ptr noundef nonnull @.str.74)
   call fastcc void @printtokenlist()
-  call void @exit(i32 noundef 10) #14
+  call void @exit(i32 noundef 10) #17
   unreachable
 
 115:                                              ; preds = %109
@@ -5630,7 +5630,7 @@ define internal fastcc void @parsetypedefbitmap(i32 noundef %0) unnamed_addr #0 
   %125 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %125, ptr noundef nonnull @.str.74)
   call fastcc void @printtokenlist()
-  call void @exit(i32 noundef 10) #14
+  call void @exit(i32 noundef 10) #17
   unreachable
 
 sub_0:                                            ; preds = %115
@@ -5670,7 +5670,7 @@ sub_1:                                            ; preds = %sub_0
   %144 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %144, ptr noundef nonnull @.str.74)
   call fastcc void @printtokenlist()
-  call void @exit(i32 noundef 10) #14
+  call void @exit(i32 noundef 10) #17
   unreachable
 
 145:                                              ; preds = %138
@@ -5679,7 +5679,7 @@ sub_1:                                            ; preds = %sub_0
   %147 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %147, ptr noundef nonnull @.str.74)
   call fastcc void @printtokenlist()
-  call void @exit(i32 noundef 10) #14
+  call void @exit(i32 noundef 10) #17
   unreachable
 
 148:                                              ; preds = %138
@@ -5774,7 +5774,7 @@ sub_1:                                            ; preds = %sub_0
   %186 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %186, ptr noundef nonnull @.str.74)
   call fastcc void @printtokenlist()
-  call void @exit(i32 noundef 10) #14
+  call void @exit(i32 noundef 10) #17
   unreachable
 
 187:                                              ; preds = %182, %180
@@ -5793,7 +5793,7 @@ sub_1:                                            ; preds = %sub_0
   %194 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %194, ptr noundef nonnull @.str.74)
   call fastcc void @printtokenlist()
-  call void @exit(i32 noundef 10) #14
+  call void @exit(i32 noundef 10) #17
   unreachable
 
 195:                                              ; preds = %188
@@ -5815,7 +5815,7 @@ sub_1:                                            ; preds = %sub_0
   %204 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %204, ptr noundef nonnull @.str.74)
   call fastcc void @printtokenlist()
-  call void @exit(i32 noundef 10) #14
+  call void @exit(i32 noundef 10) #17
   unreachable
 
 205:                                              ; preds = %198
@@ -5847,7 +5847,7 @@ define internal fastcc void @parsefunction(i32 noundef %0) unnamed_addr #0 {
   %12 = load ptr, ptr @stderr, align 8
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %12, ptr noundef nonnull @.str.74)
   tail call fastcc void @printtokenlist()
-  tail call void @exit(i32 noundef 10) #14
+  tail call void @exit(i32 noundef 10) #17
   unreachable
 
 13:                                               ; preds = %1
@@ -5867,7 +5867,7 @@ define internal fastcc void @parsefunction(i32 noundef %0) unnamed_addr #0 {
   %23 = load ptr, ptr @stderr, align 8
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %23, ptr noundef nonnull @.str.74)
   tail call fastcc void @printtokenlist()
-  tail call void @exit(i32 noundef 10) #14
+  tail call void @exit(i32 noundef 10) #17
   unreachable
 
 24:                                               ; preds = %13
@@ -5974,7 +5974,7 @@ define internal fastcc void @parsefunction(i32 noundef %0) unnamed_addr #0 {
   %66 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %66, ptr noundef nonnull @.str.74)
   call fastcc void @printtokenlist()
-  call void @exit(i32 noundef 10) #14
+  call void @exit(i32 noundef 10) #17
   unreachable
 
 67:                                               ; preds = %62
@@ -5989,7 +5989,7 @@ define internal fastcc void @parsefunction(i32 noundef %0) unnamed_addr #0 {
   %72 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %72, ptr noundef nonnull @.str.74)
   call fastcc void @printtokenlist()
-  call void @exit(i32 noundef 10) #14
+  call void @exit(i32 noundef 10) #17
   unreachable
 
 73:                                               ; preds = %67
@@ -6003,7 +6003,7 @@ define internal fastcc void @parsefunction(i32 noundef %0) unnamed_addr #0 {
   %77 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %77, ptr noundef nonnull @.str.74)
   call fastcc void @printtokenlist()
-  call void @exit(i32 noundef 10) #14
+  call void @exit(i32 noundef 10) #17
   unreachable
 
 78:                                               ; preds = %73
@@ -6019,7 +6019,7 @@ define internal fastcc void @parsefunction(i32 noundef %0) unnamed_addr #0 {
   %84 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %84, ptr noundef nonnull @.str.74)
   call fastcc void @printtokenlist()
-  call void @exit(i32 noundef 10) #14
+  call void @exit(i32 noundef 10) #17
   unreachable
 
 .preheader:                                       ; preds = %78, %.preheader
@@ -6063,7 +6063,7 @@ define internal fastcc void @parsefunction(i32 noundef %0) unnamed_addr #0 {
 95:                                               ; preds = %.lr.ph28.i
   %96 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %96, ptr noundef nonnull @.str.48)
-  call void @exit(i32 noundef 10) #14
+  call void @exit(i32 noundef 10) #17
   unreachable
 
 97:                                               ; preds = %.lr.ph28.i
@@ -6162,7 +6162,7 @@ default.unreachable:                              ; preds = %184, %.loopexit155
   %146 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %146, ptr noundef nonnull @.str.74)
   call fastcc void @printtokenlist()
-  call void @exit(i32 noundef 10) #14
+  call void @exit(i32 noundef 10) #17
   unreachable
 
 .sink.split:                                      ; preds = %.loopexit155, %143
@@ -6224,7 +6224,7 @@ default.unreachable:                              ; preds = %184, %.loopexit155
 171:                                              ; preds = %169
   %172 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %172, ptr noundef nonnull @.str.295, ptr noundef %159)
-  call void @exit(i32 noundef 10) #14
+  call void @exit(i32 noundef 10) #17
   unreachable
 
 ptr_to_define.exit:                               ; preds = %.lr.ph230, %167, %169
@@ -6275,7 +6275,7 @@ ptr_to_define.exit:                               ; preds = %.lr.ph230, %167, %1
   %191 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %191, ptr noundef nonnull @.str.74)
   call fastcc void @printtokenlist()
-  call void @exit(i32 noundef 10) #14
+  call void @exit(i32 noundef 10) #17
   unreachable
 
 .sink.split356:                                   ; preds = %184, %188
@@ -6403,7 +6403,7 @@ ptr_to_define.exit:                               ; preds = %.lr.ph230, %167, %1
   %242 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %242, ptr noundef nonnull @.str.74)
   call fastcc void @printtokenlist()
-  call void @exit(i32 noundef 10) #14
+  call void @exit(i32 noundef 10) #17
   unreachable
 
 243:                                              ; preds = %236
@@ -6424,7 +6424,7 @@ ptr_to_define.exit:                               ; preds = %.lr.ph230, %167, %1
   %251 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ...) @FPRINTF(ptr noundef %251, ptr noundef nonnull @.str.74)
   call fastcc void @printtokenlist()
-  call void @exit(i32 noundef 10) #14
+  call void @exit(i32 noundef 10) #17
   unreachable
 
 252:                                              ; preds = %245
@@ -6629,7 +6629,7 @@ define internal fastcc noundef ptr @register_new_type(ptr noundef %0, ptr nounde
 9:                                                ; preds = %7
   %10 = load ptr, ptr @stderr, align 8
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %10, ptr noundef nonnull @.str.48)
-  tail call void @exit(i32 noundef 10) #14
+  tail call void @exit(i32 noundef 10) #17
   unreachable
 
 11:                                               ; preds = %7
@@ -6672,8 +6672,8 @@ define internal fastcc ptr @register_hf_field(ptr noundef %0, ptr noundef %1, pt
 10:                                               ; preds = %9
   %11 = getelementptr inbounds i8, ptr %.0, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #17
-  %14 = tail call i32 @strncmp(ptr noundef %0, ptr noundef %12, i64 noundef %13) #17
+  %13 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #18
+  %14 = tail call i32 @strncmp(ptr noundef %0, ptr noundef %12, i64 noundef %13) #18
   %.not37 = icmp eq i32 %14, 0
   br i1 %.not37, label %15, label %9, !llvm.loop !48
 
@@ -6701,7 +6701,7 @@ define internal fastcc ptr @register_hf_field(ptr noundef %0, ptr noundef %1, pt
   %24 = load ptr, ptr @stderr, align 8
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %24, ptr noundef nonnull @.str.74)
   tail call fastcc void @printtokenlist()
-  tail call void @exit(i32 noundef 10) #14
+  tail call void @exit(i32 noundef 10) #17
   unreachable
 
 find_hf_field.exit:                               ; preds = %19
@@ -6720,7 +6720,7 @@ find_hf_field.exit:                               ; preds = %19
   %33 = load ptr, ptr @stderr, align 8
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %33, ptr noundef nonnull @.str.74)
   tail call fastcc void @printtokenlist()
-  tail call void @exit(i32 noundef 10) #14
+  tail call void @exit(i32 noundef 10) #17
   unreachable
 
 34:                                               ; preds = %find_hf_field.exit
@@ -6739,7 +6739,7 @@ find_hf_field.exit:                               ; preds = %19
 41:                                               ; preds = %39
   %42 = load ptr, ptr @stderr, align 8
   tail call void (ptr, ptr, ...) @FPRINTF(ptr noundef %42, ptr noundef nonnull @.str.48)
-  tail call void @exit(i32 noundef 10) #14
+  tail call void @exit(i32 noundef 10) #17
   unreachable
 
 43:                                               ; preds = %39
@@ -7472,9 +7472,9 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -7487,7 +7487,8 @@ attributes #13 = { nocallback nofree nosync nounwind willreturn memory(argmem: r
 attributes #14 = { noreturn nounwind }
 attributes #15 = { nounwind }
 attributes #16 = { nounwind allocsize(0,1) }
-attributes #17 = { nounwind willreturn memory(read) }
+attributes #17 = { cold noreturn nounwind }
+attributes #18 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

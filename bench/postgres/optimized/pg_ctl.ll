@@ -316,7 +316,7 @@ sub_259:                                          ; preds = %sub_158
 48:                                               ; preds = %45
   %49 = load ptr, ptr @progname, align 8
   tail call void (ptr, ...) @write_stderr(ptr noundef nonnull @.str.17, ptr noundef %49)
-  tail call void @exit(i32 noundef 1) #19
+  tail call void @exit(i32 noundef 1) #20
   unreachable
 
 50:                                               ; preds = %45
@@ -441,7 +441,7 @@ sub_012.i:                                        ; preds = %.tail7.thread.i
   %92 = load ptr, ptr @progname, align 8
   call void (ptr, ...) @write_stderr(ptr noundef nonnull @.str.87, ptr noundef %92, ptr noundef nonnull %68)
   call fastcc void @do_advice()
-  call void @exit(i32 noundef 1) #19
+  call void @exit(i32 noundef 1) #20
   unreachable
 
 set_mode.exit:                                    ; preds = %.tail.i, %.tail.thread.i, %.thread.i, %.tail7.i, %.tail7.thread.i, %.tail7.thread.thread.i, %.thread18.i, %.tail11.i, %.tail11.thread.i
@@ -493,7 +493,7 @@ set_mode.exit:                                    ; preds = %.tail.i, %.tail.thr
 110:                                              ; preds = %54
   %111 = load ptr, ptr @progname, align 8
   call void (ptr, ...) @write_stderr(ptr noundef nonnull @.str.23, ptr noundef %111)
-  call void @exit(i32 noundef 1) #19
+  call void @exit(i32 noundef 1) #20
   unreachable
 
 112:                                              ; preds = %54
@@ -535,7 +535,7 @@ set_mode.exit:                                    ; preds = %.tail.i, %.tail.thr
 
 125:                                              ; preds = %54
   call fastcc void @do_advice()
-  call void @exit(i32 noundef 1) #19
+  call void @exit(i32 noundef 1) #20
   unreachable
 
 126:                                              ; preds = %54
@@ -637,7 +637,7 @@ set_mode.exit:                                    ; preds = %.tail.i, %.tail.thr
   %174 = load ptr, ptr @progname, align 8
   call void (ptr, ...) @write_stderr(ptr noundef nonnull @.str.35, ptr noundef %174)
   call fastcc void @do_advice()
-  call void @exit(i32 noundef 1) #19
+  call void @exit(i32 noundef 1) #20
   unreachable
 
 175:                                              ; preds = %170
@@ -662,7 +662,7 @@ set_mode.exit:                                    ; preds = %.tail.i, %.tail.thr
   %188 = load ptr, ptr @progname, align 8
   call void (ptr, ...) @write_stderr(ptr noundef nonnull @.str.36, ptr noundef %188, ptr noundef %132)
   call fastcc void @do_advice()
-  call void @exit(i32 noundef 1) #19
+  call void @exit(i32 noundef 1) #20
   unreachable
 
 189:                                              ; preds = %142, %150, %158, %166, %175, %162, %154, %146, %138
@@ -685,7 +685,7 @@ set_mode.exit:                                    ; preds = %.tail.i, %.tail.thr
   %199 = load ptr, ptr %198, align 8
   call void (ptr, ...) @write_stderr(ptr noundef nonnull @.str.37, ptr noundef %196, ptr noundef %199)
   call fastcc void @do_advice()
-  call void @exit(i32 noundef 1) #19
+  call void @exit(i32 noundef 1) #20
   unreachable
 
 200:                                              ; preds = %192
@@ -697,7 +697,7 @@ set_mode.exit:                                    ; preds = %.tail.i, %.tail.thr
   %204 = load ptr, ptr @progname, align 8
   call void (ptr, ...) @write_stderr(ptr noundef nonnull @.str.38, ptr noundef %204)
   call fastcc void @do_advice()
-  call void @exit(i32 noundef 1) #19
+  call void @exit(i32 noundef 1) #20
   unreachable
 
 205:                                              ; preds = %200
@@ -781,7 +781,7 @@ set_mode.exit:                                    ; preds = %.tail.i, %.tail.thr
 245:                                              ; preds = %243, %240, %231
   %246 = load ptr, ptr @progname, align 8
   call void (ptr, ...) @write_stderr(ptr noundef nonnull @.str.104, ptr noundef %246, ptr noundef %236)
-  call void @exit(i32 noundef 1) #19
+  call void @exit(i32 noundef 1) #20
   unreachable
 
 247:                                              ; preds = %243
@@ -807,7 +807,7 @@ adjust_data_dir.exit:                             ; preds = %.thread, %207, %212
   %256 = load ptr, ptr @progname, align 8
   call void (ptr, ...) @write_stderr(ptr noundef nonnull @.str.39, ptr noundef %256)
   call fastcc void @do_advice()
-  call void @exit(i32 noundef 1) #19
+  call void @exit(i32 noundef 1) #20
   unreachable
 
 257:                                              ; preds = %adjust_data_dir.exit
@@ -959,7 +959,7 @@ define internal fastcc void @do_help() unnamed_addr #4 {
   ret void
 }
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
@@ -1054,7 +1054,7 @@ define internal fastcc void @set_sig(ptr noundef %0) unnamed_addr #4 {
   %26 = load ptr, ptr @progname, align 8
   tail call void (ptr, ...) @write_stderr(ptr noundef nonnull @.str.97, ptr noundef %26, ptr noundef %0)
   tail call fastcc void @do_advice()
-  tail call void @exit(i32 noundef 1) #19
+  tail call void @exit(i32 noundef 1) #20
   unreachable
 
 27:                                               ; preds = %22, %19, %16, %13, %10, %7, %4, %1
@@ -1125,7 +1125,7 @@ define internal fastcc void @do_init() unnamed_addr #4 {
 25:                                               ; preds = %22
   %26 = load ptr, ptr @progname, align 8
   tail call void (ptr, ...) @write_stderr(ptr noundef nonnull @.str.111, ptr noundef %26)
-  tail call void @exit(i32 noundef 1) #19
+  tail call void @exit(i32 noundef 1) #20
   unreachable
 
 27:                                               ; preds = %22
@@ -1223,7 +1223,7 @@ free_readfile.exit:                               ; preds = %.lr.ph.i, %.prehead
 postmaster_is_alive.exit.thread:                  ; preds = %20, %17, %9, %5, %postmaster_is_alive.exit, %postmaster_is_alive.exit18, %0
   %39 = load ptr, ptr @progname, align 8
   %40 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.114, ptr noundef %39) #17
-  tail call void @exit(i32 noundef 3) #19
+  tail call void @exit(i32 noundef 3) #20
   unreachable
 
 41:                                               ; preds = %25, %free_readfile.exit, %14
@@ -1275,7 +1275,7 @@ thread-pre-split:                                 ; preds = %9, %7
 19:                                               ; preds = %16
   %20 = load ptr, ptr @progname, align 8
   tail call void (ptr, ...) @write_stderr(ptr noundef nonnull @.str.131, ptr noundef %20, ptr noundef nonnull @postopts_file)
-  tail call void @exit(i32 noundef 1) #19
+  tail call void @exit(i32 noundef 1) #20
   unreachable
 
 21:                                               ; preds = %16
@@ -1286,7 +1286,7 @@ thread-pre-split:                                 ; preds = %9, %7
 23:                                               ; preds = %21
   %24 = load ptr, ptr @progname, align 8
   tail call void (ptr, ...) @write_stderr(ptr noundef nonnull @.str.132, ptr noundef %24, ptr noundef nonnull @postopts_file)
-  tail call void @exit(i32 noundef 1) #19
+  tail call void @exit(i32 noundef 1) #20
   unreachable
 
 25:                                               ; preds = %21
@@ -1401,11 +1401,11 @@ unlimit_core_size.exit:                           ; preds = %58, %60, %63
 
 72:                                               ; preds = %65
   %73 = load ptr, ptr @progname, align 8
-  %74 = tail call ptr @__errno_location() #20
+  %74 = tail call ptr @__errno_location() #21
   %75 = load i32, ptr %74, align 4
   %76 = call ptr @pg_strerror(i32 noundef %75) #17
   call void (ptr, ...) @write_stderr(ptr noundef nonnull @.str.135, ptr noundef %73, ptr noundef %76)
-  call void @exit(i32 noundef 1) #19
+  call void @exit(i32 noundef 1) #20
   unreachable
 
 77:                                               ; preds = %65
@@ -1419,11 +1419,11 @@ unlimit_core_size.exit:                           ; preds = %58, %60, %63
 
 81:                                               ; preds = %78
   %82 = load ptr, ptr @progname, align 8
-  %83 = tail call ptr @__errno_location() #20
+  %83 = tail call ptr @__errno_location() #21
   %84 = load i32, ptr %83, align 4
   %85 = call ptr @pg_strerror(i32 noundef %84) #17
   call void (ptr, ...) @write_stderr(ptr noundef nonnull @.str.136, ptr noundef %82, ptr noundef %85)
-  call void @exit(i32 noundef 1) #19
+  call void @exit(i32 noundef 1) #20
   unreachable
 
 86:                                               ; preds = %78
@@ -1446,11 +1446,11 @@ unlimit_core_size.exit:                           ; preds = %58, %60, %63
   %.0.i = phi ptr [ %92, %91 ], [ %94, %93 ]
   %96 = call i32 (ptr, ptr, ...) @execl(ptr noundef nonnull @.str.139, ptr noundef nonnull @.str.139, ptr noundef nonnull @.str.140, ptr noundef %.0.i, ptr noundef null) #17
   %97 = load ptr, ptr @progname, align 8
-  %98 = tail call ptr @__errno_location() #20
+  %98 = tail call ptr @__errno_location() #21
   %99 = load i32, ptr %98, align 4
   %100 = call ptr @pg_strerror(i32 noundef %99) #17
   call void (ptr, ...) @write_stderr(ptr noundef nonnull @.str.135, ptr noundef %97, ptr noundef %100)
-  call void @exit(i32 noundef 1) #19
+  call void @exit(i32 noundef 1) #20
   unreachable
 
 start_postmaster.exit:                            ; preds = %77
@@ -1613,7 +1613,7 @@ print_msg.exit17:                                 ; preds = %.loopexit
   call fastcc void @print_msg(ptr noundef nonnull @.str.127)
   %165 = load ptr, ptr @progname, align 8
   call void (ptr, ...) @write_stderr(ptr noundef nonnull @.str.128, ptr noundef %165)
-  call void @exit(i32 noundef 1) #19
+  call void @exit(i32 noundef 1) #20
   unreachable
 
 166:                                              ; preds = %free_readfile.exit25.i
@@ -1622,7 +1622,7 @@ print_msg.exit17:                                 ; preds = %.loopexit
   call fastcc void @print_msg(ptr noundef nonnull @.str.127)
   %167 = load ptr, ptr @progname, align 8
   call void (ptr, ...) @write_stderr(ptr noundef nonnull @.str.129, ptr noundef %167)
-  call void @exit(i32 noundef 1) #19
+  call void @exit(i32 noundef 1) #20
   unreachable
 
 168:                                              ; preds = %start_postmaster.exit
@@ -1653,7 +1653,7 @@ define internal fastcc void @do_stop() unnamed_addr #4 {
   %4 = load ptr, ptr @progname, align 8
   tail call void (ptr, ...) @write_stderr(ptr noundef nonnull @.str.145, ptr noundef %4, ptr noundef nonnull @pid_file)
   tail call void (ptr, ...) @write_stderr(ptr noundef nonnull @.str.146)
-  tail call void @exit(i32 noundef 1) #19
+  tail call void @exit(i32 noundef 1) #20
   unreachable
 
 5:                                                ; preds = %0
@@ -1664,7 +1664,7 @@ define internal fastcc void @do_stop() unnamed_addr #4 {
   %8 = sub i32 0, %1
   %9 = load ptr, ptr @progname, align 8
   tail call void (ptr, ...) @write_stderr(ptr noundef nonnull @.str.147, ptr noundef %9, i32 noundef %8)
-  tail call void @exit(i32 noundef 1) #19
+  tail call void @exit(i32 noundef 1) #20
   unreachable
 
 10:                                               ; preds = %5
@@ -1675,11 +1675,11 @@ define internal fastcc void @do_stop() unnamed_addr #4 {
 
 13:                                               ; preds = %10
   %14 = load ptr, ptr @progname, align 8
-  %15 = tail call ptr @__errno_location() #20
+  %15 = tail call ptr @__errno_location() #21
   %16 = load i32, ptr %15, align 4
   %17 = tail call ptr @pg_strerror(i32 noundef %16) #17
   tail call void (ptr, ...) @write_stderr(ptr noundef nonnull @.str.141, ptr noundef %14, i32 noundef %1, ptr noundef %17)
-  tail call void @exit(i32 noundef 1) #19
+  tail call void @exit(i32 noundef 1) #20
   unreachable
 
 18:                                               ; preds = %10
@@ -1722,7 +1722,7 @@ print_msg.exit7:                                  ; preds = %23, %24
   br label %35
 
 35:                                               ; preds = %34, %30
-  tail call void @exit(i32 noundef 1) #19
+  tail call void @exit(i32 noundef 1) #20
   unreachable
 
 36:                                               ; preds = %print_msg.exit7
@@ -1788,7 +1788,7 @@ postmaster_is_alive.exit:                         ; preds = %11
   %17 = load ptr, ptr @progname, align 8
   tail call void (ptr, ...) @write_stderr(ptr noundef nonnull @.str.155, ptr noundef %17, i32 noundef %8)
   tail call void (ptr, ...) @write_stderr(ptr noundef nonnull @.str.156)
-  tail call void @exit(i32 noundef 1) #19
+  tail call void @exit(i32 noundef 1) #20
   unreachable
 
 postmaster_is_alive.exit.thread:                  ; preds = %11, %7, %5, %postmaster_is_alive.exit
@@ -1815,11 +1815,11 @@ postmaster_is_alive.exit11:                       ; preds = %20
 
 28:                                               ; preds = %25
   %29 = load ptr, ptr @progname, align 8
-  %30 = tail call ptr @__errno_location() #20
+  %30 = tail call ptr @__errno_location() #21
   %31 = load i32, ptr %30, align 4
   %32 = tail call ptr @pg_strerror(i32 noundef %31) #17
   tail call void (ptr, ...) @write_stderr(ptr noundef nonnull @.str.141, ptr noundef %29, i32 noundef %.0, ptr noundef %32)
-  tail call void @exit(i32 noundef 1) #19
+  tail call void @exit(i32 noundef 1) #20
   unreachable
 
 33:                                               ; preds = %25
@@ -1850,7 +1850,7 @@ print_msg.exit:                                   ; preds = %33, %34
   br label %45
 
 45:                                               ; preds = %44, %40
-  tail call void @exit(i32 noundef 1) #19
+  tail call void @exit(i32 noundef 1) #20
   unreachable
 
 46:                                               ; preds = %print_msg.exit
@@ -1893,7 +1893,7 @@ define internal fastcc void @do_reload() unnamed_addr #4 {
   %4 = load ptr, ptr @progname, align 8
   tail call void (ptr, ...) @write_stderr(ptr noundef nonnull @.str.145, ptr noundef %4, ptr noundef nonnull @pid_file)
   tail call void (ptr, ...) @write_stderr(ptr noundef nonnull @.str.146)
-  tail call void @exit(i32 noundef 1) #19
+  tail call void @exit(i32 noundef 1) #20
   unreachable
 
 5:                                                ; preds = %0
@@ -1905,7 +1905,7 @@ define internal fastcc void @do_reload() unnamed_addr #4 {
   %9 = load ptr, ptr @progname, align 8
   tail call void (ptr, ...) @write_stderr(ptr noundef nonnull @.str.159, ptr noundef %9, i32 noundef %8)
   tail call void (ptr, ...) @write_stderr(ptr noundef nonnull @.str.156)
-  tail call void @exit(i32 noundef 1) #19
+  tail call void @exit(i32 noundef 1) #20
   unreachable
 
 10:                                               ; preds = %5
@@ -1916,11 +1916,11 @@ define internal fastcc void @do_reload() unnamed_addr #4 {
 
 13:                                               ; preds = %10
   %14 = load ptr, ptr @progname, align 8
-  %15 = tail call ptr @__errno_location() #20
+  %15 = tail call ptr @__errno_location() #21
   %16 = load i32, ptr %15, align 4
   %17 = tail call ptr @pg_strerror(i32 noundef %16) #17
   tail call void (ptr, ...) @write_stderr(ptr noundef nonnull @.str.160, ptr noundef %14, i32 noundef %1, ptr noundef %17)
-  tail call void @exit(i32 noundef 1) #19
+  tail call void @exit(i32 noundef 1) #20
   unreachable
 
 18:                                               ; preds = %10
@@ -1950,7 +1950,7 @@ define internal fastcc void @do_promote() unnamed_addr #4 {
   %6 = load ptr, ptr @progname, align 8
   tail call void (ptr, ...) @write_stderr(ptr noundef nonnull @.str.145, ptr noundef %6, ptr noundef nonnull @pid_file)
   tail call void (ptr, ...) @write_stderr(ptr noundef nonnull @.str.146)
-  tail call void @exit(i32 noundef 1) #19
+  tail call void @exit(i32 noundef 1) #20
   unreachable
 
 7:                                                ; preds = %0
@@ -1961,7 +1961,7 @@ define internal fastcc void @do_promote() unnamed_addr #4 {
   %10 = sub i32 0, %3
   %11 = load ptr, ptr @progname, align 8
   tail call void (ptr, ...) @write_stderr(ptr noundef nonnull @.str.162, ptr noundef %11, i32 noundef %10)
-  tail call void @exit(i32 noundef 1) #19
+  tail call void @exit(i32 noundef 1) #20
   unreachable
 
 12:                                               ; preds = %7
@@ -1975,7 +1975,7 @@ define internal fastcc void @do_promote() unnamed_addr #4 {
 17:                                               ; preds = %12
   %18 = load ptr, ptr @progname, align 8
   call void (ptr, ...) @write_stderr(ptr noundef nonnull @.str.174, ptr noundef %18)
-  call void @exit(i32 noundef 1) #19
+  call void @exit(i32 noundef 1) #20
   unreachable
 
 get_control_dbstate.exit:                         ; preds = %12
@@ -1989,7 +1989,7 @@ get_control_dbstate.exit:                         ; preds = %12
 21:                                               ; preds = %get_control_dbstate.exit
   %22 = load ptr, ptr @progname, align 8
   call void (ptr, ...) @write_stderr(ptr noundef nonnull @.str.163, ptr noundef %22)
-  call void @exit(i32 noundef 1) #19
+  call void @exit(i32 noundef 1) #20
   unreachable
 
 23:                                               ; preds = %get_control_dbstate.exit
@@ -2001,11 +2001,11 @@ get_control_dbstate.exit:                         ; preds = %12
 
 28:                                               ; preds = %23
   %29 = load ptr, ptr @progname, align 8
-  %30 = tail call ptr @__errno_location() #20
+  %30 = tail call ptr @__errno_location() #21
   %31 = load i32, ptr %30, align 4
   %32 = call ptr @pg_strerror(i32 noundef %31) #17
   call void (ptr, ...) @write_stderr(ptr noundef nonnull @.str.166, ptr noundef %29, ptr noundef nonnull @promote_file, ptr noundef %32)
-  call void @exit(i32 noundef 1) #19
+  call void @exit(i32 noundef 1) #20
   unreachable
 
 33:                                               ; preds = %23
@@ -2015,11 +2015,11 @@ get_control_dbstate.exit:                         ; preds = %12
 
 35:                                               ; preds = %33
   %36 = load ptr, ptr @progname, align 8
-  %37 = tail call ptr @__errno_location() #20
+  %37 = tail call ptr @__errno_location() #21
   %38 = load i32, ptr %37, align 4
   %39 = call ptr @pg_strerror(i32 noundef %38) #17
   call void (ptr, ...) @write_stderr(ptr noundef nonnull @.str.167, ptr noundef %36, ptr noundef nonnull @promote_file, ptr noundef %39)
-  call void @exit(i32 noundef 1) #19
+  call void @exit(i32 noundef 1) #20
   unreachable
 
 40:                                               ; preds = %33
@@ -2030,7 +2030,7 @@ get_control_dbstate.exit:                         ; preds = %12
 
 42:                                               ; preds = %40
   %43 = load ptr, ptr @progname, align 8
-  %44 = tail call ptr @__errno_location() #20
+  %44 = tail call ptr @__errno_location() #21
   %45 = load i32, ptr %44, align 4
   %46 = call ptr @pg_strerror(i32 noundef %45) #17
   call void (ptr, ...) @write_stderr(ptr noundef nonnull @.str.168, ptr noundef %43, i32 noundef %3, ptr noundef %46)
@@ -2046,7 +2046,7 @@ get_control_dbstate.exit:                         ; preds = %12
   br label %52
 
 52:                                               ; preds = %48, %42
-  call void @exit(i32 noundef 1) #19
+  call void @exit(i32 noundef 1) #20
   unreachable
 
 53:                                               ; preds = %40
@@ -2092,7 +2092,7 @@ print_msg.exit:                                   ; preds = %54, %55
 72:                                               ; preds = %67
   %73 = load ptr, ptr @progname, align 8
   call void (ptr, ...) @write_stderr(ptr noundef nonnull @.str.174, ptr noundef %73)
-  call void @exit(i32 noundef 1) #19
+  call void @exit(i32 noundef 1) #20
   unreachable
 
 get_control_dbstate.exit.i:                       ; preds = %67
@@ -2148,7 +2148,7 @@ print_msg.exit11:                                 ; preds = %wait_for_postmaster
   call fastcc void @print_msg(ptr noundef nonnull @.str.127)
   %95 = load ptr, ptr @progname, align 8
   call void (ptr, ...) @write_stderr(ptr noundef nonnull @.str.172, ptr noundef %95)
-  call void @exit(i32 noundef 1) #19
+  call void @exit(i32 noundef 1) #20
   unreachable
 
 96:                                               ; preds = %53
@@ -2178,7 +2178,7 @@ define internal fastcc void @do_logrotate() unnamed_addr #4 {
   %4 = load ptr, ptr @progname, align 8
   tail call void (ptr, ...) @write_stderr(ptr noundef nonnull @.str.145, ptr noundef %4, ptr noundef nonnull @pid_file)
   tail call void (ptr, ...) @write_stderr(ptr noundef nonnull @.str.146)
-  tail call void @exit(i32 noundef 1) #19
+  tail call void @exit(i32 noundef 1) #20
   unreachable
 
 5:                                                ; preds = %0
@@ -2189,7 +2189,7 @@ define internal fastcc void @do_logrotate() unnamed_addr #4 {
   %8 = sub i32 0, %1
   %9 = load ptr, ptr @progname, align 8
   tail call void (ptr, ...) @write_stderr(ptr noundef nonnull @.str.175, ptr noundef %9, i32 noundef %8)
-  tail call void @exit(i32 noundef 1) #19
+  tail call void @exit(i32 noundef 1) #20
   unreachable
 
 10:                                               ; preds = %5
@@ -2201,11 +2201,11 @@ define internal fastcc void @do_logrotate() unnamed_addr #4 {
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr @progname, align 8
-  %17 = tail call ptr @__errno_location() #20
+  %17 = tail call ptr @__errno_location() #21
   %18 = load i32, ptr %17, align 4
   %19 = tail call ptr @pg_strerror(i32 noundef %18) #17
   tail call void (ptr, ...) @write_stderr(ptr noundef nonnull @.str.177, ptr noundef %16, ptr noundef nonnull @logrotate_file, ptr noundef %19)
-  tail call void @exit(i32 noundef 1) #19
+  tail call void @exit(i32 noundef 1) #20
   unreachable
 
 20:                                               ; preds = %10
@@ -2215,11 +2215,11 @@ define internal fastcc void @do_logrotate() unnamed_addr #4 {
 
 22:                                               ; preds = %20
   %23 = load ptr, ptr @progname, align 8
-  %24 = tail call ptr @__errno_location() #20
+  %24 = tail call ptr @__errno_location() #21
   %25 = load i32, ptr %24, align 4
   %26 = tail call ptr @pg_strerror(i32 noundef %25) #17
   tail call void (ptr, ...) @write_stderr(ptr noundef nonnull @.str.178, ptr noundef %23, ptr noundef nonnull @logrotate_file, ptr noundef %26)
-  tail call void @exit(i32 noundef 1) #19
+  tail call void @exit(i32 noundef 1) #20
   unreachable
 
 27:                                               ; preds = %20
@@ -2230,7 +2230,7 @@ define internal fastcc void @do_logrotate() unnamed_addr #4 {
 
 29:                                               ; preds = %27
   %30 = load ptr, ptr @progname, align 8
-  %31 = tail call ptr @__errno_location() #20
+  %31 = tail call ptr @__errno_location() #21
   %32 = load i32, ptr %31, align 4
   %33 = tail call ptr @pg_strerror(i32 noundef %32) #17
   tail call void (ptr, ...) @write_stderr(ptr noundef nonnull @.str.179, ptr noundef %30, i32 noundef %1, ptr noundef %33)
@@ -2246,7 +2246,7 @@ define internal fastcc void @do_logrotate() unnamed_addr #4 {
   br label %39
 
 39:                                               ; preds = %35, %29
-  tail call void @exit(i32 noundef 1) #19
+  tail call void @exit(i32 noundef 1) #20
   unreachable
 
 40:                                               ; preds = %27
@@ -2274,11 +2274,11 @@ define internal fastcc void @do_kill(i32 noundef %0) unnamed_addr #4 {
 4:                                                ; preds = %1
   %5 = load ptr, ptr @progname, align 8
   %6 = load i32, ptr @sig, align 4
-  %7 = tail call ptr @__errno_location() #20
+  %7 = tail call ptr @__errno_location() #21
   %8 = load i32, ptr %7, align 4
   %9 = tail call ptr @pg_strerror(i32 noundef %8) #17
   tail call void (ptr, ...) @write_stderr(ptr noundef nonnull @.str.182, ptr noundef %5, i32 noundef %6, i32 noundef %0, ptr noundef %9)
-  tail call void @exit(i32 noundef 1) #19
+  tail call void @exit(i32 noundef 1) #20
   unreachable
 
 10:                                               ; preds = %1
@@ -2327,7 +2327,7 @@ define internal fastcc noundef ptr @find_other_exec_or_die(ptr noundef %0, ptr n
   br label %19
 
 19:                                               ; preds = %18, %17
-  call void @exit(i32 noundef 1) #19
+  call void @exit(i32 noundef 1) #20
   unreachable
 
 20:                                               ; preds = %3
@@ -2370,7 +2370,7 @@ define internal fastcc i32 @get_pgpid(i1 noundef zeroext %0) unnamed_addr #4 {
   br i1 %.not, label %17, label %6
 
 6:                                                ; preds = %1
-  %7 = tail call ptr @__errno_location() #20
+  %7 = tail call ptr @__errno_location() #21
   %8 = load i32, ptr %7, align 4
   %9 = icmp eq i32 %8, 2
   %10 = load ptr, ptr @progname, align 8
@@ -2397,7 +2397,7 @@ define internal fastcc i32 @get_pgpid(i1 noundef zeroext %0) unnamed_addr #4 {
   br i1 %.not10, label %27, label %19
 
 19:                                               ; preds = %17
-  %20 = tail call ptr @__errno_location() #20
+  %20 = tail call ptr @__errno_location() #21
   %21 = load i32, ptr %20, align 4
   %22 = icmp eq i32 %21, 2
   br i1 %22, label %23, label %27
@@ -2416,7 +2416,7 @@ define internal fastcc i32 @get_pgpid(i1 noundef zeroext %0) unnamed_addr #4 {
   br i1 %29, label %30, label %37
 
 30:                                               ; preds = %27
-  %31 = tail call ptr @__errno_location() #20
+  %31 = tail call ptr @__errno_location() #21
   %32 = load i32, ptr %31, align 4
   %33 = icmp eq i32 %32, 2
   br i1 %33, label %50, label %34
@@ -2425,7 +2425,7 @@ define internal fastcc i32 @get_pgpid(i1 noundef zeroext %0) unnamed_addr #4 {
   %35 = load ptr, ptr @progname, align 8
   %36 = tail call ptr @pg_strerror(i32 noundef %32) #17
   tail call void (ptr, ...) @write_stderr(ptr noundef nonnull @.str.118, ptr noundef %35, ptr noundef nonnull @pid_file, ptr noundef %36)
-  tail call void @exit(i32 noundef 1) #19
+  tail call void @exit(i32 noundef 1) #20
   unreachable
 
 37:                                               ; preds = %27
@@ -2450,7 +2450,7 @@ define internal fastcc i32 @get_pgpid(i1 noundef zeroext %0) unnamed_addr #4 {
   %.str.121.sink = phi ptr [ @.str.121, %44 ], [ @.str.120, %42 ]
   %46 = load ptr, ptr @progname, align 8
   call void (ptr, ...) @write_stderr(ptr noundef nonnull %.str.121.sink, ptr noundef %46, ptr noundef nonnull @pid_file)
-  call void @exit(i32 noundef 1) #19
+  call void @exit(i32 noundef 1) #20
   unreachable
 
 47:                                               ; preds = %37
@@ -2666,7 +2666,7 @@ define internal void @trap_sigint_during_startup(i32 noundef %0) #4 {
 6:                                                ; preds = %3
   %7 = load ptr, ptr @progname, align 8
   %8 = load volatile i32, ptr @postmasterPID, align 4
-  %9 = tail call ptr @__errno_location() #20
+  %9 = tail call ptr @__errno_location() #21
   %10 = load i32, ptr %9, align 4
   %11 = tail call ptr @pg_strerror(i32 noundef %10) #17
   tail call void (ptr, ...) @write_stderr(ptr noundef nonnull @.str.141, ptr noundef %7, i32 noundef %8, ptr noundef %11)
@@ -2804,7 +2804,7 @@ attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protect
 attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2819,7 +2819,8 @@ attributes #16 = { nocallback nofree nosync nounwind willreturn memory(argmem: r
 attributes #17 = { nounwind }
 attributes #18 = { nounwind willreturn memory(read) }
 attributes #19 = { noreturn nounwind }
-attributes #20 = { nounwind willreturn memory(none) }
+attributes #20 = { cold noreturn nounwind }
+attributes #21 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

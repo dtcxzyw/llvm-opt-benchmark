@@ -569,7 +569,7 @@ simple_action_list_append.exit63.i.else:          ; preds = %simple_action_list_
   br i1 %158, label %simple_action_list_append.exit.i.cont.backedge, label %159
 
 159:                                              ; preds = %156
-  call void @exit(i32 noundef 1) #17
+  call void @exit(i32 noundef 1) #18
   unreachable
 
 160:                                              ; preds = %simple_action_list_append.exit.i.cont
@@ -596,7 +596,7 @@ simple_action_list_append.exit63.i.else:          ; preds = %simple_action_list_
 
 172:                                              ; preds = %170, %167
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.83, ptr noundef %165) #15
-  call void @exit(i32 noundef 1) #17
+  call void @exit(i32 noundef 1) #18
   unreachable
 
 173:                                              ; preds = %170, %167
@@ -653,7 +653,7 @@ simple_action_list_append.exit63.i.else:          ; preds = %simple_action_list_
   br i1 %199, label %206, label %200
 
 200:                                              ; preds = %197
-  call void @exit(i32 noundef 1) #17
+  call void @exit(i32 noundef 1) #18
   unreachable
 
 201:                                              ; preds = %193
@@ -664,7 +664,7 @@ simple_action_list_append.exit63.i.else:          ; preds = %simple_action_list_
   br i1 %204, label %206, label %205
 
 205:                                              ; preds = %201
-  call void @exit(i32 noundef 1) #17
+  call void @exit(i32 noundef 1) #18
   unreachable
 
 206:                                              ; preds = %201, %197
@@ -776,7 +776,7 @@ sub_1.i:                                          ; preds = %sub_0.i
 .loopexit.i:                                      ; preds = %simple_action_list_append.exit.i.cont, %238, %.tail.i, %sub_1.i, %sub_0.i, %215
   %244 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 320), align 8
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 2, ptr noundef nonnull @.str.90, ptr noundef %244) #15
-  call void @exit(i32 noundef 1) #17
+  call void @exit(i32 noundef 1) #18
   unreachable
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %262
@@ -862,7 +862,7 @@ parse_psql_options.exit:                          ; preds = %262, %.preheader.i
 
 277:                                              ; preds = %.cont
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.23) #15
-  call void @exit(i32 noundef 1) #17
+  call void @exit(i32 noundef 1) #18
   unreachable
 
 278:                                              ; preds = %.cont.thread, %.cont
@@ -1024,7 +1024,7 @@ parse_psql_options.exit:                          ; preds = %262, %.preheader.i
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.38, ptr noundef %355) #15
   %356 = load ptr, ptr @pset, align 8
   call void @PQfinish(ptr noundef %356) #15
-  call void @exit(i32 noundef 2) #17
+  call void @exit(i32 noundef 2) #18
   unreachable
 
 357:                                              ; preds = %349
@@ -1066,7 +1066,7 @@ parse_psql_options.exit:                          ; preds = %262, %.preheader.i
 
 373:                                              ; preds = %371
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.40, ptr noundef nonnull %.sroa.13.0) #15
-  call void @exit(i32 noundef 1) #17
+  call void @exit(i32 noundef 1) #18
   unreachable
 
 374:                                              ; preds = %371, %370
@@ -1311,7 +1311,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 
 declare void @usage(i16 noundef zeroext) local_unnamed_addr #1
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind uwtable
@@ -1398,7 +1398,7 @@ define internal fastcc void @process_psqlrc(ptr noundef %0) unnamed_addr #0 {
 
 10:                                               ; preds = %1
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.93) #15
-  call void @exit(i32 noundef 1) #17
+  call void @exit(i32 noundef 1) #18
   unreachable
 
 11:                                               ; preds = %1
@@ -2094,7 +2094,7 @@ attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protect
 attributes #2 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2107,6 +2107,7 @@ attributes #14 = { nocallback nofree nosync nounwind willreturn memory(argmem: r
 attributes #15 = { nounwind }
 attributes #16 = { nounwind willreturn memory(read) }
 attributes #17 = { noreturn nounwind }
+attributes #18 = { cold noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

@@ -40,7 +40,7 @@ entry:
   %tobool.not = icmp eq i32 %datafield, 0
   %add4 = add i64 %add3, 8
   %spec.select = select i1 %tobool.not, i64 %add3, i64 %add4
-  %call = tail call noalias ptr @zmalloc(i64 noundef %spec.select) #22
+  %call = tail call noalias ptr @zmalloc(i64 noundef %spec.select) #23
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %return, label %if.end6
 
@@ -60,7 +60,7 @@ declare noalias ptr @zmalloc(i64 noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @raxNew() local_unnamed_addr #1 {
 entry:
-  %call = tail call noalias dereferenceable_or_null(24) ptr @zmalloc(i64 noundef 24) #22
+  %call = tail call noalias dereferenceable_or_null(24) ptr @zmalloc(i64 noundef 24) #23
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %return, label %if.end
 
@@ -69,7 +69,7 @@ if.end:                                           ; preds = %entry
   store i64 0, ptr %numele, align 8
   %numnodes = getelementptr inbounds i8, ptr %call, i64 16
   store i64 1, ptr %numnodes, align 8
-  %call.i = tail call noalias dereferenceable_or_null(8) ptr @zmalloc(i64 noundef 8) #22
+  %call.i = tail call noalias dereferenceable_or_null(8) ptr @zmalloc(i64 noundef 8) #23
   %cmp.i = icmp eq ptr %call.i, null
   br i1 %cmp.i, label %if.then4, label %raxNewNode.exit
 
@@ -80,7 +80,7 @@ raxNewNode.exit:                                  ; preds = %if.end
 
 if.then4:                                         ; preds = %if.end
   store ptr null, ptr %call, align 8
-  tail call void @zfree(ptr noundef nonnull %call) #23
+  tail call void @zfree(ptr noundef nonnull %call) #24
   br label %return
 
 return:                                           ; preds = %raxNewNode.exit, %entry, %if.then4
@@ -119,7 +119,7 @@ if.end:                                           ; preds = %entry
   %add11 = add nuw nsw i64 %add5, %spec.select
   %add21 = add nuw nsw i64 %add11, %and
   %add22 = add nuw nsw i64 %add21, %land.ext
-  %call = tail call ptr @zrealloc(ptr noundef nonnull %n, i64 noundef %add22) #24
+  %call = tail call ptr @zrealloc(ptr noundef nonnull %n, i64 noundef %add22) #25
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -215,8 +215,8 @@ entry:
   br i1 %cmp, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %entry
-  tail call void @_serverAssert(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 252) #23
-  tail call void @abort() #25
+  tail call void @_serverAssert(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 252) #24
+  tail call void @abort() #26
   unreachable
 
 cond.end:                                         ; preds = %entry
@@ -250,13 +250,13 @@ cond.end:                                         ; preds = %entry
   %add48 = add nuw nsw i64 %add40, %mul58
   %add61 = add nuw nsw i64 %add48, %land.ext
   %add76 = add nuw nsw i64 %add61, %and47
-  %call.i = tail call noalias dereferenceable_or_null(8) ptr @zmalloc(i64 noundef 8) #22
+  %call.i = tail call noalias dereferenceable_or_null(8) ptr @zmalloc(i64 noundef 8) #23
   %cmp.i = icmp eq ptr %call.i, null
   br i1 %cmp.i, label %return, label %if.end
 
 if.end:                                           ; preds = %cond.end
   store i32 0, ptr %call.i, align 4
-  %call86 = tail call ptr @zrealloc(ptr noundef nonnull %n, i64 noundef %add76) #24
+  %call86 = tail call ptr @zrealloc(ptr noundef nonnull %n, i64 noundef %add76) #25
   %cmp87 = icmp eq ptr %call86, null
   br i1 %cmp87, label %if.then89, label %for.cond.preheader
 
@@ -272,7 +272,7 @@ for.body.preheader:                               ; preds = %for.cond.preheader
   br label %for.body
 
 if.then89:                                        ; preds = %if.end
-  tail call void @zfree(ptr noundef nonnull %call.i) #23
+  tail call void @zfree(ptr noundef nonnull %call.i) #24
   br label %return
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
@@ -381,7 +381,7 @@ return:                                           ; preds = %cond.end, %if.end15
 
 declare void @_serverAssert(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: cold nofree noreturn nounwind
 declare void @abort() local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -395,12 +395,12 @@ entry:
   br i1 %cmp3, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %entry
-  tail call void @_serverAssert(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 393) #23
-  tail call void @abort() #25
+  tail call void @_serverAssert(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 393) #24
+  tail call void @abort() #26
   unreachable
 
 cond.end:                                         ; preds = %entry
-  %call.i = tail call noalias dereferenceable_or_null(8) ptr @zmalloc(i64 noundef 8) #22
+  %call.i = tail call noalias dereferenceable_or_null(8) ptr @zmalloc(i64 noundef 8) #23
   %cmp.i = icmp eq ptr %call.i, null
   br i1 %cmp.i, label %raxNewNode.exit.thread, label %if.end
 
@@ -453,13 +453,13 @@ raxGetData.exit:                                  ; preds = %if.then13, %if.end.
 if.end22:                                         ; preds = %raxGetData.exit, %if.end
   %data.0 = phi ptr [ null, %if.end ], [ %retval.0.i, %raxGetData.exit ]
   %newsize.0 = phi i64 [ %add9, %if.end ], [ %spec.select29, %raxGetData.exit ]
-  %call23 = tail call ptr @zrealloc(ptr noundef nonnull %n, i64 noundef %newsize.0) #24
+  %call23 = tail call ptr @zrealloc(ptr noundef nonnull %n, i64 noundef %newsize.0) #25
   %cmp24 = icmp eq ptr %call23, null
   br i1 %cmp24, label %if.then26, label %if.end27
 
 if.then26:                                        ; preds = %if.end22
   %8 = load ptr, ptr %child, align 8
-  tail call void @zfree(ptr noundef %8) #23
+  tail call void @zfree(ptr noundef %8) #24
   br label %return
 
 if.end27:                                         ; preds = %if.end22
@@ -691,7 +691,7 @@ raxReallocForData.exit:                           ; preds = %if.then12
   %add11.i = add nuw nsw i64 %add5.i, %spec.select.i181
   %add21.i = add nuw nsw i64 %add11.i, %and.i180
   %add22.i = add nuw nsw i64 %add21.i, %land.ext.i
-  %call.i = tail call ptr @zrealloc(ptr noundef nonnull %h.0.lcssa.i, i64 noundef %add22.i) #24
+  %call.i = tail call ptr @zrealloc(ptr noundef nonnull %h.0.lcssa.i, i64 noundef %add22.i) #25
   %tobool14.not = icmp eq ptr %call.i, null
   br i1 %tobool14.not, label %if.then18, label %if.then15
 
@@ -703,7 +703,7 @@ if.then15:                                        ; preds = %if.then12, %raxReal
   br label %if.end20
 
 if.then18:                                        ; preds = %raxReallocForData.exit
-  %call19 = tail call ptr @__errno_location() #26
+  %call19 = tail call ptr @__errno_location() #27
   store i32 12, ptr %call19, align 4
   br label %return
 
@@ -785,7 +785,7 @@ raxSetData.exit:                                  ; preds = %if.then.i, %if.else
   br label %if.end31
 
 if.end31:                                         ; preds = %raxSetData.exit, %if.end28
-  %call32 = tail call ptr @__errno_location() #26
+  %call32 = tail call ptr @__errno_location() #27
   store i32 0, ptr %call32, align 4
   br label %return
 
@@ -854,7 +854,7 @@ cond.end:                                         ; preds = %if.end34
   %50 = icmp ne i32 %49, 1
   %tobool.not.i219 = or i1 %50, %tobool92
   %spec.select.i220 = select i1 %tobool.not.i219, i64 16, i64 24
-  %call.i221 = tail call noalias ptr @zmalloc(i64 noundef %spec.select.i220) #22
+  %call.i221 = tail call noalias ptr @zmalloc(i64 noundef %spec.select.i220) #23
   %cmp.i222 = icmp eq ptr %call.i221, null
   br i1 %cmp.i222, label %raxNewNode.exit, label %if.end6.i
 
@@ -875,7 +875,7 @@ if.then107:                                       ; preds = %raxNewNode.exit
   %or.cond166 = icmp eq i32 %51, 1
   %nodesize.0.v = select i1 %or.cond166, i64 16, i64 8
   %nodesize.0 = add nsw i64 %add113, %nodesize.0.v
-  %call126 = tail call noalias ptr @zmalloc(i64 noundef %nodesize.0) #22
+  %call126 = tail call noalias ptr @zmalloc(i64 noundef %nodesize.0) #23
   br label %if.end127
 
 if.end127:                                        ; preds = %if.then107, %raxNewNode.exit
@@ -888,7 +888,7 @@ if.then129:                                       ; preds = %if.end127
   %and134 = and i64 %sub133, 7
   %add135 = add nsw i64 %conv91, 12
   %add136 = add nsw i64 %add135, %and134
-  %call137 = tail call noalias ptr @zmalloc(i64 noundef %add136) #22
+  %call137 = tail call noalias ptr @zmalloc(i64 noundef %add136) #23
   br label %if.end138
 
 if.end138:                                        ; preds = %if.then129, %if.end127
@@ -902,10 +902,10 @@ if.end138:                                        ; preds = %if.then129, %if.end
   br i1 %or.cond168, label %if.then151, label %if.end153
 
 if.then151:                                       ; preds = %if.end138
-  tail call void @zfree(ptr noundef %call.i221) #23
-  tail call void @zfree(ptr noundef %trimmed.0) #23
-  tail call void @zfree(ptr noundef %postfix.0) #23
-  %call152 = tail call ptr @__errno_location() #26
+  tail call void @zfree(ptr noundef %call.i221) #24
+  tail call void @zfree(ptr noundef %trimmed.0) #24
+  tail call void @zfree(ptr noundef %postfix.0) #24
+  %call152 = tail call ptr @__errno_location() #27
   store i32 12, ptr %call152, align 4
   br label %return
 
@@ -1154,7 +1154,7 @@ if.end349:                                        ; preds = %if.end262, %if.then
   %idx.neg403 = sub nsw i64 0, %land.ext385
   %add.ptr404 = getelementptr inbounds i8, ptr %add.ptr390, i64 %idx.neg403
   store ptr %postfix.1, ptr %add.ptr404, align 8
-  tail call void @zfree(ptr noundef nonnull %h.0.lcssa.i) #23
+  tail call void @zfree(ptr noundef nonnull %h.0.lcssa.i) #24
   br label %if.end691
 
 if.then413:                                       ; preds = %land.lhs.true
@@ -1167,7 +1167,7 @@ if.then413:                                       ; preds = %land.lhs.true
   %add420 = select i1 %cmp427.not, i64 12, i64 20
   %add425 = add nsw i64 %add420, %conv418
   %spec.select172 = add nsw i64 %add425, %and424
-  %call433 = tail call noalias ptr @zmalloc(i64 noundef %spec.select172) #22
+  %call433 = tail call noalias ptr @zmalloc(i64 noundef %spec.select172) #23
   %conv434 = sext i32 %j.5.i to i64
   %add435 = add nsw i64 %conv434, 4
   %102 = xor i32 %j.5.i, 3
@@ -1180,16 +1180,16 @@ if.then413:                                       ; preds = %land.lhs.true
   %or.cond173 = icmp eq i32 %104, 1
   %nodesize419.1.v = select i1 %or.cond173, i64 16, i64 8
   %nodesize419.1 = add nsw i64 %add441, %nodesize419.1.v
-  %call455 = tail call noalias ptr @zmalloc(i64 noundef %nodesize419.1) #22
+  %call455 = tail call noalias ptr @zmalloc(i64 noundef %nodesize419.1) #23
   %cmp456 = icmp eq ptr %call433, null
   %cmp459 = icmp eq ptr %call455, null
   %or.cond4 = select i1 %cmp456, i1 true, i1 %cmp459
   br i1 %or.cond4, label %if.then461, label %if.end463
 
 if.then461:                                       ; preds = %if.then413
-  tail call void @zfree(ptr noundef %call433) #23
-  tail call void @zfree(ptr noundef %call455) #23
-  %call462 = tail call ptr @__errno_location() #26
+  tail call void @zfree(ptr noundef %call433) #24
+  tail call void @zfree(ptr noundef %call455) #24
+  %call462 = tail call ptr @__errno_location() #27
   store i32 12, ptr %call462, align 4
   br label %return
 
@@ -1391,7 +1391,7 @@ if.end632:                                        ; preds = %raxSetData.exit307.
   %158 = load i64, ptr %numele688, align 8
   %inc689 = add i64 %158, 1
   store i64 %inc689, ptr %numele688, align 8
-  tail call void @zfree(ptr noundef nonnull %h.0.lcssa.i) #23
+  tail call void @zfree(ptr noundef nonnull %h.0.lcssa.i) #24
   br label %return
 
 if.end691:                                        ; preds = %if.end34, %if.end349
@@ -1505,7 +1505,7 @@ if.end.i343:                                      ; preds = %while.end
   %add11.i357 = add nuw nsw i64 %add5.i356, %spec.select.i351
   %add21.i358 = add nuw nsw i64 %add11.i357, %and.i348
   %add22.i359 = add nuw nsw i64 %add21.i358, %land.ext.i355
-  %call.i360 = tail call ptr @zrealloc(ptr noundef nonnull %h.2.lcssa, i64 noundef %add22.i359) #24
+  %call.i360 = tail call ptr @zrealloc(ptr noundef nonnull %h.2.lcssa, i64 noundef %add22.i359) #25
   br label %raxReallocForData.exit362
 
 raxReallocForData.exit362:                        ; preds = %while.end, %if.end.i343
@@ -1581,12 +1581,12 @@ if.then799:                                       ; preds = %oom
   br i1 %cmp809.not, label %cond.false816, label %if.end818
 
 cond.false816:                                    ; preds = %if.then799
-  tail call void @_serverAssert(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 891) #23
-  tail call void @abort() #25
+  tail call void @_serverAssert(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 891) #24
+  tail call void @abort() #26
   unreachable
 
 if.end818:                                        ; preds = %if.then799, %oom
-  %call819 = tail call ptr @__errno_location() #26
+  %call819 = tail call ptr @__errno_location() #27
   store i32 12, ptr %call819, align 4
   br label %return
 
@@ -1696,7 +1696,7 @@ if.then.i:                                        ; preds = %if.then55
   br i1 %cmp1.i, label %if.then2.i, label %if.else.i
 
 if.then2.i:                                       ; preds = %if.then.i
-  %call.i = tail call noalias ptr @zmalloc(i64 noundef %mul4.i) #22
+  %call.i = tail call noalias ptr @zmalloc(i64 noundef %mul4.i) #23
   store ptr %call.i, ptr %ts, align 8
   %cmp7.i = icmp eq ptr %call.i, null
   br i1 %cmp7.i, label %if.then8.i, label %if.end.i
@@ -1704,7 +1704,7 @@ if.then2.i:                                       ; preds = %if.then.i
 if.then8.i:                                       ; preds = %if.then2.i
   store ptr %static_items.i, ptr %ts, align 8
   store i32 1, ptr %oom25.i, align 8
-  %call12.i = tail call ptr @__errno_location() #26
+  %call12.i = tail call ptr @__errno_location() #27
   store i32 12, ptr %call12.i, align 4
   br label %if.end56
 
@@ -1715,13 +1715,13 @@ if.end.i:                                         ; preds = %if.then2.i
   br label %if.end29.i
 
 if.else.i:                                        ; preds = %if.then.i
-  %call22.i = tail call ptr @zrealloc(ptr noundef %.pre23.i, i64 noundef %mul4.i) #24
+  %call22.i = tail call ptr @zrealloc(ptr noundef %.pre23.i, i64 noundef %mul4.i) #25
   %cmp23.i = icmp eq ptr %call22.i, null
   br i1 %cmp23.i, label %if.then24.i, label %if.end27.i
 
 if.then24.i:                                      ; preds = %if.else.i
   store i32 1, ptr %oom25.i, align 8
-  %call26.i = tail call ptr @__errno_location() #26
+  %call26.i = tail call ptr @__errno_location() #27
   store i32 12, ptr %call26.i, align 4
   br label %if.end56
 
@@ -1916,7 +1916,7 @@ while.cond:                                       ; preds = %lor.lhs.false22
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.cond
   %15 = phi ptr [ %12, %while.body.lr.ph ], [ %20, %while.cond ]
-  call void @zfree(ptr noundef nonnull %15) #23
+  call void @zfree(ptr noundef nonnull %15) #24
   %16 = load i64, ptr %numnodes, align 8
   %dec17 = add i64 %16, -1
   store i64 %dec17, ptr %numnodes, align 8
@@ -2139,7 +2139,7 @@ if.then168:                                       ; preds = %if.end160, %while.e
   %and173 = and i64 %sub172, 7
   %add174 = add nuw nsw i64 %comprsize.0.lcssa.ph151, 12
   %add175 = add nuw nsw i64 %add174, %and173
-  %call177 = call noalias ptr @zmalloc(i64 noundef %add175) #22
+  %call177 = call noalias ptr @zmalloc(i64 noundef %add175) #23
   %cmp178 = icmp eq ptr %call177, null
   br i1 %cmp178, label %if.then180, label %if.end181
 
@@ -2196,7 +2196,7 @@ while.body202:                                    ; preds = %if.end181, %lor.lhs
   %add.ptr268 = getelementptr inbounds i8, ptr %add.ptr254, i64 %cond266.neg
   %62 = load i64, ptr %add.ptr268, align 8
   store i64 %62, ptr %h, align 8
-  call void @zfree(ptr noundef nonnull %52) #23
+  call void @zfree(ptr noundef nonnull %52) #24
   %63 = load i64, ptr %numnodes195, align 8
   %dec270 = add i64 %63, -1
   store i64 %dec270, ptr %numnodes195, align 8
@@ -2282,7 +2282,7 @@ if.end351:                                        ; preds = %if.end351.sink.spli
 return.sink.split:                                ; preds = %if.end351, %if.then180, %if.then
   %.sink = phi ptr [ %3, %if.then ], [ %50, %if.then180 ], [ %79, %if.end351 ]
   %retval.0.ph = phi i32 [ 0, %if.then ], [ 1, %if.then180 ], [ 1, %if.end351 ]
-  call void @zfree(ptr noundef %.sink) #23
+  call void @zfree(ptr noundef %.sink) #24
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.end351, %if.then180, %if.then
@@ -2622,7 +2622,7 @@ if.end56:                                         ; preds = %if.then49, %while.e
   %add87 = add nuw nsw i64 %add79, %cond96
   %add97 = add nuw nsw i64 %add87, %land.ext
   %add110 = add nuw nsw i64 %add97, %and86
-  %call111 = tail call ptr @zrealloc(ptr noundef nonnull %parent, i64 noundef %add110) #24
+  %call111 = tail call ptr @zrealloc(ptr noundef nonnull %parent, i64 noundef %add110) #25
   %tobool115.not = icmp eq ptr %call111, null
   %cond119 = select i1 %tobool115.not, ptr %parent, ptr %call111
   br label %return
@@ -2704,11 +2704,11 @@ raxGetData.exit:                                  ; preds = %land.lhs.true
   %16 = getelementptr inbounds i8, ptr %15, i64 %and.i
   %17 = getelementptr inbounds i8, ptr %16, i64 %spec.select.i
   %data.0.copyload.i = load ptr, ptr %17, align 8
-  tail call void %free_callback(ptr noundef %data.0.copyload.i) #23
+  tail call void %free_callback(ptr noundef %data.0.copyload.i) #24
   br label %if.end
 
 if.end:                                           ; preds = %raxGetData.exit, %land.lhs.true, %while.end
-  tail call void @zfree(ptr noundef nonnull %n) #23
+  tail call void @zfree(ptr noundef nonnull %n) #24
   %numnodes = getelementptr inbounds i8, ptr %rax, i64 16
   %18 = load i64, ptr %numnodes, align 8
   %dec56 = add i64 %18, -1
@@ -2727,12 +2727,12 @@ entry:
   br i1 %cmp, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %entry
-  tail call void @_serverAssert(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 1240) #23
-  tail call void @abort() #25
+  tail call void @_serverAssert(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 1240) #24
+  tail call void @abort() #26
   unreachable
 
 cond.end:                                         ; preds = %entry
-  tail call void @zfree(ptr noundef nonnull %rax) #23
+  tail call void @zfree(ptr noundef nonnull %rax) #24
   ret void
 }
 
@@ -2747,12 +2747,12 @@ entry:
   br i1 %cmp.i, label %raxFreeWithCallback.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %entry
-  tail call void @_serverAssert(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 1240) #23
-  tail call void @abort() #25
+  tail call void @_serverAssert(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 1240) #24
+  tail call void @abort() #26
   unreachable
 
 raxFreeWithCallback.exit:                         ; preds = %entry
-  tail call void @zfree(ptr noundef nonnull %rax) #23
+  tail call void @zfree(ptr noundef nonnull %rax) #24
   ret void
 }
 
@@ -2807,7 +2807,7 @@ if.then2:                                         ; preds = %if.end
   %cmp3 = icmp eq ptr %2, %key_static_string
   %spec.select = select i1 %cmp3, ptr null, ptr %2
   %mul = shl i64 %add, 1
-  %call = tail call ptr @zrealloc(ptr noundef %spec.select, i64 noundef %mul) #24
+  %call = tail call ptr @zrealloc(ptr noundef %spec.select, i64 noundef %mul) #25
   store ptr %call, ptr %key, align 8
   %cmp9 = icmp eq ptr %call, null
   %tobool.not = icmp eq ptr %spec.select, null
@@ -2816,7 +2816,7 @@ if.then2:                                         ; preds = %if.end
 if.then10:                                        ; preds = %if.then2
   %cond16 = select i1 %tobool.not, ptr %key_static_string, ptr %spec.select
   store ptr %cond16, ptr %key, align 8
-  %call18 = tail call ptr @__errno_location() #26
+  %call18 = tail call ptr @__errno_location() #27
   store i32 12, ptr %call18, align 4
   br label %return
 
@@ -2917,7 +2917,7 @@ if.then.i:                                        ; preds = %if.then15
   br i1 %cmp1.i, label %if.then2.i, label %if.else.i
 
 if.then2.i:                                       ; preds = %if.then.i
-  %call.i = tail call noalias ptr @zmalloc(i64 noundef %mul4.i) #22
+  %call.i = tail call noalias ptr @zmalloc(i64 noundef %mul4.i) #23
   store ptr %call.i, ptr %stack, align 8
   %cmp7.i = icmp eq ptr %call.i, null
   br i1 %cmp7.i, label %if.then8.i, label %if.end.i
@@ -2926,7 +2926,7 @@ if.then8.i:                                       ; preds = %if.then2.i
   store ptr %static_items.i127, ptr %stack, align 8
   %oom.i = getelementptr inbounds i8, ptr %it, i64 464
   store i32 1, ptr %oom.i, align 8
-  %call12.i = tail call ptr @__errno_location() #26
+  %call12.i = tail call ptr @__errno_location() #27
   store i32 12, ptr %call12.i, align 4
   br label %return
 
@@ -2937,14 +2937,14 @@ if.end.i:                                         ; preds = %if.then2.i
   br label %if.end29.i
 
 if.else.i:                                        ; preds = %if.then.i
-  %call22.i = tail call ptr @zrealloc(ptr noundef %.pre23.i, i64 noundef %mul4.i) #24
+  %call22.i = tail call ptr @zrealloc(ptr noundef %.pre23.i, i64 noundef %mul4.i) #25
   %cmp23.i = icmp eq ptr %call22.i, null
   br i1 %cmp23.i, label %if.then24.i, label %if.end27.i
 
 if.then24.i:                                      ; preds = %if.else.i
   %oom25.i = getelementptr inbounds i8, ptr %it, i64 464
   store i32 1, ptr %oom25.i, align 8
-  %call26.i = tail call ptr @__errno_location() #26
+  %call26.i = tail call ptr @__errno_location() #27
   store i32 12, ptr %call26.i, align 4
   br label %return
 
@@ -2999,7 +2999,7 @@ if.then2.i76:                                     ; preds = %if.end.i73
   %cmp3.i = icmp eq ptr %.pre193, %key_static_string.i103
   %spec.select.i = select i1 %cmp3.i, ptr null, ptr %.pre193
   %mul.i = shl i64 %add.i, 1
-  %call.i77 = tail call ptr @zrealloc(ptr noundef %spec.select.i, i64 noundef %mul.i) #24
+  %call.i77 = tail call ptr @zrealloc(ptr noundef %spec.select.i, i64 noundef %mul.i) #25
   store ptr %call.i77, ptr %key, align 8
   %cmp9.i = icmp eq ptr %call.i77, null
   %tobool.not.i = icmp eq ptr %spec.select.i, null
@@ -3033,7 +3033,7 @@ if.end28.i:                                       ; preds = %if.end26.i, %if.end
 raxIteratorAddChars.exit:                         ; preds = %if.then2.i76
   %cond16.i = select i1 %tobool.not.i, ptr %key_static_string.i103, ptr %spec.select.i
   store ptr %cond16.i, ptr %key, align 8
-  %call18.i = tail call ptr @__errno_location() #26
+  %call18.i = tail call ptr @__errno_location() #27
   store i32 12, ptr %call18.i, align 4
   br label %return
 
@@ -3046,7 +3046,7 @@ if.end49:                                         ; preds = %if.end28.i, %if.end
   br i1 %tobool51.not, label %if.end59, label %land.lhs.true52
 
 land.lhs.true52:                                  ; preds = %if.end49
-  %call55 = tail call i32 %24(ptr noundef nonnull %node) #23
+  %call55 = tail call i32 %24(ptr noundef nonnull %node) #24
   %tobool56.not = icmp eq i32 %call55, 0
   br i1 %tobool56.not, label %land.lhs.true52.if.end59_crit_edge, label %if.then57
 
@@ -3213,7 +3213,7 @@ if.then2.i101:                                    ; preds = %if.then158
   %cmp3.i104 = icmp eq ptr %55, %key_static_string.i103
   %spec.select.i105 = select i1 %cmp3.i104, ptr null, ptr %55
   %mul.i106 = shl i64 %add.i94, 1
-  %call.i107 = tail call ptr @zrealloc(ptr noundef %spec.select.i105, i64 noundef %mul.i106) #24
+  %call.i107 = tail call ptr @zrealloc(ptr noundef %spec.select.i105, i64 noundef %mul.i106) #25
   store ptr %call.i107, ptr %key, align 8
   %cmp9.i108 = icmp eq ptr %call.i107, null
   %tobool.not.i109 = icmp eq ptr %spec.select.i105, null
@@ -3222,7 +3222,7 @@ if.then2.i101:                                    ; preds = %if.then158
 if.then10.i114:                                   ; preds = %if.then2.i101
   %cond16.i115 = select i1 %tobool.not.i109, ptr %key_static_string.i103, ptr %spec.select.i105
   store ptr %cond16.i115, ptr %key, align 8
-  %call18.i116 = tail call ptr @__errno_location() #26
+  %call18.i116 = tail call ptr @__errno_location() #27
   store i32 12, ptr %call18.i116, align 4
   br label %raxIteratorAddChars.exit117
 
@@ -3266,7 +3266,7 @@ if.then.i126:                                     ; preds = %raxIteratorAddChars
   br i1 %cmp1.i128, label %if.then2.i141, label %if.else.i130
 
 if.then2.i141:                                    ; preds = %if.then.i126
-  %call.i142 = tail call noalias ptr @zmalloc(i64 noundef %mul4.i129) #22
+  %call.i142 = tail call noalias ptr @zmalloc(i64 noundef %mul4.i129) #23
   store ptr %call.i142, ptr %stack, align 8
   %cmp7.i143 = icmp eq ptr %call.i142, null
   br i1 %cmp7.i143, label %if.then8.i146, label %if.end.i144
@@ -3275,7 +3275,7 @@ if.then8.i146:                                    ; preds = %if.then2.i141
   store ptr %static_items.i127, ptr %stack, align 8
   %oom.i147 = getelementptr inbounds i8, ptr %it, i64 464
   store i32 1, ptr %oom.i147, align 8
-  %call12.i148 = tail call ptr @__errno_location() #26
+  %call12.i148 = tail call ptr @__errno_location() #27
   store i32 12, ptr %call12.i148, align 4
   br label %return
 
@@ -3286,14 +3286,14 @@ if.end.i144:                                      ; preds = %if.then2.i141
   br label %if.end29.i135
 
 if.else.i130:                                     ; preds = %if.then.i126
-  %call22.i131 = tail call ptr @zrealloc(ptr noundef %.pre23.i121, i64 noundef %mul4.i129) #24
+  %call22.i131 = tail call ptr @zrealloc(ptr noundef %.pre23.i121, i64 noundef %mul4.i129) #25
   %cmp23.i132 = icmp eq ptr %call22.i131, null
   br i1 %cmp23.i132, label %if.then24.i138, label %if.end27.i133
 
 if.then24.i138:                                   ; preds = %if.else.i130
   %oom25.i139 = getelementptr inbounds i8, ptr %it, i64 464
   store i32 1, ptr %oom25.i139, align 8
-  %call26.i140 = tail call ptr @__errno_location() #26
+  %call26.i140 = tail call ptr @__errno_location() #27
   store i32 12, ptr %call26.i140, align 4
   br label %return
 
@@ -3326,7 +3326,7 @@ if.end170:                                        ; preds = %if.end29.i135, %rax
   br i1 %tobool173.not, label %if.end181, label %land.lhs.true174
 
 land.lhs.true174:                                 ; preds = %if.end170
-  %call177 = tail call i32 %78(ptr noundef nonnull %node) #23
+  %call177 = tail call i32 %78(ptr noundef nonnull %node) #24
   %tobool178.not = icmp eq i32 %call177, 0
   br i1 %tobool178.not, label %land.lhs.true174.if.end181_crit_edge, label %if.then179
 
@@ -3428,7 +3428,7 @@ if.then2.i:                                       ; preds = %if.then
   %cmp3.i = icmp eq ptr %.pre67, %key_static_string.i
   %spec.select.i = select i1 %cmp3.i, ptr null, ptr %.pre67
   %mul.i = shl i64 %add.i, 1
-  %call.i = tail call ptr @zrealloc(ptr noundef %spec.select.i, i64 noundef %mul.i) #24
+  %call.i = tail call ptr @zrealloc(ptr noundef %spec.select.i, i64 noundef %mul.i) #25
   store ptr %call.i, ptr %key.i, align 8
   %cmp9.i = icmp eq ptr %call.i, null
   %tobool.not.i = icmp eq ptr %spec.select.i, null
@@ -3475,7 +3475,7 @@ if.then2.i30:                                     ; preds = %if.else
   %cmp3.i33 = icmp eq ptr %.pre69, %key_static_string.i
   %spec.select.i34 = select i1 %cmp3.i33, ptr null, ptr %.pre69
   %mul.i35 = shl i64 %add.i23, 1
-  %call.i36 = tail call ptr @zrealloc(ptr noundef %spec.select.i34, i64 noundef %mul.i35) #24
+  %call.i36 = tail call ptr @zrealloc(ptr noundef %spec.select.i34, i64 noundef %mul.i35) #25
   store ptr %call.i36, ptr %key.i, align 8
   %cmp9.i37 = icmp eq ptr %call.i36, null
   %tobool.not.i38 = icmp eq ptr %spec.select.i34, null
@@ -3547,7 +3547,7 @@ if.then.i:                                        ; preds = %if.end22
   br i1 %cmp1.i49, label %if.then2.i51, label %if.else.i
 
 if.then2.i51:                                     ; preds = %if.then.i
-  %call.i52 = tail call noalias ptr @zmalloc(i64 noundef %mul4.i) #22
+  %call.i52 = tail call noalias ptr @zmalloc(i64 noundef %mul4.i) #23
   store ptr %call.i52, ptr %stack, align 8
   %cmp7.i = icmp eq ptr %call.i52, null
   br i1 %cmp7.i, label %if.then8.i, label %if.end.i53
@@ -3565,7 +3565,7 @@ if.end.i53:                                       ; preds = %if.then2.i51
   br label %if.end29.i
 
 if.else.i:                                        ; preds = %if.then.i
-  %call22.i = tail call ptr @zrealloc(ptr noundef %.pre23.i, i64 noundef %mul4.i) #24
+  %call22.i = tail call ptr @zrealloc(ptr noundef %.pre23.i, i64 noundef %mul4.i) #25
   %cmp23.i = icmp eq ptr %call22.i, null
   br i1 %cmp23.i, label %if.then24.i, label %if.end27.i
 
@@ -3605,7 +3605,7 @@ if.end77:                                         ; preds = %if.end29.i, %if.end
   br i1 %tobool.not, label %return, label %while.body, !llvm.loop !16
 
 return.sink.split:                                ; preds = %raxIteratorAddChars.exit, %raxIteratorAddChars.exit46.thread, %if.then8.i, %if.then24.i
-  %call26.i = tail call ptr @__errno_location() #26
+  %call26.i = tail call ptr @__errno_location() #27
   store i32 12, ptr %call26.i, align 4
   br label %return
 
@@ -3771,7 +3771,7 @@ if.then2.i:                                       ; preds = %if.then116
   %cmp3.i = icmp eq ptr %23, %key_static_string.i
   %spec.select.i = select i1 %cmp3.i, ptr null, ptr %23
   %mul.i = shl i64 %add.i, 1
-  %call.i = tail call ptr @zrealloc(ptr noundef %spec.select.i, i64 noundef %mul.i) #24
+  %call.i = tail call ptr @zrealloc(ptr noundef %spec.select.i, i64 noundef %mul.i) #25
   store ptr %call.i, ptr %key, align 8
   %cmp9.i = icmp eq ptr %call.i, null
   %tobool.not.i = icmp eq ptr %spec.select.i, null
@@ -3780,7 +3780,7 @@ if.then2.i:                                       ; preds = %if.then116
 raxIteratorAddChars.exit.thread:                  ; preds = %if.then2.i
   %cond16.i = select i1 %tobool.not.i, ptr %key_static_string.i, ptr %spec.select.i
   store ptr %cond16.i, ptr %key, align 8
-  %call18.i = tail call ptr @__errno_location() #26
+  %call18.i = tail call ptr @__errno_location() #27
   store i32 12, ptr %call18.i, align 4
   br label %return
 
@@ -3822,7 +3822,7 @@ if.then.i:                                        ; preds = %if.end123
   br i1 %cmp1.i55, label %if.then2.i57, label %if.else.i
 
 if.then2.i57:                                     ; preds = %if.then.i
-  %call.i58 = tail call noalias ptr @zmalloc(i64 noundef %mul4.i) #22
+  %call.i58 = tail call noalias ptr @zmalloc(i64 noundef %mul4.i) #23
   store ptr %call.i58, ptr %stack, align 8
   %cmp7.i = icmp eq ptr %call.i58, null
   br i1 %cmp7.i, label %if.then8.i, label %if.end.i59
@@ -3831,7 +3831,7 @@ if.then8.i:                                       ; preds = %if.then2.i57
   store ptr %static_items.i, ptr %stack, align 8
   %oom.i = getelementptr inbounds i8, ptr %it, i64 464
   store i32 1, ptr %oom.i, align 8
-  %call12.i = tail call ptr @__errno_location() #26
+  %call12.i = tail call ptr @__errno_location() #27
   store i32 12, ptr %call12.i, align 4
   br label %return
 
@@ -3842,14 +3842,14 @@ if.end.i59:                                       ; preds = %if.then2.i57
   br label %if.end29.i
 
 if.else.i:                                        ; preds = %if.then.i
-  %call22.i = tail call ptr @zrealloc(ptr noundef %.pre23.i, i64 noundef %mul4.i) #24
+  %call22.i = tail call ptr @zrealloc(ptr noundef %.pre23.i, i64 noundef %mul4.i) #25
   %cmp23.i = icmp eq ptr %call22.i, null
   br i1 %cmp23.i, label %if.then24.i, label %if.end27.i
 
 if.then24.i:                                      ; preds = %if.else.i
   %oom25.i = getelementptr inbounds i8, ptr %it, i64 464
   store i32 1, ptr %oom25.i, align 8
-  %call26.i = tail call ptr @__errno_location() #26
+  %call26.i = tail call ptr @__errno_location() #27
   store i32 12, ptr %call26.i, align 4
   br label %return
 
@@ -3961,7 +3961,7 @@ if.else:                                          ; preds = %tailrecurse
   ]
 
 if.else37:                                        ; preds = %if.else
-  %call = tail call ptr @__errno_location() #26
+  %call = tail call ptr @__errno_location() #27
   store i32 0, ptr %call, align 4
   br label %return
 
@@ -4015,8 +4015,8 @@ if.end59:                                         ; preds = %if.then53
   br i1 %tobool61.not, label %cond.false, label %cond.end
 
 cond.false:                                       ; preds = %if.end59
-  tail call void @_serverAssert(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.1, i32 noundef 1552) #23
-  tail call void @abort() #25
+  tail call void @_serverAssert(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.1, i32 noundef 1552) #24
+  tail call void @abort() #26
   unreachable
 
 cond.end:                                         ; preds = %if.end59
@@ -4361,7 +4361,7 @@ if.end:                                           ; preds = %entry
 
 return.sink.split:                                ; preds = %if.end, %entry
   %.sink = phi i32 [ 12, %entry ], [ 0, %if.end ]
-  %call4 = tail call ptr @__errno_location() #26
+  %call4 = tail call ptr @__errno_location() #27
   store i32 %.sink, ptr %call4, align 4
   br label %return
 
@@ -4385,7 +4385,7 @@ if.end:                                           ; preds = %entry
 
 return.sink.split:                                ; preds = %if.end, %entry
   %.sink = phi i32 [ 12, %entry ], [ 0, %if.end ]
-  %call4 = tail call ptr @__errno_location() #26
+  %call4 = tail call ptr @__errno_location() #27
   store i32 %.sink, ptr %call4, align 4
   br label %return
 
@@ -4416,12 +4416,12 @@ if.end:                                           ; preds = %entry
 
 if.then2:                                         ; preds = %if.end
   %conv = uitofp i64 %1 to double
-  %call = tail call double @log(double noundef %conv) #23
+  %call = tail call double @log(double noundef %conv) #24
   %3 = tail call double @llvm.floor.f64(double %call)
   %add = fadd double %3, 1.000000e+00
   %conv5 = fptoui double %add to i64
   %mul = shl i64 %conv5, 1
-  %call6 = tail call i32 @rand() #23
+  %call6 = tail call i32 @rand() #24
   %conv7 = sext i32 %call6 to i64
   %rem = urem i64 %conv7, %mul
   %add8 = add nuw i64 %rem, 1
@@ -4450,7 +4450,7 @@ while.body:                                       ; preds = %if.end9, %if.end77
   %tobool14.not = icmp eq i32 %5, 0
   %bf.lshr16 = lshr i32 %bf.load12.pre114, 3
   %spec.select = select i1 %tobool14.not, i32 %bf.lshr16, i32 1
-  %call17 = tail call i32 @rand() #23
+  %call17 = tail call i32 @rand() #24
   %6 = load ptr, ptr %rt, align 8
   %7 = load ptr, ptr %6, align 8
   %cmp19 = icmp ne ptr %n.0115, %7
@@ -4505,7 +4505,7 @@ if.then2.i:                                       ; preds = %if.end.i37
   %cmp3.i = icmp eq ptr %.pre98, %key_static_string.i
   %spec.select.i = select i1 %cmp3.i, ptr null, ptr %.pre98
   %mul.i = shl i64 %add.i, 1
-  %call.i = tail call ptr @zrealloc(ptr noundef %spec.select.i, i64 noundef %mul.i) #24
+  %call.i = tail call ptr @zrealloc(ptr noundef %spec.select.i, i64 noundef %mul.i) #25
   store ptr %call.i, ptr %key.i, align 8
   %cmp9.i = icmp eq ptr %call.i, null
   %tobool.not.i = icmp eq ptr %spec.select.i, null
@@ -4536,7 +4536,7 @@ if.end28.i:                                       ; preds = %if.end26.i, %if.end
 raxIteratorAddChars.exit:                         ; preds = %if.then2.i
   %cond16.i = select i1 %tobool.not.i, ptr %key_static_string.i, ptr %spec.select.i
   store ptr %cond16.i, ptr %key.i, align 8
-  %call18.i = tail call ptr @__errno_location() #26
+  %call18.i = tail call ptr @__errno_location() #27
   store i32 12, ptr %call18.i, align 4
   br label %return
 
@@ -4554,7 +4554,7 @@ if.then2.i50:                                     ; preds = %if.else50
   %cmp3.i53 = icmp eq ptr %.pre100, %key_static_string.i
   %spec.select.i54 = select i1 %cmp3.i53, ptr null, ptr %.pre100
   %mul.i55 = shl i64 %add.i43, 1
-  %call.i56 = tail call ptr @zrealloc(ptr noundef %spec.select.i54, i64 noundef %mul.i55) #24
+  %call.i56 = tail call ptr @zrealloc(ptr noundef %spec.select.i54, i64 noundef %mul.i55) #25
   store ptr %call.i56, ptr %key.i, align 8
   %cmp9.i57 = icmp eq ptr %call.i56, null
   %tobool.not.i58 = icmp eq ptr %spec.select.i54, null
@@ -4563,7 +4563,7 @@ if.then2.i50:                                     ; preds = %if.else50
 raxIteratorAddChars.exit66.thread:                ; preds = %if.then2.i50
   %cond16.i64 = select i1 %tobool.not.i58, ptr %key_static_string.i, ptr %spec.select.i54
   store ptr %cond16.i64, ptr %key.i, align 8
-  %call18.i65 = tail call ptr @__errno_location() #26
+  %call18.i65 = tail call ptr @__errno_location() #27
   store i32 12, ptr %call18.i65, align 4
   br label %return
 
@@ -4611,7 +4611,7 @@ if.then.i:                                        ; preds = %if.end57
   br i1 %cmp1.i71, label %if.then2.i73, label %if.else.i
 
 if.then2.i73:                                     ; preds = %if.then.i
-  %call.i74 = tail call noalias ptr @zmalloc(i64 noundef %mul4.i) #22
+  %call.i74 = tail call noalias ptr @zmalloc(i64 noundef %mul4.i) #23
   store ptr %call.i74, ptr %stack72, align 8
   %cmp7.i = icmp eq ptr %call.i74, null
   br i1 %cmp7.i, label %if.then8.i, label %if.end.i75
@@ -4620,7 +4620,7 @@ if.then8.i:                                       ; preds = %if.then2.i73
   store ptr %static_items.i, ptr %stack72, align 8
   %oom.i = getelementptr inbounds i8, ptr %it, i64 464
   store i32 1, ptr %oom.i, align 8
-  %call12.i = tail call ptr @__errno_location() #26
+  %call12.i = tail call ptr @__errno_location() #27
   store i32 12, ptr %call12.i, align 4
   br label %return
 
@@ -4631,14 +4631,14 @@ if.end.i75:                                       ; preds = %if.then2.i73
   br label %if.end29.i
 
 if.else.i:                                        ; preds = %if.then.i
-  %call22.i = tail call ptr @zrealloc(ptr noundef %.pre23.i, i64 noundef %mul4.i) #24
+  %call22.i = tail call ptr @zrealloc(ptr noundef %.pre23.i, i64 noundef %mul4.i) #25
   %cmp23.i = icmp eq ptr %call22.i, null
   br i1 %cmp23.i, label %if.then24.i, label %if.end27.i
 
 if.then24.i:                                      ; preds = %if.else.i
   %oom25.i = getelementptr inbounds i8, ptr %it, i64 464
   store i32 1, ptr %oom25.i, align 8
-  %call26.i = tail call ptr @__errno_location() #26
+  %call26.i = tail call ptr @__errno_location() #27
   store i32 12, ptr %call26.i, align 4
   br label %return
 
@@ -4779,7 +4779,7 @@ if.end24:                                         ; preds = %if.else, %if.end, %
   %key_len. = tail call i64 @llvm.umin.i64(i64 %3, i64 %key_len)
   %key30 = getelementptr inbounds i8, ptr %iter, i64 16
   %4 = load ptr, ptr %key30, align 8
-  %call = tail call i32 @memcmp(ptr noundef %4, ptr noundef %key, i64 noundef %key_len.) #27
+  %call = tail call i32 @memcmp(ptr noundef %4, ptr noundef %key, i64 noundef %key_len.) #28
   %or.cond = and i1 %cmp8, %cmp31
   %cmp36 = icmp eq i32 %call, 0
   br i1 %or.cond, label %if.then35, label %if.end41
@@ -4840,7 +4840,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call void @zfree(ptr noundef %0) #23
+  tail call void @zfree(ptr noundef %0) #24
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -4851,7 +4851,7 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %cmp.not.i, label %raxStackFree.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  tail call void @zfree(ptr noundef %1) #23
+  tail call void @zfree(ptr noundef %1) #24
   br label %raxStackFree.exit
 
 raxStackFree.exit:                                ; preds = %if.end, %if.then.i
@@ -5104,8 +5104,8 @@ return:                                           ; preds = %entry, %while.end
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #19
 
-; Function Attrs: nounwind uwtable
-define dso_local i64 @raxTouch(ptr nocapture noundef readonly %n) local_unnamed_addr #1 {
+; Function Attrs: nofree nounwind uwtable
+define dso_local i64 @raxTouch(ptr nocapture noundef readonly %n) local_unnamed_addr #18 {
 entry:
   br label %tailrecurse
 
@@ -5191,7 +5191,7 @@ if.end27.us:                                      ; preds = %for.body.us
   br i1 %exitcond.not, label %for.end, label %for.body.us, !llvm.loop !22
 
 if.then26:                                        ; preds = %for.body.us
-  tail call void @exit(i32 noundef 1) #25
+  tail call void @exit(i32 noundef 1) #29
   unreachable
 
 for.end.loopexit:                                 ; preds = %for.body.lr.ph
@@ -5205,14 +5205,14 @@ for.end:                                          ; preds = %if.end27.us, %if.en
   ret i64 %accumulator.ret.tr
 }
 
-; Function Attrs: noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #8
+; Function Attrs: nofree noreturn nounwind
+declare void @exit(i32 noundef) local_unnamed_addr #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #20
+declare i64 @llvm.umin.i64(i64, i64) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #21
+declare void @llvm.assume(i1 noundef) #22
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -5222,7 +5222,7 @@ attributes #4 = { allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -5234,14 +5234,16 @@ attributes #16 = { mustprogress nofree nounwind willreturn memory(read, inaccess
 attributes #17 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #18 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #19 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #21 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #22 = { nounwind allocsize(0) }
-attributes #23 = { nounwind }
-attributes #24 = { nounwind allocsize(1) }
-attributes #25 = { noreturn nounwind }
-attributes #26 = { nounwind willreturn memory(none) }
-attributes #27 = { nounwind willreturn memory(read) }
+attributes #20 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #22 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #23 = { nounwind allocsize(0) }
+attributes #24 = { nounwind }
+attributes #25 = { nounwind allocsize(1) }
+attributes #26 = { noreturn nounwind }
+attributes #27 = { nounwind willreturn memory(none) }
+attributes #28 = { nounwind willreturn memory(read) }
+attributes #29 = { cold noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

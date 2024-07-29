@@ -85,7 +85,7 @@ define range(i32 0, 3) i32 @aagparse() local_unnamed_addr #0 {
   %spec.store.select = call i64 @llvm.smin.i64(i64 %18, i64 10000)
   %19 = mul nsw i64 %spec.store.select, 9
   %20 = add nsw i64 %19, 7
-  %21 = call noalias ptr @malloc(i64 noundef %20) #14
+  %21 = call noalias ptr @malloc(i64 noundef %20) #15
   %.not209 = icmp eq ptr %21, null
   br i1 %.not209, label %583, label %22
 
@@ -100,7 +100,7 @@ define range(i32 0, 3) i32 @aagparse() local_unnamed_addr #0 {
   br i1 %.not210, label %28, label %27
 
 27:                                               ; preds = %22
-  call void @free(ptr noundef %.0172) #15
+  call void @free(ptr noundef %.0172) #16
   br label %28
 
 28:                                               ; preds = %27, %22
@@ -133,7 +133,7 @@ define range(i32 0, 3) i32 @aagparse() local_unnamed_addr #0 {
   br i1 %42, label %43, label %45
 
 43:                                               ; preds = %40
-  %44 = call i32 @aaglex() #15
+  %44 = call i32 @aaglex() #16
   store i32 %44, ptr @aagchar, align 4
   br label %45
 
@@ -278,15 +278,15 @@ define range(i32 0, 3) i32 @aagparse() local_unnamed_addr #0 {
   %100 = getelementptr inbounds i8, ptr %99, i64 64
   %101 = load ptr, ptr %100, align 8
   %102 = load ptr, ptr @G, align 8
-  call void @agfree(ptr noundef %102, ptr noundef %99) #15
+  call void @agfree(ptr noundef %102, ptr noundef %99) #16
   store ptr %101, ptr @S, align 8
   %.not.i = icmp eq ptr %101, null
   br i1 %.not.i, label %freestack.exit, label %.lr.ph.i
 
 freestack.exit:                                   ; preds = %.lr.ph.i, %89
-  call void @aglexeof() #15
+  call void @aglexeof() #16
   %103 = load ptr, ptr @G, align 8
-  call void @aginternalmapclearlocalnames(ptr noundef %103) #15
+  call void @aginternalmapclearlocalnames(ptr noundef %103) #16
   br label %getedgeitems.exit
 
 104:                                              ; preds = %82
@@ -319,17 +319,17 @@ freestack.exit:                                   ; preds = %.lr.ph.i, %89
   %117 = getelementptr inbounds i8, ptr %116, i64 64
   %118 = load ptr, ptr %117, align 8
   %119 = load ptr, ptr @G, align 8
-  call void @agfree(ptr noundef %119, ptr noundef %116) #15
+  call void @agfree(ptr noundef %119, ptr noundef %116) #16
   store ptr %118, ptr @S, align 8
   %.not.i224 = icmp eq ptr %118, null
   br i1 %.not.i224, label %freestack.exit225, label %.lr.ph.i223
 
 freestack.exit225:                                ; preds = %.lr.ph.i223, %106
-  call void @aglexeof() #15
+  call void @aglexeof() #16
   %120 = load ptr, ptr @G, align 8
-  call void @aginternalmapclearlocalnames(ptr noundef %120) #15
+  call void @aginternalmapclearlocalnames(ptr noundef %120) #16
   %121 = load ptr, ptr @G, align 8
-  %122 = call i32 @agclose(ptr noundef %121) #15
+  %122 = call i32 @agclose(ptr noundef %121) #16
   store ptr null, ptr @Ag_G_global, align 8
   store ptr null, ptr @G, align 8
   br label %getedgeitems.exit
@@ -352,7 +352,7 @@ freestack.exit225:                                ; preds = %.lr.ph.i223, %106
   %134 = select i1 %.not247, i32 8, i32 10
   %.sroa.0.0.insert.ext.i = or disjoint i32 %134, %133
   %135 = load ptr, ptr @Disc, align 8
-  %136 = call ptr @agopen(ptr noundef %124, i32 %.sroa.0.0.insert.ext.i, ptr noundef %135) #15
+  %136 = call ptr @agopen(ptr noundef %124, i32 %.sroa.0.0.insert.ext.i, ptr noundef %135) #16
   store ptr %136, ptr @G, align 8
   br label %startgraph.exit
 
@@ -360,12 +360,12 @@ startgraph.exit:                                  ; preds = %123, %127
   %137 = phi ptr [ %136, %127 ], [ %125, %123 ]
   store ptr %137, ptr @Ag_G_global, align 8
   %138 = load ptr, ptr @S, align 8
-  %139 = call noundef ptr @agalloc(ptr noundef %137, i64 noundef 72) #15
+  %139 = call noundef ptr @agalloc(ptr noundef %137, i64 noundef 72) #16
   %140 = getelementptr inbounds i8, ptr %139, i64 64
   store ptr %138, ptr %140, align 8
   store ptr %137, ptr %139, align 8
   store ptr %139, ptr @S, align 8
-  %141 = call i32 @agstrfree(ptr noundef null, ptr noundef %124) #15
+  %141 = call i32 @agstrfree(ptr noundef null, ptr noundef %124) #16
   br label %getedgeitems.exit
 
 142:                                              ; preds = %82
@@ -418,14 +418,14 @@ startgraph.exit:                                  ; preds = %123, %127
   %.014.us.i.i = phi ptr [ %.0.us.i.i, %179 ], [ %.012.i.i, %160 ]
   %163 = getelementptr inbounds i8, ptr %.014.us.i.i, i64 8
   %164 = load ptr, ptr %163, align 8
-  %165 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %164, ptr noundef nonnull dereferenceable(1) @Key) #16
+  %165 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %164, ptr noundef nonnull dereferenceable(1) @Key) #17
   %166 = icmp eq i32 %165, 0
   br i1 %166, label %179, label %167
 
 167:                                              ; preds = %.lr.ph.split.us.i.i
   %168 = load ptr, ptr @S, align 8
   %169 = load ptr, ptr %168, align 8
-  %170 = call ptr @agattr(ptr noundef %169, i32 noundef 2, ptr noundef %164, ptr noundef null) #15
+  %170 = call ptr @agattr(ptr noundef %169, i32 noundef 2, ptr noundef %164, ptr noundef null) #16
   store ptr %170, ptr %163, align 8
   %171 = icmp eq ptr %170, null
   br i1 %171, label %172, label %176
@@ -433,14 +433,14 @@ startgraph.exit:                                  ; preds = %123, %127
 172:                                              ; preds = %167
   %173 = load ptr, ptr @S, align 8
   %174 = load ptr, ptr %173, align 8
-  %175 = call ptr @agattr(ptr noundef %174, i32 noundef 2, ptr noundef %164, ptr noundef nonnull @.str.10) #15
+  %175 = call ptr @agattr(ptr noundef %174, i32 noundef 2, ptr noundef %164, ptr noundef nonnull @.str.10) #16
   store ptr %175, ptr %163, align 8
   br label %176
 
 176:                                              ; preds = %172, %167
   store i32 266, ptr %.014.us.i.i, align 8
   %177 = load ptr, ptr @G, align 8
-  %178 = call i32 @agstrfree(ptr noundef %177, ptr noundef %164) #15
+  %178 = call i32 @agstrfree(ptr noundef %177, ptr noundef %164) #16
   br label %179
 
 179:                                              ; preds = %176, %.lr.ph.split.us.i.i
@@ -466,7 +466,7 @@ bindattrs.exit.i:                                 ; preds = %179
 183:                                              ; preds = %.lr.ph.i226
   %184 = getelementptr inbounds i8, ptr %.02649.i, i64 8
   %185 = load ptr, ptr %184, align 8
-  %186 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %185, ptr noundef nonnull dereferenceable(1) @Key) #16
+  %186 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %185, ptr noundef nonnull dereferenceable(1) @Key) #17
   %187 = icmp eq i32 %186, 0
   br i1 %187, label %188, label %191
 
@@ -502,7 +502,7 @@ bindattrs.exit.i:                                 ; preds = %179
   br i1 %199, label %202, label %245
 
 202:                                              ; preds = %.lr.ph63.i
-  %203 = call ptr @agfstnode(ptr noundef %201) #15
+  %203 = call ptr @agfstnode(ptr noundef %201) #16
   %.not2955.i = icmp eq ptr %203, null
   br i1 %.not2955.i, label %.loopexit.i, label %.lr.ph58.i
 
@@ -510,7 +510,7 @@ bindattrs.exit.i:                                 ; preds = %179
   %.02356.i = phi ptr [ %244, %edgerhs.exit.i ], [ %203, %202 ]
   %204 = load ptr, ptr @S, align 8
   %205 = load ptr, ptr %204, align 8
-  %206 = call ptr @agsubnode(ptr noundef %205, ptr noundef nonnull %.02356.i, i32 noundef 0) #15
+  %206 = call ptr @agsubnode(ptr noundef %205, ptr noundef nonnull %.02356.i, i32 noundef 0) #16
   %207 = load ptr, ptr %197, align 8
   %208 = load i32, ptr %207, align 8
   %209 = icmp eq i32 %208, 262
@@ -519,7 +519,7 @@ bindattrs.exit.i:                                 ; preds = %179
   br i1 %209, label %212, label %235
 
 212:                                              ; preds = %.lr.ph58.i
-  %213 = call ptr @agfstnode(ptr noundef %211) #15
+  %213 = call ptr @agfstnode(ptr noundef %211) #16
   %.not1924.i.i = icmp eq ptr %213, null
   br i1 %.not1924.i.i, label %edgerhs.exit.i, label %.lr.ph26.i.i
 
@@ -527,10 +527,10 @@ bindattrs.exit.i:                                 ; preds = %179
   %.01825.i.i = phi ptr [ %234, %newedge.exit.i ], [ %213, %212 ]
   %214 = load ptr, ptr @S, align 8
   %215 = load ptr, ptr %214, align 8
-  %216 = call ptr @agsubnode(ptr noundef %215, ptr noundef nonnull %.01825.i.i, i32 noundef 0) #15
+  %216 = call ptr @agsubnode(ptr noundef %215, ptr noundef nonnull %.01825.i.i, i32 noundef 0) #16
   %217 = load ptr, ptr @S, align 8
   %218 = load ptr, ptr %217, align 8
-  %219 = call ptr @agedge(ptr noundef %218, ptr noundef %206, ptr noundef %216, ptr noundef %.0.lcssa.i, i32 noundef 1) #15
+  %219 = call ptr @agedge(ptr noundef %218, ptr noundef %206, ptr noundef %216, ptr noundef %.0.lcssa.i, i32 noundef 1) #16
   %.not.i41.i = icmp eq ptr %219, null
   br i1 %.not.i41.i, label %newedge.exit.i, label %220
 
@@ -556,7 +556,7 @@ bindattrs.exit.i:                                 ; preds = %179
 228:                                              ; preds = %225
   %229 = getelementptr inbounds i8, ptr %.011.i.i.i, i64 16
   %230 = load ptr, ptr %229, align 8
-  %231 = call i32 @agxset(ptr noundef nonnull %219, ptr noundef nonnull %227, ptr noundef %230) #15
+  %231 = call i32 @agxset(ptr noundef nonnull %219, ptr noundef nonnull %227, ptr noundef %230) #16
   br label %232
 
 232:                                              ; preds = %228, %225, %.lr.ph.i.i.i
@@ -566,7 +566,7 @@ bindattrs.exit.i:                                 ; preds = %179
   br i1 %.not.i33.i.i, label %newedge.exit.i, label %.lr.ph.i.i.i
 
 newedge.exit.i:                                   ; preds = %232, %220, %.lr.ph26.i.i
-  %234 = call ptr @agnxtnode(ptr noundef %211, ptr noundef nonnull %.01825.i.i) #15
+  %234 = call ptr @agnxtnode(ptr noundef %211, ptr noundef nonnull %.01825.i.i) #16
   %.not19.i.i = icmp eq ptr %234, null
   br i1 %.not19.i.i, label %edgerhs.exit.i, label %.lr.ph26.i.i
 
@@ -580,7 +580,7 @@ newedge.exit.i:                                   ; preds = %232, %220, %.lr.ph2
   %237 = load ptr, ptr %236, align 8
   %238 = getelementptr inbounds i8, ptr %.023.i.i, i64 8
   %239 = load ptr, ptr %238, align 8
-  %240 = call ptr @agsubnode(ptr noundef %237, ptr noundef %239, i32 noundef 0) #15
+  %240 = call ptr @agsubnode(ptr noundef %237, ptr noundef %239, i32 noundef 0) #16
   %241 = getelementptr inbounds i8, ptr %.023.i.i, i64 16
   %242 = load ptr, ptr %241, align 8
   call fastcc void @newedge(ptr noundef %206, ptr noundef null, ptr noundef %240, ptr noundef %242, ptr noundef %.0.lcssa.i)
@@ -590,7 +590,7 @@ newedge.exit.i:                                   ; preds = %232, %220, %.lr.ph2
   br i1 %.not.i.i, label %edgerhs.exit.i, label %.lr.ph.i30.i
 
 edgerhs.exit.i:                                   ; preds = %.lr.ph.i30.i, %newedge.exit.i, %235, %212
-  %244 = call ptr @agnxtnode(ptr noundef %201, ptr noundef nonnull %.02356.i) #15
+  %244 = call ptr @agnxtnode(ptr noundef %201, ptr noundef nonnull %.02356.i) #16
   %.not29.i = icmp eq ptr %244, null
   br i1 %.not29.i, label %.loopexit.i, label %.lr.ph58.i
 
@@ -612,7 +612,7 @@ edgerhs.exit.i:                                   ; preds = %.lr.ph.i30.i, %newe
   br i1 %252, label %255, label %261
 
 255:                                              ; preds = %.lr.ph54.i
-  %256 = call ptr @agfstnode(ptr noundef %254) #15
+  %256 = call ptr @agfstnode(ptr noundef %254) #16
   %.not1924.i36.i = icmp eq ptr %256, null
   br i1 %.not1924.i36.i, label %edgerhs.exit40.i, label %.lr.ph26.i37.i
 
@@ -620,9 +620,9 @@ edgerhs.exit.i:                                   ; preds = %.lr.ph.i30.i, %newe
   %.01825.i38.i = phi ptr [ %260, %.lr.ph26.i37.i ], [ %256, %255 ]
   %257 = load ptr, ptr @S, align 8
   %258 = load ptr, ptr %257, align 8
-  %259 = call ptr @agsubnode(ptr noundef %258, ptr noundef nonnull %.01825.i38.i, i32 noundef 0) #15
+  %259 = call ptr @agsubnode(ptr noundef %258, ptr noundef nonnull %.01825.i38.i, i32 noundef 0) #16
   call fastcc void @newedge(ptr noundef %247, ptr noundef %249, ptr noundef %259, ptr noundef null, ptr noundef %.0.lcssa.i)
-  %260 = call ptr @agnxtnode(ptr noundef %254, ptr noundef nonnull %.01825.i38.i) #15
+  %260 = call ptr @agnxtnode(ptr noundef %254, ptr noundef nonnull %.01825.i38.i) #16
   %.not19.i39.i = icmp eq ptr %260, null
   br i1 %.not19.i39.i, label %edgerhs.exit40.i, label %.lr.ph26.i37.i
 
@@ -636,7 +636,7 @@ edgerhs.exit.i:                                   ; preds = %.lr.ph.i30.i, %newe
   %263 = load ptr, ptr %262, align 8
   %264 = getelementptr inbounds i8, ptr %.023.i33.i, i64 8
   %265 = load ptr, ptr %264, align 8
-  %266 = call ptr @agsubnode(ptr noundef %263, ptr noundef %265, i32 noundef 0) #15
+  %266 = call ptr @agsubnode(ptr noundef %263, ptr noundef %265, i32 noundef 0) #16
   %267 = getelementptr inbounds i8, ptr %.023.i33.i, i64 16
   %268 = load ptr, ptr %267, align 8
   call fastcc void @newedge(ptr noundef %247, ptr noundef %249, ptr noundef %266, ptr noundef %268, ptr noundef %.0.lcssa.i)
@@ -696,7 +696,7 @@ endedge.exit:                                     ; preds = %._crit_edge.i, %._c
 
 .thread.i:                                        ; preds = %285
   %289 = load ptr, ptr @G, align 8
-  %290 = call ptr @agalloc(ptr noundef %289, i64 noundef 32) #15
+  %290 = call ptr @agalloc(ptr noundef %289, i64 noundef 32) #16
   store i32 265, ptr %290, align 8
   %291 = getelementptr inbounds i8, ptr %290, i64 8
   store ptr %288, ptr %291, align 8
@@ -715,7 +715,7 @@ endedge.exit:                                     ; preds = %._crit_edge.i, %._c
 
 298:                                              ; preds = %295
   %299 = load ptr, ptr @G, align 8
-  %300 = call ptr @agalloc(ptr noundef %299, i64 noundef 32) #15
+  %300 = call ptr @agalloc(ptr noundef %299, i64 noundef 32) #16
   store i32 262, ptr %300, align 8
   %301 = getelementptr inbounds i8, ptr %300, i64 8
   store ptr %297, ptr %301, align 8
@@ -759,7 +759,7 @@ endedge.exit:                                     ; preds = %._crit_edge.i, %._c
 
 .thread.i231:                                     ; preds = %316
   %320 = load ptr, ptr @G, align 8
-  %321 = call ptr @agalloc(ptr noundef %320, i64 noundef 32) #15
+  %321 = call ptr @agalloc(ptr noundef %320, i64 noundef 32) #16
   store i32 265, ptr %321, align 8
   %322 = getelementptr inbounds i8, ptr %321, i64 8
   store ptr %319, ptr %322, align 8
@@ -778,7 +778,7 @@ endedge.exit:                                     ; preds = %._crit_edge.i, %._c
 
 329:                                              ; preds = %326
   %330 = load ptr, ptr @G, align 8
-  %331 = call ptr @agalloc(ptr noundef %330, i64 noundef 32) #15
+  %331 = call ptr @agalloc(ptr noundef %330, i64 noundef 32) #16
   store i32 262, ptr %331, align 8
   %332 = getelementptr inbounds i8, ptr %331, i64 8
   store ptr %328, ptr %332, align 8
@@ -830,9 +830,9 @@ endedge.exit:                                     ; preds = %._crit_edge.i, %._c
   %354 = load ptr, ptr %.2188, align 8
   %355 = load ptr, ptr @S, align 8
   %356 = load ptr, ptr %355, align 8
-  %357 = call ptr @agnode(ptr noundef %356, ptr noundef %354, i32 noundef 1) #15
+  %357 = call ptr @agnode(ptr noundef %356, ptr noundef %354, i32 noundef 1) #16
   %358 = load ptr, ptr @G, align 8
-  %359 = call ptr @agalloc(ptr noundef %358, i64 noundef 32) #15
+  %359 = call ptr @agalloc(ptr noundef %358, i64 noundef 32) #16
   store i32 259, ptr %359, align 8
   %360 = getelementptr inbounds i8, ptr %359, i64 8
   store ptr %357, ptr %360, align 8
@@ -862,7 +862,7 @@ endedge.exit:                                     ; preds = %._crit_edge.i, %._c
 
 appendnode.exit:                                  ; preds = %368, %371
   %372 = load ptr, ptr @G, align 8
-  %373 = call i32 @agstrfree(ptr noundef %372, ptr noundef %354) #15
+  %373 = call i32 @agstrfree(ptr noundef %372, ptr noundef %354) #16
   br label %getedgeitems.exit
 
 374:                                              ; preds = %82
@@ -871,9 +871,9 @@ appendnode.exit:                                  ; preds = %368, %371
   %377 = load ptr, ptr %.2188, align 8
   %378 = load ptr, ptr @S, align 8
   %379 = load ptr, ptr %378, align 8
-  %380 = call ptr @agnode(ptr noundef %379, ptr noundef %376, i32 noundef 1) #15
+  %380 = call ptr @agnode(ptr noundef %379, ptr noundef %376, i32 noundef 1) #16
   %381 = load ptr, ptr @G, align 8
-  %382 = call ptr @agalloc(ptr noundef %381, i64 noundef 32) #15
+  %382 = call ptr @agalloc(ptr noundef %381, i64 noundef 32) #16
   store i32 259, ptr %382, align 8
   %383 = getelementptr inbounds i8, ptr %382, i64 8
   store ptr %380, ptr %383, align 8
@@ -903,7 +903,7 @@ appendnode.exit:                                  ; preds = %368, %371
 
 appendnode.exit237:                               ; preds = %391, %394
   %395 = load ptr, ptr @G, align 8
-  %396 = call i32 @agstrfree(ptr noundef %395, ptr noundef %376) #15
+  %396 = call i32 @agstrfree(ptr noundef %395, ptr noundef %376) #16
   br label %getedgeitems.exit
 
 397:                                              ; preds = %82
@@ -917,38 +917,38 @@ appendnode.exit237:                               ; preds = %391, %394
 
 403:                                              ; preds = %397
   call void @llvm.lifetime.start.p0(i64 8192, ptr nonnull %2)
-  %404 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %401) #16
-  %405 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %402) #16
+  %404 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %401) #17
+  %405 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %402) #17
   %406 = add i64 %404, 2
   %407 = add i64 %406, %405
   %408 = icmp ult i64 %407, 8193
   br i1 %408, label %gv_alloc.exit.i.i, label %409
 
 409:                                              ; preds = %403
-  %410 = call noalias ptr @calloc(i64 noundef 1, i64 noundef %407) #17
+  %410 = call noalias ptr @calloc(i64 noundef 1, i64 noundef %407) #18
   %411 = icmp eq ptr %410, null
   br i1 %411, label %412, label %gv_alloc.exit.i.i
 
 412:                                              ; preds = %409
   %413 = load ptr, ptr @stderr, align 8
-  %414 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %413, ptr noundef nonnull @.str.13, i64 noundef %407) #18
-  call fastcc void @graphviz_exit() #19
+  %414 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %413, ptr noundef nonnull @.str.13, i64 noundef %407) #19
+  call fastcc void @graphviz_exit() #20
   unreachable
 
 gv_alloc.exit.i.i:                                ; preds = %409, %403
   %.0.i.i239 = phi ptr [ %2, %403 ], [ %410, %409 ]
-  %415 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %.0.i.i239, ptr noundef nonnull dereferenceable(1) @.str.11, ptr noundef %401, ptr noundef nonnull %402) #15
+  %415 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %.0.i.i239, ptr noundef nonnull dereferenceable(1) @.str.11, ptr noundef %401, ptr noundef nonnull %402) #16
   %416 = load ptr, ptr @G, align 8
-  %417 = call ptr @agstrdup(ptr noundef %416, ptr noundef nonnull %.0.i.i239) #15
+  %417 = call ptr @agstrdup(ptr noundef %416, ptr noundef nonnull %.0.i.i239) #16
   %418 = load ptr, ptr @G, align 8
-  %419 = call i32 @agstrfree(ptr noundef %418, ptr noundef %401) #15
+  %419 = call i32 @agstrfree(ptr noundef %418, ptr noundef %401) #16
   %420 = load ptr, ptr @G, align 8
-  %421 = call i32 @agstrfree(ptr noundef %420, ptr noundef nonnull %402) #15
+  %421 = call i32 @agstrfree(ptr noundef %420, ptr noundef nonnull %402) #16
   %.not.i.i240 = icmp eq ptr %.0.i.i239, %2
   br i1 %.not.i.i240, label %concatPort.exit.i, label %422
 
 422:                                              ; preds = %gv_alloc.exit.i.i
-  call void @free(ptr noundef nonnull %.0.i.i239) #15
+  call void @free(ptr noundef nonnull %.0.i.i239) #16
   br label %concatPort.exit.i
 
 concatPort.exit.i:                                ; preds = %422, %gv_alloc.exit.i.i
@@ -959,9 +959,9 @@ concatPort.exit.i:                                ; preds = %422, %gv_alloc.exit
   %.0.i = phi ptr [ %417, %concatPort.exit.i ], [ %401, %397 ]
   %424 = load ptr, ptr @S, align 8
   %425 = load ptr, ptr %424, align 8
-  %426 = call ptr @agnode(ptr noundef %425, ptr noundef %399, i32 noundef 1) #15
+  %426 = call ptr @agnode(ptr noundef %425, ptr noundef %399, i32 noundef 1) #16
   %427 = load ptr, ptr @G, align 8
-  %428 = call ptr @agalloc(ptr noundef %427, i64 noundef 32) #15
+  %428 = call ptr @agalloc(ptr noundef %427, i64 noundef 32) #16
   store i32 259, ptr %428, align 8
   %429 = getelementptr inbounds i8, ptr %428, i64 8
   store ptr %426, ptr %429, align 8
@@ -991,7 +991,7 @@ concatPort.exit.i:                                ; preds = %422, %gv_alloc.exit
 
 appendnode.exit242:                               ; preds = %437, %440
   %441 = load ptr, ptr @G, align 8
-  %442 = call i32 @agstrfree(ptr noundef %441, ptr noundef %399) #15
+  %442 = call i32 @agstrfree(ptr noundef %441, ptr noundef %399) #16
   br label %getedgeitems.exit
 
 443:                                              ; preds = %82
@@ -1040,7 +1040,7 @@ appendnode.exit242:                               ; preds = %437, %440
   %464 = load ptr, ptr %463, align 8
   %465 = load ptr, ptr %.2188, align 8
   %466 = load ptr, ptr @G, align 8
-  %467 = call ptr @agalloc(ptr noundef %466, i64 noundef 32) #15
+  %467 = call ptr @agalloc(ptr noundef %466, i64 noundef 32) #16
   store i32 267, ptr %467, align 8
   %468 = getelementptr inbounds i8, ptr %467, i64 8
   store ptr %464, ptr %468, align 8
@@ -1077,21 +1077,21 @@ appendnode.exit242:                               ; preds = %437, %440
   br i1 %484, label %485, label %opensubg.exit
 
 485:                                              ; preds = %480
-  %486 = call i32 (i32, ptr, ...) @agerr(i32 noundef 1, ptr noundef nonnull @.str.16, i32 noundef 10000) #15
+  %486 = call i32 (i32, ptr, ...) @agerr(i32 noundef 1, ptr noundef nonnull @.str.16, i32 noundef 10000) #16
   br label %opensubg.exit
 
 opensubg.exit:                                    ; preds = %480, %485
   %487 = load ptr, ptr @S, align 8
   %488 = load ptr, ptr %487, align 8
-  %489 = call ptr @agsubg(ptr noundef %488, ptr noundef %481, i32 noundef 1) #15
+  %489 = call ptr @agsubg(ptr noundef %488, ptr noundef %481, i32 noundef 1) #16
   %490 = load ptr, ptr @G, align 8
-  %491 = call noundef ptr @agalloc(ptr noundef %490, i64 noundef 72) #15
+  %491 = call noundef ptr @agalloc(ptr noundef %490, i64 noundef 72) #16
   %492 = getelementptr inbounds i8, ptr %491, i64 64
   store ptr %487, ptr %492, align 8
   store ptr %489, ptr %491, align 8
   store ptr %491, ptr @S, align 8
   %493 = load ptr, ptr @G, align 8
-  %494 = call i32 @agstrfree(ptr noundef %493, ptr noundef %481) #15
+  %494 = call i32 @agstrfree(ptr noundef %493, ptr noundef %481) #16
   br label %getedgeitems.exit
 
 495:                                              ; preds = %82
@@ -1103,7 +1103,7 @@ opensubg.exit:                                    ; preds = %480, %485
   %500 = getelementptr inbounds i8, ptr %496, i64 64
   %501 = load ptr, ptr %500, align 8
   %502 = load ptr, ptr @G, align 8
-  call void @agfree(ptr noundef %502, ptr noundef nonnull %496) #15
+  call void @agfree(ptr noundef %502, ptr noundef nonnull %496) #16
   store ptr %501, ptr @S, align 8
   %503 = getelementptr inbounds i8, ptr %501, i64 8
   store ptr %497, ptr %503, align 8
@@ -1136,39 +1136,39 @@ opensubg.exit:                                    ; preds = %480, %485
   %516 = load ptr, ptr %515, align 8
   %517 = load ptr, ptr %.2188, align 8
   call void @llvm.lifetime.start.p0(i64 8192, ptr nonnull %1)
-  %518 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %516) #16
-  %519 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %517) #16
+  %518 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %516) #17
+  %519 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %517) #17
   %520 = add i64 %518, 1
   %521 = add i64 %520, %519
   %522 = icmp ult i64 %521, 8193
   br i1 %522, label %gv_alloc.exit.i, label %523
 
 523:                                              ; preds = %514
-  %524 = call noalias ptr @calloc(i64 noundef 1, i64 noundef %521) #17
+  %524 = call noalias ptr @calloc(i64 noundef 1, i64 noundef %521) #18
   %525 = icmp eq ptr %524, null
   br i1 %525, label %526, label %gv_alloc.exit.i
 
 526:                                              ; preds = %523
   %527 = load ptr, ptr @stderr, align 8
-  %528 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %527, ptr noundef nonnull @.str.13, i64 noundef %521) #18
-  call fastcc void @graphviz_exit() #19
+  %528 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %527, ptr noundef nonnull @.str.13, i64 noundef %521) #19
+  call fastcc void @graphviz_exit() #20
   unreachable
 
 gv_alloc.exit.i:                                  ; preds = %523, %514
   %.0.i244 = phi ptr [ %1, %514 ], [ %524, %523 ]
-  %529 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.0.i244, ptr noundef nonnull dereferenceable(1) %516) #15
-  %530 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %.0.i244, ptr noundef nonnull dereferenceable(1) %517) #15
+  %529 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.0.i244, ptr noundef nonnull dereferenceable(1) %516) #16
+  %530 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %.0.i244, ptr noundef nonnull dereferenceable(1) %517) #16
   %531 = load ptr, ptr @G, align 8
-  %532 = call ptr @agstrdup(ptr noundef %531, ptr noundef nonnull %.0.i244) #15
+  %532 = call ptr @agstrdup(ptr noundef %531, ptr noundef nonnull %.0.i244) #16
   %533 = load ptr, ptr @G, align 8
-  %534 = call i32 @agstrfree(ptr noundef %533, ptr noundef %516) #15
+  %534 = call i32 @agstrfree(ptr noundef %533, ptr noundef %516) #16
   %535 = load ptr, ptr @G, align 8
-  %536 = call i32 @agstrfree(ptr noundef %535, ptr noundef %517) #15
+  %536 = call i32 @agstrfree(ptr noundef %535, ptr noundef %517) #16
   %.not.i245 = icmp eq ptr %.0.i244, %1
   br i1 %.not.i245, label %concat.exit, label %537
 
 537:                                              ; preds = %gv_alloc.exit.i
-  call void @free(ptr noundef nonnull %.0.i244) #15
+  call void @free(ptr noundef nonnull %.0.i244) #16
   br label %concat.exit
 
 concat.exit:                                      ; preds = %gv_alloc.exit.i, %537
@@ -1227,7 +1227,7 @@ getedgeitems.exit:                                ; preds = %479, %476, %346, %3
   %566 = load i32, ptr @aagnerrs, align 4
   %567 = add nsw i32 %566, 1
   store i32 %567, ptr @aagnerrs, align 4
-  call void @aagerror(ptr noundef nonnull @.str) #15
+  call void @aagerror(ptr noundef nonnull @.str) #16
   br label %573
 
 568:                                              ; preds = %563
@@ -1268,7 +1268,7 @@ getedgeitems.exit:                                ; preds = %479, %476, %346, %3
   br label %5
 
 583:                                              ; preds = %17, %11
-  call void @aagerror(ptr noundef nonnull @.str.3) #15
+  call void @aagerror(ptr noundef nonnull @.str.3) #16
   br label %.loopexit
 
 .loopexit:                                        ; preds = %570, %32, %.lr.ph, %583
@@ -1280,7 +1280,7 @@ getedgeitems.exit:                                ; preds = %479, %476, %346, %3
 .loopexit.thread:                                 ; preds = %28, %.loopexit
   %.3295 = phi ptr [ %.3, %.loopexit ], [ %21, %28 ]
   %.0184293 = phi i32 [ %.0184, %.loopexit ], [ 1, %28 ]
-  call void @free(ptr noundef %.3295) #15
+  call void @free(ptr noundef %.3295) #16
   br label %584
 
 584:                                              ; preds = %.loopexit.thread, %.loopexit
@@ -1315,7 +1315,7 @@ define internal fastcc void @endnode() unnamed_addr #0 {
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr @S, align 8
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call ptr @agattr(ptr noundef %6, i32 noundef 1, ptr noundef %4, ptr noundef null) #15
+  %7 = tail call ptr @agattr(ptr noundef %6, i32 noundef 1, ptr noundef %4, ptr noundef null) #16
   store ptr %7, ptr %3, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %13
@@ -1323,14 +1323,14 @@ define internal fastcc void @endnode() unnamed_addr #0 {
 9:                                                ; preds = %.lr.ph.split.i
   %10 = load ptr, ptr @S, align 8
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call ptr @agattr(ptr noundef %11, i32 noundef 1, ptr noundef %4, ptr noundef nonnull @.str.10) #15
+  %12 = tail call ptr @agattr(ptr noundef %11, i32 noundef 1, ptr noundef %4, ptr noundef nonnull @.str.10) #16
   store ptr %12, ptr %3, align 8
   br label %13
 
 13:                                               ; preds = %9, %.lr.ph.split.i
   store i32 266, ptr %.014.i, align 8
   %14 = load ptr, ptr @G, align 8
-  %15 = tail call i32 @agstrfree(ptr noundef %14, ptr noundef %4) #15
+  %15 = tail call i32 @agstrfree(ptr noundef %14, ptr noundef %4) #16
   %16 = getelementptr inbounds i8, ptr %.014.i, i64 24
   %.0.i = load ptr, ptr %16, align 8
   %.not.i = icmp eq ptr %.0.i, null
@@ -1385,7 +1385,7 @@ applyattrs.exit.us:                               ; preds = %.lr.ph, %applyattrs
 32:                                               ; preds = %29
   %33 = getelementptr inbounds i8, ptr %.011.i, i64 16
   %34 = load ptr, ptr %33, align 8
-  %35 = tail call i32 @agxset(ptr noundef %24, ptr noundef nonnull %31, ptr noundef %34) #15
+  %35 = tail call i32 @agxset(ptr noundef %24, ptr noundef nonnull %31, ptr noundef %34) #16
   br label %36
 
 36:                                               ; preds = %32, %29, %.lr.ph.i3
@@ -1434,7 +1434,7 @@ define internal fastcc void @attrstmt(i32 noundef %0, ptr noundef readnone %1) u
   br i1 %.not, label %5, label %3
 
 3:                                                ; preds = %2
-  %4 = tail call i32 (i32, ptr, ...) @agerr(i32 noundef 0, ptr noundef nonnull @.str.9) #15
+  %4 = tail call i32 (i32, ptr, ...) @agerr(i32 noundef 0, ptr noundef nonnull @.str.9) #16
   br label %5
 
 5:                                                ; preds = %3, %2
@@ -1452,7 +1452,7 @@ define internal fastcc void @attrstmt(i32 noundef %0, ptr noundef readnone %1) u
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %.lr.ph
-  %12 = tail call i32 (i32, ptr, ...) @agerr(i32 noundef 0, ptr noundef nonnull @.str.9) #15
+  %12 = tail call i32 (i32, ptr, ...) @agerr(i32 noundef 0, ptr noundef nonnull @.str.9) #16
   br label %13
 
 13:                                               ; preds = %.lr.ph, %11
@@ -1473,8 +1473,8 @@ define internal fastcc void @attrstmt(i32 noundef %0, ptr noundef readnone %1) u
 
 16:                                               ; preds = %._crit_edge
   %17 = load ptr, ptr @stderr, align 8
-  %18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 328) #18
-  tail call void @abort() #20
+  %18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 328) #19
+  tail call void @abort() #21
   unreachable
 
 19:                                               ; preds = %._crit_edge, %15
@@ -1496,14 +1496,14 @@ define internal fastcc void @attrstmt(i32 noundef %0, ptr noundef readnone %1) u
   %.014.us.i = phi ptr [ %.0.us.i, %40 ], [ %.012.i34, %.thread ]
   %24 = getelementptr inbounds i8, ptr %.014.us.i, i64 8
   %25 = load ptr, ptr %24, align 8
-  %26 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %25, ptr noundef nonnull dereferenceable(1) @Key) #16
+  %26 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %25, ptr noundef nonnull dereferenceable(1) @Key) #17
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %40, label %28
 
 28:                                               ; preds = %.lr.ph.split.us.i
   %29 = load ptr, ptr @S, align 8
   %30 = load ptr, ptr %29, align 8
-  %31 = tail call ptr @agattr(ptr noundef %30, i32 noundef 2, ptr noundef %25, ptr noundef null) #15
+  %31 = tail call ptr @agattr(ptr noundef %30, i32 noundef 2, ptr noundef %25, ptr noundef null) #16
   store ptr %31, ptr %24, align 8
   %32 = icmp eq ptr %31, null
   br i1 %32, label %33, label %37
@@ -1511,14 +1511,14 @@ define internal fastcc void @attrstmt(i32 noundef %0, ptr noundef readnone %1) u
 33:                                               ; preds = %28
   %34 = load ptr, ptr @S, align 8
   %35 = load ptr, ptr %34, align 8
-  %36 = tail call ptr @agattr(ptr noundef %35, i32 noundef 2, ptr noundef %25, ptr noundef nonnull @.str.10) #15
+  %36 = tail call ptr @agattr(ptr noundef %35, i32 noundef 2, ptr noundef %25, ptr noundef nonnull @.str.10) #16
   store ptr %36, ptr %24, align 8
   br label %37
 
 37:                                               ; preds = %33, %28
   store i32 266, ptr %.014.us.i, align 8
   %38 = load ptr, ptr @G, align 8
-  %39 = tail call i32 @agstrfree(ptr noundef %38, ptr noundef %25) #15
+  %39 = tail call i32 @agstrfree(ptr noundef %38, ptr noundef %25) #16
   br label %40
 
 40:                                               ; preds = %37, %.lr.ph.split.us.i
@@ -1533,7 +1533,7 @@ define internal fastcc void @attrstmt(i32 noundef %0, ptr noundef readnone %1) u
   %43 = load ptr, ptr %42, align 8
   %44 = load ptr, ptr @S, align 8
   %45 = load ptr, ptr %44, align 8
-  %46 = tail call ptr @agattr(ptr noundef %45, i32 noundef %.014, ptr noundef %43, ptr noundef null) #15
+  %46 = tail call ptr @agattr(ptr noundef %45, i32 noundef %.014, ptr noundef %43, ptr noundef null) #16
   store ptr %46, ptr %42, align 8
   %47 = icmp eq ptr %46, null
   br i1 %47, label %48, label %52
@@ -1541,14 +1541,14 @@ define internal fastcc void @attrstmt(i32 noundef %0, ptr noundef readnone %1) u
 48:                                               ; preds = %.lr.ph.split.i
   %49 = load ptr, ptr @S, align 8
   %50 = load ptr, ptr %49, align 8
-  %51 = tail call ptr @agattr(ptr noundef %50, i32 noundef %.014, ptr noundef %43, ptr noundef nonnull @.str.10) #15
+  %51 = tail call ptr @agattr(ptr noundef %50, i32 noundef %.014, ptr noundef %43, ptr noundef nonnull @.str.10) #16
   store ptr %51, ptr %42, align 8
   br label %52
 
 52:                                               ; preds = %48, %.lr.ph.split.i
   store i32 266, ptr %.014.i, align 8
   %53 = load ptr, ptr @G, align 8
-  %54 = tail call i32 @agstrfree(ptr noundef %53, ptr noundef %43) #15
+  %54 = tail call i32 @agstrfree(ptr noundef %53, ptr noundef %43) #16
   %55 = getelementptr inbounds i8, ptr %.014.i, i64 24
   %.0.i = load ptr, ptr %55, align 8
   %.not.i = icmp eq ptr %.0.i, null
@@ -1587,7 +1587,7 @@ bindattrs.exit:                                   ; preds = %40, %52, %.thread, 
   %70 = load ptr, ptr %69, align 8
   %71 = getelementptr inbounds i8, ptr %.126, i64 16
   %72 = load ptr, ptr %71, align 8
-  %73 = tail call ptr @agattr(ptr noundef %.pre, i32 noundef %.01437, ptr noundef %70, ptr noundef %72) #15
+  %73 = tail call ptr @agattr(ptr noundef %.pre, i32 noundef %.01437, ptr noundef %70, ptr noundef %72) #16
   %.pre30 = load ptr, ptr @S, align 8
   %.pre31 = load ptr, ptr @G, align 8
   br label %74
@@ -1637,14 +1637,14 @@ define ptr @agconcat(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnam
   %.not = icmp eq ptr %2, null
   %4 = select i1 %.not, ptr @AgDefaultDisc, ptr %2
   store ptr %4, ptr @Disc, align 8
-  tail call void @aglexinit(ptr noundef nonnull %4, ptr noundef %1) #15
+  tail call void @aglexinit(ptr noundef nonnull %4, ptr noundef %1) #16
   %5 = tail call i32 @aagparse()
   %6 = load ptr, ptr @Ag_G_global, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %9
 
 8:                                                ; preds = %3
-  tail call void @aglexbad() #15
+  tail call void @aglexbad() #16
   %.pre = load ptr, ptr @Ag_G_global, align 8
   br label %9
 
@@ -1665,14 +1665,14 @@ define ptr @agread(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %1, null
   %3 = select i1 %.not.i, ptr @AgDefaultDisc, ptr %1
   store ptr %3, ptr @Disc, align 8
-  tail call void @aglexinit(ptr noundef nonnull %3, ptr noundef %0) #15
+  tail call void @aglexinit(ptr noundef nonnull %3, ptr noundef %0) #16
   %4 = tail call i32 @aagparse()
   %5 = load ptr, ptr @Ag_G_global, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %agconcat.exit
 
 7:                                                ; preds = %2
-  tail call void @aglexbad() #15
+  tail call void @aglexbad() #16
   %.pre.i = load ptr, ptr @Ag_G_global, align 8
   br label %agconcat.exit
 
@@ -1686,7 +1686,7 @@ declare ptr @agalloc(ptr noundef, i64 noundef) local_unnamed_addr #4
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: cold nofree noreturn nounwind
 declare void @abort() local_unnamed_addr #6
 
 declare ptr @agattr(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
@@ -1727,12 +1727,12 @@ define internal fastcc void @delete_items(ptr noundef %0) unnamed_addr #0 {
   %13 = load ptr, ptr @G, align 8
   %14 = getelementptr inbounds i8, ptr %.010, i64 16
   %15 = load ptr, ptr %14, align 8
-  %16 = tail call i32 @agstrfree(ptr noundef %13, ptr noundef %15) #15
+  %16 = tail call i32 @agstrfree(ptr noundef %13, ptr noundef %15) #16
   br label %17
 
 17:                                               ; preds = %12, %9
   %18 = load ptr, ptr @G, align 8
-  tail call void @agfree(ptr noundef %18, ptr noundef nonnull %.010) #15
+  tail call void @agfree(ptr noundef %18, ptr noundef nonnull %.010) #16
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -1752,17 +1752,17 @@ declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapt
 
 declare ptr @agstrdup(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-; Function Attrs: noreturn nounwind uwtable
+; Function Attrs: nofree noreturn nounwind uwtable
 define internal fastcc void @graphviz_exit() unnamed_addr #8 {
-  tail call void @exit(i32 noundef 1) #20
+  tail call void @exit(i32 noundef 1) #22
   unreachable
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #9
 
-; Function Attrs: noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #6
+; Function Attrs: nofree noreturn nounwind
+declare void @exit(i32 noundef) local_unnamed_addr #10
 
 declare i32 @agxset(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
@@ -1776,7 +1776,7 @@ declare ptr @agnxtnode(ptr noundef, ptr noundef) local_unnamed_addr #4
 define internal fastcc void @newedge(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = load ptr, ptr @S, align 8
   %7 = load ptr, ptr %6, align 8
-  %8 = tail call ptr @agedge(ptr noundef %7, ptr noundef %0, ptr noundef %2, ptr noundef %4, i32 noundef 1) #15
+  %8 = tail call ptr @agedge(ptr noundef %7, ptr noundef %0, ptr noundef %2, ptr noundef %4, i32 noundef 1) #16
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %applyattrs.exit, label %9
 
@@ -1804,19 +1804,19 @@ define internal fastcc void @newedge(ptr noundef %0, ptr noundef %1, ptr noundef
 21:                                               ; preds = %9
   %22 = load ptr, ptr @S, align 8
   %23 = load ptr, ptr %22, align 8
-  %24 = tail call ptr @agattr(ptr noundef %23, i32 noundef 2, ptr noundef nonnull @.str.14, ptr noundef null) #15
+  %24 = tail call ptr @agattr(ptr noundef %23, i32 noundef 2, ptr noundef nonnull @.str.14, ptr noundef null) #16
   %25 = icmp eq ptr %24, null
   br i1 %25, label %26, label %30
 
 26:                                               ; preds = %21
   %27 = load ptr, ptr @S, align 8
   %28 = load ptr, ptr %27, align 8
-  %29 = tail call ptr @agattr(ptr noundef %28, i32 noundef 2, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.10) #15
+  %29 = tail call ptr @agattr(ptr noundef %28, i32 noundef 2, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.10) #16
   br label %30
 
 30:                                               ; preds = %26, %21
   %.0.i = phi ptr [ %29, %26 ], [ %24, %21 ]
-  %31 = tail call i32 @agxset(ptr noundef nonnull %8, ptr noundef %.0.i, ptr noundef nonnull %.0) #15
+  %31 = tail call i32 @agxset(ptr noundef nonnull %8, ptr noundef %.0.i, ptr noundef nonnull %.0) #16
   br label %mkport.exit
 
 mkport.exit:                                      ; preds = %9, %30
@@ -1826,19 +1826,19 @@ mkport.exit:                                      ; preds = %9, %30
 32:                                               ; preds = %mkport.exit
   %33 = load ptr, ptr @S, align 8
   %34 = load ptr, ptr %33, align 8
-  %35 = tail call ptr @agattr(ptr noundef %34, i32 noundef 2, ptr noundef nonnull @.str.15, ptr noundef null) #15
+  %35 = tail call ptr @agattr(ptr noundef %34, i32 noundef 2, ptr noundef nonnull @.str.15, ptr noundef null) #16
   %36 = icmp eq ptr %35, null
   br i1 %36, label %37, label %41
 
 37:                                               ; preds = %32
   %38 = load ptr, ptr @S, align 8
   %39 = load ptr, ptr %38, align 8
-  %40 = tail call ptr @agattr(ptr noundef %39, i32 noundef 2, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.10) #15
+  %40 = tail call ptr @agattr(ptr noundef %39, i32 noundef 2, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.10) #16
   br label %41
 
 41:                                               ; preds = %37, %32
   %.0.i30 = phi ptr [ %40, %37 ], [ %35, %32 ]
-  %42 = tail call i32 @agxset(ptr noundef nonnull %8, ptr noundef %.0.i30, ptr noundef nonnull %.024) #15
+  %42 = tail call i32 @agxset(ptr noundef nonnull %8, ptr noundef %.0.i30, ptr noundef nonnull %.024) #16
   br label %mkport.exit31
 
 mkport.exit31:                                    ; preds = %mkport.exit, %41
@@ -1863,7 +1863,7 @@ mkport.exit31:                                    ; preds = %mkport.exit, %41
 50:                                               ; preds = %47
   %51 = getelementptr inbounds i8, ptr %.011.i, i64 16
   %52 = load ptr, ptr %51, align 8
-  %53 = tail call i32 @agxset(ptr noundef nonnull %8, ptr noundef nonnull %49, ptr noundef %52) #15
+  %53 = tail call i32 @agxset(ptr noundef nonnull %8, ptr noundef nonnull %49, ptr noundef %52) #16
   br label %54
 
 54:                                               ; preds = %50, %47, %.lr.ph.i
@@ -1879,10 +1879,10 @@ applyattrs.exit:                                  ; preds = %54, %mkport.exit31,
 declare ptr @agedge(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #10
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcat(ptr noalias noundef returned, ptr noalias nocapture noundef readonly) local_unnamed_addr #10
+declare ptr @strcat(ptr noalias noundef returned, ptr noalias nocapture noundef readonly) local_unnamed_addr #11
 
 declare ptr @agopen(ptr noundef, i32, ptr noundef) local_unnamed_addr #4
 
@@ -1893,19 +1893,19 @@ declare void @aginternalmapclearlocalnames(ptr noundef) local_unnamed_addr #4
 declare ptr @agsubg(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #11
+declare i64 @llvm.smin.i64(i64, i64) #12
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.usub.sat.i32(i32, i32) #11
+declare i32 @llvm.usub.sat.i32(i32, i32) #12
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1913,21 +1913,23 @@ attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #13 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #14 = { nounwind allocsize(0) }
-attributes #15 = { nounwind }
-attributes #16 = { nounwind willreturn memory(read) }
-attributes #17 = { nounwind allocsize(0,1) }
-attributes #18 = { cold nounwind }
-attributes #19 = { noreturn }
-attributes #20 = { noreturn nounwind }
+attributes #10 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #14 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #15 = { nounwind allocsize(0) }
+attributes #16 = { nounwind }
+attributes #17 = { nounwind willreturn memory(read) }
+attributes #18 = { nounwind allocsize(0,1) }
+attributes #19 = { cold nounwind }
+attributes #20 = { noreturn }
+attributes #21 = { noreturn nounwind }
+attributes #22 = { cold noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

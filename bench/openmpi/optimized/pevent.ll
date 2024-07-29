@@ -217,7 +217,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %38
   br label %69
 
 69:                                               ; preds = %67, %59
-  call void @exit(i32 noundef 1) #14
+  call void @exit(i32 noundef 1) #15
   unreachable
 
 70:                                               ; preds = %55
@@ -231,7 +231,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %38
   %.081194 = phi ptr [ %87, %.loopexit186 ], [ %73, %70 ]
   %74 = getelementptr inbounds i8, ptr %.081194, i64 144
   %75 = load ptr, ptr %74, align 8
-  %76 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %75, ptr noundef nonnull dereferenceable(8) @.str.12) #15
+  %76 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %75, ptr noundef nonnull dereferenceable(8) @.str.12) #16
   %77 = icmp eq i32 %76, 0
   br i1 %77, label %.preheader, label %.loopexit186
 
@@ -277,7 +277,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %38
   br i1 %.not112, label %119, label %96
 
 96:                                               ; preds = %92
-  %97 = tail call ptr @__ctype_b_loc() #16
+  %97 = tail call ptr @__ctype_b_loc() #17
   %98 = load ptr, ptr %97, align 8
   %99 = sext i8 %95 to i64
   %100 = getelementptr inbounds i16, ptr %98, i64 %99
@@ -310,7 +310,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %38
   br label %118
 
 118:                                              ; preds = %116, %106
-  call void @exit(i32 noundef 1) #14
+  call void @exit(i32 noundef 1) #15
   unreachable
 
 119:                                              ; preds = %96, %92
@@ -328,7 +328,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %38
   %.011.i = phi ptr [ %.0.i, %127 ], [ %.09.i, %122 ]
   %123 = getelementptr inbounds i8, ptr %.011.i, i64 144
   %124 = load ptr, ptr %123, align 8
-  %125 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %124, ptr noundef nonnull readonly dereferenceable(6) @.str.15) #15
+  %125 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %124, ptr noundef nonnull readonly dereferenceable(6) @.str.15) #16
   %126 = icmp eq i32 %125, 0
   br i1 %126, label %pmix_cmd_line_get_param.exit, label %127
 
@@ -352,7 +352,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %38
   br label %135
 
 135:                                              ; preds = %133, %.loopexit
-  call void @exit(i32 noundef 1) #14
+  call void @exit(i32 noundef 1) #15
   unreachable
 
 pmix_cmd_line_get_param.exit:                     ; preds = %.lr.ph.i128
@@ -370,7 +370,7 @@ pmix_cmd_line_get_param.exit:                     ; preds = %.lr.ph.i128
   %.011.i133 = phi ptr [ %.0.i134, %146 ], [ %.09.i130, %pmix_cmd_line_get_param.exit ]
   %142 = getelementptr inbounds i8, ptr %.011.i133, i64 144
   %143 = load ptr, ptr %142, align 8
-  %144 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %143, ptr noundef nonnull readonly dereferenceable(4) @.str.16) #15
+  %144 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %143, ptr noundef nonnull readonly dereferenceable(4) @.str.16) #16
   %145 = icmp eq i32 %144, 0
   br i1 %145, label %pmix_cmd_line_get_param.exit137, label %146
 
@@ -404,12 +404,12 @@ pmix_cmd_line_get_param.exit137:                  ; preds = %.lr.ph.i132
 159:                                              ; preds = %155
   %160 = load ptr, ptr %148, align 8
   %161 = load ptr, ptr %160, align 8
-  %162 = call i32 @strncasecmp(ptr noundef %161, ptr noundef nonnull @.str.18, i64 noundef 4) #15
+  %162 = call i32 @strncasecmp(ptr noundef %161, ptr noundef nonnull @.str.18, i64 noundef 4) #16
   %163 = icmp eq i32 %162, 0
   br i1 %163, label %164, label %190
 
 164:                                              ; preds = %159
-  %165 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %161, i32 noundef 58) #15
+  %165 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %161, i32 noundef 58) #16
   %166 = icmp eq ptr %165, null
   br i1 %166, label %167, label %170
 
@@ -458,7 +458,7 @@ pmix_cmd_line_get_param.exit137:                  ; preds = %.lr.ph.i132
   %.011.i141 = phi ptr [ %.0.i142, %197 ], [ %.09.i130, %146 ]
   %193 = getelementptr inbounds i8, ptr %.011.i141, i64 144
   %194 = load ptr, ptr %193, align 8
-  %195 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %194, ptr noundef nonnull readonly dereferenceable(10) @.str.27) #15
+  %195 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %194, ptr noundef nonnull readonly dereferenceable(10) @.str.27) #16
   %196 = icmp eq i32 %195, 0
   br i1 %196, label %pmix_cmd_line_get_param.exit145, label %197
 
@@ -479,7 +479,7 @@ pmix_cmd_line_get_param.exit145:                  ; preds = %.lr.ph.i140
   %.011.i149 = phi ptr [ %.0.i150, %207 ], [ %.09.i130, %197 ]
   %203 = getelementptr inbounds i8, ptr %.011.i149, i64 144
   %204 = load ptr, ptr %203, align 8
-  %205 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %204, ptr noundef nonnull readonly dereferenceable(4) @.str.29) #15
+  %205 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %204, ptr noundef nonnull readonly dereferenceable(4) @.str.29) #16
   %206 = icmp eq i32 %205, 0
   br i1 %206, label %pmix_cmd_line_get_param.exit153, label %207
 
@@ -760,7 +760,7 @@ declare i32 @pmix_cmd_line_parse(ptr noundef, ptr noundef, ptr noundef, ptr noun
 
 declare ptr @PMIx_Error_string(i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #4
 
 declare ptr @pmix_show_help_string(ptr noundef, ptr noundef, i32 noundef, ...) local_unnamed_addr #2
@@ -821,7 +821,7 @@ define internal fastcc zeroext i1 @pmix_cmd_line_is_taken(ptr noundef readonly %
   %.011.i = phi ptr [ %.0.i, %9 ], [ %.09.i, %2 ]
   %5 = getelementptr inbounds i8, ptr %.011.i, i64 144
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull readonly dereferenceable(1) %1) #15
+  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull readonly dereferenceable(1) %1) #16
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %pmix_cmd_line_get_param.exit.loopexit, label %9
 
@@ -933,7 +933,7 @@ attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -944,8 +944,9 @@ attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #12 = { nounwind }
 attributes #13 = { cold nounwind }
 attributes #14 = { noreturn nounwind }
-attributes #15 = { nounwind willreturn memory(read) }
-attributes #16 = { nounwind willreturn memory(none) }
+attributes #15 = { cold noreturn nounwind }
+attributes #16 = { nounwind willreturn memory(read) }
+attributes #17 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

@@ -1061,7 +1061,7 @@ read_record.exit:                                 ; preds = %208, %249, %251, %2
   %264 = or i32 %.0..0..0..0.10, 1
   store volatile i32 %264, ptr %19, align 4
   call void (i32, ptr, ptr, ptr, ...) @simple_message_box(i32 noundef 3, ptr noundef null, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5) #21
-  call void @exit(i32 noundef 1) #22
+  call void @exit(i32 noundef 1) #24
   unreachable
 
 265:                                              ; preds = %259, %258, %.loopexit
@@ -1287,7 +1287,7 @@ declare void @wtap_rec_reset(ptr noundef) local_unnamed_addr #3
 
 declare void @simple_message_box(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: noreturn
@@ -1898,7 +1898,7 @@ define hidden noalias ptr @cf_get_basename(ptr nocapture noundef readonly %0) lo
 
 7:                                                ; preds = %4
   %8 = tail call noalias ptr @g_filename_display_basename(ptr noundef nonnull %6) #21
-  %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #24
+  %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #25
   %10 = tail call ptr @wtap_get_all_file_extensions_list() #21
   %.not3134 = icmp eq ptr %10, null
   br i1 %.not3134, label %.loopexit, label %.lr.ph
@@ -1906,7 +1906,7 @@ define hidden noalias ptr @cf_get_basename(ptr nocapture noundef readonly %0) lo
 .lr.ph:                                           ; preds = %7, %25
   %.02535 = phi ptr [ %27, %25 ], [ %10, %7 ]
   %11 = load ptr, ptr %.02535, align 8
-  %12 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #24
+  %12 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #25
   %13 = icmp ugt i64 %9, %12
   br i1 %13, label %14, label %25
 
@@ -1919,7 +1919,7 @@ define hidden noalias ptr @cf_get_basename(ptr nocapture noundef readonly %0) lo
   br i1 %19, label %20, label %25
 
 20:                                               ; preds = %14
-  %21 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(1) %11) #24
+  %21 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(1) %11) #25
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %23, label %25
 
@@ -2333,7 +2333,7 @@ define hidden range(i32 0, 2) i32 @cf_filter_packets(ptr noundef %0, ptr noundef
   %.not29 = icmp eq ptr %8, null
   %spec.select = select i1 %.not29, ptr @.str.12, ptr %8
   %9 = select i1 %.not, ptr @.str.12, ptr %1
-  %10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %spec.select) #24
+  %10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %spec.select) #25
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %43, label %12
 
@@ -3011,7 +3011,7 @@ define hidden range(i32 0, 3) i32 @cf_print_packets(ptr noundef %0, ptr noundef 
   br i1 %.not91, label %133, label %28
 
 28:                                               ; preds = %25
-  %29 = tail call noalias dereferenceable_or_null(257) ptr @g_malloc(i64 noundef 257) #25
+  %29 = tail call noalias dereferenceable_or_null(257) ptr @g_malloc(i64 noundef 257) #26
   store ptr %29, ptr %8, align 8
   %30 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 8), align 8
   %31 = icmp sgt i32 %30, 0
@@ -3107,7 +3107,7 @@ define hidden range(i32 0, 3) i32 @cf_print_packets(ptr noundef %0, ptr noundef 
   %75 = load ptr, ptr %54, align 8
   %76 = getelementptr %struct.col_item_t, ptr %75, i64 %indvars.iv, i32 2
   %77 = load ptr, ptr %76, align 8
-  %78 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %77) #24
+  %78 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %77) #25
   %79 = trunc i64 %78 to i32
   %80 = load ptr, ptr %14, align 8
   %81 = getelementptr i32, ptr %80, i64 %68
@@ -3128,7 +3128,7 @@ define hidden range(i32 0, 3) i32 @cf_print_packets(ptr noundef %0, ptr noundef 
   %90 = load ptr, ptr %54, align 8
   %91 = getelementptr %struct.col_item_t, ptr %90, i64 %indvars.iv, i32 2
   %92 = load ptr, ptr %91, align 8
-  %93 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %92) #24
+  %93 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %92) #25
   %94 = trunc i64 %93 to i32
   %spec.select99 = tail call i32 @llvm.smax.i32(i32 %88, i32 %94)
   %95 = add i32 %spec.select99, 1
@@ -3199,7 +3199,7 @@ define hidden range(i32 0, 3) i32 @cf_print_packets(ptr noundef %0, ptr noundef 
   store i32 %129, ptr %13, align 8
   %130 = add i32 %129, 1
   %131 = sext i32 %130 to i64
-  %132 = tail call noalias ptr @g_malloc(i64 noundef %131) #25
+  %132 = tail call noalias ptr @g_malloc(i64 noundef %131) #26
   store ptr %132, ptr %12, align 8
   %.pre115 = load ptr, ptr %4, align 8
   br label %133
@@ -3426,7 +3426,7 @@ define internal range(i32 0, 2) i32 @print_packet(ptr noundef %0, ptr noundef %1
   %79 = sext i32 %78 to i64
   %80 = getelementptr %struct.col_item_t, ptr %75, i64 %79
   %81 = tail call ptr @get_column_text(ptr noundef nonnull %69, i32 noundef %78) #21
-  %82 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %81) #24
+  %82 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %81) #25
   %83 = trunc i64 %82 to i32
   %84 = load ptr, ptr %72, align 8
   %85 = getelementptr i32, ptr %84, i64 %indvars.iv
@@ -4038,7 +4038,7 @@ define hidden range(i32 0, 2) i32 @cf_find_packet_protocol_tree(ptr noundef %0, 
   %7 = getelementptr inbounds i8, ptr %5, i64 44
   store i32 0, ptr %7, align 4
   store ptr %1, ptr %5, align 8
-  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #24
+  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #25
   %9 = getelementptr inbounds i8, ptr %5, i64 8
   store i64 %8, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %5, i64 16
@@ -4158,7 +4158,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %13, %proto_item_is_
   br i1 %.not74, label %67, label %36
 
 36:                                               ; preds = %33
-  %37 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.063) #24
+  %37 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.063) #25
   %.not86 = icmp eq i64 %37, 0
   br i1 %.not86, label %.loopexit, label %.lr.ph
 
@@ -4178,7 +4178,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %13, %proto_item_is_
 43:                                               ; preds = %.lr.ph
   %44 = getelementptr i8, ptr %.063, i64 %38
   %45 = load i8, ptr %44, align 1
-  %46 = call signext i8 @g_ascii_toupper(i8 noundef signext %45) #26
+  %46 = call signext i8 @g_ascii_toupper(i8 noundef signext %45) #27
   %47 = icmp ne i64 %.084, 0
   %or.cond3 = and i1 %39, %47
   %48 = zext i8 %46 to i32
@@ -4226,7 +4226,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %13, %proto_item_is_
   br i1 %66, label %.lr.ph, label %.loopexit, !llvm.loop !19
 
 67:                                               ; preds = %33
-  %68 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.063, ptr noundef nonnull dereferenceable(1) %4) #24
+  %68 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.063, ptr noundef nonnull dereferenceable(1) %4) #25
   %.not75 = icmp eq ptr %68, null
   br i1 %.not75, label %.loopexit, label %69
 
@@ -4315,7 +4315,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %13, %proto_item_is_
   br i1 %.not74, label %62, label %33
 
 33:                                               ; preds = %30
-  %34 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.063) #24
+  %34 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.063) #25
   %.not87 = icmp eq i64 %34, 0
   br i1 %.not87, label %.loopexit, label %.lr.ph
 
@@ -4335,7 +4335,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %13, %proto_item_is_
 40:                                               ; preds = %.lr.ph
   %41 = getelementptr i8, ptr %.063, i64 %35
   %42 = load i8, ptr %41, align 1
-  %43 = call signext i8 @g_ascii_toupper(i8 noundef signext %42) #26
+  %43 = call signext i8 @g_ascii_toupper(i8 noundef signext %42) #27
   %44 = icmp ne i64 %.085, 0
   %or.cond3 = and i1 %36, %44
   %45 = zext i8 %43 to i32
@@ -4377,7 +4377,7 @@ proto_item_is_hidden.exit.thread:                 ; preds = %13, %proto_item_is_
   br i1 %61, label %.lr.ph, label %.loopexit, !llvm.loop !20
 
 62:                                               ; preds = %30
-  %63 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.063, ptr noundef nonnull dereferenceable(1) %4) #24
+  %63 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.063, ptr noundef nonnull dereferenceable(1) %4) #25
   %.not75 = icmp eq ptr %63, null
   br i1 %.not75, label %.loopexit, label %.loopexit.sink.split
 
@@ -4650,7 +4650,7 @@ define hidden ptr @cf_find_string_protocol_tree(ptr noundef %0, ptr noundef %1) 
   %9 = load i32, ptr %8, align 4
   %10 = tail call ptr @convert_string_case(ptr noundef %7, i32 noundef %9) #21
   store ptr %10, ptr %3, align 8
-  %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #24
+  %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #25
   %12 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 %11, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %3, i64 16
@@ -4678,7 +4678,7 @@ declare ptr @convert_string_case(ptr noundef, i32 noundef) local_unnamed_addr #3
 define hidden range(i32 0, 2) i32 @cf_find_packet_summary_line(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = alloca %struct.match_data, align 8
   store ptr %1, ptr %4, align 8
-  %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #24
+  %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #25
   %6 = getelementptr inbounds i8, ptr %4, i64 8
   store i64 %5, ptr %6, align 8
   %7 = call fastcc i32 @find_packet(ptr noundef %0, ptr noundef nonnull @match_summary_line, ptr noundef nonnull %4, i32 noundef %2)
@@ -4749,7 +4749,7 @@ cf_read_record.exit.thread:                       ; preds = %5
   %40 = getelementptr inbounds i8, ptr %8, i64 32
   %41 = load ptr, ptr %40, align 8
   %42 = call ptr @get_column_text(ptr noundef %41, i32 noundef %39) #21
-  %43 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %42) #24
+  %43 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %42) #25
   %44 = getelementptr inbounds i8, ptr %0, i64 224
   %45 = load ptr, ptr %44, align 8
   %.not68 = icmp eq ptr %45, null
@@ -4785,7 +4785,7 @@ cf_read_record.exit.thread:                       ; preds = %5
 56:                                               ; preds = %.lr.ph84
   %57 = getelementptr i8, ptr %42, i64 %51
   %58 = load i8, ptr %57, align 1
-  %59 = call signext i8 @g_ascii_toupper(i8 noundef signext %58) #26
+  %59 = call signext i8 @g_ascii_toupper(i8 noundef signext %58) #27
   %60 = icmp ne i64 %.083, 0
   %or.cond3 = and i1 %52, %60
   %61 = zext i8 %59 to i32
@@ -4827,7 +4827,7 @@ cf_read_record.exit.thread:                       ; preds = %5
   br i1 %77, label %.lr.ph84, label %.loopexit, !llvm.loop !21
 
 78:                                               ; preds = %48
-  %79 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %42, ptr noundef nonnull dereferenceable(1) %9) #24
+  %79 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %42, ptr noundef nonnull dereferenceable(1) %9) #25
   %.not70 = icmp ne ptr %79, null
   br label %.loopexit
 
@@ -4883,7 +4883,7 @@ define hidden range(i32 0, 2) i32 @cf_find_packet_data(ptr noundef %0, ptr nound
 23:                                               ; preds = %20
   %24 = load i8, ptr %1, align 1
   store i8 %24, ptr %7, align 1
-  %25 = tail call signext i8 @g_ascii_tolower(i8 noundef signext %24) #26
+  %25 = tail call signext i8 @g_ascii_tolower(i8 noundef signext %24) #27
   %26 = getelementptr inbounds i8, ptr %7, i64 1
   store i8 %25, ptr %26, align 1
   %27 = getelementptr inbounds i8, ptr %7, i64 2
@@ -5279,7 +5279,7 @@ cf_read_record.exit.thread:                       ; preds = %5
   %46 = phi ptr [ %64, %62 ], [ %43, %.preheader ]
   %.088 = phi i64 [ %53, %62 ], [ 0, %.preheader ]
   %47 = load i8, ptr %46, align 1
-  %48 = call signext i8 @g_ascii_toupper(i8 noundef signext %47) #26
+  %48 = call signext i8 @g_ascii_toupper(i8 noundef signext %47) #27
   store i8 %48, ptr %8, align 1
   %49 = getelementptr i8, ptr %9, i64 %.088
   %50 = load i8, ptr %49, align 1
@@ -5317,7 +5317,7 @@ cf_read_record.exit.thread:                       ; preds = %5
   %.191 = phi i64 [ %73, %86 ], [ 0, %._crit_edge ]
   %.16690 = phi i32 [ %88, %86 ], [ 0, %._crit_edge ]
   %67 = load i8, ptr %66, align 1
-  %68 = call signext i8 @g_ascii_toupper(i8 noundef signext %67) #26
+  %68 = call signext i8 @g_ascii_toupper(i8 noundef signext %67) #27
   store i8 %68, ptr %8, align 1
   %69 = getelementptr i8, ptr %9, i64 %.191
   %70 = load i8, ptr %69, align 1
@@ -5463,7 +5463,7 @@ cf_read_record.exit.thread:                       ; preds = %5
   %54 = phi ptr [ %71, %69 ], [ %51, %.preheader ]
   %.098 = phi i64 [ %61, %69 ], [ 0, %.preheader ]
   %55 = load i8, ptr %54, align 1
-  %56 = call signext i8 @g_ascii_toupper(i8 noundef signext %55) #26
+  %56 = call signext i8 @g_ascii_toupper(i8 noundef signext %55) #27
   store i8 %56, ptr %8, align 1
   %57 = getelementptr i8, ptr %9, i64 %.098
   %58 = load i8, ptr %57, align 1
@@ -5500,7 +5500,7 @@ cf_read_record.exit.thread:                       ; preds = %5
   %.1101 = phi i64 [ %80, %92 ], [ 0, %._crit_edge ]
   %.170100 = phi i32 [ %94, %92 ], [ 0, %._crit_edge ]
   %74 = load i8, ptr %73, align 1
-  %75 = call signext i8 @g_ascii_toupper(i8 noundef signext %74) #26
+  %75 = call signext i8 @g_ascii_toupper(i8 noundef signext %74) #27
   store i8 %75, ptr %8, align 1
   %76 = getelementptr i8, ptr %9, i64 %.1101
   %77 = load i8, ptr %76, align 1
@@ -5624,7 +5624,7 @@ cf_read_record.exit.thread:                       ; preds = %5
   %46 = phi ptr [ %64, %62 ], [ %43, %.preheader ]
   %.057 = phi i64 [ %53, %62 ], [ 0, %.preheader ]
   %47 = load i8, ptr %46, align 1
-  %48 = call signext i8 @g_ascii_toupper(i8 noundef signext %47) #26
+  %48 = call signext i8 @g_ascii_toupper(i8 noundef signext %47) #27
   store i8 %48, ptr %8, align 1
   %49 = getelementptr i8, ptr %9, i64 %.057
   %50 = load i8, ptr %49, align 1
@@ -5760,7 +5760,7 @@ cf_read_record.exit.thread:                       ; preds = %5
   %54 = phi ptr [ %71, %69 ], [ %51, %.preheader ]
   %.065 = phi i64 [ %61, %69 ], [ 0, %.preheader ]
   %55 = load i8, ptr %54, align 1
-  %56 = call signext i8 @g_ascii_toupper(i8 noundef signext %55) #26
+  %56 = call signext i8 @g_ascii_toupper(i8 noundef signext %55) #27
   store i8 %56, ptr %8, align 1
   %57 = getelementptr i8, ptr %9, i64 %.065
   %58 = load i8, ptr %57, align 1
@@ -5875,7 +5875,7 @@ cf_read_record.exit.thread:                       ; preds = %5
   %.066 = phi i64 [ %53, %66 ], [ 0, %.preheader ]
   %.04965 = phi i32 [ %68, %66 ], [ 0, %.preheader ]
   %47 = load i8, ptr %46, align 1
-  %48 = call signext i8 @g_ascii_toupper(i8 noundef signext %47) #26
+  %48 = call signext i8 @g_ascii_toupper(i8 noundef signext %47) #27
   store i8 %48, ptr %8, align 1
   %49 = getelementptr i8, ptr %9, i64 %.066
   %50 = load i8, ptr %49, align 1
@@ -6022,7 +6022,7 @@ cf_read_record.exit.thread:                       ; preds = %5
   %.075 = phi i64 [ %61, %73 ], [ 0, %.preheader ]
   %.05374 = phi i32 [ %75, %73 ], [ 0, %.preheader ]
   %55 = load i8, ptr %54, align 1
-  %56 = call signext i8 @g_ascii_toupper(i8 noundef signext %55) #26
+  %56 = call signext i8 @g_ascii_toupper(i8 noundef signext %55) #27
   store i8 %56, ptr %8, align 1
   %57 = getelementptr i8, ptr %9, i64 %.075
   %58 = load i8, ptr %57, align 1
@@ -6135,7 +6135,7 @@ cf_read_record.exit.thread:                       ; preds = %5
   %.17199 = phi ptr [ %.070, %.lr.ph101 ], [ %90, %._crit_edge95 ]
   %42 = ptrtoint ptr %.17199 to i64
   %43 = sub i64 %38, %42
-  %44 = call ptr @memchr(ptr noundef %.17199, i32 noundef %37, i64 noundef %43) #24
+  %44 = call ptr @memchr(ptr noundef %.17199, i32 noundef %37, i64 noundef %43) #25
   %45 = icmp eq ptr %44, null
   br i1 %45, label %.loopexit, label %.preheader
 
@@ -6657,7 +6657,7 @@ cf_read_record.exit.thread:                       ; preds = %5
   %.170 = phi ptr [ %.052, %.lr.ph72 ], [ %72, %._crit_edge ]
   %42 = ptrtoint ptr %.170 to i64
   %43 = sub i64 %38, %42
-  %44 = call ptr @memchr(ptr noundef %.170, i32 noundef %37, i64 noundef %43) #24
+  %44 = call ptr @memchr(ptr noundef %.170, i32 noundef %37, i64 noundef %43) #25
   %45 = icmp eq ptr %44, null
   br i1 %45, label %.loopexit, label %.preheader
 
@@ -7239,13 +7239,13 @@ define hidden void @cf_update_section_comment(ptr nocapture noundef %0, ptr noun
   br i1 %.not, label %11, label %8
 
 8:                                                ; preds = %2
-  %9 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #24
+  %9 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #25
   %10 = call i32 @wtap_block_add_string_option(ptr noundef %6, i32 noundef 1, ptr noundef %1, i64 noundef %9) #21
   br label %19
 
 11:                                               ; preds = %2
   %12 = load ptr, ptr %3, align 8
-  %13 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %1) #24
+  %13 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %1) #25
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %15, label %16
 
@@ -7254,7 +7254,7 @@ define hidden void @cf_update_section_comment(ptr nocapture noundef %0, ptr noun
   br label %21
 
 16:                                               ; preds = %11
-  %17 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #24
+  %17 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #25
   %18 = call i32 @wtap_block_set_nth_string_option_value(ptr noundef %6, i32 noundef 1, i32 noundef 0, ptr noundef %1, i64 noundef %17) #21
   br label %19
 
@@ -7310,12 +7310,12 @@ define hidden void @cf_update_section_comments(ptr nocapture noundef %0, i32 nou
 
 19:                                               ; preds = %12
   %20 = load ptr, ptr %4, align 8
-  %21 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull dereferenceable(1) %14) #24
+  %21 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull dereferenceable(1) %14) #25
   %.not29 = icmp eq i32 %21, 0
   br i1 %.not29, label %25, label %22
 
 22:                                               ; preds = %19
-  %23 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %14) #24
+  %23 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %14) #25
   %24 = call i32 @wtap_block_set_nth_string_option_value(ptr noundef nonnull %7, i32 noundef 1, i32 noundef 0, ptr noundef %14, i64 noundef %23) #21
   store i32 1, ptr %11, align 4
   br label %25
@@ -7703,7 +7703,7 @@ cf_callback_invoke.exit:                          ; preds = %.lr.ph.i, %16
   br i1 %47, label %.critedge.thread.thread, label %48
 
 48:                                               ; preds = %43
-  %49 = tail call ptr @__errno_location() #26
+  %49 = tail call ptr @__errno_location() #27
   %50 = load i32, ptr %49, align 4
   %51 = icmp eq i32 %50, 18
   br i1 %51, label %53, label %52
@@ -7849,7 +7849,7 @@ cf_callback_invoke.exit133:                       ; preds = %.lr.ph.i129, %93
   br i1 %112, label %113, label %121
 
 113:                                              ; preds = %110
-  %114 = tail call ptr @__errno_location() #26
+  %114 = tail call ptr @__errno_location() #27
   %115 = load i32, ptr %114, align 4
   %116 = call noalias ptr @g_filename_display_basename(ptr noundef %1) #21
   switch i32 %115, label %119 [
@@ -8672,7 +8672,7 @@ define hidden range(i32 0, 3) i32 @cf_export_specified_packets(ptr noundef %0, p
   br i1 %45, label %46, label %.sink.split
 
 46:                                               ; preds = %43
-  %47 = tail call ptr @__errno_location() #26
+  %47 = tail call ptr @__errno_location() #27
   %48 = load i32, ptr %47, align 4
   %49 = call noalias ptr @g_filename_display_basename(ptr noundef %1) #21
   switch i32 %48, label %52 [
@@ -9021,7 +9021,7 @@ attributes #4 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stac
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nounwind returns_twice "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
@@ -9037,9 +9037,10 @@ attributes #20 = { nounwind allocsize(0,1) }
 attributes #21 = { nounwind }
 attributes #22 = { noreturn nounwind }
 attributes #23 = { nounwind returns_twice }
-attributes #24 = { nounwind willreturn memory(read) }
-attributes #25 = { nounwind allocsize(0) }
-attributes #26 = { nounwind willreturn memory(none) }
+attributes #24 = { cold noreturn nounwind }
+attributes #25 = { nounwind willreturn memory(read) }
+attributes #26 = { nounwind allocsize(0) }
+attributes #27 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

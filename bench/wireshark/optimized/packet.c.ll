@@ -134,17 +134,17 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define hidden void @packet_init() local_unnamed_addr #0 {
-  %1 = tail call ptr @g_hash_table_new_full(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal, ptr noundef null, ptr noundef nonnull @destroy_dissector_table) #24
+  %1 = tail call ptr @g_hash_table_new_full(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal, ptr noundef null, ptr noundef nonnull @destroy_dissector_table) #25
   store ptr %1, ptr @dissector_tables, align 8
-  %2 = tail call ptr @g_hash_table_new_full(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal, ptr noundef null, ptr noundef null) #24
+  %2 = tail call ptr @g_hash_table_new_full(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal, ptr noundef null, ptr noundef null) #25
   store ptr %2, ptr @dissector_table_aliases, align 8
-  %3 = tail call ptr @g_hash_table_new_full(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal, ptr noundef null, ptr noundef null) #24
+  %3 = tail call ptr @g_hash_table_new_full(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal, ptr noundef null, ptr noundef null) #25
   store ptr %3, ptr @registered_dissectors, align 8
-  %4 = tail call ptr @g_hash_table_new_full(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal, ptr noundef nonnull @g_free, ptr noundef nonnull @destroy_depend_dissector_list) #24
+  %4 = tail call ptr @g_hash_table_new_full(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal, ptr noundef nonnull @g_free, ptr noundef nonnull @destroy_depend_dissector_list) #25
   store ptr %4, ptr @depend_dissector_lists, align 8
-  %5 = tail call ptr @g_hash_table_new_full(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal, ptr noundef null, ptr noundef nonnull @destroy_heuristic_dissector_list) #24
+  %5 = tail call ptr @g_hash_table_new_full(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal, ptr noundef null, ptr noundef nonnull @destroy_heuristic_dissector_list) #25
   store ptr %5, ptr @heur_dissector_lists, align 8
-  %6 = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal) #24
+  %6 = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal) #25
   store ptr %6, ptr @heuristic_short_names, align 8
   ret void
 }
@@ -158,11 +158,11 @@ declare i32 @g_str_equal(ptr noundef, ptr noundef) #1
 ; Function Attrs: nounwind uwtable
 define internal void @destroy_dissector_table(ptr noundef %0) #0 {
   %2 = load ptr, ptr %0, align 8
-  tail call void @g_hash_table_destroy(ptr noundef %2) #24
+  tail call void @g_hash_table_destroy(ptr noundef %2) #25
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  tail call void @g_slist_free(ptr noundef %4) #24
-  tail call void @g_slice_free1(i64 noundef 56, ptr noundef nonnull %0) #24
+  tail call void @g_slist_free(ptr noundef %4) #25
+  tail call void @g_slice_free1(i64 noundef 56, ptr noundef nonnull %0) #25
   ret void
 }
 
@@ -171,8 +171,8 @@ declare void @g_free(ptr noundef) #1
 ; Function Attrs: nounwind uwtable
 define internal void @destroy_depend_dissector_list(ptr noundef %0) #0 {
   %2 = load ptr, ptr %0, align 8
-  tail call void @g_slist_free_full(ptr noundef %2, ptr noundef nonnull @g_free) #24
-  tail call void @g_slice_free1(i64 noundef 8, ptr noundef nonnull %0) #24
+  tail call void @g_slist_free_full(ptr noundef %2, ptr noundef nonnull @g_free) #25
+  tail call void @g_slice_free1(i64 noundef 8, ptr noundef nonnull %0) #25
   ret void
 }
 
@@ -180,8 +180,8 @@ define internal void @destroy_depend_dissector_list(ptr noundef %0) #0 {
 define internal void @destroy_heuristic_dissector_list(ptr noundef %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
-  tail call void @g_slist_free_full(ptr noundef %3, ptr noundef nonnull @destroy_heuristic_dissector_entry) #24
-  tail call void @g_slice_free1(i64 noundef 24, ptr noundef %0) #24
+  tail call void @g_slist_free_full(ptr noundef %3, ptr noundef nonnull @destroy_heuristic_dissector_entry) #25
+  tail call void @g_slice_free1(i64 noundef 24, ptr noundef %0) #25
   ret void
 }
 
@@ -190,15 +190,15 @@ declare ptr @g_hash_table_new(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define hidden void @packet_cache_proto_handles() local_unnamed_addr #0 {
   %1 = load ptr, ptr @registered_dissectors, align 8
-  %2 = tail call ptr @g_hash_table_lookup(ptr noundef %1, ptr noundef nonnull @.str) #24
+  %2 = tail call ptr @g_hash_table_lookup(ptr noundef %1, ptr noundef nonnull @.str) #25
   store ptr %2, ptr @frame_handle, align 8
   %3 = load ptr, ptr @registered_dissectors, align 8
-  %4 = tail call ptr @g_hash_table_lookup(ptr noundef %3, ptr noundef nonnull @.str.1) #24
+  %4 = tail call ptr @g_hash_table_lookup(ptr noundef %3, ptr noundef nonnull @.str.1) #25
   store ptr %4, ptr @file_handle, align 8
   %5 = load ptr, ptr @registered_dissectors, align 8
-  %6 = tail call ptr @g_hash_table_lookup(ptr noundef %5, ptr noundef nonnull @.str.2) #24
+  %6 = tail call ptr @g_hash_table_lookup(ptr noundef %5, ptr noundef nonnull @.str.2) #25
   store ptr %6, ptr @data_handle, align 8
-  %7 = tail call i32 @proto_get_id_by_filter_name(ptr noundef nonnull @.str.3) #24
+  %7 = tail call i32 @proto_get_id_by_filter_name(ptr noundef nonnull @.str.3) #25
   store i32 %7, ptr @proto_malformed, align 4
   ret void
 }
@@ -206,7 +206,7 @@ define hidden void @packet_cache_proto_handles() local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define ptr @find_dissector(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @registered_dissectors, align 8
-  %3 = tail call ptr @g_hash_table_lookup(ptr noundef %2, ptr noundef %0) #24
+  %3 = tail call ptr @g_hash_table_lookup(ptr noundef %2, ptr noundef %0) #25
   ret ptr %3
 }
 
@@ -215,27 +215,27 @@ declare i32 @proto_get_id_by_filter_name(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define hidden void @packet_cleanup() local_unnamed_addr #0 {
   %1 = load ptr, ptr @init_routines, align 8
-  tail call void @g_slist_free(ptr noundef %1) #24
+  tail call void @g_slist_free(ptr noundef %1) #25
   %2 = load ptr, ptr @cleanup_routines, align 8
-  tail call void @g_slist_free(ptr noundef %2) #24
+  tail call void @g_slist_free(ptr noundef %2) #25
   %3 = load ptr, ptr @postseq_cleanup_routines, align 8
-  tail call void @g_slist_free(ptr noundef %3) #24
+  tail call void @g_slist_free(ptr noundef %3) #25
   %4 = load ptr, ptr @dissector_tables, align 8
-  tail call void @g_hash_table_destroy(ptr noundef %4) #24
+  tail call void @g_hash_table_destroy(ptr noundef %4) #25
   %5 = load ptr, ptr @dissector_table_aliases, align 8
-  tail call void @g_hash_table_destroy(ptr noundef %5) #24
+  tail call void @g_hash_table_destroy(ptr noundef %5) #25
   %6 = load ptr, ptr @registered_dissectors, align 8
-  tail call void @g_hash_table_destroy(ptr noundef %6) #24
+  tail call void @g_hash_table_destroy(ptr noundef %6) #25
   %7 = load ptr, ptr @depend_dissector_lists, align 8
-  tail call void @g_hash_table_destroy(ptr noundef %7) #24
+  tail call void @g_hash_table_destroy(ptr noundef %7) #25
   %8 = load ptr, ptr @heur_dissector_lists, align 8
-  tail call void @g_hash_table_destroy(ptr noundef %8) #24
+  tail call void @g_hash_table_destroy(ptr noundef %8) #25
   %9 = load ptr, ptr @heuristic_short_names, align 8
-  tail call void @g_hash_table_destroy(ptr noundef %9) #24
+  tail call void @g_hash_table_destroy(ptr noundef %9) #25
   %10 = load ptr, ptr @shutdown_routines, align 8
-  tail call void @g_slist_foreach(ptr noundef %10, ptr noundef nonnull @call_routine, ptr noundef null) #24
+  tail call void @g_slist_foreach(ptr noundef %10, ptr noundef nonnull @call_routine, ptr noundef null) #25
   %11 = load ptr, ptr @shutdown_routines, align 8
-  tail call void @g_slist_free(ptr noundef %11) #24
+  tail call void @g_slist_free(ptr noundef %11) #25
   %12 = load ptr, ptr @postdissectors, align 8
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %28, label %.preheader
@@ -256,7 +256,7 @@ define hidden void @packet_cleanup() local_unnamed_addr #0 {
   br i1 %.not5, label %21, label %19
 
 19:                                               ; preds = %.lr.ph
-  %20 = tail call ptr @g_array_free(ptr noundef nonnull %18, i32 noundef 1) #24
+  %20 = tail call ptr @g_array_free(ptr noundef nonnull %18, i32 noundef 1) #25
   %.pre = load ptr, ptr @postdissectors, align 8
   br label %21
 
@@ -271,7 +271,7 @@ define hidden void @packet_cleanup() local_unnamed_addr #0 {
 
 ._crit_edge:                                      ; preds = %21, %.preheader
   %.lcssa = phi ptr [ %12, %.preheader ], [ %22, %21 ]
-  %27 = tail call ptr @g_array_free(ptr noundef nonnull %.lcssa, i32 noundef 1) #24
+  %27 = tail call ptr @g_array_free(ptr noundef nonnull %.lcssa, i32 noundef 1) #25
   br label %28
 
 28:                                               ; preds = %._crit_edge, %0
@@ -286,7 +286,7 @@ declare void @g_slist_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnam
 
 ; Function Attrs: nounwind uwtable
 define internal void @call_routine(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
-  tail call void %0() #24
+  tail call void %0() #25
   ret void
 }
 
@@ -294,12 +294,12 @@ declare ptr @g_array_free(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @set_actual_length(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = tail call i32 @tvb_reported_length(ptr noundef %0) #24
+  %3 = tail call i32 @tvb_reported_length(ptr noundef %0) #25
   %4 = icmp ugt i32 %3, %1
   br i1 %4, label %5, label %6
 
 5:                                                ; preds = %2
-  tail call void @tvb_set_reported_length(ptr noundef %0, i32 noundef %1) #24
+  tail call void @tvb_set_reported_length(ptr noundef %0, i32 noundef %1) #25
   br label %6
 
 6:                                                ; preds = %5, %2
@@ -313,7 +313,7 @@ declare void @tvb_set_reported_length(ptr noundef, i32 noundef) local_unnamed_ad
 ; Function Attrs: nounwind uwtable
 define void @register_init_routine(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @init_routines, align 8
-  %3 = tail call ptr @g_slist_prepend(ptr noundef %2, ptr noundef %0) #24
+  %3 = tail call ptr @g_slist_prepend(ptr noundef %2, ptr noundef %0) #25
   store ptr %3, ptr @init_routines, align 8
   ret void
 }
@@ -323,7 +323,7 @@ declare ptr @g_slist_prepend(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define void @register_cleanup_routine(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @cleanup_routines, align 8
-  %3 = tail call ptr @g_slist_prepend(ptr noundef %2, ptr noundef %0) #24
+  %3 = tail call ptr @g_slist_prepend(ptr noundef %2, ptr noundef %0) #25
   store ptr %3, ptr @cleanup_routines, align 8
   ret void
 }
@@ -331,20 +331,20 @@ define void @register_cleanup_routine(ptr noundef %0) local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define void @register_shutdown_routine(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @shutdown_routines, align 8
-  %3 = tail call ptr @g_slist_prepend(ptr noundef %2, ptr noundef %0) #24
+  %3 = tail call ptr @g_slist_prepend(ptr noundef %2, ptr noundef %0) #25
   store ptr %3, ptr @shutdown_routines, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden void @init_dissection() local_unnamed_addr #0 {
-  tail call void @host_name_lookup_reset() #24
-  tail call void @wmem_enter_file_scope() #24
-  tail call void @epan_conversation_init() #24
+  tail call void @host_name_lookup_reset() #25
+  tail call void @wmem_enter_file_scope() #25
+  tail call void @epan_conversation_init() #25
   %1 = load ptr, ptr @init_routines, align 8
-  tail call void @g_slist_foreach(ptr noundef %1, ptr noundef nonnull @call_routine, ptr noundef null) #24
-  tail call void @stream_init() #24
-  tail call void @expert_packet_init() #24
+  tail call void @g_slist_foreach(ptr noundef %1, ptr noundef nonnull @call_routine, ptr noundef null) #25
+  tail call void @stream_init() #25
+  tail call void @expert_packet_init() #25
   ret void
 }
 
@@ -361,10 +361,10 @@ declare void @expert_packet_init() local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define hidden void @cleanup_dissection() local_unnamed_addr #0 {
   %1 = load ptr, ptr @cleanup_routines, align 8
-  tail call void @g_slist_foreach(ptr noundef %1, ptr noundef nonnull @call_routine, ptr noundef null) #24
-  tail call void @stream_cleanup() #24
-  tail call void @expert_packet_cleanup() #24
-  tail call void @wmem_leave_file_scope() #24
+  tail call void @g_slist_foreach(ptr noundef %1, ptr noundef nonnull @call_routine, ptr noundef null) #25
+  tail call void @stream_cleanup() #25
+  tail call void @expert_packet_cleanup() #25
+  tail call void @wmem_leave_file_scope() #25
   ret void
 }
 
@@ -377,7 +377,7 @@ declare hidden void @wmem_leave_file_scope() local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define void @register_postseq_cleanup_routine(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @postseq_cleanup_routines, align 8
-  %3 = tail call ptr @g_slist_prepend(ptr noundef %2, ptr noundef %0) #24
+  %3 = tail call ptr @g_slist_prepend(ptr noundef %2, ptr noundef %0) #25
   store ptr %3, ptr @postseq_cleanup_routines, align 8
   ret void
 }
@@ -385,7 +385,7 @@ define void @register_postseq_cleanup_routine(ptr noundef %0) local_unnamed_addr
 ; Function Attrs: nounwind uwtable
 define void @postseq_cleanup_all_protocols() local_unnamed_addr #0 {
   %1 = load ptr, ptr @postseq_cleanup_routines, align 8
-  tail call void @g_slist_foreach(ptr noundef %1, ptr noundef nonnull @call_routine, ptr noundef null) #24
+  tail call void @g_slist_foreach(ptr noundef %1, ptr noundef nonnull @call_routine, ptr noundef null) #25
   ret void
 }
 
@@ -393,15 +393,15 @@ define void @postseq_cleanup_all_protocols() local_unnamed_addr #0 {
 define void @add_new_data_source(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 408
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call noalias ptr @wmem_alloc(ptr noundef %5, i64 noundef 16) #24
+  %6 = tail call noalias ptr @wmem_alloc(ptr noundef %5, i64 noundef 16) #25
   store ptr %1, ptr %6, align 8
   %7 = load ptr, ptr %4, align 8
-  %8 = tail call noalias ptr @wmem_strdup(ptr noundef %7, ptr noundef %2) #24
+  %8 = tail call noalias ptr @wmem_strdup(ptr noundef %7, ptr noundef %2) #25
   %9 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %8, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 104
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call ptr @g_slist_append(ptr noundef %11, ptr noundef nonnull %6) #24
+  %12 = tail call ptr @g_slist_append(ptr noundef %11, ptr noundef nonnull %6) #25
   store ptr %12, ptr %10, align 8
   ret void
 }
@@ -416,9 +416,9 @@ declare ptr @g_slist_append(ptr noundef, ptr noundef) local_unnamed_addr #1
 define void @remove_last_data_source(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8
-  %4 = tail call ptr @g_slist_last(ptr noundef %3) #24
+  %4 = tail call ptr @g_slist_last(ptr noundef %3) #25
   %5 = load ptr, ptr %2, align 8
-  %6 = tail call ptr @g_slist_delete_link(ptr noundef %5, ptr noundef %4) #24
+  %6 = tail call ptr @g_slist_delete_link(ptr noundef %5, ptr noundef %4) #25
   store ptr %6, ptr %2, align 8
   ret void
 }
@@ -430,12 +430,12 @@ declare ptr @g_slist_delete_link(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define noalias ptr @get_data_source_name(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
-  %3 = tail call i32 @tvb_captured_length(ptr noundef %2) #24
+  %3 = tail call i32 @tvb_captured_length(ptr noundef %2) #25
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq i32 %3, 1
   %7 = select i1 %6, ptr @.str.5, ptr @.str.6
-  %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.4, ptr noundef %5, i32 noundef %3, ptr noundef nonnull %7) #24
+  %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.4, ptr noundef %5, i32 noundef %3, ptr noundef nonnull %7) #25
   ret ptr %8
 }
 
@@ -465,7 +465,7 @@ define ptr @get_data_source_tvb_by_name(ptr nocapture noundef readonly %0, ptr n
   br i1 %.not11, label %12, label %7
 
 7:                                                ; preds = %.lr.ph
-  %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %1) #25
+  %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %1) #26
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %12
 
@@ -495,7 +495,7 @@ define hidden void @free_data_sources(ptr nocapture noundef %0) local_unnamed_ad
   br i1 %.not, label %5, label %4
 
 4:                                                ; preds = %1
-  tail call void @g_slist_free(ptr noundef nonnull %3) #24
+  tail call void @g_slist_free(ptr noundef nonnull %3) #25
   store ptr null, ptr %2, align 8
   br label %5
 
@@ -516,7 +516,7 @@ define void @mark_frame_as_depended_upon(ptr nocapture noundef %0, i32 noundef %
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %4
-  %9 = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal) #24
+  %9 = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal) #25
   store ptr %9, ptr %5, align 8
   br label %10
 
@@ -524,7 +524,7 @@ define void @mark_frame_as_depended_upon(ptr nocapture noundef %0, i32 noundef %
   %11 = phi ptr [ %9, %8 ], [ %6, %4 ]
   %12 = zext i32 %1 to i64
   %13 = inttoptr i64 %12 to ptr
-  %14 = tail call i32 @g_hash_table_add(ptr noundef %11, ptr noundef %13) #24
+  %14 = tail call i32 @g_hash_table_add(ptr noundef %11, ptr noundef %13) #25
   br label %15
 
 15:                                               ; preds = %10, %2
@@ -542,7 +542,7 @@ declare i32 @g_hash_table_add(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define void @register_final_registration_routine(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @final_registration_routines, align 8
-  %3 = tail call ptr @g_slist_prepend(ptr noundef %2, ptr noundef %0) #24
+  %3 = tail call ptr @g_slist_prepend(ptr noundef %2, ptr noundef %0) #25
   store ptr %3, ptr @final_registration_routines, align 8
   ret void
 }
@@ -550,7 +550,7 @@ define void @register_final_registration_routine(ptr noundef %0) local_unnamed_a
 ; Function Attrs: nounwind uwtable
 define hidden void @final_registration_all_protocols() local_unnamed_addr #0 {
   %1 = load ptr, ptr @final_registration_routines, align 8
-  tail call void @g_slist_foreach(ptr noundef %1, ptr noundef nonnull @call_routine, ptr noundef null) #24
+  tail call void @g_slist_foreach(ptr noundef %1, ptr noundef nonnull @call_routine, ptr noundef null) #25
   ret void
 }
 
@@ -607,7 +607,7 @@ define hidden void @dissect_record(ptr noundef %0, i32 noundef %1, ptr noundef %
   br label %25
 
 24:                                               ; preds = %6
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 560, ptr noundef nonnull @__func__.dissect_record, ptr noundef nonnull @.str.16) #26
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 560, ptr noundef nonnull @__func__.dissect_record, ptr noundef nonnull @.str.16) #27
   unreachable
 
 25:                                               ; preds = %22, %23, %18, %17, %16, %15, %14
@@ -616,7 +616,7 @@ define hidden void @dissect_record(ptr noundef %0, i32 noundef %1, ptr noundef %
 
 26:                                               ; preds = %25
   %27 = load ptr, ptr %0, align 8
-  call void @col_init(ptr noundef nonnull %5, ptr noundef %27) #24
+  call void @col_init(ptr noundef nonnull %5, ptr noundef %27) #25
   br label %28
 
 28:                                               ; preds = %26, %25
@@ -687,7 +687,7 @@ define hidden void @dissect_record(ptr noundef %0, i32 noundef %1, ptr noundef %
   %57 = getelementptr inbounds i8, ptr %0, i64 432
   store i64 -1, ptr %56, align 8
   %58 = load ptr, ptr %57, align 8
-  %59 = call noalias ptr @wmem_list_new(ptr noundef %58) #24
+  %59 = call noalias ptr @wmem_list_new(ptr noundef %58) #25
   %60 = getelementptr inbounds i8, ptr %0, i64 384
   store ptr %59, ptr %60, align 8
   %61 = getelementptr inbounds i8, ptr %0, i64 8
@@ -696,7 +696,7 @@ define hidden void @dissect_record(ptr noundef %0, i32 noundef %1, ptr noundef %
   %63 = getelementptr inbounds i8, ptr %4, i64 88
   %64 = load i32, ptr %63, align 8
   %65 = getelementptr inbounds i8, ptr %0, i64 64
-  call void @frame_delta_abs_time(ptr noundef %62, ptr noundef nonnull %4, i32 noundef %64, ptr noundef nonnull %65) #24
+  call void @frame_delta_abs_time(ptr noundef %62, ptr noundef nonnull %4, i32 noundef %64, ptr noundef nonnull %65) #25
   %66 = getelementptr inbounds i8, ptr %2, i64 56
   %67 = load i32, ptr %66, align 8
   %.not93 = icmp eq i32 %67, 0
@@ -705,7 +705,7 @@ define hidden void @dissect_record(ptr noundef %0, i32 noundef %1, ptr noundef %
 68:                                               ; preds = %47
   %69 = getelementptr inbounds i8, ptr %0, i64 80
   %70 = getelementptr inbounds i8, ptr %2, i64 40
-  call void @nstime_copy(ptr noundef nonnull %69, ptr noundef nonnull %70) #24
+  call void @nstime_copy(ptr noundef nonnull %69, ptr noundef nonnull %70) #25
   %71 = getelementptr inbounds i8, ptr %0, i64 96
   store i32 1, ptr %71, align 8
   br label %72
@@ -718,7 +718,7 @@ define hidden void @dissect_record(ptr noundef %0, i32 noundef %1, ptr noundef %
 
 75:                                               ; preds = %72
   %76 = load ptr, ptr %0, align 8
-  %77 = call ptr @epan_get_modified_block(ptr noundef %76, ptr noundef nonnull %4) #24
+  %77 = call ptr @epan_get_modified_block(ptr noundef %76, ptr noundef nonnull %4) #25
   br label %81
 
 78:                                               ; preds = %72
@@ -734,9 +734,9 @@ define hidden void @dissect_record(ptr noundef %0, i32 noundef %1, ptr noundef %
   %83 = getelementptr inbounds i8, ptr %8, i64 16
   store ptr %0, ptr %83, align 8
   store volatile i32 0, ptr %10, align 4
-  call void @except_setup_try(ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull @dissect_record.catch_spec, i64 noundef 1) #24
+  call void @except_setup_try(ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull @dissect_record.catch_spec, i64 noundef 1) #25
   %84 = getelementptr inbounds i8, ptr %12, i64 48
-  %85 = call i32 @_setjmp(ptr noundef nonnull %84) #27
+  %85 = call i32 @_setjmp(ptr noundef nonnull %84) #28
   %.not95 = icmp eq i32 %85, 0
   br i1 %.not95, label %88, label %86
 
@@ -778,15 +778,15 @@ define hidden void @dissect_record(ptr noundef %0, i32 noundef %1, ptr noundef %
   %99 = load ptr, ptr %61, align 8
   %.0..0..0..0.18 = load volatile ptr, ptr %7, align 8
   %100 = load ptr, ptr %57, align 8
-  %101 = call noalias ptr @wmem_alloc(ptr noundef %100, i64 noundef 16) #24
+  %101 = call noalias ptr @wmem_alloc(ptr noundef %100, i64 noundef 16) #25
   store ptr %99, ptr %101, align 8
   %102 = load ptr, ptr %57, align 8
-  %103 = call noalias ptr @wmem_strdup(ptr noundef %102, ptr noundef %.0..0..0..0.18) #24
+  %103 = call noalias ptr @wmem_strdup(ptr noundef %102, ptr noundef %.0..0..0..0.18) #25
   %104 = getelementptr inbounds i8, ptr %101, i64 8
   store ptr %103, ptr %104, align 8
   %105 = getelementptr inbounds i8, ptr %0, i64 128
   %106 = load ptr, ptr %105, align 8
-  %107 = call ptr @g_slist_append(ptr noundef %106, ptr noundef nonnull %101) #24
+  %107 = call ptr @g_slist_append(ptr noundef %106, ptr noundef nonnull %101) #25
   store ptr %107, ptr %105, align 8
   %108 = load ptr, ptr @frame_handle, align 8
   %109 = load ptr, ptr %61, align 8
@@ -796,7 +796,7 @@ define hidden void @dissect_record(ptr noundef %0, i32 noundef %1, ptr noundef %
   br i1 %.not.i.i, label %112, label %call_dissector_only.exit.i
 
 112:                                              ; preds = %98
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.15, i32 noundef 3532, ptr noundef nonnull @.str.39) #26
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.15, i32 noundef 3532, ptr noundef nonnull @.str.39) #27
   unreachable
 
 call_dissector_only.exit.i:                       ; preds = %98
@@ -812,12 +812,12 @@ call_dissector_only.exit.i:                       ; preds = %98
   br i1 %.not.i, label %119, label %120
 
 119:                                              ; preds = %115
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.15, i32 noundef 3552, ptr noundef nonnull @.str.40) #26
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.15, i32 noundef 3552, ptr noundef nonnull @.str.40) #27
   unreachable
 
 120:                                              ; preds = %115
   %121 = call fastcc i32 @call_dissector_work(ptr noundef nonnull %116, ptr noundef %109, ptr noundef nonnull %30, ptr noundef %111, i32 noundef 1, ptr noundef null)
-  %122 = call i32 @tvb_captured_length(ptr noundef %109) #24
+  %122 = call i32 @tvb_captured_length(ptr noundef %109) #25
   br label %call_dissector_with_data.exit
 
 call_dissector_with_data.exit:                    ; preds = %120, %call_dissector_only.exit.i, %96, %93
@@ -841,7 +841,7 @@ call_dissector_with_data.exit:                    ; preds = %120, %call_dissecto
   %.0..0..0..0.6 = load volatile i32, ptr %10, align 4
   %130 = or i32 %.0..0..0..0.6, 1
   store volatile i32 %130, ptr %10, align 4
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 665, ptr noundef nonnull @__func__.dissect_record, ptr noundef nonnull @.str.16) #26
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 665, ptr noundef nonnull @__func__.dissect_record, ptr noundef nonnull @.str.16) #27
   unreachable
 
 131:                                              ; preds = %125, %124, %call_dissector_with_data.exit
@@ -877,7 +877,7 @@ call_dissector_with_data.exit:                    ; preds = %120, %call_dissecto
   %146 = load i32, ptr @proto_malformed, align 4
   %147 = load ptr, ptr %61, align 8
   %.0..0..0..0.19 = load volatile ptr, ptr %7, align 8
-  %148 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %145, i32 noundef %146, ptr noundef %147, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.18, ptr noundef %.0..0..0..0.19) #24
+  %148 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %145, i32 noundef %146, ptr noundef %147, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.18, ptr noundef %.0..0..0..0.19) #25
   br label %149
 
 149:                                              ; preds = %142, %138, %133, %131
@@ -893,17 +893,17 @@ call_dissector_with_data.exit:                    ; preds = %120, %call_dissecto
 
 152:                                              ; preds = %151
   %.0..0..0..0.17 = load volatile ptr, ptr %9, align 8
-  call void @except_rethrow(ptr noundef %.0..0..0..0.17) #26
+  call void @except_rethrow(ptr noundef %.0..0..0..0.17) #27
   unreachable
 
 153:                                              ; preds = %151, %149
   %154 = getelementptr inbounds i8, ptr %12, i64 40
   %155 = load volatile ptr, ptr %154, align 8
-  call void @except_free(ptr noundef %155) #24
-  %156 = call ptr @except_pop() #24
+  call void @except_free(ptr noundef %155) #25
+  %156 = call ptr @except_pop() #25
   %157 = getelementptr inbounds i8, ptr %2, i64 232
   %158 = load ptr, ptr %157, align 8
-  call void @wtap_block_unref(ptr noundef %158) #24
+  call void @wtap_block_unref(ptr noundef %158) #25
   store ptr null, ptr %157, align 8
   %159 = load i16, ptr %36, align 2
   %160 = or i16 %159, 8
@@ -938,7 +938,7 @@ define i32 @call_dissector_with_data(ptr noundef readonly %0, ptr noundef %1, pt
   br i1 %.not.i, label %6, label %call_dissector_only.exit
 
 6:                                                ; preds = %5
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.15, i32 noundef 3532, ptr noundef nonnull @.str.39) #26
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.15, i32 noundef 3532, ptr noundef nonnull @.str.39) #27
   unreachable
 
 call_dissector_only.exit:                         ; preds = %5
@@ -954,12 +954,12 @@ call_dissector_only.exit:                         ; preds = %5
   br i1 %.not, label %13, label %14
 
 13:                                               ; preds = %9
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.15, i32 noundef 3552, ptr noundef nonnull @.str.40) #26
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.15, i32 noundef 3552, ptr noundef nonnull @.str.40) #27
   unreachable
 
 14:                                               ; preds = %9
   %15 = tail call fastcc i32 @call_dissector_work(ptr noundef nonnull %10, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef 1, ptr noundef null)
-  %16 = tail call i32 @tvb_captured_length(ptr noundef %1) #24
+  %16 = tail call i32 @tvb_captured_length(ptr noundef %1) #25
   br label %17
 
 17:                                               ; preds = %call_dissector_only.exit, %14
@@ -990,7 +990,7 @@ define hidden void @dissect_file(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 11:                                               ; preds = %5
   %12 = load ptr, ptr %0, align 8
-  call void @col_init(ptr noundef nonnull %4, ptr noundef %12) #24
+  call void @col_init(ptr noundef nonnull %4, ptr noundef %12) #25
   br label %13
 
 13:                                               ; preds = %11, %5
@@ -1023,7 +1023,7 @@ define hidden void @dissect_file(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   store i32 -1, ptr %27, align 8
   %28 = getelementptr inbounds i8, ptr %0, i64 432
   %29 = load ptr, ptr %28, align 8
-  %30 = call noalias ptr @wmem_list_new(ptr noundef %29) #24
+  %30 = call noalias ptr @wmem_list_new(ptr noundef %29) #25
   %31 = getelementptr inbounds i8, ptr %0, i64 384
   store ptr %30, ptr %31, align 8
   %32 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1032,11 +1032,11 @@ define hidden void @dissect_file(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %34 = getelementptr inbounds i8, ptr %3, i64 88
   %35 = load i32, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %0, i64 64
-  call void @frame_delta_abs_time(ptr noundef %33, ptr noundef %3, i32 noundef %35, ptr noundef nonnull %36) #24
+  call void @frame_delta_abs_time(ptr noundef %33, ptr noundef %3, i32 noundef %35, ptr noundef nonnull %36) #25
   store volatile i32 0, ptr %8, align 4
-  call void @except_setup_try(ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull @dissect_file.catch_spec, i64 noundef 1) #24
+  call void @except_setup_try(ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull @dissect_file.catch_spec, i64 noundef 1) #25
   %37 = getelementptr inbounds i8, ptr %10, i64 48
-  %38 = call i32 @_setjmp(ptr noundef nonnull %37) #27
+  %38 = call i32 @_setjmp(ptr noundef nonnull %37) #28
   %.not67 = icmp eq i32 %38, 0
   br i1 %.not67, label %41, label %39
 
@@ -1083,7 +1083,7 @@ define hidden void @dissect_file(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 55:                                               ; preds = %51
   %56 = load ptr, ptr %0, align 8
-  %57 = call ptr @epan_get_modified_block(ptr noundef %56, ptr noundef nonnull %3) #24
+  %57 = call ptr @epan_get_modified_block(ptr noundef %56, ptr noundef nonnull %3) #25
   br label %61
 
 58:                                               ; preds = %51
@@ -1098,15 +1098,15 @@ define hidden void @dissect_file(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   store ptr %0, ptr %62, align 8
   %63 = load ptr, ptr %32, align 8
   %64 = load ptr, ptr %28, align 8
-  %65 = call noalias ptr @wmem_alloc(ptr noundef %64, i64 noundef 16) #24
+  %65 = call noalias ptr @wmem_alloc(ptr noundef %64, i64 noundef 16) #25
   store ptr %63, ptr %65, align 8
   %66 = load ptr, ptr %28, align 8
-  %67 = call noalias ptr @wmem_strdup(ptr noundef %66, ptr noundef nonnull @.str.20) #24
+  %67 = call noalias ptr @wmem_strdup(ptr noundef %66, ptr noundef nonnull @.str.20) #25
   %68 = getelementptr inbounds i8, ptr %65, i64 8
   store ptr %67, ptr %68, align 8
   %69 = getelementptr inbounds i8, ptr %0, i64 128
   %70 = load ptr, ptr %69, align 8
-  %71 = call ptr @g_slist_append(ptr noundef %70, ptr noundef nonnull %65) #24
+  %71 = call ptr @g_slist_append(ptr noundef %70, ptr noundef nonnull %65) #25
   store ptr %71, ptr %69, align 8
   %72 = load ptr, ptr @file_handle, align 8
   %73 = load ptr, ptr %32, align 8
@@ -1116,7 +1116,7 @@ define hidden void @dissect_file(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %.not.i.i, label %76, label %call_dissector_only.exit.i
 
 76:                                               ; preds = %61
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.15, i32 noundef 3532, ptr noundef nonnull @.str.39) #26
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.15, i32 noundef 3532, ptr noundef nonnull @.str.39) #27
   unreachable
 
 call_dissector_only.exit.i:                       ; preds = %61
@@ -1132,12 +1132,12 @@ call_dissector_only.exit.i:                       ; preds = %61
   br i1 %.not.i, label %83, label %84
 
 83:                                               ; preds = %79
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.15, i32 noundef 3552, ptr noundef nonnull @.str.40) #26
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.15, i32 noundef 3552, ptr noundef nonnull @.str.40) #27
   unreachable
 
 84:                                               ; preds = %79
   %85 = call fastcc i32 @call_dissector_work(ptr noundef nonnull %80, ptr noundef %73, ptr noundef nonnull %15, ptr noundef %75, i32 noundef 1, ptr noundef null)
-  %86 = call i32 @tvb_captured_length(ptr noundef %73) #24
+  %86 = call i32 @tvb_captured_length(ptr noundef %73) #25
   br label %call_dissector_with_data.exit
 
 call_dissector_with_data.exit:                    ; preds = %84, %call_dissector_only.exit.i, %49, %46
@@ -1161,7 +1161,7 @@ call_dissector_with_data.exit:                    ; preds = %84, %call_dissector
   %.0..0..0..0.5 = load volatile i32, ptr %8, align 4
   %94 = or i32 %.0..0..0..0.5, 1
   store volatile i32 %94, ptr %8, align 4
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 740, ptr noundef nonnull @__func__.dissect_file, ptr noundef nonnull @.str.16) #26
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 740, ptr noundef nonnull @__func__.dissect_file, ptr noundef nonnull @.str.16) #27
   unreachable
 
 95:                                               ; preds = %89, %88, %call_dissector_with_data.exit
@@ -1203,7 +1203,7 @@ call_dissector_with_data.exit:                    ; preds = %84, %call_dissector
   %113 = load ptr, ptr %112, align 8
   %114 = load i32, ptr @proto_malformed, align 4
   %115 = load ptr, ptr %32, align 8
-  %116 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %113, i32 noundef %114, ptr noundef %115, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.21) #24
+  %116 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %113, i32 noundef %114, ptr noundef %115, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.21) #25
   br label %117
 
 117:                                              ; preds = %110, %106, %97, %95
@@ -1219,17 +1219,17 @@ call_dissector_with_data.exit:                    ; preds = %84, %call_dissector
 
 120:                                              ; preds = %119
   %.0..0..0..0.17 = load volatile ptr, ptr %7, align 8
-  call void @except_rethrow(ptr noundef %.0..0..0..0.17) #26
+  call void @except_rethrow(ptr noundef %.0..0..0..0.17) #27
   unreachable
 
 121:                                              ; preds = %119, %117
   %122 = getelementptr inbounds i8, ptr %10, i64 40
   %123 = load volatile ptr, ptr %122, align 8
-  call void @except_free(ptr noundef %123) #24
-  %124 = call ptr @except_pop() #24
+  call void @except_free(ptr noundef %123) #25
+  %124 = call ptr @except_pop() #25
   %125 = getelementptr inbounds i8, ptr %1, i64 232
   %126 = load ptr, ptr %125, align 8
-  call void @wtap_block_unref(ptr noundef %126) #24
+  call void @wtap_block_unref(ptr noundef %126) #25
   store ptr null, ptr %125, align 8
   %127 = getelementptr inbounds i8, ptr %3, i64 50
   %128 = load i16, ptr %127, align 2
@@ -1241,24 +1241,24 @@ call_dissector_with_data.exit:                    ; preds = %84, %call_dissector
 ; Function Attrs: nounwind uwtable
 define ptr @find_dissector_table(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @dissector_tables, align 8
-  %3 = tail call ptr @g_hash_table_lookup(ptr noundef %2, ptr noundef %0) #24
+  %3 = tail call ptr @g_hash_table_lookup(ptr noundef %2, ptr noundef %0) #25
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %.thread
 
 4:                                                ; preds = %1
   %5 = load ptr, ptr @dissector_table_aliases, align 8
-  %6 = tail call ptr @g_hash_table_lookup(ptr noundef %5, ptr noundef %0) #24
+  %6 = tail call ptr @g_hash_table_lookup(ptr noundef %5, ptr noundef %0) #25
   %.not12 = icmp eq ptr %6, null
   br i1 %.not12, label %.thread, label %7
 
 7:                                                ; preds = %4
   %8 = load ptr, ptr @dissector_tables, align 8
-  %9 = tail call ptr @g_hash_table_lookup(ptr noundef %8, ptr noundef nonnull %6) #24
+  %9 = tail call ptr @g_hash_table_lookup(ptr noundef %8, ptr noundef nonnull %6) #25
   %.not13 = icmp eq ptr %9, null
   br i1 %.not13, label %.thread, label %10
 
 10:                                               ; preds = %7
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.14, i32 noundef 5, ptr noundef nonnull @.str.15, i64 noundef 1108, ptr noundef nonnull @__func__.find_dissector_table, ptr noundef nonnull @.str.22, ptr noundef %0, ptr noundef nonnull %6) #24
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.14, i32 noundef 5, ptr noundef nonnull @.str.15, i64 noundef 1108, ptr noundef nonnull @__func__.find_dissector_table, ptr noundef nonnull @.str.22, ptr noundef %0, ptr noundef nonnull %6) #25
   br label %.thread
 
 .thread:                                          ; preds = %4, %7, %10, %1
@@ -1273,24 +1273,24 @@ declare void @ws_log_full(ptr noundef, i32 noundef, ptr noundef, i64 noundef, pt
 ; Function Attrs: nounwind uwtable
 define void @dissector_add_uint(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr @dissector_tables, align 8
-  %5 = tail call ptr @g_hash_table_lookup(ptr noundef %4, ptr noundef %0) #24
+  %5 = tail call ptr @g_hash_table_lookup(ptr noundef %4, ptr noundef %0) #25
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %6, label %find_dissector_table.exit
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr @dissector_table_aliases, align 8
-  %8 = tail call ptr @g_hash_table_lookup(ptr noundef %7, ptr noundef %0) #24
+  %8 = tail call ptr @g_hash_table_lookup(ptr noundef %7, ptr noundef %0) #25
   %.not12.i = icmp eq ptr %8, null
   br i1 %.not12.i, label %find_dissector_table.exit, label %9
 
 9:                                                ; preds = %6
   %10 = load ptr, ptr @dissector_tables, align 8
-  %11 = tail call ptr @g_hash_table_lookup(ptr noundef %10, ptr noundef nonnull %8) #24
+  %11 = tail call ptr @g_hash_table_lookup(ptr noundef %10, ptr noundef nonnull %8) #25
   %.not13.i = icmp eq ptr %11, null
   br i1 %.not13.i, label %find_dissector_table.exit, label %12
 
 12:                                               ; preds = %9
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.14, i32 noundef 5, ptr noundef nonnull @.str.15, i64 noundef 1108, ptr noundef nonnull @__func__.find_dissector_table, ptr noundef nonnull @.str.22, ptr noundef %0, ptr noundef nonnull %8) #24
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.14, i32 noundef 5, ptr noundef nonnull @.str.15, i64 noundef 1108, ptr noundef nonnull @__func__.find_dissector_table, ptr noundef nonnull @.str.22, ptr noundef %0, ptr noundef nonnull %8) #25
   br label %find_dissector_table.exit
 
 find_dissector_table.exit:                        ; preds = %3, %6, %9, %12
@@ -1300,13 +1300,13 @@ find_dissector_table.exit:                        ; preds = %3, %6, %9, %12
 
 14:                                               ; preds = %find_dissector_table.exit
   %15 = load ptr, ptr @stderr, align 8
-  %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str.23, ptr noundef %0) #28
+  %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str.23, ptr noundef %0) #29
   %17 = load i32, ptr @wireshark_abort_on_dissector_bug, align 4
   %.not18 = icmp eq i32 %17, 0
   br i1 %.not18, label %46, label %18
 
 18:                                               ; preds = %14
-  tail call void @abort() #26
+  tail call void @abort() #27
   unreachable
 
 19:                                               ; preds = %find_dissector_table.exit
@@ -1315,18 +1315,18 @@ find_dissector_table.exit:                        ; preds = %3, %6, %9, %12
 
 21:                                               ; preds = %19
   %22 = load ptr, ptr @stderr, align 8
-  %23 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef nonnull @.str.24, ptr noundef %0) #28
+  %23 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef nonnull @.str.24, ptr noundef %0) #29
   %24 = load ptr, ptr @stderr, align 8
   %25 = getelementptr inbounds i8, ptr %2, i64 40
   %26 = load ptr, ptr %25, align 8
-  %27 = tail call ptr @proto_get_protocol_long_name(ptr noundef %26) #24
-  %28 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.25, ptr noundef %27) #28
+  %27 = tail call ptr @proto_get_protocol_long_name(ptr noundef %26) #25
+  %28 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.25, ptr noundef %27) #29
   %29 = load i32, ptr @wireshark_abort_on_dissector_bug, align 4
   %.not17 = icmp eq i32 %29, 0
   br i1 %.not17, label %46, label %30
 
 30:                                               ; preds = %21
-  tail call void @abort() #26
+  tail call void @abort() #27
   unreachable
 
 31:                                               ; preds = %19
@@ -1337,18 +1337,18 @@ find_dissector_table.exit:                        ; preds = %3, %6, %9, %12
   br i1 %switch, label %36, label %35
 
 35:                                               ; preds = %31
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 1212, ptr noundef nonnull @__func__.dissector_add_uint, ptr noundef nonnull @.str.16) #26
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 1212, ptr noundef nonnull @__func__.dissector_add_uint, ptr noundef nonnull @.str.16) #27
   unreachable
 
 36:                                               ; preds = %31
-  %37 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #29
+  %37 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #30
   %38 = getelementptr inbounds i8, ptr %37, i64 8
   store ptr %2, ptr %38, align 8
   store ptr %2, ptr %37, align 8
   %39 = load ptr, ptr %.1.i, align 8
   %40 = zext i32 %1 to i64
   %41 = inttoptr i64 %40 to ptr
-  %42 = tail call i32 @g_hash_table_insert(ptr noundef %39, ptr noundef %41, ptr noundef nonnull %37) #24
+  %42 = tail call i32 @g_hash_table_insert(ptr noundef %39, ptr noundef %41, ptr noundef nonnull %37) #25
   %43 = getelementptr inbounds i8, ptr %.1.i, i64 48
   %44 = load i32, ptr %43, align 8
   %.not = icmp eq i32 %44, 0
@@ -1365,7 +1365,7 @@ find_dissector_table.exit:                        ; preds = %3, %6, %9, %12
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #9
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: cold nofree noreturn nounwind
 declare void @abort() local_unnamed_addr #10
 
 declare ptr @proto_get_protocol_long_name(ptr noundef) local_unnamed_addr #1
@@ -1378,40 +1378,40 @@ declare i32 @g_hash_table_insert(ptr noundef, ptr noundef, ptr noundef) local_un
 ; Function Attrs: nounwind uwtable
 define void @dissector_add_for_decode_as(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @dissector_tables, align 8
-  %4 = tail call ptr @g_hash_table_lookup(ptr noundef %3, ptr noundef %0) #24
+  %4 = tail call ptr @g_hash_table_lookup(ptr noundef %3, ptr noundef %0) #25
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %5, label %find_dissector_table.exit
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr @dissector_table_aliases, align 8
-  %7 = tail call ptr @g_hash_table_lookup(ptr noundef %6, ptr noundef %0) #24
+  %7 = tail call ptr @g_hash_table_lookup(ptr noundef %6, ptr noundef %0) #25
   %.not12.i = icmp eq ptr %7, null
   br i1 %.not12.i, label %12, label %8
 
 8:                                                ; preds = %5
   %9 = load ptr, ptr @dissector_tables, align 8
-  %10 = tail call ptr @g_hash_table_lookup(ptr noundef %9, ptr noundef nonnull %7) #24
+  %10 = tail call ptr @g_hash_table_lookup(ptr noundef %9, ptr noundef nonnull %7) #25
   %.not13.i = icmp eq ptr %10, null
   br i1 %.not13.i, label %12, label %11
 
 11:                                               ; preds = %8
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.14, i32 noundef 5, ptr noundef nonnull @.str.15, i64 noundef 1108, ptr noundef nonnull @__func__.find_dissector_table, ptr noundef nonnull @.str.22, ptr noundef %0, ptr noundef nonnull %7) #24
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.14, i32 noundef 5, ptr noundef nonnull @.str.15, i64 noundef 1108, ptr noundef nonnull @__func__.find_dissector_table, ptr noundef nonnull @.str.22, ptr noundef %0, ptr noundef nonnull %7) #25
   br label %find_dissector_table.exit
 
 12:                                               ; preds = %8, %5
   %13 = load ptr, ptr @stderr, align 8
-  %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.24, ptr noundef %0) #28
+  %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.24, ptr noundef %0) #29
   %15 = load ptr, ptr @stderr, align 8
   %16 = getelementptr inbounds i8, ptr %1, i64 40
   %17 = load ptr, ptr %16, align 8
-  %18 = tail call ptr @proto_get_protocol_long_name(ptr noundef %17) #24
-  %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str.25, ptr noundef %18) #28
+  %18 = tail call ptr @proto_get_protocol_long_name(ptr noundef %17) #25
+  %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str.25, ptr noundef %18) #29
   %20 = load i32, ptr @wireshark_abort_on_dissector_bug, align 4
   %.not48 = icmp eq i32 %20, 0
   br i1 %.not48, label %73, label %21
 
 21:                                               ; preds = %12
-  tail call void @abort() #26
+  tail call void @abort() #27
   unreachable
 
 find_dissector_table.exit:                        ; preds = %11, %2
@@ -1436,14 +1436,14 @@ dissector_handle_get_dissector_name.exit:         ; preds = %24, %26
   %29 = load ptr, ptr @stderr, align 8
   %30 = getelementptr inbounds i8, ptr %1, i64 40
   %31 = load ptr, ptr %30, align 8
-  %32 = tail call ptr @proto_get_protocol_short_name(ptr noundef %31) #24
-  %33 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %29, ptr noundef nonnull @.str.30, ptr noundef nonnull %spec.store.select, ptr noundef %32, ptr noundef %0) #28
+  %32 = tail call ptr @proto_get_protocol_short_name(ptr noundef %31) #25
+  %33 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %29, ptr noundef nonnull @.str.30, ptr noundef nonnull %spec.store.select, ptr noundef %32, ptr noundef %0) #29
   %34 = load i32, ptr @wireshark_abort_on_dissector_bug, align 4
   %.not41 = icmp eq i32 %34, 0
   br i1 %.not41, label %73, label %35
 
 35:                                               ; preds = %dissector_handle_get_dissector_name.exit
-  tail call void @abort() #26
+  tail call void @abort() #27
   unreachable
 
 36:                                               ; preds = %find_dissector_table.exit
@@ -1453,17 +1453,17 @@ dissector_handle_get_dissector_name.exit:         ; preds = %24, %26
   br i1 %.not42, label %45, label %39
 
 39:                                               ; preds = %36
-  %40 = tail call ptr @proto_get_protocol_short_name(ptr noundef nonnull %38) #24
+  %40 = tail call ptr @proto_get_protocol_short_name(ptr noundef nonnull %38) #25
   %41 = getelementptr inbounds i8, ptr %1, i64 40
   %42 = load ptr, ptr %41, align 8
-  %43 = tail call ptr @proto_get_protocol_short_name(ptr noundef %42) #24
+  %43 = tail call ptr @proto_get_protocol_short_name(ptr noundef %42) #25
   %44 = tail call i32 @register_depend_dissector(ptr noundef %40, ptr noundef %43)
   br label %45
 
 45:                                               ; preds = %39, %36
   %46 = getelementptr inbounds i8, ptr %.1.i, i64 8
   %47 = load ptr, ptr %46, align 8
-  %48 = tail call ptr @g_slist_find(ptr noundef %47, ptr noundef %1) #24
+  %48 = tail call ptr @g_slist_find(ptr noundef %47, ptr noundef %1) #25
   %.not43 = icmp eq ptr %48, null
   br i1 %.not43, label %49, label %73
 
@@ -1492,7 +1492,7 @@ dissector_handle_get_dissector_name.exit:         ; preds = %24, %26
 
 57:                                               ; preds = %53
   %58 = load ptr, ptr %52, align 8
-  %59 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %56, ptr noundef nonnull dereferenceable(1) %58) #25
+  %59 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %56, ptr noundef nonnull dereferenceable(1) %58) #26
   %60 = icmp eq i32 %59, 0
   br i1 %60, label %dissector_handle_get_dissector_name.exit52, label %69
 
@@ -1504,13 +1504,13 @@ dissector_handle_get_dissector_name.exit52:       ; preds = %57
   %64 = icmp eq ptr %63, null
   %spec.store.select2 = select i1 %64, ptr @.str.29, ptr %63
   %65 = load ptr, ptr @stderr, align 8
-  %66 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %65, ptr noundef nonnull @.str.31, ptr noundef nonnull %spec.store.select1, ptr noundef nonnull %spec.store.select2, ptr noundef %0, ptr noundef %58) #28
+  %66 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %65, ptr noundef nonnull @.str.31, ptr noundef nonnull %spec.store.select1, ptr noundef nonnull %spec.store.select2, ptr noundef %0, ptr noundef %58) #29
   %67 = load i32, ptr @wireshark_abort_on_dissector_bug, align 4
   %.not47 = icmp eq i32 %67, 0
   br i1 %.not47, label %69, label %68
 
 68:                                               ; preds = %dissector_handle_get_dissector_name.exit52
-  tail call void @abort() #26
+  tail call void @abort() #27
   unreachable
 
 69:                                               ; preds = %53, %57, %dissector_handle_get_dissector_name.exit52
@@ -1525,7 +1525,7 @@ dissector_handle_get_dissector_name.exit52:       ; preds = %57
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %.preheader, %49
   %71 = phi ptr [ %.pre, %.loopexit.loopexit ], [ null, %.preheader ], [ %.pre57, %49 ]
-  %72 = tail call ptr @g_slist_insert_sorted(ptr noundef %71, ptr noundef %1, ptr noundef nonnull @dissector_compare_filter_name) #24
+  %72 = tail call ptr @g_slist_insert_sorted(ptr noundef %71, ptr noundef %1, ptr noundef nonnull @dissector_compare_filter_name) #25
   store ptr %72, ptr %46, align 8
   br label %73
 
@@ -1549,20 +1549,20 @@ define void @dissector_add_uint_range(ptr noundef %0, ptr noundef readonly %1, p
 
 8:                                                ; preds = %4
   %9 = load ptr, ptr @dissector_tables, align 8
-  %10 = tail call ptr @g_hash_table_lookup(ptr noundef %9, ptr noundef %0) #24
+  %10 = tail call ptr @g_hash_table_lookup(ptr noundef %9, ptr noundef %0) #25
   %.not.i = icmp eq ptr %10, null
   br i1 %.not.i, label %11, label %find_dissector_table.exit
 
 11:                                               ; preds = %8
   %12 = load ptr, ptr @dissector_table_aliases, align 8
-  %13 = tail call ptr @g_hash_table_lookup(ptr noundef %12, ptr noundef %0) #24
+  %13 = tail call ptr @g_hash_table_lookup(ptr noundef %12, ptr noundef %0) #25
   %.not12.i = icmp ne ptr %13, null
   tail call void @llvm.assume(i1 %.not12.i)
   %14 = load ptr, ptr @dissector_tables, align 8
-  %15 = tail call ptr @g_hash_table_lookup(ptr noundef %14, ptr noundef nonnull %13) #24
+  %15 = tail call ptr @g_hash_table_lookup(ptr noundef %14, ptr noundef nonnull %13) #25
   %.not13.i = icmp ne ptr %15, null
   tail call void @llvm.assume(i1 %.not13.i)
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.14, i32 noundef 5, ptr noundef nonnull @.str.15, i64 noundef 1108, ptr noundef nonnull @__func__.find_dissector_table, ptr noundef nonnull @.str.22, ptr noundef %0, ptr noundef nonnull %13) #24
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.14, i32 noundef 5, ptr noundef nonnull @.str.15, i64 noundef 1108, ptr noundef nonnull @__func__.find_dissector_table, ptr noundef nonnull @.str.22, ptr noundef %0, ptr noundef nonnull %13) #25
   br label %find_dissector_table.exit
 
 find_dissector_table.exit:                        ; preds = %8, %11
@@ -1608,9 +1608,9 @@ find_dissector_table.exit:                        ; preds = %8, %11
 
 ; Function Attrs: nounwind uwtable
 define void @dissector_add_uint_with_preference(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.26, i32 noundef %1) #24
+  %4 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.26, i32 noundef %1) #25
   %5 = tail call fastcc ptr @dissector_add_range_preference(ptr noundef %0, ptr noundef %2, ptr noundef %4)
-  tail call void @wmem_free(ptr noundef null, ptr noundef %4) #24
+  tail call void @wmem_free(ptr noundef null, ptr noundef %4) #25
   tail call void @dissector_add_uint(ptr noundef %0, i32 noundef %1, ptr noundef %2)
   ret void
 }
@@ -1618,72 +1618,72 @@ define void @dissector_add_uint_with_preference(ptr noundef %0, i32 noundef %1, 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @dissector_add_range_preference(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
   %4 = load ptr, ptr @dissector_tables, align 8
-  %5 = tail call ptr @g_hash_table_lookup(ptr noundef %4, ptr noundef %0) #24
+  %5 = tail call ptr @g_hash_table_lookup(ptr noundef %4, ptr noundef %0) #25
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %6, label %find_dissector_table.exit
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr @dissector_table_aliases, align 8
-  %8 = tail call ptr @g_hash_table_lookup(ptr noundef %7, ptr noundef %0) #24
+  %8 = tail call ptr @g_hash_table_lookup(ptr noundef %7, ptr noundef %0) #25
   %.not12.i = icmp eq ptr %8, null
   br i1 %.not12.i, label %find_dissector_table.exit, label %9
 
 9:                                                ; preds = %6
   %10 = load ptr, ptr @dissector_tables, align 8
-  %11 = tail call ptr @g_hash_table_lookup(ptr noundef %10, ptr noundef nonnull %8) #24
+  %11 = tail call ptr @g_hash_table_lookup(ptr noundef %10, ptr noundef nonnull %8) #25
   %.not13.i = icmp eq ptr %11, null
   br i1 %.not13.i, label %find_dissector_table.exit, label %12
 
 12:                                               ; preds = %9
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.14, i32 noundef 5, ptr noundef nonnull @.str.15, i64 noundef 1108, ptr noundef nonnull @__func__.find_dissector_table, ptr noundef nonnull @.str.22, ptr noundef %0, ptr noundef nonnull %8) #24
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.14, i32 noundef 5, ptr noundef nonnull @.str.15, i64 noundef 1108, ptr noundef nonnull @__func__.find_dissector_table, ptr noundef nonnull @.str.22, ptr noundef %0, ptr noundef nonnull %8) #25
   br label %find_dissector_table.exit
 
 find_dissector_table.exit:                        ; preds = %3, %6, %9, %12
   %.1.i = phi ptr [ %5, %3 ], [ %11, %12 ], [ null, %9 ], [ null, %6 ]
   %13 = getelementptr inbounds i8, ptr %1, i64 40
   %14 = load ptr, ptr %13, align 8
-  %15 = tail call i32 @proto_get_id(ptr noundef %14) #24
-  %16 = tail call ptr @wmem_epan_scope() #24
-  %17 = tail call noalias ptr @wmem_alloc0(ptr noundef %16, i64 noundef 8) #24
-  %18 = tail call ptr @proto_get_protocol_filter_name(i32 noundef %15) #24
-  %19 = tail call ptr @prefs_find_module(ptr noundef %18) #24
+  %15 = tail call i32 @proto_get_id(ptr noundef %14) #25
+  %16 = tail call ptr @wmem_epan_scope() #25
+  %17 = tail call noalias ptr @wmem_alloc0(ptr noundef %16, i64 noundef 8) #25
+  %18 = tail call ptr @proto_get_protocol_filter_name(i32 noundef %15) #25
+  %19 = tail call ptr @prefs_find_module(ptr noundef %18) #25
   %20 = icmp eq ptr %19, null
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %find_dissector_table.exit
-  %22 = tail call ptr @prefs_register_protocol(i32 noundef %15, ptr noundef null) #24
+  %22 = tail call ptr @prefs_register_protocol(i32 noundef %15, ptr noundef null) #25
   br label %23
 
 23:                                               ; preds = %21, %find_dissector_table.exit
   %.026 = phi ptr [ %22, %21 ], [ %19, %find_dissector_table.exit ]
-  %24 = tail call ptr @prefs_find_preference(ptr noundef %.026, ptr noundef %0) #24
+  %24 = tail call ptr @prefs_find_preference(ptr noundef %.026, ptr noundef %0) #25
   %25 = icmp eq ptr %24, null
   br i1 %25, label %26, label %51
 
 26:                                               ; preds = %23
-  %27 = tail call i32 @g_strcmp0(ptr noundef %2, ptr noundef nonnull @.str.5) #24
+  %27 = tail call i32 @g_strcmp0(ptr noundef %2, ptr noundef nonnull @.str.5) #25
   %28 = icmp sgt i32 %27, 0
-  %29 = tail call ptr @wmem_epan_scope() #24
+  %29 = tail call ptr @wmem_epan_scope() #25
   %30 = load ptr, ptr %13, align 8
-  %31 = tail call ptr @proto_get_protocol_short_name(ptr noundef %30) #24
+  %31 = tail call ptr @proto_get_protocol_short_name(ptr noundef %30) #25
   %32 = getelementptr inbounds i8, ptr %.1.i, i64 16
   %33 = load ptr, ptr %32, align 8
   br i1 %28, label %34, label %36
 
 34:                                               ; preds = %26
-  %35 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %29, ptr noundef nonnull @.str.45, ptr noundef %31, ptr noundef %33, ptr noundef %2) #24
+  %35 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %29, ptr noundef nonnull @.str.45, ptr noundef %31, ptr noundef %33, ptr noundef %2) #25
   br label %38
 
 36:                                               ; preds = %26
-  %37 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %29, ptr noundef nonnull @.str.46, ptr noundef %31, ptr noundef %33) #24
+  %37 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %29, ptr noundef nonnull @.str.46, ptr noundef %31, ptr noundef %33) #25
   br label %38
 
 38:                                               ; preds = %36, %34
   %.027 = phi ptr [ %35, %34 ], [ %37, %36 ]
-  %39 = tail call ptr @wmem_epan_scope() #24
+  %39 = tail call ptr @wmem_epan_scope() #25
   %40 = getelementptr inbounds i8, ptr %.1.i, i64 16
   %41 = load ptr, ptr %40, align 8
-  %42 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %39, ptr noundef nonnull @.str.47, ptr noundef %41) #24
+  %42 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %39, ptr noundef nonnull @.str.47, ptr noundef %41) #25
   %43 = getelementptr inbounds i8, ptr %.1.i, i64 24
   %44 = load i32, ptr %43, align 8
   %switch.tableidx = add i32 %44, -4
@@ -1692,16 +1692,16 @@ find_dissector_table.exit:                        ; preds = %3, %6, %9, %12
 
 46:                                               ; preds = %38
   %47 = load ptr, ptr %40, align 8
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 1317, ptr noundef nonnull @__func__.dissector_add_range_preference, ptr noundef nonnull @.str.48, ptr noundef %0, ptr noundef %47) #26
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 1317, ptr noundef nonnull @__func__.dissector_add_range_preference, ptr noundef nonnull @.str.48, ptr noundef %0, ptr noundef %47) #27
   unreachable
 
 switch.lookup:                                    ; preds = %38
   %48 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table.dissector_add_range_preference, i64 0, i64 %48
   %switch.load = load i32, ptr %switch.gep, align 4
-  %49 = tail call ptr @wmem_epan_scope() #24
-  %50 = tail call i32 @range_convert_str(ptr noundef %49, ptr noundef %17, ptr noundef %2, i32 noundef %switch.load) #24
-  tail call void @prefs_register_decode_as_range_preference(ptr noundef %.026, ptr noundef %0, ptr noundef %42, ptr noundef %.027, ptr noundef %17, i32 noundef %switch.load) #24
+  %49 = tail call ptr @wmem_epan_scope() #25
+  %50 = tail call i32 @range_convert_str(ptr noundef %49, ptr noundef %17, ptr noundef %2, i32 noundef %switch.load) #25
+  tail call void @prefs_register_decode_as_range_preference(ptr noundef %.026, ptr noundef %0, ptr noundef %42, ptr noundef %.027, ptr noundef %17, i32 noundef %switch.load) #25
   br label %51
 
 51:                                               ; preds = %switch.lookup, %23
@@ -1721,24 +1721,24 @@ define void @dissector_add_uint_range_with_preference(ptr noundef %0, ptr nounde
 ; Function Attrs: nounwind uwtable
 define void @dissector_delete_uint(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr @dissector_tables, align 8
-  %5 = tail call ptr @g_hash_table_lookup(ptr noundef %4, ptr noundef %0) #24
+  %5 = tail call ptr @g_hash_table_lookup(ptr noundef %4, ptr noundef %0) #25
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %6, label %find_dissector_table.exit
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr @dissector_table_aliases, align 8
-  %8 = tail call ptr @g_hash_table_lookup(ptr noundef %7, ptr noundef %0) #24
+  %8 = tail call ptr @g_hash_table_lookup(ptr noundef %7, ptr noundef %0) #25
   %.not12.i = icmp eq ptr %8, null
   br i1 %.not12.i, label %find_dissector_table.exit, label %9
 
 9:                                                ; preds = %6
   %10 = load ptr, ptr @dissector_tables, align 8
-  %11 = tail call ptr @g_hash_table_lookup(ptr noundef %10, ptr noundef nonnull %8) #24
+  %11 = tail call ptr @g_hash_table_lookup(ptr noundef %10, ptr noundef nonnull %8) #25
   %.not13.i = icmp eq ptr %11, null
   br i1 %.not13.i, label %find_dissector_table.exit, label %12
 
 12:                                               ; preds = %9
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.14, i32 noundef 5, ptr noundef nonnull @.str.15, i64 noundef 1108, ptr noundef nonnull @__func__.find_dissector_table, ptr noundef nonnull @.str.22, ptr noundef %0, ptr noundef nonnull %8) #24
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.14, i32 noundef 5, ptr noundef nonnull @.str.15, i64 noundef 1108, ptr noundef nonnull @__func__.find_dissector_table, ptr noundef nonnull @.str.22, ptr noundef %0, ptr noundef nonnull %8) #25
   br label %find_dissector_table.exit
 
 find_dissector_table.exit:                        ; preds = %3, %6, %9, %12
@@ -1754,20 +1754,20 @@ find_dissector_table.exit:                        ; preds = %3, %6, %9, %12
   ]
 
 15:                                               ; preds = %find_dissector_table.exit
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 1137, ptr noundef nonnull @__func__.find_uint_dtbl_entry, ptr noundef nonnull @.str.16) #26
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 1137, ptr noundef nonnull @__func__.find_uint_dtbl_entry, ptr noundef nonnull @.str.16) #27
   unreachable
 
 find_uint_dtbl_entry.exit:                        ; preds = %find_dissector_table.exit, %find_dissector_table.exit, %find_dissector_table.exit, %find_dissector_table.exit, %find_dissector_table.exit
   %16 = load ptr, ptr %.1.i, align 8
   %17 = zext i32 %1 to i64
   %18 = inttoptr i64 %17 to ptr
-  %19 = tail call ptr @g_hash_table_lookup(ptr noundef %16, ptr noundef %18) #24
+  %19 = tail call ptr @g_hash_table_lookup(ptr noundef %16, ptr noundef %18) #25
   %.not = icmp eq ptr %19, null
   br i1 %.not, label %23, label %20
 
 20:                                               ; preds = %find_uint_dtbl_entry.exit
   %21 = load ptr, ptr %.1.i, align 8
-  %22 = tail call i32 @g_hash_table_remove(ptr noundef %21, ptr noundef %18) #24
+  %22 = tail call i32 @g_hash_table_remove(ptr noundef %21, ptr noundef %18) #25
   br label %23
 
 23:                                               ; preds = %20, %find_uint_dtbl_entry.exit
@@ -1806,24 +1806,24 @@ define void @dissector_delete_uint_range(ptr noundef %0, ptr noundef readonly %1
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %dissector_delete_uint.exit
   %indvars.iv = phi i64 [ %12, %.lr.ph.preheader ], [ %indvars.iv.next, %dissector_delete_uint.exit ]
   %13 = load ptr, ptr @dissector_tables, align 8
-  %14 = tail call ptr @g_hash_table_lookup(ptr noundef %13, ptr noundef %0) #24
+  %14 = tail call ptr @g_hash_table_lookup(ptr noundef %13, ptr noundef %0) #25
   %.not.i.i = icmp eq ptr %14, null
   br i1 %.not.i.i, label %15, label %find_dissector_table.exit.i
 
 15:                                               ; preds = %.lr.ph
   %16 = load ptr, ptr @dissector_table_aliases, align 8
-  %17 = tail call ptr @g_hash_table_lookup(ptr noundef %16, ptr noundef %0) #24
+  %17 = tail call ptr @g_hash_table_lookup(ptr noundef %16, ptr noundef %0) #25
   %.not12.i.i = icmp eq ptr %17, null
   br i1 %.not12.i.i, label %find_dissector_table.exit.i, label %18
 
 18:                                               ; preds = %15
   %19 = load ptr, ptr @dissector_tables, align 8
-  %20 = tail call ptr @g_hash_table_lookup(ptr noundef %19, ptr noundef nonnull %17) #24
+  %20 = tail call ptr @g_hash_table_lookup(ptr noundef %19, ptr noundef nonnull %17) #25
   %.not13.i.i = icmp eq ptr %20, null
   br i1 %.not13.i.i, label %find_dissector_table.exit.i, label %21
 
 21:                                               ; preds = %18
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.14, i32 noundef 5, ptr noundef nonnull @.str.15, i64 noundef 1108, ptr noundef nonnull @__func__.find_dissector_table, ptr noundef nonnull @.str.22, ptr noundef %0, ptr noundef nonnull %17) #24
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.14, i32 noundef 5, ptr noundef nonnull @.str.15, i64 noundef 1108, ptr noundef nonnull @__func__.find_dissector_table, ptr noundef nonnull @.str.22, ptr noundef %0, ptr noundef nonnull %17) #25
   br label %find_dissector_table.exit.i
 
 find_dissector_table.exit.i:                      ; preds = %21, %18, %15, %.lr.ph
@@ -1839,19 +1839,19 @@ find_dissector_table.exit.i:                      ; preds = %21, %18, %15, %.lr.
   ]
 
 24:                                               ; preds = %find_dissector_table.exit.i
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 1137, ptr noundef nonnull @__func__.find_uint_dtbl_entry, ptr noundef nonnull @.str.16) #26
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 1137, ptr noundef nonnull @__func__.find_uint_dtbl_entry, ptr noundef nonnull @.str.16) #27
   unreachable
 
 find_uint_dtbl_entry.exit.i:                      ; preds = %find_dissector_table.exit.i, %find_dissector_table.exit.i, %find_dissector_table.exit.i, %find_dissector_table.exit.i, %find_dissector_table.exit.i
   %25 = load ptr, ptr %.1.i.i, align 8
   %26 = inttoptr i64 %indvars.iv to ptr
-  %27 = tail call ptr @g_hash_table_lookup(ptr noundef %25, ptr noundef %26) #24
+  %27 = tail call ptr @g_hash_table_lookup(ptr noundef %25, ptr noundef %26) #25
   %.not.i = icmp eq ptr %27, null
   br i1 %.not.i, label %dissector_delete_uint.exit, label %28
 
 28:                                               ; preds = %find_uint_dtbl_entry.exit.i
   %29 = load ptr, ptr %.1.i.i, align 8
-  %30 = tail call i32 @g_hash_table_remove(ptr noundef %29, ptr noundef %26) #24
+  %30 = tail call i32 @g_hash_table_remove(ptr noundef %29, ptr noundef %26) #25
   br label %dissector_delete_uint.exit
 
 dissector_delete_uint.exit:                       ; preds = %find_uint_dtbl_entry.exit.i, %28
@@ -1877,32 +1877,32 @@ dissector_delete_uint.exit:                       ; preds = %find_uint_dtbl_entr
 ; Function Attrs: nounwind uwtable
 define void @dissector_delete_guid(ptr noundef %0, ptr noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr @dissector_tables, align 8
-  %5 = tail call ptr @g_hash_table_lookup(ptr noundef %4, ptr noundef %0) #24
+  %5 = tail call ptr @g_hash_table_lookup(ptr noundef %4, ptr noundef %0) #25
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %6, label %find_dissector_table.exit
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr @dissector_table_aliases, align 8
-  %8 = tail call ptr @g_hash_table_lookup(ptr noundef %7, ptr noundef %0) #24
+  %8 = tail call ptr @g_hash_table_lookup(ptr noundef %7, ptr noundef %0) #25
   %.not12.i = icmp ne ptr %8, null
   tail call void @llvm.assume(i1 %.not12.i)
   %9 = load ptr, ptr @dissector_tables, align 8
-  %10 = tail call ptr @g_hash_table_lookup(ptr noundef %9, ptr noundef nonnull %8) #24
+  %10 = tail call ptr @g_hash_table_lookup(ptr noundef %9, ptr noundef nonnull %8) #25
   %.not13.i = icmp ne ptr %10, null
   tail call void @llvm.assume(i1 %.not13.i)
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.14, i32 noundef 5, ptr noundef nonnull @.str.15, i64 noundef 1108, ptr noundef nonnull @__func__.find_dissector_table, ptr noundef nonnull @.str.22, ptr noundef %0, ptr noundef nonnull %8) #24
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.14, i32 noundef 5, ptr noundef nonnull @.str.15, i64 noundef 1108, ptr noundef nonnull @__func__.find_dissector_table, ptr noundef nonnull @.str.22, ptr noundef %0, ptr noundef nonnull %8) #25
   br label %find_dissector_table.exit
 
 find_dissector_table.exit:                        ; preds = %3, %6
   %.1.i = phi ptr [ %5, %3 ], [ %10, %6 ]
   %11 = load ptr, ptr %.1.i, align 8
-  %12 = tail call ptr @g_hash_table_lookup(ptr noundef %11, ptr noundef %1) #24
+  %12 = tail call ptr @g_hash_table_lookup(ptr noundef %11, ptr noundef %1) #25
   %13 = icmp eq ptr %12, null
   br i1 %13, label %14, label %17
 
 14:                                               ; preds = %find_dissector_table.exit
   %15 = load ptr, ptr @stderr, align 8
-  %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str.27, ptr noundef %0) #28
+  %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str.27, ptr noundef %0) #29
   br label %26
 
 17:                                               ; preds = %find_dissector_table.exit
@@ -1913,12 +1913,12 @@ find_dissector_table.exit:                        ; preds = %3, %6
 
 20:                                               ; preds = %17
   %21 = load ptr, ptr @stderr, align 8
-  %22 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %21, ptr noundef nonnull @.str.28, ptr noundef %0) #28
+  %22 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %21, ptr noundef nonnull @.str.28, ptr noundef %0) #29
   br label %26
 
 23:                                               ; preds = %17
   %24 = load ptr, ptr %.1.i, align 8
-  %25 = tail call i32 @g_hash_table_remove(ptr noundef %24, ptr noundef %1) #24
+  %25 = tail call i32 @g_hash_table_remove(ptr noundef %24, ptr noundef %1) #25
   br label %26
 
 26:                                               ; preds = %23, %20, %14
@@ -1928,26 +1928,26 @@ find_dissector_table.exit:                        ; preds = %3, %6
 ; Function Attrs: nounwind uwtable
 define void @dissector_delete_all(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @dissector_tables, align 8
-  %4 = tail call ptr @g_hash_table_lookup(ptr noundef %3, ptr noundef %0) #24
+  %4 = tail call ptr @g_hash_table_lookup(ptr noundef %3, ptr noundef %0) #25
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %5, label %find_dissector_table.exit
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr @dissector_table_aliases, align 8
-  %7 = tail call ptr @g_hash_table_lookup(ptr noundef %6, ptr noundef %0) #24
+  %7 = tail call ptr @g_hash_table_lookup(ptr noundef %6, ptr noundef %0) #25
   %.not12.i = icmp ne ptr %7, null
   tail call void @llvm.assume(i1 %.not12.i)
   %8 = load ptr, ptr @dissector_tables, align 8
-  %9 = tail call ptr @g_hash_table_lookup(ptr noundef %8, ptr noundef nonnull %7) #24
+  %9 = tail call ptr @g_hash_table_lookup(ptr noundef %8, ptr noundef nonnull %7) #25
   %.not13.i = icmp ne ptr %9, null
   tail call void @llvm.assume(i1 %.not13.i)
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.14, i32 noundef 5, ptr noundef nonnull @.str.15, i64 noundef 1108, ptr noundef nonnull @__func__.find_dissector_table, ptr noundef nonnull @.str.22, ptr noundef %0, ptr noundef nonnull %7) #24
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.14, i32 noundef 5, ptr noundef nonnull @.str.15, i64 noundef 1108, ptr noundef nonnull @__func__.find_dissector_table, ptr noundef nonnull @.str.22, ptr noundef %0, ptr noundef nonnull %7) #25
   br label %find_dissector_table.exit
 
 find_dissector_table.exit:                        ; preds = %2, %5
   %.1.i = phi ptr [ %4, %2 ], [ %9, %5 ]
   %10 = load ptr, ptr %.1.i, align 8
-  %11 = tail call i32 @g_hash_table_foreach_remove(ptr noundef %10, ptr noundef nonnull @dissector_delete_all_check, ptr noundef %1) #24
+  %11 = tail call i32 @g_hash_table_foreach_remove(ptr noundef %10, ptr noundef nonnull @dissector_delete_all_check, ptr noundef %1) #25
   ret void
 }
 
@@ -1963,10 +1963,10 @@ define internal range(i32 0, 2) i32 @dissector_delete_all_check(ptr nocapture re
   br i1 %.not, label %15, label %8
 
 8:                                                ; preds = %3
-  %9 = tail call i32 @proto_get_id(ptr noundef nonnull %7) #24
+  %9 = tail call i32 @proto_get_id(ptr noundef nonnull %7) #25
   %10 = getelementptr inbounds i8, ptr %2, i64 40
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call i32 @proto_get_id(ptr noundef %11) #24
+  %12 = tail call i32 @proto_get_id(ptr noundef %11) #25
   %13 = icmp eq i32 %9, %12
   %14 = zext i1 %13 to i32
   br label %15
@@ -1979,24 +1979,24 @@ define internal range(i32 0, 2) i32 @dissector_delete_all_check(ptr nocapture re
 ; Function Attrs: nounwind uwtable
 define void @dissector_change_uint(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr @dissector_tables, align 8
-  %5 = tail call ptr @g_hash_table_lookup(ptr noundef %4, ptr noundef %0) #24
+  %5 = tail call ptr @g_hash_table_lookup(ptr noundef %4, ptr noundef %0) #25
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %6, label %find_dissector_table.exit
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr @dissector_table_aliases, align 8
-  %8 = tail call ptr @g_hash_table_lookup(ptr noundef %7, ptr noundef %0) #24
+  %8 = tail call ptr @g_hash_table_lookup(ptr noundef %7, ptr noundef %0) #25
   %.not12.i = icmp eq ptr %8, null
   br i1 %.not12.i, label %find_dissector_table.exit, label %9
 
 9:                                                ; preds = %6
   %10 = load ptr, ptr @dissector_tables, align 8
-  %11 = tail call ptr @g_hash_table_lookup(ptr noundef %10, ptr noundef nonnull %8) #24
+  %11 = tail call ptr @g_hash_table_lookup(ptr noundef %10, ptr noundef nonnull %8) #25
   %.not13.i = icmp eq ptr %11, null
   br i1 %.not13.i, label %find_dissector_table.exit, label %12
 
 12:                                               ; preds = %9
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.14, i32 noundef 5, ptr noundef nonnull @.str.15, i64 noundef 1108, ptr noundef nonnull @__func__.find_dissector_table, ptr noundef nonnull @.str.22, ptr noundef %0, ptr noundef nonnull %8) #24
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.14, i32 noundef 5, ptr noundef nonnull @.str.15, i64 noundef 1108, ptr noundef nonnull @__func__.find_dissector_table, ptr noundef nonnull @.str.22, ptr noundef %0, ptr noundef nonnull %8) #25
   br label %find_dissector_table.exit
 
 find_dissector_table.exit:                        ; preds = %3, %6, %9, %12
@@ -2012,14 +2012,14 @@ find_dissector_table.exit:                        ; preds = %3, %6, %9, %12
   ]
 
 15:                                               ; preds = %find_dissector_table.exit
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 1137, ptr noundef nonnull @__func__.find_uint_dtbl_entry, ptr noundef nonnull @.str.16) #26
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 1137, ptr noundef nonnull @__func__.find_uint_dtbl_entry, ptr noundef nonnull @.str.16) #27
   unreachable
 
 find_uint_dtbl_entry.exit:                        ; preds = %find_dissector_table.exit, %find_dissector_table.exit, %find_dissector_table.exit, %find_dissector_table.exit, %find_dissector_table.exit
   %16 = load ptr, ptr %.1.i, align 8
   %17 = zext i32 %1 to i64
   %18 = inttoptr i64 %17 to ptr
-  %19 = tail call ptr @g_hash_table_lookup(ptr noundef %16, ptr noundef %18) #24
+  %19 = tail call ptr @g_hash_table_lookup(ptr noundef %16, ptr noundef %18) #25
   %.not = icmp eq ptr %19, null
   %20 = icmp eq ptr %2, null
   br i1 %.not, label %30, label %21
@@ -2034,7 +2034,7 @@ find_uint_dtbl_entry.exit:                        ; preds = %find_dissector_tabl
 
 25:                                               ; preds = %22
   %26 = load ptr, ptr %.1.i, align 8
-  %27 = tail call i32 @g_hash_table_remove(ptr noundef %26, ptr noundef %18) #24
+  %27 = tail call i32 @g_hash_table_remove(ptr noundef %26, ptr noundef %18) #25
   br label %36
 
 28:                                               ; preds = %22, %21
@@ -2046,12 +2046,12 @@ find_uint_dtbl_entry.exit:                        ; preds = %find_dissector_tabl
   br i1 %20, label %36, label %31
 
 31:                                               ; preds = %30
-  %32 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #29
+  %32 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #30
   store ptr null, ptr %32, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 8
   store ptr %2, ptr %33, align 8
   %34 = load ptr, ptr %.1.i, align 8
-  %35 = tail call i32 @g_hash_table_insert(ptr noundef %34, ptr noundef %18, ptr noundef nonnull %32) #24
+  %35 = tail call i32 @g_hash_table_insert(ptr noundef %34, ptr noundef %18, ptr noundef nonnull %32) #25
   br label %36
 
 36:                                               ; preds = %30, %31, %28, %25
@@ -2061,24 +2061,24 @@ find_uint_dtbl_entry.exit:                        ; preds = %find_dissector_tabl
 ; Function Attrs: nounwind uwtable
 define void @dissector_reset_uint(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @dissector_tables, align 8
-  %4 = tail call ptr @g_hash_table_lookup(ptr noundef %3, ptr noundef %0) #24
+  %4 = tail call ptr @g_hash_table_lookup(ptr noundef %3, ptr noundef %0) #25
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %5, label %find_dissector_table.exit
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr @dissector_table_aliases, align 8
-  %7 = tail call ptr @g_hash_table_lookup(ptr noundef %6, ptr noundef %0) #24
+  %7 = tail call ptr @g_hash_table_lookup(ptr noundef %6, ptr noundef %0) #25
   %.not12.i = icmp eq ptr %7, null
   br i1 %.not12.i, label %find_dissector_table.exit, label %8
 
 8:                                                ; preds = %5
   %9 = load ptr, ptr @dissector_tables, align 8
-  %10 = tail call ptr @g_hash_table_lookup(ptr noundef %9, ptr noundef nonnull %7) #24
+  %10 = tail call ptr @g_hash_table_lookup(ptr noundef %9, ptr noundef nonnull %7) #25
   %.not13.i = icmp eq ptr %10, null
   br i1 %.not13.i, label %find_dissector_table.exit, label %11
 
 11:                                               ; preds = %8
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.14, i32 noundef 5, ptr noundef nonnull @.str.15, i64 noundef 1108, ptr noundef nonnull @__func__.find_dissector_table, ptr noundef nonnull @.str.22, ptr noundef %0, ptr noundef nonnull %7) #24
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.14, i32 noundef 5, ptr noundef nonnull @.str.15, i64 noundef 1108, ptr noundef nonnull @__func__.find_dissector_table, ptr noundef nonnull @.str.22, ptr noundef %0, ptr noundef nonnull %7) #25
   br label %find_dissector_table.exit
 
 find_dissector_table.exit:                        ; preds = %2, %5, %8, %11
@@ -2094,14 +2094,14 @@ find_dissector_table.exit:                        ; preds = %2, %5, %8, %11
   ]
 
 14:                                               ; preds = %find_dissector_table.exit
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 1137, ptr noundef nonnull @__func__.find_uint_dtbl_entry, ptr noundef nonnull @.str.16) #26
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 1137, ptr noundef nonnull @__func__.find_uint_dtbl_entry, ptr noundef nonnull @.str.16) #27
   unreachable
 
 find_uint_dtbl_entry.exit:                        ; preds = %find_dissector_table.exit, %find_dissector_table.exit, %find_dissector_table.exit, %find_dissector_table.exit, %find_dissector_table.exit
   %15 = load ptr, ptr %.1.i, align 8
   %16 = zext i32 %1 to i64
   %17 = inttoptr i64 %16 to ptr
-  %18 = tail call ptr @g_hash_table_lookup(ptr noundef %15, ptr noundef %17) #24
+  %18 = tail call ptr @g_hash_table_lookup(ptr noundef %15, ptr noundef %17) #25
   %19 = icmp eq ptr %18, null
   br i1 %19, label %27, label %20
 
@@ -2117,7 +2117,7 @@ find_uint_dtbl_entry.exit:                        ; preds = %find_dissector_tabl
 
 24:                                               ; preds = %20
   %25 = load ptr, ptr %.1.i, align 8
-  %26 = tail call i32 @g_hash_table_remove(ptr noundef %25, ptr noundef %17) #24
+  %26 = tail call i32 @g_hash_table_remove(ptr noundef %25, ptr noundef %17) #25
   br label %27
 
 27:                                               ; preds = %find_uint_dtbl_entry.exit, %24, %22
@@ -2141,14 +2141,14 @@ define range(i32 0, 2) i32 @dissector_is_uint_changed(ptr noundef readonly %0, i
   ]
 
 6:                                                ; preds = %3
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 1137, ptr noundef nonnull @__func__.find_uint_dtbl_entry, ptr noundef nonnull @.str.16) #26
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 1137, ptr noundef nonnull @__func__.find_uint_dtbl_entry, ptr noundef nonnull @.str.16) #27
   unreachable
 
 find_uint_dtbl_entry.exit:                        ; preds = %3, %3, %3, %3, %3
   %7 = load ptr, ptr %0, align 8
   %8 = zext i32 %1 to i64
   %9 = inttoptr i64 %8 to ptr
-  %10 = tail call ptr @g_hash_table_lookup(ptr noundef %7, ptr noundef %9) #24
+  %10 = tail call ptr @g_hash_table_lookup(ptr noundef %7, ptr noundef %9) #25
   %.not8 = icmp eq ptr %10, null
   br i1 %.not8, label %17, label %11
 
@@ -2178,14 +2178,14 @@ define i32 @dissector_try_uint_new(ptr nocapture noundef readonly %0, i32 nounde
   ]
 
 10:                                               ; preds = %7
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 1137, ptr noundef nonnull @__func__.find_uint_dtbl_entry, ptr noundef nonnull @.str.16) #26
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 1137, ptr noundef nonnull @__func__.find_uint_dtbl_entry, ptr noundef nonnull @.str.16) #27
   unreachable
 
 find_uint_dtbl_entry.exit:                        ; preds = %7, %7, %7, %7, %7
   %11 = load ptr, ptr %0, align 8
   %12 = zext i32 %1 to i64
   %13 = inttoptr i64 %12 to ptr
-  %14 = tail call ptr @g_hash_table_lookup(ptr noundef %11, ptr noundef %13) #24
+  %14 = tail call ptr @g_hash_table_lookup(ptr noundef %11, ptr noundef %13) #25
   %15 = icmp eq ptr %14, null
   br i1 %15, label %24, label %16
 
@@ -2230,7 +2230,7 @@ define internal fastcc i32 @call_dissector_work(ptr nocapture noundef readonly %
   br i1 %.not59, label %20, label %18
 
 18:                                               ; preds = %12
-  %19 = tail call i32 @proto_is_protocol_enabled(ptr noundef nonnull %17) #24
+  %19 = tail call i32 @proto_is_protocol_enabled(ptr noundef nonnull %17) #25
   %.not60 = icmp eq i32 %19, 0
   br i1 %.not60, label %103, label %20
 
@@ -2240,13 +2240,13 @@ define internal fastcc i32 @call_dissector_work(ptr nocapture noundef readonly %
   %23 = load i16, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %2, i64 360
   %25 = load ptr, ptr %24, align 8
-  %26 = tail call i32 @wmem_list_count(ptr noundef %25) #24
+  %26 = tail call i32 @wmem_list_count(ptr noundef %25) #25
   %27 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 244), align 4
   %28 = icmp ult i32 %26, %27
   br i1 %28, label %30, label %29
 
 29:                                               ; preds = %20
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.15, i32 noundef 907, ptr noundef nonnull @.str.37) #26
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.15, i32 noundef 907, ptr noundef nonnull @.str.37) #27
   unreachable
 
 30:                                               ; preds = %20
@@ -2261,20 +2261,20 @@ define internal fastcc i32 @call_dissector_work(ptr nocapture noundef readonly %
   br i1 %.not61, label %43, label %35
 
 35:                                               ; preds = %30
-  %36 = tail call i32 @proto_is_pino(ptr noundef nonnull %34) #24
+  %36 = tail call i32 @proto_is_pino(ptr noundef nonnull %34) #25
   %.not62 = icmp eq i32 %36, 0
   br i1 %.not62, label %37, label %43
 
 37:                                               ; preds = %35
   %38 = load ptr, ptr %16, align 8
-  %39 = tail call ptr @proto_get_protocol_short_name(ptr noundef %38) #24
+  %39 = tail call ptr @proto_get_protocol_short_name(ptr noundef %38) #25
   store ptr %39, ptr %2, align 8
   %.not63 = icmp eq i32 %4, 0
   br i1 %.not63, label %43, label %40
 
 40:                                               ; preds = %37
   %41 = load ptr, ptr %16, align 8
-  %42 = tail call i32 @proto_get_id(ptr noundef %41) #24
+  %42 = tail call i32 @proto_get_id(ptr noundef %41) #25
   tail call fastcc void @add_layer(ptr noundef nonnull %2, i32 noundef %42)
   br label %43
 
@@ -2296,13 +2296,13 @@ define internal fastcc i32 @call_dissector_work(ptr nocapture noundef readonly %
   br i1 %.not.i, label %57, label %52
 
 52:                                               ; preds = %49
-  %53 = tail call i32 @proto_is_pino(ptr noundef nonnull %51) #24
+  %53 = tail call i32 @proto_is_pino(ptr noundef nonnull %51) #25
   %.not22.i = icmp eq i32 %53, 0
   br i1 %.not22.i, label %54, label %57
 
 54:                                               ; preds = %52
   %55 = load ptr, ptr %16, align 8
-  %56 = tail call ptr @proto_get_protocol_short_name(ptr noundef %55) #24
+  %56 = tail call ptr @proto_get_protocol_short_name(ptr noundef %55) #25
   store ptr %56, ptr %2, align 8
   br label %57
 
@@ -2317,7 +2317,7 @@ define internal fastcc i32 @call_dissector_work(ptr nocapture noundef readonly %
 60:                                               ; preds = %57
   %61 = getelementptr inbounds i8, ptr %0, i64 24
   %62 = load ptr, ptr %61, align 8
-  %63 = tail call i32 %62(ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %5) #24
+  %63 = tail call i32 %62(ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %5) #25
   br label %call_dissector_through_handle.exit
 
 64:                                               ; preds = %57
@@ -2325,11 +2325,11 @@ define internal fastcc i32 @call_dissector_work(ptr nocapture noundef readonly %
   %66 = load ptr, ptr %65, align 8
   %67 = getelementptr inbounds i8, ptr %0, i64 32
   %68 = load ptr, ptr %67, align 8
-  %69 = tail call i32 %66(ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %5, ptr noundef %68) #24
+  %69 = tail call i32 %66(ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %5, ptr noundef %68) #25
   br label %call_dissector_through_handle.exit
 
 70:                                               ; preds = %57
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 864, ptr noundef nonnull @__func__.call_dissector_through_handle, ptr noundef nonnull @.str.16) #26
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 864, ptr noundef nonnull @__func__.call_dissector_through_handle, ptr noundef nonnull @.str.16) #27
   unreachable
 
 call_dissector_through_handle.exit:               ; preds = %60, %64
@@ -2360,7 +2360,7 @@ call_dissector_through_handle.exit:               ; preds = %60, %64
   br i1 %.not66, label %.loopexit, label %82
 
 82:                                               ; preds = %79
-  %83 = tail call i32 @proto_is_pino(ptr noundef nonnull %81) #24
+  %83 = tail call i32 @proto_is_pino(ptr noundef nonnull %81) #25
   %84 = icmp eq i32 %83, 0
   %85 = icmp ne i32 %4, 0
   %or.cond = and i1 %85, %84
@@ -2382,7 +2382,7 @@ call_dissector_through_handle.exit:               ; preds = %60, %64
 
 94:                                               ; preds = %88, %86
   %95 = load ptr, ptr %24, align 8
-  %96 = tail call i32 @wmem_list_count(ptr noundef %95) #24
+  %96 = tail call i32 @wmem_list_count(ptr noundef %95) #25
   %97 = icmp ugt i32 %96, %26
   br i1 %97, label %.lr.ph, label %.loopexit
 
@@ -2393,7 +2393,7 @@ call_dissector_through_handle.exit:               ; preds = %60, %64
 99:                                               ; preds = %.lr.ph, %99
   tail call fastcc void @remove_last_layer(ptr noundef nonnull %2, i32 noundef %98)
   %100 = load ptr, ptr %24, align 8
-  %101 = tail call i32 @wmem_list_count(ptr noundef %100) #24
+  %101 = tail call i32 @wmem_list_count(ptr noundef %100) #25
   %102 = icmp ugt i32 %101, %26
   br i1 %102, label %99, label %.loopexit, !llvm.loop !12
 
@@ -2420,14 +2420,14 @@ define i32 @dissector_try_uint(ptr nocapture noundef readonly %0, i32 noundef %1
   ]
 
 8:                                                ; preds = %5
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 1137, ptr noundef nonnull @__func__.find_uint_dtbl_entry, ptr noundef nonnull @.str.16) #26
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 1137, ptr noundef nonnull @__func__.find_uint_dtbl_entry, ptr noundef nonnull @.str.16) #27
   unreachable
 
 find_uint_dtbl_entry.exit.i:                      ; preds = %5, %5, %5, %5, %5
   %9 = load ptr, ptr %0, align 8
   %10 = zext i32 %1 to i64
   %11 = inttoptr i64 %10 to ptr
-  %12 = tail call ptr @g_hash_table_lookup(ptr noundef %9, ptr noundef %11) #24
+  %12 = tail call ptr @g_hash_table_lookup(ptr noundef %9, ptr noundef %11) #25
   %13 = icmp eq ptr %12, null
   br i1 %13, label %dissector_try_uint_new.exit, label %14
 
@@ -2463,14 +2463,14 @@ define ptr @dissector_get_uint_handle(ptr nocapture noundef readonly %0, i32 nou
   ]
 
 5:                                                ; preds = %2
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 1137, ptr noundef nonnull @__func__.find_uint_dtbl_entry, ptr noundef nonnull @.str.16) #26
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 1137, ptr noundef nonnull @__func__.find_uint_dtbl_entry, ptr noundef nonnull @.str.16) #27
   unreachable
 
 find_uint_dtbl_entry.exit:                        ; preds = %2, %2, %2, %2, %2
   %6 = load ptr, ptr %0, align 8
   %7 = zext i32 %1 to i64
   %8 = inttoptr i64 %7 to ptr
-  %9 = tail call ptr @g_hash_table_lookup(ptr noundef %6, ptr noundef %8) #24
+  %9 = tail call ptr @g_hash_table_lookup(ptr noundef %6, ptr noundef %8) #25
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %13, label %10
 
@@ -2487,24 +2487,24 @@ find_uint_dtbl_entry.exit:                        ; preds = %2, %2, %2, %2, %2
 ; Function Attrs: nounwind uwtable
 define ptr @dissector_get_default_uint_handle(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @dissector_tables, align 8
-  %4 = tail call ptr @g_hash_table_lookup(ptr noundef %3, ptr noundef %0) #24
+  %4 = tail call ptr @g_hash_table_lookup(ptr noundef %3, ptr noundef %0) #25
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %5, label %find_dissector_table.exit
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr @dissector_table_aliases, align 8
-  %7 = tail call ptr @g_hash_table_lookup(ptr noundef %6, ptr noundef %0) #24
+  %7 = tail call ptr @g_hash_table_lookup(ptr noundef %6, ptr noundef %0) #25
   %.not12.i = icmp eq ptr %7, null
   br i1 %.not12.i, label %find_dissector_table.exit.thread, label %8
 
 8:                                                ; preds = %5
   %9 = load ptr, ptr @dissector_tables, align 8
-  %10 = tail call ptr @g_hash_table_lookup(ptr noundef %9, ptr noundef nonnull %7) #24
+  %10 = tail call ptr @g_hash_table_lookup(ptr noundef %9, ptr noundef nonnull %7) #25
   %.not13.i = icmp eq ptr %10, null
   br i1 %.not13.i, label %find_dissector_table.exit.thread, label %11
 
 11:                                               ; preds = %8
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.14, i32 noundef 5, ptr noundef nonnull @.str.15, i64 noundef 1108, ptr noundef nonnull @__func__.find_dissector_table, ptr noundef nonnull @.str.22, ptr noundef %0, ptr noundef nonnull %7) #24
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.14, i32 noundef 5, ptr noundef nonnull @.str.15, i64 noundef 1108, ptr noundef nonnull @__func__.find_dissector_table, ptr noundef nonnull @.str.22, ptr noundef %0, ptr noundef nonnull %7) #25
   br label %find_dissector_table.exit
 
 find_dissector_table.exit:                        ; preds = %11, %2
@@ -2520,14 +2520,14 @@ find_dissector_table.exit:                        ; preds = %11, %2
   ]
 
 14:                                               ; preds = %find_dissector_table.exit
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 1137, ptr noundef nonnull @__func__.find_uint_dtbl_entry, ptr noundef nonnull @.str.16) #26
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 1137, ptr noundef nonnull @__func__.find_uint_dtbl_entry, ptr noundef nonnull @.str.16) #27
   unreachable
 
 find_uint_dtbl_entry.exit:                        ; preds = %find_dissector_table.exit, %find_dissector_table.exit, %find_dissector_table.exit, %find_dissector_table.exit, %find_dissector_table.exit
   %15 = load ptr, ptr %.1.i, align 8
   %16 = zext i32 %1 to i64
   %17 = inttoptr i64 %16 to ptr
-  %18 = tail call ptr @g_hash_table_lookup(ptr noundef %15, ptr noundef %17) #24
+  %18 = tail call ptr @g_hash_table_lookup(ptr noundef %15, ptr noundef %17) #25
   %.not8 = icmp eq ptr %18, null
   br i1 %.not8, label %find_dissector_table.exit.thread, label %19
 
@@ -2543,24 +2543,24 @@ find_dissector_table.exit.thread:                 ; preds = %5, %8, %find_uint_d
 ; Function Attrs: nounwind uwtable
 define void @dissector_add_string(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr @dissector_tables, align 8
-  %5 = tail call ptr @g_hash_table_lookup(ptr noundef %4, ptr noundef %0) #24
+  %5 = tail call ptr @g_hash_table_lookup(ptr noundef %4, ptr noundef %0) #25
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %6, label %find_dissector_table.exit
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr @dissector_table_aliases, align 8
-  %8 = tail call ptr @g_hash_table_lookup(ptr noundef %7, ptr noundef %0) #24
+  %8 = tail call ptr @g_hash_table_lookup(ptr noundef %7, ptr noundef %0) #25
   %.not12.i = icmp eq ptr %8, null
   br i1 %.not12.i, label %find_dissector_table.exit, label %9
 
 9:                                                ; preds = %6
   %10 = load ptr, ptr @dissector_tables, align 8
-  %11 = tail call ptr @g_hash_table_lookup(ptr noundef %10, ptr noundef nonnull %8) #24
+  %11 = tail call ptr @g_hash_table_lookup(ptr noundef %10, ptr noundef nonnull %8) #25
   %.not13.i = icmp eq ptr %11, null
   br i1 %.not13.i, label %find_dissector_table.exit, label %12
 
 12:                                               ; preds = %9
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.14, i32 noundef 5, ptr noundef nonnull @.str.15, i64 noundef 1108, ptr noundef nonnull @__func__.find_dissector_table, ptr noundef nonnull @.str.22, ptr noundef %0, ptr noundef nonnull %8) #24
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.14, i32 noundef 5, ptr noundef nonnull @.str.15, i64 noundef 1108, ptr noundef nonnull @__func__.find_dissector_table, ptr noundef nonnull @.str.22, ptr noundef %0, ptr noundef nonnull %8) #25
   br label %find_dissector_table.exit
 
 find_dissector_table.exit:                        ; preds = %3, %6, %9, %12
@@ -2570,13 +2570,13 @@ find_dissector_table.exit:                        ; preds = %3, %6, %9, %12
 
 14:                                               ; preds = %find_dissector_table.exit
   %15 = load ptr, ptr @stderr, align 8
-  %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str.23, ptr noundef %0) #28
+  %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str.23, ptr noundef %0) #29
   %17 = load i32, ptr @wireshark_abort_on_dissector_bug, align 4
   %.not23 = icmp eq i32 %17, 0
   br i1 %.not23, label %51, label %18
 
 18:                                               ; preds = %14
-  tail call void @abort() #26
+  tail call void @abort() #27
   unreachable
 
 19:                                               ; preds = %find_dissector_table.exit
@@ -2585,18 +2585,18 @@ find_dissector_table.exit:                        ; preds = %3, %6, %9, %12
 
 21:                                               ; preds = %19
   %22 = load ptr, ptr @stderr, align 8
-  %23 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef nonnull @.str.24, ptr noundef %0) #28
+  %23 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef nonnull @.str.24, ptr noundef %0) #29
   %24 = load ptr, ptr @stderr, align 8
   %25 = getelementptr inbounds i8, ptr %2, i64 40
   %26 = load ptr, ptr %25, align 8
-  %27 = tail call ptr @proto_get_protocol_long_name(ptr noundef %26) #24
-  %28 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.25, ptr noundef %27) #28
+  %27 = tail call ptr @proto_get_protocol_long_name(ptr noundef %26) #25
+  %28 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.25, ptr noundef %27) #29
   %29 = load i32, ptr @wireshark_abort_on_dissector_bug, align 4
   %.not22 = icmp eq i32 %29, 0
   br i1 %.not22, label %51, label %30
 
 30:                                               ; preds = %21
-  tail call void @abort() #26
+  tail call void @abort() #27
   unreachable
 
 31:                                               ; preds = %19
@@ -2610,11 +2610,11 @@ find_dissector_table.exit:                        ; preds = %3, %6, %9, %12
   ]
 
 34:                                               ; preds = %31
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 1741, ptr noundef nonnull @__func__.dissector_add_string, ptr noundef nonnull @.str.16) #26
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 1741, ptr noundef nonnull @__func__.dissector_add_string, ptr noundef nonnull @.str.16) #27
   unreachable
 
 35:                                               ; preds = %31, %31, %31, %31
-  %36 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #29
+  %36 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #30
   %37 = getelementptr inbounds i8, ptr %36, i64 8
   store ptr %2, ptr %37, align 8
   store ptr %2, ptr %36, align 8
@@ -2624,17 +2624,17 @@ find_dissector_table.exit:                        ; preds = %3, %6, %9, %12
   br i1 %40, label %41, label %43
 
 41:                                               ; preds = %35
-  %42 = tail call noalias ptr @g_ascii_strdown(ptr noundef %1, i64 noundef -1) #24
+  %42 = tail call noalias ptr @g_ascii_strdown(ptr noundef %1, i64 noundef -1) #25
   br label %45
 
 43:                                               ; preds = %35
-  %44 = tail call noalias ptr @g_strdup(ptr noundef %1) #24
+  %44 = tail call noalias ptr @g_strdup(ptr noundef %1) #25
   br label %45
 
 45:                                               ; preds = %43, %41
   %.0 = phi ptr [ %42, %41 ], [ %44, %43 ]
   %46 = load ptr, ptr %.1.i, align 8
-  %47 = tail call i32 @g_hash_table_insert(ptr noundef %46, ptr noundef %.0, ptr noundef nonnull %36) #24
+  %47 = tail call i32 @g_hash_table_insert(ptr noundef %46, ptr noundef %.0, ptr noundef nonnull %36) #25
   %48 = getelementptr inbounds i8, ptr %.1.i, i64 48
   %49 = load i32, ptr %48, align 8
   %.not = icmp eq i32 %49, 0
@@ -2655,24 +2655,24 @@ declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define void @dissector_delete_string(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr @dissector_tables, align 8
-  %5 = tail call ptr @g_hash_table_lookup(ptr noundef %4, ptr noundef %0) #24
+  %5 = tail call ptr @g_hash_table_lookup(ptr noundef %4, ptr noundef %0) #25
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %6, label %find_dissector_table.exit
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr @dissector_table_aliases, align 8
-  %8 = tail call ptr @g_hash_table_lookup(ptr noundef %7, ptr noundef %0) #24
+  %8 = tail call ptr @g_hash_table_lookup(ptr noundef %7, ptr noundef %0) #25
   %.not12.i = icmp eq ptr %8, null
   br i1 %.not12.i, label %find_dissector_table.exit, label %9
 
 9:                                                ; preds = %6
   %10 = load ptr, ptr @dissector_tables, align 8
-  %11 = tail call ptr @g_hash_table_lookup(ptr noundef %10, ptr noundef nonnull %8) #24
+  %11 = tail call ptr @g_hash_table_lookup(ptr noundef %10, ptr noundef nonnull %8) #25
   %.not13.i = icmp eq ptr %11, null
   br i1 %.not13.i, label %find_dissector_table.exit, label %12
 
 12:                                               ; preds = %9
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.14, i32 noundef 5, ptr noundef nonnull @.str.15, i64 noundef 1108, ptr noundef nonnull @__func__.find_dissector_table, ptr noundef nonnull @.str.22, ptr noundef %0, ptr noundef nonnull %8) #24
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.14, i32 noundef 5, ptr noundef nonnull @.str.15, i64 noundef 1108, ptr noundef nonnull @__func__.find_dissector_table, ptr noundef nonnull @.str.22, ptr noundef %0, ptr noundef nonnull %8) #25
   br label %find_dissector_table.exit
 
 find_dissector_table.exit:                        ; preds = %3, %6, %9, %12
@@ -2687,7 +2687,7 @@ find_dissector_table.exit:                        ; preds = %3, %6, %9, %12
   ]
 
 15:                                               ; preds = %find_dissector_table.exit
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 1677, ptr noundef nonnull @__func__.find_string_dtbl_entry, ptr noundef nonnull @.str.16) #26
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 1677, ptr noundef nonnull @__func__.find_string_dtbl_entry, ptr noundef nonnull @.str.16) #27
   unreachable
 
 16:                                               ; preds = %find_dissector_table.exit, %find_dissector_table.exit, %find_dissector_table.exit, %find_dissector_table.exit
@@ -2697,24 +2697,24 @@ find_dissector_table.exit:                        ; preds = %3, %6, %9, %12
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %16
-  %21 = tail call noalias ptr @g_ascii_strdown(ptr noundef %1, i64 noundef -1) #24
+  %21 = tail call noalias ptr @g_ascii_strdown(ptr noundef %1, i64 noundef -1) #25
   br label %find_string_dtbl_entry.exit
 
 22:                                               ; preds = %16
-  %23 = tail call noalias ptr @g_strdup(ptr noundef %1) #24
+  %23 = tail call noalias ptr @g_strdup(ptr noundef %1) #25
   br label %find_string_dtbl_entry.exit
 
 find_string_dtbl_entry.exit:                      ; preds = %20, %22
   %.0.i = phi ptr [ %21, %20 ], [ %23, %22 ]
   %24 = load ptr, ptr %.1.i, align 8
-  %25 = tail call ptr @g_hash_table_lookup(ptr noundef %24, ptr noundef %.0.i) #24
-  tail call void @g_free(ptr noundef %.0.i) #24
+  %25 = tail call ptr @g_hash_table_lookup(ptr noundef %24, ptr noundef %.0.i) #25
+  tail call void @g_free(ptr noundef %.0.i) #25
   %.not = icmp eq ptr %25, null
   br i1 %.not, label %29, label %26
 
 26:                                               ; preds = %find_string_dtbl_entry.exit
   %27 = load ptr, ptr %.1.i, align 8
-  %28 = tail call i32 @g_hash_table_remove(ptr noundef %27, ptr noundef %1) #24
+  %28 = tail call i32 @g_hash_table_remove(ptr noundef %27, ptr noundef %1) #25
   br label %29
 
 29:                                               ; preds = %26, %find_string_dtbl_entry.exit
@@ -2724,24 +2724,24 @@ find_string_dtbl_entry.exit:                      ; preds = %20, %22
 ; Function Attrs: nounwind uwtable
 define void @dissector_change_string(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr @dissector_tables, align 8
-  %5 = tail call ptr @g_hash_table_lookup(ptr noundef %4, ptr noundef %0) #24
+  %5 = tail call ptr @g_hash_table_lookup(ptr noundef %4, ptr noundef %0) #25
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %6, label %find_dissector_table.exit
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr @dissector_table_aliases, align 8
-  %8 = tail call ptr @g_hash_table_lookup(ptr noundef %7, ptr noundef %0) #24
+  %8 = tail call ptr @g_hash_table_lookup(ptr noundef %7, ptr noundef %0) #25
   %.not12.i = icmp eq ptr %8, null
   br i1 %.not12.i, label %find_dissector_table.exit, label %9
 
 9:                                                ; preds = %6
   %10 = load ptr, ptr @dissector_tables, align 8
-  %11 = tail call ptr @g_hash_table_lookup(ptr noundef %10, ptr noundef nonnull %8) #24
+  %11 = tail call ptr @g_hash_table_lookup(ptr noundef %10, ptr noundef nonnull %8) #25
   %.not13.i = icmp eq ptr %11, null
   br i1 %.not13.i, label %find_dissector_table.exit, label %12
 
 12:                                               ; preds = %9
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.14, i32 noundef 5, ptr noundef nonnull @.str.15, i64 noundef 1108, ptr noundef nonnull @__func__.find_dissector_table, ptr noundef nonnull @.str.22, ptr noundef %0, ptr noundef nonnull %8) #24
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.14, i32 noundef 5, ptr noundef nonnull @.str.15, i64 noundef 1108, ptr noundef nonnull @__func__.find_dissector_table, ptr noundef nonnull @.str.22, ptr noundef %0, ptr noundef nonnull %8) #25
   br label %find_dissector_table.exit
 
 find_dissector_table.exit:                        ; preds = %3, %6, %9, %12
@@ -2756,7 +2756,7 @@ find_dissector_table.exit:                        ; preds = %3, %6, %9, %12
   ]
 
 15:                                               ; preds = %find_dissector_table.exit
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 1677, ptr noundef nonnull @__func__.find_string_dtbl_entry, ptr noundef nonnull @.str.16) #26
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 1677, ptr noundef nonnull @__func__.find_string_dtbl_entry, ptr noundef nonnull @.str.16) #27
   unreachable
 
 16:                                               ; preds = %find_dissector_table.exit, %find_dissector_table.exit, %find_dissector_table.exit, %find_dissector_table.exit
@@ -2766,18 +2766,18 @@ find_dissector_table.exit:                        ; preds = %3, %6, %9, %12
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %16
-  %21 = tail call noalias ptr @g_ascii_strdown(ptr noundef %1, i64 noundef -1) #24
+  %21 = tail call noalias ptr @g_ascii_strdown(ptr noundef %1, i64 noundef -1) #25
   br label %find_string_dtbl_entry.exit
 
 22:                                               ; preds = %16
-  %23 = tail call noalias ptr @g_strdup(ptr noundef %1) #24
+  %23 = tail call noalias ptr @g_strdup(ptr noundef %1) #25
   br label %find_string_dtbl_entry.exit
 
 find_string_dtbl_entry.exit:                      ; preds = %20, %22
   %.0.i = phi ptr [ %21, %20 ], [ %23, %22 ]
   %24 = load ptr, ptr %.1.i, align 8
-  %25 = tail call ptr @g_hash_table_lookup(ptr noundef %24, ptr noundef %.0.i) #24
-  tail call void @g_free(ptr noundef %.0.i) #24
+  %25 = tail call ptr @g_hash_table_lookup(ptr noundef %24, ptr noundef %.0.i) #25
+  tail call void @g_free(ptr noundef %.0.i) #25
   %.not = icmp eq ptr %25, null
   %26 = icmp eq ptr %2, null
   br i1 %.not, label %36, label %27
@@ -2792,7 +2792,7 @@ find_string_dtbl_entry.exit:                      ; preds = %20, %22
 
 31:                                               ; preds = %28
   %32 = load ptr, ptr %.1.i, align 8
-  %33 = tail call i32 @g_hash_table_remove(ptr noundef %32, ptr noundef %1) #24
+  %33 = tail call i32 @g_hash_table_remove(ptr noundef %32, ptr noundef %1) #25
   br label %43
 
 34:                                               ; preds = %28, %27
@@ -2804,13 +2804,13 @@ find_string_dtbl_entry.exit:                      ; preds = %20, %22
   br i1 %26, label %43, label %37
 
 37:                                               ; preds = %36
-  %38 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #29
+  %38 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #30
   store ptr null, ptr %38, align 8
   %39 = getelementptr inbounds i8, ptr %38, i64 8
   store ptr %2, ptr %39, align 8
   %40 = load ptr, ptr %.1.i, align 8
-  %41 = tail call noalias ptr @g_strdup(ptr noundef %1) #24
-  %42 = tail call i32 @g_hash_table_insert(ptr noundef %40, ptr noundef %41, ptr noundef nonnull %38) #24
+  %41 = tail call noalias ptr @g_strdup(ptr noundef %1) #25
+  %42 = tail call i32 @g_hash_table_insert(ptr noundef %40, ptr noundef %41, ptr noundef nonnull %38) #25
   br label %43
 
 43:                                               ; preds = %36, %37, %34, %31
@@ -2820,24 +2820,24 @@ find_string_dtbl_entry.exit:                      ; preds = %20, %22
 ; Function Attrs: nounwind uwtable
 define void @dissector_reset_string(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @dissector_tables, align 8
-  %4 = tail call ptr @g_hash_table_lookup(ptr noundef %3, ptr noundef %0) #24
+  %4 = tail call ptr @g_hash_table_lookup(ptr noundef %3, ptr noundef %0) #25
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %5, label %find_dissector_table.exit
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr @dissector_table_aliases, align 8
-  %7 = tail call ptr @g_hash_table_lookup(ptr noundef %6, ptr noundef %0) #24
+  %7 = tail call ptr @g_hash_table_lookup(ptr noundef %6, ptr noundef %0) #25
   %.not12.i = icmp eq ptr %7, null
   br i1 %.not12.i, label %find_dissector_table.exit, label %8
 
 8:                                                ; preds = %5
   %9 = load ptr, ptr @dissector_tables, align 8
-  %10 = tail call ptr @g_hash_table_lookup(ptr noundef %9, ptr noundef nonnull %7) #24
+  %10 = tail call ptr @g_hash_table_lookup(ptr noundef %9, ptr noundef nonnull %7) #25
   %.not13.i = icmp eq ptr %10, null
   br i1 %.not13.i, label %find_dissector_table.exit, label %11
 
 11:                                               ; preds = %8
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.14, i32 noundef 5, ptr noundef nonnull @.str.15, i64 noundef 1108, ptr noundef nonnull @__func__.find_dissector_table, ptr noundef nonnull @.str.22, ptr noundef %0, ptr noundef nonnull %7) #24
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.14, i32 noundef 5, ptr noundef nonnull @.str.15, i64 noundef 1108, ptr noundef nonnull @__func__.find_dissector_table, ptr noundef nonnull @.str.22, ptr noundef %0, ptr noundef nonnull %7) #25
   br label %find_dissector_table.exit
 
 find_dissector_table.exit:                        ; preds = %2, %5, %8, %11
@@ -2852,7 +2852,7 @@ find_dissector_table.exit:                        ; preds = %2, %5, %8, %11
   ]
 
 14:                                               ; preds = %find_dissector_table.exit
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 1677, ptr noundef nonnull @__func__.find_string_dtbl_entry, ptr noundef nonnull @.str.16) #26
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 1677, ptr noundef nonnull @__func__.find_string_dtbl_entry, ptr noundef nonnull @.str.16) #27
   unreachable
 
 15:                                               ; preds = %find_dissector_table.exit, %find_dissector_table.exit, %find_dissector_table.exit, %find_dissector_table.exit
@@ -2862,18 +2862,18 @@ find_dissector_table.exit:                        ; preds = %2, %5, %8, %11
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %15
-  %20 = tail call noalias ptr @g_ascii_strdown(ptr noundef %1, i64 noundef -1) #24
+  %20 = tail call noalias ptr @g_ascii_strdown(ptr noundef %1, i64 noundef -1) #25
   br label %find_string_dtbl_entry.exit
 
 21:                                               ; preds = %15
-  %22 = tail call noalias ptr @g_strdup(ptr noundef %1) #24
+  %22 = tail call noalias ptr @g_strdup(ptr noundef %1) #25
   br label %find_string_dtbl_entry.exit
 
 find_string_dtbl_entry.exit:                      ; preds = %19, %21
   %.0.i = phi ptr [ %20, %19 ], [ %22, %21 ]
   %23 = load ptr, ptr %.1.i, align 8
-  %24 = tail call ptr @g_hash_table_lookup(ptr noundef %23, ptr noundef %.0.i) #24
-  tail call void @g_free(ptr noundef %.0.i) #24
+  %24 = tail call ptr @g_hash_table_lookup(ptr noundef %23, ptr noundef %.0.i) #25
+  tail call void @g_free(ptr noundef %.0.i) #25
   %25 = icmp eq ptr %24, null
   br i1 %25, label %33, label %26
 
@@ -2889,7 +2889,7 @@ find_string_dtbl_entry.exit:                      ; preds = %19, %21
 
 30:                                               ; preds = %26
   %31 = load ptr, ptr %.1.i, align 8
-  %32 = tail call i32 @g_hash_table_remove(ptr noundef %31, ptr noundef %1) #24
+  %32 = tail call i32 @g_hash_table_remove(ptr noundef %31, ptr noundef %1) #25
   br label %33
 
 33:                                               ; preds = %find_string_dtbl_entry.exit, %30, %28
@@ -2912,7 +2912,7 @@ define range(i32 0, 2) i32 @dissector_is_string_changed(ptr noundef readonly %0,
   ]
 
 6:                                                ; preds = %3
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 1677, ptr noundef nonnull @__func__.find_string_dtbl_entry, ptr noundef nonnull @.str.16) #26
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 1677, ptr noundef nonnull @__func__.find_string_dtbl_entry, ptr noundef nonnull @.str.16) #27
   unreachable
 
 7:                                                ; preds = %3, %3, %3, %3
@@ -2922,18 +2922,18 @@ define range(i32 0, 2) i32 @dissector_is_string_changed(ptr noundef readonly %0,
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %7
-  %12 = tail call noalias ptr @g_ascii_strdown(ptr noundef %1, i64 noundef -1) #24
+  %12 = tail call noalias ptr @g_ascii_strdown(ptr noundef %1, i64 noundef -1) #25
   br label %find_string_dtbl_entry.exit
 
 13:                                               ; preds = %7
-  %14 = tail call noalias ptr @g_strdup(ptr noundef %1) #24
+  %14 = tail call noalias ptr @g_strdup(ptr noundef %1) #25
   br label %find_string_dtbl_entry.exit
 
 find_string_dtbl_entry.exit:                      ; preds = %11, %13
   %.0.i = phi ptr [ %12, %11 ], [ %14, %13 ]
   %15 = load ptr, ptr %0, align 8
-  %16 = tail call ptr @g_hash_table_lookup(ptr noundef %15, ptr noundef %.0.i) #24
-  tail call void @g_free(ptr noundef %.0.i) #24
+  %16 = tail call ptr @g_hash_table_lookup(ptr noundef %15, ptr noundef %.0.i) #25
+  tail call void @g_free(ptr noundef %.0.i) #25
   %.not8 = icmp eq ptr %16, null
   br i1 %.not8, label %23, label %17
 
@@ -2966,7 +2966,7 @@ define i32 @dissector_try_string_new(ptr nocapture noundef readonly %0, ptr noun
   ]
 
 11:                                               ; preds = %8
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 1677, ptr noundef nonnull @__func__.find_string_dtbl_entry, ptr noundef nonnull @.str.16) #26
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 1677, ptr noundef nonnull @__func__.find_string_dtbl_entry, ptr noundef nonnull @.str.16) #27
   unreachable
 
 12:                                               ; preds = %8, %8, %8, %8
@@ -2976,18 +2976,18 @@ define i32 @dissector_try_string_new(ptr nocapture noundef readonly %0, ptr noun
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %12
-  %17 = tail call noalias ptr @g_ascii_strdown(ptr noundef nonnull %1, i64 noundef -1) #24
+  %17 = tail call noalias ptr @g_ascii_strdown(ptr noundef nonnull %1, i64 noundef -1) #25
   br label %find_string_dtbl_entry.exit
 
 18:                                               ; preds = %12
-  %19 = tail call noalias ptr @g_strdup(ptr noundef nonnull %1) #24
+  %19 = tail call noalias ptr @g_strdup(ptr noundef nonnull %1) #25
   br label %find_string_dtbl_entry.exit
 
 find_string_dtbl_entry.exit:                      ; preds = %16, %18
   %.0.i = phi ptr [ %17, %16 ], [ %19, %18 ]
   %20 = load ptr, ptr %0, align 8
-  %21 = tail call ptr @g_hash_table_lookup(ptr noundef %20, ptr noundef %.0.i) #24
-  tail call void @g_free(ptr noundef %.0.i) #24
+  %21 = tail call ptr @g_hash_table_lookup(ptr noundef %20, ptr noundef %.0.i) #25
+  tail call void @g_free(ptr noundef %.0.i) #25
   %.not21 = icmp eq ptr %21, null
   br i1 %.not21, label %30, label %22
 
@@ -3032,7 +3032,7 @@ define ptr @dissector_get_string_handle(ptr nocapture noundef readonly %0, ptr n
   ]
 
 6:                                                ; preds = %3
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 1677, ptr noundef nonnull @__func__.find_string_dtbl_entry, ptr noundef nonnull @.str.16) #26
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 1677, ptr noundef nonnull @__func__.find_string_dtbl_entry, ptr noundef nonnull @.str.16) #27
   unreachable
 
 7:                                                ; preds = %3, %3, %3, %3
@@ -3042,18 +3042,18 @@ define ptr @dissector_get_string_handle(ptr nocapture noundef readonly %0, ptr n
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %7
-  %12 = tail call noalias ptr @g_ascii_strdown(ptr noundef nonnull %1, i64 noundef -1) #24
+  %12 = tail call noalias ptr @g_ascii_strdown(ptr noundef nonnull %1, i64 noundef -1) #25
   br label %find_string_dtbl_entry.exit
 
 13:                                               ; preds = %7
-  %14 = tail call noalias ptr @g_strdup(ptr noundef nonnull %1) #24
+  %14 = tail call noalias ptr @g_strdup(ptr noundef nonnull %1) #25
   br label %find_string_dtbl_entry.exit
 
 find_string_dtbl_entry.exit:                      ; preds = %11, %13
   %.0.i = phi ptr [ %12, %11 ], [ %14, %13 ]
   %15 = load ptr, ptr %0, align 8
-  %16 = tail call ptr @g_hash_table_lookup(ptr noundef %15, ptr noundef %.0.i) #24
-  tail call void @g_free(ptr noundef %.0.i) #24
+  %16 = tail call ptr @g_hash_table_lookup(ptr noundef %15, ptr noundef %.0.i) #25
+  tail call void @g_free(ptr noundef %.0.i) #25
   %.not8 = icmp eq ptr %16, null
   br i1 %.not8, label %20, label %17
 
@@ -3074,24 +3074,24 @@ define ptr @dissector_get_default_string_handle(ptr noundef %0, ptr noundef %1) 
 
 3:                                                ; preds = %2
   %4 = load ptr, ptr @dissector_tables, align 8
-  %5 = tail call ptr @g_hash_table_lookup(ptr noundef %4, ptr noundef %0) #24
+  %5 = tail call ptr @g_hash_table_lookup(ptr noundef %4, ptr noundef %0) #25
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %6, label %find_dissector_table.exit
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr @dissector_table_aliases, align 8
-  %8 = tail call ptr @g_hash_table_lookup(ptr noundef %7, ptr noundef %0) #24
+  %8 = tail call ptr @g_hash_table_lookup(ptr noundef %7, ptr noundef %0) #25
   %.not12.i = icmp eq ptr %8, null
   br i1 %.not12.i, label %find_dissector_table.exit.thread, label %9
 
 9:                                                ; preds = %6
   %10 = load ptr, ptr @dissector_tables, align 8
-  %11 = tail call ptr @g_hash_table_lookup(ptr noundef %10, ptr noundef nonnull %8) #24
+  %11 = tail call ptr @g_hash_table_lookup(ptr noundef %10, ptr noundef nonnull %8) #25
   %.not13.i = icmp eq ptr %11, null
   br i1 %.not13.i, label %find_dissector_table.exit.thread, label %12
 
 12:                                               ; preds = %9
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.14, i32 noundef 5, ptr noundef nonnull @.str.15, i64 noundef 1108, ptr noundef nonnull @__func__.find_dissector_table, ptr noundef nonnull @.str.22, ptr noundef %0, ptr noundef nonnull %8) #24
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.14, i32 noundef 5, ptr noundef nonnull @.str.15, i64 noundef 1108, ptr noundef nonnull @__func__.find_dissector_table, ptr noundef nonnull @.str.22, ptr noundef %0, ptr noundef nonnull %8) #25
   br label %find_dissector_table.exit
 
 find_dissector_table.exit:                        ; preds = %12, %3
@@ -3106,7 +3106,7 @@ find_dissector_table.exit:                        ; preds = %12, %3
   ]
 
 15:                                               ; preds = %find_dissector_table.exit
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 1677, ptr noundef nonnull @__func__.find_string_dtbl_entry, ptr noundef nonnull @.str.16) #26
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 1677, ptr noundef nonnull @__func__.find_string_dtbl_entry, ptr noundef nonnull @.str.16) #27
   unreachable
 
 16:                                               ; preds = %find_dissector_table.exit, %find_dissector_table.exit, %find_dissector_table.exit, %find_dissector_table.exit
@@ -3116,18 +3116,18 @@ find_dissector_table.exit:                        ; preds = %12, %3
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %16
-  %21 = tail call noalias ptr @g_ascii_strdown(ptr noundef nonnull %1, i64 noundef -1) #24
+  %21 = tail call noalias ptr @g_ascii_strdown(ptr noundef nonnull %1, i64 noundef -1) #25
   br label %find_string_dtbl_entry.exit
 
 22:                                               ; preds = %16
-  %23 = tail call noalias ptr @g_strdup(ptr noundef nonnull %1) #24
+  %23 = tail call noalias ptr @g_strdup(ptr noundef nonnull %1) #25
   br label %find_string_dtbl_entry.exit
 
 find_string_dtbl_entry.exit:                      ; preds = %20, %22
   %.0.i = phi ptr [ %21, %20 ], [ %23, %22 ]
   %24 = load ptr, ptr %.1.i, align 8
-  %25 = tail call ptr @g_hash_table_lookup(ptr noundef %24, ptr noundef %.0.i) #24
-  tail call void @g_free(ptr noundef %.0.i) #24
+  %25 = tail call ptr @g_hash_table_lookup(ptr noundef %24, ptr noundef %.0.i) #25
+  tail call void @g_free(ptr noundef %.0.i) #25
   %.not12 = icmp eq ptr %25, null
   br i1 %.not12, label %find_dissector_table.exit.thread, label %26
 
@@ -3143,24 +3143,24 @@ find_dissector_table.exit.thread:                 ; preds = %6, %9, %find_string
 ; Function Attrs: nounwind uwtable
 define void @dissector_add_custom_table_handle(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr @dissector_tables, align 8
-  %5 = tail call ptr @g_hash_table_lookup(ptr noundef %4, ptr noundef %0) #24
+  %5 = tail call ptr @g_hash_table_lookup(ptr noundef %4, ptr noundef %0) #25
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %6, label %find_dissector_table.exit
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr @dissector_table_aliases, align 8
-  %8 = tail call ptr @g_hash_table_lookup(ptr noundef %7, ptr noundef %0) #24
+  %8 = tail call ptr @g_hash_table_lookup(ptr noundef %7, ptr noundef %0) #25
   %.not12.i = icmp eq ptr %8, null
   br i1 %.not12.i, label %find_dissector_table.exit, label %9
 
 9:                                                ; preds = %6
   %10 = load ptr, ptr @dissector_tables, align 8
-  %11 = tail call ptr @g_hash_table_lookup(ptr noundef %10, ptr noundef nonnull %8) #24
+  %11 = tail call ptr @g_hash_table_lookup(ptr noundef %10, ptr noundef nonnull %8) #25
   %.not13.i = icmp eq ptr %11, null
   br i1 %.not13.i, label %find_dissector_table.exit, label %12
 
 12:                                               ; preds = %9
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.14, i32 noundef 5, ptr noundef nonnull @.str.15, i64 noundef 1108, ptr noundef nonnull @__func__.find_dissector_table, ptr noundef nonnull @.str.22, ptr noundef %0, ptr noundef nonnull %8) #24
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.14, i32 noundef 5, ptr noundef nonnull @.str.15, i64 noundef 1108, ptr noundef nonnull @__func__.find_dissector_table, ptr noundef nonnull @.str.22, ptr noundef %0, ptr noundef nonnull %8) #25
   br label %find_dissector_table.exit
 
 find_dissector_table.exit:                        ; preds = %3, %6, %9, %12
@@ -3170,13 +3170,13 @@ find_dissector_table.exit:                        ; preds = %3, %6, %9, %12
 
 14:                                               ; preds = %find_dissector_table.exit
   %15 = load ptr, ptr @stderr, align 8
-  %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str.23, ptr noundef %0) #28
+  %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str.23, ptr noundef %0) #29
   %17 = load i32, ptr @wireshark_abort_on_dissector_bug, align 4
   %.not18 = icmp eq i32 %17, 0
   br i1 %.not18, label %39, label %18
 
 18:                                               ; preds = %14
-  tail call void @abort() #26
+  tail call void @abort() #27
   unreachable
 
 19:                                               ; preds = %find_dissector_table.exit
@@ -3185,27 +3185,27 @@ find_dissector_table.exit:                        ; preds = %3, %6, %9, %12
 
 21:                                               ; preds = %19
   %22 = load ptr, ptr @stderr, align 8
-  %23 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef nonnull @.str.24, ptr noundef %0) #28
+  %23 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef nonnull @.str.24, ptr noundef %0) #29
   %24 = load ptr, ptr @stderr, align 8
   %25 = getelementptr inbounds i8, ptr %2, i64 40
   %26 = load ptr, ptr %25, align 8
-  %27 = tail call ptr @proto_get_protocol_long_name(ptr noundef %26) #24
-  %28 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.25, ptr noundef %27) #28
+  %27 = tail call ptr @proto_get_protocol_long_name(ptr noundef %26) #25
+  %28 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.25, ptr noundef %27) #29
   %29 = load i32, ptr @wireshark_abort_on_dissector_bug, align 4
   %.not17 = icmp eq i32 %29, 0
   br i1 %.not17, label %39, label %30
 
 30:                                               ; preds = %21
-  tail call void @abort() #26
+  tail call void @abort() #27
   unreachable
 
 31:                                               ; preds = %19
-  %32 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #29
+  %32 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #30
   %33 = getelementptr inbounds i8, ptr %32, i64 8
   store ptr %2, ptr %33, align 8
   store ptr %2, ptr %32, align 8
   %34 = load ptr, ptr %.1.i, align 8
-  %35 = tail call i32 @g_hash_table_insert(ptr noundef %34, ptr noundef %1, ptr noundef nonnull %32) #24
+  %35 = tail call i32 @g_hash_table_insert(ptr noundef %34, ptr noundef %1, ptr noundef nonnull %32) #25
   %36 = getelementptr inbounds i8, ptr %.1.i, i64 48
   %37 = load i32, ptr %36, align 8
   %.not = icmp eq i32 %37, 0
@@ -3222,7 +3222,7 @@ find_dissector_table.exit:                        ; preds = %3, %6, %9, %12
 ; Function Attrs: nounwind uwtable
 define ptr @dissector_get_custom_table_handle(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = tail call ptr @g_hash_table_lookup(ptr noundef %3, ptr noundef %1) #24
+  %4 = tail call ptr @g_hash_table_lookup(ptr noundef %3, ptr noundef %1) #25
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %8, label %5
 
@@ -3239,24 +3239,24 @@ define ptr @dissector_get_custom_table_handle(ptr nocapture noundef readonly %0,
 ; Function Attrs: nounwind uwtable
 define void @dissector_add_guid(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr @dissector_tables, align 8
-  %5 = tail call ptr @g_hash_table_lookup(ptr noundef %4, ptr noundef %0) #24
+  %5 = tail call ptr @g_hash_table_lookup(ptr noundef %4, ptr noundef %0) #25
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %6, label %find_dissector_table.exit
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr @dissector_table_aliases, align 8
-  %8 = tail call ptr @g_hash_table_lookup(ptr noundef %7, ptr noundef %0) #24
+  %8 = tail call ptr @g_hash_table_lookup(ptr noundef %7, ptr noundef %0) #25
   %.not12.i = icmp eq ptr %8, null
   br i1 %.not12.i, label %find_dissector_table.exit, label %9
 
 9:                                                ; preds = %6
   %10 = load ptr, ptr @dissector_tables, align 8
-  %11 = tail call ptr @g_hash_table_lookup(ptr noundef %10, ptr noundef nonnull %8) #24
+  %11 = tail call ptr @g_hash_table_lookup(ptr noundef %10, ptr noundef nonnull %8) #25
   %.not13.i = icmp eq ptr %11, null
   br i1 %.not13.i, label %find_dissector_table.exit, label %12
 
 12:                                               ; preds = %9
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.14, i32 noundef 5, ptr noundef nonnull @.str.15, i64 noundef 1108, ptr noundef nonnull @__func__.find_dissector_table, ptr noundef nonnull @.str.22, ptr noundef %0, ptr noundef nonnull %8) #24
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.14, i32 noundef 5, ptr noundef nonnull @.str.15, i64 noundef 1108, ptr noundef nonnull @__func__.find_dissector_table, ptr noundef nonnull @.str.22, ptr noundef %0, ptr noundef nonnull %8) #25
   br label %find_dissector_table.exit
 
 find_dissector_table.exit:                        ; preds = %3, %6, %9, %12
@@ -3266,13 +3266,13 @@ find_dissector_table.exit:                        ; preds = %3, %6, %9, %12
 
 14:                                               ; preds = %find_dissector_table.exit
   %15 = load ptr, ptr @stderr, align 8
-  %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str.23, ptr noundef %0) #28
+  %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str.23, ptr noundef %0) #29
   %17 = load i32, ptr @wireshark_abort_on_dissector_bug, align 4
   %.not20 = icmp eq i32 %17, 0
   br i1 %.not20, label %43, label %18
 
 18:                                               ; preds = %14
-  tail call void @abort() #26
+  tail call void @abort() #27
   unreachable
 
 19:                                               ; preds = %find_dissector_table.exit
@@ -3281,18 +3281,18 @@ find_dissector_table.exit:                        ; preds = %3, %6, %9, %12
 
 21:                                               ; preds = %19
   %22 = load ptr, ptr @stderr, align 8
-  %23 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef nonnull @.str.24, ptr noundef %0) #28
+  %23 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef nonnull @.str.24, ptr noundef %0) #29
   %24 = load ptr, ptr @stderr, align 8
   %25 = getelementptr inbounds i8, ptr %2, i64 40
   %26 = load ptr, ptr %25, align 8
-  %27 = tail call ptr @proto_get_protocol_long_name(ptr noundef %26) #24
-  %28 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.25, ptr noundef %27) #28
+  %27 = tail call ptr @proto_get_protocol_long_name(ptr noundef %26) #25
+  %28 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.25, ptr noundef %27) #29
   %29 = load i32, ptr @wireshark_abort_on_dissector_bug, align 4
   %.not19 = icmp eq i32 %29, 0
   br i1 %.not19, label %43, label %30
 
 30:                                               ; preds = %21
-  tail call void @abort() #26
+  tail call void @abort() #27
   unreachable
 
 31:                                               ; preds = %19
@@ -3302,16 +3302,16 @@ find_dissector_table.exit:                        ; preds = %3, %6, %9, %12
   br i1 %.not, label %35, label %34
 
 34:                                               ; preds = %31
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 2070, ptr noundef nonnull @__func__.dissector_add_guid, ptr noundef nonnull @.str.16) #26
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 2070, ptr noundef nonnull @__func__.dissector_add_guid, ptr noundef nonnull @.str.16) #27
   unreachable
 
 35:                                               ; preds = %31
-  %36 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #29
+  %36 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #30
   %37 = getelementptr inbounds i8, ptr %36, i64 8
   store ptr %2, ptr %37, align 8
   store ptr %2, ptr %36, align 8
   %38 = load ptr, ptr %.1.i, align 8
-  %39 = tail call i32 @g_hash_table_insert(ptr noundef %38, ptr noundef %1, ptr noundef nonnull %36) #24
+  %39 = tail call i32 @g_hash_table_insert(ptr noundef %38, ptr noundef %1, ptr noundef nonnull %36) #25
   %40 = getelementptr inbounds i8, ptr %.1.i, i64 48
   %41 = load i32, ptr %40, align 8
   %.not18 = icmp eq i32 %41, 0
@@ -3328,7 +3328,7 @@ find_dissector_table.exit:                        ; preds = %3, %6, %9, %12
 ; Function Attrs: nounwind uwtable
 define i32 @dissector_try_guid_new(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = load ptr, ptr %0, align 8
-  %9 = tail call ptr @g_hash_table_lookup(ptr noundef %8, ptr noundef %1) #24
+  %9 = tail call ptr @g_hash_table_lookup(ptr noundef %8, ptr noundef %1) #25
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %16, label %10
 
@@ -3350,7 +3350,7 @@ define i32 @dissector_try_guid_new(ptr nocapture noundef readonly %0, ptr nounde
 ; Function Attrs: nounwind uwtable
 define i32 @dissector_try_guid(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = load ptr, ptr %0, align 8
-  %7 = tail call ptr @g_hash_table_lookup(ptr noundef %6, ptr noundef %1) #24
+  %7 = tail call ptr @g_hash_table_lookup(ptr noundef %6, ptr noundef %1) #25
   %.not.i = icmp eq ptr %7, null
   br i1 %.not.i, label %dissector_try_guid_new.exit, label %8
 
@@ -3372,7 +3372,7 @@ dissector_try_guid_new.exit:                      ; preds = %5, %8, %12
 ; Function Attrs: nounwind uwtable
 define ptr @dissector_get_guid_handle(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = tail call ptr @g_hash_table_lookup(ptr noundef %3, ptr noundef %1) #24
+  %4 = tail call ptr @g_hash_table_lookup(ptr noundef %3, ptr noundef %1) #25
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %8, label %5
 
@@ -3399,12 +3399,12 @@ define i32 @dissector_try_payload(ptr nocapture noundef readonly %0, ptr noundef
   ]
 
 7:                                                ; preds = %4
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 1137, ptr noundef nonnull @__func__.find_uint_dtbl_entry, ptr noundef nonnull @.str.16) #26
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 1137, ptr noundef nonnull @__func__.find_uint_dtbl_entry, ptr noundef nonnull @.str.16) #27
   unreachable
 
 find_uint_dtbl_entry.exit.i.i:                    ; preds = %4, %4, %4, %4, %4
   %8 = load ptr, ptr %0, align 8
-  %9 = tail call ptr @g_hash_table_lookup(ptr noundef %8, ptr noundef null) #24
+  %9 = tail call ptr @g_hash_table_lookup(ptr noundef %8, ptr noundef null) #25
   %10 = icmp eq ptr %9, null
   br i1 %10, label %dissector_try_uint.exit, label %11
 
@@ -3440,12 +3440,12 @@ define i32 @dissector_try_payload_new(ptr nocapture noundef readonly %0, ptr nou
   ]
 
 9:                                                ; preds = %6
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 1137, ptr noundef nonnull @__func__.find_uint_dtbl_entry, ptr noundef nonnull @.str.16) #26
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 1137, ptr noundef nonnull @__func__.find_uint_dtbl_entry, ptr noundef nonnull @.str.16) #27
   unreachable
 
 find_uint_dtbl_entry.exit.i:                      ; preds = %6, %6, %6, %6, %6
   %10 = load ptr, ptr %0, align 8
-  %11 = tail call ptr @g_hash_table_lookup(ptr noundef %10, ptr noundef null) #24
+  %11 = tail call ptr @g_hash_table_lookup(ptr noundef %10, ptr noundef null) #25
   %12 = icmp eq ptr %11, null
   br i1 %12, label %dissector_try_uint_new.exit, label %13
 
@@ -3493,12 +3493,12 @@ define ptr @dissector_get_payload_handle(ptr nocapture noundef readonly %0) loca
   ]
 
 4:                                                ; preds = %1
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 1137, ptr noundef nonnull @__func__.find_uint_dtbl_entry, ptr noundef nonnull @.str.16) #26
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 1137, ptr noundef nonnull @__func__.find_uint_dtbl_entry, ptr noundef nonnull @.str.16) #27
   unreachable
 
 find_uint_dtbl_entry.exit.i:                      ; preds = %1, %1, %1, %1, %1
   %5 = load ptr, ptr %0, align 8
-  %6 = tail call ptr @g_hash_table_lookup(ptr noundef %5, ptr noundef null) #24
+  %6 = tail call ptr @g_hash_table_lookup(ptr noundef %5, ptr noundef null) #25
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %dissector_get_uint_handle.exit, label %7
 
@@ -3544,29 +3544,29 @@ define range(i32 0, 2) i32 @register_depend_dissector(ptr noundef %0, ptr nounde
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr @depend_dissector_lists, align 8
-  %7 = tail call ptr @g_hash_table_lookup(ptr noundef %6, ptr noundef nonnull %0) #24
+  %7 = tail call ptr @g_hash_table_lookup(ptr noundef %6, ptr noundef nonnull %0) #25
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %14
 
 9:                                                ; preds = %5
-  %10 = tail call noalias dereferenceable_or_null(8) ptr @g_slice_alloc(i64 noundef 8) #30
+  %10 = tail call noalias dereferenceable_or_null(8) ptr @g_slice_alloc(i64 noundef 8) #31
   store ptr null, ptr %10, align 8
   %11 = load ptr, ptr @depend_dissector_lists, align 8
-  %12 = tail call noalias ptr @g_strdup(ptr noundef nonnull %0) #24
-  %13 = tail call i32 @g_hash_table_insert(ptr noundef %11, ptr noundef %12, ptr noundef nonnull %10) #24
+  %12 = tail call noalias ptr @g_strdup(ptr noundef nonnull %0) #25
+  %13 = tail call i32 @g_hash_table_insert(ptr noundef %11, ptr noundef %12, ptr noundef nonnull %10) #25
   br label %14
 
 14:                                               ; preds = %9, %5
   %.0 = phi ptr [ %10, %9 ], [ %7, %5 ]
   %15 = load ptr, ptr %.0, align 8
-  %16 = tail call ptr @g_slist_find_custom(ptr noundef %15, ptr noundef nonnull %1, ptr noundef nonnull @find_matching_proto_name) #24
+  %16 = tail call ptr @g_slist_find_custom(ptr noundef %15, ptr noundef nonnull %1, ptr noundef nonnull @find_matching_proto_name) #25
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %17, label %21
 
 17:                                               ; preds = %14
   %18 = load ptr, ptr %.0, align 8
-  %19 = tail call noalias ptr @g_strdup(ptr noundef nonnull %1) #24
-  %20 = tail call ptr @g_slist_prepend(ptr noundef %18, ptr noundef %19) #24
+  %19 = tail call noalias ptr @g_strdup(ptr noundef nonnull %1) #25
+  %20 = tail call ptr @g_slist_prepend(ptr noundef %18, ptr noundef %19) #25
   store ptr %20, ptr %.0, align 8
   br label %21
 
@@ -3587,8 +3587,8 @@ define internal i32 @dissector_compare_filter_name(ptr nocapture noundef readonl
   br i1 %5, label %9, label %6
 
 6:                                                ; preds = %2
-  %7 = tail call i32 @proto_get_id(ptr noundef nonnull %4) #24
-  %8 = tail call ptr @proto_get_protocol_filter_name(i32 noundef %7) #24
+  %7 = tail call i32 @proto_get_id(ptr noundef nonnull %4) #25
+  %8 = tail call ptr @proto_get_protocol_filter_name(i32 noundef %7) #25
   br label %9
 
 9:                                                ; preds = %2, %6
@@ -3599,13 +3599,13 @@ define internal i32 @dissector_compare_filter_name(ptr nocapture noundef readonl
   br i1 %12, label %16, label %13
 
 13:                                               ; preds = %9
-  %14 = tail call i32 @proto_get_id(ptr noundef nonnull %11) #24
-  %15 = tail call ptr @proto_get_protocol_filter_name(i32 noundef %14) #24
+  %14 = tail call i32 @proto_get_id(ptr noundef nonnull %11) #25
+  %15 = tail call ptr @proto_get_protocol_filter_name(i32 noundef %14) #25
   br label %16
 
 16:                                               ; preds = %9, %13
   %.08 = phi ptr [ %15, %13 ], [ @.str.5, %9 ]
-  %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0, ptr noundef nonnull dereferenceable(1) %.08) #25
+  %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0, ptr noundef nonnull dereferenceable(1) %.08) #26
   ret i32 %17
 }
 
@@ -3645,7 +3645,7 @@ define ptr @dissector_table_get_dissector_handle(ptr nocapture noundef readonly 
   store ptr null, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
-  call void @g_slist_foreach(ptr noundef %6, ptr noundef nonnull @find_dissector_in_table, ptr noundef nonnull %3) #24
+  call void @g_slist_foreach(ptr noundef %6, ptr noundef nonnull @find_dissector_in_table, ptr noundef nonnull %3) #25
   %7 = load ptr, ptr %4, align 8
   ret ptr %7
 }
@@ -3659,7 +3659,7 @@ define internal void @find_dissector_in_table(ptr noundef %0, ptr nocapture noun
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr %1, align 8
-  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %4) #25
+  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %4) #26
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %11
 
@@ -3705,20 +3705,20 @@ define i32 @dissector_table_supports_decode_as(ptr nocapture noundef readonly %0
 define void @dissector_table_foreach(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.dissector_foreach_info, align 8
   %5 = load ptr, ptr @dissector_tables, align 8
-  %6 = tail call ptr @g_hash_table_lookup(ptr noundef %5, ptr noundef %0) #24
+  %6 = tail call ptr @g_hash_table_lookup(ptr noundef %5, ptr noundef %0) #25
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %7, label %find_dissector_table.exit
 
 7:                                                ; preds = %3
   %8 = load ptr, ptr @dissector_table_aliases, align 8
-  %9 = tail call ptr @g_hash_table_lookup(ptr noundef %8, ptr noundef %0) #24
+  %9 = tail call ptr @g_hash_table_lookup(ptr noundef %8, ptr noundef %0) #25
   %.not12.i = icmp ne ptr %9, null
   tail call void @llvm.assume(i1 %.not12.i)
   %10 = load ptr, ptr @dissector_tables, align 8
-  %11 = tail call ptr @g_hash_table_lookup(ptr noundef %10, ptr noundef nonnull %9) #24
+  %11 = tail call ptr @g_hash_table_lookup(ptr noundef %10, ptr noundef nonnull %9) #25
   %.not13.i = icmp ne ptr %11, null
   tail call void @llvm.assume(i1 %.not13.i)
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.14, i32 noundef 5, ptr noundef nonnull @.str.15, i64 noundef 1108, ptr noundef nonnull @__func__.find_dissector_table, ptr noundef nonnull @.str.22, ptr noundef %0, ptr noundef nonnull %9) #24
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.14, i32 noundef 5, ptr noundef nonnull @.str.15, i64 noundef 1108, ptr noundef nonnull @__func__.find_dissector_table, ptr noundef nonnull @.str.22, ptr noundef %0, ptr noundef nonnull %9) #25
   br label %find_dissector_table.exit
 
 find_dissector_table.exit:                        ; preds = %3, %7
@@ -3733,7 +3733,7 @@ find_dissector_table.exit:                        ; preds = %3, %7
   store ptr %1, ptr %16, align 8
   store ptr %2, ptr %4, align 8
   %17 = load ptr, ptr %.1.i, align 8
-  call void @g_hash_table_foreach(ptr noundef %17, ptr noundef nonnull @dissector_table_foreach_func, ptr noundef nonnull %4) #24
+  call void @g_hash_table_foreach(ptr noundef %17, ptr noundef nonnull @dissector_table_foreach_func, ptr noundef nonnull %4) #25
   ret void
 }
 
@@ -3760,7 +3760,7 @@ define internal void @dissector_table_foreach_func(ptr noundef %0, ptr noundef %
   %16 = getelementptr inbounds i8, ptr %2, i64 32
   %17 = load i32, ptr %16, align 8
   %18 = load ptr, ptr %2, align 8
-  tail call void %13(ptr noundef %15, i32 noundef %17, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %18) #24
+  tail call void %13(ptr noundef %15, i32 noundef %17, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %18) #25
   br label %19
 
 19:                                               ; preds = %3, %7, %11
@@ -3770,20 +3770,20 @@ define internal void @dissector_table_foreach_func(ptr noundef %0, ptr noundef %
 ; Function Attrs: nounwind uwtable
 define void @dissector_table_foreach_handle(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr @dissector_tables, align 8
-  %5 = tail call ptr @g_hash_table_lookup(ptr noundef %4, ptr noundef %0) #24
+  %5 = tail call ptr @g_hash_table_lookup(ptr noundef %4, ptr noundef %0) #25
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %6, label %find_dissector_table.exit
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr @dissector_table_aliases, align 8
-  %8 = tail call ptr @g_hash_table_lookup(ptr noundef %7, ptr noundef %0) #24
+  %8 = tail call ptr @g_hash_table_lookup(ptr noundef %7, ptr noundef %0) #25
   %.not12.i = icmp ne ptr %8, null
   tail call void @llvm.assume(i1 %.not12.i)
   %9 = load ptr, ptr @dissector_tables, align 8
-  %10 = tail call ptr @g_hash_table_lookup(ptr noundef %9, ptr noundef nonnull %8) #24
+  %10 = tail call ptr @g_hash_table_lookup(ptr noundef %9, ptr noundef nonnull %8) #25
   %.not13.i = icmp ne ptr %10, null
   tail call void @llvm.assume(i1 %.not13.i)
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.14, i32 noundef 5, ptr noundef nonnull @.str.15, i64 noundef 1108, ptr noundef nonnull @__func__.find_dissector_table, ptr noundef nonnull @.str.22, ptr noundef %0, ptr noundef nonnull %8) #24
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.14, i32 noundef 5, ptr noundef nonnull @.str.15, i64 noundef 1108, ptr noundef nonnull @__func__.find_dissector_table, ptr noundef nonnull @.str.22, ptr noundef %0, ptr noundef nonnull %8) #25
   br label %find_dissector_table.exit
 
 find_dissector_table.exit:                        ; preds = %3, %6
@@ -3796,7 +3796,7 @@ find_dissector_table.exit:                        ; preds = %3, %6
 .lr.ph:                                           ; preds = %find_dissector_table.exit, %.lr.ph
   %.012 = phi ptr [ %.0, %.lr.ph ], [ %.010, %find_dissector_table.exit ]
   %11 = load ptr, ptr %.012, align 8
-  tail call void %1(ptr noundef %0, ptr noundef %11, ptr noundef %2) #24
+  tail call void %1(ptr noundef %0, ptr noundef %11, ptr noundef %2) #25
   %.0.in = getelementptr inbounds i8, ptr %.012, i64 8
   %.0 = load ptr, ptr %.0.in, align 8
   %.not = icmp eq ptr %.0, null
@@ -3815,7 +3815,7 @@ define void @dissector_all_tables_foreach_changed(ptr noundef %0, ptr noundef %1
   %5 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr @dissector_table_foreach_changed_func, ptr %5, align 8
   %6 = load ptr, ptr @dissector_tables, align 8
-  call void @g_hash_table_foreach(ptr noundef %6, ptr noundef nonnull @dissector_all_tables_foreach_func, ptr noundef nonnull %3) #24
+  call void @g_hash_table_foreach(ptr noundef %6, ptr noundef nonnull @dissector_all_tables_foreach_func, ptr noundef nonnull %3) #25
   ret void
 }
 
@@ -3835,7 +3835,7 @@ define internal void @dissector_table_foreach_changed_func(ptr noundef %0, ptr n
   %13 = getelementptr inbounds i8, ptr %2, i64 32
   %14 = load i32, ptr %13, align 8
   %15 = load ptr, ptr %2, align 8
-  tail call void %10(ptr noundef %12, i32 noundef %14, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %15) #24
+  tail call void %10(ptr noundef %12, i32 noundef %14, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %15) #25
   br label %16
 
 16:                                               ; preds = %3, %8
@@ -3847,24 +3847,24 @@ define internal void @dissector_all_tables_foreach_func(ptr noundef %0, ptr noca
   %4 = getelementptr inbounds i8, ptr %2, i64 24
   store ptr %0, ptr %4, align 8
   %5 = load ptr, ptr @dissector_tables, align 8
-  %6 = tail call ptr @g_hash_table_lookup(ptr noundef %5, ptr noundef %0) #24
+  %6 = tail call ptr @g_hash_table_lookup(ptr noundef %5, ptr noundef %0) #25
   %.not.i.i = icmp eq ptr %6, null
   br i1 %.not.i.i, label %7, label %find_dissector_table.exit.i
 
 7:                                                ; preds = %3
   %8 = load ptr, ptr @dissector_table_aliases, align 8
-  %9 = tail call ptr @g_hash_table_lookup(ptr noundef %8, ptr noundef %0) #24
+  %9 = tail call ptr @g_hash_table_lookup(ptr noundef %8, ptr noundef %0) #25
   %.not12.i.i = icmp eq ptr %9, null
   br i1 %.not12.i.i, label %get_dissector_table_selector_type.exit, label %10
 
 10:                                               ; preds = %7
   %11 = load ptr, ptr @dissector_tables, align 8
-  %12 = tail call ptr @g_hash_table_lookup(ptr noundef %11, ptr noundef nonnull %9) #24
+  %12 = tail call ptr @g_hash_table_lookup(ptr noundef %11, ptr noundef nonnull %9) #25
   %.not13.i.i = icmp eq ptr %12, null
   br i1 %.not13.i.i, label %get_dissector_table_selector_type.exit, label %13
 
 13:                                               ; preds = %10
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.14, i32 noundef 5, ptr noundef nonnull @.str.15, i64 noundef 1108, ptr noundef nonnull @__func__.find_dissector_table, ptr noundef nonnull @.str.22, ptr noundef %0, ptr noundef nonnull %9) #24
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.14, i32 noundef 5, ptr noundef nonnull @.str.15, i64 noundef 1108, ptr noundef nonnull @__func__.find_dissector_table, ptr noundef nonnull @.str.22, ptr noundef %0, ptr noundef nonnull %9) #25
   br label %find_dissector_table.exit.i
 
 find_dissector_table.exit.i:                      ; preds = %13, %3
@@ -3880,7 +3880,7 @@ get_dissector_table_selector_type.exit:           ; preds = %7, %10, %find_disse
   %17 = load ptr, ptr %1, align 8
   %18 = getelementptr inbounds i8, ptr %2, i64 16
   %19 = load ptr, ptr %18, align 8
-  tail call void @g_hash_table_foreach(ptr noundef %17, ptr noundef %19, ptr noundef nonnull %2) #24
+  tail call void @g_hash_table_foreach(ptr noundef %17, ptr noundef %19, ptr noundef nonnull %2) #25
   ret void
 }
 
@@ -3888,20 +3888,20 @@ get_dissector_table_selector_type.exit:           ; preds = %7, %10, %find_disse
 define hidden void @dissector_table_foreach_changed(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.dissector_foreach_info, align 8
   %5 = load ptr, ptr @dissector_tables, align 8
-  %6 = tail call ptr @g_hash_table_lookup(ptr noundef %5, ptr noundef %0) #24
+  %6 = tail call ptr @g_hash_table_lookup(ptr noundef %5, ptr noundef %0) #25
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %7, label %find_dissector_table.exit
 
 7:                                                ; preds = %3
   %8 = load ptr, ptr @dissector_table_aliases, align 8
-  %9 = tail call ptr @g_hash_table_lookup(ptr noundef %8, ptr noundef %0) #24
+  %9 = tail call ptr @g_hash_table_lookup(ptr noundef %8, ptr noundef %0) #25
   %.not12.i = icmp ne ptr %9, null
   tail call void @llvm.assume(i1 %.not12.i)
   %10 = load ptr, ptr @dissector_tables, align 8
-  %11 = tail call ptr @g_hash_table_lookup(ptr noundef %10, ptr noundef nonnull %9) #24
+  %11 = tail call ptr @g_hash_table_lookup(ptr noundef %10, ptr noundef nonnull %9) #25
   %.not13.i = icmp ne ptr %11, null
   tail call void @llvm.assume(i1 %.not13.i)
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.14, i32 noundef 5, ptr noundef nonnull @.str.15, i64 noundef 1108, ptr noundef nonnull @__func__.find_dissector_table, ptr noundef nonnull @.str.22, ptr noundef %0, ptr noundef nonnull %9) #24
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.14, i32 noundef 5, ptr noundef nonnull @.str.15, i64 noundef 1108, ptr noundef nonnull @__func__.find_dissector_table, ptr noundef nonnull @.str.22, ptr noundef %0, ptr noundef nonnull %9) #25
   br label %find_dissector_table.exit
 
 find_dissector_table.exit:                        ; preds = %3, %7
@@ -3916,7 +3916,7 @@ find_dissector_table.exit:                        ; preds = %3, %7
   store ptr %1, ptr %16, align 8
   store ptr %2, ptr %4, align 8
   %17 = load ptr, ptr %.1.i, align 8
-  call void @g_hash_table_foreach(ptr noundef %17, ptr noundef nonnull @dissector_table_foreach_changed_func, ptr noundef nonnull %4) #24
+  call void @g_hash_table_foreach(ptr noundef %17, ptr noundef nonnull @dissector_table_foreach_changed_func, ptr noundef nonnull %4) #25
   ret void
 }
 
@@ -3931,14 +3931,14 @@ define void @dissector_all_tables_foreach_table(ptr noundef %0, ptr noundef %1, 
   br i1 %.not, label %10, label %7
 
 7:                                                ; preds = %3
-  %8 = tail call ptr @g_hash_table_get_keys(ptr noundef %6) #24
-  %9 = tail call ptr @g_list_sort(ptr noundef %8, ptr noundef nonnull %2) #24
-  call void @g_list_foreach(ptr noundef %9, ptr noundef nonnull @dissector_all_tables_foreach_list_func, ptr noundef nonnull %4) #24
-  call void @g_list_free(ptr noundef %9) #24
+  %8 = tail call ptr @g_hash_table_get_keys(ptr noundef %6) #25
+  %9 = tail call ptr @g_list_sort(ptr noundef %8, ptr noundef nonnull %2) #25
+  call void @g_list_foreach(ptr noundef %9, ptr noundef nonnull @dissector_all_tables_foreach_list_func, ptr noundef nonnull %4) #25
+  call void @g_list_free(ptr noundef %9) #25
   br label %11
 
 10:                                               ; preds = %3
-  call void @g_hash_table_foreach(ptr noundef %6, ptr noundef nonnull @dissector_all_tables_foreach_table_func, ptr noundef nonnull %4) #24
+  call void @g_hash_table_foreach(ptr noundef %6, ptr noundef nonnull @dissector_all_tables_foreach_table_func, ptr noundef nonnull %4) #25
   br label %11
 
 11:                                               ; preds = %10, %7
@@ -3954,13 +3954,13 @@ declare void @g_list_foreach(ptr noundef, ptr noundef, ptr noundef) local_unname
 ; Function Attrs: nounwind uwtable
 define internal void @dissector_all_tables_foreach_list_func(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
   %3 = load ptr, ptr @dissector_tables, align 8
-  %4 = tail call ptr @g_hash_table_lookup(ptr noundef %3, ptr noundef %0) #24
+  %4 = tail call ptr @g_hash_table_lookup(ptr noundef %3, ptr noundef %0) #25
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %1, align 8
-  tail call void %6(ptr noundef %0, ptr noundef %8, ptr noundef %9) #24
+  tail call void %6(ptr noundef %0, ptr noundef %8, ptr noundef %9) #25
   ret void
 }
 
@@ -3973,23 +3973,23 @@ define internal void @dissector_all_tables_foreach_table_func(ptr noundef %0, pt
   %6 = getelementptr inbounds i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %2, align 8
-  tail call void %5(ptr noundef %0, ptr noundef %7, ptr noundef %8) #24
+  tail call void %5(ptr noundef %0, ptr noundef %7, ptr noundef %8) #25
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @register_dissector_table(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = load ptr, ptr @dissector_tables, align 8
-  %7 = tail call ptr @g_hash_table_lookup(ptr noundef %6, ptr noundef %0) #24
+  %7 = tail call ptr @g_hash_table_lookup(ptr noundef %6, ptr noundef %0) #25
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %9, label %8
 
 8:                                                ; preds = %5
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 2666, ptr noundef nonnull @__func__.register_dissector_table, ptr noundef nonnull @.str.32, ptr noundef %0, ptr noundef %1) #26
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 2666, ptr noundef nonnull @__func__.register_dissector_table, ptr noundef nonnull @.str.32, ptr noundef %0, ptr noundef %1) #27
   unreachable
 
 9:                                                ; preds = %5
-  %10 = tail call noalias dereferenceable_or_null(56) ptr @g_slice_alloc(i64 noundef 56) #30
+  %10 = tail call noalias dereferenceable_or_null(56) ptr @g_slice_alloc(i64 noundef 56) #31
   switch i32 %3, label %22 [
     i32 4, label %11
     i32 5, label %11
@@ -4006,27 +4006,27 @@ define noundef ptr @register_dissector_table(ptr noundef %0, ptr noundef %1, i32
 11:                                               ; preds = %9, %9, %9, %9
   %12 = getelementptr inbounds i8, ptr %10, i64 40
   store ptr @g_direct_hash, ptr %12, align 8
-  %13 = tail call ptr @g_hash_table_new_full(ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal, ptr noundef null, ptr noundef nonnull @g_free) #24
+  %13 = tail call ptr @g_hash_table_new_full(ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal, ptr noundef null, ptr noundef nonnull @g_free) #25
   br label %23
 
 14:                                               ; preds = %9, %9, %9, %9
   %15 = getelementptr inbounds i8, ptr %10, i64 40
   store ptr @g_str_hash, ptr %15, align 8
-  %16 = tail call ptr @g_hash_table_new_full(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal, ptr noundef nonnull @g_free, ptr noundef nonnull @g_free) #24
+  %16 = tail call ptr @g_hash_table_new_full(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal, ptr noundef nonnull @g_free, ptr noundef nonnull @g_free) #25
   br label %23
 
 17:                                               ; preds = %9
-  %18 = tail call ptr @g_hash_table_new_full(ptr noundef nonnull @uuid_hash, ptr noundef nonnull @uuid_equal, ptr noundef null, ptr noundef nonnull @g_free) #24
+  %18 = tail call ptr @g_hash_table_new_full(ptr noundef nonnull @uuid_hash, ptr noundef nonnull @uuid_equal, ptr noundef null, ptr noundef nonnull @g_free) #25
   br label %23
 
 19:                                               ; preds = %9
   %20 = getelementptr inbounds i8, ptr %10, i64 40
   store ptr @g_direct_hash, ptr %20, align 8
-  %21 = tail call ptr @g_hash_table_new_full(ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal, ptr noundef null, ptr noundef nonnull @g_free) #24
+  %21 = tail call ptr @g_hash_table_new_full(ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal, ptr noundef null, ptr noundef nonnull @g_free) #25
   br label %23
 
 22:                                               ; preds = %9
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 2718, ptr noundef nonnull @__func__.register_dissector_table, ptr noundef nonnull @.str.33, ptr noundef %0, ptr noundef %1) #26
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 2718, ptr noundef nonnull @__func__.register_dissector_table, ptr noundef nonnull @.str.33, ptr noundef %0, ptr noundef %1) #27
   unreachable
 
 23:                                               ; preds = %19, %17, %14, %11
@@ -4044,7 +4044,7 @@ define noundef ptr @register_dissector_table(ptr noundef %0, ptr noundef %1, i32
   br i1 %28, label %31, label %29
 
 29:                                               ; preds = %23
-  %30 = tail call ptr @find_protocol_by_id(i32 noundef %2) #24
+  %30 = tail call ptr @find_protocol_by_id(i32 noundef %2) #25
   br label %31
 
 31:                                               ; preds = %23, %29
@@ -4054,7 +4054,7 @@ define noundef ptr @register_dissector_table(ptr noundef %0, ptr noundef %1, i32
   %34 = getelementptr inbounds i8, ptr %10, i64 48
   store i32 0, ptr %34, align 8
   %35 = load ptr, ptr @dissector_tables, align 8
-  %36 = tail call i32 @g_hash_table_insert(ptr noundef %35, ptr noundef %0, ptr noundef nonnull %10) #24
+  %36 = tail call i32 @g_hash_table_insert(ptr noundef %35, ptr noundef %0, ptr noundef nonnull %10) #25
   ret ptr %10
 }
 
@@ -4092,19 +4092,19 @@ declare ptr @find_protocol_by_id(i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define noundef ptr @register_custom_dissector_table(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = load ptr, ptr @dissector_tables, align 8
-  %8 = tail call ptr @g_hash_table_lookup(ptr noundef %7, ptr noundef %0) #24
+  %8 = tail call ptr @g_hash_table_lookup(ptr noundef %7, ptr noundef %0) #25
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %10, label %9
 
 9:                                                ; preds = %6
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 2739, ptr noundef nonnull @__func__.register_custom_dissector_table, ptr noundef nonnull @.str.32, ptr noundef %0, ptr noundef %1) #26
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 2739, ptr noundef nonnull @__func__.register_custom_dissector_table, ptr noundef nonnull @.str.32, ptr noundef %0, ptr noundef %1) #27
   unreachable
 
 10:                                               ; preds = %6
-  %11 = tail call noalias dereferenceable_or_null(56) ptr @g_slice_alloc(i64 noundef 56) #30
+  %11 = tail call noalias dereferenceable_or_null(56) ptr @g_slice_alloc(i64 noundef 56) #31
   %12 = getelementptr inbounds i8, ptr %11, i64 40
   store ptr %3, ptr %12, align 8
-  %13 = tail call ptr @g_hash_table_new_full(ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @g_free) #24
+  %13 = tail call ptr @g_hash_table_new_full(ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @g_free) #25
   store ptr %13, ptr %11, align 8
   %14 = getelementptr inbounds i8, ptr %11, i64 8
   store ptr null, ptr %14, align 8
@@ -4118,7 +4118,7 @@ define noundef ptr @register_custom_dissector_table(ptr noundef %0, ptr noundef 
   br i1 %18, label %21, label %19
 
 19:                                               ; preds = %10
-  %20 = tail call ptr @find_protocol_by_id(i32 noundef %2) #24
+  %20 = tail call ptr @find_protocol_by_id(i32 noundef %2) #25
   br label %21
 
 21:                                               ; preds = %10, %19
@@ -4128,7 +4128,7 @@ define noundef ptr @register_custom_dissector_table(ptr noundef %0, ptr noundef 
   %24 = getelementptr inbounds i8, ptr %11, i64 48
   store i32 0, ptr %24, align 8
   %25 = load ptr, ptr @dissector_tables, align 8
-  %26 = tail call i32 @g_hash_table_insert(ptr noundef %25, ptr noundef %0, ptr noundef nonnull %11) #24
+  %26 = tail call i32 @g_hash_table_insert(ptr noundef %25, ptr noundef %0, ptr noundef nonnull %11) #25
   ret ptr %11
 }
 
@@ -4141,19 +4141,19 @@ define void @register_dissector_table_alias(ptr noundef readnone %0, ptr noundef
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr @dissector_tables, align 8
-  %7 = tail call ptr @g_hash_table_get_keys(ptr noundef %6) #24
+  %7 = tail call ptr @g_hash_table_get_keys(ptr noundef %6) #25
   %.not20 = icmp eq ptr %7, null
   br i1 %.not20, label %.thread, label %.lr.ph
 
 .thread:                                          ; preds = %12, %5
-  tail call void @g_list_free(ptr noundef %7) #24
+  tail call void @g_list_free(ptr noundef %7) #25
   br label %20
 
 .lr.ph:                                           ; preds = %5, %12
   %.021 = phi ptr [ %14, %12 ], [ %7, %5 ]
   %8 = load ptr, ptr @dissector_tables, align 8
   %9 = load ptr, ptr %.021, align 8
-  %10 = tail call ptr @g_hash_table_lookup(ptr noundef %8, ptr noundef %9) #24
+  %10 = tail call ptr @g_hash_table_lookup(ptr noundef %8, ptr noundef %9) #25
   %11 = icmp eq ptr %10, %0
   br i1 %11, label %15, label %12
 
@@ -4165,13 +4165,13 @@ define void @register_dissector_table_alias(ptr noundef readnone %0, ptr noundef
 
 15:                                               ; preds = %.lr.ph
   %16 = load ptr, ptr %.021, align 8
-  tail call void @g_list_free(ptr noundef nonnull %7) #24
+  tail call void @g_list_free(ptr noundef nonnull %7) #25
   %.not16 = icmp eq ptr %16, null
   br i1 %.not16, label %20, label %17
 
 17:                                               ; preds = %15
   %18 = load ptr, ptr @dissector_table_aliases, align 8
-  %19 = tail call i32 @g_hash_table_insert(ptr noundef %18, ptr noundef nonnull %1, ptr noundef nonnull %16) #24
+  %19 = tail call i32 @g_hash_table_insert(ptr noundef %18, ptr noundef nonnull %1, ptr noundef nonnull %16) #25
   br label %20
 
 20:                                               ; preds = %.thread, %15, %2, %17
@@ -4181,15 +4181,15 @@ define void @register_dissector_table_alias(ptr noundef readnone %0, ptr noundef
 ; Function Attrs: nounwind uwtable
 define hidden void @deregister_dissector_table(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @dissector_tables, align 8
-  %3 = tail call ptr @g_hash_table_lookup(ptr noundef %2, ptr noundef %0) #24
+  %3 = tail call ptr @g_hash_table_lookup(ptr noundef %2, ptr noundef %0) #25
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %19, label %4
 
 4:                                                ; preds = %1
   %5 = load ptr, ptr @dissector_tables, align 8
-  %6 = tail call i32 @g_hash_table_remove(ptr noundef %5, ptr noundef %0) #24
+  %6 = tail call i32 @g_hash_table_remove(ptr noundef %5, ptr noundef %0) #25
   %7 = load ptr, ptr @dissector_table_aliases, align 8
-  %8 = tail call ptr @g_hash_table_get_keys(ptr noundef %7) #24
+  %8 = tail call ptr @g_hash_table_get_keys(ptr noundef %7) #25
   %.not1112 = icmp eq ptr %8, null
   br i1 %.not1112, label %._crit_edge, label %.lr.ph
 
@@ -4197,13 +4197,13 @@ define hidden void @deregister_dissector_table(ptr noundef %0) local_unnamed_add
   %.013 = phi ptr [ %18, %16 ], [ %8, %4 ]
   %9 = load ptr, ptr %.013, align 8
   %10 = load ptr, ptr @dissector_table_aliases, align 8
-  %11 = tail call ptr @g_hash_table_lookup(ptr noundef %10, ptr noundef %9) #24
+  %11 = tail call ptr @g_hash_table_lookup(ptr noundef %10, ptr noundef %9) #25
   %12 = icmp eq ptr %11, %0
   br i1 %12, label %13, label %16
 
 13:                                               ; preds = %.lr.ph
   %14 = load ptr, ptr @dissector_table_aliases, align 8
-  %15 = tail call i32 @g_hash_table_remove(ptr noundef %14, ptr noundef %9) #24
+  %15 = tail call i32 @g_hash_table_remove(ptr noundef %14, ptr noundef %9) #25
   br label %16
 
 16:                                               ; preds = %.lr.ph, %13
@@ -4213,7 +4213,7 @@ define hidden void @deregister_dissector_table(ptr noundef %0) local_unnamed_add
   br i1 %.not11, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %16, %4
-  tail call void @g_list_free(ptr noundef %8) #24
+  tail call void @g_list_free(ptr noundef %8) #25
   br label %19
 
 19:                                               ; preds = %1, %._crit_edge
@@ -4223,24 +4223,24 @@ define hidden void @deregister_dissector_table(ptr noundef %0) local_unnamed_add
 ; Function Attrs: nounwind uwtable
 define ptr @get_dissector_table_ui_name(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @dissector_tables, align 8
-  %3 = tail call ptr @g_hash_table_lookup(ptr noundef %2, ptr noundef %0) #24
+  %3 = tail call ptr @g_hash_table_lookup(ptr noundef %2, ptr noundef %0) #25
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %4, label %find_dissector_table.exit
 
 4:                                                ; preds = %1
   %5 = load ptr, ptr @dissector_table_aliases, align 8
-  %6 = tail call ptr @g_hash_table_lookup(ptr noundef %5, ptr noundef %0) #24
+  %6 = tail call ptr @g_hash_table_lookup(ptr noundef %5, ptr noundef %0) #25
   %.not12.i = icmp eq ptr %6, null
   br i1 %.not12.i, label %find_dissector_table.exit.thread, label %7
 
 7:                                                ; preds = %4
   %8 = load ptr, ptr @dissector_tables, align 8
-  %9 = tail call ptr @g_hash_table_lookup(ptr noundef %8, ptr noundef nonnull %6) #24
+  %9 = tail call ptr @g_hash_table_lookup(ptr noundef %8, ptr noundef nonnull %6) #25
   %.not13.i = icmp eq ptr %9, null
   br i1 %.not13.i, label %find_dissector_table.exit.thread, label %10
 
 10:                                               ; preds = %7
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.14, i32 noundef 5, ptr noundef nonnull @.str.15, i64 noundef 1108, ptr noundef nonnull @__func__.find_dissector_table, ptr noundef nonnull @.str.22, ptr noundef %0, ptr noundef nonnull %6) #24
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.14, i32 noundef 5, ptr noundef nonnull @.str.15, i64 noundef 1108, ptr noundef nonnull @__func__.find_dissector_table, ptr noundef nonnull @.str.22, ptr noundef %0, ptr noundef nonnull %6) #25
   br label %find_dissector_table.exit
 
 find_dissector_table.exit:                        ; preds = %10, %1
@@ -4257,24 +4257,24 @@ find_dissector_table.exit.thread:                 ; preds = %4, %7, %find_dissec
 ; Function Attrs: nounwind uwtable
 define i32 @get_dissector_table_selector_type(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @dissector_tables, align 8
-  %3 = tail call ptr @g_hash_table_lookup(ptr noundef %2, ptr noundef %0) #24
+  %3 = tail call ptr @g_hash_table_lookup(ptr noundef %2, ptr noundef %0) #25
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %4, label %find_dissector_table.exit
 
 4:                                                ; preds = %1
   %5 = load ptr, ptr @dissector_table_aliases, align 8
-  %6 = tail call ptr @g_hash_table_lookup(ptr noundef %5, ptr noundef %0) #24
+  %6 = tail call ptr @g_hash_table_lookup(ptr noundef %5, ptr noundef %0) #25
   %.not12.i = icmp eq ptr %6, null
   br i1 %.not12.i, label %find_dissector_table.exit.thread, label %7
 
 7:                                                ; preds = %4
   %8 = load ptr, ptr @dissector_tables, align 8
-  %9 = tail call ptr @g_hash_table_lookup(ptr noundef %8, ptr noundef nonnull %6) #24
+  %9 = tail call ptr @g_hash_table_lookup(ptr noundef %8, ptr noundef nonnull %6) #25
   %.not13.i = icmp eq ptr %9, null
   br i1 %.not13.i, label %find_dissector_table.exit.thread, label %10
 
 10:                                               ; preds = %7
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.14, i32 noundef 5, ptr noundef nonnull @.str.15, i64 noundef 1108, ptr noundef nonnull @__func__.find_dissector_table, ptr noundef nonnull @.str.22, ptr noundef %0, ptr noundef nonnull %6) #24
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.14, i32 noundef 5, ptr noundef nonnull @.str.15, i64 noundef 1108, ptr noundef nonnull @__func__.find_dissector_table, ptr noundef nonnull @.str.22, ptr noundef %0, ptr noundef nonnull %6) #25
   br label %find_dissector_table.exit
 
 find_dissector_table.exit:                        ; preds = %10, %1
@@ -4291,24 +4291,24 @@ find_dissector_table.exit.thread:                 ; preds = %4, %7, %find_dissec
 ; Function Attrs: nounwind uwtable
 define i32 @get_dissector_table_param(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @dissector_tables, align 8
-  %3 = tail call ptr @g_hash_table_lookup(ptr noundef %2, ptr noundef %0) #24
+  %3 = tail call ptr @g_hash_table_lookup(ptr noundef %2, ptr noundef %0) #25
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %4, label %find_dissector_table.exit
 
 4:                                                ; preds = %1
   %5 = load ptr, ptr @dissector_table_aliases, align 8
-  %6 = tail call ptr @g_hash_table_lookup(ptr noundef %5, ptr noundef %0) #24
+  %6 = tail call ptr @g_hash_table_lookup(ptr noundef %5, ptr noundef %0) #25
   %.not12.i = icmp eq ptr %6, null
   br i1 %.not12.i, label %find_dissector_table.exit.thread, label %7
 
 7:                                                ; preds = %4
   %8 = load ptr, ptr @dissector_tables, align 8
-  %9 = tail call ptr @g_hash_table_lookup(ptr noundef %8, ptr noundef nonnull %6) #24
+  %9 = tail call ptr @g_hash_table_lookup(ptr noundef %8, ptr noundef nonnull %6) #25
   %.not13.i = icmp eq ptr %9, null
   br i1 %.not13.i, label %find_dissector_table.exit.thread, label %10
 
 10:                                               ; preds = %7
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.14, i32 noundef 5, ptr noundef nonnull @.str.15, i64 noundef 1108, ptr noundef nonnull @__func__.find_dissector_table, ptr noundef nonnull @.str.22, ptr noundef %0, ptr noundef nonnull %6) #24
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.14, i32 noundef 5, ptr noundef nonnull @.str.15, i64 noundef 1108, ptr noundef nonnull @__func__.find_dissector_table, ptr noundef nonnull @.str.22, ptr noundef %0, ptr noundef nonnull %6) #25
   br label %find_dissector_table.exit
 
 find_dissector_table.exit:                        ; preds = %10, %1
@@ -4325,14 +4325,14 @@ find_dissector_table.exit.thread:                 ; preds = %4, %7, %find_dissec
 ; Function Attrs: nounwind uwtable
 define ptr @find_heur_dissector_list(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @heur_dissector_lists, align 8
-  %3 = tail call ptr @g_hash_table_lookup(ptr noundef %2, ptr noundef %0) #24
+  %3 = tail call ptr @g_hash_table_lookup(ptr noundef %2, ptr noundef %0) #25
   ret ptr %3
 }
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @has_heur_dissector_list(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @heur_dissector_lists, align 8
-  %3 = tail call ptr @g_hash_table_lookup(ptr noundef %2, ptr noundef %0) #24
+  %3 = tail call ptr @g_hash_table_lookup(ptr noundef %2, ptr noundef %0) #25
   %4 = icmp ne ptr %3, null
   %5 = zext i1 %4 to i32
   ret i32 %5
@@ -4341,27 +4341,27 @@ define range(i32 0, 2) i32 @has_heur_dissector_list(ptr noundef %0) local_unname
 ; Function Attrs: nounwind uwtable
 define ptr @find_heur_dissector_by_unique_short_name(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @heuristic_short_names, align 8
-  %3 = tail call ptr @g_hash_table_lookup(ptr noundef %2, ptr noundef %0) #24
+  %3 = tail call ptr @g_hash_table_lookup(ptr noundef %2, ptr noundef %0) #25
   ret ptr %3
 }
 
 ; Function Attrs: nounwind uwtable
 define void @heur_dissector_add(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = load ptr, ptr @heur_dissector_lists, align 8
-  %8 = tail call ptr @g_hash_table_lookup(ptr noundef %7, ptr noundef %0) #24
+  %8 = tail call ptr @g_hash_table_lookup(ptr noundef %7, ptr noundef %0) #25
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %20
 
 10:                                               ; preds = %6
   %11 = load ptr, ptr @stderr, align 8
-  %12 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.24, ptr noundef %0) #28
-  %13 = tail call ptr @proto_get_protocol_name(i32 noundef %4) #24
+  %12 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.24, ptr noundef %0) #29
+  %13 = tail call ptr @proto_get_protocol_name(i32 noundef %4) #25
   %.not54 = icmp eq ptr %13, null
   br i1 %.not54, label %17, label %14
 
 14:                                               ; preds = %10
   %15 = load ptr, ptr @stderr, align 8
-  %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str.25, ptr noundef nonnull %13) #28
+  %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str.25, ptr noundef nonnull %13) #29
   br label %17
 
 17:                                               ; preds = %14, %10
@@ -4370,20 +4370,20 @@ define void @heur_dissector_add(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   br i1 %.not55, label %76, label %19
 
 19:                                               ; preds = %17
-  tail call void @abort() #26
+  tail call void @abort() #27
   unreachable
 
 20:                                               ; preds = %6
   %21 = getelementptr inbounds i8, ptr %8, i64 16
   %22 = load ptr, ptr %21, align 8
-  %23 = tail call i32 @g_slist_length(ptr noundef %22) #24
+  %23 = tail call i32 @g_slist_length(ptr noundef %22) #25
   %.not57 = icmp eq i32 %23, 0
   br i1 %.not57, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %20, %42
   %.056 = phi i32 [ %43, %42 ], [ 0, %20 ]
   %24 = load ptr, ptr %21, align 8
-  %25 = tail call ptr @g_slist_nth(ptr noundef %24, i32 noundef %.056) #24
+  %25 = tail call ptr @g_slist_nth(ptr noundef %24, i32 noundef %.056) #25
   %26 = load ptr, ptr %25, align 8
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, %1
@@ -4392,18 +4392,18 @@ define void @heur_dissector_add(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
 29:                                               ; preds = %.lr.ph
   %30 = getelementptr inbounds i8, ptr %26, i64 8
   %31 = load ptr, ptr %30, align 8
-  %32 = tail call ptr @find_protocol_by_id(i32 noundef %4) #24
+  %32 = tail call ptr @find_protocol_by_id(i32 noundef %4) #25
   %33 = icmp eq ptr %31, %32
   br i1 %33, label %34, label %42
 
 34:                                               ; preds = %29
-  %35 = tail call ptr @proto_get_protocol_name(i32 noundef %4) #24
+  %35 = tail call ptr @proto_get_protocol_name(i32 noundef %4) #25
   %.not52 = icmp eq ptr %35, null
   br i1 %.not52, label %39, label %36
 
 36:                                               ; preds = %34
   %37 = load ptr, ptr @stderr, align 8
-  %38 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %37, ptr noundef nonnull @.str.34, ptr noundef nonnull %35, ptr noundef %0) #28
+  %38 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %37, ptr noundef nonnull @.str.34, ptr noundef nonnull %35, ptr noundef %0) #29
   br label %39
 
 39:                                               ; preds = %36, %34
@@ -4412,7 +4412,7 @@ define void @heur_dissector_add(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   br i1 %.not53, label %76, label %41
 
 41:                                               ; preds = %39
-  tail call void @abort() #26
+  tail call void @abort() #27
   unreachable
 
 42:                                               ; preds = %.lr.ph, %29
@@ -4421,36 +4421,36 @@ define void @heur_dissector_add(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %42, %20
-  %44 = tail call zeroext i8 @proto_check_field_name_lower(ptr noundef %3) #24
+  %44 = tail call zeroext i8 @proto_check_field_name_lower(ptr noundef %3) #25
   %.not.i = icmp eq i8 %44, 0
   br i1 %.not.i, label %check_valid_heur_name_or_fail.exit, label %45
 
 45:                                               ; preds = %._crit_edge
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 2830, ptr noundef nonnull @__func__.check_valid_heur_name_or_fail, ptr noundef nonnull @.str.49, ptr noundef %3) #26
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 2830, ptr noundef nonnull @__func__.check_valid_heur_name_or_fail, ptr noundef nonnull @.str.49, ptr noundef %3) #27
   unreachable
 
 check_valid_heur_name_or_fail.exit:               ; preds = %._crit_edge
   %46 = load ptr, ptr @heuristic_short_names, align 8
-  %47 = tail call ptr @g_hash_table_lookup(ptr noundef %46, ptr noundef %3) #24
+  %47 = tail call ptr @g_hash_table_lookup(ptr noundef %46, ptr noundef %3) #25
   %.not = icmp eq ptr %47, null
   br i1 %.not, label %49, label %48
 
 48:                                               ; preds = %check_valid_heur_name_or_fail.exit
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 2902, ptr noundef nonnull @__func__.heur_dissector_add, ptr noundef nonnull @.str.35, ptr noundef %3) #26
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 2902, ptr noundef nonnull @__func__.heur_dissector_add, ptr noundef nonnull @.str.35, ptr noundef %3) #27
   unreachable
 
 49:                                               ; preds = %check_valid_heur_name_or_fail.exit
-  %50 = tail call noalias dereferenceable_or_null(48) ptr @g_slice_alloc(i64 noundef 48) #30
+  %50 = tail call noalias dereferenceable_or_null(48) ptr @g_slice_alloc(i64 noundef 48) #31
   store ptr %1, ptr %50, align 8
-  %51 = tail call ptr @find_protocol_by_id(i32 noundef %4) #24
+  %51 = tail call ptr @find_protocol_by_id(i32 noundef %4) #25
   %52 = getelementptr inbounds i8, ptr %50, i64 8
   store ptr %51, ptr %52, align 8
   %53 = getelementptr inbounds i8, ptr %50, i64 24
   store ptr %2, ptr %53, align 8
-  %54 = tail call noalias ptr @g_strdup(ptr noundef %3) #24
+  %54 = tail call noalias ptr @g_strdup(ptr noundef %3) #25
   %55 = getelementptr inbounds i8, ptr %50, i64 32
   store ptr %54, ptr %55, align 8
-  %56 = tail call noalias ptr @g_strdup(ptr noundef %0) #24
+  %56 = tail call noalias ptr @g_strdup(ptr noundef %0) #25
   %57 = getelementptr inbounds i8, ptr %50, i64 16
   store ptr %56, ptr %57, align 8
   %58 = icmp eq i32 %5, 1
@@ -4461,22 +4461,22 @@ check_valid_heur_name_or_fail.exit:               ; preds = %._crit_edge
   %62 = zext i1 %58 to i8
   store i8 %62, ptr %61, align 4
   %63 = load ptr, ptr @heuristic_short_names, align 8
-  %64 = tail call i32 @g_hash_table_insert(ptr noundef %63, ptr noundef %54, ptr noundef nonnull %50) #24
+  %64 = tail call i32 @g_hash_table_insert(ptr noundef %63, ptr noundef %54, ptr noundef nonnull %50) #25
   %65 = load ptr, ptr %21, align 8
-  %66 = tail call ptr @g_slist_prepend(ptr noundef %65, ptr noundef nonnull %50) #24
+  %66 = tail call ptr @g_slist_prepend(ptr noundef %65, ptr noundef nonnull %50) #25
   store ptr %66, ptr %21, align 8
   %67 = load ptr, ptr %52, align 8
   %68 = load ptr, ptr %55, align 8
-  tail call void @proto_add_heuristic_dissector(ptr noundef %67, ptr noundef %68) #24
+  tail call void @proto_add_heuristic_dissector(ptr noundef %67, ptr noundef %68) #25
   %69 = getelementptr inbounds i8, ptr %8, i64 8
   %70 = load ptr, ptr %69, align 8
   %.not51 = icmp eq ptr %70, null
   br i1 %.not51, label %76, label %71
 
 71:                                               ; preds = %49
-  %72 = tail call ptr @proto_get_protocol_short_name(ptr noundef nonnull %70) #24
+  %72 = tail call ptr @proto_get_protocol_short_name(ptr noundef nonnull %70) #25
   %73 = load ptr, ptr %52, align 8
-  %74 = tail call ptr @proto_get_protocol_short_name(ptr noundef %73) #24
+  %74 = tail call ptr @proto_get_protocol_short_name(ptr noundef %73) #25
   %75 = tail call i32 @register_depend_dissector(ptr noundef %72, ptr noundef %74)
   br label %76
 
@@ -4496,14 +4496,14 @@ declare void @proto_add_heuristic_dissector(ptr noundef, ptr noundef) local_unna
 define void @heur_dissector_delete(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.heur_dtbl_entry, align 8
   %5 = load ptr, ptr @heur_dissector_lists, align 8
-  %6 = tail call ptr @g_hash_table_lookup(ptr noundef %5, ptr noundef %0) #24
+  %6 = tail call ptr @g_hash_table_lookup(ptr noundef %5, ptr noundef %0) #25
   store ptr %1, ptr %4, align 8
-  %7 = tail call ptr @find_protocol_by_id(i32 noundef %2) #24
+  %7 = tail call ptr @find_protocol_by_id(i32 noundef %2) #25
   %8 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %7, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %6, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = call ptr @g_slist_find_custom(ptr noundef %10, ptr noundef nonnull %4, ptr noundef nonnull @find_matching_heur_dissector) #24
+  %11 = call ptr @g_slist_find_custom(ptr noundef %10, ptr noundef nonnull %4, ptr noundef nonnull @find_matching_heur_dissector) #25
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %23, label %12
 
@@ -4511,16 +4511,16 @@ define void @heur_dissector_delete(ptr noundef %0, ptr noundef %1, i32 noundef %
   %13 = load ptr, ptr %11, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  call void @proto_add_deregistered_data(ptr noundef %15) #24
+  call void @proto_add_deregistered_data(ptr noundef %15) #25
   %16 = load ptr, ptr @heuristic_short_names, align 8
   %17 = getelementptr inbounds i8, ptr %13, i64 32
   %18 = load ptr, ptr %17, align 8
-  %19 = call i32 @g_hash_table_remove(ptr noundef %16, ptr noundef %18) #24
+  %19 = call i32 @g_hash_table_remove(ptr noundef %16, ptr noundef %18) #25
   %20 = load ptr, ptr %17, align 8
-  call void @proto_add_deregistered_data(ptr noundef %20) #24
-  call void @proto_add_deregistered_slice(i64 noundef 48, ptr noundef %13) #24
+  call void @proto_add_deregistered_data(ptr noundef %20) #25
+  call void @proto_add_deregistered_slice(i64 noundef 48, ptr noundef %13) #25
   %21 = load ptr, ptr %9, align 8
-  %22 = call ptr @g_slist_delete_link(ptr noundef %21, ptr noundef nonnull %11) #24
+  %22 = call ptr @g_slist_delete_link(ptr noundef %21, ptr noundef nonnull %11) #25
   store ptr %22, ptr %9, align 8
   br label %23
 
@@ -4582,14 +4582,14 @@ define range(i32 0, 2) i32 @dissector_try_heuristic(ptr nocapture noundef %0, pt
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds i8, ptr %2, i64 360
   %23 = load ptr, ptr %22, align 8
-  %24 = tail call i32 @wmem_list_count(ptr noundef %23) #24
+  %24 = tail call i32 @wmem_list_count(ptr noundef %23) #25
   store ptr null, ptr %4, align 8
   %25 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 244), align 4
   %26 = icmp ult i32 %24, %25
   br i1 %26, label %28, label %27
 
 27:                                               ; preds = %12
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.15, i32 noundef 3005, ptr noundef nonnull @.str.37) #26
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.15, i32 noundef 3005, ptr noundef nonnull @.str.37) #27
   unreachable
 
 28:                                               ; preds = %12
@@ -4618,7 +4618,7 @@ define range(i32 0, 2) i32 @dissector_try_heuristic(ptr nocapture noundef %0, pt
   br i1 %.not76, label %.thread, label %40
 
 40:                                               ; preds = %36
-  %41 = tail call i32 @proto_is_protocol_enabled(ptr noundef nonnull %39) #24
+  %41 = tail call i32 @proto_is_protocol_enabled(ptr noundef nonnull %39) #25
   %.not77 = icmp eq i32 %41, 0
   br i1 %.not77, label %.loopexit.thread107, label %42
 
@@ -4634,9 +4634,9 @@ define range(i32 0, 2) i32 @dissector_try_heuristic(ptr nocapture noundef %0, pt
   br i1 %.not78, label %.thread, label %47
 
 47:                                               ; preds = %46
-  %48 = tail call i32 @proto_get_id(ptr noundef nonnull %.pr) #24
+  %48 = tail call i32 @proto_get_id(ptr noundef nonnull %.pr) #25
   %49 = load ptr, ptr %38, align 8
-  %50 = tail call ptr @proto_get_protocol_short_name(ptr noundef %49) #24
+  %50 = tail call ptr @proto_get_protocol_short_name(ptr noundef %49) #25
   store ptr %50, ptr %2, align 8
   tail call fastcc void @add_layer(ptr noundef nonnull %2, i32 noundef %48)
   br label %.thread
@@ -4647,7 +4647,7 @@ define range(i32 0, 2) i32 @dissector_try_heuristic(ptr nocapture noundef %0, pt
   store ptr %52, ptr %20, align 8
   %53 = load i32, ptr %30, align 8
   %54 = load ptr, ptr %37, align 8
-  %55 = tail call i32 %54(ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %5) #24
+  %55 = tail call i32 %54(ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %5) #25
   %56 = icmp eq i32 %55, 0
   br i1 %56, label %.thread100, label %57
 
@@ -4687,35 +4687,35 @@ define range(i32 0, 2) i32 @dissector_try_heuristic(ptr nocapture noundef %0, pt
 
 .thread102:                                       ; preds = %.thread100, %62
   %70 = load ptr, ptr %22, align 8
-  %71 = tail call i32 @wmem_list_count(ptr noundef %70) #24
+  %71 = tail call i32 @wmem_list_count(ptr noundef %70) #25
   %72 = icmp ugt i32 %71, %24
   br i1 %72, label %.lr.ph.split, label %.loopexit
 
 .thread103:                                       ; preds = %65
   %73 = load ptr, ptr %22, align 8
-  %74 = tail call i32 @wmem_list_count(ptr noundef %73) #24
+  %74 = tail call i32 @wmem_list_count(ptr noundef %73) #25
   %75 = icmp ugt i32 %74, %24
   br i1 %75, label %.lr.ph.split.us, label %.thread87
 
 .lr.ph.split.us:                                  ; preds = %.thread103, %remove_last_layer.exit.us
   %76 = load ptr, ptr %22, align 8
-  %77 = tail call ptr @wmem_list_tail(ptr noundef %76) #24
-  %78 = tail call ptr @wmem_list_frame_data(ptr noundef %77) #24
+  %77 = tail call ptr @wmem_list_tail(ptr noundef %76) #25
+  %78 = tail call ptr @wmem_list_frame_data(ptr noundef %77) #25
   %79 = load ptr, ptr %22, align 8
-  tail call void @wmem_list_remove_frame(ptr noundef %79, ptr noundef %77) #24
+  tail call void @wmem_list_remove_frame(ptr noundef %79, ptr noundef %77) #25
   %80 = load ptr, ptr %22, align 8
-  %81 = tail call ptr @wmem_list_tail(ptr noundef %80) #24
+  %81 = tail call ptr @wmem_list_tail(ptr noundef %80) #25
   %.not21.i.us = icmp eq ptr %81, null
   br i1 %.not21.i.us, label %remove_last_layer.exit.us, label %82
 
 82:                                               ; preds = %.lr.ph.split.us
-  %83 = tail call ptr @wmem_list_frame_data(ptr noundef nonnull %81) #24
+  %83 = tail call ptr @wmem_list_frame_data(ptr noundef nonnull %81) #25
   %84 = ptrtoint ptr %83 to i64
   %85 = load ptr, ptr %34, align 8
   %sext22.i.us = shl i64 %84, 32
   %86 = ashr exact i64 %sext22.i.us, 32
   %87 = inttoptr i64 %86 to ptr
-  %88 = tail call ptr @wmem_map_lookup(ptr noundef %85, ptr noundef %87) #24
+  %88 = tail call ptr @wmem_map_lookup(ptr noundef %85, ptr noundef %87) #25
   %89 = load i32, ptr %88, align 4
   %90 = trunc i32 %89 to i8
   store i8 %90, ptr %35, align 1
@@ -4723,7 +4723,7 @@ define range(i32 0, 2) i32 @dissector_try_heuristic(ptr nocapture noundef %0, pt
 
 remove_last_layer.exit.us:                        ; preds = %82, %.lr.ph.split.us
   %91 = load ptr, ptr %22, align 8
-  %92 = tail call i32 @wmem_list_count(ptr noundef %91) #24
+  %92 = tail call i32 @wmem_list_count(ptr noundef %91) #25
   %93 = icmp ugt i32 %92, %24
   br i1 %93, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !17
 
@@ -4732,16 +4732,16 @@ remove_last_layer.exit.us:                        ; preds = %82, %.lr.ph.split.u
   %95 = add i8 %94, -1
   store i8 %95, ptr %33, align 8
   %96 = load ptr, ptr %22, align 8
-  %97 = tail call ptr @wmem_list_tail(ptr noundef %96) #24
-  %98 = tail call ptr @wmem_list_frame_data(ptr noundef %97) #24
+  %97 = tail call ptr @wmem_list_tail(ptr noundef %96) #25
+  %98 = tail call ptr @wmem_list_frame_data(ptr noundef %97) #25
   %99 = load ptr, ptr %22, align 8
-  tail call void @wmem_list_remove_frame(ptr noundef %99, ptr noundef %97) #24
+  tail call void @wmem_list_remove_frame(ptr noundef %99, ptr noundef %97) #25
   %100 = ptrtoint ptr %98 to i64
   %101 = load ptr, ptr %34, align 8
   %sext.i = shl i64 %100, 32
   %102 = ashr exact i64 %sext.i, 32
   %103 = inttoptr i64 %102 to ptr
-  %104 = tail call ptr @wmem_map_lookup(ptr noundef %101, ptr noundef %103) #24
+  %104 = tail call ptr @wmem_map_lookup(ptr noundef %101, ptr noundef %103) #25
   %.not20.i = icmp eq ptr %104, null
   br i1 %.not20.i, label %110, label %105
 
@@ -4757,18 +4757,18 @@ remove_last_layer.exit.us:                        ; preds = %82, %.lr.ph.split.u
 
 110:                                              ; preds = %108, %105, %.lr.ph.split
   %111 = load ptr, ptr %22, align 8
-  %112 = tail call ptr @wmem_list_tail(ptr noundef %111) #24
+  %112 = tail call ptr @wmem_list_tail(ptr noundef %111) #25
   %.not21.i = icmp eq ptr %112, null
   br i1 %.not21.i, label %remove_last_layer.exit, label %113
 
 113:                                              ; preds = %110
-  %114 = tail call ptr @wmem_list_frame_data(ptr noundef nonnull %112) #24
+  %114 = tail call ptr @wmem_list_frame_data(ptr noundef nonnull %112) #25
   %115 = ptrtoint ptr %114 to i64
   %116 = load ptr, ptr %34, align 8
   %sext22.i = shl i64 %115, 32
   %117 = ashr exact i64 %sext22.i, 32
   %118 = inttoptr i64 %117 to ptr
-  %119 = tail call ptr @wmem_map_lookup(ptr noundef %116, ptr noundef %118) #24
+  %119 = tail call ptr @wmem_map_lookup(ptr noundef %116, ptr noundef %118) #25
   %120 = load i32, ptr %119, align 4
   %121 = trunc i32 %120 to i8
   store i8 %121, ptr %35, align 1
@@ -4776,7 +4776,7 @@ remove_last_layer.exit.us:                        ; preds = %82, %.lr.ph.split.u
 
 remove_last_layer.exit:                           ; preds = %110, %113
   %122 = load ptr, ptr %22, align 8
-  %123 = tail call i32 @wmem_list_count(ptr noundef %122) #24
+  %123 = tail call i32 @wmem_list_count(ptr noundef %122) #25
   %124 = icmp ugt i32 %123, %24
   br i1 %124, label %.lr.ph.split, label %.loopexit, !llvm.loop !17
 
@@ -4784,16 +4784,16 @@ remove_last_layer.exit:                           ; preds = %110, %113
   br i1 %56, label %.loopexit.thread107, label %.thread87
 
 .thread87:                                        ; preds = %.thread84, %60, %.thread86, %65, %.thread103, %.loopexit
-  %125 = tail call zeroext i1 @ws_log_msg_is_active(ptr noundef nonnull @.str.14, i32 noundef 2) #24
+  %125 = tail call zeroext i1 @ws_log_msg_is_active(ptr noundef nonnull @.str.14, i32 noundef 2) #25
   store ptr %37, ptr %4, align 8
   %.not82 = icmp eq ptr %.06993, null
   br i1 %.not82, label %.loopexit88, label %126
 
 126:                                              ; preds = %.thread87
   %127 = load ptr, ptr %29, align 8
-  %128 = tail call ptr @g_slist_remove_link(ptr noundef %127, ptr noundef nonnull %.06894) #24
+  %128 = tail call ptr @g_slist_remove_link(ptr noundef %127, ptr noundef nonnull %.06894) #25
   store ptr %128, ptr %29, align 8
-  %129 = tail call ptr @g_slist_concat(ptr noundef nonnull %.06894, ptr noundef %128) #24
+  %129 = tail call ptr @g_slist_concat(ptr noundef nonnull %.06894, ptr noundef %128) #25
   store ptr %129, ptr %29, align 8
   br label %.loopexit88
 
@@ -4831,7 +4831,7 @@ define internal fastcc void @add_layer(ptr nocapture noundef %0, i32 noundef %1)
   %7 = load ptr, ptr %6, align 8
   %8 = sext i32 %1 to i64
   %9 = inttoptr i64 %8 to ptr
-  tail call void @wmem_list_append(ptr noundef %7, ptr noundef %9) #24
+  tail call void @wmem_list_append(ptr noundef %7, ptr noundef %9) #25
   %10 = getelementptr inbounds i8, ptr %0, i64 368
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
@@ -4840,23 +4840,23 @@ define internal fastcc void @add_layer(ptr nocapture noundef %0, i32 noundef %1)
 13:                                               ; preds = %2
   %14 = getelementptr inbounds i8, ptr %0, i64 408
   %15 = load ptr, ptr %14, align 8
-  %16 = tail call noalias ptr @wmem_map_new(ptr noundef %15, ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal) #24
+  %16 = tail call noalias ptr @wmem_map_new(ptr noundef %15, ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal) #25
   store ptr %16, ptr %10, align 8
   br label %17
 
 17:                                               ; preds = %13, %2
   %18 = phi ptr [ %16, %13 ], [ %11, %2 ]
-  %19 = tail call ptr @wmem_map_lookup(ptr noundef %18, ptr noundef %9) #24
+  %19 = tail call ptr @wmem_map_lookup(ptr noundef %18, ptr noundef %9) #25
   %20 = icmp eq ptr %19, null
   br i1 %20, label %21, label %27
 
 21:                                               ; preds = %17
   %22 = getelementptr inbounds i8, ptr %0, i64 408
   %23 = load ptr, ptr %22, align 8
-  %24 = tail call noalias ptr @wmem_alloc(ptr noundef %23, i64 noundef 4) #24
+  %24 = tail call noalias ptr @wmem_alloc(ptr noundef %23, i64 noundef 4) #25
   store i32 1, ptr %24, align 4
   %25 = load ptr, ptr %10, align 8
-  %26 = tail call ptr @wmem_map_insert(ptr noundef %25, ptr noundef %9, ptr noundef nonnull %24) #24
+  %26 = tail call ptr @wmem_map_insert(ptr noundef %25, ptr noundef %9, ptr noundef nonnull %24) #25
   %.pre = load i32, ptr %24, align 4
   br label %30
 
@@ -4889,10 +4889,10 @@ define internal fastcc void @remove_last_layer(ptr nocapture noundef %0, i32 nou
 7:                                                ; preds = %3, %2
   %8 = getelementptr inbounds i8, ptr %0, i64 360
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call ptr @wmem_list_tail(ptr noundef %9) #24
-  %11 = tail call ptr @wmem_list_frame_data(ptr noundef %10) #24
+  %10 = tail call ptr @wmem_list_tail(ptr noundef %9) #25
+  %11 = tail call ptr @wmem_list_frame_data(ptr noundef %10) #25
   %12 = load ptr, ptr %8, align 8
-  tail call void @wmem_list_remove_frame(ptr noundef %12, ptr noundef %10) #24
+  tail call void @wmem_list_remove_frame(ptr noundef %12, ptr noundef %10) #25
   br i1 %.not, label %25, label %13
 
 13:                                               ; preds = %7
@@ -4902,7 +4902,7 @@ define internal fastcc void @remove_last_layer(ptr nocapture noundef %0, i32 nou
   %sext = shl i64 %14, 32
   %17 = ashr exact i64 %sext, 32
   %18 = inttoptr i64 %17 to ptr
-  %19 = tail call ptr @wmem_map_lookup(ptr noundef %16, ptr noundef %18) #24
+  %19 = tail call ptr @wmem_map_lookup(ptr noundef %16, ptr noundef %18) #25
   %.not20 = icmp eq ptr %19, null
   br i1 %.not20, label %25, label %20
 
@@ -4918,19 +4918,19 @@ define internal fastcc void @remove_last_layer(ptr nocapture noundef %0, i32 nou
 
 25:                                               ; preds = %13, %20, %23, %7
   %26 = load ptr, ptr %8, align 8
-  %27 = tail call ptr @wmem_list_tail(ptr noundef %26) #24
+  %27 = tail call ptr @wmem_list_tail(ptr noundef %26) #25
   %.not21 = icmp eq ptr %27, null
   br i1 %.not21, label %39, label %28
 
 28:                                               ; preds = %25
-  %29 = tail call ptr @wmem_list_frame_data(ptr noundef nonnull %27) #24
+  %29 = tail call ptr @wmem_list_frame_data(ptr noundef nonnull %27) #25
   %30 = ptrtoint ptr %29 to i64
   %31 = getelementptr inbounds i8, ptr %0, i64 368
   %32 = load ptr, ptr %31, align 8
   %sext22 = shl i64 %30, 32
   %33 = ashr exact i64 %sext22, 32
   %34 = inttoptr i64 %33 to ptr
-  %35 = tail call ptr @wmem_map_lookup(ptr noundef %32, ptr noundef %34) #24
+  %35 = tail call ptr @wmem_map_lookup(ptr noundef %32, ptr noundef %34) #25
   %36 = load i32, ptr %35, align 4
   %37 = trunc i32 %36 to i8
   %38 = getelementptr inbounds i8, ptr %0, i64 377
@@ -4951,7 +4951,7 @@ declare ptr @g_slist_concat(ptr noundef, ptr noundef) local_unnamed_addr #1
 define void @heur_dissector_table_foreach(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.heur_dissector_foreach_info, align 8
   %5 = load ptr, ptr @heur_dissector_lists, align 8
-  %6 = tail call ptr @g_hash_table_lookup(ptr noundef %5, ptr noundef %0) #24
+  %6 = tail call ptr @g_hash_table_lookup(ptr noundef %5, ptr noundef %0) #25
   %7 = getelementptr inbounds i8, ptr %4, i64 24
   store ptr %0, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 8
@@ -4959,7 +4959,7 @@ define void @heur_dissector_table_foreach(ptr noundef %0, ptr noundef %1, ptr no
   store ptr %2, ptr %4, align 8
   %9 = getelementptr inbounds i8, ptr %6, i64 16
   %10 = load ptr, ptr %9, align 8
-  call void @g_slist_foreach(ptr noundef %10, ptr noundef nonnull @heur_dissector_table_foreach_func, ptr noundef nonnull %4) #24
+  call void @g_slist_foreach(ptr noundef %10, ptr noundef nonnull @heur_dissector_table_foreach_func, ptr noundef nonnull %4) #25
   ret void
 }
 
@@ -4970,7 +4970,7 @@ define internal void @heur_dissector_table_foreach_func(ptr noundef %0, ptr noca
   %5 = getelementptr inbounds i8, ptr %1, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %1, align 8
-  tail call void %4(ptr noundef %6, ptr noundef %0, ptr noundef %7) #24
+  tail call void %4(ptr noundef %6, ptr noundef %0, ptr noundef %7) #25
   ret void
 }
 
@@ -4985,15 +4985,15 @@ define void @dissector_all_heur_tables_foreach_table(ptr noundef %0, ptr noundef
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr @dissector_tables, align 8
-  %8 = tail call ptr @g_hash_table_get_keys(ptr noundef %7) #24
-  %9 = tail call ptr @g_list_sort(ptr noundef %8, ptr noundef nonnull %2) #24
-  call void @g_list_foreach(ptr noundef %9, ptr noundef nonnull @dissector_all_heur_tables_foreach_list_func, ptr noundef nonnull %4) #24
-  call void @g_list_free(ptr noundef %9) #24
+  %8 = tail call ptr @g_hash_table_get_keys(ptr noundef %7) #25
+  %9 = tail call ptr @g_list_sort(ptr noundef %8, ptr noundef nonnull %2) #25
+  call void @g_list_foreach(ptr noundef %9, ptr noundef nonnull @dissector_all_heur_tables_foreach_list_func, ptr noundef nonnull %4) #25
+  call void @g_list_free(ptr noundef %9) #25
   br label %12
 
 10:                                               ; preds = %3
   %11 = load ptr, ptr @heur_dissector_lists, align 8
-  call void @g_hash_table_foreach(ptr noundef %11, ptr noundef nonnull @dissector_all_heur_tables_foreach_table_func, ptr noundef nonnull %4) #24
+  call void @g_hash_table_foreach(ptr noundef %11, ptr noundef nonnull @dissector_all_heur_tables_foreach_table_func, ptr noundef nonnull %4) #25
   br label %12
 
 12:                                               ; preds = %10, %6
@@ -5003,11 +5003,11 @@ define void @dissector_all_heur_tables_foreach_table(ptr noundef %0, ptr noundef
 ; Function Attrs: nounwind uwtable
 define internal void @dissector_all_heur_tables_foreach_list_func(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
   %3 = load ptr, ptr @heur_dissector_lists, align 8
-  %4 = tail call ptr @g_hash_table_lookup(ptr noundef %3, ptr noundef %0) #24
+  %4 = tail call ptr @g_hash_table_lookup(ptr noundef %3, ptr noundef %0) #25
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %1, align 8
-  tail call void %6(ptr noundef %0, ptr noundef %4, ptr noundef %7) #24
+  tail call void %6(ptr noundef %0, ptr noundef %4, ptr noundef %7) #25
   ret void
 }
 
@@ -5016,7 +5016,7 @@ define internal void @dissector_all_heur_tables_foreach_table_func(ptr noundef %
   %4 = getelementptr inbounds i8, ptr %2, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %2, align 8
-  tail call void %5(ptr noundef %0, ptr noundef %1, ptr noundef %6) #24
+  tail call void %5(ptr noundef %0, ptr noundef %1, ptr noundef %6) #25
   ret void
 }
 
@@ -5028,7 +5028,7 @@ define void @dissector_dump_heur_decodes() local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %1, i64 8
   store ptr @dissector_dump_heur_decodes_display, ptr %2, align 8
   %3 = load ptr, ptr @heur_dissector_lists, align 8
-  call void @g_hash_table_foreach(ptr noundef %3, ptr noundef nonnull @dissector_all_heur_tables_foreach_table_func, ptr noundef nonnull %1) #24
+  call void @g_hash_table_foreach(ptr noundef %3, ptr noundef nonnull @dissector_all_heur_tables_foreach_table_func, ptr noundef nonnull %1) #25
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1)
   ret void
 }
@@ -5038,7 +5038,7 @@ define internal void @dissector_dump_heur_decodes_display(ptr noundef %0, ptr no
   %4 = alloca %struct.heur_dissector_foreach_info, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   %5 = load ptr, ptr @heur_dissector_lists, align 8
-  %6 = tail call ptr @g_hash_table_lookup(ptr noundef %5, ptr noundef %0) #24
+  %6 = tail call ptr @g_hash_table_lookup(ptr noundef %5, ptr noundef %0) #25
   %7 = getelementptr inbounds i8, ptr %4, i64 24
   store ptr %0, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 8
@@ -5046,7 +5046,7 @@ define internal void @dissector_dump_heur_decodes_display(ptr noundef %0, ptr no
   store ptr null, ptr %4, align 8
   %9 = getelementptr inbounds i8, ptr %6, i64 16
   %10 = load ptr, ptr %9, align 8
-  call void @g_slist_foreach(ptr noundef %10, ptr noundef nonnull @heur_dissector_table_foreach_func, ptr noundef nonnull %4) #24
+  call void @g_slist_foreach(ptr noundef %10, ptr noundef nonnull @heur_dissector_table_foreach_func, ptr noundef nonnull %4) #25
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   ret void
 }
@@ -5054,21 +5054,21 @@ define internal void @dissector_dump_heur_decodes_display(ptr noundef %0, ptr no
 ; Function Attrs: nounwind uwtable
 define noundef ptr @register_heur_dissector_list_with_description(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr @heur_dissector_lists, align 8
-  %5 = tail call ptr @g_hash_table_lookup(ptr noundef %4, ptr noundef %0) #24
+  %5 = tail call ptr @g_hash_table_lookup(ptr noundef %4, ptr noundef %0) #25
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %7, label %6
 
 6:                                                ; preds = %3
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 3224, ptr noundef nonnull @__func__.register_heur_dissector_list_with_description, ptr noundef nonnull @.str.38, ptr noundef %0) #26
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 3224, ptr noundef nonnull @__func__.register_heur_dissector_list_with_description, ptr noundef nonnull @.str.38, ptr noundef %0) #27
   unreachable
 
 7:                                                ; preds = %3
-  %8 = tail call noalias dereferenceable_or_null(24) ptr @g_slice_alloc(i64 noundef 24) #30
+  %8 = tail call noalias dereferenceable_or_null(24) ptr @g_slice_alloc(i64 noundef 24) #31
   %9 = icmp eq i32 %2, -1
   br i1 %9, label %12, label %10
 
 10:                                               ; preds = %7
-  %11 = tail call ptr @find_protocol_by_id(i32 noundef %2) #24
+  %11 = tail call ptr @find_protocol_by_id(i32 noundef %2) #25
   br label %12
 
 12:                                               ; preds = %7, %10
@@ -5079,28 +5079,28 @@ define noundef ptr @register_heur_dissector_list_with_description(ptr noundef %0
   %15 = getelementptr inbounds i8, ptr %8, i64 16
   store ptr null, ptr %15, align 8
   %16 = load ptr, ptr @heur_dissector_lists, align 8
-  %17 = tail call i32 @g_hash_table_insert(ptr noundef %16, ptr noundef %0, ptr noundef nonnull %8) #24
+  %17 = tail call i32 @g_hash_table_insert(ptr noundef %16, ptr noundef %0, ptr noundef nonnull %8) #25
   ret ptr %8
 }
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @register_heur_dissector_list(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @heur_dissector_lists, align 8
-  %4 = tail call ptr @g_hash_table_lookup(ptr noundef %3, ptr noundef %0) #24
+  %4 = tail call ptr @g_hash_table_lookup(ptr noundef %3, ptr noundef %0) #25
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %6, label %5
 
 5:                                                ; preds = %2
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 3224, ptr noundef nonnull @__func__.register_heur_dissector_list_with_description, ptr noundef nonnull @.str.38, ptr noundef %0) #26
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 3224, ptr noundef nonnull @__func__.register_heur_dissector_list_with_description, ptr noundef nonnull @.str.38, ptr noundef %0) #27
   unreachable
 
 6:                                                ; preds = %2
-  %7 = tail call noalias dereferenceable_or_null(24) ptr @g_slice_alloc(i64 noundef 24) #30
+  %7 = tail call noalias dereferenceable_or_null(24) ptr @g_slice_alloc(i64 noundef 24) #31
   %8 = icmp eq i32 %1, -1
   br i1 %8, label %register_heur_dissector_list_with_description.exit, label %9
 
 9:                                                ; preds = %6
-  %10 = tail call ptr @find_protocol_by_id(i32 noundef %1) #24
+  %10 = tail call ptr @find_protocol_by_id(i32 noundef %1) #25
   br label %register_heur_dissector_list_with_description.exit
 
 register_heur_dissector_list_with_description.exit: ; preds = %6, %9
@@ -5111,7 +5111,7 @@ register_heur_dissector_list_with_description.exit: ; preds = %6, %9
   %13 = getelementptr inbounds i8, ptr %7, i64 16
   store ptr null, ptr %13, align 8
   %14 = load ptr, ptr @heur_dissector_lists, align 8
-  %15 = tail call i32 @g_hash_table_insert(ptr noundef %14, ptr noundef %0, ptr noundef nonnull %7) #24
+  %15 = tail call i32 @g_hash_table_insert(ptr noundef %14, ptr noundef %0, ptr noundef nonnull %7) #25
   ret ptr %7
 }
 
@@ -5141,7 +5141,7 @@ define ptr @dissector_handle_get_protocol_long_name(ptr noundef readonly %0) loc
   br i1 %6, label %9, label %7
 
 7:                                                ; preds = %3
-  %8 = tail call ptr @proto_get_protocol_long_name(ptr noundef nonnull %5) #24
+  %8 = tail call ptr @proto_get_protocol_long_name(ptr noundef nonnull %5) #25
   br label %9
 
 9:                                                ; preds = %1, %3, %7
@@ -5161,7 +5161,7 @@ define ptr @dissector_handle_get_protocol_short_name(ptr noundef readonly %0) lo
   br i1 %6, label %9, label %7
 
 7:                                                ; preds = %3
-  %8 = tail call ptr @proto_get_protocol_short_name(ptr noundef nonnull %5) #24
+  %8 = tail call ptr @proto_get_protocol_short_name(ptr noundef nonnull %5) #25
   br label %9
 
 9:                                                ; preds = %1, %3, %7
@@ -5181,7 +5181,7 @@ define ptr @dissector_handle_get_short_name(ptr noundef readonly %0) local_unnam
   br i1 %6, label %dissector_handle_get_protocol_short_name.exit, label %7
 
 7:                                                ; preds = %3
-  %8 = tail call ptr @proto_get_protocol_short_name(ptr noundef nonnull %5) #24
+  %8 = tail call ptr @proto_get_protocol_short_name(ptr noundef nonnull %5) #25
   br label %dissector_handle_get_protocol_short_name.exit
 
 dissector_handle_get_protocol_short_name.exit:    ; preds = %1, %3, %7
@@ -5204,7 +5204,7 @@ define i32 @dissector_handle_get_protocol_index(ptr nocapture noundef readonly %
   br i1 %4, label %7, label %5
 
 5:                                                ; preds = %1
-  %6 = tail call i32 @proto_get_id(ptr noundef nonnull %3) #24
+  %6 = tail call i32 @proto_get_id(ptr noundef nonnull %3) #25
   br label %7
 
 7:                                                ; preds = %1, %5
@@ -5219,7 +5219,7 @@ define ptr @get_dissector_names() local_unnamed_addr #0 {
   br i1 %.not, label %4, label %2
 
 2:                                                ; preds = %0
-  %3 = tail call ptr @g_hash_table_get_keys(ptr noundef nonnull %1) #24
+  %3 = tail call ptr @g_hash_table_get_keys(ptr noundef nonnull %1) #25
   br label %4
 
 4:                                                ; preds = %0, %2
@@ -5230,22 +5230,22 @@ define ptr @get_dissector_names() local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define ptr @find_dissector_add_dependency(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @registered_dissectors, align 8
-  %4 = tail call ptr @g_hash_table_lookup(ptr noundef %3, ptr noundef %0) #24
+  %4 = tail call ptr @g_hash_table_lookup(ptr noundef %3, ptr noundef %0) #25
   %5 = icmp ne ptr %4, null
   %6 = icmp sgt i32 %1, 0
   %or.cond = and i1 %6, %5
   br i1 %or.cond, label %7, label %16
 
 7:                                                ; preds = %2
-  %8 = tail call ptr @find_protocol_by_id(i32 noundef %1) #24
-  %9 = tail call ptr @proto_get_protocol_short_name(ptr noundef %8) #24
+  %8 = tail call ptr @find_protocol_by_id(i32 noundef %1) #25
+  %9 = tail call ptr @proto_get_protocol_short_name(ptr noundef %8) #25
   %10 = getelementptr inbounds i8, ptr %4, i64 40
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %dissector_handle_get_protocol_short_name.exit, label %13
 
 13:                                               ; preds = %7
-  %14 = tail call ptr @proto_get_protocol_short_name(ptr noundef nonnull %11) #24
+  %14 = tail call ptr @proto_get_protocol_short_name(ptr noundef nonnull %11) #25
   br label %dissector_handle_get_protocol_short_name.exit
 
 dissector_handle_get_protocol_short_name.exit:    ; preds = %7, %13
@@ -5259,14 +5259,14 @@ dissector_handle_get_protocol_short_name.exit:    ; preds = %7, %13
 
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @create_dissector_handle(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = tail call ptr @wmem_epan_scope() #24
-  %4 = tail call noalias ptr @wmem_alloc(ptr noundef %3, i64 noundef 48) #24
+  %3 = tail call ptr @wmem_epan_scope() #25
+  %4 = tail call noalias ptr @wmem_alloc(ptr noundef %3, i64 noundef 48) #25
   %5 = getelementptr inbounds i8, ptr %4, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %4, i8 0, i64 20, i1 false)
   store ptr %0, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %4, i64 32
   store ptr null, ptr %6, align 8
-  %7 = tail call ptr @find_protocol_by_id(i32 noundef %1) #24
+  %7 = tail call ptr @find_protocol_by_id(i32 noundef %1) #25
   %8 = getelementptr inbounds i8, ptr %4, i64 40
   store ptr %7, ptr %8, align 8
   %.not.i = icmp eq ptr %7, null
@@ -5274,7 +5274,7 @@ define noalias noundef ptr @create_dissector_handle(ptr noundef %0, i32 noundef 
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %4, i64 8
-  %11 = tail call ptr @proto_get_protocol_short_name(ptr noundef nonnull %7) #24
+  %11 = tail call ptr @proto_get_protocol_short_name(ptr noundef nonnull %7) #25
   store ptr %11, ptr %10, align 8
   br label %new_dissector_handle.exit
 
@@ -5284,8 +5284,8 @@ new_dissector_handle.exit:                        ; preds = %2, %9
 
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @create_dissector_handle_with_name(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = tail call ptr @wmem_epan_scope() #24
-  %5 = tail call noalias ptr @wmem_alloc(ptr noundef %4, i64 noundef 48) #24
+  %4 = tail call ptr @wmem_epan_scope() #25
+  %5 = tail call noalias ptr @wmem_alloc(ptr noundef %4, i64 noundef 48) #25
   store ptr %2, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr null, ptr %6, align 8
@@ -5295,14 +5295,14 @@ define noalias noundef ptr @create_dissector_handle_with_name(ptr noundef %0, i3
   store ptr %0, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %5, i64 32
   store ptr null, ptr %9, align 8
-  %10 = tail call ptr @find_protocol_by_id(i32 noundef %1) #24
+  %10 = tail call ptr @find_protocol_by_id(i32 noundef %1) #25
   %11 = getelementptr inbounds i8, ptr %5, i64 40
   store ptr %10, ptr %11, align 8
   %.not.i = icmp eq ptr %10, null
   br i1 %.not.i, label %new_dissector_handle.exit, label %12
 
 12:                                               ; preds = %3
-  %13 = tail call ptr @proto_get_protocol_short_name(ptr noundef nonnull %10) #24
+  %13 = tail call ptr @proto_get_protocol_short_name(ptr noundef nonnull %10) #25
   store ptr %13, ptr %6, align 8
   br label %new_dissector_handle.exit
 
@@ -5312,8 +5312,8 @@ new_dissector_handle.exit:                        ; preds = %3, %12
 
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @create_dissector_handle_with_name_and_description(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
-  %5 = tail call ptr @wmem_epan_scope() #24
-  %6 = tail call noalias ptr @wmem_alloc(ptr noundef %5, i64 noundef 48) #24
+  %5 = tail call ptr @wmem_epan_scope() #25
+  %6 = tail call noalias ptr @wmem_alloc(ptr noundef %5, i64 noundef 48) #25
   store ptr %2, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %3, ptr %7, align 8
@@ -5323,7 +5323,7 @@ define noalias noundef ptr @create_dissector_handle_with_name_and_description(pt
   store ptr %0, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %6, i64 32
   store ptr null, ptr %10, align 8
-  %11 = tail call ptr @find_protocol_by_id(i32 noundef %1) #24
+  %11 = tail call ptr @find_protocol_by_id(i32 noundef %1) #25
   %12 = getelementptr inbounds i8, ptr %6, i64 40
   store ptr %11, ptr %12, align 8
   %13 = icmp ne ptr %3, null
@@ -5332,7 +5332,7 @@ define noalias noundef ptr @create_dissector_handle_with_name_and_description(pt
   br i1 %or.cond.i, label %new_dissector_handle.exit, label %14
 
 14:                                               ; preds = %4
-  %15 = tail call ptr @proto_get_protocol_short_name(ptr noundef nonnull %11) #24
+  %15 = tail call ptr @proto_get_protocol_short_name(ptr noundef nonnull %11) #25
   store ptr %15, ptr %7, align 8
   br label %new_dissector_handle.exit
 
@@ -5342,8 +5342,8 @@ new_dissector_handle.exit:                        ; preds = %4, %14
 
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @create_dissector_handle_with_data(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = tail call ptr @wmem_epan_scope() #24
-  %5 = tail call noalias ptr @wmem_alloc(ptr noundef %4, i64 noundef 48) #24
+  %4 = tail call ptr @wmem_epan_scope() #25
+  %5 = tail call noalias ptr @wmem_alloc(ptr noundef %4, i64 noundef 48) #25
   %6 = getelementptr inbounds i8, ptr %5, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   store i32 1, ptr %6, align 8
@@ -5351,7 +5351,7 @@ define noalias noundef ptr @create_dissector_handle_with_data(ptr noundef %0, i3
   store ptr %0, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 32
   store ptr %2, ptr %8, align 8
-  %9 = tail call ptr @find_protocol_by_id(i32 noundef %1) #24
+  %9 = tail call ptr @find_protocol_by_id(i32 noundef %1) #25
   %10 = getelementptr inbounds i8, ptr %5, i64 40
   store ptr %9, ptr %10, align 8
   %.not.i = icmp eq ptr %9, null
@@ -5359,7 +5359,7 @@ define noalias noundef ptr @create_dissector_handle_with_data(ptr noundef %0, i3
 
 11:                                               ; preds = %3
   %12 = getelementptr inbounds i8, ptr %5, i64 8
-  %13 = tail call ptr @proto_get_protocol_short_name(ptr noundef nonnull %9) #24
+  %13 = tail call ptr @proto_get_protocol_short_name(ptr noundef nonnull %9) #25
   store ptr %13, ptr %12, align 8
   br label %new_dissector_handle.exit
 
@@ -5369,8 +5369,8 @@ new_dissector_handle.exit:                        ; preds = %3, %11
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @register_dissector(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = tail call ptr @wmem_epan_scope() #24
-  %5 = tail call noalias ptr @wmem_alloc(ptr noundef %4, i64 noundef 48) #24
+  %4 = tail call ptr @wmem_epan_scope() #25
+  %5 = tail call noalias ptr @wmem_alloc(ptr noundef %4, i64 noundef 48) #25
   store ptr %0, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr null, ptr %6, align 8
@@ -5380,34 +5380,34 @@ define noundef ptr @register_dissector(ptr noundef %0, ptr noundef %1, i32 nound
   store ptr %1, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %5, i64 32
   store ptr null, ptr %9, align 8
-  %10 = tail call ptr @find_protocol_by_id(i32 noundef %2) #24
+  %10 = tail call ptr @find_protocol_by_id(i32 noundef %2) #25
   %11 = getelementptr inbounds i8, ptr %5, i64 40
   store ptr %10, ptr %11, align 8
   %.not.i = icmp eq ptr %10, null
   br i1 %.not.i, label %new_dissector_handle.exit, label %12
 
 12:                                               ; preds = %3
-  %13 = tail call ptr @proto_get_protocol_short_name(ptr noundef nonnull %10) #24
+  %13 = tail call ptr @proto_get_protocol_short_name(ptr noundef nonnull %10) #25
   store ptr %13, ptr %6, align 8
   br label %new_dissector_handle.exit
 
 new_dissector_handle.exit:                        ; preds = %3, %12
-  %14 = tail call zeroext i8 @proto_check_field_name(ptr noundef %0) #24
+  %14 = tail call zeroext i8 @proto_check_field_name(ptr noundef %0) #25
   %.not.i.i = icmp eq i8 %14, 0
   br i1 %.not.i.i, label %check_valid_dissector_name_or_fail.exit.i, label %15
 
 15:                                               ; preds = %new_dissector_handle.exit
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 3429, ptr noundef nonnull @__func__.check_valid_dissector_name_or_fail, ptr noundef nonnull @.str.52, ptr noundef %0) #26
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 3429, ptr noundef nonnull @__func__.check_valid_dissector_name_or_fail, ptr noundef nonnull @.str.52, ptr noundef %0) #27
   unreachable
 
 check_valid_dissector_name_or_fail.exit.i:        ; preds = %new_dissector_handle.exit
   %16 = load ptr, ptr @registered_dissectors, align 8
-  %17 = tail call i32 @g_hash_table_insert(ptr noundef %16, ptr noundef %0, ptr noundef nonnull %5) #24
+  %17 = tail call i32 @g_hash_table_insert(ptr noundef %16, ptr noundef %0, ptr noundef nonnull %5) #25
   %.not.i4 = icmp eq i32 %17, 0
   br i1 %.not.i4, label %18, label %register_dissector_handle.exit
 
 18:                                               ; preds = %check_valid_dissector_name_or_fail.exit.i
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 3445, ptr noundef nonnull @__func__.register_dissector_handle, ptr noundef nonnull @.str.51, ptr noundef %0) #26
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 3445, ptr noundef nonnull @__func__.register_dissector_handle, ptr noundef nonnull @.str.51, ptr noundef %0) #27
   unreachable
 
 register_dissector_handle.exit:                   ; preds = %check_valid_dissector_name_or_fail.exit.i
@@ -5416,8 +5416,8 @@ register_dissector_handle.exit:                   ; preds = %check_valid_dissect
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @register_dissector_with_description(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
-  %5 = tail call ptr @wmem_epan_scope() #24
-  %6 = tail call noalias ptr @wmem_alloc(ptr noundef %5, i64 noundef 48) #24
+  %5 = tail call ptr @wmem_epan_scope() #25
+  %6 = tail call noalias ptr @wmem_alloc(ptr noundef %5, i64 noundef 48) #25
   store ptr %0, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %1, ptr %7, align 8
@@ -5427,7 +5427,7 @@ define noundef ptr @register_dissector_with_description(ptr noundef %0, ptr noun
   store ptr %2, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %6, i64 32
   store ptr null, ptr %10, align 8
-  %11 = tail call ptr @find_protocol_by_id(i32 noundef %3) #24
+  %11 = tail call ptr @find_protocol_by_id(i32 noundef %3) #25
   %12 = getelementptr inbounds i8, ptr %6, i64 40
   store ptr %11, ptr %12, align 8
   %13 = icmp ne ptr %1, null
@@ -5436,27 +5436,27 @@ define noundef ptr @register_dissector_with_description(ptr noundef %0, ptr noun
   br i1 %or.cond.i, label %new_dissector_handle.exit, label %14
 
 14:                                               ; preds = %4
-  %15 = tail call ptr @proto_get_protocol_short_name(ptr noundef nonnull %11) #24
+  %15 = tail call ptr @proto_get_protocol_short_name(ptr noundef nonnull %11) #25
   store ptr %15, ptr %7, align 8
   br label %new_dissector_handle.exit
 
 new_dissector_handle.exit:                        ; preds = %4, %14
-  %16 = tail call zeroext i8 @proto_check_field_name(ptr noundef %0) #24
+  %16 = tail call zeroext i8 @proto_check_field_name(ptr noundef %0) #25
   %.not.i.i = icmp eq i8 %16, 0
   br i1 %.not.i.i, label %check_valid_dissector_name_or_fail.exit.i, label %17
 
 17:                                               ; preds = %new_dissector_handle.exit
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 3429, ptr noundef nonnull @__func__.check_valid_dissector_name_or_fail, ptr noundef nonnull @.str.52, ptr noundef %0) #26
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 3429, ptr noundef nonnull @__func__.check_valid_dissector_name_or_fail, ptr noundef nonnull @.str.52, ptr noundef %0) #27
   unreachable
 
 check_valid_dissector_name_or_fail.exit.i:        ; preds = %new_dissector_handle.exit
   %18 = load ptr, ptr @registered_dissectors, align 8
-  %19 = tail call i32 @g_hash_table_insert(ptr noundef %18, ptr noundef %0, ptr noundef nonnull %6) #24
+  %19 = tail call i32 @g_hash_table_insert(ptr noundef %18, ptr noundef %0, ptr noundef nonnull %6) #25
   %.not.i5 = icmp eq i32 %19, 0
   br i1 %.not.i5, label %20, label %register_dissector_handle.exit
 
 20:                                               ; preds = %check_valid_dissector_name_or_fail.exit.i
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 3445, ptr noundef nonnull @__func__.register_dissector_handle, ptr noundef nonnull @.str.51, ptr noundef %0) #26
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 3445, ptr noundef nonnull @__func__.register_dissector_handle, ptr noundef nonnull @.str.51, ptr noundef %0) #27
   unreachable
 
 register_dissector_handle.exit:                   ; preds = %check_valid_dissector_name_or_fail.exit.i
@@ -5465,8 +5465,8 @@ register_dissector_handle.exit:                   ; preds = %check_valid_dissect
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @register_dissector_with_data(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
-  %5 = tail call ptr @wmem_epan_scope() #24
-  %6 = tail call noalias ptr @wmem_alloc(ptr noundef %5, i64 noundef 48) #24
+  %5 = tail call ptr @wmem_epan_scope() #25
+  %6 = tail call noalias ptr @wmem_alloc(ptr noundef %5, i64 noundef 48) #25
   store ptr %0, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr null, ptr %7, align 8
@@ -5476,34 +5476,34 @@ define noundef ptr @register_dissector_with_data(ptr noundef %0, ptr noundef %1,
   store ptr %1, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %6, i64 32
   store ptr %3, ptr %10, align 8
-  %11 = tail call ptr @find_protocol_by_id(i32 noundef %2) #24
+  %11 = tail call ptr @find_protocol_by_id(i32 noundef %2) #25
   %12 = getelementptr inbounds i8, ptr %6, i64 40
   store ptr %11, ptr %12, align 8
   %.not.i = icmp eq ptr %11, null
   br i1 %.not.i, label %new_dissector_handle.exit, label %13
 
 13:                                               ; preds = %4
-  %14 = tail call ptr @proto_get_protocol_short_name(ptr noundef nonnull %11) #24
+  %14 = tail call ptr @proto_get_protocol_short_name(ptr noundef nonnull %11) #25
   store ptr %14, ptr %7, align 8
   br label %new_dissector_handle.exit
 
 new_dissector_handle.exit:                        ; preds = %4, %13
-  %15 = tail call zeroext i8 @proto_check_field_name(ptr noundef %0) #24
+  %15 = tail call zeroext i8 @proto_check_field_name(ptr noundef %0) #25
   %.not.i.i = icmp eq i8 %15, 0
   br i1 %.not.i.i, label %check_valid_dissector_name_or_fail.exit.i, label %16
 
 16:                                               ; preds = %new_dissector_handle.exit
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 3429, ptr noundef nonnull @__func__.check_valid_dissector_name_or_fail, ptr noundef nonnull @.str.52, ptr noundef %0) #26
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 3429, ptr noundef nonnull @__func__.check_valid_dissector_name_or_fail, ptr noundef nonnull @.str.52, ptr noundef %0) #27
   unreachable
 
 check_valid_dissector_name_or_fail.exit.i:        ; preds = %new_dissector_handle.exit
   %17 = load ptr, ptr @registered_dissectors, align 8
-  %18 = tail call i32 @g_hash_table_insert(ptr noundef %17, ptr noundef %0, ptr noundef nonnull %6) #24
+  %18 = tail call i32 @g_hash_table_insert(ptr noundef %17, ptr noundef %0, ptr noundef nonnull %6) #25
   %.not.i5 = icmp eq i32 %18, 0
   br i1 %.not.i5, label %19, label %register_dissector_handle.exit
 
 19:                                               ; preds = %check_valid_dissector_name_or_fail.exit.i
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 3445, ptr noundef nonnull @__func__.register_dissector_handle, ptr noundef nonnull @.str.51, ptr noundef %0) #26
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 3445, ptr noundef nonnull @__func__.register_dissector_handle, ptr noundef nonnull @.str.51, ptr noundef %0) #27
   unreachable
 
 register_dissector_handle.exit:                   ; preds = %check_valid_dissector_name_or_fail.exit.i
@@ -5513,21 +5513,21 @@ register_dissector_handle.exit:                   ; preds = %check_valid_dissect
 ; Function Attrs: nounwind uwtable
 define hidden void @deregister_dissector(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @registered_dissectors, align 8
-  %3 = tail call ptr @g_hash_table_lookup(ptr noundef %2, ptr noundef %0) #24
+  %3 = tail call ptr @g_hash_table_lookup(ptr noundef %2, ptr noundef %0) #25
   %4 = icmp eq ptr %3, null
   br i1 %4, label %33, label %5
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr @registered_dissectors, align 8
-  %7 = tail call i32 @g_hash_table_remove(ptr noundef %6, ptr noundef %0) #24
+  %7 = tail call i32 @g_hash_table_remove(ptr noundef %6, ptr noundef %0) #25
   %8 = load ptr, ptr @depend_dissector_lists, align 8
-  %9 = tail call i32 @g_hash_table_remove(ptr noundef %8, ptr noundef %0) #24
+  %9 = tail call i32 @g_hash_table_remove(ptr noundef %8, ptr noundef %0) #25
   %10 = load ptr, ptr @depend_dissector_lists, align 8
-  tail call void @g_hash_table_foreach(ptr noundef %10, ptr noundef nonnull @remove_depend_dissector_ghfunc, ptr noundef %0) #24
+  tail call void @g_hash_table_foreach(ptr noundef %10, ptr noundef nonnull @remove_depend_dissector_ghfunc, ptr noundef %0) #25
   %11 = load ptr, ptr @heur_dissector_lists, align 8
-  %12 = tail call i32 @g_hash_table_remove(ptr noundef %11, ptr noundef %0) #24
+  %12 = tail call i32 @g_hash_table_remove(ptr noundef %11, ptr noundef %0) #25
   %13 = load ptr, ptr @dissector_tables, align 8
-  tail call void @g_hash_table_foreach(ptr noundef %13, ptr noundef nonnull @dissector_delete_from_table, ptr noundef nonnull %3) #24
+  tail call void @g_hash_table_foreach(ptr noundef %13, ptr noundef nonnull @dissector_delete_from_table, ptr noundef nonnull %3) #25
   %14 = load ptr, ptr @postdissectors, align 8
   %.not.i.i = icmp eq ptr %14, null
   br i1 %.not.i.i, label %destroy_dissector_handle.exit, label %.preheader.i.i
@@ -5558,13 +5558,13 @@ define hidden void @deregister_dissector(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not7.i.i, label %28, label %26
 
 26:                                               ; preds = %22
-  %27 = tail call ptr @g_array_free(ptr noundef nonnull %25, i32 noundef 1) #24
+  %27 = tail call ptr @g_array_free(ptr noundef nonnull %25, i32 noundef 1) #25
   %.pre.i.i = load ptr, ptr @postdissectors, align 8
   br label %28
 
 28:                                               ; preds = %26, %22
   %29 = phi ptr [ %.pre.i.i, %26 ], [ %14, %22 ]
-  %30 = tail call ptr @g_array_remove_index_fast(ptr noundef %29, i32 noundef %23) #24
+  %30 = tail call ptr @g_array_remove_index_fast(ptr noundef %29, i32 noundef %23) #25
   store ptr %30, ptr @postdissectors, align 8
   br label %destroy_dissector_handle.exit
 
@@ -5574,8 +5574,8 @@ define hidden void @deregister_dissector(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %exitcond.not.i.i, label %destroy_dissector_handle.exit, label %18, !llvm.loop !19
 
 destroy_dissector_handle.exit:                    ; preds = %31, %5, %.preheader.i.i, %28
-  %32 = tail call ptr @wmem_epan_scope() #24
-  tail call void @wmem_free(ptr noundef %32, ptr noundef nonnull %3) #24
+  %32 = tail call ptr @wmem_epan_scope() #25
+  tail call void @wmem_free(ptr noundef %32, ptr noundef nonnull %3) #25
   br label %33
 
 33:                                               ; preds = %1, %destroy_dissector_handle.exit
@@ -5585,15 +5585,15 @@ destroy_dissector_handle.exit:                    ; preds = %31, %5, %.preheader
 ; Function Attrs: nounwind uwtable
 define internal void @remove_depend_dissector_ghfunc(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr noundef %2) #0 {
   %4 = load ptr, ptr %1, align 8
-  %5 = tail call ptr @g_slist_find_custom(ptr noundef %4, ptr noundef %2, ptr noundef nonnull @strcmp) #24
+  %5 = tail call ptr @g_slist_find_custom(ptr noundef %4, ptr noundef %2, ptr noundef nonnull @strcmp) #25
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %remove_depend_dissector_from_list.exit, label %6
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr %5, align 8
-  tail call void @g_free(ptr noundef %7) #24
+  tail call void @g_free(ptr noundef %7) #25
   %8 = load ptr, ptr %1, align 8
-  %9 = tail call ptr @g_slist_delete_link(ptr noundef %8, ptr noundef nonnull %5) #24
+  %9 = tail call ptr @g_slist_delete_link(ptr noundef %8, ptr noundef nonnull %5) #25
   store ptr %9, ptr %1, align 8
   br label %remove_depend_dissector_from_list.exit
 
@@ -5607,7 +5607,7 @@ define i32 @call_dissector_only(ptr noundef readonly %0, ptr noundef %1, ptr nou
   br i1 %.not, label %6, label %7
 
 6:                                                ; preds = %5
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.15, i32 noundef 3532, ptr noundef nonnull @.str.39) #26
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.15, i32 noundef 3532, ptr noundef nonnull @.str.39) #27
   unreachable
 
 7:                                                ; preds = %5
@@ -5621,7 +5621,7 @@ define i32 @call_dissector(ptr noundef readonly %0, ptr noundef %1, ptr noundef 
   br i1 %.not.i.i, label %5, label %call_dissector_only.exit.i
 
 5:                                                ; preds = %4
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.15, i32 noundef 3532, ptr noundef nonnull @.str.39) #26
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.15, i32 noundef 3532, ptr noundef nonnull @.str.39) #27
   unreachable
 
 call_dissector_only.exit.i:                       ; preds = %4
@@ -5637,12 +5637,12 @@ call_dissector_only.exit.i:                       ; preds = %4
   br i1 %.not.i, label %12, label %13
 
 12:                                               ; preds = %8
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.15, i32 noundef 3552, ptr noundef nonnull @.str.40) #26
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.15, i32 noundef 3552, ptr noundef nonnull @.str.40) #27
   unreachable
 
 13:                                               ; preds = %8
   %14 = tail call fastcc i32 @call_dissector_work(ptr noundef nonnull %9, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef 1, ptr noundef null)
-  %15 = tail call i32 @tvb_captured_length(ptr noundef %1) #24
+  %15 = tail call i32 @tvb_captured_length(ptr noundef %1) #25
   br label %call_dissector_with_data.exit
 
 call_dissector_with_data.exit:                    ; preds = %call_dissector_only.exit.i, %13
@@ -5663,7 +5663,7 @@ define void @call_heur_dissector_direct(ptr noundef readonly %0, ptr noundef %1,
   br i1 %.not, label %6, label %7
 
 6:                                                ; preds = %5
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.15, i32 noundef 3583, ptr noundef nonnull @.str.41) #26
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.15, i32 noundef 3583, ptr noundef nonnull @.str.41) #27
   unreachable
 
 7:                                                ; preds = %5
@@ -5680,7 +5680,7 @@ define void @call_heur_dissector_direct(ptr noundef readonly %0, ptr noundef %1,
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %2, i64 360
   %17 = load ptr, ptr %16, align 8
-  %18 = tail call i32 @wmem_list_count(ptr noundef %17) #24
+  %18 = tail call i32 @wmem_list_count(ptr noundef %17) #25
   %19 = getelementptr inbounds i8, ptr %0, i64 40
   %20 = load i32, ptr %19, align 8
   %.not41 = icmp eq i32 %20, 0
@@ -5693,7 +5693,7 @@ define void @call_heur_dissector_direct(ptr noundef readonly %0, ptr noundef %1,
   br i1 %.not42, label %.thread, label %24
 
 24:                                               ; preds = %21
-  %25 = tail call i32 @proto_is_protocol_enabled(ptr noundef nonnull %23) #24
+  %25 = tail call i32 @proto_is_protocol_enabled(ptr noundef nonnull %23) #25
   %.not43 = icmp eq i32 %25, 0
   br i1 %.not43, label %26, label %33
 
@@ -5705,7 +5705,7 @@ define void @call_heur_dissector_direct(ptr noundef readonly %0, ptr noundef %1,
   br i1 %.not44, label %30, label %31
 
 30:                                               ; preds = %26
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.15, i32 noundef 3605, ptr noundef nonnull @.str.40) #26
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.15, i32 noundef 3605, ptr noundef nonnull @.str.40) #27
   unreachable
 
 31:                                               ; preds = %26
@@ -5718,10 +5718,10 @@ define void @call_heur_dissector_direct(ptr noundef readonly %0, ptr noundef %1,
   br i1 %.not45, label %.thread, label %34
 
 34:                                               ; preds = %33
-  %35 = tail call ptr @proto_get_protocol_short_name(ptr noundef nonnull %.pr) #24
+  %35 = tail call ptr @proto_get_protocol_short_name(ptr noundef nonnull %.pr) #25
   store ptr %35, ptr %2, align 8
   %36 = load ptr, ptr %22, align 8
-  %37 = tail call i32 @proto_get_id(ptr noundef %36) #24
+  %37 = tail call i32 @proto_get_id(ptr noundef %36) #25
   tail call fastcc void @add_layer(ptr noundef nonnull %2, i32 noundef %37)
   br label %.thread
 
@@ -5730,20 +5730,20 @@ define void @call_heur_dissector_direct(ptr noundef readonly %0, ptr noundef %1,
   %39 = load ptr, ptr %38, align 8
   store ptr %39, ptr %14, align 8
   %40 = load ptr, ptr %0, align 8
-  %41 = tail call i32 %40(ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4) #24
+  %41 = tail call i32 %40(ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4) #25
   %.not46 = icmp eq i32 %41, 0
   br i1 %.not46, label %.preheader, label %50
 
 .preheader:                                       ; preds = %.thread
   %42 = load ptr, ptr %16, align 8
-  %43 = tail call i32 @wmem_list_count(ptr noundef %42) #24
+  %43 = tail call i32 @wmem_list_count(ptr noundef %42) #25
   %44 = icmp ugt i32 %43, %18
   br i1 %44, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   tail call fastcc void @remove_last_layer(ptr noundef nonnull %2, i32 noundef 1)
   %45 = load ptr, ptr %16, align 8
-  %46 = tail call i32 @wmem_list_count(ptr noundef %45) #24
+  %46 = tail call i32 @wmem_list_count(ptr noundef %45) #25
   %47 = icmp ugt i32 %46, %18
   br i1 %47, label %.lr.ph, label %._crit_edge, !llvm.loop !20
 
@@ -5765,30 +5765,30 @@ define void @call_heur_dissector_direct(ptr noundef readonly %0, ptr noundef %1,
 ; Function Attrs: nounwind uwtable
 define ptr @find_depend_dissector_list(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @depend_dissector_lists, align 8
-  %3 = tail call ptr @g_hash_table_lookup(ptr noundef %2, ptr noundef %0) #24
+  %3 = tail call ptr @g_hash_table_lookup(ptr noundef %2, ptr noundef %0) #25
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
 define internal i32 @find_matching_proto_name(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #15 {
-  %3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %1) #25
+  %3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %1) #26
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @deregister_depend_dissector(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @depend_dissector_lists, align 8
-  %4 = tail call ptr @g_hash_table_lookup(ptr noundef %3, ptr noundef %0) #24
+  %4 = tail call ptr @g_hash_table_lookup(ptr noundef %3, ptr noundef %0) #25
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call ptr @g_slist_find_custom(ptr noundef %5, ptr noundef %1, ptr noundef nonnull @strcmp) #24
+  %6 = tail call ptr @g_slist_find_custom(ptr noundef %5, ptr noundef %1, ptr noundef nonnull @strcmp) #25
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %remove_depend_dissector_from_list.exit, label %7
 
 7:                                                ; preds = %2
   %8 = load ptr, ptr %6, align 8
-  tail call void @g_free(ptr noundef %8) #24
+  tail call void @g_free(ptr noundef %8) #25
   %9 = load ptr, ptr %4, align 8
-  %10 = tail call ptr @g_slist_delete_link(ptr noundef %9, ptr noundef nonnull %6) #24
+  %10 = tail call ptr @g_slist_delete_link(ptr noundef %9, ptr noundef nonnull %6) #25
   store ptr %10, ptr %4, align 8
   br label %remove_depend_dissector_from_list.exit
 
@@ -5807,7 +5807,7 @@ define void @dissector_dump_decodes() local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   store ptr @dissector_table_foreach_func, ptr %3, align 8
   %4 = load ptr, ptr @dissector_tables, align 8
-  call void @g_hash_table_foreach(ptr noundef %4, ptr noundef nonnull @dissector_all_tables_foreach_func, ptr noundef nonnull %1) #24
+  call void @g_hash_table_foreach(ptr noundef %4, ptr noundef nonnull @dissector_all_tables_foreach_func, ptr noundef nonnull %1) #25
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %1)
   ret void
 }
@@ -5817,20 +5817,20 @@ define internal void @dissector_dump_decodes_display(ptr noundef %0, i32 %1, ptr
   %6 = ptrtoint ptr %2 to i64
   %7 = trunc i64 %6 to i32
   %8 = load ptr, ptr @dissector_tables, align 8
-  %9 = tail call ptr @g_hash_table_lookup(ptr noundef %8, ptr noundef %0) #24
+  %9 = tail call ptr @g_hash_table_lookup(ptr noundef %8, ptr noundef %0) #25
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %10, label %find_dissector_table.exit
 
 10:                                               ; preds = %5
   %11 = load ptr, ptr @dissector_table_aliases, align 8
-  %12 = tail call ptr @g_hash_table_lookup(ptr noundef %11, ptr noundef %0) #24
+  %12 = tail call ptr @g_hash_table_lookup(ptr noundef %11, ptr noundef %0) #25
   %.not12.i = icmp ne ptr %12, null
   tail call void @llvm.assume(i1 %.not12.i)
   %13 = load ptr, ptr @dissector_tables, align 8
-  %14 = tail call ptr @g_hash_table_lookup(ptr noundef %13, ptr noundef nonnull %12) #24
+  %14 = tail call ptr @g_hash_table_lookup(ptr noundef %13, ptr noundef nonnull %12) #25
   %.not13.i = icmp ne ptr %14, null
   tail call void @llvm.assume(i1 %.not13.i)
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.14, i32 noundef 5, ptr noundef nonnull @.str.15, i64 noundef 1108, ptr noundef nonnull @__func__.find_dissector_table, ptr noundef nonnull @.str.22, ptr noundef %0, ptr noundef nonnull %12) #24
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.14, i32 noundef 5, ptr noundef nonnull @.str.15, i64 noundef 1108, ptr noundef nonnull @__func__.find_dissector_table, ptr noundef nonnull @.str.22, ptr noundef %0, ptr noundef nonnull %12) #25
   br label %find_dissector_table.exit
 
 find_dissector_table.exit:                        ; preds = %5, %10
@@ -5850,12 +5850,12 @@ find_dissector_table.exit:                        ; preds = %5, %10
   br i1 %23, label %dissector_handle_get_protocol_index.exit.thread, label %dissector_handle_get_protocol_index.exit
 
 dissector_handle_get_protocol_index.exit:         ; preds = %18
-  %24 = tail call i32 @proto_get_id(ptr noundef nonnull %22) #24
+  %24 = tail call i32 @proto_get_id(ptr noundef nonnull %22) #25
   %.not = icmp eq i32 %24, -1
   br i1 %.not, label %dissector_handle_get_protocol_index.exit.thread, label %25
 
 25:                                               ; preds = %dissector_handle_get_protocol_index.exit
-  %26 = tail call ptr @proto_get_protocol_filter_name(i32 noundef %24) #24
+  %26 = tail call ptr @proto_get_protocol_filter_name(i32 noundef %24) #25
   %27 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.53, ptr noundef %0, i32 noundef %7, ptr noundef %26)
   br label %dissector_handle_get_protocol_index.exit.thread
 
@@ -5866,33 +5866,33 @@ dissector_handle_get_protocol_index.exit.thread:  ; preds = %18, %find_dissector
 ; Function Attrs: nounwind uwtable
 define void @dissector_dump_dissector_tables() local_unnamed_addr #0 {
   %1 = load ptr, ptr @dissector_tables, align 8
-  %2 = tail call ptr @g_hash_table_get_keys(ptr noundef %1) #24
-  %3 = tail call ptr @g_list_sort(ptr noundef %2, ptr noundef nonnull @compare_dissector_key_name) #24
-  tail call void @g_list_foreach(ptr noundef %3, ptr noundef nonnull @dissector_dump_dissector_tables_display, ptr noundef null) #24
-  tail call void @g_list_free(ptr noundef %3) #24
+  %2 = tail call ptr @g_hash_table_get_keys(ptr noundef %1) #25
+  %3 = tail call ptr @g_list_sort(ptr noundef %2, ptr noundef nonnull @compare_dissector_key_name) #25
+  tail call void @g_list_foreach(ptr noundef %3, ptr noundef nonnull @dissector_dump_dissector_tables_display, ptr noundef null) #25
+  tail call void @g_list_free(ptr noundef %3) #25
   %4 = load ptr, ptr @heur_dissector_lists, align 8
-  %5 = tail call ptr @g_hash_table_get_keys(ptr noundef %4) #24
-  %6 = tail call ptr @g_list_sort(ptr noundef %5, ptr noundef nonnull @compare_dissector_key_name) #24
-  tail call void @g_list_foreach(ptr noundef %6, ptr noundef nonnull @dissector_dump_heur_dissector_tables_display, ptr noundef null) #24
-  tail call void @g_list_free(ptr noundef %6) #24
+  %5 = tail call ptr @g_hash_table_get_keys(ptr noundef %4) #25
+  %6 = tail call ptr @g_list_sort(ptr noundef %5, ptr noundef nonnull @compare_dissector_key_name) #25
+  tail call void @g_list_foreach(ptr noundef %6, ptr noundef nonnull @dissector_dump_heur_dissector_tables_display, ptr noundef null) #25
+  tail call void @g_list_free(ptr noundef %6) #25
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
 define internal i32 @compare_dissector_key_name(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #15 {
-  %3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %1) #25
+  %3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %1) #26
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @dissector_dump_dissector_tables_display(ptr noundef %0, ptr nocapture readnone %1) #0 {
   %3 = load ptr, ptr @dissector_tables, align 8
-  %4 = tail call ptr @g_hash_table_lookup(ptr noundef %3, ptr noundef %0) #24
+  %4 = tail call ptr @g_hash_table_lookup(ptr noundef %3, ptr noundef %0) #25
   %5 = getelementptr inbounds i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 24
   %8 = load i32, ptr %7, align 8
-  %9 = tail call ptr @ftype_name(i32 noundef %8) #24
+  %9 = tail call ptr @ftype_name(i32 noundef %8) #25
   %10 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.54, ptr noundef %0, ptr noundef %6, ptr noundef %9)
   %11 = load i32, ptr %7, align 8
   %12 = and i32 %11, -4
@@ -5941,7 +5941,7 @@ define internal void @dissector_dump_dissector_tables_display(ptr noundef %0, pt
   br i1 %.not, label %34, label %31
 
 31:                                               ; preds = %28
-  %32 = tail call ptr @proto_get_protocol_short_name(ptr noundef nonnull %30) #24
+  %32 = tail call ptr @proto_get_protocol_short_name(ptr noundef nonnull %30) #25
   %33 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.61, ptr noundef %32)
   br label %36
 
@@ -5962,7 +5962,7 @@ define internal void @dissector_dump_dissector_tables_display(ptr noundef %0, pt
 ; Function Attrs: nounwind uwtable
 define internal void @dissector_dump_heur_dissector_tables_display(ptr noundef %0, ptr nocapture readnone %1) #0 {
   %3 = load ptr, ptr @heur_dissector_lists, align 8
-  %4 = tail call ptr @g_hash_table_lookup(ptr noundef %3, ptr noundef %0) #24
+  %4 = tail call ptr @g_hash_table_lookup(ptr noundef %3, ptr noundef %0) #25
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   %. = select i1 %.not, ptr %0, ptr %5
@@ -5973,7 +5973,7 @@ define internal void @dissector_dump_heur_dissector_tables_display(ptr noundef %
   br i1 %.not9, label %12, label %9
 
 9:                                                ; preds = %2
-  %10 = tail call ptr @proto_get_protocol_short_name(ptr noundef nonnull %8) #24
+  %10 = tail call ptr @proto_get_protocol_short_name(ptr noundef nonnull %8) #25
   %11 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.61, ptr noundef %10)
   br label %14
 
@@ -5992,12 +5992,12 @@ define void @dissector_dump_dissectors() local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = load ptr, ptr @registered_dissectors, align 8
-  call void @g_hash_table_iter_init(ptr noundef nonnull %1, ptr noundef %4) #24
+  call void @g_hash_table_iter_init(ptr noundef nonnull %1, ptr noundef %4) #25
   %5 = load ptr, ptr @registered_dissectors, align 8
-  %6 = call i32 @g_hash_table_size(ptr noundef %5) #24
+  %6 = call i32 @g_hash_table_size(ptr noundef %5) #25
   %7 = zext i32 %6 to i64
-  %8 = call noalias ptr @g_malloc_n(i64 noundef %7, i64 noundef 16) #29
-  %9 = call i32 @g_hash_table_iter_next(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3) #24
+  %8 = call noalias ptr @g_malloc_n(i64 noundef %7, i64 noundef 16) #30
+  %9 = call i32 @g_hash_table_iter_next(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3) #25
   %.not15 = icmp eq i32 %9, 0
   br i1 %.not15, label %._crit_edge, label %.lr.ph
 
@@ -6013,12 +6013,12 @@ define void @dissector_dump_dissectors() local_unnamed_addr #0 {
   %16 = getelementptr inbounds i8, ptr %12, i64 8
   store ptr %15, ptr %16, align 8
   %17 = add i32 %.016, 1
-  %18 = call i32 @g_hash_table_iter_next(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3) #24
+  %18 = call i32 @g_hash_table_iter_next(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3) #25
   %.not = icmp eq i32 %18, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.lr.ph, %0
-  call void @qsort(ptr noundef %8, i64 noundef %7, i64 noundef 16, ptr noundef nonnull @compare_dissector_info_names) #24
+  call void @qsort(ptr noundef %8, i64 noundef %7, i64 noundef 16, ptr noundef nonnull @compare_dissector_info_names) #25
   %.not21 = icmp eq i32 %6, 0
   br i1 %.not21, label %._crit_edge20, label %.lr.ph19
 
@@ -6034,7 +6034,7 @@ define void @dissector_dump_dissectors() local_unnamed_addr #0 {
   br i1 %exitcond.not, label %._crit_edge20, label %.lr.ph19, !llvm.loop !22
 
 ._crit_edge20:                                    ; preds = %.lr.ph19, %._crit_edge
-  call void @g_free(ptr noundef %8) #24
+  call void @g_free(ptr noundef %8) #25
   ret void
 }
 
@@ -6051,7 +6051,7 @@ declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef
 define internal i32 @compare_dissector_info_names(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #17 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
-  %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %4) #25
+  %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %4) #26
   ret i32 %5
 }
 
@@ -6066,7 +6066,7 @@ define void @register_postdissector(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %4, label %6
 
 4:                                                ; preds = %1
-  %5 = tail call ptr @g_array_sized_new(i32 noundef 0, i32 noundef 0, i32 noundef 16, i32 noundef 1) #24
+  %5 = tail call ptr @g_array_sized_new(i32 noundef 0, i32 noundef 0, i32 noundef 16, i32 noundef 1) #25
   store ptr %5, ptr @postdissectors, align 8
   br label %6
 
@@ -6075,7 +6075,7 @@ define void @register_postdissector(ptr noundef %0) local_unnamed_addr #0 {
   store ptr %0, ptr %2, align 8
   %8 = getelementptr inbounds i8, ptr %2, i64 8
   store ptr null, ptr %8, align 8
-  %9 = call ptr @g_array_append_vals(ptr noundef %7, ptr noundef nonnull %2, i32 noundef 1) #24
+  %9 = call ptr @g_array_append_vals(ptr noundef %7, ptr noundef nonnull %2, i32 noundef 1) #25
   store ptr %9, ptr @postdissectors, align 8
   ret void
 }
@@ -6120,7 +6120,7 @@ define void @set_postdissector_wanted_hfids(ptr noundef readnone %0, ptr noundef
   br i1 %.not8, label %17, label %15
 
 15:                                               ; preds = %12
-  %16 = tail call ptr @g_array_free(ptr noundef nonnull %14, i32 noundef 1) #24
+  %16 = tail call ptr @g_array_free(ptr noundef nonnull %14, i32 noundef 1) #25
   %.pre = load ptr, ptr @postdissectors, align 8
   %.pre16 = load ptr, ptr %.pre, align 8
   br label %17
@@ -6167,13 +6167,13 @@ define hidden void @deregister_postdissector(ptr noundef readnone %0) local_unna
   br i1 %.not7, label %16, label %14
 
 14:                                               ; preds = %10
-  %15 = tail call ptr @g_array_free(ptr noundef nonnull %13, i32 noundef 1) #24
+  %15 = tail call ptr @g_array_free(ptr noundef nonnull %13, i32 noundef 1) #25
   %.pre = load ptr, ptr @postdissectors, align 8
   br label %16
 
 16:                                               ; preds = %14, %10
   %17 = phi ptr [ %.pre, %14 ], [ %2, %10 ]
-  %18 = tail call ptr @g_array_remove_index_fast(ptr noundef %17, i32 noundef %11) #24
+  %18 = tail call ptr @g_array_remove_index_fast(ptr noundef %17, i32 noundef %11) #25
   store ptr %18, ptr @postdissectors, align 8
   br label %.loopexit
 
@@ -6208,7 +6208,7 @@ define hidden range(i32 0, 2) i32 @have_postdissector() local_unnamed_addr #0 {
   br i1 %.not, label %12, label %10
 
 10:                                               ; preds = %.lr.ph
-  %11 = tail call i32 @proto_is_protocol_enabled(ptr noundef nonnull %9) #24
+  %11 = tail call i32 @proto_is_protocol_enabled(ptr noundef nonnull %9) #25
   %.not7 = icmp eq i32 %11, 0
   br i1 %.not7, label %._crit_edge13, label %._crit_edge
 
@@ -6248,7 +6248,7 @@ define hidden void @call_all_postdissectors(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %.not.i, label %11, label %call_dissector_only.exit
 
 11:                                               ; preds = %.lr.ph
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.15, i32 noundef 3532, ptr noundef nonnull @.str.39) #26
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.15, i32 noundef 3532, ptr noundef nonnull @.str.39) #27
   unreachable
 
 call_dissector_only.exit:                         ; preds = %.lr.ph
@@ -6329,7 +6329,7 @@ define void @prime_epan_dissect_with_postdissector_wanted_hfids(ptr noundef %0) 
   br i1 %.not6, label %14, label %13
 
 13:                                               ; preds = %10
-  tail call void @epan_dissect_prime_with_hfid_array(ptr noundef %0, ptr noundef nonnull %9) #24
+  tail call void @epan_dissect_prime_with_hfid_array(ptr noundef %0, ptr noundef nonnull %9) #25
   %.pre = load ptr, ptr @postdissectors, align 8
   br label %14
 
@@ -6359,7 +6359,7 @@ define void @increment_dissection_depth(ptr nocapture noundef %0) local_unnamed_
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %1
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.15, i32 noundef 4036, ptr noundef nonnull @.str.43) #26
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.15, i32 noundef 4036, ptr noundef nonnull @.str.43) #27
   unreachable
 
 8:                                                ; preds = %1
@@ -6376,7 +6376,7 @@ define void @decrement_dissection_depth(ptr nocapture noundef %0) local_unnamed_
   br i1 %5, label %7, label %6
 
 6:                                                ; preds = %1
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.15, i32 noundef 4042, ptr noundef nonnull @.str.44) #26
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.15, i32 noundef 4042, ptr noundef nonnull @.str.44) #27
   unreachable
 
 7:                                                ; preds = %1
@@ -6391,11 +6391,11 @@ declare void @g_slist_free_full(ptr noundef, ptr noundef) local_unnamed_addr #1
 define internal void @destroy_heuristic_dissector_entry(ptr noundef %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
-  tail call void @g_free(ptr noundef %3) #24
+  tail call void @g_free(ptr noundef %3) #25
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
-  tail call void @g_free(ptr noundef %5) #24
-  tail call void @g_slice_free1(i64 noundef 48, ptr noundef %0) #24
+  tail call void @g_free(ptr noundef %5) #25
+  tail call void @g_slice_free1(i64 noundef 48, ptr noundef %0) #25
   ret void
 }
 
@@ -6432,9 +6432,9 @@ define internal fastcc i32 @call_dissector_work_error(ptr nocapture noundef read
   %13 = load i16, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %2, i64 8
   %15 = load ptr, ptr %14, align 8
-  %16 = call i32 @col_get_writable(ptr noundef %15, i32 noundef -1) #24
+  %16 = call i32 @col_get_writable(ptr noundef %15, i32 noundef -1) #25
   %17 = load ptr, ptr %14, align 8
-  call void @col_set_writable(ptr noundef %17, i32 noundef -1, i32 noundef 0) #24
+  call void @col_set_writable(ptr noundef %17, i32 noundef -1, i32 noundef 0) #25
   %18 = getelementptr inbounds i8, ptr %2, i64 112
   %19 = load i32, ptr %18, align 8
   %20 = getelementptr inbounds i8, ptr %2, i64 116
@@ -6472,9 +6472,9 @@ define internal fastcc i32 @call_dissector_work_error(ptr nocapture noundef read
   %52 = getelementptr inbounds i8, ptr %2, i64 240
   %53 = load ptr, ptr %52, align 8
   store volatile i32 0, ptr %8, align 4
-  call void @except_setup_try(ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull @call_dissector_work_error.catch_spec, i64 noundef 1) #24
+  call void @except_setup_try(ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull @call_dissector_work_error.catch_spec, i64 noundef 1) #25
   %54 = getelementptr inbounds i8, ptr %10, i64 48
-  %55 = call i32 @_setjmp(ptr noundef nonnull %54) #27
+  %55 = call i32 @_setjmp(ptr noundef nonnull %54) #28
   %.not = icmp eq i32 %55, 0
   br i1 %.not, label %58, label %56
 
@@ -6520,13 +6520,13 @@ define internal fastcc i32 @call_dissector_work_error(ptr nocapture noundef read
   br i1 %.not.i, label %77, label %72
 
 72:                                               ; preds = %68
-  %73 = call i32 @proto_is_pino(ptr noundef nonnull %71) #24
+  %73 = call i32 @proto_is_pino(ptr noundef nonnull %71) #25
   %.not22.i = icmp eq i32 %73, 0
   br i1 %.not22.i, label %74, label %77
 
 74:                                               ; preds = %72
   %75 = load ptr, ptr %70, align 8
-  %76 = call ptr @proto_get_protocol_short_name(ptr noundef %75) #24
+  %76 = call ptr @proto_get_protocol_short_name(ptr noundef %75) #25
   store ptr %76, ptr %2, align 8
   br label %77
 
@@ -6541,7 +6541,7 @@ define internal fastcc i32 @call_dissector_work_error(ptr nocapture noundef read
 80:                                               ; preds = %77
   %81 = getelementptr inbounds i8, ptr %0, i64 24
   %82 = load ptr, ptr %81, align 8
-  %83 = call i32 %82(ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4) #24
+  %83 = call i32 %82(ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4) #25
   br label %call_dissector_through_handle.exit
 
 84:                                               ; preds = %77
@@ -6549,11 +6549,11 @@ define internal fastcc i32 @call_dissector_work_error(ptr nocapture noundef read
   %86 = load ptr, ptr %85, align 8
   %87 = getelementptr inbounds i8, ptr %0, i64 32
   %88 = load ptr, ptr %87, align 8
-  %89 = call i32 %86(ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4, ptr noundef %88) #24
+  %89 = call i32 %86(ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4, ptr noundef %88) #25
   br label %call_dissector_through_handle.exit
 
 90:                                               ; preds = %77
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 864, ptr noundef nonnull @__func__.call_dissector_through_handle, ptr noundef nonnull @.str.16) #26
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.14, i32 noundef 7, ptr noundef nonnull @.str.15, i64 noundef 864, ptr noundef nonnull @__func__.call_dissector_through_handle, ptr noundef nonnull @.str.16) #27
   unreachable
 
 call_dissector_through_handle.exit:               ; preds = %80, %84
@@ -6584,7 +6584,7 @@ call_dissector_through_handle.exit:               ; preds = %80, %84
   %99 = or i32 %.0..0..0..0.5, 1
   store volatile i32 %99, ptr %8, align 4
   %100 = load ptr, ptr %14, align 8
-  call void @col_set_writable(ptr noundef %100, i32 noundef -1, i32 noundef %16) #24
+  call void @col_set_writable(ptr noundef %100, i32 noundef -1, i32 noundef %16) #25
   store i32 %19, ptr %18, align 8
   store i32 %21, ptr %20, align 4
   store ptr %23, ptr %22, align 8
@@ -6617,7 +6617,7 @@ call_dissector_through_handle.exit:               ; preds = %80, %84
   store ptr null, ptr %106, align 8
   store ptr %11, ptr %2, align 8
   store i16 %13, ptr %12, align 8
-  call void @longjmp(ptr noundef nonnull %54, i32 noundef 1) #26
+  call void @longjmp(ptr noundef nonnull %54, i32 noundef 1) #27
   unreachable
 
 107:                                              ; preds = %94, %93, %91
@@ -6655,7 +6655,7 @@ call_dissector_through_handle.exit:               ; preds = %80, %84
   %.0..0..0..0.7 = load volatile i32, ptr %8, align 4
   %123 = or i32 %.0..0..0..0.7, 1
   store volatile i32 %123, ptr %8, align 4
-  %124 = call i32 @tvb_captured_length(ptr noundef %1) #24
+  %124 = call i32 @tvb_captured_length(ptr noundef %1) #25
   store volatile i32 %124, ptr %6, align 4
   br label %125
 
@@ -6672,16 +6672,16 @@ call_dissector_through_handle.exit:               ; preds = %80, %84
 
 128:                                              ; preds = %127
   %.0..0..0..0.17 = load volatile ptr, ptr %7, align 8
-  call void @except_rethrow(ptr noundef %.0..0..0..0.17) #26
+  call void @except_rethrow(ptr noundef %.0..0..0..0.17) #27
   unreachable
 
 129:                                              ; preds = %127, %125
   %130 = getelementptr inbounds i8, ptr %10, i64 40
   %131 = load volatile ptr, ptr %130, align 8
-  call void @except_free(ptr noundef %131) #24
-  %132 = call ptr @except_pop() #24
+  call void @except_free(ptr noundef %131) #25
+  %132 = call ptr @except_pop() #25
   %133 = load ptr, ptr %14, align 8
-  call void @col_set_writable(ptr noundef %133, i32 noundef -1, i32 noundef %16) #24
+  call void @col_set_writable(ptr noundef %133, i32 noundef -1, i32 noundef %16) #25
   store i32 %19, ptr %18, align 8
   store i32 %21, ptr %20, align 4
   store ptr %23, ptr %22, align 8
@@ -6723,7 +6723,7 @@ declare i32 @col_get_writable(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @col_set_writable(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn nounwind
-declare void @longjmp(ptr noundef, i32 noundef) local_unnamed_addr #10
+declare void @longjmp(ptr noundef, i32 noundef) local_unnamed_addr #19
 
 declare zeroext i8 @proto_check_field_name_lower(ptr noundef) local_unnamed_addr #1
 
@@ -6749,10 +6749,10 @@ define internal void @display_heur_dissector_table_entries(ptr noundef %0, ptr n
   br i1 %.not, label %31, label %6
 
 6:                                                ; preds = %3
-  %7 = tail call i32 @proto_get_id(ptr noundef nonnull %5) #24
-  %8 = tail call ptr @proto_get_protocol_filter_name(i32 noundef %7) #24
+  %7 = tail call i32 @proto_get_id(ptr noundef nonnull %5) #25
+  %8 = tail call ptr @proto_get_protocol_filter_name(i32 noundef %7) #25
   %9 = load ptr, ptr %4, align 8
-  %10 = tail call i32 @proto_is_protocol_enabled(ptr noundef %9) #24
+  %10 = tail call i32 @proto_is_protocol_enabled(ptr noundef %9) #25
   %.not9 = icmp eq i32 %10, 0
   br i1 %.not9, label %15, label %11
 
@@ -6766,7 +6766,7 @@ define internal void @display_heur_dissector_table_entries(ptr noundef %0, ptr n
 15:                                               ; preds = %11, %6
   %16 = phi i32 [ 70, %6 ], [ %14, %11 ]
   %17 = load ptr, ptr %4, align 8
-  %18 = tail call i32 @proto_is_protocol_enabled_by_default(ptr noundef %17) #24
+  %18 = tail call i32 @proto_is_protocol_enabled_by_default(ptr noundef %17) #25
   %.not11 = icmp eq i32 %18, 0
   br i1 %.not11, label %24, label %19
 
@@ -6797,10 +6797,10 @@ declare zeroext i8 @proto_check_field_name(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal void @dissector_delete_from_table(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr noundef %2) #0 {
   %4 = load ptr, ptr %1, align 8
-  %5 = tail call i32 @g_hash_table_foreach_remove(ptr noundef %4, ptr noundef nonnull @dissector_delete_all_check, ptr noundef %2) #24
+  %5 = tail call i32 @g_hash_table_foreach_remove(ptr noundef %4, ptr noundef nonnull @dissector_delete_all_check, ptr noundef %2) #25
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = tail call ptr @g_slist_remove(ptr noundef %7, ptr noundef %2) #24
+  %8 = tail call ptr @g_slist_remove(ptr noundef %7, ptr noundef %2) #25
   store ptr %8, ptr %6, align 8
   ret void
 }
@@ -6810,22 +6810,22 @@ declare ptr @g_slist_remove(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @ftype_name(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #19
+declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #20
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #20
+declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #21
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #21
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #22
+declare void @llvm.assume(i1 noundef) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #23
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #23
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #24
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -6837,7 +6837,7 @@ attributes #6 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stac
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nounwind returns_twice "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nofree nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -6846,18 +6846,19 @@ attributes #15 = { mustprogress nofree nounwind willreturn memory(argmem: read) 
 attributes #16 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #17 = { mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #18 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #20 = { nofree nounwind }
-attributes #21 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #22 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #23 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #24 = { nounwind }
-attributes #25 = { nounwind willreturn memory(read) }
-attributes #26 = { noreturn nounwind }
-attributes #27 = { nounwind returns_twice }
-attributes #28 = { cold nounwind }
-attributes #29 = { nounwind allocsize(0,1) }
-attributes #30 = { nounwind allocsize(0) }
+attributes #19 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #21 = { nofree nounwind }
+attributes #22 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #23 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #24 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #25 = { nounwind }
+attributes #26 = { nounwind willreturn memory(read) }
+attributes #27 = { noreturn nounwind }
+attributes #28 = { nounwind returns_twice }
+attributes #29 = { cold nounwind }
+attributes #30 = { nounwind allocsize(0,1) }
+attributes #31 = { nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

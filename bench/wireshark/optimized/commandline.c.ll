@@ -300,7 +300,7 @@ define hidden void @commandline_early_options(i32 noundef %0, ptr noundef %1) lo
 
 42:                                               ; preds = %6
   call void @commandline_print_usage(i32 noundef 1)
-  call void @exit(i32 noundef 0) #12
+  call void @exit(i32 noundef 0) #13
   unreachable
 
 43:                                               ; preds = %6
@@ -312,12 +312,12 @@ define hidden void @commandline_early_options(i32 noundef %0, ptr noundef %1) lo
 46:                                               ; preds = %43
   %47 = load ptr, ptr @ws_optarg, align 8
   call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.58, ptr noundef %47) #10
-  call void @exit(i32 noundef 0) #12
+  call void @exit(i32 noundef 0) #13
   unreachable
 
 48:                                               ; preds = %6
   call void @show_version() #10
-  call void @exit(i32 noundef 0) #12
+  call void @exit(i32 noundef 0) #13
   unreachable
 
 49:                                               ; preds = %6
@@ -341,7 +341,7 @@ define hidden void @commandline_early_options(i32 noundef %0, ptr noundef %1) lo
 57:                                               ; preds = %56
   call fastcc void @print_no_capture_support_error()
   call void @commandline_print_usage(i32 noundef 0)
-  call void @exit(i32 noundef 0) #12
+  call void @exit(i32 noundef 0) #13
   unreachable
 
 58:                                               ; preds = %56
@@ -366,7 +366,7 @@ declare ptr @__errno_location() local_unnamed_addr #3
 
 declare void @g_free(ptr noundef) #1
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #4
 
 declare i32 @copy_persconffile_profile(ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -442,7 +442,7 @@ define hidden void @commandline_override_prefs(i32 noundef %0, ptr noundef %1, i
   call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.61, ptr noundef %17, ptr noundef nonnull %19, ptr noundef nonnull %20) #10
   %21 = load ptr, ptr %4, align 8
   call void @g_free(ptr noundef %21) #10
-  call void @exit_application(i32 noundef 1) #12
+  call void @exit_application(i32 noundef 1) #13
   unreachable
 
 22:                                               ; preds = %8
@@ -458,17 +458,17 @@ define hidden void @commandline_override_prefs(i32 noundef %0, ptr noundef %1, i
 25:                                               ; preds = %22
   %26 = load ptr, ptr @ws_optarg, align 8
   call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.64, ptr noundef %26) #10
-  call void @exit_application(i32 noundef 1) #12
+  call void @exit_application(i32 noundef 1) #13
   unreachable
 
 27:                                               ; preds = %22, %22
   %28 = load ptr, ptr @ws_optarg, align 8
   call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.65, ptr noundef %28) #10
-  call void @exit_application(i32 noundef 1) #12
+  call void @exit_application(i32 noundef 1) #13
   unreachable
 
 29:                                               ; preds = %22
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.63, i32 noundef 7, ptr noundef nonnull @.str.66, i64 noundef 453, ptr noundef nonnull @__func__.commandline_override_prefs, ptr noundef nonnull @.str.67) #12
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.63, i32 noundef 7, ptr noundef nonnull @.str.66, i64 noundef 453, ptr noundef nonnull @__func__.commandline_override_prefs, ptr noundef nonnull @.str.67) #13
   unreachable
 
 30:                                               ; preds = %8
@@ -480,11 +480,11 @@ define hidden void @commandline_override_prefs(i32 noundef %0, ptr noundef %1, i
 33:                                               ; preds = %30
   %34 = load ptr, ptr @ws_optarg, align 8
   call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.68, ptr noundef %34) #10
-  call void @exit_application(i32 noundef 1) #12
+  call void @exit_application(i32 noundef 1) #13
   unreachable
 
 35:                                               ; preds = %8
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.63, i32 noundef 7, ptr noundef nonnull @.str.66, i64 noundef 465, ptr noundef nonnull @__func__.commandline_override_prefs, ptr noundef nonnull @.str.67) #12
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.63, i32 noundef 7, ptr noundef nonnull @.str.66, i64 noundef 465, ptr noundef nonnull @__func__.commandline_override_prefs, ptr noundef nonnull @.str.67) #13
   unreachable
 
 36:                                               ; preds = %6
@@ -626,15 +626,15 @@ define hidden void @commandline_other_options(i32 noundef %0, ptr noundef %1, i3
 
 26:                                               ; preds = %6
   %27 = load ptr, ptr @ws_optarg, align 8
-  %28 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(5) @.str.70, ptr noundef nonnull dereferenceable(1) %27) #13
+  %28 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(5) @.str.70, ptr noundef nonnull dereferenceable(1) %27) #14
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %30, label %33
 
 30:                                               ; preds = %26
   %31 = load ptr, ptr @stderr, align 8
-  %32 = tail call i64 @fwrite(ptr nonnull @.str.71, i64 61, i64 1, ptr %31) #14
+  %32 = tail call i64 @fwrite(ptr nonnull @.str.71, i64 61, i64 1, ptr %31) #15
   tail call void @list_stat_cmd_args() #10
-  tail call void @exit_application(i32 noundef 0) #12
+  tail call void @exit_application(i32 noundef 0) #13
   unreachable
 
 33:                                               ; preds = %26
@@ -646,7 +646,7 @@ define hidden void @commandline_other_options(i32 noundef %0, ptr noundef %1, i3
   tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.72) #10
   tail call void (ptr, ...) @cmdarg_err_cont(ptr noundef nonnull @.str.73) #10
   tail call void @list_stat_cmd_args() #10
-  tail call void @exit_application(i32 noundef 1) #12
+  tail call void @exit_application(i32 noundef 1) #13
   unreachable
 
 36:                                               ; preds = %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6, %6
@@ -656,7 +656,7 @@ define hidden void @commandline_other_options(i32 noundef %0, ptr noundef %1, i3
   br i1 %.not27, label %39, label %.backedge
 
 39:                                               ; preds = %36
-  tail call void @exit_application(i32 noundef 1) #12
+  tail call void @exit_application(i32 noundef 1) #13
   unreachable
 
 40:                                               ; preds = %6
@@ -714,7 +714,7 @@ define hidden void @commandline_other_options(i32 noundef %0, ptr noundef %1, i3
 .thread:                                          ; preds = %57, %42, %59
   tail call fastcc void @print_no_capture_support_error()
   tail call void @commandline_print_usage(i32 noundef 0)
-  tail call void @exit_application(i32 noundef 1) #12
+  tail call void @exit_application(i32 noundef 1) #13
   unreachable
 
 .thread44:                                        ; preds = %.thread37, %59
@@ -774,8 +774,8 @@ declare ptr @g_slist_find_custom(ptr noundef, ptr noundef, ptr noundef) local_un
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
 define internal i32 @cl_find_custom(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 {
-  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #13
-  %4 = tail call i32 @memcmp(ptr noundef %0, ptr noundef %1, i64 noundef %3) #13
+  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #14
+  %4 = tail call i32 @memcmp(ptr noundef %0, ptr noundef %1, i64 noundef %3) #14
   ret i32 %4
 }
 
@@ -843,7 +843,7 @@ attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -851,9 +851,10 @@ attributes #8 = { nofree nounwind }
 attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #10 = { nounwind }
 attributes #11 = { nounwind willreturn memory(none) }
-attributes #12 = { noreturn nounwind }
-attributes #13 = { nounwind willreturn memory(read) }
-attributes #14 = { cold }
+attributes #12 = { cold noreturn nounwind }
+attributes #13 = { noreturn nounwind }
+attributes #14 = { nounwind willreturn memory(read) }
+attributes #15 = { cold }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

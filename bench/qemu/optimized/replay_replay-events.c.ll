@@ -61,7 +61,7 @@ entry:
   br i1 %cmp, label %while.end, label %do.body
 
 do.body:                                          ; preds = %entry
-  %call = tail call zeroext i1 @replay_mutex_locked() #9
+  %call = tail call zeroext i1 @replay_mutex_locked() #10
   br i1 %call, label %while.cond.preheader, label %if.else
 
 while.cond.preheader:                             ; preds = %do.body
@@ -70,7 +70,7 @@ while.cond.preheader:                             ; preds = %do.body
   br i1 %cmp3.not11, label %while.end, label %while.body
 
 if.else:                                          ; preds = %do.body
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 85, ptr noundef nonnull @__func__.replay_flush_events, ptr noundef nonnull @.str.1) #10
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 85, ptr noundef nonnull @__func__.replay_flush_events, ptr noundef nonnull @.str.1) #11
   unreachable
 
 while.body:                                       ; preds = %while.cond.preheader, %if.end14
@@ -97,7 +97,7 @@ if.end14:                                         ; preds = %if.else11, %if.then
   %5 = phi ptr [ null, %if.else11 ], [ %.pre, %if.then6 ]
   store ptr %5, ptr %4, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %events, i8 0, i64 16, i1 false)
-  tail call void @g_free(ptr noundef nonnull %2) #9
+  tail call void @g_free(ptr noundef nonnull %2) #10
   %6 = load ptr, ptr @events_list, align 8
   %cmp3.not = icmp eq ptr %6, null
   br i1 %cmp3.not, label %while.end, label %while.body, !llvm.loop !5
@@ -128,7 +128,7 @@ entry:
 sw.bb:                                            ; preds = %entry
   %opaque = getelementptr inbounds i8, ptr %event, i64 8
   %1 = load ptr, ptr %opaque, align 8
-  tail call void @aio_bh_call(ptr noundef %1) #9
+  tail call void @aio_bh_call(ptr noundef %1) #10
   br label %sw.epilog
 
 sw.bb1:                                           ; preds = %entry
@@ -136,42 +136,42 @@ sw.bb1:                                           ; preds = %entry
   %2 = load ptr, ptr %opaque2, align 8
   %opaque23 = getelementptr inbounds i8, ptr %event, i64 16
   %3 = load ptr, ptr %opaque23, align 8
-  tail call void %2(ptr noundef %3) #9
+  tail call void %2(ptr noundef %3) #10
   br label %sw.epilog
 
 sw.bb4:                                           ; preds = %entry
   %opaque5 = getelementptr inbounds i8, ptr %event, i64 8
   %4 = load ptr, ptr %opaque5, align 8
-  tail call void @qemu_input_event_send_impl(ptr noundef null, ptr noundef %4) #9
+  tail call void @qemu_input_event_send_impl(ptr noundef null, ptr noundef %4) #10
   %5 = load ptr, ptr %opaque5, align 8
-  tail call void @qapi_free_InputEvent(ptr noundef %5) #9
+  tail call void @qapi_free_InputEvent(ptr noundef %5) #10
   br label %sw.epilog
 
 sw.bb7:                                           ; preds = %entry
-  tail call void @qemu_input_event_sync_impl() #9
+  tail call void @qemu_input_event_sync_impl() #10
   br label %sw.epilog
 
 sw.bb8:                                           ; preds = %entry
   %opaque9 = getelementptr inbounds i8, ptr %event, i64 8
   %6 = load ptr, ptr %opaque9, align 8
-  tail call void @replay_event_char_read_run(ptr noundef %6) #9
+  tail call void @replay_event_char_read_run(ptr noundef %6) #10
   br label %sw.epilog
 
 sw.bb10:                                          ; preds = %entry
   %opaque11 = getelementptr inbounds i8, ptr %event, i64 8
   %7 = load ptr, ptr %opaque11, align 8
-  tail call void @aio_bh_call(ptr noundef %7) #9
+  tail call void @aio_bh_call(ptr noundef %7) #10
   br label %sw.epilog
 
 sw.bb12:                                          ; preds = %entry
   %opaque13 = getelementptr inbounds i8, ptr %event, i64 8
   %8 = load ptr, ptr %opaque13, align 8
-  tail call void @replay_event_net_run(ptr noundef %8) #9
+  tail call void @replay_event_net_run(ptr noundef %8) #10
   br label %sw.epilog
 
 sw.default:                                       ; preds = %entry
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.4, i32 noundef %0) #9
-  tail call void @exit(i32 noundef 1) #10
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.4, i32 noundef %0) #10
+  tail call void @exit(i32 noundef 1) #12
   unreachable
 
 sw.epilog:                                        ; preds = %sw.bb12, %sw.bb10, %sw.bb8, %sw.bb7, %sw.bb4, %sw.bb1, %sw.bb
@@ -189,7 +189,7 @@ entry:
 
 do.body.i:                                        ; preds = %entry
   store i1 false, ptr @events_enabled, align 1
-  %call.i = tail call zeroext i1 @replay_mutex_locked() #9
+  %call.i = tail call zeroext i1 @replay_mutex_locked() #10
   br i1 %call.i, label %while.cond.preheader.i, label %if.else.i
 
 while.cond.preheader.i:                           ; preds = %do.body.i
@@ -198,7 +198,7 @@ while.cond.preheader.i:                           ; preds = %do.body.i
   br i1 %cmp3.not11.i, label %if.end, label %while.body.i
 
 if.else.i:                                        ; preds = %do.body.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 85, ptr noundef nonnull @__func__.replay_flush_events, ptr noundef nonnull @.str.1) #10
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 85, ptr noundef nonnull @__func__.replay_flush_events, ptr noundef nonnull @.str.1) #11
   unreachable
 
 while.body.i:                                     ; preds = %while.cond.preheader.i, %if.end14.i
@@ -225,7 +225,7 @@ if.end14.i:                                       ; preds = %if.else11.i, %if.th
   %5 = phi ptr [ null, %if.else11.i ], [ %.pre.i, %if.then6.i ]
   store ptr %5, ptr %4, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %events.i, i8 0, i64 16, i1 false)
-  tail call void @g_free(ptr noundef nonnull %2) #9
+  tail call void @g_free(ptr noundef nonnull %2) #10
   %6 = load ptr, ptr @events_list, align 8
   %cmp3.not.i = icmp eq ptr %6, null
   br i1 %cmp3.not.i, label %if.end, label %while.body.i, !llvm.loop !5
@@ -242,7 +242,7 @@ entry:
   br i1 %cmp, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str, i32 noundef 109, ptr noundef nonnull @__PRETTY_FUNCTION__.replay_add_event) #10
+  tail call void @__assert_fail(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str, i32 noundef 109, ptr noundef nonnull @__PRETTY_FUNCTION__.replay_add_event) #11
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -269,7 +269,7 @@ if.then4:                                         ; preds = %lor.lhs.false2, %if
   br label %return
 
 if.end9:                                          ; preds = %lor.lhs.false2
-  %call = tail call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #11
+  %call = tail call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #13
   store i32 %event_kind, ptr %call, align 8
   %opaque11 = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %opaque, ptr %opaque11, align 8
@@ -277,11 +277,11 @@ if.end9:                                          ; preds = %lor.lhs.false2
   store ptr %opaque2, ptr %opaque212, align 8
   %id13 = getelementptr inbounds i8, ptr %call, i64 24
   store i64 %id, ptr %id13, align 8
-  %call14 = tail call zeroext i1 @replay_mutex_locked() #9
+  %call14 = tail call zeroext i1 @replay_mutex_locked() #10
   br i1 %call14, label %do.body18, label %if.else16
 
 if.else16:                                        ; preds = %if.end9
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 128, ptr noundef nonnull @__func__.replay_add_event, ptr noundef nonnull @.str.1) #10
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 128, ptr noundef nonnull @__func__.replay_add_event, ptr noundef nonnull @.str.1) #11
   unreachable
 
 do.body18:                                        ; preds = %if.end9
@@ -294,8 +294,8 @@ do.body18:                                        ; preds = %if.end9
   store ptr %events, ptr getelementptr inbounds (i8, ptr @events_list, i64 8), align 8
   %3 = load atomic i64, ptr @cpus_queue monotonic, align 8
   %4 = inttoptr i64 %3 to ptr
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !7
-  tail call void @qemu_cpu_kick(ptr noundef %4) #9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !7
+  tail call void @qemu_cpu_kick(ptr noundef %4) #10
   br label %return
 
 return:                                           ; preds = %do.body18, %if.then4
@@ -317,12 +317,12 @@ entry:
   br i1 %.b2, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %call = tail call i64 @replay_get_current_icount() #9
+  %call = tail call i64 @replay_get_current_icount() #10
   tail call void @replay_add_event(i32 noundef 0, ptr noundef %bh, ptr noundef null, i64 noundef %call)
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  tail call void @qemu_bh_schedule(ptr noundef %bh) #9
+  tail call void @qemu_bh_schedule(ptr noundef %bh) #10
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
@@ -340,12 +340,12 @@ entry:
   br i1 %.b3, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %call = tail call i64 @replay_get_current_icount() #9
+  %call = tail call i64 @replay_get_current_icount() #10
   tail call void @replay_add_event(i32 noundef 1, ptr noundef %cb, ptr noundef %opaque, i64 noundef %call)
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  tail call void @aio_bh_schedule_oneshot_full(ptr noundef %ctx, ptr noundef %cb, ptr noundef %opaque, ptr noundef nonnull @.str.3) #9
+  tail call void @aio_bh_schedule_oneshot_full(ptr noundef %ctx, ptr noundef %cb, ptr noundef %opaque, ptr noundef nonnull @.str.3) #10
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
@@ -379,7 +379,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  tail call void @qemu_bh_schedule(ptr noundef %bh) #9
+  tail call void @qemu_bh_schedule(ptr noundef %bh) #10
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
@@ -389,7 +389,7 @@ if.end:                                           ; preds = %if.else, %if.then
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @replay_save_events() local_unnamed_addr #2 {
 entry:
-  %call = tail call zeroext i1 @replay_mutex_locked() #9
+  %call = tail call zeroext i1 @replay_mutex_locked() #10
   br i1 %call, label %while.cond.preheader, label %if.else
 
 while.cond.preheader:                             ; preds = %entry
@@ -398,7 +398,7 @@ while.cond.preheader:                             ; preds = %entry
   br i1 %cmp.not14, label %while.end, label %while.body
 
 if.else:                                          ; preds = %entry
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 210, ptr noundef nonnull @__func__.replay_save_events, ptr noundef nonnull @.str.1) #10
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 210, ptr noundef nonnull @__func__.replay_save_events, ptr noundef nonnull @.str.1) #11
   unreachable
 
 while.body:                                       ; preds = %while.cond.preheader, %if.end11
@@ -413,13 +413,13 @@ do.body.i:                                        ; preds = %while.body
   br i1 %cmp1.i, label %do.end.i, label %if.else.i
 
 if.else.i:                                        ; preds = %do.body.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 177, ptr noundef nonnull @__func__.replay_save_event, ptr noundef nonnull @.str.5) #10
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 177, ptr noundef nonnull @__func__.replay_save_event, ptr noundef nonnull @.str.5) #11
   unreachable
 
 do.end.i:                                         ; preds = %do.body.i
   %4 = trunc nuw i32 %3 to i8
   %conv.i = add nuw nsw i8 %4, 3
-  tail call void @replay_put_event(i8 noundef zeroext %conv.i) #9
+  tail call void @replay_put_event(i8 noundef zeroext %conv.i) #10
   %5 = load i32, ptr %1, align 8
   switch i32 %5, label %sw.default.i [
     i32 0, label %sw.bb.i
@@ -434,38 +434,38 @@ do.end.i:                                         ; preds = %do.body.i
 sw.bb.i:                                          ; preds = %do.end.i, %do.end.i
   %id.i = getelementptr inbounds i8, ptr %1, i64 24
   %6 = load i64, ptr %id.i, align 8
-  tail call void @replay_put_qword(i64 noundef %6) #9
+  tail call void @replay_put_qword(i64 noundef %6) #10
   br label %replay_save_event.exit
 
 sw.bb5.i:                                         ; preds = %do.end.i
   %opaque.i = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load ptr, ptr %opaque.i, align 8
-  tail call void @replay_save_input_event(ptr noundef %7) #9
+  tail call void @replay_save_input_event(ptr noundef %7) #10
   br label %replay_save_event.exit
 
 sw.bb7.i:                                         ; preds = %do.end.i
   %opaque8.i = getelementptr inbounds i8, ptr %1, i64 8
   %8 = load ptr, ptr %opaque8.i, align 8
-  tail call void @replay_event_char_read_save(ptr noundef %8) #9
+  tail call void @replay_event_char_read_save(ptr noundef %8) #10
   br label %replay_save_event.exit
 
 sw.bb9.i:                                         ; preds = %do.end.i
   %id10.i = getelementptr inbounds i8, ptr %1, i64 24
   %9 = load i64, ptr %id10.i, align 8
-  tail call void @replay_put_qword(i64 noundef %9) #9
+  tail call void @replay_put_qword(i64 noundef %9) #10
   br label %replay_save_event.exit
 
 sw.bb11.i:                                        ; preds = %do.end.i
   %opaque12.i = getelementptr inbounds i8, ptr %1, i64 8
   %10 = load ptr, ptr %opaque12.i, align 8
-  tail call void @replay_event_net_save(ptr noundef %10) #9
+  tail call void @replay_event_net_save(ptr noundef %10) #10
   br label %replay_save_event.exit
 
 sw.default.i:                                     ; preds = %do.end.i
   %id13.i = getelementptr inbounds i8, ptr %1, i64 24
   %11 = load i64, ptr %id13.i, align 8
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.6, i64 noundef %11) #9
-  tail call void @exit(i32 noundef 1) #10
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.6, i64 noundef %11) #10
+  tail call void @exit(i32 noundef 1) #12
   unreachable
 
 replay_save_event.exit:                           ; preds = %while.body, %do.end.i, %sw.bb.i, %sw.bb5.i, %sw.bb7.i, %sw.bb9.i, %sw.bb11.i
@@ -491,7 +491,7 @@ if.end11:                                         ; preds = %if.else8, %if.then3
   %14 = phi ptr [ null, %if.else8 ], [ %.pre, %if.then3 ]
   store ptr %14, ptr %13, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %events, i8 0, i64 16, i1 false)
-  tail call void @g_free(ptr noundef nonnull %1) #9
+  tail call void @g_free(ptr noundef nonnull %1) #10
   %15 = load ptr, ptr @events_list, align 8
   %cmp.not = icmp eq ptr %15, null
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !8
@@ -503,7 +503,7 @@ while.end:                                        ; preds = %if.end11, %while.co
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @replay_read_events() local_unnamed_addr #2 {
 entry:
-  %call = tail call zeroext i1 @replay_mutex_locked() #9
+  %call = tail call zeroext i1 @replay_mutex_locked() #10
   br i1 %call, label %while.cond.preheader, label %if.else
 
 while.cond.preheader:                             ; preds = %entry
@@ -513,7 +513,7 @@ while.cond.preheader:                             ; preds = %entry
   br i1 %2, label %while.body, label %while.end
 
 if.else:                                          ; preds = %entry
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 282, ptr noundef nonnull @__func__.replay_read_events, ptr noundef nonnull @.str.1) #10
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 282, ptr noundef nonnull @__func__.replay_read_events, ptr noundef nonnull @.str.1) #11
   unreachable
 
 while.body:                                       ; preds = %while.cond.preheader, %if.end4
@@ -535,24 +535,24 @@ sw.bb.i:                                          ; preds = %while.body, %while.
   br i1 %cmp.i, label %sw.epilog.sink.split.i, label %sw.epilog.i
 
 sw.bb1.i:                                         ; preds = %while.body
-  %call2.i = tail call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #11
+  %call2.i = tail call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #13
   store i32 2, ptr %call2.i, align 8
-  %call4.i = tail call ptr @replay_read_input_event() #9
+  %call4.i = tail call ptr @replay_read_input_event() #10
   %opaque.i = getelementptr inbounds i8, ptr %call2.i, i64 8
   store ptr %call4.i, ptr %opaque.i, align 8
   br label %if.end4
 
 sw.bb5.i:                                         ; preds = %while.body
-  %call6.i = tail call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #11
+  %call6.i = tail call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #13
   store i32 3, ptr %call6.i, align 8
   %opaque8.i = getelementptr inbounds i8, ptr %call6.i, i64 8
   store ptr null, ptr %opaque8.i, align 8
   br label %if.end4
 
 sw.bb9.i:                                         ; preds = %while.body
-  %call10.i = tail call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #11
+  %call10.i = tail call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #13
   store i32 4, ptr %call10.i, align 8
-  %call12.i = tail call ptr @replay_event_char_read_load() #9
+  %call12.i = tail call ptr @replay_event_char_read_load() #10
   %opaque13.i = getelementptr inbounds i8, ptr %call10.i, i64 8
   store ptr %call12.i, ptr %opaque13.i, align 8
   br label %if.end4
@@ -563,9 +563,9 @@ sw.bb14.i:                                        ; preds = %while.body
   br i1 %cmp15.i, label %sw.epilog.sink.split.i, label %sw.epilog.i
 
 sw.bb19.i:                                        ; preds = %while.body
-  %call20.i = tail call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #11
+  %call20.i = tail call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #13
   store i32 6, ptr %call20.i, align 8
-  %call22.i = tail call ptr @replay_event_net_load() #9
+  %call22.i = tail call ptr @replay_event_net_load() #10
   %opaque23.i = getelementptr inbounds i8, ptr %call20.i, i64 8
   store ptr %call22.i, ptr %opaque23.i, align 8
   br label %if.end4
@@ -574,7 +574,7 @@ default.unreachable:                              ; preds = %while.body
   unreachable
 
 sw.epilog.sink.split.i:                           ; preds = %sw.bb14.i, %sw.bb.i
-  %call17.i = tail call i64 @replay_get_qword() #9
+  %call17.i = tail call i64 @replay_get_qword() #10
   store i64 %call17.i, ptr getelementptr inbounds (i8, ptr @replay_state, i64 64), align 8
   br label %sw.epilog.i
 
@@ -646,10 +646,10 @@ if.end41.i:                                       ; preds = %if.else.i, %if.then
 
 if.end4:                                          ; preds = %sw.bb19.i, %sw.bb9.i, %sw.bb5.i, %sw.bb1.i, %if.end41.i
   %retval.0.i.ph = phi ptr [ %.us-phi.i, %if.end41.i ], [ %call2.i, %sw.bb1.i ], [ %call6.i, %sw.bb5.i ], [ %call10.i, %sw.bb9.i ], [ %call20.i, %sw.bb19.i ]
-  tail call void @replay_finish_event() #9
+  tail call void @replay_finish_event() #10
   store i64 -1, ptr getelementptr inbounds (i8, ptr @replay_state, i64 64), align 8
   tail call fastcc void @replay_run_event(ptr noundef nonnull %retval.0.i.ph)
-  tail call void @g_free(ptr noundef nonnull %retval.0.i.ph) #9
+  tail call void @g_free(ptr noundef nonnull %retval.0.i.ph) #10
   %14 = load i32, ptr getelementptr inbounds (i8, ptr @replay_state, i64 28), align 4
   %15 = add i32 %14, -3
   %16 = icmp ult i32 %15, 7
@@ -677,7 +677,7 @@ entry:
   br i1 %cmp.i, label %replay_flush_events.exit, label %do.body.i
 
 do.body.i:                                        ; preds = %entry
-  %call.i = tail call zeroext i1 @replay_mutex_locked() #9
+  %call.i = tail call zeroext i1 @replay_mutex_locked() #10
   br i1 %call.i, label %while.cond.preheader.i, label %if.else.i
 
 while.cond.preheader.i:                           ; preds = %do.body.i
@@ -686,7 +686,7 @@ while.cond.preheader.i:                           ; preds = %do.body.i
   br i1 %cmp3.not11.i, label %replay_flush_events.exit, label %while.body.i
 
 if.else.i:                                        ; preds = %do.body.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 85, ptr noundef nonnull @__func__.replay_flush_events, ptr noundef nonnull @.str.1) #10
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 85, ptr noundef nonnull @__func__.replay_flush_events, ptr noundef nonnull @.str.1) #11
   unreachable
 
 while.body.i:                                     ; preds = %while.cond.preheader.i, %if.end14.i
@@ -713,7 +713,7 @@ if.end14.i:                                       ; preds = %if.else11.i, %if.th
   %5 = phi ptr [ null, %if.else11.i ], [ %.pre.i, %if.then6.i ]
   store ptr %5, ptr %4, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %events.i, i8 0, i64 16, i1 false)
-  tail call void @g_free(ptr noundef nonnull %2) #9
+  tail call void @g_free(ptr noundef nonnull %2) #10
   %6 = load ptr, ptr @events_list, align 8
   %cmp3.not.i = icmp eq ptr %6, null
   br i1 %cmp3.not.i, label %replay_flush_events.exit, label %while.body.i, !llvm.loop !5
@@ -760,8 +760,8 @@ declare void @replay_event_net_run(ptr noundef) local_unnamed_addr #3
 
 declare void @error_report(ptr noundef, ...) local_unnamed_addr #3
 
-; Function Attrs: noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #5
+; Function Attrs: nofree noreturn nounwind
+declare void @exit(i32 noundef) local_unnamed_addr #8
 
 declare void @replay_put_event(i8 noundef zeroext) local_unnamed_addr #3
 
@@ -782,7 +782,7 @@ declare ptr @replay_event_char_read_load() local_unnamed_addr #3
 declare ptr @replay_event_net_load() local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -792,10 +792,12 @@ attributes #4 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stac
 attributes #5 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { nounwind }
-attributes #10 = { noreturn nounwind }
-attributes #11 = { nounwind allocsize(0,1) }
+attributes #8 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #10 = { nounwind }
+attributes #11 = { noreturn nounwind }
+attributes #12 = { cold noreturn nounwind }
+attributes #13 = { nounwind allocsize(0,1) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

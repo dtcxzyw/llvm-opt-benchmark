@@ -2724,7 +2724,7 @@ define internal void @php_error_cb(i32 noundef %0, ptr noundef %1, i32 noundef %
   %185 = load i64, ptr getelementptr inbounds (i8, ptr @core_globals, i64 40), align 8
   %186 = call i32 @zend_set_memory_limit(i64 noundef %185) #29
   call void @zend_objects_store_mark_destructed(ptr noundef nonnull getelementptr inbounds (i8, ptr @executor_globals, i64 840)) #29
-  call void @_zend_bailout(ptr noundef nonnull @.str.63, i32 noundef 1416) #34
+  call void @_zend_bailout(ptr noundef nonnull @.str.63, i32 noundef 1416) #35
   unreachable
 
 187:                                              ; preds = %172, %182, %40, %42, %169
@@ -3422,7 +3422,7 @@ define void @php_handle_aborted_connection() local_unnamed_addr #4 {
   br i1 %2, label %4, label %3
 
 3:                                                ; preds = %0
-  tail call void @_zend_bailout(ptr noundef nonnull @.str.63, i32 noundef 2595) #34
+  tail call void @_zend_bailout(ptr noundef nonnull @.str.63, i32 noundef 2595) #35
   unreachable
 
 4:                                                ; preds = %0
@@ -3583,7 +3583,7 @@ declare void @php_output_discard_all() local_unnamed_addr #0
 ; Function Attrs: nofree nounwind
 declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #13
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #17
 
 declare i32 @sapi_header_op(i32 noundef, ptr noundef) local_unnamed_addr #0
@@ -4469,7 +4469,7 @@ attributes #13 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="tru
 attributes #14 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #18 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #19 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #20 = { mustprogress nofree nounwind willreturn memory(readwrite, argmem: read, inaccessiblemem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -4486,7 +4486,8 @@ attributes #30 = { nounwind returns_twice }
 attributes #31 = { nounwind allocsize(0) }
 attributes #32 = { cold }
 attributes #33 = { cold nounwind }
-attributes #34 = { noreturn nounwind }
+attributes #34 = { cold noreturn nounwind }
+attributes #35 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -1938,7 +1938,7 @@ define linkonce_odr void @_ZNSt3mapISt17basic_string_viewIcSt11char_traitsIcEEPN
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  tail call void @__clang_call_terminate(ptr %6) #29
+  tail call void @__clang_call_terminate(ptr %6) #30
   unreachable
 
 _ZNSt8_Rb_treeISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_PN4pkpy8PyObjectEESt10_Select1stIS9_ESt4lessIS3_ESaIS9_EED2Ev.exit: ; preds = %1
@@ -1956,7 +1956,7 @@ define linkonce_odr void @_ZNSt3mapISt17basic_string_viewIcSt11char_traitsIcEESt
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  tail call void @__clang_call_terminate(ptr %6) #29
+  tail call void @__clang_call_terminate(ptr %6) #30
   unreachable
 
 _ZNSt8_Rb_treeISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_St10shared_ptrIN4pkpy10CodeObjectEEESt10_Select1stISA_ESt4lessIS3_ESaISA_EED2Ev.exit: ; preds = %1
@@ -2037,7 +2037,7 @@ define linkonce_odr void @_ZNSt3setIPN4pkpy8PyObjectESt4lessIS2_ESaIS2_EED2Ev(pt
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  tail call void @__clang_call_terminate(ptr %6) #29
+  tail call void @__clang_call_terminate(ptr %6) #30
   unreachable
 
 _ZNSt8_Rb_treeIPN4pkpy8PyObjectES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EED2Ev.exit: ; preds = %1
@@ -2055,7 +2055,7 @@ define linkonce_odr void @_ZNSt3mapIKSt10type_indexN4pkpy4TypeESt4lessIS1_ESaISt
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  tail call void @__clang_call_terminate(ptr %6) #29
+  tail call void @__clang_call_terminate(ptr %6) #30
   unreachable
 
 _ZNSt8_Rb_treeIKSt10type_indexSt4pairIS1_N4pkpy4TypeEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EED2Ev.exit: ; preds = %1
@@ -2073,7 +2073,7 @@ define linkonce_odr void @_ZNSt3mapIN4pkpy7StrNameENS0_3StrESt4lessIS1_ESaISt4pa
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  tail call void @__clang_call_terminate(ptr %6) #29
+  tail call void @__clang_call_terminate(ptr %6) #30
   unreachable
 
 _ZNSt8_Rb_treeIN4pkpy7StrNameESt4pairIKS1_NS0_3StrEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EED2Ev.exit: ; preds = %1
@@ -2191,7 +2191,7 @@ _ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.thread: ; preds = %20, %_ZN4pkpy7i
           to label %34 unwind label %35
 
 34:                                               ; preds = %_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.thread
-  tail call void @__cxa_throw(ptr nonnull %33, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #30
+  tail call void @__cxa_throw(ptr nonnull %33, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #31
   unreachable
 
 35:                                               ; preds = %_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.thread
@@ -2716,7 +2716,7 @@ _ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.thread: ; preds = %16, %_ZN4pkpy7i
           to label %32 unwind label %33
 
 32:                                               ; preds = %_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.thread
-  tail call void @__cxa_throw(ptr nonnull %31, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #30
+  tail call void @__cxa_throw(ptr nonnull %31, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #31
   unreachable
 
 33:                                               ; preds = %_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.thread
@@ -2884,7 +2884,7 @@ define noundef ptr @_ZN4pkpy2VM7py_iterEPNS_8PyObjectE(ptr noundef nonnull align
   %53 = getelementptr inbounds i8, ptr %52, i64 8
   store ptr %53, ptr %47, align 8
   store ptr %41, ptr %52, align 8
-  %54 = invoke noundef ptr @_ZN4pkpy2VM10vectorcallEiib(ptr noundef nonnull align 8 dereferenceable(264913) %0, i32 noundef 1, i32 noundef 0, i1 noundef zeroext false) #31
+  %54 = invoke noundef ptr @_ZN4pkpy2VM10vectorcallEiib(ptr noundef nonnull align 8 dereferenceable(264913) %0, i32 noundef 1, i32 noundef 0, i1 noundef zeroext false) #32
           to label %.noexc20 unwind label %57
 
 .noexc20:                                         ; preds = %.noexc19
@@ -3367,7 +3367,7 @@ _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit.
           to label %52 unwind label %57
 
 52:                                               ; preds = %51
-  invoke void @__cxa_throw(ptr nonnull %48, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #30
+  invoke void @__cxa_throw(ptr nonnull %48, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #31
           to label %63 unwind label %57
 
 .thread:                                          ; preds = %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE20try_get_likely_foundENS_7StrNameE.exit.thread
@@ -4030,7 +4030,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br i1 %110, label %112, label %113
 
 112:                                              ; preds = %108
-  invoke void @__cxa_rethrow() #30
+  invoke void @__cxa_rethrow() #31
           to label %148 unwind label %123
 
 113:                                              ; preds = %108
@@ -4140,7 +4140,7 @@ _ZNSt10shared_ptrIN4pkpy10CodeObjectEED2Ev.exit:  ; preds = %_ZNSt16_Sp_counted_
   %146 = landingpad { ptr, i32 }
           catch ptr null
   %147 = extractvalue { ptr, i32 } %146, 0
-  call void @__clang_call_terminate(ptr %147) #29
+  call void @__clang_call_terminate(ptr %147) #30
   unreachable
 
 148:                                              ; preds = %112
@@ -4240,7 +4240,7 @@ declare void @__cxa_end_catch() local_unnamed_addr
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #8 comdat {
   %2 = tail call ptr @__cxa_begin_catch(ptr %0) #27
-  tail call void @_ZSt9terminatev() #29
+  tail call void @_ZSt9terminatev() #30
   unreachable
 }
 
@@ -4351,7 +4351,7 @@ define noundef ptr @_ZN4pkpy2VM15new_type_objectEPNS_8PyObjectENS_7StrNameENS_4T
           to label %33 unwind label %36
 
 33:                                               ; preds = %29
-  invoke void @__cxa_throw(ptr nonnull %30, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #30
+  invoke void @__cxa_throw(ptr nonnull %30, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #31
           to label %72 unwind label %38
 
 34:                                               ; preds = %27
@@ -4501,7 +4501,7 @@ define linkonce_odr noundef ptr @_ZN4pkpy11ManagedHeap4_newINS_4TypeEJS2_EEEPNS_
   br i1 %26, label %27, label %_ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i
 
 27:                                               ; preds = %21
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.117) #30
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.117) #31
   unreachable
 
 _ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %21
@@ -4516,7 +4516,7 @@ _ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %
 
 33:                                               ; preds = %_ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i
   %34 = shl nuw nsw i64 %32, 3
-  %35 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %34) #32
+  %35 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %34) #33
   br label %_ZNSt12_Vector_baseIPN4pkpy8PyObjectESaIS2_EE11_M_allocateEm.exit.i.i
 
 _ZNSt12_Vector_baseIPN4pkpy8PyObjectESaIS2_EE11_M_allocateEm.exit.i.i: ; preds = %33, %_ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i
@@ -5289,7 +5289,7 @@ _ZN4pkpy10pod_vectorISt17basic_string_viewIcSt11char_traitsIcEELi2EED2Ev.exit119
           to label %220 unwind label %228
 
 220:                                              ; preds = %219
-  invoke void @__cxa_throw(ptr nonnull %213, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #30
+  invoke void @__cxa_throw(ptr nonnull %213, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #31
           to label %540 unwind label %228
 
 .thread:                                          ; preds = %212
@@ -5754,7 +5754,7 @@ _ZNSt3mapIN4pkpy7StrNameENS0_3StrESt4lessIS1_ESaISt4pairIKS1_S2_EEE4findERS6_.ex
           to label %397 unwind label %405
 
 397:                                              ; preds = %396
-  invoke void @__cxa_throw(ptr nonnull %390, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #30
+  invoke void @__cxa_throw(ptr nonnull %390, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #31
           to label %540 unwind label %405
 
 .thread163:                                       ; preds = %389
@@ -6675,7 +6675,7 @@ _ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit: ; preds = %49, %59
 .body:                                            ; preds = %24, %62
   %eh.lpad-body = phi { ptr, i32 } [ %63, %62 ], [ %25, %24 ]
   %64 = extractvalue { ptr, i32 } %eh.lpad-body, 0
-  call void @__clang_call_terminate(ptr %64) #29
+  call void @__clang_call_terminate(ptr %64) #30
   unreachable
 }
 
@@ -7068,7 +7068,7 @@ define noundef ptr @_ZN4pkpy2VM15__minmax_reduceEMS0_FbPNS_8PyObjectES2_ES2_S2_(
   %57 = getelementptr inbounds i8, ptr %56, i64 8
   store ptr %57, ptr %50, align 8
   store ptr %44, ptr %56, align 8
-  %58 = invoke noundef ptr @_ZN4pkpy2VM10vectorcallEiib(ptr noundef nonnull align 8 dereferenceable(264913) %0, i32 noundef 1, i32 noundef 0, i1 noundef zeroext false) #31
+  %58 = invoke noundef ptr @_ZN4pkpy2VM10vectorcallEiib(ptr noundef nonnull align 8 dereferenceable(264913) %0, i32 noundef 1, i32 noundef 0, i1 noundef zeroext false) #32
           to label %.noexc62 unwind label %59
 
 .noexc62:                                         ; preds = %.noexc61
@@ -7545,7 +7545,7 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %3
-  invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.245) #30
+  invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.245) #31
           to label %7 unwind label %8
 
 7:                                                ; preds = %6
@@ -7897,7 +7897,7 @@ _ZNK4pkpy12NameDictImplIPNS_8PyObjectEE8containsENS_7StrNameE.exit: ; preds = %5
           to label %80 unwind label %85
 
 80:                                               ; preds = %79
-  invoke void @__cxa_throw(ptr nonnull %76, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #30
+  invoke void @__cxa_throw(ptr nonnull %76, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #31
           to label %94 unwind label %85
 
 .thread:                                          ; preds = %75
@@ -8086,7 +8086,7 @@ _ZN4pkpy12NameDictImplIPNS_8PyObjectEE5clearEv.exit: ; preds = %_ZN4pkpy13LargeN
   %48 = landingpad { ptr, i32 }
           catch ptr null
   %49 = extractvalue { ptr, i32 } %48, 0
-  tail call void @__clang_call_terminate(ptr %49) #29
+  tail call void @__clang_call_terminate(ptr %49) #30
   unreachable
 
 _ZNSt3mapIN4pkpy7StrNameENS0_3StrESt4lessIS1_ESaISt4pairIKS1_S2_EEE5clearEv.exit: ; preds = %_ZN4pkpy12NameDictImplIPNS_8PyObjectEE5clearEv.exit
@@ -8182,7 +8182,7 @@ _ZNSt10shared_ptrIN4pkpy8FuncDeclEED2Ev.exit:     ; preds = %_ZNSt3mapIN4pkpy7St
   %94 = landingpad { ptr, i32 }
           catch ptr null
   %95 = extractvalue { ptr, i32 } %94, 0
-  tail call void @__clang_call_terminate(ptr %95) #29
+  tail call void @__clang_call_terminate(ptr %95) #30
   unreachable
 
 _ZNSt3mapISt17basic_string_viewIcSt11char_traitsIcEEPN4pkpy8PyObjectESt4lessIS3_ESaISt4pairIKS3_S6_EEED2Ev.exit: ; preds = %_ZNSt10shared_ptrIN4pkpy8FuncDeclEED2Ev.exit
@@ -8196,7 +8196,7 @@ _ZNSt3mapISt17basic_string_viewIcSt11char_traitsIcEEPN4pkpy8PyObjectESt4lessIS3_
   %100 = landingpad { ptr, i32 }
           catch ptr null
   %101 = extractvalue { ptr, i32 } %100, 0
-  tail call void @__clang_call_terminate(ptr %101) #29
+  tail call void @__clang_call_terminate(ptr %101) #30
   unreachable
 
 _ZNSt3mapISt17basic_string_viewIcSt11char_traitsIcEESt10shared_ptrIN4pkpy10CodeObjectEESt4lessIS3_ESaISt4pairIKS3_S7_EEED2Ev.exit: ; preds = %_ZNSt3mapISt17basic_string_viewIcSt11char_traitsIcEEPN4pkpy8PyObjectESt4lessIS3_ESaISt4pairIKS3_S6_EEED2Ev.exit
@@ -8269,7 +8269,7 @@ _ZN4pkpy13ImportContextD2Ev.exit:                 ; preds = %_ZSt8_DestroyIPN4pk
   %129 = landingpad { ptr, i32 }
           catch ptr null
   %130 = extractvalue { ptr, i32 } %129, 0
-  tail call void @__clang_call_terminate(ptr %130) #29
+  tail call void @__clang_call_terminate(ptr %130) #30
   unreachable
 
 _ZNSt3setIPN4pkpy8PyObjectESt4lessIS2_ESaIS2_EED2Ev.exit: ; preds = %_ZN4pkpy13ImportContextD2Ev.exit
@@ -8283,7 +8283,7 @@ _ZNSt3setIPN4pkpy8PyObjectESt4lessIS2_ESaIS2_EED2Ev.exit: ; preds = %_ZN4pkpy13I
   %135 = landingpad { ptr, i32 }
           catch ptr null
   %136 = extractvalue { ptr, i32 } %135, 0
-  tail call void @__clang_call_terminate(ptr %136) #29
+  tail call void @__clang_call_terminate(ptr %136) #30
   unreachable
 
 _ZNSt3mapIKSt10type_indexN4pkpy4TypeESt4lessIS1_ESaISt4pairIS1_S3_EEED2Ev.exit: ; preds = %_ZNSt3setIPN4pkpy8PyObjectESt4lessIS2_ESaIS2_EED2Ev.exit
@@ -8310,7 +8310,7 @@ _ZN4pkpy2VMUt_D2Ev.exit:                          ; preds = %_ZNSt3mapIKSt10type
   %147 = landingpad { ptr, i32 }
           catch ptr null
   %148 = extractvalue { ptr, i32 } %147, 0
-  tail call void @__clang_call_terminate(ptr %148) #29
+  tail call void @__clang_call_terminate(ptr %148) #30
   unreachable
 
 _ZNSt3mapIN4pkpy7StrNameENS0_3StrESt4lessIS1_ESaISt4pairIKS1_S2_EEED2Ev.exit: ; preds = %_ZN4pkpy2VMUt_D2Ev.exit
@@ -9258,7 +9258,7 @@ _ZN4pkpy2VM10isinstanceEPNS_8PyObjectENS_4TypeE.exit.i52: ; preds = %142
 
 _ZN4pkpy2VM21check_compatible_typeEPNS_8PyObjectENS_4TypeE.exit54: ; preds = %140, %_ZN4pkpy2VM10isinstanceEPNS_8PyObjectENS_4TypeE.exit.i52
   %146 = getelementptr inbounds i8, ptr %3, i64 24
-  %147 = invoke noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #32
+  %147 = invoke noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #33
           to label %_ZNSt10shared_ptrIN4pkpy12NameDictImplIPNS0_8PyObjectEEEED2Ev.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 _ZNSt10shared_ptrIN4pkpy12NameDictImplIPNS0_8PyObjectEEEED2Ev.exit: ; preds = %_ZN4pkpy2VM21check_compatible_typeEPNS_8PyObjectENS_4TypeE.exit54
@@ -9925,7 +9925,7 @@ define linkonce_odr noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_13DummyInstanceE
   br i1 %23, label %24, label %_ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i
 
 24:                                               ; preds = %18
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.117) #30
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.117) #31
   unreachable
 
 _ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %18
@@ -9940,7 +9940,7 @@ _ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %
 
 30:                                               ; preds = %_ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i
   %31 = shl nuw nsw i64 %29, 3
-  %32 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %31) #32
+  %32 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %31) #33
   br label %_ZNSt12_Vector_baseIPN4pkpy8PyObjectESaIS2_EE11_M_allocateEm.exit.i.i
 
 _ZNSt12_Vector_baseIPN4pkpy8PyObjectESaIS2_EE11_M_allocateEm.exit.i.i: ; preds = %30, %_ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i
@@ -10669,7 +10669,7 @@ _ZN4pkpy8is_floatEPNS_8PyObjectE.exit.thread:     ; preds = %_ZN4pkpy8is_floatEP
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9)
   %115 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %17) #27
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  %116 = tail call ptr @__errno_location() #33
+  %116 = tail call ptr @__errno_location() #34
   %117 = load i32, ptr %116, align 4
   store i32 0, ptr %116, align 4
   %118 = call noundef i64 @strtol(ptr noundef %115, ptr noundef nonnull %8, i32 noundef 10)
@@ -10678,7 +10678,7 @@ _ZN4pkpy8is_floatEPNS_8PyObjectE.exit.thread:     ; preds = %_ZN4pkpy8is_floatEP
   br i1 %120, label %121, label %128
 
 121:                                              ; preds = %114
-  invoke void @_ZSt24__throw_invalid_argumentPKc(ptr noundef nonnull @.str.120) #30
+  invoke void @_ZSt24__throw_invalid_argumentPKc(ptr noundef nonnull @.str.120) #31
           to label %122 unwind label %123
 
 122:                                              ; preds = %121
@@ -10704,7 +10704,7 @@ _ZN4pkpy8is_floatEPNS_8PyObjectE.exit.thread:     ; preds = %_ZN4pkpy8is_floatEP
   br i1 %or.cond.i.i, label %.critedge.i.i, label %134
 
 .critedge.i.i:                                    ; preds = %128
-  invoke void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.120) #30
+  invoke void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.120) #31
           to label %133 unwind label %123
 
 133:                                              ; preds = %.critedge.i.i
@@ -10767,7 +10767,7 @@ _ZN4pkpy8is_floatEPNS_8PyObjectE.exit.thread:     ; preds = %_ZN4pkpy8is_floatEP
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
   %151 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %19) #27
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  %152 = tail call ptr @__errno_location() #33
+  %152 = tail call ptr @__errno_location() #34
   %153 = load i32, ptr %152, align 4
   store i32 0, ptr %152, align 4
   %154 = call noundef i64 @strtol(ptr noundef %151, ptr noundef nonnull %6, i32 noundef 10)
@@ -10776,7 +10776,7 @@ _ZN4pkpy8is_floatEPNS_8PyObjectE.exit.thread:     ; preds = %_ZN4pkpy8is_floatEP
   br i1 %156, label %157, label %164
 
 157:                                              ; preds = %150
-  invoke void @_ZSt24__throw_invalid_argumentPKc(ptr noundef nonnull @.str.120) #30
+  invoke void @_ZSt24__throw_invalid_argumentPKc(ptr noundef nonnull @.str.120) #31
           to label %158 unwind label %159
 
 158:                                              ; preds = %157
@@ -10802,7 +10802,7 @@ _ZN4pkpy8is_floatEPNS_8PyObjectE.exit.thread:     ; preds = %_ZN4pkpy8is_floatEP
   br i1 %or.cond.i.i95, label %.critedge.i.i96, label %170
 
 .critedge.i.i96:                                  ; preds = %164
-  invoke void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.120) #30
+  invoke void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.120) #31
           to label %169 unwind label %159
 
 169:                                              ; preds = %.critedge.i.i96
@@ -10852,7 +10852,7 @@ _ZN4pkpy8is_floatEPNS_8PyObjectE.exit.thread:     ; preds = %_ZN4pkpy8is_floatEP
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
   %182 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %21) #27
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  %183 = tail call ptr @__errno_location() #33
+  %183 = tail call ptr @__errno_location() #34
   %184 = load i32, ptr %183, align 4
   store i32 0, ptr %183, align 4
   %185 = call noundef i64 @strtol(ptr noundef %182, ptr noundef nonnull %4, i32 noundef 10)
@@ -10861,7 +10861,7 @@ _ZN4pkpy8is_floatEPNS_8PyObjectE.exit.thread:     ; preds = %_ZN4pkpy8is_floatEP
   br i1 %187, label %188, label %195
 
 188:                                              ; preds = %181
-  invoke void @_ZSt24__throw_invalid_argumentPKc(ptr noundef nonnull @.str.120) #30
+  invoke void @_ZSt24__throw_invalid_argumentPKc(ptr noundef nonnull @.str.120) #31
           to label %189 unwind label %190
 
 189:                                              ; preds = %188
@@ -10887,7 +10887,7 @@ _ZN4pkpy8is_floatEPNS_8PyObjectE.exit.thread:     ; preds = %_ZN4pkpy8is_floatEP
   br i1 %or.cond.i.i104, label %.critedge.i.i105, label %201
 
 .critedge.i.i105:                                 ; preds = %195
-  invoke void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.120) #30
+  invoke void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.120) #31
           to label %200 unwind label %190
 
 200:                                              ; preds = %.critedge.i.i105
@@ -11397,7 +11397,7 @@ _ZN4pkpy6py_varINS_3StrEEEPNS_8PyObjectEPNS_2VMEOT_.exit: ; preds = %355, %42
   %362 = landingpad { ptr, i32 }
           catch ptr null
   %363 = extractvalue { ptr, i32 } %362, 0
-  call void @__clang_call_terminate(ptr %363) #29
+  call void @__clang_call_terminate(ptr %363) #30
   unreachable
 }
 
@@ -11460,7 +11460,7 @@ define linkonce_odr noundef ptr @_ZN4pkpy11ManagedHeap4_newINS_11DummyModuleEJEE
   br i1 %24, label %25, label %_ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i
 
 25:                                               ; preds = %19
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.117) #30
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.117) #31
   unreachable
 
 _ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %19
@@ -11475,7 +11475,7 @@ _ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %
 
 31:                                               ; preds = %_ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i
   %32 = shl nuw nsw i64 %30, 3
-  %33 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %32) #32
+  %33 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %32) #33
   br label %_ZNSt12_Vector_baseIPN4pkpy8PyObjectESaIS2_EE11_M_allocateEm.exit.i.i
 
 _ZNSt12_Vector_baseIPN4pkpy8PyObjectESaIS2_EE11_M_allocateEm.exit.i.i: ; preds = %31, %_ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i
@@ -11639,7 +11639,7 @@ define void @_ZN4pkpy2VM11disassembleESt10shared_ptrINS_10CodeObjectEE(ptr dead_
   br i1 %47, label %.invoke, label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i
 
 .invoke:                                          ; preds = %43, %114
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.117) #30
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.117) #31
           to label %.cont unwind label %.loopexit.split-lp126
 
 .cont:                                            ; preds = %.invoke
@@ -11657,7 +11657,7 @@ _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %43
 
 53:                                               ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i
   %54 = shl nuw nsw i64 %52, 2
-  %55 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %54) #32
+  %55 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %54) #33
           to label %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i.i unwind label %.loopexit125
 
 _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i.i: ; preds = %53, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i
@@ -11804,7 +11804,7 @@ _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i: ; preds = %114
 
 124:                                              ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i
   %125 = shl nuw nsw i64 %123, 2
-  %126 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %125) #32
+  %126 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %125) #33
           to label %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i unwind label %.loopexit125
 
 _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i: ; preds = %124, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i
@@ -12901,7 +12901,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 
 declare noundef nonnull align 8 dereferenceable(20) ptr @_ZN4pkpy7SStreamlsEc(ptr noundef nonnull align 8 dereferenceable(20), i8 noundef signext) local_unnamed_addr #0
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
@@ -12939,7 +12939,7 @@ define linkonce_odr noundef ptr @_ZN4pkpy11ManagedHeap4_newINS_5DummyEJEEEPNS_8P
   br i1 %20, label %21, label %_ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i
 
 21:                                               ; preds = %15
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.117) #30
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.117) #31
   unreachable
 
 _ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %15
@@ -12954,7 +12954,7 @@ _ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %
 
 27:                                               ; preds = %_ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i
   %28 = shl nuw nsw i64 %26, 3
-  %29 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %28) #32
+  %29 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %28) #33
   br label %_ZNSt12_Vector_baseIPN4pkpy8PyObjectESaIS2_EE11_M_allocateEm.exit.i.i
 
 _ZNSt12_Vector_baseIPN4pkpy8PyObjectESaIS2_EE11_M_allocateEm.exit.i.i: ; preds = %27, %_ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i
@@ -13062,7 +13062,7 @@ _ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit:    ; preds = %16
   %42 = getelementptr inbounds i8, ptr %41, i64 8
   store ptr %42, ptr %13, align 8
   store ptr %31, ptr %41, align 8
-  %43 = invoke noundef ptr @_ZN4pkpy2VM10vectorcallEiib(ptr noundef nonnull align 8 dereferenceable(264913) %0, i32 noundef 1, i32 noundef 0, i1 noundef zeroext false) #31
+  %43 = invoke noundef ptr @_ZN4pkpy2VM10vectorcallEiib(ptr noundef nonnull align 8 dereferenceable(264913) %0, i32 noundef 1, i32 noundef 0, i1 noundef zeroext false) #32
           to label %.noexc21 unwind label %44
 
 .noexc21:                                         ; preds = %.noexc20
@@ -13214,7 +13214,7 @@ _ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EE9push_backIRS2_EEvOT_.exit: ; preds = %6
   br i1 %116, label %117, label %_ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
 
 117:                                              ; preds = %111
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.117) #30
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.117) #31
           to label %.noexc31 unwind label %.loopexit.split-lp
 
 .noexc31:                                         ; preds = %117
@@ -13232,7 +13232,7 @@ _ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds =
 
 123:                                              ; preds = %_ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
   %124 = shl nuw nsw i64 %122, 3
-  %125 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %124) #32
+  %125 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %124) #33
           to label %_ZNSt12_Vector_baseIPN4pkpy8PyObjectESaIS2_EE11_M_allocateEm.exit.i.i.i unwind label %.loopexit38
 
 _ZNSt12_Vector_baseIPN4pkpy8PyObjectESaIS2_EE11_M_allocateEm.exit.i.i.i: ; preds = %123, %_ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
@@ -13403,7 +13403,7 @@ _ZN4pkpy2VM16find_name_in_mroENS_4TypeENS_7StrNameE.exit.i: ; preds = %_ZNK4pkpy
   br i1 %.not117.i, label %191, label %_ZN4pkpy2VM18get_unbound_methodEPNS_8PyObjectENS_7StrNameEPS2_bb.exit
 
 _ZN4pkpy2VM16find_name_in_mroENS_4TypeENS_7StrNameE.exit.thread.i: ; preds = %_ZNK4pkpy12NameDictImplIPNS_8PyObjectEE7try_getENS_7StrNameE.exit.thread.i.i
-  call void @_ZN4pkpy2VM14AttributeErrorEPNS_8PyObjectENS_7StrNameE(ptr noundef nonnull align 8 dereferenceable(264913) %0, ptr noundef %.097.i, i16 %.sroa.0.0.copyload.i) #31
+  call void @_ZN4pkpy2VM14AttributeErrorEPNS_8PyObjectENS_7StrNameE(ptr noundef nonnull align 8 dereferenceable(264913) %0, ptr noundef %.097.i, i16 %.sroa.0.0.copyload.i) #32
   unreachable
 
 191:                                              ; preds = %_ZN4pkpy2VM16find_name_in_mroENS_4TypeENS_7StrNameE.exit.i
@@ -13571,7 +13571,7 @@ _ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit:    ; preds = %8
   %35 = getelementptr inbounds i8, ptr %34, i64 8
   store ptr %35, ptr %28, align 8
   store ptr %22, ptr %34, align 8
-  %36 = invoke noundef ptr @_ZN4pkpy2VM10vectorcallEiib(ptr noundef nonnull align 8 dereferenceable(264913) %0, i32 noundef 1, i32 noundef 0, i1 noundef zeroext false) #31
+  %36 = invoke noundef ptr @_ZN4pkpy2VM10vectorcallEiib(ptr noundef nonnull align 8 dereferenceable(264913) %0, i32 noundef 1, i32 noundef 0, i1 noundef zeroext false) #32
           to label %.noexc26 unwind label %37
 
 .noexc26:                                         ; preds = %.noexc25
@@ -13661,7 +13661,7 @@ _ZN4pkpy7py_castIRNS_5TupleEEET_PNS_2VMEPNS_8PyObjectE.exit: ; preds = %_ZN4pkpy
   %75 = getelementptr inbounds i8, ptr %74, i64 8
   store ptr %75, ptr %68, align 8
   store ptr %62, ptr %74, align 8
-  %76 = invoke noundef ptr @_ZN4pkpy2VM10vectorcallEiib(ptr noundef nonnull align 8 dereferenceable(264913) %0, i32 noundef 1, i32 noundef 0, i1 noundef zeroext false) #31
+  %76 = invoke noundef ptr @_ZN4pkpy2VM10vectorcallEiib(ptr noundef nonnull align 8 dereferenceable(264913) %0, i32 noundef 1, i32 noundef 0, i1 noundef zeroext false) #32
           to label %.noexc33 unwind label %77
 
 .noexc33:                                         ; preds = %.noexc32
@@ -14607,7 +14607,7 @@ tailrecurse:                                      ; preds = %tailrecurse.outer, 
           to label %73 unwind label %81
 
 73:                                               ; preds = %72
-  invoke void @__cxa_throw(ptr nonnull %66, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #30
+  invoke void @__cxa_throw(ptr nonnull %66, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #31
           to label %495 unwind label %81
 
 .thread:                                          ; preds = %65
@@ -14766,7 +14766,7 @@ tailrecurse:                                      ; preds = %tailrecurse.outer, 
           to label %139 unwind label %147
 
 139:                                              ; preds = %138
-  invoke void @__cxa_throw(ptr nonnull %132, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #30
+  invoke void @__cxa_throw(ptr nonnull %132, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #31
           to label %495 unwind label %147
 
 .thread311:                                       ; preds = %131
@@ -15821,7 +15821,7 @@ define void @_ZN4pkpy2VM7delattrEPNS_8PyObjectENS_7StrNameE(ptr noundef nonnull 
   %39 = getelementptr inbounds i8, ptr %38, i64 8
   store ptr %39, ptr %32, align 8
   store ptr %26, ptr %38, align 8
-  %40 = invoke noundef ptr @_ZN4pkpy2VM10vectorcallEiib(ptr noundef nonnull align 8 dereferenceable(264913) %0, i32 noundef 1, i32 noundef 0, i1 noundef zeroext false) #31
+  %40 = invoke noundef ptr @_ZN4pkpy2VM10vectorcallEiib(ptr noundef nonnull align 8 dereferenceable(264913) %0, i32 noundef 1, i32 noundef 0, i1 noundef zeroext false) #32
           to label %.noexc17 unwind label %41
 
 .noexc17:                                         ; preds = %.noexc16
@@ -16858,7 +16858,7 @@ _ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit26:  ; preds = %_ZN4pkpy2VM16find_n
   %124 = getelementptr inbounds i8, ptr %123, i64 8
   store ptr %124, ptr %117, align 8
   store ptr %111, ptr %123, align 8
-  %125 = invoke noundef ptr @_ZN4pkpy2VM10vectorcallEiib(ptr noundef nonnull align 8 dereferenceable(264913) %0, i32 noundef 1, i32 noundef 0, i1 noundef zeroext false) #31
+  %125 = invoke noundef ptr @_ZN4pkpy2VM10vectorcallEiib(ptr noundef nonnull align 8 dereferenceable(264913) %0, i32 noundef 1, i32 noundef 0, i1 noundef zeroext false) #32
           to label %.noexc29 unwind label %126
 
 .noexc29:                                         ; preds = %.noexc28
@@ -16932,7 +16932,7 @@ _ZN4pkpy2VM16find_name_in_mroENS_4TypeENS_7StrNameE.exit.thread: ; preds = %_ZNK
   %156 = getelementptr inbounds i8, ptr %155, i64 8
   store ptr %156, ptr %149, align 8
   store ptr %143, ptr %155, align 8
-  %157 = invoke noundef ptr @_ZN4pkpy2VM10vectorcallEiib(ptr noundef nonnull align 8 dereferenceable(264913) %0, i32 noundef 1, i32 noundef 0, i1 noundef zeroext false) #31
+  %157 = invoke noundef ptr @_ZN4pkpy2VM10vectorcallEiib(ptr noundef nonnull align 8 dereferenceable(264913) %0, i32 noundef 1, i32 noundef 0, i1 noundef zeroext false) #32
           to label %.noexc34 unwind label %158
 
 .noexc34:                                         ; preds = %.noexc33
@@ -17002,7 +17002,7 @@ _ZN4pkpy6py_varINS_10NativeFuncEEEPNS_8PyObjectEPNS_2VMEOT_.exit: ; preds = %7
   %27 = landingpad { ptr, i32 }
           catch ptr null
   %28 = extractvalue { ptr, i32 } %27, 0
-  call void @__clang_call_terminate(ptr %28) #29
+  call void @__clang_call_terminate(ptr %28) #30
   unreachable
 
 _ZN4pkpy3anyD2Ev.exit.i:                          ; preds = %24, %21, %_ZN4pkpy6py_varINS_10NativeFuncEEEPNS_8PyObjectEPNS_2VMEOT_.exit
@@ -17100,7 +17100,7 @@ _ZN4pkpy10NativeFuncD2Ev.exit:                    ; preds = %_ZN4pkpy3anyD2Ev.ex
   %73 = landingpad { ptr, i32 }
           catch ptr null
   %74 = extractvalue { ptr, i32 } %73, 0
-  call void @__clang_call_terminate(ptr %74) #29
+  call void @__clang_call_terminate(ptr %74) #30
   unreachable
 
 _ZN4pkpy3anyD2Ev.exit:                            ; preds = %_ZN4pkpy10NativeFuncD2Ev.exit, %67, %70
@@ -17133,7 +17133,7 @@ _ZN4pkpy3anyD2Ev.exit:                            ; preds = %_ZN4pkpy10NativeFun
   %85 = landingpad { ptr, i32 }
           catch ptr null
   %86 = extractvalue { ptr, i32 } %85, 0
-  call void @__clang_call_terminate(ptr %86) #29
+  call void @__clang_call_terminate(ptr %86) #30
   unreachable
 
 _ZN4pkpy3anyD2Ev.exit15:                          ; preds = %75, %79, %82
@@ -17194,7 +17194,7 @@ define linkonce_odr void @_ZN4pkpy10NativeFuncD2Ev(ptr noundef nonnull align 8 d
   %11 = landingpad { ptr, i32 }
           catch ptr null
   %12 = extractvalue { ptr, i32 } %11, 0
-  tail call void @__clang_call_terminate(ptr %12) #29
+  tail call void @__clang_call_terminate(ptr %12) #30
   unreachable
 
 _ZN4pkpy3anyD2Ev.exit:                            ; preds = %1, %5, %8
@@ -17303,7 +17303,7 @@ define noundef ptr @_ZN4pkpy2VM4bindEPNS_8PyObjectEPKcPFS2_PS0_NS_8ArgsViewEENS_
   %18 = landingpad { ptr, i32 }
           catch ptr null
   %19 = extractvalue { ptr, i32 } %18, 0
-  call void @__clang_call_terminate(ptr %19) #29
+  call void @__clang_call_terminate(ptr %19) #30
   unreachable
 
 _ZN4pkpy3anyD2Ev.exit:                            ; preds = %9, %12, %15
@@ -17332,7 +17332,7 @@ _ZN4pkpy3anyD2Ev.exit:                            ; preds = %9, %12, %15
   %30 = landingpad { ptr, i32 }
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
-  call void @__clang_call_terminate(ptr %31) #29
+  call void @__clang_call_terminate(ptr %31) #30
   unreachable
 
 _ZN4pkpy3anyD2Ev.exit8:                           ; preds = %20, %24, %27
@@ -17442,7 +17442,7 @@ _ZNSt10shared_ptrIN4pkpy10CodeObjectEED2Ev.exit:  ; preds = %26
           to label %56 unwind label %60
 
 56:                                               ; preds = %55
-  invoke void @__cxa_throw(ptr nonnull %51, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #30
+  invoke void @__cxa_throw(ptr nonnull %51, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #31
           to label %322 unwind label %60
 
 .thread:                                          ; preds = %49
@@ -17486,7 +17486,7 @@ _ZNSt10shared_ptrIN4pkpy10CodeObjectEED2Ev.exit:  ; preds = %26
           to label %67 unwind label %68
 
 67:                                               ; preds = %65
-  invoke void @__cxa_throw(ptr nonnull %66, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #30
+  invoke void @__cxa_throw(ptr nonnull %66, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #31
           to label %322 unwind label %70
 
 68:                                               ; preds = %65
@@ -17633,7 +17633,7 @@ _ZN4pkpy6py_varINS_10NativeFuncEEEPNS_8PyObjectEPNS_2VMEOT_.exit: ; preds = %_ZN
   %131 = landingpad { ptr, i32 }
           catch ptr null
   %132 = extractvalue { ptr, i32 } %131, 0
-  call void @__clang_call_terminate(ptr %132) #29
+  call void @__clang_call_terminate(ptr %132) #30
   unreachable
 
 _ZN4pkpy3anyD2Ev.exit.i:                          ; preds = %128, %125, %_ZN4pkpy6py_varINS_10NativeFuncEEEPNS_8PyObjectEPNS_2VMEOT_.exit
@@ -17730,7 +17730,7 @@ _ZN4pkpy10NativeFuncD2Ev.exit:                    ; preds = %_ZN4pkpy3anyD2Ev.ex
   %176 = landingpad { ptr, i32 }
           catch ptr null
   %177 = extractvalue { ptr, i32 } %176, 0
-  call void @__clang_call_terminate(ptr %177) #29
+  call void @__clang_call_terminate(ptr %177) #30
   unreachable
 
 _ZN4pkpy3anyD2Ev.exit:                            ; preds = %_ZN4pkpy10NativeFuncD2Ev.exit, %170, %173
@@ -17836,7 +17836,7 @@ _ZNSt10shared_ptrIN4pkpy8FuncDeclEED2Ev.exit:     ; preds = %_ZN4pkpy3anyD2Ev.ex
   %223 = landingpad { ptr, i32 }
           catch ptr null
   %224 = extractvalue { ptr, i32 } %223, 0
-  call void @__clang_call_terminate(ptr %224) #29
+  call void @__clang_call_terminate(ptr %224) #30
   unreachable
 
 _ZN4pkpy3anyD2Ev.exit55:                          ; preds = %213, %217, %220
@@ -18047,7 +18047,7 @@ _ZNSt10shared_ptrIN4pkpy10CodeObjectEED2Ev.exit69: ; preds = %_ZNSt10shared_ptrI
   %320 = landingpad { ptr, i32 }
           catch ptr null
   %321 = extractvalue { ptr, i32 } %320, 0
-  call void @__clang_call_terminate(ptr %321) #29
+  call void @__clang_call_terminate(ptr %321) #30
   unreachable
 
 322:                                              ; preds = %67, %56
@@ -18161,7 +18161,7 @@ _ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.thread: ; preds = %5, %_ZN4pkpy7is
           to label %31 unwind label %39
 
 31:                                               ; preds = %30
-  invoke void @__cxa_throw(ptr nonnull %24, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #30
+  invoke void @__cxa_throw(ptr nonnull %24, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #31
           to label %79 unwind label %39
 
 .thread:                                          ; preds = %_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.thread
@@ -18343,7 +18343,7 @@ define linkonce_odr noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_10NativeFuncEJRP
   %25 = landingpad { ptr, i32 }
           catch ptr null
   %26 = extractvalue { ptr, i32 } %25, 0
-  call void @__clang_call_terminate(ptr %26) #29
+  call void @__clang_call_terminate(ptr %26) #30
   unreachable
 
 _ZN4pkpy3Py_INS_10NativeFuncEEC2IJRPFPNS_8PyObjectEPNS_2VMENS_8ArgsViewEEiEEENS_4TypeEDpOT_.exit: ; preds = %4, %19, %22
@@ -18372,7 +18372,7 @@ _ZN4pkpy3Py_INS_10NativeFuncEEC2IJRPFPNS_8PyObjectEPNS_2VMENS_8ArgsViewEEiEEENS_
   br i1 %40, label %41, label %_ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i
 
 41:                                               ; preds = %35
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.117) #30
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.117) #31
   unreachable
 
 _ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %35
@@ -18387,7 +18387,7 @@ _ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %
 
 47:                                               ; preds = %_ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i
   %48 = shl nuw nsw i64 %46, 3
-  %49 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %48) #32
+  %49 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %48) #33
   br label %_ZNSt12_Vector_baseIPN4pkpy8PyObjectESaIS2_EE11_M_allocateEm.exit.i.i
 
 _ZNSt12_Vector_baseIPN4pkpy8PyObjectESaIS2_EE11_M_allocateEm.exit.i.i: ; preds = %47, %_ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i
@@ -18504,7 +18504,7 @@ _ZN4pkpy2VM10isinstanceEPNS_8PyObjectENS_4TypeE.exit: ; preds = %18
           to label %29 unwind label %37
 
 29:                                               ; preds = %28
-  invoke void @__cxa_throw(ptr nonnull %22, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #30
+  invoke void @__cxa_throw(ptr nonnull %22, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #31
           to label %59 unwind label %37
 
 .thread:                                          ; preds = %_ZN4pkpy2VM10isinstanceEPNS_8PyObjectENS_4TypeE.exit
@@ -18575,7 +18575,7 @@ _ZN4pkpy2VM10isinstanceEPNS_8PyObjectENS_4TypeE.exit: ; preds = %18
           to label %51 unwind label %52
 
 51:                                               ; preds = %47
-  tail call void @__cxa_throw(ptr nonnull %50, ptr nonnull @_ZTIN4pkpy9ExceptionE, ptr nonnull @_ZN4pkpy9ExceptionD2Ev) #30
+  tail call void @__cxa_throw(ptr nonnull %50, ptr nonnull @_ZTIN4pkpy9ExceptionE, ptr nonnull @_ZN4pkpy9ExceptionD2Ev) #31
   unreachable
 
 52:                                               ; preds = %47
@@ -18731,7 +18731,7 @@ define void @_ZN4pkpy2VM14BinaryOptErrorEPKcPNS_8PyObjectES4_(ptr noundef nonnul
   %47 = getelementptr inbounds i8, ptr %46, i64 8
   store ptr %47, ptr %40, align 8
   store ptr %34, ptr %46, align 8
-  %48 = invoke noundef ptr @_ZN4pkpy2VM10vectorcallEiib(ptr noundef nonnull align 8 dereferenceable(264913) %0, i32 noundef 1, i32 noundef 0, i1 noundef zeroext false) #31
+  %48 = invoke noundef ptr @_ZN4pkpy2VM10vectorcallEiib(ptr noundef nonnull align 8 dereferenceable(264913) %0, i32 noundef 1, i32 noundef 0, i1 noundef zeroext false) #32
           to label %.noexc14 unwind label %53
 
 .noexc14:                                         ; preds = %.noexc13
@@ -18972,14 +18972,14 @@ define linkonce_odr void @_ZN4pkpy9ExceptionC2ERKS0_(ptr noundef nonnull align 8
   br i1 %18, label %.noexc.i.i.i, label %_ZNSt16allocator_traitsISaIN4pkpy13ExceptionLineEEE8allocateERS2_m.exit.i.i.i.i.i
 
 .noexc.i.i.i:                                     ; preds = %17
-  invoke void @_ZSt28__throw_bad_array_new_lengthv() #30
+  invoke void @_ZSt28__throw_bad_array_new_lengthv() #31
           to label %.noexc unwind label %36
 
 .noexc:                                           ; preds = %.noexc.i.i.i
   unreachable
 
 _ZNSt16allocator_traitsISaIN4pkpy13ExceptionLineEEE8allocateERS2_m.exit.i.i.i.i.i: ; preds = %17
-  %19 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %15) #32
+  %19 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %15) #33
           to label %.noexc6 unwind label %36
 
 .noexc6:                                          ; preds = %_ZNSt16allocator_traitsISaIN4pkpy13ExceptionLineEEE8allocateERS2_m.exit.i.i.i.i.i, %2
@@ -19142,11 +19142,11 @@ _ZN4pkpy9Exception7st_pushIJRKSt10shared_ptrINS_10SourceDataEERiDnRSt17basic_str
   br i1 %21, label %66, label %67
 
 66:                                               ; preds = %_ZN4pkpy9Exception7st_pushIJRKSt10shared_ptrINS_10SourceDataEERiDnRSt17basic_string_viewIcSt11char_traitsIcEEEEEvDpOT_.exit
-  call void @__cxa_throw(ptr %65, ptr nonnull @_ZTIN4pkpy16HandledExceptionE, ptr null) #30
+  call void @__cxa_throw(ptr %65, ptr nonnull @_ZTIN4pkpy16HandledExceptionE, ptr null) #31
   unreachable
 
 67:                                               ; preds = %_ZN4pkpy9Exception7st_pushIJRKSt10shared_ptrINS_10SourceDataEERiDnRSt17basic_string_viewIcSt11char_traitsIcEEEEEvDpOT_.exit
-  call void @__cxa_throw(ptr %65, ptr nonnull @_ZTIN4pkpy18UnhandledExceptionE, ptr null) #30
+  call void @__cxa_throw(ptr %65, ptr nonnull @_ZTIN4pkpy18UnhandledExceptionE, ptr null) #31
   unreachable
 }
 
@@ -19444,7 +19444,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZNSt4pairIKSt17basic_string_viewIcSt11char_traitsIcEESt10shared_ptrIN4pkpy10CodeObjectEEED2Ev.exit
 
 _ZNSt4pairIKSt17basic_string_viewIcSt11char_traitsIcEESt10shared_ptrIN4pkpy10CodeObjectEEED2Ev.exit: ; preds = %100, %118, %131, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
-  %136 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.035.066) #34
+  %136 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.035.066) #35
   %.not53 = icmp eq ptr %136, %82
   br i1 %.not53, label %._crit_edge69.loopexit, label %85
 
@@ -19834,7 +19834,7 @@ _ZN4pkpy3anyC2IRPFPNS_8PyObjectEPNS_2VMES3_S3_EEEOT_.exit: ; preds = %3, %13, %1
   %30 = landingpad { ptr, i32 }
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
-  call void @__clang_call_terminate(ptr %31) #29
+  call void @__clang_call_terminate(ptr %31) #30
   unreachable
 
 32:                                               ; preds = %_ZN4pkpy3anyC2IRPFPNS_8PyObjectEPNS_2VMES3_S3_EEEOT_.exit
@@ -19860,7 +19860,7 @@ _ZN4pkpy3anyC2IRPFPNS_8PyObjectEPNS_2VMES3_S3_EEEOT_.exit: ; preds = %3, %13, %1
   %42 = landingpad { ptr, i32 }
           catch ptr null
   %43 = extractvalue { ptr, i32 } %42, 0
-  call void @__clang_call_terminate(ptr %43) #29
+  call void @__clang_call_terminate(ptr %43) #30
   unreachable
 
 44:                                               ; preds = %27, %24, %21
@@ -19884,7 +19884,7 @@ _ZN4pkpy3anyC2IRPFPNS_8PyObjectEPNS_2VMES3_S3_EEEOT_.exit: ; preds = %3, %13, %1
   %52 = landingpad { ptr, i32 }
           catch ptr null
   %53 = extractvalue { ptr, i32 } %52, 0
-  call void @__clang_call_terminate(ptr %53) #29
+  call void @__clang_call_terminate(ptr %53) #30
   unreachable
 
 _ZN4pkpy3anyD2Ev.exit:                            ; preds = %44, %46, %49
@@ -19910,7 +19910,7 @@ _ZN4pkpy3anyD2Ev.exit:                            ; preds = %44, %46, %49
   %61 = landingpad { ptr, i32 }
           catch ptr null
   %62 = extractvalue { ptr, i32 } %61, 0
-  call void @__clang_call_terminate(ptr %62) #29
+  call void @__clang_call_terminate(ptr %62) #30
   unreachable
 
 _ZN4pkpy3anyD2Ev.exit6:                           ; preds = %.body, %55, %58
@@ -19976,7 +19976,7 @@ _ZN4pkpy3anyC2IRPFvPNS_2VMEPNS_8PyObjectES5_S5_EEEOT_.exit: ; preds = %3, %13, %
   %30 = landingpad { ptr, i32 }
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
-  call void @__clang_call_terminate(ptr %31) #29
+  call void @__clang_call_terminate(ptr %31) #30
   unreachable
 
 32:                                               ; preds = %_ZN4pkpy3anyC2IRPFvPNS_2VMEPNS_8PyObjectES5_S5_EEEOT_.exit
@@ -20002,7 +20002,7 @@ _ZN4pkpy3anyC2IRPFvPNS_2VMEPNS_8PyObjectES5_S5_EEEOT_.exit: ; preds = %3, %13, %
   %42 = landingpad { ptr, i32 }
           catch ptr null
   %43 = extractvalue { ptr, i32 } %42, 0
-  call void @__clang_call_terminate(ptr %43) #29
+  call void @__clang_call_terminate(ptr %43) #30
   unreachable
 
 44:                                               ; preds = %27, %24, %21
@@ -20026,7 +20026,7 @@ _ZN4pkpy3anyC2IRPFvPNS_2VMEPNS_8PyObjectES5_S5_EEEOT_.exit: ; preds = %3, %13, %
   %52 = landingpad { ptr, i32 }
           catch ptr null
   %53 = extractvalue { ptr, i32 } %52, 0
-  call void @__clang_call_terminate(ptr %53) #29
+  call void @__clang_call_terminate(ptr %53) #30
   unreachable
 
 _ZN4pkpy3anyD2Ev.exit:                            ; preds = %44, %46, %49
@@ -20052,7 +20052,7 @@ _ZN4pkpy3anyD2Ev.exit:                            ; preds = %44, %46, %49
   %61 = landingpad { ptr, i32 }
           catch ptr null
   %62 = extractvalue { ptr, i32 } %61, 0
-  call void @__clang_call_terminate(ptr %62) #29
+  call void @__clang_call_terminate(ptr %62) #30
   unreachable
 
 _ZN4pkpy3anyD2Ev.exit6:                           ; preds = %.body, %55, %58
@@ -20118,7 +20118,7 @@ _ZN4pkpy3anyC2IRPFvPNS_2VMEPNS_8PyObjectES5_EEEOT_.exit: ; preds = %3, %13, %15
   %30 = landingpad { ptr, i32 }
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
-  call void @__clang_call_terminate(ptr %31) #29
+  call void @__clang_call_terminate(ptr %31) #30
   unreachable
 
 32:                                               ; preds = %_ZN4pkpy3anyC2IRPFvPNS_2VMEPNS_8PyObjectES5_EEEOT_.exit
@@ -20144,7 +20144,7 @@ _ZN4pkpy3anyC2IRPFvPNS_2VMEPNS_8PyObjectES5_EEEOT_.exit: ; preds = %3, %13, %15
   %42 = landingpad { ptr, i32 }
           catch ptr null
   %43 = extractvalue { ptr, i32 } %42, 0
-  call void @__clang_call_terminate(ptr %43) #29
+  call void @__clang_call_terminate(ptr %43) #30
   unreachable
 
 44:                                               ; preds = %27, %24, %21
@@ -20168,7 +20168,7 @@ _ZN4pkpy3anyC2IRPFvPNS_2VMEPNS_8PyObjectES5_EEEOT_.exit: ; preds = %3, %13, %15
   %52 = landingpad { ptr, i32 }
           catch ptr null
   %53 = extractvalue { ptr, i32 } %52, 0
-  call void @__clang_call_terminate(ptr %53) #29
+  call void @__clang_call_terminate(ptr %53) #30
   unreachable
 
 _ZN4pkpy3anyD2Ev.exit:                            ; preds = %44, %46, %49
@@ -20194,7 +20194,7 @@ _ZN4pkpy3anyD2Ev.exit:                            ; preds = %44, %46, %49
   %61 = landingpad { ptr, i32 }
           catch ptr null
   %62 = extractvalue { ptr, i32 } %61, 0
-  call void @__clang_call_terminate(ptr %62) #29
+  call void @__clang_call_terminate(ptr %62) #30
   unreachable
 
 _ZN4pkpy3anyD2Ev.exit6:                           ; preds = %.body, %55, %58
@@ -20260,7 +20260,7 @@ _ZN4pkpy3anyC2IRPFjPNS_2VMEPNS_8PyObjectEEEEOT_.exit: ; preds = %3, %13, %15
   %30 = landingpad { ptr, i32 }
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
-  call void @__clang_call_terminate(ptr %31) #29
+  call void @__clang_call_terminate(ptr %31) #30
   unreachable
 
 32:                                               ; preds = %_ZN4pkpy3anyC2IRPFjPNS_2VMEPNS_8PyObjectEEEEOT_.exit
@@ -20286,7 +20286,7 @@ _ZN4pkpy3anyC2IRPFjPNS_2VMEPNS_8PyObjectEEEEOT_.exit: ; preds = %3, %13, %15
   %42 = landingpad { ptr, i32 }
           catch ptr null
   %43 = extractvalue { ptr, i32 } %42, 0
-  call void @__clang_call_terminate(ptr %43) #29
+  call void @__clang_call_terminate(ptr %43) #30
   unreachable
 
 44:                                               ; preds = %27, %24, %21
@@ -20310,7 +20310,7 @@ _ZN4pkpy3anyC2IRPFjPNS_2VMEPNS_8PyObjectEEEEOT_.exit: ; preds = %3, %13, %15
   %52 = landingpad { ptr, i32 }
           catch ptr null
   %53 = extractvalue { ptr, i32 } %52, 0
-  call void @__clang_call_terminate(ptr %53) #29
+  call void @__clang_call_terminate(ptr %53) #30
   unreachable
 
 _ZN4pkpy3anyD2Ev.exit:                            ; preds = %44, %46, %49
@@ -20336,7 +20336,7 @@ _ZN4pkpy3anyD2Ev.exit:                            ; preds = %44, %46, %49
   %61 = landingpad { ptr, i32 }
           catch ptr null
   %62 = extractvalue { ptr, i32 } %61, 0
-  call void @__clang_call_terminate(ptr %62) #29
+  call void @__clang_call_terminate(ptr %62) #30
   unreachable
 
 _ZN4pkpy3anyD2Ev.exit6:                           ; preds = %.body, %55, %58
@@ -20399,7 +20399,7 @@ _ZN4pkpy3anyC2IRPFPNS_8PyObjectEPNS_2VMES3_EEEOT_.exit: ; preds = %3, %9, %11
   %28 = landingpad { ptr, i32 }
           catch ptr null
   %29 = extractvalue { ptr, i32 } %28, 0
-  call void @__clang_call_terminate(ptr %29) #29
+  call void @__clang_call_terminate(ptr %29) #30
   unreachable
 
 30:                                               ; preds = %_ZN4pkpy3anyC2IRPFPNS_8PyObjectEPNS_2VMES3_EEEOT_.exit
@@ -20425,7 +20425,7 @@ _ZN4pkpy3anyC2IRPFPNS_8PyObjectEPNS_2VMES3_EEEOT_.exit: ; preds = %3, %9, %11
   %40 = landingpad { ptr, i32 }
           catch ptr null
   %41 = extractvalue { ptr, i32 } %40, 0
-  call void @__clang_call_terminate(ptr %41) #29
+  call void @__clang_call_terminate(ptr %41) #30
   unreachable
 
 42:                                               ; preds = %25, %22, %19
@@ -20449,7 +20449,7 @@ _ZN4pkpy3anyC2IRPFPNS_8PyObjectEPNS_2VMES3_EEEOT_.exit: ; preds = %3, %9, %11
   %50 = landingpad { ptr, i32 }
           catch ptr null
   %51 = extractvalue { ptr, i32 } %50, 0
-  call void @__clang_call_terminate(ptr %51) #29
+  call void @__clang_call_terminate(ptr %51) #30
   unreachable
 
 _ZN4pkpy3anyD2Ev.exit:                            ; preds = %42, %44, %47
@@ -20475,7 +20475,7 @@ _ZN4pkpy3anyD2Ev.exit:                            ; preds = %42, %44, %47
   %59 = landingpad { ptr, i32 }
           catch ptr null
   %60 = extractvalue { ptr, i32 } %59, 0
-  call void @__clang_call_terminate(ptr %60) #29
+  call void @__clang_call_terminate(ptr %60) #30
   unreachable
 
 _ZN4pkpy3anyD2Ev.exit7:                           ; preds = %.body, %53, %56
@@ -20541,7 +20541,7 @@ _ZN4pkpy3anyC2IRPFPNS_8PyObjectEPNS_2VMES3_EEEOT_.exit: ; preds = %3, %13, %15
   %30 = landingpad { ptr, i32 }
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
-  call void @__clang_call_terminate(ptr %31) #29
+  call void @__clang_call_terminate(ptr %31) #30
   unreachable
 
 32:                                               ; preds = %_ZN4pkpy3anyC2IRPFPNS_8PyObjectEPNS_2VMES3_EEEOT_.exit
@@ -20567,7 +20567,7 @@ _ZN4pkpy3anyC2IRPFPNS_8PyObjectEPNS_2VMES3_EEEOT_.exit: ; preds = %3, %13, %15
   %42 = landingpad { ptr, i32 }
           catch ptr null
   %43 = extractvalue { ptr, i32 } %42, 0
-  call void @__clang_call_terminate(ptr %43) #29
+  call void @__clang_call_terminate(ptr %43) #30
   unreachable
 
 44:                                               ; preds = %27, %24, %21
@@ -20591,7 +20591,7 @@ _ZN4pkpy3anyC2IRPFPNS_8PyObjectEPNS_2VMES3_EEEOT_.exit: ; preds = %3, %13, %15
   %52 = landingpad { ptr, i32 }
           catch ptr null
   %53 = extractvalue { ptr, i32 } %52, 0
-  call void @__clang_call_terminate(ptr %53) #29
+  call void @__clang_call_terminate(ptr %53) #30
   unreachable
 
 _ZN4pkpy3anyD2Ev.exit:                            ; preds = %44, %46, %49
@@ -20617,7 +20617,7 @@ _ZN4pkpy3anyD2Ev.exit:                            ; preds = %44, %46, %49
   %61 = landingpad { ptr, i32 }
           catch ptr null
   %62 = extractvalue { ptr, i32 } %61, 0
-  call void @__clang_call_terminate(ptr %62) #29
+  call void @__clang_call_terminate(ptr %62) #30
   unreachable
 
 _ZN4pkpy3anyD2Ev.exit6:                           ; preds = %.body, %55, %58
@@ -20683,7 +20683,7 @@ _ZN4pkpy3anyC2IRPFPNS_8PyObjectEPNS_2VMES3_EEEOT_.exit: ; preds = %3, %13, %15
   %30 = landingpad { ptr, i32 }
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
-  call void @__clang_call_terminate(ptr %31) #29
+  call void @__clang_call_terminate(ptr %31) #30
   unreachable
 
 32:                                               ; preds = %_ZN4pkpy3anyC2IRPFPNS_8PyObjectEPNS_2VMES3_EEEOT_.exit
@@ -20709,7 +20709,7 @@ _ZN4pkpy3anyC2IRPFPNS_8PyObjectEPNS_2VMES3_EEEOT_.exit: ; preds = %3, %13, %15
   %42 = landingpad { ptr, i32 }
           catch ptr null
   %43 = extractvalue { ptr, i32 } %42, 0
-  call void @__clang_call_terminate(ptr %43) #29
+  call void @__clang_call_terminate(ptr %43) #30
   unreachable
 
 44:                                               ; preds = %27, %24, %21
@@ -20733,7 +20733,7 @@ _ZN4pkpy3anyC2IRPFPNS_8PyObjectEPNS_2VMES3_EEEOT_.exit: ; preds = %3, %13, %15
   %52 = landingpad { ptr, i32 }
           catch ptr null
   %53 = extractvalue { ptr, i32 } %52, 0
-  call void @__clang_call_terminate(ptr %53) #29
+  call void @__clang_call_terminate(ptr %53) #30
   unreachable
 
 _ZN4pkpy3anyD2Ev.exit:                            ; preds = %44, %46, %49
@@ -20759,7 +20759,7 @@ _ZN4pkpy3anyD2Ev.exit:                            ; preds = %44, %46, %49
   %61 = landingpad { ptr, i32 }
           catch ptr null
   %62 = extractvalue { ptr, i32 } %61, 0
-  call void @__clang_call_terminate(ptr %62) #29
+  call void @__clang_call_terminate(ptr %62) #30
   unreachable
 
 _ZN4pkpy3anyD2Ev.exit6:                           ; preds = %.body, %55, %58
@@ -20825,7 +20825,7 @@ _ZN4pkpy3anyC2IRPFPNS_8PyObjectEPNS_2VMES3_EEEOT_.exit: ; preds = %3, %13, %15
   %30 = landingpad { ptr, i32 }
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
-  call void @__clang_call_terminate(ptr %31) #29
+  call void @__clang_call_terminate(ptr %31) #30
   unreachable
 
 32:                                               ; preds = %_ZN4pkpy3anyC2IRPFPNS_8PyObjectEPNS_2VMES3_EEEOT_.exit
@@ -20851,7 +20851,7 @@ _ZN4pkpy3anyC2IRPFPNS_8PyObjectEPNS_2VMES3_EEEOT_.exit: ; preds = %3, %13, %15
   %42 = landingpad { ptr, i32 }
           catch ptr null
   %43 = extractvalue { ptr, i32 } %42, 0
-  call void @__clang_call_terminate(ptr %43) #29
+  call void @__clang_call_terminate(ptr %43) #30
   unreachable
 
 44:                                               ; preds = %27, %24, %21
@@ -20875,7 +20875,7 @@ _ZN4pkpy3anyC2IRPFPNS_8PyObjectEPNS_2VMES3_EEEOT_.exit: ; preds = %3, %13, %15
   %52 = landingpad { ptr, i32 }
           catch ptr null
   %53 = extractvalue { ptr, i32 } %52, 0
-  call void @__clang_call_terminate(ptr %53) #29
+  call void @__clang_call_terminate(ptr %53) #30
   unreachable
 
 _ZN4pkpy3anyD2Ev.exit:                            ; preds = %44, %46, %49
@@ -20901,7 +20901,7 @@ _ZN4pkpy3anyD2Ev.exit:                            ; preds = %44, %46, %49
   %61 = landingpad { ptr, i32 }
           catch ptr null
   %62 = extractvalue { ptr, i32 } %61, 0
-  call void @__clang_call_terminate(ptr %62) #29
+  call void @__clang_call_terminate(ptr %62) #30
   unreachable
 
 _ZN4pkpy3anyD2Ev.exit6:                           ; preds = %.body, %55, %58
@@ -20967,7 +20967,7 @@ _ZN4pkpy3anyC2IRPFNS_3StrEPNS_2VMEPNS_8PyObjectEEEEOT_.exit: ; preds = %3, %13, 
   %30 = landingpad { ptr, i32 }
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
-  call void @__clang_call_terminate(ptr %31) #29
+  call void @__clang_call_terminate(ptr %31) #30
   unreachable
 
 32:                                               ; preds = %_ZN4pkpy3anyC2IRPFNS_3StrEPNS_2VMEPNS_8PyObjectEEEEOT_.exit
@@ -20993,7 +20993,7 @@ _ZN4pkpy3anyC2IRPFNS_3StrEPNS_2VMEPNS_8PyObjectEEEEOT_.exit: ; preds = %3, %13, 
   %42 = landingpad { ptr, i32 }
           catch ptr null
   %43 = extractvalue { ptr, i32 } %42, 0
-  call void @__clang_call_terminate(ptr %43) #29
+  call void @__clang_call_terminate(ptr %43) #30
   unreachable
 
 44:                                               ; preds = %27, %24, %21
@@ -21017,7 +21017,7 @@ _ZN4pkpy3anyC2IRPFNS_3StrEPNS_2VMEPNS_8PyObjectEEEEOT_.exit: ; preds = %3, %13, 
   %52 = landingpad { ptr, i32 }
           catch ptr null
   %53 = extractvalue { ptr, i32 } %52, 0
-  call void @__clang_call_terminate(ptr %53) #29
+  call void @__clang_call_terminate(ptr %53) #30
   unreachable
 
 _ZN4pkpy3anyD2Ev.exit:                            ; preds = %44, %46, %49
@@ -21043,7 +21043,7 @@ _ZN4pkpy3anyD2Ev.exit:                            ; preds = %44, %46, %49
   %61 = landingpad { ptr, i32 }
           catch ptr null
   %62 = extractvalue { ptr, i32 } %61, 0
-  call void @__clang_call_terminate(ptr %62) #29
+  call void @__clang_call_terminate(ptr %62) #30
   unreachable
 
 _ZN4pkpy3anyD2Ev.exit6:                           ; preds = %.body, %55, %58
@@ -21109,7 +21109,7 @@ _ZN4pkpy3anyC2IRPFNS_3StrEPNS_2VMEPNS_8PyObjectEEEEOT_.exit: ; preds = %3, %13, 
   %30 = landingpad { ptr, i32 }
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
-  call void @__clang_call_terminate(ptr %31) #29
+  call void @__clang_call_terminate(ptr %31) #30
   unreachable
 
 32:                                               ; preds = %_ZN4pkpy3anyC2IRPFNS_3StrEPNS_2VMEPNS_8PyObjectEEEEOT_.exit
@@ -21135,7 +21135,7 @@ _ZN4pkpy3anyC2IRPFNS_3StrEPNS_2VMEPNS_8PyObjectEEEEOT_.exit: ; preds = %3, %13, 
   %42 = landingpad { ptr, i32 }
           catch ptr null
   %43 = extractvalue { ptr, i32 } %42, 0
-  call void @__clang_call_terminate(ptr %43) #29
+  call void @__clang_call_terminate(ptr %43) #30
   unreachable
 
 44:                                               ; preds = %27, %24, %21
@@ -21159,7 +21159,7 @@ _ZN4pkpy3anyC2IRPFNS_3StrEPNS_2VMEPNS_8PyObjectEEEEOT_.exit: ; preds = %3, %13, 
   %52 = landingpad { ptr, i32 }
           catch ptr null
   %53 = extractvalue { ptr, i32 } %52, 0
-  call void @__clang_call_terminate(ptr %53) #29
+  call void @__clang_call_terminate(ptr %53) #30
   unreachable
 
 _ZN4pkpy3anyD2Ev.exit:                            ; preds = %44, %46, %49
@@ -21185,7 +21185,7 @@ _ZN4pkpy3anyD2Ev.exit:                            ; preds = %44, %46, %49
   %61 = landingpad { ptr, i32 }
           catch ptr null
   %62 = extractvalue { ptr, i32 } %61, 0
-  call void @__clang_call_terminate(ptr %62) #29
+  call void @__clang_call_terminate(ptr %62) #30
   unreachable
 
 _ZN4pkpy3anyD2Ev.exit6:                           ; preds = %.body, %55, %58
@@ -21251,7 +21251,7 @@ _ZN4pkpy3anyC2IRPFlPNS_2VMEPNS_8PyObjectEEEEOT_.exit: ; preds = %3, %13, %15
   %30 = landingpad { ptr, i32 }
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
-  call void @__clang_call_terminate(ptr %31) #29
+  call void @__clang_call_terminate(ptr %31) #30
   unreachable
 
 32:                                               ; preds = %_ZN4pkpy3anyC2IRPFlPNS_2VMEPNS_8PyObjectEEEEOT_.exit
@@ -21277,7 +21277,7 @@ _ZN4pkpy3anyC2IRPFlPNS_2VMEPNS_8PyObjectEEEEOT_.exit: ; preds = %3, %13, %15
   %42 = landingpad { ptr, i32 }
           catch ptr null
   %43 = extractvalue { ptr, i32 } %42, 0
-  call void @__clang_call_terminate(ptr %43) #29
+  call void @__clang_call_terminate(ptr %43) #30
   unreachable
 
 44:                                               ; preds = %27, %24, %21
@@ -21301,7 +21301,7 @@ _ZN4pkpy3anyC2IRPFlPNS_2VMEPNS_8PyObjectEEEEOT_.exit: ; preds = %3, %13, %15
   %52 = landingpad { ptr, i32 }
           catch ptr null
   %53 = extractvalue { ptr, i32 } %52, 0
-  call void @__clang_call_terminate(ptr %53) #29
+  call void @__clang_call_terminate(ptr %53) #30
   unreachable
 
 _ZN4pkpy3anyD2Ev.exit:                            ; preds = %44, %46, %49
@@ -21327,7 +21327,7 @@ _ZN4pkpy3anyD2Ev.exit:                            ; preds = %44, %46, %49
   %61 = landingpad { ptr, i32 }
           catch ptr null
   %62 = extractvalue { ptr, i32 } %61, 0
-  call void @__clang_call_terminate(ptr %62) #29
+  call void @__clang_call_terminate(ptr %62) #30
   unreachable
 
 _ZN4pkpy3anyD2Ev.exit6:                           ; preds = %.body, %55, %58
@@ -21393,7 +21393,7 @@ _ZN4pkpy3anyC2IRPFlPNS_2VMEPNS_8PyObjectEEEEOT_.exit: ; preds = %3, %13, %15
   %30 = landingpad { ptr, i32 }
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
-  call void @__clang_call_terminate(ptr %31) #29
+  call void @__clang_call_terminate(ptr %31) #30
   unreachable
 
 32:                                               ; preds = %_ZN4pkpy3anyC2IRPFlPNS_2VMEPNS_8PyObjectEEEEOT_.exit
@@ -21419,7 +21419,7 @@ _ZN4pkpy3anyC2IRPFlPNS_2VMEPNS_8PyObjectEEEEOT_.exit: ; preds = %3, %13, %15
   %42 = landingpad { ptr, i32 }
           catch ptr null
   %43 = extractvalue { ptr, i32 } %42, 0
-  call void @__clang_call_terminate(ptr %43) #29
+  call void @__clang_call_terminate(ptr %43) #30
   unreachable
 
 44:                                               ; preds = %27, %24, %21
@@ -21443,7 +21443,7 @@ _ZN4pkpy3anyC2IRPFlPNS_2VMEPNS_8PyObjectEEEEOT_.exit: ; preds = %3, %13, %15
   %52 = landingpad { ptr, i32 }
           catch ptr null
   %53 = extractvalue { ptr, i32 } %52, 0
-  call void @__clang_call_terminate(ptr %53) #29
+  call void @__clang_call_terminate(ptr %53) #30
   unreachable
 
 _ZN4pkpy3anyD2Ev.exit:                            ; preds = %44, %46, %49
@@ -21469,7 +21469,7 @@ _ZN4pkpy3anyD2Ev.exit:                            ; preds = %44, %46, %49
   %61 = landingpad { ptr, i32 }
           catch ptr null
   %62 = extractvalue { ptr, i32 } %61, 0
-  call void @__clang_call_terminate(ptr %62) #29
+  call void @__clang_call_terminate(ptr %62) #30
   unreachable
 
 _ZN4pkpy3anyD2Ev.exit6:                           ; preds = %.body, %55, %58
@@ -21535,7 +21535,7 @@ _ZN4pkpy3anyC2IRPFPNS_8PyObjectEPNS_2VMES3_S3_EEEOT_.exit: ; preds = %3, %13, %1
   %30 = landingpad { ptr, i32 }
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
-  call void @__clang_call_terminate(ptr %31) #29
+  call void @__clang_call_terminate(ptr %31) #30
   unreachable
 
 32:                                               ; preds = %_ZN4pkpy3anyC2IRPFPNS_8PyObjectEPNS_2VMES3_S3_EEEOT_.exit
@@ -21561,7 +21561,7 @@ _ZN4pkpy3anyC2IRPFPNS_8PyObjectEPNS_2VMES3_S3_EEEOT_.exit: ; preds = %3, %13, %1
   %42 = landingpad { ptr, i32 }
           catch ptr null
   %43 = extractvalue { ptr, i32 } %42, 0
-  call void @__clang_call_terminate(ptr %43) #29
+  call void @__clang_call_terminate(ptr %43) #30
   unreachable
 
 44:                                               ; preds = %27, %24, %21
@@ -21585,7 +21585,7 @@ _ZN4pkpy3anyC2IRPFPNS_8PyObjectEPNS_2VMES3_S3_EEEOT_.exit: ; preds = %3, %13, %1
   %52 = landingpad { ptr, i32 }
           catch ptr null
   %53 = extractvalue { ptr, i32 } %52, 0
-  call void @__clang_call_terminate(ptr %53) #29
+  call void @__clang_call_terminate(ptr %53) #30
   unreachable
 
 _ZN4pkpy3anyD2Ev.exit:                            ; preds = %44, %46, %49
@@ -21611,7 +21611,7 @@ _ZN4pkpy3anyD2Ev.exit:                            ; preds = %44, %46, %49
   %61 = landingpad { ptr, i32 }
           catch ptr null
   %62 = extractvalue { ptr, i32 } %61, 0
-  call void @__clang_call_terminate(ptr %62) #29
+  call void @__clang_call_terminate(ptr %62) #30
   unreachable
 
 _ZN4pkpy3anyD2Ev.exit6:                           ; preds = %.body, %55, %58
@@ -21677,7 +21677,7 @@ _ZN4pkpy3anyC2IRPFPNS_8PyObjectEPNS_2VMES3_S3_EEEOT_.exit: ; preds = %3, %13, %1
   %30 = landingpad { ptr, i32 }
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
-  call void @__clang_call_terminate(ptr %31) #29
+  call void @__clang_call_terminate(ptr %31) #30
   unreachable
 
 32:                                               ; preds = %_ZN4pkpy3anyC2IRPFPNS_8PyObjectEPNS_2VMES3_S3_EEEOT_.exit
@@ -21703,7 +21703,7 @@ _ZN4pkpy3anyC2IRPFPNS_8PyObjectEPNS_2VMES3_S3_EEEOT_.exit: ; preds = %3, %13, %1
   %42 = landingpad { ptr, i32 }
           catch ptr null
   %43 = extractvalue { ptr, i32 } %42, 0
-  call void @__clang_call_terminate(ptr %43) #29
+  call void @__clang_call_terminate(ptr %43) #30
   unreachable
 
 44:                                               ; preds = %27, %24, %21
@@ -21727,7 +21727,7 @@ _ZN4pkpy3anyC2IRPFPNS_8PyObjectEPNS_2VMES3_S3_EEEOT_.exit: ; preds = %3, %13, %1
   %52 = landingpad { ptr, i32 }
           catch ptr null
   %53 = extractvalue { ptr, i32 } %52, 0
-  call void @__clang_call_terminate(ptr %53) #29
+  call void @__clang_call_terminate(ptr %53) #30
   unreachable
 
 _ZN4pkpy3anyD2Ev.exit:                            ; preds = %44, %46, %49
@@ -21753,7 +21753,7 @@ _ZN4pkpy3anyD2Ev.exit:                            ; preds = %44, %46, %49
   %61 = landingpad { ptr, i32 }
           catch ptr null
   %62 = extractvalue { ptr, i32 } %61, 0
-  call void @__clang_call_terminate(ptr %62) #29
+  call void @__clang_call_terminate(ptr %62) #30
   unreachable
 
 _ZN4pkpy3anyD2Ev.exit6:                           ; preds = %.body, %55, %58
@@ -21819,7 +21819,7 @@ _ZN4pkpy3anyC2IRPFPNS_8PyObjectEPNS_2VMES3_S3_EEEOT_.exit: ; preds = %3, %13, %1
   %30 = landingpad { ptr, i32 }
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
-  call void @__clang_call_terminate(ptr %31) #29
+  call void @__clang_call_terminate(ptr %31) #30
   unreachable
 
 32:                                               ; preds = %_ZN4pkpy3anyC2IRPFPNS_8PyObjectEPNS_2VMES3_S3_EEEOT_.exit
@@ -21845,7 +21845,7 @@ _ZN4pkpy3anyC2IRPFPNS_8PyObjectEPNS_2VMES3_S3_EEEOT_.exit: ; preds = %3, %13, %1
   %42 = landingpad { ptr, i32 }
           catch ptr null
   %43 = extractvalue { ptr, i32 } %42, 0
-  call void @__clang_call_terminate(ptr %43) #29
+  call void @__clang_call_terminate(ptr %43) #30
   unreachable
 
 44:                                               ; preds = %27, %24, %21
@@ -21869,7 +21869,7 @@ _ZN4pkpy3anyC2IRPFPNS_8PyObjectEPNS_2VMES3_S3_EEEOT_.exit: ; preds = %3, %13, %1
   %52 = landingpad { ptr, i32 }
           catch ptr null
   %53 = extractvalue { ptr, i32 } %52, 0
-  call void @__clang_call_terminate(ptr %53) #29
+  call void @__clang_call_terminate(ptr %53) #30
   unreachable
 
 _ZN4pkpy3anyD2Ev.exit:                            ; preds = %44, %46, %49
@@ -21895,7 +21895,7 @@ _ZN4pkpy3anyD2Ev.exit:                            ; preds = %44, %46, %49
   %61 = landingpad { ptr, i32 }
           catch ptr null
   %62 = extractvalue { ptr, i32 } %61, 0
-  call void @__clang_call_terminate(ptr %62) #29
+  call void @__clang_call_terminate(ptr %62) #30
   unreachable
 
 _ZN4pkpy3anyD2Ev.exit6:                           ; preds = %.body, %55, %58
@@ -21961,7 +21961,7 @@ _ZN4pkpy3anyC2IRPFPNS_8PyObjectEPNS_2VMES3_S3_EEEOT_.exit: ; preds = %3, %13, %1
   %30 = landingpad { ptr, i32 }
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
-  call void @__clang_call_terminate(ptr %31) #29
+  call void @__clang_call_terminate(ptr %31) #30
   unreachable
 
 32:                                               ; preds = %_ZN4pkpy3anyC2IRPFPNS_8PyObjectEPNS_2VMES3_S3_EEEOT_.exit
@@ -21987,7 +21987,7 @@ _ZN4pkpy3anyC2IRPFPNS_8PyObjectEPNS_2VMES3_S3_EEEOT_.exit: ; preds = %3, %13, %1
   %42 = landingpad { ptr, i32 }
           catch ptr null
   %43 = extractvalue { ptr, i32 } %42, 0
-  call void @__clang_call_terminate(ptr %43) #29
+  call void @__clang_call_terminate(ptr %43) #30
   unreachable
 
 44:                                               ; preds = %27, %24, %21
@@ -22011,7 +22011,7 @@ _ZN4pkpy3anyC2IRPFPNS_8PyObjectEPNS_2VMES3_S3_EEEOT_.exit: ; preds = %3, %13, %1
   %52 = landingpad { ptr, i32 }
           catch ptr null
   %53 = extractvalue { ptr, i32 } %52, 0
-  call void @__clang_call_terminate(ptr %53) #29
+  call void @__clang_call_terminate(ptr %53) #30
   unreachable
 
 _ZN4pkpy3anyD2Ev.exit:                            ; preds = %44, %46, %49
@@ -22037,7 +22037,7 @@ _ZN4pkpy3anyD2Ev.exit:                            ; preds = %44, %46, %49
   %61 = landingpad { ptr, i32 }
           catch ptr null
   %62 = extractvalue { ptr, i32 } %61, 0
-  call void @__clang_call_terminate(ptr %62) #29
+  call void @__clang_call_terminate(ptr %62) #30
   unreachable
 
 _ZN4pkpy3anyD2Ev.exit6:                           ; preds = %.body, %55, %58
@@ -22103,7 +22103,7 @@ _ZN4pkpy3anyC2IRPFPNS_8PyObjectEPNS_2VMES3_S3_EEEOT_.exit: ; preds = %3, %13, %1
   %30 = landingpad { ptr, i32 }
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
-  call void @__clang_call_terminate(ptr %31) #29
+  call void @__clang_call_terminate(ptr %31) #30
   unreachable
 
 32:                                               ; preds = %_ZN4pkpy3anyC2IRPFPNS_8PyObjectEPNS_2VMES3_S3_EEEOT_.exit
@@ -22129,7 +22129,7 @@ _ZN4pkpy3anyC2IRPFPNS_8PyObjectEPNS_2VMES3_S3_EEEOT_.exit: ; preds = %3, %13, %1
   %42 = landingpad { ptr, i32 }
           catch ptr null
   %43 = extractvalue { ptr, i32 } %42, 0
-  call void @__clang_call_terminate(ptr %43) #29
+  call void @__clang_call_terminate(ptr %43) #30
   unreachable
 
 44:                                               ; preds = %27, %24, %21
@@ -22153,7 +22153,7 @@ _ZN4pkpy3anyC2IRPFPNS_8PyObjectEPNS_2VMES3_S3_EEEOT_.exit: ; preds = %3, %13, %1
   %52 = landingpad { ptr, i32 }
           catch ptr null
   %53 = extractvalue { ptr, i32 } %52, 0
-  call void @__clang_call_terminate(ptr %53) #29
+  call void @__clang_call_terminate(ptr %53) #30
   unreachable
 
 _ZN4pkpy3anyD2Ev.exit:                            ; preds = %44, %46, %49
@@ -22179,7 +22179,7 @@ _ZN4pkpy3anyD2Ev.exit:                            ; preds = %44, %46, %49
   %61 = landingpad { ptr, i32 }
           catch ptr null
   %62 = extractvalue { ptr, i32 } %61, 0
-  call void @__clang_call_terminate(ptr %62) #29
+  call void @__clang_call_terminate(ptr %62) #30
   unreachable
 
 _ZN4pkpy3anyD2Ev.exit6:                           ; preds = %.body, %55, %58
@@ -22245,7 +22245,7 @@ _ZN4pkpy3anyC2IRPFPNS_8PyObjectEPNS_2VMES3_S3_EEEOT_.exit: ; preds = %3, %13, %1
   %30 = landingpad { ptr, i32 }
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
-  call void @__clang_call_terminate(ptr %31) #29
+  call void @__clang_call_terminate(ptr %31) #30
   unreachable
 
 32:                                               ; preds = %_ZN4pkpy3anyC2IRPFPNS_8PyObjectEPNS_2VMES3_S3_EEEOT_.exit
@@ -22271,7 +22271,7 @@ _ZN4pkpy3anyC2IRPFPNS_8PyObjectEPNS_2VMES3_S3_EEEOT_.exit: ; preds = %3, %13, %1
   %42 = landingpad { ptr, i32 }
           catch ptr null
   %43 = extractvalue { ptr, i32 } %42, 0
-  call void @__clang_call_terminate(ptr %43) #29
+  call void @__clang_call_terminate(ptr %43) #30
   unreachable
 
 44:                                               ; preds = %27, %24, %21
@@ -22295,7 +22295,7 @@ _ZN4pkpy3anyC2IRPFPNS_8PyObjectEPNS_2VMES3_S3_EEEOT_.exit: ; preds = %3, %13, %1
   %52 = landingpad { ptr, i32 }
           catch ptr null
   %53 = extractvalue { ptr, i32 } %52, 0
-  call void @__clang_call_terminate(ptr %53) #29
+  call void @__clang_call_terminate(ptr %53) #30
   unreachable
 
 _ZN4pkpy3anyD2Ev.exit:                            ; preds = %44, %46, %49
@@ -22321,7 +22321,7 @@ _ZN4pkpy3anyD2Ev.exit:                            ; preds = %44, %46, %49
   %61 = landingpad { ptr, i32 }
           catch ptr null
   %62 = extractvalue { ptr, i32 } %61, 0
-  call void @__clang_call_terminate(ptr %62) #29
+  call void @__clang_call_terminate(ptr %62) #30
   unreachable
 
 _ZN4pkpy3anyD2Ev.exit6:                           ; preds = %.body, %55, %58
@@ -22387,7 +22387,7 @@ _ZN4pkpy3anyC2IRPFPNS_8PyObjectEPNS_2VMES3_S3_EEEOT_.exit: ; preds = %3, %13, %1
   %30 = landingpad { ptr, i32 }
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
-  call void @__clang_call_terminate(ptr %31) #29
+  call void @__clang_call_terminate(ptr %31) #30
   unreachable
 
 32:                                               ; preds = %_ZN4pkpy3anyC2IRPFPNS_8PyObjectEPNS_2VMES3_S3_EEEOT_.exit
@@ -22413,7 +22413,7 @@ _ZN4pkpy3anyC2IRPFPNS_8PyObjectEPNS_2VMES3_S3_EEEOT_.exit: ; preds = %3, %13, %1
   %42 = landingpad { ptr, i32 }
           catch ptr null
   %43 = extractvalue { ptr, i32 } %42, 0
-  call void @__clang_call_terminate(ptr %43) #29
+  call void @__clang_call_terminate(ptr %43) #30
   unreachable
 
 44:                                               ; preds = %27, %24, %21
@@ -22437,7 +22437,7 @@ _ZN4pkpy3anyC2IRPFPNS_8PyObjectEPNS_2VMES3_S3_EEEOT_.exit: ; preds = %3, %13, %1
   %52 = landingpad { ptr, i32 }
           catch ptr null
   %53 = extractvalue { ptr, i32 } %52, 0
-  call void @__clang_call_terminate(ptr %53) #29
+  call void @__clang_call_terminate(ptr %53) #30
   unreachable
 
 _ZN4pkpy3anyD2Ev.exit:                            ; preds = %44, %46, %49
@@ -22463,7 +22463,7 @@ _ZN4pkpy3anyD2Ev.exit:                            ; preds = %44, %46, %49
   %61 = landingpad { ptr, i32 }
           catch ptr null
   %62 = extractvalue { ptr, i32 } %61, 0
-  call void @__clang_call_terminate(ptr %62) #29
+  call void @__clang_call_terminate(ptr %62) #30
   unreachable
 
 _ZN4pkpy3anyD2Ev.exit6:                           ; preds = %.body, %55, %58
@@ -22529,7 +22529,7 @@ _ZN4pkpy3anyC2IRPFPNS_8PyObjectEPNS_2VMES3_S3_EEEOT_.exit: ; preds = %3, %13, %1
   %30 = landingpad { ptr, i32 }
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
-  call void @__clang_call_terminate(ptr %31) #29
+  call void @__clang_call_terminate(ptr %31) #30
   unreachable
 
 32:                                               ; preds = %_ZN4pkpy3anyC2IRPFPNS_8PyObjectEPNS_2VMES3_S3_EEEOT_.exit
@@ -22555,7 +22555,7 @@ _ZN4pkpy3anyC2IRPFPNS_8PyObjectEPNS_2VMES3_S3_EEEOT_.exit: ; preds = %3, %13, %1
   %42 = landingpad { ptr, i32 }
           catch ptr null
   %43 = extractvalue { ptr, i32 } %42, 0
-  call void @__clang_call_terminate(ptr %43) #29
+  call void @__clang_call_terminate(ptr %43) #30
   unreachable
 
 44:                                               ; preds = %27, %24, %21
@@ -22579,7 +22579,7 @@ _ZN4pkpy3anyC2IRPFPNS_8PyObjectEPNS_2VMES3_S3_EEEOT_.exit: ; preds = %3, %13, %1
   %52 = landingpad { ptr, i32 }
           catch ptr null
   %53 = extractvalue { ptr, i32 } %52, 0
-  call void @__clang_call_terminate(ptr %53) #29
+  call void @__clang_call_terminate(ptr %53) #30
   unreachable
 
 _ZN4pkpy3anyD2Ev.exit:                            ; preds = %44, %46, %49
@@ -22605,7 +22605,7 @@ _ZN4pkpy3anyD2Ev.exit:                            ; preds = %44, %46, %49
   %61 = landingpad { ptr, i32 }
           catch ptr null
   %62 = extractvalue { ptr, i32 } %61, 0
-  call void @__clang_call_terminate(ptr %62) #29
+  call void @__clang_call_terminate(ptr %62) #30
   unreachable
 
 _ZN4pkpy3anyD2Ev.exit6:                           ; preds = %.body, %55, %58
@@ -22671,7 +22671,7 @@ _ZN4pkpy3anyC2IRPFPNS_8PyObjectEPNS_2VMES3_S3_EEEOT_.exit: ; preds = %3, %13, %1
   %30 = landingpad { ptr, i32 }
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
-  call void @__clang_call_terminate(ptr %31) #29
+  call void @__clang_call_terminate(ptr %31) #30
   unreachable
 
 32:                                               ; preds = %_ZN4pkpy3anyC2IRPFPNS_8PyObjectEPNS_2VMES3_S3_EEEOT_.exit
@@ -22697,7 +22697,7 @@ _ZN4pkpy3anyC2IRPFPNS_8PyObjectEPNS_2VMES3_S3_EEEOT_.exit: ; preds = %3, %13, %1
   %42 = landingpad { ptr, i32 }
           catch ptr null
   %43 = extractvalue { ptr, i32 } %42, 0
-  call void @__clang_call_terminate(ptr %43) #29
+  call void @__clang_call_terminate(ptr %43) #30
   unreachable
 
 44:                                               ; preds = %27, %24, %21
@@ -22721,7 +22721,7 @@ _ZN4pkpy3anyC2IRPFPNS_8PyObjectEPNS_2VMES3_S3_EEEOT_.exit: ; preds = %3, %13, %1
   %52 = landingpad { ptr, i32 }
           catch ptr null
   %53 = extractvalue { ptr, i32 } %52, 0
-  call void @__clang_call_terminate(ptr %53) #29
+  call void @__clang_call_terminate(ptr %53) #30
   unreachable
 
 _ZN4pkpy3anyD2Ev.exit:                            ; preds = %44, %46, %49
@@ -22747,7 +22747,7 @@ _ZN4pkpy3anyD2Ev.exit:                            ; preds = %44, %46, %49
   %61 = landingpad { ptr, i32 }
           catch ptr null
   %62 = extractvalue { ptr, i32 } %61, 0
-  call void @__clang_call_terminate(ptr %62) #29
+  call void @__clang_call_terminate(ptr %62) #30
   unreachable
 
 _ZN4pkpy3anyD2Ev.exit6:                           ; preds = %.body, %55, %58
@@ -22813,7 +22813,7 @@ _ZN4pkpy3anyC2IRPFPNS_8PyObjectEPNS_2VMES3_S3_EEEOT_.exit: ; preds = %3, %13, %1
   %30 = landingpad { ptr, i32 }
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
-  call void @__clang_call_terminate(ptr %31) #29
+  call void @__clang_call_terminate(ptr %31) #30
   unreachable
 
 32:                                               ; preds = %_ZN4pkpy3anyC2IRPFPNS_8PyObjectEPNS_2VMES3_S3_EEEOT_.exit
@@ -22839,7 +22839,7 @@ _ZN4pkpy3anyC2IRPFPNS_8PyObjectEPNS_2VMES3_S3_EEEOT_.exit: ; preds = %3, %13, %1
   %42 = landingpad { ptr, i32 }
           catch ptr null
   %43 = extractvalue { ptr, i32 } %42, 0
-  call void @__clang_call_terminate(ptr %43) #29
+  call void @__clang_call_terminate(ptr %43) #30
   unreachable
 
 44:                                               ; preds = %27, %24, %21
@@ -22863,7 +22863,7 @@ _ZN4pkpy3anyC2IRPFPNS_8PyObjectEPNS_2VMES3_S3_EEEOT_.exit: ; preds = %3, %13, %1
   %52 = landingpad { ptr, i32 }
           catch ptr null
   %53 = extractvalue { ptr, i32 } %52, 0
-  call void @__clang_call_terminate(ptr %53) #29
+  call void @__clang_call_terminate(ptr %53) #30
   unreachable
 
 _ZN4pkpy3anyD2Ev.exit:                            ; preds = %44, %46, %49
@@ -22889,7 +22889,7 @@ _ZN4pkpy3anyD2Ev.exit:                            ; preds = %44, %46, %49
   %61 = landingpad { ptr, i32 }
           catch ptr null
   %62 = extractvalue { ptr, i32 } %61, 0
-  call void @__clang_call_terminate(ptr %62) #29
+  call void @__clang_call_terminate(ptr %62) #30
   unreachable
 
 _ZN4pkpy3anyD2Ev.exit6:                           ; preds = %.body, %55, %58
@@ -22955,7 +22955,7 @@ _ZN4pkpy3anyC2IRPFPNS_8PyObjectEPNS_2VMES3_S3_EEEOT_.exit: ; preds = %3, %13, %1
   %30 = landingpad { ptr, i32 }
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
-  call void @__clang_call_terminate(ptr %31) #29
+  call void @__clang_call_terminate(ptr %31) #30
   unreachable
 
 32:                                               ; preds = %_ZN4pkpy3anyC2IRPFPNS_8PyObjectEPNS_2VMES3_S3_EEEOT_.exit
@@ -22981,7 +22981,7 @@ _ZN4pkpy3anyC2IRPFPNS_8PyObjectEPNS_2VMES3_S3_EEEOT_.exit: ; preds = %3, %13, %1
   %42 = landingpad { ptr, i32 }
           catch ptr null
   %43 = extractvalue { ptr, i32 } %42, 0
-  call void @__clang_call_terminate(ptr %43) #29
+  call void @__clang_call_terminate(ptr %43) #30
   unreachable
 
 44:                                               ; preds = %27, %24, %21
@@ -23005,7 +23005,7 @@ _ZN4pkpy3anyC2IRPFPNS_8PyObjectEPNS_2VMES3_S3_EEEOT_.exit: ; preds = %3, %13, %1
   %52 = landingpad { ptr, i32 }
           catch ptr null
   %53 = extractvalue { ptr, i32 } %52, 0
-  call void @__clang_call_terminate(ptr %53) #29
+  call void @__clang_call_terminate(ptr %53) #30
   unreachable
 
 _ZN4pkpy3anyD2Ev.exit:                            ; preds = %44, %46, %49
@@ -23031,7 +23031,7 @@ _ZN4pkpy3anyD2Ev.exit:                            ; preds = %44, %46, %49
   %61 = landingpad { ptr, i32 }
           catch ptr null
   %62 = extractvalue { ptr, i32 } %61, 0
-  call void @__clang_call_terminate(ptr %62) #29
+  call void @__clang_call_terminate(ptr %62) #30
   unreachable
 
 _ZN4pkpy3anyD2Ev.exit6:                           ; preds = %.body, %55, %58
@@ -23097,7 +23097,7 @@ _ZN4pkpy3anyC2IRPFPNS_8PyObjectEPNS_2VMES3_S3_EEEOT_.exit: ; preds = %3, %13, %1
   %30 = landingpad { ptr, i32 }
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
-  call void @__clang_call_terminate(ptr %31) #29
+  call void @__clang_call_terminate(ptr %31) #30
   unreachable
 
 32:                                               ; preds = %_ZN4pkpy3anyC2IRPFPNS_8PyObjectEPNS_2VMES3_S3_EEEOT_.exit
@@ -23123,7 +23123,7 @@ _ZN4pkpy3anyC2IRPFPNS_8PyObjectEPNS_2VMES3_S3_EEEOT_.exit: ; preds = %3, %13, %1
   %42 = landingpad { ptr, i32 }
           catch ptr null
   %43 = extractvalue { ptr, i32 } %42, 0
-  call void @__clang_call_terminate(ptr %43) #29
+  call void @__clang_call_terminate(ptr %43) #30
   unreachable
 
 44:                                               ; preds = %27, %24, %21
@@ -23147,7 +23147,7 @@ _ZN4pkpy3anyC2IRPFPNS_8PyObjectEPNS_2VMES3_S3_EEEOT_.exit: ; preds = %3, %13, %1
   %52 = landingpad { ptr, i32 }
           catch ptr null
   %53 = extractvalue { ptr, i32 } %52, 0
-  call void @__clang_call_terminate(ptr %53) #29
+  call void @__clang_call_terminate(ptr %53) #30
   unreachable
 
 _ZN4pkpy3anyD2Ev.exit:                            ; preds = %44, %46, %49
@@ -23173,7 +23173,7 @@ _ZN4pkpy3anyD2Ev.exit:                            ; preds = %44, %46, %49
   %61 = landingpad { ptr, i32 }
           catch ptr null
   %62 = extractvalue { ptr, i32 } %61, 0
-  call void @__clang_call_terminate(ptr %62) #29
+  call void @__clang_call_terminate(ptr %62) #30
   unreachable
 
 _ZN4pkpy3anyD2Ev.exit6:                           ; preds = %.body, %55, %58
@@ -23239,7 +23239,7 @@ _ZN4pkpy3anyC2IRPFPNS_8PyObjectEPNS_2VMES3_S3_EEEOT_.exit: ; preds = %3, %13, %1
   %30 = landingpad { ptr, i32 }
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
-  call void @__clang_call_terminate(ptr %31) #29
+  call void @__clang_call_terminate(ptr %31) #30
   unreachable
 
 32:                                               ; preds = %_ZN4pkpy3anyC2IRPFPNS_8PyObjectEPNS_2VMES3_S3_EEEOT_.exit
@@ -23265,7 +23265,7 @@ _ZN4pkpy3anyC2IRPFPNS_8PyObjectEPNS_2VMES3_S3_EEEOT_.exit: ; preds = %3, %13, %1
   %42 = landingpad { ptr, i32 }
           catch ptr null
   %43 = extractvalue { ptr, i32 } %42, 0
-  call void @__clang_call_terminate(ptr %43) #29
+  call void @__clang_call_terminate(ptr %43) #30
   unreachable
 
 44:                                               ; preds = %27, %24, %21
@@ -23289,7 +23289,7 @@ _ZN4pkpy3anyC2IRPFPNS_8PyObjectEPNS_2VMES3_S3_EEEOT_.exit: ; preds = %3, %13, %1
   %52 = landingpad { ptr, i32 }
           catch ptr null
   %53 = extractvalue { ptr, i32 } %52, 0
-  call void @__clang_call_terminate(ptr %53) #29
+  call void @__clang_call_terminate(ptr %53) #30
   unreachable
 
 _ZN4pkpy3anyD2Ev.exit:                            ; preds = %44, %46, %49
@@ -23315,7 +23315,7 @@ _ZN4pkpy3anyD2Ev.exit:                            ; preds = %44, %46, %49
   %61 = landingpad { ptr, i32 }
           catch ptr null
   %62 = extractvalue { ptr, i32 } %61, 0
-  call void @__clang_call_terminate(ptr %62) #29
+  call void @__clang_call_terminate(ptr %62) #30
   unreachable
 
 _ZN4pkpy3anyD2Ev.exit6:                           ; preds = %.body, %55, %58
@@ -23381,7 +23381,7 @@ _ZN4pkpy3anyC2IRPFPNS_8PyObjectEPNS_2VMES3_S3_EEEOT_.exit: ; preds = %3, %13, %1
   %30 = landingpad { ptr, i32 }
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
-  call void @__clang_call_terminate(ptr %31) #29
+  call void @__clang_call_terminate(ptr %31) #30
   unreachable
 
 32:                                               ; preds = %_ZN4pkpy3anyC2IRPFPNS_8PyObjectEPNS_2VMES3_S3_EEEOT_.exit
@@ -23407,7 +23407,7 @@ _ZN4pkpy3anyC2IRPFPNS_8PyObjectEPNS_2VMES3_S3_EEEOT_.exit: ; preds = %3, %13, %1
   %42 = landingpad { ptr, i32 }
           catch ptr null
   %43 = extractvalue { ptr, i32 } %42, 0
-  call void @__clang_call_terminate(ptr %43) #29
+  call void @__clang_call_terminate(ptr %43) #30
   unreachable
 
 44:                                               ; preds = %27, %24, %21
@@ -23431,7 +23431,7 @@ _ZN4pkpy3anyC2IRPFPNS_8PyObjectEPNS_2VMES3_S3_EEEOT_.exit: ; preds = %3, %13, %1
   %52 = landingpad { ptr, i32 }
           catch ptr null
   %53 = extractvalue { ptr, i32 } %52, 0
-  call void @__clang_call_terminate(ptr %53) #29
+  call void @__clang_call_terminate(ptr %53) #30
   unreachable
 
 _ZN4pkpy3anyD2Ev.exit:                            ; preds = %44, %46, %49
@@ -23457,7 +23457,7 @@ _ZN4pkpy3anyD2Ev.exit:                            ; preds = %44, %46, %49
   %61 = landingpad { ptr, i32 }
           catch ptr null
   %62 = extractvalue { ptr, i32 } %61, 0
-  call void @__clang_call_terminate(ptr %62) #29
+  call void @__clang_call_terminate(ptr %62) #30
   unreachable
 
 _ZN4pkpy3anyD2Ev.exit6:                           ; preds = %.body, %55, %58
@@ -23523,7 +23523,7 @@ _ZN4pkpy3anyC2IRPFPNS_8PyObjectEPNS_2VMES3_S3_EEEOT_.exit: ; preds = %3, %13, %1
   %30 = landingpad { ptr, i32 }
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
-  call void @__clang_call_terminate(ptr %31) #29
+  call void @__clang_call_terminate(ptr %31) #30
   unreachable
 
 32:                                               ; preds = %_ZN4pkpy3anyC2IRPFPNS_8PyObjectEPNS_2VMES3_S3_EEEOT_.exit
@@ -23549,7 +23549,7 @@ _ZN4pkpy3anyC2IRPFPNS_8PyObjectEPNS_2VMES3_S3_EEEOT_.exit: ; preds = %3, %13, %1
   %42 = landingpad { ptr, i32 }
           catch ptr null
   %43 = extractvalue { ptr, i32 } %42, 0
-  call void @__clang_call_terminate(ptr %43) #29
+  call void @__clang_call_terminate(ptr %43) #30
   unreachable
 
 44:                                               ; preds = %27, %24, %21
@@ -23573,7 +23573,7 @@ _ZN4pkpy3anyC2IRPFPNS_8PyObjectEPNS_2VMES3_S3_EEEOT_.exit: ; preds = %3, %13, %1
   %52 = landingpad { ptr, i32 }
           catch ptr null
   %53 = extractvalue { ptr, i32 } %52, 0
-  call void @__clang_call_terminate(ptr %53) #29
+  call void @__clang_call_terminate(ptr %53) #30
   unreachable
 
 _ZN4pkpy3anyD2Ev.exit:                            ; preds = %44, %46, %49
@@ -23599,7 +23599,7 @@ _ZN4pkpy3anyD2Ev.exit:                            ; preds = %44, %46, %49
   %61 = landingpad { ptr, i32 }
           catch ptr null
   %62 = extractvalue { ptr, i32 } %61, 0
-  call void @__clang_call_terminate(ptr %62) #29
+  call void @__clang_call_terminate(ptr %62) #30
   unreachable
 
 _ZN4pkpy3anyD2Ev.exit6:                           ; preds = %.body, %55, %58
@@ -23665,7 +23665,7 @@ _ZN4pkpy3anyC2IRPFPNS_8PyObjectEPNS_2VMES3_S3_EEEOT_.exit: ; preds = %3, %13, %1
   %30 = landingpad { ptr, i32 }
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
-  call void @__clang_call_terminate(ptr %31) #29
+  call void @__clang_call_terminate(ptr %31) #30
   unreachable
 
 32:                                               ; preds = %_ZN4pkpy3anyC2IRPFPNS_8PyObjectEPNS_2VMES3_S3_EEEOT_.exit
@@ -23691,7 +23691,7 @@ _ZN4pkpy3anyC2IRPFPNS_8PyObjectEPNS_2VMES3_S3_EEEOT_.exit: ; preds = %3, %13, %1
   %42 = landingpad { ptr, i32 }
           catch ptr null
   %43 = extractvalue { ptr, i32 } %42, 0
-  call void @__clang_call_terminate(ptr %43) #29
+  call void @__clang_call_terminate(ptr %43) #30
   unreachable
 
 44:                                               ; preds = %27, %24, %21
@@ -23715,7 +23715,7 @@ _ZN4pkpy3anyC2IRPFPNS_8PyObjectEPNS_2VMES3_S3_EEEOT_.exit: ; preds = %3, %13, %1
   %52 = landingpad { ptr, i32 }
           catch ptr null
   %53 = extractvalue { ptr, i32 } %52, 0
-  call void @__clang_call_terminate(ptr %53) #29
+  call void @__clang_call_terminate(ptr %53) #30
   unreachable
 
 _ZN4pkpy3anyD2Ev.exit:                            ; preds = %44, %46, %49
@@ -23741,7 +23741,7 @@ _ZN4pkpy3anyD2Ev.exit:                            ; preds = %44, %46, %49
   %61 = landingpad { ptr, i32 }
           catch ptr null
   %62 = extractvalue { ptr, i32 } %61, 0
-  call void @__clang_call_terminate(ptr %62) #29
+  call void @__clang_call_terminate(ptr %62) #30
   unreachable
 
 _ZN4pkpy3anyD2Ev.exit6:                           ; preds = %.body, %55, %58
@@ -23807,7 +23807,7 @@ _ZN4pkpy3anyC2IRPFPNS_8PyObjectEPNS_2VMES3_S3_EEEOT_.exit: ; preds = %3, %13, %1
   %30 = landingpad { ptr, i32 }
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
-  call void @__clang_call_terminate(ptr %31) #29
+  call void @__clang_call_terminate(ptr %31) #30
   unreachable
 
 32:                                               ; preds = %_ZN4pkpy3anyC2IRPFPNS_8PyObjectEPNS_2VMES3_S3_EEEOT_.exit
@@ -23833,7 +23833,7 @@ _ZN4pkpy3anyC2IRPFPNS_8PyObjectEPNS_2VMES3_S3_EEEOT_.exit: ; preds = %3, %13, %1
   %42 = landingpad { ptr, i32 }
           catch ptr null
   %43 = extractvalue { ptr, i32 } %42, 0
-  call void @__clang_call_terminate(ptr %43) #29
+  call void @__clang_call_terminate(ptr %43) #30
   unreachable
 
 44:                                               ; preds = %27, %24, %21
@@ -23857,7 +23857,7 @@ _ZN4pkpy3anyC2IRPFPNS_8PyObjectEPNS_2VMES3_S3_EEEOT_.exit: ; preds = %3, %13, %1
   %52 = landingpad { ptr, i32 }
           catch ptr null
   %53 = extractvalue { ptr, i32 } %52, 0
-  call void @__clang_call_terminate(ptr %53) #29
+  call void @__clang_call_terminate(ptr %53) #30
   unreachable
 
 _ZN4pkpy3anyD2Ev.exit:                            ; preds = %44, %46, %49
@@ -23883,7 +23883,7 @@ _ZN4pkpy3anyD2Ev.exit:                            ; preds = %44, %46, %49
   %61 = landingpad { ptr, i32 }
           catch ptr null
   %62 = extractvalue { ptr, i32 } %61, 0
-  call void @__clang_call_terminate(ptr %62) #29
+  call void @__clang_call_terminate(ptr %62) #30
   unreachable
 
 _ZN4pkpy3anyD2Ev.exit6:                           ; preds = %.body, %55, %58
@@ -23949,7 +23949,7 @@ _ZN4pkpy3anyC2IRPFPNS_8PyObjectEPNS_2VMES3_S3_EEEOT_.exit: ; preds = %3, %13, %1
   %30 = landingpad { ptr, i32 }
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
-  call void @__clang_call_terminate(ptr %31) #29
+  call void @__clang_call_terminate(ptr %31) #30
   unreachable
 
 32:                                               ; preds = %_ZN4pkpy3anyC2IRPFPNS_8PyObjectEPNS_2VMES3_S3_EEEOT_.exit
@@ -23975,7 +23975,7 @@ _ZN4pkpy3anyC2IRPFPNS_8PyObjectEPNS_2VMES3_S3_EEEOT_.exit: ; preds = %3, %13, %1
   %42 = landingpad { ptr, i32 }
           catch ptr null
   %43 = extractvalue { ptr, i32 } %42, 0
-  call void @__clang_call_terminate(ptr %43) #29
+  call void @__clang_call_terminate(ptr %43) #30
   unreachable
 
 44:                                               ; preds = %27, %24, %21
@@ -23999,7 +23999,7 @@ _ZN4pkpy3anyC2IRPFPNS_8PyObjectEPNS_2VMES3_S3_EEEOT_.exit: ; preds = %3, %13, %1
   %52 = landingpad { ptr, i32 }
           catch ptr null
   %53 = extractvalue { ptr, i32 } %52, 0
-  call void @__clang_call_terminate(ptr %53) #29
+  call void @__clang_call_terminate(ptr %53) #30
   unreachable
 
 _ZN4pkpy3anyD2Ev.exit:                            ; preds = %44, %46, %49
@@ -24025,7 +24025,7 @@ _ZN4pkpy3anyD2Ev.exit:                            ; preds = %44, %46, %49
   %61 = landingpad { ptr, i32 }
           catch ptr null
   %62 = extractvalue { ptr, i32 } %61, 0
-  call void @__clang_call_terminate(ptr %62) #29
+  call void @__clang_call_terminate(ptr %62) #30
   unreachable
 
 _ZN4pkpy3anyD2Ev.exit6:                           ; preds = %.body, %55, %58
@@ -24091,7 +24091,7 @@ _ZN4pkpy3anyC2IRPFPNS_8PyObjectEPNS_2VMES3_S3_EEEOT_.exit: ; preds = %3, %13, %1
   %30 = landingpad { ptr, i32 }
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
-  call void @__clang_call_terminate(ptr %31) #29
+  call void @__clang_call_terminate(ptr %31) #30
   unreachable
 
 32:                                               ; preds = %_ZN4pkpy3anyC2IRPFPNS_8PyObjectEPNS_2VMES3_S3_EEEOT_.exit
@@ -24117,7 +24117,7 @@ _ZN4pkpy3anyC2IRPFPNS_8PyObjectEPNS_2VMES3_S3_EEEOT_.exit: ; preds = %3, %13, %1
   %42 = landingpad { ptr, i32 }
           catch ptr null
   %43 = extractvalue { ptr, i32 } %42, 0
-  call void @__clang_call_terminate(ptr %43) #29
+  call void @__clang_call_terminate(ptr %43) #30
   unreachable
 
 44:                                               ; preds = %27, %24, %21
@@ -24141,7 +24141,7 @@ _ZN4pkpy3anyC2IRPFPNS_8PyObjectEPNS_2VMES3_S3_EEEOT_.exit: ; preds = %3, %13, %1
   %52 = landingpad { ptr, i32 }
           catch ptr null
   %53 = extractvalue { ptr, i32 } %52, 0
-  call void @__clang_call_terminate(ptr %53) #29
+  call void @__clang_call_terminate(ptr %53) #30
   unreachable
 
 _ZN4pkpy3anyD2Ev.exit:                            ; preds = %44, %46, %49
@@ -24167,7 +24167,7 @@ _ZN4pkpy3anyD2Ev.exit:                            ; preds = %44, %46, %49
   %61 = landingpad { ptr, i32 }
           catch ptr null
   %62 = extractvalue { ptr, i32 } %61, 0
-  call void @__clang_call_terminate(ptr %62) #29
+  call void @__clang_call_terminate(ptr %62) #30
   unreachable
 
 _ZN4pkpy3anyD2Ev.exit6:                           ; preds = %.body, %55, %58
@@ -24919,7 +24919,7 @@ _ZN4pkpy14JsonSerializer10write_dictERNS_4DictE.exit: ; preds = %112, %105
   %160 = getelementptr inbounds i8, ptr %159, i64 8
   store ptr %160, ptr %153, align 8
   store ptr %147, ptr %159, align 8
-  %161 = invoke noundef ptr @_ZN4pkpy2VM10vectorcallEiib(ptr noundef nonnull align 8 dereferenceable(264913) %15, i32 noundef 1, i32 noundef 0, i1 noundef zeroext false) #31
+  %161 = invoke noundef ptr @_ZN4pkpy2VM10vectorcallEiib(ptr noundef nonnull align 8 dereferenceable(264913) %15, i32 noundef 1, i32 noundef 0, i1 noundef zeroext false) #32
           to label %.noexc51 unwind label %162
 
 .noexc51:                                         ; preds = %.noexc50
@@ -25070,7 +25070,7 @@ _ZN4pkpy2_SIJRA31_KcNS_7StrNameEEEENS_3StrEDpOT_.exit: ; preds = %38, %40
   %62 = getelementptr inbounds i8, ptr %61, i64 8
   store ptr %62, ptr %55, align 8
   store ptr %49, ptr %61, align 8
-  %63 = invoke noundef ptr @_ZN4pkpy2VM10vectorcallEiib(ptr noundef nonnull align 8 dereferenceable(264913) %23, i32 noundef 1, i32 noundef 0, i1 noundef zeroext false) #31
+  %63 = invoke noundef ptr @_ZN4pkpy2VM10vectorcallEiib(ptr noundef nonnull align 8 dereferenceable(264913) %23, i32 noundef 1, i32 noundef 0, i1 noundef zeroext false) #32
           to label %.noexc13 unwind label %64
 
 .noexc13:                                         ; preds = %.noexc12
@@ -25132,7 +25132,7 @@ define linkonce_odr void @_ZNSt6vectorIN4pkpy3StrESaIS1_EE17_M_realloc_insertIJR
   br i1 %10, label %11, label %_ZNKSt6vectorIN4pkpy3StrESaIS1_EE12_M_check_lenEmPKc.exit
 
 11:                                               ; preds = %3
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.117) #30
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.117) #31
   unreachable
 
 _ZNKSt6vectorIN4pkpy3StrESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %3
@@ -25150,7 +25150,7 @@ _ZNKSt6vectorIN4pkpy3StrESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %3
 
 20:                                               ; preds = %_ZNKSt6vectorIN4pkpy3StrESaIS1_EE12_M_check_lenEmPKc.exit
   %21 = shl nuw nsw i64 %16, 5
-  %22 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #32
+  %22 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #33
   br label %_ZNSt12_Vector_baseIN4pkpy3StrESaIS1_EE11_M_allocateEm.exit
 
 _ZNSt12_Vector_baseIN4pkpy3StrESaIS1_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN4pkpy3StrESaIS1_EE12_M_check_lenEmPKc.exit, %20
@@ -25191,7 +25191,7 @@ _ZSt10_ConstructIN4pkpy3StrEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = %.lr.ph
   br i1 %.not.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN4pkpy3StrEEvT_S3_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !4
 
 _ZSt8_DestroyIPN4pkpy3StrEEvT_S3_.exit.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %27
-  invoke void @__cxa_rethrow() #30
+  invoke void @__cxa_rethrow() #31
           to label %39 unwind label %32
 
 32:                                               ; preds = %_ZSt8_DestroyIPN4pkpy3StrEEvT_S3_.exit.i.i.i.i.i
@@ -25209,7 +25209,7 @@ _ZSt8_DestroyIPN4pkpy3StrEEvT_S3_.exit.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.
   %37 = landingpad { ptr, i32 }
           catch ptr null
   %38 = extractvalue { ptr, i32 } %37, 0
-  tail call void @__clang_call_terminate(ptr %38) #29
+  tail call void @__clang_call_terminate(ptr %38) #30
   unreachable
 
 39:                                               ; preds = %_ZSt8_DestroyIPN4pkpy3StrEEvT_S3_.exit.i.i.i.i.i
@@ -25250,7 +25250,7 @@ _ZSt10_ConstructIN4pkpy3StrEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i37: ; preds = %.lr.
   br i1 %.not.i.i.i.i.i.i.i35, label %_ZSt8_DestroyIPN4pkpy3StrEEvT_S3_.exit.i.i.i.i.i36, label %.lr.ph.i.i.i.i.i.i.i33, !llvm.loop !4
 
 _ZSt8_DestroyIPN4pkpy3StrEEvT_S3_.exit.i.i.i.i.i36: ; preds = %.lr.ph.i.i.i.i.i.i.i33, %41
-  invoke void @__cxa_rethrow() #30
+  invoke void @__cxa_rethrow() #31
           to label %53 unwind label %46
 
 46:                                               ; preds = %_ZSt8_DestroyIPN4pkpy3StrEEvT_S3_.exit.i.i.i.i.i36
@@ -25268,7 +25268,7 @@ _ZSt8_DestroyIPN4pkpy3StrEEvT_S3_.exit.i.i.i.i.i36: ; preds = %.lr.ph.i.i.i.i.i.
   %51 = landingpad { ptr, i32 }
           catch ptr null
   %52 = extractvalue { ptr, i32 } %51, 0
-  tail call void @__clang_call_terminate(ptr %52) #29
+  tail call void @__clang_call_terminate(ptr %52) #30
   unreachable
 
 53:                                               ; preds = %_ZSt8_DestroyIPN4pkpy3StrEEvT_S3_.exit.i.i.i.i.i36
@@ -25349,7 +25349,7 @@ _ZSt8_DestroyIPN4pkpy3StrES1_EvT_S3_RSaIT0_E.exit49: ; preds = %.lr.ph.i.i.i46, 
   br label %_ZNSt12_Vector_baseIN4pkpy3StrESaIS1_EE13_M_deallocateEPS1_m.exit51
 
 _ZNSt12_Vector_baseIN4pkpy3StrESaIS1_EE13_M_deallocateEPS1_m.exit51: ; preds = %69, %_ZSt8_DestroyIPN4pkpy3StrES1_EvT_S3_RSaIT0_E.exit49
-  invoke void @__cxa_rethrow() #30
+  invoke void @__cxa_rethrow() #31
           to label %75 unwind label %67
 
 71:                                               ; preds = %67
@@ -25359,7 +25359,7 @@ _ZNSt12_Vector_baseIN4pkpy3StrESaIS1_EE13_M_deallocateEPS1_m.exit51: ; preds = %
   %73 = landingpad { ptr, i32 }
           catch ptr null
   %74 = extractvalue { ptr, i32 } %73, 0
-  tail call void @__clang_call_terminate(ptr %74) #29
+  tail call void @__clang_call_terminate(ptr %74) #30
   unreachable
 
 75:                                               ; preds = %_ZNSt12_Vector_baseIN4pkpy3StrESaIS1_EE13_M_deallocateEPS1_m.exit51
@@ -25491,7 +25491,7 @@ _ZNSt14_Bit_referenceaSEb.exit:                   ; preds = %46, %49
   br i1 %66, label %67, label %_ZNKSt6vectorIbSaIbEE12_M_check_lenEmPKc.exit
 
 67:                                               ; preds = %59
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.118) #30
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.118) #31
   unreachable
 
 _ZNKSt6vectorIbSaIbEE12_M_check_lenEmPKc.exit:    ; preds = %59
@@ -25503,7 +25503,7 @@ _ZNKSt6vectorIbSaIbEE12_M_check_lenEmPKc.exit:    ; preds = %59
   %72 = select i1 %69, i64 9223372036854775807, i64 %71
   %73 = lshr i64 %72, 3
   %74 = and i64 %73, 1152921504606846968
-  %75 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %74) #32
+  %75 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %74) #33
   %76 = ptrtoint ptr %1 to i64
   %77 = sub i64 %76, %61
   %.not.i.i.i.i.i.i26 = icmp eq ptr %60, %1
@@ -25759,7 +25759,7 @@ define linkonce_odr void @_ZN4pkpy2VM9TypeErrorENS_4TypeES1_(ptr noundef nonnull
   %42 = getelementptr inbounds i8, ptr %41, i64 8
   store ptr %42, ptr %35, align 8
   store ptr %29, ptr %41, align 8
-  %43 = invoke noundef ptr @_ZN4pkpy2VM10vectorcallEiib(ptr noundef nonnull align 8 dereferenceable(264913) %0, i32 noundef 1, i32 noundef 0, i1 noundef zeroext false) #31
+  %43 = invoke noundef ptr @_ZN4pkpy2VM10vectorcallEiib(ptr noundef nonnull align 8 dereferenceable(264913) %0, i32 noundef 1, i32 noundef 0, i1 noundef zeroext false) #32
           to label %.noexc16 unwind label %52
 
 .noexc16:                                         ; preds = %.noexc15
@@ -26067,7 +26067,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeItSt4pairIKtNSt7__cxx1112basic_stringIcSt
   %6 = alloca %"struct.std::_Rb_tree<unsigned short, std::pair<const unsigned short, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const unsigned short, std::__cxx11::basic_string<char>>>, std::less<unsigned short>>::_Auto_node", align 8
   store ptr %0, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 8
-  %8 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #32
+  %8 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #33
   %9 = getelementptr inbounds i8, ptr %8, i64 32
   %10 = load i64, ptr %3, align 8
   %11 = inttoptr i64 %10 to ptr
@@ -26177,7 +26177,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeItSt4pairIKtNSt7__cxx1112basic_s
   br i1 %25, label %_ZNSt8_Rb_treeItSt4pairIKtNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stIS8_ESt4lessItESaIS8_EE24_M_get_insert_unique_posERS1_.exit, label %26
 
 26:                                               ; preds = %._crit_edge.thread.i
-  %27 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i) #34
+  %27 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i) #35
   %.phi.trans.insert80 = getelementptr inbounds i8, ptr %27, i64 32
   %.pre81 = load i16, ptr %.phi.trans.insert80, align 2
   %.pre82 = load i16, ptr %2, align 2
@@ -26207,7 +26207,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeItSt4pairIKtNSt7__cxx1112basic_s
   br i1 %40, label %_ZNSt8_Rb_treeItSt4pairIKtNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stIS8_ESt4lessItESaIS8_EE24_M_get_insert_unique_posERS1_.exit, label %41
 
 41:                                               ; preds = %37
-  %42 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #34
+  %42 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #35
   %43 = getelementptr inbounds i8, ptr %42, i64 32
   %44 = load i16, ptr %43, align 2
   %45 = icmp ult i16 %44, %34
@@ -26247,7 +26247,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeItSt4pairIKtNSt7__cxx1112basic_s
   br i1 %55, label %_ZNSt8_Rb_treeItSt4pairIKtNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stIS8_ESt4lessItESaIS8_EE24_M_get_insert_unique_posERS1_.exit, label %56
 
 56:                                               ; preds = %._crit_edge.thread.i27
-  %57 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i28) #34
+  %57 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i28) #35
   %.phi.trans.insert78 = getelementptr inbounds i8, ptr %57, i64 32
   %.pre79 = load i16, ptr %.phi.trans.insert78, align 2
   br label %58
@@ -26272,7 +26272,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeItSt4pairIKtNSt7__cxx1112basic_s
   br i1 %66, label %_ZNSt8_Rb_treeItSt4pairIKtNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stIS8_ESt4lessItESaIS8_EE24_M_get_insert_unique_posERS1_.exit, label %67
 
 67:                                               ; preds = %63
-  %68 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #34
+  %68 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #35
   %69 = getelementptr inbounds i8, ptr %68, i64 32
   %70 = load i16, ptr %69, align 2
   %71 = icmp ult i16 %34, %70
@@ -26314,7 +26314,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeItSt4pairIKtNSt7__cxx1112basic_s
   br i1 %83, label %_ZNSt8_Rb_treeItSt4pairIKtNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stIS8_ESt4lessItESaIS8_EE24_M_get_insert_unique_posERS1_.exit, label %84
 
 84:                                               ; preds = %._crit_edge.thread.i47
-  %85 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i48) #34
+  %85 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i48) #35
   %.phi.trans.insert = getelementptr inbounds i8, ptr %85, i64 32
   %.pre = load i16, ptr %.phi.trans.insert, align 2
   br label %86
@@ -26423,7 +26423,7 @@ _ZSt10_ConstructIN4pkpy13ExceptionLineEJRKS1_EEvPT_DpOT0_.exit: ; preds = %_ZNSt
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !125
 
 25:                                               ; preds = %.body
-  invoke void @__cxa_rethrow() #30
+  invoke void @__cxa_rethrow() #31
           to label %32 unwind label %26
 
 ._crit_edge:                                      ; preds = %_ZSt10_ConstructIN4pkpy13ExceptionLineEJRKS1_EEvPT_DpOT0_.exit, %3
@@ -26443,7 +26443,7 @@ _ZSt10_ConstructIN4pkpy13ExceptionLineEJRKS1_EEvPT_DpOT0_.exit: ; preds = %_ZNSt
   %30 = landingpad { ptr, i32 }
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
-  tail call void @__clang_call_terminate(ptr %31) #29
+  tail call void @__clang_call_terminate(ptr %31) #30
   unreachable
 
 32:                                               ; preds = %25
@@ -27524,7 +27524,7 @@ define linkonce_odr noundef ptr @_ZN4pkpy11ManagedHeap5gcnewIlJRlEEEPNS_8PyObjec
   br i1 %24, label %25, label %_ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i
 
 25:                                               ; preds = %19
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.117) #30
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.117) #31
   unreachable
 
 _ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %19
@@ -27539,7 +27539,7 @@ _ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %
 
 31:                                               ; preds = %_ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i
   %32 = shl nuw nsw i64 %30, 3
-  %33 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %32) #32
+  %33 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %32) #33
   br label %_ZNSt12_Vector_baseIPN4pkpy8PyObjectESaIS2_EE11_M_allocateEm.exit.i.i
 
 _ZNSt12_Vector_baseIPN4pkpy8PyObjectESaIS2_EE11_M_allocateEm.exit.i.i: ; preds = %31, %_ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i
@@ -28899,7 +28899,7 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE1
   %16 = landingpad { ptr, i32 }
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
-  tail call void @__clang_call_terminate(ptr %17) #29
+  tail call void @__clang_call_terminate(ptr %17) #30
   unreachable
 
 18:                                               ; preds = %13, %10
@@ -28954,7 +28954,7 @@ define linkonce_odr void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  tail call void @__clang_call_terminate(ptr %7) #29
+  tail call void @__clang_call_terminate(ptr %7) #30
   unreachable
 }
 
@@ -29051,7 +29051,7 @@ _ZN4pkpy12try_cast_intEPNS_8PyObjectEPl.exit:     ; preds = %_ZN4pkpy8is_floatEP
   %46 = getelementptr inbounds i8, ptr %45, i64 8
   store ptr %46, ptr %39, align 8
   store ptr %33, ptr %45, align 8
-  %47 = invoke noundef ptr @_ZN4pkpy2VM10vectorcallEiib(ptr noundef nonnull align 8 dereferenceable(264913) %0, i32 noundef 1, i32 noundef 0, i1 noundef zeroext false) #31
+  %47 = invoke noundef ptr @_ZN4pkpy2VM10vectorcallEiib(ptr noundef nonnull align 8 dereferenceable(264913) %0, i32 noundef 1, i32 noundef 0, i1 noundef zeroext false) #32
           to label %.noexc18 unwind label %50
 
 .noexc18:                                         ; preds = %.noexc17
@@ -29285,7 +29285,7 @@ define linkonce_odr void @_ZN4pkpy13LargeNameDictIPNS_8PyObjectEE10_rehash_2xEv(
           to label %49 unwind label %57
 
 49:                                               ; preds = %48
-  invoke void @__cxa_throw(ptr nonnull %42, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #30
+  invoke void @__cxa_throw(ptr nonnull %42, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #31
           to label %65 unwind label %57
 
 .thread:                                          ; preds = %41
@@ -29411,7 +29411,7 @@ define linkonce_odr noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_10pod_vectorIPNS
   br i1 %30, label %31, label %_ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i
 
 31:                                               ; preds = %25
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.117) #30
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.117) #31
   unreachable
 
 _ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %25
@@ -29426,7 +29426,7 @@ _ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %
 
 37:                                               ; preds = %_ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i
   %38 = shl nuw nsw i64 %36, 3
-  %39 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %38) #32
+  %39 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %38) #33
   br label %_ZNSt12_Vector_baseIPN4pkpy8PyObjectESaIS2_EE11_M_allocateEm.exit.i.i
 
 _ZNSt12_Vector_baseIPN4pkpy8PyObjectESaIS2_EE11_M_allocateEm.exit.i.i: ; preds = %37, %_ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i
@@ -29576,7 +29576,7 @@ define linkonce_odr void @_ZNSt6vectorIN4pkpy10PyTypeInfoESaIS1_EE17_M_realloc_i
   br i1 %10, label %11, label %_ZNKSt6vectorIN4pkpy10PyTypeInfoESaIS1_EE12_M_check_lenEmPKc.exit
 
 11:                                               ; preds = %3
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.117) #30
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.117) #31
   unreachable
 
 _ZNKSt6vectorIN4pkpy10PyTypeInfoESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %3
@@ -29594,7 +29594,7 @@ _ZNKSt6vectorIN4pkpy10PyTypeInfoESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %3
 
 20:                                               ; preds = %_ZNKSt6vectorIN4pkpy10PyTypeInfoESaIS1_EE12_M_check_lenEmPKc.exit
   %21 = mul nuw nsw i64 %16, 328
-  %22 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #32
+  %22 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #33
   br label %_ZNSt12_Vector_baseIN4pkpy10PyTypeInfoESaIS1_EE11_M_allocateEm.exit
 
 _ZNSt12_Vector_baseIN4pkpy10PyTypeInfoESaIS1_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN4pkpy10PyTypeInfoESaIS1_EE12_M_check_lenEmPKc.exit, %20
@@ -29626,14 +29626,14 @@ _ZNSt12_Vector_baseIN4pkpy10PyTypeInfoESaIS1_EE11_M_allocateEm.exit: ; preds = %
   br i1 %37, label %.noexc.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN4pkpy7StrNameEEE8allocateERS2_m.exit.i.i.i.i.i.i.i
 
 .noexc.i.i.i.i.i:                                 ; preds = %36
-  invoke void @_ZSt28__throw_bad_array_new_lengthv() #30
+  invoke void @_ZSt28__throw_bad_array_new_lengthv() #31
           to label %.noexc unwind label %77
 
 .noexc:                                           ; preds = %.noexc.i.i.i.i.i
   unreachable
 
 _ZNSt16allocator_traitsISaIN4pkpy7StrNameEEE8allocateERS2_m.exit.i.i.i.i.i.i.i: ; preds = %36
-  %38 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %32) #32
+  %38 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %32) #33
           to label %.noexc26 unwind label %77
 
 .noexc26:                                         ; preds = %_ZNSt16allocator_traitsISaIN4pkpy7StrNameEEE8allocateERS2_m.exit.i.i.i.i.i.i.i
@@ -29750,7 +29750,7 @@ _ZNSt12_Vector_baseIN4pkpy10PyTypeInfoESaIS1_EE13_M_deallocateEPS1_m.exit: ; pre
   %80 = tail call ptr @__cxa_begin_catch(ptr %79) #27
   %81 = mul nuw nsw i64 %16, 328
   tail call void @_ZdlPvm(ptr noundef nonnull %23, i64 noundef %81) #28
-  invoke void @__cxa_rethrow() #30
+  invoke void @__cxa_rethrow() #31
           to label %86 unwind label %75
 
 82:                                               ; preds = %75
@@ -29760,7 +29760,7 @@ _ZNSt12_Vector_baseIN4pkpy10PyTypeInfoESaIS1_EE13_M_deallocateEPS1_m.exit: ; pre
   %84 = landingpad { ptr, i32 }
           catch ptr null
   %85 = extractvalue { ptr, i32 } %84, 0
-  tail call void @__clang_call_terminate(ptr %85) #29
+  tail call void @__clang_call_terminate(ptr %85) #30
   unreachable
 
 86:                                               ; preds = %77
@@ -29772,7 +29772,7 @@ declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) l
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr ptr @_ZNSt8_Rb_treeISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_PN4pkpy8PyObjectEESt10_Select1stIS9_ESt4lessIS3_ESaIS9_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS5_EESK_IJEEEEESt17_Rb_tree_iteratorIS9_ESt23_Rb_tree_const_iteratorIS9_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 1 dereferenceable(1) %4) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %6 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #32
+  %6 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #33
   %7 = getelementptr inbounds i8, ptr %6, i64 32
   %8 = load i64, ptr %3, align 8
   %9 = inttoptr i64 %8 to ptr
@@ -29935,7 +29935,7 @@ _ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit23.thread
   br i1 %35, label %76, label %36
 
 36:                                               ; preds = %32
-  %37 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #34
+  %37 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #35
   %38 = getelementptr inbounds i8, ptr %37, i64 32
   %.sroa.01.0.copyload.i24 = load i64, ptr %38, align 8
   %.sroa.speculated.i.i.i26 = tail call i64 @llvm.umin.i64(i64 %.sroa.01.0.copyload.i24, i64 %.sroa.01.0.copyload.i10)
@@ -30001,7 +30001,7 @@ _ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit51: ; pre
   br i1 %59, label %76, label %60
 
 60:                                               ; preds = %56
-  %61 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #34
+  %61 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #35
   %62 = getelementptr inbounds i8, ptr %61, i64 32
   %.sroa.0.0.copyload.i53 = load i64, ptr %62, align 8
   %.sroa.speculated.i.i.i54 = tail call i64 @llvm.umin.i64(i64 %.sroa.01.0.copyload.i10, i64 %.sroa.0.0.copyload.i53)
@@ -30107,7 +30107,7 @@ _ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit: ; preds
   br i1 %14, label %24, label %15
 
 15:                                               ; preds = %._crit_edge.thread
-  %16 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.033.lcssa42) #34
+  %16 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.033.lcssa42) #35
   br label %17
 
 17:                                               ; preds = %15, %._crit_edge
@@ -30288,7 +30288,7 @@ _ZStltIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit: ; preds = %_ZN
   %53 = landingpad { ptr, i32 }
           catch ptr null
   %54 = extractvalue { ptr, i32 } %53, 0
-  call void @__clang_call_terminate(ptr %54) #29
+  call void @__clang_call_terminate(ptr %54) #30
   unreachable
 }
 
@@ -30375,7 +30375,7 @@ _ZN4pkpy11is_heap_intEPNS_8PyObjectE.exit.thread: ; preds = %._ZN4pkpy11is_heap_
   %38 = getelementptr inbounds i8, ptr %37, i64 8
   store ptr %38, ptr %31, align 8
   store ptr %25, ptr %37, align 8
-  %39 = invoke noundef ptr @_ZN4pkpy2VM10vectorcallEiib(ptr noundef nonnull align 8 dereferenceable(264913) %0, i32 noundef 1, i32 noundef 0, i1 noundef zeroext false) #31
+  %39 = invoke noundef ptr @_ZN4pkpy2VM10vectorcallEiib(ptr noundef nonnull align 8 dereferenceable(264913) %0, i32 noundef 1, i32 noundef 0, i1 noundef zeroext false) #32
           to label %.noexc22 unwind label %42
 
 .noexc22:                                         ; preds = %.noexc21
@@ -30484,7 +30484,7 @@ _ZN4pkpy11is_heap_intEPNS_8PyObjectE.exit.thread: ; preds = %._ZN4pkpy11is_heap_
   %38 = getelementptr inbounds i8, ptr %37, i64 8
   store ptr %38, ptr %31, align 8
   store ptr %25, ptr %37, align 8
-  %39 = invoke noundef ptr @_ZN4pkpy2VM10vectorcallEiib(ptr noundef nonnull align 8 dereferenceable(264913) %0, i32 noundef 1, i32 noundef 0, i1 noundef zeroext false) #31
+  %39 = invoke noundef ptr @_ZN4pkpy2VM10vectorcallEiib(ptr noundef nonnull align 8 dereferenceable(264913) %0, i32 noundef 1, i32 noundef 0, i1 noundef zeroext false) #32
           to label %.noexc22 unwind label %42
 
 .noexc22:                                         ; preds = %.noexc21
@@ -30660,7 +30660,7 @@ define linkonce_odr noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_8FunctionEJS2_EE
   br i1 %35, label %36, label %_ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i
 
 36:                                               ; preds = %30
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.117) #30
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.117) #31
   unreachable
 
 _ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %30
@@ -30675,7 +30675,7 @@ _ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %
 
 42:                                               ; preds = %_ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i
   %43 = shl nuw nsw i64 %41, 3
-  %44 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %43) #32
+  %44 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %43) #33
   br label %_ZNSt12_Vector_baseIPN4pkpy8PyObjectESaIS2_EE11_M_allocateEm.exit.i.i
 
 _ZNSt12_Vector_baseIPN4pkpy8PyObjectESaIS2_EE11_M_allocateEm.exit.i.i: ; preds = %42, %_ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i
@@ -30942,7 +30942,7 @@ _ZN4pkpy3Py_INS_3StrEEC2IJS1_EEENS_4TypeEDpOT_.exit: ; preds = %3
   br i1 %25, label %26, label %_ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i
 
 26:                                               ; preds = %20
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.117) #30
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.117) #31
   unreachable
 
 _ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %20
@@ -30957,7 +30957,7 @@ _ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %
 
 32:                                               ; preds = %_ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i
   %33 = shl nuw nsw i64 %31, 3
-  %34 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %33) #32
+  %34 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %33) #33
   br label %_ZNSt12_Vector_baseIPN4pkpy8PyObjectESaIS2_EE11_M_allocateEm.exit.i.i
 
 _ZNSt12_Vector_baseIPN4pkpy8PyObjectESaIS2_EE11_M_allocateEm.exit.i.i: ; preds = %32, %_ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i
@@ -31109,7 +31109,7 @@ _ZN4pkpy12try_cast_intEPNS_8PyObjectEPl.exit:     ; preds = %_ZN4pkpy8is_floatEP
   %46 = getelementptr inbounds i8, ptr %45, i64 8
   store ptr %46, ptr %39, align 8
   store ptr %33, ptr %45, align 8
-  %47 = invoke noundef ptr @_ZN4pkpy2VM10vectorcallEiib(ptr noundef nonnull align 8 dereferenceable(264913) %0, i32 noundef 1, i32 noundef 0, i1 noundef zeroext false) #31
+  %47 = invoke noundef ptr @_ZN4pkpy2VM10vectorcallEiib(ptr noundef nonnull align 8 dereferenceable(264913) %0, i32 noundef 1, i32 noundef 0, i1 noundef zeroext false) #32
           to label %.noexc21 unwind label %50
 
 .noexc21:                                         ; preds = %.noexc20
@@ -31187,7 +31187,7 @@ _ZN4pkpy3Py_INS_3StrEEC2IJRS1_EEENS_4TypeEDpOT_.exit: ; preds = %3
   br i1 %25, label %26, label %_ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i
 
 26:                                               ; preds = %20
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.117) #30
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.117) #31
   unreachable
 
 _ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %20
@@ -31202,7 +31202,7 @@ _ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %
 
 32:                                               ; preds = %_ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i
   %33 = shl nuw nsw i64 %31, 3
-  %34 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %33) #32
+  %34 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %33) #33
   br label %_ZNSt12_Vector_baseIPN4pkpy8PyObjectESaIS2_EE11_M_allocateEm.exit.i.i
 
 _ZNSt12_Vector_baseIPN4pkpy8PyObjectESaIS2_EE11_M_allocateEm.exit.i.i: ; preds = %32, %_ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i
@@ -31271,7 +31271,7 @@ define linkonce_odr void @_ZNSt6vectorIN4pkpy10PyTypeInfoESaIS1_EE17_M_realloc_i
   br i1 %10, label %11, label %_ZNKSt6vectorIN4pkpy10PyTypeInfoESaIS1_EE12_M_check_lenEmPKc.exit
 
 11:                                               ; preds = %3
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.117) #30
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.117) #31
   unreachable
 
 _ZNKSt6vectorIN4pkpy10PyTypeInfoESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %3
@@ -31289,7 +31289,7 @@ _ZNKSt6vectorIN4pkpy10PyTypeInfoESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %3
 
 20:                                               ; preds = %_ZNKSt6vectorIN4pkpy10PyTypeInfoESaIS1_EE12_M_check_lenEmPKc.exit
   %21 = mul nuw nsw i64 %16, 328
-  %22 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #32
+  %22 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #33
   br label %_ZNSt12_Vector_baseIN4pkpy10PyTypeInfoESaIS1_EE11_M_allocateEm.exit
 
 _ZNSt12_Vector_baseIN4pkpy10PyTypeInfoESaIS1_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN4pkpy10PyTypeInfoESaIS1_EE12_M_check_lenEmPKc.exit, %20
@@ -31440,7 +31440,7 @@ define linkonce_odr noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_5TupleEJS2_EEEPN
   br i1 %23, label %24, label %_ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i
 
 24:                                               ; preds = %18
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.117) #30
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.117) #31
   unreachable
 
 _ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %18
@@ -31455,7 +31455,7 @@ _ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %
 
 30:                                               ; preds = %_ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i
   %31 = shl nuw nsw i64 %29, 3
-  %32 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %31) #32
+  %32 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %31) #33
   br label %_ZNSt12_Vector_baseIPN4pkpy8PyObjectESaIS2_EE11_M_allocateEm.exit.i.i
 
 _ZNSt12_Vector_baseIPN4pkpy8PyObjectESaIS2_EE11_M_allocateEm.exit.i.i: ; preds = %30, %_ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i
@@ -31609,7 +31609,7 @@ _ZN4pkpy3Py_INS_4DictEEC2IJS1_EEENS_4TypeEDpOT_.exit: ; preds = %3
   br i1 %25, label %26, label %_ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i
 
 26:                                               ; preds = %20
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.117) #30
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.117) #31
   unreachable
 
 _ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %20
@@ -31624,7 +31624,7 @@ _ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %
 
 32:                                               ; preds = %_ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i
   %33 = shl nuw nsw i64 %31, 3
-  %34 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %33) #32
+  %34 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %33) #33
   br label %_ZNSt12_Vector_baseIPN4pkpy8PyObjectESaIS2_EE11_M_allocateEm.exit.i.i
 
 _ZNSt12_Vector_baseIPN4pkpy8PyObjectESaIS2_EE11_M_allocateEm.exit.i.i: ; preds = %32, %_ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i
@@ -31730,7 +31730,7 @@ define linkonce_odr noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_11BoundMethodEJS
   br i1 %24, label %25, label %_ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i
 
 25:                                               ; preds = %19
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.117) #30
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.117) #31
   unreachable
 
 _ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %19
@@ -31745,7 +31745,7 @@ _ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %
 
 31:                                               ; preds = %_ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i
   %32 = shl nuw nsw i64 %30, 3
-  %33 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %32) #32
+  %33 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %32) #33
   br label %_ZNSt12_Vector_baseIPN4pkpy8PyObjectESaIS2_EE11_M_allocateEm.exit.i.i
 
 _ZNSt12_Vector_baseIPN4pkpy8PyObjectESaIS2_EE11_M_allocateEm.exit.i.i: ; preds = %31, %_ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i
@@ -31914,7 +31914,7 @@ define linkonce_odr noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_10NativeFuncEJS2
   br i1 %31, label %32, label %_ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i
 
 32:                                               ; preds = %26
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.117) #30
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.117) #31
   unreachable
 
 _ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %26
@@ -31929,7 +31929,7 @@ _ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %
 
 38:                                               ; preds = %_ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i
   %39 = shl nuw nsw i64 %37, 3
-  %40 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %39) #32
+  %40 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %39) #33
   br label %_ZNSt12_Vector_baseIPN4pkpy8PyObjectESaIS2_EE11_M_allocateEm.exit.i.i
 
 _ZNSt12_Vector_baseIPN4pkpy8PyObjectESaIS2_EE11_M_allocateEm.exit.i.i: ; preds = %38, %_ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i
@@ -32006,7 +32006,7 @@ define linkonce_odr void @_ZN4pkpy3Py_INS_10NativeFuncEED2Ev(ptr noundef nonnull
   %11 = landingpad { ptr, i32 }
           catch ptr null
   %12 = extractvalue { ptr, i32 } %11, 0
-  tail call void @__clang_call_terminate(ptr %12) #29
+  tail call void @__clang_call_terminate(ptr %12) #30
   unreachable
 
 _ZN4pkpy3anyD2Ev.exit.i:                          ; preds = %8, %5, %1
@@ -32134,7 +32134,7 @@ define linkonce_odr noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_12StaticMethodEJ
   br i1 %23, label %24, label %_ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i
 
 24:                                               ; preds = %18
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.117) #30
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.117) #31
   unreachable
 
 _ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %18
@@ -32149,7 +32149,7 @@ _ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %
 
 30:                                               ; preds = %_ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i
   %31 = shl nuw nsw i64 %29, 3
-  %32 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %31) #32
+  %32 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %31) #33
   br label %_ZNSt12_Vector_baseIPN4pkpy8PyObjectESaIS2_EE11_M_allocateEm.exit.i.i
 
 _ZNSt12_Vector_baseIPN4pkpy8PyObjectESaIS2_EE11_M_allocateEm.exit.i.i: ; preds = %30, %_ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i
@@ -32275,7 +32275,7 @@ define linkonce_odr noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_11ClassMethodEJS
   br i1 %23, label %24, label %_ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i
 
 24:                                               ; preds = %18
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.117) #30
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.117) #31
   unreachable
 
 _ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %18
@@ -32290,7 +32290,7 @@ _ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %
 
 30:                                               ; preds = %_ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i
   %31 = shl nuw nsw i64 %29, 3
-  %32 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %31) #32
+  %32 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %31) #33
   br label %_ZNSt12_Vector_baseIPN4pkpy8PyObjectESaIS2_EE11_M_allocateEm.exit.i.i
 
 _ZNSt12_Vector_baseIPN4pkpy8PyObjectESaIS2_EE11_M_allocateEm.exit.i.i: ; preds = %30, %_ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i
@@ -32416,7 +32416,7 @@ define linkonce_odr noundef ptr @_ZN4pkpy11ManagedHeap5gcnewINS_8PropertyEJS2_EE
   br i1 %24, label %25, label %_ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i
 
 25:                                               ; preds = %19
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.117) #30
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.117) #31
   unreachable
 
 _ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %19
@@ -32431,7 +32431,7 @@ _ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %
 
 31:                                               ; preds = %_ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i
   %32 = shl nuw nsw i64 %30, 3
-  %33 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %32) #32
+  %33 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %32) #33
   br label %_ZNSt12_Vector_baseIPN4pkpy8PyObjectESaIS2_EE11_M_allocateEm.exit.i.i
 
 _ZNSt12_Vector_baseIPN4pkpy8PyObjectESaIS2_EE11_M_allocateEm.exit.i.i: ; preds = %31, %_ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i
@@ -32595,7 +32595,7 @@ _ZN4pkpy3Py_INS_3StrEEC2IJRKS1_EEENS_4TypeEDpOT_.exit: ; preds = %3
   br i1 %25, label %26, label %_ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i
 
 26:                                               ; preds = %20
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.117) #30
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.117) #31
   unreachable
 
 _ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %20
@@ -32610,7 +32610,7 @@ _ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %
 
 32:                                               ; preds = %_ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i
   %33 = shl nuw nsw i64 %31, 3
-  %34 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %33) #32
+  %34 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %33) #33
   br label %_ZNSt12_Vector_baseIPN4pkpy8PyObjectESaIS2_EE11_M_allocateEm.exit.i.i
 
 _ZNSt12_Vector_baseIPN4pkpy8PyObjectESaIS2_EE11_M_allocateEm.exit.i.i: ; preds = %32, %_ZNKSt6vectorIPN4pkpy8PyObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i
@@ -32661,7 +32661,7 @@ define linkonce_odr void @_ZNSt6vectorIN4pkpy13ExceptionLineESaIS1_EE17_M_reallo
   br i1 %13, label %14, label %_ZNKSt6vectorIN4pkpy13ExceptionLineESaIS1_EE12_M_check_lenEmPKc.exit
 
 14:                                               ; preds = %6
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.117) #30
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.117) #31
   unreachable
 
 _ZNKSt6vectorIN4pkpy13ExceptionLineESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %6
@@ -32679,7 +32679,7 @@ _ZNKSt6vectorIN4pkpy13ExceptionLineESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = 
 
 23:                                               ; preds = %_ZNKSt6vectorIN4pkpy13ExceptionLineESaIS1_EE12_M_check_lenEmPKc.exit
   %24 = shl nuw nsw i64 %19, 6
-  %25 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %24) #32
+  %25 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %24) #33
   br label %_ZNSt12_Vector_baseIN4pkpy13ExceptionLineESaIS1_EE11_M_allocateEm.exit
 
 _ZNSt12_Vector_baseIN4pkpy13ExceptionLineESaIS1_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN4pkpy13ExceptionLineESaIS1_EE12_M_check_lenEmPKc.exit, %23
@@ -32760,7 +32760,7 @@ _ZNSt12_Vector_baseIN4pkpy13ExceptionLineESaIS1_EE13_M_deallocateEPS1_m.exit: ; 
   br label %_ZNSt12_Vector_baseIN4pkpy13ExceptionLineESaIS1_EE13_M_deallocateEPS1_m.exit40
 
 _ZNSt12_Vector_baseIN4pkpy13ExceptionLineESaIS1_EE13_M_deallocateEPS1_m.exit40: ; preds = %45, %.thread
-  invoke void @__cxa_rethrow() #30
+  invoke void @__cxa_rethrow() #31
           to label %51 unwind label %43
 
 47:                                               ; preds = %43
@@ -32770,7 +32770,7 @@ _ZNSt12_Vector_baseIN4pkpy13ExceptionLineESaIS1_EE13_M_deallocateEPS1_m.exit40: 
   %49 = landingpad { ptr, i32 }
           catch ptr null
   %50 = extractvalue { ptr, i32 } %49, 0
-  tail call void @__clang_call_terminate(ptr %50) #29
+  tail call void @__clang_call_terminate(ptr %50) #30
   unreachable
 
 51:                                               ; preds = %_ZNSt12_Vector_baseIN4pkpy13ExceptionLineESaIS1_EE13_M_deallocateEPS1_m.exit40
@@ -33202,7 +33202,7 @@ attributes #8 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-m
 attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #10 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -33219,12 +33219,13 @@ attributes #25 = { nocallback nofree nosync nounwind willreturn memory(inaccessi
 attributes #26 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #27 = { nounwind }
 attributes #28 = { builtin nounwind }
-attributes #29 = { noreturn nounwind }
-attributes #30 = { noreturn }
-attributes #31 = { "function-inline-cost-multiplier"="2" }
-attributes #32 = { builtin allocsize(0) }
-attributes #33 = { nounwind willreturn memory(none) }
-attributes #34 = { nounwind willreturn memory(read) }
+attributes #29 = { cold noreturn nounwind }
+attributes #30 = { noreturn nounwind }
+attributes #31 = { noreturn }
+attributes #32 = { "function-inline-cost-multiplier"="2" }
+attributes #33 = { builtin allocsize(0) }
+attributes #34 = { nounwind willreturn memory(none) }
+attributes #35 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -380,7 +380,7 @@ should_output_to_client.exit:                     ; preds = %should_output_to_se
 
 53:                                               ; preds = %50
   tail call void (ptr, ...) @write_stderr(ptr noundef nonnull @.str)
-  tail call void @exit(i32 noundef 2) #27
+  tail call void @exit(i32 noundef 2) #29
   unreachable
 
 54:                                               ; preds = %50
@@ -392,7 +392,7 @@ should_output_to_client.exit:                     ; preds = %should_output_to_se
   br i1 %or.cond, label %58, label %62
 
 58:                                               ; preds = %54
-  tail call void @MemoryContextReset(ptr noundef nonnull %51) #28
+  tail call void @MemoryContextReset(ptr noundef nonnull %51) #30
   %59 = load i32, ptr @recursion_depth, align 4
   %60 = icmp sgt i32 %59, 2
   br i1 %60, label %61, label %62
@@ -412,7 +412,7 @@ should_output_to_client.exit:                     ; preds = %should_output_to_se
 
 67:                                               ; preds = %62
   store i32 -1, ptr @errordata_stack_depth, align 4
-  %68 = tail call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #29
+  %68 = tail call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #31
   tail call void @llvm.assume(i1 %68)
   %69 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.46)
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 768, ptr noundef nonnull @__func__.get_error_stack_entry)
@@ -422,7 +422,7 @@ get_error_stack_entry.exit:                       ; preds = %62
   %70 = sext i32 %65 to i64
   %71 = getelementptr [5 x %struct.ErrorData], ptr @errordata, i64 0, i64 %70
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %71, i8 0, i64 184, i1 false)
-  %72 = tail call ptr @__errno_location() #30
+  %72 = tail call ptr @__errno_location() #32
   %73 = load i32, ptr %72, align 4
   %74 = getelementptr inbounds i8, ptr %71, i64 168
   store i32 %73, ptr %74, align 8
@@ -474,14 +474,14 @@ define dso_local void @write_stderr(ptr noundef %0, ...) local_unnamed_addr #2 {
   %2 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %2)
   %3 = load ptr, ptr @stderr, align 8
-  %4 = call i32 @pg_vfprintf(ptr noundef %3, ptr noundef %0, ptr noundef nonnull %2) #28
+  %4 = call i32 @pg_vfprintf(ptr noundef %3, ptr noundef %0, ptr noundef nonnull %2) #30
   %5 = load ptr, ptr @stderr, align 8
   %6 = call i32 @fflush(ptr noundef %5)
   call void @llvm.va_end.p0(ptr nonnull %2)
   ret void
 }
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #3
 
 declare void @MemoryContextReset(ptr noundef) local_unnamed_addr #4
@@ -501,7 +501,7 @@ define dso_local void @errfinish(ptr noundef %0, i32 noundef %1, ptr noundef %2)
 
 12:                                               ; preds = %3
   store i32 -1, ptr @errordata_stack_depth, align 4
-  %13 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #29
+  %13 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #31
   tail call void @llvm.assume(i1 %13)
   %14 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.1)
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 486, ptr noundef nonnull @__func__.errfinish)
@@ -512,11 +512,11 @@ define dso_local void @errfinish(ptr noundef %0, i32 noundef %1, ptr noundef %2)
   br i1 %.not.i, label %set_stack_entry_location.exit, label %16
 
 16:                                               ; preds = %15
-  %17 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 47) #31
+  %17 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 47) #33
   %.not16.i = icmp eq ptr %17, null
   %18 = getelementptr i8, ptr %17, i64 1
   %spec.select.i = select i1 %.not16.i, ptr %0, ptr %18
-  %19 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %spec.select.i, i32 noundef 92) #31
+  %19 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %spec.select.i, i32 noundef 92) #33
   %.not17.i = icmp eq ptr %19, null
   %20 = getelementptr i8, ptr %19, i64 1
   %spec.select18.i = select i1 %.not17.i, ptr %spec.select.i, ptr %20
@@ -563,12 +563,12 @@ set_stack_entry_location.exit:                    ; preds = %15, %16
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %43
   %.012.i = phi ptr [ %46, %43 ], [ %34, %.preheader.i ]
-  %41 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %.012.i) #31
+  %41 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %.012.i) #33
   %42 = icmp eq i32 %41, 0
   br i1 %42, label %matches_backtrace_functions.exit, label %43
 
 43:                                               ; preds = %.lr.ph.i
-  %44 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.012.i) #31
+  %44 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.012.i) #33
   %45 = add i64 %44, 1
   %46 = getelementptr i8, ptr %.012.i, i64 %45
   %47 = load i8, ptr %46, align 1
@@ -589,9 +589,9 @@ matches_backtrace_functions.exit.thread:          ; preds = %43, %.preheader.i, 
 matches_backtrace_functions.exit:                 ; preds = %.lr.ph.i, %52
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 800, ptr nonnull %5)
-  call void @initStringInfo(ptr noundef nonnull %4) #28
-  %55 = call i32 @backtrace(ptr noundef nonnull %5, i32 noundef 100) #28
-  %56 = call ptr @backtrace_symbols(ptr noundef nonnull %5, i32 noundef %55) #28
+  call void @initStringInfo(ptr noundef nonnull %4) #30
+  %55 = call i32 @backtrace(ptr noundef nonnull %5, i32 noundef 100) #30
+  %56 = call ptr @backtrace_symbols(ptr noundef nonnull %5, i32 noundef %55) #30
   %57 = icmp eq ptr %56, null
   br i1 %57, label %set_backtrace.exit, label %.preheader.i25
 
@@ -607,13 +607,13 @@ matches_backtrace_functions.exit:                 ; preds = %.lr.ph.i, %52
   %indvars.iv.i = phi i64 [ 2, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i26 ]
   %59 = getelementptr ptr, ptr %56, i64 %indvars.iv.i
   %60 = load ptr, ptr %59, align 8
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %4, ptr noundef nonnull @.str.47, ptr noundef %60) #28
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %4, ptr noundef nonnull @.str.47, ptr noundef %60) #30
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i26, !llvm.loop !7
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i26, %.preheader.i25
-  call void @free(ptr noundef nonnull %56) #28
+  call void @free(ptr noundef nonnull %56) #30
   %61 = load ptr, ptr %4, align 8
   store ptr %61, ptr %27, align 8
   br label %set_backtrace.exit
@@ -634,7 +634,7 @@ set_backtrace.exit:                               ; preds = %matches_backtrace_f
   %64 = load ptr, ptr %63, align 8
   %65 = getelementptr inbounds i8, ptr %.030, i64 16
   %66 = load ptr, ptr %65, align 8
-  call void %64(ptr noundef %66) #28
+  call void %64(ptr noundef %66) #30
   %.0 = load ptr, ptr %.030, align 8
   %.not23 = icmp eq ptr %.0, null
   br i1 %.not23, label %._crit_edge, label %.lr.ph, !llvm.loop !8
@@ -650,7 +650,7 @@ set_backtrace.exit:                               ; preds = %matches_backtrace_f
   %69 = load i32, ptr @recursion_depth, align 4
   %70 = add i32 %69, -1
   store i32 %70, ptr @recursion_depth, align 4
-  call void @pg_re_throw() #32
+  call void @pg_re_throw() #34
   unreachable
 
 71:                                               ; preds = %._crit_edge
@@ -689,7 +689,7 @@ set_backtrace.exit:                               ; preds = %matches_backtrace_f
   br label %88
 
 88:                                               ; preds = %87, %83
-  call void @proc_exit(i32 noundef 1) #27
+  call void @proc_exit(i32 noundef 1) #35
   unreachable
 
 89:                                               ; preds = %71
@@ -698,7 +698,7 @@ set_backtrace.exit:                               ; preds = %matches_backtrace_f
 
 91:                                               ; preds = %89
   %92 = call i32 @fflush(ptr noundef null)
-  call void @abort() #27
+  call void @abort() #35
   unreachable
 
 93:                                               ; preds = %89
@@ -707,7 +707,7 @@ set_backtrace.exit:                               ; preds = %matches_backtrace_f
   br i1 %.not24, label %96, label %95
 
 95:                                               ; preds = %93
-  call void @ProcessInterrupts() #28
+  call void @ProcessInterrupts() #30
   br label %96
 
 96:                                               ; preds = %93, %95
@@ -729,7 +729,7 @@ define dso_local noundef i32 @errmsg_internal(ptr noundef %0, ...) local_unnamed
 
 10:                                               ; preds = %1
   store i32 -1, ptr @errordata_stack_depth, align 4
-  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #29
+  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #31
   tail call void @llvm.assume(i1 %11)
   %12 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.1)
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1166, ptr noundef nonnull @__func__.errmsg_internal)
@@ -742,24 +742,24 @@ define dso_local noundef i32 @errmsg_internal(ptr noundef %0, ...) local_unnamed
   store ptr %15, ptr @CurrentMemoryContext, align 8
   %17 = getelementptr inbounds i8, ptr %6, i64 104
   store ptr %0, ptr %17, align 8
-  call void @initStringInfo(ptr noundef nonnull %2) #28
+  call void @initStringInfo(ptr noundef nonnull %2) #30
   %18 = getelementptr inbounds i8, ptr %6, i64 168
-  %19 = tail call ptr @__errno_location() #30
+  %19 = tail call ptr @__errno_location() #32
   %20 = load i32, ptr %18, align 8
   store i32 %20, ptr %19, align 4
   call void @llvm.va_start.p0(ptr nonnull %3)
-  %21 = call i32 @appendStringInfoVA(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull %3) #28
+  %21 = call i32 @appendStringInfoVA(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull %3) #30
   call void @llvm.va_end.p0(ptr nonnull %3)
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %13, %.lr.ph
   %23 = phi i32 [ %25, %.lr.ph ], [ %21, %13 ]
-  call void @enlargeStringInfo(ptr noundef nonnull %2, i32 noundef %23) #28
+  call void @enlargeStringInfo(ptr noundef nonnull %2, i32 noundef %23) #30
   %24 = load i32, ptr %18, align 8
   store i32 %24, ptr %19, align 4
   call void @llvm.va_start.p0(ptr nonnull %3)
-  %25 = call i32 @appendStringInfoVA(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull %3) #28
+  %25 = call i32 @appendStringInfoVA(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull %3) #30
   call void @llvm.va_end.p0(ptr nonnull %3)
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %._crit_edge, label %.lr.ph
@@ -771,15 +771,15 @@ define dso_local noundef i32 @errmsg_internal(ptr noundef %0, ...) local_unnamed
   br i1 %.not, label %30, label %29
 
 29:                                               ; preds = %._crit_edge
-  call void @pfree(ptr noundef nonnull %28) #28
+  call void @pfree(ptr noundef nonnull %28) #30
   br label %30
 
 30:                                               ; preds = %29, %._crit_edge
   %31 = load ptr, ptr %2, align 8
-  %32 = call ptr @pstrdup(ptr noundef %31) #28
+  %32 = call ptr @pstrdup(ptr noundef %31) #30
   store ptr %32, ptr %27, align 8
   %33 = load ptr, ptr %2, align 8
-  call void @pfree(ptr noundef %33) #28
+  call void @pfree(ptr noundef %33) #30
   store ptr %16, ptr @CurrentMemoryContext, align 8
   %34 = load i32, ptr @recursion_depth, align 4
   %35 = add i32 %34, -1
@@ -794,7 +794,7 @@ define dso_local void @pg_re_throw() local_unnamed_addr #5 {
   br i1 %.not, label %should_output_to_server.exit, label %2
 
 2:                                                ; preds = %0
-  tail call void @siglongjmp(ptr noundef nonnull %1, i32 noundef 1) #27
+  tail call void @siglongjmp(ptr noundef nonnull %1, i32 noundef 1) #35
   unreachable
 
 should_output_to_server.exit:                     ; preds = %0
@@ -819,7 +819,7 @@ should_output_to_server.exit:                     ; preds = %0
   %16 = getelementptr inbounds i8, ptr %5, i64 24
   %17 = load ptr, ptr %16, align 8
   tail call void @errfinish(ptr noundef %13, i32 noundef %15, ptr noundef %17)
-  tail call void @ExceptionalCondition(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.2, i32 noundef 2002) #27
+  tail call void @ExceptionalCondition(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.2, i32 noundef 2002) #35
   unreachable
 }
 
@@ -842,7 +842,7 @@ define dso_local void @EmitErrorReport() local_unnamed_addr #2 {
 
 13:                                               ; preds = %0
   store i32 -1, ptr @errordata_stack_depth, align 4
-  %14 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #29
+  %14 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #31
   tail call void @llvm.assume(i1 %14)
   %15 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.1)
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1679, ptr noundef nonnull @__func__.EmitErrorReport)
@@ -862,7 +862,7 @@ define dso_local void @EmitErrorReport() local_unnamed_addr #2 {
   br i1 %or.cond, label %25, label %26
 
 25:                                               ; preds = %16
-  tail call void %23(ptr noundef %9) #28
+  tail call void %23(ptr noundef %9) #30
   %.pre = load i8, ptr %20, align 4
   br label %26
 
@@ -873,7 +873,7 @@ define dso_local void @EmitErrorReport() local_unnamed_addr #2 {
 
 29:                                               ; preds = %26
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
-  call void @initStringInfo(ptr noundef nonnull %6) #28
+  call void @initStringInfo(ptr noundef nonnull %6) #30
   store i1 false, ptr @saved_timeval_set, align 1
   store i8 0, ptr @formatted_log_time, align 16
   %30 = load ptr, ptr @Log_line_prefix, align 8
@@ -891,7 +891,7 @@ switch.lookup:                                    ; preds = %29
 
 error_severity.exit.i:                            ; preds = %29, %switch.lookup
   %.0.i.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.45, %29 ]
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %6, ptr noundef nonnull @.str.48, ptr noundef nonnull %.0.i.i) #28
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %6, ptr noundef nonnull @.str.48, ptr noundef nonnull %.0.i.i) #30
   %34 = load i32, ptr @Log_error_verbosity, align 4
   %35 = icmp sgt i32 %34, 1
   br i1 %35, label %36, label %45
@@ -916,7 +916,7 @@ error_severity.exit.i:                            ; preds = %29, %switch.lookup
 
 unpack_sql_state.exit.i:                          ; preds = %39
   store i8 0, ptr getelementptr inbounds (i8, ptr @unpack_sql_state.buf, i64 5), align 1
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %6, ptr noundef nonnull @.str.49, ptr noundef nonnull @unpack_sql_state.buf) #28
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %6, ptr noundef nonnull @.str.49, ptr noundef nonnull @unpack_sql_state.buf) #30
   br label %45
 
 45:                                               ; preds = %unpack_sql_state.exit.i, %error_severity.exit.i
@@ -946,7 +946,7 @@ unpack_sql_state.exit.i:                          ; preds = %39
   br i1 %.not18.i.i, label %59, label %58
 
 58:                                               ; preds = %52
-  call void @appendStringInfoChar(ptr noundef nonnull %6, i8 noundef signext %53) #28
+  call void @appendStringInfoChar(ptr noundef nonnull %6, i8 noundef signext %53) #30
   br label %68
 
 59:                                               ; preds = %52
@@ -975,7 +975,7 @@ unpack_sql_state.exit.i:                          ; preds = %39
   br i1 %.not19.i.i, label %75, label %74
 
 74:                                               ; preds = %70
-  call void @appendStringInfoChar(ptr noundef nonnull %6, i8 noundef signext 9) #28
+  call void @appendStringInfoChar(ptr noundef nonnull %6, i8 noundef signext 9) #30
   br label %84
 
 75:                                               ; preds = %70
@@ -1013,7 +1013,7 @@ unpack_sql_state.exit.i:                          ; preds = %39
   br i1 %.not18.i67.i, label %96, label %95
 
 95:                                               ; preds = %89
-  call void @appendStringInfoChar(ptr noundef nonnull %6, i8 noundef signext %90) #28
+  call void @appendStringInfoChar(ptr noundef nonnull %6, i8 noundef signext %90) #30
   br label %105
 
 96:                                               ; preds = %89
@@ -1042,7 +1042,7 @@ unpack_sql_state.exit.i:                          ; preds = %39
   br i1 %.not19.i69.i, label %112, label %111
 
 111:                                              ; preds = %107
-  call void @appendStringInfoChar(ptr noundef nonnull %6, i8 noundef signext 9) #28
+  call void @appendStringInfoChar(ptr noundef nonnull %6, i8 noundef signext 9) #30
   br label %121
 
 112:                                              ; preds = %107
@@ -1078,11 +1078,11 @@ append_with_tabs.exit.i:                          ; preds = %84, %121, %48
 
 .sink.split.i:                                    ; preds = %126, %append_with_tabs.exit.i
   %.sink.i = phi i32 [ %124, %append_with_tabs.exit.i ], [ %128, %126 ]
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %6, ptr noundef nonnull @.str.51, i32 noundef %.sink.i) #28
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %6, ptr noundef nonnull @.str.51, i32 noundef %.sink.i) #30
   br label %130
 
 130:                                              ; preds = %.sink.split.i, %126
-  call void @appendStringInfoChar(ptr noundef nonnull %6, i8 noundef signext 10) #28
+  call void @appendStringInfoChar(ptr noundef nonnull %6, i8 noundef signext 10) #30
   %131 = load i32, ptr @Log_error_verbosity, align 4
   %132 = icmp sgt i32 %131, 0
   br i1 %132, label %133, label %413
@@ -1096,7 +1096,7 @@ append_with_tabs.exit.i:                          ; preds = %84, %121, %48
 136:                                              ; preds = %133
   %137 = load ptr, ptr @Log_line_prefix, align 8
   call void @log_status_format(ptr noundef nonnull %6, ptr noundef %137, ptr noundef nonnull readonly %9)
-  call void @appendStringInfoString(ptr noundef nonnull %6, ptr noundef nonnull @.str.52) #28
+  call void @appendStringInfoString(ptr noundef nonnull %6, ptr noundef nonnull @.str.52) #30
   %138 = load ptr, ptr %134, align 8
   %139 = load i8, ptr %138, align 1
   %.not20.i71.i = icmp eq i8 %139, 0
@@ -1118,7 +1118,7 @@ append_with_tabs.exit.i:                          ; preds = %84, %121, %48
   br i1 %.not18.i74.i, label %149, label %148
 
 148:                                              ; preds = %142
-  call void @appendStringInfoChar(ptr noundef nonnull %6, i8 noundef signext %143) #28
+  call void @appendStringInfoChar(ptr noundef nonnull %6, i8 noundef signext %143) #30
   br label %158
 
 149:                                              ; preds = %142
@@ -1147,7 +1147,7 @@ append_with_tabs.exit.i:                          ; preds = %84, %121, %48
   br i1 %.not19.i76.i, label %165, label %164
 
 164:                                              ; preds = %160
-  call void @appendStringInfoChar(ptr noundef nonnull %6, i8 noundef signext 9) #28
+  call void @appendStringInfoChar(ptr noundef nonnull %6, i8 noundef signext 9) #30
   br label %174
 
 165:                                              ; preds = %160
@@ -1178,7 +1178,7 @@ append_with_tabs.exit.i:                          ; preds = %84, %121, %48
 179:                                              ; preds = %176
   %180 = load ptr, ptr @Log_line_prefix, align 8
   call void @log_status_format(ptr noundef nonnull %6, ptr noundef %180, ptr noundef nonnull readonly %9)
-  call void @appendStringInfoString(ptr noundef nonnull %6, ptr noundef nonnull @.str.52) #28
+  call void @appendStringInfoString(ptr noundef nonnull %6, ptr noundef nonnull @.str.52) #30
   %181 = load ptr, ptr %177, align 8
   %182 = load i8, ptr %181, align 1
   %.not20.i78.i = icmp eq i8 %182, 0
@@ -1200,7 +1200,7 @@ append_with_tabs.exit.i:                          ; preds = %84, %121, %48
   br i1 %.not18.i81.i, label %192, label %191
 
 191:                                              ; preds = %185
-  call void @appendStringInfoChar(ptr noundef nonnull %6, i8 noundef signext %186) #28
+  call void @appendStringInfoChar(ptr noundef nonnull %6, i8 noundef signext %186) #30
   br label %201
 
 192:                                              ; preds = %185
@@ -1229,7 +1229,7 @@ append_with_tabs.exit.i:                          ; preds = %84, %121, %48
   br i1 %.not19.i83.i, label %208, label %207
 
 207:                                              ; preds = %203
-  call void @appendStringInfoChar(ptr noundef nonnull %6, i8 noundef signext 9) #28
+  call void @appendStringInfoChar(ptr noundef nonnull %6, i8 noundef signext 9) #30
   br label %217
 
 208:                                              ; preds = %203
@@ -1252,7 +1252,7 @@ append_with_tabs.exit.i:                          ; preds = %84, %121, %48
   br i1 %.not.i82.i, label %.sink.split163.i, label %185, !llvm.loop !10
 
 .sink.split163.i:                                 ; preds = %174, %217, %179, %136
-  call void @appendStringInfoChar(ptr noundef nonnull %6, i8 noundef signext 10) #28
+  call void @appendStringInfoChar(ptr noundef nonnull %6, i8 noundef signext 10) #30
   br label %219
 
 219:                                              ; preds = %.sink.split163.i, %176
@@ -1264,7 +1264,7 @@ append_with_tabs.exit.i:                          ; preds = %84, %121, %48
 222:                                              ; preds = %219
   %223 = load ptr, ptr @Log_line_prefix, align 8
   call void @log_status_format(ptr noundef nonnull %6, ptr noundef %223, ptr noundef nonnull readonly %9)
-  call void @appendStringInfoString(ptr noundef nonnull %6, ptr noundef nonnull @.str.53) #28
+  call void @appendStringInfoString(ptr noundef nonnull %6, ptr noundef nonnull @.str.53) #30
   %224 = load ptr, ptr %220, align 8
   %225 = load i8, ptr %224, align 1
   %.not20.i85.i = icmp eq i8 %225, 0
@@ -1286,7 +1286,7 @@ append_with_tabs.exit.i:                          ; preds = %84, %121, %48
   br i1 %.not18.i88.i, label %235, label %234
 
 234:                                              ; preds = %228
-  call void @appendStringInfoChar(ptr noundef nonnull %6, i8 noundef signext %229) #28
+  call void @appendStringInfoChar(ptr noundef nonnull %6, i8 noundef signext %229) #30
   br label %244
 
 235:                                              ; preds = %228
@@ -1315,7 +1315,7 @@ append_with_tabs.exit.i:                          ; preds = %84, %121, %48
   br i1 %.not19.i90.i, label %251, label %250
 
 250:                                              ; preds = %246
-  call void @appendStringInfoChar(ptr noundef nonnull %6, i8 noundef signext 9) #28
+  call void @appendStringInfoChar(ptr noundef nonnull %6, i8 noundef signext 9) #30
   br label %260
 
 251:                                              ; preds = %246
@@ -1338,7 +1338,7 @@ append_with_tabs.exit.i:                          ; preds = %84, %121, %48
   br i1 %.not.i89.i, label %append_with_tabs.exit91.i, label %228, !llvm.loop !10
 
 append_with_tabs.exit91.i:                        ; preds = %260, %222
-  call void @appendStringInfoChar(ptr noundef nonnull %6, i8 noundef signext 10) #28
+  call void @appendStringInfoChar(ptr noundef nonnull %6, i8 noundef signext 10) #30
   br label %262
 
 262:                                              ; preds = %append_with_tabs.exit91.i, %219
@@ -1350,7 +1350,7 @@ append_with_tabs.exit91.i:                        ; preds = %260, %222
 265:                                              ; preds = %262
   %266 = load ptr, ptr @Log_line_prefix, align 8
   call void @log_status_format(ptr noundef nonnull %6, ptr noundef %266, ptr noundef nonnull readonly %9)
-  call void @appendStringInfoString(ptr noundef nonnull %6, ptr noundef nonnull @.str.54) #28
+  call void @appendStringInfoString(ptr noundef nonnull %6, ptr noundef nonnull @.str.54) #30
   %267 = load ptr, ptr %263, align 8
   %268 = load i8, ptr %267, align 1
   %.not20.i92.i = icmp eq i8 %268, 0
@@ -1372,7 +1372,7 @@ append_with_tabs.exit91.i:                        ; preds = %260, %222
   br i1 %.not18.i95.i, label %278, label %277
 
 277:                                              ; preds = %271
-  call void @appendStringInfoChar(ptr noundef nonnull %6, i8 noundef signext %272) #28
+  call void @appendStringInfoChar(ptr noundef nonnull %6, i8 noundef signext %272) #30
   br label %287
 
 278:                                              ; preds = %271
@@ -1401,7 +1401,7 @@ append_with_tabs.exit91.i:                        ; preds = %260, %222
   br i1 %.not19.i97.i, label %294, label %293
 
 293:                                              ; preds = %289
-  call void @appendStringInfoChar(ptr noundef nonnull %6, i8 noundef signext 9) #28
+  call void @appendStringInfoChar(ptr noundef nonnull %6, i8 noundef signext 9) #30
   br label %303
 
 294:                                              ; preds = %289
@@ -1424,7 +1424,7 @@ append_with_tabs.exit91.i:                        ; preds = %260, %222
   br i1 %.not.i96.i, label %append_with_tabs.exit98.i, label %271, !llvm.loop !10
 
 append_with_tabs.exit98.i:                        ; preds = %303, %265
-  call void @appendStringInfoChar(ptr noundef nonnull %6, i8 noundef signext 10) #28
+  call void @appendStringInfoChar(ptr noundef nonnull %6, i8 noundef signext 10) #30
   br label %305
 
 305:                                              ; preds = %append_with_tabs.exit98.i, %262
@@ -1442,7 +1442,7 @@ append_with_tabs.exit98.i:                        ; preds = %303, %265
 312:                                              ; preds = %308
   %313 = load ptr, ptr @Log_line_prefix, align 8
   call void @log_status_format(ptr noundef nonnull %6, ptr noundef %313, ptr noundef nonnull readonly %9)
-  call void @appendStringInfoString(ptr noundef nonnull %6, ptr noundef nonnull @.str.55) #28
+  call void @appendStringInfoString(ptr noundef nonnull %6, ptr noundef nonnull @.str.55) #30
   %314 = load ptr, ptr %306, align 8
   %315 = load i8, ptr %314, align 1
   %.not20.i99.i = icmp eq i8 %315, 0
@@ -1464,7 +1464,7 @@ append_with_tabs.exit98.i:                        ; preds = %303, %265
   br i1 %.not18.i102.i, label %325, label %324
 
 324:                                              ; preds = %318
-  call void @appendStringInfoChar(ptr noundef nonnull %6, i8 noundef signext %319) #28
+  call void @appendStringInfoChar(ptr noundef nonnull %6, i8 noundef signext %319) #30
   br label %334
 
 325:                                              ; preds = %318
@@ -1493,7 +1493,7 @@ append_with_tabs.exit98.i:                        ; preds = %303, %265
   br i1 %.not19.i104.i, label %341, label %340
 
 340:                                              ; preds = %336
-  call void @appendStringInfoChar(ptr noundef nonnull %6, i8 noundef signext 9) #28
+  call void @appendStringInfoChar(ptr noundef nonnull %6, i8 noundef signext 9) #30
   br label %350
 
 341:                                              ; preds = %336
@@ -1516,7 +1516,7 @@ append_with_tabs.exit98.i:                        ; preds = %303, %265
   br i1 %.not.i103.i, label %append_with_tabs.exit105.i, label %318, !llvm.loop !10
 
 append_with_tabs.exit105.i:                       ; preds = %350, %312
-  call void @appendStringInfoChar(ptr noundef nonnull %6, i8 noundef signext 10) #28
+  call void @appendStringInfoChar(ptr noundef nonnull %6, i8 noundef signext 10) #30
   br label %352
 
 352:                                              ; preds = %append_with_tabs.exit105.i, %308, %305
@@ -1543,7 +1543,7 @@ append_with_tabs.exit105.i:                       ; preds = %350, %312
   %362 = load ptr, ptr %.phi.trans.insert.i, align 8
   %363 = getelementptr inbounds i8, ptr %9, i64 16
   %364 = load i32, ptr %363, align 8
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %6, ptr noundef nonnull @.str.56, ptr noundef %361, ptr noundef %362, i32 noundef %364) #28
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %6, ptr noundef nonnull @.str.56, ptr noundef %361, ptr noundef %362, i32 noundef %364) #30
   br label %.thread.i
 
 365:                                              ; preds = %355
@@ -1555,7 +1555,7 @@ append_with_tabs.exit105.i:                       ; preds = %350, %312
   %368 = load ptr, ptr %.phi.trans.insert.i, align 8
   %369 = getelementptr inbounds i8, ptr %9, i64 16
   %370 = load i32, ptr %369, align 8
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %6, ptr noundef nonnull @.str.57, ptr noundef %368, i32 noundef %370) #28
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %6, ptr noundef nonnull @.str.57, ptr noundef %368, i32 noundef %370) #30
   br label %.thread.i
 
 .thread.i:                                        ; preds = %366, %365, %359, %358, %352
@@ -1567,7 +1567,7 @@ append_with_tabs.exit105.i:                       ; preds = %350, %312
 373:                                              ; preds = %.thread.i
   %374 = load ptr, ptr @Log_line_prefix, align 8
   call void @log_status_format(ptr noundef nonnull %6, ptr noundef %374, ptr noundef nonnull readonly %9)
-  call void @appendStringInfoString(ptr noundef nonnull %6, ptr noundef nonnull @.str.58) #28
+  call void @appendStringInfoString(ptr noundef nonnull %6, ptr noundef nonnull @.str.58) #30
   %375 = load ptr, ptr %371, align 8
   %376 = load i8, ptr %375, align 1
   %.not20.i106.i = icmp eq i8 %376, 0
@@ -1589,7 +1589,7 @@ append_with_tabs.exit105.i:                       ; preds = %350, %312
   br i1 %.not18.i109.i, label %386, label %385
 
 385:                                              ; preds = %379
-  call void @appendStringInfoChar(ptr noundef nonnull %6, i8 noundef signext %380) #28
+  call void @appendStringInfoChar(ptr noundef nonnull %6, i8 noundef signext %380) #30
   br label %395
 
 386:                                              ; preds = %379
@@ -1618,7 +1618,7 @@ append_with_tabs.exit105.i:                       ; preds = %350, %312
   br i1 %.not19.i111.i, label %402, label %401
 
 401:                                              ; preds = %397
-  call void @appendStringInfoChar(ptr noundef nonnull %6, i8 noundef signext 9) #28
+  call void @appendStringInfoChar(ptr noundef nonnull %6, i8 noundef signext 9) #30
   br label %411
 
 402:                                              ; preds = %397
@@ -1641,7 +1641,7 @@ append_with_tabs.exit105.i:                       ; preds = %350, %312
   br i1 %.not.i110.i, label %append_with_tabs.exit112.i, label %379, !llvm.loop !10
 
 append_with_tabs.exit112.i:                       ; preds = %411, %373
-  call void @appendStringInfoChar(ptr noundef nonnull %6, i8 noundef signext 10) #28
+  call void @appendStringInfoChar(ptr noundef nonnull %6, i8 noundef signext 10) #30
   br label %413
 
 413:                                              ; preds = %append_with_tabs.exit112.i, %.thread.i, %130
@@ -1683,7 +1683,7 @@ append_with_tabs.exit112.i:                       ; preds = %411, %373
 432:                                              ; preds = %426
   %433 = load ptr, ptr @Log_line_prefix, align 8
   call void @log_status_format(ptr noundef nonnull %6, ptr noundef %433, ptr noundef nonnull readonly %9)
-  call void @appendStringInfoString(ptr noundef nonnull %6, ptr noundef nonnull @.str.59) #28
+  call void @appendStringInfoString(ptr noundef nonnull %6, ptr noundef nonnull @.str.59) #30
   %434 = load ptr, ptr @debug_query_string, align 8
   %435 = load i8, ptr %434, align 1
   %.not20.i114.i = icmp eq i8 %435, 0
@@ -1705,7 +1705,7 @@ append_with_tabs.exit112.i:                       ; preds = %411, %373
   br i1 %.not18.i117.i, label %445, label %444
 
 444:                                              ; preds = %438
-  call void @appendStringInfoChar(ptr noundef nonnull %6, i8 noundef signext %439) #28
+  call void @appendStringInfoChar(ptr noundef nonnull %6, i8 noundef signext %439) #30
   br label %454
 
 445:                                              ; preds = %438
@@ -1734,7 +1734,7 @@ append_with_tabs.exit112.i:                       ; preds = %411, %373
   br i1 %.not19.i119.i, label %461, label %460
 
 460:                                              ; preds = %456
-  call void @appendStringInfoChar(ptr noundef nonnull %6, i8 noundef signext 9) #28
+  call void @appendStringInfoChar(ptr noundef nonnull %6, i8 noundef signext 9) #30
   br label %470
 
 461:                                              ; preds = %456
@@ -1757,7 +1757,7 @@ append_with_tabs.exit112.i:                       ; preds = %411, %373
   br i1 %.not.i118.i, label %append_with_tabs.exit120.i, label %438, !llvm.loop !10
 
 append_with_tabs.exit120.i:                       ; preds = %470, %432
-  call void @appendStringInfoChar(ptr noundef nonnull %6, i8 noundef signext 10) #28
+  call void @appendStringInfoChar(ptr noundef nonnull %6, i8 noundef signext 10) #30
   br label %check_log_of_query.exit.thread.i
 
 check_log_of_query.exit.thread.i:                 ; preds = %append_with_tabs.exit120.i, %426, %425, %423, %419, %417
@@ -1790,7 +1790,7 @@ switch.lookup55:                                  ; preds = %474
   %.not.i121.i = icmp eq ptr %481, null
   %482 = select i1 %.not.i121.i, ptr @.str.60, ptr %481
   %483 = load i32, ptr @syslog_facility, align 4
-  call void @openlog(ptr noundef nonnull %482, i32 noundef 25, i32 noundef %483) #28
+  call void @openlog(ptr noundef nonnull %482, i32 noundef 25, i32 noundef %483) #30
   store i1 true, ptr @openlog_done, align 1
   br label %484
 
@@ -1803,8 +1803,8 @@ switch.lookup55:                                  ; preds = %474
   br i1 %488, label %489, label %546
 
 489:                                              ; preds = %484
-  %490 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %479, i32 noundef 10) #31
-  %491 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %479) #31
+  %490 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %479, i32 noundef 10) #33
+  %491 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %479) #33
   %492 = trunc i64 %491 to i32
   %493 = icmp sgt i32 %492, 900
   %494 = icmp ne ptr %490, null
@@ -1835,7 +1835,7 @@ switch.lookup55:                                  ; preds = %474
 .outer.i.i:                                       ; preds = %497
   %500 = getelementptr i8, ptr %.05064.i.i, i64 1
   %501 = add nsw i32 %.04965.i.i, -1
-  %502 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %500, i32 noundef 10) #31
+  %502 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %500, i32 noundef 10) #33
   %503 = icmp sgt i32 %.04965.i.i, 1
   br i1 %503, label %.lr.ph.i122.i, label %write_syslog.exit.i, !llvm.loop !11
 
@@ -1849,7 +1849,7 @@ switch.lookup55:                                  ; preds = %474
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %5, ptr nonnull align 1 %.05064.i.i, i64 %509, i1 false)
   %510 = getelementptr [901 x i8], ptr %5, i64 0, i64 %509
   store i8 0, ptr %510, align 1
-  %511 = call i32 @pg_mbcliplen(ptr noundef nonnull %5, i32 noundef %508, i32 noundef %508) #28
+  %511 = call i32 @pg_mbcliplen(ptr noundef nonnull %5, i32 noundef %508, i32 noundef %508) #30
   %512 = icmp slt i32 %511, 1
   br i1 %512, label %write_syslog.exit.i, label %513
 
@@ -1863,7 +1863,7 @@ switch.lookup55:                                  ; preds = %474
   br i1 %.not54.i.i, label %.critedge57.i.i, label %518
 
 518:                                              ; preds = %513
-  %519 = tail call ptr @__ctype_b_loc() #30
+  %519 = tail call ptr @__ctype_b_loc() #32
   %520 = load ptr, ptr %519, align 8
   %521 = zext i8 %517 to i64
   %522 = getelementptr i16, ptr %520, i64 %521
@@ -1903,11 +1903,11 @@ switch.lookup55:                                  ; preds = %474
 
 538:                                              ; preds = %.critedge57.i.i
   %539 = load i64, ptr @write_syslog.seq, align 8
-  call void (i32, ptr, ...) @syslog(i32 noundef %.0.i, ptr noundef nonnull @.str.61, i64 noundef %539, i32 noundef %535, ptr noundef nonnull %5) #28
+  call void (i32, ptr, ...) @syslog(i32 noundef %.0.i, ptr noundef nonnull @.str.61, i64 noundef %539, i32 noundef %535, ptr noundef nonnull %5) #30
   br label %541
 
 540:                                              ; preds = %.critedge57.i.i
-  call void (i32, ptr, ...) @syslog(i32 noundef %.0.i, ptr noundef nonnull @.str.62, i32 noundef %535, ptr noundef nonnull %5) #28
+  call void (i32, ptr, ...) @syslog(i32 noundef %.0.i, ptr noundef nonnull @.str.62, i32 noundef %535, ptr noundef nonnull %5) #30
   br label %541
 
 541:                                              ; preds = %540, %538
@@ -1923,11 +1923,11 @@ switch.lookup55:                                  ; preds = %474
   br i1 %548, label %549, label %550
 
 549:                                              ; preds = %546
-  call void (i32, ptr, ...) @syslog(i32 noundef %.0.i, ptr noundef nonnull @.str.63, i64 noundef %486, ptr noundef %479) #28
+  call void (i32, ptr, ...) @syslog(i32 noundef %.0.i, ptr noundef nonnull @.str.63, i64 noundef %486, ptr noundef %479) #30
   br label %write_syslog.exit.i
 
 550:                                              ; preds = %546
-  call void (i32, ptr, ...) @syslog(i32 noundef %.0.i, ptr noundef nonnull @.str.64, ptr noundef %479) #28
+  call void (i32, ptr, ...) @syslog(i32 noundef %.0.i, ptr noundef nonnull @.str.64, ptr noundef %479) #30
   br label %write_syslog.exit.i
 
 write_syslog.exit.i:                              ; preds = %.outer.i.i, %541, %504, %550, %549, %.preheader58.i.i
@@ -1950,7 +1950,7 @@ write_syslog.exit.i:                              ; preds = %.outer.i.i, %541, %
   br i1 %or.cond.i, label %559, label %560
 
 559:                                              ; preds = %554
-  call void @write_csvlog(ptr noundef nonnull %9) #28
+  call void @write_csvlog(ptr noundef nonnull %9) #30
   %.pre146.i = load i32, ptr @Log_destination, align 4
   br label %560
 
@@ -1970,7 +1970,7 @@ write_syslog.exit.i:                              ; preds = %.outer.i.i, %541, %
   br i1 %or.cond3.i, label %568, label %.thread151.i
 
 568:                                              ; preds = %563
-  call void @write_jsonlog(ptr noundef nonnull %9) #28
+  call void @write_jsonlog(ptr noundef nonnull %9) #30
   %.pre147.i = load i32, ptr @Log_destination, align 4
   br label %569
 
@@ -2003,7 +2003,7 @@ write_syslog.exit.i:                              ; preds = %.outer.i.i, %541, %
 582:                                              ; preds = %.thread151.i
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %4)
   %583 = load ptr, ptr @stderr, align 8
-  %584 = call i32 @fileno(ptr noundef %583) #28
+  %584 = call i32 @fileno(ptr noundef %583) #30
   %585 = getelementptr inbounds i8, ptr %4, i64 1
   store i8 0, ptr %585, align 1
   store i8 0, ptr %4, align 4
@@ -2025,7 +2025,7 @@ write_syslog.exit.i:                              ; preds = %.outer.i.i, %541, %
   %.01214.i.i = phi i32 [ %581, %.lr.ph.i125.i ], [ %595, %592 ]
   store i16 4087, ptr %590, align 2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(4087) %591, ptr noundef nonnull align 1 dereferenceable(4087) %.015.i.i, i64 4087, i1 false)
-  %593 = call i64 @write(i32 noundef %584, ptr noundef nonnull %4, i64 noundef 4096) #28
+  %593 = call i64 @write(i32 noundef %584, ptr noundef nonnull %4, i64 noundef 4096) #30
   %594 = getelementptr i8, ptr %.015.i.i, i64 4087
   %595 = add nsw i32 %.01214.i.i, -4087
   %596 = icmp ugt i32 %.01214.i.i, 8174
@@ -2042,15 +2042,15 @@ write_pipe_chunks.exit.i:                         ; preds = %592, %582
   %600 = sext i32 %.012.lcssa.i.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %599, ptr align 1 %.0.lcssa.i.i, i64 %600, i1 false)
   %601 = add nsw i64 %600, 9
-  %602 = call i64 @write(i32 noundef %584, ptr noundef nonnull %4, i64 noundef %601) #28
+  %602 = call i64 @write(i32 noundef %584, ptr noundef nonnull %4, i64 noundef %601) #30
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %4)
   br label %608
 
 603:                                              ; preds = %.thread151.i
   %604 = load ptr, ptr @stderr, align 8
-  %605 = call i32 @fileno(ptr noundef %604) #28
+  %605 = call i32 @fileno(ptr noundef %604) #30
   %606 = sext i32 %581 to i64
-  %607 = call i64 @write(i32 noundef %605, ptr noundef readonly %579, i64 noundef %606) #28
+  %607 = call i64 @write(i32 noundef %605, ptr noundef readonly %579, i64 noundef %606) #30
   br label %608
 
 608:                                              ; preds = %603, %write_pipe_chunks.exit.i, %569
@@ -2062,13 +2062,13 @@ write_pipe_chunks.exit.i:                         ; preds = %592, %582
 611:                                              ; preds = %608
   %612 = getelementptr inbounds i8, ptr %6, i64 8
   %613 = load i32, ptr %612, align 8
-  call void @write_syslogger_file(ptr noundef %.pre149.i, i32 noundef %613, i32 noundef 1) #28
+  call void @write_syslogger_file(ptr noundef %.pre149.i, i32 noundef %613, i32 noundef 1) #30
   %.pre148.i = load ptr, ptr %6, align 8
   br label %send_message_to_server_log.exit
 
 send_message_to_server_log.exit:                  ; preds = %608, %611
   %614 = phi ptr [ %.pre148.i, %611 ], [ %.pre149.i, %608 ]
-  call void @pfree(ptr noundef %614) #28
+  call void @pfree(ptr noundef %614) #30
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   br label %615
 
@@ -2091,7 +2091,7 @@ send_message_to_server_log.exit:                  ; preds = %608, %611
   %623 = load i32, ptr %9, align 8
   %624 = icmp slt i32 %623, 21
   %..i = select i1 %624, i8 78, i8 69
-  call void @pq_beginmessage(ptr noundef nonnull %1, i8 noundef signext %..i) #28
+  call void @pq_beginmessage(ptr noundef nonnull %1, i8 noundef signext %..i) #30
   %625 = load i32, ptr %9, align 8
   %switch.tableidx60 = add i32 %625, -10
   %626 = icmp ult i32 %switch.tableidx60, 14
@@ -2105,7 +2105,7 @@ switch.lookup59:                                  ; preds = %622
 
 error_severity.exit.i11:                          ; preds = %622, %switch.lookup59
   %.0.i.i12 = phi ptr [ %switch.load62, %switch.lookup59 ], [ @.str.45, %622 ]
-  call void @enlargeStringInfo(ptr noundef nonnull %1, i32 noundef 1) #28
+  call void @enlargeStringInfo(ptr noundef nonnull %1, i32 noundef 1) #30
   call void @llvm.experimental.noalias.scope.decl(metadata !14)
   %628 = load ptr, ptr %1, align 8, !alias.scope !14
   %629 = getelementptr inbounds i8, ptr %1, i64 8
@@ -2120,15 +2120,15 @@ error_severity.exit.i11:                          ; preds = %622, %switch.lookup
   br i1 %635, label %636, label %637
 
 636:                                              ; preds = %error_severity.exit.i11
-  call void @pq_send_ascii_string(ptr noundef nonnull %1, ptr noundef nonnull %.0.i.i12) #28
+  call void @pq_send_ascii_string(ptr noundef nonnull %1, ptr noundef nonnull %.0.i.i12) #30
   br label %err_sendstring.exit.i
 
 637:                                              ; preds = %error_severity.exit.i11
-  call void @pq_sendstring(ptr noundef nonnull %1, ptr noundef nonnull %.0.i.i12) #28
+  call void @pq_sendstring(ptr noundef nonnull %1, ptr noundef nonnull %.0.i.i12) #30
   br label %err_sendstring.exit.i
 
 err_sendstring.exit.i:                            ; preds = %637, %636
-  call void @enlargeStringInfo(ptr noundef nonnull %1, i32 noundef 1) #28
+  call void @enlargeStringInfo(ptr noundef nonnull %1, i32 noundef 1) #30
   call void @llvm.experimental.noalias.scope.decl(metadata !17)
   %638 = load ptr, ptr %1, align 8, !alias.scope !17
   %639 = load i32, ptr %629, align 8, !alias.scope !17
@@ -2142,15 +2142,15 @@ err_sendstring.exit.i:                            ; preds = %637, %636
   br i1 %644, label %645, label %646
 
 645:                                              ; preds = %err_sendstring.exit.i
-  call void @pq_send_ascii_string(ptr noundef nonnull %1, ptr noundef nonnull %.0.i.i12) #28
+  call void @pq_send_ascii_string(ptr noundef nonnull %1, ptr noundef nonnull %.0.i.i12) #30
   br label %err_sendstring.exit56.i
 
 646:                                              ; preds = %err_sendstring.exit.i
-  call void @pq_sendstring(ptr noundef nonnull %1, ptr noundef nonnull %.0.i.i12) #28
+  call void @pq_sendstring(ptr noundef nonnull %1, ptr noundef nonnull %.0.i.i12) #30
   br label %err_sendstring.exit56.i
 
 err_sendstring.exit56.i:                          ; preds = %646, %645
-  call void @enlargeStringInfo(ptr noundef nonnull %1, i32 noundef 1) #28
+  call void @enlargeStringInfo(ptr noundef nonnull %1, i32 noundef 1) #30
   call void @llvm.experimental.noalias.scope.decl(metadata !20)
   %647 = load ptr, ptr %1, align 8, !alias.scope !20
   %648 = load i32, ptr %629, align 8, !alias.scope !20
@@ -2183,15 +2183,15 @@ unpack_sql_state.exit.i17:                        ; preds = %654
   br i1 %661, label %662, label %663
 
 662:                                              ; preds = %unpack_sql_state.exit.i17
-  call void @pq_send_ascii_string(ptr noundef nonnull %1, ptr noundef nonnull @unpack_sql_state.buf) #28
+  call void @pq_send_ascii_string(ptr noundef nonnull %1, ptr noundef nonnull @unpack_sql_state.buf) #30
   br label %err_sendstring.exit57.i
 
 663:                                              ; preds = %unpack_sql_state.exit.i17
-  call void @pq_sendstring(ptr noundef nonnull %1, ptr noundef nonnull @unpack_sql_state.buf) #28
+  call void @pq_sendstring(ptr noundef nonnull %1, ptr noundef nonnull @unpack_sql_state.buf) #30
   br label %err_sendstring.exit57.i
 
 err_sendstring.exit57.i:                          ; preds = %663, %662
-  call void @enlargeStringInfo(ptr noundef nonnull %1, i32 noundef 1) #28
+  call void @enlargeStringInfo(ptr noundef nonnull %1, i32 noundef 1) #30
   call void @llvm.experimental.noalias.scope.decl(metadata !23)
   %664 = load ptr, ptr %1, align 8, !alias.scope !23
   %665 = load i32, ptr %629, align 8, !alias.scope !23
@@ -2211,22 +2211,22 @@ err_sendstring.exit57.i:                          ; preds = %663, %662
   br i1 %672, label %674, label %675
 
 674:                                              ; preds = %673
-  call void @pq_send_ascii_string(ptr noundef nonnull %1, ptr noundef nonnull %670) #28
+  call void @pq_send_ascii_string(ptr noundef nonnull %1, ptr noundef nonnull %670) #30
   br label %err_sendstring.exit58.i
 
 675:                                              ; preds = %673
-  call void @pq_sendstring(ptr noundef nonnull %1, ptr noundef nonnull %670) #28
+  call void @pq_sendstring(ptr noundef nonnull %1, ptr noundef nonnull %670) #30
   br label %err_sendstring.exit58.i
 
 676:                                              ; preds = %err_sendstring.exit57.i
   br i1 %672, label %677, label %678
 
 677:                                              ; preds = %676
-  call void @pq_send_ascii_string(ptr noundef nonnull %1, ptr noundef nonnull @.str.50) #28
+  call void @pq_send_ascii_string(ptr noundef nonnull %1, ptr noundef nonnull @.str.50) #30
   br label %err_sendstring.exit58.i
 
 678:                                              ; preds = %676
-  call void @pq_sendstring(ptr noundef nonnull %1, ptr noundef nonnull @.str.50) #28
+  call void @pq_sendstring(ptr noundef nonnull %1, ptr noundef nonnull @.str.50) #30
   br label %err_sendstring.exit58.i
 
 err_sendstring.exit58.i:                          ; preds = %678, %677, %675, %674
@@ -2236,7 +2236,7 @@ err_sendstring.exit58.i:                          ; preds = %678, %677, %675, %6
   br i1 %.not45.i, label %err_sendstring.exit60.i, label %681
 
 681:                                              ; preds = %err_sendstring.exit58.i
-  call void @enlargeStringInfo(ptr noundef nonnull %1, i32 noundef 1) #28
+  call void @enlargeStringInfo(ptr noundef nonnull %1, i32 noundef 1) #30
   call void @llvm.experimental.noalias.scope.decl(metadata !26)
   %682 = load ptr, ptr %1, align 8, !alias.scope !26
   %683 = load i32, ptr %629, align 8, !alias.scope !26
@@ -2251,11 +2251,11 @@ err_sendstring.exit58.i:                          ; preds = %678, %677, %675, %6
   br i1 %689, label %690, label %691
 
 690:                                              ; preds = %681
-  call void @pq_send_ascii_string(ptr noundef nonnull %1, ptr noundef %687) #28
+  call void @pq_send_ascii_string(ptr noundef nonnull %1, ptr noundef %687) #30
   br label %err_sendstring.exit60.i
 
 691:                                              ; preds = %681
-  call void @pq_sendstring(ptr noundef nonnull %1, ptr noundef %687) #28
+  call void @pq_sendstring(ptr noundef nonnull %1, ptr noundef %687) #30
   br label %err_sendstring.exit60.i
 
 err_sendstring.exit60.i:                          ; preds = %691, %690, %err_sendstring.exit58.i
@@ -2265,7 +2265,7 @@ err_sendstring.exit60.i:                          ; preds = %691, %690, %err_sen
   br i1 %.not46.i, label %err_sendstring.exit61.i, label %694
 
 694:                                              ; preds = %err_sendstring.exit60.i
-  call void @enlargeStringInfo(ptr noundef nonnull %1, i32 noundef 1) #28
+  call void @enlargeStringInfo(ptr noundef nonnull %1, i32 noundef 1) #30
   call void @llvm.experimental.noalias.scope.decl(metadata !29)
   %695 = load ptr, ptr %1, align 8, !alias.scope !29
   %696 = load i32, ptr %629, align 8, !alias.scope !29
@@ -2280,11 +2280,11 @@ err_sendstring.exit60.i:                          ; preds = %691, %690, %err_sen
   br i1 %702, label %703, label %704
 
 703:                                              ; preds = %694
-  call void @pq_send_ascii_string(ptr noundef nonnull %1, ptr noundef %700) #28
+  call void @pq_send_ascii_string(ptr noundef nonnull %1, ptr noundef %700) #30
   br label %err_sendstring.exit61.i
 
 704:                                              ; preds = %694
-  call void @pq_sendstring(ptr noundef nonnull %1, ptr noundef %700) #28
+  call void @pq_sendstring(ptr noundef nonnull %1, ptr noundef %700) #30
   br label %err_sendstring.exit61.i
 
 err_sendstring.exit61.i:                          ; preds = %704, %703, %err_sendstring.exit60.i
@@ -2294,7 +2294,7 @@ err_sendstring.exit61.i:                          ; preds = %704, %703, %err_sen
   br i1 %.not47.i, label %err_sendstring.exit62.i, label %707
 
 707:                                              ; preds = %err_sendstring.exit61.i
-  call void @enlargeStringInfo(ptr noundef nonnull %1, i32 noundef 1) #28
+  call void @enlargeStringInfo(ptr noundef nonnull %1, i32 noundef 1) #30
   call void @llvm.experimental.noalias.scope.decl(metadata !32)
   %708 = load ptr, ptr %1, align 8, !alias.scope !32
   %709 = load i32, ptr %629, align 8, !alias.scope !32
@@ -2309,11 +2309,11 @@ err_sendstring.exit61.i:                          ; preds = %704, %703, %err_sen
   br i1 %715, label %716, label %717
 
 716:                                              ; preds = %707
-  call void @pq_send_ascii_string(ptr noundef nonnull %1, ptr noundef %713) #28
+  call void @pq_send_ascii_string(ptr noundef nonnull %1, ptr noundef %713) #30
   br label %err_sendstring.exit62.i
 
 717:                                              ; preds = %707
-  call void @pq_sendstring(ptr noundef nonnull %1, ptr noundef %713) #28
+  call void @pq_sendstring(ptr noundef nonnull %1, ptr noundef %713) #30
   br label %err_sendstring.exit62.i
 
 err_sendstring.exit62.i:                          ; preds = %717, %716, %err_sendstring.exit61.i
@@ -2323,7 +2323,7 @@ err_sendstring.exit62.i:                          ; preds = %717, %716, %err_sen
   br i1 %.not48.i, label %err_sendstring.exit63.i, label %720
 
 720:                                              ; preds = %err_sendstring.exit62.i
-  call void @enlargeStringInfo(ptr noundef nonnull %1, i32 noundef 1) #28
+  call void @enlargeStringInfo(ptr noundef nonnull %1, i32 noundef 1) #30
   call void @llvm.experimental.noalias.scope.decl(metadata !35)
   %721 = load ptr, ptr %1, align 8, !alias.scope !35
   %722 = load i32, ptr %629, align 8, !alias.scope !35
@@ -2338,11 +2338,11 @@ err_sendstring.exit62.i:                          ; preds = %717, %716, %err_sen
   br i1 %728, label %729, label %730
 
 729:                                              ; preds = %720
-  call void @pq_send_ascii_string(ptr noundef nonnull %1, ptr noundef %726) #28
+  call void @pq_send_ascii_string(ptr noundef nonnull %1, ptr noundef %726) #30
   br label %err_sendstring.exit63.i
 
 730:                                              ; preds = %720
-  call void @pq_sendstring(ptr noundef nonnull %1, ptr noundef %726) #28
+  call void @pq_sendstring(ptr noundef nonnull %1, ptr noundef %726) #30
   br label %err_sendstring.exit63.i
 
 err_sendstring.exit63.i:                          ; preds = %730, %729, %err_sendstring.exit62.i
@@ -2352,7 +2352,7 @@ err_sendstring.exit63.i:                          ; preds = %730, %729, %err_sen
   br i1 %.not49.i, label %err_sendstring.exit64.i, label %733
 
 733:                                              ; preds = %err_sendstring.exit63.i
-  call void @enlargeStringInfo(ptr noundef nonnull %1, i32 noundef 1) #28
+  call void @enlargeStringInfo(ptr noundef nonnull %1, i32 noundef 1) #30
   call void @llvm.experimental.noalias.scope.decl(metadata !38)
   %734 = load ptr, ptr %1, align 8, !alias.scope !38
   %735 = load i32, ptr %629, align 8, !alias.scope !38
@@ -2367,11 +2367,11 @@ err_sendstring.exit63.i:                          ; preds = %730, %729, %err_sen
   br i1 %741, label %742, label %743
 
 742:                                              ; preds = %733
-  call void @pq_send_ascii_string(ptr noundef nonnull %1, ptr noundef %739) #28
+  call void @pq_send_ascii_string(ptr noundef nonnull %1, ptr noundef %739) #30
   br label %err_sendstring.exit64.i
 
 743:                                              ; preds = %733
-  call void @pq_sendstring(ptr noundef nonnull %1, ptr noundef %739) #28
+  call void @pq_sendstring(ptr noundef nonnull %1, ptr noundef %739) #30
   br label %err_sendstring.exit64.i
 
 err_sendstring.exit64.i:                          ; preds = %743, %742, %err_sendstring.exit63.i
@@ -2381,7 +2381,7 @@ err_sendstring.exit64.i:                          ; preds = %743, %742, %err_sen
   br i1 %.not50.i, label %err_sendstring.exit65.i, label %746
 
 746:                                              ; preds = %err_sendstring.exit64.i
-  call void @enlargeStringInfo(ptr noundef nonnull %1, i32 noundef 1) #28
+  call void @enlargeStringInfo(ptr noundef nonnull %1, i32 noundef 1) #30
   call void @llvm.experimental.noalias.scope.decl(metadata !41)
   %747 = load ptr, ptr %1, align 8, !alias.scope !41
   %748 = load i32, ptr %629, align 8, !alias.scope !41
@@ -2396,11 +2396,11 @@ err_sendstring.exit64.i:                          ; preds = %743, %742, %err_sen
   br i1 %754, label %755, label %756
 
 755:                                              ; preds = %746
-  call void @pq_send_ascii_string(ptr noundef nonnull %1, ptr noundef %752) #28
+  call void @pq_send_ascii_string(ptr noundef nonnull %1, ptr noundef %752) #30
   br label %err_sendstring.exit65.i
 
 756:                                              ; preds = %746
-  call void @pq_sendstring(ptr noundef nonnull %1, ptr noundef %752) #28
+  call void @pq_sendstring(ptr noundef nonnull %1, ptr noundef %752) #30
   br label %err_sendstring.exit65.i
 
 err_sendstring.exit65.i:                          ; preds = %756, %755, %err_sendstring.exit64.i
@@ -2410,7 +2410,7 @@ err_sendstring.exit65.i:                          ; preds = %756, %755, %err_sen
   br i1 %.not51.i, label %err_sendstring.exit66.i, label %759
 
 759:                                              ; preds = %err_sendstring.exit65.i
-  call void @enlargeStringInfo(ptr noundef nonnull %1, i32 noundef 1) #28
+  call void @enlargeStringInfo(ptr noundef nonnull %1, i32 noundef 1) #30
   call void @llvm.experimental.noalias.scope.decl(metadata !44)
   %760 = load ptr, ptr %1, align 8, !alias.scope !44
   %761 = load i32, ptr %629, align 8, !alias.scope !44
@@ -2425,11 +2425,11 @@ err_sendstring.exit65.i:                          ; preds = %756, %755, %err_sen
   br i1 %767, label %768, label %769
 
 768:                                              ; preds = %759
-  call void @pq_send_ascii_string(ptr noundef nonnull %1, ptr noundef %765) #28
+  call void @pq_send_ascii_string(ptr noundef nonnull %1, ptr noundef %765) #30
   br label %err_sendstring.exit66.i
 
 769:                                              ; preds = %759
-  call void @pq_sendstring(ptr noundef nonnull %1, ptr noundef %765) #28
+  call void @pq_sendstring(ptr noundef nonnull %1, ptr noundef %765) #30
   br label %err_sendstring.exit66.i
 
 err_sendstring.exit66.i:                          ; preds = %769, %768, %err_sendstring.exit65.i
@@ -2439,7 +2439,7 @@ err_sendstring.exit66.i:                          ; preds = %769, %768, %err_sen
   br i1 %.not52.i, label %err_sendstring.exit67.i, label %772
 
 772:                                              ; preds = %err_sendstring.exit66.i
-  call void @enlargeStringInfo(ptr noundef nonnull %1, i32 noundef 1) #28
+  call void @enlargeStringInfo(ptr noundef nonnull %1, i32 noundef 1) #30
   call void @llvm.experimental.noalias.scope.decl(metadata !47)
   %773 = load ptr, ptr %1, align 8, !alias.scope !47
   %774 = load i32, ptr %629, align 8, !alias.scope !47
@@ -2454,11 +2454,11 @@ err_sendstring.exit66.i:                          ; preds = %769, %768, %err_sen
   br i1 %780, label %781, label %782
 
 781:                                              ; preds = %772
-  call void @pq_send_ascii_string(ptr noundef nonnull %1, ptr noundef %778) #28
+  call void @pq_send_ascii_string(ptr noundef nonnull %1, ptr noundef %778) #30
   br label %err_sendstring.exit67.i
 
 782:                                              ; preds = %772
-  call void @pq_sendstring(ptr noundef nonnull %1, ptr noundef %778) #28
+  call void @pq_sendstring(ptr noundef nonnull %1, ptr noundef %778) #30
   br label %err_sendstring.exit67.i
 
 err_sendstring.exit67.i:                          ; preds = %782, %781, %err_sendstring.exit66.i
@@ -2468,8 +2468,8 @@ err_sendstring.exit67.i:                          ; preds = %782, %781, %err_sen
   br i1 %785, label %786, label %err_sendstring.exit68.i
 
 786:                                              ; preds = %err_sendstring.exit67.i
-  %787 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 12, ptr noundef nonnull @.str.26, i32 noundef %784) #28
-  call void @enlargeStringInfo(ptr noundef nonnull %1, i32 noundef 1) #28
+  %787 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 12, ptr noundef nonnull @.str.26, i32 noundef %784) #30
+  call void @enlargeStringInfo(ptr noundef nonnull %1, i32 noundef 1) #30
   call void @llvm.experimental.noalias.scope.decl(metadata !50)
   %788 = load ptr, ptr %1, align 8, !alias.scope !50
   %789 = load i32, ptr %629, align 8, !alias.scope !50
@@ -2483,11 +2483,11 @@ err_sendstring.exit67.i:                          ; preds = %782, %781, %err_sen
   br i1 %794, label %795, label %796
 
 795:                                              ; preds = %786
-  call void @pq_send_ascii_string(ptr noundef nonnull %1, ptr noundef nonnull %2) #28
+  call void @pq_send_ascii_string(ptr noundef nonnull %1, ptr noundef nonnull %2) #30
   br label %err_sendstring.exit68.i
 
 796:                                              ; preds = %786
-  call void @pq_sendstring(ptr noundef nonnull %1, ptr noundef nonnull %2) #28
+  call void @pq_sendstring(ptr noundef nonnull %1, ptr noundef nonnull %2) #30
   br label %err_sendstring.exit68.i
 
 err_sendstring.exit68.i:                          ; preds = %796, %795, %err_sendstring.exit67.i
@@ -2497,8 +2497,8 @@ err_sendstring.exit68.i:                          ; preds = %796, %795, %err_sen
   br i1 %799, label %800, label %err_sendstring.exit69.i
 
 800:                                              ; preds = %err_sendstring.exit68.i
-  %801 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 12, ptr noundef nonnull @.str.26, i32 noundef %798) #28
-  call void @enlargeStringInfo(ptr noundef nonnull %1, i32 noundef 1) #28
+  %801 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 12, ptr noundef nonnull @.str.26, i32 noundef %798) #30
+  call void @enlargeStringInfo(ptr noundef nonnull %1, i32 noundef 1) #30
   call void @llvm.experimental.noalias.scope.decl(metadata !53)
   %802 = load ptr, ptr %1, align 8, !alias.scope !53
   %803 = load i32, ptr %629, align 8, !alias.scope !53
@@ -2512,11 +2512,11 @@ err_sendstring.exit68.i:                          ; preds = %796, %795, %err_sen
   br i1 %808, label %809, label %810
 
 809:                                              ; preds = %800
-  call void @pq_send_ascii_string(ptr noundef nonnull %1, ptr noundef nonnull %2) #28
+  call void @pq_send_ascii_string(ptr noundef nonnull %1, ptr noundef nonnull %2) #30
   br label %err_sendstring.exit69.i
 
 810:                                              ; preds = %800
-  call void @pq_sendstring(ptr noundef nonnull %1, ptr noundef nonnull %2) #28
+  call void @pq_sendstring(ptr noundef nonnull %1, ptr noundef nonnull %2) #30
   br label %err_sendstring.exit69.i
 
 err_sendstring.exit69.i:                          ; preds = %810, %809, %err_sendstring.exit68.i
@@ -2526,7 +2526,7 @@ err_sendstring.exit69.i:                          ; preds = %810, %809, %err_sen
   br i1 %.not53.i18, label %err_sendstring.exit70.i, label %813
 
 813:                                              ; preds = %err_sendstring.exit69.i
-  call void @enlargeStringInfo(ptr noundef nonnull %1, i32 noundef 1) #28
+  call void @enlargeStringInfo(ptr noundef nonnull %1, i32 noundef 1) #30
   call void @llvm.experimental.noalias.scope.decl(metadata !56)
   %814 = load ptr, ptr %1, align 8, !alias.scope !56
   %815 = load i32, ptr %629, align 8, !alias.scope !56
@@ -2541,11 +2541,11 @@ err_sendstring.exit69.i:                          ; preds = %810, %809, %err_sen
   br i1 %821, label %822, label %823
 
 822:                                              ; preds = %813
-  call void @pq_send_ascii_string(ptr noundef nonnull %1, ptr noundef %819) #28
+  call void @pq_send_ascii_string(ptr noundef nonnull %1, ptr noundef %819) #30
   br label %err_sendstring.exit70.i
 
 823:                                              ; preds = %813
-  call void @pq_sendstring(ptr noundef nonnull %1, ptr noundef %819) #28
+  call void @pq_sendstring(ptr noundef nonnull %1, ptr noundef %819) #30
   br label %err_sendstring.exit70.i
 
 err_sendstring.exit70.i:                          ; preds = %823, %822, %err_sendstring.exit69.i
@@ -2555,7 +2555,7 @@ err_sendstring.exit70.i:                          ; preds = %823, %822, %err_sen
   br i1 %.not54.i19, label %err_sendstring.exit71.i, label %826
 
 826:                                              ; preds = %err_sendstring.exit70.i
-  call void @enlargeStringInfo(ptr noundef nonnull %1, i32 noundef 1) #28
+  call void @enlargeStringInfo(ptr noundef nonnull %1, i32 noundef 1) #30
   call void @llvm.experimental.noalias.scope.decl(metadata !59)
   %827 = load ptr, ptr %1, align 8, !alias.scope !59
   %828 = load i32, ptr %629, align 8, !alias.scope !59
@@ -2570,11 +2570,11 @@ err_sendstring.exit70.i:                          ; preds = %823, %822, %err_sen
   br i1 %834, label %835, label %836
 
 835:                                              ; preds = %826
-  call void @pq_send_ascii_string(ptr noundef nonnull %1, ptr noundef %832) #28
+  call void @pq_send_ascii_string(ptr noundef nonnull %1, ptr noundef %832) #30
   br label %err_sendstring.exit71.i
 
 836:                                              ; preds = %826
-  call void @pq_sendstring(ptr noundef nonnull %1, ptr noundef %832) #28
+  call void @pq_sendstring(ptr noundef nonnull %1, ptr noundef %832) #30
   br label %err_sendstring.exit71.i
 
 err_sendstring.exit71.i:                          ; preds = %836, %835, %err_sendstring.exit70.i
@@ -2584,8 +2584,8 @@ err_sendstring.exit71.i:                          ; preds = %836, %835, %err_sen
   br i1 %839, label %840, label %err_sendstring.exit72.i
 
 840:                                              ; preds = %err_sendstring.exit71.i
-  %841 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 12, ptr noundef nonnull @.str.26, i32 noundef %838) #28
-  call void @enlargeStringInfo(ptr noundef nonnull %1, i32 noundef 1) #28
+  %841 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 12, ptr noundef nonnull @.str.26, i32 noundef %838) #30
+  call void @enlargeStringInfo(ptr noundef nonnull %1, i32 noundef 1) #30
   call void @llvm.experimental.noalias.scope.decl(metadata !62)
   %842 = load ptr, ptr %1, align 8, !alias.scope !62
   %843 = load i32, ptr %629, align 8, !alias.scope !62
@@ -2599,11 +2599,11 @@ err_sendstring.exit71.i:                          ; preds = %836, %835, %err_sen
   br i1 %848, label %849, label %850
 
 849:                                              ; preds = %840
-  call void @pq_send_ascii_string(ptr noundef nonnull %1, ptr noundef nonnull %2) #28
+  call void @pq_send_ascii_string(ptr noundef nonnull %1, ptr noundef nonnull %2) #30
   br label %err_sendstring.exit72.i
 
 850:                                              ; preds = %840
-  call void @pq_sendstring(ptr noundef nonnull %1, ptr noundef nonnull %2) #28
+  call void @pq_sendstring(ptr noundef nonnull %1, ptr noundef nonnull %2) #30
   br label %err_sendstring.exit72.i
 
 err_sendstring.exit72.i:                          ; preds = %850, %849, %err_sendstring.exit71.i
@@ -2613,7 +2613,7 @@ err_sendstring.exit72.i:                          ; preds = %850, %849, %err_sen
   br i1 %.not55.i20, label %err_sendstring.exit73.i, label %853
 
 853:                                              ; preds = %err_sendstring.exit72.i
-  call void @enlargeStringInfo(ptr noundef nonnull %1, i32 noundef 1) #28
+  call void @enlargeStringInfo(ptr noundef nonnull %1, i32 noundef 1) #30
   call void @llvm.experimental.noalias.scope.decl(metadata !65)
   %854 = load ptr, ptr %1, align 8, !alias.scope !65
   %855 = load i32, ptr %629, align 8, !alias.scope !65
@@ -2628,15 +2628,15 @@ err_sendstring.exit72.i:                          ; preds = %850, %849, %err_sen
   br i1 %861, label %862, label %863
 
 862:                                              ; preds = %853
-  call void @pq_send_ascii_string(ptr noundef nonnull %1, ptr noundef %859) #28
+  call void @pq_send_ascii_string(ptr noundef nonnull %1, ptr noundef %859) #30
   br label %err_sendstring.exit73.i
 
 863:                                              ; preds = %853
-  call void @pq_sendstring(ptr noundef nonnull %1, ptr noundef %859) #28
+  call void @pq_sendstring(ptr noundef nonnull %1, ptr noundef %859) #30
   br label %err_sendstring.exit73.i
 
 err_sendstring.exit73.i:                          ; preds = %863, %862, %err_sendstring.exit72.i
-  call void @enlargeStringInfo(ptr noundef nonnull %1, i32 noundef 1) #28
+  call void @enlargeStringInfo(ptr noundef nonnull %1, i32 noundef 1) #30
   call void @llvm.experimental.noalias.scope.decl(metadata !68)
   %864 = load ptr, ptr %1, align 8, !alias.scope !68
   %865 = load i32, ptr %629, align 8, !alias.scope !68
@@ -2645,11 +2645,11 @@ err_sendstring.exit73.i:                          ; preds = %863, %862, %err_sen
   store i8 0, ptr %867, align 1, !noalias !68
   %868 = add i32 %865, 1
   store i32 %868, ptr %629, align 8, !alias.scope !68
-  call void @pq_endmessage(ptr noundef nonnull %1) #28
+  call void @pq_endmessage(ptr noundef nonnull %1) #30
   br label %send_message_to_frontend.exit
 
 869:                                              ; preds = %619
-  call void @initStringInfo(ptr noundef nonnull %3) #28
+  call void @initStringInfo(ptr noundef nonnull %3) #30
   %870 = load i32, ptr %9, align 8
   %switch.tableidx64 = add i32 %870, -10
   %871 = icmp ult i32 %switch.tableidx64, 14
@@ -2663,13 +2663,13 @@ switch.lookup63:                                  ; preds = %869
 
 error_severity.exit75.i:                          ; preds = %869, %switch.lookup63
   %.0.i74.i = phi ptr [ %switch.load66, %switch.lookup63 ], [ @.str.45, %869 ]
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %3, ptr noundef nonnull @.str.48, ptr noundef nonnull %.0.i74.i) #28
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %3, ptr noundef nonnull @.str.48, ptr noundef nonnull %.0.i74.i) #30
   %873 = getelementptr inbounds i8, ptr %9, i64 56
   %874 = load ptr, ptr %873, align 8
   %.not.i10 = icmp eq ptr %874, null
   %.str.50..i = select i1 %.not.i10, ptr @.str.50, ptr %874
-  call void @appendStringInfoString(ptr noundef nonnull %3, ptr noundef nonnull %.str.50..i) #28
-  call void @appendStringInfoChar(ptr noundef nonnull %3, i8 noundef signext 10) #28
+  call void @appendStringInfoString(ptr noundef nonnull %3, ptr noundef nonnull %.str.50..i) #30
+  call void @appendStringInfoChar(ptr noundef nonnull %3, i8 noundef signext 10) #30
   %875 = load i32, ptr %9, align 8
   %876 = icmp slt i32 %875, 21
   %877 = select i1 %876, i8 78, i8 69
@@ -2678,16 +2678,16 @@ error_severity.exit75.i:                          ; preds = %869, %switch.lookup
   %880 = load i32, ptr %879, align 8
   %881 = add i32 %880, 1
   %882 = sext i32 %881 to i64
-  %883 = call i32 @pq_putmessage_v2(i8 noundef signext %877, ptr noundef %878, i64 noundef %882) #28
+  %883 = call i32 @pq_putmessage_v2(i8 noundef signext %877, ptr noundef %878, i64 noundef %882) #30
   %884 = load ptr, ptr %3, align 8
-  call void @pfree(ptr noundef %884) #28
+  call void @pfree(ptr noundef %884) #30
   br label %send_message_to_frontend.exit
 
 send_message_to_frontend.exit:                    ; preds = %err_sendstring.exit73.i, %error_severity.exit75.i
   %885 = load ptr, ptr @PqCommMethods, align 8
   %886 = getelementptr inbounds i8, ptr %885, i64 8
   %887 = load ptr, ptr %886, align 8
-  %888 = call i32 %887() #28
+  %888 = call i32 %887() #30
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %1)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
@@ -2709,7 +2709,7 @@ define internal fastcc void @FreeErrorDataContents(ptr nocapture noundef readonl
   br i1 %.not, label %5, label %4
 
 4:                                                ; preds = %1
-  tail call void @pfree(ptr noundef nonnull %3) #28
+  tail call void @pfree(ptr noundef nonnull %3) #30
   br label %5
 
 5:                                                ; preds = %4, %1
@@ -2719,7 +2719,7 @@ define internal fastcc void @FreeErrorDataContents(ptr nocapture noundef readonl
   br i1 %.not35, label %9, label %8
 
 8:                                                ; preds = %5
-  tail call void @pfree(ptr noundef nonnull %7) #28
+  tail call void @pfree(ptr noundef nonnull %7) #30
   br label %9
 
 9:                                                ; preds = %8, %5
@@ -2729,7 +2729,7 @@ define internal fastcc void @FreeErrorDataContents(ptr nocapture noundef readonl
   br i1 %.not36, label %13, label %12
 
 12:                                               ; preds = %9
-  tail call void @pfree(ptr noundef nonnull %11) #28
+  tail call void @pfree(ptr noundef nonnull %11) #30
   br label %13
 
 13:                                               ; preds = %12, %9
@@ -2739,7 +2739,7 @@ define internal fastcc void @FreeErrorDataContents(ptr nocapture noundef readonl
   br i1 %.not37, label %17, label %16
 
 16:                                               ; preds = %13
-  tail call void @pfree(ptr noundef nonnull %15) #28
+  tail call void @pfree(ptr noundef nonnull %15) #30
   br label %17
 
 17:                                               ; preds = %16, %13
@@ -2749,7 +2749,7 @@ define internal fastcc void @FreeErrorDataContents(ptr nocapture noundef readonl
   br i1 %.not38, label %21, label %20
 
 20:                                               ; preds = %17
-  tail call void @pfree(ptr noundef nonnull %19) #28
+  tail call void @pfree(ptr noundef nonnull %19) #30
   br label %21
 
 21:                                               ; preds = %20, %17
@@ -2759,7 +2759,7 @@ define internal fastcc void @FreeErrorDataContents(ptr nocapture noundef readonl
   br i1 %.not39, label %25, label %24
 
 24:                                               ; preds = %21
-  tail call void @pfree(ptr noundef nonnull %23) #28
+  tail call void @pfree(ptr noundef nonnull %23) #30
   br label %25
 
 25:                                               ; preds = %24, %21
@@ -2769,7 +2769,7 @@ define internal fastcc void @FreeErrorDataContents(ptr nocapture noundef readonl
   br i1 %.not40, label %29, label %28
 
 28:                                               ; preds = %25
-  tail call void @pfree(ptr noundef nonnull %27) #28
+  tail call void @pfree(ptr noundef nonnull %27) #30
   br label %29
 
 29:                                               ; preds = %28, %25
@@ -2779,7 +2779,7 @@ define internal fastcc void @FreeErrorDataContents(ptr nocapture noundef readonl
   br i1 %.not41, label %33, label %32
 
 32:                                               ; preds = %29
-  tail call void @pfree(ptr noundef nonnull %31) #28
+  tail call void @pfree(ptr noundef nonnull %31) #30
   br label %33
 
 33:                                               ; preds = %32, %29
@@ -2789,7 +2789,7 @@ define internal fastcc void @FreeErrorDataContents(ptr nocapture noundef readonl
   br i1 %.not42, label %37, label %36
 
 36:                                               ; preds = %33
-  tail call void @pfree(ptr noundef nonnull %35) #28
+  tail call void @pfree(ptr noundef nonnull %35) #30
   br label %37
 
 37:                                               ; preds = %36, %33
@@ -2799,7 +2799,7 @@ define internal fastcc void @FreeErrorDataContents(ptr nocapture noundef readonl
   br i1 %.not43, label %41, label %40
 
 40:                                               ; preds = %37
-  tail call void @pfree(ptr noundef nonnull %39) #28
+  tail call void @pfree(ptr noundef nonnull %39) #30
   br label %41
 
 41:                                               ; preds = %40, %37
@@ -2809,7 +2809,7 @@ define internal fastcc void @FreeErrorDataContents(ptr nocapture noundef readonl
   br i1 %.not44, label %45, label %44
 
 44:                                               ; preds = %41
-  tail call void @pfree(ptr noundef nonnull %43) #28
+  tail call void @pfree(ptr noundef nonnull %43) #30
   br label %45
 
 45:                                               ; preds = %44, %41
@@ -2819,7 +2819,7 @@ define internal fastcc void @FreeErrorDataContents(ptr nocapture noundef readonl
   br i1 %.not45, label %49, label %48
 
 48:                                               ; preds = %45
-  tail call void @pfree(ptr noundef nonnull %47) #28
+  tail call void @pfree(ptr noundef nonnull %47) #30
   br label %49
 
 49:                                               ; preds = %48, %45
@@ -2832,8 +2832,8 @@ declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #6
 ; Function Attrs: noreturn
 declare void @proc_exit(i32 noundef) local_unnamed_addr #7
 
-; Function Attrs: noreturn nounwind
-declare void @abort() local_unnamed_addr #3
+; Function Attrs: cold nofree noreturn nounwind
+declare void @abort() local_unnamed_addr #8
 
 declare void @ProcessInterrupts() local_unnamed_addr #4
 
@@ -2871,7 +2871,7 @@ define dso_local noundef zeroext i1 @errsave_start(ptr noundef %0, ptr noundef %
 
 20:                                               ; preds = %14
   store i32 -1, ptr @errordata_stack_depth, align 4
-  %21 = tail call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #29
+  %21 = tail call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #31
   tail call void @llvm.assume(i1 %21)
   %22 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.46)
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 768, ptr noundef nonnull @__func__.get_error_stack_entry)
@@ -2881,7 +2881,7 @@ get_error_stack_entry.exit:                       ; preds = %14
   %23 = sext i32 %18 to i64
   %24 = getelementptr [5 x %struct.ErrorData], ptr @errordata, i64 0, i64 %23
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %24, i8 0, i64 184, i1 false)
-  %25 = tail call ptr @__errno_location() #30
+  %25 = tail call ptr @__errno_location() #32
   %26 = load i32, ptr %25, align 4
   %27 = getelementptr inbounds i8, ptr %24, i64 168
   store i32 %26, ptr %27, align 8
@@ -2915,7 +2915,7 @@ define dso_local void @errsave_finish(ptr nocapture noundef writeonly %0, ptr no
 
 9:                                                ; preds = %4
   store i32 -1, ptr @errordata_stack_depth, align 4
-  %10 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #29
+  %10 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #31
   tail call void @llvm.assume(i1 %10)
   %11 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.1)
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 695, ptr noundef nonnull @__func__.errsave_finish)
@@ -2938,11 +2938,11 @@ define dso_local void @errsave_finish(ptr nocapture noundef writeonly %0, ptr no
   br i1 %.not.i, label %set_stack_entry_location.exit, label %19
 
 19:                                               ; preds = %16
-  %20 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 47) #31
+  %20 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 47) #33
   %.not16.i = icmp eq ptr %20, null
   %21 = getelementptr i8, ptr %20, i64 1
   %spec.select.i = select i1 %.not16.i, ptr %1, ptr %21
-  %22 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %spec.select.i, i32 noundef 92) #31
+  %22 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %spec.select.i, i32 noundef 92) #33
   %.not17.i = icmp eq ptr %22, null
   %23 = getelementptr i8, ptr %22, i64 1
   %spec.select18.i = select i1 %.not17.i, ptr %spec.select.i, ptr %23
@@ -2957,7 +2957,7 @@ set_stack_entry_location.exit:                    ; preds = %16, %19
   %26 = getelementptr inbounds i8, ptr %7, i64 24
   store ptr %3, ptr %26, align 8
   store i32 21, ptr %7, align 8
-  %27 = tail call ptr @palloc(i64 noundef 184) #28
+  %27 = tail call ptr @palloc(i64 noundef 184) #30
   %28 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %27, ptr %28, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %27, ptr noundef nonnull align 8 dereferenceable(184) %7, i64 184, i1 false)
@@ -2973,7 +2973,7 @@ set_stack_entry_location.exit:                    ; preds = %16, %19
 declare ptr @palloc(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i32 @errcode(i32 noundef %0) local_unnamed_addr #2 {
@@ -2983,7 +2983,7 @@ define dso_local noundef i32 @errcode(i32 noundef %0) local_unnamed_addr #2 {
 
 4:                                                ; preds = %1
   store i32 -1, ptr @errordata_stack_depth, align 4
-  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #29
+  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #31
   tail call void @llvm.assume(i1 %5)
   %6 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.1)
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 865, ptr noundef nonnull @__func__.errcode)
@@ -3006,7 +3006,7 @@ define dso_local noundef i32 @errcode_for_file_access() local_unnamed_addr #2 {
 
 5:                                                ; preds = %0
   store i32 -1, ptr @errordata_stack_depth, align 4
-  %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #29
+  %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #31
   tail call void @llvm.assume(i1 %6)
   %7 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.1)
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 888, ptr noundef nonnull @__func__.errcode_for_file_access)
@@ -3072,7 +3072,7 @@ define dso_local noundef i32 @errcode_for_socket_access() local_unnamed_addr #2 
 
 5:                                                ; preds = %0
   store i32 -1, ptr @errordata_stack_depth, align 4
-  %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #29
+  %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #31
   tail call void @llvm.assume(i1 %6)
   %7 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.1)
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 961, ptr noundef nonnull @__func__.errcode_for_socket_access)
@@ -3118,7 +3118,7 @@ define dso_local noundef i32 @errmsg(ptr noundef %0, ...) local_unnamed_addr #2 
 
 10:                                               ; preds = %1
   store i32 -1, ptr @errordata_stack_depth, align 4
-  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #29
+  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #31
   tail call void @llvm.assume(i1 %11)
   %12 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.1)
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1079, ptr noundef nonnull @__func__.errmsg)
@@ -3131,24 +3131,24 @@ define dso_local noundef i32 @errmsg(ptr noundef %0, ...) local_unnamed_addr #2 
   store ptr %15, ptr @CurrentMemoryContext, align 8
   %17 = getelementptr inbounds i8, ptr %6, i64 104
   store ptr %0, ptr %17, align 8
-  call void @initStringInfo(ptr noundef nonnull %2) #28
+  call void @initStringInfo(ptr noundef nonnull %2) #30
   %18 = getelementptr inbounds i8, ptr %6, i64 168
-  %19 = tail call ptr @__errno_location() #30
+  %19 = tail call ptr @__errno_location() #32
   %20 = load i32, ptr %18, align 8
   store i32 %20, ptr %19, align 4
   call void @llvm.va_start.p0(ptr nonnull %3)
-  %21 = call i32 @appendStringInfoVA(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull %3) #28
+  %21 = call i32 @appendStringInfoVA(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull %3) #30
   call void @llvm.va_end.p0(ptr nonnull %3)
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %13, %.lr.ph
   %23 = phi i32 [ %25, %.lr.ph ], [ %21, %13 ]
-  call void @enlargeStringInfo(ptr noundef nonnull %2, i32 noundef %23) #28
+  call void @enlargeStringInfo(ptr noundef nonnull %2, i32 noundef %23) #30
   %24 = load i32, ptr %18, align 8
   store i32 %24, ptr %19, align 4
   call void @llvm.va_start.p0(ptr nonnull %3)
-  %25 = call i32 @appendStringInfoVA(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull %3) #28
+  %25 = call i32 @appendStringInfoVA(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull %3) #30
   call void @llvm.va_end.p0(ptr nonnull %3)
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %._crit_edge, label %.lr.ph
@@ -3160,15 +3160,15 @@ define dso_local noundef i32 @errmsg(ptr noundef %0, ...) local_unnamed_addr #2 
   br i1 %.not, label %30, label %29
 
 29:                                               ; preds = %._crit_edge
-  call void @pfree(ptr noundef nonnull %28) #28
+  call void @pfree(ptr noundef nonnull %28) #30
   br label %30
 
 30:                                               ; preds = %29, %._crit_edge
   %31 = load ptr, ptr %2, align 8
-  %32 = call ptr @pstrdup(ptr noundef %31) #28
+  %32 = call ptr @pstrdup(ptr noundef %31) #30
   store ptr %32, ptr %27, align 8
   %33 = load ptr, ptr %2, align 8
-  call void @pfree(ptr noundef %33) #28
+  call void @pfree(ptr noundef %33) #30
   store ptr %16, ptr @CurrentMemoryContext, align 8
   %34 = load i32, ptr @recursion_depth, align 4
   %35 = add i32 %34, -1
@@ -3179,7 +3179,7 @@ define dso_local noundef i32 @errmsg(ptr noundef %0, ...) local_unnamed_addr #2 
 declare void @initStringInfo(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #9
+declare ptr @__errno_location() local_unnamed_addr #10
 
 declare i32 @appendStringInfoVA(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
@@ -3202,7 +3202,7 @@ define dso_local noundef i32 @errbacktrace() local_unnamed_addr #2 {
 
 7:                                                ; preds = %0
   store i32 -1, ptr @errordata_stack_depth, align 4
-  %8 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #29
+  %8 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #31
   tail call void @llvm.assume(i1 %8)
   %9 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.1)
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1101, ptr noundef nonnull @__func__.errbacktrace)
@@ -3217,9 +3217,9 @@ define dso_local noundef i32 @errbacktrace() local_unnamed_addr #2 {
   store ptr %14, ptr @CurrentMemoryContext, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1)
   call void @llvm.lifetime.start.p0(i64 800, ptr nonnull %2)
-  call void @initStringInfo(ptr noundef nonnull %1) #28
-  %16 = call i32 @backtrace(ptr noundef nonnull %2, i32 noundef 100) #28
-  %17 = call ptr @backtrace_symbols(ptr noundef nonnull %2, i32 noundef %16) #28
+  call void @initStringInfo(ptr noundef nonnull %1) #30
+  %16 = call i32 @backtrace(ptr noundef nonnull %2, i32 noundef 100) #30
+  %17 = call ptr @backtrace_symbols(ptr noundef nonnull %2, i32 noundef %16) #30
   %18 = icmp eq ptr %17, null
   br i1 %18, label %set_backtrace.exit, label %.preheader.i
 
@@ -3235,13 +3235,13 @@ define dso_local noundef i32 @errbacktrace() local_unnamed_addr #2 {
   %indvars.iv.i = phi i64 [ 1, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %20 = getelementptr ptr, ptr %17, i64 %indvars.iv.i
   %21 = load ptr, ptr %20, align 8
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %1, ptr noundef nonnull @.str.47, ptr noundef %21) #28
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %1, ptr noundef nonnull @.str.47, ptr noundef %21) #30
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !7
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
-  call void @free(ptr noundef nonnull %17) #28
+  call void @free(ptr noundef nonnull %17) #30
   %22 = load ptr, ptr %1, align 8
   %23 = getelementptr inbounds i8, ptr %12, i64 96
   store ptr %22, ptr %23, align 8
@@ -3272,7 +3272,7 @@ define dso_local noundef i32 @errmsg_plural(ptr noundef %0, ptr noundef %1, i64 
 
 12:                                               ; preds = %3
   store i32 -1, ptr @errordata_stack_depth, align 4
-  %13 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #29
+  %13 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #31
   tail call void @llvm.assume(i1 %13)
   %14 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.1)
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1190, ptr noundef nonnull @__func__.errmsg_plural)
@@ -3287,24 +3287,24 @@ define dso_local noundef i32 @errmsg_plural(ptr noundef %0, ptr noundef %1, i64 
   store ptr %0, ptr %19, align 8
   %20 = icmp eq i64 %2, 1
   %21 = select i1 %20, ptr %0, ptr %1
-  call void @initStringInfo(ptr noundef nonnull %4) #28
+  call void @initStringInfo(ptr noundef nonnull %4) #30
   %22 = getelementptr inbounds i8, ptr %8, i64 168
-  %23 = tail call ptr @__errno_location() #30
+  %23 = tail call ptr @__errno_location() #32
   %24 = load i32, ptr %22, align 8
   store i32 %24, ptr %23, align 4
   call void @llvm.va_start.p0(ptr nonnull %5)
-  %25 = call i32 @appendStringInfoVA(ptr noundef nonnull %4, ptr noundef %21, ptr noundef nonnull %5) #28
+  %25 = call i32 @appendStringInfoVA(ptr noundef nonnull %4, ptr noundef %21, ptr noundef nonnull %5) #30
   call void @llvm.va_end.p0(ptr nonnull %5)
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %15, %.lr.ph
   %27 = phi i32 [ %29, %.lr.ph ], [ %25, %15 ]
-  call void @enlargeStringInfo(ptr noundef nonnull %4, i32 noundef %27) #28
+  call void @enlargeStringInfo(ptr noundef nonnull %4, i32 noundef %27) #30
   %28 = load i32, ptr %22, align 8
   store i32 %28, ptr %23, align 4
   call void @llvm.va_start.p0(ptr nonnull %5)
-  %29 = call i32 @appendStringInfoVA(ptr noundef nonnull %4, ptr noundef %21, ptr noundef nonnull %5) #28
+  %29 = call i32 @appendStringInfoVA(ptr noundef nonnull %4, ptr noundef %21, ptr noundef nonnull %5) #30
   call void @llvm.va_end.p0(ptr nonnull %5)
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %._crit_edge, label %.lr.ph
@@ -3316,15 +3316,15 @@ define dso_local noundef i32 @errmsg_plural(ptr noundef %0, ptr noundef %1, i64 
   br i1 %.not, label %34, label %33
 
 33:                                               ; preds = %._crit_edge
-  call void @pfree(ptr noundef nonnull %32) #28
+  call void @pfree(ptr noundef nonnull %32) #30
   br label %34
 
 34:                                               ; preds = %33, %._crit_edge
   %35 = load ptr, ptr %4, align 8
-  %36 = call ptr @pstrdup(ptr noundef %35) #28
+  %36 = call ptr @pstrdup(ptr noundef %35) #30
   store ptr %36, ptr %31, align 8
   %37 = load ptr, ptr %4, align 8
-  call void @pfree(ptr noundef %37) #28
+  call void @pfree(ptr noundef %37) #30
   store ptr %18, ptr @CurrentMemoryContext, align 8
   %38 = load i32, ptr @recursion_depth, align 4
   %39 = add i32 %38, -1
@@ -3347,7 +3347,7 @@ define dso_local noundef i32 @errdetail(ptr noundef %0, ...) local_unnamed_addr 
 
 10:                                               ; preds = %1
   store i32 -1, ptr @errordata_stack_depth, align 4
-  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #29
+  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #31
   tail call void @llvm.assume(i1 %11)
   %12 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.1)
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1212, ptr noundef nonnull @__func__.errdetail)
@@ -3358,24 +3358,24 @@ define dso_local noundef i32 @errdetail(ptr noundef %0, ...) local_unnamed_addr 
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %15, ptr @CurrentMemoryContext, align 8
-  call void @initStringInfo(ptr noundef nonnull %2) #28
+  call void @initStringInfo(ptr noundef nonnull %2) #30
   %17 = getelementptr inbounds i8, ptr %6, i64 168
-  %18 = tail call ptr @__errno_location() #30
+  %18 = tail call ptr @__errno_location() #32
   %19 = load i32, ptr %17, align 8
   store i32 %19, ptr %18, align 4
   call void @llvm.va_start.p0(ptr nonnull %3)
-  %20 = call i32 @appendStringInfoVA(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull %3) #28
+  %20 = call i32 @appendStringInfoVA(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull %3) #30
   call void @llvm.va_end.p0(ptr nonnull %3)
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %13, %.lr.ph
   %22 = phi i32 [ %24, %.lr.ph ], [ %20, %13 ]
-  call void @enlargeStringInfo(ptr noundef nonnull %2, i32 noundef %22) #28
+  call void @enlargeStringInfo(ptr noundef nonnull %2, i32 noundef %22) #30
   %23 = load i32, ptr %17, align 8
   store i32 %23, ptr %18, align 4
   call void @llvm.va_start.p0(ptr nonnull %3)
-  %24 = call i32 @appendStringInfoVA(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull %3) #28
+  %24 = call i32 @appendStringInfoVA(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull %3) #30
   call void @llvm.va_end.p0(ptr nonnull %3)
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %._crit_edge, label %.lr.ph
@@ -3387,15 +3387,15 @@ define dso_local noundef i32 @errdetail(ptr noundef %0, ...) local_unnamed_addr 
   br i1 %.not, label %29, label %28
 
 28:                                               ; preds = %._crit_edge
-  call void @pfree(ptr noundef nonnull %27) #28
+  call void @pfree(ptr noundef nonnull %27) #30
   br label %29
 
 29:                                               ; preds = %28, %._crit_edge
   %30 = load ptr, ptr %2, align 8
-  %31 = call ptr @pstrdup(ptr noundef %30) #28
+  %31 = call ptr @pstrdup(ptr noundef %30) #30
   store ptr %31, ptr %26, align 8
   %32 = load ptr, ptr %2, align 8
-  call void @pfree(ptr noundef %32) #28
+  call void @pfree(ptr noundef %32) #30
   store ptr %16, ptr @CurrentMemoryContext, align 8
   %33 = load i32, ptr @recursion_depth, align 4
   %34 = add i32 %33, -1
@@ -3418,7 +3418,7 @@ define dso_local noundef i32 @errdetail_internal(ptr noundef %0, ...) local_unna
 
 10:                                               ; preds = %1
   store i32 -1, ptr @errordata_stack_depth, align 4
-  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #29
+  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #31
   tail call void @llvm.assume(i1 %11)
   %12 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.1)
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1239, ptr noundef nonnull @__func__.errdetail_internal)
@@ -3429,24 +3429,24 @@ define dso_local noundef i32 @errdetail_internal(ptr noundef %0, ...) local_unna
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %15, ptr @CurrentMemoryContext, align 8
-  call void @initStringInfo(ptr noundef nonnull %2) #28
+  call void @initStringInfo(ptr noundef nonnull %2) #30
   %17 = getelementptr inbounds i8, ptr %6, i64 168
-  %18 = tail call ptr @__errno_location() #30
+  %18 = tail call ptr @__errno_location() #32
   %19 = load i32, ptr %17, align 8
   store i32 %19, ptr %18, align 4
   call void @llvm.va_start.p0(ptr nonnull %3)
-  %20 = call i32 @appendStringInfoVA(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull %3) #28
+  %20 = call i32 @appendStringInfoVA(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull %3) #30
   call void @llvm.va_end.p0(ptr nonnull %3)
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %13, %.lr.ph
   %22 = phi i32 [ %24, %.lr.ph ], [ %20, %13 ]
-  call void @enlargeStringInfo(ptr noundef nonnull %2, i32 noundef %22) #28
+  call void @enlargeStringInfo(ptr noundef nonnull %2, i32 noundef %22) #30
   %23 = load i32, ptr %17, align 8
   store i32 %23, ptr %18, align 4
   call void @llvm.va_start.p0(ptr nonnull %3)
-  %24 = call i32 @appendStringInfoVA(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull %3) #28
+  %24 = call i32 @appendStringInfoVA(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull %3) #30
   call void @llvm.va_end.p0(ptr nonnull %3)
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %._crit_edge, label %.lr.ph
@@ -3458,15 +3458,15 @@ define dso_local noundef i32 @errdetail_internal(ptr noundef %0, ...) local_unna
   br i1 %.not, label %29, label %28
 
 28:                                               ; preds = %._crit_edge
-  call void @pfree(ptr noundef nonnull %27) #28
+  call void @pfree(ptr noundef nonnull %27) #30
   br label %29
 
 29:                                               ; preds = %28, %._crit_edge
   %30 = load ptr, ptr %2, align 8
-  %31 = call ptr @pstrdup(ptr noundef %30) #28
+  %31 = call ptr @pstrdup(ptr noundef %30) #30
   store ptr %31, ptr %26, align 8
   %32 = load ptr, ptr %2, align 8
-  call void @pfree(ptr noundef %32) #28
+  call void @pfree(ptr noundef %32) #30
   store ptr %16, ptr @CurrentMemoryContext, align 8
   %33 = load i32, ptr @recursion_depth, align 4
   %34 = add i32 %33, -1
@@ -3489,7 +3489,7 @@ define dso_local noundef i32 @errdetail_log(ptr noundef %0, ...) local_unnamed_a
 
 10:                                               ; preds = %1
   store i32 -1, ptr @errordata_stack_depth, align 4
-  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #29
+  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #31
   tail call void @llvm.assume(i1 %11)
   %12 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.1)
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1260, ptr noundef nonnull @__func__.errdetail_log)
@@ -3500,24 +3500,24 @@ define dso_local noundef i32 @errdetail_log(ptr noundef %0, ...) local_unnamed_a
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %15, ptr @CurrentMemoryContext, align 8
-  call void @initStringInfo(ptr noundef nonnull %2) #28
+  call void @initStringInfo(ptr noundef nonnull %2) #30
   %17 = getelementptr inbounds i8, ptr %6, i64 168
-  %18 = tail call ptr @__errno_location() #30
+  %18 = tail call ptr @__errno_location() #32
   %19 = load i32, ptr %17, align 8
   store i32 %19, ptr %18, align 4
   call void @llvm.va_start.p0(ptr nonnull %3)
-  %20 = call i32 @appendStringInfoVA(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull %3) #28
+  %20 = call i32 @appendStringInfoVA(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull %3) #30
   call void @llvm.va_end.p0(ptr nonnull %3)
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %13, %.lr.ph
   %22 = phi i32 [ %24, %.lr.ph ], [ %20, %13 ]
-  call void @enlargeStringInfo(ptr noundef nonnull %2, i32 noundef %22) #28
+  call void @enlargeStringInfo(ptr noundef nonnull %2, i32 noundef %22) #30
   %23 = load i32, ptr %17, align 8
   store i32 %23, ptr %18, align 4
   call void @llvm.va_start.p0(ptr nonnull %3)
-  %24 = call i32 @appendStringInfoVA(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull %3) #28
+  %24 = call i32 @appendStringInfoVA(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull %3) #30
   call void @llvm.va_end.p0(ptr nonnull %3)
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %._crit_edge, label %.lr.ph
@@ -3529,15 +3529,15 @@ define dso_local noundef i32 @errdetail_log(ptr noundef %0, ...) local_unnamed_a
   br i1 %.not, label %29, label %28
 
 28:                                               ; preds = %._crit_edge
-  call void @pfree(ptr noundef nonnull %27) #28
+  call void @pfree(ptr noundef nonnull %27) #30
   br label %29
 
 29:                                               ; preds = %28, %._crit_edge
   %30 = load ptr, ptr %2, align 8
-  %31 = call ptr @pstrdup(ptr noundef %30) #28
+  %31 = call ptr @pstrdup(ptr noundef %30) #30
   store ptr %31, ptr %26, align 8
   %32 = load ptr, ptr %2, align 8
-  call void @pfree(ptr noundef %32) #28
+  call void @pfree(ptr noundef %32) #30
   store ptr %16, ptr @CurrentMemoryContext, align 8
   %33 = load i32, ptr @recursion_depth, align 4
   %34 = add i32 %33, -1
@@ -3560,7 +3560,7 @@ define dso_local noundef i32 @errdetail_log_plural(ptr noundef %0, ptr noundef %
 
 12:                                               ; preds = %3
   store i32 -1, ptr @errordata_stack_depth, align 4
-  %13 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #29
+  %13 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #31
   tail call void @llvm.assume(i1 %13)
   %14 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.1)
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1282, ptr noundef nonnull @__func__.errdetail_log_plural)
@@ -3573,24 +3573,24 @@ define dso_local noundef i32 @errdetail_log_plural(ptr noundef %0, ptr noundef %
   store ptr %17, ptr @CurrentMemoryContext, align 8
   %19 = icmp eq i64 %2, 1
   %20 = select i1 %19, ptr %0, ptr %1
-  call void @initStringInfo(ptr noundef nonnull %4) #28
+  call void @initStringInfo(ptr noundef nonnull %4) #30
   %21 = getelementptr inbounds i8, ptr %8, i64 168
-  %22 = tail call ptr @__errno_location() #30
+  %22 = tail call ptr @__errno_location() #32
   %23 = load i32, ptr %21, align 8
   store i32 %23, ptr %22, align 4
   call void @llvm.va_start.p0(ptr nonnull %5)
-  %24 = call i32 @appendStringInfoVA(ptr noundef nonnull %4, ptr noundef %20, ptr noundef nonnull %5) #28
+  %24 = call i32 @appendStringInfoVA(ptr noundef nonnull %4, ptr noundef %20, ptr noundef nonnull %5) #30
   call void @llvm.va_end.p0(ptr nonnull %5)
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %15, %.lr.ph
   %26 = phi i32 [ %28, %.lr.ph ], [ %24, %15 ]
-  call void @enlargeStringInfo(ptr noundef nonnull %4, i32 noundef %26) #28
+  call void @enlargeStringInfo(ptr noundef nonnull %4, i32 noundef %26) #30
   %27 = load i32, ptr %21, align 8
   store i32 %27, ptr %22, align 4
   call void @llvm.va_start.p0(ptr nonnull %5)
-  %28 = call i32 @appendStringInfoVA(ptr noundef nonnull %4, ptr noundef %20, ptr noundef nonnull %5) #28
+  %28 = call i32 @appendStringInfoVA(ptr noundef nonnull %4, ptr noundef %20, ptr noundef nonnull %5) #30
   call void @llvm.va_end.p0(ptr nonnull %5)
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %._crit_edge, label %.lr.ph
@@ -3602,15 +3602,15 @@ define dso_local noundef i32 @errdetail_log_plural(ptr noundef %0, ptr noundef %
   br i1 %.not, label %33, label %32
 
 32:                                               ; preds = %._crit_edge
-  call void @pfree(ptr noundef nonnull %31) #28
+  call void @pfree(ptr noundef nonnull %31) #30
   br label %33
 
 33:                                               ; preds = %32, %._crit_edge
   %34 = load ptr, ptr %4, align 8
-  %35 = call ptr @pstrdup(ptr noundef %34) #28
+  %35 = call ptr @pstrdup(ptr noundef %34) #30
   store ptr %35, ptr %30, align 8
   %36 = load ptr, ptr %4, align 8
-  call void @pfree(ptr noundef %36) #28
+  call void @pfree(ptr noundef %36) #30
   store ptr %18, ptr @CurrentMemoryContext, align 8
   %37 = load i32, ptr @recursion_depth, align 4
   %38 = add i32 %37, -1
@@ -3633,7 +3633,7 @@ define dso_local noundef i32 @errdetail_plural(ptr noundef %0, ptr noundef %1, i
 
 12:                                               ; preds = %3
   store i32 -1, ptr @errordata_stack_depth, align 4
-  %13 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #29
+  %13 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #31
   tail call void @llvm.assume(i1 %13)
   %14 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.1)
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1305, ptr noundef nonnull @__func__.errdetail_plural)
@@ -3646,24 +3646,24 @@ define dso_local noundef i32 @errdetail_plural(ptr noundef %0, ptr noundef %1, i
   store ptr %17, ptr @CurrentMemoryContext, align 8
   %19 = icmp eq i64 %2, 1
   %20 = select i1 %19, ptr %0, ptr %1
-  call void @initStringInfo(ptr noundef nonnull %4) #28
+  call void @initStringInfo(ptr noundef nonnull %4) #30
   %21 = getelementptr inbounds i8, ptr %8, i64 168
-  %22 = tail call ptr @__errno_location() #30
+  %22 = tail call ptr @__errno_location() #32
   %23 = load i32, ptr %21, align 8
   store i32 %23, ptr %22, align 4
   call void @llvm.va_start.p0(ptr nonnull %5)
-  %24 = call i32 @appendStringInfoVA(ptr noundef nonnull %4, ptr noundef %20, ptr noundef nonnull %5) #28
+  %24 = call i32 @appendStringInfoVA(ptr noundef nonnull %4, ptr noundef %20, ptr noundef nonnull %5) #30
   call void @llvm.va_end.p0(ptr nonnull %5)
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %15, %.lr.ph
   %26 = phi i32 [ %28, %.lr.ph ], [ %24, %15 ]
-  call void @enlargeStringInfo(ptr noundef nonnull %4, i32 noundef %26) #28
+  call void @enlargeStringInfo(ptr noundef nonnull %4, i32 noundef %26) #30
   %27 = load i32, ptr %21, align 8
   store i32 %27, ptr %22, align 4
   call void @llvm.va_start.p0(ptr nonnull %5)
-  %28 = call i32 @appendStringInfoVA(ptr noundef nonnull %4, ptr noundef %20, ptr noundef nonnull %5) #28
+  %28 = call i32 @appendStringInfoVA(ptr noundef nonnull %4, ptr noundef %20, ptr noundef nonnull %5) #30
   call void @llvm.va_end.p0(ptr nonnull %5)
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %._crit_edge, label %.lr.ph
@@ -3675,15 +3675,15 @@ define dso_local noundef i32 @errdetail_plural(ptr noundef %0, ptr noundef %1, i
   br i1 %.not, label %33, label %32
 
 32:                                               ; preds = %._crit_edge
-  call void @pfree(ptr noundef nonnull %31) #28
+  call void @pfree(ptr noundef nonnull %31) #30
   br label %33
 
 33:                                               ; preds = %32, %._crit_edge
   %34 = load ptr, ptr %4, align 8
-  %35 = call ptr @pstrdup(ptr noundef %34) #28
+  %35 = call ptr @pstrdup(ptr noundef %34) #30
   store ptr %35, ptr %30, align 8
   %36 = load ptr, ptr %4, align 8
-  call void @pfree(ptr noundef %36) #28
+  call void @pfree(ptr noundef %36) #30
   store ptr %18, ptr @CurrentMemoryContext, align 8
   %37 = load i32, ptr @recursion_depth, align 4
   %38 = add i32 %37, -1
@@ -3706,7 +3706,7 @@ define dso_local noundef i32 @errhint(ptr noundef %0, ...) local_unnamed_addr #2
 
 10:                                               ; preds = %1
   store i32 -1, ptr @errordata_stack_depth, align 4
-  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #29
+  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #31
   tail call void @llvm.assume(i1 %11)
   %12 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.1)
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1326, ptr noundef nonnull @__func__.errhint)
@@ -3717,24 +3717,24 @@ define dso_local noundef i32 @errhint(ptr noundef %0, ...) local_unnamed_addr #2
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %15, ptr @CurrentMemoryContext, align 8
-  call void @initStringInfo(ptr noundef nonnull %2) #28
+  call void @initStringInfo(ptr noundef nonnull %2) #30
   %17 = getelementptr inbounds i8, ptr %6, i64 168
-  %18 = tail call ptr @__errno_location() #30
+  %18 = tail call ptr @__errno_location() #32
   %19 = load i32, ptr %17, align 8
   store i32 %19, ptr %18, align 4
   call void @llvm.va_start.p0(ptr nonnull %3)
-  %20 = call i32 @appendStringInfoVA(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull %3) #28
+  %20 = call i32 @appendStringInfoVA(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull %3) #30
   call void @llvm.va_end.p0(ptr nonnull %3)
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %13, %.lr.ph
   %22 = phi i32 [ %24, %.lr.ph ], [ %20, %13 ]
-  call void @enlargeStringInfo(ptr noundef nonnull %2, i32 noundef %22) #28
+  call void @enlargeStringInfo(ptr noundef nonnull %2, i32 noundef %22) #30
   %23 = load i32, ptr %17, align 8
   store i32 %23, ptr %18, align 4
   call void @llvm.va_start.p0(ptr nonnull %3)
-  %24 = call i32 @appendStringInfoVA(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull %3) #28
+  %24 = call i32 @appendStringInfoVA(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull %3) #30
   call void @llvm.va_end.p0(ptr nonnull %3)
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %._crit_edge, label %.lr.ph
@@ -3746,15 +3746,15 @@ define dso_local noundef i32 @errhint(ptr noundef %0, ...) local_unnamed_addr #2
   br i1 %.not, label %29, label %28
 
 28:                                               ; preds = %._crit_edge
-  call void @pfree(ptr noundef nonnull %27) #28
+  call void @pfree(ptr noundef nonnull %27) #30
   br label %29
 
 29:                                               ; preds = %28, %._crit_edge
   %30 = load ptr, ptr %2, align 8
-  %31 = call ptr @pstrdup(ptr noundef %30) #28
+  %31 = call ptr @pstrdup(ptr noundef %30) #30
   store ptr %31, ptr %26, align 8
   %32 = load ptr, ptr %2, align 8
-  call void @pfree(ptr noundef %32) #28
+  call void @pfree(ptr noundef %32) #30
   store ptr %16, ptr @CurrentMemoryContext, align 8
   %33 = load i32, ptr @recursion_depth, align 4
   %34 = add i32 %33, -1
@@ -3777,7 +3777,7 @@ define dso_local noundef i32 @errhint_plural(ptr noundef %0, ptr noundef %1, i64
 
 12:                                               ; preds = %3
   store i32 -1, ptr @errordata_stack_depth, align 4
-  %13 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #29
+  %13 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #31
   tail call void @llvm.assume(i1 %13)
   %14 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.1)
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1349, ptr noundef nonnull @__func__.errhint_plural)
@@ -3790,24 +3790,24 @@ define dso_local noundef i32 @errhint_plural(ptr noundef %0, ptr noundef %1, i64
   store ptr %17, ptr @CurrentMemoryContext, align 8
   %19 = icmp eq i64 %2, 1
   %20 = select i1 %19, ptr %0, ptr %1
-  call void @initStringInfo(ptr noundef nonnull %4) #28
+  call void @initStringInfo(ptr noundef nonnull %4) #30
   %21 = getelementptr inbounds i8, ptr %8, i64 168
-  %22 = tail call ptr @__errno_location() #30
+  %22 = tail call ptr @__errno_location() #32
   %23 = load i32, ptr %21, align 8
   store i32 %23, ptr %22, align 4
   call void @llvm.va_start.p0(ptr nonnull %5)
-  %24 = call i32 @appendStringInfoVA(ptr noundef nonnull %4, ptr noundef %20, ptr noundef nonnull %5) #28
+  %24 = call i32 @appendStringInfoVA(ptr noundef nonnull %4, ptr noundef %20, ptr noundef nonnull %5) #30
   call void @llvm.va_end.p0(ptr nonnull %5)
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %15, %.lr.ph
   %26 = phi i32 [ %28, %.lr.ph ], [ %24, %15 ]
-  call void @enlargeStringInfo(ptr noundef nonnull %4, i32 noundef %26) #28
+  call void @enlargeStringInfo(ptr noundef nonnull %4, i32 noundef %26) #30
   %27 = load i32, ptr %21, align 8
   store i32 %27, ptr %22, align 4
   call void @llvm.va_start.p0(ptr nonnull %5)
-  %28 = call i32 @appendStringInfoVA(ptr noundef nonnull %4, ptr noundef %20, ptr noundef nonnull %5) #28
+  %28 = call i32 @appendStringInfoVA(ptr noundef nonnull %4, ptr noundef %20, ptr noundef nonnull %5) #30
   call void @llvm.va_end.p0(ptr nonnull %5)
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %._crit_edge, label %.lr.ph
@@ -3819,15 +3819,15 @@ define dso_local noundef i32 @errhint_plural(ptr noundef %0, ptr noundef %1, i64
   br i1 %.not, label %33, label %32
 
 32:                                               ; preds = %._crit_edge
-  call void @pfree(ptr noundef nonnull %31) #28
+  call void @pfree(ptr noundef nonnull %31) #30
   br label %33
 
 33:                                               ; preds = %32, %._crit_edge
   %34 = load ptr, ptr %4, align 8
-  %35 = call ptr @pstrdup(ptr noundef %34) #28
+  %35 = call ptr @pstrdup(ptr noundef %34) #30
   store ptr %35, ptr %30, align 8
   %36 = load ptr, ptr %4, align 8
-  call void @pfree(ptr noundef %36) #28
+  call void @pfree(ptr noundef %36) #30
   store ptr %18, ptr @CurrentMemoryContext, align 8
   %37 = load i32, ptr @recursion_depth, align 4
   %38 = add i32 %37, -1
@@ -3850,7 +3850,7 @@ define dso_local noundef i32 @errcontext_msg(ptr noundef %0, ...) local_unnamed_
 
 10:                                               ; preds = %1
   store i32 -1, ptr @errordata_stack_depth, align 4
-  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #29
+  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #31
   tail call void @llvm.assume(i1 %11)
   %12 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.1)
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1374, ptr noundef nonnull @__func__.errcontext_msg)
@@ -3861,35 +3861,35 @@ define dso_local noundef i32 @errcontext_msg(ptr noundef %0, ...) local_unnamed_
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %15, ptr @CurrentMemoryContext, align 8
-  call void @initStringInfo(ptr noundef nonnull %2) #28
+  call void @initStringInfo(ptr noundef nonnull %2) #30
   %17 = getelementptr inbounds i8, ptr %6, i64 88
   %18 = load ptr, ptr %17, align 8
   %.not = icmp eq ptr %18, null
   br i1 %.not, label %20, label %19
 
 19:                                               ; preds = %13
-  call void @appendStringInfoString(ptr noundef nonnull %2, ptr noundef nonnull %18) #28
-  call void @appendStringInfoChar(ptr noundef nonnull %2, i8 noundef signext 10) #28
+  call void @appendStringInfoString(ptr noundef nonnull %2, ptr noundef nonnull %18) #30
+  call void @appendStringInfoChar(ptr noundef nonnull %2, i8 noundef signext 10) #30
   br label %20
 
 20:                                               ; preds = %19, %13
   %21 = getelementptr inbounds i8, ptr %6, i64 168
-  %22 = tail call ptr @__errno_location() #30
+  %22 = tail call ptr @__errno_location() #32
   %23 = load i32, ptr %21, align 8
   store i32 %23, ptr %22, align 4
   call void @llvm.va_start.p0(ptr nonnull %3)
-  %24 = call i32 @appendStringInfoVA(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull %3) #28
+  %24 = call i32 @appendStringInfoVA(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull %3) #30
   call void @llvm.va_end.p0(ptr nonnull %3)
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %20, %.lr.ph
   %26 = phi i32 [ %28, %.lr.ph ], [ %24, %20 ]
-  call void @enlargeStringInfo(ptr noundef nonnull %2, i32 noundef %26) #28
+  call void @enlargeStringInfo(ptr noundef nonnull %2, i32 noundef %26) #30
   %27 = load i32, ptr %21, align 8
   store i32 %27, ptr %22, align 4
   call void @llvm.va_start.p0(ptr nonnull %3)
-  %28 = call i32 @appendStringInfoVA(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull %3) #28
+  %28 = call i32 @appendStringInfoVA(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull %3) #30
   call void @llvm.va_end.p0(ptr nonnull %3)
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %._crit_edge, label %.lr.ph
@@ -3900,15 +3900,15 @@ define dso_local noundef i32 @errcontext_msg(ptr noundef %0, ...) local_unnamed_
   br i1 %.not13, label %32, label %31
 
 31:                                               ; preds = %._crit_edge
-  call void @pfree(ptr noundef nonnull %30) #28
+  call void @pfree(ptr noundef nonnull %30) #30
   br label %32
 
 32:                                               ; preds = %31, %._crit_edge
   %33 = load ptr, ptr %2, align 8
-  %34 = call ptr @pstrdup(ptr noundef %33) #28
+  %34 = call ptr @pstrdup(ptr noundef %33) #30
   store ptr %34, ptr %17, align 8
   %35 = load ptr, ptr %2, align 8
-  call void @pfree(ptr noundef %35) #28
+  call void @pfree(ptr noundef %35) #30
   store ptr %16, ptr @CurrentMemoryContext, align 8
   %36 = load i32, ptr @recursion_depth, align 4
   %37 = add i32 %36, -1
@@ -3928,7 +3928,7 @@ define dso_local noundef i32 @set_errcontext_domain(ptr noundef %0) local_unname
 
 4:                                                ; preds = %1
   store i32 -1, ptr @errordata_stack_depth, align 4
-  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #29
+  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #31
   tail call void @llvm.assume(i1 %5)
   %6 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.1)
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1399, ptr noundef nonnull @__func__.set_errcontext_domain)
@@ -3951,7 +3951,7 @@ define dso_local noundef i32 @errhidestmt(i1 noundef zeroext %0) local_unnamed_a
 
 4:                                                ; preds = %1
   store i32 -1, ptr @errordata_stack_depth, align 4
-  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #29
+  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #31
   tail call void @llvm.assume(i1 %5)
   %6 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.1)
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1419, ptr noundef nonnull @__func__.errhidestmt)
@@ -3973,7 +3973,7 @@ define dso_local noundef i32 @errhidecontext(i1 noundef zeroext %0) local_unname
 
 4:                                                ; preds = %1
   store i32 -1, ptr @errordata_stack_depth, align 4
-  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #29
+  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #31
   tail call void @llvm.assume(i1 %5)
   %6 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.1)
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1438, ptr noundef nonnull @__func__.errhidecontext)
@@ -3995,7 +3995,7 @@ define dso_local noundef i32 @errposition(i32 noundef %0) local_unnamed_addr #2 
 
 4:                                                ; preds = %1
   store i32 -1, ptr @errordata_stack_depth, align 4
-  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #29
+  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #31
   tail call void @llvm.assume(i1 %5)
   %6 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.1)
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1454, ptr noundef nonnull @__func__.errposition)
@@ -4016,7 +4016,7 @@ define dso_local noundef i32 @internalerrposition(i32 noundef %0) local_unnamed_
 
 4:                                                ; preds = %1
   store i32 -1, ptr @errordata_stack_depth, align 4
-  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #29
+  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #31
   tail call void @llvm.assume(i1 %5)
   %6 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.1)
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1470, ptr noundef nonnull @__func__.internalerrposition)
@@ -4039,7 +4039,7 @@ define dso_local noundef i32 @internalerrquery(ptr noundef %0) local_unnamed_add
 
 6:                                                ; preds = %1
   store i32 -1, ptr @errordata_stack_depth, align 4
-  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #29
+  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #31
   tail call void @llvm.assume(i1 %7)
   %8 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.1)
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1490, ptr noundef nonnull @__func__.internalerrquery)
@@ -4052,7 +4052,7 @@ define dso_local noundef i32 @internalerrquery(ptr noundef %0) local_unnamed_add
   br i1 %.not, label %13, label %12
 
 12:                                               ; preds = %9
-  tail call void @pfree(ptr noundef nonnull %11) #28
+  tail call void @pfree(ptr noundef nonnull %11) #30
   store ptr null, ptr %10, align 8
   br label %13
 
@@ -4063,7 +4063,7 @@ define dso_local noundef i32 @internalerrquery(ptr noundef %0) local_unnamed_add
 14:                                               ; preds = %13
   %15 = getelementptr inbounds i8, ptr %4, i64 176
   %16 = load ptr, ptr %15, align 8
-  %17 = tail call ptr @MemoryContextStrdup(ptr noundef %16, ptr noundef nonnull %0) #28
+  %17 = tail call ptr @MemoryContextStrdup(ptr noundef %16, ptr noundef nonnull %0) #30
   store ptr %17, ptr %10, align 8
   br label %18
 
@@ -4081,7 +4081,7 @@ define dso_local noundef i32 @err_generic_string(i32 noundef %0, ptr noundef %1)
 
 5:                                                ; preds = %2
   store i32 -1, ptr @errordata_stack_depth, align 4
-  %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #29
+  %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #31
   tail call void @llvm.assume(i1 %6)
   %7 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.1)
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1520, ptr noundef nonnull @__func__.err_generic_string)
@@ -4109,7 +4109,7 @@ define dso_local noundef i32 @err_generic_string(i32 noundef %0, ptr noundef %1)
   br label %16
 
 13:                                               ; preds = %8
-  %14 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #29
+  %14 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #31
   tail call void @llvm.assume(i1 %14)
   %15 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef %0)
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1540, ptr noundef nonnull @__func__.err_generic_string)
@@ -4122,7 +4122,7 @@ define dso_local noundef i32 @err_generic_string(i32 noundef %0, ptr noundef %1)
   %19 = getelementptr inbounds i8, ptr %18, i64 176
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %18, i64 %.sink
-  %22 = tail call ptr @MemoryContextStrdup(ptr noundef %20, ptr noundef %1) #28
+  %22 = tail call ptr @MemoryContextStrdup(ptr noundef %20, ptr noundef %1) #30
   store ptr %22, ptr %21, align 8
   ret i32 0
 }
@@ -4135,7 +4135,7 @@ define dso_local i32 @geterrcode() local_unnamed_addr #2 {
 
 3:                                                ; preds = %0
   store i32 -1, ptr @errordata_stack_depth, align 4
-  %4 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #29
+  %4 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #31
   tail call void @llvm.assume(i1 %4)
   %5 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.1)
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1569, ptr noundef nonnull @__func__.geterrcode)
@@ -4156,7 +4156,7 @@ define dso_local i32 @geterrposition() local_unnamed_addr #2 {
 
 3:                                                ; preds = %0
   store i32 -1, ptr @errordata_stack_depth, align 4
-  %4 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #29
+  %4 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #31
   tail call void @llvm.assume(i1 %4)
   %5 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.1)
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1586, ptr noundef nonnull @__func__.geterrposition)
@@ -4177,7 +4177,7 @@ define dso_local i32 @getinternalerrposition() local_unnamed_addr #2 {
 
 3:                                                ; preds = %0
   store i32 -1, ptr @errordata_stack_depth, align 4
-  %4 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #29
+  %4 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #31
   tail call void @llvm.assume(i1 %4)
   %5 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.1)
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1603, ptr noundef nonnull @__func__.getinternalerrposition)
@@ -4191,7 +4191,7 @@ define dso_local i32 @getinternalerrposition() local_unnamed_addr #2 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define dso_local void @pre_format_elog_string(i32 noundef %0, ptr noundef %1) local_unnamed_addr #10 {
+define dso_local void @pre_format_elog_string(i32 noundef %0, ptr noundef %1) local_unnamed_addr #11 {
   store i32 %0, ptr @save_format_errnumber, align 4
   ret void
 }
@@ -4204,36 +4204,36 @@ define dso_local ptr @format_elog_string(ptr noundef %0, ...) local_unnamed_addr
   %5 = load ptr, ptr @ErrorContext, align 8
   %6 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %5, ptr @CurrentMemoryContext, align 8
-  call void @initStringInfo(ptr noundef nonnull %2) #28
-  %7 = tail call ptr @__errno_location() #30
+  call void @initStringInfo(ptr noundef nonnull %2) #30
+  %7 = tail call ptr @__errno_location() #32
   store i32 %4, ptr %7, align 4
   call void @llvm.va_start.p0(ptr nonnull %3)
-  %8 = call i32 @appendStringInfoVA(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull %3) #28
+  %8 = call i32 @appendStringInfoVA(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull %3) #30
   call void @llvm.va_end.p0(ptr nonnull %3)
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %._crit_edge._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %10 = phi i32 [ %11, %.lr.ph ], [ %8, %1 ]
-  call void @enlargeStringInfo(ptr noundef nonnull %2, i32 noundef %10) #28
+  call void @enlargeStringInfo(ptr noundef nonnull %2, i32 noundef %10) #30
   store i32 %4, ptr %7, align 4
   call void @llvm.va_start.p0(ptr nonnull %3)
-  %11 = call i32 @appendStringInfoVA(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull %3) #28
+  %11 = call i32 @appendStringInfoVA(ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull %3) #30
   call void @llvm.va_end.p0(ptr nonnull %3)
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %._crit_edge._crit_edge, label %.lr.ph
 
 ._crit_edge._crit_edge:                           ; preds = %.lr.ph, %1
   %.pre = load ptr, ptr %2, align 8
-  %13 = call ptr @pstrdup(ptr noundef %.pre) #28
+  %13 = call ptr @pstrdup(ptr noundef %.pre) #30
   %14 = load ptr, ptr %2, align 8
-  call void @pfree(ptr noundef %14) #28
+  call void @pfree(ptr noundef %14) #30
   store ptr %6, ptr @CurrentMemoryContext, align 8
   ret ptr %13
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @CopyErrorData() local_unnamed_addr #2 {
@@ -4243,7 +4243,7 @@ define dso_local noundef ptr @CopyErrorData() local_unnamed_addr #2 {
 
 3:                                                ; preds = %0
   store i32 -1, ptr @errordata_stack_depth, align 4
-  %4 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #29
+  %4 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #31
   tail call void @llvm.assume(i1 %4)
   %5 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.1)
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1733, ptr noundef nonnull @__func__.CopyErrorData)
@@ -4252,7 +4252,7 @@ define dso_local noundef ptr @CopyErrorData() local_unnamed_addr #2 {
 6:                                                ; preds = %0
   %7 = zext nneg i32 %1 to i64
   %8 = getelementptr [5 x %struct.ErrorData], ptr @errordata, i64 0, i64 %7
-  %9 = tail call ptr @palloc(i64 noundef 184) #28
+  %9 = tail call ptr @palloc(i64 noundef 184) #30
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %9, ptr noundef nonnull align 8 dereferenceable(184) %8, i64 184, i1 false)
   %10 = getelementptr inbounds i8, ptr %9, i64 56
   %11 = load ptr, ptr %10, align 8
@@ -4260,7 +4260,7 @@ define dso_local noundef ptr @CopyErrorData() local_unnamed_addr #2 {
   br i1 %.not, label %14, label %12
 
 12:                                               ; preds = %6
-  %13 = tail call ptr @pstrdup(ptr noundef nonnull %11) #28
+  %13 = tail call ptr @pstrdup(ptr noundef nonnull %11) #30
   store ptr %13, ptr %10, align 8
   br label %14
 
@@ -4271,7 +4271,7 @@ define dso_local noundef ptr @CopyErrorData() local_unnamed_addr #2 {
   br i1 %.not51, label %19, label %17
 
 17:                                               ; preds = %14
-  %18 = tail call ptr @pstrdup(ptr noundef nonnull %16) #28
+  %18 = tail call ptr @pstrdup(ptr noundef nonnull %16) #30
   store ptr %18, ptr %15, align 8
   br label %19
 
@@ -4282,7 +4282,7 @@ define dso_local noundef ptr @CopyErrorData() local_unnamed_addr #2 {
   br i1 %.not52, label %24, label %22
 
 22:                                               ; preds = %19
-  %23 = tail call ptr @pstrdup(ptr noundef nonnull %21) #28
+  %23 = tail call ptr @pstrdup(ptr noundef nonnull %21) #30
   store ptr %23, ptr %20, align 8
   br label %24
 
@@ -4293,7 +4293,7 @@ define dso_local noundef ptr @CopyErrorData() local_unnamed_addr #2 {
   br i1 %.not53, label %29, label %27
 
 27:                                               ; preds = %24
-  %28 = tail call ptr @pstrdup(ptr noundef nonnull %26) #28
+  %28 = tail call ptr @pstrdup(ptr noundef nonnull %26) #30
   store ptr %28, ptr %25, align 8
   br label %29
 
@@ -4304,7 +4304,7 @@ define dso_local noundef ptr @CopyErrorData() local_unnamed_addr #2 {
   br i1 %.not54, label %34, label %32
 
 32:                                               ; preds = %29
-  %33 = tail call ptr @pstrdup(ptr noundef nonnull %31) #28
+  %33 = tail call ptr @pstrdup(ptr noundef nonnull %31) #30
   store ptr %33, ptr %30, align 8
   br label %34
 
@@ -4315,7 +4315,7 @@ define dso_local noundef ptr @CopyErrorData() local_unnamed_addr #2 {
   br i1 %.not55, label %39, label %37
 
 37:                                               ; preds = %34
-  %38 = tail call ptr @pstrdup(ptr noundef nonnull %36) #28
+  %38 = tail call ptr @pstrdup(ptr noundef nonnull %36) #30
   store ptr %38, ptr %35, align 8
   br label %39
 
@@ -4326,7 +4326,7 @@ define dso_local noundef ptr @CopyErrorData() local_unnamed_addr #2 {
   br i1 %.not56, label %44, label %42
 
 42:                                               ; preds = %39
-  %43 = tail call ptr @pstrdup(ptr noundef nonnull %41) #28
+  %43 = tail call ptr @pstrdup(ptr noundef nonnull %41) #30
   store ptr %43, ptr %40, align 8
   br label %44
 
@@ -4337,7 +4337,7 @@ define dso_local noundef ptr @CopyErrorData() local_unnamed_addr #2 {
   br i1 %.not57, label %49, label %47
 
 47:                                               ; preds = %44
-  %48 = tail call ptr @pstrdup(ptr noundef nonnull %46) #28
+  %48 = tail call ptr @pstrdup(ptr noundef nonnull %46) #30
   store ptr %48, ptr %45, align 8
   br label %49
 
@@ -4348,7 +4348,7 @@ define dso_local noundef ptr @CopyErrorData() local_unnamed_addr #2 {
   br i1 %.not58, label %54, label %52
 
 52:                                               ; preds = %49
-  %53 = tail call ptr @pstrdup(ptr noundef nonnull %51) #28
+  %53 = tail call ptr @pstrdup(ptr noundef nonnull %51) #30
   store ptr %53, ptr %50, align 8
   br label %54
 
@@ -4359,7 +4359,7 @@ define dso_local noundef ptr @CopyErrorData() local_unnamed_addr #2 {
   br i1 %.not59, label %59, label %57
 
 57:                                               ; preds = %54
-  %58 = tail call ptr @pstrdup(ptr noundef nonnull %56) #28
+  %58 = tail call ptr @pstrdup(ptr noundef nonnull %56) #30
   store ptr %58, ptr %55, align 8
   br label %59
 
@@ -4370,7 +4370,7 @@ define dso_local noundef ptr @CopyErrorData() local_unnamed_addr #2 {
   br i1 %.not60, label %64, label %62
 
 62:                                               ; preds = %59
-  %63 = tail call ptr @pstrdup(ptr noundef nonnull %61) #28
+  %63 = tail call ptr @pstrdup(ptr noundef nonnull %61) #30
   store ptr %63, ptr %60, align 8
   br label %64
 
@@ -4381,7 +4381,7 @@ define dso_local noundef ptr @CopyErrorData() local_unnamed_addr #2 {
   br i1 %.not61, label %69, label %67
 
 67:                                               ; preds = %64
-  %68 = tail call ptr @pstrdup(ptr noundef nonnull %66) #28
+  %68 = tail call ptr @pstrdup(ptr noundef nonnull %66) #30
   store ptr %68, ptr %65, align 8
   br label %69
 
@@ -4395,7 +4395,7 @@ define dso_local noundef ptr @CopyErrorData() local_unnamed_addr #2 {
 ; Function Attrs: nounwind uwtable
 define dso_local void @FreeErrorData(ptr noundef %0) local_unnamed_addr #2 {
   tail call fastcc void @FreeErrorDataContents(ptr noundef %0)
-  tail call void @pfree(ptr noundef %0) #28
+  tail call void @pfree(ptr noundef %0) #30
   ret void
 }
 
@@ -4404,7 +4404,7 @@ define dso_local void @FlushErrorState() local_unnamed_addr #2 {
   store i32 -1, ptr @errordata_stack_depth, align 4
   store i32 0, ptr @recursion_depth, align 4
   %1 = load ptr, ptr @ErrorContext, align 8
-  tail call void @MemoryContextReset(ptr noundef %1) #28
+  tail call void @MemoryContextReset(ptr noundef %1) #30
   ret void
 }
 
@@ -4444,7 +4444,7 @@ define dso_local void @ThrowErrorData(ptr nocapture noundef readonly %0) local_u
   br i1 %.not62, label %25, label %22
 
 22:                                               ; preds = %19
-  %23 = tail call ptr @pstrdup(ptr noundef nonnull %21) #28
+  %23 = tail call ptr @pstrdup(ptr noundef nonnull %21) #30
   %24 = getelementptr inbounds i8, ptr %9, i64 56
   store ptr %23, ptr %24, align 8
   br label %25
@@ -4456,7 +4456,7 @@ define dso_local void @ThrowErrorData(ptr nocapture noundef readonly %0) local_u
   br i1 %.not63, label %31, label %28
 
 28:                                               ; preds = %25
-  %29 = tail call ptr @pstrdup(ptr noundef nonnull %27) #28
+  %29 = tail call ptr @pstrdup(ptr noundef nonnull %27) #30
   %30 = getelementptr inbounds i8, ptr %9, i64 64
   store ptr %29, ptr %30, align 8
   br label %31
@@ -4468,7 +4468,7 @@ define dso_local void @ThrowErrorData(ptr nocapture noundef readonly %0) local_u
   br i1 %.not64, label %37, label %34
 
 34:                                               ; preds = %31
-  %35 = tail call ptr @pstrdup(ptr noundef nonnull %33) #28
+  %35 = tail call ptr @pstrdup(ptr noundef nonnull %33) #30
   %36 = getelementptr inbounds i8, ptr %9, i64 72
   store ptr %35, ptr %36, align 8
   br label %37
@@ -4480,7 +4480,7 @@ define dso_local void @ThrowErrorData(ptr nocapture noundef readonly %0) local_u
   br i1 %.not65, label %43, label %40
 
 40:                                               ; preds = %37
-  %41 = tail call ptr @pstrdup(ptr noundef nonnull %39) #28
+  %41 = tail call ptr @pstrdup(ptr noundef nonnull %39) #30
   %42 = getelementptr inbounds i8, ptr %9, i64 80
   store ptr %41, ptr %42, align 8
   br label %43
@@ -4492,7 +4492,7 @@ define dso_local void @ThrowErrorData(ptr nocapture noundef readonly %0) local_u
   br i1 %.not66, label %49, label %46
 
 46:                                               ; preds = %43
-  %47 = tail call ptr @pstrdup(ptr noundef nonnull %45) #28
+  %47 = tail call ptr @pstrdup(ptr noundef nonnull %45) #30
   %48 = getelementptr inbounds i8, ptr %9, i64 88
   store ptr %47, ptr %48, align 8
   br label %49
@@ -4504,7 +4504,7 @@ define dso_local void @ThrowErrorData(ptr nocapture noundef readonly %0) local_u
   br i1 %.not67, label %55, label %52
 
 52:                                               ; preds = %49
-  %53 = tail call ptr @pstrdup(ptr noundef nonnull %51) #28
+  %53 = tail call ptr @pstrdup(ptr noundef nonnull %51) #30
   %54 = getelementptr inbounds i8, ptr %9, i64 96
   store ptr %53, ptr %54, align 8
   br label %55
@@ -4516,7 +4516,7 @@ define dso_local void @ThrowErrorData(ptr nocapture noundef readonly %0) local_u
   br i1 %.not68, label %61, label %58
 
 58:                                               ; preds = %55
-  %59 = tail call ptr @pstrdup(ptr noundef nonnull %57) #28
+  %59 = tail call ptr @pstrdup(ptr noundef nonnull %57) #30
   %60 = getelementptr inbounds i8, ptr %9, i64 112
   store ptr %59, ptr %60, align 8
   br label %61
@@ -4528,7 +4528,7 @@ define dso_local void @ThrowErrorData(ptr nocapture noundef readonly %0) local_u
   br i1 %.not69, label %67, label %64
 
 64:                                               ; preds = %61
-  %65 = tail call ptr @pstrdup(ptr noundef nonnull %63) #28
+  %65 = tail call ptr @pstrdup(ptr noundef nonnull %63) #30
   %66 = getelementptr inbounds i8, ptr %9, i64 120
   store ptr %65, ptr %66, align 8
   br label %67
@@ -4540,7 +4540,7 @@ define dso_local void @ThrowErrorData(ptr nocapture noundef readonly %0) local_u
   br i1 %.not70, label %73, label %70
 
 70:                                               ; preds = %67
-  %71 = tail call ptr @pstrdup(ptr noundef nonnull %69) #28
+  %71 = tail call ptr @pstrdup(ptr noundef nonnull %69) #30
   %72 = getelementptr inbounds i8, ptr %9, i64 128
   store ptr %71, ptr %72, align 8
   br label %73
@@ -4552,7 +4552,7 @@ define dso_local void @ThrowErrorData(ptr nocapture noundef readonly %0) local_u
   br i1 %.not71, label %79, label %76
 
 76:                                               ; preds = %73
-  %77 = tail call ptr @pstrdup(ptr noundef nonnull %75) #28
+  %77 = tail call ptr @pstrdup(ptr noundef nonnull %75) #30
   %78 = getelementptr inbounds i8, ptr %9, i64 136
   store ptr %77, ptr %78, align 8
   br label %79
@@ -4564,7 +4564,7 @@ define dso_local void @ThrowErrorData(ptr nocapture noundef readonly %0) local_u
   br i1 %.not72, label %85, label %82
 
 82:                                               ; preds = %79
-  %83 = tail call ptr @pstrdup(ptr noundef nonnull %81) #28
+  %83 = tail call ptr @pstrdup(ptr noundef nonnull %81) #30
   %84 = getelementptr inbounds i8, ptr %9, i64 144
   store ptr %83, ptr %84, align 8
   br label %85
@@ -4584,7 +4584,7 @@ define dso_local void @ThrowErrorData(ptr nocapture noundef readonly %0) local_u
   br i1 %.not73, label %97, label %94
 
 94:                                               ; preds = %85
-  %95 = tail call ptr @pstrdup(ptr noundef nonnull %93) #28
+  %95 = tail call ptr @pstrdup(ptr noundef nonnull %93) #30
   %96 = getelementptr inbounds i8, ptr %9, i64 160
   store ptr %95, ptr %96, align 8
   br label %97
@@ -4622,7 +4622,7 @@ define dso_local void @ReThrowError(ptr nocapture noundef readonly %0) local_unn
 
 8:                                                ; preds = %1
   store i32 -1, ptr @errordata_stack_depth, align 4
-  %9 = tail call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #29
+  %9 = tail call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #31
   tail call void @llvm.assume(i1 %9)
   %10 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.46)
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 768, ptr noundef nonnull @__func__.get_error_stack_entry)
@@ -4632,7 +4632,7 @@ get_error_stack_entry.exit:                       ; preds = %1
   %11 = sext i32 %6 to i64
   %12 = getelementptr [5 x %struct.ErrorData], ptr @errordata, i64 0, i64 %11
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %12, i8 0, i64 184, i1 false)
-  %13 = tail call ptr @__errno_location() #30
+  %13 = tail call ptr @__errno_location() #32
   %14 = load i32, ptr %13, align 4
   %15 = getelementptr inbounds i8, ptr %12, i64 168
   store i32 %14, ptr %15, align 8
@@ -4643,7 +4643,7 @@ get_error_stack_entry.exit:                       ; preds = %1
   br i1 %.not, label %20, label %18
 
 18:                                               ; preds = %get_error_stack_entry.exit
-  %19 = tail call ptr @pstrdup(ptr noundef nonnull %17) #28
+  %19 = tail call ptr @pstrdup(ptr noundef nonnull %17) #30
   store ptr %19, ptr %16, align 8
   br label %20
 
@@ -4654,7 +4654,7 @@ get_error_stack_entry.exit:                       ; preds = %1
   br i1 %.not50, label %25, label %23
 
 23:                                               ; preds = %20
-  %24 = tail call ptr @pstrdup(ptr noundef nonnull %22) #28
+  %24 = tail call ptr @pstrdup(ptr noundef nonnull %22) #30
   store ptr %24, ptr %21, align 8
   br label %25
 
@@ -4665,7 +4665,7 @@ get_error_stack_entry.exit:                       ; preds = %1
   br i1 %.not51, label %30, label %28
 
 28:                                               ; preds = %25
-  %29 = tail call ptr @pstrdup(ptr noundef nonnull %27) #28
+  %29 = tail call ptr @pstrdup(ptr noundef nonnull %27) #30
   store ptr %29, ptr %26, align 8
   br label %30
 
@@ -4676,7 +4676,7 @@ get_error_stack_entry.exit:                       ; preds = %1
   br i1 %.not52, label %35, label %33
 
 33:                                               ; preds = %30
-  %34 = tail call ptr @pstrdup(ptr noundef nonnull %32) #28
+  %34 = tail call ptr @pstrdup(ptr noundef nonnull %32) #30
   store ptr %34, ptr %31, align 8
   br label %35
 
@@ -4687,7 +4687,7 @@ get_error_stack_entry.exit:                       ; preds = %1
   br i1 %.not53, label %40, label %38
 
 38:                                               ; preds = %35
-  %39 = tail call ptr @pstrdup(ptr noundef nonnull %37) #28
+  %39 = tail call ptr @pstrdup(ptr noundef nonnull %37) #30
   store ptr %39, ptr %36, align 8
   br label %40
 
@@ -4698,7 +4698,7 @@ get_error_stack_entry.exit:                       ; preds = %1
   br i1 %.not54, label %45, label %43
 
 43:                                               ; preds = %40
-  %44 = tail call ptr @pstrdup(ptr noundef nonnull %42) #28
+  %44 = tail call ptr @pstrdup(ptr noundef nonnull %42) #30
   store ptr %44, ptr %41, align 8
   br label %45
 
@@ -4709,7 +4709,7 @@ get_error_stack_entry.exit:                       ; preds = %1
   br i1 %.not55, label %50, label %48
 
 48:                                               ; preds = %45
-  %49 = tail call ptr @pstrdup(ptr noundef nonnull %47) #28
+  %49 = tail call ptr @pstrdup(ptr noundef nonnull %47) #30
   store ptr %49, ptr %46, align 8
   br label %50
 
@@ -4720,7 +4720,7 @@ get_error_stack_entry.exit:                       ; preds = %1
   br i1 %.not56, label %55, label %53
 
 53:                                               ; preds = %50
-  %54 = tail call ptr @pstrdup(ptr noundef nonnull %52) #28
+  %54 = tail call ptr @pstrdup(ptr noundef nonnull %52) #30
   store ptr %54, ptr %51, align 8
   br label %55
 
@@ -4731,7 +4731,7 @@ get_error_stack_entry.exit:                       ; preds = %1
   br i1 %.not57, label %60, label %58
 
 58:                                               ; preds = %55
-  %59 = tail call ptr @pstrdup(ptr noundef nonnull %57) #28
+  %59 = tail call ptr @pstrdup(ptr noundef nonnull %57) #30
   store ptr %59, ptr %56, align 8
   br label %60
 
@@ -4742,7 +4742,7 @@ get_error_stack_entry.exit:                       ; preds = %1
   br i1 %.not58, label %65, label %63
 
 63:                                               ; preds = %60
-  %64 = tail call ptr @pstrdup(ptr noundef nonnull %62) #28
+  %64 = tail call ptr @pstrdup(ptr noundef nonnull %62) #30
   store ptr %64, ptr %61, align 8
   br label %65
 
@@ -4753,7 +4753,7 @@ get_error_stack_entry.exit:                       ; preds = %1
   br i1 %.not59, label %70, label %68
 
 68:                                               ; preds = %65
-  %69 = tail call ptr @pstrdup(ptr noundef nonnull %67) #28
+  %69 = tail call ptr @pstrdup(ptr noundef nonnull %67) #30
   store ptr %69, ptr %66, align 8
   br label %70
 
@@ -4764,7 +4764,7 @@ get_error_stack_entry.exit:                       ; preds = %1
   br i1 %.not60, label %75, label %73
 
 73:                                               ; preds = %70
-  %74 = tail call ptr @pstrdup(ptr noundef nonnull %72) #28
+  %74 = tail call ptr @pstrdup(ptr noundef nonnull %72) #30
   store ptr %74, ptr %71, align 8
   br label %75
 
@@ -4775,12 +4775,12 @@ get_error_stack_entry.exit:                       ; preds = %1
   %78 = load i32, ptr @recursion_depth, align 4
   %79 = add i32 %78, -1
   store i32 %79, ptr @recursion_depth, align 4
-  tail call void @pg_re_throw() #32
+  tail call void @pg_re_throw() #34
   unreachable
 }
 
 ; Function Attrs: noreturn nounwind
-declare void @siglongjmp(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @siglongjmp(ptr noundef, i32 noundef) local_unnamed_addr #13
 
 ; Function Attrs: noreturn
 declare void @ExceptionalCondition(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
@@ -4798,7 +4798,7 @@ define dso_local ptr @GetErrorContextStack() local_unnamed_addr #2 {
 
 6:                                                ; preds = %0
   store i32 -1, ptr @errordata_stack_depth, align 4
-  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #29
+  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #31
   tail call void @llvm.assume(i1 %7)
   %8 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.46)
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 768, ptr noundef nonnull @__func__.get_error_stack_entry)
@@ -4808,7 +4808,7 @@ get_error_stack_entry.exit:                       ; preds = %0
   %9 = sext i32 %4 to i64
   %10 = getelementptr [5 x %struct.ErrorData], ptr @errordata, i64 0, i64 %9
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %10, i8 0, i64 184, i1 false)
-  %11 = tail call ptr @__errno_location() #30
+  %11 = tail call ptr @__errno_location() #32
   %12 = load i32, ptr %11, align 4
   %13 = getelementptr inbounds i8, ptr %10, i64 168
   store i32 %12, ptr %13, align 8
@@ -4825,7 +4825,7 @@ get_error_stack_entry.exit:                       ; preds = %0
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds i8, ptr %.08, i64 16
   %19 = load ptr, ptr %18, align 8
-  tail call void %17(ptr noundef %19) #28
+  tail call void %17(ptr noundef %19) #30
   %.0 = load ptr, ptr %.08, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !71
@@ -4855,12 +4855,12 @@ define dso_local void @DebugFileOpen() local_unnamed_addr #2 {
   br i1 %.not, label %29, label %2
 
 2:                                                ; preds = %0
-  %3 = tail call i32 (ptr, i32, ...) @open(ptr noundef nonnull @OutputFileName, i32 noundef 1089, i32 noundef 438) #28
+  %3 = tail call i32 (ptr, i32, ...) @open(ptr noundef nonnull @OutputFileName, i32 noundef 1089, i32 noundef 438) #30
   %4 = icmp slt i32 %3, 0
   br i1 %4, label %5, label %9
 
 5:                                                ; preds = %2
-  %6 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #29
+  %6 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #31
   tail call void @llvm.assume(i1 %6)
   %7 = tail call i32 @errcode_for_file_access()
   %8 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef nonnull @OutputFileName)
@@ -4868,15 +4868,15 @@ define dso_local void @DebugFileOpen() local_unnamed_addr #2 {
   unreachable
 
 9:                                                ; preds = %2
-  %10 = tail call i32 @isatty(i32 noundef %3) #28
-  %11 = tail call i32 @close(i32 noundef %3) #28
+  %10 = tail call i32 @isatty(i32 noundef %3) #30
+  %11 = tail call i32 @close(i32 noundef %3) #30
   %12 = load ptr, ptr @stderr, align 8
-  %13 = tail call ptr @freopen(ptr noundef nonnull @OutputFileName, ptr noundef nonnull @.str.7, ptr noundef %12) #28
+  %13 = tail call ptr @freopen(ptr noundef nonnull @OutputFileName, ptr noundef nonnull @.str.7, ptr noundef %12) #30
   %.not3 = icmp eq ptr %13, null
   br i1 %.not3, label %14, label %18
 
 14:                                               ; preds = %9
-  %15 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #29
+  %15 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #31
   tail call void @llvm.assume(i1 %15)
   %16 = tail call i32 @errcode_for_file_access()
   %17 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8, ptr noundef nonnull @OutputFileName)
@@ -4894,12 +4894,12 @@ define dso_local void @DebugFileOpen() local_unnamed_addr #2 {
 
 22:                                               ; preds = %19
   %23 = load ptr, ptr @stdout, align 8
-  %24 = tail call ptr @freopen(ptr noundef nonnull @OutputFileName, ptr noundef nonnull @.str.7, ptr noundef %23) #28
+  %24 = tail call ptr @freopen(ptr noundef nonnull @OutputFileName, ptr noundef nonnull @.str.7, ptr noundef %23) #30
   %.not5 = icmp eq ptr %24, null
   br i1 %.not5, label %25, label %29
 
 25:                                               ; preds = %22
-  %26 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #29
+  %26 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #31
   tail call void @llvm.assume(i1 %26)
   %27 = tail call i32 @errcode_for_file_access()
   %28 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, ptr noundef nonnull @OutputFileName)
@@ -4911,10 +4911,10 @@ define dso_local void @DebugFileOpen() local_unnamed_addr #2 {
 }
 
 ; Function Attrs: nofree
-declare noundef i32 @open(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #12
+declare noundef i32 @open(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #14
 
 ; Function Attrs: nounwind
-declare i32 @isatty(i32 noundef) local_unnamed_addr #13
+declare i32 @isatty(i32 noundef) local_unnamed_addr #15
 
 declare i32 @close(i32 noundef) local_unnamed_addr #4
 
@@ -4923,15 +4923,15 @@ declare ptr @freopen(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #
 ; Function Attrs: nounwind uwtable
 define dso_local noundef zeroext i1 @check_backtrace_functions(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = load ptr, ptr %0, align 8
-  %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #31
+  %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #33
   %6 = trunc i64 %5 to i32
-  %7 = tail call i64 @strspn(ptr noundef %4, ptr noundef nonnull @.str.10) #31
+  %7 = tail call i64 @strspn(ptr noundef %4, ptr noundef nonnull @.str.10) #33
   %8 = trunc i64 %7 to i32
   %.not = icmp eq i32 %8, %6
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %3
-  %10 = tail call ptr @__errno_location() #30
+  %10 = tail call ptr @__errno_location() #32
   %11 = load i32, ptr %10, align 4
   store i32 %11, ptr @save_format_errnumber, align 4
   %12 = tail call ptr (ptr, ...) @format_elog_string(ptr noundef nonnull @.str.11)
@@ -4951,7 +4951,7 @@ define dso_local noundef zeroext i1 @check_backtrace_functions(ptr nocapture nou
   %18 = shl i64 %5, 32
   %sext = add i64 %18, 8589934592
   %19 = ashr exact i64 %sext, 32
-  %20 = tail call ptr @guc_malloc(i32 noundef 21, i64 noundef %19) #28
+  %20 = tail call ptr @guc_malloc(i32 noundef 21, i64 noundef %19) #30
   %21 = icmp sgt i32 %6, 0
   br i1 %21, label %.lr.ph.preheader, label %._crit_edge
 
@@ -5006,15 +5006,15 @@ define dso_local noundef zeroext i1 @check_backtrace_functions(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #14
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strspn(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #14
+declare i64 @strspn(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #16
 
 declare ptr @guc_malloc(i32 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define dso_local void @assign_backtrace_functions(ptr nocapture noundef readnone %0, ptr noundef %1) local_unnamed_addr #10 {
+define dso_local void @assign_backtrace_functions(ptr nocapture noundef readnone %0, ptr noundef %1) local_unnamed_addr #11 {
   store ptr %1, ptr @backtrace_function_list, align 8
   ret void
 }
@@ -5023,19 +5023,19 @@ define dso_local void @assign_backtrace_functions(ptr nocapture noundef readnone
 define dso_local noundef zeroext i1 @check_log_destination(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = alloca ptr, align 8
   %5 = load ptr, ptr %0, align 8
-  %6 = tail call ptr @pstrdup(ptr noundef %5) #28
-  %7 = call zeroext i1 @SplitIdentifierString(ptr noundef %6, i8 noundef signext 44, ptr noundef nonnull %4) #28
+  %6 = tail call ptr @pstrdup(ptr noundef %5) #30
+  %7 = call zeroext i1 @SplitIdentifierString(ptr noundef %6, i8 noundef signext 44, ptr noundef nonnull %4) #30
   br i1 %7, label %13, label %8
 
 8:                                                ; preds = %3
-  %9 = tail call ptr @__errno_location() #30
+  %9 = tail call ptr @__errno_location() #32
   %10 = load i32, ptr %9, align 4
   store i32 %10, ptr @save_format_errnumber, align 4
   %11 = call ptr (ptr, ...) @format_elog_string(ptr noundef nonnull @.str.12)
   store ptr %11, ptr @GUC_check_errdetail_string, align 8
-  call void @pfree(ptr noundef %6) #28
+  call void @pfree(ptr noundef %6) #30
   %12 = load ptr, ptr %4, align 8
-  call void @list_free(ptr noundef %12) #28
+  call void @list_free(ptr noundef %12) #30
   br label %44
 
 13:                                               ; preds = %3
@@ -5056,34 +5056,34 @@ define dso_local noundef zeroext i1 @check_log_destination(ptr nocapture noundef
   %19 = load ptr, ptr %16, align 8
   %20 = getelementptr %union.ListCell, ptr %19, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8
-  %22 = call i32 @pg_strcasecmp(ptr noundef %21, ptr noundef nonnull @.str.13) #28
+  %22 = call i32 @pg_strcasecmp(ptr noundef %21, ptr noundef nonnull @.str.13) #30
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %37, label %24
 
 24:                                               ; preds = %.lr.ph38
-  %25 = call i32 @pg_strcasecmp(ptr noundef %21, ptr noundef nonnull @.str.14) #28
+  %25 = call i32 @pg_strcasecmp(ptr noundef %21, ptr noundef nonnull @.str.14) #30
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %37, label %27
 
 27:                                               ; preds = %24
-  %28 = call i32 @pg_strcasecmp(ptr noundef %21, ptr noundef nonnull @.str.15) #28
+  %28 = call i32 @pg_strcasecmp(ptr noundef %21, ptr noundef nonnull @.str.15) #30
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %37, label %30
 
 30:                                               ; preds = %27
-  %31 = call i32 @pg_strcasecmp(ptr noundef %21, ptr noundef nonnull @.str.16) #28
+  %31 = call i32 @pg_strcasecmp(ptr noundef %21, ptr noundef nonnull @.str.16) #30
   %32 = icmp eq i32 %31, 0
   br i1 %32, label %37, label %.split
 
 .split:                                           ; preds = %30
-  %33 = tail call ptr @__errno_location() #30
+  %33 = tail call ptr @__errno_location() #32
   %34 = load i32, ptr %33, align 4
   store i32 %34, ptr @save_format_errnumber, align 4
   %35 = call ptr (ptr, ...) @format_elog_string(ptr noundef nonnull @.str.17, ptr noundef %21)
   store ptr %35, ptr @GUC_check_errdetail_string, align 8
-  call void @pfree(ptr noundef %6) #28
+  call void @pfree(ptr noundef %6) #30
   %36 = load ptr, ptr %4, align 8
-  call void @list_free(ptr noundef %36) #28
+  call void @list_free(ptr noundef %36) #30
   br label %44
 
 37:                                               ; preds = %30, %27, %24, %.lr.ph38
@@ -5097,10 +5097,10 @@ define dso_local noundef zeroext i1 @check_log_destination(ptr nocapture noundef
 
 ._crit_edge:                                      ; preds = %37, %.lr.ph, %13
   %.024.lcssa = phi i32 [ 0, %13 ], [ 0, %.lr.ph ], [ %38, %37 ]
-  call void @pfree(ptr noundef %6) #28
+  call void @pfree(ptr noundef %6) #30
   %42 = load ptr, ptr %4, align 8
-  call void @list_free(ptr noundef %42) #28
-  %43 = call ptr @guc_malloc(i32 noundef 21, i64 noundef 4) #28
+  call void @list_free(ptr noundef %42) #30
+  %43 = call ptr @guc_malloc(i32 noundef 21, i64 noundef 4) #30
   store i32 %.024.lcssa, ptr %43, align 4
   store ptr %43, ptr %1, align 8
   br label %44
@@ -5117,7 +5117,7 @@ declare void @list_free(ptr noundef) local_unnamed_addr #4
 declare i32 @pg_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: read, inaccessiblemem: none) uwtable
-define dso_local void @assign_log_destination(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1) local_unnamed_addr #15 {
+define dso_local void @assign_log_destination(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1) local_unnamed_addr #17 {
   %3 = load i32, ptr %1, align 4
   store i32 %3, ptr @Log_destination, align 4
   ret void
@@ -5130,7 +5130,7 @@ define dso_local void @assign_syslog_ident(ptr nocapture noundef readonly %0, pt
   br i1 %4, label %7, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %0) #31
+  %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %0) #33
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %12, label %7
 
@@ -5139,15 +5139,15 @@ define dso_local void @assign_syslog_ident(ptr nocapture noundef readonly %0, pt
   br i1 %.b2, label %8, label %9
 
 8:                                                ; preds = %7
-  tail call void @closelog() #28
+  tail call void @closelog() #30
   store i1 false, ptr @openlog_done, align 1
   %.pre = load ptr, ptr @syslog_ident, align 8
   br label %9
 
 9:                                                ; preds = %8, %7
   %10 = phi ptr [ %.pre, %8 ], [ %3, %7 ]
-  tail call void @free(ptr noundef %10) #28
-  %11 = tail call noalias ptr @strdup(ptr noundef %0) #28
+  tail call void @free(ptr noundef %10) #30
+  %11 = tail call noalias ptr @strdup(ptr noundef %0) #30
   store ptr %11, ptr @syslog_ident, align 8
   br label %12
 
@@ -5156,15 +5156,15 @@ define dso_local void @assign_syslog_ident(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #14
+declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #16
 
 declare void @closelog() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #16
+declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #17
+declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #19
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @assign_syslog_facility(i32 noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #2 {
@@ -5177,7 +5177,7 @@ define dso_local void @assign_syslog_facility(i32 noundef %0, ptr nocapture noun
   br i1 %.b2, label %5, label %6
 
 5:                                                ; preds = %4
-  tail call void @closelog() #28
+  tail call void @closelog() #30
   store i1 false, ptr @openlog_done, align 1
   br label %6
 
@@ -5202,7 +5202,7 @@ define dso_local noundef nonnull ptr @get_formatted_log_time() local_unnamed_add
   br i1 %.b1, label %7, label %5
 
 5:                                                ; preds = %4
-  %6 = tail call i32 @gettimeofday(ptr noundef nonnull @saved_timeval, ptr noundef null) #28
+  %6 = tail call i32 @gettimeofday(ptr noundef nonnull @saved_timeval, ptr noundef null) #30
   store i1 true, ptr @saved_timeval_set, align 1
   br label %7
 
@@ -5210,12 +5210,12 @@ define dso_local noundef nonnull ptr @get_formatted_log_time() local_unnamed_add
   %8 = load i64, ptr @saved_timeval, align 8
   store i64 %8, ptr %1, align 8
   %9 = load ptr, ptr @log_timezone, align 8
-  %10 = call ptr @pg_localtime(ptr noundef nonnull %1, ptr noundef %9) #28
-  %11 = call i64 @pg_strftime(ptr noundef nonnull @formatted_log_time, i64 noundef 128, ptr noundef nonnull @.str.18, ptr noundef %10) #28
+  %10 = call ptr @pg_localtime(ptr noundef nonnull %1, ptr noundef %9) #30
+  %11 = call i64 @pg_strftime(ptr noundef nonnull @formatted_log_time, i64 noundef 128, ptr noundef nonnull @.str.18, ptr noundef %10) #30
   %12 = load i64, ptr getelementptr inbounds (i8, ptr @saved_timeval, i64 8), align 8
   %13 = sdiv i64 %12, 1000
   %14 = trunc i64 %13 to i32
-  %15 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %2, ptr noundef nonnull @.str.19, i32 noundef %14) #28
+  %15 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %2, ptr noundef nonnull @.str.19, i32 noundef %14) #30
   %16 = load i32, ptr %2, align 4
   store i32 %16, ptr getelementptr inbounds (i8, ptr @formatted_log_time, i64 19), align 1
   br label %17
@@ -5234,7 +5234,7 @@ declare ptr @pg_localtime(ptr noundef, ptr noundef) local_unnamed_addr #4
 declare i32 @pg_sprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define dso_local void @reset_formatted_start_time() local_unnamed_addr #10 {
+define dso_local void @reset_formatted_start_time() local_unnamed_addr #11 {
   store i8 0, ptr @formatted_start_time, align 16
   ret void
 }
@@ -5250,8 +5250,8 @@ define dso_local noundef nonnull ptr @get_formatted_start_time() local_unnamed_a
 
 4:                                                ; preds = %0
   %5 = load ptr, ptr @log_timezone, align 8
-  %6 = call ptr @pg_localtime(ptr noundef nonnull %1, ptr noundef %5) #28
-  %7 = call i64 @pg_strftime(ptr noundef nonnull @formatted_start_time, i64 noundef 128, ptr noundef nonnull @.str.20, ptr noundef %6) #28
+  %6 = call ptr @pg_localtime(ptr noundef nonnull %1, ptr noundef %5) #30
+  %7 = call i64 @pg_strftime(ptr noundef nonnull @formatted_start_time, i64 noundef 128, ptr noundef nonnull @.str.20, ptr noundef %6) #30
   br label %8
 
 8:                                                ; preds = %0, %4
@@ -5259,7 +5259,7 @@ define dso_local noundef nonnull ptr @get_formatted_start_time() local_unnamed_a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local zeroext i1 @check_log_of_query(ptr nocapture noundef readonly %0) local_unnamed_addr #18 {
+define dso_local zeroext i1 @check_log_of_query(ptr nocapture noundef readonly %0) local_unnamed_addr #20 {
   %2 = load i32, ptr %0, align 8
   %3 = load i32, ptr @log_min_error_statement, align 4
   %4 = add i32 %2, -15
@@ -5320,7 +5320,7 @@ define dso_local ptr @get_backend_type_for_log() local_unnamed_addr #2 {
   br label %12
 
 10:                                               ; preds = %4
-  %11 = tail call ptr @GetBackendTypeDesc(i32 noundef %5) #28
+  %11 = tail call ptr @GetBackendTypeDesc(i32 noundef %5) #30
   br label %12
 
 12:                                               ; preds = %0, %7, %10
@@ -5375,7 +5375,7 @@ define dso_local void @log_status_format(ptr noundef %0, ptr noundef readonly %1
   ]
 
 23:                                               ; preds = %21
-  call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext %22) #28
+  call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext %22) #30
   br label %267
 
 24:                                               ; preds = %21
@@ -5387,7 +5387,7 @@ define dso_local void @log_status_format(ptr noundef %0, ptr noundef readonly %1
   ]
 
 27:                                               ; preds = %24
-  call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 37) #28
+  call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 37) #30
   br label %267
 
 28:                                               ; preds = %24
@@ -5488,11 +5488,11 @@ thread-pre-split:                                 ; preds = %.critedge.i
   br i1 %.not180, label %61, label %60
 
 60:                                               ; preds = %59
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.23, i32 noundef %.2220, ptr noundef nonnull %.089) #28
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.23, i32 noundef %.2220, ptr noundef nonnull %.089) #30
   br label %267
 
 61:                                               ; preds = %59
-  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %.089) #28
+  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %.089) #30
   br label %267
 
 62:                                               ; preds = %50
@@ -5501,7 +5501,7 @@ thread-pre-split:                                 ; preds = %.critedge.i
 
 63:                                               ; preds = %62
   %64 = call i32 @llvm.abs.i32(i32 %.2220, i1 false)
-  call void @appendStringInfoSpaces(ptr noundef %0, i32 noundef %64) #28
+  call void @appendStringInfoSpaces(ptr noundef %0, i32 noundef %64) #30
   br label %267
 
 65:                                               ; preds = %48
@@ -5521,7 +5521,7 @@ thread-pre-split:                                 ; preds = %.critedge.i
   br label %get_backend_type_for_log.exit
 
 75:                                               ; preds = %69
-  %76 = call ptr @GetBackendTypeDesc(i32 noundef %70) #28
+  %76 = call ptr @GetBackendTypeDesc(i32 noundef %70) #30
   br label %get_backend_type_for_log.exit
 
 get_backend_type_for_log.exit:                    ; preds = %65, %72, %75
@@ -5530,11 +5530,11 @@ get_backend_type_for_log.exit:                    ; preds = %65, %72, %75
   br i1 %.not177, label %78, label %77
 
 77:                                               ; preds = %get_backend_type_for_log.exit
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.23, i32 noundef %.2220, ptr noundef %.0.i) #28
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.23, i32 noundef %.2220, ptr noundef %.0.i) #30
   br label %267
 
 78:                                               ; preds = %get_backend_type_for_log.exit
-  call void @appendStringInfoString(ptr noundef %0, ptr noundef %.0.i) #28
+  call void @appendStringInfoString(ptr noundef %0, ptr noundef %.0.i) #30
   br label %267
 
 79:                                               ; preds = %48
@@ -5562,11 +5562,11 @@ get_backend_type_for_log.exit:                    ; preds = %65, %72, %75
   br i1 %.not176, label %91, label %90
 
 90:                                               ; preds = %89
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.23, i32 noundef %.2220, ptr noundef nonnull %.090) #28
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.23, i32 noundef %.2220, ptr noundef nonnull %.090) #30
   br label %267
 
 91:                                               ; preds = %89
-  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %.090) #28
+  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %.090) #30
   br label %267
 
 92:                                               ; preds = %79
@@ -5575,7 +5575,7 @@ get_backend_type_for_log.exit:                    ; preds = %65, %72, %75
 
 93:                                               ; preds = %92
   %94 = call i32 @llvm.abs.i32(i32 %.2220, i1 false)
-  call void @appendStringInfoSpaces(ptr noundef %0, i32 noundef %94) #28
+  call void @appendStringInfoSpaces(ptr noundef %0, i32 noundef %94) #30
   br label %267
 
 95:                                               ; preds = %48
@@ -5603,11 +5603,11 @@ get_backend_type_for_log.exit:                    ; preds = %65, %72, %75
   br i1 %.not173, label %107, label %106
 
 106:                                              ; preds = %105
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.23, i32 noundef %.2220, ptr noundef nonnull %.091) #28
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.23, i32 noundef %.2220, ptr noundef nonnull %.091) #30
   br label %267
 
 107:                                              ; preds = %105
-  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %.091) #28
+  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %.091) #30
   br label %267
 
 108:                                              ; preds = %95
@@ -5616,7 +5616,7 @@ get_backend_type_for_log.exit:                    ; preds = %65, %72, %75
 
 109:                                              ; preds = %108
   %110 = call i32 @llvm.abs.i32(i32 %.2220, i1 false)
-  call void @appendStringInfoSpaces(ptr noundef %0, i32 noundef %110) #28
+  call void @appendStringInfoSpaces(ptr noundef %0, i32 noundef %110) #30
   br label %267
 
 111:                                              ; preds = %48
@@ -5626,12 +5626,12 @@ get_backend_type_for_log.exit:                    ; preds = %65, %72, %75
   br i1 %.not170, label %116, label %114
 
 114:                                              ; preds = %111
-  %115 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %7, i64 noundef 127, ptr noundef nonnull @.str.24, i64 noundef %112, i32 noundef %113) #28
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.23, i32 noundef %.2220, ptr noundef nonnull %7) #28
+  %115 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %7, i64 noundef 127, ptr noundef nonnull @.str.24, i64 noundef %112, i32 noundef %113) #30
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.23, i32 noundef %.2220, ptr noundef nonnull %7) #30
   br label %267
 
 116:                                              ; preds = %111
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.24, i64 noundef %112, i32 noundef %113) #28
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.24, i64 noundef %112, i32 noundef %113) #30
   br label %267
 
 117:                                              ; preds = %48
@@ -5640,11 +5640,11 @@ get_backend_type_for_log.exit:                    ; preds = %65, %72, %75
   br i1 %.not169, label %120, label %119
 
 119:                                              ; preds = %117
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.25, i32 noundef %.2220, i32 noundef %118) #28
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.25, i32 noundef %.2220, i32 noundef %118) #30
   br label %267
 
 120:                                              ; preds = %117
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.26, i32 noundef %118) #28
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.26, i32 noundef %118) #30
   br label %267
 
 121:                                              ; preds = %48
@@ -5667,7 +5667,7 @@ get_backend_type_for_log.exit:                    ; preds = %65, %72, %75
 
 132:                                              ; preds = %127, %123
   %133 = call i32 @llvm.abs.i32(i32 %.2220, i1 false)
-  call void @appendStringInfoSpaces(ptr noundef %0, i32 noundef %133) #28
+  call void @appendStringInfoSpaces(ptr noundef %0, i32 noundef %133) #30
   br label %267
 
 134:                                              ; preds = %127
@@ -5675,11 +5675,11 @@ get_backend_type_for_log.exit:                    ; preds = %65, %72, %75
   br i1 %.not168, label %136, label %135
 
 135:                                              ; preds = %134
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.25, i32 noundef %.2220, i32 noundef %129) #28
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.25, i32 noundef %.2220, i32 noundef %129) #30
   br label %267
 
 136:                                              ; preds = %134
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.26, i32 noundef %129) #28
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.26, i32 noundef %129) #30
   br label %267
 
 137:                                              ; preds = %121
@@ -5688,7 +5688,7 @@ get_backend_type_for_log.exit:                    ; preds = %65, %72, %75
 
 138:                                              ; preds = %137
   %139 = call i32 @llvm.abs.i32(i32 %.2220, i1 false)
-  call void @appendStringInfoSpaces(ptr noundef %0, i32 noundef %139) #28
+  call void @appendStringInfoSpaces(ptr noundef %0, i32 noundef %139) #30
   br label %267
 
 140:                                              ; preds = %48
@@ -5697,11 +5697,11 @@ get_backend_type_for_log.exit:                    ; preds = %65, %72, %75
   br i1 %.not165, label %143, label %142
 
 142:                                              ; preds = %140
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.27, i32 noundef %.2220, i64 noundef %141) #28
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.27, i32 noundef %.2220, i64 noundef %141) #30
   br label %267
 
 143:                                              ; preds = %140
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.28, i64 noundef %141) #28
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.28, i64 noundef %141) #30
   br label %267
 
 144:                                              ; preds = %48
@@ -5712,7 +5712,7 @@ get_backend_type_for_log.exit:                    ; preds = %65, %72, %75
   br i1 %.b1.i, label %get_formatted_log_time.exit, label %145
 
 145:                                              ; preds = %144
-  %146 = call i32 @gettimeofday(ptr noundef nonnull @saved_timeval, ptr noundef null) #28
+  %146 = call i32 @gettimeofday(ptr noundef nonnull @saved_timeval, ptr noundef null) #30
   store i1 true, ptr @saved_timeval_set, align 1
   br label %get_formatted_log_time.exit
 
@@ -5720,12 +5720,12 @@ get_formatted_log_time.exit:                      ; preds = %144, %145
   %147 = load i64, ptr @saved_timeval, align 8
   store i64 %147, ptr %5, align 8
   %148 = load ptr, ptr @log_timezone, align 8
-  %149 = call ptr @pg_localtime(ptr noundef nonnull %5, ptr noundef %148) #28
-  %150 = call i64 @pg_strftime(ptr noundef nonnull @formatted_log_time, i64 noundef 128, ptr noundef nonnull @.str.18, ptr noundef %149) #28
+  %149 = call ptr @pg_localtime(ptr noundef nonnull %5, ptr noundef %148) #30
+  %150 = call i64 @pg_strftime(ptr noundef nonnull @formatted_log_time, i64 noundef 128, ptr noundef nonnull @.str.18, ptr noundef %149) #30
   %151 = load i64, ptr getelementptr inbounds (i8, ptr @saved_timeval, i64 8), align 8
   %152 = sdiv i64 %151, 1000
   %153 = trunc i64 %152 to i32
-  %154 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.19, i32 noundef %153) #28
+  %154 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.19, i32 noundef %153) #30
   %155 = load i32, ptr %6, align 4
   store i32 %155, ptr getelementptr inbounds (i8, ptr @formatted_log_time, i64 19), align 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
@@ -5734,28 +5734,28 @@ get_formatted_log_time.exit:                      ; preds = %144, %145
   br i1 %.not164, label %157, label %156
 
 156:                                              ; preds = %get_formatted_log_time.exit
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.23, i32 noundef %.2220, ptr noundef nonnull @formatted_log_time) #28
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.23, i32 noundef %.2220, ptr noundef nonnull @formatted_log_time) #30
   br label %267
 
 157:                                              ; preds = %get_formatted_log_time.exit
-  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @formatted_log_time) #28
+  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @formatted_log_time) #30
   br label %267
 
 158:                                              ; preds = %48
-  %159 = call i64 @time(ptr noundef null) #28
+  %159 = call i64 @time(ptr noundef null) #30
   store i64 %159, ptr %8, align 8
   %160 = load ptr, ptr @log_timezone, align 8
-  %161 = call ptr @pg_localtime(ptr noundef nonnull %8, ptr noundef %160) #28
-  %162 = call i64 @pg_strftime(ptr noundef nonnull %9, i64 noundef 128, ptr noundef nonnull @.str.20, ptr noundef %161) #28
+  %161 = call ptr @pg_localtime(ptr noundef nonnull %8, ptr noundef %160) #30
+  %162 = call i64 @pg_strftime(ptr noundef nonnull %9, i64 noundef 128, ptr noundef nonnull @.str.20, ptr noundef %161) #30
   %.not163 = icmp eq i32 %.2220, 0
   br i1 %.not163, label %164, label %163
 
 163:                                              ; preds = %158
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.23, i32 noundef %.2220, ptr noundef nonnull %9) #28
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.23, i32 noundef %.2220, ptr noundef nonnull %9) #30
   br label %267
 
 164:                                              ; preds = %158
-  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %9) #28
+  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %9) #30
   br label %267
 
 165:                                              ; preds = %48
@@ -5763,7 +5763,7 @@ get_formatted_log_time.exit:                      ; preds = %144, %145
   br i1 %.b161, label %168, label %166
 
 166:                                              ; preds = %165
-  %167 = call i32 @gettimeofday(ptr noundef nonnull @saved_timeval, ptr noundef null) #28
+  %167 = call i32 @gettimeofday(ptr noundef nonnull @saved_timeval, ptr noundef null) #30
   store i1 true, ptr @saved_timeval_set, align 1
   br label %168
 
@@ -5772,16 +5772,16 @@ get_formatted_log_time.exit:                      ; preds = %144, %145
   %170 = load i64, ptr getelementptr inbounds (i8, ptr @saved_timeval, i64 8), align 8
   %171 = sdiv i64 %170, 1000
   %172 = trunc i64 %171 to i32
-  %173 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %10, i64 noundef 128, ptr noundef nonnull @.str.29, i64 noundef %169, i32 noundef %172) #28
+  %173 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %10, i64 noundef 128, ptr noundef nonnull @.str.29, i64 noundef %169, i32 noundef %172) #30
   %.not162 = icmp eq i32 %.2220, 0
   br i1 %.not162, label %175, label %174
 
 174:                                              ; preds = %168
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.23, i32 noundef %.2220, ptr noundef nonnull %10) #28
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.23, i32 noundef %.2220, ptr noundef nonnull %10) #30
   br label %267
 
 175:                                              ; preds = %168
-  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %10) #28
+  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %10) #30
   br label %267
 
 176:                                              ; preds = %48
@@ -5794,8 +5794,8 @@ get_formatted_log_time.exit:                      ; preds = %144, %145
 
 179:                                              ; preds = %176
   %180 = load ptr, ptr @log_timezone, align 8
-  %181 = call ptr @pg_localtime(ptr noundef nonnull %4, ptr noundef %180) #28
-  %182 = call i64 @pg_strftime(ptr noundef nonnull @formatted_start_time, i64 noundef 128, ptr noundef nonnull @.str.20, ptr noundef %181) #28
+  %181 = call ptr @pg_localtime(ptr noundef nonnull %4, ptr noundef %180) #30
+  %182 = call i64 @pg_strftime(ptr noundef nonnull @formatted_start_time, i64 noundef 128, ptr noundef nonnull @.str.20, ptr noundef %181) #30
   br label %get_formatted_start_time.exit
 
 get_formatted_start_time.exit:                    ; preds = %176, %179
@@ -5804,11 +5804,11 @@ get_formatted_start_time.exit:                    ; preds = %176, %179
   br i1 %.not160, label %184, label %183
 
 183:                                              ; preds = %get_formatted_start_time.exit
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.23, i32 noundef %.2220, ptr noundef nonnull @formatted_start_time) #28
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.23, i32 noundef %.2220, ptr noundef nonnull @formatted_start_time) #30
   br label %267
 
 184:                                              ; preds = %get_formatted_start_time.exit
-  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @formatted_start_time) #28
+  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @formatted_start_time) #30
   br label %267
 
 185:                                              ; preds = %48
@@ -5817,17 +5817,17 @@ get_formatted_start_time.exit:                    ; preds = %176, %179
   br i1 %.not157, label %192, label %187
 
 187:                                              ; preds = %185
-  %188 = call ptr @get_ps_display(ptr noundef nonnull %11) #28
+  %188 = call ptr @get_ps_display(ptr noundef nonnull %11) #30
   %.not159 = icmp eq i32 %.2220, 0
   br i1 %.not159, label %190, label %189
 
 189:                                              ; preds = %187
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.23, i32 noundef %.2220, ptr noundef %188) #28
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.23, i32 noundef %.2220, ptr noundef %188) #30
   br label %267
 
 190:                                              ; preds = %187
   %191 = load i32, ptr %11, align 4
-  call void @appendBinaryStringInfo(ptr noundef %0, ptr noundef %188, i32 noundef %191) #28
+  call void @appendBinaryStringInfo(ptr noundef %0, ptr noundef %188, i32 noundef %191) #30
   br label %267
 
 192:                                              ; preds = %185
@@ -5836,7 +5836,7 @@ get_formatted_start_time.exit:                    ; preds = %176, %179
 
 193:                                              ; preds = %192
   %194 = call i32 @llvm.abs.i32(i32 %.2220, i1 false)
-  call void @appendStringInfoSpaces(ptr noundef %0, i32 noundef %194) #28
+  call void @appendStringInfoSpaces(ptr noundef %0, i32 noundef %194) #30
   br label %267
 
 195:                                              ; preds = %48
@@ -5866,17 +5866,17 @@ get_formatted_start_time.exit:                    ; preds = %176, %179
   br i1 %.not156, label %208, label %206
 
 206:                                              ; preds = %204
-  %207 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.30, ptr noundef nonnull %199, ptr noundef nonnull %203) #28
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.23, i32 noundef %.2220, ptr noundef %207) #28
-  call void @pfree(ptr noundef %207) #28
+  %207 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.30, ptr noundef nonnull %199, ptr noundef nonnull %203) #30
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.23, i32 noundef %.2220, ptr noundef %207) #30
+  call void @pfree(ptr noundef %207) #30
   br label %267
 
 208:                                              ; preds = %204, %201
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.23, i32 noundef %.2220, ptr noundef nonnull %199) #28
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.23, i32 noundef %.2220, ptr noundef nonnull %199) #30
   br label %267
 
 209:                                              ; preds = %200
-  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %199) #28
+  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %199) #30
   %210 = load ptr, ptr @MyProcPort, align 8
   %211 = getelementptr inbounds i8, ptr %210, i64 312
   %212 = load ptr, ptr %211, align 8
@@ -5889,7 +5889,7 @@ get_formatted_start_time.exit:                    ; preds = %176, %179
   br i1 %.not154, label %267, label %215
 
 215:                                              ; preds = %213
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.31, ptr noundef nonnull %212) #28
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.31, ptr noundef nonnull %212) #30
   br label %267
 
 216:                                              ; preds = %197, %195
@@ -5898,7 +5898,7 @@ get_formatted_start_time.exit:                    ; preds = %176, %179
 
 217:                                              ; preds = %216
   %218 = call i32 @llvm.abs.i32(i32 %.2220, i1 false)
-  call void @appendStringInfoSpaces(ptr noundef %0, i32 noundef %218) #28
+  call void @appendStringInfoSpaces(ptr noundef %0, i32 noundef %218) #30
   br label %267
 
 219:                                              ; preds = %48
@@ -5917,11 +5917,11 @@ get_formatted_start_time.exit:                    ; preds = %176, %179
   br i1 %.not148, label %226, label %225
 
 225:                                              ; preds = %224
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.23, i32 noundef %.2220, ptr noundef nonnull %223) #28
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.23, i32 noundef %.2220, ptr noundef nonnull %223) #30
   br label %267
 
 226:                                              ; preds = %224
-  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %223) #28
+  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %223) #30
   br label %267
 
 227:                                              ; preds = %221, %219
@@ -5930,7 +5930,7 @@ get_formatted_start_time.exit:                    ; preds = %176, %179
 
 228:                                              ; preds = %227
   %229 = call i32 @llvm.abs.i32(i32 %.2220, i1 false)
-  call void @appendStringInfoSpaces(ptr noundef %0, i32 noundef %229) #28
+  call void @appendStringInfoSpaces(ptr noundef %0, i32 noundef %229) #30
   br label %267
 
 230:                                              ; preds = %48
@@ -5956,12 +5956,12 @@ get_formatted_start_time.exit:                    ; preds = %176, %179
   br i1 %.not144, label %243, label %241
 
 241:                                              ; preds = %238
-  %242 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %12, i64 noundef 127, ptr noundef nonnull @.str.32, i32 noundef %237, i32 noundef %240) #28
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.23, i32 noundef %.2220, ptr noundef nonnull %12) #28
+  %242 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %12, i64 noundef 127, ptr noundef nonnull @.str.32, i32 noundef %237, i32 noundef %240) #30
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.23, i32 noundef %.2220, ptr noundef nonnull %12) #30
   br label %267
 
 243:                                              ; preds = %238
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.32, i32 noundef %237, i32 noundef %240) #28
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.32, i32 noundef %237, i32 noundef %240) #30
   br label %267
 
 244:                                              ; preds = %235, %233
@@ -5970,20 +5970,20 @@ get_formatted_start_time.exit:                    ; preds = %176, %179
 
 245:                                              ; preds = %244
   %246 = call i32 @llvm.abs.i32(i32 %.2220, i1 false)
-  call void @appendStringInfoSpaces(ptr noundef %0, i32 noundef %246) #28
+  call void @appendStringInfoSpaces(ptr noundef %0, i32 noundef %246) #30
   br label %267
 
 247:                                              ; preds = %48
   %.not140 = icmp eq i32 %.2220, 0
-  %248 = call i32 @GetTopTransactionIdIfAny() #28
+  %248 = call i32 @GetTopTransactionIdIfAny() #30
   br i1 %.not140, label %250, label %249
 
 249:                                              ; preds = %247
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.33, i32 noundef %.2220, i32 noundef %248) #28
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.33, i32 noundef %.2220, i32 noundef %248) #30
   br label %267
 
 250:                                              ; preds = %247
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.34, i32 noundef %248) #28
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.34, i32 noundef %248) #30
   br label %267
 
 251:                                              ; preds = %48
@@ -6006,7 +6006,7 @@ get_formatted_start_time.exit:                    ; preds = %176, %179
 
 unpack_sql_state.exit:                            ; preds = %.preheader230
   store i8 0, ptr getelementptr inbounds (i8, ptr @unpack_sql_state.buf, i64 5), align 1
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.23, i32 noundef %.2220, ptr noundef nonnull @unpack_sql_state.buf) #28
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.23, i32 noundef %.2220, ptr noundef nonnull @unpack_sql_state.buf) #30
   br label %267
 
 .preheader229:                                    ; preds = %251, %.preheader229
@@ -6024,20 +6024,20 @@ unpack_sql_state.exit:                            ; preds = %.preheader230
 
 unpack_sql_state.exit186:                         ; preds = %.preheader229
   store i8 0, ptr getelementptr inbounds (i8, ptr @unpack_sql_state.buf, i64 5), align 1
-  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @unpack_sql_state.buf) #28
+  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @unpack_sql_state.buf) #30
   br label %267
 
 263:                                              ; preds = %48
   %.not138 = icmp eq i32 %.2220, 0
-  %264 = call i64 @pgstat_get_my_query_id() #28
+  %264 = call i64 @pgstat_get_my_query_id() #30
   br i1 %.not138, label %266, label %265
 
 265:                                              ; preds = %263
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.35, i32 noundef %.2220, i64 noundef %264) #28
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.35, i32 noundef %.2220, i64 noundef %264) #30
   br label %267
 
 266:                                              ; preds = %263
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.36, i64 noundef %264) #28
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.36, i64 noundef %264) #30
   br label %267
 
 267:                                              ; preds = %62, %63, %60, %61, %78, %77, %92, %93, %90, %91, %108, %109, %106, %107, %116, %114, %120, %119, %137, %138, %132, %136, %135, %143, %142, %157, %156, %164, %163, %175, %174, %184, %183, %192, %193, %189, %190, %216, %217, %208, %206, %215, %213, %209, %227, %228, %225, %226, %230, %244, %245, %241, %243, %250, %249, %unpack_sql_state.exit186, %unpack_sql_state.exit, %266, %265, %48, %27, %23
@@ -6056,7 +6056,7 @@ declare void @appendStringInfoSpaces(ptr noundef, i32 noundef) local_unnamed_add
 declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare i64 @time(ptr noundef) local_unnamed_addr #13
+declare i64 @time(ptr noundef) local_unnamed_addr #15
 
 declare ptr @get_ps_display(ptr noundef) local_unnamed_addr #4
 
@@ -6067,7 +6067,7 @@ declare ptr @psprintf(ptr noundef, ...) local_unnamed_addr #4
 declare i32 @GetTopTransactionIdIfAny() local_unnamed_addr #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: none, inaccessiblemem: none) uwtable
-define dso_local noundef nonnull ptr @unpack_sql_state(i32 noundef %0) local_unnamed_addr #19 {
+define dso_local noundef nonnull ptr @unpack_sql_state(i32 noundef %0) local_unnamed_addr #21 {
   br label %2
 
 2:                                                ; preds = %1, %2
@@ -6091,10 +6091,10 @@ define dso_local noundef nonnull ptr @unpack_sql_state(i32 noundef %0) local_unn
 declare i64 @pgstat_get_my_query_id() local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind uwtable
-define dso_local void @write_pipe_chunks(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #20 {
+define dso_local void @write_pipe_chunks(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #22 {
   %4 = alloca %union.PipeProtoChunk, align 4
   %5 = load ptr, ptr @stderr, align 8
-  %6 = tail call i32 @fileno(ptr noundef %5) #28
+  %6 = tail call i32 @fileno(ptr noundef %5) #30
   %7 = getelementptr inbounds i8, ptr %4, i64 1
   store i8 0, ptr %7, align 1
   store i8 0, ptr %4, align 4
@@ -6136,7 +6136,7 @@ define dso_local void @write_pipe_chunks(ptr nocapture noundef readonly %0, i32 
   %.01214 = phi i32 [ %1, %.lr.ph ], [ %21, %18 ]
   store i16 4087, ptr %16, align 2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(4087) %17, ptr noundef nonnull align 1 dereferenceable(4087) %.015, i64 4087, i1 false)
-  %19 = call i64 @write(i32 noundef %6, ptr noundef nonnull %4, i64 noundef 4096) #28
+  %19 = call i64 @write(i32 noundef %6, ptr noundef nonnull %4, i64 noundef 4096) #30
   %20 = getelementptr i8, ptr %.015, i64 4087
   %21 = add nsw i32 %.01214, -4087
   %22 = icmp ugt i32 %.01214, 8174
@@ -6153,7 +6153,7 @@ define dso_local void @write_pipe_chunks(ptr nocapture noundef readonly %0, i32 
   %26 = sext i32 %.012.lcssa to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %25, ptr align 1 %.0.lcssa, i64 %26, i1 false)
   %27 = add nsw i64 %26, 9
-  %28 = call i64 @write(i32 noundef %6, ptr noundef nonnull %4, i64 noundef %27) #28
+  %28 = call i64 @write(i32 noundef %6, ptr noundef nonnull %4, i64 noundef %27) #30
   ret void
 }
 
@@ -6161,10 +6161,10 @@ define dso_local void @write_pipe_chunks(ptr nocapture noundef readonly %0, i32 
 declare noundef i32 @fileno(ptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #12
+declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull ptr @error_severity(i32 noundef %0) local_unnamed_addr #21 {
+define dso_local noundef nonnull ptr @error_severity(i32 noundef %0) local_unnamed_addr #23 {
   %switch.tableidx = add i32 %0, -10
   %2 = icmp ult i32 %switch.tableidx, 14
   br i1 %2, label %switch.lookup, label %4
@@ -6183,12 +6183,12 @@ switch.lookup:                                    ; preds = %1
 declare i32 @pg_vfprintf(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #14
+declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #16
 
 declare i32 @backtrace(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare ptr @backtrace_symbols(ptr noundef, i32 noundef) local_unnamed_addr #13
+declare ptr @backtrace_symbols(ptr noundef, i32 noundef) local_unnamed_addr #15
 
 declare void @write_csvlog(ptr noundef) local_unnamed_addr #4
 
@@ -6199,12 +6199,12 @@ declare void @write_syslogger_file(ptr noundef, i32 noundef, i32 noundef) local_
 declare void @openlog(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #14
+declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #16
 
 declare i32 @pg_mbcliplen(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__ctype_b_loc() local_unnamed_addr #9
+declare ptr @__ctype_b_loc() local_unnamed_addr #10
 
 declare void @syslog(i32 noundef, ptr noundef, ...) local_unnamed_addr #4
 
@@ -6219,65 +6219,68 @@ declare void @pq_send_ascii_string(ptr noundef, ptr noundef) local_unnamed_addr 
 declare void @pq_sendstring(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start.p0(ptr) #22
+declare void @llvm.va_start.p0(ptr) #24
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end.p0(ptr) #22
+declare void @llvm.va_end.p0(ptr) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #23
+declare void @llvm.assume(i1 noundef) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #24
+declare i32 @llvm.abs.i32(i32, i1 immarg) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #24
+declare i32 @llvm.smin.i32(i32, i32) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #25
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #25
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #26
+declare void @llvm.experimental.noalias.scope.decl(metadata) #28
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #24
+declare i32 @llvm.smax.i32(i32, i32) #26
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { cold nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #12 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { nofree norecurse nosync nounwind memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #22 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #23 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #24 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #25 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #26 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #27 = { noreturn nounwind }
-attributes #28 = { nounwind }
-attributes #29 = { cold }
-attributes #30 = { nounwind willreturn memory(none) }
-attributes #31 = { nounwind willreturn memory(read) }
-attributes #32 = { noreturn }
+attributes #8 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #13 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { nofree norecurse nosync nounwind memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #22 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #23 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #24 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #25 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #26 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #27 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #28 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #29 = { cold noreturn nounwind }
+attributes #30 = { nounwind }
+attributes #31 = { cold }
+attributes #32 = { nounwind willreturn memory(none) }
+attributes #33 = { nounwind willreturn memory(read) }
+attributes #34 = { noreturn }
+attributes #35 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

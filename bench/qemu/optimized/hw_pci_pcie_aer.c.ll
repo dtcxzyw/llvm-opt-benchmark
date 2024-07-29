@@ -76,7 +76,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local range(i32 -22, 1) i32 @pcie_aer_init(ptr noundef %dev, i8 noundef zeroext %cap_ver, i16 noundef zeroext %offset, i16 noundef zeroext %size, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  tail call void @pcie_add_capability(ptr noundef %dev, i16 noundef zeroext 1, i8 noundef zeroext %cap_ver, i16 noundef zeroext %offset, i16 noundef zeroext %size) #13
+  tail call void @pcie_add_capability(ptr noundef %dev, i16 noundef zeroext 1, i8 noundef zeroext %cap_ver, i16 noundef zeroext %offset, i16 noundef zeroext %size) #14
   %aer_cap = getelementptr inbounds i8, ptr %dev, i64 2172
   store i16 %offset, ptr %aer_cap, align 4
   %log_max = getelementptr inbounds i8, ptr %dev, i64 2178
@@ -86,13 +86,13 @@ entry:
 
 if.then:                                          ; preds = %entry
   %conv = zext i16 %0 to i32
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 107, ptr noundef nonnull @__func__.pcie_aer_init, ptr noundef nonnull @.str.1, i32 noundef %conv, i32 noundef 128) #13
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 107, ptr noundef nonnull @__func__.pcie_aer_init, ptr noundef nonnull @.str.1, i32 noundef %conv, i32 noundef 128) #14
   br label %return
 
 if.end:                                           ; preds = %entry
   %narrow = mul nuw nsw i16 %0, 40
   %mul = zext nneg i16 %narrow to i64
-  %call = tail call noalias ptr @g_malloc0(i64 noundef %mul) #14
+  %call = tail call noalias ptr @g_malloc0(i64 noundef %mul) #15
   %log = getelementptr inbounds i8, ptr %dev, i64 2184
   store ptr %call, ptr %log, align 8
   %w1cmask = getelementptr inbounds i8, ptr %dev, i64 192
@@ -157,7 +157,7 @@ if.end24:                                         ; preds = %if.then15, %if.end
   %add.ptr76 = getelementptr i8, ptr %12, i64 %idx.ext
   %add.ptr77 = getelementptr i8, ptr %add.ptr76, i64 24
   store i32 %.43, ptr %add.ptr77, align 1
-  %call79 = tail call zeroext i8 @pcie_cap_get_type(ptr noundef nonnull %dev) #13
+  %call79 = tail call zeroext i8 @pcie_cap_get_type(ptr noundef nonnull %dev) #14
   %call79.off = add i8 %call79, -4
   %switch = icmp ult i8 %call79.off, 3
   br i1 %switch, label %sw.bb, label %return
@@ -194,7 +194,7 @@ define dso_local void @pcie_aer_exit(ptr nocapture noundef readonly %dev) local_
 entry:
   %log = getelementptr inbounds i8, ptr %dev, i64 2184
   %0 = load ptr, ptr %log, align 8
-  tail call void @g_free(ptr noundef %0) #13
+  tail call void @g_free(ptr noundef %0) #14
   ret void
 }
 
@@ -207,7 +207,7 @@ entry:
   br i1 %cmp, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str, i32 noundef 262, ptr noundef nonnull @__PRETTY_FUNCTION__.pcie_aer_root_set_vector) #15
+  tail call void @__assert_fail(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str, i32 noundef 262, ptr noundef nonnull @__PRETTY_FUNCTION__.pcie_aer_root_set_vector) #16
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -339,7 +339,7 @@ if.else50:                                        ; preds = %if.end29, %if.end29
   ]
 
 sw.default.i:                                     ; preds = %if.else50
-  tail call void @abort() #15
+  tail call void @abort() #16
   unreachable
 
 pcie_aer_uncor_default_severity.exit:             ; preds = %if.else50, %if.else50, %if.else50, %if.else50, %if.else50, %if.else50
@@ -407,7 +407,7 @@ if.then28.i:                                      ; preds = %if.end20.i51
   br i1 %tobool.not.i.i, label %if.else.i.i, label %if.end.i.i
 
 if.else.i.i:                                      ; preds = %if.then28.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str, i32 noundef 508, ptr noundef nonnull @__PRETTY_FUNCTION__.pcie_aer_record_error) #15
+  tail call void @__assert_fail(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str, i32 noundef 508, ptr noundef nonnull @__PRETTY_FUNCTION__.pcie_aer_record_error) #16
   unreachable
 
 if.end.i.i:                                       ; preds = %if.then28.i
@@ -416,7 +416,7 @@ if.end.i.i:                                       ; preds = %if.then28.i
   br i1 %tobool6.not.i.i, label %if.end9.i.i, label %if.else8.i.i
 
 if.else8.i.i:                                     ; preds = %if.end.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str, i32 noundef 509, ptr noundef nonnull @__PRETTY_FUNCTION__.pcie_aer_record_error) #15
+  tail call void @__assert_fail(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str, i32 noundef 509, ptr noundef nonnull @__PRETTY_FUNCTION__.pcie_aer_record_error) #16
   unreachable
 
 if.end9.i.i:                                      ; preds = %if.end.i.i
@@ -518,7 +518,7 @@ if.end28.i:                                       ; preds = %if.then19.i
   br i1 %tobool.not.i.i83, label %if.else.i.i114, label %if.end.i.i84
 
 if.else.i.i114:                                   ; preds = %if.end28.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str, i32 noundef 508, ptr noundef nonnull @__PRETTY_FUNCTION__.pcie_aer_record_error) #15
+  tail call void @__assert_fail(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str, i32 noundef 508, ptr noundef nonnull @__PRETTY_FUNCTION__.pcie_aer_record_error) #16
   unreachable
 
 if.end.i.i84:                                     ; preds = %if.end28.i
@@ -527,7 +527,7 @@ if.end.i.i84:                                     ; preds = %if.end28.i
   br i1 %tobool6.not.i.i85, label %if.end9.i.i87, label %if.else8.i.i86
 
 if.else8.i.i86:                                   ; preds = %if.end.i.i84
-  tail call void @__assert_fail(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str, i32 noundef 509, ptr noundef nonnull @__PRETTY_FUNCTION__.pcie_aer_record_error) #15
+  tail call void @__assert_fail(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str, i32 noundef 509, ptr noundef nonnull @__PRETTY_FUNCTION__.pcie_aer_record_error) #16
   unreachable
 
 if.end9.i.i87:                                    ; preds = %if.end.i.i84
@@ -629,7 +629,7 @@ while.body.i:                                     ; preds = %if.end79, %if.end21
   br i1 %tobool1.not.i, label %pcie_aer_msg.exit, label %if.end.i115
 
 if.end.i115:                                      ; preds = %while.body.i
-  %call2.i = tail call zeroext i8 @pcie_cap_get_type(ptr noundef nonnull %dev.addr.027.i) #13
+  %call2.i = tail call zeroext i8 @pcie_cap_get_type(ptr noundef nonnull %dev.addr.027.i) #14
   %cmp.i = icmp eq i8 %call2.i, 4
   %call2.off.i = add i8 %call2.i, -4
   %switch.i = icmp ult i8 %call2.off.i, 3
@@ -752,7 +752,7 @@ sw.bb18.i.i:                                      ; preds = %if.then20.i
   br label %if.then26.i.i
 
 sw.default.i.i:                                   ; preds = %if.then20.i
-  tail call void @abort() #15
+  tail call void @abort() #16
   unreachable
 
 sw.epilog.i.i:                                    ; preds = %sw.bb.i.i
@@ -798,7 +798,7 @@ lor.lhs.false.i.i:                                ; preds = %if.end37.i.i
   br i1 %tobool44.not.i22.i, label %if.end46.i.i, label %pcie_aer_msg.exit
 
 if.end46.i.i:                                     ; preds = %lor.lhs.false.i.i
-  %call.i.i.i = tail call i32 @msix_enabled(ptr noundef nonnull %dev.addr.027.i) #13
+  %call.i.i.i = tail call i32 @msix_enabled(ptr noundef nonnull %dev.addr.027.i) #14
   %tobool.not.i.i.i = icmp eq i32 %call.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %if.else.i.i.i, label %if.then.i.i.i
 
@@ -810,11 +810,11 @@ if.then.i.i.i:                                    ; preds = %if.end46.i.i
   %add.ptr2.i.i.i.i = getelementptr i8, ptr %add.ptr.i.i.i.i, i64 48
   %add.ptr2.val.i.i.i.i = load i32, ptr %add.ptr2.i.i.i.i, align 1
   %shr.i.i.i.i = lshr i32 %add.ptr2.val.i.i.i.i, 27
-  tail call void @msix_notify(ptr noundef nonnull %dev.addr.027.i, i32 noundef %shr.i.i.i.i) #13
+  tail call void @msix_notify(ptr noundef nonnull %dev.addr.027.i, i32 noundef %shr.i.i.i.i) #14
   br label %pcie_aer_msg.exit
 
 if.else.i.i.i:                                    ; preds = %if.end46.i.i
-  %call2.i.i.i = tail call zeroext i1 @msi_enabled(ptr noundef nonnull %dev.addr.027.i) #13
+  %call2.i.i.i = tail call zeroext i1 @msi_enabled(ptr noundef nonnull %dev.addr.027.i) #14
   %dev.val9.i.i.i = load ptr, ptr %config.i.i, align 8
   br i1 %call2.i.i.i, label %if.then3.i.i.i, label %if.else5.i.i.i
 
@@ -825,7 +825,7 @@ if.then3.i.i.i:                                   ; preds = %if.else.i.i.i
   %add.ptr2.i14.i.i.i = getelementptr i8, ptr %add.ptr.i13.i.i.i, i64 48
   %add.ptr2.val.i15.i.i.i = load i32, ptr %add.ptr2.i14.i.i.i, align 1
   %shr.i16.i.i.i = lshr i32 %add.ptr2.val.i15.i.i.i, 27
-  tail call void @msi_notify(ptr noundef nonnull %dev.addr.027.i, i32 noundef %shr.i16.i.i.i) #13
+  tail call void @msi_notify(ptr noundef nonnull %dev.addr.027.i, i32 noundef %shr.i16.i.i.i) #14
   br label %pcie_aer_msg.exit
 
 if.else5.i.i.i:                                   ; preds = %if.else.i.i.i
@@ -835,14 +835,14 @@ if.else5.i.i.i:                                   ; preds = %if.else.i.i.i
   br i1 %cmp.not.i.i.i, label %pcie_aer_msg.exit, label %if.then7.i.i.i
 
 if.then7.i.i.i:                                   ; preds = %if.else5.i.i.i
-  tail call void @pci_set_irq(ptr noundef nonnull %dev.addr.027.i, i32 noundef 1) #13
+  tail call void @pci_set_irq(ptr noundef nonnull %dev.addr.027.i, i32 noundef 1) #14
   br label %pcie_aer_msg.exit
 
 if.end21.i:                                       ; preds = %if.end16.i
-  %call.i.i23.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %dev.addr.027.i, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #13
-  %call1.i.i = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i23.i) #13
-  %call.i1.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1.i.i, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #13
-  %call23.i = tail call ptr @pci_bridge_get_device(ptr noundef %call.i1.i.i) #13
+  %call.i.i23.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %dev.addr.027.i, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #14
+  %call1.i.i = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i23.i) #14
+  %call.i1.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1.i.i, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #14
+  %call23.i = tail call ptr @pci_bridge_get_device(ptr noundef %call.i1.i.i) #14
   %tobool.not.i = icmp eq ptr %call23.i, null
   br i1 %tobool.not.i, label %pcie_aer_msg.exit, label %while.body.i, !llvm.loop !5
 
@@ -860,7 +860,7 @@ if.then84:                                        ; preds = %pcie_aer_msg.exit
   br i1 %tobool86.not, label %return, label %if.else88
 
 if.else88:                                        ; preds = %if.then84
-  tail call void @__assert_fail(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, i32 noundef 713, ptr noundef nonnull @__PRETTY_FUNCTION__.pcie_aer_inject_error) #15
+  tail call void @__assert_fail(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, i32 noundef 713, ptr noundef nonnull @__PRETTY_FUNCTION__.pcie_aer_inject_error) #16
   unreachable
 
 return:                                           ; preds = %if.end38.i.thread, %if.else64.i, %if.then54.i, %land.lhs.true.i, %if.then23.i, %if.end38.i52, %if.then11.i41, %if.end38.i, %if.then11.i, %pcie_aer_msg.exit, %if.then84, %if.end, %entry
@@ -935,7 +935,7 @@ pcie_aer_update_uncor_status.exit.i:              ; preds = %for.body.i.i
   br i1 %tobool.not.i.i, label %if.else.i.i, label %aer_log_del_err.exit.i
 
 if.else.i.i:                                      ; preds = %pcie_aer_update_uncor_status.exit.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str, i32 noundef 85, ptr noundef nonnull @__PRETTY_FUNCTION__.aer_log_del_err) #15
+  tail call void @__assert_fail(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str, i32 noundef 85, ptr noundef nonnull @__PRETTY_FUNCTION__.aer_log_del_err) #16
   unreachable
 
 aer_log_del_err.exit.i:                           ; preds = %pcie_aer_update_uncor_status.exit.i
@@ -1046,12 +1046,12 @@ entry:
   %cmd.2.i = or disjoint i32 %2, %and.i
   %add.ptr4 = getelementptr i8, ptr %add.ptr, i64 44
   %add.ptr4.val = load i32, ptr %add.ptr4, align 1
-  %call6 = tail call i32 @msix_enabled(ptr noundef %dev) #13
+  %call6 = tail call i32 @msix_enabled(ptr noundef %dev) #14
   %tobool.not = icmp eq i32 %call6, 0
   br i1 %tobool.not, label %land.lhs.true, label %if.end13
 
 land.lhs.true:                                    ; preds = %entry
-  %call7 = tail call zeroext i1 @msi_enabled(ptr noundef nonnull %dev) #13
+  %call7 = tail call zeroext i1 @msi_enabled(ptr noundef nonnull %dev) #14
   br i1 %call7, label %if.end13, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
@@ -1065,7 +1065,7 @@ if.then10:                                        ; preds = %if.then
   %and = and i32 %cmd.2.i, %add.ptr4.val
   %tobool11 = icmp ne i32 %and, 0
   %lnot.ext = zext i1 %tobool11 to i32
-  tail call void @pci_set_irq(ptr noundef nonnull %dev, i32 noundef %lnot.ext) #13
+  tail call void @pci_set_irq(ptr noundef nonnull %dev, i32 noundef %lnot.ext) #14
   br label %return
 
 if.end13:                                         ; preds = %land.lhs.true, %entry
@@ -1077,7 +1077,7 @@ if.end13:                                         ; preds = %land.lhs.true, %ent
   br i1 %or.cond, label %return, label %if.end19
 
 if.end19:                                         ; preds = %if.end13
-  %call.i = tail call i32 @msix_enabled(ptr noundef nonnull %dev) #13
+  %call.i = tail call i32 @msix_enabled(ptr noundef nonnull %dev) #14
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i
 
@@ -1089,11 +1089,11 @@ if.then.i:                                        ; preds = %if.end19
   %add.ptr2.i.i = getelementptr i8, ptr %add.ptr.i.i, i64 48
   %add.ptr2.val.i.i = load i32, ptr %add.ptr2.i.i, align 1
   %shr.i.i = lshr i32 %add.ptr2.val.i.i, 27
-  tail call void @msix_notify(ptr noundef nonnull %dev, i32 noundef %shr.i.i) #13
+  tail call void @msix_notify(ptr noundef nonnull %dev, i32 noundef %shr.i.i) #14
   br label %return
 
 if.else.i:                                        ; preds = %if.end19
-  %call2.i = tail call zeroext i1 @msi_enabled(ptr noundef nonnull %dev) #13
+  %call2.i = tail call zeroext i1 @msi_enabled(ptr noundef nonnull %dev) #14
   %dev.val9.i = load ptr, ptr %config, align 8
   br i1 %call2.i, label %if.then3.i, label %if.else5.i
 
@@ -1104,7 +1104,7 @@ if.then3.i:                                       ; preds = %if.else.i
   %add.ptr2.i14.i = getelementptr i8, ptr %add.ptr.i13.i, i64 48
   %add.ptr2.val.i15.i = load i32, ptr %add.ptr2.i14.i, align 1
   %shr.i16.i = lshr i32 %add.ptr2.val.i15.i, 27
-  tail call void @msi_notify(ptr noundef nonnull %dev, i32 noundef %shr.i16.i) #13
+  tail call void @msi_notify(ptr noundef nonnull %dev, i32 noundef %shr.i16.i) #14
   br label %return
 
 if.else5.i:                                       ; preds = %if.else.i
@@ -1114,7 +1114,7 @@ if.else5.i:                                       ; preds = %if.else.i
   br i1 %cmp.not.i, label %return, label %if.then7.i
 
 if.then7.i:                                       ; preds = %if.else5.i
-  tail call void @pci_set_irq(ptr noundef nonnull %dev, i32 noundef 1) #13
+  tail call void @pci_set_irq(ptr noundef nonnull %dev, i32 noundef 1) #14
   br label %return
 
 return:                                           ; preds = %if.then7.i, %if.else5.i, %if.then3.i, %if.then.i, %if.end13, %if.then, %if.then10
@@ -1151,7 +1151,7 @@ for.body:                                         ; preds = %entry, %for.cond
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.cond ]
   %arrayidx = getelementptr [24 x %struct.PCIEAERErrorName], ptr @pcie_aer_error_list, i64 0, i64 %indvars.iv
   %0 = load ptr, ptr %arrayidx, align 16
-  %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %error_name, ptr noundef nonnull dereferenceable(1) %0) #16
+  %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %error_name, ptr noundef nonnull dereferenceable(1) %0) #17
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %for.cond
 
@@ -1197,7 +1197,7 @@ entry:
   br i1 %tobool.not, label %if.else, label %if.end
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str, i32 noundef 428, ptr noundef nonnull @__PRETTY_FUNCTION__.pcie_aer_update_log) #15
+  tail call void @__assert_fail(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str, i32 noundef 428, ptr noundef nonnull @__PRETTY_FUNCTION__.pcie_aer_update_log) #16
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -1206,7 +1206,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool8.not, label %if.end11, label %if.else10
 
 if.else10:                                        ; preds = %if.end
-  tail call void @__assert_fail(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str, i32 noundef 429, ptr noundef nonnull @__PRETTY_FUNCTION__.pcie_aer_update_log) #15
+  tail call void @__assert_fail(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str, i32 noundef 429, ptr noundef nonnull @__PRETTY_FUNCTION__.pcie_aer_update_log) #16
   unreachable
 
 if.end11:                                         ; preds = %if.end
@@ -1243,7 +1243,7 @@ if.else24:                                        ; preds = %if.end11
   br i1 %tobool28.not, label %if.end31, label %if.else30
 
 if.else30:                                        ; preds = %if.else24
-  tail call void @__assert_fail(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str, i32 noundef 442, ptr noundef nonnull @__PRETTY_FUNCTION__.pcie_aer_update_log) #15
+  tail call void @__assert_fail(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str, i32 noundef 442, ptr noundef nonnull @__PRETTY_FUNCTION__.pcie_aer_update_log) #16
   unreachable
 
 if.end31:                                         ; preds = %if.else24
@@ -1303,8 +1303,8 @@ if.end65:                                         ; preds = %if.else63, %for.end
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.bswap.i32(i32) #10
 
-; Function Attrs: noreturn nounwind
-declare void @abort() local_unnamed_addr #3
+; Function Attrs: cold nofree noreturn nounwind
+declare void @abort() local_unnamed_addr #11
 
 declare ptr @pci_bridge_get_device(ptr noundef) local_unnamed_addr #1
 
@@ -1320,13 +1320,13 @@ declare void @msix_notify(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @msi_notify(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctpop.i32(i32) #11
+declare i32 @llvm.ctpop.i32(i32) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1339,12 +1339,13 @@ attributes #7 = { nofree nounwind sspstrong memory(read, argmem: readwrite, inac
 attributes #8 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #13 = { nounwind }
-attributes #14 = { nounwind allocsize(0) }
-attributes #15 = { noreturn nounwind }
-attributes #16 = { nounwind willreturn memory(read) }
+attributes #11 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #14 = { nounwind }
+attributes #15 = { nounwind allocsize(0) }
+attributes #16 = { noreturn nounwind }
+attributes #17 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

@@ -238,18 +238,18 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local range(i32 -1, 1) i32 @xbzrle_cache_resize(i64 noundef %new_size, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %call = tail call i64 @migrate_xbzrle_cache_size() #16
+  %call = tail call i64 @migrate_xbzrle_cache_size() #18
   %cmp1 = icmp eq i64 %call, %new_size
   br i1 %cmp1, label %return, label %if.end3
 
 if.end3:                                          ; preds = %entry
-  %call.i = tail call zeroext i1 @migrate_xbzrle() #16
+  %call.i = tail call zeroext i1 @migrate_xbzrle() #18
   br i1 %call.i, label %while.end.i, label %XBZRLE_cache_lock.exit
 
 while.end.i:                                      ; preds = %if.end3
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
-  tail call void %1(ptr noundef nonnull getelementptr inbounds (i8, ptr @XBZRLE, i64 24), ptr noundef nonnull @.str, i32 noundef 138) #16
+  tail call void %1(ptr noundef nonnull getelementptr inbounds (i8, ptr @XBZRLE, i64 24), ptr noundef nonnull @.str, i32 noundef 138) #18
   br label %XBZRLE_cache_lock.exit
 
 XBZRLE_cache_lock.exit:                           ; preds = %if.end3, %while.end.i
@@ -258,23 +258,23 @@ XBZRLE_cache_lock.exit:                           ; preds = %if.end3, %while.end
   br i1 %cmp4.not, label %out, label %if.then5
 
 if.then5:                                         ; preds = %XBZRLE_cache_lock.exit
-  %call6 = tail call ptr @cache_init(i64 noundef %new_size, i64 noundef 4096, ptr noundef %errp) #16
+  %call6 = tail call ptr @cache_init(i64 noundef %new_size, i64 noundef 4096, ptr noundef %errp) #18
   %tobool.not = icmp eq ptr %call6, null
   br i1 %tobool.not, label %out, label %if.end8
 
 if.end8:                                          ; preds = %if.then5
   %3 = load ptr, ptr getelementptr inbounds (i8, ptr @XBZRLE, i64 16), align 8
-  tail call void @cache_fini(ptr noundef %3) #16
+  tail call void @cache_fini(ptr noundef %3) #18
   store ptr %call6, ptr getelementptr inbounds (i8, ptr @XBZRLE, i64 16), align 8
   br label %out
 
 out:                                              ; preds = %if.then5, %XBZRLE_cache_lock.exit, %if.end8
   %ret.0 = phi i32 [ 0, %if.end8 ], [ 0, %XBZRLE_cache_lock.exit ], [ -1, %if.then5 ]
-  %call.i6 = tail call zeroext i1 @migrate_xbzrle() #16
+  %call.i6 = tail call zeroext i1 @migrate_xbzrle() #18
   br i1 %call.i6, label %if.then.i, label %return
 
 if.then.i:                                        ; preds = %out
-  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull getelementptr inbounds (i8, ptr @XBZRLE, i64 24), ptr noundef nonnull @.str, i32 noundef 145) #16
+  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull getelementptr inbounds (i8, ptr @XBZRLE, i64 24), ptr noundef nonnull @.str, i32 noundef 145) #18
   br label %return
 
 return:                                           ; preds = %if.then.i, %out, %entry
@@ -293,19 +293,19 @@ declare void @cache_fini(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local zeroext i1 @migrate_ram_is_ignored(ptr noundef %block) local_unnamed_addr #0 {
 entry:
-  %call = tail call zeroext i1 @qemu_ram_is_migratable(ptr noundef %block) #16
+  %call = tail call zeroext i1 @qemu_ram_is_migratable(ptr noundef %block) #18
   br i1 %call, label %lor.rhs, label %lor.end
 
 lor.rhs:                                          ; preds = %entry
-  %call1 = tail call zeroext i1 @migrate_ignore_shared() #16
+  %call1 = tail call zeroext i1 @migrate_ignore_shared() #18
   br i1 %call1, label %land.lhs.true, label %lor.end
 
 land.lhs.true:                                    ; preds = %lor.rhs
-  %call2 = tail call zeroext i1 @qemu_ram_is_shared(ptr noundef %block) #16
+  %call2 = tail call zeroext i1 @qemu_ram_is_shared(ptr noundef %block) #18
   br i1 %call2, label %land.rhs, label %lor.end
 
 land.rhs:                                         ; preds = %land.lhs.true
-  %call3 = tail call zeroext i1 @qemu_ram_is_named_file(ptr noundef %block) #16
+  %call3 = tail call zeroext i1 @qemu_ram_is_named_file(ptr noundef %block) #18
   br label %lor.end
 
 lor.end:                                          ; preds = %lor.rhs, %land.lhs.true, %land.rhs, %entry
@@ -324,7 +324,7 @@ declare zeroext i1 @qemu_ram_is_named_file(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @foreach_not_ignored_block(ptr nocapture noundef readonly %func, ptr noundef %opaque) local_unnamed_addr #0 {
 entry:
-  %call.i.i = tail call ptr @get_ptr_rcu_reader() #16
+  %call.i.i = tail call ptr @get_ptr_rcu_reader() #18
   %depth.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   %0 = load i32, ptr %depth.i.i, align 4
   %inc.i.i = add i32 %0, 1
@@ -336,56 +336,56 @@ while.end.i.i:                                    ; preds = %entry
   %1 = load atomic i64, ptr @rcu_gp_ctr monotonic, align 8
   %conv8.i.i = and i64 %1, 4294967295
   store atomic i64 %conv8.i.i, ptr %call.i.i monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
   fence seq_cst
   br label %rcu_read_auto_lock.exit
 
 rcu_read_auto_lock.exit:                          ; preds = %entry, %while.end.i.i
   %2 = load atomic i64, ptr getelementptr inbounds (i8, ptr @ram_list, i64 56) monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !6
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !6
   %tobool.not7 = icmp eq i64 %2, 0
   br i1 %tobool.not7, label %if.then.i.i, label %for.body
 
 for.body:                                         ; preds = %rcu_read_auto_lock.exit, %while.end11
   %block.08.in = phi i64 [ %3, %while.end11 ], [ %2, %rcu_read_auto_lock.exit ]
   %block.08 = inttoptr i64 %block.08.in to ptr
-  %call.i = tail call zeroext i1 @qemu_ram_is_migratable(ptr noundef nonnull %block.08) #16
+  %call.i = tail call zeroext i1 @qemu_ram_is_migratable(ptr noundef nonnull %block.08) #18
   br i1 %call.i, label %lor.rhs.i, label %while.end11
 
 lor.rhs.i:                                        ; preds = %for.body
-  %call1.i = tail call zeroext i1 @migrate_ignore_shared() #16
+  %call1.i = tail call zeroext i1 @migrate_ignore_shared() #18
   br i1 %call1.i, label %land.lhs.true.i, label %if.else
 
 land.lhs.true.i:                                  ; preds = %lor.rhs.i
-  %call2.i = tail call zeroext i1 @qemu_ram_is_shared(ptr noundef nonnull %block.08) #16
+  %call2.i = tail call zeroext i1 @qemu_ram_is_shared(ptr noundef nonnull %block.08) #18
   br i1 %call2.i, label %migrate_ram_is_ignored.exit, label %if.else
 
 migrate_ram_is_ignored.exit:                      ; preds = %land.lhs.true.i
-  %call3.i = tail call zeroext i1 @qemu_ram_is_named_file(ptr noundef nonnull %block.08) #16
+  %call3.i = tail call zeroext i1 @qemu_ram_is_named_file(ptr noundef nonnull %block.08) #18
   br i1 %call3.i, label %while.end11, label %if.else
 
 if.else:                                          ; preds = %lor.rhs.i, %land.lhs.true.i, %migrate_ram_is_ignored.exit
-  %call2 = tail call i32 %func(ptr noundef nonnull %block.08, ptr noundef %opaque) #16
+  %call2 = tail call i32 %func(ptr noundef nonnull %block.08, ptr noundef %opaque) #18
   %tobool3.not = icmp eq i32 %call2, 0
   br i1 %tobool3.not, label %while.end11, label %if.then.i.i
 
 while.end11:                                      ; preds = %for.body, %migrate_ram_is_ignored.exit, %if.else
   %next = getelementptr inbounds i8, ptr %block.08, i64 336
   %3 = load atomic i64, ptr %next monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !7
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !7
   %tobool.not = icmp eq i64 %3, 0
   br i1 %tobool.not, label %if.then.i.i, label %for.body, !llvm.loop !8
 
 if.then.i.i:                                      ; preds = %if.else, %while.end11, %rcu_read_auto_lock.exit
   %ret.2 = phi i32 [ 0, %rcu_read_auto_lock.exit ], [ 0, %while.end11 ], [ %call2, %if.else ]
-  %call.i.i.i.i = tail call ptr @get_ptr_rcu_reader() #16
+  %call.i.i.i.i = tail call ptr @get_ptr_rcu_reader() #18
   %depth.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 12
   %4 = load i32, ptr %depth.i.i.i.i, align 4
   %cmp.not.i.i.i.i = icmp eq i32 %4, 0
   br i1 %cmp.not.i.i.i.i, label %if.else.i.i.i.i, label %if.end.i.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %if.then.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.28, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #17
+  tail call void @__assert_fail(ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.28, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #19
   unreachable
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i
@@ -396,7 +396,7 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i
 
 while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   store atomic i64 0, ptr %call.i.i.i.i release, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !10
   fence seq_cst
   %waiting.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
   %5 = load atomic i8, ptr %waiting.i.i.i.i monotonic, align 8
@@ -405,7 +405,7 @@ while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
 
 while.end21.i.i.i.i:                              ; preds = %while.end.i.i.i.i
   store atomic i8 0, ptr %waiting.i.i.i.i monotonic, align 8
-  tail call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #16
+  tail call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #18
   br label %glib_autoptr_cleanup_RCUReadAuto.exit
 
 glib_autoptr_cleanup_RCUReadAuto.exit:            ; preds = %if.end.i.i.i.i, %while.end.i.i.i.i, %while.end21.i.i.i.i
@@ -479,7 +479,7 @@ entry:
   %sub.ptr.rhs.cast.i = ptrtoint ptr %rb.val to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %shr.i = lshr i64 %sub.ptr.sub.i, 12
-  tail call void @bitmap_set_atomic(ptr noundef %0, i64 noundef %shr.i, i64 noundef %nr) #16
+  tail call void @bitmap_set_atomic(ptr noundef %0, i64 noundef %shr.i, i64 noundef %nr) #18
   ret void
 }
 
@@ -488,12 +488,12 @@ declare void @bitmap_set_atomic(ptr noundef, i64 noundef, i64 noundef) local_unn
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local range(i64 -2147483648, 562949953421328) i64 @ramblock_recv_bitmap_send(ptr noundef %file, ptr noundef %block_name) local_unnamed_addr #0 {
 entry:
-  %call = tail call ptr @qemu_ram_block_by_name(ptr noundef %block_name) #16
+  %call = tail call ptr @qemu_ram_block_by_name(ptr noundef %block_name) #18
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__.ramblock_recv_bitmap_send, ptr noundef %block_name) #16
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__.ramblock_recv_bitmap_send, ptr noundef %block_name) #18
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -503,27 +503,27 @@ if.end:                                           ; preds = %entry
   %sub.i.i = add nuw nsw i64 %shr, 127
   %1 = lshr i64 %sub.i.i, 3
   %mul.i.i = and i64 %1, 1125899906842616
-  %call.i.i = tail call noalias ptr @g_try_malloc0(i64 noundef %mul.i.i) #18
+  %call.i.i = tail call noalias ptr @g_try_malloc0(i64 noundef %mul.i.i) #20
   %cmp.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.i, label %if.then.i, label %bitmap_new.exit
 
 if.then.i:                                        ; preds = %if.end
-  tail call void @abort() #17
+  tail call void @abort() #19
   unreachable
 
 bitmap_new.exit:                                  ; preds = %if.end
   %receivedmap = getelementptr inbounds i8, ptr %call, i64 392
   %2 = load ptr, ptr %receivedmap, align 8
-  tail call void @bitmap_to_le(ptr noundef nonnull %call.i.i, ptr noundef %2, i64 noundef %shr) #16
+  tail call void @bitmap_to_le(ptr noundef nonnull %call.i.i, ptr noundef %2, i64 noundef %shr) #18
   %sub = add nuw nsw i64 %shr, 7
   %div15 = lshr i64 %sub, 3
   %sub4 = add nuw nsw i64 %div15, 7
   %and = and i64 %sub4, 2251799813685240
-  tail call void @qemu_put_be64(ptr noundef %file, i64 noundef %and) #16
-  tail call void @qemu_put_buffer(ptr noundef %file, ptr noundef nonnull %call.i.i, i64 noundef %and) #16
-  tail call void @g_free(ptr noundef nonnull %call.i.i) #16
-  tail call void @qemu_put_be64(ptr noundef %file, i64 noundef 81985529216486895) #16
-  %call5 = tail call i32 @qemu_fflush(ptr noundef %file) #16
+  tail call void @qemu_put_be64(ptr noundef %file, i64 noundef %and) #18
+  tail call void @qemu_put_buffer(ptr noundef %file, ptr noundef nonnull %call.i.i, i64 noundef %and) #18
+  tail call void @g_free(ptr noundef nonnull %call.i.i) #18
+  tail call void @qemu_put_be64(ptr noundef %file, i64 noundef 81985529216486895) #18
+  %call5 = tail call i32 @qemu_fflush(ptr noundef %file) #18
   %tobool6.not = icmp eq i32 %call5, 0
   br i1 %tobool6.not, label %if.end8, label %if.then7
 
@@ -557,7 +557,7 @@ declare i32 @qemu_fflush(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @precopy_infrastructure_init() local_unnamed_addr #0 {
 entry:
-  tail call void @notifier_with_return_list_init(ptr noundef nonnull @precopy_notifier_list) #16
+  tail call void @notifier_with_return_list_init(ptr noundef nonnull @precopy_notifier_list) #18
   ret void
 }
 
@@ -566,7 +566,7 @@ declare void @notifier_with_return_list_init(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @precopy_add_notifier(ptr noundef %n) local_unnamed_addr #0 {
 entry:
-  tail call void @notifier_with_return_list_add(ptr noundef nonnull @precopy_notifier_list, ptr noundef %n) #16
+  tail call void @notifier_with_return_list_add(ptr noundef nonnull @precopy_notifier_list, ptr noundef %n) #18
   ret void
 }
 
@@ -575,7 +575,7 @@ declare void @notifier_with_return_list_add(ptr noundef, ptr noundef) local_unna
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @precopy_remove_notifier(ptr noundef %n) local_unnamed_addr #0 {
 entry:
-  tail call void @notifier_with_return_remove(ptr noundef %n) #16
+  tail call void @notifier_with_return_remove(ptr noundef %n) #18
   ret void
 }
 
@@ -588,7 +588,7 @@ entry:
   store i32 %reason, ptr %pnd, align 8
   %errp2 = getelementptr inbounds i8, ptr %pnd, i64 8
   store ptr %errp, ptr %errp2, align 8
-  %call = call i32 @notifier_with_return_list_notify(ptr noundef nonnull @precopy_notifier_list, ptr noundef nonnull %pnd) #16
+  %call = call i32 @notifier_with_return_list_notify(ptr noundef nonnull @precopy_notifier_list, ptr noundef nonnull %pnd) #18
   ret i32 %call
 }
 
@@ -615,11 +615,11 @@ cond.end:                                         ; preds = %entry, %cond.true
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @ram_transferred_add(i64 noundef %bytes) local_unnamed_addr #0 {
 entry:
-  %call = tail call zeroext i1 @runstate_is_running() #16
+  %call = tail call zeroext i1 @runstate_is_running() #18
   br i1 %call, label %if.end4, label %if.else
 
 if.else:                                          ; preds = %entry
-  %call1 = tail call zeroext i1 @migration_in_postcopy() #16
+  %call1 = tail call zeroext i1 @migration_in_postcopy() #18
   %. = select i1 %call1, ptr getelementptr inbounds (i8, ptr @mig_stats, i64 56), ptr getelementptr inbounds (i8, ptr @mig_stats, i64 32)
   br label %if.end4
 
@@ -637,13 +637,13 @@ declare zeroext i1 @migration_in_postcopy() local_unnamed_addr #1
 define dso_local void @mig_throttle_counter_reset() local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @ram_state, align 8
-  %call.i = tail call i64 @qemu_clock_get_ns(i32 noundef 0) #16
+  %call.i = tail call i64 @qemu_clock_get_ns(i32 noundef 0) #18
   %div.i = sdiv i64 %call.i, 1000000
   %time_last_bitmap_sync = getelementptr inbounds i8, ptr %0, i64 152
   store i64 %div.i, ptr %time_last_bitmap_sync, align 8
   %num_dirty_pages_period = getelementptr inbounds i8, ptr %0, i64 168
   store i64 0, ptr %num_dirty_pages_period, align 8
-  %call1 = tail call i64 @migration_transferred_bytes() #16
+  %call1 = tail call i64 @migration_transferred_bytes() #18
   %bytes_xfer_prev = getelementptr inbounds i8, ptr %0, i64 160
   store i64 %call1, ptr %bytes_xfer_prev, align 8
   ret void
@@ -661,14 +661,14 @@ entry:
   br i1 %tobool.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %call.i = tail call ptr @memory_region_get_ram_discard_manager(ptr noundef nonnull %0) #16
+  %call.i = tail call ptr @memory_region_get_ram_discard_manager(ptr noundef nonnull %0) #18
   %tobool.i.not = icmp eq ptr %call.i, null
   br i1 %tobool.i.not, label %return, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
   %1 = load ptr, ptr %mr, align 8
-  %call3 = tail call ptr @memory_region_get_ram_discard_manager(ptr noundef %1) #16
-  %call4 = tail call i64 @qemu_ram_pagesize(ptr noundef nonnull %rb) #16
+  %call3 = tail call ptr @memory_region_get_ram_discard_manager(ptr noundef %1) #18
+  %call4 = tail call i64 @qemu_ram_pagesize(ptr noundef nonnull %rb) #18
   %coerce.sroa.0.0.insert.ext = zext i64 %call4 to i128
   store i128 %coerce.sroa.0.0.insert.ext, ptr %section, align 16
   %mr6 = getelementptr inbounds i8, ptr %section, i64 16
@@ -680,7 +680,7 @@ if.then:                                          ; preds = %land.lhs.true
   store i64 %start, ptr %offset_within_region, align 16
   %offset_within_address_space = getelementptr inbounds i8, ptr %section, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %offset_within_address_space, i8 0, i64 11, i1 false)
-  %call8 = call zeroext i1 @ram_discard_manager_is_populated(ptr noundef %call3, ptr noundef nonnull %section) #16
+  %call8 = call zeroext i1 @ram_discard_manager_is_populated(ptr noundef %call3, ptr noundef nonnull %section) #18
   %lnot = xor i1 %call8, true
   br label %return
 
@@ -699,7 +699,7 @@ declare zeroext i1 @ram_discard_manager_is_populated(ptr noundef, ptr noundef) l
 define dso_local i64 @ram_pagesize_summary() local_unnamed_addr #0 {
 entry:
   %0 = load atomic i64, ptr getelementptr inbounds (i8, ptr @ram_list, i64 56) monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !11
   %tobool.not7 = icmp eq i64 %0, 0
   br i1 %tobool.not7, label %for.end, label %for.body
 
@@ -707,19 +707,19 @@ for.body:                                         ; preds = %entry, %while.end5
   %block.09.in = phi i64 [ %2, %while.end5 ], [ %0, %entry ]
   %summary.08 = phi i64 [ %summary.1, %while.end5 ], [ 0, %entry ]
   %block.09 = inttoptr i64 %block.09.in to ptr
-  %call.i = tail call zeroext i1 @qemu_ram_is_migratable(ptr noundef nonnull %block.09) #16
+  %call.i = tail call zeroext i1 @qemu_ram_is_migratable(ptr noundef nonnull %block.09) #18
   br i1 %call.i, label %lor.rhs.i, label %while.end5
 
 lor.rhs.i:                                        ; preds = %for.body
-  %call1.i = tail call zeroext i1 @migrate_ignore_shared() #16
+  %call1.i = tail call zeroext i1 @migrate_ignore_shared() #18
   br i1 %call1.i, label %land.lhs.true.i, label %if.else
 
 land.lhs.true.i:                                  ; preds = %lor.rhs.i
-  %call2.i = tail call zeroext i1 @qemu_ram_is_shared(ptr noundef nonnull %block.09) #16
+  %call2.i = tail call zeroext i1 @qemu_ram_is_shared(ptr noundef nonnull %block.09) #18
   br i1 %call2.i, label %migrate_ram_is_ignored.exit, label %if.else
 
 migrate_ram_is_ignored.exit:                      ; preds = %land.lhs.true.i
-  %call3.i = tail call zeroext i1 @qemu_ram_is_named_file(ptr noundef nonnull %block.09) #16
+  %call3.i = tail call zeroext i1 @qemu_ram_is_named_file(ptr noundef nonnull %block.09) #18
   br i1 %call3.i, label %while.end5, label %if.else
 
 if.else:                                          ; preds = %lor.rhs.i, %land.lhs.true.i, %migrate_ram_is_ignored.exit
@@ -732,7 +732,7 @@ while.end5:                                       ; preds = %for.body, %if.else,
   %summary.1 = phi i64 [ %summary.08, %migrate_ram_is_ignored.exit ], [ %or, %if.else ], [ %summary.08, %for.body ]
   %next = getelementptr inbounds i8, ptr %block.09, i64 336
   %2 = load atomic i64, ptr %next monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !12
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !12
   %tobool.not = icmp eq i64 %2, 0
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !13
 
@@ -747,7 +747,7 @@ entry:
   %0 = load atomic i64, ptr getelementptr inbounds (i8, ptr @mig_stats, i64 48) monotonic, align 8
   %1 = load atomic i64, ptr getelementptr inbounds (i8, ptr @mig_stats, i64 112) monotonic, align 8
   %add = add i64 %1, %0
-  %call2 = tail call i64 @compress_ram_pages() #16
+  %call2 = tail call i64 @compress_ram_pages() #18
   %add3 = add i64 %add, %call2
   %2 = load i64, ptr getelementptr inbounds (i8, ptr @xbzrle_counters, i64 16), align 8
   %add4 = add i64 %add3, %2
@@ -759,11 +759,11 @@ declare i64 @compress_ram_pages() local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @ram_release_page(ptr noundef %rbname, i64 noundef %offset) local_unnamed_addr #0 {
 entry:
-  %call = tail call zeroext i1 @migrate_release_ram() #16
+  %call = tail call zeroext i1 @migrate_release_ram() #18
   br i1 %call, label %lor.lhs.false, label %return
 
 lor.lhs.false:                                    ; preds = %entry
-  %call1 = tail call zeroext i1 @migration_in_postcopy() #16
+  %call1 = tail call zeroext i1 @migration_in_postcopy() #18
   br i1 %call1, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false
@@ -800,21 +800,21 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #16
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #18
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #18
   %4 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.55, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, ptr noundef %rbname, i64 noundef %start, i64 noundef %length) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.55, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, ptr noundef %rbname, i64 noundef %start, i64 noundef %length) #18
   br label %trace_ram_discard_range.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.56, ptr noundef %rbname, i64 noundef %start, i64 noundef %length) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.56, ptr noundef %rbname, i64 noundef %start, i64 noundef %length) #18
   br label %trace_ram_discard_range.exit
 
 trace_ram_discard_range.exit:                     ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %call.i.i = tail call ptr @get_ptr_rcu_reader() #16
+  %call.i.i = tail call ptr @get_ptr_rcu_reader() #18
   %depth.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   %6 = load i32, ptr %depth.i.i, align 4
   %inc.i.i = add i32 %6, 1
@@ -826,17 +826,17 @@ while.end.i.i:                                    ; preds = %trace_ram_discard_r
   %7 = load atomic i64, ptr @rcu_gp_ctr monotonic, align 8
   %conv8.i.i = and i64 %7, 4294967295
   store atomic i64 %conv8.i.i, ptr %call.i.i monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
   fence seq_cst
   br label %rcu_read_auto_lock.exit
 
 rcu_read_auto_lock.exit:                          ; preds = %trace_ram_discard_range.exit, %while.end.i.i
-  %call1 = tail call ptr @qemu_ram_block_by_name(ptr noundef %rbname) #16
+  %call1 = tail call ptr @qemu_ram_block_by_name(ptr noundef %rbname) #18
   %tobool.not = icmp eq ptr %call1, null
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %rcu_read_auto_lock.exit
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.15, ptr noundef %rbname) #16
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.15, ptr noundef %rbname) #18
   br label %if.then.i.i10
 
 if.end:                                           ; preds = %rcu_read_auto_lock.exit
@@ -846,29 +846,29 @@ if.end:                                           ; preds = %rcu_read_auto_lock.
   br i1 %tobool2.not, label %if.end9, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  %call5 = tail call i32 @qemu_target_page_bits() #16
+  %call5 = tail call i32 @qemu_target_page_bits() #18
   %sh_prom = zext nneg i32 %call5 to i64
   %shr = lshr i64 %start, %sh_prom
-  %call6 = tail call i32 @qemu_target_page_bits() #16
+  %call6 = tail call i32 @qemu_target_page_bits() #18
   %sh_prom7 = zext nneg i32 %call6 to i64
   %shr8 = lshr i64 %length, %sh_prom7
-  tail call void @bitmap_clear(ptr noundef nonnull %8, i64 noundef %shr, i64 noundef %shr8) #16
+  tail call void @bitmap_clear(ptr noundef nonnull %8, i64 noundef %shr, i64 noundef %shr8) #18
   br label %if.end9
 
 if.end9:                                          ; preds = %if.then3, %if.end
-  %call10 = tail call i32 @ram_block_discard_range(ptr noundef nonnull %call1, i64 noundef %start, i64 noundef %length) #16
+  %call10 = tail call i32 @ram_block_discard_range(ptr noundef nonnull %call1, i64 noundef %start, i64 noundef %length) #18
   br label %if.then.i.i10
 
 if.then.i.i10:                                    ; preds = %if.then, %if.end9
   %retval.0 = phi i32 [ %call10, %if.end9 ], [ -1, %if.then ]
-  %call.i.i.i.i = tail call ptr @get_ptr_rcu_reader() #16
+  %call.i.i.i.i = tail call ptr @get_ptr_rcu_reader() #18
   %depth.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 12
   %9 = load i32, ptr %depth.i.i.i.i, align 4
   %cmp.not.i.i.i.i = icmp eq i32 %9, 0
   br i1 %cmp.not.i.i.i.i, label %if.else.i.i.i.i, label %if.end.i.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %if.then.i.i10
-  tail call void @__assert_fail(ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.28, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #17
+  tail call void @__assert_fail(ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.28, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #19
   unreachable
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i10
@@ -879,7 +879,7 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i10
 
 while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   store atomic i64 0, ptr %call.i.i.i.i release, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !10
   fence seq_cst
   %waiting.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
   %10 = load atomic i8, ptr %waiting.i.i.i.i monotonic, align 8
@@ -888,7 +888,7 @@ while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
 
 while.end21.i.i.i.i:                              ; preds = %while.end.i.i.i.i
   store atomic i8 0, ptr %waiting.i.i.i.i monotonic, align 8
-  tail call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #16
+  tail call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #18
   br label %glib_autoptr_cleanup_RCUReadAuto.exit
 
 glib_autoptr_cleanup_RCUReadAuto.exit:            ; preds = %if.end.i.i.i.i, %while.end.i.i.i.i, %while.end21.i.i.i.i
@@ -899,7 +899,7 @@ glib_autoptr_cleanup_RCUReadAuto.exit:            ; preds = %if.end.i.i.i.i, %wh
 define dso_local noundef i32 @compress_send_queued_data(ptr noundef %param) #0 {
 entry:
   %0 = load ptr, ptr @ram_state, align 8
-  %call = tail call ptr @migrate_get_current() #16
+  %call = tail call ptr @migrate_get_current() #18
   %to_dst_file = getelementptr inbounds i8, ptr %call, i64 184
   %1 = load ptr, ptr %to_dst_file, align 8
   %block2 = getelementptr inbounds i8, ptr %param, i64 120
@@ -918,7 +918,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4, label %if.end6, label %if.else
 
 if.else:                                          ; preds = %if.end
-  tail call void @__assert_fail(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str, i32 noundef 1278, ptr noundef nonnull @__PRETTY_FUNCTION__.compress_send_queued_data) #17
+  tail call void @__assert_fail(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str, i32 noundef 1278, ptr noundef nonnull @__PRETTY_FUNCTION__.compress_send_queued_data) #19
   unreachable
 
 if.end6:                                          ; preds = %if.end
@@ -930,11 +930,11 @@ if.end6:                                          ; preds = %if.end
 if.then9:                                         ; preds = %if.end6
   %file10 = getelementptr inbounds i8, ptr %param, i64 8
   %6 = load ptr, ptr %file10, align 8
-  %call11 = tail call zeroext i1 @qemu_file_buffer_empty(ptr noundef %6) #16
+  %call11 = tail call zeroext i1 @qemu_file_buffer_empty(ptr noundef %6) #18
   br i1 %call11, label %if.end14, label %if.else13
 
 if.else13:                                        ; preds = %if.then9
-  tail call void @__assert_fail(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str, i32 noundef 1281, ptr noundef nonnull @__PRETTY_FUNCTION__.compress_send_queued_data) #17
+  tail call void @__assert_fail(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str, i32 noundef 1281, ptr noundef nonnull @__PRETTY_FUNCTION__.compress_send_queued_data) #19
   unreachable
 
 if.end14:                                         ; preds = %if.then9
@@ -942,28 +942,28 @@ if.end14:                                         ; preds = %if.then9
   %cmp.i = icmp eq ptr %7, %2
   %spec.select.i.v = select i1 %cmp.i, i64 34, i64 2
   %spec.select.i = or i64 %spec.select.i.v, %3
-  tail call void @qemu_put_be64(ptr noundef %1, i64 noundef %spec.select.i) #16
+  tail call void @qemu_put_be64(ptr noundef %1, i64 noundef %spec.select.i) #18
   br i1 %cmp.i, label %save_page_header.exit, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.end14
   %idstr.i = getelementptr inbounds i8, ptr %2, i64 76
-  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %idstr.i) #19
+  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %idstr.i) #21
   %conv.i = trunc i64 %call.i to i32
-  tail call void @qemu_put_byte(ptr noundef %1, i32 noundef %conv.i) #16
-  tail call void @qemu_put_buffer(ptr noundef %1, ptr noundef nonnull %idstr.i, i64 noundef %call.i) #16
+  tail call void @qemu_put_byte(ptr noundef %1, i32 noundef %conv.i) #18
+  tail call void @qemu_put_buffer(ptr noundef %1, ptr noundef nonnull %idstr.i, i64 noundef %call.i) #18
   store ptr %2, ptr %last_sent_block, align 8
   %8 = add i32 %conv.i, 10
   br label %save_page_header.exit
 
 save_page_header.exit:                            ; preds = %if.end14, %if.then2.i
   %size.0.i = phi i32 [ 9, %if.end14 ], [ %8, %if.then2.i ]
-  tail call void @qemu_put_byte(ptr noundef %1, i32 noundef 0) #16
+  tail call void @qemu_put_byte(ptr noundef %1, i32 noundef 0) #18
   %idstr = getelementptr inbounds i8, ptr %2, i64 76
-  %call.i25 = tail call zeroext i1 @migrate_release_ram() #16
+  %call.i25 = tail call zeroext i1 @migrate_release_ram() #18
   br i1 %call.i25, label %lor.lhs.false.i, label %if.end38
 
 lor.lhs.false.i:                                  ; preds = %save_page_header.exit
-  %call1.i = tail call zeroext i1 @migration_in_postcopy() #16
+  %call1.i = tail call zeroext i1 @migration_in_postcopy() #18
   br i1 %call1.i, label %if.end.i, label %if.end38
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
@@ -973,11 +973,11 @@ if.end.i:                                         ; preds = %lor.lhs.false.i
 if.then22:                                        ; preds = %if.end6
   %file23 = getelementptr inbounds i8, ptr %param, i64 8
   %9 = load ptr, ptr %file23, align 8
-  %call24 = tail call zeroext i1 @qemu_file_buffer_empty(ptr noundef %9) #16
+  %call24 = tail call zeroext i1 @qemu_file_buffer_empty(ptr noundef %9) #18
   br i1 %call24, label %if.else26, label %if.end27
 
 if.else26:                                        ; preds = %if.then22
-  tail call void @__assert_fail(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str, i32 noundef 1287, ptr noundef nonnull @__PRETTY_FUNCTION__.compress_send_queued_data) #17
+  tail call void @__assert_fail(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str, i32 noundef 1287, ptr noundef nonnull @__PRETTY_FUNCTION__.compress_send_queued_data) #19
   unreachable
 
 if.end27:                                         ; preds = %if.then22
@@ -985,15 +985,15 @@ if.end27:                                         ; preds = %if.then22
   %cmp.i27 = icmp eq ptr %10, %2
   %spec.select.i29.v = select i1 %cmp.i27, i64 288, i64 256
   %spec.select.i29 = or i64 %spec.select.i29.v, %3
-  tail call void @qemu_put_be64(ptr noundef %1, i64 noundef %spec.select.i29) #16
+  tail call void @qemu_put_be64(ptr noundef %1, i64 noundef %spec.select.i29) #18
   br i1 %cmp.i27, label %save_page_header.exit36, label %if.then2.i30
 
 if.then2.i30:                                     ; preds = %if.end27
   %idstr.i31 = getelementptr inbounds i8, ptr %2, i64 76
-  %call.i32 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %idstr.i31) #19
+  %call.i32 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %idstr.i31) #21
   %conv.i33 = trunc i64 %call.i32 to i32
-  tail call void @qemu_put_byte(ptr noundef %1, i32 noundef %conv.i33) #16
-  tail call void @qemu_put_buffer(ptr noundef %1, ptr noundef nonnull %idstr.i31, i64 noundef %call.i32) #16
+  tail call void @qemu_put_byte(ptr noundef %1, i32 noundef %conv.i33) #18
+  tail call void @qemu_put_buffer(ptr noundef %1, ptr noundef nonnull %idstr.i31, i64 noundef %call.i32) #18
   store ptr %2, ptr %last_sent_block, align 8
   %11 = add i32 %conv.i33, 9
   br label %save_page_header.exit36
@@ -1001,17 +1001,17 @@ if.then2.i30:                                     ; preds = %if.end27
 save_page_header.exit36:                          ; preds = %if.end27, %if.then2.i30
   %size.0.i35 = phi i32 [ 8, %if.end27 ], [ %11, %if.then2.i30 ]
   %12 = load ptr, ptr %file23, align 8
-  %call34 = tail call i32 @qemu_put_qemu_file(ptr noundef %1, ptr noundef %12) #16
+  %call34 = tail call i32 @qemu_put_qemu_file(ptr noundef %1, ptr noundef %12) #18
   %add35 = add i32 %call34, %size.0.i35
   br label %if.end38
 
 if.else36:                                        ; preds = %if.end6
-  tail call void @abort() #17
+  tail call void @abort() #19
   unreachable
 
 if.end38:                                         ; preds = %if.end.i, %lor.lhs.false.i, %save_page_header.exit, %save_page_header.exit36
   %len.0 = phi i32 [ %add35, %save_page_header.exit36 ], [ %size.0.i, %save_page_header.exit ], [ %size.0.i, %lor.lhs.false.i ], [ %size.0.i, %if.end.i ]
-  tail call void @update_compress_thread_counts(ptr noundef nonnull %param, i32 noundef %len.0) #16
+  tail call void @update_compress_thread_counts(ptr noundef nonnull %param, i32 noundef %len.0) #18
   br label %return
 
 return:                                           ; preds = %entry, %if.end38
@@ -1030,8 +1030,8 @@ declare void @qemu_put_byte(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 declare i32 @qemu_put_qemu_file(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: noreturn nounwind
-declare void @abort() local_unnamed_addr #4
+; Function Attrs: cold nofree noreturn nounwind
+declare void @abort() local_unnamed_addr #5
 
 declare void @update_compress_thread_counts(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -1039,7 +1039,7 @@ declare void @update_compress_thread_counts(ptr noundef, i32 noundef) local_unna
 define dso_local zeroext i1 @ram_write_tracking_available() local_unnamed_addr #0 {
 entry:
   %uffd_features = alloca i64, align 8
-  %call = call i32 @uffd_query_features(ptr noundef nonnull %uffd_features) #16
+  %call = call i32 @uffd_query_features(ptr noundef nonnull %uffd_features) #18
   %cmp = icmp eq i32 %call, 0
   %0 = load i64, ptr %uffd_features, align 8
   %and = and i64 %0, 1
@@ -1054,12 +1054,12 @@ declare i32 @uffd_query_features(ptr noundef) local_unnamed_addr #1
 define dso_local noundef zeroext i1 @ram_write_tracking_compatible() local_unnamed_addr #0 {
 entry:
   %uffd_ioctls = alloca i64, align 8
-  %call = tail call i32 @uffd_create_fd(i64 noundef 1, i1 noundef zeroext false) #16
+  %call = tail call i32 @uffd_create_fd(i64 noundef 1, i1 noundef zeroext false) #18
   %cmp = icmp slt i32 %call, 0
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call.i.i = tail call ptr @get_ptr_rcu_reader() #16
+  %call.i.i = tail call ptr @get_ptr_rcu_reader() #18
   %depth.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   %0 = load i32, ptr %depth.i.i, align 4
   %inc.i.i = add i32 %0, 1
@@ -1071,32 +1071,32 @@ while.end.i.i:                                    ; preds = %if.end
   %1 = load atomic i64, ptr @rcu_gp_ctr monotonic, align 8
   %conv8.i.i = and i64 %1, 4294967295
   store atomic i64 %conv8.i.i, ptr %call.i.i monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
   fence seq_cst
   br label %rcu_read_auto_lock.exit
 
 rcu_read_auto_lock.exit:                          ; preds = %if.end, %while.end.i.i
   %2 = load atomic i64, ptr getelementptr inbounds (i8, ptr @ram_list, i64 56) monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !14
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !14
   %tobool.not11 = icmp eq i64 %2, 0
   br i1 %tobool.not11, label %if.then.i.i, label %for.body
 
 for.body:                                         ; preds = %rcu_read_auto_lock.exit, %while.end22
   %block.012.in = phi i64 [ %9, %while.end22 ], [ %2, %rcu_read_auto_lock.exit ]
   %block.012 = inttoptr i64 %block.012.in to ptr
-  %call.i = call zeroext i1 @qemu_ram_is_migratable(ptr noundef nonnull %block.012) #16
+  %call.i = call zeroext i1 @qemu_ram_is_migratable(ptr noundef nonnull %block.012) #18
   br i1 %call.i, label %lor.rhs.i, label %while.end22
 
 lor.rhs.i:                                        ; preds = %for.body
-  %call1.i = call zeroext i1 @migrate_ignore_shared() #16
+  %call1.i = call zeroext i1 @migrate_ignore_shared() #18
   br i1 %call1.i, label %land.lhs.true.i, label %if.else
 
 land.lhs.true.i:                                  ; preds = %lor.rhs.i
-  %call2.i = call zeroext i1 @qemu_ram_is_shared(ptr noundef nonnull %block.012) #16
+  %call2.i = call zeroext i1 @qemu_ram_is_shared(ptr noundef nonnull %block.012) #18
   br i1 %call2.i, label %migrate_ram_is_ignored.exit, label %if.else
 
 migrate_ram_is_ignored.exit:                      ; preds = %land.lhs.true.i
-  %call3.i = call zeroext i1 @qemu_ram_is_named_file(ptr noundef nonnull %block.012) #16
+  %call3.i = call zeroext i1 @qemu_ram_is_named_file(ptr noundef nonnull %block.012) #18
   br i1 %call3.i, label %while.end22, label %if.else
 
 if.else:                                          ; preds = %lor.rhs.i, %land.lhs.true.i, %migrate_ram_is_ignored.exit
@@ -1118,7 +1118,7 @@ if.end8:                                          ; preds = %lor.lhs.false
   %6 = load ptr, ptr %host, align 8
   %max_length = getelementptr inbounds i8, ptr %block.012, i64 56
   %7 = load i64, ptr %max_length, align 8
-  %call9 = call i32 @uffd_register_memory(i32 noundef %call, ptr noundef %6, i64 noundef %7, i64 noundef 2, ptr noundef nonnull %uffd_ioctls) #16
+  %call9 = call i32 @uffd_register_memory(i32 noundef %call, ptr noundef %6, i64 noundef %7, i64 noundef 2, ptr noundef nonnull %uffd_ioctls) #18
   %tobool10.not = icmp eq i32 %call9, 0
   br i1 %tobool10.not, label %if.end12, label %if.then.i.i
 
@@ -1131,21 +1131,21 @@ if.end12:                                         ; preds = %if.end8
 while.end22:                                      ; preds = %for.body, %migrate_ram_is_ignored.exit, %if.end12, %if.else, %lor.lhs.false
   %next = getelementptr inbounds i8, ptr %block.012, i64 336
   %9 = load atomic i64, ptr %next monotonic, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !15
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !15
   %tobool.not = icmp eq i64 %9, 0
   br i1 %tobool.not, label %if.then.i.i, label %for.body, !llvm.loop !16
 
 if.then.i.i:                                      ; preds = %while.end22, %if.end12, %if.end8, %rcu_read_auto_lock.exit
   %tobool.not.lcssa = phi i1 [ true, %rcu_read_auto_lock.exit ], [ false, %if.end8 ], [ false, %if.end12 ], [ true, %while.end22 ]
-  call void @uffd_close_fd(i32 noundef %call) #16
-  %call.i.i.i.i = call ptr @get_ptr_rcu_reader() #16
+  call void @uffd_close_fd(i32 noundef %call) #18
+  %call.i.i.i.i = call ptr @get_ptr_rcu_reader() #18
   %depth.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 12
   %10 = load i32, ptr %depth.i.i.i.i, align 4
   %cmp.not.i.i.i.i = icmp eq i32 %10, 0
   br i1 %cmp.not.i.i.i.i, label %if.else.i.i.i.i, label %if.end.i.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %if.then.i.i
-  call void @__assert_fail(ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.28, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #17
+  call void @__assert_fail(ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.28, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #19
   unreachable
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i
@@ -1156,7 +1156,7 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i
 
 while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   store atomic i64 0, ptr %call.i.i.i.i release, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !10
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !10
   fence seq_cst
   %waiting.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
   %11 = load atomic i8, ptr %waiting.i.i.i.i monotonic, align 8
@@ -1165,7 +1165,7 @@ while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
 
 while.end21.i.i.i.i:                              ; preds = %while.end.i.i.i.i
   store atomic i8 0, ptr %waiting.i.i.i.i monotonic, align 8
-  call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #16
+  call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #18
   br label %return
 
 return:                                           ; preds = %while.end21.i.i.i.i, %while.end.i.i.i.i, %if.end.i.i.i.i, %entry
@@ -1183,7 +1183,7 @@ declare void @uffd_close_fd(i32 noundef) local_unnamed_addr #1
 define dso_local void @ram_write_tracking_prepare() local_unnamed_addr #0 {
 entry:
   %section.i = alloca %struct.MemoryRegionSection, align 16
-  %call.i.i = tail call ptr @get_ptr_rcu_reader() #16
+  %call.i.i = tail call ptr @get_ptr_rcu_reader() #18
   %depth.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   %0 = load i32, ptr %depth.i.i, align 4
   %inc.i.i = add i32 %0, 1
@@ -1195,13 +1195,13 @@ while.end.i.i:                                    ; preds = %entry
   %1 = load atomic i64, ptr @rcu_gp_ctr monotonic, align 8
   %conv8.i.i = and i64 %1, 4294967295
   store atomic i64 %conv8.i.i, ptr %call.i.i monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
   fence seq_cst
   br label %rcu_read_auto_lock.exit
 
 rcu_read_auto_lock.exit:                          ; preds = %entry, %while.end.i.i
   %2 = load atomic i64, ptr getelementptr inbounds (i8, ptr @ram_list, i64 56) monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !17
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !17
   %tobool.not11 = icmp eq i64 %2, 0
   br i1 %tobool.not11, label %if.then.i.i, label %for.body.lr.ph
 
@@ -1213,19 +1213,19 @@ for.body.lr.ph:                                   ; preds = %rcu_read_auto_lock.
 for.body:                                         ; preds = %for.body.lr.ph, %while.end12
   %block.012.in = phi i64 [ %2, %for.body.lr.ph ], [ %14, %while.end12 ]
   %block.012 = inttoptr i64 %block.012.in to ptr
-  %call.i = call zeroext i1 @qemu_ram_is_migratable(ptr noundef nonnull %block.012) #16
+  %call.i = call zeroext i1 @qemu_ram_is_migratable(ptr noundef nonnull %block.012) #18
   br i1 %call.i, label %lor.rhs.i, label %while.end12
 
 lor.rhs.i:                                        ; preds = %for.body
-  %call1.i = call zeroext i1 @migrate_ignore_shared() #16
+  %call1.i = call zeroext i1 @migrate_ignore_shared() #18
   br i1 %call1.i, label %land.lhs.true.i, label %if.else
 
 land.lhs.true.i:                                  ; preds = %lor.rhs.i
-  %call2.i = call zeroext i1 @qemu_ram_is_shared(ptr noundef nonnull %block.012) #16
+  %call2.i = call zeroext i1 @qemu_ram_is_shared(ptr noundef nonnull %block.012) #18
   br i1 %call2.i, label %migrate_ram_is_ignored.exit, label %if.else
 
 migrate_ram_is_ignored.exit:                      ; preds = %land.lhs.true.i
-  %call3.i = call zeroext i1 @qemu_ram_is_named_file(ptr noundef nonnull %block.012) #16
+  %call3.i = call zeroext i1 @qemu_ram_is_named_file(ptr noundef nonnull %block.012) #18
   br i1 %call3.i, label %while.end12, label %if.else
 
 if.else:                                          ; preds = %lor.rhs.i, %land.lhs.true.i, %migrate_ram_is_ignored.exit
@@ -1244,20 +1244,20 @@ lor.lhs.false:                                    ; preds = %if.else
 
 land.lhs.true.i6:                                 ; preds = %lor.lhs.false
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %section.i)
-  %call.i.i7 = call ptr @memory_region_get_ram_discard_manager(ptr noundef nonnull %3) #16
+  %call.i.i7 = call ptr @memory_region_get_ram_discard_manager(ptr noundef nonnull %3) #18
   %tobool.i.not.i = icmp eq ptr %call.i.i7, null
   br i1 %tobool.i.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i6
   %6 = load ptr, ptr %mr, align 8
-  %call3.i8 = call ptr @memory_region_get_ram_discard_manager(ptr noundef %6) #16
+  %call3.i8 = call ptr @memory_region_get_ram_discard_manager(ptr noundef %6) #18
   %7 = load ptr, ptr %mr, align 8
   %size5.i = getelementptr inbounds i8, ptr %7, i64 112
   %8 = load i128, ptr %size5.i, align 16
   store i128 %8, ptr %section.i, align 16
   store ptr %7, ptr %mr6.i, align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(27) %fv.i, i8 0, i64 27, i1 false)
-  %call8.i = call i32 @ram_discard_manager_replay_populated(ptr noundef %call3.i8, ptr noundef nonnull %section.i, ptr noundef nonnull @populate_read_section, ptr noundef null) #16
+  %call8.i = call i32 @ram_discard_manager_replay_populated(ptr noundef %call3.i8, ptr noundef nonnull %section.i, ptr noundef nonnull @populate_read_section, ptr noundef null) #18
   br label %ram_block_populate_read.exit
 
 if.else.i:                                        ; preds = %land.lhs.true.i6
@@ -1276,7 +1276,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %10 = load ptr, ptr %host.i.i, align 8
   %add.ptr.i.i = getelementptr i8, ptr %10, i64 %offset.addr.06.i.i
   %11 = load i8, ptr %add.ptr.i.i, align 1
-  %12 = call i8 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i8 %11) #16, !srcloc !18
+  %12 = call i8 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i8 %11) #18, !srcloc !18
   %13 = load i64, ptr %page_size.i.i, align 8
   %add1.i.i = add i64 %13, %offset.addr.06.i.i
   %cmp.i.i = icmp ult i64 %add1.i.i, %9
@@ -1289,19 +1289,19 @@ ram_block_populate_read.exit:                     ; preds = %for.body.i.i, %if.t
 while.end12:                                      ; preds = %for.body, %ram_block_populate_read.exit, %migrate_ram_is_ignored.exit, %if.else, %lor.lhs.false
   %next = getelementptr inbounds i8, ptr %block.012, i64 336
   %14 = load atomic i64, ptr %next monotonic, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !20
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !20
   %tobool.not = icmp eq i64 %14, 0
   br i1 %tobool.not, label %if.then.i.i, label %for.body, !llvm.loop !21
 
 if.then.i.i:                                      ; preds = %while.end12, %rcu_read_auto_lock.exit
-  %call.i.i.i.i = call ptr @get_ptr_rcu_reader() #16
+  %call.i.i.i.i = call ptr @get_ptr_rcu_reader() #18
   %depth.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 12
   %15 = load i32, ptr %depth.i.i.i.i, align 4
   %cmp.not.i.i.i.i = icmp eq i32 %15, 0
   br i1 %cmp.not.i.i.i.i, label %if.else.i.i.i.i, label %if.end.i.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %if.then.i.i
-  call void @__assert_fail(ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.28, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #17
+  call void @__assert_fail(ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.28, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #19
   unreachable
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i
@@ -1312,7 +1312,7 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i
 
 while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   store atomic i64 0, ptr %call.i.i.i.i release, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !10
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !10
   fence seq_cst
   %waiting.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
   %16 = load atomic i8, ptr %waiting.i.i.i.i monotonic, align 8
@@ -1321,7 +1321,7 @@ while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
 
 while.end21.i.i.i.i:                              ; preds = %while.end.i.i.i.i
   store atomic i8 0, ptr %waiting.i.i.i.i monotonic, align 8
-  call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #16
+  call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #18
   br label %glib_autoptr_cleanup_RCUReadAuto.exit
 
 glib_autoptr_cleanup_RCUReadAuto.exit:            ; preds = %if.end.i.i.i.i, %while.end.i.i.i.i, %while.end21.i.i.i.i
@@ -1334,14 +1334,14 @@ entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %section.i = alloca %struct.MemoryRegionSection, align 16
   %0 = load ptr, ptr @ram_state, align 8
-  %call = tail call i32 @uffd_create_fd(i64 noundef 1, i1 noundef zeroext true) #16
+  %call = tail call i32 @uffd_create_fd(i64 noundef 1, i1 noundef zeroext true) #18
   %cmp = icmp slt i32 %call, 0
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   %uffdio_fd = getelementptr inbounds i8, ptr %0, i64 112
   store i32 %call, ptr %uffdio_fd, align 8
-  %call.i.i = tail call ptr @get_ptr_rcu_reader() #16
+  %call.i.i = tail call ptr @get_ptr_rcu_reader() #18
   %depth.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   %1 = load i32, ptr %depth.i.i, align 4
   %inc.i.i = add i32 %1, 1
@@ -1353,13 +1353,13 @@ while.end.i.i:                                    ; preds = %if.end
   %2 = load atomic i64, ptr @rcu_gp_ctr monotonic, align 8
   %conv8.i.i = and i64 %2, 4294967295
   store atomic i64 %conv8.i.i, ptr %call.i.i monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
   fence seq_cst
   br label %rcu_read_auto_lock.exit
 
 rcu_read_auto_lock.exit:                          ; preds = %if.end, %while.end.i.i
   %3 = load atomic i64, ptr getelementptr inbounds (i8, ptr @ram_list, i64 56) monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !22
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !22
   %tobool.not43 = icmp eq i64 %3, 0
   br i1 %tobool.not43, label %if.then.i.i39, label %for.body.lr.ph
 
@@ -1374,19 +1374,19 @@ for.body.lr.ph:                                   ; preds = %rcu_read_auto_lock.
 for.body:                                         ; preds = %for.body.lr.ph, %while.end27
   %block.044.in = phi i64 [ %3, %for.body.lr.ph ], [ %29, %while.end27 ]
   %block.044 = inttoptr i64 %block.044.in to ptr
-  %call.i = call zeroext i1 @qemu_ram_is_migratable(ptr noundef nonnull %block.044) #16
+  %call.i = call zeroext i1 @qemu_ram_is_migratable(ptr noundef nonnull %block.044) #18
   br i1 %call.i, label %lor.rhs.i, label %while.end27
 
 lor.rhs.i:                                        ; preds = %for.body
-  %call1.i = call zeroext i1 @migrate_ignore_shared() #16
+  %call1.i = call zeroext i1 @migrate_ignore_shared() #18
   br i1 %call1.i, label %land.lhs.true.i, label %if.else
 
 land.lhs.true.i:                                  ; preds = %lor.rhs.i
-  %call2.i = call zeroext i1 @qemu_ram_is_shared(ptr noundef nonnull %block.044) #16
+  %call2.i = call zeroext i1 @qemu_ram_is_shared(ptr noundef nonnull %block.044) #18
   br i1 %call2.i, label %migrate_ram_is_ignored.exit, label %if.else
 
 migrate_ram_is_ignored.exit:                      ; preds = %land.lhs.true.i
-  %call3.i = call zeroext i1 @qemu_ram_is_named_file(ptr noundef nonnull %block.044) #16
+  %call3.i = call zeroext i1 @qemu_ram_is_named_file(ptr noundef nonnull %block.044) #18
   br i1 %call3.i, label %while.end27, label %if.else
 
 if.else:                                          ; preds = %lor.rhs.i, %land.lhs.true.i, %migrate_ram_is_ignored.exit
@@ -1409,7 +1409,7 @@ if.end8:                                          ; preds = %lor.lhs.false
   %9 = load ptr, ptr %host, align 8
   %max_length = getelementptr inbounds i8, ptr %block.044, i64 56
   %10 = load i64, ptr %max_length, align 8
-  %call10 = call i32 @uffd_register_memory(i32 noundef %8, ptr noundef %9, i64 noundef %10, i64 noundef 2, ptr noundef null) #16
+  %call10 = call i32 @uffd_register_memory(i32 noundef %8, ptr noundef %9, i64 noundef %10, i64 noundef 2, ptr noundef null) #18
   %tobool11.not = icmp eq i32 %call10, 0
   br i1 %tobool11.not, label %if.end13, label %fail
 
@@ -1419,7 +1419,7 @@ if.end13:                                         ; preds = %if.end8
   %or = or i32 %11, 64
   store i32 %or, ptr %flags, align 8
   %12 = load ptr, ptr %mr, align 8
-  call void @memory_region_ref(ptr noundef %12) #16
+  call void @memory_region_ref(ptr noundef %12) #18
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %section.i)
   %13 = load i32, ptr %flags, align 8
   %and.i = and i32 %13, 64
@@ -1427,7 +1427,7 @@ if.end13:                                         ; preds = %if.end8
   br i1 %tobool.not.i, label %if.else.i, label %if.end.i
 
 if.else.i:                                        ; preds = %if.end13
-  call void @__assert_fail(ptr noundef nonnull @.str.31, ptr noundef nonnull @.str, i32 noundef 1646, ptr noundef nonnull @__PRETTY_FUNCTION__.ram_block_uffd_protect) #17
+  call void @__assert_fail(ptr noundef nonnull @.str.31, ptr noundef nonnull @.str, i32 noundef 1646, ptr noundef nonnull @__PRETTY_FUNCTION__.ram_block_uffd_protect) #19
   unreachable
 
 if.end.i:                                         ; preds = %if.end13
@@ -1436,27 +1436,27 @@ if.end.i:                                         ; preds = %if.end13
   br i1 %tobool1.not.i, label %if.end11.i, label %land.lhs.true.i29
 
 land.lhs.true.i29:                                ; preds = %if.end.i
-  %call.i.i30 = call ptr @memory_region_get_ram_discard_manager(ptr noundef nonnull %14) #16
+  %call.i.i30 = call ptr @memory_region_get_ram_discard_manager(ptr noundef nonnull %14) #18
   %tobool.i.not.i = icmp eq ptr %call.i.i30, null
   br i1 %tobool.i.not.i, label %if.end11.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %land.lhs.true.i29
   %15 = load ptr, ptr %mr, align 8
-  %call5.i = call ptr @memory_region_get_ram_discard_manager(ptr noundef %15) #16
+  %call5.i = call ptr @memory_region_get_ram_discard_manager(ptr noundef %15) #18
   %16 = load ptr, ptr %mr, align 8
   %size7.i = getelementptr inbounds i8, ptr %16, i64 112
   %17 = load i128, ptr %size7.i, align 16
   store i128 %17, ptr %section.i, align 16
   store ptr %16, ptr %mr8.i, align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(27) %fv.i, i8 0, i64 27, i1 false)
-  %call10.i = call i32 @ram_discard_manager_replay_populated(ptr noundef %call5.i, ptr noundef nonnull %section.i, ptr noundef nonnull @uffd_protect_section, ptr noundef %4) #16
+  %call10.i = call i32 @ram_discard_manager_replay_populated(ptr noundef %call5.i, ptr noundef nonnull %section.i, ptr noundef nonnull @uffd_protect_section, ptr noundef %4) #18
   br label %ram_block_uffd_protect.exit
 
 if.end11.i:                                       ; preds = %land.lhs.true.i29, %if.end.i
   %18 = load ptr, ptr %host, align 8
   %used_length.i = getelementptr inbounds i8, ptr %block.044, i64 48
   %19 = load i64, ptr %used_length.i, align 8
-  %call12.i = call i32 @uffd_change_protection(i32 noundef %call, ptr noundef %18, i64 noundef %19, i1 noundef zeroext true, i1 noundef zeroext false) #16
+  %call12.i = call i32 @uffd_change_protection(i32 noundef %call, ptr noundef %18, i64 noundef %19, i1 noundef zeroext true, i1 noundef zeroext false) #18
   br label %ram_block_uffd_protect.exit
 
 ram_block_uffd_protect.exit:                      ; preds = %if.then3.i, %if.end11.i
@@ -1491,15 +1491,15 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
-  %call10.i.i = call i32 @qemu_get_thread_id() #16
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #18
+  %call10.i.i = call i32 @qemu_get_thread_id() #18
   %27 = load i64, ptr %_now.i.i, align 8
   %28 = load i64, ptr %tv_usec.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.32, i32 noundef %call10.i.i, i64 noundef %27, i64 noundef %28, ptr noundef nonnull %idstr, i64 noundef %20, ptr noundef %21, i64 noundef %22) #16
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.32, i32 noundef %call10.i.i, i64 noundef %27, i64 noundef %28, ptr noundef nonnull %idstr, i64 noundef %20, ptr noundef %21, i64 noundef %22) #18
   br label %trace_ram_write_tracking_ramblock_start.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.33, ptr noundef nonnull %idstr, i64 noundef %20, ptr noundef %21, i64 noundef %22) #16
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.33, ptr noundef nonnull %idstr, i64 noundef %20, ptr noundef %21, i64 noundef %22) #18
   br label %trace_ram_write_tracking_ramblock_start.exit
 
 trace_ram_write_tracking_ramblock_start.exit:     ; preds = %if.end18, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -1509,33 +1509,33 @@ trace_ram_write_tracking_ramblock_start.exit:     ; preds = %if.end18, %land.lhs
 while.end27:                                      ; preds = %for.body, %trace_ram_write_tracking_ramblock_start.exit, %migrate_ram_is_ignored.exit, %if.else, %lor.lhs.false
   %next = getelementptr inbounds i8, ptr %block.044, i64 336
   %29 = load atomic i64, ptr %next monotonic, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !23
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !23
   %tobool.not = icmp eq i64 %29, 0
   br i1 %tobool.not, label %if.then.i.i39, label %for.body, !llvm.loop !24
 
 fail:                                             ; preds = %ram_block_uffd_protect.exit, %if.end8
-  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.8) #16
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.8) #18
   %30 = load atomic i64, ptr getelementptr inbounds (i8, ptr @ram_list, i64 56) monotonic, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !25
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !25
   %tobool37.not47 = icmp eq i64 %30, 0
   br i1 %tobool37.not47, label %for.end64, label %for.body38
 
 for.body38:                                       ; preds = %fail, %while.end60
   %block.148.in = phi i64 [ %37, %while.end60 ], [ %30, %fail ]
   %block.148 = inttoptr i64 %block.148.in to ptr
-  %call.i31 = call zeroext i1 @qemu_ram_is_migratable(ptr noundef nonnull %block.148) #16
+  %call.i31 = call zeroext i1 @qemu_ram_is_migratable(ptr noundef nonnull %block.148) #18
   br i1 %call.i31, label %lor.rhs.i32, label %while.end60
 
 lor.rhs.i32:                                      ; preds = %for.body38
-  %call1.i33 = call zeroext i1 @migrate_ignore_shared() #16
+  %call1.i33 = call zeroext i1 @migrate_ignore_shared() #18
   br i1 %call1.i33, label %land.lhs.true.i34, label %if.else41
 
 land.lhs.true.i34:                                ; preds = %lor.rhs.i32
-  %call2.i35 = call zeroext i1 @qemu_ram_is_shared(ptr noundef nonnull %block.148) #16
+  %call2.i35 = call zeroext i1 @qemu_ram_is_shared(ptr noundef nonnull %block.148) #18
   br i1 %call2.i35, label %migrate_ram_is_ignored.exit38, label %if.else41
 
 migrate_ram_is_ignored.exit38:                    ; preds = %land.lhs.true.i34
-  %call3.i37 = call zeroext i1 @qemu_ram_is_named_file(ptr noundef nonnull %block.148) #16
+  %call3.i37 = call zeroext i1 @qemu_ram_is_named_file(ptr noundef nonnull %block.148) #18
   br i1 %call3.i37, label %while.end60, label %if.else41
 
 if.else41:                                        ; preds = %lor.rhs.i32, %land.lhs.true.i34, %migrate_ram_is_ignored.exit38
@@ -1551,37 +1551,37 @@ if.end45:                                         ; preds = %if.else41
   %33 = load ptr, ptr %host47, align 8
   %max_length48 = getelementptr inbounds i8, ptr %block.148, i64 56
   %34 = load i64, ptr %max_length48, align 8
-  %call49 = call i32 @uffd_unregister_memory(i32 noundef %32, ptr noundef %33, i64 noundef %34) #16
+  %call49 = call i32 @uffd_unregister_memory(i32 noundef %32, ptr noundef %33, i64 noundef %34) #18
   %35 = load i32, ptr %flags42, align 8
   %and51 = and i32 %35, -65
   store i32 %and51, ptr %flags42, align 8
   %mr52 = getelementptr inbounds i8, ptr %block.148, i64 16
   %36 = load ptr, ptr %mr52, align 8
-  call void @memory_region_unref(ptr noundef %36) #16
+  call void @memory_region_unref(ptr noundef %36) #18
   br label %while.end60
 
 while.end60:                                      ; preds = %for.body38, %if.end45, %migrate_ram_is_ignored.exit38, %if.else41
   %next61 = getelementptr inbounds i8, ptr %block.148, i64 336
   %37 = load atomic i64, ptr %next61 monotonic, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !26
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !26
   %tobool37.not = icmp eq i64 %37, 0
   br i1 %tobool37.not, label %for.end64, label %for.body38, !llvm.loop !27
 
 for.end64:                                        ; preds = %while.end60, %fail
-  call void @uffd_close_fd(i32 noundef %call) #16
+  call void @uffd_close_fd(i32 noundef %call) #18
   store i32 -1, ptr %uffdio_fd, align 8
   br label %if.then.i.i39
 
 if.then.i.i39:                                    ; preds = %while.end27, %rcu_read_auto_lock.exit, %for.end64
   %retval.0 = phi i32 [ -1, %for.end64 ], [ 0, %rcu_read_auto_lock.exit ], [ 0, %while.end27 ]
-  %call.i.i.i.i = call ptr @get_ptr_rcu_reader() #16
+  %call.i.i.i.i = call ptr @get_ptr_rcu_reader() #18
   %depth.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 12
   %38 = load i32, ptr %depth.i.i.i.i, align 4
   %cmp.not.i.i.i.i = icmp eq i32 %38, 0
   br i1 %cmp.not.i.i.i.i, label %if.else.i.i.i.i, label %if.end.i.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %if.then.i.i39
-  call void @__assert_fail(ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.28, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #17
+  call void @__assert_fail(ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.28, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #19
   unreachable
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i39
@@ -1592,7 +1592,7 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i39
 
 while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   store atomic i64 0, ptr %call.i.i.i.i release, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !10
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !10
   fence seq_cst
   %waiting.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
   %39 = load atomic i8, ptr %waiting.i.i.i.i monotonic, align 8
@@ -1601,7 +1601,7 @@ while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
 
 while.end21.i.i.i.i:                              ; preds = %while.end.i.i.i.i
   store atomic i8 0, ptr %waiting.i.i.i.i monotonic, align 8
-  call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #16
+  call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #18
   br label %return
 
 return:                                           ; preds = %while.end21.i.i.i.i, %while.end.i.i.i.i, %if.end.i.i.i.i, %entry
@@ -1620,7 +1620,7 @@ define dso_local void @ram_write_tracking_stop() local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %0 = load ptr, ptr @ram_state, align 8
-  %call.i.i = tail call ptr @get_ptr_rcu_reader() #16
+  %call.i.i = tail call ptr @get_ptr_rcu_reader() #18
   %depth.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   %1 = load i32, ptr %depth.i.i, align 4
   %inc.i.i = add i32 %1, 1
@@ -1632,13 +1632,13 @@ while.end.i.i:                                    ; preds = %entry
   %2 = load atomic i64, ptr @rcu_gp_ctr monotonic, align 8
   %conv8.i.i = and i64 %2, 4294967295
   store atomic i64 %conv8.i.i, ptr %call.i.i monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
   fence seq_cst
   br label %rcu_read_auto_lock.exit
 
 rcu_read_auto_lock.exit:                          ; preds = %entry, %while.end.i.i
   %3 = load atomic i64, ptr getelementptr inbounds (i8, ptr @ram_list, i64 56) monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !28
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !28
   %tobool.not17 = icmp eq i64 %3, 0
   br i1 %tobool.not17, label %if.then.i.i14, label %for.body.lr.ph
 
@@ -1650,19 +1650,19 @@ for.body.lr.ph:                                   ; preds = %rcu_read_auto_lock.
 for.body:                                         ; preds = %for.body.lr.ph, %while.end14
   %block.018.in = phi i64 [ %3, %for.body.lr.ph ], [ %19, %while.end14 ]
   %block.018 = inttoptr i64 %block.018.in to ptr
-  %call.i = tail call zeroext i1 @qemu_ram_is_migratable(ptr noundef nonnull %block.018) #16
+  %call.i = tail call zeroext i1 @qemu_ram_is_migratable(ptr noundef nonnull %block.018) #18
   br i1 %call.i, label %lor.rhs.i, label %while.end14
 
 lor.rhs.i:                                        ; preds = %for.body
-  %call1.i = tail call zeroext i1 @migrate_ignore_shared() #16
+  %call1.i = tail call zeroext i1 @migrate_ignore_shared() #18
   br i1 %call1.i, label %land.lhs.true.i, label %if.else
 
 land.lhs.true.i:                                  ; preds = %lor.rhs.i
-  %call2.i = tail call zeroext i1 @qemu_ram_is_shared(ptr noundef nonnull %block.018) #16
+  %call2.i = tail call zeroext i1 @qemu_ram_is_shared(ptr noundef nonnull %block.018) #18
   br i1 %call2.i, label %migrate_ram_is_ignored.exit, label %if.else
 
 migrate_ram_is_ignored.exit:                      ; preds = %land.lhs.true.i
-  %call3.i = tail call zeroext i1 @qemu_ram_is_named_file(ptr noundef nonnull %block.018) #16
+  %call3.i = tail call zeroext i1 @qemu_ram_is_named_file(ptr noundef nonnull %block.018) #18
   br i1 %call3.i, label %while.end14, label %if.else
 
 if.else:                                          ; preds = %lor.rhs.i, %land.lhs.true.i, %migrate_ram_is_ignored.exit
@@ -1678,7 +1678,7 @@ if.end:                                           ; preds = %if.else
   %6 = load ptr, ptr %host, align 8
   %max_length = getelementptr inbounds i8, ptr %block.018, i64 56
   %7 = load i64, ptr %max_length, align 8
-  %call3 = tail call i32 @uffd_unregister_memory(i32 noundef %5, ptr noundef %6, i64 noundef %7) #16
+  %call3 = tail call i32 @uffd_unregister_memory(i32 noundef %5, ptr noundef %6, i64 noundef %7) #18
   %idstr = getelementptr inbounds i8, ptr %block.018, i64 76
   %page_size = getelementptr inbounds i8, ptr %block.018, i64 376
   %8 = load i64, ptr %page_size, align 8
@@ -1704,15 +1704,15 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #16
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #18
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #18
   %15 = load i64, ptr %_now.i.i, align 8
   %16 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.34, i32 noundef %call10.i.i, i64 noundef %15, i64 noundef %16, ptr noundef nonnull %idstr, i64 noundef %8, ptr noundef %9, i64 noundef %10) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.34, i32 noundef %call10.i.i, i64 noundef %15, i64 noundef %16, ptr noundef nonnull %idstr, i64 noundef %8, ptr noundef %9, i64 noundef %10) #18
   br label %trace_ram_write_tracking_ramblock_stop.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.35, ptr noundef nonnull %idstr, i64 noundef %8, ptr noundef %9, i64 noundef %10) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.35, ptr noundef nonnull %idstr, i64 noundef %8, ptr noundef %9, i64 noundef %10) #18
   br label %trace_ram_write_tracking_ramblock_stop.exit
 
 trace_ram_write_tracking_ramblock_stop.exit:      ; preds = %if.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -1722,29 +1722,29 @@ trace_ram_write_tracking_ramblock_stop.exit:      ; preds = %if.end, %land.lhs.t
   store i32 %and7, ptr %flags, align 8
   %mr = getelementptr inbounds i8, ptr %block.018, i64 16
   %18 = load ptr, ptr %mr, align 8
-  tail call void @memory_region_unref(ptr noundef %18) #16
+  tail call void @memory_region_unref(ptr noundef %18) #18
   br label %while.end14
 
 while.end14:                                      ; preds = %for.body, %trace_ram_write_tracking_ramblock_stop.exit, %migrate_ram_is_ignored.exit, %if.else
   %next = getelementptr inbounds i8, ptr %block.018, i64 336
   %19 = load atomic i64, ptr %next monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !29
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !29
   %tobool.not = icmp eq i64 %19, 0
   br i1 %tobool.not, label %if.then.i.i14, label %for.body, !llvm.loop !30
 
 if.then.i.i14:                                    ; preds = %while.end14, %rcu_read_auto_lock.exit
   %uffdio_fd16 = getelementptr inbounds i8, ptr %0, i64 112
   %20 = load i32, ptr %uffdio_fd16, align 8
-  tail call void @uffd_close_fd(i32 noundef %20) #16
+  tail call void @uffd_close_fd(i32 noundef %20) #18
   store i32 -1, ptr %uffdio_fd16, align 8
-  %call.i.i.i.i = tail call ptr @get_ptr_rcu_reader() #16
+  %call.i.i.i.i = tail call ptr @get_ptr_rcu_reader() #18
   %depth.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 12
   %21 = load i32, ptr %depth.i.i.i.i, align 4
   %cmp.not.i.i.i.i = icmp eq i32 %21, 0
   br i1 %cmp.not.i.i.i.i, label %if.else.i.i.i.i, label %if.end.i.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %if.then.i.i14
-  tail call void @__assert_fail(ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.28, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #17
+  tail call void @__assert_fail(ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.28, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #19
   unreachable
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i14
@@ -1755,7 +1755,7 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i14
 
 while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   store atomic i64 0, ptr %call.i.i.i.i release, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !10
   fence seq_cst
   %waiting.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
   %22 = load atomic i8, ptr %waiting.i.i.i.i monotonic, align 8
@@ -1764,7 +1764,7 @@ while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
 
 while.end21.i.i.i.i:                              ; preds = %while.end.i.i.i.i
   store atomic i8 0, ptr %waiting.i.i.i.i monotonic, align 8
-  tail call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #16
+  tail call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #18
   br label %glib_autoptr_cleanup_RCUReadAuto.exit
 
 glib_autoptr_cleanup_RCUReadAuto.exit:            ; preds = %if.end.i.i.i.i, %while.end.i.i.i.i, %while.end21.i.i.i.i
@@ -1779,7 +1779,7 @@ entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %0 = load ptr, ptr @ram_state, align 8
   %1 = atomicrmw add ptr getelementptr inbounds (i8, ptr @mig_stats, i64 64), i64 1 seq_cst, align 8
-  %call.i.i = tail call ptr @get_ptr_rcu_reader() #16
+  %call.i.i = tail call ptr @get_ptr_rcu_reader() #18
   %depth.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   %2 = load i32, ptr %depth.i.i, align 4
   %inc.i.i = add i32 %2, 1
@@ -1791,7 +1791,7 @@ while.end.i.i:                                    ; preds = %entry
   %3 = load atomic i64, ptr @rcu_gp_ctr monotonic, align 8
   %conv8.i.i = and i64 %3, 4294967295
   store atomic i64 %conv8.i.i, ptr %call.i.i monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
   fence seq_cst
   br label %rcu_read_auto_lock.exit
 
@@ -1806,16 +1806,16 @@ if.then:                                          ; preds = %rcu_read_auto_lock.
   br i1 %tobool1.not, label %if.then2, label %if.end8
 
 if.then2:                                         ; preds = %if.then
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 1919, ptr noundef nonnull @__func__.ram_save_queue_pages, ptr noundef nonnull @.str.9) #16
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 1919, ptr noundef nonnull @__func__.ram_save_queue_pages, ptr noundef nonnull @.str.9) #18
   br label %if.then.i.i50
 
 if.else:                                          ; preds = %rcu_read_auto_lock.exit
-  %call3 = tail call ptr @qemu_ram_block_by_name(ptr noundef nonnull %rbname) #16
+  %call3 = tail call ptr @qemu_ram_block_by_name(ptr noundef nonnull %rbname) #18
   %tobool4.not = icmp eq ptr %call3, null
   br i1 %tobool4.not, label %if.then5, label %if.end6
 
 if.then5:                                         ; preds = %if.else
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 1927, ptr noundef nonnull @__func__.ram_save_queue_pages, ptr noundef nonnull @.str.10, ptr noundef nonnull %rbname) #16
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 1927, ptr noundef nonnull @__func__.ram_save_queue_pages, ptr noundef nonnull @.str.10, ptr noundef nonnull %rbname) #18
   br label %if.then.i.i50
 
 if.end6:                                          ; preds = %if.else
@@ -1846,16 +1846,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #16
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #18
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #18
   %9 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %10 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.36, i32 noundef %call10.i.i, i64 noundef %9, i64 noundef %10, ptr noundef nonnull %idstr, i64 noundef %start, i64 noundef %len) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.36, i32 noundef %call10.i.i, i64 noundef %9, i64 noundef %10, ptr noundef nonnull %idstr, i64 noundef %start, i64 noundef %len) #18
   br label %land.lhs.true.i
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.37, ptr noundef nonnull %idstr, i64 noundef %start, i64 noundef %len) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.37, ptr noundef nonnull %idstr, i64 noundef %start, i64 noundef %len) #18
   br label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.else.i.i, %if.then8.i.i, %land.lhs.true5.i.i, %if.end8
@@ -1880,33 +1880,33 @@ offset_in_ramblock.exit:                          ; preds = %land.lhs.true.i
 
 if.then10:                                        ; preds = %land.lhs.true.i.if.then10_crit_edge, %offset_in_ramblock.exit
   %13 = phi i64 [ %.pre, %land.lhs.true.i.if.then10_crit_edge ], [ %12, %offset_in_ramblock.exit ]
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 1937, ptr noundef nonnull @__func__.ram_save_queue_pages, ptr noundef nonnull @.str.11, i64 noundef %start, i64 noundef %len, i64 noundef %13) #16
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 1937, ptr noundef nonnull @__func__.ram_save_queue_pages, ptr noundef nonnull @.str.11, i64 noundef %start, i64 noundef %len, i64 noundef %13) #18
   br label %if.then.i.i50
 
 if.end11:                                         ; preds = %offset_in_ramblock.exit
-  %call.i = tail call zeroext i1 @migrate_postcopy_preempt() #16
+  %call.i = tail call zeroext i1 @migrate_postcopy_preempt() #18
   br i1 %call.i, label %postcopy_preempt_active.exit, label %if.end37
 
 postcopy_preempt_active.exit:                     ; preds = %if.end11
-  %call1.i = tail call zeroext i1 @migration_in_postcopy() #16
+  %call1.i = tail call zeroext i1 @migration_in_postcopy() #18
   br i1 %call1.i, label %if.then13, label %if.end37
 
 if.then13:                                        ; preds = %postcopy_preempt_active.exit
   %shr = lshr i64 %start, 12
-  %call14 = tail call i64 @qemu_ram_pagesize(ptr noundef nonnull %ramblock.0) #16
+  %call14 = tail call i64 @qemu_ram_pagesize(ptr noundef nonnull %ramblock.0) #18
   %14 = load ptr, ptr @ram_state, align 8
   %arrayidx = getelementptr i8, ptr %14, i64 56
   %15 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %16 = inttoptr i64 %15 to ptr
   %bitmap_mutex = getelementptr inbounds i8, ptr %0, i64 232
-  tail call void %16(ptr noundef nonnull %bitmap_mutex, ptr noundef nonnull @.str, i32 noundef 1951) #16
+  tail call void %16(ptr noundef nonnull %bitmap_mutex, ptr noundef nonnull @.str, i32 noundef 1951) #18
   %block.i = getelementptr i8, ptr %14, i64 72
   store ptr %ramblock.0, ptr %block.i, align 8
   %page1.i = getelementptr i8, ptr %14, i64 80
   store i64 %shr, ptr %page1.i, align 8
   %complete_round.i = getelementptr i8, ptr %14, i64 88
   store i8 0, ptr %complete_round.i, align 8
-  %call16 = tail call ptr @migrate_get_current() #16
+  %call16 = tail call ptr @migrate_get_current() #18
   %postcopy_qemufile_src = getelementptr inbounds i8, ptr %call16, i64 192
   %17 = load ptr, ptr %postcopy_qemufile_src, align 8
   store ptr %17, ptr %arrayidx, align 8
@@ -1914,7 +1914,7 @@ if.then13:                                        ; preds = %postcopy_preempt_ac
   br i1 %tobool18.not, label %if.else20, label %if.end21
 
 if.else20:                                        ; preds = %if.then13
-  tail call void @__assert_fail(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str, i32 noundef 1960, ptr noundef nonnull @__PRETTY_FUNCTION__.ram_save_queue_pages) #17
+  tail call void @__assert_fail(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str, i32 noundef 1960, ptr noundef nonnull @__PRETTY_FUNCTION__.ram_save_queue_pages) #19
   unreachable
 
 if.end21:                                         ; preds = %if.then13
@@ -1935,7 +1935,7 @@ while.body27.lr.ph:                               ; preds = %while.cond25.prehea
   br label %while.body27
 
 if.else23:                                        ; preds = %if.end21
-  tail call void @__assert_fail(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str, i32 noundef 1966, ptr noundef nonnull @__PRETTY_FUNCTION__.ram_save_queue_pages) #17
+  tail call void @__assert_fail(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str, i32 noundef 1966, ptr noundef nonnull @__PRETTY_FUNCTION__.ram_save_queue_pages) #19
   unreachable
 
 while.body27:                                     ; preds = %while.body27.lr.ph, %if.end33
@@ -1964,21 +1964,21 @@ if.then.i.i.i:                                    ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.i.i.i, label %if.then8.i.i.i, label %if.else.i.i.i
 
 if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
-  %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #16
-  %call10.i.i.i = tail call i32 @qemu_get_thread_id() #16
+  %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #18
+  %call10.i.i.i = tail call i32 @qemu_get_thread_id() #18
   %27 = load i64, ptr %_now.i.i.i, align 8
   %28 = load i64, ptr %tv_usec.i.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.39, i32 noundef %call10.i.i.i, i64 noundef %27, i64 noundef %28, ptr noundef nonnull %idstr.i, i64 noundef %22) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.39, i32 noundef %call10.i.i.i, i64 noundef %27, i64 noundef %28, ptr noundef nonnull %idstr.i, i64 noundef %22) #18
   br label %trace_postcopy_preempt_send_host_page.exit.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.40, ptr noundef nonnull %idstr.i, i64 noundef %22) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.40, ptr noundef nonnull %idstr.i, i64 noundef %22) #18
   br label %trace_postcopy_preempt_send_host_page.exit.i
 
 trace_postcopy_preempt_send_host_page.exit.i:     ; preds = %if.else.i.i.i, %if.then8.i.i.i, %land.lhs.true5.i.i.i, %while.body27
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i)
   %29 = load ptr, ptr %block.i, align 8
-  %call.i.i45 = tail call i64 @qemu_ram_pagesize(ptr noundef %29) #16
+  %call.i.i45 = tail call i64 @qemu_ram_pagesize(ptr noundef %29) #18
   store i8 1, ptr %host_page_sending.i.i, align 1
   %cmp.i.i = icmp ult i64 %call.i.i45, 8192
   br i1 %cmp.i.i, label %if.then.i.i49, label %if.else.i.i46
@@ -2044,15 +2044,15 @@ if.then.i.i23.i:                                  ; preds = %land.lhs.true5.i.i2
   br i1 %tobool7.i.i24.i, label %if.then8.i.i26.i, label %if.else.i.i25.i
 
 if.then8.i.i26.i:                                 ; preds = %if.then.i.i23.i
-  %call9.i.i27.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i16.i, ptr noundef null) #16
-  %call10.i.i28.i = tail call i32 @qemu_get_thread_id() #16
+  %call9.i.i27.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i16.i, ptr noundef null) #18
+  %call10.i.i28.i = tail call i32 @qemu_get_thread_id() #18
   %41 = load i64, ptr %_now.i.i16.i, align 8
   %42 = load i64, ptr %tv_usec.i.i29.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.41, i32 noundef %call10.i.i28.i, i64 noundef %41, i64 noundef %42, ptr noundef nonnull %idstr3.i, i64 noundef %shl.i) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.41, i32 noundef %call10.i.i28.i, i64 noundef %41, i64 noundef %42, ptr noundef nonnull %idstr3.i, i64 noundef %shl.i) #18
   br label %trace_postcopy_preempt_hit.exit.i
 
 if.else.i.i25.i:                                  ; preds = %if.then.i.i23.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.42, ptr noundef nonnull %idstr3.i, i64 noundef %shl.i) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.42, ptr noundef nonnull %idstr3.i, i64 noundef %shl.i) #18
   br label %trace_postcopy_preempt_hit.exit.i
 
 trace_postcopy_preempt_hit.exit.i:                ; preds = %if.else.i.i25.i, %if.then8.i.i26.i, %land.lhs.true5.i.i20.i, %if.then.i
@@ -2084,12 +2084,12 @@ if.then9.i:                                       ; preds = %do.body.i
   store i64 %dec.i.i, ptr %migration_dirty_pages.i.i, align 8
   %48 = load ptr, ptr @migration_ops, align 8
   %49 = load ptr, ptr %48, align 8
-  %call10.i = tail call i32 %49(ptr noundef %20, ptr noundef nonnull %arrayidx) #16
+  %call10.i = tail call i32 %49(ptr noundef %20, ptr noundef nonnull %arrayidx) #18
   %cmp.not.i = icmp eq i32 %call10.i, 1
   br i1 %cmp.not.i, label %if.end16.i, label %if.then11.i
 
 if.then11.i:                                      ; preds = %if.then9.i
-  %call12.i = tail call zeroext i1 (ptr, ptr, ...) @error_report_once_cond(ptr noundef nonnull @ram_save_host_page_urgent.print_once_, ptr noundef nonnull @.str.38, ptr noundef nonnull @__func__.ram_save_host_page_urgent) #16
+  %call12.i = tail call zeroext i1 (ptr, ptr, ...) @error_report_once_cond(ptr noundef nonnull @ram_save_host_page_urgent.print_once_, ptr noundef nonnull @.str.38, ptr noundef nonnull @__func__.ram_save_host_page_urgent) #18
   store i8 0, ptr %host_page_sending.i.i, align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false)
   br i1 %sent.0.i, label %ram_save_host_page_urgent.exit, label %if.then30
@@ -2102,7 +2102,7 @@ if.end16.i:                                       ; preds = %if.then9.i, %do.bod
   br i1 %tobool.i32.i, label %if.end.i.i, label %if.else.i33.i
 
 if.else.i33.i:                                    ; preds = %if.end16.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.44, ptr noundef nonnull @.str, i32 noundef 2112, ptr noundef nonnull @__PRETTY_FUNCTION__.pss_within_range) #17
+  tail call void @__assert_fail(ptr noundef nonnull @.str.44, ptr noundef nonnull @.str, i32 noundef 2112, ptr noundef nonnull @__PRETTY_FUNCTION__.pss_within_range) #19
   unreachable
 
 if.end.i.i:                                       ; preds = %if.end16.i
@@ -2136,16 +2136,16 @@ out.i:                                            ; preds = %pss_within_range.ex
 
 ram_save_host_page_urgent.exit.thread56:          ; preds = %out.i
   %56 = load ptr, ptr %arrayidx, align 8
-  %call20.i58 = tail call i32 @qemu_fflush(ptr noundef %56) #16
+  %call20.i58 = tail call i32 @qemu_fflush(ptr noundef %56) #18
   br label %if.end33
 
 ram_save_host_page_urgent.exit:                   ; preds = %if.then11.i
   %57 = load ptr, ptr %arrayidx, align 8
-  %call20.i = tail call i32 @qemu_fflush(ptr noundef %57) #16
+  %call20.i = tail call i32 @qemu_fflush(ptr noundef %57) #18
   br label %if.then30
 
 if.then30:                                        ; preds = %if.then11.i, %ram_save_host_page_urgent.exit
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 1971, ptr noundef nonnull @__func__.ram_save_queue_pages, ptr noundef nonnull @.str.14, ptr noundef nonnull %idstr, i64 noundef %start) #16
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 1971, ptr noundef nonnull @__func__.ram_save_queue_pages, ptr noundef nonnull @.str.14, ptr noundef nonnull %idstr, i64 noundef %start) #18
   br label %while.end35
 
 if.end33:                                         ; preds = %out.i, %trace_postcopy_preempt_hit.exit.i, %ram_save_host_page_urgent.exit.thread56
@@ -2155,11 +2155,11 @@ if.end33:                                         ; preds = %out.i, %trace_postc
 
 while.end35:                                      ; preds = %if.end33, %while.cond25.preheader, %if.then30
   %ret.0 = phi i32 [ -1, %if.then30 ], [ 0, %while.cond25.preheader ], [ 0, %if.end33 ]
-  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %bitmap_mutex, ptr noundef nonnull @.str, i32 noundef 1986) #16
+  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %bitmap_mutex, ptr noundef nonnull @.str, i32 noundef 1986) #18
   br label %if.then.i.i50
 
 if.end37:                                         ; preds = %if.end11, %postcopy_preempt_active.exit
-  %call38 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 32) #20
+  %call38 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 32) #22
   store ptr %ramblock.0, ptr %call38, align 8
   %offset = getelementptr inbounds i8, ptr %call38, i64 8
   store i64 %start, ptr %offset, align 8
@@ -2167,31 +2167,31 @@ if.end37:                                         ; preds = %if.end11, %postcopy
   store i64 %len, ptr %len39, align 8
   %mr = getelementptr inbounds i8, ptr %ramblock.0, i64 16
   %58 = load ptr, ptr %mr, align 8
-  tail call void @memory_region_ref(ptr noundef %58) #16
+  tail call void @memory_region_ref(ptr noundef %58) #18
   %59 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %60 = inttoptr i64 %59 to ptr
   %src_page_req_mutex = getelementptr inbounds i8, ptr %0, i64 288
-  tail call void %60(ptr noundef nonnull %src_page_req_mutex, ptr noundef nonnull @.str, i32 noundef 1998) #16
+  tail call void %60(ptr noundef nonnull %src_page_req_mutex, ptr noundef nonnull @.str, i32 noundef 1998) #18
   %next_req = getelementptr inbounds i8, ptr %call38, i64 24
   store ptr null, ptr %next_req, align 8
   %sqh_last = getelementptr inbounds i8, ptr %0, i64 344
   %61 = load ptr, ptr %sqh_last, align 8
   store ptr %call38, ptr %61, align 8
   store ptr %next_req, ptr %sqh_last, align 8
-  tail call void @migration_make_urgent_request() #16
-  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %src_page_req_mutex, ptr noundef nonnull @.str, i32 noundef 2001) #16
+  tail call void @migration_make_urgent_request() #18
+  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %src_page_req_mutex, ptr noundef nonnull @.str, i32 noundef 2001) #18
   br label %if.then.i.i50
 
 if.then.i.i50:                                    ; preds = %if.then2, %if.then5, %if.then10, %while.end35, %if.end37
   %retval.0 = phi i32 [ %ret.0, %while.end35 ], [ 0, %if.end37 ], [ -1, %if.then10 ], [ -1, %if.then5 ], [ -1, %if.then2 ]
-  %call.i.i.i.i = tail call ptr @get_ptr_rcu_reader() #16
+  %call.i.i.i.i = tail call ptr @get_ptr_rcu_reader() #18
   %depth.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 12
   %62 = load i32, ptr %depth.i.i.i.i, align 4
   %cmp.not.i.i.i.i = icmp eq i32 %62, 0
   br i1 %cmp.not.i.i.i.i, label %if.else.i.i.i.i, label %if.end.i.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %if.then.i.i50
-  tail call void @__assert_fail(ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.28, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #17
+  tail call void @__assert_fail(ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.28, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #19
   unreachable
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i50
@@ -2202,7 +2202,7 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i50
 
 while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   store atomic i64 0, ptr %call.i.i.i.i release, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !10
   fence seq_cst
   %waiting.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
   %63 = load atomic i8, ptr %waiting.i.i.i.i monotonic, align 8
@@ -2211,7 +2211,7 @@ while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
 
 while.end21.i.i.i.i:                              ; preds = %while.end.i.i.i.i
   store atomic i8 0, ptr %waiting.i.i.i.i monotonic, align 8
-  tail call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #16
+  tail call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #18
   br label %glib_autoptr_cleanup_RCUReadAuto.exit
 
 glib_autoptr_cleanup_RCUReadAuto.exit:            ; preds = %if.end.i.i.i.i, %while.end.i.i.i.i, %while.end21.i.i.i.i
@@ -2221,14 +2221,14 @@ glib_autoptr_cleanup_RCUReadAuto.exit:            ; preds = %if.end.i.i.i.i, %wh
 declare void @qemu_mutex_unlock_impl(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: allocsize(0,1)
-declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #5
+declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #6
 
 declare void @migration_make_urgent_request() local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @ram_bytes_total() local_unnamed_addr #0 {
 entry:
-  %call.i.i = tail call ptr @get_ptr_rcu_reader() #16
+  %call.i.i = tail call ptr @get_ptr_rcu_reader() #18
   %depth.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   %0 = load i32, ptr %depth.i.i, align 4
   %inc.i.i = add i32 %0, 1
@@ -2240,13 +2240,13 @@ while.end.i.i:                                    ; preds = %entry
   %1 = load atomic i64, ptr @rcu_gp_ctr monotonic, align 8
   %conv8.i.i = and i64 %1, 4294967295
   store atomic i64 %conv8.i.i, ptr %call.i.i monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
   fence seq_cst
   br label %rcu_read_auto_lock.exit
 
 rcu_read_auto_lock.exit:                          ; preds = %entry, %while.end.i.i
   %2 = load atomic i64, ptr getelementptr inbounds (i8, ptr @ram_list, i64 56) monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !33
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !33
   %tobool.not7 = icmp eq i64 %2, 0
   br i1 %tobool.not7, label %if.then.i.i, label %for.body
 
@@ -2254,19 +2254,19 @@ for.body:                                         ; preds = %rcu_read_auto_lock.
   %block.09.in = phi i64 [ %4, %while.end7 ], [ %2, %rcu_read_auto_lock.exit ]
   %total.08 = phi i64 [ %total.1, %while.end7 ], [ 0, %rcu_read_auto_lock.exit ]
   %block.09 = inttoptr i64 %block.09.in to ptr
-  %call.i = tail call zeroext i1 @qemu_ram_is_migratable(ptr noundef nonnull %block.09) #16
+  %call.i = tail call zeroext i1 @qemu_ram_is_migratable(ptr noundef nonnull %block.09) #18
   br i1 %call.i, label %lor.rhs.i, label %while.end7
 
 lor.rhs.i:                                        ; preds = %for.body
-  %call1.i = tail call zeroext i1 @migrate_ignore_shared() #16
+  %call1.i = tail call zeroext i1 @migrate_ignore_shared() #18
   br i1 %call1.i, label %land.lhs.true.i, label %if.else
 
 land.lhs.true.i:                                  ; preds = %lor.rhs.i
-  %call2.i = tail call zeroext i1 @qemu_ram_is_shared(ptr noundef nonnull %block.09) #16
+  %call2.i = tail call zeroext i1 @qemu_ram_is_shared(ptr noundef nonnull %block.09) #18
   br i1 %call2.i, label %migrate_ram_is_ignored.exit, label %if.else
 
 migrate_ram_is_ignored.exit:                      ; preds = %land.lhs.true.i
-  %call3.i = tail call zeroext i1 @qemu_ram_is_named_file(ptr noundef nonnull %block.09) #16
+  %call3.i = tail call zeroext i1 @qemu_ram_is_named_file(ptr noundef nonnull %block.09) #18
   br i1 %call3.i, label %while.end7, label %if.else
 
 if.else:                                          ; preds = %lor.rhs.i, %land.lhs.true.i, %migrate_ram_is_ignored.exit
@@ -2279,20 +2279,20 @@ while.end7:                                       ; preds = %for.body, %if.else,
   %total.1 = phi i64 [ %total.08, %migrate_ram_is_ignored.exit ], [ %add, %if.else ], [ %total.08, %for.body ]
   %next = getelementptr inbounds i8, ptr %block.09, i64 336
   %4 = load atomic i64, ptr %next monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !34
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !34
   %tobool.not = icmp eq i64 %4, 0
   br i1 %tobool.not, label %if.then.i.i, label %for.body, !llvm.loop !35
 
 if.then.i.i:                                      ; preds = %while.end7, %rcu_read_auto_lock.exit
   %total.0.lcssa = phi i64 [ 0, %rcu_read_auto_lock.exit ], [ %total.1, %while.end7 ]
-  %call.i.i.i.i = tail call ptr @get_ptr_rcu_reader() #16
+  %call.i.i.i.i = tail call ptr @get_ptr_rcu_reader() #18
   %depth.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 12
   %5 = load i32, ptr %depth.i.i.i.i, align 4
   %cmp.not.i.i.i.i = icmp eq i32 %5, 0
   br i1 %cmp.not.i.i.i.i, label %if.else.i.i.i.i, label %if.end.i.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %if.then.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.28, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #17
+  tail call void @__assert_fail(ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.28, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #19
   unreachable
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i
@@ -2303,7 +2303,7 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i
 
 while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   store atomic i64 0, ptr %call.i.i.i.i release, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !10
   fence seq_cst
   %waiting.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
   %6 = load atomic i8, ptr %waiting.i.i.i.i monotonic, align 8
@@ -2312,7 +2312,7 @@ while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
 
 while.end21.i.i.i.i:                              ; preds = %while.end.i.i.i.i
   store atomic i8 0, ptr %waiting.i.i.i.i monotonic, align 8
-  tail call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #16
+  tail call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #18
   br label %glib_autoptr_cleanup_RCUReadAuto.exit
 
 glib_autoptr_cleanup_RCUReadAuto.exit:            ; preds = %if.end.i.i.i.i, %while.end.i.i.i.i, %while.end21.i.i.i.i
@@ -2323,26 +2323,26 @@ glib_autoptr_cleanup_RCUReadAuto.exit:            ; preds = %if.end.i.i.i.i, %wh
 define dso_local void @ram_postcopy_migrated_memory_release(ptr nocapture noundef readnone %ms) local_unnamed_addr #0 {
 entry:
   %0 = load atomic i64, ptr getelementptr inbounds (i8, ptr @ram_list, i64 56) monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !36
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !36
   %tobool.not19 = icmp eq i64 %0, 0
   br i1 %tobool.not19, label %for.end, label %for.body
 
 for.body:                                         ; preds = %entry, %while.end14
   %block.020.in = phi i64 [ %3, %while.end14 ], [ %0, %entry ]
   %block.020 = inttoptr i64 %block.020.in to ptr
-  %call.i = tail call zeroext i1 @qemu_ram_is_migratable(ptr noundef nonnull %block.020) #16
+  %call.i = tail call zeroext i1 @qemu_ram_is_migratable(ptr noundef nonnull %block.020) #18
   br i1 %call.i, label %lor.rhs.i, label %while.end14
 
 lor.rhs.i:                                        ; preds = %for.body
-  %call1.i = tail call zeroext i1 @migrate_ignore_shared() #16
+  %call1.i = tail call zeroext i1 @migrate_ignore_shared() #18
   br i1 %call1.i, label %land.lhs.true.i, label %if.else
 
 land.lhs.true.i:                                  ; preds = %lor.rhs.i
-  %call2.i = tail call zeroext i1 @qemu_ram_is_shared(ptr noundef nonnull %block.020) #16
+  %call2.i = tail call zeroext i1 @qemu_ram_is_shared(ptr noundef nonnull %block.020) #18
   br i1 %call2.i, label %migrate_ram_is_ignored.exit, label %if.else
 
 migrate_ram_is_ignored.exit:                      ; preds = %land.lhs.true.i
-  %call3.i = tail call zeroext i1 @qemu_ram_is_named_file(ptr noundef nonnull %block.020) #16
+  %call3.i = tail call zeroext i1 @qemu_ram_is_named_file(ptr noundef nonnull %block.020) #18
   br i1 %call3.i, label %while.end14, label %if.else
 
 if.else:                                          ; preds = %lor.rhs.i, %land.lhs.true.i, %migrate_ram_is_ignored.exit
@@ -2351,7 +2351,7 @@ if.else:                                          ; preds = %lor.rhs.i, %land.lh
   %used_length = getelementptr inbounds i8, ptr %block.020, i64 48
   %2 = load i64, ptr %used_length, align 8
   %shr = lshr i64 %2, 12
-  %call1 = tail call i64 @find_next_zero_bit(ptr noundef %1, i64 noundef %shr, i64 noundef 0) #16
+  %call1 = tail call i64 @find_next_zero_bit(ptr noundef %1, i64 noundef %shr, i64 noundef 0) #18
   %cmp16 = icmp ult i64 %call1, %shr
   br i1 %cmp16, label %while.body3.lr.ph, label %while.end14
 
@@ -2362,20 +2362,20 @@ while.body3.lr.ph:                                ; preds = %if.else
 while.body3:                                      ; preds = %while.body3.lr.ph, %while.body3
   %run_start.017 = phi i64 [ %call1, %while.body3.lr.ph ], [ %call8, %while.body3 ]
   %add = add nuw nsw i64 %run_start.017, 1
-  %call4 = tail call i64 @find_next_bit(ptr noundef %1, i64 noundef %shr, i64 noundef %add) #16
+  %call4 = tail call i64 @find_next_bit(ptr noundef %1, i64 noundef %shr, i64 noundef %add) #18
   %shl = shl nuw i64 %run_start.017, 12
   %sub = sub i64 %call4, %run_start.017
   %shl5 = shl i64 %sub, 12
   %call6 = tail call i32 @ram_discard_range(ptr noundef nonnull %idstr, i64 noundef %shl, i64 noundef %shl5)
   %add7 = add i64 %call4, 1
-  %call8 = tail call i64 @find_next_zero_bit(ptr noundef %1, i64 noundef %shr, i64 noundef %add7) #16
+  %call8 = tail call i64 @find_next_zero_bit(ptr noundef %1, i64 noundef %shr, i64 noundef %add7) #18
   %cmp = icmp ult i64 %call8, %shr
   br i1 %cmp, label %while.body3, label %while.end14, !llvm.loop !37
 
 while.end14:                                      ; preds = %while.body3, %if.else, %for.body, %migrate_ram_is_ignored.exit
   %next = getelementptr inbounds i8, ptr %block.020, i64 336
   %3 = load atomic i64, ptr %next monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !38
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !38
   %tobool.not = icmp eq i64 %3, 0
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !39
 
@@ -2392,7 +2392,7 @@ define dso_local void @ram_postcopy_send_discard_bitmap(ptr noundef %ms) local_u
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %0 = load ptr, ptr @ram_state, align 8
-  %call.i.i = tail call ptr @get_ptr_rcu_reader() #16
+  %call.i.i = tail call ptr @get_ptr_rcu_reader() #18
   %depth.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   %1 = load i32, ptr %depth.i.i, align 4
   %inc.i.i = add i32 %1, 1
@@ -2404,7 +2404,7 @@ while.end.i.i:                                    ; preds = %entry
   %2 = load atomic i64, ptr @rcu_gp_ctr monotonic, align 8
   %conv8.i.i = and i64 %2, 4294967295
   store atomic i64 %conv8.i.i, ptr %call.i.i monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
   fence seq_cst
   br label %rcu_read_auto_lock.exit
 
@@ -2415,31 +2415,31 @@ rcu_read_auto_lock.exit:                          ; preds = %entry, %while.end.i
   %last_seen_block = getelementptr inbounds i8, ptr %0, i64 128
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %last_seen_block, i8 0, i64 16, i1 false)
   %3 = load atomic i64, ptr getelementptr inbounds (i8, ptr @ram_list, i64 56) monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !40
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !40
   %tobool.not20.i = icmp eq i64 %3, 0
   br i1 %tobool.not20.i, label %postcopy_each_ram_send_discard.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %rcu_read_auto_lock.exit, %while.end5.i
   %block.021.in.i = phi i64 [ %13, %while.end5.i ], [ %3, %rcu_read_auto_lock.exit ]
   %block.021.i = inttoptr i64 %block.021.in.i to ptr
-  %call.i.i4 = tail call zeroext i1 @qemu_ram_is_migratable(ptr noundef nonnull %block.021.i) #16
+  %call.i.i4 = tail call zeroext i1 @qemu_ram_is_migratable(ptr noundef nonnull %block.021.i) #18
   br i1 %call.i.i4, label %lor.rhs.i.i, label %while.end5.i
 
 lor.rhs.i.i:                                      ; preds = %for.body.i
-  %call1.i.i = tail call zeroext i1 @migrate_ignore_shared() #16
+  %call1.i.i = tail call zeroext i1 @migrate_ignore_shared() #18
   br i1 %call1.i.i, label %land.lhs.true.i.i, label %if.else.i
 
 land.lhs.true.i.i:                                ; preds = %lor.rhs.i.i
-  %call2.i.i = tail call zeroext i1 @qemu_ram_is_shared(ptr noundef nonnull %block.021.i) #16
+  %call2.i.i = tail call zeroext i1 @qemu_ram_is_shared(ptr noundef nonnull %block.021.i) #18
   br i1 %call2.i.i, label %migrate_ram_is_ignored.exit.i, label %if.else.i
 
 migrate_ram_is_ignored.exit.i:                    ; preds = %land.lhs.true.i.i
-  %call3.i.i = tail call zeroext i1 @qemu_ram_is_named_file(ptr noundef nonnull %block.021.i) #16
+  %call3.i.i = tail call zeroext i1 @qemu_ram_is_named_file(ptr noundef nonnull %block.021.i) #18
   br i1 %call3.i.i, label %while.end5.i, label %if.else.i
 
 if.else.i:                                        ; preds = %migrate_ram_is_ignored.exit.i, %land.lhs.true.i.i, %lor.rhs.i.i
   %idstr.i = getelementptr inbounds i8, ptr %block.021.i, i64 76
-  tail call void @postcopy_discard_send_init(ptr noundef %ms, ptr noundef nonnull %idstr.i) #16
+  tail call void @postcopy_discard_send_init(ptr noundef %ms, ptr noundef nonnull %idstr.i) #18
   %4 = load ptr, ptr @ram_state, align 8
   %bmap.i.i = getelementptr inbounds i8, ptr %block.021.i, i64 384
   %5 = load ptr, ptr %bmap.i.i, align 8
@@ -2454,7 +2454,7 @@ if.else.i:                                        ; preds = %migrate_ram_is_igno
   br i1 %cmp.i.i, label %postcopy_chunk_hostpages_pass.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.else.i
-  %call.i10.i = tail call i64 @find_next_bit(ptr noundef %5, i64 noundef %shr.i.i, i64 noundef 0) #16
+  %call.i10.i = tail call i64 @find_next_bit(ptr noundef %5, i64 noundef %shr.i.i, i64 noundef 0) #18
   %cmp33.i.i = icmp ult i64 %call.i10.i, %shr.i.i
   br i1 %cmp33.i.i, label %while.body.lr.ph.i.i, label %postcopy_chunk_hostpages_pass.exitthread-pre-split.i
 
@@ -2472,7 +2472,7 @@ while.body.i.i:                                   ; preds = %if.end32.i.i, %whil
 
 if.then8.i.i:                                     ; preds = %while.body.i.i
   %add.i.i = add nuw nsw i64 %run_start.04.i.i, 1
-  %call9.i.i = tail call i64 @find_next_zero_bit(ptr noundef %5, i64 noundef %shr.i.i, i64 noundef %add.i.i) #16
+  %call9.i.i = tail call i64 @find_next_zero_bit(ptr noundef %5, i64 noundef %shr.i.i, i64 noundef %add.i.i) #18
   br label %if.end10.i.i
 
 if.end10.i.i:                                     ; preds = %if.then8.i.i, %while.body.i.i
@@ -2512,7 +2512,7 @@ for.body.i.i:                                     ; preds = %if.then15.i.i, %for
 
 if.end32.i.i:                                     ; preds = %for.body.i.i, %if.then15.i.i, %if.end10.i.i
   %run_start.2.i.i = phi i64 [ %run_start.1.fr.i.i, %if.end10.i.i ], [ %mul24.i.i, %if.then15.i.i ], [ %mul24.i.i, %for.body.i.i ]
-  %call33.i.i = tail call i64 @find_next_bit(ptr noundef %5, i64 noundef %shr.i.i, i64 noundef %run_start.2.i.i) #16
+  %call33.i.i = tail call i64 @find_next_bit(ptr noundef %5, i64 noundef %shr.i.i, i64 noundef %run_start.2.i.i) #18
   %cmp3.i.i = icmp ult i64 %call33.i.i, %shr.i.i
   br i1 %cmp3.i.i, label %while.body.i.i, label %postcopy_chunk_hostpages_pass.exitthread-pre-split.i, !llvm.loop !42
 
@@ -2531,27 +2531,27 @@ postcopy_chunk_hostpages_pass.exit.i:             ; preds = %postcopy_chunk_host
 
 for.body.i12.i:                                   ; preds = %postcopy_chunk_hostpages_pass.exit.i, %if.end.i14.i
   %current.02.i.i = phi i64 [ %call2.shr.i.i, %if.end.i14.i ], [ 0, %postcopy_chunk_hostpages_pass.exit.i ]
-  %call.i13.i = tail call i64 @find_next_bit(ptr noundef %block.0.val9.i, i64 noundef %shr.i11.pre-phi.i, i64 noundef %current.02.i.i) #16
+  %call.i13.i = tail call i64 @find_next_bit(ptr noundef %block.0.val9.i, i64 noundef %shr.i11.pre-phi.i, i64 noundef %current.02.i.i) #18
   %cmp1.not.i.i = icmp ult i64 %call.i13.i, %shr.i11.pre-phi.i
   br i1 %cmp1.not.i.i, label %if.end.i14.i, label %postcopy_send_discard_bm_ram.exit.i
 
 if.end.i14.i:                                     ; preds = %for.body.i12.i
   %add.i15.i = add nuw nsw i64 %call.i13.i, 1
-  %call2.i16.i = tail call i64 @find_next_zero_bit(ptr noundef %block.0.val9.i, i64 noundef %shr.i11.pre-phi.i, i64 noundef %add.i15.i) #16
+  %call2.i16.i = tail call i64 @find_next_zero_bit(ptr noundef %block.0.val9.i, i64 noundef %shr.i11.pre-phi.i, i64 noundef %add.i15.i) #18
   %call2.shr.i.i = tail call i64 @llvm.umin.i64(i64 %call2.i16.i, i64 %shr.i11.pre-phi.i)
   %discard_length.0.i.i = sub nsw i64 %call2.shr.i.i, %call.i13.i
-  tail call void @postcopy_discard_send_range(ptr noundef %ms, i64 noundef %call.i13.i, i64 noundef %discard_length.0.i.i) #16
+  tail call void @postcopy_discard_send_range(ptr noundef %ms, i64 noundef %call.i13.i, i64 noundef %discard_length.0.i.i) #18
   %cmp.i17.i = icmp ult i64 %call2.i16.i, %shr.i11.pre-phi.i
   br i1 %cmp.i17.i, label %for.body.i12.i, label %postcopy_send_discard_bm_ram.exit.i, !llvm.loop !43
 
 postcopy_send_discard_bm_ram.exit.i:              ; preds = %if.end.i14.i, %for.body.i12.i, %postcopy_chunk_hostpages_pass.exit.i
-  tail call void @postcopy_discard_send_finish(ptr noundef %ms) #16
+  tail call void @postcopy_discard_send_finish(ptr noundef %ms) #18
   br label %while.end5.i
 
 while.end5.i:                                     ; preds = %postcopy_send_discard_bm_ram.exit.i, %migrate_ram_is_ignored.exit.i, %for.body.i
   %next.i = getelementptr inbounds i8, ptr %block.021.i, i64 336
   %13 = load atomic i64, ptr %next.i monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !44
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !44
   %tobool.not.i = icmp eq i64 %13, 0
   br i1 %tobool.not.i, label %postcopy_each_ram_send_discard.exit, label %for.body.i, !llvm.loop !45
 
@@ -2576,28 +2576,28 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i6, label %if.else.i.i
 
 if.then8.i.i6:                                    ; preds = %if.then.i.i
-  %call9.i.i7 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #16
+  %call9.i.i7 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #18
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #18
   %18 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %19 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.53, i32 noundef %call10.i.i, i64 noundef %18, i64 noundef %19) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.53, i32 noundef %call10.i.i, i64 noundef %18, i64 noundef %19) #18
   br label %if.then.i.i8
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.54) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.54) #18
   br label %if.then.i.i8
 
 if.then.i.i8:                                     ; preds = %if.else.i.i, %if.then8.i.i6, %land.lhs.true5.i.i, %postcopy_each_ram_send_discard.exit
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %call.i.i.i.i = tail call ptr @get_ptr_rcu_reader() #16
+  %call.i.i.i.i = tail call ptr @get_ptr_rcu_reader() #18
   %depth.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 12
   %20 = load i32, ptr %depth.i.i.i.i, align 4
   %cmp.not.i.i.i.i = icmp eq i32 %20, 0
   br i1 %cmp.not.i.i.i.i, label %if.else.i.i.i.i, label %if.end.i.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %if.then.i.i8
-  tail call void @__assert_fail(ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.28, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #17
+  tail call void @__assert_fail(ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.28, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #19
   unreachable
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i8
@@ -2608,7 +2608,7 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i8
 
 while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   store atomic i64 0, ptr %call.i.i.i.i release, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !10
   fence seq_cst
   %waiting.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
   %21 = load atomic i8, ptr %waiting.i.i.i.i monotonic, align 8
@@ -2617,7 +2617,7 @@ while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
 
 while.end21.i.i.i.i:                              ; preds = %while.end.i.i.i.i
   store atomic i8 0, ptr %waiting.i.i.i.i monotonic, align 8
-  tail call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #16
+  tail call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #18
   br label %glib_autoptr_cleanup_RCUReadAuto.exit
 
 glib_autoptr_cleanup_RCUReadAuto.exit:            ; preds = %if.end.i.i.i.i, %while.end.i.i.i.i, %while.end21.i.i.i.i
@@ -2638,7 +2638,7 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %call.i = tail call i64 @qemu_clock_get_ns(i32 noundef 0) #16
+  %call.i = tail call i64 @qemu_clock_get_ns(i32 noundef 0) #18
   %div.i = sdiv i64 %call.i, 1000000
   store i64 %div.i, ptr %time_last_bitmap_sync, align 8
   br label %if.end
@@ -2664,26 +2664,26 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #16
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #18
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #18
   %6 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7) #18
   br label %trace_migration_bitmap_sync_start.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.46) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.46) #18
   br label %trace_migration_bitmap_sync_start.exit
 
 trace_migration_bitmap_sync_start.exit:           ; preds = %if.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  tail call void @memory_global_dirty_log_sync(i1 noundef zeroext %last_stage) #16
+  tail call void @memory_global_dirty_log_sync(i1 noundef zeroext %last_stage) #18
   %8 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %9 = inttoptr i64 %8 to ptr
   %bitmap_mutex = getelementptr inbounds i8, ptr %rs, i64 232
-  tail call void %9(ptr noundef nonnull %bitmap_mutex, ptr noundef nonnull @.str, i32 noundef 1048) #16
-  %call.i.i = tail call ptr @get_ptr_rcu_reader() #16
+  tail call void %9(ptr noundef nonnull %bitmap_mutex, ptr noundef nonnull @.str, i32 noundef 1048) #18
+  %call.i.i = tail call ptr @get_ptr_rcu_reader() #18
   %depth.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   %10 = load i32, ptr %depth.i.i, align 4
   %inc.i.i = add i32 %10, 1
@@ -2695,32 +2695,32 @@ while.end.i.i:                                    ; preds = %trace_migration_bit
   %11 = load atomic i64, ptr @rcu_gp_ctr monotonic, align 8
   %conv8.i.i = and i64 %11, 4294967295
   store atomic i64 %conv8.i.i, ptr %call.i.i monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
   fence seq_cst
   br label %rcu_read_auto_lock.exit
 
 rcu_read_auto_lock.exit:                          ; preds = %trace_migration_bitmap_sync_start.exit, %while.end.i.i
   %12 = load atomic i64, ptr getelementptr inbounds (i8, ptr @ram_list, i64 56) monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !46
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !46
   %tobool12.not68 = icmp eq i64 %12, 0
   br i1 %tobool12.not68, label %for.end, label %for.body13
 
 for.body13:                                       ; preds = %rcu_read_auto_lock.exit, %while.end22
   %block.069.in = phi i64 [ %13, %while.end22 ], [ %12, %rcu_read_auto_lock.exit ]
   %block.069 = inttoptr i64 %block.069.in to ptr
-  %call.i19 = tail call zeroext i1 @qemu_ram_is_migratable(ptr noundef nonnull %block.069) #16
+  %call.i19 = tail call zeroext i1 @qemu_ram_is_migratable(ptr noundef nonnull %block.069) #18
   br i1 %call.i19, label %lor.rhs.i, label %while.end22
 
 lor.rhs.i:                                        ; preds = %for.body13
-  %call1.i = tail call zeroext i1 @migrate_ignore_shared() #16
+  %call1.i = tail call zeroext i1 @migrate_ignore_shared() #18
   br i1 %call1.i, label %land.lhs.true.i, label %if.else
 
 land.lhs.true.i:                                  ; preds = %lor.rhs.i
-  %call2.i = tail call zeroext i1 @qemu_ram_is_shared(ptr noundef nonnull %block.069) #16
+  %call2.i = tail call zeroext i1 @qemu_ram_is_shared(ptr noundef nonnull %block.069) #18
   br i1 %call2.i, label %migrate_ram_is_ignored.exit, label %if.else
 
 migrate_ram_is_ignored.exit:                      ; preds = %land.lhs.true.i
-  %call3.i = tail call zeroext i1 @qemu_ram_is_named_file(ptr noundef nonnull %block.069) #16
+  %call3.i = tail call zeroext i1 @qemu_ram_is_named_file(ptr noundef nonnull %block.069) #18
   br i1 %call3.i, label %while.end22, label %if.else
 
 if.else:                                          ; preds = %lor.rhs.i, %land.lhs.true.i, %migrate_ram_is_ignored.exit
@@ -2730,7 +2730,7 @@ if.else:                                          ; preds = %lor.rhs.i, %land.lh
 while.end22:                                      ; preds = %for.body13, %if.else, %migrate_ram_is_ignored.exit
   %next = getelementptr inbounds i8, ptr %block.069, i64 336
   %13 = load atomic i64, ptr %next monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !47
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !47
   %tobool12.not = icmp eq i64 %13, 0
   br i1 %tobool12.not, label %for.end, label %for.body13, !llvm.loop !48
 
@@ -2748,14 +2748,14 @@ cond.true.i:                                      ; preds = %for.end
 ram_bytes_remaining.exit:                         ; preds = %for.end, %cond.true.i
   %cond.i = phi i64 [ %mul.i, %cond.true.i ], [ 0, %for.end ]
   store atomic i64 %cond.i, ptr @mig_stats monotonic, align 8
-  %call.i.i20 = tail call ptr @get_ptr_rcu_reader() #16
+  %call.i.i20 = tail call ptr @get_ptr_rcu_reader() #18
   %depth.i.i21 = getelementptr inbounds i8, ptr %call.i.i20, i64 12
   %16 = load i32, ptr %depth.i.i21, align 4
   %cmp.not.i.i22 = icmp eq i32 %16, 0
   br i1 %cmp.not.i.i22, label %if.else.i.i25, label %if.end.i.i
 
 if.else.i.i25:                                    ; preds = %ram_bytes_remaining.exit
-  tail call void @__assert_fail(ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.28, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #17
+  tail call void @__assert_fail(ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.28, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #19
   unreachable
 
 if.end.i.i:                                       ; preds = %ram_bytes_remaining.exit
@@ -2766,7 +2766,7 @@ if.end.i.i:                                       ; preds = %ram_bytes_remaining
 
 while.end.i.i23:                                  ; preds = %if.end.i.i
   store atomic i64 0, ptr %call.i.i20 release, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !10
   fence seq_cst
   %waiting.i.i = getelementptr inbounds i8, ptr %call.i.i20, i64 8
   %17 = load atomic i8, ptr %waiting.i.i monotonic, align 8
@@ -2775,12 +2775,12 @@ while.end.i.i23:                                  ; preds = %if.end.i.i
 
 while.end21.i.i:                                  ; preds = %while.end.i.i23
   store atomic i8 0, ptr %waiting.i.i monotonic, align 8
-  tail call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #16
+  tail call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #18
   br label %glib_autoptr_cleanup_RCUReadAuto.exit
 
 glib_autoptr_cleanup_RCUReadAuto.exit:            ; preds = %while.end21.i.i, %while.end.i.i23, %if.end.i.i
-  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %bitmap_mutex, ptr noundef nonnull @.str, i32 noundef 1055) #16
-  tail call void @memory_global_after_dirty_log_sync() #16
+  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %bitmap_mutex, ptr noundef nonnull @.str, i32 noundef 1055) #18
+  tail call void @memory_global_after_dirty_log_sync() #18
   %num_dirty_pages_period = getelementptr inbounds i8, ptr %rs, i64 168
   %18 = load i64, ptr %num_dirty_pages_period, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i27)
@@ -2803,21 +2803,21 @@ if.then.i.i34:                                    ; preds = %land.lhs.true5.i.i3
   br i1 %tobool7.i.i35, label %if.then8.i.i37, label %if.else.i.i36
 
 if.then8.i.i37:                                   ; preds = %if.then.i.i34
-  %call9.i.i38 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i27, ptr noundef null) #16
-  %call10.i.i39 = tail call i32 @qemu_get_thread_id() #16
+  %call9.i.i38 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i27, ptr noundef null) #18
+  %call10.i.i39 = tail call i32 @qemu_get_thread_id() #18
   %23 = load i64, ptr %_now.i.i27, align 8
   %tv_usec.i.i40 = getelementptr inbounds i8, ptr %_now.i.i27, i64 8
   %24 = load i64, ptr %tv_usec.i.i40, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.47, i32 noundef %call10.i.i39, i64 noundef %23, i64 noundef %24, i64 noundef %18) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.47, i32 noundef %call10.i.i39, i64 noundef %23, i64 noundef %24, i64 noundef %18) #18
   br label %trace_migration_bitmap_sync_end.exit
 
 if.else.i.i36:                                    ; preds = %if.then.i.i34
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.48, i64 noundef %18) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.48, i64 noundef %18) #18
   br label %trace_migration_bitmap_sync_end.exit
 
 trace_migration_bitmap_sync_end.exit:             ; preds = %glib_autoptr_cleanup_RCUReadAuto.exit, %land.lhs.true5.i.i31, %if.then8.i.i37, %if.else.i.i36
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i27)
-  %call.i41 = tail call i64 @qemu_clock_get_ns(i32 noundef 0) #16
+  %call.i41 = tail call i64 @qemu_clock_get_ns(i32 noundef 0) #18
   %div.i42 = sdiv i64 %call.i41, 1000000
   %25 = load i64, ptr %time_last_bitmap_sync, align 8
   %add = add i64 %25, 1000
@@ -2825,9 +2825,9 @@ trace_migration_bitmap_sync_end.exit:             ; preds = %glib_autoptr_cleanu
   br i1 %cmp, label %if.then30, label %if.end34
 
 if.then30:                                        ; preds = %trace_migration_bitmap_sync_end.exit
-  %call.i43 = tail call zeroext i8 @migrate_throttle_trigger_threshold() #16
+  %call.i43 = tail call zeroext i8 @migrate_throttle_trigger_threshold() #18
   %conv.i = zext i8 %call.i43 to i64
-  %call1.i44 = tail call i64 @migration_transferred_bytes() #16
+  %call1.i44 = tail call i64 @migration_transferred_bytes() #18
   %bytes_xfer_prev.i = getelementptr inbounds i8, ptr %rs, i64 160
   %26 = load i64, ptr %bytes_xfer_prev.i, align 8
   %sub.i = sub i64 %call1.i44, %26
@@ -2835,7 +2835,7 @@ if.then30:                                        ; preds = %trace_migration_bit
   %mul.i45 = shl i64 %27, 12
   %mul2.i = mul i64 %sub.i, %conv.i
   %div.i46 = udiv i64 %mul2.i, 100
-  %call3.i47 = tail call i32 @blk_mig_bulk_active() #16
+  %call3.i47 = tail call i32 @blk_mig_bulk_active() #18
   %tobool.not.i48 = icmp eq i32 %call3.i47, 0
   %cmp.i = icmp ugt i64 %mul.i45, %div.i46
   %or.cond.i = select i1 %tobool.not.i48, i1 %cmp.i, i1 false
@@ -2851,7 +2851,7 @@ land.lhs.true.i49:                                ; preds = %if.then30
 
 if.then7.i:                                       ; preds = %land.lhs.true.i49
   store i32 0, ptr %dirty_rate_high_cnt.i, align 4
-  %call9.i = tail call zeroext i1 @migrate_auto_converge() #16
+  %call9.i = tail call zeroext i1 @migrate_auto_converge() #18
   br i1 %call9.i, label %if.then10.i, label %if.else.i
 
 if.then10.i:                                      ; preds = %if.then7.i
@@ -2875,28 +2875,28 @@ if.then.i.i.i:                                    ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.i.i.i, label %if.then8.i.i.i, label %if.else.i.i.i
 
 if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
-  %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #16
-  %call10.i.i.i = tail call i32 @qemu_get_thread_id() #16
+  %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #18
+  %call10.i.i.i = tail call i32 @qemu_get_thread_id() #18
   %33 = load i64, ptr %_now.i.i.i, align 8
   %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %34 = load i64, ptr %tv_usec.i.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.49, i32 noundef %call10.i.i.i, i64 noundef %33, i64 noundef %34) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.49, i32 noundef %call10.i.i.i, i64 noundef %33, i64 noundef %34) #18
   br label %trace_migration_throttle.exit.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.50) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.50) #18
   br label %trace_migration_throttle.exit.i
 
 trace_migration_throttle.exit.i:                  ; preds = %if.else.i.i.i, %if.then8.i.i.i, %land.lhs.true5.i.i.i, %if.then10.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i)
-  %call.i.i52 = tail call zeroext i8 @migrate_cpu_throttle_initial() #16
-  %call1.i.i = tail call zeroext i8 @migrate_cpu_throttle_increment() #16
+  %call.i.i52 = tail call zeroext i8 @migrate_cpu_throttle_initial() #18
+  %call1.i.i = tail call zeroext i8 @migrate_cpu_throttle_increment() #18
   %conv2.i.i = zext i8 %call1.i.i to i64
-  %call3.i.i = tail call zeroext i1 @migrate_cpu_throttle_tailslow() #16
-  %call4.i.i = tail call zeroext i8 @migrate_max_cpu_throttle() #16
-  %call6.i.i = tail call i32 @cpu_throttle_get_percentage() #16
+  %call3.i.i = tail call zeroext i1 @migrate_cpu_throttle_tailslow() #18
+  %call4.i.i = tail call zeroext i8 @migrate_max_cpu_throttle() #18
+  %call6.i.i = tail call i32 @cpu_throttle_get_percentage() #18
   %conv7.i.i = sext i32 %call6.i.i to i64
-  %call8.i.i = tail call zeroext i1 @cpu_throttle_active() #16
+  %call8.i.i = tail call zeroext i1 @cpu_throttle_active() #18
   br i1 %call8.i.i, label %if.else.i.i54, label %if.then.i.i53
 
 if.then.i.i53:                                    ; preds = %trace_migration_throttle.exit.i
@@ -2928,16 +2928,16 @@ if.end.i.i55:                                     ; preds = %if.else11.i.i, %if.
 
 mig_throttle_guest_down.exit.i:                   ; preds = %if.end.i.i55, %if.then.i.i53
   %conv27.sink.i.i = phi i32 [ %conv27.i.i, %if.end.i.i55 ], [ %conv9.i.i, %if.then.i.i53 ]
-  tail call void @cpu_throttle_set(i32 noundef %conv27.sink.i.i) #16
+  tail call void @cpu_throttle_set(i32 noundef %conv27.sink.i.i) #18
   br label %migration_trigger_throttle.exit
 
 if.else.i:                                        ; preds = %if.then7.i
-  %call11.i = tail call zeroext i1 @migrate_dirty_limit() #16
+  %call11.i = tail call zeroext i1 @migrate_dirty_limit() #18
   br i1 %call11.i, label %if.then12.i, label %migration_trigger_throttle.exit
 
 if.then12.i:                                      ; preds = %if.else.i
-  %call.i6.i = tail call ptr @migrate_get_current() #16
-  %call1.i7.i = tail call zeroext i1 @dirtylimit_in_service() #16
+  %call.i6.i = tail call ptr @migrate_get_current() #18
+  %call1.i7.i = tail call zeroext i1 @dirtylimit_in_service() #18
   br i1 %call1.i7.i, label %land.lhs.true.i.i, label %entry.if.end_crit_edge.i.i
 
 entry.if.end_crit_edge.i.i:                       ; preds = %if.then12.i
@@ -2955,7 +2955,7 @@ land.lhs.true.i.i:                                ; preds = %if.then12.i
 if.end.i8.i:                                      ; preds = %land.lhs.true.i.i, %entry.if.end_crit_edge.i.i
   %37 = phi i64 [ %.pre.i.i, %entry.if.end_crit_edge.i.i ], [ %36, %land.lhs.true.i.i ]
   store i64 %37, ptr @migration_dirty_limit_guest.quota_dirtyrate, align 8
-  tail call void @qmp_set_vcpu_dirty_limit(i1 noundef zeroext false, i64 noundef -1, i64 noundef %37, ptr noundef null) #16
+  tail call void @qmp_set_vcpu_dirty_limit(i1 noundef zeroext false, i64 noundef -1, i64 noundef %37, ptr noundef null) #18
   %38 = load i64, ptr @migration_dirty_limit_guest.quota_dirtyrate, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i.i)
   %39 = load i32, ptr @trace_events_enabled_count, align 4
@@ -2977,16 +2977,16 @@ if.then.i.i.i.i:                                  ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.i.i.i.i, label %if.then8.i.i.i.i, label %if.else.i.i.i.i51
 
 if.then8.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
-  %call9.i.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i.i, ptr noundef null) #16
-  %call10.i.i.i.i = tail call i32 @qemu_get_thread_id() #16
+  %call9.i.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i.i, ptr noundef null) #18
+  %call10.i.i.i.i = tail call i32 @qemu_get_thread_id() #18
   %43 = load i64, ptr %_now.i.i.i.i, align 8
   %tv_usec.i.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i.i, i64 8
   %44 = load i64, ptr %tv_usec.i.i.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.51, i32 noundef %call10.i.i.i.i, i64 noundef %43, i64 noundef %44, i64 noundef %38) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.51, i32 noundef %call10.i.i.i.i, i64 noundef %43, i64 noundef %44, i64 noundef %38) #18
   br label %trace_migration_dirty_limit_guest.exit.i.i
 
 if.else.i.i.i.i51:                                ; preds = %if.then.i.i.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.52, i64 noundef %38) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.52, i64 noundef %38) #18
   br label %trace_migration_dirty_limit_guest.exit.i.i
 
 trace_migration_dirty_limit_guest.exit.i.i:       ; preds = %if.else.i.i.i.i51, %if.then8.i.i.i.i, %land.lhs.true5.i.i.i.i, %if.end.i8.i
@@ -3009,7 +3009,7 @@ migration_trigger_throttle.exit:                  ; preds = %if.then30, %land.lh
   br i1 %tobool.not.i60, label %migration_update_rates.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %migration_trigger_throttle.exit
-  %call.i61 = tail call zeroext i1 @migrate_xbzrle() #16
+  %call.i61 = tail call zeroext i1 @migrate_xbzrle() #18
   br i1 %call.i61, label %if.then2.i, label %if.end20.i
 
 if.then2.i:                                       ; preds = %if.end.i
@@ -3050,7 +3050,7 @@ if.end17.i:                                       ; preds = %if.else.i65, %if.th
   br label %if.end20.i
 
 if.end20.i:                                       ; preds = %if.end17.i, %if.end.i
-  tail call void @compress_update_rates(i64 noundef %sub.i56) #16
+  tail call void @compress_update_rates(i64 noundef %sub.i56) #18
   %.pre = load i64, ptr %target_page_count.i, align 8
   br label %migration_update_rates.exit
 
@@ -3059,17 +3059,17 @@ migration_update_rates.exit:                      ; preds = %migration_trigger_t
   store i64 %55, ptr %target_page_count_prev.i, align 8
   store i64 %div.i42, ptr %time_last_bitmap_sync, align 8
   store i64 0, ptr %num_dirty_pages_period, align 8
-  %call33 = tail call i64 @migration_transferred_bytes() #16
+  %call33 = tail call i64 @migration_transferred_bytes() #18
   store i64 %call33, ptr %bytes_xfer_prev.i, align 8
   br label %if.end34
 
 if.end34:                                         ; preds = %migration_update_rates.exit, %trace_migration_bitmap_sync_end.exit
-  %call35 = tail call zeroext i1 @migrate_events() #16
+  %call35 = tail call zeroext i1 @migrate_events() #18
   br i1 %call35, label %if.then36, label %if.end38
 
 if.then36:                                        ; preds = %if.end34
   %56 = load atomic i64, ptr getelementptr inbounds (i8, ptr @mig_stats, i64 16) monotonic, align 8
-  tail call void @qapi_event_send_migration_pass(i64 noundef %56) #16
+  tail call void @qapi_event_send_migration_pass(i64 noundef %56) #18
   br label %if.end38
 
 if.end38:                                         ; preds = %if.then36, %if.end34
@@ -3087,10 +3087,10 @@ define dso_local void @qemu_guest_free_page_hint(ptr noundef %addr, i64 noundef 
 entry:
   %_now.i.i.i = alloca %struct.timeval, align 8
   %offset = alloca i64, align 8
-  %call = tail call ptr @migrate_get_current() #16
+  %call = tail call ptr @migrate_get_current() #18
   %state = getelementptr inbounds i8, ptr %call, i64 776
   %0 = load i32, ptr %state, align 8
-  %call1 = tail call zeroext i1 @migration_is_setup_or_active(i32 noundef %0) #16
+  %call1 = tail call zeroext i1 @migration_is_setup_or_active(i32 noundef %0) #18
   %cmp = icmp ne i64 %len, 0
   %or.cond = and i1 %cmp, %call1
   br i1 %or.cond, label %for.body.preheader, label %for.end
@@ -3102,7 +3102,7 @@ for.body.preheader:                               ; preds = %entry
 for.body:                                         ; preds = %for.body.preheader, %bitmap_count_one_with_offset.exit
   %len.addr.0 = phi i64 [ %sub23, %bitmap_count_one_with_offset.exit ], [ %len, %for.body.preheader ]
   %addr.addr.0 = phi ptr [ %add.ptr, %bitmap_count_one_with_offset.exit ], [ %addr, %for.body.preheader ]
-  %call2 = call ptr @qemu_ram_block_from_host(ptr noundef %addr.addr.0, i1 noundef zeroext false, ptr noundef nonnull %offset) #16
+  %call2 = call ptr @qemu_ram_block_from_host(ptr noundef %addr.addr.0, i1 noundef zeroext false, ptr noundef nonnull %offset) #18
   %tobool.not = icmp eq ptr %call2, null
   br i1 %tobool.not, label %if.then6, label %lor.rhs
 
@@ -3114,7 +3114,7 @@ lor.rhs:                                          ; preds = %for.body
   br i1 %cmp3.not, label %if.end9, label %if.then6
 
 if.then6:                                         ; preds = %for.body, %lor.rhs
-  %call7 = call zeroext i1 (ptr, ptr, ...) @error_report_once_cond(ptr noundef nonnull @qemu_guest_free_page_hint.print_once_, ptr noundef nonnull @.str.16, ptr noundef nonnull @__func__.qemu_guest_free_page_hint) #16
+  %call7 = call zeroext i1 (ptr, ptr, ...) @error_report_once_cond(ptr noundef nonnull @qemu_guest_free_page_hint.print_once_, ptr noundef nonnull @.str.16, ptr noundef nonnull @__func__.qemu_guest_free_page_hint) #18
   br label %for.end
 
 if.end9:                                          ; preds = %lor.rhs
@@ -3126,7 +3126,7 @@ if.end9:                                          ; preds = %lor.rhs
   %4 = inttoptr i64 %3 to ptr
   %5 = load ptr, ptr @ram_state, align 8
   %bitmap_mutex = getelementptr inbounds i8, ptr %5, i64 232
-  call void %4(ptr noundef nonnull %bitmap_mutex, ptr noundef nonnull @.str, i32 noundef 2905) #16
+  call void %4(ptr noundef nonnull %bitmap_mutex, ptr noundef nonnull @.str, i32 noundef 2905) #18
   %clear_bmap_shift.i = getelementptr inbounds i8, ptr %call2, i64 408
   %6 = load i8, ptr %clear_bmap_shift.i, align 8
   %sh_prom.i = zext nneg i8 %6 to i64
@@ -3162,7 +3162,7 @@ lor.lhs.false.i:                                  ; preds = %for.body.i
   %rb.val13.i = load i8, ptr %clear_bmap_shift.i, align 8
   %sh_prom.i.i = zext nneg i8 %rb.val13.i to i64
   %shr.i.i20 = lshr i64 %i.015.i, %sh_prom.i.i
-  %call.i.i = call zeroext i1 @bitmap_test_and_clear(ptr noundef nonnull %10, i64 noundef %shr.i.i20, i64 noundef 1) #16
+  %call.i.i = call zeroext i1 @bitmap_test_and_clear(ptr noundef nonnull %10, i64 noundef %shr.i.i20, i64 noundef 1) #18
   br i1 %call.i.i, label %if.end.i, label %migration_clear_memory_region_dirty_bitmap.exit
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
@@ -3171,7 +3171,7 @@ if.end.i:                                         ; preds = %lor.lhs.false.i
   br i1 %cmp.i21, label %if.end3.i, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end.i
-  call void @__assert_fail(ptr noundef nonnull @.str.57, ptr noundef nonnull @.str, i32 noundef 737, ptr noundef nonnull @__PRETTY_FUNCTION__.migration_clear_memory_region_dirty_bitmap) #17
+  call void @__assert_fail(ptr noundef nonnull @.str.57, ptr noundef nonnull @.str, i32 noundef 737, ptr noundef nonnull @__PRETTY_FUNCTION__.migration_clear_memory_region_dirty_bitmap) #19
   unreachable
 
 if.end3.i:                                        ; preds = %if.end.i
@@ -3200,21 +3200,21 @@ if.then.i.i.i:                                    ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.i.i.i, label %if.then8.i.i.i, label %if.else.i.i.i
 
 if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
-  %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #16
-  %call10.i.i.i = call i32 @qemu_get_thread_id() #16
+  %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #18
+  %call10.i.i.i = call i32 @qemu_get_thread_id() #18
   %17 = load i64, ptr %_now.i.i.i, align 8
   %18 = load i64, ptr %tv_usec.i.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.58, i32 noundef %call10.i.i.i, i64 noundef %17, i64 noundef %18, ptr noundef nonnull %idstr.i, i64 noundef %mul.i, i64 noundef %shl.i22, i64 noundef %i.015.i) #16
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.58, i32 noundef %call10.i.i.i, i64 noundef %17, i64 noundef %18, ptr noundef nonnull %idstr.i, i64 noundef %mul.i, i64 noundef %shl.i22, i64 noundef %i.015.i) #18
   br label %trace_migration_bitmap_clear_dirty.exit.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.59, ptr noundef nonnull %idstr.i, i64 noundef %mul.i, i64 noundef %shl.i22, i64 noundef %i.015.i) #16
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.59, ptr noundef nonnull %idstr.i, i64 noundef %mul.i, i64 noundef %shl.i22, i64 noundef %i.015.i) #18
   br label %trace_migration_bitmap_clear_dirty.exit.i
 
 trace_migration_bitmap_clear_dirty.exit.i:        ; preds = %if.else.i.i.i, %if.then8.i.i.i, %land.lhs.true5.i.i.i, %if.end3.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i)
   %19 = load ptr, ptr %mr.i, align 8
-  call void @memory_region_clear_dirty_bitmap(ptr noundef %19, i64 noundef %mul.i, i64 noundef %shl.i22) #16
+  call void @memory_region_clear_dirty_bitmap(ptr noundef %19, i64 noundef %mul.i, i64 noundef %shl.i22) #18
   br label %migration_clear_memory_region_dirty_bitmap.exit
 
 migration_clear_memory_region_dirty_bitmap.exit:  ; preds = %for.body.i, %lor.lhs.false.i, %trace_migration_bitmap_clear_dirty.exit.i
@@ -3246,7 +3246,7 @@ if.then5.i.i:                                     ; preds = %if.end.i.i
   br label %bitmap_count_one.exit.i
 
 if.else.i.i:                                      ; preds = %if.end.i.i
-  %call8.i.i = call i64 @slow_bitmap_count_one(ptr noundef %add.ptr.i, i64 noundef %add.i19) #16
+  %call8.i.i = call i64 @slow_bitmap_count_one(ptr noundef %add.ptr.i, i64 noundef %add.i19) #18
   br label %bitmap_count_one.exit.i
 
 bitmap_count_one.exit.i:                          ; preds = %if.else.i.i, %if.then5.i.i, %migration_clear_memory_region_dirty_bitmap_range.exit
@@ -3272,10 +3272,10 @@ bitmap_count_one_with_offset.exit:                ; preds = %bitmap_count_one.ex
   %sub20 = add i64 %sub3.i.neg, %26
   store i64 %sub20, ptr %migration_dirty_pages, align 8
   %27 = load ptr, ptr %bmap, align 8
-  call void @bitmap_clear(ptr noundef %27, i64 noundef %shr, i64 noundef %shr17) #16
+  call void @bitmap_clear(ptr noundef %27, i64 noundef %shr, i64 noundef %shr17) #18
   %28 = load ptr, ptr @ram_state, align 8
   %bitmap_mutex22 = getelementptr inbounds i8, ptr %28, i64 232
-  call void @qemu_mutex_unlock_impl(ptr noundef nonnull %bitmap_mutex22, ptr noundef nonnull @.str, i32 noundef 2916) #16
+  call void @qemu_mutex_unlock_impl(ptr noundef nonnull %bitmap_mutex22, ptr noundef nonnull @.str, i32 noundef 2916) #18
   %sub23 = sub i64 %len.addr.0, %sub.len.addr.0
   %add.ptr = getelementptr i8, ptr %addr.addr.0, i64 %sub.len.addr.0
   %cmp.old.not = icmp eq i64 %sub23, 0
@@ -3298,7 +3298,7 @@ entry:
   %1 = inttoptr i64 %0 to ptr
   %2 = load ptr, ptr @ram_state, align 8
   %bitmap_mutex = getelementptr inbounds i8, ptr %2, i64 232
-  tail call void %1(ptr noundef nonnull %bitmap_mutex, ptr noundef nonnull @.str, i32 noundef 3348) #16
+  tail call void %1(ptr noundef nonnull %bitmap_mutex, ptr noundef nonnull @.str, i32 noundef 3348) #18
   %cmp3.not = icmp eq i32 %pages, 0
   br i1 %cmp3.not, label %entry.for.end_crit_edge, label %for.body.lr.ph
 
@@ -3339,14 +3339,14 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 for.end:                                          ; preds = %for.body, %entry.for.end_crit_edge
   %10 = phi ptr [ %.pre, %entry.for.end_crit_edge ], [ %8, %for.body ]
   %bitmap_mutex1 = getelementptr inbounds i8, ptr %10, i64 232
-  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %bitmap_mutex1, ptr noundef nonnull @.str, i32 noundef 3355) #16
+  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %bitmap_mutex1, ptr noundef nonnull @.str, i32 noundef 3355) #18
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @ram_handle_zero(ptr noundef %host, i64 noundef %size) local_unnamed_addr #0 {
 entry:
-  %call = tail call zeroext i1 @buffer_is_zero(ptr noundef %host, i64 noundef %size) #16
+  %call = tail call zeroext i1 @buffer_is_zero(ptr noundef %host, i64 noundef %size) #18
   br i1 %call, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -3360,12 +3360,12 @@ if.end:                                           ; preds = %if.then, %entry
 declare zeroext i1 @buffer_is_zero(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @colo_init_ram_cache() local_unnamed_addr #0 {
 entry:
-  %call.i.i = tail call ptr @get_ptr_rcu_reader() #16
+  %call.i.i = tail call ptr @get_ptr_rcu_reader() #18
   %depth.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   %0 = load i32, ptr %depth.i.i, align 4
   %inc.i.i = add i32 %0, 1
@@ -3377,38 +3377,38 @@ while.end.i.i:                                    ; preds = %entry
   %1 = load atomic i64, ptr @rcu_gp_ctr monotonic, align 8
   %conv8.i.i = and i64 %1, 4294967295
   store atomic i64 %conv8.i.i, ptr %call.i.i monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
   fence seq_cst
   br label %rcu_read_auto_lock.exit
 
 rcu_read_auto_lock.exit:                          ; preds = %entry, %while.end.i.i
   %2 = load atomic i64, ptr getelementptr inbounds (i8, ptr @ram_list, i64 56) monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !52
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !52
   %tobool2.not59 = icmp eq i64 %2, 0
   br i1 %tobool2.not59, label %for.inc57, label %for.body3
 
 for.body3:                                        ; preds = %rcu_read_auto_lock.exit, %while.end52
   %block.060.in = phi i64 [ %12, %while.end52 ], [ %2, %rcu_read_auto_lock.exit ]
   %block.060 = inttoptr i64 %block.060.in to ptr
-  %call.i = tail call zeroext i1 @qemu_ram_is_migratable(ptr noundef nonnull %block.060) #16
+  %call.i = tail call zeroext i1 @qemu_ram_is_migratable(ptr noundef nonnull %block.060) #18
   br i1 %call.i, label %lor.rhs.i, label %while.end52
 
 lor.rhs.i:                                        ; preds = %for.body3
-  %call1.i = tail call zeroext i1 @migrate_ignore_shared() #16
+  %call1.i = tail call zeroext i1 @migrate_ignore_shared() #18
   br i1 %call1.i, label %land.lhs.true.i, label %if.else
 
 land.lhs.true.i:                                  ; preds = %lor.rhs.i
-  %call2.i = tail call zeroext i1 @qemu_ram_is_shared(ptr noundef nonnull %block.060) #16
+  %call2.i = tail call zeroext i1 @qemu_ram_is_shared(ptr noundef nonnull %block.060) #18
   br i1 %call2.i, label %migrate_ram_is_ignored.exit, label %if.else
 
 migrate_ram_is_ignored.exit:                      ; preds = %land.lhs.true.i
-  %call3.i = tail call zeroext i1 @qemu_ram_is_named_file(ptr noundef nonnull %block.060) #16
+  %call3.i = tail call zeroext i1 @qemu_ram_is_named_file(ptr noundef nonnull %block.060) #18
   br i1 %call3.i, label %while.end52, label %if.else
 
 if.else:                                          ; preds = %lor.rhs.i, %land.lhs.true.i, %migrate_ram_is_ignored.exit
   %used_length = getelementptr inbounds i8, ptr %block.060, i64 48
   %3 = load i64, ptr %used_length, align 8
-  %call5 = tail call ptr @qemu_anon_ram_alloc(i64 noundef %3, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext false) #16
+  %call5 = tail call ptr @qemu_anon_ram_alloc(i64 noundef %3, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext false) #18
   %colo_cache = getelementptr inbounds i8, ptr %block.060, i64 32
   store ptr %call5, ptr %colo_cache, align 8
   %tobool7.not = icmp eq ptr %call5, null
@@ -3417,28 +3417,28 @@ if.else:                                          ; preds = %lor.rhs.i, %land.lh
 if.then8:                                         ; preds = %if.else
   %idstr = getelementptr inbounds i8, ptr %block.060, i64 76
   %4 = load i64, ptr %used_length, align 8
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.colo_init_ram_cache, ptr noundef nonnull %idstr, i64 noundef %4) #16
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.colo_init_ram_cache, ptr noundef nonnull %idstr, i64 noundef %4) #18
   %5 = load atomic i64, ptr getelementptr inbounds (i8, ptr @ram_list, i64 56) monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !53
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !53
   %tobool18.not62 = icmp eq i64 %5, 0
   br i1 %tobool18.not62, label %if.then.i.i, label %for.body19
 
 for.body19:                                       ; preds = %if.then8, %while.end35
   %block.163.in = phi i64 [ %8, %while.end35 ], [ %5, %if.then8 ]
   %block.163 = inttoptr i64 %block.163.in to ptr
-  %call.i22 = tail call zeroext i1 @qemu_ram_is_migratable(ptr noundef nonnull %block.163) #16
+  %call.i22 = tail call zeroext i1 @qemu_ram_is_migratable(ptr noundef nonnull %block.163) #18
   br i1 %call.i22, label %lor.rhs.i23, label %while.end35
 
 lor.rhs.i23:                                      ; preds = %for.body19
-  %call1.i24 = tail call zeroext i1 @migrate_ignore_shared() #16
+  %call1.i24 = tail call zeroext i1 @migrate_ignore_shared() #18
   br i1 %call1.i24, label %land.lhs.true.i25, label %if.else22
 
 land.lhs.true.i25:                                ; preds = %lor.rhs.i23
-  %call2.i26 = tail call zeroext i1 @qemu_ram_is_shared(ptr noundef nonnull %block.163) #16
+  %call2.i26 = tail call zeroext i1 @qemu_ram_is_shared(ptr noundef nonnull %block.163) #18
   br i1 %call2.i26, label %migrate_ram_is_ignored.exit29, label %if.else22
 
 migrate_ram_is_ignored.exit29:                    ; preds = %land.lhs.true.i25
-  %call3.i28 = tail call zeroext i1 @qemu_ram_is_named_file(ptr noundef nonnull %block.163) #16
+  %call3.i28 = tail call zeroext i1 @qemu_ram_is_named_file(ptr noundef nonnull %block.163) #18
   br i1 %call3.i28, label %while.end35, label %if.else22
 
 if.else22:                                        ; preds = %lor.rhs.i23, %land.lhs.true.i25, %migrate_ram_is_ignored.exit29
@@ -3450,44 +3450,44 @@ if.else22:                                        ; preds = %lor.rhs.i23, %land.
 if.then25:                                        ; preds = %if.else22
   %used_length27 = getelementptr inbounds i8, ptr %block.163, i64 48
   %7 = load i64, ptr %used_length27, align 8
-  tail call void @qemu_anon_ram_free(ptr noundef nonnull %6, i64 noundef %7) #16
+  tail call void @qemu_anon_ram_free(ptr noundef nonnull %6, i64 noundef %7) #18
   store ptr null, ptr %colo_cache23, align 8
   br label %while.end35
 
 while.end35:                                      ; preds = %for.body19, %migrate_ram_is_ignored.exit29, %if.then25, %if.else22
   %next = getelementptr inbounds i8, ptr %block.163, i64 336
   %8 = load atomic i64, ptr %next monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !54
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !54
   %tobool18.not = icmp eq i64 %8, 0
   br i1 %tobool18.not, label %if.then.i.i, label %for.body19, !llvm.loop !55
 
 if.end38:                                         ; preds = %if.else
   %9 = load ptr, ptr @current_machine, align 8
-  %call39 = tail call zeroext i1 @machine_dump_guest_core(ptr noundef %9) #16
+  %call39 = tail call zeroext i1 @machine_dump_guest_core(ptr noundef %9) #18
   br i1 %call39, label %while.end52, label %if.then40
 
 if.then40:                                        ; preds = %if.end38
   %10 = load ptr, ptr %colo_cache, align 8
   %11 = load i64, ptr %used_length, align 8
-  %call43 = tail call i32 @qemu_madvise(ptr noundef %10, i64 noundef %11, i32 noundef 16) #16
+  %call43 = tail call i32 @qemu_madvise(ptr noundef %10, i64 noundef %11, i32 noundef 16) #18
   br label %while.end52
 
 while.end52:                                      ; preds = %for.body3, %migrate_ram_is_ignored.exit, %if.then40, %if.end38
   %next53 = getelementptr inbounds i8, ptr %block.060, i64 336
   %12 = load atomic i64, ptr %next53 monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !56
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !56
   %tobool2.not = icmp eq i64 %12, 0
   br i1 %tobool2.not, label %for.inc57, label %for.body3, !llvm.loop !57
 
 for.inc57:                                        ; preds = %while.end52, %rcu_read_auto_lock.exit
-  %call.i.i30 = tail call ptr @get_ptr_rcu_reader() #16
+  %call.i.i30 = tail call ptr @get_ptr_rcu_reader() #18
   %depth.i.i31 = getelementptr inbounds i8, ptr %call.i.i30, i64 12
   %13 = load i32, ptr %depth.i.i31, align 4
   %cmp.not.i.i32 = icmp eq i32 %13, 0
   br i1 %cmp.not.i.i32, label %if.else.i.i, label %if.end.i.i
 
 if.else.i.i:                                      ; preds = %for.inc57
-  tail call void @__assert_fail(ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.28, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #17
+  tail call void @__assert_fail(ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.28, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #19
   unreachable
 
 if.end.i.i:                                       ; preds = %for.inc57
@@ -3498,7 +3498,7 @@ if.end.i.i:                                       ; preds = %for.inc57
 
 while.end.i.i33:                                  ; preds = %if.end.i.i
   store atomic i64 0, ptr %call.i.i30 release, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !10
   fence seq_cst
   %waiting.i.i = getelementptr inbounds i8, ptr %call.i.i30, i64 8
   %14 = load atomic i8, ptr %waiting.i.i monotonic, align 8
@@ -3507,21 +3507,21 @@ while.end.i.i33:                                  ; preds = %if.end.i.i
 
 while.end21.i.i:                                  ; preds = %while.end.i.i33
   store atomic i8 0, ptr %waiting.i.i monotonic, align 8
-  tail call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #16
+  tail call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #18
   br label %for.end58
 
 if.then.i.i:                                      ; preds = %while.end35, %if.then8
-  %call37 = tail call ptr @__errno_location() #21
+  %call37 = tail call ptr @__errno_location() #23
   %15 = load i32, ptr %call37, align 4
   %sub = sub i32 0, %15
-  %call.i.i.i.i = tail call ptr @get_ptr_rcu_reader() #16
+  %call.i.i.i.i = tail call ptr @get_ptr_rcu_reader() #18
   %depth.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 12
   %16 = load i32, ptr %depth.i.i.i.i, align 4
   %cmp.not.i.i.i.i = icmp eq i32 %16, 0
   br i1 %cmp.not.i.i.i.i, label %if.else.i.i.i.i, label %if.end.i.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %if.then.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.28, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #17
+  tail call void @__assert_fail(ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.28, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #19
   unreachable
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i
@@ -3532,7 +3532,7 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i
 
 while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   store atomic i64 0, ptr %call.i.i.i.i release, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !10
   fence seq_cst
   %waiting.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
   %17 = load atomic i8, ptr %waiting.i.i.i.i monotonic, align 8
@@ -3541,7 +3541,7 @@ while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
 
 while.end21.i.i.i.i:                              ; preds = %while.end.i.i.i.i
   store atomic i8 0, ptr %waiting.i.i.i.i monotonic, align 8
-  tail call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #16
+  tail call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #18
   br label %return
 
 for.end58:                                        ; preds = %while.end21.i.i, %while.end.i.i33, %if.end.i.i
@@ -3551,26 +3551,26 @@ for.end58:                                        ; preds = %while.end21.i.i, %w
 
 while.end67:                                      ; preds = %for.end58
   %18 = load atomic i64, ptr getelementptr inbounds (i8, ptr @ram_list, i64 56) monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !58
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !58
   %tobool70.not66 = icmp eq i64 %18, 0
   br i1 %tobool70.not66, label %if.end88, label %for.body71
 
 for.body71:                                       ; preds = %while.end67, %while.end83
   %block.267.in = phi i64 [ %21, %while.end83 ], [ %18, %while.end67 ]
   %block.267 = inttoptr i64 %block.267.in to ptr
-  %call.i34 = tail call zeroext i1 @qemu_ram_is_migratable(ptr noundef nonnull %block.267) #16
+  %call.i34 = tail call zeroext i1 @qemu_ram_is_migratable(ptr noundef nonnull %block.267) #18
   br i1 %call.i34, label %lor.rhs.i35, label %while.end83
 
 lor.rhs.i35:                                      ; preds = %for.body71
-  %call1.i36 = tail call zeroext i1 @migrate_ignore_shared() #16
+  %call1.i36 = tail call zeroext i1 @migrate_ignore_shared() #18
   br i1 %call1.i36, label %land.lhs.true.i37, label %if.else74
 
 land.lhs.true.i37:                                ; preds = %lor.rhs.i35
-  %call2.i38 = tail call zeroext i1 @qemu_ram_is_shared(ptr noundef nonnull %block.267) #16
+  %call2.i38 = tail call zeroext i1 @qemu_ram_is_shared(ptr noundef nonnull %block.267) #18
   br i1 %call2.i38, label %migrate_ram_is_ignored.exit41, label %if.else74
 
 migrate_ram_is_ignored.exit41:                    ; preds = %land.lhs.true.i37
-  %call3.i40 = tail call zeroext i1 @qemu_ram_is_named_file(ptr noundef nonnull %block.267) #16
+  %call3.i40 = tail call zeroext i1 @qemu_ram_is_named_file(ptr noundef nonnull %block.267) #18
   br i1 %call3.i40, label %while.end83, label %if.else74
 
 if.else74:                                        ; preds = %lor.rhs.i35, %land.lhs.true.i37, %migrate_ram_is_ignored.exit41
@@ -3580,12 +3580,12 @@ if.else74:                                        ; preds = %lor.rhs.i35, %land.
   %sub.i.i = add nuw nsw i64 %shr, 63
   %20 = lshr i64 %sub.i.i, 3
   %mul.i.i = and i64 %20, 1125899906842616
-  %call.i.i42 = tail call noalias ptr @g_try_malloc0(i64 noundef %mul.i.i) #18
+  %call.i.i42 = tail call noalias ptr @g_try_malloc0(i64 noundef %mul.i.i) #20
   %cmp.i = icmp eq ptr %call.i.i42, null
   br i1 %cmp.i, label %if.then.i, label %bitmap_new.exit
 
 if.then.i:                                        ; preds = %if.else74
-  tail call void @abort() #17
+  tail call void @abort() #19
   unreachable
 
 bitmap_new.exit:                                  ; preds = %if.else74
@@ -3596,7 +3596,7 @@ bitmap_new.exit:                                  ; preds = %if.else74
 while.end83:                                      ; preds = %for.body71, %bitmap_new.exit, %migrate_ram_is_ignored.exit41
   %next84 = getelementptr inbounds i8, ptr %block.267, i64 336
   %21 = load atomic i64, ptr %next84 monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !59
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !59
   %tobool70.not = icmp eq i64 %21, 0
   br i1 %tobool70.not, label %if.end88, label %for.body71, !llvm.loop !60
 
@@ -3614,7 +3614,7 @@ declare ptr @qemu_anon_ram_alloc(i64 noundef, ptr noundef, i1 noundef zeroext, i
 declare void @qemu_anon_ram_free(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #7
+declare ptr @__errno_location() local_unnamed_addr #8
 
 declare zeroext i1 @machine_dump_guest_core(ptr noundef) local_unnamed_addr #1
 
@@ -3623,10 +3623,10 @@ declare i32 @qemu_madvise(ptr noundef, i64 noundef, i32 noundef) local_unnamed_a
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @colo_incoming_start_dirty_log() local_unnamed_addr #0 {
 entry:
-  tail call void @qemu_mutex_lock_iothread_impl(ptr noundef nonnull @.str, i32 noundef 3456) #16
-  tail call void @qemu_mutex_lock_ramlist() #16
-  tail call void @memory_global_dirty_log_sync(i1 noundef zeroext false) #16
-  %call.i.i = tail call ptr @get_ptr_rcu_reader() #16
+  tail call void @qemu_mutex_lock_iothread_impl(ptr noundef nonnull @.str, i32 noundef 3456) #18
+  tail call void @qemu_mutex_lock_ramlist() #18
+  tail call void @memory_global_dirty_log_sync(i1 noundef zeroext false) #18
+  %call.i.i = tail call ptr @get_ptr_rcu_reader() #18
   %depth.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   %0 = load i32, ptr %depth.i.i, align 4
   %inc.i.i = add i32 %0, 1
@@ -3638,32 +3638,32 @@ while.end.i.i:                                    ; preds = %entry
   %1 = load atomic i64, ptr @rcu_gp_ctr monotonic, align 8
   %conv8.i.i = and i64 %1, 4294967295
   store atomic i64 %conv8.i.i, ptr %call.i.i monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
   fence seq_cst
   br label %rcu_read_auto_lock.exit
 
 rcu_read_auto_lock.exit:                          ; preds = %entry, %while.end.i.i
   %2 = load atomic i64, ptr getelementptr inbounds (i8, ptr @ram_list, i64 56) monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !61
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !61
   %tobool2.not12 = icmp eq i64 %2, 0
   br i1 %tobool2.not12, label %for.end, label %for.body3
 
 for.body3:                                        ; preds = %rcu_read_auto_lock.exit, %while.end10
   %block.013.in = phi i64 [ %7, %while.end10 ], [ %2, %rcu_read_auto_lock.exit ]
   %block.013 = inttoptr i64 %block.013.in to ptr
-  %call.i = tail call zeroext i1 @qemu_ram_is_migratable(ptr noundef nonnull %block.013) #16
+  %call.i = tail call zeroext i1 @qemu_ram_is_migratable(ptr noundef nonnull %block.013) #18
   br i1 %call.i, label %lor.rhs.i, label %while.end10
 
 lor.rhs.i:                                        ; preds = %for.body3
-  %call1.i = tail call zeroext i1 @migrate_ignore_shared() #16
+  %call1.i = tail call zeroext i1 @migrate_ignore_shared() #18
   br i1 %call1.i, label %land.lhs.true.i, label %if.else
 
 land.lhs.true.i:                                  ; preds = %lor.rhs.i
-  %call2.i = tail call zeroext i1 @qemu_ram_is_shared(ptr noundef nonnull %block.013) #16
+  %call2.i = tail call zeroext i1 @qemu_ram_is_shared(ptr noundef nonnull %block.013) #18
   br i1 %call2.i, label %migrate_ram_is_ignored.exit, label %if.else
 
 migrate_ram_is_ignored.exit:                      ; preds = %land.lhs.true.i
-  %call3.i = tail call zeroext i1 @qemu_ram_is_named_file(ptr noundef nonnull %block.013) #16
+  %call3.i = tail call zeroext i1 @qemu_ram_is_named_file(ptr noundef nonnull %block.013) #18
   br i1 %call3.i, label %while.end10, label %if.else
 
 if.else:                                          ; preds = %lor.rhs.i, %land.lhs.true.i, %migrate_ram_is_ignored.exit
@@ -3691,20 +3691,20 @@ if.else.i:                                        ; preds = %if.else
 while.end10:                                      ; preds = %for.body3, %if.else.i, %if.then.i, %migrate_ram_is_ignored.exit
   %next = getelementptr inbounds i8, ptr %block.013, i64 336
   %7 = load atomic i64, ptr %next monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !62
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !62
   %tobool2.not = icmp eq i64 %7, 0
   br i1 %tobool2.not, label %for.end, label %for.body3, !llvm.loop !63
 
 for.end:                                          ; preds = %while.end10, %rcu_read_auto_lock.exit
-  tail call void @memory_global_dirty_log_start(i32 noundef 1) #16
-  %call.i.i6 = tail call ptr @get_ptr_rcu_reader() #16
+  tail call void @memory_global_dirty_log_start(i32 noundef 1) #18
+  %call.i.i6 = tail call ptr @get_ptr_rcu_reader() #18
   %depth.i.i7 = getelementptr inbounds i8, ptr %call.i.i6, i64 12
   %8 = load i32, ptr %depth.i.i7, align 4
   %cmp.not.i.i8 = icmp eq i32 %8, 0
   br i1 %cmp.not.i.i8, label %if.else.i.i, label %if.end.i.i
 
 if.else.i.i:                                      ; preds = %for.end
-  tail call void @__assert_fail(ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.28, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #17
+  tail call void @__assert_fail(ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.28, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #19
   unreachable
 
 if.end.i.i:                                       ; preds = %for.end
@@ -3715,7 +3715,7 @@ if.end.i.i:                                       ; preds = %for.end
 
 while.end.i.i9:                                   ; preds = %if.end.i.i
   store atomic i64 0, ptr %call.i.i6 release, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !10
   fence seq_cst
   %waiting.i.i = getelementptr inbounds i8, ptr %call.i.i6, i64 8
   %9 = load atomic i8, ptr %waiting.i.i monotonic, align 8
@@ -3724,15 +3724,15 @@ while.end.i.i9:                                   ; preds = %if.end.i.i
 
 while.end21.i.i:                                  ; preds = %while.end.i.i9
   store atomic i8 0, ptr %waiting.i.i monotonic, align 8
-  tail call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #16
+  tail call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #18
   br label %glib_autoptr_cleanup_RCUReadAuto.exit
 
 glib_autoptr_cleanup_RCUReadAuto.exit:            ; preds = %while.end21.i.i, %while.end.i.i9, %if.end.i.i
   %10 = load ptr, ptr @ram_state, align 8
   %migration_dirty_pages = getelementptr inbounds i8, ptr %10, i64 224
   store i64 0, ptr %migration_dirty_pages, align 8
-  tail call void @qemu_mutex_unlock_ramlist() #16
-  tail call void @qemu_mutex_unlock_iothread() #16
+  tail call void @qemu_mutex_unlock_ramlist() #18
+  tail call void @qemu_mutex_unlock_iothread() #18
   ret void
 }
 
@@ -3764,7 +3764,7 @@ if.then.i:                                        ; preds = %entry
   %shr3.i = lshr exact i64 %0, 12
   %5 = load atomic i64, ptr getelementptr inbounds (i8, ptr @ram_list, i64 80) monotonic, align 8
   %6 = inttoptr i64 %5 to ptr
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !64
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !64
   %blocks.i = getelementptr inbounds i8, ptr %6, i64 16
   %sext.i = shl i64 %0, 14
   %conv15.i = ashr exact i64 %sext.i, 32
@@ -3829,20 +3829,20 @@ if.then44.i:                                      ; preds = %for.end.i
   %add.i.i.i = add nsw i64 %shr3.i, -1
   %sub.i.i.i = add i64 %add.i.i.i, %shl.i.i.i
   %div2.i.i.i = lshr i64 %sub.i.i.i, %sh_prom.i.i.i
-  tail call void @bitmap_set(ptr noundef nonnull %13, i64 noundef 0, i64 noundef %div2.i.i.i) #16
+  tail call void @bitmap_set(ptr noundef nonnull %13, i64 noundef 0, i64 noundef %div2.i.i.i) #18
   br label %cpu_physical_memory_sync_dirty_bitmap.exit
 
 if.else.i:                                        ; preds = %for.end.i
   %mr.i = getelementptr inbounds i8, ptr %rb, i64 16
   %15 = load ptr, ptr %mr.i, align 8
-  tail call void @memory_region_clear_dirty_bitmap(ptr noundef %15, i64 noundef 0, i64 noundef %0) #16
+  tail call void @memory_region_clear_dirty_bitmap(ptr noundef %15, i64 noundef 0, i64 noundef %0) #18
   br label %cpu_physical_memory_sync_dirty_bitmap.exit
 
 for.body54.i:                                     ; preds = %for.cond51.preheader.i, %for.inc68.i
   %addr.046.i = phi i64 [ %add69.i, %for.inc68.i ], [ 0, %for.cond51.preheader.i ]
   %num_dirty.245.i = phi i64 [ %num_dirty.3.i, %for.inc68.i ], [ 0, %for.cond51.preheader.i ]
   %add56.i = add i64 %addr.046.i, %1
-  %call57.i = tail call zeroext i1 @cpu_physical_memory_test_and_clear_dirty(i64 noundef %add56.i, i64 noundef 4096, i32 noundef 2) #16
+  %call57.i = tail call zeroext i1 @cpu_physical_memory_test_and_clear_dirty(i64 noundef %add56.i, i64 noundef 4096, i32 noundef 2) #18
   br i1 %call57.i, label %if.then58.i, label %for.inc68.i
 
 if.then58.i:                                      ; preds = %for.body54.i
@@ -3888,46 +3888,46 @@ declare void @qemu_mutex_unlock_iothread() local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @colo_release_ram_cache() local_unnamed_addr #0 {
 entry:
-  tail call void @memory_global_dirty_log_stop(i32 noundef 1) #16
+  tail call void @memory_global_dirty_log_stop(i32 noundef 1) #18
   %0 = load atomic i64, ptr getelementptr inbounds (i8, ptr @ram_list, i64 56) monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !67
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !67
   %tobool.not27 = icmp eq i64 %0, 0
   br i1 %tobool.not27, label %for.end, label %for.body
 
 for.body:                                         ; preds = %entry, %while.end6
   %block.028.in = phi i64 [ %2, %while.end6 ], [ %0, %entry ]
   %block.028 = inttoptr i64 %block.028.in to ptr
-  %call.i = tail call zeroext i1 @qemu_ram_is_migratable(ptr noundef nonnull %block.028) #16
+  %call.i = tail call zeroext i1 @qemu_ram_is_migratable(ptr noundef nonnull %block.028) #18
   br i1 %call.i, label %lor.rhs.i, label %while.end6
 
 lor.rhs.i:                                        ; preds = %for.body
-  %call1.i = tail call zeroext i1 @migrate_ignore_shared() #16
+  %call1.i = tail call zeroext i1 @migrate_ignore_shared() #18
   br i1 %call1.i, label %land.lhs.true.i, label %if.else
 
 land.lhs.true.i:                                  ; preds = %lor.rhs.i
-  %call2.i = tail call zeroext i1 @qemu_ram_is_shared(ptr noundef nonnull %block.028) #16
+  %call2.i = tail call zeroext i1 @qemu_ram_is_shared(ptr noundef nonnull %block.028) #18
   br i1 %call2.i, label %migrate_ram_is_ignored.exit, label %if.else
 
 migrate_ram_is_ignored.exit:                      ; preds = %land.lhs.true.i
-  %call3.i = tail call zeroext i1 @qemu_ram_is_named_file(ptr noundef nonnull %block.028) #16
+  %call3.i = tail call zeroext i1 @qemu_ram_is_named_file(ptr noundef nonnull %block.028) #18
   br i1 %call3.i, label %while.end6, label %if.else
 
 if.else:                                          ; preds = %lor.rhs.i, %land.lhs.true.i, %migrate_ram_is_ignored.exit
   %bmap = getelementptr inbounds i8, ptr %block.028, i64 384
   %1 = load ptr, ptr %bmap, align 8
-  tail call void @g_free(ptr noundef %1) #16
+  tail call void @g_free(ptr noundef %1) #18
   store ptr null, ptr %bmap, align 8
   br label %while.end6
 
 while.end6:                                       ; preds = %for.body, %if.else, %migrate_ram_is_ignored.exit
   %next = getelementptr inbounds i8, ptr %block.028, i64 336
   %2 = load atomic i64, ptr %next monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !68
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !68
   %tobool.not = icmp eq i64 %2, 0
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !69
 
 for.end:                                          ; preds = %while.end6, %entry
-  %call.i.i = tail call ptr @get_ptr_rcu_reader() #16
+  %call.i.i = tail call ptr @get_ptr_rcu_reader() #18
   %depth.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   %3 = load i32, ptr %depth.i.i, align 4
   %inc.i.i = add i32 %3, 1
@@ -3939,32 +3939,32 @@ while.end.i.i:                                    ; preds = %for.end
   %4 = load atomic i64, ptr @rcu_gp_ctr monotonic, align 8
   %conv8.i.i = and i64 %4, 4294967295
   store atomic i64 %conv8.i.i, ptr %call.i.i monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
   fence seq_cst
   br label %rcu_read_auto_lock.exit
 
 rcu_read_auto_lock.exit:                          ; preds = %for.end, %while.end.i.i
   %5 = load atomic i64, ptr getelementptr inbounds (i8, ptr @ram_list, i64 56) monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !70
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !70
   %tobool19.not31 = icmp eq i64 %5, 0
   br i1 %tobool19.not31, label %for.inc41, label %for.body20
 
 for.body20:                                       ; preds = %rcu_read_auto_lock.exit, %while.end36
   %block.132.in = phi i64 [ %8, %while.end36 ], [ %5, %rcu_read_auto_lock.exit ]
   %block.132 = inttoptr i64 %block.132.in to ptr
-  %call.i12 = tail call zeroext i1 @qemu_ram_is_migratable(ptr noundef nonnull %block.132) #16
+  %call.i12 = tail call zeroext i1 @qemu_ram_is_migratable(ptr noundef nonnull %block.132) #18
   br i1 %call.i12, label %lor.rhs.i13, label %while.end36
 
 lor.rhs.i13:                                      ; preds = %for.body20
-  %call1.i14 = tail call zeroext i1 @migrate_ignore_shared() #16
+  %call1.i14 = tail call zeroext i1 @migrate_ignore_shared() #18
   br i1 %call1.i14, label %land.lhs.true.i15, label %if.else23
 
 land.lhs.true.i15:                                ; preds = %lor.rhs.i13
-  %call2.i16 = tail call zeroext i1 @qemu_ram_is_shared(ptr noundef nonnull %block.132) #16
+  %call2.i16 = tail call zeroext i1 @qemu_ram_is_shared(ptr noundef nonnull %block.132) #18
   br i1 %call2.i16, label %migrate_ram_is_ignored.exit19, label %if.else23
 
 migrate_ram_is_ignored.exit19:                    ; preds = %land.lhs.true.i15
-  %call3.i18 = tail call zeroext i1 @qemu_ram_is_named_file(ptr noundef nonnull %block.132) #16
+  %call3.i18 = tail call zeroext i1 @qemu_ram_is_named_file(ptr noundef nonnull %block.132) #18
   br i1 %call3.i18, label %while.end36, label %if.else23
 
 if.else23:                                        ; preds = %lor.rhs.i13, %land.lhs.true.i15, %migrate_ram_is_ignored.exit19
@@ -3976,26 +3976,26 @@ if.else23:                                        ; preds = %lor.rhs.i13, %land.
 if.then25:                                        ; preds = %if.else23
   %used_length = getelementptr inbounds i8, ptr %block.132, i64 48
   %7 = load i64, ptr %used_length, align 8
-  tail call void @qemu_anon_ram_free(ptr noundef nonnull %6, i64 noundef %7) #16
+  tail call void @qemu_anon_ram_free(ptr noundef nonnull %6, i64 noundef %7) #18
   store ptr null, ptr %colo_cache, align 8
   br label %while.end36
 
 while.end36:                                      ; preds = %for.body20, %migrate_ram_is_ignored.exit19, %if.then25, %if.else23
   %next37 = getelementptr inbounds i8, ptr %block.132, i64 336
   %8 = load atomic i64, ptr %next37 monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !71
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !71
   %tobool19.not = icmp eq i64 %8, 0
   br i1 %tobool19.not, label %for.inc41, label %for.body20, !llvm.loop !72
 
 for.inc41:                                        ; preds = %while.end36, %rcu_read_auto_lock.exit
-  %call.i.i20 = tail call ptr @get_ptr_rcu_reader() #16
+  %call.i.i20 = tail call ptr @get_ptr_rcu_reader() #18
   %depth.i.i21 = getelementptr inbounds i8, ptr %call.i.i20, i64 12
   %9 = load i32, ptr %depth.i.i21, align 4
   %cmp.not.i.i22 = icmp eq i32 %9, 0
   br i1 %cmp.not.i.i22, label %if.else.i.i, label %if.end.i.i
 
 if.else.i.i:                                      ; preds = %for.inc41
-  tail call void @__assert_fail(ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.28, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #17
+  tail call void @__assert_fail(ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.28, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #19
   unreachable
 
 if.end.i.i:                                       ; preds = %for.inc41
@@ -4006,7 +4006,7 @@ if.end.i.i:                                       ; preds = %for.inc41
 
 while.end.i.i23:                                  ; preds = %if.end.i.i
   store atomic i64 0, ptr %call.i.i20 release, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !10
   fence seq_cst
   %waiting.i.i = getelementptr inbounds i8, ptr %call.i.i20, i64 8
   %10 = load atomic i8, ptr %waiting.i.i monotonic, align 8
@@ -4015,7 +4015,7 @@ while.end.i.i23:                                  ; preds = %if.end.i.i
 
 while.end21.i.i:                                  ; preds = %while.end.i.i23
   store atomic i8 0, ptr %waiting.i.i monotonic, align 8
-  tail call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #16
+  tail call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #18
   br label %glib_autoptr_cleanup_RCUReadAuto.exit
 
 glib_autoptr_cleanup_RCUReadAuto.exit:            ; preds = %while.end21.i.i, %while.end.i.i23, %if.end.i.i
@@ -4033,7 +4033,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call.i.i.i = tail call ptr @get_ptr_rcu_reader() #16
+  %call.i.i.i = tail call ptr @get_ptr_rcu_reader() #18
   %depth.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 12
   %1 = load i32, ptr %depth.i.i.i, align 4
   %inc.i.i.i = add i32 %1, 1
@@ -4045,7 +4045,7 @@ while.end.i.i.i:                                  ; preds = %if.then
   %2 = load atomic i64, ptr @rcu_gp_ctr monotonic, align 8
   %conv8.i.i.i = and i64 %2, 4294967295
   store atomic i64 %conv8.i.i.i, ptr %call.i.i.i monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
   fence seq_cst
   br label %rcu_read_auto_lock.exit.i
 
@@ -4066,7 +4066,7 @@ land.rhs.i:                                       ; preds = %if.end.i, %land.rhs
   %5 = load ptr, ptr %mspr.010.i, align 8
   %mr.i = getelementptr inbounds i8, ptr %5, i64 16
   %6 = load ptr, ptr %mr.i, align 8
-  tail call void @memory_region_unref(ptr noundef %6) #16
+  tail call void @memory_region_unref(ptr noundef %6) #18
   %7 = load ptr, ptr %src_page_requests.i, align 8
   %next_req3.i = getelementptr inbounds i8, ptr %7, i64 24
   %8 = load ptr, ptr %next_req3.i, align 8
@@ -4080,19 +4080,19 @@ if.then.i:                                        ; preds = %land.rhs.i
 
 if.end.i:                                         ; preds = %if.then.i, %land.rhs.i
   store ptr null, ptr %next_req3.i, align 8
-  tail call void @g_free(ptr noundef nonnull %mspr.010.i) #16
+  tail call void @g_free(ptr noundef nonnull %mspr.010.i) #18
   %tobool.not.i = icmp eq ptr %4, null
   br i1 %tobool.not.i, label %if.then.i.i.i, label %land.rhs.i, !llvm.loop !73
 
 if.then.i.i.i:                                    ; preds = %if.end.i, %rcu_read_auto_lock.exit.i
-  %call.i.i.i.i.i = tail call ptr @get_ptr_rcu_reader() #16
+  %call.i.i.i.i.i = tail call ptr @get_ptr_rcu_reader() #18
   %depth.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 12
   %9 = load i32, ptr %depth.i.i.i.i.i, align 4
   %cmp.not.i.i.i.i.i = icmp eq i32 %9, 0
   br i1 %cmp.not.i.i.i.i.i, label %if.else.i.i.i.i.i, label %if.end.i.i.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.28, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #17
+  tail call void @__assert_fail(ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.28, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #19
   unreachable
 
 if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i
@@ -4103,7 +4103,7 @@ if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i
 
 while.end.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i.i
   store atomic i64 0, ptr %call.i.i.i.i.i release, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !10
   fence seq_cst
   %waiting.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 8
   %10 = load atomic i8, ptr %waiting.i.i.i.i.i monotonic, align 8
@@ -4112,18 +4112,18 @@ while.end.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i.i
 
 while.end21.i.i.i.i.i:                            ; preds = %while.end.i.i.i.i.i
   store atomic i8 0, ptr %waiting.i.i.i.i.i monotonic, align 8
-  tail call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #16
+  tail call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #18
   br label %migration_page_queue_free.exit
 
 migration_page_queue_free.exit:                   ; preds = %if.end.i.i.i.i.i, %while.end.i.i.i.i.i, %while.end21.i.i.i.i.i
   %11 = load ptr, ptr %rsp, align 8
   %bitmap_mutex = getelementptr inbounds i8, ptr %11, i64 232
-  tail call void @qemu_mutex_destroy(ptr noundef nonnull %bitmap_mutex) #16
+  tail call void @qemu_mutex_destroy(ptr noundef nonnull %bitmap_mutex) #18
   %12 = load ptr, ptr %rsp, align 8
   %src_page_req_mutex = getelementptr inbounds i8, ptr %12, i64 288
-  tail call void @qemu_mutex_destroy(ptr noundef nonnull %src_page_req_mutex) #16
+  tail call void @qemu_mutex_destroy(ptr noundef nonnull %src_page_req_mutex) #18
   %13 = load ptr, ptr %rsp, align 8
-  tail call void @g_free(ptr noundef %13) #16
+  tail call void @g_free(ptr noundef %13) #18
   store ptr null, ptr %rsp, align 8
   br label %if.end
 
@@ -4134,7 +4134,7 @@ if.end:                                           ; preds = %migration_page_queu
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @ram_postcopy_incoming_init(ptr noundef %mis) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @postcopy_ram_incoming_init(ptr noundef %mis) #16
+  %call = tail call i32 @postcopy_ram_incoming_init(ptr noundef %mis) #18
   ret i32 %call
 }
 
@@ -4145,7 +4145,7 @@ define dso_local i32 @ram_load_postcopy(ptr noundef %f, i32 noundef %channel) lo
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %place_source = alloca ptr, align 8
-  %call = tail call ptr @migration_incoming_get_current() #16
+  %call = tail call ptr @migration_incoming_get_current() #18
   %postcopy_tmp_pages = getelementptr inbounds i8, ptr %call, i64 536
   %0 = load ptr, ptr %postcopy_tmp_pages, align 8
   %idxprom = sext i32 %channel to i64
@@ -4160,8 +4160,8 @@ while.body:                                       ; preds = %entry, %if.end110
   %place_needed.093 = phi i1 [ false, %entry ], [ %place_needed.3, %if.end110 ]
   %matches_target_page_size.092 = phi i8 [ 0, %entry ], [ %matches_target_page_size.1, %if.end110 ]
   store ptr null, ptr %place_source, align 8
-  %call2 = call i64 @qemu_get_be64(ptr noundef %f) #16
-  %call3 = call i32 @qemu_file_get_error(ptr noundef %f) #16
+  %call2 = call i64 @qemu_get_be64(ptr noundef %f) #18
+  %call3 = call i32 @qemu_file_get_error(ptr noundef %f) #18
   %tobool4.not = icmp eq i32 %call3, 0
   br i1 %tobool4.not, label %if.end, label %while.end
 
@@ -4189,15 +4189,15 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
-  %call10.i.i = call i32 @qemu_get_thread_id() #16
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #18
+  %call10.i.i = call i32 @qemu_get_thread_id() #18
   %6 = load i64, ptr %_now.i.i, align 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.63, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i32 noundef %channel, i64 noundef %and6, i32 noundef %conv) #16
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.63, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i32 noundef %channel, i64 noundef %and6, i32 noundef %conv) #18
   br label %trace_ram_load_postcopy_loop.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.64, i32 noundef %channel, i64 noundef %and6, i32 noundef %conv) #16
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.64, i32 noundef %channel, i64 noundef %and6, i32 noundef %conv) #18
   br label %trace_ram_load_postcopy_loop.exit
 
 trace_ram_load_postcopy_loop.exit:                ; preds = %if.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -4224,7 +4224,7 @@ lor.lhs.false:                                    ; preds = %if.end13
   br i1 %cmp.not, label %if.end17, label %if.then16
 
 if.then16:                                        ; preds = %lor.lhs.false, %if.end13
-  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.18, i64 noundef %and6) #16
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.18, i64 noundef %and6) #18
   br label %while.end
 
 if.end17:                                         ; preds = %lor.lhs.false
@@ -4268,7 +4268,7 @@ if.else:                                          ; preds = %if.end17
 
 if.then30:                                        ; preds = %if.else
   %idstr = getelementptr inbounds i8, ptr %call10, i64 76
-  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.19, i32 noundef %channel, ptr noundef %17, ptr noundef %20, ptr noundef nonnull %idstr, i64 noundef %and6, i32 noundef %inc) #16
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.19, i32 noundef %channel, ptr noundef %17, ptr noundef %20, ptr noundef nonnull %idstr, i64 noundef %and6, i32 noundef %inc) #18
   br label %while.end
 
 if.end35:                                         ; preds = %if.else, %if.then24
@@ -4295,14 +4295,14 @@ if.end44:                                         ; preds = %if.end35, %trace_ra
   ]
 
 sw.bb:                                            ; preds = %if.end44
-  %call46 = call i32 @qemu_get_byte(ptr noundef %f) #16
+  %call46 = call i32 @qemu_get_byte(ptr noundef %f) #18
   %conv47 = trunc i32 %call46 to i8
   %conv48 = and i32 %call46, 255
   %cmp49.not = icmp eq i32 %conv48, 0
   br i1 %cmp49.not, label %if.end53, label %if.then51
 
 if.then51:                                        ; preds = %sw.bb
-  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.20, i32 noundef %conv48) #16
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.20, i32 noundef %conv48) #18
   br label %sw.epilog
 
 if.end53:                                         ; preds = %sw.bb
@@ -4319,51 +4319,51 @@ sw.bb58:                                          ; preds = %if.end44
   br i1 %tobool59, label %if.else62, label %if.then60
 
 if.then60:                                        ; preds = %sw.bb58
-  %call61 = call i64 @qemu_get_buffer(ptr noundef %f, ptr noundef %page_buffer.0, i64 noundef 4096) #16
+  %call61 = call i64 @qemu_get_buffer(ptr noundef %f, ptr noundef %page_buffer.0, i64 noundef 4096) #18
   br label %sw.epilog
 
 if.else62:                                        ; preds = %sw.bb58
-  %call63 = call i64 @qemu_get_buffer_in_place(ptr noundef %f, ptr noundef nonnull %place_source, i64 noundef 4096) #16
+  %call63 = call i64 @qemu_get_buffer_in_place(ptr noundef %f, ptr noundef nonnull %place_source, i64 noundef 4096) #18
   br label %sw.epilog
 
 sw.bb65:                                          ; preds = %if.end44
   store i8 0, ptr %all_zero66, align 4
-  %call67 = call i32 @qemu_get_be32(ptr noundef %f) #16
+  %call67 = call i32 @qemu_get_be32(ptr noundef %f) #18
   %cmp68 = icmp slt i32 %call67, 0
   br i1 %cmp68, label %if.then75, label %lor.lhs.false70
 
 lor.lhs.false70:                                  ; preds = %sw.bb65
   %conv71 = zext nneg i32 %call67 to i64
-  %call72 = call i64 @compressBound(i64 noundef 4096) #16
+  %call72 = call i64 @compressBound(i64 noundef 4096) #18
   %cmp73 = icmp ult i64 %call72, %conv71
   br i1 %cmp73, label %if.then75, label %if.end76
 
 if.then75:                                        ; preds = %lor.lhs.false70, %sw.bb65
-  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.21, i32 noundef %call67) #16
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.21, i32 noundef %call67) #18
   br label %sw.epilog
 
 if.end76:                                         ; preds = %lor.lhs.false70
-  call void @decompress_data_with_multi_threads(ptr noundef %f, ptr noundef %page_buffer.0, i32 noundef %call67) #16
+  call void @decompress_data_with_multi_threads(ptr noundef %f, ptr noundef %page_buffer.0, i32 noundef %call67) #18
   br label %sw.epilog
 
 sw.bb77:                                          ; preds = %if.end44
-  call void @multifd_recv_sync_main() #16
+  call void @multifd_recv_sync_main() #18
   br label %sw.epilog
 
 sw.bb78:                                          ; preds = %if.end44
-  %call79 = call zeroext i1 @migrate_multifd() #16
+  %call79 = call zeroext i1 @migrate_multifd() #18
   br i1 %call79, label %land.lhs.true, label %sw.epilog
 
 land.lhs.true:                                    ; preds = %sw.bb78
-  %call81 = call zeroext i1 @migrate_multifd_flush_after_each_section() #16
+  %call81 = call zeroext i1 @migrate_multifd_flush_after_each_section() #18
   br i1 %call81, label %if.then83, label %sw.epilog
 
 if.then83:                                        ; preds = %land.lhs.true
-  call void @multifd_recv_sync_main() #16
+  call void @multifd_recv_sync_main() #18
   br label %sw.epilog
 
 sw.default:                                       ; preds = %if.end44
-  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.22, i32 noundef %conv) #16
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.22, i32 noundef %conv) #18
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.bb78, %land.lhs.true, %if.then83, %if.then60, %if.else62, %if.end53, %if.then55, %sw.default, %sw.bb77, %if.end76, %if.then75, %if.then51
@@ -4371,7 +4371,7 @@ sw.epilog:                                        ; preds = %sw.bb78, %land.lhs.
   br i1 %place_needed.2, label %if.then86, label %if.end88
 
 if.then86:                                        ; preds = %sw.epilog
-  %call87 = call i32 @wait_for_decompress_done() #16
+  %call87 = call i32 @wait_for_decompress_done() #18
   %or = or i32 %call87, %ret.1
   br label %if.end88
 
@@ -4381,12 +4381,12 @@ if.end88:                                         ; preds = %if.then86, %sw.epil
   br i1 %tobool89.not, label %land.lhs.true90, label %if.end110
 
 land.lhs.true90:                                  ; preds = %if.end88
-  %call91 = call i32 @qemu_file_get_error(ptr noundef %f) #16
+  %call91 = call i32 @qemu_file_get_error(ptr noundef %f) #18
   %tobool92.not = icmp eq i32 %call91, 0
   br i1 %tobool92.not, label %if.end95, label %if.then93
 
 if.then93:                                        ; preds = %land.lhs.true90
-  %call94 = call i32 @qemu_file_get_error(ptr noundef %f) #16
+  %call94 = call i32 @qemu_file_get_error(ptr noundef %f) #18
   br label %if.end95
 
 if.end95:                                         ; preds = %if.then93, %land.lhs.true90
@@ -4402,17 +4402,17 @@ if.then100:                                       ; preds = %if.end95
   br i1 %tobool102, label %if.then103, label %if.else106
 
 if.then103:                                       ; preds = %if.then100
-  %call105 = call i32 @postcopy_place_page_zero(ptr noundef %call, ptr noundef %23, ptr noundef %block.0) #16
+  %call105 = call i32 @postcopy_place_page_zero(ptr noundef %call, ptr noundef %23, ptr noundef %block.0) #18
   br label %if.end109
 
 if.else106:                                       ; preds = %if.then100
   %24 = load ptr, ptr %place_source, align 8
-  %call108 = call i32 @postcopy_place_page(ptr noundef %call, ptr noundef %23, ptr noundef %24, ptr noundef %block.0) #16
+  %call108 = call i32 @postcopy_place_page(ptr noundef %call, ptr noundef %23, ptr noundef %24, ptr noundef %block.0) #18
   br label %if.end109
 
 if.end109:                                        ; preds = %if.else106, %if.then103
   %ret.4 = phi i32 [ %call105, %if.then103 ], [ %call108, %if.else106 ]
-  call void @postcopy_temp_page_reset(ptr noundef %arrayidx) #16
+  call void @postcopy_temp_page_reset(ptr noundef %arrayidx) #18
   br label %if.end110
 
 if.end110:                                        ; preds = %if.end88, %if.end95, %if.end109
@@ -4451,42 +4451,42 @@ if.then:                                          ; preds = %entry
   br i1 %tobool1.not, label %if.then2, label %return
 
 if.then2:                                         ; preds = %if.then
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.65) #16
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.65) #18
   br label %return
 
 if.end3:                                          ; preds = %entry
-  %call = tail call i32 @qemu_get_byte(ptr noundef %f) #16
+  %call = tail call i32 @qemu_get_byte(ptr noundef %f) #18
   %1 = and i32 %call, 255
   %conv4 = zext nneg i32 %1 to i64
-  %call5 = call i64 @qemu_get_buffer(ptr noundef %f, ptr noundef nonnull %id, i64 noundef %conv4) #16
+  %call5 = call i64 @qemu_get_buffer(ptr noundef %f, ptr noundef nonnull %id, i64 noundef %conv4) #18
   %arrayidx7 = getelementptr [256 x i8], ptr %id, i64 0, i64 %conv4
   store i8 0, ptr %arrayidx7, align 1
-  %call9 = call ptr @qemu_ram_block_by_name(ptr noundef nonnull %id) #16
+  %call9 = call ptr @qemu_ram_block_by_name(ptr noundef nonnull %id) #18
   %tobool10.not = icmp eq ptr %call9, null
   br i1 %tobool10.not, label %if.then11, label %if.end13
 
 if.then11:                                        ; preds = %if.end3
-  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.66, ptr noundef nonnull %id) #16
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.66, ptr noundef nonnull %id) #18
   br label %return
 
 if.end13:                                         ; preds = %if.end3
-  %call.i = call zeroext i1 @qemu_ram_is_migratable(ptr noundef nonnull %call9) #16
+  %call.i = call zeroext i1 @qemu_ram_is_migratable(ptr noundef nonnull %call9) #18
   br i1 %call.i, label %lor.rhs.i, label %if.then15
 
 lor.rhs.i:                                        ; preds = %if.end13
-  %call1.i = call zeroext i1 @migrate_ignore_shared() #16
+  %call1.i = call zeroext i1 @migrate_ignore_shared() #18
   br i1 %call1.i, label %land.lhs.true.i, label %if.end17
 
 land.lhs.true.i:                                  ; preds = %lor.rhs.i
-  %call2.i = call zeroext i1 @qemu_ram_is_shared(ptr noundef nonnull %call9) #16
+  %call2.i = call zeroext i1 @qemu_ram_is_shared(ptr noundef nonnull %call9) #18
   br i1 %call2.i, label %migrate_ram_is_ignored.exit, label %if.end17
 
 migrate_ram_is_ignored.exit:                      ; preds = %land.lhs.true.i
-  %call3.i = call zeroext i1 @qemu_ram_is_named_file(ptr noundef nonnull %call9) #16
+  %call3.i = call zeroext i1 @qemu_ram_is_named_file(ptr noundef nonnull %call9) #18
   br i1 %call3.i, label %if.then15, label %if.end17
 
 if.then15:                                        ; preds = %if.end13, %migrate_ram_is_ignored.exit
-  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.67, ptr noundef nonnull %id) #16
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.67, ptr noundef nonnull %id) #18
   br label %return
 
 if.end17:                                         ; preds = %lor.rhs.i, %land.lhs.true.i, %migrate_ram_is_ignored.exit
@@ -4530,13 +4530,13 @@ entry:
   %_now.i.i.i = alloca %struct.timeval, align 8
   %_now.i.i47 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
-  tail call void @memory_global_dirty_log_sync(i1 noundef zeroext false) #16
+  tail call void @memory_global_dirty_log_sync(i1 noundef zeroext false) #18
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
   %2 = load ptr, ptr @ram_state, align 8
   %bitmap_mutex = getelementptr inbounds i8, ptr %2, i64 232
-  tail call void %1(ptr noundef nonnull %bitmap_mutex, ptr noundef nonnull @.str, i32 noundef 3753) #16
-  %call.i.i = tail call ptr @get_ptr_rcu_reader() #16
+  tail call void %1(ptr noundef nonnull %bitmap_mutex, ptr noundef nonnull @.str, i32 noundef 3753) #18
+  %call.i.i = tail call ptr @get_ptr_rcu_reader() #18
   %depth.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   %3 = load i32, ptr %depth.i.i, align 4
   %inc.i.i = add i32 %3, 1
@@ -4548,32 +4548,32 @@ while.end.i.i:                                    ; preds = %entry
   %4 = load atomic i64, ptr @rcu_gp_ctr monotonic, align 8
   %conv8.i.i = and i64 %4, 4294967295
   store atomic i64 %conv8.i.i, ptr %call.i.i monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
   fence seq_cst
   br label %rcu_read_auto_lock.exit
 
 rcu_read_auto_lock.exit:                          ; preds = %entry, %while.end.i.i
   %5 = load atomic i64, ptr getelementptr inbounds (i8, ptr @ram_list, i64 56) monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !75
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !75
   %tobool8.not91 = icmp eq i64 %5, 0
   br i1 %tobool8.not91, label %for.inc18, label %for.body9
 
 for.body9:                                        ; preds = %rcu_read_auto_lock.exit, %while.end16
   %block.092.in = phi i64 [ %7, %while.end16 ], [ %5, %rcu_read_auto_lock.exit ]
   %block.092 = inttoptr i64 %block.092.in to ptr
-  %call.i = tail call zeroext i1 @qemu_ram_is_migratable(ptr noundef nonnull %block.092) #16
+  %call.i = tail call zeroext i1 @qemu_ram_is_migratable(ptr noundef nonnull %block.092) #18
   br i1 %call.i, label %lor.rhs.i, label %while.end16
 
 lor.rhs.i:                                        ; preds = %for.body9
-  %call1.i = tail call zeroext i1 @migrate_ignore_shared() #16
+  %call1.i = tail call zeroext i1 @migrate_ignore_shared() #18
   br i1 %call1.i, label %land.lhs.true.i, label %if.else
 
 land.lhs.true.i:                                  ; preds = %lor.rhs.i
-  %call2.i = tail call zeroext i1 @qemu_ram_is_shared(ptr noundef nonnull %block.092) #16
+  %call2.i = tail call zeroext i1 @qemu_ram_is_shared(ptr noundef nonnull %block.092) #18
   br i1 %call2.i, label %migrate_ram_is_ignored.exit, label %if.else
 
 migrate_ram_is_ignored.exit:                      ; preds = %land.lhs.true.i
-  %call3.i = tail call zeroext i1 @qemu_ram_is_named_file(ptr noundef nonnull %block.092) #16
+  %call3.i = tail call zeroext i1 @qemu_ram_is_named_file(ptr noundef nonnull %block.092) #18
   br i1 %call3.i, label %while.end16, label %if.else
 
 if.else:                                          ; preds = %lor.rhs.i, %land.lhs.true.i, %migrate_ram_is_ignored.exit
@@ -4584,19 +4584,19 @@ if.else:                                          ; preds = %lor.rhs.i, %land.lh
 while.end16:                                      ; preds = %for.body9, %if.else, %migrate_ram_is_ignored.exit
   %next = getelementptr inbounds i8, ptr %block.092, i64 336
   %7 = load atomic i64, ptr %next monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !76
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !76
   %tobool8.not = icmp eq i64 %7, 0
   br i1 %tobool8.not, label %for.inc18, label %for.body9, !llvm.loop !77
 
 for.inc18:                                        ; preds = %while.end16, %rcu_read_auto_lock.exit
-  %call.i.i19 = tail call ptr @get_ptr_rcu_reader() #16
+  %call.i.i19 = tail call ptr @get_ptr_rcu_reader() #18
   %depth.i.i20 = getelementptr inbounds i8, ptr %call.i.i19, i64 12
   %8 = load i32, ptr %depth.i.i20, align 4
   %cmp.not.i.i21 = icmp eq i32 %8, 0
   br i1 %cmp.not.i.i21, label %if.else.i.i, label %if.end.i.i
 
 if.else.i.i:                                      ; preds = %for.inc18
-  tail call void @__assert_fail(ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.28, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #17
+  tail call void @__assert_fail(ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.28, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #19
   unreachable
 
 if.end.i.i:                                       ; preds = %for.inc18
@@ -4607,7 +4607,7 @@ if.end.i.i:                                       ; preds = %for.inc18
 
 while.end.i.i22:                                  ; preds = %if.end.i.i
   store atomic i64 0, ptr %call.i.i19 release, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !10
   fence seq_cst
   %waiting.i.i = getelementptr inbounds i8, ptr %call.i.i19, i64 8
   %9 = load atomic i8, ptr %waiting.i.i monotonic, align 8
@@ -4616,7 +4616,7 @@ while.end.i.i22:                                  ; preds = %if.end.i.i
 
 while.end21.i.i:                                  ; preds = %while.end.i.i22
   store atomic i8 0, ptr %waiting.i.i monotonic, align 8
-  tail call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #16
+  tail call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #18
   br label %glib_autoptr_cleanup_RCUReadAuto.exit
 
 glib_autoptr_cleanup_RCUReadAuto.exit:            ; preds = %while.end21.i.i, %while.end.i.i22, %if.end.i.i
@@ -4643,21 +4643,21 @@ if.then.i.i24:                                    ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i25
 
 if.then8.i.i:                                     ; preds = %if.then.i.i24
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #16
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #18
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #18
   %16 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %17 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.68, i32 noundef %call10.i.i, i64 noundef %16, i64 noundef %17, i64 noundef %11) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.68, i32 noundef %call10.i.i, i64 noundef %16, i64 noundef %17, i64 noundef %11) #18
   br label %trace_colo_flush_ram_cache_begin.exit
 
 if.else.i.i25:                                    ; preds = %if.then.i.i24
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.69, i64 noundef %11) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.69, i64 noundef %11) #18
   br label %trace_colo_flush_ram_cache_begin.exit
 
 trace_colo_flush_ram_cache_begin.exit:            ; preds = %glib_autoptr_cleanup_RCUReadAuto.exit, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i25
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %call.i.i26 = tail call ptr @get_ptr_rcu_reader() #16
+  %call.i.i26 = tail call ptr @get_ptr_rcu_reader() #18
   %depth.i.i27 = getelementptr inbounds i8, ptr %call.i.i26, i64 12
   %18 = load i32, ptr %depth.i.i27, align 4
   %inc.i.i28 = add i32 %18, 1
@@ -4669,14 +4669,14 @@ while.end.i.i30:                                  ; preds = %trace_colo_flush_ra
   %19 = load atomic i64, ptr @rcu_gp_ctr monotonic, align 8
   %conv8.i.i31 = and i64 %19, 4294967295
   store atomic i64 %conv8.i.i31, ptr %call.i.i26 monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
   fence seq_cst
   br label %rcu_read_auto_lock.exit32
 
 rcu_read_auto_lock.exit32:                        ; preds = %trace_colo_flush_ram_cache_begin.exit, %while.end.i.i30
   %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %20 = load atomic i64, ptr getelementptr inbounds (i8, ptr @ram_list, i64 56) monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !78
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !78
   %tobool33.not96 = icmp eq i64 %20, 0
   br i1 %tobool33.not96, label %for.inc59, label %while.body34.preheader
 
@@ -4696,16 +4696,16 @@ if.then.i.i54:                                    ; preds = %land.lhs.true5.i.i5
   br i1 %tobool7.i.i55, label %if.then8.i.i57, label %if.else.i.i56
 
 if.then8.i.i57:                                   ; preds = %if.then.i.i54
-  %call9.i.i58 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i47, ptr noundef null) #16
-  %call10.i.i59 = tail call i32 @qemu_get_thread_id() #16
+  %call9.i.i58 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i47, ptr noundef null) #18
+  %call10.i.i59 = tail call i32 @qemu_get_thread_id() #18
   %24 = load i64, ptr %_now.i.i47, align 8
   %tv_usec.i.i60 = getelementptr inbounds i8, ptr %_now.i.i47, i64 8
   %25 = load i64, ptr %tv_usec.i.i60, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.71, i32 noundef %call10.i.i59, i64 noundef %24, i64 noundef %25) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.71, i32 noundef %call10.i.i59, i64 noundef %24, i64 noundef %25) #18
   br label %trace_colo_flush_ram_cache_end.exit
 
 if.else.i.i56:                                    ; preds = %if.then.i.i54
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.72) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.72) #18
   br label %trace_colo_flush_ram_cache_end.exit
 
 trace_colo_flush_ram_cache_end.exit:              ; preds = %rcu_read_auto_unlock.exit79, %land.lhs.true5.i.i51, %if.then8.i.i57, %if.else.i.i56
@@ -4720,34 +4720,34 @@ while.body34:                                     ; preds = %while.body34.prehea
   %shr.i = lshr i64 %26, 12
   %bmap.i = getelementptr inbounds i8, ptr %block.198, i64 384
   %27 = load ptr, ptr %bmap.i, align 8
-  %call.i.i61 = tail call zeroext i1 @qemu_ram_is_migratable(ptr noundef nonnull %block.198) #16
+  %call.i.i61 = tail call zeroext i1 @qemu_ram_is_migratable(ptr noundef nonnull %block.198) #18
   br i1 %call.i.i61, label %lor.rhs.i.i, label %land.lhs.true.i63
 
 lor.rhs.i.i:                                      ; preds = %while.body34
-  %call1.i.i = tail call zeroext i1 @migrate_ignore_shared() #16
+  %call1.i.i = tail call zeroext i1 @migrate_ignore_shared() #18
   br i1 %call1.i.i, label %land.lhs.true.i.i, label %if.end.i
 
 land.lhs.true.i.i:                                ; preds = %lor.rhs.i.i
-  %call2.i.i = tail call zeroext i1 @qemu_ram_is_shared(ptr noundef nonnull %block.198) #16
+  %call2.i.i = tail call zeroext i1 @qemu_ram_is_shared(ptr noundef nonnull %block.198) #18
   br i1 %call2.i.i, label %migrate_ram_is_ignored.exit.i, label %if.end.i
 
 migrate_ram_is_ignored.exit.i:                    ; preds = %land.lhs.true.i.i
-  %call3.i.i = tail call zeroext i1 @qemu_ram_is_named_file(ptr noundef nonnull %block.198) #16
+  %call3.i.i = tail call zeroext i1 @qemu_ram_is_named_file(ptr noundef nonnull %block.198) #18
   br i1 %call3.i.i, label %land.lhs.true.i63, label %if.end.i
 
 if.end.i:                                         ; preds = %migrate_ram_is_ignored.exit.i, %land.lhs.true.i.i, %lor.rhs.i.i
-  %call1.i62 = tail call i64 @find_next_bit(ptr noundef %27, i64 noundef %shr.i, i64 noundef %offset.197) #16
+  %call1.i62 = tail call i64 @find_next_bit(ptr noundef %27, i64 noundef %shr.i, i64 noundef %offset.197) #18
   %cmp.not.i = icmp ult i64 %call1.i62, %shr.i
   br i1 %cmp.not.i, label %if.end3.i, label %land.lhs.true.i63
 
 if.end3.i:                                        ; preds = %if.end.i
   %add.i = add nuw nsw i64 %call1.i62, 1
-  %call4.i = tail call i64 @find_next_zero_bit(ptr noundef %27, i64 noundef %shr.i, i64 noundef %add.i) #16
+  %call4.i = tail call i64 @find_next_zero_bit(ptr noundef %27, i64 noundef %shr.i, i64 noundef %add.i) #18
   %cmp5.not.i = icmp ult i64 %call4.i, %call1.i62
   br i1 %cmp5.not.i, label %if.else.i, label %if.end7.i
 
 if.else.i:                                        ; preds = %if.end3.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.70, ptr noundef nonnull @.str, i32 noundef 793, ptr noundef nonnull @__PRETTY_FUNCTION__.colo_bitmap_find_dirty) #17
+  tail call void @__assert_fail(ptr noundef nonnull @.str.70, ptr noundef nonnull @.str, i32 noundef 793, ptr noundef nonnull @__PRETTY_FUNCTION__.colo_bitmap_find_dirty) #19
   unreachable
 
 if.end7.i:                                        ; preds = %if.end3.i
@@ -4783,7 +4783,7 @@ if.then37:                                        ; preds = %land.lhs.true.i63, 
   %next44 = getelementptr inbounds i8, ptr %block.198, i64 336
   %31 = load atomic i64, ptr %next44 monotonic, align 8
   %32 = inttoptr i64 %31 to ptr
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !79
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !79
   br label %if.end57
 
 for.body49:                                       ; preds = %for.body49.lr.ph, %migration_bitmap_clear_dirty.exit
@@ -4798,7 +4798,7 @@ lor.lhs.false.i:                                  ; preds = %for.body49
   %rb.val13.i = load i8, ptr %30, align 8
   %sh_prom.i.i = zext nneg i8 %rb.val13.i to i64
   %shr.i.i = lshr i64 %add, %sh_prom.i.i
-  %call.i.i81 = tail call zeroext i1 @bitmap_test_and_clear(ptr noundef nonnull %34, i64 noundef %shr.i.i, i64 noundef 1) #16
+  %call.i.i81 = tail call zeroext i1 @bitmap_test_and_clear(ptr noundef nonnull %34, i64 noundef %shr.i.i, i64 noundef 1) #18
   br i1 %call.i.i81, label %if.end.i82, label %migration_clear_memory_region_dirty_bitmap.exit
 
 if.end.i82:                                       ; preds = %lor.lhs.false.i
@@ -4807,7 +4807,7 @@ if.end.i82:                                       ; preds = %lor.lhs.false.i
   br i1 %cmp.i83, label %if.end3.i85, label %if.else.i84
 
 if.else.i84:                                      ; preds = %if.end.i82
-  tail call void @__assert_fail(ptr noundef nonnull @.str.57, ptr noundef nonnull @.str, i32 noundef 737, ptr noundef nonnull @__PRETTY_FUNCTION__.migration_clear_memory_region_dirty_bitmap) #17
+  tail call void @__assert_fail(ptr noundef nonnull @.str.57, ptr noundef nonnull @.str, i32 noundef 737, ptr noundef nonnull @__PRETTY_FUNCTION__.migration_clear_memory_region_dirty_bitmap) #19
   unreachable
 
 if.end3.i85:                                      ; preds = %if.end.i82
@@ -4836,21 +4836,21 @@ if.then.i.i.i:                                    ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.i.i.i, label %if.then8.i.i.i, label %if.else.i.i.i
 
 if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
-  %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #16
-  %call10.i.i.i = tail call i32 @qemu_get_thread_id() #16
+  %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #18
+  %call10.i.i.i = tail call i32 @qemu_get_thread_id() #18
   %41 = load i64, ptr %_now.i.i.i, align 8
   %42 = load i64, ptr %tv_usec.i.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.58, i32 noundef %call10.i.i.i, i64 noundef %41, i64 noundef %42, ptr noundef nonnull %idstr.i, i64 noundef %mul.i, i64 noundef %shl.i, i64 noundef %add) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.58, i32 noundef %call10.i.i.i, i64 noundef %41, i64 noundef %42, ptr noundef nonnull %idstr.i, i64 noundef %mul.i, i64 noundef %shl.i, i64 noundef %add) #18
   br label %trace_migration_bitmap_clear_dirty.exit.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.59, ptr noundef nonnull %idstr.i, i64 noundef %mul.i, i64 noundef %shl.i, i64 noundef %add) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.59, ptr noundef nonnull %idstr.i, i64 noundef %mul.i, i64 noundef %shl.i, i64 noundef %add) #18
   br label %trace_migration_bitmap_clear_dirty.exit.i
 
 trace_migration_bitmap_clear_dirty.exit.i:        ; preds = %if.else.i.i.i, %if.then8.i.i.i, %land.lhs.true5.i.i.i, %if.end3.i85
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i)
   %43 = load ptr, ptr %mr.i, align 8
-  tail call void @memory_region_clear_dirty_bitmap(ptr noundef %43, i64 noundef %mul.i, i64 noundef %shl.i) #16
+  tail call void @memory_region_clear_dirty_bitmap(ptr noundef %43, i64 noundef %mul.i, i64 noundef %shl.i) #18
   br label %migration_clear_memory_region_dirty_bitmap.exit
 
 migration_clear_memory_region_dirty_bitmap.exit:  ; preds = %for.body49, %lor.lhs.false.i, %trace_migration_bitmap_clear_dirty.exit.i
@@ -4901,14 +4901,14 @@ if.end57:                                         ; preds = %for.end52, %if.then
   br i1 %tobool33.not, label %for.inc59, label %while.body34, !llvm.loop !81
 
 for.inc59:                                        ; preds = %if.end57, %rcu_read_auto_lock.exit32
-  %call.i.i68 = tail call ptr @get_ptr_rcu_reader() #16
+  %call.i.i68 = tail call ptr @get_ptr_rcu_reader() #18
   %depth.i.i69 = getelementptr inbounds i8, ptr %call.i.i68, i64 12
   %49 = load i32, ptr %depth.i.i69, align 4
   %cmp.not.i.i70 = icmp eq i32 %49, 0
   br i1 %cmp.not.i.i70, label %if.else.i.i78, label %if.end.i.i71
 
 if.else.i.i78:                                    ; preds = %for.inc59
-  tail call void @__assert_fail(ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.28, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #17
+  tail call void @__assert_fail(ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.28, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #19
   unreachable
 
 if.end.i.i71:                                     ; preds = %for.inc59
@@ -4919,7 +4919,7 @@ if.end.i.i71:                                     ; preds = %for.inc59
 
 while.end.i.i74:                                  ; preds = %if.end.i.i71
   store atomic i64 0, ptr %call.i.i68 release, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !10
   fence seq_cst
   %waiting.i.i75 = getelementptr inbounds i8, ptr %call.i.i68, i64 8
   %50 = load atomic i8, ptr %waiting.i.i75 monotonic, align 8
@@ -4928,13 +4928,13 @@ while.end.i.i74:                                  ; preds = %if.end.i.i71
 
 while.end21.i.i77:                                ; preds = %while.end.i.i74
   store atomic i8 0, ptr %waiting.i.i75 monotonic, align 8
-  tail call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #16
+  tail call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #18
   br label %rcu_read_auto_unlock.exit79
 
 rcu_read_auto_unlock.exit79:                      ; preds = %if.end.i.i71, %while.end.i.i74, %while.end21.i.i77
   %51 = load ptr, ptr @ram_state, align 8
   %bitmap_mutex61 = getelementptr inbounds i8, ptr %51, i64 232
-  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %bitmap_mutex61, ptr noundef nonnull @.str, i32 noundef 3788) #16
+  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %bitmap_mutex61, ptr noundef nonnull @.str, i32 noundef 3788) #18
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i47)
   %52 = load i32, ptr @trace_events_enabled_count, align 4
   %tobool.i.i48 = icmp ne i32 %52, 0
@@ -4945,7 +4945,7 @@ rcu_read_auto_unlock.exit79:                      ; preds = %if.end.i.i71, %whil
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef zeroext i1 @ram_dirty_bitmap_reload(ptr noundef %s, ptr noundef %block, ptr noundef %errp) local_unnamed_addr #0 {
@@ -4981,16 +4981,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #16
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #18
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #18
   %7 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.73, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, ptr noundef nonnull %idstr) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.73, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, ptr noundef nonnull %idstr) #18
   br label %trace_ram_dirty_bitmap_reload_begin.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.74, ptr noundef nonnull %idstr) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.74, ptr noundef nonnull %idstr) #18
   br label %trace_ram_dirty_bitmap_reload_begin.exit
 
 trace_ram_dirty_bitmap_reload_begin.exit:         ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -5001,8 +5001,8 @@ trace_ram_dirty_bitmap_reload_begin.exit:         ; preds = %entry, %land.lhs.tr
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %trace_ram_dirty_bitmap_reload_begin.exit
-  %call = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @MigrationStatus_lookup, i32 noundef %9) #16
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 4133, ptr noundef nonnull @__func__.ram_dirty_bitmap_reload, ptr noundef nonnull @.str.23, ptr noundef %call) #16
+  %call = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @MigrationStatus_lookup, i32 noundef %9) #18
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 4133, ptr noundef nonnull @__func__.ram_dirty_bitmap_reload, ptr noundef nonnull @.str.23, ptr noundef %call) #18
   br label %cleanup
 
 if.end:                                           ; preds = %trace_ram_dirty_bitmap_reload_begin.exit
@@ -5013,34 +5013,34 @@ if.end:                                           ; preds = %trace_ram_dirty_bit
   %sub.i.i = add nuw nsw i64 %shr, 127
   %10 = lshr i64 %sub.i.i, 3
   %mul.i.i = and i64 %10, 1125899906842616
-  %call.i.i = tail call noalias ptr @g_try_malloc0(i64 noundef %mul.i.i) #18
+  %call.i.i = tail call noalias ptr @g_try_malloc0(i64 noundef %mul.i.i) #20
   %cmp.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.i, label %if.then.i, label %bitmap_new.exit
 
 if.then.i:                                        ; preds = %if.end
-  tail call void @abort() #17
+  tail call void @abort() #19
   unreachable
 
 bitmap_new.exit:                                  ; preds = %if.end
-  %call6 = tail call i64 @qemu_get_be64(ptr noundef %0) #16
+  %call6 = tail call i64 @qemu_get_be64(ptr noundef %0) #18
   %cmp7.not = icmp eq i64 %call6, %and
   br i1 %cmp7.not, label %if.end11, label %if.then8
 
 if.then8:                                         ; preds = %bitmap_new.exit
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 4151, ptr noundef nonnull @__func__.ram_dirty_bitmap_reload, ptr noundef nonnull @.str.24, ptr noundef nonnull %idstr, i64 noundef %call6, i64 noundef %and) #16
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 4151, ptr noundef nonnull @__func__.ram_dirty_bitmap_reload, ptr noundef nonnull @.str.24, ptr noundef nonnull %idstr, i64 noundef %call6, i64 noundef %and) #18
   br label %cleanup
 
 if.end11:                                         ; preds = %bitmap_new.exit
-  %call12 = tail call i64 @qemu_get_buffer(ptr noundef %0, ptr noundef nonnull %call.i.i, i64 noundef %and) #16
-  %call13 = tail call i64 @qemu_get_be64(ptr noundef %0) #16
-  %call14 = tail call i32 @qemu_file_get_error(ptr noundef %0) #16
+  %call12 = tail call i64 @qemu_get_buffer(ptr noundef %0, ptr noundef nonnull %call.i.i, i64 noundef %and) #18
+  %call13 = tail call i64 @qemu_get_be64(ptr noundef %0) #18
+  %call14 = tail call i32 @qemu_file_get_error(ptr noundef %0) #18
   %tobool.not = icmp eq i32 %call14, 0
   %cmp15.not = icmp eq i64 %call12, %and
   %or.cond = select i1 %tobool.not, i1 %cmp15.not, i1 false
   br i1 %or.cond, label %if.end19, label %if.then16
 
 if.then16:                                        ; preds = %if.end11
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 4161, ptr noundef nonnull @__func__.ram_dirty_bitmap_reload, ptr noundef nonnull @.str.25, ptr noundef nonnull %idstr, i64 noundef %and, i64 noundef %call12) #16
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 4161, ptr noundef nonnull @__func__.ram_dirty_bitmap_reload, ptr noundef nonnull @.str.25, ptr noundef nonnull %idstr, i64 noundef %and, i64 noundef %call12) #18
   br label %cleanup
 
 if.end19:                                         ; preds = %if.end11
@@ -5048,13 +5048,13 @@ if.end19:                                         ; preds = %if.end11
   br i1 %cmp20.not, label %if.end24, label %if.then21
 
 if.then21:                                        ; preds = %if.end19
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 4167, ptr noundef nonnull @__func__.ram_dirty_bitmap_reload, ptr noundef nonnull @.str.26, ptr noundef nonnull %idstr, i64 noundef %call13) #16
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 4167, ptr noundef nonnull @__func__.ram_dirty_bitmap_reload, ptr noundef nonnull @.str.26, ptr noundef nonnull %idstr, i64 noundef %call13) #18
   br label %cleanup
 
 if.end24:                                         ; preds = %if.end19
   %bmap = getelementptr inbounds i8, ptr %block, i64 384
   %11 = load ptr, ptr %bmap, align 8
-  tail call void @bitmap_from_le(ptr noundef %11, ptr noundef nonnull %call.i.i, i64 noundef %shr) #16
+  tail call void @bitmap_from_le(ptr noundef %11, ptr noundef nonnull %call.i.i, i64 noundef %shr) #18
   %12 = load ptr, ptr %bmap, align 8
   %cmp.i32 = icmp ult i64 %1, 266240
   br i1 %cmp.i32, label %if.then.i33, label %if.else.i
@@ -5070,7 +5070,7 @@ if.then.i33:                                      ; preds = %if.end24
   br label %bitmap_complement.exit
 
 if.else.i:                                        ; preds = %if.end24
-  tail call void @slow_bitmap_complement(ptr noundef %12, ptr noundef %12, i64 noundef %shr) #16
+  tail call void @slow_bitmap_complement(ptr noundef %12, ptr noundef %12, i64 noundef %shr) #18
   br label %bitmap_complement.exit
 
 bitmap_complement.exit:                           ; preds = %if.then.i33, %if.else.i
@@ -5088,14 +5088,14 @@ land.lhs.true.i:                                  ; preds = %bitmap_complement.e
   br i1 %tobool1.not.i, label %ramblock_dirty_bitmap_clear_discarded_pages.exit, label %land.lhs.true2.i
 
 land.lhs.true2.i:                                 ; preds = %land.lhs.true.i
-  %call.i.i34 = tail call ptr @memory_region_get_ram_discard_manager(ptr noundef nonnull %14) #16
+  %call.i.i34 = tail call ptr @memory_region_get_ram_discard_manager(ptr noundef nonnull %14) #18
   %tobool.i.not.i = icmp eq ptr %call.i.i34, null
   br i1 %tobool.i.not.i, label %ramblock_dirty_bitmap_clear_discarded_pages.exit, label %if.then.i35
 
 if.then.i35:                                      ; preds = %land.lhs.true2.i
   %16 = load ptr, ptr %mr.i, align 8
-  %call5.i = tail call ptr @memory_region_get_ram_discard_manager(ptr noundef %16) #16
-  %call6.i = tail call i64 @qemu_ram_get_used_length(ptr noundef nonnull %block) #16
+  %call5.i = tail call ptr @memory_region_get_ram_discard_manager(ptr noundef %16) #18
+  %call6.i = tail call i64 @qemu_ram_get_used_length(ptr noundef nonnull %block) #18
   %coerce.sroa.0.0.insert.ext.i = zext i64 %call6.i to i128
   store i128 %coerce.sroa.0.0.insert.ext.i, ptr %section.i, align 16
   %mr8.i = getelementptr inbounds i8, ptr %section.i, i64 16
@@ -5103,7 +5103,7 @@ if.then.i35:                                      ; preds = %land.lhs.true2.i
   store ptr %17, ptr %mr8.i, align 16
   %fv.i = getelementptr inbounds i8, ptr %section.i, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(27) %fv.i, i8 0, i64 27, i1 false)
-  call void @ram_discard_manager_replay_discarded(ptr noundef %call5.i, ptr noundef nonnull %section.i, ptr noundef nonnull @dirty_bitmap_clear_section, ptr noundef nonnull %cleared_bits.i) #16
+  call void @ram_discard_manager_replay_discarded(ptr noundef %call5.i, ptr noundef nonnull %section.i, ptr noundef nonnull @dirty_bitmap_clear_section, ptr noundef nonnull %cleared_bits.i) #18
   br label %ramblock_dirty_bitmap_clear_discarded_pages.exit
 
 ramblock_dirty_bitmap_clear_discarded_pages.exit: ; preds = %bitmap_complement.exit, %land.lhs.true.i, %land.lhs.true2.i, %if.then.i35
@@ -5129,29 +5129,29 @@ if.then.i.i43:                                    ; preds = %land.lhs.true5.i.i4
   br i1 %tobool7.i.i44, label %if.then8.i.i46, label %if.else.i.i45
 
 if.then8.i.i46:                                   ; preds = %if.then.i.i43
-  %call9.i.i47 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i36, ptr noundef null) #16
-  %call10.i.i48 = call i32 @qemu_get_thread_id() #16
+  %call9.i.i47 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i36, ptr noundef null) #18
+  %call10.i.i48 = call i32 @qemu_get_thread_id() #18
   %22 = load i64, ptr %_now.i.i36, align 8
   %tv_usec.i.i49 = getelementptr inbounds i8, ptr %_now.i.i36, i64 8
   %23 = load i64, ptr %tv_usec.i.i49, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.75, i32 noundef %call10.i.i48, i64 noundef %22, i64 noundef %23, ptr noundef nonnull %idstr) #16
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.75, i32 noundef %call10.i.i48, i64 noundef %22, i64 noundef %23, ptr noundef nonnull %idstr) #18
   br label %trace_ram_dirty_bitmap_reload_complete.exit
 
 if.else.i.i45:                                    ; preds = %if.then.i.i43
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.76, ptr noundef nonnull %idstr) #16
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.76, ptr noundef nonnull %idstr) #18
   br label %trace_ram_dirty_bitmap_reload_complete.exit
 
 trace_ram_dirty_bitmap_reload_complete.exit:      ; preds = %ramblock_dirty_bitmap_clear_discarded_pages.exit, %land.lhs.true5.i.i40, %if.then8.i.i46, %if.else.i.i45
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i36)
   %postcopy_bmap_sync_requested = getelementptr inbounds i8, ptr %2, i64 352
   %24 = atomicrmw sub ptr %postcopy_bmap_sync_requested, i32 1 seq_cst, align 8
-  call void @migration_rp_kick(ptr noundef nonnull %s) #16
+  call void @migration_rp_kick(ptr noundef nonnull %s) #18
   br label %cleanup
 
 cleanup:                                          ; preds = %trace_ram_dirty_bitmap_reload_complete.exit, %if.then21, %if.then16, %if.then8, %if.then
   %le_bitmap.0 = phi ptr [ %call.i.i, %trace_ram_dirty_bitmap_reload_complete.exit ], [ %call.i.i, %if.then21 ], [ %call.i.i, %if.then16 ], [ %call.i.i, %if.then8 ], [ null, %if.then ]
   %retval.0 = phi i1 [ true, %trace_ram_dirty_bitmap_reload_complete.exit ], [ false, %if.then21 ], [ false, %if.then16 ], [ false, %if.then8 ], [ false, %if.then ]
-  call void @g_free(ptr noundef %le_bitmap.0) #16
+  call void @g_free(ptr noundef %le_bitmap.0) #18
   ret i1 %retval.0
 }
 
@@ -5166,18 +5166,18 @@ define dso_local void @postcopy_preempt_shutdown_file(ptr nocapture noundef read
 entry:
   %postcopy_qemufile_src = getelementptr inbounds i8, ptr %s, i64 192
   %0 = load ptr, ptr %postcopy_qemufile_src, align 8
-  tail call void @qemu_put_be64(ptr noundef %0, i64 noundef 16) #16
+  tail call void @qemu_put_be64(ptr noundef %0, i64 noundef 16) #18
   %1 = load ptr, ptr %postcopy_qemufile_src, align 8
-  %call = tail call i32 @qemu_fflush(ptr noundef %1) #16
+  %call = tail call i32 @qemu_fflush(ptr noundef %1) #18
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @ram_mig_init() local_unnamed_addr #0 {
 entry:
-  tail call void @qemu_mutex_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @XBZRLE, i64 24)) #16
-  %call = tail call i32 @register_savevm_live(ptr noundef nonnull @.str.27, i32 noundef 0, i32 noundef 4, ptr noundef nonnull @savevm_ram_handlers, ptr noundef nonnull @ram_state) #16
-  tail call void @ram_block_notifier_add(ptr noundef nonnull @ram_mig_ram_notifier) #16
+  tail call void @qemu_mutex_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @XBZRLE, i64 24)) #18
+  %call = tail call i32 @register_savevm_live(ptr noundef nonnull @.str.27, i32 noundef 0, i32 noundef 4, ptr noundef nonnull @savevm_ram_handlers, ptr noundef nonnull @ram_state) #18
+  tail call void @ram_block_notifier_add(ptr noundef nonnull @ram_mig_ram_notifier) #18
   ret void
 }
 
@@ -5192,12 +5192,12 @@ declare zeroext i1 @migrate_xbzrle() local_unnamed_addr #1
 declare ptr @get_ptr_rcu_reader() local_unnamed_addr #1
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @g_try_malloc0(i64 noundef) local_unnamed_addr #9
+declare noalias ptr @g_try_malloc0(i64 noundef) local_unnamed_addr #10
 
 declare i64 @qemu_clock_get_ns(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #10
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #11
 
 declare i32 @ram_discard_manager_replay_populated(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -5209,7 +5209,7 @@ entry:
   br i1 %cmp.i, label %int128_get64.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.30, i32 noundef 33, ptr noundef nonnull @__PRETTY_FUNCTION__.int128_get64) #17
+  tail call void @__assert_fail(ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.30, i32 noundef 33, ptr noundef nonnull @__PRETTY_FUNCTION__.int128_get64) #19
   unreachable
 
 int128_get64.exit:                                ; preds = %entry
@@ -5234,7 +5234,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %4 = load ptr, ptr %host.i, align 8
   %add.ptr.i = getelementptr i8, ptr %4, i64 %offset.addr.06.i
   %5 = load i8, ptr %add.ptr.i, align 1
-  %6 = tail call i8 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i8 %5) #16, !srcloc !18
+  %6 = tail call i8 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i8 %5) #18, !srcloc !18
   %7 = load i64, ptr %page_size.i, align 8
   %add1.i = add i64 %7, %offset.addr.06.i
   %cmp.i3 = icmp ult i64 %add1.i, %add.i
@@ -5252,7 +5252,7 @@ entry:
   br i1 %cmp.i, label %int128_get64.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.30, i32 noundef 33, ptr noundef nonnull @__PRETTY_FUNCTION__.int128_get64) #17
+  tail call void @__assert_fail(ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.30, i32 noundef 33, ptr noundef nonnull @__PRETTY_FUNCTION__.int128_get64) #19
   unreachable
 
 int128_get64.exit:                                ; preds = %entry
@@ -5268,14 +5268,14 @@ int128_get64.exit:                                ; preds = %entry
   %host = getelementptr inbounds i8, ptr %3, i64 24
   %5 = load ptr, ptr %host, align 8
   %add.ptr = getelementptr i8, ptr %5, i64 %1
-  %call2 = tail call i32 @uffd_change_protection(i32 noundef %conv, ptr noundef %add.ptr, i64 noundef %coerce.sroa.0.0.extract.trunc, i1 noundef zeroext true, i1 noundef zeroext false) #16
+  %call2 = tail call i32 @uffd_change_protection(i32 noundef %conv, ptr noundef %add.ptr, i64 noundef %coerce.sroa.0.0.extract.trunc, i1 noundef zeroext true, i1 noundef zeroext false) #18
   ret i32 %call2
 }
 
 declare i32 @uffd_change_protection(i32 noundef, ptr noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #11
+declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #12
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 
@@ -5293,19 +5293,19 @@ entry:
   %shr = lshr i64 %1, 12
   %bmap = getelementptr inbounds i8, ptr %0, i64 384
   %2 = load ptr, ptr %bmap, align 8
-  %call.i = tail call zeroext i1 @qemu_ram_is_migratable(ptr noundef %0) #16
+  %call.i = tail call zeroext i1 @qemu_ram_is_migratable(ptr noundef %0) #18
   br i1 %call.i, label %lor.rhs.i, label %if.then
 
 lor.rhs.i:                                        ; preds = %entry
-  %call1.i = tail call zeroext i1 @migrate_ignore_shared() #16
+  %call1.i = tail call zeroext i1 @migrate_ignore_shared() #18
   br i1 %call1.i, label %land.lhs.true.i, label %if.end
 
 land.lhs.true.i:                                  ; preds = %lor.rhs.i
-  %call2.i = tail call zeroext i1 @qemu_ram_is_shared(ptr noundef nonnull %0) #16
+  %call2.i = tail call zeroext i1 @qemu_ram_is_shared(ptr noundef nonnull %0) #18
   br i1 %call2.i, label %migrate_ram_is_ignored.exit, label %if.end
 
 migrate_ram_is_ignored.exit:                      ; preds = %land.lhs.true.i
-  %call3.i = tail call zeroext i1 @qemu_ram_is_named_file(ptr noundef nonnull %0) #16
+  %call3.i = tail call zeroext i1 @qemu_ram_is_named_file(ptr noundef nonnull %0) #18
   br i1 %call3.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry, %migrate_ram_is_ignored.exit
@@ -5326,7 +5326,7 @@ if.then1:                                         ; preds = %if.end
   br i1 %tobool2.not, label %if.else, label %if.end4
 
 if.else:                                          ; preds = %if.then1
-  tail call void @__assert_fail(ptr noundef nonnull @.str.43, ptr noundef nonnull @.str, i32 noundef 711, ptr noundef nonnull @__PRETTY_FUNCTION__.pss_find_next_dirty) #17
+  tail call void @__assert_fail(ptr noundef nonnull @.str.43, ptr noundef nonnull @.str, i32 noundef 711, ptr noundef nonnull @__PRETTY_FUNCTION__.pss_find_next_dirty) #19
   unreachable
 
 if.end4:                                          ; preds = %if.then1
@@ -5337,7 +5337,7 @@ if.end6:                                          ; preds = %if.end4, %if.end
   %size.0 = phi i64 [ %cond, %if.end4 ], [ %shr, %if.end ]
   %page7 = getelementptr inbounds i8, ptr %pss, i64 24
   %5 = load i64, ptr %page7, align 8
-  %call8 = tail call i64 @find_next_bit(ptr noundef %2, i64 noundef %size.0, i64 noundef %5) #16
+  %call8 = tail call i64 @find_next_bit(ptr noundef %2, i64 noundef %size.0, i64 noundef %5) #18
   store i64 %call8, ptr %page7, align 8
   br label %return
 
@@ -5399,7 +5399,7 @@ lor.lhs.false:                                    ; preds = %entry
   %rb.val13 = load i8, ptr %1, align 8
   %sh_prom.i = zext nneg i8 %rb.val13 to i64
   %shr.i = lshr i64 %page, %sh_prom.i
-  %call.i = tail call zeroext i1 @bitmap_test_and_clear(ptr noundef nonnull %0, i64 noundef %shr.i, i64 noundef 1) #16
+  %call.i = tail call zeroext i1 @bitmap_test_and_clear(ptr noundef nonnull %0, i64 noundef %shr.i, i64 noundef 1) #18
   br i1 %call.i, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false
@@ -5408,7 +5408,7 @@ if.end:                                           ; preds = %lor.lhs.false
   br i1 %cmp, label %if.end3, label %if.else
 
 if.else:                                          ; preds = %if.end
-  tail call void @__assert_fail(ptr noundef nonnull @.str.57, ptr noundef nonnull @.str, i32 noundef 737, ptr noundef nonnull @__PRETTY_FUNCTION__.migration_clear_memory_region_dirty_bitmap) #17
+  tail call void @__assert_fail(ptr noundef nonnull @.str.57, ptr noundef nonnull @.str, i32 noundef 737, ptr noundef nonnull @__PRETTY_FUNCTION__.migration_clear_memory_region_dirty_bitmap) #19
   unreachable
 
 if.end3:                                          ; preds = %if.end
@@ -5438,23 +5438,23 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #16
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #18
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #18
   %8 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.58, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, ptr noundef nonnull %idstr, i64 noundef %mul, i64 noundef %shl, i64 noundef %page) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.58, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, ptr noundef nonnull %idstr, i64 noundef %mul, i64 noundef %shl, i64 noundef %page) #18
   br label %trace_migration_bitmap_clear_dirty.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.59, ptr noundef nonnull %idstr, i64 noundef %mul, i64 noundef %shl, i64 noundef %page) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.59, ptr noundef nonnull %idstr, i64 noundef %mul, i64 noundef %shl, i64 noundef %page) #18
   br label %trace_migration_bitmap_clear_dirty.exit
 
 trace_migration_bitmap_clear_dirty.exit:          ; preds = %if.end3, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   %mr = getelementptr inbounds i8, ptr %rb, i64 16
   %10 = load ptr, ptr %mr, align 8
-  tail call void @memory_region_clear_dirty_bitmap(ptr noundef %10, i64 noundef %mul, i64 noundef %shl) #16
+  tail call void @memory_region_clear_dirty_bitmap(ptr noundef %10, i64 noundef %mul, i64 noundef %shl) #18
   br label %return
 
 return:                                           ; preds = %entry, %lor.lhs.false, %trace_migration_bitmap_clear_dirty.exit
@@ -5468,28 +5468,28 @@ declare zeroext i1 @bitmap_test_and_clear(ptr noundef, i64 noundef, i64 noundef)
 declare i64 @slow_bitmap_count_one(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctpop.i64(i64) #12
+declare i64 @llvm.ctpop.i64(i64) #13
 
 declare void @qemu_event_set(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc range(i32 -1, 1) i32 @ram_state_init(ptr nocapture noundef %rsp) unnamed_addr #0 {
 entry:
-  %call = tail call noalias dereferenceable_or_null(360) ptr @g_try_malloc0_n(i64 noundef 1, i64 noundef 360) #20
+  %call = tail call noalias dereferenceable_or_null(360) ptr @g_try_malloc0_n(i64 noundef 1, i64 noundef 360) #22
   store ptr %call, ptr %rsp, align 8
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.61, ptr noundef nonnull @__func__.ram_state_init) #16
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.61, ptr noundef nonnull @__func__.ram_state_init) #18
   br label %return
 
 if.end:                                           ; preds = %entry
   %bitmap_mutex = getelementptr inbounds i8, ptr %call, i64 232
-  tail call void @qemu_mutex_init(ptr noundef nonnull %bitmap_mutex) #16
+  tail call void @qemu_mutex_init(ptr noundef nonnull %bitmap_mutex) #18
   %0 = load ptr, ptr %rsp, align 8
   %src_page_req_mutex = getelementptr inbounds i8, ptr %0, i64 288
-  tail call void @qemu_mutex_init(ptr noundef nonnull %src_page_req_mutex) #16
+  tail call void @qemu_mutex_init(ptr noundef nonnull %src_page_req_mutex) #18
   %1 = load ptr, ptr %rsp, align 8
   %src_page_requests = getelementptr inbounds i8, ptr %1, i64 336
   store ptr null, ptr %src_page_requests, align 8
@@ -5527,7 +5527,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: allocsize(0,1)
-declare noalias ptr @g_try_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #5
+declare noalias ptr @g_try_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #6
 
 declare zeroext i1 @cpu_physical_memory_test_and_clear_dirty(i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -5549,7 +5549,7 @@ entry:
   br i1 %cmp.i, label %int128_get64.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.30, i32 noundef 33, ptr noundef nonnull @__PRETTY_FUNCTION__.int128_get64) #17
+  tail call void @__assert_fail(ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.30, i32 noundef 33, ptr noundef nonnull @__PRETTY_FUNCTION__.int128_get64) #19
   unreachable
 
 int128_get64.exit:                                ; preds = %entry
@@ -5562,11 +5562,11 @@ int128_get64.exit:                                ; preds = %entry
   %2 = load ptr, ptr %mr, align 16
   %ram_block = getelementptr inbounds i8, ptr %2, i64 56
   %3 = load ptr, ptr %ram_block, align 8
-  %call3 = tail call zeroext i1 @migration_in_postcopy() #16
+  %call3 = tail call zeroext i1 @migration_in_postcopy() #18
   br i1 %call3, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %int128_get64.exit
-  %call4 = tail call zeroext i1 @migrate_background_snapshot() #16
+  %call4 = tail call zeroext i1 @migrate_background_snapshot() #18
   br i1 %call4, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
@@ -5614,7 +5614,7 @@ if.then5.i.i:                                     ; preds = %if.end.i.i
   br label %bitmap_count_one.exit.i
 
 if.else.i.i:                                      ; preds = %if.end.i.i
-  %call8.i.i = tail call i64 @slow_bitmap_count_one(ptr noundef %add.ptr.i, i64 noundef %add.i11) #16
+  %call8.i.i = tail call i64 @slow_bitmap_count_one(ptr noundef %add.ptr.i, i64 noundef %add.i11) #18
   br label %bitmap_count_one.exit.i
 
 bitmap_count_one.exit.i:                          ; preds = %if.else.i.i, %if.then5.i.i, %if.end
@@ -5638,7 +5638,7 @@ bitmap_count_one_with_offset.exit:                ; preds = %bitmap_count_one.ex
   %add = add i64 %sub3.i, %11
   store i64 %add, ptr %opaque, align 8
   %12 = load ptr, ptr %bmap, align 8
-  tail call void @bitmap_clear(ptr noundef %12, i64 noundef %shr, i64 noundef %shr2) #16
+  tail call void @bitmap_clear(ptr noundef %12, i64 noundef %shr, i64 noundef %shr2) #18
   ret void
 }
 
@@ -5653,12 +5653,12 @@ entry:
   %pnd.i.i.i.i = alloca %struct.PrecopyNotifyData, align 8
   %local_err.i.i.i = alloca ptr, align 8
   %local_err.i.i = alloca ptr, align 8
-  %call = tail call i32 @compress_threads_save_setup() #16
+  %call = tail call i32 @compress_threads_save_setup() #18
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %call1 = tail call zeroext i1 @migration_in_colo_state() #16
+  %call1 = tail call zeroext i1 @migration_in_colo_state() #18
   br i1 %call1, label %if.end6, label %if.then2
 
 if.then2:                                         ; preds = %if.end
@@ -5669,87 +5669,87 @@ if.then2:                                         ; preds = %if.end
 if.end.i:                                         ; preds = %if.then2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %local_err.i.i)
   store ptr null, ptr %local_err.i.i, align 8
-  %call.i.i = tail call zeroext i1 @migrate_xbzrle() #16
+  %call.i.i = tail call zeroext i1 @migrate_xbzrle() #18
   br i1 %call.i.i, label %if.end.i.i, label %xbzrle_init.exit.thread.i
 
 if.end.i.i:                                       ; preds = %if.end.i
-  %call.i.i.i = tail call zeroext i1 @migrate_xbzrle() #16
+  %call.i.i.i = tail call zeroext i1 @migrate_xbzrle() #18
   br i1 %call.i.i.i, label %while.end.i.i.i, label %XBZRLE_cache_lock.exit.i.i
 
 while.end.i.i.i:                                  ; preds = %if.end.i.i
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
-  tail call void %1(ptr noundef nonnull getelementptr inbounds (i8, ptr @XBZRLE, i64 24), ptr noundef nonnull @.str, i32 noundef 138) #16
+  tail call void %1(ptr noundef nonnull getelementptr inbounds (i8, ptr @XBZRLE, i64 24), ptr noundef nonnull @.str, i32 noundef 138) #18
   br label %XBZRLE_cache_lock.exit.i.i
 
 XBZRLE_cache_lock.exit.i.i:                       ; preds = %while.end.i.i.i, %if.end.i.i
-  %call1.i.i = tail call noalias dereferenceable_or_null(4096) ptr @g_try_malloc0(i64 noundef 4096) #18
+  %call1.i.i = tail call noalias dereferenceable_or_null(4096) ptr @g_try_malloc0(i64 noundef 4096) #20
   store ptr %call1.i.i, ptr getelementptr inbounds (i8, ptr @XBZRLE, i64 72), align 8
   %tobool.not.i.i = icmp eq ptr %call1.i.i, null
   br i1 %tobool.not.i.i, label %if.then2.i.i, label %if.end3.i.i
 
 if.then2.i.i:                                     ; preds = %XBZRLE_cache_lock.exit.i.i
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.77, ptr noundef nonnull @__func__.xbzrle_init) #16
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.77, ptr noundef nonnull @__func__.xbzrle_init) #18
   br label %err_out.i.i
 
 if.end3.i.i:                                      ; preds = %XBZRLE_cache_lock.exit.i.i
-  %call4.i.i = tail call i64 @migrate_xbzrle_cache_size() #16
-  %call5.i.i = call ptr @cache_init(i64 noundef %call4.i.i, i64 noundef 4096, ptr noundef nonnull %local_err.i.i) #16
+  %call4.i.i = tail call i64 @migrate_xbzrle_cache_size() #18
+  %call5.i.i = call ptr @cache_init(i64 noundef %call4.i.i, i64 noundef 4096, ptr noundef nonnull %local_err.i.i) #18
   store ptr %call5.i.i, ptr getelementptr inbounds (i8, ptr @XBZRLE, i64 16), align 8
   %tobool6.not.i.i = icmp eq ptr %call5.i.i, null
   br i1 %tobool6.not.i.i, label %if.then7.i.i, label %if.end8.i.i
 
 if.then7.i.i:                                     ; preds = %if.end3.i.i
   %2 = load ptr, ptr %local_err.i.i, align 8
-  call void @error_report_err(ptr noundef %2) #16
+  call void @error_report_err(ptr noundef %2) #18
   br label %free_zero_page.i.i
 
 if.end8.i.i:                                      ; preds = %if.end3.i.i
-  %call9.i.i = call noalias dereferenceable_or_null(4096) ptr @g_try_malloc0(i64 noundef 4096) #18
+  %call9.i.i = call noalias dereferenceable_or_null(4096) ptr @g_try_malloc0(i64 noundef 4096) #20
   store ptr %call9.i.i, ptr @XBZRLE, align 8
   %tobool10.not.i.i = icmp eq ptr %call9.i.i, null
   br i1 %tobool10.not.i.i, label %if.then11.i.i, label %if.end12.i.i
 
 if.then11.i.i:                                    ; preds = %if.end8.i.i
-  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.78, ptr noundef nonnull @__func__.xbzrle_init) #16
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.78, ptr noundef nonnull @__func__.xbzrle_init) #18
   br label %free_cache.i.i
 
 if.end12.i.i:                                     ; preds = %if.end8.i.i
-  %call13.i.i = call noalias dereferenceable_or_null(4096) ptr @g_try_malloc(i64 noundef 4096) #18
+  %call13.i.i = call noalias dereferenceable_or_null(4096) ptr @g_try_malloc(i64 noundef 4096) #20
   store ptr %call13.i.i, ptr getelementptr inbounds (i8, ptr @XBZRLE, i64 8), align 8
   %tobool14.not.i.i = icmp eq ptr %call13.i.i, null
   br i1 %tobool14.not.i.i, label %if.then15.i.i, label %if.end16.i.i
 
 if.then15.i.i:                                    ; preds = %if.end12.i.i
-  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.79, ptr noundef nonnull @__func__.xbzrle_init) #16
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.79, ptr noundef nonnull @__func__.xbzrle_init) #18
   %3 = load ptr, ptr @XBZRLE, align 8
-  call void @g_free(ptr noundef %3) #16
+  call void @g_free(ptr noundef %3) #18
   store ptr null, ptr @XBZRLE, align 8
   br label %free_cache.i.i
 
 if.end16.i.i:                                     ; preds = %if.end12.i.i
-  %call.i1.i.i = call zeroext i1 @migrate_xbzrle() #16
+  %call.i1.i.i = call zeroext i1 @migrate_xbzrle() #18
   br i1 %call.i1.i.i, label %xbzrle_init.exit.thread11.i, label %xbzrle_init.exit.thread.i
 
 xbzrle_init.exit.thread11.i:                      ; preds = %if.end16.i.i
-  call void @qemu_mutex_unlock_impl(ptr noundef nonnull getelementptr inbounds (i8, ptr @XBZRLE, i64 24), ptr noundef nonnull @.str, i32 noundef 145) #16
+  call void @qemu_mutex_unlock_impl(ptr noundef nonnull getelementptr inbounds (i8, ptr @XBZRLE, i64 24), ptr noundef nonnull @.str, i32 noundef 145) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %local_err.i.i)
   br label %if.end4.i
 
 free_cache.i.i:                                   ; preds = %if.then15.i.i, %if.then11.i.i
   %4 = load ptr, ptr getelementptr inbounds (i8, ptr @XBZRLE, i64 16), align 8
-  call void @cache_fini(ptr noundef %4) #16
+  call void @cache_fini(ptr noundef %4) #18
   store ptr null, ptr getelementptr inbounds (i8, ptr @XBZRLE, i64 16), align 8
   br label %free_zero_page.i.i
 
 free_zero_page.i.i:                               ; preds = %free_cache.i.i, %if.then7.i.i
   %5 = load ptr, ptr getelementptr inbounds (i8, ptr @XBZRLE, i64 72), align 8
-  call void @g_free(ptr noundef %5) #16
+  call void @g_free(ptr noundef %5) #18
   store ptr null, ptr getelementptr inbounds (i8, ptr @XBZRLE, i64 72), align 8
   br label %err_out.i.i
 
 err_out.i.i:                                      ; preds = %free_zero_page.i.i, %if.then2.i.i
-  %call.i2.i.i = call zeroext i1 @migrate_xbzrle() #16
+  %call.i2.i.i = call zeroext i1 @migrate_xbzrle() #18
   br i1 %call.i2.i.i, label %xbzrle_init.exit.i, label %xbzrle_init.exit.thread8.i
 
 xbzrle_init.exit.thread8.i:                       ; preds = %err_out.i.i
@@ -5761,7 +5761,7 @@ xbzrle_init.exit.thread.i:                        ; preds = %if.end16.i.i, %if.e
   br label %if.end4.i
 
 xbzrle_init.exit.i:                               ; preds = %err_out.i.i
-  call void @qemu_mutex_unlock_impl(ptr noundef nonnull getelementptr inbounds (i8, ptr @XBZRLE, i64 24), ptr noundef nonnull @.str, i32 noundef 145) #16
+  call void @qemu_mutex_unlock_impl(ptr noundef nonnull getelementptr inbounds (i8, ptr @XBZRLE, i64 24), ptr noundef nonnull @.str, i32 noundef 145) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %local_err.i.i)
   br label %if.then3.i
 
@@ -5771,8 +5771,8 @@ if.then3.i:                                       ; preds = %xbzrle_init.exit.i,
 
 if.end4.i:                                        ; preds = %xbzrle_init.exit.thread.i, %xbzrle_init.exit.thread11.i
   %6 = load ptr, ptr %opaque, align 8
-  call void @qemu_mutex_lock_ramlist() #16
-  %call.i.i.i.i = call ptr @get_ptr_rcu_reader() #16
+  call void @qemu_mutex_lock_ramlist() #18
+  %call.i.i.i.i = call ptr @get_ptr_rcu_reader() #18
   %depth.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 12
   %7 = load i32, ptr %depth.i.i.i.i, align 4
   %inc.i.i.i.i = add i32 %7, 1
@@ -5784,12 +5784,12 @@ while.end.i.i.i.i:                                ; preds = %if.end4.i
   %8 = load atomic i64, ptr @rcu_gp_ctr monotonic, align 8
   %conv8.i.i.i.i = and i64 %8, 4294967295
   store atomic i64 %conv8.i.i.i.i, ptr %call.i.i.i.i monotonic, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !5
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
   fence seq_cst
   br label %rcu_read_auto_lock.exit.i.i
 
 rcu_read_auto_lock.exit.i.i:                      ; preds = %while.end.i.i.i.i, %if.end4.i
-  %call.i.i3.i = call ptr @migrate_get_current() #16
+  %call.i.i3.i = call ptr @migrate_get_current() #18
   %call1.i.i.i = call i64 @ram_bytes_total()
   %tobool.not.i.i.i = icmp eq i64 %call1.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %ram_list_init_bitmaps.exit.i.i, label %if.then.i.i.i
@@ -5802,7 +5802,7 @@ if.then.i.i.i:                                    ; preds = %rcu_read_auto_lock.
   br i1 %cmp.i.i.i, label %if.then3.i.i.i, label %if.else.i.i.i
 
 if.then3.i.i.i:                                   ; preds = %if.then.i.i.i
-  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.80, i32 noundef %conv.i.i.i, i32 noundef 31) #16
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.80, i32 noundef %conv.i.i.i, i32 noundef 31) #18
   br label %while.end.i.i4.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
@@ -5810,13 +5810,13 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i.i
   br i1 %cmp6.i.i.i, label %if.then8.i.i.i, label %while.end.i.i4.i
 
 if.then8.i.i.i:                                   ; preds = %if.else.i.i.i
-  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.81, i32 noundef %conv.i.i.i, i32 noundef 6) #16
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.81, i32 noundef %conv.i.i.i, i32 noundef 6) #18
   br label %while.end.i.i4.i
 
 while.end.i.i4.i:                                 ; preds = %if.then8.i.i.i, %if.else.i.i.i, %if.then3.i.i.i
   %shift.0.i.i.i = phi i8 [ 31, %if.then3.i.i.i ], [ 6, %if.then8.i.i.i ], [ %9, %if.else.i.i.i ]
   %10 = load atomic i64, ptr getelementptr inbounds (i8, ptr @ram_list, i64 56) monotonic, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !83
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !83
   %tobool11.not23.i.i.i = icmp eq i64 %10, 0
   br i1 %tobool11.not23.i.i.i, label %ram_list_init_bitmaps.exit.i.i, label %for.body.lr.ph.i.i.i
 
@@ -5829,19 +5829,19 @@ for.body.lr.ph.i.i.i:                             ; preds = %while.end.i.i4.i
 for.body.i.i.i:                                   ; preds = %while.end24.i.i.i, %for.body.lr.ph.i.i.i
   %block.024.in.i.i.i = phi i64 [ %10, %for.body.lr.ph.i.i.i ], [ %14, %while.end24.i.i.i ]
   %block.024.i.i.i = inttoptr i64 %block.024.in.i.i.i to ptr
-  %call.i.i2.i.i = call zeroext i1 @qemu_ram_is_migratable(ptr noundef nonnull %block.024.i.i.i) #16
+  %call.i.i2.i.i = call zeroext i1 @qemu_ram_is_migratable(ptr noundef nonnull %block.024.i.i.i) #18
   br i1 %call.i.i2.i.i, label %lor.rhs.i.i.i.i, label %while.end24.i.i.i
 
 lor.rhs.i.i.i.i:                                  ; preds = %for.body.i.i.i
-  %call1.i.i.i.i = call zeroext i1 @migrate_ignore_shared() #16
+  %call1.i.i.i.i = call zeroext i1 @migrate_ignore_shared() #18
   br i1 %call1.i.i.i.i, label %land.lhs.true.i.i.i.i, label %if.else14.i.i.i
 
 land.lhs.true.i.i.i.i:                            ; preds = %lor.rhs.i.i.i.i
-  %call2.i.i.i.i = call zeroext i1 @qemu_ram_is_shared(ptr noundef nonnull %block.024.i.i.i) #16
+  %call2.i.i.i.i = call zeroext i1 @qemu_ram_is_shared(ptr noundef nonnull %block.024.i.i.i) #18
   br i1 %call2.i.i.i.i, label %migrate_ram_is_ignored.exit.i.i.i, label %if.else14.i.i.i
 
 migrate_ram_is_ignored.exit.i.i.i:                ; preds = %land.lhs.true.i.i.i.i
-  %call3.i.i.i.i = call zeroext i1 @qemu_ram_is_named_file(ptr noundef nonnull %block.024.i.i.i) #16
+  %call3.i.i.i.i = call zeroext i1 @qemu_ram_is_named_file(ptr noundef nonnull %block.024.i.i.i) #18
   br i1 %call3.i.i.i.i, label %while.end24.i.i.i, label %if.else14.i.i.i
 
 if.else14.i.i.i:                                  ; preds = %migrate_ram_is_ignored.exit.i.i.i, %land.lhs.true.i.i.i.i, %lor.rhs.i.i.i.i
@@ -5851,18 +5851,18 @@ if.else14.i.i.i:                                  ; preds = %migrate_ram_is_igno
   %sub.i.i.i.i.i = add nuw nsw i64 %shr.i.i.i, 63
   %12 = lshr i64 %sub.i.i.i.i.i, 3
   %mul.i.i.i.i.i = and i64 %12, 1125899906842616
-  %call.i.i.i.i.i = call noalias ptr @g_try_malloc0(i64 noundef %mul.i.i.i.i.i) #18
+  %call.i.i.i.i.i = call noalias ptr @g_try_malloc0(i64 noundef %mul.i.i.i.i.i) #20
   %cmp.i.i.i.i = icmp eq ptr %call.i.i.i.i.i, null
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %bitmap_new.exit.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.else14.i.i.i
-  call void @abort() #17
+  call void @abort() #19
   unreachable
 
 bitmap_new.exit.i.i.i:                            ; preds = %if.else14.i.i.i
   %bmap.i.i.i = getelementptr inbounds i8, ptr %block.024.i.i.i, i64 384
   store ptr %call.i.i.i.i.i, ptr %bmap.i.i.i, align 8
-  call void @bitmap_set(ptr noundef nonnull %call.i.i.i.i.i, i64 noundef 0, i64 noundef %shr.i.i.i) #16
+  call void @bitmap_set(ptr noundef nonnull %call.i.i.i.i.i, i64 noundef 0, i64 noundef %shr.i.i.i) #18
   %clear_bmap_shift.i.i.i = getelementptr inbounds i8, ptr %block.024.i.i.i, i64 408
   store i8 %shift.0.i.i.i, ptr %clear_bmap_shift.i.i.i, align 8
   %sub.i.i.i.i = add nuw nsw i64 %shr.i.i.i, %add.i.i.i.i
@@ -5870,12 +5870,12 @@ bitmap_new.exit.i.i.i:                            ; preds = %if.else14.i.i.i
   %sub.i.i15.i.i.i = add nuw nsw i64 %div2.i.i.i.i, 63
   %13 = lshr i64 %sub.i.i15.i.i.i, 3
   %mul.i.i16.i.i.i = and i64 %13, 2305843009213693944
-  %call.i.i17.i.i.i = call noalias ptr @g_try_malloc0(i64 noundef %mul.i.i16.i.i.i) #18
+  %call.i.i17.i.i.i = call noalias ptr @g_try_malloc0(i64 noundef %mul.i.i16.i.i.i) #20
   %cmp.i18.i.i.i = icmp eq ptr %call.i.i17.i.i.i, null
   br i1 %cmp.i18.i.i.i, label %if.then.i19.i.i.i, label %bitmap_new.exit20.i.i.i
 
 if.then.i19.i.i.i:                                ; preds = %bitmap_new.exit.i.i.i
-  call void @abort() #17
+  call void @abort() #19
   unreachable
 
 bitmap_new.exit20.i.i.i:                          ; preds = %bitmap_new.exit.i.i.i
@@ -5886,30 +5886,30 @@ bitmap_new.exit20.i.i.i:                          ; preds = %bitmap_new.exit.i.i
 while.end24.i.i.i:                                ; preds = %bitmap_new.exit20.i.i.i, %migrate_ram_is_ignored.exit.i.i.i, %for.body.i.i.i
   %next.i.i.i = getelementptr inbounds i8, ptr %block.024.i.i.i, i64 336
   %14 = load atomic i64, ptr %next.i.i.i monotonic, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !84
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !84
   %tobool11.not.i.i.i = icmp eq i64 %14, 0
   br i1 %tobool11.not.i.i.i, label %ram_list_init_bitmaps.exit.i.i, label %for.body.i.i.i, !llvm.loop !85
 
 ram_list_init_bitmaps.exit.i.i:                   ; preds = %while.end24.i.i.i, %while.end.i.i4.i, %rcu_read_auto_lock.exit.i.i
-  %call1.i5.i = call zeroext i1 @migrate_background_snapshot() #16
+  %call1.i5.i = call zeroext i1 @migrate_background_snapshot() #18
   br i1 %call1.i5.i, label %for.inc.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %ram_list_init_bitmaps.exit.i.i
-  call void @memory_global_dirty_log_start(i32 noundef 1) #16
+  call void @memory_global_dirty_log_start(i32 noundef 1) #18
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %local_err.i.i.i)
   store ptr null, ptr %local_err.i.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %pnd.i.i.i.i)
   store i32 1, ptr %pnd.i.i.i.i, align 8
   %errp2.i.i.i.i = getelementptr inbounds i8, ptr %pnd.i.i.i.i, i64 8
   store ptr %local_err.i.i.i, ptr %errp2.i.i.i.i, align 8
-  %call.i.i3.i.i = call i32 @notifier_with_return_list_notify(ptr noundef nonnull @precopy_notifier_list, ptr noundef nonnull %pnd.i.i.i.i) #16
+  %call.i.i3.i.i = call i32 @notifier_with_return_list_notify(ptr noundef nonnull @precopy_notifier_list, ptr noundef nonnull %pnd.i.i.i.i) #18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %pnd.i.i.i.i)
   %tobool.not.i4.i.i = icmp eq i32 %call.i.i3.i.i, 0
   br i1 %tobool.not.i4.i.i, label %if.end.i.i.i, label %if.then.i5.i.i
 
 if.then.i5.i.i:                                   ; preds = %if.then.i.i
   %15 = load ptr, ptr %local_err.i.i.i, align 8
-  call void @error_report_err(ptr noundef %15) #16
+  call void @error_report_err(ptr noundef %15) #18
   store ptr null, ptr %local_err.i.i.i, align 8
   br label %if.end.i.i.i
 
@@ -5919,14 +5919,14 @@ if.end.i.i.i:                                     ; preds = %if.then.i5.i.i, %if
   store i32 2, ptr %pnd.i1.i.i.i, align 8
   %errp2.i2.i.i.i = getelementptr inbounds i8, ptr %pnd.i1.i.i.i, i64 8
   store ptr %local_err.i.i.i, ptr %errp2.i2.i.i.i, align 8
-  %call.i3.i.i.i = call i32 @notifier_with_return_list_notify(ptr noundef nonnull @precopy_notifier_list, ptr noundef nonnull %pnd.i1.i.i.i) #16
+  %call.i3.i.i.i = call i32 @notifier_with_return_list_notify(ptr noundef nonnull @precopy_notifier_list, ptr noundef nonnull %pnd.i1.i.i.i) #18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %pnd.i1.i.i.i)
   %tobool3.not.i.i.i = icmp eq i32 %call.i3.i.i.i, 0
   br i1 %tobool3.not.i.i.i, label %migration_bitmap_sync_precopy.exit.i.i, label %if.then4.i.i.i
 
 if.then4.i.i.i:                                   ; preds = %if.end.i.i.i
   %16 = load ptr, ptr %local_err.i.i.i, align 8
-  call void @error_report_err(ptr noundef %16) #16
+  call void @error_report_err(ptr noundef %16) #18
   br label %migration_bitmap_sync_precopy.exit.i.i
 
 migration_bitmap_sync_precopy.exit.i.i:           ; preds = %if.then4.i.i.i, %if.end.i.i.i
@@ -5934,14 +5934,14 @@ migration_bitmap_sync_precopy.exit.i.i:           ; preds = %if.then4.i.i.i, %if
   br label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %migration_bitmap_sync_precopy.exit.i.i, %ram_list_init_bitmaps.exit.i.i
-  %call.i.i6.i.i = call ptr @get_ptr_rcu_reader() #16
+  %call.i.i6.i.i = call ptr @get_ptr_rcu_reader() #18
   %depth.i.i7.i.i = getelementptr inbounds i8, ptr %call.i.i6.i.i, i64 12
   %17 = load i32, ptr %depth.i.i7.i.i, align 4
   %cmp.not.i.i8.i.i = icmp eq i32 %17, 0
   br i1 %cmp.not.i.i8.i.i, label %if.else.i.i.i.i, label %if.end.i.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %for.inc.i.i
-  call void @__assert_fail(ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.28, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #17
+  call void @__assert_fail(ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.28, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #19
   unreachable
 
 if.end.i.i.i.i:                                   ; preds = %for.inc.i.i
@@ -5952,7 +5952,7 @@ if.end.i.i.i.i:                                   ; preds = %for.inc.i.i
 
 while.end.i.i9.i.i:                               ; preds = %if.end.i.i.i.i
   store atomic i64 0, ptr %call.i.i6.i.i release, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !10
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !10
   fence seq_cst
   %waiting.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i6.i.i, i64 8
   %18 = load atomic i8, ptr %waiting.i.i.i.i monotonic, align 8
@@ -5961,12 +5961,12 @@ while.end.i.i9.i.i:                               ; preds = %if.end.i.i.i.i
 
 while.end21.i.i.i.i:                              ; preds = %while.end.i.i9.i.i
   store atomic i8 0, ptr %waiting.i.i.i.i monotonic, align 8
-  call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #16
+  call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #18
   br label %glib_autoptr_cleanup_RCUReadAuto.exit.i.i
 
 glib_autoptr_cleanup_RCUReadAuto.exit.i.i:        ; preds = %while.end21.i.i.i.i, %while.end.i.i9.i.i, %if.end.i.i.i.i
-  call void @qemu_mutex_unlock_ramlist() #16
-  %call.i.i.i11.i.i = call ptr @get_ptr_rcu_reader() #16
+  call void @qemu_mutex_unlock_ramlist() #18
+  %call.i.i.i11.i.i = call ptr @get_ptr_rcu_reader() #18
   %depth.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i11.i.i, i64 12
   %19 = load i32, ptr %depth.i.i.i.i.i, align 4
   %inc.i.i.i.i.i = add i32 %19, 1
@@ -5978,13 +5978,13 @@ while.end.i.i.i.i.i:                              ; preds = %glib_autoptr_cleanu
   %20 = load atomic i64, ptr @rcu_gp_ctr monotonic, align 8
   %conv8.i.i.i.i.i = and i64 %20, 4294967295
   store atomic i64 %conv8.i.i.i.i.i, ptr %call.i.i.i11.i.i monotonic, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !5
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
   fence seq_cst
   br label %rcu_read_auto_lock.exit.i.i.i
 
 rcu_read_auto_lock.exit.i.i.i:                    ; preds = %while.end.i.i.i.i.i, %glib_autoptr_cleanup_RCUReadAuto.exit.i.i
   %21 = load atomic i64, ptr getelementptr inbounds (i8, ptr @ram_list, i64 56) monotonic, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !86
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !86
   %tobool.not8.i.i.i = icmp eq i64 %21, 0
   br i1 %tobool.not8.i.i.i, label %if.then.i.i.i.i.i, label %for.body.lr.ph.i12.i.i
 
@@ -5997,19 +5997,19 @@ for.body.lr.ph.i12.i.i:                           ; preds = %rcu_read_auto_lock.
 for.body.i13.i.i:                                 ; preds = %while.end8.i.i.i, %for.body.lr.ph.i12.i.i
   %rb.09.in.i.i.i = phi i64 [ %21, %for.body.lr.ph.i12.i.i ], [ %28, %while.end8.i.i.i ]
   %rb.09.i.i.i = inttoptr i64 %rb.09.in.i.i.i to ptr
-  %call.i.i14.i.i = call zeroext i1 @qemu_ram_is_migratable(ptr noundef nonnull %rb.09.i.i.i) #16
+  %call.i.i14.i.i = call zeroext i1 @qemu_ram_is_migratable(ptr noundef nonnull %rb.09.i.i.i) #18
   br i1 %call.i.i14.i.i, label %lor.rhs.i.i17.i.i, label %while.end8.i.i.i
 
 lor.rhs.i.i17.i.i:                                ; preds = %for.body.i13.i.i
-  %call1.i.i18.i.i = call zeroext i1 @migrate_ignore_shared() #16
+  %call1.i.i18.i.i = call zeroext i1 @migrate_ignore_shared() #18
   br i1 %call1.i.i18.i.i, label %land.lhs.true.i.i22.i.i, label %if.else.i19.i.i
 
 land.lhs.true.i.i22.i.i:                          ; preds = %lor.rhs.i.i17.i.i
-  %call2.i.i23.i.i = call zeroext i1 @qemu_ram_is_shared(ptr noundef nonnull %rb.09.i.i.i) #16
+  %call2.i.i23.i.i = call zeroext i1 @qemu_ram_is_shared(ptr noundef nonnull %rb.09.i.i.i) #18
   br i1 %call2.i.i23.i.i, label %migrate_ram_is_ignored.exit.i24.i.i, label %if.else.i19.i.i
 
 migrate_ram_is_ignored.exit.i24.i.i:              ; preds = %land.lhs.true.i.i22.i.i
-  %call3.i.i25.i.i = call zeroext i1 @qemu_ram_is_named_file(ptr noundef nonnull %rb.09.i.i.i) #16
+  %call3.i.i25.i.i = call zeroext i1 @qemu_ram_is_named_file(ptr noundef nonnull %rb.09.i.i.i) #18
   br i1 %call3.i.i25.i.i, label %while.end8.i.i.i, label %if.else.i19.i.i
 
 if.else.i19.i.i:                                  ; preds = %migrate_ram_is_ignored.exit.i24.i.i, %land.lhs.true.i.i22.i.i, %lor.rhs.i.i17.i.i
@@ -6028,20 +6028,20 @@ land.lhs.true.i4.i.i.i:                           ; preds = %if.else.i19.i.i
   br i1 %tobool1.not.i.i.i.i, label %ramblock_dirty_bitmap_clear_discarded_pages.exit.i.i.i, label %land.lhs.true2.i.i.i.i
 
 land.lhs.true2.i.i.i.i:                           ; preds = %land.lhs.true.i4.i.i.i
-  %call.i.i5.i.i.i = call ptr @memory_region_get_ram_discard_manager(ptr noundef nonnull %22) #16
+  %call.i.i5.i.i.i = call ptr @memory_region_get_ram_discard_manager(ptr noundef nonnull %22) #18
   %tobool.i.not.i.i.i.i = icmp eq ptr %call.i.i5.i.i.i, null
   br i1 %tobool.i.not.i.i.i.i, label %ramblock_dirty_bitmap_clear_discarded_pages.exit.i.i.i, label %if.then.i.i21.i.i
 
 if.then.i.i21.i.i:                                ; preds = %land.lhs.true2.i.i.i.i
   %24 = load ptr, ptr %mr.i.i.i.i, align 8
-  %call5.i.i.i.i = call ptr @memory_region_get_ram_discard_manager(ptr noundef %24) #16
-  %call6.i.i.i.i = call i64 @qemu_ram_get_used_length(ptr noundef nonnull %rb.09.i.i.i) #16
+  %call5.i.i.i.i = call ptr @memory_region_get_ram_discard_manager(ptr noundef %24) #18
+  %call6.i.i.i.i = call i64 @qemu_ram_get_used_length(ptr noundef nonnull %rb.09.i.i.i) #18
   %coerce.sroa.0.0.insert.ext.i.i.i.i = zext i64 %call6.i.i.i.i to i128
   store i128 %coerce.sroa.0.0.insert.ext.i.i.i.i, ptr %section.i.i.i.i, align 16
   %25 = load ptr, ptr %mr.i.i.i.i, align 8
   store ptr %25, ptr %mr8.i.i.i.i, align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(27) %fv.i.i.i.i, i8 0, i64 27, i1 false)
-  call void @ram_discard_manager_replay_discarded(ptr noundef %call5.i.i.i.i, ptr noundef nonnull %section.i.i.i.i, ptr noundef nonnull @dirty_bitmap_clear_section, ptr noundef nonnull %cleared_bits.i.i.i.i) #16
+  call void @ram_discard_manager_replay_discarded(ptr noundef %call5.i.i.i.i, ptr noundef nonnull %section.i.i.i.i, ptr noundef nonnull @dirty_bitmap_clear_section, ptr noundef nonnull %cleared_bits.i.i.i.i) #18
   %.pre.i.i.i.i = load i64, ptr %cleared_bits.i.i.i.i, align 8
   br label %ramblock_dirty_bitmap_clear_discarded_pages.exit.i.i.i
 
@@ -6057,19 +6057,19 @@ ramblock_dirty_bitmap_clear_discarded_pages.exit.i.i.i: ; preds = %if.then.i.i21
 while.end8.i.i.i:                                 ; preds = %ramblock_dirty_bitmap_clear_discarded_pages.exit.i.i.i, %migrate_ram_is_ignored.exit.i24.i.i, %for.body.i13.i.i
   %next.i15.i.i = getelementptr inbounds i8, ptr %rb.09.i.i.i, i64 336
   %28 = load atomic i64, ptr %next.i15.i.i monotonic, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !87
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !87
   %tobool.not.i16.i.i = icmp eq i64 %28, 0
   br i1 %tobool.not.i16.i.i, label %if.then.i.i.i.i.i, label %for.body.i13.i.i, !llvm.loop !88
 
 if.then.i.i.i.i.i:                                ; preds = %while.end8.i.i.i, %rcu_read_auto_lock.exit.i.i.i
-  %call.i.i.i.i.i.i.i = call ptr @get_ptr_rcu_reader() #16
+  %call.i.i.i.i.i.i.i = call ptr @get_ptr_rcu_reader() #18
   %depth.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i, i64 12
   %29 = load i32, ptr %depth.i.i.i.i.i.i.i, align 4
   %cmp.not.i.i.i.i.i.i.i = icmp eq i32 %29, 0
   br i1 %cmp.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i
 
 if.else.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i
-  call void @__assert_fail(ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.28, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #17
+  call void @__assert_fail(ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.28, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #19
   unreachable
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i
@@ -6080,7 +6080,7 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i
 
 while.end.i.i.i.i.i.i.i:                          ; preds = %if.end.i.i.i.i.i.i.i
   store atomic i64 0, ptr %call.i.i.i.i.i.i.i release, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !10
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !10
   fence seq_cst
   %waiting.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i, i64 8
   %30 = load atomic i8, ptr %waiting.i.i.i.i.i.i.i monotonic, align 8
@@ -6089,17 +6089,17 @@ while.end.i.i.i.i.i.i.i:                          ; preds = %if.end.i.i.i.i.i.i.
 
 while.end21.i.i.i.i.i.i.i:                        ; preds = %while.end.i.i.i.i.i.i.i
   store atomic i8 0, ptr %waiting.i.i.i.i.i.i.i monotonic, align 8
-  call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #16
+  call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #18
   br label %if.end6
 
 if.then4:                                         ; preds = %if.then3.i, %if.then2
-  call void @compress_threads_save_cleanup() #16
+  call void @compress_threads_save_cleanup() #18
   br label %return
 
 if.end6:                                          ; preds = %while.end21.i.i.i.i.i.i.i, %while.end.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i, %if.end
   %31 = load ptr, ptr %opaque, align 8
   store ptr %f, ptr %31, align 8
-  %call.i.i32 = call ptr @get_ptr_rcu_reader() #16
+  %call.i.i32 = call ptr @get_ptr_rcu_reader() #18
   %depth.i.i = getelementptr inbounds i8, ptr %call.i.i32, i64 12
   %32 = load i32, ptr %depth.i.i, align 4
   %inc.i.i = add i32 %32, 1
@@ -6111,12 +6111,12 @@ while.end.i.i:                                    ; preds = %if.end6
   %33 = load atomic i64, ptr @rcu_gp_ctr monotonic, align 8
   %conv8.i.i = and i64 %33, 4294967295
   store atomic i64 %conv8.i.i, ptr %call.i.i32 monotonic, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !5
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
   fence seq_cst
   br label %rcu_read_auto_lock.exit
 
 rcu_read_auto_lock.exit:                          ; preds = %if.end6, %while.end.i.i
-  %call.i.i.i33 = call ptr @get_ptr_rcu_reader() #16
+  %call.i.i.i33 = call ptr @get_ptr_rcu_reader() #18
   %depth.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i33, i64 12
   %34 = load i32, ptr %depth.i.i.i, align 4
   %inc.i.i.i = add i32 %34, 1
@@ -6128,13 +6128,13 @@ while.end.i.i.i40:                                ; preds = %rcu_read_auto_lock.
   %35 = load atomic i64, ptr @rcu_gp_ctr monotonic, align 8
   %conv8.i.i.i = and i64 %35, 4294967295
   store atomic i64 %conv8.i.i.i, ptr %call.i.i.i33 monotonic, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !5
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
   fence seq_cst
   br label %rcu_read_auto_lock.exit.i
 
 rcu_read_auto_lock.exit.i:                        ; preds = %while.end.i.i.i40, %rcu_read_auto_lock.exit
   %36 = load atomic i64, ptr getelementptr inbounds (i8, ptr @ram_list, i64 56) monotonic, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !89
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !89
   %tobool.not6.i = icmp eq i64 %36, 0
   br i1 %tobool.not6.i, label %if.then.i.i.i35, label %for.body.i
 
@@ -6142,7 +6142,7 @@ for.body.i:                                       ; preds = %rcu_read_auto_lock.
   %block.08.in.i = phi i64 [ %38, %while.end7.i ], [ %36, %rcu_read_auto_lock.exit.i ]
   %total.07.i = phi i64 [ %total.1.i, %while.end7.i ], [ 0, %rcu_read_auto_lock.exit.i ]
   %block.08.i = inttoptr i64 %block.08.in.i to ptr
-  %call1.i = call zeroext i1 @qemu_ram_is_migratable(ptr noundef nonnull %block.08.i) #16
+  %call1.i = call zeroext i1 @qemu_ram_is_migratable(ptr noundef nonnull %block.08.i) #18
   br i1 %call1.i, label %if.else.i, label %while.end7.i
 
 if.else.i:                                        ; preds = %for.body.i
@@ -6155,7 +6155,7 @@ while.end7.i:                                     ; preds = %if.else.i, %for.bod
   %total.1.i = phi i64 [ %add.i, %if.else.i ], [ %total.07.i, %for.body.i ]
   %next.i = getelementptr inbounds i8, ptr %block.08.i, i64 336
   %38 = load atomic i64, ptr %next.i monotonic, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !90
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !90
   %tobool.not.i34 = icmp eq i64 %38, 0
   br i1 %tobool.not.i34, label %if.then.i.i.i35.loopexit, label %for.body.i, !llvm.loop !91
 
@@ -6165,14 +6165,14 @@ if.then.i.i.i35.loopexit:                         ; preds = %while.end7.i
 
 if.then.i.i.i35:                                  ; preds = %if.then.i.i.i35.loopexit, %rcu_read_auto_lock.exit.i
   %total.0.lcssa.i = phi i64 [ 4, %rcu_read_auto_lock.exit.i ], [ %39, %if.then.i.i.i35.loopexit ]
-  %call.i.i.i.i.i36 = call ptr @get_ptr_rcu_reader() #16
+  %call.i.i.i.i.i36 = call ptr @get_ptr_rcu_reader() #18
   %depth.i.i.i.i.i37 = getelementptr inbounds i8, ptr %call.i.i.i.i.i36, i64 12
   %40 = load i32, ptr %depth.i.i.i.i.i37, align 4
   %cmp.not.i.i.i.i.i38 = icmp eq i32 %40, 0
   br i1 %cmp.not.i.i.i.i.i38, label %if.else.i.i.i.i.i, label %if.end.i.i.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i35
-  call void @__assert_fail(ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.28, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #17
+  call void @__assert_fail(ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.28, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #19
   unreachable
 
 if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i35
@@ -6183,7 +6183,7 @@ if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i35
 
 while.end.i.i.i.i.i39:                            ; preds = %if.end.i.i.i.i.i
   store atomic i64 0, ptr %call.i.i.i.i.i36 release, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !10
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !10
   fence seq_cst
   %waiting.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i36, i64 8
   %41 = load atomic i8, ptr %waiting.i.i.i.i.i monotonic, align 8
@@ -6192,33 +6192,33 @@ while.end.i.i.i.i.i39:                            ; preds = %if.end.i.i.i.i.i
 
 while.end21.i.i.i.i.i:                            ; preds = %while.end.i.i.i.i.i39
   store atomic i8 0, ptr %waiting.i.i.i.i.i monotonic, align 8
-  call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #16
+  call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #18
   br label %ram_bytes_total_with_ignored.exit
 
 ram_bytes_total_with_ignored.exit:                ; preds = %if.end.i.i.i.i.i, %while.end.i.i.i.i.i39, %while.end21.i.i.i.i.i
-  call void @qemu_put_be64(ptr noundef %f, i64 noundef %total.0.lcssa.i) #16
+  call void @qemu_put_be64(ptr noundef %f, i64 noundef %total.0.lcssa.i) #18
   %42 = load atomic i64, ptr getelementptr inbounds (i8, ptr @ram_list, i64 56) monotonic, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !92
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !92
   %tobool11.not62 = icmp eq i64 %42, 0
   br i1 %tobool11.not62, label %for.inc39, label %for.body12
 
 for.body12:                                       ; preds = %ram_bytes_total_with_ignored.exit, %while.end37
   %block.063.in = phi i64 [ %48, %while.end37 ], [ %42, %ram_bytes_total_with_ignored.exit ]
   %block.063 = inttoptr i64 %block.063.in to ptr
-  %call13 = call zeroext i1 @qemu_ram_is_migratable(ptr noundef nonnull %block.063) #16
+  %call13 = call zeroext i1 @qemu_ram_is_migratable(ptr noundef nonnull %block.063) #18
   br i1 %call13, label %if.else, label %while.end37
 
 if.else:                                          ; preds = %for.body12
   %idstr = getelementptr inbounds i8, ptr %block.063, i64 76
-  %call15 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %idstr) #19
+  %call15 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %idstr) #21
   %conv = trunc i64 %call15 to i32
-  call void @qemu_put_byte(ptr noundef %f, i32 noundef %conv) #16
-  %call20 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %idstr) #19
-  call void @qemu_put_buffer(ptr noundef %f, ptr noundef nonnull %idstr, i64 noundef %call20) #16
+  call void @qemu_put_byte(ptr noundef %f, i32 noundef %conv) #18
+  %call20 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %idstr) #21
+  call void @qemu_put_buffer(ptr noundef %f, ptr noundef nonnull %idstr, i64 noundef %call20) #18
   %used_length = getelementptr inbounds i8, ptr %block.063, i64 48
   %43 = load i64, ptr %used_length, align 8
-  call void @qemu_put_be64(ptr noundef %f, i64 noundef %43) #16
-  %call21 = call zeroext i1 @migrate_postcopy_ram() #16
+  call void @qemu_put_be64(ptr noundef %f, i64 noundef %43) #18
+  %call21 = call zeroext i1 @migrate_postcopy_ram() #18
   br i1 %call21, label %land.lhs.true, label %if.end27
 
 land.lhs.true:                                    ; preds = %if.else
@@ -6229,11 +6229,11 @@ land.lhs.true:                                    ; preds = %if.else
   br i1 %cmp23.not, label %if.end27, label %if.then25
 
 if.then25:                                        ; preds = %land.lhs.true
-  call void @qemu_put_be64(ptr noundef %f, i64 noundef %44) #16
+  call void @qemu_put_be64(ptr noundef %f, i64 noundef %44) #18
   br label %if.end27
 
 if.end27:                                         ; preds = %if.then25, %land.lhs.true, %if.else
-  %call28 = call zeroext i1 @migrate_ignore_shared() #16
+  %call28 = call zeroext i1 @migrate_ignore_shared() #18
   br i1 %call28, label %if.then29, label %while.end37
 
 if.then29:                                        ; preds = %if.end27
@@ -6241,25 +6241,25 @@ if.then29:                                        ; preds = %if.end27
   %46 = load ptr, ptr %mr, align 8
   %addr = getelementptr inbounds i8, ptr %46, i64 128
   %47 = load i64, ptr %addr, align 16
-  call void @qemu_put_be64(ptr noundef %f, i64 noundef %47) #16
+  call void @qemu_put_be64(ptr noundef %f, i64 noundef %47) #18
   br label %while.end37
 
 while.end37:                                      ; preds = %for.body12, %if.then29, %if.end27
   %next = getelementptr inbounds i8, ptr %block.063, i64 336
   %48 = load atomic i64, ptr %next monotonic, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !93
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !93
   %tobool11.not = icmp eq i64 %48, 0
   br i1 %tobool11.not, label %for.inc39, label %for.body12, !llvm.loop !94
 
 for.inc39:                                        ; preds = %while.end37, %ram_bytes_total_with_ignored.exit
-  %call.i.i41 = call ptr @get_ptr_rcu_reader() #16
+  %call.i.i41 = call ptr @get_ptr_rcu_reader() #18
   %depth.i.i42 = getelementptr inbounds i8, ptr %call.i.i41, i64 12
   %49 = load i32, ptr %depth.i.i42, align 4
   %cmp.not.i.i43 = icmp eq i32 %49, 0
   br i1 %cmp.not.i.i43, label %if.else.i.i, label %if.end.i.i44
 
 if.else.i.i:                                      ; preds = %for.inc39
-  call void @__assert_fail(ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.28, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #17
+  call void @__assert_fail(ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.28, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #19
   unreachable
 
 if.end.i.i44:                                     ; preds = %for.inc39
@@ -6270,7 +6270,7 @@ if.end.i.i44:                                     ; preds = %for.inc39
 
 while.end.i.i45:                                  ; preds = %if.end.i.i44
   store atomic i64 0, ptr %call.i.i41 release, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !10
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !10
   fence seq_cst
   %waiting.i.i = getelementptr inbounds i8, ptr %call.i.i41, i64 8
   %50 = load atomic i8, ptr %waiting.i.i monotonic, align 8
@@ -6279,34 +6279,34 @@ while.end.i.i45:                                  ; preds = %if.end.i.i44
 
 while.end21.i.i:                                  ; preds = %while.end.i.i45
   store atomic i8 0, ptr %waiting.i.i monotonic, align 8
-  call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #16
+  call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #18
   br label %glib_autoptr_cleanup_RCUReadAuto.exit
 
 glib_autoptr_cleanup_RCUReadAuto.exit:            ; preds = %while.end21.i.i, %while.end.i.i45, %if.end.i.i44
-  %call51 = call noalias dereferenceable_or_null(8) ptr @g_malloc0(i64 noundef 8) #18
+  %call51 = call noalias dereferenceable_or_null(8) ptr @g_malloc0(i64 noundef 8) #20
   store ptr %call51, ptr @migration_ops, align 8
   store ptr @ram_save_target_page_legacy, ptr %call51, align 8
-  call void @qemu_mutex_unlock_iothread() #16
-  %call52 = call i32 @multifd_send_sync_main(ptr noundef %f) #16
-  call void @qemu_mutex_lock_iothread_impl(ptr noundef nonnull @.str, i32 noundef 2989) #16
+  call void @qemu_mutex_unlock_iothread() #18
+  %call52 = call i32 @multifd_send_sync_main(ptr noundef %f) #18
+  call void @qemu_mutex_lock_iothread_impl(ptr noundef nonnull @.str, i32 noundef 2989) #18
   %cmp53 = icmp slt i32 %call52, 0
   br i1 %cmp53, label %return, label %if.end56
 
 if.end56:                                         ; preds = %glib_autoptr_cleanup_RCUReadAuto.exit
-  %call57 = call zeroext i1 @migrate_multifd() #16
+  %call57 = call zeroext i1 @migrate_multifd() #18
   br i1 %call57, label %land.lhs.true59, label %if.end62
 
 land.lhs.true59:                                  ; preds = %if.end56
-  %call60 = call zeroext i1 @migrate_multifd_flush_after_each_section() #16
+  %call60 = call zeroext i1 @migrate_multifd_flush_after_each_section() #18
   br i1 %call60, label %if.end62, label %if.then61
 
 if.then61:                                        ; preds = %land.lhs.true59
-  call void @qemu_put_be64(ptr noundef %f, i64 noundef 512) #16
+  call void @qemu_put_be64(ptr noundef %f, i64 noundef 512) #18
   br label %if.end62
 
 if.end62:                                         ; preds = %if.then61, %land.lhs.true59, %if.end56
-  call void @qemu_put_be64(ptr noundef %f, i64 noundef 16) #16
-  %call63 = call i32 @qemu_fflush(ptr noundef %f) #16
+  call void @qemu_put_be64(ptr noundef %f, i64 noundef 16) #18
+  %call63 = call i32 @qemu_fflush(ptr noundef %f) #18
   br label %return
 
 return:                                           ; preds = %glib_autoptr_cleanup_RCUReadAuto.exit, %entry, %if.end62, %if.then4
@@ -6317,7 +6317,7 @@ return:                                           ; preds = %glib_autoptr_cleanu
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @ram_save_cleanup(ptr nocapture noundef %opaque) #0 {
 entry:
-  %call = tail call zeroext i1 @migrate_background_snapshot() #16
+  %call = tail call zeroext i1 @migrate_background_snapshot() #18
   br i1 %call, label %while.end, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -6327,59 +6327,59 @@ if.then:                                          ; preds = %entry
   br i1 %tobool.not, label %while.end, label %if.then1
 
 if.then1:                                         ; preds = %if.then
-  tail call void @memory_global_dirty_log_stop(i32 noundef 1) #16
+  tail call void @memory_global_dirty_log_stop(i32 noundef 1) #18
   br label %while.end
 
 while.end:                                        ; preds = %if.then, %if.then1, %entry
   %1 = load atomic i64, ptr getelementptr inbounds (i8, ptr @ram_list, i64 56) monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !95
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !95
   %tobool3.not9 = icmp eq i64 %1, 0
   br i1 %tobool3.not9, label %for.end, label %for.body
 
 for.body:                                         ; preds = %while.end, %while.end13
   %block.010.in = phi i64 [ %4, %while.end13 ], [ %1, %while.end ]
   %block.010 = inttoptr i64 %block.010.in to ptr
-  %call.i = tail call zeroext i1 @qemu_ram_is_migratable(ptr noundef nonnull %block.010) #16
+  %call.i = tail call zeroext i1 @qemu_ram_is_migratable(ptr noundef nonnull %block.010) #18
   br i1 %call.i, label %lor.rhs.i, label %while.end13
 
 lor.rhs.i:                                        ; preds = %for.body
-  %call1.i = tail call zeroext i1 @migrate_ignore_shared() #16
+  %call1.i = tail call zeroext i1 @migrate_ignore_shared() #18
   br i1 %call1.i, label %land.lhs.true.i, label %if.else
 
 land.lhs.true.i:                                  ; preds = %lor.rhs.i
-  %call2.i = tail call zeroext i1 @qemu_ram_is_shared(ptr noundef nonnull %block.010) #16
+  %call2.i = tail call zeroext i1 @qemu_ram_is_shared(ptr noundef nonnull %block.010) #18
   br i1 %call2.i, label %migrate_ram_is_ignored.exit, label %if.else
 
 migrate_ram_is_ignored.exit:                      ; preds = %land.lhs.true.i
-  %call3.i = tail call zeroext i1 @qemu_ram_is_named_file(ptr noundef nonnull %block.010) #16
+  %call3.i = tail call zeroext i1 @qemu_ram_is_named_file(ptr noundef nonnull %block.010) #18
   br i1 %call3.i, label %while.end13, label %if.else
 
 if.else:                                          ; preds = %lor.rhs.i, %land.lhs.true.i, %migrate_ram_is_ignored.exit
   %clear_bmap = getelementptr inbounds i8, ptr %block.010, i64 400
   %2 = load ptr, ptr %clear_bmap, align 8
-  tail call void @g_free(ptr noundef %2) #16
+  tail call void @g_free(ptr noundef %2) #18
   store ptr null, ptr %clear_bmap, align 8
   %bmap = getelementptr inbounds i8, ptr %block.010, i64 384
   %3 = load ptr, ptr %bmap, align 8
-  tail call void @g_free(ptr noundef %3) #16
+  tail call void @g_free(ptr noundef %3) #18
   store ptr null, ptr %bmap, align 8
   br label %while.end13
 
 while.end13:                                      ; preds = %for.body, %if.else, %migrate_ram_is_ignored.exit
   %next = getelementptr inbounds i8, ptr %block.010, i64 336
   %4 = load atomic i64, ptr %next monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !96
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !96
   %tobool3.not = icmp eq i64 %4, 0
   br i1 %tobool3.not, label %for.end, label %for.body, !llvm.loop !97
 
 for.end:                                          ; preds = %while.end13, %while.end
-  %call.i.i = tail call zeroext i1 @migrate_xbzrle() #16
+  %call.i.i = tail call zeroext i1 @migrate_xbzrle() #18
   br i1 %call.i.i, label %while.end.i.i, label %XBZRLE_cache_lock.exit.i
 
 while.end.i.i:                                    ; preds = %for.end
   %5 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %6 = inttoptr i64 %5 to ptr
-  tail call void %6(ptr noundef nonnull getelementptr inbounds (i8, ptr @XBZRLE, i64 24), ptr noundef nonnull @.str, i32 noundef 138) #16
+  tail call void %6(ptr noundef nonnull getelementptr inbounds (i8, ptr @XBZRLE, i64 24), ptr noundef nonnull @.str, i32 noundef 138) #18
   br label %XBZRLE_cache_lock.exit.i
 
 XBZRLE_cache_lock.exit.i:                         ; preds = %while.end.i.i, %for.end
@@ -6388,30 +6388,30 @@ XBZRLE_cache_lock.exit.i:                         ; preds = %while.end.i.i, %for
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %XBZRLE_cache_lock.exit.i
-  tail call void @cache_fini(ptr noundef nonnull %7) #16
+  tail call void @cache_fini(ptr noundef nonnull %7) #18
   %8 = load ptr, ptr @XBZRLE, align 8
-  tail call void @g_free(ptr noundef %8) #16
+  tail call void @g_free(ptr noundef %8) #18
   %9 = load ptr, ptr getelementptr inbounds (i8, ptr @XBZRLE, i64 8), align 8
-  tail call void @g_free(ptr noundef %9) #16
+  tail call void @g_free(ptr noundef %9) #18
   %10 = load ptr, ptr getelementptr inbounds (i8, ptr @XBZRLE, i64 72), align 8
-  tail call void @g_free(ptr noundef %10) #16
+  tail call void @g_free(ptr noundef %10) #18
   store ptr null, ptr getelementptr inbounds (i8, ptr @XBZRLE, i64 72), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) @XBZRLE, i8 0, i64 24, i1 false)
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %XBZRLE_cache_lock.exit.i
-  %call.i1.i = tail call zeroext i1 @migrate_xbzrle() #16
+  %call.i1.i = tail call zeroext i1 @migrate_xbzrle() #18
   br i1 %call.i1.i, label %if.then.i.i, label %xbzrle_cleanup.exit
 
 if.then.i.i:                                      ; preds = %if.end.i
-  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull getelementptr inbounds (i8, ptr @XBZRLE, i64 24), ptr noundef nonnull @.str, i32 noundef 145) #16
+  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull getelementptr inbounds (i8, ptr @XBZRLE, i64 24), ptr noundef nonnull @.str, i32 noundef 145) #18
   br label %xbzrle_cleanup.exit
 
 xbzrle_cleanup.exit:                              ; preds = %if.end.i, %if.then.i.i
-  tail call void @compress_threads_save_cleanup() #16
+  tail call void @compress_threads_save_cleanup() #18
   tail call fastcc void @ram_state_cleanup(ptr noundef %opaque)
   %11 = load ptr, ptr @migration_ops, align 8
-  tail call void @g_free(ptr noundef %11) #16
+  tail call void @g_free(ptr noundef %11) #18
   store ptr null, ptr @migration_ops, align 8
   ret void
 }
@@ -6423,12 +6423,12 @@ entry:
   %pnd.i.i = alloca %struct.PrecopyNotifyData, align 8
   %local_err.i = alloca ptr, align 8
   %0 = load ptr, ptr %opaque, align 8
-  %call = tail call zeroext i1 @migration_in_colo_state() #16
+  %call = tail call zeroext i1 @migration_in_colo_state() #18
   %lnot = xor i1 %call, true
   %last_stage = getelementptr inbounds i8, ptr %0, i64 201
   %frombool = zext i1 %lnot to i8
   store i8 %frombool, ptr %last_stage, align 1
-  %call.i.i = tail call ptr @get_ptr_rcu_reader() #16
+  %call.i.i = tail call ptr @get_ptr_rcu_reader() #18
   %depth.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   %1 = load i32, ptr %depth.i.i, align 4
   %inc.i.i = add i32 %1, 1
@@ -6440,12 +6440,12 @@ while.end.i.i:                                    ; preds = %entry
   %2 = load atomic i64, ptr @rcu_gp_ctr monotonic, align 8
   %conv8.i.i = and i64 %2, 4294967295
   store atomic i64 %conv8.i.i, ptr %call.i.i monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
   fence seq_cst
   br label %rcu_read_auto_lock.exit
 
 rcu_read_auto_lock.exit:                          ; preds = %entry, %while.end.i.i
-  %call2 = tail call zeroext i1 @migration_in_postcopy() #16
+  %call2 = tail call zeroext i1 @migration_in_postcopy() #18
   br i1 %call2, label %if.end, label %if.then
 
 if.then:                                          ; preds = %rcu_read_auto_lock.exit
@@ -6455,14 +6455,14 @@ if.then:                                          ; preds = %rcu_read_auto_lock.
   store i32 1, ptr %pnd.i.i, align 8
   %errp2.i.i = getelementptr inbounds i8, ptr %pnd.i.i, i64 8
   store ptr %local_err.i, ptr %errp2.i.i, align 8
-  %call.i.i22 = call i32 @notifier_with_return_list_notify(ptr noundef nonnull @precopy_notifier_list, ptr noundef nonnull %pnd.i.i) #16
+  %call.i.i22 = call i32 @notifier_with_return_list_notify(ptr noundef nonnull @precopy_notifier_list, ptr noundef nonnull %pnd.i.i) #18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %pnd.i.i)
   %tobool.not.i = icmp eq i32 %call.i.i22, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
   %3 = load ptr, ptr %local_err.i, align 8
-  call void @error_report_err(ptr noundef %3) #16
+  call void @error_report_err(ptr noundef %3) #18
   store ptr null, ptr %local_err.i, align 8
   br label %if.end.i
 
@@ -6472,14 +6472,14 @@ if.end.i:                                         ; preds = %if.then.i, %if.then
   store i32 2, ptr %pnd.i1.i, align 8
   %errp2.i2.i = getelementptr inbounds i8, ptr %pnd.i1.i, i64 8
   store ptr %local_err.i, ptr %errp2.i2.i, align 8
-  %call.i3.i = call i32 @notifier_with_return_list_notify(ptr noundef nonnull @precopy_notifier_list, ptr noundef nonnull %pnd.i1.i) #16
+  %call.i3.i = call i32 @notifier_with_return_list_notify(ptr noundef nonnull @precopy_notifier_list, ptr noundef nonnull %pnd.i1.i) #18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %pnd.i1.i)
   %tobool3.not.i = icmp eq i32 %call.i3.i, 0
   br i1 %tobool3.not.i, label %migration_bitmap_sync_precopy.exit, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.end.i
   %4 = load ptr, ptr %local_err.i, align 8
-  call void @error_report_err(ptr noundef %4) #16
+  call void @error_report_err(ptr noundef %4) #18
   br label %migration_bitmap_sync_precopy.exit
 
 migration_bitmap_sync_precopy.exit:               ; preds = %if.end.i, %if.then4.i
@@ -6490,7 +6490,7 @@ if.end:                                           ; preds = %migration_bitmap_sy
   %5 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %6 = inttoptr i64 %5 to ptr
   %bitmap_mutex = getelementptr inbounds i8, ptr %0, i64 232
-  call void %6(ptr noundef nonnull %bitmap_mutex, ptr noundef nonnull @.str, i32 noundef 3161) #16
+  call void %6(ptr noundef nonnull %bitmap_mutex, ptr noundef nonnull @.str, i32 noundef 3161) #18
   br label %while.cond6
 
 while.cond6:                                      ; preds = %if.end11, %if.end
@@ -6503,16 +6503,16 @@ if.end11:                                         ; preds = %while.cond6
   br i1 %cmp12, label %if.then.i.i, label %while.cond6
 
 while.end16:                                      ; preds = %while.cond6
-  call void @qemu_mutex_unlock_impl(ptr noundef nonnull %bitmap_mutex, ptr noundef nonnull @.str, i32 noundef 3175) #16
-  call void @compress_flush_data() #16
-  %call.i.i23 = call ptr @get_ptr_rcu_reader() #16
+  call void @qemu_mutex_unlock_impl(ptr noundef nonnull %bitmap_mutex, ptr noundef nonnull @.str, i32 noundef 3175) #18
+  call void @compress_flush_data() #18
+  %call.i.i23 = call ptr @get_ptr_rcu_reader() #18
   %depth.i.i24 = getelementptr inbounds i8, ptr %call.i.i23, i64 12
   %7 = load i32, ptr %depth.i.i24, align 4
   %cmp.not.i.i25 = icmp eq i32 %7, 0
   br i1 %cmp.not.i.i25, label %if.else.i.i, label %if.end.i.i
 
 if.else.i.i:                                      ; preds = %while.end16
-  call void @__assert_fail(ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.28, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #17
+  call void @__assert_fail(ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.28, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #19
   unreachable
 
 if.end.i.i:                                       ; preds = %while.end16
@@ -6523,7 +6523,7 @@ if.end.i.i:                                       ; preds = %while.end16
 
 while.end.i.i26:                                  ; preds = %if.end.i.i
   store atomic i64 0, ptr %call.i.i23 release, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !10
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !10
   fence seq_cst
   %waiting.i.i = getelementptr inbounds i8, ptr %call.i.i23, i64 8
   %8 = load atomic i8, ptr %waiting.i.i monotonic, align 8
@@ -6532,19 +6532,19 @@ while.end.i.i26:                                  ; preds = %if.end.i.i
 
 while.end21.i.i:                                  ; preds = %while.end.i.i26
   store atomic i8 0, ptr %waiting.i.i monotonic, align 8
-  call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #16
+  call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #18
   br label %for.end
 
 if.then.i.i:                                      ; preds = %if.end11
-  call void @qemu_mutex_unlock_impl(ptr noundef nonnull %bitmap_mutex, ptr noundef nonnull @.str, i32 noundef 3171) #16
-  %call.i.i.i.i = call ptr @get_ptr_rcu_reader() #16
+  call void @qemu_mutex_unlock_impl(ptr noundef nonnull %bitmap_mutex, ptr noundef nonnull @.str, i32 noundef 3171) #18
+  %call.i.i.i.i = call ptr @get_ptr_rcu_reader() #18
   %depth.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 12
   %9 = load i32, ptr %depth.i.i.i.i, align 4
   %cmp.not.i.i.i.i = icmp eq i32 %9, 0
   br i1 %cmp.not.i.i.i.i, label %if.else.i.i.i.i, label %if.end.i.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %if.then.i.i
-  call void @__assert_fail(ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.28, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #17
+  call void @__assert_fail(ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.28, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #19
   unreachable
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i
@@ -6555,7 +6555,7 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i
 
 while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   store atomic i64 0, ptr %call.i.i.i.i release, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !10
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !10
   fence seq_cst
   %waiting.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
   %10 = load atomic i8, ptr %waiting.i.i.i.i monotonic, align 8
@@ -6564,30 +6564,30 @@ while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
 
 while.end21.i.i.i.i:                              ; preds = %while.end.i.i.i.i
   store atomic i8 0, ptr %waiting.i.i.i.i monotonic, align 8
-  call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #16
+  call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #18
   br label %return
 
 for.end:                                          ; preds = %while.end21.i.i, %while.end.i.i26, %if.end.i.i
   %11 = load ptr, ptr %0, align 8
-  %call22 = call i32 @multifd_send_sync_main(ptr noundef %11) #16
+  %call22 = call i32 @multifd_send_sync_main(ptr noundef %11) #18
   %cmp23 = icmp slt i32 %call22, 0
   br i1 %cmp23, label %return, label %if.end25
 
 if.end25:                                         ; preds = %for.end
-  %call26 = call zeroext i1 @migrate_multifd() #16
+  %call26 = call zeroext i1 @migrate_multifd() #18
   br i1 %call26, label %land.lhs.true, label %if.end29
 
 land.lhs.true:                                    ; preds = %if.end25
-  %call27 = call zeroext i1 @migrate_multifd_flush_after_each_section() #16
+  %call27 = call zeroext i1 @migrate_multifd_flush_after_each_section() #18
   br i1 %call27, label %if.end29, label %if.then28
 
 if.then28:                                        ; preds = %land.lhs.true
-  call void @qemu_put_be64(ptr noundef %f, i64 noundef 512) #16
+  call void @qemu_put_be64(ptr noundef %f, i64 noundef 512) #18
   br label %if.end29
 
 if.end29:                                         ; preds = %if.then28, %land.lhs.true, %if.end25
-  call void @qemu_put_be64(ptr noundef %f, i64 noundef 16) #16
-  %call30 = call i32 @qemu_fflush(ptr noundef %f) #16
+  call void @qemu_put_be64(ptr noundef %f, i64 noundef 16) #18
+  %call30 = call i32 @qemu_fflush(ptr noundef %f) #18
   br label %return
 
 return:                                           ; preds = %while.end21.i.i.i.i, %while.end.i.i.i.i, %if.end.i.i.i.i, %for.end, %if.end29
@@ -6599,48 +6599,48 @@ return:                                           ; preds = %while.end21.i.i.i.i
 define internal zeroext i1 @ram_has_postcopy(ptr nocapture readnone %opaque) #0 {
 entry:
   %0 = load atomic i64, ptr getelementptr inbounds (i8, ptr @ram_list, i64 56) monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !98
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !98
   %tobool.not9 = icmp eq i64 %0, 0
   br i1 %tobool.not9, label %for.end, label %for.body
 
 for.body:                                         ; preds = %entry, %while.end8
   %rb.010.in = phi i64 [ %2, %while.end8 ], [ %0, %entry ]
   %rb.010 = inttoptr i64 %rb.010.in to ptr
-  %call.i = tail call zeroext i1 @qemu_ram_is_migratable(ptr noundef nonnull %rb.010) #16
+  %call.i = tail call zeroext i1 @qemu_ram_is_migratable(ptr noundef nonnull %rb.010) #18
   br i1 %call.i, label %lor.rhs.i, label %while.end8
 
 lor.rhs.i:                                        ; preds = %for.body
-  %call1.i = tail call zeroext i1 @migrate_ignore_shared() #16
+  %call1.i = tail call zeroext i1 @migrate_ignore_shared() #18
   br i1 %call1.i, label %land.lhs.true.i, label %if.else
 
 land.lhs.true.i:                                  ; preds = %lor.rhs.i
-  %call2.i = tail call zeroext i1 @qemu_ram_is_shared(ptr noundef nonnull %rb.010) #16
+  %call2.i = tail call zeroext i1 @qemu_ram_is_shared(ptr noundef nonnull %rb.010) #18
   br i1 %call2.i, label %migrate_ram_is_ignored.exit, label %if.else
 
 migrate_ram_is_ignored.exit:                      ; preds = %land.lhs.true.i
-  %call3.i = tail call zeroext i1 @qemu_ram_is_named_file(ptr noundef nonnull %rb.010) #16
+  %call3.i = tail call zeroext i1 @qemu_ram_is_named_file(ptr noundef nonnull %rb.010) #18
   br i1 %call3.i, label %while.end8, label %if.else
 
 if.else:                                          ; preds = %lor.rhs.i, %land.lhs.true.i, %migrate_ram_is_ignored.exit
-  %call1 = tail call zeroext i1 @ramblock_is_pmem(ptr noundef nonnull %rb.010) #16
+  %call1 = tail call zeroext i1 @ramblock_is_pmem(ptr noundef nonnull %rb.010) #18
   br i1 %call1, label %if.then2, label %while.end8
 
 if.then2:                                         ; preds = %if.else
   %idstr = getelementptr inbounds i8, ptr %rb.010, i64 76
   %host = getelementptr inbounds i8, ptr %rb.010, i64 24
   %1 = load ptr, ptr %host, align 8
-  tail call void (ptr, ...) @info_report(ptr noundef nonnull @.str.95, ptr noundef nonnull %idstr, ptr noundef %1) #16
+  tail call void (ptr, ...) @info_report(ptr noundef nonnull @.str.95, ptr noundef nonnull %idstr, ptr noundef %1) #18
   br label %return
 
 while.end8:                                       ; preds = %for.body, %migrate_ram_is_ignored.exit, %if.else
   %next = getelementptr inbounds i8, ptr %rb.010, i64 336
   %2 = load atomic i64, ptr %next monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !99
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !99
   %tobool.not = icmp eq i64 %2, 0
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !100
 
 for.end:                                          ; preds = %while.end8, %entry
-  %call10 = tail call zeroext i1 @migrate_postcopy_ram() #16
+  %call10 = tail call zeroext i1 @migrate_postcopy_ram() #18
   br label %return
 
 return:                                           ; preds = %for.end, %if.then2
@@ -6653,7 +6653,7 @@ define internal range(i32 -2147483648, 2) i32 @ram_save_iterate(ptr noundef %f, 
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %0 = load ptr, ptr %opaque, align 8
-  %call = tail call i32 @blk_mig_bulk_active() #16
+  %call = tail call i32 @blk_mig_bulk_active() #18
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
@@ -6661,7 +6661,7 @@ if.end:                                           ; preds = %entry
   %bitmap_mutex = getelementptr inbounds i8, ptr %0, i64 232
   %1 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %2 = inttoptr i64 %1 to ptr
-  tail call void %2(ptr noundef nonnull %bitmap_mutex, ptr noundef nonnull @.str.89, i32 noundef 122) #16
+  tail call void %2(ptr noundef nonnull %bitmap_mutex, ptr noundef nonnull @.str.89, i32 noundef 122) #18
   %last_version = getelementptr inbounds i8, ptr %0, i64 144
   %last_sent_block.i = getelementptr i8, ptr %0, i64 8
   %last_sent_block.i.c = getelementptr i8, ptr %0, i64 64
@@ -6670,7 +6670,7 @@ if.end:                                           ; preds = %entry
   %src_page_requests.i = getelementptr inbounds i8, ptr %0, i64 336
   %target_page_count = getelementptr inbounds i8, ptr %0, i64 216
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %call.i.i = tail call ptr @get_ptr_rcu_reader() #16
+  %call.i.i = tail call ptr @get_ptr_rcu_reader() #18
   %depth.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   %3 = load i32, ptr %depth.i.i, align 4
   %inc.i.i = add i32 %3, 1
@@ -6682,7 +6682,7 @@ while.end.i.i:                                    ; preds = %if.end
   %4 = load atomic i64, ptr @rcu_gp_ctr monotonic, align 8
   %conv8.i.i = and i64 %4, 4294967295
   store atomic i64 %conv8.i.i, ptr %call.i.i monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
   fence seq_cst
   br label %for.body7
 
@@ -6702,14 +6702,14 @@ for.body.i:                                       ; preds = %for.body7
   br label %if.end9
 
 if.end9:                                          ; preds = %for.body.i, %for.body7
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !101
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !101
   fence acquire
-  %call14 = tail call i64 @qemu_clock_get_ns(i32 noundef 0) #16
+  %call14 = tail call i64 @qemu_clock_get_ns(i32 noundef 0) #18
   br label %while.cond
 
 while.cond:                                       ; preds = %if.end45, %if.end9
   %i.0 = phi i32 [ 0, %if.end9 ], [ %inc, %if.end45 ]
-  %call15 = tail call zeroext i1 @migration_rate_exceeded(ptr noundef %f) #16
+  %call15 = tail call zeroext i1 @migration_rate_exceeded(ptr noundef %f) #18
   br i1 %call15, label %lor.rhs, label %while.body
 
 lor.rhs:                                          ; preds = %while.cond
@@ -6718,7 +6718,7 @@ lor.rhs:                                          ; preds = %while.cond
   br i1 %cmp.i31.not, label %for.inc, label %while.body
 
 while.body:                                       ; preds = %while.cond, %lor.rhs
-  %call20 = tail call i32 @qemu_file_get_error(ptr noundef %f) #16
+  %call20 = tail call i32 @qemu_file_get_error(ptr noundef %f) #18
   %tobool21.not = icmp eq i32 %call20, 0
   br i1 %tobool21.not, label %if.end23, label %for.inc
 
@@ -6732,7 +6732,7 @@ if.end28:                                         ; preds = %if.end23
   br i1 %cmp29, label %if.then31, label %if.end32
 
 if.then31:                                        ; preds = %if.end28
-  tail call void @qemu_file_set_error(ptr noundef %f, i32 noundef %call24) #16
+  tail call void @qemu_file_set_error(ptr noundef %f, i32 noundef %call24) #18
   br label %for.inc
 
 if.end32:                                         ; preds = %if.end28
@@ -6740,11 +6740,11 @@ if.end32:                                         ; preds = %if.end28
   %9 = load i64, ptr %target_page_count, align 8
   %add = add i64 %9, %conv33
   store i64 %add, ptr %target_page_count, align 8
-  %call34 = tail call zeroext i1 @migrate_postcopy_ram() #16
+  %call34 = tail call zeroext i1 @migrate_postcopy_ram() #18
   br i1 %call34, label %if.then35, label %if.end36
 
 if.then35:                                        ; preds = %if.end32
-  tail call void @compress_flush_data() #16
+  tail call void @compress_flush_data() #18
   br label %if.end36
 
 if.end36:                                         ; preds = %if.then35, %if.end32
@@ -6753,7 +6753,7 @@ if.end36:                                         ; preds = %if.then35, %if.end3
   br i1 %cmp37, label %if.then39, label %if.end45
 
 if.then39:                                        ; preds = %if.end36
-  %call40 = tail call i64 @qemu_clock_get_ns(i32 noundef 0) #16
+  %call40 = tail call i64 @qemu_clock_get_ns(i32 noundef 0) #18
   %sub = sub i64 %call40, %call14
   %div = sdiv i64 %sub, 1000000
   %cmp41 = icmp ugt i64 %div, 50
@@ -6780,15 +6780,15 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #16
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #18
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #18
   %14 = load i64, ptr %_now.i.i, align 8
   %15 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.96, i32 noundef %call10.i.i, i64 noundef %14, i64 noundef %15, i64 noundef %div, i32 noundef %i.0) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.96, i32 noundef %call10.i.i, i64 noundef %14, i64 noundef %15, i64 noundef %div, i32 noundef %i.0) #18
   br label %trace_ram_save_iterate_big_wait.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.97, i64 noundef %div, i32 noundef %i.0) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.97, i64 noundef %div, i32 noundef %i.0) #18
   br label %trace_ram_save_iterate_big_wait.exit
 
 trace_ram_save_iterate_big_wait.exit:             ; preds = %if.then43, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -6801,14 +6801,14 @@ if.end45:                                         ; preds = %if.then39, %if.end3
 
 for.inc:                                          ; preds = %if.end23, %lor.rhs, %while.body, %if.then31, %trace_ram_save_iterate_big_wait.exit
   %done.2 = phi i32 [ 0, %if.then31 ], [ 0, %trace_ram_save_iterate_big_wait.exit ], [ 0, %while.body ], [ 0, %lor.rhs ], [ 1, %if.end23 ]
-  %call.i.i32 = tail call ptr @get_ptr_rcu_reader() #16
+  %call.i.i32 = tail call ptr @get_ptr_rcu_reader() #18
   %depth.i.i33 = getelementptr inbounds i8, ptr %call.i.i32, i64 12
   %16 = load i32, ptr %depth.i.i33, align 4
   %cmp.not.i.i34 = icmp eq i32 %16, 0
   br i1 %cmp.not.i.i34, label %if.else.i.i37, label %if.end.i.i
 
 if.else.i.i37:                                    ; preds = %for.inc
-  tail call void @__assert_fail(ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.28, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #17
+  tail call void @__assert_fail(ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.28, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #19
   unreachable
 
 if.end.i.i:                                       ; preds = %for.inc
@@ -6819,7 +6819,7 @@ if.end.i.i:                                       ; preds = %for.inc
 
 while.end.i.i35:                                  ; preds = %if.end.i.i
   store atomic i64 0, ptr %call.i.i32 release, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !10
   fence seq_cst
   %waiting.i.i = getelementptr inbounds i8, ptr %call.i.i32, i64 8
   %17 = load atomic i8, ptr %waiting.i.i monotonic, align 8
@@ -6828,49 +6828,49 @@ while.end.i.i35:                                  ; preds = %if.end.i.i
 
 while.end21.i.i:                                  ; preds = %while.end.i.i35
   store atomic i8 0, ptr %waiting.i.i monotonic, align 8
-  tail call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #16
+  tail call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #18
   br label %qemu_lockable_auto_unlock.exit
 
 qemu_lockable_auto_unlock.exit:                   ; preds = %while.end21.i.i, %while.end.i.i35, %if.end.i.i
-  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %bitmap_mutex, ptr noundef nonnull @.str.89, i32 noundef 132) #16
+  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %bitmap_mutex, ptr noundef nonnull @.str.89, i32 noundef 132) #18
   br label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %qemu_lockable_auto_unlock.exit, %entry
   %done.4 = phi i32 [ 0, %entry ], [ %done.2, %qemu_lockable_auto_unlock.exit ]
-  %call57 = tail call ptr @migrate_get_current() #16
+  %call57 = tail call ptr @migrate_get_current() #18
   %state = getelementptr inbounds i8, ptr %call57, i64 776
   %18 = load i32, ptr %state, align 8
-  %call58 = tail call zeroext i1 @migration_is_setup_or_active(i32 noundef %18) #16
+  %call58 = tail call zeroext i1 @migration_is_setup_or_active(i32 noundef %18) #18
   br i1 %call58, label %if.then60, label %return
 
 if.then60:                                        ; preds = %land.lhs.true
-  %call61 = tail call zeroext i1 @migrate_multifd() #16
+  %call61 = tail call zeroext i1 @migrate_multifd() #18
   br i1 %call61, label %land.lhs.true63, label %if.end72
 
 land.lhs.true63:                                  ; preds = %if.then60
-  %call64 = tail call zeroext i1 @migrate_multifd_flush_after_each_section() #16
+  %call64 = tail call zeroext i1 @migrate_multifd_flush_after_each_section() #18
   br i1 %call64, label %if.then66, label %if.end72
 
 if.then66:                                        ; preds = %land.lhs.true63
   %19 = load ptr, ptr %0, align 8
-  %call67 = tail call i32 @multifd_send_sync_main(ptr noundef %19) #16
+  %call67 = tail call i32 @multifd_send_sync_main(ptr noundef %19) #18
   %cmp68 = icmp slt i32 %call67, 0
   br i1 %cmp68, label %return, label %if.end72
 
 if.end72:                                         ; preds = %if.then66, %land.lhs.true63, %if.then60
-  tail call void @qemu_put_be64(ptr noundef %f, i64 noundef 16) #16
-  %call.i = tail call zeroext i1 @runstate_is_running() #16
+  tail call void @qemu_put_be64(ptr noundef %f, i64 noundef 16) #18
+  %call.i = tail call zeroext i1 @runstate_is_running() #18
   br i1 %call.i, label %if.end74, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end72
-  %call1.i = tail call zeroext i1 @migration_in_postcopy() #16
+  %call1.i = tail call zeroext i1 @migration_in_postcopy() #18
   %..i = select i1 %call1.i, ptr getelementptr inbounds (i8, ptr @mig_stats, i64 56), ptr getelementptr inbounds (i8, ptr @mig_stats, i64 32)
   br label %if.end74
 
 if.end74:                                         ; preds = %if.else.i, %if.end72
   %.sink.i = phi ptr [ getelementptr inbounds (i8, ptr @mig_stats, i64 72), %if.end72 ], [ %..i, %if.else.i ]
   %20 = atomicrmw add ptr %.sink.i, i64 8 seq_cst, align 8
-  %call73 = tail call i32 @qemu_fflush(ptr noundef %f) #16
+  %call73 = tail call i32 @qemu_fflush(ptr noundef %f) #18
   %call73.fr = freeze i32 %call73
   %cmp75 = icmp slt i32 %call73.fr, 0
   %spec.select = select i1 %cmp75, i32 %call73.fr, i32 %done.4
@@ -6888,7 +6888,7 @@ entry:
   %migration_dirty_pages = getelementptr inbounds i8, ptr %0, i64 224
   %1 = load i64, ptr %migration_dirty_pages, align 8
   %mul = shl i64 %1, 12
-  %call = tail call zeroext i1 @migrate_postcopy_ram() #16
+  %call = tail call zeroext i1 @migrate_postcopy_ram() #18
   %can_postcopy.must_precopy = select i1 %call, ptr %can_postcopy, ptr %must_precopy
   %2 = load i64, ptr %can_postcopy.must_precopy, align 8
   %add1 = add i64 %2, %mul
@@ -6902,12 +6902,12 @@ entry:
   %pnd.i1.i = alloca %struct.PrecopyNotifyData, align 8
   %pnd.i.i = alloca %struct.PrecopyNotifyData, align 8
   %local_err.i = alloca ptr, align 8
-  %call = tail call ptr @migrate_get_current() #16
+  %call = tail call ptr @migrate_get_current() #18
   %0 = load ptr, ptr %opaque, align 8
   %migration_dirty_pages = getelementptr inbounds i8, ptr %0, i64 224
   %1 = load i64, ptr %migration_dirty_pages, align 8
   %mul = shl i64 %1, 12
-  %call1 = tail call zeroext i1 @migration_in_postcopy() #16
+  %call1 = tail call zeroext i1 @migration_in_postcopy() #18
   br i1 %call1, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
@@ -6917,8 +6917,8 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.lhs.true
-  tail call void @qemu_mutex_lock_iothread_impl(ptr noundef nonnull @.str, i32 noundef 3224) #16
-  %call.i.i = tail call ptr @get_ptr_rcu_reader() #16
+  tail call void @qemu_mutex_lock_iothread_impl(ptr noundef nonnull @.str, i32 noundef 3224) #18
+  %call.i.i = tail call ptr @get_ptr_rcu_reader() #18
   %depth.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   %3 = load i32, ptr %depth.i.i, align 4
   %inc.i.i = add i32 %3, 1
@@ -6930,7 +6930,7 @@ while.end.i.i:                                    ; preds = %if.then
   %4 = load atomic i64, ptr @rcu_gp_ctr monotonic, align 8
   %conv8.i.i = and i64 %4, 4294967295
   store atomic i64 %conv8.i.i, ptr %call.i.i monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
   fence seq_cst
   br label %rcu_read_auto_lock.exit
 
@@ -6941,14 +6941,14 @@ rcu_read_auto_lock.exit:                          ; preds = %if.then, %while.end
   store i32 1, ptr %pnd.i.i, align 8
   %errp2.i.i = getelementptr inbounds i8, ptr %pnd.i.i, i64 8
   store ptr %local_err.i, ptr %errp2.i.i, align 8
-  %call.i.i5 = call i32 @notifier_with_return_list_notify(ptr noundef nonnull @precopy_notifier_list, ptr noundef nonnull %pnd.i.i) #16
+  %call.i.i5 = call i32 @notifier_with_return_list_notify(ptr noundef nonnull @precopy_notifier_list, ptr noundef nonnull %pnd.i.i) #18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %pnd.i.i)
   %tobool.not.i = icmp eq i32 %call.i.i5, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %rcu_read_auto_lock.exit
   %5 = load ptr, ptr %local_err.i, align 8
-  call void @error_report_err(ptr noundef %5) #16
+  call void @error_report_err(ptr noundef %5) #18
   store ptr null, ptr %local_err.i, align 8
   br label %if.end.i
 
@@ -6958,26 +6958,26 @@ if.end.i:                                         ; preds = %if.then.i, %rcu_rea
   store i32 2, ptr %pnd.i1.i, align 8
   %errp2.i2.i = getelementptr inbounds i8, ptr %pnd.i1.i, i64 8
   store ptr %local_err.i, ptr %errp2.i2.i, align 8
-  %call.i3.i = call i32 @notifier_with_return_list_notify(ptr noundef nonnull @precopy_notifier_list, ptr noundef nonnull %pnd.i1.i) #16
+  %call.i3.i = call i32 @notifier_with_return_list_notify(ptr noundef nonnull @precopy_notifier_list, ptr noundef nonnull %pnd.i1.i) #18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %pnd.i1.i)
   %tobool3.not.i = icmp eq i32 %call.i3.i, 0
   br i1 %tobool3.not.i, label %migration_bitmap_sync_precopy.exit, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.end.i
   %6 = load ptr, ptr %local_err.i, align 8
-  call void @error_report_err(ptr noundef %6) #16
+  call void @error_report_err(ptr noundef %6) #18
   br label %migration_bitmap_sync_precopy.exit
 
 migration_bitmap_sync_precopy.exit:               ; preds = %if.end.i, %if.then4.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %local_err.i)
-  %call.i.i6 = call ptr @get_ptr_rcu_reader() #16
+  %call.i.i6 = call ptr @get_ptr_rcu_reader() #18
   %depth.i.i7 = getelementptr inbounds i8, ptr %call.i.i6, i64 12
   %7 = load i32, ptr %depth.i.i7, align 4
   %cmp.not.i.i8 = icmp eq i32 %7, 0
   br i1 %cmp.not.i.i8, label %if.else.i.i, label %if.end.i.i
 
 if.else.i.i:                                      ; preds = %migration_bitmap_sync_precopy.exit
-  call void @__assert_fail(ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.28, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #17
+  call void @__assert_fail(ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.28, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #19
   unreachable
 
 if.end.i.i:                                       ; preds = %migration_bitmap_sync_precopy.exit
@@ -6988,7 +6988,7 @@ if.end.i.i:                                       ; preds = %migration_bitmap_sy
 
 while.end.i.i9:                                   ; preds = %if.end.i.i
   store atomic i64 0, ptr %call.i.i6 release, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !10
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !10
   fence seq_cst
   %waiting.i.i = getelementptr inbounds i8, ptr %call.i.i6, i64 8
   %8 = load atomic i8, ptr %waiting.i.i monotonic, align 8
@@ -6997,18 +6997,18 @@ while.end.i.i9:                                   ; preds = %if.end.i.i
 
 while.end21.i.i:                                  ; preds = %while.end.i.i9
   store atomic i8 0, ptr %waiting.i.i monotonic, align 8
-  call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #16
+  call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #18
   br label %glib_autoptr_cleanup_RCUReadAuto.exit
 
 glib_autoptr_cleanup_RCUReadAuto.exit:            ; preds = %while.end21.i.i, %while.end.i.i9, %if.end.i.i
-  call void @qemu_mutex_unlock_iothread() #16
+  call void @qemu_mutex_unlock_iothread() #18
   %9 = load i64, ptr %migration_dirty_pages, align 8
   %mul4 = shl i64 %9, 12
   br label %if.end
 
 if.end:                                           ; preds = %glib_autoptr_cleanup_RCUReadAuto.exit, %land.lhs.true, %entry
   %remaining_size.0 = phi i64 [ %mul, %entry ], [ %mul4, %glib_autoptr_cleanup_RCUReadAuto.exit ], [ %mul, %land.lhs.true ]
-  %call5 = call zeroext i1 @migrate_postcopy_ram() #16
+  %call5 = call zeroext i1 @migrate_postcopy_ram() #18
   %can_postcopy.must_precopy = select i1 %call5, ptr %can_postcopy, ptr %must_precopy
   %10 = load i64, ptr %can_postcopy.must_precopy, align 8
   %add7 = add i64 %10, %remaining_size.0
@@ -7024,7 +7024,7 @@ entry:
   %id.i.i = alloca [256 x i8], align 16
   %_now.i.i.i = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
-  %call.i = tail call i32 @postcopy_state_get() #16
+  %call.i = tail call i32 @postcopy_state_get() #18
   %0 = add i32 %call.i, -3
   %1 = icmp ult i32 %0, 2
   %2 = load i64, ptr @ram_load.seq_iter, align 8
@@ -7034,7 +7034,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %call.i.i = tail call ptr @get_ptr_rcu_reader() #16
+  %call.i.i = tail call ptr @get_ptr_rcu_reader() #18
   %depth.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   %3 = load i32, ptr %depth.i.i, align 4
   %inc.i.i = add i32 %3, 1
@@ -7046,7 +7046,7 @@ while.end.i.i:                                    ; preds = %if.end
   %4 = load atomic i64, ptr @rcu_gp_ctr monotonic, align 8
   %conv8.i.i = and i64 %4, 4294967295
   store atomic i64 %conv8.i.i, ptr %call.i.i monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
   fence seq_cst
   br label %rcu_read_auto_lock.exit
 
@@ -7056,7 +7056,7 @@ rcu_read_auto_lock.exit:                          ; preds = %if.end, %while.end.
 
 for.body.us:                                      ; preds = %rcu_read_auto_lock.exit
   %call4.us = tail call i32 @ram_load_postcopy(ptr noundef %f, i32 noundef 0)
-  %call.i.i10.us = tail call ptr @get_ptr_rcu_reader() #16
+  %call.i.i10.us = tail call ptr @get_ptr_rcu_reader() #18
   %depth.i.i11.us = getelementptr inbounds i8, ptr %call.i.i10.us, i64 12
   %5 = load i32, ptr %depth.i.i11.us, align 4
   %cmp.not.i.i12.us = icmp eq i32 %5, 0
@@ -7070,7 +7070,7 @@ if.end.i.i13.us:                                  ; preds = %for.body.us
 
 while.end.i.i14.us:                               ; preds = %if.end.i.i13.us
   store atomic i64 0, ptr %call.i.i10.us release, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !10
   fence seq_cst
   %waiting.i.i.us = getelementptr inbounds i8, ptr %call.i.i10.us, i64 8
   %6 = load atomic i8, ptr %waiting.i.i.us monotonic, align 8
@@ -7079,7 +7079,7 @@ while.end.i.i14.us:                               ; preds = %if.end.i.i13.us
 
 while.end21.i.i.us:                               ; preds = %while.end.i.i14.us
   store atomic i8 0, ptr %waiting.i.i.us monotonic, align 8
-  tail call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #16
+  tail call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #18
   br label %glib_autoptr_cleanup_RCUReadAuto.exit
 
 glib_autoptr_cleanup_RCUReadAuto.exit:            ; preds = %while.end21.i.i.us, %while.end.i.i14.us, %if.end.i.i13.us, %rcu_read_auto_unlock.exit
@@ -7105,16 +7105,16 @@ if.then.i.i3:                                     ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i3
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
-  %call10.i.i = call i32 @qemu_get_thread_id() #16
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #18
+  %call10.i.i = call i32 @qemu_get_thread_id() #18
   %12 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %13 = load i64, ptr %tv_usec.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.111, i32 noundef %call10.i.i, i64 noundef %12, i64 noundef %13, i32 noundef %.us-phi, i64 noundef %7) #16
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.111, i32 noundef %call10.i.i, i64 noundef %12, i64 noundef %13, i32 noundef %.us-phi, i64 noundef %7) #18
   br label %trace_ram_load_complete.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i3
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.112, i32 noundef %.us-phi, i64 noundef %7) #16
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.112, i32 noundef %.us-phi, i64 noundef %7) #18
   br label %trace_ram_load_complete.exit
 
 trace_ram_load_complete.exit:                     ; preds = %glib_autoptr_cleanup_RCUReadAuto.exit, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -7122,8 +7122,8 @@ trace_ram_load_complete.exit:                     ; preds = %glib_autoptr_cleanu
   br label %return
 
 for.body:                                         ; preds = %rcu_read_auto_lock.exit
-  %call.i4 = tail call ptr @migration_incoming_get_current() #16
-  %call1.i = tail call zeroext i1 @migrate_compress() #16
+  %call.i4 = tail call ptr @migration_incoming_get_current() #18
+  %call1.i = tail call zeroext i1 @migrate_compress() #18
   %spec.select.i = select i1 %call1.i, i32 0, i32 256
   br label %while.body.i
 
@@ -7135,19 +7135,19 @@ while.body.i:                                     ; preds = %if.end93.i, %for.bo
   br i1 %cmp.i, label %land.lhs.true.i, label %if.end8.i
 
 land.lhs.true.i:                                  ; preds = %while.body.i
-  %call4.i = call zeroext i1 @qemu_in_coroutine() #16
+  %call4.i = call zeroext i1 @qemu_in_coroutine() #18
   br i1 %call4.i, label %if.then5.i, label %if.end8.i
 
 if.then5.i:                                       ; preds = %land.lhs.true.i
-  %call6.i = call ptr @qemu_get_current_aio_context() #16
-  %call7.i = call ptr @qemu_coroutine_self() #16
-  call void @aio_co_schedule(ptr noundef %call6.i, ptr noundef %call7.i) #16
-  call void @qemu_coroutine_yield() #16
+  %call6.i = call ptr @qemu_get_current_aio_context() #18
+  %call7.i = call ptr @qemu_coroutine_self() #18
+  call void @aio_co_schedule(ptr noundef %call6.i, ptr noundef %call7.i) #18
+  call void @qemu_coroutine_yield() #18
   br label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.then5.i, %land.lhs.true.i, %while.body.i
   %inc.i = add i32 %i.0118.i, 1
-  %call9.i = call i64 @qemu_get_be64(ptr noundef %f) #16
+  %call9.i = call i64 @qemu_get_be64(ptr noundef %f) #18
   %14 = trunc i64 %call9.i to i32
   %conv.i = and i32 %14, 4095
   %and11.i = and i64 %call9.i, -4096
@@ -7156,7 +7156,7 @@ if.end8.i:                                        ; preds = %if.then5.i, %land.l
   br i1 %tobool13.not.i, label %if.end20.i, label %if.then18.i
 
 if.then18.i:                                      ; preds = %if.end8.i
-  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.98) #16
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.98) #18
   br label %ram_load_precopy.exit
 
 if.end20.i:                                       ; preds = %if.end8.i
@@ -7185,11 +7185,11 @@ offset_in_ramblock.exit.i.i:                      ; preds = %land.lhs.true.i.i.i
 
 host_from_ram_block_offset.exit.i:                ; preds = %offset_in_ramblock.exit.i.i, %land.lhs.true.i.i.i, %if.then23.i
   %retval.0.i.i = phi ptr [ null, %land.lhs.true.i.i.i ], [ null, %if.then23.i ], [ %spec.select.i.i, %offset_in_ramblock.exit.i.i ]
-  %call26.i = call zeroext i1 @migration_incoming_colo_enabled() #16
+  %call26.i = call zeroext i1 @migration_incoming_colo_enabled() #18
   br i1 %call26.i, label %if.then27.i, label %if.end33.i
 
 if.then27.i:                                      ; preds = %host_from_ram_block_offset.exit.i
-  %call28.i = call zeroext i1 @migration_incoming_in_colo_state() #16
+  %call28.i = call zeroext i1 @migration_incoming_in_colo_state() #18
   br i1 %call28.i, label %if.then29.i, label %if.else.i
 
 if.then29.i:                                      ; preds = %if.then27.i
@@ -7215,7 +7215,7 @@ if.end.i.i:                                       ; preds = %offset_in_ramblock.
 
 if.then1.i.i:                                     ; preds = %if.end.i.i
   %idstr.i.i = getelementptr inbounds i8, ptr %call24.i, i64 76
-  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.101, ptr noundef nonnull @__func__.colo_cache_from_block_offset, ptr noundef nonnull %idstr.i.i) #16
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.101, ptr noundef nonnull @__func__.colo_cache_from_block_offset, ptr noundef nonnull %idstr.i.i) #18
   br label %if.then35.i
 
 if.end2.i.i:                                      ; preds = %if.end.i.i
@@ -7223,7 +7223,7 @@ if.end2.i.i:                                      ; preds = %if.end.i.i
   %21 = inttoptr i64 %20 to ptr
   %22 = load ptr, ptr @ram_state, align 8
   %bitmap_mutex.i.i.i = getelementptr inbounds i8, ptr %22, i64 232
-  call void %21(ptr noundef nonnull %bitmap_mutex.i.i.i, ptr noundef nonnull @.str, i32 noundef 3348) #16
+  call void %21(ptr noundef nonnull %bitmap_mutex.i.i.i, ptr noundef nonnull @.str, i32 noundef 3348) #18
   %bmap.i.i.i = getelementptr inbounds i8, ptr %call24.i, i64 384
   %shr.i.i.i = lshr i64 %call9.i, 12
   %rem.i.i.i.i = and i64 %shr.i.i.i, 63
@@ -7243,7 +7243,7 @@ if.end2.i.i:                                      ; preds = %if.end.i.i
   %add.i.i.i = add i64 %28, %conv.i.i.i
   store i64 %add.i.i.i, ptr %migration_dirty_pages.i.i.i, align 8
   %bitmap_mutex1.i.i.i = getelementptr inbounds i8, ptr %27, i64 232
-  call void @qemu_mutex_unlock_impl(ptr noundef nonnull %bitmap_mutex1.i.i.i, ptr noundef nonnull @.str, i32 noundef 3355) #16
+  call void @qemu_mutex_unlock_impl(ptr noundef nonnull %bitmap_mutex1.i.i.i, ptr noundef nonnull @.str, i32 noundef 3355) #18
   %.pre.i.i = load ptr, ptr %colo_cache.i.i, align 8
   %add.ptr.i60.i = getelementptr i8, ptr %.pre.i.i, i64 %and11.i
   br label %if.end33.i
@@ -7271,7 +7271,7 @@ if.end.i69.i:                                     ; preds = %offset_in_ramblock.
 
 if.then1.i74.i:                                   ; preds = %if.end.i69.i
   %idstr.i75.i = getelementptr inbounds i8, ptr %call24.i, i64 76
-  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.101, ptr noundef nonnull @__func__.colo_cache_from_block_offset, ptr noundef nonnull %idstr.i75.i) #16
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.101, ptr noundef nonnull @__func__.colo_cache_from_block_offset, ptr noundef nonnull %idstr.i75.i) #18
   br label %if.end33.i
 
 if.end2.i72.i:                                    ; preds = %if.end.i69.i
@@ -7285,11 +7285,11 @@ if.end33.i:                                       ; preds = %if.end2.i72.i, %if.
   br i1 %tobool34.not.i, label %if.then35.i, label %if.end36.i
 
 if.then35.i:                                      ; preds = %if.end33.i, %offset_in_ramblock.exit.i56.i, %land.lhs.true.i.i53.i, %if.then29.i, %if.then1.i.i
-  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.18, i64 noundef %and11.i) #16
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.18, i64 noundef %and11.i) #18
   br label %ram_load_precopy.exit
 
 if.end36.i:                                       ; preds = %if.end33.i
-  %call37.i = call zeroext i1 @migration_incoming_in_colo_state() #16
+  %call37.i = call zeroext i1 @migration_incoming_in_colo_state() #18
   br i1 %call37.i, label %if.end39.i, label %if.then38.i
 
 if.then38.i:                                      ; preds = %if.end36.i
@@ -7330,15 +7330,15 @@ if.then.i.i.i:                                    ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.i.i.i, label %if.then8.i.i.i, label %if.else.i.i.i
 
 if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
-  %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #16
-  %call10.i.i.i = call i32 @qemu_get_thread_id() #16
+  %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #18
+  %call10.i.i.i = call i32 @qemu_get_thread_id() #18
   %39 = load i64, ptr %_now.i.i.i, align 8
   %40 = load i64, ptr %tv_usec.i.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.102, i32 noundef %call10.i.i.i, i64 noundef %39, i64 noundef %40, ptr noundef nonnull %idstr.i, i64 noundef %and11.i, i32 noundef %conv.i, ptr noundef nonnull %host.0.i) #16
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.102, i32 noundef %call10.i.i.i, i64 noundef %39, i64 noundef %40, ptr noundef nonnull %idstr.i, i64 noundef %and11.i, i32 noundef %conv.i, ptr noundef nonnull %host.0.i) #18
   br label %trace_ram_load_loop.exit.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.103, ptr noundef nonnull %idstr.i, i64 noundef %and11.i, i32 noundef %conv.i, ptr noundef nonnull %host.0.i) #16
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.103, ptr noundef nonnull %idstr.i, i64 noundef %and11.i, i32 noundef %conv.i, ptr noundef nonnull %host.0.i) #18
   br label %trace_ram_load_loop.exit.i
 
 trace_ram_load_loop.exit.i:                       ; preds = %if.else.i.i.i, %if.then8.i.i.i, %land.lhs.true5.i.i.i, %if.end39.i
@@ -7367,25 +7367,25 @@ sw.bb.i:                                          ; preds = %if.end40.i
 
 while.body.i.i:                                   ; preds = %sw.bb.i, %if.end.i79.i
   %total_ram_bytes.addr.010.i.i = phi i64 [ %sub.i.i, %if.end.i79.i ], [ %and11.i, %sw.bb.i ]
-  %call.i.i6 = call i32 @qemu_get_byte(ptr noundef %f) #16
+  %call.i.i6 = call i32 @qemu_get_byte(ptr noundef %f) #18
   %conv.i.i = sext i32 %call.i.i6 to i64
-  %call2.i.i = call i64 @qemu_get_buffer(ptr noundef %f, ptr noundef nonnull %id.i.i, i64 noundef %conv.i.i) #16
+  %call2.i.i = call i64 @qemu_get_buffer(ptr noundef %f, ptr noundef nonnull %id.i.i, i64 noundef %conv.i.i) #18
   %arrayidx.i.i = getelementptr [256 x i8], ptr %id.i.i, i64 0, i64 %conv.i.i
   store i8 0, ptr %arrayidx.i.i, align 1
-  %call3.i.i = call i64 @qemu_get_be64(ptr noundef %f) #16
-  %call5.i.i = call ptr @qemu_ram_block_by_name(ptr noundef nonnull %id.i.i) #16
+  %call3.i.i = call i64 @qemu_get_be64(ptr noundef %f) #18
+  %call5.i.i = call ptr @qemu_ram_block_by_name(ptr noundef nonnull %id.i.i) #18
   %tobool6.not.i.i = icmp eq ptr %call5.i.i, null
   br i1 %tobool6.not.i.i, label %if.end.thread.i.i, label %if.then.i.i7
 
 if.then.i.i7:                                     ; preds = %while.body.i.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %local_err.i.i.i)
-  %call.i.i.i = call zeroext i1 @migration_incoming_postcopy_advised() #16
-  %call1.i.i.i = call zeroext i1 @qemu_ram_is_migratable(ptr noundef nonnull %call5.i.i) #16
+  %call.i.i.i = call zeroext i1 @migration_incoming_postcopy_advised() #18
+  %call1.i.i.i = call zeroext i1 @qemu_ram_is_migratable(ptr noundef nonnull %call5.i.i) #18
   br i1 %call1.i.i.i, label %if.end3.i.i.i, label %if.then2.i.i.i
 
 if.then2.i.i.i:                                   ; preds = %if.then.i.i7
   %idstr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i, i64 76
-  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.67, ptr noundef nonnull %idstr.i.i.i) #16
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.67, ptr noundef nonnull %idstr.i.i.i) #18
   br label %if.end.thread16.i.i
 
 if.end3.i.i.i:                                    ; preds = %if.then.i.i7
@@ -7396,20 +7396,20 @@ if.end3.i.i.i:                                    ; preds = %if.then.i.i7
 
 if.then4.i.i.i:                                   ; preds = %if.end3.i.i.i
   store ptr null, ptr %local_err.i.i.i, align 8
-  %call5.i.i.i = call i32 @qemu_ram_resize(ptr noundef nonnull %call5.i.i, i64 noundef %call3.i.i, ptr noundef nonnull %local_err.i.i.i) #16
+  %call5.i.i.i = call i32 @qemu_ram_resize(ptr noundef nonnull %call5.i.i, i64 noundef %call3.i.i, ptr noundef nonnull %local_err.i.i.i) #18
   %42 = load ptr, ptr %local_err.i.i.i, align 8
   %tobool6.not.i.i.i = icmp eq ptr %42, null
   br i1 %tobool6.not.i.i.i, label %if.end9.i.i.i, label %if.then7.i.i.i
 
 if.then7.i.i.i:                                   ; preds = %if.then4.i.i.i
-  call void @error_report_err(ptr noundef nonnull %42) #16
+  call void @error_report_err(ptr noundef nonnull %42) #18
   br label %if.end.i79.i
 
 if.end9.i.i.i:                                    ; preds = %if.then4.i.i.i, %if.end3.i.i.i
   br i1 %call.i.i.i, label %land.lhs.true.i.i81.i, label %if.end23.i.i.i
 
 land.lhs.true.i.i81.i:                            ; preds = %if.end9.i.i.i
-  %call11.i.i.i = call zeroext i1 @migrate_postcopy_ram() #16
+  %call11.i.i.i = call zeroext i1 @migrate_postcopy_ram() #18
   br i1 %call11.i.i.i, label %land.lhs.true12.i.i.i, label %if.end23.i.i.i
 
 land.lhs.true12.i.i.i:                            ; preds = %land.lhs.true.i.i81.i
@@ -7420,35 +7420,35 @@ land.lhs.true12.i.i.i:                            ; preds = %land.lhs.true.i.i81
   br i1 %cmp13.not.i.i.i, label %if.end23.i.i.i, label %if.then14.i.i.i
 
 if.then14.i.i.i:                                  ; preds = %land.lhs.true12.i.i.i
-  %call15.i.i.i = call i64 @qemu_get_be64(ptr noundef %f) #16
+  %call15.i.i.i = call i64 @qemu_get_be64(ptr noundef %f) #18
   %45 = load i64, ptr %page_size.i.i.i, align 8
   %cmp17.not.i.i.i = icmp eq i64 %call15.i.i.i, %45
   br i1 %cmp17.not.i.i.i, label %if.end23.i.i.i, label %if.then18.i.i.i
 
 if.then18.i.i.i:                                  ; preds = %if.then14.i.i.i
   %idstr19.i.i.i = getelementptr inbounds i8, ptr %call5.i.i, i64 76
-  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.106, ptr noundef nonnull %idstr19.i.i.i, i64 noundef %45, i64 noundef %call15.i.i.i) #16
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.106, ptr noundef nonnull %idstr19.i.i.i, i64 noundef %45, i64 noundef %call15.i.i.i) #18
   br label %if.end.thread16.i.i
 
 if.end23.i.i.i:                                   ; preds = %if.then14.i.i.i, %land.lhs.true12.i.i.i, %land.lhs.true.i.i81.i, %if.end9.i.i.i
-  %call24.i.i.i = call zeroext i1 @migrate_ignore_shared() #16
+  %call24.i.i.i = call zeroext i1 @migrate_ignore_shared() #18
   br i1 %call24.i.i.i, label %if.then25.i.i.i, label %if.end.i79.i
 
 if.then25.i.i.i:                                  ; preds = %if.end23.i.i.i
-  %call26.i.i.i = call i64 @qemu_get_be64(ptr noundef %f) #16
-  %call.i.i.i.i8 = call zeroext i1 @qemu_ram_is_migratable(ptr noundef nonnull %call5.i.i) #16
+  %call26.i.i.i = call i64 @qemu_get_be64(ptr noundef %f) #18
+  %call.i.i.i.i8 = call zeroext i1 @qemu_ram_is_migratable(ptr noundef nonnull %call5.i.i) #18
   br i1 %call.i.i.i.i8, label %lor.rhs.i.i.i.i, label %land.lhs.true28.i.i.i
 
 lor.rhs.i.i.i.i:                                  ; preds = %if.then25.i.i.i
-  %call1.i.i.i.i = call zeroext i1 @migrate_ignore_shared() #16
+  %call1.i.i.i.i = call zeroext i1 @migrate_ignore_shared() #18
   br i1 %call1.i.i.i.i, label %land.lhs.true.i.i.i.i, label %if.end.i79.i
 
 land.lhs.true.i.i.i.i:                            ; preds = %lor.rhs.i.i.i.i
-  %call2.i.i.i.i = call zeroext i1 @qemu_ram_is_shared(ptr noundef nonnull %call5.i.i) #16
+  %call2.i.i.i.i = call zeroext i1 @qemu_ram_is_shared(ptr noundef nonnull %call5.i.i) #18
   br i1 %call2.i.i.i.i, label %migrate_ram_is_ignored.exit.i.i.i, label %if.end.i79.i
 
 migrate_ram_is_ignored.exit.i.i.i:                ; preds = %land.lhs.true.i.i.i.i
-  %call3.i.i.i.i = call zeroext i1 @qemu_ram_is_named_file(ptr noundef nonnull %call5.i.i) #16
+  %call3.i.i.i.i = call zeroext i1 @qemu_ram_is_named_file(ptr noundef nonnull %call5.i.i) #18
   br i1 %call3.i.i.i.i, label %land.lhs.true28.i.i.i, label %if.end.i79.i
 
 land.lhs.true28.i.i.i:                            ; preds = %migrate_ram_is_ignored.exit.i.i.i, %if.then25.i.i.i
@@ -7461,11 +7461,11 @@ land.lhs.true28.i.i.i:                            ; preds = %migrate_ram_is_igno
 
 if.then31.i.i.i:                                  ; preds = %land.lhs.true28.i.i.i
   %idstr32.i.i.i = getelementptr inbounds i8, ptr %call5.i.i, i64 76
-  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.107, ptr noundef nonnull %idstr32.i.i.i, i64 noundef %call26.i.i.i, i64 noundef %47) #16
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.107, ptr noundef nonnull %idstr32.i.i.i, i64 noundef %call26.i.i.i, i64 noundef %47) #18
   br label %if.end.thread16.i.i
 
 if.end.thread.i.i:                                ; preds = %while.body.i.i
-  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.104, ptr noundef nonnull %id.i.i) #16
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.104, ptr noundef nonnull %id.i.i) #18
   br label %parse_ramblocks.exit.i
 
 if.end.thread16.i.i:                              ; preds = %if.then31.i.i.i, %if.then18.i.i.i, %if.then2.i.i.i
@@ -7487,17 +7487,17 @@ parse_ramblocks.exit.i:                           ; preds = %if.end.i79.i, %if.e
   br label %sw.epilog.i
 
 sw.bb43.i:                                        ; preds = %if.end40.i
-  %call44.i = call i32 @qemu_get_byte(ptr noundef %f) #16
+  %call44.i = call i32 @qemu_get_byte(ptr noundef %f) #18
   %conv46.i = and i32 %call44.i, 255
   %cmp47.not.i = icmp eq i32 %conv46.i, 0
   br i1 %cmp47.not.i, label %if.end51.i, label %if.then49.i
 
 if.then49.i:                                      ; preds = %sw.bb43.i
-  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.20, i32 noundef %conv46.i) #16
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.20, i32 noundef %conv46.i) #18
   br label %if.end93.i
 
 if.end51.i:                                       ; preds = %sw.bb43.i
-  %call.i82.i = call zeroext i1 @buffer_is_zero(ptr noundef %host.1.i, i64 noundef 4096) #16
+  %call.i82.i = call zeroext i1 @buffer_is_zero(ptr noundef %host.1.i, i64 noundef 4096) #18
   br i1 %call.i82.i, label %sw.epilog.i, label %if.then.i83.i
 
 if.then.i83.i:                                    ; preds = %if.end51.i
@@ -7505,32 +7505,32 @@ if.then.i83.i:                                    ; preds = %if.end51.i
   br label %sw.epilog.i
 
 sw.bb52.i:                                        ; preds = %if.end40.i
-  %call53.i = call i64 @qemu_get_buffer(ptr noundef %f, ptr noundef %host.1.i, i64 noundef 4096) #16
+  %call53.i = call i64 @qemu_get_buffer(ptr noundef %f, ptr noundef %host.1.i, i64 noundef 4096) #18
   br label %sw.epilog.i
 
 sw.bb54.i:                                        ; preds = %if.end40.i
-  %call55.i = call i32 @qemu_get_be32(ptr noundef %f) #16
+  %call55.i = call i32 @qemu_get_be32(ptr noundef %f) #18
   %cmp56.i = icmp slt i32 %call55.i, 0
   br i1 %cmp56.i, label %if.then62.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %sw.bb54.i
   %conv58.i = zext nneg i32 %call55.i to i64
-  %call59.i = call i64 @compressBound(i64 noundef 4096) #16
+  %call59.i = call i64 @compressBound(i64 noundef 4096) #18
   %cmp60.i = icmp ult i64 %call59.i, %conv58.i
   br i1 %cmp60.i, label %if.then62.i, label %if.end63.i
 
 if.then62.i:                                      ; preds = %lor.lhs.false.i, %sw.bb54.i
-  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.21, i32 noundef %call55.i) #16
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.21, i32 noundef %call55.i) #18
   br label %if.end93.i
 
 if.end63.i:                                       ; preds = %lor.lhs.false.i
-  call void @decompress_data_with_multi_threads(ptr noundef %f, ptr noundef %host.1.i, i32 noundef %call55.i) #16
+  call void @decompress_data_with_multi_threads(ptr noundef %f, ptr noundef %host.1.i, i32 noundef %call55.i) #18
   br label %sw.epilog.i
 
 sw.bb64.i:                                        ; preds = %if.end40.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %loaded_data.i.i)
-  %call.i85.i = call i32 @qemu_get_byte(ptr noundef %f) #16
-  %call1.i.i = call i32 @qemu_get_be16(ptr noundef %f) #16
+  %call.i85.i = call i32 @qemu_get_byte(ptr noundef %f) #18
+  %call1.i.i = call i32 @qemu_get_be16(ptr noundef %f) #18
   %cmp.not.i.i5 = icmp eq i32 %call.i85.i, 1
   br i1 %cmp.not.i.i5, label %if.end.i88.i, label %if.then68.i
 
@@ -7542,9 +7542,9 @@ if.end4.i.i:                                      ; preds = %if.end.i88.i
   %49 = load ptr, ptr getelementptr inbounds (i8, ptr @XBZRLE, i64 80), align 8
   store ptr %49, ptr %loaded_data.i.i, align 8
   %conv.i89.i = zext nneg i32 %call1.i.i to i64
-  %call5.i90.i = call i64 @qemu_get_buffer_in_place(ptr noundef %f, ptr noundef nonnull %loaded_data.i.i, i64 noundef %conv.i89.i) #16
+  %call5.i90.i = call i64 @qemu_get_buffer_in_place(ptr noundef %f, ptr noundef nonnull %loaded_data.i.i, i64 noundef %conv.i89.i) #18
   %50 = load ptr, ptr %loaded_data.i.i, align 8
-  %call6.i.i = call i32 @xbzrle_decode_buffer(ptr noundef %50, i32 noundef %call1.i.i, ptr noundef %host.1.i, i32 noundef 4096) #16
+  %call6.i.i = call i32 @xbzrle_decode_buffer(ptr noundef %50, i32 noundef %call1.i.i, ptr noundef %host.1.i, i32 noundef 4096) #18
   %cmp7.i.i = icmp eq i32 %call6.i.i, -1
   br i1 %cmp7.i.i, label %if.then68.i, label %load_xbzrle.exit.i
 
@@ -7554,29 +7554,29 @@ load_xbzrle.exit.i:                               ; preds = %if.end4.i.i
 
 if.then68.i:                                      ; preds = %if.end4.i.i, %if.end.i88.i, %sw.bb64.i
   %.str.108.sink.i = phi ptr [ @.str.108, %sw.bb64.i ], [ @.str.109, %if.end.i88.i ], [ @.str.110, %if.end4.i.i ]
-  call void (ptr, ...) @error_report(ptr noundef nonnull %.str.108.sink.i) #16
+  call void (ptr, ...) @error_report(ptr noundef nonnull %.str.108.sink.i) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %loaded_data.i.i)
-  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.99, i64 noundef %and11.i) #16
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.99, i64 noundef %and11.i) #18
   br label %if.end93.i
 
 sw.bb70.i:                                        ; preds = %if.end40.i
-  call void @multifd_recv_sync_main() #16
+  call void @multifd_recv_sync_main() #18
   br label %sw.epilog.i
 
 sw.bb71.i:                                        ; preds = %if.end40.i
-  %call72.i = call zeroext i1 @migrate_multifd() #16
+  %call72.i = call zeroext i1 @migrate_multifd() #18
   br i1 %call72.i, label %land.lhs.true74.i, label %sw.epilog.i
 
 land.lhs.true74.i:                                ; preds = %sw.bb71.i
-  %call75.i = call zeroext i1 @migrate_multifd_flush_after_each_section() #16
+  %call75.i = call zeroext i1 @migrate_multifd_flush_after_each_section() #18
   br i1 %call75.i, label %if.then77.i, label %sw.epilog.i
 
 if.then77.i:                                      ; preds = %land.lhs.true74.i
-  call void @multifd_recv_sync_main() #16
+  call void @multifd_recv_sync_main() #18
   br label %sw.epilog.i
 
 sw.default.i:                                     ; preds = %if.end40.i
-  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.100, i32 noundef %conv.i) #16
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.100, i32 noundef %conv.i) #18
   br label %if.end93.i
 
 sw.epilog.i:                                      ; preds = %if.then77.i, %land.lhs.true74.i, %sw.bb71.i, %sw.bb70.i, %load_xbzrle.exit.i, %if.end63.i, %sw.bb52.i, %if.then.i83.i, %if.end51.i, %parse_ramblocks.exit.i
@@ -7585,7 +7585,7 @@ sw.epilog.i:                                      ; preds = %if.then77.i, %land.
   br i1 %tobool85.not.i, label %if.end88.i, label %if.end93.i
 
 if.end88.i:                                       ; preds = %sw.epilog.i, %if.end40.i
-  %call87.i = call i32 @qemu_file_get_error(ptr noundef %f) #16
+  %call87.i = call i32 @qemu_file_get_error(ptr noundef %f) #18
   %tobool89.i = icmp eq i32 %call87.i, 0
   %tobool91.i = icmp ne ptr %host_bak.1.i, null
   %or.cond.i = and i1 %tobool91.i, %tobool89.i
@@ -7604,15 +7604,15 @@ if.end93.i:                                       ; preds = %if.then92.i, %if.en
 
 ram_load_precopy.exit:                            ; preds = %if.end93.i, %if.then18.i, %if.then35.i
   %ret.3.i = phi i32 [ -22, %if.then18.i ], [ -22, %if.then35.i ], [ %ret.2105.i, %if.end93.i ]
-  %call94.i = call i32 @wait_for_decompress_done() #16
-  %call.i.i10 = call ptr @get_ptr_rcu_reader() #16
+  %call94.i = call i32 @wait_for_decompress_done() #18
+  %call.i.i10 = call ptr @get_ptr_rcu_reader() #18
   %depth.i.i11 = getelementptr inbounds i8, ptr %call.i.i10, i64 12
   %53 = load i32, ptr %depth.i.i11, align 4
   %cmp.not.i.i12 = icmp eq i32 %53, 0
   br i1 %cmp.not.i.i12, label %if.else.i.i16, label %if.end.i.i13
 
 if.else.i.i16:                                    ; preds = %ram_load_precopy.exit, %for.body.us
-  call void @__assert_fail(ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.28, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #17
+  call void @__assert_fail(ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.28, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #19
   unreachable
 
 if.end.i.i13:                                     ; preds = %ram_load_precopy.exit
@@ -7623,7 +7623,7 @@ if.end.i.i13:                                     ; preds = %ram_load_precopy.ex
 
 while.end.i.i14:                                  ; preds = %if.end.i.i13
   store atomic i64 0, ptr %call.i.i10 release, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !10
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !10
   fence seq_cst
   %waiting.i.i = getelementptr inbounds i8, ptr %call.i.i10, i64 8
   %54 = load atomic i8, ptr %waiting.i.i monotonic, align 8
@@ -7632,7 +7632,7 @@ while.end.i.i14:                                  ; preds = %if.end.i.i13
 
 while.end21.i.i:                                  ; preds = %while.end.i.i14
   store atomic i8 0, ptr %waiting.i.i monotonic, align 8
-  call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #16
+  call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #18
   br label %rcu_read_auto_unlock.exit
 
 rcu_read_auto_unlock.exit:                        ; preds = %if.end.i.i13, %while.end.i.i14, %while.end21.i.i
@@ -7647,29 +7647,29 @@ return:                                           ; preds = %entry, %trace_ram_l
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i32 @ram_load_setup(ptr nocapture readnone %f, ptr nocapture readnone %opaque) #0 {
 entry:
-  %call.i = tail call noalias dereferenceable_or_null(4096) ptr @g_malloc(i64 noundef 4096) #18
+  %call.i = tail call noalias dereferenceable_or_null(4096) ptr @g_malloc(i64 noundef 4096) #20
   store ptr %call.i, ptr getelementptr inbounds (i8, ptr @XBZRLE, i64 80), align 8
   %0 = load atomic i64, ptr getelementptr inbounds (i8, ptr @ram_list, i64 56) monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !105
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !105
   %tobool.not8.i = icmp eq i64 %0, 0
   br i1 %tobool.not8.i, label %ramblock_recv_map_init.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %entry, %while.end12.i
   %rb.09.in.i = phi i64 [ %4, %while.end12.i ], [ %0, %entry ]
   %rb.09.i = inttoptr i64 %rb.09.in.i to ptr
-  %call.i.i = tail call zeroext i1 @qemu_ram_is_migratable(ptr noundef nonnull %rb.09.i) #16
+  %call.i.i = tail call zeroext i1 @qemu_ram_is_migratable(ptr noundef nonnull %rb.09.i) #18
   br i1 %call.i.i, label %lor.rhs.i.i, label %while.end12.i
 
 lor.rhs.i.i:                                      ; preds = %for.body.i
-  %call1.i.i = tail call zeroext i1 @migrate_ignore_shared() #16
+  %call1.i.i = tail call zeroext i1 @migrate_ignore_shared() #18
   br i1 %call1.i.i, label %land.lhs.true.i.i, label %if.else.i
 
 land.lhs.true.i.i:                                ; preds = %lor.rhs.i.i
-  %call2.i.i = tail call zeroext i1 @qemu_ram_is_shared(ptr noundef nonnull %rb.09.i) #16
+  %call2.i.i = tail call zeroext i1 @qemu_ram_is_shared(ptr noundef nonnull %rb.09.i) #18
   br i1 %call2.i.i, label %migrate_ram_is_ignored.exit.i, label %if.else.i
 
 migrate_ram_is_ignored.exit.i:                    ; preds = %land.lhs.true.i.i
-  %call3.i.i = tail call zeroext i1 @qemu_ram_is_named_file(ptr noundef nonnull %rb.09.i) #16
+  %call3.i.i = tail call zeroext i1 @qemu_ram_is_named_file(ptr noundef nonnull %rb.09.i) #18
   br i1 %call3.i.i, label %while.end12.i, label %if.else.i
 
 if.else.i:                                        ; preds = %migrate_ram_is_ignored.exit.i, %land.lhs.true.i.i, %lor.rhs.i.i
@@ -7679,24 +7679,24 @@ if.else.i:                                        ; preds = %migrate_ram_is_igno
   br i1 %tobool1.not.i, label %if.end.i, label %if.else3.i
 
 if.else3.i:                                       ; preds = %if.else.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.113, ptr noundef nonnull @.str, i32 noundef 231, ptr noundef nonnull @__PRETTY_FUNCTION__.ramblock_recv_map_init) #17
+  tail call void @__assert_fail(ptr noundef nonnull @.str.113, ptr noundef nonnull @.str, i32 noundef 231, ptr noundef nonnull @__PRETTY_FUNCTION__.ramblock_recv_map_init) #19
   unreachable
 
 if.end.i:                                         ; preds = %if.else.i
   %max_length.i = getelementptr inbounds i8, ptr %rb.09.i, i64 56
   %2 = load i64, ptr %max_length.i, align 8
-  %call4.i = tail call i32 @qemu_target_page_bits() #16
+  %call4.i = tail call i32 @qemu_target_page_bits() #18
   %sh_prom.i = zext nneg i32 %call4.i to i64
   %shr.i = lshr i64 %2, %sh_prom.i
   %sub.i.i.i = add i64 %shr.i, 63
   %3 = lshr i64 %sub.i.i.i, 3
   %mul.i.i.i = and i64 %3, 2305843009213693944
-  %call.i.i.i = tail call noalias ptr @g_try_malloc0(i64 noundef %mul.i.i.i) #18
+  %call.i.i.i = tail call noalias ptr @g_try_malloc0(i64 noundef %mul.i.i.i) #20
   %cmp.i.i = icmp eq ptr %call.i.i.i, null
   br i1 %cmp.i.i, label %if.then.i.i, label %bitmap_new.exit.i
 
 if.then.i.i:                                      ; preds = %if.end.i
-  tail call void @abort() #17
+  tail call void @abort() #19
   unreachable
 
 bitmap_new.exit.i:                                ; preds = %if.end.i
@@ -7706,7 +7706,7 @@ bitmap_new.exit.i:                                ; preds = %if.end.i
 while.end12.i:                                    ; preds = %bitmap_new.exit.i, %migrate_ram_is_ignored.exit.i, %for.body.i
   %next.i = getelementptr inbounds i8, ptr %rb.09.i, i64 336
   %4 = load atomic i64, ptr %next.i monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !106
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !106
   %tobool.not.i = icmp eq i64 %4, 0
   br i1 %tobool.not.i, label %ramblock_recv_map_init.exit, label %for.body.i, !llvm.loop !107
 
@@ -7718,79 +7718,79 @@ ramblock_recv_map_init.exit:                      ; preds = %while.end12.i, %ent
 define internal noundef i32 @ram_load_cleanup(ptr nocapture readnone %opaque) #0 {
 entry:
   %0 = load atomic i64, ptr getelementptr inbounds (i8, ptr @ram_list, i64 56) monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !108
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !108
   %tobool.not20 = icmp eq i64 %0, 0
   br i1 %tobool.not20, label %for.end, label %for.body
 
 for.body:                                         ; preds = %entry, %while.end5
   %rb.021.in = phi i64 [ %2, %while.end5 ], [ %0, %entry ]
   %rb.021 = inttoptr i64 %rb.021.in to ptr
-  %call.i = tail call zeroext i1 @qemu_ram_is_migratable(ptr noundef nonnull %rb.021) #16
+  %call.i = tail call zeroext i1 @qemu_ram_is_migratable(ptr noundef nonnull %rb.021) #18
   br i1 %call.i, label %lor.rhs.i, label %while.end5
 
 lor.rhs.i:                                        ; preds = %for.body
-  %call1.i = tail call zeroext i1 @migrate_ignore_shared() #16
+  %call1.i = tail call zeroext i1 @migrate_ignore_shared() #18
   br i1 %call1.i, label %land.lhs.true.i, label %if.else
 
 land.lhs.true.i:                                  ; preds = %lor.rhs.i
-  %call2.i = tail call zeroext i1 @qemu_ram_is_shared(ptr noundef nonnull %rb.021) #16
+  %call2.i = tail call zeroext i1 @qemu_ram_is_shared(ptr noundef nonnull %rb.021) #18
   br i1 %call2.i, label %migrate_ram_is_ignored.exit, label %if.else
 
 migrate_ram_is_ignored.exit:                      ; preds = %land.lhs.true.i
-  %call3.i = tail call zeroext i1 @qemu_ram_is_named_file(ptr noundef nonnull %rb.021) #16
+  %call3.i = tail call zeroext i1 @qemu_ram_is_named_file(ptr noundef nonnull %rb.021) #18
   br i1 %call3.i, label %while.end5, label %if.else
 
 if.else:                                          ; preds = %lor.rhs.i, %land.lhs.true.i, %migrate_ram_is_ignored.exit
   %used_length.i = getelementptr inbounds i8, ptr %rb.021, i64 48
   %1 = load i64, ptr %used_length.i, align 8
-  tail call void @qemu_ram_msync(ptr noundef nonnull %rb.021, i64 noundef 0, i64 noundef %1) #16
+  tail call void @qemu_ram_msync(ptr noundef nonnull %rb.021, i64 noundef 0, i64 noundef %1) #18
   br label %while.end5
 
 while.end5:                                       ; preds = %for.body, %if.else, %migrate_ram_is_ignored.exit
   %next = getelementptr inbounds i8, ptr %rb.021, i64 336
   %2 = load atomic i64, ptr %next monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !109
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !109
   %tobool.not = icmp eq i64 %2, 0
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !110
 
 for.end:                                          ; preds = %while.end5, %entry
   %3 = load ptr, ptr getelementptr inbounds (i8, ptr @XBZRLE, i64 80), align 8
-  tail call void @g_free(ptr noundef %3) #16
+  tail call void @g_free(ptr noundef %3) #18
   store ptr null, ptr getelementptr inbounds (i8, ptr @XBZRLE, i64 80), align 8
   %4 = load atomic i64, ptr getelementptr inbounds (i8, ptr @ram_list, i64 56) monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !111
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !111
   %tobool14.not23 = icmp eq i64 %4, 0
   br i1 %tobool14.not23, label %for.end30, label %for.body15
 
 for.body15:                                       ; preds = %for.end, %while.end26
   %rb.124.in = phi i64 [ %6, %while.end26 ], [ %4, %for.end ]
   %rb.124 = inttoptr i64 %rb.124.in to ptr
-  %call.i9 = tail call zeroext i1 @qemu_ram_is_migratable(ptr noundef nonnull %rb.124) #16
+  %call.i9 = tail call zeroext i1 @qemu_ram_is_migratable(ptr noundef nonnull %rb.124) #18
   br i1 %call.i9, label %lor.rhs.i10, label %while.end26
 
 lor.rhs.i10:                                      ; preds = %for.body15
-  %call1.i11 = tail call zeroext i1 @migrate_ignore_shared() #16
+  %call1.i11 = tail call zeroext i1 @migrate_ignore_shared() #18
   br i1 %call1.i11, label %land.lhs.true.i12, label %if.else18
 
 land.lhs.true.i12:                                ; preds = %lor.rhs.i10
-  %call2.i13 = tail call zeroext i1 @qemu_ram_is_shared(ptr noundef nonnull %rb.124) #16
+  %call2.i13 = tail call zeroext i1 @qemu_ram_is_shared(ptr noundef nonnull %rb.124) #18
   br i1 %call2.i13, label %migrate_ram_is_ignored.exit16, label %if.else18
 
 migrate_ram_is_ignored.exit16:                    ; preds = %land.lhs.true.i12
-  %call3.i15 = tail call zeroext i1 @qemu_ram_is_named_file(ptr noundef nonnull %rb.124) #16
+  %call3.i15 = tail call zeroext i1 @qemu_ram_is_named_file(ptr noundef nonnull %rb.124) #18
   br i1 %call3.i15, label %while.end26, label %if.else18
 
 if.else18:                                        ; preds = %lor.rhs.i10, %land.lhs.true.i12, %migrate_ram_is_ignored.exit16
   %receivedmap = getelementptr inbounds i8, ptr %rb.124, i64 392
   %5 = load ptr, ptr %receivedmap, align 8
-  tail call void @g_free(ptr noundef %5) #16
+  tail call void @g_free(ptr noundef %5) #18
   store ptr null, ptr %receivedmap, align 8
   br label %while.end26
 
 while.end26:                                      ; preds = %for.body15, %if.else18, %migrate_ram_is_ignored.exit16
   %next27 = getelementptr inbounds i8, ptr %rb.124, i64 336
   %6 = load atomic i64, ptr %next27 monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !112
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !112
   %tobool14.not = icmp eq i64 %6, 0
   br i1 %tobool14.not, label %for.end30, label %for.body15, !llvm.loop !113
 
@@ -7829,16 +7829,16 @@ if.then.i.i.i:                                    ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.i.i.i, label %if.then8.i.i.i, label %if.else.i.i.i
 
 if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
-  %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #16
-  %call10.i.i.i = tail call i32 @qemu_get_thread_id() #16
+  %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #18
+  %call10.i.i.i = tail call i32 @qemu_get_thread_id() #18
   %6 = load i64, ptr %_now.i.i.i, align 8
   %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.114, i32 noundef %call10.i.i.i, i64 noundef %6, i64 noundef %7) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.114, i32 noundef %call10.i.i.i, i64 noundef %6, i64 noundef %7) #18
   br label %trace_ram_dirty_bitmap_sync_start.exit.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.115) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.115) #18
   br label %trace_ram_dirty_bitmap_sync_start.exit.i
 
 trace_ram_dirty_bitmap_sync_start.exit.i:         ; preds = %if.else.i.i.i, %if.then8.i.i.i, %land.lhs.true5.i.i.i, %entry
@@ -7846,7 +7846,7 @@ trace_ram_dirty_bitmap_sync_start.exit.i:         ; preds = %if.else.i.i.i, %if.
   %postcopy_bmap_sync_requested.i = getelementptr inbounds i8, ptr %0, i64 352
   store atomic i32 0, ptr %postcopy_bmap_sync_requested.i monotonic, align 8
   %8 = load atomic i64, ptr getelementptr inbounds (i8, ptr @ram_list, i64 56) monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !114
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !114
   %tobool.not52.i = icmp eq i64 %8, 0
   br i1 %tobool.not52.i, label %for.end.i, label %for.body.lr.ph.i
 
@@ -7857,24 +7857,24 @@ for.body.lr.ph.i:                                 ; preds = %trace_ram_dirty_bit
 for.body.i:                                       ; preds = %while.end16.i, %for.body.lr.ph.i
   %block.053.in.i = phi i64 [ %8, %for.body.lr.ph.i ], [ %16, %while.end16.i ]
   %block.053.i = inttoptr i64 %block.053.in.i to ptr
-  %call.i.i = tail call zeroext i1 @qemu_ram_is_migratable(ptr noundef nonnull %block.053.i) #16
+  %call.i.i = tail call zeroext i1 @qemu_ram_is_migratable(ptr noundef nonnull %block.053.i) #18
   br i1 %call.i.i, label %lor.rhs.i.i, label %while.end16.i
 
 lor.rhs.i.i:                                      ; preds = %for.body.i
-  %call1.i.i = tail call zeroext i1 @migrate_ignore_shared() #16
+  %call1.i.i = tail call zeroext i1 @migrate_ignore_shared() #18
   br i1 %call1.i.i, label %land.lhs.true.i.i, label %if.else.i
 
 land.lhs.true.i.i:                                ; preds = %lor.rhs.i.i
-  %call2.i.i = tail call zeroext i1 @qemu_ram_is_shared(ptr noundef nonnull %block.053.i) #16
+  %call2.i.i = tail call zeroext i1 @qemu_ram_is_shared(ptr noundef nonnull %block.053.i) #18
   br i1 %call2.i.i, label %migrate_ram_is_ignored.exit.i, label %if.else.i
 
 migrate_ram_is_ignored.exit.i:                    ; preds = %land.lhs.true.i.i
-  %call3.i.i = tail call zeroext i1 @qemu_ram_is_named_file(ptr noundef nonnull %block.053.i) #16
+  %call3.i.i = tail call zeroext i1 @qemu_ram_is_named_file(ptr noundef nonnull %block.053.i) #18
   br i1 %call3.i.i, label %while.end16.i, label %if.else.i
 
 if.else.i:                                        ; preds = %migrate_ram_is_ignored.exit.i, %land.lhs.true.i.i, %lor.rhs.i.i
   %idstr.i = getelementptr inbounds i8, ptr %block.053.i, i64 76
-  tail call void @qemu_savevm_send_recv_bitmap(ptr noundef %1, ptr noundef nonnull %idstr.i) #16
+  tail call void @qemu_savevm_send_recv_bitmap(ptr noundef %1, ptr noundef nonnull %idstr.i) #18
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i8.i)
   %9 = load i32, ptr @trace_events_enabled_count, align 4
   %tobool.i.i9.i = icmp ne i32 %9, 0
@@ -7895,15 +7895,15 @@ if.then.i.i15.i:                                  ; preds = %land.lhs.true5.i.i1
   br i1 %tobool7.i.i16.i, label %if.then8.i.i18.i, label %if.else.i.i17.i
 
 if.then8.i.i18.i:                                 ; preds = %if.then.i.i15.i
-  %call9.i.i19.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i8.i, ptr noundef null) #16
-  %call10.i.i20.i = tail call i32 @qemu_get_thread_id() #16
+  %call9.i.i19.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i8.i, ptr noundef null) #18
+  %call10.i.i20.i = tail call i32 @qemu_get_thread_id() #18
   %13 = load i64, ptr %_now.i.i8.i, align 8
   %14 = load i64, ptr %tv_usec.i.i21.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.116, i32 noundef %call10.i.i20.i, i64 noundef %13, i64 noundef %14, ptr noundef nonnull %idstr.i) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.116, i32 noundef %call10.i.i20.i, i64 noundef %13, i64 noundef %14, ptr noundef nonnull %idstr.i) #18
   br label %trace_ram_dirty_bitmap_request.exit.i
 
 if.else.i.i17.i:                                  ; preds = %if.then.i.i15.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.117, ptr noundef nonnull %idstr.i) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.117, ptr noundef nonnull %idstr.i) #18
   br label %trace_ram_dirty_bitmap_request.exit.i
 
 trace_ram_dirty_bitmap_request.exit.i:            ; preds = %if.else.i.i17.i, %if.then8.i.i18.i, %land.lhs.true5.i.i12.i, %if.else.i
@@ -7914,7 +7914,7 @@ trace_ram_dirty_bitmap_request.exit.i:            ; preds = %if.else.i.i17.i, %i
 while.end16.i:                                    ; preds = %trace_ram_dirty_bitmap_request.exit.i, %migrate_ram_is_ignored.exit.i, %for.body.i
   %next.i = getelementptr inbounds i8, ptr %block.053.i, i64 336
   %16 = load atomic i64, ptr %next.i monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !115
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !115
   %tobool.not.i = icmp eq i64 %16, 0
   br i1 %tobool.not.i, label %for.end.i, label %for.body.i, !llvm.loop !116
 
@@ -7939,16 +7939,16 @@ if.then.i.i29.i:                                  ; preds = %land.lhs.true5.i.i2
   br i1 %tobool7.i.i30.i, label %if.then8.i.i32.i, label %if.else.i.i31.i
 
 if.then8.i.i32.i:                                 ; preds = %if.then.i.i29.i
-  %call9.i.i33.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i22.i, ptr noundef null) #16
-  %call10.i.i34.i = tail call i32 @qemu_get_thread_id() #16
+  %call9.i.i33.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i22.i, ptr noundef null) #18
+  %call10.i.i34.i = tail call i32 @qemu_get_thread_id() #18
   %21 = load i64, ptr %_now.i.i22.i, align 8
   %tv_usec.i.i35.i = getelementptr inbounds i8, ptr %_now.i.i22.i, i64 8
   %22 = load i64, ptr %tv_usec.i.i35.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.118, i32 noundef %call10.i.i34.i, i64 noundef %21, i64 noundef %22) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.118, i32 noundef %call10.i.i34.i, i64 noundef %21, i64 noundef %22) #18
   br label %trace_ram_dirty_bitmap_sync_wait.exit.i
 
 if.else.i.i31.i:                                  ; preds = %if.then.i.i29.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.119) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.119) #18
   br label %trace_ram_dirty_bitmap_sync_wait.exit.i
 
 trace_ram_dirty_bitmap_sync_wait.exit.i:          ; preds = %if.else.i.i31.i, %if.then8.i.i32.i, %land.lhs.true5.i.i26.i, %for.end.i
@@ -7961,7 +7961,7 @@ while.cond18.i:                                   ; preds = %while.body28.i, %tr
   br i1 %tobool27.not.i, label %while.end33.i, label %while.body28.i
 
 while.body28.i:                                   ; preds = %while.cond18.i
-  %call29.i = tail call i32 @migration_rp_wait(ptr noundef %s) #16
+  %call29.i = tail call i32 @migration_rp_wait(ptr noundef %s) #18
   %tobool30.not.i = icmp eq i32 %call29.i, 0
   br i1 %tobool30.not.i, label %while.cond18.i, label %return, !llvm.loop !117
 
@@ -7986,23 +7986,23 @@ if.then.i.i43.i:                                  ; preds = %land.lhs.true5.i.i4
   br i1 %tobool7.i.i44.i, label %if.then8.i.i46.i, label %if.else.i.i45.i
 
 if.then8.i.i46.i:                                 ; preds = %if.then.i.i43.i
-  %call9.i.i47.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i36.i, ptr noundef null) #16
-  %call10.i.i48.i = tail call i32 @qemu_get_thread_id() #16
+  %call9.i.i47.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i36.i, ptr noundef null) #18
+  %call10.i.i48.i = tail call i32 @qemu_get_thread_id() #18
   %28 = load i64, ptr %_now.i.i36.i, align 8
   %tv_usec.i.i49.i = getelementptr inbounds i8, ptr %_now.i.i36.i, i64 8
   %29 = load i64, ptr %tv_usec.i.i49.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.120, i32 noundef %call10.i.i48.i, i64 noundef %28, i64 noundef %29) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.120, i32 noundef %call10.i.i48.i, i64 noundef %28, i64 noundef %29) #18
   br label %if.end
 
 if.else.i.i45.i:                                  ; preds = %if.then.i.i43.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.121) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.121) #18
   br label %if.end
 
 if.end:                                           ; preds = %while.end33.i, %land.lhs.true5.i.i40.i, %if.then8.i.i46.i, %if.else.i.i45.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i36.i)
   %30 = load ptr, ptr %to_dst_file.i, align 8
   %31 = load atomic i64, ptr getelementptr inbounds (i8, ptr @ram_list, i64 56) monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !118
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !118
   %tobool.not12.i = icmp eq i64 %31, 0
   br i1 %tobool.not12.i, label %for.end.i9, label %for.body.i5
 
@@ -8010,19 +8010,19 @@ for.body.i5:                                      ; preds = %if.end, %while.end6
   %block.014.in.i = phi i64 [ %36, %while.end6.i ], [ %31, %if.end ]
   %pages.013.i = phi i64 [ %pages.1.i, %while.end6.i ], [ 0, %if.end ]
   %block.014.i = inttoptr i64 %block.014.in.i to ptr
-  %call.i.i6 = tail call zeroext i1 @qemu_ram_is_migratable(ptr noundef nonnull %block.014.i) #16
+  %call.i.i6 = tail call zeroext i1 @qemu_ram_is_migratable(ptr noundef nonnull %block.014.i) #18
   br i1 %call.i.i6, label %lor.rhs.i.i23, label %while.end6.i
 
 lor.rhs.i.i23:                                    ; preds = %for.body.i5
-  %call1.i.i24 = tail call zeroext i1 @migrate_ignore_shared() #16
+  %call1.i.i24 = tail call zeroext i1 @migrate_ignore_shared() #18
   br i1 %call1.i.i24, label %land.lhs.true.i.i26, label %if.else.i25
 
 land.lhs.true.i.i26:                              ; preds = %lor.rhs.i.i23
-  %call2.i.i27 = tail call zeroext i1 @qemu_ram_is_shared(ptr noundef nonnull %block.014.i) #16
+  %call2.i.i27 = tail call zeroext i1 @qemu_ram_is_shared(ptr noundef nonnull %block.014.i) #18
   br i1 %call2.i.i27, label %migrate_ram_is_ignored.exit.i28, label %if.else.i25
 
 migrate_ram_is_ignored.exit.i28:                  ; preds = %land.lhs.true.i.i26
-  %call3.i.i29 = tail call zeroext i1 @qemu_ram_is_named_file(ptr noundef nonnull %block.014.i) #16
+  %call3.i.i29 = tail call zeroext i1 @qemu_ram_is_named_file(ptr noundef nonnull %block.014.i) #18
   br i1 %call3.i.i29, label %while.end6.i, label %if.else.i25
 
 if.else.i25:                                      ; preds = %migrate_ram_is_ignored.exit.i28, %land.lhs.true.i.i26, %lor.rhs.i.i23
@@ -8048,7 +8048,7 @@ if.then5.i.i:                                     ; preds = %if.end.i.i
   br label %bitmap_count_one.exit.i
 
 if.else.i.i:                                      ; preds = %if.end.i.i
-  %call8.i.i = tail call i64 @slow_bitmap_count_one(ptr noundef %32, i64 noundef %shr.i) #16
+  %call8.i.i = tail call i64 @slow_bitmap_count_one(ptr noundef %32, i64 noundef %shr.i) #18
   br label %bitmap_count_one.exit.i
 
 bitmap_count_one.exit.i:                          ; preds = %if.else.i.i, %if.then5.i.i, %if.else.i25
@@ -8060,7 +8060,7 @@ while.end6.i:                                     ; preds = %bitmap_count_one.ex
   %pages.1.i = phi i64 [ %pages.013.i, %migrate_ram_is_ignored.exit.i28 ], [ %add.i, %bitmap_count_one.exit.i ], [ %pages.013.i, %for.body.i5 ]
   %next.i7 = getelementptr inbounds i8, ptr %block.014.i, i64 336
   %36 = load atomic i64, ptr %next.i7 monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !119
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !119
   %tobool.not.i8 = icmp eq i64 %36, 0
   br i1 %tobool.not.i8, label %for.end.i9, label %for.body.i5, !llvm.loop !120
 
@@ -8100,16 +8100,16 @@ if.then.i.i.i16:                                  ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.i.i.i17, label %if.then8.i.i.i19, label %if.else.i.i.i18
 
 if.then8.i.i.i19:                                 ; preds = %if.then.i.i.i16
-  %call9.i.i.i20 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i4, ptr noundef null) #16
-  %call10.i.i.i21 = tail call i32 @qemu_get_thread_id() #16
+  %call9.i.i.i20 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i4, ptr noundef null) #18
+  %call10.i.i.i21 = tail call i32 @qemu_get_thread_id() #18
   %42 = load i64, ptr %_now.i.i.i4, align 8
   %tv_usec.i.i.i22 = getelementptr inbounds i8, ptr %_now.i.i.i4, i64 8
   %43 = load i64, ptr %tv_usec.i.i.i22, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.122, i32 noundef %call10.i.i.i21, i64 noundef %42, i64 noundef %43, i64 noundef %pages.0.lcssa.i) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.122, i32 noundef %call10.i.i.i21, i64 noundef %42, i64 noundef %43, i64 noundef %pages.0.lcssa.i) #18
   br label %ram_state_resume_prepare.exit
 
 if.else.i.i.i18:                                  ; preds = %if.then.i.i.i16
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.123, i64 noundef %pages.0.lcssa.i) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.123, i64 noundef %pages.0.lcssa.i) #18
   br label %ram_state_resume_prepare.exit
 
 ram_state_resume_prepare.exit:                    ; preds = %for.end.i9, %land.lhs.true5.i.i.i13, %if.then8.i.i.i19, %if.else.i.i.i18
@@ -8132,7 +8132,7 @@ declare zeroext i1 @migrate_postcopy_ram() local_unnamed_addr #1
 declare void @qemu_file_set_error(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #9
+declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i32 -1, 2) i32 @ram_save_target_page_legacy(ptr nocapture noundef readonly %rs, ptr nocapture noundef %pss) #0 {
@@ -8145,7 +8145,7 @@ entry:
   %page = getelementptr inbounds i8, ptr %pss, i64 24
   %1 = load i64, ptr %page, align 8
   %shl = shl i64 %1, 12
-  %call.i = tail call zeroext i1 @migrate_compress() #16
+  %call.i = tail call zeroext i1 @migrate_compress() #18
   br i1 %call.i, label %if.end.i, label %if.end4
 
 if.end.i:                                         ; preds = %entry
@@ -8156,11 +8156,11 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp.not.i, label %save_compress_page.exit, label %if.then1.i
 
 if.then1.i:                                       ; preds = %if.end.i
-  tail call void @compress_flush_data() #16
+  tail call void @compress_flush_data() #18
   br label %if.end4
 
 save_compress_page.exit:                          ; preds = %if.end.i
-  %call4.i = tail call zeroext i1 @compress_page_with_multi_thread(ptr noundef %2, i64 noundef %shl, ptr noundef nonnull @compress_send_queued_data) #16
+  %call4.i = tail call zeroext i1 @compress_page_with_multi_thread(ptr noundef %2, i64 noundef %shl, ptr noundef nonnull @compress_send_queued_data) #18
   br i1 %call4.i, label %return, label %if.end4
 
 if.end4:                                          ; preds = %entry, %if.then1.i, %save_compress_page.exit
@@ -8169,7 +8169,7 @@ if.end4:                                          ; preds = %entry, %if.then1.i,
   %5 = load ptr, ptr %host.i, align 8
   %add.ptr.i = getelementptr i8, ptr %5, i64 %shl
   %6 = load ptr, ptr %pss, align 8
-  %call.i13 = tail call zeroext i1 @buffer_is_zero(ptr noundef %add.ptr.i, i64 noundef 4096) #16
+  %call.i13 = tail call zeroext i1 @buffer_is_zero(ptr noundef %add.ptr.i, i64 noundef 4096) #18
   br i1 %call.i13, label %if.end.i15, label %if.end7
 
 if.end.i15:                                       ; preds = %if.end4
@@ -8179,29 +8179,29 @@ if.end.i15:                                       ; preds = %if.end4
   %cmp.i.i = icmp eq ptr %8, %7
   %spec.select.i.v.i = select i1 %cmp.i.i, i64 34, i64 2
   %spec.select.i.i = or disjoint i64 %spec.select.i.v.i, %shl
-  tail call void @qemu_put_be64(ptr noundef %6, i64 noundef %spec.select.i.i) #16
+  tail call void @qemu_put_be64(ptr noundef %6, i64 noundef %spec.select.i.i) #18
   br i1 %cmp.i.i, label %save_page_header.exit.i, label %if.then2.i.i
 
 if.then2.i.i:                                     ; preds = %if.end.i15
   %idstr.i.i = getelementptr inbounds i8, ptr %7, i64 76
-  %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %idstr.i.i) #19
+  %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %idstr.i.i) #21
   %conv.i.i = trunc i64 %call.i.i to i32
-  tail call void @qemu_put_byte(ptr noundef %6, i32 noundef %conv.i.i) #16
-  tail call void @qemu_put_buffer(ptr noundef %6, ptr noundef nonnull %idstr.i.i, i64 noundef %call.i.i) #16
+  tail call void @qemu_put_byte(ptr noundef %6, i32 noundef %conv.i.i) #18
+  tail call void @qemu_put_buffer(ptr noundef %6, ptr noundef nonnull %idstr.i.i, i64 noundef %call.i.i) #18
   store ptr %7, ptr %last_sent_block.i.i, align 8
   %9 = add i32 %conv.i.i, 10
   br label %save_page_header.exit.i
 
 save_page_header.exit.i:                          ; preds = %if.then2.i.i, %if.end.i15
   %size.0.i.i = phi i32 [ 9, %if.end.i15 ], [ %9, %if.then2.i.i ]
-  tail call void @qemu_put_byte(ptr noundef %6, i32 noundef 0) #16
+  tail call void @qemu_put_byte(ptr noundef %6, i32 noundef 0) #18
   %10 = load ptr, ptr %block1, align 8
   %idstr.i = getelementptr inbounds i8, ptr %10, i64 76
-  %call.i13.i = tail call zeroext i1 @migrate_release_ram() #16
+  %call.i13.i = tail call zeroext i1 @migrate_release_ram() #18
   br i1 %call.i13.i, label %lor.lhs.false.i.i, label %ram_release_page.exit.i
 
 lor.lhs.false.i.i:                                ; preds = %save_page_header.exit.i
-  %call1.i.i = tail call zeroext i1 @migration_in_postcopy() #16
+  %call1.i.i = tail call zeroext i1 @migration_in_postcopy() #18
   br i1 %call1.i.i, label %if.end.i.i, label %ram_release_page.exit.i
 
 if.end.i.i:                                       ; preds = %lor.lhs.false.i.i
@@ -8211,11 +8211,11 @@ if.end.i.i:                                       ; preds = %lor.lhs.false.i.i
 ram_release_page.exit.i:                          ; preds = %if.end.i.i, %lor.lhs.false.i.i, %save_page_header.exit.i
   %11 = atomicrmw add ptr getelementptr inbounds (i8, ptr @mig_stats, i64 112), i64 1 seq_cst, align 8
   %conv6.i = sext i32 %size.0.i.i to i64
-  %call.i14.i = tail call zeroext i1 @runstate_is_running() #16
+  %call.i14.i = tail call zeroext i1 @runstate_is_running() #18
   br i1 %call.i14.i, label %ram_transferred_add.exit.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %ram_release_page.exit.i
-  %call1.i15.i = tail call zeroext i1 @migration_in_postcopy() #16
+  %call1.i15.i = tail call zeroext i1 @migration_in_postcopy() #18
   %..i.i = select i1 %call1.i15.i, ptr getelementptr inbounds (i8, ptr @mig_stats, i64 56), ptr getelementptr inbounds (i8, ptr @mig_stats, i64 32)
   br label %ram_transferred_add.exit.i
 
@@ -8228,13 +8228,13 @@ ram_transferred_add.exit.i:                       ; preds = %if.else.i.i, %ram_r
   br i1 %tobool.i, label %if.then7.i, label %save_zero_page.exit
 
 if.then7.i:                                       ; preds = %ram_transferred_add.exit.i
-  %call.i16.i = tail call zeroext i1 @migrate_xbzrle() #16
+  %call.i16.i = tail call zeroext i1 @migrate_xbzrle() #18
   br i1 %call.i16.i, label %while.end.i.i, label %XBZRLE_cache_lock.exit.i
 
 while.end.i.i:                                    ; preds = %if.then7.i
   %14 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %15 = inttoptr i64 %14 to ptr
-  tail call void %15(ptr noundef nonnull getelementptr inbounds (i8, ptr @XBZRLE, i64 24), ptr noundef nonnull @.str, i32 noundef 138) #16
+  tail call void %15(ptr noundef nonnull getelementptr inbounds (i8, ptr @XBZRLE, i64 24), ptr noundef nonnull @.str, i32 noundef 138) #18
   br label %XBZRLE_cache_lock.exit.i
 
 XBZRLE_cache_lock.exit.i:                         ; preds = %while.end.i.i, %if.then7.i
@@ -8245,12 +8245,12 @@ XBZRLE_cache_lock.exit.i:                         ; preds = %while.end.i.i, %if.
   %18 = load ptr, ptr getelementptr inbounds (i8, ptr @XBZRLE, i64 16), align 8
   %19 = load ptr, ptr getelementptr inbounds (i8, ptr @XBZRLE, i64 72), align 8
   %20 = load atomic i64, ptr getelementptr inbounds (i8, ptr @mig_stats, i64 16) monotonic, align 8
-  %call1.i18.i = tail call i32 @cache_insert(ptr noundef %18, i64 noundef %add10.i, ptr noundef %19, i64 noundef %20) #16
-  %call.i19.i = tail call zeroext i1 @migrate_xbzrle() #16
+  %call1.i18.i = tail call i32 @cache_insert(ptr noundef %18, i64 noundef %add10.i, ptr noundef %19, i64 noundef %20) #18
+  %call.i19.i = tail call zeroext i1 @migrate_xbzrle() #18
   br i1 %call.i19.i, label %if.then.i.i, label %save_zero_page.exit
 
 if.then.i.i:                                      ; preds = %XBZRLE_cache_lock.exit.i
-  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull getelementptr inbounds (i8, ptr @XBZRLE, i64 24), ptr noundef nonnull @.str, i32 noundef 145) #16
+  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull getelementptr inbounds (i8, ptr @XBZRLE, i64 24), ptr noundef nonnull @.str, i32 noundef 145) #18
   br label %save_zero_page.exit
 
 save_zero_page.exit:                              ; preds = %ram_transferred_add.exit.i, %XBZRLE_cache_lock.exit.i, %if.then.i.i
@@ -8258,16 +8258,16 @@ save_zero_page.exit:                              ; preds = %ram_transferred_add
   br i1 %tobool.not, label %if.end7, label %return
 
 if.end7:                                          ; preds = %if.end4, %save_zero_page.exit
-  %call8 = tail call zeroext i1 @migrate_multifd() #16
+  %call8 = tail call zeroext i1 @migrate_multifd() #18
   br i1 %call8, label %land.lhs.true, label %if.end12
 
 land.lhs.true:                                    ; preds = %if.end7
-  %call9 = tail call zeroext i1 @migration_in_postcopy() #16
+  %call9 = tail call zeroext i1 @migration_in_postcopy() #18
   br i1 %call9, label %if.end12, label %if.then10
 
 if.then10:                                        ; preds = %land.lhs.true
   %21 = load ptr, ptr %pss, align 8
-  %call.i16 = tail call i32 @multifd_queue_page(ptr noundef %21, ptr noundef %0, i64 noundef %shl) #16
+  %call.i16 = tail call i32 @multifd_queue_page(ptr noundef %21, ptr noundef %0, i64 noundef %shl) #18
   %cmp.i = icmp slt i32 %call.i16, 0
   br i1 %cmp.i, label %return, label %if.end.i17
 
@@ -8306,27 +8306,27 @@ if.then.i.i.i:                                    ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.i.i.i, label %if.then8.i.i.i, label %if.else.i.i.i
 
 if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
-  %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #16
-  %call10.i.i.i = tail call i32 @qemu_get_thread_id() #16
+  %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #18
+  %call10.i.i.i = tail call i32 @qemu_get_thread_id() #18
   %31 = load i64, ptr %_now.i.i.i, align 8
   %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %32 = load i64, ptr %tv_usec.i.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.82, i32 noundef %call10.i.i.i, i64 noundef %31, i64 noundef %32, ptr noundef nonnull %idstr.i21, i64 noundef %shl.i, ptr noundef %add.ptr.i20) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.82, i32 noundef %call10.i.i.i, i64 noundef %31, i64 noundef %32, ptr noundef nonnull %idstr.i21, i64 noundef %shl.i, ptr noundef %add.ptr.i20) #18
   br label %trace_ram_save_page.exit.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.83, ptr noundef nonnull %idstr.i21, i64 noundef %shl.i, ptr noundef %add.ptr.i20) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.83, ptr noundef nonnull %idstr.i21, i64 noundef %shl.i, ptr noundef %add.ptr.i20) #18
   br label %trace_ram_save_page.exit.i
 
 trace_ram_save_page.exit.i:                       ; preds = %if.else.i.i.i, %if.then8.i.i.i, %land.lhs.true5.i.i.i, %if.end12
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i)
-  %call.i.i22 = tail call zeroext i1 @migrate_xbzrle() #16
+  %call.i.i22 = tail call zeroext i1 @migrate_xbzrle() #18
   br i1 %call.i.i22, label %while.end.i.i35, label %XBZRLE_cache_lock.exit.i23
 
 while.end.i.i35:                                  ; preds = %trace_ram_save_page.exit.i
   %33 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %34 = inttoptr i64 %33 to ptr
-  tail call void %34(ptr noundef nonnull getelementptr inbounds (i8, ptr @XBZRLE, i64 24), ptr noundef nonnull @.str, i32 noundef 138) #16
+  tail call void %34(ptr noundef nonnull getelementptr inbounds (i8, ptr @XBZRLE, i64 24), ptr noundef nonnull @.str, i32 noundef 138) #18
   br label %XBZRLE_cache_lock.exit.i23
 
 XBZRLE_cache_lock.exit.i23:                       ; preds = %while.end.i.i35, %trace_ram_save_page.exit.i
@@ -8336,14 +8336,14 @@ XBZRLE_cache_lock.exit.i23:                       ; preds = %while.end.i.i35, %t
   br i1 %tobool.i25, label %land.lhs.true.i, label %if.then7.i26
 
 land.lhs.true.i:                                  ; preds = %XBZRLE_cache_lock.exit.i23
-  %call.i29 = tail call zeroext i1 @migration_in_postcopy() #16
+  %call.i29 = tail call zeroext i1 @migration_in_postcopy() #18
   br i1 %call.i29, label %if.then7.i26, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   %36 = load ptr, ptr %pss, align 8
   %37 = load atomic i64, ptr getelementptr inbounds (i8, ptr @mig_stats, i64 16) monotonic, align 8
   %38 = load ptr, ptr getelementptr inbounds (i8, ptr @XBZRLE, i64 16), align 8
-  %call1.i.i30 = tail call zeroext i1 @cache_is_cached(ptr noundef %38, i64 noundef %add.i, i64 noundef %37) #16
+  %call1.i.i30 = tail call zeroext i1 @cache_is_cached(ptr noundef %38, i64 noundef %add.i, i64 noundef %37) #18
   br i1 %call1.i.i30, label %if.end7.i.i, label %if.then.i.i31
 
 if.then.i.i31:                                    ; preds = %if.then.i
@@ -8357,13 +8357,13 @@ if.then.i.i31:                                    ; preds = %if.then.i
 
 if.then2.i.i32:                                   ; preds = %if.then.i.i31
   %41 = load ptr, ptr getelementptr inbounds (i8, ptr @XBZRLE, i64 16), align 8
-  %call3.i.i = tail call i32 @cache_insert(ptr noundef %41, i64 noundef %add.i, ptr noundef %add.ptr.i20, i64 noundef %37) #16
+  %call3.i.i = tail call i32 @cache_insert(ptr noundef %41, i64 noundef %add.i, ptr noundef %add.ptr.i20, i64 noundef %37) #18
   %cmp.i.i33 = icmp eq i32 %call3.i.i, -1
   br i1 %cmp.i.i33, label %if.end6.thread46.i, label %if.else.i.i34
 
 if.else.i.i34:                                    ; preds = %if.then2.i.i32
   %42 = load ptr, ptr getelementptr inbounds (i8, ptr @XBZRLE, i64 16), align 8
-  %call5.i.i = tail call ptr @get_cached_data(ptr noundef %42, i64 noundef %add.i) #16
+  %call5.i.i = tail call ptr @get_cached_data(ptr noundef %42, i64 noundef %add.i) #18
   br label %if.end6.thread46.i
 
 if.end7.i.i:                                      ; preds = %if.then.i
@@ -8371,11 +8371,11 @@ if.end7.i.i:                                      ; preds = %if.then.i
   %inc8.i.i = add i64 %43, 1
   store i64 %inc8.i.i, ptr getelementptr inbounds (i8, ptr @xbzrle_counters, i64 16), align 8
   %44 = load ptr, ptr getelementptr inbounds (i8, ptr @XBZRLE, i64 16), align 8
-  %call9.i.i = tail call ptr @get_cached_data(ptr noundef %44, i64 noundef %add.i) #16
+  %call9.i.i = tail call ptr @get_cached_data(ptr noundef %44, i64 noundef %add.i) #18
   %45 = load ptr, ptr getelementptr inbounds (i8, ptr @XBZRLE, i64 8), align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(4096) %45, ptr noundef nonnull align 1 dereferenceable(4096) %add.ptr.i20, i64 4096, i1 false)
   %46 = load ptr, ptr @XBZRLE, align 8
-  %call10.i.i = tail call i32 @xbzrle_encode_buffer(ptr noundef %call9.i.i, ptr noundef %45, i32 noundef 4096, ptr noundef %46, i32 noundef 4096) #16
+  %call10.i.i = tail call i32 @xbzrle_encode_buffer(ptr noundef %call9.i.i, ptr noundef %45, i32 noundef 4096, ptr noundef %46, i32 noundef 4096) #18
   %last_stage11.i.i = getelementptr inbounds i8, ptr %rs, i64 201
   %47 = load i8, ptr %last_stage11.i.i, align 1
   %tobool12.i.i = trunc i8 %47 to i1
@@ -8416,16 +8416,16 @@ if.then.i.i.i.i:                                  ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.i.i.i.i, label %if.then8.i.i.i.i, label %if.else.i.i.i.i
 
 if.then8.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
-  %call9.i.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i.i, ptr noundef null) #16
-  %call10.i.i.i.i = tail call i32 @qemu_get_thread_id() #16
+  %call9.i.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i.i, ptr noundef null) #18
+  %call10.i.i.i.i = tail call i32 @qemu_get_thread_id() #18
   %53 = load i64, ptr %_now.i.i.i.i, align 8
   %tv_usec.i.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i.i, i64 8
   %54 = load i64, ptr %tv_usec.i.i.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.84, i32 noundef %call10.i.i.i.i, i64 noundef %53, i64 noundef %54) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.84, i32 noundef %call10.i.i.i.i, i64 noundef %53, i64 noundef %54) #18
   br label %trace_save_xbzrle_page_skipping.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %if.then.i.i.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.85) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.85) #18
   br label %trace_save_xbzrle_page_skipping.exit.i.i
 
 trace_save_xbzrle_page_skipping.exit.i.i:         ; preds = %if.else.i.i.i.i, %if.then8.i.i.i.i, %land.lhs.true5.i.i.i.i, %if.then17.i.i
@@ -8453,16 +8453,16 @@ if.then.i.i29.i.i:                                ; preds = %land.lhs.true5.i.i2
   br i1 %tobool7.i.i30.i.i, label %if.then8.i.i32.i.i, label %if.else.i.i31.i.i
 
 if.then8.i.i32.i.i:                               ; preds = %if.then.i.i29.i.i
-  %call9.i.i33.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i22.i.i, ptr noundef null) #16
-  %call10.i.i34.i.i = tail call i32 @qemu_get_thread_id() #16
+  %call9.i.i33.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i22.i.i, ptr noundef null) #18
+  %call10.i.i34.i.i = tail call i32 @qemu_get_thread_id() #18
   %59 = load i64, ptr %_now.i.i22.i.i, align 8
   %tv_usec.i.i35.i.i = getelementptr inbounds i8, ptr %_now.i.i22.i.i, i64 8
   %60 = load i64, ptr %tv_usec.i.i35.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.86, i32 noundef %call10.i.i34.i.i, i64 noundef %59, i64 noundef %60) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.86, i32 noundef %call10.i.i34.i.i, i64 noundef %59, i64 noundef %60) #18
   br label %trace_save_xbzrle_page_overflow.exit.i.i
 
 if.else.i.i31.i.i:                                ; preds = %if.then.i.i29.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.87) #16
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.87) #18
   br label %trace_save_xbzrle_page_overflow.exit.i.i
 
 trace_save_xbzrle_page_overflow.exit.i.i:         ; preds = %if.else.i.i31.i.i, %if.then8.i.i32.i.i, %land.lhs.true5.i.i26.i.i, %if.then20.i.i
@@ -8482,25 +8482,25 @@ if.end23.i.i:                                     ; preds = %if.end15.i.i
   %cmp.i.i.i = icmp eq ptr %64, %23
   %spec.select.i.v.i.i = select i1 %cmp.i.i.i, i64 96, i64 64
   %spec.select.i.i.i = or disjoint i64 %spec.select.i.v.i.i, %shl.i
-  tail call void @qemu_put_be64(ptr noundef %63, i64 noundef %spec.select.i.i.i) #16
+  tail call void @qemu_put_be64(ptr noundef %63, i64 noundef %spec.select.i.i.i) #18
   br i1 %cmp.i.i.i, label %save_page_header.exit.i.i, label %if.then2.i.i.i
 
 if.then2.i.i.i:                                   ; preds = %if.end23.i.i
-  %call.i.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %idstr.i21) #19
+  %call.i.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %idstr.i21) #21
   %conv.i.i.i = trunc i64 %call.i.i.i to i32
-  tail call void @qemu_put_byte(ptr noundef %63, i32 noundef %conv.i.i.i) #16
-  tail call void @qemu_put_buffer(ptr noundef %63, ptr noundef nonnull %idstr.i21, i64 noundef %call.i.i.i) #16
+  tail call void @qemu_put_byte(ptr noundef %63, i32 noundef %conv.i.i.i) #18
+  tail call void @qemu_put_buffer(ptr noundef %63, ptr noundef nonnull %idstr.i21, i64 noundef %call.i.i.i) #18
   store ptr %23, ptr %last_sent_block.i.i.i, align 8
   %65 = add i32 %conv.i.i.i, 9
   br label %save_page_header.exit.i.i
 
 save_page_header.exit.i.i:                        ; preds = %if.then2.i.i.i, %if.end23.i.i
   %size.0.i.i.i = phi i32 [ 8, %if.end23.i.i ], [ %65, %if.then2.i.i.i ]
-  tail call void @qemu_put_byte(ptr noundef %36, i32 noundef 1) #16
-  tail call void @qemu_put_be16(ptr noundef %36, i32 noundef %call10.i.i) #16
+  tail call void @qemu_put_byte(ptr noundef %36, i32 noundef 1) #18
+  tail call void @qemu_put_be16(ptr noundef %36, i32 noundef %call10.i.i) #18
   %66 = load ptr, ptr @XBZRLE, align 8
   %conv26.i.i = sext i32 %call10.i.i to i64
-  tail call void @qemu_put_buffer(ptr noundef %36, ptr noundef %66, i64 noundef %conv26.i.i) #16
+  tail call void @qemu_put_buffer(ptr noundef %36, ptr noundef %66, i64 noundef %conv26.i.i) #18
   %add28.i.i = add i32 %call10.i.i, 3
   %add29.i.i = add i32 %add28.i.i, %size.0.i.i.i
   %sub.i.i = add i32 %add29.i.i, -8
@@ -8509,11 +8509,11 @@ save_page_header.exit.i.i:                        ; preds = %if.then2.i.i.i, %if
   %add31.i.i = add i64 %67, %conv30.i.i
   store i64 %add31.i.i, ptr getelementptr inbounds (i8, ptr @xbzrle_counters, i64 8), align 8
   %conv32.i.i = sext i32 %add29.i.i to i64
-  %call.i36.i.i = tail call zeroext i1 @runstate_is_running() #16
+  %call.i36.i.i = tail call zeroext i1 @runstate_is_running() #18
   br i1 %call.i36.i.i, label %ram_transferred_add.exit.i.i, label %if.else.i.i15.i
 
 if.else.i.i15.i:                                  ; preds = %save_page_header.exit.i.i
-  %call1.i.i.i = tail call zeroext i1 @migration_in_postcopy() #16
+  %call1.i.i.i = tail call zeroext i1 @migration_in_postcopy() #18
   %..i.i.i = select i1 %call1.i.i.i, ptr getelementptr inbounds (i8, ptr @mig_stats, i64 56), ptr getelementptr inbounds (i8, ptr @mig_stats, i64 32)
   br label %ram_transferred_add.exit.i.i
 
@@ -8538,25 +8538,25 @@ if.then7.i26:                                     ; preds = %if.end6.thread46.i,
   %cmp.i.i17.i = icmp eq ptr %71, %23
   %spec.select.i.v.i18.i = select i1 %cmp.i.i17.i, i64 40, i64 8
   %spec.select.i.i19.i = or disjoint i64 %spec.select.i.v.i18.i, %shl.i
-  tail call void @qemu_put_be64(ptr noundef %70, i64 noundef %spec.select.i.i19.i) #16
+  tail call void @qemu_put_be64(ptr noundef %70, i64 noundef %spec.select.i.i19.i) #18
   br i1 %cmp.i.i17.i, label %save_page_header.exit.i24.i, label %if.then2.i.i20.i
 
 if.then2.i.i20.i:                                 ; preds = %if.then7.i26
-  %call.i.i22.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %idstr.i21) #19
+  %call.i.i22.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %idstr.i21) #21
   %conv.i.i23.i = trunc i64 %call.i.i22.i to i32
-  tail call void @qemu_put_byte(ptr noundef %70, i32 noundef %conv.i.i23.i) #16
-  tail call void @qemu_put_buffer(ptr noundef %70, ptr noundef nonnull %idstr.i21, i64 noundef %call.i.i22.i) #16
+  tail call void @qemu_put_byte(ptr noundef %70, i32 noundef %conv.i.i23.i) #18
+  tail call void @qemu_put_buffer(ptr noundef %70, ptr noundef nonnull %idstr.i21, i64 noundef %call.i.i22.i) #18
   %add5.i.i.i = add i64 %call.i.i22.i, 9
   store ptr %23, ptr %last_sent_block.i.i16.i, align 8
   br label %save_page_header.exit.i24.i
 
 save_page_header.exit.i24.i:                      ; preds = %if.then2.i.i20.i, %if.then7.i26
   %size.0.i.i25.i = phi i64 [ 8, %if.then7.i26 ], [ %add5.i.i.i, %if.then2.i.i20.i ]
-  %call.i5.i.i = tail call zeroext i1 @runstate_is_running() #16
+  %call.i5.i.i = tail call zeroext i1 @runstate_is_running() #18
   br i1 %call.i5.i.i, label %ram_transferred_add.exit.i29.i, label %if.else.i.i26.i
 
 if.else.i.i26.i:                                  ; preds = %save_page_header.exit.i24.i
-  %call1.i.i27.i = tail call zeroext i1 @migration_in_postcopy() #16
+  %call1.i.i27.i = tail call zeroext i1 @migration_in_postcopy() #18
   %..i.i28.i = select i1 %call1.i.i27.i, ptr getelementptr inbounds (i8, ptr @mig_stats, i64 56), ptr getelementptr inbounds (i8, ptr @mig_stats, i64 32)
   br label %ram_transferred_add.exit.i29.i
 
@@ -8566,28 +8566,28 @@ ram_transferred_add.exit.i29.i:                   ; preds = %if.else.i.i26.i, %s
   br i1 %send_async.044.i, label %if.then.i32.i, label %if.else.i31.i
 
 if.then.i32.i:                                    ; preds = %ram_transferred_add.exit.i29.i
-  %call2.i.i28 = tail call zeroext i1 @migrate_release_ram() #16
+  %call2.i.i28 = tail call zeroext i1 @migrate_release_ram() #18
   br i1 %call2.i.i28, label %land.rhs.i.i, label %land.end.i.i
 
 land.rhs.i.i:                                     ; preds = %if.then.i32.i
-  %call3.i33.i = tail call zeroext i1 @migration_in_postcopy() #16
+  %call3.i33.i = tail call zeroext i1 @migration_in_postcopy() #18
   br label %land.end.i.i
 
 land.end.i.i:                                     ; preds = %land.rhs.i.i, %if.then.i32.i
   %73 = phi i1 [ false, %if.then.i32.i ], [ %call3.i33.i, %land.rhs.i.i ]
-  tail call void @qemu_put_buffer_async(ptr noundef %70, ptr noundef %p.243.i, i64 noundef 4096, i1 noundef zeroext %73) #16
+  tail call void @qemu_put_buffer_async(ptr noundef %70, ptr noundef %p.243.i, i64 noundef 4096, i1 noundef zeroext %73) #18
   br label %if.end.i.i27
 
 if.else.i31.i:                                    ; preds = %ram_transferred_add.exit.i29.i
-  tail call void @qemu_put_buffer(ptr noundef %70, ptr noundef %p.243.i, i64 noundef 4096) #16
+  tail call void @qemu_put_buffer(ptr noundef %70, ptr noundef %p.243.i, i64 noundef 4096) #18
   br label %if.end.i.i27
 
 if.end.i.i27:                                     ; preds = %if.else.i31.i, %land.end.i.i
-  %call.i6.i.i = tail call zeroext i1 @runstate_is_running() #16
+  %call.i6.i.i = tail call zeroext i1 @runstate_is_running() #18
   br i1 %call.i6.i.i, label %save_normal_page.exit.i, label %if.else.i7.i.i
 
 if.else.i7.i.i:                                   ; preds = %if.end.i.i27
-  %call1.i8.i.i = tail call zeroext i1 @migration_in_postcopy() #16
+  %call1.i8.i.i = tail call zeroext i1 @migration_in_postcopy() #18
   %..i9.i.i = select i1 %call1.i8.i.i, ptr getelementptr inbounds (i8, ptr @mig_stats, i64 56), ptr getelementptr inbounds (i8, ptr @mig_stats, i64 32)
   br label %save_normal_page.exit.i
 
@@ -8599,11 +8599,11 @@ save_normal_page.exit.i:                          ; preds = %if.else.i7.i.i, %if
 
 if.end10.i:                                       ; preds = %save_normal_page.exit.i, %ram_transferred_add.exit.i.i, %trace_save_xbzrle_page_skipping.exit.i.i
   %pages.1.i = phi i32 [ 1, %save_normal_page.exit.i ], [ 0, %trace_save_xbzrle_page_skipping.exit.i.i ], [ 1, %ram_transferred_add.exit.i.i ]
-  %call.i34.i = tail call zeroext i1 @migrate_xbzrle() #16
+  %call.i34.i = tail call zeroext i1 @migrate_xbzrle() #18
   br i1 %call.i34.i, label %if.then.i36.i, label %return
 
 if.then.i36.i:                                    ; preds = %if.end10.i
-  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull getelementptr inbounds (i8, ptr @XBZRLE, i64 24), ptr noundef nonnull @.str, i32 noundef 145) #16
+  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull getelementptr inbounds (i8, ptr @XBZRLE, i64 24), ptr noundef nonnull @.str, i32 noundef 145) #18
   br label %return
 
 return:                                           ; preds = %if.then.i36.i, %if.end10.i, %if.end.i17, %if.then10, %save_zero_page.exit, %save_compress_page.exit
@@ -8616,7 +8616,7 @@ declare i32 @multifd_send_sync_main(ptr noundef) local_unnamed_addr #1
 declare void @error_report_err(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @g_try_malloc(i64 noundef) local_unnamed_addr #9
+declare noalias ptr @g_try_malloc(i64 noundef) local_unnamed_addr #10
 
 declare zeroext i1 @migrate_compress() local_unnamed_addr #1
 
@@ -8664,7 +8664,7 @@ if.end.if.end5_crit_edge:                         ; preds = %if.end
 while.end:                                        ; preds = %if.end
   %2 = load atomic i64, ptr getelementptr inbounds (i8, ptr @ram_list, i64 56) monotonic, align 8
   %3 = inttoptr i64 %2 to ptr
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !121
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !121
   store ptr %3, ptr %last_seen_block, align 8
   %last_page = getelementptr inbounds i8, ptr %rs, i64 136
   store i64 0, ptr %last_page, align 8
@@ -8704,14 +8704,14 @@ while.body9:                                      ; preds = %while.body9.backedg
 if.end.i.i:                                       ; preds = %while.body9, %do.body.backedge.i
   %9 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %10 = inttoptr i64 %9 to ptr
-  call void %10(ptr noundef nonnull %src_page_req_mutex.i.i, ptr noundef nonnull @.str.89, i32 noundef 122) #16
+  call void %10(ptr noundef nonnull %src_page_req_mutex.i.i, ptr noundef nonnull @.str.89, i32 noundef 122) #18
   %11 = load atomic i64, ptr %src_page_requests.i.i.i monotonic, align 8
   %cmp.i17.not.i.i = icmp eq i64 %11, 0
   %12 = inttoptr i64 %11 to ptr
   br i1 %cmp.i17.not.i.i, label %if.else.i.i, label %if.end7.i.i
 
 if.else.i.i:                                      ; preds = %if.end.i.i
-  call void @__assert_fail(ptr noundef nonnull @.str.88, ptr noundef nonnull @.str, i32 noundef 1399, ptr noundef nonnull @__PRETTY_FUNCTION__.unqueue_page) #17
+  call void @__assert_fail(ptr noundef nonnull @.str.88, ptr noundef nonnull @.str, i32 noundef 1399, ptr noundef nonnull @__PRETTY_FUNCTION__.unqueue_page) #19
   unreachable
 
 if.end7.i.i:                                      ; preds = %if.end.i.i
@@ -8727,7 +8727,7 @@ if.end7.i.i:                                      ; preds = %if.end.i.i
 if.else12.i.i:                                    ; preds = %if.end7.i.i
   %mr.i.i = getelementptr inbounds i8, ptr %13, i64 16
   %16 = load ptr, ptr %mr.i.i, align 8
-  call void @memory_region_unref(ptr noundef %16) #16
+  call void @memory_region_unref(ptr noundef %16) #18
   %17 = load ptr, ptr %src_page_requests.i.i.i, align 8
   %next_req.i.i = getelementptr inbounds i8, ptr %17, i64 24
   %18 = load ptr, ptr %next_req.i.i, align 8
@@ -8741,9 +8741,9 @@ if.then18.i.i:                                    ; preds = %if.else12.i.i
 
 unqueue_page.exit.thread38.i:                     ; preds = %if.then18.i.i, %if.else12.i.i
   store ptr null, ptr %next_req.i.i, align 8
-  call void @g_free(ptr noundef nonnull %12) #16
-  call void @migration_consume_urgent_request() #16
-  call void @qemu_mutex_unlock_impl(ptr noundef nonnull %src_page_req_mutex.i.i, ptr noundef nonnull @.str.89, i32 noundef 132) #16
+  call void @g_free(ptr noundef nonnull %12) #18
+  call void @migration_consume_urgent_request() #18
+  call void @qemu_mutex_unlock_impl(ptr noundef nonnull %src_page_req_mutex.i.i, ptr noundef nonnull @.str.89, i32 noundef 132) #18
   br label %if.then.i
 
 unqueue_page.exit.i:                              ; preds = %if.end7.i.i
@@ -8751,7 +8751,7 @@ unqueue_page.exit.i:                              ; preds = %if.end7.i.i
   store i64 %sub.i.i, ptr %len.i.i, align 8
   %add.i.i = add i64 %14, 4096
   store i64 %add.i.i, ptr %offset8.i.i, align 8
-  call void @qemu_mutex_unlock_impl(ptr noundef nonnull %src_page_req_mutex.i.i, ptr noundef nonnull @.str.89, i32 noundef 132) #16
+  call void @qemu_mutex_unlock_impl(ptr noundef nonnull %src_page_req_mutex.i.i, ptr noundef nonnull @.str.89, i32 noundef 132) #18
   %tobool.i = icmp eq ptr %13, null
   br i1 %tobool.i, label %if.then11.i, label %if.then.i
 
@@ -8791,15 +8791,15 @@ if.then.i.i.i:                                    ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.i.i.i, label %if.then8.i.i.i, label %if.else.i.i.i
 
 if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
-  %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #16
-  %call10.i.i.i = call i32 @qemu_get_thread_id() #16
+  %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #18
+  %call10.i.i.i = call i32 @qemu_get_thread_id() #18
   %25 = load i64, ptr %_now.i.i.i, align 8
   %26 = load i64, ptr %tv_usec.i.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.90, i32 noundef %call10.i.i.i, i64 noundef %25, i64 noundef %26, ptr noundef nonnull %idstr.i, i64 noundef %14, i64 noundef %shr.i) #16
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.90, i32 noundef %call10.i.i.i, i64 noundef %25, i64 noundef %26, ptr noundef nonnull %idstr.i, i64 noundef %14, i64 noundef %shr.i) #18
   br label %trace_get_queued_page_not_dirty.exit.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.91, ptr noundef nonnull %idstr.i, i64 noundef %14, i64 noundef %shr.i) #16
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.91, ptr noundef nonnull %idstr.i, i64 noundef %14, i64 noundef %shr.i) #18
   br label %trace_get_queued_page_not_dirty.exit.i
 
 trace_get_queued_page_not_dirty.exit.i:           ; preds = %if.else.i.i.i, %if.then8.i.i.i, %land.lhs.true5.i.i.i, %if.then4.i
@@ -8827,15 +8827,15 @@ if.then.i.i22.i:                                  ; preds = %land.lhs.true5.i.i1
   br i1 %tobool7.i.i23.i, label %if.then8.i.i25.i, label %if.else.i.i24.i
 
 if.then8.i.i25.i:                                 ; preds = %if.then.i.i22.i
-  %call9.i.i26.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i15.i, ptr noundef null) #16
-  %call10.i.i27.i = call i32 @qemu_get_thread_id() #16
+  %call9.i.i26.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i15.i, ptr noundef null) #18
+  %call10.i.i27.i = call i32 @qemu_get_thread_id() #18
   %31 = load i64, ptr %_now.i.i15.i, align 8
   %32 = load i64, ptr %tv_usec.i.i28.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.92, i32 noundef %call10.i.i27.i, i64 noundef %31, i64 noundef %32, ptr noundef nonnull %idstr.i, i64 noundef %14, i64 noundef %shr.i) #16
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.92, i32 noundef %call10.i.i27.i, i64 noundef %31, i64 noundef %32, ptr noundef nonnull %idstr.i, i64 noundef %14, i64 noundef %shr.i) #18
   br label %trace_get_queued_page.exit.i
 
 if.else.i.i24.i:                                  ; preds = %if.then.i.i22.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.93, ptr noundef nonnull %idstr.i, i64 noundef %14, i64 noundef %shr.i) #16
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.93, ptr noundef nonnull %idstr.i, i64 noundef %14, i64 noundef %shr.i) #18
   br label %trace_get_queued_page.exit.i
 
 trace_get_queued_page.exit.i:                     ; preds = %if.else.i.i24.i, %if.then8.i.i25.i, %land.lhs.true5.i.i19.i, %if.else.i
@@ -8849,19 +8849,19 @@ do.body.backedge.i:                               ; preds = %trace_get_queued_pa
 
 if.then11.i:                                      ; preds = %do.body.backedge.i, %unqueue_page.exit.i, %while.body9
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %uffd_msg.i.i)
-  %call.i.i = call zeroext i1 @migrate_background_snapshot() #16
+  %call.i.i = call zeroext i1 @migrate_background_snapshot() #18
   br i1 %call.i.i, label %if.end.i30.i, label %if.then10
 
 if.end.i30.i:                                     ; preds = %if.then11.i
   %34 = load i32, ptr %uffdio_fd.i.i, align 8
-  %call1.i.i = call i32 @uffd_read_events(i32 noundef %34, ptr noundef nonnull %uffd_msg.i.i, i32 noundef 1) #16
+  %call1.i.i = call i32 @uffd_read_events(i32 noundef %34, ptr noundef nonnull %uffd_msg.i.i, i32 noundef 1) #18
   %cmp.i31.i = icmp slt i32 %call1.i.i, 1
   br i1 %cmp.i31.i, label %if.then10, label %if.end3.i.i
 
 if.end3.i.i:                                      ; preds = %if.end.i30.i
   %35 = load i64, ptr %address.i.i, align 1
   %36 = inttoptr i64 %35 to ptr
-  %call4.i.i = call ptr @qemu_ram_block_from_host(ptr noundef %36, i1 noundef zeroext false, ptr noundef nonnull %offset.i) #16
+  %call4.i.i = call ptr @qemu_ram_block_from_host(ptr noundef %36, i1 noundef zeroext false, ptr noundef nonnull %offset.i) #18
   %tobool.not.i.i = icmp eq ptr %call4.i.i, null
   br i1 %tobool.not.i.i, label %if.else.i33.i, label %land.lhs.true.i.i
 
@@ -8873,7 +8873,7 @@ land.lhs.true.i.i:                                ; preds = %if.end3.i.i
   br i1 %cmp5.not.i.i, label %if.else.i33.i, label %if.end13.i
 
 if.else.i33.i:                                    ; preds = %land.lhs.true.i.i, %if.end3.i.i
-  call void @__assert_fail(ptr noundef nonnull @.str.94, ptr noundef nonnull @.str, i32 noundef 1447, ptr noundef nonnull @__PRETTY_FUNCTION__.poll_fault_page) #17
+  call void @__assert_fail(ptr noundef nonnull @.str.94, ptr noundef nonnull @.str, i32 noundef 1447, ptr noundef nonnull @__PRETTY_FUNCTION__.poll_fault_page) #19
   unreachable
 
 if.end13.i:                                       ; preds = %land.lhs.true.i.i
@@ -8938,7 +8938,7 @@ if.then5.i:                                       ; preds = %offset_in_ramblock.
   %next.i = getelementptr inbounds i8, ptr %39, i64 336
   %45 = load atomic i64, ptr %next.i monotonic, align 8
   %46 = inttoptr i64 %45 to ptr
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !123
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !123
   store ptr %46, ptr %block.i, align 8
   %tobool10.not.i = icmp eq i64 %45, 0
   br i1 %tobool10.not.i, label %if.then11.i30, label %while.body9.backedge
@@ -8947,32 +8947,32 @@ while.body9.backedge:                             ; preds = %if.then5.i, %if.the
   br label %while.body9
 
 if.then11.i30:                                    ; preds = %if.then5.i
-  %call12.i = call zeroext i1 @migrate_multifd() #16
+  %call12.i = call zeroext i1 @migrate_multifd() #18
   br i1 %call12.i, label %land.lhs.true13.i, label %if.end22.i
 
 land.lhs.true13.i:                                ; preds = %if.then11.i30
-  %call14.i = call zeroext i1 @migrate_multifd_flush_after_each_section() #16
+  %call14.i = call zeroext i1 @migrate_multifd_flush_after_each_section() #18
   br i1 %call14.i, label %if.end22.i, label %if.then15.i31
 
 if.then15.i31:                                    ; preds = %land.lhs.true13.i
   %47 = load ptr, ptr %rs, align 8
-  %call17.i = call i32 @multifd_send_sync_main(ptr noundef %47) #16
+  %call17.i = call i32 @multifd_send_sync_main(ptr noundef %47) #18
   %cmp18.i = icmp slt i32 %call17.i, 0
   br i1 %cmp18.i, label %while.end29, label %if.end20.i
 
 if.end20.i:                                       ; preds = %if.then15.i31
-  call void @qemu_put_be64(ptr noundef %47, i64 noundef 512) #16
-  %call21.i = call i32 @qemu_fflush(ptr noundef %47) #16
+  call void @qemu_put_be64(ptr noundef %47, i64 noundef 512) #18
+  %call21.i = call i32 @qemu_fflush(ptr noundef %47) #18
   br label %if.end22.i
 
 if.end22.i:                                       ; preds = %if.end20.i, %land.lhs.true13.i, %if.then11.i30
-  call void @compress_flush_data() #16
+  call void @compress_flush_data() #18
   %48 = load atomic i64, ptr getelementptr inbounds (i8, ptr @ram_list, i64 56) monotonic, align 8
   %49 = inttoptr i64 %48 to ptr
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !124
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !124
   store ptr %49, ptr %block.i, align 8
   store i8 1, ptr %complete_round.i, align 8
-  %call31.i = call zeroext i1 @migrate_xbzrle() #16
+  %call31.i = call zeroext i1 @migrate_xbzrle() #18
   br i1 %call31.i, label %if.then32.i, label %while.body9.backedge
 
 if.then32.i:                                      ; preds = %if.end22.i
@@ -8980,43 +8980,43 @@ if.then32.i:                                      ; preds = %if.end22.i
   br label %while.body9.backedge
 
 if.end24:                                         ; preds = %offset_in_ramblock.exit.i, %get_queued_page.exit.thread
-  %call.i.i32 = call zeroext i1 @migrate_postcopy_preempt() #16
+  %call.i.i32 = call zeroext i1 @migrate_postcopy_preempt() #18
   br i1 %call.i.i32, label %land.rhs.i.i, label %postcopy_preempt_active.exit.i
 
 land.rhs.i.i:                                     ; preds = %if.end24
-  %call1.i.i55 = call zeroext i1 @migration_in_postcopy() #16
+  %call1.i.i55 = call zeroext i1 @migration_in_postcopy() #18
   br label %postcopy_preempt_active.exit.i
 
 postcopy_preempt_active.exit.i:                   ; preds = %land.rhs.i.i, %if.end24
   %50 = phi i1 [ false, %if.end24 ], [ %call1.i.i55, %land.rhs.i.i ]
   %51 = load ptr, ptr %block.i, align 8
-  %call1.i = call i64 @qemu_ram_pagesize(ptr noundef %51) #16
+  %call1.i = call i64 @qemu_ram_pagesize(ptr noundef %51) #18
   %52 = load i64, ptr %page1.i, align 8
   %53 = load ptr, ptr %block.i, align 8
-  %call.i24.i = call zeroext i1 @qemu_ram_is_migratable(ptr noundef %53) #16
+  %call.i24.i = call zeroext i1 @qemu_ram_is_migratable(ptr noundef %53) #18
   br i1 %call.i24.i, label %lor.rhs.i.i, label %ram_save_host_page.exit.thread73
 
 lor.rhs.i.i:                                      ; preds = %postcopy_preempt_active.exit.i
-  %call1.i25.i = call zeroext i1 @migrate_ignore_shared() #16
+  %call1.i25.i = call zeroext i1 @migrate_ignore_shared() #18
   br i1 %call1.i25.i, label %land.lhs.true.i.i54, label %if.end.i38
 
 land.lhs.true.i.i54:                              ; preds = %lor.rhs.i.i
-  %call2.i.i = call zeroext i1 @qemu_ram_is_shared(ptr noundef %53) #16
+  %call2.i.i = call zeroext i1 @qemu_ram_is_shared(ptr noundef %53) #18
   br i1 %call2.i.i, label %migrate_ram_is_ignored.exit.i, label %if.end.i38
 
 migrate_ram_is_ignored.exit.i:                    ; preds = %land.lhs.true.i.i54
-  %call3.i.i = call zeroext i1 @qemu_ram_is_named_file(ptr noundef %53) #16
+  %call3.i.i = call zeroext i1 @qemu_ram_is_named_file(ptr noundef %53) #18
   br i1 %call3.i.i, label %ram_save_host_page.exit.thread73, label %if.end.i38
 
 ram_save_host_page.exit.thread73:                 ; preds = %postcopy_preempt_active.exit.i, %migrate_ram_is_ignored.exit.i
   %54 = load ptr, ptr %block.i, align 8
   %idstr.i36 = getelementptr inbounds i8, ptr %54, i64 76
-  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.67, ptr noundef nonnull %idstr.i36) #16
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.67, ptr noundef nonnull %idstr.i36) #18
   br label %while.body9.backedge
 
 if.end.i38:                                       ; preds = %migrate_ram_is_ignored.exit.i, %land.lhs.true.i.i54, %lor.rhs.i.i
   %55 = load ptr, ptr %block.i, align 8
-  %call.i27.i = call i64 @qemu_ram_pagesize(ptr noundef %55) #16
+  %call.i27.i = call i64 @qemu_ram_pagesize(ptr noundef %55) #18
   store i8 1, ptr %host_page_sending.i.i, align 1
   %cmp.i.i39 = icmp ult i64 %call.i27.i, 8192
   br i1 %cmp.i.i39, label %if.then.i.i, label %if.else.i.i40
@@ -9071,13 +9071,13 @@ if.then9.i:                                       ; preds = %do.body.i
   br i1 %50, label %if.then11.i52, label %if.end12.i
 
 if.then11.i52:                                    ; preds = %if.then9.i
-  call void @qemu_mutex_unlock_impl(ptr noundef nonnull %bitmap_mutex.i, ptr noundef nonnull @.str, i32 noundef 2229) #16
+  call void @qemu_mutex_unlock_impl(ptr noundef nonnull %bitmap_mutex.i, ptr noundef nonnull @.str, i32 noundef 2229) #18
   br label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.then11.i52, %if.then9.i
   %64 = load ptr, ptr @migration_ops, align 8
   %65 = load ptr, ptr %64, align 8
-  %call13.i = call i32 %65(ptr noundef nonnull %rs, ptr noundef nonnull %rs) #16
+  %call13.i = call i32 %65(ptr noundef nonnull %rs, ptr noundef nonnull %rs) #18
   %cmp.i45 = icmp sgt i32 %call13.i, -1
   br i1 %cmp.i45, label %if.then14.i, label %if.end20.i46
 
@@ -9088,7 +9088,7 @@ if.then14.i:                                      ; preds = %if.end12.i
   br i1 %or.cond.i, label %if.then17.i, label %if.end20.i46
 
 if.then17.i:                                      ; preds = %if.then14.i
-  %call18.i = call zeroext i1 @migration_rate_limit() #16
+  %call18.i = call zeroext i1 @migration_rate_limit() #18
   br label %if.end20.i46
 
 if.end20.i46:                                     ; preds = %if.then17.i, %if.then14.i, %if.end12.i
@@ -9098,7 +9098,7 @@ if.end20.i46:                                     ; preds = %if.then17.i, %if.th
 while.end.i:                                      ; preds = %if.end20.i46
   %66 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %67 = inttoptr i64 %66 to ptr
-  call void %67(ptr noundef nonnull %bitmap_mutex.i, ptr noundef nonnull @.str, i32 noundef 2243) #16
+  call void %67(ptr noundef nonnull %bitmap_mutex.i, ptr noundef nonnull @.str, i32 noundef 2243) #18
   br label %if.end26.i
 
 if.end26.i:                                       ; preds = %while.end.i, %if.end20.i46
@@ -9118,7 +9118,7 @@ if.end29.i:                                       ; preds = %if.end26.i, %do.bod
   br i1 %tobool.i.i, label %if.end.i.i47, label %if.else.i31.i
 
 if.else.i31.i:                                    ; preds = %if.end29.i
-  call void @__assert_fail(ptr noundef nonnull @.str.44, ptr noundef nonnull @.str, i32 noundef 2112, ptr noundef nonnull @__PRETTY_FUNCTION__.pss_within_range) #17
+  call void @__assert_fail(ptr noundef nonnull @.str.44, ptr noundef nonnull @.str, i32 noundef 2112, ptr noundef nonnull @__PRETTY_FUNCTION__.pss_within_range) #19
   unreachable
 
 if.end.i.i47:                                     ; preds = %if.end29.i
@@ -9160,9 +9160,9 @@ ram_save_release_protection.exit.i:               ; preds = %do.end31.i
   %sub.i42.i = sub i64 %69, %52
   %shl2.i.i = shl i64 %sub.i42.i, 12
   %75 = load ptr, ptr %rs, align 8
-  %call.i43.i = call i32 @qemu_fflush(ptr noundef %75) #16
+  %call.i43.i = call i32 @qemu_fflush(ptr noundef %75) #18
   %76 = load i32, ptr %uffdio_fd.i.i, align 8
-  %call3.i44.i = call i32 @uffd_change_protection(i32 noundef %76, ptr noundef %add.ptr.i.i, i64 noundef %shl2.i.i, i1 noundef zeroext false, i1 noundef zeroext false) #16
+  %call3.i44.i = call i32 @uffd_change_protection(i32 noundef %76, ptr noundef %add.ptr.i.i, i64 noundef %shl2.i.i, i1 noundef zeroext false, i1 noundef zeroext false) #18
   %call3.i44.fr.i = freeze i32 %call3.i44.i
   %cmp33.i = icmp slt i32 %call3.i44.fr.i, 0
   %spec.select.i = select i1 %cmp33.i, i32 %call3.i44.fr.i, i32 %pages.250.i
@@ -9223,7 +9223,7 @@ declare i32 @qemu_get_be16(ptr noundef) local_unnamed_addr #1
 declare i32 @xbzrle_decode_buffer(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #9
+declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #10
 
 declare void @qemu_ram_msync(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
@@ -9236,43 +9236,43 @@ define internal void @ram_mig_ram_block_resized(ptr nocapture readnone %n, ptr n
 entry:
   %offset = alloca i64, align 8
   %err = alloca ptr, align 8
-  %call = tail call i32 @postcopy_state_get() #16
-  %call1 = call ptr @qemu_ram_block_from_host(ptr noundef %host, i1 noundef zeroext false, ptr noundef nonnull %offset) #16
+  %call = tail call i32 @postcopy_state_get() #18
+  %call1 = call ptr @qemu_ram_block_from_host(ptr noundef %host, i1 noundef zeroext false, ptr noundef nonnull %offset) #18
   store ptr null, ptr %err, align 8
   %tobool.not = icmp eq ptr %call1, null
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.124) #16
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.124) #18
   br label %sw.epilog
 
 if.end:                                           ; preds = %entry
-  %call.i = call zeroext i1 @qemu_ram_is_migratable(ptr noundef nonnull %call1) #16
+  %call.i = call zeroext i1 @qemu_ram_is_migratable(ptr noundef nonnull %call1) #18
   br i1 %call.i, label %lor.rhs.i, label %sw.epilog
 
 lor.rhs.i:                                        ; preds = %if.end
-  %call1.i = call zeroext i1 @migrate_ignore_shared() #16
+  %call1.i = call zeroext i1 @migrate_ignore_shared() #18
   br i1 %call1.i, label %land.lhs.true.i, label %if.end4
 
 land.lhs.true.i:                                  ; preds = %lor.rhs.i
-  %call2.i = call zeroext i1 @qemu_ram_is_shared(ptr noundef nonnull %call1) #16
+  %call2.i = call zeroext i1 @qemu_ram_is_shared(ptr noundef nonnull %call1) #18
   br i1 %call2.i, label %migrate_ram_is_ignored.exit, label %if.end4
 
 migrate_ram_is_ignored.exit:                      ; preds = %land.lhs.true.i
-  %call3.i = call zeroext i1 @qemu_ram_is_named_file(ptr noundef nonnull %call1) #16
+  %call3.i = call zeroext i1 @qemu_ram_is_named_file(ptr noundef nonnull %call1) #18
   br i1 %call3.i, label %sw.epilog, label %if.end4
 
 if.end4:                                          ; preds = %lor.rhs.i, %land.lhs.true.i, %migrate_ram_is_ignored.exit
-  %call5 = call zeroext i1 @migration_is_idle() #16
+  %call5 = call zeroext i1 @migration_is_idle() #18
   br i1 %call5, label %if.end7, label %if.then6
 
 if.then6:                                         ; preds = %if.end4
   %idstr = getelementptr inbounds i8, ptr %call1, i64 76
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %err, ptr noundef nonnull @.str, i32 noundef 4263, ptr noundef nonnull @__func__.ram_mig_ram_block_resized, ptr noundef nonnull @.str.125, ptr noundef nonnull %idstr) #16
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %err, ptr noundef nonnull @.str, i32 noundef 4263, ptr noundef nonnull @__func__.ram_mig_ram_block_resized, ptr noundef nonnull @.str.125, ptr noundef nonnull %idstr) #18
   %0 = load ptr, ptr %err, align 8
-  call void @migration_cancel(ptr noundef %0) #16
+  call void @migration_cancel(ptr noundef %0) #18
   %1 = load ptr, ptr %err, align 8
-  call void @error_free(ptr noundef %1) #16
+  call void @error_free(ptr noundef %1) #18
   br label %if.end7
 
 if.end7:                                          ; preds = %if.then6, %if.end4
@@ -9295,7 +9295,7 @@ if.then8:                                         ; preds = %sw.bb
   br i1 %tobool12.not, label %if.end17, label %if.then13
 
 if.then13:                                        ; preds = %if.then8
-  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.126, ptr noundef nonnull %idstr9) #16
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.126, ptr noundef nonnull %idstr9) #18
   br label %if.end17
 
 if.end17:                                         ; preds = %if.then8, %if.then13, %sw.bb
@@ -9305,8 +9305,8 @@ if.end17:                                         ; preds = %if.then8, %if.then1
 
 sw.default:                                       ; preds = %if.end7
   %idstr19 = getelementptr inbounds i8, ptr %call1, i64 76
-  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.127, ptr noundef nonnull %idstr19, i32 noundef %call) #16
-  call void @exit(i32 noundef -1) #17
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.127, ptr noundef nonnull %idstr19, i32 noundef %call) #18
+  call void @exit(i32 noundef -1) #24
   unreachable
 
 sw.epilog:                                        ; preds = %if.end, %if.end7, %if.end7, %if.end7, %migrate_ram_is_ignored.exit, %if.end17, %if.then
@@ -9319,43 +9319,46 @@ declare void @migration_cancel(ptr noundef) local_unnamed_addr #1
 
 declare void @error_free(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #4
+; Function Attrs: nofree noreturn nounwind
+declare void @exit(i32 noundef) local_unnamed_addr #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #13
+declare i64 @llvm.umin.i64(i64, i64) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #15
+declare void @llvm.assume(i1 noundef) #17
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree norecurse nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #14 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #15 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #16 = { nounwind }
-attributes #17 = { noreturn nounwind }
-attributes #18 = { nounwind allocsize(0) }
-attributes #19 = { nounwind willreturn memory(read) }
-attributes #20 = { nounwind allocsize(0,1) }
-attributes #21 = { nounwind willreturn memory(none) }
+attributes #5 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #16 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #17 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #18 = { nounwind }
+attributes #19 = { noreturn nounwind }
+attributes #20 = { nounwind allocsize(0) }
+attributes #21 = { nounwind willreturn memory(read) }
+attributes #22 = { nounwind allocsize(0,1) }
+attributes #23 = { nounwind willreturn memory(none) }
+attributes #24 = { cold noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

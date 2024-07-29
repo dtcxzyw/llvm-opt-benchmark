@@ -30,7 +30,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 121, ptr noundef nonnull @.str, i32 noundef 343) #10
+  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 121, ptr noundef nonnull @.str, i32 noundef 343) #11
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -39,7 +39,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
-  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 66, ptr noundef nonnull @.str, i32 noundef 348) #10
+  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 66, ptr noundef nonnull @.str, i32 noundef 348) #11
   br label %return
 
 if.end3:                                          ; preds = %if.end
@@ -48,22 +48,22 @@ if.end3:                                          ; preds = %if.end
   br i1 %cmp4, label %if.then5, label %if.end6
 
 if.then5:                                         ; preds = %if.end3
-  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 354) #10
+  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 354) #11
   br label %return
 
 if.end6:                                          ; preds = %if.end3
   store ptr %meth, ptr %calloc, align 8
   %order = getelementptr inbounds i8, ptr %calloc, i64 16
-  tail call void @BN_init(ptr noundef nonnull %order) #10
+  tail call void @BN_init(ptr noundef nonnull %order) #11
   %cofactor = getelementptr inbounds i8, ptr %calloc, i64 40
-  tail call void @BN_init(ptr noundef nonnull %cofactor) #10
+  tail call void @BN_init(ptr noundef nonnull %cofactor) #11
   %1 = load ptr, ptr %meth, align 8
-  %call9 = tail call i32 %1(ptr noundef nonnull %calloc) #10
+  %call9 = tail call i32 %1(ptr noundef nonnull %calloc) #11
   %tobool.not = icmp eq i32 %call9, 0
   br i1 %tobool.not, label %if.then10, label %return
 
 if.then10:                                        ; preds = %if.end6
-  tail call void @free(ptr noundef nonnull %calloc) #10
+  tail call void @free(ptr noundef nonnull %calloc) #11
   br label %return
 
 return:                                           ; preds = %if.end6, %if.then10, %if.then5, %if.then2, %if.then
@@ -84,7 +84,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define hidden noundef ptr @EC_GROUP_new_curve_GFp(ptr noundef %p, ptr noundef %a, ptr noundef %b, ptr noundef %ctx) local_unnamed_addr #1 {
 entry:
-  %call = tail call ptr @EC_GFp_mont_method() #10
+  %call = tail call ptr @EC_GFp_mont_method() #11
   %call1 = tail call ptr @ec_group_new(ptr noundef %call)
   %cmp = icmp eq ptr %call1, null
   br i1 %cmp, label %return, label %if.end
@@ -97,11 +97,11 @@ if.end:                                           ; preds = %entry
   br i1 %cmp3, label %if.then4, label %if.end5
 
 if.then4:                                         ; preds = %if.end
-  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 66, ptr noundef nonnull @.str, i32 noundef 382) #10
+  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 66, ptr noundef nonnull @.str, i32 noundef 382) #11
   br label %return
 
 if.end5:                                          ; preds = %if.end
-  %call8 = tail call i32 %1(ptr noundef nonnull %call1, ptr noundef %p, ptr noundef %a, ptr noundef %b, ptr noundef %ctx) #10
+  %call8 = tail call i32 %1(ptr noundef nonnull %call1, ptr noundef %p, ptr noundef %a, ptr noundef %b, ptr noundef %ctx) #11
   %tobool.not = icmp eq i32 %call8, 0
   br i1 %tobool.not, label %if.end.i, label %return
 
@@ -113,7 +113,7 @@ if.end.i:                                         ; preds = %if.end5
   br i1 %cmp.not.i, label %if.end4.i, label %if.then1.i
 
 if.then1.i:                                       ; preds = %if.end.i
-  tail call void %3(ptr noundef nonnull %call1) #10
+  tail call void %3(ptr noundef nonnull %call1) #11
   br label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.then1.i, %if.end.i
@@ -123,16 +123,16 @@ if.end4.i:                                        ; preds = %if.then1.i, %if.end
   br i1 %tobool.not.i.i, label %EC_GROUP_free.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end4.i
-  tail call void @ec_GFp_simple_point_finish(ptr noundef nonnull %4) #10
-  tail call void @free(ptr noundef nonnull %4) #10
+  tail call void @ec_GFp_simple_point_finish(ptr noundef nonnull %4) #11
+  tail call void @free(ptr noundef nonnull %4) #11
   br label %EC_GROUP_free.exit
 
 EC_GROUP_free.exit:                               ; preds = %if.end4.i, %if.end.i.i
   %order.i = getelementptr inbounds i8, ptr %call1, i64 16
-  tail call void @BN_free(ptr noundef nonnull %order.i) #10
+  tail call void @BN_free(ptr noundef nonnull %order.i) #11
   %cofactor.i = getelementptr inbounds i8, ptr %call1, i64 40
-  tail call void @BN_free(ptr noundef nonnull %cofactor.i) #10
-  tail call void @free(ptr noundef nonnull %call1) #10
+  tail call void @BN_free(ptr noundef nonnull %cofactor.i) #11
+  tail call void @free(ptr noundef nonnull %call1) #11
   br label %return
 
 return:                                           ; preds = %if.end5, %entry, %EC_GROUP_free.exit, %if.then4
@@ -156,7 +156,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.not, label %if.end4, label %if.then1
 
 if.then1:                                         ; preds = %if.end
-  tail call void %1(ptr noundef nonnull %group) #10
+  tail call void %1(ptr noundef nonnull %group) #11
   br label %if.end4
 
 if.end4:                                          ; preds = %if.then1, %if.end
@@ -166,16 +166,16 @@ if.end4:                                          ; preds = %if.then1, %if.end
   br i1 %tobool.not.i, label %EC_POINT_free.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end4
-  tail call void @ec_GFp_simple_point_finish(ptr noundef nonnull %2) #10
-  tail call void @free(ptr noundef nonnull %2) #10
+  tail call void @ec_GFp_simple_point_finish(ptr noundef nonnull %2) #11
+  tail call void @free(ptr noundef nonnull %2) #11
   br label %EC_POINT_free.exit
 
 EC_POINT_free.exit:                               ; preds = %if.end4, %if.end.i
   %order = getelementptr inbounds i8, ptr %group, i64 16
-  tail call void @BN_free(ptr noundef nonnull %order) #10
+  tail call void @BN_free(ptr noundef nonnull %order) #11
   %cofactor = getelementptr inbounds i8, ptr %group, i64 40
-  tail call void @BN_free(ptr noundef nonnull %cofactor) #10
-  tail call void @free(ptr noundef nonnull %group) #10
+  tail call void @BN_free(ptr noundef nonnull %cofactor) #11
+  tail call void @free(ptr noundef nonnull %group) #11
   br label %return
 
 return:                                           ; preds = %entry, %EC_POINT_free.exit
@@ -197,23 +197,23 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp2.not, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %lor.lhs.false
-  %call.i = tail call noalias dereferenceable_or_null(80) ptr @malloc(i64 noundef 80) #11
+  %call.i = tail call noalias dereferenceable_or_null(80) ptr @malloc(i64 noundef 80) #12
   %cmp1.i = icmp eq ptr %call.i, null
   br i1 %cmp1.i, label %if.then2.i, label %if.end3.i
 
 if.then2.i:                                       ; preds = %if.end.i
-  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 686) #10
+  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 686) #11
   br label %EC_POINT_new.exit.thread
 
 if.end3.i:                                        ; preds = %if.end.i
   %2 = load ptr, ptr %group, align 8
   store ptr %2, ptr %call.i, align 8
-  %call5.i = tail call i32 @ec_GFp_simple_point_init(ptr noundef nonnull %call.i) #10
+  %call5.i = tail call i32 @ec_GFp_simple_point_init(ptr noundef nonnull %call.i) #11
   %tobool.not.i = icmp eq i32 %call5.i, 0
   br i1 %tobool.not.i, label %if.then6.i, label %land.lhs.true
 
 if.then6.i:                                       ; preds = %if.end3.i
-  tail call void @free(ptr noundef nonnull %call.i) #10
+  tail call void @free(ptr noundef nonnull %call.i) #11
   br label %EC_POINT_new.exit.thread
 
 EC_POINT_new.exit.thread:                         ; preds = %if.then2.i, %if.then6.i
@@ -228,7 +228,7 @@ land.lhs.true:                                    ; preds = %if.end3.i
   br i1 %cmp.not.i, label %if.end.i10, label %EC_POINT_copy.exit.thread
 
 EC_POINT_copy.exit.thread:                        ; preds = %land.lhs.true
-  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 106, ptr noundef nonnull @.str, i32 noundef 723) #10
+  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 106, ptr noundef nonnull @.str, i32 noundef 723) #11
   br label %return
 
 if.end.i10:                                       ; preds = %land.lhs.true
@@ -236,19 +236,19 @@ if.end.i10:                                       ; preds = %land.lhs.true
   br i1 %cmp2.i, label %land.lhs.true8, label %EC_POINT_copy.exit
 
 EC_POINT_copy.exit:                               ; preds = %if.end.i10
-  %call.i11 = tail call i32 @ec_GFp_simple_point_copy(ptr noundef nonnull %call.i, ptr noundef nonnull %generator) #10
+  %call.i11 = tail call i32 @ec_GFp_simple_point_copy(ptr noundef nonnull %call.i, ptr noundef nonnull %generator) #11
   %tobool.not = icmp eq i32 %call.i11, 0
   br i1 %tobool.not, label %return, label %land.lhs.true8
 
 land.lhs.true8:                                   ; preds = %if.end.i10, %EC_POINT_copy.exit
   %order9 = getelementptr inbounds i8, ptr %group, i64 16
-  %call10 = tail call ptr @BN_copy(ptr noundef nonnull %order9, ptr noundef %order) #10
+  %call10 = tail call ptr @BN_copy(ptr noundef nonnull %order9, ptr noundef %order) #11
   %tobool11.not = icmp eq ptr %call10, null
   br i1 %tobool11.not, label %return, label %land.rhs
 
 land.rhs:                                         ; preds = %land.lhs.true8
   %cofactor12 = getelementptr inbounds i8, ptr %group, i64 40
-  %call13 = tail call ptr @BN_copy(ptr noundef nonnull %cofactor12, ptr noundef %cofactor) #10
+  %call13 = tail call ptr @BN_copy(ptr noundef nonnull %cofactor12, ptr noundef %cofactor) #11
   %tobool14 = icmp ne ptr %call13, null
   %5 = zext i1 %tobool14 to i32
   br label %return
@@ -265,27 +265,27 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 67, ptr noundef nonnull @.str, i32 noundef 680) #10
+  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 67, ptr noundef nonnull @.str, i32 noundef 680) #11
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call = tail call noalias dereferenceable_or_null(80) ptr @malloc(i64 noundef 80) #11
+  %call = tail call noalias dereferenceable_or_null(80) ptr @malloc(i64 noundef 80) #12
   %cmp1 = icmp eq ptr %call, null
   br i1 %cmp1, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
-  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 686) #10
+  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 686) #11
   br label %return
 
 if.end3:                                          ; preds = %if.end
   %0 = load ptr, ptr %group, align 8
   store ptr %0, ptr %call, align 8
-  %call5 = tail call i32 @ec_GFp_simple_point_init(ptr noundef nonnull %call) #10
+  %call5 = tail call i32 @ec_GFp_simple_point_init(ptr noundef nonnull %call) #11
   %tobool.not = icmp eq i32 %call5, 0
   br i1 %tobool.not, label %if.then6, label %return
 
 if.then6:                                         ; preds = %if.end3
-  tail call void @free(ptr noundef nonnull %call) #10
+  tail call void @free(ptr noundef nonnull %call) #11
   br label %return
 
 return:                                           ; preds = %if.end3, %if.then6, %if.then2, %if.then
@@ -302,7 +302,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 106, ptr noundef nonnull @.str, i32 noundef 723) #10
+  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 106, ptr noundef nonnull @.str, i32 noundef 723) #11
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -310,7 +310,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp2, label %return, label %if.end4
 
 if.end4:                                          ; preds = %if.end
-  %call = tail call i32 @ec_GFp_simple_point_copy(ptr noundef nonnull %dest, ptr noundef nonnull %src) #10
+  %call = tail call i32 @ec_GFp_simple_point_copy(ptr noundef nonnull %dest, ptr noundef nonnull %src) #11
   br label %return
 
 return:                                           ; preds = %if.end, %if.end4, %if.then
@@ -323,7 +323,7 @@ declare ptr @BN_copy(ptr noundef, ptr noundef) local_unnamed_addr #0
 ; Function Attrs: nounwind uwtable
 define hidden noundef ptr @EC_GROUP_new_arbitrary(ptr noundef %p, ptr noundef %a, ptr noundef %b, ptr noundef %gx, ptr noundef %gy, ptr noundef %order, ptr noundef %cofactor) local_unnamed_addr #1 {
 entry:
-  %call = tail call ptr @BN_CTX_new() #10
+  %call = tail call ptr @BN_CTX_new() #11
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %return, label %if.end
 
@@ -333,23 +333,23 @@ if.end:                                           ; preds = %entry
   br i1 %cmp2, label %return.sink.split, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end
-  %call.i = tail call noalias dereferenceable_or_null(80) ptr @malloc(i64 noundef 80) #11
+  %call.i = tail call noalias dereferenceable_or_null(80) ptr @malloc(i64 noundef 80) #12
   %cmp1.i = icmp eq ptr %call.i, null
   br i1 %cmp1.i, label %if.then2.i, label %if.end3.i
 
 if.then2.i:                                       ; preds = %if.end.i
-  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 686) #10
+  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 686) #11
   br label %if.end.i20
 
 if.end3.i:                                        ; preds = %if.end.i
   %0 = load ptr, ptr %call1, align 8
   store ptr %0, ptr %call.i, align 8
-  %call5.i = tail call i32 @ec_GFp_simple_point_init(ptr noundef nonnull %call.i) #10
+  %call5.i = tail call i32 @ec_GFp_simple_point_init(ptr noundef nonnull %call.i) #11
   %tobool.not.i = icmp eq i32 %call5.i, 0
   br i1 %tobool.not.i, label %if.then6.i, label %lor.lhs.false
 
 if.then6.i:                                       ; preds = %if.end3.i
-  tail call void @free(ptr noundef nonnull %call.i) #10
+  tail call void @free(ptr noundef nonnull %call.i) #11
   br label %if.end.i20
 
 lor.lhs.false:                                    ; preds = %if.end3.i
@@ -363,12 +363,12 @@ lor.lhs.false8:                                   ; preds = %lor.lhs.false
   br i1 %tobool10.not, label %EC_POINT_free.exit18.thread, label %EC_POINT_free.exit
 
 EC_POINT_free.exit:                               ; preds = %lor.lhs.false8
-  tail call void @ec_GFp_simple_point_finish(ptr noundef nonnull %call.i) #10
+  tail call void @ec_GFp_simple_point_finish(ptr noundef nonnull %call.i) #11
   br label %return.sink.split.sink.split
 
 EC_POINT_free.exit18.thread:                      ; preds = %lor.lhs.false, %lor.lhs.false8
-  tail call void @ec_GFp_simple_point_finish(ptr noundef nonnull %call.i) #10
-  tail call void @free(ptr noundef nonnull %call.i) #10
+  tail call void @ec_GFp_simple_point_finish(ptr noundef nonnull %call.i) #11
+  tail call void @free(ptr noundef nonnull %call.i) #11
   br label %if.end.i20
 
 if.end.i20:                                       ; preds = %if.then6.i, %if.then2.i, %EC_POINT_free.exit18.thread
@@ -379,7 +379,7 @@ if.end.i20:                                       ; preds = %if.then6.i, %if.the
   br i1 %cmp.not.i, label %if.end4.i, label %if.then1.i
 
 if.then1.i:                                       ; preds = %if.end.i20
-  tail call void %2(ptr noundef nonnull %call1) #10
+  tail call void %2(ptr noundef nonnull %call1) #11
   br label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.then1.i, %if.end.i20
@@ -389,26 +389,26 @@ if.end4.i:                                        ; preds = %if.then1.i, %if.end
   br i1 %tobool.not.i.i, label %EC_POINT_free.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end4.i
-  tail call void @ec_GFp_simple_point_finish(ptr noundef nonnull %3) #10
-  tail call void @free(ptr noundef nonnull %3) #10
+  tail call void @ec_GFp_simple_point_finish(ptr noundef nonnull %3) #11
+  tail call void @free(ptr noundef nonnull %3) #11
   br label %EC_POINT_free.exit.i
 
 EC_POINT_free.exit.i:                             ; preds = %if.end.i.i, %if.end4.i
   %order.i = getelementptr inbounds i8, ptr %call1, i64 16
-  tail call void @BN_free(ptr noundef nonnull %order.i) #10
+  tail call void @BN_free(ptr noundef nonnull %order.i) #11
   %cofactor.i = getelementptr inbounds i8, ptr %call1, i64 40
-  tail call void @BN_free(ptr noundef nonnull %cofactor.i) #10
+  tail call void @BN_free(ptr noundef nonnull %cofactor.i) #11
   br label %return.sink.split.sink.split
 
 return.sink.split.sink.split:                     ; preds = %EC_POINT_free.exit, %EC_POINT_free.exit.i
   %call1.sink = phi ptr [ %call1, %EC_POINT_free.exit.i ], [ %call.i, %EC_POINT_free.exit ]
   %retval.0.ph.ph = phi ptr [ null, %EC_POINT_free.exit.i ], [ %call1, %EC_POINT_free.exit ]
-  tail call void @free(ptr noundef nonnull %call1.sink) #10
+  tail call void @free(ptr noundef nonnull %call1.sink) #11
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %return.sink.split.sink.split, %if.end
   %retval.0.ph = phi ptr [ null, %if.end ], [ %retval.0.ph.ph, %return.sink.split.sink.split ]
-  tail call void @BN_CTX_free(ptr noundef nonnull %call) #10
+  tail call void @BN_CTX_free(ptr noundef nonnull %call) #11
   br label %return
 
 return:                                           ; preds = %return.sink.split, %entry
@@ -427,11 +427,11 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 106, ptr noundef nonnull @.str, i32 noundef 827) #10
+  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 106, ptr noundef nonnull @.str, i32 noundef 827) #11
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call = tail call i32 @ec_GFp_simple_point_set_affine_coordinates(ptr noundef nonnull %group, ptr noundef nonnull %point, ptr noundef %x, ptr noundef %y, ptr noundef %ctx) #10
+  %call = tail call i32 @ec_GFp_simple_point_set_affine_coordinates(ptr noundef nonnull %group, ptr noundef nonnull %point, ptr noundef %x, ptr noundef %y, ptr noundef %ctx) #11
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end3
 
@@ -442,16 +442,16 @@ if.end3:                                          ; preds = %if.end
   br i1 %cmp.not.i, label %EC_POINT_is_on_curve.exit, label %EC_POINT_is_on_curve.exit.thread
 
 EC_POINT_is_on_curve.exit.thread:                 ; preds = %if.end3
-  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 106, ptr noundef nonnull @.str, i32 noundef 773) #10
+  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 106, ptr noundef nonnull @.str, i32 noundef 773) #11
   br label %if.then6
 
 EC_POINT_is_on_curve.exit:                        ; preds = %if.end3
-  %call.i = tail call i32 @ec_GFp_simple_is_on_curve(ptr noundef nonnull %group, ptr noundef nonnull %point, ptr noundef %ctx) #10
+  %call.i = tail call i32 @ec_GFp_simple_is_on_curve(ptr noundef nonnull %group, ptr noundef nonnull %point, ptr noundef %ctx) #11
   %tobool5.not = icmp eq i32 %call.i, 0
   br i1 %tobool5.not, label %if.then6, label %return
 
 if.then6:                                         ; preds = %EC_POINT_is_on_curve.exit.thread, %EC_POINT_is_on_curve.exit
-  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 120, ptr noundef nonnull @.str, i32 noundef 835) #10
+  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 120, ptr noundef nonnull @.str, i32 noundef 835) #11
   br label %return
 
 return:                                           ; preds = %EC_POINT_is_on_curve.exit, %if.end, %if.then6, %if.then
@@ -466,8 +466,8 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  tail call void @ec_GFp_simple_point_finish(ptr noundef nonnull %point) #10
-  tail call void @free(ptr noundef nonnull %point) #10
+  tail call void @ec_GFp_simple_point_finish(ptr noundef nonnull %point) #11
+  tail call void @free(ptr noundef nonnull %point) #11
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -497,12 +497,12 @@ for.body:                                         ; preds = %for.cond
 if.then:                                          ; preds = %for.body, %entry
   %indvars.iv.lcssa = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.body ]
   %arrayidx13.lcssa = phi ptr [ @OPENSSL_built_in_curves, %entry ], [ %arrayidx, %for.body ]
-  %call.i = tail call ptr @BN_CTX_new() #10
+  %call.i = tail call ptr @BN_CTX_new() #11
   %cmp.i = icmp eq ptr %call.i, null
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.then
-  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 450) #10
+  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 450) #11
   br label %for.end
 
 if.end.i:                                         ; preds = %if.then
@@ -513,13 +513,13 @@ if.end.i:                                         ; preds = %if.then
   %conv.i = zext i8 %2 to i32
   %data3.i = getelementptr inbounds i8, ptr %1, i64 10
   %conv4.i = zext i8 %2 to i64
-  %call5.i = tail call ptr @BN_bin2bn(ptr noundef nonnull %data3.i, i64 noundef %conv4.i, ptr noundef null) #10
+  %call5.i = tail call ptr @BN_bin2bn(ptr noundef nonnull %data3.i, i64 noundef %conv4.i, ptr noundef null) #11
   %tobool.not.i = icmp eq ptr %call5.i, null
   br i1 %tobool.not.i, label %if.then19.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end.i
   %add.ptr8.i = getelementptr inbounds i8, ptr %data3.i, i64 %conv4.i
-  %call10.i = tail call ptr @BN_bin2bn(ptr noundef nonnull %add.ptr8.i, i64 noundef %conv4.i, ptr noundef null) #10
+  %call10.i = tail call ptr @BN_bin2bn(ptr noundef nonnull %add.ptr8.i, i64 noundef %conv4.i, ptr noundef null) #11
   %tobool11.not.i = icmp eq ptr %call10.i, null
   br i1 %tobool11.not.i, label %if.then19.i, label %lor.lhs.false12.i
 
@@ -527,13 +527,13 @@ lor.lhs.false12.i:                                ; preds = %lor.lhs.false.i
   %mul13.i = shl nuw nsw i32 %conv.i, 1
   %idx.ext14.i = zext nneg i32 %mul13.i to i64
   %add.ptr15.i = getelementptr inbounds i8, ptr %data3.i, i64 %idx.ext14.i
-  %call17.i = tail call ptr @BN_bin2bn(ptr noundef nonnull %add.ptr15.i, i64 noundef %conv4.i, ptr noundef null) #10
+  %call17.i = tail call ptr @BN_bin2bn(ptr noundef nonnull %add.ptr15.i, i64 noundef %conv4.i, ptr noundef null) #11
   %tobool18.not.i = icmp eq ptr %call17.i, null
   br i1 %tobool18.not.i, label %if.then19.i, label %if.end20.i
 
 if.then19.i:                                      ; preds = %lor.lhs.false12.i, %lor.lhs.false.i, %if.end.i
   %a.0.i = phi ptr [ %call10.i, %lor.lhs.false12.i ], [ null, %lor.lhs.false.i ], [ null, %if.end.i ]
-  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 461) #10
+  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 461) #11
   br label %for.end
 
 if.end20.i:                                       ; preds = %lor.lhs.false12.i
@@ -543,20 +543,20 @@ if.end20.i:                                       ; preds = %lor.lhs.false12.i
   br i1 %cmp21.not.i, label %if.else.i, label %if.then23.i
 
 if.then23.i:                                      ; preds = %if.end20.i
-  %call25.i = tail call ptr %3() #10
+  %call25.i = tail call ptr %3() #11
   %call26.i = tail call ptr @ec_group_new(ptr noundef %call25.i)
   %cmp27.i = icmp eq ptr %call26.i, null
   br i1 %cmp27.i, label %if.then85.thread104.i, label %lor.lhs.false29.i
 
 if.then85.thread104.i:                            ; preds = %if.then23.i
-  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 15, ptr noundef nonnull @.str, i32 noundef 469) #10
+  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 15, ptr noundef nonnull @.str, i32 noundef 469) #11
   br label %for.end
 
 lor.lhs.false29.i:                                ; preds = %if.then23.i
   %4 = load ptr, ptr %call26.i, align 8
   %group_set_curve.i = getelementptr inbounds i8, ptr %4, i64 24
   %5 = load ptr, ptr %group_set_curve.i, align 8
-  %call31.i = tail call i32 %5(ptr noundef nonnull %call26.i, ptr noundef nonnull %call5.i, ptr noundef nonnull %call10.i, ptr noundef nonnull %call17.i, ptr noundef nonnull %call.i) #10
+  %call31.i = tail call i32 %5(ptr noundef nonnull %call26.i, ptr noundef nonnull %call5.i, ptr noundef nonnull %call10.i, ptr noundef nonnull %call17.i, ptr noundef nonnull %call.i) #11
   %tobool32.not.i = icmp eq i32 %call31.i, 0
   br i1 %tobool32.not.i, label %if.then85.i, label %if.end.i.i
 
@@ -566,39 +566,39 @@ if.else.i:                                        ; preds = %if.end20.i
   br i1 %cmp36.i, label %if.then38.i, label %if.end.i.i
 
 if.then38.i:                                      ; preds = %if.else.i
-  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 15, ptr noundef nonnull @.str, i32 noundef 474) #10
+  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 15, ptr noundef nonnull @.str, i32 noundef 474) #11
   br label %for.end
 
 if.end.i.i:                                       ; preds = %if.else.i, %lor.lhs.false29.i
   %group.0.i = phi ptr [ %call26.i, %lor.lhs.false29.i ], [ %call35.i, %if.else.i ]
-  %call.i.i = tail call noalias dereferenceable_or_null(80) ptr @malloc(i64 noundef 80) #11
+  %call.i.i = tail call noalias dereferenceable_or_null(80) ptr @malloc(i64 noundef 80) #12
   %cmp1.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp1.i.i, label %if.then2.i.i, label %if.end3.i.i
 
 if.then2.i.i:                                     ; preds = %if.end.i.i
-  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 686) #10
+  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 686) #11
   br label %if.then44.i
 
 if.end3.i.i:                                      ; preds = %if.end.i.i
   %6 = load ptr, ptr %group.0.i, align 8
   store ptr %6, ptr %call.i.i, align 8
-  %call5.i.i = tail call i32 @ec_GFp_simple_point_init(ptr noundef nonnull %call.i.i) #10
+  %call5.i.i = tail call i32 @ec_GFp_simple_point_init(ptr noundef nonnull %call.i.i) #11
   %tobool.not.i.i = icmp eq i32 %call5.i.i, 0
   br i1 %tobool.not.i.i, label %if.then6.i.i, label %if.end45.i
 
 if.then6.i.i:                                     ; preds = %if.end3.i.i
-  tail call void @free(ptr noundef nonnull %call.i.i) #10
+  tail call void @free(ptr noundef nonnull %call.i.i) #11
   br label %if.then44.i
 
 if.then44.i:                                      ; preds = %if.then6.i.i, %if.then2.i.i
-  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 15, ptr noundef nonnull @.str, i32 noundef 480) #10
+  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 15, ptr noundef nonnull @.str, i32 noundef 480) #11
   br label %if.end.i47.i
 
 if.end45.i:                                       ; preds = %if.end3.i.i
   %mul46.i = mul nuw nsw i32 %conv.i, 3
   %idx.ext47.i = zext nneg i32 %mul46.i to i64
   %add.ptr48.i = getelementptr inbounds i8, ptr %data3.i, i64 %idx.ext47.i
-  %call50.i = tail call ptr @BN_bin2bn(ptr noundef nonnull %add.ptr48.i, i64 noundef %conv4.i, ptr noundef null) #10
+  %call50.i = tail call ptr @BN_bin2bn(ptr noundef nonnull %add.ptr48.i, i64 noundef %conv4.i, ptr noundef null) #11
   %tobool51.not.i = icmp eq ptr %call50.i, null
   br i1 %tobool51.not.i, label %if.then59.i, label %lor.lhs.false52.i
 
@@ -606,12 +606,12 @@ lor.lhs.false52.i:                                ; preds = %if.end45.i
   %mul53.i = shl nuw nsw i32 %conv.i, 2
   %idx.ext54.i = zext nneg i32 %mul53.i to i64
   %add.ptr55.i = getelementptr inbounds i8, ptr %data3.i, i64 %idx.ext54.i
-  %call57.i = tail call ptr @BN_bin2bn(ptr noundef nonnull %add.ptr55.i, i64 noundef %conv4.i, ptr noundef null) #10
+  %call57.i = tail call ptr @BN_bin2bn(ptr noundef nonnull %add.ptr55.i, i64 noundef %conv4.i, ptr noundef null) #11
   %tobool58.not.i = icmp eq ptr %call57.i, null
   br i1 %tobool58.not.i, label %if.then59.i, label %if.end60.i
 
 if.then59.i:                                      ; preds = %lor.lhs.false52.i, %if.end45.i
-  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 486) #10
+  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 486) #11
   br label %if.end.i47.i
 
 if.end60.i:                                       ; preds = %lor.lhs.false52.i
@@ -620,7 +620,7 @@ if.end60.i:                                       ; preds = %lor.lhs.false52.i
   br i1 %tobool62.not.i, label %if.then63.i, label %if.end64.i
 
 if.then63.i:                                      ; preds = %if.end60.i
-  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 15, ptr noundef nonnull @.str, i32 noundef 491) #10
+  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 15, ptr noundef nonnull @.str, i32 noundef 491) #11
   br label %if.end.i47.i
 
 if.end64.i:                                       ; preds = %if.end60.i
@@ -628,7 +628,7 @@ if.end64.i:                                       ; preds = %if.end60.i
   %idx.ext66.i = zext nneg i32 %mul65.i to i64
   %add.ptr67.i = getelementptr inbounds i8, ptr %data3.i, i64 %idx.ext66.i
   %order.i = getelementptr inbounds i8, ptr %group.0.i, i64 16
-  %call69.i = tail call ptr @BN_bin2bn(ptr noundef nonnull %add.ptr67.i, i64 noundef %conv4.i, ptr noundef nonnull %order.i) #10
+  %call69.i = tail call ptr @BN_bin2bn(ptr noundef nonnull %add.ptr67.i, i64 noundef %conv4.i, ptr noundef nonnull %order.i) #11
   %tobool70.not.i = icmp eq ptr %call69.i, null
   br i1 %tobool70.not.i, label %if.then76.i, label %lor.lhs.false71.i
 
@@ -637,16 +637,16 @@ lor.lhs.false71.i:                                ; preds = %if.end64.i
   %cofactor72.i = getelementptr inbounds i8, ptr %1, i64 9
   %7 = load i8, ptr %cofactor72.i, align 1
   %conv73.i = zext i8 %7 to i64
-  %call74.i = tail call i32 @BN_set_word(ptr noundef nonnull %cofactor.i, i64 noundef %conv73.i) #10
+  %call74.i = tail call i32 @BN_set_word(ptr noundef nonnull %cofactor.i, i64 noundef %conv73.i) #11
   %tobool75.not.i = icmp eq i32 %call74.i, 0
   br i1 %tobool75.not.i, label %if.then76.i, label %if.end77.i
 
 if.then76.i:                                      ; preds = %lor.lhs.false71.i, %if.end64.i
-  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 496) #10
+  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 496) #11
   br label %if.end.i47.i
 
 if.end77.i:                                       ; preds = %lor.lhs.false71.i
-  tail call void @CRYPTO_once(ptr noundef nonnull @built_in_curve_scalar_field_monts_once, ptr noundef nonnull @built_in_curve_scalar_field_monts_init) #10
+  tail call void @CRYPTO_once(ptr noundef nonnull @built_in_curve_scalar_field_monts_once, ptr noundef nonnull @built_in_curve_scalar_field_monts_init) #11
   %8 = load ptr, ptr @built_in_curve_scalar_field_monts, align 8
   %cmp78.not.i = icmp eq ptr %8, null
   br i1 %cmp78.not.i, label %err.i, label %if.then80.i
@@ -664,7 +664,7 @@ err.i:                                            ; preds = %if.then80.i, %if.en
   br label %for.end
 
 if.then85.i:                                      ; preds = %lor.lhs.false29.i
-  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 15, ptr noundef nonnull @.str, i32 noundef 469) #10
+  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 15, ptr noundef nonnull @.str, i32 noundef 469) #11
   br label %if.end.i47.i
 
 if.end.i47.i:                                     ; preds = %if.then85.i, %if.then76.i, %if.then63.i, %if.then59.i, %if.then44.i
@@ -679,7 +679,7 @@ if.end.i47.i:                                     ; preds = %if.then85.i, %if.th
   br i1 %cmp.not.i.i, label %if.end4.i.i, label %if.then1.i.i
 
 if.then1.i.i:                                     ; preds = %if.end.i47.i
-  tail call void %11(ptr noundef nonnull %group.1.ph93.i) #10
+  tail call void %11(ptr noundef nonnull %group.1.ph93.i) #11
   br label %if.end4.i.i
 
 if.end4.i.i:                                      ; preds = %if.then1.i.i, %if.end.i47.i
@@ -689,22 +689,22 @@ if.end4.i.i:                                      ; preds = %if.then1.i.i, %if.e
   br i1 %tobool.not.i.i.i, label %if.end86.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.end4.i.i
-  tail call void @ec_GFp_simple_point_finish(ptr noundef nonnull %12) #10
-  tail call void @free(ptr noundef nonnull %12) #10
+  tail call void @ec_GFp_simple_point_finish(ptr noundef nonnull %12) #11
+  tail call void @free(ptr noundef nonnull %12) #11
   br label %if.end86.i
 
 if.end86.i:                                       ; preds = %if.end.i.i.i, %if.end4.i.i
   %order.i.i = getelementptr inbounds i8, ptr %group.1.ph93.i, i64 16
-  tail call void @BN_free(ptr noundef nonnull %order.i.i) #10
+  tail call void @BN_free(ptr noundef nonnull %order.i.i) #11
   %cofactor.i.i = getelementptr inbounds i8, ptr %group.1.ph93.i, i64 40
-  tail call void @BN_free(ptr noundef nonnull %cofactor.i.i) #10
-  tail call void @free(ptr noundef nonnull %group.1.ph93.i) #10
+  tail call void @BN_free(ptr noundef nonnull %cofactor.i.i) #11
+  tail call void @free(ptr noundef nonnull %group.1.ph93.i) #11
   %tobool.not.i48.i = icmp eq ptr %P.0.ph91.i, null
   br i1 %tobool.not.i48.i, label %for.end, label %if.end.i49.i
 
 if.end.i49.i:                                     ; preds = %if.end86.i
-  tail call void @ec_GFp_simple_point_finish(ptr noundef nonnull %P.0.ph91.i) #10
-  tail call void @free(ptr noundef nonnull %P.0.ph91.i) #10
+  tail call void @ec_GFp_simple_point_finish(ptr noundef nonnull %P.0.ph91.i) #11
+  tail call void @free(ptr noundef nonnull %P.0.ph91.i) #11
   br label %for.end
 
 for.end:                                          ; preds = %if.end.i49.i, %if.end86.i, %err.i, %if.then38.i, %if.then85.thread104.i, %if.then19.i, %if.then.i
@@ -714,17 +714,17 @@ for.end:                                          ; preds = %if.end.i49.i, %if.e
   %b.164116.i = phi ptr [ %call17.i, %if.end86.i ], [ %call17.i, %if.end.i49.i ], [ %call17.i, %if.then85.thread104.i ], [ %call17.i, %err.i ], [ null, %if.then19.i ], [ %call17.i, %if.then38.i ], [ null, %if.then.i ]
   %a.166115.i = phi ptr [ %call10.i, %if.end86.i ], [ %call10.i, %if.end.i49.i ], [ %call10.i, %if.then85.thread104.i ], [ %call10.i, %err.i ], [ %a.0.i, %if.then19.i ], [ %call10.i, %if.then38.i ], [ null, %if.then.i ]
   %p.068114.i = phi ptr [ %call5.i, %if.end86.i ], [ %call5.i, %if.end.i49.i ], [ %call5.i, %if.then85.thread104.i ], [ %call5.i, %err.i ], [ %call5.i, %if.then19.i ], [ %call5.i, %if.then38.i ], [ null, %if.then.i ]
-  tail call void @BN_CTX_free(ptr noundef %call.i) #10
-  tail call void @BN_free(ptr noundef %p.068114.i) #10
-  tail call void @BN_free(ptr noundef %a.166115.i) #10
-  tail call void @BN_free(ptr noundef %b.164116.i) #10
-  tail call void @BN_free(ptr noundef %x.060118.i) #10
-  tail call void @BN_free(ptr noundef %y.162117.i) #10
+  tail call void @BN_CTX_free(ptr noundef %call.i) #11
+  tail call void @BN_free(ptr noundef %p.068114.i) #11
+  tail call void @BN_free(ptr noundef %a.166115.i) #11
+  tail call void @BN_free(ptr noundef %b.164116.i) #11
+  tail call void @BN_free(ptr noundef %x.060118.i) #11
+  tail call void @BN_free(ptr noundef %y.162117.i) #11
   %cmp6 = icmp eq ptr %group.2119.i, null
   br i1 %cmp6, label %if.then7, label %if.end8
 
 if.then7:                                         ; preds = %for.cond, %for.end
-  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 123, ptr noundef nonnull @.str, i32 noundef 539) #10
+  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 123, ptr noundef nonnull @.str, i32 noundef 539) #11
   br label %return
 
 if.end8:                                          ; preds = %for.end
@@ -749,7 +749,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 66, ptr noundef nonnull @.str, i32 noundef 565) #10
+  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 66, ptr noundef nonnull @.str, i32 noundef 565) #11
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -758,7 +758,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp3.not, label %if.end5, label %if.then4
 
 if.then4:                                         ; preds = %if.end
-  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 106, ptr noundef nonnull @.str, i32 noundef 569) #10
+  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 106, ptr noundef nonnull @.str, i32 noundef 569) #11
   br label %return
 
 if.end5:                                          ; preds = %if.end
@@ -782,22 +782,22 @@ if.then11:                                        ; preds = %if.end8
   br i1 %tobool.not.i28, label %if.end.i, label %if.end20
 
 if.end.i:                                         ; preds = %if.then11
-  %call.i = tail call noalias dereferenceable_or_null(80) ptr @malloc(i64 noundef 80) #11
+  %call.i = tail call noalias dereferenceable_or_null(80) ptr @malloc(i64 noundef 80) #12
   %cmp1.i = icmp eq ptr %call.i, null
   br i1 %cmp1.i, label %if.then2.i, label %if.end3.i
 
 if.then2.i:                                       ; preds = %if.end.i
-  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 686) #10
+  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 686) #11
   br label %EC_POINT_new.exit.thread
 
 if.end3.i:                                        ; preds = %if.end.i
   store ptr %0, ptr %call.i, align 8
-  %call5.i = tail call i32 @ec_GFp_simple_point_init(ptr noundef nonnull %call.i) #10
+  %call5.i = tail call i32 @ec_GFp_simple_point_init(ptr noundef nonnull %call.i) #11
   %tobool.not.i = icmp eq i32 %call5.i, 0
   br i1 %tobool.not.i, label %if.then6.i, label %EC_POINT_new.exit
 
 if.then6.i:                                       ; preds = %if.end3.i
-  tail call void @free(ptr noundef nonnull %call.i) #10
+  tail call void @free(ptr noundef nonnull %call.i) #11
   br label %EC_POINT_new.exit.thread
 
 EC_POINT_new.exit.thread:                         ; preds = %if.then2.i, %if.then6.i
@@ -818,7 +818,7 @@ if.end20:                                         ; preds = %EC_POINT_new.exit, 
   br i1 %cmp.not.i, label %if.end.i26, label %EC_POINT_copy.exit.thread
 
 EC_POINT_copy.exit.thread:                        ; preds = %if.end20
-  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 106, ptr noundef nonnull @.str, i32 noundef 723) #10
+  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 106, ptr noundef nonnull @.str, i32 noundef 723) #11
   br label %return
 
 if.end.i26:                                       ; preds = %if.end20
@@ -826,7 +826,7 @@ if.end.i26:                                       ; preds = %if.end20
   br i1 %cmp2.i, label %if.end28, label %EC_POINT_copy.exit
 
 EC_POINT_copy.exit:                               ; preds = %if.end.i26
-  %call.i27 = tail call i32 @ec_GFp_simple_point_copy(ptr noundef nonnull %7, ptr noundef nonnull %6) #10
+  %call.i27 = tail call i32 @ec_GFp_simple_point_copy(ptr noundef nonnull %7, ptr noundef nonnull %6) #11
   %tobool.not = icmp eq i32 %call.i27, 0
   br i1 %tobool.not, label %return, label %if.end28
 
@@ -834,9 +834,9 @@ if.else:                                          ; preds = %if.end8
   br i1 %tobool.not.i28, label %EC_POINT_clear_free.exit, label %if.end.i29
 
 if.end.i29:                                       ; preds = %if.else
-  tail call void @ec_GFp_simple_point_clear_finish(ptr noundef nonnull %5) #10
-  tail call void @OPENSSL_cleanse(ptr noundef nonnull %5, i64 noundef 80) #10
-  tail call void @free(ptr noundef nonnull %5) #10
+  tail call void @ec_GFp_simple_point_clear_finish(ptr noundef nonnull %5) #11
+  tail call void @OPENSSL_cleanse(ptr noundef nonnull %5, i64 noundef 80) #11
+  tail call void @free(ptr noundef nonnull %5) #11
   br label %EC_POINT_clear_free.exit
 
 EC_POINT_clear_free.exit:                         ; preds = %if.else, %if.end.i29
@@ -846,14 +846,14 @@ EC_POINT_clear_free.exit:                         ; preds = %if.else, %if.end.i2
 if.end28:                                         ; preds = %if.end.i26, %EC_POINT_copy.exit, %EC_POINT_clear_free.exit
   %order = getelementptr inbounds i8, ptr %dest, i64 16
   %order29 = getelementptr inbounds i8, ptr %src, i64 16
-  %call30 = tail call ptr @BN_copy(ptr noundef nonnull %order, ptr noundef nonnull %order29) #10
+  %call30 = tail call ptr @BN_copy(ptr noundef nonnull %order, ptr noundef nonnull %order29) #11
   %tobool31.not = icmp eq ptr %call30, null
   br i1 %tobool31.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end28
   %cofactor = getelementptr inbounds i8, ptr %dest, i64 40
   %cofactor32 = getelementptr inbounds i8, ptr %src, i64 40
-  %call33 = tail call ptr @BN_copy(ptr noundef nonnull %cofactor, ptr noundef nonnull %cofactor32) #10
+  %call33 = tail call ptr @BN_copy(ptr noundef nonnull %cofactor, ptr noundef nonnull %cofactor32) #11
   %tobool34.not = icmp eq ptr %call33, null
   br i1 %tobool34.not, label %return, label %if.end36
 
@@ -865,7 +865,7 @@ if.end36:                                         ; preds = %lor.lhs.false
   %11 = load ptr, ptr %dest, align 8
   %group_copy39 = getelementptr inbounds i8, ptr %11, i64 16
   %12 = load ptr, ptr %group_copy39, align 8
-  %call40 = tail call i32 %12(ptr noundef nonnull %dest, ptr noundef nonnull %src) #10
+  %call40 = tail call i32 %12(ptr noundef nonnull %dest, ptr noundef nonnull %src) #11
   br label %return
 
 return:                                           ; preds = %EC_POINT_copy.exit.thread, %EC_POINT_new.exit.thread, %if.end28, %lor.lhs.false, %EC_POINT_copy.exit, %if.end5, %if.end36, %if.then4, %if.then
@@ -880,9 +880,9 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  tail call void @ec_GFp_simple_point_clear_finish(ptr noundef nonnull %point) #10
-  tail call void @OPENSSL_cleanse(ptr noundef nonnull %point, i64 noundef 80) #10
-  tail call void @free(ptr noundef nonnull %point) #10
+  tail call void @ec_GFp_simple_point_clear_finish(ptr noundef nonnull %point) #11
+  tail call void @OPENSSL_cleanse(ptr noundef nonnull %point, i64 noundef 80) #11
+  tail call void @free(ptr noundef nonnull %point) #11
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -922,7 +922,7 @@ if.end.i:                                         ; preds = %if.end3
   br i1 %cmp.not.i, label %if.end4.i, label %if.then1.i
 
 if.then1.i:                                       ; preds = %if.end.i
-  tail call void %2(ptr noundef nonnull %call) #10
+  tail call void %2(ptr noundef nonnull %call) #11
   br label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.then1.i, %if.end.i
@@ -932,16 +932,16 @@ if.end4.i:                                        ; preds = %if.then1.i, %if.end
   br i1 %tobool.not.i.i, label %EC_GROUP_free.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end4.i
-  tail call void @ec_GFp_simple_point_finish(ptr noundef nonnull %3) #10
-  tail call void @free(ptr noundef nonnull %3) #10
+  tail call void @ec_GFp_simple_point_finish(ptr noundef nonnull %3) #11
+  tail call void @free(ptr noundef nonnull %3) #11
   br label %EC_GROUP_free.exit
 
 EC_GROUP_free.exit:                               ; preds = %if.end4.i, %if.end.i.i
   %order.i = getelementptr inbounds i8, ptr %call, i64 16
-  tail call void @BN_free(ptr noundef nonnull %order.i) #10
+  tail call void @BN_free(ptr noundef nonnull %order.i) #11
   %cofactor.i = getelementptr inbounds i8, ptr %call, i64 40
-  tail call void @BN_free(ptr noundef nonnull %cofactor.i) #10
-  tail call void @free(ptr noundef nonnull %call) #10
+  tail call void @BN_free(ptr noundef nonnull %cofactor.i) #11
+  tail call void @free(ptr noundef nonnull %call) #11
   br label %return
 
 return:                                           ; preds = %if.end3, %if.end, %entry, %EC_GROUP_free.exit
@@ -992,7 +992,7 @@ entry:
 define hidden range(i32 0, 2) i32 @EC_GROUP_get_order(ptr noundef %group, ptr noundef %order, ptr nocapture noundef readnone %ctx) local_unnamed_addr #1 {
 entry:
   %order.i = getelementptr inbounds i8, ptr %group, i64 16
-  %call1 = tail call ptr @BN_copy(ptr noundef %order, ptr noundef nonnull %order.i) #10
+  %call1 = tail call ptr @BN_copy(ptr noundef %order, ptr noundef nonnull %order.i) #11
   %cmp = icmp ne ptr %call1, null
   %. = zext i1 %cmp to i32
   ret i32 %.
@@ -1002,12 +1002,12 @@ entry:
 define hidden range(i32 0, 2) i32 @EC_GROUP_get_cofactor(ptr noundef %group, ptr noundef %cofactor, ptr nocapture noundef readnone %ctx) local_unnamed_addr #1 {
 entry:
   %cofactor1 = getelementptr inbounds i8, ptr %group, i64 40
-  %call = tail call ptr @BN_copy(ptr noundef %cofactor, ptr noundef nonnull %cofactor1) #10
+  %call = tail call ptr @BN_copy(ptr noundef %cofactor, ptr noundef nonnull %cofactor1) #11
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call3 = tail call i32 @BN_is_zero(ptr noundef nonnull %cofactor1) #10
+  %call3 = tail call i32 @BN_is_zero(ptr noundef nonnull %cofactor1) #11
   %tobool4.not = icmp eq i32 %call3, 0
   %lnot.ext = zext i1 %tobool4.not to i32
   br label %return
@@ -1022,7 +1022,7 @@ declare i32 @BN_is_zero(ptr noundef) local_unnamed_addr #0
 ; Function Attrs: nounwind uwtable
 define hidden i32 @EC_GROUP_get_curve_GFp(ptr noundef %group, ptr noundef %out_p, ptr noundef %out_a, ptr noundef %out_b, ptr noundef %ctx) local_unnamed_addr #1 {
 entry:
-  %call = tail call i32 @ec_GFp_simple_group_get_curve(ptr noundef %group, ptr noundef %out_p, ptr noundef %out_a, ptr noundef %out_b, ptr noundef %ctx) #10
+  %call = tail call i32 @ec_GFp_simple_group_get_curve(ptr noundef %group, ptr noundef %out_p, ptr noundef %out_a, ptr noundef %out_b, ptr noundef %ctx) #11
   ret i32 %call
 }
 
@@ -1039,7 +1039,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define hidden i32 @EC_GROUP_get_degree(ptr noundef %group) local_unnamed_addr #1 {
 entry:
-  %call = tail call i32 @ec_GFp_simple_group_get_degree(ptr noundef %group) #10
+  %call = tail call i32 @ec_GFp_simple_group_get_degree(ptr noundef %group) #11
   ret i32 %call
 }
 
@@ -1066,31 +1066,31 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.end
-  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 67, ptr noundef nonnull @.str, i32 noundef 680) #10
+  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 67, ptr noundef nonnull @.str, i32 noundef 680) #11
   br label %if.then2
 
 if.end.i:                                         ; preds = %if.end
-  %call.i = tail call noalias dereferenceable_or_null(80) ptr @malloc(i64 noundef 80) #11
+  %call.i = tail call noalias dereferenceable_or_null(80) ptr @malloc(i64 noundef 80) #12
   %cmp1.i = icmp eq ptr %call.i, null
   br i1 %cmp1.i, label %if.then2.i, label %if.end3.i
 
 if.then2.i:                                       ; preds = %if.end.i
-  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 686) #10
+  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 686) #11
   br label %if.then2
 
 if.end3.i:                                        ; preds = %if.end.i
   %0 = load ptr, ptr %group, align 8
   store ptr %0, ptr %call.i, align 8
-  %call5.i = tail call i32 @ec_GFp_simple_point_init(ptr noundef nonnull %call.i) #10
+  %call5.i = tail call i32 @ec_GFp_simple_point_init(ptr noundef nonnull %call.i) #11
   %tobool.not.i = icmp eq i32 %call5.i, 0
   br i1 %tobool.not.i, label %if.then6.i, label %if.end3
 
 if.then6.i:                                       ; preds = %if.end3.i
-  tail call void @free(ptr noundef nonnull %call.i) #10
+  tail call void @free(ptr noundef nonnull %call.i) #11
   br label %if.then2
 
 if.then2:                                         ; preds = %if.then.i, %if.then2.i, %if.then6.i
-  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 742) #10
+  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 742) #11
   br label %return
 
 if.end3:                                          ; preds = %if.end3.i
@@ -1100,7 +1100,7 @@ if.end3:                                          ; preds = %if.end3.i
   br i1 %cmp.not.i, label %if.end.i7, label %EC_POINT_copy.exit.thread
 
 EC_POINT_copy.exit.thread:                        ; preds = %if.end3
-  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 106, ptr noundef nonnull @.str, i32 noundef 723) #10
+  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 106, ptr noundef nonnull @.str, i32 noundef 723) #11
   br label %EC_POINT_free.exit
 
 if.end.i7:                                        ; preds = %if.end3
@@ -1108,13 +1108,13 @@ if.end.i7:                                        ; preds = %if.end3
   br i1 %cmp2.i, label %return, label %EC_POINT_copy.exit
 
 EC_POINT_copy.exit:                               ; preds = %if.end.i7
-  %call.i8 = tail call i32 @ec_GFp_simple_point_copy(ptr noundef nonnull %call.i, ptr noundef nonnull %a) #10
+  %call.i8 = tail call i32 @ec_GFp_simple_point_copy(ptr noundef nonnull %call.i, ptr noundef nonnull %a) #11
   %tobool.not = icmp eq i32 %call.i8, 0
   br i1 %tobool.not, label %EC_POINT_free.exit, label %return
 
 EC_POINT_free.exit:                               ; preds = %EC_POINT_copy.exit.thread, %EC_POINT_copy.exit
-  tail call void @ec_GFp_simple_point_finish(ptr noundef nonnull %call.i) #10
-  tail call void @free(ptr noundef nonnull %call.i) #10
+  tail call void @ec_GFp_simple_point_finish(ptr noundef nonnull %call.i) #11
+  tail call void @free(ptr noundef nonnull %call.i) #11
   br label %return
 
 return:                                           ; preds = %if.end.i7, %EC_POINT_copy.exit, %entry, %EC_POINT_free.exit, %if.then2
@@ -1131,11 +1131,11 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 106, ptr noundef nonnull @.str, i32 noundef 756) #10
+  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 106, ptr noundef nonnull @.str, i32 noundef 756) #11
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call = tail call i32 @ec_GFp_simple_point_set_to_infinity(ptr noundef nonnull %group, ptr noundef nonnull %point) #10
+  %call = tail call i32 @ec_GFp_simple_point_set_to_infinity(ptr noundef nonnull %group, ptr noundef nonnull %point) #11
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
@@ -1154,11 +1154,11 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 106, ptr noundef nonnull @.str, i32 noundef 764) #10
+  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 106, ptr noundef nonnull @.str, i32 noundef 764) #11
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call = tail call i32 @ec_GFp_simple_is_at_infinity(ptr noundef nonnull %group, ptr noundef nonnull %point) #10
+  %call = tail call i32 @ec_GFp_simple_is_at_infinity(ptr noundef nonnull %group, ptr noundef nonnull %point) #11
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
@@ -1177,11 +1177,11 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 106, ptr noundef nonnull @.str, i32 noundef 773) #10
+  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 106, ptr noundef nonnull @.str, i32 noundef 773) #11
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call = tail call i32 @ec_GFp_simple_is_on_curve(ptr noundef nonnull %group, ptr noundef nonnull %point, ptr noundef %ctx) #10
+  %call = tail call i32 @ec_GFp_simple_is_on_curve(ptr noundef nonnull %group, ptr noundef nonnull %point, ptr noundef %ctx) #11
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
@@ -1205,11 +1205,11 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp4.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
-  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 106, ptr noundef nonnull @.str, i32 noundef 782) #10
+  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 106, ptr noundef nonnull @.str, i32 noundef 782) #11
   br label %return
 
 if.end:                                           ; preds = %lor.lhs.false
-  %call = tail call i32 @ec_GFp_simple_cmp(ptr noundef nonnull %group, ptr noundef nonnull %a, ptr noundef nonnull %b, ptr noundef %ctx) #10
+  %call = tail call i32 @ec_GFp_simple_cmp(ptr noundef nonnull %group, ptr noundef nonnull %a, ptr noundef nonnull %b, ptr noundef %ctx) #11
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
@@ -1228,11 +1228,11 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 106, ptr noundef nonnull @.str, i32 noundef 790) #10
+  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 106, ptr noundef nonnull @.str, i32 noundef 790) #11
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call = tail call i32 @ec_GFp_simple_make_affine(ptr noundef nonnull %group, ptr noundef nonnull %point, ptr noundef %ctx) #10
+  %call = tail call i32 @ec_GFp_simple_make_affine(ptr noundef nonnull %group, ptr noundef nonnull %point, ptr noundef %ctx) #11
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
@@ -1266,11 +1266,11 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp2.not, label %for.cond, label %if.then
 
 if.then:                                          ; preds = %for.body
-  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 106, ptr noundef nonnull @.str, i32 noundef 802) #10
+  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 106, ptr noundef nonnull @.str, i32 noundef 802) #11
   br label %return
 
 for.end:                                          ; preds = %for.cond, %entry
-  %call = tail call i32 @ec_GFp_simple_points_make_affine(ptr noundef %group, i64 noundef %num, ptr noundef %points, ptr noundef %ctx) #10
+  %call = tail call i32 @ec_GFp_simple_points_make_affine(ptr noundef %group, i64 noundef %num, ptr noundef %points, ptr noundef %ctx) #11
   br label %return
 
 return:                                           ; preds = %for.end, %if.then
@@ -1290,7 +1290,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 66, ptr noundef nonnull @.str, i32 noundef 813) #10
+  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 66, ptr noundef nonnull @.str, i32 noundef 813) #11
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -1299,11 +1299,11 @@ if.end:                                           ; preds = %entry
   br i1 %cmp3.not, label %if.end5, label %if.then4
 
 if.then4:                                         ; preds = %if.end
-  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 106, ptr noundef nonnull @.str, i32 noundef 817) #10
+  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 106, ptr noundef nonnull @.str, i32 noundef 817) #11
   br label %return
 
 if.end5:                                          ; preds = %if.end
-  %call = tail call i32 %1(ptr noundef nonnull %group, ptr noundef nonnull %point, ptr noundef %x, ptr noundef %y, ptr noundef %ctx) #10
+  %call = tail call i32 %1(ptr noundef nonnull %group, ptr noundef nonnull %point, ptr noundef %x, ptr noundef %y, ptr noundef %ctx) #11
   br label %return
 
 return:                                           ; preds = %if.end5, %if.then4, %if.then
@@ -1332,11 +1332,11 @@ lor.lhs.false5:                                   ; preds = %lor.lhs.false
   br i1 %cmp8.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %lor.lhs.false5, %lor.lhs.false, %entry
-  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 106, ptr noundef nonnull @.str, i32 noundef 846) #10
+  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 106, ptr noundef nonnull @.str, i32 noundef 846) #11
   br label %return
 
 if.end:                                           ; preds = %lor.lhs.false5
-  %call = tail call i32 @ec_GFp_simple_add(ptr noundef nonnull %group, ptr noundef nonnull %r, ptr noundef nonnull %a, ptr noundef nonnull %b, ptr noundef %ctx) #10
+  %call = tail call i32 @ec_GFp_simple_add(ptr noundef nonnull %group, ptr noundef nonnull %r, ptr noundef nonnull %a, ptr noundef nonnull %b, ptr noundef %ctx) #11
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
@@ -1360,11 +1360,11 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp4.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
-  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 106, ptr noundef nonnull @.str, i32 noundef 856) #10
+  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 106, ptr noundef nonnull @.str, i32 noundef 856) #11
   br label %return
 
 if.end:                                           ; preds = %lor.lhs.false
-  %call = tail call i32 @ec_GFp_simple_dbl(ptr noundef nonnull %group, ptr noundef nonnull %r, ptr noundef nonnull %a, ptr noundef %ctx) #10
+  %call = tail call i32 @ec_GFp_simple_dbl(ptr noundef nonnull %group, ptr noundef nonnull %r, ptr noundef nonnull %a, ptr noundef %ctx) #11
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
@@ -1383,11 +1383,11 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 106, ptr noundef nonnull @.str, i32 noundef 865) #10
+  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 106, ptr noundef nonnull @.str, i32 noundef 865) #11
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call = tail call i32 @ec_GFp_simple_invert(ptr noundef nonnull %group, ptr noundef nonnull %a, ptr noundef %ctx) #10
+  %call = tail call i32 @ec_GFp_simple_invert(ptr noundef nonnull %group, ptr noundef nonnull %a, ptr noundef %ctx) #11
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
@@ -1409,7 +1409,7 @@ entry:
   br i1 %or.cond11.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 67, ptr noundef nonnull @.str, i32 noundef 878) #10
+  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 67, ptr noundef nonnull @.str, i32 noundef 878) #11
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -1427,13 +1427,13 @@ land.lhs.true13:                                  ; preds = %lor.lhs.false10
   br i1 %cmp16.not, label %if.end19, label %if.then18
 
 if.then18:                                        ; preds = %land.lhs.true13, %if.end
-  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 106, ptr noundef nonnull @.str, i32 noundef 884) #10
+  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 106, ptr noundef nonnull @.str, i32 noundef 884) #11
   br label %return
 
 if.end19:                                         ; preds = %land.lhs.true13, %lor.lhs.false10
   %mul = getelementptr inbounds i8, ptr %1, i64 40
   %4 = load ptr, ptr %mul, align 8
-  %call = tail call i32 %4(ptr noundef nonnull %group, ptr noundef nonnull %r, ptr noundef %g_scalar, ptr noundef %p, ptr noundef %p_scalar, ptr noundef %ctx) #10
+  %call = tail call i32 %4(ptr noundef nonnull %group, ptr noundef nonnull %r, ptr noundef %g_scalar, ptr noundef %p, ptr noundef %p_scalar, ptr noundef %ctx) #11
   br label %return
 
 return:                                           ; preds = %if.end19, %if.then18, %if.then
@@ -1450,11 +1450,11 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 106, ptr noundef nonnull @.str, i32 noundef 895) #10
+  tail call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 106, ptr noundef nonnull @.str, i32 noundef 895) #11
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call = tail call i32 @ec_GFp_simple_set_Jprojective_coordinates_GFp(ptr noundef nonnull %group, ptr noundef nonnull %point, ptr noundef %x, ptr noundef %y, ptr noundef %z, ptr noundef %ctx) #10
+  %call = tail call i32 @ec_GFp_simple_set_Jprojective_coordinates_GFp(ptr noundef nonnull %group, ptr noundef nonnull %point, ptr noundef %x, ptr noundef %y, ptr noundef %z, ptr noundef %ctx) #11
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
@@ -1482,25 +1482,25 @@ entry:
   ret i32 406
 }
 
-; Function Attrs: nounwind uwtable
-define hidden void @EC_GROUP_set_point_conversion_form(ptr nocapture noundef readnone %group, i32 noundef %form) local_unnamed_addr #1 {
+; Function Attrs: nofree nounwind uwtable
+define hidden void @EC_GROUP_set_point_conversion_form(ptr nocapture noundef readnone %group, i32 noundef %form) local_unnamed_addr #6 {
 entry:
   %cmp.not = icmp eq i32 %form, 4
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call void @abort() #12
+  tail call void @abort() #13
   unreachable
 
 if.end:                                           ; preds = %entry
   ret void
 }
 
-; Function Attrs: noreturn nounwind
-declare void @abort() local_unnamed_addr #6
+; Function Attrs: cold nofree noreturn nounwind
+declare void @abort() local_unnamed_addr #7
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef range(i64 0, 4294967296) i64 @EC_get_builtin_curves(ptr nocapture noundef writeonly %out_curves, i64 noundef %max_num_curves) local_unnamed_addr #7 {
+define hidden noundef range(i64 0, 4294967296) i64 @EC_get_builtin_curves(ptr nocapture noundef writeonly %out_curves, i64 noundef %max_num_curves) local_unnamed_addr #8 {
 entry:
   %cmp211.not = icmp eq i64 %max_num_curves, 0
   br i1 %cmp211.not, label %for.end19, label %for.body.preheader
@@ -1538,14 +1538,14 @@ declare void @CRYPTO_once(ptr noundef, ptr noundef) local_unnamed_addr #0
 ; Function Attrs: nounwind uwtable
 define internal void @built_in_curve_scalar_field_monts_init() #1 {
 entry:
-  %call = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #11
+  %call = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #12
   store ptr %call, ptr @built_in_curve_scalar_field_monts, align 8
   %cmp1 = icmp eq ptr %call, null
   br i1 %cmp1, label %return, label %if.end4
 
 if.end4:                                          ; preds = %entry
-  %call5 = tail call ptr @BN_new() #10
-  %call6 = tail call ptr @BN_CTX_new() #10
+  %call5 = tail call ptr @BN_new() #11
+  %call6 = tail call ptr @BN_CTX_new() #11
   %cmp7 = icmp eq ptr %call6, null
   %cmp9 = icmp eq ptr %call5, null
   %or.cond = select i1 %cmp7, i1 true, i1 %cmp9
@@ -1557,7 +1557,7 @@ for.body:                                         ; preds = %if.end4, %if.end33
   %0 = load ptr, ptr %data, align 16
   %param_len18 = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i8, ptr %param_len18, align 8
-  %call21 = tail call ptr @BN_MONT_CTX_new() #10
+  %call21 = tail call ptr @BN_MONT_CTX_new() #11
   %cmp22 = icmp eq ptr %call21, null
   br i1 %cmp22, label %err, label %if.end25
 
@@ -1566,12 +1566,12 @@ if.end25:                                         ; preds = %for.body
   %conv19 = zext i8 %1 to i64
   %mul26 = mul nuw nsw i64 %conv19, 5
   %add.ptr = getelementptr inbounds i8, ptr %data20, i64 %mul26
-  %call28 = tail call ptr @BN_bin2bn(ptr noundef nonnull %add.ptr, i64 noundef %conv19, ptr noundef %call5) #10
+  %call28 = tail call ptr @BN_bin2bn(ptr noundef nonnull %add.ptr, i64 noundef %conv19, ptr noundef %call5) #11
   %tobool.not = icmp eq ptr %call28, null
   br i1 %tobool.not, label %err, label %lor.lhs.false29
 
 lor.lhs.false29:                                  ; preds = %if.end25
-  %call30 = tail call i32 @BN_MONT_CTX_set(ptr noundef nonnull %call21, ptr noundef %call5, ptr noundef %call6) #10
+  %call30 = tail call i32 @BN_MONT_CTX_set(ptr noundef nonnull %call21, ptr noundef %call5, ptr noundef %call6) #11
   %tobool31.not = icmp eq i32 %call30, 0
   br i1 %tobool31.not, label %err, label %if.end33
 
@@ -1585,15 +1585,15 @@ if.end33:                                         ; preds = %lor.lhs.false29
 
 err:                                              ; preds = %if.end25, %lor.lhs.false29, %for.body, %if.end4
   %mont_ctx.0 = phi ptr [ null, %if.end4 ], [ %call21, %if.end25 ], [ %call21, %lor.lhs.false29 ], [ null, %for.body ]
-  tail call void @BN_MONT_CTX_free(ptr noundef %mont_ctx.0) #10
+  tail call void @BN_MONT_CTX_free(ptr noundef %mont_ctx.0) #11
   %3 = load ptr, ptr @built_in_curve_scalar_field_monts, align 8
-  tail call void @free(ptr noundef %3) #10
+  tail call void @free(ptr noundef %3) #11
   store ptr null, ptr @built_in_curve_scalar_field_monts, align 8
   br label %out
 
 out:                                              ; preds = %if.end33, %err
-  tail call void @BN_free(ptr noundef %call5) #10
-  tail call void @BN_CTX_free(ptr noundef %call6) #10
+  tail call void @BN_free(ptr noundef %call5) #11
+  tail call void @BN_CTX_free(ptr noundef %call6) #11
   br label %return
 
 return:                                           ; preds = %entry, %out
@@ -1609,10 +1609,10 @@ declare i32 @BN_MONT_CTX_set(ptr noundef, ptr noundef, ptr noundef) local_unname
 declare void @BN_MONT_CTX_free(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #8
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #9
+declare i64 @llvm.umin.i64(i64, i64) #10
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1620,13 +1620,14 @@ attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,unini
 attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
-attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nounwind }
-attributes #11 = { nounwind allocsize(0) }
-attributes #12 = { noreturn nounwind }
+attributes #6 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
+attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nounwind }
+attributes #12 = { nounwind allocsize(0) }
+attributes #13 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
 

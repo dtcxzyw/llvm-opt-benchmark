@@ -4210,7 +4210,7 @@ json_find_attr.exit117.thread.thread175:          ; preds = %88, %json_find_attr
   %109 = call i64 @fwrite(ptr nonnull @.str.390, i64 41, i64 1, ptr %108) #16
   %110 = load ptr, ptr %107, align 8
   %111 = call ptr @g_string_free(ptr noundef %110, i32 noundef 1) #17
-  call void @exit(i32 noundef -1) #20
+  call void @exit(i32 noundef -1) #24
   unreachable
 
 112:                                              ; preds = %.lr.ph156
@@ -5679,7 +5679,7 @@ define internal fastcc void @sharkd_json_simple_ok(i32 noundef %0) unnamed_addr 
   ret void
 }
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -10617,7 +10617,7 @@ define internal noundef i32 @sharkd_session_packet_download_tap_rtp_cb(ptr nound
 
 11:                                               ; preds = %9
   %12 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 32) #19
-  %13 = tail call dereferenceable_or_null(120) ptr @g_memdup2(ptr noundef nonnull %3, i64 noundef 120) #24
+  %13 = tail call dereferenceable_or_null(120) ptr @g_memdup2(ptr noundef nonnull %3, i64 noundef 120) #25
   %14 = getelementptr inbounds i8, ptr %12, i64 8
   store ptr %13, ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %3, i64 48
@@ -10639,7 +10639,7 @@ define internal noundef i32 @sharkd_session_packet_download_tap_rtp_cb(ptr nound
   %25 = zext i32 %24 to i64
   %26 = getelementptr i8, ptr %22, i64 %25
   %27 = zext i32 %19 to i64
-  %28 = tail call ptr @g_memdup2(ptr noundef %26, i64 noundef %27) #24
+  %28 = tail call ptr @g_memdup2(ptr noundef %26, i64 noundef %27) #25
   %29 = getelementptr inbounds i8, ptr %12, i64 24
   store ptr %28, ptr %29, align 8
   br label %30
@@ -10905,7 +10905,7 @@ attributes #1 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #4 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nounwind returns_twice "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -10924,7 +10924,8 @@ attributes #20 = { noreturn nounwind }
 attributes #21 = { cold nounwind }
 attributes #22 = { nounwind returns_twice }
 attributes #23 = { nounwind allocsize(0) }
-attributes #24 = { nounwind allocsize(1) }
+attributes #24 = { cold noreturn nounwind }
+attributes #25 = { nounwind allocsize(1) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

@@ -8711,7 +8711,7 @@ for.inc19:                                        ; preds = %for.body14
 
 for.end21:                                        ; preds = %for.cond12.preheader, %for.inc19
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.19, i32 noundef 212, ptr noundef nonnull @.str.20)
-  tail call void @exit(i32 noundef 114) #23
+  tail call void @exit(i32 noundef 114) #28
   unreachable
 
 for.inc23.sink.split:                             ; preds = %if.end.i.i.i.i.i27, %if.then.i.i.i.i.i.i29, %if.end.i.i.i.i.i, %if.then.i.i.i.i.i.i
@@ -8734,7 +8734,7 @@ for.end25:                                        ; preds = %for.inc23, %entry
 
 declare void @_Z26notify_assertion_violationPKciS0_(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress uwtable
@@ -9392,7 +9392,7 @@ for.inc54:                                        ; preds = %for.body.i.i.i.i112
 
 for.end56:                                        ; preds = %for.inc54, %for.inc54.us, %for.cond27.preheader
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.19, i32 noundef 404, ptr noundef nonnull @.str.20)
-  tail call void @exit(i32 noundef 114) #23
+  tail call void @exit(i32 noundef 114) #28
   unreachable
 
 return:                                           ; preds = %_ZN18default_hash_entryI9_key_dataIj7svectorIjjEEE8set_dataEOS3_.exit148, %_ZN18default_hash_entryI9_key_dataIj7svectorIjjEEE8set_dataEOS3_.exit134, %_ZN18default_hash_entryI9_key_dataIj7svectorIjjEEE8set_dataEOS3_.exit66, %_ZN18default_hash_entryI9_key_dataIj7svectorIjjEEE8set_dataEOS3_.exit
@@ -11186,7 +11186,7 @@ for.inc54:                                        ; preds = %for.body.i.i.i.i103
 
 for.end56:                                        ; preds = %for.inc54, %for.inc54.us, %for.cond27.preheader
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.19, i32 noundef 460, ptr noundef nonnull @.str.20)
-  tail call void @exit(i32 noundef 114) #23
+  tail call void @exit(i32 noundef 114) #28
   unreachable
 
 return.sink.split.sink.split:                     ; preds = %if.end.i.i.i.i120, %if.then.i.i.i.i.i122, %if.end.i.i.i.i56, %if.then.i.i.i.i.i
@@ -11685,7 +11685,7 @@ attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(arg
 attributes #15 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #17 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #18 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #19 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #20 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #21 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
@@ -11695,6 +11695,7 @@ attributes #24 = { nounwind }
 attributes #25 = { builtin nounwind }
 attributes #26 = { builtin allocsize(0) }
 attributes #27 = { noreturn }
+attributes #28 = { cold noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

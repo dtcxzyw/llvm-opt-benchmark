@@ -83,7 +83,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool.not.i.not, label %qemu_using_spice.exit, label %if.end
 
 qemu_using_spice.exit:                            ; preds = %if.then
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_set_internal(ptr noundef %errp, ptr noundef nonnull @.str.19, i32 noundef 55, ptr noundef nonnull @__func__.qemu_using_spice, i32 noundef 2, ptr noundef nonnull @.str.20) #8
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_set_internal(ptr noundef %errp, ptr noundef nonnull @.str.19, i32 noundef 55, ptr noundef nonnull @__func__.qemu_using_spice, i32 noundef 2, ptr noundef nonnull @.str.20) #9
   br label %if.end20
 
 if.end:                                           ; preds = %if.then
@@ -94,11 +94,11 @@ if.end:                                           ; preds = %if.then
   %4 = load i32, ptr %connected, align 4
   %cmp2 = icmp eq i32 %4, 1
   %cmp4 = icmp eq i32 %4, 2
-  %call5 = tail call i32 %2(ptr noundef %3, i1 noundef zeroext %cmp2, i1 noundef zeroext %cmp4) #8
+  %call5 = tail call i32 %2(ptr noundef %3, i1 noundef zeroext %cmp2, i1 noundef zeroext %cmp4) #9
   br label %if.end17
 
 if.else9:                                         ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 44, ptr noundef nonnull @__PRETTY_FUNCTION__.qmp_set_password) #9
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 44, ptr noundef nonnull @__PRETTY_FUNCTION__.qmp_set_password) #10
   unreachable
 
 if.end10:                                         ; preds = %entry
@@ -108,7 +108,7 @@ if.end10:                                         ; preds = %entry
   br i1 %cmp12.not, label %if.end14, label %if.then13
 
 if.then13:                                        ; preds = %if.end10
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 48, ptr noundef nonnull @__func__.qmp_set_password, ptr noundef nonnull @.str.2) #8
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 48, ptr noundef nonnull @__func__.qmp_set_password, ptr noundef nonnull @.str.2) #9
   br label %if.end20
 
 if.end14:                                         ; preds = %if.end10
@@ -116,7 +116,7 @@ if.end14:                                         ; preds = %if.end10
   %6 = load ptr, ptr %u, align 8
   %password15 = getelementptr inbounds i8, ptr %opts, i64 8
   %7 = load ptr, ptr %password15, align 8
-  %call16 = tail call i32 @vnc_display_password(ptr noundef %6, ptr noundef %7) #8
+  %call16 = tail call i32 @vnc_display_password(ptr noundef %6, ptr noundef %7) #9
   br label %if.end17
 
 if.end17:                                         ; preds = %if.end14, %if.end
@@ -125,7 +125,7 @@ if.end17:                                         ; preds = %if.end14, %if.end
   br i1 %cmp18.not, label %if.end20, label %if.then19
 
 if.then19:                                        ; preds = %if.end17
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 59, ptr noundef nonnull @__func__.qmp_set_password, ptr noundef nonnull @.str.3) #8
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 59, ptr noundef nonnull @__func__.qmp_set_password, ptr noundef nonnull @.str.3) #9
   br label %if.end20
 
 if.end20:                                         ; preds = %qemu_using_spice.exit, %if.then19, %if.end17, %if.then13
@@ -145,12 +145,12 @@ entry:
   %num = alloca i64, align 8
   %time = getelementptr inbounds i8, ptr %opts, i64 8
   %0 = load ptr, ptr %time, align 8
-  %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(4) @.str.4) #10
+  %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(4) @.str.4) #11
   %cmp = icmp eq i32 %call, 0
   br i1 %cmp, label %if.end18, label %if.else
 
 if.else:                                          ; preds = %entry
-  %call1 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(6) @.str.5) #10
+  %call1 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(6) @.str.5) #11
   %cmp2 = icmp eq i32 %call1, 0
   br i1 %cmp2, label %if.end18, label %if.else4
 
@@ -160,7 +160,7 @@ if.else4:                                         ; preds = %if.else
   br i1 %cmp5, label %if.end11, label %if.then12
 
 if.end11:                                         ; preds = %if.else4
-  %call8 = tail call i64 @time(ptr noundef null) #8
+  %call8 = tail call i64 @time(ptr noundef null) #9
   %add.ptr = getelementptr i8, ptr %0, i64 1
   %tobool.not = icmp eq ptr %add.ptr, null
   br i1 %tobool.not, label %if.end18, label %if.then12
@@ -168,12 +168,12 @@ if.end11:                                         ; preds = %if.else4
 if.then12:                                        ; preds = %if.else4, %if.end11
   %numstr.022 = phi ptr [ %add.ptr, %if.end11 ], [ %0, %if.else4 ]
   %when.021 = phi i64 [ %call8, %if.end11 ], [ 0, %if.else4 ]
-  %call13 = call i32 @qemu_strtou64(ptr noundef nonnull %numstr.022, ptr noundef null, i32 noundef 10, ptr noundef nonnull %num) #8
+  %call13 = call i32 @qemu_strtou64(ptr noundef nonnull %numstr.022, ptr noundef null, i32 noundef 10, ptr noundef nonnull %num) #9
   %cmp14 = icmp slt i32 %call13, 0
   br i1 %cmp14, label %if.then16, label %if.end17
 
 if.then16:                                        ; preds = %if.then12
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 86, ptr noundef nonnull @__func__.qmp_expire_password, ptr noundef nonnull @.str.6, ptr noundef nonnull %0) #8
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 86, ptr noundef nonnull @__func__.qmp_expire_password, ptr noundef nonnull @.str.6, ptr noundef nonnull %0) #9
   br label %if.end38
 
 if.end17:                                         ; preds = %if.then12
@@ -195,22 +195,22 @@ if.then21:                                        ; preds = %if.end18
   br i1 %tobool.not.i.not, label %qemu_using_spice.exit, label %if.end24
 
 qemu_using_spice.exit:                            ; preds = %if.then21
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_set_internal(ptr noundef %errp, ptr noundef nonnull @.str.19, i32 noundef 55, ptr noundef nonnull @__func__.qemu_using_spice, i32 noundef 2, ptr noundef nonnull @.str.20) #8
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_set_internal(ptr noundef %errp, ptr noundef nonnull @.str.19, i32 noundef 55, ptr noundef nonnull @__func__.qemu_using_spice, i32 noundef 2, ptr noundef nonnull @.str.20) #9
   br label %if.end38
 
 if.end24:                                         ; preds = %if.then21
   %5 = load ptr, ptr getelementptr inbounds (i8, ptr @qemu_spice, i64 32), align 8
-  %call25 = call i32 %5(i64 noundef %when.1) #8
+  %call25 = call i32 %5(i64 noundef %when.1) #9
   br label %if.end34
 
 if.else31:                                        ; preds = %if.end18
-  call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 98, ptr noundef nonnull @__PRETTY_FUNCTION__.qmp_expire_password) #9
+  call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 98, ptr noundef nonnull @__PRETTY_FUNCTION__.qmp_expire_password) #10
   unreachable
 
 if.end32:                                         ; preds = %if.end18
   %u = getelementptr inbounds i8, ptr %opts, i64 16
   %6 = load ptr, ptr %u, align 8
-  %call33 = call i32 @vnc_display_pw_expire(ptr noundef %6, i64 noundef %when.1) #8
+  %call33 = call i32 @vnc_display_pw_expire(ptr noundef %6, i64 noundef %when.1) #9
   br label %if.end34
 
 if.end34:                                         ; preds = %if.end32, %if.end24
@@ -219,7 +219,7 @@ if.end34:                                         ; preds = %if.end32, %if.end24
   br i1 %cmp35.not, label %if.end38, label %if.then37
 
 if.then37:                                        ; preds = %if.end34
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 103, ptr noundef nonnull @__func__.qmp_expire_password, ptr noundef nonnull @.str.7) #8
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 103, ptr noundef nonnull @__func__.qmp_expire_password, ptr noundef nonnull @.str.7) #9
   br label %if.end38
 
 if.end38:                                         ; preds = %qemu_using_spice.exit, %if.then37, %if.end34, %if.then16
@@ -239,12 +239,12 @@ declare i32 @vnc_display_pw_expire(ptr noundef, i64 noundef) local_unnamed_addr 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qmp_change_vnc_password(ptr noundef %password, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @vnc_display_password(ptr noundef null, ptr noundef %password) #8
+  %call = tail call i32 @vnc_display_password(ptr noundef null, ptr noundef %password) #9
   %cmp = icmp slt i32 %call, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 111, ptr noundef nonnull @__func__.qmp_change_vnc_password, ptr noundef nonnull @.str.3) #8
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 111, ptr noundef nonnull @__func__.qmp_change_vnc_password, ptr noundef nonnull @.str.3) #9
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -259,7 +259,7 @@ entry:
   br i1 %tobool.not.i.not, label %qemu_using_spice.exit, label %if.end
 
 qemu_using_spice.exit:                            ; preds = %entry
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_set_internal(ptr noundef %errp, ptr noundef nonnull @.str.19, i32 noundef 55, ptr noundef nonnull @__func__.qemu_using_spice, i32 noundef 2, ptr noundef nonnull @.str.20) #8
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_set_internal(ptr noundef %errp, ptr noundef nonnull @.str.19, i32 noundef 55, ptr noundef nonnull @__func__.qemu_using_spice, i32 noundef 2, ptr noundef nonnull @.str.20) #9
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -268,12 +268,12 @@ if.end:                                           ; preds = %entry
   %1 = load ptr, ptr getelementptr inbounds (i8, ptr @qemu_spice, i64 40), align 8
   %conv18 = zext i1 %narrow to i32
   %conv20 = zext i1 %narrow4 to i32
-  %call21 = tail call i32 %1(i32 noundef %fd, i32 noundef %conv18, i32 noundef %conv20) #8
+  %call21 = tail call i32 %1(i32 noundef %fd, i32 noundef %conv18, i32 noundef %conv20) #9
   %cmp = icmp slt i32 %call21, 0
   br i1 %cmp, label %if.then23, label %return
 
 if.then23:                                        ; preds = %if.end
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 125, ptr noundef nonnull @__func__.qmp_add_client_spice, ptr noundef nonnull @.str.8) #8
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 125, ptr noundef nonnull @__func__.qmp_add_client_spice, ptr noundef nonnull @.str.8) #9
   br label %return
 
 return:                                           ; preds = %qemu_using_spice.exit, %if.end, %if.then23
@@ -285,7 +285,7 @@ return:                                           ; preds = %qemu_using_spice.ex
 define dso_local noundef zeroext i1 @qmp_add_client_vnc(i32 noundef %fd, i1 noundef zeroext %has_skipauth, i1 noundef zeroext %skipauth, i1 noundef zeroext %has_tls, i1 noundef zeroext %tls, ptr nocapture noundef readnone %errp) local_unnamed_addr #0 {
 entry:
   %narrow = and i1 %has_skipauth, %skipauth
-  tail call void @vnc_display_add_client(ptr noundef null, i32 noundef %fd, i1 noundef zeroext %narrow) #8
+  tail call void @vnc_display_add_client(ptr noundef null, i32 noundef %fd, i1 noundef zeroext %narrow) #9
   ret i1 true
 }
 
@@ -299,12 +299,12 @@ entry:
   br i1 %tobool.not.i.not, label %qemu_using_dbus_display.exit, label %if.end
 
 qemu_using_dbus_display.exit:                     ; preds = %entry
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_set_internal(ptr noundef %errp, ptr noundef nonnull @.str.21, i32 noundef 11, ptr noundef nonnull @__func__.qemu_using_dbus_display, i32 noundef 2, ptr noundef nonnull @.str.22) #8
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_set_internal(ptr noundef %errp, ptr noundef nonnull @.str.21, i32 noundef 11, ptr noundef nonnull @__func__.qemu_using_dbus_display, i32 noundef 2, ptr noundef nonnull @.str.22) #9
   br label %return
 
 if.end:                                           ; preds = %entry
   %1 = load ptr, ptr @qemu_dbus_display, align 8
-  %call4 = tail call zeroext i1 %1(i32 noundef %fd, ptr noundef %errp) #8
+  %call4 = tail call zeroext i1 %1(i32 noundef %fd, ptr noundef %errp) #9
   br label %return
 
 return:                                           ; preds = %qemu_using_dbus_display.exit, %if.end
@@ -332,11 +332,11 @@ land.lhs.true:                                    ; preds = %sw.bb
   br i1 %tobool2, label %if.then, label %sw.epilog
 
 if.then:                                          ; preds = %land.lhs.true
-  %call = tail call zeroext i1 @vnc_display_reload_certs(ptr noundef null, ptr noundef %errp) #8
+  %call = tail call zeroext i1 @vnc_display_reload_certs(ptr noundef null, ptr noundef %errp) #9
   br label %sw.epilog
 
 sw.default:                                       ; preds = %entry
-  tail call void @abort() #9
+  tail call void @abort() #10
   unreachable
 
 sw.epilog:                                        ; preds = %sw.bb, %land.lhs.true, %if.then
@@ -345,8 +345,8 @@ sw.epilog:                                        ; preds = %sw.bb, %land.lhs.tr
 
 declare zeroext i1 @vnc_display_reload_certs(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: noreturn nounwind
-declare void @abort() local_unnamed_addr #1
+; Function Attrs: cold nofree noreturn nounwind
+declare void @abort() local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qmp_display_update(ptr noundef %arg, ptr noundef %errp) local_unnamed_addr #0 {
@@ -357,11 +357,11 @@ entry:
 
 sw.bb:                                            ; preds = %entry
   %u = getelementptr inbounds i8, ptr %arg, i64 8
-  %call = tail call zeroext i1 @vnc_display_update(ptr noundef nonnull %u, ptr noundef %errp) #8
+  %call = tail call zeroext i1 @vnc_display_update(ptr noundef nonnull %u, ptr noundef %errp) #9
   ret void
 
 sw.default:                                       ; preds = %entry
-  tail call void @abort() #9
+  tail call void @abort() #10
   unreachable
 }
 
@@ -370,7 +370,7 @@ declare zeroext i1 @vnc_display_update(ptr noundef, ptr noundef) local_unnamed_a
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qmp_client_migrate_info(ptr nocapture noundef readonly %protocol, ptr noundef %hostname, i1 noundef zeroext %has_port, i64 noundef %port, i1 noundef zeroext %has_tls_port, i64 noundef %tls_port, ptr noundef %cert_subject, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %protocol, ptr noundef nonnull dereferenceable(6) @.str.9) #10
+  %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %protocol, ptr noundef nonnull dereferenceable(6) @.str.9) #11
   %cmp = icmp eq i32 %call, 0
   br i1 %cmp, label %if.then, label %if.end19
 
@@ -380,7 +380,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool.not.i.not, label %qemu_using_spice.exit, label %if.end
 
 qemu_using_spice.exit:                            ; preds = %if.then
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_set_internal(ptr noundef %errp, ptr noundef nonnull @.str.19, i32 noundef 55, ptr noundef nonnull @__func__.qemu_using_spice, i32 noundef 2, ptr noundef nonnull @.str.20) #8
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_set_internal(ptr noundef %errp, ptr noundef nonnull @.str.19, i32 noundef 55, ptr noundef nonnull @__func__.qemu_using_spice, i32 noundef 2, ptr noundef nonnull @.str.20) #9
   br label %return
 
 if.end:                                           ; preds = %if.then
@@ -388,7 +388,7 @@ if.end:                                           ; preds = %if.then
   br i1 %brmerge, label %if.end6, label %if.then5
 
 if.then5:                                         ; preds = %if.end
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 199, ptr noundef nonnull @__func__.qmp_client_migrate_info, ptr noundef nonnull @.str.10) #8
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 199, ptr noundef nonnull @__func__.qmp_client_migrate_info, ptr noundef nonnull @.str.10) #9
   br label %return
 
 if.end6:                                          ; preds = %if.end
@@ -397,16 +397,16 @@ if.end6:                                          ; preds = %if.end
   %conv = select i1 %has_port, i32 %1, i32 -1
   %3 = trunc i64 %tls_port to i32
   %conv14 = select i1 %has_tls_port, i32 %3, i32 -1
-  %call15 = tail call i32 %2(ptr noundef %hostname, i32 noundef %conv, i32 noundef %conv14, ptr noundef %cert_subject) #8
+  %call15 = tail call i32 %2(ptr noundef %hostname, i32 noundef %conv, i32 noundef %conv14, ptr noundef %cert_subject) #9
   %tobool16.not = icmp eq i32 %call15, 0
   br i1 %tobool16.not, label %return, label %if.then17
 
 if.then17:                                        ; preds = %if.end6
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 207, ptr noundef nonnull @__func__.qmp_client_migrate_info, ptr noundef nonnull @.str.11) #8
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 207, ptr noundef nonnull @__func__.qmp_client_migrate_info, ptr noundef nonnull @.str.11) #9
   br label %return
 
 if.end19:                                         ; preds = %entry
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 213, ptr noundef nonnull @__func__.qmp_client_migrate_info, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14) #8
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 213, ptr noundef nonnull @__func__.qmp_client_migrate_info, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14) #9
   br label %return
 
 return:                                           ; preds = %qemu_using_spice.exit, %if.end6, %if.end19, %if.then17, %if.then5
@@ -425,7 +425,7 @@ entry:
 if.then:                                          ; preds = %entry
   %0 = trunc i64 %head to i32
   %conv = select i1 %has_head, i32 %0, i32 0
-  %call = tail call ptr @qemu_console_lookup_by_device_name(ptr noundef nonnull %device, i32 noundef %conv, ptr noundef %errp) #8
+  %call = tail call ptr @qemu_console_lookup_by_device_name(ptr noundef nonnull %device, i32 noundef %conv, ptr noundef %errp) #9
   %tobool3.not = icmp eq ptr %call, null
   br i1 %tobool3.not, label %glib_autoptr_cleanup_pixman_image_t.exit, label %if.end12
 
@@ -433,41 +433,41 @@ if.else:                                          ; preds = %entry
   br i1 %has_head, label %if.then6, label %if.end7
 
 if.then6:                                         ; preds = %if.else
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 348, ptr noundef nonnull @__func__.qmp_screendump, ptr noundef nonnull @.str.15) #8
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 348, ptr noundef nonnull @__func__.qmp_screendump, ptr noundef nonnull @.str.15) #9
   br label %glib_autoptr_cleanup_pixman_image_t.exit
 
 if.end7:                                          ; preds = %if.else
-  %call8 = tail call ptr @qemu_console_lookup_by_index(i32 noundef 0) #8
+  %call8 = tail call ptr @qemu_console_lookup_by_index(i32 noundef 0) #9
   %tobool9.not = icmp eq ptr %call8, null
   br i1 %tobool9.not, label %if.then10, label %if.end12
 
 if.then10:                                        ; preds = %if.end7
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 353, ptr noundef nonnull @__func__.qmp_screendump, ptr noundef nonnull @.str.16) #8
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 353, ptr noundef nonnull @__func__.qmp_screendump, ptr noundef nonnull @.str.16) #9
   br label %glib_autoptr_cleanup_pixman_image_t.exit
 
 if.end12:                                         ; preds = %if.end7, %if.then
   %con.0 = phi ptr [ %call, %if.then ], [ %call8, %if.end7 ]
-  tail call void @qemu_console_co_wait_update(ptr noundef nonnull %con.0) #8
-  %call13 = tail call ptr @qemu_console_surface(ptr noundef nonnull %con.0) #8
+  tail call void @qemu_console_co_wait_update(ptr noundef nonnull %con.0) #9
+  %call13 = tail call ptr @qemu_console_surface(ptr noundef nonnull %con.0) #9
   %tobool14.not = icmp eq ptr %call13, null
   br i1 %tobool14.not, label %if.then15, label %if.end16
 
 if.then15:                                        ; preds = %if.end12
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 367, ptr noundef nonnull @__func__.qmp_screendump, ptr noundef nonnull @.str.17) #8
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 367, ptr noundef nonnull @__func__.qmp_screendump, ptr noundef nonnull @.str.17) #9
   br label %glib_autoptr_cleanup_pixman_image_t.exit
 
 if.end16:                                         ; preds = %if.end12
   %1 = load ptr, ptr %call13, align 8
-  %call18 = tail call ptr @pixman_image_ref(ptr noundef %1) #8
-  %call19 = tail call i32 (ptr, i32, ...) @qemu_open_old(ptr noundef %filename, i32 noundef 577, i32 noundef 438) #8
+  %call18 = tail call ptr @pixman_image_ref(ptr noundef %1) #9
+  %call19 = tail call i32 (ptr, i32, ...) @qemu_open_old(ptr noundef %filename, i32 noundef 577, i32 noundef 438) #9
   %cmp = icmp eq i32 %call19, -1
   br i1 %cmp, label %if.then21, label %if.end24
 
 if.then21:                                        ; preds = %if.end16
-  %call22 = tail call ptr @__errno_location() #11
+  %call22 = tail call ptr @__errno_location() #12
   %2 = load i32, ptr %call22, align 4
-  %call23 = tail call ptr @strerror(i32 noundef %2) #8
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 375, ptr noundef nonnull @__func__.qmp_screendump, ptr noundef nonnull @.str.18, ptr noundef %filename, ptr noundef %call23) #8
+  %call23 = tail call ptr @strerror(i32 noundef %2) #9
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 375, ptr noundef nonnull @__func__.qmp_screendump, ptr noundef nonnull @.str.18, ptr noundef %filename, ptr noundef %call23) #9
   br label %cleanup
 
 if.end24:                                         ; preds = %if.end16
@@ -478,69 +478,69 @@ if.end24:                                         ; preds = %if.end16
 if.then29:                                        ; preds = %if.end24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %png_ptr.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %info_ptr.i)
-  %call.i = tail call i32 @pixman_image_get_width(ptr noundef %call18) #8
-  %call1.i = tail call i32 @pixman_image_get_height(ptr noundef %call18) #8
-  %call2.i = tail call ptr @qemu_pixman_linebuf_create(i32 noundef 402851976, i32 noundef %call.i) #8
-  %call3.i = tail call ptr @pixman_image_get_data(ptr noundef %call2.i) #8
-  %call4.i = tail call noalias ptr @fdopen(i32 noundef %call19, ptr noundef nonnull @.str.23) #8
+  %call.i = tail call i32 @pixman_image_get_width(ptr noundef %call18) #9
+  %call1.i = tail call i32 @pixman_image_get_height(ptr noundef %call18) #9
+  %call2.i = tail call ptr @qemu_pixman_linebuf_create(i32 noundef 402851976, i32 noundef %call.i) #9
+  %call3.i = tail call ptr @pixman_image_get_data(ptr noundef %call2.i) #9
+  %call4.i = tail call noalias ptr @fdopen(i32 noundef %call19, ptr noundef nonnull @.str.23) #9
   %tobool.not.i = icmp eq ptr %call4.i, null
   br i1 %tobool.not.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.then29
-  %call5.i = tail call ptr @__errno_location() #11
+  %call5.i = tail call ptr @__errno_location() #12
   %3 = load i32, ptr %call5.i, align 4
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 242, ptr noundef nonnull @__func__.png_save, i32 noundef %3, ptr noundef nonnull @.str.24) #8
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 242, ptr noundef nonnull @__func__.png_save, i32 noundef %3, ptr noundef nonnull @.str.24) #9
   br label %cleanup.i
 
 if.end.i:                                         ; preds = %if.then29
-  %call6.i = tail call noalias ptr @png_create_write_struct(ptr noundef nonnull @.str.25, ptr noundef null, ptr noundef null, ptr noundef null) #8
+  %call6.i = tail call noalias ptr @png_create_write_struct(ptr noundef nonnull @.str.25, ptr noundef null, ptr noundef null, ptr noundef null) #9
   store ptr %call6.i, ptr %png_ptr.i, align 8
   %tobool7.not.i = icmp eq ptr %call6.i, null
   br i1 %tobool7.not.i, label %if.then8.i, label %if.end10.i
 
 if.then8.i:                                       ; preds = %if.end.i
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 249, ptr noundef nonnull @__func__.png_save, ptr noundef nonnull @.str.26) #8
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 249, ptr noundef nonnull @__func__.png_save, ptr noundef nonnull @.str.26) #9
   %call9.i = tail call i32 @fclose(ptr noundef nonnull %call4.i)
   br label %cleanup.i
 
 if.end10.i:                                       ; preds = %if.end.i
-  %call11.i = tail call noalias ptr @png_create_info_struct(ptr noundef nonnull %call6.i) #8
+  %call11.i = tail call noalias ptr @png_create_info_struct(ptr noundef nonnull %call6.i) #9
   store ptr %call11.i, ptr %info_ptr.i, align 8
   %tobool12.not.i = icmp eq ptr %call11.i, null
   br i1 %tobool12.not.i, label %if.then13.i, label %if.end15.i
 
 if.then13.i:                                      ; preds = %if.end10.i
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 257, ptr noundef nonnull @__func__.png_save, ptr noundef nonnull @.str.27) #8
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 257, ptr noundef nonnull @__func__.png_save, ptr noundef nonnull @.str.27) #9
   %call14.i = tail call i32 @fclose(ptr noundef nonnull %call4.i)
-  call void @png_destroy_write_struct(ptr noundef nonnull %png_ptr.i, ptr noundef nonnull %info_ptr.i) #8
+  call void @png_destroy_write_struct(ptr noundef nonnull %png_ptr.i, ptr noundef nonnull %info_ptr.i) #9
   br label %cleanup.i
 
 if.end15.i:                                       ; preds = %if.end10.i
-  tail call void @png_init_io(ptr noundef nonnull %call6.i, ptr noundef nonnull %call4.i) #8
-  tail call void @png_set_IHDR(ptr noundef nonnull %call6.i, ptr noundef nonnull %call11.i, i32 noundef %call.i, i32 noundef %call1.i, i32 noundef 8, i32 noundef 2, i32 noundef 0, i32 noundef 0, i32 noundef 0) #8
-  tail call void @png_write_info(ptr noundef nonnull %call6.i, ptr noundef nonnull %call11.i) #8
+  tail call void @png_init_io(ptr noundef nonnull %call6.i, ptr noundef nonnull %call4.i) #9
+  tail call void @png_set_IHDR(ptr noundef nonnull %call6.i, ptr noundef nonnull %call11.i, i32 noundef %call.i, i32 noundef %call1.i, i32 noundef 8, i32 noundef 2, i32 noundef 0, i32 noundef 0, i32 noundef 0) #9
+  tail call void @png_write_info(ptr noundef nonnull %call6.i, ptr noundef nonnull %call11.i) #9
   %cmp15.i = icmp sgt i32 %call1.i, 0
   br i1 %cmp15.i, label %for.body.i, label %for.end.i
 
 for.body.i:                                       ; preds = %if.end15.i, %for.body.i
   %y.016.i = phi i32 [ %inc.i, %for.body.i ], [ 0, %if.end15.i ]
-  tail call void @qemu_pixman_linebuf_fill(ptr noundef %call2.i, ptr noundef %call18, i32 noundef %call.i, i32 noundef 0, i32 noundef %y.016.i) #8
-  tail call void @png_write_row(ptr noundef nonnull %call6.i, ptr noundef %call3.i) #8
+  tail call void @qemu_pixman_linebuf_fill(ptr noundef %call2.i, ptr noundef %call18, i32 noundef %call.i, i32 noundef 0, i32 noundef %y.016.i) #9
+  tail call void @png_write_row(ptr noundef nonnull %call6.i, ptr noundef %call3.i) #9
   %inc.i = add nuw nsw i32 %y.016.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, %call1.i
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !5
 
 for.end.i:                                        ; preds = %for.body.i, %if.end15.i
-  tail call void @png_write_end(ptr noundef nonnull %call6.i, ptr noundef null) #8
-  call void @png_destroy_write_struct(ptr noundef nonnull %png_ptr.i, ptr noundef nonnull %info_ptr.i) #8
+  tail call void @png_write_end(ptr noundef nonnull %call6.i, ptr noundef null) #9
+  call void @png_destroy_write_struct(ptr noundef nonnull %png_ptr.i, ptr noundef nonnull %info_ptr.i) #9
   %call16.i = call i32 @fclose(ptr noundef nonnull %call4.i)
   %cmp17.not.i = icmp eq i32 %call16.i, 0
   br i1 %cmp17.not.i, label %cleanup.i, label %if.then18.i
 
 if.then18.i:                                      ; preds = %for.end.i
-  %call19.i = tail call ptr @__errno_location() #11
+  %call19.i = tail call ptr @__errno_location() #12
   %4 = load i32, ptr %call19.i, align 4
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 282, ptr noundef nonnull @__func__.png_save, i32 noundef %4, ptr noundef nonnull @.str.28) #8
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 282, ptr noundef nonnull @__func__.png_save, i32 noundef %4, ptr noundef nonnull @.str.28) #9
   br label %cleanup.i
 
 cleanup.i:                                        ; preds = %if.then18.i, %for.end.i, %if.then13.i, %if.then8.i, %if.then.i
@@ -549,7 +549,7 @@ cleanup.i:                                        ; preds = %if.then18.i, %for.e
   br i1 %tobool.not.i.i.i, label %png_save.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %cleanup.i
-  call void @qemu_pixman_image_unref(ptr noundef nonnull %call2.i) #8
+  call void @qemu_pixman_image_unref(ptr noundef nonnull %call2.i) #9
   br label %png_save.exit
 
 png_save.exit:                                    ; preds = %cleanup.i, %if.then.i.i.i
@@ -558,13 +558,13 @@ png_save.exit:                                    ; preds = %cleanup.i, %if.then
   br i1 %retval.0.i, label %cleanup, label %if.then31
 
 if.then31:                                        ; preds = %png_save.exit
-  %call32 = call i32 @qemu_unlink(ptr noundef %filename) #8
+  %call32 = call i32 @qemu_unlink(ptr noundef %filename) #9
   br label %cleanup
 
 if.else34:                                        ; preds = %if.end24
-  %call.i18 = tail call i32 @pixman_image_get_width(ptr noundef %call18) #8
-  %call1.i19 = tail call i32 @pixman_image_get_height(ptr noundef %call18) #8
-  %call2.i20 = tail call ptr @qio_channel_file_new_fd(i32 noundef %call19) #8
+  %call.i18 = tail call i32 @pixman_image_get_width(ptr noundef %call18) #9
+  %call1.i19 = tail call i32 @pixman_image_get_height(ptr noundef %call18) #9
+  %call2.i20 = tail call ptr @qio_channel_file_new_fd(i32 noundef %call19) #9
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i)
   %5 = load i32, ptr @trace_events_enabled_count, align 4
   %tobool.i.i.i = icmp ne i32 %5, 0
@@ -585,29 +585,29 @@ if.then.i.i.i30:                                  ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.i.i.i, label %if.then8.i.i.i, label %if.else.i.i.i
 
 if.then8.i.i.i:                                   ; preds = %if.then.i.i.i30
-  %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #8
-  %call10.i.i.i = tail call i32 @qemu_get_thread_id() #8
+  %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #9
+  %call10.i.i.i = tail call i32 @qemu_get_thread_id() #9
   %9 = load i64, ptr %_now.i.i.i, align 8
   %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %10 = load i64, ptr %tv_usec.i.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.30, i32 noundef %call10.i.i.i, i64 noundef %9, i64 noundef %10, i32 noundef %call19, ptr noundef %call18) #8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.30, i32 noundef %call10.i.i.i, i64 noundef %9, i64 noundef %10, i32 noundef %call19, ptr noundef %call18) #9
   br label %trace_ppm_save.exit.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i30
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.31, i32 noundef %call19, ptr noundef %call18) #8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.31, i32 noundef %call19, ptr noundef %call18) #9
   br label %trace_ppm_save.exit.i
 
 trace_ppm_save.exit.i:                            ; preds = %if.else.i.i.i, %if.then8.i.i.i, %land.lhs.true5.i.i.i, %if.else34
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i)
-  %call3.i21 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.29, i32 noundef %call.i18, i32 noundef %call1.i19, i32 noundef 255) #8
-  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call2.i20, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #8
-  %call5.i22 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call3.i21) #10
-  %call6.i23 = tail call i32 @qio_channel_write_all(ptr noundef %call.i.i, ptr noundef %call3.i21, i64 noundef %call5.i22, ptr noundef %errp) #8
+  %call3.i21 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.29, i32 noundef %call.i18, i32 noundef %call1.i19, i32 noundef 255) #9
+  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call2.i20, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #9
+  %call5.i22 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call3.i21) #11
+  %call6.i23 = tail call i32 @qio_channel_write_all(ptr noundef %call.i.i, ptr noundef %call3.i21, i64 noundef %call5.i22, ptr noundef %errp) #9
   %cmp.i = icmp slt i32 %call6.i23, 0
   br i1 %cmp.i, label %glib_autoptr_cleanup_pixman_image_t.exit.i, label %if.end.i24
 
 if.end.i24:                                       ; preds = %trace_ppm_save.exit.i
-  %call7.i = tail call ptr @qemu_pixman_linebuf_create(i32 noundef 402851976, i32 noundef %call.i18) #8
+  %call7.i = tail call ptr @qemu_pixman_linebuf_create(i32 noundef 402851976, i32 noundef %call.i18) #9
   %cmp822.i = icmp slt i32 %call1.i19, 1
   br i1 %cmp822.i, label %cleanup.i28, label %for.body.i25
 
@@ -620,12 +620,12 @@ for.cond.i:                                       ; preds = %for.body.i25
 for.body.i25:                                     ; preds = %if.end.i24, %for.cond.i
   %cmp824.i = phi i1 [ %cmp8.i, %for.cond.i ], [ false, %if.end.i24 ]
   %y.023.i = phi i32 [ %inc.i27, %for.cond.i ], [ 0, %if.end.i24 ]
-  tail call void @qemu_pixman_linebuf_fill(ptr noundef %call7.i, ptr noundef %call18, i32 noundef %call.i18, i32 noundef 0, i32 noundef %y.023.i) #8
-  %call.i11.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call2.i20, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #8
-  %call10.i = tail call ptr @pixman_image_get_data(ptr noundef %call7.i) #8
-  %call11.i26 = tail call i32 @pixman_image_get_stride(ptr noundef %call7.i) #8
+  tail call void @qemu_pixman_linebuf_fill(ptr noundef %call7.i, ptr noundef %call18, i32 noundef %call.i18, i32 noundef 0, i32 noundef %y.023.i) #9
+  %call.i11.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call2.i20, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #9
+  %call10.i = tail call ptr @pixman_image_get_data(ptr noundef %call7.i) #9
+  %call11.i26 = tail call i32 @pixman_image_get_stride(ptr noundef %call7.i) #9
   %conv.i = sext i32 %call11.i26 to i64
-  %call12.i = tail call i32 @qio_channel_write_all(ptr noundef %call.i11.i, ptr noundef %call10.i, i64 noundef %conv.i, ptr noundef %errp) #8
+  %call12.i = tail call i32 @qio_channel_write_all(ptr noundef %call.i11.i, ptr noundef %call10.i, i64 noundef %conv.i, ptr noundef %errp) #9
   %cmp13.i = icmp slt i32 %call12.i, 0
   br i1 %cmp13.i, label %cleanup.i28, label %for.cond.i
 
@@ -635,24 +635,24 @@ cleanup.i28:                                      ; preds = %for.body.i25, %for.
   br i1 %tobool.not.i.i.i29, label %glib_autoptr_cleanup_pixman_image_t.exit.i, label %if.then.i.i12.i
 
 if.then.i.i12.i:                                  ; preds = %cleanup.i28
-  tail call void @qemu_pixman_image_unref(ptr noundef nonnull %call7.i) #8
+  tail call void @qemu_pixman_image_unref(ptr noundef nonnull %call7.i) #9
   br label %glib_autoptr_cleanup_pixman_image_t.exit.i
 
 glib_autoptr_cleanup_pixman_image_t.exit.i:       ; preds = %if.then.i.i12.i, %cleanup.i28, %trace_ppm_save.exit.i
   %retval.021.i = phi i1 [ %cmp8.lcssa.i, %cleanup.i28 ], [ %cmp8.lcssa.i, %if.then.i.i12.i ], [ false, %trace_ppm_save.exit.i ]
-  tail call void @g_free(ptr noundef %call3.i21) #8
+  tail call void @g_free(ptr noundef %call3.i21) #9
   %tobool.not.i.i13.i = icmp eq ptr %call2.i20, null
   br i1 %tobool.not.i.i13.i, label %ppm_save.exit, label %if.then.i.i14.i
 
 if.then.i.i14.i:                                  ; preds = %glib_autoptr_cleanup_pixman_image_t.exit.i
-  tail call void @object_unref(ptr noundef nonnull %call2.i20) #8
+  tail call void @object_unref(ptr noundef nonnull %call2.i20) #9
   br label %ppm_save.exit
 
 ppm_save.exit:                                    ; preds = %glib_autoptr_cleanup_pixman_image_t.exit.i, %if.then.i.i14.i
   br i1 %retval.021.i, label %cleanup, label %if.then36
 
 if.then36:                                        ; preds = %ppm_save.exit
-  %call37 = tail call i32 @qemu_unlink(ptr noundef %filename) #8
+  %call37 = tail call i32 @qemu_unlink(ptr noundef %filename) #9
   br label %cleanup
 
 cleanup:                                          ; preds = %if.then31, %png_save.exit, %if.then36, %ppm_save.exit, %if.then21
@@ -660,7 +660,7 @@ cleanup:                                          ; preds = %if.then31, %png_sav
   br i1 %tobool.not.i.i, label %glib_autoptr_cleanup_pixman_image_t.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %cleanup
-  call void @qemu_pixman_image_unref(ptr noundef nonnull %call18) #8
+  call void @qemu_pixman_image_unref(ptr noundef nonnull %call18) #9
   br label %glib_autoptr_cleanup_pixman_image_t.exit
 
 glib_autoptr_cleanup_pixman_image_t.exit:         ; preds = %if.then, %if.then15, %if.then10, %if.then6, %cleanup, %if.then.i.i
@@ -683,7 +683,7 @@ declare i32 @qemu_open_old(ptr noundef, i32 noundef, ...) local_unnamed_addr #2
 declare ptr @strerror(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #5
+declare ptr @__errno_location() local_unnamed_addr #6
 
 declare i32 @qemu_unlink(ptr noundef) local_unnamed_addr #2
 
@@ -700,14 +700,14 @@ declare ptr @qemu_pixman_linebuf_create(i32 noundef, i32 noundef) local_unnamed_
 declare ptr @pixman_image_get_data(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fdopen(i32 noundef, ptr nocapture noundef readonly) local_unnamed_addr #6
+declare noalias noundef ptr @fdopen(i32 noundef, ptr nocapture noundef readonly) local_unnamed_addr #7
 
 declare void @error_setg_errno_internal(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 declare noalias ptr @png_create_write_struct(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #7
 
 declare noalias ptr @png_create_info_struct(ptr noundef) local_unnamed_addr #2
 
@@ -741,7 +741,7 @@ declare void @object_unref(ptr noundef) local_unnamed_addr #2
 declare void @g_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #2
 
@@ -750,23 +750,24 @@ declare i32 @qemu_get_thread_id() local_unnamed_addr #2
 declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nounwind }
-attributes #9 = { noreturn nounwind }
-attributes #10 = { nounwind willreturn memory(read) }
-attributes #11 = { nounwind willreturn memory(none) }
+attributes #5 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { nounwind }
+attributes #10 = { noreturn nounwind }
+attributes #11 = { nounwind willreturn memory(read) }
+attributes #12 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

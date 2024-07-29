@@ -13,25 +13,25 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress uwtable
 define void @_ZN4cvc58internal10safe_printINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEviRKT_(i32 noundef %fd, ptr noundef nonnull align 8 dereferenceable(32) %msg) local_unnamed_addr #0 {
 entry:
-  %call4 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %msg) #7
+  %call4 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %msg) #8
   %cmp5.not = icmp eq i64 %call4, 0
   br i1 %cmp5.not, label %for.end, label %for.body
 
 for.cond:                                         ; preds = %for.body
   %inc = add nuw i64 %i.06, 1
-  %call = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %msg) #7
+  %call = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %msg) #8
   %cmp = icmp ult i64 %inc, %call
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !4
 
 for.body:                                         ; preds = %entry, %for.cond
   %i.06 = phi i64 [ %inc, %for.cond ], [ 0, %entry ]
-  %call1 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %msg, i64 noundef %i.06) #7
+  %call1 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %msg, i64 noundef %i.06) #8
   %call2 = tail call i64 @write(i32 noundef %fd, ptr noundef nonnull %call1, i64 noundef 1)
   %cmp3.not = icmp eq i64 %call2, 1
   br i1 %cmp3.not, label %for.cond, label %if.then
 
 if.then:                                          ; preds = %for.body
-  tail call void @abort() #8
+  tail call void @abort() #9
   unreachable
 
 for.end:                                          ; preds = %for.cond, %entry
@@ -47,11 +47,11 @@ declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noun
 ; Function Attrs: nounwind
 declare noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #1
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: cold nofree noreturn nounwind
 declare void @abort() local_unnamed_addr #3
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN4cvc58internal10safe_printIlEEviRKT_(i32 noundef %fd, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %_i) local_unnamed_addr #0 {
+; Function Attrs: mustprogress nofree uwtable
+define void @_ZN4cvc58internal10safe_printIlEEviRKT_(i32 noundef %fd, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %_i) local_unnamed_addr #4 {
 entry:
   %buf = alloca [20 x i8], align 16
   %0 = load i64, ptr %_i, align 8
@@ -64,7 +64,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.not.i, label %if.end10, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
-  tail call void @abort() #8
+  tail call void @abort() #9
   unreachable
 
 if.else:                                          ; preds = %entry
@@ -77,7 +77,7 @@ if.then2:                                         ; preds = %if.else
   br i1 %cmp.not.i14, label %_ZN4cvc58internal10safe_printILm2EEEviRAT__Kc.exit16, label %if.then.i15
 
 if.then.i15:                                      ; preds = %if.then2
-  tail call void @abort() #8
+  tail call void @abort() #9
   unreachable
 
 _ZN4cvc58internal10safe_printILm2EEEviRAT__Kc.exit16: ; preds = %if.then2
@@ -112,15 +112,15 @@ while.end:                                        ; preds = %while.body
   br i1 %cmp8.not, label %if.end10, label %if.then9
 
 if.then9:                                         ; preds = %while.end
-  tail call void @abort() #8
+  tail call void @abort() #9
   unreachable
 
 if.end10:                                         ; preds = %if.then, %while.end
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN4cvc58internal10safe_printIiEEviRKT_(i32 noundef %fd, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %i) local_unnamed_addr #0 {
+; Function Attrs: mustprogress nofree uwtable
+define void @_ZN4cvc58internal10safe_printIiEEviRKT_(i32 noundef %fd, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %i) local_unnamed_addr #4 {
 entry:
   %ref.tmp = alloca i64, align 8
   %0 = load i32, ptr %i, align 4
@@ -130,8 +130,8 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN4cvc58internal10safe_printImEEviRKT_(i32 noundef %fd, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %_i) local_unnamed_addr #0 {
+; Function Attrs: mustprogress nofree uwtable
+define void @_ZN4cvc58internal10safe_printImEEviRKT_(i32 noundef %fd, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %_i) local_unnamed_addr #4 {
 entry:
   %buf = alloca [20 x i8], align 16
   %0 = load i64, ptr %_i, align 8
@@ -144,7 +144,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.not.i, label %if.end7, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
-  tail call void @abort() #8
+  tail call void @abort() #9
   unreachable
 
 while.body:                                       ; preds = %entry, %while.body
@@ -171,15 +171,15 @@ while.end:                                        ; preds = %while.body
   br i1 %cmp5.not, label %if.end7, label %if.then6
 
 if.then6:                                         ; preds = %while.end
-  tail call void @abort() #8
+  tail call void @abort() #9
   unreachable
 
 if.end7:                                          ; preds = %if.then, %while.end
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN4cvc58internal10safe_printIjEEviRKT_(i32 noundef %fd, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %i) local_unnamed_addr #0 {
+; Function Attrs: mustprogress nofree uwtable
+define void @_ZN4cvc58internal10safe_printIjEEviRKT_(i32 noundef %fd, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %i) local_unnamed_addr #4 {
 entry:
   %buf.i = alloca [20 x i8], align 16
   %0 = load i32, ptr %i, align 4
@@ -197,7 +197,7 @@ if.then.i:                                        ; preds = %entry
   br i1 %cmp.not.i.i, label %_ZN4cvc58internal10safe_printImEEviRKT_.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
-  tail call void @abort() #8
+  tail call void @abort() #9
   unreachable
 
 while.body.i:                                     ; preds = %while.body.i.preheader, %while.body.i
@@ -224,7 +224,7 @@ while.end.i:                                      ; preds = %while.body.i
   br i1 %cmp5.not.i, label %_ZN4cvc58internal10safe_printImEEviRKT_.exit, label %if.then6.i
 
 if.then6.i:                                       ; preds = %while.end.i
-  tail call void @abort() #8
+  tail call void @abort() #9
   unreachable
 
 _ZN4cvc58internal10safe_printImEEviRKT_.exit:     ; preds = %if.then.i, %while.end.i
@@ -232,8 +232,8 @@ _ZN4cvc58internal10safe_printImEEviRKT_.exit:     ; preds = %if.then.i, %while.e
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN4cvc58internal10safe_printIdEEviRKT_(i32 noundef %fd, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %_d) local_unnamed_addr #0 {
+; Function Attrs: mustprogress nofree uwtable
+define void @_ZN4cvc58internal10safe_printIdEEviRKT_(i32 noundef %fd, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %_d) local_unnamed_addr #4 {
 entry:
   %buf = alloca [20 x i8], align 16
   %v = alloca i64, align 8
@@ -254,7 +254,7 @@ while.cond.preheader:                             ; preds = %entry
   br label %while.cond
 
 if.then.i:                                        ; preds = %entry
-  tail call void @abort() #8
+  tail call void @abort() #9
   unreachable
 
 while.cond:                                       ; preds = %while.cond.preheader, %while.body
@@ -286,15 +286,15 @@ while.end:                                        ; preds = %lor.rhs
   br i1 %cmp12.not, label %if.end14, label %if.then13
 
 if.then13:                                        ; preds = %while.end
-  tail call void @abort() #8
+  tail call void @abort() #9
   unreachable
 
 if.end14:                                         ; preds = %while.end
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN4cvc58internal10safe_printIfEEviRKT_(i32 noundef %fd, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %f) local_unnamed_addr #0 {
+; Function Attrs: mustprogress nofree uwtable
+define void @_ZN4cvc58internal10safe_printIfEEviRKT_(i32 noundef %fd, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %f) local_unnamed_addr #4 {
 entry:
   %ref.tmp = alloca double, align 8
   %0 = load float, ptr %f, align 4
@@ -304,8 +304,8 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN4cvc58internal10safe_printIbEEviRKT_(i32 noundef %fd, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %b) local_unnamed_addr #0 {
+; Function Attrs: mustprogress nofree uwtable
+define void @_ZN4cvc58internal10safe_printIbEEviRKT_(i32 noundef %fd, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %b) local_unnamed_addr #4 {
 entry:
   %0 = load i8, ptr %b, align 1
   %tobool = trunc i8 %0 to i1
@@ -317,7 +317,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.not.i, label %if.end, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
-  tail call void @abort() #8
+  tail call void @abort() #9
   unreachable
 
 if.else:                                          ; preds = %entry
@@ -326,15 +326,15 @@ if.else:                                          ; preds = %entry
   br i1 %cmp.not.i3, label %if.end, label %if.then.i4
 
 if.then.i4:                                       ; preds = %if.else
-  tail call void @abort() #8
+  tail call void @abort() #9
   unreachable
 
 if.end:                                           ; preds = %if.else, %if.then
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN4cvc58internal10safe_printIPvEEviRKT_(i32 noundef %fd, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %addr) local_unnamed_addr #0 {
+; Function Attrs: mustprogress nofree uwtable
+define void @_ZN4cvc58internal10safe_printIPvEEviRKT_(i32 noundef %fd, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %addr) local_unnamed_addr #4 {
 entry:
   %0 = load ptr, ptr %addr, align 8
   %1 = ptrtoint ptr %0 to i64
@@ -342,8 +342,8 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal14safe_print_hexEim(i32 noundef %fd, i64 noundef %i) local_unnamed_addr #0 {
+; Function Attrs: mustprogress nofree uwtable
+define hidden void @_ZN4cvc58internal14safe_print_hexEim(i32 noundef %fd, i64 noundef %i) local_unnamed_addr #4 {
 entry:
   %buf = alloca [20 x i8], align 16
   %call.i = tail call i64 @write(i32 noundef %fd, ptr noundef nonnull @.str.5, i64 noundef 2)
@@ -351,7 +351,7 @@ entry:
   br i1 %cmp.not.i, label %_ZN4cvc58internal10safe_printILm3EEEviRAT__Kc.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void @abort() #8
+  tail call void @abort() #9
   unreachable
 
 _ZN4cvc58internal10safe_printILm3EEEviRAT__Kc.exit: ; preds = %entry
@@ -364,7 +364,7 @@ if.then:                                          ; preds = %_ZN4cvc58internal10
   br i1 %cmp.not.i16, label %if.end18, label %if.then.i17
 
 if.then.i17:                                      ; preds = %if.then
-  tail call void @abort() #8
+  tail call void @abort() #9
   unreachable
 
 while.body:                                       ; preds = %_ZN4cvc58internal10safe_printILm3EEEviRAT__Kc.exit, %while.body
@@ -395,15 +395,15 @@ while.end:                                        ; preds = %while.body
   br i1 %cmp16.not, label %if.end18, label %if.then17
 
 if.then17:                                        ; preds = %while.end
-  tail call void @abort() #8
+  tail call void @abort() #9
   unreachable
 
 if.end18:                                         ; preds = %if.then, %while.end
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN4cvc58internal10safe_printI8timespecEEviRKT_(i32 noundef %fd, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %t) local_unnamed_addr #0 {
+; Function Attrs: mustprogress nofree uwtable
+define void @_ZN4cvc58internal10safe_printI8timespecEEviRKT_(i32 noundef %fd, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %t) local_unnamed_addr #4 {
 entry:
   %buf.i6 = alloca [20 x i8], align 16
   %buf.i = alloca [20 x i8], align 16
@@ -418,7 +418,7 @@ if.then.i:                                        ; preds = %entry
   br i1 %cmp.not.i.i, label %_ZN4cvc58internal10safe_printImEEviRKT_.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
-  tail call void @abort() #8
+  tail call void @abort() #9
   unreachable
 
 while.body.i:                                     ; preds = %entry, %while.body.i
@@ -445,7 +445,7 @@ while.end.i:                                      ; preds = %while.body.i
   br i1 %cmp5.not.i, label %_ZN4cvc58internal10safe_printImEEviRKT_.exit, label %if.then6.i
 
 if.then6.i:                                       ; preds = %while.end.i
-  tail call void @abort() #8
+  tail call void @abort() #9
   unreachable
 
 _ZN4cvc58internal10safe_printImEEviRKT_.exit:     ; preds = %if.then.i, %while.end.i
@@ -455,7 +455,7 @@ _ZN4cvc58internal10safe_printImEEviRKT_.exit:     ; preds = %if.then.i, %while.e
   br i1 %cmp.not.i, label %_ZN4cvc58internal10safe_printILm2EEEviRAT__Kc.exit, label %if.then.i5
 
 if.then.i5:                                       ; preds = %_ZN4cvc58internal10safe_printImEEviRKT_.exit
-  tail call void @abort() #8
+  tail call void @abort() #9
   unreachable
 
 _ZN4cvc58internal10safe_printILm2EEEviRAT__Kc.exit: ; preds = %_ZN4cvc58internal10safe_printImEEviRKT_.exit
@@ -487,7 +487,7 @@ while.end.i7:                                     ; preds = %while.body.i11, %_Z
   br i1 %cmp5.not.i9, label %_ZN4cvc58internal24safe_print_right_alignedEiml.exit, label %if.then.i10
 
 if.then.i10:                                      ; preds = %while.end.i7
-  tail call void @abort() #8
+  tail call void @abort() #9
   unreachable
 
 _ZN4cvc58internal24safe_print_right_alignedEiml.exit: ; preds = %while.end.i7
@@ -495,8 +495,8 @@ _ZN4cvc58internal24safe_print_right_alignedEiml.exit: ; preds = %while.end.i7
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal24safe_print_right_alignedEiml(i32 noundef %fd, i64 noundef %i, i64 noundef %width) local_unnamed_addr #0 {
+; Function Attrs: mustprogress nofree uwtable
+define hidden void @_ZN4cvc58internal24safe_print_right_alignedEiml(i32 noundef %fd, i64 noundef %i, i64 noundef %width) local_unnamed_addr #4 {
 entry:
   %buf = alloca [20 x i8], align 16
   %cond = tail call i64 @llvm.smin.i64(i64 %width, i64 20)
@@ -530,7 +530,7 @@ while.end:                                        ; preds = %while.body, %entry,
   br i1 %cmp5.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %while.end
-  tail call void @abort() #8
+  tail call void @abort() #9
   unreachable
 
 if.end:                                           ; preds = %while.end
@@ -538,26 +538,27 @@ if.end:                                           ; preds = %while.end
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #4
+declare i64 @llvm.smin.i64(i64, i64) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { nounwind }
-attributes #8 = { noreturn nounwind }
+attributes #3 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { nounwind }
+attributes #9 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -135,7 +135,7 @@ declare void @PQfinish(ptr noundef) local_unnamed_addr #1
 
 declare i32 @pg_printf(ptr noundef, ...) local_unnamed_addr #1
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #2
 
 declare void @PQclear(ptr noundef) local_unnamed_addr #1
@@ -246,7 +246,7 @@ define dso_local i32 @get_major_server_version(ptr noundef %0) local_unnamed_add
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %1
-  call void (ptr, ...) @pg_fatal(ptr noundef nonnull @.str.9, ptr noundef nonnull %2) #10
+  call void (ptr, ...) @pg_fatal(ptr noundef nonnull @.str.9, ptr noundef nonnull %2) #11
   unreachable
 
 11:                                               ; preds = %1
@@ -261,7 +261,7 @@ define dso_local i32 @get_major_server_version(ptr noundef %0) local_unnamed_add
   br i1 %17, label %18, label %19
 
 18:                                               ; preds = %15, %11
-  call void (ptr, ...) @pg_fatal(ptr noundef nonnull @.str.12, ptr noundef nonnull %2) #10
+  call void (ptr, ...) @pg_fatal(ptr noundef nonnull @.str.12, ptr noundef nonnull %2) #11
   unreachable
 
 19:                                               ; preds = %15
@@ -316,7 +316,7 @@ define dso_local noundef zeroext i1 @start_postmaster(ptr noundef %0, i1 noundef
   br i1 %.not, label %20, label %11
 
 11:                                               ; preds = %8
-  %12 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #11
+  %12 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #12
   %13 = getelementptr i8, ptr %4, i64 %12
   %14 = sub i64 1224, %12
   %15 = getelementptr inbounds i8, ptr %0, i64 180
@@ -398,11 +398,11 @@ define dso_local noundef zeroext i1 @start_postmaster(ptr noundef %0, i1 noundef
   br i1 %53, label %54, label %55
 
 54:                                               ; preds = %52
-  call void (ptr, ...) @pg_fatal(ptr noundef nonnull @.str.24, ptr noundef nonnull %3) #10
+  call void (ptr, ...) @pg_fatal(ptr noundef nonnull @.str.24, ptr noundef nonnull %3) #11
   unreachable
 
 55:                                               ; preds = %52
-  call void (ptr, ...) @pg_fatal(ptr noundef nonnull @.str.25, ptr noundef nonnull %3) #10
+  call void (ptr, ...) @pg_fatal(ptr noundef nonnull @.str.25, ptr noundef nonnull %3) #11
   unreachable
 
 56:                                               ; preds = %47
@@ -414,11 +414,11 @@ define dso_local noundef zeroext i1 @start_postmaster(ptr noundef %0, i1 noundef
   br i1 %58, label %59, label %60
 
 59:                                               ; preds = %57
-  call void (ptr, ...) @pg_fatal(ptr noundef nonnull @.str.26) #10
+  call void (ptr, ...) @pg_fatal(ptr noundef nonnull @.str.26) #11
   unreachable
 
 60:                                               ; preds = %57
-  call void (ptr, ...) @pg_fatal(ptr noundef nonnull @.str.27) #10
+  call void (ptr, ...) @pg_fatal(ptr noundef nonnull @.str.27) #11
   unreachable
 
 61:                                               ; preds = %56, %28
@@ -507,7 +507,7 @@ define dso_local void @check_pghost_envvar() local_unnamed_addr #0 {
   br i1 %.not2028, label %._crit_edge, label %.lr.ph
 
 3:                                                ; preds = %0
-  tail call void (ptr, ...) @pg_fatal(ptr noundef nonnull @.str.31) #10
+  tail call void (ptr, ...) @pg_fatal(ptr noundef nonnull @.str.31) #11
   unreachable
 
 .lr.ph:                                           ; preds = %.preheader, %23
@@ -518,12 +518,12 @@ define dso_local void @check_pghost_envvar() local_unnamed_addr #0 {
   br i1 %.not21, label %23, label %6
 
 6:                                                ; preds = %.lr.ph
-  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(7) @.str.32) #11
+  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(7) @.str.32) #12
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %12, label %9
 
 9:                                                ; preds = %6
-  %10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(11) @.str.33) #11
+  %10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(11) @.str.33) #12
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %23
 
@@ -538,17 +538,17 @@ define dso_local void @check_pghost_envvar() local_unnamed_addr #0 {
   br i1 %.not23, label %23, label %15
 
 15:                                               ; preds = %14
-  %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(10) @.str.34) #11
+  %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(10) @.str.34) #12
   %.not24 = icmp eq i32 %16, 0
   br i1 %.not24, label %23, label %17
 
 17:                                               ; preds = %15
-  %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(10) @.str.35) #11
+  %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(10) @.str.35) #12
   %.not25 = icmp eq i32 %18, 0
   br i1 %.not25, label %23, label %19
 
 19:                                               ; preds = %17
-  %20 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(4) @.str.36) #11
+  %20 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(4) @.str.36) #12
   %.not26 = icmp eq i32 %20, 0
   br i1 %.not26, label %23, label %21
 
@@ -559,7 +559,7 @@ define dso_local void @check_pghost_envvar() local_unnamed_addr #0 {
   ]
 
 22:                                               ; preds = %21
-  tail call void (ptr, ...) @pg_fatal(ptr noundef nonnull @.str.37, ptr noundef nonnull %5, ptr noundef nonnull %13) #10
+  tail call void (ptr, ...) @pg_fatal(ptr noundef nonnull @.str.37, ptr noundef nonnull %5, ptr noundef nonnull %13) #11
   unreachable
 
 23:                                               ; preds = %21, %21, %.lr.ph, %9, %19, %17, %15, %14, %12
@@ -598,7 +598,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -606,8 +606,9 @@ attributes #6 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trappin
 attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nounwind }
-attributes #10 = { noreturn nounwind }
-attributes #11 = { nounwind willreturn memory(read) }
+attributes #10 = { cold noreturn nounwind }
+attributes #11 = { noreturn nounwind }
+attributes #12 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

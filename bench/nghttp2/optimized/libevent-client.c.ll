@@ -69,7 +69,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  call void (i32, ptr, ...) @errx(i32 noundef 1, ptr noundef nonnull @.str.1, ptr noundef %3) #18
+  call void (i32, ptr, ...) @errx(i32 noundef 1, ptr noundef nonnull @.str.1, ptr noundef %3) #21
   unreachable
 
 if.end.i:                                         ; preds = %if.end
@@ -95,7 +95,7 @@ if.end.i:                                         ; preds = %if.end
 if.then.i.i:                                      ; preds = %if.end.i
   %call2.i.i = call i64 @ERR_get_error() #19
   %call3.i.i = call ptr @ERR_error_string(i64 noundef %call2.i.i, ptr noundef null) #19
-  call void (i32, ptr, ...) @errx(i32 noundef 1, ptr noundef nonnull @.str.2, ptr noundef %call3.i.i) #18
+  call void (i32, ptr, ...) @errx(i32 noundef 1, ptr noundef nonnull @.str.2, ptr noundef %call3.i.i) #21
   unreachable
 
 create_ssl_ctx.exit.i:                            ; preds = %if.end.i
@@ -106,7 +106,7 @@ create_ssl_ctx.exit.i:                            ; preds = %if.end.i
   %call1.i11.i = call ptr @evdns_base_new(ptr noundef %call11.i, i32 noundef 1) #19
   %dnsbase.i.i = getelementptr inbounds i8, ptr %calloc.i.i, i64 8
   store ptr %call1.i11.i, ptr %dnsbase.i.i, align 8
-  %call.i12.i = call noalias dereferenceable_or_null(56) ptr @malloc(i64 noundef 56) #21
+  %call.i12.i = call noalias dereferenceable_or_null(56) ptr @malloc(i64 noundef 56) #22
   store ptr %3, ptr %call.i12.i, align 8
   %u2.i.i = getelementptr inbounds i8, ptr %call.i12.i, i64 8
   store ptr %u.i, ptr %u2.i.i, align 8
@@ -117,7 +117,7 @@ create_ssl_ctx.exit.i:                            ; preds = %if.end.i
   %authoritylen.i.i = getelementptr inbounds i8, ptr %call.i12.i, i64 32
   store i64 %conv.i.i, ptr %authoritylen.i.i, align 8
   %add.i.i = add nuw nsw i64 %conv.i.i, 7
-  %call4.i13.i = call noalias ptr @malloc(i64 noundef %add.i.i) #21
+  %call4.i13.i = call noalias ptr @malloc(i64 noundef %add.i.i) #22
   %authority.i.i = getelementptr inbounds i8, ptr %call.i12.i, i64 16
   store ptr %call4.i13.i, ptr %authority.i.i, align 8
   %10 = load i16, ptr %arrayidx.i, align 2
@@ -172,7 +172,7 @@ if.then39.i.i:                                    ; preds = %if.end34.i.i
 
 if.end48.i.i:                                     ; preds = %if.then39.i.i, %if.end34.i.i
   %20 = phi i64 [ %add47.i.i, %if.then39.i.i ], [ %17, %if.end34.i.i ]
-  %call50.i.i = call noalias ptr @malloc(i64 noundef %20) #21
+  %call50.i.i = call noalias ptr @malloc(i64 noundef %20) #22
   %path.i.i = getelementptr inbounds i8, ptr %call.i12.i, i64 24
   store ptr %call50.i.i, ptr %path.i.i, align 8
   br i1 %tobool27.not.i.i, label %if.else.i.i, label %if.then55.i.i
@@ -222,7 +222,7 @@ create_http2_stream_data.exit.i:                  ; preds = %if.then73.i.i, %if.
 if.then.i.i.i:                                    ; preds = %create_http2_stream_data.exit.i
   %call1.i.i.i = call i64 @ERR_get_error() #19
   %call2.i.i.i = call ptr @ERR_error_string(i64 noundef %call1.i.i.i, ptr noundef null) #19
-  call void (i32, ptr, ...) @errx(i32 noundef 1, ptr noundef nonnull @.str.6, ptr noundef %call2.i.i.i) #18
+  call void (i32, ptr, ...) @errx(i32 noundef 1, ptr noundef nonnull @.str.6, ptr noundef %call2.i.i.i) #21
   unreachable
 
 create_ssl.exit.i.i:                              ; preds = %create_http2_stream_data.exit.i
@@ -236,7 +236,7 @@ create_ssl.exit.i.i:                              ; preds = %create_http2_stream
   br i1 %cmp.not.i.i, label %run.exit, label %if.then.i21.i
 
 if.then.i21.i:                                    ; preds = %create_ssl.exit.i.i
-  call void (i32, ptr, ...) @errx(i32 noundef 1, ptr noundef nonnull @.str.5, ptr noundef %call5.i) #18
+  call void (i32, ptr, ...) @errx(i32 noundef 1, ptr noundef nonnull @.str.5, ptr noundef %call5.i) #21
   unreachable
 
 run.exit:                                         ; preds = %create_ssl.exit.i.i
@@ -253,7 +253,7 @@ run.exit:                                         ; preds = %create_ssl.exit.i.i
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #1
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
@@ -461,7 +461,7 @@ if.end16:                                         ; preds = %lor.lhs.false10
 
 if.then.i:                                        ; preds = %if.end16
   %call1.i13 = call ptr @nghttp2_strerror(i32 noundef %call.i12) #19
-  call void (i32, ptr, ...) @errx(i32 noundef 1, ptr noundef nonnull @.str.20, ptr noundef %call1.i13) #18
+  call void (i32, ptr, ...) @errx(i32 noundef 1, ptr noundef nonnull @.str.20, ptr noundef %call1.i13) #21
   unreachable
 
 send_client_connection_header.exit:               ; preds = %if.end16
@@ -558,7 +558,7 @@ print_headers.exit.i:                             ; preds = %for.body.i.i
 
 if.then.i14:                                      ; preds = %print_headers.exit.i
   %call27.i = call ptr @nghttp2_strerror(i32 noundef %call25.i) #19
-  call void (i32, ptr, ...) @errx(i32 noundef 1, ptr noundef nonnull @.str.27, ptr noundef %call27.i) #18
+  call void (i32, ptr, ...) @errx(i32 noundef 1, ptr noundef nonnull @.str.27, ptr noundef %call27.i) #21
   unreachable
 
 submit_request.exit:                              ; preds = %print_headers.exit.i
@@ -892,7 +892,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #4 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -908,10 +908,11 @@ attributes #14 = { nofree nounwind }
 attributes #15 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
 attributes #16 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #17 = { cold }
-attributes #18 = { noreturn nounwind }
+attributes #18 = { cold noreturn nounwind }
 attributes #19 = { nounwind }
 attributes #20 = { nounwind willreturn memory(read) }
-attributes #21 = { nounwind allocsize(0) }
+attributes #21 = { noreturn nounwind }
+attributes #22 = { nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

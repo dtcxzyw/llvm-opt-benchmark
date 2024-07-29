@@ -153,7 +153,7 @@ entry:
   br i1 %cmp, label %if.end20, label %if.else
 
 if.else:                                          ; preds = %entry
-  %call = tail call ptr @__ctype_b_loc() #25
+  %call = tail call ptr @__ctype_b_loc() #26
   %1 = load ptr, ptr %call, align 8
   %idxprom = zext i8 %0 to i64
   %arrayidx4 = getelementptr i16, ptr %1, i64 %idxprom
@@ -164,21 +164,21 @@ if.else:                                          ; preds = %entry
 
 if.then6:                                         ; preds = %if.else
   %sin_addr7 = getelementptr inbounds i8, ptr %saddr, i64 4
-  %call8 = tail call i32 @inet_aton(ptr noundef nonnull %host, ptr noundef nonnull %sin_addr7) #26
+  %call8 = tail call i32 @inet_aton(ptr noundef nonnull %host, ptr noundef nonnull %sin_addr7) #27
   %tobool9.not = icmp eq i32 %call8, 0
   br i1 %tobool9.not, label %if.then10, label %if.end20
 
 if.then10:                                        ; preds = %if.then6
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 97, ptr noundef nonnull @__func__.convert_host_port, ptr noundef nonnull @.str.1, ptr noundef nonnull %host) #26
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 97, ptr noundef nonnull @__func__.convert_host_port, ptr noundef nonnull @.str.1, ptr noundef nonnull %host) #27
   br label %return
 
 if.else11:                                        ; preds = %if.else
-  %call12 = tail call ptr @gethostbyname(ptr noundef nonnull %host) #26
+  %call12 = tail call ptr @gethostbyname(ptr noundef nonnull %host) #27
   %cmp13 = icmp eq ptr %call12, null
   br i1 %cmp13, label %if.then15, label %if.end16
 
 if.then15:                                        ; preds = %if.else11
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 103, ptr noundef nonnull @__func__.convert_host_port, ptr noundef nonnull @.str.2, ptr noundef nonnull %host) #26
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 103, ptr noundef nonnull @__func__.convert_host_port, ptr noundef nonnull @.str.2, ptr noundef nonnull %host) #27
   br label %return
 
 if.end16:                                         ; preds = %if.else11
@@ -191,18 +191,18 @@ if.end16:                                         ; preds = %if.else11
   br label %if.end20
 
 if.end20:                                         ; preds = %entry, %if.end16, %if.then6
-  %call21 = call i32 @qemu_strtol(ptr noundef %port, ptr noundef nonnull %r, i32 noundef 0, ptr noundef nonnull %p) #26
+  %call21 = call i32 @qemu_strtol(ptr noundef %port, ptr noundef nonnull %r, i32 noundef 0, ptr noundef nonnull %p) #27
   %cmp22.not = icmp eq i32 %call21, 0
   br i1 %cmp22.not, label %if.end25, label %if.then24
 
 if.then24:                                        ; preds = %if.end20
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 110, ptr noundef nonnull @__func__.convert_host_port, ptr noundef nonnull @.str.3, ptr noundef %port) #26
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 110, ptr noundef nonnull @__func__.convert_host_port, ptr noundef nonnull @.str.3, ptr noundef %port) #27
   br label %return
 
 if.end25:                                         ; preds = %if.end20
   %7 = load i64, ptr %p, align 8
   %conv26 = trunc i64 %7 to i16
-  %call27 = call zeroext i16 @htons(i16 noundef zeroext %conv26) #25
+  %call27 = call zeroext i16 @htons(i16 noundef zeroext %conv26) #26
   %sin_port = getelementptr inbounds i8, ptr %saddr, i64 2
   store i16 %call27, ptr %sin_port, align 2
   br label %return
@@ -236,7 +236,7 @@ declare zeroext i16 @htons(i16 noundef zeroext) local_unnamed_addr #2
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local range(i32 -1, 1) i32 @parse_host_port(ptr noundef %saddr, ptr noundef %str, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %call = tail call ptr @g_strsplit(ptr noundef %str, ptr noundef nonnull @.str.4, i32 noundef 2) #26
+  %call = tail call ptr @g_strsplit(ptr noundef %str, ptr noundef nonnull @.str.4, i32 noundef 2) #27
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %if.then, label %lor.lhs.false
 
@@ -252,7 +252,7 @@ lor.lhs.false2:                                   ; preds = %lor.lhs.false
   br i1 %tobool4.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %lor.lhs.false2, %lor.lhs.false, %entry
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 126, ptr noundef nonnull @__func__.parse_host_port, ptr noundef nonnull @.str.5, ptr noundef %str) #26
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 126, ptr noundef nonnull @__func__.parse_host_port, ptr noundef nonnull @.str.5, ptr noundef %str) #27
   br label %out
 
 if.end:                                           ; preds = %lor.lhs.false2
@@ -261,7 +261,7 @@ if.end:                                           ; preds = %lor.lhs.false2
 
 out:                                              ; preds = %if.end, %if.then
   %ret.0 = phi i32 [ %call7, %if.end ], [ -1, %if.then ]
-  tail call void @g_strfreev(ptr noundef %call) #26
+  tail call void @g_strfreev(ptr noundef %call) #27
   ret i32 %ret.0
 }
 
@@ -289,7 +289,7 @@ entry:
   %arrayidx9 = getelementptr i8, ptr %macaddr, i64 5
   %5 = load i8, ptr %arrayidx9, align 1
   %conv10 = zext i8 %5 to i32
-  %call = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.6, i32 noundef %conv, i32 noundef %conv2, i32 noundef %conv4, i32 noundef %conv6, i32 noundef %conv8, i32 noundef %conv10) #26
+  %call = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.6, i32 noundef %conv, i32 noundef %conv2, i32 noundef %conv4, i32 noundef %conv6, i32 noundef %conv8, i32 noundef %conv10) #27
   ret ptr %call
 }
 
@@ -301,7 +301,7 @@ entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %ap)
   %info_str = getelementptr inbounds i8, ptr %nc, i64 64
-  %call = call i32 @vsnprintf(ptr noundef nonnull %info_str, i64 noundef 256, ptr noundef %fmt, ptr noundef nonnull %ap) #26
+  %call = call i32 @vsnprintf(ptr noundef nonnull %info_str, i64 noundef 256, ptr noundef %fmt, ptr noundef nonnull %ap) #27
   call void @llvm.va_end.p0(ptr nonnull %ap)
   ret void
 }
@@ -429,11 +429,11 @@ entry:
   br i1 %cmp, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str, i32 noundef 293, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_new_net_client) #27
+  tail call void @__assert_fail(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str, i32 noundef 293, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_new_net_client) #28
   unreachable
 
 if.end:                                           ; preds = %entry
-  %call = tail call noalias ptr @g_malloc0(i64 noundef %0) #28
+  %call = tail call noalias ptr @g_malloc0(i64 noundef %0) #29
   tail call fastcc void @qemu_net_client_setup(ptr noundef %call, ptr noundef nonnull %info, ptr noundef %peer, ptr noundef %model, ptr noundef %name, ptr noundef nonnull @qemu_net_client_destructor, i1 noundef zeroext true)
   ret ptr %call
 }
@@ -448,14 +448,14 @@ declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #10
 define internal fastcc void @qemu_net_client_setup(ptr noundef %nc, ptr noundef %info, ptr noundef %peer, ptr noundef %model, ptr noundef %name, ptr noundef %destructor, i1 noundef zeroext %is_datapath) unnamed_addr #0 {
 entry:
   store ptr %info, ptr %nc, align 8
-  %call = tail call noalias ptr @g_strdup(ptr noundef %model) #26
+  %call = tail call noalias ptr @g_strdup(ptr noundef %model) #27
   %model2 = getelementptr inbounds i8, ptr %nc, i64 48
   store ptr %call, ptr %model2, align 8
   %tobool.not = icmp eq ptr %name, null
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call3 = tail call noalias ptr @g_strdup(ptr noundef nonnull %name) #26
+  %call3 = tail call noalias ptr @g_strdup(ptr noundef nonnull %name) #27
   br label %if.end
 
 if.else:                                          ; preds = %entry
@@ -472,7 +472,7 @@ for.body.i:                                       ; preds = %if.else, %for.inc.i
 if.end.i:                                         ; preds = %for.body.i
   %model1.i = getelementptr inbounds i8, ptr %nc.09.i, i64 48
   %0 = load ptr, ptr %model1.i, align 8
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %model) #29
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %model) #30
   %cmp2.i = icmp eq i32 %call.i, 0
   %inc.i = zext i1 %cmp2.i to i32
   %spec.select.i = add i32 %id.08.i, %inc.i
@@ -487,7 +487,7 @@ for.inc.i:                                        ; preds = %if.end.i, %for.body
 
 assign_name.exit:                                 ; preds = %for.inc.i, %if.else
   %id.0.lcssa.i = phi i32 [ 0, %if.else ], [ %id.1.i, %for.inc.i ]
-  %call5.i = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.55, ptr noundef %model, i32 noundef %id.0.lcssa.i) #26
+  %call5.i = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.55, ptr noundef %model, i32 noundef %id.0.lcssa.i) #27
   br label %if.end
 
 if.end:                                           ; preds = %assign_name.exit, %if.then
@@ -504,7 +504,7 @@ if.then8:                                         ; preds = %if.end
   br i1 %tobool10.not, label %if.end13, label %if.else12
 
 if.else12:                                        ; preds = %if.then8
-  tail call void @__assert_fail(ptr noundef nonnull @.str.54, ptr noundef nonnull @.str, i32 noundef 274, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_net_client_setup) #27
+  tail call void @__assert_fail(ptr noundef nonnull @.str.54, ptr noundef nonnull @.str, i32 noundef 274, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_net_client_setup) #28
   unreachable
 
 if.end13:                                         ; preds = %if.then8
@@ -522,7 +522,7 @@ do.body:                                          ; preds = %if.end, %if.end13
   store ptr %2, ptr %tql_prev, align 8
   store ptr %nc, ptr %2, align 8
   store ptr %next, ptr getelementptr inbounds (i8, ptr @net_clients, i64 8), align 8
-  %call19 = tail call ptr @qemu_new_net_queue(ptr noundef nonnull @qemu_deliver_packet_iov, ptr noundef nonnull %nc) #26
+  %call19 = tail call ptr @qemu_new_net_queue(ptr noundef nonnull @qemu_deliver_packet_iov, ptr noundef nonnull %nc) #27
   %incoming_queue = getelementptr inbounds i8, ptr %nc, i64 40
   store ptr %call19, ptr %incoming_queue, align 8
   %destructor20 = getelementptr inbounds i8, ptr %nc, i64 328
@@ -539,7 +539,7 @@ do.body:                                          ; preds = %if.end, %if.end13
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @qemu_net_client_destructor(ptr noundef %nc) #0 {
 entry:
-  tail call void @g_free(ptr noundef %nc) #26
+  tail call void @g_free(ptr noundef %nc) #27
   ret void
 }
 
@@ -552,11 +552,11 @@ entry:
   br i1 %cmp, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str, i32 noundef 309, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_new_net_control_client) #27
+  tail call void @__assert_fail(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str, i32 noundef 309, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_new_net_control_client) #28
   unreachable
 
 if.end:                                           ; preds = %entry
-  %call = tail call noalias ptr @g_malloc0(i64 noundef %0) #28
+  %call = tail call noalias ptr @g_malloc0(i64 noundef %0) #29
   tail call fastcc void @qemu_net_client_setup(ptr noundef %call, ptr noundef nonnull %info, ptr noundef %peer, ptr noundef %model, ptr noundef %name, ptr noundef nonnull @qemu_net_client_destructor, i1 noundef zeroext false)
   ret ptr %call
 }
@@ -573,7 +573,7 @@ entry:
   br i1 %cmp4, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str, i32 noundef 329, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_new_nic) #27
+  tail call void @__assert_fail(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str, i32 noundef 329, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_new_nic) #28
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -583,14 +583,14 @@ if.end:                                           ; preds = %entry
   br i1 %cmp5, label %if.end8, label %if.else7
 
 if.else7:                                         ; preds = %if.end
-  tail call void @__assert_fail(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str, i32 noundef 330, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_new_nic) #27
+  tail call void @__assert_fail(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str, i32 noundef 330, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_new_nic) #28
   unreachable
 
 if.end8:                                          ; preds = %if.end
   %conv = zext nneg i32 %cond to i64
   %mul = mul nuw nsw i64 %conv, 376
   %add = add i64 %2, %mul
-  %call = tail call noalias ptr @g_malloc0(i64 noundef %add) #28
+  %call = tail call noalias ptr @g_malloc0(i64 noundef %add) #29
   %3 = load i64, ptr %size, align 8
   %add.ptr = getelementptr i8, ptr %call, i64 %3
   store ptr %add.ptr, ptr %call, align 8
@@ -678,7 +678,7 @@ entry:
   br i1 %cmp.not, label %if.else, label %if.end
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str, i32 noundef 373, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_get_peer) #27
+  tail call void @__assert_fail(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str, i32 noundef 373, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_get_peer) #28
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -698,7 +698,7 @@ entry:
   br i1 %cmp.not, label %if.else, label %if.end
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str, i32 noundef 408, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_del_net_client) #27
+  tail call void @__assert_fail(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str, i32 noundef 408, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_del_net_client) #28
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -752,7 +752,7 @@ for.body.i:                                       ; preds = %for.body.lr.ph.i, %
 if.end.i:                                         ; preds = %for.body.i
   %name.i = getelementptr inbounds i8, ptr %nc.012.i, i64 56
   %7 = load ptr, ptr %name.i, align 8
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull readonly dereferenceable(1) %2) #29
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull readonly dereferenceable(1) %2) #30
   %tobool3.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool3.not.i, label %if.then4.i, label %for.inc.i
 
@@ -783,7 +783,7 @@ qemu_find_net_clients_except.exit:                ; preds = %for.inc.i, %for.inc
   br i1 %cmp1.not, label %if.else3, label %if.end4
 
 if.else3:                                         ; preds = %if.end, %qemu_find_net_clients_except.exit
-  tail call void @__assert_fail(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str, i32 noundef 416, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_del_net_client) #27
+  tail call void @__assert_fail(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str, i32 noundef 416, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_del_net_client) #28
   unreachable
 
 if.end4:                                          ; preds = %qemu_find_net_clients_except.exit
@@ -796,7 +796,7 @@ land.rhs:                                         ; preds = %if.end4, %land.rhs
   %nf.050 = phi ptr [ %9, %land.rhs ], [ %8, %if.end4 ]
   %next5 = getelementptr inbounds i8, ptr %nf.050, i64 80
   %9 = load ptr, ptr %next5, align 8
-  tail call void @object_unparent(ptr noundef nonnull %nf.050) #26
+  tail call void @object_unparent(ptr noundef nonnull %nf.050) #27
   %tobool.not = icmp eq ptr %9, null
   br i1 %tobool.not, label %for.end, label %land.rhs, !llvm.loop !11
 
@@ -857,7 +857,7 @@ for.end23:                                        ; preds = %for.body20, %if.end
   br i1 %tobool26.not, label %if.end32, label %if.then27
 
 if.then27:                                        ; preds = %for.end23
-  tail call void %20(ptr noundef nonnull %18) #26
+  tail call void %20(ptr noundef nonnull %18) #27
   br label %if.end32
 
 if.end32:                                         ; preds = %if.then27, %for.end23
@@ -899,7 +899,7 @@ if.end.i26:                                       ; preds = %if.else.i, %if.then
   br i1 %tobool.not.i27, label %qemu_cleanup_net_client.exit, label %if.then15.i
 
 if.then15.i:                                      ; preds = %if.end.i26
-  tail call void %26(ptr noundef nonnull %21) #26
+  tail call void %26(ptr noundef nonnull %21) #27
   br label %qemu_cleanup_net_client.exit
 
 qemu_cleanup_net_client.exit:                     ; preds = %if.end.i26, %if.then15.i
@@ -947,7 +947,7 @@ if.end.i34:                                       ; preds = %if.else.i38, %if.th
   br i1 %tobool.not.i36, label %qemu_cleanup_net_client.exit39, label %if.then15.i37
 
 if.then15.i37:                                    ; preds = %if.end.i34
-  tail call void %32(ptr noundef nonnull %27) #26
+  tail call void %32(ptr noundef nonnull %27) #27
   br label %qemu_cleanup_net_client.exit39
 
 qemu_cleanup_net_client.exit39:                   ; preds = %if.end.i34, %if.then15.i37
@@ -957,7 +957,7 @@ qemu_cleanup_net_client.exit39:                   ; preds = %if.end.i34, %if.the
   br i1 %tobool.not.i40, label %if.end.i42, label %if.then.i41
 
 if.then.i41:                                      ; preds = %qemu_cleanup_net_client.exit39
-  tail call void @qemu_del_net_queue(ptr noundef nonnull %33) #26
+  tail call void @qemu_del_net_queue(ptr noundef nonnull %33) #27
   br label %if.end.i42
 
 if.end.i42:                                       ; preds = %if.then.i41, %qemu_cleanup_net_client.exit39
@@ -974,17 +974,17 @@ if.then3.i:                                       ; preds = %if.end.i42
 if.end6.i:                                        ; preds = %if.then3.i, %if.end.i42
   %name.i44 = getelementptr inbounds i8, ptr %27, i64 56
   %35 = load ptr, ptr %name.i44, align 8
-  tail call void @g_free(ptr noundef %35) #26
+  tail call void @g_free(ptr noundef %35) #27
   %model.i = getelementptr inbounds i8, ptr %27, i64 48
   %36 = load ptr, ptr %model.i, align 8
-  tail call void @g_free(ptr noundef %36) #26
+  tail call void @g_free(ptr noundef %36) #27
   %destructor.i = getelementptr inbounds i8, ptr %27, i64 328
   %37 = load ptr, ptr %destructor.i, align 8
   %tobool7.not.i = icmp eq ptr %37, null
   br i1 %tobool7.not.i, label %qemu_free_net_client.exit, label %if.then8.i
 
 if.then8.i:                                       ; preds = %if.end6.i
-  tail call void %37(ptr noundef nonnull %27) #26
+  tail call void %37(ptr noundef nonnull %27) #27
   br label %qemu_free_net_client.exit
 
 qemu_free_net_client.exit:                        ; preds = %if.end6.i, %if.then8.i
@@ -1047,7 +1047,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 if.end:                                           ; preds = %for.body
   %name = getelementptr inbounds i8, ptr %nc.012, i64 56
   %4 = load ptr, ptr %name, align 8
-  %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %id) #29
+  %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %id) #30
   %tobool3.not = icmp eq i32 %call, 0
   br i1 %tobool3.not, label %if.then4, label %for.inc
 
@@ -1135,7 +1135,7 @@ if.then:                                          ; preds = %for.body
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
-  tail call void @qemu_del_net_queue(ptr noundef nonnull %8) #26
+  tail call void @qemu_del_net_queue(ptr noundef nonnull %8) #27
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %if.then
@@ -1152,17 +1152,17 @@ if.then3.i:                                       ; preds = %if.end.i
 if.end6.i:                                        ; preds = %if.then3.i, %if.end.i
   %name.i = getelementptr inbounds i8, ptr %7, i64 56
   %10 = load ptr, ptr %name.i, align 8
-  tail call void @g_free(ptr noundef %10) #26
+  tail call void @g_free(ptr noundef %10) #27
   %model.i = getelementptr inbounds i8, ptr %7, i64 48
   %11 = load ptr, ptr %model.i, align 8
-  tail call void @g_free(ptr noundef %11) #26
+  tail call void @g_free(ptr noundef %11) #27
   %destructor.i = getelementptr inbounds i8, ptr %7, i64 328
   %12 = load ptr, ptr %destructor.i, align 8
   %tobool7.not.i = icmp eq ptr %12, null
   br i1 %tobool7.not.i, label %for.inc, label %if.then8.i
 
 if.then8.i:                                       ; preds = %if.end6.i
-  tail call void %12(ptr noundef nonnull %7) #26
+  tail call void %12(ptr noundef nonnull %7) #27
   br label %for.inc
 
 if.else:                                          ; preds = %for.body
@@ -1178,7 +1178,7 @@ if.then6:                                         ; preds = %if.else
 if.end.i19:                                       ; preds = %if.then6
   %incoming_queue.i20 = getelementptr inbounds i8, ptr %13, i64 40
   %14 = load ptr, ptr %incoming_queue.i20, align 8
-  tail call void @qemu_net_queue_purge(ptr noundef %14, ptr noundef nonnull %7) #26
+  tail call void @qemu_net_queue_purge(ptr noundef %14, ptr noundef nonnull %7) #27
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end.i19, %if.then6, %if.then8.i, %if.end6.i, %if.else
@@ -1219,7 +1219,7 @@ if.end.i25:                                       ; preds = %if.else.i, %if.then
   br i1 %tobool.not.i26, label %qemu_cleanup_net_client.exit, label %if.then15.i
 
 if.then15.i:                                      ; preds = %if.end.i25
-  tail call void %20(ptr noundef nonnull %add.ptr.i22) #26
+  tail call void %20(ptr noundef nonnull %add.ptr.i22) #27
   br label %qemu_cleanup_net_client.exit
 
 qemu_cleanup_net_client.exit:                     ; preds = %if.end.i25, %if.then15.i
@@ -1229,7 +1229,7 @@ qemu_cleanup_net_client.exit:                     ; preds = %if.end.i25, %if.the
   br i1 %tobool.not.i28, label %if.end.i30, label %if.then.i29
 
 if.then.i29:                                      ; preds = %qemu_cleanup_net_client.exit
-  tail call void @qemu_del_net_queue(ptr noundef nonnull %21) #26
+  tail call void @qemu_del_net_queue(ptr noundef nonnull %21) #27
   br label %if.end.i30
 
 if.end.i30:                                       ; preds = %if.then.i29, %qemu_cleanup_net_client.exit
@@ -1246,17 +1246,17 @@ if.then3.i33:                                     ; preds = %if.end.i30
 if.end6.i35:                                      ; preds = %if.then3.i33, %if.end.i30
   %name.i36 = getelementptr inbounds i8, ptr %add.ptr.i22, i64 56
   %23 = load ptr, ptr %name.i36, align 8
-  tail call void @g_free(ptr noundef %23) #26
+  tail call void @g_free(ptr noundef %23) #27
   %model.i37 = getelementptr inbounds i8, ptr %add.ptr.i22, i64 48
   %24 = load ptr, ptr %model.i37, align 8
-  tail call void @g_free(ptr noundef %24) #26
+  tail call void @g_free(ptr noundef %24) #27
   %destructor.i38 = getelementptr inbounds i8, ptr %add.ptr.i22, i64 328
   %25 = load ptr, ptr %destructor.i38, align 8
   %tobool7.not.i39 = icmp eq ptr %25, null
   br i1 %tobool7.not.i39, label %qemu_free_net_client.exit41, label %if.then8.i40
 
 if.then8.i40:                                     ; preds = %if.end6.i35
-  tail call void %25(ptr noundef nonnull %add.ptr.i22) #26
+  tail call void %25(ptr noundef nonnull %add.ptr.i22) #27
   br label %qemu_free_net_client.exit41
 
 qemu_free_net_client.exit41:                      ; preds = %if.end6.i35, %if.then8.i40
@@ -1264,7 +1264,7 @@ qemu_free_net_client.exit41:                      ; preds = %if.end6.i35, %if.th
   br i1 %cmp10, label %for.body11, label %for.end15, !llvm.loop !17
 
 for.end15:                                        ; preds = %qemu_free_net_client.exit41
-  tail call void @g_free(ptr noundef nonnull %nic) #26
+  tail call void @g_free(ptr noundef nonnull %nic) #27
   ret void
 }
 
@@ -1279,7 +1279,7 @@ entry:
 if.end:                                           ; preds = %entry
   %incoming_queue = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load ptr, ptr %incoming_queue, align 8
-  tail call void @qemu_net_queue_purge(ptr noundef %1, ptr noundef nonnull %nc) #26
+  tail call void @qemu_net_queue_purge(ptr noundef %1, ptr noundef nonnull %nc) #27
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -1313,7 +1313,7 @@ if.then2:                                         ; preds = %if.then
   %3 = load i64, ptr %size.i, align 8
   %idx.neg1.i = sub i64 0, %3
   %add.ptr2.i = getelementptr i8, ptr %nc.07, i64 %idx.neg1.i
-  tail call void %func(ptr noundef %add.ptr2.i, ptr noundef %opaque) #26
+  tail call void %func(ptr noundef %add.ptr2.i, ptr noundef %opaque) #27
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then2, %if.then
@@ -1340,7 +1340,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %tobool1.not, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %call = tail call zeroext i1 %1(ptr noundef nonnull %nc) #26
+  %call = tail call zeroext i1 %1(ptr noundef nonnull %nc) #27
   br label %return
 
 return:                                           ; preds = %entry, %lor.lhs.false, %if.end
@@ -1362,7 +1362,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %tobool1.not, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %call = tail call zeroext i1 %1(ptr noundef nonnull %nc) #26
+  %call = tail call zeroext i1 %1(ptr noundef nonnull %nc) #27
   br label %return
 
 return:                                           ; preds = %entry, %lor.lhs.false, %if.end
@@ -1384,7 +1384,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %tobool1.not, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %call = tail call zeroext i1 %1(ptr noundef nonnull %nc) #26
+  %call = tail call zeroext i1 %1(ptr noundef nonnull %nc) #27
   br label %return
 
 return:                                           ; preds = %entry, %lor.lhs.false, %if.end
@@ -1406,7 +1406,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %tobool1.not, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %call = tail call zeroext i1 %1(ptr noundef nonnull %nc, i32 noundef %len) #26
+  %call = tail call zeroext i1 %1(ptr noundef nonnull %nc, i32 noundef %len) #27
   br label %return
 
 return:                                           ; preds = %entry, %lor.lhs.false, %if.end
@@ -1428,7 +1428,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %tobool1.not, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %call = tail call zeroext i1 %1(ptr noundef nonnull %nc) #26
+  %call = tail call zeroext i1 %1(ptr noundef nonnull %nc) #27
   br label %return
 
 return:                                           ; preds = %entry, %lor.lhs.false, %if.end
@@ -1450,7 +1450,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %tobool1.not, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  tail call void %1(ptr noundef nonnull %nc, i1 noundef zeroext %enable) #26
+  tail call void %1(ptr noundef nonnull %nc, i1 noundef zeroext %enable) #27
   br label %return
 
 return:                                           ; preds = %entry, %lor.lhs.false, %if.end
@@ -1471,7 +1471,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %tobool1.not, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  tail call void %1(ptr noundef nonnull %nc, i32 noundef %csum, i32 noundef %tso4, i32 noundef %tso6, i32 noundef %ecn, i32 noundef %ufo, i32 noundef %uso4, i32 noundef %uso6) #26
+  tail call void %1(ptr noundef nonnull %nc, i32 noundef %csum, i32 noundef %tso4, i32 noundef %tso6, i32 noundef %ecn, i32 noundef %ufo, i32 noundef %uso4, i32 noundef %uso6) #27
   br label %return
 
 return:                                           ; preds = %entry, %lor.lhs.false, %if.end
@@ -1492,7 +1492,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %tobool1.not, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %call = tail call i32 %1(ptr noundef nonnull %nc) #26
+  %call = tail call i32 %1(ptr noundef nonnull %nc) #27
   br label %return
 
 return:                                           ; preds = %entry, %lor.lhs.false, %if.end
@@ -1517,7 +1517,7 @@ if.end:                                           ; preds = %lor.lhs.false
   %vnet_hdr_len = getelementptr inbounds i8, ptr %nc, i64 348
   store i32 %len, ptr %vnet_hdr_len, align 4
   %2 = load ptr, ptr %set_vnet_hdr_len, align 8
-  tail call void %2(ptr noundef nonnull %nc, i32 noundef %len) #26
+  tail call void %2(ptr noundef nonnull %nc, i32 noundef %len) #27
   br label %return
 
 return:                                           ; preds = %entry, %lor.lhs.false, %if.end
@@ -1544,7 +1544,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %tobool1.not, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %call = tail call i32 %1(ptr noundef nonnull %nc, i1 noundef zeroext %is_be) #26
+  %call = tail call i32 %1(ptr noundef nonnull %nc, i1 noundef zeroext %is_be) #27
   br label %return
 
 return:                                           ; preds = %entry, %lor.lhs.false, %if.end
@@ -1569,7 +1569,7 @@ if.else:                                          ; preds = %entry
   br i1 %tobool1.not, label %if.end5, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.else
-  %call = tail call zeroext i1 %1(ptr noundef nonnull %nc) #26
+  %call = tail call zeroext i1 %1(ptr noundef nonnull %nc) #27
   br i1 %call, label %if.end5, label %return
 
 if.end5:                                          ; preds = %if.else, %land.lhs.true
@@ -1583,7 +1583,7 @@ return:                                           ; preds = %land.lhs.true, %ent
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local range(i32 0, 2) i32 @qemu_can_send_packet(ptr nocapture noundef readonly %sender) local_unnamed_addr #0 {
 entry:
-  %call = tail call zeroext i1 @runstate_is_running() #26
+  %call = tail call zeroext i1 @runstate_is_running() #27
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -1607,7 +1607,7 @@ if.else.i:                                        ; preds = %if.end3
   br i1 %tobool1.not.i, label %if.end5.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.else.i
-  %call.i = tail call zeroext i1 %2(ptr noundef nonnull %0) #26
+  %call.i = tail call zeroext i1 %2(ptr noundef nonnull %0) #27
   br i1 %call.i, label %if.end5.i, label %return
 
 if.end5.i:                                        ; preds = %land.lhs.true.i, %if.else.i
@@ -1641,21 +1641,21 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %cmp, label %if.then, label %if.end4
 
 if.then:                                          ; preds = %land.lhs.true
-  %call = tail call zeroext i1 @net_hub_flush(ptr noundef nonnull %0) #26
+  %call = tail call zeroext i1 @net_hub_flush(ptr noundef nonnull %0) #27
   br i1 %call, label %if.then3, label %if.end4
 
 if.then3:                                         ; preds = %if.then
-  tail call void @qemu_notify_event() #26
+  tail call void @qemu_notify_event() #27
   br label %if.end4
 
 if.end4:                                          ; preds = %if.then, %if.then3, %land.lhs.true, %entry
   %incoming_queue = getelementptr inbounds i8, ptr %nc, i64 40
   %3 = load ptr, ptr %incoming_queue, align 8
-  %call5 = tail call zeroext i1 @qemu_net_queue_flush(ptr noundef %3) #26
+  %call5 = tail call zeroext i1 @qemu_net_queue_flush(ptr noundef %3) #27
   br i1 %call5, label %if.then6, label %if.else
 
 if.then6:                                         ; preds = %if.end4
-  tail call void @qemu_notify_event() #26
+  tail call void @qemu_notify_event() #27
   br label %if.end12
 
 if.else:                                          ; preds = %if.end4
@@ -1664,7 +1664,7 @@ if.else:                                          ; preds = %if.end4
 if.then8:                                         ; preds = %if.else
   %4 = load ptr, ptr %incoming_queue, align 8
   %5 = load ptr, ptr %peer, align 8
-  tail call void @qemu_net_queue_purge(ptr noundef %4, ptr noundef %5) #26
+  tail call void @qemu_net_queue_purge(ptr noundef %4, ptr noundef %5) #27
   br label %if.end12
 
 if.end12:                                         ; preds = %if.else, %if.then8, %if.then6
@@ -1696,21 +1696,21 @@ land.lhs.true.i:                                  ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %if.end4.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %call.i = tail call zeroext i1 @net_hub_flush(ptr noundef nonnull %0) #26
+  %call.i = tail call zeroext i1 @net_hub_flush(ptr noundef nonnull %0) #27
   br i1 %call.i, label %if.then3.i, label %if.end4.i
 
 if.then3.i:                                       ; preds = %if.then.i
-  tail call void @qemu_notify_event() #26
+  tail call void @qemu_notify_event() #27
   br label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.then3.i, %if.then.i, %land.lhs.true.i, %entry
   %incoming_queue.i = getelementptr inbounds i8, ptr %nc, i64 40
   %3 = load ptr, ptr %incoming_queue.i, align 8
-  %call5.i = tail call zeroext i1 @qemu_net_queue_flush(ptr noundef %3) #26
+  %call5.i = tail call zeroext i1 @qemu_net_queue_flush(ptr noundef %3) #27
   br i1 %call5.i, label %if.then6.i, label %qemu_flush_or_purge_queued_packets.exit
 
 if.then6.i:                                       ; preds = %if.end4.i
-  tail call void @qemu_notify_event() #26
+  tail call void @qemu_notify_event() #27
   br label %qemu_flush_or_purge_queued_packets.exit
 
 qemu_flush_or_purge_queued_packets.exit:          ; preds = %if.end4.i, %if.then6.i
@@ -1763,7 +1763,7 @@ for.cond.i.i:                                     ; preds = %for.body.i.i
 
 for.body.i.i:                                     ; preds = %if.end, %for.cond.i.i
   %nf.029.i.i = phi ptr [ %nf.0.i.i, %for.cond.i.i ], [ %nf.027.i.i, %if.end ]
-  %call.i.i = call i64 @qemu_netfilter_receive(ptr noundef nonnull %nf.029.i.i, i32 noundef 2, ptr noundef %sender, i32 noundef %flags, ptr noundef nonnull %iov.i, i32 noundef 1, ptr noundef %sent_cb) #26
+  %call.i.i = call i64 @qemu_netfilter_receive(ptr noundef nonnull %nf.029.i.i, i32 noundef 2, ptr noundef %sender, i32 noundef %flags, ptr noundef nonnull %iov.i, i32 noundef 1, ptr noundef %sent_cb) #27
   %tobool1.not.i.i = icmp eq i64 %call.i.i, 0
   br i1 %tobool1.not.i.i, label %for.cond.i.i, label %filter_receive.exit
 
@@ -1807,7 +1807,7 @@ for.cond5.i.i:                                    ; preds = %for.body7.i.i
 
 for.body7.i.i:                                    ; preds = %if.end7, %for.cond5.i.i
   %nf.125.i.i = phi ptr [ %nf.1.i.i, %for.cond5.i.i ], [ %nf.123.i.i, %if.end7 ]
-  %call8.i.i = call i64 @qemu_netfilter_receive(ptr noundef nonnull %nf.125.i.i, i32 noundef 1, ptr noundef %sender, i32 noundef %flags, ptr noundef nonnull %iov.i21, i32 noundef 1, ptr noundef %sent_cb) #26
+  %call8.i.i = call i64 @qemu_netfilter_receive(ptr noundef nonnull %nf.125.i.i, i32 noundef 1, ptr noundef %sender, i32 noundef %flags, ptr noundef nonnull %iov.i21, i32 noundef 1, ptr noundef %sent_cb) #27
   %tobool9.not.i.i = icmp eq i64 %call8.i.i, 0
   br i1 %tobool9.not.i.i, label %for.cond5.i.i, label %filter_receive.exit24
 
@@ -1830,7 +1830,7 @@ if.end15:                                         ; preds = %filter_receive.exit
   %5 = load ptr, ptr %peer, align 8
   %incoming_queue = getelementptr inbounds i8, ptr %5, i64 40
   %6 = load ptr, ptr %incoming_queue, align 8
-  %call18 = call i64 @qemu_net_queue_send(ptr noundef %6, ptr noundef %sender, i32 noundef %flags, ptr noundef %buf, i64 noundef %conv2, ptr noundef %sent_cb) #26
+  %call18 = call i64 @qemu_net_queue_send(ptr noundef %6, ptr noundef %sender, i32 noundef %flags, ptr noundef %buf, i64 noundef %conv2, ptr noundef %sent_cb) #27
   br label %return
 
 return:                                           ; preds = %if.end15, %if.then13, %if.then5, %if.then
@@ -1862,14 +1862,14 @@ if.else.i:                                        ; preds = %entry
   br i1 %tobool1.not.i, label %if.end, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.else.i
-  %call.i = tail call zeroext i1 %1(ptr noundef nonnull %nc) #26
+  %call.i = tail call zeroext i1 %1(ptr noundef nonnull %nc) #27
   br i1 %call.i, label %if.end, label %return
 
 if.end:                                           ; preds = %land.lhs.true.i, %if.else.i
   %incoming_queue = getelementptr inbounds i8, ptr %nc, i64 40
   %2 = load ptr, ptr %incoming_queue, align 8
   %conv = sext i32 %size to i64
-  %call1 = tail call i64 @qemu_net_queue_receive(ptr noundef %2, ptr noundef %buf, i64 noundef %conv) #26
+  %call1 = tail call i64 @qemu_net_queue_receive(ptr noundef %2, ptr noundef %buf, i64 noundef %conv) #27
   br label %return
 
 return:                                           ; preds = %land.lhs.true.i, %entry, %if.end
@@ -1896,13 +1896,13 @@ if.else.i:                                        ; preds = %entry
   br i1 %tobool1.not.i, label %if.end, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.else.i
-  %call.i = tail call zeroext i1 %1(ptr noundef nonnull %nc) #26
+  %call.i = tail call zeroext i1 %1(ptr noundef nonnull %nc) #27
   br i1 %call.i, label %if.end, label %return
 
 if.end:                                           ; preds = %land.lhs.true.i, %if.else.i
   %incoming_queue = getelementptr inbounds i8, ptr %nc, i64 40
   %2 = load ptr, ptr %incoming_queue, align 8
-  %call1 = tail call i64 @qemu_net_queue_receive_iov(ptr noundef %2, ptr noundef %iov, i32 noundef %iovcnt) #26
+  %call1 = tail call i64 @qemu_net_queue_receive_iov(ptr noundef %2, ptr noundef %iov, i32 noundef %iovcnt) #27
   br label %return
 
 return:                                           ; preds = %land.lhs.true.i, %entry, %if.end
@@ -1922,7 +1922,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @qemu_sendv_packet_async(ptr noundef %sender, ptr noundef %iov, i32 noundef %iovcnt, ptr noundef %sent_cb) local_unnamed_addr #0 {
 entry:
-  %call = tail call i64 @iov_size(ptr noundef %iov, i32 noundef %iovcnt) #26
+  %call = tail call i64 @iov_size(ptr noundef %iov, i32 noundef %iovcnt) #27
   %cmp = icmp ugt i64 %call, 69632
   br i1 %cmp, label %return, label %if.end
 
@@ -1952,7 +1952,7 @@ for.cond.i:                                       ; preds = %for.body.i
 
 for.body.i:                                       ; preds = %if.end3, %for.cond.i
   %nf.029.i = phi ptr [ %nf.0.i, %for.cond.i ], [ %nf.027.i, %if.end3 ]
-  %call.i = tail call i64 @qemu_netfilter_receive(ptr noundef nonnull %nf.029.i, i32 noundef 2, ptr noundef %sender, i32 noundef 0, ptr noundef %iov, i32 noundef %iovcnt, ptr noundef %sent_cb) #26
+  %call.i = tail call i64 @qemu_netfilter_receive(ptr noundef nonnull %nf.029.i, i32 noundef 2, ptr noundef %sender, i32 noundef 0, ptr noundef %iov, i32 noundef %iovcnt, ptr noundef %sent_cb) #27
   %tobool1.not.i = icmp eq i64 %call.i, 0
   br i1 %tobool1.not.i, label %for.cond.i, label %filter_receive_iov.exit
 
@@ -1987,7 +1987,7 @@ for.cond5.i:                                      ; preds = %for.body7.i
 
 for.body7.i:                                      ; preds = %if.end8, %for.cond5.i
   %nf.125.i = phi ptr [ %nf.1.i, %for.cond5.i ], [ %nf.123.i, %if.end8 ]
-  %call8.i = tail call i64 @qemu_netfilter_receive(ptr noundef nonnull %nf.125.i, i32 noundef 1, ptr noundef %sender, i32 noundef 0, ptr noundef %iov, i32 noundef %iovcnt, ptr noundef %sent_cb) #26
+  %call8.i = tail call i64 @qemu_netfilter_receive(ptr noundef nonnull %nf.125.i, i32 noundef 1, ptr noundef %sender, i32 noundef 0, ptr noundef %iov, i32 noundef %iovcnt, ptr noundef %sent_cb) #27
   %tobool9.not.i = icmp eq i64 %call8.i, 0
   br i1 %tobool9.not.i, label %for.cond5.i, label %filter_receive_iov.exit23
 
@@ -2005,7 +2005,7 @@ if.end15:                                         ; preds = %for.cond5.i, %if.en
   %5 = load ptr, ptr %peer, align 8
   %incoming_queue = getelementptr inbounds i8, ptr %5, i64 40
   %6 = load ptr, ptr %incoming_queue, align 8
-  %call17 = tail call i64 @qemu_net_queue_send_iov(ptr noundef %6, ptr noundef %sender, i32 noundef 0, ptr noundef %iov, i32 noundef %iovcnt, ptr noundef %sent_cb) #26
+  %call17 = tail call i64 @qemu_net_queue_send_iov(ptr noundef %6, ptr noundef %sender, i32 noundef 0, ptr noundef %iov, i32 noundef %iovcnt, ptr noundef %sent_cb) #27
   br label %return
 
 return:                                           ; preds = %if.end, %lor.lhs.false, %entry, %if.end15, %if.then13, %if.then6
@@ -2041,7 +2041,7 @@ for.body:                                         ; preds = %entry, %for.inc
 if.end:                                           ; preds = %for.body
   %name = getelementptr inbounds i8, ptr %nc.07, i64 56
   %2 = load ptr, ptr %name, align 8
-  %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %id) #29
+  %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %id) #30
   %tobool1.not = icmp eq i32 %call, 0
   br i1 %tobool1.not, label %return, label %for.inc
 
@@ -2062,15 +2062,15 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @qemu_get_nic_models(ptr noundef %device_type) local_unnamed_addr #0 {
 entry:
-  %call = tail call ptr @g_ptr_array_new() #26
-  %call1 = tail call ptr @object_class_get_list_sorted(ptr noundef %device_type, i1 noundef zeroext false) #26
+  %call = tail call ptr @g_ptr_array_new() #27
+  %call1 = tail call ptr @object_class_get_list_sorted(ptr noundef %device_type, i1 noundef zeroext false) #27
   %tobool.not10 = icmp eq ptr %call1, null
   br i1 %tobool.not10, label %while.end, label %while.body
 
 while.body:                                       ; preds = %entry, %if.end12
   %list.011 = phi ptr [ %4, %if.end12 ], [ %call1, %entry ]
   %0 = load ptr, ptr %list.011, align 8
-  %call2 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %0, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str, i32 noundef 951, ptr noundef nonnull @__func__.qemu_get_nic_models) #26
+  %call2 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %0, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str, i32 noundef 951, ptr noundef nonnull @__func__.qemu_get_nic_models) #27
   %categories = getelementptr inbounds i8, ptr %call2, i64 96
   %categories.val = load i64, ptr %categories, align 8
   %1 = and i64 %categories.val, 8
@@ -2085,29 +2085,29 @@ land.lhs.true:                                    ; preds = %while.body
 
 if.then:                                          ; preds = %land.lhs.true
   %3 = load ptr, ptr %list.011, align 8
-  %call7 = tail call ptr @object_class_get_name(ptr noundef %3) #26
-  %call8 = tail call ptr @object_new_with_class(ptr noundef nonnull %call2) #26
-  %call9 = tail call ptr @object_property_find(ptr noundef %call8, ptr noundef nonnull @.str.15) #26
+  %call7 = tail call ptr @object_class_get_name(ptr noundef %3) #27
+  %call8 = tail call ptr @object_new_with_class(ptr noundef nonnull %call2) #27
+  %call9 = tail call ptr @object_property_find(ptr noundef %call8, ptr noundef nonnull @.str.15) #27
   %tobool10.not = icmp eq ptr %call9, null
   br i1 %tobool10.not, label %if.end, label %if.then11
 
 if.then11:                                        ; preds = %if.then
-  tail call void @g_ptr_array_add(ptr noundef %call, ptr noundef %call7) #26
+  tail call void @g_ptr_array_add(ptr noundef %call, ptr noundef %call7) #27
   br label %if.end
 
 if.end:                                           ; preds = %if.then11, %if.then
-  tail call void @object_unref(ptr noundef %call8) #26
+  tail call void @object_unref(ptr noundef %call8) #27
   br label %if.end12
 
 if.end12:                                         ; preds = %if.end, %land.lhs.true, %while.body
   %next13 = getelementptr inbounds i8, ptr %list.011, i64 8
   %4 = load ptr, ptr %next13, align 8
-  tail call void @g_slist_free_1(ptr noundef nonnull %list.011) #26
+  tail call void @g_slist_free_1(ptr noundef nonnull %list.011) #27
   %tobool.not = icmp eq ptr %4, null
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !22
 
 while.end:                                        ; preds = %if.end12, %entry
-  tail call void @g_ptr_array_add(ptr noundef %call, ptr noundef null) #26
+  tail call void @g_ptr_array_add(ptr noundef %call, ptr noundef null) #27
   ret ptr %call
 }
 
@@ -2147,7 +2147,7 @@ entry.tail.i:                                     ; preds = %lor.lhs.false
   br i1 %3, label %if.end, label %is_help_option.exit
 
 is_help_option.exit:                              ; preds = %lor.lhs.false, %entry.tail.i
-  %call1.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %arg, ptr noundef nonnull dereferenceable(5) @.str.57) #29
+  %call1.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %arg, ptr noundef nonnull dereferenceable(5) @.str.57) #30
   %tobool2.not.i = icmp eq i32 %call1.i, 0
   br i1 %tobool2.not.i, label %if.end, label %return
 
@@ -2197,7 +2197,7 @@ entry.tail.i.i:                                   ; preds = %lor.lhs.false.i
   br i1 %4, label %if.end.i, label %is_help_option.exit.i
 
 is_help_option.exit.i:                            ; preds = %entry.tail.i.i, %lor.lhs.false.i
-  %call1.i.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(5) @.str.57) #29
+  %call1.i.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(5) @.str.57) #30
   %tobool2.not.i.i = icmp eq i32 %call1.i.i, 0
   br i1 %tobool2.not.i.i, label %if.end.i, label %if.end.i4
 
@@ -2218,11 +2218,11 @@ for.body.i:                                       ; preds = %if.end.i, %for.body
   br i1 %tobool2.not.i, label %if.then, label %for.body.i, !llvm.loop !23
 
 if.then:                                          ; preds = %for.body.i, %if.end.i
-  tail call void @exit(i32 noundef 0) #27
+  tail call void @exit(i32 noundef 0) #28
   unreachable
 
 if.then.i:                                        ; preds = %entry
-  %call.i = tail call noalias ptr @g_strdup(ptr noundef %model) #26
+  %call.i = tail call noalias ptr @g_strdup(ptr noundef %model) #27
   store ptr %call.i, ptr %model2, align 8
   br label %if.end.i4
 
@@ -2234,7 +2234,7 @@ if.end.i4:                                        ; preds = %is_help_option.exit
 for.body.i5:                                      ; preds = %if.end.i4, %for.inc.i
   %8 = phi ptr [ %9, %for.inc.i ], [ %model, %if.end.i4 ]
   %i.010.i = phi i32 [ %inc.i6, %for.inc.i ], [ 0, %if.end.i4 ]
-  %call6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %8) #29
+  %call6.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %8) #30
   %cmp.i = icmp eq i32 %call6.i, 0
   br i1 %cmp.i, label %qemu_find_nic_model.exit, label %for.inc.i
 
@@ -2247,7 +2247,7 @@ for.inc.i:                                        ; preds = %for.body.i5
   br i1 %tobool2.not.i9, label %qemu_find_nic_model.exit.thread, label %for.body.i5, !llvm.loop !24
 
 qemu_find_nic_model.exit.thread:                  ; preds = %for.inc.i, %if.end.i4
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.18, ptr noundef %7) #26
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.18, ptr noundef %7) #27
   br label %if.then5
 
 qemu_find_nic_model.exit:                         ; preds = %for.body.i5
@@ -2255,15 +2255,15 @@ qemu_find_nic_model.exit:                         ; preds = %for.body.i5
   br i1 %cmp, label %if.then5, label %if.end6
 
 if.then5:                                         ; preds = %qemu_find_nic_model.exit.thread, %qemu_find_nic_model.exit
-  tail call void @exit(i32 noundef 1) #27
+  tail call void @exit(i32 noundef 1) #31
   unreachable
 
 if.end6:                                          ; preds = %qemu_find_nic_model.exit
   ret void
 }
 
-; Function Attrs: noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #9
+; Function Attrs: nofree noreturn nounwind
+declare void @exit(i32 noundef) local_unnamed_addr #17
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @qemu_find_nic_model(ptr nocapture noundef %nd, ptr nocapture noundef readonly %models, ptr noundef %default_model) local_unnamed_addr #0 {
@@ -2274,7 +2274,7 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %call = tail call noalias ptr @g_strdup(ptr noundef %default_model) #26
+  %call = tail call noalias ptr @g_strdup(ptr noundef %default_model) #27
   store ptr %call, ptr %model, align 8
   br label %if.end
 
@@ -2287,7 +2287,7 @@ if.end:                                           ; preds = %if.then, %entry
 for.body:                                         ; preds = %if.end, %for.inc
   %3 = phi ptr [ %4, %for.inc ], [ %2, %if.end ]
   %i.010 = phi i32 [ %inc, %for.inc ], [ 0, %if.end ]
-  %call6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %3) #29
+  %call6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %3) #30
   %cmp = icmp eq i32 %call6, 0
   br i1 %cmp, label %return, label %for.inc
 
@@ -2300,7 +2300,7 @@ for.inc:                                          ; preds = %for.body
   br i1 %tobool2.not, label %for.end, label %for.body, !llvm.loop !24
 
 for.end:                                          ; preds = %for.inc, %if.end
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.18, ptr noundef %1) #26
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.18, ptr noundef %1) #27
   br label %return
 
 return:                                           ; preds = %for.body, %for.end
@@ -2315,14 +2315,14 @@ declare void @error_report(ptr noundef, ...) local_unnamed_addr #4
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @show_netdevs() local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.28) #26
+  %call = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.28) #27
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.body
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.body ]
   %arrayidx = getelementptr [9 x ptr], ptr @__const.show_netdevs.available_netdevs, i64 0, i64 %indvars.iv
   %0 = load ptr, ptr %arrayidx, align 8
-  %call2 = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.17, ptr noundef %0) #26
+  %call2 = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.17, ptr noundef %0) #27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 9
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !25
@@ -2346,14 +2346,14 @@ entry:
   %object = alloca ptr, align 8
   %prefix_len = alloca i64, align 8
   store ptr null, ptr %object, align 8
-  %call = tail call ptr @opts_visitor_new(ptr noundef %opts) #26
-  %call1 = tail call ptr @qemu_opt_get(ptr noundef %opts, ptr noundef nonnull @.str.58) #26
+  %call = tail call ptr @opts_visitor_new(ptr noundef %opts) #27
+  %call1 = tail call ptr @qemu_opt_get(ptr noundef %opts, ptr noundef nonnull @.str.58) #27
   %tobool.not = icmp eq ptr %call1, null
   br i1 %tobool.not, label %if.end17, label %if.then
 
 if.then:                                          ; preds = %entry
   store i64 64, ptr %prefix_len, align 8
-  %call2 = tail call ptr @g_strsplit(ptr noundef nonnull %call1, ptr noundef nonnull @.str.59, i32 noundef 2) #26
+  %call2 = tail call ptr @g_strsplit(ptr noundef nonnull %call1, ptr noundef nonnull @.str.59, i32 noundef 2) #27
   %tobool3.not = icmp eq ptr %call2, null
   br i1 %tobool3.not, label %if.then5, label %lor.lhs.false
 
@@ -2363,7 +2363,7 @@ lor.lhs.false:                                    ; preds = %if.then
   br i1 %tobool4.not, label %if.then5, label %if.end
 
 if.then5:                                         ; preds = %lor.lhs.false, %if.then
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 1255, ptr noundef nonnull @__func__.net_client_init, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.60) #26
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 1255, ptr noundef nonnull @__func__.net_client_init, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.60) #27
   br label %out
 
 if.end:                                           ; preds = %lor.lhs.false
@@ -2373,19 +2373,19 @@ if.end:                                           ; preds = %lor.lhs.false
   br i1 %tobool8.not, label %if.end13, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %call10 = call i32 @qemu_strtoul(ptr noundef nonnull %1, ptr noundef null, i32 noundef 10, ptr noundef nonnull %prefix_len) #26
+  %call10 = call i32 @qemu_strtoul(ptr noundef nonnull %1, ptr noundef null, i32 noundef 10, ptr noundef nonnull %prefix_len) #27
   %tobool11.not = icmp eq i32 %call10, 0
   br i1 %tobool11.not, label %if.end13, label %if.then12
 
 if.then12:                                        ; preds = %land.lhs.true
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 1266, ptr noundef nonnull @__func__.net_client_init, ptr noundef nonnull @.str.61) #26
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 1266, ptr noundef nonnull @__func__.net_client_init, ptr noundef nonnull @.str.61) #27
   br label %out
 
 if.end13:                                         ; preds = %land.lhs.true, %if.end
-  %call14 = call zeroext i1 @qemu_opt_set(ptr noundef %opts, ptr noundef nonnull @.str.62, ptr noundef nonnull %0, ptr noundef nonnull @error_abort) #26
+  %call14 = call zeroext i1 @qemu_opt_set(ptr noundef %opts, ptr noundef nonnull @.str.62, ptr noundef nonnull %0, ptr noundef nonnull @error_abort) #27
   %2 = load i64, ptr %prefix_len, align 8
-  %call15 = call zeroext i1 @qemu_opt_set_number(ptr noundef %opts, ptr noundef nonnull @.str.63, i64 noundef %2, ptr noundef nonnull @error_abort) #26
-  %call16 = call i32 @qemu_opt_unset(ptr noundef %opts, ptr noundef nonnull @.str.58) #26
+  %call15 = call zeroext i1 @qemu_opt_set_number(ptr noundef %opts, ptr noundef nonnull @.str.63, i64 noundef %2, ptr noundef nonnull @error_abort) #27
+  %call16 = call i32 @qemu_opt_unset(ptr noundef %opts, ptr noundef nonnull @.str.58) #27
   br label %if.end17
 
 if.end17:                                         ; preds = %if.end13, %entry
@@ -2393,17 +2393,17 @@ if.end17:                                         ; preds = %if.end13, %entry
   br i1 %is_netdev, label %if.end24, label %land.lhs.true19
 
 land.lhs.true19:                                  ; preds = %if.end17
-  %call20 = call ptr @qemu_opts_id(ptr noundef %opts) #26
+  %call20 = call ptr @qemu_opts_id(ptr noundef %opts) #27
   %tobool21.not = icmp eq ptr %call20, null
   br i1 %tobool21.not, label %if.then22, label %if.end24
 
 if.then22:                                        ; preds = %land.lhs.true19
-  %call23 = call ptr @id_generate(i32 noundef 3) #26
-  call void @qemu_opts_set_id(ptr noundef %opts, ptr noundef %call23) #26
+  %call23 = call ptr @id_generate(i32 noundef 3) #27
+  call void @qemu_opts_set_id(ptr noundef %opts, ptr noundef %call23) #27
   br label %if.end24
 
 if.end24:                                         ; preds = %if.then22, %land.lhs.true19, %if.end17
-  %call25 = call zeroext i1 @visit_type_Netdev(ptr noundef %call, ptr noundef null, ptr noundef nonnull %object, ptr noundef %errp) #26
+  %call25 = call zeroext i1 @visit_type_Netdev(ptr noundef %call, ptr noundef null, ptr noundef nonnull %object, ptr noundef %errp) #27
   br i1 %call25, label %if.then26, label %if.end29
 
 if.then26:                                        ; preds = %if.end24
@@ -2414,14 +2414,14 @@ if.then26:                                        ; preds = %if.end24
 if.end29:                                         ; preds = %if.then26, %if.end24
   %ret.0 = phi i32 [ %call28, %if.then26 ], [ -1, %if.end24 ]
   %4 = load ptr, ptr %object, align 8
-  call void @qapi_free_Netdev(ptr noundef %4) #26
+  call void @qapi_free_Netdev(ptr noundef %4) #27
   br label %out
 
 out:                                              ; preds = %if.end29, %if.then12, %if.then5
   %ret.1 = phi i32 [ -1, %if.then12 ], [ %ret.0, %if.end29 ], [ -1, %if.then5 ]
   %substrings.1 = phi ptr [ %call2, %if.then12 ], [ %substrings.0, %if.end29 ], [ %call2, %if.then5 ]
-  call void @g_strfreev(ptr noundef %substrings.1) #26
-  call void @visit_free(ptr noundef %call) #26
+  call void @g_strfreev(ptr noundef %substrings.1) #27
+  call void @visit_free(ptr noundef %call) #27
   ret i32 %ret.1
 }
 
@@ -2429,11 +2429,11 @@ out:                                              ; preds = %if.end29, %if.then1
 define dso_local void @qmp_netdev_add(ptr noundef %netdev, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %netdev, align 8
-  %call = tail call zeroext i1 @id_wellformed(ptr noundef %0) #26
+  %call = tail call zeroext i1 @id_wellformed(ptr noundef %0) #27
   br i1 %call, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 1301, ptr noundef nonnull @__func__.qmp_netdev_add, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31) #26
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 1301, ptr noundef nonnull @__func__.qmp_netdev_add, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31) #27
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -2465,8 +2465,8 @@ lor.lhs.false:                                    ; preds = %if.then
   br i1 %tobool2.not.not, label %if.end31, label %if.then3
 
 if.then3:                                         ; preds = %lor.lhs.false, %if.then
-  %call = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @NetClientDriver_lookup, i32 noundef %0) #26
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 1142, ptr noundef nonnull @__func__.net_client_init1, ptr noundef nonnull @.str.64, ptr noundef %call) #26
+  %call = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @NetClientDriver_lookup, i32 noundef %0) #27
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 1142, ptr noundef nonnull @__func__.net_client_init1, ptr noundef nonnull @.str.64, ptr noundef %call) #27
   br label %return
 
 if.else:                                          ; preds = %entry
@@ -2476,8 +2476,8 @@ if.else:                                          ; preds = %entry
   ]
 
 if.then11:                                        ; preds = %if.else
-  %call13 = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @NetClientDriver_lookup, i32 noundef 10) #26
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 1151, ptr noundef nonnull @__func__.net_client_init1, ptr noundef nonnull @.str.65, ptr noundef %call13) #26
+  %call13 = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @NetClientDriver_lookup, i32 noundef 10) #27
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 1151, ptr noundef nonnull @__func__.net_client_init1, ptr noundef nonnull @.str.65, ptr noundef %call13) #27
   br label %return
 
 if.end14:                                         ; preds = %if.else
@@ -2488,8 +2488,8 @@ if.end14:                                         ; preds = %if.else
   br i1 %tobool18.not.not, label %if.end22, label %if.then19
 
 if.then19:                                        ; preds = %if.end14
-  %call21 = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @NetClientDriver_lookup, i32 noundef %0) #26
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 1157, ptr noundef nonnull @__func__.net_client_init1, ptr noundef nonnull @.str.64, ptr noundef %call21) #26
+  %call21 = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @NetClientDriver_lookup, i32 noundef %0) #27
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 1157, ptr noundef nonnull @__func__.net_client_init1, ptr noundef nonnull @.str.64, ptr noundef %call21) #27
   br label %return
 
 if.end22:                                         ; preds = %if.end14
@@ -2503,7 +2503,7 @@ lor.lhs.false25:                                  ; preds = %if.end22
   br i1 %tobool27.not, label %if.then28, label %if.end31
 
 if.then28:                                        ; preds = %lor.lhs.false25, %if.end22
-  %call29 = tail call ptr @net_hub_add_port(i32 noundef 0, ptr noundef null, ptr noundef null) #26
+  %call29 = tail call ptr @net_hub_add_port(i32 noundef 0, ptr noundef null, ptr noundef null) #27
   br label %if.end31
 
 if.end31:                                         ; preds = %lor.lhs.false25, %if.then28, %lor.lhs.false
@@ -2523,7 +2523,7 @@ for.body.i:                                       ; preds = %if.end31, %for.inc.
 if.end.i:                                         ; preds = %for.body.i
   %name.i = getelementptr inbounds i8, ptr %nc.07.i, i64 56
   %9 = load ptr, ptr %name.i, align 8
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull readonly dereferenceable(1) %6) #29
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull readonly dereferenceable(1) %6) #30
   %tobool1.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool1.not.i, label %if.then34, label %for.inc.i
 
@@ -2534,7 +2534,7 @@ for.inc.i:                                        ; preds = %if.end.i, %for.body
   br i1 %tobool.not.i, label %if.end36, label %for.body.i, !llvm.loop !21
 
 if.then34:                                        ; preds = %if.end.i
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 1170, ptr noundef nonnull @__func__.net_client_init1, ptr noundef nonnull @.str.66, ptr noundef %6) #26
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 1170, ptr noundef nonnull @__func__.net_client_init1, ptr noundef nonnull @.str.66, ptr noundef %6) #27
   br label %return
 
 if.end36:                                         ; preds = %for.inc.i, %if.end31
@@ -2543,7 +2543,7 @@ if.end36:                                         ; preds = %for.inc.i, %if.end3
   %idxprom38 = zext i32 %10 to i64
   %arrayidx39 = getelementptr [14 x ptr], ptr @net_client_init_fun, i64 0, i64 %idxprom38
   %11 = load ptr, ptr %arrayidx39, align 8
-  %call41 = tail call i32 %11(ptr noundef nonnull %netdev, ptr noundef %6, ptr noundef %peer.0, ptr noundef %errp) #26
+  %call41 = tail call i32 %11(ptr noundef nonnull %netdev, ptr noundef %6, ptr noundef %peer.0, ptr noundef %errp) #27
   %cmp42 = icmp slt i32 %call41, 0
   br i1 %cmp42, label %if.then43, label %if.end50
 
@@ -2558,8 +2558,8 @@ land.lhs.true:                                    ; preds = %if.then43
 
 if.then46:                                        ; preds = %land.lhs.true
   %13 = load i32, ptr %type37, align 8
-  %call48 = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @NetClientDriver_lookup, i32 noundef %13) #26
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %errp, ptr noundef nonnull @.str, i32 noundef 1178, ptr noundef nonnull @__func__.net_client_init1, ptr noundef nonnull @.str.67, ptr noundef %call48) #26
+  %call48 = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @NetClientDriver_lookup, i32 noundef %13) #27
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %errp, ptr noundef nonnull @.str, i32 noundef 1178, ptr noundef nonnull @__func__.net_client_init1, ptr noundef nonnull @.str.67, ptr noundef %call48) #27
   br label %return
 
 if.end50:                                         ; preds = %if.end36
@@ -2581,7 +2581,7 @@ for.body.i30:                                     ; preds = %if.then52, %for.inc
 if.end.i33:                                       ; preds = %for.body.i30
   %name.i34 = getelementptr inbounds i8, ptr %nc.07.i31, i64 56
   %17 = load ptr, ptr %name.i34, align 8
-  %call.i35 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull readonly dereferenceable(1) %14) #29
+  %call.i35 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull readonly dereferenceable(1) %14) #30
   %tobool1.not.i36 = icmp eq i32 %call.i35, 0
   br i1 %tobool1.not.i36, label %if.end58, label %for.inc.i37
 
@@ -2592,7 +2592,7 @@ for.inc.i37:                                      ; preds = %if.end.i33, %for.bo
   br i1 %tobool.not.i40, label %if.else57, label %for.body.i30, !llvm.loop !21
 
 if.else57:                                        ; preds = %for.inc.i37, %if.then52
-  tail call void @__assert_fail(ptr noundef nonnull @.str.68, ptr noundef nonnull @.str, i32 noundef 1185, ptr noundef nonnull @__PRETTY_FUNCTION__.net_client_init1) #27
+  tail call void @__assert_fail(ptr noundef nonnull @.str.68, ptr noundef nonnull @.str, i32 noundef 1185, ptr noundef nonnull @__PRETTY_FUNCTION__.net_client_init1) #28
   unreachable
 
 if.end58:                                         ; preds = %if.end.i33
@@ -2622,7 +2622,7 @@ for.body.i:                                       ; preds = %entry, %for.inc.i
 if.end.i:                                         ; preds = %for.body.i
   %name.i = getelementptr inbounds i8, ptr %nc.07.i, i64 56
   %2 = load ptr, ptr %name.i, align 8
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull readonly dereferenceable(1) %id) #29
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull readonly dereferenceable(1) %id) #30
   %tobool1.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool1.not.i, label %if.end, label %for.inc.i
 
@@ -2633,7 +2633,7 @@ for.inc.i:                                        ; preds = %if.end.i, %for.body
   br i1 %tobool.not.i, label %if.then, label %for.body.i, !llvm.loop !21
 
 if.then:                                          ; preds = %for.inc.i, %entry
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_set_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 1316, ptr noundef nonnull @__func__.qmp_netdev_del, i32 noundef 3, ptr noundef nonnull @.str.32, ptr noundef %id) #26
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_set_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 1316, ptr noundef nonnull @__func__.qmp_netdev_del, i32 noundef 3, ptr noundef nonnull @.str.32, ptr noundef %id) #27
   br label %if.end8
 
 if.end:                                           ; preds = %if.end.i
@@ -2643,18 +2643,18 @@ if.end:                                           ; preds = %if.end.i
   br i1 %tobool1, label %if.end3, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 1321, ptr noundef nonnull @__func__.qmp_netdev_del, ptr noundef nonnull @.str.33, ptr noundef %id) #26
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 1321, ptr noundef nonnull @__func__.qmp_netdev_del, ptr noundef nonnull @.str.33, ptr noundef %id) #27
   br label %if.end8
 
 if.end3:                                          ; preds = %if.end
   tail call void @qemu_del_net_client(ptr noundef nonnull %nc.07.i)
-  %call4 = tail call ptr @qemu_find_opts(ptr noundef nonnull @.str.15) #26
-  %call5 = tail call ptr @qemu_opts_find(ptr noundef %call4, ptr noundef %id) #26
+  %call4 = tail call ptr @qemu_find_opts(ptr noundef nonnull @.str.15) #27
+  %call5 = tail call ptr @qemu_opts_find(ptr noundef %call4, ptr noundef %id) #27
   %tobool6.not = icmp eq ptr %call5, null
   br i1 %tobool6.not, label %if.end8, label %if.then7
 
 if.then7:                                         ; preds = %if.end3
-  tail call void @qemu_opts_del(ptr noundef nonnull %call5) #26
+  tail call void @qemu_opts_del(ptr noundef nonnull %call5) #27
   br label %if.end8
 
 if.end8:                                          ; preds = %if.then7, %if.end3, %if.then2, %if.then
@@ -2680,59 +2680,59 @@ entry:
   %1 = load i32, ptr %queue_index, align 8
   %2 = load ptr, ptr %nc, align 8
   %3 = load i32, ptr %2, align 8
-  %call = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @NetClientDriver_lookup, i32 noundef %3) #26
+  %call = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @NetClientDriver_lookup, i32 noundef %3) #27
   %info_str = getelementptr inbounds i8, ptr %nc, i64 64
-  %call1 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.34, ptr noundef %0, i32 noundef %1, ptr noundef %call, ptr noundef nonnull %info_str) #26
+  %call1 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.34, ptr noundef %0, i32 noundef %1, ptr noundef %call, ptr noundef nonnull %info_str) #27
   %filters = getelementptr inbounds i8, ptr %nc, i64 360
   %4 = load ptr, ptr %filters, align 8
   %cmp = icmp eq ptr %4, null
   br i1 %cmp, label %for.end, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call2 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.35) #26
+  %call2 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.35) #27
   %nf.013.pre = load ptr, ptr %filters, align 8
   %tobool.not14 = icmp eq ptr %nf.013.pre, null
   br i1 %tobool.not14, label %for.end, label %for.body
 
 for.body:                                         ; preds = %if.end, %netfilter_print_info.exit
   %nf.015 = phi ptr [ %nf.0, %netfilter_print_info.exit ], [ %nf.013.pre, %if.end ]
-  %call4 = call ptr @object_get_canonical_path_component(ptr noundef nonnull %nf.015) #26
-  %call5 = call ptr @object_get_typename(ptr noundef nonnull %nf.015) #26
-  %call6 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.36, ptr noundef %call4, ptr noundef %call5) #26
+  %call4 = call ptr @object_get_canonical_path_component(ptr noundef nonnull %nf.015) #27
+  %call5 = call ptr @object_get_typename(ptr noundef nonnull %nf.015) #27
+  %call6 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.36, ptr noundef %call4, ptr noundef %call5) #27
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %str.i)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %iter.i)
-  call void @object_property_iter_init(ptr noundef nonnull %iter.i, ptr noundef nonnull %nf.015) #26
-  %call9.i = call ptr @object_property_iter_next(ptr noundef nonnull %iter.i) #26
+  call void @object_property_iter_init(ptr noundef nonnull %iter.i, ptr noundef nonnull %nf.015) #27
+  %call9.i = call ptr @object_property_iter_next(ptr noundef nonnull %iter.i) #27
   %tobool.not10.i = icmp eq ptr %call9.i, null
   br i1 %tobool.not10.i, label %netfilter_print_info.exit, label %while.body.i
 
 while.body.i:                                     ; preds = %for.body, %while.cond.backedge.i
   %call11.i = phi ptr [ %call.i, %while.cond.backedge.i ], [ %call9.i, %for.body ]
   %5 = load ptr, ptr %call11.i, align 8
-  %call1.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(5) @.str.47) #29
+  %call1.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(5) @.str.47) #30
   %tobool2.not.i = icmp eq i32 %call1.i, 0
   br i1 %tobool2.not.i, label %while.cond.backedge.i, label %if.end.i
 
 if.end.i:                                         ; preds = %while.body.i
-  %call3.i = call ptr @string_output_visitor_new(i1 noundef zeroext false, ptr noundef nonnull %str.i) #26
+  %call3.i = call ptr @string_output_visitor_new(i1 noundef zeroext false, ptr noundef nonnull %str.i) #27
   %6 = load ptr, ptr %call11.i, align 8
-  %call5.i = call zeroext i1 @object_property_get(ptr noundef nonnull %nf.015, ptr noundef %6, ptr noundef %call3.i, ptr noundef null) #26
-  call void @visit_complete(ptr noundef %call3.i, ptr noundef nonnull %str.i) #26
-  call void @visit_free(ptr noundef %call3.i) #26
+  %call5.i = call zeroext i1 @object_property_get(ptr noundef nonnull %nf.015, ptr noundef %6, ptr noundef %call3.i, ptr noundef null) #27
+  call void @visit_complete(ptr noundef %call3.i, ptr noundef nonnull %str.i) #27
+  call void @visit_free(ptr noundef %call3.i) #27
   %7 = load ptr, ptr %call11.i, align 8
   %8 = load ptr, ptr %str.i, align 8
-  %call7.i = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.76, ptr noundef %7, ptr noundef %8) #26
+  %call7.i = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.76, ptr noundef %7, ptr noundef %8) #27
   %9 = load ptr, ptr %str.i, align 8
-  call void @g_free(ptr noundef %9) #26
+  call void @g_free(ptr noundef %9) #27
   br label %while.cond.backedge.i
 
 while.cond.backedge.i:                            ; preds = %if.end.i, %while.body.i
-  %call.i = call ptr @object_property_iter_next(ptr noundef nonnull %iter.i) #26
+  %call.i = call ptr @object_property_iter_next(ptr noundef nonnull %iter.i) #27
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i, label %netfilter_print_info.exit, label %while.body.i, !llvm.loop !26
 
 netfilter_print_info.exit:                        ; preds = %while.cond.backedge.i, %for.body
-  %call8.i = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.77) #26
+  %call8.i = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.77) #27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %str.i)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %iter.i)
   %next = getelementptr inbounds i8, ptr %nf.015, i64 80
@@ -2786,8 +2786,8 @@ if.end15.us:                                      ; preds = %if.end12.us
   br i1 %tobool17.not.us, label %for.inc.us, label %if.end31.us
 
 if.end31.us:                                      ; preds = %if.end15.us
-  %call21.us = tail call ptr %3(ptr noundef nonnull %nc.028.us) #26
-  %call22.us = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #28
+  %call21.us = tail call ptr %3(ptr noundef nonnull %nc.028.us) #27
+  %call22.us = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #29
   store ptr %call22.us, ptr %tail.027.us, align 8
   %value.us = getelementptr inbounds i8, ptr %call22.us, i64 8
   store ptr %call21.us, ptr %value.us, align 8
@@ -2805,7 +2805,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %nc.028 = phi ptr [ %nc.0, %for.inc ], [ %nc.025, %for.body.lr.ph ]
   %name2 = getelementptr inbounds i8, ptr %nc.028, i64 56
   %5 = load ptr, ptr %name2, align 8
-  %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %name) #29
+  %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %name) #30
   %cmp.not = icmp eq i32 %call, 0
   br i1 %cmp.not, label %if.end.thread, label %for.inc
 
@@ -2816,7 +2816,7 @@ if.end.thread:                                    ; preds = %for.body
   br i1 %cmp4.not23, label %if.end12, label %if.then7
 
 if.then7:                                         ; preds = %if.end.thread
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 1395, ptr noundef nonnull @__func__.qmp_query_rx_filter, ptr noundef nonnull @.str.37, ptr noundef nonnull %name) #26
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 1395, ptr noundef nonnull @__func__.qmp_query_rx_filter, ptr noundef nonnull @.str.37, ptr noundef nonnull %name) #27
   br label %return
 
 if.end12:                                         ; preds = %if.end.thread
@@ -2832,12 +2832,12 @@ if.end15:                                         ; preds = %if.end12
   br i1 %tobool17.not, label %if.then25, label %for.end.thread
 
 if.then25:                                        ; preds = %if.end15
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 1413, ptr noundef nonnull @__func__.qmp_query_rx_filter, ptr noundef nonnull @.str.39, ptr noundef nonnull %name) #26
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 1413, ptr noundef nonnull @__func__.qmp_query_rx_filter, ptr noundef nonnull @.str.39, ptr noundef nonnull %name) #27
   br label %return
 
 for.end.thread:                                   ; preds = %if.end15
-  %call21 = tail call ptr %9(ptr noundef nonnull %nc.028) #26
-  %call22 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #28
+  %call21 = tail call ptr %9(ptr noundef nonnull %nc.028) #27
+  %call22 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #29
   %value = getelementptr inbounds i8, ptr %call22, i64 8
   store ptr %call21, ptr %value, align 8
   br label %return
@@ -2860,7 +2860,7 @@ for.end:                                          ; preds = %for.inc, %for.end.l
   br i1 %or.cond, label %if.then39, label %return
 
 if.then39:                                        ; preds = %for.end
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 1424, ptr noundef nonnull @__func__.qmp_query_rx_filter, ptr noundef nonnull @.str.40, ptr noundef nonnull %name) #26
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 1424, ptr noundef nonnull @__func__.qmp_query_rx_filter, ptr noundef nonnull @.str.40, ptr noundef nonnull %name) #27
   br label %return
 
 return:                                           ; preds = %for.end.thread, %if.then25, %if.then7, %for.end, %if.then39
@@ -2892,17 +2892,17 @@ for.cond1:                                        ; preds = %for.body3
 
 for.body3:                                        ; preds = %for.body, %for.cond1
   %nf.08 = phi ptr [ %nf.0, %for.cond1 ], [ %nf.06, %for.body ]
-  %call.i = call ptr @object_get_class(ptr noundef nonnull %nf.08) #26
-  %call1.i = call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.78, ptr noundef nonnull @.str.79, i32 noundef 18, ptr noundef nonnull @__func__.NETFILTER_GET_CLASS) #26
+  %call.i = call ptr @object_get_class(ptr noundef nonnull %nf.08) #27
+  %call1.i = call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.78, ptr noundef nonnull @.str.79, i32 noundef 18, ptr noundef nonnull @__func__.NETFILTER_GET_CLASS) #27
   %handle_event = getelementptr inbounds i8, ptr %call1.i, i64 120
   %0 = load ptr, ptr %handle_event, align 8
-  call void %0(ptr noundef nonnull %nf.08, i32 noundef %event, ptr noundef nonnull %local_err) #26
+  call void %0(ptr noundef nonnull %nf.08, i32 noundef %event, ptr noundef nonnull %local_err) #27
   %1 = load ptr, ptr %local_err, align 8
   %tobool4.not = icmp eq ptr %1, null
   br i1 %tobool4.not, label %for.cond1, label %if.then
 
 if.then:                                          ; preds = %for.body3
-  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %1) #26
+  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %1) #27
   br label %for.end7
 
 for.inc5:                                         ; preds = %for.cond1, %for.body
@@ -2969,7 +2969,7 @@ for.body.i:                                       ; preds = %for.body.lr.ph.i, %
 if.end.i:                                         ; preds = %for.body.i
   %name.i = getelementptr inbounds i8, ptr %nc.012.i, i64 56
   %4 = load ptr, ptr %name.i, align 8
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull readonly dereferenceable(1) %name) #29
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull readonly dereferenceable(1) %name) #30
   %tobool3.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool3.not.i, label %if.then4.i, label %for.inc.i
 
@@ -3000,7 +3000,7 @@ qemu_find_net_clients_except.exit:                ; preds = %for.inc.i, %for.inc
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry, %qemu_find_net_clients_except.exit
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_set_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 1461, ptr noundef nonnull @__func__.qmp_set_link, i32 noundef 3, ptr noundef nonnull @.str.32, ptr noundef %name) #26
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_set_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 1461, ptr noundef nonnull @__func__.qmp_set_link, i32 noundef 3, ptr noundef nonnull @.str.32, ptr noundef %name) #27
   br label %if.end38
 
 if.end:                                           ; preds = %qemu_find_net_clients_except.exit
@@ -3032,7 +3032,7 @@ for.end:                                          ; preds = %for.body, %if.end
   br i1 %tobool3.not, label %if.end7, label %if.then4
 
 if.then4:                                         ; preds = %for.end
-  tail call void %8(ptr noundef nonnull %5) #26
+  tail call void %8(ptr noundef nonnull %5) #27
   br label %if.end7
 
 if.end7:                                          ; preds = %if.then4, %for.end
@@ -3080,7 +3080,7 @@ if.end27:                                         ; preds = %if.end27.loopexit, 
   br i1 %tobool31.not, label %if.end38, label %if.then32
 
 if.then32:                                        ; preds = %if.end27
-  tail call void %16(ptr noundef nonnull %15) #26
+  tail call void %16(ptr noundef nonnull %15) #27
   br label %if.end38
 
 if.end38:                                         ; preds = %if.end27, %if.then32, %if.end7, %if.then
@@ -3090,7 +3090,7 @@ if.end38:                                         ; preds = %if.end27, %if.then3
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @net_cleanup() local_unnamed_addr #0 {
 entry:
-  tail call void @colo_compare_cleanup() #26
+  tail call void @colo_compare_cleanup() #27
   %0 = load ptr, ptr @net_clients, align 8
   %tobool.not4 = icmp eq ptr %0, null
   br i1 %tobool.not4, label %while.end, label %while.body
@@ -3119,7 +3119,7 @@ if.end:                                           ; preds = %if.else, %if.then
 
 while.end:                                        ; preds = %if.end, %entry
   %5 = load ptr, ptr @net_change_state_entry, align 8
-  tail call void @qemu_del_vm_change_state_handler(ptr noundef %5) #26
+  tail call void @qemu_del_vm_change_state_handler(ptr noundef %5) #27
   ret void
 }
 
@@ -3130,7 +3130,7 @@ declare void @qemu_del_vm_change_state_handler(ptr noundef) local_unnamed_addr #
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @net_check_clients() local_unnamed_addr #0 {
 entry:
-  tail call void @net_hub_check_clients() #26
+  tail call void @net_hub_check_clients() #27
   %nc.013 = load ptr, ptr @net_clients, align 8
   %tobool.not14 = icmp eq ptr %nc.013, null
   br i1 %tobool.not14, label %for.body4.preheader, label %for.body
@@ -3149,7 +3149,7 @@ if.then:                                          ; preds = %for.body
   %cond = select i1 %cmp, ptr @.str.42, ptr @.str.15
   %name = getelementptr inbounds i8, ptr %nc.015, i64 56
   %3 = load ptr, ptr %name, align 8
-  tail call void (ptr, ...) @warn_report(ptr noundef nonnull @.str.41, ptr noundef nonnull %cond, ptr noundef %3) #26
+  tail call void (ptr, ...) @warn_report(ptr noundef nonnull @.str.41, ptr noundef nonnull %cond, ptr noundef %3) #27
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then
@@ -3184,7 +3184,7 @@ if.then7:                                         ; preds = %land.lhs.true
   %7 = load ptr, ptr %model, align 8
   %tobool12.not = icmp eq ptr %7, null
   %cond17 = select i1 %tobool12.not, ptr @.str.45, ptr %7
-  tail call void (ptr, ...) @warn_report(ptr noundef nonnull @.str.43, ptr noundef nonnull %spec.select, ptr noundef nonnull %cond17) #26
+  tail call void (ptr, ...) @warn_report(ptr noundef nonnull @.str.43, ptr noundef nonnull %spec.select, ptr noundef nonnull %cond17) #27
   br label %for.inc19
 
 for.inc19:                                        ; preds = %for.body4, %land.lhs.true, %if.then7
@@ -3203,7 +3203,7 @@ declare void @warn_report(ptr noundef, ...) local_unnamed_addr #4
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @net_init_clients() local_unnamed_addr #0 {
 entry:
-  %call = tail call ptr @qemu_add_vm_change_state_handler(ptr noundef nonnull @net_vm_change_state_handler, ptr noundef null) #26
+  %call = tail call ptr @qemu_add_vm_change_state_handler(ptr noundef nonnull @net_vm_change_state_handler, ptr noundef null) #27
   store ptr %call, ptr @net_change_state_entry, align 8
   store ptr null, ptr @net_clients, align 8
   store ptr @net_clients, ptr getelementptr inbounds (i8, ptr @net_clients, i64 8), align 8
@@ -3226,24 +3226,24 @@ if.then.i:                                        ; preds = %while.body.i
 if.end.i:                                         ; preds = %if.then.i, %while.body.i
   store ptr null, ptr %entry1.i, align 8
   %loc.i = getelementptr inbounds i8, ptr %1, i64 8
-  %call.i = tail call ptr @loc_push_restore(ptr noundef nonnull %loc.i) #26
+  %call.i = tail call ptr @loc_push_restore(ptr noundef nonnull %loc.i) #27
   %3 = load ptr, ptr %1, align 8
   %call6.i = tail call fastcc i32 @net_client_init1(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull @error_fatal)
-  %call8.i = tail call ptr @loc_pop(ptr noundef nonnull %loc.i) #26
+  %call8.i = tail call ptr @loc_pop(ptr noundef nonnull %loc.i) #27
   %4 = load ptr, ptr %1, align 8
-  tail call void @qapi_free_Netdev(ptr noundef %4) #26
-  tail call void @g_free(ptr noundef nonnull %1) #26
+  tail call void @qapi_free_Netdev(ptr noundef %4) #27
+  tail call void @g_free(ptr noundef nonnull %1) #27
   %5 = load ptr, ptr @nd_queue, align 8
   %cmp.not.i = icmp eq ptr %5, null
   br i1 %cmp.not.i, label %netdev_init_modern.exit, label %while.body.i, !llvm.loop !36
 
 netdev_init_modern.exit:                          ; preds = %if.end.i, %entry
-  %call1 = tail call ptr @qemu_find_opts(ptr noundef nonnull @.str.15) #26
-  %call2 = tail call i32 @qemu_opts_foreach(ptr noundef %call1, ptr noundef nonnull @net_init_netdev, ptr noundef null, ptr noundef nonnull @error_fatal) #26
-  %call3 = tail call ptr @qemu_find_opts(ptr noundef nonnull @.str.42) #26
-  %call4 = tail call i32 @qemu_opts_foreach(ptr noundef %call3, ptr noundef nonnull @net_param_nic, ptr noundef null, ptr noundef nonnull @error_fatal) #26
-  %call5 = tail call ptr @qemu_find_opts(ptr noundef nonnull @.str.46) #26
-  %call6 = tail call i32 @qemu_opts_foreach(ptr noundef %call5, ptr noundef nonnull @net_init_client, ptr noundef null, ptr noundef nonnull @error_fatal) #26
+  %call1 = tail call ptr @qemu_find_opts(ptr noundef nonnull @.str.15) #27
+  %call2 = tail call i32 @qemu_opts_foreach(ptr noundef %call1, ptr noundef nonnull @net_init_netdev, ptr noundef null, ptr noundef nonnull @error_fatal) #27
+  %call3 = tail call ptr @qemu_find_opts(ptr noundef nonnull @.str.42) #27
+  %call4 = tail call i32 @qemu_opts_foreach(ptr noundef %call3, ptr noundef nonnull @net_param_nic, ptr noundef null, ptr noundef nonnull @error_fatal) #27
+  %call5 = tail call ptr @qemu_find_opts(ptr noundef nonnull @.str.46) #27
+  %call6 = tail call i32 @qemu_opts_foreach(ptr noundef %call5, ptr noundef nonnull @net_init_client, ptr noundef null, ptr noundef nonnull @error_fatal) #27
   ret void
 }
 
@@ -3269,7 +3269,7 @@ land.rhs.us:                                      ; preds = %land.rhs.lr.ph, %fo
   br i1 %tobool2.not.us, label %for.inc.us, label %land.lhs.true.us
 
 land.lhs.true.us:                                 ; preds = %land.rhs.us
-  %call.i.us = tail call zeroext i1 @runstate_is_running() #26
+  %call.i.us = tail call zeroext i1 @runstate_is_running() #27
   br i1 %call.i.us, label %if.end.i.us, label %for.inc.us
 
 if.end.i.us:                                      ; preds = %land.lhs.true.us
@@ -3288,7 +3288,7 @@ if.else.i.i.us:                                   ; preds = %if.end.i.us
   br i1 %tobool1.not.i.i.us, label %if.then4.us, label %land.lhs.true.i.i.us
 
 land.lhs.true.i.i.us:                             ; preds = %if.else.i.i.us
-  %call.i.i.us = tail call zeroext i1 %5(ptr noundef nonnull %3) #26
+  %call.i.i.us = tail call zeroext i1 %5(ptr noundef nonnull %3) #27
   br i1 %call.i.i.us, label %land.lhs.true.i.i.us.if.then4.us_crit_edge, label %for.inc.us
 
 land.lhs.true.i.i.us.if.then4.us_crit_edge:       ; preds = %land.lhs.true.i.i.us
@@ -3313,21 +3313,21 @@ land.lhs.true.i.i10.us:                           ; preds = %if.then4.us
   br i1 %cmp.i.i.us, label %if.then.i.i.us, label %if.end4.i.i.us
 
 if.then.i.i.us:                                   ; preds = %land.lhs.true.i.i10.us
-  %call.i.i11.us = tail call zeroext i1 @net_hub_flush(ptr noundef nonnull %7) #26
+  %call.i.i11.us = tail call zeroext i1 @net_hub_flush(ptr noundef nonnull %7) #27
   br i1 %call.i.i11.us, label %if.then3.i.i.us, label %if.end4.i.i.us
 
 if.then3.i.i.us:                                  ; preds = %if.then.i.i.us
-  tail call void @qemu_notify_event() #26
+  tail call void @qemu_notify_event() #27
   br label %if.end4.i.i.us
 
 if.end4.i.i.us:                                   ; preds = %if.then3.i.i.us, %if.then.i.i.us, %land.lhs.true.i.i10.us, %if.then4.us
   %incoming_queue.i.i.us = getelementptr inbounds i8, ptr %6, i64 40
   %10 = load ptr, ptr %incoming_queue.i.i.us, align 8
-  %call5.i.i.us = tail call zeroext i1 @qemu_net_queue_flush(ptr noundef %10) #26
+  %call5.i.i.us = tail call zeroext i1 @qemu_net_queue_flush(ptr noundef %10) #27
   br i1 %call5.i.i.us, label %if.then6.i.i.us, label %for.inc.us
 
 if.then6.i.i.us:                                  ; preds = %if.end4.i.i.us
-  tail call void @qemu_notify_event() #26
+  tail call void @qemu_notify_event() #27
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %if.then6.i.i.us, %if.end4.i.i.us, %land.lhs.true.i.i.us, %if.end.i.us, %land.lhs.true.us, %land.rhs.us
@@ -3354,27 +3354,27 @@ land.lhs.true.i:                                  ; preds = %land.rhs
   br i1 %cmp.i, label %if.then.i, label %if.end4.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %call.i13 = tail call zeroext i1 @net_hub_flush(ptr noundef nonnull %12) #26
+  %call.i13 = tail call zeroext i1 @net_hub_flush(ptr noundef nonnull %12) #27
   br i1 %call.i13, label %if.then3.i, label %if.end4.i
 
 if.then3.i:                                       ; preds = %if.then.i
-  tail call void @qemu_notify_event() #26
+  tail call void @qemu_notify_event() #27
   br label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.then3.i, %if.then.i, %land.lhs.true.i, %land.rhs
   %incoming_queue.i = getelementptr inbounds i8, ptr %nc.017, i64 40
   %15 = load ptr, ptr %incoming_queue.i, align 8
-  %call5.i = tail call zeroext i1 @qemu_net_queue_flush(ptr noundef %15) #26
+  %call5.i = tail call zeroext i1 @qemu_net_queue_flush(ptr noundef %15) #27
   br i1 %call5.i, label %if.then6.i, label %if.else.i
 
 if.then6.i:                                       ; preds = %if.end4.i
-  tail call void @qemu_notify_event() #26
+  tail call void @qemu_notify_event() #27
   br label %for.inc
 
 if.else.i:                                        ; preds = %if.end4.i
   %16 = load ptr, ptr %incoming_queue.i, align 8
   %17 = load ptr, ptr %peer.i12, align 8
-  tail call void @qemu_net_queue_purge(ptr noundef %16, ptr noundef %17) #26
+  tail call void @qemu_net_queue_purge(ptr noundef %16, ptr noundef %17) #27
   br label %for.inc
 
 for.inc:                                          ; preds = %if.else.i, %if.then6.i
@@ -3390,7 +3390,7 @@ declare i32 @qemu_opts_foreach(ptr noundef, ptr noundef, ptr noundef, ptr nounde
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i32 -1, 1) i32 @net_init_netdev(ptr nocapture readnone %dummy, ptr noundef %opts, ptr noundef %errp) #0 {
 entry:
-  %call = tail call ptr @qemu_opt_get(ptr noundef %opts, ptr noundef nonnull @.str.47) #26
+  %call = tail call ptr @qemu_opt_get(ptr noundef %opts, ptr noundef nonnull @.str.47) #27
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
@@ -3406,13 +3406,13 @@ entry.tail.i:                                     ; preds = %land.lhs.true
   br i1 %3, label %if.then, label %is_help_option.exit
 
 is_help_option.exit:                              ; preds = %land.lhs.true, %entry.tail.i
-  %call1.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %call, ptr noundef nonnull dereferenceable(5) @.str.57) #29
+  %call1.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %call, ptr noundef nonnull dereferenceable(5) @.str.57) #30
   %tobool2.not.i = icmp eq i32 %call1.i, 0
   br i1 %tobool2.not.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry.tail.i, %is_help_option.exit
   tail call void @show_netdevs()
-  tail call void @exit(i32 noundef 0) #27
+  tail call void @exit(i32 noundef 0) #28
   unreachable
 
 if.end:                                           ; preds = %is_help_option.exit, %entry
@@ -3423,7 +3423,7 @@ if.end:                                           ; preds = %is_help_option.exit
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @net_param_nic(ptr nocapture readnone %dummy, ptr noundef %opts, ptr noundef %errp) #0 {
 entry:
-  %call = tail call ptr @qemu_opt_get(ptr noundef %opts, ptr noundef nonnull @.str.47) #26
+  %call = tail call ptr @qemu_opt_get(ptr noundef %opts, ptr noundef nonnull @.str.47) #27
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %for.body.i.preheader, label %if.then
 
@@ -3431,7 +3431,7 @@ for.body.i.preheader:                             ; preds = %is_help_option.exit
   br label %for.body.i
 
 if.then:                                          ; preds = %entry
-  %call1 = tail call i32 @g_str_equal(ptr noundef nonnull %call, ptr noundef nonnull @.str.80) #26
+  %call1 = tail call i32 @g_str_equal(ptr noundef nonnull %call, ptr noundef nonnull @.str.80) #27
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %if.end, label %return
 
@@ -3447,7 +3447,7 @@ entry.tail.i:                                     ; preds = %if.end
   br i1 %3, label %if.then5, label %is_help_option.exit
 
 is_help_option.exit:                              ; preds = %if.end, %entry.tail.i
-  %call1.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %call, ptr noundef nonnull dereferenceable(5) @.str.57) #29
+  %call1.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %call, ptr noundef nonnull dereferenceable(5) @.str.57) #30
   %tobool2.not.i = icmp eq i32 %call1.i, 0
   br i1 %tobool2.not.i, label %if.then5, label %for.body.i.preheader
 
@@ -3457,8 +3457,8 @@ if.then5:                                         ; preds = %entry.tail.i, %is_h
   %putchar = tail call i32 @putchar(i32 10)
   %4 = load ptr, ptr %call6, align 8
   %call8 = tail call i32 @qemu_show_nic_models(ptr noundef nonnull %call, ptr noundef %4)
-  %call9 = tail call ptr @g_ptr_array_free(ptr noundef nonnull %call6, i32 noundef 1) #26
-  tail call void @exit(i32 noundef 0) #27
+  %call9 = tail call ptr @g_ptr_array_free(ptr noundef nonnull %call6, i32 noundef 1) #27
+  tail call void @exit(i32 noundef 0) #28
   unreachable
 
 for.body.i:                                       ; preds = %for.body.i.preheader, %for.inc.i
@@ -3479,14 +3479,14 @@ nic_get_free_idx.exit:                            ; preds = %for.body.i
   br i1 %cmp13, label %if.then14, label %if.end15
 
 if.then14:                                        ; preds = %for.inc.i, %nic_get_free_idx.exit
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 1625, ptr noundef nonnull @__func__.net_param_nic, ptr noundef nonnull @.str.81) #26
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 1625, ptr noundef nonnull @__func__.net_param_nic, ptr noundef nonnull @.str.81) #27
   br label %return
 
 if.end15:                                         ; preds = %nic_get_free_idx.exit
   br i1 %tobool.not, label %if.then17, label %if.end19
 
 if.then17:                                        ; preds = %if.end15
-  %call18 = tail call zeroext i1 @qemu_opt_set(ptr noundef %opts, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.82, ptr noundef nonnull @error_abort) #26
+  %call18 = tail call zeroext i1 @qemu_opt_set(ptr noundef %opts, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.82, ptr noundef nonnull @error_abort) #27
   br label %if.end19
 
 if.end19:                                         ; preds = %if.then17, %if.end15
@@ -3494,33 +3494,33 @@ if.end19:                                         ; preds = %if.then17, %if.end1
   %idxprom = ashr exact i64 %sext, 32
   %arrayidx = getelementptr [8 x %struct.NICInfo], ptr @nd_table, i64 0, i64 %idxprom
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %arrayidx, i8 0, i64 56, i1 false)
-  %call20 = tail call ptr @qemu_opt_get_del(ptr noundef %opts, ptr noundef nonnull @.str.83) #26
+  %call20 = tail call ptr @qemu_opt_get_del(ptr noundef %opts, ptr noundef nonnull @.str.83) #27
   %model = getelementptr inbounds i8, ptr %arrayidx, i64 8
   store ptr %call20, ptr %model, align 8
-  %call21 = tail call ptr @qemu_opts_id(ptr noundef %opts) #26
-  %call22 = tail call noalias ptr @g_strdup(ptr noundef %call21) #26
+  %call21 = tail call ptr @qemu_opts_id(ptr noundef %opts) #27
+  %call22 = tail call noalias ptr @g_strdup(ptr noundef %call21) #27
   %tobool23.not = icmp eq ptr %call22, null
   br i1 %tobool23.not, label %if.then24, label %if.end26
 
 if.then24:                                        ; preds = %if.end19
-  %call25 = tail call ptr @id_generate(i32 noundef 3) #26
-  tail call void @qemu_opts_set_id(ptr noundef %opts, ptr noundef %call25) #26
+  %call25 = tail call ptr @id_generate(i32 noundef 3) #27
+  tail call void @qemu_opts_set_id(ptr noundef %opts, ptr noundef %call25) #27
   br label %if.end26
 
 if.end26:                                         ; preds = %if.then24, %if.end19
   %nd_id.0 = phi ptr [ %call22, %if.end19 ], [ %call25, %if.then24 ]
-  %call27 = tail call ptr @qemu_opt_get_del(ptr noundef %opts, ptr noundef nonnull @.str.84) #26
+  %call27 = tail call ptr @qemu_opt_get_del(ptr noundef %opts, ptr noundef nonnull @.str.84) #27
   %tobool28.not = icmp eq ptr %call27, null
   br i1 %tobool28.not, label %if.end41, label %if.then29
 
 if.then29:                                        ; preds = %if.end26
-  %call30 = tail call i32 @net_parse_macaddr(ptr noundef %arrayidx, ptr noundef nonnull %call27) #26
-  tail call void @g_free(ptr noundef nonnull %call27) #26
+  %call30 = tail call i32 @net_parse_macaddr(ptr noundef %arrayidx, ptr noundef nonnull %call27) #27
+  tail call void @g_free(ptr noundef nonnull %call27) #27
   %tobool31.not = icmp eq i32 %call30, 0
   br i1 %tobool31.not, label %if.end33, label %if.then32
 
 if.then32:                                        ; preds = %if.then29
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 1650, ptr noundef nonnull @__func__.net_param_nic, ptr noundef nonnull @.str.73) #26
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 1650, ptr noundef nonnull @__func__.net_param_nic, ptr noundef nonnull @.str.73) #27
   br label %out
 
 if.end33:                                         ; preds = %if.then29
@@ -3530,7 +3530,7 @@ if.end33:                                         ; preds = %if.then29
   br i1 %tobool38.not, label %if.end41, label %if.then39
 
 if.then39:                                        ; preds = %if.end33
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 1654, ptr noundef nonnull @__func__.net_param_nic, ptr noundef nonnull @.str.85) #26
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 1654, ptr noundef nonnull @__func__.net_param_nic, ptr noundef nonnull @.str.85) #27
   br label %out
 
 if.end41:                                         ; preds = %if.end33, %if.end26
@@ -3632,7 +3632,7 @@ for.body.i29:                                     ; preds = %if.then45, %for.inc
 if.end.i30:                                       ; preds = %for.body.i29
   %name.i = getelementptr inbounds i8, ptr %nc.07.i, i64 56
   %17 = load ptr, ptr %name.i, align 8
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull readonly dereferenceable(1) %nd_id.0) #29
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull readonly dereferenceable(1) %nd_id.0) #30
   %tobool1.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool1.not.i, label %qemu_find_netdev.exit, label %for.inc.i31
 
@@ -3655,7 +3655,7 @@ qemu_find_netdev.exit:                            ; preds = %if.end.i30, %for.in
 
 out:                                              ; preds = %qemu_macaddr_default_if_unset.exit, %qemu_find_netdev.exit, %if.then39, %if.then32
   %ret.0 = phi i32 [ %call30, %if.then32 ], [ -1, %if.then39 ], [ 0, %qemu_find_netdev.exit ], [ -1, %qemu_macaddr_default_if_unset.exit ]
-  tail call void @g_free(ptr noundef %nd_id.0) #26
+  tail call void @g_free(ptr noundef %nd_id.0) #27
   br label %return
 
 return:                                           ; preds = %if.then, %out, %if.then14
@@ -3678,22 +3678,22 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call = tail call ptr @qemu_opts_create(ptr noundef nonnull @netdev_is_modern.dummy_opts, ptr noundef null, i32 noundef 0, ptr noundef nonnull @error_abort) #26
+  %call = tail call ptr @qemu_opts_create(ptr noundef nonnull @netdev_is_modern.dummy_opts, ptr noundef null, i32 noundef 0, ptr noundef nonnull @error_abort) #27
   %1 = load ptr, ptr getelementptr inbounds (i8, ptr @netdev_is_modern.dummy_opts, i64 8), align 8
-  %call2 = tail call zeroext i1 @qemu_opts_do_parse(ptr noundef %call, ptr noundef nonnull %optstr, ptr noundef %1, ptr noundef nonnull @error_abort) #26
-  %call3 = tail call ptr @qemu_opt_get(ptr noundef %call, ptr noundef nonnull @.str.47) #26
-  %call4 = tail call i32 @g_strcmp0(ptr noundef %call3, ptr noundef nonnull @.str.20) #26
+  %call2 = tail call zeroext i1 @qemu_opts_do_parse(ptr noundef %call, ptr noundef nonnull %optstr, ptr noundef %1, ptr noundef nonnull @error_abort) #27
+  %call3 = tail call ptr @qemu_opt_get(ptr noundef %call, ptr noundef nonnull @.str.47) #27
+  %call4 = tail call i32 @g_strcmp0(ptr noundef %call3, ptr noundef nonnull @.str.20) #27
   %tobool.not = icmp eq i32 %call4, 0
   br i1 %tobool.not, label %lor.end, label %lor.rhs
 
 lor.rhs:                                          ; preds = %if.end
-  %call5 = tail call i32 @g_strcmp0(ptr noundef %call3, ptr noundef nonnull @.str.21) #26
+  %call5 = tail call i32 @g_strcmp0(ptr noundef %call3, ptr noundef nonnull @.str.21) #27
   %tobool6.not = icmp eq i32 %call5, 0
   br label %lor.end
 
 lor.end:                                          ; preds = %lor.rhs, %if.end
   %2 = phi i1 [ true, %if.end ], [ %tobool6.not, %lor.rhs ]
-  tail call void @qemu_opts_reset(ptr noundef nonnull @netdev_is_modern.dummy_opts) #26
+  tail call void @qemu_opts_reset(ptr noundef nonnull @netdev_is_modern.dummy_opts) #27
   br label %return
 
 return:                                           ; preds = %entry, %lor.end
@@ -3714,12 +3714,12 @@ declare void @qemu_opts_reset(ptr noundef) local_unnamed_addr #4
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @netdev_parse_modern(ptr noundef %optstr) local_unnamed_addr #0 {
 entry:
-  %call = tail call ptr @qobject_input_visitor_new_str(ptr noundef %optstr, ptr noundef nonnull @.str.47, ptr noundef nonnull @error_fatal) #26
-  %call1 = tail call noalias dereferenceable_or_null(40) ptr @g_malloc_n(i64 noundef 1, i64 noundef 40) #30
-  %call3 = tail call zeroext i1 @visit_type_Netdev(ptr noundef %call, ptr noundef null, ptr noundef %call1, ptr noundef nonnull @error_fatal) #26
-  tail call void @visit_free(ptr noundef %call) #26
+  %call = tail call ptr @qobject_input_visitor_new_str(ptr noundef %optstr, ptr noundef nonnull @.str.47, ptr noundef nonnull @error_fatal) #27
+  %call1 = tail call noalias dereferenceable_or_null(40) ptr @g_malloc_n(i64 noundef 1, i64 noundef 40) #32
+  %call3 = tail call zeroext i1 @visit_type_Netdev(ptr noundef %call, ptr noundef null, ptr noundef %call1, ptr noundef nonnull @error_fatal) #27
+  tail call void @visit_free(ptr noundef %call) #27
   %loc = getelementptr inbounds i8, ptr %call1, i64 8
-  %call4 = tail call ptr @loc_save(ptr noundef nonnull %loc) #26
+  %call4 = tail call ptr @loc_save(ptr noundef nonnull %loc) #27
   %entry5 = getelementptr inbounds i8, ptr %call1, i64 32
   store ptr null, ptr %entry5, align 8
   %0 = load ptr, ptr getelementptr inbounds (i8, ptr @nd_queue, i64 8), align 8
@@ -3731,7 +3731,7 @@ entry:
 declare ptr @qobject_input_visitor_new_str(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: allocsize(0,1)
-declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #17
+declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #18
 
 declare zeroext i1 @visit_type_Netdev(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
@@ -3742,12 +3742,12 @@ declare ptr @loc_save(ptr noundef) local_unnamed_addr #4
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @net_client_parse(ptr noundef %opts_list, ptr noundef %optstr) local_unnamed_addr #0 {
 entry:
-  %call = tail call ptr @qemu_opts_parse_noisily(ptr noundef %opts_list, ptr noundef %optstr, i1 noundef zeroext true) #26
+  %call = tail call ptr @qemu_opts_parse_noisily(ptr noundef %opts_list, ptr noundef %optstr, i1 noundef zeroext true) #27
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call void @exit(i32 noundef 1) #27
+  tail call void @exit(i32 noundef 1) #31
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -3757,7 +3757,7 @@ if.end:                                           ; preds = %entry
 declare ptr @qemu_opts_parse_noisily(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #4
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: read) uwtable
-define dso_local i32 @net_crc32(ptr nocapture noundef readonly %p, i32 noundef %len) local_unnamed_addr #18 {
+define dso_local i32 @net_crc32(ptr nocapture noundef readonly %p, i32 noundef %len) local_unnamed_addr #19 {
 entry:
   %cmp11 = icmp sgt i32 %len, 0
   br i1 %cmp11, label %for.body, label %for.end12
@@ -3797,7 +3797,7 @@ for.end12:                                        ; preds = %for.inc10, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: read) uwtable
-define dso_local i32 @net_crc32_le(ptr nocapture noundef readonly %p, i32 noundef %len) local_unnamed_addr #18 {
+define dso_local i32 @net_crc32_le(ptr nocapture noundef readonly %p, i32 noundef %len) local_unnamed_addr #19 {
 entry:
   %cmp11 = icmp sgt i32 %len, 0
   br i1 %cmp11, label %for.body, label %for.end11
@@ -3837,7 +3837,7 @@ for.end11:                                        ; preds = %for.inc9, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @net_socket_rs_init(ptr nocapture noundef writeonly %rs, ptr noundef %finalize, i1 noundef zeroext %vnet_hdr) local_unnamed_addr #19 {
+define dso_local void @net_socket_rs_init(ptr nocapture noundef writeonly %rs, ptr noundef %finalize, i1 noundef zeroext %vnet_hdr) local_unnamed_addr #20 {
 entry:
   %frombool = zext i1 %vnet_hdr to i8
   store i32 0, ptr %rs, align 8
@@ -3893,7 +3893,7 @@ sw.bb:                                            ; preds = %while.body
 
 if.then11:                                        ; preds = %sw.bb
   %3 = load i32, ptr %buf63, align 4
-  %call = tail call i32 @ntohl(i32 noundef %3) #25
+  %call = tail call i32 @ntohl(i32 noundef %3) #26
   store i32 %call, ptr %packet_len50, align 4
   store i32 0, ptr %index51, align 8
   %4 = load i8, ptr %vnet_hdr, align 4
@@ -3927,7 +3927,7 @@ sw.bb20:                                          ; preds = %while.body
 
 if.then41:                                        ; preds = %sw.bb20
   %7 = load i32, ptr %buf63, align 4
-  %call44 = tail call i32 @ntohl(i32 noundef %7) #25
+  %call44 = tail call i32 @ntohl(i32 noundef %7) #26
   store i32 %call44, ptr %vnet_hdr_len45, align 8
   store i32 0, ptr %index51, align 8
   store i32 2, ptr %rs, align 8
@@ -3958,7 +3958,7 @@ if.then62:                                        ; preds = %sw.bb49
 
 if.else69:                                        ; preds = %sw.bb49
   %12 = load ptr, ptr @stderr, align 8
-  %13 = tail call i64 @fwrite(ptr nonnull @.str.51, i64 64, i64 1, ptr %12) #31
+  %13 = tail call i64 @fwrite(ptr nonnull @.str.51, i64 64, i64 1, ptr %12) #33
   store i32 0, ptr %rs, align 8
   store i32 0, ptr %index51, align 8
   br label %return
@@ -3971,11 +3971,11 @@ if.then83:                                        ; preds = %if.then62
   br i1 %tobool86.not, label %if.else88, label %if.end89
 
 if.else88:                                        ; preds = %if.then83
-  tail call void @__assert_fail(ptr noundef nonnull @.str.52, ptr noundef nonnull @.str, i32 noundef 1937, ptr noundef nonnull @__PRETTY_FUNCTION__.net_fill_rstate) #27
+  tail call void @__assert_fail(ptr noundef nonnull @.str.52, ptr noundef nonnull @.str, i32 noundef 1937, ptr noundef nonnull @__PRETTY_FUNCTION__.net_fill_rstate) #28
   unreachable
 
 if.end89:                                         ; preds = %if.then83
-  tail call void %14(ptr noundef nonnull %rs) #26
+  tail call void %14(ptr noundef nonnull %rs) #27
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %if.then62, %if.end89, %sw.bb20, %if.then41, %sw.bb, %if.else, %if.then15, %while.body
@@ -3990,7 +3990,7 @@ while.end:                                        ; preds = %sw.epilog, %entry
   br i1 %cmp92, label %return, label %if.else95
 
 if.else95:                                        ; preds = %while.end
-  tail call void @__assert_fail(ptr noundef nonnull @.str.53, ptr noundef nonnull @.str, i32 noundef 1944, ptr noundef nonnull @__PRETTY_FUNCTION__.net_fill_rstate) #27
+  tail call void @__assert_fail(ptr noundef nonnull @.str.53, ptr noundef nonnull @.str, i32 noundef 1944, ptr noundef nonnull @__PRETTY_FUNCTION__.net_fill_rstate) #28
   unreachable
 
 return:                                           ; preds = %while.end, %if.else69
@@ -4012,7 +4012,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call = tail call i64 @iov_size(ptr noundef %iov, i32 noundef %iovcnt) #26
+  %call = tail call i64 @iov_size(ptr noundef %iov, i32 noundef %iovcnt) #27
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -4061,7 +4061,7 @@ if.end10:                                         ; preds = %if.end3, %lor.lhs.f
   br i1 %or.cond, label %if.then14, label %if.else18
 
 if.then14:                                        ; preds = %if.end10
-  %call17 = tail call i64 %8(ptr noundef nonnull %opaque, ptr noundef %iov, i32 noundef %iovcnt) #26
+  %call17 = tail call i64 %8(ptr noundef nonnull %opaque, ptr noundef %iov, i32 noundef %iovcnt) #27
   br label %if.end21
 
 if.else18:                                        ; preds = %if.end10
@@ -4075,13 +4075,13 @@ if.then.i:                                        ; preds = %if.else18
   br label %if.end6.i
 
 if.else.i:                                        ; preds = %if.else18
-  %call.i = tail call i64 @iov_size(ptr noundef %iov, i32 noundef %iovcnt) #26
+  %call.i = tail call i64 @iov_size(ptr noundef %iov, i32 noundef %iovcnt) #27
   %cmp2.i = icmp ugt i64 %call.i, 69632
   br i1 %cmp2.i, label %if.end21, label %if.end.i
 
 if.end.i:                                         ; preds = %if.else.i
-  %call4.i = tail call noalias ptr @g_malloc(i64 noundef %call.i) #28
-  %call.i.i = tail call i64 @iov_to_buf_full(ptr noundef %iov, i32 noundef %iovcnt, i64 noundef 0, ptr noundef %call4.i, i64 noundef %call.i) #26
+  %call4.i = tail call noalias ptr @g_malloc(i64 noundef %call.i) #29
+  %call.i.i = tail call i64 @iov_to_buf_full(ptr noundef %iov, i32 noundef %iovcnt, i64 noundef 0, ptr noundef %call4.i, i64 noundef %call.i) #27
   br label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.end.i, %if.then.i
@@ -4104,8 +4104,8 @@ if.else12.i:                                      ; preds = %land.lhs.true.i, %i
 
 if.end15.i:                                       ; preds = %if.else12.i, %land.lhs.true.i
   %.sink.i = phi ptr [ %12, %if.else12.i ], [ %11, %land.lhs.true.i ]
-  %call14.i = tail call i64 %.sink.i(ptr noundef nonnull %opaque, ptr noundef %buffer.0.i, i64 noundef %offset.0.i) #26
-  tail call void @g_free(ptr noundef %buf.0.i) #26
+  %call14.i = tail call i64 %.sink.i(ptr noundef nonnull %opaque, ptr noundef %buffer.0.i, i64 noundef %offset.0.i) #27
+  tail call void @g_free(ptr noundef %buf.0.i) #27
   br label %if.end21
 
 if.end21:                                         ; preds = %if.end15.i, %if.else.i, %if.then14
@@ -4178,7 +4178,7 @@ entry:
   br i1 %cmp, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.69, ptr noundef nonnull @.str, i32 noundef 1030, ptr noundef nonnull @__PRETTY_FUNCTION__.net_init_nic) #27
+  tail call void @__assert_fail(ptr noundef nonnull @.str.69, ptr noundef nonnull @.str, i32 noundef 1030, ptr noundef nonnull @__PRETTY_FUNCTION__.net_init_nic) #28
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -4204,7 +4204,7 @@ nic_get_free_idx.exit:                            ; preds = %for.body.i
   br i1 %cmp2, label %if.then3, label %if.end4
 
 if.then3:                                         ; preds = %for.inc.i, %nic_get_free_idx.exit
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 1035, ptr noundef nonnull @__func__.net_init_nic, ptr noundef nonnull @.str.70) #26
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 1035, ptr noundef nonnull @__func__.net_init_nic, ptr noundef nonnull @.str.70) #27
   br label %return
 
 if.end4:                                          ; preds = %nic_get_free_idx.exit
@@ -4231,7 +4231,7 @@ for.body.i38:                                     ; preds = %if.then6, %for.inc.
 if.end.i:                                         ; preds = %for.body.i38
   %name.i = getelementptr inbounds i8, ptr %nc.07.i, i64 56
   %7 = load ptr, ptr %name.i, align 8
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull readonly dereferenceable(1) %4) #29
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull readonly dereferenceable(1) %4) #30
   %tobool1.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool1.not.i, label %if.end21, label %for.inc.i39
 
@@ -4243,7 +4243,7 @@ for.inc.i39:                                      ; preds = %if.end.i, %for.body
 
 if.then12:                                        ; preds = %for.inc.i39, %if.then6
   %8 = load ptr, ptr %u, align 8
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 1046, ptr noundef nonnull @__func__.net_init_nic, ptr noundef nonnull @.str.71, ptr noundef %8) #26
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 1046, ptr noundef nonnull @__func__.net_init_nic, ptr noundef nonnull @.str.71, ptr noundef %8) #27
   br label %return
 
 if.else15:                                        ; preds = %if.end4
@@ -4251,14 +4251,14 @@ if.else15:                                        ; preds = %if.end4
   br i1 %tobool16.not, label %if.else18, label %if.end21
 
 if.else18:                                        ; preds = %if.else15
-  tail call void @__assert_fail(ptr noundef nonnull @.str.72, ptr noundef nonnull @.str, i32 noundef 1050, ptr noundef nonnull @__PRETTY_FUNCTION__.net_init_nic) #27
+  tail call void @__assert_fail(ptr noundef nonnull @.str.72, ptr noundef nonnull @.str, i32 noundef 1050, ptr noundef nonnull @__PRETTY_FUNCTION__.net_init_nic) #28
   unreachable
 
 if.end21:                                         ; preds = %if.end.i, %if.else15
   %nc.07.i.lcssa.sink = phi ptr [ %peer, %if.else15 ], [ %nc.07.i, %if.end.i ]
   %netdev9 = getelementptr inbounds i8, ptr %arrayidx, i64 32
   store ptr %nc.07.i.lcssa.sink, ptr %netdev9, align 8
-  %call22 = tail call noalias ptr @g_strdup(ptr noundef %name) #26
+  %call22 = tail call noalias ptr @g_strdup(ptr noundef %name) #27
   %name23 = getelementptr inbounds i8, ptr %arrayidx, i64 16
   store ptr %call22, ptr %name23, align 8
   %model = getelementptr inbounds i8, ptr %netdev, i64 32
@@ -4267,7 +4267,7 @@ if.end21:                                         ; preds = %if.end.i, %if.else1
   br i1 %tobool24.not, label %if.end29, label %if.then25
 
 if.then25:                                        ; preds = %if.end21
-  %call27 = tail call noalias ptr @g_strdup(ptr noundef nonnull %9) #26
+  %call27 = tail call noalias ptr @g_strdup(ptr noundef nonnull %9) #27
   %model28 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   store ptr %call27, ptr %model28, align 8
   br label %if.end29
@@ -4279,7 +4279,7 @@ if.end29:                                         ; preds = %if.then25, %if.end2
   br i1 %tobool30.not, label %if.end34, label %if.then31
 
 if.then31:                                        ; preds = %if.end29
-  %call33 = tail call noalias ptr @g_strdup(ptr noundef nonnull %10) #26
+  %call33 = tail call noalias ptr @g_strdup(ptr noundef nonnull %10) #27
   %devaddr = getelementptr inbounds i8, ptr %arrayidx, i64 24
   store ptr %call33, ptr %devaddr, align 8
   br label %if.end34
@@ -4291,12 +4291,12 @@ if.end34:                                         ; preds = %if.then31, %if.end2
   br i1 %tobool35.not, label %if.end51, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end34
-  %call38 = tail call i32 @net_parse_macaddr(ptr noundef %arrayidx, ptr noundef nonnull %11) #26
+  %call38 = tail call i32 @net_parse_macaddr(ptr noundef %arrayidx, ptr noundef nonnull %11) #27
   %cmp39 = icmp slt i32 %call38, 0
   br i1 %cmp39, label %if.then40, label %if.end41
 
 if.then40:                                        ; preds = %land.lhs.true
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 1063, ptr noundef nonnull @__func__.net_init_nic, ptr noundef nonnull @.str.73) #26
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 1063, ptr noundef nonnull @__func__.net_init_nic, ptr noundef nonnull @.str.73) #27
   br label %return
 
 if.end41:                                         ; preds = %land.lhs.true
@@ -4311,7 +4311,7 @@ land.lhs.true44:                                  ; preds = %if.end41
   br i1 %tobool49.not, label %if.end51, label %if.then50
 
 if.then50:                                        ; preds = %land.lhs.true44
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 1069, ptr noundef nonnull @__func__.net_init_nic, ptr noundef nonnull @.str.74) #26
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 1069, ptr noundef nonnull @__func__.net_init_nic, ptr noundef nonnull @.str.74) #27
   br label %return
 
 if.end51:                                         ; preds = %if.end34, %land.lhs.true44, %if.end41
@@ -4406,7 +4406,7 @@ if.then54:                                        ; preds = %qemu_macaddr_defaul
   br i1 %cmp55, label %if.then56, label %if.end62
 
 if.then56:                                        ; preds = %if.then54
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 1076, ptr noundef nonnull @__func__.net_init_nic, ptr noundef nonnull @.str.75, i32 noundef %21) #26
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 1076, ptr noundef nonnull @__func__.net_init_nic, ptr noundef nonnull @.str.75, i32 noundef %21) #27
   br label %return
 
 if.end62:                                         ; preds = %qemu_macaddr_default_if_unset.exit, %if.then54
@@ -4468,34 +4468,34 @@ declare ptr @g_ptr_array_free(ptr noundef, i32 noundef) local_unnamed_addr #4
 declare ptr @qemu_opt_get_del(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start.p0(ptr) #20
+declare void @llvm.va_start.p0(ptr) #21
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end.p0(ptr) #20
+declare void @llvm.va_end.p0(ptr) #21
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #21
+declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #22
+declare i32 @llvm.smax.i32(i32, i32) #23
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #23
+declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #24
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #23
+declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #24
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #23
+declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #24
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #24
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #22
+declare i32 @llvm.umin.i32(i32, i32) #23
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
@@ -4514,21 +4514,23 @@ attributes #13 = { nofree nounwind sspstrong memory(read, argmem: readwrite, ina
 attributes #14 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { nofree nounwind sspstrong memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { nofree norecurse nosync nounwind sspstrong memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #21 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #22 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #23 = { nofree nounwind }
-attributes #24 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #25 = { nounwind willreturn memory(none) }
-attributes #26 = { nounwind }
-attributes #27 = { noreturn nounwind }
-attributes #28 = { nounwind allocsize(0) }
-attributes #29 = { nounwind willreturn memory(read) }
-attributes #30 = { nounwind allocsize(0,1) }
-attributes #31 = { cold }
+attributes #17 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { nofree norecurse nosync nounwind sspstrong memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #22 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #23 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #24 = { nofree nounwind }
+attributes #25 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #26 = { nounwind willreturn memory(none) }
+attributes #27 = { nounwind }
+attributes #28 = { noreturn nounwind }
+attributes #29 = { nounwind allocsize(0) }
+attributes #30 = { nounwind willreturn memory(read) }
+attributes #31 = { cold noreturn nounwind }
+attributes #32 = { nounwind allocsize(0,1) }
+attributes #33 = { cold }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

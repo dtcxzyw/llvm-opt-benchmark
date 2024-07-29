@@ -340,7 +340,7 @@ entry:
   br i1 %cmp.i.not, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 274, ptr noundef nonnull @__PRETTY_FUNCTION__.pci_bar) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 274, ptr noundef nonnull @__PRETTY_FUNCTION__.pci_bar) #24
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -377,7 +377,7 @@ entry:
   br i1 %cmp, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 322, ptr noundef nonnull @__PRETTY_FUNCTION__.pci_bus_get_irq_level) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 322, ptr noundef nonnull @__PRETTY_FUNCTION__.pci_bus_get_irq_level) #24
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -387,7 +387,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1, label %if.end4, label %if.else3
 
 if.else3:                                         ; preds = %if.end
-  tail call void @__assert_fail(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 323, ptr noundef nonnull @__PRETTY_FUNCTION__.pci_bus_get_irq_level) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 323, ptr noundef nonnull @__PRETTY_FUNCTION__.pci_bus_get_irq_level) #24
   unreachable
 
 if.end4:                                          ; preds = %if.end
@@ -459,7 +459,7 @@ entry:
   br i1 %or.cond, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.1, i32 noundef 1630, ptr noundef nonnull @__PRETTY_FUNCTION__.pci_irq_handler) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.1, i32 noundef 1630, ptr noundef nonnull @__PRETTY_FUNCTION__.pci_irq_handler) #24
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -467,7 +467,7 @@ if.end:                                           ; preds = %entry
   br i1 %or.cond1, label %if.end6, label %if.else5
 
 if.else5:                                         ; preds = %if.end
-  tail call void @__assert_fail(ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.1, i32 noundef 1631, ptr noundef nonnull @__PRETTY_FUNCTION__.pci_irq_handler) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.1, i32 noundef 1631, ptr noundef nonnull @__PRETTY_FUNCTION__.pci_irq_handler) #24
   unreachable
 
 if.end6:                                          ; preds = %if.end
@@ -516,7 +516,7 @@ return:                                           ; preds = %if.end8, %if.end6, 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @pci_device_reset(ptr noundef %dev) local_unnamed_addr #0 {
 entry:
-  tail call void @device_cold_reset(ptr noundef %dev) #23
+  tail call void @device_cold_reset(ptr noundef %dev) #25
   tail call fastcc void @pci_do_device_reset(ptr noundef %dev)
   ret void
 }
@@ -576,7 +576,7 @@ pci_device_deassert_intx.exit:                    ; preds = %pci_irq_handler.exi
   br i1 %cmp, label %if.end, label %if.else
 
 if.else:                                          ; preds = %pci_device_deassert_intx.exit
-  tail call void @__assert_fail(ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.1, i32 noundef 391, ptr noundef nonnull @__PRETTY_FUNCTION__.pci_do_device_reset) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.1, i32 noundef 391, ptr noundef nonnull @__PRETTY_FUNCTION__.pci_do_device_reset) #24
   unreachable
 
 if.end:                                           ; preds = %pci_device_deassert_intx.exit
@@ -657,7 +657,7 @@ if.then9.i:                                       ; preds = %if.end3.i
   br i1 %cmp.i.not.i.i, label %if.end.i.i28, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.then9.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 274, ptr noundef nonnull @__PRETTY_FUNCTION__.pci_bar) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 274, ptr noundef nonnull @__PRETTY_FUNCTION__.pci_bar) #24
   unreachable
 
 if.end.i.i28:                                     ; preds = %if.then9.i
@@ -689,7 +689,7 @@ if.else.i:                                        ; preds = %if.end3.i
   br i1 %cmp.i.not.i.i, label %if.end.i17.i, label %if.else.i16.i
 
 if.else.i16.i:                                    ; preds = %if.else.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 274, ptr noundef nonnull @__PRETTY_FUNCTION__.pci_bar) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 274, ptr noundef nonnull @__PRETTY_FUNCTION__.pci_bar) #24
   unreachable
 
 if.end.i17.i:                                     ; preds = %if.else.i
@@ -723,17 +723,17 @@ for.inc.i:                                        ; preds = %pci_bar.exit28.i, %
 
 pci_reset_regions.exit:                           ; preds = %for.inc.i, %if.end
   tail call fastcc void @pci_update_mappings(ptr noundef nonnull %dev)
-  tail call void @msi_reset(ptr noundef nonnull %dev) #23
-  tail call void @msix_reset(ptr noundef nonnull %dev) #23
+  tail call void @msi_reset(ptr noundef nonnull %dev) #25
+  tail call void @msix_reset(ptr noundef nonnull %dev) #25
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @pci_device_root_bus(ptr noundef %d) local_unnamed_addr #0 {
 entry:
-  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %d, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #23
-  %call1.i = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i) #23
-  %call.i1.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1.i, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #23
+  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %d, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #25
+  %call1.i = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i) #25
+  %call.i1.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1.i, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #25
   %0 = getelementptr i8, ptr %call.i1.i, i64 120
   %bus.0.val9 = load i32, ptr %0, align 8
   %and.i10 = and i32 %bus.0.val9, 1
@@ -748,13 +748,13 @@ while.body:                                       ; preds = %entry, %if.end
   br i1 %cmp.not, label %if.else, label %if.end
 
 if.else:                                          ; preds = %while.body
-  tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 463, ptr noundef nonnull @__PRETTY_FUNCTION__.pci_device_root_bus) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 463, ptr noundef nonnull @__PRETTY_FUNCTION__.pci_device_root_bus) #24
   unreachable
 
 if.end:                                           ; preds = %while.body
-  %call.i.i5 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %1, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #23
-  %call1.i6 = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i5) #23
-  %call.i1.i7 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1.i6, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #23
+  %call.i.i5 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %1, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #25
+  %call1.i6 = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i5) #25
+  %call.i1.i7 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1.i6, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #25
   %2 = getelementptr i8, ptr %call.i1.i7, i64 120
   %bus.0.val = load i32, ptr %2, align 8
   %and.i = and i32 %bus.0.val, 1
@@ -772,16 +772,16 @@ entry:
   %call = tail call ptr @pci_device_root_bus(ptr noundef %dev)
   %parent = getelementptr inbounds i8, ptr %call, i64 40
   %0 = load ptr, ptr %parent, align 8
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %0, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.47, i32 noundef 37, ptr noundef nonnull @__func__.PCI_HOST_BRIDGE) #23
-  %call.i7 = tail call ptr @object_get_class(ptr noundef %call.i) #23
-  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i7, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.47, i32 noundef 37, ptr noundef nonnull @__func__.PCI_HOST_BRIDGE_GET_CLASS) #23
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %0, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.47, i32 noundef 37, ptr noundef nonnull @__func__.PCI_HOST_BRIDGE) #25
+  %call.i7 = tail call ptr @object_get_class(ptr noundef %call.i) #25
+  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i7, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.47, i32 noundef 37, ptr noundef nonnull @__func__.PCI_HOST_BRIDGE_GET_CLASS) #25
   %bus = getelementptr inbounds i8, ptr %call.i, i64 1640
   %1 = load ptr, ptr %bus, align 8
   %cmp = icmp eq ptr %1, %call
   br i1 %cmp, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 477, ptr noundef nonnull @__PRETTY_FUNCTION__.pci_root_bus_path) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 477, ptr noundef nonnull @__PRETTY_FUNCTION__.pci_root_bus_path) #24
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -791,7 +791,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.end6, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  %call5 = tail call ptr %2(ptr noundef nonnull %call.i, ptr noundef nonnull %call) #23
+  %call5 = tail call ptr %2(ptr noundef nonnull %call.i, ptr noundef nonnull %call) #25
   br label %return
 
 if.end6:                                          ; preds = %if.end
@@ -823,14 +823,14 @@ if.end:                                           ; preds = %if.then, %entry
   %rootbus.0 = phi ptr [ %bus, %entry ], [ %call1, %if.then ]
   %parent = getelementptr inbounds i8, ptr %rootbus.0, i64 40
   %2 = load ptr, ptr %parent, align 8
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %2, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.47, i32 noundef 37, ptr noundef nonnull @__func__.PCI_HOST_BRIDGE) #23
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %2, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.47, i32 noundef 37, ptr noundef nonnull @__func__.PCI_HOST_BRIDGE) #25
   %bus3 = getelementptr inbounds i8, ptr %call.i, i64 1640
   %3 = load ptr, ptr %bus3, align 8
   %cmp = icmp eq ptr %3, %rootbus.0
   br i1 %cmp, label %if.end5, label %if.else
 
 if.else:                                          ; preds = %if.end
-  tail call void @__assert_fail(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 497, ptr noundef nonnull @__PRETTY_FUNCTION__.pci_bus_bypass_iommu) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 497, ptr noundef nonnull @__PRETTY_FUNCTION__.pci_bus_bypass_iommu) #24
   unreachable
 
 if.end5:                                          ; preds = %if.end
@@ -843,7 +843,7 @@ if.end5:                                          ; preds = %if.end
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local zeroext i1 @pci_bus_is_express(ptr noundef %bus) local_unnamed_addr #0 {
 entry:
-  %call = tail call ptr @object_dynamic_cast(ptr noundef %bus, ptr noundef nonnull @.str.6) #23
+  %call = tail call ptr @object_dynamic_cast(ptr noundef %bus, ptr noundef nonnull @.str.6) #25
   %tobool = icmp ne ptr %call, null
   ret i1 %tobool
 }
@@ -853,13 +853,13 @@ declare ptr @object_dynamic_cast(ptr noundef, ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @pci_root_bus_init(ptr noundef %bus, i64 noundef %bus_size, ptr noundef %parent, ptr noundef %name, ptr noundef %mem, ptr noundef %io, i8 noundef zeroext %devfn_min, ptr noundef %typename) local_unnamed_addr #0 {
 entry:
-  tail call void @qbus_init(ptr noundef %bus, i64 noundef %bus_size, ptr noundef %typename, ptr noundef %parent, ptr noundef %name) #23
+  tail call void @qbus_init(ptr noundef %bus, i64 noundef %bus_size, ptr noundef %typename, ptr noundef %parent, ptr noundef %name) #25
   %0 = and i8 %devfn_min, 7
   %cmp.i = icmp eq i8 %0, 0
   br i1 %cmp.i, label %if.end.i, label %if.else.i
 
 if.else.i:                                        ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.1, i32 noundef 506, ptr noundef nonnull @__PRETTY_FUNCTION__.pci_root_bus_internal_init) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.1, i32 noundef 506, ptr noundef nonnull @__PRETTY_FUNCTION__.pci_root_bus_internal_init) #24
   unreachable
 
 if.end.i:                                         ; preds = %entry
@@ -877,7 +877,7 @@ if.end.i:                                         ; preds = %entry
   store i32 %or.i, ptr %flags.i, align 8
   %child.i = getelementptr inbounds i8, ptr %bus, i64 2256
   store ptr null, ptr %child.i, align 8
-  %call.i.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %parent, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.47, i32 noundef 37, ptr noundef nonnull @__func__.PCI_HOST_BRIDGE) #23
+  %call.i.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %parent, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.47, i32 noundef 37, ptr noundef nonnull @__func__.PCI_HOST_BRIDGE) #25
   %2 = load ptr, ptr @pci_host_bridges, align 8
   %next.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 1656
   store ptr %2, ptr %next.i.i, align 8
@@ -901,14 +901,14 @@ declare void @qbus_init(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @pci_root_bus_new(ptr noundef %parent, ptr noundef %name, ptr noundef %mem, ptr noundef %io, i8 noundef zeroext %devfn_min, ptr noundef %typename) local_unnamed_addr #0 {
 entry:
-  %call = tail call ptr @qbus_new(ptr noundef %typename, ptr noundef %parent, ptr noundef %name) #23
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #23
+  %call = tail call ptr @qbus_new(ptr noundef %typename, ptr noundef %parent, ptr noundef %name) #25
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #25
   %0 = and i8 %devfn_min, 7
   %cmp.i = icmp eq i8 %0, 0
   br i1 %cmp.i, label %if.end.i, label %if.else.i
 
 if.else.i:                                        ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.1, i32 noundef 506, ptr noundef nonnull @__PRETTY_FUNCTION__.pci_root_bus_internal_init) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.1, i32 noundef 506, ptr noundef nonnull @__PRETTY_FUNCTION__.pci_root_bus_internal_init) #24
   unreachable
 
 if.end.i:                                         ; preds = %entry
@@ -926,7 +926,7 @@ if.end.i:                                         ; preds = %entry
   store i32 %or.i, ptr %flags.i, align 8
   %child.i = getelementptr inbounds i8, ptr %call.i, i64 2256
   store ptr null, ptr %child.i, align 8
-  %call.i.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %parent, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.47, i32 noundef 37, ptr noundef nonnull @__func__.PCI_HOST_BRIDGE) #23
+  %call.i.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %parent, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.47, i32 noundef 37, ptr noundef nonnull @__func__.PCI_HOST_BRIDGE) #25
   %2 = load ptr, ptr @pci_host_bridges, align 8
   %next.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 1656
   store ptr %2, ptr %next.i.i, align 8
@@ -950,10 +950,10 @@ declare ptr @qbus_new(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @pci_root_bus_cleanup(ptr noundef %bus) local_unnamed_addr #0 {
 entry:
-  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %bus, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.52, i32 noundef 316, ptr noundef nonnull @__func__.BUS) #23
+  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %bus, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.52, i32 noundef 316, ptr noundef nonnull @__func__.BUS) #25
   %parent.i = getelementptr inbounds i8, ptr %call.i.i, i64 40
   %0 = load ptr, ptr %parent.i, align 8
-  %call.i.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %0, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.47, i32 noundef 37, ptr noundef nonnull @__func__.PCI_HOST_BRIDGE) #23
+  %call.i.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %0, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.47, i32 noundef 37, ptr noundef nonnull @__func__.PCI_HOST_BRIDGE) #25
   %next.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 1656
   %1 = load ptr, ptr %next.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %1, null
@@ -971,8 +971,8 @@ pci_bus_uninit.exit:                              ; preds = %entry, %if.then.i.i
   %2 = phi ptr [ %.pre.i.i, %if.then.i.i ], [ null, %entry ]
   store ptr %2, ptr %.pre7.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next.i.i, i8 0, i64 16, i1 false)
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %bus, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.52, i32 noundef 316, ptr noundef nonnull @__func__.BUS) #23
-  tail call void @qbus_unrealize(ptr noundef %call.i) #23
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %bus, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.52, i32 noundef 316, ptr noundef nonnull @__func__.BUS) #25
+  tail call void @qbus_unrealize(ptr noundef %call.i) #25
   ret void
 }
 
@@ -989,10 +989,10 @@ entry:
   store i32 %nirq, ptr %nirq3, align 8
   %irq_count = getelementptr inbounds i8, ptr %bus, i64 2288
   %0 = load ptr, ptr %irq_count, align 8
-  tail call void @g_free(ptr noundef %0) #23
+  tail call void @g_free(ptr noundef %0) #25
   %conv = sext i32 %nirq to i64
   %mul = shl nsw i64 %conv, 2
-  %call = tail call noalias ptr @g_malloc0(i64 noundef %mul) #24
+  %call = tail call noalias ptr @g_malloc0(i64 noundef %mul) #26
   store ptr %call, ptr %irq_count, align 8
   ret void
 }
@@ -1021,7 +1021,7 @@ entry:
   %irq_count = getelementptr inbounds i8, ptr %bus, i64 2288
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %set_irq, i8 0, i64 16, i1 false)
   %0 = load ptr, ptr %irq_count, align 8
-  tail call void @g_free(ptr noundef %0) #23
+  tail call void @g_free(ptr noundef %0) #25
   store ptr null, ptr %irq_count, align 8
   ret void
 }
@@ -1029,14 +1029,14 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @pci_register_root_bus(ptr noundef %parent, ptr noundef %name, ptr noundef %set_irq, ptr noundef %map_irq, ptr noundef %irq_opaque, ptr noundef %mem, ptr noundef %io, i8 noundef zeroext %devfn_min, i32 noundef %nirq, ptr noundef %typename) local_unnamed_addr #0 {
 entry:
-  %call.i = tail call ptr @qbus_new(ptr noundef %typename, ptr noundef %parent, ptr noundef %name) #23
-  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #23
+  %call.i = tail call ptr @qbus_new(ptr noundef %typename, ptr noundef %parent, ptr noundef %name) #25
+  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #25
   %0 = and i8 %devfn_min, 7
   %cmp.i.i = icmp eq i8 %0, 0
   br i1 %cmp.i.i, label %if.end.i.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.1, i32 noundef 506, ptr noundef nonnull @__PRETTY_FUNCTION__.pci_root_bus_internal_init) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.1, i32 noundef 506, ptr noundef nonnull @__PRETTY_FUNCTION__.pci_root_bus_internal_init) #24
   unreachable
 
 if.end.i.i:                                       ; preds = %entry
@@ -1054,7 +1054,7 @@ if.end.i.i:                                       ; preds = %entry
   store i32 %or.i.i, ptr %flags.i.i, align 8
   %child.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 2256
   store ptr null, ptr %child.i.i, align 8
-  %call.i.i.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %parent, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.47, i32 noundef 37, ptr noundef nonnull @__func__.PCI_HOST_BRIDGE) #23
+  %call.i.i.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %parent, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.47, i32 noundef 37, ptr noundef nonnull @__func__.PCI_HOST_BRIDGE) #25
   %2 = load ptr, ptr @pci_host_bridges, align 8
   %next.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 1656
   store ptr %2, ptr %next.i.i.i, align 8
@@ -1078,10 +1078,10 @@ pci_root_bus_new.exit:                            ; preds = %if.end.i.i, %if.the
   store i32 %nirq, ptr %nirq3.i, align 8
   %irq_count.i = getelementptr inbounds i8, ptr %call.i.i, i64 2288
   %3 = load ptr, ptr %irq_count.i, align 8
-  tail call void @g_free(ptr noundef %3) #23
+  tail call void @g_free(ptr noundef %3) #25
   %conv.i = sext i32 %nirq to i64
   %mul.i = shl nsw i64 %conv.i, 2
-  %call.i3 = tail call noalias ptr @g_malloc0(i64 noundef %mul.i) #24
+  %call.i3 = tail call noalias ptr @g_malloc0(i64 noundef %mul.i) #26
   store ptr %call.i3, ptr %irq_count.i, align 8
   %map_irq1.i = getelementptr inbounds i8, ptr %call.i.i, i64 160
   store ptr %map_irq, ptr %map_irq1.i, align 8
@@ -1099,12 +1099,12 @@ entry:
   %irq_count.i = getelementptr inbounds i8, ptr %bus, i64 2288
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %set_irq.i, i8 0, i64 16, i1 false)
   %0 = load ptr, ptr %irq_count.i, align 8
-  tail call void @g_free(ptr noundef %0) #23
+  tail call void @g_free(ptr noundef %0) #25
   store ptr null, ptr %irq_count.i, align 8
-  %call.i.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %bus, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.52, i32 noundef 316, ptr noundef nonnull @__func__.BUS) #23
+  %call.i.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %bus, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.52, i32 noundef 316, ptr noundef nonnull @__func__.BUS) #25
   %parent.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 40
   %1 = load ptr, ptr %parent.i.i, align 8
-  %call.i.i.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %1, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.47, i32 noundef 37, ptr noundef nonnull @__func__.PCI_HOST_BRIDGE) #23
+  %call.i.i.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %1, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.47, i32 noundef 37, ptr noundef nonnull @__func__.PCI_HOST_BRIDGE) #25
   %next.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 1656
   %2 = load ptr, ptr %next.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %2, null
@@ -1122,30 +1122,30 @@ pci_root_bus_cleanup.exit:                        ; preds = %entry, %if.then.i.i
   %3 = phi ptr [ %.pre.i.i.i, %if.then.i.i.i ], [ null, %entry ]
   store ptr %3, ptr %.pre7.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next.i.i.i, i8 0, i64 16, i1 false)
-  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %bus, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.52, i32 noundef 316, ptr noundef nonnull @__func__.BUS) #23
-  tail call void @qbus_unrealize(ptr noundef %call.i.i) #23
+  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %bus, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.52, i32 noundef 316, ptr noundef nonnull @__func__.BUS) #25
+  tail call void @qbus_unrealize(ptr noundef %call.i.i) #25
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @pci_bus_num(ptr noundef %s) local_unnamed_addr #0 {
 entry:
-  %call.i = tail call ptr @object_get_class(ptr noundef %s) #23
-  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS_GET_CLASS) #23
+  %call.i = tail call ptr @object_get_class(ptr noundef %s) #25
+  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS_GET_CLASS) #25
   %bus_num = getelementptr inbounds i8, ptr %call1.i, i64 160
   %0 = load ptr, ptr %bus_num, align 8
-  %call1 = tail call i32 %0(ptr noundef %s) #23
+  %call1 = tail call i32 %0(ptr noundef %s) #25
   ret i32 %call1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @pci_bus_range(ptr noundef %bus, ptr nocapture noundef %min_bus, ptr nocapture noundef %max_bus) local_unnamed_addr #0 {
 entry:
-  %call.i.i = tail call ptr @object_get_class(ptr noundef %bus) #23
-  %call1.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS_GET_CLASS) #23
+  %call.i.i = tail call ptr @object_get_class(ptr noundef %bus) #25
+  %call1.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS_GET_CLASS) #25
   %bus_num.i = getelementptr inbounds i8, ptr %call1.i.i, i64 160
   %0 = load ptr, ptr %bus_num.i, align 8
-  %call1.i = tail call i32 %0(ptr noundef %bus) #23
+  %call1.i = tail call i32 %0(ptr noundef %bus) #25
   store i32 %call1.i, ptr %max_bus, align 4
   store i32 %call1.i, ptr %min_bus, align 4
   %devices = getelementptr inbounds i8, ptr %bus, i64 184
@@ -1159,7 +1159,7 @@ for.body:                                         ; preds = %entry, %for.inc
   br i1 %tobool.not, label %for.inc, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.body
-  %call2 = tail call ptr @object_dynamic_cast(ptr noundef nonnull %1, ptr noundef nonnull @.str.7) #23
+  %call2 = tail call ptr @object_dynamic_cast(ptr noundef nonnull %1, ptr noundef nonnull @.str.7) #25
   %tobool3.not = icmp eq ptr %call2, null
   br i1 %tobool3.not, label %for.inc, label %if.then
 
@@ -1193,11 +1193,11 @@ for.end:                                          ; preds = %for.inc
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local range(i32 0, 65536) i32 @pci_bus_numa_node(ptr noundef %bus) local_unnamed_addr #0 {
 entry:
-  %call.i = tail call ptr @object_get_class(ptr noundef %bus) #23
-  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS_GET_CLASS) #23
+  %call.i = tail call ptr @object_get_class(ptr noundef %bus) #25
+  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS_GET_CLASS) #25
   %numa_node = getelementptr inbounds i8, ptr %call1.i, i64 168
   %0 = load ptr, ptr %numa_node, align 8
-  %call1 = tail call zeroext i16 %0(ptr noundef %bus) #23
+  %call1 = tail call zeroext i16 %0(ptr noundef %bus) #25
   %conv = zext i16 %call1 to i32
   ret i32 %conv
 }
@@ -1231,7 +1231,7 @@ entry:
   %1 = load i8, ptr %arrayidx, align 1
   %2 = and i8 %1, -9
   store i8 %2, ptr %arrayidx, align 1
-  %call = tail call i32 @vmstate_save_state(ptr noundef %f, ptr noundef nonnull @vmstate_pci_device, ptr noundef %s, ptr noundef null) #23
+  %call = tail call i32 @vmstate_save_state(ptr noundef %f, ptr noundef nonnull @vmstate_pci_device, ptr noundef %s, ptr noundef null) #25
   %irq_state.i = getelementptr inbounds i8, ptr %s, i64 1257
   %3 = load i8, ptr %irq_state.i, align 1
   %tobool.not.i = icmp eq i8 %3, 0
@@ -1252,7 +1252,7 @@ define dso_local i32 @pci_device_load(ptr noundef %s, ptr noundef %f) local_unna
 entry:
   %version_id = getelementptr inbounds i8, ptr %s, i64 2156
   %0 = load i32, ptr %version_id, align 4
-  %call = tail call i32 @vmstate_load_state(ptr noundef %f, ptr noundef nonnull @vmstate_pci_device, ptr noundef %s, i32 noundef %0) #23
+  %call = tail call i32 @vmstate_load_state(ptr noundef %f, ptr noundef nonnull @vmstate_pci_device, ptr noundef %s, i32 noundef %0) #25
   %irq_state.i = getelementptr inbounds i8, ptr %s, i64 1257
   %1 = load i8, ptr %irq_state.i, align 1
   %tobool.not.i = icmp eq i8 %1, 0
@@ -1282,14 +1282,14 @@ entry:
 
 sw.bb.i:                                          ; preds = %entry
   %1 = load ptr, ptr %requester_id_cache, align 8
-  %call.i.i.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %1, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #23
-  %call1.i.i.i = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i.i.i) #23
-  %call.i1.i.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1.i.i.i, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #23
-  %call.i.i2.i.i = tail call ptr @object_get_class(ptr noundef %call.i1.i.i.i) #23
-  %call1.i.i.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i2.i.i, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS_GET_CLASS) #23
+  %call.i.i.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %1, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #25
+  %call1.i.i.i = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i.i.i) #25
+  %call.i1.i.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1.i.i.i, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #25
+  %call.i.i2.i.i = tail call ptr @object_get_class(ptr noundef %call.i1.i.i.i) #25
+  %call1.i.i.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i2.i.i, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS_GET_CLASS) #25
   %bus_num.i.i.i = getelementptr inbounds i8, ptr %call1.i.i.i.i, i64 160
   %2 = load ptr, ptr %bus_num.i.i.i, align 8
-  %call1.i3.i.i = tail call i32 %2(ptr noundef %call.i1.i.i.i) #23
+  %call1.i3.i.i = tail call i32 %2(ptr noundef %call.i1.i.i.i) #25
   %shl.i.i = shl i32 %call1.i3.i.i, 8
   %devfn.i.i = getelementptr inbounds i8, ptr %1, i64 208
   %3 = load i32, ptr %devfn.i.i, align 16
@@ -1299,21 +1299,21 @@ sw.bb.i:                                          ; preds = %entry
 
 sw.bb1.i:                                         ; preds = %entry
   %4 = load ptr, ptr %requester_id_cache, align 8
-  %call.i.i.i4.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %4, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #23
-  %call1.i.i5.i = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i.i4.i) #23
-  %call.i1.i.i6.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1.i.i5.i, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #23
-  %call.i.i1.i.i = tail call ptr @object_get_class(ptr noundef %call.i1.i.i6.i) #23
-  %call1.i.i.i7.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i1.i.i, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS_GET_CLASS) #23
+  %call.i.i.i4.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %4, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #25
+  %call1.i.i5.i = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i.i4.i) #25
+  %call.i1.i.i6.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1.i.i5.i, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #25
+  %call.i.i1.i.i = tail call ptr @object_get_class(ptr noundef %call.i1.i.i6.i) #25
+  %call1.i.i.i7.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i1.i.i, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS_GET_CLASS) #25
   %bus_num.i.i8.i = getelementptr inbounds i8, ptr %call1.i.i.i7.i, i64 160
   %5 = load ptr, ptr %bus_num.i.i8.i, align 8
-  %call1.i2.i.i = tail call i32 %5(ptr noundef %call.i1.i.i6.i) #23
+  %call1.i2.i.i = tail call i32 %5(ptr noundef %call.i1.i.i6.i) #25
   %call3.tr.i = trunc i32 %call1.i2.i.i to i16
   %conv5.i = shl i16 %call3.tr.i, 8
   br label %pci_req_id_cache_extract.exit
 
 sw.default.i:                                     ; preds = %entry
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.60, i32 noundef %0) #23
-  tail call void @exit(i32 noundef 1) #22
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.60, i32 noundef %0) #25
+  tail call void @exit(i32 noundef 1) #27
   unreachable
 
 pci_req_id_cache_extract.exit:                    ; preds = %sw.bb.i, %sw.bb1.i
@@ -1353,14 +1353,14 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @pci_register_bar(ptr noundef %pci_dev, i32 noundef %region_num, i8 noundef zeroext %type, ptr noundef %memory) local_unnamed_addr #0 {
 entry:
-  %call = tail call i64 @memory_region_size(ptr noundef %memory) #23
+  %call = tail call i64 @memory_region_size(ptr noundef %memory) #25
   %0 = getelementptr i8, ptr %pci_dev, i64 2232
   %pci_dev.val = load ptr, ptr %0, align 8
   %cmp.i.not = icmp eq ptr %pci_dev.val, null
   br i1 %cmp.i.not, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.1, i32 noundef 1307, ptr noundef nonnull @__PRETTY_FUNCTION__.pci_register_bar) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.1, i32 noundef 1307, ptr noundef nonnull @__PRETTY_FUNCTION__.pci_register_bar) #24
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -1368,7 +1368,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %if.end4, label %if.else3
 
 if.else3:                                         ; preds = %if.end
-  tail call void @__assert_fail(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.1, i32 noundef 1308, ptr noundef nonnull @__PRETTY_FUNCTION__.pci_register_bar) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.1, i32 noundef 1308, ptr noundef nonnull @__PRETTY_FUNCTION__.pci_register_bar) #24
   unreachable
 
 if.end4:                                          ; preds = %if.end
@@ -1376,7 +1376,7 @@ if.end4:                                          ; preds = %if.end
   br i1 %cmp5, label %if.end8, label %if.else7
 
 if.else7:                                         ; preds = %if.end4
-  tail call void @__assert_fail(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.1, i32 noundef 1309, ptr noundef nonnull @__PRETTY_FUNCTION__.pci_register_bar) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.1, i32 noundef 1309, ptr noundef nonnull @__PRETTY_FUNCTION__.pci_register_bar) #24
   unreachable
 
 if.end8:                                          ; preds = %if.end4
@@ -1385,7 +1385,7 @@ if.end8:                                          ; preds = %if.end4
   br i1 %or.cond53, label %if.end12, label %if.else11
 
 if.else11:                                        ; preds = %if.end8
-  tail call void @__assert_fail(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.1, i32 noundef 1310, ptr noundef nonnull @__PRETTY_FUNCTION__.pci_register_bar) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.1, i32 noundef 1310, ptr noundef nonnull @__PRETTY_FUNCTION__.pci_register_bar) #24
   unreachable
 
 if.end12:                                         ; preds = %if.end8
@@ -1400,7 +1400,7 @@ if.end12:                                         ; preds = %if.end8
   br i1 %or.cond, label %if.end21, label %if.else20
 
 if.else20:                                        ; preds = %if.end12
-  tail call void @__assert_fail(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.1, i32 noundef 1315, ptr noundef nonnull @__PRETTY_FUNCTION__.pci_register_bar) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.1, i32 noundef 1315, ptr noundef nonnull @__PRETTY_FUNCTION__.pci_register_bar) #24
   unreachable
 
 if.end21:                                         ; preds = %if.end12
@@ -1417,9 +1417,9 @@ if.end21:                                         ; preds = %if.end12
   %conv27 = zext i8 %type to i32
   %and28 = and i32 %conv27, 1
   %tobool29.not = icmp eq i32 %and28, 0
-  %call.i.i36 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %pci_dev, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #23
-  %call1.i37 = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i36) #23
-  %call.i1.i38 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1.i37, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #23
+  %call.i.i36 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %pci_dev, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #25
+  %call1.i37 = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i36) #25
+  %call.i1.i38 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1.i37, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #25
   %. = select i1 %tobool29.not, i64 2240, i64 2248
   %address_space_mem = getelementptr inbounds i8, ptr %call.i1.i38, i64 %.
   %cond = load ptr, ptr %address_space_mem, align 8
@@ -1435,7 +1435,7 @@ cond.end.split:                                   ; preds = %if.end21
   br i1 %cmp.i.not.i42, label %pci_bar.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %cond.end.split
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 274, ptr noundef nonnull @__PRETTY_FUNCTION__.pci_bar) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 274, ptr noundef nonnull @__PRETTY_FUNCTION__.pci_bar) #24
   unreachable
 
 pci_bar.exit:                                     ; preds = %cond.end.split
@@ -1448,7 +1448,7 @@ if.then34.split:                                  ; preds = %if.end21
   br i1 %cmp.i.not.i42, label %pci_bar.exit51, label %if.else.i43
 
 if.else.i43:                                      ; preds = %if.then34.split
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 274, ptr noundef nonnull @__PRETTY_FUNCTION__.pci_bar) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 274, ptr noundef nonnull @__PRETTY_FUNCTION__.pci_bar) #24
   unreachable
 
 pci_bar.exit51:                                   ; preds = %if.then34.split
@@ -1502,25 +1502,25 @@ declare i64 @memory_region_size(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @pci_register_vga(ptr noundef %pci_dev, ptr noundef %mem, ptr noundef %io_lo, ptr noundef %io_hi) local_unnamed_addr #0 {
 entry:
-  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %pci_dev, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #23
-  %call1.i = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i) #23
-  %call.i1.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1.i, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #23
+  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %pci_dev, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #25
+  %call1.i = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i) #25
+  %call.i1.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1.i, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #25
   %has_vga = getelementptr inbounds i8, ptr %pci_dev, i64 1256
   %0 = load i8, ptr %has_vga, align 8
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %if.else, label %if.end
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.1, i32 noundef 1368, ptr noundef nonnull @__PRETTY_FUNCTION__.pci_register_vga) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.1, i32 noundef 1368, ptr noundef nonnull @__PRETTY_FUNCTION__.pci_register_vga) #24
   unreachable
 
 if.end:                                           ; preds = %entry
-  %call1 = tail call i64 @memory_region_size(ptr noundef %mem) #23
+  %call1 = tail call i64 @memory_region_size(ptr noundef %mem) #25
   %cmp = icmp eq i64 %call1, 131072
   br i1 %cmp, label %if.end4, label %if.else3
 
 if.else3:                                         ; preds = %if.end
-  tail call void @__assert_fail(ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.1, i32 noundef 1370, ptr noundef nonnull @__PRETTY_FUNCTION__.pci_register_vga) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.1, i32 noundef 1370, ptr noundef nonnull @__PRETTY_FUNCTION__.pci_register_vga) #24
   unreachable
 
 if.end4:                                          ; preds = %if.end
@@ -1528,13 +1528,13 @@ if.end4:                                          ; preds = %if.end
   store ptr %mem, ptr %vga_regions, align 16
   %address_space_mem = getelementptr inbounds i8, ptr %call.i1.i, i64 2240
   %1 = load ptr, ptr %address_space_mem, align 8
-  tail call void @memory_region_add_subregion_overlap(ptr noundef %1, i64 noundef 655360, ptr noundef %mem, i32 noundef 1) #23
-  %call5 = tail call i64 @memory_region_size(ptr noundef %io_lo) #23
+  tail call void @memory_region_add_subregion_overlap(ptr noundef %1, i64 noundef 655360, ptr noundef %mem, i32 noundef 1) #25
+  %call5 = tail call i64 @memory_region_size(ptr noundef %io_lo) #25
   %cmp6 = icmp eq i64 %call5, 12
   br i1 %cmp6, label %if.end9, label %if.else8
 
 if.else8:                                         ; preds = %if.end4
-  tail call void @__assert_fail(ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.1, i32 noundef 1375, ptr noundef nonnull @__PRETTY_FUNCTION__.pci_register_vga) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.1, i32 noundef 1375, ptr noundef nonnull @__PRETTY_FUNCTION__.pci_register_vga) #24
   unreachable
 
 if.end9:                                          ; preds = %if.end4
@@ -1542,20 +1542,20 @@ if.end9:                                          ; preds = %if.end4
   store ptr %io_lo, ptr %arrayidx11, align 8
   %address_space_io = getelementptr inbounds i8, ptr %call.i1.i, i64 2248
   %2 = load ptr, ptr %address_space_io, align 8
-  tail call void @memory_region_add_subregion_overlap(ptr noundef %2, i64 noundef 944, ptr noundef %io_lo, i32 noundef 1) #23
-  %call12 = tail call i64 @memory_region_size(ptr noundef %io_hi) #23
+  tail call void @memory_region_add_subregion_overlap(ptr noundef %2, i64 noundef 944, ptr noundef %io_lo, i32 noundef 1) #25
+  %call12 = tail call i64 @memory_region_size(ptr noundef %io_hi) #25
   %cmp13 = icmp eq i64 %call12, 32
   br i1 %cmp13, label %pci_update_vga.exit, label %if.else15
 
 if.else15:                                        ; preds = %if.end9
-  tail call void @__assert_fail(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.1, i32 noundef 1380, ptr noundef nonnull @__PRETTY_FUNCTION__.pci_register_vga) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.1, i32 noundef 1380, ptr noundef nonnull @__PRETTY_FUNCTION__.pci_register_vga) #24
   unreachable
 
 pci_update_vga.exit:                              ; preds = %if.end9
   %arrayidx18 = getelementptr i8, ptr %pci_dev, i64 1248
   store ptr %io_hi, ptr %arrayidx18, align 16
   %3 = load ptr, ptr %address_space_io, align 8
-  tail call void @memory_region_add_subregion_overlap(ptr noundef %3, i64 noundef 960, ptr noundef %io_hi, i32 noundef 1) #23
+  tail call void @memory_region_add_subregion_overlap(ptr noundef %3, i64 noundef 960, ptr noundef %io_hi, i32 noundef 1) #25
   store i8 1, ptr %has_vga, align 8
   %config.i = getelementptr inbounds i8, ptr %pci_dev, i64 168
   %4 = load ptr, ptr %config.i, align 8
@@ -1565,13 +1565,13 @@ pci_update_vga.exit:                              ; preds = %if.end9
   %conv.i = zext i16 %add.ptr.val.i to i32
   %and.i = and i32 %conv.i, 2
   %tobool1.i = icmp ne i32 %and.i, 0
-  tail call void @memory_region_set_enabled(ptr noundef %5, i1 noundef zeroext %tobool1.i) #23
+  tail call void @memory_region_set_enabled(ptr noundef %5, i1 noundef zeroext %tobool1.i) #25
   %6 = load ptr, ptr %arrayidx11, align 8
   %and5.i = and i32 %conv.i, 1
   %tobool6.i = icmp ne i32 %and5.i, 0
-  tail call void @memory_region_set_enabled(ptr noundef %6, i1 noundef zeroext %tobool6.i) #23
+  tail call void @memory_region_set_enabled(ptr noundef %6, i1 noundef zeroext %tobool6.i) #25
   %7 = load ptr, ptr %arrayidx18, align 16
-  tail call void @memory_region_set_enabled(ptr noundef %7, i1 noundef zeroext %tobool6.i) #23
+  tail call void @memory_region_set_enabled(ptr noundef %7, i1 noundef zeroext %tobool6.i) #25
   ret void
 }
 
@@ -1580,9 +1580,9 @@ declare void @memory_region_add_subregion_overlap(ptr noundef, i64 noundef, ptr 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @pci_unregister_vga(ptr noundef %pci_dev) local_unnamed_addr #0 {
 entry:
-  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %pci_dev, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #23
-  %call1.i = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i) #23
-  %call.i1.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1.i, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #23
+  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %pci_dev, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #25
+  %call1.i = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i) #25
+  %call.i1.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1.i, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #25
   %has_vga = getelementptr inbounds i8, ptr %pci_dev, i64 1256
   %0 = load i8, ptr %has_vga, align 8
   %tobool = trunc i8 %0 to i1
@@ -1593,16 +1593,16 @@ if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %address_space_mem, align 8
   %vga_regions = getelementptr inbounds i8, ptr %pci_dev, i64 1232
   %2 = load ptr, ptr %vga_regions, align 16
-  tail call void @memory_region_del_subregion(ptr noundef %1, ptr noundef %2) #23
+  tail call void @memory_region_del_subregion(ptr noundef %1, ptr noundef %2) #25
   %address_space_io = getelementptr inbounds i8, ptr %call.i1.i, i64 2248
   %3 = load ptr, ptr %address_space_io, align 8
   %arrayidx2 = getelementptr i8, ptr %pci_dev, i64 1240
   %4 = load ptr, ptr %arrayidx2, align 8
-  tail call void @memory_region_del_subregion(ptr noundef %3, ptr noundef %4) #23
+  tail call void @memory_region_del_subregion(ptr noundef %3, ptr noundef %4) #25
   %5 = load ptr, ptr %address_space_io, align 8
   %arrayidx5 = getelementptr i8, ptr %pci_dev, i64 1248
   %6 = load ptr, ptr %arrayidx5, align 16
-  tail call void @memory_region_del_subregion(ptr noundef %5, ptr noundef %6) #23
+  tail call void @memory_region_del_subregion(ptr noundef %5, ptr noundef %6) #25
   store i8 0, ptr %has_vga, align 8
   br label %return
 
@@ -1629,9 +1629,9 @@ entry:
   %0 = load ptr, ptr %config, align 8
   %add.ptr = getelementptr i8, ptr %0, i64 4
   %add.ptr.val = load i16, ptr %add.ptr, align 1
-  %call1 = tail call ptr @qdev_get_machine() #23
-  %call.i = tail call ptr @object_get_class(ptr noundef %call1) #23
-  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.62, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE_GET_CLASS) #23
+  %call1 = tail call ptr @qdev_get_machine() #25
+  %call.i = tail call ptr @object_get_class(ptr noundef %call1) #25
+  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.62, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE_GET_CLASS) #25
   %pci_allow_0_address = getelementptr inbounds i8, ptr %call1.i, i64 188
   %bf.load = load i8, ptr %pci_allow_0_address, align 4
   %1 = and i8 %bf.load, 32
@@ -1899,7 +1899,7 @@ entry:
   br i1 %cmp.not, label %if.else, label %if.end
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.1, i32 noundef 1579, ptr noundef nonnull @__PRETTY_FUNCTION__.pci_default_read_config) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.1, i32 noundef 1579, ptr noundef nonnull @__PRETTY_FUNCTION__.pci_default_read_config) #24
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -1912,7 +1912,7 @@ lor.lhs.false.i:                                  ; preds = %if.end
   br i1 %tobool1.not.i, label %if.end9, label %pci_is_express_downstream_port.exit
 
 pci_is_express_downstream_port.exit:              ; preds = %lor.lhs.false.i
-  %call2.i = tail call zeroext i8 @pcie_cap_get_type(ptr noundef nonnull %d) #23
+  %call2.i = tail call zeroext i8 @pcie_cap_get_type(ptr noundef nonnull %d) #25
   %2 = and i8 %call2.i, -3
   %.not = icmp eq i8 %2, 4
   br i1 %.not, label %land.lhs.true, label %if.end9
@@ -1932,7 +1932,7 @@ land.lhs.true:                                    ; preds = %pci_is_express_down
   br i1 %.not.i.not, label %if.end9, label %if.then8
 
 if.then8:                                         ; preds = %land.lhs.true
-  tail call void @pcie_sync_bridge_lnk(ptr noundef nonnull %d) #23
+  tail call void @pcie_sync_bridge_lnk(ptr noundef nonnull %d) #25
   br label %if.end9
 
 if.end9:                                          ; preds = %if.end, %lor.lhs.false.i, %if.then8, %land.lhs.true, %pci_is_express_downstream_port.exit
@@ -1979,7 +1979,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
   br label %for.body
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.1, i32 noundef 1594, ptr noundef nonnull @__PRETTY_FUNCTION__.pci_default_write_config) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.1, i32 noundef 1594, ptr noundef nonnull @__PRETTY_FUNCTION__.pci_default_write_config) #24
   unreachable
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end12
@@ -1999,7 +1999,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   br i1 %tobool.not, label %if.end12, label %if.else11
 
 if.else11:                                        ; preds = %for.body
-  tail call void @__assert_fail(ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.1, i32 noundef 1599, ptr noundef nonnull @__PRETTY_FUNCTION__.pci_default_write_config) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.1, i32 noundef 1599, ptr noundef nonnull @__PRETTY_FUNCTION__.pci_default_write_config) #24
   unreachable
 
 if.end12:                                         ; preds = %for.body
@@ -2119,13 +2119,13 @@ land.rhs:                                         ; preds = %pci_update_irq_disa
 
 land.end:                                         ; preds = %land.rhs, %pci_update_irq_disabled.exit
   %22 = phi i1 [ false, %pci_update_irq_disabled.exit ], [ %tobool66, %land.rhs ]
-  tail call void @memory_region_set_enabled(ptr noundef nonnull %bus_master_enable_region, i1 noundef zeroext %22) #23
+  tail call void @memory_region_set_enabled(ptr noundef nonnull %bus_master_enable_region, i1 noundef zeroext %22) #25
   br label %if.end68
 
 if.end68:                                         ; preds = %land.end, %if.end55
-  tail call void @msi_write_config(ptr noundef nonnull %d, i32 noundef %addr, i32 noundef %val_in, i32 noundef %l) #23
-  tail call void @msix_write_config(ptr noundef nonnull %d, i32 noundef %addr, i32 noundef %val_in, i32 noundef %l) #23
-  tail call void @pcie_sriov_config_write(ptr noundef nonnull %d, i32 noundef %addr, i32 noundef %val_in, i32 noundef %l) #23
+  tail call void @msi_write_config(ptr noundef nonnull %d, i32 noundef %addr, i32 noundef %val_in, i32 noundef %l) #25
+  tail call void @msix_write_config(ptr noundef nonnull %d, i32 noundef %addr, i32 noundef %val_in, i32 noundef %l) #25
+  tail call void @pcie_sriov_config_write(ptr noundef nonnull %d, i32 noundef %addr, i32 noundef %val_in, i32 noundef %l) #25
   ret void
 }
 
@@ -2167,14 +2167,14 @@ if.end7:                                          ; preds = %if.end
   br i1 %cmp9.not, label %if.end16, label %if.then10
 
 if.then10:                                        ; preds = %if.end7
-  %call.i.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %d, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #23
-  %call1.i.i = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i.i) #23
-  %call.i1.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1.i.i, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #23
-  %call.i.i1.i = tail call ptr @object_get_class(ptr noundef %call.i1.i.i) #23
-  %call1.i.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i1.i, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS_GET_CLASS) #23
+  %call.i.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %d, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #25
+  %call1.i.i = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i.i) #25
+  %call.i1.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1.i.i, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #25
+  %call.i.i1.i = tail call ptr @object_get_class(ptr noundef %call.i1.i.i) #25
+  %call1.i.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i1.i, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS_GET_CLASS) #25
   %bus_num.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 160
   %5 = load ptr, ptr %bus_num.i.i, align 8
-  %call1.i2.i = tail call i32 %5(ptr noundef %call.i1.i.i) #23
+  %call1.i2.i = tail call i32 %5(ptr noundef %call.i1.i.i) #25
   %6 = load i32, ptr %devfn, align 16
   %shr = lshr i32 %6, 3
   %and = and i32 %shr, 31
@@ -2201,15 +2201,15 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #23
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #23
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #25
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #25
   %13 = load i64, ptr %_now.i.i, align 8
   %14 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.63, i32 noundef %call10.i.i, i64 noundef %13, i64 noundef %14, ptr noundef nonnull %name, i32 noundef %call1.i2.i, i32 noundef %and, i32 noundef %and13, i32 noundef %2, i64 noundef %7, i64 noundef %8) #23
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.63, i32 noundef %call10.i.i, i64 noundef %13, i64 noundef %14, ptr noundef nonnull %name, i32 noundef %call1.i2.i, i32 noundef %and, i32 noundef %and13, i32 noundef %2, i64 noundef %7, i64 noundef %8) #25
   br label %trace_pci_update_mappings_del.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.64, ptr noundef nonnull %name, i32 noundef %call1.i2.i, i32 noundef %and, i32 noundef %and13, i32 noundef %2, i64 noundef %7, i64 noundef %8) #23
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.64, ptr noundef nonnull %name, i32 noundef %call1.i2.i, i32 noundef %and, i32 noundef %and13, i32 noundef %2, i64 noundef %7, i64 noundef %8) #25
   br label %trace_pci_update_mappings_del.exit
 
 trace_pci_update_mappings_del.exit:               ; preds = %if.then10, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -2218,7 +2218,7 @@ trace_pci_update_mappings_del.exit:               ; preds = %if.then10, %land.lh
   %15 = load ptr, ptr %address_space, align 8
   %memory = getelementptr inbounds i8, ptr %arrayidx, i64 24
   %16 = load ptr, ptr %memory, align 8
-  tail call void @memory_region_del_subregion(ptr noundef %15, ptr noundef %16) #23
+  tail call void @memory_region_del_subregion(ptr noundef %15, ptr noundef %16) #25
   br label %if.end16
 
 if.end16:                                         ; preds = %trace_pci_update_mappings_del.exit, %if.end7
@@ -2227,14 +2227,14 @@ if.end16:                                         ; preds = %trace_pci_update_ma
   br i1 %cmp19.not, label %for.inc, label %if.then20
 
 if.then20:                                        ; preds = %if.end16
-  %call.i.i.i34 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %d, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #23
-  %call1.i.i35 = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i.i34) #23
-  %call.i1.i.i36 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1.i.i35, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #23
-  %call.i.i1.i37 = tail call ptr @object_get_class(ptr noundef %call.i1.i.i36) #23
-  %call1.i.i.i38 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i1.i37, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS_GET_CLASS) #23
+  %call.i.i.i34 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %d, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #25
+  %call1.i.i35 = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i.i34) #25
+  %call.i1.i.i36 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1.i.i35, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #25
+  %call.i.i1.i37 = tail call ptr @object_get_class(ptr noundef %call.i1.i.i36) #25
+  %call1.i.i.i38 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i1.i37, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS_GET_CLASS) #25
   %bus_num.i.i39 = getelementptr inbounds i8, ptr %call1.i.i.i38, i64 160
   %17 = load ptr, ptr %bus_num.i.i39, align 8
-  %call1.i2.i40 = tail call i32 %17(ptr noundef %call.i1.i.i36) #23
+  %call1.i2.i40 = tail call i32 %17(ptr noundef %call.i1.i.i36) #25
   %18 = load i32, ptr %devfn, align 16
   %shr25 = lshr i32 %18, 3
   %and26 = and i32 %shr25, 31
@@ -2261,15 +2261,15 @@ if.then.i.i48:                                    ; preds = %land.lhs.true5.i.i4
   br i1 %tobool7.i.i49, label %if.then8.i.i51, label %if.else.i.i50
 
 if.then8.i.i51:                                   ; preds = %if.then.i.i48
-  %call9.i.i52 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i41, ptr noundef null) #23
-  %call10.i.i53 = tail call i32 @qemu_get_thread_id() #23
+  %call9.i.i52 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i41, ptr noundef null) #25
+  %call10.i.i53 = tail call i32 @qemu_get_thread_id() #25
   %25 = load i64, ptr %_now.i.i41, align 8
   %26 = load i64, ptr %tv_usec.i.i54, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.65, i32 noundef %call10.i.i53, i64 noundef %25, i64 noundef %26, ptr noundef nonnull %name, i32 noundef %call1.i2.i40, i32 noundef %and26, i32 noundef %and28, i32 noundef %2, i64 noundef %19, i64 noundef %20) #23
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.65, i32 noundef %call10.i.i53, i64 noundef %25, i64 noundef %26, ptr noundef nonnull %name, i32 noundef %call1.i2.i40, i32 noundef %and26, i32 noundef %and28, i32 noundef %2, i64 noundef %19, i64 noundef %20) #25
   br label %trace_pci_update_mappings_add.exit
 
 if.else.i.i50:                                    ; preds = %if.then.i.i48
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.66, ptr noundef nonnull %name, i32 noundef %call1.i2.i40, i32 noundef %and26, i32 noundef %and28, i32 noundef %2, i64 noundef %19, i64 noundef %20) #23
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.66, ptr noundef nonnull %name, i32 noundef %call1.i2.i40, i32 noundef %and26, i32 noundef %and28, i32 noundef %2, i64 noundef %19, i64 noundef %20) #25
   br label %trace_pci_update_mappings_add.exit
 
 trace_pci_update_mappings_add.exit:               ; preds = %if.then20, %land.lhs.true5.i.i45, %if.then8.i.i51, %if.else.i.i50
@@ -2279,7 +2279,7 @@ trace_pci_update_mappings_add.exit:               ; preds = %if.then20, %land.lh
   %28 = load i64, ptr %arrayidx, align 8
   %memory33 = getelementptr inbounds i8, ptr %arrayidx, i64 24
   %29 = load ptr, ptr %memory33, align 8
-  tail call void @memory_region_add_subregion_overlap(ptr noundef %27, i64 noundef %28, ptr noundef %29, i32 noundef 1) #23
+  tail call void @memory_region_add_subregion_overlap(ptr noundef %27, i64 noundef %28, ptr noundef %29, i32 noundef 1) #25
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end16, %trace_pci_update_mappings_add.exit, %if.end, %for.body
@@ -2303,15 +2303,15 @@ if.end.i:                                         ; preds = %for.end
   %conv.i = zext i16 %add.ptr.val.i to i32
   %and.i = and i32 %conv.i, 2
   %tobool1.i = icmp ne i32 %and.i, 0
-  tail call void @memory_region_set_enabled(ptr noundef %32, i1 noundef zeroext %tobool1.i) #23
+  tail call void @memory_region_set_enabled(ptr noundef %32, i1 noundef zeroext %tobool1.i) #25
   %arrayidx3.i = getelementptr i8, ptr %d, i64 1240
   %33 = load ptr, ptr %arrayidx3.i, align 8
   %and5.i = and i32 %conv.i, 1
   %tobool6.i = icmp ne i32 %and5.i, 0
-  tail call void @memory_region_set_enabled(ptr noundef %33, i1 noundef zeroext %tobool6.i) #23
+  tail call void @memory_region_set_enabled(ptr noundef %33, i1 noundef zeroext %tobool6.i) #25
   %arrayidx8.i = getelementptr i8, ptr %d, i64 1248
   %34 = load ptr, ptr %arrayidx8.i, align 16
-  tail call void @memory_region_set_enabled(ptr noundef %34, i1 noundef zeroext %tobool6.i) #23
+  tail call void @memory_region_set_enabled(ptr noundef %34, i1 noundef zeroext %tobool6.i) #25
   br label %pci_update_vga.exit
 
 pci_update_vga.exit:                              ; preds = %for.end, %if.end.i
@@ -2339,11 +2339,11 @@ entry:
   br i1 %or.cond, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.1, i32 noundef 1646, ptr noundef nonnull @__PRETTY_FUNCTION__.pci_allocate_irq) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.1, i32 noundef 1646, ptr noundef nonnull @__PRETTY_FUNCTION__.pci_allocate_irq) #24
   unreachable
 
 if.end:                                           ; preds = %entry
-  %call2 = tail call ptr @qemu_allocate_irq(ptr noundef nonnull @pci_irq_handler, ptr noundef nonnull %pci_dev, i32 noundef %sub.i) #23
+  %call2 = tail call ptr @qemu_allocate_irq(ptr noundef nonnull @pci_irq_handler, ptr noundef nonnull %pci_dev, i32 noundef %sub.i) #25
   ret ptr %call2
 }
 
@@ -2362,7 +2362,7 @@ entry:
   br i1 %or.cond.i, label %if.end.i, label %if.else.i
 
 if.else.i:                                        ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.1, i32 noundef 1630, ptr noundef nonnull @__PRETTY_FUNCTION__.pci_irq_handler) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.1, i32 noundef 1630, ptr noundef nonnull @__PRETTY_FUNCTION__.pci_irq_handler) #24
   unreachable
 
 if.end.i:                                         ; preds = %entry
@@ -2370,7 +2370,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %or.cond1.i, label %if.end6.i, label %if.else5.i
 
 if.else5.i:                                       ; preds = %if.end.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.1, i32 noundef 1631, ptr noundef nonnull @__PRETTY_FUNCTION__.pci_irq_handler) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.1, i32 noundef 1631, ptr noundef nonnull @__PRETTY_FUNCTION__.pci_irq_handler) #24
   unreachable
 
 if.end6.i:                                        ; preds = %if.end.i
@@ -2424,7 +2424,7 @@ entry:
   br i1 %tobool.i.not, label %if.else, label %if.end
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.1, i32 noundef 1660, ptr noundef nonnull @__PRETTY_FUNCTION__.pci_bus_set_route_irq_fn) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.1, i32 noundef 1660, ptr noundef nonnull @__PRETTY_FUNCTION__.pci_bus_set_route_irq_fn) #24
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -2443,13 +2443,13 @@ entry:
 do.body:                                          ; preds = %trace_pci_route_irq.exit, %entry
   %dev.addr.0 = phi ptr [ %dev, %entry ], [ %11, %trace_pci_route_irq.exit ]
   %pin.addr.0 = phi i32 [ %pin, %entry ], [ %call1, %trace_pci_route_irq.exit ]
-  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev.addr.0, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #23
-  %call1.i = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i) #23
-  %call.i1.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1.i, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #23
+  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev.addr.0, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #25
+  %call1.i = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i) #25
+  %call.i1.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1.i, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #25
   %map_irq = getelementptr inbounds i8, ptr %call.i1.i, i64 160
   %0 = load ptr, ptr %map_irq, align 8
-  %call1 = tail call i32 %0(ptr noundef %dev.addr.0, i32 noundef %pin.addr.0) #23
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev.addr.0, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #23
+  %call1 = tail call i32 %0(ptr noundef %dev.addr.0, i32 noundef %pin.addr.0) #25
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev.addr.0, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #25
   %canonical_path = getelementptr inbounds i8, ptr %call.i, i64 48
   %1 = load ptr, ptr %canonical_path, align 8
   %2 = getelementptr i8, ptr %call.i1.i, i64 120
@@ -2461,7 +2461,7 @@ do.body:                                          ; preds = %trace_pci_route_irq
 cond.false:                                       ; preds = %do.body
   %parent_dev = getelementptr inbounds i8, ptr %call.i1.i, i64 2232
   %3 = load ptr, ptr %parent_dev, align 8
-  %call.i15 = tail call ptr @object_dynamic_cast_assert(ptr noundef %3, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #23
+  %call.i15 = tail call ptr @object_dynamic_cast_assert(ptr noundef %3, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #25
   %canonical_path5 = getelementptr inbounds i8, ptr %call.i15, i64 48
   %4 = load ptr, ptr %canonical_path5, align 8
   br label %cond.end
@@ -2488,15 +2488,15 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #23
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #23
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #25
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #25
   %9 = load i64, ptr %_now.i.i, align 8
   %10 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.70, i32 noundef %call10.i.i, i64 noundef %9, i64 noundef %10, i32 noundef %pin.addr.0, ptr noundef %1, i32 noundef %call1, ptr noundef %cond) #23
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.70, i32 noundef %call10.i.i, i64 noundef %9, i64 noundef %10, i32 noundef %pin.addr.0, ptr noundef %1, i32 noundef %call1, ptr noundef %cond) #25
   br label %trace_pci_route_irq.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.71, i32 noundef %pin.addr.0, ptr noundef %1, i32 noundef %call1, ptr noundef %cond) #23
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.71, i32 noundef %pin.addr.0, ptr noundef %1, i32 noundef %call1, ptr noundef %cond) #25
   br label %trace_pci_route_irq.exit
 
 trace_pci_route_irq.exit:                         ; preds = %cond.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -2515,14 +2515,14 @@ do.end:                                           ; preds = %trace_pci_route_irq
 if.then:                                          ; preds = %do.end
   %parent = getelementptr inbounds i8, ptr %call.i1.i, i64 40
   %13 = load ptr, ptr %parent, align 8
-  %call8 = tail call ptr @object_get_typename(ptr noundef %13) #23
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.27, ptr noundef %call8) #23
+  %call8 = tail call ptr @object_get_typename(ptr noundef %13) #25
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.27, ptr noundef %call8) #25
   br label %return
 
 if.end:                                           ; preds = %do.end
   %irq_opaque = getelementptr inbounds i8, ptr %call.i1.i, i64 176
   %14 = load ptr, ptr %irq_opaque, align 8
-  %call10 = tail call i64 %12(ptr noundef %14, i32 noundef %call1) #23
+  %call10 = tail call i64 %12(ptr noundef %14, i32 noundef %call1) #25
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
@@ -2575,7 +2575,7 @@ land.lhs.true:                                    ; preds = %for.body
   br i1 %tobool2.not, label %for.inc, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  tail call void %1(ptr noundef nonnull %0) #23
+  tail call void %1(ptr noundef nonnull %0) #25
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %land.lhs.true, %if.then
@@ -2636,7 +2636,7 @@ for.body:                                         ; preds = %entry, %for.inc
   br i1 %tobool.not, label %for.inc, label %if.then
 
 if.then:                                          ; preds = %for.body
-  tail call void %fn(ptr noundef nonnull %bus, ptr noundef nonnull %1, ptr noundef %opaque) #23
+  tail call void %fn(ptr noundef nonnull %bus, ptr noundef nonnull %1, ptr noundef %opaque) #25
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then
@@ -2668,7 +2668,7 @@ for.body.i:                                       ; preds = %for.inc.i, %if.then
   br i1 %tobool.not.i, label %for.inc.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body.i
-  tail call void %fn(ptr noundef nonnull %call, ptr noundef nonnull %1, ptr noundef %opaque) #23
+  tail call void %fn(ptr noundef nonnull %call, ptr noundef nonnull %1, ptr noundef %opaque) #25
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then.i, %for.body.i
@@ -2687,11 +2687,11 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call.i.i = tail call ptr @object_get_class(ptr noundef nonnull %bus) #23
-  %call1.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS_GET_CLASS) #23
+  %call.i.i = tail call ptr @object_get_class(ptr noundef nonnull %bus) #25
+  %call1.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS_GET_CLASS) #25
   %bus_num.i = getelementptr inbounds i8, ptr %call1.i.i, i64 160
   %0 = load ptr, ptr %bus_num.i, align 8
-  %call1.i = tail call i32 %0(ptr noundef nonnull %bus) #23
+  %call1.i = tail call i32 %0(ptr noundef nonnull %bus) #25
   %cmp = icmp eq i32 %call1.i, %bus_num
   br i1 %cmp, label %return, label %if.end2
 
@@ -2735,11 +2735,11 @@ if.end6:                                          ; preds = %pci_secondary_bus_i
 
 for.body10:                                       ; preds = %if.end6, %for.body10.backedge
   %sec.044 = phi ptr [ %sec.044.be, %for.body10.backedge ], [ %sec.04257, %if.end6 ]
-  %call.i.i19 = tail call ptr @object_get_class(ptr noundef nonnull %sec.044) #23
-  %call1.i.i20 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i19, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS_GET_CLASS) #23
+  %call.i.i19 = tail call ptr @object_get_class(ptr noundef nonnull %sec.044) #25
+  %call1.i.i20 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i19, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS_GET_CLASS) #25
   %bus_num.i21 = getelementptr inbounds i8, ptr %call1.i.i20, i64 160
   %7 = load ptr, ptr %bus_num.i21, align 8
-  %call1.i22 = tail call i32 %7(ptr noundef nonnull %sec.044) #23
+  %call1.i22 = tail call i32 %7(ptr noundef nonnull %sec.044) #25
   %cmp12 = icmp eq i32 %call1.i22, %bus_num
   br i1 %cmp12, label %return, label %if.end14
 
@@ -2763,7 +2763,7 @@ for.body.i:                                       ; preds = %for.inc.i, %if.then
   br i1 %tobool.not.i26, label %for.inc.i, label %land.lhs.true.i27
 
 land.lhs.true.i27:                                ; preds = %for.body.i
-  %call.i = tail call ptr @object_dynamic_cast(ptr noundef nonnull %9, ptr noundef nonnull @.str.7) #23
+  %call.i = tail call ptr @object_dynamic_cast(ptr noundef nonnull %9, ptr noundef nonnull @.str.7) #25
   %tobool2.not.i = icmp eq ptr %call.i, null
   br i1 %tobool2.not.i, label %for.inc.i, label %if.then.i
 
@@ -2860,7 +2860,7 @@ for.body:                                         ; preds = %entry, %for.inc
   br i1 %tobool.not, label %for.inc, label %if.then
 
 if.then:                                          ; preds = %for.body
-  tail call void %fn(ptr noundef nonnull %bus, ptr noundef nonnull %0, ptr noundef %opaque) #23
+  tail call void %fn(ptr noundef nonnull %bus, ptr noundef nonnull %0, ptr noundef %opaque) #25
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then
@@ -2891,7 +2891,7 @@ for.body.i:                                       ; preds = %for.inc.i, %if.then
   br i1 %tobool.not.i, label %for.inc.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body.i
-  tail call void %fn(ptr noundef nonnull %call, ptr noundef nonnull %0, ptr noundef %opaque) #23
+  tail call void %fn(ptr noundef nonnull %call, ptr noundef nonnull %0, ptr noundef %opaque) #25
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then.i, %for.body.i
@@ -2941,36 +2941,36 @@ entry:
   br i1 %tobool3.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(7) @.str.28) #25
+  %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(7) @.str.28) #28
   %tobool5.not = icmp eq i32 %call, 0
   br i1 %tobool5.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.lhs.true
-  tail call void @g_free(ptr noundef nonnull %1) #23
-  %call7 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.29) #23
+  tail call void @g_free(ptr noundef nonnull %1) #25
+  %call7 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.29) #25
   store ptr %call7, ptr %model, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %land.lhs.true, %entry
-  %call9 = tail call ptr @qemu_get_nic_models(ptr noundef nonnull @.str.30) #23
+  %call9 = tail call ptr @qemu_get_nic_models(ptr noundef nonnull @.str.30) #25
   %2 = load ptr, ptr %model, align 8
   %3 = load ptr, ptr %call9, align 8
-  %call11 = tail call i32 @qemu_show_nic_models(ptr noundef %2, ptr noundef %3) #23
+  %call11 = tail call i32 @qemu_show_nic_models(ptr noundef %2, ptr noundef %3) #25
   %tobool12.not = icmp eq i32 %call11, 0
   br i1 %tobool12.not, label %if.end14, label %if.then13
 
 if.then13:                                        ; preds = %if.end
-  tail call void @exit(i32 noundef 0) #22
+  tail call void @exit(i32 noundef 0) #24
   unreachable
 
 if.end14:                                         ; preds = %if.end
   %4 = load ptr, ptr %call9, align 8
-  %call16 = tail call i32 @qemu_find_nic_model(ptr noundef nonnull %nd, ptr noundef %4, ptr noundef %default_model) #23
+  %call16 = tail call i32 @qemu_find_nic_model(ptr noundef nonnull %nd, ptr noundef %4, ptr noundef %default_model) #25
   %cmp = icmp slt i32 %call16, 0
   br i1 %cmp, label %if.then17, label %if.end18
 
 if.then17:                                        ; preds = %if.end14
-  tail call void @exit(i32 noundef 1) #22
+  tail call void @exit(i32 noundef 1) #27
   unreachable
 
 if.end18:                                         ; preds = %if.end14
@@ -2978,8 +2978,8 @@ if.end18:                                         ; preds = %if.end14
   br i1 %tobool19.not, label %if.then20, label %if.end21
 
 if.then20:                                        ; preds = %if.end18
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.31) #23
-  tail call void @exit(i32 noundef 1) #22
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.31) #25
+  tail call void @exit(i32 noundef 1) #27
   unreachable
 
 if.end21:                                         ; preds = %if.end18
@@ -2989,7 +2989,7 @@ if.end21:                                         ; preds = %if.end18
   br i1 %tobool22.not, label %if.end24, label %if.else
 
 if.else:                                          ; preds = %if.end21
-  tail call void @__assert_fail(ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.1, i32 noundef 1893, ptr noundef nonnull @__PRETTY_FUNCTION__.pci_nic_init_nofail) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.1, i32 noundef 1893, ptr noundef nonnull @__PRETTY_FUNCTION__.pci_nic_init_nofail) #24
   unreachable
 
 if.end24:                                         ; preds = %if.end21
@@ -2998,7 +2998,7 @@ if.end24:                                         ; preds = %if.end21
 
 if.else27:                                        ; preds = %if.end24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %e.i)
-  %call.i = call i64 @strtoul(ptr noundef nonnull %default_devaddr., ptr noundef nonnull %e.i, i32 noundef 16) #23
+  %call.i = call i64 @strtoul(ptr noundef nonnull %default_devaddr., ptr noundef nonnull %e.i, i32 noundef 16) #25
   %6 = load ptr, ptr %e.i, align 8
   %cmp.i = icmp eq ptr %6, %default_devaddr.
   br i1 %cmp.i, label %if.then30, label %if.end.i
@@ -3010,7 +3010,7 @@ if.end.i:                                         ; preds = %if.else27
 
 if.then3.i:                                       ; preds = %if.end.i
   %add.ptr.i = getelementptr i8, ptr %6, i64 1
-  %call4.i = call i64 @strtoul(ptr noundef %add.ptr.i, ptr noundef nonnull %e.i, i32 noundef 16) #23
+  %call4.i = call i64 @strtoul(ptr noundef %add.ptr.i, ptr noundef nonnull %e.i, i32 noundef 16) #25
   %8 = load ptr, ptr %e.i, align 8
   %cmp5.i = icmp eq ptr %8, %add.ptr.i
   br i1 %cmp5.i, label %if.then30, label %if.end8.i
@@ -3022,7 +3022,7 @@ if.end8.i:                                        ; preds = %if.then3.i
 
 if.then12.i:                                      ; preds = %if.end8.i
   %add.ptr13.i = getelementptr i8, ptr %8, i64 1
-  %call14.i = call i64 @strtoul(ptr noundef %add.ptr13.i, ptr noundef nonnull %e.i, i32 noundef 16) #23
+  %call14.i = call i64 @strtoul(ptr noundef %add.ptr13.i, ptr noundef nonnull %e.i, i32 noundef 16) #25
   %10 = load ptr, ptr %e.i, align 8
   %cmp15.i = icmp eq ptr %10, %add.ptr13.i
   br i1 %cmp15.i, label %if.then30, label %if.end20.i
@@ -3048,8 +3048,8 @@ if.end49.i:                                       ; preds = %if.end20.i
 if.then30:                                        ; preds = %if.else27, %if.then3.i, %if.then12.i, %if.end20.i, %if.end49.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %e.i)
   %13 = load ptr, ptr %model, align 8
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.33, ptr noundef nonnull %default_devaddr., ptr noundef %13) #23
-  tail call void @exit(i32 noundef 1) #22
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.33, ptr noundef nonnull %default_devaddr., ptr noundef %13) #25
+  tail call void @exit(i32 noundef 1) #27
   unreachable
 
 if.end32:                                         ; preds = %if.end49.i
@@ -3058,8 +3058,8 @@ if.end32:                                         ; preds = %if.end49.i
   br i1 %cmp33.not, label %if.end35, label %if.then34
 
 if.then34:                                        ; preds = %if.end32
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.34) #23
-  tail call void @exit(i32 noundef 1) #22
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.34) #25
+  tail call void @exit(i32 noundef 1) #27
   unreachable
 
 if.end35:                                         ; preds = %if.end32
@@ -3076,18 +3076,18 @@ if.end36:                                         ; preds = %if.end24, %if.end35
   br i1 %tobool38.not, label %if.then39, label %if.end41
 
 if.then39:                                        ; preds = %if.end36
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.33, ptr noundef %default_devaddr., ptr noundef %14) #23
-  tail call void @exit(i32 noundef 1) #22
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.33, ptr noundef %default_devaddr., ptr noundef %14) #25
+  tail call void @exit(i32 noundef 1) #27
   unreachable
 
 if.end41:                                         ; preds = %if.end36
-  %call.i.i = tail call ptr @qdev_new(ptr noundef %14) #23
-  tail call void @qdev_prop_set_int32(ptr noundef %call.i.i, ptr noundef nonnull @.str.162, i32 noundef %devfn.0) #23
-  tail call void @qdev_prop_set_bit(ptr noundef %call.i.i, ptr noundef nonnull @.str.163, i1 noundef zeroext false) #23
-  %call.i.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.164, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #23
-  tail call void @qdev_set_nic_properties(ptr noundef %call.i.i.i, ptr noundef nonnull %nd) #23
-  %call.i23 = tail call zeroext i1 @qdev_realize_and_unref(ptr noundef %call.i.i.i, ptr noundef nonnull %call37, ptr noundef nonnull @error_fatal) #23
-  %call45 = tail call ptr @g_ptr_array_free(ptr noundef nonnull %call9, i32 noundef 1) #23
+  %call.i.i = tail call ptr @qdev_new(ptr noundef %14) #25
+  tail call void @qdev_prop_set_int32(ptr noundef %call.i.i, ptr noundef nonnull @.str.162, i32 noundef %devfn.0) #25
+  tail call void @qdev_prop_set_bit(ptr noundef %call.i.i, ptr noundef nonnull @.str.163, i1 noundef zeroext false) #25
+  %call.i.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.164, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #25
+  tail call void @qdev_set_nic_properties(ptr noundef %call.i.i.i, ptr noundef nonnull %nd) #25
+  %call.i23 = tail call zeroext i1 @qdev_realize_and_unref(ptr noundef %call.i.i.i, ptr noundef nonnull %call37, ptr noundef nonnull @error_fatal) #25
+  %call45 = tail call ptr @g_ptr_array_free(ptr noundef nonnull %call9, i32 noundef 1) #25
   ret ptr %call.i.i.i
 }
 
@@ -3100,18 +3100,18 @@ declare ptr @qemu_get_nic_models(ptr noundef) local_unnamed_addr #2
 
 declare i32 @qemu_show_nic_models(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #1
+; Function Attrs: nofree noreturn nounwind
+declare void @exit(i32 noundef) local_unnamed_addr #10
 
 declare i32 @qemu_find_nic_model(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @pci_new(i32 noundef %devfn, ptr noundef %name) local_unnamed_addr #0 {
 entry:
-  %call.i = tail call ptr @qdev_new(ptr noundef %name) #23
-  tail call void @qdev_prop_set_int32(ptr noundef %call.i, ptr noundef nonnull @.str.162, i32 noundef %devfn) #23
-  tail call void @qdev_prop_set_bit(ptr noundef %call.i, ptr noundef nonnull @.str.163, i1 noundef zeroext false) #23
-  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.164, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #23
+  %call.i = tail call ptr @qdev_new(ptr noundef %name) #25
+  tail call void @qdev_prop_set_int32(ptr noundef %call.i, ptr noundef nonnull @.str.162, i32 noundef %devfn) #25
+  tail call void @qdev_prop_set_bit(ptr noundef %call.i, ptr noundef nonnull @.str.163, i1 noundef zeroext false) #25
+  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.164, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #25
   ret ptr %call.i.i
 }
 
@@ -3120,7 +3120,7 @@ declare void @qdev_set_nic_properties(ptr noundef, ptr noundef) local_unnamed_ad
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local zeroext i1 @pci_realize_and_unref(ptr noundef %dev, ptr noundef %bus, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %call = tail call zeroext i1 @qdev_realize_and_unref(ptr noundef %dev, ptr noundef %bus, ptr noundef %errp) #23
+  %call = tail call zeroext i1 @qdev_realize_and_unref(ptr noundef %dev, ptr noundef %bus, ptr noundef %errp) #25
   ret i1 %call
 }
 
@@ -3145,11 +3145,11 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %2 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds [9 x ptr], ptr @switch.table.pci_vga_init, i64 0, i64 %2
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %call.i.i.i14 = tail call ptr @qdev_new(ptr noundef nonnull %switch.load) #23
-  tail call void @qdev_prop_set_int32(ptr noundef %call.i.i.i14, ptr noundef nonnull @.str.162, i32 noundef -1) #23
-  tail call void @qdev_prop_set_bit(ptr noundef %call.i.i.i14, ptr noundef nonnull @.str.163, i1 noundef zeroext false) #23
-  %call.i.i.i.i15 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i.i.i14, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.164, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #23
-  %call.i.i16 = tail call zeroext i1 @qdev_realize_and_unref(ptr noundef %call.i.i.i.i15, ptr noundef %bus, ptr noundef nonnull @error_fatal) #23
+  %call.i.i.i14 = tail call ptr @qdev_new(ptr noundef nonnull %switch.load) #25
+  tail call void @qdev_prop_set_int32(ptr noundef %call.i.i.i14, ptr noundef nonnull @.str.162, i32 noundef -1) #25
+  tail call void @qdev_prop_set_bit(ptr noundef %call.i.i.i14, ptr noundef nonnull @.str.163, i1 noundef zeroext false) #25
+  %call.i.i.i.i15 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i.i.i14, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.164, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #25
+  %call.i.i16 = tail call zeroext i1 @qdev_realize_and_unref(ptr noundef %call.i.i.i.i15, ptr noundef %bus, ptr noundef nonnull @error_fatal) #25
   br label %return
 
 return:                                           ; preds = %switch.hole_check, %entry, %switch.lookup
@@ -3160,11 +3160,11 @@ return:                                           ; preds = %switch.hole_check, 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef ptr @pci_create_simple(ptr noundef %bus, i32 noundef %devfn, ptr noundef %name) local_unnamed_addr #0 {
 entry:
-  %call.i.i = tail call ptr @qdev_new(ptr noundef %name) #23
-  tail call void @qdev_prop_set_int32(ptr noundef %call.i.i, ptr noundef nonnull @.str.162, i32 noundef %devfn) #23
-  tail call void @qdev_prop_set_bit(ptr noundef %call.i.i, ptr noundef nonnull @.str.163, i1 noundef zeroext false) #23
-  %call.i.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.164, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #23
-  %call.i = tail call zeroext i1 @qdev_realize_and_unref(ptr noundef %call.i.i.i, ptr noundef %bus, ptr noundef nonnull @error_fatal) #23
+  %call.i.i = tail call ptr @qdev_new(ptr noundef %name) #25
+  tail call void @qdev_prop_set_int32(ptr noundef %call.i.i, ptr noundef nonnull @.str.162, i32 noundef %devfn) #25
+  tail call void @qdev_prop_set_bit(ptr noundef %call.i.i, ptr noundef nonnull @.str.163, i1 noundef zeroext false) #25
+  %call.i.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.164, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #25
+  %call.i = tail call zeroext i1 @qdev_realize_and_unref(ptr noundef %call.i.i.i, ptr noundef %bus, ptr noundef nonnull @error_fatal) #25
   ret ptr %call.i.i.i
 }
 
@@ -3179,7 +3179,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool1.not, label %if.end3, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %call = tail call ptr %begin(ptr noundef nonnull %bus, ptr noundef %parent_state) #23
+  %call = tail call ptr %begin(ptr noundef nonnull %bus, ptr noundef %parent_state) #25
   br label %if.end3
 
 if.end3:                                          ; preds = %if.end, %if.then2
@@ -3202,7 +3202,7 @@ for.end:                                          ; preds = %for.body, %if.end3
   br i1 %tobool5.not, label %if.end7, label %if.then6
 
 if.then6:                                         ; preds = %for.end
-  tail call void %end(ptr noundef nonnull %bus, ptr noundef %state.0) #23
+  tail call void %end(ptr noundef nonnull %bus, ptr noundef %state.0) #25
   br label %if.end7
 
 if.end7:                                          ; preds = %entry, %if.then6, %for.end
@@ -3231,10 +3231,10 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @pci_new_multifunction(i32 noundef %devfn, ptr noundef %name) local_unnamed_addr #0 {
 entry:
-  %call.i = tail call ptr @qdev_new(ptr noundef %name) #23
-  tail call void @qdev_prop_set_int32(ptr noundef %call.i, ptr noundef nonnull @.str.162, i32 noundef %devfn) #23
-  tail call void @qdev_prop_set_bit(ptr noundef %call.i, ptr noundef nonnull @.str.163, i1 noundef zeroext true) #23
-  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.164, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #23
+  %call.i = tail call ptr @qdev_new(ptr noundef %name) #25
+  tail call void @qdev_prop_set_int32(ptr noundef %call.i, ptr noundef nonnull @.str.162, i32 noundef %devfn) #25
+  tail call void @qdev_prop_set_bit(ptr noundef %call.i, ptr noundef nonnull @.str.163, i1 noundef zeroext true) #25
+  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.164, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #25
   ret ptr %call.i.i
 }
 
@@ -3243,11 +3243,11 @@ declare zeroext i1 @qdev_realize_and_unref(ptr noundef, ptr noundef, ptr noundef
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef ptr @pci_create_simple_multifunction(ptr noundef %bus, i32 noundef %devfn, ptr noundef %name) local_unnamed_addr #0 {
 entry:
-  %call.i.i = tail call ptr @qdev_new(ptr noundef %name) #23
-  tail call void @qdev_prop_set_int32(ptr noundef %call.i.i, ptr noundef nonnull @.str.162, i32 noundef %devfn) #23
-  tail call void @qdev_prop_set_bit(ptr noundef %call.i.i, ptr noundef nonnull @.str.163, i1 noundef zeroext true) #23
-  %call.i.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.164, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #23
-  %call.i = tail call zeroext i1 @qdev_realize_and_unref(ptr noundef %call.i.i.i, ptr noundef %bus, ptr noundef nonnull @error_fatal) #23
+  %call.i.i = tail call ptr @qdev_new(ptr noundef %name) #25
+  tail call void @qdev_prop_set_int32(ptr noundef %call.i.i, ptr noundef nonnull @.str.162, i32 noundef %devfn) #25
+  tail call void @qdev_prop_set_bit(ptr noundef %call.i.i, ptr noundef nonnull @.str.163, i1 noundef zeroext true) #25
+  %call.i.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.164, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #25
+  %call.i = tail call zeroext i1 @qdev_realize_and_unref(ptr noundef %call.i.i.i, ptr noundef %bus, ptr noundef nonnull @error_fatal) #25
   ret ptr %call.i.i.i
 }
 
@@ -3303,7 +3303,7 @@ pci_find_space.exit.if.end19_crit_edge:           ; preds = %pci_find_space.exit
   br label %if.end19
 
 if.else:                                          ; preds = %for.inc.i, %pci_find_space.exit
-  tail call void @__assert_fail(ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.1, i32 noundef 2460, ptr noundef nonnull @__PRETTY_FUNCTION__.pci_add_capability) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.1, i32 noundef 2460, ptr noundef nonnull @__PRETTY_FUNCTION__.pci_add_capability) #24
   unreachable
 
 if.else3:                                         ; preds = %entry
@@ -3344,7 +3344,7 @@ for.cond.preheader.i:                             ; preds = %if.end.i
   br i1 %tobool8.not9.i, label %for.inc, label %for.body.i37
 
 if.else.i39:                                      ; preds = %if.end.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.165, ptr noundef nonnull @.str.1, i32 noundef 2267, ptr noundef nonnull @__PRETTY_FUNCTION__.pci_find_capability_at_offset) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.165, ptr noundef nonnull @.str.1, i32 noundef 2267, ptr noundef nonnull @__PRETTY_FUNCTION__.pci_find_capability_at_offset) #24
   unreachable
 
 for.body.i37:                                     ; preds = %for.cond.preheader.i, %for.body.i37
@@ -3367,21 +3367,21 @@ pci_find_capability_at_offset.exit:               ; preds = %for.body.i37
 if.then11:                                        ; preds = %pci_find_capability_at_offset.exit
   %conv9 = zext i8 %found.1.i to i32
   %call12 = tail call ptr @pci_root_bus_path(ptr noundef %pdev)
-  %call.i.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %pdev, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #23
-  %call1.i.i = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i.i) #23
-  %call.i1.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1.i.i, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #23
-  %call.i.i1.i = tail call ptr @object_get_class(ptr noundef %call.i1.i.i) #23
-  %call1.i.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i1.i, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS_GET_CLASS) #23
+  %call.i.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %pdev, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #25
+  %call1.i.i = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i.i) #25
+  %call.i1.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1.i.i, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #25
+  %call.i.i1.i = tail call ptr @object_get_class(ptr noundef %call.i1.i.i) #25
+  %call1.i.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i1.i, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS_GET_CLASS) #25
   %bus_num.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 160
   %15 = load ptr, ptr %bus_num.i.i, align 8
-  %call1.i2.i = tail call i32 %15(ptr noundef %call.i1.i.i) #23
+  %call1.i2.i = tail call i32 %15(ptr noundef %call.i1.i.i) #25
   %devfn = getelementptr inbounds i8, ptr %pdev, i64 208
   %16 = load i32, ptr %devfn, align 16
   %shr = lshr i32 %16, 3
   %and = and i32 %shr, 31
   %and15 = and i32 %16, 7
   %conv16 = zext i8 %cap_id to i32
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 2474, ptr noundef nonnull @__func__.pci_add_capability, ptr noundef nonnull @.str.41, ptr noundef %call12, i32 noundef %call1.i2.i, i32 noundef %and, i32 noundef %and15, i32 noundef %conv16, i32 noundef %conv, i32 noundef %conv9, i32 noundef %i.048) #23
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 2474, ptr noundef nonnull @__func__.pci_add_capability, ptr noundef nonnull @.str.41, ptr noundef %call12, i32 noundef %call1.i2.i, i32 noundef %and, i32 noundef %and15, i32 noundef %conv16, i32 noundef %conv, i32 noundef %conv9, i32 noundef %i.048) #25
   br label %return
 
 for.inc:                                          ; preds = %for.cond.preheader.i, %for.body, %pci_find_capability_at_offset.exit
@@ -3435,10 +3435,10 @@ return:                                           ; preds = %if.end19, %if.then1
 declare void @error_setg_internal(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @pci_del_capability(ptr nocapture noundef readonly %pdev, i8 noundef zeroext %cap_id, i8 noundef zeroext %size) local_unnamed_addr #11 {
+define dso_local void @pci_del_capability(ptr nocapture noundef readonly %pdev, i8 noundef zeroext %cap_id, i8 noundef zeroext %size) local_unnamed_addr #12 {
 entry:
   %0 = getelementptr i8, ptr %pdev, i64 168
   %pdev.val = load ptr, ptr %0, align 8
@@ -3526,7 +3526,7 @@ if.end28:                                         ; preds = %for.inc.i, %for.con
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
-define dso_local zeroext i8 @pci_find_capability(ptr nocapture noundef readonly %pdev, i8 noundef zeroext %cap_id) local_unnamed_addr #12 {
+define dso_local zeroext i8 @pci_find_capability(ptr nocapture noundef readonly %pdev, i8 noundef zeroext %cap_id) local_unnamed_addr #13 {
 entry:
   %0 = getelementptr i8, ptr %pdev, i64 168
   %pdev.val = load ptr, ptr %0, align 8
@@ -3575,17 +3575,17 @@ for.body:                                         ; preds = %entry, %for.inc
   %rc.012 = phi i32 [ %rc.1, %for.inc ], [ -19, %entry ]
   %bus = getelementptr inbounds i8, ptr %host_bridge.013, i64 1640
   %0 = load ptr, ptr %bus, align 8
-  %call.i = tail call ptr @qdev_find_recursive(ptr noundef %0, ptr noundef %id) #23
+  %call.i = tail call ptr @qdev_find_recursive(ptr noundef %0, ptr noundef %id) #25
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i, label %for.inc, label %if.end.i
 
 if.end.i:                                         ; preds = %for.body
-  %call1.i = tail call ptr @object_dynamic_cast(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.30) #23
+  %call1.i = tail call ptr @object_dynamic_cast(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.30) #25
   %tobool2.not.i = icmp eq ptr %call1.i, null
   br i1 %tobool2.not.i, label %for.inc, label %pci_qdev_find_recursive.exit.thread7
 
 pci_qdev_find_recursive.exit.thread7:             ; preds = %if.end.i
-  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.164, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #23
+  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.164, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #25
   store ptr %call.i.i, ptr %pdev, align 8
   br label %for.end
 
@@ -3604,9 +3604,9 @@ for.end:                                          ; preds = %for.inc, %entry, %p
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @pci_address_space(ptr noundef %dev) local_unnamed_addr #0 {
 entry:
-  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #23
-  %call1.i = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i) #23
-  %call.i1.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1.i, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #23
+  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #25
+  %call1.i = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i) #25
+  %call.i1.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1.i, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #25
   %address_space_mem = getelementptr inbounds i8, ptr %call.i1.i, i64 2240
   %0 = load ptr, ptr %address_space_mem, align 8
   ret ptr %0
@@ -3615,9 +3615,9 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @pci_address_space_io(ptr noundef %dev) local_unnamed_addr #0 {
 entry:
-  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #23
-  %call1.i = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i) #23
-  %call.i1.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1.i, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #23
+  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #25
+  %call1.i = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i) #25
+  %call.i1.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1.i, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #25
   %address_space_io = getelementptr inbounds i8, ptr %call.i1.i, i64 2248
   %0 = load ptr, ptr %address_space_io, align 8
   ret ptr %0
@@ -3626,9 +3626,9 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @pci_device_iommu_address_space(ptr noundef %dev) local_unnamed_addr #0 {
 entry:
-  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #23
-  %call1.i = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i) #23
-  %call.i1.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1.i, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #23
+  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #25
+  %call1.i = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i) #25
+  %call.i1.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1.i, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #25
   %devfn1 = getelementptr inbounds i8, ptr %dev, i64 208
   %0 = load i32, ptr %devfn1, align 16
   %conv = trunc i32 %0 to i8
@@ -3651,10 +3651,10 @@ land.rhs:                                         ; preds = %land.lhs.true
   br i1 %tobool3.not, label %while.end, label %while.body
 
 while.body:                                       ; preds = %land.rhs
-  %call.i.i17 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %2, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #23
-  %call1.i18 = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i17) #23
-  %call.i1.i19 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1.i18, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #23
-  %call.i = tail call ptr @object_dynamic_cast(ptr noundef nonnull %iommu_bus.024, ptr noundef nonnull @.str.6) #23
+  %call.i.i17 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %2, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #25
+  %call1.i18 = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i17) #25
+  %call.i1.i19 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1.i18, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #25
+  %call.i = tail call ptr @object_dynamic_cast(ptr noundef nonnull %iommu_bus.024, ptr noundef nonnull @.str.6) #25
   %tobool.i.not = icmp eq ptr %call.i, null
   br i1 %tobool.i.not, label %if.then, label %if.end17
 
@@ -3667,7 +3667,7 @@ if.then:                                          ; preds = %while.body
   br i1 %tobool9.not, label %if.else, label %land.lhs.true10
 
 land.lhs.true10:                                  ; preds = %if.then
-  %call11 = tail call zeroext i8 @pcie_cap_get_type(ptr noundef nonnull %3) #23
+  %call11 = tail call zeroext i8 @pcie_cap_get_type(ptr noundef nonnull %3) #25
   %cmp = icmp eq i8 %call11, 7
   br i1 %cmp, label %if.end17, label %if.else
 
@@ -3703,14 +3703,14 @@ if.end.i:                                         ; preds = %if.then.i, %while.e
   %rootbus.0.i = phi ptr [ %bus.0.lcssa, %while.end ], [ %call1.i22, %if.then.i ]
   %parent.i = getelementptr inbounds i8, ptr %rootbus.0.i, i64 40
   %8 = load ptr, ptr %parent.i, align 8
-  %call.i.i20 = tail call ptr @object_dynamic_cast_assert(ptr noundef %8, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.47, i32 noundef 37, ptr noundef nonnull @__func__.PCI_HOST_BRIDGE) #23
+  %call.i.i20 = tail call ptr @object_dynamic_cast_assert(ptr noundef %8, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.47, i32 noundef 37, ptr noundef nonnull @__func__.PCI_HOST_BRIDGE) #25
   %bus3.i = getelementptr inbounds i8, ptr %call.i.i20, i64 1640
   %9 = load ptr, ptr %bus3.i, align 8
   %cmp.i = icmp eq ptr %9, %rootbus.0.i
   br i1 %cmp.i, label %pci_bus_bypass_iommu.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 497, ptr noundef nonnull @__PRETTY_FUNCTION__.pci_bus_bypass_iommu) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 497, ptr noundef nonnull @__PRETTY_FUNCTION__.pci_bus_bypass_iommu) #24
   unreachable
 
 pci_bus_bypass_iommu.exit:                        ; preds = %if.end.i
@@ -3730,7 +3730,7 @@ if.then22:                                        ; preds = %land.lhs.true19
   %iommu_opaque = getelementptr inbounds i8, ptr %iommu_bus.0.lcssa, i64 136
   %13 = load ptr, ptr %iommu_opaque, align 8
   %conv24 = zext i8 %devfn.0.lcssa to i32
-  %call25 = tail call ptr %12(ptr noundef nonnull %bus.0.lcssa, ptr noundef %13, i32 noundef %conv24) #23
+  %call25 = tail call ptr %12(ptr noundef nonnull %bus.0.lcssa, ptr noundef %13, i32 noundef %conv24) #25
   br label %return
 
 return:                                           ; preds = %pci_bus_bypass_iommu.exit, %land.lhs.true19, %if.then22
@@ -3747,7 +3747,7 @@ entry:
   br i1 %tobool.not, label %if.else, label %if.end
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.1, i32 noundef 2733, ptr noundef nonnull @__PRETTY_FUNCTION__.pci_setup_iommu) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.1, i32 noundef 2733, ptr noundef nonnull @__PRETTY_FUNCTION__.pci_setup_iommu) #24
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -3756,7 +3756,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool1.not, label %if.else3, label %if.end4
 
 if.else3:                                         ; preds = %if.end
-  tail call void @__assert_fail(ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.1, i32 noundef 2734, ptr noundef nonnull @__PRETTY_FUNCTION__.pci_setup_iommu) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.1, i32 noundef 2734, ptr noundef nonnull @__PRETTY_FUNCTION__.pci_setup_iommu) #24
   unreachable
 
 if.end4:                                          ; preds = %if.end
@@ -3799,13 +3799,13 @@ if.then.i:                                        ; preds = %for.body.i
   br i1 %tobool.not.i2, label %pci_dev_get_w64.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i
-  %call1.i = tail call ptr @object_dynamic_cast(ptr noundef nonnull %0, ptr noundef nonnull @.str.7) #23
+  %call1.i = tail call ptr @object_dynamic_cast(ptr noundef nonnull %0, ptr noundef nonnull @.str.7) #25
   %tobool2.not.i = icmp eq ptr %call1.i, null
   br i1 %tobool2.not.i, label %if.end11.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.end.i
-  %call4.i = tail call i64 @pci_bridge_get_base(ptr noundef nonnull %0, i8 noundef zeroext 8) #23
-  %call5.i = tail call i64 @pci_bridge_get_limit(ptr noundef nonnull %0, i8 noundef zeroext 8) #23
+  %call4.i = tail call i64 @pci_bridge_get_base(ptr noundef nonnull %0, i8 noundef zeroext 8) #25
+  %call5.i = tail call i64 @pci_bridge_get_limit(ptr noundef nonnull %0, i8 noundef zeroext 8) #25
   %cond.i = tail call i64 @llvm.umax.i64(i64 %call4.i, i64 4294967296)
   %cmp7.not.i = icmp ult i64 %call5.i, %cond.i
   br i1 %cmp7.not.i, label %if.end11.i, label %range_set_bounds.exit.i
@@ -3877,9 +3877,9 @@ pci_for_each_device_under_bus.exit:               ; preds = %for.inc.i
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @pci_get_function_0(ptr noundef %pci_dev) local_unnamed_addr #0 {
 entry:
-  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %pci_dev, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #23
-  %call1.i = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i) #23
-  %call.i1.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1.i, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #23
+  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %pci_dev, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #25
+  %call1.i = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i) #25
+  %call.i1.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1.i, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #25
   %call1 = tail call fastcc zeroext i1 @pcie_has_upstream_port(ptr noundef %pci_dev)
   %devices = getelementptr inbounds i8, ptr %call.i1.i, i64 184
   br i1 %call1, label %return, label %if.else
@@ -3901,10 +3901,10 @@ return:                                           ; preds = %entry, %if.else
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc zeroext i1 @pcie_has_upstream_port(ptr noundef %dev) unnamed_addr #0 {
 entry:
-  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #23
-  %call1.i = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i) #23
-  %call.i1.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1.i, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #23
-  %call1 = tail call ptr @pci_bridge_get_device(ptr noundef %call.i1.i) #23
+  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #25
+  %call1.i = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i) #25
+  %call.i1.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1.i, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #25
+  %call1 = tail call ptr @pci_bridge_get_device(ptr noundef %call.i1.i) #25
   %tobool.not = icmp eq ptr %call1, null
   br i1 %tobool.not, label %land.end, label %land.lhs.true
 
@@ -3922,12 +3922,12 @@ land.lhs.true4:                                   ; preds = %land.lhs.true
   br i1 %tobool5.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %land.lhs.true4
-  %call6 = tail call zeroext i8 @pcie_cap_get_type(ptr noundef nonnull %call1) #23
+  %call6 = tail call zeroext i8 @pcie_cap_get_type(ptr noundef nonnull %call1) #25
   %cmp = icmp eq i8 %call6, 4
   br i1 %cmp, label %land.end, label %lor.rhs
 
 lor.rhs:                                          ; preds = %land.rhs
-  %call9 = tail call zeroext i8 @pcie_cap_get_type(ptr noundef nonnull %call1) #23
+  %call9 = tail call zeroext i8 @pcie_cap_get_type(ptr noundef nonnull %call1) #25
   %cmp11 = icmp eq i8 %call9, 6
   br label %land.end
 
@@ -3939,25 +3939,25 @@ land.end:                                         ; preds = %land.rhs, %lor.rhs,
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local { i64, i32 } @pci_get_msi_message(ptr noundef %dev, i32 noundef %vector) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @msix_enabled(ptr noundef %dev) #23
+  %call = tail call i32 @msix_enabled(ptr noundef %dev) #25
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call1 = tail call { i64, i32 } @msix_get_message(ptr noundef %dev, i32 noundef %vector) #23
+  %call1 = tail call { i64, i32 } @msix_get_message(ptr noundef %dev, i32 noundef %vector) #25
   br label %if.end7
 
 if.else:                                          ; preds = %entry
-  %call2 = tail call zeroext i1 @msi_enabled(ptr noundef %dev) #23
+  %call2 = tail call zeroext i1 @msi_enabled(ptr noundef %dev) #25
   br i1 %call2, label %if.then3, label %if.else6
 
 if.then3:                                         ; preds = %if.else
-  %call5 = tail call { i64, i32 } @msi_get_message(ptr noundef %dev, i32 noundef %vector) #23
+  %call5 = tail call { i64, i32 } @msi_get_message(ptr noundef %dev, i32 noundef %vector) #25
   br label %if.end7
 
 if.else6:                                         ; preds = %if.else
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.44, ptr noundef nonnull @__func__.pci_get_msi_message) #23
-  tail call void @abort() #22
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.44, ptr noundef nonnull @__func__.pci_get_msi_message) #25
+  tail call void @abort() #24
   unreachable
 
 if.end7:                                          ; preds = %if.then3, %if.then
@@ -3973,8 +3973,8 @@ declare zeroext i1 @msi_enabled(ptr noundef) local_unnamed_addr #2
 
 declare { i64, i32 } @msi_get_message(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: noreturn nounwind
-declare void @abort() local_unnamed_addr #1
+; Function Attrs: cold nofree noreturn nounwind
+declare void @abort() local_unnamed_addr #14
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @pci_set_power(ptr noundef %d, i1 noundef zeroext %state) local_unnamed_addr #0 {
@@ -4005,13 +4005,13 @@ land.rhs:                                         ; preds = %if.end
 
 land.end:                                         ; preds = %land.rhs, %if.end
   %6 = phi i1 [ false, %if.end ], [ %tobool10, %land.rhs ]
-  tail call void @memory_region_set_enabled(ptr noundef nonnull %bus_master_enable_region, i1 noundef zeroext %6) #23
+  tail call void @memory_region_set_enabled(ptr noundef nonnull %bus_master_enable_region, i1 noundef zeroext %6) #25
   %7 = load i8, ptr %has_power, align 1
   %tobool13 = trunc i8 %7 to i1
   br i1 %tobool13, label %if.end15, label %if.then14
 
 if.then14:                                        ; preds = %land.end
-  tail call void @device_cold_reset(ptr noundef nonnull %d) #23
+  tail call void @device_cold_reset(ptr noundef nonnull %d) #25
   tail call fastcc void @pci_do_device_reset(ptr noundef nonnull %d)
   br label %if.end15
 
@@ -4022,7 +4022,7 @@ if.end15:                                         ; preds = %entry, %if.then14, 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @do_qemu_init_pci_register_types() #0 {
 entry:
-  tail call void @register_module_init(ptr noundef nonnull @pci_register_types, i32 noundef 3) #23
+  tail call void @register_module_init(ptr noundef nonnull @pci_register_types, i32 noundef 3) #25
   ret void
 }
 
@@ -4031,13 +4031,13 @@ declare void @register_module_init(ptr noundef, i32 noundef) local_unnamed_addr 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @pci_register_types() #0 {
 entry:
-  %call = tail call ptr @type_register_static(ptr noundef nonnull @pci_bus_info) #23
-  %call1 = tail call ptr @type_register_static(ptr noundef nonnull @pcie_bus_info) #23
-  %call2 = tail call ptr @type_register_static(ptr noundef nonnull @cxl_bus_info) #23
-  %call3 = tail call ptr @type_register_static(ptr noundef nonnull @conventional_pci_interface_info) #23
-  %call4 = tail call ptr @type_register_static(ptr noundef nonnull @cxl_interface_info) #23
-  %call5 = tail call ptr @type_register_static(ptr noundef nonnull @pcie_interface_info) #23
-  %call6 = tail call ptr @type_register_static(ptr noundef nonnull @pci_device_type_info) #23
+  %call = tail call ptr @type_register_static(ptr noundef nonnull @pci_bus_info) #25
+  %call1 = tail call ptr @type_register_static(ptr noundef nonnull @pcie_bus_info) #25
+  %call2 = tail call ptr @type_register_static(ptr noundef nonnull @cxl_bus_info) #25
+  %call3 = tail call ptr @type_register_static(ptr noundef nonnull @conventional_pci_interface_info) #25
+  %call4 = tail call ptr @type_register_static(ptr noundef nonnull @cxl_interface_info) #25
+  %call5 = tail call ptr @type_register_static(ptr noundef nonnull @pcie_interface_info) #25
+  %call6 = tail call ptr @type_register_static(ptr noundef nonnull @pci_device_type_info) #25
   ret void
 }
 
@@ -4066,12 +4066,12 @@ entry:
   br i1 %cmp, label %for.body.lr.ph, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.1, i32 noundef 635, ptr noundef nonnull @__PRETTY_FUNCTION__.get_pci_config_device) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.1, i32 noundef 635, ptr noundef nonnull @__PRETTY_FUNCTION__.get_pci_config_device) #24
   unreachable
 
 for.body.lr.ph:                                   ; preds = %entry
-  %call2 = tail call noalias ptr @g_malloc(i64 noundef %size) #24
-  %call3 = tail call i64 @qemu_get_buffer(ptr noundef %f, ptr noundef %call2, i64 noundef %size) #23
+  %call2 = tail call noalias ptr @g_malloc(i64 noundef %size) #26
+  %call3 = tail call i64 @qemu_get_buffer(ptr noundef %f, ptr noundef %call2, i64 noundef %size) #25
   %.pre = load ptr, ptr %pv, align 8
   %cmask = getelementptr i8, ptr %pv, i64 8
   %1 = load ptr, ptr %cmask, align 16
@@ -4108,7 +4108,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %tobool.not, label %for.inc, label %if.then24
 
 if.then24:                                        ; preds = %for.body
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.55, ptr noundef nonnull @__func__.get_pci_config_device, i32 noundef %i.038, i32 noundef %conv7, i32 noundef %conv11, i32 noundef %conv14, i32 noundef %conv17, i32 noundef %conv21) #23
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.55, ptr noundef nonnull @__func__.get_pci_config_device, i32 noundef %i.038, i32 noundef %conv7, i32 noundef %conv11, i32 noundef %conv14, i32 noundef %conv17, i32 noundef %conv21) #25
   br label %return
 
 for.inc:                                          ; preds = %for.body
@@ -4120,13 +4120,13 @@ for.inc:                                          ; preds = %for.body
 for.end:                                          ; preds = %for.inc
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.pre, ptr nonnull align 1 %call2, i64 %size, i1 false)
   tail call fastcc void @pci_update_mappings(ptr noundef %add.ptr)
-  %call46 = tail call ptr @object_dynamic_cast(ptr noundef %add.ptr, ptr noundef nonnull @.str.7) #23
+  %call46 = tail call ptr @object_dynamic_cast(ptr noundef %add.ptr, ptr noundef nonnull @.str.7) #25
   %tobool47.not = icmp eq ptr %call46, null
   br i1 %tobool47.not, label %if.end50, label %if.then48
 
 if.then48:                                        ; preds = %for.end
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %add.ptr, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.56, i32 noundef 55, ptr noundef nonnull @__func__.PCI_BRIDGE) #23
-  tail call void @pci_bridge_update_mappings(ptr noundef %call.i) #23
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %add.ptr, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.56, i32 noundef 55, ptr noundef nonnull @__func__.PCI_BRIDGE) #25
+  tail call void @pci_bridge_update_mappings(ptr noundef %call.i) #25
   br label %if.end50
 
 if.end50:                                         ; preds = %if.then48, %for.end
@@ -4136,12 +4136,12 @@ if.end50:                                         ; preds = %if.then48, %for.end
   %add.ptr52.val = load i16, ptr %add.ptr52, align 1
   %13 = and i16 %add.ptr52.val, 4
   %tobool56 = icmp ne i16 %13, 0
-  tail call void @memory_region_set_enabled(ptr noundef %bus_master_enable_region, i1 noundef zeroext %tobool56) #23
+  tail call void @memory_region_set_enabled(ptr noundef %bus_master_enable_region, i1 noundef zeroext %tobool56) #25
   br label %return
 
 return:                                           ; preds = %if.end50, %if.then24
   %retval.0 = phi i32 [ -22, %if.then24 ], [ 0, %if.end50 ]
-  tail call void @g_free(ptr noundef nonnull %call2) #23
+  tail call void @g_free(ptr noundef nonnull %call2) #25
   ret i32 %retval.0
 }
 
@@ -4157,12 +4157,12 @@ entry:
   br i1 %cmp, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.1, i32 noundef 670, ptr noundef nonnull @__PRETTY_FUNCTION__.put_pci_config_device) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.1, i32 noundef 670, ptr noundef nonnull @__PRETTY_FUNCTION__.put_pci_config_device) #24
   unreachable
 
 if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %pv, align 8
-  tail call void @qemu_put_buffer(ptr noundef %f, ptr noundef %1, i64 noundef %size) #23
+  tail call void @qemu_put_buffer(ptr noundef %f, ptr noundef %1, i64 noundef %size) #25
   ret i32 0
 }
 
@@ -4192,7 +4192,7 @@ for.cond10.preheader:                             ; preds = %for.cond
 
 for.body:                                         ; preds = %entry, %for.cond
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.cond ]
-  %call = tail call i32 @qemu_get_be32(ptr noundef %f) #23
+  %call = tail call i32 @qemu_get_be32(ptr noundef %f) #25
   %arrayidx = getelementptr [4 x i32], ptr %irq_state, i64 0, i64 %indvars.iv
   store i32 %call, ptr %arrayidx, align 4
   %switch = icmp ult i32 %call, 2
@@ -4200,7 +4200,7 @@ for.body:                                         ; preds = %entry, %for.cond
 
 if.then:                                          ; preds = %for.body
   %0 = load ptr, ptr @stderr, align 8
-  %call9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.59, i32 noundef %call) #26
+  %call9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.59, i32 noundef %call) #29
   br label %return
 
 for.body12:                                       ; preds = %for.cond10.preheader, %for.body12
@@ -4240,7 +4240,7 @@ for.body:                                         ; preds = %entry, %for.body
   %conv.i = zext i8 %add.ptr.val to i32
   %shr.i = lshr i32 %conv.i, %i.03
   %and.i = and i32 %shr.i, 1
-  tail call void @qemu_put_be32(ptr noundef %f, i32 noundef %and.i) #23
+  tail call void @qemu_put_be32(ptr noundef %f, i32 noundef %and.i) #25
   %inc = add nuw nsw i32 %i.03, 1
   %exitcond.not = icmp eq i32 %inc, 4
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !32
@@ -4252,12 +4252,12 @@ for.end:                                          ; preds = %for.body
 declare i32 @qemu_get_be32(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #13
+declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #15
 
 declare void @qemu_put_be32(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #13
+declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #15
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #2
 
@@ -4273,21 +4273,21 @@ entry:
 for.cond:                                         ; preds = %if.end9, %entry
   %irq_num.addr.0 = phi i32 [ %irq_num, %entry ], [ %call2, %if.end9 ]
   %pci_dev.addr.0 = phi ptr [ %pci_dev, %entry ], [ %12, %if.end9 ]
-  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %pci_dev.addr.0, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #23
-  %call1.i = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i) #23
-  %call.i1.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1.i, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #23
+  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %pci_dev.addr.0, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #25
+  %call1.i = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i) #25
+  %call.i1.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1.i, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #25
   %map_irq = getelementptr inbounds i8, ptr %call.i1.i, i64 160
   %0 = load ptr, ptr %map_irq, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.else, label %if.end
 
 if.else:                                          ; preds = %for.cond
-  tail call void @__assert_fail(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.1, i32 noundef 308, ptr noundef nonnull @__PRETTY_FUNCTION__.pci_change_irq_level) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.1, i32 noundef 308, ptr noundef nonnull @__PRETTY_FUNCTION__.pci_change_irq_level) #24
   unreachable
 
 if.end:                                           ; preds = %for.cond
-  %call2 = tail call i32 %0(ptr noundef %pci_dev.addr.0, i32 noundef %irq_num.addr.0) #23
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %pci_dev.addr.0, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #23
+  %call2 = tail call i32 %0(ptr noundef %pci_dev.addr.0, i32 noundef %irq_num.addr.0) #25
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %pci_dev.addr.0, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #25
   %canonical_path = getelementptr inbounds i8, ptr %call.i, i64 48
   %1 = load ptr, ptr %canonical_path, align 8
   %2 = getelementptr i8, ptr %call.i1.i, i64 120
@@ -4299,7 +4299,7 @@ if.end:                                           ; preds = %for.cond
 cond.false:                                       ; preds = %if.end
   %parent_dev = getelementptr inbounds i8, ptr %call.i1.i, i64 2232
   %3 = load ptr, ptr %parent_dev, align 8
-  %call.i12 = tail call ptr @object_dynamic_cast_assert(ptr noundef %3, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #23
+  %call.i12 = tail call ptr @object_dynamic_cast_assert(ptr noundef %3, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #25
   %canonical_path6 = getelementptr inbounds i8, ptr %call.i12, i64 48
   %4 = load ptr, ptr %canonical_path6, align 8
   br label %cond.end
@@ -4326,15 +4326,15 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #23
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #23
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #25
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #25
   %9 = load i64, ptr %_now.i.i, align 8
   %10 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.70, i32 noundef %call10.i.i, i64 noundef %9, i64 noundef %10, i32 noundef %irq_num.addr.0, ptr noundef %1, i32 noundef %call2, ptr noundef %cond) #23
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.70, i32 noundef %call10.i.i, i64 noundef %9, i64 noundef %10, i32 noundef %irq_num.addr.0, ptr noundef %1, i32 noundef %call2, ptr noundef %cond) #25
   br label %trace_pci_route_irq.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.71, i32 noundef %irq_num.addr.0, ptr noundef %1, i32 noundef %call2, ptr noundef %cond) #23
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.71, i32 noundef %irq_num.addr.0, ptr noundef %1, i32 noundef %call2, ptr noundef %cond) #25
   br label %trace_pci_route_irq.exit
 
 trace_pci_route_irq.exit:                         ; preds = %cond.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -4354,7 +4354,7 @@ for.end:                                          ; preds = %trace_pci_route_irq
   br i1 %cmp.i, label %if.end.i, label %if.else.i
 
 if.else.i:                                        ; preds = %for.end
-  tail call void @__assert_fail(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 296, ptr noundef nonnull @__PRETTY_FUNCTION__.pci_bus_change_irq_level) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 296, ptr noundef nonnull @__PRETTY_FUNCTION__.pci_bus_change_irq_level) #24
   unreachable
 
 if.end.i:                                         ; preds = %for.end
@@ -4364,7 +4364,7 @@ if.end.i:                                         ; preds = %for.end
   br i1 %cmp1.i, label %pci_bus_change_irq_level.exit, label %if.else3.i
 
 if.else3.i:                                       ; preds = %if.end.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 297, ptr noundef nonnull @__PRETTY_FUNCTION__.pci_bus_change_irq_level) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 297, ptr noundef nonnull @__PRETTY_FUNCTION__.pci_bus_change_irq_level) #24
   unreachable
 
 pci_bus_change_irq_level.exit:                    ; preds = %if.end.i
@@ -4384,12 +4384,12 @@ pci_bus_change_irq_level.exit:                    ; preds = %if.end.i
   %19 = load i32, ptr %arrayidx7.i, align 4
   %cmp8.i = icmp ne i32 %19, 0
   %conv.i = zext i1 %cmp8.i to i32
-  tail call void %16(ptr noundef %17, i32 noundef %call2, i32 noundef %conv.i) #23
+  tail call void %16(ptr noundef %17, i32 noundef %call2, i32 noundef %conv.i) #25
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #14
+declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #16
 
 declare ptr @qdev_new(ptr noundef) local_unnamed_addr #2
 
@@ -4416,7 +4416,7 @@ entry:
   br i1 %or.cond.i.i, label %range_is_empty.exit, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.168, ptr noundef nonnull @.str.167, i32 noundef 41, ptr noundef nonnull @__PRETTY_FUNCTION__.range_invariant) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.168, ptr noundef nonnull @.str.167, i32 noundef 41, ptr noundef nonnull @__PRETTY_FUNCTION__.range_invariant) #24
   unreachable
 
 range_is_empty.exit:                              ; preds = %entry
@@ -4434,7 +4434,7 @@ if.end:                                           ; preds = %range_is_empty.exit
   br i1 %or.cond.i.i20, label %range_is_empty.exit23, label %if.else.i.i21
 
 if.else.i.i21:                                    ; preds = %if.end
-  tail call void @__assert_fail(ptr noundef nonnull @.str.168, ptr noundef nonnull @.str.167, i32 noundef 41, ptr noundef nonnull @__PRETTY_FUNCTION__.range_invariant) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.168, ptr noundef nonnull @.str.167, i32 noundef 41, ptr noundef nonnull @__PRETTY_FUNCTION__.range_invariant) #24
   unreachable
 
 range_is_empty.exit23:                            ; preds = %if.end
@@ -4474,7 +4474,7 @@ if.end14:                                         ; preds = %if.then11, %if.end8
   br i1 %or.cond.i, label %return, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end14
-  tail call void @__assert_fail(ptr noundef nonnull @.str.168, ptr noundef nonnull @.str.167, i32 noundef 41, ptr noundef nonnull @__PRETTY_FUNCTION__.range_invariant) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.168, ptr noundef nonnull @.str.167, i32 noundef 41, ptr noundef nonnull @__PRETTY_FUNCTION__.range_invariant) #24
   unreachable
 
 return:                                           ; preds = %if.end14, %range_is_empty.exit, %if.then2
@@ -4488,8 +4488,8 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @pci_bus_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
 entry:
-  %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.52, i32 noundef 316, ptr noundef nonnull @__func__.BUS_CLASS) #23
-  %call.i8 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS_CLASS) #23
+  %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.52, i32 noundef 316, ptr noundef nonnull @__func__.BUS_CLASS) #25
+  %call.i8 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS_CLASS) #25
   %print_dev = getelementptr inbounds i8, ptr %call.i, i64 96
   store ptr @pcibus_dev_print, ptr %print_dev, align 8
   %get_dev_path = getelementptr inbounds i8, ptr %call.i, i64 104
@@ -4517,7 +4517,7 @@ entry:
   %slot = alloca [6 x i8], align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %slot, ptr noundef nonnull align 1 dereferenceable(6) @__const.pcibus_get_dev_path.slot, i64 6, i1 false)
   %call = tail call ptr @pci_root_bus_path(ptr noundef %dev)
-  %call1 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call) #25
+  %call1 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call) #28
   %conv = trunc i64 %call1 to i32
   %tobool.not23 = icmp eq ptr %dev, null
   br i1 %tobool.not23, label %for.end, label %for.body
@@ -4526,9 +4526,9 @@ for.body:                                         ; preds = %entry, %for.body
   %t.025 = phi ptr [ %0, %for.body ], [ %dev, %entry ]
   %slot_depth.024 = phi i32 [ %inc, %for.body ], [ 0, %entry ]
   %inc = add i32 %slot_depth.024, 1
-  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %t.025, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #23
-  %call1.i = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i) #23
-  %call.i1.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1.i, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #23
+  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %t.025, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #25
+  %call1.i = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i) #25
+  %call.i1.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1.i, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #25
   %parent_dev = getelementptr inbounds i8, ptr %call.i1.i, i64 2232
   %0 = load ptr, ptr %parent_dev, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -4543,7 +4543,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
   %add = add i32 %slot_depth.0.lcssa, %conv
   %add3 = add i32 %add, 1
   %conv4 = sext i32 %add3 to i64
-  %call5 = tail call noalias ptr @g_malloc(i64 noundef %conv4) #24
+  %call5 = tail call noalias ptr @g_malloc(i64 noundef %conv4) #26
   %idxprom = sext i32 %add to i64
   %arrayidx = getelementptr i8, ptr %call5, i64 %idxprom
   store i8 0, ptr %arrayidx, align 1
@@ -4560,20 +4560,20 @@ for.body10:                                       ; preds = %for.end, %if.end
   %shr = lshr i32 %2, 3
   %and = and i32 %shr, 31
   %and14 = and i32 %2, 7
-  %call15 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %slot, i64 noundef 6, ptr noundef nonnull @.str.170, i32 noundef %and, i32 noundef %and14) #23
+  %call15 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %slot, i64 noundef 6, ptr noundef nonnull @.str.170, i32 noundef %and, i32 noundef %and14) #25
   %cmp = icmp eq i32 %call15, 5
   br i1 %cmp, label %if.end, label %if.else
 
 if.else:                                          ; preds = %for.body10
-  tail call void @__assert_fail(ptr noundef nonnull @.str.171, ptr noundef nonnull @.str.1, i32 noundef 2600, ptr noundef nonnull @__PRETTY_FUNCTION__.pcibus_get_dev_path) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.171, ptr noundef nonnull @.str.1, i32 noundef 2600, ptr noundef nonnull @__PRETTY_FUNCTION__.pcibus_get_dev_path) #24
   unreachable
 
 if.end:                                           ; preds = %for.body10
   %add.ptr12 = getelementptr i8, ptr %p.027, i64 -5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %add.ptr12, ptr noundef nonnull align 1 dereferenceable(5) %slot, i64 5, i1 false)
-  %call.i.i20 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %t.128, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #23
-  %call1.i21 = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i20) #23
-  %call.i1.i22 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1.i21, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #23
+  %call.i.i20 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %t.128, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #25
+  %call1.i21 = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i20) #25
+  %call.i1.i22 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1.i21, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #25
   %parent_dev21 = getelementptr inbounds i8, ptr %call.i1.i22, i64 2232
   %3 = load ptr, ptr %parent_dev21, align 8
   %tobool9.not = icmp eq ptr %3, null
@@ -4622,7 +4622,7 @@ if.end.i:                                         ; preds = %land.rhs.i
   br i1 %tobool12.not.i, label %if.else.i, label %if.then13.i
 
 if.then13.i:                                      ; preds = %if.end.i
-  call void @pstrcpy(ptr noundef nonnull %name, i32 noundef 33, ptr noundef nonnull %8) #23
+  call void @pstrcpy(ptr noundef nonnull %name, i32 noundef 33, ptr noundef nonnull %8) #25
   br label %pci_dev_fw_name.exit
 
 if.else.i:                                        ; preds = %while.body.i, %if.end.i
@@ -4631,7 +4631,7 @@ if.else.i:                                        ; preds = %while.body.i, %if.e
   %add.ptr20.i = getelementptr i8, ptr %dev.val, i64 2
   %add.ptr20.val.i = load i16, ptr %add.ptr20.i, align 1
   %conv22.i = zext i16 %add.ptr20.val.i to i32
-  %call23.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %name, i64 noundef 33, ptr noundef nonnull @.str.175, i32 noundef %conv18.i, i32 noundef %conv22.i) #23
+  %call23.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %name, i64 noundef 33, ptr noundef nonnull @.str.175, i32 noundef %conv18.i, i32 noundef %conv22.i) #25
   br label %pci_dev_fw_name.exit
 
 pci_dev_fw_name.exit:                             ; preds = %if.then13.i, %if.else.i
@@ -4643,28 +4643,28 @@ pci_dev_fw_name.exit:                             ; preds = %if.then13.i, %if.el
   %and3 = and i32 %shr, 31
   %cond = select i1 %tobool, ptr @.str.173, ptr @.str.174
   %and6 = and i32 %9, 7
-  %call7 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.172, ptr noundef nonnull %name, i32 noundef %and3, ptr noundef nonnull %cond, i32 noundef %lnot.ext, i32 noundef %and6) #23
+  %call7 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.172, ptr noundef nonnull %name, i32 noundef %and3, ptr noundef nonnull %cond, i32 noundef %lnot.ext, i32 noundef %and6) #25
   ret ptr %call7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @pci_bus_realize(ptr noundef %qbus, ptr nocapture readnone %errp) #0 {
 entry:
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %qbus, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #23
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %qbus, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #25
   %machine_done = getelementptr inbounds i8, ptr %call.i, i64 2296
   store ptr @pcibus_machine_done, ptr %machine_done, align 8
-  tail call void @qemu_add_machine_init_done_notifier(ptr noundef nonnull %machine_done) #23
-  %call.i3 = tail call i32 @vmstate_register_with_alias_id(ptr noundef null, i32 noundef -1, ptr noundef nonnull @vmstate_pcibus, ptr noundef %call.i, i32 noundef -1, i32 noundef 0, ptr noundef null) #23
+  tail call void @qemu_add_machine_init_done_notifier(ptr noundef nonnull %machine_done) #25
+  %call.i3 = tail call i32 @vmstate_register_with_alias_id(ptr noundef null, i32 noundef -1, ptr noundef nonnull @vmstate_pcibus, ptr noundef %call.i, i32 noundef -1, i32 noundef 0, ptr noundef null) #25
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @pci_bus_unrealize(ptr noundef %qbus) #0 {
 entry:
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %qbus, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #23
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %qbus, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #25
   %machine_done = getelementptr inbounds i8, ptr %call.i, i64 2296
-  tail call void @qemu_remove_machine_init_done_notifier(ptr noundef nonnull %machine_done) #23
-  tail call void @vmstate_unregister(ptr noundef null, ptr noundef nonnull @vmstate_pcibus, ptr noundef %call.i) #23
+  tail call void @qemu_remove_machine_init_done_notifier(ptr noundef nonnull %machine_done) #25
+  tail call void @vmstate_unregister(ptr noundef null, ptr noundef nonnull @vmstate_pcibus, ptr noundef %call.i) #25
   ret void
 }
 
@@ -4715,7 +4715,7 @@ for.body9:                                        ; preds = %for.body9.lr.ph, %f
   br i1 %cmp12, label %for.cond6, label %if.else
 
 if.else:                                          ; preds = %for.body9
-  tail call void @__assert_fail(ptr noundef nonnull @.str.181, ptr noundef nonnull @.str.1, i32 noundef 439, ptr noundef nonnull @__PRETTY_FUNCTION__.pcibus_reset) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.181, ptr noundef nonnull @.str.1, i32 noundef 439, ptr noundef nonnull @__PRETTY_FUNCTION__.pcibus_reset) #24
   unreachable
 
 for.end18:                                        ; preds = %for.cond6, %for.cond6.preheader
@@ -4723,7 +4723,7 @@ for.end18:                                        ; preds = %for.cond6, %for.con
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 256) i32 @pcibus_num(ptr nocapture noundef readonly %bus) #15 {
+define internal range(i32 0, 256) i32 @pcibus_num(ptr nocapture noundef readonly %bus) #17 {
 entry:
   %0 = getelementptr i8, ptr %bus, i64 120
   %bus.val = load i32, ptr %0, align 8
@@ -4747,7 +4747,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i16 @pcibus_numa_node(ptr nocapture readnone %bus) #16 {
+define internal noundef zeroext i16 @pcibus_numa_node(ptr nocapture readnone %bus) #18 {
 entry:
   ret i16 128
 }
@@ -4756,7 +4756,7 @@ entry:
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #13
+declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #15
 
 declare noalias ptr @g_strdup_printf(ptr noundef, ...) local_unnamed_addr #2
 
@@ -4780,11 +4780,11 @@ if.then:                                          ; preds = %for.body
   %bus_master_enable_region.i = getelementptr inbounds i8, ptr %0, i64 944
   %root.i = getelementptr inbounds i8, ptr %call.i, i64 24
   %1 = load ptr, ptr %root.i, align 8
-  %call2.i = tail call i64 @memory_region_size(ptr noundef %1) #23
-  tail call void @memory_region_init_alias(ptr noundef nonnull %bus_master_enable_region.i, ptr noundef nonnull %0, ptr noundef nonnull @.str.176, ptr noundef %1, i64 noundef 0, i64 noundef %call2.i) #23
-  tail call void @memory_region_set_enabled(ptr noundef nonnull %bus_master_enable_region.i, i1 noundef zeroext false) #23
+  %call2.i = tail call i64 @memory_region_size(ptr noundef %1) #25
+  tail call void @memory_region_init_alias(ptr noundef nonnull %bus_master_enable_region.i, ptr noundef nonnull %0, ptr noundef nonnull @.str.176, ptr noundef %1, i64 noundef 0, i64 noundef %call2.i) #25
+  tail call void @memory_region_set_enabled(ptr noundef nonnull %bus_master_enable_region.i, i1 noundef zeroext false) #25
   %bus_master_container_region.i = getelementptr inbounds i8, ptr %0, i64 672
-  tail call void @memory_region_add_subregion(ptr noundef nonnull %bus_master_container_region.i, i64 noundef 0, ptr noundef nonnull %bus_master_enable_region.i) #23
+  tail call void @memory_region_add_subregion(ptr noundef nonnull %bus_master_container_region.i, i64 noundef 0, ptr noundef nonnull %bus_master_enable_region.i) #25
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then
@@ -4811,7 +4811,7 @@ declare void @vmstate_unregister(ptr noundef, ptr noundef, ptr noundef) local_un
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @pcie_bus_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
 entry:
-  %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.52, i32 noundef 316, ptr noundef nonnull @__func__.BUS_CLASS) #23
+  %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.52, i32 noundef 316, ptr noundef nonnull @__func__.BUS_CLASS) #25
   %realize = getelementptr inbounds i8, ptr %call.i, i64 136
   store ptr @pcie_bus_realize, ptr %realize, align 8
   ret void
@@ -4820,12 +4820,12 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @pcie_bus_realize(ptr noundef %qbus, ptr nocapture readnone %errp) #0 {
 if.end:
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %qbus, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #23
-  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %qbus, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #23
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %qbus, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #25
+  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %qbus, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #25
   %machine_done.i = getelementptr inbounds i8, ptr %call.i.i, i64 2296
   store ptr @pcibus_machine_done, ptr %machine_done.i, align 8
-  tail call void @qemu_add_machine_init_done_notifier(ptr noundef nonnull %machine_done.i) #23
-  %call.i3.i = tail call i32 @vmstate_register_with_alias_id(ptr noundef null, i32 noundef -1, ptr noundef nonnull @vmstate_pcibus, ptr noundef %call.i.i, i32 noundef -1, i32 noundef 0, ptr noundef null) #23
+  tail call void @qemu_add_machine_init_done_notifier(ptr noundef nonnull %machine_done.i) #25
+  %call.i3.i = tail call i32 @vmstate_register_with_alias_id(ptr noundef null, i32 noundef -1, ptr noundef nonnull @vmstate_pcibus, ptr noundef %call.i.i, i32 noundef -1, i32 noundef 0, ptr noundef null) #25
   %0 = getelementptr i8, ptr %call.i, i64 120
   %call.val = load i32, ptr %0, align 8
   %and.i = and i32 %call.val, 1
@@ -4835,9 +4835,9 @@ if.end:
 if.else:                                          ; preds = %if.end
   %parent_dev = getelementptr inbounds i8, ptr %call.i, i64 2232
   %1 = load ptr, ptr %parent_dev, align 8
-  %call.i.i5 = tail call ptr @object_dynamic_cast_assert(ptr noundef %1, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #23
-  %call1.i = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i5) #23
-  %call.i1.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1.i, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #23
+  %call.i.i5 = tail call ptr @object_dynamic_cast_assert(ptr noundef %1, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #25
+  %call1.i = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i5) #25
+  %call.i1.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1.i, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #25
   %2 = getelementptr i8, ptr %call.i1.i, i64 120
   %call3.val = load i32, ptr %2, align 8
   %and.i6 = and i32 %call3.val, 2
@@ -4863,27 +4863,27 @@ declare void @error_propagate(ptr noundef, ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @pci_device_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
 entry:
-  %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #23
+  %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #25
   %realize = getelementptr inbounds i8, ptr %call.i, i64 144
   store ptr @pci_qdev_realize, ptr %realize, align 8
   %unrealize = getelementptr inbounds i8, ptr %call.i, i64 152
   store ptr @pci_qdev_unrealize, ptr %unrealize, align 8
   %bus_type = getelementptr inbounds i8, ptr %call.i, i64 168
   store ptr @.str.49, ptr %bus_type, align 8
-  tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @pci_props) #23
+  tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @pci_props) #25
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @pci_device_class_base_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
 entry:
-  %call = tail call zeroext i1 @object_class_is_abstract(ptr noundef %klass) #23
+  %call = tail call zeroext i1 @object_class_is_abstract(ptr noundef %klass) #25
   br i1 %call, label %if.end8, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call1 = tail call ptr @object_class_dynamic_cast(ptr noundef %klass, ptr noundef nonnull @.str.183) #23
-  %call2 = tail call ptr @object_class_dynamic_cast(ptr noundef %klass, ptr noundef nonnull @.str.186) #23
-  %call3 = tail call ptr @object_class_dynamic_cast(ptr noundef %klass, ptr noundef nonnull @.str.185) #23
+  %call1 = tail call ptr @object_class_dynamic_cast(ptr noundef %klass, ptr noundef nonnull @.str.183) #25
+  %call2 = tail call ptr @object_class_dynamic_cast(ptr noundef %klass, ptr noundef nonnull @.str.186) #25
+  %call3 = tail call ptr @object_class_dynamic_cast(ptr noundef %klass, ptr noundef nonnull @.str.185) #25
   %tobool = icmp ne ptr %call1, null
   %tobool4 = icmp ne ptr %call2, null
   %or.cond = select i1 %tobool, i1 true, i1 %tobool4
@@ -4892,7 +4892,7 @@ if.then:                                          ; preds = %entry
   br i1 %or.cond1, label %if.end8, label %if.else
 
 if.else:                                          ; preds = %if.then
-  tail call void @__assert_fail(ptr noundef nonnull @.str.221, ptr noundef nonnull @.str.1, i32 noundef 2671, ptr noundef nonnull @__PRETTY_FUNCTION__.pci_device_class_base_init) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.221, ptr noundef nonnull @.str.1, i32 noundef 2671, ptr noundef nonnull @__PRETTY_FUNCTION__.pci_device_class_base_init) #24
   unreachable
 
 if.end8:                                          ; preds = %if.then, %entry
@@ -4905,8 +4905,8 @@ entry:
   %name.i = alloca [32 x i8], align 16
   %local_err.i = alloca ptr, align 8
   %local_err = alloca ptr, align 8
-  %call.i = tail call ptr @object_get_class(ptr noundef %qdev) #23
-  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.164, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE_GET_CLASS) #23
+  %call.i = tail call ptr @object_get_class(ptr noundef %qdev) #25
+  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.164, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE_GET_CLASS) #25
   store ptr null, ptr %local_err, align 8
   %acpi_index = getelementptr inbounds i8, ptr %qdev, i64 2592
   %0 = load i32, ptr %acpi_index, align 16
@@ -4914,7 +4914,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 2071, ptr noundef nonnull @__func__.pci_qdev_realize, ptr noundef nonnull @.str.187, i32 noundef 16383) #23
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 2071, ptr noundef nonnull @__func__.pci_qdev_realize, ptr noundef nonnull @.str.187, i32 noundef 16383) #25
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -4927,7 +4927,7 @@ if.then2:                                         ; preds = %if.end
   br i1 %tobool.not.i, label %if.then.i, label %pci_acpi_index_list.exit
 
 if.then.i:                                        ; preds = %if.then2
-  %call.i58 = tail call ptr @g_sequence_new(ptr noundef null) #23
+  %call.i58 = tail call ptr @g_sequence_new(ptr noundef null) #25
   store ptr %call.i58, ptr @pci_acpi_index_list.used_acpi_index_list, align 8
   %.pre = load i32, ptr %acpi_index, align 16
   br label %pci_acpi_index_list.exit
@@ -4937,19 +4937,19 @@ pci_acpi_index_list.exit:                         ; preds = %if.then2, %if.then.
   %3 = phi ptr [ %call.i58, %if.then.i ], [ %1, %if.then2 ]
   %conv = zext i32 %2 to i64
   %4 = inttoptr i64 %conv to ptr
-  %call5 = tail call ptr @g_sequence_lookup(ptr noundef %3, ptr noundef %4, ptr noundef nonnull @g_cmp_uint32, ptr noundef null) #23
+  %call5 = tail call ptr @g_sequence_lookup(ptr noundef %3, ptr noundef %4, ptr noundef nonnull @g_cmp_uint32, ptr noundef null) #25
   %tobool6.not = icmp eq ptr %call5, null
   %5 = load i32, ptr %acpi_index, align 16
   br i1 %tobool6.not, label %if.end9, label %if.then7
 
 if.then7:                                         ; preds = %pci_acpi_index_list.exit
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 2085, ptr noundef nonnull @__func__.pci_qdev_realize, ptr noundef nonnull @.str.188, i32 noundef %5) #23
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 2085, ptr noundef nonnull @__func__.pci_qdev_realize, ptr noundef nonnull @.str.188, i32 noundef %5) #25
   br label %return
 
 if.end9:                                          ; preds = %pci_acpi_index_list.exit
   %conv11 = zext i32 %5 to i64
   %6 = inttoptr i64 %conv11 to ptr
-  %call12 = tail call ptr @g_sequence_insert_sorted(ptr noundef %3, ptr noundef %6, ptr noundef nonnull @g_cmp_uint32, ptr noundef null) #23
+  %call12 = tail call ptr @g_sequence_insert_sorted(ptr noundef %3, ptr noundef %6, ptr noundef nonnull @g_cmp_uint32, ptr noundef null) #25
   br label %if.end13
 
 if.end13:                                         ; preds = %if.end9, %if.end
@@ -4962,16 +4962,16 @@ if.end13:                                         ; preds = %if.end9, %if.end
   br i1 %or.cond85, label %if.end21, label %if.then19
 
 if.then19:                                        ; preds = %if.end13
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 2094, ptr noundef nonnull @__func__.pci_qdev_realize, ptr noundef nonnull @.str.189, i32 noundef %7) #23
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 2094, ptr noundef nonnull @__func__.pci_qdev_realize, ptr noundef nonnull @.str.189, i32 noundef %7) #25
   br label %return
 
 if.end21:                                         ; preds = %if.end13
-  %call22 = tail call ptr @object_class_dynamic_cast(ptr noundef %call1.i, ptr noundef nonnull @.str.186) #23
+  %call22 = tail call ptr @object_class_dynamic_cast(ptr noundef %call1.i, ptr noundef nonnull @.str.186) #25
   %tobool23.not = icmp eq ptr %call22, null
   br i1 %tobool23.not, label %if.end28, label %land.lhs.true24
 
 land.lhs.true24:                                  ; preds = %if.end21
-  %call25 = tail call ptr @object_class_dynamic_cast(ptr noundef %call1.i, ptr noundef nonnull @.str.183) #23
+  %call25 = tail call ptr @object_class_dynamic_cast(ptr noundef %call1.i, ptr noundef nonnull @.str.183) #25
   %tobool26.not = icmp eq ptr %call25, null
   br i1 %tobool26.not, label %if.then27, label %if.end28
 
@@ -4983,7 +4983,7 @@ if.then27:                                        ; preds = %land.lhs.true24
   br label %if.end28
 
 if.end28:                                         ; preds = %if.then27, %land.lhs.true24, %if.end21
-  %call29 = tail call ptr @object_class_dynamic_cast(ptr noundef %call1.i, ptr noundef nonnull @.str.185) #23
+  %call29 = tail call ptr @object_class_dynamic_cast(ptr noundef %call1.i, ptr noundef nonnull @.str.185) #25
   %tobool30.not = icmp eq ptr %call29, null
   br i1 %tobool30.not, label %if.end34, label %if.then31
 
@@ -4995,20 +4995,20 @@ if.then31:                                        ; preds = %if.end28
   br label %if.end34
 
 if.end34:                                         ; preds = %if.then31, %if.end28
-  %call35 = tail call ptr @object_get_typename(ptr noundef nonnull %qdev) #23
+  %call35 = tail call ptr @object_get_typename(ptr noundef nonnull %qdev) #25
   %devfn = getelementptr inbounds i8, ptr %qdev, i64 208
   %11 = load i32, ptr %devfn, align 16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %local_err.i)
-  %call.i.i = tail call ptr @object_get_class(ptr noundef nonnull %qdev) #23
-  %call1.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.164, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE_GET_CLASS) #23
+  %call.i.i = tail call ptr @object_get_class(ptr noundef nonnull %qdev) #25
+  %call1.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.164, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE_GET_CLASS) #25
   %config_read1.i = getelementptr inbounds i8, ptr %call1.i.i, i64 192
   %12 = load <2 x ptr>, ptr %config_read1.i, align 8
   store ptr null, ptr %local_err.i, align 8
-  %call.i92.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %qdev, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #23
-  %call.i.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %qdev, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #23
-  %call1.i93.i = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i.i) #23
-  %call.i1.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1.i93.i, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #23
-  %call5.i = tail call ptr @object_dynamic_cast(ptr noundef nonnull %qdev, ptr noundef nonnull @.str.7) #23
+  %call.i92.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %qdev, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #25
+  %call.i.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %qdev, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #25
+  %call1.i93.i = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i.i) #25
+  %call.i1.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1.i93.i, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #25
+  %call5.i = tail call ptr @object_dynamic_cast(ptr noundef nonnull %qdev, ptr noundef nonnull @.str.7) #25
   %tobool.not.i60 = icmp ne ptr %call5.i, null
   %13 = getelementptr i8, ptr %call.i1.i.i, i64 120
   %call4.val.i = load i32, ptr %13, align 8
@@ -5025,7 +5025,7 @@ land.lhs.true.i:                                  ; preds = %if.end34
 
 if.then.i61:                                      ; preds = %land.lhs.true.i
   %name11.i = getelementptr inbounds i8, ptr %14, i64 232
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 1152, ptr noundef nonnull @__func__.do_pci_register_device, ptr noundef nonnull @.str.194, ptr noundef nonnull %name11.i) #23
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 1152, ptr noundef nonnull @__func__.do_pci_register_device, ptr noundef nonnull @.str.194, ptr noundef nonnull %name11.i) #25
   br label %do_pci_register_device.exit.thread
 
 if.end.i63:                                       ; preds = %land.lhs.true.i, %if.end34
@@ -5062,7 +5062,7 @@ for.inc.i:                                        ; preds = %land.lhs.true18.i, 
   br i1 %cmp14.i, label %for.body.i, label %for.end.i, !llvm.loop !39
 
 for.end.i:                                        ; preds = %for.inc.i
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 1165, ptr noundef nonnull @__func__.do_pci_register_device, ptr noundef nonnull @.str.195, ptr noundef %call35) #23
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 1165, ptr noundef nonnull @__func__.do_pci_register_device, ptr noundef nonnull @.str.195, ptr noundef %call35) #25
   br label %do_pci_register_device.exit.thread
 
 if.else.i:                                        ; preds = %if.end.i63
@@ -5079,7 +5079,7 @@ if.else.i:                                        ; preds = %if.end.i63
 
 if.then23.i:                                      ; preds = %if.else.i
   %and24.i = and i32 %11, 7
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 1171, ptr noundef nonnull @__func__.do_pci_register_device, ptr noundef nonnull @.str.196, i32 noundef %and.i98.i, i32 noundef %and24.i, ptr noundef %call35) #23
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 1171, ptr noundef nonnull @__func__.do_pci_register_device, ptr noundef nonnull @.str.196, i32 noundef %and.i98.i, i32 noundef %and24.i, ptr noundef %call35) #25
   br label %do_pci_register_device.exit.thread
 
 if.else25.i:                                      ; preds = %if.else.i
@@ -5095,7 +5095,7 @@ if.then27.i:                                      ; preds = %if.else25.i
   %name31.i = getelementptr inbounds i8, ptr %21, i64 232
   %id.i = getelementptr inbounds i8, ptr %21, i64 40
   %22 = load ptr, ptr %id.i, align 8
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 1177, ptr noundef nonnull @__func__.do_pci_register_device, ptr noundef nonnull @.str.197, i32 noundef %and.i98.i, i32 noundef %and30.i, ptr noundef %call35, ptr noundef nonnull %name31.i, ptr noundef %22) #23
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 1177, ptr noundef nonnull @__func__.do_pci_register_device, ptr noundef nonnull @.str.197, i32 noundef %and.i98.i, i32 noundef %and30.i, ptr noundef %call35, ptr noundef nonnull %name31.i, ptr noundef %22) #25
   br label %do_pci_register_device.exit.thread
 
 if.else36.i:                                      ; preds = %if.else25.i
@@ -5111,9 +5111,9 @@ land.lhs.true38.i:                                ; preds = %if.else36.i
   br i1 %cmp.i.not.i, label %land.lhs.true41.i, label %if.end55.i
 
 land.lhs.true41.i:                                ; preds = %land.lhs.true38.i
-  %call.i.i.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %qdev, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #23
-  %call1.i.i.i = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i.i.i) #23
-  %call.i1.i.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1.i.i.i, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #23
+  %call.i.i.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %qdev, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #25
+  %call1.i.i.i = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i.i.i) #25
+  %call.i1.i.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1.i.i.i, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #25
   %call1.i108.i = tail call fastcc zeroext i1 @pcie_has_upstream_port(ptr noundef nonnull %qdev)
   %devices.i109.i = getelementptr inbounds i8, ptr %call.i1.i.i.i, i64 184
   br i1 %call1.i108.i, label %pci_get_function_0.exit.i, label %if.else.i.i
@@ -5139,7 +5139,7 @@ if.then44.i:                                      ; preds = %pci_get_function_0.
   %and48.i = and i32 %shr47.i, 31
   %call49.i = tail call ptr @pci_get_function_0(ptr noundef nonnull %qdev)
   %name50.i = getelementptr inbounds i8, ptr %call49.i, i64 232
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 1191, ptr noundef nonnull @__func__.do_pci_register_device, ptr noundef nonnull @.str.198, i32 noundef %and48.i, ptr noundef nonnull %name50.i, ptr noundef %call35) #23
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 1191, ptr noundef nonnull @__func__.do_pci_register_device, ptr noundef nonnull @.str.198, i32 noundef %and48.i, ptr noundef nonnull %name50.i, ptr noundef %call35) #25
   br label %do_pci_register_device.exit.thread
 
 if.end55.loopexit.i:                              ; preds = %land.lhs.true18.i
@@ -5155,9 +5155,9 @@ while.cond.i.i:                                   ; preds = %while.cond.i.i.back
   %retval.sroa.0.0.i.i = phi ptr [ %qdev, %if.end55.i ], [ %retval.sroa.0.0.i.i.be, %while.cond.i.i.backedge ]
   %dev.addr.0.i.i = phi ptr [ %qdev, %if.end55.i ], [ %29, %while.cond.i.i.backedge ]
   %retval.sroa.4.0.i.i = phi i32 [ 1, %if.end55.i ], [ %retval.sroa.4.0.i.i.be, %while.cond.i.i.backedge ]
-  %call.i.i.i112.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %dev.addr.0.i.i, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #23
-  %call1.i.i113.i = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i.i112.i) #23
-  %call.i1.i.i114.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1.i.i113.i, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #23
+  %call.i.i.i112.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %dev.addr.0.i.i, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #25
+  %call1.i.i113.i = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i.i112.i) #25
+  %call.i1.i.i114.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1.i.i113.i, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #25
   %28 = getelementptr i8, ptr %call.i1.i.i114.i, i64 120
   %call.val.i.i = load i32, ptr %28, align 8
   %and.i.i.i = and i32 %call.val.i.i, 1
@@ -5165,9 +5165,9 @@ while.cond.i.i:                                   ; preds = %while.cond.i.i.back
   br i1 %tobool.i.not.i.i, label %while.body.i.i, label %pci_req_id_cache_get.exit.i
 
 while.body.i.i:                                   ; preds = %while.cond.i.i
-  %call.i.i8.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %dev.addr.0.i.i, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #23
-  %call1.i9.i.i = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i8.i.i) #23
-  %call.i1.i10.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1.i9.i.i, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #23
+  %call.i.i8.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %dev.addr.0.i.i, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #25
+  %call1.i9.i.i = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i8.i.i) #25
+  %call.i1.i10.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1.i9.i.i, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #25
   %parent_dev.i.i = getelementptr inbounds i8, ptr %call.i1.i10.i.i, i64 2232
   %29 = load ptr, ptr %parent_dev.i.i, align 8
   %30 = getelementptr i8, ptr %29, i64 1260
@@ -5177,7 +5177,7 @@ while.body.i.i:                                   ; preds = %while.cond.i.i
   br i1 %tobool.not.i115.i, label %while.cond.i.i.backedge, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %while.body.i.i
-  %call5.i.i = tail call zeroext i8 @pcie_cap_get_type(ptr noundef nonnull %29) #23
+  %call5.i.i = tail call zeroext i8 @pcie_cap_get_type(ptr noundef nonnull %29) #25
   %cmp.i116.i = icmp eq i8 %call5.i.i, 7
   %spec.select.i.i = select i1 %cmp.i116.i, ptr %dev.addr.0.i.i, ptr %retval.sroa.0.0.i.i
   %spec.select7.i.i = select i1 %cmp.i116.i, i32 2, i32 %retval.sroa.4.0.i.i
@@ -5194,12 +5194,12 @@ pci_req_id_cache_get.exit.i:                      ; preds = %while.cond.i.i
   %tmp.sroa.2.0.requester_id_cache.sroa_idx.i = getelementptr inbounds i8, ptr %qdev, i64 224
   store i32 %retval.sroa.4.0.i.i, ptr %tmp.sroa.2.0.requester_id_cache.sroa_idx.i, align 8
   %name58.i = getelementptr inbounds i8, ptr %qdev, i64 232
-  tail call void @pstrcpy(ptr noundef nonnull %name58.i, i32 noundef 64, ptr noundef %call35) #23
+  tail call void @pstrcpy(ptr noundef nonnull %name58.i, i32 noundef 64, ptr noundef %call35) #25
   %bus_master_container_region.i = getelementptr inbounds i8, ptr %qdev, i64 672
-  tail call void @memory_region_init(ptr noundef nonnull %bus_master_container_region.i, ptr noundef %qdev, ptr noundef nonnull @.str.199, i64 noundef -1) #23
+  tail call void @memory_region_init(ptr noundef nonnull %bus_master_container_region.i, ptr noundef %qdev, ptr noundef nonnull @.str.199, i64 noundef -1) #25
   %bus_master_as.i = getelementptr inbounds i8, ptr %qdev, i64 576
-  tail call void @address_space_init(ptr noundef nonnull %bus_master_as.i, ptr noundef nonnull %bus_master_container_region.i, ptr noundef nonnull %name58.i) #23
-  %call63.i = tail call zeroext i1 @phase_check(i32 noundef 4) #23
+  tail call void @address_space_init(ptr noundef nonnull %bus_master_as.i, ptr noundef nonnull %bus_master_container_region.i, ptr noundef nonnull %name58.i) #25
+  %call63.i = tail call zeroext i1 @phase_check(i32 noundef 4) #25
   br i1 %call63.i, label %if.then64.i, label %if.end65.i
 
 if.then64.i:                                      ; preds = %pci_req_id_cache_get.exit.i
@@ -5207,10 +5207,10 @@ if.then64.i:                                      ; preds = %pci_req_id_cache_ge
   %bus_master_enable_region.i.i = getelementptr inbounds i8, ptr %qdev, i64 944
   %root.i.i = getelementptr inbounds i8, ptr %call.i117.i, i64 24
   %31 = load ptr, ptr %root.i.i, align 8
-  %call2.i.i = tail call i64 @memory_region_size(ptr noundef %31) #23
-  tail call void @memory_region_init_alias(ptr noundef nonnull %bus_master_enable_region.i.i, ptr noundef nonnull %qdev, ptr noundef nonnull @.str.176, ptr noundef %31, i64 noundef 0, i64 noundef %call2.i.i) #23
-  tail call void @memory_region_set_enabled(ptr noundef nonnull %bus_master_enable_region.i.i, i1 noundef zeroext false) #23
-  tail call void @memory_region_add_subregion(ptr noundef nonnull %bus_master_container_region.i, i64 noundef 0, ptr noundef nonnull %bus_master_enable_region.i.i) #23
+  %call2.i.i = tail call i64 @memory_region_size(ptr noundef %31) #25
+  tail call void @memory_region_init_alias(ptr noundef nonnull %bus_master_enable_region.i.i, ptr noundef nonnull %qdev, ptr noundef nonnull @.str.176, ptr noundef %31, i64 noundef 0, i64 noundef %call2.i.i) #25
+  tail call void @memory_region_set_enabled(ptr noundef nonnull %bus_master_enable_region.i.i, i1 noundef zeroext false) #25
+  tail call void @memory_region_add_subregion(ptr noundef nonnull %bus_master_container_region.i, i64 noundef 0, ptr noundef nonnull %bus_master_enable_region.i.i) #25
   br label %if.end65.i
 
 if.end65.i:                                       ; preds = %if.then64.i, %pci_req_id_cache_get.exit.i
@@ -5221,19 +5221,19 @@ if.end65.i:                                       ; preds = %if.then64.i, %pci_r
   %and.i.i.i.i = and i32 %pci_dev.val.i.i, 4
   %tobool.not.i.i.i = icmp eq i32 %and.i.i.i.i, 0
   %cond.i.i.i = select i1 %tobool.not.i.i.i, i64 256, i64 4096
-  %call1.i118.i = tail call noalias ptr @g_malloc0(i64 noundef %cond.i.i.i) #24
+  %call1.i118.i = tail call noalias ptr @g_malloc0(i64 noundef %cond.i.i.i) #26
   %config.i.i = getelementptr inbounds i8, ptr %qdev, i64 168
   store ptr %call1.i118.i, ptr %config.i.i, align 8
-  %call3.i.i = tail call noalias ptr @g_malloc0(i64 noundef %cond.i.i.i) #24
+  %call3.i.i = tail call noalias ptr @g_malloc0(i64 noundef %cond.i.i.i) #26
   %cmask.i.i = getelementptr inbounds i8, ptr %qdev, i64 176
   store ptr %call3.i.i, ptr %cmask.i.i, align 16
-  %call5.i119.i = tail call noalias ptr @g_malloc0(i64 noundef %cond.i.i.i) #24
+  %call5.i119.i = tail call noalias ptr @g_malloc0(i64 noundef %cond.i.i.i) #26
   %wmask.i.i = getelementptr inbounds i8, ptr %qdev, i64 184
   store ptr %call5.i119.i, ptr %wmask.i.i, align 8
-  %call7.i.i = tail call noalias ptr @g_malloc0(i64 noundef %cond.i.i.i) #24
+  %call7.i.i = tail call noalias ptr @g_malloc0(i64 noundef %cond.i.i.i) #26
   %w1cmask.i.i = getelementptr inbounds i8, ptr %qdev, i64 192
   store ptr %call7.i.i, ptr %w1cmask.i.i, align 16
-  %call9.i.i = tail call noalias ptr @g_malloc0(i64 noundef %cond.i.i.i) #24
+  %call9.i.i = tail call noalias ptr @g_malloc0(i64 noundef %cond.i.i.i) #26
   %used.i.i = getelementptr inbounds i8, ptr %qdev, i64 200
   store ptr %call9.i.i, ptr %used.i.i, align 8
   %33 = load ptr, ptr %config.i.i, align 8
@@ -5293,7 +5293,7 @@ if.else83.i:                                      ; preds = %if.end65.i
   br i1 %tobool85.not.i, label %if.end88.i, label %if.else87.i
 
 if.else87.i:                                      ; preds = %if.else83.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.200, ptr noundef nonnull @.str.1, i32 noundef 1227, ptr noundef nonnull @__PRETTY_FUNCTION__.do_pci_register_device) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.200, ptr noundef nonnull @.str.1, i32 noundef 1227, ptr noundef nonnull @__PRETTY_FUNCTION__.do_pci_register_device) #24
   unreachable
 
 if.end88.i:                                       ; preds = %if.else83.i
@@ -5303,7 +5303,7 @@ if.end88.i:                                       ; preds = %if.else83.i
   br i1 %tobool90.not.i, label %if.end94.i, label %if.else92.i
 
 if.else92.i:                                      ; preds = %if.end88.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.201, ptr noundef nonnull @.str.1, i32 noundef 1228, ptr noundef nonnull @__PRETTY_FUNCTION__.do_pci_register_device) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.201, ptr noundef nonnull @.str.1, i32 noundef 1228, ptr noundef nonnull @__PRETTY_FUNCTION__.do_pci_register_device) #24
   unreachable
 
 if.end94.i:                                       ; preds = %if.end88.i, %if.else81.i, %if.then75.i
@@ -5473,7 +5473,7 @@ land.lhs.true19.i.i:                              ; preds = %if.then13.i.i
   br i1 %tobool22.not.i.i, label %if.then23.i.i, label %pci_init_multifunction.exit.i
 
 if.then23.i.i:                                    ; preds = %land.lhs.true19.i.i
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %local_err.i, ptr noundef nonnull @.str.1, i32 noundef 980, ptr noundef nonnull @__func__.pci_init_multifunction, ptr noundef nonnull @.str.202, i32 noundef %conv14.i.i, i32 noundef %and11.i.i) #23
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %local_err.i, ptr noundef nonnull @.str.1, i32 noundef 980, ptr noundef nonnull @__func__.pci_init_multifunction, ptr noundef nonnull @.str.202, i32 noundef %conv14.i.i, i32 noundef %and11.i.i) #25
   br label %pci_init_multifunction.exit.i
 
 if.end28.i.i:                                     ; preds = %if.end9.i.i
@@ -5504,7 +5504,7 @@ for.body.i.i:                                     ; preds = %for.cond.i.i, %for.
 
 if.then46.i.i:                                    ; preds = %for.body.i.i
   %98 = trunc nuw nsw i64 %indvars.iv.i.i to i32
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %local_err.i, ptr noundef nonnull @.str.1, i32 noundef 994, ptr noundef nonnull @__func__.pci_init_multifunction, ptr noundef nonnull @.str.203, i32 noundef %conv37.i.i, i32 noundef %conv37.i.i, i32 noundef %98) #23
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %local_err.i, ptr noundef nonnull @.str.1, i32 noundef 994, ptr noundef nonnull @__func__.pci_init_multifunction, ptr noundef nonnull @.str.203, i32 noundef %conv37.i.i, i32 noundef %conv37.i.i, i32 noundef %98) #25
   br label %pci_init_multifunction.exit.i
 
 pci_init_multifunction.exit.i:                    ; preds = %for.cond.i.i, %if.then46.i.i, %if.end28.i.i, %if.then23.i.i, %land.lhs.true19.i.i, %if.then13.i.i, %land.lhs.true.i.i
@@ -5513,7 +5513,7 @@ pci_init_multifunction.exit.i:                    ; preds = %for.cond.i.i, %if.t
   br i1 %tobool98.not.i, label %if.end40, label %if.then99.i
 
 if.then99.i:                                      ; preds = %pci_init_multifunction.exit.i
-  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %99) #23
+  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %99) #25
   call fastcc void @do_pci_unregister_device(ptr noundef %qdev)
   br label %do_pci_register_device.exit.thread
 
@@ -5539,13 +5539,13 @@ if.end40:                                         ; preds = %pci_init_multifunct
   br i1 %tobool41.not, label %if.end47, label %if.then42
 
 if.then42:                                        ; preds = %if.end40
-  call void %102(ptr noundef nonnull %qdev, ptr noundef nonnull %local_err) #23
+  call void %102(ptr noundef nonnull %qdev, ptr noundef nonnull %local_err) #25
   %103 = load ptr, ptr %local_err, align 8
   %tobool44.not = icmp eq ptr %103, null
   br i1 %tobool44.not, label %if.end47, label %if.then45
 
 if.then45:                                        ; preds = %if.then42
-  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %103) #23
+  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %103) #25
   call fastcc void @do_pci_unregister_device(ptr noundef nonnull %qdev)
   br label %return
 
@@ -5556,7 +5556,7 @@ if.end47:                                         ; preds = %if.then42, %if.end4
   br i1 %tobool49.not, label %if.end63, label %land.lhs.true50
 
 land.lhs.true50:                                  ; preds = %if.end47
-  %call51 = call zeroext i16 @pcie_find_capability(ptr noundef nonnull %qdev, i16 noundef zeroext 14) #23
+  %call51 = call zeroext i16 @pcie_find_capability(ptr noundef nonnull %qdev, i16 noundef zeroext 14) #25
   %tobool52.not = icmp eq i16 %call51, 0
   br i1 %tobool52.not, label %land.lhs.true53, label %if.end63
 
@@ -5572,7 +5572,7 @@ land.lhs.true56:                                  ; preds = %land.lhs.true53
   br i1 %tobool58.not, label %if.end63, label %if.then59
 
 if.then59:                                        ; preds = %land.lhs.true56
-  call void (ptr, ...) @warn_report(ptr noundef nonnull @.str.190, i32 noundef %and, ptr noundef nonnull %name58.i) #23
+  call void (ptr, ...) @warn_report(ptr noundef nonnull @.str.190, i32 noundef %and, ptr noundef nonnull %name58.i) #25
   br label %if.end63
 
 if.end63:                                         ; preds = %if.then59, %land.lhs.true56, %land.lhs.true53, %land.lhs.true50, %if.end47
@@ -5582,16 +5582,16 @@ if.end63:                                         ; preds = %if.then59, %land.lh
   br i1 %tobool64.not, label %if.end88, label %if.then65
 
 if.then65:                                        ; preds = %if.end63
-  %call.i.i64 = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %qdev, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #23
-  %call1.i65 = call ptr @qdev_get_parent_bus(ptr noundef %call.i.i64) #23
-  %call.i1.i = call ptr @object_dynamic_cast_assert(ptr noundef %call1.i65, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #23
-  %call.i66 = call ptr @object_dynamic_cast(ptr noundef %call.i1.i, ptr noundef nonnull @.str.6) #23
+  %call.i.i64 = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %qdev, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #25
+  %call1.i65 = call ptr @qdev_get_parent_bus(ptr noundef %call.i.i64) #25
+  %call.i1.i = call ptr @object_dynamic_cast_assert(ptr noundef %call1.i65, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #25
+  %call.i66 = call ptr @object_dynamic_cast(ptr noundef %call.i1.i, ptr noundef nonnull @.str.6) #25
   %tobool.i.not = icmp eq ptr %call.i66, null
   br i1 %tobool.i.not, label %if.then68, label %if.end70
 
 if.then68:                                        ; preds = %if.then65
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 2147, ptr noundef nonnull @__func__.pci_qdev_realize, ptr noundef nonnull @.str.191) #23
-  %call.i67 = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %qdev, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #23
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 2147, ptr noundef nonnull @__func__.pci_qdev_realize, ptr noundef nonnull @.str.191) #25
+  %call.i67 = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %qdev, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #25
   call void @pci_qdev_unrealize(ptr noundef %call.i67)
   br label %return
 
@@ -5603,8 +5603,8 @@ if.end70:                                         ; preds = %if.then65
   br i1 %cmp73.not, label %if.end77, label %if.then75
 
 if.then75:                                        ; preds = %if.end70
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 2154, ptr noundef nonnull @__func__.pci_qdev_realize, ptr noundef nonnull @.str.192) #23
-  %call.i68 = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %qdev, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #23
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 2154, ptr noundef nonnull @__func__.pci_qdev_realize, ptr noundef nonnull @.str.192) #25
+  %call.i68 = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %qdev, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #25
   call void @pci_qdev_unrealize(ptr noundef %call.i68)
   br label %return
 
@@ -5621,8 +5621,8 @@ lor.lhs.false:                                    ; preds = %if.end77
   br i1 %cmp83.not, label %if.end87, label %if.then85
 
 if.then85:                                        ; preds = %lor.lhs.false, %if.end77
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 2161, ptr noundef nonnull @__func__.pci_qdev_realize, ptr noundef nonnull @.str.193) #23
-  %call.i69 = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %qdev, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #23
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 2161, ptr noundef nonnull @__func__.pci_qdev_realize, ptr noundef nonnull @.str.193) #25
+  %call.i69 = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %qdev, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #25
   call void @pci_qdev_unrealize(ptr noundef %call.i69)
   br label %return
 
@@ -5644,14 +5644,14 @@ land.lhs.true91:                                  ; preds = %if.end88
   br i1 %cmp93.not, label %if.end99, label %if.then95
 
 if.then95:                                        ; preds = %land.lhs.true91
-  %call97 = call noalias ptr @g_strdup(ptr noundef nonnull %110) #23
+  %call97 = call noalias ptr @g_strdup(ptr noundef nonnull %110) #25
   store ptr %call97, ptr %romfile, align 16
   br label %if.end99
 
 if.end99:                                         ; preds = %if.then95, %land.lhs.true91, %if.end88
   %is_default_rom.0 = phi i1 [ true, %if.then95 ], [ false, %land.lhs.true91 ], [ false, %if.end88 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %name.i)
-  %call.i70 = call zeroext i1 @runstate_check(i32 noundef 1) #23
+  %call.i70 = call zeroext i1 @runstate_check(i32 noundef 1) #25
   %111 = load ptr, ptr %romfile, align 16
   %tobool.not.i71 = icmp eq ptr %111, null
   br i1 %tobool.not.i71, label %pci_add_option_rom.exit, label %lor.lhs.false.i72
@@ -5671,14 +5671,14 @@ if.then6.i:                                       ; preds = %if.end.i73
   %113 = load ptr, ptr %config.i.i, align 8
   %add.ptr.i76 = getelementptr i8, ptr %113, i64 10
   %add.ptr.val.i = load i16, ptr %add.ptr.i76, align 1
-  %call.i.i77 = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %qdev, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #23
+  %call.i.i77 = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %qdev, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #25
   %hotplugged.i78 = getelementptr inbounds i8, ptr %call.i.i77, i64 80
   %114 = load i32, ptr %hotplugged.i78, align 8
   %tobool9.not.i = icmp eq i32 %114, 0
   br i1 %tobool9.not.i, label %if.end11.i, label %if.then10.i
 
 if.then10.i:                                      ; preds = %if.then6.i
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %local_err, ptr noundef nonnull @.str.1, i32 noundef 2367, ptr noundef nonnull @__func__.pci_add_option_rom, ptr noundef nonnull @.str.204) #23
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %local_err, ptr noundef nonnull @.str.1, i32 noundef 2367, ptr noundef nonnull @__func__.pci_add_option_rom, ptr noundef nonnull @.str.204) #25
   br label %pci_add_option_rom.exit
 
 if.end11.i:                                       ; preds = %if.then6.i
@@ -5687,11 +5687,11 @@ if.end11.i:                                       ; preds = %if.then6.i
   br i1 %cmp.i79, label %if.then13.i, label %if.else.i80
 
 if.then13.i:                                      ; preds = %if.end11.i
-  %call15.i = call i64 @rom_add_vga(ptr noundef %115) #23
+  %call15.i = call i64 @rom_add_vga(ptr noundef %115) #25
   br label %pci_add_option_rom.exit
 
 if.else.i80:                                      ; preds = %if.end11.i
-  %call17.i = call i64 @rom_add_option(ptr noundef %115, i32 noundef -1) #23
+  %call17.i = call i64 @rom_add_option(ptr noundef %115, i32 noundef -1) #25
   br label %pci_add_option_rom.exit
 
 if.end19.i:                                       ; preds = %if.end.i73
@@ -5703,24 +5703,24 @@ lor.lhs.false22.i:                                ; preds = %if.end19.i
   br i1 %cmp23.i, label %if.then25.i, label %if.end70.i
 
 if.then25.i:                                      ; preds = %lor.lhs.false22.i, %if.end19.i
-  %call27.i = call ptr @qemu_find_file(i32 noundef 0, ptr noundef nonnull %111) #23
+  %call27.i = call ptr @qemu_find_file(i32 noundef 0, ptr noundef nonnull %111) #25
   %cmp28.i = icmp eq ptr %call27.i, null
   br i1 %cmp28.i, label %if.then30.i, label %if.end33.i
 
 if.then30.i:                                      ; preds = %if.then25.i
   %117 = load ptr, ptr %romfile, align 16
-  %call32.i = call noalias ptr @g_strdup(ptr noundef %117) #23
+  %call32.i = call noalias ptr @g_strdup(ptr noundef %117) #25
   br label %if.end33.i
 
 if.end33.i:                                       ; preds = %if.then30.i, %if.then25.i
   %path.0.i = phi ptr [ %call32.i, %if.then30.i ], [ %call27.i, %if.then25.i ]
-  %call34.i = call i64 @get_image_size(ptr noundef %path.0.i) #23
+  %call34.i = call i64 @get_image_size(ptr noundef %path.0.i) #25
   %cmp35.i = icmp slt i64 %call34.i, 0
   br i1 %cmp35.i, label %if.then37.i, label %if.else39.i
 
 if.then37.i:                                      ; preds = %if.end33.i
   %118 = load ptr, ptr %romfile, align 16
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %local_err, ptr noundef nonnull @.str.1, i32 noundef 2387, ptr noundef nonnull @__func__.pci_add_option_rom, ptr noundef nonnull @.str.205, ptr noundef %118) #23
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %local_err, ptr noundef nonnull @.str.1, i32 noundef 2387, ptr noundef nonnull @__func__.pci_add_option_rom, ptr noundef nonnull @.str.205, ptr noundef %118) #25
   br label %pci_add_option_rom.exit
 
 if.else39.i:                                      ; preds = %if.end33.i
@@ -5729,7 +5729,7 @@ if.else39.i:                                      ; preds = %if.end33.i
 
 if.then42.i:                                      ; preds = %if.else39.i
   %119 = load ptr, ptr %romfile, align 16
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %local_err, ptr noundef nonnull @.str.1, i32 noundef 2390, ptr noundef nonnull @__func__.pci_add_option_rom, ptr noundef nonnull @.str.206, ptr noundef %119) #23
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %local_err, ptr noundef nonnull @.str.1, i32 noundef 2390, ptr noundef nonnull @__func__.pci_add_option_rom, ptr noundef nonnull @.str.206, ptr noundef %119) #25
   br label %pci_add_option_rom.exit
 
 if.else44.i:                                      ; preds = %if.else39.i
@@ -5738,7 +5738,7 @@ if.else44.i:                                      ; preds = %if.else39.i
 
 if.then47.i:                                      ; preds = %if.else44.i
   %120 = load ptr, ptr %romfile, align 16
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %local_err, ptr noundef nonnull @.str.1, i32 noundef 2395, ptr noundef nonnull @__func__.pci_add_option_rom, ptr noundef nonnull @.str.207, ptr noundef %120) #23
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %local_err, ptr noundef nonnull @.str.1, i32 noundef 2395, ptr noundef nonnull @__func__.pci_add_option_rom, ptr noundef nonnull @.str.207, ptr noundef %120) #25
   br label %pci_add_option_rom.exit
 
 if.end51.i:                                       ; preds = %if.else44.i
@@ -5754,7 +5754,7 @@ if.then55.i:                                      ; preds = %if.end51.i
 if.then60.i:                                      ; preds = %if.then55.i
   %122 = load ptr, ptr %romfile, align 16
   %conv62.i = trunc nuw i64 %call34.i to i32
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %local_err, ptr noundef nonnull @.str.1, i32 noundef 2402, ptr noundef nonnull @__func__.pci_add_option_rom, ptr noundef nonnull @.str.208, ptr noundef %122, i32 noundef %conv62.i, i32 noundef %121) #23
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %local_err, ptr noundef nonnull @.str.1, i32 noundef 2402, ptr noundef nonnull @__func__.pci_add_option_rom, ptr noundef nonnull @.str.208, ptr noundef %122, i32 noundef %conv62.i, i32 noundef %121) #25
   br label %pci_add_option_rom.exit
 
 if.else65.i:                                      ; preds = %if.end51.i
@@ -5770,8 +5770,8 @@ if.else65.i:                                      ; preds = %if.end51.i
 if.end70.i:                                       ; preds = %if.else65.i, %if.then55.i, %lor.lhs.false22.i
   %path.1.i = phi ptr [ %path.0.i, %if.else65.i ], [ %path.0.i, %if.then55.i ], [ null, %lor.lhs.false22.i ]
   %size.0.i = phi i64 [ %call34.i, %if.else65.i ], [ %call34.i, %if.then55.i ], [ 0, %lor.lhs.false22.i ]
-  %call.i45.i = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %qdev, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #23
-  %call72.i = call ptr @qdev_get_vmsd(ptr noundef %call.i45.i) #23
+  %call.i45.i = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %qdev, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #25
+  %call72.i = call ptr @qdev_get_vmsd(ptr noundef %call.i45.i) #25
   %tobool73.not.i = icmp eq ptr %call72.i, null
   br i1 %tobool73.not.i, label %cond.false.i, label %cond.true.i
 
@@ -5780,29 +5780,29 @@ cond.true.i:                                      ; preds = %if.end70.i
   br label %cond.end.i
 
 cond.false.i:                                     ; preds = %if.end70.i
-  %call75.i = call ptr @object_get_typename(ptr noundef nonnull %qdev) #23
+  %call75.i = call ptr @object_get_typename(ptr noundef nonnull %qdev) #25
   br label %cond.end.i
 
 cond.end.i:                                       ; preds = %cond.false.i, %cond.true.i
   %cond.i = phi ptr [ %124, %cond.true.i ], [ %call75.i, %cond.false.i ]
-  %call76.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %name.i, i64 noundef 32, ptr noundef nonnull @.str.209, ptr noundef %cond.i) #23
+  %call76.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %name.i, i64 noundef 32, ptr noundef nonnull @.str.209, ptr noundef %cond.i) #25
   %has_rom.i = getelementptr inbounds i8, ptr %qdev, i64 2268
   store i8 1, ptr %has_rom.i, align 4
   %rom.i = getelementptr inbounds i8, ptr %qdev, i64 2272
   %125 = load i32, ptr %romsize, align 8
   %conv79.i = zext i32 %125 to i64
-  call void @memory_region_init_rom(ptr noundef nonnull %rom.i, ptr noundef nonnull %qdev, ptr noundef nonnull %name.i, i64 noundef %conv79.i, ptr noundef nonnull @error_fatal) #23
+  call void @memory_region_init_rom(ptr noundef nonnull %rom.i, ptr noundef nonnull %qdev, ptr noundef nonnull %name.i, i64 noundef %conv79.i, ptr noundef nonnull @error_fatal) #25
   br i1 %call.i70, label %if.end94.i74, label %if.then81.i
 
 if.then81.i:                                      ; preds = %cond.end.i
-  %call83.i = call ptr @memory_region_get_ram_ptr(ptr noundef nonnull %rom.i) #23
-  %call84.i = call i64 @load_image_size(ptr noundef %path.1.i, ptr noundef %call83.i, i64 noundef %size.0.i) #23
+  %call83.i = call ptr @memory_region_get_ram_ptr(ptr noundef nonnull %rom.i) #25
+  %call84.i = call i64 @load_image_size(ptr noundef %path.1.i, ptr noundef %call83.i, i64 noundef %size.0.i) #25
   %cmp85.i = icmp slt i64 %call84.i, 0
   br i1 %cmp85.i, label %if.then87.i, label %if.end89.i
 
 if.then87.i:                                      ; preds = %if.then81.i
   %126 = load ptr, ptr %romfile, align 16
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %local_err, ptr noundef nonnull @.str.1, i32 noundef 2422, ptr noundef nonnull @__func__.pci_add_option_rom, ptr noundef nonnull @.str.210, ptr noundef %126) #23
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %local_err, ptr noundef nonnull @.str.1, i32 noundef 2422, ptr noundef nonnull @__func__.pci_add_option_rom, ptr noundef nonnull @.str.210, ptr noundef %126) #25
   br label %pci_add_option_rom.exit
 
 if.end89.i:                                       ; preds = %if.then81.i
@@ -5819,15 +5819,15 @@ if.end94.i74:                                     ; preds = %if.then91.i, %if.en
 
 pci_add_option_rom.exit:                          ; preds = %if.end99, %lor.lhs.false.i72, %if.then10.i, %if.then13.i, %if.else.i80, %if.then37.i, %if.then42.i, %if.then47.i, %if.then60.i, %if.then87.i, %if.end94.i74
   %path.2.i = phi ptr [ null, %if.end99 ], [ null, %lor.lhs.false.i72 ], [ null, %if.then13.i ], [ null, %if.else.i80 ], [ null, %if.then10.i ], [ %path.0.i, %if.then37.i ], [ %path.0.i, %if.then42.i ], [ %path.0.i, %if.then47.i ], [ %path.1.i, %if.end94.i74 ], [ %path.1.i, %if.then87.i ], [ %path.0.i, %if.then60.i ]
-  call void @g_free(ptr noundef %path.2.i) #23
+  call void @g_free(ptr noundef %path.2.i) #25
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %name.i)
   %127 = load ptr, ptr %local_err, align 8
   %tobool101.not = icmp eq ptr %127, null
   br i1 %tobool101.not, label %if.end104, label %if.then102
 
 if.then102:                                       ; preds = %pci_add_option_rom.exit
-  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %127) #23
-  %call.i81 = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %qdev, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #23
+  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %127) #25
+  %call.i81 = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %qdev, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #25
   call void @pci_qdev_unrealize(ptr noundef %call.i81)
   br label %return
 
@@ -5844,9 +5844,9 @@ return:                                           ; preds = %do_pci_register_dev
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @pci_qdev_unrealize(ptr noundef %dev) #0 {
 entry:
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.164, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #23
-  %call.i10 = tail call ptr @object_get_class(ptr noundef %call.i) #23
-  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i10, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.164, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE_GET_CLASS) #23
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.164, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #25
+  %call.i10 = tail call ptr @object_get_class(ptr noundef %call.i) #25
+  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i10, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.164, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE_GET_CLASS) #25
   %io_regions.i = getelementptr inbounds i8, ptr %call.i, i64 296
   br label %for.body.i
 
@@ -5868,7 +5868,7 @@ if.end.i:                                         ; preds = %lor.lhs.false.i
   %2 = load ptr, ptr %address_space.i, align 8
   %memory.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 24
   %3 = load ptr, ptr %memory.i, align 8
-  tail call void @memory_region_del_subregion(ptr noundef %2, ptr noundef %3) #23
+  tail call void @memory_region_del_subregion(ptr noundef %2, ptr noundef %3) #25
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end.i, %lor.lhs.false.i, %for.body.i
@@ -5885,7 +5885,7 @@ pci_unregister_io_regions.exit:                   ; preds = %for.inc.i
 
 if.end.i11:                                       ; preds = %pci_unregister_io_regions.exit
   %rom.i = getelementptr inbounds i8, ptr %call.i, i64 2272
-  tail call void @vmstate_unregister_ram(ptr noundef nonnull %rom.i, ptr noundef nonnull %call.i) #23
+  tail call void @vmstate_unregister_ram(ptr noundef nonnull %rom.i, ptr noundef nonnull %call.i) #25
   store i8 0, ptr %has_rom.i, align 4
   br label %pci_del_option_rom.exit
 
@@ -5896,7 +5896,7 @@ pci_del_option_rom.exit:                          ; preds = %pci_unregister_io_r
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %pci_del_option_rom.exit
-  tail call void %5(ptr noundef nonnull %call.i) #23
+  tail call void %5(ptr noundef nonnull %call.i) #25
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %pci_del_option_rom.exit
@@ -5959,7 +5959,7 @@ if.then4:                                         ; preds = %pci_device_deassert
   br i1 %tobool.not.i13, label %if.then.i, label %pci_acpi_index_list.exit
 
 if.then.i:                                        ; preds = %if.then4
-  %call.i15 = tail call ptr @g_sequence_new(ptr noundef null) #23
+  %call.i15 = tail call ptr @g_sequence_new(ptr noundef null) #25
   store ptr %call.i15, ptr @pci_acpi_index_list.used_acpi_index_list, align 8
   %.pre = load i32, ptr %acpi_index, align 16
   br label %pci_acpi_index_list.exit
@@ -5969,8 +5969,8 @@ pci_acpi_index_list.exit:                         ; preds = %if.then4, %if.then.
   %17 = phi ptr [ %call.i15, %if.then.i ], [ %15, %if.then4 ]
   %conv = zext i32 %16 to i64
   %18 = inttoptr i64 %conv to ptr
-  %call7 = tail call ptr @g_sequence_lookup(ptr noundef %17, ptr noundef %18, ptr noundef nonnull @g_cmp_uint32, ptr noundef null) #23
-  tail call void @g_sequence_remove(ptr noundef %call7) #23
+  %call7 = tail call ptr @g_sequence_lookup(ptr noundef %17, ptr noundef %18, ptr noundef nonnull @g_cmp_uint32, ptr noundef null) #25
+  tail call void @g_sequence_remove(ptr noundef %call7) #25
   br label %if.end8
 
 if.end8:                                          ; preds = %pci_acpi_index_list.exit, %pci_device_deassert_intx.exit
@@ -5982,7 +5982,7 @@ declare void @device_class_set_props(ptr noundef, ptr noundef) local_unnamed_add
 declare ptr @g_sequence_lookup(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i32 @g_cmp_uint32(ptr noundef %a, ptr noundef %b, ptr nocapture readnone %user_data) #16 {
+define internal noundef i32 @g_cmp_uint32(ptr noundef %a, ptr noundef %b, ptr nocapture readnone %user_data) #18 {
 entry:
   %sub.ptr.lhs.cast = ptrtoint ptr %a to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %b to i64
@@ -5998,9 +5998,9 @@ declare ptr @object_class_dynamic_cast(ptr noundef, ptr noundef) local_unnamed_a
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @do_pci_unregister_device(ptr noundef %pci_dev) unnamed_addr #0 {
 entry:
-  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %pci_dev, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #23
-  %call1.i = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i) #23
-  %call.i1.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1.i, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #23
+  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %pci_dev, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #25
+  %call1.i = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i) #25
+  %call.i1.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1.i, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #25
   %devices = getelementptr inbounds i8, ptr %call.i1.i, i64 184
   %devfn = getelementptr inbounds i8, ptr %pci_dev, i64 208
   %0 = load i32, ptr %devfn, align 16
@@ -6009,40 +6009,40 @@ entry:
   store ptr null, ptr %arrayidx, align 8
   %config.i = getelementptr inbounds i8, ptr %pci_dev, i64 168
   %1 = load ptr, ptr %config.i, align 8
-  tail call void @g_free(ptr noundef %1) #23
+  tail call void @g_free(ptr noundef %1) #25
   %cmask.i = getelementptr inbounds i8, ptr %pci_dev, i64 176
   %2 = load ptr, ptr %cmask.i, align 16
-  tail call void @g_free(ptr noundef %2) #23
+  tail call void @g_free(ptr noundef %2) #25
   %wmask.i = getelementptr inbounds i8, ptr %pci_dev, i64 184
   %3 = load ptr, ptr %wmask.i, align 8
-  tail call void @g_free(ptr noundef %3) #23
+  tail call void @g_free(ptr noundef %3) #25
   %w1cmask.i = getelementptr inbounds i8, ptr %pci_dev, i64 192
   %4 = load ptr, ptr %w1cmask.i, align 16
-  tail call void @g_free(ptr noundef %4) #23
+  tail call void @g_free(ptr noundef %4) #25
   %used.i = getelementptr inbounds i8, ptr %pci_dev, i64 200
   %5 = load ptr, ptr %used.i, align 8
-  tail call void @g_free(ptr noundef %5) #23
+  tail call void @g_free(ptr noundef %5) #25
   %6 = load i32, ptr @xen_mode, align 4
   %cmp = icmp eq i32 %6, 2
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call void @xen_evtchn_remove_pci_device(ptr noundef nonnull %pci_dev) #23
+  tail call void @xen_evtchn_remove_pci_device(ptr noundef nonnull %pci_dev) #25
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
   %bus_master_enable_region = getelementptr inbounds i8, ptr %pci_dev, i64 944
-  %call1 = tail call zeroext i1 @memory_region_is_mapped(ptr noundef nonnull %bus_master_enable_region) #23
+  %call1 = tail call zeroext i1 @memory_region_is_mapped(ptr noundef nonnull %bus_master_enable_region) #25
   br i1 %call1, label %if.then2, label %if.end4
 
 if.then2:                                         ; preds = %if.end
   %bus_master_container_region = getelementptr inbounds i8, ptr %pci_dev, i64 672
-  tail call void @memory_region_del_subregion(ptr noundef nonnull %bus_master_container_region, ptr noundef nonnull %bus_master_enable_region) #23
+  tail call void @memory_region_del_subregion(ptr noundef nonnull %bus_master_container_region, ptr noundef nonnull %bus_master_enable_region) #25
   br label %if.end4
 
 if.end4:                                          ; preds = %if.then2, %if.end
   %bus_master_as = getelementptr inbounds i8, ptr %pci_dev, i64 576
-  tail call void @address_space_destroy(ptr noundef nonnull %bus_master_as) #23
+  tail call void @address_space_destroy(ptr noundef nonnull %bus_master_as) #25
   ret void
 }
 
@@ -6058,7 +6058,7 @@ entry:
   br i1 %cmp, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
-  %call = tail call zeroext i1 @xen_evtchn_deliver_pirq_msi(i64 noundef %msg.coerce0, i32 noundef %msg.coerce1) #23
+  %call = tail call zeroext i1 @xen_evtchn_deliver_pirq_msi(i64 noundef %msg.coerce0, i32 noundef %msg.coerce1) #25
   br i1 %call, label %return, label %if.end
 
 if.end:                                           ; preds = %land.lhs.true, %entry
@@ -6066,7 +6066,7 @@ if.end:                                           ; preds = %land.lhs.true, %ent
   %conv = zext i16 %call1 to i32
   %bf.shl = shl nuw nsw i32 %conv, 6
   %bus_master_as = getelementptr inbounds i8, ptr %dev, i64 576
-  tail call void @address_space_stl_le(ptr noundef nonnull %bus_master_as, i64 noundef %msg.coerce0, i32 noundef %msg.coerce1, i32 %bf.shl, ptr noundef null) #23
+  tail call void @address_space_stl_le(ptr noundef nonnull %bus_master_as, i64 noundef %msg.coerce0, i32 noundef %msg.coerce1, i32 %bf.shl, ptr noundef null) #25
   br label %return
 
 return:                                           ; preds = %land.lhs.true, %if.end
@@ -6106,7 +6106,7 @@ declare ptr @memory_region_get_ram_ptr(ptr noundef) local_unnamed_addr #2
 declare i64 @load_image_size(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @pci_patch_ids(ptr nocapture noundef readonly %pdev, ptr nocapture noundef %ptr, i32 noundef %size) unnamed_addr #17 {
+define internal fastcc void @pci_patch_ids(ptr nocapture noundef readonly %pdev, ptr nocapture noundef %ptr, i32 noundef %size) unnamed_addr #19 {
 entry:
   %ptr.val = load i16, ptr %ptr, align 1
   %cmp.not = icmp eq i16 %ptr.val, -21931
@@ -6178,7 +6178,7 @@ if.end93:                                         ; preds = %if.end, %lor.lhs.fa
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #18
+declare i64 @llvm.ctlz.i64(i64, i1 immarg) #20
 
 declare zeroext i1 @xen_evtchn_deliver_pirq_msi(i64 noundef, i32 noundef) local_unnamed_addr #2
 
@@ -6191,31 +6191,31 @@ declare void @vmstate_unregister_ram(ptr noundef, ptr noundef) local_unnamed_add
 declare zeroext i1 @object_class_is_abstract(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #19
+declare i32 @llvm.smin.i32(i32, i32) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #19
+declare i32 @llvm.smax.i32(i32, i32) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctpop.i64(i64) #19
+declare i64 @llvm.ctpop.i64(i64) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #19
+declare i64 @llvm.umax.i64(i64, i64) #21
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #20
+declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.umax.i8(i8, i8) #19
+declare i8 @llvm.umax.i8(i8, i8) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctpop.i32(i32) #19
+declare i32 @llvm.ctpop.i32(i32) #21
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -6227,23 +6227,26 @@ attributes #6 = { mustprogress nofree norecurse nosync nounwind sspstrong willre
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nofree norecurse nosync nounwind sspstrong memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #11 = { nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nofree nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #19 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #20 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #21 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #22 = { noreturn nounwind }
-attributes #23 = { nounwind }
-attributes #24 = { nounwind allocsize(0) }
-attributes #25 = { nounwind willreturn memory(read) }
-attributes #26 = { cold }
+attributes #10 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #12 = { nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nofree nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #21 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #22 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #23 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #24 = { noreturn nounwind }
+attributes #25 = { nounwind }
+attributes #26 = { nounwind allocsize(0) }
+attributes #27 = { cold noreturn nounwind }
+attributes #28 = { nounwind willreturn memory(read) }
+attributes #29 = { cold }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

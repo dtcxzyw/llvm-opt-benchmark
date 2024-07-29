@@ -7033,7 +7033,7 @@ if.then9:                                         ; preds = %if.else
   %9 = load ptr, ptr @stderr, align 8
   %10 = load ptr, ptr %name, align 8
   %call11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.40, ptr noundef nonnull %add.ptr.i28, ptr noundef %10) #32
-  tail call void @exit(i32 noundef 1) #30
+  tail call void @exit(i32 noundef 1) #33
   unreachable
 
 if.else12:                                        ; preds = %if.else
@@ -7046,7 +7046,7 @@ if.then15:                                        ; preds = %if.else12
   %12 = load ptr, ptr @stderr, align 8
   %13 = load ptr, ptr %name, align 8
   %call17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.41, ptr noundef nonnull %add.ptr.i28, ptr noundef %13) #32
-  tail call void @exit(i32 noundef 1) #30
+  tail call void @exit(i32 noundef 1) #33
   unreachable
 
 if.end20:                                         ; preds = %if.else12
@@ -7122,7 +7122,7 @@ if.end20:                                         ; preds = %if.then17, %if.end1
 ; Function Attrs: mustprogress nofree nounwind willreturn
 declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #16
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -7196,7 +7196,7 @@ if.then14:                                        ; preds = %land.lhs.true
   %10 = load ptr, ptr @stderr, align 8
   %11 = load ptr, ptr %name, align 8
   %call16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.40, ptr noundef nonnull %add.ptr.i32, ptr noundef %11) #32
-  tail call void @exit(i32 noundef 1) #30
+  tail call void @exit(i32 noundef 1) #33
   unreachable
 
 if.else17:                                        ; preds = %land.lhs.true, %if.else
@@ -7216,7 +7216,7 @@ if.then27:                                        ; preds = %land.lhs.true20
   %14 = load ptr, ptr @stderr, align 8
   %15 = load ptr, ptr %name, align 8
   %call29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str.41, ptr noundef nonnull %add.ptr.i32, ptr noundef %15) #32
-  tail call void @exit(i32 noundef 1) #30
+  tail call void @exit(i32 noundef 1) #33
   unreachable
 
 if.end32:                                         ; preds = %land.lhs.true20, %if.else17
@@ -8104,7 +8104,7 @@ attributes #13 = { mustprogress nofree nosync nounwind willreturn memory(none) "
 attributes #14 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #15 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #18 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #19 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #20 = { nocallback nofree nounwind willreturn memory(argmem: write) }
@@ -8120,6 +8120,7 @@ attributes #29 = { builtin allocsize(0) }
 attributes #30 = { noreturn nounwind }
 attributes #31 = { nounwind willreturn memory(read) }
 attributes #32 = { cold }
+attributes #33 = { cold noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

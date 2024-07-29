@@ -83,7 +83,7 @@ entry:
   %value = alloca i32, align 4
   %0 = load i32, ptr %obj, align 4
   store i32 %0, ptr %value, align 4
-  %call = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %value, ptr noundef nonnull @QCryptoTLSCredsEndpoint_lookup, ptr noundef %errp) #4
+  %call = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %value, ptr noundef nonnull @QCryptoTLSCredsEndpoint_lookup, ptr noundef %errp) #5
   %1 = load i32, ptr %value, align 4
   store i32 %1, ptr %obj, align 4
   ret i1 %call
@@ -97,7 +97,7 @@ entry:
   %value = alloca i32, align 4
   %0 = load i32, ptr %obj, align 4
   store i32 %0, ptr %value, align 4
-  %call = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %value, ptr noundef nonnull @QCryptoSecretFormat_lookup, ptr noundef %errp) #4
+  %call = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %value, ptr noundef nonnull @QCryptoSecretFormat_lookup, ptr noundef %errp) #5
   %1 = load i32, ptr %value, align 4
   store i32 %1, ptr %obj, align 4
   ret i1 %call
@@ -109,7 +109,7 @@ entry:
   %value = alloca i32, align 4
   %0 = load i32, ptr %obj, align 4
   store i32 %0, ptr %value, align 4
-  %call = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %value, ptr noundef nonnull @QCryptoHashAlgorithm_lookup, ptr noundef %errp) #4
+  %call = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %value, ptr noundef nonnull @QCryptoHashAlgorithm_lookup, ptr noundef %errp) #5
   %1 = load i32, ptr %value, align 4
   store i32 %1, ptr %obj, align 4
   ret i1 %call
@@ -121,7 +121,7 @@ entry:
   %value = alloca i32, align 4
   %0 = load i32, ptr %obj, align 4
   store i32 %0, ptr %value, align 4
-  %call = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %value, ptr noundef nonnull @QCryptoCipherAlgorithm_lookup, ptr noundef %errp) #4
+  %call = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %value, ptr noundef nonnull @QCryptoCipherAlgorithm_lookup, ptr noundef %errp) #5
   %1 = load i32, ptr %value, align 4
   store i32 %1, ptr %obj, align 4
   ret i1 %call
@@ -133,7 +133,7 @@ entry:
   %value = alloca i32, align 4
   %0 = load i32, ptr %obj, align 4
   store i32 %0, ptr %value, align 4
-  %call = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %value, ptr noundef nonnull @QCryptoCipherMode_lookup, ptr noundef %errp) #4
+  %call = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %value, ptr noundef nonnull @QCryptoCipherMode_lookup, ptr noundef %errp) #5
   %1 = load i32, ptr %value, align 4
   store i32 %1, ptr %obj, align 4
   ret i1 %call
@@ -145,7 +145,7 @@ entry:
   %value = alloca i32, align 4
   %0 = load i32, ptr %obj, align 4
   store i32 %0, ptr %value, align 4
-  %call = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %value, ptr noundef nonnull @QCryptoIVGenAlgorithm_lookup, ptr noundef %errp) #4
+  %call = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %value, ptr noundef nonnull @QCryptoIVGenAlgorithm_lookup, ptr noundef %errp) #5
   %1 = load i32, ptr %value, align 4
   store i32 %1, ptr %obj, align 4
   ret i1 %call
@@ -157,7 +157,7 @@ entry:
   %value = alloca i32, align 4
   %0 = load i32, ptr %obj, align 4
   store i32 %0, ptr %value, align 4
-  %call = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %value, ptr noundef nonnull @QCryptoBlockFormat_lookup, ptr noundef %errp) #4
+  %call = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %value, ptr noundef nonnull @QCryptoBlockFormat_lookup, ptr noundef %errp) #5
   %1 = load i32, ptr %value, align 4
   store i32 %1, ptr %obj, align 4
   ret i1 %call
@@ -170,7 +170,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
   %0 = load i32, ptr %obj, align 4
   store i32 %0, ptr %value.i, align 4
-  %call.i = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef nonnull @.str, ptr noundef nonnull %value.i, ptr noundef nonnull @QCryptoBlockFormat_lookup, ptr noundef %errp) #4
+  %call.i = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef nonnull @.str, ptr noundef nonnull %value.i, ptr noundef nonnull @QCryptoBlockFormat_lookup, ptr noundef %errp) #5
   %1 = load i32, ptr %value.i, align 4
   store i32 %1, ptr %obj, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.i)
@@ -181,7 +181,7 @@ entry:
 define dso_local noundef zeroext i1 @visit_type_QCryptoBlockOptionsBase(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %value.i.i = alloca i32, align 4
-  %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 4, ptr noundef %errp) #4
+  %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 4, ptr noundef %errp) #5
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -190,43 +190,43 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.then1, label %if.end5
 
 if.then1:                                         ; preds = %if.end
-  %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #4
+  %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #5
   br i1 %call2, label %out_obj.thread, label %if.else
 
 out_obj.thread:                                   ; preds = %if.then1
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %return
 
 if.else:                                          ; preds = %if.then1
-  tail call void @__assert_fail(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 99, ptr noundef nonnull @__PRETTY_FUNCTION__.visit_type_QCryptoBlockOptionsBase) #5
+  tail call void @__assert_fail(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 99, ptr noundef nonnull @__PRETTY_FUNCTION__.visit_type_QCryptoBlockOptionsBase) #6
   unreachable
 
 if.end5:                                          ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i.i)
   %1 = load i32, ptr %0, align 4
   store i32 %1, ptr %value.i.i, align 4
-  %call.i.i = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef nonnull @.str, ptr noundef nonnull %value.i.i, ptr noundef nonnull @QCryptoBlockFormat_lookup, ptr noundef %errp) #4
+  %call.i.i = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef nonnull @.str, ptr noundef nonnull %value.i.i, ptr noundef nonnull @QCryptoBlockFormat_lookup, ptr noundef %errp) #5
   %2 = load i32, ptr %value.i.i, align 4
   store i32 %2, ptr %0, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.i.i)
   br i1 %call.i.i, label %out_obj, label %out_obj.thread15
 
 out_obj.thread15:                                 ; preds = %if.end5
-  call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %land.lhs.true
 
 out_obj:                                          ; preds = %if.end5
-  %call9 = call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #4
-  call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  %call9 = call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #5
+  call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br i1 %call9, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %out_obj.thread15, %out_obj
-  %call11 = call zeroext i1 @visit_is_input(ptr noundef %v) #4
+  %call11 = call zeroext i1 @visit_is_input(ptr noundef %v) #5
   br i1 %call11, label %if.then12, label %return
 
 if.then12:                                        ; preds = %land.lhs.true
   %3 = load ptr, ptr %obj, align 8
-  call void @qapi_free_QCryptoBlockOptionsBase(ptr noundef %3) #4
+  call void @qapi_free_QCryptoBlockOptionsBase(ptr noundef %3) #5
   store ptr null, ptr %obj, align 8
   br label %return
 
@@ -258,11 +258,11 @@ entry:
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %has_key_secret, align 1
-  %call = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.3, ptr noundef nonnull %has_key_secret) #4
+  %call = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.3, ptr noundef nonnull %has_key_secret) #5
   br i1 %call, label %if.then, label %if.end5
 
 if.then:                                          ; preds = %entry
-  %call3 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.3, ptr noundef nonnull %obj, ptr noundef %errp) #4
+  %call3 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.3, ptr noundef nonnull %obj, ptr noundef %errp) #5
   br i1 %call3, label %if.end5, label %return
 
 if.end5:                                          ; preds = %if.then, %entry
@@ -281,7 +281,7 @@ declare zeroext i1 @visit_type_str(ptr noundef, ptr noundef, ptr noundef, ptr no
 define dso_local noundef zeroext i1 @visit_type_QCryptoBlockOptionsQCow(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %has_key_secret.i = alloca i8, align 1
-  %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 8, ptr noundef %errp) #4
+  %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 8, ptr noundef %errp) #5
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -290,15 +290,15 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.then1, label %if.end5
 
 if.then1:                                         ; preds = %if.end
-  %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #4
+  %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #5
   br i1 %call2, label %out_obj.thread, label %if.else
 
 out_obj.thread:                                   ; preds = %if.then1
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %return
 
 if.else:                                          ; preds = %if.then1
-  tail call void @__assert_fail(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 138, ptr noundef nonnull @__PRETTY_FUNCTION__.visit_type_QCryptoBlockOptionsQCow) #5
+  tail call void @__assert_fail(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 138, ptr noundef nonnull @__PRETTY_FUNCTION__.visit_type_QCryptoBlockOptionsQCow) #6
   unreachable
 
 if.end5:                                          ; preds = %if.end
@@ -307,31 +307,31 @@ if.end5:                                          ; preds = %if.end
   %tobool.i = icmp ne ptr %1, null
   %frombool.i = zext i1 %tobool.i to i8
   store i8 %frombool.i, ptr %has_key_secret.i, align 1
-  %call.i = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.3, ptr noundef nonnull %has_key_secret.i) #4
+  %call.i = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.3, ptr noundef nonnull %has_key_secret.i) #5
   br i1 %call.i, label %if.then.i, label %out_obj
 
 if.then.i:                                        ; preds = %if.end5
-  %call3.i = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.3, ptr noundef nonnull %0, ptr noundef %errp) #4
+  %call3.i = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.3, ptr noundef nonnull %0, ptr noundef %errp) #5
   br i1 %call3.i, label %out_obj, label %out_obj.thread16
 
 out_obj.thread16:                                 ; preds = %if.then.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_key_secret.i)
-  call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %land.lhs.true
 
 out_obj:                                          ; preds = %if.then.i, %if.end5
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_key_secret.i)
-  %call9 = call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #4
-  call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  %call9 = call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #5
+  call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br i1 %call9, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %out_obj.thread16, %out_obj
-  %call11 = call zeroext i1 @visit_is_input(ptr noundef %v) #4
+  %call11 = call zeroext i1 @visit_is_input(ptr noundef %v) #5
   br i1 %call11, label %if.then12, label %return
 
 if.then12:                                        ; preds = %land.lhs.true
   %2 = load ptr, ptr %obj, align 8
-  call void @qapi_free_QCryptoBlockOptionsQCow(ptr noundef %2) #4
+  call void @qapi_free_QCryptoBlockOptionsQCow(ptr noundef %2) #5
   store ptr null, ptr %obj, align 8
   br label %return
 
@@ -350,11 +350,11 @@ entry:
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %has_key_secret, align 1
-  %call = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.3, ptr noundef nonnull %has_key_secret) #4
+  %call = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.3, ptr noundef nonnull %has_key_secret) #5
   br i1 %call, label %if.then, label %if.end5
 
 if.then:                                          ; preds = %entry
-  %call3 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.3, ptr noundef nonnull %obj, ptr noundef %errp) #4
+  %call3 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.3, ptr noundef nonnull %obj, ptr noundef %errp) #5
   br i1 %call3, label %if.end5, label %return
 
 if.end5:                                          ; preds = %if.then, %entry
@@ -369,7 +369,7 @@ return:                                           ; preds = %if.then, %if.end5
 define dso_local noundef zeroext i1 @visit_type_QCryptoBlockOptionsLUKS(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %has_key_secret.i = alloca i8, align 1
-  %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 8, ptr noundef %errp) #4
+  %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 8, ptr noundef %errp) #5
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -378,15 +378,15 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.then1, label %if.end5
 
 if.then1:                                         ; preds = %if.end
-  %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #4
+  %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #5
   br i1 %call2, label %out_obj.thread, label %if.else
 
 out_obj.thread:                                   ; preds = %if.then1
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %return
 
 if.else:                                          ; preds = %if.then1
-  tail call void @__assert_fail(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 177, ptr noundef nonnull @__PRETTY_FUNCTION__.visit_type_QCryptoBlockOptionsLUKS) #5
+  tail call void @__assert_fail(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 177, ptr noundef nonnull @__PRETTY_FUNCTION__.visit_type_QCryptoBlockOptionsLUKS) #6
   unreachable
 
 if.end5:                                          ; preds = %if.end
@@ -395,31 +395,31 @@ if.end5:                                          ; preds = %if.end
   %tobool.i = icmp ne ptr %1, null
   %frombool.i = zext i1 %tobool.i to i8
   store i8 %frombool.i, ptr %has_key_secret.i, align 1
-  %call.i = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.3, ptr noundef nonnull %has_key_secret.i) #4
+  %call.i = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.3, ptr noundef nonnull %has_key_secret.i) #5
   br i1 %call.i, label %if.then.i, label %out_obj
 
 if.then.i:                                        ; preds = %if.end5
-  %call3.i = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.3, ptr noundef nonnull %0, ptr noundef %errp) #4
+  %call3.i = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.3, ptr noundef nonnull %0, ptr noundef %errp) #5
   br i1 %call3.i, label %out_obj, label %out_obj.thread16
 
 out_obj.thread16:                                 ; preds = %if.then.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_key_secret.i)
-  call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %land.lhs.true
 
 out_obj:                                          ; preds = %if.then.i, %if.end5
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_key_secret.i)
-  %call9 = call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #4
-  call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  %call9 = call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #5
+  call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br i1 %call9, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %out_obj.thread16, %out_obj
-  %call11 = call zeroext i1 @visit_is_input(ptr noundef %v) #4
+  %call11 = call zeroext i1 @visit_is_input(ptr noundef %v) #5
   br i1 %call11, label %if.then12, label %return
 
 if.then12:                                        ; preds = %land.lhs.true
   %2 = load ptr, ptr %obj, align 8
-  call void @qapi_free_QCryptoBlockOptionsLUKS(ptr noundef %2) #4
+  call void @qapi_free_QCryptoBlockOptionsLUKS(ptr noundef %2) #5
   store ptr null, ptr %obj, align 8
   br label %return
 
@@ -444,11 +444,11 @@ entry:
   %tobool.i = icmp ne ptr %0, null
   %frombool.i = zext i1 %tobool.i to i8
   store i8 %frombool.i, ptr %has_key_secret.i, align 1
-  %call.i = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.3, ptr noundef nonnull %has_key_secret.i) #4
+  %call.i = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.3, ptr noundef nonnull %has_key_secret.i) #5
   br i1 %call.i, label %if.then.i, label %if.end
 
 if.then.i:                                        ; preds = %entry
-  %call3.i = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.3, ptr noundef nonnull %obj, ptr noundef %errp) #4
+  %call3.i = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.3, ptr noundef nonnull %obj, ptr noundef %errp) #5
   br i1 %call3.i, label %if.end, label %visit_type_QCryptoBlockOptionsLUKS_members.exit
 
 visit_type_QCryptoBlockOptionsLUKS_members.exit:  ; preds = %if.then.i
@@ -458,7 +458,7 @@ visit_type_QCryptoBlockOptionsLUKS_members.exit:  ; preds = %if.then.i
 if.end:                                           ; preds = %entry, %if.then.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_key_secret.i)
   %has_cipher_alg = getelementptr inbounds i8, ptr %obj, i64 8
-  %call1 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.4, ptr noundef nonnull %has_cipher_alg) #4
+  %call1 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.4, ptr noundef nonnull %has_cipher_alg) #5
   br i1 %call1, label %if.then2, label %if.end6
 
 if.then2:                                         ; preds = %if.end
@@ -466,7 +466,7 @@ if.then2:                                         ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
   %1 = load i32, ptr %cipher_alg, align 4
   store i32 %1, ptr %value.i, align 4
-  %call.i31 = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef nonnull @.str.4, ptr noundef nonnull %value.i, ptr noundef nonnull @QCryptoCipherAlgorithm_lookup, ptr noundef %errp) #4
+  %call.i31 = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef nonnull @.str.4, ptr noundef nonnull %value.i, ptr noundef nonnull @QCryptoCipherAlgorithm_lookup, ptr noundef %errp) #5
   %2 = load i32, ptr %value.i, align 4
   store i32 %2, ptr %cipher_alg, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.i)
@@ -474,7 +474,7 @@ if.then2:                                         ; preds = %if.end
 
 if.end6:                                          ; preds = %if.then2, %if.end
   %has_cipher_mode = getelementptr inbounds i8, ptr %obj, i64 16
-  %call7 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.5, ptr noundef nonnull %has_cipher_mode) #4
+  %call7 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.5, ptr noundef nonnull %has_cipher_mode) #5
   br i1 %call7, label %if.then8, label %if.end12
 
 if.then8:                                         ; preds = %if.end6
@@ -482,7 +482,7 @@ if.then8:                                         ; preds = %if.end6
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i32)
   %3 = load i32, ptr %cipher_mode, align 4
   store i32 %3, ptr %value.i32, align 4
-  %call.i33 = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef nonnull @.str.5, ptr noundef nonnull %value.i32, ptr noundef nonnull @QCryptoCipherMode_lookup, ptr noundef %errp) #4
+  %call.i33 = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef nonnull @.str.5, ptr noundef nonnull %value.i32, ptr noundef nonnull @QCryptoCipherMode_lookup, ptr noundef %errp) #5
   %4 = load i32, ptr %value.i32, align 4
   store i32 %4, ptr %cipher_mode, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.i32)
@@ -490,7 +490,7 @@ if.then8:                                         ; preds = %if.end6
 
 if.end12:                                         ; preds = %if.then8, %if.end6
   %has_ivgen_alg = getelementptr inbounds i8, ptr %obj, i64 24
-  %call13 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.6, ptr noundef nonnull %has_ivgen_alg) #4
+  %call13 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.6, ptr noundef nonnull %has_ivgen_alg) #5
   br i1 %call13, label %if.then14, label %if.end18
 
 if.then14:                                        ; preds = %if.end12
@@ -498,7 +498,7 @@ if.then14:                                        ; preds = %if.end12
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i34)
   %5 = load i32, ptr %ivgen_alg, align 4
   store i32 %5, ptr %value.i34, align 4
-  %call.i35 = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef nonnull @.str.6, ptr noundef nonnull %value.i34, ptr noundef nonnull @QCryptoIVGenAlgorithm_lookup, ptr noundef %errp) #4
+  %call.i35 = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef nonnull @.str.6, ptr noundef nonnull %value.i34, ptr noundef nonnull @QCryptoIVGenAlgorithm_lookup, ptr noundef %errp) #5
   %6 = load i32, ptr %value.i34, align 4
   store i32 %6, ptr %ivgen_alg, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.i34)
@@ -506,7 +506,7 @@ if.then14:                                        ; preds = %if.end12
 
 if.end18:                                         ; preds = %if.then14, %if.end12
   %has_ivgen_hash_alg = getelementptr inbounds i8, ptr %obj, i64 32
-  %call19 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef nonnull %has_ivgen_hash_alg) #4
+  %call19 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef nonnull %has_ivgen_hash_alg) #5
   br i1 %call19, label %if.then20, label %if.end24
 
 if.then20:                                        ; preds = %if.end18
@@ -514,7 +514,7 @@ if.then20:                                        ; preds = %if.end18
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i36)
   %7 = load i32, ptr %ivgen_hash_alg, align 4
   store i32 %7, ptr %value.i36, align 4
-  %call.i37 = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef nonnull %value.i36, ptr noundef nonnull @QCryptoHashAlgorithm_lookup, ptr noundef %errp) #4
+  %call.i37 = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef nonnull %value.i36, ptr noundef nonnull @QCryptoHashAlgorithm_lookup, ptr noundef %errp) #5
   %8 = load i32, ptr %value.i36, align 4
   store i32 %8, ptr %ivgen_hash_alg, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.i36)
@@ -522,7 +522,7 @@ if.then20:                                        ; preds = %if.end18
 
 if.end24:                                         ; preds = %if.then20, %if.end18
   %has_hash_alg = getelementptr inbounds i8, ptr %obj, i64 40
-  %call25 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.8, ptr noundef nonnull %has_hash_alg) #4
+  %call25 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.8, ptr noundef nonnull %has_hash_alg) #5
   br i1 %call25, label %if.then26, label %if.end30
 
 if.then26:                                        ; preds = %if.end24
@@ -530,7 +530,7 @@ if.then26:                                        ; preds = %if.end24
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i38)
   %9 = load i32, ptr %hash_alg, align 4
   store i32 %9, ptr %value.i38, align 4
-  %call.i39 = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef nonnull @.str.8, ptr noundef nonnull %value.i38, ptr noundef nonnull @QCryptoHashAlgorithm_lookup, ptr noundef %errp) #4
+  %call.i39 = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef nonnull @.str.8, ptr noundef nonnull %value.i38, ptr noundef nonnull @QCryptoHashAlgorithm_lookup, ptr noundef %errp) #5
   %10 = load i32, ptr %value.i38, align 4
   store i32 %10, ptr %hash_alg, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.i38)
@@ -538,12 +538,12 @@ if.then26:                                        ; preds = %if.end24
 
 if.end30:                                         ; preds = %if.then26, %if.end24
   %has_iter_time = getelementptr inbounds i8, ptr %obj, i64 48
-  %call31 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.9, ptr noundef nonnull %has_iter_time) #4
+  %call31 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.9, ptr noundef nonnull %has_iter_time) #5
   br i1 %call31, label %if.then32, label %if.end36
 
 if.then32:                                        ; preds = %if.end30
   %iter_time = getelementptr inbounds i8, ptr %obj, i64 56
-  %call33 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.9, ptr noundef nonnull %iter_time, ptr noundef %errp) #4
+  %call33 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.9, ptr noundef nonnull %iter_time, ptr noundef %errp) #5
   br i1 %call33, label %if.end36, label %return
 
 if.end36:                                         ; preds = %if.then32, %if.end30
@@ -559,7 +559,7 @@ declare zeroext i1 @visit_type_int(ptr noundef, ptr noundef, ptr noundef, ptr no
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef zeroext i1 @visit_type_QCryptoBlockCreateOptionsLUKS(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 64, ptr noundef %errp) #4
+  %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 64, ptr noundef %errp) #5
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -568,15 +568,15 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.then1, label %if.end5
 
 if.then1:                                         ; preds = %if.end
-  %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #4
+  %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #5
   br i1 %call2, label %out_obj.thread, label %if.else
 
 out_obj.thread:                                   ; preds = %if.then1
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %return
 
 if.else:                                          ; preds = %if.then1
-  tail call void @__assert_fail(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 242, ptr noundef nonnull @__PRETTY_FUNCTION__.visit_type_QCryptoBlockCreateOptionsLUKS) #5
+  tail call void @__assert_fail(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 242, ptr noundef nonnull @__PRETTY_FUNCTION__.visit_type_QCryptoBlockCreateOptionsLUKS) #6
   unreachable
 
 if.end5:                                          ; preds = %if.end
@@ -584,21 +584,21 @@ if.end5:                                          ; preds = %if.end
   br i1 %call6, label %out_obj, label %out_obj.thread15
 
 out_obj.thread15:                                 ; preds = %if.end5
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %land.lhs.true
 
 out_obj:                                          ; preds = %if.end5
-  %call9 = tail call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #4
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  %call9 = tail call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #5
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br i1 %call9, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %out_obj.thread15, %out_obj
-  %call11 = tail call zeroext i1 @visit_is_input(ptr noundef %v) #4
+  %call11 = tail call zeroext i1 @visit_is_input(ptr noundef %v) #5
   br i1 %call11, label %if.then12, label %return
 
 if.then12:                                        ; preds = %land.lhs.true
   %1 = load ptr, ptr %obj, align 8
-  tail call void @qapi_free_QCryptoBlockCreateOptionsLUKS(ptr noundef %1) #4
+  tail call void @qapi_free_QCryptoBlockCreateOptionsLUKS(ptr noundef %1) #5
   store ptr null, ptr %obj, align 8
   br label %return
 
@@ -618,7 +618,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i.i)
   %0 = load i32, ptr %obj, align 4
   store i32 %0, ptr %value.i.i, align 4
-  %call.i.i = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef nonnull @.str, ptr noundef nonnull %value.i.i, ptr noundef nonnull @QCryptoBlockFormat_lookup, ptr noundef %errp) #4
+  %call.i.i = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef nonnull @.str, ptr noundef nonnull %value.i.i, ptr noundef nonnull @QCryptoBlockFormat_lookup, ptr noundef %errp) #5
   %1 = load i32, ptr %value.i.i, align 4
   store i32 %1, ptr %obj, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.i.i)
@@ -637,11 +637,11 @@ sw.bb:                                            ; preds = %if.end
   %tobool.i = icmp ne ptr %2, null
   %frombool.i = zext i1 %tobool.i to i8
   store i8 %frombool.i, ptr %has_key_secret.i, align 1
-  %call.i = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.3, ptr noundef nonnull %has_key_secret.i) #4
+  %call.i = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.3, ptr noundef nonnull %has_key_secret.i) #5
   br i1 %call.i, label %if.then.i, label %if.end5.i
 
 if.then.i:                                        ; preds = %sw.bb
-  %call3.i = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.3, ptr noundef nonnull %u, ptr noundef %errp) #4
+  %call3.i = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.3, ptr noundef nonnull %u, ptr noundef %errp) #5
   br i1 %call3.i, label %if.end5.i, label %visit_type_QCryptoBlockOptionsQCow_members.exit
 
 if.end5.i:                                        ; preds = %if.then.i, %sw.bb
@@ -659,11 +659,11 @@ sw.bb2:                                           ; preds = %if.end
   %tobool.i9 = icmp ne ptr %3, null
   %frombool.i10 = zext i1 %tobool.i9 to i8
   store i8 %frombool.i10, ptr %has_key_secret.i8, align 1
-  %call.i11 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.3, ptr noundef nonnull %has_key_secret.i8) #4
+  %call.i11 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.3, ptr noundef nonnull %has_key_secret.i8) #5
   br i1 %call.i11, label %if.then.i14, label %if.end5.i12
 
 if.then.i14:                                      ; preds = %sw.bb2
-  %call3.i15 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.3, ptr noundef nonnull %u3, ptr noundef %errp) #4
+  %call3.i15 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.3, ptr noundef nonnull %u3, ptr noundef %errp) #5
   br i1 %call3.i15, label %if.end5.i12, label %visit_type_QCryptoBlockOptionsLUKS_members.exit
 
 if.end5.i12:                                      ; preds = %if.then.i14, %sw.bb2
@@ -675,7 +675,7 @@ visit_type_QCryptoBlockOptionsLUKS_members.exit:  ; preds = %if.then.i14, %if.en
   br label %return
 
 sw.default:                                       ; preds = %if.end
-  call void @abort() #5
+  call void @abort() #6
   unreachable
 
 return:                                           ; preds = %entry, %visit_type_QCryptoBlockOptionsLUKS_members.exit, %visit_type_QCryptoBlockOptionsQCow_members.exit
@@ -683,13 +683,13 @@ return:                                           ; preds = %entry, %visit_type_
   ret i1 %retval.0
 }
 
-; Function Attrs: noreturn nounwind
-declare void @abort() local_unnamed_addr #2
+; Function Attrs: cold nofree noreturn nounwind
+declare void @abort() local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef zeroext i1 @visit_type_QCryptoBlockOpenOptions(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 16, ptr noundef %errp) #4
+  %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 16, ptr noundef %errp) #5
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -698,15 +698,15 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.then1, label %if.end5
 
 if.then1:                                         ; preds = %if.end
-  %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #4
+  %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #5
   br i1 %call2, label %out_obj.thread, label %if.else
 
 out_obj.thread:                                   ; preds = %if.then1
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %return
 
 if.else:                                          ; preds = %if.then1
-  tail call void @__assert_fail(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 285, ptr noundef nonnull @__PRETTY_FUNCTION__.visit_type_QCryptoBlockOpenOptions) #5
+  tail call void @__assert_fail(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 285, ptr noundef nonnull @__PRETTY_FUNCTION__.visit_type_QCryptoBlockOpenOptions) #6
   unreachable
 
 if.end5:                                          ; preds = %if.end
@@ -714,21 +714,21 @@ if.end5:                                          ; preds = %if.end
   br i1 %call6, label %out_obj, label %out_obj.thread15
 
 out_obj.thread15:                                 ; preds = %if.end5
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %land.lhs.true
 
 out_obj:                                          ; preds = %if.end5
-  %call9 = tail call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #4
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  %call9 = tail call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #5
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br i1 %call9, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %out_obj.thread15, %out_obj
-  %call11 = tail call zeroext i1 @visit_is_input(ptr noundef %v) #4
+  %call11 = tail call zeroext i1 @visit_is_input(ptr noundef %v) #5
   br i1 %call11, label %if.then12, label %return
 
 if.then12:                                        ; preds = %land.lhs.true
   %1 = load ptr, ptr %obj, align 8
-  tail call void @qapi_free_QCryptoBlockOpenOptions(ptr noundef %1) #4
+  tail call void @qapi_free_QCryptoBlockOpenOptions(ptr noundef %1) #5
   store ptr null, ptr %obj, align 8
   br label %return
 
@@ -747,7 +747,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i.i)
   %0 = load i32, ptr %obj, align 4
   store i32 %0, ptr %value.i.i, align 4
-  %call.i.i = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef nonnull @.str, ptr noundef nonnull %value.i.i, ptr noundef nonnull @QCryptoBlockFormat_lookup, ptr noundef %errp) #4
+  %call.i.i = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef nonnull @.str, ptr noundef nonnull %value.i.i, ptr noundef nonnull @QCryptoBlockFormat_lookup, ptr noundef %errp) #5
   %1 = load i32, ptr %value.i.i, align 4
   store i32 %1, ptr %obj, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.i.i)
@@ -766,11 +766,11 @@ sw.bb:                                            ; preds = %if.end
   %tobool.i = icmp ne ptr %2, null
   %frombool.i = zext i1 %tobool.i to i8
   store i8 %frombool.i, ptr %has_key_secret.i, align 1
-  %call.i = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.3, ptr noundef nonnull %has_key_secret.i) #4
+  %call.i = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.3, ptr noundef nonnull %has_key_secret.i) #5
   br i1 %call.i, label %if.then.i, label %if.end5.i
 
 if.then.i:                                        ; preds = %sw.bb
-  %call3.i = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.3, ptr noundef nonnull %u, ptr noundef %errp) #4
+  %call3.i = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.3, ptr noundef nonnull %u, ptr noundef %errp) #5
   br i1 %call3.i, label %if.end5.i, label %visit_type_QCryptoBlockOptionsQCow_members.exit
 
 if.end5.i:                                        ; preds = %if.then.i, %sw.bb
@@ -787,7 +787,7 @@ sw.bb2:                                           ; preds = %if.end
   br label %return
 
 sw.default:                                       ; preds = %if.end
-  call void @abort() #5
+  call void @abort() #6
   unreachable
 
 return:                                           ; preds = %entry, %sw.bb2, %visit_type_QCryptoBlockOptionsQCow_members.exit
@@ -798,7 +798,7 @@ return:                                           ; preds = %entry, %sw.bb2, %vi
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef zeroext i1 @visit_type_QCryptoBlockCreateOptions(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 72, ptr noundef %errp) #4
+  %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 72, ptr noundef %errp) #5
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -807,15 +807,15 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.then1, label %if.end5
 
 if.then1:                                         ; preds = %if.end
-  %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #4
+  %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #5
   br i1 %call2, label %out_obj.thread, label %if.else
 
 out_obj.thread:                                   ; preds = %if.then1
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %return
 
 if.else:                                          ; preds = %if.then1
-  tail call void @__assert_fail(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 328, ptr noundef nonnull @__PRETTY_FUNCTION__.visit_type_QCryptoBlockCreateOptions) #5
+  tail call void @__assert_fail(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 328, ptr noundef nonnull @__PRETTY_FUNCTION__.visit_type_QCryptoBlockCreateOptions) #6
   unreachable
 
 if.end5:                                          ; preds = %if.end
@@ -823,21 +823,21 @@ if.end5:                                          ; preds = %if.end
   br i1 %call6, label %out_obj, label %out_obj.thread15
 
 out_obj.thread15:                                 ; preds = %if.end5
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %land.lhs.true
 
 out_obj:                                          ; preds = %if.end5
-  %call9 = tail call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #4
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  %call9 = tail call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #5
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br i1 %call9, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %out_obj.thread15, %out_obj
-  %call11 = tail call zeroext i1 @visit_is_input(ptr noundef %v) #4
+  %call11 = tail call zeroext i1 @visit_is_input(ptr noundef %v) #5
   br i1 %call11, label %if.then12, label %return
 
 if.then12:                                        ; preds = %land.lhs.true
   %1 = load ptr, ptr %obj, align 8
-  tail call void @qapi_free_QCryptoBlockCreateOptions(ptr noundef %1) #4
+  tail call void @qapi_free_QCryptoBlockCreateOptions(ptr noundef %1) #5
   store ptr null, ptr %obj, align 8
   br label %return
 
@@ -855,7 +855,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
   %0 = load i32, ptr %obj, align 4
   store i32 %0, ptr %value.i, align 4
-  %call.i = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef nonnull @.str, ptr noundef nonnull %value.i, ptr noundef nonnull @QCryptoBlockFormat_lookup, ptr noundef %errp) #4
+  %call.i = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef nonnull @.str, ptr noundef nonnull %value.i, ptr noundef nonnull @QCryptoBlockFormat_lookup, ptr noundef %errp) #5
   %1 = load i32, ptr %value.i, align 4
   store i32 %1, ptr %obj, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.i)
@@ -866,7 +866,7 @@ entry:
 define dso_local noundef zeroext i1 @visit_type_QCryptoBlockInfoBase(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %value.i.i = alloca i32, align 4
-  %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 4, ptr noundef %errp) #4
+  %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 4, ptr noundef %errp) #5
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -875,43 +875,43 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.then1, label %if.end5
 
 if.then1:                                         ; preds = %if.end
-  %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #4
+  %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #5
   br i1 %call2, label %out_obj.thread, label %if.else
 
 out_obj.thread:                                   ; preds = %if.then1
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %return
 
 if.else:                                          ; preds = %if.then1
-  tail call void @__assert_fail(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 363, ptr noundef nonnull @__PRETTY_FUNCTION__.visit_type_QCryptoBlockInfoBase) #5
+  tail call void @__assert_fail(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 363, ptr noundef nonnull @__PRETTY_FUNCTION__.visit_type_QCryptoBlockInfoBase) #6
   unreachable
 
 if.end5:                                          ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i.i)
   %1 = load i32, ptr %0, align 4
   store i32 %1, ptr %value.i.i, align 4
-  %call.i.i = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef nonnull @.str, ptr noundef nonnull %value.i.i, ptr noundef nonnull @QCryptoBlockFormat_lookup, ptr noundef %errp) #4
+  %call.i.i = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef nonnull @.str, ptr noundef nonnull %value.i.i, ptr noundef nonnull @QCryptoBlockFormat_lookup, ptr noundef %errp) #5
   %2 = load i32, ptr %value.i.i, align 4
   store i32 %2, ptr %0, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.i.i)
   br i1 %call.i.i, label %out_obj, label %out_obj.thread15
 
 out_obj.thread15:                                 ; preds = %if.end5
-  call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %land.lhs.true
 
 out_obj:                                          ; preds = %if.end5
-  %call9 = call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #4
-  call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  %call9 = call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #5
+  call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br i1 %call9, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %out_obj.thread15, %out_obj
-  %call11 = call zeroext i1 @visit_is_input(ptr noundef %v) #4
+  %call11 = call zeroext i1 @visit_is_input(ptr noundef %v) #5
   br i1 %call11, label %if.then12, label %return
 
 if.then12:                                        ; preds = %land.lhs.true
   %3 = load ptr, ptr %obj, align 8
-  call void @qapi_free_QCryptoBlockInfoBase(ptr noundef %3) #4
+  call void @qapi_free_QCryptoBlockInfoBase(ptr noundef %3) #5
   store ptr null, ptr %obj, align 8
   br label %return
 
@@ -925,32 +925,32 @@ declare void @qapi_free_QCryptoBlockInfoBase(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local zeroext i1 @visit_type_QCryptoBlockInfoLUKSSlot_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %call = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.10, ptr noundef %obj, ptr noundef %errp) #4
+  %call = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.10, ptr noundef %obj, ptr noundef %errp) #5
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
   %has_iters = getelementptr inbounds i8, ptr %obj, i64 1
-  %call1 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.11, ptr noundef nonnull %has_iters) #4
+  %call1 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.11, ptr noundef nonnull %has_iters) #5
   br i1 %call1, label %if.then2, label %if.end6
 
 if.then2:                                         ; preds = %if.end
   %iters = getelementptr inbounds i8, ptr %obj, i64 8
-  %call3 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.11, ptr noundef nonnull %iters, ptr noundef %errp) #4
+  %call3 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.11, ptr noundef nonnull %iters, ptr noundef %errp) #5
   br i1 %call3, label %if.end6, label %return
 
 if.end6:                                          ; preds = %if.then2, %if.end
   %has_stripes = getelementptr inbounds i8, ptr %obj, i64 16
-  %call7 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.12, ptr noundef nonnull %has_stripes) #4
+  %call7 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.12, ptr noundef nonnull %has_stripes) #5
   br i1 %call7, label %if.then8, label %if.end12
 
 if.then8:                                         ; preds = %if.end6
   %stripes = getelementptr inbounds i8, ptr %obj, i64 24
-  %call9 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.12, ptr noundef nonnull %stripes, ptr noundef %errp) #4
+  %call9 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.12, ptr noundef nonnull %stripes, ptr noundef %errp) #5
   br i1 %call9, label %if.end12, label %return
 
 if.end12:                                         ; preds = %if.then8, %if.end6
   %key_offset = getelementptr inbounds i8, ptr %obj, i64 32
-  %call13 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.13, ptr noundef nonnull %key_offset, ptr noundef %errp) #4
+  %call13 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.13, ptr noundef nonnull %key_offset, ptr noundef %errp) #5
   br label %return
 
 return:                                           ; preds = %if.end12, %if.then8, %if.then2, %entry
@@ -963,7 +963,7 @@ declare zeroext i1 @visit_type_bool(ptr noundef, ptr noundef, ptr noundef, ptr n
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef zeroext i1 @visit_type_QCryptoBlockInfoLUKSSlot(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 40, ptr noundef %errp) #4
+  %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 40, ptr noundef %errp) #5
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -972,15 +972,15 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.then1, label %if.end5
 
 if.then1:                                         ; preds = %if.end
-  %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #4
+  %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #5
   br i1 %call2, label %out_obj.thread, label %if.else
 
 out_obj.thread:                                   ; preds = %if.then1
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %return
 
 if.else:                                          ; preds = %if.then1
-  tail call void @__assert_fail(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 411, ptr noundef nonnull @__PRETTY_FUNCTION__.visit_type_QCryptoBlockInfoLUKSSlot) #5
+  tail call void @__assert_fail(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 411, ptr noundef nonnull @__PRETTY_FUNCTION__.visit_type_QCryptoBlockInfoLUKSSlot) #6
   unreachable
 
 if.end5:                                          ; preds = %if.end
@@ -988,21 +988,21 @@ if.end5:                                          ; preds = %if.end
   br i1 %call6, label %out_obj, label %out_obj.thread15
 
 out_obj.thread15:                                 ; preds = %if.end5
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %land.lhs.true
 
 out_obj:                                          ; preds = %if.end5
-  %call9 = tail call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #4
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  %call9 = tail call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #5
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br i1 %call9, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %out_obj.thread15, %out_obj
-  %call11 = tail call zeroext i1 @visit_is_input(ptr noundef %v) #4
+  %call11 = tail call zeroext i1 @visit_is_input(ptr noundef %v) #5
   br i1 %call11, label %if.then12, label %return
 
 if.then12:                                        ; preds = %land.lhs.true
   %1 = load ptr, ptr %obj, align 8
-  tail call void @qapi_free_QCryptoBlockInfoLUKSSlot(ptr noundef %1) #4
+  tail call void @qapi_free_QCryptoBlockInfoLUKSSlot(ptr noundef %1) #5
   store ptr null, ptr %obj, align 8
   br label %return
 
@@ -1016,7 +1016,7 @@ declare void @qapi_free_QCryptoBlockInfoLUKSSlot(ptr noundef) local_unnamed_addr
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef zeroext i1 @visit_type_QCryptoBlockInfoLUKSSlotList(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %call = tail call zeroext i1 @visit_start_list(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 16, ptr noundef %errp) #4
+  %call = tail call zeroext i1 @visit_start_list(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 16, ptr noundef %errp) #5
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -1031,26 +1031,26 @@ for.body:                                         ; preds = %if.end, %for.inc
   br i1 %call1, label %for.inc, label %out_obj.thread
 
 out_obj.thread:                                   ; preds = %for.body
-  tail call void @visit_end_list(ptr noundef %v, ptr noundef nonnull %obj) #4
+  tail call void @visit_end_list(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %land.lhs.true
 
 for.inc:                                          ; preds = %for.body
-  %call4 = tail call ptr @visit_next_list(ptr noundef %v, ptr noundef nonnull %tail.019, i64 noundef 16) #4
+  %call4 = tail call ptr @visit_next_list(ptr noundef %v, ptr noundef nonnull %tail.019, i64 noundef 16) #5
   %tobool.not = icmp eq ptr %call4, null
   br i1 %tobool.not, label %out_obj, label %for.body, !llvm.loop !5
 
 out_obj:                                          ; preds = %for.inc, %if.end
-  %call5 = tail call zeroext i1 @visit_check_list(ptr noundef %v, ptr noundef %errp) #4
-  tail call void @visit_end_list(ptr noundef %v, ptr noundef nonnull %obj) #4
+  %call5 = tail call zeroext i1 @visit_check_list(ptr noundef %v, ptr noundef %errp) #5
+  tail call void @visit_end_list(ptr noundef %v, ptr noundef nonnull %obj) #5
   br i1 %call5, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %out_obj.thread, %out_obj
-  %call7 = tail call zeroext i1 @visit_is_input(ptr noundef %v) #4
+  %call7 = tail call zeroext i1 @visit_is_input(ptr noundef %v) #5
   br i1 %call7, label %if.then8, label %return
 
 if.then8:                                         ; preds = %land.lhs.true
   %1 = load ptr, ptr %obj, align 8
-  tail call void @qapi_free_QCryptoBlockInfoLUKSSlotList(ptr noundef %1) #4
+  tail call void @qapi_free_QCryptoBlockInfoLUKSSlotList(ptr noundef %1) #5
   store ptr null, ptr %obj, align 8
   br label %return
 
@@ -1080,7 +1080,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
   %0 = load i32, ptr %obj, align 4
   store i32 %0, ptr %value.i, align 4
-  %call.i = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef nonnull @.str.4, ptr noundef nonnull %value.i, ptr noundef nonnull @QCryptoCipherAlgorithm_lookup, ptr noundef %errp) #4
+  %call.i = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef nonnull @.str.4, ptr noundef nonnull %value.i, ptr noundef nonnull @QCryptoCipherAlgorithm_lookup, ptr noundef %errp) #5
   %1 = load i32, ptr %value.i, align 4
   store i32 %1, ptr %obj, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.i)
@@ -1091,7 +1091,7 @@ if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i27)
   %2 = load i32, ptr %cipher_mode, align 4
   store i32 %2, ptr %value.i27, align 4
-  %call.i28 = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef nonnull @.str.5, ptr noundef nonnull %value.i27, ptr noundef nonnull @QCryptoCipherMode_lookup, ptr noundef %errp) #4
+  %call.i28 = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef nonnull @.str.5, ptr noundef nonnull %value.i27, ptr noundef nonnull @QCryptoCipherMode_lookup, ptr noundef %errp) #5
   %3 = load i32, ptr %value.i27, align 4
   store i32 %3, ptr %cipher_mode, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.i27)
@@ -1102,7 +1102,7 @@ if.end3:                                          ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i29)
   %4 = load i32, ptr %ivgen_alg, align 4
   store i32 %4, ptr %value.i29, align 4
-  %call.i30 = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef nonnull @.str.6, ptr noundef nonnull %value.i29, ptr noundef nonnull @QCryptoIVGenAlgorithm_lookup, ptr noundef %errp) #4
+  %call.i30 = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef nonnull @.str.6, ptr noundef nonnull %value.i29, ptr noundef nonnull @QCryptoIVGenAlgorithm_lookup, ptr noundef %errp) #5
   %5 = load i32, ptr %value.i29, align 4
   store i32 %5, ptr %ivgen_alg, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.i29)
@@ -1110,7 +1110,7 @@ if.end3:                                          ; preds = %if.end
 
 if.end6:                                          ; preds = %if.end3
   %has_ivgen_hash_alg = getelementptr inbounds i8, ptr %obj, i64 12
-  %call7 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef nonnull %has_ivgen_hash_alg) #4
+  %call7 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef nonnull %has_ivgen_hash_alg) #5
   br i1 %call7, label %if.then8, label %if.end12
 
 if.then8:                                         ; preds = %if.end6
@@ -1118,7 +1118,7 @@ if.then8:                                         ; preds = %if.end6
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i31)
   %6 = load i32, ptr %ivgen_hash_alg, align 4
   store i32 %6, ptr %value.i31, align 4
-  %call.i32 = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef nonnull %value.i31, ptr noundef nonnull @QCryptoHashAlgorithm_lookup, ptr noundef %errp) #4
+  %call.i32 = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef nonnull %value.i31, ptr noundef nonnull @QCryptoHashAlgorithm_lookup, ptr noundef %errp) #5
   %7 = load i32, ptr %value.i31, align 4
   store i32 %7, ptr %ivgen_hash_alg, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.i31)
@@ -1129,7 +1129,7 @@ if.end12:                                         ; preds = %if.then8, %if.end6
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i33)
   %8 = load i32, ptr %hash_alg, align 4
   store i32 %8, ptr %value.i33, align 4
-  %call.i34 = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef nonnull @.str.8, ptr noundef nonnull %value.i33, ptr noundef nonnull @QCryptoHashAlgorithm_lookup, ptr noundef %errp) #4
+  %call.i34 = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef nonnull @.str.8, ptr noundef nonnull %value.i33, ptr noundef nonnull @QCryptoHashAlgorithm_lookup, ptr noundef %errp) #5
   %9 = load i32, ptr %value.i33, align 4
   store i32 %9, ptr %hash_alg, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.i33)
@@ -1137,17 +1137,17 @@ if.end12:                                         ; preds = %if.then8, %if.end6
 
 if.end15:                                         ; preds = %if.end12
   %payload_offset = getelementptr inbounds i8, ptr %obj, i64 24
-  %call16 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.14, ptr noundef nonnull %payload_offset, ptr noundef %errp) #4
+  %call16 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.14, ptr noundef nonnull %payload_offset, ptr noundef %errp) #5
   br i1 %call16, label %if.end18, label %return
 
 if.end18:                                         ; preds = %if.end15
   %master_key_iters = getelementptr inbounds i8, ptr %obj, i64 32
-  %call19 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.15, ptr noundef nonnull %master_key_iters, ptr noundef %errp) #4
+  %call19 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.15, ptr noundef nonnull %master_key_iters, ptr noundef %errp) #5
   br i1 %call19, label %if.end21, label %return
 
 if.end21:                                         ; preds = %if.end18
   %uuid = getelementptr inbounds i8, ptr %obj, i64 40
-  %call22 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.16, ptr noundef nonnull %uuid, ptr noundef %errp) #4
+  %call22 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.16, ptr noundef nonnull %uuid, ptr noundef %errp) #5
   br i1 %call22, label %if.end24, label %return
 
 if.end24:                                         ; preds = %if.end21
@@ -1163,7 +1163,7 @@ return:                                           ; preds = %if.end24, %if.end21
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef zeroext i1 @visit_type_QCryptoBlockInfoLUKS(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 56, ptr noundef %errp) #4
+  %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 56, ptr noundef %errp) #5
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -1172,15 +1172,15 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.then1, label %if.end5
 
 if.then1:                                         ; preds = %if.end
-  %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #4
+  %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #5
   br i1 %call2, label %out_obj.thread, label %if.else
 
 out_obj.thread:                                   ; preds = %if.then1
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %return
 
 if.else:                                          ; preds = %if.then1
-  tail call void @__assert_fail(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 500, ptr noundef nonnull @__PRETTY_FUNCTION__.visit_type_QCryptoBlockInfoLUKS) #5
+  tail call void @__assert_fail(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 500, ptr noundef nonnull @__PRETTY_FUNCTION__.visit_type_QCryptoBlockInfoLUKS) #6
   unreachable
 
 if.end5:                                          ; preds = %if.end
@@ -1188,21 +1188,21 @@ if.end5:                                          ; preds = %if.end
   br i1 %call6, label %out_obj, label %out_obj.thread15
 
 out_obj.thread15:                                 ; preds = %if.end5
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %land.lhs.true
 
 out_obj:                                          ; preds = %if.end5
-  %call9 = tail call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #4
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  %call9 = tail call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #5
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br i1 %call9, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %out_obj.thread15, %out_obj
-  %call11 = tail call zeroext i1 @visit_is_input(ptr noundef %v) #4
+  %call11 = tail call zeroext i1 @visit_is_input(ptr noundef %v) #5
   br i1 %call11, label %if.then12, label %return
 
 if.then12:                                        ; preds = %land.lhs.true
   %1 = load ptr, ptr %obj, align 8
-  tail call void @qapi_free_QCryptoBlockInfoLUKS(ptr noundef %1) #4
+  tail call void @qapi_free_QCryptoBlockInfoLUKS(ptr noundef %1) #5
   store ptr null, ptr %obj, align 8
   br label %return
 
@@ -1220,7 +1220,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i.i)
   %0 = load i32, ptr %obj, align 4
   store i32 %0, ptr %value.i.i, align 4
-  %call.i.i = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef nonnull @.str, ptr noundef nonnull %value.i.i, ptr noundef nonnull @QCryptoBlockFormat_lookup, ptr noundef %errp) #4
+  %call.i.i = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef nonnull @.str, ptr noundef nonnull %value.i.i, ptr noundef nonnull @QCryptoBlockFormat_lookup, ptr noundef %errp) #5
   %1 = load i32, ptr %value.i.i, align 4
   store i32 %1, ptr %obj, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.i.i)
@@ -1238,7 +1238,7 @@ sw.bb:                                            ; preds = %if.end
   br label %return
 
 sw.default:                                       ; preds = %if.end
-  call void @abort() #5
+  call void @abort() #6
   unreachable
 
 return:                                           ; preds = %if.end, %entry, %sw.bb
@@ -1250,7 +1250,7 @@ return:                                           ; preds = %if.end, %entry, %sw
 define dso_local noundef zeroext i1 @visit_type_QCryptoBlockInfo(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %value.i.i.i = alloca i32, align 4
-  %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 64, ptr noundef %errp) #4
+  %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 64, ptr noundef %errp) #5
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -1259,22 +1259,22 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.then1, label %if.end5
 
 if.then1:                                         ; preds = %if.end
-  %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #4
+  %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #5
   br i1 %call2, label %out_obj.thread19, label %if.else
 
 out_obj.thread19:                                 ; preds = %if.then1
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %return
 
 if.else:                                          ; preds = %if.then1
-  tail call void @__assert_fail(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 543, ptr noundef nonnull @__PRETTY_FUNCTION__.visit_type_QCryptoBlockInfo) #5
+  tail call void @__assert_fail(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 543, ptr noundef nonnull @__PRETTY_FUNCTION__.visit_type_QCryptoBlockInfo) #6
   unreachable
 
 if.end5:                                          ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i.i.i)
   %1 = load i32, ptr %0, align 4
   store i32 %1, ptr %value.i.i.i, align 4
-  %call.i.i.i = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef nonnull @.str, ptr noundef nonnull %value.i.i.i, ptr noundef nonnull @QCryptoBlockFormat_lookup, ptr noundef %errp) #4
+  %call.i.i.i = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef nonnull @.str, ptr noundef nonnull %value.i.i.i, ptr noundef nonnull @QCryptoBlockFormat_lookup, ptr noundef %errp) #5
   %2 = load i32, ptr %value.i.i.i, align 4
   store i32 %2, ptr %0, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.i.i.i)
@@ -1287,7 +1287,7 @@ if.end.i:                                         ; preds = %if.end5
   ]
 
 sw.default.i:                                     ; preds = %if.end.i
-  call void @abort() #5
+  call void @abort() #6
   unreachable
 
 visit_type_QCryptoBlockInfo_members.exit:         ; preds = %if.end.i
@@ -1296,21 +1296,21 @@ visit_type_QCryptoBlockInfo_members.exit:         ; preds = %if.end.i
   br i1 %call1.i, label %out_obj, label %out_obj.thread
 
 out_obj.thread:                                   ; preds = %visit_type_QCryptoBlockInfo_members.exit, %if.end5
-  call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %land.lhs.true
 
 out_obj:                                          ; preds = %if.end.i, %visit_type_QCryptoBlockInfo_members.exit
-  %call9 = call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #4
-  call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  %call9 = call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #5
+  call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br i1 %call9, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %out_obj.thread, %out_obj
-  %call11 = call zeroext i1 @visit_is_input(ptr noundef %v) #4
+  %call11 = call zeroext i1 @visit_is_input(ptr noundef %v) #5
   br i1 %call11, label %if.then12, label %return
 
 if.then12:                                        ; preds = %land.lhs.true
   %3 = load ptr, ptr %obj, align 8
-  call void @qapi_free_QCryptoBlockInfo(ptr noundef %3) #4
+  call void @qapi_free_QCryptoBlockInfo(ptr noundef %3) #5
   store ptr null, ptr %obj, align 8
   br label %return
 
@@ -1327,7 +1327,7 @@ entry:
   %value = alloca i32, align 4
   %0 = load i32, ptr %obj, align 4
   store i32 %0, ptr %value, align 4
-  %call = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %value, ptr noundef nonnull @QCryptoBlockLUKSKeyslotState_lookup, ptr noundef %errp) #4
+  %call = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %value, ptr noundef nonnull @QCryptoBlockLUKSKeyslotState_lookup, ptr noundef %errp) #5
   %1 = load i32, ptr %value, align 4
   store i32 %1, ptr %obj, align 4
   ret i1 %call
@@ -1358,54 +1358,54 @@ entry:
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
   %3 = load i32, ptr %obj, align 4
   store i32 %3, ptr %value.i, align 4
-  %call.i = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef nonnull @.str.18, ptr noundef nonnull %value.i, ptr noundef nonnull @QCryptoBlockLUKSKeyslotState_lookup, ptr noundef %errp) #4
+  %call.i = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef nonnull @.str.18, ptr noundef nonnull %value.i, ptr noundef nonnull @QCryptoBlockLUKSKeyslotState_lookup, ptr noundef %errp) #5
   %4 = load i32, ptr %value.i, align 4
   store i32 %4, ptr %obj, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.i)
   br i1 %call.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %call10 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.19, ptr noundef nonnull %has_new_secret) #4
+  %call10 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.19, ptr noundef nonnull %has_new_secret) #5
   br i1 %call10, label %if.then11, label %if.end16
 
 if.then11:                                        ; preds = %if.end
-  %call13 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.19, ptr noundef nonnull %new_secret, ptr noundef %errp) #4
+  %call13 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.19, ptr noundef nonnull %new_secret, ptr noundef %errp) #5
   br i1 %call13, label %if.end16, label %return
 
 if.end16:                                         ; preds = %if.then11, %if.end
-  %call17 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.20, ptr noundef nonnull %has_old_secret) #4
+  %call17 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.20, ptr noundef nonnull %has_old_secret) #5
   br i1 %call17, label %if.then18, label %if.end23
 
 if.then18:                                        ; preds = %if.end16
-  %call20 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.20, ptr noundef nonnull %old_secret, ptr noundef %errp) #4
+  %call20 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.20, ptr noundef nonnull %old_secret, ptr noundef %errp) #5
   br i1 %call20, label %if.end23, label %return
 
 if.end23:                                         ; preds = %if.then18, %if.end16
   %has_keyslot = getelementptr inbounds i8, ptr %obj, i64 24
-  %call24 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.21, ptr noundef nonnull %has_keyslot) #4
+  %call24 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.21, ptr noundef nonnull %has_keyslot) #5
   br i1 %call24, label %if.then25, label %if.end29
 
 if.then25:                                        ; preds = %if.end23
   %keyslot = getelementptr inbounds i8, ptr %obj, i64 32
-  %call26 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.21, ptr noundef nonnull %keyslot, ptr noundef %errp) #4
+  %call26 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.21, ptr noundef nonnull %keyslot, ptr noundef %errp) #5
   br i1 %call26, label %if.end29, label %return
 
 if.end29:                                         ; preds = %if.then25, %if.end23
   %has_iter_time = getelementptr inbounds i8, ptr %obj, i64 40
-  %call30 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.9, ptr noundef nonnull %has_iter_time) #4
+  %call30 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.9, ptr noundef nonnull %has_iter_time) #5
   br i1 %call30, label %if.then31, label %if.end35
 
 if.then31:                                        ; preds = %if.end29
   %iter_time = getelementptr inbounds i8, ptr %obj, i64 48
-  %call32 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.9, ptr noundef nonnull %iter_time, ptr noundef %errp) #4
+  %call32 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.9, ptr noundef nonnull %iter_time, ptr noundef %errp) #5
   br i1 %call32, label %if.end35, label %return
 
 if.end35:                                         ; preds = %if.then31, %if.end29
-  %call36 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.22, ptr noundef nonnull %has_secret) #4
+  %call36 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.22, ptr noundef nonnull %has_secret) #5
   br i1 %call36, label %if.then37, label %if.end42
 
 if.then37:                                        ; preds = %if.end35
-  %call39 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.22, ptr noundef nonnull %secret, ptr noundef %errp) #4
+  %call39 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.22, ptr noundef nonnull %secret, ptr noundef %errp) #5
   br i1 %call39, label %if.end42, label %return
 
 if.end42:                                         ; preds = %if.then37, %if.end35
@@ -1419,7 +1419,7 @@ return:                                           ; preds = %if.then37, %if.then
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef zeroext i1 @visit_type_QCryptoBlockAmendOptionsLUKS(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 64, ptr noundef %errp) #4
+  %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 64, ptr noundef %errp) #5
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -1428,15 +1428,15 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.then1, label %if.end5
 
 if.then1:                                         ; preds = %if.end
-  %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #4
+  %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #5
   br i1 %call2, label %out_obj.thread, label %if.else
 
 out_obj.thread:                                   ; preds = %if.then1
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %return
 
 if.else:                                          ; preds = %if.then1
-  tail call void @__assert_fail(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 616, ptr noundef nonnull @__PRETTY_FUNCTION__.visit_type_QCryptoBlockAmendOptionsLUKS) #5
+  tail call void @__assert_fail(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 616, ptr noundef nonnull @__PRETTY_FUNCTION__.visit_type_QCryptoBlockAmendOptionsLUKS) #6
   unreachable
 
 if.end5:                                          ; preds = %if.end
@@ -1444,21 +1444,21 @@ if.end5:                                          ; preds = %if.end
   br i1 %call6, label %out_obj, label %out_obj.thread15
 
 out_obj.thread15:                                 ; preds = %if.end5
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %land.lhs.true
 
 out_obj:                                          ; preds = %if.end5
-  %call9 = tail call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #4
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  %call9 = tail call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #5
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br i1 %call9, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %out_obj.thread15, %out_obj
-  %call11 = tail call zeroext i1 @visit_is_input(ptr noundef %v) #4
+  %call11 = tail call zeroext i1 @visit_is_input(ptr noundef %v) #5
   br i1 %call11, label %if.then12, label %return
 
 if.then12:                                        ; preds = %land.lhs.true
   %1 = load ptr, ptr %obj, align 8
-  tail call void @qapi_free_QCryptoBlockAmendOptionsLUKS(ptr noundef %1) #4
+  tail call void @qapi_free_QCryptoBlockAmendOptionsLUKS(ptr noundef %1) #5
   store ptr null, ptr %obj, align 8
   br label %return
 
@@ -1476,7 +1476,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i.i)
   %0 = load i32, ptr %obj, align 4
   store i32 %0, ptr %value.i.i, align 4
-  %call.i.i = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef nonnull @.str, ptr noundef nonnull %value.i.i, ptr noundef nonnull @QCryptoBlockFormat_lookup, ptr noundef %errp) #4
+  %call.i.i = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef nonnull @.str, ptr noundef nonnull %value.i.i, ptr noundef nonnull @QCryptoBlockFormat_lookup, ptr noundef %errp) #5
   %1 = load i32, ptr %value.i.i, align 4
   store i32 %1, ptr %obj, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.i.i)
@@ -1494,7 +1494,7 @@ sw.bb:                                            ; preds = %if.end
   br label %return
 
 sw.default:                                       ; preds = %if.end
-  call void @abort() #5
+  call void @abort() #6
   unreachable
 
 return:                                           ; preds = %if.end, %entry, %sw.bb
@@ -1506,7 +1506,7 @@ return:                                           ; preds = %if.end, %entry, %sw
 define dso_local noundef zeroext i1 @visit_type_QCryptoBlockAmendOptions(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %value.i.i.i = alloca i32, align 4
-  %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 72, ptr noundef %errp) #4
+  %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 72, ptr noundef %errp) #5
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -1515,22 +1515,22 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.then1, label %if.end5
 
 if.then1:                                         ; preds = %if.end
-  %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #4
+  %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #5
   br i1 %call2, label %out_obj.thread19, label %if.else
 
 out_obj.thread19:                                 ; preds = %if.then1
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %return
 
 if.else:                                          ; preds = %if.then1
-  tail call void @__assert_fail(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 659, ptr noundef nonnull @__PRETTY_FUNCTION__.visit_type_QCryptoBlockAmendOptions) #5
+  tail call void @__assert_fail(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 659, ptr noundef nonnull @__PRETTY_FUNCTION__.visit_type_QCryptoBlockAmendOptions) #6
   unreachable
 
 if.end5:                                          ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i.i.i)
   %1 = load i32, ptr %0, align 4
   store i32 %1, ptr %value.i.i.i, align 4
-  %call.i.i.i = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef nonnull @.str, ptr noundef nonnull %value.i.i.i, ptr noundef nonnull @QCryptoBlockFormat_lookup, ptr noundef %errp) #4
+  %call.i.i.i = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef nonnull @.str, ptr noundef nonnull %value.i.i.i, ptr noundef nonnull @QCryptoBlockFormat_lookup, ptr noundef %errp) #5
   %2 = load i32, ptr %value.i.i.i, align 4
   store i32 %2, ptr %0, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.i.i.i)
@@ -1543,7 +1543,7 @@ if.end.i:                                         ; preds = %if.end5
   ]
 
 sw.default.i:                                     ; preds = %if.end.i
-  call void @abort() #5
+  call void @abort() #6
   unreachable
 
 visit_type_QCryptoBlockAmendOptions_members.exit: ; preds = %if.end.i
@@ -1552,21 +1552,21 @@ visit_type_QCryptoBlockAmendOptions_members.exit: ; preds = %if.end.i
   br i1 %call1.i, label %out_obj, label %out_obj.thread
 
 out_obj.thread:                                   ; preds = %visit_type_QCryptoBlockAmendOptions_members.exit, %if.end5
-  call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %land.lhs.true
 
 out_obj:                                          ; preds = %if.end.i, %visit_type_QCryptoBlockAmendOptions_members.exit
-  %call9 = call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #4
-  call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  %call9 = call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #5
+  call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br i1 %call9, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %out_obj.thread, %out_obj
-  %call11 = call zeroext i1 @visit_is_input(ptr noundef %v) #4
+  %call11 = call zeroext i1 @visit_is_input(ptr noundef %v) #5
   br i1 %call11, label %if.then12, label %return
 
 if.then12:                                        ; preds = %land.lhs.true
   %3 = load ptr, ptr %obj, align 8
-  call void @qapi_free_QCryptoBlockAmendOptions(ptr noundef %3) #4
+  call void @qapi_free_QCryptoBlockAmendOptions(ptr noundef %3) #5
   store ptr null, ptr %obj, align 8
   br label %return
 
@@ -1593,25 +1593,25 @@ entry:
   %tobool2 = icmp ne ptr %1, null
   %frombool5 = zext i1 %tobool2 to i8
   store i8 %frombool5, ptr %has_iv, align 1
-  %call = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.23, ptr noundef %obj) #4
+  %call = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.23, ptr noundef %obj) #5
   br i1 %call, label %if.then, label %if.end14
 
 if.then:                                          ; preds = %entry
-  %call6 = tail call zeroext i1 @visit_policy_reject(ptr noundef %v, ptr noundef nonnull @.str.23, i32 noundef 1, ptr noundef %errp) #4
+  %call6 = tail call zeroext i1 @visit_policy_reject(ptr noundef %v, ptr noundef nonnull @.str.23, i32 noundef 1, ptr noundef %errp) #5
   br i1 %call6, label %return, label %if.end
 
 if.end:                                           ; preds = %if.then
-  %call8 = tail call zeroext i1 @visit_policy_skip(ptr noundef %v, ptr noundef nonnull @.str.23, i32 noundef 1) #4
+  %call8 = tail call zeroext i1 @visit_policy_skip(ptr noundef %v, ptr noundef nonnull @.str.23, i32 noundef 1) #5
   br i1 %call8, label %if.end14, label %if.then9
 
 if.then9:                                         ; preds = %if.end
   %loaded = getelementptr inbounds i8, ptr %obj, i64 1
-  %call10 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.23, ptr noundef nonnull %loaded, ptr noundef %errp) #4
+  %call10 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.23, ptr noundef nonnull %loaded, ptr noundef %errp) #5
   br i1 %call10, label %if.end14, label %return
 
 if.end14:                                         ; preds = %if.end, %if.then9, %entry
   %has_format = getelementptr inbounds i8, ptr %obj, i64 2
-  %call15 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str, ptr noundef nonnull %has_format) #4
+  %call15 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str, ptr noundef nonnull %has_format) #5
   br i1 %call15, label %if.then16, label %if.end20
 
 if.then16:                                        ; preds = %if.end14
@@ -1619,26 +1619,26 @@ if.then16:                                        ; preds = %if.end14
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
   %2 = load i32, ptr %format, align 4
   store i32 %2, ptr %value.i, align 4
-  %call.i = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef nonnull @.str, ptr noundef nonnull %value.i, ptr noundef nonnull @QCryptoSecretFormat_lookup, ptr noundef %errp) #4
+  %call.i = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef nonnull @.str, ptr noundef nonnull %value.i, ptr noundef nonnull @QCryptoSecretFormat_lookup, ptr noundef %errp) #5
   %3 = load i32, ptr %value.i, align 4
   store i32 %3, ptr %format, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.i)
   br i1 %call.i, label %if.end20, label %return
 
 if.end20:                                         ; preds = %if.then16, %if.end14
-  %call21 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.24, ptr noundef nonnull %has_keyid) #4
+  %call21 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.24, ptr noundef nonnull %has_keyid) #5
   br i1 %call21, label %if.then22, label %if.end27
 
 if.then22:                                        ; preds = %if.end20
-  %call24 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.24, ptr noundef nonnull %keyid, ptr noundef %errp) #4
+  %call24 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.24, ptr noundef nonnull %keyid, ptr noundef %errp) #5
   br i1 %call24, label %if.end27, label %return
 
 if.end27:                                         ; preds = %if.then22, %if.end20
-  %call28 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.25, ptr noundef nonnull %has_iv) #4
+  %call28 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.25, ptr noundef nonnull %has_iv) #5
   br i1 %call28, label %if.then29, label %if.end34
 
 if.then29:                                        ; preds = %if.end27
-  %call31 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.25, ptr noundef nonnull %iv, ptr noundef %errp) #4
+  %call31 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.25, ptr noundef nonnull %iv, ptr noundef %errp) #5
   br i1 %call31, label %if.end34, label %return
 
 if.end34:                                         ; preds = %if.then29, %if.end27
@@ -1656,7 +1656,7 @@ declare zeroext i1 @visit_policy_skip(ptr noundef, ptr noundef, i32 noundef) loc
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef zeroext i1 @visit_type_SecretCommonProperties(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 24, ptr noundef %errp) #4
+  %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 24, ptr noundef %errp) #5
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -1665,15 +1665,15 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.then1, label %if.end5
 
 if.then1:                                         ; preds = %if.end
-  %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #4
+  %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #5
   br i1 %call2, label %out_obj.thread, label %if.else
 
 out_obj.thread:                                   ; preds = %if.then1
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %return
 
 if.else:                                          ; preds = %if.then1
-  tail call void @__assert_fail(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 719, ptr noundef nonnull @__PRETTY_FUNCTION__.visit_type_SecretCommonProperties) #5
+  tail call void @__assert_fail(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 719, ptr noundef nonnull @__PRETTY_FUNCTION__.visit_type_SecretCommonProperties) #6
   unreachable
 
 if.end5:                                          ; preds = %if.end
@@ -1681,21 +1681,21 @@ if.end5:                                          ; preds = %if.end
   br i1 %call6, label %out_obj, label %out_obj.thread15
 
 out_obj.thread15:                                 ; preds = %if.end5
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %land.lhs.true
 
 out_obj:                                          ; preds = %if.end5
-  %call9 = tail call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #4
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  %call9 = tail call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #5
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br i1 %call9, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %out_obj.thread15, %out_obj
-  %call11 = tail call zeroext i1 @visit_is_input(ptr noundef %v) #4
+  %call11 = tail call zeroext i1 @visit_is_input(ptr noundef %v) #5
   br i1 %call11, label %if.then12, label %return
 
 if.then12:                                        ; preds = %land.lhs.true
   %1 = load ptr, ptr %obj, align 8
-  tail call void @qapi_free_SecretCommonProperties(ptr noundef %1) #4
+  tail call void @qapi_free_SecretCommonProperties(ptr noundef %1) #5
   store ptr null, ptr %obj, align 8
   br label %return
 
@@ -1725,19 +1725,19 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %call6 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.26, ptr noundef nonnull %has_data) #4
+  %call6 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.26, ptr noundef nonnull %has_data) #5
   br i1 %call6, label %if.then7, label %if.end12
 
 if.then7:                                         ; preds = %if.end
-  %call9 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.26, ptr noundef nonnull %data, ptr noundef %errp) #4
+  %call9 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.26, ptr noundef nonnull %data, ptr noundef %errp) #5
   br i1 %call9, label %if.end12, label %return
 
 if.end12:                                         ; preds = %if.then7, %if.end
-  %call13 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.27, ptr noundef nonnull %has_file) #4
+  %call13 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.27, ptr noundef nonnull %has_file) #5
   br i1 %call13, label %if.then14, label %if.end19
 
 if.then14:                                        ; preds = %if.end12
-  %call16 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.27, ptr noundef nonnull %file, ptr noundef %errp) #4
+  %call16 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.27, ptr noundef nonnull %file, ptr noundef %errp) #5
   br i1 %call16, label %if.end19, label %return
 
 if.end19:                                         ; preds = %if.then14, %if.end12
@@ -1751,7 +1751,7 @@ return:                                           ; preds = %if.then14, %if.then
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef zeroext i1 @visit_type_SecretProperties(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 40, ptr noundef %errp) #4
+  %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 40, ptr noundef %errp) #5
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -1760,15 +1760,15 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.then1, label %if.end5
 
 if.then1:                                         ; preds = %if.end
-  %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #4
+  %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #5
   br i1 %call2, label %out_obj.thread, label %if.else
 
 out_obj.thread:                                   ; preds = %if.then1
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %return
 
 if.else:                                          ; preds = %if.then1
-  tail call void @__assert_fail(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 767, ptr noundef nonnull @__PRETTY_FUNCTION__.visit_type_SecretProperties) #5
+  tail call void @__assert_fail(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 767, ptr noundef nonnull @__PRETTY_FUNCTION__.visit_type_SecretProperties) #6
   unreachable
 
 if.end5:                                          ; preds = %if.end
@@ -1776,21 +1776,21 @@ if.end5:                                          ; preds = %if.end
   br i1 %call6, label %out_obj, label %out_obj.thread15
 
 out_obj.thread15:                                 ; preds = %if.end5
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %land.lhs.true
 
 out_obj:                                          ; preds = %if.end5
-  %call9 = tail call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #4
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  %call9 = tail call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #5
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br i1 %call9, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %out_obj.thread15, %out_obj
-  %call11 = tail call zeroext i1 @visit_is_input(ptr noundef %v) #4
+  %call11 = tail call zeroext i1 @visit_is_input(ptr noundef %v) #5
   br i1 %call11, label %if.then12, label %return
 
 if.then12:                                        ; preds = %land.lhs.true
   %1 = load ptr, ptr %obj, align 8
-  tail call void @qapi_free_SecretProperties(ptr noundef %1) #4
+  tail call void @qapi_free_SecretProperties(ptr noundef %1) #5
   store ptr null, ptr %obj, align 8
   br label %return
 
@@ -1809,7 +1809,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %serial = getelementptr inbounds i8, ptr %obj, i64 24
-  %call1 = tail call zeroext i1 @visit_type_int32(ptr noundef %v, ptr noundef nonnull @.str.28, ptr noundef nonnull %serial, ptr noundef %errp) #4
+  %call1 = tail call zeroext i1 @visit_type_int32(ptr noundef %v, ptr noundef nonnull @.str.28, ptr noundef nonnull %serial, ptr noundef %errp) #5
   br label %return
 
 return:                                           ; preds = %if.end, %entry
@@ -1822,7 +1822,7 @@ declare zeroext i1 @visit_type_int32(ptr noundef, ptr noundef, ptr noundef, ptr 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef zeroext i1 @visit_type_SecretKeyringProperties(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 32, ptr noundef %errp) #4
+  %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 32, ptr noundef %errp) #5
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -1831,15 +1831,15 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.then1, label %if.end5
 
 if.then1:                                         ; preds = %if.end
-  %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #4
+  %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #5
   br i1 %call2, label %out_obj.thread17, label %if.else
 
 out_obj.thread17:                                 ; preds = %if.then1
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %return
 
 if.else:                                          ; preds = %if.then1
-  tail call void @__assert_fail(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 805, ptr noundef nonnull @__PRETTY_FUNCTION__.visit_type_SecretKeyringProperties) #5
+  tail call void @__assert_fail(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 805, ptr noundef nonnull @__PRETTY_FUNCTION__.visit_type_SecretKeyringProperties) #6
   unreachable
 
 if.end5:                                          ; preds = %if.end
@@ -1848,25 +1848,25 @@ if.end5:                                          ; preds = %if.end
 
 visit_type_SecretKeyringProperties_members.exit:  ; preds = %if.end5
   %serial.i = getelementptr inbounds i8, ptr %0, i64 24
-  %call1.i = tail call zeroext i1 @visit_type_int32(ptr noundef %v, ptr noundef nonnull @.str.28, ptr noundef nonnull %serial.i, ptr noundef %errp) #4
+  %call1.i = tail call zeroext i1 @visit_type_int32(ptr noundef %v, ptr noundef nonnull @.str.28, ptr noundef nonnull %serial.i, ptr noundef %errp) #5
   br i1 %call1.i, label %out_obj, label %out_obj.thread
 
 out_obj.thread:                                   ; preds = %visit_type_SecretKeyringProperties_members.exit, %if.end5
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %land.lhs.true
 
 out_obj:                                          ; preds = %visit_type_SecretKeyringProperties_members.exit
-  %call9 = tail call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #4
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  %call9 = tail call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #5
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br i1 %call9, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %out_obj.thread, %out_obj
-  %call11 = tail call zeroext i1 @visit_is_input(ptr noundef %v) #4
+  %call11 = tail call zeroext i1 @visit_is_input(ptr noundef %v) #5
   br i1 %call11, label %if.then12, label %return
 
 if.then12:                                        ; preds = %land.lhs.true
   %1 = load ptr, ptr %obj, align 8
-  tail call void @qapi_free_SecretKeyringProperties(ptr noundef %1) #4
+  tail call void @qapi_free_SecretKeyringProperties(ptr noundef %1) #5
   store ptr null, ptr %obj, align 8
   br label %return
 
@@ -1893,25 +1893,25 @@ entry:
   %tobool2 = icmp ne ptr %1, null
   %frombool5 = zext i1 %tobool2 to i8
   store i8 %frombool5, ptr %has_priority, align 1
-  %call = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.29, ptr noundef %obj) #4
+  %call = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.29, ptr noundef %obj) #5
   br i1 %call, label %if.then, label %if.end8
 
 if.then:                                          ; preds = %entry
   %verify_peer = getelementptr inbounds i8, ptr %obj, i64 1
-  %call6 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.29, ptr noundef nonnull %verify_peer, ptr noundef %errp) #4
+  %call6 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.29, ptr noundef nonnull %verify_peer, ptr noundef %errp) #5
   br i1 %call6, label %if.end8, label %return
 
 if.end8:                                          ; preds = %if.then, %entry
-  %call9 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.30, ptr noundef nonnull %has_dir) #4
+  %call9 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.30, ptr noundef nonnull %has_dir) #5
   br i1 %call9, label %if.then10, label %if.end15
 
 if.then10:                                        ; preds = %if.end8
-  %call12 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.30, ptr noundef nonnull %dir, ptr noundef %errp) #4
+  %call12 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.30, ptr noundef nonnull %dir, ptr noundef %errp) #5
   br i1 %call12, label %if.end15, label %return
 
 if.end15:                                         ; preds = %if.then10, %if.end8
   %has_endpoint = getelementptr inbounds i8, ptr %obj, i64 16
-  %call16 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.31, ptr noundef nonnull %has_endpoint) #4
+  %call16 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.31, ptr noundef nonnull %has_endpoint) #5
   br i1 %call16, label %if.then17, label %if.end21
 
 if.then17:                                        ; preds = %if.end15
@@ -1919,18 +1919,18 @@ if.then17:                                        ; preds = %if.end15
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
   %2 = load i32, ptr %endpoint, align 4
   store i32 %2, ptr %value.i, align 4
-  %call.i = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef nonnull @.str.31, ptr noundef nonnull %value.i, ptr noundef nonnull @QCryptoTLSCredsEndpoint_lookup, ptr noundef %errp) #4
+  %call.i = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef nonnull @.str.31, ptr noundef nonnull %value.i, ptr noundef nonnull @QCryptoTLSCredsEndpoint_lookup, ptr noundef %errp) #5
   %3 = load i32, ptr %value.i, align 4
   store i32 %3, ptr %endpoint, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.i)
   br i1 %call.i, label %if.end21, label %return
 
 if.end21:                                         ; preds = %if.then17, %if.end15
-  %call22 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.32, ptr noundef nonnull %has_priority) #4
+  %call22 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.32, ptr noundef nonnull %has_priority) #5
   br i1 %call22, label %if.then23, label %if.end28
 
 if.then23:                                        ; preds = %if.end21
-  %call25 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.32, ptr noundef nonnull %priority, ptr noundef %errp) #4
+  %call25 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.32, ptr noundef nonnull %priority, ptr noundef %errp) #5
   br i1 %call25, label %if.end28, label %return
 
 if.end28:                                         ; preds = %if.then23, %if.end21
@@ -1944,7 +1944,7 @@ return:                                           ; preds = %if.then23, %if.then
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef zeroext i1 @visit_type_TlsCredsProperties(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 32, ptr noundef %errp) #4
+  %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 32, ptr noundef %errp) #5
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -1953,15 +1953,15 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.then1, label %if.end5
 
 if.then1:                                         ; preds = %if.end
-  %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #4
+  %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #5
   br i1 %call2, label %out_obj.thread, label %if.else
 
 out_obj.thread:                                   ; preds = %if.then1
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %return
 
 if.else:                                          ; preds = %if.then1
-  tail call void @__assert_fail(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 860, ptr noundef nonnull @__PRETTY_FUNCTION__.visit_type_TlsCredsProperties) #5
+  tail call void @__assert_fail(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 860, ptr noundef nonnull @__PRETTY_FUNCTION__.visit_type_TlsCredsProperties) #6
   unreachable
 
 if.end5:                                          ; preds = %if.end
@@ -1969,21 +1969,21 @@ if.end5:                                          ; preds = %if.end
   br i1 %call6, label %out_obj, label %out_obj.thread15
 
 out_obj.thread15:                                 ; preds = %if.end5
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %land.lhs.true
 
 out_obj:                                          ; preds = %if.end5
-  %call9 = tail call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #4
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  %call9 = tail call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #5
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br i1 %call9, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %out_obj.thread15, %out_obj
-  %call11 = tail call zeroext i1 @visit_is_input(ptr noundef %v) #4
+  %call11 = tail call zeroext i1 @visit_is_input(ptr noundef %v) #5
   br i1 %call11, label %if.then12, label %return
 
 if.then12:                                        ; preds = %land.lhs.true
   %1 = load ptr, ptr %obj, align 8
-  tail call void @qapi_free_TlsCredsProperties(ptr noundef %1) #4
+  tail call void @qapi_free_TlsCredsProperties(ptr noundef %1) #5
   store ptr null, ptr %obj, align 8
   br label %return
 
@@ -2002,20 +2002,20 @@ entry:
 
 if.end:                                           ; preds = %entry
   %has_loaded = getelementptr inbounds i8, ptr %obj, i64 32
-  %call1 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.23, ptr noundef nonnull %has_loaded) #4
+  %call1 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.23, ptr noundef nonnull %has_loaded) #5
   br i1 %call1, label %if.then2, label %if.end12
 
 if.then2:                                         ; preds = %if.end
-  %call3 = tail call zeroext i1 @visit_policy_reject(ptr noundef %v, ptr noundef nonnull @.str.23, i32 noundef 1, ptr noundef %errp) #4
+  %call3 = tail call zeroext i1 @visit_policy_reject(ptr noundef %v, ptr noundef nonnull @.str.23, i32 noundef 1, ptr noundef %errp) #5
   br i1 %call3, label %return, label %if.end5
 
 if.end5:                                          ; preds = %if.then2
-  %call6 = tail call zeroext i1 @visit_policy_skip(ptr noundef %v, ptr noundef nonnull @.str.23, i32 noundef 1) #4
+  %call6 = tail call zeroext i1 @visit_policy_skip(ptr noundef %v, ptr noundef nonnull @.str.23, i32 noundef 1) #5
   br i1 %call6, label %if.end12, label %if.then7
 
 if.then7:                                         ; preds = %if.end5
   %loaded = getelementptr inbounds i8, ptr %obj, i64 33
-  %call8 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.23, ptr noundef nonnull %loaded, ptr noundef %errp) #4
+  %call8 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.23, ptr noundef nonnull %loaded, ptr noundef %errp) #5
   br i1 %call8, label %if.end12, label %return
 
 if.end12:                                         ; preds = %if.end5, %if.then7, %if.end
@@ -2029,7 +2029,7 @@ return:                                           ; preds = %if.then7, %if.then2
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef zeroext i1 @visit_type_TlsCredsAnonProperties(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 40, ptr noundef %errp) #4
+  %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 40, ptr noundef %errp) #5
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -2038,15 +2038,15 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.then1, label %if.end5
 
 if.then1:                                         ; preds = %if.end
-  %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #4
+  %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #5
   br i1 %call2, label %out_obj.thread, label %if.else
 
 out_obj.thread:                                   ; preds = %if.then1
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %return
 
 if.else:                                          ; preds = %if.then1
-  tail call void @__assert_fail(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 905, ptr noundef nonnull @__PRETTY_FUNCTION__.visit_type_TlsCredsAnonProperties) #5
+  tail call void @__assert_fail(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 905, ptr noundef nonnull @__PRETTY_FUNCTION__.visit_type_TlsCredsAnonProperties) #6
   unreachable
 
 if.end5:                                          ; preds = %if.end
@@ -2055,38 +2055,38 @@ if.end5:                                          ; preds = %if.end
 
 if.end.i:                                         ; preds = %if.end5
   %has_loaded.i = getelementptr inbounds i8, ptr %0, i64 32
-  %call1.i = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.23, ptr noundef nonnull %has_loaded.i) #4
+  %call1.i = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.23, ptr noundef nonnull %has_loaded.i) #5
   br i1 %call1.i, label %if.then2.i, label %out_obj
 
 if.then2.i:                                       ; preds = %if.end.i
-  %call3.i = tail call zeroext i1 @visit_policy_reject(ptr noundef %v, ptr noundef nonnull @.str.23, i32 noundef 1, ptr noundef %errp) #4
+  %call3.i = tail call zeroext i1 @visit_policy_reject(ptr noundef %v, ptr noundef nonnull @.str.23, i32 noundef 1, ptr noundef %errp) #5
   br i1 %call3.i, label %out_obj.thread16, label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.then2.i
-  %call6.i = tail call zeroext i1 @visit_policy_skip(ptr noundef %v, ptr noundef nonnull @.str.23, i32 noundef 1) #4
+  %call6.i = tail call zeroext i1 @visit_policy_skip(ptr noundef %v, ptr noundef nonnull @.str.23, i32 noundef 1) #5
   br i1 %call6.i, label %out_obj, label %if.then7.i
 
 if.then7.i:                                       ; preds = %if.end5.i
   %loaded.i = getelementptr inbounds i8, ptr %0, i64 33
-  %call8.i = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.23, ptr noundef nonnull %loaded.i, ptr noundef %errp) #4
+  %call8.i = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.23, ptr noundef nonnull %loaded.i, ptr noundef %errp) #5
   br i1 %call8.i, label %out_obj, label %out_obj.thread16
 
 out_obj.thread16:                                 ; preds = %if.then7.i, %if.then2.i, %if.end5
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %land.lhs.true
 
 out_obj:                                          ; preds = %if.end.i, %if.end5.i, %if.then7.i
-  %call9 = tail call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #4
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  %call9 = tail call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #5
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br i1 %call9, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %out_obj.thread16, %out_obj
-  %call11 = tail call zeroext i1 @visit_is_input(ptr noundef %v) #4
+  %call11 = tail call zeroext i1 @visit_is_input(ptr noundef %v) #5
   br i1 %call11, label %if.then12, label %return
 
 if.then12:                                        ; preds = %land.lhs.true
   %1 = load ptr, ptr %obj, align 8
-  tail call void @qapi_free_TlsCredsAnonProperties(ptr noundef %1) #4
+  tail call void @qapi_free_TlsCredsAnonProperties(ptr noundef %1) #5
   store ptr null, ptr %obj, align 8
   br label %return
 
@@ -2111,28 +2111,28 @@ entry:
 
 if.end:                                           ; preds = %entry
   %has_loaded = getelementptr inbounds i8, ptr %obj, i64 32
-  %call2 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.23, ptr noundef nonnull %has_loaded) #4
+  %call2 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.23, ptr noundef nonnull %has_loaded) #5
   br i1 %call2, label %if.then3, label %if.end13
 
 if.then3:                                         ; preds = %if.end
-  %call4 = tail call zeroext i1 @visit_policy_reject(ptr noundef %v, ptr noundef nonnull @.str.23, i32 noundef 1, ptr noundef %errp) #4
+  %call4 = tail call zeroext i1 @visit_policy_reject(ptr noundef %v, ptr noundef nonnull @.str.23, i32 noundef 1, ptr noundef %errp) #5
   br i1 %call4, label %return, label %if.end6
 
 if.end6:                                          ; preds = %if.then3
-  %call7 = tail call zeroext i1 @visit_policy_skip(ptr noundef %v, ptr noundef nonnull @.str.23, i32 noundef 1) #4
+  %call7 = tail call zeroext i1 @visit_policy_skip(ptr noundef %v, ptr noundef nonnull @.str.23, i32 noundef 1) #5
   br i1 %call7, label %if.end13, label %if.then8
 
 if.then8:                                         ; preds = %if.end6
   %loaded = getelementptr inbounds i8, ptr %obj, i64 33
-  %call9 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.23, ptr noundef nonnull %loaded, ptr noundef %errp) #4
+  %call9 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.23, ptr noundef nonnull %loaded, ptr noundef %errp) #5
   br i1 %call9, label %if.end13, label %return
 
 if.end13:                                         ; preds = %if.end6, %if.then8, %if.end
-  %call14 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.33, ptr noundef nonnull %has_username) #4
+  %call14 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.33, ptr noundef nonnull %has_username) #5
   br i1 %call14, label %if.then15, label %if.end20
 
 if.then15:                                        ; preds = %if.end13
-  %call17 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.33, ptr noundef nonnull %username, ptr noundef %errp) #4
+  %call17 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.33, ptr noundef nonnull %username, ptr noundef %errp) #5
   br i1 %call17, label %if.end20, label %return
 
 if.end20:                                         ; preds = %if.then15, %if.end13
@@ -2146,7 +2146,7 @@ return:                                           ; preds = %if.then15, %if.then
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef zeroext i1 @visit_type_TlsCredsPskProperties(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 48, ptr noundef %errp) #4
+  %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 48, ptr noundef %errp) #5
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -2155,15 +2155,15 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.then1, label %if.end5
 
 if.then1:                                         ; preds = %if.end
-  %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #4
+  %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #5
   br i1 %call2, label %out_obj.thread, label %if.else
 
 out_obj.thread:                                   ; preds = %if.then1
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %return
 
 if.else:                                          ; preds = %if.then1
-  tail call void @__assert_fail(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 957, ptr noundef nonnull @__PRETTY_FUNCTION__.visit_type_TlsCredsPskProperties) #5
+  tail call void @__assert_fail(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 957, ptr noundef nonnull @__PRETTY_FUNCTION__.visit_type_TlsCredsPskProperties) #6
   unreachable
 
 if.end5:                                          ; preds = %if.end
@@ -2171,21 +2171,21 @@ if.end5:                                          ; preds = %if.end
   br i1 %call6, label %out_obj, label %out_obj.thread15
 
 out_obj.thread15:                                 ; preds = %if.end5
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %land.lhs.true
 
 out_obj:                                          ; preds = %if.end5
-  %call9 = tail call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #4
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  %call9 = tail call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #5
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br i1 %call9, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %out_obj.thread15, %out_obj
-  %call11 = tail call zeroext i1 @visit_is_input(ptr noundef %v) #4
+  %call11 = tail call zeroext i1 @visit_is_input(ptr noundef %v) #5
   br i1 %call11, label %if.then12, label %return
 
 if.then12:                                        ; preds = %land.lhs.true
   %1 = load ptr, ptr %obj, align 8
-  tail call void @qapi_free_TlsCredsPskProperties(ptr noundef %1) #4
+  tail call void @qapi_free_TlsCredsPskProperties(ptr noundef %1) #5
   store ptr null, ptr %obj, align 8
   br label %return
 
@@ -2210,38 +2210,38 @@ entry:
 
 if.end:                                           ; preds = %entry
   %has_loaded = getelementptr inbounds i8, ptr %obj, i64 32
-  %call2 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.23, ptr noundef nonnull %has_loaded) #4
+  %call2 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.23, ptr noundef nonnull %has_loaded) #5
   br i1 %call2, label %if.then3, label %if.end13
 
 if.then3:                                         ; preds = %if.end
-  %call4 = tail call zeroext i1 @visit_policy_reject(ptr noundef %v, ptr noundef nonnull @.str.23, i32 noundef 1, ptr noundef %errp) #4
+  %call4 = tail call zeroext i1 @visit_policy_reject(ptr noundef %v, ptr noundef nonnull @.str.23, i32 noundef 1, ptr noundef %errp) #5
   br i1 %call4, label %return, label %if.end6
 
 if.end6:                                          ; preds = %if.then3
-  %call7 = tail call zeroext i1 @visit_policy_skip(ptr noundef %v, ptr noundef nonnull @.str.23, i32 noundef 1) #4
+  %call7 = tail call zeroext i1 @visit_policy_skip(ptr noundef %v, ptr noundef nonnull @.str.23, i32 noundef 1) #5
   br i1 %call7, label %if.end13, label %if.then8
 
 if.then8:                                         ; preds = %if.end6
   %loaded = getelementptr inbounds i8, ptr %obj, i64 33
-  %call9 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.23, ptr noundef nonnull %loaded, ptr noundef %errp) #4
+  %call9 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.23, ptr noundef nonnull %loaded, ptr noundef %errp) #5
   br i1 %call9, label %if.end13, label %return
 
 if.end13:                                         ; preds = %if.end6, %if.then8, %if.end
   %has_sanity_check = getelementptr inbounds i8, ptr %obj, i64 34
-  %call14 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.34, ptr noundef nonnull %has_sanity_check) #4
+  %call14 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.34, ptr noundef nonnull %has_sanity_check) #5
   br i1 %call14, label %if.then15, label %if.end19
 
 if.then15:                                        ; preds = %if.end13
   %sanity_check = getelementptr inbounds i8, ptr %obj, i64 35
-  %call16 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.34, ptr noundef nonnull %sanity_check, ptr noundef %errp) #4
+  %call16 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.34, ptr noundef nonnull %sanity_check, ptr noundef %errp) #5
   br i1 %call16, label %if.end19, label %return
 
 if.end19:                                         ; preds = %if.then15, %if.end13
-  %call20 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.35, ptr noundef nonnull %has_passwordid) #4
+  %call20 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.35, ptr noundef nonnull %has_passwordid) #5
   br i1 %call20, label %if.then21, label %if.end26
 
 if.then21:                                        ; preds = %if.end19
-  %call23 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.35, ptr noundef nonnull %passwordid, ptr noundef %errp) #4
+  %call23 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.35, ptr noundef nonnull %passwordid, ptr noundef %errp) #5
   br i1 %call23, label %if.end26, label %return
 
 if.end26:                                         ; preds = %if.then21, %if.end19
@@ -2255,7 +2255,7 @@ return:                                           ; preds = %if.then21, %if.then
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef zeroext i1 @visit_type_TlsCredsX509Properties(ptr noundef %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 48, ptr noundef %errp) #4
+  %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 48, ptr noundef %errp) #5
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -2264,15 +2264,15 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.then1, label %if.end5
 
 if.then1:                                         ; preds = %if.end
-  %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #4
+  %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #5
   br i1 %call2, label %out_obj.thread, label %if.else
 
 out_obj.thread:                                   ; preds = %if.then1
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %return
 
 if.else:                                          ; preds = %if.then1
-  tail call void @__assert_fail(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 1014, ptr noundef nonnull @__PRETTY_FUNCTION__.visit_type_TlsCredsX509Properties) #5
+  tail call void @__assert_fail(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 1014, ptr noundef nonnull @__PRETTY_FUNCTION__.visit_type_TlsCredsX509Properties) #6
   unreachable
 
 if.end5:                                          ; preds = %if.end
@@ -2280,21 +2280,21 @@ if.end5:                                          ; preds = %if.end
   br i1 %call6, label %out_obj, label %out_obj.thread15
 
 out_obj.thread15:                                 ; preds = %if.end5
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %land.lhs.true
 
 out_obj:                                          ; preds = %if.end5
-  %call9 = tail call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #4
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  %call9 = tail call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #5
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br i1 %call9, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %out_obj.thread15, %out_obj
-  %call11 = tail call zeroext i1 @visit_is_input(ptr noundef %v) #4
+  %call11 = tail call zeroext i1 @visit_is_input(ptr noundef %v) #5
   br i1 %call11, label %if.then12, label %return
 
 if.then12:                                        ; preds = %land.lhs.true
   %1 = load ptr, ptr %obj, align 8
-  tail call void @qapi_free_TlsCredsX509Properties(ptr noundef %1) #4
+  tail call void @qapi_free_TlsCredsX509Properties(ptr noundef %1) #5
   store ptr null, ptr %obj, align 8
   br label %return
 
@@ -2311,7 +2311,7 @@ entry:
   %value = alloca i32, align 4
   %0 = load i32, ptr %obj, align 4
   store i32 %0, ptr %value, align 4
-  %call = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %value, ptr noundef nonnull @QCryptoAkCipherAlgorithm_lookup, ptr noundef %errp) #4
+  %call = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %value, ptr noundef nonnull @QCryptoAkCipherAlgorithm_lookup, ptr noundef %errp) #5
   %1 = load i32, ptr %value, align 4
   store i32 %1, ptr %obj, align 4
   ret i1 %call
@@ -2323,7 +2323,7 @@ entry:
   %value = alloca i32, align 4
   %0 = load i32, ptr %obj, align 4
   store i32 %0, ptr %value, align 4
-  %call = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %value, ptr noundef nonnull @QCryptoAkCipherKeyType_lookup, ptr noundef %errp) #4
+  %call = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %value, ptr noundef nonnull @QCryptoAkCipherKeyType_lookup, ptr noundef %errp) #5
   %1 = load i32, ptr %value, align 4
   store i32 %1, ptr %obj, align 4
   ret i1 %call
@@ -2335,7 +2335,7 @@ entry:
   %value = alloca i32, align 4
   %0 = load i32, ptr %obj, align 4
   store i32 %0, ptr %value, align 4
-  %call = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %value, ptr noundef nonnull @QCryptoRSAPaddingAlgorithm_lookup, ptr noundef %errp) #4
+  %call = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %value, ptr noundef nonnull @QCryptoRSAPaddingAlgorithm_lookup, ptr noundef %errp) #5
   %1 = load i32, ptr %value, align 4
   store i32 %1, ptr %obj, align 4
   ret i1 %call
@@ -2349,7 +2349,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
   %0 = load i32, ptr %obj, align 4
   store i32 %0, ptr %value.i, align 4
-  %call.i = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef nonnull @.str.8, ptr noundef nonnull %value.i, ptr noundef nonnull @QCryptoHashAlgorithm_lookup, ptr noundef %errp) #4
+  %call.i = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef nonnull @.str.8, ptr noundef nonnull %value.i, ptr noundef nonnull @QCryptoHashAlgorithm_lookup, ptr noundef %errp) #5
   %1 = load i32, ptr %value.i, align 4
   store i32 %1, ptr %obj, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.i)
@@ -2360,7 +2360,7 @@ if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i4)
   %2 = load i32, ptr %padding_alg, align 4
   store i32 %2, ptr %value.i4, align 4
-  %call.i5 = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef nonnull @.str.36, ptr noundef nonnull %value.i4, ptr noundef nonnull @QCryptoRSAPaddingAlgorithm_lookup, ptr noundef %errp) #4
+  %call.i5 = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef nonnull @.str.36, ptr noundef nonnull %value.i4, ptr noundef nonnull @QCryptoRSAPaddingAlgorithm_lookup, ptr noundef %errp) #5
   %3 = load i32, ptr %value.i4, align 4
   store i32 %3, ptr %padding_alg, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.i4)
@@ -2376,7 +2376,7 @@ define dso_local noundef zeroext i1 @visit_type_QCryptoAkCipherOptionsRSA(ptr no
 entry:
   %value.i4.i = alloca i32, align 4
   %value.i.i = alloca i32, align 4
-  %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 8, ptr noundef %errp) #4
+  %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 8, ptr noundef %errp) #5
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -2385,22 +2385,22 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.then1, label %if.end5
 
 if.then1:                                         ; preds = %if.end
-  %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #4
+  %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #5
   br i1 %call2, label %out_obj.thread17, label %if.else
 
 out_obj.thread17:                                 ; preds = %if.then1
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %return
 
 if.else:                                          ; preds = %if.then1
-  tail call void @__assert_fail(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 1079, ptr noundef nonnull @__PRETTY_FUNCTION__.visit_type_QCryptoAkCipherOptionsRSA) #5
+  tail call void @__assert_fail(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 1079, ptr noundef nonnull @__PRETTY_FUNCTION__.visit_type_QCryptoAkCipherOptionsRSA) #6
   unreachable
 
 if.end5:                                          ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i.i)
   %1 = load i32, ptr %0, align 4
   store i32 %1, ptr %value.i.i, align 4
-  %call.i.i = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef nonnull @.str.8, ptr noundef nonnull %value.i.i, ptr noundef nonnull @QCryptoHashAlgorithm_lookup, ptr noundef %errp) #4
+  %call.i.i = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef nonnull @.str.8, ptr noundef nonnull %value.i.i, ptr noundef nonnull @QCryptoHashAlgorithm_lookup, ptr noundef %errp) #5
   %2 = load i32, ptr %value.i.i, align 4
   store i32 %2, ptr %0, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.i.i)
@@ -2411,28 +2411,28 @@ visit_type_QCryptoAkCipherOptionsRSA_members.exit: ; preds = %if.end5
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i4.i)
   %3 = load i32, ptr %padding_alg.i, align 4
   store i32 %3, ptr %value.i4.i, align 4
-  %call.i5.i = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef nonnull @.str.36, ptr noundef nonnull %value.i4.i, ptr noundef nonnull @QCryptoRSAPaddingAlgorithm_lookup, ptr noundef %errp) #4
+  %call.i5.i = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef nonnull @.str.36, ptr noundef nonnull %value.i4.i, ptr noundef nonnull @QCryptoRSAPaddingAlgorithm_lookup, ptr noundef %errp) #5
   %4 = load i32, ptr %value.i4.i, align 4
   store i32 %4, ptr %padding_alg.i, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.i4.i)
   br i1 %call.i5.i, label %out_obj, label %out_obj.thread
 
 out_obj.thread:                                   ; preds = %visit_type_QCryptoAkCipherOptionsRSA_members.exit, %if.end5
-  call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %land.lhs.true
 
 out_obj:                                          ; preds = %visit_type_QCryptoAkCipherOptionsRSA_members.exit
-  %call9 = call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #4
-  call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  %call9 = call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #5
+  call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br i1 %call9, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %out_obj.thread, %out_obj
-  %call11 = call zeroext i1 @visit_is_input(ptr noundef %v) #4
+  %call11 = call zeroext i1 @visit_is_input(ptr noundef %v) #5
   br i1 %call11, label %if.then12, label %return
 
 if.then12:                                        ; preds = %land.lhs.true
   %5 = load ptr, ptr %obj, align 8
-  call void @qapi_free_QCryptoAkCipherOptionsRSA(ptr noundef %5) #4
+  call void @qapi_free_QCryptoAkCipherOptionsRSA(ptr noundef %5) #5
   store ptr null, ptr %obj, align 8
   br label %return
 
@@ -2450,7 +2450,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
   %0 = load i32, ptr %obj, align 4
   store i32 %0, ptr %value.i, align 4
-  %call.i = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef nonnull @.str.37, ptr noundef nonnull %value.i, ptr noundef nonnull @QCryptoAkCipherAlgorithm_lookup, ptr noundef %errp) #4
+  %call.i = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef nonnull @.str.37, ptr noundef nonnull %value.i, ptr noundef nonnull @QCryptoAkCipherAlgorithm_lookup, ptr noundef %errp) #5
   %1 = load i32, ptr %value.i, align 4
   store i32 %1, ptr %obj, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.i)
@@ -2466,7 +2466,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i.i)
   %0 = load i32, ptr %obj, align 4
   store i32 %0, ptr %value.i.i, align 4
-  %call.i.i = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef nonnull @.str.37, ptr noundef nonnull %value.i.i, ptr noundef nonnull @QCryptoAkCipherAlgorithm_lookup, ptr noundef %errp) #4
+  %call.i.i = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef nonnull @.str.37, ptr noundef nonnull %value.i.i, ptr noundef nonnull @QCryptoAkCipherAlgorithm_lookup, ptr noundef %errp) #5
   %1 = load i32, ptr %value.i.i, align 4
   store i32 %1, ptr %obj, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.i.i)
@@ -2481,7 +2481,7 @@ sw.bb:                                            ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i.i5)
   %2 = load i32, ptr %u, align 4
   store i32 %2, ptr %value.i.i5, align 4
-  %call.i.i6 = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef nonnull @.str.8, ptr noundef nonnull %value.i.i5, ptr noundef nonnull @QCryptoHashAlgorithm_lookup, ptr noundef %errp) #4
+  %call.i.i6 = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef nonnull @.str.8, ptr noundef nonnull %value.i.i5, ptr noundef nonnull @QCryptoHashAlgorithm_lookup, ptr noundef %errp) #5
   %3 = load i32, ptr %value.i.i5, align 4
   store i32 %3, ptr %u, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.i.i5)
@@ -2492,14 +2492,14 @@ if.end.i:                                         ; preds = %sw.bb
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i4.i)
   %4 = load i32, ptr %padding_alg.i, align 4
   store i32 %4, ptr %value.i4.i, align 4
-  %call.i5.i = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef nonnull @.str.36, ptr noundef nonnull %value.i4.i, ptr noundef nonnull @QCryptoRSAPaddingAlgorithm_lookup, ptr noundef %errp) #4
+  %call.i5.i = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef nonnull @.str.36, ptr noundef nonnull %value.i4.i, ptr noundef nonnull @QCryptoRSAPaddingAlgorithm_lookup, ptr noundef %errp) #5
   %5 = load i32, ptr %value.i4.i, align 4
   store i32 %5, ptr %padding_alg.i, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.i4.i)
   br label %return
 
 sw.default:                                       ; preds = %if.end
-  call void @abort() #5
+  call void @abort() #6
   unreachable
 
 return:                                           ; preds = %if.end.i, %sw.bb, %entry
@@ -2513,7 +2513,7 @@ entry:
   %value.i4.i.i = alloca i32, align 4
   %value.i.i5.i = alloca i32, align 4
   %value.i.i.i = alloca i32, align 4
-  %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 12, ptr noundef %errp) #4
+  %call = tail call zeroext i1 @visit_start_struct(ptr noundef %v, ptr noundef %name, ptr noundef %obj, i64 noundef 12, ptr noundef %errp) #5
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -2522,22 +2522,22 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.then1, label %if.end5
 
 if.then1:                                         ; preds = %if.end
-  %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #4
+  %call2 = tail call zeroext i1 @visit_is_dealloc(ptr noundef %v) #5
   br i1 %call2, label %out_obj.thread17, label %if.else
 
 out_obj.thread17:                                 ; preds = %if.then1
-  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  tail call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %return
 
 if.else:                                          ; preds = %if.then1
-  tail call void @__assert_fail(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 1128, ptr noundef nonnull @__PRETTY_FUNCTION__.visit_type_QCryptoAkCipherOptions) #5
+  tail call void @__assert_fail(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 1128, ptr noundef nonnull @__PRETTY_FUNCTION__.visit_type_QCryptoAkCipherOptions) #6
   unreachable
 
 if.end5:                                          ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i.i.i)
   %1 = load i32, ptr %0, align 4
   store i32 %1, ptr %value.i.i.i, align 4
-  %call.i.i.i = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef nonnull @.str.37, ptr noundef nonnull %value.i.i.i, ptr noundef nonnull @QCryptoAkCipherAlgorithm_lookup, ptr noundef %errp) #4
+  %call.i.i.i = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef nonnull @.str.37, ptr noundef nonnull %value.i.i.i, ptr noundef nonnull @QCryptoAkCipherAlgorithm_lookup, ptr noundef %errp) #5
   %2 = load i32, ptr %value.i.i.i, align 4
   store i32 %2, ptr %0, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.i.i.i)
@@ -2552,14 +2552,14 @@ sw.bb.i:                                          ; preds = %if.end.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i.i5.i)
   %3 = load i32, ptr %u.i, align 4
   store i32 %3, ptr %value.i.i5.i, align 4
-  %call.i.i6.i = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef nonnull @.str.8, ptr noundef nonnull %value.i.i5.i, ptr noundef nonnull @QCryptoHashAlgorithm_lookup, ptr noundef %errp) #4
+  %call.i.i6.i = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef nonnull @.str.8, ptr noundef nonnull %value.i.i5.i, ptr noundef nonnull @QCryptoHashAlgorithm_lookup, ptr noundef %errp) #5
   %4 = load i32, ptr %value.i.i5.i, align 4
   store i32 %4, ptr %u.i, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.i.i5.i)
   br i1 %call.i.i6.i, label %visit_type_QCryptoAkCipherOptions_members.exit, label %out_obj.thread
 
 sw.default.i:                                     ; preds = %if.end.i
-  call void @abort() #5
+  call void @abort() #6
   unreachable
 
 visit_type_QCryptoAkCipherOptions_members.exit:   ; preds = %sw.bb.i
@@ -2567,28 +2567,28 @@ visit_type_QCryptoAkCipherOptions_members.exit:   ; preds = %sw.bb.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i4.i.i)
   %5 = load i32, ptr %padding_alg.i.i, align 4
   store i32 %5, ptr %value.i4.i.i, align 4
-  %call.i5.i.i = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef nonnull @.str.36, ptr noundef nonnull %value.i4.i.i, ptr noundef nonnull @QCryptoRSAPaddingAlgorithm_lookup, ptr noundef %errp) #4
+  %call.i5.i.i = call zeroext i1 @visit_type_enum(ptr noundef %v, ptr noundef nonnull @.str.36, ptr noundef nonnull %value.i4.i.i, ptr noundef nonnull @QCryptoRSAPaddingAlgorithm_lookup, ptr noundef %errp) #5
   %6 = load i32, ptr %value.i4.i.i, align 4
   store i32 %6, ptr %padding_alg.i.i, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.i4.i.i)
   br i1 %call.i5.i.i, label %out_obj, label %out_obj.thread
 
 out_obj.thread:                                   ; preds = %visit_type_QCryptoAkCipherOptions_members.exit, %if.end5, %sw.bb.i
-  call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br label %land.lhs.true
 
 out_obj:                                          ; preds = %visit_type_QCryptoAkCipherOptions_members.exit
-  %call9 = call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #4
-  call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #4
+  %call9 = call zeroext i1 @visit_check_struct(ptr noundef %v, ptr noundef %errp) #5
+  call void @visit_end_struct(ptr noundef %v, ptr noundef nonnull %obj) #5
   br i1 %call9, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %out_obj.thread, %out_obj
-  %call11 = call zeroext i1 @visit_is_input(ptr noundef %v) #4
+  %call11 = call zeroext i1 @visit_is_input(ptr noundef %v) #5
   br i1 %call11, label %if.then12, label %return
 
 if.then12:                                        ; preds = %land.lhs.true
   %7 = load ptr, ptr %obj, align 8
-  call void @qapi_free_QCryptoAkCipherOptions(ptr noundef %7) #4
+  call void @qapi_free_QCryptoAkCipherOptions(ptr noundef %7) #5
   store ptr null, ptr %obj, align 8
   br label %return
 
@@ -2600,17 +2600,18 @@ return:                                           ; preds = %out_obj.thread17, %
 declare void @qapi_free_QCryptoAkCipherOptions(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nounwind }
-attributes #5 = { noreturn nounwind }
+attributes #3 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { nounwind }
+attributes #6 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

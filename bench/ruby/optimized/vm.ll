@@ -34716,7 +34716,7 @@ define hidden void @Init_BareVM() local_unnamed_addr #2 {
 5:                                                ; preds = %0
   %6 = load ptr, ptr @stderr, align 8
   %7 = tail call i64 @fwrite(ptr nonnull @.str.120, i64 34, i64 1, ptr %6) #53
-  tail call void @exit(i32 noundef 1) #34
+  tail call void @exit(i32 noundef 1) #47
   unreachable
 
 8:                                                ; preds = %0
@@ -34878,7 +34878,7 @@ vm_init2.exit:                                    ; preds = %check_machine_stack
 
 declare noalias ptr @ruby_mimmalloc(i64 noundef) local_unnamed_addr #3
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #32
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
@@ -59035,7 +59035,7 @@ attributes #28 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" 
 attributes #29 = { allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #30 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #31 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #32 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #32 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #33 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #34 = { noreturn nounwind }
 attributes #35 = { allocsize(1,2) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -48,15 +48,15 @@ sw.bb14:                                          ; preds = %if.end
   %7 = tail call i8 @llvm.vector.reduce.or.v8i8(<8 x i8> %4)
   %8 = tail call i8 @llvm.vector.reduce.or.v4i8(<4 x i8> %5)
   %op.rdx = or i8 %7, %8
-  %op.rdx33 = or i8 %op.rdx, %6
-  %op.rdx34 = or i8 %op.rdx33, %2
+  %9 = or i8 %op.rdx, %6
+  %op.rdx34 = or i8 %9, %2
   %tobool.not = icmp eq i8 %op.rdx34, 0
   br i1 %tobool.not, label %lor.lhs.false, label %if.end64
 
 lor.lhs.false:                                    ; preds = %sw.bb14
   %arrayidx58 = getelementptr inbounds i8, ptr %sa, i64 23
-  %9 = load i8, ptr %arrayidx58, align 1
-  %cmp60.not = icmp eq i8 %9, 1
+  %10 = load i8, ptr %arrayidx58, align 1
+  %cmp60.not = icmp eq i8 %10, 1
   br i1 %cmp60.not, label %return, label %if.end64
 
 if.end64:                                         ; preds = %lor.lhs.false, %sw.bb14, %if.end, %entry
@@ -158,15 +158,15 @@ sw.bb14.i.us:                                     ; preds = %if.end.i.us
   %12 = call i8 @llvm.vector.reduce.or.v8i8(<8 x i8> %9)
   %13 = call i8 @llvm.vector.reduce.or.v4i8(<4 x i8> %10)
   %op.rdx = or i8 %12, %13
-  %op.rdx42 = or i8 %op.rdx, %11
-  %op.rdx43 = or i8 %op.rdx42, %7
+  %14 = or i8 %op.rdx, %11
+  %op.rdx43 = or i8 %14, %7
   %tobool.not.i.us = icmp eq i8 %op.rdx43, 0
   br i1 %tobool.not.i.us, label %lor.lhs.false.i.us, label %if.end64.i.us
 
 lor.lhs.false.i.us:                               ; preds = %sw.bb14.i.us
   %arrayidx58.i.us = getelementptr inbounds i8, ptr %4, i64 23
-  %14 = load i8, ptr %arrayidx58.i.us, align 1
-  %cmp60.not.i.us = icmp eq i8 %14, 1
+  %15 = load i8, ptr %arrayidx58.i.us, align 1
+  %cmp60.not.i.us = icmp eq i8 %15, 1
   br i1 %cmp60.not.i.us, label %Curl_ipv6_scope.exit.us, label %if.end64.i.us
 
 sw.bb13.i.us:                                     ; preds = %if.end.i.us
@@ -182,8 +182,8 @@ Curl_ipv6_scope.exit.us:                          ; preds = %if.end64.i.us, %sw.
 
 if.end21.us:                                      ; preds = %Curl_ipv6_scope.exit.us
   %sin6_scope_id.us = getelementptr inbounds i8, ptr %4, i64 24
-  %15 = load i32, ptr %sin6_scope_id.us, align 4
-  %cmp25.not.us = icmp eq i32 %15, %local_scope_id
+  %16 = load i32, ptr %sin6_scope_id.us, align 4
+  %cmp25.not.us = icmp eq i32 %16, %local_scope_id
   %or.cond.us = select i1 %tobool24.not, i1 true, i1 %cmp25.not.us
   br i1 %or.cond.us, label %if.end32, label %for.inc.us
 
@@ -197,37 +197,37 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %iface.028 = phi ptr [ %iface.0, %for.inc ], [ %iface.025, %for.body.lr.ph ]
   %res.027 = phi i32 [ %res.1, %for.inc ], [ 0, %for.body.lr.ph ]
   %ifa_addr = getelementptr inbounds i8, ptr %iface.028, i64 24
-  %16 = load ptr, ptr %ifa_addr, align 8
-  %tobool.not = icmp eq ptr %16, null
+  %17 = load ptr, ptr %ifa_addr, align 8
+  %tobool.not = icmp eq ptr %17, null
   br i1 %tobool.not, label %for.inc, label %if.then2
 
 if.then2:                                         ; preds = %for.body
-  %17 = load i16, ptr %16, align 2
-  %conv = zext i16 %17 to i32
+  %18 = load i16, ptr %17, align 2
+  %conv = zext i16 %18 to i32
   %cmp4 = icmp eq i32 %conv, %af
   br i1 %cmp4, label %if.then6, label %if.else45
 
 if.then6:                                         ; preds = %if.then2
   %ifa_name = getelementptr inbounds i8, ptr %iface.028, i64 8
-  %18 = load ptr, ptr %ifa_name, align 8
-  %call7 = call i32 @curl_strequal(ptr noundef %18, ptr noundef %interf) #6
+  %19 = load ptr, ptr %ifa_name, align 8
+  %call7 = call i32 @curl_strequal(ptr noundef %19, ptr noundef %interf) #6
   %tobool8.not = icmp eq i32 %call7, 0
   br i1 %tobool8.not, label %for.inc, label %if.then9
 
 if.then9:                                         ; preds = %if.then6
   %ifa_addr.le = getelementptr inbounds i8, ptr %iface.028, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %scope, i8 0, i64 12, i1 false)
-  %19 = load ptr, ptr %ifa_addr.le, align 8
-  %sin_addr = getelementptr inbounds i8, ptr %19, i64 4
+  %20 = load ptr, ptr %ifa_addr.le, align 8
+  %sin_addr = getelementptr inbounds i8, ptr %20, i64 4
   br label %if.end38
 
 if.end32:                                         ; preds = %if.end21.us
   %sin6_addr.le = getelementptr inbounds i8, ptr %4, i64 8
-  %tobool33.not = icmp eq i32 %15, 0
+  %tobool33.not = icmp eq i32 %16, 0
   br i1 %tobool33.not, label %if.end38, label %if.then34
 
 if.then34:                                        ; preds = %if.end32
-  %call35 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %scope, i64 noundef 12, ptr noundef nonnull @.str, i32 noundef %15) #6
+  %call35 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %scope, i64 noundef 12, ptr noundef nonnull @.str, i32 noundef %16) #6
   br label %if.end38
 
 if.end38:                                         ; preds = %if.end32, %if.then34, %if.then9
@@ -243,8 +243,8 @@ if.else45:                                        ; preds = %if.then2
 
 land.lhs.true48:                                  ; preds = %if.else45
   %ifa_name49 = getelementptr inbounds i8, ptr %iface.028, i64 8
-  %20 = load ptr, ptr %ifa_name49, align 8
-  %call50 = call i32 @curl_strequal(ptr noundef %20, ptr noundef %interf) #6
+  %21 = load ptr, ptr %ifa_name49, align 8
+  %call50 = call i32 @curl_strequal(ptr noundef %21, ptr noundef %interf) #6
   %tobool51.not = icmp ne i32 %call50, 0
   %spec.select = zext i1 %tobool51.not to i32
   br label %for.inc
@@ -257,8 +257,8 @@ for.inc:                                          ; preds = %land.lhs.true48, %f
 
 for.end:                                          ; preds = %for.inc, %for.inc.us, %for.cond.preheader, %if.end38
   %res.2 = phi i32 [ 2, %if.end38 ], [ 0, %for.cond.preheader ], [ %res.1.us, %for.inc.us ], [ %res.1, %for.inc ]
-  %21 = load ptr, ptr %head, align 8
-  call void @freeifaddrs(ptr noundef %21) #6
+  %22 = load ptr, ptr %head, align 8
+  call void @freeifaddrs(ptr noundef %22) #6
   br label %if.end56
 
 if.end56:                                         ; preds = %for.end, %entry

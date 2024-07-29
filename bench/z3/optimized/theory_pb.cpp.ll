@@ -1650,7 +1650,7 @@ if.then:                                          ; preds = %invoke.cont17
           to label %invoke.cont20 unwind label %lpad.loopexit.split-lp
 
 invoke.cont20:                                    ; preds = %if.then
-  call void @exit(i32 noundef 114) #27
+  call void @exit(i32 noundef 114) #28
   unreachable
 
 lpad11:                                           ; preds = %invoke.cont10
@@ -2020,7 +2020,7 @@ entry:
 
 declare void @_Z26notify_assertion_violationPKciS0_(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
@@ -8036,7 +8036,7 @@ invoke.cont.i:                                    ; preds = %if.then17.i
   store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception.i, align 8
   %m_msg.i.i = getelementptr inbounds i8, ptr %exception.i, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #26
-  invoke void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #28
+  invoke void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #29
           to label %unreachable.i unwind label %ehcleanup.i
 
 ehcleanup.i:                                      ; preds = %invoke.cont.i
@@ -9302,7 +9302,7 @@ for.cond.preheader:                               ; preds = %entry
 
 if.then:                                          ; preds = %entry
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str, i32 noundef 345, ptr noundef nonnull @.str.15)
-  tail call void @exit(i32 noundef 114) #27
+  tail call void @exit(i32 noundef 114) #28
   unreachable
 
 if.end.i.i:                                       ; preds = %for.cond.preheader
@@ -10893,7 +10893,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr
 define hidden void @_ZN3smt9theory_pbD0Ev(ptr noundef nonnull align 8 dereferenceable(968) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN3smt9theory_pbD2Ev(ptr noundef nonnull align 8 dereferenceable(968) %this) #26
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #29
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #30
   ret void
 }
 
@@ -15855,7 +15855,7 @@ sw.default:                                       ; preds = %invoke.cont75
           to label %invoke.cont161 unwind label %lpad28.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont161:                                   ; preds = %sw.default
-  tail call void @exit(i32 noundef 114) #27
+  tail call void @exit(i32 noundef 114) #28
   unreachable
 
 sw.epilog:                                        ; preds = %for.inc123, %if.end114, %invoke.cont145, %if.end.i170, %if.end151, %invoke.cont75, %invoke.cont157, %invoke.cont93
@@ -16711,7 +16711,7 @@ _Z7deallocIN3smt9theory_pb4cardEEvPT_.exit:       ; preds = %_Z7deallocI10ptr_ve
 define hidden void @_ZN3smt9theory_pb9new_eq_ehEii(ptr nocapture nonnull readnone align 8 %this, i32 %v1, i32 %v2) unnamed_addr #12 align 2 {
 entry:
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str, i32 noundef 985, ptr noundef nonnull @.str.25)
-  tail call void @exit(i32 noundef 114) #27
+  tail call void @exit(i32 noundef 114) #28
   unreachable
 }
 
@@ -16850,7 +16850,7 @@ if.then12:                                        ; preds = %if.end8
 
 if.then14:                                        ; preds = %if.then12
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str, i32 noundef 1011, ptr noundef nonnull @.str.26)
-  tail call void @exit(i32 noundef 114) #27
+  tail call void @exit(i32 noundef 114) #28
   unreachable
 
 if.end15:                                         ; preds = %if.then12
@@ -19741,7 +19741,7 @@ lpad:                                             ; preds = %sw.bb9.i.i, %sw.bb.
 define hidden void @_ZN3smt9theory_pb9assign_eqERNS0_4ineqEb(ptr nocapture noundef nonnull readnone align 8 dereferenceable(968) %this, ptr nocapture noundef nonnull readnone align 8 dereferenceable(212) %c, i1 noundef zeroext %is_true) local_unnamed_addr #12 align 2 {
 entry:
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str, i32 noundef 1172, ptr noundef nonnull @.str.25)
-  tail call void @exit(i32 noundef 114) #27
+  tail call void @exit(i32 noundef 114) #28
   unreachable
 }
 
@@ -20086,7 +20086,7 @@ sw.default:                                       ; preds = %if.else
           to label %invoke.cont36 unwind label %lpad10.loopexit.split-lp
 
 invoke.cont36:                                    ; preds = %sw.default
-  tail call void @exit(i32 noundef 114) #27
+  tail call void @exit(i32 noundef 114) #28
   unreachable
 
 cleanup:                                          ; preds = %sw.bb31, %sw.bb26, %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit, %if.then9
@@ -21830,7 +21830,7 @@ invoke.cont.i:                                    ; preds = %if.then17.i
   store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception.i, align 8
   %m_msg.i.i = getelementptr inbounds i8, ptr %exception.i, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #26
-  invoke void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #28
+  invoke void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #29
           to label %unreachable.i unwind label %ehcleanup.i
 
 ehcleanup.i:                                      ; preds = %invoke.cont.i
@@ -22220,7 +22220,7 @@ invoke.cont.i:                                    ; preds = %if.then17.i
   store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception.i, align 8
   %m_msg.i.i = getelementptr inbounds i8, ptr %exception.i, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #26
-  invoke void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #28
+  invoke void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #29
           to label %unreachable.i unwind label %ehcleanup.i
 
 ehcleanup.i:                                      ; preds = %invoke.cont.i
@@ -24392,7 +24392,7 @@ invoke.cont.i:                                    ; preds = %if.then17.i
   store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception.i, align 8
   %m_msg.i.i = getelementptr inbounds i8, ptr %exception.i, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #26
-  invoke void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #28
+  invoke void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #29
           to label %unreachable.i unwind label %ehcleanup.i
 
 ehcleanup.i:                                      ; preds = %invoke.cont.i
@@ -26412,7 +26412,7 @@ entry:
 define linkonce_odr hidden noundef zeroext i1 @_ZN3smt9theory_pb16internalize_termEP3app(ptr noundef nonnull align 8 dereferenceable(968) %this, ptr noundef %term) unnamed_addr #3 comdat align 2 {
 entry:
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.58, i32 noundef 415, ptr noundef nonnull @.str.25)
-  tail call void @exit(i32 noundef 114) #27
+  tail call void @exit(i32 noundef 114) #28
   unreachable
 }
 
@@ -26733,7 +26733,7 @@ lpad:                                             ; preds = %if.else.i.i7.i.i.i.
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %lpad
-  invoke void @__cxa_rethrow() #28
+  invoke void @__cxa_rethrow() #29
           to label %unreachable unwind label %lpad2
 
 for.end:                                          ; preds = %for.inc, %entry
@@ -27001,7 +27001,7 @@ declare void @_ZN3smt7context11assign_coreEN3sat7literalENS_15b_justificationEb(
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3smt9theory_pb18card_justificationD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #29
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #30
   ret void
 }
 
@@ -27479,7 +27479,7 @@ _ZN6bufferIP3appLb0ELj16EED2Ev.exit:              ; preds = %entry, %if.end.i.i.
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3smt9theory_pb11negate_ineqD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #29
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #30
   ret void
 }
 
@@ -27500,7 +27500,7 @@ declare void @_ZN16theory_pb_params11updt_paramsERK10params_ref(ptr noundef nonn
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3smt9theory_pb10unwatch_geD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #29
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #30
   ret void
 }
 
@@ -27668,7 +27668,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %_ZN6vectorI9paramet
   unreachable
 
 _ZN3smt9theory_pb16pb_justificationD2Ev.exit:     ; preds = %entry, %_ZN6vectorI9parameterLb1EjE16destroy_elementsEv.exit.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #29
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #30
   ret void
 }
 
@@ -27822,7 +27822,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.50) #28
+  invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.50) #29
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
@@ -27995,7 +27995,7 @@ entry:
 define linkonce_odr hidden void @_ZN3smt10pb_factoryD0Ev(ptr noundef nonnull align 8 dereferenceable(20) %this) unnamed_addr #4 comdat align 2 {
 entry:
   tail call void @_ZN13value_factoryD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %this) #26
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #29
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #30
   ret void
 }
 
@@ -28146,7 +28146,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i
   unreachable
 
 _ZN3smt9theory_pb19pb_model_value_procD2Ev.exit:  ; preds = %entry, %if.then.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #29
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #30
   ret void
 }
 
@@ -28645,7 +28645,7 @@ sw.default:                                       ; preds = %invoke.cont22, %inv
           to label %invoke.cont58 unwind label %lpad24
 
 invoke.cont58:                                    ; preds = %sw.default
-  call void @exit(i32 noundef 114) #27
+  call void @exit(i32 noundef 114) #28
   unreachable
 
 cleanup:                                          ; preds = %invoke.cont50, %if.then.i.i.i.i.i113, %call4.i.i.i.i.i.noexc115, %invoke.cont41, %if.then.i.i.i.i.i.i76, %call4.i.i.i.i.i.i.noexc78, %invoke.cont32, %if.then.i.i.i.i.i, %call4.i.i.i.i.i.noexc, %invoke.cont27, %if.then.i.i.i.i.i.i, %call4.i.i.i.i.i.i.noexc, %cond.false54, %cond.false45, %cond.false36, %cond.false
@@ -28749,7 +28749,7 @@ invoke.cont:                                      ; preds = %if.then17
   store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception, align 8
   %m_msg.i = getelementptr inbounds i8, ptr %exception, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #26
-  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #28
+  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #29
           to label %unreachable unwind label %ehcleanup
 
 ehcleanup:                                        ; preds = %invoke.cont
@@ -28831,7 +28831,7 @@ invoke.cont:                                      ; preds = %if.then17
   store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception, align 8
   %m_msg.i = getelementptr inbounds i8, ptr %exception, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #26
-  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #28
+  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #29
           to label %unreachable unwind label %ehcleanup
 
 ehcleanup:                                        ; preds = %invoke.cont
@@ -28916,7 +28916,7 @@ invoke.cont:                                      ; preds = %if.then17
   store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception, align 8
   %m_msg.i = getelementptr inbounds i8, ptr %exception, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #26
-  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #28
+  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #29
           to label %unreachable unwind label %ehcleanup
 
 ehcleanup:                                        ; preds = %invoke.cont
@@ -28997,7 +28997,7 @@ invoke.cont:                                      ; preds = %if.then17
   store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception, align 8
   %m_msg.i = getelementptr inbounds i8, ptr %exception, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #26
-  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #28
+  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #29
           to label %unreachable unwind label %ehcleanup
 
 ehcleanup:                                        ; preds = %invoke.cont
@@ -29078,7 +29078,7 @@ invoke.cont:                                      ; preds = %if.then17
   store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception, align 8
   %m_msg.i = getelementptr inbounds i8, ptr %exception, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #26
-  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #28
+  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #29
           to label %unreachable unwind label %ehcleanup
 
 ehcleanup:                                        ; preds = %invoke.cont
@@ -29193,7 +29193,7 @@ arraydestroy.done2:                               ; preds = %arraydestroy.body
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN11value_trailIjED0Ev(ptr noundef nonnull align 8 dereferenceable(20) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #29
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #30
   ret void
 }
 
@@ -29643,7 +29643,7 @@ invoke.cont:                                      ; preds = %if.then17
   store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception, align 8
   %m_msg.i = getelementptr inbounds i8, ptr %exception, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #26
-  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #28
+  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #29
           to label %unreachable unwind label %ehcleanup
 
 ehcleanup:                                        ; preds = %invoke.cont
@@ -31380,7 +31380,7 @@ invoke.cont:                                      ; preds = %if.then17
   store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception, align 8
   %m_msg.i = getelementptr inbounds i8, ptr %exception, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #26
-  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #28
+  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #29
           to label %unreachable unwind label %ehcleanup
 
 ehcleanup:                                        ; preds = %invoke.cont
@@ -31663,7 +31663,7 @@ invoke.cont:                                      ; preds = %if.then17
   store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception, align 8
   %m_msg.i = getelementptr inbounds i8, ptr %exception, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #26
-  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #28
+  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #29
           to label %unreachable unwind label %ehcleanup
 
 ehcleanup:                                        ; preds = %invoke.cont
@@ -31856,7 +31856,7 @@ invoke.cont:                                      ; preds = %if.then17
   store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception, align 8
   %m_msg.i = getelementptr inbounds i8, ptr %exception, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #26
-  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #28
+  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #29
           to label %unreachable unwind label %ehcleanup
 
 ehcleanup:                                        ; preds = %invoke.cont
@@ -31938,7 +31938,7 @@ invoke.cont:                                      ; preds = %if.then17
   store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception, align 8
   %m_msg.i = getelementptr inbounds i8, ptr %exception, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #26
-  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #28
+  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #29
           to label %unreachable unwind label %ehcleanup
 
 ehcleanup:                                        ; preds = %invoke.cont
@@ -32019,7 +32019,7 @@ invoke.cont:                                      ; preds = %if.then17
   store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception, align 8
   %m_msg.i = getelementptr inbounds i8, ptr %exception, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #26
-  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #28
+  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #29
           to label %unreachable unwind label %ehcleanup
 
 ehcleanup:                                        ; preds = %invoke.cont
@@ -32102,7 +32102,7 @@ invoke.cont:                                      ; preds = %if.then17
   store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception, align 8
   %m_msg.i = getelementptr inbounds i8, ptr %exception, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #26
-  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #28
+  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #29
           to label %unreachable unwind label %ehcleanup
 
 ehcleanup:                                        ; preds = %invoke.cont
@@ -32179,7 +32179,7 @@ invoke.cont:                                      ; preds = %if.then17
   store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception, align 8
   %m_msg.i = getelementptr inbounds i8, ptr %exception, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #26
-  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #28
+  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #29
           to label %unreachable unwind label %ehcleanup
 
 ehcleanup:                                        ; preds = %invoke.cont
@@ -32275,7 +32275,7 @@ unreachable:                                      ; preds = %invoke.cont
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN18scoped_value_trailI15_scoped_numeralI11mpz_managerILb0EEE22_scoped_numeral_vectorIS2_EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #29
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #30
   ret void
 }
 
@@ -32399,7 +32399,7 @@ invoke.cont:                                      ; preds = %if.then17
   store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception, align 8
   %m_msg.i = getelementptr inbounds i8, ptr %exception, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #26
-  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #28
+  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #29
           to label %unreachable unwind label %ehcleanup
 
 ehcleanup:                                        ; preds = %invoke.cont
@@ -32734,7 +32734,7 @@ sw.default:                                       ; preds = %if.then11
           to label %invoke.cont28 unwind label %lpad14
 
 invoke.cont28:                                    ; preds = %sw.default
-  tail call void @exit(i32 noundef 114) #27
+  tail call void @exit(i32 noundef 114) #28
   unreachable
 
 cleanup:                                          ; preds = %sw.bb23, %sw.bb18, %sw.bb
@@ -32803,7 +32803,7 @@ sw.default50:                                     ; preds = %if.else29
           to label %invoke.cont51 unwind label %lpad2.loopexit.split-lp
 
 invoke.cont51:                                    ; preds = %sw.default50
-  tail call void @exit(i32 noundef 114) #27
+  tail call void @exit(i32 noundef 114) #28
   unreachable
 
 cleanup52:                                        ; preds = %sw.bb45, %sw.bb40, %if.then.i.i.i, %cleanup, %invoke.cont34, %if.then5
@@ -32893,11 +32893,11 @@ if.then6.i.i:                                     ; preds = %if.then6.fold.split
 _ZN8psort_nwIN3smt9theory_pb10psort_exprEE9use_dcardEjj.exit: ; preds = %land.rhs.i, %if.then6.i.i
   %retval.sroa.6.1.i.i = phi i32 [ %add4.i9.i.i, %if.then6.i.i ], [ %.pre25.i.i, %land.rhs.i ]
   %div8.i.i = lshr i32 %n, 1
-  %call.i.i = tail call i64 @_ZN8psort_nwIN3smt9theory_pb10psort_exprEE7vc_cardEjj(ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %k, i32 noundef %div8.i.i) #30
+  %call.i.i = tail call i64 @_ZN8psort_nwIN3smt9theory_pb10psort_exprEE7vc_cardEjj(ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %k, i32 noundef %div8.i.i) #31
   %ref.tmp2.i.sroa.4.0.extract.shift.i = lshr i64 %call.i.i, 32
   %ref.tmp2.i.sroa.4.0.extract.trunc.i = trunc nuw i64 %ref.tmp2.i.sroa.4.0.extract.shift.i to i32
   %sub.i.i = sub nsw i32 %n, %div8.i.i
-  %call4.i.i = tail call i64 @_ZN8psort_nwIN3smt9theory_pb10psort_exprEE7vc_cardEjj(ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %k, i32 noundef %sub.i.i) #30
+  %call4.i.i = tail call i64 @_ZN8psort_nwIN3smt9theory_pb10psort_exprEE7vc_cardEjj(ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %k, i32 noundef %sub.i.i) #31
   %ref.tmp3.i.sroa.4.0.extract.shift.i = lshr i64 %call4.i.i, 32
   %ref.tmp3.i.sroa.4.0.extract.trunc.i = trunc nuw i64 %ref.tmp3.i.sroa.4.0.extract.shift.i to i32
   %add.i6.i = add i64 %call4.i.i, %call.i.i
@@ -33743,7 +33743,7 @@ invoke.cont.i:                                    ; preds = %if.then17.i
   store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception.i, align 8
   %m_msg.i.i = getelementptr inbounds i8, ptr %exception.i, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #26
-  invoke void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #28
+  invoke void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #29
           to label %unreachable.i unwind label %ehcleanup.i
 
 ehcleanup.i:                                      ; preds = %invoke.cont.i
@@ -33773,7 +33773,7 @@ invoke.cont.i100:                                 ; preds = %if.then17.i95
   store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception.i96, align 8
   %m_msg.i.i101 = getelementptr inbounds i8, ptr %exception.i96, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i.i101, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i84) #26
-  invoke void @__cxa_throw(ptr nonnull %exception.i96, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #28
+  invoke void @__cxa_throw(ptr nonnull %exception.i96, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #29
           to label %unreachable.i103 unwind label %ehcleanup.i102
 
 ehcleanup.i102:                                   ; preds = %invoke.cont.i100
@@ -33883,7 +33883,7 @@ invoke.cont.i137:                                 ; preds = %if.then17.i132
   store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception.i133, align 8
   %m_msg.i.i138 = getelementptr inbounds i8, ptr %exception.i133, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i.i138, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i121) #26
-  invoke void @__cxa_throw(ptr nonnull %exception.i133, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #28
+  invoke void @__cxa_throw(ptr nonnull %exception.i133, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #29
           to label %unreachable.i140 unwind label %ehcleanup.i139
 
 ehcleanup.i139:                                   ; preds = %invoke.cont.i137
@@ -34569,7 +34569,7 @@ invoke.cont.i133:                                 ; preds = %if.then17.i
   store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception.i, align 8
   %m_msg.i.i = getelementptr inbounds i8, ptr %exception.i, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #26
-  invoke void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #28
+  invoke void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #29
           to label %unreachable.i unwind label %ehcleanup.i
 
 ehcleanup.i:                                      ; preds = %invoke.cont.i133
@@ -34599,7 +34599,7 @@ invoke.cont.i157:                                 ; preds = %if.then17.i152
   store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception.i153, align 8
   %m_msg.i.i158 = getelementptr inbounds i8, ptr %exception.i153, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i.i158, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i141) #26
-  invoke void @__cxa_throw(ptr nonnull %exception.i153, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #28
+  invoke void @__cxa_throw(ptr nonnull %exception.i153, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #29
           to label %unreachable.i160 unwind label %ehcleanup.i159
 
 ehcleanup.i159:                                   ; preds = %invoke.cont.i157
@@ -34837,7 +34837,7 @@ invoke.cont.i127:                                 ; preds = %if.then17.i122
   store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception.i123, align 8
   %m_msg.i.i128 = getelementptr inbounds i8, ptr %exception.i123, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i.i128, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i111) #26
-  invoke void @__cxa_throw(ptr nonnull %exception.i123, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #28
+  invoke void @__cxa_throw(ptr nonnull %exception.i123, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #29
           to label %unreachable.i130 unwind label %ehcleanup.i129
 
 ehcleanup.i129:                                   ; preds = %invoke.cont.i127
@@ -34957,7 +34957,7 @@ invoke.cont.i159:                                 ; preds = %if.then17.i154
   store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception.i155, align 8
   %m_msg.i.i160 = getelementptr inbounds i8, ptr %exception.i155, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i.i160, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i143) #26
-  invoke void @__cxa_throw(ptr nonnull %exception.i155, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #28
+  invoke void @__cxa_throw(ptr nonnull %exception.i155, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #29
           to label %unreachable.i162 unwind label %ehcleanup.i161
 
 ehcleanup.i161:                                   ; preds = %invoke.cont.i159
@@ -35174,7 +35174,7 @@ invoke.cont.i76:                                  ; preds = %if.then17.i
   store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception.i, align 8
   %m_msg.i.i = getelementptr inbounds i8, ptr %exception.i, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #26
-  invoke void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #28
+  invoke void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #29
           to label %unreachable.i unwind label %ehcleanup.i
 
 ehcleanup.i:                                      ; preds = %invoke.cont.i76
@@ -36636,7 +36636,7 @@ invoke.cont.i156:                                 ; preds = %if.then17.i151
   store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception.i152, align 8
   %m_msg.i.i157 = getelementptr inbounds i8, ptr %exception.i152, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i.i157, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i140) #26
-  invoke void @__cxa_throw(ptr nonnull %exception.i152, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #28
+  invoke void @__cxa_throw(ptr nonnull %exception.i152, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #29
           to label %unreachable.i159 unwind label %ehcleanup.i158
 
 ehcleanup.i158:                                   ; preds = %invoke.cont.i156
@@ -36841,7 +36841,7 @@ sw.default:                                       ; preds = %for.end39
           to label %invoke.cont65 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont65:                                    ; preds = %sw.default
-  call void @exit(i32 noundef 114) #27
+  call void @exit(i32 noundef 114) #28
   unreachable
 
 cleanup:                                          ; preds = %invoke.cont54
@@ -37729,7 +37729,7 @@ sw.default:                                       ; preds = %invoke.cont17
           to label %invoke.cont100 unwind label %lpad13.loopexit.split-lp
 
 invoke.cont100:                                   ; preds = %sw.default
-  call void @exit(i32 noundef 114) #27
+  call void @exit(i32 noundef 114) #28
   unreachable
 
 cleanup:                                          ; preds = %if.then.i.i.i, %invoke.cont97, %_ZN8psort_nwIN3smt9theory_pb10psort_exprEE5mk_orEN3sat7literalES5_.exit24, %invoke.cont27
@@ -40337,13 +40337,13 @@ _ZN8psort_nwIN3smt9theory_pb10psort_exprEE10vc_dsmergeEjjj.exit: ; preds = %if.e
   %add8.i = add i32 %c, 1
   %div912.i = lshr i32 %add8.i, 1
   %cond.i = select i1 %cmp.i.i, i32 %div912.i, i32 %add.i8
-  %call10.i = tail call i64 @_ZN8psort_nwIN3smt9theory_pb10psort_exprEE9vc_smergeEjjj(ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %add.i.i7, i32 noundef %add.i17.i, i32 noundef %cond.i) #30
+  %call10.i = tail call i64 @_ZN8psort_nwIN3smt9theory_pb10psort_exprEE9vc_smergeEjjj(ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %add.i.i7, i32 noundef %add.i17.i, i32 noundef %cond.i) #31
   %ref.tmp5.sroa.2.0.extract.shift.i = lshr i64 %call10.i, 32
   %ref.tmp5.sroa.2.0.extract.trunc.i = trunc nuw i64 %ref.tmp5.sroa.2.0.extract.shift.i to i32
   %sub.i = sext i1 %cmp.i.i to i32
   %cond20.in.i = add i32 %sub.i, %c
   %cond20.i = lshr i32 %cond20.in.i, 1
-  %call21.i = tail call i64 @_ZN8psort_nwIN3smt9theory_pb10psort_exprEE9vc_smergeEjjj(ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %div2.i.i, i32 noundef %div2.i16.i, i32 noundef %cond20.i) #30
+  %call21.i = tail call i64 @_ZN8psort_nwIN3smt9theory_pb10psort_exprEE9vc_smergeEjjj(ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %div2.i.i, i32 noundef %div2.i16.i, i32 noundef %cond20.i) #31
   %ref.tmp11.sroa.2.0.extract.shift.i = lshr i64 %call21.i, 32
   %ref.tmp11.sroa.2.0.extract.trunc.i = trunc nuw i64 %ref.tmp11.sroa.2.0.extract.shift.i to i32
   %add4.i.i = add i32 %ref.tmp11.sroa.2.0.extract.trunc.i, %ref.tmp5.sroa.2.0.extract.trunc.i
@@ -40654,7 +40654,7 @@ invoke.cont.i307:                                 ; preds = %if.then17.i302
   store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception.i303, align 8
   %m_msg.i.i308 = getelementptr inbounds i8, ptr %exception.i303, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i.i308, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i291) #26
-  invoke void @__cxa_throw(ptr nonnull %exception.i303, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #28
+  invoke void @__cxa_throw(ptr nonnull %exception.i303, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #29
           to label %unreachable.i310 unwind label %ehcleanup.i309
 
 ehcleanup.i309:                                   ; preds = %invoke.cont.i307
@@ -40774,7 +40774,7 @@ invoke.cont.i413:                                 ; preds = %if.then17.i408
   store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception.i409, align 8
   %m_msg.i.i414 = getelementptr inbounds i8, ptr %exception.i409, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i.i414, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i397) #26
-  invoke void @__cxa_throw(ptr nonnull %exception.i409, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #28
+  invoke void @__cxa_throw(ptr nonnull %exception.i409, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #29
           to label %unreachable.i416 unwind label %ehcleanup.i415
 
 ehcleanup.i415:                                   ; preds = %invoke.cont.i413
@@ -41127,7 +41127,7 @@ invoke.cont.i171:                                 ; preds = %if.then17.i
   store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception.i, align 8
   %m_msg.i.i = getelementptr inbounds i8, ptr %exception.i, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #26
-  invoke void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #28
+  invoke void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #29
           to label %unreachable.i unwind label %ehcleanup.i
 
 ehcleanup.i:                                      ; preds = %invoke.cont.i171
@@ -41233,7 +41233,7 @@ invoke.cont.i193:                                 ; preds = %if.then17.i188
   store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception.i189, align 8
   %m_msg.i.i194 = getelementptr inbounds i8, ptr %exception.i189, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i.i194, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i177) #26
-  invoke void @__cxa_throw(ptr nonnull %exception.i189, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #28
+  invoke void @__cxa_throw(ptr nonnull %exception.i189, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #29
           to label %unreachable.i196 unwind label %ehcleanup.i195
 
 ehcleanup.i195:                                   ; preds = %invoke.cont.i193
@@ -41382,7 +41382,7 @@ invoke.cont.i376:                                 ; preds = %if.then17.i371
   store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception.i372, align 8
   %m_msg.i.i377 = getelementptr inbounds i8, ptr %exception.i372, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i.i377, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i360) #26
-  invoke void @__cxa_throw(ptr nonnull %exception.i372, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #28
+  invoke void @__cxa_throw(ptr nonnull %exception.i372, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #29
           to label %unreachable.i379 unwind label %ehcleanup.i378
 
 ehcleanup.i378:                                   ; preds = %invoke.cont.i376
@@ -41511,7 +41511,7 @@ invoke.cont.i450:                                 ; preds = %if.then17.i445
   store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception.i446, align 8
   %m_msg.i.i451 = getelementptr inbounds i8, ptr %exception.i446, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i.i451, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i434) #26
-  invoke void @__cxa_throw(ptr nonnull %exception.i446, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #28
+  invoke void @__cxa_throw(ptr nonnull %exception.i446, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #29
           to label %unreachable.i453 unwind label %ehcleanup.i452
 
 ehcleanup.i452:                                   ; preds = %invoke.cont.i450
@@ -43052,7 +43052,7 @@ for.body.i.i.i.i.i:                               ; preds = %lpad.i.i.i, %for.bo
   br i1 %cmp.not.i.i.i.i.i, label %invoke.cont3.i.i.i, label %for.body.i.i.i.i.i, !llvm.loop !236
 
 invoke.cont3.i.i.i:                               ; preds = %for.body.i.i.i.i.i, %lpad.i.i.i
-  invoke void @__cxa_rethrow() #28
+  invoke void @__cxa_rethrow() #29
           to label %unreachable.i.i.i unwind label %lpad2.i.i.i
 
 lpad2.i.i.i:                                      ; preds = %invoke.cont3.i.i.i
@@ -43123,7 +43123,7 @@ invoke.cont:                                      ; preds = %if.then17
   store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception, align 8
   %m_msg.i = getelementptr inbounds i8, ptr %exception, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #26
-  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #28
+  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #29
           to label %unreachable unwind label %ehcleanup
 
 ehcleanup:                                        ; preds = %invoke.cont
@@ -43841,7 +43841,7 @@ invoke.cont:                                      ; preds = %if.then17
   store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception, align 8
   %m_msg.i = getelementptr inbounds i8, ptr %exception, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #26
-  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #28
+  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #29
           to label %unreachable unwind label %ehcleanup
 
 ehcleanup:                                        ; preds = %invoke.cont
@@ -43929,7 +43929,7 @@ attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stac
 attributes #2 = { nofree nounwind }
 attributes #3 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -43952,9 +43952,10 @@ attributes #24 = { nocallback nofree nosync nounwind speculatable willreturn mem
 attributes #25 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #26 = { nounwind }
 attributes #27 = { noreturn nounwind }
-attributes #28 = { noreturn }
-attributes #29 = { builtin nounwind }
-attributes #30 = { "function-inline-cost-multiplier"="2" }
+attributes #28 = { cold noreturn nounwind }
+attributes #29 = { noreturn }
+attributes #30 = { builtin nounwind }
+attributes #31 = { "function-inline-cost-multiplier"="2" }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

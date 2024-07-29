@@ -477,16 +477,16 @@ if.end:                                           ; preds = %for.body
   %add = add i64 %0, %conv
   %bf.set = and i32 %.compoundliteral.sroa.0.061, -67108864
   %bf.clear2 = or disjoint i32 %bf.set, 1
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !5
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !5
   fence seq_cst
-  %call.i.i.i.i = call i32 @address_space_rw(ptr noundef %3, i64 noundef %add, i32 %bf.clear2, ptr noundef nonnull %addr, i64 noundef 8, i1 noundef zeroext false) #15
+  %call.i.i.i.i = call i32 @address_space_rw(ptr noundef %3, i64 noundef %add, i32 %bf.clear2, ptr noundef nonnull %addr, i64 noundef 8, i1 noundef zeroext false) #16
   %4 = load i64, ptr %addr, align 8
   %ctx = getelementptr inbounds i8, ptr %arrayidx, i64 8
   store i64 %4, ptr %ctx, align 8
   %5 = load ptr, ptr %as, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !5
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !5
   fence seq_cst
-  %call.i.i.i.i43 = call i32 @address_space_rw(ptr noundef %5, i64 noundef %4, i32 1, ptr noundef nonnull %slot_ctx, i64 noundef 16, i1 noundef zeroext false) #15
+  %call.i.i.i.i43 = call i32 @address_space_rw(ptr noundef %5, i64 noundef %4, i32 1, ptr noundef nonnull %slot_ctx, i64 noundef 16, i1 noundef zeroext false) #16
   %cmp28.not.i = icmp eq i32 %call.i.i.i.i43, 0
   br i1 %cmp28.not.i, label %xhci_dma_read_u32s.exit, label %do.body.i
 
@@ -497,7 +497,7 @@ do.body.i:                                        ; preds = %if.end
   br i1 %cmp.i.not.i, label %do.end.i, label %if.then32.i
 
 if.then32.i:                                      ; preds = %do.body.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__.xhci_dma_read_u32s) #15
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__.xhci_dma_read_u32s) #16
   br label %do.end.i
 
 do.end.i:                                         ; preds = %if.then32.i, %do.body.i
@@ -529,7 +529,7 @@ for.cond44.preheader:                             ; preds = %land.lhs.true
   br label %for.body47
 
 if.else:                                          ; preds = %land.lhs.true
-  call void @__assert_fail(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, i32 noundef 3500, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_xhci_post_load) #16
+  call void @__assert_fail(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, i32 noundef 3500, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_xhci_post_load) #17
   unreachable
 
 for.body47:                                       ; preds = %for.cond44.preheader, %for.inc
@@ -538,9 +538,9 @@ for.body47:                                       ; preds = %for.cond44.preheade
   %10 = shl nuw nsw i64 %indvars.iv, 5
   %add51 = add i64 %9, %10
   %11 = load ptr, ptr %as, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !5
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !5
   fence seq_cst
-  %call.i.i.i.i45 = call i32 @address_space_rw(ptr noundef %11, i64 noundef %add51, i32 1, ptr noundef nonnull %ep_ctx, i64 noundef 20, i1 noundef zeroext false) #15
+  %call.i.i.i.i45 = call i32 @address_space_rw(ptr noundef %11, i64 noundef %add51, i32 1, ptr noundef nonnull %ep_ctx, i64 noundef 20, i1 noundef zeroext false) #16
   %cmp28.not.i46 = icmp eq i32 %call.i.i.i.i45, 0
   br i1 %cmp28.not.i46, label %xhci_dma_read_u32s.exit54, label %do.body.i47
 
@@ -551,7 +551,7 @@ do.body.i47:                                      ; preds = %for.body47
   br i1 %cmp.i.not.i49, label %xhci_dma_read_u32s.exit54.thread, label %if.then32.i50
 
 if.then32.i50:                                    ; preds = %do.body.i47
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__.xhci_dma_read_u32s) #15
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__.xhci_dma_read_u32s) #16
   br label %xhci_dma_read_u32s.exit54.thread
 
 xhci_dma_read_u32s.exit54.thread:                 ; preds = %do.body.i47, %if.then32.i50
@@ -569,7 +569,7 @@ xhci_dma_read_u32s.exit54:                        ; preds = %for.body47
 
 if.end57:                                         ; preds = %xhci_dma_read_u32s.exit54.thread, %xhci_dma_read_u32s.exit54
   %and68 = phi i32 [ 7, %xhci_dma_read_u32s.exit54.thread ], [ %and, %xhci_dma_read_u32s.exit54 ]
-  %call.i = call noalias dereferenceable_or_null(136) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 136) #17
+  %call.i = call noalias dereferenceable_or_null(136) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 136) #18
   store ptr %opaque, ptr %call.i, align 8
   %slotid2.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i32 %slotid.060, ptr %slotid2.i, align 8
@@ -580,8 +580,8 @@ if.end57:                                         ; preds = %xhci_dma_read_u32s.
   store ptr null, ptr %transfers.i, align 8
   %tql_prev.i = getelementptr inbounds i8, ptr %call.i, i64 48
   store ptr %transfers.i, ptr %tql_prev.i, align 8
-  %call.i.i.i.i55 = call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #17
-  call void @timer_init_full(ptr noundef %call.i.i.i.i55, ptr noundef null, i32 noundef 1, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @xhci_ep_kick_timer, ptr noundef nonnull %call.i) #15
+  %call.i.i.i.i55 = call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #18
+  call void @timer_init_full(ptr noundef %call.i.i.i.i55, ptr noundef null, i32 noundef 1, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @xhci_ep_kick_timer, ptr noundef nonnull %call.i) #16
   %kick_timer.i = getelementptr inbounds i8, ptr %call.i, i64 128
   store ptr %call.i.i.i.i55, ptr %kick_timer.i, align 8
   %15 = add nsw i64 %indvars.iv, -1
@@ -631,7 +631,7 @@ if.then.i:                                        ; preds = %if.end57
   br i1 %cmp.i.i, label %if.end.i.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.then.i
-  call void @__assert_fail(ptr noundef nonnull @.str.137, ptr noundef nonnull @.str.16, i32 noundef 888, ptr noundef nonnull @__PRETTY_FUNCTION__.xhci_alloc_streams) #16
+  call void @__assert_fail(ptr noundef nonnull @.str.137, ptr noundef nonnull @.str.16, i32 noundef 888, ptr noundef nonnull @__PRETTY_FUNCTION__.xhci_alloc_streams) #17
   unreachable
 
 if.end.i.i:                                       ; preds = %if.then.i
@@ -639,7 +639,7 @@ if.end.i.i:                                       ; preds = %if.then.i
   %nr_pstreams.i.i = getelementptr inbounds i8, ptr %call.i, i64 100
   store i32 %shl.i22.i, ptr %nr_pstreams.i.i, align 4
   %conv.i.i.i = zext i32 %shl.i22.i to i64
-  %call.i.i.i = call noalias ptr @g_malloc0_n(i64 noundef %conv.i.i.i, i64 noundef 32) #17
+  %call.i.i.i = call noalias ptr @g_malloc0_n(i64 noundef %conv.i.i.i, i64 noundef 32) #18
   %cmp8.not.i.i.i = icmp ugt i32 %and13.i, 30
   br i1 %cmp8.not.i.i.i, label %xhci_alloc_streams.exit.i, label %for.body.i.i.i
 
@@ -684,8 +684,8 @@ xhci_init_epctx.exit:                             ; preds = %xhci_alloc_streams.
 
 if.then66:                                        ; preds = %xhci_init_epctx.exit
   %27 = load ptr, ptr %kick_timer.i, align 8
-  %call67 = call i64 @qemu_clock_get_ns(i32 noundef 1) #15
-  call void @timer_mod(ptr noundef %27, i64 noundef %call67) #15
+  %call67 = call i64 @qemu_clock_get_ns(i32 noundef 1) #16
+  call void @timer_mod(ptr noundef %27, i64 noundef %call67) #16
   br label %for.inc
 
 for.inc:                                          ; preds = %xhci_init_epctx.exit, %if.then66, %xhci_dma_read_u32s.exit54
@@ -707,7 +707,7 @@ for.end71:                                        ; preds = %for.inc69, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @do_qemu_init_xhci_register_types() #2 {
 entry:
-  tail call void @register_module_init(ptr noundef nonnull @xhci_register_types, i32 noundef 3) #15
+  tail call void @register_module_init(ptr noundef nonnull @xhci_register_types, i32 noundef 3) #16
   ret void
 }
 
@@ -716,7 +716,7 @@ declare void @register_module_init(ptr noundef, i32 noundef) local_unnamed_addr 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @xhci_register_types() #2 {
 entry:
-  %call = tail call ptr @type_register_static(ptr noundef nonnull @xhci_info) #15
+  %call = tail call ptr @type_register_static(ptr noundef nonnull @xhci_info) #16
   ret void
 }
 
@@ -746,7 +746,7 @@ if.end:                                           ; preds = %lor.lhs.false
   %index = getelementptr inbounds i8, ptr %2, i64 48
   %3 = load i32, ptr %index, align 8
   %add = add i32 %3, 1
-  %call = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %path, i64 noundef 32, ptr noundef nonnull @.str.19, i32 noundef %add) #15
+  %call = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %path, i64 noundef 32, ptr noundef nonnull @.str.19, i32 noundef %add) #16
   br label %for.body
 
 for.body:                                         ; preds = %if.end, %if.end9
@@ -763,7 +763,7 @@ if.end9:                                          ; preds = %for.body
   %idx.ext = sext i32 %pos.017 to i64
   %add.ptr = getelementptr i8, ptr %path, i64 %idx.ext
   %sub11 = sub nsw i64 32, %idx.ext
-  %call12 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %add.ptr, i64 noundef %sub11, ptr noundef nonnull @.str.20, i32 noundef %and7) #15
+  %call12 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %add.ptr, i64 noundef %sub11, ptr noundef nonnull @.str.20, i32 noundef %and7) #16
   %add13 = add i32 %call12, %pos.017
   %inc = add nuw nsw i32 %i.016, 1
   %exitcond.not = icmp eq i32 %inc, 5
@@ -778,7 +778,7 @@ for.end:                                          ; preds = %for.body, %if.end9
 for.body16:                                       ; preds = %for.end, %for.inc25
   %uport.020 = phi ptr [ %uport.0, %for.inc25 ], [ %uport.018, %for.end ]
   %path17 = getelementptr inbounds i8, ptr %uport.020, i64 16
-  %call20 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %path17, ptr noundef nonnull dereferenceable(1) %path) #18
+  %call20 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %path17, ptr noundef nonnull dereferenceable(1) %path) #19
   %cmp21 = icmp eq i32 %call20, 0
   br i1 %cmp21, label %return, label %for.inc25
 
@@ -850,7 +850,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i, label %if.end.i, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then
-  tail call void @__assert_fail(ptr noundef nonnull @.str.137, ptr noundef nonnull @.str.16, i32 noundef 888, ptr noundef nonnull @__PRETTY_FUNCTION__.xhci_alloc_streams) #16
+  tail call void @__assert_fail(ptr noundef nonnull @.str.137, ptr noundef nonnull @.str.16, i32 noundef 888, ptr noundef nonnull @__PRETTY_FUNCTION__.xhci_alloc_streams) #17
   unreachable
 
 if.end.i:                                         ; preds = %if.then
@@ -858,7 +858,7 @@ if.end.i:                                         ; preds = %if.then
   %nr_pstreams.i = getelementptr inbounds i8, ptr %epctx, i64 100
   store i32 %shl.i22, ptr %nr_pstreams.i, align 4
   %conv.i.i = zext i32 %shl.i22 to i64
-  %call.i.i = tail call noalias ptr @g_malloc0_n(i64 noundef %conv.i.i, i64 noundef 32) #17
+  %call.i.i = tail call noalias ptr @g_malloc0_n(i64 noundef %conv.i.i, i64 noundef 32) #18
   %cmp8.not.i.i = icmp ugt i32 %and13, 30
   br i1 %cmp8.not.i.i, label %xhci_alloc_streams.exit, label %for.body.i.i
 
@@ -965,16 +965,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #15
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #15
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #16
   %7 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.26, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, i32 noundef %1, i32 noundef %2, i32 noundef %streamid) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.26, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, i32 noundef %1, i32 noundef %2, i32 noundef %streamid) #16
   br label %trace_usb_xhci_ep_kick.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.27, i32 noundef %1, i32 noundef %2, i32 noundef %streamid) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.27, i32 noundef %1, i32 noundef %2, i32 noundef %streamid) #16
   br label %trace_usb_xhci_ep_kick.exit
 
 trace_usb_xhci_ep_kick.exit:                      ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -985,7 +985,7 @@ trace_usb_xhci_ep_kick.exit:                      ; preds = %entry, %land.lhs.tr
   br i1 %tobool.not, label %if.end, label %if.else
 
 if.else:                                          ; preds = %trace_usb_xhci_ep_kick.exit
-  tail call void @__assert_fail(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.16, i32 noundef 1888, ptr noundef nonnull @__PRETTY_FUNCTION__.xhci_kick_epctx) #16
+  tail call void @__assert_fail(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.16, i32 noundef 1888, ptr noundef nonnull @__PRETTY_FUNCTION__.xhci_kick_epctx) #17
   unreachable
 
 if.end:                                           ; preds = %trace_usb_xhci_ep_kick.exit
@@ -1036,16 +1036,16 @@ if.then.i.i106:                                   ; preds = %land.lhs.true5.i.i1
   br i1 %tobool7.i.i107, label %if.then8.i.i109, label %if.else.i.i108
 
 if.then8.i.i109:                                  ; preds = %if.then.i.i106
-  %call9.i.i110 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i99, ptr noundef null) #15
-  %call10.i.i111 = tail call i32 @qemu_get_thread_id() #15
+  %call9.i.i110 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i99, ptr noundef null) #16
+  %call10.i.i111 = tail call i32 @qemu_get_thread_id() #16
   %19 = load i64, ptr %_now.i.i99, align 8
   %tv_usec.i.i112 = getelementptr inbounds i8, ptr %_now.i.i99, i64 8
   %20 = load i64, ptr %tv_usec.i.i112, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.28, i32 noundef %call10.i.i111, i64 noundef %19, i64 noundef %20, ptr noundef nonnull %14) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.28, i32 noundef %call10.i.i111, i64 noundef %19, i64 noundef %20, ptr noundef nonnull %14) #16
   br label %trace_usb_xhci_xfer_retry.exit
 
 if.else.i.i108:                                   ; preds = %if.then.i.i106
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.29, ptr noundef nonnull %14) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.29, ptr noundef nonnull %14) #16
   br label %trace_usb_xhci_xfer_retry.exit
 
 trace_usb_xhci_xfer_retry.exit:                   ; preds = %if.then6, %land.lhs.true5.i.i103, %if.then8.i.i109, %if.else.i.i108
@@ -1056,7 +1056,7 @@ trace_usb_xhci_xfer_retry.exit:                   ; preds = %if.then6, %land.lhs
   br i1 %tobool8, label %if.end11, label %if.else10
 
 if.else10:                                        ; preds = %trace_usb_xhci_xfer_retry.exit
-  tail call void @__assert_fail(ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.16, i32 noundef 1900, ptr noundef nonnull @__PRETTY_FUNCTION__.xhci_kick_epctx) #16
+  tail call void @__assert_fail(ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.16, i32 noundef 1900, ptr noundef nonnull @__PRETTY_FUNCTION__.xhci_kick_epctx) #17
   unreachable
 
 if.end11:                                         ; preds = %trace_usb_xhci_xfer_retry.exit
@@ -1066,7 +1066,7 @@ if.end11:                                         ; preds = %trace_usb_xhci_xfer
   br i1 %tobool12, label %if.then13, label %if.end21
 
 if.then13:                                        ; preds = %if.end11
-  %call.i = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #15
+  %call.i = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #16
   %mfindex_start.i = getelementptr inbounds i8, ptr %0, i64 29912
   %23 = load i64, ptr %mfindex_start.i, align 8
   %sub.i113 = sub i64 %call.i, %23
@@ -1079,12 +1079,12 @@ if.then13:                                        ; preds = %if.end11
 xhci_check_intr_iso_kick.exit.thread:             ; preds = %if.then13
   %kick_timer.i = getelementptr inbounds i8, ptr %epctx, i64 128
   %25 = load ptr, ptr %kick_timer.i, align 8
-  %call.i114 = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #15
+  %call.i114 = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #16
   %26 = load i64, ptr %mfindex_kick.i, align 8
   %sub.i115 = sub i64 %26, %div.i
   %mul.i = mul i64 %sub.i115, 125000
   %add.i = add i64 %mul.i, %call.i114
-  tail call void @timer_mod(ptr noundef %25, i64 noundef %add.i) #15
+  tail call void @timer_mod(ptr noundef %25, i64 noundef %add.i) #16
   store i8 1, ptr %running_retry, align 1
   br label %if.end160
 
@@ -1093,7 +1093,7 @@ if.end18:                                         ; preds = %if.then13
   store i64 %24, ptr %mfindex_last.i, align 8
   %kick_timer3.i = getelementptr inbounds i8, ptr %epctx, i64 128
   %27 = load ptr, ptr %kick_timer3.i, align 8
-  tail call void @timer_del(ptr noundef %27) #15
+  tail call void @timer_del(ptr noundef %27) #16
   store i8 0, ptr %timed_xfer, align 2
   store i8 1, ptr %running_retry, align 1
   br label %if.end21
@@ -1115,14 +1115,14 @@ if.end26:                                         ; preds = %if.then23
   %29 = load ptr, ptr %ep27, align 8
   %dev = getelementptr inbounds i8, ptr %29, i64 16
   %30 = load ptr, ptr %dev, align 8
-  tail call void @usb_handle_packet(ptr noundef %30, ptr noundef nonnull %packet) #15
+  tail call void @usb_handle_packet(ptr noundef %30, ptr noundef nonnull %packet) #16
   %status = getelementptr inbounds i8, ptr %14, i64 92
   %31 = load i32, ptr %status, align 4
   %cmp30.not = icmp eq i32 %31, -2
   br i1 %cmp30.not, label %if.else32, label %if.end50
 
 if.else32:                                        ; preds = %if.end26
-  tail call void @__assert_fail(ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.16, i32 noundef 1917, ptr noundef nonnull @__PRETTY_FUNCTION__.xhci_kick_epctx) #16
+  tail call void @__assert_fail(ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.16, i32 noundef 1917, ptr noundef nonnull @__PRETTY_FUNCTION__.xhci_kick_epctx) #17
   unreachable
 
 if.else35:                                        ; preds = %if.end21
@@ -1134,7 +1134,7 @@ if.end39:                                         ; preds = %if.else35
   %32 = load ptr, ptr %ep41, align 8
   %dev42 = getelementptr inbounds i8, ptr %32, i64 16
   %33 = load ptr, ptr %dev42, align 8
-  tail call void @usb_handle_packet(ptr noundef %33, ptr noundef nonnull %packet40) #15
+  tail call void @usb_handle_packet(ptr noundef %33, ptr noundef nonnull %packet40) #16
   %status45 = getelementptr inbounds i8, ptr %14, i64 92
   %34 = load i32, ptr %status45, align 4
   %cmp46 = icmp eq i32 %34, -2
@@ -1142,8 +1142,8 @@ if.end39:                                         ; preds = %if.else35
 
 if.then47:                                        ; preds = %if.end39
   %sgl.i = getelementptr inbounds i8, ptr %14, i64 144
-  tail call void @usb_packet_unmap(ptr noundef nonnull %packet40, ptr noundef nonnull %sgl.i) #15
-  tail call void @qemu_sglist_destroy(ptr noundef nonnull %sgl.i) #15
+  tail call void @usb_packet_unmap(ptr noundef nonnull %packet40, ptr noundef nonnull %sgl.i) #16
+  tail call void @qemu_sglist_destroy(ptr noundef nonnull %sgl.i) #16
   br label %if.end160
 
 if.end50:                                         ; preds = %if.end39, %if.end26
@@ -1153,7 +1153,7 @@ if.end50:                                         ; preds = %if.end39, %if.end26
   br i1 %tobool52, label %if.else54, label %if.end55
 
 if.else54:                                        ; preds = %if.end50
-  tail call void @__assert_fail(ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.16, i32 noundef 1931, ptr noundef nonnull @__PRETTY_FUNCTION__.xhci_kick_epctx) #16
+  tail call void @__assert_fail(ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.16, i32 noundef 1931, ptr noundef nonnull @__PRETTY_FUNCTION__.xhci_kick_epctx) #17
   unreachable
 
 if.end55:                                         ; preds = %if.end50
@@ -1195,11 +1195,11 @@ xhci_ep_free_xfer.exit:                           ; preds = %if.then.i116, %if.e
   %dec.i = add i32 %44, -1
   store i32 %dec.i, ptr %xfer_count.i, align 8
   %packet.i117 = getelementptr inbounds i8, ptr %38, i64 8
-  tail call void @usb_packet_cleanup(ptr noundef nonnull %packet.i117) #15
+  tail call void @usb_packet_cleanup(ptr noundef nonnull %packet.i117) #16
   %trbs.i = getelementptr inbounds i8, ptr %38, i64 208
   %45 = load ptr, ptr %trbs.i, align 8
-  tail call void @g_free(ptr noundef %45) #15
-  tail call void @g_free(ptr noundef nonnull %38) #15
+  tail call void @g_free(ptr noundef %45) #16
+  tail call void @g_free(ptr noundef nonnull %38) #16
   br label %if.end59
 
 if.end59:                                         ; preds = %xhci_ep_free_xfer.exit, %if.end55
@@ -1273,9 +1273,9 @@ do.body.i:                                        ; preds = %do.cond.i, %while.b
   %control_td_set.0.i = phi i1 [ false, %while.body ], [ %control_td_set.2.i, %do.cond.i ]
   %link_cnt.0.i = phi i32 [ 0, %while.body ], [ %link_cnt.1.i, %do.cond.i ]
   %51 = load ptr, ptr %as.i, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !5
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !5
   fence seq_cst
-  %call.i.i.i.i = call i32 @address_space_rw(ptr noundef %51, i64 noundef %dequeue.0.i, i32 1, ptr noundef nonnull %trb.i, i64 noundef 16, i1 noundef zeroext false) #15
+  %call.i.i.i.i = call i32 @address_space_rw(ptr noundef %51, i64 noundef %dequeue.0.i, i32 1, ptr noundef nonnull %trb.i, i64 noundef 16, i1 noundef zeroext false) #16
   %cmp.not.i119 = icmp eq i32 %call.i.i.i.i, 0
   br i1 %cmp.not.i119, label %if.end35.i, label %do.body30.i
 
@@ -1353,7 +1353,7 @@ do.body83.i:                                      ; preds = %do.cond.i
 
 xhci_ring_chain_length.exit.thread.sink.split:    ; preds = %do.body83.i, %do.body30.i
   %.str.18.sink = phi ptr [ @.str.18, %do.body30.i ], [ @.str.53, %do.body83.i ]
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull %.str.18.sink, ptr noundef nonnull @__func__.xhci_ring_chain_length) #15
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull %.str.18.sink, ptr noundef nonnull @__func__.xhci_ring_chain_length) #16
   br label %xhci_ring_chain_length.exit.thread
 
 xhci_ring_chain_length.exit.thread:               ; preds = %xhci_ring_chain_length.exit.thread.sink.split, %do.body30.i, %do.body83.i
@@ -1407,16 +1407,16 @@ if.end99:                                         ; preds = %xhci_ring_chain_len
   br i1 %cmp.not.i125, label %for.body.lr.ph, label %while.end
 
 for.body.lr.ph:                                   ; preds = %if.end99
-  %call.i127 = call noalias dereferenceable_or_null(256) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 256) #17
+  %call.i127 = call noalias dereferenceable_or_null(256) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 256) #18
   store ptr %epctx, ptr %call.i127, align 8
   %conv.i = zext nneg i32 %retval.0.i to i64
-  %call2.i = call noalias ptr @g_malloc_n(i64 noundef %conv.i, i64 noundef 32) #17
+  %call2.i = call noalias ptr @g_malloc_n(i64 noundef %conv.i, i64 noundef 32) #18
   %trbs.i128 = getelementptr inbounds i8, ptr %call.i127, i64 208
   store ptr %call2.i, ptr %trbs.i128, align 8
   %trb_count.i = getelementptr inbounds i8, ptr %call.i127, i64 200
   store i32 %retval.0.i, ptr %trb_count.i, align 8
   %packet.i129 = getelementptr inbounds i8, ptr %call.i127, i64 8
-  call void @usb_packet_init(ptr noundef nonnull %packet.i129) #15
+  call void @usb_packet_init(ptr noundef nonnull %packet.i129) #16
   %next.i130 = getelementptr inbounds i8, ptr %call.i127, i64 240
   store ptr null, ptr %next.i130, align 8
   %63 = load ptr, ptr %tql_prev.i, align 8
@@ -1472,10 +1472,10 @@ xhci_ep_free_xfer.exit146:                        ; preds = %if.then.i136, %if.e
   %72 = load i32, ptr %xfer_count.i140, align 8
   %dec.i141 = add i32 %72, -1
   store i32 %dec.i141, ptr %xfer_count.i140, align 8
-  call void @usb_packet_cleanup(ptr noundef nonnull %packet.i129) #15
+  call void @usb_packet_cleanup(ptr noundef nonnull %packet.i129) #16
   %73 = load ptr, ptr %trbs.i128, align 8
-  call void @g_free(ptr noundef %73) #15
-  call void @g_free(ptr noundef nonnull %call.i127) #15
+  call void @g_free(ptr noundef %73) #16
+  call void @g_free(ptr noundef nonnull %call.i127) #16
   %74 = load i32, ptr %kick_active, align 8
   %dec = add i32 %74, -1
   store i32 %dec, ptr %kick_active, align 8
@@ -1519,15 +1519,15 @@ if.then.i.i.i:                                    ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.i.i.i, label %if.then8.i.i.i, label %if.else.i.i.i
 
 if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
-  %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #15
-  %call10.i.i.i = call i32 @qemu_get_thread_id() #15
+  %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #16
+  %call10.i.i.i = call i32 @qemu_get_thread_id() #16
   %85 = load i64, ptr %_now.i.i.i, align 8
   %86 = load i64, ptr %tv_usec.i.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.129, i32 noundef %call10.i.i.i, i64 noundef %85, i64 noundef %86, ptr noundef nonnull %call.i127, i32 noundef %79, i32 noundef %80, i32 noundef %streamid.addr.0) #15
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.129, i32 noundef %call10.i.i.i, i64 noundef %85, i64 noundef %86, ptr noundef nonnull %call.i127, i32 noundef %79, i32 noundef %80, i32 noundef %streamid.addr.0) #16
   br label %trace_usb_xhci_xfer_start.exit.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.130, ptr noundef nonnull %call.i127, i32 noundef %79, i32 noundef %80, i32 noundef %streamid.addr.0) #15
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.130, ptr noundef nonnull %call.i127, i32 noundef %79, i32 noundef %80, i32 noundef %streamid.addr.0) #16
   br label %trace_usb_xhci_xfer_start.exit.i
 
 trace_usb_xhci_xfer_start.exit.i:                 ; preds = %if.else.i.i.i, %if.then8.i.i.i, %land.lhs.true5.i.i.i, %if.then120
@@ -1593,7 +1593,7 @@ if.end38.i:                                       ; preds = %if.end31.i
   %97 = load ptr, ptr %ep.i, align 8
   %dev.i = getelementptr inbounds i8, ptr %97, i64 16
   %98 = load ptr, ptr %dev.i, align 8
-  call void @usb_handle_packet(ptr noundef %98, ptr noundef nonnull %packet.i129) #15
+  call void @usb_handle_packet(ptr noundef %98, ptr noundef nonnull %packet.i129) #16
   call fastcc void @xhci_try_complete_packet(ptr noundef nonnull %call.i127)
   br label %if.end124
 
@@ -1623,15 +1623,15 @@ if.then.i.i.i173:                                 ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.i.i.i174, label %if.then8.i.i.i176, label %if.else.i.i.i175
 
 if.then8.i.i.i176:                                ; preds = %if.then.i.i.i173
-  %call9.i.i.i177 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i160, ptr noundef null) #15
-  %call10.i.i.i178 = call i32 @qemu_get_thread_id() #15
+  %call9.i.i.i177 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i160, ptr noundef null) #16
+  %call10.i.i.i178 = call i32 @qemu_get_thread_id() #16
   %106 = load i64, ptr %_now.i.i.i160, align 8
   %107 = load i64, ptr %tv_usec.i.i.i179, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.129, i32 noundef %call10.i.i.i178, i64 noundef %106, i64 noundef %107, ptr noundef nonnull %call.i127, i32 noundef %100, i32 noundef %101, i32 noundef %streamid.addr.0) #15
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.129, i32 noundef %call10.i.i.i178, i64 noundef %106, i64 noundef %107, ptr noundef nonnull %call.i127, i32 noundef %100, i32 noundef %101, i32 noundef %streamid.addr.0) #16
   br label %trace_usb_xhci_xfer_start.exit.i167
 
 if.else.i.i.i175:                                 ; preds = %if.then.i.i.i173
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.130, ptr noundef nonnull %call.i127, i32 noundef %100, i32 noundef %101, i32 noundef %streamid.addr.0) #15
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.130, ptr noundef nonnull %call.i127, i32 noundef %100, i32 noundef %101, i32 noundef %streamid.addr.0) #16
   br label %trace_usb_xhci_xfer_start.exit.i167
 
 trace_usb_xhci_xfer_start.exit.i167:              ; preds = %if.else.i.i.i175, %if.then8.i.i.i176, %land.lhs.true5.i.i.i170, %if.else122
@@ -1657,7 +1657,7 @@ sw.bb.i.i:                                        ; preds = %trace_usb_xhci_xfer
   store i8 0, ptr %iso_xfer.i.i, align 1
   %timed_xfer.i.i = getelementptr inbounds i8, ptr %call.i127, i64 198
   store i8 1, ptr %timed_xfer.i.i, align 2
-  %call.i.i.i = call i64 @qemu_clock_get_ns(i32 noundef 1) #15
+  %call.i.i.i = call i64 @qemu_clock_get_ns(i32 noundef 1) #16
   %109 = load i64, ptr %mfindex_start.i42.i.i, align 8
   %sub.i.i.i = sub i64 %call.i.i.i, %109
   %div.i.i.i = sdiv i64 %sub.i.i.i, 125000
@@ -1666,7 +1666,7 @@ sw.bb.i.i:                                        ; preds = %trace_usb_xhci_xfer
   br i1 %cmp.not.i.i.i, label %if.else.i.i5.i, label %xhci_calc_intr_kick.exit.i.i
 
 if.else.i.i5.i:                                   ; preds = %sw.bb.i.i
-  call void @__assert_fail(ptr noundef nonnull @.str.132, ptr noundef nonnull @.str.16, i32 noundef 1743, ptr noundef nonnull @__PRETTY_FUNCTION__.xhci_calc_intr_kick) #16
+  call void @__assert_fail(ptr noundef nonnull @.str.132, ptr noundef nonnull @.str.16, i32 noundef 1743, ptr noundef nonnull @__PRETTY_FUNCTION__.xhci_calc_intr_kick) #17
   unreachable
 
 xhci_calc_intr_kick.exit.i.i:                     ; preds = %sw.bb.i.i
@@ -1686,12 +1686,12 @@ xhci_calc_intr_kick.exit.i.i:                     ; preds = %sw.bb.i.i
 
 xhci_check_intr_iso_kick.exit.thread.i.i:         ; preds = %xhci_calc_intr_kick.exit.i.i
   %112 = load ptr, ptr %kick_timer3.i61.i.i, align 8
-  %call.i38.i.i = call i64 @qemu_clock_get_ns(i32 noundef 1) #15
+  %call.i38.i.i = call i64 @qemu_clock_get_ns(i32 noundef 1) #16
   %113 = load i64, ptr %mfindex_kick.i.i.i, align 8
   %sub.i39.i.i = sub i64 %113, %div.i.i.i
   %mul.i.i.i = mul i64 %sub.i39.i.i, 125000
   %add.i40.i.i = add i64 %mul.i.i.i, %call.i38.i.i
-  call void @timer_mod(ptr noundef %112, i64 noundef %add.i40.i.i) #15
+  call void @timer_mod(ptr noundef %112, i64 noundef %add.i40.i.i) #16
   %114 = getelementptr inbounds i8, ptr %call.i127, i64 185
   store i8 1, ptr %114, align 1
   br label %if.end124
@@ -1699,7 +1699,7 @@ xhci_check_intr_iso_kick.exit.thread.i.i:         ; preds = %xhci_calc_intr_kick
 xhci_check_intr_iso_kick.exit.i.i:                ; preds = %xhci_calc_intr_kick.exit.i.i
   store i64 %cond.i.i.i, ptr %mfindex_last.i52.i.i, align 8
   %115 = load ptr, ptr %kick_timer3.i61.i.i, align 8
-  call void @timer_del(ptr noundef %115) #15
+  call void @timer_del(ptr noundef %115) #16
   %116 = getelementptr inbounds i8, ptr %call.i127, i64 185
   store i8 0, ptr %116, align 1
   br label %sw.epilog.i.i
@@ -1720,7 +1720,7 @@ sw.bb7.i.i:                                       ; preds = %trace_usb_xhci_xfer
   store i8 1, ptr %iso_xfer9.i.i, align 1
   %timed_xfer10.i.i = getelementptr inbounds i8, ptr %call.i127, i64 198
   store i8 1, ptr %timed_xfer10.i.i, align 2
-  %call.i41.i.i = call i64 @qemu_clock_get_ns(i32 noundef 1) #15
+  %call.i41.i.i = call i64 @qemu_clock_get_ns(i32 noundef 1) #16
   %117 = load i64, ptr %mfindex_start.i42.i.i, align 8
   %sub.i43.i.i = sub i64 %call.i41.i.i, %117
   %div.i44.i.i = sdiv i64 %sub.i43.i.i, 125000
@@ -1785,12 +1785,12 @@ xhci_calc_iso_kick.exit.i.i:                      ; preds = %if.then31.i.i.i, %i
 xhci_check_intr_iso_kick.exit69.thread.i.i:       ; preds = %xhci_calc_iso_kick.exit.i.i
   %mfindex_kick.i57.i.i = getelementptr inbounds i8, ptr %call.i127, i64 232
   %124 = load ptr, ptr %kick_timer3.i61.i.i, align 8
-  %call.i65.i.i = call i64 @qemu_clock_get_ns(i32 noundef 1) #15
+  %call.i65.i.i = call i64 @qemu_clock_get_ns(i32 noundef 1) #16
   %125 = load i64, ptr %mfindex_kick.i57.i.i, align 8
   %sub.i66.i.i = sub i64 %125, %div.i44.i.i
   %mul.i67.i.i = mul i64 %sub.i66.i.i, 125000
   %add.i68.i.i = add i64 %mul.i67.i.i, %call.i65.i.i
-  call void @timer_mod(ptr noundef %124, i64 noundef %add.i68.i.i) #15
+  call void @timer_mod(ptr noundef %124, i64 noundef %add.i68.i.i) #16
   %126 = getelementptr inbounds i8, ptr %call.i127, i64 185
   store i8 1, ptr %126, align 1
   br label %if.end124
@@ -1798,7 +1798,7 @@ xhci_check_intr_iso_kick.exit69.thread.i.i:       ; preds = %xhci_calc_iso_kick.
 xhci_check_intr_iso_kick.exit69.i.i:              ; preds = %xhci_calc_iso_kick.exit.i.i
   store i64 %123, ptr %mfindex_last.i52.i.i, align 8
   %127 = load ptr, ptr %kick_timer3.i61.i.i, align 8
-  call void @timer_del(ptr noundef %127) #15
+  call void @timer_del(ptr noundef %127) #16
   %128 = getelementptr inbounds i8, ptr %call.i127, i64 185
   store i8 0, ptr %128, align 1
   br label %sw.epilog.i.i
@@ -1824,15 +1824,15 @@ if.then.i.i.i.i:                                  ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.i.i.i.i, label %if.then8.i.i.i.i, label %if.else.i.i.i.i
 
 if.then8.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
-  %call9.i.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i.i, ptr noundef null) #15
-  %call10.i.i.i.i = call i32 @qemu_get_thread_id() #15
+  %call9.i.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i.i, ptr noundef null) #16
+  %call10.i.i.i.i = call i32 @qemu_get_thread_id() #16
   %133 = load i64, ptr %_now.i.i.i.i, align 8
   %134 = load i64, ptr %tv_usec.i.i.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.133, i32 noundef %call10.i.i.i.i, i64 noundef %133, i64 noundef %134, ptr noundef nonnull @.str.131, i32 noundef %108) #15
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.133, i32 noundef %call10.i.i.i.i, i64 noundef %133, i64 noundef %134, ptr noundef nonnull @.str.131, i32 noundef %108) #16
   br label %trace_usb_xhci_unimplemented.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %if.then.i.i.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.134, ptr noundef nonnull @.str.131, i32 noundef %108) #15
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.134, ptr noundef nonnull @.str.131, i32 noundef %108) #16
   br label %trace_usb_xhci_unimplemented.exit.i.i
 
 trace_usb_xhci_unimplemented.exit.i.i:            ; preds = %if.else.i.i.i.i, %if.then8.i.i.i.i, %land.lhs.true5.i.i.i.i, %sw.default.i.i
@@ -1849,7 +1849,7 @@ if.end19.i.i:                                     ; preds = %sw.epilog.i.i
   %135 = load ptr, ptr %ep.i.i, align 8
   %dev.i.i = getelementptr inbounds i8, ptr %135, i64 16
   %136 = load ptr, ptr %dev.i.i, align 8
-  call void @usb_handle_packet(ptr noundef %136, ptr noundef nonnull %packet.i129) #15
+  call void @usb_handle_packet(ptr noundef %136, ptr noundef nonnull %packet.i129) #16
   call fastcc void @xhci_try_complete_packet(ptr noundef nonnull %call.i127)
   br label %if.end124
 
@@ -1911,10 +1911,10 @@ if.end133.thread:                                 ; preds = %if.else.i202, %if.t
   %148 = load i32, ptr %xfer_count.i198, align 8
   %dec.i199 = add i32 %148, -1
   store i32 %dec.i199, ptr %xfer_count.i198, align 8
-  call void @usb_packet_cleanup(ptr noundef nonnull %packet.i129) #15
+  call void @usb_packet_cleanup(ptr noundef nonnull %packet.i129) #16
   %149 = load ptr, ptr %trbs.i128, align 8
-  call void @g_free(ptr noundef %149) #15
-  call void @g_free(ptr noundef nonnull %call.i127) #15
+  call void @g_free(ptr noundef %149) #16
+  call void @g_free(ptr noundef nonnull %call.i127) #16
   %150 = load i32, ptr %state62, align 4
   %cmp135214 = icmp eq i32 %150, 2
   br i1 %cmp135214, label %while.end, label %if.end148
@@ -1928,8 +1928,8 @@ land.lhs.true:                                    ; preds = %if.end133
 do.end146:                                        ; preds = %land.lhs.true
   store ptr %call.i127, ptr %retry, align 8
   %sgl.i206 = getelementptr inbounds i8, ptr %call.i127, i64 144
-  call void @usb_packet_unmap(ptr noundef nonnull %packet.i129, ptr noundef nonnull %sgl.i206) #15
-  call void @qemu_sglist_destroy(ptr noundef nonnull %sgl.i206) #15
+  call void @usb_packet_unmap(ptr noundef nonnull %packet.i129, ptr noundef nonnull %sgl.i206) #16
+  call void @qemu_sglist_destroy(ptr noundef nonnull %sgl.i206) #16
   br label %while.end
 
 if.end148:                                        ; preds = %if.end133.thread, %land.lhs.true
@@ -1952,7 +1952,7 @@ while.end:                                        ; preds = %if.end124, %land.lh
 if.then158:                                       ; preds = %while.end
   %dev159 = getelementptr inbounds i8, ptr %call156, i64 16
   %153 = load ptr, ptr %dev159, align 8
-  call void @usb_device_flush_ep_queue(ptr noundef %153, ptr noundef nonnull %call156) #15
+  call void @usb_device_flush_ep_queue(ptr noundef %153, ptr noundef nonnull %call156) #16
   br label %if.end160
 
 if.end160:                                        ; preds = %if.end, %land.lhs.true.i, %xhci_check_intr_iso_kick.exit.thread, %if.end75, %if.then67, %if.end61, %if.else35, %if.then23, %xhci_slot_ok.exit, %if.then158, %while.end, %xhci_ep_free_xfer.exit146, %if.then47
@@ -2001,7 +2001,7 @@ xhci_epid_to_usbep.exit:                          ; preds = %lor.lhs.false.i
   %tobool6.not.i = icmp eq i32 %and.i, 0
   %cond.i = select i1 %tobool6.not.i, i32 225, i32 105
   %shr.i = lshr i32 %7, 1
-  %call.i = tail call ptr @usb_ep_get(ptr noundef nonnull %6, i32 noundef %cond.i, i32 noundef %shr.i) #15
+  %call.i = tail call ptr @usb_ep_get(ptr noundef nonnull %6, i32 noundef %cond.i, i32 noundef %shr.i) #16
   %tobool5.not = icmp eq ptr %call.i, null
   br i1 %tobool5.not, label %return, label %if.end7
 
@@ -2012,12 +2012,12 @@ if.end7:                                          ; preds = %entry, %xhci_epid_t
   %int_req.i = getelementptr inbounds i8, ptr %xfer, i64 187
   store i8 0, ptr %int_req.i, align 1
   %sgl.i = getelementptr inbounds i8, ptr %xfer, i64 144
-  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %9, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #15
+  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %9, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #16
   %trb_count.i = getelementptr inbounds i8, ptr %xfer, i64 200
   %10 = load i32, ptr %trb_count.i, align 8
   %as.i = getelementptr inbounds i8, ptr %9, i64 632
   %11 = load ptr, ptr %as.i, align 8
-  tail call void @qemu_sglist_init(ptr noundef nonnull %sgl.i, ptr noundef %call.i.i, i32 noundef %10, ptr noundef %11) #15
+  tail call void @qemu_sglist_init(ptr noundef nonnull %sgl.i, ptr noundef %call.i.i, i32 noundef %10, ptr noundef %11) #16
   %12 = load i32, ptr %trb_count.i, align 8
   %cmp23.not.i = icmp eq i32 %12, 0
   br i1 %cmp23.not.i, label %xhci_xfer_create_sgl.exit, label %for.body.lr.ph.i
@@ -2071,7 +2071,7 @@ if.else.us.i:                                     ; preds = %sw.bb15.us.i, %sw.b
   %and17.us.i = and i32 %18, 131071
   %19 = load i64, ptr %arrayidx.us.i, align 8
   %conv31.us.i = zext nneg i32 %and17.us.i to i64
-  tail call void @qemu_sglist_add(ptr noundef nonnull %sgl.i, i64 noundef %19, i64 noundef %conv31.us.i) #15
+  tail call void @qemu_sglist_add(ptr noundef nonnull %sgl.i, i64 noundef %19, i64 noundef %conv31.us.i) #16
   %.pre27.i = load i32, ptr %trb_count.i, align 8
   br label %for.inc.us.i
 
@@ -2133,7 +2133,7 @@ for.inc.sink.split.i:                             ; preds = %if.end27.i, %sw.bb1
   %arrayidx.sink.i = phi ptr [ %addr29.i, %if.end27.i ], [ %arrayidx.i, %sw.bb15.i ]
   %27 = load i64, ptr %arrayidx.sink.i, align 8
   %conv31.i = zext nneg i32 %and17.i to i64
-  tail call void @qemu_sglist_add(ptr noundef nonnull %sgl.i, i64 noundef %27, i64 noundef %conv31.i) #15
+  tail call void @qemu_sglist_add(ptr noundef nonnull %sgl.i, i64 noundef %27, i64 noundef %conv31.i) #16
   %.pre = load i32, ptr %trb_count.i, align 8
   br label %for.inc.i
 
@@ -2144,7 +2144,7 @@ for.inc.i:                                        ; preds = %for.inc.sink.split.
   br i1 %cmp.i, label %for.body.i, label %xhci_xfer_create_sgl.exit, !llvm.loop !14
 
 err.i:                                            ; preds = %sw.bb15.us.i, %sw.bb.us.i, %if.then21.i, %sw.bb.i
-  tail call void @qemu_sglist_destroy(ptr noundef nonnull %sgl.i) #15
+  tail call void @qemu_sglist_destroy(ptr noundef nonnull %sgl.i) #16
   %usbsts.i.i = getelementptr inbounds i8, ptr %9, i64 1780
   %29 = load i32, ptr %usbsts.i.i, align 4
   %or.i.i = or i32 %29, 4096
@@ -2160,13 +2160,13 @@ xhci_xfer_create_sgl.exit:                        ; preds = %for.inc.us.i, %for.
   %32 = load i64, ptr %addr, align 8
   %33 = load i8, ptr %int_req.i, align 1
   %tobool10 = trunc i8 %33 to i1
-  tail call void @usb_packet_setup(ptr noundef nonnull %packet, i32 noundef %cond, ptr noundef nonnull %ep.0, i32 noundef %30, i64 noundef %32, i1 noundef zeroext false, i1 noundef zeroext %tobool10) #15
-  %call12 = tail call i32 @usb_packet_map(ptr noundef nonnull %packet, ptr noundef nonnull %sgl.i) #15
+  tail call void @usb_packet_setup(ptr noundef nonnull %packet, i32 noundef %cond, ptr noundef nonnull %ep.0, i32 noundef %30, i64 noundef %32, i1 noundef zeroext false, i1 noundef zeroext %tobool10) #16
+  %call12 = tail call i32 @usb_packet_map(ptr noundef nonnull %packet, ptr noundef nonnull %sgl.i) #16
   %tobool13.not = icmp eq i32 %call12, 0
   br i1 %tobool13.not, label %return, label %if.then14
 
 if.then14:                                        ; preds = %xhci_xfer_create_sgl.exit
-  tail call void @qemu_sglist_destroy(ptr noundef nonnull %sgl.i) #15
+  tail call void @qemu_sglist_destroy(ptr noundef nonnull %sgl.i) #16
   br label %return
 
 return:                                           ; preds = %if.end.i, %lor.lhs.false.i, %if.else, %xhci_xfer_create_sgl.exit, %xhci_epid_to_usbep.exit, %if.then14
@@ -2211,16 +2211,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #15
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #15
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #16
   %5 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.34, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef nonnull %xfer) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.34, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef nonnull %xfer) #16
   br label %trace_usb_xhci_xfer_async.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.35, ptr noundef nonnull %xfer) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.35, ptr noundef nonnull %xfer) #16
   br label %trace_usb_xhci_xfer_async.exit
 
 trace_usb_xhci_xfer_async.exit:                   ; preds = %if.then, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -2254,16 +2254,16 @@ if.then.i.i39:                                    ; preds = %land.lhs.true5.i.i3
   br i1 %tobool7.i.i40, label %if.then8.i.i42, label %if.else.i.i41
 
 if.then8.i.i42:                                   ; preds = %if.then.i.i39
-  %call9.i.i43 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i32, ptr noundef null) #15
-  %call10.i.i44 = tail call i32 @qemu_get_thread_id() #15
+  %call9.i.i43 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i32, ptr noundef null) #16
+  %call10.i.i44 = tail call i32 @qemu_get_thread_id() #16
   %11 = load i64, ptr %_now.i.i32, align 8
   %tv_usec.i.i45 = getelementptr inbounds i8, ptr %_now.i.i32, i64 8
   %12 = load i64, ptr %tv_usec.i.i45, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.36, i32 noundef %call10.i.i44, i64 noundef %11, i64 noundef %12, ptr noundef nonnull %xfer) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.36, i32 noundef %call10.i.i44, i64 noundef %11, i64 noundef %12, ptr noundef nonnull %xfer) #16
   br label %trace_usb_xhci_xfer_nak.exit
 
 if.else.i.i41:                                    ; preds = %if.then.i.i39
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.37, ptr noundef nonnull %xfer) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.37, ptr noundef nonnull %xfer) #16
   br label %trace_usb_xhci_xfer_nak.exit
 
 trace_usb_xhci_xfer_nak.exit:                     ; preds = %if.then4, %land.lhs.true5.i.i36, %if.then8.i.i42, %if.else.i.i41
@@ -2285,8 +2285,8 @@ if.else8:                                         ; preds = %entry
   store i8 1, ptr %complete11, align 2
   %packet.i = getelementptr inbounds i8, ptr %xfer, i64 8
   %sgl.i = getelementptr inbounds i8, ptr %xfer, i64 144
-  tail call void @usb_packet_unmap(ptr noundef nonnull %packet.i, ptr noundef nonnull %sgl.i) #15
-  tail call void @qemu_sglist_destroy(ptr noundef nonnull %sgl.i) #15
+  tail call void @usb_packet_unmap(ptr noundef nonnull %packet.i, ptr noundef nonnull %sgl.i) #16
+  tail call void @qemu_sglist_destroy(ptr noundef nonnull %sgl.i) #16
   %13 = load i32, ptr %status, align 4
   %cmp15 = icmp eq i32 %13, 0
   br i1 %cmp15, label %if.then16, label %if.end19
@@ -2314,16 +2314,16 @@ if.then.i.i53:                                    ; preds = %land.lhs.true5.i.i5
   br i1 %tobool7.i.i54, label %if.then8.i.i56, label %if.else.i.i55
 
 if.then8.i.i56:                                   ; preds = %if.then.i.i53
-  %call9.i.i57 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i46, ptr noundef null) #15
-  %call10.i.i58 = tail call i32 @qemu_get_thread_id() #15
+  %call9.i.i57 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i46, ptr noundef null) #16
+  %call10.i.i58 = tail call i32 @qemu_get_thread_id() #16
   %19 = load i64, ptr %_now.i.i46, align 8
   %tv_usec.i.i59 = getelementptr inbounds i8, ptr %_now.i.i46, i64 8
   %20 = load i64, ptr %tv_usec.i.i59, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.38, i32 noundef %call10.i.i58, i64 noundef %19, i64 noundef %20, ptr noundef nonnull %xfer, i32 noundef %14) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.38, i32 noundef %call10.i.i58, i64 noundef %19, i64 noundef %20, ptr noundef nonnull %xfer, i32 noundef %14) #16
   br label %trace_usb_xhci_xfer_success.exit
 
 if.else.i.i55:                                    ; preds = %if.then.i.i53
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.39, ptr noundef nonnull %xfer, i32 noundef %14) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.39, ptr noundef nonnull %xfer, i32 noundef %14) #16
   br label %trace_usb_xhci_xfer_success.exit
 
 trace_usb_xhci_xfer_success.exit:                 ; preds = %if.then16, %land.lhs.true5.i.i50, %if.then8.i.i56, %if.else.i.i55
@@ -2354,16 +2354,16 @@ if.then.i.i67:                                    ; preds = %land.lhs.true5.i.i6
   br i1 %tobool7.i.i68, label %if.then8.i.i70, label %if.else.i.i69
 
 if.then8.i.i70:                                   ; preds = %if.then.i.i67
-  %call9.i.i71 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i60, ptr noundef null) #15
-  %call10.i.i72 = tail call i32 @qemu_get_thread_id() #15
+  %call9.i.i71 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i60, ptr noundef null) #16
+  %call10.i.i72 = tail call i32 @qemu_get_thread_id() #16
   %25 = load i64, ptr %_now.i.i60, align 8
   %tv_usec.i.i73 = getelementptr inbounds i8, ptr %_now.i.i60, i64 8
   %26 = load i64, ptr %tv_usec.i.i73, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.40, i32 noundef %call10.i.i72, i64 noundef %25, i64 noundef %26, ptr noundef nonnull %xfer, i32 noundef %13) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.40, i32 noundef %call10.i.i72, i64 noundef %25, i64 noundef %26, ptr noundef nonnull %xfer, i32 noundef %13) #16
   br label %trace_usb_xhci_xfer_error.exit
 
 if.else.i.i69:                                    ; preds = %if.then.i.i67
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.41, ptr noundef nonnull %xfer, i32 noundef %13) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.41, ptr noundef nonnull %xfer, i32 noundef %13) #16
   br label %trace_usb_xhci_xfer_error.exit
 
 trace_usb_xhci_xfer_error.exit:                   ; preds = %if.end19, %land.lhs.true5.i.i64, %if.then8.i.i70, %if.else.i.i69
@@ -2399,8 +2399,8 @@ sw.bb27:                                          ; preds = %trace_usb_xhci_xfer
 
 do.body29:                                        ; preds = %trace_usb_xhci_xfer_error.exit
   %28 = load ptr, ptr @stderr, align 8
-  %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef nonnull @.str.32, ptr noundef nonnull @__func__.xhci_try_complete_packet, i32 noundef 1678, ptr noundef nonnull @.str.33) #19
-  tail call void @abort() #16
+  %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef nonnull @.str.32, ptr noundef nonnull @__func__.xhci_try_complete_packet, i32 noundef 1678, ptr noundef nonnull @.str.33) #20
+  tail call void @abort() #17
   unreachable
 
 return:                                           ; preds = %sw.bb, %sw.bb25, %sw.bb27, %trace_usb_xhci_xfer_success.exit, %trace_usb_xhci_xfer_nak.exit, %trace_usb_xhci_xfer_async.exit
@@ -2419,9 +2419,9 @@ entry:
   %0 = load i64, ptr %pctx, align 8
   %as.i = getelementptr inbounds i8, ptr %xhci, i64 632
   %1 = load ptr, ptr %as.i, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !5
   fence seq_cst
-  %call.i.i.i.i = call i32 @address_space_rw(ptr noundef %1, i64 noundef %0, i32 1, ptr noundef nonnull %ctx, i64 noundef 20, i1 noundef zeroext false) #15
+  %call.i.i.i.i = call i32 @address_space_rw(ptr noundef %1, i64 noundef %0, i32 1, ptr noundef nonnull %ctx, i64 noundef 20, i1 noundef zeroext false) #16
   %cmp28.not.i = icmp eq i32 %call.i.i.i.i, 0
   br i1 %cmp28.not.i, label %entry.xhci_dma_read_u32s.exit_crit_edge, label %do.body.i
 
@@ -2437,7 +2437,7 @@ do.body.i:                                        ; preds = %entry
   br i1 %cmp.i.not.i, label %do.end.i, label %if.then32.i
 
 if.then32.i:                                      ; preds = %do.body.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__.xhci_dma_read_u32s) #15
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__.xhci_dma_read_u32s) #16
   br label %do.end.i
 
 do.end.i:                                         ; preds = %if.then32.i, %do.body.i
@@ -2465,9 +2465,9 @@ if.then2:                                         ; preds = %if.then
   %ring3 = getelementptr inbounds i8, ptr %sctx, i64 16
   %6 = load i64, ptr %sctx, align 8
   %7 = load ptr, ptr %as.i, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !5
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !5
   fence seq_cst
-  %call.i.i.i.i25 = call i32 @address_space_rw(ptr noundef %7, i64 noundef %6, i32 1, ptr noundef nonnull %ctx2, i64 noundef 8, i1 noundef zeroext false) #15
+  %call.i.i.i.i25 = call i32 @address_space_rw(ptr noundef %7, i64 noundef %6, i32 1, ptr noundef nonnull %ctx2, i64 noundef 8, i1 noundef zeroext false) #16
   %cmp28.not.i26 = icmp eq i32 %call.i.i.i.i25, 0
   br i1 %cmp28.not.i26, label %if.then2.xhci_dma_read_u32s.exit34_crit_edge, label %do.body.i27
 
@@ -2483,7 +2483,7 @@ do.body.i27:                                      ; preds = %if.then2
   br i1 %cmp.i.not.i29, label %do.end.i31, label %if.then32.i30
 
 if.then32.i30:                                    ; preds = %do.body.i27
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__.xhci_dma_read_u32s) #15
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__.xhci_dma_read_u32s) #16
   br label %do.end.i31
 
 do.end.i31:                                       ; preds = %if.then32.i30, %do.body.i27
@@ -2513,9 +2513,9 @@ xhci_dma_read_u32s.exit34:                        ; preds = %if.then2.xhci_dma_r
   %16 = load i64, ptr %ctx2, align 8
   store i64 %16, ptr %tmp.i, align 16
   %17 = load ptr, ptr %as.i, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !5
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !5
   fence seq_cst
-  %call.i.i.i.i36 = call i32 @address_space_rw(ptr noundef %17, i64 noundef %15, i32 1, ptr noundef nonnull %tmp.i, i64 noundef 8, i1 noundef zeroext true) #15
+  %call.i.i.i.i36 = call i32 @address_space_rw(ptr noundef %17, i64 noundef %15, i32 1, ptr noundef nonnull %tmp.i, i64 noundef 8, i1 noundef zeroext true) #16
   %cmp40.not.i = icmp eq i32 %call.i.i.i.i36, 0
   br i1 %cmp40.not.i, label %xhci_dma_write_u32s.exit, label %do.body.i37
 
@@ -2526,7 +2526,7 @@ do.body.i37:                                      ; preds = %xhci_dma_read_u32s.
   br i1 %cmp.i.not.i39, label %do.end.i40, label %if.then46.i
 
 if.then46.i:                                      ; preds = %do.body.i37
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__.xhci_dma_write_u32s) #15
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__.xhci_dma_write_u32s) #16
   br label %do.end.i40
 
 do.end.i40:                                       ; preds = %if.then46.i, %do.body.i37
@@ -2566,9 +2566,9 @@ if.end39:                                         ; preds = %if.then, %if.then26
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %tmp.i43)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %tmp.i43, ptr noundef nonnull readonly align 16 dereferenceable(20) %ctx, i64 20, i1 false)
   %24 = load ptr, ptr %as.i, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !5
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !5
   fence seq_cst
-  %call.i.i.i.i45 = call i32 @address_space_rw(ptr noundef %24, i64 noundef %23, i32 1, ptr noundef nonnull %tmp.i43, i64 noundef 20, i1 noundef zeroext true) #15
+  %call.i.i.i.i45 = call i32 @address_space_rw(ptr noundef %24, i64 noundef %23, i32 1, ptr noundef nonnull %tmp.i43, i64 noundef 20, i1 noundef zeroext true) #16
   %cmp40.not.i46 = icmp eq i32 %call.i.i.i.i45, 0
   br i1 %cmp40.not.i46, label %xhci_dma_write_u32s.exit54, label %do.body.i47
 
@@ -2579,7 +2579,7 @@ do.body.i47:                                      ; preds = %if.end39
   br i1 %cmp.i.not.i49, label %do.end.i51, label %if.then46.i50
 
 if.then46.i50:                                    ; preds = %do.body.i47
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__.xhci_dma_write_u32s) #15
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__.xhci_dma_write_u32s) #16
   br label %do.end.i51
 
 do.end.i51:                                       ; preds = %if.then46.i50, %do.body.i47
@@ -2647,16 +2647,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #15
-  %call10.i.i = call i32 @qemu_get_thread_id() #15
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
+  %call10.i.i = call i32 @qemu_get_thread_id() #16
   %36 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %37 = load i64, ptr %tv_usec.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.43, i32 noundef %call10.i.i, i64 noundef %36, i64 noundef %37, i32 noundef %28, i32 noundef %29, ptr noundef nonnull %retval.0.i.i, ptr noundef nonnull %retval.0.i.i56) #15
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.43, i32 noundef %call10.i.i, i64 noundef %36, i64 noundef %37, i32 noundef %28, i32 noundef %29, ptr noundef nonnull %retval.0.i.i, ptr noundef nonnull %retval.0.i.i56) #16
   br label %trace_usb_xhci_ep_state.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.44, i32 noundef %28, i32 noundef %29, ptr noundef nonnull %retval.0.i.i, ptr noundef nonnull %retval.0.i.i56) #15
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.44, i32 noundef %28, i32 noundef %29, ptr noundef nonnull %retval.0.i.i, ptr noundef nonnull %retval.0.i.i56) #16
   br label %trace_usb_xhci_ep_state.exit
 
 trace_usb_xhci_ep_state.exit:                     ; preds = %ep_state_name.exit62, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -2676,7 +2676,7 @@ entry:
   br i1 %cmp.not, label %if.else, label %if.end
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.16, i32 noundef 1015, ptr noundef nonnull @__PRETTY_FUNCTION__.xhci_find_stream) #16
+  tail call void @__assert_fail(ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.16, i32 noundef 1015, ptr noundef nonnull @__PRETTY_FUNCTION__.xhci_find_stream) #17
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -2707,7 +2707,7 @@ if.end4:                                          ; preds = %if.then1
 
 if.else5:                                         ; preds = %if.end
   %4 = load ptr, ptr @stderr, align 8
-  %5 = tail call i64 @fwrite(ptr nonnull @.str.52, i64 50, i64 1, ptr %4) #19
+  %5 = tail call i64 @fwrite(ptr nonnull @.str.52, i64 50, i64 1, ptr %4) #20
   store i32 10, ptr %cc_error, align 4
   br label %return
 
@@ -2716,9 +2716,9 @@ if.then9:                                         ; preds = %if.end4
   %7 = load i64, ptr %add.ptr, align 8
   %as.i = getelementptr inbounds i8, ptr %6, i64 632
   %8 = load ptr, ptr %as.i, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !5
   fence seq_cst
-  %call.i.i.i.i = call i32 @address_space_rw(ptr noundef %8, i64 noundef %7, i32 1, ptr noundef nonnull %ctx, i64 noundef 8, i1 noundef zeroext false) #15
+  %call.i.i.i.i = call i32 @address_space_rw(ptr noundef %8, i64 noundef %7, i32 1, ptr noundef nonnull %ctx, i64 noundef 8, i1 noundef zeroext false) #16
   %cmp28.not.i = icmp eq i32 %call.i.i.i.i, 0
   br i1 %cmp28.not.i, label %if.then9.xhci_dma_read_u32s.exit_crit_edge, label %do.body.i
 
@@ -2733,7 +2733,7 @@ do.body.i:                                        ; preds = %if.then9
   br i1 %cmp.i.not.i, label %do.end.i, label %if.then32.i
 
 if.then32.i:                                      ; preds = %do.body.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__.xhci_dma_read_u32s) #15
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__.xhci_dma_read_u32s) #16
   br label %do.end.i
 
 do.end.i:                                         ; preds = %if.then32.i, %do.body.i
@@ -2830,7 +2830,7 @@ if.end11:                                         ; preds = %lor.lhs.false
   br i1 %cmp15, label %if.end18, label %if.else
 
 if.else:                                          ; preds = %if.end11
-  tail call void @__assert_fail(ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.16, i32 noundef 672, ptr noundef nonnull @__PRETTY_FUNCTION__.xhci_event) #16
+  tail call void @__assert_fail(ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.16, i32 noundef 672, ptr noundef nonnull @__PRETTY_FUNCTION__.xhci_event) #17
   unreachable
 
 if.end18:                                         ; preds = %if.end11
@@ -2890,7 +2890,7 @@ if.end22.i:                                       ; preds = %if.end18.i
   br i1 %tobool23.not.i, label %return, label %if.then24.i
 
 if.then24.i:                                      ; preds = %if.end22.i
-  %call.i = tail call zeroext i1 %11(ptr noundef nonnull %xhci, i32 noundef %v, i1 noundef zeroext true) #15
+  %call.i = tail call zeroext i1 %11(ptr noundef nonnull %xhci, i32 noundef %v, i1 noundef zeroext true) #16
   br i1 %call.i, label %if.then26.i, label %return
 
 if.then26.i:                                      ; preds = %if.then24.i
@@ -2911,9 +2911,9 @@ entry:
   %as = getelementptr inbounds i8, ptr %xhci, i64 632
   %0 = load ptr, ptr %as, align 8
   %1 = load i64, ptr %ring, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !5
   fence seq_cst
-  %call.i.i.i51 = tail call i32 @address_space_rw(ptr noundef %0, i64 noundef %1, i32 1, ptr noundef %trb, i64 noundef 16, i1 noundef zeroext false) #15
+  %call.i.i.i51 = tail call i32 @address_space_rw(ptr noundef %0, i64 noundef %1, i32 1, ptr noundef %trb, i64 noundef 16, i1 noundef zeroext false) #16
   %cmp.not52 = icmp eq i32 %call.i.i.i51, 0
   br i1 %cmp.not52, label %if.end31.lr.ph, label %do.body
 
@@ -2933,7 +2933,7 @@ do.body:                                          ; preds = %if.end77, %entry
   br i1 %cmp.i.not, label %return, label %if.then30
 
 if.then30:                                        ; preds = %do.body
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__.xhci_ring_fetch) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__.xhci_ring_fetch) #16
   br label %return
 
 if.end31:                                         ; preds = %if.end31.lr.ph, %if.end77
@@ -2982,15 +2982,15 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #15
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #15
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #16
   %13 = load i64, ptr %_now.i.i, align 8
   %14 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.127, i32 noundef %call10.i.i, i64 noundef %13, i64 noundef %14, i64 noundef %5, ptr noundef nonnull %retval.0.i.i, i64 noundef %7, i32 noundef %8, i32 noundef %trb.val) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.127, i32 noundef %call10.i.i, i64 noundef %13, i64 noundef %14, i64 noundef %5, ptr noundef nonnull %retval.0.i.i, i64 noundef %7, i32 noundef %8, i32 noundef %trb.val) #16
   br label %trace_usb_xhci_fetch_trb.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.128, i64 noundef %5, ptr noundef nonnull %retval.0.i.i, i64 noundef %7, i32 noundef %8, i32 noundef %trb.val) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.128, i64 noundef %5, ptr noundef nonnull %retval.0.i.i, i64 noundef %7, i32 noundef %8, i32 noundef %trb.val) #16
   br label %trace_usb_xhci_fetch_trb.exit
 
 trace_usb_xhci_fetch_trb.exit:                    ; preds = %trb_name.exit, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -3049,16 +3049,16 @@ if.then.i.i43:                                    ; preds = %land.lhs.true5.i.i4
   br i1 %tobool7.i.i44, label %if.then8.i.i46, label %if.else.i.i45
 
 if.then8.i.i46:                                   ; preds = %if.then.i.i43
-  %call9.i.i47 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i36, ptr noundef null) #15
-  %call10.i.i48 = tail call i32 @qemu_get_thread_id() #15
+  %call9.i.i47 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i36, ptr noundef null) #16
+  %call10.i.i48 = tail call i32 @qemu_get_thread_id() #16
   %22 = load i64, ptr %_now.i.i36, align 8
   %tv_usec.i.i49 = getelementptr inbounds i8, ptr %_now.i.i36, i64 8
   %23 = load i64, ptr %tv_usec.i.i49, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.135, i32 noundef %call10.i.i48, i64 noundef %22, i64 noundef %23, ptr noundef nonnull @.str.126) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.135, i32 noundef %call10.i.i48, i64 noundef %22, i64 noundef %23, ptr noundef nonnull @.str.126) #16
   br label %trace_usb_xhci_enforced_limit.exit
 
 if.else.i.i45:                                    ; preds = %if.then.i.i43
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.136, ptr noundef nonnull @.str.126) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.136, ptr noundef nonnull @.str.126) #16
   br label %trace_usb_xhci_enforced_limit.exit
 
 trace_usb_xhci_enforced_limit.exit:               ; preds = %if.then61, %land.lhs.true5.i.i40, %if.then8.i.i46, %if.else.i.i45
@@ -3080,9 +3080,9 @@ if.then69:                                        ; preds = %if.end62
 
 if.end77:                                         ; preds = %if.end62, %if.then69
   %26 = load ptr, ptr %as, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !5
   fence seq_cst
-  %call.i.i.i = tail call i32 @address_space_rw(ptr noundef %26, i64 noundef %24, i32 1, ptr noundef nonnull %trb, i64 noundef 16, i1 noundef zeroext false) #15
+  %call.i.i.i = tail call i32 @address_space_rw(ptr noundef %26, i64 noundef %24, i32 1, ptr noundef nonnull %trb, i64 noundef 16, i1 noundef zeroext false) #16
   %cmp.not = icmp eq i32 %call.i.i.i, 0
   br i1 %cmp.not, label %if.end31, label %do.body
 
@@ -3115,16 +3115,16 @@ if.then.i:                                        ; preds = %land.lhs.true5.i
   br i1 %tobool7.i, label %if.then8.i, label %if.else.i
 
 if.then8.i:                                       ; preds = %if.then.i
-  %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #15
-  %call10.i = tail call i32 @qemu_get_thread_id() #15
+  %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #16
+  %call10.i = tail call i32 @qemu_get_thread_id() #16
   %4 = load i64, ptr %_now.i, align 8
   %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %5 = load i64, ptr %tv_usec.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.135, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, ptr noundef %item) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.135, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, ptr noundef %item) #16
   br label %_nocheck__trace_usb_xhci_enforced_limit.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.136, ptr noundef %item) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.136, ptr noundef %item) #16
   br label %_nocheck__trace_usb_xhci_enforced_limit.exit
 
 _nocheck__trace_usb_xhci_enforced_limit.exit:     ; preds = %entry, %land.lhs.true5.i, %if.then8.i, %if.else.i
@@ -3162,7 +3162,7 @@ if.end5:                                          ; preds = %lor.lhs.false
   %tobool6.not = icmp eq i32 %and, 0
   %cond = select i1 %tobool6.not, i32 225, i32 105
   %shr = lshr i32 %4, 1
-  %call = tail call ptr @usb_ep_get(ptr noundef nonnull %3, i32 noundef %cond, i32 noundef %shr) #15
+  %call = tail call ptr @usb_ep_get(ptr noundef nonnull %3, i32 noundef %cond, i32 noundef %shr) #16
   br label %return
 
 return:                                           ; preds = %if.end, %lor.lhs.false, %entry, %if.end5
@@ -3433,8 +3433,8 @@ if.end26:                                         ; preds = %entry, %entry, %if.
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
 
-; Function Attrs: noreturn nounwind
-declare void @abort() local_unnamed_addr #5
+; Function Attrs: cold nofree noreturn nounwind
+declare void @abort() local_unnamed_addr #11
 
 declare void @usb_packet_unmap(ptr noundef, ptr noundef) local_unnamed_addr #3
 
@@ -3540,16 +3540,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #15
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #15
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #16
   %16 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %17 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.55, i32 noundef %call10.i.i, i64 noundef %16, i64 noundef %17, i32 noundef %v, i32 noundef %9, ptr noundef nonnull %retval.0.i.i, ptr noundef nonnull %retval.0.i.i31, i64 noundef %0, i32 noundef %or, i32 noundef %8) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.55, i32 noundef %call10.i.i, i64 noundef %16, i64 noundef %17, i32 noundef %v, i32 noundef %9, ptr noundef nonnull %retval.0.i.i, ptr noundef nonnull %retval.0.i.i31, i64 noundef %0, i32 noundef %or, i32 noundef %8) #16
   br label %trace_usb_xhci_queue_event.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.56, i32 noundef %v, i32 noundef %9, ptr noundef nonnull %retval.0.i.i, ptr noundef nonnull %retval.0.i.i31, i64 noundef %0, i32 noundef %or, i32 noundef %8) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.56, i32 noundef %v, i32 noundef %9, ptr noundef nonnull %retval.0.i.i, ptr noundef nonnull %retval.0.i.i31, i64 noundef %0, i32 noundef %or, i32 noundef %8) #16
   br label %trace_usb_xhci_queue_event.exit
 
 trace_usb_xhci_queue_event.exit:                  ; preds = %event_name.exit, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -3562,9 +3562,9 @@ trace_usb_xhci_queue_event.exit:                  ; preds = %event_name.exit, %l
   %add = add i64 %18, %conv21
   %as = getelementptr inbounds i8, ptr %xhci, i64 632
   %20 = load ptr, ptr %as, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !5
   fence seq_cst
-  %call.i.i.i = call i32 @address_space_rw(ptr noundef %20, i64 noundef %add, i32 1, ptr noundef nonnull %ev_trb, i64 noundef 16, i1 noundef zeroext true) #15
+  %call.i.i.i = call i32 @address_space_rw(ptr noundef %20, i64 noundef %add, i32 1, ptr noundef nonnull %ev_trb, i64 noundef 16, i1 noundef zeroext true) #16
   %cmp.not = icmp eq i32 %call.i.i.i, 0
   br i1 %cmp.not, label %if.end58, label %do.body
 
@@ -3575,7 +3575,7 @@ do.body:                                          ; preds = %trace_usb_xhci_queu
   br i1 %cmp.i.not, label %do.end, label %if.then56
 
 if.then56:                                        ; preds = %do.body
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__.xhci_write_event) #15
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__.xhci_write_event) #16
   br label %do.end
 
 do.end:                                           ; preds = %do.body, %if.then56
@@ -3644,7 +3644,7 @@ if.end22:                                         ; preds = %if.end18
   br i1 %tobool23.not, label %if.end33, label %if.then24
 
 if.then24:                                        ; preds = %if.end22
-  %call = tail call zeroext i1 %4(ptr noundef nonnull %xhci, i32 noundef %v, i1 noundef zeroext true) #15
+  %call = tail call zeroext i1 %4(ptr noundef nonnull %xhci, i32 noundef %v, i1 noundef zeroext true) #16
   br i1 %call, label %if.then26, label %if.end33
 
 if.then26:                                        ; preds = %if.then24
@@ -3665,7 +3665,7 @@ declare void @usb_packet_init(ptr noundef) local_unnamed_addr #3
 declare ptr @usb_ep_get(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i1 @xhci_er_full(ptr nocapture readnone %opaque, i32 %version_id) #11 {
+define internal noundef zeroext i1 @xhci_er_full(ptr nocapture readnone %opaque, i32 %version_id) #12 {
 entry:
   ret i1 false
 }
@@ -3675,14 +3675,14 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @xhci_class_init(ptr noundef %klass, ptr nocapture readnone %data) #2 {
 entry:
-  %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #15
+  %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #16
   %realize = getelementptr inbounds i8, ptr %call.i, i64 144
   store ptr @usb_xhci_realize, ptr %realize, align 8
   %unrealize = getelementptr inbounds i8, ptr %call.i, i64 152
   store ptr @usb_xhci_unrealize, ptr %unrealize, align 8
   %reset = getelementptr inbounds i8, ptr %call.i, i64 136
   store ptr @xhci_reset, ptr %reset, align 8
-  tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @xhci_properties) #15
+  tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @xhci_properties) #16
   %user_creatable = getelementptr inbounds i8, ptr %call.i, i64 128
   store i8 0, ptr %user_creatable, align 8
   ret void
@@ -3691,7 +3691,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @usb_xhci_realize(ptr noundef %dev, ptr nocapture readnone %errp) #2 {
 entry:
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.176, ptr noundef nonnull @.str.182, i32 noundef 30, ptr noundef nonnull @__func__.XHCI) #15
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.176, ptr noundef nonnull @.str.182, i32 noundef 30, ptr noundef nonnull @__func__.XHCI) #16
   %numintrs = getelementptr inbounds i8, ptr %call.i, i64 1736
   %0 = load i32, ptr %numintrs, align 8
   %cmp = icmp ugt i32 %0, 16
@@ -3774,7 +3774,7 @@ if.end5.i:                                        ; preds = %if.then3.i, %if.end
   %bus.i = getelementptr inbounds i8, ptr %call.i, i64 160
   %hostOpaque.i = getelementptr inbounds i8, ptr %call.i, i64 1768
   %10 = load ptr, ptr %hostOpaque.i, align 8
-  tail call void @usb_bus_new(ptr noundef nonnull %bus.i, i64 noundef 192, ptr noundef nonnull @xhci_bus_ops, ptr noundef %10) #15
+  tail call void @usb_bus_new(ptr noundef nonnull %bus.i, i64 noundef 192, ptr noundef nonnull @xhci_bus_ops, ptr noundef %10) #16
   %cmp1166.not.i = icmp eq i32 %cond.i, 0
   br i1 %cmp1166.not.i, label %usb_xhci_init.exit, label %for.body.lr.ph.i
 
@@ -3827,14 +3827,14 @@ if.end26.i:                                       ; preds = %if.else.i, %if.then
   br i1 %cmp30.i, label %if.end33.i, label %if.else32.i
 
 if.else32.i:                                      ; preds = %if.end26.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.183, ptr noundef nonnull @.str.16, i32 noundef 3364, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_xhci_init) #16
+  tail call void @__assert_fail(ptr noundef nonnull @.str.183, ptr noundef nonnull @.str.16, i32 noundef 3364, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_xhci_init) #17
   unreachable
 
 if.end33.i:                                       ; preds = %if.end26.i
   %name.i = getelementptr inbounds i8, ptr %port.0.i, i64 28
   %18 = trunc nuw i64 %indvars.iv.i to i32
   %19 = add nuw nsw i32 %18, 1
-  %call35.i = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %name.i, i64 noundef 20, ptr noundef nonnull @.str.184, i32 noundef %19) #15
+  %call35.i = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %name.i, i64 noundef 20, ptr noundef nonnull @.str.184, i32 noundef %19) #16
   %20 = load i32, ptr %speedmask29.i, align 8
   br label %if.end37.i
 
@@ -3885,14 +3885,14 @@ if.end58.i:                                       ; preds = %if.else48.i, %if.th
   br i1 %cmp64.i, label %if.end67.i, label %if.else66.i
 
 if.else66.i:                                      ; preds = %if.end58.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.183, ptr noundef nonnull @.str.16, i32 noundef 3378, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_xhci_init) #16
+  tail call void @__assert_fail(ptr noundef nonnull @.str.183, ptr noundef nonnull @.str.16, i32 noundef 3378, ptr noundef nonnull @__PRETTY_FUNCTION__.usb_xhci_init) #17
   unreachable
 
 if.end67.i:                                       ; preds = %if.end58.i
   %name68.i = getelementptr inbounds i8, ptr %port.1.i, i64 28
   %28 = add nuw nsw i64 %indvars.iv.i, 1
   %29 = trunc nuw nsw i64 %28 to i32
-  %call71.i = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %name68.i, i64 noundef 20, ptr noundef nonnull @.str.185, i32 noundef %29) #15
+  %call71.i = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %name68.i, i64 noundef 20, ptr noundef nonnull @.str.185, i32 noundef %29) #16
   %30 = load i32, ptr %speedmask63.i, align 8
   %or73.i = or i32 %30, %speedmask.0.i
   br label %if.end74.i
@@ -3902,29 +3902,29 @@ if.end74.i:                                       ; preds = %if.end67.i, %if.end
   %speedmask.1.i = phi i32 [ %speedmask.0.i, %if.end37.if.end74_crit_edge.i ], [ %or73.i, %if.end67.i ]
   %arrayidx78.i = getelementptr [15 x %struct.USBPort], ptr %uports.i, i64 0, i64 %indvars.iv.i
   %31 = trunc nuw i64 %indvars.iv.i to i32
-  tail call void @usb_register_port(ptr noundef nonnull %bus.i, ptr noundef %arrayidx78.i, ptr noundef nonnull %call.i, i32 noundef %31, ptr noundef nonnull @xhci_uport_ops, i32 noundef %speedmask.1.i) #15
+  tail call void @usb_register_port(ptr noundef nonnull %bus.i, ptr noundef %arrayidx78.i, ptr noundef nonnull %call.i, i32 noundef %31, ptr noundef nonnull @xhci_uport_ops, i32 noundef %speedmask.1.i) #16
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.pre-phi.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %usb_xhci_init.exit, label %for.body.i, !llvm.loop !17
 
 usb_xhci_init.exit:                               ; preds = %if.end74.i, %if.end5.i
-  %call.i.i.i = tail call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #17
-  tail call void @timer_init_full(ptr noundef %call.i.i.i, ptr noundef null, i32 noundef 1, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @xhci_mfwrap_timer, ptr noundef nonnull %call.i) #15
+  %call.i.i.i = tail call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #18
+  tail call void @timer_init_full(ptr noundef %call.i.i.i, ptr noundef null, i32 noundef 1, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @xhci_mfwrap_timer, ptr noundef nonnull %call.i) #16
   %mfwrap_timer = getelementptr inbounds i8, ptr %call.i, i64 29920
   store ptr %call.i.i.i, ptr %mfwrap_timer, align 16
   %mem = getelementptr inbounds i8, ptr %call.i, i64 352
-  tail call void @memory_region_init(ptr noundef nonnull %mem, ptr noundef %dev, ptr noundef nonnull @.str.177, i64 noundef 16384) #15
+  tail call void @memory_region_init(ptr noundef nonnull %mem, ptr noundef %dev, ptr noundef nonnull @.str.177, i64 noundef 16384) #16
   %mem_cap = getelementptr inbounds i8, ptr %call.i, i64 640
-  tail call void @memory_region_init_io(ptr noundef nonnull %mem_cap, ptr noundef %dev, ptr noundef nonnull @xhci_cap_ops, ptr noundef nonnull %call.i, ptr noundef nonnull @.str.178, i64 noundef 64) #15
+  tail call void @memory_region_init_io(ptr noundef nonnull %mem_cap, ptr noundef %dev, ptr noundef nonnull @xhci_cap_ops, ptr noundef nonnull %call.i, ptr noundef nonnull @.str.178, i64 noundef 64) #16
   %mem_oper = getelementptr inbounds i8, ptr %call.i, i64 912
-  tail call void @memory_region_init_io(ptr noundef nonnull %mem_oper, ptr noundef %dev, ptr noundef nonnull @xhci_oper_ops, ptr noundef nonnull %call.i, ptr noundef nonnull @.str.179, i64 noundef 1024) #15
+  tail call void @memory_region_init_io(ptr noundef nonnull %mem_oper, ptr noundef %dev, ptr noundef nonnull @xhci_oper_ops, ptr noundef nonnull %call.i, ptr noundef nonnull @.str.179, i64 noundef 1024) #16
   %mem_runtime = getelementptr inbounds i8, ptr %call.i, i64 1184
-  tail call void @memory_region_init_io(ptr noundef nonnull %mem_runtime, ptr noundef %dev, ptr noundef nonnull @xhci_runtime_ops, ptr noundef nonnull %call.i, ptr noundef nonnull @.str.180, i64 noundef 544) #15
+  tail call void @memory_region_init_io(ptr noundef nonnull %mem_runtime, ptr noundef %dev, ptr noundef nonnull @xhci_runtime_ops, ptr noundef nonnull %call.i, ptr noundef nonnull @.str.180, i64 noundef 544) #16
   %mem_doorbell = getelementptr inbounds i8, ptr %call.i, i64 1456
-  tail call void @memory_region_init_io(ptr noundef nonnull %mem_doorbell, ptr noundef %dev, ptr noundef nonnull @xhci_doorbell_ops, ptr noundef nonnull %call.i, ptr noundef nonnull @.str.181, i64 noundef 2080) #15
-  tail call void @memory_region_add_subregion(ptr noundef nonnull %mem, i64 noundef 0, ptr noundef nonnull %mem_cap) #15
-  tail call void @memory_region_add_subregion(ptr noundef nonnull %mem, i64 noundef 64, ptr noundef nonnull %mem_oper) #15
-  tail call void @memory_region_add_subregion(ptr noundef nonnull %mem, i64 noundef 4096, ptr noundef nonnull %mem_runtime) #15
-  tail call void @memory_region_add_subregion(ptr noundef nonnull %mem, i64 noundef 8192, ptr noundef nonnull %mem_doorbell) #15
+  tail call void @memory_region_init_io(ptr noundef nonnull %mem_doorbell, ptr noundef %dev, ptr noundef nonnull @xhci_doorbell_ops, ptr noundef nonnull %call.i, ptr noundef nonnull @.str.181, i64 noundef 2080) #16
+  tail call void @memory_region_add_subregion(ptr noundef nonnull %mem, i64 noundef 0, ptr noundef nonnull %mem_cap) #16
+  tail call void @memory_region_add_subregion(ptr noundef nonnull %mem, i64 noundef 64, ptr noundef nonnull %mem_oper) #16
+  tail call void @memory_region_add_subregion(ptr noundef nonnull %mem, i64 noundef 4096, ptr noundef nonnull %mem_runtime) #16
+  tail call void @memory_region_add_subregion(ptr noundef nonnull %mem, i64 noundef 8192, ptr noundef nonnull %mem_doorbell) #16
   %32 = load i32, ptr %numports.i, align 16
   %cmp3252.not = icmp eq i32 %32, 0
   br i1 %cmp3252.not, label %for.end, label %for.body.lr.ph
@@ -3942,9 +3942,9 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   store ptr %call.i, ptr %arrayidx, align 16
   %mem34 = getelementptr inbounds i8, ptr %arrayidx, i64 48
   %name = getelementptr inbounds i8, ptr %arrayidx, i64 28
-  tail call void @memory_region_init_io(ptr noundef nonnull %mem34, ptr noundef %dev, ptr noundef nonnull @xhci_port_ops, ptr noundef nonnull %arrayidx, ptr noundef nonnull %name, i64 noundef 16) #15
+  tail call void @memory_region_init_io(ptr noundef nonnull %mem34, ptr noundef %dev, ptr noundef nonnull @xhci_port_ops, ptr noundef nonnull %arrayidx, ptr noundef nonnull %name, i64 noundef 16) #16
   %conv = zext i32 %add to i64
-  tail call void @memory_region_add_subregion(ptr noundef nonnull %mem, i64 noundef %conv, ptr noundef nonnull %mem34) #15
+  tail call void @memory_region_add_subregion(ptr noundef nonnull %mem, i64 noundef %conv, ptr noundef nonnull %mem34) #16
   %inc37 = add nuw i32 %i.053, 1
   %33 = load i32, ptr %numports.i, align 16
   %cmp32 = icmp ult i32 %inc37, %33
@@ -3958,7 +3958,7 @@ for.end:                                          ; preds = %for.body, %usb_xhci
 define internal void @usb_xhci_unrealize(ptr noundef %dev) #2 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.176, ptr noundef nonnull @.str.182, i32 noundef 30, ptr noundef nonnull @__func__.XHCI) #15
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.176, ptr noundef nonnull @.str.182, i32 noundef 30, ptr noundef nonnull @__func__.XHCI) #16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %0 = load i32, ptr @trace_events_enabled_count, align 4
   %tobool.i.i = icmp ne i32 %0, 0
@@ -3979,16 +3979,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #15
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #15
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #16
   %4 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.253, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.253, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5) #16
   br label %trace_usb_xhci_exit.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.254) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.254) #16
   br label %trace_usb_xhci_exit.exit
 
 trace_usb_xhci_exit.exit:                         ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -4013,21 +4013,21 @@ for.end:                                          ; preds = %for.body, %trace_us
   br i1 %tobool.not, label %if.end, label %timer_free.exit
 
 timer_free.exit:                                  ; preds = %for.end
-  tail call void @timer_del(ptr noundef nonnull %8) #15
-  tail call void @g_free(ptr noundef nonnull %8) #15
+  tail call void @timer_del(ptr noundef nonnull %8) #16
+  tail call void @g_free(ptr noundef nonnull %8) #16
   store ptr null, ptr %mfwrap_timer, align 16
   br label %if.end
 
 if.end:                                           ; preds = %timer_free.exit, %for.end
   %mem = getelementptr inbounds i8, ptr %call.i, i64 352
   %mem_cap = getelementptr inbounds i8, ptr %call.i, i64 640
-  tail call void @memory_region_del_subregion(ptr noundef nonnull %mem, ptr noundef nonnull %mem_cap) #15
+  tail call void @memory_region_del_subregion(ptr noundef nonnull %mem, ptr noundef nonnull %mem_cap) #16
   %mem_oper = getelementptr inbounds i8, ptr %call.i, i64 912
-  tail call void @memory_region_del_subregion(ptr noundef nonnull %mem, ptr noundef nonnull %mem_oper) #15
+  tail call void @memory_region_del_subregion(ptr noundef nonnull %mem, ptr noundef nonnull %mem_oper) #16
   %mem_runtime = getelementptr inbounds i8, ptr %call.i, i64 1184
-  tail call void @memory_region_del_subregion(ptr noundef nonnull %mem, ptr noundef nonnull %mem_runtime) #15
+  tail call void @memory_region_del_subregion(ptr noundef nonnull %mem, ptr noundef nonnull %mem_runtime) #16
   %mem_doorbell = getelementptr inbounds i8, ptr %call.i, i64 1456
-  tail call void @memory_region_del_subregion(ptr noundef nonnull %mem, ptr noundef nonnull %mem_doorbell) #15
+  tail call void @memory_region_del_subregion(ptr noundef nonnull %mem, ptr noundef nonnull %mem_doorbell) #16
   %numports = getelementptr inbounds i8, ptr %call.i, i64 29904
   %9 = load i32, ptr %numports, align 16
   %cmp824.not = icmp eq i32 %9, 0
@@ -4041,7 +4041,7 @@ for.body9:                                        ; preds = %for.body9.lr.ph, %f
   %i.125 = phi i32 [ 0, %for.body9.lr.ph ], [ %inc13, %for.body9 ]
   %idxprom = sext i32 %i.125 to i64
   %mem11 = getelementptr [30 x %struct.XHCIPort], ptr %ports, i64 0, i64 %idxprom, i32 6
-  tail call void @memory_region_del_subregion(ptr noundef nonnull %mem, ptr noundef %mem11) #15
+  tail call void @memory_region_del_subregion(ptr noundef nonnull %mem, ptr noundef %mem11) #16
   %inc13 = add nuw i32 %i.125, 1
   %10 = load i32, ptr %numports, align 16
   %cmp8 = icmp ult i32 %inc13, %10
@@ -4049,7 +4049,7 @@ for.body9:                                        ; preds = %for.body9.lr.ph, %f
 
 for.end14:                                        ; preds = %for.body9, %if.end
   %bus = getelementptr inbounds i8, ptr %call.i, i64 160
-  tail call void @usb_bus_release(ptr noundef nonnull %bus) #15
+  tail call void @usb_bus_release(ptr noundef nonnull %bus) #16
   ret void
 }
 
@@ -4057,7 +4057,7 @@ for.end14:                                        ; preds = %for.body9, %if.end
 define internal void @xhci_reset(ptr noundef %dev) #2 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.176, ptr noundef nonnull @.str.182, i32 noundef 30, ptr noundef nonnull @__func__.XHCI) #15
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.176, ptr noundef nonnull @.str.182, i32 noundef 30, ptr noundef nonnull @__func__.XHCI) #16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %0 = load i32, ptr @trace_events_enabled_count, align 4
   %tobool.i.i = icmp ne i32 %0, 0
@@ -4078,16 +4078,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #15
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #15
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #16
   %4 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.255, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.255, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5) #16
   br label %trace_usb_xhci_reset.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.256) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.256) #16
   br label %trace_usb_xhci_reset.exit
 
 trace_usb_xhci_reset.exit:                        ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -4159,7 +4159,7 @@ for.body11:                                       ; preds = %for.body11.lr.ph, %
   br i1 %cmp10, label %for.body11, label %for.end44, !llvm.loop !23
 
 for.end44:                                        ; preds = %for.body11, %for.cond9.preheader
-  %call45 = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #15
+  %call45 = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #16
   %mfindex_start = getelementptr inbounds i8, ptr %call.i, i64 29912
   store i64 %call45, ptr %mfindex_start, align 8
   %11 = load i32, ptr %usbcmd, align 16
@@ -4168,7 +4168,7 @@ for.end44:                                        ; preds = %for.body11, %for.co
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %for.end44
-  %call.i45 = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #15
+  %call.i45 = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #16
   %12 = load i64, ptr %mfindex_start, align 8
   %sub.i = sub i64 %call.i45, %12
   %div.i = sdiv i64 %sub.i, 125000
@@ -4178,13 +4178,13 @@ if.then.i:                                        ; preds = %for.end44
   %13 = load ptr, ptr %mfwrap_timer.i, align 16
   %mul.i = mul nuw nsw i64 %sub2.i, 125000
   %add.i = add i64 %mul.i, %call.i45
-  tail call void @timer_mod(ptr noundef %13, i64 noundef %add.i) #15
+  tail call void @timer_mod(ptr noundef %13, i64 noundef %add.i) #16
   br label %xhci_mfwrap_update.exit
 
 if.else.i:                                        ; preds = %for.end44
   %mfwrap_timer4.i = getelementptr inbounds i8, ptr %call.i, i64 29920
   %14 = load ptr, ptr %mfwrap_timer4.i, align 16
-  tail call void @timer_del(ptr noundef %14) #15
+  tail call void @timer_del(ptr noundef %14) #16
   br label %xhci_mfwrap_update.exit
 
 xhci_mfwrap_update.exit:                          ; preds = %if.then.i, %if.else.i
@@ -4206,7 +4206,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
-  %call.i = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #15
+  %call.i = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #16
   %mfindex_start.i = getelementptr inbounds i8, ptr %opaque, i64 29912
   %1 = load i64, ptr %mfindex_start.i, align 8
   %sub.i = sub i64 %call.i, %1
@@ -4217,13 +4217,13 @@ if.then.i:                                        ; preds = %entry
   %2 = load ptr, ptr %mfwrap_timer.i, align 16
   %mul.i = mul nuw nsw i64 %sub2.i, 125000
   %add.i = add i64 %mul.i, %call.i
-  tail call void @timer_mod(ptr noundef %2, i64 noundef %add.i) #15
+  tail call void @timer_mod(ptr noundef %2, i64 noundef %add.i) #16
   br label %xhci_mfwrap_update.exit
 
 if.else.i:                                        ; preds = %entry
   %mfwrap_timer4.i = getelementptr inbounds i8, ptr %opaque, i64 29920
   %3 = load ptr, ptr %mfwrap_timer4.i, align 16
-  tail call void @timer_del(ptr noundef %3) #15
+  tail call void @timer_del(ptr noundef %3) #16
   br label %xhci_mfwrap_update.exit
 
 xhci_mfwrap_update.exit:                          ; preds = %if.then.i, %if.else.i
@@ -4283,7 +4283,7 @@ if.end.i7:                                        ; preds = %if.end
   br i1 %cmp4.i, label %if.end9.i, label %if.else6.i
 
 if.else6.i:                                       ; preds = %if.end.i7
-  tail call void @__assert_fail(ptr noundef nonnull @.str.187, ptr noundef nonnull @.str.16, i32 noundef 1849, ptr noundef nonnull @__PRETTY_FUNCTION__.xhci_kick_ep) #16
+  tail call void @__assert_fail(ptr noundef nonnull @.str.187, ptr noundef nonnull @.str.16, i32 noundef 1849, ptr noundef nonnull @__PRETTY_FUNCTION__.xhci_kick_ep) #17
   unreachable
 
 if.end9.i:                                        ; preds = %if.end.i7, %if.end
@@ -4607,7 +4607,7 @@ xhci_lookup_port.exit:                            ; preds = %sw.bb.i, %if.then2.
   br i1 %tobool.not, label %if.else, label %if.end
 
 if.else:                                          ; preds = %if.end.i, %entry, %xhci_lookup_port.exit
-  tail call void @__assert_fail(ptr noundef nonnull @.str.188, ptr noundef nonnull @.str.16, i32 noundef 3244, ptr noundef nonnull @__PRETTY_FUNCTION__.xhci_wakeup) #16
+  tail call void @__assert_fail(ptr noundef nonnull @.str.188, ptr noundef nonnull @.str.16, i32 noundef 3244, ptr noundef nonnull @__PRETTY_FUNCTION__.xhci_wakeup) #17
   unreachable
 
 if.end:                                           ; preds = %xhci_lookup_port.exit
@@ -4643,7 +4643,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool4.i, label %if.then5.i, label %if.end7.i
 
 if.then5.i:                                       ; preds = %if.then
-  tail call void @usb_cancel_packet(ptr noundef nonnull %packet) #15
+  tail call void @usb_cancel_packet(ptr noundef nonnull %packet) #16
   store i8 0, ptr %running_async3.i, align 8
   br label %if.end7.i
 
@@ -4664,7 +4664,7 @@ if.then12.i:                                      ; preds = %if.then10.i
   %4 = load ptr, ptr %add.ptr, align 8
   %kick_timer.i = getelementptr inbounds i8, ptr %4, i64 128
   %5 = load ptr, ptr %kick_timer.i, align 8
-  tail call void @timer_del(ptr noundef %5) #15
+  tail call void @timer_del(ptr noundef %5) #16
   br label %if.end15.i
 
 if.end15.i:                                       ; preds = %if.then12.i, %if.then10.i
@@ -4674,7 +4674,7 @@ if.end15.i:                                       ; preds = %if.then12.i, %if.th
 xhci_ep_nuke_one_xfer.exit:                       ; preds = %if.end7.i, %if.end15.i
   %trbs.i = getelementptr i8, ptr %packet, i64 200
   %6 = load ptr, ptr %trbs.i, align 8
-  tail call void @g_free(ptr noundef %6) #15
+  tail call void @g_free(ptr noundef %6) #16
   store ptr null, ptr %trbs.i, align 8
   %trb_count.i = getelementptr i8, ptr %packet, i64 192
   store i32 0, ptr %trb_count.i, align 8
@@ -4719,11 +4719,11 @@ xhci_ep_free_xfer.exit:                           ; preds = %if.then.i, %if.else
   %15 = load i32, ptr %xfer_count.i, align 8
   %dec.i = add i32 %15, -1
   store i32 %dec.i, ptr %xfer_count.i, align 8
-  tail call void @usb_packet_cleanup(ptr noundef nonnull %packet) #15
+  tail call void @usb_packet_cleanup(ptr noundef nonnull %packet) #16
   %trbs.i8 = getelementptr i8, ptr %packet, i64 200
   %16 = load ptr, ptr %trbs.i8, align 8
-  tail call void @g_free(ptr noundef %16) #15
-  tail call void @g_free(ptr noundef nonnull %add.ptr) #15
+  tail call void @g_free(ptr noundef %16) #16
+  tail call void @g_free(ptr noundef nonnull %add.ptr) #16
   br label %if.end3
 
 if.end3:                                          ; preds = %xhci_ep_free_xfer.exit, %if.end, %xhci_ep_nuke_one_xfer.exit
@@ -4738,7 +4738,7 @@ entry:
   br i1 %tobool.not, label %if.else, label %if.end
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.188, ptr noundef nonnull @.str.16, i32 noundef 2637, ptr noundef nonnull @__PRETTY_FUNCTION__.xhci_port_update) #16
+  tail call void @__assert_fail(ptr noundef nonnull @.str.188, ptr noundef nonnull @.str.16, i32 noundef 2637, ptr noundef nonnull @__PRETTY_FUNCTION__.xhci_port_update) #17
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -4815,16 +4815,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #15
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #15
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #16
   %16 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %17 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.189, i32 noundef %call10.i.i, i64 noundef %16, i64 noundef %17, i32 noundef %11, i32 noundef %pls.0) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.189, i32 noundef %call10.i.i, i64 noundef %16, i64 noundef %17, i32 noundef %11, i32 noundef %pls.0) #16
   br label %trace_usb_xhci_port_link.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.190, i32 noundef %11, i32 noundef %pls.0) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.190, i32 noundef %11, i32 noundef %pls.0) #16
   br label %trace_usb_xhci_port_link.exit
 
 trace_usb_xhci_port_link.exit:                    ; preds = %do.body, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -4857,16 +4857,16 @@ if.then.i:                                        ; preds = %land.lhs.true5.i
   br i1 %tobool7.i, label %if.then8.i, label %if.else.i
 
 if.then8.i:                                       ; preds = %if.then.i
-  %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #15
-  %call10.i = tail call i32 @qemu_get_thread_id() #15
+  %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #16
+  %call10.i = tail call i32 @qemu_get_thread_id() #16
   %4 = load i64, ptr %_now.i, align 8
   %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %5 = load i64, ptr %tv_usec.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.189, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, i32 noundef %port, i32 noundef %pls) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.189, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, i32 noundef %port, i32 noundef %pls) #16
   br label %_nocheck__trace_usb_xhci_port_link.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.190, i32 noundef %port, i32 noundef %pls) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.190, i32 noundef %port, i32 noundef %pls) #16
   br label %_nocheck__trace_usb_xhci_port_link.exit
 
 _nocheck__trace_usb_xhci_port_link.exit:          ; preds = %entry, %land.lhs.true5.i, %if.then8.i, %if.else.i
@@ -4917,16 +4917,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #15
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #15
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #16
   %6 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.191, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i32 noundef %0, i32 noundef %bits) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.191, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i32 noundef %0, i32 noundef %bits) #16
   br label %trace_usb_xhci_port_notify.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.192, i32 noundef %0, i32 noundef %bits) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.192, i32 noundef %0, i32 noundef %bits) #16
   br label %trace_usb_xhci_port_notify.exit
 
 trace_usb_xhci_port_notify.exit:                  ; preds = %if.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -4962,7 +4962,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %cmp1.not, label %if.else, label %if.end
 
 if.else:                                          ; preds = %land.lhs.true, %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.186, ptr noundef nonnull @.str.16, i32 noundef 1231, ptr noundef nonnull @__PRETTY_FUNCTION__.xhci_ep_nuke_xfers) #16
+  tail call void @__assert_fail(ptr noundef nonnull @.str.186, ptr noundef nonnull @.str.16, i32 noundef 1231, ptr noundef nonnull @__PRETTY_FUNCTION__.xhci_ep_nuke_xfers) #17
   unreachable
 
 if.end:                                           ; preds = %land.lhs.true
@@ -4971,7 +4971,7 @@ if.end:                                           ; preds = %land.lhs.true
   br i1 %or.cond, label %do.end, label %if.else6
 
 if.else6:                                         ; preds = %if.end
-  tail call void @__assert_fail(ptr noundef nonnull @.str.187, ptr noundef nonnull @.str.16, i32 noundef 1232, ptr noundef nonnull @__PRETTY_FUNCTION__.xhci_ep_nuke_xfers) #16
+  tail call void @__assert_fail(ptr noundef nonnull @.str.187, ptr noundef nonnull @.str.16, i32 noundef 1232, ptr noundef nonnull @__PRETTY_FUNCTION__.xhci_ep_nuke_xfers) #17
   unreachable
 
 do.end:                                           ; preds = %if.end
@@ -5023,7 +5023,7 @@ if.end.i:                                         ; preds = %if.then.i, %lor.lhs
 
 if.then5.i:                                       ; preds = %if.end.i
   %packet.i = getelementptr inbounds i8, ptr %4, i64 8
-  tail call void @usb_cancel_packet(ptr noundef nonnull %packet.i) #15
+  tail call void @usb_cancel_packet(ptr noundef nonnull %packet.i) #16
   store i8 0, ptr %running_async3.i, align 8
   br label %if.end7.i
 
@@ -5045,7 +5045,7 @@ if.then12.i:                                      ; preds = %if.then10.i
   %10 = load ptr, ptr %4, align 8
   %kick_timer.i = getelementptr inbounds i8, ptr %10, i64 128
   %11 = load ptr, ptr %kick_timer.i, align 8
-  tail call void @timer_del(ptr noundef %11) #15
+  tail call void @timer_del(ptr noundef %11) #16
   br label %if.end15.i
 
 if.end15.i:                                       ; preds = %if.then12.i, %if.then10.i
@@ -5056,7 +5056,7 @@ xhci_ep_nuke_one_xfer.exit:                       ; preds = %if.end7.i, %if.end1
   %killed.1.i = phi i32 [ 1, %if.end15.i ], [ %killed.0.i, %if.end7.i ]
   %trbs.i = getelementptr inbounds i8, ptr %4, i64 208
   %12 = load ptr, ptr %trbs.i, align 8
-  tail call void @g_free(ptr noundef %12) #15
+  tail call void @g_free(ptr noundef %12) #16
   store ptr null, ptr %trbs.i, align 8
   %trb_count.i = getelementptr inbounds i8, ptr %4, i64 200
   store i32 0, ptr %trb_count.i, align 8
@@ -5091,10 +5091,10 @@ xhci_ep_free_xfer.exit:                           ; preds = %if.then.i16, %if.el
   %dec.i = add i32 %18, -1
   store i32 %dec.i, ptr %xfer_count.i, align 8
   %packet.i18 = getelementptr inbounds i8, ptr %4, i64 8
-  tail call void @usb_packet_cleanup(ptr noundef nonnull %packet.i18) #15
+  tail call void @usb_packet_cleanup(ptr noundef nonnull %packet.i18) #16
   %19 = load ptr, ptr %trbs.i, align 8
-  tail call void @g_free(ptr noundef %19) #15
-  tail call void @g_free(ptr noundef nonnull %4) #15
+  tail call void @g_free(ptr noundef %19) #16
+  tail call void @g_free(ptr noundef nonnull %4) #16
   %20 = load ptr, ptr %transfers, align 8
   %cmp17 = icmp eq ptr %20, null
   br i1 %cmp17, label %if.end.i21, label %if.end19
@@ -5123,14 +5123,14 @@ xhci_epid_to_usbep.exit:                          ; preds = %lor.lhs.false.i22
   %tobool6.not.i = icmp eq i32 %and.i, 0
   %cond.i = select i1 %tobool6.not.i, i32 225, i32 105
   %shr.i = lshr i32 %25, 1
-  %call.i = tail call ptr @usb_ep_get(ptr noundef nonnull %24, i32 noundef %cond.i, i32 noundef %shr.i) #15
+  %call.i = tail call ptr @usb_ep_get(ptr noundef nonnull %24, i32 noundef %cond.i, i32 noundef %shr.i) #16
   %tobool24.not = icmp eq ptr %call.i, null
   br i1 %tobool24.not, label %return, label %if.then25
 
 if.then25:                                        ; preds = %xhci_epid_to_usbep.exit
   %dev = getelementptr inbounds i8, ptr %call.i, i64 16
   %26 = load ptr, ptr %dev, align 8
-  tail call void @usb_device_ep_stopped(ptr noundef %26, ptr noundef nonnull %call.i) #15
+  tail call void @usb_device_ep_stopped(ptr noundef %26, ptr noundef nonnull %call.i) #16
   br label %return
 
 return:                                           ; preds = %if.end.i21, %lor.lhs.false.i22, %xhci_epid_to_usbep.exit, %if.then25, %do.end
@@ -5282,16 +5282,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #15
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #15
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #16
   %16 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %17 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.133, i32 noundef %call10.i.i, i64 noundef %16, i64 noundef %17, ptr noundef nonnull @.str.193, i32 noundef %conv) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.133, i32 noundef %call10.i.i, i64 noundef %16, i64 noundef %17, ptr noundef nonnull @.str.193, i32 noundef %conv) #16
   br label %trace_usb_xhci_unimplemented.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.134, ptr noundef nonnull @.str.193, i32 noundef %conv) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.134, ptr noundef nonnull @.str.193, i32 noundef %conv) #16
   br label %trace_usb_xhci_unimplemented.exit
 
 trace_usb_xhci_unimplemented.exit:                ; preds = %sw.default, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -5321,16 +5321,16 @@ if.then.i.i26:                                    ; preds = %land.lhs.true5.i.i2
   br i1 %tobool7.i.i27, label %if.then8.i.i29, label %if.else.i.i28
 
 if.then8.i.i29:                                   ; preds = %if.then.i.i26
-  %call9.i.i30 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i19, ptr noundef null) #15
-  %call10.i.i31 = tail call i32 @qemu_get_thread_id() #15
+  %call9.i.i30 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i19, ptr noundef null) #16
+  %call10.i.i31 = tail call i32 @qemu_get_thread_id() #16
   %22 = load i64, ptr %_now.i.i19, align 8
   %tv_usec.i.i32 = getelementptr inbounds i8, ptr %_now.i.i19, i64 8
   %23 = load i64, ptr %tv_usec.i.i32, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.194, i32 noundef %call10.i.i31, i64 noundef %22, i64 noundef %23, i32 noundef %conv39, i32 noundef %ret.0) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.194, i32 noundef %call10.i.i31, i64 noundef %22, i64 noundef %23, i32 noundef %conv39, i32 noundef %ret.0) #16
   br label %trace_usb_xhci_cap_read.exit
 
 if.else.i.i28:                                    ; preds = %if.then.i.i26
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.195, i32 noundef %conv39, i32 noundef %ret.0) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.195, i32 noundef %conv39, i32 noundef %ret.0) #16
   br label %trace_usb_xhci_cap_read.exit
 
 trace_usb_xhci_cap_read.exit:                     ; preds = %sw.epilog, %land.lhs.true5.i.i23, %if.then8.i.i29, %if.else.i.i28
@@ -5340,7 +5340,7 @@ trace_usb_xhci_cap_read.exit:                     ; preds = %sw.epilog, %land.lh
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal void @xhci_cap_write(ptr nocapture readnone %opaque, i64 %addr, i64 %val, i32 %width) #11 {
+define internal void @xhci_cap_write(ptr nocapture readnone %opaque, i64 %addr, i64 %val, i32 %width) #12 {
 entry:
   ret void
 }
@@ -5426,16 +5426,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #15
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #15
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #16
   %13 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %14 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.133, i32 noundef %call10.i.i, i64 noundef %13, i64 noundef %14, ptr noundef nonnull @.str.196, i32 noundef %conv) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.133, i32 noundef %call10.i.i, i64 noundef %13, i64 noundef %14, ptr noundef nonnull @.str.196, i32 noundef %conv) #16
   br label %trace_usb_xhci_unimplemented.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.134, ptr noundef nonnull @.str.196, i32 noundef %conv) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.134, ptr noundef nonnull @.str.196, i32 noundef %conv) #16
   br label %trace_usb_xhci_unimplemented.exit
 
 trace_usb_xhci_unimplemented.exit:                ; preds = %sw.default, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -5465,16 +5465,16 @@ if.then.i.i18:                                    ; preds = %land.lhs.true5.i.i1
   br i1 %tobool7.i.i19, label %if.then8.i.i21, label %if.else.i.i20
 
 if.then8.i.i21:                                   ; preds = %if.then.i.i18
-  %call9.i.i22 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i11, ptr noundef null) #15
-  %call10.i.i23 = tail call i32 @qemu_get_thread_id() #15
+  %call9.i.i22 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i11, ptr noundef null) #16
+  %call10.i.i23 = tail call i32 @qemu_get_thread_id() #16
   %19 = load i64, ptr %_now.i.i11, align 8
   %tv_usec.i.i24 = getelementptr inbounds i8, ptr %_now.i.i11, i64 8
   %20 = load i64, ptr %tv_usec.i.i24, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.197, i32 noundef %call10.i.i23, i64 noundef %19, i64 noundef %20, i32 noundef %conv9, i32 noundef %ret.0) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.197, i32 noundef %call10.i.i23, i64 noundef %19, i64 noundef %20, i32 noundef %conv9, i32 noundef %ret.0) #16
   br label %trace_usb_xhci_oper_read.exit
 
 if.else.i.i20:                                    ; preds = %if.then.i.i18
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.198, i32 noundef %conv9, i32 noundef %ret.0) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.198, i32 noundef %conv9, i32 noundef %ret.0) #16
   br label %trace_usb_xhci_oper_read.exit
 
 trace_usb_xhci_oper_read.exit:                    ; preds = %sw.epilog, %land.lhs.true5.i.i15, %if.then8.i.i21, %if.else.i.i20
@@ -5490,7 +5490,7 @@ entry:
   %_now.i.i.i44 = alloca %struct.timeval, align 8
   %_now.i.i.i = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %ptr, ptr noundef nonnull @.str.176, ptr noundef nonnull @.str.182, i32 noundef 30, ptr noundef nonnull @__func__.XHCI) #15
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %ptr, ptr noundef nonnull @.str.176, ptr noundef nonnull @.str.182, i32 noundef 30, ptr noundef nonnull @__func__.XHCI) #16
   %conv = trunc i64 %reg to i32
   %conv1 = trunc i64 %val to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -5513,16 +5513,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #15
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #15
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #16
   %4 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.200, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, i32 noundef %conv, i32 noundef %conv1) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.200, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, i32 noundef %conv, i32 noundef %conv1) #16
   br label %trace_usb_xhci_oper_write.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.201, i32 noundef %conv, i32 noundef %conv1) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.201, i32 noundef %conv, i32 noundef %conv1) #16
   br label %trace_usb_xhci_oper_write.exit
 
 trace_usb_xhci_oper_write.exit:                   ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -5572,16 +5572,16 @@ if.then.i.i.i:                                    ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.i.i.i, label %if.then8.i.i.i, label %if.else.i.i.i
 
 if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
-  %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #15
-  %call10.i.i.i = tail call i32 @qemu_get_thread_id() #15
+  %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #16
+  %call10.i.i.i = tail call i32 @qemu_get_thread_id() #16
   %12 = load i64, ptr %_now.i.i.i, align 8
   %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %13 = load i64, ptr %tv_usec.i.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.202, i32 noundef %call10.i.i.i, i64 noundef %12, i64 noundef %13) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.202, i32 noundef %call10.i.i.i, i64 noundef %12, i64 noundef %13) #16
   br label %xhci_run.exit
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.203) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.203) #16
   br label %xhci_run.exit
 
 xhci_run.exit:                                    ; preds = %if.then, %land.lhs.true5.i.i.i, %if.then8.i.i.i, %if.else.i.i.i
@@ -5590,7 +5590,7 @@ xhci_run.exit:                                    ; preds = %if.then, %land.lhs.
   %14 = load i32, ptr %usbsts.i, align 4
   %and.i = and i32 %14, -2
   store i32 %and.i, ptr %usbsts.i, align 4
-  %call.i43 = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #15
+  %call.i43 = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #16
   %mfindex_start.i = getelementptr inbounds i8, ptr %call.i, i64 29912
   store i64 %call.i43, ptr %mfindex_start.i, align 8
   br label %if.end11
@@ -5619,16 +5619,16 @@ if.then.i.i.i53:                                  ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.i.i.i54, label %if.then8.i.i.i56, label %if.else.i.i.i55
 
 if.then8.i.i.i56:                                 ; preds = %if.then.i.i.i53
-  %call9.i.i.i57 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i44, ptr noundef null) #15
-  %call10.i.i.i58 = tail call i32 @qemu_get_thread_id() #15
+  %call9.i.i.i57 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i44, ptr noundef null) #16
+  %call10.i.i.i58 = tail call i32 @qemu_get_thread_id() #16
   %19 = load i64, ptr %_now.i.i.i44, align 8
   %tv_usec.i.i.i59 = getelementptr inbounds i8, ptr %_now.i.i.i44, i64 8
   %20 = load i64, ptr %tv_usec.i.i.i59, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.204, i32 noundef %call10.i.i.i58, i64 noundef %19, i64 noundef %20) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.204, i32 noundef %call10.i.i.i58, i64 noundef %19, i64 noundef %20) #16
   br label %xhci_stop.exit
 
 if.else.i.i.i55:                                  ; preds = %if.then.i.i.i53
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.205) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.205) #16
   br label %xhci_stop.exit
 
 xhci_stop.exit:                                   ; preds = %if.then10, %land.lhs.true5.i.i.i50, %if.then8.i.i.i56, %if.else.i.i.i55
@@ -5676,7 +5676,7 @@ if.end21:                                         ; preds = %if.then19, %if.end1
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end21
-  %call.i61 = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #15
+  %call.i61 = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #16
   %mfindex_start.i62 = getelementptr inbounds i8, ptr %call.i, i64 29912
   %25 = load i64, ptr %mfindex_start.i62, align 8
   %sub.i = sub i64 %call.i61, %25
@@ -5687,13 +5687,13 @@ if.then.i:                                        ; preds = %if.end21
   %26 = load ptr, ptr %mfwrap_timer.i, align 16
   %mul.i = mul nuw nsw i64 %sub2.i, 125000
   %add.i = add i64 %mul.i, %call.i61
-  tail call void @timer_mod(ptr noundef %26, i64 noundef %add.i) #15
+  tail call void @timer_mod(ptr noundef %26, i64 noundef %add.i) #16
   br label %xhci_mfwrap_update.exit
 
 if.else.i:                                        ; preds = %if.end21
   %mfwrap_timer4.i = getelementptr inbounds i8, ptr %call.i, i64 29920
   %27 = load ptr, ptr %mfwrap_timer4.i, align 16
-  tail call void @timer_del(ptr noundef %27) #15
+  tail call void @timer_del(ptr noundef %27) #16
   br label %xhci_mfwrap_update.exit
 
 xhci_mfwrap_update.exit:                          ; preds = %if.then.i, %if.else.i
@@ -5702,7 +5702,7 @@ xhci_mfwrap_update.exit:                          ; preds = %if.then.i, %if.else
   br i1 %tobool26.not, label %if.end29, label %if.then27
 
 if.then27:                                        ; preds = %xhci_mfwrap_update.exit
-  %call.i63 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #15
+  %call.i63 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #16
   tail call void @xhci_reset(ptr noundef %call.i63)
   br label %if.end29
 
@@ -5727,7 +5727,7 @@ if.end.i:                                         ; preds = %land.lhs.true6.i, %
   br i1 %tobool10.not.i, label %if.end21.i, label %if.then11.i
 
 if.then11.i:                                      ; preds = %if.end.i
-  %call.i65 = tail call zeroext i1 %31(ptr noundef nonnull %call.i, i32 noundef 0, i1 noundef zeroext %tobool13.i) #15
+  %call.i65 = tail call zeroext i1 %31(ptr noundef nonnull %call.i, i32 noundef 0, i1 noundef zeroext %tobool13.i) #16
   br i1 %call.i65, label %if.then14.i, label %if.end21.i
 
 if.then14.i:                                      ; preds = %if.then11.i
@@ -5746,7 +5746,7 @@ if.then23.i:                                      ; preds = %if.end21.i
   %34 = load i32, ptr %intr.i, align 8
   %and28.i = and i32 %34, 2
   %tobool29.i = icmp ne i32 %and28.i, 0
-  tail call void %33(ptr noundef nonnull %call.i, i32 noundef 0, i1 noundef zeroext %tobool29.i) #15
+  tail call void %33(ptr noundef nonnull %call.i, i32 noundef 0, i1 noundef zeroext %tobool29.i) #16
   br label %sw.epilog
 
 sw.bb30:                                          ; preds = %trace_usb_xhci_oper_write.exit
@@ -5777,7 +5777,7 @@ if.end.i70:                                       ; preds = %land.lhs.true6.i85,
   br i1 %tobool10.not.i73, label %if.end21.i76, label %if.then11.i74
 
 if.then11.i74:                                    ; preds = %if.end.i70
-  %call.i75 = tail call zeroext i1 %41(ptr noundef nonnull %call.i, i32 noundef 0, i1 noundef zeroext %tobool13.i71) #15
+  %call.i75 = tail call zeroext i1 %41(ptr noundef nonnull %call.i, i32 noundef 0, i1 noundef zeroext %tobool13.i71) #16
   br i1 %call.i75, label %if.then14.i83, label %if.end21.i76
 
 if.then14.i83:                                    ; preds = %if.then11.i74
@@ -5796,7 +5796,7 @@ if.then23.i79:                                    ; preds = %if.end21.i76
   %44 = load i32, ptr %intr.i68, align 8
   %and28.i81 = and i32 %44, 2
   %tobool29.i82 = icmp ne i32 %and28.i81, 0
-  tail call void %43(ptr noundef nonnull %call.i, i32 noundef 0, i1 noundef zeroext %tobool29.i82) #15
+  tail call void %43(ptr noundef nonnull %call.i, i32 noundef 0, i1 noundef zeroext %tobool29.i82) #16
   br label %sw.epilog
 
 sw.bb36:                                          ; preds = %trace_usb_xhci_oper_write.exit
@@ -5888,16 +5888,16 @@ if.then.i.i99:                                    ; preds = %land.lhs.true5.i.i9
   br i1 %tobool7.i.i100, label %if.then8.i.i102, label %if.else.i.i101
 
 if.then8.i.i102:                                  ; preds = %if.then.i.i99
-  %call9.i.i103 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i92, ptr noundef null) #15
-  %call10.i.i104 = tail call i32 @qemu_get_thread_id() #15
+  %call9.i.i103 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i92, ptr noundef null) #16
+  %call10.i.i104 = tail call i32 @qemu_get_thread_id() #16
   %53 = load i64, ptr %_now.i.i92, align 8
   %tv_usec.i.i105 = getelementptr inbounds i8, ptr %_now.i.i92, i64 8
   %54 = load i64, ptr %tv_usec.i.i105, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.133, i32 noundef %call10.i.i104, i64 noundef %53, i64 noundef %54, ptr noundef nonnull @.str.199, i32 noundef %conv) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.133, i32 noundef %call10.i.i104, i64 noundef %53, i64 noundef %54, ptr noundef nonnull @.str.199, i32 noundef %conv) #16
   br label %trace_usb_xhci_unimplemented.exit
 
 if.else.i.i101:                                   ; preds = %if.then.i.i99
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.134, ptr noundef nonnull @.str.199, i32 noundef %conv) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.134, ptr noundef nonnull @.str.199, i32 noundef %conv) #16
   br label %trace_usb_xhci_unimplemented.exit
 
 trace_usb_xhci_unimplemented.exit:                ; preds = %sw.default, %land.lhs.true5.i.i96, %if.then8.i.i102, %if.else.i.i101
@@ -5921,7 +5921,7 @@ if.then:                                          ; preds = %entry
   br i1 %cond, label %sw.bb, label %sw.default
 
 sw.bb:                                            ; preds = %if.then
-  %call.i = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #15
+  %call.i = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #16
   %mfindex_start.i = getelementptr inbounds i8, ptr %ptr, i64 29912
   %0 = load i64, ptr %mfindex_start.i, align 8
   %sub.i = sub i64 %call.i, %0
@@ -5952,16 +5952,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #15
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #15
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #16
   %6 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.133, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef nonnull @.str.206, i32 noundef %conv1) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.133, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef nonnull @.str.206, i32 noundef %conv1) #16
   br label %trace_usb_xhci_unimplemented.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.134, ptr noundef nonnull @.str.206, i32 noundef %conv1) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.134, ptr noundef nonnull @.str.206, i32 noundef %conv1) #16
   br label %trace_usb_xhci_unimplemented.exit
 
 trace_usb_xhci_unimplemented.exit:                ; preds = %sw.default, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -6043,16 +6043,16 @@ if.then.i.i22:                                    ; preds = %land.lhs.true5.i.i1
   br i1 %tobool7.i.i23, label %if.then8.i.i25, label %if.else.i.i24
 
 if.then8.i.i25:                                   ; preds = %if.then.i.i22
-  %call9.i.i26 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i15, ptr noundef null) #15
-  %call10.i.i27 = tail call i32 @qemu_get_thread_id() #15
+  %call9.i.i26 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i15, ptr noundef null) #16
+  %call10.i.i27 = tail call i32 @qemu_get_thread_id() #16
   %20 = load i64, ptr %_now.i.i15, align 8
   %tv_usec.i.i28 = getelementptr inbounds i8, ptr %_now.i.i15, i64 8
   %21 = load i64, ptr %tv_usec.i.i28, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.207, i32 noundef %call10.i.i27, i64 noundef %20, i64 noundef %21, i32 noundef %conv13, i32 noundef %ret.0) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.207, i32 noundef %call10.i.i27, i64 noundef %20, i64 noundef %21, i32 noundef %conv13, i32 noundef %ret.0) #16
   br label %trace_usb_xhci_runtime_read.exit
 
 if.else.i.i24:                                    ; preds = %if.then.i.i22
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.208, i32 noundef %conv13, i32 noundef %ret.0) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.208, i32 noundef %conv13, i32 noundef %ret.0) #16
   br label %trace_usb_xhci_runtime_read.exit
 
 trace_usb_xhci_runtime_read.exit:                 ; preds = %if.end, %land.lhs.true5.i.i19, %if.then8.i.i25, %if.else.i.i24
@@ -6090,16 +6090,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #15
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #15
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #16
   %4 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.210, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, i32 noundef %conv, i32 noundef %conv1) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.210, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, i32 noundef %conv, i32 noundef %conv1) #16
   br label %trace_usb_xhci_runtime_write.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.211, i32 noundef %conv, i32 noundef %conv1) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.211, i32 noundef %conv, i32 noundef %conv1) #16
   br label %trace_usb_xhci_runtime_write.exit
 
 trace_usb_xhci_runtime_write.exit:                ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -6128,16 +6128,16 @@ if.then.i.i53:                                    ; preds = %land.lhs.true5.i.i5
   br i1 %tobool7.i.i54, label %if.then8.i.i56, label %if.else.i.i55
 
 if.then8.i.i56:                                   ; preds = %if.then.i.i53
-  %call9.i.i57 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i46, ptr noundef null) #15
-  %call10.i.i58 = tail call i32 @qemu_get_thread_id() #15
+  %call9.i.i57 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i46, ptr noundef null) #16
+  %call10.i.i58 = tail call i32 @qemu_get_thread_id() #16
   %10 = load i64, ptr %_now.i.i46, align 8
   %tv_usec.i.i59 = getelementptr inbounds i8, ptr %_now.i.i46, i64 8
   %11 = load i64, ptr %tv_usec.i.i59, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.133, i32 noundef %call10.i.i58, i64 noundef %10, i64 noundef %11, ptr noundef nonnull @.str.209, i32 noundef %conv) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.133, i32 noundef %call10.i.i58, i64 noundef %10, i64 noundef %11, ptr noundef nonnull @.str.209, i32 noundef %conv) #16
   br label %trace_usb_xhci_unimplemented.exit
 
 if.else.i.i55:                                    ; preds = %if.then.i.i53
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.134, ptr noundef nonnull @.str.209, i32 noundef %conv) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.134, ptr noundef nonnull @.str.209, i32 noundef %conv) #16
   br label %trace_usb_xhci_unimplemented.exit
 
 trace_usb_xhci_unimplemented.exit:                ; preds = %if.then, %land.lhs.true5.i.i50, %if.then8.i.i56, %if.else.i.i55
@@ -6198,7 +6198,7 @@ if.end.i:                                         ; preds = %land.lhs.true6.i, %
   br i1 %tobool10.not.i, label %if.end21.i, label %if.then11.i
 
 if.then11.i:                                      ; preds = %if.end.i
-  %call.i = tail call zeroext i1 %17(ptr noundef nonnull %ptr, i32 noundef 0, i1 noundef zeroext %tobool13.i) #15
+  %call.i = tail call zeroext i1 %17(ptr noundef nonnull %ptr, i32 noundef 0, i1 noundef zeroext %tobool13.i) #16
   br i1 %call.i, label %if.then14.i, label %if.end21.i
 
 if.then14.i:                                      ; preds = %if.then11.i
@@ -6217,7 +6217,7 @@ if.then23.i:                                      ; preds = %if.end21.i
   %20 = load i32, ptr %arrayidx, align 8
   %and28.i = and i32 %20, 2
   %tobool29.i = icmp ne i32 %and28.i, 0
-  tail call void %19(ptr noundef nonnull %ptr, i32 noundef %conv4, i1 noundef zeroext %tobool29.i) #15
+  tail call void %19(ptr noundef nonnull %ptr, i32 noundef %conv4, i1 noundef zeroext %tobool29.i) #16
   br label %sw.epilog
 
 sw.bb16:                                          ; preds = %if.end
@@ -6285,9 +6285,9 @@ do.end.i:                                         ; preds = %if.end.i62
 if.end6.i:                                        ; preds = %if.end.i62
   %as.i = getelementptr inbounds i8, ptr %ptr, i64 632
   %25 = load ptr, ptr %as.i, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !5
   fence seq_cst
-  %call.i.i.i.i = call i32 @address_space_rw(ptr noundef %25, i64 noundef %or.i.i, i32 1, ptr noundef nonnull %seg.i, i64 noundef 16, i1 noundef zeroext false) #15
+  %call.i.i.i.i = call i32 @address_space_rw(ptr noundef %25, i64 noundef %or.i.i, i32 1, ptr noundef nonnull %seg.i, i64 noundef 16, i1 noundef zeroext false) #16
   %cmp35.not.i = icmp eq i32 %call.i.i.i.i, 0
   br i1 %cmp35.not.i, label %if.end43.i, label %do.body37.i
 
@@ -6298,7 +6298,7 @@ do.body37.i:                                      ; preds = %if.end6.i
   br i1 %cmp.i.not.i, label %do.end42.i, label %if.then40.i
 
 if.then40.i:                                      ; preds = %do.body37.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__.xhci_er_reset) #15
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__.xhci_er_reset) #16
   br label %do.end42.i
 
 do.end42.i:                                       ; preds = %if.then40.i, %do.body37.i
@@ -6413,16 +6413,16 @@ if.then.i.i71:                                    ; preds = %land.lhs.true5.i.i6
   br i1 %tobool7.i.i72, label %if.then8.i.i74, label %if.else.i.i73
 
 if.then8.i.i74:                                   ; preds = %if.then.i.i71
-  %call9.i.i75 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i64, ptr noundef null) #15
-  %call10.i.i76 = tail call i32 @qemu_get_thread_id() #15
+  %call9.i.i75 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i64, ptr noundef null) #16
+  %call10.i.i76 = tail call i32 @qemu_get_thread_id() #16
   %42 = load i64, ptr %_now.i.i64, align 8
   %tv_usec.i.i77 = getelementptr inbounds i8, ptr %_now.i.i64, i64 8
   %43 = load i64, ptr %tv_usec.i.i77, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.133, i32 noundef %call10.i.i76, i64 noundef %42, i64 noundef %43, ptr noundef nonnull @.str.199, i32 noundef %conv) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.133, i32 noundef %call10.i.i76, i64 noundef %42, i64 noundef %43, ptr noundef nonnull @.str.199, i32 noundef %conv) #16
   br label %trace_usb_xhci_unimplemented.exit78
 
 if.else.i.i73:                                    ; preds = %if.then.i.i71
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.134, ptr noundef nonnull @.str.199, i32 noundef %conv) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.134, ptr noundef nonnull @.str.199, i32 noundef %conv) #16
   br label %trace_usb_xhci_unimplemented.exit78
 
 trace_usb_xhci_unimplemented.exit78:              ; preds = %sw.default, %land.lhs.true5.i.i68, %if.then8.i.i74, %if.else.i.i73
@@ -6458,16 +6458,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #15
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #15
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #16
   %4 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.212, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, i32 noundef %conv, i32 noundef 0) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.212, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, i32 noundef %conv, i32 noundef 0) #16
   br label %trace_usb_xhci_doorbell_read.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.213, i32 noundef %conv, i32 noundef 0) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.213, i32 noundef %conv, i32 noundef 0) #16
   br label %trace_usb_xhci_doorbell_read.exit
 
 trace_usb_xhci_doorbell_read.exit:                ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -6543,16 +6543,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #15
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #15
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #16
   %4 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.214, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, i32 noundef %conv, i32 noundef %conv1) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.214, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, i32 noundef %conv, i32 noundef %conv1) #16
   br label %trace_usb_xhci_doorbell_write.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.215, i32 noundef %conv, i32 noundef %conv1) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.215, i32 noundef %conv, i32 noundef %conv1) #16
   br label %trace_usb_xhci_doorbell_write.exit
 
 trace_usb_xhci_doorbell_write.exit:               ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -6692,15 +6692,15 @@ if.then.i.i.i.i:                                  ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.i.i.i.i, label %if.then8.i.i.i.i, label %if.else.i.i.i.i
 
 if.then8.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
-  %call9.i.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i.i, ptr noundef null) #15
-  %call10.i.i.i.i = call i32 @qemu_get_thread_id() #15
+  %call9.i.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i.i, ptr noundef null) #16
+  %call10.i.i.i.i = call i32 @qemu_get_thread_id() #16
   %17 = load i64, ptr %_now.i.i.i.i, align 8
   %18 = load i64, ptr %tv_usec.i.i.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.218, i32 noundef %call10.i.i.i.i, i64 noundef %17, i64 noundef %18, i32 noundef %add.i) #15
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.218, i32 noundef %call10.i.i.i.i, i64 noundef %17, i64 noundef %18, i32 noundef %add.i) #16
   br label %land.lhs.true.i.i
 
 if.else.i.i.i.i:                                  ; preds = %if.then.i.i.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.219, i32 noundef %add.i) #15
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.219, i32 noundef %add.i) #16
   br label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.else.i.i.i.i, %if.then8.i.i.i.i, %land.lhs.true5.i.i.i.i, %if.else.i
@@ -6710,7 +6710,7 @@ land.lhs.true.i.i:                                ; preds = %if.else.i.i.i.i, %i
   br i1 %cmp1.not.i.not.i, label %xhci_enable_slot.exit.i, label %if.else.i.i19
 
 if.else.i.i19:                                    ; preds = %land.lhs.true.i.i
-  call void @__assert_fail(ptr noundef nonnull @.str.186, ptr noundef nonnull @.str.16, i32 noundef 2037, ptr noundef nonnull @__PRETTY_FUNCTION__.xhci_enable_slot) #16
+  call void @__assert_fail(ptr noundef nonnull @.str.186, ptr noundef nonnull @.str.16, i32 noundef 2037, ptr noundef nonnull @__PRETTY_FUNCTION__.xhci_enable_slot) #17
   unreachable
 
 xhci_enable_slot.exit.i:                          ; preds = %land.lhs.true.i.i
@@ -6790,14 +6790,14 @@ if.end.i.i:                                       ; preds = %if.else.i69.i
   %mul.i.i = shl nuw nsw i32 %shr.i64.i, 3
   %conv.i.i = zext nneg i32 %mul.i.i to i64
   %add.i.i = add i64 %25, %conv.i.i
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !5
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !5
   fence seq_cst
-  %call.i.i.i.i.i.i = call i32 @address_space_rw(ptr noundef %26, i64 noundef %add.i.i, i32 1, ptr noundef nonnull %poctx.i.i, i64 noundef 8, i1 noundef zeroext false) #15
+  %call.i.i.i.i.i.i = call i32 @address_space_rw(ptr noundef %26, i64 noundef %add.i.i, i32 1, ptr noundef nonnull %poctx.i.i, i64 noundef 8, i1 noundef zeroext false) #16
   %27 = load i64, ptr %poctx.i.i, align 8
   %28 = load ptr, ptr %as.i487.i, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !5
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !5
   fence seq_cst
-  %call.i.i.i.i52.i.i = call i32 @address_space_rw(ptr noundef %28, i64 noundef %24, i32 1, ptr noundef nonnull %ictl_ctx.i.i, i64 noundef 8, i1 noundef zeroext false) #15
+  %call.i.i.i.i52.i.i = call i32 @address_space_rw(ptr noundef %28, i64 noundef %24, i32 1, ptr noundef nonnull %ictl_ctx.i.i, i64 noundef 8, i1 noundef zeroext false) #16
   %cmp28.not.i.i.i = icmp eq i32 %call.i.i.i.i52.i.i, 0
   br i1 %cmp28.not.i.i.i, label %xhci_dma_read_u32s.exit.i.i, label %do.body.i.i.i
 
@@ -6808,7 +6808,7 @@ do.body.i.i.i:                                    ; preds = %if.end.i.i
   br i1 %cmp.i.not.i.i.i, label %xhci_dma_read_u32s.exit.thread.i.i, label %if.then32.i.i.i
 
 if.then32.i.i.i:                                  ; preds = %do.body.i.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__.xhci_dma_read_u32s) #15
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__.xhci_dma_read_u32s) #16
   br label %xhci_dma_read_u32s.exit.thread.i.i
 
 xhci_dma_read_u32s.exit.thread.i.i:               ; preds = %if.then32.i.i.i, %do.body.i.i.i
@@ -6828,9 +6828,9 @@ xhci_dma_read_u32s.exit.i.i:                      ; preds = %if.end.i.i
 if.end42.i.i:                                     ; preds = %xhci_dma_read_u32s.exit.i.i
   %add43.i.i = add i64 %24, 32
   %31 = load ptr, ptr %as.i487.i, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !5
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !5
   fence seq_cst
-  %call.i.i.i.i54.i.i = call i32 @address_space_rw(ptr noundef %31, i64 noundef %add43.i.i, i32 1, ptr noundef nonnull %slot_ctx.i.i, i64 noundef 16, i1 noundef zeroext false) #15
+  %call.i.i.i.i54.i.i = call i32 @address_space_rw(ptr noundef %31, i64 noundef %add43.i.i, i32 1, ptr noundef nonnull %slot_ctx.i.i, i64 noundef 16, i1 noundef zeroext false) #16
   %cmp28.not.i55.i.i = icmp eq i32 %call.i.i.i.i54.i.i, 0
   br i1 %cmp28.not.i55.i.i, label %xhci_dma_read_u32s.exit63.i.i, label %do.body.i56.i.i
 
@@ -6841,7 +6841,7 @@ do.body.i56.i.i:                                  ; preds = %if.end42.i.i
   br i1 %cmp.i.not.i58.i.i, label %do.end.i60.i.i, label %if.then32.i59.i.i
 
 if.then32.i59.i.i:                                ; preds = %do.body.i56.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__.xhci_dma_read_u32s) #15
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__.xhci_dma_read_u32s) #16
   br label %do.end.i60.i.i
 
 do.end.i60.i.i:                                   ; preds = %if.then32.i59.i.i, %do.body.i56.i.i
@@ -6854,9 +6854,9 @@ do.end.i60.i.i:                                   ; preds = %if.then32.i59.i.i, 
 xhci_dma_read_u32s.exit63.i.i:                    ; preds = %do.end.i60.i.i, %if.end42.i.i
   %add45.i.i = add i64 %24, 64
   %34 = load ptr, ptr %as.i487.i, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !5
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !5
   fence seq_cst
-  %call.i.i.i.i65.i.i = call i32 @address_space_rw(ptr noundef %34, i64 noundef %add45.i.i, i32 1, ptr noundef nonnull %ep0_ctx.i.i, i64 noundef 20, i1 noundef zeroext false) #15
+  %call.i.i.i.i65.i.i = call i32 @address_space_rw(ptr noundef %34, i64 noundef %add45.i.i, i32 1, ptr noundef nonnull %ep0_ctx.i.i, i64 noundef 20, i1 noundef zeroext false) #16
   %cmp28.not.i66.i.i = icmp eq i32 %call.i.i.i.i65.i.i, 0
   br i1 %cmp28.not.i66.i.i, label %xhci_dma_read_u32s.exit74.i.i, label %do.body.i67.i.i
 
@@ -6867,7 +6867,7 @@ do.body.i67.i.i:                                  ; preds = %xhci_dma_read_u32s.
   br i1 %cmp.i.not.i69.i.i, label %do.end.i71.i.i, label %if.then32.i70.i.i
 
 if.then32.i70.i.i:                                ; preds = %do.body.i67.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__.xhci_dma_read_u32s) #15
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__.xhci_dma_read_u32s) #16
   br label %do.end.i71.i.i
 
 do.end.i71.i.i:                                   ; preds = %if.then32.i70.i.i, %do.body.i67.i.i
@@ -6904,15 +6904,15 @@ if.then.i.i.i93.i:                                ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.i.i.i94.i, label %if.then8.i.i.i96.i, label %if.else.i.i.i95.i
 
 if.then8.i.i.i96.i:                               ; preds = %if.then.i.i.i93.i
-  %call9.i.i.i97.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i80.i, ptr noundef null) #15
-  %call10.i.i.i98.i = call i32 @qemu_get_thread_id() #15
+  %call9.i.i.i97.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i80.i, ptr noundef null) #16
+  %call10.i.i.i98.i = call i32 @qemu_get_thread_id() #16
   %41 = load i64, ptr %_now.i.i.i80.i, align 8
   %42 = load i64, ptr %tv_usec.i.i.i99.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.226, i32 noundef %call10.i.i.i98.i, i64 noundef %41, i64 noundef %42, i32 noundef %shr.i64.i, ptr noundef nonnull %path.i.i) #15
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.226, i32 noundef %call10.i.i.i98.i, i64 noundef %41, i64 noundef %42, i32 noundef %shr.i64.i, ptr noundef nonnull %path.i.i) #16
   br label %trace_usb_xhci_slot_address.exit.i.i
 
 if.else.i.i.i95.i:                                ; preds = %if.then.i.i.i93.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.227, i32 noundef %shr.i64.i, ptr noundef nonnull %path.i.i) #15
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.227, i32 noundef %shr.i64.i, ptr noundef nonnull %path.i.i) #16
   br label %trace_usb_xhci_slot_address.exit.i.i
 
 trace_usb_xhci_slot_address.exit.i.i:             ; preds = %if.else.i.i.i95.i, %if.then8.i.i.i96.i, %land.lhs.true5.i.i.i90.i, %if.end58.i.i
@@ -6959,7 +6959,7 @@ for.end.i.i:                                      ; preds = %for.inc.i.i, %for.c
   %conv88.i.i = trunc nuw nsw i32 %shr.i89.i to i16
   %intr.i.i = getelementptr inbounds i8, ptr %arrayidx.i73.i, i64 2
   store i16 %conv88.i.i, ptr %intr.i.i, align 2
-  call void @usb_device_reset(ptr noundef nonnull %43) #15
+  call void @usb_device_reset(ptr noundef nonnull %43) #16
   br i1 %tobool27.not.i, label %if.else92.i.i, label %if.then90.i.i
 
 if.then90.i.i:                                    ; preds = %for.end.i.i
@@ -6970,20 +6970,20 @@ if.else92.i.i:                                    ; preds = %for.end.i.i
   %or.i.i = or disjoint i32 %shr.i64.i, 268435456
   store i32 %or.i.i, ptr %arrayidx91.i.i, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %p.i.i, i8 0, i64 136, i1 false)
-  call void @usb_packet_addbuf(ptr noundef nonnull %p.i.i, ptr noundef nonnull %buf.i.i, i64 noundef 1) #15
-  %call95.i.i = call ptr @usb_ep_get(ptr noundef nonnull %43, i32 noundef 225, i32 noundef 0) #15
-  call void @usb_packet_setup(ptr noundef nonnull %p.i.i, i32 noundef 225, ptr noundef %call95.i.i, i32 noundef 0, i64 noundef 0, i1 noundef zeroext false, i1 noundef zeroext false) #15
-  call void @usb_device_handle_control(ptr noundef nonnull %43, ptr noundef nonnull %p.i.i, i32 noundef 5, i32 noundef %shr.i64.i, i32 noundef 0, i32 noundef 0, ptr noundef null) #15
+  call void @usb_packet_addbuf(ptr noundef nonnull %p.i.i, ptr noundef nonnull %buf.i.i, i64 noundef 1) #16
+  %call95.i.i = call ptr @usb_ep_get(ptr noundef nonnull %43, i32 noundef 225, i32 noundef 0) #16
+  call void @usb_packet_setup(ptr noundef nonnull %p.i.i, i32 noundef 225, ptr noundef %call95.i.i, i32 noundef 0, i64 noundef 0, i1 noundef zeroext false, i1 noundef zeroext false) #16
+  call void @usb_device_handle_control(ptr noundef nonnull %43, ptr noundef nonnull %p.i.i, i32 noundef 5, i32 noundef %shr.i64.i, i32 noundef 0, i32 noundef 0, ptr noundef null) #16
   %48 = load i32, ptr %status.i.i, align 4
   %cmp96.not.i.i = icmp eq i32 %48, -6
   br i1 %cmp96.not.i.i, label %if.else99.i.i, label %if.end100.i.i
 
 if.else99.i.i:                                    ; preds = %if.else92.i.i
-  call void @__assert_fail(ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.16, i32 noundef 2180, ptr noundef nonnull @__PRETTY_FUNCTION__.xhci_address_slot) #16
+  call void @__assert_fail(ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.16, i32 noundef 2180, ptr noundef nonnull @__PRETTY_FUNCTION__.xhci_address_slot) #17
   unreachable
 
 if.end100.i.i:                                    ; preds = %if.else92.i.i
-  call void @usb_packet_cleanup(ptr noundef nonnull %p.i.i) #15
+  call void @usb_packet_cleanup(ptr noundef nonnull %p.i.i) #16
   br label %if.end101.i.i
 
 if.end101.i.i:                                    ; preds = %if.end100.i.i, %if.then90.i.i
@@ -6992,9 +6992,9 @@ if.end101.i.i:                                    ; preds = %if.end100.i.i, %if.
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %tmp.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %tmp.i.i.i, ptr noundef nonnull readonly align 16 dereferenceable(16) %slot_ctx.i.i, i64 16, i1 false)
   %49 = load ptr, ptr %as.i487.i, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !5
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !5
   fence seq_cst
-  %call.i.i.i.i76.i.i = call i32 @address_space_rw(ptr noundef %49, i64 noundef %27, i32 1, ptr noundef nonnull %tmp.i.i.i, i64 noundef 16, i1 noundef zeroext true) #15
+  %call.i.i.i.i76.i.i = call i32 @address_space_rw(ptr noundef %49, i64 noundef %27, i32 1, ptr noundef nonnull %tmp.i.i.i, i64 noundef 16, i1 noundef zeroext true) #16
   %cmp40.not.i.i.i = icmp eq i32 %call.i.i.i.i76.i.i, 0
   br i1 %cmp40.not.i.i.i, label %xhci_dma_write_u32s.exit.i.i, label %do.body.i77.i.i
 
@@ -7005,7 +7005,7 @@ do.body.i77.i.i:                                  ; preds = %if.end101.i.i
   br i1 %cmp.i.not.i79.i.i, label %do.end.i80.i.i, label %if.then46.i.i.i
 
 if.then46.i.i.i:                                  ; preds = %do.body.i77.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__.xhci_dma_write_u32s) #15
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__.xhci_dma_write_u32s) #16
   br label %do.end.i80.i.i
 
 do.end.i80.i.i:                                   ; preds = %if.then46.i.i.i, %do.body.i77.i.i
@@ -7019,9 +7019,9 @@ xhci_dma_write_u32s.exit.i.i:                     ; preds = %do.end.i80.i.i, %if
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %tmp.i83.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %tmp.i83.i.i, ptr noundef nonnull readonly align 16 dereferenceable(20) %ep0_ctx.i.i, i64 20, i1 false)
   %52 = load ptr, ptr %as.i487.i, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !5
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !5
   fence seq_cst
-  %call.i.i.i.i85.i.i = call i32 @address_space_rw(ptr noundef %52, i64 noundef %add102.i.i, i32 1, ptr noundef nonnull %tmp.i83.i.i, i64 noundef 20, i1 noundef zeroext true) #15
+  %call.i.i.i.i85.i.i = call i32 @address_space_rw(ptr noundef %52, i64 noundef %add102.i.i, i32 1, ptr noundef nonnull %tmp.i83.i.i, i64 noundef 20, i1 noundef zeroext true) #16
   %cmp40.not.i86.i.i = icmp eq i32 %call.i.i.i.i85.i.i, 0
   br i1 %cmp40.not.i86.i.i, label %xhci_dma_write_u32s.exit94.i.i, label %do.body.i87.i.i
 
@@ -7032,7 +7032,7 @@ do.body.i87.i.i:                                  ; preds = %xhci_dma_write_u32s
   br i1 %cmp.i.not.i89.i.i, label %do.end.i91.i.i, label %if.then46.i90.i.i
 
 if.then46.i90.i.i:                                ; preds = %do.body.i87.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__.xhci_dma_write_u32s) #15
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__.xhci_dma_write_u32s) #16
   br label %do.end.i91.i.i
 
 do.end.i91.i.i:                                   ; preds = %if.then46.i90.i.i, %do.body.i87.i.i
@@ -7110,15 +7110,15 @@ if.then.i.i.i170.i:                               ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.i.i.i171.i, label %if.then8.i.i.i173.i, label %if.else.i.i.i172.i
 
 if.then8.i.i.i173.i:                              ; preds = %if.then.i.i.i170.i
-  %call9.i.i.i174.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i118.i, ptr noundef null) #15
-  %call10.i.i.i175.i = call i32 @qemu_get_thread_id() #15
+  %call9.i.i.i174.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i118.i, ptr noundef null) #16
+  %call10.i.i.i175.i = call i32 @qemu_get_thread_id() #16
   %62 = load i64, ptr %_now.i.i.i118.i, align 8
   %63 = load i64, ptr %tv_usec.i.i.i176.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.230, i32 noundef %call10.i.i.i175.i, i64 noundef %62, i64 noundef %63, i32 noundef %shr.i101.i) #15
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.230, i32 noundef %call10.i.i.i175.i, i64 noundef %62, i64 noundef %63, i32 noundef %shr.i101.i) #16
   br label %trace_usb_xhci_slot_configure.exit.i.i
 
 if.else.i.i.i172.i:                               ; preds = %if.then.i.i.i170.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.231, i32 noundef %shr.i101.i) #15
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.231, i32 noundef %shr.i101.i) #16
   br label %trace_usb_xhci_slot_configure.exit.i.i
 
 trace_usb_xhci_slot_configure.exit.i.i:           ; preds = %if.else.i.i.i172.i, %if.then8.i.i.i173.i, %land.lhs.true5.i.i.i167.i, %if.then34.i
@@ -7128,7 +7128,7 @@ trace_usb_xhci_slot_configure.exit.i.i:           ; preds = %if.else.i.i.i172.i,
   br i1 %cmp1.not.i125.i, label %if.else.i166.i, label %if.end.i126.i
 
 if.else.i166.i:                                   ; preds = %trace_usb_xhci_slot_configure.exit.i.i
-  call void @__assert_fail(ptr noundef nonnull @.str.186, ptr noundef nonnull @.str.16, i32 noundef 2211, ptr noundef nonnull @__PRETTY_FUNCTION__.xhci_configure_slot) #16
+  call void @__assert_fail(ptr noundef nonnull @.str.186, ptr noundef nonnull @.str.16, i32 noundef 2211, ptr noundef nonnull @__PRETTY_FUNCTION__.xhci_configure_slot) #17
   unreachable
 
 if.end.i126.i:                                    ; preds = %trace_usb_xhci_slot_configure.exit.i.i
@@ -7160,9 +7160,9 @@ for.inc.i151.i:                                   ; preds = %if.then14.i.i, %for
 
 for.end.i152.i:                                   ; preds = %for.inc.i151.i
   %69 = load ptr, ptr %as.i487.i, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !5
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !5
   fence seq_cst
-  %call.i.i.i.i.i153.i = call i32 @address_space_rw(ptr noundef %69, i64 noundef %65, i32 1, ptr noundef nonnull %slot_ctx.i120.i, i64 noundef 16, i1 noundef zeroext false) #15
+  %call.i.i.i.i.i153.i = call i32 @address_space_rw(ptr noundef %69, i64 noundef %65, i32 1, ptr noundef nonnull %slot_ctx.i120.i, i64 noundef 16, i1 noundef zeroext false) #16
   %cmp28.not.i.i154.i = icmp eq i32 %call.i.i.i.i.i153.i, 0
   br i1 %cmp28.not.i.i154.i, label %for.end.xhci_dma_read_u32s.exit_crit_edge.i.i, label %do.body.i.i155.i
 
@@ -7179,7 +7179,7 @@ do.body.i.i155.i:                                 ; preds = %for.end.i152.i
   br i1 %cmp.i.not.i.i157.i, label %do.end.i.i.i, label %if.then32.i.i158.i
 
 if.then32.i.i158.i:                               ; preds = %do.body.i.i155.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__.xhci_dma_read_u32s) #15
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__.xhci_dma_read_u32s) #16
   br label %do.end.i.i.i
 
 do.end.i.i.i:                                     ; preds = %if.then32.i.i158.i, %do.body.i.i155.i
@@ -7195,9 +7195,9 @@ xhci_dma_read_u32s.exit.i161.i:                   ; preds = %do.end.i.i.i, %for.
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %tmp.i.i117.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %tmp.i.i117.i, ptr noundef nonnull readonly align 16 dereferenceable(16) %slot_ctx.i120.i, i64 16, i1 false)
   %74 = load ptr, ptr %as.i487.i, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !5
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !5
   fence seq_cst
-  %call.i.i.i.i57.i.i = call i32 @address_space_rw(ptr noundef %74, i64 noundef %65, i32 1, ptr noundef nonnull %tmp.i.i117.i, i64 noundef 16, i1 noundef zeroext true) #15
+  %call.i.i.i.i57.i.i = call i32 @address_space_rw(ptr noundef %74, i64 noundef %65, i32 1, ptr noundef nonnull %tmp.i.i117.i, i64 noundef 16, i1 noundef zeroext true) #16
   %cmp40.not.i.i163.i = icmp eq i32 %call.i.i.i.i57.i.i, 0
   br i1 %cmp40.not.i.i163.i, label %xhci_dma_write_u32s.exit.i165.i, label %do.body.i58.i.i
 
@@ -7208,7 +7208,7 @@ do.body.i58.i.i:                                  ; preds = %xhci_dma_read_u32s.
   br i1 %cmp.i.not.i60.i.i, label %do.end.i61.i.i, label %if.then46.i.i164.i
 
 if.then46.i.i164.i:                               ; preds = %do.body.i58.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__.xhci_dma_write_u32s) #15
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__.xhci_dma_write_u32s) #16
   br label %do.end.i61.i.i
 
 do.end.i61.i.i:                                   ; preds = %if.then46.i.i164.i, %do.body.i58.i.i
@@ -7223,9 +7223,9 @@ xhci_dma_write_u32s.exit.i165.i:                  ; preds = %do.end.i61.i.i, %xh
 
 if.end22.i.i:                                     ; preds = %if.end.i126.i
   %77 = load ptr, ptr %as.i487.i, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !5
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !5
   fence seq_cst
-  %call.i.i.i.i65.i132.i = call i32 @address_space_rw(ptr noundef %77, i64 noundef %57, i32 1, ptr noundef nonnull %ictl_ctx.i119.i, i64 noundef 8, i1 noundef zeroext false) #15
+  %call.i.i.i.i65.i132.i = call i32 @address_space_rw(ptr noundef %77, i64 noundef %57, i32 1, ptr noundef nonnull %ictl_ctx.i119.i, i64 noundef 8, i1 noundef zeroext false) #16
   %cmp28.not.i66.i133.i = icmp eq i32 %call.i.i.i.i65.i132.i, 0
   br i1 %cmp28.not.i66.i133.i, label %xhci_dma_read_u32s.exit74.i141.i, label %do.body.i67.i134.i
 
@@ -7236,7 +7236,7 @@ do.body.i67.i134.i:                               ; preds = %if.end22.i.i
   br i1 %cmp.i.not.i69.i136.i, label %xhci_dma_read_u32s.exit74.thread.i.i, label %if.then32.i70.i137.i
 
 if.then32.i70.i137.i:                             ; preds = %do.body.i67.i134.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__.xhci_dma_read_u32s) #15
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__.xhci_dma_read_u32s) #16
   br label %xhci_dma_read_u32s.exit74.thread.i.i
 
 xhci_dma_read_u32s.exit74.thread.i.i:             ; preds = %if.then32.i70.i137.i, %do.body.i67.i134.i
@@ -7260,9 +7260,9 @@ lor.lhs.false.i143.i:                             ; preds = %xhci_dma_read_u32s.
 if.end33.i.i:                                     ; preds = %lor.lhs.false.i143.i
   %add.i144.i = add i64 %57, 32
   %81 = load ptr, ptr %as.i487.i, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !5
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !5
   fence seq_cst
-  %call.i.i.i.i76.i145.i = call i32 @address_space_rw(ptr noundef %81, i64 noundef %add.i144.i, i32 1, ptr noundef nonnull %islot_ctx.i.i, i64 noundef 16, i1 noundef zeroext false) #15
+  %call.i.i.i.i76.i145.i = call i32 @address_space_rw(ptr noundef %81, i64 noundef %add.i144.i, i32 1, ptr noundef nonnull %islot_ctx.i.i, i64 noundef 16, i1 noundef zeroext false) #16
   %cmp28.not.i77.i.i = icmp eq i32 %call.i.i.i.i76.i145.i, 0
   br i1 %cmp28.not.i77.i.i, label %xhci_dma_read_u32s.exit85.i.i, label %do.body.i78.i.i
 
@@ -7273,7 +7273,7 @@ do.body.i78.i.i:                                  ; preds = %if.end33.i.i
   br i1 %cmp.i.not.i80.i.i, label %do.end.i82.i.i, label %if.then32.i81.i.i
 
 if.then32.i81.i.i:                                ; preds = %do.body.i78.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__.xhci_dma_read_u32s) #15
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__.xhci_dma_read_u32s) #16
   br label %do.end.i82.i.i
 
 do.end.i82.i.i:                                   ; preds = %if.then32.i81.i.i, %do.body.i78.i.i
@@ -7285,9 +7285,9 @@ do.end.i82.i.i:                                   ; preds = %if.then32.i81.i.i, 
 
 xhci_dma_read_u32s.exit85.i.i:                    ; preds = %do.end.i82.i.i, %if.end33.i.i
   %84 = load ptr, ptr %as.i487.i, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !5
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !5
   fence seq_cst
-  %call.i.i.i.i87.i.i = call i32 @address_space_rw(ptr noundef %84, i64 noundef %65, i32 1, ptr noundef nonnull %slot_ctx.i120.i, i64 noundef 16, i1 noundef zeroext false) #15
+  %call.i.i.i.i87.i.i = call i32 @address_space_rw(ptr noundef %84, i64 noundef %65, i32 1, ptr noundef nonnull %slot_ctx.i120.i, i64 noundef 16, i1 noundef zeroext false) #16
   %cmp28.not.i88.i.i = icmp eq i32 %call.i.i.i.i87.i.i, 0
   br i1 %cmp28.not.i88.i.i, label %xhci_dma_read_u32s.exit96.i.i, label %do.body.i89.i.i
 
@@ -7298,7 +7298,7 @@ do.body.i89.i.i:                                  ; preds = %xhci_dma_read_u32s.
   br i1 %cmp.i.not.i91.i.i, label %xhci_dma_read_u32s.exit96.thread.i.i, label %if.then32.i92.i.i
 
 if.then32.i92.i.i:                                ; preds = %do.body.i89.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__.xhci_dma_read_u32s) #15
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__.xhci_dma_read_u32s) #16
   br label %xhci_dma_read_u32s.exit96.thread.i.i
 
 xhci_dma_read_u32s.exit96.thread.i.i:             ; preds = %if.then32.i92.i.i, %do.body.i89.i.i
@@ -7323,7 +7323,7 @@ if.end42.i146.i:                                  ; preds = %xhci_dma_read_u32s.
   br i1 %cmp1.not.i.i.i.i, label %if.else.i.i97.i.i, label %for.body.us.i.i.i.i
 
 if.else.i.i97.i.i:                                ; preds = %if.end42.i146.i
-  call void @__assert_fail(ptr noundef nonnull @.str.186, ptr noundef nonnull @.str.16, i32 noundef 913, ptr noundef nonnull @__PRETTY_FUNCTION__.xhci_epmask_to_eps_with_streams) #16
+  call void @__assert_fail(ptr noundef nonnull @.str.186, ptr noundef nonnull @.str.16, i32 noundef 913, ptr noundef nonnull @__PRETTY_FUNCTION__.xhci_epmask_to_eps_with_streams) #17
   unreachable
 
 for.body.us.i.i.i.i:                              ; preds = %if.end42.i146.i, %for.inc.us.i.i.i.i
@@ -7366,7 +7366,7 @@ lor.lhs.false.us.i.i.i.i:                         ; preds = %lor.lhs.false.i.us.
   %tobool6.not.i.us.i.i.i.i = icmp eq i32 %and.i.us.i.i.i.i, 0
   %cond.i.us.i.i.i.i = select i1 %tobool6.not.i.us.i.i.i.i, i32 225, i32 105
   %shr.i.us.i.i.i.i = lshr i32 %98, 1
-  %call.i.us.i.i.i.i = call ptr @usb_ep_get(ptr noundef nonnull %97, i32 noundef %cond.i.us.i.i.i.i, i32 noundef %shr.i.us.i.i.i.i) #15
+  %call.i.us.i.i.i.i = call ptr @usb_ep_get(ptr noundef nonnull %97, i32 noundef %cond.i.us.i.i.i.i, i32 noundef %shr.i.us.i.i.i.i) #16
   %nr_pstreams.us.i.i.i.i = getelementptr inbounds i8, ptr %93, i64 100
   %99 = load i32, ptr %nr_pstreams.us.i.i.i.i, align 4
   %tobool10.us.i.i.i.i = icmp ne i32 %99, 0
@@ -7395,7 +7395,7 @@ if.then.i.i.i:                                    ; preds = %xhci_epmask_to_eps_
   %100 = load ptr, ptr %eps.i.i.i, align 16
   %dev.i.i.i = getelementptr inbounds i8, ptr %100, i64 16
   %101 = load ptr, ptr %dev.i.i.i, align 8
-  call void @usb_device_free_streams(ptr noundef %101, ptr noundef nonnull %eps.i.i.i, i32 noundef %j.1.us.i.i.i.i) #15
+  call void @usb_device_free_streams(ptr noundef %101, ptr noundef nonnull %eps.i.i.i, i32 noundef %j.1.us.i.i.i.i) #16
   br label %xhci_free_device_streams.exit.i.i
 
 xhci_free_device_streams.exit.i.i:                ; preds = %if.then.i.i.i, %xhci_epmask_to_eps_with_streams.exit.i.i.i
@@ -7425,9 +7425,9 @@ if.then59.i.i:                                    ; preds = %if.end54.i.i
   %105 = shl nuw nsw i64 %indvars.iv.i.i, 5
   %add61.i.i = add i64 %105, %add.i144.i
   %106 = load ptr, ptr %as.i487.i, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !5
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !5
   fence seq_cst
-  %call.i.i.i.i99.i.i = call i32 @address_space_rw(ptr noundef %106, i64 noundef %add61.i.i, i32 1, ptr noundef nonnull %ep_ctx.i.i, i64 noundef 20, i1 noundef zeroext false) #15
+  %call.i.i.i.i99.i.i = call i32 @address_space_rw(ptr noundef %106, i64 noundef %add61.i.i, i32 1, ptr noundef nonnull %ep_ctx.i.i, i64 noundef 20, i1 noundef zeroext false) #16
   %cmp28.not.i100.i.i = icmp eq i32 %call.i.i.i.i99.i.i, 0
   br i1 %cmp28.not.i100.i.i, label %xhci_dma_read_u32s.exit108.i.i, label %do.body.i101.i.i
 
@@ -7438,7 +7438,7 @@ do.body.i101.i.i:                                 ; preds = %if.then59.i.i
   br i1 %cmp.i.not.i103.i.i, label %do.end.i105.i.i, label %if.then32.i104.i.i
 
 if.then32.i104.i.i:                               ; preds = %do.body.i101.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__.xhci_dma_read_u32s) #15
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__.xhci_dma_read_u32s) #16
   br label %do.end.i105.i.i
 
 do.end.i105.i.i:                                  ; preds = %if.then32.i104.i.i, %do.body.i101.i.i
@@ -7455,9 +7455,9 @@ xhci_dma_read_u32s.exit108.i.i:                   ; preds = %do.end.i105.i.i, %i
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %tmp.i109.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %tmp.i109.i.i, ptr noundef nonnull readonly align 16 dereferenceable(20) %ep_ctx.i.i, i64 20, i1 false)
   %109 = load ptr, ptr %as.i487.i, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !5
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !5
   fence seq_cst
-  %call.i.i.i.i111.i.i = call i32 @address_space_rw(ptr noundef %109, i64 noundef %add68.i.i, i32 1, ptr noundef nonnull %tmp.i109.i.i, i64 noundef 20, i1 noundef zeroext true) #15
+  %call.i.i.i.i111.i.i = call i32 @address_space_rw(ptr noundef %109, i64 noundef %add68.i.i, i32 1, ptr noundef nonnull %tmp.i109.i.i, i64 noundef 20, i1 noundef zeroext true) #16
   %cmp40.not.i112.i.i = icmp eq i32 %call.i.i.i.i111.i.i, 0
   br i1 %cmp40.not.i112.i.i, label %xhci_dma_write_u32s.exit120.i.i, label %do.body.i113.i.i
 
@@ -7468,7 +7468,7 @@ do.body.i113.i.i:                                 ; preds = %xhci_dma_read_u32s.
   br i1 %cmp.i.not.i115.i.i, label %do.end.i117.i.i, label %if.then46.i116.i.i
 
 if.then46.i116.i.i:                               ; preds = %do.body.i113.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__.xhci_dma_write_u32s) #15
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__.xhci_dma_write_u32s) #16
   br label %do.end.i117.i.i
 
 do.end.i117.i.i:                                  ; preds = %if.then46.i116.i.i, %do.body.i113.i.i
@@ -7495,7 +7495,7 @@ for.end84.i.i:                                    ; preds = %for.inc82.i.i
   br i1 %cmp1.not.i.i123.i.i, label %if.else.i.i134.i.i, label %for.body.i.i.i.i
 
 if.else.i.i134.i.i:                               ; preds = %for.end84.i.i
-  call void @__assert_fail(ptr noundef nonnull @.str.186, ptr noundef nonnull @.str.16, i32 noundef 913, ptr noundef nonnull @__PRETTY_FUNCTION__.xhci_epmask_to_eps_with_streams) #16
+  call void @__assert_fail(ptr noundef nonnull @.str.186, ptr noundef nonnull @.str.16, i32 noundef 913, ptr noundef nonnull @__PRETTY_FUNCTION__.xhci_epmask_to_eps_with_streams) #17
   unreachable
 
 for.body.i.i.i.i:                                 ; preds = %for.end84.i.i, %for.inc.i.i.i.i
@@ -7538,7 +7538,7 @@ lor.lhs.false.i.i.i.i:                            ; preds = %lor.lhs.false.i.i.i
   %tobool6.not.i.i.i.i.i = icmp eq i32 %and.i.i.i129.i.i, 0
   %cond.i.i.i.i.i = select i1 %tobool6.not.i.i.i.i.i, i32 225, i32 105
   %shr.i.i.i.i.i = lshr i32 %121, 1
-  %call.i.i.i.i.i = call ptr @usb_ep_get(ptr noundef nonnull %120, i32 noundef %cond.i.i.i.i.i, i32 noundef %shr.i.i.i.i.i) #15
+  %call.i.i.i.i.i = call ptr @usb_ep_get(ptr noundef nonnull %120, i32 noundef %cond.i.i.i.i.i, i32 noundef %shr.i.i.i.i.i) #16
   %nr_pstreams.i.i.i.i = getelementptr inbounds i8, ptr %116, i64 100
   %122 = load i32, ptr %nr_pstreams.i.i.i.i, align 4
   %tobool10.i.i.i.i = icmp ne i32 %122, 0
@@ -7595,8 +7595,8 @@ for.body.i.i.i:                                   ; preds = %for.cond.i.i.i, %fo
 
 do.body.i133.i.i:                                 ; preds = %for.body.i.i.i
   %129 = load ptr, ptr @stderr, align 8
-  %call8.i.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %129, ptr noundef nonnull @.str.32, ptr noundef nonnull @__func__.xhci_alloc_device_streams, i32 noundef 971, ptr noundef nonnull @.str.232) #19
-  call void @abort() #16
+  %call8.i.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %129, ptr noundef nonnull @.str.32, ptr noundef nonnull @__func__.xhci_alloc_device_streams, i32 noundef 971, ptr noundef nonnull @.str.232) #20
+  call void @abort() #17
   unreachable
 
 if.end9.i.i.i:                                    ; preds = %for.body.i.i.i
@@ -7609,15 +7609,15 @@ if.end9.i.i.i:                                    ; preds = %for.body.i.i.i
 
 do.body15.i.i.i:                                  ; preds = %if.end9.i.i.i
   %132 = load ptr, ptr @stderr, align 8
-  %call16.i.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %132, ptr noundef nonnull @.str.32, ptr noundef nonnull @__func__.xhci_alloc_device_streams, i32 noundef 975, ptr noundef nonnull @.str.233) #19
-  call void @abort() #16
+  %call16.i.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %132, ptr noundef nonnull @.str.32, ptr noundef nonnull @__func__.xhci_alloc_device_streams, i32 noundef 975, ptr noundef nonnull @.str.233) #20
+  call void @abort() #17
   unreachable
 
 for.end.i.i.i:                                    ; preds = %for.cond.i.i.i, %if.end.i.i.i
   %spec.select.i.i.i = call i32 @llvm.smin.i32(i32 %124, i32 %126)
   %dev.i132.i.i = getelementptr inbounds i8, ptr %125, i64 16
   %133 = load ptr, ptr %dev.i132.i.i, align 8
-  %call24.i.i.i = call i32 @usb_device_alloc_streams(ptr noundef %133, ptr noundef nonnull %eps.i121.i.i, i32 noundef %j.1.i.i.i.i, i32 noundef %spec.select.i.i.i) #15
+  %call24.i.i.i = call i32 @usb_device_alloc_streams(ptr noundef %133, ptr noundef nonnull %eps.i121.i.i, i32 noundef %j.1.i.i.i.i, i32 noundef %spec.select.i.i.i) #16
   %cmp25.not.i.i.i = icmp eq i32 %call24.i.i.i, 0
   br i1 %cmp25.not.i.i.i, label %if.end104.i.i, label %xhci_alloc_device_streams.exit.i.i
 
@@ -7659,9 +7659,9 @@ if.end104.i.i:                                    ; preds = %for.end.i.i.i, %xhc
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %tmp.i135.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %tmp.i135.i.i, ptr noundef nonnull readonly align 16 dereferenceable(16) %slot_ctx.i120.i, i64 16, i1 false)
   %138 = load ptr, ptr %as.i487.i, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !5
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !5
   fence seq_cst
-  %call.i.i.i.i139.i.i = call i32 @address_space_rw(ptr noundef %138, i64 noundef %65, i32 1, ptr noundef nonnull %tmp.i135.i.i, i64 noundef 16, i1 noundef zeroext true) #15
+  %call.i.i.i.i139.i.i = call i32 @address_space_rw(ptr noundef %138, i64 noundef %65, i32 1, ptr noundef nonnull %tmp.i135.i.i, i64 noundef 16, i1 noundef zeroext true) #16
   %cmp40.not.i140.i.i = icmp eq i32 %call.i.i.i.i139.i.i, 0
   br i1 %cmp40.not.i140.i.i, label %xhci_dma_write_u32s.exit148.i.i, label %do.body.i141.i.i
 
@@ -7672,7 +7672,7 @@ do.body.i141.i.i:                                 ; preds = %if.end104.i.i
   br i1 %cmp.i.not.i143.i.i, label %do.end.i145.i.i, label %if.then46.i144.i.i
 
 if.then46.i144.i.i:                               ; preds = %do.body.i141.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__.xhci_dma_write_u32s) #15
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__.xhci_dma_write_u32s) #16
   br label %do.end.i145.i.i
 
 do.end.i145.i.i:                                  ; preds = %if.then46.i144.i.i, %do.body.i141.i.i
@@ -7745,15 +7745,15 @@ if.then.i.i.i260.i:                               ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.i.i.i261.i, label %if.then8.i.i.i263.i, label %if.else.i.i.i262.i
 
 if.then8.i.i.i263.i:                              ; preds = %if.then.i.i.i260.i
-  %call9.i.i.i264.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i194.i, ptr noundef null) #15
-  %call10.i.i.i265.i = call i32 @qemu_get_thread_id() #15
+  %call9.i.i.i264.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i194.i, ptr noundef null) #16
+  %call10.i.i.i265.i = call i32 @qemu_get_thread_id() #16
   %148 = load i64, ptr %_now.i.i.i194.i, align 8
   %149 = load i64, ptr %tv_usec.i.i.i266.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.234, i32 noundef %call10.i.i.i265.i, i64 noundef %148, i64 noundef %149, i32 noundef %shr.i177.i) #15
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.234, i32 noundef %call10.i.i.i265.i, i64 noundef %148, i64 noundef %149, i32 noundef %shr.i177.i) #16
   br label %trace_usb_xhci_slot_evaluate.exit.i.i
 
 if.else.i.i.i262.i:                               ; preds = %if.then.i.i.i260.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.235, i32 noundef %shr.i177.i) #15
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.235, i32 noundef %shr.i177.i) #16
   br label %trace_usb_xhci_slot_evaluate.exit.i.i
 
 trace_usb_xhci_slot_evaluate.exit.i.i:            ; preds = %if.else.i.i.i262.i, %if.then8.i.i.i263.i, %land.lhs.true5.i.i.i257.i, %if.then45.i
@@ -7763,16 +7763,16 @@ trace_usb_xhci_slot_evaluate.exit.i.i:            ; preds = %if.else.i.i.i262.i,
   br i1 %cmp1.not.i203.i, label %if.else.i256.i, label %if.end.i204.i
 
 if.else.i256.i:                                   ; preds = %trace_usb_xhci_slot_evaluate.exit.i.i
-  call void @__assert_fail(ptr noundef nonnull @.str.186, ptr noundef nonnull @.str.16, i32 noundef 2310, ptr noundef nonnull @__PRETTY_FUNCTION__.xhci_evaluate_slot) #16
+  call void @__assert_fail(ptr noundef nonnull @.str.186, ptr noundef nonnull @.str.16, i32 noundef 2310, ptr noundef nonnull @__PRETTY_FUNCTION__.xhci_evaluate_slot) #17
   unreachable
 
 if.end.i204.i:                                    ; preds = %trace_usb_xhci_slot_evaluate.exit.i.i
   %ctx.i209.i = getelementptr inbounds i8, ptr %arrayidx.i186.i, i64 8
   %151 = load i64, ptr %ctx.i209.i, align 8
   %152 = load ptr, ptr %as.i487.i, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !5
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !5
   fence seq_cst
-  %call.i.i.i.i.i211.i = call i32 @address_space_rw(ptr noundef %152, i64 noundef %143, i32 1, ptr noundef nonnull %ictl_ctx.i195.i, i64 noundef 8, i1 noundef zeroext false) #15
+  %call.i.i.i.i.i211.i = call i32 @address_space_rw(ptr noundef %152, i64 noundef %143, i32 1, ptr noundef nonnull %ictl_ctx.i195.i, i64 noundef 8, i1 noundef zeroext false) #16
   %cmp28.not.i.i212.i = icmp eq i32 %call.i.i.i.i.i211.i, 0
   br i1 %cmp28.not.i.i212.i, label %xhci_dma_read_u32s.exit.i221.i, label %do.body.i.i213.i
 
@@ -7783,7 +7783,7 @@ do.body.i.i213.i:                                 ; preds = %if.end.i204.i
   br i1 %cmp.i.not.i.i215.i, label %xhci_dma_read_u32s.exit.thread.i217.i, label %if.then32.i.i216.i
 
 if.then32.i.i216.i:                               ; preds = %do.body.i.i213.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__.xhci_dma_read_u32s) #15
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__.xhci_dma_read_u32s) #16
   br label %xhci_dma_read_u32s.exit.thread.i217.i
 
 xhci_dma_read_u32s.exit.thread.i217.i:            ; preds = %if.then32.i.i216.i, %do.body.i.i213.i
@@ -7810,9 +7810,9 @@ if.end10.i.i:                                     ; preds = %lor.lhs.false.i222.
 if.then14.i225.i:                                 ; preds = %if.end10.i.i
   %add.i226.i = add i64 %143, 32
   %156 = load ptr, ptr %as.i487.i, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !5
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !5
   fence seq_cst
-  %call.i.i.i.i24.i.i = call i32 @address_space_rw(ptr noundef %156, i64 noundef %add.i226.i, i32 1, ptr noundef nonnull %islot_ctx.i197.i, i64 noundef 16, i1 noundef zeroext false) #15
+  %call.i.i.i.i24.i.i = call i32 @address_space_rw(ptr noundef %156, i64 noundef %add.i226.i, i32 1, ptr noundef nonnull %islot_ctx.i197.i, i64 noundef 16, i1 noundef zeroext false) #16
   %cmp28.not.i25.i.i = icmp eq i32 %call.i.i.i.i24.i.i, 0
   br i1 %cmp28.not.i25.i.i, label %xhci_dma_read_u32s.exit33.i.i, label %do.body.i26.i.i
 
@@ -7823,7 +7823,7 @@ do.body.i26.i.i:                                  ; preds = %if.then14.i225.i
   br i1 %cmp.i.not.i28.i.i, label %do.end.i30.i.i, label %if.then32.i29.i.i
 
 if.then32.i29.i.i:                                ; preds = %do.body.i26.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__.xhci_dma_read_u32s) #15
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__.xhci_dma_read_u32s) #16
   br label %do.end.i30.i.i
 
 do.end.i30.i.i:                                   ; preds = %if.then32.i29.i.i, %do.body.i26.i.i
@@ -7835,9 +7835,9 @@ do.end.i30.i.i:                                   ; preds = %if.then32.i29.i.i, 
 
 xhci_dma_read_u32s.exit33.i.i:                    ; preds = %do.end.i30.i.i, %if.then14.i225.i
   %159 = load ptr, ptr %as.i487.i, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !5
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !5
   fence seq_cst
-  %call.i.i.i.i35.i.i = call i32 @address_space_rw(ptr noundef %159, i64 noundef %151, i32 1, ptr noundef nonnull %slot_ctx.i198.i, i64 noundef 16, i1 noundef zeroext false) #15
+  %call.i.i.i.i35.i.i = call i32 @address_space_rw(ptr noundef %159, i64 noundef %151, i32 1, ptr noundef nonnull %slot_ctx.i198.i, i64 noundef 16, i1 noundef zeroext false) #16
   %cmp28.not.i36.i.i = icmp eq i32 %call.i.i.i.i35.i.i, 0
   br i1 %cmp28.not.i36.i.i, label %xhci_dma_read_u32s.exit33.xhci_dma_read_u32s.exit44_crit_edge.i.i, label %do.body.i37.i.i
 
@@ -7853,7 +7853,7 @@ do.body.i37.i.i:                                  ; preds = %xhci_dma_read_u32s.
   br i1 %cmp.i.not.i39.i.i, label %do.end.i41.i.i, label %if.then32.i40.i.i
 
 if.then32.i40.i.i:                                ; preds = %do.body.i37.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__.xhci_dma_read_u32s) #15
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__.xhci_dma_read_u32s) #16
   br label %do.end.i41.i.i
 
 do.end.i41.i.i:                                   ; preds = %if.then32.i40.i.i, %do.body.i37.i.i
@@ -7877,9 +7877,9 @@ xhci_dma_read_u32s.exit44.i.i:                    ; preds = %do.end.i41.i.i, %xh
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %tmp.i.i193.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %tmp.i.i193.i, ptr noundef nonnull readonly align 16 dereferenceable(16) %slot_ctx.i198.i, i64 16, i1 false)
   %169 = load ptr, ptr %as.i487.i, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !5
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !5
   fence seq_cst
-  %call.i.i.i.i46.i.i = call i32 @address_space_rw(ptr noundef %169, i64 noundef %151, i32 1, ptr noundef nonnull %tmp.i.i193.i, i64 noundef 16, i1 noundef zeroext true) #15
+  %call.i.i.i.i46.i.i = call i32 @address_space_rw(ptr noundef %169, i64 noundef %151, i32 1, ptr noundef nonnull %tmp.i.i193.i, i64 noundef 16, i1 noundef zeroext true) #16
   %cmp40.not.i.i232.i = icmp eq i32 %call.i.i.i.i46.i.i, 0
   br i1 %cmp40.not.i.i232.i, label %xhci_dma_write_u32s.exit.i234.i, label %do.body.i47.i.i
 
@@ -7890,7 +7890,7 @@ do.body.i47.i.i:                                  ; preds = %xhci_dma_read_u32s.
   br i1 %cmp.i.not.i49.i.i, label %do.end.i50.i.i, label %if.then46.i.i233.i
 
 if.then46.i.i233.i:                               ; preds = %do.body.i47.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__.xhci_dma_write_u32s) #15
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__.xhci_dma_write_u32s) #16
   br label %do.end.i50.i.i
 
 do.end.i50.i.i:                                   ; preds = %if.then46.i.i233.i, %do.body.i47.i.i
@@ -7913,9 +7913,9 @@ if.end46.i.i:                                     ; preds = %xhci_dma_write_u32s
 if.then50.i.i:                                    ; preds = %if.end46.i.i
   %add51.i.i = add i64 %143, 64
   %173 = load ptr, ptr %as.i487.i, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !5
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !5
   fence seq_cst
-  %call.i.i.i.i54.i235.i = call i32 @address_space_rw(ptr noundef %173, i64 noundef %add51.i.i, i32 1, ptr noundef nonnull %iep0_ctx.i.i, i64 noundef 20, i1 noundef zeroext false) #15
+  %call.i.i.i.i54.i235.i = call i32 @address_space_rw(ptr noundef %173, i64 noundef %add51.i.i, i32 1, ptr noundef nonnull %iep0_ctx.i.i, i64 noundef 20, i1 noundef zeroext false) #16
   %cmp28.not.i55.i236.i = icmp eq i32 %call.i.i.i.i54.i235.i, 0
   br i1 %cmp28.not.i55.i236.i, label %xhci_dma_read_u32s.exit63.i244.i, label %do.body.i56.i237.i
 
@@ -7926,7 +7926,7 @@ do.body.i56.i237.i:                               ; preds = %if.then50.i.i
   br i1 %cmp.i.not.i58.i239.i, label %do.end.i60.i241.i, label %if.then32.i59.i240.i
 
 if.then32.i59.i240.i:                             ; preds = %do.body.i56.i237.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__.xhci_dma_read_u32s) #15
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__.xhci_dma_read_u32s) #16
   br label %do.end.i60.i241.i
 
 do.end.i60.i241.i:                                ; preds = %if.then32.i59.i240.i, %do.body.i56.i237.i
@@ -7939,9 +7939,9 @@ do.end.i60.i241.i:                                ; preds = %if.then32.i59.i240.
 xhci_dma_read_u32s.exit63.i244.i:                 ; preds = %do.end.i60.i241.i, %if.then50.i.i
   %add55.i.i = add i64 %151, 32
   %176 = load ptr, ptr %as.i487.i, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !5
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !5
   fence seq_cst
-  %call.i.i.i.i65.i245.i = call i32 @address_space_rw(ptr noundef %176, i64 noundef %add55.i.i, i32 1, ptr noundef nonnull %ep0_ctx.i196.i, i64 noundef 20, i1 noundef zeroext false) #15
+  %call.i.i.i.i65.i245.i = call i32 @address_space_rw(ptr noundef %176, i64 noundef %add55.i.i, i32 1, ptr noundef nonnull %ep0_ctx.i196.i, i64 noundef 20, i1 noundef zeroext false) #16
   %cmp28.not.i66.i246.i = icmp eq i32 %call.i.i.i.i65.i245.i, 0
   br i1 %cmp28.not.i66.i246.i, label %xhci_dma_read_u32s.exit63.xhci_dma_read_u32s.exit74_crit_edge.i.i, label %do.body.i67.i247.i
 
@@ -7957,7 +7957,7 @@ do.body.i67.i247.i:                               ; preds = %xhci_dma_read_u32s.
   br i1 %cmp.i.not.i69.i249.i, label %do.end.i71.i251.i, label %if.then32.i70.i250.i
 
 if.then32.i70.i250.i:                             ; preds = %do.body.i67.i247.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__.xhci_dma_read_u32s) #15
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__.xhci_dma_read_u32s) #16
   br label %do.end.i71.i251.i
 
 do.end.i71.i251.i:                                ; preds = %if.then32.i70.i250.i, %do.body.i67.i247.i
@@ -7976,9 +7976,9 @@ xhci_dma_read_u32s.exit74.i254.i:                 ; preds = %do.end.i71.i251.i, 
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %tmp.i75.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %tmp.i75.i.i, ptr noundef nonnull readonly align 16 dereferenceable(20) %ep0_ctx.i196.i, i64 20, i1 false)
   %181 = load ptr, ptr %as.i487.i, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !5
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !5
   fence seq_cst
-  %call.i.i.i.i77.i.i = call i32 @address_space_rw(ptr noundef %181, i64 noundef %add55.i.i, i32 1, ptr noundef nonnull %tmp.i75.i.i, i64 noundef 20, i1 noundef zeroext true) #15
+  %call.i.i.i.i77.i.i = call i32 @address_space_rw(ptr noundef %181, i64 noundef %add55.i.i, i32 1, ptr noundef nonnull %tmp.i75.i.i, i64 noundef 20, i1 noundef zeroext true) #16
   %cmp40.not.i78.i.i = icmp eq i32 %call.i.i.i.i77.i.i, 0
   br i1 %cmp40.not.i78.i.i, label %xhci_dma_write_u32s.exit86.i.i, label %do.body.i79.i.i
 
@@ -7989,7 +7989,7 @@ do.body.i79.i.i:                                  ; preds = %xhci_dma_read_u32s.
   br i1 %cmp.i.not.i81.i.i, label %do.end.i83.i.i, label %if.then46.i82.i.i
 
 if.then46.i82.i.i:                                ; preds = %do.body.i79.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__.xhci_dma_write_u32s) #15
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__.xhci_dma_write_u32s) #16
   br label %do.end.i83.i.i
 
 do.end.i83.i.i:                                   ; preds = %if.then46.i82.i.i, %do.body.i79.i.i
@@ -8059,15 +8059,15 @@ if.then.i.i.i303.i:                               ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.i.i.i304.i, label %if.then8.i.i.i306.i, label %if.else.i.i.i305.i
 
 if.then8.i.i.i306.i:                              ; preds = %if.then.i.i.i303.i
-  %call9.i.i.i307.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i283.i, ptr noundef null) #15
-  %call10.i.i.i308.i = call i32 @qemu_get_thread_id() #15
+  %call9.i.i.i307.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i283.i, ptr noundef null) #16
+  %call10.i.i.i308.i = call i32 @qemu_get_thread_id() #16
   %190 = load i64, ptr %_now.i.i.i283.i, align 8
   %191 = load i64, ptr %tv_usec.i.i.i309.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.236, i32 noundef %call10.i.i.i308.i, i64 noundef %190, i64 noundef %191, i32 noundef %shr.i267.i, i32 noundef %and55.i) #15
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.236, i32 noundef %call10.i.i.i308.i, i64 noundef %190, i64 noundef %191, i32 noundef %shr.i267.i, i32 noundef %and55.i) #16
   br label %trace_usb_xhci_ep_stop.exit.i.i
 
 if.else.i.i.i305.i:                               ; preds = %if.then.i.i.i303.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.237, i32 noundef %shr.i267.i, i32 noundef %and55.i) #15
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.237, i32 noundef %shr.i267.i, i32 noundef %and55.i) #16
   br label %trace_usb_xhci_ep_stop.exit.i.i
 
 trace_usb_xhci_ep_stop.exit.i.i:                  ; preds = %if.else.i.i.i305.i, %if.then8.i.i.i306.i, %land.lhs.true5.i.i.i300.i, %if.then53.i
@@ -8077,7 +8077,7 @@ trace_usb_xhci_ep_stop.exit.i.i:                  ; preds = %if.else.i.i.i305.i,
   br i1 %cmp1.not.i288.i, label %if.else.i299.i, label %if.end.i289.i
 
 if.else.i299.i:                                   ; preds = %trace_usb_xhci_ep_stop.exit.i.i
-  call void @__assert_fail(ptr noundef nonnull @.str.186, ptr noundef nonnull @.str.16, i32 noundef 1307, ptr noundef nonnull @__PRETTY_FUNCTION__.xhci_stop_ep) #16
+  call void @__assert_fail(ptr noundef nonnull @.str.186, ptr noundef nonnull @.str.16, i32 noundef 1307, ptr noundef nonnull @__PRETTY_FUNCTION__.xhci_stop_ep) #17
   unreachable
 
 if.end.i289.i:                                    ; preds = %trace_usb_xhci_ep_stop.exit.i.i
@@ -8168,15 +8168,15 @@ if.then.i.i.i362.i:                               ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.i.i.i363.i, label %if.then8.i.i.i365.i, label %if.else.i.i.i364.i
 
 if.then8.i.i.i365.i:                              ; preds = %if.then.i.i.i362.i
-  %call9.i.i.i366.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i326.i, ptr noundef null) #15
-  %call10.i.i.i367.i = call i32 @qemu_get_thread_id() #15
+  %call9.i.i.i366.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i326.i, ptr noundef null) #16
+  %call10.i.i.i367.i = call i32 @qemu_get_thread_id() #16
   %205 = load i64, ptr %_now.i.i.i326.i, align 8
   %206 = load i64, ptr %tv_usec.i.i.i368.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.238, i32 noundef %call10.i.i.i367.i, i64 noundef %205, i64 noundef %206, i32 noundef %shr.i310.i, i32 noundef %and66.i) #15
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.238, i32 noundef %call10.i.i.i367.i, i64 noundef %205, i64 noundef %206, i32 noundef %shr.i310.i, i32 noundef %and66.i) #16
   br label %trace_usb_xhci_ep_reset.exit.i.i
 
 if.else.i.i.i364.i:                               ; preds = %if.then.i.i.i362.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.239, i32 noundef %shr.i310.i, i32 noundef %and66.i) #15
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.239, i32 noundef %shr.i310.i, i32 noundef %and66.i) #16
   br label %trace_usb_xhci_ep_reset.exit.i.i
 
 trace_usb_xhci_ep_reset.exit.i.i:                 ; preds = %if.else.i.i.i364.i, %if.then8.i.i.i365.i, %land.lhs.true5.i.i.i359.i, %if.then62.i
@@ -8186,7 +8186,7 @@ trace_usb_xhci_ep_reset.exit.i.i:                 ; preds = %if.else.i.i.i364.i,
   br i1 %cmp1.not.i331.i, label %if.else.i358.i, label %if.end.i332.i
 
 if.else.i358.i:                                   ; preds = %trace_usb_xhci_ep_reset.exit.i.i
-  call void @__assert_fail(ptr noundef nonnull @.str.186, ptr noundef nonnull @.str.16, i32 noundef 1344, ptr noundef nonnull @__PRETTY_FUNCTION__.xhci_reset_ep) #16
+  call void @__assert_fail(ptr noundef nonnull @.str.186, ptr noundef nonnull @.str.16, i32 noundef 1344, ptr noundef nonnull @__PRETTY_FUNCTION__.xhci_reset_ep) #17
   unreachable
 
 if.end.i332.i:                                    ; preds = %trace_usb_xhci_ep_reset.exit.i.i
@@ -8308,15 +8308,15 @@ if.then.i.i.i411.i:                               ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.i.i.i412.i, label %if.then8.i.i.i414.i, label %if.else.i.i.i413.i
 
 if.then8.i.i.i414.i:                              ; preds = %if.then.i.i.i411.i
-  %call9.i.i.i415.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i385.i, ptr noundef null) #15
-  %call10.i.i.i416.i = call i32 @qemu_get_thread_id() #15
+  %call9.i.i.i415.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i385.i, ptr noundef null) #16
+  %call10.i.i.i416.i = call i32 @qemu_get_thread_id() #16
   %225 = load i64, ptr %_now.i.i.i385.i, align 8
   %226 = load i64, ptr %tv_usec.i.i.i417.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.240, i32 noundef %call10.i.i.i416.i, i64 noundef %225, i64 noundef %226, i32 noundef %shr.i369.i, i32 noundef %and77.i, i32 noundef %shr78.i, i64 noundef %220) #15
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.240, i32 noundef %call10.i.i.i416.i, i64 noundef %225, i64 noundef %226, i32 noundef %shr.i369.i, i32 noundef %and77.i, i32 noundef %shr78.i, i64 noundef %220) #16
   br label %trace_usb_xhci_ep_set_dequeue.exit.i.i
 
 if.else.i.i.i413.i:                               ; preds = %if.then.i.i.i411.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.241, i32 noundef %shr.i369.i, i32 noundef %and77.i, i32 noundef %shr78.i, i64 noundef %220) #15
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.241, i32 noundef %shr.i369.i, i32 noundef %and77.i, i32 noundef %shr78.i, i64 noundef %220) #16
   br label %trace_usb_xhci_ep_set_dequeue.exit.i.i
 
 trace_usb_xhci_ep_set_dequeue.exit.i.i:           ; preds = %if.else.i.i.i413.i, %if.then8.i.i.i414.i, %land.lhs.true5.i.i.i408.i, %if.end5.i390.i
@@ -8414,15 +8414,15 @@ if.then.i.i.i480.i:                               ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.i.i.i481.i, label %if.then8.i.i.i483.i, label %if.else.i.i.i482.i
 
 if.then8.i.i.i483.i:                              ; preds = %if.then.i.i.i480.i
-  %call9.i.i.i484.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i436.i, ptr noundef null) #15
-  %call10.i.i.i485.i = call i32 @qemu_get_thread_id() #15
+  %call9.i.i.i484.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i436.i, ptr noundef null) #16
+  %call10.i.i.i485.i = call i32 @qemu_get_thread_id() #16
   %238 = load i64, ptr %_now.i.i.i436.i, align 8
   %239 = load i64, ptr %tv_usec.i.i.i486.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.242, i32 noundef %call10.i.i.i485.i, i64 noundef %238, i64 noundef %239, i32 noundef %shr.i419.i) #15
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.242, i32 noundef %call10.i.i.i485.i, i64 noundef %238, i64 noundef %239, i32 noundef %shr.i419.i) #16
   br label %trace_usb_xhci_slot_reset.exit.i.i
 
 if.else.i.i.i482.i:                               ; preds = %if.then.i.i.i480.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.243, i32 noundef %shr.i419.i) #15
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.243, i32 noundef %shr.i419.i) #16
   br label %trace_usb_xhci_slot_reset.exit.i.i
 
 trace_usb_xhci_slot_reset.exit.i.i:               ; preds = %if.else.i.i.i482.i, %if.then8.i.i.i483.i, %land.lhs.true5.i.i.i477.i, %if.then87.i
@@ -8432,7 +8432,7 @@ trace_usb_xhci_slot_reset.exit.i.i:               ; preds = %if.else.i.i.i482.i,
   br i1 %cmp1.not.i442.i, label %if.else.i476.i, label %if.end.i443.i
 
 if.else.i476.i:                                   ; preds = %trace_usb_xhci_slot_reset.exit.i.i
-  call void @__assert_fail(ptr noundef nonnull @.str.186, ptr noundef nonnull @.str.16, i32 noundef 2374, ptr noundef nonnull @__PRETTY_FUNCTION__.xhci_reset_slot) #16
+  call void @__assert_fail(ptr noundef nonnull @.str.186, ptr noundef nonnull @.str.16, i32 noundef 2374, ptr noundef nonnull @__PRETTY_FUNCTION__.xhci_reset_slot) #17
   unreachable
 
 if.end.i443.i:                                    ; preds = %trace_usb_xhci_slot_reset.exit.i.i
@@ -8461,9 +8461,9 @@ for.inc.i454.i:                                   ; preds = %if.then10.i.i, %for
 
 for.end.i457.i:                                   ; preds = %for.inc.i454.i
   %245 = load ptr, ptr %as.i487.i, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !5
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !5
   fence seq_cst
-  %call.i.i.i.i.i459.i = call i32 @address_space_rw(ptr noundef %245, i64 noundef %241, i32 1, ptr noundef nonnull %slot_ctx.i437.i, i64 noundef 16, i1 noundef zeroext false) #15
+  %call.i.i.i.i.i459.i = call i32 @address_space_rw(ptr noundef %245, i64 noundef %241, i32 1, ptr noundef nonnull %slot_ctx.i437.i, i64 noundef 16, i1 noundef zeroext false) #16
   %cmp28.not.i.i460.i = icmp eq i32 %call.i.i.i.i.i459.i, 0
   br i1 %cmp28.not.i.i460.i, label %for.end.xhci_dma_read_u32s.exit_crit_edge.i474.i, label %do.body.i.i461.i
 
@@ -8480,7 +8480,7 @@ do.body.i.i461.i:                                 ; preds = %for.end.i457.i
   br i1 %cmp.i.not.i.i463.i, label %do.end.i.i465.i, label %if.then32.i.i464.i
 
 if.then32.i.i464.i:                               ; preds = %do.body.i.i461.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__.xhci_dma_read_u32s) #15
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__.xhci_dma_read_u32s) #16
   br label %do.end.i.i465.i
 
 do.end.i.i465.i:                                  ; preds = %if.then32.i.i464.i, %do.body.i.i461.i
@@ -8496,9 +8496,9 @@ xhci_dma_read_u32s.exit.i468.i:                   ; preds = %do.end.i.i465.i, %f
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %tmp.i.i435.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %tmp.i.i435.i, ptr noundef nonnull readonly align 16 dereferenceable(16) %slot_ctx.i437.i, i64 16, i1 false)
   %250 = load ptr, ptr %as.i487.i, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !5
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !5
   fence seq_cst
-  %call.i.i.i.i16.i.i = call i32 @address_space_rw(ptr noundef %250, i64 noundef %241, i32 1, ptr noundef nonnull %tmp.i.i435.i, i64 noundef 16, i1 noundef zeroext true) #15
+  %call.i.i.i.i16.i.i = call i32 @address_space_rw(ptr noundef %250, i64 noundef %241, i32 1, ptr noundef nonnull %tmp.i.i435.i, i64 noundef 16, i1 noundef zeroext true) #16
   %cmp40.not.i.i471.i = icmp eq i32 %call.i.i.i.i16.i.i, 0
   br i1 %cmp40.not.i.i471.i, label %xhci_reset_slot.exit.i, label %do.body.i17.i.i
 
@@ -8509,7 +8509,7 @@ do.body.i17.i.i:                                  ; preds = %xhci_dma_read_u32s.
   br i1 %cmp.i.not.i19.i.i, label %do.end.i20.i.i, label %if.then46.i.i472.i
 
 if.then46.i.i472.i:                               ; preds = %do.body.i17.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__.xhci_dma_write_u32s) #15
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, ptr noundef nonnull @__func__.xhci_dma_write_u32s) #16
   br label %do.end.i20.i.i
 
 do.end.i20.i.i:                                   ; preds = %if.then46.i.i472.i, %do.body.i17.i.i
@@ -8529,9 +8529,9 @@ sw.bb91.i:                                        ; preds = %while.body.i
   %254 = load ptr, ptr %as.i487.i, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %val.addr.i.i.i)
   store i8 0, ptr %val.addr.i.i.i, align 1
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !5
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !5
   fence seq_cst
-  %call.i.i.i.i.i488.i = call i32 @address_space_rw(ptr noundef %254, i64 noundef %253, i32 1, ptr noundef nonnull %val.addr.i.i.i, i64 noundef 1, i1 noundef zeroext true) #15
+  %call.i.i.i.i.i488.i = call i32 @address_space_rw(ptr noundef %254, i64 noundef %253, i32 1, ptr noundef nonnull %val.addr.i.i.i, i64 noundef 1, i1 noundef zeroext true) #16
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %val.addr.i.i.i)
   %cmp.not.i489.i = icmp eq i32 %call.i.i.i.i.i488.i, 0
   br i1 %cmp.not.i489.i, label %lor.lhs.false.i491.i, label %do.body67.i.i
@@ -8541,7 +8541,7 @@ lor.lhs.false.i491.i:                             ; preds = %sw.bb91.i
   %add.i492.i = add i64 %253, 1
   %256 = load i32, ptr %numports.i.i, align 16
   %conv.i493.i = zext i32 %256 to i64
-  %call64.i.i = call i32 @dma_memory_set(ptr noundef %255, i64 noundef %add.i492.i, i8 noundef zeroext 80, i64 noundef %conv.i493.i, i32 1) #15
+  %call64.i.i = call i32 @dma_memory_set(ptr noundef %255, i64 noundef %add.i492.i, i8 noundef zeroext 80, i64 noundef %conv.i493.i, i32 1) #16
   %cmp65.not.i.i = icmp eq i32 %call64.i.i, 0
   br i1 %cmp65.not.i.i, label %xhci_get_port_bandwidth.exit.i, label %do.body67.i.i
 
@@ -8552,7 +8552,7 @@ do.body67.i.i:                                    ; preds = %lor.lhs.false.i491.
   br i1 %cmp.i.not.i.i15, label %xhci_get_port_bandwidth.exit.i, label %if.then71.i.i
 
 if.then71.i.i:                                    ; preds = %do.body67.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.244, ptr noundef nonnull @__func__.xhci_get_port_bandwidth) #15
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.244, ptr noundef nonnull @__func__.xhci_get_port_bandwidth) #16
   br label %xhci_get_port_bandwidth.exit.i
 
 xhci_get_port_bandwidth.exit.i:                   ; preds = %if.then71.i.i, %do.body67.i.i, %lor.lhs.false.i491.i
@@ -8634,15 +8634,15 @@ if.then.i.i499.i:                                 ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.i.i.i, label %if.then8.i.i.i, label %if.else.i.i.i
 
 if.then8.i.i.i:                                   ; preds = %if.then.i.i499.i
-  %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #15
-  %call10.i.i.i = call i32 @qemu_get_thread_id() #15
+  %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #16
+  %call10.i.i.i = call i32 @qemu_get_thread_id() #16
   %266 = load i64, ptr %_now.i.i.i, align 8
   %267 = load i64, ptr %tv_usec.i.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.133, i32 noundef %call10.i.i.i, i64 noundef %266, i64 noundef %267, ptr noundef nonnull @.str.216, i32 noundef %call3.i) #15
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.133, i32 noundef %call10.i.i.i, i64 noundef %266, i64 noundef %267, ptr noundef nonnull @.str.216, i32 noundef %call3.i) #16
   br label %trace_usb_xhci_unimplemented.exit.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i499.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.134, ptr noundef nonnull @.str.216, i32 noundef %call3.i) #15
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.134, ptr noundef nonnull @.str.216, i32 noundef %call3.i) #16
   br label %trace_usb_xhci_unimplemented.exit.i
 
 trace_usb_xhci_unimplemented.exit.i:              ; preds = %if.else.i.i.i, %if.then8.i.i.i, %land.lhs.true5.i.i.i, %sw.default.i
@@ -8680,16 +8680,16 @@ if.then.i.i507.i:                                 ; preds = %land.lhs.true5.i.i5
   br i1 %tobool7.i.i508.i, label %if.then8.i.i510.i, label %if.else.i.i509.i
 
 if.then8.i.i510.i:                                ; preds = %if.then.i.i507.i
-  %call9.i.i511.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i500.i, ptr noundef null) #15
-  %call10.i.i512.i = call i32 @qemu_get_thread_id() #15
+  %call9.i.i511.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i500.i, ptr noundef null) #16
+  %call10.i.i512.i = call i32 @qemu_get_thread_id() #16
   %272 = load i64, ptr %_now.i.i500.i, align 8
   %tv_usec.i.i513.i = getelementptr inbounds i8, ptr %_now.i.i500.i, i64 8
   %273 = load i64, ptr %tv_usec.i.i513.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.135, i32 noundef %call10.i.i512.i, i64 noundef %272, i64 noundef %273, ptr noundef nonnull @.str.217) #15
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.135, i32 noundef %call10.i.i512.i, i64 noundef %272, i64 noundef %273, ptr noundef nonnull @.str.217) #16
   br label %trace_usb_xhci_enforced_limit.exit.i
 
 if.else.i.i509.i:                                 ; preds = %if.then.i.i507.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.136, ptr noundef nonnull @.str.217) #15
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.136, ptr noundef nonnull @.str.217) #16
   br label %trace_usb_xhci_enforced_limit.exit.i
 
 trace_usb_xhci_enforced_limit.exit.i:             ; preds = %if.else.i.i509.i, %if.then8.i.i510.i, %land.lhs.true5.i.i504.i, %if.then129.i
@@ -8720,7 +8720,7 @@ if.else29:                                        ; preds = %if.else10
   br i1 %cmp1.not.i, label %if.else.i22, label %if.end7.i
 
 if.else.i22:                                      ; preds = %if.else29
-  tail call void @__assert_fail(ptr noundef nonnull @.str.186, ptr noundef nonnull @.str.16, i32 noundef 1848, ptr noundef nonnull @__PRETTY_FUNCTION__.xhci_kick_ep) #16
+  tail call void @__assert_fail(ptr noundef nonnull @.str.186, ptr noundef nonnull @.str.16, i32 noundef 1848, ptr noundef nonnull @__PRETTY_FUNCTION__.xhci_kick_ep) #17
   unreachable
 
 if.end7.i:                                        ; preds = %if.else29
@@ -8779,16 +8779,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #15
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #15
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #16
   %4 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.220, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, i32 noundef %slotid) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.220, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, i32 noundef %slotid) #16
   br label %trace_usb_xhci_slot_disable.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.221, i32 noundef %slotid) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.221, i32 noundef %slotid) #16
   br label %trace_usb_xhci_slot_disable.exit
 
 trace_usb_xhci_slot_disable.exit:                 ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -8809,7 +8809,7 @@ for.cond.preheader:                               ; preds = %land.lhs.true
   br label %for.body
 
 if.else:                                          ; preds = %land.lhs.true, %trace_usb_xhci_slot_disable.exit
-  tail call void @__assert_fail(ptr noundef nonnull @.str.186, ptr noundef nonnull @.str.16, i32 noundef 2050, ptr noundef nonnull @__PRETTY_FUNCTION__.xhci_disable_slot) #16
+  tail call void @__assert_fail(ptr noundef nonnull @.str.186, ptr noundef nonnull @.str.16, i32 noundef 2050, ptr noundef nonnull @__PRETTY_FUNCTION__.xhci_disable_slot) #17
   unreachable
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
@@ -8866,16 +8866,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #15
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #15
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #16
   %4 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.222, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, i32 noundef %slotid, i32 noundef %epid) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.222, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, i32 noundef %slotid, i32 noundef %epid) #16
   br label %trace_usb_xhci_ep_disable.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.223, i32 noundef %slotid, i32 noundef %epid) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.223, i32 noundef %slotid, i32 noundef %epid) #16
   br label %trace_usb_xhci_ep_disable.exit
 
 trace_usb_xhci_ep_disable.exit:                   ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -8886,7 +8886,7 @@ trace_usb_xhci_ep_disable.exit:                   ; preds = %entry, %land.lhs.tr
   br i1 %cmp1.not, label %if.else, label %if.end
 
 if.else:                                          ; preds = %trace_usb_xhci_ep_disable.exit
-  tail call void @__assert_fail(ptr noundef nonnull @.str.186, ptr noundef nonnull @.str.16, i32 noundef 1270, ptr noundef nonnull @__PRETTY_FUNCTION__.xhci_disable_ep) #16
+  tail call void @__assert_fail(ptr noundef nonnull @.str.186, ptr noundef nonnull @.str.16, i32 noundef 1270, ptr noundef nonnull @__PRETTY_FUNCTION__.xhci_disable_ep) #17
   unreachable
 
 if.end:                                           ; preds = %trace_usb_xhci_ep_disable.exit
@@ -8895,7 +8895,7 @@ if.end:                                           ; preds = %trace_usb_xhci_ep_d
   br i1 %or.cond, label %if.end7, label %if.else6
 
 if.else6:                                         ; preds = %if.end
-  tail call void @__assert_fail(ptr noundef nonnull @.str.187, ptr noundef nonnull @.str.16, i32 noundef 1271, ptr noundef nonnull @__PRETTY_FUNCTION__.xhci_disable_ep) #16
+  tail call void @__assert_fail(ptr noundef nonnull @.str.187, ptr noundef nonnull @.str.16, i32 noundef 1271, ptr noundef nonnull @__PRETTY_FUNCTION__.xhci_disable_ep) #17
   unreachable
 
 if.end7:                                          ; preds = %if.end
@@ -8923,11 +8923,11 @@ if.then18:                                        ; preds = %if.end12
   br i1 %cmp.not.i, label %if.else.i, label %xhci_free_streams.exit
 
 if.else.i:                                        ; preds = %if.then18
-  tail call void @__assert_fail(ptr noundef nonnull @.str.224, ptr noundef nonnull @.str.16, i32 noundef 895, ptr noundef nonnull @__PRETTY_FUNCTION__.xhci_free_streams) #16
+  tail call void @__assert_fail(ptr noundef nonnull @.str.224, ptr noundef nonnull @.str.16, i32 noundef 895, ptr noundef nonnull @__PRETTY_FUNCTION__.xhci_free_streams) #17
   unreachable
 
 xhci_free_streams.exit:                           ; preds = %if.then18
-  tail call void @g_free(ptr noundef nonnull %11) #15
+  tail call void @g_free(ptr noundef nonnull %11) #16
   store ptr null, ptr %pstreams.i, align 8
   store i32 0, ptr %nr_pstreams, align 4
   br label %if.end19
@@ -8955,12 +8955,12 @@ if.end23:                                         ; preds = %if.then22, %lor.lhs
   br i1 %tobool.not.i, label %timer_free.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end23
-  tail call void @timer_del(ptr noundef nonnull %14) #15
-  tail call void @g_free(ptr noundef nonnull %14) #15
+  tail call void @timer_del(ptr noundef nonnull %14) #16
+  tail call void @g_free(ptr noundef nonnull %14) #16
   br label %timer_free.exit
 
 timer_free.exit:                                  ; preds = %if.end23, %if.then.i
-  tail call void @g_free(ptr noundef nonnull %9) #15
+  tail call void @g_free(ptr noundef nonnull %9) #16
   store ptr null, ptr %arrayidx10, align 8
   br label %return
 
@@ -8998,16 +8998,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #15
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #15
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #16
   %4 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.228, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, i32 noundef %slotid, i32 noundef %epid) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.228, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, i32 noundef %slotid, i32 noundef %epid) #16
   br label %trace_usb_xhci_ep_enable.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.229, i32 noundef %slotid, i32 noundef %epid) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.229, i32 noundef %slotid, i32 noundef %epid) #16
   br label %trace_usb_xhci_ep_enable.exit
 
 trace_usb_xhci_ep_enable.exit:                    ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -9018,7 +9018,7 @@ trace_usb_xhci_ep_enable.exit:                    ; preds = %entry, %land.lhs.tr
   br i1 %cmp1.not, label %if.else, label %if.end
 
 if.else:                                          ; preds = %trace_usb_xhci_ep_enable.exit
-  tail call void @__assert_fail(ptr noundef nonnull @.str.186, ptr noundef nonnull @.str.16, i32 noundef 1137, ptr noundef nonnull @__PRETTY_FUNCTION__.xhci_enable_ep) #16
+  tail call void @__assert_fail(ptr noundef nonnull @.str.186, ptr noundef nonnull @.str.16, i32 noundef 1137, ptr noundef nonnull @__PRETTY_FUNCTION__.xhci_enable_ep) #17
   unreachable
 
 if.end:                                           ; preds = %trace_usb_xhci_ep_enable.exit
@@ -9027,7 +9027,7 @@ if.end:                                           ; preds = %trace_usb_xhci_ep_e
   br i1 %or.cond, label %if.end7, label %if.else6
 
 if.else6:                                         ; preds = %if.end
-  tail call void @__assert_fail(ptr noundef nonnull @.str.187, ptr noundef nonnull @.str.16, i32 noundef 1138, ptr noundef nonnull @__PRETTY_FUNCTION__.xhci_enable_ep) #16
+  tail call void @__assert_fail(ptr noundef nonnull @.str.187, ptr noundef nonnull @.str.16, i32 noundef 1138, ptr noundef nonnull @__PRETTY_FUNCTION__.xhci_enable_ep) #17
   unreachable
 
 if.end7:                                          ; preds = %if.end
@@ -9045,7 +9045,7 @@ if.then11:                                        ; preds = %if.end7
   br label %if.end12
 
 if.end12:                                         ; preds = %if.then11, %if.end7
-  %call.i = tail call noalias dereferenceable_or_null(136) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 136) #17
+  %call.i = tail call noalias dereferenceable_or_null(136) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 136) #18
   store ptr %xhci, ptr %call.i, align 8
   %slotid2.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i32 %slotid, ptr %slotid2.i, align 8
@@ -9055,8 +9055,8 @@ if.end12:                                         ; preds = %if.then11, %if.end7
   store ptr null, ptr %transfers.i, align 8
   %tql_prev.i = getelementptr inbounds i8, ptr %call.i, i64 48
   store ptr %transfers.i, ptr %tql_prev.i, align 8
-  %call.i.i.i.i = tail call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #17
-  tail call void @timer_init_full(ptr noundef %call.i.i.i.i, ptr noundef null, i32 noundef 1, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @xhci_ep_kick_timer, ptr noundef nonnull %call.i) #15
+  %call.i.i.i.i = tail call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #18
+  tail call void @timer_init_full(ptr noundef %call.i.i.i.i, ptr noundef null, i32 noundef 1, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @xhci_ep_kick_timer, ptr noundef nonnull %call.i) #16
   %kick_timer.i = getelementptr inbounds i8, ptr %call.i, i64 128
   store ptr %call.i.i.i.i, ptr %kick_timer.i, align 8
   store ptr %call.i, ptr %arrayidx10, align 8
@@ -9117,16 +9117,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #15
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #15
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #16
   %6 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.133, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef nonnull @.str.245, i32 noundef %conv) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.133, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef nonnull @.str.245, i32 noundef %conv) #16
   br label %trace_usb_xhci_unimplemented.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.134, ptr noundef nonnull @.str.245, i32 noundef %conv) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.134, ptr noundef nonnull @.str.245, i32 noundef %conv) #16
   br label %trace_usb_xhci_unimplemented.exit
 
 trace_usb_xhci_unimplemented.exit:                ; preds = %sw.default, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -9158,16 +9158,16 @@ if.then.i.i12:                                    ; preds = %land.lhs.true5.i.i9
   br i1 %tobool7.i.i13, label %if.then8.i.i15, label %if.else.i.i14
 
 if.then8.i.i15:                                   ; preds = %if.then.i.i12
-  %call9.i.i16 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i5, ptr noundef null) #15
-  %call10.i.i17 = tail call i32 @qemu_get_thread_id() #15
+  %call9.i.i16 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i5, ptr noundef null) #16
+  %call10.i.i17 = tail call i32 @qemu_get_thread_id() #16
   %13 = load i64, ptr %_now.i.i5, align 8
   %tv_usec.i.i18 = getelementptr inbounds i8, ptr %_now.i.i5, i64 8
   %14 = load i64, ptr %tv_usec.i.i18, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.246, i32 noundef %call10.i.i17, i64 noundef %13, i64 noundef %14, i32 noundef %8, i32 noundef %conv3, i32 noundef %ret.0) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.246, i32 noundef %call10.i.i17, i64 noundef %13, i64 noundef %14, i32 noundef %8, i32 noundef %conv3, i32 noundef %ret.0) #16
   br label %trace_usb_xhci_port_read.exit
 
 if.else.i.i14:                                    ; preds = %if.then.i.i12
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.247, i32 noundef %8, i32 noundef %conv3, i32 noundef %ret.0) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.247, i32 noundef %8, i32 noundef %conv3, i32 noundef %ret.0) #16
   br label %trace_usb_xhci_port_read.exit
 
 trace_usb_xhci_port_read.exit:                    ; preds = %sw.epilog, %land.lhs.true5.i.i9, %if.then8.i.i15, %if.else.i.i14
@@ -9205,16 +9205,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #15
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #15
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #16
   %5 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.249, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef %0, i32 noundef %conv, i32 noundef %conv1) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.249, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef %0, i32 noundef %conv, i32 noundef %conv1) #16
   br label %trace_usb_xhci_port_write.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.250, i32 noundef %0, i32 noundef %conv, i32 noundef %conv1) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.250, i32 noundef %0, i32 noundef %conv, i32 noundef %conv1) #16
   br label %trace_usb_xhci_port_write.exit
 
 trace_usb_xhci_port_write.exit:                   ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -9313,16 +9313,16 @@ if.then.i.i39:                                    ; preds = %land.lhs.true5.i.i3
   br i1 %tobool7.i.i40, label %if.then8.i.i42, label %if.else.i.i41
 
 if.then8.i.i42:                                   ; preds = %if.then.i.i39
-  %call9.i.i43 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i32, ptr noundef null) #15
-  %call10.i.i44 = tail call i32 @qemu_get_thread_id() #15
+  %call9.i.i43 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i32, ptr noundef null) #16
+  %call10.i.i44 = tail call i32 @qemu_get_thread_id() #16
   %19 = load i64, ptr %_now.i.i32, align 8
   %tv_usec.i.i45 = getelementptr inbounds i8, ptr %_now.i.i32, i64 8
   %20 = load i64, ptr %tv_usec.i.i45, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.133, i32 noundef %call10.i.i44, i64 noundef %19, i64 noundef %20, ptr noundef nonnull @.str.248, i32 noundef %conv) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.133, i32 noundef %call10.i.i44, i64 noundef %19, i64 noundef %20, ptr noundef nonnull @.str.248, i32 noundef %conv) #16
   br label %trace_usb_xhci_unimplemented.exit
 
 if.else.i.i41:                                    ; preds = %if.then.i.i39
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.134, ptr noundef nonnull @.str.248, i32 noundef %conv) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.134, ptr noundef nonnull @.str.248, i32 noundef %conv) #16
   br label %trace_usb_xhci_unimplemented.exit
 
 trace_usb_xhci_unimplemented.exit:                ; preds = %sw.default53, %land.lhs.true5.i.i36, %if.then8.i.i42, %if.else.i.i41
@@ -9360,18 +9360,18 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #15
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #15
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #16
   %5 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   %conv12.i.i = zext i1 %warm_reset to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.251, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef %0, i32 noundef %conv12.i.i) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.251, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef %0, i32 noundef %conv12.i.i) #16
   br label %trace_usb_xhci_port_reset.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
   %conv14.i.i = zext i1 %warm_reset to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.252, i32 noundef %0, i32 noundef %conv14.i.i) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.252, i32 noundef %0, i32 noundef %conv14.i.i) #16
   br label %trace_usb_xhci_port_reset.exit
 
 trace_usb_xhci_port_reset.exit:                   ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -9399,7 +9399,7 @@ xhci_port_have_device.exit:                       ; preds = %lor.lhs.false.i
   br i1 %tobool6.not.i.not, label %return, label %if.end
 
 if.end:                                           ; preds = %xhci_port_have_device.exit
-  tail call void @usb_device_reset(ptr noundef nonnull %8) #15
+  tail call void @usb_device_reset(ptr noundef nonnull %8) #16
   %12 = load ptr, ptr %uport.i, align 16
   %13 = load ptr, ptr %12, align 8
   %speed = getelementptr inbounds i8, ptr %13, i64 216
@@ -9452,16 +9452,16 @@ if.then.i.i21:                                    ; preds = %land.lhs.true5.i.i1
   br i1 %tobool7.i.i22, label %if.then8.i.i24, label %if.else.i.i23
 
 if.then8.i.i24:                                   ; preds = %if.then.i.i21
-  %call9.i.i25 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i14, ptr noundef null) #15
-  %call10.i.i26 = tail call i32 @qemu_get_thread_id() #15
+  %call9.i.i25 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i14, ptr noundef null) #16
+  %call10.i.i26 = tail call i32 @qemu_get_thread_id() #16
   %22 = load i64, ptr %_now.i.i14, align 8
   %tv_usec.i.i27 = getelementptr inbounds i8, ptr %_now.i.i14, i64 8
   %23 = load i64, ptr %tv_usec.i.i27, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.189, i32 noundef %call10.i.i26, i64 noundef %22, i64 noundef %23, i32 noundef %17, i32 noundef 0) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.189, i32 noundef %call10.i.i26, i64 noundef %22, i64 noundef %23, i32 noundef %17, i32 noundef 0) #16
   br label %trace_usb_xhci_port_link.exit
 
 if.else.i.i23:                                    ; preds = %if.then.i.i21
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.190, i32 noundef %17, i32 noundef 0) #15
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.190, i32 noundef %17, i32 noundef 0) #16
   br label %trace_usb_xhci_port_link.exit
 
 trace_usb_xhci_port_link.exit:                    ; preds = %do.body, %land.lhs.true5.i.i18, %if.then8.i.i24, %if.else.i.i23
@@ -9487,34 +9487,34 @@ declare void @memory_region_del_subregion(ptr noundef, ptr noundef) local_unname
 declare void @usb_bus_release(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshl.i64(i64, i64, i64) #12
+declare i64 @llvm.fshl.i64(i64, i64, i64) #13
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #13
+declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #12
+declare i32 @llvm.umin.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #12
+declare i64 @llvm.umax.i64(i64, i64) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctpop.i32(i32) #12
+declare i32 @llvm.ctpop.i32(i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #12
+declare i32 @llvm.umax.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #12
+declare i32 @llvm.fshl.i32(i32, i32, i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #12
+declare i32 @llvm.smin.i32(i32, i32) #13
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -9527,15 +9527,16 @@ attributes #7 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true
 attributes #8 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #13 = { nofree nounwind }
-attributes #14 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #15 = { nounwind }
-attributes #16 = { noreturn nounwind }
-attributes #17 = { nounwind allocsize(0,1) }
-attributes #18 = { nounwind willreturn memory(read) }
-attributes #19 = { cold }
+attributes #11 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { nofree nounwind }
+attributes #15 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #16 = { nounwind }
+attributes #17 = { noreturn nounwind }
+attributes #18 = { nounwind allocsize(0,1) }
+attributes #19 = { nounwind willreturn memory(read) }
+attributes #20 = { cold }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

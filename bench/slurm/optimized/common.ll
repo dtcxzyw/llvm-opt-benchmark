@@ -6130,7 +6130,7 @@ define dso_local ptr @sacctmgr_process_format_list(ptr noundef %0) local_unnamed
   store i32 1, ptr @exit_code, align 4
   %797 = load ptr, ptr @stderr, align 8
   %798 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %797, ptr noundef nonnull @.str.313, ptr noundef nonnull %5) #23
-  tail call void @exit(i32 noundef 1) #22
+  tail call void @exit(i32 noundef 1) #24
   unreachable
 
 799:                                              ; preds = %792, %786, %780, %774, %768, %762, %756, %750, %744, %738, %732, %726, %718, %710, %702, %694, %688, %682, %676, %668, %662, %656, %650, %644, %638, %632, %626, %620, %614, %608, %602, %596, %590, %584, %578, %572, %566, %558, %552, %546, %540, %534, %524, %512, %506, %500, %490, %484, %476, %466, %458, %446, %440, %434, %426, %416, %408, %394, %384, %376, %366, %356, %350, %342, %336, %328, %320, %314, %308, %302, %296, %290, %284, %278, %272, %266, %260, %254, %248, %242, %236, %230, %224, %218, %212, %204, %198, %192, %186, %180, %174, %168, %162, %156, %150, %144, %138, %132, %126, %118, %112, %106, %100, %94, %88, %82, %74, %68, %62, %56, %50, %42, %36, %30, %20
@@ -6159,7 +6159,7 @@ _get_print_field.exit:                            ; preds = %801, %799
 
 declare void @destroy_print_field(ptr noundef) #3
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #14
 
 ; Function Attrs: nounwind uwtable
@@ -6317,7 +6317,7 @@ attributes #10 = { mustprogress nofree nounwind willreturn "frame-pointer"="all"
 attributes #11 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #12 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { nofree nounwind }
 attributes #16 = { nofree nounwind willreturn memory(argmem: read) }
 attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
@@ -6327,6 +6327,7 @@ attributes #20 = { nounwind }
 attributes #21 = { nounwind willreturn memory(none) }
 attributes #22 = { noreturn nounwind }
 attributes #23 = { cold nounwind }
+attributes #24 = { cold noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
 

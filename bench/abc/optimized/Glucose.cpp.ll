@@ -9359,7 +9359,7 @@ _ZNK5Gluco6Solver12withinBudgetEv.exit.thread:    ; preds = %109, %93, %_ZNK5Glu
   ret i8 %.sroa.056.2
 }
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #13
 
 ; Function Attrs: nofree nounwind
@@ -11963,7 +11963,7 @@ define linkonce_odr void @_ZN5Gluco6OptionD2Ev(ptr noundef nonnull align 8 deref
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5Gluco6OptionD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @llvm.trap() #33
+  tail call void @llvm.trap() #36
   unreachable
 }
 
@@ -12259,7 +12259,7 @@ define linkonce_odr void @_ZN5Gluco9IntOption4helpEb(ptr noundef nonnull align 8
   br i1 %11, label %13, label %15
 
 13:                                               ; preds = %2
-  %14 = tail call i64 @fwrite(ptr nonnull @.str.125, i64 4, i64 1, ptr %12) #36
+  %14 = tail call i64 @fwrite(ptr nonnull @.str.125, i64 4, i64 1, ptr %12) #37
   br label %17
 
 15:                                               ; preds = %2
@@ -12268,7 +12268,7 @@ define linkonce_odr void @_ZN5Gluco9IntOption4helpEb(ptr noundef nonnull align 8
 
 17:                                               ; preds = %15, %13
   %18 = load ptr, ptr @stderr, align 8
-  %19 = tail call i64 @fwrite(ptr nonnull @.str.127, i64 4, i64 1, ptr %18) #36
+  %19 = tail call i64 @fwrite(ptr nonnull @.str.127, i64 4, i64 1, ptr %18) #37
   %20 = getelementptr inbounds i8, ptr %0, i64 44
   %21 = load i32, ptr %20, align 4
   %22 = icmp eq i32 %21, 2147483647
@@ -12276,7 +12276,7 @@ define linkonce_odr void @_ZN5Gluco9IntOption4helpEb(ptr noundef nonnull align 8
   br i1 %22, label %24, label %26
 
 24:                                               ; preds = %17
-  %25 = tail call i64 @fwrite(ptr nonnull @.str.128, i64 4, i64 1, ptr %23) #36
+  %25 = tail call i64 @fwrite(ptr nonnull @.str.128, i64 4, i64 1, ptr %23) #37
   br label %28
 
 26:                                               ; preds = %17
@@ -13610,7 +13610,7 @@ attributes #9 = { mustprogress nofree norecurse nosync nounwind memory(readwrite
 attributes #10 = { mustprogress nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #12 = { mustprogress nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -13630,10 +13630,11 @@ attributes #29 = { builtin nounwind }
 attributes #30 = { nounwind allocsize(1) }
 attributes #31 = { nounwind willreturn memory(none) }
 attributes #32 = { noreturn }
-attributes #33 = { noreturn nounwind }
+attributes #33 = { cold noreturn nounwind }
 attributes #34 = { builtin allocsize(0) }
 attributes #35 = { cold nounwind }
-attributes #36 = { cold }
+attributes #36 = { noreturn nounwind }
+attributes #37 = { cold }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

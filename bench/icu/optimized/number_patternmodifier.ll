@@ -1857,45 +1857,45 @@ entry:
   ret i1 %tobool.i
 }
 
-; Function Attrs: mustprogress noreturn nounwind uwtable
+; Function Attrs: mustprogress nofree noreturn nounwind uwtable
 define noundef zeroext i1 @_ZNK6icu_756number4impl22MutablePatternModifier13containsFieldENS_22FormattedStringBuilder5FieldE(ptr nocapture nonnull readnone align 8 %this, i8 %field.coerce) unnamed_addr #14 align 2 {
 entry:
   tail call void @abort() #23
   unreachable
 }
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: cold nofree noreturn nounwind
 declare void @abort() local_unnamed_addr #15
 
-; Function Attrs: noreturn nounwind uwtable
+; Function Attrs: nofree noreturn nounwind uwtable
 define noundef zeroext i1 @_ZThn8_NK6icu_756number4impl22MutablePatternModifier13containsFieldENS_22FormattedStringBuilder5FieldE(ptr nocapture readnone %this, i8 %field.coerce) unnamed_addr #16 align 2 {
 entry:
   tail call void @abort() #23
   unreachable
 }
 
-; Function Attrs: mustprogress noreturn nounwind uwtable
+; Function Attrs: mustprogress nofree noreturn nounwind uwtable
 define void @_ZNK6icu_756number4impl22MutablePatternModifier13getParametersERNS1_8Modifier10ParametersE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %output) unnamed_addr #14 align 2 {
 entry:
   tail call void @abort() #23
   unreachable
 }
 
-; Function Attrs: noreturn nounwind uwtable
+; Function Attrs: nofree noreturn nounwind uwtable
 define void @_ZThn8_NK6icu_756number4impl22MutablePatternModifier13getParametersERNS1_8Modifier10ParametersE(ptr nocapture readnone %this, ptr nocapture nonnull readnone align 8 %output) unnamed_addr #16 align 2 {
 entry:
   tail call void @abort() #23
   unreachable
 }
 
-; Function Attrs: mustprogress noreturn nounwind uwtable
+; Function Attrs: mustprogress nofree noreturn nounwind uwtable
 define noundef zeroext i1 @_ZNK6icu_756number4impl22MutablePatternModifier22semanticallyEquivalentERKNS1_8ModifierE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %other) unnamed_addr #14 align 2 {
 entry:
   tail call void @abort() #23
   unreachable
 }
 
-; Function Attrs: noreturn nounwind uwtable
+; Function Attrs: nofree noreturn nounwind uwtable
 define noundef zeroext i1 @_ZThn8_NK6icu_756number4impl22MutablePatternModifier22semanticallyEquivalentERKNS1_8ModifierE(ptr nocapture readnone %this, ptr nocapture nonnull readnone align 8 %other) unnamed_addr #16 align 2 {
 entry:
   tail call void @abort() #23
@@ -2069,7 +2069,7 @@ declare void @_ZNK6icu_756number4impl15CurrencySymbols23getFormalCurrencySymbolE
 
 declare void @_ZNK6icu_756number4impl15CurrencySymbols24getVariantCurrencySymbolER10UErrorCode(ptr sret(%"class.icu_75::UnicodeString") align 8, ptr noundef nonnull align 8 dereferenceable(232), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #5
 
-; Function Attrs: mustprogress noreturn nounwind uwtable
+; Function Attrs: mustprogress nofree noreturn nounwind uwtable
 define void @_ZNK6icu_756number4impl22MutablePatternModifier15toUnicodeStringEv(ptr noalias nocapture readnone sret(%"class.icu_75::UnicodeString") align 8 %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(392) %this) local_unnamed_addr #14 align 2 {
 entry:
   tail call void @abort() #23
@@ -2382,9 +2382,9 @@ attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memo
 attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #12 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { nofree noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #17 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #18 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #19 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }

@@ -77,7 +77,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @do_qemu_init_sifive_plic_register_types() #0 {
 entry:
-  tail call void @register_module_init(ptr noundef nonnull @sifive_plic_register_types, i32 noundef 3) #8
+  tail call void @register_module_init(ptr noundef nonnull @sifive_plic_register_types, i32 noundef 3) #9
   ret void
 }
 
@@ -86,20 +86,20 @@ declare void @register_module_init(ptr noundef, i32 noundef) local_unnamed_addr 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @sifive_plic_register_types() #0 {
 entry:
-  %call = tail call ptr @type_register_static(ptr noundef nonnull @sifive_plic_info) #8
+  %call = tail call ptr @type_register_static(ptr noundef nonnull @sifive_plic_info) #9
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @sifive_plic_create(i64 noundef %addr, ptr noundef %hart_config, i32 noundef %num_harts, i32 noundef %hartid_base, i32 noundef %num_sources, i32 noundef %num_priorities, i32 noundef %priority_base, i32 noundef %pending_base, i32 noundef %enable_base, i32 noundef %enable_stride, i32 noundef %context_base, i32 noundef %context_stride, i32 noundef %aperture_size) local_unnamed_addr #0 {
 entry:
-  %call = tail call ptr @qdev_new(ptr noundef nonnull @.str) #8
+  %call = tail call ptr @qdev_new(ptr noundef nonnull @.str) #9
   %0 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %enable_stride)
   %cmp = icmp ult i32 %0, 2
   br i1 %cmp, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 482, ptr noundef nonnull @__PRETTY_FUNCTION__.sifive_plic_create) #9
+  tail call void @__assert_fail(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 482, ptr noundef nonnull @__PRETTY_FUNCTION__.sifive_plic_create) #10
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -108,26 +108,26 @@ if.end:                                           ; preds = %entry
   br i1 %cmp3, label %if.end6, label %if.else5
 
 if.else5:                                         ; preds = %if.end
-  tail call void @__assert_fail(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.2, i32 noundef 483, ptr noundef nonnull @__PRETTY_FUNCTION__.sifive_plic_create) #9
+  tail call void @__assert_fail(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.2, i32 noundef 483, ptr noundef nonnull @__PRETTY_FUNCTION__.sifive_plic_create) #10
   unreachable
 
 if.end6:                                          ; preds = %if.end
-  tail call void @qdev_prop_set_string(ptr noundef %call, ptr noundef nonnull @.str.4, ptr noundef %hart_config) #8
-  tail call void @qdev_prop_set_uint32(ptr noundef %call, ptr noundef nonnull @.str.5, i32 noundef %hartid_base) #8
-  tail call void @qdev_prop_set_uint32(ptr noundef %call, ptr noundef nonnull @.str.6, i32 noundef %num_sources) #8
-  tail call void @qdev_prop_set_uint32(ptr noundef %call, ptr noundef nonnull @.str.7, i32 noundef %num_priorities) #8
-  tail call void @qdev_prop_set_uint32(ptr noundef %call, ptr noundef nonnull @.str.8, i32 noundef %priority_base) #8
-  tail call void @qdev_prop_set_uint32(ptr noundef %call, ptr noundef nonnull @.str.9, i32 noundef %pending_base) #8
-  tail call void @qdev_prop_set_uint32(ptr noundef %call, ptr noundef nonnull @.str.10, i32 noundef %enable_base) #8
-  tail call void @qdev_prop_set_uint32(ptr noundef %call, ptr noundef nonnull @.str.11, i32 noundef %enable_stride) #8
-  tail call void @qdev_prop_set_uint32(ptr noundef %call, ptr noundef nonnull @.str.12, i32 noundef %context_base) #8
-  tail call void @qdev_prop_set_uint32(ptr noundef %call, ptr noundef nonnull @.str.13, i32 noundef %context_stride) #8
-  tail call void @qdev_prop_set_uint32(ptr noundef %call, ptr noundef nonnull @.str.14, i32 noundef %aperture_size) #8
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.35, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #8
-  %call8 = tail call zeroext i1 @sysbus_realize_and_unref(ptr noundef %call.i, ptr noundef nonnull @error_fatal) #8
-  %call.i35 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.35, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #8
-  tail call void @sysbus_mmio_map(ptr noundef %call.i35, i32 noundef 0, i64 noundef %addr) #8
-  %call.i36 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call, ptr noundef nonnull @.str, ptr noundef nonnull @.str.36, i32 noundef 31, ptr noundef nonnull @__func__.SIFIVE_PLIC) #8
+  tail call void @qdev_prop_set_string(ptr noundef %call, ptr noundef nonnull @.str.4, ptr noundef %hart_config) #9
+  tail call void @qdev_prop_set_uint32(ptr noundef %call, ptr noundef nonnull @.str.5, i32 noundef %hartid_base) #9
+  tail call void @qdev_prop_set_uint32(ptr noundef %call, ptr noundef nonnull @.str.6, i32 noundef %num_sources) #9
+  tail call void @qdev_prop_set_uint32(ptr noundef %call, ptr noundef nonnull @.str.7, i32 noundef %num_priorities) #9
+  tail call void @qdev_prop_set_uint32(ptr noundef %call, ptr noundef nonnull @.str.8, i32 noundef %priority_base) #9
+  tail call void @qdev_prop_set_uint32(ptr noundef %call, ptr noundef nonnull @.str.9, i32 noundef %pending_base) #9
+  tail call void @qdev_prop_set_uint32(ptr noundef %call, ptr noundef nonnull @.str.10, i32 noundef %enable_base) #9
+  tail call void @qdev_prop_set_uint32(ptr noundef %call, ptr noundef nonnull @.str.11, i32 noundef %enable_stride) #9
+  tail call void @qdev_prop_set_uint32(ptr noundef %call, ptr noundef nonnull @.str.12, i32 noundef %context_base) #9
+  tail call void @qdev_prop_set_uint32(ptr noundef %call, ptr noundef nonnull @.str.13, i32 noundef %context_stride) #9
+  tail call void @qdev_prop_set_uint32(ptr noundef %call, ptr noundef nonnull @.str.14, i32 noundef %aperture_size) #9
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.35, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #9
+  %call8 = tail call zeroext i1 @sysbus_realize_and_unref(ptr noundef %call.i, ptr noundef nonnull @error_fatal) #9
+  %call.i35 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.35, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #9
+  tail call void @sysbus_mmio_map(ptr noundef %call.i35, i32 noundef 0, i64 noundef %addr) #9
+  %call.i36 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call, ptr noundef nonnull @.str, ptr noundef nonnull @.str.36, i32 noundef 31, ptr noundef nonnull @__func__.SIFIVE_PLIC) #9
   %num_addrs = getelementptr inbounds i8, ptr %call.i36, i64 1088
   %2 = load i32, ptr %num_addrs, align 16
   %cmp1139.not = icmp eq i32 %2, 0
@@ -144,7 +144,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %idxprom = sext i32 %i.040 to i64
   %hartid = getelementptr %struct.PLICAddr, ptr %3, i64 %idxprom, i32 1
   %4 = load i32, ptr %hartid, align 4
-  %call12 = tail call ptr @qemu_get_cpu(i32 noundef %4) #8
+  %call12 = tail call ptr @qemu_get_cpu(i32 noundef %4) #9
   %5 = load ptr, ptr %addr_config, align 16
   %mode = getelementptr %struct.PLICAddr, ptr %5, i64 %idxprom, i32 2
   %6 = load i32, ptr %mode, align 4
@@ -153,9 +153,9 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 if.then17:                                        ; preds = %for.body
   %add = add i32 %sub18, %4
-  %call.i37 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call12, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #8
-  %call20 = tail call ptr @qdev_get_gpio_in(ptr noundef %call.i37, i32 noundef 11) #8
-  tail call void @qdev_connect_gpio_out(ptr noundef %call, i32 noundef %add, ptr noundef %call20) #8
+  %call.i37 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call12, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #9
+  %call20 = tail call ptr @qdev_get_gpio_in(ptr noundef %call.i37, i32 noundef 11) #9
+  tail call void @qdev_connect_gpio_out(ptr noundef %call, i32 noundef %add, ptr noundef %call20) #9
   %.pre = load ptr, ptr %addr_config, align 16
   %mode25.phi.trans.insert = getelementptr %struct.PLICAddr, ptr %.pre, i64 %idxprom, i32 2
   %.pre41 = load i32, ptr %mode25.phi.trans.insert, align 4
@@ -168,9 +168,9 @@ if.end21:                                         ; preds = %if.then17, %for.bod
 
 if.then27:                                        ; preds = %if.end21
   %sub28 = sub i32 %4, %hartid_base
-  %call.i38 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call12, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #8
-  %call30 = tail call ptr @qdev_get_gpio_in(ptr noundef %call.i38, i32 noundef 9) #8
-  tail call void @qdev_connect_gpio_out(ptr noundef %call, i32 noundef %sub28, ptr noundef %call30) #8
+  %call.i38 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call12, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #9
+  %call30 = tail call ptr @qdev_get_gpio_in(ptr noundef %call.i38, i32 noundef 9) #9
+  tail call void @qdev_connect_gpio_out(ptr noundef %call, i32 noundef %sub28, ptr noundef %call30) #9
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end21, %if.then27
@@ -207,10 +207,10 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @sifive_plic_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
 entry:
-  %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #8
+  %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #9
   %reset = getelementptr inbounds i8, ptr %call.i, i64 136
   store ptr @sifive_plic_reset, ptr %reset, align 8
-  tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @sifive_plic_properties) #8
+  tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @sifive_plic_properties) #9
   %realize = getelementptr inbounds i8, ptr %call.i, i64 144
   store ptr @sifive_plic_realize, ptr %realize, align 8
   %vmsd = getelementptr inbounds i8, ptr %call.i, i64 160
@@ -221,7 +221,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @sifive_plic_reset(ptr noundef %dev) #0 {
 entry:
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.36, i32 noundef 31, ptr noundef nonnull @__func__.SIFIVE_PLIC) #8
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.36, i32 noundef 31, ptr noundef nonnull @__func__.SIFIVE_PLIC) #9
   %source_priority = getelementptr inbounds i8, ptr %call.i, i64 1112
   %0 = load ptr, ptr %source_priority, align 8
   %num_sources = getelementptr inbounds i8, ptr %call.i, i64 1164
@@ -272,11 +272,11 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %idxprom = sext i32 %i.017 to i64
   %arrayidx = getelementptr ptr, ptr %11, i64 %idxprom
   %12 = load ptr, ptr %arrayidx, align 8
-  tail call void @qemu_set_irq(ptr noundef %12, i32 noundef 0) #8
+  tail call void @qemu_set_irq(ptr noundef %12, i32 noundef 0) #9
   %13 = load ptr, ptr %s_external_irqs, align 8
   %arrayidx12 = getelementptr ptr, ptr %13, i64 %idxprom
   %14 = load ptr, ptr %arrayidx12, align 8
-  tail call void @qemu_set_irq(ptr noundef %14, i32 noundef 0) #8
+  tail call void @qemu_set_irq(ptr noundef %14, i32 noundef 0) #9
   %inc = add nuw i32 %i.017, 1
   %15 = load i32, ptr %num_harts, align 4
   %cmp = icmp ult i32 %inc, %15
@@ -291,14 +291,14 @@ declare void @device_class_set_props(ptr noundef, ptr noundef) local_unnamed_add
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @sifive_plic_realize(ptr noundef %dev, ptr noundef %errp) #0 {
 entry:
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.36, i32 noundef 31, ptr noundef nonnull @__func__.SIFIVE_PLIC) #8
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.36, i32 noundef 31, ptr noundef nonnull @__func__.SIFIVE_PLIC) #9
   %mmio = getelementptr inbounds i8, ptr %call.i, i64 816
   %aperture_size = getelementptr inbounds i8, ptr %call.i, i64 1196
   %0 = load i32, ptr %aperture_size, align 4
   %conv = zext i32 %0 to i64
-  tail call void @memory_region_init_io(ptr noundef nonnull %mmio, ptr noundef %dev, ptr noundef nonnull @sifive_plic_ops, ptr noundef %call.i, ptr noundef nonnull @.str, i64 noundef %conv) #8
-  %call.i40 = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.35, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #8
-  tail call void @sysbus_init_mmio(ptr noundef %call.i40, ptr noundef nonnull %mmio) #8
+  tail call void @memory_region_init_io(ptr noundef nonnull %mmio, ptr noundef %dev, ptr noundef nonnull @sifive_plic_ops, ptr noundef %call.i, ptr noundef nonnull @.str, i64 noundef %conv) #9
+  %call.i40 = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.35, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #9
+  tail call void @sysbus_init_mmio(ptr noundef %call.i40, ptr noundef nonnull %mmio) #9
   %hart_config.i = getelementptr inbounds i8, ptr %call.i, i64 1152
   %1 = load ptr, ptr %hart_config.i, align 16
   br label %while.cond.i.outer
@@ -342,8 +342,8 @@ sw.bb2.i.i:                                       ; preds = %while.cond.i
 
 sw.default.i.i:                                   ; preds = %while.cond.i
   %conv.i.i = sext i8 %2 to i32
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.26, i32 noundef %conv.i.i) #8
-  tail call void @exit(i32 noundef 1) #9
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.26, i32 noundef %conv.i.i) #9
+  tail call void @exit(i32 noundef 1) #11
   unreachable
 
 char_to_mode.exit.i:                              ; preds = %sw.bb2.i.i, %sw.bb1.i.i, %while.cond.i
@@ -359,8 +359,8 @@ while.cond.i.backedge:                            ; preds = %char_to_mode.exit.i
 
 if.then8.i:                                       ; preds = %char_to_mode.exit.i
   %conv.i = zext nneg i8 %2 to i32
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.25, i32 noundef %conv.i, ptr noundef %1) #8
-  tail call void @exit(i32 noundef 1) #9
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.25, i32 noundef %conv.i, ptr noundef %1) #9
+  tail call void @exit(i32 noundef 1) #11
   unreachable
 
 while.end.i:                                      ; preds = %while.cond.i
@@ -383,7 +383,7 @@ if.end20.i:                                       ; preds = %if.then15.i, %while
   %num_harts.i = getelementptr inbounds i8, ptr %call.i, i64 1092
   store i32 %hartid.2.i, ptr %num_harts.i, align 4
   %conv22.i = zext i32 %addrid.2.i to i64
-  %call23.i = tail call noalias ptr @g_malloc_n(i64 noundef %conv22.i, i64 noundef 12) #10
+  %call23.i = tail call noalias ptr @g_malloc_n(i64 noundef %conv22.i, i64 noundef 12) #12
   %addr_config.i = getelementptr inbounds i8, ptr %call.i, i64 1104
   store ptr %call23.i, ptr %addr_config.i, align 16
   %hartid_base.i = getelementptr inbounds i8, ptr %call.i, i64 1160
@@ -423,8 +423,8 @@ sw.bb2.i39.i:                                     ; preds = %while.cond25.i
 
 sw.default.i42.i:                                 ; preds = %while.cond25.i
   %conv.i43.i = sext i8 %9 to i32
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.26, i32 noundef %conv.i43.i) #8
-  tail call void @exit(i32 noundef 1) #9
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.26, i32 noundef %conv.i43.i) #9
+  tail call void @exit(i32 noundef 1) #11
   unreachable
 
 char_to_mode.exit44.i.loopexit:                   ; preds = %while.cond25.i
@@ -454,7 +454,7 @@ parse_hart_config.exit:                           ; preds = %while.cond25.i
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %parse_hart_config.exit
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.2, i32 noundef 368, ptr noundef nonnull @__func__.sifive_plic_realize, ptr noundef nonnull @.str.18) #8
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.2, i32 noundef 368, ptr noundef nonnull @__func__.sifive_plic_realize, ptr noundef nonnull @.str.18) #9
   br label %return
 
 if.end:                                           ; preds = %parse_hart_config.exit
@@ -467,47 +467,47 @@ if.end:                                           ; preds = %parse_hart_config.e
   %num_enables = getelementptr inbounds i8, ptr %call.i, i64 1100
   store i32 %mul, ptr %num_enables, align 4
   %conv6 = zext i32 %13 to i64
-  %call7 = tail call noalias ptr @g_malloc0_n(i64 noundef %conv6, i64 noundef 4) #10
+  %call7 = tail call noalias ptr @g_malloc0_n(i64 noundef %conv6, i64 noundef 4) #12
   %source_priority = getelementptr inbounds i8, ptr %call.i, i64 1112
   store ptr %call7, ptr %source_priority, align 8
   %15 = load i32, ptr %num_addrs.i, align 16
   %conv9 = zext i32 %15 to i64
-  %call10 = tail call noalias ptr @g_malloc_n(i64 noundef %conv9, i64 noundef 4) #10
+  %call10 = tail call noalias ptr @g_malloc_n(i64 noundef %conv9, i64 noundef 4) #12
   %target_priority = getelementptr inbounds i8, ptr %call.i, i64 1120
   store ptr %call10, ptr %target_priority, align 16
   %16 = load i32, ptr %bitfield_words, align 8
   %conv12 = zext i32 %16 to i64
-  %call13 = tail call noalias ptr @g_malloc0_n(i64 noundef %conv12, i64 noundef 4) #10
+  %call13 = tail call noalias ptr @g_malloc0_n(i64 noundef %conv12, i64 noundef 4) #12
   %pending = getelementptr inbounds i8, ptr %call.i, i64 1128
   store ptr %call13, ptr %pending, align 8
   %17 = load i32, ptr %bitfield_words, align 8
   %conv15 = zext i32 %17 to i64
-  %call16 = tail call noalias ptr @g_malloc0_n(i64 noundef %conv15, i64 noundef 4) #10
+  %call16 = tail call noalias ptr @g_malloc0_n(i64 noundef %conv15, i64 noundef 4) #12
   %claimed = getelementptr inbounds i8, ptr %call.i, i64 1136
   store ptr %call16, ptr %claimed, align 16
   %18 = load i32, ptr %num_enables, align 4
   %conv18 = zext i32 %18 to i64
-  %call19 = tail call noalias ptr @g_malloc0_n(i64 noundef %conv18, i64 noundef 4) #10
+  %call19 = tail call noalias ptr @g_malloc0_n(i64 noundef %conv18, i64 noundef 4) #12
   %enable = getelementptr inbounds i8, ptr %call.i, i64 1144
   store ptr %call19, ptr %enable, align 8
   %19 = load i32, ptr %num_sources, align 4
-  tail call void @qdev_init_gpio_in(ptr noundef %dev, ptr noundef nonnull @sifive_plic_irq_request, i32 noundef %19) #8
+  tail call void @qdev_init_gpio_in(ptr noundef %dev, ptr noundef nonnull @sifive_plic_irq_request, i32 noundef %19) #9
   %20 = load i32, ptr %num_harts.i, align 4
   %conv21 = zext i32 %20 to i64
   %mul22 = shl nuw nsw i64 %conv21, 3
-  %call23 = tail call noalias ptr @g_malloc(i64 noundef %mul22) #11
+  %call23 = tail call noalias ptr @g_malloc(i64 noundef %mul22) #13
   %s_external_irqs = getelementptr inbounds i8, ptr %call.i, i64 1208
   store ptr %call23, ptr %s_external_irqs, align 8
   %21 = load i32, ptr %num_harts.i, align 4
-  tail call void @qdev_init_gpio_out(ptr noundef %dev, ptr noundef %call23, i32 noundef %21) #8
+  tail call void @qdev_init_gpio_out(ptr noundef %dev, ptr noundef %call23, i32 noundef %21) #9
   %22 = load i32, ptr %num_harts.i, align 4
   %conv27 = zext i32 %22 to i64
   %mul28 = shl nuw nsw i64 %conv27, 3
-  %call29 = tail call noalias ptr @g_malloc(i64 noundef %mul28) #11
+  %call29 = tail call noalias ptr @g_malloc(i64 noundef %mul28) #13
   %m_external_irqs = getelementptr inbounds i8, ptr %call.i, i64 1200
   store ptr %call29, ptr %m_external_irqs, align 16
   %23 = load i32, ptr %num_harts.i, align 4
-  tail call void @qdev_init_gpio_out(ptr noundef %dev, ptr noundef %call29, i32 noundef %23) #8
+  tail call void @qdev_init_gpio_out(ptr noundef %dev, ptr noundef %call29, i32 noundef %23) #9
   %24 = load i32, ptr %num_harts.i, align 4
   %cmp52.not = icmp eq i32 %24, 0
   br i1 %cmp52.not, label %for.end, label %for.body
@@ -522,14 +522,14 @@ for.body:                                         ; preds = %if.end, %for.cond
   %i.053 = phi i32 [ %inc, %for.cond ], [ 0, %if.end ]
   %26 = load i32, ptr %hartid_base.i, align 8
   %add34 = add i32 %26, %i.053
-  %call35 = tail call ptr @qemu_get_cpu(i32 noundef %add34) #8
-  %call.i41 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call35, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.28, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU) #8
-  %call37 = tail call i32 @riscv_cpu_claim_interrupts(ptr noundef %call.i41, i64 noundef 512) #8
+  %call35 = tail call ptr @qemu_get_cpu(i32 noundef %add34) #9
+  %call.i41 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call35, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.28, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU) #9
+  %call37 = tail call i32 @riscv_cpu_claim_interrupts(ptr noundef %call.i41, i64 noundef 512) #9
   %cmp38 = icmp slt i32 %call37, 0
   br i1 %cmp38, label %if.then40, label %for.cond
 
 if.then40:                                        ; preds = %for.body
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.2, i32 noundef 397, ptr noundef nonnull @__func__.sifive_plic_realize, ptr noundef nonnull @.str.19) #8
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.2, i32 noundef 397, ptr noundef nonnull @__func__.sifive_plic_realize, ptr noundef nonnull @.str.19) #9
   br label %return
 
 for.end:                                          ; preds = %for.cond, %if.end
@@ -852,7 +852,7 @@ do.body:                                          ; preds = %if.then46, %if.then
   br i1 %cmp.i.not, label %return, label %if.then84
 
 if.then84:                                        ; preds = %do.body
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.20, ptr noundef nonnull @__func__.sifive_plic_read, i64 noundef %addr) #8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.20, ptr noundef nonnull @__func__.sifive_plic_read, i64 noundef %addr) #9
   br label %return
 
 return:                                           ; preds = %if.then84, %do.body, %if.end72, %if.then62, %if.then34, %if.then9, %if.then
@@ -932,7 +932,7 @@ do.body:                                          ; preds = %if.else21
   br i1 %cmp.i.not, label %if.end159, label %if.then31
 
 if.then31:                                        ; preds = %do.body
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.21, ptr noundef nonnull @__func__.sifive_plic_write, i64 noundef %addr) #8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.21, ptr noundef nonnull @__func__.sifive_plic_write, i64 noundef %addr) #9
   br label %if.end159
 
 if.else33:                                        ; preds = %if.else21
@@ -983,7 +983,7 @@ do.body59:                                        ; preds = %if.then36
   br i1 %cmp.i70.not, label %if.end159, label %if.then67
 
 if.then67:                                        ; preds = %do.body59
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.22, ptr noundef nonnull @__func__.sifive_plic_write, i64 noundef %addr) #8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.22, ptr noundef nonnull @__func__.sifive_plic_write, i64 noundef %addr) #9
   br label %if.end159
 
 if.else71:                                        ; preds = %if.else33
@@ -1082,7 +1082,7 @@ do.body131:                                       ; preds = %if.then76
   br i1 %cmp.i76.not, label %if.end159, label %if.then139
 
 if.then139:                                       ; preds = %do.body131
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.23, ptr noundef nonnull @__func__.sifive_plic_write, i64 noundef %addr) #8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.23, ptr noundef nonnull @__func__.sifive_plic_write, i64 noundef %addr) #9
   br label %if.end159
 
 do.body145:                                       ; preds = %if.else71
@@ -1092,7 +1092,7 @@ do.body145:                                       ; preds = %if.else71
   br i1 %cmp.i78.not, label %if.end159, label %if.then153
 
 if.then153:                                       ; preds = %do.body145
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.24, ptr noundef nonnull @__func__.sifive_plic_write, i64 noundef %addr) #8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.24, ptr noundef nonnull @__func__.sifive_plic_write, i64 noundef %addr) #9
   br label %if.end159
 
 if.end159:                                        ; preds = %do.body, %if.then31, %sifive_plic_set_claimed.exit, %if.then122, %do.body131, %if.then139, %if.then99, %if.then112, %if.else107, %do.body145, %if.then153, %if.then51, %do.body59, %if.then67, %if.then6, %if.then15, %if.else
@@ -1235,7 +1235,7 @@ for.inc.sink.split:                               ; preds = %sifive_plic_claimed
   %arrayidx8 = getelementptr ptr, ptr %.sink, i64 %idxprom7
   %18 = load ptr, ptr %arrayidx8, align 8
   %conv = zext i1 %tobool to i32
-  tail call void @qemu_set_irq(ptr noundef %18, i32 noundef %conv) #8
+  tail call void @qemu_set_irq(ptr noundef %18, i32 noundef %conv) #9
   br label %for.inc
 
 for.inc:                                          ; preds = %for.inc.sink.split, %sifive_plic_claimed.exit
@@ -1252,16 +1252,16 @@ declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 
 declare void @error_report(ptr noundef, ...) local_unnamed_addr #1
 
-; Function Attrs: noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #2
+; Function Attrs: nofree noreturn nounwind
+declare void @exit(i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctpop.i32(i32) #6
+declare i32 @llvm.ctpop.i32(i32) #7
 
 declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ctpop.i8(i8) #7
+declare i8 @llvm.ctpop.i8(i8) #8
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1269,12 +1269,14 @@ attributes #2 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="tr
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #4 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nounwind }
-attributes #9 = { noreturn nounwind }
-attributes #10 = { nounwind allocsize(0,1) }
-attributes #11 = { nounwind allocsize(0) }
+attributes #6 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nounwind }
+attributes #10 = { noreturn nounwind }
+attributes #11 = { cold noreturn nounwind }
+attributes #12 = { nounwind allocsize(0,1) }
+attributes #13 = { nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

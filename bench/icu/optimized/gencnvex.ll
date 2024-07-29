@@ -27,13 +27,13 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local noalias noundef ptr @CnvExtOpen(ptr noundef %ucm) local_unnamed_addr #0 {
 entry:
-  %call = tail call noalias dereferenceable_or_null(917632) ptr @uprv_malloc_75(i64 noundef 917632) #12
+  %call = tail call noalias dereferenceable_or_null(917632) ptr @uprv_malloc_75(i64 noundef 917632) #13
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
-  tail call void @exit(i32 noundef 7) #13
+  tail call void @exit(i32 noundef 7) #14
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -57,7 +57,7 @@ declare noalias ptr @uprv_malloc_75(i64 noundef) local_unnamed_addr #1
 ; Function Attrs: nofree nounwind
 declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #2
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
@@ -72,20 +72,20 @@ entry:
 if.then:                                          ; preds = %entry
   %toUTable = getelementptr inbounds i8, ptr %cnvData, i64 40
   %0 = load ptr, ptr %toUTable, align 8
-  tail call void @utm_close(ptr noundef %0) #14
+  tail call void @utm_close(ptr noundef %0) #15
   %toUUChars = getelementptr inbounds i8, ptr %cnvData, i64 48
   %1 = load ptr, ptr %toUUChars, align 8
-  tail call void @utm_close(ptr noundef %1) #14
+  tail call void @utm_close(ptr noundef %1) #15
   %fromUTableUChars = getelementptr inbounds i8, ptr %cnvData, i64 56
   %2 = load ptr, ptr %fromUTableUChars, align 8
-  tail call void @utm_close(ptr noundef %2) #14
+  tail call void @utm_close(ptr noundef %2) #15
   %fromUTableValues = getelementptr inbounds i8, ptr %cnvData, i64 64
   %3 = load ptr, ptr %fromUTableValues, align 8
-  tail call void @utm_close(ptr noundef %3) #14
+  tail call void @utm_close(ptr noundef %3) #15
   %fromUBytes = getelementptr inbounds i8, ptr %cnvData, i64 72
   %4 = load ptr, ptr %fromUBytes, align 8
-  tail call void @utm_close(ptr noundef %4) #14
-  tail call void @uprv_free_75(ptr noundef nonnull %cnvData) #14
+  tail call void @utm_close(ptr noundef %4) #15
+  tail call void @uprv_free_75(ptr noundef nonnull %cnvData) #15
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -109,7 +109,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %2 = load ptr, ptr @stderr, align 8
-  %3 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 51, i64 1, ptr %2) #15
+  %3 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 51, i64 1, ptr %2) #16
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -186,10 +186,10 @@ for.inc31.i.i:                                    ; preds = %if.then24.i.i, %for
 
 makeToUTable.exit:                                ; preds = %for.inc.i.i, %for.inc31.i.i, %for.end.i.i
   %j.0.lcssa.i.i = phi i32 [ %i.0.lcssa.i.i, %for.end.i.i ], [ %j.1.i.i, %for.inc31.i.i ], [ %6, %for.inc.i.i ]
-  %call1.i = tail call ptr @utm_open(ptr noundef nonnull @.str.3, i32 noundef 65536, i32 noundef 2031616, i32 noundef 4) #14
+  %call1.i = tail call ptr @utm_open(ptr noundef nonnull @.str.3, i32 noundef 65536, i32 noundef 2031616, i32 noundef 4) #15
   %toUTable.i = getelementptr inbounds i8, ptr %cnvData, i64 40
   store ptr %call1.i, ptr %toUTable.i, align 8
-  %call2.i = tail call ptr @utm_open(ptr noundef nonnull @.str.4, i32 noundef 65536, i32 noundef 262144, i32 noundef 2) #14
+  %call2.i = tail call ptr @utm_open(ptr noundef nonnull @.str.4, i32 noundef 65536, i32 noundef 262144, i32 noundef 2) #15
   %toUUChars.i = getelementptr inbounds i8, ptr %cnvData, i64 48
   store ptr %call2.i, ptr %toUUChars.i, align 8
   %call3.i = tail call fastcc signext range(i8 0, 2) i8 @generateToUTable(ptr noundef %cnvData, ptr noundef nonnull %table, i32 noundef 0, i32 noundef %j.0.lcssa.i.i, i32 noundef 0, i32 noundef 0)
@@ -305,13 +305,13 @@ for.inc65.i.i:                                    ; preds = %for.end.i.i21, %if.
 
 prepareFromUMappings.exit.i:                      ; preds = %for.inc65.i.i, %land.rhs
   %j.0.lcssa.i.i6 = phi i32 [ 0, %land.rhs ], [ %j.1.i.i16, %for.inc65.i.i ]
-  %call1.i7 = tail call ptr @utm_open(ptr noundef nonnull @.str.7, i32 noundef 65536, i32 noundef 16777216, i32 noundef 2) #14
+  %call1.i7 = tail call ptr @utm_open(ptr noundef nonnull @.str.7, i32 noundef 65536, i32 noundef 16777216, i32 noundef 2) #15
   %fromUTableUChars.i = getelementptr inbounds i8, ptr %cnvData, i64 56
   store ptr %call1.i7, ptr %fromUTableUChars.i, align 8
-  %call2.i8 = tail call ptr @utm_open(ptr noundef nonnull @.str.8, i32 noundef 65536, i32 noundef 16777216, i32 noundef 4) #14
+  %call2.i8 = tail call ptr @utm_open(ptr noundef nonnull @.str.8, i32 noundef 65536, i32 noundef 16777216, i32 noundef 4) #15
   %fromUTableValues.i = getelementptr inbounds i8, ptr %cnvData, i64 64
   store ptr %call2.i8, ptr %fromUTableValues.i, align 8
-  %call3.i9 = tail call ptr @utm_open(ptr noundef nonnull @.str.9, i32 noundef 65536, i32 noundef 16777216, i32 noundef 1) #14
+  %call3.i9 = tail call ptr @utm_open(ptr noundef nonnull @.str.9, i32 noundef 65536, i32 noundef 16777216, i32 noundef 1) #15
   %fromUBytes.i = getelementptr inbounds i8, ptr %cnvData, i64 72
   store ptr %call3.i9, ptr %fromUBytes.i, align 8
   %stage2Top.i = getelementptr inbounds i8, ptr %cnvData, i64 917588
@@ -323,9 +323,9 @@ prepareFromUMappings.exit.i:                      ; preds = %for.inc65.i.i, %lan
   %stage3bTop.i = getelementptr inbounds i8, ptr %cnvData, i64 917596
   store i32 2, ptr %stage3bTop.i, align 4
   %28 = load ptr, ptr %fromUTableUChars.i, align 8
-  %call5.i = tail call ptr @utm_alloc(ptr noundef %28) #14
+  %call5.i = tail call ptr @utm_alloc(ptr noundef %28) #15
   %29 = load ptr, ptr %fromUTableValues.i, align 8
-  %call7.i = tail call ptr @utm_alloc(ptr noundef %29) #14
+  %call7.i = tail call ptr @utm_alloc(ptr noundef %29) #15
   %cmp.i.i = icmp eq i32 %j.0.lcssa.i.i6, 0
   br i1 %cmp.i.i, label %if.end.i, label %if.end.i18.i
 
@@ -432,14 +432,14 @@ land.lhs.true.i27.i:                              ; preds = %if.then55.i.i
 if.then67.i.i:                                    ; preds = %land.lhs.true.i27.i
   %arrayidx60.i.i.le = getelementptr inbounds i32, ptr %31, i64 %idxprom59.i.i
   %52 = load ptr, ptr @stderr, align 8
-  %53 = tail call i64 @fwrite(ptr nonnull @.str.10, i64 55, i64 1, ptr %52) #15
+  %53 = tail call i64 @fwrite(ptr nonnull @.str.10, i64 55, i64 1, ptr %52) #16
   %54 = load ptr, ptr @stderr, align 8
-  tail call void @ucm_printMapping(ptr noundef nonnull %table, ptr noundef nonnull %add.ptr37.i.i, ptr noundef %54) #14
+  tail call void @ucm_printMapping(ptr noundef nonnull %table, ptr noundef nonnull %add.ptr37.i.i, ptr noundef %54) #15
   %55 = load i32, ptr %arrayidx60.i.i.le, align 4
   %idx.ext70.i.i = sext i32 %55 to i64
   %add.ptr71.i.i = getelementptr inbounds %struct.UCMapping, ptr %30, i64 %idx.ext70.i.i
   %56 = load ptr, ptr @stderr, align 8
-  tail call void @ucm_printMapping(ptr noundef nonnull %table, ptr noundef %add.ptr71.i.i, ptr noundef %56) #14
+  tail call void @ucm_printMapping(ptr noundef nonnull %table, ptr noundef %add.ptr71.i.i, ptr noundef %56) #15
   br label %return
 
 if.end72.i.i:                                     ; preds = %land.lhs.true.i27.i, %if.then55.i.i
@@ -458,7 +458,7 @@ if.then77.i.i:                                    ; preds = %if.end74.i.i
 
 if.else.i26.i:                                    ; preds = %if.end74.i.i
   %57 = load ptr, ptr %fromUTableValues.i, align 8
-  %call78.i.i = tail call i32 @utm_countItems(ptr noundef %57) #14
+  %call78.i.i = tail call i32 @utm_countItems(ptr noundef %57) #15
   tail call fastcc void @addFromUTrieEntry(ptr noundef %cnvData, i32 noundef %next.055.i.i, i32 noundef %call78.i.i)
   %call79.i.i = tail call fastcc signext i8 @generateFromUTable(ptr noundef %cnvData, ptr noundef nonnull %table, i32 noundef %subStart.0.i.i, i32 noundef %inc.lcssa.i.i, i32 noundef 2, i32 noundef %value.0.i.i)
   %tobool.not.i.i = icmp eq i8 %call79.i.i, 0
@@ -511,7 +511,7 @@ if.else:                                          ; preds = %entry
   %ucm = getelementptr inbounds i8, ptr %cnvData, i64 32
   %1 = load ptr, ptr %ucm, align 8
   %baseName = getelementptr inbounds i8, ptr %1, i64 132132
-  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %baseName) #16
+  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %baseName) #17
   %conv = trunc i64 %call to i32
   %length.092 = add nsw i32 %conv, 1
   %and193 = and i32 %length.092, 3
@@ -551,10 +551,10 @@ while.end:                                        ; preds = %while.end.loopexit,
   %or = or disjoint i32 %shl, 14
   %flags = getelementptr inbounds i8, ptr %header, i64 24
   store i32 %or, ptr %flags, align 4
-  call void @udata_writeBlock(ptr noundef %pData, ptr noundef nonnull %header, i32 noundef 32) #14
+  call void @udata_writeBlock(ptr noundef %pData, ptr noundef nonnull %header, i32 noundef 32) #15
   %7 = load ptr, ptr %ucm, align 8
   %baseName10 = getelementptr inbounds i8, ptr %7, i64 132132
-  call void @udata_writeBlock(ptr noundef %pData, ptr noundef nonnull %baseName10, i32 noundef %length.0.lcssa) #14
+  call void @udata_writeBlock(ptr noundef %pData, ptr noundef nonnull %baseName10, i32 noundef %length.0.lcssa) #15
   br label %if.end
 
 if.end:                                           ; preds = %entry, %while.end
@@ -564,7 +564,7 @@ if.end:                                           ; preds = %entry, %while.end
   store i32 128, ptr %arrayidx14, align 4
   %toUTable = getelementptr inbounds i8, ptr %cnvData, i64 40
   %8 = load ptr, ptr %toUTable, align 8
-  %call15 = call i32 @utm_countItems(ptr noundef %8) #14
+  %call15 = call i32 @utm_countItems(ptr noundef %8) #15
   %arrayidx16 = getelementptr inbounds i8, ptr %indexes, i64 8
   store i32 %call15, ptr %arrayidx16, align 8
   %mul17 = shl nsw i32 %call15, 2
@@ -573,7 +573,7 @@ if.end:                                           ; preds = %entry, %while.end
   store i32 %add18, ptr %arrayidx19, align 4
   %toUUChars = getelementptr inbounds i8, ptr %cnvData, i64 48
   %9 = load ptr, ptr %toUUChars, align 8
-  %call20 = call i32 @utm_countItems(ptr noundef %9) #14
+  %call20 = call i32 @utm_countItems(ptr noundef %9) #15
   %arrayidx21 = getelementptr inbounds i8, ptr %indexes, i64 16
   store i32 %call20, ptr %arrayidx21, align 16
   %mul22 = shl nsw i32 %call20, 1
@@ -582,7 +582,7 @@ if.end:                                           ; preds = %entry, %while.end
   store i32 %add23, ptr %arrayidx24, align 4
   %fromUTableUChars = getelementptr inbounds i8, ptr %cnvData, i64 56
   %10 = load ptr, ptr %fromUTableUChars, align 8
-  %call25 = call i32 @utm_countItems(ptr noundef %10) #14
+  %call25 = call i32 @utm_countItems(ptr noundef %10) #15
   %11 = add i32 %call20, %call25
   %12 = shl i32 %11, 1
   %add27 = add i32 %12, %add18
@@ -592,11 +592,11 @@ if.end:                                           ; preds = %entry, %while.end
 
 if.then30:                                        ; preds = %if.end
   %14 = load ptr, ptr %fromUTableUChars, align 8
-  %call32 = call ptr @utm_alloc(ptr noundef %14) #14
+  %call32 = call ptr @utm_alloc(ptr noundef %14) #15
   store i16 0, ptr %call32, align 2
   %fromUTableValues = getelementptr inbounds i8, ptr %cnvData, i64 64
   %15 = load ptr, ptr %fromUTableValues, align 8
-  %call33 = call ptr @utm_alloc(ptr noundef %15) #14
+  %call33 = call ptr @utm_alloc(ptr noundef %15) #15
   store i32 0, ptr %call33, align 4
   %inc34 = add nsw i32 %call25, 1
   %add35 = add nsw i32 %add27, 2
@@ -615,7 +615,7 @@ if.end36:                                         ; preds = %if.then30, %if.end
   store i32 %add40, ptr %arrayidx41, align 16
   %fromUBytes = getelementptr inbounds i8, ptr %cnvData, i64 72
   %16 = load ptr, ptr %fromUBytes, align 8
-  %call42 = call i32 @utm_countItems(ptr noundef %16) #14
+  %call42 = call i32 @utm_countItems(ptr noundef %16) #15
   %add43 = add nsw i32 %call42, %add40
   %and44 = and i32 %add43, 1
   %tobool45.not = icmp eq i32 %and44, 0
@@ -623,7 +623,7 @@ if.end36:                                         ; preds = %if.then30, %if.end
 
 if.then46:                                        ; preds = %if.end36
   %17 = load ptr, ptr %fromUBytes, align 8
-  %call48 = call ptr @utm_alloc(ptr noundef %17) #14
+  %call48 = call ptr @utm_alloc(ptr noundef %17) #15
   store i8 0, ptr %call48, align 1
   %inc49 = add nsw i32 %call42, 1
   %inc50 = add nsw i32 %add43, 1
@@ -716,48 +716,48 @@ if.end71:                                         ; preds = %if.then64, %if.end5
   %conv89 = zext i8 %32 to i32
   %arrayidx90 = getelementptr inbounds i8, ptr %indexes, i64 76
   store i32 %conv89, ptr %arrayidx90, align 4
-  call void @udata_writeBlock(ptr noundef %pData, ptr noundef nonnull %indexes, i32 noundef 128) #14
+  call void @udata_writeBlock(ptr noundef %pData, ptr noundef nonnull %indexes, i32 noundef 128) #15
   %33 = load ptr, ptr %toUTable, align 8
-  %call93 = call ptr @utm_getStart(ptr noundef %33) #14
+  %call93 = call ptr @utm_getStart(ptr noundef %33) #15
   %34 = load i32, ptr %arrayidx16, align 8
   %mul95 = shl nsw i32 %34, 2
-  call void @udata_writeBlock(ptr noundef %pData, ptr noundef %call93, i32 noundef %mul95) #14
+  call void @udata_writeBlock(ptr noundef %pData, ptr noundef %call93, i32 noundef %mul95) #15
   %35 = load ptr, ptr %toUUChars, align 8
-  %call97 = call ptr @utm_getStart(ptr noundef %35) #14
+  %call97 = call ptr @utm_getStart(ptr noundef %35) #15
   %36 = load i32, ptr %arrayidx21, align 16
   %mul99 = shl nsw i32 %36, 1
-  call void @udata_writeBlock(ptr noundef %pData, ptr noundef %call97, i32 noundef %mul99) #14
+  call void @udata_writeBlock(ptr noundef %pData, ptr noundef %call97, i32 noundef %mul99) #15
   %37 = load ptr, ptr %fromUTableUChars, align 8
-  %call101 = call ptr @utm_getStart(ptr noundef %37) #14
+  %call101 = call ptr @utm_getStart(ptr noundef %37) #15
   %38 = load i32, ptr %arrayidx37, align 4
   %mul103 = shl nsw i32 %38, 1
-  call void @udata_writeBlock(ptr noundef %pData, ptr noundef %call101, i32 noundef %mul103) #14
+  call void @udata_writeBlock(ptr noundef %pData, ptr noundef %call101, i32 noundef %mul103) #15
   %fromUTableValues104 = getelementptr inbounds i8, ptr %cnvData, i64 64
   %39 = load ptr, ptr %fromUTableValues104, align 8
-  %call105 = call ptr @utm_getStart(ptr noundef %39) #14
+  %call105 = call ptr @utm_getStart(ptr noundef %39) #15
   %40 = load i32, ptr %arrayidx37, align 4
   %mul107 = shl nsw i32 %40, 2
-  call void @udata_writeBlock(ptr noundef %pData, ptr noundef %call105, i32 noundef %mul107) #14
+  call void @udata_writeBlock(ptr noundef %pData, ptr noundef %call105, i32 noundef %mul107) #15
   %41 = load ptr, ptr %fromUBytes, align 8
-  %call109 = call ptr @utm_getStart(ptr noundef %41) #14
+  %call109 = call ptr @utm_getStart(ptr noundef %41) #15
   %42 = load i32, ptr %arrayidx52, align 4
-  call void @udata_writeBlock(ptr noundef %pData, ptr noundef %call109, i32 noundef %42) #14
+  call void @udata_writeBlock(ptr noundef %pData, ptr noundef %call109, i32 noundef %42) #15
   %stage1 = getelementptr inbounds i8, ptr %cnvData, i64 80
   %43 = load i32, ptr %stage1Top, align 8
   %mul113 = shl nsw i32 %43, 1
-  call void @udata_writeBlock(ptr noundef %pData, ptr noundef nonnull %stage1, i32 noundef %mul113) #14
+  call void @udata_writeBlock(ptr noundef %pData, ptr noundef nonnull %stage1, i32 noundef %mul113) #15
   %stage2 = getelementptr inbounds i8, ptr %cnvData, i64 2256
   %44 = load i32, ptr %stage2Top, align 4
   %mul116 = shl nsw i32 %44, 1
-  call void @udata_writeBlock(ptr noundef %pData, ptr noundef nonnull %stage2, i32 noundef %mul116) #14
+  call void @udata_writeBlock(ptr noundef %pData, ptr noundef nonnull %stage2, i32 noundef %mul116) #15
   %stage3117 = getelementptr inbounds i8, ptr %cnvData, i64 131152
   %45 = load i32, ptr %stage3Top, align 8
   %mul120 = shl nsw i32 %45, 1
-  call void @udata_writeBlock(ptr noundef %pData, ptr noundef nonnull %stage3117, i32 noundef %mul120) #14
+  call void @udata_writeBlock(ptr noundef %pData, ptr noundef nonnull %stage3117, i32 noundef %mul120) #15
   %stage3b = getelementptr inbounds i8, ptr %cnvData, i64 655440
   %46 = load i32, ptr %stage3bTop, align 4
   %mul123 = shl nsw i32 %46, 2
-  call void @udata_writeBlock(ptr noundef %pData, ptr noundef nonnull %stage3b, i32 noundef %mul123) #14
+  call void @udata_writeBlock(ptr noundef %pData, ptr noundef nonnull %stage3b, i32 noundef %mul123) #15
   %47 = load i8, ptr @VERBOSE, align 1
   %tobool124.not = icmp eq i8 %47, 0
   br i1 %tobool124.not, label %if.end128, label %if.then125
@@ -904,7 +904,7 @@ if.end44:                                         ; preds = %for.end
 if.then47:                                        ; preds = %if.end44
   %13 = load ptr, ptr @stderr, align 8
   %conv48 = zext nneg i32 %spec.select to i64
-  %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.5, i64 noundef %conv48) #15
+  %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.5, i64 noundef %conv48) #16
   br label %return
 
 if.end49:                                         ; preds = %lor.lhs.false, %if.end44.thread, %if.end44
@@ -913,7 +913,7 @@ if.end49:                                         ; preds = %lor.lhs.false, %if.
   %toUTable = getelementptr inbounds i8, ptr %extData, i64 40
   %14 = load ptr, ptr %toUTable, align 8
   %add50 = add nsw i32 %count.0105, 1
-  %call51 = tail call ptr @utm_allocN(ptr noundef %14, i32 noundef %add50) #14
+  %call51 = tail call ptr @utm_allocN(ptr noundef %14, i32 noundef %add50) #15
   %shl = shl i32 %count.0105, 24
   %or = or i32 %shl, %defaultValue
   %incdec.ptr = getelementptr inbounds i8, ptr %call51, i64 4
@@ -1131,14 +1131,14 @@ land.lhs.true139:                                 ; preds = %if.then135
 if.then149:                                       ; preds = %land.lhs.true139
   %arrayidx141.le = getelementptr inbounds i32, ptr %1, i64 %idxprom140
   %37 = load ptr, ptr @stderr, align 8
-  %38 = call i64 @fwrite(ptr nonnull @.str.6, i64 41, i64 1, ptr %37) #15
+  %38 = call i64 @fwrite(ptr nonnull @.str.6, i64 41, i64 1, ptr %37) #16
   %39 = load ptr, ptr @stderr, align 8
-  call void @ucm_printMapping(ptr noundef nonnull %table, ptr noundef nonnull %add.ptr129, ptr noundef %39) #14
+  call void @ucm_printMapping(ptr noundef nonnull %table, ptr noundef nonnull %add.ptr129, ptr noundef %39) #15
   %40 = load i32, ptr %arrayidx141.le, align 4
   %idx.ext153 = sext i32 %40 to i64
   %add.ptr154 = getelementptr inbounds %struct.UCMapping, ptr %0, i64 %idx.ext153
   %41 = load ptr, ptr @stderr, align 8
-  call void @ucm_printMapping(ptr noundef nonnull %table, ptr noundef %add.ptr154, ptr noundef %41) #14
+  call void @ucm_printMapping(ptr noundef nonnull %table, ptr noundef %add.ptr154, ptr noundef %41) #15
   br label %return
 
 if.end155:                                        ; preds = %land.lhs.true139, %if.then135
@@ -1164,7 +1164,7 @@ cond.false.i:                                     ; preds = %if.end155
   %add.ptr.i = getelementptr inbounds i32, ptr %44, i64 %idx.ext.i
   store i32 0, ptr %errorCode.i, align 4
   %conv14.i = sext i8 %42 to i32
-  %call.i = call ptr @u_strFromUTF32_75(ptr noundef null, i32 noundef 0, ptr noundef nonnull %u16Length.i, ptr noundef %add.ptr.i, i32 noundef %conv14.i, ptr noundef nonnull %errorCode.i) #14
+  %call.i = call ptr @u_strFromUTF32_75(ptr noundef null, i32 noundef 0, ptr noundef nonnull %u16Length.i, ptr noundef %add.ptr.i, i32 noundef %conv14.i, ptr noundef nonnull %errorCode.i) #15
   %46 = load i32, ptr %errorCode.i, align 4
   %cmp15.i = icmp sgt i32 %46, 0
   %cmp17.i = icmp ne i32 %46, 15
@@ -1172,21 +1172,21 @@ cond.false.i:                                     ; preds = %if.end155
   br i1 %or.cond.i, label %if.then19.i, label %if.end.i
 
 if.then19.i:                                      ; preds = %cond.false.i
-  call void @exit(i32 noundef %46) #13
+  call void @exit(i32 noundef %46) #18
   unreachable
 
 if.end.i:                                         ; preds = %cond.false.i
   %47 = load i32, ptr %u16Length.i, align 4
   %48 = load ptr, ptr %toUUChars.i, align 8
-  %call21.i = call i32 @utm_countItems(ptr noundef %48) #14
+  %call21.i = call i32 @utm_countItems(ptr noundef %48) #15
   %49 = load ptr, ptr %toUUChars.i, align 8
   %50 = load i32, ptr %u16Length.i, align 4
-  %call23.i = call ptr @utm_allocN(ptr noundef %49, i32 noundef %50) #14
+  %call23.i = call ptr @utm_allocN(ptr noundef %49, i32 noundef %50) #15
   store i32 0, ptr %errorCode.i, align 4
   %51 = load i32, ptr %u16Length.i, align 4
   %52 = load i8, ptr %uLen.i, align 4
   %conv25.i = sext i8 %52 to i32
-  %call26.i = call ptr @u_strFromUTF32_75(ptr noundef %call23.i, i32 noundef %51, ptr noundef null, ptr noundef %add.ptr.i, i32 noundef %conv25.i, ptr noundef nonnull %errorCode.i) #14
+  %call26.i = call ptr @u_strFromUTF32_75(ptr noundef %call23.i, i32 noundef %51, ptr noundef null, ptr noundef %add.ptr.i, i32 noundef %conv25.i, ptr noundef nonnull %errorCode.i) #15
   %53 = load i32, ptr %errorCode.i, align 4
   %cmp27.i = icmp sgt i32 %53, 0
   %cmp30.i = icmp ne i32 %53, 15
@@ -1202,7 +1202,7 @@ if.end.i.if.end34.i_crit_edge:                    ; preds = %if.end.i
   br label %if.end34.i
 
 if.then32.i:                                      ; preds = %if.end.i
-  call void @exit(i32 noundef %53) #13
+  call void @exit(i32 noundef %53) #18
   unreachable
 
 if.end34.i:                                       ; preds = %if.end.i.if.end34.i_crit_edge, %if.then.i
@@ -1264,7 +1264,7 @@ if.then160:                                       ; preds = %if.end157
 
 if.else164:                                       ; preds = %if.end157
   %61 = load ptr, ptr %toUTable, align 8
-  %call166 = call i32 @utm_countItems(ptr noundef %61) #14
+  %call166 = call i32 @utm_countItems(ptr noundef %61) #15
   %62 = load i32, ptr %arrayidx120, align 4
   %or169 = or i32 %62, %call166
   store i32 %or169, ptr %arrayidx120, align 4
@@ -1350,11 +1350,11 @@ sw.bb14:                                          ; preds = %sw.bb10, %cond.end
 sw.default:                                       ; preds = %cond.end
   %fromUBytes = getelementptr inbounds i8, ptr %extData, i64 72
   %7 = load ptr, ptr %fromUBytes, align 8
-  %call = tail call i32 @utm_countItems(ptr noundef %7) #14
+  %call = tail call i32 @utm_countItems(ptr noundef %7) #15
   %8 = load ptr, ptr %fromUBytes, align 8
   %9 = load i8, ptr %bLen, align 1
   %conv19 = sext i8 %9 to i32
-  %call20 = tail call ptr @utm_allocN(ptr noundef %8, i32 noundef %conv19) #14
+  %call20 = tail call ptr @utm_allocN(ptr noundef %8, i32 noundef %conv19) #15
   %10 = load i8, ptr %bLen, align 1
   %conv22 = sext i8 %10 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call20, ptr align 1 %cond, i64 %conv22, i1 false)
@@ -1457,8 +1457,8 @@ return:                                           ; preds = %if.end80, %if.then8
   ret i32 %retval.0
 }
 
-; Function Attrs: nounwind uwtable
-define internal fastcc void @addFromUTrieEntry(ptr nocapture noundef %extData, i32 noundef %c, i32 noundef %value) unnamed_addr #0 {
+; Function Attrs: nofree nounwind uwtable
+define internal fastcc void @addFromUTrieEntry(ptr nocapture noundef %extData, i32 noundef %c, i32 noundef %value) unnamed_addr #8 {
 entry:
   %cmp = icmp eq i32 %value, 0
   br i1 %cmp, label %if.end133, label %if.end
@@ -1526,8 +1526,8 @@ while.end.if.end28_crit_edge:                     ; preds = %while.end
 
 if.then26:                                        ; preds = %while.end
   %7 = load ptr, ptr @stderr, align 8
-  %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.11, i32 noundef %c) #15
-  tail call void @exit(i32 noundef 7) #13
+  %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.11, i32 noundef %c) #16
+  tail call void @exit(i32 noundef 7) #14
   unreachable
 
 if.end28:                                         ; preds = %while.end.if.end28_crit_edge, %if.end4
@@ -1582,8 +1582,8 @@ while.end56:                                      ; preds = %while.cond43, %whil
 
 if.then69:                                        ; preds = %while.end56
   %15 = load ptr, ptr @stderr, align 8
-  %call70 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str.12, i32 noundef %c) #15
-  tail call void @exit(i32 noundef 7) #13
+  %call70 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str.12, i32 noundef %c) #16
+  tail call void @exit(i32 noundef 7) #14
   unreachable
 
 if.end72:                                         ; preds = %while.end56, %if.end28
@@ -1656,8 +1656,8 @@ if.else120:                                       ; preds = %if.end72
 
 if.then124:                                       ; preds = %if.else120
   %25 = load ptr, ptr @stderr, align 8
-  %call125 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef nonnull @.str.13, i32 noundef %c) #15
-  tail call void @exit(i32 noundef 7) #13
+  %call125 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef nonnull @.str.13, i32 noundef %c) #16
+  tail call void @exit(i32 noundef 7) #14
   unreachable
 
 if.end126:                                        ; preds = %if.else120
@@ -1753,10 +1753,10 @@ for.end:                                          ; preds = %cond.end26, %cond.e
   %fromUTableUChars = getelementptr inbounds i8, ptr %extData, i64 56
   %13 = load ptr, ptr %fromUTableUChars, align 8
   %add34 = add nsw i32 %uniqueCount.0.lcssa, 1
-  %call = tail call ptr @utm_allocN(ptr noundef %13, i32 noundef %add34) #14
+  %call = tail call ptr @utm_allocN(ptr noundef %13, i32 noundef %add34) #15
   %fromUTableValues = getelementptr inbounds i8, ptr %extData, i64 64
   %14 = load ptr, ptr %fromUTableValues, align 8
-  %call36 = tail call ptr @utm_allocN(ptr noundef %14, i32 noundef %add34) #14
+  %call36 = tail call ptr @utm_allocN(ptr noundef %14, i32 noundef %add34) #15
   %conv37 = trunc i32 %uniqueCount.0.lcssa to i16
   %incdec.ptr = getelementptr inbounds i8, ptr %call, i64 2
   store i16 %conv37, ptr %call, align 2
@@ -1868,14 +1868,14 @@ land.lhs.true:                                    ; preds = %if.then100
 if.then113:                                       ; preds = %land.lhs.true
   %arrayidx105.le = getelementptr inbounds i32, ptr %1, i64 %idxprom104
   %28 = load ptr, ptr @stderr, align 8
-  %29 = tail call i64 @fwrite(ptr nonnull @.str.10, i64 55, i64 1, ptr %28) #15
+  %29 = tail call i64 @fwrite(ptr nonnull @.str.10, i64 55, i64 1, ptr %28) #16
   %30 = load ptr, ptr @stderr, align 8
-  tail call void @ucm_printMapping(ptr noundef nonnull %table, ptr noundef nonnull %add.ptr94, ptr noundef %30) #14
+  tail call void @ucm_printMapping(ptr noundef nonnull %table, ptr noundef nonnull %add.ptr94, ptr noundef %30) #15
   %31 = load i32, ptr %arrayidx105.le, align 4
   %idx.ext117 = sext i32 %31 to i64
   %add.ptr118 = getelementptr inbounds %struct.UCMapping, ptr %0, i64 %idx.ext117
   %32 = load ptr, ptr @stderr, align 8
-  tail call void @ucm_printMapping(ptr noundef nonnull %table, ptr noundef %add.ptr118, ptr noundef %32) #14
+  tail call void @ucm_printMapping(ptr noundef nonnull %table, ptr noundef %add.ptr118, ptr noundef %32) #15
   br label %return
 
 if.end119:                                        ; preds = %land.lhs.true, %if.then100
@@ -1895,7 +1895,7 @@ if.then124:                                       ; preds = %if.end121
 
 if.else:                                          ; preds = %if.end121
   %33 = load ptr, ptr %fromUTableValues, align 8
-  %call128 = tail call i32 @utm_countItems(ptr noundef %33) #14
+  %call128 = tail call i32 @utm_countItems(ptr noundef %33) #15
   %arrayidx130 = getelementptr inbounds i32, ptr %incdec.ptr38, i64 %indvars.iv105
   store i32 %call128, ptr %arrayidx130, align 4
   %call132 = tail call fastcc signext i8 @generateFromUTable(ptr noundef %extData, ptr noundef nonnull %table, i32 noundef %subStart.0, i32 noundef %cond90, i32 noundef %add97, i32 noundef %defaultValue.addr.0)
@@ -1912,43 +1912,45 @@ return:                                           ; preds = %for.inc136, %if.els
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #9
+declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #11
+declare i32 @llvm.smin.i32(i32, i32) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #11
+declare i32 @llvm.smax.i32(i32, i32) #12
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { nofree nounwind }
-attributes #10 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { nounwind allocsize(0) }
-attributes #13 = { noreturn nounwind }
-attributes #14 = { nounwind }
-attributes #15 = { cold }
-attributes #16 = { nounwind willreturn memory(read) }
+attributes #8 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { nofree nounwind }
+attributes #11 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { nounwind allocsize(0) }
+attributes #14 = { cold noreturn nounwind }
+attributes #15 = { nounwind }
+attributes #16 = { cold }
+attributes #17 = { nounwind willreturn memory(read) }
+attributes #18 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

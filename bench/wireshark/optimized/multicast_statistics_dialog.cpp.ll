@@ -2718,7 +2718,7 @@ declare ptr @simple_dialog(i32 noundef, i32 noundef, ptr noundef, ...) local_unn
 
 declare ptr @g_string_free(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind
@@ -2772,7 +2772,7 @@ _ZN5QListIP7QWidgetED2Ev.exit:                    ; preds = %11, %_ZN17QArrayDat
   %18 = landingpad { ptr, i32 }
           catch ptr null
   %19 = extractvalue { ptr, i32 } %18, 0
-  tail call void @__clang_call_terminate(ptr %19) #20
+  tail call void @__clang_call_terminate(ptr %19) #21
   unreachable
 }
 
@@ -2781,7 +2781,7 @@ declare void @remove_tap_listener_mcast_stream(ptr noundef) local_unnamed_addr #
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #9 comdat {
   %2 = tail call ptr @__cxa_begin_catch(ptr %0) #17
-  tail call void @_ZSt9terminatev() #20
+  tail call void @_ZSt9terminatev() #21
   unreachable
 }
 
@@ -5683,7 +5683,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK27MulticastStatTreeWidgetItemltERK15
   %32 = getelementptr inbounds i8, ptr %1, i64 104
   %33 = load ptr, ptr %32, align 8
   %34 = sext i32 %21 to i64
-  %35 = tail call i32 @memcmp(ptr noundef %31, ptr noundef %33, i64 noundef %34) #21
+  %35 = tail call i32 @memcmp(ptr noundef %31, ptr noundef %33, i64 noundef %34) #22
   %36 = icmp slt i32 %35, 0
   br label %_ZL11cmp_addressPK8_addressS1_.exit
 
@@ -5729,7 +5729,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK27MulticastStatTreeWidgetItemltERK15
   %64 = getelementptr inbounds i8, ptr %1, i64 136
   %65 = load ptr, ptr %64, align 8
   %66 = sext i32 %53 to i64
-  %67 = tail call i32 @memcmp(ptr noundef %63, ptr noundef %65, i64 noundef %66) #21
+  %67 = tail call i32 @memcmp(ptr noundef %63, ptr noundef %65, i64 noundef %66) #22
   %68 = icmp slt i32 %67, 0
   br label %_ZL11cmp_addressPK8_addressS1_.exit
 
@@ -7058,7 +7058,7 @@ _ZNK17QArrayDataPointerI8QVariantE14freeSpaceAtEndEv.exit: ; preds = %_ZNK17QArr
   br i1 %.not.i28, label %27, label %_ZN9QtPrivate16QMovableArrayOpsI8QVariantE10reallocateExN10QArrayData16AllocationOptionE.exit
 
 27:                                               ; preds = %_ZNK17QArrayDataPointerI8QVariantE14freeSpaceAtEndEv.exit
-  tail call void @_Z9qBadAllocv() #22
+  tail call void @_Z9qBadAllocv() #23
   unreachable
 
 _ZN9QtPrivate16QMovableArrayOpsI8QVariantE10reallocateExN10QArrayData16AllocationOptionE.exit: ; preds = %_ZNK17QArrayDataPointerI8QVariantE14freeSpaceAtEndEv.exit
@@ -7077,7 +7077,7 @@ _ZNK17QArrayDataPointerI8QVariantE11needsDetachEv.exit.thread: ; preds = %8, %_Z
   br i1 %or.cond38, label %32, label %35
 
 32:                                               ; preds = %_ZNK17QArrayDataPointerI8QVariantE11needsDetachEv.exit.thread
-  invoke void @_Z9qBadAllocv() #22
+  invoke void @_Z9qBadAllocv() #23
           to label %33 unwind label %.loopexit.split-lp
 
 33:                                               ; preds = %32
@@ -8381,7 +8381,7 @@ _ZNK17QArrayDataPointerI7QStringE14freeSpaceAtEndEv.exit: ; preds = %_ZNK17QArra
   br i1 %.not.i28, label %26, label %_ZN9QtPrivate16QMovableArrayOpsI7QStringE10reallocateExN10QArrayData16AllocationOptionE.exit
 
 26:                                               ; preds = %_ZNK17QArrayDataPointerI7QStringE14freeSpaceAtEndEv.exit
-  tail call void @_Z9qBadAllocv() #22
+  tail call void @_Z9qBadAllocv() #23
   unreachable
 
 _ZN9QtPrivate16QMovableArrayOpsI7QStringE10reallocateExN10QArrayData16AllocationOptionE.exit: ; preds = %_ZNK17QArrayDataPointerI7QStringE14freeSpaceAtEndEv.exit
@@ -8400,7 +8400,7 @@ _ZNK17QArrayDataPointerI7QStringE11needsDetachEv.exit.thread: ; preds = %8, %_ZN
   br i1 %or.cond38, label %31, label %35
 
 31:                                               ; preds = %_ZNK17QArrayDataPointerI7QStringE11needsDetachEv.exit.thread
-  invoke void @_Z9qBadAllocv() #22
+  invoke void @_Z9qBadAllocv() #23
           to label %32 unwind label %33
 
 32:                                               ; preds = %31
@@ -9057,7 +9057,7 @@ _ZNK17QArrayDataPointerIP7QWidgetE14freeSpaceAtEndEv.exit: ; preds = %_ZNK17QArr
   br i1 %.not.i28, label %27, label %_ZN9QtPrivate12QPodArrayOpsIP7QWidgetE10reallocateExN10QArrayData16AllocationOptionE.exit
 
 27:                                               ; preds = %_ZNK17QArrayDataPointerIP7QWidgetE14freeSpaceAtEndEv.exit
-  tail call void @_Z9qBadAllocv() #22
+  tail call void @_Z9qBadAllocv() #23
   unreachable
 
 _ZN9QtPrivate12QPodArrayOpsIP7QWidgetE10reallocateExN10QArrayData16AllocationOptionE.exit: ; preds = %_ZNK17QArrayDataPointerIP7QWidgetE14freeSpaceAtEndEv.exit
@@ -9076,7 +9076,7 @@ _ZNK17QArrayDataPointerIP7QWidgetE11needsDetachEv.exit.thread: ; preds = %8, %_Z
   br i1 %or.cond39, label %32, label %40
 
 32:                                               ; preds = %_ZNK17QArrayDataPointerIP7QWidgetE11needsDetachEv.exit.thread
-  invoke void @_Z9qBadAllocv() #22
+  invoke void @_Z9qBadAllocv() #23
           to label %33 unwind label %34
 
 33:                                               ; preds = %32
@@ -9413,7 +9413,7 @@ _ZNK17QArrayDataPointerIP15QTreeWidgetItemE14freeSpaceAtEndEv.exit: ; preds = %_
   br i1 %.not.i28, label %27, label %_ZN9QtPrivate12QPodArrayOpsIP15QTreeWidgetItemE10reallocateExN10QArrayData16AllocationOptionE.exit
 
 27:                                               ; preds = %_ZNK17QArrayDataPointerIP15QTreeWidgetItemE14freeSpaceAtEndEv.exit
-  tail call void @_Z9qBadAllocv() #22
+  tail call void @_Z9qBadAllocv() #23
   unreachable
 
 _ZN9QtPrivate12QPodArrayOpsIP15QTreeWidgetItemE10reallocateExN10QArrayData16AllocationOptionE.exit: ; preds = %_ZNK17QArrayDataPointerIP15QTreeWidgetItemE14freeSpaceAtEndEv.exit
@@ -9432,7 +9432,7 @@ _ZNK17QArrayDataPointerIP15QTreeWidgetItemE11needsDetachEv.exit.thread: ; preds 
   br i1 %or.cond39, label %32, label %40
 
 32:                                               ; preds = %_ZNK17QArrayDataPointerIP15QTreeWidgetItemE11needsDetachEv.exit.thread
-  invoke void @_Z9qBadAllocv() #22
+  invoke void @_Z9qBadAllocv() #23
           to label %33 unwind label %34
 
 33:                                               ; preds = %32
@@ -9888,7 +9888,7 @@ attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #5 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nofree nounwind willreturn memory(read) }
@@ -9900,9 +9900,10 @@ attributes #16 = { nocallback nofree nosync nounwind willreturn memory(argmem: r
 attributes #17 = { nounwind }
 attributes #18 = { builtin allocsize(0) }
 attributes #19 = { builtin nounwind }
-attributes #20 = { noreturn nounwind }
-attributes #21 = { nounwind willreturn memory(read) }
-attributes #22 = { cold noreturn }
+attributes #20 = { cold noreturn nounwind }
+attributes #21 = { noreturn nounwind }
+attributes #22 = { nounwind willreturn memory(read) }
+attributes #23 = { cold noreturn }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -46,7 +46,7 @@ define i32 @constrained_majorization_vpsc(ptr nocapture noundef readonly %0, ptr
 ._crit_edge.thread:                               ; preds = %.preheader173
   %22 = getelementptr inbounds i8, ptr %0, i64 56
   %23 = load ptr, ptr %22, align 8
-  tail call void @satisfyVPSC(ptr noundef %23) #12
+  tail call void @satisfyVPSC(ptr noundef %23) #13
   br label %.loopexit172
 
 .lr.ph:                                           ; preds = %.preheader173
@@ -62,7 +62,7 @@ define i32 @constrained_majorization_vpsc(ptr nocapture noundef readonly %0, ptr
   %29 = getelementptr inbounds float, ptr %2, i64 %indvars.iv
   %30 = load float, ptr %29, align 4
   %31 = fpext float %30 to double
-  tail call void @setVariableDesiredPos(ptr noundef %28, double noundef %31) #12
+  tail call void @setVariableDesiredPos(ptr noundef %28, double noundef %31) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %25
@@ -70,7 +70,7 @@ define i32 @constrained_majorization_vpsc(ptr nocapture noundef readonly %0, ptr
 ._crit_edge:                                      ; preds = %25
   %32 = getelementptr inbounds i8, ptr %0, i64 56
   %33 = load ptr, ptr %32, align 8
-  tail call void @satisfyVPSC(ptr noundef %33) #12
+  tail call void @satisfyVPSC(ptr noundef %33) #13
   br i1 %21, label %.lr.ph177, label %.loopexit172
 
 .lr.ph177:                                        ; preds = %._crit_edge
@@ -83,7 +83,7 @@ define i32 @constrained_majorization_vpsc(ptr nocapture noundef readonly %0, ptr
   %36 = load ptr, ptr %34, align 8
   %37 = getelementptr inbounds ptr, ptr %36, i64 %indvars.iv238
   %38 = load ptr, ptr %37, align 8
-  %39 = tail call double @getVariablePos(ptr noundef %38) #12
+  %39 = tail call double @getVariablePos(ptr noundef %38) #13
   %40 = fptrunc double %39 to float
   %41 = getelementptr inbounds float, ptr %2, i64 %indvars.iv238
   store float %40, ptr %41, align 4
@@ -221,7 +221,7 @@ define i32 @constrained_majorization_vpsc(ptr nocapture noundef readonly %0, ptr
 
 ._crit_edge202.thread:                            ; preds = %.preheader168
   %94 = load ptr, ptr %45, align 8
-  tail call void @satisfyVPSC(ptr noundef %94) #12
+  tail call void @satisfyVPSC(ptr noundef %94) #13
   br label %._crit_edge226
 
 .lr.ph201:                                        ; preds = %.preheader168, %.lr.ph201
@@ -232,14 +232,14 @@ define i32 @constrained_majorization_vpsc(ptr nocapture noundef readonly %0, ptr
   %98 = getelementptr inbounds float, ptr %2, i64 %indvars.iv268
   %99 = load float, ptr %98, align 4
   %100 = fpext float %99 to double
-  tail call void @setVariableDesiredPos(ptr noundef %97, double noundef %100) #12
+  tail call void @setVariableDesiredPos(ptr noundef %97, double noundef %100) #13
   %indvars.iv.next269 = add nuw nsw i64 %indvars.iv268, 1
   %exitcond272.not = icmp eq i64 %indvars.iv.next269, %wide.trip.count271
   br i1 %exitcond272.not, label %._crit_edge202, label %.lr.ph201
 
 ._crit_edge202:                                   ; preds = %.lr.ph201
   %101 = load ptr, ptr %45, align 8
-  tail call void @satisfyVPSC(ptr noundef %101) #12
+  tail call void @satisfyVPSC(ptr noundef %101) #13
   br i1 %43, label %.lr.ph205, label %._crit_edge226
 
 .lr.ph205:                                        ; preds = %._crit_edge202, %.lr.ph205
@@ -247,7 +247,7 @@ define i32 @constrained_majorization_vpsc(ptr nocapture noundef readonly %0, ptr
   %102 = load ptr, ptr %44, align 8
   %103 = getelementptr inbounds ptr, ptr %102, i64 %indvars.iv273
   %104 = load ptr, ptr %103, align 8
-  %105 = tail call double @getVariablePos(ptr noundef %104) #12
+  %105 = tail call double @getVariablePos(ptr noundef %104) #13
   %106 = fptrunc double %105 to float
   %107 = getelementptr inbounds float, ptr %2, i64 %indvars.iv273
   store float %106, ptr %107, align 4
@@ -387,14 +387,14 @@ declare float @llvm.fabs.f32(float) #2
 define noundef ptr @initCMajVPSC(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
-  %8 = tail call noalias dereferenceable_or_null(88) ptr @calloc(i64 noundef 1, i64 noundef 88) #13
+  %8 = tail call noalias dereferenceable_or_null(88) ptr @calloc(i64 noundef 1, i64 noundef 88) #14
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %gv_alloc.exit
 
 10:                                               ; preds = %5
   %11 = load ptr, ptr @stderr, align 8
-  %12 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.5, i64 noundef 88) #14
-  tail call fastcc void @graphviz_exit() #15
+  %12 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.5, i64 noundef 88) #15
+  tail call fastcc void @graphviz_exit() #16
   unreachable
 
 gv_alloc.exit:                                    ; preds = %5
@@ -424,7 +424,7 @@ gv_alloc.exit:                                    ; preds = %5
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %27 = trunc nuw nsw i64 %indvars.iv to i32
-  %28 = tail call ptr @newVariable(i32 noundef %27, double noundef 1.000000e+00, double noundef 1.000000e+00) #12
+  %28 = tail call ptr @newVariable(i32 noundef %27, double noundef 1.000000e+00, double noundef 1.000000e+00) #13
   %29 = load ptr, ptr %25, align 8
   %30 = getelementptr inbounds ptr, ptr %29, i64 %indvars.iv
   store ptr %28, ptr %30, align 8
@@ -447,7 +447,7 @@ gv_alloc.exit:                                    ; preds = %5
 
 34:                                               ; preds = %32
   %35 = load ptr, ptr @stderr, align 8
-  %36 = tail call i64 @fwrite(ptr nonnull @.str, i64 31, i64 1, ptr %35) #16
+  %36 = tail call i64 @fwrite(ptr nonnull @.str, i64 31, i64 1, ptr %35) #17
   br label %37
 
 37:                                               ; preds = %34, %32
@@ -497,7 +497,7 @@ gv_alloc.exit:                                    ; preds = %5
 
 ._crit_edge241:                                   ; preds = %._crit_edge239, %37
   %57 = load i32, ptr %31, align 4
-  %58 = tail call ptr @newConstraints(i32 noundef %57) #12
+  %58 = tail call ptr @newConstraints(i32 noundef %57) #13
   store ptr %58, ptr %22, align 8
   store i32 0, ptr %31, align 4
   %59 = load i32, ptr %20, align 8
@@ -541,7 +541,7 @@ gv_alloc.exit:                                    ; preds = %5
   %82 = getelementptr inbounds ptr, ptr %78, i64 %81
   %83 = load ptr, ptr %82, align 8
   %84 = load double, ptr %61, align 8
-  %85 = tail call ptr @newConstraint(ptr noundef %80, ptr noundef %83, double noundef %84) #12
+  %85 = tail call ptr @newConstraint(ptr noundef %80, ptr noundef %83, double noundef %84) #13
   %86 = load ptr, ptr %22, align 8
   %87 = load i32, ptr %31, align 4
   %88 = add nsw i32 %87, 1
@@ -574,7 +574,7 @@ gv_alloc.exit:                                    ; preds = %5
   store ptr null, ptr %7, align 8
   %99 = load ptr, ptr %25, align 8
   %100 = load i32, ptr %20, align 8
-  %101 = call i32 @compute_hierarchy(ptr noundef %2, i32 noundef %100, double noundef 1.000000e-02, double noundef 1.000000e-01, ptr noundef null, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %21) #12
+  %101 = call i32 @compute_hierarchy(ptr noundef %2, i32 noundef %100, double noundef 1.000000e-02, double noundef 1.000000e-01, ptr noundef null, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %21) #13
   %.not = icmp eq i32 %101, 0
   br i1 %.not, label %102, label %317
 
@@ -591,7 +591,7 @@ gv_alloc.exit:                                    ; preds = %5
 109:                                              ; preds = %102
   %110 = load ptr, ptr @stderr, align 8
   %111 = load i32, ptr %21, align 8
-  %112 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %110, ptr noundef nonnull @.str.1, i32 noundef %111) #14
+  %112 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %110, ptr noundef nonnull @.str.1, i32 noundef %111) #15
   br label %113
 
 113:                                              ; preds = %109, %102
@@ -631,7 +631,7 @@ get_num_digcola_constraints.exit:                 ; preds = %.lr.ph.i, %113
   %130 = add i32 %129, %123
   %131 = add i32 %130, %127
   store i32 %131, ptr %31, align 4
-  %132 = call ptr @newConstraints(i32 noundef %131) #12
+  %132 = call ptr @newConstraints(i32 noundef %131) #13
   store ptr %132, ptr %22, align 8
   store i32 0, ptr %31, align 4
   %133 = load i32, ptr %21, align 8
@@ -657,7 +657,7 @@ get_num_digcola_constraints.exit:                 ; preds = %.lr.ph.i, %113
   br i1 %exitcond260.not, label %._crit_edge222, label %.lr.ph221
 
 ._crit_edge222:                                   ; preds = %.lr.ph221, %get_num_digcola_constraints.exit
-  call void @free(ptr noundef %99) #12
+  call void @free(ptr noundef %99) #13
   %141 = load i32, ptr %21, align 8
   %142 = icmp sgt i32 %141, 0
   br i1 %142, label %.lr.ph225, label %.loopexit212
@@ -666,7 +666,7 @@ get_num_digcola_constraints.exit:                 ; preds = %.lr.ph.i, %113
   %indvars.iv261 = phi i64 [ %indvars.iv.next262, %.lr.ph225 ], [ 0, %._crit_edge222 ]
   %143 = add nsw i64 %indvars.iv261, %23
   %144 = trunc nsw i64 %143 to i32
-  %145 = call ptr @newVariable(i32 noundef %144, double noundef 1.000000e+00, double noundef 0x3EB0C6F7A0B5ED8D) #12
+  %145 = call ptr @newVariable(i32 noundef %144, double noundef 1.000000e+00, double noundef 0x3EB0C6F7A0B5ED8D) #13
   %146 = load ptr, ptr %25, align 8
   %147 = getelementptr inbounds ptr, ptr %146, i64 %143
   store ptr %145, ptr %147, align 8
@@ -728,7 +728,7 @@ get_num_digcola_constraints.exit:                 ; preds = %.lr.ph.i, %113
   %174 = load ptr, ptr %173, align 8
   %175 = getelementptr inbounds ptr, ptr %169, i64 %159
   %176 = load ptr, ptr %175, align 8
-  %177 = call ptr @newConstraint(ptr noundef %174, ptr noundef %176, double noundef %153) #12
+  %177 = call ptr @newConstraint(ptr noundef %174, ptr noundef %176, double noundef %153) #13
   %178 = load ptr, ptr %22, align 8
   %179 = load i32, ptr %31, align 4
   %180 = add nsw i32 %179, 1
@@ -750,7 +750,7 @@ get_num_digcola_constraints.exit:                 ; preds = %.lr.ph.i, %113
   %189 = sext i32 %188 to i64
   %190 = getelementptr inbounds ptr, ptr %184, i64 %189
   %191 = load ptr, ptr %190, align 8
-  %192 = call ptr @newConstraint(ptr noundef %186, ptr noundef %191, double noundef %153) #12
+  %192 = call ptr @newConstraint(ptr noundef %186, ptr noundef %191, double noundef %153) #13
   %193 = load ptr, ptr %22, align 8
   %194 = load i32, ptr %31, align 4
   %195 = add nsw i32 %194, 1
@@ -770,7 +770,7 @@ get_num_digcola_constraints.exit:                 ; preds = %.lr.ph.i, %113
   %201 = load ptr, ptr %200, align 8
   %202 = getelementptr i8, ptr %200, i64 8
   %203 = load ptr, ptr %202, align 8
-  %204 = call ptr @newConstraint(ptr noundef %201, ptr noundef %203, double noundef 0.000000e+00) #12
+  %204 = call ptr @newConstraint(ptr noundef %201, ptr noundef %203, double noundef 0.000000e+00) #13
   %205 = load ptr, ptr %22, align 8
   %206 = load i32, ptr %31, align 4
   %207 = add nsw i32 %206, 1
@@ -798,7 +798,7 @@ get_num_digcola_constraints.exit:                 ; preds = %.lr.ph.i, %113
   %221 = shl nsw i32 %220, 1
   %222 = load i32, ptr %31, align 4
   %223 = add nsw i32 %222, %221
-  %224 = call ptr @newConstraints(i32 noundef %223) #12
+  %224 = call ptr @newConstraints(i32 noundef %223) #13
   store ptr %224, ptr %22, align 8
   %225 = load i32, ptr %31, align 4
   %226 = icmp sgt i32 %225, 0
@@ -822,7 +822,7 @@ get_num_digcola_constraints.exit:                 ; preds = %.lr.ph.i, %113
   br i1 %.not208, label %234, label %._crit_edge249.thread
 
 ._crit_edge249.thread:                            ; preds = %.lr.ph248, %._crit_edge249
-  call void @deleteConstraints(i32 noundef 0, ptr noundef nonnull %219) #12
+  call void @deleteConstraints(i32 noundef 0, ptr noundef nonnull %219) #13
   br label %234
 
 234:                                              ; preds = %._crit_edge249.thread, %._crit_edge249
@@ -867,7 +867,7 @@ get_num_digcola_constraints.exit:                 ; preds = %.lr.ph.i, %113
   %262 = load ptr, ptr %261, align 8
   %263 = getelementptr i8, ptr %261, i64 8
   %264 = load ptr, ptr %263, align 8
-  %265 = call ptr @newConstraint(ptr noundef %262, ptr noundef %257, double noundef 0.000000e+00) #12
+  %265 = call ptr @newConstraint(ptr noundef %262, ptr noundef %257, double noundef 0.000000e+00) #13
   %266 = load ptr, ptr %22, align 8
   %267 = load i32, ptr %31, align 4
   %268 = add nsw i32 %267, 1
@@ -875,7 +875,7 @@ get_num_digcola_constraints.exit:                 ; preds = %.lr.ph.i, %113
   %269 = sext i32 %267 to i64
   %270 = getelementptr inbounds ptr, ptr %266, i64 %269
   store ptr %265, ptr %270, align 8
-  %271 = call ptr @newConstraint(ptr noundef %257, ptr noundef %264, double noundef 0.000000e+00) #12
+  %271 = call ptr @newConstraint(ptr noundef %257, ptr noundef %264, double noundef 0.000000e+00) #13
   %272 = load ptr, ptr %22, align 8
   %273 = load i32, ptr %31, align 4
   %274 = add nsw i32 %273, 1
@@ -916,7 +916,7 @@ get_num_digcola_constraints.exit:                 ; preds = %.lr.ph.i, %113
   %295 = add nsw i32 %294, %0
   %296 = load ptr, ptr %25, align 8
   %297 = load ptr, ptr %22, align 8
-  %298 = call ptr @newIncVPSC(i32 noundef %295, ptr noundef %296, i32 noundef %291, ptr noundef %297) #12
+  %298 = call ptr @newIncVPSC(i32 noundef %295, ptr noundef %296, i32 noundef %291, ptr noundef %297) #13
   %299 = getelementptr inbounds i8, ptr %8, i64 56
   store ptr %298, ptr %299, align 8
   %300 = load i32, ptr %31, align 4
@@ -930,7 +930,7 @@ get_num_digcola_constraints.exit:                 ; preds = %.lr.ph.i, %113
   br i1 %.not209, label %305, label %303
 
 303:                                              ; preds = %302
-  %304 = call ptr @unpackMatrix(ptr noundef nonnull %1, i32 noundef %0) #12
+  %304 = call ptr @unpackMatrix(ptr noundef nonnull %1, i32 noundef %0) #13
   store ptr %304, ptr %8, align 8
   br label %305
 
@@ -951,7 +951,7 @@ get_num_digcola_constraints.exit:                 ; preds = %.lr.ph.i, %113
 313:                                              ; preds = %305
   %314 = load ptr, ptr @stderr, align 8
   %315 = load i32, ptr %289, align 8
-  %316 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %314, ptr noundef nonnull @.str.2, i32 noundef %315) #14
+  %316 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %314, ptr noundef nonnull @.str.2, i32 noundef %315) #15
   br label %317
 
 317:                                              ; preds = %305, %313, %98
@@ -959,13 +959,13 @@ get_num_digcola_constraints.exit:                 ; preds = %.lr.ph.i, %113
   ret ptr %.0
 }
 
-; Function Attrs: nounwind uwtable
-define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef %0, i64 noundef %1) unnamed_addr #0 {
+; Function Attrs: nofree nounwind uwtable
+define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef %0, i64 noundef %1) unnamed_addr #3 {
   %.not = icmp eq i64 %0, 0
   br i1 %.not, label %.thread, label %4
 
 .thread:                                          ; preds = %2
-  %3 = tail call noalias ptr @calloc(i64 noundef 0, i64 noundef %1) #13
+  %3 = tail call noalias ptr @calloc(i64 noundef 0, i64 noundef %1) #14
   br label %15
 
 4:                                                ; preds = %2
@@ -975,20 +975,20 @@ define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef %0, i64 nounde
 
 5:                                                ; preds = %4
   %6 = load ptr, ptr @stderr, align 8
-  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.4, i64 noundef %0, i64 noundef %1) #14
-  tail call fastcc void @graphviz_exit() #15
+  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.4, i64 noundef %0, i64 noundef %1) #15
+  tail call fastcc void @graphviz_exit() #16
   unreachable
 
 8:                                                ; preds = %4
-  %9 = tail call noalias ptr @calloc(i64 noundef %0, i64 noundef %1) #13
+  %9 = tail call noalias ptr @calloc(i64 noundef %0, i64 noundef %1) #14
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %15
 
 11:                                               ; preds = %8
   %12 = load ptr, ptr @stderr, align 8
   %13 = mul nsw i64 %1, %0
-  %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.5, i64 noundef %13) #14
-  tail call fastcc void @graphviz_exit() #15
+  %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.5, i64 noundef %13) #15
+  tail call fastcc void @graphviz_exit() #16
   unreachable
 
 15:                                               ; preds = %.thread, %8
@@ -999,7 +999,7 @@ define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef %0, i64 nounde
 declare ptr @newVariable(i32 noundef, double noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
 
 declare ptr @newConstraints(i32 noundef) local_unnamed_addr #1
 
@@ -1007,8 +1007,8 @@ declare ptr @newConstraint(ptr noundef, ptr noundef, double noundef) local_unnam
 
 declare i32 @compute_hierarchy(ptr noundef, i32 noundef, double noundef, double noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
-define noalias noundef ptr @assign_digcola_levels(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #0 {
+; Function Attrs: nofree nounwind uwtable
+define noalias noundef ptr @assign_digcola_levels(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #3 {
   %5 = add nsw i32 %3, 1
   %6 = sext i32 %5 to i64
   %7 = tail call fastcc ptr @gv_calloc(i64 noundef %6, i64 noundef 16)
@@ -1106,7 +1106,7 @@ define noalias noundef ptr @assign_digcola_levels(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @get_num_digcola_constraints(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #4 {
+define i32 @get_num_digcola_constraints(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #5 {
   %invariant.gep = getelementptr i8, ptr %0, i64 -8
   %3 = icmp sgt i32 %1, 1
   br i1 %3, label %.lr.ph.preheader, label %._crit_edge
@@ -1142,7 +1142,7 @@ define i32 @get_num_digcola_constraints(ptr nocapture noundef readonly %0, i32 n
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
 
 declare void @deleteConstraints(i32 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1158,9 +1158,9 @@ define void @deleteCMajEnvVPSC(ptr nocapture noundef %0) local_unnamed_addr #0 {
 
 3:                                                ; preds = %1
   %4 = load ptr, ptr %2, align 8
-  tail call void @free(ptr noundef %4) #12
+  tail call void @free(ptr noundef %4) #13
   %5 = load ptr, ptr %0, align 8
-  tail call void @free(ptr noundef %5) #12
+  tail call void @free(ptr noundef %5) #13
   br label %6
 
 6:                                                ; preds = %3, %1
@@ -1172,7 +1172,7 @@ define void @deleteCMajEnvVPSC(ptr nocapture noundef %0) local_unnamed_addr #0 {
 10:                                               ; preds = %6
   %11 = getelementptr inbounds i8, ptr %0, i64 56
   %12 = load ptr, ptr %11, align 8
-  tail call void @deleteVPSC(ptr noundef %12) #12
+  tail call void @deleteVPSC(ptr noundef %12) #13
   %13 = getelementptr inbounds i8, ptr %0, i64 40
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %0, i64 48
@@ -1183,14 +1183,14 @@ define void @deleteCMajEnvVPSC(ptr nocapture noundef %0) local_unnamed_addr #0 {
   br i1 %or.cond, label %18, label %17
 
 17:                                               ; preds = %10
-  tail call void @deleteConstraints(i32 noundef 0, ptr noundef nonnull %16) #12
+  tail call void @deleteConstraints(i32 noundef 0, ptr noundef nonnull %16) #13
   %.pre = load ptr, ptr %13, align 8
   br label %18
 
 18:                                               ; preds = %17, %10
   %19 = phi ptr [ %.pre, %17 ], [ %14, %10 ]
   %20 = load i32, ptr %7, align 8
-  tail call void @deleteConstraints(i32 noundef %20, ptr noundef %19) #12
+  tail call void @deleteConstraints(i32 noundef %20, ptr noundef %19) #13
   %21 = getelementptr inbounds i8, ptr %0, i64 8
   %22 = getelementptr inbounds i8, ptr %0, i64 12
   %23 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1211,7 +1211,7 @@ define void @deleteCMajEnvVPSC(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %32 = load ptr, ptr %30, align 8
   %33 = getelementptr inbounds ptr, ptr %32, i64 %indvars.iv
   %34 = load ptr, ptr %33, align 8
-  tail call void @deleteVariable(ptr noundef %34) #12
+  tail call void @deleteVariable(ptr noundef %34) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %35 = load i32, ptr %21, align 8
   %36 = load i32, ptr %22, align 4
@@ -1225,20 +1225,20 @@ define void @deleteCMajEnvVPSC(ptr nocapture noundef %0) local_unnamed_addr #0 {
 ._crit_edge:                                      ; preds = %31, %18
   %42 = getelementptr inbounds i8, ptr %0, i64 24
   %43 = load ptr, ptr %42, align 8
-  tail call void @free(ptr noundef %43) #12
+  tail call void @free(ptr noundef %43) #13
   br label %44
 
 44:                                               ; preds = %._crit_edge, %6
   %45 = getelementptr inbounds i8, ptr %0, i64 64
   %46 = load ptr, ptr %45, align 8
-  tail call void @free(ptr noundef %46) #12
+  tail call void @free(ptr noundef %46) #13
   %47 = getelementptr inbounds i8, ptr %0, i64 72
   %48 = load ptr, ptr %47, align 8
-  tail call void @free(ptr noundef %48) #12
+  tail call void @free(ptr noundef %48) #13
   %49 = getelementptr inbounds i8, ptr %0, i64 80
   %50 = load ptr, ptr %49, align 8
-  tail call void @free(ptr noundef %50) #12
-  tail call void @free(ptr noundef nonnull %0) #12
+  tail call void @free(ptr noundef %50) #13
+  tail call void @free(ptr noundef nonnull %0) #13
   ret void
 }
 
@@ -1454,7 +1454,7 @@ define void @generateNonoverlapConstraints(ptr nocapture noundef %0, float nound
   store double %153, ptr %148, align 8
   %154 = fadd double %130, -1.000000e-04
   store double %154, ptr %149, align 8
-  %155 = tail call i32 @genXConstraints(i32 noundef %86, ptr noundef nonnull %89, ptr noundef nonnull %88, ptr noundef %151, i1 noundef zeroext %4) #12
+  %155 = tail call i32 @genXConstraints(i32 noundef %86, ptr noundef nonnull %89, ptr noundef nonnull %88, ptr noundef %151, i1 noundef zeroext %4) #13
   br label %162
 
 156:                                              ; preds = %._crit_edge384
@@ -1464,7 +1464,7 @@ define void @generateNonoverlapConstraints(ptr nocapture noundef %0, float nound
   store double %159, ptr %158, align 8
   %160 = fadd double %135, -1.000000e-04
   store double %160, ptr %157, align 8
-  %161 = tail call i32 @genYConstraints(i32 noundef %86, ptr noundef nonnull %89, ptr noundef nonnull %88, ptr noundef %151) #12
+  %161 = tail call i32 @genYConstraints(i32 noundef %86, ptr noundef nonnull %89, ptr noundef nonnull %88, ptr noundef %151) #13
   br label %162
 
 162:                                              ; preds = %156, %152
@@ -1472,8 +1472,8 @@ define void @generateNonoverlapConstraints(ptr nocapture noundef %0, float nound
   %163 = getelementptr inbounds i32, ptr %73, i64 %indvars.iv438
   store i32 %.sink, ptr %163, align 4
   %164 = add nsw i32 %.sink, %.0355388
-  tail call void @free(ptr noundef nonnull %88) #12
-  tail call void @free(ptr noundef nonnull %89) #12
+  tail call void @free(ptr noundef nonnull %88) #13
+  tail call void @free(ptr noundef nonnull %89) #13
   %indvars.iv.next439 = add nuw nsw i64 %indvars.iv438, 1
   %165 = load ptr, ptr %15, align 8
   %166 = getelementptr inbounds i8, ptr %165, i64 4
@@ -1541,7 +1541,7 @@ define void @generateNonoverlapConstraints(ptr nocapture noundef %0, float nound
   %indvars.iv444 = phi i64 [ %184, %.lr.ph401.preheader ], [ %indvars.iv.next445, %.lr.ph401 ]
   %202 = trunc i64 %indvars.iv444 to i32
   %203 = add i32 %202, 123
-  %204 = tail call ptr @newVariable(i32 noundef %203, double noundef 1.000000e+00, double noundef 1.000000e+00) #12
+  %204 = tail call ptr @newVariable(i32 noundef %203, double noundef 1.000000e+00, double noundef 1.000000e+00) #13
   %205 = getelementptr inbounds ptr, ptr %174, i64 %indvars.iv444
   store ptr %204, ptr %205, align 8
   %206 = load ptr, ptr %15, align 8
@@ -1585,11 +1585,11 @@ define void @generateNonoverlapConstraints(ptr nocapture noundef %0, float nound
   br i1 %22, label %234, label %236
 
 234:                                              ; preds = %._crit_edge402
-  %235 = tail call i32 @genXConstraints(i32 noundef %172, ptr noundef %175, ptr noundef %174, ptr noundef %232, i1 noundef zeroext %4) #12
+  %235 = tail call i32 @genXConstraints(i32 noundef %172, ptr noundef %175, ptr noundef %174, ptr noundef %232, i1 noundef zeroext %4) #13
   br label %238
 
 236:                                              ; preds = %._crit_edge402
-  %237 = tail call i32 @genYConstraints(i32 noundef %172, ptr noundef %175, ptr noundef %174, ptr noundef %232) #12
+  %237 = tail call i32 @genYConstraints(i32 noundef %172, ptr noundef %175, ptr noundef %174, ptr noundef %232) #13
   br label %238
 
 238:                                              ; preds = %236, %234
@@ -1630,15 +1630,15 @@ define void @generateNonoverlapConstraints(ptr nocapture noundef %0, float nound
   %259 = sext i32 %258 to i64
   %260 = getelementptr inbounds ptr, ptr %256, i64 %259
   %261 = load ptr, ptr %260, align 8
-  tail call void @remapInConstraints(ptr noundef %255, ptr noundef %261, double noundef %.0) #12
+  tail call void @remapInConstraints(ptr noundef %255, ptr noundef %261, double noundef %.0) #13
   %262 = load ptr, ptr %254, align 8
   %263 = load ptr, ptr %243, align 8
   %264 = getelementptr ptr, ptr %263, i64 %259
   %265 = getelementptr i8, ptr %264, i64 8
   %266 = load ptr, ptr %265, align 8
-  tail call void @remapOutConstraints(ptr noundef %262, ptr noundef %266, double noundef %.0) #12
+  tail call void @remapOutConstraints(ptr noundef %262, ptr noundef %266, double noundef %.0) #13
   %267 = load ptr, ptr %254, align 8
-  tail call void @deleteVariable(ptr noundef %267) #12
+  tail call void @deleteVariable(ptr noundef %267) #13
   %indvars.iv.next449 = add nsw i64 %indvars.iv448, 1
   %lftr.wideiv451 = trunc i64 %indvars.iv.next449 to i32
   %exitcond452.not = icmp eq i32 %172, %lftr.wideiv451
@@ -1656,9 +1656,9 @@ define void @generateNonoverlapConstraints(ptr nocapture noundef %0, float nound
   %272 = getelementptr inbounds i32, ptr %73, i64 %271
   %273 = load i32, ptr %272, align 4
   %274 = add nsw i32 %273, %.0355.lcssa
-  tail call void @free(ptr noundef %174) #12
-  tail call void @free(ptr noundef %175) #12
-  %275 = tail call ptr @newConstraints(i32 noundef %274) #12
+  tail call void @free(ptr noundef %174) #13
+  tail call void @free(ptr noundef %175) #13
+  %275 = tail call ptr @newConstraints(i32 noundef %274) #13
   store ptr %275, ptr %7, align 8
   %276 = load ptr, ptr %15, align 8
   %277 = getelementptr inbounds i8, ptr %276, i64 4
@@ -1696,7 +1696,7 @@ define void @generateNonoverlapConstraints(ptr nocapture noundef %0, float nound
   %.1.lcssa = phi ptr [ %.0350415, %.preheader ], [ %287, %283 ]
   %291 = getelementptr inbounds ptr, ptr %67, i64 %indvars.iv456
   %292 = load ptr, ptr %291, align 8
-  tail call void @deleteConstraints(i32 noundef 0, ptr noundef %292) #12
+  tail call void @deleteConstraints(i32 noundef 0, ptr noundef %292) #13
   %indvars.iv.next457 = add nuw nsw i64 %indvars.iv456, 1
   %293 = load ptr, ptr %15, align 8
   %294 = getelementptr inbounds i8, ptr %293, i64 4
@@ -1706,8 +1706,8 @@ define void @generateNonoverlapConstraints(ptr nocapture noundef %0, float nound
   br i1 %.not.not, label %.preheader, label %._crit_edge416
 
 ._crit_edge416:                                   ; preds = %._crit_edge410, %._crit_edge406
-  tail call void @free(ptr noundef %67) #12
-  tail call void @free(ptr noundef nonnull %73) #12
+  tail call void @free(ptr noundef %67) #13
+  tail call void @free(ptr noundef nonnull %73) #13
   br label %304
 
 297:                                              ; preds = %._crit_edge
@@ -1716,11 +1716,11 @@ define void @generateNonoverlapConstraints(ptr nocapture noundef %0, float nound
   br i1 %22, label %300, label %302
 
 300:                                              ; preds = %297
-  %301 = call i32 @genXConstraints(i32 noundef %12, ptr noundef %14, ptr noundef %299, ptr noundef nonnull %7, i1 noundef zeroext %4) #12
+  %301 = call i32 @genXConstraints(i32 noundef %12, ptr noundef %14, ptr noundef %299, ptr noundef nonnull %7, i1 noundef zeroext %4) #13
   br label %304
 
 302:                                              ; preds = %297
-  %303 = call i32 @genYConstraints(i32 noundef %12, ptr noundef %14, ptr noundef %299, ptr noundef nonnull %7) #12
+  %303 = call i32 @genYConstraints(i32 noundef %12, ptr noundef %14, ptr noundef %299, ptr noundef nonnull %7) #13
   br label %304
 
 304:                                              ; preds = %300, %302, %._crit_edge416
@@ -1733,7 +1733,7 @@ define void @generateNonoverlapConstraints(ptr nocapture noundef %0, float nound
 308:                                              ; preds = %304
   %309 = getelementptr inbounds i8, ptr %0, i64 56
   %310 = load ptr, ptr %309, align 8
-  call void @deleteVPSC(ptr noundef %310) #12
+  call void @deleteVPSC(ptr noundef %310) #13
   %311 = getelementptr inbounds i8, ptr %0, i64 36
   %312 = load i32, ptr %311, align 4
   %313 = load i32, ptr %305, align 8
@@ -1750,7 +1750,7 @@ define void @generateNonoverlapConstraints(ptr nocapture noundef %0, float nound
   %318 = load ptr, ptr %315, align 8
   %319 = getelementptr inbounds ptr, ptr %318, i64 %indvars.iv459
   %320 = load ptr, ptr %319, align 8
-  call void @deleteConstraint(ptr noundef %320) #12
+  call void @deleteConstraint(ptr noundef %320) #13
   %indvars.iv.next460 = add nsw i64 %indvars.iv459, 1
   %321 = load i32, ptr %305, align 8
   %322 = sext i32 %321 to i64
@@ -1766,7 +1766,7 @@ define void @generateNonoverlapConstraints(ptr nocapture noundef %0, float nound
   br i1 %.not370, label %329, label %328
 
 328:                                              ; preds = %._crit_edge420
-  call void @deleteConstraints(i32 noundef 0, ptr noundef %325) #12
+  call void @deleteConstraints(i32 noundef 0, ptr noundef %325) #13
   br label %329
 
 329:                                              ; preds = %._crit_edge420, %328, %304
@@ -1785,7 +1785,7 @@ define void @generateNonoverlapConstraints(ptr nocapture noundef %0, float nound
 336:                                              ; preds = %329
   %337 = add nsw i32 %331, %.1356
   store i32 %337, ptr %305, align 8
-  %338 = call ptr @newConstraints(i32 noundef %337) #12
+  %338 = call ptr @newConstraints(i32 noundef %337) #13
   %339 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr %338, ptr %339, align 8
   %340 = load i32, ptr %305, align 8
@@ -1830,7 +1830,7 @@ define void @generateNonoverlapConstraints(ptr nocapture noundef %0, float nound
 
 ._crit_edge424:                                   ; preds = %356, %336
   %363 = load ptr, ptr %7, align 8
-  call void @deleteConstraints(i32 noundef 0, ptr noundef %363) #12
+  call void @deleteConstraints(i32 noundef 0, ptr noundef %363) #13
   %.pre467.pre = load i32, ptr %305, align 8
   br label %364
 
@@ -1842,7 +1842,7 @@ define void @generateNonoverlapConstraints(ptr nocapture noundef %0, float nound
 
 366:                                              ; preds = %364
   %367 = load ptr, ptr @stderr, align 8
-  %368 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %367, ptr noundef nonnull @.str.3, i32 noundef %.pre467) #14
+  %368 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %367, ptr noundef nonnull @.str.3, i32 noundef %.pre467) #15
   %.pre466 = load i32, ptr %305, align 8
   br label %369
 
@@ -1858,10 +1858,10 @@ define void @generateNonoverlapConstraints(ptr nocapture noundef %0, float nound
   %378 = load ptr, ptr %377, align 8
   %379 = getelementptr inbounds i8, ptr %0, i64 40
   %380 = load ptr, ptr %379, align 8
-  %381 = call ptr @newIncVPSC(i32 noundef %376, ptr noundef %378, i32 noundef %370, ptr noundef %380) #12
+  %381 = call ptr @newIncVPSC(i32 noundef %376, ptr noundef %378, i32 noundef %370, ptr noundef %380) #13
   %382 = getelementptr inbounds i8, ptr %0, i64 56
   store ptr %381, ptr %382, align 8
-  call void @free(ptr noundef %14) #12
+  call void @free(ptr noundef %14) #13
   ret void
 }
 
@@ -1881,7 +1881,7 @@ define void @removeoverlaps(i32 noundef %0, ptr nocapture noundef readonly %1, p
   tail call void @generateNonoverlapConstraints(ptr noundef %4, float noundef 1.000000e+00, ptr noundef %1, i32 noundef 0, i1 noundef zeroext true, ptr noundef %2)
   %5 = getelementptr inbounds i8, ptr %4, i64 56
   %6 = load ptr, ptr %5, align 8
-  tail call void @solveVPSC(ptr noundef %6) #12
+  tail call void @solveVPSC(ptr noundef %6) #13
   %7 = icmp sgt i32 %0, 0
   br i1 %7, label %.lr.ph, label %._crit_edge29.critedge
 
@@ -1895,7 +1895,7 @@ define void @removeoverlaps(i32 noundef %0, ptr nocapture noundef readonly %1, p
   %10 = load ptr, ptr %8, align 8
   %11 = getelementptr inbounds ptr, ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call double @getVariablePos(ptr noundef %12) #12
+  %13 = tail call double @getVariablePos(ptr noundef %12) #13
   %14 = fptrunc double %13 to float
   %15 = load ptr, ptr %1, align 8
   %16 = getelementptr inbounds float, ptr %15, i64 %indvars.iv
@@ -1907,7 +1907,7 @@ define void @removeoverlaps(i32 noundef %0, ptr nocapture noundef readonly %1, p
 ._crit_edge:                                      ; preds = %9
   tail call void @generateNonoverlapConstraints(ptr noundef nonnull %4, float noundef 1.000000e+00, ptr noundef nonnull %1, i32 noundef 1, i1 noundef zeroext false, ptr noundef %2)
   %17 = load ptr, ptr %5, align 8
-  tail call void @solveVPSC(ptr noundef %17) #12
+  tail call void @solveVPSC(ptr noundef %17) #13
   br i1 %7, label %.lr.ph28, label %._crit_edge29
 
 .lr.ph28:                                         ; preds = %._crit_edge
@@ -1921,7 +1921,7 @@ define void @removeoverlaps(i32 noundef %0, ptr nocapture noundef readonly %1, p
   %21 = load ptr, ptr %18, align 8
   %22 = getelementptr inbounds ptr, ptr %21, i64 %indvars.iv31
   %23 = load ptr, ptr %22, align 8
-  %24 = tail call double @getVariablePos(ptr noundef %23) #12
+  %24 = tail call double @getVariablePos(ptr noundef %23) #13
   %25 = fptrunc double %24 to float
   %26 = load ptr, ptr %19, align 8
   %27 = getelementptr inbounds float, ptr %26, i64 %indvars.iv31
@@ -1933,7 +1933,7 @@ define void @removeoverlaps(i32 noundef %0, ptr nocapture noundef readonly %1, p
 ._crit_edge29.critedge:                           ; preds = %3
   tail call void @generateNonoverlapConstraints(ptr noundef nonnull %4, float noundef 1.000000e+00, ptr noundef %1, i32 noundef 1, i1 noundef zeroext false, ptr noundef %2)
   %28 = load ptr, ptr %5, align 8
-  tail call void @solveVPSC(ptr noundef %28) #12
+  tail call void @solveVPSC(ptr noundef %28) #13
   br label %._crit_edge29
 
 ._crit_edge29:                                    ; preds = %20, %._crit_edge29.critedge, %._crit_edge
@@ -1943,48 +1943,49 @@ define void @removeoverlaps(i32 noundef %0, ptr nocapture noundef readonly %1, p
 
 declare void @solveVPSC(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: noreturn nounwind uwtable
-define internal fastcc void @graphviz_exit() unnamed_addr #6 {
-  tail call void @exit(i32 noundef 1) #17
+; Function Attrs: nofree noreturn nounwind uwtable
+define internal fastcc void @graphviz_exit() unnamed_addr #7 {
+  tail call void @exit(i32 noundef 1) #18
   unreachable
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #7
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #8
 
-; Function Attrs: noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #8
+; Function Attrs: nofree noreturn nounwind
+declare void @exit(i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #10
+declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #11
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x float> @llvm.fmuladd.v2f32(<2 x float>, <2 x float>, <2 x float>) #10
+declare <2 x float> @llvm.fmuladd.v2f32(<2 x float>, <2 x float>, <2 x float>) #11
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #3 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nofree nounwind }
-attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { nounwind }
-attributes #13 = { nounwind allocsize(0,1) }
-attributes #14 = { cold nounwind }
-attributes #15 = { noreturn }
-attributes #16 = { cold }
-attributes #17 = { noreturn nounwind }
+attributes #3 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nofree nounwind }
+attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #13 = { nounwind }
+attributes #14 = { nounwind allocsize(0,1) }
+attributes #15 = { cold nounwind }
+attributes #16 = { noreturn }
+attributes #17 = { cold }
+attributes #18 = { cold noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

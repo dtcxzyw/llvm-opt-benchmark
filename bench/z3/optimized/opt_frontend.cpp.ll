@@ -288,7 +288,7 @@ invoke.cont14:                                    ; preds = %invoke.cont12
           to label %invoke.cont16 unwind label %lpad
 
 invoke.cont16:                                    ; preds = %invoke.cont14
-  call void @exit(i32 noundef 108) #17
+  call void @exit(i32 noundef 108) #19
   unreachable
 
 lpad:                                             ; preds = %if.end, %invoke.cont14, %invoke.cont12, %invoke.cont10, %if.then9, %lor.lhs.false, %if.then
@@ -373,7 +373,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr nou
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_(ptr noundef nonnull align 8 dereferenceable(8)) #0
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
@@ -476,7 +476,7 @@ invoke.cont12:                                    ; preds = %invoke.cont5, %sw.b
 invoke.cont14:                                    ; preds = %invoke.cont12
   %call.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #18
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__endptr.i.i)
-  %call.i.i.i = tail call ptr @__errno_location() #19
+  %call.i.i.i = tail call ptr @__errno_location() #20
   %8 = load i32, ptr %call.i.i.i, align 4
   store i32 0, ptr %call.i.i.i, align 4
   %call.i.i = call noundef i64 @strtoul(ptr noundef %call.i, ptr noundef nonnull %__endptr.i.i, i32 noundef 10)
@@ -485,7 +485,7 @@ invoke.cont14:                                    ; preds = %invoke.cont12
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont14
-  invoke void @_ZSt24__throw_invalid_argumentPKc(ptr noundef nonnull @.str.21) #20
+  invoke void @_ZSt24__throw_invalid_argumentPKc(ptr noundef nonnull @.str.21) #21
           to label %invoke.cont1.i.i unwind label %lpad.i.i
 
 invoke.cont1.i.i:                                 ; preds = %if.then.i.i
@@ -511,7 +511,7 @@ if.else.i.i:                                      ; preds = %invoke.cont14
   ]
 
 if.then6.i.i:                                     ; preds = %if.else.i.i
-  invoke void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.21) #20
+  invoke void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.21) #21
           to label %invoke.cont7.i.i unwind label %lpad.i.i
 
 invoke.cont7.i.i:                                 ; preds = %if.then6.i.i
@@ -539,7 +539,7 @@ invoke.cont19:                                    ; preds = %invoke.cont16
   br i1 %cmp.i.i22, label %if.then.i.i33, label %if.else.i.i23
 
 if.then.i.i33:                                    ; preds = %invoke.cont19
-  invoke void @_ZSt24__throw_invalid_argumentPKc(ptr noundef nonnull @.str.22) #20
+  invoke void @_ZSt24__throw_invalid_argumentPKc(ptr noundef nonnull @.str.22) #21
           to label %invoke.cont1.i.i34 unwind label %lpad.i.i29
 
 invoke.cont1.i.i34:                               ; preds = %if.then.i.i33
@@ -566,7 +566,7 @@ if.else.i.i23:                                    ; preds = %invoke.cont19
   br i1 %or.cond.i.i, label %if.then6.i.i28, label %if.else8.i.i25
 
 if.then6.i.i28:                                   ; preds = %if.else.i.i23
-  invoke void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.22) #20
+  invoke void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.22) #21
           to label %invoke.cont7.i.i32 unwind label %lpad.i.i29
 
 invoke.cont7.i.i32:                               ; preds = %if.then6.i.i28
@@ -1365,7 +1365,7 @@ entry:
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  tail call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i) #20
+  tail call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i) #21
   unreachable
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %entry
@@ -1452,7 +1452,7 @@ if.end:                                           ; preds = %if.then.i.i.i2.i, %
   ret void
 }
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @_Exit(i32 noundef) local_unnamed_addr #7
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNK10statistics7displayERSo(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
@@ -1750,7 +1750,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   unreachable
 
 _ZN9cancel_ehI8reslimitED2Ev.exit:                ; preds = %entry, %if.then.i
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #22
   ret void
 }
 
@@ -1821,7 +1821,7 @@ entry:
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #18
   store ptr null, ptr @_ZL9g_handles, align 8
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN7svectorIjjED2Ev, ptr nonnull @_ZL9g_handles, ptr nonnull @__dso_handle) #18
-  %call.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #22
+  %call.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #23
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %call.i, i8 0, i64 40, i1 false)
   store ptr %call.i, ptr @_ZL17display_stats_mux, align 8
   ret void
@@ -1843,7 +1843,7 @@ attributes #3 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal
 attributes #4 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #10 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1855,10 +1855,11 @@ attributes #15 = { nofree nosync nounwind memory(none) }
 attributes #16 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #17 = { noreturn nounwind }
 attributes #18 = { nounwind }
-attributes #19 = { nounwind willreturn memory(none) }
-attributes #20 = { noreturn }
-attributes #21 = { builtin nounwind }
-attributes #22 = { builtin allocsize(0) }
+attributes #19 = { cold noreturn nounwind }
+attributes #20 = { nounwind willreturn memory(none) }
+attributes #21 = { noreturn }
+attributes #22 = { builtin nounwind }
+attributes #23 = { builtin allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

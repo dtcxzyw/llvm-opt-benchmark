@@ -98,7 +98,7 @@ entry:
   %sub = xor i64 %notmask, -1
   %and = and i64 %sub, %conv
   %arrayidx = getelementptr inbounds %union.pthread_mutex_t, ptr %0, i64 %and
-  %call = tail call i32 @pthread_mutex_lock(ptr noundef %arrayidx) #14
+  %call = tail call i32 @pthread_mutex_lock(ptr noundef %arrayidx) #15
   ret void
 }
 
@@ -116,7 +116,7 @@ entry:
   %sub = xor i64 %notmask, -1
   %and = and i64 %sub, %conv
   %arrayidx = getelementptr inbounds %union.pthread_mutex_t, ptr %0, i64 %and
-  %call = tail call i32 @pthread_mutex_trylock(ptr noundef %arrayidx) #14
+  %call = tail call i32 @pthread_mutex_trylock(ptr noundef %arrayidx) #15
   %cmp = icmp eq i32 %call, 0
   %arrayidx. = select i1 %cmp, ptr %arrayidx, ptr null
   ret ptr %arrayidx.
@@ -128,7 +128,7 @@ declare i32 @pthread_mutex_trylock(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local void @item_trylock_unlock(ptr noundef %lock) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @pthread_mutex_unlock(ptr noundef %lock) #14
+  %call = tail call i32 @pthread_mutex_unlock(ptr noundef %lock) #15
   ret void
 }
 
@@ -146,7 +146,7 @@ entry:
   %sub = xor i64 %notmask, -1
   %and = and i64 %sub, %conv
   %arrayidx = getelementptr inbounds %union.pthread_mutex_t, ptr %0, i64 %and
-  %call = tail call i32 @pthread_mutex_unlock(ptr noundef %arrayidx) #14
+  %call = tail call i32 @pthread_mutex_unlock(ptr noundef %arrayidx) #15
   ret void
 }
 
@@ -161,36 +161,36 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  tail call void @slabs_rebalancer_pause() #14
-  tail call void @lru_maintainer_pause() #14
-  tail call void @lru_crawler_pause() #14
-  tail call void @storage_compact_pause() #14
-  tail call void @storage_write_pause() #14
+  tail call void @slabs_rebalancer_pause() #15
+  tail call void @lru_maintainer_pause() #15
+  tail call void @lru_crawler_pause() #15
+  tail call void @storage_compact_pause() #15
+  tail call void @storage_write_pause() #15
   br label %sw.bb1
 
 sw.bb1:                                           ; preds = %sw.bb, %entry
-  %call = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @worker_hang_lock) #14
-  %call6 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @init_lock) #14
+  %call = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @worker_hang_lock) #15
+  %call6 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @init_lock) #15
   store i32 0, ptr @init_count, align 4
   %0 = load i32, ptr getelementptr inbounds (i8, ptr @settings, i64 92), align 4
   %cmp4 = icmp sgt i32 %0, 0
   br i1 %cmp4, label %for.body, label %for.end
 
 sw.bb2:                                           ; preds = %entry
-  tail call void @slabs_rebalancer_resume() #14
-  tail call void @lru_maintainer_resume() #14
-  tail call void @lru_crawler_resume() #14
-  tail call void @storage_compact_resume() #14
-  tail call void @storage_write_resume() #14
+  tail call void @slabs_rebalancer_resume() #15
+  tail call void @lru_maintainer_resume() #15
+  tail call void @lru_crawler_resume() #15
+  tail call void @storage_compact_resume() #15
+  tail call void @storage_write_resume() #15
   br label %sw.bb3
 
 sw.bb3:                                           ; preds = %sw.bb2, %entry
-  %call4 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @worker_hang_lock) #14
+  %call4 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @worker_hang_lock) #15
   br label %return
 
 sw.default:                                       ; preds = %entry
   %1 = load ptr, ptr @stderr, align 8
-  %call5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str, i32 noundef %type) #15
+  %call5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str, i32 noundef %type) #16
   br label %return
 
 for.body:                                         ; preds = %sw.bb1, %for.body
@@ -215,13 +215,13 @@ for.end:                                          ; preds = %for.end.loopexit, %
   br i1 %cmp1.i, label %while.body.i, label %wait_for_thread_registration.exit
 
 while.body.i:                                     ; preds = %for.end, %while.body.i
-  %call.i = tail call i32 @pthread_cond_wait(ptr noundef nonnull @init_cond, ptr noundef nonnull @init_lock) #14
+  %call.i = tail call i32 @pthread_cond_wait(ptr noundef nonnull @init_cond, ptr noundef nonnull @init_lock) #15
   %6 = load i32, ptr @init_count, align 4
   %cmp.i = icmp slt i32 %6, %.lcssa
   br i1 %cmp.i, label %while.body.i, label %wait_for_thread_registration.exit, !llvm.loop !7
 
 wait_for_thread_registration.exit:                ; preds = %while.body.i, %for.end
-  %call7 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @init_lock) #14
+  %call7 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @init_lock) #15
   br label %return
 
 return:                                           ; preds = %sw.default, %sw.bb3, %wait_for_thread_registration.exit
@@ -259,20 +259,20 @@ entry:
   %0 = load ptr, ptr %ev_queue, align 8
   %1 = getelementptr i8, ptr %0, i64 56
   %.val7 = load ptr, ptr %1, align 8
-  %call.i8 = tail call ptr @cache_alloc(ptr noundef %.val7) #14
+  %call.i8 = tail call ptr @cache_alloc(ptr noundef %.val7) #15
   %cmp.i9 = icmp eq ptr %call.i8, null
   br i1 %cmp.i9, label %cqi_new.exit, label %while.end
 
 cqi_new.exit:                                     ; preds = %entry, %cqi_new.exit
-  %call.i.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @stats_lock) #14
+  %call.i.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @stats_lock) #15
   %2 = load i64, ptr getelementptr inbounds (i8, ptr @stats, i64 24), align 8
   %inc.i = add i64 %2, 1
   store i64 %inc.i, ptr getelementptr inbounds (i8, ptr @stats, i64 24), align 8
-  %call.i2.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @stats_lock) #14
+  %call.i2.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @stats_lock) #15
   %3 = load ptr, ptr %ev_queue, align 8
   %4 = getelementptr i8, ptr %3, i64 56
   %.val = load ptr, ptr %4, align 8
-  %call.i = tail call ptr @cache_alloc(ptr noundef %.val) #14
+  %call.i = tail call ptr @cache_alloc(ptr noundef %.val) #15
   %cmp.i = icmp eq ptr %call.i, null
   br i1 %cmp.i, label %cqi_new.exit, label %while.end, !llvm.loop !8
 
@@ -284,23 +284,23 @@ while.end:                                        ; preds = %cqi_new.exit, %entr
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %u.i)
   %5 = load ptr, ptr %ev_queue, align 8
   %lock.i.i = getelementptr inbounds i8, ptr %5, i64 16
-  %call.i.i4 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %lock.i.i) #14
+  %call.i.i4 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %lock.i.i) #15
   %i_next.i.i = getelementptr inbounds i8, ptr %call.i.lcssa, i64 64
   store ptr null, ptr %i_next.i.i, align 8
   %stqh_last.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load ptr, ptr %stqh_last.i.i, align 8
   store ptr %call.i.lcssa, ptr %6, align 8
   store ptr %i_next.i.i, ptr %stqh_last.i.i, align 8
-  %call6.i.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %lock.i.i) #14
+  %call6.i.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %lock.i.i) #15
   store i64 1, ptr %u.i, align 8
   %notify_event_fd.i = getelementptr inbounds i8, ptr %t, i64 144
   %7 = load i32, ptr %notify_event_fd.i, align 8
-  %call.i5 = call i64 @write(i32 noundef %7, ptr noundef nonnull %u.i, i64 noundef 8) #14
+  %call.i5 = call i64 @write(i32 noundef %7, ptr noundef nonnull %u.i, i64 noundef 8) #15
   %cmp.not.i = icmp eq i64 %call.i5, 8
   br i1 %cmp.not.i, label %notify_worker.exit, label %if.then.i6
 
 if.then.i6:                                       ; preds = %while.end
-  tail call void @perror(ptr noundef nonnull @.str.13) #15
+  tail call void @perror(ptr noundef nonnull @.str.13) #16
   br label %notify_worker.exit
 
 notify_worker.exit:                               ; preds = %while.end, %if.then.i6
@@ -311,26 +311,26 @@ notify_worker.exit:                               ; preds = %while.end, %if.then
 ; Function Attrs: nounwind uwtable
 define dso_local void @stop_threads() local_unnamed_addr #0 {
 entry:
-  tail call void @stop_assoc_maintenance_thread() #14
+  tail call void @stop_assoc_maintenance_thread() #15
   %0 = load i32, ptr getelementptr inbounds (i8, ptr @settings, i64 32), align 8
   %cmp = icmp sgt i32 %0, 0
   br i1 %cmp, label %if.end, label %if.end4
 
 if.end:                                           ; preds = %entry
   %1 = load ptr, ptr @stderr, align 8
-  %2 = tail call i64 @fwrite(ptr nonnull @.str.1, i64 14, i64 1, ptr %1) #15
+  %2 = tail call i64 @fwrite(ptr nonnull @.str.1, i64 14, i64 1, ptr %1) #16
   %.pr = load i32, ptr getelementptr inbounds (i8, ptr @settings, i64 32), align 8
   %cmp1 = icmp sgt i32 %.pr, 0
   br i1 %cmp1, label %if.then2, label %if.end4
 
 if.then2:                                         ; preds = %if.end
   %3 = load ptr, ptr @stderr, align 8
-  %4 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 23, i64 1, ptr %3) #15
+  %4 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 23, i64 1, ptr %3) #16
   br label %if.end4
 
 if.end4:                                          ; preds = %entry, %if.then2, %if.end
-  %call5 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @worker_hang_lock) #14
-  %call6 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @init_lock) #14
+  %call5 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @worker_hang_lock) #15
+  %call6 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @init_lock) #15
   store i32 0, ptr @init_count, align 4
   %5 = load i32, ptr getelementptr inbounds (i8, ptr @settings, i64 92), align 4
   %cmp79 = icmp sgt i32 %5, 0
@@ -358,31 +358,31 @@ for.end:                                          ; preds = %for.end.loopexit, %
   br i1 %cmp1.i, label %while.body.i, label %wait_for_thread_registration.exit
 
 while.body.i:                                     ; preds = %for.end, %while.body.i
-  %call.i = tail call i32 @pthread_cond_wait(ptr noundef nonnull @init_cond, ptr noundef nonnull @init_lock) #14
+  %call.i = tail call i32 @pthread_cond_wait(ptr noundef nonnull @init_cond, ptr noundef nonnull @init_lock) #15
   %10 = load i32, ptr @init_count, align 4
   %cmp.i = icmp slt i32 %10, %.lcssa
   br i1 %cmp.i, label %while.body.i, label %wait_for_thread_registration.exit, !llvm.loop !7
 
 wait_for_thread_registration.exit:                ; preds = %while.body.i, %for.end
-  %call8 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @init_lock) #14
+  %call8 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @init_lock) #15
   %11 = load i32, ptr getelementptr inbounds (i8, ptr @settings, i64 32), align 8
   %cmp9 = icmp sgt i32 %11, 0
   br i1 %cmp9, label %if.then10, label %if.end12
 
 if.then10:                                        ; preds = %wait_for_thread_registration.exit
   %12 = load ptr, ptr @stderr, align 8
-  %13 = tail call i64 @fwrite(ptr nonnull @.str.3, i64 34, i64 1, ptr %12) #15
+  %13 = tail call i64 @fwrite(ptr nonnull @.str.3, i64 34, i64 1, ptr %12) #16
   br label %if.end12
 
 if.end12:                                         ; preds = %if.then10, %wait_for_thread_registration.exit
-  %call13 = tail call i32 @stop_item_crawler_thread(i1 noundef zeroext true) #14
+  %call13 = tail call i32 @stop_item_crawler_thread(i1 noundef zeroext true) #15
   %14 = load i32, ptr getelementptr inbounds (i8, ptr @settings, i64 32), align 8
   %cmp14 = icmp sgt i32 %14, 0
   br i1 %cmp14, label %if.then15, label %if.end17
 
 if.then15:                                        ; preds = %if.end12
   %15 = load ptr, ptr @stderr, align 8
-  %16 = tail call i64 @fwrite(ptr nonnull @.str.4, i64 20, i64 1, ptr %15) #15
+  %16 = tail call i64 @fwrite(ptr nonnull @.str.4, i64 20, i64 1, ptr %15) #16
   br label %if.end17
 
 if.end17:                                         ; preds = %if.then15, %if.end12
@@ -391,14 +391,14 @@ if.end17:                                         ; preds = %if.then15, %if.end1
   br i1 %tobool, label %if.then18, label %if.end24
 
 if.then18:                                        ; preds = %if.end17
-  %call19 = tail call i32 @stop_lru_maintainer_thread() #14
+  %call19 = tail call i32 @stop_lru_maintainer_thread() #15
   %18 = load i32, ptr getelementptr inbounds (i8, ptr @settings, i64 32), align 8
   %cmp20 = icmp sgt i32 %18, 0
   br i1 %cmp20, label %if.then21, label %if.end24
 
 if.then21:                                        ; preds = %if.then18
   %19 = load ptr, ptr @stderr, align 8
-  %20 = tail call i64 @fwrite(ptr nonnull @.str.5, i64 19, i64 1, ptr %19) #15
+  %20 = tail call i64 @fwrite(ptr nonnull @.str.5, i64 19, i64 1, ptr %19) #16
   br label %if.end24
 
 if.end24:                                         ; preds = %if.then18, %if.then21, %if.end17
@@ -407,55 +407,55 @@ if.end24:                                         ; preds = %if.then18, %if.then
   br i1 %tobool25, label %if.then26, label %if.end31
 
 if.then26:                                        ; preds = %if.end24
-  tail call void @stop_slab_maintenance_thread() #14
+  tail call void @stop_slab_maintenance_thread() #15
   %22 = load i32, ptr getelementptr inbounds (i8, ptr @settings, i64 32), align 8
   %cmp27 = icmp sgt i32 %22, 0
   br i1 %cmp27, label %if.then28, label %if.end31
 
 if.then28:                                        ; preds = %if.then26
   %23 = load ptr, ptr @stderr, align 8
-  %24 = tail call i64 @fwrite(ptr nonnull @.str.6, i64 19, i64 1, ptr %23) #15
+  %24 = tail call i64 @fwrite(ptr nonnull @.str.6, i64 19, i64 1, ptr %23) #16
   br label %if.end31
 
 if.end31:                                         ; preds = %if.then26, %if.then28, %if.end24
-  tail call void @logger_stop() #14
+  tail call void @logger_stop() #15
   %25 = load i32, ptr getelementptr inbounds (i8, ptr @settings, i64 32), align 8
   %cmp32 = icmp sgt i32 %25, 0
   br i1 %cmp32, label %if.then33, label %if.end35
 
 if.then33:                                        ; preds = %if.end31
   %26 = load ptr, ptr @stderr, align 8
-  %27 = tail call i64 @fwrite(ptr nonnull @.str.7, i64 22, i64 1, ptr %26) #15
+  %27 = tail call i64 @fwrite(ptr nonnull @.str.7, i64 22, i64 1, ptr %26) #16
   br label %if.end35
 
 if.end35:                                         ; preds = %if.then33, %if.end31
-  %call36 = tail call i32 @stop_conn_timeout_thread() #14
+  %call36 = tail call i32 @stop_conn_timeout_thread() #15
   %28 = load i32, ptr getelementptr inbounds (i8, ptr @settings, i64 32), align 8
   %cmp37 = icmp sgt i32 %28, 0
   br i1 %cmp37, label %if.end40, label %if.end44
 
 if.end40:                                         ; preds = %if.end35
   %29 = load ptr, ptr @stderr, align 8
-  %30 = tail call i64 @fwrite(ptr nonnull @.str.8, i64 28, i64 1, ptr %29) #15
+  %30 = tail call i64 @fwrite(ptr nonnull @.str.8, i64 28, i64 1, ptr %29) #16
   %.pr7 = load i32, ptr getelementptr inbounds (i8, ptr @settings, i64 32), align 8
   %cmp41 = icmp sgt i32 %.pr7, 0
   br i1 %cmp41, label %if.then42, label %if.end44
 
 if.then42:                                        ; preds = %if.end40
   %31 = load ptr, ptr @stderr, align 8
-  %32 = tail call i64 @fwrite(ptr nonnull @.str.9, i64 20, i64 1, ptr %31) #15
+  %32 = tail call i64 @fwrite(ptr nonnull @.str.9, i64 20, i64 1, ptr %31) #16
   br label %if.end44
 
 if.end44:                                         ; preds = %if.end35, %if.then42, %if.end40
-  tail call void @conn_close_all() #14
-  %call45 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @worker_hang_lock) #14
+  tail call void @conn_close_all() #15
+  %call45 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @worker_hang_lock) #15
   %33 = load i32, ptr getelementptr inbounds (i8, ptr @settings, i64 32), align 8
   %cmp46 = icmp sgt i32 %33, 0
   br i1 %cmp46, label %if.then47, label %if.end49
 
 if.then47:                                        ; preds = %if.end44
   %34 = load ptr, ptr @stderr, align 8
-  %35 = tail call i64 @fwrite(ptr nonnull @.str.10, i64 23, i64 1, ptr %34) #15
+  %35 = tail call i64 @fwrite(ptr nonnull @.str.10, i64 23, i64 1, ptr %34) #16
   br label %if.end49
 
 if.end49:                                         ; preds = %if.then47, %if.end44
@@ -468,7 +468,7 @@ for.body52:                                       ; preds = %if.end49, %for.body
   %37 = load ptr, ptr @threads, align 8
   %arrayidx54 = getelementptr inbounds %struct.LIBEVENT_THREAD, ptr %37, i64 %indvars.iv15
   %38 = load i64, ptr %arrayidx54, align 8
-  %call55 = tail call i32 @pthread_join(i64 noundef %38, ptr noundef null) #14
+  %call55 = tail call i32 @pthread_join(i64 noundef %38, ptr noundef null) #15
   %indvars.iv.next16 = add nuw nsw i64 %indvars.iv15, 1
   %39 = load i32, ptr getelementptr inbounds (i8, ptr @settings, i64 92), align 4
   %40 = sext i32 %39 to i64
@@ -482,7 +482,7 @@ for.end58:                                        ; preds = %for.body52, %if.end
 
 if.then60:                                        ; preds = %for.end58
   %42 = load ptr, ptr @stderr, align 8
-  %43 = tail call i64 @fwrite(ptr nonnull @.str.11, i64 31, i64 1, ptr %42) #15
+  %43 = tail call i64 @fwrite(ptr nonnull @.str.11, i64 31, i64 1, ptr %42) #16
   br label %if.end62
 
 if.end62:                                         ; preds = %if.then60, %for.end58
@@ -508,9 +508,9 @@ declare i32 @pthread_join(i64 noundef, ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define dso_local void @accept_new_conns(i1 noundef zeroext %do_accept) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @conn_lock) #14
-  tail call void @do_accept_new_conns(i1 noundef zeroext %do_accept) #14
-  %call1 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @conn_lock) #14
+  %call = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @conn_lock) #15
+  tail call void @do_accept_new_conns(i1 noundef zeroext %do_accept) #15
+  %call1 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @conn_lock) #15
   ret void
 }
 
@@ -519,7 +519,7 @@ declare void @do_accept_new_conns(i1 noundef zeroext) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define dso_local void @thread_setname(i64 noundef %thread, ptr noundef %name) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @pthread_setname_np(i64 noundef %thread, ptr noundef %name) #14
+  %call = tail call i32 @pthread_setname_np(i64 noundef %thread, ptr noundef %name) #15
   ret void
 }
 
@@ -560,7 +560,7 @@ if.else:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %napi_id.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %len.i)
   store i32 4, ptr %len.i, align 4
-  %call.i = call i32 @getsockopt(i32 noundef %sfd, i32 noundef 1, i32 noundef 56, ptr noundef nonnull %napi_id.i, ptr noundef nonnull %len.i) #14
+  %call.i = call i32 @getsockopt(i32 noundef %sfd, i32 noundef 1, i32 noundef 56, ptr noundef nonnull %napi_id.i, ptr noundef nonnull %len.i) #15
   %cmp.i = icmp eq i32 %call.i, -1
   %4 = load i32, ptr %napi_id.i, align 4
   %cmp1.i = icmp eq i32 %4, 0
@@ -572,11 +572,11 @@ select.preheader.i:                               ; preds = %if.else
   br label %select.i
 
 if.then.i:                                        ; preds = %if.else
-  %call.i.i = call i32 @pthread_mutex_lock(ptr noundef nonnull @stats_lock) #14
+  %call.i.i = call i32 @pthread_mutex_lock(ptr noundef nonnull @stats_lock) #15
   %5 = load i64, ptr getelementptr inbounds (i8, ptr @stats, i64 200), align 8
   %inc.i = add i64 %5, 1
   store i64 %inc.i, ptr getelementptr inbounds (i8, ptr @stats, i64 200), align 8
-  %call.i9.i = call i32 @pthread_mutex_unlock(ptr noundef nonnull @stats_lock) #14
+  %call.i9.i = call i32 @pthread_mutex_unlock(ptr noundef nonnull @stats_lock) #15
   %6 = load i32, ptr @last_thread, align 4
   %add.i.i = add nsw i32 %6, 1
   %7 = load i32, ptr getelementptr inbounds (i8, ptr @settings, i64 92), align 4
@@ -627,11 +627,11 @@ for.inc.i:                                        ; preds = %if.end7.i
   br i1 %exitcond28.not.i, label %if.then14.i, label %for.body.i, !llvm.loop !11
 
 if.then14.i:                                      ; preds = %for.inc.i, %select.i
-  %call.i10.i = call i32 @pthread_mutex_lock(ptr noundef nonnull @stats_lock) #14
+  %call.i10.i = call i32 @pthread_mutex_lock(ptr noundef nonnull @stats_lock) #15
   %17 = load i64, ptr getelementptr inbounds (i8, ptr @stats, i64 192), align 8
   %inc15.i = add i64 %17, 1
   store i64 %inc15.i, ptr getelementptr inbounds (i8, ptr @stats, i64 192), align 8
-  %call.i11.i = call i32 @pthread_mutex_unlock(ptr noundef nonnull @stats_lock) #14
+  %call.i11.i = call i32 @pthread_mutex_unlock(ptr noundef nonnull @stats_lock) #15
   %18 = load i32, ptr getelementptr inbounds (i8, ptr @settings, i64 92), align 4
   %cmp3.i.i = icmp sgt i32 %18, 0
   br i1 %cmp3.i.i, label %for.body.lr.ph.i.i, label %reset_threads_napi_id.exit.i
@@ -676,19 +676,19 @@ if.end:                                           ; preds = %select_thread_by_na
   %23 = load ptr, ptr %ev_queue, align 8
   %24 = getelementptr i8, ptr %23, i64 56
   %.val = load ptr, ptr %24, align 8
-  %call.i15 = call ptr @cache_alloc(ptr noundef %.val) #14
+  %call.i15 = call ptr @cache_alloc(ptr noundef %.val) #15
   %cmp.i16 = icmp eq ptr %call.i15, null
   br i1 %cmp.i16, label %if.then3, label %if.end6
 
 if.then3:                                         ; preds = %if.end
-  %call.i.i18 = call i32 @pthread_mutex_lock(ptr noundef nonnull @stats_lock) #14
+  %call.i.i18 = call i32 @pthread_mutex_lock(ptr noundef nonnull @stats_lock) #15
   %25 = load i64, ptr getelementptr inbounds (i8, ptr @stats, i64 24), align 8
   %inc.i19 = add i64 %25, 1
   store i64 %inc.i19, ptr getelementptr inbounds (i8, ptr @stats, i64 24), align 8
-  %call.i2.i = call i32 @pthread_mutex_unlock(ptr noundef nonnull @stats_lock) #14
-  %call4 = call i32 @close(i32 noundef %sfd) #14
+  %call.i2.i = call i32 @pthread_mutex_unlock(ptr noundef nonnull @stats_lock) #15
+  %call4 = call i32 @close(i32 noundef %sfd) #15
   %26 = load ptr, ptr @stderr, align 8
-  %27 = call i64 @fwrite(ptr nonnull @.str.12, i64 48, i64 1, ptr %26) #15
+  %27 = call i64 @fwrite(ptr nonnull @.str.12, i64 48, i64 1, ptr %26) #16
   br label %return
 
 if.end6:                                          ; preds = %if.end
@@ -712,23 +712,23 @@ if.end6:                                          ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %u.i)
   %28 = load ptr, ptr %ev_queue, align 8
   %lock.i.i = getelementptr inbounds i8, ptr %28, i64 16
-  %call.i.i20 = call i32 @pthread_mutex_lock(ptr noundef nonnull %lock.i.i) #14
+  %call.i.i20 = call i32 @pthread_mutex_lock(ptr noundef nonnull %lock.i.i) #15
   %i_next.i.i = getelementptr inbounds i8, ptr %call.i15, i64 64
   store ptr null, ptr %i_next.i.i, align 8
   %stqh_last.i.i = getelementptr inbounds i8, ptr %28, i64 8
   %29 = load ptr, ptr %stqh_last.i.i, align 8
   store ptr %call.i15, ptr %29, align 8
   store ptr %i_next.i.i, ptr %stqh_last.i.i, align 8
-  %call6.i.i = call i32 @pthread_mutex_unlock(ptr noundef nonnull %lock.i.i) #14
+  %call6.i.i = call i32 @pthread_mutex_unlock(ptr noundef nonnull %lock.i.i) #15
   store i64 1, ptr %u.i, align 8
   %notify_event_fd.i = getelementptr inbounds i8, ptr %thread.0, i64 144
   %30 = load i32, ptr %notify_event_fd.i, align 8
-  %call.i21 = call i64 @write(i32 noundef %30, ptr noundef nonnull %u.i, i64 noundef 8) #14
+  %call.i21 = call i64 @write(i32 noundef %30, ptr noundef nonnull %u.i, i64 noundef 8) #15
   %cmp.not.i = icmp eq i64 %call.i21, 8
   br i1 %cmp.not.i, label %notify_worker.exit, label %if.then.i22
 
 if.then.i22:                                      ; preds = %if.end6
-  call void @perror(ptr noundef nonnull @.str.13) #15
+  call void @perror(ptr noundef nonnull @.str.13) #16
   br label %notify_worker.exit
 
 notify_worker.exit:                               ; preds = %if.end6, %if.then.i22
@@ -770,7 +770,7 @@ entry:
   %thread = getelementptr inbounds i8, ptr %io, i64 8
   %0 = load ptr, ptr %thread, align 8
   %ion_lock = getelementptr inbounds i8, ptr %0, i64 288
-  %call = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %ion_lock) #14
+  %call = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %ion_lock) #15
   %ion_head = getelementptr inbounds i8, ptr %0, i64 328
   %1 = load ptr, ptr %ion_head, align 8
   %cmp = icmp eq ptr %1, null
@@ -780,19 +780,19 @@ entry:
   %2 = load ptr, ptr %stqh_last, align 8
   store ptr %io, ptr %2, align 8
   store ptr %iop_next, ptr %stqh_last, align 8
-  %call7 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %ion_lock) #14
+  %call7 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %ion_lock) #15
   br i1 %cmp, label %if.then8, label %if.end13
 
 if.then8:                                         ; preds = %entry
   store i64 1, ptr %u, align 8
   %notify_event_fd = getelementptr inbounds i8, ptr %0, i64 280
   %3 = load i32, ptr %notify_event_fd, align 8
-  %call9 = call i64 @write(i32 noundef %3, ptr noundef nonnull %u, i64 noundef 8) #14
+  %call9 = call i64 @write(i32 noundef %3, ptr noundef nonnull %u, i64 noundef 8) #15
   %cmp10.not = icmp eq i64 %call9, 8
   br i1 %cmp10.not, label %if.end13, label %if.then11
 
 if.then11:                                        ; preds = %if.then8
-  tail call void @perror(ptr noundef nonnull @.str.13) #15
+  tail call void @perror(ptr noundef nonnull @.str.13) #16
   br label %if.end13
 
 if.end13:                                         ; preds = %if.then8, %if.then11, %entry
@@ -816,7 +816,7 @@ if.then:                                          ; preds = %entry
   %1 = load ptr, ptr @stderr, align 8
   %sfd = getelementptr inbounds i8, ptr %c, i64 8
   %2 = load i32, ptr %sfd, align 8
-  %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.14, i32 noundef %2) #15
+  %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.14, i32 noundef %2) #16
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -833,7 +833,7 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @item_alloc(ptr noundef %key, i64 noundef %nkey, i32 noundef %flags, i32 noundef %exptime, i32 noundef %nbytes) local_unnamed_addr #0 {
 entry:
-  %call = tail call ptr @do_item_alloc(ptr noundef %key, i64 noundef %nkey, i32 noundef %flags, i32 noundef %exptime, i32 noundef %nbytes) #14
+  %call = tail call ptr @do_item_alloc(ptr noundef %key, i64 noundef %nkey, i32 noundef %flags, i32 noundef %exptime, i32 noundef %nbytes) #15
   ret ptr %call
 }
 
@@ -843,7 +843,7 @@ declare ptr @do_item_alloc(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i
 define dso_local ptr @item_get(ptr noundef %key, i64 noundef %nkey, ptr noundef %t, i1 noundef zeroext %do_update) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @hash, align 8
-  %call = tail call i32 %0(ptr noundef %key, i64 noundef %nkey) #14
+  %call = tail call i32 %0(ptr noundef %key, i64 noundef %nkey) #15
   %1 = load ptr, ptr @item_locks, align 8
   %conv.i = zext i32 %call to i64
   %2 = load i32, ptr @item_lock_hashpower, align 4
@@ -852,8 +852,8 @@ entry:
   %sub.i = xor i64 %notmask.i, -1
   %and.i = and i64 %sub.i, %conv.i
   %arrayidx.i = getelementptr inbounds %union.pthread_mutex_t, ptr %1, i64 %and.i
-  %call.i = tail call i32 @pthread_mutex_lock(ptr noundef %arrayidx.i) #14
-  %call1 = tail call ptr @do_item_get(ptr noundef %key, i64 noundef %nkey, i32 noundef %call, ptr noundef %t, i1 noundef zeroext %do_update) #14
+  %call.i = tail call i32 @pthread_mutex_lock(ptr noundef %arrayidx.i) #15
+  %call1 = tail call ptr @do_item_get(ptr noundef %key, i64 noundef %nkey, i32 noundef %call, ptr noundef %t, i1 noundef zeroext %do_update) #15
   %3 = load ptr, ptr @item_locks, align 8
   %4 = load i32, ptr @item_lock_hashpower, align 4
   %sh_prom.i6 = zext nneg i32 %4 to i64
@@ -861,7 +861,7 @@ entry:
   %sub.i8 = xor i64 %notmask.i7, -1
   %and.i9 = and i64 %sub.i8, %conv.i
   %arrayidx.i10 = getelementptr inbounds %union.pthread_mutex_t, ptr %3, i64 %and.i9
-  %call.i11 = tail call i32 @pthread_mutex_unlock(ptr noundef %arrayidx.i10) #14
+  %call.i11 = tail call i32 @pthread_mutex_unlock(ptr noundef %arrayidx.i10) #15
   ret ptr %call1
 }
 
@@ -871,7 +871,7 @@ declare ptr @do_item_get(ptr noundef, i64 noundef, i32 noundef, ptr noundef, i1 
 define dso_local ptr @item_get_locked(ptr noundef %key, i64 noundef %nkey, ptr noundef %t, i1 noundef zeroext %do_update, ptr nocapture noundef %hv) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @hash, align 8
-  %call = tail call i32 %0(ptr noundef %key, i64 noundef %nkey) #14
+  %call = tail call i32 %0(ptr noundef %key, i64 noundef %nkey) #15
   store i32 %call, ptr %hv, align 4
   %1 = load ptr, ptr @item_locks, align 8
   %conv.i = zext i32 %call to i64
@@ -881,9 +881,9 @@ entry:
   %sub.i = xor i64 %notmask.i, -1
   %and.i = and i64 %sub.i, %conv.i
   %arrayidx.i = getelementptr inbounds %union.pthread_mutex_t, ptr %1, i64 %and.i
-  %call.i = tail call i32 @pthread_mutex_lock(ptr noundef %arrayidx.i) #14
+  %call.i = tail call i32 @pthread_mutex_lock(ptr noundef %arrayidx.i) #15
   %3 = load i32, ptr %hv, align 4
-  %call1 = tail call ptr @do_item_get(ptr noundef %key, i64 noundef %nkey, i32 noundef %3, ptr noundef %t, i1 noundef zeroext %do_update) #14
+  %call1 = tail call ptr @do_item_get(ptr noundef %key, i64 noundef %nkey, i32 noundef %3, ptr noundef %t, i1 noundef zeroext %do_update) #15
   ret ptr %call1
 }
 
@@ -891,7 +891,7 @@ entry:
 define dso_local ptr @item_touch(ptr noundef %key, i64 noundef %nkey, i32 noundef %exptime, ptr noundef %t) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @hash, align 8
-  %call = tail call i32 %0(ptr noundef %key, i64 noundef %nkey) #14
+  %call = tail call i32 %0(ptr noundef %key, i64 noundef %nkey) #15
   %1 = load ptr, ptr @item_locks, align 8
   %conv.i = zext i32 %call to i64
   %2 = load i32, ptr @item_lock_hashpower, align 4
@@ -900,8 +900,8 @@ entry:
   %sub.i = xor i64 %notmask.i, -1
   %and.i = and i64 %sub.i, %conv.i
   %arrayidx.i = getelementptr inbounds %union.pthread_mutex_t, ptr %1, i64 %and.i
-  %call.i = tail call i32 @pthread_mutex_lock(ptr noundef %arrayidx.i) #14
-  %call1 = tail call ptr @do_item_touch(ptr noundef %key, i64 noundef %nkey, i32 noundef %exptime, i32 noundef %call, ptr noundef %t) #14
+  %call.i = tail call i32 @pthread_mutex_lock(ptr noundef %arrayidx.i) #15
+  %call1 = tail call ptr @do_item_touch(ptr noundef %key, i64 noundef %nkey, i32 noundef %exptime, i32 noundef %call, ptr noundef %t) #15
   %3 = load ptr, ptr @item_locks, align 8
   %4 = load i32, ptr @item_lock_hashpower, align 4
   %sh_prom.i6 = zext nneg i32 %4 to i64
@@ -909,7 +909,7 @@ entry:
   %sub.i8 = xor i64 %notmask.i7, -1
   %and.i9 = and i64 %sub.i8, %conv.i
   %arrayidx.i10 = getelementptr inbounds %union.pthread_mutex_t, ptr %3, i64 %and.i9
-  %call.i11 = tail call i32 @pthread_mutex_unlock(ptr noundef %arrayidx.i10) #14
+  %call.i11 = tail call i32 @pthread_mutex_unlock(ptr noundef %arrayidx.i10) #15
   ret ptr %call1
 }
 
@@ -929,7 +929,7 @@ entry:
   %nkey = getelementptr inbounds i8, ptr %item, i64 41
   %4 = load i8, ptr %nkey, align 1
   %conv1 = zext i8 %4 to i64
-  %call = tail call i32 %0(ptr noundef nonnull %add.ptr, i64 noundef %conv1) #14
+  %call = tail call i32 %0(ptr noundef nonnull %add.ptr, i64 noundef %conv1) #15
   %5 = load ptr, ptr @item_locks, align 8
   %conv.i = zext i32 %call to i64
   %6 = load i32, ptr @item_lock_hashpower, align 4
@@ -938,8 +938,8 @@ entry:
   %sub.i = xor i64 %notmask.i, -1
   %and.i = and i64 %sub.i, %conv.i
   %arrayidx.i = getelementptr inbounds %union.pthread_mutex_t, ptr %5, i64 %and.i
-  %call.i = tail call i32 @pthread_mutex_lock(ptr noundef %arrayidx.i) #14
-  %call2 = tail call i32 @do_item_link(ptr noundef %item, i32 noundef %call) #14
+  %call.i = tail call i32 @pthread_mutex_lock(ptr noundef %arrayidx.i) #15
+  %call2 = tail call i32 @do_item_link(ptr noundef %item, i32 noundef %call) #15
   %7 = load ptr, ptr @item_locks, align 8
   %8 = load i32, ptr @item_lock_hashpower, align 4
   %sh_prom.i7 = zext nneg i32 %8 to i64
@@ -947,7 +947,7 @@ entry:
   %sub.i9 = xor i64 %notmask.i8, -1
   %and.i10 = and i64 %sub.i9, %conv.i
   %arrayidx.i11 = getelementptr inbounds %union.pthread_mutex_t, ptr %7, i64 %and.i10
-  %call.i12 = tail call i32 @pthread_mutex_unlock(ptr noundef %arrayidx.i11) #14
+  %call.i12 = tail call i32 @pthread_mutex_unlock(ptr noundef %arrayidx.i11) #15
   ret i32 %call2
 }
 
@@ -967,7 +967,7 @@ entry:
   %nkey = getelementptr inbounds i8, ptr %item, i64 41
   %4 = load i8, ptr %nkey, align 1
   %conv1 = zext i8 %4 to i64
-  %call = tail call i32 %0(ptr noundef nonnull %add.ptr, i64 noundef %conv1) #14
+  %call = tail call i32 %0(ptr noundef nonnull %add.ptr, i64 noundef %conv1) #15
   %5 = load ptr, ptr @item_locks, align 8
   %conv.i = zext i32 %call to i64
   %6 = load i32, ptr @item_lock_hashpower, align 4
@@ -976,8 +976,8 @@ entry:
   %sub.i = xor i64 %notmask.i, -1
   %and.i = and i64 %sub.i, %conv.i
   %arrayidx.i = getelementptr inbounds %union.pthread_mutex_t, ptr %5, i64 %and.i
-  %call.i = tail call i32 @pthread_mutex_lock(ptr noundef %arrayidx.i) #14
-  tail call void @do_item_remove(ptr noundef %item) #14
+  %call.i = tail call i32 @pthread_mutex_lock(ptr noundef %arrayidx.i) #15
+  tail call void @do_item_remove(ptr noundef %item) #15
   %7 = load ptr, ptr @item_locks, align 8
   %8 = load i32, ptr @item_lock_hashpower, align 4
   %sh_prom.i6 = zext nneg i32 %8 to i64
@@ -985,7 +985,7 @@ entry:
   %sub.i8 = xor i64 %notmask.i7, -1
   %and.i9 = and i64 %sub.i8, %conv.i
   %arrayidx.i10 = getelementptr inbounds %union.pthread_mutex_t, ptr %7, i64 %and.i9
-  %call.i11 = tail call i32 @pthread_mutex_unlock(ptr noundef %arrayidx.i10) #14
+  %call.i11 = tail call i32 @pthread_mutex_unlock(ptr noundef %arrayidx.i10) #15
   ret void
 }
 
@@ -994,7 +994,7 @@ declare void @do_item_remove(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @item_replace(ptr noundef %old_it, ptr noundef %new_it, i32 noundef %hv) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @do_item_replace(ptr noundef %old_it, ptr noundef %new_it, i32 noundef %hv) #14
+  %call = tail call i32 @do_item_replace(ptr noundef %old_it, ptr noundef %new_it, i32 noundef %hv) #15
   ret i32 %call
 }
 
@@ -1014,7 +1014,7 @@ entry:
   %nkey = getelementptr inbounds i8, ptr %item, i64 41
   %4 = load i8, ptr %nkey, align 1
   %conv1 = zext i8 %4 to i64
-  %call = tail call i32 %0(ptr noundef nonnull %add.ptr, i64 noundef %conv1) #14
+  %call = tail call i32 %0(ptr noundef nonnull %add.ptr, i64 noundef %conv1) #15
   %5 = load ptr, ptr @item_locks, align 8
   %conv.i = zext i32 %call to i64
   %6 = load i32, ptr @item_lock_hashpower, align 4
@@ -1023,8 +1023,8 @@ entry:
   %sub.i = xor i64 %notmask.i, -1
   %and.i = and i64 %sub.i, %conv.i
   %arrayidx.i = getelementptr inbounds %union.pthread_mutex_t, ptr %5, i64 %and.i
-  %call.i = tail call i32 @pthread_mutex_lock(ptr noundef %arrayidx.i) #14
-  tail call void @do_item_unlink(ptr noundef %item, i32 noundef %call) #14
+  %call.i = tail call i32 @pthread_mutex_lock(ptr noundef %arrayidx.i) #15
+  tail call void @do_item_unlink(ptr noundef %item, i32 noundef %call) #15
   %7 = load ptr, ptr @item_locks, align 8
   %8 = load i32, ptr @item_lock_hashpower, align 4
   %sh_prom.i7 = zext nneg i32 %8 to i64
@@ -1032,7 +1032,7 @@ entry:
   %sub.i9 = xor i64 %notmask.i8, -1
   %and.i10 = and i64 %sub.i9, %conv.i
   %arrayidx.i11 = getelementptr inbounds %union.pthread_mutex_t, ptr %7, i64 %and.i10
-  %call.i12 = tail call i32 @pthread_mutex_unlock(ptr noundef %arrayidx.i11) #14
+  %call.i12 = tail call i32 @pthread_mutex_unlock(ptr noundef %arrayidx.i11) #15
   ret void
 }
 
@@ -1042,7 +1042,7 @@ declare void @do_item_unlink(ptr noundef, i32 noundef) local_unnamed_addr #2
 define dso_local i32 @add_delta(ptr noundef %t, ptr noundef %key, i64 noundef %nkey, i1 noundef zeroext %incr, i64 noundef %delta, ptr noundef %buf, ptr noundef %cas) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @hash, align 8
-  %call = tail call i32 %0(ptr noundef %key, i64 noundef %nkey) #14
+  %call = tail call i32 %0(ptr noundef %key, i64 noundef %nkey) #15
   %1 = load ptr, ptr @item_locks, align 8
   %conv.i = zext i32 %call to i64
   %2 = load i32, ptr @item_lock_hashpower, align 4
@@ -1051,8 +1051,8 @@ entry:
   %sub.i = xor i64 %notmask.i, -1
   %and.i = and i64 %sub.i, %conv.i
   %arrayidx.i = getelementptr inbounds %union.pthread_mutex_t, ptr %1, i64 %and.i
-  %call.i = tail call i32 @pthread_mutex_lock(ptr noundef %arrayidx.i) #14
-  %call1 = tail call i32 @do_add_delta(ptr noundef %t, ptr noundef %key, i64 noundef %nkey, i1 noundef zeroext %incr, i64 noundef %delta, ptr noundef %buf, ptr noundef %cas, i32 noundef %call, ptr noundef null) #14
+  %call.i = tail call i32 @pthread_mutex_lock(ptr noundef %arrayidx.i) #15
+  %call1 = tail call i32 @do_add_delta(ptr noundef %t, ptr noundef %key, i64 noundef %nkey, i1 noundef zeroext %incr, i64 noundef %delta, ptr noundef %buf, ptr noundef %cas, i32 noundef %call, ptr noundef null) #15
   %3 = load ptr, ptr @item_locks, align 8
   %4 = load i32, ptr @item_lock_hashpower, align 4
   %sh_prom.i6 = zext nneg i32 %4 to i64
@@ -1060,7 +1060,7 @@ entry:
   %sub.i8 = xor i64 %notmask.i7, -1
   %and.i9 = and i64 %sub.i8, %conv.i
   %arrayidx.i10 = getelementptr inbounds %union.pthread_mutex_t, ptr %3, i64 %and.i9
-  %call.i11 = tail call i32 @pthread_mutex_unlock(ptr noundef %arrayidx.i10) #14
+  %call.i11 = tail call i32 @pthread_mutex_unlock(ptr noundef %arrayidx.i10) #15
   ret i32 %call1
 }
 
@@ -1080,7 +1080,7 @@ entry:
   %nkey = getelementptr inbounds i8, ptr %item, i64 41
   %4 = load i8, ptr %nkey, align 1
   %conv1 = zext i8 %4 to i64
-  %call = tail call i32 %0(ptr noundef nonnull %add.ptr, i64 noundef %conv1) #14
+  %call = tail call i32 %0(ptr noundef nonnull %add.ptr, i64 noundef %conv1) #15
   %5 = load ptr, ptr @item_locks, align 8
   %conv.i = zext i32 %call to i64
   %6 = load i32, ptr @item_lock_hashpower, align 4
@@ -1089,8 +1089,8 @@ entry:
   %sub.i = xor i64 %notmask.i, -1
   %and.i = and i64 %sub.i, %conv.i
   %arrayidx.i = getelementptr inbounds %union.pthread_mutex_t, ptr %5, i64 %and.i
-  %call.i = tail call i32 @pthread_mutex_lock(ptr noundef %arrayidx.i) #14
-  %call3 = tail call i32 @do_store_item(ptr noundef %item, i32 noundef %comm, ptr noundef %t, i32 noundef %call, ptr noundef %nbytes, ptr noundef %cas, i1 noundef zeroext %cas_stale) #14
+  %call.i = tail call i32 @pthread_mutex_lock(ptr noundef %arrayidx.i) #15
+  %call3 = tail call i32 @do_store_item(ptr noundef %item, i32 noundef %comm, ptr noundef %t, i32 noundef %call, ptr noundef %nbytes, ptr noundef %cas, i1 noundef zeroext %cas_stale) #15
   %7 = load ptr, ptr @item_locks, align 8
   %8 = load i32, ptr @item_lock_hashpower, align 4
   %sh_prom.i7 = zext nneg i32 %8 to i64
@@ -1098,7 +1098,7 @@ entry:
   %sub.i9 = xor i64 %notmask.i8, -1
   %and.i10 = and i64 %sub.i9, %conv.i
   %arrayidx.i11 = getelementptr inbounds %union.pthread_mutex_t, ptr %7, i64 %and.i10
-  %call.i12 = tail call i32 @pthread_mutex_unlock(ptr noundef %arrayidx.i11) #14
+  %call.i12 = tail call i32 @pthread_mutex_unlock(ptr noundef %arrayidx.i11) #15
   ret i32 %call3
 }
 
@@ -1107,14 +1107,14 @@ declare i32 @do_store_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, p
 ; Function Attrs: nounwind uwtable
 define dso_local void @STATS_LOCK() local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @stats_lock) #14
+  %call = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @stats_lock) #15
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @STATS_UNLOCK() local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @stats_lock) #14
+  %call = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @stats_lock) #15
   ret void
 }
 
@@ -1129,12 +1129,12 @@ for.body:                                         ; preds = %entry, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %entry ]
   %1 = load ptr, ptr @threads, align 8
   %stats = getelementptr inbounds %struct.LIBEVENT_THREAD, ptr %1, i64 %indvars.iv, i32 8
-  %call = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %stats) #14
+  %call = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %stats) #15
   %2 = load ptr, ptr @threads, align 8
   %get_cmds = getelementptr inbounds %struct.LIBEVENT_THREAD, ptr %2, i64 %indvars.iv, i32 8, i32 1
   %stats99 = getelementptr inbounds %struct.LIBEVENT_THREAD, ptr %2, i64 %indvars.iv, i32 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6384) %get_cmds, i8 0, i64 6384, i1 false)
-  %call101 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %stats99) #14
+  %call101 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %stats99) #15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %3 = load i32, ptr getelementptr inbounds (i8, ptr @settings, i64 92), align 4
   %4 = sext i32 %3 to i64
@@ -1198,7 +1198,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %indvars.iv122 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next123, %for.end266 ]
   %1 = load ptr, ptr @threads, align 8
   %stats1 = getelementptr inbounds %struct.LIBEVENT_THREAD, ptr %1, i64 %indvars.iv122, i32 8
-  %call = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %stats1) #14
+  %call = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %stats1) #15
   %2 = load ptr, ptr @threads, align 8
   %get_cmds = getelementptr inbounds %struct.LIBEVENT_THREAD, ptr %2, i64 %indvars.iv122, i32 8, i32 1
   %3 = load i64, ptr %get_cmds, align 8
@@ -1450,7 +1450,7 @@ for.end266:                                       ; preds = %for.body243
   %add281 = add i64 %91, %conv280
   store i64 %add281, ptr %read_buf_bytes_free, align 8
   %stats284 = getelementptr inbounds %struct.LIBEVENT_THREAD, ptr %2, i64 %indvars.iv122, i32 8
-  %call286 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %stats284) #14
+  %call286 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %stats284) #15
   %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
   %92 = load i32, ptr getelementptr inbounds (i8, ptr @settings, i64 92), align 4
   %93 = sext i32 %92 to i64
@@ -1534,15 +1534,15 @@ entry:
 for.body:                                         ; preds = %entry, %for.body
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.body ]
   %arrayidx = getelementptr inbounds [256 x %union.pthread_mutex_t], ptr @lru_locks, i64 0, i64 %indvars.iv
-  %call = tail call i32 @pthread_mutex_init(ptr noundef nonnull %arrayidx, ptr noundef null) #14
+  %call = tail call i32 @pthread_mutex_init(ptr noundef nonnull %arrayidx, ptr noundef null) #15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !18
 
 for.end:                                          ; preds = %for.body
-  %call1 = tail call i32 @pthread_mutex_init(ptr noundef nonnull @worker_hang_lock, ptr noundef null) #14
-  %call2 = tail call i32 @pthread_mutex_init(ptr noundef nonnull @init_lock, ptr noundef null) #14
-  %call3 = tail call i32 @pthread_cond_init(ptr noundef nonnull @init_cond, ptr noundef null) #14
+  %call1 = tail call i32 @pthread_mutex_init(ptr noundef nonnull @worker_hang_lock, ptr noundef null) #15
+  %call2 = tail call i32 @pthread_mutex_init(ptr noundef nonnull @init_lock, ptr noundef null) #15
+  %call3 = tail call i32 @pthread_cond_init(ptr noundef nonnull @init_cond, ptr noundef null) #15
   %cmp4 = icmp slt i32 %nthreads, 3
   br i1 %cmp4, label %if.end20, label %if.else
 
@@ -1571,12 +1571,12 @@ if.end20:                                         ; preds = %if.else13, %if.else
 
 if.then22:                                        ; preds = %if.end20
   %1 = load ptr, ptr @stderr, align 8
-  %call23 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.15, i32 noundef %0, i32 noundef %power.0) #15
+  %call23 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.15, i32 noundef %0, i32 noundef %power.0) #16
   %2 = load ptr, ptr @stderr, align 8
-  %3 = tail call i64 @fwrite(ptr nonnull @.str.16, i64 55, i64 1, ptr %2) #15
+  %3 = tail call i64 @fwrite(ptr nonnull @.str.16, i64 55, i64 1, ptr %2) #16
   %4 = load ptr, ptr @stderr, align 8
-  %5 = tail call i64 @fwrite(ptr nonnull @.str.17, i64 40, i64 1, ptr %4) #15
-  tail call void @exit(i32 noundef 1) #16
+  %5 = tail call i64 @fwrite(ptr nonnull @.str.17, i64 40, i64 1, ptr %4) #16
+  tail call void @exit(i32 noundef 1) #17
   unreachable
 
 if.end26:                                         ; preds = %if.end20
@@ -1584,21 +1584,21 @@ if.end26:                                         ; preds = %if.end20
   store i32 %shl, ptr @item_lock_count, align 4
   store i32 %power.0, ptr @item_lock_hashpower, align 4
   %conv27 = zext nneg i32 %shl to i64
-  %call28 = tail call noalias ptr @calloc(i64 noundef %conv27, i64 noundef 40) #17
+  %call28 = tail call noalias ptr @calloc(i64 noundef %conv27, i64 noundef 40) #18
   store ptr %call28, ptr @item_locks, align 8
   %tobool.not = icmp eq ptr %call28, null
   br i1 %tobool.not, label %if.then29, label %for.body34
 
 if.then29:                                        ; preds = %if.end26
-  tail call void @perror(ptr noundef nonnull @.str.18) #15
-  tail call void @exit(i32 noundef 1) #16
+  tail call void @perror(ptr noundef nonnull @.str.18) #16
+  tail call void @exit(i32 noundef 1) #17
   unreachable
 
 for.body34:                                       ; preds = %if.end26, %for.body34
   %indvars.iv53 = phi i64 [ %indvars.iv.next54, %for.body34 ], [ 0, %if.end26 ]
   %6 = load ptr, ptr @item_locks, align 8
   %arrayidx36 = getelementptr inbounds %union.pthread_mutex_t, ptr %6, i64 %indvars.iv53
-  %call37 = tail call i32 @pthread_mutex_init(ptr noundef %arrayidx36, ptr noundef null) #14
+  %call37 = tail call i32 @pthread_mutex_init(ptr noundef %arrayidx36, ptr noundef null) #15
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
   %7 = load i32, ptr @item_lock_count, align 4
   %8 = zext i32 %7 to i64
@@ -1607,7 +1607,7 @@ for.body34:                                       ; preds = %if.end26, %for.body
 
 for.end40:                                        ; preds = %for.body34
   %conv41 = sext i32 %nthreads to i64
-  %call42 = tail call noalias ptr @calloc(i64 noundef %conv41, i64 noundef 6936) #17
+  %call42 = tail call noalias ptr @calloc(i64 noundef %conv41, i64 noundef 6936) #18
   store ptr %call42, ptr @threads, align 8
   %tobool43.not = icmp eq ptr %call42, null
   br i1 %tobool43.not, label %if.then44, label %for.cond46.preheader
@@ -1621,8 +1621,8 @@ for.body49.preheader:                             ; preds = %for.cond46.preheade
   br label %for.body49
 
 if.then44:                                        ; preds = %for.end40
-  tail call void @perror(ptr noundef nonnull @.str.19) #15
-  tail call void @exit(i32 noundef 1) #16
+  tail call void @perror(ptr noundef nonnull @.str.19) #16
+  tail call void @exit(i32 noundef 1) #17
   unreachable
 
 for.cond63.preheader:                             ; preds = %setup_thread.exit
@@ -1635,28 +1635,28 @@ for.body66.preheader:                             ; preds = %for.cond63.preheade
 for.body49:                                       ; preds = %for.body49.preheader, %setup_thread.exit
   %indvars.iv56 = phi i64 [ 0, %for.body49.preheader ], [ %indvars.iv.next57, %setup_thread.exit ]
   %9 = load ptr, ptr @threads, align 8
-  %call.i = tail call i32 @eventfd(i32 noundef 0, i32 noundef 2048) #14
+  %call.i = tail call i32 @eventfd(i32 noundef 0, i32 noundef 2048) #15
   %notify_event_fd.i = getelementptr inbounds %struct.LIBEVENT_THREAD, ptr %9, i64 %indvars.iv56, i32 2, i32 1
   store i32 %call.i, ptr %notify_event_fd.i, align 8
   %cmp.i = icmp eq i32 %call.i, -1
   br i1 %cmp.i, label %if.then.i, label %memcached_thread_notify_init.exit
 
 if.then.i:                                        ; preds = %for.body49
-  tail call void @perror(ptr noundef nonnull @.str.20) #15
-  tail call void @exit(i32 noundef 1) #16
+  tail call void @perror(ptr noundef nonnull @.str.20) #16
+  tail call void @exit(i32 noundef 1) #17
   unreachable
 
 memcached_thread_notify_init.exit:                ; preds = %for.body49
   %10 = load ptr, ptr @threads, align 8
-  %call.i28 = tail call i32 @eventfd(i32 noundef 0, i32 noundef 2048) #14
+  %call.i28 = tail call i32 @eventfd(i32 noundef 0, i32 noundef 2048) #15
   %notify_event_fd.i29 = getelementptr inbounds %struct.LIBEVENT_THREAD, ptr %10, i64 %indvars.iv56, i32 3, i32 1
   store i32 %call.i28, ptr %notify_event_fd.i29, align 8
   %cmp.i30 = icmp eq i32 %call.i28, -1
   br i1 %cmp.i30, label %if.then.i31, label %memcached_thread_notify_init.exit32
 
 if.then.i31:                                      ; preds = %memcached_thread_notify_init.exit
-  tail call void @perror(ptr noundef nonnull @.str.20) #15
-  tail call void @exit(i32 noundef 1) #16
+  tail call void @perror(ptr noundef nonnull @.str.20) #16
+  tail call void @exit(i32 noundef 1) #17
   unreachable
 
 memcached_thread_notify_init.exit32:              ; preds = %memcached_thread_notify_init.exit
@@ -1667,81 +1667,81 @@ memcached_thread_notify_init.exit32:              ; preds = %memcached_thread_no
   %12 = trunc nuw nsw i64 %indvars.iv56 to i32
   store i32 %12, ptr %thread_baseid, align 4
   %arrayidx59 = getelementptr inbounds %struct.LIBEVENT_THREAD, ptr %11, i64 %indvars.iv56
-  %call.i33 = tail call ptr @event_config_new() #14
-  %call1.i = tail call i32 @event_config_set_flag(ptr noundef %call.i33, i32 noundef 1) #14
-  %call2.i = tail call ptr @event_base_new_with_config(ptr noundef %call.i33) #14
+  %call.i33 = tail call ptr @event_config_new() #15
+  %call1.i = tail call i32 @event_config_set_flag(ptr noundef %call.i33, i32 noundef 1) #15
+  %call2.i = tail call ptr @event_base_new_with_config(ptr noundef %call.i33) #15
   %base.i = getelementptr inbounds i8, ptr %arrayidx59, i64 8
   store ptr %call2.i, ptr %base.i, align 8
-  tail call void @event_config_free(ptr noundef %call.i33) #14
+  tail call void @event_config_free(ptr noundef %call.i33) #15
   %13 = load ptr, ptr %base.i, align 8
   %tobool.not.i = icmp eq ptr %13, null
   br i1 %tobool.not.i, label %if.then.i35, label %if.end.i
 
 if.then.i35:                                      ; preds = %memcached_thread_notify_init.exit32
   %14 = load ptr, ptr @stderr, align 8
-  %15 = tail call i64 @fwrite(ptr nonnull @.str.21, i64 26, i64 1, ptr %14) #15
-  tail call void @exit(i32 noundef 1) #16
+  %15 = tail call i64 @fwrite(ptr nonnull @.str.21, i64 26, i64 1, ptr %14) #16
+  tail call void @exit(i32 noundef 1) #17
   unreachable
 
 if.end.i:                                         ; preds = %memcached_thread_notify_init.exit32
   %n.i = getelementptr inbounds i8, ptr %arrayidx59, i64 16
   %notify_event_fd.i.i = getelementptr inbounds i8, ptr %arrayidx59, i64 144
   %16 = load i32, ptr %notify_event_fd.i.i, align 8
-  tail call void @event_set(ptr noundef nonnull %n.i, i32 noundef %16, i16 noundef signext 18, ptr noundef nonnull @thread_libevent_process, ptr noundef nonnull %arrayidx59) #14
+  tail call void @event_set(ptr noundef nonnull %n.i, i32 noundef %16, i16 noundef signext 18, ptr noundef nonnull @thread_libevent_process, ptr noundef nonnull %arrayidx59) #15
   %17 = load ptr, ptr %base.i, align 8
-  %call.i.i = tail call i32 @event_base_set(ptr noundef %17, ptr noundef nonnull %n.i) #14
-  %call3.i.i = tail call i32 @event_add(ptr noundef nonnull %n.i, ptr noundef null) #14
+  %call.i.i = tail call i32 @event_base_set(ptr noundef %17, ptr noundef nonnull %n.i) #15
+  %call3.i.i = tail call i32 @event_add(ptr noundef nonnull %n.i, ptr noundef null) #15
   %cmp.i.i = icmp eq i32 %call3.i.i, -1
   br i1 %cmp.i.i, label %if.then.i.i, label %setup_thread_notify.exit.i
 
 if.then.i.i:                                      ; preds = %if.end.i
   %18 = load ptr, ptr @stderr, align 8
-  %19 = tail call i64 @fwrite(ptr nonnull @.str.28, i64 35, i64 1, ptr %18) #15
-  tail call void @exit(i32 noundef 1) #16
+  %19 = tail call i64 @fwrite(ptr nonnull @.str.28, i64 35, i64 1, ptr %18) #16
+  tail call void @exit(i32 noundef 1) #17
   unreachable
 
 setup_thread_notify.exit.i:                       ; preds = %if.end.i
   %ion.i = getelementptr inbounds i8, ptr %arrayidx59, i64 152
   %notify_event_fd.i29.i = getelementptr inbounds i8, ptr %arrayidx59, i64 280
   %20 = load i32, ptr %notify_event_fd.i29.i, align 8
-  tail call void @event_set(ptr noundef nonnull %ion.i, i32 noundef %20, i16 noundef signext 18, ptr noundef nonnull @thread_libevent_ionotify, ptr noundef nonnull %arrayidx59) #14
+  tail call void @event_set(ptr noundef nonnull %ion.i, i32 noundef %20, i16 noundef signext 18, ptr noundef nonnull @thread_libevent_ionotify, ptr noundef nonnull %arrayidx59) #15
   %21 = load ptr, ptr %base.i, align 8
-  %call.i31.i = tail call i32 @event_base_set(ptr noundef %21, ptr noundef nonnull %ion.i) #14
-  %call3.i32.i = tail call i32 @event_add(ptr noundef nonnull %ion.i, ptr noundef null) #14
+  %call.i31.i = tail call i32 @event_base_set(ptr noundef %21, ptr noundef nonnull %ion.i) #15
+  %call3.i32.i = tail call i32 @event_add(ptr noundef nonnull %ion.i, ptr noundef null) #15
   %cmp.i33.i = icmp eq i32 %call3.i32.i, -1
   br i1 %cmp.i33.i, label %if.then.i34.i, label %setup_thread_notify.exit35.i
 
 if.then.i34.i:                                    ; preds = %setup_thread_notify.exit.i
   %22 = load ptr, ptr @stderr, align 8
-  %23 = tail call i64 @fwrite(ptr nonnull @.str.28, i64 35, i64 1, ptr %22) #15
-  tail call void @exit(i32 noundef 1) #16
+  %23 = tail call i64 @fwrite(ptr nonnull @.str.28, i64 35, i64 1, ptr %22) #16
+  tail call void @exit(i32 noundef 1) #17
   unreachable
 
 setup_thread_notify.exit35.i:                     ; preds = %setup_thread_notify.exit.i
   %ion_lock.i = getelementptr inbounds i8, ptr %arrayidx59, i64 288
-  %call5.i = tail call i32 @pthread_mutex_init(ptr noundef nonnull %ion_lock.i, ptr noundef null) #14
+  %call5.i = tail call i32 @pthread_mutex_init(ptr noundef nonnull %ion_lock.i, ptr noundef null) #15
   %ion_head.i = getelementptr inbounds i8, ptr %arrayidx59, i64 328
   store ptr null, ptr %ion_head.i, align 8
   %stqh_last.i = getelementptr inbounds i8, ptr %arrayidx59, i64 336
   store ptr %ion_head.i, ptr %stqh_last.i, align 8
-  %call9.i = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #18
+  %call9.i = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #19
   %ev_queue.i = getelementptr inbounds i8, ptr %arrayidx59, i64 6872
   store ptr %call9.i, ptr %ev_queue.i, align 8
   %cmp.i34 = icmp eq ptr %call9.i, null
   br i1 %cmp.i34, label %if.then11.i, label %if.end12.i
 
 if.then11.i:                                      ; preds = %setup_thread_notify.exit35.i
-  tail call void @perror(ptr noundef nonnull @.str.22) #15
-  tail call void @exit(i32 noundef 1) #16
+  tail call void @perror(ptr noundef nonnull @.str.22) #16
+  tail call void @exit(i32 noundef 1) #17
   unreachable
 
 if.end12.i:                                       ; preds = %setup_thread_notify.exit35.i
   %lock.i.i = getelementptr inbounds i8, ptr %call9.i, i64 16
-  %call.i36.i = tail call i32 @pthread_mutex_init(ptr noundef nonnull %lock.i.i, ptr noundef null) #14
+  %call.i36.i = tail call i32 @pthread_mutex_init(ptr noundef nonnull %lock.i.i, ptr noundef null) #15
   store ptr null, ptr %call9.i, align 8
   %stqh_last.i.i = getelementptr inbounds i8, ptr %call9.i, i64 8
   store ptr %call9.i, ptr %stqh_last.i.i, align 8
-  %call4.i.i = tail call ptr @cache_create(ptr noundef nonnull @.str.32, i64 noundef 72, i64 noundef 8) #14
+  %call4.i.i = tail call ptr @cache_create(ptr noundef nonnull @.str.32, i64 noundef 72, i64 noundef 8) #15
   %cache.i.i = getelementptr inbounds i8, ptr %call9.i, i64 56
   store ptr %call4.i.i, ptr %cache.i.i, align 8
   %cmp.i37.i = icmp eq ptr %call4.i.i, null
@@ -1749,23 +1749,23 @@ if.end12.i:                                       ; preds = %setup_thread_notify
 
 if.then.i38.i:                                    ; preds = %if.end12.i
   %24 = load ptr, ptr @stderr, align 8
-  %25 = tail call i64 @fwrite(ptr nonnull @.str.33, i64 40, i64 1, ptr %24) #15
-  tail call void @exit(i32 noundef 1) #16
+  %25 = tail call i64 @fwrite(ptr nonnull @.str.33, i64 40, i64 1, ptr %24) #16
+  tail call void @exit(i32 noundef 1) #17
   unreachable
 
 cq_init.exit.i:                                   ; preds = %if.end12.i
   %stats.i = getelementptr inbounds i8, ptr %arrayidx59, i64 352
-  %call14.i = tail call i32 @pthread_mutex_init(ptr noundef nonnull %stats.i, ptr noundef null) #14
+  %call14.i = tail call i32 @pthread_mutex_init(ptr noundef nonnull %stats.i, ptr noundef null) #15
   %cmp15.not.i = icmp eq i32 %call14.i, 0
   br i1 %cmp15.not.i, label %if.end17.i, label %if.then16.i
 
 if.then16.i:                                      ; preds = %cq_init.exit.i
-  tail call void @perror(ptr noundef nonnull @.str.23) #15
-  tail call void @exit(i32 noundef 1) #16
+  tail call void @perror(ptr noundef nonnull @.str.23) #16
+  tail call void @exit(i32 noundef 1) #17
   unreachable
 
 if.end17.i:                                       ; preds = %cq_init.exit.i
-  %call18.i = tail call ptr @cache_create(ptr noundef nonnull @.str.24, i64 noundef 16384, i64 noundef 8) #14
+  %call18.i = tail call ptr @cache_create(ptr noundef nonnull @.str.24, i64 noundef 16384, i64 noundef 8) #15
   %rbuf_cache.i = getelementptr inbounds i8, ptr %arrayidx59, i64 6880
   store ptr %call18.i, ptr %rbuf_cache.i, align 8
   %cmp20.i = icmp eq ptr %call18.i, null
@@ -1773,8 +1773,8 @@ if.end17.i:                                       ; preds = %cq_init.exit.i
 
 if.then21.i:                                      ; preds = %if.end17.i
   %26 = load ptr, ptr @stderr, align 8
-  %27 = tail call i64 @fwrite(ptr nonnull @.str.25, i64 35, i64 1, ptr %26) #15
-  tail call void @exit(i32 noundef 1) #16
+  %27 = tail call i64 @fwrite(ptr nonnull @.str.25, i64 35, i64 1, ptr %26) #16
+  tail call void @exit(i32 noundef 1) #17
   unreachable
 
 if.end23.i:                                       ; preds = %if.end17.i
@@ -1788,11 +1788,11 @@ if.then25.i:                                      ; preds = %if.end23.i
   %cmp26.i = icmp slt i32 %div.i, 16384
   %div2828.i = lshr i32 %div.i, 14
   %limit.0.i = select i1 %cmp26.i, i32 1, i32 %div2828.i
-  tail call void @cache_set_limit(ptr noundef nonnull %call18.i, i32 noundef %limit.0.i) #14
+  tail call void @cache_set_limit(ptr noundef nonnull %call18.i, i32 noundef %limit.0.i) #15
   br label %if.end31.i
 
 if.end31.i:                                       ; preds = %if.then25.i, %if.end23.i
-  %call32.i = tail call ptr @cache_create(ptr noundef nonnull @.str.26, i64 noundef 176, i64 noundef 8) #14
+  %call32.i = tail call ptr @cache_create(ptr noundef nonnull @.str.26, i64 noundef 176, i64 noundef 8) #15
   %io_cache.i = getelementptr inbounds i8, ptr %arrayidx59, i64 6896
   store ptr %call32.i, ptr %io_cache.i, align 8
   %cmp34.i = icmp eq ptr %call32.i, null
@@ -1800,8 +1800,8 @@ if.end31.i:                                       ; preds = %if.then25.i, %if.en
 
 if.then35.i:                                      ; preds = %if.end31.i
   %30 = load ptr, ptr @stderr, align 8
-  %31 = tail call i64 @fwrite(ptr nonnull @.str.27, i64 33, i64 1, ptr %30) #15
-  tail call void @exit(i32 noundef 1) #16
+  %31 = tail call i64 @fwrite(ptr nonnull @.str.27, i64 33, i64 1, ptr %30) #16
+  tail call void @exit(i32 noundef 1) #17
   unreachable
 
 if.end37.i:                                       ; preds = %if.end31.i
@@ -1811,11 +1811,11 @@ if.end37.i:                                       ; preds = %if.end31.i
   br i1 %tobool38.not.i, label %setup_thread.exit, label %if.then39.i
 
 if.then39.i:                                      ; preds = %if.end37.i
-  tail call void @thread_io_queue_add(ptr noundef nonnull %arrayidx59, i32 noundef 1, ptr noundef nonnull %32, ptr noundef nonnull @storage_submit_cb) #14
+  tail call void @thread_io_queue_add(ptr noundef nonnull %arrayidx59, i32 noundef 1, ptr noundef nonnull %32, ptr noundef nonnull @storage_submit_cb) #15
   br label %setup_thread.exit
 
 setup_thread.exit:                                ; preds = %if.end37.i, %if.then39.i
-  tail call void @thread_io_queue_add(ptr noundef nonnull %arrayidx59, i32 noundef 0, ptr noundef null, ptr noundef null) #14
+  tail call void @thread_io_queue_add(ptr noundef nonnull %arrayidx59, i32 noundef 0, ptr noundef null, ptr noundef null) #15
   %33 = load i32, ptr getelementptr inbounds (i8, ptr @stats_state, i64 36), align 4
   %add = add i32 %33, 5
   store i32 %add, ptr getelementptr inbounds (i8, ptr @stats_state, i64 36), align 4
@@ -1828,40 +1828,40 @@ for.body66:                                       ; preds = %for.body66.preheade
   %34 = load ptr, ptr @threads, align 8
   %arrayidx68 = getelementptr inbounds %struct.LIBEVENT_THREAD, ptr %34, i64 %indvars.iv60
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %attr.i)
-  %call.i36 = call i32 @pthread_attr_init(ptr noundef nonnull %attr.i) #14
-  %call1.i37 = call i32 @pthread_create(ptr noundef %arrayidx68, ptr noundef nonnull %attr.i, ptr noundef nonnull @worker_libevent, ptr noundef %arrayidx68) #14
+  %call.i36 = call i32 @pthread_attr_init(ptr noundef nonnull %attr.i) #15
+  %call1.i37 = call i32 @pthread_create(ptr noundef %arrayidx68, ptr noundef nonnull %attr.i, ptr noundef nonnull @worker_libevent, ptr noundef %arrayidx68) #15
   %cmp.not.i = icmp eq i32 %call1.i37, 0
   br i1 %cmp.not.i, label %create_worker.exit, label %if.then.i38
 
 if.then.i38:                                      ; preds = %for.body66
   %35 = load ptr, ptr @stderr, align 8
-  %call2.i39 = call ptr @strerror(i32 noundef %call1.i37) #14
-  %call3.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %35, ptr noundef nonnull @.str.34, ptr noundef %call2.i39) #15
-  call void @exit(i32 noundef 1) #16
+  %call2.i39 = call ptr @strerror(i32 noundef %call1.i37) #15
+  %call3.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %35, ptr noundef nonnull @.str.34, ptr noundef %call2.i39) #16
+  call void @exit(i32 noundef 1) #17
   unreachable
 
 create_worker.exit:                               ; preds = %for.body66
   %36 = load i64, ptr %arrayidx68, align 8
-  %call.i.i41 = call i32 @pthread_setname_np(i64 noundef %36, ptr noundef nonnull @.str.35) #14
+  %call.i.i41 = call i32 @pthread_setname_np(i64 noundef %36, ptr noundef nonnull @.str.35) #15
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %attr.i)
   %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
   %exitcond64.not = icmp eq i64 %indvars.iv.next61, %wide.trip.count63
   br i1 %exitcond64.not, label %for.end71, label %for.body66, !llvm.loop !21
 
 for.end71:                                        ; preds = %create_worker.exit, %for.cond46.preheader, %for.cond63.preheader
-  %call72 = call i32 @pthread_mutex_lock(ptr noundef nonnull @init_lock) #14
+  %call72 = call i32 @pthread_mutex_lock(ptr noundef nonnull @init_lock) #15
   %37 = load i32, ptr @init_count, align 4
   %cmp1.i = icmp slt i32 %37, %nthreads
   br i1 %cmp1.i, label %while.body.i, label %wait_for_thread_registration.exit
 
 while.body.i:                                     ; preds = %for.end71, %while.body.i
-  %call.i42 = call i32 @pthread_cond_wait(ptr noundef nonnull @init_cond, ptr noundef nonnull @init_lock) #14
+  %call.i42 = call i32 @pthread_cond_wait(ptr noundef nonnull @init_cond, ptr noundef nonnull @init_lock) #15
   %38 = load i32, ptr @init_count, align 4
   %cmp.i43 = icmp slt i32 %38, %nthreads
   br i1 %cmp.i43, label %while.body.i, label %wait_for_thread_registration.exit, !llvm.loop !7
 
 wait_for_thread_registration.exit:                ; preds = %while.body.i, %for.end71
-  %call73 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @init_lock) #14
+  %call73 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @init_lock) #15
   ret void
 }
 
@@ -1871,7 +1871,7 @@ declare i32 @pthread_mutex_init(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind
 declare i32 @pthread_cond_init(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
@@ -1880,10 +1880,10 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 ; Function Attrs: nounwind uwtable
 define internal noalias noundef ptr @worker_libevent(ptr nocapture noundef %arg) #0 {
 entry:
-  %call = tail call ptr @logger_create() #14
+  %call = tail call ptr @logger_create() #15
   %l = getelementptr inbounds i8, ptr %arg, i64 6912
   store ptr %call, ptr %l, align 8
-  %call1 = tail call ptr @item_lru_bump_buf_create() #14
+  %call1 = tail call ptr @item_lru_bump_buf_create() #15
   %lru_bump_buf = getelementptr inbounds i8, ptr %arg, i64 6920
   store ptr %call1, ptr %lru_bump_buf, align 8
   %0 = load ptr, ptr %l, align 8
@@ -1893,31 +1893,31 @@ entry:
   br i1 %or.cond, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call void @abort() #16
+  tail call void @abort() #20
   unreachable
 
 if.end:                                           ; preds = %entry
-  %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @init_lock) #14
+  %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @init_lock) #15
   %1 = load i32, ptr @init_count, align 4
   %inc.i = add nsw i32 %1, 1
   store i32 %inc.i, ptr @init_count, align 4
-  %call1.i = tail call i32 @pthread_cond_signal(ptr noundef nonnull @init_cond) #14
-  %call2.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @init_lock) #14
-  %call3.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @worker_hang_lock) #14
-  %call4.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @worker_hang_lock) #14
+  %call1.i = tail call i32 @pthread_cond_signal(ptr noundef nonnull @init_cond) #15
+  %call2.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @init_lock) #15
+  %call3.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @worker_hang_lock) #15
+  %call4.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @worker_hang_lock) #15
   %base = getelementptr inbounds i8, ptr %arg, i64 8
   %2 = load ptr, ptr %base, align 8
-  %call7 = tail call i32 @event_base_loop(ptr noundef %2, i32 noundef 0) #14
-  %call.i6 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @init_lock) #14
+  %call7 = tail call i32 @event_base_loop(ptr noundef %2, i32 noundef 0) #15
+  %call.i6 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @init_lock) #15
   %3 = load i32, ptr @init_count, align 4
   %inc.i7 = add nsw i32 %3, 1
   store i32 %inc.i7, ptr @init_count, align 4
-  %call1.i8 = tail call i32 @pthread_cond_signal(ptr noundef nonnull @init_cond) #14
-  %call2.i9 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @init_lock) #14
-  %call3.i10 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @worker_hang_lock) #14
-  %call4.i11 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @worker_hang_lock) #14
+  %call1.i8 = tail call i32 @pthread_cond_signal(ptr noundef nonnull @init_cond) #15
+  %call2.i9 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @init_lock) #15
+  %call3.i10 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @worker_hang_lock) #15
+  %call4.i11 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @worker_hang_lock) #15
   %4 = load ptr, ptr %base, align 8
-  tail call void @event_base_free(ptr noundef %4) #14
+  tail call void @event_base_free(ptr noundef %4) #15
   ret ptr null
 }
 
@@ -1944,7 +1944,7 @@ define internal void @thread_libevent_process(i32 noundef %fd, i16 signext %whic
 entry:
   %ev_count = alloca i64, align 8
   store i64 0, ptr %ev_count, align 8
-  %call = call i64 @read(i32 noundef %fd, ptr noundef nonnull %ev_count, i64 noundef 8) #14
+  %call = call i64 @read(i32 noundef %fd, ptr noundef nonnull %ev_count, i64 noundef 8) #15
   %cmp.not = icmp eq i64 %call, 8
   br i1 %cmp.not, label %for.cond.preheader, label %if.then
 
@@ -1965,14 +1965,14 @@ if.then:                                          ; preds = %entry
 
 if.then2:                                         ; preds = %if.then
   %2 = load ptr, ptr @stderr, align 8
-  %3 = tail call i64 @fwrite(ptr nonnull @.str.29, i64 30, i64 1, ptr %2) #15
+  %3 = tail call i64 @fwrite(ptr nonnull @.str.29, i64 30, i64 1, ptr %2) #16
   br label %for.end
 
 for.body:                                         ; preds = %for.body.lr.ph, %sw.epilog
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %sw.epilog ]
   %4 = load ptr, ptr %ev_queue, align 8
   %lock.i = getelementptr inbounds i8, ptr %4, i64 16
-  %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %lock.i) #14
+  %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %lock.i) #15
   %5 = load ptr, ptr %4, align 8
   %cmp.not.i = icmp eq ptr %5, null
   br i1 %cmp.not.i, label %cq_pop.exit, label %do.body.i
@@ -1990,11 +1990,11 @@ if.then6.i:                                       ; preds = %do.body.i
   br label %if.end11
 
 cq_pop.exit:                                      ; preds = %for.body
-  %call12.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %lock.i) #14
+  %call12.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %lock.i) #15
   br label %for.end
 
 if.end11:                                         ; preds = %do.body.i, %if.then6.i
-  %call12.i24 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %lock.i) #14
+  %call12.i24 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %lock.i) #15
   %mode = getelementptr inbounds i8, ptr %5, i64 20
   %7 = load i32, ptr %mode, align 4
   switch i32 %7, label %sw.epilog [
@@ -2022,7 +2022,7 @@ sw.bb:                                            ; preds = %if.end11
   %15 = load i64, ptr %conntag, align 8
   %bproto = getelementptr inbounds i8, ptr %5, i64 48
   %16 = load i32, ptr %bproto, align 8
-  %call12 = tail call ptr @conn_new(i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11, i32 noundef %12, ptr noundef %13, ptr noundef %14, i64 noundef %15, i32 noundef %16) #14
+  %call12 = tail call ptr @conn_new(i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11, i32 noundef %12, ptr noundef %13, ptr noundef %14, i64 noundef %15, i32 noundef %16) #15
   %cmp13 = icmp eq ptr %call12, null
   br i1 %cmp13, label %if.then15, label %if.else30
 
@@ -2033,8 +2033,8 @@ if.then15:                                        ; preds = %sw.bb
 
 if.then19:                                        ; preds = %if.then15
   %18 = load ptr, ptr @stderr, align 8
-  %19 = tail call i64 @fwrite(ptr nonnull @.str.30, i64 38, i64 1, ptr %18) #15
-  tail call void @exit(i32 noundef 1) #16
+  %19 = tail call i64 @fwrite(ptr nonnull @.str.30, i64 38, i64 1, ptr %18) #16
+  tail call void @exit(i32 noundef 1) #17
   unreachable
 
 if.else:                                          ; preds = %if.then15
@@ -2045,29 +2045,29 @@ if.else:                                          ; preds = %if.then15
 if.then23:                                        ; preds = %if.else
   %21 = load ptr, ptr @stderr, align 8
   %22 = load i32, ptr %5, align 8
-  %call25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %21, ptr noundef nonnull @.str.31, i32 noundef %22) #15
+  %call25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %21, ptr noundef nonnull @.str.31, i32 noundef %22) #16
   br label %if.end26
 
 if.end26:                                         ; preds = %if.then23, %if.else
   %23 = load i32, ptr %5, align 8
-  %call28 = tail call i32 @close(i32 noundef %23) #14
+  %call28 = tail call i32 @close(i32 noundef %23) #15
   br label %sw.epilog
 
 if.else30:                                        ; preds = %sw.bb
   %thread = getelementptr inbounds i8, ptr %call12, i64 456
   store ptr %arg, ptr %thread, align 8
-  tail call void @conn_io_queue_setup(ptr noundef nonnull %call12) #14
+  tail call void @conn_io_queue_setup(ptr noundef nonnull %call12) #15
   br label %sw.epilog
 
 sw.bb32:                                          ; preds = %if.end11
-  %call.i23 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @init_lock) #14
+  %call.i23 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @init_lock) #15
   %24 = load i32, ptr @init_count, align 4
   %inc.i = add nsw i32 %24, 1
   store i32 %inc.i, ptr @init_count, align 4
-  %call1.i = tail call i32 @pthread_cond_signal(ptr noundef nonnull @init_cond) #14
-  %call2.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @init_lock) #14
-  %call3.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @worker_hang_lock) #14
-  %call4.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @worker_hang_lock) #14
+  %call1.i = tail call i32 @pthread_cond_signal(ptr noundef nonnull @init_cond) #15
+  %call2.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @init_lock) #15
+  %call3.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @worker_hang_lock) #15
+  %call4.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @worker_hang_lock) #15
   br label %sw.epilog
 
 sw.bb33:                                          ; preds = %if.end11
@@ -2076,7 +2076,7 @@ sw.bb33:                                          ; preds = %if.end11
   %idxprom = sext i32 %26 to i64
   %arrayidx = getelementptr inbounds ptr, ptr %25, i64 %idxprom
   %27 = load ptr, ptr %arrayidx, align 8
-  tail call void @conn_close_idle(ptr noundef %27) #14
+  tail call void @conn_close_idle(ptr noundef %27) #15
   br label %sw.epilog
 
 sw.bb35:                                          ; preds = %if.end11
@@ -2085,19 +2085,19 @@ sw.bb35:                                          ; preds = %if.end11
   %idxprom37 = sext i32 %29 to i64
   %arrayidx38 = getelementptr inbounds ptr, ptr %28, i64 %idxprom37
   %30 = load ptr, ptr %arrayidx38, align 8
-  tail call void @conn_worker_readd(ptr noundef %30) #14
+  tail call void @conn_worker_readd(ptr noundef %30) #15
   br label %sw.epilog
 
 sw.bb39:                                          ; preds = %if.end11
   %31 = load ptr, ptr %base40, align 8
-  %call41 = tail call i32 @event_base_loopexit(ptr noundef %31, ptr noundef null) #14
+  %call41 = tail call i32 @event_base_loopexit(ptr noundef %31, ptr noundef null) #15
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %if.end26, %if.else30, %sw.bb39, %sw.bb35, %sw.bb33, %sw.bb32, %if.end11
   %32 = load ptr, ptr %ev_queue, align 8
   %33 = getelementptr i8, ptr %32, i64 56
   %.val = load ptr, ptr %33, align 8
-  tail call void @cache_free(ptr noundef %.val, ptr noundef nonnull %5) #14
+  tail call void @cache_free(ptr noundef %.val, ptr noundef nonnull %5) #15
   %indvars.iv.next = add nuw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %0
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !22
@@ -2115,7 +2115,7 @@ entry:
   store ptr null, ptr %head, align 8
   %stqh_last = getelementptr inbounds i8, ptr %head, i64 8
   store ptr %head, ptr %stqh_last, align 8
-  %call = call i64 @read(i32 noundef %fd, ptr noundef nonnull %ev_count, i64 noundef 8) #14
+  %call = call i64 @read(i32 noundef %fd, ptr noundef nonnull %ev_count, i64 noundef 8) #15
   %cmp.not = icmp eq i64 %call, 8
   br i1 %cmp.not, label %if.end5, label %if.then
 
@@ -2126,12 +2126,12 @@ if.then:                                          ; preds = %entry
 
 if.then3:                                         ; preds = %if.then
   %1 = load ptr, ptr @stderr, align 8
-  %2 = call i64 @fwrite(ptr nonnull @.str.29, i64 30, i64 1, ptr %1) #15
+  %2 = call i64 @fwrite(ptr nonnull @.str.29, i64 30, i64 1, ptr %1) #16
   br label %while.end
 
 if.end5:                                          ; preds = %entry
   %ion_lock = getelementptr inbounds i8, ptr %arg, i64 288
-  %call6 = call i32 @pthread_mutex_lock(ptr noundef nonnull %ion_lock) #14
+  %call6 = call i32 @pthread_mutex_lock(ptr noundef nonnull %ion_lock) #15
   %ion_head = getelementptr inbounds i8, ptr %arg, i64 328
   %3 = load ptr, ptr %ion_head, align 8
   %cmp9 = icmp eq ptr %3, null
@@ -2148,7 +2148,7 @@ if.then10:                                        ; preds = %if.end5
   br label %do.end26
 
 do.end26:                                         ; preds = %if.end5, %if.then10
-  %call28 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %ion_lock) #14
+  %call28 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %ion_lock) #15
   %6 = load ptr, ptr %head, align 8
   %cmp30.not8 = icmp eq ptr %6, null
   br i1 %cmp30.not8, label %while.end, label %while.body
@@ -2166,7 +2166,7 @@ if.then36:                                        ; preds = %while.body
   br label %do.end40
 
 do.end40:                                         ; preds = %while.body, %if.then36
-  call void @conn_io_queue_return(ptr noundef nonnull %7) #14
+  call void @conn_io_queue_return(ptr noundef nonnull %7) #15
   %9 = load ptr, ptr %head, align 8
   %cmp30.not = icmp eq ptr %9, null
   br i1 %cmp30.not, label %while.end, label %while.body, !llvm.loop !23
@@ -2225,24 +2225,24 @@ declare ptr @logger_create() local_unnamed_addr #2
 
 declare ptr @item_lru_bump_buf_create() local_unnamed_addr #2
 
-; Function Attrs: noreturn nounwind
-declare void @abort() local_unnamed_addr #8
+; Function Attrs: cold nofree noreturn nounwind
+declare void @abort() local_unnamed_addr #11
 
 declare i32 @event_base_loop(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 declare void @event_base_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #11
+declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #13
+declare i32 @llvm.smax.i32(i32, i32) #14
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2252,17 +2252,19 @@ attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #5 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #7 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nofree nounwind }
-attributes #12 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #14 = { nounwind }
-attributes #15 = { cold }
-attributes #16 = { noreturn nounwind }
-attributes #17 = { nounwind allocsize(0,1) }
-attributes #18 = { nounwind allocsize(0) }
+attributes #11 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nofree nounwind }
+attributes #13 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #15 = { nounwind }
+attributes #16 = { cold }
+attributes #17 = { cold noreturn nounwind }
+attributes #18 = { nounwind allocsize(0,1) }
+attributes #19 = { nounwind allocsize(0) }
+attributes #20 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

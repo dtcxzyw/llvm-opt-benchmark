@@ -35,7 +35,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @do_qemu_init_register_audio_wav() #0 {
 entry:
-  tail call void @register_module_init(ptr noundef nonnull @register_audio_wav, i32 noundef 3) #8
+  tail call void @register_module_init(ptr noundef nonnull @register_audio_wav, i32 noundef 3) #9
   ret void
 }
 
@@ -44,7 +44,7 @@ declare void @register_module_init(ptr noundef, i32 noundef) local_unnamed_addr 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @register_audio_wav() #0 {
 entry:
-  tail call void @audio_driver_register(ptr noundef nonnull @wav_audio_driver) #8
+  tail call void @audio_driver_register(ptr noundef nonnull @wav_audio_driver) #9
   ret void
 }
 
@@ -59,7 +59,7 @@ entry:
   br i1 %cmp, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 191, ptr noundef nonnull @__PRETTY_FUNCTION__.wav_audio_init) #9
+  tail call void @__assert_fail(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 191, ptr noundef nonnull @__PRETTY_FUNCTION__.wav_audio_init) #10
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -83,7 +83,7 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(44) %hdr, ptr noundef nonnull align 16 dereferenceable(44) @__const.wav_init_out.hdr, i64 44, i1 false)
   %out = getelementptr inbounds i8, ptr %drv_opaque, i64 32
   %0 = load ptr, ptr %out, align 8
-  %call = tail call { i64, i64 } @audiodev_to_audsettings(ptr noundef %0) #8
+  %call = tail call { i64, i64 } @audiodev_to_audsettings(ptr noundef %0) #9
   %1 = extractvalue { i64, i64 } %call, 0
   store i64 %1, ptr %wav_as, align 8
   %2 = getelementptr inbounds i8, ptr %wav_as, i64 8
@@ -111,15 +111,15 @@ sw.bb2:                                           ; preds = %entry, %entry
   br label %sw.epilog
 
 sw.bb3:                                           ; preds = %entry, %entry
-  tail call void (ptr, ptr, ...) @AUD_log(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #8
+  tail call void (ptr, ptr, ...) @AUD_log(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5) #9
   br label %return
 
 sw.bb4:                                           ; preds = %entry
-  tail call void (ptr, ptr, ...) @AUD_log(ptr noundef nonnull @.str, ptr noundef nonnull @.str.6) #8
+  tail call void (ptr, ptr, ...) @AUD_log(ptr noundef nonnull @.str, ptr noundef nonnull @.str.6) #9
   br label %return
 
 sw.default:                                       ; preds = %entry
-  tail call void @abort() #9
+  tail call void @abort() #10
   unreachable
 
 sw.epilog:                                        ; preds = %entry, %entry, %sw.bb2
@@ -130,7 +130,7 @@ sw.epilog:                                        ; preds = %entry, %entry, %sw.
   %endianness = getelementptr inbounds i8, ptr %wav_as, i64 12
   store i32 0, ptr %endianness, align 4
   %info = getelementptr inbounds i8, ptr %hw, i64 20
-  call void @audio_pcm_init_info(ptr noundef nonnull %info, ptr noundef nonnull %wav_as) #8
+  call void @audio_pcm_init_info(ptr noundef nonnull %info, ptr noundef nonnull %wav_as) #9
   %samples = getelementptr inbounds i8, ptr %hw, i64 120
   store i64 1024, ptr %samples, align 8
   %add.ptr = getelementptr inbounds i8, ptr %hdr, i64 22
@@ -206,10 +206,10 @@ le_store.exit40:                                  ; preds = %for.body.i32
   br i1 %tobool23.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %le_store.exit40
-  %call24 = tail call ptr @__errno_location() #10
+  %call24 = tail call ptr @__errno_location() #11
   %9 = load i32, ptr %call24, align 4
-  %call25 = call ptr @strerror(i32 noundef %9) #8
-  call void (ptr, ptr, ...) @AUD_log(ptr noundef nonnull @.str, ptr noundef nonnull @.str.8, ptr noundef nonnull %..str.4, ptr noundef %call25) #8
+  %call25 = call ptr @strerror(i32 noundef %9) #9
+  call void (ptr, ptr, ...) @AUD_log(ptr noundef nonnull @.str, ptr noundef nonnull @.str.8, ptr noundef nonnull %..str.4, ptr noundef %call25) #9
   br label %return
 
 if.end:                                           ; preds = %le_store.exit40
@@ -218,15 +218,15 @@ if.end:                                           ; preds = %le_store.exit40
   br i1 %cmp29.not, label %if.end34, label %if.then31
 
 if.then31:                                        ; preds = %if.end
-  %call32 = tail call ptr @__errno_location() #10
+  %call32 = tail call ptr @__errno_location() #11
   %10 = load i32, ptr %call32, align 4
-  %call33 = call ptr @strerror(i32 noundef %10) #8
-  call void (ptr, ptr, ...) @AUD_log(ptr noundef nonnull @.str, ptr noundef nonnull @.str.9, ptr noundef %call33) #8
+  %call33 = call ptr @strerror(i32 noundef %10) #9
+  call void (ptr, ptr, ...) @AUD_log(ptr noundef nonnull @.str, ptr noundef nonnull @.str.9, ptr noundef %call33) #9
   br label %return
 
 if.end34:                                         ; preds = %if.end
   %rate = getelementptr inbounds i8, ptr %hw, i64 176
-  call void @audio_rate_start(ptr noundef nonnull %rate) #8
+  call void @audio_rate_start(ptr noundef nonnull %rate) #9
   br label %return
 
 return:                                           ; preds = %if.end34, %if.then31, %if.then, %sw.bb4, %sw.bb3
@@ -300,10 +300,10 @@ if.end21:                                         ; preds = %if.end14
 
 doclose.sink.split:                               ; preds = %if.end21, %if.end14, %if.end7, %le_store.exit19
   %.str.13.sink = phi ptr [ @.str.10, %le_store.exit19 ], [ @.str.11, %if.end7 ], [ @.str.12, %if.end14 ], [ @.str.13, %if.end21 ]
-  %call27 = tail call ptr @__errno_location() #10
+  %call27 = tail call ptr @__errno_location() #11
   %6 = load i32, ptr %call27, align 4
-  %call28 = tail call ptr @strerror(i32 noundef %6) #8
-  tail call void (ptr, ptr, ...) @AUD_log(ptr noundef nonnull @.str, ptr noundef nonnull %.str.13.sink, ptr noundef %call28) #8
+  %call28 = tail call ptr @strerror(i32 noundef %6) #9
+  tail call void (ptr, ptr, ...) @AUD_log(ptr noundef nonnull @.str, ptr noundef nonnull %.str.13.sink, ptr noundef %call28) #9
   br label %doclose
 
 doclose:                                          ; preds = %doclose.sink.split, %if.end21
@@ -314,10 +314,10 @@ doclose:                                          ; preds = %doclose.sink.split,
 
 if.then33:                                        ; preds = %doclose
   %8 = load ptr, ptr %f, align 8
-  %call35 = tail call ptr @__errno_location() #10
+  %call35 = tail call ptr @__errno_location() #11
   %9 = load i32, ptr %call35, align 4
-  %call36 = tail call ptr @strerror(i32 noundef %9) #8
-  tail call void (ptr, ptr, ...) @AUD_log(ptr noundef nonnull @.str, ptr noundef nonnull @.str.14, ptr noundef %8, ptr noundef %call36) #8
+  %call36 = tail call ptr @strerror(i32 noundef %9) #9
+  tail call void (ptr, ptr, ...) @AUD_log(ptr noundef nonnull @.str, ptr noundef nonnull @.str.14, ptr noundef %8, ptr noundef %call36) #9
   br label %if.end37
 
 if.end37:                                         ; preds = %if.then33, %doclose
@@ -333,7 +333,7 @@ define internal i64 @wav_write_out(ptr noundef %hw, ptr nocapture noundef %buf, 
 entry:
   %rate = getelementptr inbounds i8, ptr %hw, i64 176
   %info = getelementptr inbounds i8, ptr %hw, i64 20
-  %call = tail call i64 @audio_rate_get_bytes(ptr noundef nonnull %rate, ptr noundef nonnull %info, i64 noundef %len) #8
+  %call = tail call i64 @audio_rate_get_bytes(ptr noundef nonnull %rate, ptr noundef nonnull %info, i64 noundef %len) #9
   %bytes_per_frame = getelementptr inbounds i8, ptr %hw, i64 36
   %0 = load i32, ptr %bytes_per_frame, align 4
   %conv = sext i32 %0 to i64
@@ -342,7 +342,7 @@ entry:
   br i1 %cmp, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.3, i32 noundef 46, ptr noundef nonnull @__PRETTY_FUNCTION__.wav_write_out) #9
+  tail call void @__assert_fail(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.3, i32 noundef 46, ptr noundef nonnull @__PRETTY_FUNCTION__.wav_write_out) #10
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -357,10 +357,10 @@ land.lhs.true:                                    ; preds = %if.end
   br i1 %cmp4.not, label %if.end9, label %if.then6
 
 if.then6:                                         ; preds = %land.lhs.true
-  %call7 = tail call ptr @__errno_location() #10
+  %call7 = tail call ptr @__errno_location() #11
   %2 = load i32, ptr %call7, align 4
-  %call8 = tail call ptr @strerror(i32 noundef %2) #8
-  tail call void (ptr, ptr, ...) @AUD_log(ptr noundef nonnull @.str, ptr noundef nonnull @.str.16, i64 noundef %call, ptr noundef %call8) #8
+  %call8 = tail call ptr @strerror(i32 noundef %2) #9
+  tail call void (ptr, ptr, ...) @AUD_log(ptr noundef nonnull @.str, ptr noundef nonnull @.str.16, i64 noundef %call, ptr noundef %call8) #9
   br label %if.end9
 
 if.end9:                                          ; preds = %if.then6, %land.lhs.true, %if.end
@@ -386,7 +386,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %rate = getelementptr inbounds i8, ptr %hw, i64 176
-  tail call void @audio_rate_start(ptr noundef nonnull %rate) #8
+  tail call void @audio_rate_start(ptr noundef nonnull %rate) #9
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -400,30 +400,30 @@ declare { i64, i64 } @audiodev_to_audsettings(ptr noundef) local_unnamed_addr #1
 
 declare void @AUD_log(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
-; Function Attrs: noreturn nounwind
-declare void @abort() local_unnamed_addr #3
+; Function Attrs: cold nofree noreturn nounwind
+declare void @abort() local_unnamed_addr #5
 
 declare void @audio_pcm_init_info(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen64(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #5
+declare noalias noundef ptr @fopen64(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #6
 
 ; Function Attrs: nounwind
-declare ptr @strerror(i32 noundef) local_unnamed_addr #6
+declare ptr @strerror(i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #7
+declare ptr @__errno_location() local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #6
 
 declare void @audio_rate_start(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fseek(ptr nocapture noundef, i64 noundef, i32 noundef) local_unnamed_addr #5
+declare noundef i32 @fseek(ptr nocapture noundef, i64 noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #6
 
 declare i64 @audio_rate_get_bytes(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -432,12 +432,13 @@ attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protect
 attributes #2 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nounwind }
-attributes #9 = { noreturn nounwind }
-attributes #10 = { nounwind willreturn memory(none) }
+attributes #5 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nounwind }
+attributes #10 = { noreturn nounwind }
+attributes #11 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

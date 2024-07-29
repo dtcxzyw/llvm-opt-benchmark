@@ -307,7 +307,7 @@ if.then104.i:                                     ; preds = %if.end102.i
   br i1 %cmp106.i, label %if.then108.i, label %doargs.exit
 
 if.then108.i:                                     ; preds = %if.then104.i
-  tail call void @exit(i32 noundef 0) #11
+  tail call void @exit(i32 noundef 0) #12
   unreachable
 
 doargs.exit:                                      ; preds = %if.then104.i, %if.end102.i
@@ -602,7 +602,7 @@ if.then29:                                        ; preds = %cond.end25
   %36 = load ptr, ptr @stderr, align 8, !tbaa !4
   %37 = load ptr, ptr @progname, align 8, !tbaa !4
   %38 = load ptr, ptr @output, align 8, !tbaa !4
-  %call.i63 = tail call ptr @__errno_location() #12
+  %call.i63 = tail call ptr @__errno_location() #13
   %39 = load i32, ptr %call.i63, align 4, !tbaa !9
   %call1.i = tail call ptr @strerror(i32 noundef %39) #9
   %call2.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %36, ptr noundef nonnull @.str.23, ptr noundef %37, ptr noundef nonnull @.str.19, ptr noundef %38, ptr noundef %call1.i) #10
@@ -621,7 +621,7 @@ if.then34:                                        ; preds = %if.end30
   %41 = load ptr, ptr @stderr, align 8, !tbaa !4
   %42 = load ptr, ptr @progname, align 8, !tbaa !4
   %43 = load ptr, ptr @output, align 8, !tbaa !4
-  %call.i64 = tail call ptr @__errno_location() #12
+  %call.i64 = tail call ptr @__errno_location() #13
   %44 = load i32, ptr %call.i64, align 4, !tbaa !9
   %call1.i65 = tail call ptr @strerror(i32 noundef %44) #9
   %call2.i66 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %41, ptr noundef nonnull @.str.23, ptr noundef %42, ptr noundef nonnull @.str.20, ptr noundef %43, ptr noundef %call1.i65) #10
@@ -637,7 +637,7 @@ if.then38:                                        ; preds = %if.end35
   %45 = load ptr, ptr @stderr, align 8, !tbaa !4
   %46 = load ptr, ptr @progname, align 8, !tbaa !4
   %47 = load ptr, ptr @output, align 8, !tbaa !4
-  %call.i68 = tail call ptr @__errno_location() #12
+  %call.i68 = tail call ptr @__errno_location() #13
   %48 = load i32, ptr %call.i68, align 4, !tbaa !9
   %call1.i69 = tail call ptr @strerror(i32 noundef %48) #9
   %call2.i70 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %45, ptr noundef nonnull @.str.23, ptr noundef %46, ptr noundef nonnull @.str.21, ptr noundef %47, ptr noundef %call1.i69) #10
@@ -658,7 +658,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 ; Function Attrs: nofree nounwind
 declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #3
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
@@ -717,15 +717,16 @@ attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-mat
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nofree nounwind memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nounwind }
 attributes #10 = { cold nounwind }
-attributes #11 = { noreturn nounwind }
-attributes #12 = { nounwind willreturn memory(none) }
+attributes #11 = { cold noreturn nounwind }
+attributes #12 = { noreturn nounwind }
+attributes #13 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

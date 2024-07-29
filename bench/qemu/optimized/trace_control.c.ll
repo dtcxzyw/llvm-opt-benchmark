@@ -65,7 +65,7 @@ for.end:                                          ; preds = %for.cond.for.end_cr
   %3 = load ptr, ptr @event_groups, align 8
   %4 = load i64, ptr @nevent_groups, align 8
   %add = add i64 %4, 1
-  %call = tail call ptr @g_realloc_n(ptr noundef %3, i64 noundef %add, i64 noundef 8) #12
+  %call = tail call ptr @g_realloc_n(ptr noundef %3, i64 noundef %add, i64 noundef 8) #13
   store ptr %call, ptr @event_groups, align 8
   %5 = load i64, ptr @nevent_groups, align 8
   %arrayidx3 = getelementptr %struct.TraceEventGroup, ptr %call, i64 %5
@@ -89,7 +89,7 @@ while.cond.preheader:                             ; preds = %entry
   br label %while.cond
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 84, ptr noundef nonnull @__PRETTY_FUNCTION__.trace_event_name) #13
+  tail call void @__assert_fail(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 84, ptr noundef nonnull @__PRETTY_FUNCTION__.trace_event_name) #14
   unreachable
 
 while.cond:                                       ; preds = %while.cond.preheader, %while.body.i
@@ -116,7 +116,7 @@ while.body.i:                                     ; preds = %land.rhs.i
   %spec.select10 = add nuw i64 %iter.sroa.4.0, %inc20.i
   %4 = getelementptr i8, ptr %2, i64 8
   %call.val = load ptr, ptr %4, align 8
-  %call3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.val, ptr noundef nonnull dereferenceable(1) %name) #14
+  %call3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.val, ptr noundef nonnull dereferenceable(1) %name) #15
   %cmp4 = icmp eq i32 %call3, 0
   br i1 %cmp4, label %return, label %while.cond, !llvm.loop !7
 
@@ -188,7 +188,7 @@ if.end:                                           ; preds = %if.then, %while.bod
 land.lhs.true:                                    ; preds = %if.end
   %10 = getelementptr i8, ptr %6, i64 8
   %.val = load ptr, ptr %10, align 8
-  %call22 = tail call i32 @g_pattern_match_simple(ptr noundef nonnull %9, ptr noundef %.val) #12
+  %call22 = tail call i32 @g_pattern_match_simple(ptr noundef nonnull %9, ptr noundef %.val) #13
   %tobool23.not = icmp eq i32 %call22, 0
   %.pre = load ptr, ptr @event_groups, align 8
   br i1 %tobool23.not, label %while.cond.backedge, label %if.end25
@@ -294,7 +294,7 @@ entry.tail.i:                                     ; preds = %entry
   br i1 %3, label %if.then, label %is_help_option.exit
 
 is_help_option.exit:                              ; preds = %entry, %entry.tail.i
-  %call1.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %line_buf, ptr noundef nonnull dereferenceable(5) @.str.11) #14
+  %call1.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %line_buf, ptr noundef nonnull dereferenceable(5) @.str.11) #15
   %tobool2.not.i = icmp eq i32 %call1.i, 0
   br i1 %tobool2.not.i, label %if.then, label %if.else
 
@@ -331,12 +331,12 @@ while.body.i.i:                                   ; preds = %land.rhs.i.i
   br i1 %cmp19.i.i, label %land.rhs.i.i, label %trace_list_events.exit, !llvm.loop !9
 
 trace_list_events.exit:                           ; preds = %land.rhs.i.i, %while.body.i.i, %if.then
-  %call1 = tail call ptr @monitor_cur() #12
+  %call1 = tail call ptr @monitor_cur() #13
   %cmp = icmp eq ptr %call1, null
   br i1 %cmp, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %trace_list_events.exit
-  tail call void @exit(i32 noundef 0) #13
+  tail call void @exit(i32 noundef 0) #14
   unreachable
 
 if.else:                                          ; preds = %is_help_option.exit
@@ -348,11 +348,11 @@ if.else:                                          ; preds = %is_help_option.exit
   br i1 %cmp.not.i.i, label %if.else.i.i, label %trace_event_is_pattern.exit.i
 
 if.else.i.i:                                      ; preds = %if.else
-  tail call void @__assert_fail(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.9, i32 noundef 18, ptr noundef nonnull @__PRETTY_FUNCTION__.trace_event_is_pattern) #13
+  tail call void @__assert_fail(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.9, i32 noundef 18, ptr noundef nonnull @__PRETTY_FUNCTION__.trace_event_is_pattern) #14
   unreachable
 
 trace_event_is_pattern.exit.i:                    ; preds = %if.else
-  %call.i.i = tail call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %cond.i, i32 noundef 42) #14
+  %call.i.i = tail call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %cond.i, i32 noundef 42) #15
   %call.i.fr.i = freeze ptr %call.i.i
   %cmp1.i.not.i = icmp eq ptr %call.i.fr.i, null
   %11 = load i64, ptr @nevent_groups, align 8
@@ -379,7 +379,7 @@ while.body.i.us.i:                                ; preds = %land.rhs.i.us.i
   %15 = load ptr, ptr %arrayidx16.i.us.i, align 8
   %16 = getelementptr i8, ptr %14, i64 8
   %.val.i.us.i = load ptr, ptr %16, align 8
-  %call22.i.us.i = tail call i32 @g_pattern_match_simple(ptr noundef nonnull %cond.i, ptr noundef %.val.i.us.i) #12
+  %call22.i.us.i = tail call i32 @g_pattern_match_simple(ptr noundef nonnull %cond.i, ptr noundef %.val.i.us.i) #13
   %tobool23.not.i.us.i = icmp eq i32 %call22.i.us.i, 0
   br i1 %tobool23.not.i.us.i, label %while.cond.backedge.i.us.i, label %while.body.us.i
 
@@ -390,7 +390,7 @@ while.body.us.i:                                  ; preds = %while.body.i.us.i
   br i1 %tobool.i.us.i, label %if.end10.us.i, label %if.then9.i
 
 if.end10.us.i:                                    ; preds = %while.body.us.i
-  tail call void @trace_event_set_state_dynamic(ptr noundef nonnull %14, i1 noundef zeroext %cmp.i) #12
+  tail call void @trace_event_set_state_dynamic(ptr noundef nonnull %14, i1 noundef zeroext %cmp.i) #13
   br label %if.end3
 
 while.cond.backedge.i.us.i:                       ; preds = %while.body.i.us.i
@@ -423,7 +423,7 @@ while.body.i.i6:                                  ; preds = %land.rhs.i.i2
   %spec.select15.i = add nuw i64 %iter.sroa.4.1.i, %inc20.i.i11
   %23 = getelementptr i8, ptr %21, i64 8
   %.val.i.i = load ptr, ptr %23, align 8
-  %call22.i.i = tail call i32 @g_pattern_match_simple(ptr noundef nonnull %cond.i, ptr noundef %.val.i.i) #12
+  %call22.i.i = tail call i32 @g_pattern_match_simple(ptr noundef nonnull %cond.i, ptr noundef %.val.i.i) #13
   %tobool23.not.i.i = icmp eq i32 %call22.i.i, 0
   br i1 %tobool23.not.i.i, label %while.cond.backedge.i.i, label %while.body.i
 
@@ -447,18 +447,18 @@ while.cond.backedge.i:                            ; preds = %if.end10.i, %while.
   br i1 %cmp19.i.i12, label %land.rhs.i.i2.backedge, label %while.end.i
 
 if.then9.i:                                       ; preds = %while.body.us.i
-  tail call void (ptr, ...) @warn_report(ptr noundef nonnull @.str.12, ptr noundef nonnull %cond.i) #12
+  tail call void (ptr, ...) @warn_report(ptr noundef nonnull @.str.12, ptr noundef nonnull %cond.i) #13
   br label %if.end3
 
 if.end10.i:                                       ; preds = %while.body.i
-  tail call void @trace_event_set_state_dynamic(ptr noundef nonnull %21, i1 noundef zeroext %cmp.i) #12
+  tail call void @trace_event_set_state_dynamic(ptr noundef nonnull %21, i1 noundef zeroext %cmp.i) #13
   br label %while.cond.backedge.i
 
 while.end.i:                                      ; preds = %while.cond.backedge.i, %while.cond.backedge.i.i, %land.rhs.i.i2, %while.cond.backedge.i.us.i, %land.rhs.i.us.i, %trace_event_is_pattern.exit.i
   br i1 %cmp1.i.not.i, label %if.then16.i, label %if.end3
 
 if.then16.i:                                      ; preds = %while.end.i
-  tail call void (ptr, ...) @warn_report(ptr noundef nonnull @.str.13, ptr noundef nonnull %cond.i) #12
+  tail call void (ptr, ...) @warn_report(ptr noundef nonnull @.str.13, ptr noundef nonnull %cond.i) #13
   br label %if.end3
 
 if.end3:                                          ; preds = %if.then16.i, %while.end.i, %if.then9.i, %if.end10.us.i, %trace_list_events.exit
@@ -467,8 +467,8 @@ if.end3:                                          ; preds = %if.then16.i, %while
 
 declare ptr @monitor_cur() local_unnamed_addr #1
 
-; Function Attrs: noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #2
+; Function Attrs: nofree noreturn nounwind
+declare void @exit(i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @trace_init_file() local_unnamed_addr #0 {
@@ -478,7 +478,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call = tail call zeroext i1 @qemu_set_log_filename(ptr noundef nonnull %0, ptr noundef nonnull @error_fatal) #12
+  %call = tail call zeroext i1 @qemu_set_log_filename(ptr noundef nonnull %0, ptr noundef nonnull @error_fatal) #13
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -488,7 +488,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare zeroext i1 @qemu_set_log_filename(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local noundef zeroext i1 @trace_init_backends() local_unnamed_addr #7 {
+define dso_local noundef zeroext i1 @trace_init_backends() local_unnamed_addr #8 {
 entry:
   ret i1 true
 }
@@ -498,35 +498,35 @@ define dso_local void @trace_opt_parse(ptr noundef %optstr) local_unnamed_addr #
 entry:
   %loc.i = alloca %struct.Location, align 8
   %line_buf.i = alloca [1024 x i8], align 16
-  %call = tail call ptr @qemu_find_opts(ptr noundef nonnull @.str) #12
-  %call1 = tail call ptr @qemu_opts_parse_noisily(ptr noundef %call, ptr noundef %optstr, i1 noundef zeroext true) #12
+  %call = tail call ptr @qemu_find_opts(ptr noundef nonnull @.str) #13
+  %call1 = tail call ptr @qemu_opts_parse_noisily(ptr noundef %call, ptr noundef %optstr, i1 noundef zeroext true) #13
   %tobool.not = icmp eq ptr %call1, null
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call void @exit(i32 noundef 1) #13
+  tail call void @exit(i32 noundef 1) #16
   unreachable
 
 if.end:                                           ; preds = %entry
-  %call2 = tail call ptr @qemu_opt_get(ptr noundef nonnull %call1, ptr noundef nonnull @.str.1) #12
+  %call2 = tail call ptr @qemu_opt_get(ptr noundef nonnull %call1, ptr noundef nonnull @.str.1) #13
   %tobool3.not = icmp eq ptr %call2, null
   br i1 %tobool3.not, label %if.end6, label %if.then4
 
 if.then4:                                         ; preds = %if.end
-  %call5 = tail call ptr @qemu_opt_get(ptr noundef nonnull %call1, ptr noundef nonnull @.str.1) #12
+  %call5 = tail call ptr @qemu_opt_get(ptr noundef nonnull %call1, ptr noundef nonnull @.str.1) #13
   tail call void @trace_enable_events(ptr noundef %call5)
   br label %if.end6
 
 if.end6:                                          ; preds = %if.then4, %if.end
-  %call7 = tail call ptr @qemu_opt_get(ptr noundef nonnull %call1, ptr noundef nonnull @.str.2) #12
+  %call7 = tail call ptr @qemu_opt_get(ptr noundef nonnull %call1, ptr noundef nonnull @.str.2) #13
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %loc.i)
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %line_buf.i)
   %cmp.i = icmp eq ptr %call7, null
   br i1 %cmp.i, label %trace_init_events.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end6
-  %call.i = call ptr @loc_push_none(ptr noundef nonnull %loc.i) #12
-  call void @loc_set_file(ptr noundef nonnull %call7, i32 noundef 0) #12
+  %call.i = call ptr @loc_push_none(ptr noundef nonnull %loc.i) #13
+  call void @loc_set_file(ptr noundef nonnull %call7, i32 noundef 0) #13
   %call1.i = call noalias ptr @fopen64(ptr noundef nonnull %call7, ptr noundef nonnull @.str.15)
   %tobool.not.i = icmp eq ptr %call1.i, null
   br i1 %tobool.not.i, label %if.then2.i, label %while.cond.preheader.i
@@ -537,18 +537,18 @@ while.cond.preheader.i:                           ; preds = %if.end.i
   br i1 %tobool7.not9.i, label %while.end.i, label %while.body.i
 
 if.then2.i:                                       ; preds = %if.end.i
-  %call3.i = tail call ptr @__errno_location() #15
+  %call3.i = tail call ptr @__errno_location() #17
   %0 = load i32, ptr %call3.i, align 4
-  %call4.i = call ptr @strerror(i32 noundef %0) #12
-  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.16, ptr noundef %call4.i) #12
-  call void @exit(i32 noundef 1) #13
+  %call4.i = call ptr @strerror(i32 noundef %0) #13
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.16, ptr noundef %call4.i) #13
+  call void @exit(i32 noundef 1) #16
   unreachable
 
 while.body.i:                                     ; preds = %while.cond.preheader.i, %while.cond.backedge.i
   %line_idx.010.i = phi i32 [ %inc.i, %while.cond.backedge.i ], [ 0, %while.cond.preheader.i ]
   %inc.i = add i32 %line_idx.010.i, 1
-  call void @loc_set_file(ptr noundef nonnull %call7, i32 noundef %inc.i) #12
-  %call9.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %line_buf.i) #14
+  call void @loc_set_file(ptr noundef nonnull %call7, i32 noundef %inc.i) #13
+  %call9.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %line_buf.i) #15
   %cmp10.i = icmp ugt i64 %call9.i, 1
   br i1 %cmp10.i, label %if.then12.i, label %while.cond.backedge.i
 
@@ -575,27 +575,27 @@ while.end.i:                                      ; preds = %while.cond.backedge
   br i1 %cmp22.not.i, label %if.end27.i, label %if.then24.i
 
 if.then24.i:                                      ; preds = %while.end.i
-  call void @loc_set_file(ptr noundef nonnull %call7, i32 noundef 0) #12
-  %call25.i = tail call ptr @__errno_location() #15
+  call void @loc_set_file(ptr noundef nonnull %call7, i32 noundef 0) #13
+  %call25.i = tail call ptr @__errno_location() #17
   %2 = load i32, ptr %call25.i, align 4
-  %call26.i = call ptr @strerror(i32 noundef %2) #12
-  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.16, ptr noundef %call26.i) #12
-  call void @exit(i32 noundef 1) #13
+  %call26.i = call ptr @strerror(i32 noundef %2) #13
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.16, ptr noundef %call26.i) #13
+  call void @exit(i32 noundef 1) #16
   unreachable
 
 if.end27.i:                                       ; preds = %while.end.i
-  %call28.i = call ptr @loc_pop(ptr noundef nonnull %loc.i) #12
+  %call28.i = call ptr @loc_pop(ptr noundef nonnull %loc.i) #13
   br label %trace_init_events.exit
 
 trace_init_events.exit:                           ; preds = %if.end6, %if.end27.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %loc.i)
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %line_buf.i)
   %3 = load ptr, ptr @trace_opts_file, align 8
-  call void @g_free(ptr noundef %3) #12
-  %call8 = call ptr @qemu_opt_get(ptr noundef nonnull %call1, ptr noundef nonnull @.str.3) #12
-  %call9 = call noalias ptr @g_strdup(ptr noundef %call8) #12
+  call void @g_free(ptr noundef %3) #13
+  %call8 = call ptr @qemu_opt_get(ptr noundef nonnull %call1, ptr noundef nonnull @.str.3) #13
+  %call9 = call noalias ptr @g_strdup(ptr noundef %call8) #13
   store ptr %call9, ptr @trace_opts_file, align 8
-  call void @qemu_opts_del(ptr noundef nonnull %call1) #12
+  call void @qemu_opts_del(ptr noundef nonnull %call1) #13
   ret void
 }
 
@@ -612,7 +612,7 @@ declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #1
 declare void @qemu_opts_del(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local noundef i32 @trace_get_vcpu_event_count() local_unnamed_addr #7 {
+define dso_local noundef i32 @trace_get_vcpu_event_count() local_unnamed_addr #8 {
 entry:
   ret i32 0
 }
@@ -634,10 +634,10 @@ declare noalias noundef ptr @fopen64(ptr nocapture noundef readonly, ptr nocaptu
 declare void @error_report(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare ptr @strerror(i32 noundef) local_unnamed_addr #8
+declare ptr @strerror(i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #9
+declare ptr @__errno_location() local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
 declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr nocapture noundef) local_unnamed_addr #6
@@ -651,13 +651,13 @@ declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #6
 declare ptr @loc_pop(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -666,15 +666,17 @@ attributes #3 = { mustprogress nofree norecurse nosync nounwind sspstrong willre
 attributes #4 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nofree nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #11 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { nounwind }
-attributes #13 = { noreturn nounwind }
-attributes #14 = { nounwind willreturn memory(read) }
-attributes #15 = { nounwind willreturn memory(none) }
+attributes #7 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #12 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #13 = { nounwind }
+attributes #14 = { noreturn nounwind }
+attributes #15 = { nounwind willreturn memory(read) }
+attributes #16 = { cold noreturn nounwind }
+attributes #17 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

@@ -1788,7 +1788,7 @@ entry:
   ret void
 }
 
-; Function Attrs: nounwind sspstrong uwtable
+; Function Attrs: nofree nounwind sspstrong uwtable
 define dso_local range(i32 -2, 1) i32 @QEMU_AES_set_encrypt_key(ptr noundef readonly %userKey, i32 noundef %bits, ptr noundef %key) local_unnamed_addr #2 {
 entry:
   %tobool = icmp ne ptr %userKey, null
@@ -2210,7 +2210,7 @@ if.end312:                                        ; preds = %while.body267
   br label %while.body267
 
 if.end351:                                        ; preds = %if.end225
-  tail call void @abort() #6
+  tail call void @abort() #8
   unreachable
 
 return:                                           ; preds = %while.body267, %while.body170, %while.body, %if.end, %entry
@@ -2218,10 +2218,10 @@ return:                                           ; preds = %while.body267, %whi
   ret i32 %retval.0
 }
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: cold nofree noreturn nounwind
 declare void @abort() local_unnamed_addr #3
 
-; Function Attrs: nounwind sspstrong uwtable
+; Function Attrs: nofree nounwind sspstrong uwtable
 define dso_local range(i32 -2, 1) i32 @QEMU_AES_set_decrypt_key(ptr noundef %userKey, i32 noundef %bits, ptr noundef %key) local_unnamed_addr #2 {
 entry:
   %call = tail call i32 @QEMU_AES_set_encrypt_key(ptr noundef %userKey, i32 noundef %bits, ptr noundef %key)
@@ -2460,7 +2460,7 @@ return:                                           ; preds = %for.body47, %for.co
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @QEMU_AES_encrypt(ptr noundef readonly %in, ptr noundef writeonly %out, ptr noundef readonly %key) local_unnamed_addr #2 {
+define dso_local void @QEMU_AES_encrypt(ptr noundef readonly %in, ptr noundef writeonly %out, ptr noundef readonly %key) local_unnamed_addr #4 {
 entry:
   %tobool = icmp ne ptr %in, null
   %tobool1 = icmp ne ptr %out, null
@@ -2470,7 +2470,7 @@ entry:
   br i1 %or.cond1, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 1456, ptr noundef nonnull @__PRETTY_FUNCTION__.QEMU_AES_encrypt) #6
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 1456, ptr noundef nonnull @__PRETTY_FUNCTION__.QEMU_AES_encrypt) #8
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -2946,10 +2946,10 @@ for.end:                                          ; preds = %for.cond
 }
 
 ; Function Attrs: noreturn nounwind
-declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @QEMU_AES_decrypt(ptr noundef readonly %in, ptr noundef writeonly %out, ptr noundef readonly %key) local_unnamed_addr #2 {
+define dso_local void @QEMU_AES_decrypt(ptr noundef readonly %in, ptr noundef writeonly %out, ptr noundef readonly %key) local_unnamed_addr #4 {
 entry:
   %tobool = icmp ne ptr %in, null
   %tobool1 = icmp ne ptr %out, null
@@ -2959,7 +2959,7 @@ entry:
   br i1 %or.cond1, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 1647, ptr noundef nonnull @__PRETTY_FUNCTION__.QEMU_AES_decrypt) #6
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 1647, ptr noundef nonnull @__PRETTY_FUNCTION__.QEMU_AES_decrypt) #8
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -3435,18 +3435,20 @@ for.end:                                          ; preds = %for.cond
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.bswap.i32(i32) #4
+declare i32 @llvm.bswap.i32(i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #5
+declare i32 @llvm.fshl.i32(i32, i32, i32) #7
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { noreturn nounwind }
+attributes #2 = { nofree nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

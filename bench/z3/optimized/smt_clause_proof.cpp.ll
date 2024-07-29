@@ -886,7 +886,7 @@ entry:
 
 sw.default:                                       ; preds = %entry
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.7, i32 noundef 57, ptr noundef nonnull @.str.8)
-  tail call void @exit(i32 noundef 114) #14
+  tail call void @exit(i32 noundef 114) #17
   unreachable
 
 switch.lookup:                                    ; preds = %entry
@@ -898,7 +898,7 @@ switch.lookup:                                    ; preds = %entry
 
 declare void @_Z26notify_assertion_violationPKciS0_(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
@@ -1140,7 +1140,7 @@ _ZN11ast_manager7inc_refEP3ast.exit.i.i33:        ; preds = %if.end51.thread, %i
 
 sw.epilog:                                        ; preds = %if.end9
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.7, i32 noundef 89, ptr noundef nonnull @.str.8)
-  tail call void @exit(i32 noundef 114) #14
+  tail call void @exit(i32 noundef 114) #17
   unreachable
 
 return:                                           ; preds = %_ZN11ast_manager7inc_refEP3ast.exit.i.i33, %if.end51, %_ZN11ast_manager7inc_refEP3ast.exit.i.i24, %if.end40, %_ZN11ast_manager7inc_refEP3ast.exit.i.i14, %if.end29, %_ZN11ast_manager7inc_refEP3ast.exit.i.i6, %if.end18, %if.then7, %_ZN7obj_refI3app11ast_managerEC2EPS0_RS1_.exit
@@ -1525,7 +1525,7 @@ if.end:                                           ; preds = %entry
 
 sw.default.i:                                     ; preds = %if.end
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.7, i32 noundef 57, ptr noundef nonnull @.str.8)
-  tail call void @exit(i32 noundef 114) #14
+  tail call void @exit(i32 noundef 114) #17
   unreachable
 
 switch.lookup:                                    ; preds = %if.end
@@ -2080,7 +2080,7 @@ if.end11.i:                                       ; preds = %if.end6.i
   br i1 %cmp.i9.i, label %if.then18, label %if.then25
 
 _ZeqRK6symbolPKc.exit:                            ; preds = %if.end6.i
-  %call9.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %52, ptr noundef nonnull dereferenceable(11) @.str.9) #17
+  %call9.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %52, ptr noundef nonnull dereferenceable(11) @.str.9) #18
   %cmp10.i = icmp eq i32 %call9.i, 0
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   br i1 %cmp10.i, label %if.then18, label %if.then25
@@ -2156,7 +2156,7 @@ sw.bb31:                                          ; preds = %for.end
 
 sw.default:                                       ; preds = %for.end
   call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.7, i32 noundef 221, ptr noundef nonnull @.str.8)
-  call void @exit(i32 noundef 114) #14
+  call void @exit(i32 noundef 114) #17
   unreachable
 
 sw.epilog:                                        ; preds = %if.then.i54, %if.end26, %sw.bb31, %if.then18
@@ -2691,7 +2691,7 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %lor.lhs.false.i.i, 
 
 sw.default.i:                                     ; preds = %_ZN7obj_refI4expr11ast_managerED2Ev.exit
   call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.7, i32 noundef 57, ptr noundef nonnull @.str.8)
-  call void @exit(i32 noundef 114) #14
+  call void @exit(i32 noundef 114) #17
   unreachable
 
 switch.lookup:                                    ; preds = %_ZN7obj_refI4expr11ast_managerED2Ev.exit
@@ -3014,7 +3014,7 @@ if.end29:                                         ; preds = %_ZN7obj_refI4expr11
 
 sw.default.i:                                     ; preds = %if.end29
   call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.7, i32 noundef 57, ptr noundef nonnull @.str.8)
-  call void @exit(i32 noundef 114) #14
+  call void @exit(i32 noundef 114) #17
   unreachable
 
 switch.lookup:                                    ; preds = %if.end29
@@ -4681,7 +4681,7 @@ _ZN12smt_renamingD2Ev.exit:                       ; preds = %_ZN3mapI6symbolS0_1
 define linkonce_odr hidden void @_ZN23smt2_pp_environment_dbgD0Ev(ptr noundef nonnull align 8 dereferenceable(640) %this) unnamed_addr #4 comdat align 2 {
 entry:
   tail call void @_ZN23smt2_pp_environment_dbgD2Ev(ptr noundef nonnull align 8 dereferenceable(640) %this) #15
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #18
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #19
   ret void
 }
 
@@ -5512,7 +5512,7 @@ attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stac
 attributes #2 = { nofree nounwind }
 attributes #3 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #7 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -5524,8 +5524,9 @@ attributes #13 = { nocallback nofree nosync nounwind willreturn memory(inaccessi
 attributes #14 = { noreturn nounwind }
 attributes #15 = { nounwind }
 attributes #16 = { noreturn }
-attributes #17 = { nounwind willreturn memory(read) }
-attributes #18 = { builtin nounwind }
+attributes #17 = { cold noreturn nounwind }
+attributes #18 = { nounwind willreturn memory(read) }
+attributes #19 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

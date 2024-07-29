@@ -3670,7 +3670,7 @@ define internal fastcc void @scanfile(ptr noundef %0, ptr noundef %1, ptr nounde
   unreachable
 
 101:                                              ; preds = %98
-  call void @exit(i32 noundef 1) #27
+  call void @exit(i32 noundef 1) #28
   unreachable
 
 102:                                              ; preds = %75
@@ -3746,7 +3746,7 @@ checkaccess.exit:                                 ; preds = %80
   br i1 %131, label %132, label %139
 
 132:                                              ; preds = %128
-  %133 = tail call ptr @__errno_location() #28
+  %133 = tail call ptr @__errno_location() #29
   %134 = load i32, ptr %133, align 4
   %135 = call ptr @strerror(i32 noundef %134) #21
   %136 = call i32 (i32, ptr, ...) @logg(i32 noundef 4, ptr noundef nonnull @.str.193, ptr noundef %.0, ptr noundef %135) #21
@@ -3955,7 +3955,7 @@ declare i32 @fork() local_unnamed_addr #5
 ; Function Attrs: nounwind
 declare i32 @setgid(i32 noundef) local_unnamed_addr #4
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #18
 
 ; Function Attrs: nounwind
@@ -3998,7 +3998,7 @@ attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(arg
 attributes #15 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #17 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #19 = { nofree nounwind }
 attributes #20 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #21 = { nounwind }
@@ -4008,7 +4008,8 @@ attributes #24 = { nounwind allocsize(0) }
 attributes #25 = { cold }
 attributes #26 = { cold nounwind }
 attributes #27 = { noreturn nounwind }
-attributes #28 = { nounwind willreturn memory(none) }
+attributes #28 = { cold noreturn nounwind }
+attributes #29 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

@@ -363,7 +363,7 @@ _addto_job_list.exit:                             ; preds = %14, %17
   unreachable
 
 35:                                               ; preds = %8, %8
-  call void @exit(i32 noundef 1) #16
+  call void @exit(i32 noundef 1) #17
   unreachable
 
 36:                                               ; preds = %8
@@ -492,7 +492,7 @@ _addto_job_list.exit57:                           ; preds = %42, %47
   br i1 %.not4770, label %._crit_edge74, label %.lr.ph73
 
 .lr.ph73:                                         ; preds = %.thread
-  %87 = tail call ptr @__ctype_b_loc() #17
+  %87 = tail call ptr @__ctype_b_loc() #18
   br label %88
 
 88:                                               ; preds = %.lr.ph73, %.backedge
@@ -524,7 +524,7 @@ _addto_job_list.exit57:                           ; preds = %42, %47
 
 99:                                               ; preds = %98
   %100 = getelementptr inbounds i8, ptr %strchr50, i64 1
-  %101 = call i32 @atoi(ptr nocapture noundef nonnull %100) #18
+  %101 = call i32 @atoi(ptr nocapture noundef nonnull %100) #19
   store i8 0, ptr %strchr50, align 1
   br label %102
 
@@ -535,7 +535,7 @@ _addto_job_list.exit57:                           ; preds = %42, %47
   br i1 %.not5262, label %._crit_edge66, label %.lr.ph65
 
 .lr.ph65:                                         ; preds = %102
-  %104 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1) #18
+  %104 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1) #19
   %sext = shl i64 %104, 32
   %105 = ashr exact i64 %sext, 32
   %106 = call i32 @xstrncasecmp(ptr noundef nonnull %103, ptr noundef nonnull %.1, i64 noundef %105) #15
@@ -558,7 +558,7 @@ _addto_job_list.exit57:                           ; preds = %42, %47
 
 ._crit_edge66:                                    ; preds = %102, %.lr.ph96
   %112 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.41, ptr noundef nonnull %.1) #15
-  call void @exit(i32 noundef 1) #16
+  call void @exit(i32 noundef 1) #17
   unreachable
 
 ._crit_edge97:                                    ; preds = %110, %.lr.ph65
@@ -603,7 +603,7 @@ declare void @_xstrfmtcat(ptr noundef, ptr noundef, ...) local_unnamed_addr #5
 
 declare void @print_slurm_version() local_unnamed_addr #5
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #8
 
 declare void @suggest_completion(ptr noundef, ptr noundef) local_unnamed_addr #5
@@ -660,7 +660,7 @@ attributes #4 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width
 attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -669,8 +669,9 @@ attributes #13 = { nofree nounwind willreturn memory(argmem: read) }
 attributes #14 = { cold nounwind }
 attributes #15 = { nounwind }
 attributes #16 = { noreturn nounwind }
-attributes #17 = { nounwind willreturn memory(none) }
-attributes #18 = { nounwind willreturn memory(read) }
+attributes #17 = { cold noreturn nounwind }
+attributes #18 = { nounwind willreturn memory(none) }
+attributes #19 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
 

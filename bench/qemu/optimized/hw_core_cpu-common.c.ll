@@ -48,25 +48,25 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local noundef ptr @cpu_by_arch_id(i64 noundef %id) local_unnamed_addr #0 {
 entry:
   %0 = load atomic i64, ptr @cpus_queue monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !5
   %tobool.not6 = icmp eq i64 %0, 0
   br i1 %tobool.not6, label %return, label %for.body
 
 for.body:                                         ; preds = %entry, %while.end6
   %cpu.07.in = phi i64 [ %2, %while.end6 ], [ %0, %entry ]
   %cpu.07 = inttoptr i64 %cpu.07.in to ptr
-  %call.i = tail call ptr @object_get_class(ptr noundef nonnull %cpu.07) #10
-  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 64, ptr noundef nonnull @__func__.CPU_GET_CLASS) #10
+  %call.i = tail call ptr @object_get_class(ptr noundef nonnull %cpu.07) #11
+  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 64, ptr noundef nonnull @__func__.CPU_GET_CLASS) #11
   %get_arch_id = getelementptr inbounds i8, ptr %call1.i, i64 224
   %1 = load ptr, ptr %get_arch_id, align 8
-  %call1 = tail call i64 %1(ptr noundef nonnull %cpu.07) #10
+  %call1 = tail call i64 %1(ptr noundef nonnull %cpu.07) #11
   %cmp = icmp eq i64 %call1, %id
   br i1 %cmp, label %return, label %while.end6
 
 while.end6:                                       ; preds = %for.body
   %node = getelementptr inbounds i8, ptr %cpu.07, i64 568
   %2 = load atomic i64, ptr %node monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !6
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
   %tobool.not = icmp eq i64 %2, 0
   br i1 %tobool.not, label %return, label %for.body, !llvm.loop !7
 
@@ -79,25 +79,25 @@ return:                                           ; preds = %for.body, %while.en
 define dso_local noundef zeroext i1 @cpu_exists(i64 noundef %id) local_unnamed_addr #0 {
 entry:
   %0 = load atomic i64, ptr @cpus_queue monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !5
   %tobool.not6.i = icmp eq i64 %0, 0
   br i1 %tobool.not6.i, label %cpu_by_arch_id.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %entry, %while.end6.i
   %cpu.07.in.i = phi i64 [ %2, %while.end6.i ], [ %0, %entry ]
   %cpu.07.i = inttoptr i64 %cpu.07.in.i to ptr
-  %call.i.i = tail call ptr @object_get_class(ptr noundef nonnull %cpu.07.i) #10
-  %call1.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 64, ptr noundef nonnull @__func__.CPU_GET_CLASS) #10
+  %call.i.i = tail call ptr @object_get_class(ptr noundef nonnull %cpu.07.i) #11
+  %call1.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 64, ptr noundef nonnull @__func__.CPU_GET_CLASS) #11
   %get_arch_id.i = getelementptr inbounds i8, ptr %call1.i.i, i64 224
   %1 = load ptr, ptr %get_arch_id.i, align 8
-  %call1.i = tail call i64 %1(ptr noundef nonnull %cpu.07.i) #10
+  %call1.i = tail call i64 %1(ptr noundef nonnull %cpu.07.i) #11
   %cmp.i = icmp eq i64 %call1.i, %id
   br i1 %cmp.i, label %cpu_by_arch_id.exit, label %while.end6.i
 
 while.end6.i:                                     ; preds = %for.body.i
   %node.i = getelementptr inbounds i8, ptr %cpu.07.i, i64 568
   %2 = load atomic i64, ptr %node.i monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !6
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
   %tobool.not.i = icmp eq i64 %2, 0
   br i1 %tobool.not.i, label %cpu_by_arch_id.exit, label %for.body.i, !llvm.loop !7
 
@@ -111,16 +111,16 @@ define dso_local noundef ptr @cpu_create(ptr noundef %typename) local_unnamed_ad
 entry:
   %err = alloca ptr, align 8
   store ptr null, ptr %err, align 8
-  %call = tail call ptr @object_new(ptr noundef %typename) #10
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #10
-  %call2 = call zeroext i1 @qdev_realize(ptr noundef %call.i, ptr noundef null, ptr noundef nonnull %err) #10
+  %call = tail call ptr @object_new(ptr noundef %typename) #11
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #11
+  %call2 = call zeroext i1 @qdev_realize(ptr noundef %call.i, ptr noundef null, ptr noundef nonnull %err) #11
   br i1 %call2, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %err, align 8
-  call void @error_report_err(ptr noundef %0) #10
-  call void @object_unref(ptr noundef %call) #10
-  call void @exit(i32 noundef 1) #11
+  call void @error_report_err(ptr noundef %0) #11
+  call void @object_unref(ptr noundef %call) #11
+  call void @exit(i32 noundef 1) #12
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -135,23 +135,23 @@ declare void @error_report_err(ptr noundef) local_unnamed_addr #1
 
 declare void @object_unref(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @cpu_reset_interrupt(ptr nocapture noundef %cpu, i32 noundef %mask) local_unnamed_addr #0 {
 entry:
-  %call = tail call zeroext i1 @qemu_mutex_iothread_locked() #10
+  %call = tail call zeroext i1 @qemu_mutex_iothread_locked() #11
   br i1 %call, label %if.end3.critedge, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call void @qemu_mutex_lock_iothread_impl(ptr noundef nonnull @.str, i32 noundef 76) #10
+  tail call void @qemu_mutex_lock_iothread_impl(ptr noundef nonnull @.str, i32 noundef 76) #11
   %not = xor i32 %mask, -1
   %interrupt_request = getelementptr inbounds i8, ptr %cpu, i64 216
   %0 = load i32, ptr %interrupt_request, align 8
   %and = and i32 %0, %not
   store i32 %and, ptr %interrupt_request, align 8
-  tail call void @qemu_mutex_unlock_iothread() #10
+  tail call void @qemu_mutex_unlock_iothread() #11
   br label %if.end3
 
 if.end3.critedge:                                 ; preds = %entry
@@ -177,7 +177,7 @@ define dso_local void @cpu_exit(ptr nocapture noundef writeonly %cpu) local_unna
 entry:
   %exit_request = getelementptr inbounds i8, ptr %cpu, i64 207
   store atomic i8 1, ptr %exit_request monotonic, align 1
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !9
   fence release
   %high = getelementptr inbounds i8, ptr %cpu, i64 10162
   store atomic i16 -1, ptr %high monotonic, align 2
@@ -187,17 +187,17 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @cpu_dump_state(ptr noundef %cpu, ptr noundef %f, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
-  %call.i = tail call ptr @object_get_class(ptr noundef %cpu) #10
-  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 64, ptr noundef nonnull @__func__.CPU_GET_CLASS) #10
+  %call.i = tail call ptr @object_get_class(ptr noundef %cpu) #11
+  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 64, ptr noundef nonnull @__func__.CPU_GET_CLASS) #11
   %dump_state = getelementptr inbounds i8, ptr %call1.i, i64 208
   %0 = load ptr, ptr %dump_state, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call void @cpu_synchronize_state(ptr noundef %cpu) #10
+  tail call void @cpu_synchronize_state(ptr noundef %cpu) #11
   %1 = load ptr, ptr %dump_state, align 8
-  tail call void %1(ptr noundef %cpu, ptr noundef %f, i32 noundef %flags) #10
+  tail call void %1(ptr noundef %cpu, ptr noundef %f, i32 noundef %flags) #11
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -210,8 +210,8 @@ declare void @cpu_synchronize_state(ptr noundef) local_unnamed_addr #1
 define dso_local void @cpu_reset(ptr noundef %cpu) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %cpu, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #10
-  tail call void @device_cold_reset(ptr noundef %call.i) #10
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %cpu, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #11
+  tail call void @device_cold_reset(ptr noundef %call.i) #11
   %cpu_index = getelementptr inbounds i8, ptr %cpu, i64 712
   %0 = load i32, ptr %cpu_index, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -234,16 +234,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #10
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #10
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #11
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #11
   %5 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.7, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef %0) #10
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.7, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef %0) #11
   br label %trace_cpu_reset.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.8, i32 noundef %0) #10
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.8, i32 noundef %0) #11
   br label %trace_cpu_reset.exit
 
 trace_cpu_reset.exit:                             ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -256,15 +256,15 @@ declare void @device_cold_reset(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @cpu_class_by_name(ptr noundef %typename, ptr noundef %cpu_model) local_unnamed_addr #0 {
 entry:
-  %call = tail call ptr @object_class_by_name(ptr noundef %typename) #10
-  %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 64, ptr noundef nonnull @__func__.CPU_CLASS) #10
+  %call = tail call ptr @object_class_by_name(ptr noundef %typename) #11
+  %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 64, ptr noundef nonnull @__func__.CPU_CLASS) #11
   %class_by_name = getelementptr inbounds i8, ptr %call.i, i64 176
   %0 = load ptr, ptr %class_by_name, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.else, label %if.end
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str, i32 noundef 154, ptr noundef nonnull @__PRETTY_FUNCTION__.cpu_class_by_name) #11
+  tail call void @__assert_fail(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str, i32 noundef 154, ptr noundef nonnull @__PRETTY_FUNCTION__.cpu_class_by_name) #13
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -272,16 +272,16 @@ if.end:                                           ; preds = %entry
   br i1 %tobool2.not, label %if.else4, label %if.end5
 
 if.else4:                                         ; preds = %if.end
-  tail call void @__assert_fail(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str, i32 noundef 155, ptr noundef nonnull @__PRETTY_FUNCTION__.cpu_class_by_name) #11
+  tail call void @__assert_fail(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str, i32 noundef 155, ptr noundef nonnull @__PRETTY_FUNCTION__.cpu_class_by_name) #13
   unreachable
 
 if.end5:                                          ; preds = %if.end
-  %call7 = tail call ptr %0(ptr noundef nonnull %cpu_model) #10
+  %call7 = tail call ptr %0(ptr noundef nonnull %cpu_model) #11
   %cmp = icmp eq ptr %call7, null
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end5
-  %call8 = tail call zeroext i1 @object_class_is_abstract(ptr noundef nonnull %call7) #10
+  %call8 = tail call zeroext i1 @object_class_is_abstract(ptr noundef nonnull %call7) #11
   %spec.select = select i1 %call8, ptr null, ptr %call7
   br label %return
 
@@ -293,14 +293,14 @@ return:                                           ; preds = %lor.lhs.false, %if.
 declare ptr @object_class_by_name(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn nounwind
-declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 declare zeroext i1 @object_class_is_abstract(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @do_qemu_init_cpu_register_types() #0 {
 entry:
-  tail call void @register_module_init(ptr noundef nonnull @cpu_register_types, i32 noundef 3) #10
+  tail call void @register_module_init(ptr noundef nonnull @cpu_register_types, i32 noundef 3) #11
   ret void
 }
 
@@ -309,7 +309,7 @@ declare void @register_module_init(ptr noundef, i32 noundef) local_unnamed_addr 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @cpu_register_types() #0 {
 entry:
-  %call = tail call ptr @type_register_static(ptr noundef nonnull @cpu_type_info) #10
+  %call = tail call ptr @type_register_static(ptr noundef nonnull @cpu_type_info) #11
   ret void
 }
 
@@ -320,7 +320,7 @@ declare ptr @object_get_class(ptr noundef) local_unnamed_addr #1
 declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 
@@ -331,8 +331,8 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @cpu_common_initfn(ptr noundef %obj) #0 {
 entry:
-  %call.i = tail call ptr @object_get_class(ptr noundef %obj) #10
-  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 64, ptr noundef nonnull @__func__.CPU_GET_CLASS) #10
+  %call.i = tail call ptr @object_get_class(ptr noundef %obj) #11
+  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 64, ptr noundef nonnull @__func__.CPU_GET_CLASS) #11
   %cpu_index = getelementptr inbounds i8, ptr %obj, i64 712
   store i32 -1, ptr %cpu_index, align 8
   %cluster_index = getelementptr inbounds i8, ptr %obj, i64 716
@@ -350,9 +350,9 @@ entry:
   %cflags_next_tb = getelementptr inbounds i8, ptr %obj, i64 212
   store i32 -1, ptr %cflags_next_tb, align 4
   %work_mutex = getelementptr inbounds i8, ptr %obj, i64 448
-  tail call void @qemu_mutex_init(ptr noundef nonnull %work_mutex) #10
+  tail call void @qemu_mutex_init(ptr noundef nonnull %work_mutex) #11
   %in_ioctl_lock = getelementptr inbounds i8, ptr %obj, i64 692
-  tail call void @qemu_lockcnt_init(ptr noundef nonnull %in_ioctl_lock) #10
+  tail call void @qemu_lockcnt_init(ptr noundef nonnull %in_ioctl_lock) #11
   %work_list = getelementptr inbounds i8, ptr %obj, i64 496
   store ptr null, ptr %work_list, align 16
   %sqh_last = getelementptr inbounds i8, ptr %obj, i64 504
@@ -365,7 +365,7 @@ entry:
   store ptr null, ptr %watchpoints, align 8
   %tql_prev11 = getelementptr inbounds i8, ptr %obj, i64 608
   store ptr %watchpoints, ptr %tql_prev11, align 8
-  tail call void @cpu_exec_initfn(ptr noundef %obj) #10
+  tail call void @cpu_exec_initfn(ptr noundef %obj) #11
   ret void
 }
 
@@ -373,18 +373,18 @@ entry:
 define internal void @cpu_common_finalize(ptr noundef %obj) #0 {
 entry:
   %in_ioctl_lock = getelementptr inbounds i8, ptr %obj, i64 692
-  tail call void @qemu_lockcnt_destroy(ptr noundef nonnull %in_ioctl_lock) #10
+  tail call void @qemu_lockcnt_destroy(ptr noundef nonnull %in_ioctl_lock) #11
   %work_mutex = getelementptr inbounds i8, ptr %obj, i64 448
-  tail call void @qemu_mutex_destroy(ptr noundef nonnull %work_mutex) #10
+  tail call void @qemu_mutex_destroy(ptr noundef nonnull %work_mutex) #11
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @cpu_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
 entry:
-  %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #10
-  %call.i11 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, i32 noundef 22, ptr noundef nonnull @__func__.RESETTABLE_CLASS) #10
-  %call.i12 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 64, ptr noundef nonnull @__func__.CPU_CLASS) #10
+  %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #11
+  %call.i11 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, i32 noundef 22, ptr noundef nonnull @__func__.RESETTABLE_CLASS) #11
+  %call.i12 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 64, ptr noundef nonnull @__func__.CPU_CLASS) #11
   %parse_features = getelementptr inbounds i8, ptr %call.i12, i64 184
   store ptr @cpu_common_parse_features, ptr %parse_features, align 8
   %get_arch_id = getelementptr inbounds i8, ptr %call.i12, i64 224
@@ -405,7 +405,7 @@ entry:
   store ptr @cpu_common_unrealizefn, ptr %unrealize, align 8
   %hold = getelementptr inbounds i8, ptr %call.i11, i64 120
   store ptr @cpu_common_reset_hold, ptr %hold, align 8
-  tail call void @cpu_class_init_props(ptr noundef %call.i) #10
+  tail call void @cpu_class_init_props(ptr noundef %call.i) #11
   %user_creatable = getelementptr inbounds i8, ptr %call.i, i64 128
   store i8 0, ptr %user_creatable, align 8
   ret void
@@ -428,7 +428,7 @@ entry:
   br i1 %tobool.not, label %cond.end.thread, label %cond.end
 
 cond.end:                                         ; preds = %entry
-  %call = tail call ptr @strtok(ptr noundef nonnull %features, ptr noundef nonnull @.str.11) #10
+  %call = tail call ptr @strtok(ptr noundef nonnull %features, ptr noundef nonnull @.str.11) #11
   %.b11 = load i1, ptr @cpu_common_parse_features.cpu_globals_initialized, align 1
   br i1 %.b11, label %if.else, label %if.end
 
@@ -441,7 +441,7 @@ if.end.thread:                                    ; preds = %cond.end.thread
   br label %while.end
 
 if.else:                                          ; preds = %cond.end.thread, %cond.end
-  tail call void @__assert_fail(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str, i32 noundef 172, ptr noundef nonnull @__PRETTY_FUNCTION__.cpu_common_parse_features) #11
+  tail call void @__assert_fail(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str, i32 noundef 172, ptr noundef nonnull @__PRETTY_FUNCTION__.cpu_common_parse_features) #13
   unreachable
 
 if.end:                                           ; preds = %cond.end
@@ -451,28 +451,28 @@ if.end:                                           ; preds = %cond.end
 
 while.body:                                       ; preds = %if.end, %if.then5
   %featurestr.014 = phi ptr [ %call11, %if.then5 ], [ %call, %if.end ]
-  %call3 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %featurestr.014, i32 noundef 61) #12
+  %call3 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %featurestr.014, i32 noundef 61) #14
   %tobool4.not = icmp eq ptr %call3, null
   br i1 %tobool4.not, label %if.else9, label %if.then5
 
 if.then5:                                         ; preds = %while.body
-  %call6 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 32) #13
+  %call6 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 32) #15
   store i8 0, ptr %call3, align 1
   %incdec.ptr = getelementptr i8, ptr %call3, i64 1
   store ptr %typename, ptr %call6, align 8
-  %call7 = tail call noalias ptr @g_strdup(ptr noundef nonnull %featurestr.014) #10
+  %call7 = tail call noalias ptr @g_strdup(ptr noundef nonnull %featurestr.014) #11
   %property = getelementptr inbounds i8, ptr %call6, i64 8
   store ptr %call7, ptr %property, align 8
-  %call8 = tail call noalias ptr @g_strdup(ptr noundef %incdec.ptr) #10
+  %call8 = tail call noalias ptr @g_strdup(ptr noundef %incdec.ptr) #11
   %value = getelementptr inbounds i8, ptr %call6, i64 16
   store ptr %call8, ptr %value, align 8
-  tail call void @qdev_prop_register_global(ptr noundef nonnull %call6) #10
-  %call11 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.11) #10
+  tail call void @qdev_prop_register_global(ptr noundef nonnull %call6) #11
+  %call11 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.11) #11
   %tobool2.not = icmp eq ptr %call11, null
   br i1 %tobool2.not, label %while.end, label %while.body, !llvm.loop !10
 
 if.else9:                                         ; preds = %while.body
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 187, ptr noundef nonnull @__func__.cpu_common_parse_features, ptr noundef nonnull @.str.13, ptr noundef nonnull %featurestr.014) #10
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 187, ptr noundef nonnull @__func__.cpu_common_parse_features, ptr noundef nonnull @.str.13, ptr noundef nonnull %featurestr.014) #11
   br label %while.end
 
 while.end:                                        ; preds = %if.then5, %if.end.thread, %if.end, %if.else9
@@ -480,7 +480,7 @@ while.end:                                        ; preds = %if.then5, %if.end.t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 -2147483648, 2147483648) i64 @cpu_common_get_arch_id(ptr nocapture noundef readonly %cpu) #4 {
+define internal range(i64 -2147483648, 2147483648) i64 @cpu_common_get_arch_id(ptr nocapture noundef readonly %cpu) #5 {
 entry:
   %cpu_index = getelementptr inbounds i8, ptr %cpu, i64 712
   %0 = load i32, ptr %cpu_index, align 8
@@ -489,19 +489,19 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i1 @cpu_common_has_work(ptr nocapture readnone %cs) #5 {
+define internal noundef zeroext i1 @cpu_common_has_work(ptr nocapture readnone %cs) #6 {
 entry:
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i32 @cpu_common_gdb_read_register(ptr nocapture readnone %cpu, ptr nocapture readnone %buf, i32 %reg) #5 {
+define internal noundef i32 @cpu_common_gdb_read_register(ptr nocapture readnone %cpu, ptr nocapture readnone %buf, i32 %reg) #6 {
 entry:
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i32 @cpu_common_gdb_write_register(ptr nocapture readnone %cpu, ptr nocapture readnone %buf, i32 %reg) #5 {
+define internal noundef i32 @cpu_common_gdb_write_register(ptr nocapture readnone %cpu, ptr nocapture readnone %buf, i32 %reg) #6 {
 entry:
   ret i32 0
 }
@@ -509,14 +509,14 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @cpu_common_realizefn(ptr noundef %dev, ptr nocapture readnone %errp) #0 {
 entry:
-  %call = tail call ptr @qdev_get_machine() #10
-  %call1 = tail call ptr @object_dynamic_cast(ptr noundef %call, ptr noundef nonnull @.str.14) #10
+  %call = tail call ptr @qdev_get_machine() #11
+  %call1 = tail call ptr @object_dynamic_cast(ptr noundef %call, ptr noundef nonnull @.str.14) #11
   %tobool.not = icmp eq ptr %call1, null
   br i1 %tobool.not, label %if.end7, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call.i = tail call ptr @object_get_class(ptr noundef %call) #10
-  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE_GET_CLASS) #10
+  %call.i = tail call ptr @object_get_class(ptr noundef %call) #11
+  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE_GET_CLASS) #11
   %tobool3.not = icmp eq ptr %call1.i, null
   br i1 %tobool3.not, label %if.end7, label %if.then4
 
@@ -535,8 +535,8 @@ if.end7:                                          ; preds = %if.then, %if.then4,
   br i1 %tobool8.not, label %if.end10, label %if.then9
 
 if.then9:                                         ; preds = %if.end7
-  tail call void @cpu_synchronize_post_init(ptr noundef nonnull %dev) #10
-  tail call void @cpu_resume(ptr noundef nonnull %dev) #10
+  tail call void @cpu_synchronize_post_init(ptr noundef nonnull %dev) #11
+  tail call void @cpu_resume(ptr noundef nonnull %dev) #11
   br label %if.end10
 
 if.end10:                                         ; preds = %if.then9, %if.end7
@@ -545,7 +545,7 @@ if.end10:                                         ; preds = %if.then9, %if.end7
   br i1 %tobool11, label %if.then12, label %if.end13
 
 if.then12:                                        ; preds = %if.end10
-  tail call void @qemu_plugin_vcpu_init_hook(ptr noundef nonnull %dev) #10
+  tail call void @qemu_plugin_vcpu_init_hook(ptr noundef nonnull %dev) #11
   br label %if.end13
 
 if.end13:                                         ; preds = %if.then12, %if.end10
@@ -560,19 +560,19 @@ entry:
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call void @qemu_plugin_vcpu_exit_hook(ptr noundef %dev) #10
+  tail call void @qemu_plugin_vcpu_exit_hook(ptr noundef %dev) #11
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  tail call void @cpu_exec_unrealizefn(ptr noundef %dev) #10
+  tail call void @cpu_exec_unrealizefn(ptr noundef %dev) #11
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @cpu_common_reset_hold(ptr noundef %obj) #0 {
 entry:
-  %call.i = tail call ptr @object_get_class(ptr noundef %obj) #10
-  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 64, ptr noundef nonnull @__func__.CPU_GET_CLASS) #10
+  %call.i = tail call ptr @object_get_class(ptr noundef %obj) #11
+  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 64, ptr noundef nonnull @__func__.CPU_GET_CLASS) #11
   %0 = load i32, ptr @qemu_loglevel, align 4
   %and.i = and i32 %0, 512
   %cmp.i.not = icmp eq i32 %and.i, 0
@@ -581,29 +581,29 @@ entry:
 if.then:                                          ; preds = %entry
   %cpu_index = getelementptr inbounds i8, ptr %obj, i64 712
   %1 = load i32, ptr %cpu_index, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.16, i32 noundef %1) #10
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.16, i32 noundef %1) #11
   %reset_dump_flags = getelementptr inbounds i8, ptr %call1.i, i64 344
   %2 = load i32, ptr %reset_dump_flags, align 8
-  %call.i14 = tail call ptr @qemu_log_trylock() #10
+  %call.i14 = tail call ptr @qemu_log_trylock() #11
   %tobool.not.i = icmp eq ptr %call.i14, null
   br i1 %tobool.not.i, label %if.end, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
-  %call.i.i.i = tail call ptr @object_get_class(ptr noundef nonnull %obj) #10
-  %call1.i.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i.i, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 64, ptr noundef nonnull @__func__.CPU_GET_CLASS) #10
+  %call.i.i.i = tail call ptr @object_get_class(ptr noundef nonnull %obj) #11
+  %call1.i.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i.i, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 64, ptr noundef nonnull @__func__.CPU_GET_CLASS) #11
   %dump_state.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 208
   %3 = load ptr, ptr %dump_state.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i, label %cpu_dump_state.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
-  tail call void @cpu_synchronize_state(ptr noundef nonnull %obj) #10
+  tail call void @cpu_synchronize_state(ptr noundef nonnull %obj) #11
   %4 = load ptr, ptr %dump_state.i.i, align 8
-  tail call void %4(ptr noundef nonnull %obj, ptr noundef nonnull %call.i14, i32 noundef %2) #10
+  tail call void %4(ptr noundef nonnull %obj, ptr noundef nonnull %call.i14, i32 noundef %2) #11
   br label %cpu_dump_state.exit.i
 
 cpu_dump_state.exit.i:                            ; preds = %if.then.i.i, %if.then.i
-  tail call void @qemu_log_unlock(ptr noundef nonnull %call.i14) #10
+  tail call void @qemu_log_unlock(ptr noundef nonnull %call.i14) #11
   br label %if.end
 
 if.end:                                           ; preds = %cpu_dump_state.exit.i, %if.then, %entry
@@ -629,20 +629,20 @@ if.end:                                           ; preds = %cpu_dump_state.exit
   store i8 0, ptr %crash_occurred, align 2
   %cflags_next_tb = getelementptr inbounds i8, ptr %obj, i64 212
   store i32 -1, ptr %cflags_next_tb, align 4
-  tail call void @cpu_exec_reset_hold(ptr noundef %obj) #10
+  tail call void @cpu_exec_reset_hold(ptr noundef %obj) #11
   ret void
 }
 
 declare void @cpu_class_init_props(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare ptr @strtok(ptr noundef, ptr nocapture noundef readonly) local_unnamed_addr #6
+declare ptr @strtok(ptr noundef, ptr nocapture noundef readonly) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #7
+declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: allocsize(0,1)
-declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #8
+declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #9
 
 declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #1
 
@@ -671,25 +671,27 @@ declare ptr @qemu_log_trylock() local_unnamed_addr #1
 declare void @qemu_log_unlock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { nounwind }
-attributes #11 = { noreturn nounwind }
-attributes #12 = { nounwind willreturn memory(read) }
-attributes #13 = { nounwind allocsize(0,1) }
+attributes #2 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #11 = { nounwind }
+attributes #12 = { cold noreturn nounwind }
+attributes #13 = { noreturn nounwind }
+attributes #14 = { nounwind willreturn memory(read) }
+attributes #15 = { nounwind allocsize(0,1) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

@@ -383,7 +383,7 @@ define internal void @bail_out(i1 noundef zeroext %0, ptr noundef %1, ...) unnam
   unreachable
 
 5:                                                ; preds = %2
-  call void @exit(i32 noundef 2) #25
+  call void @exit(i32 noundef 2) #26
   unreachable
 }
 
@@ -577,7 +577,7 @@ split_to_stringlist.exit:                         ; preds = %add_stringlist_item
 
 76:                                               ; preds = %51
   %77 = load ptr, ptr @optarg, align 8
-  %78 = call i32 @atoi(ptr nocapture noundef %77) #26
+  %78 = call i32 @atoi(ptr nocapture noundef %77) #27
   store i32 %78, ptr @max_connections, align 4
   br label %.backedge
 
@@ -638,7 +638,7 @@ add_stringlist_item.exit:                         ; preds = %add_stringlist_item
 
 102:                                              ; preds = %51
   %103 = load ptr, ptr @optarg, align 8
-  %104 = call i32 @atoi(ptr nocapture noundef %103) #26
+  %104 = call i32 @atoi(ptr nocapture noundef %103) #27
   store i32 %104, ptr @port, align 4
   store i1 true, ptr @port_specified_by_user, align 1
   br label %.backedge
@@ -785,7 +785,7 @@ add_stringlist_item.exit157:                      ; preds = %add_stringlist_item
 
 156:                                              ; preds = %51
   %157 = load ptr, ptr @optarg, align 8
-  %158 = call i32 @atoi(ptr nocapture noundef %157) #26
+  %158 = call i32 @atoi(ptr nocapture noundef %157) #27
   store i32 %158, ptr @max_concurrent_tests, align 4
   br label %.backedge
 
@@ -798,7 +798,7 @@ add_stringlist_item.exit157:                      ; preds = %add_stringlist_item
 162:                                              ; preds = %51
   %163 = load ptr, ptr @progname, align 8
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 2, ptr noundef nonnull @.str.40, ptr noundef %163) #23
-  call void @exit(i32 noundef 2) #25
+  call void @exit(i32 noundef 2) #26
   unreachable
 
 .lr.ph:                                           ; preds = %.preheader231, %add_stringlist_item.exit162
@@ -1209,7 +1209,7 @@ make_temp_sockdir.exit.i:                         ; preds = %313
   unreachable
 
 .lr.ph30.i.i:                                     ; preds = %.preheader.i.i167, %414
-  %376 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %32) #26
+  %376 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %32) #27
   %377 = trunc i64 %376 to i32
   %378 = icmp sgt i32 %377, 0
   br i1 %378, label %.lr.ph.i.i, label %.critedge.i.i
@@ -1238,7 +1238,7 @@ make_temp_sockdir.exit.i:                         ; preds = %313
   br i1 %390, label %381, label %.critedge.i.i, !llvm.loop !9
 
 .critedge.i.i:                                    ; preds = %389, %381, %.lr.ph30.i.i
-  %391 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %32, i32 noundef 58) #26
+  %391 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %32, i32 noundef 58) #27
   %.not24.i.i = icmp eq ptr %391, null
   br i1 %.not24.i.i, label %392, label %393
 
@@ -1249,7 +1249,7 @@ make_temp_sockdir.exit.i:                         ; preds = %313
 393:                                              ; preds = %.critedge.i.i
   %394 = getelementptr i8, ptr %391, i64 1
   store i8 0, ptr %391, align 1
-  %395 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %394, i32 noundef 58) #26
+  %395 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %394, i32 noundef 58) #27
   %.not25.i.i = icmp eq ptr %395, null
   br i1 %.not25.i.i, label %396, label %397
 
@@ -1260,7 +1260,7 @@ make_temp_sockdir.exit.i:                         ; preds = %313
 397:                                              ; preds = %393
   %398 = getelementptr i8, ptr %395, i64 1
   store i8 0, ptr %395, align 1
-  %399 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %398, i32 noundef 61) #26
+  %399 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %398, i32 noundef 61) #27
   %.not26.i.i = icmp eq ptr %399, null
   br i1 %.not26.i.i, label %400, label %401
 
@@ -1632,7 +1632,7 @@ split:                                            ; preds = %546, %._crit_edge29
   br i1 %.not121, label %.lr.ph297.preheader, label %576
 
 576:                                              ; preds = %574
-  %577 = call i32 @atoi(ptr nocapture noundef nonnull %575) #26
+  %577 = call i32 @atoi(ptr nocapture noundef nonnull %575) #27
   %578 = icmp slt i32 %577, 1
   %spec.store.select = select i1 %578, i32 60, i32 %577
   %579 = mul i32 %spec.store.select, 20
@@ -1981,7 +1981,7 @@ create_role.exit:                                 ; preds = %._crit_edge.i
 .lr.ph195.i:                                      ; preds = %.preheader159.i, %.backedge.i
   %.0194.i = phi i32 [ %686, %.backedge.i ], [ 0, %.preheader159.i ]
   %686 = add i32 %.0194.i, 1
-  %687 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %28) #26
+  %687 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %28) #27
   %688 = trunc i64 %687 to i32
   %689 = icmp sgt i32 %688, 0
   br i1 %689, label %.lr.ph.i191, label %.critedge.i
@@ -3042,7 +3042,7 @@ file_size.exit:                                   ; preds = %1146
   br i1 %.not131, label %1169, label %1168
 
 1168:                                             ; preds = %1164
-  call void @exit(i32 noundef 1) #25
+  call void @exit(i32 noundef 1) #26
   unreachable
 
 1169:                                             ; preds = %1164
@@ -3147,7 +3147,7 @@ define internal fastcc void @help() unnamed_addr #0 {
   ret void
 }
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
@@ -3691,7 +3691,7 @@ define internal fastcc noundef zeroext i1 @results_differ(ptr nocapture noundef 
   br i1 %.not.i, label %get_expectfile.exit.thread, label %8
 
 8:                                                ; preds = %3
-  %9 = tail call ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %1, i32 noundef 46) #26
+  %9 = tail call ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %1, i32 noundef 46) #27
   %.not14.i = icmp eq ptr %9, null
   br i1 %.not14.i, label %get_expectfile.exit.thread, label %10
 
@@ -3704,14 +3704,14 @@ define internal fastcc noundef zeroext i1 @results_differ(ptr nocapture noundef 
 .lr.ph.i:                                         ; preds = %10, %20
   %.019.i = phi ptr [ %.0.i, %20 ], [ %.017.i, %10 ]
   %12 = load ptr, ptr %.019.i, align 8
-  %13 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %12) #26
+  %13 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %12) #27
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %15, label %20
 
 15:                                               ; preds = %.lr.ph.i
   %16 = getelementptr inbounds i8, ptr %.019.i, i64 8
   %17 = load ptr, ptr %16, align 8
-  %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(1) %17) #26
+  %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(1) %17) #27
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %get_expectfile.exit, label %20
 
@@ -3733,7 +3733,7 @@ get_expectfile.exit:                              ; preds = %15
   br i1 %.not, label %31, label %26
 
 26:                                               ; preds = %get_expectfile.exit
-  %27 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %4, i32 noundef 47) #26
+  %27 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %4, i32 noundef 47) #27
   %.not44 = icmp eq ptr %27, null
   br i1 %.not44, label %31, label %28
 
@@ -3805,22 +3805,22 @@ file_line_count.exit:                             ; preds = %45, %52
 55:                                               ; preds = %file_line_count.exit, %99
   %.035103 = phi i32 [ %.0.i48, %file_line_count.exit ], [ %.2, %99 ]
   %.036102 = phi i32 [ 0, %file_line_count.exit ], [ %100, %99 ]
-  %56 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %4) #26
+  %56 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %4) #27
   %57 = shl i64 %56, 32
   %sext.i = add i64 %57, 12884901888
   %58 = ashr exact i64 %sext.i, 32
-  %59 = call noalias ptr @malloc(i64 noundef %58) #27
+  %59 = call noalias ptr @malloc(i64 noundef %58) #28
   %.not.i49 = icmp eq ptr %59, null
   br i1 %.not.i49, label %.split38, label %60
 
 60:                                               ; preds = %55
-  %61 = call noalias ptr @malloc(i64 noundef %58) #27
+  %61 = call noalias ptr @malloc(i64 noundef %58) #28
   %.not21.i = icmp eq ptr %61, null
   br i1 %.not21.i, label %get_alternative_expectfile.exit.thread79, label %62
 
 62:                                               ; preds = %60
   %63 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %59, ptr noundef nonnull readonly dereferenceable(1) %4) #23
-  %64 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %59, i32 noundef 46) #26
+  %64 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %59, i32 noundef 46) #27
   %.not22.i = icmp eq ptr %64, null
   br i1 %.not22.i, label %65, label %.split
 
@@ -4093,7 +4093,7 @@ attributes #4 = { mustprogress nofree nosync nounwind willreturn memory(none) "f
 attributes #5 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -4111,8 +4111,9 @@ attributes #22 = { nocallback nofree nosync nounwind willreturn memory(argmem: r
 attributes #23 = { nounwind }
 attributes #24 = { nounwind willreturn memory(none) }
 attributes #25 = { noreturn nounwind }
-attributes #26 = { nounwind willreturn memory(read) }
-attributes #27 = { nounwind allocsize(0) }
+attributes #26 = { cold noreturn nounwind }
+attributes #27 = { nounwind willreturn memory(read) }
+attributes #28 = { nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

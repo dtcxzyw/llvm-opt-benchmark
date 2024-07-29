@@ -26,40 +26,40 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef readonly %1) local_u
   br i1 %or.cond, label %7, label %9
 
 7:                                                ; preds = %2
-  %8 = tail call ptr @__errno_location() #14
+  %8 = tail call ptr @__errno_location() #15
   store i32 8, ptr %8, align 4
-  tail call void @perror(ptr noundef nonnull @.str.1) #15
-  tail call void @exit(i32 noundef 1) #16
+  tail call void @perror(ptr noundef nonnull @.str.1) #16
+  tail call void @exit(i32 noundef 1) #17
   unreachable
 
 9:                                                ; preds = %2
   %10 = load ptr, ptr %1, align 8
-  %11 = call ptr @realpath(ptr noundef readonly %10, ptr noundef nonnull %3) #17
+  %11 = call ptr @realpath(ptr noundef readonly %10, ptr noundef nonnull %3) #18
   %.not.i = icmp eq ptr %11, null
   br i1 %.not.i, label %getJavaPath.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %9, %.lr.ph.i
   %.08.i = phi i32 [ %13, %.lr.ph.i ], [ 0, %9 ]
-  %12 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %3, i32 noundef 47) #18
+  %12 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %3, i32 noundef 47) #19
   store i8 0, ptr %12, align 1
   %13 = add nuw nsw i32 %.08.i, 1
   %exitcond.not.i = icmp eq i32 %13, 2
   br i1 %exitcond.not.i, label %.critedge.sink.split, label %.lr.ph.i, !llvm.loop !6
 
 getJavaPath.exit:                                 ; preds = %9
-  %14 = tail call ptr @__errno_location() #14
+  %14 = tail call ptr @__errno_location() #15
   %15 = load i32, ptr %14, align 4
   %.not = icmp eq i32 %15, 0
   br i1 %.not, label %.critedge, label %16
 
 16:                                               ; preds = %getJavaPath.exit
-  %17 = call ptr @realpath(ptr noundef nonnull readonly @.str, ptr noundef nonnull %3) #17
+  %17 = call ptr @realpath(ptr noundef nonnull readonly @.str, ptr noundef nonnull %3) #18
   %.not.i43 = icmp eq ptr %17, null
   br i1 %.not.i43, label %getJavaPath.exit52, label %.lr.ph.i45
 
 .lr.ph.i45:                                       ; preds = %16, %.lr.ph.i45
   %.08.i46 = phi i32 [ %19, %.lr.ph.i45 ], [ 0, %16 ]
-  %18 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %3, i32 noundef 47) #18
+  %18 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %3, i32 noundef 47) #19
   store i8 0, ptr %18, align 1
   %19 = add nuw nsw i32 %.08.i46, 1
   %exitcond.not.i47 = icmp eq i32 %19, 2
@@ -71,8 +71,8 @@ getJavaPath.exit52:                               ; preds = %16
   br i1 %21, label %.critedge, label %22
 
 22:                                               ; preds = %getJavaPath.exit52
-  call void @perror(ptr noundef nonnull @.str.2) #15
-  call void @exit(i32 noundef 1) #16
+  call void @perror(ptr noundef nonnull @.str.2) #16
+  call void @exit(i32 noundef 1) #17
   unreachable
 
 .critedge.sink.split:                             ; preds = %.lr.ph.i, %.lr.ph.i45
@@ -86,43 +86,43 @@ getJavaPath.exit52:                               ; preds = %16
   br i1 %23, label %24, label %31
 
 24:                                               ; preds = %.critedge
-  %25 = tail call ptr @__errno_location() #14
+  %25 = tail call ptr @__errno_location() #15
   %26 = load i32, ptr %25, align 4
   %.not.i55 = icmp eq i32 %26, 0
   br i1 %.not.i55, label %28, label %27
 
 27:                                               ; preds = %24
-  call void @perror(ptr noundef nonnull @.str.3) #15
+  call void @perror(ptr noundef nonnull @.str.3) #16
   br label %28
 
 28:                                               ; preds = %27, %24
   %29 = icmp ne i32 %26, 0
   %30 = zext i1 %29 to i32
-  call void @exit(i32 noundef %30) #16
+  call void @exit(i32 noundef %30) #20
   unreachable
 
 31:                                               ; preds = %.critedge
   %32 = shl nuw nsw i32 %0, 3
   %33 = add nuw nsw i32 %32, 16
   %34 = zext nneg i32 %33 to i64
-  %35 = call noalias ptr @malloc(i64 noundef %34) #19
+  %35 = call noalias ptr @malloc(i64 noundef %34) #21
   %36 = icmp eq ptr %35, null
   br i1 %36, label %37, label %44
 
 37:                                               ; preds = %31
-  %38 = tail call ptr @__errno_location() #14
+  %38 = tail call ptr @__errno_location() #15
   %39 = load i32, ptr %38, align 4
   %.not.i57 = icmp eq i32 %39, 0
   br i1 %.not.i57, label %41, label %40
 
 40:                                               ; preds = %37
-  call void @perror(ptr noundef nonnull @.str.4) #15
+  call void @perror(ptr noundef nonnull @.str.4) #16
   br label %41
 
 41:                                               ; preds = %40, %37
   %42 = icmp ne i32 %39, 0
   %43 = zext i1 %42 to i32
-  call void @exit(i32 noundef %43) #16
+  call void @exit(i32 noundef %43) #20
   unreachable
 
 44:                                               ; preds = %31
@@ -135,24 +135,24 @@ getJavaPath.exit52:                               ; preds = %16
 47:                                               ; preds = %44
   %48 = getelementptr inbounds i8, ptr %1, i64 8
   %49 = load ptr, ptr %48, align 8
-  %50 = call ptr @realpath(ptr noundef %49, ptr noundef nonnull %4) #17
+  %50 = call ptr @realpath(ptr noundef %49, ptr noundef nonnull %4) #18
   %51 = icmp eq ptr %50, null
   br i1 %51, label %52, label %59
 
 52:                                               ; preds = %47
-  %53 = tail call ptr @__errno_location() #14
+  %53 = tail call ptr @__errno_location() #15
   %54 = load i32, ptr %53, align 4
   %.not.i59 = icmp eq i32 %54, 0
   br i1 %.not.i59, label %56, label %55
 
 55:                                               ; preds = %52
-  call void @perror(ptr noundef nonnull @.str.6) #15
+  call void @perror(ptr noundef nonnull @.str.6) #16
   br label %56
 
 56:                                               ; preds = %55, %52
   %57 = icmp ne i32 %54, 0
   %58 = zext i1 %57 to i32
-  call void @exit(i32 noundef %58) #16
+  call void @exit(i32 noundef %58) #20
   unreachable
 
 59:                                               ; preds = %47
@@ -161,19 +161,19 @@ getJavaPath.exit52:                               ; preds = %16
   br i1 %.not42, label %68, label %61
 
 61:                                               ; preds = %59
-  %62 = tail call ptr @__errno_location() #14
+  %62 = tail call ptr @__errno_location() #15
   %63 = load i32, ptr %62, align 4
   %.not.i61 = icmp eq i32 %63, 0
   br i1 %.not.i61, label %65, label %64
 
 64:                                               ; preds = %61
-  call void @perror(ptr noundef nonnull %60) #15
+  call void @perror(ptr noundef nonnull %60) #16
   br label %65
 
 65:                                               ; preds = %64, %61
   %66 = icmp ne i32 %63, 0
   %67 = zext i1 %66 to i32
-  call void @exit(i32 noundef %67) #16
+  call void @exit(i32 noundef %67) #20
   unreachable
 
 68:                                               ; preds = %59
@@ -209,47 +209,47 @@ getJavaPath.exit52:                               ; preds = %16
   %.pre-phi = phi i64 [ %72, %70 ], [ %wide.trip.count, %.lr.ph.preheader ]
   %83 = getelementptr inbounds ptr, ptr %35, i64 %.pre-phi
   store ptr null, ptr %83, align 8
-  %84 = call i32 @execv(ptr noundef nonnull %3, ptr noundef nonnull %35) #17
-  call void @free(ptr noundef nonnull %35) #17
-  %85 = tail call ptr @__errno_location() #14
+  %84 = call i32 @execv(ptr noundef nonnull %3, ptr noundef nonnull %35) #18
+  call void @free(ptr noundef nonnull %35) #18
+  %85 = tail call ptr @__errno_location() #15
   %86 = load i32, ptr %85, align 4
   %.not.i63 = icmp eq i32 %86, 0
   br i1 %.not.i63, label %88, label %87
 
 87:                                               ; preds = %._crit_edge
-  call void @perror(ptr noundef nonnull @.str.7) #15
+  call void @perror(ptr noundef nonnull @.str.7) #16
   br label %88
 
 88:                                               ; preds = %87, %._crit_edge
   %89 = icmp ne i32 %86, 0
   %90 = zext i1 %89 to i32
-  call void @exit(i32 noundef %90) #16
+  call void @exit(i32 noundef %90) #20
   unreachable
 }
 
-; Function Attrs: noreturn nounwind uwtable
-define hidden void @errorExit(i32 noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+; Function Attrs: nofree noreturn nounwind uwtable
+define hidden void @errorExit(i32 noundef %0, ptr noundef readonly %1) local_unnamed_addr #1 {
   %.not = icmp eq i32 %0, 0
   br i1 %.not, label %6, label %3
 
 3:                                                ; preds = %2
-  %4 = tail call ptr @__errno_location() #14
+  %4 = tail call ptr @__errno_location() #15
   store i32 %0, ptr %4, align 4
   %.not4 = icmp eq ptr %1, null
   %5 = select i1 %.not4, ptr @.str.8, ptr %1
-  tail call void @perror(ptr noundef nonnull %5) #15
+  tail call void @perror(ptr noundef nonnull %5) #16
   br label %6
 
 6:                                                ; preds = %3, %2
   %7 = icmp ne i32 %0, 0
   %8 = zext i1 %7 to i32
-  tail call void @exit(i32 noundef %8) #16
+  tail call void @exit(i32 noundef %8) #20
   unreachable
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden i32 @getJavaPath(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
-  %4 = tail call ptr @realpath(ptr noundef %0, ptr noundef %1) #17
+define hidden i32 @getJavaPath(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #2 {
+  %4 = tail call ptr @realpath(ptr noundef %0, ptr noundef %1) #18
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %8, label %.preheader
 
@@ -259,7 +259,7 @@ define hidden i32 @getJavaPath(ptr nocapture noundef readonly %0, ptr noundef %1
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.08 = phi i32 [ %7, %.lr.ph ], [ 0, %.preheader ]
-  %6 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 47) #18
+  %6 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 47) #19
   store i8 0, ptr %6, align 1
   %7 = add nuw nsw i32 %.08, 1
   %exitcond.not = icmp eq i32 %7, %2
@@ -272,7 +272,7 @@ define hidden i32 @getJavaPath(ptr nocapture noundef readonly %0, ptr noundef %1
   br label %11
 
 8:                                                ; preds = %3
-  %9 = tail call ptr @__errno_location() #14
+  %9 = tail call ptr @__errno_location() #15
   %10 = load i32, ptr %9, align 4
   br label %11
 
@@ -282,24 +282,24 @@ define hidden i32 @getJavaPath(ptr nocapture noundef readonly %0, ptr noundef %1
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #2
+declare ptr @__errno_location() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @realpath(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #4
+declare noundef ptr @realpath(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @isJar(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
-  %2 = tail call i32 (ptr, i32, ...) @open64(ptr noundef %0, i32 noundef 0) #17
+define hidden noundef ptr @isJar(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
+  %2 = tail call i32 (ptr, i32, ...) @open64(ptr noundef %0, i32 noundef 0) #18
   %.not = icmp eq i32 %2, -1
   br i1 %.not, label %34, label %3
 
 3:                                                ; preds = %1
   %4 = tail call ptr @llvm.stacksave.p0()
   %5 = alloca [65535 x i8], align 16
-  %6 = call i64 @read(i32 noundef %2, ptr noundef nonnull %5, i64 noundef 65535) #17
+  %6 = call i64 @read(i32 noundef %2, ptr noundef nonnull %5, i64 noundef 65535) #18
   %7 = icmp sgt i64 %6, 34
   br i1 %7, label %8, label %.loopexit
 
@@ -342,13 +342,13 @@ define hidden noundef ptr @isJar(ptr nocapture noundef readonly %0) local_unname
 
 .loopexit:                                        ; preds = %22, %11, %8, %3
   %.0.ph = phi ptr [ @.str.10, %3 ], [ @.str.11, %8 ], [ @.str.11, %11 ], [ @.str.11, %22 ]
-  %32 = tail call ptr @__errno_location() #14
+  %32 = tail call ptr @__errno_location() #15
   store i32 8, ptr %32, align 4
   br label %.loopexit33
 
 .loopexit33:                                      ; preds = %23, %.loopexit
   %.032 = phi ptr [ %.0.ph, %.loopexit ], [ null, %23 ]
-  %33 = tail call i32 @close(i32 noundef %2) #17
+  %33 = tail call i32 @close(i32 noundef %2) #18
   tail call void @llvm.stackrestore.p0(ptr %4)
   br label %34
 
@@ -358,60 +358,62 @@ define hidden noundef ptr @isJar(ptr nocapture noundef readonly %0) local_unname
 }
 
 ; Function Attrs: nofree nounwind
-declare i32 @execv(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @execv(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare void @perror(ptr nocapture noundef readonly) local_unnamed_addr #4
+declare void @perror(ptr nocapture noundef readonly) local_unnamed_addr #5
 
-; Function Attrs: noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #7
+; Function Attrs: nofree noreturn nounwind
+declare void @exit(i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nofree
-declare noundef i32 @open64(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #9
+declare noundef i32 @open64(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare ptr @llvm.stacksave.p0() #10
+declare ptr @llvm.stacksave.p0() #11
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #9
+declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #10
 
-declare i32 @close(i32 noundef) local_unnamed_addr #11
+declare i32 @close(i32 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.stackrestore.p0(ptr) #10
+declare void @llvm.stackrestore.p0(ptr) #11
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture) local_unnamed_addr #12
+declare i64 @strlen(ptr nocapture) local_unnamed_addr #13
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #13
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #14
 
 attributes #0 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #11 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #14 = { nounwind willreturn memory(none) }
-attributes #15 = { cold }
-attributes #16 = { noreturn nounwind }
-attributes #17 = { nounwind }
-attributes #18 = { nounwind willreturn memory(read) }
-attributes #19 = { nounwind allocsize(0) }
+attributes #1 = { nofree noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #12 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #14 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #15 = { nounwind willreturn memory(none) }
+attributes #16 = { cold }
+attributes #17 = { cold noreturn nounwind }
+attributes #18 = { nounwind }
+attributes #19 = { nounwind willreturn memory(read) }
+attributes #20 = { noreturn nounwind }
+attributes #21 = { nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

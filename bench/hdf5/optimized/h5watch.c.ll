@@ -218,13 +218,13 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %26 = tail call ptr @h5tools_getprogname() #20
   tail call fastcc void @usage(ptr noundef %26)
   tail call void @h5tools_close() #20
-  tail call void @exit(i32 noundef 0) #21
+  tail call void @exit(i32 noundef 0) #22
   unreachable
 
 27:                                               ; preds = %.lr.ph.i
   tail call void @print_version(ptr noundef nonnull @.str) #20
   tail call void @h5tools_close() #20
-  tail call void @exit(i32 noundef 0) #21
+  tail call void @exit(i32 noundef 0) #22
   unreachable
 
 28:                                               ; preds = %.lr.ph.i
@@ -301,11 +301,11 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   unreachable
 
 57:                                               ; preds = %54
-  %58 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %47) #22
-  %59 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %50) #22
+  %58 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %47) #23
+  %59 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %50) #23
   %60 = add i64 %58, 2
   %61 = add i64 %60, %59
-  %62 = tail call ptr @realloc(ptr noundef nonnull %47, i64 noundef %61) #23
+  %62 = tail call ptr @realloc(ptr noundef nonnull %47, i64 noundef %61) #24
   store ptr %62, ptr @g_list_of_fields, align 8
   %63 = icmp eq ptr %62, null
   br i1 %63, label %64, label %65
@@ -412,7 +412,7 @@ parse_command_line.exit:                          ; preds = %._crit_edge.i
   br i1 %97, label %109, label %98
 
 98:                                               ; preds = %.lr.ph
-  %99 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %78, i32 noundef 47) #22
+  %99 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %78, i32 noundef 47) #23
   %.not59 = icmp eq ptr %.141107, null
   br i1 %.not59, label %101, label %100
 
@@ -706,7 +706,7 @@ check_dataset.exit:                               ; preds = %164, %166
 203:                                              ; preds = %202, %199, %197
   %204 = call i32 @h5tools_getstatus() #20
   call void @h5tools_close() #20
-  call void @exit(i32 noundef %204) #21
+  call void @exit(i32 noundef %204) #22
   unreachable
 }
 
@@ -876,10 +876,10 @@ define internal fastcc range(i32 -1, 1) i32 @process_cmpd_fields(i64 noundef %0,
   br label %35
 
 24:                                               ; preds = %19
-  %25 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %20) #22
+  %25 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %20) #23
   %26 = lshr i64 %25, 1
   %27 = add nuw i64 %26, 2
-  %28 = tail call noalias ptr @calloc(i64 noundef %27, i64 noundef 8) #24
+  %28 = tail call noalias ptr @calloc(i64 noundef %27, i64 noundef 8) #25
   store ptr %28, ptr @g_listv, align 8
   %29 = icmp eq ptr %28, null
   br i1 %29, label %30, label %31
@@ -1172,7 +1172,7 @@ declare i32 @H5Fclose(i64 noundef) local_unnamed_addr #1
 
 declare void @h5tools_close() local_unnamed_addr #1
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #10
 
 declare i32 @H5_get_option(i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -1526,7 +1526,7 @@ attributes #6 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true
 attributes #7 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1537,10 +1537,11 @@ attributes #17 = { nofree nounwind }
 attributes #18 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #19 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #20 = { nounwind }
-attributes #21 = { noreturn nounwind }
-attributes #22 = { nounwind willreturn memory(read) }
-attributes #23 = { nounwind allocsize(1) }
-attributes #24 = { nounwind allocsize(0,1) }
+attributes #21 = { cold noreturn nounwind }
+attributes #22 = { noreturn nounwind }
+attributes #23 = { nounwind willreturn memory(read) }
+attributes #24 = { nounwind allocsize(1) }
+attributes #25 = { nounwind allocsize(0,1) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

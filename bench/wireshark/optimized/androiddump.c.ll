@@ -3970,7 +3970,7 @@ define internal fastcc { i32, ptr } @extcap_dumper_open(ptr noundef %0, i32 noun
   %11 = load i32, ptr %4, align 4
   %12 = load ptr, ptr %5, align 8
   call void @cfile_dump_open_failure_message(ptr noundef %0, i32 noundef %11, ptr noundef %12, i32 noundef %8) #16
-  call void @exit(i32 noundef 4) #18
+  call void @exit(i32 noundef 4) #21
   unreachable
 
 13:                                               ; preds = %2
@@ -3981,7 +3981,7 @@ define internal fastcc { i32, ptr } @extcap_dumper_open(ptr noundef %0, i32 noun
 15:                                               ; preds = %13
   %16 = load i32, ptr %4, align 4
   call void @cfile_dump_open_failure_message(ptr noundef %0, i32 noundef %16, ptr noundef null, i32 noundef %8) #16
-  call void @exit(i32 noundef 4) #18
+  call void @exit(i32 noundef 4) #21
   unreachable
 
 17:                                               ; preds = %13
@@ -4079,7 +4079,7 @@ declare i32 @wtap_pcap_nsec_file_type_subtype() local_unnamed_addr #1
 
 declare ptr @wtap_dump_open(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #12
 
 declare i32 @wtap_dump_flush(ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -4128,7 +4128,7 @@ attributes #8 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true
 attributes #9 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { nofree nounwind willreturn memory(argmem: read) }
 attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #15 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
@@ -4137,6 +4137,7 @@ attributes #17 = { nounwind allocsize(0,1) }
 attributes #18 = { noreturn nounwind }
 attributes #19 = { nounwind willreturn memory(read) }
 attributes #20 = { nounwind willreturn memory(none) }
+attributes #21 = { cold noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

@@ -4080,7 +4080,7 @@ if.end.i.i:                                       ; preds = %while.body.i.i
 
 while.end.i.i104:                                 ; preds = %if.end.i.i
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.34, i32 noundef 117, ptr noundef nonnull @.str.4)
-  tail call void @exit(i32 noundef 114) #19
+  tail call void @exit(i32 noundef 114) #23
   unreachable
 
 _ZN3euf5enode14replace_th_varEii.exit:            ; preds = %while.body.i.i
@@ -4220,7 +4220,7 @@ if.then25.i.i:                                    ; preds = %while.body.i.i
 
 while.end.i.i:                                    ; preds = %while.cond.i.i
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.34, i32 noundef 150, ptr noundef nonnull @.str.4)
-  tail call void @exit(i32 noundef 114) #19
+  tail call void @exit(i32 noundef 114) #23
   unreachable
 
 _ZN3euf5enode10del_th_varEi.exit:                 ; preds = %if.then2.i.i, %if.else.i.i, %if.then25.i.i
@@ -4312,7 +4312,7 @@ if.then25.i.i48:                                  ; preds = %while.body.i.i43
 
 while.end.i.i51:                                  ; preds = %while.cond.i.i38
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.34, i32 noundef 150, ptr noundef nonnull @.str.4)
-  tail call void @exit(i32 noundef 114) #19
+  tail call void @exit(i32 noundef 114) #23
   unreachable
 
 if.end:                                           ; preds = %if.then25.i.i48, %if.else.i.i55, %if.then2.i.i64, %_ZNK3euf5enode10get_th_varEi.exit32, %_ZN3euf5enode10del_th_varEi.exit
@@ -4515,7 +4515,7 @@ lor.lhs.false22:                                  ; preds = %lor.lhs.false
 
 if.then24:                                        ; preds = %lor.lhs.false22
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str, i32 noundef 341, ptr noundef nonnull @.str.2)
-  tail call void @exit(i32 noundef 114) #19
+  tail call void @exit(i32 noundef 114) #23
   unreachable
 
 if.end25:                                         ; preds = %entry, %lor.lhs.false22, %lor.lhs.false, %if.end18
@@ -4579,7 +4579,7 @@ declare noundef zeroext i1 @_ZNK3euf6etable8containsEPNS_5enodeE(ptr noundef non
 
 declare void @_Z26notify_assertion_violationPKciS0_(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
@@ -5101,7 +5101,7 @@ if.end.i.i:                                       ; preds = %while.body.i.i
 
 while.end.i.i:                                    ; preds = %if.end.i.i
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.34, i32 noundef 117, ptr noundef nonnull @.str.4)
-  tail call void @exit(i32 noundef 114) #19
+  tail call void @exit(i32 noundef 114) #23
   unreachable
 
 _ZN3euf5enode14replace_th_varEii.exit:            ; preds = %while.body.i.i
@@ -5141,7 +5141,7 @@ sw.bb28:                                          ; preds = %for.body
 
 if.then32:                                        ; preds = %sw.bb28
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str, i32 noundef 430, ptr noundef nonnull @.str.3)
-  tail call void @exit(i32 noundef 114) #19
+  tail call void @exit(i32 noundef 114) #23
   unreachable
 
 if.end33:                                         ; preds = %sw.bb28
@@ -5211,7 +5211,7 @@ sw.bb50:                                          ; preds = %for.body
 
 sw.default:                                       ; preds = %for.body
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str, i32 noundef 453, ptr noundef nonnull @.str.4)
-  tail call void @exit(i32 noundef 114) #19
+  tail call void @exit(i32 noundef 114) #23
   unreachable
 
 sw.epilog:                                        ; preds = %for.body47, %for.cond43.preheader, %if.then2.i.i.i.i.i, %if.then.i.i.i.i22.i, %_ZN6vectorIP4exprLb0EjE4backEv.exit.i.i, %sw.bb50, %sw.bb39, %sw.bb37, %sw.bb35, %if.end33, %sw.bb27, %sw.bb26, %sw.bb25, %_ZN3euf5enode14replace_th_varEii.exit, %sw.bb20, %sw.bb18, %_ZNK3euf5enode8merge_tfEv.exit, %sw.bb13
@@ -7554,7 +7554,7 @@ lor.lhs.false:                                    ; preds = %land.lhs.true16
 
 if.then:                                          ; preds = %lor.lhs.false, %land.lhs.true16
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str, i32 noundef 868, ptr noundef nonnull @.str.4)
-  tail call void @exit(i32 noundef 114) #19
+  tail call void @exit(i32 noundef 114) #23
   unreachable
 
 for.inc23:                                        ; preds = %for.body11, %land.lhs.true, %lor.lhs.false
@@ -8670,12 +8670,12 @@ sw.bb3:                                           ; preds = %entry
 
 sw.bb4:                                           ; preds = %entry
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.40, i32 noundef 113, ptr noundef nonnull @.str.41)
-  tail call void @exit(i32 noundef 107) #19
+  tail call void @exit(i32 noundef 107) #23
   unreachable
 
 sw.default:                                       ; preds = %entry
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.40, i32 noundef 116, ptr noundef nonnull @.str.4)
-  tail call void @exit(i32 noundef 114) #19
+  tail call void @exit(i32 noundef 114) #23
   unreachable
 
 return:                                           ; preds = %sw.bb3, %sw.bb2, %_ZNKSt8functionIFPvS0_EEclES0_.exit
@@ -12707,7 +12707,7 @@ attributes #3 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-w
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -12723,6 +12723,7 @@ attributes #19 = { noreturn nounwind }
 attributes #20 = { nounwind }
 attributes #21 = { builtin nounwind }
 attributes #22 = { noreturn }
+attributes #23 = { cold noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

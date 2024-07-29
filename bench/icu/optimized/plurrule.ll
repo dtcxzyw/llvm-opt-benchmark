@@ -6616,8 +6616,8 @@ return:                                           ; preds = %entry, %do.end
   ret i8 %retval.0
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define noundef range(i32 0, 7) i32 @_ZN6icu_7524tokenTypeToPluralOperandENS_9tokenTypeE(i32 noundef %tt) local_unnamed_addr #0 {
+; Function Attrs: mustprogress nofree nounwind uwtable
+define noundef range(i32 0, 7) i32 @_ZN6icu_7524tokenTypeToPluralOperandENS_9tokenTypeE(i32 noundef %tt) local_unnamed_addr #10 {
 entry:
   %switch.tableidx = add i32 %tt, -21
   %0 = icmp ult i32 %switch.tableidx, 7
@@ -7368,7 +7368,7 @@ entry:
 declare noundef i32 @_ZNK6icu_7513UnicodeString7extractEiiPciNS0_10EInvariantE(ptr noundef nonnull align 8 dereferenceable(64), i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #10
+declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN6icu_7516PluralRuleParser10getKeyTypeERKNS_13UnicodeStringENS_9tokenTypeE(ptr noundef nonnull align 8 dereferenceable(64) %token, i32 noundef %keyType) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
@@ -7978,7 +7978,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK6icu_7524PluralKeywordEnumeration5countER10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %this, ptr nocapture nonnull readnone align 4 %0) unnamed_addr #11 align 2 {
+define noundef i32 @_ZNK6icu_7524PluralKeywordEnumeration5countER10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %this, ptr nocapture nonnull readnone align 4 %0) unnamed_addr #12 align 2 {
 entry:
   %count.i = getelementptr inbounds i8, ptr %this, i64 128
   %1 = load i32, ptr %count.i, align 8
@@ -8003,8 +8003,8 @@ entry:
   ret void
 }
 
-; Function Attrs: noreturn nounwind
-declare void @abort() local_unnamed_addr #12
+; Function Attrs: cold nofree noreturn nounwind
+declare void @abort() local_unnamed_addr #13
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7512FixedDecimalC2Edilii(ptr noundef nonnull align 8 dereferenceable(64) %this, double noundef %n, i32 noundef %v, i64 noundef %f, i32 noundef %e, i32 noundef %c) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
@@ -9419,7 +9419,7 @@ declare noundef nonnull align 8 dereferenceable(66) ptr @_ZN6icu_756number4impl1
 declare noundef double @_ZNK6icu_756number4impl15DecimalQuantity8toDoubleEv(ptr noundef nonnull align 8 dereferenceable(66)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6icu_7512FixedDecimalC2ERKS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %other) unnamed_addr #13 align 2 {
+define void @_ZN6icu_7512FixedDecimalC2ERKS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %other) unnamed_addr #14 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512FixedDecimalE, i64 16), ptr %this, align 8
@@ -9477,7 +9477,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define void @_ZThn8_N6icu_7512FixedDecimalD1Ev(ptr noundef %this) unnamed_addr #14 align 2 {
+define void @_ZThn8_N6icu_7512FixedDecimalD1Ev(ptr noundef %this) unnamed_addr #15 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
   tail call void @_ZN6icu_7512FixedDecimalD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) #26
@@ -9493,7 +9493,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define void @_ZThn8_N6icu_7512FixedDecimalD0Ev(ptr noundef %this) unnamed_addr #14 align 2 {
+define void @_ZThn8_N6icu_7512FixedDecimalD0Ev(ptr noundef %this) unnamed_addr #15 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
   tail call void @_ZN6icu_7512FixedDecimalD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) #26
@@ -9564,7 +9564,7 @@ _ZN6icu_7512FixedDecimal19getFractionalDigitsEdi.exit: ; preds = %entry, %lor.lh
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noundef i32 @_ZN6icu_7512FixedDecimal8decimalsEd(double noundef %n) local_unnamed_addr #15 align 2 {
+define noundef i32 @_ZN6icu_7512FixedDecimal8decimalsEd(double noundef %n) local_unnamed_addr #10 align 2 {
 entry:
   %buf = alloca [30 x i8], align 16
   %0 = tail call double @llvm.fabs.f64(double %n)
@@ -9812,8 +9812,8 @@ if.end7:                                          ; preds = %for.end, %entry
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define noundef double @_ZNK6icu_7512FixedDecimal16getPluralOperandENS_13PluralOperandE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, i32 noundef %operand) unnamed_addr #0 align 2 {
+; Function Attrs: mustprogress nofree nounwind uwtable
+define noundef double @_ZNK6icu_7512FixedDecimal16getPluralOperandENS_13PluralOperandE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, i32 noundef %operand) unnamed_addr #10 align 2 {
 entry:
   switch i32 %operand, label %sw.default [
     i32 0, label %sw.bb
@@ -9933,7 +9933,7 @@ return:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK6icu_7512FixedDecimal5isNaNEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this) unnamed_addr #11 align 2 {
+define noundef zeroext i1 @_ZNK6icu_7512FixedDecimal5isNaNEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this) unnamed_addr #12 align 2 {
 entry:
   %_isNaN = getelementptr inbounds i8, ptr %this, i64 62
   %0 = load i8, ptr %_isNaN, align 2
@@ -9942,7 +9942,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK6icu_7512FixedDecimal10isInfiniteEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this) unnamed_addr #11 align 2 {
+define noundef zeroext i1 @_ZNK6icu_7512FixedDecimal10isInfiniteEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this) unnamed_addr #12 align 2 {
 entry:
   %_isInfinite = getelementptr inbounds i8, ptr %this, i64 63
   %0 = load i8, ptr %_isInfinite, align 1
@@ -9951,7 +9951,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK6icu_7512FixedDecimal15hasIntegerValueEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this) unnamed_addr #11 align 2 {
+define noundef zeroext i1 @_ZNK6icu_7512FixedDecimal15hasIntegerValueEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this) unnamed_addr #12 align 2 {
 entry:
   %_hasIntegerValue = getelementptr inbounds i8, ptr %this, i64 60
   %0 = load i8, ptr %_hasIntegerValue, align 4
@@ -9960,7 +9960,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK6icu_7512FixedDecimal15isNanOrInfinityEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this) local_unnamed_addr #11 align 2 {
+define noundef zeroext i1 @_ZNK6icu_7512FixedDecimal15isNanOrInfinityEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this) local_unnamed_addr #12 align 2 {
 entry:
   %_isNaN = getelementptr inbounds i8, ptr %this, i64 62
   %0 = load i8, ptr %_isNaN, align 2
@@ -9973,7 +9973,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK6icu_7512FixedDecimal28getVisibleFractionDigitCountEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this) local_unnamed_addr #11 align 2 {
+define noundef i32 @_ZNK6icu_7512FixedDecimal28getVisibleFractionDigitCountEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this) local_unnamed_addr #12 align 2 {
 entry:
   %visibleDecimalDigitCount = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i32, ptr %visibleDecimalDigitCount, align 8
@@ -9981,7 +9981,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK6icu_7512FixedDecimaleqERKS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %other) local_unnamed_addr #11 align 2 {
+define noundef zeroext i1 @_ZNK6icu_7512FixedDecimaleqERKS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %other) local_unnamed_addr #12 align 2 {
 entry:
   %source = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load double, ptr %source, align 8
@@ -10611,12 +10611,12 @@ attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #9 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #17 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #18 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

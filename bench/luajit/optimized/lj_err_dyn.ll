@@ -825,7 +825,7 @@ if.end:                                           ; preds = %if.then, %entry
   unreachable
 }
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #4
 
 declare hidden ptr @lj_str_new(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
@@ -844,7 +844,7 @@ entry:
 if.then:                                          ; preds = %entry
   %cframe = getelementptr inbounds i8, ptr %L, i64 80
   %1 = load ptr, ptr %cframe, align 8
-  tail call void @lj_vm_unwind_c(ptr noundef %1, i32 noundef 4) #13
+  tail call void @lj_vm_unwind_c(ptr noundef %1, i32 noundef 4) #14
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -902,7 +902,7 @@ if.end20:                                         ; preds = %if.end5.if.end20_cr
   %14 = ptrtoint ptr %call to i64
   %or.i.i = or i64 %14, -703687441776640
   store i64 %or.i.i, ptr %13, align 8
-  tail call void @lj_err_throw(ptr noundef nonnull %L, i32 noundef 4) #14
+  tail call void @lj_err_throw(ptr noundef nonnull %L, i32 noundef 4) #15
   unreachable
 }
 
@@ -1114,7 +1114,7 @@ if.then12:                                        ; preds = %lor.lhs.false, %if.
   %30 = ptrtoint ptr %call14 to i64
   %or.i.i = or i64 %30, -703687441776640
   store i64 %or.i.i, ptr %add.ptr13, align 8
-  tail call void @lj_err_throw(ptr noundef nonnull %L, i32 noundef 5) #14
+  tail call void @lj_err_throw(ptr noundef nonnull %L, i32 noundef 5) #15
   unreachable
 
 if.end:                                           ; preds = %lor.lhs.false
@@ -1132,7 +1132,7 @@ if.end:                                           ; preds = %lor.lhs.false
   br label %if.end21
 
 if.end21:                                         ; preds = %sw.bb41.i, %sw.epilog.i, %if.end15.i, %cond.false, %sw.bb57.i, %entry, %if.end, %cond.end
-  tail call void @lj_err_throw(ptr noundef %L, i32 noundef 2) #14
+  tail call void @lj_err_throw(ptr noundef %L, i32 noundef 2) #15
   unreachable
 }
 
@@ -1145,18 +1145,18 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  tail call void @lj_err_run(ptr noundef %L) #14
+  tail call void @lj_err_run(ptr noundef %L) #15
   unreachable
 
 if.else:                                          ; preds = %entry
-  tail call void @lj_err_throw(ptr noundef %L, i32 noundef %errcode) #14
+  tail call void @lj_err_throw(ptr noundef %L, i32 noundef %errcode) #15
   unreachable
 }
 
 ; Function Attrs: noreturn nounwind uwtable
 define hidden void @lj_err_msg(ptr noundef %L, i32 noundef %em) local_unnamed_addr #3 {
 entry:
-  tail call void (ptr, i32, ...) @err_msgv(ptr noundef %L, i32 noundef %em) #14
+  tail call void (ptr, i32, ...) @err_msgv(ptr noundef %L, i32 noundef %em) #15
   unreachable
 }
 
@@ -1217,7 +1217,7 @@ if.end15:                                         ; preds = %if.then5, %if.end
   %12 = load ptr, ptr %base3, align 8
   %add.ptr21 = getelementptr inbounds i8, ptr %12, i64 -8
   call void @lj_debug_addloc(ptr noundef nonnull %L, ptr noundef %call, ptr noundef nonnull %add.ptr21, ptr noundef null) #11
-  call void @lj_err_run(ptr noundef nonnull %L) #14
+  call void @lj_err_run(ptr noundef nonnull %L) #15
   unreachable
 }
 
@@ -1241,7 +1241,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  call void @lj_err_throw(ptr noundef %L, i32 noundef 3) #14
+  call void @lj_err_throw(ptr noundef %L, i32 noundef 3) #15
   unreachable
 }
 
@@ -1302,11 +1302,11 @@ if.then:                                          ; preds = %entry
 
 if.then20:                                        ; preds = %if.then
   %14 = load ptr, ptr %oname, align 8
-  call void (ptr, i32, ...) @err_msgv(ptr noundef nonnull %L, i32 noundef 241, ptr noundef %add.ptr, ptr noundef nonnull %call, ptr noundef %14, ptr noundef %1) #14
+  call void (ptr, i32, ...) @err_msgv(ptr noundef nonnull %L, i32 noundef 241, ptr noundef %add.ptr, ptr noundef nonnull %call, ptr noundef %14, ptr noundef %1) #15
   unreachable
 
 if.end21:                                         ; preds = %if.then, %entry
-  call void (ptr, i32, ...) @err_msgv(ptr noundef nonnull %L, i32 noundef 276, ptr noundef %add.ptr, ptr noundef %1) #14
+  call void (ptr, i32, ...) @err_msgv(ptr noundef nonnull %L, i32 noundef 276, ptr noundef %add.ptr, ptr noundef %1) #15
   unreachable
 }
 
@@ -1331,7 +1331,7 @@ entry:
   %3 = load ptr, ptr %arrayidx16, align 8
   %cmp17 = icmp eq ptr %1, %3
   %cond19 = select i1 %cmp17, i32 331, i32 301
-  tail call void (ptr, i32, ...) @err_msgv(ptr noundef %L, i32 noundef %cond19, ptr noundef %1, ptr noundef %3) #14
+  tail call void (ptr, i32, ...) @err_msgv(ptr noundef %L, i32 noundef %cond19, ptr noundef %1, ptr noundef %3) #15
   unreachable
 }
 
@@ -1367,11 +1367,11 @@ if.then:                                          ; preds = %entry
   store ptr %add.ptr6, ptr %base, align 8
   %top = getelementptr inbounds i8, ptr %L, i64 40
   store ptr %add.ptr6, ptr %top, align 8
-  tail call void (ptr, i32, ...) @err_msgv(ptr noundef nonnull %L, i32 noundef 214, ptr noundef %5) #14
+  tail call void (ptr, i32, ...) @err_msgv(ptr noundef nonnull %L, i32 noundef 214, ptr noundef %5) #15
   unreachable
 
 if.end:                                           ; preds = %entry
-  tail call void @lj_err_optype(ptr noundef nonnull %L, ptr noundef %o, i32 noundef 398) #14
+  tail call void @lj_err_optype(ptr noundef nonnull %L, ptr noundef %o, i32 noundef 398) #15
   unreachable
 }
 
@@ -1452,7 +1452,7 @@ if.end36:                                         ; preds = %if.then7, %if.then2
   %frame.0 = phi ptr [ null, %entry ], [ %add.ptr, %if.then2 ], [ %add.ptr, %if.then26 ], [ %add.ptr, %if.else11 ], [ %add.ptr, %if.else ], [ null, %if.then7 ]
   %pframe.0 = phi ptr [ null, %entry ], [ %add.ptr4, %if.then2 ], [ %add.ptr14, %if.then26 ], [ %add.ptr14, %if.else11 ], [ null, %if.else ], [ %add.ptr, %if.then7 ]
   tail call void @lj_debug_addloc(ptr noundef nonnull %L, ptr noundef %msg, ptr noundef %pframe.0, ptr noundef %frame.0) #11
-  tail call void @lj_err_run(ptr noundef nonnull %L) #14
+  tail call void @lj_err_run(ptr noundef nonnull %L) #15
   unreachable
 }
 
@@ -1468,7 +1468,7 @@ entry:
   %add.ptr = getelementptr inbounds i8, ptr %0, i64 %idx.ext
   %call = call ptr @lj_strfmt_pushvf(ptr noundef %L, ptr noundef %add.ptr, ptr noundef nonnull %argp) #11
   call void @llvm.va_end.p0(ptr nonnull %argp)
-  call void @lj_err_callermsg(ptr noundef %L, ptr noundef %call) #14
+  call void @lj_err_callermsg(ptr noundef %L, ptr noundef %call) #15
   unreachable
 }
 
@@ -1478,7 +1478,7 @@ entry:
   %0 = load ptr, ptr @lj_err_allmsg, align 8
   %idx.ext = sext i32 %em to i64
   %add.ptr = getelementptr inbounds i8, ptr %0, i64 %idx.ext
-  tail call void @lj_err_callermsg(ptr noundef %L, ptr noundef %add.ptr) #14
+  tail call void @lj_err_callermsg(ptr noundef %L, ptr noundef %add.ptr) #15
   unreachable
 }
 
@@ -1492,7 +1492,7 @@ entry:
   %add.ptr = getelementptr inbounds i8, ptr %0, i64 %idx.ext
   %call = call ptr @lj_strfmt_pushvf(ptr noundef %L, ptr noundef %add.ptr, ptr noundef nonnull %argp) #11
   call void @llvm.va_end.p0(ptr nonnull %argp)
-  call fastcc void @err_argmsg(ptr noundef %L, i32 noundef %narg, ptr noundef %call) #14
+  call fastcc void @err_argmsg(ptr noundef %L, i32 noundef %narg, ptr noundef %call) #15
   unreachable
 }
 
@@ -1554,7 +1554,7 @@ if.else:                                          ; preds = %land.lhs.true8, %la
 
 if.end16:                                         ; preds = %if.else, %if.then11
   %msg.addr.0 = phi ptr [ %call13, %if.then11 ], [ %call15, %if.else ]
-  call void @lj_err_callermsg(ptr noundef nonnull %L, ptr noundef %msg.addr.0) #14
+  call void @lj_err_callermsg(ptr noundef nonnull %L, ptr noundef %msg.addr.0) #15
   unreachable
 }
 
@@ -1564,7 +1564,7 @@ entry:
   %0 = load ptr, ptr @lj_err_allmsg, align 8
   %idx.ext = sext i32 %em to i64
   %add.ptr = getelementptr inbounds i8, ptr %0, i64 %idx.ext
-  tail call fastcc void @err_argmsg(ptr noundef %L, i32 noundef %narg, ptr noundef %add.ptr) #14
+  tail call fastcc void @err_argmsg(ptr noundef %L, i32 noundef %narg, ptr noundef %add.ptr) #15
   unreachable
 }
 
@@ -1642,7 +1642,7 @@ if.end52:                                         ; preds = %if.end52.sink.split
   %8 = load ptr, ptr @lj_err_allmsg, align 8
   %add.ptr53 = getelementptr inbounds i8, ptr %8, i64 517
   %call = tail call ptr (ptr, ptr, ...) @lj_strfmt_pushf(ptr noundef %L, ptr noundef nonnull %add.ptr53, ptr noundef %xname, ptr noundef %tname.0) #11
-  tail call fastcc void @err_argmsg(ptr noundef %L, i32 noundef %narg, ptr noundef %call) #14
+  tail call fastcc void @err_argmsg(ptr noundef %L, i32 noundef %narg, ptr noundef %call) #15
   unreachable
 }
 
@@ -1653,7 +1653,7 @@ entry:
   %idxprom = sext i32 %add to i64
   %arrayidx = getelementptr inbounds [12 x ptr], ptr @lj_obj_typename, i64 0, i64 %idxprom
   %0 = load ptr, ptr %arrayidx, align 8
-  tail call void @lj_err_argtype(ptr noundef %L, i32 noundef %narg, ptr noundef %0) #14
+  tail call void @lj_err_argtype(ptr noundef %L, i32 noundef %narg, ptr noundef %0) #15
   unreachable
 }
 
@@ -1672,21 +1672,21 @@ entry:
 ; Function Attrs: noreturn nounwind uwtable
 define noundef i32 @lua_error(ptr noundef %L) local_unnamed_addr #3 {
 entry:
-  tail call void @lj_err_run(ptr noundef %L) #14
+  tail call void @lj_err_run(ptr noundef %L) #15
   unreachable
 }
 
 ; Function Attrs: noreturn nounwind uwtable
 define noundef i32 @luaL_argerror(ptr noundef %L, i32 noundef %narg, ptr noundef %msg) local_unnamed_addr #3 {
 entry:
-  tail call fastcc void @err_argmsg(ptr noundef %L, i32 noundef %narg, ptr noundef %msg) #14
+  tail call fastcc void @err_argmsg(ptr noundef %L, i32 noundef %narg, ptr noundef %msg) #15
   unreachable
 }
 
 ; Function Attrs: noreturn nounwind uwtable
 define noundef i32 @luaL_typerror(ptr noundef %L, i32 noundef %narg, ptr noundef %xname) local_unnamed_addr #3 {
 entry:
-  tail call void @lj_err_argtype(ptr noundef %L, i32 noundef %narg, ptr noundef %xname) #14
+  tail call void @lj_err_argtype(ptr noundef %L, i32 noundef %narg, ptr noundef %xname) #15
   unreachable
 }
 
@@ -1713,7 +1713,7 @@ entry:
   call void @llvm.va_start.p0(ptr nonnull %argp)
   %call = call ptr @lj_strfmt_pushvf(ptr noundef %L, ptr noundef %fmt, ptr noundef nonnull %argp) #11
   call void @llvm.va_end.p0(ptr nonnull %argp)
-  call void @lj_err_callermsg(ptr noundef %L, ptr noundef %call) #14
+  call void @lj_err_callermsg(ptr noundef %L, ptr noundef %call) #15
   unreachable
 }
 
@@ -1767,7 +1767,7 @@ attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-mat
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1776,8 +1776,9 @@ attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #11 = { nounwind }
 attributes #12 = { nounwind willreturn memory(read) }
-attributes #13 = { noreturn nounwind }
-attributes #14 = { noreturn }
+attributes #13 = { cold noreturn nounwind }
+attributes #14 = { noreturn nounwind }
+attributes #15 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2}
 

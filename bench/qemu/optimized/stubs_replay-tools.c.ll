@@ -11,17 +11,17 @@ entry:
   ret i1 false
 }
 
-; Function Attrs: noreturn nounwind sspstrong uwtable
+; Function Attrs: nofree noreturn nounwind sspstrong uwtable
 define dso_local noundef i64 @replay_save_clock(i32 noundef %kind, i64 noundef %clock, i64 noundef %raw_icount) local_unnamed_addr #1 {
 entry:
   tail call void @abort() #5
   unreachable
 }
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: cold nofree noreturn nounwind
 declare void @abort() local_unnamed_addr #2
 
-; Function Attrs: noreturn nounwind sspstrong uwtable
+; Function Attrs: nofree noreturn nounwind sspstrong uwtable
 define dso_local noundef i64 @replay_read_clock(i32 noundef %kind, i64 noundef %raw_icount) local_unnamed_addr #1 {
 entry:
   tail call void @abort() #5
@@ -76,42 +76,42 @@ entry:
   ret void
 }
 
-; Function Attrs: noreturn nounwind sspstrong uwtable
+; Function Attrs: nofree noreturn nounwind sspstrong uwtable
 define dso_local void @replay_chr_be_write(ptr nocapture noundef readnone %s, ptr nocapture noundef readnone %buf, i32 noundef %len) local_unnamed_addr #1 {
 entry:
   tail call void @abort() #5
   unreachable
 }
 
-; Function Attrs: noreturn nounwind sspstrong uwtable
+; Function Attrs: nofree noreturn nounwind sspstrong uwtable
 define dso_local void @replay_char_write_event_save(i32 noundef %res, i32 noundef %offset) local_unnamed_addr #1 {
 entry:
   tail call void @abort() #5
   unreachable
 }
 
-; Function Attrs: noreturn nounwind sspstrong uwtable
+; Function Attrs: nofree noreturn nounwind sspstrong uwtable
 define dso_local void @replay_char_write_event_load(ptr nocapture noundef readnone %res, ptr nocapture noundef readnone %offset) local_unnamed_addr #1 {
 entry:
   tail call void @abort() #5
   unreachable
 }
 
-; Function Attrs: noreturn nounwind sspstrong uwtable
+; Function Attrs: nofree noreturn nounwind sspstrong uwtable
 define dso_local noundef i32 @replay_char_read_all_load(ptr nocapture noundef readnone %buf) local_unnamed_addr #1 {
 entry:
   tail call void @abort() #5
   unreachable
 }
 
-; Function Attrs: noreturn nounwind sspstrong uwtable
+; Function Attrs: nofree noreturn nounwind sspstrong uwtable
 define dso_local void @replay_char_read_all_save_error(i32 noundef %res) local_unnamed_addr #1 {
 entry:
   tail call void @abort() #5
   unreachable
 }
 
-; Function Attrs: noreturn nounwind sspstrong uwtable
+; Function Attrs: nofree noreturn nounwind sspstrong uwtable
 define dso_local void @replay_char_read_all_save_buf(ptr nocapture noundef readnone %buf, i32 noundef %offset) local_unnamed_addr #1 {
 entry:
   tail call void @abort() #5
@@ -119,8 +119,8 @@ entry:
 }
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { noreturn nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nofree noreturn nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { noreturn nounwind }

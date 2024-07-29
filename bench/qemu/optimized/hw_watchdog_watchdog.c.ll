@@ -53,16 +53,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #7
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #7
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #8
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #8
   %5 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.3, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef %0) #7
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.3, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef %0) #8
   br label %trace_watchdog_perform_action.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.4, i32 noundef %0) #7
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.4, i32 noundef %0) #8
   br label %trace_watchdog_perform_action.exit
 
 trace_watchdog_perform_action.exit:               ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -79,43 +79,43 @@ trace_watchdog_perform_action.exit:               ; preds = %entry, %land.lhs.tr
   ]
 
 sw.bb:                                            ; preds = %trace_watchdog_perform_action.exit
-  tail call void @qapi_event_send_watchdog(i32 noundef 0) #7
-  tail call void @qemu_system_reset_request(i32 noundef 7) #7
+  tail call void @qapi_event_send_watchdog(i32 noundef 0) #8
+  tail call void @qemu_system_reset_request(i32 noundef 7) #8
   br label %sw.epilog
 
 sw.bb1:                                           ; preds = %trace_watchdog_perform_action.exit
-  tail call void @qapi_event_send_watchdog(i32 noundef 1) #7
-  tail call void @qemu_system_powerdown_request() #7
+  tail call void @qapi_event_send_watchdog(i32 noundef 1) #8
+  tail call void @qemu_system_powerdown_request() #8
   br label %sw.epilog
 
 sw.bb2:                                           ; preds = %trace_watchdog_perform_action.exit
-  tail call void @qapi_event_send_watchdog(i32 noundef 2) #7
-  tail call void @exit(i32 noundef 0) #8
+  tail call void @qapi_event_send_watchdog(i32 noundef 2) #8
+  tail call void @exit(i32 noundef 0) #9
   unreachable
 
 sw.bb3:                                           ; preds = %trace_watchdog_perform_action.exit
-  tail call void @qemu_system_vmstop_request_prepare() #7
-  tail call void @qapi_event_send_watchdog(i32 noundef 3) #7
-  tail call void @qemu_system_vmstop_request(i32 noundef 13) #7
+  tail call void @qemu_system_vmstop_request_prepare() #8
+  tail call void @qapi_event_send_watchdog(i32 noundef 3) #8
+  tail call void @qemu_system_vmstop_request(i32 noundef 13) #8
   br label %sw.epilog
 
 sw.bb4:                                           ; preds = %trace_watchdog_perform_action.exit
-  tail call void @qapi_event_send_watchdog(i32 noundef 4) #7
+  tail call void @qapi_event_send_watchdog(i32 noundef 4) #8
   %8 = load ptr, ptr @stderr, align 8
-  %9 = tail call i64 @fwrite(ptr nonnull @.str, i64 22, i64 1, ptr %8) #9
+  %9 = tail call i64 @fwrite(ptr nonnull @.str, i64 22, i64 1, ptr %8) #10
   br label %sw.epilog
 
 sw.bb5:                                           ; preds = %trace_watchdog_perform_action.exit
-  tail call void @qapi_event_send_watchdog(i32 noundef 5) #7
+  tail call void @qapi_event_send_watchdog(i32 noundef 5) #8
   br label %sw.epilog
 
 sw.bb6:                                           ; preds = %trace_watchdog_perform_action.exit
-  tail call void @qapi_event_send_watchdog(i32 noundef 6) #7
-  tail call void @nmi_monitor_handle(i32 noundef 0, ptr noundef null) #7
+  tail call void @qapi_event_send_watchdog(i32 noundef 6) #8
+  tail call void @nmi_monitor_handle(i32 noundef 0, ptr noundef null) #8
   br label %sw.epilog
 
 sw.default:                                       ; preds = %trace_watchdog_perform_action.exit
-  tail call void @__assert_fail(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 88, ptr noundef nonnull @__PRETTY_FUNCTION__.watchdog_perform_action) #8
+  tail call void @__assert_fail(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 88, ptr noundef nonnull @__PRETTY_FUNCTION__.watchdog_perform_action) #9
   unreachable
 
 sw.epilog:                                        ; preds = %sw.bb6, %sw.bb5, %sw.bb4, %sw.bb3, %sw.bb1, %sw.bb
@@ -128,7 +128,7 @@ declare void @qemu_system_reset_request(i32 noundef) local_unnamed_addr #2
 
 declare void @qemu_system_powerdown_request() local_unnamed_addr #2
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #3
 
 declare void @qemu_system_vmstop_request_prepare() local_unnamed_addr #2
@@ -138,7 +138,7 @@ declare void @qemu_system_vmstop_request(i32 noundef) local_unnamed_addr #2
 declare void @nmi_monitor_handle(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: noreturn nounwind
-declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qmp_watchdog_set_action(i32 noundef %action, ptr nocapture noundef readnone %errp) local_unnamed_addr #1 {
@@ -165,16 +165,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #7
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #7
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #8
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #8
   %4 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.5, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, i32 noundef %action) #7
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.5, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, i32 noundef %action) #8
   br label %trace_watchdog_set_action.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.6, i32 noundef %action) #7
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.6, i32 noundef %action) #8
   br label %trace_watchdog_set_action.exit
 
 trace_watchdog_set_action.exit:                   ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -183,31 +183,32 @@ trace_watchdog_set_action.exit:                   ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #2
 
 declare i32 @qemu_get_thread_id() local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree nounwind }
-attributes #6 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nounwind }
-attributes #8 = { noreturn nounwind }
-attributes #9 = { cold }
+attributes #3 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree nounwind }
+attributes #7 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { nounwind }
+attributes #9 = { noreturn nounwind }
+attributes #10 = { cold }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

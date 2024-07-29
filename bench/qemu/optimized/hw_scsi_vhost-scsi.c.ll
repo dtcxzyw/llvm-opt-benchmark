@@ -75,7 +75,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @do_qemu_init_virtio_register_types() #0 {
 entry:
-  tail call void @register_module_init(ptr noundef nonnull @virtio_register_types, i32 noundef 3) #10
+  tail call void @register_module_init(ptr noundef nonnull @virtio_register_types, i32 noundef 3) #11
   ret void
 }
 
@@ -84,7 +84,7 @@ declare void @register_module_init(ptr noundef, i32 noundef) local_unnamed_addr 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @virtio_register_types() #0 {
 entry:
-  %call = tail call ptr @type_register_static(ptr noundef nonnull @vhost_scsi_info) #10
+  %call = tail call ptr @type_register_static(ptr noundef nonnull @vhost_scsi_info) #11
   ret void
 }
 
@@ -93,22 +93,22 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @vhost_scsi_instance_init(ptr noundef %obj) #0 {
 entry:
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 23, ptr noundef nonnull @__func__.VHOST_SCSI_COMMON) #10
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 23, ptr noundef nonnull @__func__.VHOST_SCSI_COMMON) #11
   %feature_bits = getelementptr inbounds i8, ptr %call.i, i64 1312
   store ptr @kernel_feature_bits, ptr %feature_bits, align 8
   %bootindex = getelementptr inbounds i8, ptr %call.i, i64 1320
-  %call.i4 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #10
-  tail call void @device_add_bootindex_property(ptr noundef %obj, ptr noundef nonnull %bootindex, ptr noundef nonnull @.str.3, ptr noundef null, ptr noundef %call.i4) #10
+  %call.i4 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #11
+  tail call void @device_add_bootindex_property(ptr noundef %obj, ptr noundef nonnull %bootindex, ptr noundef nonnull @.str.3, ptr noundef null, ptr noundef %call.i4) #11
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @vhost_scsi_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
 entry:
-  %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #10
-  %call.i10 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_CLASS) #10
-  %call.i11 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.9, i32 noundef 27, ptr noundef nonnull @__func__.FW_PATH_PROVIDER_CLASS) #10
-  tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @vhost_scsi_properties) #10
+  %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #11
+  %call.i10 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_CLASS) #11
+  %call.i11 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.9, i32 noundef 27, ptr noundef nonnull @__func__.FW_PATH_PROVIDER_CLASS) #11
+  tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @vhost_scsi_properties) #11
   %vmsd = getelementptr inbounds i8, ptr %call.i, i64 160
   store ptr @vmstate_virtio_vhost_scsi, ptr %vmsd, align 8
   %categories = getelementptr inbounds i8, ptr %call.i, i64 96
@@ -142,8 +142,8 @@ declare void @device_class_set_props(ptr noundef, ptr noundef) local_unnamed_add
 define internal void @vhost_scsi_realize(ptr noundef %dev, ptr noundef %errp) #0 {
 entry:
   %err = alloca ptr, align 8
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31, i32 noundef 28, ptr noundef nonnull @__func__.VIRTIO_SCSI_COMMON) #10
-  %call.i32 = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 23, ptr noundef nonnull @__func__.VHOST_SCSI_COMMON) #10
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31, i32 noundef 28, ptr noundef nonnull @__func__.VIRTIO_SCSI_COMMON) #11
+  %call.i32 = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 23, ptr noundef nonnull @__func__.VHOST_SCSI_COMMON) #11
   store ptr null, ptr %err, align 8
   %conf = getelementptr inbounds i8, ptr %call.i, i64 520
   %wwpn = getelementptr inbounds i8, ptr %call.i, i64 552
@@ -152,7 +152,7 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.24, i32 noundef 178, ptr noundef nonnull @__func__.vhost_scsi_realize, ptr noundef nonnull @.str.25) #10
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.24, i32 noundef 178, ptr noundef nonnull @__func__.vhost_scsi_realize, ptr noundef nonnull @.str.25) #11
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -162,37 +162,37 @@ if.end:                                           ; preds = %entry
   br i1 %tobool4.not, label %if.else, label %if.then5
 
 if.then5:                                         ; preds = %if.end
-  %call6 = tail call ptr @monitor_cur() #10
+  %call6 = tail call ptr @monitor_cur() #11
   %2 = load ptr, ptr %vhostfd3, align 8
-  %call9 = tail call i32 @monitor_fd_param(ptr noundef %call6, ptr noundef %2, ptr noundef %errp) #10
+  %call9 = tail call i32 @monitor_fd_param(ptr noundef %call6, ptr noundef %2, ptr noundef %errp) #11
   %cmp = icmp eq i32 %call9, -1
   br i1 %cmp, label %if.then10, label %if.end18
 
 if.then10:                                        ; preds = %if.then5
-  tail call void (ptr, ptr, ...) @error_prepend(ptr noundef %errp, ptr noundef nonnull @.str.26) #10
+  tail call void (ptr, ptr, ...) @error_prepend(ptr noundef %errp, ptr noundef nonnull @.str.26) #11
   br label %return
 
 if.else:                                          ; preds = %if.end
-  %call12 = tail call i32 (ptr, i32, ...) @open64(ptr noundef nonnull @.str.27, i32 noundef 2) #10
+  %call12 = tail call i32 (ptr, i32, ...) @open64(ptr noundef nonnull @.str.27, i32 noundef 2) #11
   %cmp13 = icmp slt i32 %call12, 0
   br i1 %cmp13, label %if.then14, label %if.end18
 
 if.then14:                                        ; preds = %if.else
-  %call15 = tail call ptr @__errno_location() #11
+  %call15 = tail call ptr @__errno_location() #12
   %3 = load i32, ptr %call15, align 4
-  %call16 = tail call ptr @strerror(i32 noundef %3) #10
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.24, i32 noundef 192, ptr noundef nonnull @__func__.vhost_scsi_realize, ptr noundef nonnull @.str.28, ptr noundef %call16) #10
+  %call16 = tail call ptr @strerror(i32 noundef %3) #11
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.24, i32 noundef 192, ptr noundef nonnull @__func__.vhost_scsi_realize, ptr noundef nonnull @.str.28, ptr noundef %call16) #11
   br label %return
 
 if.end18:                                         ; preds = %if.else, %if.then5
   %vhostfd.0 = phi i32 [ %call9, %if.then5 ], [ %call12, %if.else ]
-  call void @virtio_scsi_common_realize(ptr noundef %dev, ptr noundef nonnull @vhost_dummy_handle_output, ptr noundef nonnull @vhost_dummy_handle_output, ptr noundef nonnull @vhost_dummy_handle_output, ptr noundef nonnull %err) #10
+  call void @virtio_scsi_common_realize(ptr noundef %dev, ptr noundef nonnull @vhost_dummy_handle_output, ptr noundef nonnull @vhost_dummy_handle_output, ptr noundef nonnull @vhost_dummy_handle_output, ptr noundef nonnull %err) #11
   %4 = load ptr, ptr %err, align 8
   %cmp19.not = icmp eq ptr %4, null
   br i1 %cmp19.not, label %if.end21, label %if.then20
 
 if.then20:                                        ; preds = %if.end18
-  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %4) #10
+  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %4) #11
   br label %close_fd
 
 if.end21:                                         ; preds = %if.end18
@@ -203,8 +203,8 @@ if.end21:                                         ; preds = %if.end18
 
 if.then23:                                        ; preds = %if.end21
   %migration_blocker = getelementptr inbounds i8, ptr %call.i32, i64 664
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %migration_blocker, ptr noundef nonnull @.str.24, i32 noundef 212, ptr noundef nonnull @__func__.vhost_scsi_realize, ptr noundef nonnull @.str.29) #10
-  %call25 = call i32 @migrate_add_blocker_normal(ptr noundef nonnull %migration_blocker, ptr noundef %errp) #10
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %migration_blocker, ptr noundef nonnull @.str.24, i32 noundef 212, ptr noundef nonnull @__func__.vhost_scsi_realize, ptr noundef nonnull @.str.29) #11
+  %call25 = call i32 @migrate_add_blocker_normal(ptr noundef nonnull %migration_blocker, ptr noundef %errp) #11
   %cmp26 = icmp slt i32 %call25, 0
   br i1 %cmp26, label %free_virtio, label %if.end29
 
@@ -215,7 +215,7 @@ if.end29:                                         ; preds = %if.then23, %if.end2
   %nvqs = getelementptr inbounds i8, ptr %call.i32, i64 1112
   store i32 %add, ptr %nvqs, align 8
   %conv = zext i32 %add to i64
-  %call34 = call noalias ptr @g_malloc0_n(i64 noundef %conv, i64 noundef 128) #12
+  %call34 = call noalias ptr @g_malloc0_n(i64 noundef %conv, i64 noundef 128) #13
   %vqs36 = getelementptr inbounds i8, ptr %call.i32, i64 1104
   store ptr %call34, ptr %vqs36, align 8
   %vq_index = getelementptr inbounds i8, ptr %call.i32, i64 1116
@@ -224,12 +224,12 @@ if.end29:                                         ; preds = %if.then23, %if.end2
   store i64 0, ptr %backend_features, align 8
   %conv40 = sext i32 %vhostfd.0 to i64
   %7 = inttoptr i64 %conv40 to ptr
-  %call41 = call i32 @vhost_dev_init(ptr noundef nonnull %dev31, ptr noundef %7, i32 noundef 1, i32 noundef 0, ptr noundef %errp) #10
+  %call41 = call i32 @vhost_dev_init(ptr noundef nonnull %dev31, ptr noundef %7, i32 noundef 1, i32 noundef 0, ptr noundef %errp) #11
   %cmp42 = icmp slt i32 %call41, 0
   br i1 %cmp42, label %if.then44, label %if.end45
 
 if.then44:                                        ; preds = %if.end29
-  call void @g_free(ptr noundef %call34) #10
+  call void @g_free(ptr noundef %call34) #11
   %8 = load i8, ptr %migratable, align 8
   %tobool48 = trunc i8 %8 to i1
   br i1 %tobool48, label %free_virtio, label %if.then49
@@ -247,12 +247,12 @@ if.end45:                                         ; preds = %if.end29
 
 if.then49:                                        ; preds = %if.then44
   %migration_blocker50 = getelementptr inbounds i8, ptr %call.i32, i64 664
-  call void @migrate_del_blocker(ptr noundef nonnull %migration_blocker50) #10
+  call void @migrate_del_blocker(ptr noundef nonnull %migration_blocker50) #11
   br label %free_virtio
 
 free_virtio:                                      ; preds = %if.then44, %if.then49, %if.then23
   %vhostfd.1 = phi i32 [ -1, %if.then44 ], [ -1, %if.then49 ], [ %vhostfd.0, %if.then23 ]
-  call void @virtio_scsi_common_unrealize(ptr noundef %dev) #10
+  call void @virtio_scsi_common_unrealize(ptr noundef %dev) #11
   br label %close_fd
 
 close_fd:                                         ; preds = %free_virtio, %if.then20
@@ -261,7 +261,7 @@ close_fd:                                         ; preds = %free_virtio, %if.th
   br i1 %cmp52, label %if.then54, label %return
 
 if.then54:                                        ; preds = %close_fd
-  %call55 = call i32 @close(i32 noundef %vhostfd.2) #10
+  %call55 = call i32 @close(i32 noundef %vhostfd.2) #11
   br label %return
 
 return:                                           ; preds = %close_fd, %if.then54, %if.end45, %if.then14, %if.then10, %if.then
@@ -271,8 +271,8 @@ return:                                           ; preds = %close_fd, %if.then5
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @vhost_scsi_unrealize(ptr noundef %dev) #0 {
 entry:
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #10
-  %call.i6 = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 23, ptr noundef nonnull @__func__.VHOST_SCSI_COMMON) #10
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #11
+  %call.i6 = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 23, ptr noundef nonnull @__func__.VHOST_SCSI_COMMON) #11
   %vqs3 = getelementptr inbounds i8, ptr %call.i6, i64 1104
   %0 = load ptr, ptr %vqs3, align 8
   %migratable = getelementptr inbounds i8, ptr %call.i6, i64 1344
@@ -282,15 +282,15 @@ entry:
 
 if.then:                                          ; preds = %entry
   %migration_blocker = getelementptr inbounds i8, ptr %call.i6, i64 664
-  tail call void @migrate_del_blocker(ptr noundef nonnull %migration_blocker) #10
+  tail call void @migrate_del_blocker(ptr noundef nonnull %migration_blocker) #11
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
   %dev2 = getelementptr inbounds i8, ptr %call.i6, i64 672
   tail call void @vhost_scsi_set_status(ptr noundef %call.i, i8 noundef zeroext 0)
-  tail call void @vhost_dev_cleanup(ptr noundef nonnull %dev2) #10
-  tail call void @g_free(ptr noundef %0) #10
-  tail call void @virtio_scsi_common_unrealize(ptr noundef %dev) #10
+  tail call void @vhost_dev_cleanup(ptr noundef nonnull %dev2) #11
+  tail call void @g_free(ptr noundef %0) #11
+  tail call void @virtio_scsi_common_unrealize(ptr noundef %dev) #11
   ret void
 }
 
@@ -305,8 +305,8 @@ entry:
   %backend.i.i = alloca %struct.vhost_scsi_target, align 4
   %abi_version.i = alloca i32, align 4
   %local_err.i = alloca ptr, align 8
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.33, i32 noundef 29, ptr noundef nonnull @__func__.VHOST_SCSI) #10
-  %call.i6 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 23, ptr noundef nonnull @__func__.VHOST_SCSI_COMMON) #10
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.33, i32 noundef 29, ptr noundef nonnull @__func__.VHOST_SCSI) #11
+  %call.i6 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 23, ptr noundef nonnull @__func__.VHOST_SCSI_COMMON) #11
   %vm_running = getelementptr inbounds i8, ptr %vdev, i64 434
   %0 = load i8, ptr %vm_running, align 2
   %tobool2 = trunc i8 %0 to i1
@@ -325,14 +325,14 @@ if.end9:                                          ; preds = %entry
 if.then11:                                        ; preds = %if.end9
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %abi_version.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %local_err.i)
-  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 23, ptr noundef nonnull @__func__.VHOST_SCSI_COMMON) #10
+  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 23, ptr noundef nonnull @__func__.VHOST_SCSI_COMMON) #11
   %dev.i = getelementptr inbounds i8, ptr %call.i.i, i64 672
   %vhost_ops1.i = getelementptr inbounds i8, ptr %call.i.i, i64 1200
   %5 = load ptr, ptr %vhost_ops1.i, align 8
   store ptr null, ptr %local_err.i, align 8
   %vhost_scsi_get_abi_version.i = getelementptr inbounds i8, ptr %5, i64 72
   %6 = load ptr, ptr %vhost_scsi_get_abi_version.i, align 8
-  %call3.i = call i32 %6(ptr noundef nonnull %dev.i, ptr noundef nonnull %abi_version.i) #10
+  %call3.i = call i32 %6(ptr noundef nonnull %dev.i, ptr noundef nonnull %abi_version.i) #11
   %cmp.i = icmp slt i32 %call3.i, 0
   br i1 %cmp.i, label %vhost_scsi_start.exit, label %if.end.i
 
@@ -342,23 +342,23 @@ if.end.i:                                         ; preds = %if.then11
   br i1 %cmp5.i, label %if.then6.i, label %if.end7.i
 
 if.then6.i:                                       ; preds = %if.end.i
-  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.34, i32 noundef %7, i32 noundef 1) #10
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.34, i32 noundef %7, i32 noundef 1) #11
   br label %vhost_scsi_start.exit.thread
 
 if.end7.i:                                        ; preds = %if.end.i
-  %call8.i = call i32 @vhost_scsi_common_start(ptr noundef nonnull %call.i.i, ptr noundef nonnull %local_err.i) #10
+  %call8.i = call i32 @vhost_scsi_common_start(ptr noundef nonnull %call.i.i, ptr noundef nonnull %local_err.i) #11
   %cmp9.i = icmp slt i32 %call8.i, 0
   br i1 %cmp9.i, label %if.then10.i, label %if.end11.i
 
 if.then10.i:                                      ; preds = %if.end7.i
   %8 = load ptr, ptr %local_err.i, align 8
-  call void (ptr, ptr, ...) @error_reportf_err(ptr noundef %8, ptr noundef nonnull @.str.35) #10
+  call void (ptr, ptr, ...) @error_reportf_err(ptr noundef %8, ptr noundef nonnull @.str.35) #11
   br label %vhost_scsi_start.exit.thread
 
 if.end11.i:                                       ; preds = %if.end7.i
   call void @llvm.lifetime.start.p0(i64 232, ptr nonnull %backend.i.i)
-  %call.i.i.i = call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31, i32 noundef 28, ptr noundef nonnull @__func__.VIRTIO_SCSI_COMMON) #10
-  %call.i3.i.i = call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 23, ptr noundef nonnull @__func__.VHOST_SCSI_COMMON) #10
+  %call.i.i.i = call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31, i32 noundef 28, ptr noundef nonnull @__func__.VIRTIO_SCSI_COMMON) #11
+  %call.i3.i.i = call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 23, ptr noundef nonnull @__func__.VHOST_SCSI_COMMON) #11
   %dev.i.i = getelementptr inbounds i8, ptr %call.i3.i.i, i64 672
   %vhost_ops2.i.i = getelementptr inbounds i8, ptr %call.i3.i.i, i64 1200
   %9 = load ptr, ptr %vhost_ops2.i.i, align 8
@@ -366,10 +366,10 @@ if.end11.i:                                       ; preds = %if.end7.i
   %vhost_wwpn.i.i = getelementptr inbounds i8, ptr %backend.i.i, i64 4
   %wwpn.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 552
   %10 = load ptr, ptr %wwpn.i.i, align 8
-  call void @pstrcpy(ptr noundef nonnull %vhost_wwpn.i.i, i32 noundef 224, ptr noundef %10) #10
+  call void @pstrcpy(ptr noundef nonnull %vhost_wwpn.i.i, i32 noundef 224, ptr noundef %10) #11
   %vhost_scsi_set_endpoint.i.i = getelementptr inbounds i8, ptr %9, i64 56
   %11 = load ptr, ptr %vhost_scsi_set_endpoint.i.i, align 8
-  %call4.i.i = call i32 %11(ptr noundef nonnull %dev.i.i, ptr noundef nonnull %backend.i.i) #10
+  %call4.i.i = call i32 %11(ptr noundef nonnull %dev.i.i, ptr noundef nonnull %backend.i.i) #11
   %cmp.i.i = icmp slt i32 %call4.i.i, 0
   br i1 %cmp.i.i, label %vhost_scsi_set_endpoint.exit.i, label %vhost_scsi_set_endpoint.exit.thread.i
 
@@ -378,7 +378,7 @@ vhost_scsi_set_endpoint.exit.thread.i:            ; preds = %if.end11.i
   br label %vhost_scsi_start.exit.thread21
 
 vhost_scsi_set_endpoint.exit.i:                   ; preds = %if.end11.i
-  %call5.i.i = tail call ptr @__errno_location() #11
+  %call5.i.i = tail call ptr @__errno_location() #12
   %12 = load i32, ptr %call5.i.i, align 4
   %sub.i.i = sub i32 0, %12
   call void @llvm.lifetime.end.p0(i64 232, ptr nonnull %backend.i.i)
@@ -387,8 +387,8 @@ vhost_scsi_set_endpoint.exit.i:                   ; preds = %if.end11.i
 
 if.then14.i:                                      ; preds = %vhost_scsi_set_endpoint.exit.i
   %13 = load ptr, ptr %local_err.i, align 8
-  call void (ptr, ptr, ...) @error_reportf_err(ptr noundef %13, ptr noundef nonnull @.str.36) #10
-  call void @vhost_scsi_common_stop(ptr noundef nonnull %call.i.i) #10
+  call void (ptr, ptr, ...) @error_reportf_err(ptr noundef %13, ptr noundef nonnull @.str.36) #11
+  call void @vhost_scsi_common_stop(ptr noundef nonnull %call.i.i) #11
   br label %vhost_scsi_start.exit.thread
 
 vhost_scsi_start.exit.thread:                     ; preds = %if.then6.i, %if.then10.i, %if.then14.i
@@ -403,7 +403,7 @@ vhost_scsi_start.exit.thread21:                   ; preds = %vhost_scsi_set_endp
   br label %if.end18
 
 vhost_scsi_start.exit:                            ; preds = %if.then11
-  %call4.i = tail call ptr @__errno_location() #11
+  %call4.i = tail call ptr @__errno_location() #12
   %14 = load i32, ptr %call4.i, align 4
   %sub.i = sub i32 0, %14
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %abi_version.i)
@@ -414,16 +414,16 @@ vhost_scsi_start.exit:                            ; preds = %if.then11
 if.then15:                                        ; preds = %vhost_scsi_start.exit.thread, %vhost_scsi_start.exit
   %retval.0.i18 = phi i32 [ %retval.0.i.ph, %vhost_scsi_start.exit.thread ], [ %sub.i, %vhost_scsi_start.exit ]
   %sub = sub i32 0, %retval.0.i18
-  %call16 = call ptr @strerror(i32 noundef %sub) #10
-  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.32, ptr noundef %call16) #10
-  call void @exit(i32 noundef 1) #13
+  %call16 = call ptr @strerror(i32 noundef %sub) #11
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.32, ptr noundef %call16) #11
+  call void @exit(i32 noundef 1) #14
   unreachable
 
 if.else:                                          ; preds = %if.end9
-  %call.i.i8 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 23, ptr noundef nonnull @__func__.VHOST_SCSI_COMMON) #10
+  %call.i.i8 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 23, ptr noundef nonnull @__func__.VHOST_SCSI_COMMON) #11
   call void @llvm.lifetime.start.p0(i64 232, ptr nonnull %backend.i.i7)
-  %call.i.i.i9 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31, i32 noundef 28, ptr noundef nonnull @__func__.VIRTIO_SCSI_COMMON) #10
-  %call.i3.i.i10 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 23, ptr noundef nonnull @__func__.VHOST_SCSI_COMMON) #10
+  %call.i.i.i9 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31, i32 noundef 28, ptr noundef nonnull @__func__.VIRTIO_SCSI_COMMON) #11
+  %call.i3.i.i10 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 23, ptr noundef nonnull @__func__.VHOST_SCSI_COMMON) #11
   %dev.i.i11 = getelementptr inbounds i8, ptr %call.i3.i.i10, i64 672
   %vhost_ops2.i.i12 = getelementptr inbounds i8, ptr %call.i3.i.i10, i64 1200
   %15 = load ptr, ptr %vhost_ops2.i.i12, align 8
@@ -431,12 +431,12 @@ if.else:                                          ; preds = %if.end9
   %vhost_wwpn.i.i13 = getelementptr inbounds i8, ptr %backend.i.i7, i64 4
   %wwpn.i.i14 = getelementptr inbounds i8, ptr %call.i.i.i9, i64 552
   %16 = load ptr, ptr %wwpn.i.i14, align 8
-  call void @pstrcpy(ptr noundef nonnull %vhost_wwpn.i.i13, i32 noundef 224, ptr noundef %16) #10
+  call void @pstrcpy(ptr noundef nonnull %vhost_wwpn.i.i13, i32 noundef 224, ptr noundef %16) #11
   %vhost_scsi_clear_endpoint.i.i = getelementptr inbounds i8, ptr %15, i64 64
   %17 = load ptr, ptr %vhost_scsi_clear_endpoint.i.i, align 8
-  %call4.i.i15 = call i32 %17(ptr noundef nonnull %dev.i.i11, ptr noundef nonnull %backend.i.i7) #10
+  %call4.i.i15 = call i32 %17(ptr noundef nonnull %dev.i.i11, ptr noundef nonnull %backend.i.i7) #11
   call void @llvm.lifetime.end.p0(i64 232, ptr nonnull %backend.i.i7)
-  call void @vhost_scsi_common_stop(ptr noundef %call.i.i8) #10
+  call void @vhost_scsi_common_stop(ptr noundef %call.i.i8) #11
   br label %if.end18
 
 if.end18:                                         ; preds = %vhost_scsi_start.exit.thread21, %vhost_scsi_start.exit, %entry, %if.else
@@ -446,8 +446,8 @@ if.end18:                                         ; preds = %vhost_scsi_start.ex
 ; Function Attrs: nounwind sspstrong uwtable
 define internal nonnull ptr @vhost_scsi_get_vhost(ptr noundef %vdev) #0 {
 entry:
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.33, i32 noundef 29, ptr noundef nonnull @__func__.VHOST_SCSI) #10
-  %call.i1 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 23, ptr noundef nonnull @__func__.VHOST_SCSI_COMMON) #10
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.33, i32 noundef 29, ptr noundef nonnull @__func__.VHOST_SCSI) #11
+  %call.i1 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 23, ptr noundef nonnull @__func__.VHOST_SCSI_COMMON) #11
   %dev = getelementptr inbounds i8, ptr %call.i1, i64 672
   ret ptr %dev
 }
@@ -465,7 +465,7 @@ entry:
   br i1 %tobool.i, label %if.else, label %if.end
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.24, i32 noundef 152, ptr noundef nonnull @__PRETTY_FUNCTION__.vhost_scsi_pre_save) #13
+  tail call void @__assert_fail(ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.24, i32 noundef 152, ptr noundef nonnull @__PRETTY_FUNCTION__.vhost_scsi_pre_save) #15
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -521,8 +521,8 @@ declare void @vhost_dev_cleanup(ptr noundef) local_unnamed_addr #1
 
 declare void @error_report(ptr noundef, ...) local_unnamed_addr #1
 
-; Function Attrs: noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #2
+; Function Attrs: nofree noreturn nounwind
+declare void @exit(i32 noundef) local_unnamed_addr #8
 
 declare i32 @vhost_scsi_common_start(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -531,15 +531,15 @@ declare void @error_reportf_err(ptr noundef, ptr noundef, ...) local_unnamed_add
 declare void @vhost_scsi_common_stop(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
 
 declare void @pstrcpy(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -549,12 +549,14 @@ attributes #4 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stac
 attributes #5 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { nounwind }
-attributes #11 = { nounwind willreturn memory(none) }
-attributes #12 = { nounwind allocsize(0,1) }
-attributes #13 = { noreturn nounwind }
+attributes #8 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #10 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #11 = { nounwind }
+attributes #12 = { nounwind willreturn memory(none) }
+attributes #13 = { nounwind allocsize(0,1) }
+attributes #14 = { cold noreturn nounwind }
+attributes #15 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

@@ -104,13 +104,13 @@ define hidden i32 @df_yylex(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not581, label %33, label %51
 
 27:                                               ; preds = %19
-  %28 = tail call noalias noundef dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #28
+  %28 = tail call noalias noundef dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #29
   store ptr %28, ptr %20, align 8
   %.not28.i = icmp eq ptr %28, null
   br i1 %.not28.i, label %29, label %30
 
 29:                                               ; preds = %27
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.20) #29
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.20) #30
   unreachable
 
 30:                                               ; preds = %27
@@ -131,13 +131,13 @@ define hidden i32 @df_yylex(ptr noundef %0) local_unnamed_addr #0 {
 37:                                               ; preds = %33
   %38 = add i64 %35, 8
   %39 = shl i64 %38, 3
-  %40 = tail call noalias noundef ptr @realloc(ptr noundef nonnull %21, i64 noundef %39) #30
+  %40 = tail call noalias noundef ptr @realloc(ptr noundef nonnull %21, i64 noundef %39) #31
   store ptr %40, ptr %20, align 8
   %.not30.i = icmp eq ptr %40, null
   br i1 %.not30.i, label %41, label %42
 
 41:                                               ; preds = %37
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.20) #29
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.20) #30
   unreachable
 
 42:                                               ; preds = %37
@@ -418,7 +418,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 141:                                              ; preds = %137
   %142 = load ptr, ptr %0, align 8
   %143 = load ptr, ptr %74, align 8
-  %144 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %143) #31
+  %144 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %143) #32
   %145 = getelementptr inbounds i8, ptr %142, i64 72
   %146 = getelementptr inbounds i8, ptr %142, i64 80
   %147 = load i64, ptr %146, align 8
@@ -431,7 +431,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 150:                                              ; preds = %137
   %151 = load ptr, ptr %0, align 8
   %152 = load ptr, ptr %74, align 8
-  %153 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %152) #31
+  %153 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %152) #32
   %154 = getelementptr inbounds i8, ptr %151, i64 72
   %155 = getelementptr inbounds i8, ptr %151, i64 80
   %156 = load i64, ptr %155, align 8
@@ -447,7 +447,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 161:                                              ; preds = %137
   %162 = load ptr, ptr %0, align 8
   %163 = load ptr, ptr %74, align 8
-  %164 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %163) #31
+  %164 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %163) #32
   %165 = getelementptr inbounds i8, ptr %162, i64 72
   %166 = getelementptr inbounds i8, ptr %162, i64 80
   %167 = load i64, ptr %166, align 8
@@ -463,7 +463,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 172:                                              ; preds = %137
   %173 = load ptr, ptr %0, align 8
   %174 = load ptr, ptr %74, align 8
-  %175 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %174) #31
+  %175 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %174) #32
   %176 = getelementptr inbounds i8, ptr %173, i64 72
   %177 = getelementptr inbounds i8, ptr %173, i64 80
   %178 = load i64, ptr %177, align 8
@@ -479,7 +479,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 183:                                              ; preds = %137
   %184 = load ptr, ptr %0, align 8
   %185 = load ptr, ptr %74, align 8
-  %186 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %185) #31
+  %186 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %185) #32
   %187 = getelementptr inbounds i8, ptr %184, i64 72
   %188 = getelementptr inbounds i8, ptr %184, i64 80
   %189 = load i64, ptr %188, align 8
@@ -495,7 +495,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 194:                                              ; preds = %137
   %195 = load ptr, ptr %0, align 8
   %196 = load ptr, ptr %74, align 8
-  %197 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %196) #31
+  %197 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %196) #32
   %198 = getelementptr inbounds i8, ptr %195, i64 72
   %199 = getelementptr inbounds i8, ptr %195, i64 80
   %200 = load i64, ptr %199, align 8
@@ -511,7 +511,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 205:                                              ; preds = %137
   %206 = load ptr, ptr %0, align 8
   %207 = load ptr, ptr %74, align 8
-  %208 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %207) #31
+  %208 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %207) #32
   %209 = getelementptr inbounds i8, ptr %206, i64 72
   %210 = getelementptr inbounds i8, ptr %206, i64 80
   %211 = load i64, ptr %210, align 8
@@ -527,7 +527,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 216:                                              ; preds = %137
   %217 = load ptr, ptr %0, align 8
   %218 = load ptr, ptr %74, align 8
-  %219 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %218) #31
+  %219 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %218) #32
   %220 = getelementptr inbounds i8, ptr %217, i64 72
   %221 = getelementptr inbounds i8, ptr %217, i64 80
   %222 = load i64, ptr %221, align 8
@@ -543,7 +543,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 227:                                              ; preds = %137
   %228 = load ptr, ptr %0, align 8
   %229 = load ptr, ptr %74, align 8
-  %230 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %229) #31
+  %230 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %229) #32
   %231 = getelementptr inbounds i8, ptr %228, i64 72
   %232 = getelementptr inbounds i8, ptr %228, i64 80
   %233 = load i64, ptr %232, align 8
@@ -559,7 +559,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 238:                                              ; preds = %137
   %239 = load ptr, ptr %0, align 8
   %240 = load ptr, ptr %74, align 8
-  %241 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %240) #31
+  %241 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %240) #32
   %242 = getelementptr inbounds i8, ptr %239, i64 72
   %243 = getelementptr inbounds i8, ptr %239, i64 80
   %244 = load i64, ptr %243, align 8
@@ -575,7 +575,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 249:                                              ; preds = %137
   %250 = load ptr, ptr %0, align 8
   %251 = load ptr, ptr %74, align 8
-  %252 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %251) #31
+  %252 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %251) #32
   %253 = getelementptr inbounds i8, ptr %250, i64 72
   %254 = getelementptr inbounds i8, ptr %250, i64 80
   %255 = load i64, ptr %254, align 8
@@ -591,7 +591,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 260:                                              ; preds = %137
   %261 = load ptr, ptr %0, align 8
   %262 = load ptr, ptr %74, align 8
-  %263 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %262) #31
+  %263 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %262) #32
   %264 = getelementptr inbounds i8, ptr %261, i64 72
   %265 = getelementptr inbounds i8, ptr %261, i64 80
   %266 = load i64, ptr %265, align 8
@@ -607,7 +607,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 271:                                              ; preds = %137
   %272 = load ptr, ptr %0, align 8
   %273 = load ptr, ptr %74, align 8
-  %274 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %273) #31
+  %274 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %273) #32
   %275 = getelementptr inbounds i8, ptr %272, i64 72
   %276 = getelementptr inbounds i8, ptr %272, i64 80
   %277 = load i64, ptr %276, align 8
@@ -623,7 +623,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 282:                                              ; preds = %137
   %283 = load ptr, ptr %0, align 8
   %284 = load ptr, ptr %74, align 8
-  %285 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %284) #31
+  %285 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %284) #32
   %286 = getelementptr inbounds i8, ptr %283, i64 72
   %287 = getelementptr inbounds i8, ptr %283, i64 80
   %288 = load i64, ptr %287, align 8
@@ -639,7 +639,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 293:                                              ; preds = %137
   %294 = load ptr, ptr %0, align 8
   %295 = load ptr, ptr %74, align 8
-  %296 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %295) #31
+  %296 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %295) #32
   %297 = getelementptr inbounds i8, ptr %294, i64 72
   %298 = getelementptr inbounds i8, ptr %294, i64 80
   %299 = load i64, ptr %298, align 8
@@ -655,7 +655,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 304:                                              ; preds = %137
   %305 = load ptr, ptr %0, align 8
   %306 = load ptr, ptr %74, align 8
-  %307 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %306) #31
+  %307 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %306) #32
   %308 = getelementptr inbounds i8, ptr %305, i64 72
   %309 = getelementptr inbounds i8, ptr %305, i64 80
   %310 = load i64, ptr %309, align 8
@@ -671,7 +671,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 315:                                              ; preds = %137
   %316 = load ptr, ptr %0, align 8
   %317 = load ptr, ptr %74, align 8
-  %318 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %317) #31
+  %318 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %317) #32
   %319 = getelementptr inbounds i8, ptr %316, i64 72
   %320 = getelementptr inbounds i8, ptr %316, i64 80
   %321 = load i64, ptr %320, align 8
@@ -687,7 +687,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 326:                                              ; preds = %137
   %327 = load ptr, ptr %0, align 8
   %328 = load ptr, ptr %74, align 8
-  %329 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %328) #31
+  %329 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %328) #32
   %330 = getelementptr inbounds i8, ptr %327, i64 72
   %331 = getelementptr inbounds i8, ptr %327, i64 80
   %332 = load i64, ptr %331, align 8
@@ -703,7 +703,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 337:                                              ; preds = %137
   %338 = load ptr, ptr %0, align 8
   %339 = load ptr, ptr %74, align 8
-  %340 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %339) #31
+  %340 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %339) #32
   %341 = getelementptr inbounds i8, ptr %338, i64 72
   %342 = getelementptr inbounds i8, ptr %338, i64 80
   %343 = load i64, ptr %342, align 8
@@ -719,7 +719,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 348:                                              ; preds = %137
   %349 = load ptr, ptr %0, align 8
   %350 = load ptr, ptr %74, align 8
-  %351 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %350) #31
+  %351 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %350) #32
   %352 = getelementptr inbounds i8, ptr %349, i64 72
   %353 = getelementptr inbounds i8, ptr %349, i64 80
   %354 = load i64, ptr %353, align 8
@@ -735,7 +735,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 359:                                              ; preds = %137
   %360 = load ptr, ptr %0, align 8
   %361 = load ptr, ptr %74, align 8
-  %362 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %361) #31
+  %362 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %361) #32
   %363 = getelementptr inbounds i8, ptr %360, i64 72
   %364 = getelementptr inbounds i8, ptr %360, i64 80
   %365 = load i64, ptr %364, align 8
@@ -751,7 +751,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 370:                                              ; preds = %137
   %371 = load ptr, ptr %0, align 8
   %372 = load ptr, ptr %74, align 8
-  %373 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %372) #31
+  %373 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %372) #32
   %374 = getelementptr inbounds i8, ptr %371, i64 72
   %375 = getelementptr inbounds i8, ptr %371, i64 80
   %376 = load i64, ptr %375, align 8
@@ -767,7 +767,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 381:                                              ; preds = %137
   %382 = load ptr, ptr %0, align 8
   %383 = load ptr, ptr %74, align 8
-  %384 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %383) #31
+  %384 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %383) #32
   %385 = getelementptr inbounds i8, ptr %382, i64 72
   %386 = getelementptr inbounds i8, ptr %382, i64 80
   %387 = load i64, ptr %386, align 8
@@ -783,7 +783,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 392:                                              ; preds = %137
   %393 = load ptr, ptr %0, align 8
   %394 = load ptr, ptr %74, align 8
-  %395 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %394) #31
+  %395 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %394) #32
   %396 = getelementptr inbounds i8, ptr %393, i64 72
   %397 = getelementptr inbounds i8, ptr %393, i64 80
   %398 = load i64, ptr %397, align 8
@@ -799,7 +799,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 403:                                              ; preds = %137
   %404 = load ptr, ptr %0, align 8
   %405 = load ptr, ptr %74, align 8
-  %406 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %405) #31
+  %406 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %405) #32
   %407 = getelementptr inbounds i8, ptr %404, i64 72
   %408 = getelementptr inbounds i8, ptr %404, i64 80
   %409 = load i64, ptr %408, align 8
@@ -815,7 +815,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 414:                                              ; preds = %137
   %415 = load ptr, ptr %0, align 8
   %416 = load ptr, ptr %74, align 8
-  %417 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %416) #31
+  %417 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %416) #32
   %418 = getelementptr inbounds i8, ptr %415, i64 72
   %419 = getelementptr inbounds i8, ptr %415, i64 80
   %420 = load i64, ptr %419, align 8
@@ -831,7 +831,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 425:                                              ; preds = %137
   %426 = load ptr, ptr %0, align 8
   %427 = load ptr, ptr %74, align 8
-  %428 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %427) #31
+  %428 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %427) #32
   %429 = getelementptr inbounds i8, ptr %426, i64 72
   %430 = getelementptr inbounds i8, ptr %426, i64 80
   %431 = load i64, ptr %430, align 8
@@ -847,7 +847,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 436:                                              ; preds = %137
   %437 = load ptr, ptr %0, align 8
   %438 = load ptr, ptr %74, align 8
-  %439 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %438) #31
+  %439 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %438) #32
   %440 = getelementptr inbounds i8, ptr %437, i64 72
   %441 = getelementptr inbounds i8, ptr %437, i64 80
   %442 = load i64, ptr %441, align 8
@@ -863,7 +863,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 447:                                              ; preds = %137
   %448 = load ptr, ptr %0, align 8
   %449 = load ptr, ptr %74, align 8
-  %450 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %449) #31
+  %450 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %449) #32
   %451 = getelementptr inbounds i8, ptr %448, i64 72
   %452 = getelementptr inbounds i8, ptr %448, i64 80
   %453 = load i64, ptr %452, align 8
@@ -879,7 +879,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 458:                                              ; preds = %137
   %459 = load ptr, ptr %0, align 8
   %460 = load ptr, ptr %74, align 8
-  %461 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %460) #31
+  %461 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %460) #32
   %462 = getelementptr inbounds i8, ptr %459, i64 72
   %463 = getelementptr inbounds i8, ptr %459, i64 80
   %464 = load i64, ptr %463, align 8
@@ -895,7 +895,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 469:                                              ; preds = %137
   %470 = load ptr, ptr %0, align 8
   %471 = load ptr, ptr %74, align 8
-  %472 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %471) #31
+  %472 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %471) #32
   %473 = getelementptr inbounds i8, ptr %470, i64 72
   %474 = getelementptr inbounds i8, ptr %470, i64 80
   %475 = load i64, ptr %474, align 8
@@ -911,7 +911,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 480:                                              ; preds = %137
   %481 = load ptr, ptr %0, align 8
   %482 = load ptr, ptr %74, align 8
-  %483 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %482) #31
+  %483 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %482) #32
   %484 = getelementptr inbounds i8, ptr %481, i64 72
   %485 = getelementptr inbounds i8, ptr %481, i64 80
   %486 = load i64, ptr %485, align 8
@@ -927,7 +927,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 491:                                              ; preds = %137
   %492 = load ptr, ptr %0, align 8
   %493 = load ptr, ptr %74, align 8
-  %494 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %493) #31
+  %494 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %493) #32
   %495 = getelementptr inbounds i8, ptr %492, i64 72
   %496 = getelementptr inbounds i8, ptr %492, i64 80
   %497 = load i64, ptr %496, align 8
@@ -943,7 +943,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 502:                                              ; preds = %137
   %503 = load ptr, ptr %0, align 8
   %504 = load ptr, ptr %74, align 8
-  %505 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %504) #31
+  %505 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %504) #32
   %506 = getelementptr inbounds i8, ptr %503, i64 72
   %507 = getelementptr inbounds i8, ptr %503, i64 80
   %508 = load i64, ptr %507, align 8
@@ -959,7 +959,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 513:                                              ; preds = %137
   %514 = load ptr, ptr %0, align 8
   %515 = load ptr, ptr %74, align 8
-  %516 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %515) #31
+  %516 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %515) #32
   %517 = getelementptr inbounds i8, ptr %514, i64 72
   %518 = getelementptr inbounds i8, ptr %514, i64 80
   %519 = load i64, ptr %518, align 8
@@ -975,7 +975,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 524:                                              ; preds = %137
   %525 = load ptr, ptr %0, align 8
   %526 = load ptr, ptr %74, align 8
-  %527 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %526) #31
+  %527 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %526) #32
   %528 = getelementptr inbounds i8, ptr %525, i64 72
   %529 = getelementptr inbounds i8, ptr %525, i64 80
   %530 = load i64, ptr %529, align 8
@@ -991,7 +991,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 535:                                              ; preds = %137
   %536 = load ptr, ptr %0, align 8
   %537 = load ptr, ptr %74, align 8
-  %538 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %537) #31
+  %538 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %537) #32
   %539 = getelementptr inbounds i8, ptr %536, i64 72
   %540 = getelementptr inbounds i8, ptr %536, i64 80
   %541 = load i64, ptr %540, align 8
@@ -1007,7 +1007,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 546:                                              ; preds = %137
   %547 = load ptr, ptr %0, align 8
   %548 = load ptr, ptr %74, align 8
-  %549 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %548) #31
+  %549 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %548) #32
   %550 = getelementptr inbounds i8, ptr %547, i64 72
   %551 = getelementptr inbounds i8, ptr %547, i64 80
   %552 = load i64, ptr %551, align 8
@@ -1023,7 +1023,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 557:                                              ; preds = %137
   %558 = load ptr, ptr %0, align 8
   %559 = load ptr, ptr %74, align 8
-  %560 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %559) #31
+  %560 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %559) #32
   %561 = getelementptr inbounds i8, ptr %558, i64 72
   %562 = getelementptr inbounds i8, ptr %558, i64 80
   %563 = load i64, ptr %562, align 8
@@ -1039,7 +1039,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 568:                                              ; preds = %137
   %569 = load ptr, ptr %0, align 8
   %570 = load ptr, ptr %74, align 8
-  %571 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %570) #31
+  %571 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %570) #32
   %572 = getelementptr inbounds i8, ptr %569, i64 72
   %573 = getelementptr inbounds i8, ptr %569, i64 80
   %574 = load i64, ptr %573, align 8
@@ -1055,7 +1055,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 579:                                              ; preds = %137
   %580 = load ptr, ptr %0, align 8
   %581 = load ptr, ptr %74, align 8
-  %582 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %581) #31
+  %582 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %581) #32
   %583 = getelementptr inbounds i8, ptr %580, i64 72
   %584 = getelementptr inbounds i8, ptr %580, i64 80
   %585 = load i64, ptr %584, align 8
@@ -1071,7 +1071,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 590:                                              ; preds = %137
   %591 = load ptr, ptr %0, align 8
   %592 = load ptr, ptr %74, align 8
-  %593 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %592) #31
+  %593 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %592) #32
   %594 = getelementptr inbounds i8, ptr %591, i64 72
   %595 = getelementptr inbounds i8, ptr %591, i64 80
   %596 = load i64, ptr %595, align 8
@@ -1087,7 +1087,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 601:                                              ; preds = %137
   %602 = load ptr, ptr %0, align 8
   %603 = load ptr, ptr %74, align 8
-  %604 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %603) #31
+  %604 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %603) #32
   %605 = getelementptr inbounds i8, ptr %602, i64 72
   %606 = getelementptr inbounds i8, ptr %602, i64 80
   %607 = load i64, ptr %606, align 8
@@ -1103,7 +1103,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 612:                                              ; preds = %137
   %613 = load ptr, ptr %0, align 8
   %614 = load ptr, ptr %74, align 8
-  %615 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %614) #31
+  %615 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %614) #32
   %616 = getelementptr inbounds i8, ptr %613, i64 72
   %617 = getelementptr inbounds i8, ptr %613, i64 80
   %618 = load i64, ptr %617, align 8
@@ -1119,7 +1119,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 623:                                              ; preds = %137
   %624 = load ptr, ptr %0, align 8
   %625 = load ptr, ptr %74, align 8
-  %626 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %625) #31
+  %626 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %625) #32
   %627 = getelementptr inbounds i8, ptr %624, i64 72
   %628 = getelementptr inbounds i8, ptr %624, i64 80
   %629 = load i64, ptr %628, align 8
@@ -1135,7 +1135,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 634:                                              ; preds = %137
   %635 = load ptr, ptr %0, align 8
   %636 = load ptr, ptr %74, align 8
-  %637 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %636) #31
+  %637 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %636) #32
   %638 = getelementptr inbounds i8, ptr %635, i64 72
   %639 = getelementptr inbounds i8, ptr %635, i64 80
   %640 = load i64, ptr %639, align 8
@@ -1151,7 +1151,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 645:                                              ; preds = %137
   %646 = load ptr, ptr %0, align 8
   %647 = load ptr, ptr %74, align 8
-  %648 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %647) #31
+  %648 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %647) #32
   %649 = getelementptr inbounds i8, ptr %646, i64 72
   %650 = getelementptr inbounds i8, ptr %646, i64 80
   %651 = load i64, ptr %650, align 8
@@ -1167,7 +1167,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 656:                                              ; preds = %137
   %657 = load ptr, ptr %0, align 8
   %658 = load ptr, ptr %74, align 8
-  %659 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %658) #31
+  %659 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %658) #32
   %660 = getelementptr inbounds i8, ptr %657, i64 72
   %661 = getelementptr inbounds i8, ptr %657, i64 80
   %662 = load i64, ptr %661, align 8
@@ -1183,7 +1183,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 667:                                              ; preds = %137
   %668 = load ptr, ptr %0, align 8
   %669 = load ptr, ptr %74, align 8
-  %670 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %669) #31
+  %670 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %669) #32
   %671 = getelementptr inbounds i8, ptr %668, i64 72
   %672 = getelementptr inbounds i8, ptr %668, i64 80
   %673 = load i64, ptr %672, align 8
@@ -1200,7 +1200,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   store i32 5, ptr %71, align 4
   %679 = load ptr, ptr %0, align 8
   %680 = load ptr, ptr %74, align 8
-  %681 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %680) #31
+  %681 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %680) #32
   %682 = getelementptr inbounds i8, ptr %679, i64 72
   %683 = getelementptr inbounds i8, ptr %679, i64 80
   %684 = load i64, ptr %683, align 8
@@ -1217,7 +1217,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   store i32 1, ptr %71, align 4
   %690 = load ptr, ptr %0, align 8
   %691 = load ptr, ptr %74, align 8
-  %692 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %691) #31
+  %692 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %691) #32
   %693 = getelementptr inbounds i8, ptr %690, i64 72
   %694 = getelementptr inbounds i8, ptr %690, i64 80
   %695 = load i64, ptr %694, align 8
@@ -1233,7 +1233,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 700:                                              ; preds = %137
   %701 = load ptr, ptr %0, align 8
   %702 = load ptr, ptr %74, align 8
-  %703 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %702) #31
+  %703 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %702) #32
   %704 = getelementptr inbounds i8, ptr %701, i64 72
   %705 = getelementptr inbounds i8, ptr %701, i64 80
   %706 = load i64, ptr %705, align 8
@@ -1247,14 +1247,14 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   %712 = load i64, ptr %710, align 8
   %713 = getelementptr inbounds i8, ptr %709, i64 80
   %714 = load i64, ptr %713, align 8
-  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef %709, i32 noundef -1, i64 %712, i64 %714, ptr noundef nonnull @.str, ptr noundef %711) #32
+  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef %709, i32 noundef -1, i64 %712, i64 %714, ptr noundef nonnull @.str, ptr noundef %711) #33
   br label %.loopexit
 
 715:                                              ; preds = %137
   store i32 3, ptr %71, align 4
   %716 = load ptr, ptr %0, align 8
   %717 = load ptr, ptr %74, align 8
-  %718 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %717) #31
+  %718 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %717) #32
   %719 = getelementptr inbounds i8, ptr %716, i64 72
   %720 = getelementptr inbounds i8, ptr %716, i64 80
   %721 = load i64, ptr %720, align 8
@@ -1270,7 +1270,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 726:                                              ; preds = %137
   %727 = load ptr, ptr %0, align 8
   %728 = load ptr, ptr %74, align 8
-  %729 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %728) #31
+  %729 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %728) #32
   %730 = getelementptr inbounds i8, ptr %727, i64 72
   %731 = getelementptr inbounds i8, ptr %727, i64 80
   %732 = load i64, ptr %731, align 8
@@ -1286,7 +1286,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 737:                                              ; preds = %137
   %738 = load ptr, ptr %0, align 8
   %739 = load ptr, ptr %74, align 8
-  %740 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %739) #31
+  %740 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %739) #32
   %741 = getelementptr inbounds i8, ptr %738, i64 72
   %742 = getelementptr inbounds i8, ptr %738, i64 80
   %743 = load i64, ptr %742, align 8
@@ -1303,7 +1303,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   store i32 1, ptr %71, align 4
   %749 = load ptr, ptr %0, align 8
   %750 = load ptr, ptr %74, align 8
-  %751 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %750) #31
+  %751 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %750) #32
   %752 = getelementptr inbounds i8, ptr %749, i64 72
   %753 = getelementptr inbounds i8, ptr %749, i64 80
   %754 = load i64, ptr %753, align 8
@@ -1319,7 +1319,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 759:                                              ; preds = %137
   %760 = load ptr, ptr %0, align 8
   %761 = load ptr, ptr %74, align 8
-  %762 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %761) #31
+  %762 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %761) #32
   %763 = getelementptr inbounds i8, ptr %760, i64 72
   %764 = getelementptr inbounds i8, ptr %760, i64 80
   %765 = load i64, ptr %764, align 8
@@ -1332,14 +1332,14 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   %770 = load i64, ptr %769, align 8
   %771 = getelementptr inbounds i8, ptr %768, i64 80
   %772 = load i64, ptr %771, align 8
-  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef %768, i32 noundef -1, i64 %770, i64 %772, ptr noundef nonnull @.str.1) #32
+  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef %768, i32 noundef -1, i64 %770, i64 %772, ptr noundef nonnull @.str.1) #33
   br label %.loopexit
 
 773:                                              ; preds = %137
   store i32 7, ptr %71, align 4
   %774 = load ptr, ptr %0, align 8
   %775 = load ptr, ptr %74, align 8
-  %776 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %775) #31
+  %776 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %775) #32
   %777 = getelementptr inbounds i8, ptr %774, i64 72
   %778 = getelementptr inbounds i8, ptr %774, i64 80
   %779 = load i64, ptr %778, align 8
@@ -1351,7 +1351,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   %783 = getelementptr inbounds i8, ptr %782, i64 56
   %784 = getelementptr inbounds i8, ptr %782, i64 72
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %783, ptr noundef nonnull align 8 dereferenceable(16) %784, i64 16, i1 false)
-  %785 = tail call ptr @g_string_new(ptr noundef null) #32
+  %785 = tail call ptr @g_string_new(ptr noundef null) #33
   %786 = load ptr, ptr %0, align 8
   %787 = getelementptr inbounds i8, ptr %786, i64 40
   store ptr %785, ptr %787, align 8
@@ -1377,7 +1377,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 796:                                              ; preds = %137
   %797 = load ptr, ptr %0, align 8
   %798 = load ptr, ptr %74, align 8
-  %799 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %798) #31
+  %799 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %798) #32
   %800 = getelementptr inbounds i8, ptr %797, i64 64
   %801 = load i64, ptr %800, align 8
   %802 = add i64 %801, %799
@@ -1392,7 +1392,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   %808 = load ptr, ptr %0, align 8
   %809 = getelementptr inbounds i8, ptr %808, i64 40
   %810 = load ptr, ptr %809, align 8
-  %811 = tail call ptr @g_string_free(ptr noundef %810, i32 noundef 1) #32
+  %811 = tail call ptr @g_string_free(ptr noundef %810, i32 noundef 1) #33
   %812 = load ptr, ptr %0, align 8
   %813 = getelementptr inbounds i8, ptr %812, i64 40
   store ptr null, ptr %813, align 8
@@ -1401,14 +1401,14 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   %816 = load i64, ptr %815, align 8
   %817 = getelementptr inbounds i8, ptr %814, i64 80
   %818 = load i64, ptr %817, align 8
-  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef %814, i32 noundef -1, i64 %816, i64 %818, ptr noundef nonnull @.str.2) #32
+  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef %814, i32 noundef -1, i64 %816, i64 %818, ptr noundef nonnull @.str.2) #33
   br label %.loopexit
 
 819:                                              ; preds = %137
   store i32 1, ptr %71, align 4
   %820 = load ptr, ptr %0, align 8
   %821 = load ptr, ptr %74, align 8
-  %822 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %821) #31
+  %822 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %821) #32
   %823 = getelementptr inbounds i8, ptr %820, i64 64
   %824 = load i64, ptr %823, align 8
   %825 = add i64 %824, %822
@@ -1435,7 +1435,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 838:                                              ; preds = %137
   %839 = load ptr, ptr %0, align 8
   %840 = load ptr, ptr %74, align 8
-  %841 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %840) #31
+  %841 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %840) #32
   %842 = getelementptr inbounds i8, ptr %839, i64 64
   %843 = load i64, ptr %842, align 8
   %844 = add i64 %843, %841
@@ -1457,13 +1457,13 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   %855 = getelementptr inbounds i8, ptr %850, i64 40
   %856 = load ptr, ptr %855, align 8
   %857 = load ptr, ptr %74, align 8
-  %858 = tail call ptr @g_string_append(ptr noundef %856, ptr noundef %857) #32
+  %858 = tail call ptr @g_string_append(ptr noundef %856, ptr noundef %857) #33
   br label %.backedge1390
 
 859:                                              ; preds = %838
   %860 = load ptr, ptr %74, align 8
   %861 = getelementptr i8, ptr %860, i64 1
-  %862 = tail call i64 @strtoul(ptr nocapture noundef %861, ptr noundef null, i32 noundef 8) #32
+  %862 = tail call i64 @strtoul(ptr nocapture noundef %861, ptr noundef null, i32 noundef 8) #33
   %863 = icmp ugt i64 %862, 255
   %864 = load ptr, ptr %0, align 8
   %865 = getelementptr inbounds i8, ptr %864, i64 40
@@ -1471,7 +1471,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   br i1 %863, label %867, label %877
 
 867:                                              ; preds = %859
-  %868 = tail call ptr @g_string_free(ptr noundef %866, i32 noundef 1) #32
+  %868 = tail call ptr @g_string_free(ptr noundef %866, i32 noundef 1) #33
   %869 = load ptr, ptr %0, align 8
   %870 = getelementptr inbounds i8, ptr %869, i64 40
   store ptr null, ptr %870, align 8
@@ -1481,7 +1481,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   %874 = load i64, ptr %872, align 8
   %875 = getelementptr inbounds i8, ptr %871, i64 80
   %876 = load i64, ptr %875, align 8
-  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef %871, i32 noundef -1, i64 %874, i64 %876, ptr noundef nonnull @.str.3, ptr noundef %873) #32
+  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef %871, i32 noundef -1, i64 %874, i64 %876, ptr noundef nonnull @.str.3, ptr noundef %873) #33
   br label %.loopexit
 
 877:                                              ; preds = %859
@@ -1492,7 +1492,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 880:                                              ; preds = %137
   %881 = load ptr, ptr %0, align 8
   %882 = load ptr, ptr %74, align 8
-  %883 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %882) #31
+  %883 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %882) #32
   %884 = getelementptr inbounds i8, ptr %881, i64 64
   %885 = load i64, ptr %884, align 8
   %886 = add i64 %885, %883
@@ -1514,13 +1514,13 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   %897 = getelementptr inbounds i8, ptr %892, i64 40
   %898 = load ptr, ptr %897, align 8
   %899 = load ptr, ptr %74, align 8
-  %900 = tail call ptr @g_string_append(ptr noundef %898, ptr noundef %899) #32
+  %900 = tail call ptr @g_string_append(ptr noundef %898, ptr noundef %899) #33
   br label %.backedge1390
 
 901:                                              ; preds = %880
   %902 = load ptr, ptr %74, align 8
   %903 = getelementptr i8, ptr %902, i64 2
-  %904 = tail call i64 @strtoul(ptr nocapture noundef %903, ptr noundef null, i32 noundef 16) #32
+  %904 = tail call i64 @strtoul(ptr nocapture noundef %903, ptr noundef null, i32 noundef 16) #33
   %905 = load ptr, ptr %0, align 8
   %906 = getelementptr inbounds i8, ptr %905, i64 40
   %907 = load ptr, ptr %906, align 8
@@ -1531,7 +1531,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 910:                                              ; preds = %137
   %911 = load ptr, ptr %0, align 8
   %912 = load ptr, ptr %74, align 8
-  %913 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %912) #31
+  %913 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %912) #32
   %914 = getelementptr inbounds i8, ptr %911, i64 64
   %915 = load i64, ptr %914, align 8
   %916 = add i64 %915, %913
@@ -1553,7 +1553,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   br i1 %925, label %929, label %931
 
 929:                                              ; preds = %910
-  %930 = tail call ptr @g_string_append(ptr noundef %927, ptr noundef %928) #32
+  %930 = tail call ptr @g_string_append(ptr noundef %927, ptr noundef %928) #33
   br label %.backedge1390
 
 931:                                              ; preds = %910
@@ -1564,7 +1564,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   %934 = load ptr, ptr %0, align 8
   %935 = getelementptr inbounds i8, ptr %934, i64 40
   %936 = load ptr, ptr %935, align 8
-  %937 = tail call ptr @g_string_free(ptr noundef %936, i32 noundef 1) #32
+  %937 = tail call ptr @g_string_free(ptr noundef %936, i32 noundef 1) #33
   %938 = load ptr, ptr %0, align 8
   %939 = getelementptr inbounds i8, ptr %938, i64 40
   store ptr null, ptr %939, align 8
@@ -1573,7 +1573,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 940:                                              ; preds = %137
   %941 = load ptr, ptr %0, align 8
   %942 = load ptr, ptr %74, align 8
-  %943 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %942) #31
+  %943 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %942) #32
   %944 = getelementptr inbounds i8, ptr %941, i64 64
   %945 = load i64, ptr %944, align 8
   %946 = add i64 %945, %943
@@ -1595,7 +1595,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   br i1 %955, label %959, label %961
 
 959:                                              ; preds = %940
-  %960 = tail call ptr @g_string_append(ptr noundef %957, ptr noundef %958) #32
+  %960 = tail call ptr @g_string_append(ptr noundef %957, ptr noundef %958) #33
   br label %.backedge1390
 
 961:                                              ; preds = %940
@@ -1606,7 +1606,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   %964 = load ptr, ptr %0, align 8
   %965 = getelementptr inbounds i8, ptr %964, i64 40
   %966 = load ptr, ptr %965, align 8
-  %967 = tail call ptr @g_string_free(ptr noundef %966, i32 noundef 1) #32
+  %967 = tail call ptr @g_string_free(ptr noundef %966, i32 noundef 1) #33
   %968 = load ptr, ptr %0, align 8
   %969 = getelementptr inbounds i8, ptr %968, i64 40
   store ptr null, ptr %969, align 8
@@ -1615,7 +1615,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 970:                                              ; preds = %137
   %971 = load ptr, ptr %0, align 8
   %972 = load ptr, ptr %74, align 8
-  %973 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %972) #31
+  %973 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %972) #32
   %974 = getelementptr inbounds i8, ptr %971, i64 64
   %975 = load i64, ptr %974, align 8
   %976 = add i64 %975, %973
@@ -1637,7 +1637,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   br i1 %985, label %989, label %991
 
 989:                                              ; preds = %970
-  %990 = tail call ptr @g_string_append(ptr noundef %987, ptr noundef %988) #32
+  %990 = tail call ptr @g_string_append(ptr noundef %987, ptr noundef %988) #33
   br label %.backedge1390
 
 .backedge1390:                                    ; preds = %989, %991, %959, %961, %929, %931, %896, %901, %854, %877, %790, %793, %1353, %1098, %1081, %1019, %1002, %141
@@ -1653,7 +1653,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   %996 = load ptr, ptr %0, align 8
   %997 = getelementptr inbounds i8, ptr %996, i64 40
   %998 = load ptr, ptr %997, align 8
-  %999 = tail call ptr @g_string_free(ptr noundef %998, i32 noundef 1) #32
+  %999 = tail call ptr @g_string_free(ptr noundef %998, i32 noundef 1) #33
   %1000 = load ptr, ptr %0, align 8
   %1001 = getelementptr inbounds i8, ptr %1000, i64 40
   store ptr null, ptr %1001, align 8
@@ -1662,7 +1662,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 1002:                                             ; preds = %137
   %1003 = load ptr, ptr %0, align 8
   %1004 = load ptr, ptr %74, align 8
-  %1005 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1004) #31
+  %1005 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1004) #32
   %1006 = getelementptr inbounds i8, ptr %1003, i64 64
   %1007 = load i64, ptr %1006, align 8
   %1008 = add i64 %1007, %1005
@@ -1678,14 +1678,14 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   %1015 = getelementptr inbounds i8, ptr %1014, i64 40
   %1016 = load ptr, ptr %1015, align 8
   %1017 = load ptr, ptr %74, align 8
-  %1018 = tail call ptr @g_string_append(ptr noundef %1016, ptr noundef %1017) #32
+  %1018 = tail call ptr @g_string_append(ptr noundef %1016, ptr noundef %1017) #33
   br label %.backedge1390
 
 1019:                                             ; preds = %137
   store i32 9, ptr %71, align 4
   %1020 = load ptr, ptr %0, align 8
   %1021 = load ptr, ptr %74, align 8
-  %1022 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1021) #31
+  %1022 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1021) #32
   %1023 = getelementptr inbounds i8, ptr %1020, i64 72
   %1024 = getelementptr inbounds i8, ptr %1020, i64 80
   %1025 = load i64, ptr %1024, align 8
@@ -1697,7 +1697,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   %1029 = getelementptr inbounds i8, ptr %1028, i64 56
   %1030 = getelementptr inbounds i8, ptr %1028, i64 72
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1029, ptr noundef nonnull align 8 dereferenceable(16) %1030, i64 16, i1 false)
-  %1031 = tail call ptr @g_string_new(ptr noundef nonnull @.str.4) #32
+  %1031 = tail call ptr @g_string_new(ptr noundef nonnull @.str.4) #33
   %1032 = load ptr, ptr %0, align 8
   %1033 = getelementptr inbounds i8, ptr %1032, i64 40
   store ptr %1031, ptr %1033, align 8
@@ -1706,7 +1706,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 1034:                                             ; preds = %137
   %1035 = load ptr, ptr %0, align 8
   %1036 = load ptr, ptr %74, align 8
-  %1037 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1036) #31
+  %1037 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1036) #32
   %1038 = getelementptr inbounds i8, ptr %1035, i64 64
   %1039 = load i64, ptr %1038, align 8
   %1040 = add i64 %1039, %1037
@@ -1721,7 +1721,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   %1046 = load ptr, ptr %0, align 8
   %1047 = getelementptr inbounds i8, ptr %1046, i64 40
   %1048 = load ptr, ptr %1047, align 8
-  %1049 = tail call ptr @g_string_free(ptr noundef %1048, i32 noundef 1) #32
+  %1049 = tail call ptr @g_string_free(ptr noundef %1048, i32 noundef 1) #33
   %1050 = load ptr, ptr %0, align 8
   %1051 = getelementptr inbounds i8, ptr %1050, i64 40
   store ptr null, ptr %1051, align 8
@@ -1730,14 +1730,14 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   %1054 = load i64, ptr %1053, align 8
   %1055 = getelementptr inbounds i8, ptr %1052, i64 80
   %1056 = load i64, ptr %1055, align 8
-  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef %1052, i32 noundef -1, i64 %1054, i64 %1056, ptr noundef nonnull @.str.5) #32
+  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef %1052, i32 noundef -1, i64 %1054, i64 %1056, ptr noundef nonnull @.str.5) #33
   br label %.loopexit
 
 1057:                                             ; preds = %137
   store i32 1, ptr %71, align 4
   %1058 = load ptr, ptr %0, align 8
   %1059 = load ptr, ptr %74, align 8
-  %1060 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1059) #31
+  %1060 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1059) #32
   %1061 = getelementptr inbounds i8, ptr %1058, i64 64
   %1062 = load i64, ptr %1061, align 8
   %1063 = add i64 %1062, %1060
@@ -1768,7 +1768,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 1081:                                             ; preds = %137
   %1082 = load ptr, ptr %0, align 8
   %1083 = load ptr, ptr %74, align 8
-  %1084 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1083) #31
+  %1084 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1083) #32
   %1085 = getelementptr inbounds i8, ptr %1082, i64 64
   %1086 = load i64, ptr %1085, align 8
   %1087 = add i64 %1086, %1084
@@ -1784,13 +1784,13 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   %1094 = getelementptr inbounds i8, ptr %1093, i64 40
   %1095 = load ptr, ptr %1094, align 8
   %1096 = load ptr, ptr %74, align 8
-  %1097 = tail call ptr @g_string_append(ptr noundef %1095, ptr noundef %1096) #32
+  %1097 = tail call ptr @g_string_append(ptr noundef %1095, ptr noundef %1096) #33
   br label %.backedge1390
 
 1098:                                             ; preds = %137
   %1099 = load ptr, ptr %0, align 8
   %1100 = load ptr, ptr %74, align 8
-  %1101 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1100) #31
+  %1101 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1100) #32
   %1102 = getelementptr inbounds i8, ptr %1099, i64 64
   %1103 = load i64, ptr %1102, align 8
   %1104 = add i64 %1103, %1101
@@ -1806,13 +1806,13 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   %1111 = getelementptr inbounds i8, ptr %1110, i64 40
   %1112 = load ptr, ptr %1111, align 8
   %1113 = load ptr, ptr %74, align 8
-  %1114 = tail call ptr @g_string_append(ptr noundef %1112, ptr noundef %1113) #32
+  %1114 = tail call ptr @g_string_append(ptr noundef %1112, ptr noundef %1113) #33
   br label %.backedge1390
 
 1115:                                             ; preds = %137
   %1116 = load ptr, ptr %0, align 8
   %1117 = load ptr, ptr %74, align 8
-  %1118 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1117) #31
+  %1118 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1117) #32
   %1119 = getelementptr inbounds i8, ptr %1116, i64 72
   %1120 = getelementptr inbounds i8, ptr %1116, i64 80
   %1121 = load i64, ptr %1120, align 8
@@ -1828,7 +1828,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 1126:                                             ; preds = %137
   %1127 = load ptr, ptr %0, align 8
   %1128 = load ptr, ptr %74, align 8
-  %1129 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1128) #31
+  %1129 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1128) #32
   %1130 = getelementptr inbounds i8, ptr %1127, i64 72
   %1131 = getelementptr inbounds i8, ptr %1127, i64 80
   %1132 = load i64, ptr %1131, align 8
@@ -1844,7 +1844,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 1137:                                             ; preds = %137
   %1138 = load ptr, ptr %0, align 8
   %1139 = load ptr, ptr %74, align 8
-  %1140 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1139) #31
+  %1140 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1139) #32
   %1141 = getelementptr inbounds i8, ptr %1138, i64 72
   %1142 = getelementptr inbounds i8, ptr %1138, i64 80
   %1143 = load i64, ptr %1142, align 8
@@ -1860,7 +1860,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 1148:                                             ; preds = %137
   %1149 = load ptr, ptr %0, align 8
   %1150 = load ptr, ptr %74, align 8
-  %1151 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1150) #31
+  %1151 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1150) #32
   %1152 = getelementptr inbounds i8, ptr %1149, i64 72
   %1153 = getelementptr inbounds i8, ptr %1149, i64 80
   %1154 = load i64, ptr %1153, align 8
@@ -1872,7 +1872,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   %1158 = load ptr, ptr %0, align 8
   %1159 = getelementptr inbounds i8, ptr %1158, i64 24
   %1160 = load ptr, ptr %1159, align 8
-  %1161 = tail call ptr @dfilter_resolve_unparsed(ptr noundef %1157, ptr noundef %1160) #32
+  %1161 = tail call ptr @dfilter_resolve_unparsed(ptr noundef %1157, ptr noundef %1160) #33
   %.not588 = icmp eq ptr %1161, null
   %1162 = load ptr, ptr %0, align 8
   %1163 = load ptr, ptr %74, align 8
@@ -1889,7 +1889,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 1167:                                             ; preds = %137
   %1168 = load ptr, ptr %0, align 8
   %1169 = load ptr, ptr %74, align 8
-  %1170 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1169) #31
+  %1170 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1169) #32
   %1171 = getelementptr inbounds i8, ptr %1168, i64 72
   %1172 = getelementptr inbounds i8, ptr %1168, i64 80
   %1173 = load i64, ptr %1172, align 8
@@ -1905,7 +1905,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 1179:                                             ; preds = %137
   %1180 = load ptr, ptr %0, align 8
   %1181 = load ptr, ptr %74, align 8
-  %1182 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1181) #31
+  %1182 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1181) #32
   %1183 = getelementptr inbounds i8, ptr %1180, i64 72
   %1184 = getelementptr inbounds i8, ptr %1180, i64 80
   %1185 = load i64, ptr %1184, align 8
@@ -1921,7 +1921,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 1191:                                             ; preds = %137
   %1192 = load ptr, ptr %0, align 8
   %1193 = load ptr, ptr %74, align 8
-  %1194 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1193) #31
+  %1194 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1193) #32
   %1195 = getelementptr inbounds i8, ptr %1192, i64 72
   %1196 = getelementptr inbounds i8, ptr %1192, i64 80
   %1197 = load i64, ptr %1196, align 8
@@ -1933,7 +1933,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   %1201 = load ptr, ptr %0, align 8
   %1202 = getelementptr inbounds i8, ptr %1201, i64 24
   %1203 = load ptr, ptr %1202, align 8
-  %1204 = tail call ptr @dfilter_resolve_unparsed(ptr noundef %1200, ptr noundef %1203) #32
+  %1204 = tail call ptr @dfilter_resolve_unparsed(ptr noundef %1200, ptr noundef %1203) #33
   %.not587 = icmp eq ptr %1204, null
   %1205 = load ptr, ptr %0, align 8
   %1206 = load ptr, ptr %74, align 8
@@ -1950,7 +1950,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 1210:                                             ; preds = %137
   %1211 = load ptr, ptr %0, align 8
   %1212 = load ptr, ptr %74, align 8
-  %1213 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1212) #31
+  %1213 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1212) #32
   %1214 = getelementptr inbounds i8, ptr %1211, i64 72
   %1215 = getelementptr inbounds i8, ptr %1211, i64 80
   %1216 = load i64, ptr %1215, align 8
@@ -1966,7 +1966,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 1222:                                             ; preds = %137
   %1223 = load ptr, ptr %0, align 8
   %1224 = load ptr, ptr %74, align 8
-  %1225 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1224) #31
+  %1225 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1224) #32
   %1226 = getelementptr inbounds i8, ptr %1223, i64 72
   %1227 = getelementptr inbounds i8, ptr %1223, i64 80
   %1228 = load i64, ptr %1227, align 8
@@ -1983,7 +1983,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 1234:                                             ; preds = %137
   %1235 = load ptr, ptr %0, align 8
   %1236 = load ptr, ptr %74, align 8
-  %1237 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1236) #31
+  %1237 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1236) #32
   %1238 = getelementptr inbounds i8, ptr %1235, i64 72
   %1239 = getelementptr inbounds i8, ptr %1235, i64 80
   %1240 = load i64, ptr %1239, align 8
@@ -2009,7 +2009,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 1250:                                             ; preds = %137
   %1251 = load ptr, ptr %0, align 8
   %1252 = load ptr, ptr %74, align 8
-  %1253 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1252) #31
+  %1253 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1252) #32
   %1254 = getelementptr inbounds i8, ptr %1251, i64 72
   %1255 = getelementptr inbounds i8, ptr %1251, i64 80
   %1256 = load i64, ptr %1255, align 8
@@ -2026,7 +2026,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 1262:                                             ; preds = %137
   %1263 = load ptr, ptr %0, align 8
   %1264 = load ptr, ptr %74, align 8
-  %1265 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1264) #31
+  %1265 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1264) #32
   %1266 = getelementptr inbounds i8, ptr %1263, i64 72
   %1267 = getelementptr inbounds i8, ptr %1263, i64 80
   %1268 = load i64, ptr %1267, align 8
@@ -2043,7 +2043,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 1274:                                             ; preds = %137
   %1275 = load ptr, ptr %0, align 8
   %1276 = load ptr, ptr %74, align 8
-  %1277 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1276) #31
+  %1277 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1276) #32
   %1278 = getelementptr inbounds i8, ptr %1275, i64 72
   %1279 = getelementptr inbounds i8, ptr %1275, i64 80
   %1280 = load i64, ptr %1279, align 8
@@ -2059,7 +2059,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 1285:                                             ; preds = %137
   %1286 = load ptr, ptr %0, align 8
   %1287 = load ptr, ptr %74, align 8
-  %1288 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1287) #31
+  %1288 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1287) #32
   %1289 = getelementptr inbounds i8, ptr %1286, i64 72
   %1290 = getelementptr inbounds i8, ptr %1286, i64 80
   %1291 = load i64, ptr %1290, align 8
@@ -2072,7 +2072,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   %1296 = load ptr, ptr %0, align 8
   %1297 = getelementptr inbounds i8, ptr %1296, i64 24
   %1298 = load ptr, ptr %1297, align 8
-  %1299 = tail call ptr @dfilter_resolve_unparsed(ptr noundef %1295, ptr noundef %1298) #32
+  %1299 = tail call ptr @dfilter_resolve_unparsed(ptr noundef %1295, ptr noundef %1298) #33
   %1300 = icmp eq ptr %1299, null
   %1301 = load ptr, ptr %0, align 8
   br i1 %1300, label %1302, label %1307
@@ -2082,7 +2082,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   %1304 = load i64, ptr %1303, align 8
   %1305 = getelementptr inbounds i8, ptr %1301, i64 80
   %1306 = load i64, ptr %1305, align 8
-  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef %1301, i32 noundef -1, i64 %1304, i64 %1306, ptr noundef nonnull @.str.6, ptr noundef %1295) #32
+  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef %1301, i32 noundef -1, i64 %1304, i64 %1306, ptr noundef nonnull @.str.6, ptr noundef %1295) #33
   br label %.loopexit
 
 1307:                                             ; preds = %1285
@@ -2093,7 +2093,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 1309:                                             ; preds = %137
   %1310 = load ptr, ptr %0, align 8
   %1311 = load ptr, ptr %74, align 8
-  %1312 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1311) #31
+  %1312 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1311) #32
   %1313 = getelementptr inbounds i8, ptr %1310, i64 72
   %1314 = getelementptr inbounds i8, ptr %1310, i64 80
   %1315 = load i64, ptr %1314, align 8
@@ -2109,7 +2109,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 1320:                                             ; preds = %137
   %1321 = load ptr, ptr %0, align 8
   %1322 = load ptr, ptr %74, align 8
-  %1323 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1322) #31
+  %1323 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1322) #32
   %1324 = getelementptr inbounds i8, ptr %1321, i64 72
   %1325 = getelementptr inbounds i8, ptr %1321, i64 80
   %1326 = load i64, ptr %1325, align 8
@@ -2125,7 +2125,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 1331:                                             ; preds = %137
   %1332 = load ptr, ptr %0, align 8
   %1333 = load ptr, ptr %74, align 8
-  %1334 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1333) #31
+  %1334 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1333) #32
   %1335 = getelementptr inbounds i8, ptr %1332, i64 72
   %1336 = getelementptr inbounds i8, ptr %1332, i64 80
   %1337 = load i64, ptr %1336, align 8
@@ -2134,7 +2134,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   store i64 %1339, ptr %1335, align 8
   store i64 %1334, ptr %1336, align 8
   %1340 = load ptr, ptr %74, align 8
-  %1341 = tail call zeroext i1 @isprint_string(ptr noundef %1340) #32
+  %1341 = tail call zeroext i1 @isprint_string(ptr noundef %1340) #33
   %1342 = load ptr, ptr %0, align 8
   %1343 = getelementptr inbounds i8, ptr %1342, i64 72
   br i1 %1341, label %1344, label %1349
@@ -2144,14 +2144,14 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   %1346 = load i64, ptr %1343, align 8
   %1347 = getelementptr inbounds i8, ptr %1342, i64 80
   %1348 = load i64, ptr %1347, align 8
-  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef %1342, i32 noundef -1, i64 %1346, i64 %1348, ptr noundef nonnull @.str.7, ptr noundef %1345) #32
+  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef %1342, i32 noundef -1, i64 %1346, i64 %1348, ptr noundef nonnull @.str.7, ptr noundef %1345) #33
   br label %.loopexit
 
 1349:                                             ; preds = %1331
   %1350 = load i64, ptr %1343, align 8
   %1351 = getelementptr inbounds i8, ptr %1342, i64 80
   %1352 = load i64, ptr %1351, align 8
-  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef %1342, i32 noundef -1, i64 %1350, i64 %1352, ptr noundef nonnull @.str.8) #32
+  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef %1342, i32 noundef -1, i64 %1350, i64 %1352, ptr noundef nonnull @.str.8) #33
   br label %.loopexit
 
 1353:                                             ; preds = %137
@@ -2253,7 +2253,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   br i1 %1409, label %1410, label %1411
 
 1410:                                             ; preds = %1404
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.16) #29
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.16) #30
   unreachable
 
 1411:                                             ; preds = %1404
@@ -2355,13 +2355,13 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   store i32 %storemerge148.i, ptr %1451, align 8
   %1458 = add i32 %storemerge148.i, 2
   %1459 = sext i32 %1458 to i64
-  %1460 = tail call noalias noundef ptr @realloc(ptr noundef %1444, i64 noundef %1459) #30
+  %1460 = tail call noalias noundef ptr @realloc(ptr noundef %1444, i64 noundef %1459) #31
   store ptr %1460, ptr %1443, align 8
   %.not149.i = icmp eq ptr %1460, null
   br i1 %.not149.i, label %.loopexit.i, label %1461
 
 .loopexit.i:                                      ; preds = %1457, %.thread.i
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.17) #29
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.17) #30
   unreachable
 
 1461:                                             ; preds = %1457
@@ -2445,12 +2445,12 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 
 1498:                                             ; preds = %.critedge.i
   %1499 = load ptr, ptr %79, align 8
-  %1500 = tail call i32 @ferror(ptr noundef %1499) #32
+  %1500 = tail call i32 @ferror(ptr noundef %1499) #33
   %.not145.i = icmp eq i32 %1500, 0
   br i1 %.not145.i, label %1502, label %1501
 
 1501:                                             ; preds = %1498
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.18) #29
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.18) #30
   unreachable
 
 1502:                                             ; preds = %1498, %.thread154.i, %.critedge.i
@@ -2459,7 +2459,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   br label %.critedge2.i
 
 1503:                                             ; preds = %._crit_edge169.i
-  %1504 = tail call ptr @__errno_location() #33
+  %1504 = tail call ptr @__errno_location() #34
   store i32 0, ptr %1504, align 4
   %sext.i = shl i64 %1422, 32
   %1505 = ashr exact i64 %sext.i, 32
@@ -2480,7 +2480,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 
 .lr.ph172.i:                                      ; preds = %1503, %1523
   %1518 = load ptr, ptr %79, align 8
-  %1519 = tail call i32 @ferror(ptr noundef %1518) #32
+  %1519 = tail call i32 @ferror(ptr noundef %1518) #33
   %.not142.i = icmp eq i32 %1519, 0
   br i1 %.not142.i, label %.critedge2.i, label %1520
 
@@ -2490,13 +2490,13 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   br i1 %.not143.i, label %1523, label %1522
 
 1522:                                             ; preds = %1520
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.18) #29
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.18) #30
   unreachable
 
 1523:                                             ; preds = %1520
   store i32 0, ptr %1504, align 4
   %1524 = load ptr, ptr %79, align 8
-  tail call void @clearerr(ptr noundef %1524) #32
+  tail call void @clearerr(ptr noundef %1524) #33
   %1525 = load ptr, ptr %76, align 8
   %1526 = load i64, ptr %77, align 8
   %1527 = getelementptr ptr, ptr %1525, i64 %1526
@@ -2565,7 +2565,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   %1568 = getelementptr inbounds i8, ptr %1561, i64 8
   %1569 = load ptr, ptr %1568, align 8
   %1570 = sext i32 %1567 to i64
-  %1571 = tail call noalias noundef ptr @realloc(ptr noundef %1569, i64 noundef %1570) #30
+  %1571 = tail call noalias noundef ptr @realloc(ptr noundef %1569, i64 noundef %1570) #31
   %1572 = load ptr, ptr %76, align 8
   %1573 = load i64, ptr %77, align 8
   %1574 = getelementptr ptr, ptr %1572, i64 %1573
@@ -2582,7 +2582,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   br i1 %.not151.i, label %1583, label %1584
 
 1583:                                             ; preds = %1565
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.19) #29
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.19) #30
   unreachable
 
 1584:                                             ; preds = %1565
@@ -2673,7 +2673,7 @@ yy_get_next_buffer.exit.thread591:                ; preds = %1417, %yy_get_next_
   br label %.outer.backedge
 
 1630:                                             ; preds = %137
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.9) #29
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.9) #30
   unreachable
 
 default.unreachable1081:                          ; preds = %yy_get_next_buffer.exit
@@ -2684,14 +2684,14 @@ default.unreachable1081:                          ; preds = %yy_get_next_buffer.
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
-define hidden noundef ptr @df_yy_create_buffer(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
-  %4 = tail call noalias noundef dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #28
+; Function Attrs: nofree nounwind uwtable
+define hidden noundef ptr @df_yy_create_buffer(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #1 {
+  %4 = tail call noalias noundef dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #29
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %6
 
 5:                                                ; preds = %3
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.10) #29
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.10) #30
   unreachable
 
 6:                                                ; preds = %3
@@ -2699,20 +2699,20 @@ define hidden noundef ptr @df_yy_create_buffer(ptr noundef %0, i32 noundef %1, p
   store i32 %1, ptr %7, align 8
   %8 = add i32 %1, 2
   %9 = sext i32 %8 to i64
-  %10 = tail call noalias noundef ptr @malloc(i64 noundef %9) #28
+  %10 = tail call noalias noundef ptr @malloc(i64 noundef %9) #29
   %11 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %10, ptr %11, align 8
   %.not14 = icmp eq ptr %10, null
   br i1 %.not14, label %12, label %13
 
 12:                                               ; preds = %6
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.10) #29
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.10) #30
   unreachable
 
 13:                                               ; preds = %6
   %14 = getelementptr inbounds i8, ptr %4, i64 32
   store i32 1, ptr %14, align 8
-  %15 = tail call ptr @__errno_location() #33
+  %15 = tail call ptr @__errno_location() #34
   %16 = load i32, ptr %15, align 4
   %17 = getelementptr inbounds i8, ptr %4, i64 28
   store i32 0, ptr %17, align 4
@@ -2800,46 +2800,46 @@ df_yy_init_buffer.exit:                           ; preds = %52, %54
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @set_lval_simple(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
-  %4 = tail call noalias ptr @g_strdup(ptr noundef %1) #32
+  %4 = tail call noalias ptr @g_strdup(ptr noundef %1) #33
   %5 = getelementptr inbounds i8, ptr %0, i64 72
   %6 = load i64, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 80
   %8 = load i64, ptr %7, align 8
-  %9 = tail call ptr @stnode_new(i32 noundef %2, ptr noundef null, ptr noundef %4, i64 %6, i64 %8) #32
+  %9 = tail call ptr @stnode_new(i32 noundef %2, ptr noundef null, ptr noundef %4, i64 %6, i64 %8) #33
   %10 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %9, ptr %10, align 8
   ret void
 }
 
-declare void @dfilter_fail(ptr noundef, i32 noundef, i64, i64, ptr noundef, ...) local_unnamed_addr #1
+declare void @dfilter_fail(ptr noundef, i32 noundef, i64, i64, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
-declare ptr @g_string_new(ptr noundef) local_unnamed_addr #1
+declare ptr @g_string_new(ptr noundef) local_unnamed_addr #2
 
-declare ptr @g_string_free(ptr noundef, i32 noundef) local_unnamed_addr #1
+declare ptr @g_string_free(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @set_lval_quoted_string(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8
-  %6 = tail call ptr @ws_escape_string_len(ptr noundef null, ptr noundef %3, i64 noundef %5, i1 noundef zeroext true) #32
+  %6 = tail call ptr @ws_escape_string_len(ptr noundef null, ptr noundef %3, i64 noundef %5, i1 noundef zeroext true) #33
   %7 = getelementptr inbounds i8, ptr %0, i64 56
   %8 = load i64, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 64
   %10 = load i64, ptr %9, align 8
-  %11 = tail call ptr @stnode_new(i32 noundef 5, ptr noundef nonnull %1, ptr noundef %6, i64 %8, i64 %10) #32
+  %11 = tail call ptr @stnode_new(i32 noundef 5, ptr noundef nonnull %1, ptr noundef %6, i64 %8, i64 %10) #33
   %12 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %11, ptr %12, align 8
   ret void
 }
 
-declare ptr @g_string_append(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare ptr @g_string_append(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #3
+declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef ptr @g_string_append_c_inline(ptr noundef returned %0, i8 noundef signext %1) unnamed_addr #0 {
@@ -2863,7 +2863,7 @@ define internal fastcc noundef ptr @g_string_append_c_inline(ptr noundef returne
   br label %17
 
 15:                                               ; preds = %2
-  %16 = tail call ptr @g_string_insert_c(ptr noundef nonnull %0, i64 noundef -1, i8 noundef signext %1) #32
+  %16 = tail call ptr @g_string_insert_c(ptr noundef nonnull %0, i64 noundef -1, i8 noundef signext %1) #33
   br label %17
 
 17:                                               ; preds = %15, %9
@@ -2911,10 +2911,10 @@ define internal fastcc noundef zeroext i1 @append_universal_character_name(ptr n
   br i1 %.not38.i, label %.loopexit, label %12
 
 20:                                               ; preds = %12
-  %21 = tail call ptr @__errno_location() #33
+  %21 = tail call ptr @__errno_location() #34
   store i32 0, ptr %21, align 4
   %22 = getelementptr i8, ptr %2, i64 2
-  %23 = call i64 @g_ascii_strtoull(ptr noundef %22, ptr noundef nonnull %4, i32 noundef 16) #32
+  %23 = call i64 @g_ascii_strtoull(ptr noundef %22, ptr noundef nonnull %4, i32 noundef 16) #33
   %24 = load i32, ptr %21, align 4
   %.not36.i = icmp eq i32 %24, 0
   br i1 %.not36.i, label %25, label %.loopexit
@@ -2946,13 +2946,13 @@ define internal fastcc noundef zeroext i1 @append_universal_character_name(ptr n
   %38 = load i64, ptr %37, align 8
   %39 = getelementptr inbounds i8, ptr %0, i64 80
   %40 = load i64, ptr %39, align 8
-  call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef %0, i32 noundef -1, i64 %38, i64 %40, ptr noundef nonnull @.str.24, ptr noundef nonnull %2) #32
+  call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef %0, i32 noundef -1, i64 %38, i64 %40, ptr noundef nonnull @.str.24, ptr noundef nonnull %2) #33
   br label %44
 
 41:                                               ; preds = %29
   %42 = trunc nuw nsw i64 %23 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  %43 = call ptr @g_string_append_unichar(ptr noundef %1, i32 noundef %42) #32
+  %43 = call ptr @g_string_append_unichar(ptr noundef %1, i32 noundef %42) #33
   br label %44
 
 44:                                               ; preds = %41, %.loopexit
@@ -3002,7 +3002,7 @@ define internal fastcc noundef zeroext i1 @append_escaped_char(ptr noundef %0, p
   %14 = load i64, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %0, i64 80
   %16 = load i64, ptr %15, align 8
-  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef %0, i32 noundef -1, i64 %14, i64 %16, ptr noundef nonnull @.str.35, i32 noundef %12) #32
+  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef %0, i32 noundef -1, i64 %14, i64 %16, ptr noundef nonnull @.str.35, i32 noundef %12) #33
   br label %g_string_append_c_inline.exit
 
 17:                                               ; preds = %3, %3, %3, %10, %9, %8, %7, %6, %5, %4
@@ -3027,7 +3027,7 @@ define internal fastcc noundef zeroext i1 @append_escaped_char(ptr noundef %0, p
   br label %g_string_append_c_inline.exit
 
 30:                                               ; preds = %17
-  %31 = tail call ptr @g_string_insert_c(ptr noundef nonnull %1, i64 noundef -1, i8 noundef signext %.0) #32
+  %31 = tail call ptr @g_string_insert_c(ptr noundef nonnull %1, i64 noundef -1, i8 noundef signext %.0) #33
   br label %g_string_append_c_inline.exit
 
 g_string_append_c_inline.exit:                    ; preds = %30, %24, %11
@@ -3039,7 +3039,7 @@ g_string_append_c_inline.exit:                    ; preds = %30, %24, %11
 define internal fastcc range(i32 -1, 27) i32 @set_lval_charconst(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  %5 = tail call ptr @g_string_free(ptr noundef %1, i32 noundef 0) #32
+  %5 = tail call ptr @g_string_free(ptr noundef %1, i32 noundef 0) #33
   %6 = getelementptr i8, ptr %5, i64 1
   %7 = load i8, ptr %6, align 1
   switch i8 %7, label %160 [
@@ -3052,7 +3052,7 @@ define internal fastcc range(i32 -1, 27) i32 @set_lval_charconst(ptr noundef %0,
   %10 = load i64, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 64
   %12 = load i64, ptr %11, align 8
-  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef %0, i32 noundef -1, i64 %10, i64 %12, ptr noundef nonnull @.str.22) #32
+  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef %0, i32 noundef -1, i64 %10, i64 %12, ptr noundef nonnull @.str.22) #33
   br label %181
 
 13:                                               ; preds = %2
@@ -3080,7 +3080,7 @@ define internal fastcc range(i32 -1, 27) i32 @set_lval_charconst(ptr noundef %0,
   %18 = load i64, ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %0, i64 64
   %20 = load i64, ptr %19, align 8
-  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef %0, i32 noundef -1, i64 %18, i64 %20, ptr noundef nonnull @.str.23, ptr noundef nonnull %5) #32
+  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef %0, i32 noundef -1, i64 %18, i64 %20, ptr noundef nonnull @.str.23, ptr noundef nonnull %5) #33
   br label %181
 
 21:                                               ; preds = %13
@@ -3151,7 +3151,7 @@ define internal fastcc range(i32 -1, 27) i32 @set_lval_charconst(ptr noundef %0,
   %53 = load i64, ptr %52, align 8
   %54 = getelementptr inbounds i8, ptr %0, i64 64
   %55 = load i64, ptr %54, align 8
-  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef %0, i32 noundef -1, i64 %53, i64 %55, ptr noundef nonnull @.str.23, ptr noundef nonnull %5) #32
+  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef %0, i32 noundef -1, i64 %53, i64 %55, ptr noundef nonnull @.str.23, ptr noundef nonnull %5) #33
   br label %181
 
 56:                                               ; preds = %49, %45, %39
@@ -3202,7 +3202,7 @@ define internal fastcc range(i32 -1, 27) i32 @set_lval_charconst(ptr noundef %0,
   %79 = load i64, ptr %78, align 8
   %80 = getelementptr inbounds i8, ptr %0, i64 64
   %81 = load i64, ptr %80, align 8
-  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef %0, i32 noundef -1, i64 %79, i64 %81, ptr noundef nonnull @.str.23, ptr noundef nonnull %5) #32
+  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef %0, i32 noundef -1, i64 %79, i64 %81, ptr noundef nonnull @.str.23, ptr noundef nonnull %5) #33
   br label %181
 
 82:                                               ; preds = %73, %67, %62, %56
@@ -3242,10 +3242,10 @@ define internal fastcc range(i32 -1, 27) i32 @set_lval_charconst(ptr noundef %0,
   br i1 %.not38.i.i, label %.loopexit.i, label %88
 
 96:                                               ; preds = %88
-  %97 = tail call ptr @__errno_location() #33
+  %97 = tail call ptr @__errno_location() #34
   store i32 0, ptr %97, align 4
   %98 = getelementptr i8, ptr %5, i64 3
-  %99 = call i64 @g_ascii_strtoull(ptr noundef %98, ptr noundef nonnull %3, i32 noundef 16) #32
+  %99 = call i64 @g_ascii_strtoull(ptr noundef %98, ptr noundef nonnull %3, i32 noundef 16) #33
   %100 = load i32, ptr %97, align 4
   %.not36.i.i = icmp eq i32 %100, 0
   br i1 %.not36.i.i, label %101, label %.loopexit.i
@@ -3277,7 +3277,7 @@ define internal fastcc range(i32 -1, 27) i32 @set_lval_charconst(ptr noundef %0,
   %114 = load i64, ptr %113, align 8
   %115 = getelementptr inbounds i8, ptr %0, i64 64
   %116 = load i64, ptr %115, align 8
-  call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef %0, i32 noundef -1, i64 %114, i64 %116, ptr noundef nonnull @.str.24, ptr noundef nonnull %5) #32
+  call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef %0, i32 noundef -1, i64 %114, i64 %116, ptr noundef nonnull @.str.24, ptr noundef nonnull %5) #33
   br label %181
 
 117:                                              ; preds = %105
@@ -3302,7 +3302,7 @@ define internal fastcc range(i32 -1, 27) i32 @set_lval_charconst(ptr noundef %0,
   %126 = load i64, ptr %125, align 8
   %127 = getelementptr inbounds i8, ptr %0, i64 64
   %128 = load i64, ptr %127, align 8
-  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef %0, i32 noundef -1, i64 %126, i64 %128, ptr noundef nonnull @.str.23, ptr noundef nonnull %5) #32
+  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef %0, i32 noundef -1, i64 %126, i64 %128, ptr noundef nonnull @.str.23, ptr noundef nonnull %5) #33
   br label %181
 
 129:                                              ; preds = %120
@@ -3325,7 +3325,7 @@ define internal fastcc range(i32 -1, 27) i32 @set_lval_charconst(ptr noundef %0,
   %139 = load i64, ptr %138, align 8
   %140 = getelementptr inbounds i8, ptr %0, i64 64
   %141 = load i64, ptr %140, align 8
-  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef %0, i32 noundef -1, i64 %139, i64 %141, ptr noundef nonnull @.str.23, ptr noundef nonnull %5) #32
+  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef %0, i32 noundef -1, i64 %139, i64 %141, ptr noundef nonnull @.str.23, ptr noundef nonnull %5) #33
   br label %181
 
 142:                                              ; preds = %131
@@ -3338,7 +3338,7 @@ define internal fastcc range(i32 -1, 27) i32 @set_lval_charconst(ptr noundef %0,
   %146 = load i64, ptr %145, align 8
   %147 = getelementptr inbounds i8, ptr %0, i64 64
   %148 = load i64, ptr %147, align 8
-  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef %0, i32 noundef -1, i64 %146, i64 %148, ptr noundef nonnull @.str.23, ptr noundef nonnull %5) #32
+  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef %0, i32 noundef -1, i64 %146, i64 %148, ptr noundef nonnull @.str.23, ptr noundef nonnull %5) #33
   br label %181
 
 149:                                              ; preds = %142
@@ -3354,7 +3354,7 @@ define internal fastcc range(i32 -1, 27) i32 @set_lval_charconst(ptr noundef %0,
   %156 = load i64, ptr %155, align 8
   %157 = getelementptr inbounds i8, ptr %0, i64 64
   %158 = load i64, ptr %157, align 8
-  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef %0, i32 noundef -1, i64 %156, i64 %158, ptr noundef nonnull @.str.25, ptr noundef nonnull %5) #32
+  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef %0, i32 noundef -1, i64 %156, i64 %158, ptr noundef nonnull @.str.25, ptr noundef nonnull %5) #33
   br label %181
 
 .thread.i:                                        ; preds = %149, %131, %120
@@ -3379,7 +3379,7 @@ define internal fastcc range(i32 -1, 27) i32 @set_lval_charconst(ptr noundef %0,
   %170 = load i64, ptr %169, align 8
   %171 = getelementptr inbounds i8, ptr %0, i64 64
   %172 = load i64, ptr %171, align 8
-  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef %0, i32 noundef -1, i64 %170, i64 %172, ptr noundef nonnull @.str.26, i64 noundef %162) #32
+  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef %0, i32 noundef -1, i64 %170, i64 %172, ptr noundef nonnull @.str.26, i64 noundef %162) #33
   br label %181
 
 173:                                              ; preds = %160, %.thread.i, %117, %82, %37, %35, %33, %31, %29, %27, %25, %23, %21
@@ -3400,21 +3400,21 @@ define internal fastcc range(i32 -1, 27) i32 @set_lval_charconst(ptr noundef %0,
   %178 = load i64, ptr %177, align 8
   %179 = getelementptr inbounds i8, ptr %0, i64 64
   %180 = load i64, ptr %179, align 8
-  call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef %0, i32 noundef -1, i64 %178, i64 %180, ptr noundef nonnull @.str.27, ptr noundef nonnull %5) #32
+  call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef %0, i32 noundef -1, i64 %178, i64 %180, ptr noundef nonnull @.str.27, ptr noundef nonnull %5) #33
   br label %181
 
 181:                                              ; preds = %8, %154, %.thread145.i, %144, %137, %124, %.loopexit.i, %77, %51, %16, %168
-  call void @g_free(ptr noundef nonnull %5) #32
+  call void @g_free(ptr noundef nonnull %5) #33
   br label %190
 
 182:                                              ; preds = %174
   store i64 %.3.ph.i, ptr %4, align 8
-  %183 = call dereferenceable_or_null(8) ptr @g_memdup2(ptr noundef nonnull %4, i64 noundef 8) #30
+  %183 = call dereferenceable_or_null(8) ptr @g_memdup2(ptr noundef nonnull %4, i64 noundef 8) #31
   %184 = getelementptr inbounds i8, ptr %0, i64 56
   %185 = load i64, ptr %184, align 8
   %186 = getelementptr inbounds i8, ptr %0, i64 64
   %187 = load i64, ptr %186, align 8
-  %188 = call ptr @stnode_new(i32 noundef 6, ptr noundef %183, ptr noundef nonnull %5, i64 %185, i64 %187) #32
+  %188 = call ptr @stnode_new(i32 noundef 6, ptr noundef %183, ptr noundef nonnull %5, i64 %185, i64 %187) #33
   %189 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %188, ptr %189, align 8
   br label %190
@@ -3426,28 +3426,28 @@ define internal fastcc range(i32 -1, 27) i32 @set_lval_charconst(ptr noundef %0,
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @set_lval_literal(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
-  %4 = tail call noalias ptr @g_strdup(ptr noundef %1) #32
-  %5 = tail call noalias ptr @g_strdup(ptr noundef %2) #32
+  %4 = tail call noalias ptr @g_strdup(ptr noundef %1) #33
+  %5 = tail call noalias ptr @g_strdup(ptr noundef %2) #33
   %6 = getelementptr inbounds i8, ptr %0, i64 72
   %7 = load i64, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 80
   %9 = load i64, ptr %8, align 8
-  %10 = tail call ptr @stnode_new(i32 noundef 3, ptr noundef %4, ptr noundef %5, i64 %7, i64 %9) #32
+  %10 = tail call ptr @stnode_new(i32 noundef 3, ptr noundef %4, ptr noundef %5, i64 %7, i64 %9) #33
   %11 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %10, ptr %11, align 8
   ret void
 }
 
-declare ptr @dfilter_resolve_unparsed(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare ptr @dfilter_resolve_unparsed(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @set_lval_field(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
-  %4 = tail call noalias ptr @g_strdup(ptr noundef %2) #32
+  %4 = tail call noalias ptr @g_strdup(ptr noundef %2) #33
   %5 = getelementptr inbounds i8, ptr %0, i64 72
   %6 = load i64, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 80
   %8 = load i64, ptr %7, align 8
-  %9 = tail call ptr @stnode_new(i32 noundef 8, ptr noundef %1, ptr noundef %4, i64 %6, i64 %8) #32
+  %9 = tail call ptr @stnode_new(i32 noundef 8, ptr noundef %1, ptr noundef %4, i64 %6, i64 %8) #33
   %10 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %9, ptr %10, align 8
   ret void
@@ -3457,7 +3457,7 @@ define internal fastcc void @set_lval_field(ptr nocapture noundef %0, ptr nounde
 define internal fastcc range(i32 27, 29) i32 @set_lval_integer(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  %5 = tail call ptr @__errno_location() #33
+  %5 = tail call ptr @__errno_location() #34
   store i32 0, ptr %5, align 4
   %6 = load i8, ptr %1, align 1
   %7 = icmp eq i8 %6, 48
@@ -3473,11 +3473,11 @@ define internal fastcc range(i32 27, 29) i32 @set_lval_integer(ptr nocapture nou
 
 11:                                               ; preds = %8, %8
   %12 = getelementptr i8, ptr %1, i64 2
-  %13 = call i64 @g_ascii_strtoull(ptr noundef %12, ptr noundef nonnull %4, i32 noundef 2) #32
+  %13 = call i64 @g_ascii_strtoull(ptr noundef %12, ptr noundef nonnull %4, i32 noundef 2) #33
   br label %16
 
 14:                                               ; preds = %8, %3
-  %15 = call i64 @g_ascii_strtoull(ptr noundef nonnull %1, ptr noundef nonnull %4, i32 noundef 0) #32
+  %15 = call i64 @g_ascii_strtoull(ptr noundef nonnull %1, ptr noundef nonnull %4, i32 noundef 0) #33
   br label %16
 
 16:                                               ; preds = %14, %11
@@ -3504,27 +3504,27 @@ parse_unsigned_long_long.exit:                    ; preds = %19
   br i1 %or.cond.i, label %32, label %23
 
 23:                                               ; preds = %parse_unsigned_long_long.exit.thread, %parse_unsigned_long_long.exit
-  %24 = call noalias ptr @g_strdup(ptr noundef nonnull %1) #32
-  %25 = call noalias ptr @g_strdup(ptr noundef %2) #32
+  %24 = call noalias ptr @g_strdup(ptr noundef nonnull %1) #33
+  %25 = call noalias ptr @g_strdup(ptr noundef %2) #33
   %26 = getelementptr inbounds i8, ptr %0, i64 72
   %27 = load i64, ptr %26, align 8
   %28 = getelementptr inbounds i8, ptr %0, i64 80
   %29 = load i64, ptr %28, align 8
-  %30 = call ptr @stnode_new(i32 noundef 3, ptr noundef %24, ptr noundef %25, i64 %27, i64 %29) #32
+  %30 = call ptr @stnode_new(i32 noundef 3, ptr noundef %24, ptr noundef %25, i64 %27, i64 %29) #33
   %31 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %30, ptr %31, align 8
   br label %40
 
 32:                                               ; preds = %parse_unsigned_long_long.exit
-  %33 = call noalias ptr @g_strdup(ptr noundef %2) #32
+  %33 = call noalias ptr @g_strdup(ptr noundef %2) #33
   %34 = getelementptr inbounds i8, ptr %0, i64 72
   %35 = load i64, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %0, i64 80
   %37 = load i64, ptr %36, align 8
-  %38 = call ptr @stnode_new(i32 noundef 7, ptr noundef null, ptr noundef %33, i64 %35, i64 %37) #32
+  %38 = call ptr @stnode_new(i32 noundef 7, ptr noundef null, ptr noundef %33, i64 %35, i64 %37) #33
   %39 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %38, ptr %39, align 8
-  call void @sttype_number_set_unsigned(ptr noundef %38, i64 noundef %storemerge.i) #32
+  call void @sttype_number_set_unsigned(ptr noundef %38, i64 noundef %storemerge.i) #33
   br label %40
 
 40:                                               ; preds = %32, %23
@@ -3537,9 +3537,9 @@ define internal fastcc range(i32 -1, 29) i32 @set_lval_float(ptr noundef %0, ptr
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr null, ptr %4, align 8
-  %5 = tail call ptr @__errno_location() #33
+  %5 = tail call ptr @__errno_location() #34
   store i32 0, ptr %5, align 4
-  %6 = call double @g_ascii_strtod(ptr noundef %1, ptr noundef nonnull %4) #32
+  %6 = call double @g_ascii_strtod(ptr noundef %1, ptr noundef nonnull %4) #33
   %7 = load ptr, ptr %4, align 8
   %8 = icmp eq ptr %7, %1
   br i1 %8, label %11, label %9
@@ -3554,7 +3554,7 @@ define internal fastcc range(i32 -1, 29) i32 @set_lval_float(ptr noundef %0, ptr
   %13 = load i64, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 64
   %15 = load i64, ptr %14, align 8
-  call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef %0, i32 noundef -1, i64 %13, i64 %15, ptr noundef nonnull @.str.31, ptr noundef %1) #32
+  call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef %0, i32 noundef -1, i64 %13, i64 %15, ptr noundef nonnull @.str.31, ptr noundef %1) #33
   br label %parse_double.exit.thread
 
 16:                                               ; preds = %9
@@ -3573,20 +3573,20 @@ define internal fastcc range(i32 -1, 29) i32 @set_lval_float(ptr noundef %0, ptr
   br i1 %19, label %24, label %25
 
 24:                                               ; preds = %18
-  call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef nonnull %0, i32 noundef -1, i64 %21, i64 %23, ptr noundef nonnull @.str.32, ptr noundef %1) #32
+  call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef nonnull %0, i32 noundef -1, i64 %21, i64 %23, ptr noundef nonnull @.str.32, ptr noundef %1) #33
   br label %parse_double.exit.thread
 
 25:                                               ; preds = %18
-  call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef nonnull %0, i32 noundef -1, i64 %21, i64 %23, ptr noundef nonnull @.str.33, ptr noundef %1) #32
+  call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef nonnull %0, i32 noundef -1, i64 %21, i64 %23, ptr noundef nonnull @.str.33, ptr noundef %1) #33
   br label %parse_double.exit.thread
 
 26:                                               ; preds = %16
   %27 = getelementptr inbounds i8, ptr %0, i64 56
-  %28 = call ptr @g_strerror(i32 noundef %17) #33
+  %28 = call ptr @g_strerror(i32 noundef %17) #34
   %29 = load i64, ptr %27, align 8
   %30 = getelementptr inbounds i8, ptr %0, i64 64
   %31 = load i64, ptr %30, align 8
-  call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef %0, i32 noundef -1, i64 %29, i64 %31, ptr noundef nonnull @.str.34, ptr noundef %1, ptr noundef %28) #32
+  call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef %0, i32 noundef -1, i64 %29, i64 %31, ptr noundef nonnull @.str.34, ptr noundef %1, ptr noundef %28) #33
   br label %parse_double.exit.thread
 
 parse_double.exit.thread:                         ; preds = %11, %26, %25, %24
@@ -3595,15 +3595,15 @@ parse_double.exit.thread:                         ; preds = %11, %26, %25, %24
 
 32:                                               ; preds = %16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  %33 = call noalias ptr @g_strdup(ptr noundef %2) #32
+  %33 = call noalias ptr @g_strdup(ptr noundef %2) #33
   %34 = getelementptr inbounds i8, ptr %0, i64 72
   %35 = load i64, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %0, i64 80
   %37 = load i64, ptr %36, align 8
-  %38 = call ptr @stnode_new(i32 noundef 7, ptr noundef null, ptr noundef %33, i64 %35, i64 %37) #32
+  %38 = call ptr @stnode_new(i32 noundef 7, ptr noundef null, ptr noundef %33, i64 %35, i64 %37) #33
   %39 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %38, ptr %39, align 8
-  call void @sttype_number_set_float(ptr noundef %38, double noundef %6) #32
+  call void @sttype_number_set_float(ptr noundef %38, double noundef %6) #33
   br label %40
 
 40:                                               ; preds = %parse_double.exit.thread, %32
@@ -3613,41 +3613,41 @@ parse_double.exit.thread:                         ; preds = %11, %26, %25, %24
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @set_lval_identifier(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
-  %4 = tail call noalias ptr @g_strdup(ptr noundef %1) #32
-  %5 = tail call noalias ptr @g_strdup(ptr noundef %2) #32
+  %4 = tail call noalias ptr @g_strdup(ptr noundef %1) #33
+  %5 = tail call noalias ptr @g_strdup(ptr noundef %2) #33
   %6 = getelementptr inbounds i8, ptr %0, i64 72
   %7 = load i64, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 80
   %9 = load i64, ptr %8, align 8
-  %10 = tail call ptr @stnode_new(i32 noundef 2, ptr noundef %4, ptr noundef %5, i64 %7, i64 %9) #32
+  %10 = tail call ptr @stnode_new(i32 noundef 2, ptr noundef %4, ptr noundef %5, i64 %7, i64 %9) #33
   %11 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %10, ptr %11, align 8
-  tail call void @stnode_set_flags(ptr noundef %10, i16 noundef zeroext 1) #32
+  tail call void @stnode_set_flags(ptr noundef %10, i16 noundef zeroext 1) #33
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @set_lval_unparsed(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
-  %4 = tail call noalias ptr @g_strdup(ptr noundef %1) #32
-  %5 = tail call noalias ptr @g_strdup(ptr noundef %2) #32
+  %4 = tail call noalias ptr @g_strdup(ptr noundef %1) #33
+  %5 = tail call noalias ptr @g_strdup(ptr noundef %2) #33
   %6 = getelementptr inbounds i8, ptr %0, i64 72
   %7 = load i64, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 80
   %9 = load i64, ptr %8, align 8
-  %10 = tail call ptr @stnode_new(i32 noundef 2, ptr noundef %4, ptr noundef %5, i64 %7, i64 %9) #32
+  %10 = tail call ptr @stnode_new(i32 noundef 2, ptr noundef %4, ptr noundef %5, i64 %7, i64 %9) #33
   %11 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %10, ptr %11, align 8
-  tail call void @stnode_set_flags(ptr noundef %10, i16 noundef zeroext 1) #32
+  tail call void @stnode_set_flags(ptr noundef %10, i16 noundef zeroext 1) #33
   ret void
 }
 
-declare zeroext i1 @isprint_string(ptr noundef) local_unnamed_addr #1
+declare zeroext i1 @isprint_string(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @yy_get_previous_state(ptr nocapture noundef %0) unnamed_addr #5 {
+define internal fastcc i32 @yy_get_previous_state(ptr nocapture noundef %0) unnamed_addr #6 {
   %2 = getelementptr inbounds i8, ptr %0, i64 76
   %3 = load i32, ptr %2, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 128
@@ -3742,7 +3742,7 @@ define internal fastcc i32 @yy_get_previous_state(ptr nocapture noundef %0) unna
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 -32768, 32768) i32 @yy_try_NUL_trans(i32 noundef %0, ptr nocapture noundef %1) unnamed_addr #6 {
+define internal fastcc range(i32 -32768, 32768) i32 @yy_try_NUL_trans(i32 noundef %0, ptr nocapture noundef %1) unnamed_addr #7 {
   %3 = sext i32 %0 to i64
   %4 = getelementptr [878 x i16], ptr @yy_accept, i64 0, i64 %3
   %5 = load i16, ptr %4, align 2
@@ -3793,11 +3793,11 @@ define internal fastcc range(i32 -32768, 32768) i32 @yy_try_NUL_trans(i32 nounde
   ret i32 %32
 }
 
-; Function Attrs: noreturn nounwind uwtable
-define internal fastcc void @yy_fatal_error(ptr noundef %0) unnamed_addr #7 {
+; Function Attrs: nofree noreturn nounwind uwtable
+define internal fastcc void @yy_fatal_error(ptr noundef %0) unnamed_addr #8 {
   %2 = load ptr, ptr @stderr, align 8
-  %3 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.21, ptr noundef %0) #34
-  tail call void @exit(i32 noundef 2) #35
+  %3 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.21, ptr noundef %0) #35
+  tail call void @exit(i32 noundef 2) #36
   unreachable
 }
 
@@ -3817,13 +3817,13 @@ define hidden void @df_yyrestart(ptr noundef %0, ptr nocapture noundef %1) local
   br i1 %.not16, label %16, label %.thread
 
 10:                                               ; preds = %2
-  %11 = tail call noalias noundef dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #28
+  %11 = tail call noalias noundef dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #29
   store ptr %11, ptr %3, align 8
   %.not28.i = icmp eq ptr %11, null
   br i1 %.not28.i, label %12, label %13
 
 12:                                               ; preds = %10
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.20) #29
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.20) #30
   unreachable
 
 13:                                               ; preds = %10
@@ -3844,13 +3844,13 @@ define hidden void @df_yyrestart(ptr noundef %0, ptr nocapture noundef %1) local
 20:                                               ; preds = %16
   %21 = add i64 %18, 8
   %22 = shl i64 %21, 3
-  %23 = tail call noalias noundef ptr @realloc(ptr noundef nonnull %4, i64 noundef %22) #30
+  %23 = tail call noalias noundef ptr @realloc(ptr noundef nonnull %4, i64 noundef %22) #31
   store ptr %23, ptr %3, align 8
   %.not30.i = icmp eq ptr %23, null
   br i1 %.not30.i, label %24, label %25
 
 24:                                               ; preds = %20
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.20) #29
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.20) #30
   unreachable
 
 25:                                               ; preds = %20
@@ -3874,7 +3874,7 @@ define hidden void @df_yyrestart(ptr noundef %0, ptr nocapture noundef %1) local
   br i1 %.not17, label %.thread19, label %.thread
 
 .thread19:                                        ; preds = %28
-  %36 = tail call ptr @__errno_location() #33
+  %36 = tail call ptr @__errno_location() #34
   %37 = load i32, ptr %36, align 4
   br label %df_yy_flush_buffer.exit.i
 
@@ -3884,7 +3884,7 @@ define hidden void @df_yyrestart(ptr noundef %0, ptr nocapture noundef %1) local
   %40 = load i64, ptr %39, align 8
   %41 = getelementptr ptr, ptr %38, i64 %40
   %42 = load ptr, ptr %41, align 8
-  %43 = tail call ptr @__errno_location() #33
+  %43 = tail call ptr @__errno_location() #34
   %44 = load i32, ptr %43, align 4
   %.not.i.i = icmp eq ptr %42, null
   br i1 %.not.i.i, label %df_yy_flush_buffer.exit.i, label %45
@@ -4012,13 +4012,13 @@ define hidden void @df_yy_switch_to_buffer(ptr noundef %0, ptr nocapture noundef
   br i1 %.not.i, label %5, label %11
 
 5:                                                ; preds = %2
-  %6 = tail call noalias noundef dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #28
+  %6 = tail call noalias noundef dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #29
   store ptr %6, ptr %3, align 8
   %.not28.i = icmp eq ptr %6, null
   br i1 %.not28.i, label %7, label %8
 
 7:                                                ; preds = %5
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.20) #29
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.20) #30
   unreachable
 
 8:                                                ; preds = %5
@@ -4041,13 +4041,13 @@ define hidden void @df_yy_switch_to_buffer(ptr noundef %0, ptr nocapture noundef
 17:                                               ; preds = %11
   %18 = add i64 %15, 8
   %19 = shl i64 %18, 3
-  %20 = tail call noalias noundef ptr @realloc(ptr noundef nonnull %4, i64 noundef %19) #30
+  %20 = tail call noalias noundef ptr @realloc(ptr noundef nonnull %4, i64 noundef %19) #31
   store ptr %20, ptr %3, align 8
   %.not30.i = icmp eq ptr %20, null
   br i1 %.not30.i, label %21, label %22
 
 21:                                               ; preds = %17
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.20) #29
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.20) #30
   unreachable
 
 22:                                               ; preds = %17
@@ -4131,13 +4131,13 @@ define hidden void @df_yy_switch_to_buffer(ptr noundef %0, ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable
-define hidden noalias noundef ptr @df_yyalloc(i64 noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #8 {
-  %3 = tail call noalias ptr @malloc(i64 noundef %0) #28
+define hidden noalias noundef ptr @df_yyalloc(i64 noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #9 {
+  %3 = tail call noalias ptr @malloc(i64 noundef %0) #29
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define hidden void @df_yy_delete_buffer(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #9 {
+define hidden void @df_yy_delete_buffer(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #10 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %25, label %3
 
@@ -4175,11 +4175,11 @@ define hidden void @df_yy_delete_buffer(ptr noundef %0, ptr nocapture noundef re
 21:                                               ; preds = %18
   %22 = getelementptr inbounds i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8
-  tail call void @free(ptr noundef %23) #32
+  tail call void @free(ptr noundef %23) #33
   br label %24
 
 24:                                               ; preds = %21, %18
-  tail call void @free(ptr noundef nonnull %0) #32
+  tail call void @free(ptr noundef nonnull %0) #33
   br label %25
 
 25:                                               ; preds = %2, %24
@@ -4187,13 +4187,13 @@ define hidden void @df_yy_delete_buffer(ptr noundef %0, ptr nocapture noundef re
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @df_yyfree(ptr nocapture noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #10 {
-  tail call void @free(ptr noundef %0) #32
+define hidden void @df_yyfree(ptr nocapture noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #11 {
+  tail call void @free(ptr noundef %0) #33
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @df_yy_flush_buffer(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #11 {
+define hidden void @df_yy_flush_buffer(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #12 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %41, label %3
 
@@ -4271,13 +4271,13 @@ define hidden void @df_yypush_buffer_state(ptr noundef %0, ptr nocapture noundef
   br i1 %.not.i, label %7, label %13
 
 7:                                                ; preds = %4
-  %8 = tail call noalias noundef dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #28
+  %8 = tail call noalias noundef dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #29
   store ptr %8, ptr %5, align 8
   %.not28.i = icmp eq ptr %8, null
   br i1 %.not28.i, label %9, label %10
 
 9:                                                ; preds = %7
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.20) #29
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.20) #30
   unreachable
 
 10:                                               ; preds = %7
@@ -4300,13 +4300,13 @@ define hidden void @df_yypush_buffer_state(ptr noundef %0, ptr nocapture noundef
 19:                                               ; preds = %13
   %20 = add i64 %17, 8
   %21 = shl i64 %20, 3
-  %22 = tail call noalias noundef ptr @realloc(ptr noundef nonnull %6, i64 noundef %21) #30
+  %22 = tail call noalias noundef ptr @realloc(ptr noundef nonnull %6, i64 noundef %21) #31
   store ptr %22, ptr %5, align 8
   %.not30.i = icmp eq ptr %22, null
   br i1 %.not30.i, label %23, label %24
 
 23:                                               ; preds = %19
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.20) #29
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.20) #30
   unreachable
 
 24:                                               ; preds = %19
@@ -4395,7 +4395,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %10, %13, %24
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define hidden void @df_yypop_buffer_state(ptr nocapture noundef %0) local_unnamed_addr #9 {
+define hidden void @df_yypop_buffer_state(ptr nocapture noundef %0) local_unnamed_addr #10 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -4419,11 +4419,11 @@ define hidden void @df_yypop_buffer_state(ptr nocapture noundef %0) local_unname
 12:                                               ; preds = %9
   %13 = getelementptr inbounds i8, ptr %8, i64 8
   %14 = load ptr, ptr %13, align 8
-  tail call void @free(ptr noundef %14) #32
+  tail call void @free(ptr noundef %14) #33
   br label %df_yy_delete_buffer.exit
 
 df_yy_delete_buffer.exit:                         ; preds = %9, %12
-  tail call void @free(ptr noundef nonnull %8) #32
+  tail call void @free(ptr noundef nonnull %8) #33
   %15 = load ptr, ptr %2, align 8
   %16 = load i64, ptr %5, align 8
   %17 = getelementptr ptr, ptr %15, i64 %16
@@ -4496,12 +4496,12 @@ define hidden noundef ptr @df_yy_scan_buffer(ptr noundef %0, i64 noundef %1, ptr
   br i1 %.not26, label %13, label %27
 
 13:                                               ; preds = %9
-  %14 = tail call noalias noundef dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #28
+  %14 = tail call noalias noundef dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #29
   %.not27 = icmp eq ptr %14, null
   br i1 %.not27, label %15, label %16
 
 15:                                               ; preds = %13
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.11) #29
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.11) #30
   unreachable
 
 16:                                               ; preds = %13
@@ -4535,7 +4535,7 @@ define hidden noundef ptr @df_yy_scan_buffer(ptr noundef %0, i64 noundef %1, ptr
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef ptr @df_yy_scan_string(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
-  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #31
+  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #32
   %4 = trunc i64 %3 to i32
   %5 = tail call ptr @df_yy_scan_bytes(ptr noundef %0, i32 noundef %4, ptr noundef %1)
   ret ptr %5
@@ -4545,7 +4545,7 @@ define hidden noundef ptr @df_yy_scan_string(ptr nocapture noundef readonly %0, 
 define hidden noundef ptr @df_yy_scan_bytes(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
   %4 = add i32 %1, 2
   %5 = sext i32 %4 to i64
-  %6 = tail call noalias noundef ptr @malloc(i64 noundef %5) #28
+  %6 = tail call noalias noundef ptr @malloc(i64 noundef %5) #29
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %14, label %.preheader
 
@@ -4566,7 +4566,7 @@ define hidden noundef ptr @df_yy_scan_bytes(ptr nocapture noundef readonly %0, i
   br label %21
 
 14:                                               ; preds = %3
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.12) #29
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.12) #30
   unreachable
 
 ._crit_edge:                                      ; preds = %.preheader
@@ -4595,16 +4595,16 @@ define hidden noundef ptr @df_yy_scan_bytes(ptr nocapture noundef readonly %0, i
   br i1 %.not26.i, label %29, label %32
 
 29:                                               ; preds = %25
-  %30 = tail call noalias noundef dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #28
+  %30 = tail call noalias noundef dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #29
   %.not27.i = icmp eq ptr %30, null
   br i1 %.not27.i, label %31, label %33
 
 31:                                               ; preds = %29
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.11) #29
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.11) #30
   unreachable
 
 32:                                               ; preds = %25, %21, %._crit_edge
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.13) #29
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.13) #30
   unreachable
 
 33:                                               ; preds = %29
@@ -4634,16 +4634,16 @@ define hidden noundef ptr @df_yy_scan_bytes(ptr nocapture noundef readonly %0, i
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #12
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @df_yyget_extra(ptr nocapture noundef readonly %0) local_unnamed_addr #13 {
+define hidden ptr @df_yyget_extra(ptr nocapture noundef readonly %0) local_unnamed_addr #14 {
   %2 = load ptr, ptr %0, align 8
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @df_yyget_lineno(ptr nocapture noundef readonly %0) local_unnamed_addr #14 {
+define hidden i32 @df_yyget_lineno(ptr nocapture noundef readonly %0) local_unnamed_addr #15 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -4668,7 +4668,7 @@ define hidden i32 @df_yyget_lineno(ptr nocapture noundef readonly %0) local_unna
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @df_yyget_column(ptr nocapture noundef readonly %0) local_unnamed_addr #14 {
+define hidden i32 @df_yyget_column(ptr nocapture noundef readonly %0) local_unnamed_addr #15 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -4693,41 +4693,41 @@ define hidden i32 @df_yyget_column(ptr nocapture noundef readonly %0) local_unna
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @df_yyget_in(ptr nocapture noundef readonly %0) local_unnamed_addr #13 {
+define hidden ptr @df_yyget_in(ptr nocapture noundef readonly %0) local_unnamed_addr #14 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @df_yyget_out(ptr nocapture noundef readonly %0) local_unnamed_addr #13 {
+define hidden ptr @df_yyget_out(ptr nocapture noundef readonly %0) local_unnamed_addr #14 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @df_yyget_leng(ptr nocapture noundef readonly %0) local_unnamed_addr #13 {
+define hidden i32 @df_yyget_leng(ptr nocapture noundef readonly %0) local_unnamed_addr #14 {
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @df_yyget_text(ptr nocapture noundef readonly %0) local_unnamed_addr #13 {
+define hidden ptr @df_yyget_text(ptr nocapture noundef readonly %0) local_unnamed_addr #14 {
   %2 = getelementptr inbounds i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @df_yyset_extra(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #15 {
+define hidden void @df_yyset_extra(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #16 {
   store ptr %0, ptr %1, align 8
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define hidden void @df_yyset_lineno(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+; Function Attrs: nofree nounwind uwtable
+define hidden void @df_yyset_lineno(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -4742,7 +4742,7 @@ define hidden void @df_yyset_lineno(i32 noundef %0, ptr nocapture noundef readon
   br i1 %.not8, label %10, label %11
 
 10:                                               ; preds = %2, %5
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.14) #29
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.14) #30
   unreachable
 
 11:                                               ; preds = %5
@@ -4751,8 +4751,8 @@ define hidden void @df_yyset_lineno(i32 noundef %0, ptr nocapture noundef readon
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define hidden void @df_yyset_column(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+; Function Attrs: nofree nounwind uwtable
+define hidden void @df_yyset_column(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -4767,7 +4767,7 @@ define hidden void @df_yyset_column(i32 noundef %0, ptr nocapture noundef readon
   br i1 %.not8, label %10, label %11
 
 10:                                               ; preds = %2, %5
-  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.15) #29
+  tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.15) #30
   unreachable
 
 11:                                               ; preds = %5
@@ -4777,35 +4777,35 @@ define hidden void @df_yyset_column(i32 noundef %0, ptr nocapture noundef readon
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @df_yyset_in(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #15 {
+define hidden void @df_yyset_in(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   store ptr %0, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @df_yyset_out(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #15 {
+define hidden void @df_yyset_out(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   store ptr %0, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @df_yyget_debug(ptr nocapture noundef readonly %0) local_unnamed_addr #13 {
+define hidden i32 @df_yyget_debug(ptr nocapture noundef readonly %0) local_unnamed_addr #14 {
   %2 = getelementptr inbounds i8, ptr %0, i64 124
   %3 = load i32, ptr %2, align 4
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @df_yyset_debug(i32 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #15 {
+define hidden void @df_yyset_debug(i32 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 124
   store i32 %0, ptr %3, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define hidden range(i32 0, 2) i32 @df_yylex_init(ptr noundef writeonly %0) local_unnamed_addr #16 {
+define hidden range(i32 0, 2) i32 @df_yylex_init(ptr noundef writeonly %0) local_unnamed_addr #17 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.sink.split, label %3
 
@@ -4817,7 +4817,7 @@ define hidden range(i32 0, 2) i32 @df_yylex_init(ptr noundef writeonly %0) local
 
 .sink.split:                                      ; preds = %3, %1
   %.sink = phi i32 [ 22, %1 ], [ 12, %3 ]
-  %5 = tail call ptr @__errno_location() #33
+  %5 = tail call ptr @__errno_location() #34
   store i32 %.sink, ptr %5, align 4
   br label %6
 
@@ -4827,18 +4827,18 @@ define hidden range(i32 0, 2) i32 @df_yylex_init(ptr noundef writeonly %0) local
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #17
+declare ptr @__errno_location() local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #18
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #19
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define hidden range(i32 0, 2) i32 @df_yylex_init_extra(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #16 {
+define hidden range(i32 0, 2) i32 @df_yylex_init_extra(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #17 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %4, label %6
 
 4:                                                ; preds = %2
-  %5 = tail call ptr @__errno_location() #33
+  %5 = tail call ptr @__errno_location() #34
   store i32 22, ptr %5, align 4
   br label %11
 
@@ -4849,7 +4849,7 @@ define hidden range(i32 0, 2) i32 @df_yylex_init_extra(ptr noundef %0, ptr nound
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %6
-  %9 = tail call ptr @__errno_location() #33
+  %9 = tail call ptr @__errno_location() #34
   store i32 12, ptr %9, align 4
   br label %11
 
@@ -4895,11 +4895,11 @@ define hidden noundef i32 @df_yylex_destroy(ptr nocapture noundef %0) local_unna
 18:                                               ; preds = %.lr.ph34
   %19 = getelementptr inbounds i8, ptr %14, i64 8
   %20 = load ptr, ptr %19, align 8
-  tail call void @free(ptr noundef %20) #32
+  tail call void @free(ptr noundef %20) #33
   br label %df_yy_delete_buffer.exit
 
 df_yy_delete_buffer.exit:                         ; preds = %.lr.ph34, %18
-  tail call void @free(ptr noundef nonnull %14) #32
+  tail call void @free(ptr noundef nonnull %14) #33
   %.pre31 = load i64, ptr %2, align 8
   %.pre = load ptr, ptr %3, align 8
   %21 = getelementptr ptr, ptr %.pre, i64 %.pre31
@@ -4925,11 +4925,11 @@ df_yy_delete_buffer.exit:                         ; preds = %.lr.ph34, %18
 30:                                               ; preds = %27
   %31 = getelementptr inbounds i8, ptr %26, i64 8
   %32 = load ptr, ptr %31, align 8
-  tail call void @free(ptr noundef %32) #32
+  tail call void @free(ptr noundef %32) #33
   br label %df_yy_delete_buffer.exit.i
 
 df_yy_delete_buffer.exit.i:                       ; preds = %30, %27
-  tail call void @free(ptr noundef nonnull %26) #32
+  tail call void @free(ptr noundef nonnull %26) #33
   %33 = load ptr, ptr %3, align 8
   %34 = load i64, ptr %2, align 8
   %35 = getelementptr ptr, ptr %33, i64 %34
@@ -4982,124 +4982,125 @@ df_yypop_buffer_state.exit:                       ; preds = %23, %42, %45
 
 .thread:                                          ; preds = %df_yypop_buffer_state.exit, %df_yy_delete_buffer.exit, %39, %.lr.ph, %1
   %.lcssa = phi ptr [ null, %1 ], [ %4, %.lr.ph ], [ null, %39 ], [ null, %df_yy_delete_buffer.exit ], [ %54, %df_yypop_buffer_state.exit ]
-  tail call void @free(ptr noundef %.lcssa) #32
+  tail call void @free(ptr noundef %.lcssa) #33
   store ptr null, ptr %3, align 8
   %58 = getelementptr inbounds i8, ptr %0, i64 96
   %59 = load ptr, ptr %58, align 8
-  tail call void @free(ptr noundef %59) #32
-  tail call void @free(ptr noundef nonnull %0) #32
+  tail call void @free(ptr noundef %59) #33
+  tail call void @free(ptr noundef nonnull %0) #33
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #19
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #20
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden noalias noundef ptr @df_yyrealloc(ptr nocapture noundef %0, i64 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #10 {
-  %4 = tail call ptr @realloc(ptr noundef %0, i64 noundef %1) #30
+define hidden noalias noundef ptr @df_yyrealloc(ptr nocapture noundef %0, i64 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #11 {
+  %4 = tail call ptr @realloc(ptr noundef %0, i64 noundef %1) #31
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #20
+declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #21
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #21
+declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #22
 
-declare ptr @g_string_insert_c(ptr noundef, i64 noundef, i8 noundef signext) local_unnamed_addr #1
+declare ptr @g_string_insert_c(ptr noundef, i64 noundef, i8 noundef signext) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @getc(ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i32 @getc(ptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef i32 @ferror(ptr nocapture noundef) local_unnamed_addr #22
+declare noundef i32 @ferror(ptr nocapture noundef) local_unnamed_addr #23
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare void @clearerr(ptr nocapture noundef) local_unnamed_addr #4
+declare void @clearerr(ptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
 
-; Function Attrs: noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #23
+; Function Attrs: nofree noreturn nounwind
+declare void @exit(i32 noundef) local_unnamed_addr #24
 
-declare ptr @stnode_new(i32 noundef, ptr noundef, ptr noundef, i64, i64) local_unnamed_addr #1
+declare ptr @stnode_new(i32 noundef, ptr noundef, ptr noundef, i64, i64) local_unnamed_addr #2
 
-declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #1
+declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #2
 
-declare void @stnode_set_flags(ptr noundef, i16 noundef zeroext) local_unnamed_addr #1
+declare void @stnode_set_flags(ptr noundef, i16 noundef zeroext) local_unnamed_addr #2
 
-declare ptr @ws_escape_string_len(ptr noundef, ptr noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #1
+declare ptr @ws_escape_string_len(ptr noundef, ptr noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #2
 
-declare void @g_free(ptr noundef) local_unnamed_addr #1
+declare void @g_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: allocsize(1)
-declare ptr @g_memdup2(ptr noundef, i64 noundef) local_unnamed_addr #24
+declare ptr @g_memdup2(ptr noundef, i64 noundef) local_unnamed_addr #25
 
-declare i64 @g_ascii_strtoull(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+declare i64 @g_ascii_strtoull(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @sttype_number_set_unsigned(ptr noundef, i64 noundef) local_unnamed_addr #1
+declare void @sttype_number_set_unsigned(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @g_strerror(i32 noundef) local_unnamed_addr #17
+declare ptr @g_strerror(i32 noundef) local_unnamed_addr #18
 
-declare void @sttype_number_set_float(ptr noundef, double noundef) local_unnamed_addr #1
+declare void @sttype_number_set_float(ptr noundef, double noundef) local_unnamed_addr #2
 
-declare double @g_ascii_strtod(ptr noundef, ptr noundef) local_unnamed_addr #1
+declare double @g_ascii_strtod(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @g_string_append_unichar(ptr noundef, i32 noundef) local_unnamed_addr #1
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #25
+declare ptr @g_string_append_unichar(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #25
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #26
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #26
+declare i32 @llvm.umin.i32(i32, i32) #27
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #27
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #28
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #19 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #22 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #23 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #24 = { allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #25 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #26 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #27 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
-attributes #28 = { nounwind allocsize(0) }
-attributes #29 = { noreturn }
-attributes #30 = { nounwind allocsize(1) }
-attributes #31 = { nounwind willreturn memory(read) }
-attributes #32 = { nounwind }
-attributes #33 = { nounwind willreturn memory(none) }
-attributes #34 = { cold nounwind }
-attributes #35 = { noreturn nounwind }
+attributes #1 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #20 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #22 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #23 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #24 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #25 = { allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #26 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #27 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #28 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
+attributes #29 = { nounwind allocsize(0) }
+attributes #30 = { noreturn }
+attributes #31 = { nounwind allocsize(1) }
+attributes #32 = { nounwind willreturn memory(read) }
+attributes #33 = { nounwind }
+attributes #34 = { nounwind willreturn memory(none) }
+attributes #35 = { cold nounwind }
+attributes #36 = { cold noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

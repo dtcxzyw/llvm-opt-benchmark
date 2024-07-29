@@ -5717,13 +5717,13 @@ onig_is_code_in_cc_len.exit:                      ; preds = %.thread, %._crit_ed
 define dso_local i32 @onig_detect_can_be_slow_pattern(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #5 {
   %6 = alloca ptr, align 8
   %7 = alloca %struct.ParseEnv, align 8
-  %8 = alloca %struct.SlowElementCount, align 4
+  %8 = alloca %struct.SlowElementCount, align 16
   %9 = alloca [10 x i32], align 16
   %10 = alloca %struct.UnsetAddrList, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
   %calloc = tail call dereferenceable_or_null(456) ptr @calloc(i64 1, i64 456)
   %11 = icmp eq ptr %calloc, null
-  br i1 %11, label %89, label %12
+  br i1 %11, label %79, label %12
 
 12:                                               ; preds = %5
   %13 = load i32, ptr @OnigDefaultCaseFoldFlag, align 4
@@ -5753,7 +5753,7 @@ define dso_local i32 @onig_detect_can_be_slow_pattern(ptr noundef %0, ptr nounde
 21:                                               ; preds = %.thread.i, %18, %.lr.ph.i.i
   %.0.i.ph = phi i32 [ -23, %.lr.ph.i.i ], [ -403, %18 ], [ -21, %.thread.i ]
   tail call void @free(ptr noundef nonnull %calloc) #22
-  br label %89
+  br label %79
 
 22:                                               ; preds = %18
   %23 = and i32 %2, 64
@@ -5812,81 +5812,73 @@ define dso_local i32 @onig_detect_can_be_slow_pattern(ptr noundef %0, ptr nounde
   br label %unset_addr_list_end.exit
 
 unset_addr_list_end.exit:                         ; preds = %47, %45, %41
-  %48 = getelementptr inbounds i8, ptr %8, i64 4
-  %49 = getelementptr inbounds i8, ptr %8, i64 8
-  %50 = getelementptr inbounds i8, ptr %8, i64 12
-  %51 = getelementptr inbounds i8, ptr %8, i64 16
-  %52 = getelementptr inbounds i8, ptr %8, i64 20
-  %53 = getelementptr inbounds i8, ptr %8, i64 24
-  %54 = getelementptr inbounds i8, ptr %8, i64 32
-  %55 = getelementptr inbounds i8, ptr %8, i64 36
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %8, i8 0, i64 40, i1 false)
-  %56 = load ptr, ptr %6, align 8
-  call fastcc void @detect_can_be_slow(ptr noundef %56, ptr noundef nonnull %8, i32 noundef 0, ptr noundef nonnull %9)
-  %57 = load i32, ptr %8, align 4
-  %58 = load i32, ptr %48, align 4
-  %59 = add nsw i32 %58, %57
-  %60 = load i32, ptr %49, align 4
-  %61 = add nsw i32 %59, %60
-  %62 = load i32, ptr %50, align 4
-  %63 = add nsw i32 %61, %62
-  %64 = load i32, ptr %51, align 4
-  %65 = add nsw i32 %63, %64
-  %66 = load i32, ptr %53, align 4
-  %67 = add nsw i32 %65, %66
-  %68 = load i32, ptr %52, align 4
-  %.not30 = icmp eq i32 %68, 0
-  %.pre = load i32, ptr %54, align 4
-  br i1 %.not30, label %71, label %69
+  %48 = getelementptr inbounds i8, ptr %8, i64 16
+  %49 = getelementptr inbounds i8, ptr %8, i64 20
+  %50 = getelementptr inbounds i8, ptr %8, i64 24
+  %51 = getelementptr inbounds i8, ptr %8, i64 32
+  %52 = getelementptr inbounds i8, ptr %8, i64 36
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %8, i8 0, i64 40, i1 false)
+  %53 = load ptr, ptr %6, align 8
+  call fastcc void @detect_can_be_slow(ptr noundef %53, ptr noundef nonnull %8, i32 noundef 0, ptr noundef nonnull %9)
+  %54 = load <4 x i32>, ptr %8, align 16
+  %55 = load i32, ptr %48, align 16
+  %56 = load i32, ptr %50, align 8
+  %57 = load i32, ptr %49, align 4
+  %.not30 = icmp eq i32 %57, 0
+  %.pre = load i32, ptr %51, align 16
+  br i1 %.not30, label %60, label %58
 
-69:                                               ; preds = %unset_addr_list_end.exit
-  %70 = add nsw i32 %.pre, 1
-  store i32 %70, ptr %54, align 4
-  br label %71
+58:                                               ; preds = %unset_addr_list_end.exit
+  %59 = add nsw i32 %.pre, 1
+  store i32 %59, ptr %51, align 16
+  br label %60
 
-71:                                               ; preds = %69, %unset_addr_list_end.exit
-  %72 = phi i32 [ %70, %69 ], [ %.pre, %unset_addr_list_end.exit ]
-  %73 = icmp sgt i32 %72, 2
-  %74 = add nsw i32 %72, -2
-  %75 = select i1 %73, i32 %74, i32 0
-  %.0 = add nsw i32 %67, %75
-  %76 = load i32, ptr %55, align 4
-  %.not31 = icmp eq i32 %76, 0
-  br i1 %.not31, label %84, label %77
+60:                                               ; preds = %58, %unset_addr_list_end.exit
+  %61 = phi i32 [ %59, %58 ], [ %.pre, %unset_addr_list_end.exit ]
+  %62 = icmp sgt i32 %61, 2
+  %63 = add nsw i32 %61, -2
+  %64 = select i1 %62, i32 %63, i32 0
+  %65 = call i32 @llvm.vector.reduce.add.v4i32(<4 x i32> %54)
+  %op.rdx = add i32 %65, %55
+  %op.rdx38 = add i32 %56, %64
+  %op.rdx39 = add i32 %op.rdx, %op.rdx38
+  %66 = load i32, ptr %52, align 4
+  %.not31 = icmp eq i32 %66, 0
+  br i1 %.not31, label %74, label %67
 
-77:                                               ; preds = %71
-  %78 = icmp slt i32 %76, 65536
-  br i1 %78, label %79, label %82
+67:                                               ; preds = %60
+  %68 = icmp slt i32 %66, 65536
+  br i1 %68, label %69, label %72
 
-79:                                               ; preds = %77
-  %80 = shl i32 %76, 8
-  %81 = add nsw i32 %.0, %80
-  br label %84
+69:                                               ; preds = %67
+  %70 = shl i32 %66, 8
+  %71 = add nsw i32 %op.rdx39, %70
+  br label %74
 
-82:                                               ; preds = %77
-  %83 = add nsw i32 %.0, %76
-  br label %84
+72:                                               ; preds = %67
+  %73 = add nsw i32 %op.rdx39, %66
+  br label %74
 
-84:                                               ; preds = %71, %82, %79
-  %.1 = phi i32 [ %81, %79 ], [ %83, %82 ], [ %.0, %71 ]
-  %85 = getelementptr inbounds i8, ptr %7, i64 224
-  %86 = load ptr, ptr %85, align 8
-  %.not32 = icmp eq ptr %86, null
-  br i1 %.not32, label %onig_free.exit, label %87
+74:                                               ; preds = %60, %72, %69
+  %.1 = phi i32 [ %71, %69 ], [ %73, %72 ], [ %op.rdx39, %60 ]
+  %75 = getelementptr inbounds i8, ptr %7, i64 224
+  %76 = load ptr, ptr %75, align 8
+  %.not32 = icmp eq ptr %76, null
+  br i1 %.not32, label %onig_free.exit, label %77
 
-87:                                               ; preds = %84
-  call void @free(ptr noundef nonnull %86) #22
+77:                                               ; preds = %74
+  call void @free(ptr noundef nonnull %76) #22
   br label %onig_free.exit
 
-onig_free.exit:                                   ; preds = %.onig_free.exit_crit_edge, %84, %87
-  %88 = phi ptr [ %.pre37, %.onig_free.exit_crit_edge ], [ %56, %87 ], [ %56, %84 ]
-  %.121 = phi i32 [ %40, %.onig_free.exit_crit_edge ], [ %.1, %87 ], [ %.1, %84 ]
-  call void @onig_node_free(ptr noundef %88) #22
+onig_free.exit:                                   ; preds = %.onig_free.exit_crit_edge, %74, %77
+  %78 = phi ptr [ %.pre37, %.onig_free.exit_crit_edge ], [ %53, %77 ], [ %53, %74 ]
+  %.121 = phi i32 [ %40, %.onig_free.exit_crit_edge ], [ %.1, %77 ], [ %.1, %74 ]
+  call void @onig_node_free(ptr noundef %78) #22
   call void @onig_free_body(ptr noundef nonnull %calloc)
   call void @free(ptr noundef nonnull %calloc) #22
-  br label %89
+  br label %79
 
-89:                                               ; preds = %5, %onig_free.exit, %21
+79:                                               ; preds = %5, %onig_free.exit, %21
   %.019 = phi i32 [ %.0.i.ph, %21 ], [ %.121, %onig_free.exit ], [ -5, %5 ]
   ret i32 %.019
 }
@@ -18120,6 +18112,9 @@ declare i32 @llvm.umax.i32(i32, i32) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #21
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.vector.reduce.add.v4i32(<4 x i32>) #21
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

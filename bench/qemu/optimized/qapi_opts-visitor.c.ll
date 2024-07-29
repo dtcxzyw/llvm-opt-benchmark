@@ -47,11 +47,11 @@ entry:
   br i1 %tobool.not, label %if.else, label %if.end
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 557, ptr noundef nonnull @__PRETTY_FUNCTION__.opts_visitor_new) #7
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 557, ptr noundef nonnull @__PRETTY_FUNCTION__.opts_visitor_new) #8
   unreachable
 
 if.end:                                           ; preds = %entry
-  %call = tail call noalias dereferenceable_or_null(280) ptr @g_malloc0(i64 noundef 280) #8
+  %call = tail call noalias dereferenceable_or_null(280) ptr @g_malloc0(i64 noundef 280) #9
   %type = getelementptr inbounds i8, ptr %call, i64 160
   store i32 1, ptr %type, align 8
   store ptr @opts_start_struct, ptr %call, align 8
@@ -99,7 +99,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call1 = tail call noalias ptr @g_malloc0(i64 noundef %size) #8
+  %call1 = tail call noalias ptr @g_malloc0(i64 noundef %size) #9
   store ptr %call1, ptr %obj, align 8
   br label %if.end
 
@@ -112,7 +112,7 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %cmp.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %call4 = tail call ptr @g_hash_table_new_full(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal, ptr noundef null, ptr noundef nonnull @destroy_list) #9
+  %call4 = tail call ptr @g_hash_table_new_full(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal, ptr noundef null, ptr noundef nonnull @destroy_list) #10
   %unprocessed_opts = getelementptr inbounds i8, ptr %v, i64 232
   store ptr %call4, ptr %unprocessed_opts, align 8
   %opts_root = getelementptr inbounds i8, ptr %v, i64 216
@@ -151,24 +151,24 @@ for.body.tail:                                    ; preds = %for.body, %sub_1, %
   br i1 %cmp8.not, label %if.else, label %if.end10
 
 if.else:                                          ; preds = %for.body.tail
-  tail call void @__assert_fail(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 154, ptr noundef nonnull @__PRETTY_FUNCTION__.opts_start_struct) #7
+  tail call void @__assert_fail(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 154, ptr noundef nonnull @__PRETTY_FUNCTION__.opts_start_struct) #8
   unreachable
 
 if.end10:                                         ; preds = %for.body.tail
   %14 = load ptr, ptr %unprocessed_opts, align 8
-  %call.i = tail call ptr @g_hash_table_lookup(ptr noundef %14, ptr noundef nonnull %2) #9
+  %call.i = tail call ptr @g_hash_table_lookup(ptr noundef %14, ptr noundef nonnull %2) #10
   %cmp.i = icmp eq ptr %call.i, null
   br i1 %cmp.i, label %if.then.i, label %opts_visitor_insert.exit
 
 if.then.i:                                        ; preds = %if.end10
-  %call1.i = tail call ptr @g_queue_new() #9
+  %call1.i = tail call ptr @g_queue_new() #10
   %15 = load ptr, ptr %opt.025, align 8
-  %call3.i = tail call i32 @g_hash_table_insert(ptr noundef %14, ptr noundef %15, ptr noundef %call1.i) #9
+  %call3.i = tail call i32 @g_hash_table_insert(ptr noundef %14, ptr noundef %15, ptr noundef %call1.i) #10
   br label %opts_visitor_insert.exit
 
 opts_visitor_insert.exit:                         ; preds = %if.end10, %if.then.i
   %list.0.i = phi ptr [ %call1.i, %if.then.i ], [ %call.i, %if.end10 ]
-  tail call void @g_queue_push_tail(ptr noundef %list.0.i, ptr noundef nonnull %opt.025) #9
+  tail call void @g_queue_push_tail(ptr noundef %list.0.i, ptr noundef nonnull %opt.025) #10
   %opt.0.in = getelementptr inbounds i8, ptr %opt.025, i64 40
   %opt.0 = load ptr, ptr %opt.0.in, align 8
   %tobool5.not = icmp eq ptr %opt.0, null
@@ -185,34 +185,34 @@ for.end:                                          ; preds = %for.end.loopexit, %
   br i1 %cmp13.not, label %return, label %if.then14
 
 if.then14:                                        ; preds = %for.end
-  %call15 = tail call noalias dereferenceable_or_null(56) ptr @g_malloc0(i64 noundef 56) #8
+  %call15 = tail call noalias dereferenceable_or_null(56) ptr @g_malloc0(i64 noundef 56) #9
   %fake_id_opt = getelementptr inbounds i8, ptr %v, i64 272
   store ptr %call15, ptr %fake_id_opt, align 8
-  %call16 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.2) #9
+  %call16 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.2) #10
   %18 = load ptr, ptr %fake_id_opt, align 8
   store ptr %call16, ptr %18, align 8
   %19 = load ptr, ptr %opts_root, align 8
   %20 = load ptr, ptr %19, align 8
-  %call21 = tail call noalias ptr @g_strdup(ptr noundef %20) #9
+  %call21 = tail call noalias ptr @g_strdup(ptr noundef %20) #10
   %21 = load ptr, ptr %fake_id_opt, align 8
   %str = getelementptr inbounds i8, ptr %21, i64 8
   store ptr %call21, ptr %str, align 8
   %22 = load ptr, ptr %unprocessed_opts, align 8
   %23 = load ptr, ptr %fake_id_opt, align 8
   %24 = load ptr, ptr %23, align 8
-  %call.i15 = tail call ptr @g_hash_table_lookup(ptr noundef %22, ptr noundef %24) #9
+  %call.i15 = tail call ptr @g_hash_table_lookup(ptr noundef %22, ptr noundef %24) #10
   %cmp.i16 = icmp eq ptr %call.i15, null
   br i1 %cmp.i16, label %if.then.i18, label %opts_visitor_insert.exit21
 
 if.then.i18:                                      ; preds = %if.then14
-  %call1.i19 = tail call ptr @g_queue_new() #9
+  %call1.i19 = tail call ptr @g_queue_new() #10
   %25 = load ptr, ptr %23, align 8
-  %call3.i20 = tail call i32 @g_hash_table_insert(ptr noundef %22, ptr noundef %25, ptr noundef %call1.i19) #9
+  %call3.i20 = tail call i32 @g_hash_table_insert(ptr noundef %22, ptr noundef %25, ptr noundef %call1.i19) #10
   br label %opts_visitor_insert.exit21
 
 opts_visitor_insert.exit21:                       ; preds = %if.then14, %if.then.i18
   %list.0.i17 = phi ptr [ %call1.i19, %if.then.i18 ], [ %call.i15, %if.then14 ]
-  tail call void @g_queue_push_tail(ptr noundef %list.0.i17, ptr noundef nonnull %23) #9
+  tail call void @g_queue_push_tail(ptr noundef %list.0.i17, ptr noundef nonnull %23) #10
   br label %return
 
 return:                                           ; preds = %for.end, %opts_visitor_insert.exit21, %if.end
@@ -232,16 +232,16 @@ entry:
 if.end:                                           ; preds = %entry
   %unprocessed_opts = getelementptr inbounds i8, ptr %v, i64 232
   %1 = load ptr, ptr %unprocessed_opts, align 8
-  call void @g_hash_table_iter_init(ptr noundef nonnull %iter, ptr noundef %1) #9
-  %call1 = call i32 @g_hash_table_iter_next(ptr noundef nonnull %iter, ptr noundef null, ptr noundef nonnull %any) #9
+  call void @g_hash_table_iter_init(ptr noundef nonnull %iter, ptr noundef %1) #10
+  %call1 = call i32 @g_hash_table_iter_next(ptr noundef nonnull %iter, ptr noundef null, ptr noundef nonnull %any) #10
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %return, label %if.then2
 
 if.then2:                                         ; preds = %if.end
   %2 = load ptr, ptr %any, align 8
-  %call3 = call ptr @g_queue_peek_head(ptr noundef %2) #9
+  %call3 = call ptr @g_queue_peek_head(ptr noundef %2) #10
   %3 = load ptr, ptr %call3, align 8
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 187, ptr noundef nonnull @__func__.opts_check_struct, ptr noundef nonnull @.str.4, ptr noundef %3) #9
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 187, ptr noundef nonnull @__func__.opts_check_struct, ptr noundef nonnull @.str.4, ptr noundef %3) #10
   br label %return
 
 return:                                           ; preds = %if.end, %entry, %if.then2
@@ -262,7 +262,7 @@ entry:
 if.end:                                           ; preds = %entry
   %unprocessed_opts = getelementptr inbounds i8, ptr %v, i64 232
   %1 = load ptr, ptr %unprocessed_opts, align 8
-  tail call void @g_hash_table_destroy(ptr noundef %1) #9
+  tail call void @g_hash_table_destroy(ptr noundef %1) #10
   store ptr null, ptr %unprocessed_opts, align 8
   %fake_id_opt = getelementptr inbounds i8, ptr %v, i64 272
   %2 = load ptr, ptr %fake_id_opt, align 8
@@ -271,13 +271,13 @@ if.end:                                           ; preds = %entry
 
 if.then2:                                         ; preds = %if.end
   %3 = load ptr, ptr %2, align 8
-  tail call void @g_free(ptr noundef %3) #9
+  tail call void @g_free(ptr noundef %3) #10
   %4 = load ptr, ptr %fake_id_opt, align 8
   %str = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load ptr, ptr %str, align 8
-  tail call void @g_free(ptr noundef %5) #9
+  tail call void @g_free(ptr noundef %5) #10
   %6 = load ptr, ptr %fake_id_opt, align 8
-  tail call void @g_free(ptr noundef %6) #9
+  tail call void @g_free(ptr noundef %6) #10
   br label %if.end6
 
 if.end6:                                          ; preds = %if.then2, %if.end
@@ -297,7 +297,7 @@ entry:
   br i1 %cmp, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 234, ptr noundef nonnull @__PRETTY_FUNCTION__.opts_start_list) #7
+  tail call void @__assert_fail(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 234, ptr noundef nonnull @__PRETTY_FUNCTION__.opts_start_list) #8
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -305,18 +305,18 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.else2, label %if.end3
 
 if.else2:                                         ; preds = %if.end
-  tail call void @__assert_fail(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.1, i32 noundef 236, ptr noundef nonnull @__PRETTY_FUNCTION__.opts_start_list) #7
+  tail call void @__assert_fail(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.1, i32 noundef 236, ptr noundef nonnull @__PRETTY_FUNCTION__.opts_start_list) #8
   unreachable
 
 if.end3:                                          ; preds = %if.end
   %1 = getelementptr i8, ptr %v, i64 232
   %call.val = load ptr, ptr %1, align 8
-  %call.i = tail call ptr @g_hash_table_lookup(ptr noundef %call.val, ptr noundef %name) #9
+  %call.i = tail call ptr @g_hash_table_lookup(ptr noundef %call.val, ptr noundef %name) #10
   %tobool.not.i = icmp ne ptr %call.i, null
   br i1 %tobool.not.i, label %if.end8, label %lookup_distinct.exit
 
 lookup_distinct.exit:                             ; preds = %if.end3
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 221, ptr noundef nonnull @__func__.lookup_distinct, ptr noundef nonnull @.str.7, ptr noundef %name) #9
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 221, ptr noundef nonnull @__func__.lookup_distinct, ptr noundef nonnull @.str.7, ptr noundef %name) #10
   %repeated_opts = getelementptr inbounds i8, ptr %v, i64 248
   store ptr null, ptr %repeated_opts, align 8
   br label %return
@@ -325,7 +325,7 @@ if.end8:                                          ; preds = %if.end3
   %repeated_opts7 = getelementptr inbounds i8, ptr %v, i64 248
   store ptr %call.i, ptr %repeated_opts7, align 8
   store i32 1, ptr %list_mode, align 8
-  %call10 = tail call noalias ptr @g_malloc0(i64 noundef %size) #8
+  %call10 = tail call noalias ptr @g_malloc0(i64 noundef %size) #9
   br label %return
 
 return:                                           ; preds = %lookup_distinct.exit, %if.end8
@@ -369,9 +369,9 @@ if.end13:                                         ; preds = %if.else, %if.then
 sw.bb15:                                          ; preds = %entry, %if.end13
   %repeated_opts = getelementptr inbounds i8, ptr %v, i64 248
   %5 = load ptr, ptr %repeated_opts, align 8
-  %call16 = tail call ptr @g_queue_pop_head(ptr noundef %5) #9
+  %call16 = tail call ptr @g_queue_pop_head(ptr noundef %5) #10
   %6 = load ptr, ptr %repeated_opts, align 8
-  %call18 = tail call i32 @g_queue_is_empty(ptr noundef %6) #9
+  %call18 = tail call i32 @g_queue_is_empty(ptr noundef %6) #10
   %tobool.not = icmp eq i32 %call18, 0
   br i1 %tobool.not, label %sw.epilog, label %if.then19
 
@@ -379,13 +379,13 @@ if.then19:                                        ; preds = %sw.bb15
   %unprocessed_opts = getelementptr inbounds i8, ptr %v, i64 232
   %7 = load ptr, ptr %unprocessed_opts, align 8
   %8 = load ptr, ptr %call16, align 8
-  %call20 = tail call i32 @g_hash_table_remove(ptr noundef %7, ptr noundef %8) #9
+  %call20 = tail call i32 @g_hash_table_remove(ptr noundef %7, ptr noundef %8) #10
   store ptr null, ptr %repeated_opts, align 8
   store i32 4, ptr %list_mode, align 8
   br label %return
 
 sw.default:                                       ; preds = %entry
-  tail call void @abort() #7
+  tail call void @abort() #8
   unreachable
 
 sw.epilog.sink.split:                             ; preds = %if.else, %if.then
@@ -396,7 +396,7 @@ sw.epilog.sink.split:                             ; preds = %if.else, %if.then
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.epilog.sink.split, %sw.bb15
-  %call24 = tail call noalias ptr @g_malloc0(i64 noundef %size) #8
+  %call24 = tail call noalias ptr @g_malloc0(i64 noundef %size) #9
   store ptr %call24, ptr %tail, align 8
   br label %return
 
@@ -421,7 +421,7 @@ entry:
   br i1 %switch, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.1, i32 noundef 311, ptr noundef nonnull @__PRETTY_FUNCTION__.opts_end_list) #7
+  tail call void @__assert_fail(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.1, i32 noundef 311, ptr noundef nonnull @__PRETTY_FUNCTION__.opts_end_list) #8
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -461,13 +461,13 @@ if.end3:                                          ; preds = %if.end
   br i1 %switch, label %if.end12, label %if.else
 
 if.else:                                          ; preds = %if.end3
-  tail call void @__assert_fail(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, i32 noundef 415, ptr noundef nonnull @__PRETTY_FUNCTION__.opts_type_int64) #7
+  tail call void @__assert_fail(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, i32 noundef 415, ptr noundef nonnull @__PRETTY_FUNCTION__.opts_type_int64) #8
   unreachable
 
 if.end12:                                         ; preds = %if.end3
-  %call13 = tail call ptr @__errno_location() #10
+  %call13 = tail call ptr @__errno_location() #11
   store i32 0, ptr %call13, align 4
-  %call14 = call i64 @strtoll(ptr noundef nonnull %spec.select, ptr noundef nonnull %endptr, i32 noundef 0) #9
+  %call14 = call i64 @strtoll(ptr noundef nonnull %spec.select, ptr noundef nonnull %endptr, i32 noundef 0) #10
   %4 = load i32, ptr %call13, align 4
   %cmp16 = icmp eq i32 %4, 0
   br i1 %cmp16, label %land.lhs.true, label %if.end67
@@ -496,7 +496,7 @@ land.lhs.true30:                                  ; preds = %if.then22
 
 if.then34:                                        ; preds = %land.lhs.true30
   %add.ptr = getelementptr i8, ptr %5, i64 1
-  %call35 = call i64 @strtoll(ptr noundef %add.ptr, ptr noundef nonnull %endptr, i32 noundef 0) #9
+  %call35 = call i64 @strtoll(ptr noundef %add.ptr, ptr noundef nonnull %endptr, i32 noundef 0) #10
   %8 = load i32, ptr %call13, align 4
   %cmp37 = icmp eq i32 %8, 0
   br i1 %cmp37, label %land.lhs.true39, label %if.end67
@@ -534,7 +534,7 @@ if.end67:                                         ; preds = %land.lhs.true55, %i
   %12 = load i32, ptr %list_mode, align 8
   %cmp70 = icmp eq i32 %12, 0
   %cond72 = select i1 %cmp70, ptr @.str.12, ptr @.str.13
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 446, ptr noundef nonnull @__func__.opts_type_int64, ptr noundef nonnull @.str.11, ptr noundef %11, ptr noundef nonnull %cond72) #9
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 446, ptr noundef nonnull @__func__.opts_type_int64, ptr noundef nonnull @.str.11, ptr noundef %11, ptr noundef nonnull %cond72) #10
   br label %return
 
 return:                                           ; preds = %if.end, %if.end67, %if.then61, %if.then25, %if.then
@@ -570,13 +570,13 @@ if.end3:                                          ; preds = %if.end
   br i1 %switch, label %if.end10, label %if.else
 
 if.else:                                          ; preds = %if.end3
-  tail call void @__assert_fail(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, i32 noundef 472, ptr noundef nonnull @__PRETTY_FUNCTION__.opts_type_uint64) #7
+  tail call void @__assert_fail(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, i32 noundef 472, ptr noundef nonnull @__PRETTY_FUNCTION__.opts_type_uint64) #8
   unreachable
 
 if.end10:                                         ; preds = %if.end3
   %str4 = getelementptr inbounds i8, ptr %call1, i64 8
   %3 = load ptr, ptr %str4, align 8
-  %call11 = call i32 @parse_uint(ptr noundef %3, ptr noundef nonnull %endptr, i32 noundef 0, ptr noundef nonnull %val) #9
+  %call11 = call i32 @parse_uint(ptr noundef %3, ptr noundef nonnull %endptr, i32 noundef 0, ptr noundef nonnull %val) #10
   %cmp12 = icmp eq i32 %call11, 0
   br i1 %cmp12, label %if.then13, label %if.end40
 
@@ -600,11 +600,11 @@ if.then16:                                        ; preds = %if.then13
 if.then.i:                                        ; preds = %if.then16
   %unprocessed_opts.i = getelementptr inbounds i8, ptr %v, i64 232
   %8 = load ptr, ptr %unprocessed_opts.i, align 8
-  %call.i = call i32 @g_hash_table_remove(ptr noundef %8, ptr noundef %name) #9
+  %call.i = call i32 @g_hash_table_remove(ptr noundef %8, ptr noundef %name) #10
   br label %return
 
 if.else.i:                                        ; preds = %if.then16
-  call void @__assert_fail(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.1, i32 noundef 344, ptr noundef nonnull @__PRETTY_FUNCTION__.processed) #7
+  call void @__assert_fail(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.1, i32 noundef 344, ptr noundef nonnull @__PRETTY_FUNCTION__.processed) #8
   unreachable
 
 land.lhs.true:                                    ; preds = %if.then13
@@ -614,7 +614,7 @@ land.lhs.true:                                    ; preds = %if.then13
 
 if.then24:                                        ; preds = %land.lhs.true
   %add.ptr = getelementptr i8, ptr %4, i64 1
-  %call25 = call i32 @parse_uint_full(ptr noundef %add.ptr, i32 noundef 0, ptr noundef nonnull %val2) #9
+  %call25 = call i32 @parse_uint_full(ptr noundef %add.ptr, i32 noundef 0, ptr noundef nonnull %val2) #10
   %cmp26 = icmp eq i32 %call25, 0
   br i1 %cmp26, label %land.lhs.true28, label %if.end40
 
@@ -641,7 +641,7 @@ if.end40:                                         ; preds = %if.then13, %land.lh
   %13 = load i32, ptr %list_mode, align 8
   %cmp43 = icmp eq i32 %13, 0
   %cond = select i1 %cmp43, ptr @.str.16, ptr @.str.17
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 499, ptr noundef nonnull @__func__.opts_type_uint64, ptr noundef nonnull @.str.11, ptr noundef %12, ptr noundef nonnull %cond) #9
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 499, ptr noundef nonnull @__func__.opts_type_uint64, ptr noundef nonnull @.str.11, ptr noundef %12, ptr noundef nonnull %cond) #10
   br label %return
 
 return:                                           ; preds = %if.then.i, %if.then16, %if.end, %if.end40, %if.then34, %if.then
@@ -661,13 +661,13 @@ if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %str, align 8
   %tobool2.not = icmp eq ptr %0, null
   %spec.select = select i1 %tobool2.not, ptr @.str.9, ptr %0
-  %call4 = tail call i32 @qemu_strtosz(ptr noundef nonnull %spec.select, ptr noundef null, ptr noundef %obj) #9
+  %call4 = tail call i32 @qemu_strtosz(ptr noundef nonnull %spec.select, ptr noundef null, ptr noundef %obj) #10
   %cmp = icmp slt i32 %call4, 0
   br i1 %cmp, label %if.then5, label %if.end7
 
 if.then5:                                         ; preds = %if.end
   %1 = load ptr, ptr %call1, align 8
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 519, ptr noundef nonnull @__func__.opts_type_size, ptr noundef nonnull @.str.11, ptr noundef %1, ptr noundef nonnull @.str.18) #9
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 519, ptr noundef nonnull @__func__.opts_type_size, ptr noundef nonnull @.str.11, ptr noundef %1, ptr noundef nonnull @.str.18) #10
   br label %return
 
 if.end7:                                          ; preds = %if.end
@@ -681,11 +681,11 @@ if.end7:                                          ; preds = %if.end
 if.then.i:                                        ; preds = %if.end7
   %unprocessed_opts.i = getelementptr inbounds i8, ptr %v, i64 232
   %3 = load ptr, ptr %unprocessed_opts.i, align 8
-  %call.i = tail call i32 @g_hash_table_remove(ptr noundef %3, ptr noundef %name) #9
+  %call.i = tail call i32 @g_hash_table_remove(ptr noundef %3, ptr noundef %name) #10
   br label %return
 
 if.else.i:                                        ; preds = %if.end7
-  tail call void @__assert_fail(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.1, i32 noundef 344, ptr noundef nonnull @__PRETTY_FUNCTION__.processed) #7
+  tail call void @__assert_fail(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.1, i32 noundef 344, ptr noundef nonnull @__PRETTY_FUNCTION__.processed) #8
   unreachable
 
 return:                                           ; preds = %if.then.i, %if.end7, %entry, %if.then5
@@ -708,7 +708,7 @@ if.end:                                           ; preds = %entry
 
 if.then3:                                         ; preds = %if.end
   %1 = load ptr, ptr %call1, align 8
-  %call6 = tail call zeroext i1 @qapi_bool_parse(ptr noundef %1, ptr noundef nonnull %0, ptr noundef %obj, ptr noundef %errp) #9
+  %call6 = tail call zeroext i1 @qapi_bool_parse(ptr noundef %1, ptr noundef nonnull %0, ptr noundef %obj, ptr noundef %errp) #10
   br i1 %call6, label %if.end9, label %return
 
 if.else:                                          ; preds = %if.end
@@ -726,11 +726,11 @@ if.end9:                                          ; preds = %if.then3, %if.else
 if.then.i:                                        ; preds = %if.end9
   %unprocessed_opts.i = getelementptr inbounds i8, ptr %v, i64 232
   %3 = load ptr, ptr %unprocessed_opts.i, align 8
-  %call.i = tail call i32 @g_hash_table_remove(ptr noundef %3, ptr noundef %name) #9
+  %call.i = tail call i32 @g_hash_table_remove(ptr noundef %3, ptr noundef %name) #10
   br label %return
 
 if.else.i:                                        ; preds = %if.end9
-  tail call void @__assert_fail(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.1, i32 noundef 344, ptr noundef nonnull @__PRETTY_FUNCTION__.processed) #7
+  tail call void @__assert_fail(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.1, i32 noundef 344, ptr noundef nonnull @__PRETTY_FUNCTION__.processed) #8
   unreachable
 
 return:                                           ; preds = %if.then.i, %if.end9, %if.then3, %entry
@@ -754,7 +754,7 @@ if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %str, align 8
   %tobool2.not = icmp eq ptr %0, null
   %spec.select = select i1 %tobool2.not, ptr @.str.9, ptr %0
-  %call4 = tail call noalias ptr @g_strdup(ptr noundef nonnull %spec.select) #9
+  %call4 = tail call noalias ptr @g_strdup(ptr noundef nonnull %spec.select) #10
   store ptr %call4, ptr %obj, align 8
   %list_mode.i = getelementptr inbounds i8, ptr %v, i64 240
   %1 = load i32, ptr %list_mode.i, align 8
@@ -766,11 +766,11 @@ if.end:                                           ; preds = %entry
 if.then.i:                                        ; preds = %if.end
   %unprocessed_opts.i = getelementptr inbounds i8, ptr %v, i64 232
   %2 = load ptr, ptr %unprocessed_opts.i, align 8
-  %call.i = tail call i32 @g_hash_table_remove(ptr noundef %2, ptr noundef %name) #9
+  %call.i = tail call i32 @g_hash_table_remove(ptr noundef %2, ptr noundef %name) #10
   br label %return
 
 if.else.i:                                        ; preds = %if.end
-  tail call void @__assert_fail(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.1, i32 noundef 344, ptr noundef nonnull @__PRETTY_FUNCTION__.processed) #7
+  tail call void @__assert_fail(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.1, i32 noundef 344, ptr noundef nonnull @__PRETTY_FUNCTION__.processed) #8
   unreachable
 
 return:                                           ; preds = %if.then.i, %if.end, %if.then
@@ -786,18 +786,18 @@ entry:
   br i1 %cmp, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 534, ptr noundef nonnull @__PRETTY_FUNCTION__.opts_optional) #7
+  tail call void @__assert_fail(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 534, ptr noundef nonnull @__PRETTY_FUNCTION__.opts_optional) #8
   unreachable
 
 if.end:                                           ; preds = %entry
   %1 = getelementptr i8, ptr %v, i64 232
   %call.val = load ptr, ptr %1, align 8
-  %call.i = tail call ptr @g_hash_table_lookup(ptr noundef %call.val, ptr noundef %name) #9
+  %call.i = tail call ptr @g_hash_table_lookup(ptr noundef %call.val, ptr noundef %name) #10
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i, label %if.then.i, label %lookup_distinct.exit
 
 if.then.i:                                        ; preds = %if.end
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 221, ptr noundef nonnull @__func__.lookup_distinct, ptr noundef nonnull @.str.7, ptr noundef %name) #9
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 221, ptr noundef nonnull @__func__.lookup_distinct, ptr noundef nonnull @.str.7, ptr noundef %name) #10
   br label %lookup_distinct.exit
 
 lookup_distinct.exit:                             ; preds = %if.end, %if.then.i
@@ -816,14 +816,14 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call void @g_hash_table_destroy(ptr noundef nonnull %0) #9
+  tail call void @g_hash_table_destroy(ptr noundef nonnull %0) #10
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
   %fake_id_opt = getelementptr inbounds i8, ptr %v, i64 272
   %1 = load ptr, ptr %fake_id_opt, align 8
-  tail call void @g_free(ptr noundef %1) #9
-  tail call void @g_free(ptr noundef nonnull %v) #9
+  tail call void @g_free(ptr noundef %1) #10
+  tail call void @g_free(ptr noundef nonnull %v) #10
   ret void
 }
 
@@ -836,7 +836,7 @@ declare i32 @g_str_equal(ptr noundef, ptr noundef) #4
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @destroy_list(ptr noundef %list) #0 {
 entry:
-  tail call void @g_queue_free(ptr noundef %list) #9
+  tail call void @g_queue_free(ptr noundef %list) #10
   ret void
 }
 
@@ -870,8 +870,8 @@ declare i32 @g_queue_is_empty(ptr noundef) local_unnamed_addr #4
 
 declare i32 @g_hash_table_remove(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-; Function Attrs: noreturn nounwind
-declare void @abort() local_unnamed_addr #1
+; Function Attrs: cold nofree noreturn nounwind
+declare void @abort() local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc ptr @lookup_scalar(ptr nocapture noundef readonly %ov, ptr noundef %name, ptr noundef %errp) unnamed_addr #0 {
@@ -887,30 +887,30 @@ entry:
 if.then:                                          ; preds = %entry
   %1 = getelementptr i8, ptr %ov, i64 232
   %ov.val = load ptr, ptr %1, align 8
-  %call.i = tail call ptr @g_hash_table_lookup(ptr noundef %ov.val, ptr noundef %name) #9
+  %call.i = tail call ptr @g_hash_table_lookup(ptr noundef %ov.val, ptr noundef %name) #10
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i, label %lookup_distinct.exit.thread, label %cond.true
 
 lookup_distinct.exit.thread:                      ; preds = %if.then
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 221, ptr noundef nonnull @__func__.lookup_distinct, ptr noundef nonnull @.str.7, ptr noundef %name) #9
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 221, ptr noundef nonnull @__func__.lookup_distinct, ptr noundef nonnull @.str.7, ptr noundef %name) #10
   br label %return
 
 cond.true:                                        ; preds = %if.then
-  %call1 = tail call ptr @g_queue_peek_tail(ptr noundef nonnull %call.i) #9
+  %call1 = tail call ptr @g_queue_peek_tail(ptr noundef nonnull %call.i) #10
   br label %return
 
 if.then4:                                         ; preds = %entry
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 329, ptr noundef nonnull @__func__.lookup_scalar, ptr noundef nonnull @.str.14) #9
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 329, ptr noundef nonnull @__func__.lookup_scalar, ptr noundef nonnull @.str.14) #10
   br label %return
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.1, i32 noundef 332, ptr noundef nonnull @__PRETTY_FUNCTION__.lookup_scalar) #7
+  tail call void @__assert_fail(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.1, i32 noundef 332, ptr noundef nonnull @__PRETTY_FUNCTION__.lookup_scalar) #8
   unreachable
 
 if.end9:                                          ; preds = %entry
   %repeated_opts = getelementptr inbounds i8, ptr %ov, i64 248
   %2 = load ptr, ptr %repeated_opts, align 8
-  %call10 = tail call ptr @g_queue_peek_head(ptr noundef %2) #9
+  %call10 = tail call ptr @g_queue_peek_head(ptr noundef %2) #10
   br label %return
 
 return:                                           ; preds = %lookup_distinct.exit.thread, %cond.true, %if.end9, %if.then4
@@ -919,10 +919,10 @@ return:                                           ; preds = %lookup_distinct.exi
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #5
+declare ptr @__errno_location() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoll(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #6
+declare i64 @strtoll(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @processed(ptr nocapture noundef readonly %ov, ptr noundef %name) unnamed_addr #0 {
@@ -937,11 +937,11 @@ entry:
 if.then:                                          ; preds = %entry
   %unprocessed_opts = getelementptr inbounds i8, ptr %ov, i64 232
   %1 = load ptr, ptr %unprocessed_opts, align 8
-  %call = tail call i32 @g_hash_table_remove(ptr noundef %1, ptr noundef %name) #9
+  %call = tail call i32 @g_hash_table_remove(ptr noundef %1, ptr noundef %name) #10
   br label %if.end4
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.1, i32 noundef 344, ptr noundef nonnull @__PRETTY_FUNCTION__.processed) #7
+  tail call void @__assert_fail(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.1, i32 noundef 344, ptr noundef nonnull @__PRETTY_FUNCTION__.processed) #8
   unreachable
 
 if.end4:                                          ; preds = %entry, %if.then
@@ -963,12 +963,13 @@ attributes #1 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="tr
 attributes #2 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { noreturn nounwind }
-attributes #8 = { nounwind allocsize(0) }
-attributes #9 = { nounwind }
-attributes #10 = { nounwind willreturn memory(none) }
+attributes #5 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { noreturn nounwind }
+attributes #9 = { nounwind allocsize(0) }
+attributes #10 = { nounwind }
+attributes #11 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

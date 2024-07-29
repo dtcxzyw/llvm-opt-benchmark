@@ -15113,7 +15113,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.i.i
   br label %94
 
 92:                                               ; preds = %83, %78
-  call void @exit(i32 noundef -1) #27
+  call void @exit(i32 noundef -1) #31
   unreachable
 
 _ZSteqRKSt10error_codeRKSt15error_condition.exit.thread.i.i.i.i.i: ; preds = %73, %62, %54, %_ZSteqRKSt10error_codeRKSt15error_condition.exit.i.i.i.i.i, %28
@@ -15222,7 +15222,7 @@ _ZN7xgboost10collective6ResultD2Ev.exit8:         ; preds = %_ZNKSt14default_del
   resume { ptr, i32 } %.pn
 }
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #20
 
 declare { i32, ptr } @_ZNK7xgboost10collective6detail10ResultImpl4CodeEv(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #0
@@ -17746,7 +17746,7 @@ attributes #16 = { mustprogress nofree nosync nounwind willreturn memory(none) "
 attributes #17 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #18 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #19 = { mustprogress nofree nounwind willreturn memory(read) }
-attributes #20 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #21 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #22 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #23 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
@@ -17757,6 +17757,7 @@ attributes #27 = { noreturn nounwind }
 attributes #28 = { noreturn }
 attributes #29 = { builtin allocsize(0) }
 attributes #30 = { nounwind willreturn memory(none) }
+attributes #31 = { cold noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

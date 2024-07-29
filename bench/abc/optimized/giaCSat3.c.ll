@@ -985,11 +985,10 @@ Vec_WecMemory.exit:                               ; preds = %16, %1
   %37 = uitofp i64 %36 to double
   %38 = tail call double @llvm.fmuladd.f64(double %37, double 4.000000e+00, double 1.600000e+01)
   %39 = fptosi double %38 to i32
-  %40 = add i32 %39, 416
   br label %Vec_IntMemory.exit
 
 Vec_IntMemory.exit:                               ; preds = %Vec_WecMemory.exit, %34
-  %op.rdx34 = phi i32 [ %40, %34 ], [ 416, %Vec_WecMemory.exit ]
+  %40 = phi i32 [ %39, %34 ], [ 0, %Vec_WecMemory.exit ]
   %41 = getelementptr inbounds i8, ptr %0, i64 120
   %42 = load ptr, ptr %41, align 8
   %.not.i28 = icmp eq ptr %42, null
@@ -1040,7 +1039,8 @@ Vec_IntMemory.exit29:                             ; preds = %Vec_IntMemory.exit,
   %79 = insertelement <2 x i32> %78, i32 %58, i64 1
   %80 = add <2 x i32> %79, %77
   %op.rdx32 = add i32 %reass.mul, %62
-  %op.rdx33 = add i32 %49, %54
+  %op.rdx33 = add i32 %49, %40
+  %op.rdx34 = add i32 %54, 416
   %shift = shufflevector <2 x i32> %80, <2 x i32> poison, <2 x i32> <i32 1, i32 poison>
   %81 = add <2 x i32> %80, %shift
   %op.rdx35 = extractelement <2 x i32> %81, i64 0

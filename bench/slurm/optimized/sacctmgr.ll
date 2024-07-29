@@ -197,7 +197,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 16:                                               ; preds = %11
   call fastcc void @_usage()
   %17 = load i32, ptr @exit_code, align 4
-  call void @exit(i32 noundef %17) #17
+  call void @exit(i32 noundef %17) #18
   unreachable
 
 18:                                               ; preds = %11
@@ -242,13 +242,13 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 29:                                               ; preds = %11
   call fastcc void @_print_version()
   %30 = load i32, ptr @exit_code, align 4
-  call void @exit(i32 noundef %30) #17
+  call void @exit(i32 noundef %30) #18
   unreachable
 
 31:                                               ; preds = %11
   %32 = load ptr, ptr @optarg, align 8
   call void @suggest_completion(ptr noundef nonnull @main.long_options, ptr noundef %32) #15
-  call void @exit(i32 noundef 0) #17
+  call void @exit(i32 noundef 0) #18
   unreachable
 
 33:                                               ; preds = %11
@@ -260,7 +260,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %.not60, label %.backedge, label %36
 
 36:                                               ; preds = %33
-  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.20) #17
+  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.20) #18
   unreachable
 
 37:                                               ; preds = %11
@@ -275,15 +275,15 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br label %11, !llvm.loop !7
 
 40:                                               ; preds = %37
-  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.23) #17
+  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.23) #18
   unreachable
 
 41:                                               ; preds = %11
   store i32 1, ptr @exit_code, align 4
   %42 = load ptr, ptr @stderr, align 8
-  %43 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %42, ptr noundef nonnull @.str.24, i32 noundef %12) #18
+  %43 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %42, ptr noundef nonnull @.str.24, i32 noundef %12) #19
   %44 = load i32, ptr @exit_code, align 4
-  call void @exit(i32 noundef %44) #17
+  call void @exit(i32 noundef %44) #18
   unreachable
 
 45:                                               ; preds = %11
@@ -311,7 +311,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   unreachable
 
 57:                                               ; preds = %52
-  %58 = tail call ptr @__errno_location() #19
+  %58 = tail call ptr @__errno_location() #20
   store i32 0, ptr %58, align 4
   %59 = call ptr @slurmdb_connection_get(ptr noundef nonnull %5) #15
   store ptr %59, ptr @db_conn, align 8
@@ -461,7 +461,7 @@ _get_command.exit.thread92:                       ; preds = %108
 
 124:                                              ; preds = %123, %121
   store ptr %109, ptr @_get_command.last_in_line, align 8
-  %125 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %109) #20
+  %125 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %109) #21
   %126 = trunc i64 %125 to i32
   store i32 %126, ptr @_get_command.last_in_line_size, align 4
   br label %127
@@ -487,7 +487,7 @@ _get_command.exit.thread92:                       ; preds = %108
   br i1 %134, label %_get_command.exit, label %135
 
 135:                                              ; preds = %.lr.ph63.i
-  %136 = tail call ptr @__ctype_b_loc() #19
+  %136 = tail call ptr @__ctype_b_loc() #20
   %137 = load ptr, ptr %136, align 8
   %138 = sext i8 %133 to i64
   %139 = getelementptr inbounds i16, ptr %137, i64 %138
@@ -504,7 +504,7 @@ _get_command.exit.thread:                         ; preds = %142
   store i32 1, ptr @exit_code, align 4
   %144 = load ptr, ptr @stderr, align 8
   %145 = load ptr, ptr @command_name, align 8
-  %146 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %144, ptr noundef nonnull @.str.31, ptr noundef %145, i32 noundef 127) #18
+  %146 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %144, ptr noundef nonnull @.str.31, ptr noundef %145, i32 noundef 127) #19
   br label %.loopexit
 
 147:                                              ; preds = %142
@@ -656,7 +656,7 @@ _get_command.exit:                                ; preds = %.lr.ph63.i, %.loope
 197:                                              ; preds = %196, %194
   store ptr null, ptr @g_tres_list, align 8
   %198 = load i32, ptr @exit_code, align 4
-  call void @exit(i32 noundef %198) #17
+  call void @exit(i32 noundef %198) #18
   unreachable
 }
 
@@ -673,7 +673,7 @@ declare i32 @getopt_long(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
@@ -748,7 +748,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 
 11:                                               ; preds = %2
   %12 = load ptr, ptr %1, align 8
-  %13 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %12) #20
+  %13 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %12) #21
   %14 = trunc i64 %13 to i32
   %15 = tail call i32 @llvm.smax.i32(i32 %14, i32 3)
   %16 = zext nneg i32 %15 to i64
@@ -788,7 +788,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   store i32 1, ptr @exit_code, align 4
   %36 = load ptr, ptr @stderr, align 8
   %37 = load ptr, ptr %1, align 8
-  %38 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %36, ptr noundef nonnull @.str.35, ptr noundef %37) #18
+  %38 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %36, ptr noundef nonnull @.str.35, ptr noundef %37) #19
   br label %39
 
 39:                                               ; preds = %35, %34
@@ -831,7 +831,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   store i32 1, ptr @exit_code, align 4
   %57 = load ptr, ptr @stderr, align 8
   %58 = load ptr, ptr %1, align 8
-  %59 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %57, ptr noundef nonnull @.str.35, ptr noundef %58) #18
+  %59 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %57, ptr noundef nonnull @.str.35, ptr noundef %58) #19
   br label %60
 
 60:                                               ; preds = %56, %55
@@ -854,7 +854,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   store i32 1, ptr @exit_code, align 4
   %69 = load ptr, ptr @stderr, align 8
   %70 = load ptr, ptr %1, align 8
-  %71 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %69, ptr noundef nonnull @.str.35, ptr noundef %70) #18
+  %71 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %69, ptr noundef nonnull @.str.35, ptr noundef %70) #19
   br label %72
 
 72:                                               ; preds = %68, %67
@@ -887,7 +887,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   store i32 1, ptr @exit_code, align 4
   %87 = load ptr, ptr @stderr, align 8
   %88 = load ptr, ptr %1, align 8
-  %89 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %87, ptr noundef nonnull @.str.35, ptr noundef %88) #18
+  %89 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %87, ptr noundef nonnull @.str.35, ptr noundef %88) #19
   br label %90
 
 90:                                               ; preds = %86, %85
@@ -1003,7 +1003,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   store i32 1, ptr @exit_code, align 4
   %152 = load ptr, ptr @stderr, align 8
   %153 = load ptr, ptr %1, align 8
-  %154 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %152, ptr noundef nonnull @.str.49, ptr noundef %153) #18
+  %154 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %152, ptr noundef nonnull @.str.49, ptr noundef %153) #19
   br label %155
 
 155:                                              ; preds = %151, %150
@@ -1024,7 +1024,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   store i32 1, ptr @exit_code, align 4
   %162 = load ptr, ptr @stderr, align 8
   %163 = load ptr, ptr %1, align 8
-  %164 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %162, ptr noundef nonnull @.str.49, ptr noundef %163) #18
+  %164 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %162, ptr noundef nonnull @.str.49, ptr noundef %163) #19
   br label %165
 
 165:                                              ; preds = %161, %160
@@ -1045,7 +1045,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   store i32 1, ptr @exit_code, align 4
   %172 = load ptr, ptr @stderr, align 8
   %173 = load ptr, ptr %1, align 8
-  %174 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %172, ptr noundef nonnull @.str.49, ptr noundef %173) #18
+  %174 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %172, ptr noundef nonnull @.str.49, ptr noundef %173) #19
   br label %175
 
 175:                                              ; preds = %171, %170
@@ -1067,7 +1067,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   store i32 1, ptr @exit_code, align 4
   %184 = load ptr, ptr @stderr, align 8
   %185 = load ptr, ptr %1, align 8
-  %186 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %184, ptr noundef nonnull @.str.49, ptr noundef %185) #18
+  %186 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %184, ptr noundef nonnull @.str.49, ptr noundef %185) #19
   %187 = getelementptr inbounds i8, ptr %1, i64 8
   %188 = load ptr, ptr %187, align 8
   %189 = tail call i64 @parse_time(ptr noundef %188, i32 noundef 1) #15
@@ -1099,7 +1099,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   %206 = phi i64 [ %189, %.thread153 ], [ %197, %199 ]
   %207 = getelementptr inbounds i8, ptr %1, i64 24
   %208 = load ptr, ptr %207, align 8
-  %209 = tail call i32 @atoi(ptr nocapture noundef %208) #20
+  %209 = tail call i32 @atoi(ptr nocapture noundef %208) #21
   %210 = trunc i32 %209 to i16
   br label %.thread148
 
@@ -1142,7 +1142,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   store i32 1, ptr @exit_code, align 4
   %228 = load ptr, ptr @stderr, align 8
   %229 = load ptr, ptr %1, align 8
-  %230 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %228, ptr noundef nonnull @.str.49, ptr noundef %229) #18
+  %230 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %228, ptr noundef nonnull @.str.49, ptr noundef %229) #19
   br label %231
 
 231:                                              ; preds = %227, %226
@@ -1154,7 +1154,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 234:                                              ; preds = %231
   %235 = load ptr, ptr @stderr, align 8
   %236 = tail call ptr @slurm_strerror(i32 noundef %233) #15
-  %237 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %235, ptr noundef nonnull @.str.55, ptr noundef %236) #18
+  %237 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %235, ptr noundef nonnull @.str.55, ptr noundef %236) #19
   store i32 1, ptr @exit_code, align 4
   br label %252
 
@@ -1172,7 +1172,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   store i32 1, ptr @exit_code, align 4
   %244 = load ptr, ptr @stderr, align 8
   %245 = load ptr, ptr %1, align 8
-  %246 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %244, ptr noundef nonnull @.str.49, ptr noundef %245) #18
+  %246 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %244, ptr noundef nonnull @.str.49, ptr noundef %245) #19
   br label %247
 
 247:                                              ; preds = %243, %242
@@ -1183,7 +1183,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   store i32 1, ptr @exit_code, align 4
   %249 = load ptr, ptr @stderr, align 8
   %250 = load ptr, ptr %1, align 8
-  %251 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %249, ptr noundef nonnull @.str.56, ptr noundef %250) #18
+  %251 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %249, ptr noundef nonnull @.str.56, ptr noundef %250) #19
   br label %252
 
 252:                                              ; preds = %19, %39, %60, %90, %106, %123, %143, %165, %216, %219, %.thread148, %247, %248, %231, %234, %175, %155, %132, %113, %99, %72, %46, %24, %5, %8
@@ -1272,7 +1272,7 @@ define internal fastcc void @_add_it(i32 noundef %0, ptr noundef %1) unnamed_add
   br i1 %.not41, label %.thread, label %13
 
 13:                                               ; preds = %11
-  %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %12) #20
+  %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %12) #21
   %15 = trunc i64 %14 to i32
   %16 = load ptr, ptr @db_conn, align 8
   %17 = tail call i32 @slurmdb_connection_commit(ptr noundef %16, i1 noundef zeroext false) #15
@@ -1425,7 +1425,7 @@ define internal fastcc void @_archive_it(i32 noundef %0, ptr noundef %1) unnamed
   br i1 %.not13, label %.thread, label %13
 
 13:                                               ; preds = %11
-  %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %12) #20
+  %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %12) #21
   %15 = trunc i64 %14 to i32
   %16 = load ptr, ptr @db_conn, align 8
   %17 = tail call i32 @slurmdb_connection_commit(ptr noundef %16, i1 noundef zeroext false) #15
@@ -1493,7 +1493,7 @@ define internal fastcc void @_clear_it(ptr nocapture noundef readonly %0) unname
   br i1 %.not, label %.critedge, label %7
 
 7:                                                ; preds = %5
-  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #20
+  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #21
   %9 = trunc i64 %8 to i32
   %10 = tail call i32 @llvm.smax.i32(i32 %9, i32 1)
   %11 = zext nneg i32 %10 to i64
@@ -1532,7 +1532,7 @@ define internal fastcc void @_show_it(i32 noundef %0, ptr noundef %1) unnamed_ad
   br i1 %.not, label %.thread, label %4
 
 4:                                                ; preds = %2
-  %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #20
+  %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #21
   %6 = trunc i64 %5 to i32
   %7 = load i8, ptr @have_db_conn, align 1
   %8 = trunc i8 %7 to i1
@@ -1837,7 +1837,7 @@ define internal fastcc void @_modify_it(i32 noundef %0, ptr noundef %1) unnamed_
   br i1 %.not41, label %.thread, label %13
 
 13:                                               ; preds = %11
-  %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %12) #20
+  %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %12) #21
   %15 = trunc i64 %14 to i32
   %16 = load ptr, ptr @db_conn, align 8
   %17 = tail call i32 @slurmdb_connection_commit(ptr noundef %16, i1 noundef zeroext false) #15
@@ -1986,7 +1986,7 @@ define internal fastcc void @_delete_it(i32 noundef %0, ptr noundef %1) unnamed_
   br i1 %.not41, label %.thread, label %13
 
 13:                                               ; preds = %11
-  %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %12) #20
+  %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %12) #21
   %15 = trunc i64 %14 to i32
   %16 = load ptr, ptr @db_conn, align 8
   %17 = tail call i32 @slurmdb_connection_commit(ptr noundef %16, i1 noundef zeroext false) #15
@@ -2231,7 +2231,7 @@ attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2243,10 +2243,11 @@ attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn mem
 attributes #14 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #15 = { nounwind }
 attributes #16 = { cold }
-attributes #17 = { noreturn nounwind }
-attributes #18 = { cold nounwind }
-attributes #19 = { nounwind willreturn memory(none) }
-attributes #20 = { nounwind willreturn memory(read) }
+attributes #17 = { cold noreturn nounwind }
+attributes #18 = { noreturn nounwind }
+attributes #19 = { cold nounwind }
+attributes #20 = { nounwind willreturn memory(none) }
+attributes #21 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
 

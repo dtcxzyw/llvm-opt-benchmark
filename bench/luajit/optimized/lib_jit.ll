@@ -815,7 +815,7 @@ if.then17:                                        ; preds = %if.then13
   br label %if.end
 
 if.end:                                           ; preds = %if.then17, %if.then13
-  call void @exit(i32 noundef 1) #9
+  call void @exit(i32 noundef 1) #10
   unreachable
 
 if.end22:                                         ; preds = %if.then
@@ -833,7 +833,7 @@ declare hidden ptr @lj_tab_get(ptr noundef, ptr noundef, ptr noundef) local_unna
 
 declare i32 @lua_pcall(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #4
 
 declare void @luaJIT_profile_stop(ptr noundef) local_unnamed_addr #1
@@ -1255,7 +1255,7 @@ if.then:                                          ; preds = %check_Lproto.exit
   %add.ptr = getelementptr inbounds i8, ptr %9, i64 -8
   %call3 = tail call ptr @lj_debug_uvname(ptr noundef nonnull %retval.0.i, i32 noundef %call1) #8
   %call4 = tail call ptr @lj_debug_uvname(ptr noundef nonnull %retval.0.i, i32 noundef %call1) #8
-  %call5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call4) #10
+  %call5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call4) #11
   %call6 = tail call ptr @lj_str_new(ptr noundef nonnull %L, ptr noundef %call3, i64 noundef %call5) #8
   %10 = ptrtoint ptr %call6 to i64
   %or.i = or i64 %10, -703687441776640
@@ -1335,7 +1335,7 @@ if.then:                                          ; preds = %jit_checktrace.exit
   %idxprom = zext i8 %14 to i64
   %arrayidx = getelementptr inbounds [9 x ptr], ptr @jit_trlinkname, i64 0, i64 %idxprom
   %15 = load ptr, ptr %arrayidx, align 8
-  %call8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #10
+  %call8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #11
   %call9 = tail call ptr @lj_str_new(ptr noundef nonnull %L, ptr noundef %15, i64 noundef %call8) #8
   %16 = ptrtoint ptr %call9 to i64
   %or.i = or i64 %16, -703687441776640
@@ -1986,7 +1986,7 @@ if.end28.i:                                       ; preds = %if.end42.i, %if.end
   %opt.020.i = phi i32 [ 65536, %if.end23.i ], [ %shl.i, %if.end42.i ]
   %lst.019.i = phi ptr [ @.str.8, %if.end23.i ], [ %add.ptr43.i, %if.end42.i ]
   %add.ptr29.i = getelementptr inbounds i8, ptr %lst.019.i, i64 1
-  %call.i = tail call i32 @strncmp(ptr noundef %str.addr.0.i, ptr noundef nonnull %add.ptr29.i, i64 noundef %conv2421.i) #10
+  %call.i = tail call i32 @strncmp(ptr noundef %str.addr.0.i, ptr noundef nonnull %add.ptr29.i, i64 noundef %conv2421.i) #11
   %cmp30.i = icmp eq i32 %call.i, 0
   br i1 %cmp30.i, label %land.lhs.true32.i, label %if.end42.i
 
@@ -2027,7 +2027,7 @@ for.body.i:                                       ; preds = %if.end42.i, %if.end
   %17 = load i8, ptr %lst.017.i, align 1
   %conv.i = zext i8 %17 to i64
   %add.ptr.i19 = getelementptr inbounds i8, ptr %lst.017.i, i64 1
-  %call.i20 = tail call i32 @strncmp(ptr noundef nonnull readonly %add.ptr6, ptr noundef nonnull %add.ptr.i19, i64 noundef %conv.i) #10
+  %call.i20 = tail call i32 @strncmp(ptr noundef nonnull readonly %add.ptr6, ptr noundef nonnull %add.ptr.i19, i64 noundef %conv.i) #11
   %cmp1.i = icmp eq i32 %call.i20, 0
   br i1 %cmp1.i, label %land.lhs.true.i22, label %if.end22.i
 
@@ -2117,13 +2117,14 @@ attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-mat
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nounwind }
 attributes #9 = { noreturn nounwind }
-attributes #10 = { nounwind willreturn memory(read) }
+attributes #10 = { cold noreturn nounwind }
+attributes #11 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

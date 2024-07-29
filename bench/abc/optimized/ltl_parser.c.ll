@@ -791,8 +791,8 @@ define noalias noundef ptr @parseFormulaCreateAST(ptr noundef %0) local_unnamed_
   ret ptr %2
 }
 
-; Function Attrs: nounwind uwtable
-define void @traverseAbstractSyntaxTree(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+; Function Attrs: nofree nounwind uwtable
+define void @traverseAbstractSyntaxTree(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %tailrecurse.backedge, %1
@@ -864,11 +864,11 @@ tailrecurse.backedge:                             ; preds = %3, %8, %12, %14, %1
   unreachable
 }
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #7
 
-; Function Attrs: nounwind uwtable
-define void @traverseAbstractSyntaxTree_postFix(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+; Function Attrs: nofree nounwind uwtable
+define void @traverseAbstractSyntaxTree_postFix(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %tailrecurse.backedge, %1
@@ -1840,8 +1840,8 @@ tailrecurse.backedge:                             ; preds = %tailrecurse, %tailr
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @checkAllBoolHaveAIGPointer(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+; Function Attrs: nofree nounwind uwtable
+define range(i32 0, 2) i32 @checkAllBoolHaveAIGPointer(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %tailrecurse.backedge, %1
@@ -1936,7 +1936,7 @@ attributes #3 = { mustprogress nofree nounwind willreturn memory(argmem: read) "
 attributes #4 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nofree nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

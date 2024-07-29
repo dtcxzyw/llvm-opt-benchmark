@@ -393,7 +393,7 @@ sw.default.i.i:                                   ; preds = %invoke.cont30.i.i
           to label %invoke.cont57.i.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.i.i
 
 invoke.cont57.i.i:                                ; preds = %sw.default.i.i
-  call void @exit(i32 noundef 114) #13
+  call void @exit(i32 noundef 114) #15
   unreachable
 
 while.cond18.backedge.i.i:                        ; preds = %_ZNK3app13get_family_idEv.exit.i.i.i, %invoke.cont30.i.i, %invoke.cont26.i.i
@@ -427,7 +427,7 @@ _ZNK3app13get_family_idEv.exit.i140.i.i:          ; preds = %cond.false.i.i.i139
 
 if.then.i143.invoke.i.i:                          ; preds = %_ZNK3app13get_family_idEv.exit.i140.i.i, %_ZNK3app13get_family_idEv.exit.i.i.i
   %exception.i.i.i = call ptr @__cxa_allocate_exception(i64 1) #14
-  invoke void @__cxa_throw(ptr %exception.i.i.i, ptr nonnull @_ZTIN12_GLOBAL__N_15foundE, ptr null) #15
+  invoke void @__cxa_throw(ptr %exception.i.i.i, ptr nonnull @_ZTIN12_GLOBAL__N_15foundE, ptr null) #16
           to label %if.then.i143.cont.i.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.i.i
 
 if.then.i143.cont.i.i:                            ; preds = %if.then.i143.invoke.i.i
@@ -581,7 +581,7 @@ sw.default90.i.i:                                 ; preds = %start.i.i
           to label %invoke.cont91.i.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.i.i
 
 invoke.cont91.i.i:                                ; preds = %sw.default90.i.i
-  call void @exit(i32 noundef 114) #13
+  call void @exit(i32 noundef 114) #15
   unreachable
 
 sw.epilog92.sink.split.i.i:                       ; preds = %start.i.i, %while.end85.i.i
@@ -684,7 +684,7 @@ declare void @_ZN6memory10deallocateEPv(ptr noundef) local_unnamed_addr #0
 
 declare void @_Z26notify_assertion_violationPKciS0_(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -752,7 +752,7 @@ attributes #2 = { nofree nounwind }
 attributes #3 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -761,7 +761,8 @@ attributes #11 = { nocallback nofree nosync nounwind willreturn memory(argmem: r
 attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #13 = { noreturn nounwind }
 attributes #14 = { nounwind }
-attributes #15 = { noreturn }
+attributes #15 = { cold noreturn nounwind }
+attributes #16 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

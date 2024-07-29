@@ -219,29 +219,29 @@ entry:
 
 if.then:                                          ; preds = %entry
   %wstatus = getelementptr inbounds i8, ptr %s, i64 12
-  %call = tail call i32 @waitpid(i32 noundef %0, ptr noundef nonnull %wstatus, i32 noundef 1) #20
+  %call = tail call i32 @waitpid(i32 noundef %0, ptr noundef nonnull %wstatus, i32 noundef 1) #23
   %cmp1 = icmp eq i32 %call, 0
   br i1 %cmp1, label %return, label %if.end
 
 if.end:                                           ; preds = %if.then
   store i32 -1, ptr %qemu_pid, align 8
-  %call.i = tail call ptr @g_hook_find_data(ptr noundef nonnull @abrt_hooks, i32 noundef 1, ptr noundef nonnull %s) #20
+  %call.i = tail call ptr @g_hook_find_data(ptr noundef nonnull @abrt_hooks, i32 noundef 1, ptr noundef nonnull %s) #23
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end
-  tail call void @g_hook_destroy_link(ptr noundef nonnull @abrt_hooks, ptr noundef nonnull %call.i) #20
-  %call.i.i = tail call ptr @g_hook_first_valid(ptr noundef nonnull @abrt_hooks, i32 noundef 1) #20
+  tail call void @g_hook_destroy_link(ptr noundef nonnull @abrt_hooks, ptr noundef nonnull %call.i) #23
+  %call.i.i = tail call ptr @g_hook_first_valid(ptr noundef nonnull @abrt_hooks, i32 noundef 1) #23
   %tobool.not.i.i = icmp eq ptr %call.i.i, null
   br i1 %tobool.not.i.i, label %if.then2.i, label %hook_list_is_empty.exit.i
 
 hook_list_is_empty.exit.i:                        ; preds = %if.end.i
-  tail call void @g_hook_unref(ptr noundef nonnull @abrt_hooks, ptr noundef nonnull %call.i.i) #20
+  tail call void @g_hook_unref(ptr noundef nonnull @abrt_hooks, ptr noundef nonnull %call.i.i) #23
   br label %return
 
 if.then2.i:                                       ; preds = %if.end.i
   %1 = load ptr, ptr @sighandler_old, align 8
-  %call.i2.i = tail call ptr @signal(i32 noundef 6, ptr noundef %1) #20
+  %call.i2.i = tail call ptr @signal(i32 noundef 6, ptr noundef %1) #23
   br label %return
 
 return:                                           ; preds = %if.then2.i, %hook_list_is_empty.exit.i, %if.end, %entry, %if.then
@@ -254,23 +254,23 @@ declare i32 @waitpid(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qtest_remove_abrt_handler(ptr noundef %data) local_unnamed_addr #1 {
 entry:
-  %call = tail call ptr @g_hook_find_data(ptr noundef nonnull @abrt_hooks, i32 noundef 1, ptr noundef %data) #20
+  %call = tail call ptr @g_hook_find_data(ptr noundef nonnull @abrt_hooks, i32 noundef 1, ptr noundef %data) #23
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %if.end3, label %if.end
 
 if.end:                                           ; preds = %entry
-  tail call void @g_hook_destroy_link(ptr noundef nonnull @abrt_hooks, ptr noundef nonnull %call) #20
-  %call.i = tail call ptr @g_hook_first_valid(ptr noundef nonnull @abrt_hooks, i32 noundef 1) #20
+  tail call void @g_hook_destroy_link(ptr noundef nonnull @abrt_hooks, ptr noundef nonnull %call) #23
+  %call.i = tail call ptr @g_hook_first_valid(ptr noundef nonnull @abrt_hooks, i32 noundef 1) #23
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i, label %if.then2, label %hook_list_is_empty.exit
 
 hook_list_is_empty.exit:                          ; preds = %if.end
-  tail call void @g_hook_unref(ptr noundef nonnull @abrt_hooks, ptr noundef nonnull %call.i) #20
+  tail call void @g_hook_unref(ptr noundef nonnull @abrt_hooks, ptr noundef nonnull %call.i) #23
   br label %if.end3
 
 if.then2:                                         ; preds = %if.end
   %0 = load ptr, ptr @sighandler_old, align 8
-  %call.i2 = tail call ptr @signal(i32 noundef 6, ptr noundef %0) #20
+  %call.i2 = tail call ptr @signal(i32 noundef 6, ptr noundef %0) #23
   br label %if.end3
 
 if.end3:                                          ; preds = %hook_list_is_empty.exit, %entry, %if.then2
@@ -294,36 +294,36 @@ entry:
   br i1 %cmp.not, label %if.end26, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call = tail call i64 @g_get_monotonic_time() #20
+  %call = tail call i64 @g_get_monotonic_time() #23
   %add = add i64 %call, 30000000
   %wstatus = getelementptr inbounds i8, ptr %s, i64 12
   br label %do.body
 
 do.body:                                          ; preds = %if.end, %if.then
   %1 = load i32, ptr %qemu_pid, align 8
-  %call2 = tail call i32 @waitpid(i32 noundef %1, ptr noundef nonnull %wstatus, i32 noundef 1) #20
+  %call2 = tail call i32 @waitpid(i32 noundef %1, ptr noundef nonnull %wstatus, i32 noundef 1) #23
   %cond = icmp eq i32 %call2, 0
   br i1 %cond, label %if.end, label %if.end20
 
 if.end:                                           ; preds = %do.body
-  tail call void @g_usleep(i64 noundef 100000) #20
-  %call5 = tail call i64 @g_get_monotonic_time() #20
+  tail call void @g_usleep(i64 noundef 100000) #23
+  %call5 = tail call i64 @g_get_monotonic_time() #23
   %cmp6 = icmp ult i64 %call5, %add
   br i1 %cmp6, label %do.body, label %if.then8, !llvm.loop !5
 
 if.then8:                                         ; preds = %if.end
   %2 = load i32, ptr %qemu_pid, align 8
-  %call10 = tail call i32 @kill(i32 noundef %2, i32 noundef 9) #20
+  %call10 = tail call i32 @kill(i32 noundef %2, i32 noundef 9) #23
   br label %do.body11
 
 do.body11:                                        ; preds = %land.rhs, %if.then8
   %3 = load i32, ptr %qemu_pid, align 8
-  %call14 = tail call i32 @waitpid(i32 noundef %3, ptr noundef nonnull %wstatus, i32 noundef 0) #20
+  %call14 = tail call i32 @waitpid(i32 noundef %3, ptr noundef nonnull %wstatus, i32 noundef 0) #23
   %cmp16 = icmp eq i32 %call14, -1
   br i1 %cmp16, label %land.rhs, label %if.end20
 
 land.rhs:                                         ; preds = %do.body11
-  %call17 = tail call ptr @__errno_location() #21
+  %call17 = tail call ptr @__errno_location() #24
   %4 = load i32, ptr %call17, align 4
   %cmp18 = icmp eq i32 %4, 4
   br i1 %cmp18, label %do.body11, label %if.end20, !llvm.loop !7
@@ -335,28 +335,28 @@ if.end20:                                         ; preds = %do.body, %land.rhs,
   br i1 %cmp22, label %if.end24, label %if.else
 
 if.else:                                          ; preds = %if.end20
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 240, ptr noundef nonnull @__PRETTY_FUNCTION__.qtest_wait_qemu) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 240, ptr noundef nonnull @__PRETTY_FUNCTION__.qtest_wait_qemu) #25
   unreachable
 
 if.end24:                                         ; preds = %if.end20
   store i32 -1, ptr %qemu_pid, align 8
-  %call.i = tail call ptr @g_hook_find_data(ptr noundef nonnull @abrt_hooks, i32 noundef 1, ptr noundef nonnull %s) #20
+  %call.i = tail call ptr @g_hook_find_data(ptr noundef nonnull @abrt_hooks, i32 noundef 1, ptr noundef nonnull %s) #23
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i, label %if.end26, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end24
-  tail call void @g_hook_destroy_link(ptr noundef nonnull @abrt_hooks, ptr noundef nonnull %call.i) #20
-  %call.i.i = tail call ptr @g_hook_first_valid(ptr noundef nonnull @abrt_hooks, i32 noundef 1) #20
+  tail call void @g_hook_destroy_link(ptr noundef nonnull @abrt_hooks, ptr noundef nonnull %call.i) #23
+  %call.i.i = tail call ptr @g_hook_first_valid(ptr noundef nonnull @abrt_hooks, i32 noundef 1) #23
   %tobool.not.i.i = icmp eq ptr %call.i.i, null
   br i1 %tobool.not.i.i, label %if.then2.i, label %hook_list_is_empty.exit.i
 
 hook_list_is_empty.exit.i:                        ; preds = %if.end.i
-  tail call void @g_hook_unref(ptr noundef nonnull @abrt_hooks, ptr noundef nonnull %call.i.i) #20
+  tail call void @g_hook_unref(ptr noundef nonnull @abrt_hooks, ptr noundef nonnull %call.i.i) #23
   br label %if.end26
 
 if.then2.i:                                       ; preds = %if.end.i
   %6 = load ptr, ptr @sighandler_old, align 8
-  %call.i2.i = tail call ptr @signal(i32 noundef 6, ptr noundef %6) #20
+  %call.i2.i = tail call ptr @signal(i32 noundef 6, ptr noundef %6) #23
   br label %if.end26
 
 if.end26:                                         ; preds = %if.then2.i, %hook_list_is_empty.exit.i, %if.end24, %entry
@@ -386,7 +386,7 @@ entry:
   br i1 %cmp, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.99, ptr noundef nonnull @.str.1, i32 noundef 184, ptr noundef nonnull @__PRETTY_FUNCTION__.qtest_check_status) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.99, ptr noundef nonnull @.str.1, i32 noundef 184, ptr noundef nonnull @__PRETTY_FUNCTION__.qtest_check_status) #25
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -406,8 +406,8 @@ land.lhs.true:                                    ; preds = %if.end
 
 if.then5:                                         ; preds = %land.lhs.true
   %3 = load ptr, ptr @stderr, align 8
-  %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.100, ptr noundef nonnull @.str.1, i32 noundef 195, i32 noundef %shr, i32 noundef %2) #23
-  tail call void @abort() #22
+  %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.100, ptr noundef nonnull @.str.1, i32 noundef 195, i32 noundef %shr, i32 noundef %2) #26
+  tail call void @abort() #25
   unreachable
 
 if.else9:                                         ; preds = %if.end
@@ -417,15 +417,15 @@ if.else9:                                         ; preds = %if.end
   br i1 %cmp13, label %if.then15, label %if.end23
 
 if.then15:                                        ; preds = %if.else9
-  %call17 = tail call ptr @strsignal(i32 noundef %and) #20
+  %call17 = tail call ptr @strsignal(i32 noundef %and) #23
   %tobool.not = icmp eq ptr %call17, null
   %call17..str.101 = select i1 %tobool.not, ptr @.str.101, ptr %call17
   %and18 = and i32 %1, 128
   %tobool19.not = icmp eq i32 %and18, 0
   %cond20 = select i1 %tobool19.not, ptr @.str.103, ptr @.str.102
   %4 = load ptr, ptr @stderr, align 8
-  %call21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.104, ptr noundef nonnull @.str.1, i32 noundef 204, i32 noundef %and, ptr noundef nonnull %call17..str.101, ptr noundef nonnull %cond20) #23
-  tail call void @abort() #22
+  %call21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.104, ptr noundef nonnull @.str.1, i32 noundef 204, i32 noundef %and, ptr noundef nonnull %call17..str.101, ptr noundef nonnull %cond20) #26
+  tail call void @abort() #25
   unreachable
 
 if.end23:                                         ; preds = %land.lhs.true, %if.else9
@@ -441,7 +441,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call = tail call i32 @kill(i32 noundef %0, i32 noundef 15) #20
+  %call = tail call i32 @kill(i32 noundef %0, i32 noundef 15) #23
   tail call void @qtest_wait_qemu(ptr noundef nonnull %s)
   br label %return
 
@@ -462,29 +462,29 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call void @g_hook_list_init(ptr noundef nonnull @abrt_hooks, i32 noundef 64) #20
+  tail call void @g_hook_list_init(ptr noundef nonnull @abrt_hooks, i32 noundef 64) #23
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %call.i = tail call ptr @g_hook_first_valid(ptr noundef nonnull @abrt_hooks, i32 noundef 1) #20
+  %call.i = tail call ptr @g_hook_first_valid(ptr noundef nonnull @abrt_hooks, i32 noundef 1) #23
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i, label %if.then1, label %hook_list_is_empty.exit
 
 hook_list_is_empty.exit:                          ; preds = %if.end
-  tail call void @g_hook_unref(ptr noundef nonnull @abrt_hooks, ptr noundef nonnull %call.i) #20
+  tail call void @g_hook_unref(ptr noundef nonnull @abrt_hooks, ptr noundef nonnull %call.i) #23
   br label %if.end2
 
 if.then1:                                         ; preds = %if.end
-  %call.i3 = tail call ptr @signal(i32 noundef 6, ptr noundef nonnull @sigabrt_handler) #20
+  %call.i3 = tail call ptr @signal(i32 noundef 6, ptr noundef nonnull @sigabrt_handler) #23
   store ptr %call.i3, ptr @sighandler_old, align 8
   br label %if.end2
 
 if.end2:                                          ; preds = %hook_list_is_empty.exit, %if.then1
-  %call3 = tail call ptr @g_hook_alloc(ptr noundef nonnull @abrt_hooks) #20
+  %call3 = tail call ptr @g_hook_alloc(ptr noundef nonnull @abrt_hooks) #23
   %func = getelementptr inbounds i8, ptr %call3, i64 48
   store ptr %fn, ptr %func, align 8
   store ptr %data, ptr %call3, align 8
-  tail call void @g_hook_prepend(ptr noundef nonnull @abrt_hooks, ptr noundef nonnull %call3) #20
+  tail call void @g_hook_prepend(ptr noundef nonnull @abrt_hooks, ptr noundef nonnull %call3) #23
   ret void
 }
 
@@ -501,14 +501,14 @@ declare void @g_hook_destroy_link(ptr noundef, ptr noundef) local_unnamed_addr #
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef ptr @qtest_init_without_qmp_handshake(ptr noundef %extra_args) local_unnamed_addr #1 {
 entry:
-  %call4.i = tail call ptr @getenv(ptr noundef nonnull @.str.93) #20
+  %call4.i = tail call ptr @getenv(ptr noundef nonnull @.str.93) #23
   %tobool5.not.i = icmp eq ptr %call4.i, null
   br i1 %tobool5.not.i, label %if.then6.i, label %qtest_qemu_binary.exit
 
 if.then6.i:                                       ; preds = %entry
   %0 = load ptr, ptr @stderr, align 8
-  %1 = tail call i64 @fwrite(ptr nonnull @.str.122, i64 48, i64 1, ptr %0) #23
-  tail call void @exit(i32 noundef 1) #22
+  %1 = tail call i64 @fwrite(ptr nonnull @.str.122, i64 48, i64 1, ptr %0) #26
+  tail call void @exit(i32 noundef 1) #27
   unreachable
 
 qtest_qemu_binary.exit:                           ; preds = %entry
@@ -519,20 +519,20 @@ qtest_qemu_binary.exit:                           ; preds = %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc noundef ptr @qtest_init_internal(ptr noundef %qemu_bin, ptr noundef %extra_args) unnamed_addr #1 {
 entry:
-  %call = tail call ptr @g_get_tmp_dir() #20
-  %call1 = tail call i32 @getpid() #20
-  %call2 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.105, ptr noundef %call, i32 noundef %call1) #20
-  %call3 = tail call ptr @g_get_tmp_dir() #20
-  %call4 = tail call i32 @getpid() #20
-  %call5 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.106, ptr noundef %call3, i32 noundef %call4) #20
-  %call6 = tail call i32 @unlink(ptr noundef %call2) #20
-  %call7 = tail call i32 @unlink(ptr noundef %call5) #20
-  %call8 = tail call i32 @socket_init() #20
+  %call = tail call ptr @g_get_tmp_dir() #23
+  %call1 = tail call i32 @getpid() #23
+  %call2 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.105, ptr noundef %call, i32 noundef %call1) #23
+  %call3 = tail call ptr @g_get_tmp_dir() #23
+  %call4 = tail call i32 @getpid() #23
+  %call5 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.106, ptr noundef %call3, i32 noundef %call4) #23
+  %call6 = tail call i32 @unlink(ptr noundef %call2) #23
+  %call7 = tail call i32 @unlink(ptr noundef %call5) #23
+  %call8 = tail call i32 @socket_init() #23
   %call.i = tail call i32 @qtest_socket_server(ptr noundef %call2)
-  tail call void @qemu_set_cloexec(i32 noundef %call.i) #20
+  tail call void @qemu_set_cloexec(i32 noundef %call.i) #23
   %call.i23 = tail call i32 @qtest_socket_server(ptr noundef %call5)
-  tail call void @qemu_set_cloexec(i32 noundef %call.i23) #20
-  %call11 = tail call ptr @getenv(ptr noundef nonnull @.str.108) #20
+  tail call void @qemu_set_cloexec(i32 noundef %call.i23) #23
+  %call11 = tail call ptr @getenv(ptr noundef nonnull @.str.108) #23
   %tobool.not = icmp eq ptr %call11, null
   %cond = select i1 %tobool.not, ptr @.str.110, ptr @.str.109
   %tobool12.not = icmp eq ptr %extra_args, null
@@ -554,10 +554,10 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %call18 = tail call i32 @unlink(ptr noundef %call2) #20
-  %call19 = tail call i32 @unlink(ptr noundef %call5) #20
-  tail call void @g_free(ptr noundef %call2) #20
-  tail call void @g_free(ptr noundef %call5) #20
+  %call18 = tail call i32 @unlink(ptr noundef %call2) #23
+  %call19 = tail call i32 @unlink(ptr noundef %call5) #23
+  tail call void @g_free(ptr noundef %call2) #23
+  tail call void @g_free(ptr noundef %call5) #23
   %0 = load i32, ptr %call14, align 8
   %cmp21 = icmp sgt i32 %0, -1
   br i1 %cmp21, label %land.lhs.true, label %if.else
@@ -569,23 +569,23 @@ land.lhs.true:                                    ; preds = %if.end
   br i1 %cmp23, label %do.end, label %if.else
 
 if.else:                                          ; preds = %land.lhs.true, %if.end
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 496, ptr noundef nonnull @__func__.qtest_init_internal, ptr noundef nonnull @.str.111) #22
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 496, ptr noundef nonnull @__func__.qtest_init_internal, ptr noundef nonnull @.str.111) #25
   unreachable
 
 do.end:                                           ; preds = %land.lhs.true
-  %call26 = tail call ptr @g_string_new(ptr noundef nonnull @.str.103) #20
+  %call26 = tail call ptr @g_string_new(ptr noundef nonnull @.str.103) #23
   %rx = getelementptr inbounds i8, ptr %call14, i64 280
   store ptr %call26, ptr %rx, align 8
   %irq_level = getelementptr inbounds i8, ptr %call14, i64 21
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %irq_level, i8 0, i64 256, i1 false)
-  %call28 = tail call ptr @getenv(ptr noundef nonnull @.str.112) #20
+  %call28 = tail call ptr @getenv(ptr noundef nonnull @.str.112) #23
   %tobool29.not = icmp eq ptr %call28, null
   br i1 %tobool29.not, label %if.end32, label %if.then30
 
 if.then30:                                        ; preds = %do.end
   %qemu_pid = getelementptr inbounds i8, ptr %call14, i64 8
   %2 = load i32, ptr %qemu_pid, align 8
-  %call31 = tail call i32 @kill(i32 noundef %2, i32 noundef 19) #20
+  %call31 = tail call i32 @kill(i32 noundef %2, i32 noundef 19) #23
   br label %if.end32
 
 if.end32:                                         ; preds = %if.then30, %do.end
@@ -593,21 +593,21 @@ if.end32:                                         ; preds = %if.then30, %do.end
   %call.i24 = tail call fastcc ptr @qtest_rsp_args(ptr noundef nonnull %call14, i32 noundef 1)
   %arrayidx.i = getelementptr i8, ptr %call.i24, i64 8
   %3 = load ptr, ptr %arrayidx.i, align 8
-  %call1.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(4) @.str.154) #24
+  %call1.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(4) @.str.154) #28
   %cmp.i = icmp eq i32 %call1.i, 0
   br i1 %cmp.i, label %qtest_query_target_endianness.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end32
-  %call3.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(7) @.str.155) #24
+  %call3.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(7) @.str.155) #28
   %cmp4.i = icmp eq i32 %call3.i, 0
   br i1 %cmp4.i, label %qtest_query_target_endianness.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %lor.lhs.false.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 725, ptr noundef nonnull @__func__.qtest_query_target_endianness, ptr noundef nonnull @.str.156) #22
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 725, ptr noundef nonnull @__func__.qtest_query_target_endianness, ptr noundef nonnull @.str.156) #25
   unreachable
 
 qtest_query_target_endianness.exit:               ; preds = %if.end32, %lor.lhs.false.i
-  tail call void @g_strfreev(ptr noundef nonnull %call.i24) #20
+  tail call void @g_strfreev(ptr noundef nonnull %call.i24) #23
   %big_endian = getelementptr inbounds i8, ptr %call14, i64 20
   %frombool = zext i1 %cmp.i to i8
   store i8 %frombool, ptr %big_endian, align 4
@@ -621,19 +621,19 @@ entry:
   br i1 %tobool.not.i, label %if.end3.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %call.i = tail call ptr @getenv(ptr noundef nonnull readonly %var) #20
+  %call.i = tail call ptr @getenv(ptr noundef nonnull readonly %var) #23
   %tobool1.not.i = icmp eq ptr %call.i, null
   br i1 %tobool1.not.i, label %if.end3.i, label %qtest_qemu_binary.exit
 
 if.end3.i:                                        ; preds = %if.then.i, %entry
-  %call4.i = tail call ptr @getenv(ptr noundef nonnull @.str.93) #20
+  %call4.i = tail call ptr @getenv(ptr noundef nonnull @.str.93) #23
   %tobool5.not.i = icmp eq ptr %call4.i, null
   br i1 %tobool5.not.i, label %if.then6.i, label %qtest_qemu_binary.exit
 
 if.then6.i:                                       ; preds = %if.end3.i
   %0 = load ptr, ptr @stderr, align 8
-  %1 = tail call i64 @fwrite(ptr nonnull @.str.122, i64 48, i64 1, ptr %0) #23
-  tail call void @exit(i32 noundef 1) #22
+  %1 = tail call i64 @fwrite(ptr nonnull @.str.122, i64 48, i64 1, ptr %0) #26
+  tail call void @exit(i32 noundef 1) #27
   unreachable
 
 qtest_qemu_binary.exit:                           ; preds = %if.then.i, %if.end3.i
@@ -650,7 +650,7 @@ lor.lhs.false.i:                                  ; preds = %qtest_qemu_binary.e
   br i1 %tobool1.not.i6, label %if.else.i, label %land.lhs.true.i
 
 if.else.i:                                        ; preds = %lor.lhs.false.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.123, ptr noundef nonnull @.str.124, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.123, ptr noundef nonnull @.str.124, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #25
   unreachable
 
 land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
@@ -660,7 +660,7 @@ land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
   br i1 %cmp.i, label %if.then5.i, label %qobject_unref_impl.exit
 
 if.then5.i:                                       ; preds = %land.lhs.true.i
-  tail call void @qobject_destroy(ptr noundef nonnull %call2) #20
+  tail call void @qobject_destroy(ptr noundef nonnull %call2) #23
   br label %qobject_unref_impl.exit
 
 qobject_unref_impl.exit:                          ; preds = %qtest_qemu_binary.exit, %land.lhs.true.i, %if.then5.i
@@ -675,7 +675,7 @@ lor.lhs.false.i8:                                 ; preds = %qobject_unref_impl.
   br i1 %tobool1.not.i10, label %if.else.i15, label %land.lhs.true.i11
 
 if.else.i15:                                      ; preds = %lor.lhs.false.i8
-  tail call void @__assert_fail(ptr noundef nonnull @.str.123, ptr noundef nonnull @.str.124, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.123, ptr noundef nonnull @.str.124, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #25
   unreachable
 
 land.lhs.true.i11:                                ; preds = %lor.lhs.false.i8
@@ -685,7 +685,7 @@ land.lhs.true.i11:                                ; preds = %lor.lhs.false.i8
   br i1 %cmp.i13, label %if.then5.i14, label %qobject_unref_impl.exit16
 
 if.then5.i14:                                     ; preds = %land.lhs.true.i11
-  tail call void @qobject_destroy(ptr noundef nonnull %call4) #20
+  tail call void @qobject_destroy(ptr noundef nonnull %call4) #23
   br label %qobject_unref_impl.exit16
 
 qobject_unref_impl.exit16:                        ; preds = %qobject_unref_impl.exit, %land.lhs.true.i11, %if.then5.i14
@@ -697,8 +697,8 @@ define dso_local noundef ptr @qtest_qmp_receive(ptr noundef %s) local_unnamed_ad
 entry:
   %qmp_fd.i = getelementptr inbounds i8, ptr %s, i64 4
   %0 = load i32, ptr %qmp_fd.i, align 4
-  %call.i11 = tail call ptr @qmp_fd_receive(i32 noundef %0) #20
-  %call112 = tail call ptr @qdict_get_try_str(ptr noundef %call.i11, ptr noundef nonnull @.str.8) #20
+  %call.i11 = tail call ptr @qmp_fd_receive(i32 noundef %0) #23
+  %call112 = tail call ptr @qdict_get_try_str(ptr noundef %call.i11, ptr noundef nonnull @.str.8) #23
   %tobool.not13 = icmp eq ptr %call112, null
   br i1 %tobool.not13, label %if.then, label %if.end.lr.ph
 
@@ -719,21 +719,21 @@ if.end:                                           ; preds = %if.end.lr.ph, %if.e
   br i1 %tobool2.not, label %if.then6, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %call4 = tail call ptr @qdict_get_str(ptr noundef %call.i14, ptr noundef nonnull @.str.8) #20
+  %call4 = tail call ptr @qdict_get_str(ptr noundef %call.i14, ptr noundef nonnull @.str.8) #23
   %2 = load ptr, ptr %eventData, align 8
-  %call5 = tail call zeroext i1 %1(ptr noundef nonnull %s, ptr noundef %call4, ptr noundef %call.i14, ptr noundef %2) #20
+  %call5 = tail call zeroext i1 %1(ptr noundef nonnull %s, ptr noundef %call4, ptr noundef %call.i14, ptr noundef %2) #23
   br i1 %call5, label %if.end9, label %if.then6
 
 if.then6:                                         ; preds = %lor.lhs.false, %if.end
   %3 = load ptr, ptr %pending_events, align 8
-  %call7 = tail call ptr @g_list_append(ptr noundef %3, ptr noundef %call.i14) #20
+  %call7 = tail call ptr @g_list_append(ptr noundef %3, ptr noundef %call.i14) #23
   store ptr %call7, ptr %pending_events, align 8
   br label %if.end9
 
 if.end9:                                          ; preds = %if.then6, %lor.lhs.false
   %4 = load i32, ptr %qmp_fd.i, align 4
-  %call.i = tail call ptr @qmp_fd_receive(i32 noundef %4) #20
-  %call1 = tail call ptr @qdict_get_try_str(ptr noundef %call.i, ptr noundef nonnull @.str.8) #20
+  %call.i = tail call ptr @qmp_fd_receive(i32 noundef %4) #23
+  %call1 = tail call ptr @qdict_get_try_str(ptr noundef %call.i, ptr noundef nonnull @.str.8) #23
   %tobool.not = icmp eq ptr %call1, null
   br i1 %tobool.not, label %if.then, label %if.end
 }
@@ -745,7 +745,7 @@ entry:
   call void @llvm.va_start.p0(ptr nonnull %ap)
   %qmp_fd.i.i = getelementptr inbounds i8, ptr %s, i64 4
   %0 = load i32, ptr %qmp_fd.i.i, align 4
-  call void @qmp_fd_vsend(i32 noundef %0, ptr noundef %fmt, ptr noundef nonnull %ap) #20
+  call void @qmp_fd_vsend(i32 noundef %0, ptr noundef %fmt, ptr noundef nonnull %ap) #23
   %call.i = call noundef ptr @qtest_qmp_receive(ptr noundef %s)
   call void @llvm.va_end.p0(ptr nonnull %ap)
   ret ptr %call.i
@@ -761,9 +761,9 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef ptr @qtest_vinitf(ptr noundef %fmt, ptr noundef %ap) local_unnamed_addr #1 {
 entry:
-  %call = tail call noalias ptr @g_strdup_vprintf(ptr noundef %fmt, ptr noundef %ap) #20
+  %call = tail call noalias ptr @g_strdup_vprintf(ptr noundef %fmt, ptr noundef %ap) #23
   %call.i = tail call noundef ptr @qtest_init_with_env(ptr noundef null, ptr noundef %call)
-  tail call void @g_free(ptr noundef %call) #20
+  tail call void @g_free(ptr noundef %call) #23
   ret ptr %call.i
 }
 
@@ -776,9 +776,9 @@ define dso_local noundef ptr @qtest_initf(ptr noundef %fmt, ...) local_unnamed_a
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %ap)
-  %call.i = call noalias ptr @g_strdup_vprintf(ptr noundef %fmt, ptr noundef nonnull %ap) #20
+  %call.i = call noalias ptr @g_strdup_vprintf(ptr noundef %fmt, ptr noundef nonnull %ap) #23
   %call.i.i = call noundef ptr @qtest_init_with_env(ptr noundef null, ptr noundef %call.i)
-  call void @g_free(ptr noundef %call.i) #20
+  call void @g_free(ptr noundef %call.i) #23
   call void @llvm.va_end.p0(ptr nonnull %ap)
   ret ptr %call.i.i
 }
@@ -786,35 +786,35 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef ptr @qtest_init_with_serial(ptr noundef %extra_args, ptr nocapture noundef %sock_fd) local_unnamed_addr #1 {
 entry:
-  %call = tail call ptr @g_dir_make_tmp(ptr noundef nonnull @.str.3, ptr noundef null) #20
+  %call = tail call ptr @g_dir_make_tmp(ptr noundef nonnull @.str.3, ptr noundef null) #23
   %cmp.not = icmp eq ptr %call, null
   br i1 %cmp.not, label %if.else, label %do.end
 
 if.else:                                          ; preds = %entry
-  tail call void @g_assertion_message(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 576, ptr noundef nonnull @__func__.qtest_init_with_serial, ptr noundef nonnull @.str.4) #20
+  tail call void @g_assertion_message(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 576, ptr noundef nonnull @__func__.qtest_init_with_serial, ptr noundef nonnull @.str.4) #23
   br label %do.end
 
 do.end:                                           ; preds = %entry, %if.else
-  %call1 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.5, ptr noundef %call) #20
-  %call2 = tail call i32 @socket_init() #20
+  %call1 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.5, ptr noundef %call) #23
+  %call2 = tail call i32 @socket_init() #23
   %call.i = tail call i32 @qtest_socket_server(ptr noundef %call1)
-  tail call void @qemu_set_cloexec(i32 noundef %call.i) #20
+  tail call void @qemu_set_cloexec(i32 noundef %call.i) #23
   %call4 = tail call ptr (ptr, ...) @qtest_initf(ptr noundef nonnull @.str.6, ptr noundef %call1, ptr noundef %extra_args)
   %call5 = tail call fastcc i32 @socket_accept(i32 noundef %call.i)
   store i32 %call5, ptr %sock_fd, align 4
-  %call6 = tail call i32 @unlink(ptr noundef %call1) #20
-  tail call void @g_free(ptr noundef %call1) #20
-  %call7 = tail call i32 @rmdir(ptr noundef %call) #20
+  %call6 = tail call i32 @unlink(ptr noundef %call1) #23
+  tail call void @g_free(ptr noundef %call1) #23
+  %call7 = tail call i32 @rmdir(ptr noundef %call) #23
   %0 = load i32, ptr %sock_fd, align 4
   %cmp9 = icmp sgt i32 %0, -1
   br i1 %cmp9, label %do.end14, label %if.else11
 
 if.else11:                                        ; preds = %do.end
-  tail call void @g_assertion_message(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 591, ptr noundef nonnull @__func__.qtest_init_with_serial, ptr noundef nonnull @.str.7) #20
+  tail call void @g_assertion_message(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 591, ptr noundef nonnull @__func__.qtest_init_with_serial, ptr noundef nonnull @.str.7) #23
   br label %do.end14
 
 do.end14:                                         ; preds = %do.end, %if.else11
-  tail call void @g_free(ptr noundef %call) #20
+  tail call void @g_free(ptr noundef %call) #23
   ret ptr %call4
 }
 
@@ -833,39 +833,39 @@ entry:
   %addrlen = alloca i32, align 4
   %timeout = alloca %struct.timeval, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %timeout, ptr noundef nonnull align 8 dereferenceable(16) @__const.socket_accept.timeout, i64 16, i1 false)
-  %call = call i32 @setsockopt(i32 noundef %sock, i32 noundef 1, i32 noundef 20, ptr noundef nonnull %timeout, i32 noundef 16) #20
+  %call = call i32 @setsockopt(i32 noundef %sock, i32 noundef 1, i32 noundef 20, ptr noundef nonnull %timeout, i32 noundef 16) #23
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %do.body, label %if.then
 
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr @stderr, align 8
-  %call1 = tail call ptr @__errno_location() #21
+  %call1 = tail call ptr @__errno_location() #24
   %1 = load i32, ptr %call1, align 4
-  %call2 = call ptr @strerror(i32 noundef %1) #20
-  %call3 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.125, ptr noundef nonnull @__func__.socket_accept, ptr noundef %call2) #23
+  %call2 = call ptr @strerror(i32 noundef %1) #23
+  %call3 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.125, ptr noundef nonnull @__func__.socket_accept, ptr noundef %call2) #26
   br label %return
 
 do.body:                                          ; preds = %entry, %land.rhs
   store i32 110, ptr %addrlen, align 4
-  %call5 = call i32 @accept(i32 noundef %sock, ptr nonnull %addr, ptr noundef nonnull %addrlen) #20
+  %call5 = call i32 @accept(i32 noundef %sock, ptr nonnull %addr, ptr noundef nonnull %addrlen) #23
   %cmp = icmp eq i32 %call5, -1
   br i1 %cmp, label %land.rhs, label %return
 
 land.rhs:                                         ; preds = %do.body
-  %call6 = tail call ptr @__errno_location() #21
+  %call6 = tail call ptr @__errno_location() #24
   %2 = load i32, ptr %call6, align 4
   %cmp7 = icmp eq i32 %2, 4
   br i1 %cmp7, label %do.body, label %if.then9, !llvm.loop !8
 
 if.then9:                                         ; preds = %land.rhs
   %3 = load ptr, ptr @stderr, align 8
-  %call11 = call ptr @strerror(i32 noundef %2) #20
-  %call12 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.126, ptr noundef nonnull @__func__.socket_accept, ptr noundef %call11) #23
+  %call11 = call ptr @strerror(i32 noundef %2) #23
+  %call12 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.126, ptr noundef nonnull @__func__.socket_accept, ptr noundef %call11) #26
   br label %return
 
 return:                                           ; preds = %do.body, %if.then9, %if.then
   %retval.0 = phi i32 [ -1, %if.then ], [ %call5, %if.then9 ], [ %call5, %do.body ]
-  %call14 = call i32 @close(i32 noundef %sock) #20
+  %call14 = call i32 @close(i32 noundef %sock) #23
   ret i32 %retval.0
 }
 
@@ -878,23 +878,23 @@ declare noundef i32 @rmdir(ptr nocapture noundef readonly) local_unnamed_addr #7
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qtest_quit(ptr noundef %s) local_unnamed_addr #1 {
 entry:
-  %call.i = tail call ptr @g_hook_find_data(ptr noundef nonnull @abrt_hooks, i32 noundef 1, ptr noundef %s) #20
+  %call.i = tail call ptr @g_hook_find_data(ptr noundef nonnull @abrt_hooks, i32 noundef 1, ptr noundef %s) #23
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i, label %qtest_remove_abrt_handler.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  tail call void @g_hook_destroy_link(ptr noundef nonnull @abrt_hooks, ptr noundef nonnull %call.i) #20
-  %call.i.i = tail call ptr @g_hook_first_valid(ptr noundef nonnull @abrt_hooks, i32 noundef 1) #20
+  tail call void @g_hook_destroy_link(ptr noundef nonnull @abrt_hooks, ptr noundef nonnull %call.i) #23
+  %call.i.i = tail call ptr @g_hook_first_valid(ptr noundef nonnull @abrt_hooks, i32 noundef 1) #23
   %tobool.not.i.i = icmp eq ptr %call.i.i, null
   br i1 %tobool.not.i.i, label %if.then2.i, label %hook_list_is_empty.exit.i
 
 hook_list_is_empty.exit.i:                        ; preds = %if.end.i
-  tail call void @g_hook_unref(ptr noundef nonnull @abrt_hooks, ptr noundef nonnull %call.i.i) #20
+  tail call void @g_hook_unref(ptr noundef nonnull @abrt_hooks, ptr noundef nonnull %call.i.i) #23
   br label %qtest_remove_abrt_handler.exit
 
 if.then2.i:                                       ; preds = %if.end.i
   %0 = load ptr, ptr @sighandler_old, align 8
-  %call.i2.i = tail call ptr @signal(i32 noundef 6, ptr noundef %0) #20
+  %call.i2.i = tail call ptr @signal(i32 noundef 6, ptr noundef %0) #23
   br label %qtest_remove_abrt_handler.exit
 
 qtest_remove_abrt_handler.exit:                   ; preds = %entry, %hook_list_is_empty.exit.i, %if.then2.i
@@ -904,7 +904,7 @@ qtest_remove_abrt_handler.exit:                   ; preds = %entry, %hook_list_i
   br i1 %cmp.not.i, label %if.end.i12, label %if.then.i
 
 if.then.i:                                        ; preds = %qtest_remove_abrt_handler.exit
-  %call.i11 = tail call i32 @kill(i32 noundef %1, i32 noundef 15) #20
+  %call.i11 = tail call i32 @kill(i32 noundef %1, i32 noundef 15) #23
   tail call void @qtest_wait_qemu(ptr noundef nonnull %s)
   br label %qtest_kill_qemu.exit
 
@@ -914,13 +914,13 @@ if.end.i12:                                       ; preds = %qtest_remove_abrt_h
 
 qtest_kill_qemu.exit:                             ; preds = %if.then.i, %if.end.i12
   %2 = load i32, ptr %s, align 8
-  %call = tail call i32 @close(i32 noundef %2) #20
+  %call = tail call i32 @close(i32 noundef %2) #23
   %qmp_fd = getelementptr inbounds i8, ptr %s, i64 4
   %3 = load i32, ptr %qmp_fd, align 4
-  %call1 = tail call i32 @close(i32 noundef %3) #20
+  %call1 = tail call i32 @close(i32 noundef %3) #23
   %rx = getelementptr inbounds i8, ptr %s, i64 280
   %4 = load ptr, ptr %rx, align 8
-  %call2 = tail call ptr @g_string_free(ptr noundef %4, i32 noundef 1) #20
+  %call2 = tail call ptr @g_string_free(ptr noundef %4, i32 noundef 1) #23
   %pending_events = getelementptr inbounds i8, ptr %s, i64 312
   %it.014 = load ptr, ptr %pending_events, align 8
   %cmp.not15 = icmp eq ptr %it.014, null
@@ -939,7 +939,7 @@ lor.lhs.false.i:                                  ; preds = %for.body
   br i1 %tobool1.not.i, label %if.else.i, label %land.lhs.true.i
 
 if.else.i:                                        ; preds = %lor.lhs.false.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.123, ptr noundef nonnull @.str.124, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.123, ptr noundef nonnull @.str.124, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #25
   unreachable
 
 land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
@@ -949,7 +949,7 @@ land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
   br i1 %cmp.i, label %if.then5.i, label %qobject_unref_impl.exit
 
 if.then5.i:                                       ; preds = %land.lhs.true.i
-  tail call void @qobject_destroy(ptr noundef nonnull %5) #20
+  tail call void @qobject_destroy(ptr noundef nonnull %5) #23
   br label %qobject_unref_impl.exit
 
 qobject_unref_impl.exit:                          ; preds = %for.body, %land.lhs.true.i, %if.then5.i
@@ -964,8 +964,8 @@ for.end.loopexit:                                 ; preds = %qobject_unref_impl.
 
 for.end:                                          ; preds = %for.end.loopexit, %qtest_kill_qemu.exit
   %7 = phi ptr [ %.pre, %for.end.loopexit ], [ null, %qtest_kill_qemu.exit ]
-  tail call void @g_list_free(ptr noundef %7) #20
-  tail call void @g_free(ptr noundef nonnull %s) #20
+  tail call void @g_list_free(ptr noundef %7) #23
+  tail call void @g_free(ptr noundef nonnull %s) #23
   ret void
 }
 
@@ -980,7 +980,7 @@ define dso_local ptr @qtest_qmp_receive_dict(ptr nocapture noundef readonly %s) 
 entry:
   %qmp_fd = getelementptr inbounds i8, ptr %s, i64 4
   %0 = load i32, ptr %qmp_fd, align 4
-  %call = tail call ptr @qmp_fd_receive(i32 noundef %0) #20
+  %call = tail call ptr @qmp_fd_receive(i32 noundef %0) #23
   ret ptr %call
 }
 
@@ -996,42 +996,42 @@ declare ptr @qmp_fd_receive(i32 noundef) local_unnamed_addr #2
 define dso_local i32 @qtest_socket_server(ptr noundef %socket_path) local_unnamed_addr #1 {
 entry:
   %addr = alloca %struct.sockaddr_un, align 2
-  %call = tail call i32 @socket(i32 noundef 1, i32 noundef 1, i32 noundef 0) #20
+  %call = tail call i32 @socket(i32 noundef 1, i32 noundef 1, i32 noundef 0) #23
   %cmp.not = icmp eq i32 %call, -1
   br i1 %cmp.not, label %if.else, label %do.end
 
 if.else:                                          ; preds = %entry
-  tail call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 762, ptr noundef nonnull @__func__.qtest_socket_server, ptr noundef nonnull @.str.9, x86_fp80 noundef 0xKBFFF8000000000000000, ptr noundef nonnull @.str.10, x86_fp80 noundef 0xKBFFF8000000000000000, i8 noundef signext 105) #20
+  tail call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 762, ptr noundef nonnull @__func__.qtest_socket_server, ptr noundef nonnull @.str.9, x86_fp80 noundef 0xKBFFF8000000000000000, ptr noundef nonnull @.str.10, x86_fp80 noundef 0xKBFFF8000000000000000, i8 noundef signext 105) #23
   br label %do.end
 
 do.end:                                           ; preds = %if.else, %entry
   store i16 1, ptr %addr, align 2
   %sun_path = getelementptr inbounds i8, ptr %addr, i64 2
-  %call4 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %sun_path, i64 noundef 108, ptr noundef nonnull @.str.11, ptr noundef %socket_path) #20
+  %call4 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %sun_path, i64 noundef 108, ptr noundef nonnull @.str.11, ptr noundef %socket_path) #23
   br label %do.body5
 
 do.body5:                                         ; preds = %land.rhs, %do.end
-  %call6 = call i32 @bind(i32 noundef %call, ptr nonnull %addr, i32 noundef 110) #20
+  %call6 = call i32 @bind(i32 noundef %call, ptr nonnull %addr, i32 noundef 110) #23
   %cond = icmp eq i32 %call6, -1
   br i1 %cond, label %land.rhs, label %do.end25
 
 land.rhs:                                         ; preds = %do.body5
-  %call9 = tail call ptr @__errno_location() #21
+  %call9 = tail call ptr @__errno_location() #24
   %0 = load i32, ptr %call9, align 4
   %cmp10 = icmp eq i32 %0, 4
   br i1 %cmp10, label %do.body5, label %if.else20, !llvm.loop !10
 
 if.else20:                                        ; preds = %land.rhs
-  call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 768, ptr noundef nonnull @__func__.qtest_socket_server, ptr noundef nonnull @.str.12, x86_fp80 noundef 0xKBFFF8000000000000000, ptr noundef nonnull @.str.10, x86_fp80 noundef 0xKBFFF8000000000000000, i8 noundef signext 105) #20
+  call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 768, ptr noundef nonnull @__func__.qtest_socket_server, ptr noundef nonnull @.str.12, x86_fp80 noundef 0xKBFFF8000000000000000, ptr noundef nonnull @.str.10, x86_fp80 noundef 0xKBFFF8000000000000000, i8 noundef signext 105) #23
   br label %do.end25
 
 do.end25:                                         ; preds = %do.body5, %if.else20
-  %call26 = call i32 @listen(i32 noundef %call, i32 noundef 1) #20
+  %call26 = call i32 @listen(i32 noundef %call, i32 noundef 1) #23
   %cmp31.not = icmp eq i32 %call26, -1
   br i1 %cmp31.not, label %if.else34, label %do.end39
 
 if.else34:                                        ; preds = %do.end25
-  call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 770, ptr noundef nonnull @__func__.qtest_socket_server, ptr noundef nonnull @.str.12, x86_fp80 noundef 0xKBFFF8000000000000000, ptr noundef nonnull @.str.10, x86_fp80 noundef 0xKBFFF8000000000000000, i8 noundef signext 105) #20
+  call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 770, ptr noundef nonnull @__func__.qtest_socket_server, ptr noundef nonnull @.str.12, x86_fp80 noundef 0xKBFFF8000000000000000, ptr noundef nonnull @.str.10, x86_fp80 noundef 0xKBFFF8000000000000000, i8 noundef signext 105) #23
   br label %do.end39
 
 do.end39:                                         ; preds = %if.else34, %do.end25
@@ -1057,7 +1057,7 @@ define dso_local void @qtest_qmp_vsend_fds(ptr nocapture noundef readonly %s, pt
 entry:
   %qmp_fd = getelementptr inbounds i8, ptr %s, i64 4
   %0 = load i32, ptr %qmp_fd, align 4
-  tail call void @qmp_fd_vsend_fds(i32 noundef %0, ptr noundef %fds, i64 noundef %fds_num, ptr noundef %fmt, ptr noundef %ap) #20
+  tail call void @qmp_fd_vsend_fds(i32 noundef %0, ptr noundef %fds, i64 noundef %fds_num, ptr noundef %fmt, ptr noundef %ap) #23
   ret void
 }
 
@@ -1068,7 +1068,7 @@ define dso_local void @qtest_qmp_vsend(ptr nocapture noundef readonly %s, ptr no
 entry:
   %qmp_fd = getelementptr inbounds i8, ptr %s, i64 4
   %0 = load i32, ptr %qmp_fd, align 4
-  tail call void @qmp_fd_vsend(i32 noundef %0, ptr noundef %fmt, ptr noundef %ap) #20
+  tail call void @qmp_fd_vsend(i32 noundef %0, ptr noundef %fmt, ptr noundef %ap) #23
   ret void
 }
 
@@ -1079,7 +1079,7 @@ define dso_local noundef ptr @qtest_vqmp_fds(ptr noundef %s, ptr noundef %fds, i
 entry:
   %qmp_fd.i = getelementptr inbounds i8, ptr %s, i64 4
   %0 = load i32, ptr %qmp_fd.i, align 4
-  tail call void @qmp_fd_vsend_fds(i32 noundef %0, ptr noundef %fds, i64 noundef %fds_num, ptr noundef %fmt, ptr noundef %ap) #20
+  tail call void @qmp_fd_vsend_fds(i32 noundef %0, ptr noundef %fds, i64 noundef %fds_num, ptr noundef %fmt, ptr noundef %ap) #23
   %call = tail call ptr @qtest_qmp_receive(ptr noundef %s)
   ret ptr %call
 }
@@ -1089,7 +1089,7 @@ define dso_local noundef ptr @qtest_vqmp(ptr noundef %s, ptr noundef %fmt, ptr n
 entry:
   %qmp_fd.i = getelementptr inbounds i8, ptr %s, i64 4
   %0 = load i32, ptr %qmp_fd.i, align 4
-  tail call void @qmp_fd_vsend(i32 noundef %0, ptr noundef %fmt, ptr noundef %ap) #20
+  tail call void @qmp_fd_vsend(i32 noundef %0, ptr noundef %fmt, ptr noundef %ap) #23
   %call = tail call ptr @qtest_qmp_receive(ptr noundef %s)
   ret ptr %call
 }
@@ -1101,7 +1101,7 @@ entry:
   call void @llvm.va_start.p0(ptr nonnull %ap)
   %qmp_fd.i.i = getelementptr inbounds i8, ptr %s, i64 4
   %0 = load i32, ptr %qmp_fd.i.i, align 4
-  call void @qmp_fd_vsend_fds(i32 noundef %0, ptr noundef %fds, i64 noundef %fds_num, ptr noundef %fmt, ptr noundef nonnull %ap) #20
+  call void @qmp_fd_vsend_fds(i32 noundef %0, ptr noundef %fds, i64 noundef %fds_num, ptr noundef %fmt, ptr noundef nonnull %ap) #23
   %call.i = call noundef ptr @qtest_qmp_receive(ptr noundef %s)
   call void @llvm.va_end.p0(ptr nonnull %ap)
   ret ptr %call.i
@@ -1114,7 +1114,7 @@ entry:
   call void @llvm.va_start.p0(ptr nonnull %ap)
   %qmp_fd.i = getelementptr inbounds i8, ptr %s, i64 4
   %0 = load i32, ptr %qmp_fd.i, align 4
-  call void @qmp_fd_vsend(i32 noundef %0, ptr noundef %fmt, ptr noundef nonnull %ap) #20
+  call void @qmp_fd_vsend(i32 noundef %0, ptr noundef %fmt, ptr noundef nonnull %ap) #23
   call void @llvm.va_end.p0(ptr nonnull %ap)
   ret void
 }
@@ -1126,7 +1126,7 @@ entry:
   call void @llvm.va_start.p0(ptr nonnull %ap)
   %qmp_fd = getelementptr inbounds i8, ptr %s, i64 4
   %0 = load i32, ptr %qmp_fd, align 4
-  call void @qmp_fd_vsend_raw(i32 noundef %0, ptr noundef %fmt, ptr noundef nonnull %ap) #20
+  call void @qmp_fd_vsend_raw(i32 noundef %0, ptr noundef %fmt, ptr noundef nonnull %ap) #23
   call void @llvm.va_end.p0(ptr nonnull %ap)
   ret void
 }
@@ -1154,10 +1154,10 @@ entry:
 while.body:                                       ; preds = %entry, %qobject_unref_impl.exit
   %1 = phi ptr [ %4, %qobject_unref_impl.exit ], [ %0, %entry ]
   %2 = load ptr, ptr %1, align 8
-  %call = tail call ptr @g_list_delete_link(ptr noundef nonnull %1, ptr noundef nonnull %1) #20
+  %call = tail call ptr @g_list_delete_link(ptr noundef nonnull %1, ptr noundef nonnull %1) #23
   store ptr %call, ptr %pending_events, align 8
-  %call4 = tail call ptr @qdict_get_str(ptr noundef %2, ptr noundef nonnull @.str.8) #20
-  %call5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call4, ptr noundef nonnull dereferenceable(1) %event) #24
+  %call4 = tail call ptr @qdict_get_str(ptr noundef %2, ptr noundef nonnull @.str.8) #23
+  %call5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call4, ptr noundef nonnull dereferenceable(1) %event) #28
   %tobool6.not = icmp eq i32 %call5, 0
   br i1 %tobool6.not, label %return, label %if.end
 
@@ -1172,7 +1172,7 @@ lor.lhs.false.i:                                  ; preds = %if.end
   br i1 %tobool1.not.i, label %if.else.i, label %land.lhs.true.i
 
 if.else.i:                                        ; preds = %lor.lhs.false.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.123, ptr noundef nonnull @.str.124, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.123, ptr noundef nonnull @.str.124, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #25
   unreachable
 
 land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
@@ -1182,7 +1182,7 @@ land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
   br i1 %cmp.i, label %if.then5.i, label %qobject_unref_impl.exit
 
 if.then5.i:                                       ; preds = %land.lhs.true.i
-  tail call void @qobject_destroy(ptr noundef nonnull %2) #20
+  tail call void @qobject_destroy(ptr noundef nonnull %2) #23
   br label %qobject_unref_impl.exit
 
 qobject_unref_impl.exit:                          ; preds = %if.end, %land.lhs.true.i, %if.then5.i
@@ -1213,14 +1213,14 @@ for.cond.preheader:                               ; preds = %entry
 
 for.cond:                                         ; preds = %for.cond.backedge, %for.cond.preheader
   %0 = load i32, ptr %qmp_fd.i, align 4
-  %call.i = tail call ptr @qmp_fd_receive(i32 noundef %0) #20
-  %call2 = tail call i32 @qdict_haskey(ptr noundef %call.i, ptr noundef nonnull @.str.8) #20
+  %call.i = tail call ptr @qmp_fd_receive(i32 noundef %0) #23
+  %call2 = tail call i32 @qdict_haskey(ptr noundef %call.i, ptr noundef nonnull @.str.8) #23
   %tobool3.not = icmp eq i32 %call2, 0
   br i1 %tobool3.not, label %if.end7, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.cond
-  %call4 = tail call ptr @qdict_get_str(ptr noundef %call.i, ptr noundef nonnull @.str.8) #20
-  %call5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call4, ptr noundef nonnull dereferenceable(1) %event) #24
+  %call4 = tail call ptr @qdict_get_str(ptr noundef %call.i, ptr noundef nonnull @.str.8) #23
+  %call5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call4, ptr noundef nonnull dereferenceable(1) %event) #28
   %cmp = icmp eq i32 %call5, 0
   br i1 %cmp, label %return, label %if.end7
 
@@ -1238,7 +1238,7 @@ lor.lhs.false.i:                                  ; preds = %if.end7
   br i1 %tobool1.not.i, label %if.else.i, label %land.lhs.true.i
 
 if.else.i:                                        ; preds = %lor.lhs.false.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.123, ptr noundef nonnull @.str.124, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.123, ptr noundef nonnull @.str.124, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #25
   unreachable
 
 land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
@@ -1248,7 +1248,7 @@ land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
   br i1 %cmp.i, label %if.then5.i, label %for.cond.backedge
 
 if.then5.i:                                       ; preds = %land.lhs.true.i
-  tail call void @qobject_destroy(ptr noundef nonnull %call.i) #20
+  tail call void @qobject_destroy(ptr noundef nonnull %call.i) #23
   br label %for.cond.backedge
 
 return:                                           ; preds = %land.lhs.true, %entry
@@ -1272,7 +1272,7 @@ lor.lhs.false.i:                                  ; preds = %entry
   br i1 %tobool1.not.i, label %if.else.i, label %land.lhs.true.i
 
 if.else.i:                                        ; preds = %lor.lhs.false.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.123, ptr noundef nonnull @.str.124, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.123, ptr noundef nonnull @.str.124, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #25
   unreachable
 
 land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
@@ -1282,7 +1282,7 @@ land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
   br i1 %cmp.i, label %if.then5.i, label %qobject_unref_impl.exit
 
 if.then5.i:                                       ; preds = %land.lhs.true.i
-  tail call void @qobject_destroy(ptr noundef nonnull %call) #20
+  tail call void @qobject_destroy(ptr noundef nonnull %call) #23
   br label %qobject_unref_impl.exit
 
 qobject_unref_impl.exit:                          ; preds = %entry, %land.lhs.true.i, %if.then5.i
@@ -1292,15 +1292,15 @@ qobject_unref_impl.exit:                          ; preds = %entry, %land.lhs.tr
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noalias ptr @qtest_vhmp(ptr noundef %s, ptr noundef %fmt, ptr noundef %ap) local_unnamed_addr #1 {
 entry:
-  %call = tail call noalias ptr @g_strdup_vprintf(ptr noundef %fmt, ptr noundef %ap) #20
+  %call = tail call noalias ptr @g_strdup_vprintf(ptr noundef %fmt, ptr noundef %ap) #23
   %call1 = tail call ptr (ptr, ptr, ...) @qtest_qmp(ptr noundef %s, ptr noundef nonnull @.str.13, ptr noundef %call)
-  %call2 = tail call ptr @qdict_get_try_str(ptr noundef %call1, ptr noundef nonnull @.str.14) #20
-  %call3 = tail call noalias ptr @g_strdup(ptr noundef %call2) #20
+  %call2 = tail call ptr @qdict_get_try_str(ptr noundef %call1, ptr noundef nonnull @.str.14) #23
+  %call3 = tail call noalias ptr @g_strdup(ptr noundef %call2) #23
   %tobool.not = icmp eq ptr %call3, null
   br i1 %tobool.not, label %if.else, label %do.end
 
 if.else:                                          ; preds = %entry
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 911, ptr noundef nonnull @__func__.qtest_vhmp, ptr noundef nonnull @.str.15) #22
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 911, ptr noundef nonnull @__func__.qtest_vhmp, ptr noundef nonnull @.str.15) #25
   unreachable
 
 do.end:                                           ; preds = %entry
@@ -1314,7 +1314,7 @@ lor.lhs.false.i:                                  ; preds = %do.end
   br i1 %tobool1.not.i, label %if.else.i, label %land.lhs.true.i
 
 if.else.i:                                        ; preds = %lor.lhs.false.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.123, ptr noundef nonnull @.str.124, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.123, ptr noundef nonnull @.str.124, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #25
   unreachable
 
 land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
@@ -1324,11 +1324,11 @@ land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
   br i1 %cmp.i, label %if.then5.i, label %qobject_unref_impl.exit
 
 if.then5.i:                                       ; preds = %land.lhs.true.i
-  tail call void @qobject_destroy(ptr noundef nonnull %call1) #20
+  tail call void @qobject_destroy(ptr noundef nonnull %call1) #23
   br label %qobject_unref_impl.exit
 
 qobject_unref_impl.exit:                          ; preds = %do.end, %land.lhs.true.i, %if.then5.i
-  tail call void @g_free(ptr noundef %call) #20
+  tail call void @g_free(ptr noundef %call) #23
   ret ptr %call3
 }
 
@@ -1347,39 +1347,39 @@ entry:
   ret ptr %call
 }
 
-; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @qtest_get_arch() local_unnamed_addr #1 {
+; Function Attrs: nofree nounwind sspstrong uwtable
+define dso_local ptr @qtest_get_arch() local_unnamed_addr #10 {
 entry:
-  %call4.i = tail call ptr @getenv(ptr noundef nonnull @.str.93) #20
+  %call4.i = tail call ptr @getenv(ptr noundef nonnull @.str.93) #23
   %tobool5.not.i = icmp eq ptr %call4.i, null
   br i1 %tobool5.not.i, label %if.then6.i, label %qtest_qemu_binary.exit
 
 if.then6.i:                                       ; preds = %entry
   %0 = load ptr, ptr @stderr, align 8
-  %1 = tail call i64 @fwrite(ptr nonnull @.str.122, i64 48, i64 1, ptr %0) #23
-  tail call void @exit(i32 noundef 1) #22
+  %1 = tail call i64 @fwrite(ptr nonnull @.str.122, i64 48, i64 1, ptr %0) #26
+  tail call void @exit(i32 noundef 1) #27
   unreachable
 
 qtest_qemu_binary.exit:                           ; preds = %entry
-  %call1 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %call4.i, i32 noundef 45) #24
+  %call1 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %call4.i, i32 noundef 45) #28
   %tobool.not = icmp eq ptr %call1, null
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %qtest_qemu_binary.exit
   %2 = load ptr, ptr @stderr, align 8
-  %3 = tail call i64 @fwrite(ptr nonnull @.str.16, i64 47, i64 1, ptr %2) #23
-  tail call void @exit(i32 noundef 1) #22
+  %3 = tail call i64 @fwrite(ptr nonnull @.str.16, i64 47, i64 1, ptr %2) #26
+  tail call void @exit(i32 noundef 1) #27
   unreachable
 
 if.end:                                           ; preds = %qtest_qemu_binary.exit
-  %call3 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %call4.i, ptr noundef nonnull dereferenceable(1) @.str.17) #24
+  %call3 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %call4.i, ptr noundef nonnull dereferenceable(1) @.str.17) #28
   %tobool4.not = icmp eq ptr %call3, null
   br i1 %tobool4.not, label %if.then5, label %if.end7
 
 if.then5:                                         ; preds = %if.end
   %4 = load ptr, ptr @stderr, align 8
-  %5 = tail call i64 @fwrite(ptr nonnull @.str.18, i64 112, i64 1, ptr %4) #23
-  tail call void @exit(i32 noundef 1) #22
+  %5 = tail call i64 @fwrite(ptr nonnull @.str.18, i64 112, i64 1, ptr %4) #26
+  tail call void @exit(i32 noundef 1) #27
   unreachable
 
 if.end7:                                          ; preds = %if.end
@@ -1393,8 +1393,8 @@ declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #8
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
 
-; Function Attrs: noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #6
+; Function Attrs: nofree noreturn nounwind
+declare void @exit(i32 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #8
@@ -1402,12 +1402,12 @@ declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #8
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef zeroext i1 @qtest_has_accel(ptr noundef %accel_name) local_unnamed_addr #1 {
 entry:
-  %call = tail call i32 @g_str_equal(ptr noundef %accel_name, ptr noundef nonnull @.str.19) #20
+  %call = tail call i32 @g_str_equal(ptr noundef %accel_name, ptr noundef nonnull @.str.19) #23
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.else, label %return
 
 if.else:                                          ; preds = %entry
-  %call1 = tail call i32 @g_str_equal(ptr noundef %accel_name, ptr noundef nonnull @.str.20) #20
+  %call1 = tail call i32 @g_str_equal(ptr noundef %accel_name, ptr noundef nonnull @.str.20) #23
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %do.body, label %if.then3
 
@@ -1420,13 +1420,13 @@ for.body:                                         ; preds = %for.body.backedge, 
   %indvars.iv = phi i64 [ 0, %if.then3 ], [ 1, %for.body.backedge ]
   %arrayidx = getelementptr [2 x ptr], ptr @__const.qtest_has_accel.targets, i64 0, i64 %indvars.iv
   %0 = load ptr, ptr %arrayidx, align 8
-  %call6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call4) #24
-  %call7 = tail call i32 @strncmp(ptr noundef %0, ptr noundef %call4, i64 noundef %call6) #24
+  %call6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call4) #28
+  %call7 = tail call i32 @strncmp(ptr noundef %0, ptr noundef %call4, i64 noundef %call6) #28
   %tobool8.not = icmp eq i32 %call7, 0
   br i1 %tobool8.not, label %if.then9, label %for.inc
 
 if.then9:                                         ; preds = %for.body
-  %call10 = tail call i32 @access(ptr noundef nonnull @.str.23, i32 noundef 6) #20
+  %call10 = tail call i32 @access(ptr noundef nonnull @.str.23, i32 noundef 6) #23
   %tobool11.not = icmp eq i32 %call10, 0
   %cmp.not = xor i1 %cmp, true
   %brmerge = or i1 %tobool11.not, %cmp.not
@@ -1439,7 +1439,7 @@ for.body.backedge:                                ; preds = %for.inc, %if.then9
   br label %for.body, !llvm.loop !12
 
 do.body:                                          ; preds = %if.else
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 970, ptr noundef nonnull @__func__.qtest_has_accel, ptr noundef null) #22
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 970, ptr noundef nonnull @__func__.qtest_has_accel, ptr noundef null) #25
   unreachable
 
 return:                                           ; preds = %for.inc, %if.then9, %entry
@@ -1450,7 +1450,7 @@ return:                                           ; preds = %for.inc, %if.then9,
 declare i32 @g_str_equal(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #8
@@ -1470,7 +1470,7 @@ entry:
   %call.i.i = tail call fastcc ptr @qtest_rsp_args(ptr noundef %s, i32 noundef 2)
   %arrayidx.i.i = getelementptr i8, ptr %call.i.i, i64 8
   %0 = load ptr, ptr %arrayidx.i.i, align 8
-  %call1.i.i = call i32 @qemu_strtoul(ptr noundef %0, ptr noundef null, i32 noundef 0, ptr noundef nonnull %value.i.i) #20
+  %call1.i.i = call i32 @qemu_strtoul(ptr noundef %0, ptr noundef null, i32 noundef 0, ptr noundef nonnull %value.i.i) #23
   %tobool.i.i = icmp eq i32 %call1.i.i, 0
   %1 = load i64, ptr %value.i.i, align 8
   %cmp.i.i = icmp ult i64 %1, 4294967296
@@ -1478,11 +1478,11 @@ entry:
   br i1 %or.cond.i.i, label %qtest_inb.exit, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %entry
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1075, ptr noundef nonnull @__func__.qtest_in, ptr noundef nonnull @.str.129) #22
+  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1075, ptr noundef nonnull @__func__.qtest_in, ptr noundef nonnull @.str.129) #25
   unreachable
 
 qtest_inb.exit:                                   ; preds = %entry
-  call void @g_strfreev(ptr noundef nonnull %call.i.i) #20
+  call void @g_strfreev(ptr noundef nonnull %call.i.i) #23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %value.i.i)
   %irq_level = getelementptr inbounds i8, ptr %s, i64 21
   %idxprom = sext i32 %num to i64
@@ -1502,7 +1502,7 @@ entry:
   %call.i = tail call fastcc ptr @qtest_rsp_args(ptr noundef %s, i32 noundef 2)
   %arrayidx.i = getelementptr i8, ptr %call.i, i64 8
   %0 = load ptr, ptr %arrayidx.i, align 8
-  %call1.i = call i32 @qemu_strtoul(ptr noundef %0, ptr noundef null, i32 noundef 0, ptr noundef nonnull %value.i) #20
+  %call1.i = call i32 @qemu_strtoul(ptr noundef %0, ptr noundef null, i32 noundef 0, ptr noundef nonnull %value.i) #23
   %tobool.i = icmp eq i32 %call1.i, 0
   %1 = load i64, ptr %value.i, align 8
   %cmp.i = icmp ult i64 %1, 4294967296
@@ -1510,11 +1510,11 @@ entry:
   br i1 %or.cond.i, label %qtest_in.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %entry
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1075, ptr noundef nonnull @__func__.qtest_in, ptr noundef nonnull @.str.129) #22
+  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1075, ptr noundef nonnull @__func__.qtest_in, ptr noundef nonnull @.str.129) #25
   unreachable
 
 qtest_in.exit:                                    ; preds = %entry
-  call void @g_strfreev(ptr noundef nonnull %call.i) #20
+  call void @g_strfreev(ptr noundef nonnull %call.i) #23
   %2 = load i64, ptr %value.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %value.i)
   %conv = trunc i64 %2 to i8
@@ -1526,7 +1526,7 @@ define dso_local void @qtest_module_load(ptr noundef %s, ptr noundef %prefix, pt
 entry:
   tail call void (ptr, ptr, ...) @qtest_sendf(ptr noundef %s, ptr noundef nonnull @.str.24, ptr noundef %prefix, ptr noundef %libname)
   %call.i = tail call fastcc ptr @qtest_rsp_args(ptr noundef %s, i32 noundef 0)
-  tail call void @g_strfreev(ptr noundef %call.i) #20
+  tail call void @g_strfreev(ptr noundef %call.i) #23
   ret void
 }
 
@@ -1535,12 +1535,12 @@ define internal void @qtest_sendf(ptr noundef %s, ptr noundef %fmt, ...) unnamed
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %ap)
-  %call = call noalias ptr @g_strdup_vprintf(ptr noundef %fmt, ptr noundef nonnull %ap) #20
+  %call = call noalias ptr @g_strdup_vprintf(ptr noundef %fmt, ptr noundef nonnull %ap) #23
   call void @llvm.va_end.p0(ptr nonnull %ap)
   %ops = getelementptr inbounds i8, ptr %s, i64 288
   %0 = load ptr, ptr %ops, align 8
-  call void %0(ptr noundef %s, ptr noundef %call) #20
-  call void @g_free(ptr noundef %call) #20
+  call void %0(ptr noundef %s, ptr noundef %call) #23
+  call void @g_free(ptr noundef %call) #23
   ret void
 }
 
@@ -1551,8 +1551,8 @@ entry:
   %call.i = tail call fastcc ptr @qtest_rsp_args(ptr noundef %s, i32 noundef 2)
   %arrayidx.i = getelementptr i8, ptr %call.i, i64 8
   %0 = load ptr, ptr %arrayidx.i, align 8
-  %call1.i = tail call i64 @g_ascii_strtoll(ptr noundef %0, ptr noundef null, i32 noundef 0) #20
-  tail call void @g_strfreev(ptr noundef %call.i) #20
+  %call1.i = tail call i64 @g_ascii_strtoll(ptr noundef %0, ptr noundef null, i32 noundef 0) #23
+  tail call void @g_strfreev(ptr noundef %call.i) #23
   ret i64 %call1.i
 }
 
@@ -1563,8 +1563,8 @@ entry:
   %call.i = tail call fastcc ptr @qtest_rsp_args(ptr noundef %s, i32 noundef 2)
   %arrayidx.i = getelementptr i8, ptr %call.i, i64 8
   %0 = load ptr, ptr %arrayidx.i, align 8
-  %call1.i = tail call i64 @g_ascii_strtoll(ptr noundef %0, ptr noundef null, i32 noundef 0) #20
-  tail call void @g_strfreev(ptr noundef %call.i) #20
+  %call1.i = tail call i64 @g_ascii_strtoll(ptr noundef %0, ptr noundef null, i32 noundef 0) #23
+  tail call void @g_strfreev(ptr noundef %call.i) #23
   ret i64 %call1.i
 }
 
@@ -1575,8 +1575,8 @@ entry:
   %call.i = tail call fastcc ptr @qtest_rsp_args(ptr noundef %s, i32 noundef 2)
   %arrayidx.i = getelementptr i8, ptr %call.i, i64 8
   %0 = load ptr, ptr %arrayidx.i, align 8
-  %call1.i = tail call i64 @g_ascii_strtoll(ptr noundef %0, ptr noundef null, i32 noundef 0) #20
-  tail call void @g_strfreev(ptr noundef %call.i) #20
+  %call1.i = tail call i64 @g_ascii_strtoll(ptr noundef %0, ptr noundef null, i32 noundef 0) #23
+  tail call void @g_strfreev(ptr noundef %call.i) #23
   ret i64 %call1.i
 }
 
@@ -1585,7 +1585,7 @@ define dso_local void @qtest_irq_intercept_out(ptr noundef %s, ptr noundef %qom_
 entry:
   tail call void (ptr, ptr, ...) @qtest_sendf(ptr noundef %s, ptr noundef nonnull @.str.28, ptr noundef %qom_path)
   %call.i = tail call fastcc ptr @qtest_rsp_args(ptr noundef %s, i32 noundef 0)
-  tail call void @g_strfreev(ptr noundef %call.i) #20
+  tail call void @g_strfreev(ptr noundef %call.i) #23
   ret void
 }
 
@@ -1594,7 +1594,7 @@ define dso_local void @qtest_irq_intercept_out_named(ptr noundef %s, ptr noundef
 entry:
   tail call void (ptr, ptr, ...) @qtest_sendf(ptr noundef %s, ptr noundef nonnull @.str.29, ptr noundef %qom_path, ptr noundef %name)
   %call.i = tail call fastcc ptr @qtest_rsp_args(ptr noundef %s, i32 noundef 0)
-  tail call void @g_strfreev(ptr noundef %call.i) #20
+  tail call void @g_strfreev(ptr noundef %call.i) #23
   ret void
 }
 
@@ -1603,7 +1603,7 @@ define dso_local void @qtest_irq_intercept_in(ptr noundef %s, ptr noundef %qom_p
 entry:
   tail call void (ptr, ptr, ...) @qtest_sendf(ptr noundef %s, ptr noundef nonnull @.str.30, ptr noundef %qom_path)
   %call.i = tail call fastcc ptr @qtest_rsp_args(ptr noundef %s, i32 noundef 0)
-  tail call void @g_strfreev(ptr noundef %call.i) #20
+  tail call void @g_strfreev(ptr noundef %call.i) #23
   ret void
 }
 
@@ -1614,7 +1614,7 @@ entry:
   %spec.store.select = select i1 %tobool.not, ptr @.str.31, ptr %name
   tail call void (ptr, ptr, ...) @qtest_sendf(ptr noundef %s, ptr noundef nonnull @.str.32, ptr noundef %qom_path, ptr noundef nonnull %spec.store.select, i32 noundef %num, i32 noundef %level)
   %call.i = tail call fastcc ptr @qtest_rsp_args(ptr noundef %s, i32 noundef 0)
-  tail call void @g_strfreev(ptr noundef %call.i) #20
+  tail call void @g_strfreev(ptr noundef %call.i) #23
   ret void
 }
 
@@ -1625,7 +1625,7 @@ entry:
   %conv.i = zext i16 %addr to i32
   tail call void (ptr, ptr, ...) @qtest_sendf(ptr noundef %s, ptr noundef nonnull @.str.127, ptr noundef nonnull @.str.33, i32 noundef %conv.i, i32 noundef %conv)
   %call.i.i = tail call fastcc ptr @qtest_rsp_args(ptr noundef %s, i32 noundef 0)
-  tail call void @g_strfreev(ptr noundef %call.i.i) #20
+  tail call void @g_strfreev(ptr noundef %call.i.i) #23
   ret void
 }
 
@@ -1636,7 +1636,7 @@ entry:
   %conv.i = zext i16 %addr to i32
   tail call void (ptr, ptr, ...) @qtest_sendf(ptr noundef %s, ptr noundef nonnull @.str.127, ptr noundef nonnull @.str.34, i32 noundef %conv.i, i32 noundef %conv)
   %call.i.i = tail call fastcc ptr @qtest_rsp_args(ptr noundef %s, i32 noundef 0)
-  tail call void @g_strfreev(ptr noundef %call.i.i) #20
+  tail call void @g_strfreev(ptr noundef %call.i.i) #23
   ret void
 }
 
@@ -1646,7 +1646,7 @@ entry:
   %conv.i = zext i16 %addr to i32
   tail call void (ptr, ptr, ...) @qtest_sendf(ptr noundef %s, ptr noundef nonnull @.str.127, ptr noundef nonnull @.str.35, i32 noundef %conv.i, i32 noundef %value)
   %call.i.i = tail call fastcc ptr @qtest_rsp_args(ptr noundef %s, i32 noundef 0)
-  tail call void @g_strfreev(ptr noundef %call.i.i) #20
+  tail call void @g_strfreev(ptr noundef %call.i.i) #23
   ret void
 }
 
@@ -1660,7 +1660,7 @@ entry:
   %call.i = tail call fastcc ptr @qtest_rsp_args(ptr noundef %s, i32 noundef 2)
   %arrayidx.i = getelementptr i8, ptr %call.i, i64 8
   %0 = load ptr, ptr %arrayidx.i, align 8
-  %call1.i = call i32 @qemu_strtoul(ptr noundef %0, ptr noundef null, i32 noundef 0, ptr noundef nonnull %value.i) #20
+  %call1.i = call i32 @qemu_strtoul(ptr noundef %0, ptr noundef null, i32 noundef 0, ptr noundef nonnull %value.i) #23
   %tobool.i = icmp eq i32 %call1.i, 0
   %1 = load i64, ptr %value.i, align 8
   %cmp.i = icmp ult i64 %1, 4294967296
@@ -1668,11 +1668,11 @@ entry:
   br i1 %or.cond.i, label %qtest_in.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %entry
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1075, ptr noundef nonnull @__func__.qtest_in, ptr noundef nonnull @.str.129) #22
+  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1075, ptr noundef nonnull @__func__.qtest_in, ptr noundef nonnull @.str.129) #25
   unreachable
 
 qtest_in.exit:                                    ; preds = %entry
-  call void @g_strfreev(ptr noundef nonnull %call.i) #20
+  call void @g_strfreev(ptr noundef nonnull %call.i) #23
   %2 = load i64, ptr %value.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %value.i)
   %conv = trunc i64 %2 to i16
@@ -1689,7 +1689,7 @@ entry:
   %call.i = tail call fastcc ptr @qtest_rsp_args(ptr noundef %s, i32 noundef 2)
   %arrayidx.i = getelementptr i8, ptr %call.i, i64 8
   %0 = load ptr, ptr %arrayidx.i, align 8
-  %call1.i = call i32 @qemu_strtoul(ptr noundef %0, ptr noundef null, i32 noundef 0, ptr noundef nonnull %value.i) #20
+  %call1.i = call i32 @qemu_strtoul(ptr noundef %0, ptr noundef null, i32 noundef 0, ptr noundef nonnull %value.i) #23
   %tobool.i = icmp eq i32 %call1.i, 0
   %1 = load i64, ptr %value.i, align 8
   %cmp.i = icmp ult i64 %1, 4294967296
@@ -1697,11 +1697,11 @@ entry:
   br i1 %or.cond.i, label %qtest_in.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %entry
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1075, ptr noundef nonnull @__func__.qtest_in, ptr noundef nonnull @.str.129) #22
+  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1075, ptr noundef nonnull @__func__.qtest_in, ptr noundef nonnull @.str.129) #25
   unreachable
 
 qtest_in.exit:                                    ; preds = %entry
-  call void @g_strfreev(ptr noundef nonnull %call.i) #20
+  call void @g_strfreev(ptr noundef nonnull %call.i) #23
   %2 = load i64, ptr %value.i, align 8
   %conv3.i = trunc i64 %2 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %value.i)
@@ -1714,7 +1714,7 @@ entry:
   %conv = zext i8 %value to i64
   tail call void (ptr, ptr, ...) @qtest_sendf(ptr noundef %s, ptr noundef nonnull @.str.130, ptr noundef nonnull @.str.39, i64 noundef %addr, i64 noundef %conv)
   %call.i.i = tail call fastcc ptr @qtest_rsp_args(ptr noundef %s, i32 noundef 0)
-  tail call void @g_strfreev(ptr noundef %call.i.i) #20
+  tail call void @g_strfreev(ptr noundef %call.i.i) #23
   ret void
 }
 
@@ -1724,7 +1724,7 @@ entry:
   %conv = zext i16 %value to i64
   tail call void (ptr, ptr, ...) @qtest_sendf(ptr noundef %s, ptr noundef nonnull @.str.130, ptr noundef nonnull @.str.40, i64 noundef %addr, i64 noundef %conv)
   %call.i.i = tail call fastcc ptr @qtest_rsp_args(ptr noundef %s, i32 noundef 0)
-  tail call void @g_strfreev(ptr noundef %call.i.i) #20
+  tail call void @g_strfreev(ptr noundef %call.i.i) #23
   ret void
 }
 
@@ -1734,7 +1734,7 @@ entry:
   %conv = zext i32 %value to i64
   tail call void (ptr, ptr, ...) @qtest_sendf(ptr noundef %s, ptr noundef nonnull @.str.130, ptr noundef nonnull @.str.41, i64 noundef %addr, i64 noundef %conv)
   %call.i.i = tail call fastcc ptr @qtest_rsp_args(ptr noundef %s, i32 noundef 0)
-  tail call void @g_strfreev(ptr noundef %call.i.i) #20
+  tail call void @g_strfreev(ptr noundef %call.i.i) #23
   ret void
 }
 
@@ -1743,7 +1743,7 @@ define dso_local void @qtest_writeq(ptr noundef %s, i64 noundef %addr, i64 nound
 entry:
   tail call void (ptr, ptr, ...) @qtest_sendf(ptr noundef %s, ptr noundef nonnull @.str.130, ptr noundef nonnull @.str.42, i64 noundef %addr, i64 noundef %value)
   %call.i.i = tail call fastcc ptr @qtest_rsp_args(ptr noundef %s, i32 noundef 0)
-  tail call void @g_strfreev(ptr noundef %call.i.i) #20
+  tail call void @g_strfreev(ptr noundef %call.i.i) #23
   ret void
 }
 
@@ -1756,16 +1756,16 @@ entry:
   %call.i = tail call fastcc ptr @qtest_rsp_args(ptr noundef %s, i32 noundef 2)
   %arrayidx.i = getelementptr i8, ptr %call.i, i64 8
   %0 = load ptr, ptr %arrayidx.i, align 8
-  %call1.i = call i32 @qemu_strtou64(ptr noundef %0, ptr noundef null, i32 noundef 0, ptr noundef nonnull %value.i) #20
+  %call1.i = call i32 @qemu_strtou64(ptr noundef %0, ptr noundef null, i32 noundef 0, ptr noundef nonnull %value.i) #23
   %tobool.not.i = icmp eq i32 %call1.i, 0
   br i1 %tobool.not.i, label %qtest_read.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %entry
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1132, ptr noundef nonnull @__func__.qtest_read, ptr noundef nonnull @.str.132) #22
+  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1132, ptr noundef nonnull @__func__.qtest_read, ptr noundef nonnull @.str.132) #25
   unreachable
 
 qtest_read.exit:                                  ; preds = %entry
-  call void @g_strfreev(ptr noundef nonnull %call.i) #20
+  call void @g_strfreev(ptr noundef nonnull %call.i) #23
   %1 = load i64, ptr %value.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %value.i)
   %conv = trunc i64 %1 to i8
@@ -1781,16 +1781,16 @@ entry:
   %call.i = tail call fastcc ptr @qtest_rsp_args(ptr noundef %s, i32 noundef 2)
   %arrayidx.i = getelementptr i8, ptr %call.i, i64 8
   %0 = load ptr, ptr %arrayidx.i, align 8
-  %call1.i = call i32 @qemu_strtou64(ptr noundef %0, ptr noundef null, i32 noundef 0, ptr noundef nonnull %value.i) #20
+  %call1.i = call i32 @qemu_strtou64(ptr noundef %0, ptr noundef null, i32 noundef 0, ptr noundef nonnull %value.i) #23
   %tobool.not.i = icmp eq i32 %call1.i, 0
   br i1 %tobool.not.i, label %qtest_read.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %entry
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1132, ptr noundef nonnull @__func__.qtest_read, ptr noundef nonnull @.str.132) #22
+  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1132, ptr noundef nonnull @__func__.qtest_read, ptr noundef nonnull @.str.132) #25
   unreachable
 
 qtest_read.exit:                                  ; preds = %entry
-  call void @g_strfreev(ptr noundef nonnull %call.i) #20
+  call void @g_strfreev(ptr noundef nonnull %call.i) #23
   %1 = load i64, ptr %value.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %value.i)
   %conv = trunc i64 %1 to i16
@@ -1806,16 +1806,16 @@ entry:
   %call.i = tail call fastcc ptr @qtest_rsp_args(ptr noundef %s, i32 noundef 2)
   %arrayidx.i = getelementptr i8, ptr %call.i, i64 8
   %0 = load ptr, ptr %arrayidx.i, align 8
-  %call1.i = call i32 @qemu_strtou64(ptr noundef %0, ptr noundef null, i32 noundef 0, ptr noundef nonnull %value.i) #20
+  %call1.i = call i32 @qemu_strtou64(ptr noundef %0, ptr noundef null, i32 noundef 0, ptr noundef nonnull %value.i) #23
   %tobool.not.i = icmp eq i32 %call1.i, 0
   br i1 %tobool.not.i, label %qtest_read.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %entry
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1132, ptr noundef nonnull @__func__.qtest_read, ptr noundef nonnull @.str.132) #22
+  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1132, ptr noundef nonnull @__func__.qtest_read, ptr noundef nonnull @.str.132) #25
   unreachable
 
 qtest_read.exit:                                  ; preds = %entry
-  call void @g_strfreev(ptr noundef nonnull %call.i) #20
+  call void @g_strfreev(ptr noundef nonnull %call.i) #23
   %1 = load i64, ptr %value.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %value.i)
   %conv = trunc i64 %1 to i32
@@ -1831,16 +1831,16 @@ entry:
   %call.i = tail call fastcc ptr @qtest_rsp_args(ptr noundef %s, i32 noundef 2)
   %arrayidx.i = getelementptr i8, ptr %call.i, i64 8
   %0 = load ptr, ptr %arrayidx.i, align 8
-  %call1.i = call i32 @qemu_strtou64(ptr noundef %0, ptr noundef null, i32 noundef 0, ptr noundef nonnull %value.i) #20
+  %call1.i = call i32 @qemu_strtou64(ptr noundef %0, ptr noundef null, i32 noundef 0, ptr noundef nonnull %value.i) #23
   %tobool.not.i = icmp eq i32 %call1.i, 0
   br i1 %tobool.not.i, label %qtest_read.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %entry
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1132, ptr noundef nonnull @__func__.qtest_read, ptr noundef nonnull @.str.132) #22
+  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1132, ptr noundef nonnull @__func__.qtest_read, ptr noundef nonnull @.str.132) #25
   unreachable
 
 qtest_read.exit:                                  ; preds = %entry
-  call void @g_strfreev(ptr noundef nonnull %call.i) #20
+  call void @g_strfreev(ptr noundef nonnull %call.i) #23
   %1 = load i64, ptr %value.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %value.i)
   ret i64 %1
@@ -1923,7 +1923,7 @@ hex2nib.exit25:                                   ; preds = %hex2nib.exit, %if.t
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !13
 
 for.end:                                          ; preds = %hex2nib.exit25
-  tail call void @g_strfreev(ptr noundef nonnull %call) #20
+  tail call void @g_strfreev(ptr noundef nonnull %call) #23
   br label %return
 
 return:                                           ; preds = %entry, %for.end
@@ -1940,12 +1940,12 @@ entry:
 
 redo:                                             ; preds = %do.end38, %entry
   %0 = load ptr, ptr %recv_line, align 8
-  %call = call ptr %0(ptr noundef %s) #20
+  %call = call ptr %0(ptr noundef %s) #23
   %1 = load ptr, ptr %call, align 8
-  %call1 = call ptr @g_strsplit(ptr noundef %1, ptr noundef nonnull @.str.133, i32 noundef 0) #20
-  %call2 = call ptr @g_string_free(ptr noundef nonnull %call, i32 noundef 1) #20
+  %call1 = call ptr @g_strsplit(ptr noundef %1, ptr noundef nonnull @.str.133, i32 noundef 0) #23
+  %call2 = call ptr @g_string_free(ptr noundef nonnull %call, i32 noundef 1) #23
   %2 = load ptr, ptr %call1, align 8
-  %call3 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(4) @.str.134) #24
+  %call3 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(4) @.str.134) #28
   %cmp = icmp eq i32 %call3, 0
   br i1 %cmp, label %do.body, label %do.body50
 
@@ -1956,7 +1956,7 @@ do.body:                                          ; preds = %redo
   br i1 %cmp5.not, label %if.else, label %do.body7
 
 if.else:                                          ; preds = %do.body
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 683, ptr noundef nonnull @__func__.qtest_rsp_args, ptr noundef nonnull @.str.135) #22
+  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 683, ptr noundef nonnull @__func__.qtest_rsp_args, ptr noundef nonnull @.str.135) #25
   unreachable
 
 do.body7:                                         ; preds = %do.body
@@ -1966,16 +1966,16 @@ do.body7:                                         ; preds = %do.body
   br i1 %cmp9.not, label %if.else11, label %do.end13
 
 if.else11:                                        ; preds = %do.body7
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 684, ptr noundef nonnull @__func__.qtest_rsp_args, ptr noundef nonnull @.str.136) #22
+  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 684, ptr noundef nonnull @__func__.qtest_rsp_args, ptr noundef nonnull @.str.136) #25
   unreachable
 
 do.end13:                                         ; preds = %do.body7
-  %call15 = call i32 @qemu_strtol(ptr noundef nonnull %4, ptr noundef null, i32 noundef 0, ptr noundef nonnull %irq) #20
+  %call15 = call i32 @qemu_strtol(ptr noundef nonnull %4, ptr noundef null, i32 noundef 0, ptr noundef nonnull %irq) #23
   %tobool.not = icmp eq i32 %call15, 0
   br i1 %tobool.not, label %do.body21, label %if.else18
 
 if.else18:                                        ; preds = %do.end13
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 687, ptr noundef nonnull @__func__.qtest_rsp_args, ptr noundef nonnull @.str.132) #22
+  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 687, ptr noundef nonnull @__func__.qtest_rsp_args, ptr noundef nonnull @.str.132) #25
   unreachable
 
 do.body21:                                        ; preds = %do.end13
@@ -1985,7 +1985,7 @@ do.body21:                                        ; preds = %do.end13
 
 if.else24:                                        ; preds = %do.body21
   %conv = sitofp i64 %5 to x86_fp80
-  call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 688, ptr noundef nonnull @__func__.qtest_rsp_args, ptr noundef nonnull @.str.137, x86_fp80 noundef %conv, ptr noundef nonnull @.str.138, x86_fp80 noundef 0xK00000000000000000000, i8 noundef signext 105) #20
+  call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 688, ptr noundef nonnull @__func__.qtest_rsp_args, ptr noundef nonnull @.str.137, x86_fp80 noundef %conv, ptr noundef nonnull @.str.138, x86_fp80 noundef 0xK00000000000000000000, i8 noundef signext 105) #23
   %.pr = load i64, ptr %irq, align 8
   br label %do.body28
 
@@ -1996,18 +1996,18 @@ do.body28:                                        ; preds = %do.body21, %if.else
 
 if.else34:                                        ; preds = %do.body28
   %conv35 = uitofp nneg i64 %6 to x86_fp80
-  call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 689, ptr noundef nonnull @__func__.qtest_rsp_args, ptr noundef nonnull @.str.139, x86_fp80 noundef %conv35, ptr noundef nonnull @.str.140, x86_fp80 noundef 0xK40078000000000000000, i8 noundef signext 105) #20
+  call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 689, ptr noundef nonnull @__func__.qtest_rsp_args, ptr noundef nonnull @.str.139, x86_fp80 noundef %conv35, ptr noundef nonnull @.str.140, x86_fp80 noundef 0xK40078000000000000000, i8 noundef signext 105) #23
   br label %do.end38
 
 do.end38:                                         ; preds = %if.else34, %do.body28
   %7 = load ptr, ptr %arrayidx4, align 8
-  %call40 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(6) @.str.141) #24
+  %call40 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(6) @.str.141) #28
   %cmp41 = icmp eq i32 %call40, 0
   %8 = load i64, ptr %irq, align 8
   %arrayidx44 = getelementptr [256 x i8], ptr %irq_level46, i64 0, i64 %8
   %. = zext i1 %cmp41 to i8
   store i8 %., ptr %arrayidx44, align 1
-  call void @g_strfreev(ptr noundef nonnull %call1) #20
+  call void @g_strfreev(ptr noundef nonnull %call1) #23
   br label %redo
 
 do.body50:                                        ; preds = %redo
@@ -2015,16 +2015,16 @@ do.body50:                                        ; preds = %redo
   br i1 %cmp52.not, label %if.else55, label %do.body58
 
 if.else55:                                        ; preds = %do.body50
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 701, ptr noundef nonnull @__func__.qtest_rsp_args, ptr noundef nonnull @.str.142) #22
+  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 701, ptr noundef nonnull @__func__.qtest_rsp_args, ptr noundef nonnull @.str.142) #25
   unreachable
 
 do.body58:                                        ; preds = %do.body50
-  %call60 = call i32 @g_strcmp0(ptr noundef nonnull %2, ptr noundef nonnull @.str.143) #20
+  %call60 = call i32 @g_strcmp0(ptr noundef nonnull %2, ptr noundef nonnull @.str.143) #23
   %cmp61 = icmp eq i32 %call60, 0
   br i1 %cmp61, label %do.end66, label %if.else64
 
 if.else64:                                        ; preds = %do.body58
-  call void @g_assertion_message_cmpstr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 702, ptr noundef nonnull @__func__.qtest_rsp_args, ptr noundef nonnull @.str.144, ptr noundef nonnull %2, ptr noundef nonnull @.str.145, ptr noundef nonnull @.str.143) #20
+  call void @g_assertion_message_cmpstr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 702, ptr noundef nonnull @__func__.qtest_rsp_args, ptr noundef nonnull @.str.144, ptr noundef nonnull %2, ptr noundef nonnull @.str.145, ptr noundef nonnull @.str.143) #23
   br label %do.end66
 
 do.end66:                                         ; preds = %if.else64, %do.body58
@@ -2048,7 +2048,7 @@ do.body69:                                        ; preds = %do.body69.preheader
   br i1 %cmp71.not, label %if.else74, label %for.cond
 
 if.else74:                                        ; preds = %do.body69
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 705, ptr noundef nonnull @__func__.qtest_rsp_args, ptr noundef nonnull @.str.146) #22
+  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 705, ptr noundef nonnull @__func__.qtest_rsp_args, ptr noundef nonnull @.str.146) #25
   unreachable
 
 for.end:                                          ; preds = %for.cond, %do.end66
@@ -2062,7 +2062,7 @@ define dso_local noundef i64 @qtest_rtas_call(ptr noundef %s, ptr noundef %name,
 entry:
   tail call void (ptr, ptr, ...) @qtest_sendf(ptr noundef %s, ptr noundef nonnull @.str.48, ptr noundef %name, i32 noundef %nargs, i64 noundef %args, i32 noundef %nret, i64 noundef %ret)
   %call.i = tail call fastcc ptr @qtest_rsp_args(ptr noundef %s, i32 noundef 0)
-  tail call void @g_strfreev(ptr noundef %call.i) #20
+  tail call void @g_strfreev(ptr noundef %call.i) #23
   ret i64 0
 }
 
@@ -2070,9 +2070,9 @@ entry:
 define dso_local void @qtest_add_func(ptr noundef %str, ptr noundef %fn) local_unnamed_addr #1 {
 entry:
   %call = tail call ptr @qtest_get_arch()
-  %call1 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.49, ptr noundef %call, ptr noundef %str) #20
-  tail call void @g_test_add_func(ptr noundef %call1, ptr noundef %fn) #20
-  tail call void @g_free(ptr noundef %call1) #20
+  %call1 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.49, ptr noundef %call, ptr noundef %str) #23
+  tail call void @g_test_add_func(ptr noundef %call1, ptr noundef %fn) #23
+  tail call void @g_free(ptr noundef %call1) #23
   ret void
 }
 
@@ -2082,9 +2082,9 @@ declare void @g_test_add_func(ptr noundef, ptr noundef) local_unnamed_addr #2
 define dso_local void @qtest_add_data_func_full(ptr noundef %str, ptr noundef %data, ptr noundef %fn, ptr noundef %data_free_func) local_unnamed_addr #1 {
 entry:
   %call = tail call ptr @qtest_get_arch()
-  %call1 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.49, ptr noundef %call, ptr noundef %str) #20
-  tail call void @g_test_add_data_func_full(ptr noundef %call1, ptr noundef %data, ptr noundef %fn, ptr noundef %data_free_func) #20
-  tail call void @g_free(ptr noundef %call1) #20
+  %call1 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.49, ptr noundef %call, ptr noundef %str) #23
+  tail call void @g_test_add_data_func_full(ptr noundef %call1, ptr noundef %data, ptr noundef %fn, ptr noundef %data_free_func) #23
+  tail call void @g_free(ptr noundef %call1) #23
   ret void
 }
 
@@ -2094,9 +2094,9 @@ declare void @g_test_add_data_func_full(ptr noundef, ptr noundef, ptr noundef, p
 define dso_local void @qtest_add_data_func(ptr noundef %str, ptr noundef %data, ptr noundef %fn) local_unnamed_addr #1 {
 entry:
   %call = tail call ptr @qtest_get_arch()
-  %call1 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.49, ptr noundef %call, ptr noundef %str) #20
-  tail call void @g_test_add_data_func(ptr noundef %call1, ptr noundef %data, ptr noundef %fn) #20
-  tail call void @g_free(ptr noundef %call1) #20
+  %call1 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.49, ptr noundef %call, ptr noundef %str) #23
+  tail call void @g_test_add_data_func(ptr noundef %call1, ptr noundef %data, ptr noundef %fn) #23
+  tail call void @g_free(ptr noundef %call1) #23
   ret void
 }
 
@@ -2105,16 +2105,16 @@ declare void @g_test_add_data_func(ptr noundef, ptr noundef, ptr noundef) local_
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qtest_bufwrite(ptr noundef %s, i64 noundef %addr, ptr noundef %data, i64 noundef %size) local_unnamed_addr #1 {
 entry:
-  %call = tail call noalias ptr @g_base64_encode(ptr noundef %data, i64 noundef %size) #20
+  %call = tail call noalias ptr @g_base64_encode(ptr noundef %data, i64 noundef %size) #23
   tail call void (ptr, ptr, ...) @qtest_sendf(ptr noundef %s, ptr noundef nonnull @.str.50, i64 noundef %addr, i64 noundef %size)
   %ops = getelementptr inbounds i8, ptr %s, i64 288
   %0 = load ptr, ptr %ops, align 8
-  tail call void %0(ptr noundef %s, ptr noundef %call) #20
+  tail call void %0(ptr noundef %s, ptr noundef %call) #23
   %1 = load ptr, ptr %ops, align 8
-  tail call void %1(ptr noundef %s, ptr noundef nonnull @.str.51) #20
+  tail call void %1(ptr noundef %s, ptr noundef nonnull @.str.51) #23
   %call.i = tail call fastcc ptr @qtest_rsp_args(ptr noundef %s, i32 noundef 0)
-  tail call void @g_strfreev(ptr noundef %call.i) #20
-  tail call void @g_free(ptr noundef %call) #20
+  tail call void @g_strfreev(ptr noundef %call.i) #23
+  tail call void @g_free(ptr noundef %call) #23
   ret void
 }
 
@@ -2128,14 +2128,14 @@ entry:
   %call = tail call fastcc ptr @qtest_rsp_args(ptr noundef %s, i32 noundef 2)
   %arrayidx = getelementptr i8, ptr %call, i64 8
   %0 = load ptr, ptr %arrayidx, align 8
-  %call1 = call ptr @g_base64_decode_inplace(ptr noundef %0, ptr noundef nonnull %len) #20
+  %call1 = call ptr @g_base64_decode_inplace(ptr noundef %0, ptr noundef nonnull %len) #23
   %1 = load i64, ptr %len, align 8
   %cmp.not = icmp eq i64 %1, %size
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %2 = load ptr, ptr @stderr, align 8
-  %call2 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.53, i64 noundef %size, i64 noundef %1) #23
+  %call2 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.53, i64 noundef %size, i64 noundef %1) #26
   %3 = load i64, ptr %len, align 8
   %cond = call i64 @llvm.umin.i64(i64 %3, i64 %size)
   store i64 %cond, ptr %len, align 8
@@ -2145,7 +2145,7 @@ if.end:                                           ; preds = %if.then, %entry
   %4 = phi i64 [ %cond, %if.then ], [ %size, %entry ]
   %5 = load ptr, ptr %arrayidx, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %data, ptr align 1 %5, i64 %4, i1 false)
-  call void @g_strfreev(ptr noundef nonnull %call) #20
+  call void @g_strfreev(ptr noundef nonnull %call) #23
   ret void
 }
 
@@ -2160,7 +2160,7 @@ entry:
 if.end:                                           ; preds = %entry
   %mul = shl i64 %size, 1
   %add = or disjoint i64 %mul, 1
-  %call = tail call noalias ptr @g_malloc(i64 noundef %add) #25
+  %call = tail call noalias ptr @g_malloc(i64 noundef %add) #29
   br label %for.body
 
 for.body:                                         ; preds = %if.end, %for.body
@@ -2170,7 +2170,7 @@ for.body:                                         ; preds = %if.end, %for.body
   %arrayidx2 = getelementptr i8, ptr %data, i64 %i.010
   %0 = load i8, ptr %arrayidx2, align 1
   %conv = zext i8 %0 to i32
-  %call3 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %arrayidx, ptr noundef nonnull dereferenceable(1) @.str.54, i32 noundef %conv) #20
+  %call3 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %arrayidx, ptr noundef nonnull dereferenceable(1) @.str.54, i32 noundef %conv) #23
   %inc = add nuw i64 %i.010, 1
   %exitcond.not = icmp eq i64 %inc, %size
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !15
@@ -2178,8 +2178,8 @@ for.body:                                         ; preds = %if.end, %for.body
 for.end:                                          ; preds = %for.body
   tail call void (ptr, ptr, ...) @qtest_sendf(ptr noundef %s, ptr noundef nonnull @.str.55, i64 noundef %addr, i64 noundef %size, ptr noundef %call)
   %call.i = tail call fastcc ptr @qtest_rsp_args(ptr noundef %s, i32 noundef 0)
-  tail call void @g_strfreev(ptr noundef %call.i) #20
-  tail call void @g_free(ptr noundef %call) #20
+  tail call void @g_strfreev(ptr noundef %call.i) #23
+  tail call void @g_free(ptr noundef %call) #23
   br label %return
 
 return:                                           ; preds = %entry, %for.end
@@ -2187,7 +2187,7 @@ return:                                           ; preds = %entry, %for.end
 }
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #11
+declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
@@ -2198,7 +2198,7 @@ entry:
   %conv = zext i8 %pattern to i32
   tail call void (ptr, ptr, ...) @qtest_sendf(ptr noundef %s, ptr noundef nonnull @.str.56, i64 noundef %addr, i64 noundef %size, i32 noundef %conv)
   %call.i = tail call fastcc ptr @qtest_rsp_args(ptr noundef %s, i32 noundef 0)
-  tail call void @g_strfreev(ptr noundef %call.i) #20
+  tail call void @g_strfreev(ptr noundef %call.i) #23
   ret void
 }
 
@@ -2207,47 +2207,47 @@ define dso_local ptr @qtest_vqmp_assert_failure_ref(ptr noundef %qts, ptr nounde
 entry:
   %qmp_fd.i.i = getelementptr inbounds i8, ptr %qts, i64 4
   %0 = load i32, ptr %qmp_fd.i.i, align 4
-  tail call void @qmp_fd_vsend(i32 noundef %0, ptr noundef %fmt, ptr noundef %args) #20
+  tail call void @qmp_fd_vsend(i32 noundef %0, ptr noundef %fmt, ptr noundef %args) #23
   %call.i = tail call noundef ptr @qtest_qmp_receive(ptr noundef %qts)
   %tobool.not = icmp eq ptr %call.i, null
   br i1 %tobool.not, label %if.else, label %do.end
 
 if.else:                                          ; preds = %entry
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1292, ptr noundef nonnull @__func__.qtest_vqmp_assert_failure_ref, ptr noundef nonnull @.str.57) #22
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1292, ptr noundef nonnull @__func__.qtest_vqmp_assert_failure_ref, ptr noundef nonnull @.str.57) #25
   unreachable
 
 do.end:                                           ; preds = %entry
-  %call1 = tail call i32 @qdict_haskey(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.58) #20
+  %call1 = tail call i32 @qdict_haskey(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.58) #23
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %glib_autoptr_cleanup_GString.exit, label %do.body8
 
 glib_autoptr_cleanup_GString.exit:                ; preds = %do.end
-  %call6 = tail call ptr @qobject_to_json_pretty(ptr noundef nonnull %call.i, i1 noundef zeroext true) #20
+  %call6 = tail call ptr @qobject_to_json_pretty(ptr noundef nonnull %call.i, i1 noundef zeroext true) #23
   %1 = load ptr, ptr %call6, align 8
-  tail call void (ptr, ...) @g_test_message(ptr noundef nonnull @.str.11, ptr noundef %1) #20
-  %call.i.i.i = tail call ptr @g_string_free(ptr noundef nonnull %call6, i32 noundef 1) #20
+  tail call void (ptr, ...) @g_test_message(ptr noundef nonnull @.str.11, ptr noundef %1) #23
+  %call.i.i.i = tail call ptr @g_string_free(ptr noundef nonnull %call6, i32 noundef 1) #23
   br label %do.body8
 
 do.body8:                                         ; preds = %do.end, %glib_autoptr_cleanup_GString.exit
-  %call9 = tail call i32 @qdict_haskey(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.58) #20
+  %call9 = tail call i32 @qdict_haskey(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.58) #23
   %tobool10.not = icmp eq i32 %call9, 0
   br i1 %tobool10.not, label %if.else12, label %do.body15
 
 if.else12:                                        ; preds = %do.body8
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1297, ptr noundef nonnull @__func__.qtest_vqmp_assert_failure_ref, ptr noundef nonnull @.str.59) #22
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1297, ptr noundef nonnull @__func__.qtest_vqmp_assert_failure_ref, ptr noundef nonnull @.str.59) #25
   unreachable
 
 do.body15:                                        ; preds = %do.body8
-  %call16 = tail call i32 @qdict_haskey(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.14) #20
+  %call16 = tail call i32 @qdict_haskey(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.14) #23
   %tobool17.not = icmp eq i32 %call16, 0
   br i1 %tobool17.not, label %do.end21, label %if.else19
 
 if.else19:                                        ; preds = %do.body15
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1298, ptr noundef nonnull @__func__.qtest_vqmp_assert_failure_ref, ptr noundef nonnull @.str.60) #22
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1298, ptr noundef nonnull @__func__.qtest_vqmp_assert_failure_ref, ptr noundef nonnull @.str.60) #25
   unreachable
 
 do.end21:                                         ; preds = %do.body15
-  %call22 = tail call ptr @qdict_get_qdict(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.58) #20
+  %call22 = tail call ptr @qdict_get_qdict(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.58) #23
   %tobool24.not = icmp eq ptr %call22, null
   br i1 %tobool24.not, label %lor.lhs.false.i, label %if.then.i
 
@@ -2265,7 +2265,7 @@ lor.lhs.false.i:                                  ; preds = %if.then.i, %do.end2
   br i1 %tobool1.not.i, label %if.else.i, label %land.lhs.true.i
 
 if.else.i:                                        ; preds = %lor.lhs.false.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.123, ptr noundef nonnull @.str.124, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.123, ptr noundef nonnull @.str.124, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #25
   unreachable
 
 land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
@@ -2275,7 +2275,7 @@ land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
   br i1 %cmp.i, label %if.then5.i, label %qobject_unref_impl.exit
 
 if.then5.i:                                       ; preds = %land.lhs.true.i
-  tail call void @qobject_destroy(ptr noundef nonnull %call.i) #20
+  tail call void @qobject_destroy(ptr noundef nonnull %call.i) #23
   br label %qobject_unref_impl.exit
 
 qobject_unref_impl.exit:                          ; preds = %land.lhs.true.i, %if.then5.i
@@ -2293,38 +2293,38 @@ define dso_local ptr @qtest_vqmp_assert_success_ref(ptr noundef %qts, ptr nounde
 entry:
   %qmp_fd.i.i = getelementptr inbounds i8, ptr %qts, i64 4
   %0 = load i32, ptr %qmp_fd.i.i, align 4
-  tail call void @qmp_fd_vsend(i32 noundef %0, ptr noundef %fmt, ptr noundef %args) #20
+  tail call void @qmp_fd_vsend(i32 noundef %0, ptr noundef %fmt, ptr noundef %args) #23
   %call.i = tail call noundef ptr @qtest_qmp_receive(ptr noundef %qts)
   %tobool.not = icmp eq ptr %call.i, null
   br i1 %tobool.not, label %if.else, label %do.end
 
 if.else:                                          ; preds = %entry
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1314, ptr noundef nonnull @__func__.qtest_vqmp_assert_success_ref, ptr noundef nonnull @.str.57) #22
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1314, ptr noundef nonnull @__func__.qtest_vqmp_assert_success_ref, ptr noundef nonnull @.str.57) #25
   unreachable
 
 do.end:                                           ; preds = %entry
-  %call1 = tail call i32 @qdict_haskey(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.14) #20
+  %call1 = tail call i32 @qdict_haskey(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.14) #23
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %glib_autoptr_cleanup_GString.exit, label %do.body8
 
 glib_autoptr_cleanup_GString.exit:                ; preds = %do.end
-  %call6 = tail call ptr @qobject_to_json_pretty(ptr noundef nonnull %call.i, i1 noundef zeroext true) #20
+  %call6 = tail call ptr @qobject_to_json_pretty(ptr noundef nonnull %call.i, i1 noundef zeroext true) #23
   %1 = load ptr, ptr %call6, align 8
-  tail call void (ptr, ...) @g_test_message(ptr noundef nonnull @.str.11, ptr noundef %1) #20
-  %call.i.i.i = tail call ptr @g_string_free(ptr noundef nonnull %call6, i32 noundef 1) #20
+  tail call void (ptr, ...) @g_test_message(ptr noundef nonnull @.str.11, ptr noundef %1) #23
+  %call.i.i.i = tail call ptr @g_string_free(ptr noundef nonnull %call6, i32 noundef 1) #23
   br label %do.body8
 
 do.body8:                                         ; preds = %do.end, %glib_autoptr_cleanup_GString.exit
-  %call9 = tail call i32 @qdict_haskey(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.14) #20
+  %call9 = tail call i32 @qdict_haskey(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.14) #23
   %tobool10.not = icmp eq i32 %call9, 0
   br i1 %tobool10.not, label %if.else12, label %do.end14
 
 if.else12:                                        ; preds = %do.body8
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1319, ptr noundef nonnull @__func__.qtest_vqmp_assert_success_ref, ptr noundef nonnull @.str.61) #22
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1319, ptr noundef nonnull @__func__.qtest_vqmp_assert_success_ref, ptr noundef nonnull @.str.61) #25
   unreachable
 
 do.end14:                                         ; preds = %do.body8
-  %call15 = tail call ptr @qdict_get_qdict(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.14) #20
+  %call15 = tail call ptr @qdict_get_qdict(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.14) #23
   %tobool17.not = icmp eq ptr %call15, null
   br i1 %tobool17.not, label %lor.lhs.false.i, label %if.then.i
 
@@ -2342,7 +2342,7 @@ lor.lhs.false.i:                                  ; preds = %if.then.i, %do.end1
   br i1 %tobool1.not.i, label %if.else.i, label %land.lhs.true.i
 
 if.else.i:                                        ; preds = %lor.lhs.false.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.123, ptr noundef nonnull @.str.124, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.123, ptr noundef nonnull @.str.124, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #25
   unreachable
 
 land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
@@ -2352,7 +2352,7 @@ land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
   br i1 %cmp.i, label %if.then5.i, label %qobject_unref_impl.exit
 
 if.then5.i:                                       ; preds = %land.lhs.true.i
-  tail call void @qobject_destroy(ptr noundef nonnull %call.i) #20
+  tail call void @qobject_destroy(ptr noundef nonnull %call.i) #23
   br label %qobject_unref_impl.exit
 
 qobject_unref_impl.exit:                          ; preds = %land.lhs.true.i, %if.then5.i
@@ -2373,7 +2373,7 @@ lor.lhs.false.i:                                  ; preds = %entry
   br i1 %tobool1.not.i, label %if.else.i, label %land.lhs.true.i
 
 if.else.i:                                        ; preds = %lor.lhs.false.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.123, ptr noundef nonnull @.str.124, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.123, ptr noundef nonnull @.str.124, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #25
   unreachable
 
 land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
@@ -2383,7 +2383,7 @@ land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
   br i1 %cmp.i, label %if.then5.i, label %qobject_unref_impl.exit
 
 if.then5.i:                                       ; preds = %land.lhs.true.i
-  tail call void @qobject_destroy(ptr noundef nonnull %call) #20
+  tail call void @qobject_destroy(ptr noundef nonnull %call) #23
   br label %qobject_unref_impl.exit
 
 qobject_unref_impl.exit:                          ; preds = %entry, %land.lhs.true.i, %if.then5.i
@@ -2395,38 +2395,38 @@ define dso_local ptr @qtest_vqmp_fds_assert_success_ref(ptr noundef %qts, ptr no
 entry:
   %qmp_fd.i.i = getelementptr inbounds i8, ptr %qts, i64 4
   %0 = load i32, ptr %qmp_fd.i.i, align 4
-  tail call void @qmp_fd_vsend_fds(i32 noundef %0, ptr noundef %fds, i64 noundef %nfds, ptr noundef %fmt, ptr noundef %args) #20
+  tail call void @qmp_fd_vsend_fds(i32 noundef %0, ptr noundef %fds, i64 noundef %nfds, ptr noundef %fmt, ptr noundef %args) #23
   %call.i = tail call noundef ptr @qtest_qmp_receive(ptr noundef %qts)
   %tobool.not = icmp eq ptr %call.i, null
   br i1 %tobool.not, label %if.else, label %do.end
 
 if.else:                                          ; preds = %entry
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1346, ptr noundef nonnull @__func__.qtest_vqmp_fds_assert_success_ref, ptr noundef nonnull @.str.57) #22
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1346, ptr noundef nonnull @__func__.qtest_vqmp_fds_assert_success_ref, ptr noundef nonnull @.str.57) #25
   unreachable
 
 do.end:                                           ; preds = %entry
-  %call1 = tail call i32 @qdict_haskey(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.14) #20
+  %call1 = tail call i32 @qdict_haskey(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.14) #23
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %glib_autoptr_cleanup_GString.exit, label %do.body8
 
 glib_autoptr_cleanup_GString.exit:                ; preds = %do.end
-  %call6 = tail call ptr @qobject_to_json_pretty(ptr noundef nonnull %call.i, i1 noundef zeroext true) #20
+  %call6 = tail call ptr @qobject_to_json_pretty(ptr noundef nonnull %call.i, i1 noundef zeroext true) #23
   %1 = load ptr, ptr %call6, align 8
-  tail call void (ptr, ...) @g_test_message(ptr noundef nonnull @.str.11, ptr noundef %1) #20
-  %call.i.i.i = tail call ptr @g_string_free(ptr noundef nonnull %call6, i32 noundef 1) #20
+  tail call void (ptr, ...) @g_test_message(ptr noundef nonnull @.str.11, ptr noundef %1) #23
+  %call.i.i.i = tail call ptr @g_string_free(ptr noundef nonnull %call6, i32 noundef 1) #23
   br label %do.body8
 
 do.body8:                                         ; preds = %do.end, %glib_autoptr_cleanup_GString.exit
-  %call9 = tail call i32 @qdict_haskey(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.14) #20
+  %call9 = tail call i32 @qdict_haskey(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.14) #23
   %tobool10.not = icmp eq i32 %call9, 0
   br i1 %tobool10.not, label %if.else12, label %do.end14
 
 if.else12:                                        ; preds = %do.body8
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1351, ptr noundef nonnull @__func__.qtest_vqmp_fds_assert_success_ref, ptr noundef nonnull @.str.61) #22
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1351, ptr noundef nonnull @__func__.qtest_vqmp_fds_assert_success_ref, ptr noundef nonnull @.str.61) #25
   unreachable
 
 do.end14:                                         ; preds = %do.body8
-  %call15 = tail call ptr @qdict_get_qdict(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.14) #20
+  %call15 = tail call ptr @qdict_get_qdict(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.14) #23
   %tobool17.not = icmp eq ptr %call15, null
   br i1 %tobool17.not, label %lor.lhs.false.i, label %if.then.i
 
@@ -2444,7 +2444,7 @@ lor.lhs.false.i:                                  ; preds = %if.then.i, %do.end1
   br i1 %tobool1.not.i, label %if.else.i, label %land.lhs.true.i
 
 if.else.i:                                        ; preds = %lor.lhs.false.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.123, ptr noundef nonnull @.str.124, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.123, ptr noundef nonnull @.str.124, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #25
   unreachable
 
 land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
@@ -2454,7 +2454,7 @@ land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
   br i1 %cmp.i, label %if.then5.i, label %qobject_unref_impl.exit
 
 if.then5.i:                                       ; preds = %land.lhs.true.i
-  tail call void @qobject_destroy(ptr noundef nonnull %call.i) #20
+  tail call void @qobject_destroy(ptr noundef nonnull %call.i) #23
   br label %qobject_unref_impl.exit
 
 qobject_unref_impl.exit:                          ; preds = %land.lhs.true.i, %if.then5.i
@@ -2475,7 +2475,7 @@ lor.lhs.false.i:                                  ; preds = %entry
   br i1 %tobool1.not.i, label %if.else.i, label %land.lhs.true.i
 
 if.else.i:                                        ; preds = %lor.lhs.false.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.123, ptr noundef nonnull @.str.124, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.123, ptr noundef nonnull @.str.124, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #25
   unreachable
 
 land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
@@ -2485,7 +2485,7 @@ land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
   br i1 %cmp.i, label %if.then5.i, label %qobject_unref_impl.exit
 
 if.then5.i:                                       ; preds = %land.lhs.true.i
-  tail call void @qobject_destroy(ptr noundef nonnull %call) #20
+  tail call void @qobject_destroy(ptr noundef nonnull %call) #23
   br label %qobject_unref_impl.exit
 
 qobject_unref_impl.exit:                          ; preds = %entry, %land.lhs.true.i, %if.then5.i
@@ -2528,7 +2528,7 @@ lor.lhs.false.i.i:                                ; preds = %entry
   br i1 %tobool1.not.i.i, label %if.else.i.i, label %land.lhs.true.i.i
 
 if.else.i.i:                                      ; preds = %lor.lhs.false.i.i
-  call void @__assert_fail(ptr noundef nonnull @.str.123, ptr noundef nonnull @.str.124, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #22
+  call void @__assert_fail(ptr noundef nonnull @.str.123, ptr noundef nonnull @.str.124, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #25
   unreachable
 
 land.lhs.true.i.i:                                ; preds = %lor.lhs.false.i.i
@@ -2538,7 +2538,7 @@ land.lhs.true.i.i:                                ; preds = %lor.lhs.false.i.i
   br i1 %cmp.i.i, label %if.then5.i.i, label %qtest_vqmp_assert_success.exit
 
 if.then5.i.i:                                     ; preds = %land.lhs.true.i.i
-  call void @qobject_destroy(ptr noundef nonnull %call.i) #20
+  call void @qobject_destroy(ptr noundef nonnull %call.i) #23
   br label %qtest_vqmp_assert_success.exit
 
 qtest_vqmp_assert_success.exit:                   ; preds = %entry, %land.lhs.true.i.i, %if.then5.i.i
@@ -2572,7 +2572,7 @@ lor.lhs.false.i.i:                                ; preds = %entry
   br i1 %tobool1.not.i.i, label %if.else.i.i, label %land.lhs.true.i.i
 
 if.else.i.i:                                      ; preds = %lor.lhs.false.i.i
-  call void @__assert_fail(ptr noundef nonnull @.str.123, ptr noundef nonnull @.str.124, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #22
+  call void @__assert_fail(ptr noundef nonnull @.str.123, ptr noundef nonnull @.str.124, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #25
   unreachable
 
 land.lhs.true.i.i:                                ; preds = %lor.lhs.false.i.i
@@ -2582,7 +2582,7 @@ land.lhs.true.i.i:                                ; preds = %lor.lhs.false.i.i
   br i1 %cmp.i.i, label %if.then5.i.i, label %qtest_vqmp_fds_assert_success.exit
 
 if.then5.i.i:                                     ; preds = %land.lhs.true.i.i
-  call void @qobject_destroy(ptr noundef nonnull %call.i) #20
+  call void @qobject_destroy(ptr noundef nonnull %call.i) #23
   br label %qtest_vqmp_fds_assert_success.exit
 
 qtest_vqmp_fds_assert_success.exit:               ; preds = %entry, %land.lhs.true.i.i, %if.then5.i.i
@@ -2614,25 +2614,25 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %1 = phi ptr [ %9, %for.inc.us ], [ %0, %for.body.lr.ph ]
   %arrayidx18.us = phi ptr [ %arrayidx.us, %for.inc.us ], [ %call, %for.body.lr.ph ]
   %i.017.us = phi i32 [ %inc.us, %for.inc.us ], [ 0, %for.body.lr.ph ]
-  %call4.us = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str.62, ptr noundef nonnull dereferenceable(1) %1, i64 noundef 5) #24
+  %call4.us = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str.62, ptr noundef nonnull dereferenceable(1) %1, i64 noundef 5) #28
   %tobool.not.us = icmp eq i32 %call4.us, 0
   br i1 %tobool.not.us, label %for.inc.us, label %lor.lhs.false.us
 
 lor.lhs.false.us:                                 ; preds = %for.body.us
-  %call8.us = tail call i32 @g_str_equal(ptr noundef nonnull @.str.63, ptr noundef nonnull %1) #20
+  %call8.us = tail call i32 @g_str_equal(ptr noundef nonnull @.str.63, ptr noundef nonnull %1) #23
   %tobool9.not.us = icmp eq i32 %call8.us, 0
   br i1 %tobool9.not.us, label %lor.lhs.false10.us, label %for.inc.us
 
 lor.lhs.false10.us:                               ; preds = %lor.lhs.false.us
   %2 = load ptr, ptr %arrayidx18.us, align 8
-  %call14.us = tail call i32 @g_str_equal(ptr noundef nonnull @.str.64, ptr noundef %2) #20
+  %call14.us = tail call i32 @g_str_equal(ptr noundef nonnull @.str.64, ptr noundef %2) #23
   %tobool15.not.us = icmp eq i32 %call14.us, 0
   br i1 %tobool15.not.us, label %if.end.us, label %for.inc.us
 
 if.end.us:                                        ; preds = %lor.lhs.false10.us
   %3 = load ptr, ptr %arrayidx18.us, align 8
-  %call.i.us = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %3, i32 noundef 45) #24
-  %call1.i.us = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %3, i32 noundef 46) #24
+  %call.i.us = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %3, i32 noundef 45) #28
+  %call1.i.us = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %3, i32 noundef 46) #28
   %tobool.i.us = icmp ne ptr %call.i.us, null
   %cmp.i.us = icmp ugt ptr %call1.i.us, %call.i.us
   %or.cond18.i.us = select i1 %tobool.i.us, i1 %cmp.i.us, i1 false
@@ -2646,7 +2646,7 @@ for.cond.i.us:                                    ; preds = %if.end.us, %for.bod
   br i1 %tobool4.not.i.us, label %for.end.i.us, label %for.body.i.us
 
 for.body.i.us:                                    ; preds = %for.cond.i.us
-  %call5.i.us = tail call ptr @__ctype_b_loc() #21
+  %call5.i.us = tail call ptr @__ctype_b_loc() #24
   %5 = load ptr, ptr %call5.i.us, align 8
   %idxprom.i.us = zext i8 %4 to i64
   %arrayidx.i.us = getelementptr i16, ptr %5, i64 %idxprom.i.us
@@ -2658,40 +2658,40 @@ for.body.i.us:                                    ; preds = %for.cond.i.us
   br i1 %or.cond19.i.us, label %for.cond.i.us, label %if.then22.us, !llvm.loop !16
 
 for.end.i.us:                                     ; preds = %for.cond.i.us
-  %call13.i.us = tail call noalias ptr @g_strdup(ptr noundef %3) #20
+  %call13.i.us = tail call noalias ptr @g_strdup(ptr noundef %3) #23
   %sub.ptr.lhs.cast.i.us = ptrtoint ptr %call.i.us to i64
   %sub.ptr.rhs.cast.i.us = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i.us = sub i64 %sub.ptr.lhs.cast.i.us, %sub.ptr.rhs.cast.i.us
   %arrayidx14.i.us = getelementptr i8, ptr %call13.i.us, i64 %sub.ptr.sub.i.us
   store i8 0, ptr %arrayidx14.i.us, align 1
-  %call.i.i.us = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.151, ptr noundef %call13.i.us, i32 noundef 9, i32 noundef 0) #20
-  %call1.i.i.us = tail call i32 @g_str_equal(ptr noundef %3, ptr noundef %call.i.i.us) #20
+  %call.i.i.us = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.151, ptr noundef %call13.i.us, i32 noundef 9, i32 noundef 0) #23
+  %call1.i.i.us = tail call i32 @g_str_equal(ptr noundef %3, ptr noundef %call.i.i.us) #23
   %tobool.i.not.i.us = icmp eq i32 %call1.i.i.us, 0
-  tail call void @g_free(ptr noundef %call.i.i.us) #20
+  tail call void @g_free(ptr noundef %call.i.i.us) #23
   br i1 %tobool.i.not.i.us, label %land.lhs.true16.i.us, label %qtest_is_old_versioned_machine.exit.thread14.us
 
 land.lhs.true16.i.us:                             ; preds = %for.end.i.us
-  %call.i20.i.us = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.151, ptr noundef nonnull %call13.i.us, i32 noundef 8, i32 noundef 2) #20
-  %call1.i21.i.us = tail call i32 @g_str_equal(ptr noundef %3, ptr noundef %call.i20.i.us) #20
+  %call.i20.i.us = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.151, ptr noundef nonnull %call13.i.us, i32 noundef 8, i32 noundef 2) #23
+  %call1.i21.i.us = tail call i32 @g_str_equal(ptr noundef %3, ptr noundef %call.i20.i.us) #23
   %tobool.i22.not.i.us = icmp eq i32 %call1.i21.i.us, 0
-  tail call void @g_free(ptr noundef %call.i20.i.us) #20
+  tail call void @g_free(ptr noundef %call.i20.i.us) #23
   br i1 %tobool.i22.not.i.us, label %qtest_is_old_versioned_machine.exit.us, label %qtest_is_old_versioned_machine.exit.thread14.us
 
 qtest_is_old_versioned_machine.exit.thread14.us:  ; preds = %land.lhs.true16.i.us, %for.end.i.us
-  tail call void @g_free(ptr noundef nonnull %call13.i.us) #20
+  tail call void @g_free(ptr noundef nonnull %call13.i.us) #23
   br label %if.then22.us
 
 qtest_is_old_versioned_machine.exit.us:           ; preds = %land.lhs.true16.i.us
-  %call.i23.i.us = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.151, ptr noundef nonnull %call13.i.us, i32 noundef 8, i32 noundef 1) #20
-  %call1.i24.i.us = tail call i32 @g_str_equal(ptr noundef %3, ptr noundef %call.i23.i.us) #20
+  %call.i23.i.us = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.151, ptr noundef nonnull %call13.i.us, i32 noundef 8, i32 noundef 1) #23
+  %call1.i24.i.us = tail call i32 @g_str_equal(ptr noundef %3, ptr noundef %call.i23.i.us) #23
   %tobool.i25.not.i.us = icmp eq i32 %call1.i24.i.us, 0
-  tail call void @g_free(ptr noundef %call.i23.i.us) #20
-  tail call void @g_free(ptr noundef nonnull %call13.i.us) #20
+  tail call void @g_free(ptr noundef %call.i23.i.us) #23
+  tail call void @g_free(ptr noundef nonnull %call13.i.us) #23
   br i1 %tobool.i25.not.i.us, label %for.inc.us, label %if.then22.us
 
 if.then22.us:                                     ; preds = %for.body.i.us, %qtest_is_old_versioned_machine.exit.us, %qtest_is_old_versioned_machine.exit.thread14.us, %if.end.us
   %8 = load ptr, ptr %arrayidx18.us, align 8
-  tail call void %cb(ptr noundef %8) #20
+  tail call void %cb(ptr noundef %8) #23
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %if.then22.us, %qtest_is_old_versioned_machine.exit.us, %lor.lhs.false10.us, %lor.lhs.false.us, %for.body.us
@@ -2706,24 +2706,24 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %10 = phi ptr [ %13, %for.inc ], [ %0, %for.body.lr.ph ]
   %arrayidx18 = phi ptr [ %arrayidx, %for.inc ], [ %call, %for.body.lr.ph ]
   %i.017 = phi i32 [ %inc, %for.inc ], [ 0, %for.body.lr.ph ]
-  %call4 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str.62, ptr noundef nonnull dereferenceable(1) %10, i64 noundef 5) #24
+  %call4 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str.62, ptr noundef nonnull dereferenceable(1) %10, i64 noundef 5) #28
   %tobool.not = icmp eq i32 %call4, 0
   br i1 %tobool.not, label %for.inc, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %for.body
-  %call8 = tail call i32 @g_str_equal(ptr noundef nonnull @.str.63, ptr noundef nonnull %10) #20
+  %call8 = tail call i32 @g_str_equal(ptr noundef nonnull @.str.63, ptr noundef nonnull %10) #23
   %tobool9.not = icmp eq i32 %call8, 0
   br i1 %tobool9.not, label %lor.lhs.false10, label %for.inc
 
 lor.lhs.false10:                                  ; preds = %lor.lhs.false
   %11 = load ptr, ptr %arrayidx18, align 8
-  %call14 = tail call i32 @g_str_equal(ptr noundef nonnull @.str.64, ptr noundef %11) #20
+  %call14 = tail call i32 @g_str_equal(ptr noundef nonnull @.str.64, ptr noundef %11) #23
   %tobool15.not = icmp eq i32 %call14, 0
   br i1 %tobool15.not, label %if.end, label %for.inc
 
 if.end:                                           ; preds = %lor.lhs.false10
   %12 = load ptr, ptr %arrayidx18, align 8
-  tail call void %cb(ptr noundef %12) #20
+  tail call void %cb(ptr noundef %12) #23
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end, %for.body, %lor.lhs.false, %lor.lhs.false10
@@ -2742,12 +2742,12 @@ for.end:                                          ; preds = %for.inc, %for.inc.u
 define internal fastcc ptr @qtest_get_machines(ptr noundef %var) unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr @qtest_get_machines.qemu_var, align 8
-  %call = tail call i32 @g_strcmp0(ptr noundef %0, ptr noundef %var) #20
+  %call = tail call i32 @g_strcmp0(ptr noundef %0, ptr noundef %var) #23
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call1 = tail call noalias ptr @g_strdup(ptr noundef %var) #20
+  %call1 = tail call noalias ptr @g_strdup(ptr noundef %var) #23
   store ptr %call1, ptr @qtest_get_machines.qemu_var, align 8
   %1 = load ptr, ptr @qtest_get_machines.machines, align 8
   %tobool.not.i = icmp eq ptr %1, null
@@ -2762,10 +2762,10 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   %3 = phi ptr [ %5, %for.body.i ], [ %2, %for.cond.preheader.i ]
   %arrayidx10.i = phi ptr [ %arrayidx.i, %for.body.i ], [ %1, %for.cond.preheader.i ]
   %i.09.i = phi i32 [ %inc.i, %for.body.i ], [ 0, %for.cond.preheader.i ]
-  tail call void @g_free(ptr noundef nonnull %3) #20
+  tail call void @g_free(ptr noundef nonnull %3) #23
   %alias.i = getelementptr inbounds i8, ptr %arrayidx10.i, i64 8
   %4 = load ptr, ptr %alias.i, align 8
-  tail call void @g_free(ptr noundef %4) #20
+  tail call void @g_free(ptr noundef %4) #23
   %inc.i = add i32 %i.09.i, 1
   %idxprom.i = sext i32 %inc.i to i64
   %arrayidx.i = getelementptr %struct.MachInfo, ptr %1, i64 %idxprom.i
@@ -2774,7 +2774,7 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   br i1 %cmp.not.i, label %for.end.i, label %for.body.i, !llvm.loop !18
 
 for.end.i:                                        ; preds = %for.body.i, %for.cond.preheader.i
-  tail call void @g_free(ptr noundef nonnull %1) #20
+  tail call void @g_free(ptr noundef nonnull %1) #23
   br label %if.end.thread
 
 if.end.thread:                                    ; preds = %for.end.i, %if.then
@@ -2800,22 +2800,22 @@ if.end4:                                          ; preds = %if.end.thread, %if.
   br i1 %tobool8.not, label %if.else, label %do.end
 
 if.else:                                          ; preds = %if.end4
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1518, ptr noundef nonnull @__func__.qtest_get_machines, ptr noundef nonnull @.str.57) #22
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1518, ptr noundef nonnull @__func__.qtest_get_machines, ptr noundef nonnull @.str.57) #25
   unreachable
 
 do.end:                                           ; preds = %if.end4
-  %call11 = tail call ptr @qdict_get_qlist(ptr noundef nonnull %call7, ptr noundef nonnull @.str.14) #20
+  %call11 = tail call ptr @qdict_get_qlist(ptr noundef nonnull %call7, ptr noundef nonnull @.str.14) #23
   %tobool13.not = icmp eq ptr %call11, null
   br i1 %tobool13.not, label %if.else15, label %do.end17
 
 if.else15:                                        ; preds = %do.end
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1520, ptr noundef nonnull @__func__.qtest_get_machines, ptr noundef nonnull @.str.148) #22
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1520, ptr noundef nonnull @__func__.qtest_get_machines, ptr noundef nonnull @.str.148) #25
   unreachable
 
 do.end17:                                         ; preds = %do.end
-  %call18 = tail call i64 @qlist_size(ptr noundef nonnull %call11) #20
+  %call18 = tail call i64 @qlist_size(ptr noundef nonnull %call11) #23
   %add = add i64 %call18, 1
-  %call19 = tail call noalias ptr @g_malloc_n(i64 noundef %add, i64 noundef 16) #26
+  %call19 = tail call noalias ptr @g_malloc_n(i64 noundef %add, i64 noundef 16) #30
   store ptr %call19, ptr @qtest_get_machines.machines, align 8
   %9 = getelementptr i8, ptr %call11, i64 16
   %p.062 = load ptr, ptr %9, align 8
@@ -2836,7 +2836,7 @@ land.lhs.true.i:                                  ; preds = %for.body
   br i1 %or.cond.i.i, label %qobject_type.exit.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %land.lhs.true.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.152, ptr noundef nonnull @.str.124, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_type) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.152, ptr noundef nonnull @.str.124, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_type) #25
   unreachable
 
 qobject_type.exit.i:                              ; preds = %land.lhs.true.i
@@ -2844,16 +2844,16 @@ qobject_type.exit.i:                              ; preds = %land.lhs.true.i
   br i1 %cmp.i, label %do.end29, label %if.else27
 
 if.else27:                                        ; preds = %for.body, %qobject_type.exit.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1526, ptr noundef nonnull @__func__.qtest_get_machines, ptr noundef nonnull @.str.149) #22
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1526, ptr noundef nonnull @__func__.qtest_get_machines, ptr noundef nonnull @.str.149) #25
   unreachable
 
 do.end29:                                         ; preds = %qobject_type.exit.i
-  %call30 = tail call ptr @qdict_get(ptr noundef nonnull %p.0.val, ptr noundef nonnull @.str.72) #20
+  %call30 = tail call ptr @qdict_get(ptr noundef nonnull %p.0.val, ptr noundef nonnull @.str.72) #23
   %tobool32.not = icmp eq ptr %call30, null
   br i1 %tobool32.not, label %if.else34, label %land.lhs.true.i25
 
 if.else34:                                        ; preds = %do.end29
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1529, ptr noundef nonnull @__func__.qtest_get_machines, ptr noundef nonnull @.str.73) #22
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1529, ptr noundef nonnull @__func__.qtest_get_machines, ptr noundef nonnull @.str.73) #25
   unreachable
 
 land.lhs.true.i25:                                ; preds = %do.end29
@@ -2863,7 +2863,7 @@ land.lhs.true.i25:                                ; preds = %do.end29
   br i1 %or.cond.i.i27, label %qobject_type.exit.i29, label %if.else.i.i28
 
 if.else.i.i28:                                    ; preds = %land.lhs.true.i25
-  tail call void @__assert_fail(ptr noundef nonnull @.str.152, ptr noundef nonnull @.str.124, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_type) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.152, ptr noundef nonnull @.str.124, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_type) #25
   unreachable
 
 qobject_type.exit.i29:                            ; preds = %land.lhs.true.i25
@@ -2871,17 +2871,17 @@ qobject_type.exit.i29:                            ; preds = %land.lhs.true.i25
   br i1 %cmp.i30, label %do.end43, label %if.else41
 
 if.else41:                                        ; preds = %qobject_type.exit.i29
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1531, ptr noundef nonnull @__func__.qtest_get_machines, ptr noundef nonnull @.str.74) #22
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1531, ptr noundef nonnull @__func__.qtest_get_machines, ptr noundef nonnull @.str.74) #25
   unreachable
 
 do.end43:                                         ; preds = %qobject_type.exit.i29
-  %call44 = tail call ptr @qstring_get_str(ptr noundef nonnull %call30) #20
-  %call45 = tail call noalias ptr @g_strdup(ptr noundef %call44) #20
+  %call44 = tail call ptr @qstring_get_str(ptr noundef nonnull %call30) #23
+  %call45 = tail call noalias ptr @g_strdup(ptr noundef %call44) #23
   %12 = load ptr, ptr @qtest_get_machines.machines, align 8
   %idxprom = sext i32 %idx.064 to i64
   %arrayidx = getelementptr %struct.MachInfo, ptr %12, i64 %idxprom
   store ptr %call45, ptr %arrayidx, align 8
-  %call46 = tail call ptr @qdict_get(ptr noundef nonnull %p.0.val, ptr noundef nonnull @.str.150) #20
+  %call46 = tail call ptr @qdict_get(ptr noundef nonnull %p.0.val, ptr noundef nonnull @.str.150) #23
   %tobool47.not = icmp eq ptr %call46, null
   br i1 %tobool47.not, label %for.inc, label %land.lhs.true.i35
 
@@ -2892,7 +2892,7 @@ land.lhs.true.i35:                                ; preds = %do.end43
   br i1 %or.cond.i.i37, label %qobject_type.exit.i39, label %if.else.i.i38
 
 if.else.i.i38:                                    ; preds = %land.lhs.true.i35
-  tail call void @__assert_fail(ptr noundef nonnull @.str.152, ptr noundef nonnull @.str.124, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_type) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.152, ptr noundef nonnull @.str.124, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_type) #25
   unreachable
 
 qobject_type.exit.i39:                            ; preds = %land.lhs.true.i35
@@ -2900,12 +2900,12 @@ qobject_type.exit.i39:                            ; preds = %land.lhs.true.i35
   br i1 %cmp.i40, label %do.end55, label %if.else53
 
 if.else53:                                        ; preds = %qobject_type.exit.i39
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1537, ptr noundef nonnull @__func__.qtest_get_machines, ptr noundef nonnull @.str.74) #22
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1537, ptr noundef nonnull @__func__.qtest_get_machines, ptr noundef nonnull @.str.74) #25
   unreachable
 
 do.end55:                                         ; preds = %qobject_type.exit.i39
-  %call56 = tail call ptr @qstring_get_str(ptr noundef nonnull %call46) #20
-  %call57 = tail call noalias ptr @g_strdup(ptr noundef %call56) #20
+  %call56 = tail call ptr @qstring_get_str(ptr noundef nonnull %call46) #23
+  %call57 = tail call noalias ptr @g_strdup(ptr noundef %call56) #23
   br label %for.inc
 
 for.inc:                                          ; preds = %do.end43, %do.end55
@@ -2932,7 +2932,7 @@ lor.lhs.false.i:                                  ; preds = %lor.lhs.false.i.loo
   br i1 %tobool1.not.i, label %if.else.i47, label %land.lhs.true.i45
 
 if.else.i47:                                      ; preds = %lor.lhs.false.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.123, ptr noundef nonnull @.str.124, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.123, ptr noundef nonnull @.str.124, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #25
   unreachable
 
 land.lhs.true.i45:                                ; preds = %lor.lhs.false.i
@@ -2942,7 +2942,7 @@ land.lhs.true.i45:                                ; preds = %lor.lhs.false.i
   br i1 %cmp.i46, label %if.then5.i, label %qobject_unref_impl.exit
 
 if.then5.i:                                       ; preds = %land.lhs.true.i45
-  tail call void @qobject_destroy(ptr noundef nonnull %call7) #20
+  tail call void @qobject_destroy(ptr noundef nonnull %call7) #23
   br label %qobject_unref_impl.exit
 
 qobject_unref_impl.exit:                          ; preds = %land.lhs.true.i45, %if.then5.i
@@ -2974,13 +2974,13 @@ for.body:                                         ; preds = %entry, %for.inc
   br i1 %tobool.not, label %for.inc, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.body
-  %call7 = tail call i32 @g_str_equal(ptr noundef %alias, ptr noundef nonnull %1) #20
+  %call7 = tail call i32 @g_str_equal(ptr noundef %alias, ptr noundef nonnull %1) #23
   %tobool8.not = icmp eq i32 %call7, 0
   br i1 %tobool8.not, label %for.inc, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
   %2 = load ptr, ptr %arrayidx11, align 8
-  %call12 = tail call noalias ptr @g_strdup(ptr noundef %2) #20
+  %call12 = tail call noalias ptr @g_strdup(ptr noundef %2) #23
   br label %return
 
 for.inc:                                          ; preds = %for.body, %land.lhs.true
@@ -3008,7 +3008,7 @@ for.body:                                         ; preds = %entry, %for.inc
   %1 = phi ptr [ %3, %for.inc ], [ %0, %entry ]
   %arrayidx12 = phi ptr [ %arrayidx, %for.inc ], [ %call, %entry ]
   %i.011 = phi i32 [ %inc, %for.inc ], [ 0, %entry ]
-  %call4 = tail call i32 @g_str_equal(ptr noundef %machine, ptr noundef nonnull %1) #20
+  %call4 = tail call i32 @g_str_equal(ptr noundef %machine, ptr noundef nonnull %1) #23
   %tobool.not = icmp eq i32 %call4, 0
   br i1 %tobool.not, label %lor.lhs.false, label %return
 
@@ -3019,7 +3019,7 @@ lor.lhs.false:                                    ; preds = %for.body
   br i1 %tobool7.not, label %for.inc, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %lor.lhs.false
-  %call11 = tail call i32 @g_str_equal(ptr noundef %machine, ptr noundef nonnull %2) #20
+  %call11 = tail call i32 @g_str_equal(ptr noundef %machine, ptr noundef nonnull %2) #23
   %tobool12.not = icmp eq i32 %call11, 0
   br i1 %tobool12.not, label %for.inc, label %return
 
@@ -3048,7 +3048,7 @@ for.body.i:                                       ; preds = %entry, %for.inc.i
   %1 = phi ptr [ %3, %for.inc.i ], [ %0, %entry ]
   %arrayidx12.i = phi ptr [ %arrayidx.i, %for.inc.i ], [ %call.i, %entry ]
   %i.011.i = phi i32 [ %inc.i, %for.inc.i ], [ 0, %entry ]
-  %call4.i = tail call i32 @g_str_equal(ptr noundef %machine, ptr noundef nonnull %1) #20
+  %call4.i = tail call i32 @g_str_equal(ptr noundef %machine, ptr noundef nonnull %1) #23
   %tobool.not.i = icmp eq i32 %call4.i, 0
   br i1 %tobool.not.i, label %lor.lhs.false.i, label %qtest_has_machine_with_env.exit
 
@@ -3059,7 +3059,7 @@ lor.lhs.false.i:                                  ; preds = %for.body.i
   br i1 %tobool7.not.i, label %for.inc.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
-  %call11.i = tail call i32 @g_str_equal(ptr noundef %machine, ptr noundef nonnull %2) #20
+  %call11.i = tail call i32 @g_str_equal(ptr noundef %machine, ptr noundef nonnull %2) #23
   %tobool12.not.i = icmp eq i32 %call11.i, 0
   br i1 %tobool12.not.i, label %for.inc.i, label %qtest_has_machine_with_env.exit
 
@@ -3085,20 +3085,20 @@ entry:
 
 if.then:                                          ; preds = %entry
   %call.i = tail call noundef ptr @qtest_init_with_env(ptr noundef null, ptr noundef nonnull @.str.65)
-  %call1 = tail call ptr @qdict_new() #20
-  tail call void @qdict_put_bool(ptr noundef %call1, ptr noundef nonnull @.str.66, i1 noundef zeroext false) #20
-  tail call void @qdict_put_str(ptr noundef %call1, ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68) #20
+  %call1 = tail call ptr @qdict_new() #23
+  tail call void @qdict_put_bool(ptr noundef %call1, ptr noundef nonnull @.str.66, i1 noundef zeroext false) #23
+  tail call void @qdict_put_str(ptr noundef %call1, ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68) #23
   %call2 = tail call ptr (ptr, ptr, ...) @qtest_qmp(ptr noundef %call.i, ptr noundef nonnull @.str.69, ptr noundef %call1)
-  %call3 = tail call i32 @qdict_haskey(ptr noundef %call2, ptr noundef nonnull @.str.14) #20
+  %call3 = tail call i32 @qdict_haskey(ptr noundef %call2, ptr noundef nonnull @.str.14) #23
   %tobool4.not = icmp eq i32 %call3, 0
   br i1 %tobool4.not, label %if.else, label %do.end
 
 if.else:                                          ; preds = %if.then
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1633, ptr noundef nonnull @__func__.qtest_has_device, ptr noundef nonnull @.str.70) #22
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1633, ptr noundef nonnull @__func__.qtest_has_device, ptr noundef nonnull @.str.70) #25
   unreachable
 
 do.end:                                           ; preds = %if.then
-  %call6 = tail call ptr @qdict_get_qlist(ptr noundef %call2, ptr noundef nonnull @.str.14) #20
+  %call6 = tail call ptr @qdict_get_qlist(ptr noundef %call2, ptr noundef nonnull @.str.14) #23
   store ptr %call6, ptr @qtest_has_device.list, align 8
   %tobool7.not = icmp eq ptr %call6, null
   br i1 %tobool7.not, label %qobject_ref_impl.exit, label %if.then.i
@@ -3121,7 +3121,7 @@ lor.lhs.false.i:                                  ; preds = %qobject_ref_impl.ex
   br i1 %tobool1.not.i, label %if.else.i, label %land.lhs.true.i
 
 if.else.i:                                        ; preds = %lor.lhs.false.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.123, ptr noundef nonnull @.str.124, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.123, ptr noundef nonnull @.str.124, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #25
   unreachable
 
 land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
@@ -3131,7 +3131,7 @@ land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
   br i1 %cmp.i, label %if.then5.i, label %qobject_unref_impl.exit
 
 if.then5.i:                                       ; preds = %land.lhs.true.i
-  tail call void @qobject_destroy(ptr noundef nonnull %call2) #20
+  tail call void @qobject_destroy(ptr noundef nonnull %call2) #23
   br label %qobject_unref_impl.exit
 
 qobject_unref_impl.exit:                          ; preds = %qobject_ref_impl.exit, %land.lhs.true.i, %if.then5.i
@@ -3165,7 +3165,7 @@ land.lhs.true.i16:                                ; preds = %for.body
   br i1 %or.cond.i.i, label %qobject_type.exit.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %land.lhs.true.i16
-  tail call void @__assert_fail(ptr noundef nonnull @.str.152, ptr noundef nonnull @.str.124, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_type) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.152, ptr noundef nonnull @.str.124, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_type) #25
   unreachable
 
 qobject_type.exit.i:                              ; preds = %land.lhs.true.i16
@@ -3173,16 +3173,16 @@ qobject_type.exit.i:                              ; preds = %land.lhs.true.i16
   br i1 %cmp.i17, label %do.end30, label %if.else28
 
 if.else28:                                        ; preds = %for.body, %qobject_type.exit.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1643, ptr noundef nonnull @__func__.qtest_has_device, ptr noundef nonnull @.str.71) #22
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1643, ptr noundef nonnull @__func__.qtest_has_device, ptr noundef nonnull @.str.71) #25
   unreachable
 
 do.end30:                                         ; preds = %qobject_type.exit.i
-  %call31 = tail call ptr @qdict_get(ptr noundef nonnull %p.0.val, ptr noundef nonnull @.str.72) #20
+  %call31 = tail call ptr @qdict_get(ptr noundef nonnull %p.0.val, ptr noundef nonnull @.str.72) #23
   %tobool33.not = icmp eq ptr %call31, null
   br i1 %tobool33.not, label %if.else35, label %land.lhs.true.i20
 
 if.else35:                                        ; preds = %do.end30
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1646, ptr noundef nonnull @__func__.qtest_has_device, ptr noundef nonnull @.str.73) #22
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1646, ptr noundef nonnull @__func__.qtest_has_device, ptr noundef nonnull @.str.73) #25
   unreachable
 
 land.lhs.true.i20:                                ; preds = %do.end30
@@ -3192,7 +3192,7 @@ land.lhs.true.i20:                                ; preds = %do.end30
   br i1 %or.cond.i.i22, label %qobject_type.exit.i24, label %if.else.i.i23
 
 if.else.i.i23:                                    ; preds = %land.lhs.true.i20
-  tail call void @__assert_fail(ptr noundef nonnull @.str.152, ptr noundef nonnull @.str.124, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_type) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.152, ptr noundef nonnull @.str.124, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_type) #25
   unreachable
 
 qobject_type.exit.i24:                            ; preds = %land.lhs.true.i20
@@ -3200,12 +3200,12 @@ qobject_type.exit.i24:                            ; preds = %land.lhs.true.i20
   br i1 %cmp.i25, label %do.end44, label %if.else42
 
 if.else42:                                        ; preds = %qobject_type.exit.i24
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1648, ptr noundef nonnull @__func__.qtest_has_device, ptr noundef nonnull @.str.74) #22
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1648, ptr noundef nonnull @__func__.qtest_has_device, ptr noundef nonnull @.str.74) #25
   unreachable
 
 do.end44:                                         ; preds = %qobject_type.exit.i24
-  %call45 = tail call ptr @qstring_get_str(ptr noundef nonnull %call31) #20
-  %call46 = tail call i32 @g_str_equal(ptr noundef %call45, ptr noundef %device) #20
+  %call45 = tail call ptr @qstring_get_str(ptr noundef nonnull %call31) #23
+  %call46 = tail call i32 @g_str_equal(ptr noundef %call45, ptr noundef %device) #23
   %tobool47.not.not = icmp ne i32 %call46, 0
   br i1 %tobool47.not.not, label %return, label %for.cond
 
@@ -3233,61 +3233,61 @@ entry:
   br i1 %tobool.not, label %cond.false, label %cond.true
 
 cond.true:                                        ; preds = %entry
-  %call = tail call ptr @qdict_clone_shallow(ptr noundef nonnull %arguments) #20
+  %call = tail call ptr @qdict_clone_shallow(ptr noundef nonnull %arguments) #23
   br label %cond.end
 
 cond.false:                                       ; preds = %entry
-  %call1 = tail call ptr @qdict_new() #20
+  %call1 = tail call ptr @qdict_new() #23
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
   %cond = phi ptr [ %call, %cond.true ], [ %call1, %cond.false ]
-  %call2 = tail call i32 @qdict_haskey(ptr noundef %cond, ptr noundef nonnull @.str.75) #20
+  %call2 = tail call i32 @qdict_haskey(ptr noundef %cond, ptr noundef nonnull @.str.75) #23
   %tobool3.not = icmp eq i32 %call2, 0
   br i1 %tobool3.not, label %do.end, label %if.else
 
 if.else:                                          ; preds = %cond.end
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1666, ptr noundef nonnull @__func__.qtest_qmp_device_add_qdict, ptr noundef nonnull @.str.76) #22
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1666, ptr noundef nonnull @__func__.qtest_qmp_device_add_qdict, ptr noundef nonnull @.str.76) #25
   unreachable
 
 do.end:                                           ; preds = %cond.end
-  tail call void @qdict_put_str(ptr noundef %cond, ptr noundef nonnull @.str.75, ptr noundef %drv) #20
+  tail call void @qdict_put_str(ptr noundef %cond, ptr noundef nonnull @.str.75, ptr noundef %drv) #23
   %call4 = tail call ptr (ptr, ptr, ...) @qtest_qmp(ptr noundef %qts, ptr noundef nonnull @.str.77, ptr noundef %cond)
   %tobool6.not = icmp eq ptr %call4, null
   br i1 %tobool6.not, label %if.else8, label %do.body11
 
 if.else8:                                         ; preds = %do.end
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1669, ptr noundef nonnull @__func__.qtest_qmp_device_add_qdict, ptr noundef nonnull @.str.78) #22
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1669, ptr noundef nonnull @__func__.qtest_qmp_device_add_qdict, ptr noundef nonnull @.str.78) #25
   unreachable
 
 do.body11:                                        ; preds = %do.end
-  %call12 = tail call i32 @qdict_haskey(ptr noundef nonnull %call4, ptr noundef nonnull @.str.8) #20
+  %call12 = tail call i32 @qdict_haskey(ptr noundef nonnull %call4, ptr noundef nonnull @.str.8) #23
   %tobool13.not = icmp eq i32 %call12, 0
   br i1 %tobool13.not, label %do.end17, label %if.else15
 
 if.else15:                                        ; preds = %do.body11
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1670, ptr noundef nonnull @__func__.qtest_qmp_device_add_qdict, ptr noundef nonnull @.str.79) #22
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1670, ptr noundef nonnull @__func__.qtest_qmp_device_add_qdict, ptr noundef nonnull @.str.79) #25
   unreachable
 
 do.end17:                                         ; preds = %do.body11
-  %call18 = tail call i32 @qdict_haskey(ptr noundef nonnull %call4, ptr noundef nonnull @.str.58) #20
+  %call18 = tail call i32 @qdict_haskey(ptr noundef nonnull %call4, ptr noundef nonnull @.str.58) #23
   %tobool19.not = icmp eq i32 %call18, 0
   br i1 %tobool19.not, label %do.body25, label %if.then20
 
 if.then20:                                        ; preds = %do.end17
   %0 = load ptr, ptr @stderr, align 8
-  %call21 = tail call ptr @qdict_get_qdict(ptr noundef nonnull %call4, ptr noundef nonnull @.str.58) #20
-  %call22 = tail call ptr @qdict_get_str(ptr noundef %call21, ptr noundef nonnull @.str.81) #20
-  %call23 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.80, ptr noundef %call22) #23
+  %call21 = tail call ptr @qdict_get_qdict(ptr noundef nonnull %call4, ptr noundef nonnull @.str.58) #23
+  %call22 = tail call ptr @qdict_get_str(ptr noundef %call21, ptr noundef nonnull @.str.81) #23
+  %call23 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.80, ptr noundef %call22) #26
   br label %do.body25
 
 do.body25:                                        ; preds = %do.end17, %if.then20
-  %call26 = tail call i32 @qdict_haskey(ptr noundef nonnull %call4, ptr noundef nonnull @.str.58) #20
+  %call26 = tail call i32 @qdict_haskey(ptr noundef nonnull %call4, ptr noundef nonnull @.str.58) #23
   %tobool27.not = icmp eq i32 %call26, 0
   br i1 %tobool27.not, label %lor.lhs.false.i, label %if.else29
 
 if.else29:                                        ; preds = %do.body25
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1675, ptr noundef nonnull @__func__.qtest_qmp_device_add_qdict, ptr noundef nonnull @.str.82) #22
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1675, ptr noundef nonnull @__func__.qtest_qmp_device_add_qdict, ptr noundef nonnull @.str.82) #25
   unreachable
 
 lor.lhs.false.i:                                  ; preds = %do.body25
@@ -3297,7 +3297,7 @@ lor.lhs.false.i:                                  ; preds = %do.body25
   br i1 %tobool1.not.i, label %if.else.i, label %land.lhs.true.i
 
 if.else.i:                                        ; preds = %lor.lhs.false.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.123, ptr noundef nonnull @.str.124, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.123, ptr noundef nonnull @.str.124, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #25
   unreachable
 
 land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
@@ -3307,7 +3307,7 @@ land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
   br i1 %cmp.i, label %if.then5.i, label %qobject_unref_impl.exit
 
 if.then5.i:                                       ; preds = %land.lhs.true.i
-  tail call void @qobject_destroy(ptr noundef nonnull %call4) #20
+  tail call void @qobject_destroy(ptr noundef nonnull %call4) #23
   br label %qobject_unref_impl.exit
 
 qobject_unref_impl.exit:                          ; preds = %land.lhs.true.i, %if.then5.i
@@ -3321,18 +3321,18 @@ define dso_local void @qtest_qmp_device_add(ptr noundef %qts, ptr noundef %drive
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %ap)
-  %call = call ptr @qdict_from_vjsonf_nofail(ptr noundef %fmt, ptr noundef nonnull %ap) #20
+  %call = call ptr @qdict_from_vjsonf_nofail(ptr noundef %fmt, ptr noundef nonnull %ap) #23
   call void @llvm.va_end.p0(ptr nonnull %ap)
-  %call3 = call i32 @qdict_haskey(ptr noundef %call, ptr noundef nonnull @.str.83) #20
+  %call3 = call i32 @qdict_haskey(ptr noundef %call, ptr noundef nonnull @.str.83) #23
   %tobool.not = icmp eq i32 %call3, 0
   br i1 %tobool.not, label %do.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1689, ptr noundef nonnull @__func__.qtest_qmp_device_add, ptr noundef nonnull @.str.84) #22
+  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1689, ptr noundef nonnull @__func__.qtest_qmp_device_add, ptr noundef nonnull @.str.84) #25
   unreachable
 
 do.end:                                           ; preds = %entry
-  call void @qdict_put_str(ptr noundef %call, ptr noundef nonnull @.str.83, ptr noundef %id) #20
+  call void @qdict_put_str(ptr noundef %call, ptr noundef nonnull @.str.83, ptr noundef %id) #23
   call void @qtest_qmp_device_add_qdict(ptr noundef %qts, ptr noundef %driver, ptr noundef %call)
   %tobool4.not = icmp eq ptr %call, null
   br i1 %tobool4.not, label %qobject_unref_impl.exit, label %lor.lhs.false.i
@@ -3344,7 +3344,7 @@ lor.lhs.false.i:                                  ; preds = %do.end
   br i1 %tobool1.not.i, label %if.else.i, label %land.lhs.true.i
 
 if.else.i:                                        ; preds = %lor.lhs.false.i
-  call void @__assert_fail(ptr noundef nonnull @.str.123, ptr noundef nonnull @.str.124, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #22
+  call void @__assert_fail(ptr noundef nonnull @.str.123, ptr noundef nonnull @.str.124, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #25
   unreachable
 
 land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
@@ -3354,7 +3354,7 @@ land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
   br i1 %cmp.i, label %if.then5.i, label %qobject_unref_impl.exit
 
 if.then5.i:                                       ; preds = %land.lhs.true.i
-  call void @qobject_destroy(ptr noundef nonnull %call) #20
+  call void @qobject_destroy(ptr noundef nonnull %call) #23
   br label %qobject_unref_impl.exit
 
 qobject_unref_impl.exit:                          ; preds = %do.end, %land.lhs.true.i, %if.then5.i
@@ -3373,25 +3373,25 @@ entry:
   br i1 %tobool.not, label %if.else, label %do.body1
 
 if.else:                                          ; preds = %entry
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1718, ptr noundef nonnull @__func__.qtest_qmp_add_client, ptr noundef nonnull @.str.78) #22
+  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1718, ptr noundef nonnull @__func__.qtest_qmp_add_client, ptr noundef nonnull @.str.78) #25
   unreachable
 
 do.body1:                                         ; preds = %entry
-  %call2 = call i32 @qdict_haskey(ptr noundef nonnull %call, ptr noundef nonnull @.str.8) #20
+  %call2 = call i32 @qdict_haskey(ptr noundef nonnull %call, ptr noundef nonnull @.str.8) #23
   %tobool3.not = icmp eq i32 %call2, 0
   br i1 %tobool3.not, label %do.body8, label %if.else5
 
 if.else5:                                         ; preds = %do.body1
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1719, ptr noundef nonnull @__func__.qtest_qmp_add_client, ptr noundef nonnull @.str.79) #22
+  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1719, ptr noundef nonnull @__func__.qtest_qmp_add_client, ptr noundef nonnull @.str.79) #25
   unreachable
 
 do.body8:                                         ; preds = %do.body1
-  %call9 = call i32 @qdict_haskey(ptr noundef nonnull %call, ptr noundef nonnull @.str.58) #20
+  %call9 = call i32 @qdict_haskey(ptr noundef nonnull %call, ptr noundef nonnull @.str.58) #23
   %tobool10.not = icmp eq i32 %call9, 0
   br i1 %tobool10.not, label %lor.lhs.false.i, label %if.else12
 
 if.else12:                                        ; preds = %do.body8
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1720, ptr noundef nonnull @__func__.qtest_qmp_add_client, ptr noundef nonnull @.str.82) #22
+  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1720, ptr noundef nonnull @__func__.qtest_qmp_add_client, ptr noundef nonnull @.str.82) #25
   unreachable
 
 lor.lhs.false.i:                                  ; preds = %do.body8
@@ -3401,7 +3401,7 @@ lor.lhs.false.i:                                  ; preds = %do.body8
   br i1 %tobool1.not.i, label %if.else.i, label %land.lhs.true.i
 
 if.else.i:                                        ; preds = %lor.lhs.false.i
-  call void @__assert_fail(ptr noundef nonnull @.str.123, ptr noundef nonnull @.str.124, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #22
+  call void @__assert_fail(ptr noundef nonnull @.str.123, ptr noundef nonnull @.str.124, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #25
   unreachable
 
 land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
@@ -3411,7 +3411,7 @@ land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
   br i1 %cmp.i, label %if.then5.i, label %qobject_unref_impl.exit
 
 if.then5.i:                                       ; preds = %land.lhs.true.i
-  call void @qobject_destroy(ptr noundef nonnull %call) #20
+  call void @qobject_destroy(ptr noundef nonnull %call) #23
   br label %qobject_unref_impl.exit
 
 qobject_unref_impl.exit:                          ; preds = %land.lhs.true.i, %if.then5.i
@@ -3420,25 +3420,25 @@ qobject_unref_impl.exit:                          ; preds = %land.lhs.true.i, %i
   br i1 %tobool19.not, label %if.else21, label %do.body24
 
 if.else21:                                        ; preds = %qobject_unref_impl.exit
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1726, ptr noundef nonnull @__func__.qtest_qmp_add_client, ptr noundef nonnull @.str.78) #22
+  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1726, ptr noundef nonnull @__func__.qtest_qmp_add_client, ptr noundef nonnull @.str.78) #25
   unreachable
 
 do.body24:                                        ; preds = %qobject_unref_impl.exit
-  %call25 = call i32 @qdict_haskey(ptr noundef nonnull %call17, ptr noundef nonnull @.str.8) #20
+  %call25 = call i32 @qdict_haskey(ptr noundef nonnull %call17, ptr noundef nonnull @.str.8) #23
   %tobool26.not = icmp eq i32 %call25, 0
   br i1 %tobool26.not, label %do.body31, label %if.else28
 
 if.else28:                                        ; preds = %do.body24
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1727, ptr noundef nonnull @__func__.qtest_qmp_add_client, ptr noundef nonnull @.str.79) #22
+  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1727, ptr noundef nonnull @__func__.qtest_qmp_add_client, ptr noundef nonnull @.str.79) #25
   unreachable
 
 do.body31:                                        ; preds = %do.body24
-  %call32 = call i32 @qdict_haskey(ptr noundef nonnull %call17, ptr noundef nonnull @.str.58) #20
+  %call32 = call i32 @qdict_haskey(ptr noundef nonnull %call17, ptr noundef nonnull @.str.58) #23
   %tobool33.not = icmp eq i32 %call32, 0
   br i1 %tobool33.not, label %lor.lhs.false.i12, label %if.else35
 
 if.else35:                                        ; preds = %do.body31
-  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1728, ptr noundef nonnull @__func__.qtest_qmp_add_client, ptr noundef nonnull @.str.82) #22
+  call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1728, ptr noundef nonnull @__func__.qtest_qmp_add_client, ptr noundef nonnull @.str.82) #25
   unreachable
 
 lor.lhs.false.i12:                                ; preds = %do.body31
@@ -3448,7 +3448,7 @@ lor.lhs.false.i12:                                ; preds = %do.body31
   br i1 %tobool1.not.i14, label %if.else.i19, label %land.lhs.true.i15
 
 if.else.i19:                                      ; preds = %lor.lhs.false.i12
-  call void @__assert_fail(ptr noundef nonnull @.str.123, ptr noundef nonnull @.str.124, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #22
+  call void @__assert_fail(ptr noundef nonnull @.str.123, ptr noundef nonnull @.str.124, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #25
   unreachable
 
 land.lhs.true.i15:                                ; preds = %lor.lhs.false.i12
@@ -3458,7 +3458,7 @@ land.lhs.true.i15:                                ; preds = %lor.lhs.false.i12
   br i1 %cmp.i17, label %if.then5.i18, label %qobject_unref_impl.exit20
 
 if.then5.i18:                                     ; preds = %land.lhs.true.i15
-  call void @qobject_destroy(ptr noundef nonnull %call17) #20
+  call void @qobject_destroy(ptr noundef nonnull %call17) #23
   br label %qobject_unref_impl.exit20
 
 qobject_unref_impl.exit20:                        ; preds = %land.lhs.true.i15, %if.then5.i18
@@ -3473,25 +3473,25 @@ entry:
   br i1 %tobool.not, label %if.else, label %do.body1
 
 if.else:                                          ; preds = %entry
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1752, ptr noundef nonnull @__func__.qtest_qmp_device_del_send, ptr noundef nonnull @.str.88) #22
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1752, ptr noundef nonnull @__func__.qtest_qmp_device_del_send, ptr noundef nonnull @.str.88) #25
   unreachable
 
 do.body1:                                         ; preds = %entry
-  %call2 = tail call i32 @qdict_haskey(ptr noundef nonnull %call, ptr noundef nonnull @.str.14) #20
+  %call2 = tail call i32 @qdict_haskey(ptr noundef nonnull %call, ptr noundef nonnull @.str.14) #23
   %tobool3.not = icmp eq i32 %call2, 0
   br i1 %tobool3.not, label %if.else5, label %do.body8
 
 if.else5:                                         ; preds = %do.body1
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1753, ptr noundef nonnull @__func__.qtest_qmp_device_del_send, ptr noundef nonnull @.str.89) #22
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1753, ptr noundef nonnull @__func__.qtest_qmp_device_del_send, ptr noundef nonnull @.str.89) #25
   unreachable
 
 do.body8:                                         ; preds = %do.body1
-  %call9 = tail call i32 @qdict_haskey(ptr noundef nonnull %call, ptr noundef nonnull @.str.58) #20
+  %call9 = tail call i32 @qdict_haskey(ptr noundef nonnull %call, ptr noundef nonnull @.str.58) #23
   %tobool10.not = icmp eq i32 %call9, 0
   br i1 %tobool10.not, label %lor.lhs.false.i, label %if.else12
 
 if.else12:                                        ; preds = %do.body8
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1754, ptr noundef nonnull @__func__.qtest_qmp_device_del_send, ptr noundef nonnull @.str.90) #22
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1754, ptr noundef nonnull @__func__.qtest_qmp_device_del_send, ptr noundef nonnull @.str.90) #25
   unreachable
 
 lor.lhs.false.i:                                  ; preds = %do.body8
@@ -3501,7 +3501,7 @@ lor.lhs.false.i:                                  ; preds = %do.body8
   br i1 %tobool1.not.i, label %if.else.i, label %land.lhs.true.i
 
 if.else.i:                                        ; preds = %lor.lhs.false.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.123, ptr noundef nonnull @.str.124, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.123, ptr noundef nonnull @.str.124, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #25
   unreachable
 
 land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
@@ -3511,7 +3511,7 @@ land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
   br i1 %cmp.i, label %if.then5.i, label %qobject_unref_impl.exit
 
 if.then5.i:                                       ; preds = %land.lhs.true.i
-  tail call void @qobject_destroy(ptr noundef nonnull %call) #20
+  tail call void @qobject_destroy(ptr noundef nonnull %call) #23
   br label %qobject_unref_impl.exit
 
 qobject_unref_impl.exit:                          ; preds = %land.lhs.true.i, %if.then5.i
@@ -3533,7 +3533,7 @@ lor.lhs.false.i.i:                                ; preds = %entry
   br i1 %tobool1.not.i.i, label %if.else.i.i, label %land.lhs.true.i.i
 
 if.else.i.i:                                      ; preds = %lor.lhs.false.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.123, ptr noundef nonnull @.str.124, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.123, ptr noundef nonnull @.str.124, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #25
   unreachable
 
 land.lhs.true.i.i:                                ; preds = %lor.lhs.false.i.i
@@ -3543,7 +3543,7 @@ land.lhs.true.i.i:                                ; preds = %lor.lhs.false.i.i
   br i1 %cmp.i.i, label %if.then5.i.i, label %qtest_qmp_eventwait.exit
 
 if.then5.i.i:                                     ; preds = %land.lhs.true.i.i
-  tail call void @qobject_destroy(ptr noundef nonnull %call.i) #20
+  tail call void @qobject_destroy(ptr noundef nonnull %call.i) #23
   br label %qtest_qmp_eventwait.exit
 
 qtest_qmp_eventwait.exit:                         ; preds = %entry, %land.lhs.true.i.i, %if.then5.i.i
@@ -3553,7 +3553,7 @@ qtest_qmp_eventwait.exit:                         ; preds = %entry, %land.lhs.tr
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef ptr @qtest_inproc_init(ptr nocapture noundef writeonly %s, i1 noundef zeroext %log, ptr noundef %arch, ptr noundef %send) local_unnamed_addr #1 {
 entry:
-  %call = tail call noalias dereferenceable_or_null(336) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 336) #26
+  %call = tail call noalias dereferenceable_or_null(336) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 336) #30
   %pending_events = getelementptr inbounds i8, ptr %call, i64 312
   store ptr null, ptr %pending_events, align 8
   store ptr %call, ptr %s, align 8
@@ -3571,32 +3571,32 @@ entry:
   %call.i = tail call fastcc ptr @qtest_rsp_args(ptr noundef nonnull %call, i32 noundef 1)
   %arrayidx.i = getelementptr i8, ptr %call.i, i64 8
   %0 = load ptr, ptr %arrayidx.i, align 8
-  %call1.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(4) @.str.154) #24
+  %call1.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(4) @.str.154) #28
   %cmp.i = icmp eq i32 %call1.i, 0
   br i1 %cmp.i, label %qtest_query_target_endianness.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %entry
-  %call3.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(7) @.str.155) #24
+  %call3.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(7) @.str.155) #28
   %cmp4.i = icmp eq i32 %call3.i, 0
   br i1 %cmp4.i, label %qtest_query_target_endianness.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %lor.lhs.false.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 725, ptr noundef nonnull @__func__.qtest_query_target_endianness, ptr noundef nonnull @.str.156) #22
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 725, ptr noundef nonnull @__func__.qtest_query_target_endianness, ptr noundef nonnull @.str.156) #25
   unreachable
 
 qtest_query_target_endianness.exit:               ; preds = %entry, %lor.lhs.false.i
-  tail call void @g_strfreev(ptr noundef nonnull %call.i) #20
+  tail call void @g_strfreev(ptr noundef nonnull %call.i) #23
   %big_endian = getelementptr inbounds i8, ptr %call, i64 20
   %frombool2 = zext i1 %cmp.i to i8
   store i8 %frombool2, ptr %big_endian, align 4
-  %call3 = tail call noalias ptr (ptr, ...) @g_strconcat(ptr noundef nonnull @.str.92, ptr noundef %arch, ptr noundef null) #20
-  %call4 = tail call i32 @g_setenv(ptr noundef nonnull @.str.93, ptr noundef %call3, i32 noundef 0) #20
-  tail call void @g_free(ptr noundef %call3) #20
+  %call3 = tail call noalias ptr (ptr, ...) @g_strconcat(ptr noundef nonnull @.str.92, ptr noundef %arch, ptr noundef null) #23
+  %call4 = tail call i32 @g_setenv(ptr noundef nonnull @.str.93, ptr noundef %call3, i32 noundef 0) #23
+  tail call void @g_free(ptr noundef %call3) #23
   ret ptr %call
 }
 
 ; Function Attrs: allocsize(0,1)
-declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #12
+declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal ptr @qtest_client_inproc_recv_line(ptr nocapture noundef readonly %s) #1 {
@@ -3604,14 +3604,14 @@ entry:
   %rx = getelementptr inbounds i8, ptr %s, i64 280
   %0 = load ptr, ptr %rx, align 8
   %1 = load ptr, ptr %0, align 8
-  %call = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 10) #24
+  %call = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 10) #28
   %sub.ptr.lhs.cast = ptrtoint ptr %call to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %call5 = tail call ptr @g_string_new_len(ptr noundef %1, i64 noundef %sub.ptr.sub) #20
+  %call5 = tail call ptr @g_string_new_len(ptr noundef %1, i64 noundef %sub.ptr.sub) #23
   %2 = load ptr, ptr %rx, align 8
   %add = add i64 %sub.ptr.sub, 1
-  %call7 = tail call ptr @g_string_erase(ptr noundef %2, i64 noundef 0, i64 noundef %add) #20
+  %call7 = tail call ptr @g_string_erase(ptr noundef %2, i64 noundef 0, i64 noundef %add) #23
   ret ptr %call5
 }
 
@@ -3620,7 +3620,7 @@ define internal void @send_wrapper(ptr noundef %s, ptr noundef %buf) #1 {
 entry:
   %external_send = getelementptr inbounds i8, ptr %s, i64 296
   %0 = load ptr, ptr %external_send, align 8
-  tail call void %0(ptr noundef %s, ptr noundef %buf) #20
+  tail call void %0(ptr noundef %s, ptr noundef %buf) #23
   ret void
 }
 
@@ -3638,13 +3638,13 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %call = tail call ptr @g_string_new(ptr noundef null) #20
+  %call = tail call ptr @g_string_new(ptr noundef null) #23
   store ptr %call, ptr %rx, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
   %2 = phi ptr [ %call, %if.then ], [ %1, %entry ]
-  %call3 = tail call ptr @g_string_append(ptr noundef %2, ptr noundef %str) #20
+  %call3 = tail call ptr @g_string_append(ptr noundef %2, ptr noundef %str) #23
   ret void
 }
 
@@ -3667,7 +3667,7 @@ lor.lhs.false.i:                                  ; preds = %entry
   br i1 %tobool1.not.i, label %if.else.i, label %land.lhs.true.i
 
 if.else.i:                                        ; preds = %lor.lhs.false.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.123, ptr noundef nonnull @.str.124, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.123, ptr noundef nonnull @.str.124, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #25
   unreachable
 
 land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
@@ -3677,7 +3677,7 @@ land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
   br i1 %cmp.i, label %if.then5.i, label %qobject_unref_impl.exit
 
 if.then5.i:                                       ; preds = %land.lhs.true.i
-  tail call void @qobject_destroy(ptr noundef nonnull %call) #20
+  tail call void @qobject_destroy(ptr noundef nonnull %call) #23
   br label %qobject_unref_impl.exit
 
 qobject_unref_impl.exit:                          ; preds = %entry, %land.lhs.true.i, %if.then5.i
@@ -3688,7 +3688,7 @@ qobject_unref_impl.exit:                          ; preds = %entry, %land.lhs.tr
 define dso_local zeroext i1 @qtest_qom_get_bool(ptr noundef %s, ptr noundef %path, ptr noundef %property) local_unnamed_addr #1 {
 entry:
   %call = tail call ptr (ptr, ptr, ...) @qtest_qmp(ptr noundef %s, ptr noundef nonnull @.str.95, ptr noundef %path, ptr noundef %property)
-  %call1 = tail call zeroext i1 @qdict_get_bool(ptr noundef %call, ptr noundef nonnull @.str.14) #20
+  %call1 = tail call zeroext i1 @qdict_get_bool(ptr noundef %call, ptr noundef nonnull @.str.14) #23
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %qobject_unref_impl.exit, label %lor.lhs.false.i
 
@@ -3699,7 +3699,7 @@ lor.lhs.false.i:                                  ; preds = %entry
   br i1 %tobool1.not.i, label %if.else.i, label %land.lhs.true.i
 
 if.else.i:                                        ; preds = %lor.lhs.false.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.123, ptr noundef nonnull @.str.124, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.123, ptr noundef nonnull @.str.124, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #25
   unreachable
 
 land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
@@ -3709,7 +3709,7 @@ land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
   br i1 %cmp.i, label %if.then5.i, label %qobject_unref_impl.exit
 
 if.then5.i:                                       ; preds = %land.lhs.true.i
-  tail call void @qobject_destroy(ptr noundef nonnull %call) #20
+  tail call void @qobject_destroy(ptr noundef nonnull %call) #23
   br label %qobject_unref_impl.exit
 
 qobject_unref_impl.exit:                          ; preds = %entry, %land.lhs.true.i, %if.then5.i
@@ -3721,17 +3721,17 @@ declare zeroext i1 @qdict_get_bool(ptr noundef, ptr noundef) local_unnamed_addr 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef zeroext i1 @have_qemu_img() local_unnamed_addr #1 {
 entry:
-  %call = tail call ptr @getenv(ptr noundef nonnull @.str.96) #20
+  %call = tail call ptr @getenv(ptr noundef nonnull @.str.96) #23
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call1 = tail call ptr @realpath(ptr noundef nonnull %call, ptr noundef null) #20
+  %call1 = tail call ptr @realpath(ptr noundef nonnull %call, ptr noundef null) #23
   %tobool2.not = icmp eq ptr %call1, null
   br i1 %tobool2.not, label %return, label %if.else
 
 if.else:                                          ; preds = %if.end
-  tail call void @free(ptr noundef nonnull %call1) #20
+  tail call void @free(ptr noundef nonnull %call1) #23
   br label %return
 
 return:                                           ; preds = %if.end, %entry, %if.else
@@ -3740,13 +3740,13 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #13
+declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #15
 
 ; Function Attrs: nofree nounwind
 declare noundef ptr @realpath(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #14
+declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #16
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local zeroext i1 @mkimg(ptr noundef %file, ptr noundef %fmt, i32 noundef %size_mb) local_unnamed_addr #1 {
@@ -3756,18 +3756,18 @@ entry:
   %out = alloca ptr, align 8
   %out2 = alloca ptr, align 8
   store ptr null, ptr %err, align 8
-  %call = tail call ptr @getenv(ptr noundef nonnull @.str.96) #20
+  %call = tail call ptr @getenv(ptr noundef nonnull @.str.96) #23
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call1 = tail call ptr @realpath(ptr noundef nonnull %call, ptr noundef null) #20
+  %call1 = tail call ptr @realpath(ptr noundef nonnull %call, ptr noundef null) #23
   %tobool2.not = icmp eq ptr %call1, null
   br i1 %tobool2.not, label %return, label %if.end4
 
 if.end4:                                          ; preds = %if.end
-  %call5 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.97, ptr noundef nonnull %call1, ptr noundef %fmt, ptr noundef %file, i32 noundef %size_mb) #20
-  %call6 = call i32 @g_spawn_command_line_sync(ptr noundef %call5, ptr noundef nonnull %out, ptr noundef nonnull %out2, ptr noundef nonnull %rc, ptr noundef nonnull %err) #20
+  %call5 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.97, ptr noundef nonnull %call1, ptr noundef %fmt, ptr noundef %file, i32 noundef %size_mb) #23
+  %call6 = call i32 @g_spawn_command_line_sync(ptr noundef %call5, ptr noundef nonnull %out, ptr noundef nonnull %out2, ptr noundef nonnull %rc, ptr noundef nonnull %err) #23
   %tobool7 = icmp ne i32 %call6, 0
   %0 = load ptr, ptr %err, align 8
   %tobool8.not = icmp eq ptr %0, null
@@ -3775,7 +3775,7 @@ if.end4:                                          ; preds = %if.end
 
 lor.lhs.false:                                    ; preds = %if.end4
   %1 = load i32, ptr %rc, align 4
-  %call9 = call i32 @g_spawn_check_exit_status(i32 noundef %1, ptr noundef nonnull %err) #20
+  %call9 = call i32 @g_spawn_check_exit_status(i32 noundef %1, ptr noundef nonnull %err) #23
   %tobool10.not = icmp eq i32 %call9, 0
   br i1 %tobool10.not, label %lor.lhs.false.if.then11_crit_edge, label %if.end13
 
@@ -3788,18 +3788,18 @@ if.then11:                                        ; preds = %lor.lhs.false.if.th
   %3 = load ptr, ptr @stderr, align 8
   %message = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load ptr, ptr %message, align 8
-  %call12 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.98, ptr noundef %4) #23
+  %call12 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.98, ptr noundef %4) #26
   %5 = load ptr, ptr %err, align 8
-  call void @g_error_free(ptr noundef %5) #20
+  call void @g_error_free(ptr noundef %5) #23
   br label %if.end13
 
 if.end13:                                         ; preds = %if.then11, %lor.lhs.false
   %6 = load ptr, ptr %out, align 8
-  call void @g_free(ptr noundef %6) #20
+  call void @g_free(ptr noundef %6) #23
   %7 = load ptr, ptr %out2, align 8
-  call void @g_free(ptr noundef %7) #20
-  call void @g_free(ptr noundef %call5) #20
-  call void @free(ptr noundef nonnull %call1) #20
+  call void @g_free(ptr noundef %7) #23
+  call void @g_free(ptr noundef %call5) #23
+  call void @free(ptr noundef nonnull %call1) #23
   %8 = load ptr, ptr %err, align 8
   %tobool15.not = icmp eq ptr %8, null
   %9 = select i1 %tobool7, i1 %tobool15.not, i1 false
@@ -3816,8 +3816,8 @@ declare i32 @g_spawn_check_exit_status(i32 noundef, ptr noundef) local_unnamed_a
 
 declare void @g_error_free(ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: noreturn nounwind
-declare void @abort() local_unnamed_addr #6
+; Function Attrs: cold nofree noreturn nounwind
+declare void @abort() local_unnamed_addr #17
 
 ; Function Attrs: nounwind
 declare ptr @strsignal(i32 noundef) local_unnamed_addr #4
@@ -3832,7 +3832,7 @@ declare ptr @signal(i32 noundef, ptr noundef) local_unnamed_addr #4
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @sigabrt_handler(i32 %signo) #1 {
 entry:
-  tail call void @g_hook_list_invoke(ptr noundef nonnull @abrt_hooks, i32 noundef 0) #20
+  tail call void @g_hook_list_invoke(ptr noundef nonnull @abrt_hooks, i32 noundef 0) #23
   ret void
 }
 
@@ -3847,25 +3847,25 @@ declare i32 @getpid() local_unnamed_addr #4
 define internal noundef ptr @qtest_spawn_qemu(ptr noundef %qemu_bin, ptr nocapture readnone %fmt, ...) unnamed_addr #1 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
-  %call = tail call noalias dereferenceable_or_null(336) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 336) #26
-  %call1 = tail call ptr @g_getenv(ptr noundef nonnull @.str.113) #20
+  %call = tail call noalias dereferenceable_or_null(336) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 336) #30
+  %call1 = tail call ptr @g_getenv(ptr noundef nonnull @.str.113) #23
   %tobool.not = icmp eq ptr %call1, null
   br i1 %tobool.not, label %cond.false, label %cond.true
 
 cond.true:                                        ; preds = %entry
-  %call2 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.114, ptr noundef nonnull %call1) #20
+  %call2 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.114, ptr noundef nonnull %call1) #23
   br label %cond.end
 
 cond.false:                                       ; preds = %entry
-  %call3 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.103) #20
+  %call3 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.103) #23
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
   %cond = phi ptr [ %call2, %cond.true ], [ %call3, %cond.false ]
-  %call4 = tail call ptr @g_string_new(ptr noundef nonnull @.str.103) #20
+  %call4 = tail call ptr @g_string_new(ptr noundef nonnull @.str.103) #23
   call void @llvm.va_start.p0(ptr nonnull %ap)
-  call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call4, ptr noundef nonnull @.str.115, ptr noundef %qemu_bin, ptr noundef %cond) #20
-  call void @g_string_append_vprintf(ptr noundef %call4, ptr noundef nonnull @.str.107, ptr noundef nonnull %ap) #20
+  call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call4, ptr noundef nonnull @.str.115, ptr noundef %qemu_bin, ptr noundef %cond) #23
+  call void @g_string_append_vprintf(ptr noundef %call4, ptr noundef nonnull @.str.107, ptr noundef nonnull %ap) #23
   call void @llvm.va_end.p0(ptr nonnull %ap)
   %bf.load.i = load i32, ptr getelementptr inbounds (i8, ptr @abrt_hooks, i64 8), align 8
   %0 = and i32 %bf.load.i, 65536
@@ -3873,50 +3873,50 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   br i1 %tobool.not.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %cond.end
-  call void @g_hook_list_init(ptr noundef nonnull @abrt_hooks, i32 noundef 64) #20
+  call void @g_hook_list_init(ptr noundef nonnull @abrt_hooks, i32 noundef 64) #23
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %cond.end
-  %call.i.i = call ptr @g_hook_first_valid(ptr noundef nonnull @abrt_hooks, i32 noundef 1) #20
+  %call.i.i = call ptr @g_hook_first_valid(ptr noundef nonnull @abrt_hooks, i32 noundef 1) #23
   %tobool.not.i.i = icmp eq ptr %call.i.i, null
   br i1 %tobool.not.i.i, label %if.then1.i, label %hook_list_is_empty.exit.i
 
 hook_list_is_empty.exit.i:                        ; preds = %if.end.i
-  call void @g_hook_unref(ptr noundef nonnull @abrt_hooks, ptr noundef nonnull %call.i.i) #20
+  call void @g_hook_unref(ptr noundef nonnull @abrt_hooks, ptr noundef nonnull %call.i.i) #23
   br label %qtest_add_abrt_handler.exit
 
 if.then1.i:                                       ; preds = %if.end.i
-  %call.i3.i = call ptr @signal(i32 noundef 6, ptr noundef nonnull @sigabrt_handler) #20
+  %call.i3.i = call ptr @signal(i32 noundef 6, ptr noundef nonnull @sigabrt_handler) #23
   store ptr %call.i3.i, ptr @sighandler_old, align 8
   br label %qtest_add_abrt_handler.exit
 
 qtest_add_abrt_handler.exit:                      ; preds = %hook_list_is_empty.exit.i, %if.then1.i
-  %call3.i = call ptr @g_hook_alloc(ptr noundef nonnull @abrt_hooks) #20
+  %call3.i = call ptr @g_hook_alloc(ptr noundef nonnull @abrt_hooks) #23
   %func.i = getelementptr inbounds i8, ptr %call3.i, i64 48
   store ptr @kill_qemu_hook_func, ptr %func.i, align 8
   store ptr %call, ptr %call3.i, align 8
-  call void @g_hook_prepend(ptr noundef nonnull @abrt_hooks, ptr noundef nonnull %call3.i) #20
+  call void @g_hook_prepend(ptr noundef nonnull @abrt_hooks, ptr noundef nonnull %call3.i) #23
   %1 = load i8, ptr @silence_spawn_log, align 1
   %tobool7 = trunc nuw i8 %1 to i1
   br i1 %tobool7, label %if.end, label %if.then
 
 if.then:                                          ; preds = %qtest_add_abrt_handler.exit
   %2 = load ptr, ptr %call4, align 8
-  call void (ptr, ...) @g_test_message(ptr noundef nonnull @.str.116, ptr noundef %2) #20
+  call void (ptr, ...) @g_test_message(ptr noundef nonnull @.str.116, ptr noundef %2) #23
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %qtest_add_abrt_handler.exit
-  %call8 = call i32 @fork() #20
+  %call8 = call i32 @fork() #23
   %qemu_pid = getelementptr inbounds i8, ptr %call, i64 8
   store i32 %call8, ptr %qemu_pid, align 8
   %cmp = icmp eq i32 %call8, 0
   br i1 %cmp, label %if.then10, label %if.end14
 
 if.then10:                                        ; preds = %if.end
-  %call11 = call i32 (i32, ...) @prctl(i32 noundef 1, i32 noundef 9, i32 noundef 0, i32 noundef 0, i32 noundef 0) #20
+  %call11 = call i32 (i32, ...) @prctl(i32 noundef 1, i32 noundef 9, i32 noundef 0, i32 noundef 0, i32 noundef 0) #23
   %3 = load ptr, ptr %call4, align 8
-  %call13 = call i32 (ptr, ptr, ...) @execlp(ptr noundef nonnull @.str.117, ptr noundef nonnull @.str.118, ptr noundef nonnull @.str.119, ptr noundef %3, ptr noundef null) #20
-  call void @exit(i32 noundef 1) #22
+  %call13 = call i32 (ptr, ptr, ...) @execlp(ptr noundef nonnull @.str.117, ptr noundef nonnull @.str.118, ptr noundef nonnull @.str.119, ptr noundef %3, ptr noundef null) #23
+  call void @exit(i32 noundef 1) #27
   unreachable
 
 if.end14:                                         ; preds = %if.end
@@ -3924,11 +3924,11 @@ if.end14:                                         ; preds = %if.end
   br i1 %tobool.not.i.i5, label %glib_autoptr_cleanup_GString.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end14
-  %call.i.i.i = call ptr @g_string_free(ptr noundef nonnull %call4, i32 noundef 1) #20
+  %call.i.i.i = call ptr @g_string_free(ptr noundef nonnull %call4, i32 noundef 1) #23
   br label %glib_autoptr_cleanup_GString.exit
 
 glib_autoptr_cleanup_GString.exit:                ; preds = %if.end14, %if.then.i.i
-  call void @g_free(ptr noundef %cond) #20
+  call void @g_free(ptr noundef %cond) #23
   ret ptr %call
 }
 
@@ -3939,39 +3939,39 @@ entry:
   %rx = getelementptr inbounds i8, ptr %s, i64 280
   %0 = load ptr, ptr %rx, align 8
   %1 = load ptr, ptr %0, align 8
-  %call14 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 10) #24
+  %call14 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 10) #28
   %cmp15 = icmp eq ptr %call14, null
   br i1 %cmp15, label %while.body, label %while.end
 
 while.body:                                       ; preds = %entry, %while.cond.backedge
   %2 = load i32, ptr %s, align 8
-  %call1 = call i64 @recv(i32 noundef %2, ptr noundef nonnull %buffer, i64 noundef 1024, i32 noundef 0) #20
+  %call1 = call i64 @recv(i32 noundef %2, ptr noundef nonnull %buffer, i64 noundef 1024, i32 noundef 0) #23
   switch i64 %call1, label %if.end9 [
     i64 -1, label %land.lhs.true
     i64 0, label %if.then7
   ]
 
 land.lhs.true:                                    ; preds = %while.body
-  %call3 = tail call ptr @__errno_location() #21
+  %call3 = tail call ptr @__errno_location() #24
   %3 = load i32, ptr %call3, align 4
   %cmp4 = icmp eq i32 %3, 4
   br i1 %cmp4, label %while.cond.backedge, label %if.then7
 
 if.then7:                                         ; preds = %while.body, %land.lhs.true
   %4 = load ptr, ptr @stderr, align 8
-  %5 = call i64 @fwrite(ptr nonnull @.str.120, i64 12, i64 1, ptr %4) #23
-  call void @abort() #22
+  %5 = call i64 @fwrite(ptr nonnull @.str.120, i64 12, i64 1, ptr %4) #26
+  call void @abort() #25
   unreachable
 
 if.end9:                                          ; preds = %while.body
   %6 = load ptr, ptr %rx, align 8
-  %call12 = call ptr @g_string_append_len(ptr noundef %6, ptr noundef nonnull %buffer, i64 noundef %call1) #20
+  %call12 = call ptr @g_string_append_len(ptr noundef %6, ptr noundef nonnull %buffer, i64 noundef %call1) #23
   br label %while.cond.backedge
 
 while.cond.backedge:                              ; preds = %if.end9, %land.lhs.true
   %7 = load ptr, ptr %rx, align 8
   %8 = load ptr, ptr %7, align 8
-  %call = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %8, i32 noundef 10) #24
+  %call = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %8, i32 noundef 10) #28
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !23
 
@@ -3981,10 +3981,10 @@ while.end:                                        ; preds = %while.cond.backedge
   %sub.ptr.lhs.cast = ptrtoint ptr %call.lcssa to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %.lcssa to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %call17 = call ptr @g_string_new_len(ptr noundef %.lcssa, i64 noundef %sub.ptr.sub) #20
+  %call17 = call ptr @g_string_new_len(ptr noundef %.lcssa, i64 noundef %sub.ptr.sub) #23
   %9 = load ptr, ptr %rx, align 8
   %add = add i64 %sub.ptr.sub, 1
-  %call19 = call ptr @g_string_erase(ptr noundef %9, i64 noundef 0, i64 noundef %add) #20
+  %call19 = call ptr @g_string_erase(ptr noundef %9, i64 noundef 0, i64 noundef %add) #23
   ret ptr %call17
 }
 
@@ -3992,13 +3992,13 @@ while.end:                                        ; preds = %while.cond.backedge
 define internal void @qtest_client_socket_send(ptr nocapture noundef readonly %s, ptr noundef %buf) #1 {
 entry:
   %0 = load i32, ptr %s, align 8
-  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf) #24
-  %call.i = tail call i64 @qemu_send_full(i32 noundef %0, ptr noundef %buf, i64 noundef %call) #20
+  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf) #28
+  %call.i = tail call i64 @qemu_send_full(i32 noundef %0, ptr noundef %buf, i64 noundef %call) #23
   %cmp.i = icmp eq i64 %call.i, %call
   br i1 %cmp.i, label %socket_send.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.121, ptr noundef nonnull @.str.1, i32 noundef 618, ptr noundef nonnull @__PRETTY_FUNCTION__.socket_send) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.121, ptr noundef nonnull @.str.1, i32 noundef 618, ptr noundef nonnull @__PRETTY_FUNCTION__.socket_send) #25
   unreachable
 
 socket_send.exit:                                 ; preds = %entry
@@ -4020,7 +4020,7 @@ entry:
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %call.i = tail call i32 @kill(i32 noundef %0, i32 noundef 15) #20
+  %call.i = tail call i32 @kill(i32 noundef %0, i32 noundef 15) #23
   tail call void @qtest_wait_qemu(ptr noundef nonnull %s)
   br label %qtest_kill_qemu.exit
 
@@ -4081,33 +4081,33 @@ declare i32 @g_strcmp0(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @g_assertion_message_cmpstr(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: allocsize(0,1)
-declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #12
+declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #14
 
 declare i64 @qlist_size(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #18
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__ctype_b_loc() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start.p0(ptr) #16
+declare void @llvm.va_start.p0(ptr) #19
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end.p0(ptr) #16
+declare void @llvm.va_end.p0(ptr) #19
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #17
+declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #18
+declare i64 @llvm.umin.i64(i64, i64) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #22
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -4119,23 +4119,27 @@ attributes #6 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="tr
 attributes #7 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #16 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #17 = { nofree nounwind }
-attributes #18 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #19 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #20 = { nounwind }
-attributes #21 = { nounwind willreturn memory(none) }
-attributes #22 = { noreturn nounwind }
-attributes #23 = { cold }
-attributes #24 = { nounwind willreturn memory(read) }
-attributes #25 = { nounwind allocsize(0) }
-attributes #26 = { nounwind allocsize(0,1) }
+attributes #10 = { nofree nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #13 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #19 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #20 = { nofree nounwind }
+attributes #21 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #22 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #23 = { nounwind }
+attributes #24 = { nounwind willreturn memory(none) }
+attributes #25 = { noreturn nounwind }
+attributes #26 = { cold }
+attributes #27 = { cold noreturn nounwind }
+attributes #28 = { nounwind willreturn memory(read) }
+attributes #29 = { nounwind allocsize(0) }
+attributes #30 = { nounwind allocsize(0,1) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

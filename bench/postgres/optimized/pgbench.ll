@@ -784,7 +784,7 @@ declare void @termPQExpBuffer(ptr noundef) local_unnamed_addr #2
 
 declare i32 @pg_fprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
@@ -865,7 +865,7 @@ sub_2:                                            ; preds = %sub_1
 
 53:                                               ; preds = %.tail, %36
   call fastcc void @usage()
-  call void @exit(i32 noundef 0) #26
+  call void @exit(i32 noundef 0) #28
   unreachable
 
 54:                                               ; preds = %.tail
@@ -897,7 +897,7 @@ sub_2383:                                         ; preds = %sub_1382
 
 66:                                               ; preds = %.tail380, %54
   %67 = call i32 @puts(ptr noundef nonnull dereferenceable(1) @.str.58)
-  call void @exit(i32 noundef 0) #26
+  call void @exit(i32 noundef 0) #28
   unreachable
 
 68:                                               ; preds = %.tail380, %2
@@ -985,7 +985,7 @@ sub_2383:                                         ; preds = %sub_1382
 
 81:                                               ; preds = %77
   call fastcc void @listAvailableScripts()
-  call void @exit(i32 noundef 0) #26
+  call void @exit(i32 noundef 0) #28
   unreachable
 
 82:                                               ; preds = %77
@@ -1420,7 +1420,7 @@ process_file.exit:                                ; preds = %149, %151
   %265 = getelementptr inbounds i8, ptr %260, i64 16
   %266 = load ptr, ptr %265, align 8
   %267 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %261, ptr noundef nonnull @.str.82, ptr noundef %262, ptr noundef %264, ptr noundef %266) #25
-  call void @exit(i32 noundef 0) #26
+  call void @exit(i32 noundef 0) #28
   unreachable
 
 268:                                              ; preds = %74
@@ -1959,7 +1959,7 @@ postprocess_sql_command.exit:                     ; preds = %326, %parseQuery.ex
 491:                                              ; preds = %484, %487, %.loopexit
   %.3 = phi ptr [ %490, %487 ], [ %.2, %484 ], [ %.2, %.loopexit ]
   call fastcc void @runInitSteps(ptr noundef %.3)
-  call void @exit(i32 noundef 0) #26
+  call void @exit(i32 noundef 0) #28
   unreachable
 
 492:                                              ; preds = %461
@@ -7565,7 +7565,7 @@ getMetaCommand.exit.i:                            ; preds = %106, %103, %100, %9
   %116 = getelementptr inbounds i8, ptr %59, i64 24
   %117 = load ptr, ptr %116, align 8
   %118 = load ptr, ptr %66, align 8
-  call void @syntax_error(ptr noundef %1, i32 noundef %56, ptr noundef %117, ptr noundef %118, ptr noundef nonnull @.str.150, ptr noundef null, i32 noundef -1) #28
+  call void @syntax_error(ptr noundef %1, i32 noundef %56, ptr noundef %117, ptr noundef %118, ptr noundef nonnull @.str.150, ptr noundef null, i32 noundef -1) #29
   unreachable
 
 119:                                              ; preds = %112
@@ -7609,7 +7609,7 @@ getMetaCommand.exit.i:                            ; preds = %106, %103, %100, %9
   %137 = getelementptr inbounds i8, ptr %59, i64 24
   %138 = load ptr, ptr %137, align 8
   %139 = load ptr, ptr %66, align 8
-  call void @syntax_error(ptr noundef %1, i32 noundef %56, ptr noundef %138, ptr noundef %139, ptr noundef nonnull @.str.151, ptr noundef null, i32 noundef -1) #28
+  call void @syntax_error(ptr noundef %1, i32 noundef %56, ptr noundef %138, ptr noundef %139, ptr noundef nonnull @.str.151, ptr noundef null, i32 noundef -1) #29
   unreachable
 
 140:                                              ; preds = %.lr.ph.i
@@ -7653,7 +7653,7 @@ getMetaCommand.exit.i:                            ; preds = %106, %103, %100, %9
 
 156:                                              ; preds = %153
   %157 = load ptr, ptr %66, align 8
-  call void @syntax_error(ptr noundef %1, i32 noundef %56, ptr noundef %150, ptr noundef %157, ptr noundef nonnull @.str.150, ptr noundef null, i32 noundef -1) #28
+  call void @syntax_error(ptr noundef %1, i32 noundef %56, ptr noundef %150, ptr noundef %157, ptr noundef nonnull @.str.150, ptr noundef null, i32 noundef -1) #29
   unreachable
 
 158:                                              ; preds = %153
@@ -7665,7 +7665,7 @@ getMetaCommand.exit.i:                            ; preds = %106, %103, %100, %9
   %162 = getelementptr inbounds i8, ptr %6, i64 12
   %163 = load i32, ptr %162, align 4
   %164 = sub i32 %163, %55
-  call void @syntax_error(ptr noundef %1, i32 noundef %56, ptr noundef %150, ptr noundef %161, ptr noundef nonnull @.str.151, ptr noundef null, i32 noundef %164) #28
+  call void @syntax_error(ptr noundef %1, i32 noundef %56, ptr noundef %150, ptr noundef %161, ptr noundef nonnull @.str.151, ptr noundef null, i32 noundef %164) #29
   unreachable
 
 165:                                              ; preds = %158
@@ -7736,7 +7736,7 @@ getMetaCommand.exit.i:                            ; preds = %106, %103, %100, %9
   %196 = load ptr, ptr %66, align 8
   %197 = load i32, ptr %15, align 4
   %198 = sub i32 %197, %55
-  call void @syntax_error(ptr noundef %1, i32 noundef %56, ptr noundef %150, ptr noundef %196, ptr noundef nonnull @.str.152, ptr noundef nonnull %167, i32 noundef %198) #28
+  call void @syntax_error(ptr noundef %1, i32 noundef %56, ptr noundef %150, ptr noundef %196, ptr noundef nonnull @.str.152, ptr noundef nonnull %167, i32 noundef %198) #29
   unreachable
 
 .critedge.thread.i:                               ; preds = %184, %171, %165
@@ -7774,7 +7774,7 @@ getMetaCommand.exit.i:                            ; preds = %106, %103, %100, %9
   %214 = load ptr, ptr %202, align 8
   %215 = load i32, ptr %16, align 8
   %216 = sub i32 %215, %55
-  call void @syntax_error(ptr noundef %1, i32 noundef %56, ptr noundef %212, ptr noundef %213, ptr noundef nonnull @.str.156, ptr noundef %214, i32 noundef %216) #28
+  call void @syntax_error(ptr noundef %1, i32 noundef %56, ptr noundef %212, ptr noundef %213, ptr noundef nonnull @.str.156, ptr noundef %214, i32 noundef %216) #29
   unreachable
 
 217:                                              ; preds = %._crit_edge.i
@@ -7784,7 +7784,7 @@ getMetaCommand.exit.i:                            ; preds = %106, %103, %100, %9
 
 220:                                              ; preds = %217
   %221 = load ptr, ptr %66, align 8
-  call void @syntax_error(ptr noundef %1, i32 noundef %56, ptr noundef %150, ptr noundef %221, ptr noundef nonnull @.str.150, ptr noundef null, i32 noundef -1) #28
+  call void @syntax_error(ptr noundef %1, i32 noundef %56, ptr noundef %150, ptr noundef %221, ptr noundef nonnull @.str.150, ptr noundef null, i32 noundef -1) #29
   unreachable
 
 222:                                              ; preds = %._crit_edge.i
@@ -7794,7 +7794,7 @@ getMetaCommand.exit.i:                            ; preds = %106, %103, %100, %9
 
 225:                                              ; preds = %222
   %226 = load ptr, ptr %66, align 8
-  call void @syntax_error(ptr noundef %1, i32 noundef %56, ptr noundef %150, ptr noundef %226, ptr noundef nonnull @.str.157, ptr noundef null, i32 noundef -1) #28
+  call void @syntax_error(ptr noundef %1, i32 noundef %56, ptr noundef %150, ptr noundef %226, ptr noundef nonnull @.str.157, ptr noundef null, i32 noundef -1) #29
   unreachable
 
 227:                                              ; preds = %._crit_edge.i, %._crit_edge.i, %._crit_edge.i, %._crit_edge.i, %._crit_edge.i
@@ -7804,7 +7804,7 @@ getMetaCommand.exit.i:                            ; preds = %106, %103, %100, %9
 
 229:                                              ; preds = %227
   %230 = load ptr, ptr %66, align 8
-  call void @syntax_error(ptr noundef %1, i32 noundef %56, ptr noundef %150, ptr noundef %230, ptr noundef nonnull @.str.158, ptr noundef null, i32 noundef -1) #28
+  call void @syntax_error(ptr noundef %1, i32 noundef %56, ptr noundef %150, ptr noundef %230, ptr noundef nonnull @.str.158, ptr noundef null, i32 noundef -1) #29
   unreachable
 
 231:                                              ; preds = %._crit_edge.i, %._crit_edge.i
@@ -7814,12 +7814,12 @@ getMetaCommand.exit.i:                            ; preds = %106, %103, %100, %9
 
 234:                                              ; preds = %231
   %235 = load ptr, ptr %66, align 8
-  call void @syntax_error(ptr noundef %1, i32 noundef %56, ptr noundef %150, ptr noundef %235, ptr noundef nonnull @.str.151, ptr noundef null, i32 noundef -1) #28
+  call void @syntax_error(ptr noundef %1, i32 noundef %56, ptr noundef %150, ptr noundef %235, ptr noundef nonnull @.str.151, ptr noundef null, i32 noundef -1) #29
   unreachable
 
 236:                                              ; preds = %._crit_edge.i
   %237 = load ptr, ptr %66, align 8
-  call void @syntax_error(ptr noundef %1, i32 noundef %56, ptr noundef %150, ptr noundef %237, ptr noundef nonnull @.str.159, ptr noundef null, i32 noundef -1) #28
+  call void @syntax_error(ptr noundef %1, i32 noundef %56, ptr noundef %150, ptr noundef %237, ptr noundef nonnull @.str.159, ptr noundef null, i32 noundef -1) #29
   unreachable
 
 process_backslash_command.exit.thread:            ; preds = %130, %217, %227, %231, %222, %207, %204, %200
@@ -7849,7 +7849,7 @@ process_backslash_command.exit:                   ; preds = %.critedge.thread.i
   br i1 %242, label %243, label %244
 
 243:                                              ; preds = %241
-  call void @syntax_error(ptr noundef %1, i32 noundef %18, ptr noundef null, ptr noundef null, ptr noundef nonnull @.str.147, ptr noundef null, i32 noundef -1) #28
+  call void @syntax_error(ptr noundef %1, i32 noundef %18, ptr noundef null, ptr noundef null, ptr noundef nonnull @.str.147, ptr noundef null, i32 noundef -1) #29
   unreachable
 
 244:                                              ; preds = %241
@@ -7871,7 +7871,7 @@ process_backslash_command.exit:                   ; preds = %.critedge.thread.i
 254:                                              ; preds = %251, %244
   %255 = getelementptr inbounds i8, ptr %248, i64 24
   %256 = load ptr, ptr %255, align 8
-  call void @syntax_error(ptr noundef %1, i32 noundef %18, ptr noundef null, ptr noundef null, ptr noundef nonnull @.str.147, ptr noundef %256, i32 noundef -1) #28
+  call void @syntax_error(ptr noundef %1, i32 noundef %18, ptr noundef null, ptr noundef null, ptr noundef nonnull @.str.147, ptr noundef %256, i32 noundef -1) #29
   unreachable
 
 257:                                              ; preds = %251
@@ -11655,7 +11655,7 @@ attributes #1 = { mustprogress nofree nosync nounwind willreturn memory(none) "f
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -11676,9 +11676,10 @@ attributes #22 = { nocallback nofree nosync nounwind speculatable willreturn mem
 attributes #23 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #24 = { nounwind willreturn memory(none) }
 attributes #25 = { nounwind }
-attributes #26 = { noreturn nounwind }
+attributes #26 = { cold noreturn nounwind }
 attributes #27 = { nounwind willreturn memory(read) }
-attributes #28 = { noreturn }
+attributes #28 = { noreturn nounwind }
+attributes #29 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

@@ -716,7 +716,7 @@ sub_2135:                                         ; preds = %sub_1134
 
 257:                                              ; preds = %255
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.51, ptr noundef nonnull %253) #15
-  call void @exit(i32 noundef 1) #17
+  call void @exit(i32 noundef 1) #19
   unreachable
 
 258:                                              ; preds = %255, %249
@@ -730,7 +730,7 @@ sub_2135:                                         ; preds = %sub_1134
 
 264:                                              ; preds = %258
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.52, ptr noundef %261) #15
-  call void @exit(i32 noundef 1) #17
+  call void @exit(i32 noundef 1) #19
   unreachable
 
 265:                                              ; preds = %258
@@ -799,7 +799,7 @@ sub_2135:                                         ; preds = %sub_1134
 
 307:                                              ; preds = %300
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.52, ptr noundef %304) #15
-  call void @exit(i32 noundef 1) #17
+  call void @exit(i32 noundef 1) #19
   unreachable
 
 308:                                              ; preds = %300
@@ -820,7 +820,7 @@ sub_2135:                                         ; preds = %sub_1134
   %320 = getelementptr ptr, ptr %1, i64 %319
   %321 = load ptr, ptr %320, align 8
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.54, ptr noundef %318, ptr noundef %321) #15
-  call void @exit(i32 noundef 1) #17
+  call void @exit(i32 noundef 1) #19
   unreachable
 
 322:                                              ; preds = %308
@@ -889,7 +889,7 @@ sub_2135:                                         ; preds = %sub_1134
 
 358:                                              ; preds = %353
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.57) #15
-  call void @exit(i32 noundef 1) #17
+  call void @exit(i32 noundef 1) #19
   unreachable
 
 359:                                              ; preds = %353
@@ -904,7 +904,7 @@ sub_2135:                                         ; preds = %sub_1134
   %366 = trunc nuw i64 %365 to i32
   %367 = trunc i64 %363 to i32
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.58, i32 noundef %366, i32 noundef %367) #15
-  call void @exit(i32 noundef 1) #17
+  call void @exit(i32 noundef 1) #19
   unreachable
 
 368:                                              ; preds = %359
@@ -1140,7 +1140,7 @@ XLogRecordHasFPW.exit.thread:                     ; preds = %448, %435
   %485 = trunc nuw i64 %484 to i32
   %486 = trunc i64 %483 to i32
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.61, i32 noundef %485, i32 noundef %486, ptr noundef nonnull %480) #15
-  call void @exit(i32 noundef 1) #17
+  call void @exit(i32 noundef 1) #19
   unreachable
 
 487:                                              ; preds = %479
@@ -1205,7 +1205,7 @@ define internal fastcc void @usage() unnamed_addr #0 {
   ret void
 }
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
@@ -1290,17 +1290,17 @@ define internal fastcc void @create_fullpage_directory(ptr noundef %0) unnamed_a
 
 7:                                                ; preds = %3
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.91, ptr noundef %0) #15
-  tail call void @exit(i32 noundef 1) #17
+  tail call void @exit(i32 noundef 1) #19
   unreachable
 
 8:                                                ; preds = %1, %1, %1
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.92, ptr noundef %0) #15
-  tail call void @exit(i32 noundef 1) #17
+  tail call void @exit(i32 noundef 1) #19
   unreachable
 
 9:                                                ; preds = %1
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.93, ptr noundef %0) #15
-  tail call void @exit(i32 noundef 1) #17
+  tail call void @exit(i32 noundef 1) #19
   unreachable
 
 10:                                               ; preds = %1, %3
@@ -1392,12 +1392,12 @@ define internal fastcc ptr @identify_target_directory(ptr noundef %0, ptr nounde
 
 29:                                               ; preds = %28
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.98, ptr noundef nonnull %1) #15
-  call void @exit(i32 noundef 1) #17
+  call void @exit(i32 noundef 1) #19
   unreachable
 
 30:                                               ; preds = %28
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.99) #15
-  call void @exit(i32 noundef 1) #17
+  call void @exit(i32 noundef 1) #19
   unreachable
 
 31:                                               ; preds = %26, %19, %15, %11, %6
@@ -1421,7 +1421,7 @@ define internal fastcc noundef i32 @open_file_in_directory(ptr noundef %0, ptr n
 
 10:                                               ; preds = %7
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.106, ptr noundef %1) #15
-  call void @exit(i32 noundef 1) #17
+  call void @exit(i32 noundef 1) #19
   unreachable
 
 11:                                               ; preds = %7, %2
@@ -1510,7 +1510,7 @@ define internal i32 @WALDumpReadPage(ptr noundef %0, i64 noundef %1, i32 noundef
   %42 = getelementptr inbounds i8, ptr %6, i64 4
   %43 = load i32, ptr %42, align 4
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.108, ptr noundef nonnull %7, i32 noundef %43) #15
-  call void @exit(i32 noundef 1) #17
+  call void @exit(i32 noundef 1) #19
   unreachable
 
 44:                                               ; preds = %25
@@ -1521,7 +1521,7 @@ define internal i32 @WALDumpReadPage(ptr noundef %0, i64 noundef %1, i32 noundef
   %49 = getelementptr inbounds i8, ptr %6, i64 8
   %50 = load i32, ptr %49, align 8
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.109, ptr noundef nonnull %7, i32 noundef %46, i32 noundef %48, i32 noundef %50) #15
-  call void @exit(i32 noundef 1) #17
+  call void @exit(i32 noundef 1) #19
   unreachable
 
 51:                                               ; preds = %21, %19
@@ -1563,7 +1563,7 @@ define internal void @WALDumpOpenSegment(ptr noundef %0, i64 noundef %1, ptr noc
 
 25:                                               ; preds = %22
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.106, ptr noundef nonnull %5) #15
-  call void @exit(i32 noundef 1) #17
+  call void @exit(i32 noundef 1) #19
   unreachable
 
 26:                                               ; preds = %22
@@ -1582,7 +1582,7 @@ define internal void @WALDumpOpenSegment(ptr noundef %0, i64 noundef %1, ptr noc
 
 31:                                               ; preds = %29, %26
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.110, ptr noundef nonnull %5) #15
-  call void @exit(i32 noundef 1) #17
+  call void @exit(i32 noundef 1) #19
   unreachable
 
 32:                                               ; preds = %18
@@ -1914,7 +1914,7 @@ define internal fastcc void @XLogRecordSaveFPWs(ptr noundef %0, ptr noundef %1) 
   %32 = getelementptr inbounds i8, ptr %0, i64 1304
   %33 = load ptr, ptr %32, align 8
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.114, ptr noundef %33) #15
-  call void @exit(i32 noundef 1) #17
+  call void @exit(i32 noundef 1) #19
   unreachable
 
 34:                                               ; preds = %28
@@ -1944,12 +1944,12 @@ define internal fastcc void @XLogRecordSaveFPWs(ptr noundef %0, ptr noundef %1) 
 
 53:                                               ; preds = %34
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.116, i32 noundef %36) #15
-  call void @exit(i32 noundef 1) #17
+  call void @exit(i32 noundef 1) #19
   unreachable
 
 54:                                               ; preds = %37
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.106, ptr noundef nonnull %4) #15
-  call void @exit(i32 noundef 1) #17
+  call void @exit(i32 noundef 1) #19
   unreachable
 
 55:                                               ; preds = %37
@@ -1959,7 +1959,7 @@ define internal fastcc void @XLogRecordSaveFPWs(ptr noundef %0, ptr noundef %1) 
 
 57:                                               ; preds = %55
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.119, ptr noundef nonnull %4) #15
-  call void @exit(i32 noundef 1) #17
+  call void @exit(i32 noundef 1) #19
   unreachable
 
 58:                                               ; preds = %55
@@ -1973,7 +1973,7 @@ define internal fastcc void @XLogRecordSaveFPWs(ptr noundef %0, ptr noundef %1) 
 
 60:                                               ; preds = %58
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.120, ptr noundef nonnull %4) #15
-  call void @exit(i32 noundef 1) #17
+  call void @exit(i32 noundef 1) #19
   unreachable
 
 61:                                               ; preds = %._crit_edge36, %24, %17
@@ -2461,7 +2461,7 @@ define internal fastcc noundef zeroext i1 @search_directory(ptr noundef %0, ptr 
 
 13:                                               ; preds = %10
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.106, ptr noundef nonnull %1) #15
-  call void @exit(i32 noundef 1) #17
+  call void @exit(i32 noundef 1) #19
   unreachable
 
 open_file_in_directory.exit:                      ; preds = %6, %10
@@ -2510,7 +2510,7 @@ IsXLogFileName.exit.backedge:                     ; preds = %21, %.lr.ph
 
 32:                                               ; preds = %29
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.106, ptr noundef nonnull %18) #15
-  call void @exit(i32 noundef 1) #17
+  call void @exit(i32 noundef 1) #19
   unreachable
 
 open_file_in_directory.exit34:                    ; preds = %25, %29
@@ -2556,7 +2556,7 @@ open_file_in_directory.exit34:                    ; preds = %25, %29
   %52 = select i1 %51, ptr @.str.100, ptr @.str.101
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull %52, ptr noundef %.1, i32 noundef %43) #15
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 1, ptr noundef nonnull @.str.102) #15
-  call void @exit(i32 noundef 1) #17
+  call void @exit(i32 noundef 1) #19
   unreachable
 
 53:                                               ; preds = %37
@@ -2565,12 +2565,12 @@ open_file_in_directory.exit34:                    ; preds = %25, %29
 
 55:                                               ; preds = %53
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.103, ptr noundef %.1) #15
-  call void @exit(i32 noundef 1) #17
+  call void @exit(i32 noundef 1) #19
   unreachable
 
 56:                                               ; preds = %53
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.104, ptr noundef %.1, i32 noundef %39, i32 noundef 8192) #15
-  call void @exit(i32 noundef 1) #17
+  call void @exit(i32 noundef 1) #19
   unreachable
 
 57:                                               ; preds = %45
@@ -2643,7 +2643,7 @@ attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree norecurse nounwind memory(readwrite, argmem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #7 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2658,6 +2658,7 @@ attributes #15 = { nounwind }
 attributes #16 = { nounwind willreturn memory(read) }
 attributes #17 = { noreturn nounwind }
 attributes #18 = { nounwind willreturn memory(none) }
+attributes #19 = { cold noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

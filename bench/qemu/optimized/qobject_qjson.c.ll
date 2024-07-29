@@ -40,11 +40,11 @@ define internal fastcc ptr @qobject_from_jsonv(ptr noundef %string, ptr noundef 
 entry:
   %state = alloca %struct.JSONParsingState, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %state, i8 0, i64 104, i1 false)
-  call void @json_message_parser_init(ptr noundef nonnull %state, ptr noundef nonnull @consume_json, ptr noundef nonnull %state, ptr noundef %ap) #7
-  %call = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %string) #8
-  call void @json_message_parser_feed(ptr noundef nonnull %state, ptr noundef %string, i64 noundef %call) #7
-  call void @json_message_parser_flush(ptr noundef nonnull %state) #7
-  call void @json_message_parser_destroy(ptr noundef nonnull %state) #7
+  call void @json_message_parser_init(ptr noundef nonnull %state, ptr noundef nonnull @consume_json, ptr noundef nonnull %state, ptr noundef %ap) #8
+  %call = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %string) #9
+  call void @json_message_parser_feed(ptr noundef nonnull %state, ptr noundef %string, i64 noundef %call) #8
+  call void @json_message_parser_flush(ptr noundef nonnull %state) #8
+  call void @json_message_parser_destroy(ptr noundef nonnull %state) #8
   %result = getelementptr inbounds i8, ptr %state, i64 88
   %0 = load ptr, ptr %result, align 8
   %tobool = icmp ne ptr %0, null
@@ -55,13 +55,13 @@ entry:
   br i1 %or.cond, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %err, ptr noundef nonnull @.str.1, i32 noundef 73, ptr noundef nonnull @__func__.qobject_from_jsonv, ptr noundef nonnull @.str.3) #7
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %err, ptr noundef nonnull @.str.1, i32 noundef 73, ptr noundef nonnull @__func__.qobject_from_jsonv, ptr noundef nonnull @.str.3) #8
   %.pre = load ptr, ptr %err, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
   %2 = phi ptr [ %.pre, %if.then ], [ %1, %entry ]
-  call void @error_propagate(ptr noundef %errp, ptr noundef %2) #7
+  call void @error_propagate(ptr noundef %errp, ptr noundef %2) #8
   %3 = load ptr, ptr %result, align 8
   ret ptr %3
 }
@@ -77,7 +77,7 @@ entry:
   br i1 %tobool.not, label %if.else, label %if.end
 
 if.else:                                          ; preds = %entry
-  call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 100, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_from_vjsonf_nofail) #9
+  call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 100, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_from_vjsonf_nofail) #10
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -101,7 +101,7 @@ entry:
   br i1 %tobool.not.i, label %if.else.i, label %qobject_from_vjsonf_nofail.exit
 
 if.else.i:                                        ; preds = %entry
-  call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 100, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_from_vjsonf_nofail) #9
+  call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 100, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_from_vjsonf_nofail) #10
   unreachable
 
 qobject_from_vjsonf_nofail.exit:                  ; preds = %entry
@@ -122,7 +122,7 @@ entry:
   br i1 %tobool.not.i, label %if.else.i, label %land.lhs.true.i
 
 if.else.i:                                        ; preds = %entry
-  call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 100, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_from_vjsonf_nofail) #9
+  call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 100, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_from_vjsonf_nofail) #10
   unreachable
 
 land.lhs.true.i:                                  ; preds = %entry
@@ -133,7 +133,7 @@ land.lhs.true.i:                                  ; preds = %entry
   br i1 %or.cond.i.i, label %qobject_type.exit.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %land.lhs.true.i
-  call void @__assert_fail(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.8, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_type) #9
+  call void @__assert_fail(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.8, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_type) #10
   unreachable
 
 qobject_type.exit.i:                              ; preds = %land.lhs.true.i
@@ -141,7 +141,7 @@ qobject_type.exit.i:                              ; preds = %land.lhs.true.i
   br i1 %cmp.i, label %if.end, label %if.else
 
 if.else:                                          ; preds = %qobject_type.exit.i
-  call void @__assert_fail(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 131, ptr noundef nonnull @__PRETTY_FUNCTION__.qdict_from_vjsonf_nofail) #9
+  call void @__assert_fail(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 131, ptr noundef nonnull @__PRETTY_FUNCTION__.qdict_from_vjsonf_nofail) #10
   unreachable
 
 if.end:                                           ; preds = %qobject_type.exit.i
@@ -162,7 +162,7 @@ entry:
   br i1 %tobool.not.i.i, label %if.else.i.i, label %land.lhs.true.i.i
 
 if.else.i.i:                                      ; preds = %entry
-  call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 100, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_from_vjsonf_nofail) #9
+  call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 100, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_from_vjsonf_nofail) #10
   unreachable
 
 land.lhs.true.i.i:                                ; preds = %entry
@@ -173,7 +173,7 @@ land.lhs.true.i.i:                                ; preds = %entry
   br i1 %or.cond.i.i.i, label %qobject_type.exit.i.i, label %if.else.i.i.i
 
 if.else.i.i.i:                                    ; preds = %land.lhs.true.i.i
-  call void @__assert_fail(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.8, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_type) #9
+  call void @__assert_fail(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.8, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_type) #10
   unreachable
 
 qobject_type.exit.i.i:                            ; preds = %land.lhs.true.i.i
@@ -181,7 +181,7 @@ qobject_type.exit.i.i:                            ; preds = %land.lhs.true.i.i
   br i1 %cmp.i.i, label %qdict_from_vjsonf_nofail.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %qobject_type.exit.i.i
-  call void @__assert_fail(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 131, ptr noundef nonnull @__PRETTY_FUNCTION__.qdict_from_vjsonf_nofail) #9
+  call void @__assert_fail(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 131, ptr noundef nonnull @__PRETTY_FUNCTION__.qdict_from_vjsonf_nofail) #10
   unreachable
 
 qdict_from_vjsonf_nofail.exit:                    ; preds = %qobject_type.exit.i.i
@@ -192,9 +192,9 @@ qdict_from_vjsonf_nofail.exit:                    ; preds = %qobject_type.exit.i
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @qobject_to_json_pretty(ptr noundef %obj, i1 noundef zeroext %pretty) local_unnamed_addr #0 {
 entry:
-  %call = tail call ptr @json_writer_new(i1 noundef zeroext %pretty) #7
+  %call = tail call ptr @json_writer_new(i1 noundef zeroext %pretty) #8
   tail call fastcc void @to_json(ptr noundef %call, ptr noundef null, ptr noundef %obj)
-  %call1 = tail call ptr @json_writer_get_and_free(ptr noundef %call) #7
+  %call1 = tail call ptr @json_writer_get_and_free(ptr noundef %call) #8
   ret ptr %call1
 }
 
@@ -209,7 +209,7 @@ entry:
   br i1 %or.cond.i, label %qobject_type.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.8, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_type) #9
+  tail call void @__assert_fail(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.8, i32 noundef 126, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_type) #10
   unreachable
 
 qobject_type.exit:                                ; preds = %entry
@@ -223,7 +223,7 @@ qobject_type.exit:                                ; preds = %entry
   ]
 
 sw.bb:                                            ; preds = %qobject_type.exit
-  tail call void @json_writer_null(ptr noundef %writer, ptr noundef %name) #7
+  tail call void @json_writer_null(ptr noundef %writer, ptr noundef %name) #8
   br label %sw.epilog35
 
 qobject_check_type.exit:                          ; preds = %qobject_type.exit
@@ -238,51 +238,51 @@ qobject_check_type.exit:                          ; preds = %qobject_type.exit
 sw.bb3:                                           ; preds = %qobject_check_type.exit
   %u = getelementptr inbounds i8, ptr %obj, i64 24
   %2 = load i64, ptr %u, align 8
-  tail call void @json_writer_int64(ptr noundef %writer, ptr noundef %name, i64 noundef %2) #7
+  tail call void @json_writer_int64(ptr noundef %writer, ptr noundef %name, i64 noundef %2) #8
   br label %sw.epilog35
 
 sw.bb4:                                           ; preds = %qobject_check_type.exit
   %u5 = getelementptr inbounds i8, ptr %obj, i64 24
   %3 = load i64, ptr %u5, align 8
-  tail call void @json_writer_uint64(ptr noundef %writer, ptr noundef %name, i64 noundef %3) #7
+  tail call void @json_writer_uint64(ptr noundef %writer, ptr noundef %name, i64 noundef %3) #8
   br label %sw.epilog35
 
 sw.bb6:                                           ; preds = %qobject_check_type.exit
   %u7 = getelementptr inbounds i8, ptr %obj, i64 24
   %4 = load double, ptr %u7, align 8
-  tail call void @json_writer_double(ptr noundef %writer, ptr noundef %name, double noundef %4) #7
+  tail call void @json_writer_double(ptr noundef %writer, ptr noundef %name, double noundef %4) #8
   br label %sw.epilog35
 
 sw.default:                                       ; preds = %qobject_check_type.exit
-  tail call void @abort() #9
+  tail call void @abort() #10
   unreachable
 
 qobject_check_type.exit43:                        ; preds = %qobject_type.exit
-  %call11 = tail call ptr @qstring_get_str(ptr noundef nonnull %obj) #7
-  tail call void @json_writer_str(ptr noundef %writer, ptr noundef %name, ptr noundef %call11) #7
+  %call11 = tail call ptr @qstring_get_str(ptr noundef nonnull %obj) #8
+  tail call void @json_writer_str(ptr noundef %writer, ptr noundef %name, ptr noundef %call11) #8
   br label %sw.epilog35
 
 qobject_check_type.exit53:                        ; preds = %qobject_type.exit
-  tail call void @json_writer_start_object(ptr noundef %writer, ptr noundef %name) #7
-  %call16 = tail call ptr @qdict_first(ptr noundef nonnull %obj) #7
+  tail call void @json_writer_start_object(ptr noundef %writer, ptr noundef %name) #8
+  %call16 = tail call ptr @qdict_first(ptr noundef nonnull %obj) #8
   %tobool.not77 = icmp eq ptr %call16, null
   br i1 %tobool.not77, label %for.end, label %for.body
 
 for.body:                                         ; preds = %qobject_check_type.exit53, %for.body
   %entry15.078 = phi ptr [ %call19, %for.body ], [ %call16, %qobject_check_type.exit53 ]
-  %call17 = tail call ptr @qdict_entry_key(ptr noundef nonnull %entry15.078) #7
-  %call18 = tail call ptr @qdict_entry_value(ptr noundef nonnull %entry15.078) #7
+  %call17 = tail call ptr @qdict_entry_key(ptr noundef nonnull %entry15.078) #8
+  %call18 = tail call ptr @qdict_entry_value(ptr noundef nonnull %entry15.078) #8
   tail call fastcc void @to_json(ptr noundef %writer, ptr noundef %call17, ptr noundef %call18)
-  %call19 = tail call ptr @qdict_next(ptr noundef nonnull %obj, ptr noundef nonnull %entry15.078) #7
+  %call19 = tail call ptr @qdict_next(ptr noundef nonnull %obj, ptr noundef nonnull %entry15.078) #8
   %tobool.not = icmp eq ptr %call19, null
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !5
 
 for.end:                                          ; preds = %for.body, %qobject_check_type.exit53
-  tail call void @json_writer_end_object(ptr noundef %writer) #7
+  tail call void @json_writer_end_object(ptr noundef %writer) #8
   br label %sw.epilog35
 
 qobject_check_type.exit63:                        ; preds = %qobject_type.exit
-  tail call void @json_writer_start_array(ptr noundef %writer, ptr noundef %name) #7
+  tail call void @json_writer_start_array(ptr noundef %writer, ptr noundef %name) #8
   %head = getelementptr inbounds i8, ptr %obj, i64 16
   %entry23.074 = load ptr, ptr %head, align 8
   %tobool25.not75 = icmp eq ptr %entry23.074, null
@@ -298,12 +298,12 @@ for.body26:                                       ; preds = %qobject_check_type.
   br i1 %tobool25.not, label %for.end29, label %for.body26, !llvm.loop !7
 
 for.end29:                                        ; preds = %for.body26, %qobject_check_type.exit63
-  tail call void @json_writer_end_array(ptr noundef %writer) #7
+  tail call void @json_writer_end_array(ptr noundef %writer) #8
   br label %sw.epilog35
 
 qobject_check_type.exit73:                        ; preds = %qobject_type.exit
-  %call33 = tail call zeroext i1 @qbool_get_bool(ptr noundef nonnull %obj) #7
-  tail call void @json_writer_bool(ptr noundef %writer, ptr noundef %name, i1 noundef zeroext %call33) #7
+  %call33 = tail call zeroext i1 @qbool_get_bool(ptr noundef nonnull %obj) #8
+  tail call void @json_writer_bool(ptr noundef %writer, ptr noundef %name, i1 noundef zeroext %call33) #8
   br label %sw.epilog35
 
 default.unreachable:                              ; preds = %qobject_type.exit
@@ -318,9 +318,9 @@ declare ptr @json_writer_get_and_free(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @qobject_to_json(ptr noundef %obj) local_unnamed_addr #0 {
 entry:
-  %call.i = tail call ptr @json_writer_new(i1 noundef zeroext false) #7
+  %call.i = tail call ptr @json_writer_new(i1 noundef zeroext false) #8
   tail call fastcc void @to_json(ptr noundef %call.i, ptr noundef null, ptr noundef %obj)
-  %call1.i = tail call ptr @json_writer_get_and_free(ptr noundef %call.i) #7
+  %call1.i = tail call ptr @json_writer_get_and_free(ptr noundef %call.i) #8
   ret ptr %call1.i
 }
 
@@ -338,7 +338,7 @@ entry:
   br i1 %cmp.not, label %if.else, label %if.end
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 35, ptr noundef nonnull @__PRETTY_FUNCTION__.consume_json) #9
+  tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 35, ptr noundef nonnull @__PRETTY_FUNCTION__.consume_json) #10
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -354,7 +354,7 @@ lor.lhs.false:                                    ; preds = %if.end
   br i1 %tobool6.not, label %lor.lhs.false.i, label %if.else8
 
 if.else8:                                         ; preds = %lor.lhs.false
-  tail call void @__assert_fail(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 36, ptr noundef nonnull @__PRETTY_FUNCTION__.consume_json) #9
+  tail call void @__assert_fail(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 36, ptr noundef nonnull @__PRETTY_FUNCTION__.consume_json) #10
   unreachable
 
 lor.lhs.false.i:                                  ; preds = %lor.lhs.false
@@ -364,7 +364,7 @@ lor.lhs.false.i:                                  ; preds = %lor.lhs.false
   br i1 %tobool1.not.i, label %if.else.i, label %land.lhs.true.i
 
 if.else.i:                                        ; preds = %lor.lhs.false.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #9
+  tail call void @__assert_fail(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #10
   unreachable
 
 land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
@@ -374,12 +374,12 @@ land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
   br i1 %cmp.i, label %if.then5.i, label %qobject_unref_impl.exit
 
 if.then5.i:                                       ; preds = %land.lhs.true.i
-  tail call void @qobject_destroy(ptr noundef nonnull %1) #7
+  tail call void @qobject_destroy(ptr noundef nonnull %1) #8
   br label %qobject_unref_impl.exit
 
 qobject_unref_impl.exit:                          ; preds = %land.lhs.true.i, %if.then5.i
   store ptr null, ptr %result, align 8
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %err5, ptr noundef nonnull @.str.1, i32 noundef 41, ptr noundef nonnull @__func__.consume_json, ptr noundef nonnull @.str.6) #7
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %err5, ptr noundef nonnull @.str.1, i32 noundef 41, ptr noundef nonnull @__func__.consume_json, ptr noundef nonnull @.str.6) #8
   br label %if.end18
 
 if.end18:                                         ; preds = %if.end, %qobject_unref_impl.exit
@@ -398,7 +398,7 @@ lor.lhs.false.i16:                                ; preds = %if.then21
   br i1 %tobool1.not.i18, label %if.else.i23, label %land.lhs.true.i19
 
 if.else.i23:                                      ; preds = %lor.lhs.false.i16
-  tail call void @__assert_fail(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #9
+  tail call void @__assert_fail(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 97, ptr noundef nonnull @__PRETTY_FUNCTION__.qobject_unref_impl) #10
   unreachable
 
 land.lhs.true.i19:                                ; preds = %lor.lhs.false.i16
@@ -408,11 +408,11 @@ land.lhs.true.i19:                                ; preds = %lor.lhs.false.i16
   br i1 %cmp.i21, label %if.then5.i22, label %qobject_unref_impl.exit24
 
 if.then5.i22:                                     ; preds = %land.lhs.true.i19
-  tail call void @qobject_destroy(ptr noundef nonnull %json) #7
+  tail call void @qobject_destroy(ptr noundef nonnull %json) #8
   br label %qobject_unref_impl.exit24
 
 qobject_unref_impl.exit24:                        ; preds = %if.then21, %land.lhs.true.i19, %if.then5.i22
-  tail call void @error_free(ptr noundef %err) #7
+  tail call void @error_free(ptr noundef %err) #8
   br label %return
 
 if.end32:                                         ; preds = %if.end18
@@ -449,8 +449,8 @@ declare void @json_writer_uint64(ptr noundef, ptr noundef, i64 noundef) local_un
 
 declare void @json_writer_double(ptr noundef, ptr noundef, double noundef) local_unnamed_addr #2
 
-; Function Attrs: noreturn nounwind
-declare void @abort() local_unnamed_addr #1
+; Function Attrs: cold nofree noreturn nounwind
+declare void @abort() local_unnamed_addr #5
 
 declare void @json_writer_str(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -477,30 +477,31 @@ declare void @json_writer_bool(ptr noundef, ptr noundef, i1 noundef zeroext) loc
 declare zeroext i1 @qbool_get_bool(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_copy.p0(ptr, ptr) #5
+declare void @llvm.va_copy.p0(ptr, ptr) #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end.p0(ptr) #5
+declare void @llvm.va_end.p0(ptr) #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start.p0(ptr) #5
+declare void @llvm.va_start.p0(ptr) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #4 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #6 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nounwind }
-attributes #8 = { nounwind willreturn memory(read) }
-attributes #9 = { noreturn nounwind }
+attributes #5 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #7 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { nounwind }
+attributes #9 = { nounwind willreturn memory(read) }
+attributes #10 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

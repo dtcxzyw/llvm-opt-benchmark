@@ -1534,7 +1534,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.19, i32 noundef 341, ptr noundef nonnull @.str.20)
-  tail call void @exit(i32 noundef 114) #25
+  tail call void @exit(i32 noundef 114) #26
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -2798,7 +2798,7 @@ if.then.i94:                                      ; preds = %call.i.noexc
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %if.then.i94
-  invoke void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTIN17algebraic_numbers19algebraic_exceptionE, ptr nonnull @_ZN17algebraic_numbers19algebraic_exceptionD2Ev) #26
+  invoke void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTIN17algebraic_numbers19algebraic_exceptionE, ptr nonnull @_ZN17algebraic_numbers19algebraic_exceptionD2Ev) #27
           to label %.noexc97 unwind label %lpad61.loopexit.split-lp
 
 .noexc97:                                         ; preds = %invoke.cont.i
@@ -3637,7 +3637,7 @@ if.then:                                          ; preds = %entry
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
-  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN17algebraic_numbers19algebraic_exceptionE, ptr nonnull @_ZN17algebraic_numbers19algebraic_exceptionD2Ev) #26
+  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN17algebraic_numbers19algebraic_exceptionE, ptr nonnull @_ZN17algebraic_numbers19algebraic_exceptionD2Ev) #27
   unreachable
 
 lpad:                                             ; preds = %if.then
@@ -3676,7 +3676,7 @@ if.then7:                                         ; preds = %if.end4
           to label %invoke.cont10 unwind label %lpad9
 
 invoke.cont10:                                    ; preds = %if.then7
-  tail call void @__cxa_throw(ptr nonnull %exception8, ptr nonnull @_ZTIN17algebraic_numbers19algebraic_exceptionE, ptr nonnull @_ZN17algebraic_numbers19algebraic_exceptionD2Ev) #26
+  tail call void @__cxa_throw(ptr nonnull %exception8, ptr nonnull @_ZTIN17algebraic_numbers19algebraic_exceptionE, ptr nonnull @_ZN17algebraic_numbers19algebraic_exceptionD2Ev) #27
   unreachable
 
 lpad9:                                            ; preds = %if.then7
@@ -3743,7 +3743,7 @@ if.then:                                          ; preds = %entry
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
-  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN17algebraic_numbers19algebraic_exceptionE, ptr nonnull @_ZN17algebraic_numbers19algebraic_exceptionD2Ev) #26
+  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN17algebraic_numbers19algebraic_exceptionE, ptr nonnull @_ZN17algebraic_numbers19algebraic_exceptionD2Ev) #27
   unreachable
 
 lpad:                                             ; preds = %if.then
@@ -4270,7 +4270,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.19, i32 noundef 1710, ptr noundef nonnull @.str.29)
-  tail call void @exit(i32 noundef 114) #25
+  tail call void @exit(i32 noundef 114) #26
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -4450,7 +4450,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.19, i32 noundef 1677, ptr noundef nonnull @.str.29)
-  tail call void @exit(i32 noundef 114) #25
+  tail call void @exit(i32 noundef 114) #26
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -4660,7 +4660,7 @@ if.then50:                                        ; preds = %invoke.cont48
           to label %invoke.cont52 unwind label %lpad51
 
 invoke.cont52:                                    ; preds = %if.then50
-  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN17algebraic_numbers19algebraic_exceptionE, ptr nonnull @_ZN17algebraic_numbers19algebraic_exceptionD2Ev) #26
+  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN17algebraic_numbers19algebraic_exceptionE, ptr nonnull @_ZN17algebraic_numbers19algebraic_exceptionD2Ev) #27
           to label %unreachable unwind label %lpad11
 
 lpad11:                                           ; preds = %if.end53, %.noexc70, %if.then.i67, %.noexc, %if.then.i48, %invoke.cont52, %invoke.cont46, %invoke.cont18, %invoke.cont12
@@ -9539,7 +9539,7 @@ declare noundef i32 @_ZN11upolynomial7manager12eval_sign_atEjPK3mpzRS2_(ptr noun
 
 declare void @_Z26notify_assertion_violationPKciS0_(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #12
 
 declare void @_ZN11mpz_managerILb1EE7big_setER3mpzRKS1_(ptr noundef nonnull align 8 dereferenceable(600), ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
@@ -10845,7 +10845,7 @@ invoke.cont.i:                                    ; preds = %if.then17.i
   store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception.i, align 8
   %m_msg.i.i = getelementptr inbounds i8, ptr %exception.i, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #24
-  invoke void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #26
+  invoke void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #27
           to label %unreachable.i unwind label %ehcleanup.i
 
 ehcleanup.i:                                      ; preds = %invoke.cont.i
@@ -11466,7 +11466,7 @@ invoke.cont:                                      ; preds = %if.then17
   store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception, align 8
   %m_msg.i = getelementptr inbounds i8, ptr %exception, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #24
-  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #26
+  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #27
           to label %unreachable unwind label %ehcleanup
 
 ehcleanup:                                        ; preds = %invoke.cont
@@ -11573,7 +11573,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.22) #26
+  invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.22) #27
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
@@ -12267,7 +12267,7 @@ invoke.cont:                                      ; preds = %if.then17
   store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception, align 8
   %m_msg.i = getelementptr inbounds i8, ptr %exception, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #24
-  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #26
+  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #27
           to label %unreachable unwind label %ehcleanup
 
 ehcleanup:                                        ; preds = %invoke.cont
@@ -12968,7 +12968,7 @@ while.body.i.i.i:                                 ; preds = %if.end.i, %if.end4.
   %storemerge27.i.i.in.i = add nuw nsw i64 %storemerge27.i.i.in.in.i, 1
   %storemerge27.i.i.i = lshr i64 %storemerge27.i.i.in.i, 1
   %mul.i.i.i = shl nuw nsw i64 %storemerge27.i.i.i, 2
-  %call.i.i.i = tail call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %mul.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #27
+  %call.i.i.i = tail call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %mul.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #28
   %cmp2.not.i.i.i = icmp eq ptr %call.i.i.i, null
   br i1 %cmp2.not.i.i.i, label %if.end4.i.i.i, label %if.else.i
 
@@ -13049,7 +13049,7 @@ if.then:                                          ; preds = %entry
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
-  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN17algebraic_numbers19algebraic_exceptionE, ptr nonnull @_ZN17algebraic_numbers19algebraic_exceptionD2Ev) #26
+  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN17algebraic_numbers19algebraic_exceptionE, ptr nonnull @_ZN17algebraic_numbers19algebraic_exceptionD2Ev) #27
   unreachable
 
 lpad:                                             ; preds = %if.then
@@ -13221,7 +13221,7 @@ if.then.i:                                        ; preds = %for.body
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %if.then.i
-  call void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTIN17algebraic_numbers19algebraic_exceptionE, ptr nonnull @_ZN17algebraic_numbers19algebraic_exceptionD2Ev) #26
+  call void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTIN17algebraic_numbers19algebraic_exceptionE, ptr nonnull @_ZN17algebraic_numbers19algebraic_exceptionD2Ev) #27
   unreachable
 
 lpad.i:                                           ; preds = %if.then.i
@@ -13327,7 +13327,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN17algebraic_numbers7manager3imp9var2basicD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #28
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #29
   ret void
 }
 
@@ -15024,7 +15024,7 @@ call.i.noexc:                                     ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %.noexc
-  invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.22) #26
+  invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.22) #27
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %if.then.i
@@ -15077,7 +15077,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %this, align 8
   %m_msg.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i.i) #24
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #28
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #29
   ret void
 }
 
@@ -15094,7 +15094,7 @@ declare noundef ptr @_ZN10polynomial7manager3mulEPKNS_10polynomialES3_(ptr nound
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN17algebraic_numbers7manager3imp11ext_var2numD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #28
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #29
   ret void
 }
 
@@ -15164,7 +15164,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN17algebraic_numbers7manager3imp12ext2_var2numD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #28
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #29
   ret void
 }
 
@@ -15256,7 +15256,7 @@ invoke.cont:                                      ; preds = %if.then17
   store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception, align 8
   %m_msg.i = getelementptr inbounds i8, ptr %exception, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #24
-  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #26
+  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #27
           to label %unreachable unwind label %ehcleanup
 
 ehcleanup:                                        ; preds = %invoke.cont
@@ -15305,7 +15305,7 @@ if.then:                                          ; preds = %entry
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
-  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN17algebraic_numbers19algebraic_exceptionE, ptr nonnull @_ZN17algebraic_numbers19algebraic_exceptionD2Ev) #26
+  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN17algebraic_numbers19algebraic_exceptionE, ptr nonnull @_ZN17algebraic_numbers19algebraic_exceptionD2Ev) #27
   unreachable
 
 lpad:                                             ; preds = %if.then
@@ -15331,7 +15331,7 @@ if.then2:                                         ; preds = %if.end, %_ZNK6vecto
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %if.then2
-  tail call void @__cxa_throw(ptr nonnull %exception3, ptr nonnull @_ZTIN17algebraic_numbers19algebraic_exceptionE, ptr nonnull @_ZN17algebraic_numbers19algebraic_exceptionD2Ev) #26
+  tail call void @__cxa_throw(ptr nonnull %exception3, ptr nonnull @_ZTIN17algebraic_numbers19algebraic_exceptionE, ptr nonnull @_ZN17algebraic_numbers19algebraic_exceptionD2Ev) #27
   unreachable
 
 lpad4:                                            ; preds = %if.then2
@@ -15370,7 +15370,7 @@ if.then11:                                        ; preds = %_ZNK6vectorIN17alge
           to label %invoke.cont14 unwind label %lpad13
 
 invoke.cont14:                                    ; preds = %if.then11
-  invoke void @__cxa_throw(ptr nonnull %exception12, ptr nonnull @_ZTIN17algebraic_numbers19algebraic_exceptionE, ptr nonnull @_ZN17algebraic_numbers19algebraic_exceptionD2Ev) #26
+  invoke void @__cxa_throw(ptr nonnull %exception12, ptr nonnull @_ZTIN17algebraic_numbers19algebraic_exceptionE, ptr nonnull @_ZN17algebraic_numbers19algebraic_exceptionD2Ev) #27
           to label %unreachable unwind label %lpad7
 
 lpad7:                                            ; preds = %if.end15, %invoke.cont14, %if.end6
@@ -16290,7 +16290,7 @@ if.then.i:                                        ; preds = %call.i.noexc.us, %c
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %if.then.i
-  invoke void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTIN17algebraic_numbers19algebraic_exceptionE, ptr nonnull @_ZN17algebraic_numbers19algebraic_exceptionD2Ev) #26
+  invoke void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTIN17algebraic_numbers19algebraic_exceptionE, ptr nonnull @_ZN17algebraic_numbers19algebraic_exceptionD2Ev) #27
           to label %.noexc42 unwind label %lpad32.loopexit.split-lp.loopexit.split-lp
 
 .noexc42:                                         ; preds = %invoke.cont.i
@@ -17624,7 +17624,7 @@ invoke.cont:                                      ; preds = %if.then17
   store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception, align 8
   %m_msg.i = getelementptr inbounds i8, ptr %exception, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #24
-  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #26
+  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #27
           to label %unreachable unwind label %ehcleanup
 
 ehcleanup:                                        ; preds = %invoke.cont
@@ -17964,7 +17964,7 @@ if.then.i:                                        ; preds = %call.i.noexc.us, %c
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %if.then.i
-  invoke void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTIN17algebraic_numbers19algebraic_exceptionE, ptr nonnull @_ZN17algebraic_numbers19algebraic_exceptionD2Ev) #26
+  invoke void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTIN17algebraic_numbers19algebraic_exceptionE, ptr nonnull @_ZN17algebraic_numbers19algebraic_exceptionD2Ev) #27
           to label %.noexc42 unwind label %lpad32.loopexit.split-lp.loopexit.split-lp
 
 .noexc42:                                         ; preds = %invoke.cont.i
@@ -19351,7 +19351,7 @@ if.then.i:                                        ; preds = %call.i.noexc
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %if.then.i
-  invoke void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTIN17algebraic_numbers19algebraic_exceptionE, ptr nonnull @_ZN17algebraic_numbers19algebraic_exceptionD2Ev) #26
+  invoke void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTIN17algebraic_numbers19algebraic_exceptionE, ptr nonnull @_ZN17algebraic_numbers19algebraic_exceptionD2Ev) #27
           to label %.noexc48 unwind label %lpad35.loopexit.split-lp.loopexit.split-lp
 
 .noexc48:                                         ; preds = %invoke.cont.i
@@ -20887,7 +20887,7 @@ if.then.i:                                        ; preds = %call.i.noexc
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %if.then.i
-  invoke void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTIN17algebraic_numbers19algebraic_exceptionE, ptr nonnull @_ZN17algebraic_numbers19algebraic_exceptionD2Ev) #26
+  invoke void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTIN17algebraic_numbers19algebraic_exceptionE, ptr nonnull @_ZN17algebraic_numbers19algebraic_exceptionD2Ev) #27
           to label %.noexc48 unwind label %lpad35.loopexit.split-lp.loopexit.split-lp
 
 .noexc48:                                         ; preds = %invoke.cont.i
@@ -22482,7 +22482,7 @@ if.then.i:                                        ; preds = %call.i.noexc.us, %c
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %if.then.i
-  invoke void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTIN17algebraic_numbers19algebraic_exceptionE, ptr nonnull @_ZN17algebraic_numbers19algebraic_exceptionD2Ev) #26
+  invoke void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTIN17algebraic_numbers19algebraic_exceptionE, ptr nonnull @_ZN17algebraic_numbers19algebraic_exceptionD2Ev) #27
           to label %.noexc48 unwind label %lpad35.loopexit.split-lp.loopexit.split-lp
 
 .noexc48:                                         ; preds = %invoke.cont.i
@@ -24439,7 +24439,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN17algebraic_numbers7manager3imp13opt_var2basicD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #28
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #29
   ret void
 }
 
@@ -24482,7 +24482,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %exception = tail call ptr @__cxa_allocate_exception(i64 1) #24
-  tail call void @__cxa_throw(ptr %exception, ptr nonnull @_ZTIN17algebraic_numbers7manager3imp13opt_var2basic6failedE, ptr null) #26
+  tail call void @__cxa_throw(ptr %exception, ptr nonnull @_ZTIN17algebraic_numbers7manager3imp13opt_var2basic6failedE, ptr null) #27
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -24497,7 +24497,7 @@ if.end:                                           ; preds = %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN17algebraic_numbers7manager3imp12var2intervalD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #28
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #29
   ret void
 }
 
@@ -24600,7 +24600,7 @@ invoke.cont:                                      ; preds = %if.then17
   store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception, align 8
   %m_msg.i = getelementptr inbounds i8, ptr %exception, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #24
-  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #26
+  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #27
           to label %unreachable unwind label %ehcleanup
 
 ehcleanup:                                        ; preds = %invoke.cont
@@ -25427,7 +25427,7 @@ attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #12 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
@@ -25441,9 +25441,10 @@ attributes #22 = { nocallback nofree nosync nounwind speculatable willreturn mem
 attributes #23 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #24 = { nounwind }
 attributes #25 = { noreturn nounwind }
-attributes #26 = { noreturn }
-attributes #27 = { nounwind allocsize(0) }
-attributes #28 = { builtin nounwind }
+attributes #26 = { cold noreturn nounwind }
+attributes #27 = { noreturn }
+attributes #28 = { nounwind allocsize(0) }
+attributes #29 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

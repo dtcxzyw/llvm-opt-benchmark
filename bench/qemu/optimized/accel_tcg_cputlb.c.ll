@@ -80,7 +80,7 @@ define dso_local void @tlb_init(ptr nocapture noundef %cpu) local_unnamed_addr #
 entry:
   %tv.i = alloca %struct.timeval, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i)
-  %call.i = call i32 @gettimeofday(ptr noundef nonnull %tv.i, ptr noundef null) #18
+  %call.i = call i32 @gettimeofday(ptr noundef nonnull %tv.i, ptr noundef null) #19
   %0 = load i64, ptr %tv.i, align 8
   %mul.i = mul i64 %0, 1000000000
   %tv_usec.i = getelementptr inbounds i8, ptr %tv.i, i64 8
@@ -106,10 +106,10 @@ for.body:                                         ; preds = %entry, %for.body
   %n_used_entries.i = getelementptr inbounds i8, ptr %arrayidx, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %window_max_entries.i.i, i8 0, i64 16, i1 false)
   store i64 8160, ptr %arrayidx9, align 16
-  %call.i7 = tail call noalias dereferenceable_or_null(8192) ptr @g_malloc_n(i64 noundef 256, i64 noundef 32) #19
+  %call.i7 = tail call noalias dereferenceable_or_null(8192) ptr @g_malloc_n(i64 noundef 256, i64 noundef 32) #20
   %table.i = getelementptr inbounds i8, ptr %arrayidx9, i64 8
   store ptr %call.i7, ptr %table.i, align 8
-  %call1.i = tail call noalias dereferenceable_or_null(8192) ptr @g_malloc_n(i64 noundef 256, i64 noundef 32) #19
+  %call1.i = tail call noalias dereferenceable_or_null(8192) ptr @g_malloc_n(i64 noundef 256, i64 noundef 32) #20
   %fulltlb.i = getelementptr inbounds i8, ptr %arrayidx, i64 560
   store ptr %call1.i, ptr %fulltlb.i, align 8
   store i64 0, ptr %n_used_entries.i, align 8
@@ -141,10 +141,10 @@ for.body:                                         ; preds = %entry, %for.body
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.body ]
   %table = getelementptr [16 x %struct.CPUTLBDescFast], ptr %f, i64 0, i64 %indvars.iv, i32 1
   %0 = load ptr, ptr %table, align 8
-  tail call void @g_free(ptr noundef %0) #18
+  tail call void @g_free(ptr noundef %0) #19
   %fulltlb = getelementptr [16 x %struct.CPUTLBDesc], ptr %d, i64 0, i64 %indvars.iv, i32 8
   %1 = load ptr, ptr %fulltlb, align 8
-  tail call void @g_free(ptr noundef %1) #18
+  tail call void @g_free(ptr noundef %1) #19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !7
@@ -164,12 +164,12 @@ entry:
   br i1 %tobool, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %entry
-  %call = tail call zeroext i1 @qemu_cpu_is_self(ptr noundef nonnull %cpu) #18
+  %call = tail call zeroext i1 @qemu_cpu_is_self(ptr noundef nonnull %cpu) #19
   br i1 %call, label %if.else, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
   %.compoundliteral.sroa.0.0.insert.ext = zext i16 %idxmap to i64
-  tail call void @async_run_on_cpu(ptr noundef nonnull %cpu, ptr noundef nonnull @tlb_flush_by_mmuidx_async_work, i64 %.compoundliteral.sroa.0.0.insert.ext) #18
+  tail call void @async_run_on_cpu(ptr noundef nonnull %cpu, ptr noundef nonnull @tlb_flush_by_mmuidx_async_work, i64 %.compoundliteral.sroa.0.0.insert.ext) #19
   br label %if.end
 
 if.else:                                          ; preds = %land.lhs.true, %entry
@@ -191,7 +191,7 @@ entry:
   %tv.i = alloca %struct.timeval, align 8
   %conv = trunc i64 %data.coerce to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i)
-  %call.i = call i32 @gettimeofday(ptr noundef nonnull %tv.i, ptr noundef null) #18
+  %call.i = call i32 @gettimeofday(ptr noundef nonnull %tv.i, ptr noundef null) #19
   %0 = load i64, ptr %tv.i, align 8
   %mul.i = mul i64 %0, 1000000000
   %tv_usec.i = getelementptr inbounds i8, ptr %tv.i, i64 8
@@ -215,7 +215,7 @@ while.cond6.preheader.i:                          ; preds = %entry, %while.cond.
   br i1 %tobool15.not2.i, label %while.cond.loopexit.i, label %while.body16.i
 
 while.body16.i:                                   ; preds = %while.cond6.preheader.i, %while.body16.i
-  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !9
+  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !9
   %5 = load atomic i32, ptr %neg monotonic, align 4
   %tobool15.not.i = icmp eq i32 %5, 0
   br i1 %tobool15.not.i, label %while.cond.loopexit.i, label %while.body16.i, !llvm.loop !10
@@ -235,7 +235,7 @@ qemu_spin_lock.exit:                              ; preds = %while.cond.loopexit
 
 for.end.thread:                                   ; preds = %qemu_spin_lock.exit
   store atomic i32 0, ptr %neg release, align 4
-  tail call void @tcg_flush_jmp_cache(ptr noundef nonnull %cpu) #18
+  tail call void @tcg_flush_jmp_cache(ptr noundef nonnull %cpu) #19
   br label %while.end48
 
 for.body:                                         ; preds = %qemu_spin_lock.exit, %for.body
@@ -250,7 +250,7 @@ for.body:                                         ; preds = %qemu_spin_lock.exit
 
 for.end:                                          ; preds = %for.body
   store atomic i32 0, ptr %neg release, align 4
-  tail call void @tcg_flush_jmp_cache(ptr noundef %cpu) #18
+  tail call void @tcg_flush_jmp_cache(ptr noundef %cpu) #19
   %cmp30 = icmp eq i16 %conv8, -1
   br i1 %cmp30, label %while.end, label %while.end48
 
@@ -295,11 +295,11 @@ entry:
   br i1 %tobool.i, label %land.lhs.true.i, label %if.else.i
 
 land.lhs.true.i:                                  ; preds = %entry
-  %call.i = tail call zeroext i1 @qemu_cpu_is_self(ptr noundef nonnull %cpu) #18
+  %call.i = tail call zeroext i1 @qemu_cpu_is_self(ptr noundef nonnull %cpu) #19
   br i1 %call.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  tail call void @async_run_on_cpu(ptr noundef nonnull %cpu, ptr noundef nonnull @tlb_flush_by_mmuidx_async_work, i64 65535) #18
+  tail call void @async_run_on_cpu(ptr noundef nonnull %cpu, ptr noundef nonnull @tlb_flush_by_mmuidx_async_work, i64 65535) #19
   br label %tlb_flush_by_mmuidx.exit
 
 if.else.i:                                        ; preds = %land.lhs.true.i, %entry
@@ -315,7 +315,7 @@ define dso_local void @tlb_flush_by_mmuidx_all_cpus(ptr noundef %src_cpu, i16 no
 entry:
   %.compoundliteral.sroa.0.0.insert.ext = zext i16 %idxmap to i64
   %0 = load atomic i64, ptr @cpus_queue monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !12
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !12
   %tobool.not5.i = icmp eq i64 %0, 0
   br i1 %tobool.not5.i, label %flush_all_helper.exit, label %for.body.i
 
@@ -326,13 +326,13 @@ for.body.i:                                       ; preds = %entry, %while.end6.
   br i1 %cmp.not.i, label %while.end6.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body.i
-  tail call void @async_run_on_cpu(ptr noundef nonnull %cpu.06.i, ptr noundef nonnull @tlb_flush_by_mmuidx_async_work, i64 %.compoundliteral.sroa.0.0.insert.ext) #18
+  tail call void @async_run_on_cpu(ptr noundef nonnull %cpu.06.i, ptr noundef nonnull @tlb_flush_by_mmuidx_async_work, i64 %.compoundliteral.sroa.0.0.insert.ext) #19
   br label %while.end6.i
 
 while.end6.i:                                     ; preds = %if.then.i, %for.body.i
   %node.i = getelementptr inbounds i8, ptr %cpu.06.i, i64 568
   %1 = load atomic i64, ptr %node.i monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !13
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !13
   %tobool.not.i = icmp eq i64 %1, 0
   br i1 %tobool.not.i, label %flush_all_helper.exit, label %for.body.i, !llvm.loop !14
 
@@ -345,7 +345,7 @@ flush_all_helper.exit:                            ; preds = %while.end6.i, %entr
 define dso_local void @tlb_flush_all_cpus(ptr noundef %src_cpu) local_unnamed_addr #0 {
 entry:
   %0 = load atomic i64, ptr @cpus_queue monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !12
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !12
   %tobool.not5.i.i = icmp eq i64 %0, 0
   br i1 %tobool.not5.i.i, label %tlb_flush_by_mmuidx_all_cpus.exit, label %for.body.i.i
 
@@ -356,13 +356,13 @@ for.body.i.i:                                     ; preds = %entry, %while.end6.
   br i1 %cmp.not.i.i, label %while.end6.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %for.body.i.i
-  tail call void @async_run_on_cpu(ptr noundef nonnull %cpu.06.i.i, ptr noundef nonnull @tlb_flush_by_mmuidx_async_work, i64 65535) #18
+  tail call void @async_run_on_cpu(ptr noundef nonnull %cpu.06.i.i, ptr noundef nonnull @tlb_flush_by_mmuidx_async_work, i64 65535) #19
   br label %while.end6.i.i
 
 while.end6.i.i:                                   ; preds = %if.then.i.i, %for.body.i.i
   %node.i.i = getelementptr inbounds i8, ptr %cpu.06.i.i, i64 568
   %1 = load atomic i64, ptr %node.i.i monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !13
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !13
   %tobool.not.i.i = icmp eq i64 %1, 0
   br i1 %tobool.not.i.i, label %tlb_flush_by_mmuidx_all_cpus.exit, label %for.body.i.i, !llvm.loop !14
 
@@ -376,7 +376,7 @@ define dso_local void @tlb_flush_by_mmuidx_all_cpus_synced(ptr noundef %src_cpu,
 entry:
   %.compoundliteral.sroa.0.0.insert.ext = zext i16 %idxmap to i64
   %0 = load atomic i64, ptr @cpus_queue monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !12
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !12
   %tobool.not5.i = icmp eq i64 %0, 0
   br i1 %tobool.not5.i, label %flush_all_helper.exit, label %for.body.i
 
@@ -387,18 +387,18 @@ for.body.i:                                       ; preds = %entry, %while.end6.
   br i1 %cmp.not.i, label %while.end6.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body.i
-  tail call void @async_run_on_cpu(ptr noundef nonnull %cpu.06.i, ptr noundef nonnull @tlb_flush_by_mmuidx_async_work, i64 %.compoundliteral.sroa.0.0.insert.ext) #18
+  tail call void @async_run_on_cpu(ptr noundef nonnull %cpu.06.i, ptr noundef nonnull @tlb_flush_by_mmuidx_async_work, i64 %.compoundliteral.sroa.0.0.insert.ext) #19
   br label %while.end6.i
 
 while.end6.i:                                     ; preds = %if.then.i, %for.body.i
   %node.i = getelementptr inbounds i8, ptr %cpu.06.i, i64 568
   %1 = load atomic i64, ptr %node.i monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !13
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !13
   %tobool.not.i = icmp eq i64 %1, 0
   br i1 %tobool.not.i, label %flush_all_helper.exit, label %for.body.i, !llvm.loop !14
 
 flush_all_helper.exit:                            ; preds = %while.end6.i, %entry
-  tail call void @async_safe_run_on_cpu(ptr noundef %src_cpu, ptr noundef nonnull @tlb_flush_by_mmuidx_async_work, i64 %.compoundliteral.sroa.0.0.insert.ext) #18
+  tail call void @async_safe_run_on_cpu(ptr noundef %src_cpu, ptr noundef nonnull @tlb_flush_by_mmuidx_async_work, i64 %.compoundliteral.sroa.0.0.insert.ext) #19
   ret void
 }
 
@@ -408,7 +408,7 @@ declare void @async_safe_run_on_cpu(ptr noundef, ptr noundef, i64) local_unnamed
 define dso_local void @tlb_flush_all_cpus_synced(ptr noundef %src_cpu) local_unnamed_addr #0 {
 entry:
   %0 = load atomic i64, ptr @cpus_queue monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !12
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !12
   %tobool.not5.i.i = icmp eq i64 %0, 0
   br i1 %tobool.not5.i.i, label %tlb_flush_by_mmuidx_all_cpus_synced.exit, label %for.body.i.i
 
@@ -419,18 +419,18 @@ for.body.i.i:                                     ; preds = %entry, %while.end6.
   br i1 %cmp.not.i.i, label %while.end6.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %for.body.i.i
-  tail call void @async_run_on_cpu(ptr noundef nonnull %cpu.06.i.i, ptr noundef nonnull @tlb_flush_by_mmuidx_async_work, i64 65535) #18
+  tail call void @async_run_on_cpu(ptr noundef nonnull %cpu.06.i.i, ptr noundef nonnull @tlb_flush_by_mmuidx_async_work, i64 65535) #19
   br label %while.end6.i.i
 
 while.end6.i.i:                                   ; preds = %if.then.i.i, %for.body.i.i
   %node.i.i = getelementptr inbounds i8, ptr %cpu.06.i.i, i64 568
   %1 = load atomic i64, ptr %node.i.i monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !13
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !13
   %tobool.not.i.i = icmp eq i64 %1, 0
   br i1 %tobool.not.i.i, label %tlb_flush_by_mmuidx_all_cpus_synced.exit, label %for.body.i.i, !llvm.loop !14
 
 tlb_flush_by_mmuidx_all_cpus_synced.exit:         ; preds = %while.end6.i.i, %entry
-  tail call void @async_safe_run_on_cpu(ptr noundef %src_cpu, ptr noundef nonnull @tlb_flush_by_mmuidx_async_work, i64 65535) #18
+  tail call void @async_safe_run_on_cpu(ptr noundef %src_cpu, ptr noundef nonnull @tlb_flush_by_mmuidx_async_work, i64 65535) #19
   ret void
 }
 
@@ -438,7 +438,7 @@ tlb_flush_by_mmuidx_all_cpus_synced.exit:         ; preds = %while.end6.i.i, %en
 define dso_local void @tlb_flush_page_by_mmuidx(ptr noundef %cpu, i64 noundef %addr, i16 noundef zeroext %idxmap) local_unnamed_addr #0 {
 entry:
   %and = and i64 %addr, -4096
-  %call = tail call zeroext i1 @qemu_cpu_is_self(ptr noundef %cpu) #18
+  %call = tail call zeroext i1 @qemu_cpu_is_self(ptr noundef %cpu) #19
   br i1 %call, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -452,16 +452,16 @@ if.else:                                          ; preds = %entry
 if.then2:                                         ; preds = %if.else
   %conv3 = zext nneg i16 %idxmap to i64
   %or = or disjoint i64 %and, %conv3
-  tail call void @async_run_on_cpu(ptr noundef %cpu, ptr noundef nonnull @tlb_flush_page_by_mmuidx_async_1, i64 %or) #18
+  tail call void @async_run_on_cpu(ptr noundef %cpu, ptr noundef nonnull @tlb_flush_page_by_mmuidx_async_1, i64 %or) #19
   br label %if.end10
 
 if.else4:                                         ; preds = %if.else
-  %call5 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #19
+  %call5 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #20
   store i64 %and, ptr %call5, align 8
   %idxmap7 = getelementptr inbounds i8, ptr %call5, i64 8
   store i16 %idxmap, ptr %idxmap7, align 8
   %0 = ptrtoint ptr %call5 to i64
-  tail call void @async_run_on_cpu(ptr noundef %cpu, ptr noundef nonnull @tlb_flush_page_by_mmuidx_async_2, i64 %0) #18
+  tail call void @async_run_on_cpu(ptr noundef %cpu, ptr noundef nonnull @tlb_flush_page_by_mmuidx_async_2, i64 %0) #19
   br label %if.end10
 
 if.end10:                                         ; preds = %if.then2, %if.else4, %if.then
@@ -488,7 +488,7 @@ while.cond6.preheader.i:                          ; preds = %entry, %while.cond.
   br i1 %tobool15.not2.i, label %while.cond.loopexit.i, label %while.body16.i
 
 while.body16.i:                                   ; preds = %while.cond6.preheader.i, %while.body16.i
-  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !9
+  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !9
   %3 = load atomic i32, ptr %neg monotonic, align 4
   %tobool15.not.i = icmp eq i32 %3, 0
   br i1 %tobool15.not.i, label %while.cond.loopexit.i, label %while.body16.i, !llvm.loop !10
@@ -520,7 +520,7 @@ if.then:                                          ; preds = %for.body
 
 do.end.i:                                         ; preds = %if.then
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i.i)
-  %call.i.i = call i32 @gettimeofday(ptr noundef nonnull %tv.i.i, ptr noundef null) #18
+  %call.i.i = call i32 @gettimeofday(ptr noundef nonnull %tv.i.i, ptr noundef null) #19
   %9 = load i64, ptr %tv.i.i, align 8
   %mul.i.i = mul i64 %9, 1000000000
   %10 = load i64, ptr %tv_usec.i.i, align 8
@@ -679,7 +679,7 @@ entry:
   %idxmap = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i16, ptr %idxmap, align 8
   tail call fastcc void @tlb_flush_page_by_mmuidx_async_0(ptr noundef %cpu, i64 noundef %1, i16 noundef zeroext %2)
-  tail call void @g_free(ptr noundef nonnull %0) #18
+  tail call void @g_free(ptr noundef nonnull %0) #19
   ret void
 }
 
@@ -687,7 +687,7 @@ entry:
 define dso_local void @tlb_flush_page(ptr noundef %cpu, i64 noundef %addr) local_unnamed_addr #0 {
 entry:
   %and.i = and i64 %addr, -4096
-  %call.i = tail call zeroext i1 @qemu_cpu_is_self(ptr noundef %cpu) #18
+  %call.i = tail call zeroext i1 @qemu_cpu_is_self(ptr noundef %cpu) #19
   br i1 %call.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
@@ -695,12 +695,12 @@ if.then.i:                                        ; preds = %entry
   br label %tlb_flush_page_by_mmuidx.exit
 
 if.else.i:                                        ; preds = %entry
-  %call5.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #19
+  %call5.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #20
   store i64 %and.i, ptr %call5.i, align 8
   %idxmap7.i = getelementptr inbounds i8, ptr %call5.i, i64 8
   store i16 -1, ptr %idxmap7.i, align 8
   %0 = ptrtoint ptr %call5.i to i64
-  tail call void @async_run_on_cpu(ptr noundef %cpu, ptr noundef nonnull @tlb_flush_page_by_mmuidx_async_2, i64 %0) #18
+  tail call void @async_run_on_cpu(ptr noundef %cpu, ptr noundef nonnull @tlb_flush_page_by_mmuidx_async_2, i64 %0) #19
   br label %tlb_flush_page_by_mmuidx.exit
 
 tlb_flush_page_by_mmuidx.exit:                    ; preds = %if.then.i, %if.else.i
@@ -718,7 +718,7 @@ if.then:                                          ; preds = %entry
   %conv2 = zext nneg i16 %idxmap to i64
   %or = or disjoint i64 %and, %conv2
   %0 = load atomic i64, ptr @cpus_queue monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !12
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !12
   %tobool.not5.i = icmp eq i64 %0, 0
   br i1 %tobool.not5.i, label %if.end18, label %for.body.i
 
@@ -729,19 +729,19 @@ for.body.i:                                       ; preds = %if.then, %while.end
   br i1 %cmp.not.i, label %while.end6.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body.i
-  tail call void @async_run_on_cpu(ptr noundef nonnull %cpu.06.i, ptr noundef nonnull @tlb_flush_page_by_mmuidx_async_1, i64 %or) #18
+  tail call void @async_run_on_cpu(ptr noundef nonnull %cpu.06.i, ptr noundef nonnull @tlb_flush_page_by_mmuidx_async_1, i64 %or) #19
   br label %while.end6.i
 
 while.end6.i:                                     ; preds = %if.then.i, %for.body.i
   %node.i = getelementptr inbounds i8, ptr %cpu.06.i, i64 568
   %1 = load atomic i64, ptr %node.i monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !13
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !13
   %tobool.not.i = icmp eq i64 %1, 0
   br i1 %tobool.not.i, label %if.end18, label %for.body.i, !llvm.loop !14
 
 while.end:                                        ; preds = %entry
   %2 = load atomic i64, ptr @cpus_queue monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !18
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !18
   %tobool.not16 = icmp eq i64 %2, 0
   br i1 %tobool.not16, label %if.end18, label %for.body
 
@@ -752,18 +752,18 @@ for.body:                                         ; preds = %while.end, %while.e
   br i1 %cmp5.not, label %while.end16, label %if.then7
 
 if.then7:                                         ; preds = %for.body
-  %call = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #19
+  %call = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #20
   store i64 %and, ptr %call, align 8
   %idxmap9 = getelementptr inbounds i8, ptr %call, i64 8
   store i16 %idxmap, ptr %idxmap9, align 8
   %3 = ptrtoint ptr %call to i64
-  tail call void @async_run_on_cpu(ptr noundef nonnull %dst_cpu.017, ptr noundef nonnull @tlb_flush_page_by_mmuidx_async_2, i64 %3) #18
+  tail call void @async_run_on_cpu(ptr noundef nonnull %dst_cpu.017, ptr noundef nonnull @tlb_flush_page_by_mmuidx_async_2, i64 %3) #19
   br label %while.end16
 
 while.end16:                                      ; preds = %for.body, %if.then7
   %node = getelementptr inbounds i8, ptr %dst_cpu.017, i64 568
   %4 = load atomic i64, ptr %node monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !19
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !19
   %tobool.not = icmp eq i64 %4, 0
   br i1 %tobool.not, label %if.end18, label %for.body, !llvm.loop !20
 
@@ -780,7 +780,7 @@ define dso_local void @tlb_flush_page_all_cpus(ptr noundef %src, i64 noundef %ad
 entry:
   %and.i = and i64 %addr, -4096
   %0 = load atomic i64, ptr @cpus_queue monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !18
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !18
   %tobool.not16.i = icmp eq i64 %0, 0
   br i1 %tobool.not16.i, label %tlb_flush_page_by_mmuidx_all_cpus.exit, label %for.body.i
 
@@ -791,18 +791,18 @@ for.body.i:                                       ; preds = %entry, %while.end16
   br i1 %cmp5.not.i, label %while.end16.i, label %if.then7.i
 
 if.then7.i:                                       ; preds = %for.body.i
-  %call.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #19
+  %call.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #20
   store i64 %and.i, ptr %call.i, align 8
   %idxmap9.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i16 -1, ptr %idxmap9.i, align 8
   %1 = ptrtoint ptr %call.i to i64
-  tail call void @async_run_on_cpu(ptr noundef nonnull %dst_cpu.017.i, ptr noundef nonnull @tlb_flush_page_by_mmuidx_async_2, i64 %1) #18
+  tail call void @async_run_on_cpu(ptr noundef nonnull %dst_cpu.017.i, ptr noundef nonnull @tlb_flush_page_by_mmuidx_async_2, i64 %1) #19
   br label %while.end16.i
 
 while.end16.i:                                    ; preds = %if.then7.i, %for.body.i
   %node.i = getelementptr inbounds i8, ptr %dst_cpu.017.i, i64 568
   %2 = load atomic i64, ptr %node.i monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !19
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !19
   %tobool.not.i = icmp eq i64 %2, 0
   br i1 %tobool.not.i, label %tlb_flush_page_by_mmuidx_all_cpus.exit, label %for.body.i, !llvm.loop !20
 
@@ -822,7 +822,7 @@ if.then:                                          ; preds = %entry
   %conv2 = zext nneg i16 %idxmap to i64
   %or = or disjoint i64 %and, %conv2
   %0 = load atomic i64, ptr @cpus_queue monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !12
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !12
   %tobool.not5.i = icmp eq i64 %0, 0
   br i1 %tobool.not5.i, label %flush_all_helper.exit, label %for.body.i
 
@@ -833,23 +833,23 @@ for.body.i:                                       ; preds = %if.then, %while.end
   br i1 %cmp.not.i, label %while.end6.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body.i
-  tail call void @async_run_on_cpu(ptr noundef nonnull %cpu.06.i, ptr noundef nonnull @tlb_flush_page_by_mmuidx_async_1, i64 %or) #18
+  tail call void @async_run_on_cpu(ptr noundef nonnull %cpu.06.i, ptr noundef nonnull @tlb_flush_page_by_mmuidx_async_1, i64 %or) #19
   br label %while.end6.i
 
 while.end6.i:                                     ; preds = %if.then.i, %for.body.i
   %node.i = getelementptr inbounds i8, ptr %cpu.06.i, i64 568
   %1 = load atomic i64, ptr %node.i monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !13
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !13
   %tobool.not.i = icmp eq i64 %1, 0
   br i1 %tobool.not.i, label %flush_all_helper.exit, label %for.body.i, !llvm.loop !14
 
 flush_all_helper.exit:                            ; preds = %while.end6.i, %if.then
-  tail call void @async_safe_run_on_cpu(ptr noundef %src_cpu, ptr noundef nonnull @tlb_flush_page_by_mmuidx_async_1, i64 %or) #18
+  tail call void @async_safe_run_on_cpu(ptr noundef %src_cpu, ptr noundef nonnull @tlb_flush_page_by_mmuidx_async_1, i64 %or) #19
   br label %if.end27
 
 while.end:                                        ; preds = %entry
   %2 = load atomic i64, ptr @cpus_queue monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !21
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !21
   %tobool.not21 = icmp eq i64 %2, 0
   br i1 %tobool.not21, label %for.end, label %for.body
 
@@ -860,28 +860,28 @@ for.body:                                         ; preds = %while.end, %while.e
   br i1 %cmp9.not, label %while.end20, label %if.then11
 
 if.then11:                                        ; preds = %for.body
-  %call = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #19
+  %call = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #20
   store i64 %and, ptr %call, align 8
   %idxmap13 = getelementptr inbounds i8, ptr %call, i64 8
   store i16 %idxmap, ptr %idxmap13, align 8
   %3 = ptrtoint ptr %call to i64
-  tail call void @async_run_on_cpu(ptr noundef nonnull %dst_cpu.022, ptr noundef nonnull @tlb_flush_page_by_mmuidx_async_2, i64 %3) #18
+  tail call void @async_run_on_cpu(ptr noundef nonnull %dst_cpu.022, ptr noundef nonnull @tlb_flush_page_by_mmuidx_async_2, i64 %3) #19
   br label %while.end20
 
 while.end20:                                      ; preds = %for.body, %if.then11
   %node = getelementptr inbounds i8, ptr %dst_cpu.022, i64 568
   %4 = load atomic i64, ptr %node monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !22
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !22
   %tobool.not = icmp eq i64 %4, 0
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !23
 
 for.end:                                          ; preds = %while.end20, %while.end
-  %call22 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #19
+  %call22 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #20
   store i64 %and, ptr %call22, align 8
   %idxmap24 = getelementptr inbounds i8, ptr %call22, i64 8
   store i16 %idxmap, ptr %idxmap24, align 8
   %5 = ptrtoint ptr %call22 to i64
-  tail call void @async_safe_run_on_cpu(ptr noundef %src_cpu, ptr noundef nonnull @tlb_flush_page_by_mmuidx_async_2, i64 %5) #18
+  tail call void @async_safe_run_on_cpu(ptr noundef %src_cpu, ptr noundef nonnull @tlb_flush_page_by_mmuidx_async_2, i64 %5) #19
   br label %if.end27
 
 if.end27:                                         ; preds = %for.end, %flush_all_helper.exit
@@ -893,7 +893,7 @@ define dso_local void @tlb_flush_page_all_cpus_synced(ptr noundef %src, i64 noun
 entry:
   %and.i = and i64 %addr, -4096
   %0 = load atomic i64, ptr @cpus_queue monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !21
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !21
   %tobool.not21.i = icmp eq i64 %0, 0
   br i1 %tobool.not21.i, label %tlb_flush_page_by_mmuidx_all_cpus_synced.exit, label %for.body.i
 
@@ -904,28 +904,28 @@ for.body.i:                                       ; preds = %entry, %while.end20
   br i1 %cmp9.not.i, label %while.end20.i, label %if.then11.i
 
 if.then11.i:                                      ; preds = %for.body.i
-  %call.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #19
+  %call.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #20
   store i64 %and.i, ptr %call.i, align 8
   %idxmap13.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i16 -1, ptr %idxmap13.i, align 8
   %1 = ptrtoint ptr %call.i to i64
-  tail call void @async_run_on_cpu(ptr noundef nonnull %dst_cpu.022.i, ptr noundef nonnull @tlb_flush_page_by_mmuidx_async_2, i64 %1) #18
+  tail call void @async_run_on_cpu(ptr noundef nonnull %dst_cpu.022.i, ptr noundef nonnull @tlb_flush_page_by_mmuidx_async_2, i64 %1) #19
   br label %while.end20.i
 
 while.end20.i:                                    ; preds = %if.then11.i, %for.body.i
   %node.i = getelementptr inbounds i8, ptr %dst_cpu.022.i, i64 568
   %2 = load atomic i64, ptr %node.i monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !22
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !22
   %tobool.not.i = icmp eq i64 %2, 0
   br i1 %tobool.not.i, label %tlb_flush_page_by_mmuidx_all_cpus_synced.exit, label %for.body.i, !llvm.loop !23
 
 tlb_flush_page_by_mmuidx_all_cpus_synced.exit:    ; preds = %while.end20.i, %entry
-  %call22.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #19
+  %call22.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #20
   store i64 %and.i, ptr %call22.i, align 8
   %idxmap24.i = getelementptr inbounds i8, ptr %call22.i, i64 8
   store i16 -1, ptr %idxmap24.i, align 8
   %3 = ptrtoint ptr %call22.i to i64
-  tail call void @async_safe_run_on_cpu(ptr noundef %src, ptr noundef nonnull @tlb_flush_page_by_mmuidx_async_2, i64 %3) #18
+  tail call void @async_safe_run_on_cpu(ptr noundef %src, ptr noundef nonnull @tlb_flush_page_by_mmuidx_async_2, i64 %3) #19
   ret void
 }
 
@@ -940,7 +940,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %and.i = and i64 %addr, -4096
-  %call.i = tail call zeroext i1 @qemu_cpu_is_self(ptr noundef %cpu) #18
+  %call.i = tail call zeroext i1 @qemu_cpu_is_self(ptr noundef %cpu) #19
   br i1 %call.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then
@@ -954,16 +954,16 @@ if.else.i:                                        ; preds = %if.then
 if.then2.i:                                       ; preds = %if.else.i
   %conv3.i = zext nneg i16 %idxmap to i64
   %or.i = or disjoint i64 %and.i, %conv3.i
-  tail call void @async_run_on_cpu(ptr noundef %cpu, ptr noundef nonnull @tlb_flush_page_by_mmuidx_async_1, i64 %or.i) #18
+  tail call void @async_run_on_cpu(ptr noundef %cpu, ptr noundef nonnull @tlb_flush_page_by_mmuidx_async_1, i64 %or.i) #19
   br label %if.end11
 
 if.else4.i:                                       ; preds = %if.else.i
-  %call5.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #19
+  %call5.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #20
   store i64 %and.i, ptr %call5.i, align 8
   %idxmap7.i = getelementptr inbounds i8, ptr %call5.i, i64 8
   store i16 %idxmap, ptr %idxmap7.i, align 8
   %0 = ptrtoint ptr %call5.i to i64
-  tail call void @async_run_on_cpu(ptr noundef %cpu, ptr noundef nonnull @tlb_flush_page_by_mmuidx_async_2, i64 %0) #18
+  tail call void @async_run_on_cpu(ptr noundef %cpu, ptr noundef nonnull @tlb_flush_page_by_mmuidx_async_2, i64 %0) #19
   br label %if.end11
 
 if.end:                                           ; preds = %entry
@@ -977,12 +977,12 @@ if.then3:                                         ; preds = %if.end
   br i1 %tobool.i, label %land.lhs.true.i, label %if.else.i11
 
 land.lhs.true.i:                                  ; preds = %if.then3
-  %call.i12 = tail call zeroext i1 @qemu_cpu_is_self(ptr noundef nonnull %cpu) #18
+  %call.i12 = tail call zeroext i1 @qemu_cpu_is_self(ptr noundef nonnull %cpu) #19
   br i1 %call.i12, label %if.else.i11, label %if.then.i13
 
 if.then.i13:                                      ; preds = %land.lhs.true.i
   %.compoundliteral.sroa.0.0.insert.ext.i = zext i16 %idxmap to i64
-  tail call void @async_run_on_cpu(ptr noundef nonnull %cpu, ptr noundef nonnull @tlb_flush_by_mmuidx_async_work, i64 %.compoundliteral.sroa.0.0.insert.ext.i) #18
+  tail call void @async_run_on_cpu(ptr noundef nonnull %cpu, ptr noundef nonnull @tlb_flush_by_mmuidx_async_work, i64 %.compoundliteral.sroa.0.0.insert.ext.i) #19
   br label %if.end11
 
 if.else.i11:                                      ; preds = %land.lhs.true.i, %if.then3
@@ -1000,7 +1000,7 @@ if.end4:                                          ; preds = %if.end
   %conv = trunc i32 %bits to i16
   %bits8 = getelementptr inbounds i8, ptr %d, i64 18
   store i16 %conv, ptr %bits8, align 2
-  %call = tail call zeroext i1 @qemu_cpu_is_self(ptr noundef %cpu) #18
+  %call = tail call zeroext i1 @qemu_cpu_is_self(ptr noundef %cpu) #19
   br i1 %call, label %if.then9, label %if.else
 
 if.then9:                                         ; preds = %if.end4
@@ -1008,9 +1008,9 @@ if.then9:                                         ; preds = %if.end4
   br label %if.end11
 
 if.else:                                          ; preds = %if.end4
-  %call10 = call dereferenceable_or_null(24) ptr @g_memdup(ptr noundef nonnull %d, i32 noundef 24) #20
+  %call10 = call dereferenceable_or_null(24) ptr @g_memdup(ptr noundef nonnull %d, i32 noundef 24) #21
   %2 = ptrtoint ptr %call10 to i64
-  call void @async_run_on_cpu(ptr noundef %cpu, ptr noundef nonnull @tlb_flush_range_by_mmuidx_async_1, i64 %2) #18
+  call void @async_run_on_cpu(ptr noundef %cpu, ptr noundef nonnull @tlb_flush_range_by_mmuidx_async_1, i64 %2) #19
   br label %if.end11
 
 if.end11:                                         ; preds = %if.else.i11, %if.then.i13, %if.else4.i, %if.then2.i, %if.then.i, %if.else, %if.then9
@@ -1038,7 +1038,7 @@ while.cond6.preheader.i:                          ; preds = %entry, %while.cond.
   br i1 %tobool15.not2.i, label %while.cond.loopexit.i, label %while.body16.i
 
 while.body16.i:                                   ; preds = %while.cond6.preheader.i, %while.body16.i
-  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !9
+  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !9
   %3 = load atomic i32, ptr %neg monotonic, align 4
   %tobool15.not.i = icmp eq i32 %3, 0
   br i1 %tobool15.not.i, label %while.cond.loopexit.i, label %while.body16.i, !llvm.loop !10
@@ -1092,7 +1092,7 @@ if.end.i.us:                                      ; preds = %if.then.us
 
 do.end14.i.us:                                    ; preds = %if.end.i.us
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i24.i)
-  %call.i25.i.us = call i32 @gettimeofday(ptr noundef nonnull %tv.i24.i, ptr noundef null) #18
+  %call.i25.i.us = call i32 @gettimeofday(ptr noundef nonnull %tv.i24.i, ptr noundef null) #19
   %14 = load i64, ptr %tv.i24.i, align 8
   %mul.i26.i.us = mul i64 %14, 1000000000
   %15 = load i64, ptr %tv_usec.i27.i, align 8
@@ -1103,7 +1103,7 @@ do.end14.i.us:                                    ; preds = %if.end.i.us
 
 do.end.i.us:                                      ; preds = %if.then.us
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i.i)
-  %call.i.i.us = call i32 @gettimeofday(ptr noundef nonnull %tv.i.i, ptr noundef null) #18
+  %call.i.i.us = call i32 @gettimeofday(ptr noundef nonnull %tv.i.i, ptr noundef null) #19
   %16 = load i64, ptr %tv.i.i, align 8
   %mul.i.i.us = mul i64 %16, 1000000000
   %17 = load i64, ptr %tv_usec.i.i, align 8
@@ -1140,7 +1140,7 @@ if.then:                                          ; preds = %for.body
 
 do.end.i:                                         ; preds = %if.then
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i.i)
-  %call.i.i = call i32 @gettimeofday(ptr noundef nonnull %tv.i.i, ptr noundef null) #18
+  %call.i.i = call i32 @gettimeofday(ptr noundef nonnull %tv.i.i, ptr noundef null) #19
   %22 = load i64, ptr %tv.i.i, align 8
   %mul.i.i = mul i64 %22, 1000000000
   %23 = load i64, ptr %tv_usec.i.i, align 8
@@ -1165,7 +1165,7 @@ for.cond.preheader.i:                             ; preds = %if.end.i
 
 do.end14.i:                                       ; preds = %if.end.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i24.i)
-  %call.i25.i = call i32 @gettimeofday(ptr noundef nonnull %tv.i24.i, ptr noundef null) #18
+  %call.i25.i = call i32 @gettimeofday(ptr noundef nonnull %tv.i24.i, ptr noundef null) #19
   %26 = load i64, ptr %tv.i24.i, align 8
   %mul.i26.i = mul i64 %26, 1000000000
   %27 = load i64, ptr %tv_usec.i27.i, align 8
@@ -1268,7 +1268,7 @@ for.end:                                          ; preds = %for.inc, %for.inc.u
   br i1 %cmp9, label %if.then11, label %if.end12
 
 if.then11:                                        ; preds = %for.end
-  tail call void @tcg_flush_jmp_cache(ptr noundef nonnull %cpu) #18
+  tail call void @tcg_flush_jmp_cache(ptr noundef nonnull %cpu) #19
   br label %for.end24
 
 if.end12:                                         ; preds = %for.end
@@ -1328,7 +1328,7 @@ define internal void @tlb_flush_range_by_mmuidx_async_1(ptr noundef %cpu, i64 %d
 entry:
   %0 = inttoptr i64 %data.coerce to ptr
   tail call fastcc void @tlb_flush_range_by_mmuidx_async_0(ptr noundef %cpu, ptr noundef byval(%struct.TLBFlushRangeData) align 8 %0)
-  tail call void @g_free(ptr noundef %0) #18
+  tail call void @g_free(ptr noundef %0) #19
   ret void
 }
 
@@ -1359,7 +1359,7 @@ if.end:                                           ; preds = %entry
 if.then3:                                         ; preds = %if.end
   %.compoundliteral.sroa.0.0.insert.ext.i = zext i16 %idxmap to i64
   %0 = load atomic i64, ptr @cpus_queue monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !12
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !12
   %tobool.not5.i.i = icmp eq i64 %0, 0
   br i1 %tobool.not5.i.i, label %tlb_flush_by_mmuidx_all_cpus.exit, label %for.body.i.i
 
@@ -1370,13 +1370,13 @@ for.body.i.i:                                     ; preds = %if.then3, %while.en
   br i1 %cmp.not.i.i, label %while.end6.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %for.body.i.i
-  tail call void @async_run_on_cpu(ptr noundef nonnull %cpu.06.i.i, ptr noundef nonnull @tlb_flush_by_mmuidx_async_work, i64 %.compoundliteral.sroa.0.0.insert.ext.i) #18
+  tail call void @async_run_on_cpu(ptr noundef nonnull %cpu.06.i.i, ptr noundef nonnull @tlb_flush_by_mmuidx_async_work, i64 %.compoundliteral.sroa.0.0.insert.ext.i) #19
   br label %while.end6.i.i
 
 while.end6.i.i:                                   ; preds = %if.then.i.i, %for.body.i.i
   %node.i.i = getelementptr inbounds i8, ptr %cpu.06.i.i, i64 568
   %1 = load atomic i64, ptr %node.i.i monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !13
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !13
   %tobool.not.i.i = icmp eq i64 %1, 0
   br i1 %tobool.not.i.i, label %tlb_flush_by_mmuidx_all_cpus.exit, label %for.body.i.i, !llvm.loop !14
 
@@ -1395,7 +1395,7 @@ if.end4:                                          ; preds = %if.end
   %bits8 = getelementptr inbounds i8, ptr %d, i64 18
   store i16 %conv, ptr %bits8, align 2
   %2 = load atomic i64, ptr @cpus_queue monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !28
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !28
   %tobool.not14 = icmp eq i64 %2, 0
   br i1 %tobool.not14, label %for.end, label %for.body
 
@@ -1406,15 +1406,15 @@ for.body:                                         ; preds = %if.end4, %while.end
   br i1 %cmp9.not, label %while.end17, label %if.then11
 
 if.then11:                                        ; preds = %for.body
-  %call = call dereferenceable_or_null(24) ptr @g_memdup(ptr noundef nonnull %d, i32 noundef 24) #20
+  %call = call dereferenceable_or_null(24) ptr @g_memdup(ptr noundef nonnull %d, i32 noundef 24) #21
   %3 = ptrtoint ptr %call to i64
-  call void @async_run_on_cpu(ptr noundef nonnull %dst_cpu.015, ptr noundef nonnull @tlb_flush_range_by_mmuidx_async_1, i64 %3) #18
+  call void @async_run_on_cpu(ptr noundef nonnull %dst_cpu.015, ptr noundef nonnull @tlb_flush_range_by_mmuidx_async_1, i64 %3) #19
   br label %while.end17
 
 while.end17:                                      ; preds = %for.body, %if.then11
   %node = getelementptr inbounds i8, ptr %dst_cpu.015, i64 568
   %4 = load atomic i64, ptr %node monotonic, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !29
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !29
   %tobool.not = icmp eq i64 %4, 0
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !30
 
@@ -1453,7 +1453,7 @@ if.end:                                           ; preds = %entry
 if.then3:                                         ; preds = %if.end
   %.compoundliteral.sroa.0.0.insert.ext.i = zext i16 %idxmap to i64
   %0 = load atomic i64, ptr @cpus_queue monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !12
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !12
   %tobool.not5.i.i = icmp eq i64 %0, 0
   br i1 %tobool.not5.i.i, label %tlb_flush_by_mmuidx_all_cpus_synced.exit, label %for.body.i.i
 
@@ -1464,18 +1464,18 @@ for.body.i.i:                                     ; preds = %if.then3, %while.en
   br i1 %cmp.not.i.i, label %while.end6.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %for.body.i.i
-  tail call void @async_run_on_cpu(ptr noundef nonnull %cpu.06.i.i, ptr noundef nonnull @tlb_flush_by_mmuidx_async_work, i64 %.compoundliteral.sroa.0.0.insert.ext.i) #18
+  tail call void @async_run_on_cpu(ptr noundef nonnull %cpu.06.i.i, ptr noundef nonnull @tlb_flush_by_mmuidx_async_work, i64 %.compoundliteral.sroa.0.0.insert.ext.i) #19
   br label %while.end6.i.i
 
 while.end6.i.i:                                   ; preds = %if.then.i.i, %for.body.i.i
   %node.i.i = getelementptr inbounds i8, ptr %cpu.06.i.i, i64 568
   %1 = load atomic i64, ptr %node.i.i monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !13
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !13
   %tobool.not.i.i = icmp eq i64 %1, 0
   br i1 %tobool.not.i.i, label %tlb_flush_by_mmuidx_all_cpus_synced.exit, label %for.body.i.i, !llvm.loop !14
 
 tlb_flush_by_mmuidx_all_cpus_synced.exit:         ; preds = %while.end6.i.i, %if.then3
-  tail call void @async_safe_run_on_cpu(ptr noundef %src_cpu, ptr noundef nonnull @tlb_flush_by_mmuidx_async_work, i64 %.compoundliteral.sroa.0.0.insert.ext.i) #18
+  tail call void @async_safe_run_on_cpu(ptr noundef %src_cpu, ptr noundef nonnull @tlb_flush_by_mmuidx_async_work, i64 %.compoundliteral.sroa.0.0.insert.ext.i) #19
   br label %return
 
 if.end4:                                          ; preds = %if.end
@@ -1489,7 +1489,7 @@ if.end4:                                          ; preds = %if.end
   %bits8 = getelementptr inbounds i8, ptr %d, i64 18
   store i16 %conv, ptr %bits8, align 2
   %2 = load atomic i64, ptr @cpus_queue monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !31
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !31
   %tobool.not15 = icmp eq i64 %2, 0
   br i1 %tobool.not15, label %for.end, label %for.body
 
@@ -1500,22 +1500,22 @@ for.body:                                         ; preds = %if.end4, %while.end
   br i1 %cmp9.not, label %while.end17, label %if.then11
 
 if.then11:                                        ; preds = %for.body
-  %call = call dereferenceable_or_null(24) ptr @g_memdup(ptr noundef nonnull %d, i32 noundef 24) #20
+  %call = call dereferenceable_or_null(24) ptr @g_memdup(ptr noundef nonnull %d, i32 noundef 24) #21
   %3 = ptrtoint ptr %call to i64
-  call void @async_run_on_cpu(ptr noundef nonnull %dst_cpu.016, ptr noundef nonnull @tlb_flush_range_by_mmuidx_async_1, i64 %3) #18
+  call void @async_run_on_cpu(ptr noundef nonnull %dst_cpu.016, ptr noundef nonnull @tlb_flush_range_by_mmuidx_async_1, i64 %3) #19
   br label %while.end17
 
 while.end17:                                      ; preds = %for.body, %if.then11
   %node = getelementptr inbounds i8, ptr %dst_cpu.016, i64 568
   %4 = load atomic i64, ptr %node monotonic, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !32
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !32
   %tobool.not = icmp eq i64 %4, 0
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !33
 
 for.end:                                          ; preds = %while.end17, %if.end4
-  %call19 = call dereferenceable_or_null(24) ptr @g_memdup(ptr noundef nonnull %d, i32 noundef 24) #20
+  %call19 = call dereferenceable_or_null(24) ptr @g_memdup(ptr noundef nonnull %d, i32 noundef 24) #21
   %5 = ptrtoint ptr %call19 to i64
-  call void @async_safe_run_on_cpu(ptr noundef %src_cpu, ptr noundef nonnull @tlb_flush_range_by_mmuidx_async_1, i64 %5) #18
+  call void @async_safe_run_on_cpu(ptr noundef %src_cpu, ptr noundef nonnull @tlb_flush_range_by_mmuidx_async_1, i64 %5) #19
   br label %return
 
 return:                                           ; preds = %for.end, %tlb_flush_by_mmuidx_all_cpus_synced.exit, %if.then
@@ -1533,7 +1533,7 @@ entry:
 define dso_local void @tlb_protect_code(i64 noundef %ram_addr) local_unnamed_addr #0 {
 entry:
   %and = and i64 %ram_addr, -4096
-  %call = tail call zeroext i1 @cpu_physical_memory_test_and_clear_dirty(i64 noundef %and, i64 noundef 4096, i32 noundef 1) #18
+  %call = tail call zeroext i1 @cpu_physical_memory_test_and_clear_dirty(i64 noundef %and, i64 noundef 4096, i32 noundef 1) #19
   ret void
 }
 
@@ -1544,7 +1544,7 @@ define dso_local void @tlb_unprotect_code(i64 noundef %ram_addr) local_unnamed_a
 entry:
   %shr.i = lshr i64 %ram_addr, 12
   %div3.i = lshr i64 %ram_addr, 33
-  %call.i.i.i = tail call ptr @get_ptr_rcu_reader() #18
+  %call.i.i.i = tail call ptr @get_ptr_rcu_reader() #19
   %depth.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 12
   %0 = load i32, ptr %depth.i.i.i, align 4
   %inc.i.i.i = add i32 %0, 1
@@ -1556,14 +1556,14 @@ while.end.i.i.i:                                  ; preds = %entry
   %1 = load atomic i64, ptr @rcu_gp_ctr monotonic, align 8
   %conv8.i.i.i = and i64 %1, 4294967295
   store atomic i64 %conv8.i.i.i, ptr %call.i.i.i monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !34
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !34
   fence seq_cst
   br label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %while.end.i.i.i, %entry
   %2 = load atomic i64, ptr getelementptr inbounds (i8, ptr @ram_list, i64 72) monotonic, align 8
   %3 = inttoptr i64 %2 to ptr
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !35
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !35
   %blocks1.i = getelementptr inbounds i8, ptr %3, i64 16
   %arrayidx2.i = getelementptr [0 x ptr], ptr %blocks1.i, i64 0, i64 %div3.i
   %4 = load ptr, ptr %arrayidx2.i, align 8
@@ -1573,14 +1573,14 @@ if.then.i.i.i:                                    ; preds = %while.end.i.i.i, %e
   %div2.i.i = and i64 %rem.i, 32767
   %add.ptr.i.i = getelementptr i64, ptr %4, i64 %div2.i.i
   %5 = atomicrmw or ptr %add.ptr.i.i, i64 %shl.i.i seq_cst, align 8
-  %call.i.i.i.i.i = tail call ptr @get_ptr_rcu_reader() #18
+  %call.i.i.i.i.i = tail call ptr @get_ptr_rcu_reader() #19
   %depth.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 12
   %6 = load i32, ptr %depth.i.i.i.i.i, align 4
   %cmp.not.i.i.i.i.i = icmp eq i32 %6, 0
   br i1 %cmp.not.i.i.i.i.i, label %if.else.i.i.i.i.i, label %if.end.i.i.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.10, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.10, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #22
   unreachable
 
 if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i
@@ -1591,7 +1591,7 @@ if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i
 
 while.end.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i.i
   store atomic i64 0, ptr %call.i.i.i.i.i release, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !36
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !36
   fence seq_cst
   %waiting.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 8
   %7 = load atomic i8, ptr %waiting.i.i.i.i.i monotonic, align 8
@@ -1600,7 +1600,7 @@ while.end.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i.i
 
 while.end21.i.i.i.i.i:                            ; preds = %while.end.i.i.i.i.i
   store atomic i8 0, ptr %waiting.i.i.i.i.i monotonic, align 8
-  tail call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #18
+  tail call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #19
   br label %cpu_physical_memory_set_dirty_flag.exit
 
 cpu_physical_memory_set_dirty_flag.exit:          ; preds = %if.end.i.i.i.i.i, %while.end.i.i.i.i.i, %while.end21.i.i.i.i.i
@@ -1626,7 +1626,7 @@ while.cond6.preheader.i:                          ; preds = %entry, %while.cond.
   br i1 %tobool15.not2.i, label %while.cond.loopexit.i, label %while.body16.i
 
 while.body16.i:                                   ; preds = %while.cond6.preheader.i, %while.body16.i
-  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !9
+  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !9
   %3 = load atomic i32, ptr %neg monotonic, align 4
   %tobool15.not.i = icmp eq i32 %3, 0
   br i1 %tobool15.not.i, label %while.cond.loopexit.i, label %while.body16.i, !llvm.loop !10
@@ -1741,7 +1741,7 @@ while.cond6.preheader.i:                          ; preds = %entry, %while.cond.
   br i1 %tobool15.not2.i, label %while.cond.loopexit.i, label %while.body16.i
 
 while.body16.i:                                   ; preds = %while.cond6.preheader.i, %while.body16.i
-  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !9
+  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !9
   %3 = load atomic i32, ptr %neg monotonic, align 4
   %tobool15.not.i = icmp eq i32 %3, 0
   br i1 %tobool15.not.i, label %while.cond.loopexit.i, label %while.body16.i, !llvm.loop !10
@@ -1870,15 +1870,15 @@ if.end:                                           ; preds = %tlb_add_large_page.
   store i32 %conv7, ptr %prot, align 4
   %attrs = getelementptr inbounds i8, ptr %full, i64 16
   %5 = load i32, ptr %attrs, align 8
-  %call = tail call i32 @cpu_asidx_from_attrs(ptr noundef %cpu, i32 %5) #18
+  %call = tail call i32 @cpu_asidx_from_attrs(ptr noundef %cpu, i32 %5) #19
   %6 = load i32, ptr %attrs, align 8
-  %call10 = call ptr @address_space_translate_for_iotlb(ptr noundef %cpu, i32 noundef %call, i64 noundef %and5, ptr noundef nonnull %xlat, ptr noundef nonnull %sz, i32 %6, ptr noundef nonnull %prot) #18
+  %call10 = call ptr @address_space_translate_for_iotlb(ptr noundef %cpu, i32 noundef %call, i64 noundef %and5, ptr noundef nonnull %xlat, ptr noundef nonnull %sz, i32 %6, ptr noundef nonnull %prot) #19
   %7 = load i64, ptr %sz, align 8
   %cmp11 = icmp ugt i64 %7, 4095
   br i1 %cmp11, label %do.end17, label %if.else14
 
 if.else14:                                        ; preds = %if.end
-  call void @__assert_fail(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str, i32 noundef 1142, ptr noundef nonnull @__PRETTY_FUNCTION__.tlb_set_page_full) #21
+  call void @__assert_fail(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str, i32 noundef 1142, ptr noundef nonnull @__PRETTY_FUNCTION__.tlb_set_page_full) #22
   unreachable
 
 do.end17:                                         ; preds = %if.end
@@ -1911,7 +1911,7 @@ memory_region_is_romd.exit:                       ; preds = %do.end17, %land.rhs
   br i1 %brmerge, label %if.then36, label %if.end40
 
 if.then36:                                        ; preds = %memory_region_is_romd.exit
-  %call38 = call ptr @memory_region_get_ram_ptr(ptr noundef nonnull %11) #18
+  %call38 = call ptr @memory_region_get_ram_ptr(ptr noundef nonnull %11) #19
   %16 = ptrtoint ptr %call38 to i64
   %17 = load i64, ptr %xlat, align 8
   %add = add i64 %17, %16
@@ -1923,7 +1923,7 @@ if.end40:                                         ; preds = %memory_region_is_ro
 
 if.then42:                                        ; preds = %if.end40
   %18 = load ptr, ptr %mr, align 16
-  %call44 = call i64 @memory_region_get_ram_addr(ptr noundef %18) #18
+  %call44 = call i64 @memory_region_get_ram_addr(ptr noundef %18) #19
   %19 = load i64, ptr %xlat, align 8
   %add45 = add i64 %19, %call44
   %and46 = and i64 %add45, 4095
@@ -1931,7 +1931,7 @@ if.then42:                                        ; preds = %if.end40
   br i1 %tobool47.not, label %if.end50, label %if.else49
 
 if.else49:                                        ; preds = %if.then42
-  call void @__assert_fail(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str, i32 noundef 1171, ptr noundef nonnull @__PRETTY_FUNCTION__.tlb_set_page_full) #21
+  call void @__assert_fail(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str, i32 noundef 1171, ptr noundef nonnull @__PRETTY_FUNCTION__.tlb_set_page_full) #22
   unreachable
 
 if.end50:                                         ; preds = %if.then42
@@ -1961,7 +1961,7 @@ if.else57:                                        ; preds = %if.then53
   br label %if.end71
 
 if.else64:                                        ; preds = %if.end40
-  %call65 = call i64 @memory_region_section_get_iotlb(ptr noundef %cpu, ptr noundef nonnull %call10) #18
+  %call65 = call i64 @memory_region_section_get_iotlb(ptr noundef %cpu, ptr noundef nonnull %call10) #19
   %22 = load i64, ptr %xlat, align 8
   %add66 = add i64 %22, %call65
   %or67 = or disjoint i32 %read_flags.1, 512
@@ -1972,7 +1972,7 @@ if.end71:                                         ; preds = %if.else64, %if.else
   %iotlb.0 = phi i64 [ %add45, %if.then55 ], [ %add45, %if.end50 ], [ %add45, %if.else57 ], [ %add66, %if.else64 ]
   %write_flags.0 = phi i32 [ %or56, %if.then55 ], [ %read_flags.1, %if.end50 ], [ %spec.select77, %if.else57 ], [ %or67, %if.else64 ]
   %read_flags.2 = phi i32 [ %read_flags.1, %if.then55 ], [ %read_flags.1, %if.end50 ], [ %read_flags.1, %if.else57 ], [ %spec.select78, %if.else64 ]
-  %call72 = call i32 @cpu_watchpoint_address_matches(ptr noundef %cpu, i64 noundef %and, i64 noundef 4096) #18
+  %call72 = call i32 @cpu_watchpoint_address_matches(ptr noundef %cpu, i64 noundef %and, i64 noundef 4096) #19
   %f.i = getelementptr inbounds i8, ptr %cpu, i64 9904
   %arrayidx.i81 = getelementptr [16 x %struct.CPUTLBDescFast], ptr %f.i, i64 0, i64 %idxprom
   %23 = load i64, ptr %arrayidx.i81, align 16
@@ -1997,7 +1997,7 @@ while.cond6.preheader.i:                          ; preds = %if.end71, %while.co
   br i1 %tobool15.not2.i, label %while.cond.loopexit.i, label %while.body16.i
 
 while.body16.i:                                   ; preds = %while.cond6.preheader.i, %while.body16.i
-  call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !9
+  call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !9
   %28 = load atomic i32, ptr %neg monotonic, align 4
   %tobool15.not.i = icmp eq i32 %28, 0
   br i1 %tobool15.not.i, label %while.cond.loopexit.i, label %while.body16.i, !llvm.loop !10
@@ -2237,7 +2237,7 @@ entry:
   br i1 %or.cond, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, i32 noundef 1289, ptr noundef nonnull @__PRETTY_FUNCTION__.tlb_set_page_with_attrs) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, i32 noundef 1289, ptr noundef nonnull @__PRETTY_FUNCTION__.tlb_set_page_with_attrs) #22
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -2272,7 +2272,7 @@ entry:
   br i1 %or.cond.i, label %tlb_set_page_with_attrs.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, i32 noundef 1289, ptr noundef nonnull @__PRETTY_FUNCTION__.tlb_set_page_with_attrs) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, i32 noundef 1289, ptr noundef nonnull @__PRETTY_FUNCTION__.tlb_set_page_with_attrs) #22
   unreachable
 
 tlb_set_page_with_attrs.exit:                     ; preds = %entry
@@ -2373,7 +2373,7 @@ while.cond6.preheader.i.i:                        ; preds = %if.then.i, %while.c
   br i1 %tobool15.not2.i.i, label %while.cond.loopexit.i.i, label %while.body16.i.i
 
 while.body16.i.i:                                 ; preds = %while.cond6.preheader.i.i, %while.body16.i.i
-  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !9
+  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !9
   %9 = load atomic i32, ptr %neg.i monotonic, align 4
   %tobool15.not.i.i = icmp eq i32 %9, 0
   br i1 %tobool15.not.i.i, label %while.cond.loopexit.i.i, label %while.body16.i.i, !llvm.loop !10
@@ -2410,7 +2410,7 @@ if.then13:                                        ; preds = %for.inc.i
   %12 = load ptr, ptr %tcg_ops, align 8
   %tlb_fill = getelementptr inbounds i8, ptr %12, i64 64
   %13 = load ptr, ptr %tlb_fill, align 8
-  %call15 = tail call zeroext i1 %13(ptr noundef nonnull %cpu, i64 noundef %addr, i32 noundef %fault_size, i32 noundef %access_type, i32 noundef %mmu_idx, i1 noundef zeroext %nonfault, i64 noundef %retaddr) #18
+  %call15 = tail call zeroext i1 %13(ptr noundef nonnull %cpu, i64 noundef %addr, i32 noundef %fault_size, i32 noundef %access_type, i32 noundef %mmu_idx, i1 noundef zeroext %nonfault, i64 noundef %retaddr) #19
   br i1 %call15, label %if.end, label %if.then16
 
 if.then16:                                        ; preds = %if.then13
@@ -2502,16 +2502,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #18
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #18
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #19
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #19
   %4 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, i64 noundef %mem_vaddr, i64 noundef %add, i32 noundef %size) #18
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, i64 noundef %mem_vaddr, i64 noundef %add, i32 noundef %size) #19
   br label %trace_memory_notdirty_write_access.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.13, i64 noundef %mem_vaddr, i64 noundef %add, i32 noundef %size) #18
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.13, i64 noundef %mem_vaddr, i64 noundef %add, i32 noundef %size) #19
   br label %trace_memory_notdirty_write_access.exit
 
 trace_memory_notdirty_write_access.exit:          ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -2520,7 +2520,7 @@ trace_memory_notdirty_write_access.exit:          ; preds = %entry, %land.lhs.tr
   br i1 %call, label %if.end, label %if.then
 
 if.then:                                          ; preds = %trace_memory_notdirty_write_access.exit
-  tail call void @tb_invalidate_phys_range_fast(i64 noundef %add, i32 noundef %size, i64 noundef %retaddr) #18
+  tail call void @tb_invalidate_phys_range_fast(i64 noundef %add, i32 noundef %size, i64 noundef %retaddr) #19
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %trace_memory_notdirty_write_access.exit
@@ -2530,7 +2530,7 @@ if.end:                                           ; preds = %if.then, %trace_mem
   %sub.i = add i64 %add.i, %add
   %shr.i = lshr i64 %sub.i, 12
   %shr2.i = lshr i64 %add, 12
-  %call.i.i.i = tail call ptr @get_ptr_rcu_reader() #18
+  %call.i.i.i = tail call ptr @get_ptr_rcu_reader() #19
   %depth.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 12
   %6 = load i32, ptr %depth.i.i.i, align 4
   %inc.i.i.i = add i32 %6, 1
@@ -2542,7 +2542,7 @@ while.end.i.i.i:                                  ; preds = %if.end
   %7 = load atomic i64, ptr @rcu_gp_ctr monotonic, align 8
   %conv8.i.i.i = and i64 %7, 4294967295
   store atomic i64 %conv8.i.i.i, ptr %call.i.i.i monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !34
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !34
   fence seq_cst
   br label %while.end.i.preheader
 
@@ -2554,7 +2554,7 @@ while.end.i:                                      ; preds = %while.end.i.prehead
   %arrayidx.i = getelementptr [3 x ptr], ptr getelementptr inbounds (i8, ptr @ram_list, i64 64), i64 0, i64 %indvars.iv.i
   %8 = load atomic i64, ptr %arrayidx.i monotonic, align 8
   %9 = inttoptr i64 %8 to ptr
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !45
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !45
   %arrayidx7.i = getelementptr [3 x ptr], ptr %blocks.i, i64 0, i64 %indvars.iv.i
   store ptr %9, ptr %arrayidx7.i, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -2586,23 +2586,23 @@ while.body11.i:                                   ; preds = %while.body11.i, %wh
   %arrayidx23.i = getelementptr [0 x ptr], ptr %blocks22.i, i64 0, i64 %idx.038.i
   %12 = load ptr, ptr %arrayidx23.i, align 8
   %sub24.i = sub nsw i64 %cond.i, %page.139.i
-  tail call void @bitmap_set_atomic(ptr noundef %12, i64 noundef %offset.037.i, i64 noundef %sub24.i) #18
+  tail call void @bitmap_set_atomic(ptr noundef %12, i64 noundef %offset.037.i, i64 noundef %sub24.i) #19
   %arrayidx38.i = getelementptr [0 x ptr], ptr %blocks37.i, i64 0, i64 %idx.038.i
   %13 = load ptr, ptr %arrayidx38.i, align 8
-  tail call void @bitmap_set_atomic(ptr noundef %13, i64 noundef %offset.037.i, i64 noundef %sub24.i) #18
+  tail call void @bitmap_set_atomic(ptr noundef %13, i64 noundef %offset.037.i, i64 noundef %sub24.i) #19
   %inc56.i = add nuw nsw i64 %idx.038.i, 1
   %cmp10.i = icmp ult i64 %add12.i, %shr.i
   br i1 %cmp10.i, label %while.body11.i, label %for.inc59.i, !llvm.loop !47
 
 for.inc59.i:                                      ; preds = %while.body11.i, %for.end.i
-  %call.i.i30.i = tail call ptr @get_ptr_rcu_reader() #18
+  %call.i.i30.i = tail call ptr @get_ptr_rcu_reader() #19
   %depth.i.i31.i = getelementptr inbounds i8, ptr %call.i.i30.i, i64 12
   %14 = load i32, ptr %depth.i.i31.i, align 4
   %cmp.not.i.i32.i = icmp eq i32 %14, 0
   br i1 %cmp.not.i.i32.i, label %if.else.i.i.i, label %if.end.i.i.i
 
 if.else.i.i.i:                                    ; preds = %for.inc59.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.10, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.10, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #22
   unreachable
 
 if.end.i.i.i:                                     ; preds = %for.inc59.i
@@ -2613,7 +2613,7 @@ if.end.i.i.i:                                     ; preds = %for.inc59.i
 
 while.end.i.i33.i:                                ; preds = %if.end.i.i.i
   store atomic i64 0, ptr %call.i.i30.i release, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !36
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !36
   fence seq_cst
   %waiting.i.i.i = getelementptr inbounds i8, ptr %call.i.i30.i, i64 8
   %15 = load atomic i8, ptr %waiting.i.i.i monotonic, align 8
@@ -2622,7 +2622,7 @@ while.end.i.i33.i:                                ; preds = %if.end.i.i.i
 
 while.end21.i.i.i:                                ; preds = %while.end.i.i33.i
   store atomic i8 0, ptr %waiting.i.i.i monotonic, align 8
-  tail call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #18
+  tail call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #19
   br label %cpu_physical_memory_set_dirty_range.exit
 
 cpu_physical_memory_set_dirty_range.exit:         ; preds = %if.end.i.i.i, %while.end.i.i33.i, %while.end21.i.i.i
@@ -2655,16 +2655,16 @@ if.then.i.i17:                                    ; preds = %land.lhs.true5.i.i1
   br i1 %tobool7.i.i18, label %if.then8.i.i20, label %if.else.i.i19
 
 if.then8.i.i20:                                   ; preds = %if.then.i.i17
-  %call9.i.i21 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i10, ptr noundef null) #18
-  %call10.i.i22 = tail call i32 @qemu_get_thread_id() #18
+  %call9.i.i21 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i10, ptr noundef null) #19
+  %call10.i.i22 = tail call i32 @qemu_get_thread_id() #19
   %20 = load i64, ptr %_now.i.i10, align 8
   %tv_usec.i.i23 = getelementptr inbounds i8, ptr %_now.i.i10, i64 8
   %21 = load i64, ptr %tv_usec.i.i23, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.14, i32 noundef %call10.i.i22, i64 noundef %20, i64 noundef %21, i64 noundef %mem_vaddr) #18
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.14, i32 noundef %call10.i.i22, i64 noundef %20, i64 noundef %21, i64 noundef %mem_vaddr) #19
   br label %trace_memory_notdirty_set_dirty.exit
 
 if.else.i.i19:                                    ; preds = %if.then.i.i17
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.15, i64 noundef %mem_vaddr) #18
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.15, i64 noundef %mem_vaddr) #19
   br label %trace_memory_notdirty_set_dirty.exit
 
 trace_memory_notdirty_set_dirty.exit:             ; preds = %if.then2, %land.lhs.true5.i.i14, %if.then8.i.i20, %if.else.i.i19
@@ -2686,7 +2686,7 @@ while.cond6.preheader.i.i:                        ; preds = %trace_memory_notdir
   br i1 %tobool15.not2.i.i, label %while.cond.loopexit.i.i, label %while.body16.i.i
 
 while.body16.i.i:                                 ; preds = %while.cond6.preheader.i.i, %while.body16.i.i
-  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !9
+  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !9
   %25 = load atomic i32, ptr %neg.i monotonic, align 4
   %tobool15.not.i.i = icmp eq i32 %25, 0
   br i1 %tobool15.not.i.i, label %while.cond.loopexit.i.i, label %while.body16.i.i, !llvm.loop !10
@@ -2795,7 +2795,7 @@ entry:
   br i1 %cmp.not, label %if.else, label %do.end
 
 if.else:                                          ; preds = %entry
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 1521, ptr noundef nonnull @__func__.probe_access_flags, ptr noundef nonnull @.str.4) #21
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 1521, ptr noundef nonnull @__func__.probe_access_flags, ptr noundef nonnull @.str.4) #22
   unreachable
 
 do.end:                                           ; preds = %entry
@@ -2830,7 +2830,7 @@ entry:
   br i1 %cmp.not, label %if.else, label %do.end
 
 if.else:                                          ; preds = %entry
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 1544, ptr noundef nonnull @__func__.probe_access, ptr noundef nonnull @.str.4) #21
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 1544, ptr noundef nonnull @__func__.probe_access, ptr noundef nonnull @.str.4) #22
   unreachable
 
 do.end:                                           ; preds = %entry
@@ -2855,7 +2855,7 @@ if.then13:                                        ; preds = %if.then10
   %0 = load ptr, ptr %full, align 8
   %attrs = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load i32, ptr %attrs, align 8
-  tail call void @cpu_check_watchpoint(ptr noundef %add.ptr.i, i64 noundef %addr, i64 noundef %conv, i32 %1, i32 noundef %cond, i64 noundef %retaddr) #18
+  tail call void @cpu_check_watchpoint(ptr noundef %add.ptr.i, i64 noundef %addr, i64 noundef %conv, i32 %1, i32 noundef %cond, i64 noundef %retaddr) #19
   br label %if.end18
 
 if.end18:                                         ; preds = %if.then13, %if.then10
@@ -2899,7 +2899,7 @@ entry:
   %full = alloca ptr, align 8
   %p = alloca ptr, align 8
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
-  %call1 = tail call i32 @riscv_cpu_mmu_index(ptr noundef %env, i1 noundef zeroext true) #18
+  %call1 = tail call i32 @riscv_cpu_mmu_index(ptr noundef %env, i1 noundef zeroext true) #19
   %call2 = call fastcc i32 @probe_access_internal(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef 1, i32 noundef 2, i32 noundef %call1, i1 noundef zeroext false, ptr noundef nonnull %p, ptr noundef nonnull %full, i64 noundef 0, i1 noundef zeroext false)
   %0 = load ptr, ptr %p, align 8
   %cmp = icmp eq ptr %0, null
@@ -2921,7 +2921,7 @@ if.then7:                                         ; preds = %if.end6
   br label %if.end8
 
 if.end8:                                          ; preds = %if.then7, %if.end6
-  %call9 = tail call i64 @qemu_ram_addr_from_host_nofail(ptr noundef nonnull %0) #18
+  %call9 = tail call i64 @qemu_ram_addr_from_host_nofail(ptr noundef nonnull %0) #19
   br label %return
 
 return:                                           ; preds = %if.end, %entry, %if.end8
@@ -2974,7 +2974,7 @@ if.then14:                                        ; preds = %if.end
   %and15 = and i64 %5, 4095
   %attrs = getelementptr inbounds i8, ptr %arrayidx10, i64 16
   %6 = load i32, ptr %attrs, align 8
-  %call16 = tail call ptr @iotlb_to_section(ptr noundef nonnull %cpu, i64 noundef %and15, i32 %6) #18
+  %call16 = tail call ptr @iotlb_to_section(ptr noundef nonnull %cpu, i64 noundef %and15, i32 %6) #19
   store i8 1, ptr %data, align 8
   %mr = getelementptr inbounds i8, ptr %call16, i64 16
   %7 = load ptr, ptr %mr, align 16
@@ -3112,11 +3112,11 @@ if.then19.i.i:                                    ; preds = %if.end.i.i
   br i1 %or.cond.i.i.i, label %if.else.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then19.i.i
-  %11 = tail call <2 x i64> asm "vmovdqu $1, $0", "=x,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i128) %10) #22, !srcloc !48
+  %11 = tail call <2 x i64> asm "vmovdqu $1, $0", "=x,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i128) %10) #23, !srcloc !48
   br label %load_atom_extract_al16_or_al8.exit.i.i
 
 if.else.i.i.i:                                    ; preds = %if.then19.i.i
-  %12 = tail call <2 x i64> asm "vmovdqa $1, $0", "=x,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i128) %10) #22, !srcloc !49
+  %12 = tail call <2 x i64> asm "vmovdqa $1, $0", "=x,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i128) %10) #23, !srcloc !49
   br label %load_atom_extract_al16_or_al8.exit.i.i
 
 load_atom_extract_al16_or_al8.exit.i.i:           ; preds = %if.else.i.i.i, %if.then.i.i.i
@@ -3188,7 +3188,7 @@ if.else.i13.i.i:                                  ; preds = %sw.bb20.i.i.i
   br label %sw.epilog.i.i.i
 
 do.body.i.i.i:                                    ; preds = %if.end23.i.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.18, i32 noundef 87, ptr noundef nonnull @__func__.required_atomicity, ptr noundef null) #21
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.18, i32 noundef 87, ptr noundef nonnull @__func__.required_atomicity, ptr noundef null) #22
   unreachable
 
 sw.epilog.i.i.i:                                  ; preds = %if.else.i13.i.i, %sw.bb20.i.i.i, %sw.bb11.i.i.i, %sw.bb3.i.i.i, %if.end23.i.i, %if.end23.i.i
@@ -3240,7 +3240,7 @@ if.end34.i.i:                                     ; preds = %sw.bb27.i.i
   br i1 %tobool.not.i.i20.i.i, label %atomic16_read_rw.exit.i.i.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end34.i.i
-  %22 = tail call <2 x i64> asm "vmovdqa $1, $0", "=x,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i128) %21) #22, !srcloc !50
+  %22 = tail call <2 x i64> asm "vmovdqa $1, $0", "=x,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i128) %21) #23, !srcloc !50
   %retval.sroa.0.0.extract.trunc.i.i.i.i.i = extractelement <2 x i64> %22, i64 0
   %retval.sroa.2.0.extract.trunc.i.i.i.i.i = extractelement <2 x i64> %22, i64 1
   br label %load_atom_extract_al16_or_exit.exit.i.i
@@ -3266,7 +3266,7 @@ load_atom_extract_al16_or_exit.exit.i.i:          ; preds = %atomic16_read_rw.ex
   br label %load_atom_2.exit.i
 
 do.body.i.i:                                      ; preds = %required_atomicity.exit.i.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.18, i32 noundef 428, ptr noundef nonnull @__func__.load_atom_2, ptr noundef null) #21
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.18, i32 noundef 428, ptr noundef nonnull @__func__.load_atom_2, ptr noundef null) #22
   unreachable
 
 load_atom_2.exit.i:                               ; preds = %load_atom_extract_al16_or_exit.exit.i.i, %if.then31.i.i, %sw.bb.i.i, %load_atom_extract_al16_or_al8.exit.i.i, %if.then.i.i
@@ -3421,11 +3421,11 @@ if.then19.i.i:                                    ; preds = %if.end.i.i
   br i1 %or.cond.i.i.i, label %if.else.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then19.i.i
-  %11 = tail call <2 x i64> asm "vmovdqu $1, $0", "=x,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i128) %10) #22, !srcloc !48
+  %11 = tail call <2 x i64> asm "vmovdqu $1, $0", "=x,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i128) %10) #23, !srcloc !48
   br label %load_atom_extract_al16_or_al8.exit.i.i
 
 if.else.i.i.i:                                    ; preds = %if.then19.i.i
-  %12 = tail call <2 x i64> asm "vmovdqa $1, $0", "=x,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i128) %10) #22, !srcloc !49
+  %12 = tail call <2 x i64> asm "vmovdqa $1, $0", "=x,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i128) %10) #23, !srcloc !49
   br label %load_atom_extract_al16_or_al8.exit.i.i
 
 load_atom_extract_al16_or_al8.exit.i.i:           ; preds = %if.else.i.i.i, %if.then.i.i.i
@@ -3503,7 +3503,7 @@ sw.bb35.i.i.i:                                    ; preds = %if.end23.i.i
   br label %sw.epilog.i.i.i
 
 do.body.i.i.i:                                    ; preds = %if.end23.i.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.18, i32 noundef 87, ptr noundef nonnull @__func__.required_atomicity, ptr noundef null) #21
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.18, i32 noundef 87, ptr noundef nonnull @__func__.required_atomicity, ptr noundef null) #22
   unreachable
 
 sw.epilog.i.i.i:                                  ; preds = %sw.bb35.i.i.i, %if.else.i13.i.i, %sw.bb20.i.i.i, %sw.bb11.i.i.i, %sw.bb3.i.i.i, %if.end23.i.i
@@ -3571,7 +3571,7 @@ if.end31.i.i:                                     ; preds = %sw.bb26.i.i
   br i1 %tobool.not.i.i23.i.i, label %atomic16_read_rw.exit.i.i.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end31.i.i
-  %27 = tail call <2 x i64> asm "vmovdqa $1, $0", "=x,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i128) %26) #22, !srcloc !50
+  %27 = tail call <2 x i64> asm "vmovdqa $1, $0", "=x,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i128) %26) #23, !srcloc !50
   %retval.sroa.0.0.extract.trunc.i.i.i.i.i = extractelement <2 x i64> %27, i64 0
   %retval.sroa.2.0.extract.trunc.i.i.i.i.i = extractelement <2 x i64> %27, i64 1
   br label %load_atom_extract_al16_or_exit.exit.i.i
@@ -3601,7 +3601,7 @@ load_atom_extract_al16_or_exit.exit.i.i:          ; preds = %atomic16_read_rw.ex
   br label %load_atom_4.exit.i
 
 do.body.i.i:                                      ; preds = %required_atomicity.exit.i.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.18, i32 noundef 473, ptr noundef nonnull @__func__.load_atom_4, ptr noundef null) #21
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.18, i32 noundef 473, ptr noundef nonnull @__func__.load_atom_4, ptr noundef null) #22
   unreachable
 
 load_atom_4.exit.i:                               ; preds = %load_atom_extract_al16_or_exit.exit.i.i, %if.then29.i.i, %sw.bb.i.i, %load_atom_extract_al16_or_al8.exit.i.i, %if.then.i.i
@@ -3791,7 +3791,7 @@ if.else:                                          ; preds = %if.then
   br i1 %or.cond.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.else
-  %11 = tail call <2 x i64> asm "vmovdqa $1, $0", "=x,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i128) %8) #22, !srcloc !50
+  %11 = tail call <2 x i64> asm "vmovdqa $1, $0", "=x,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i128) %8) #23, !srcloc !50
   %retval.sroa.0.0.extract.trunc.i.i = extractelement <2 x i64> %11, i64 0
   %retval.sroa.2.0.extract.trunc.i.i = extractelement <2 x i64> %11, i64 1
   br label %load_atom_16.exit
@@ -3856,7 +3856,7 @@ sw.bb35.i.i:                                      ; preds = %if.end.i
   br label %sw.epilog.i.i
 
 do.body.i.i:                                      ; preds = %if.end.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.18, i32 noundef 87, ptr noundef nonnull @__func__.required_atomicity, ptr noundef null) #21
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.18, i32 noundef 87, ptr noundef nonnull @__func__.required_atomicity, ptr noundef null) #22
   unreachable
 
 sw.epilog.i.i:                                    ; preds = %sw.bb35.i.i, %if.else.i.i, %sw.bb20.i.i, %sw.bb11.i.i, %sw.bb3.i.i, %if.end.i
@@ -4012,7 +4012,7 @@ sw.bb27.i:                                        ; preds = %required_atomicity.
   br i1 %tobool.not.i.i, label %atomic16_read_rw.exit.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %sw.bb27.i
-  %46 = tail call <2 x i64> asm "vmovdqa $1, $0", "=x,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i128) %8) #22, !srcloc !50
+  %46 = tail call <2 x i64> asm "vmovdqa $1, $0", "=x,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i128) %8) #23, !srcloc !50
   %retval.sroa.0.0.extract.trunc.i.i.i = extractelement <2 x i64> %46, i64 0
   %retval.sroa.2.0.extract.trunc.i.i.i = extractelement <2 x i64> %46, i64 1
   br label %load_atom_16.exit
@@ -4027,7 +4027,7 @@ atomic16_read_rw.exit.i.i:                        ; preds = %sw.bb27.i
   br label %load_atom_16.exit
 
 do.body.i:                                        ; preds = %required_atomicity.exit.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.18, i32 noundef 581, ptr noundef nonnull @__func__.load_atom_16, ptr noundef null) #21
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.18, i32 noundef 581, ptr noundef nonnull @__func__.load_atom_16, ptr noundef null) #22
   unreachable
 
 load_atom_16.exit:                                ; preds = %if.then.i, %sw.bb.i, %sw.bb12.i, %sw.bb15.i, %sw.bb19.i, %sw.bb23.i, %if.then.i.i, %atomic16_read_rw.exit.i.i
@@ -4309,7 +4309,7 @@ if.else.i.i.i:                                    ; preds = %sw.bb20.i.i.i
   br label %sw.epilog.i.i.i
 
 do.body.i.i.i:                                    ; preds = %if.end.i.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.18, i32 noundef 87, ptr noundef nonnull @__func__.required_atomicity, ptr noundef null) #21
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.18, i32 noundef 87, ptr noundef nonnull @__func__.required_atomicity, ptr noundef null) #22
   unreachable
 
 sw.epilog.i.i.i:                                  ; preds = %if.else.i.i.i, %sw.bb20.i.i.i, %sw.bb11.i.i.i, %sw.bb3.i.i.i, %if.end.i.i, %if.end.i.i
@@ -4405,7 +4405,7 @@ do.body.i28.i.i:                                  ; preds = %do.body.i28.i.i, %i
   br i1 %25, label %return, label %do.body.i28.i.i, !llvm.loop !53
 
 do.body.i.i:                                      ; preds = %if.else18.i.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.18, i32 noundef 897, ptr noundef nonnull @__func__.store_atom_2, ptr noundef null) #21
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.18, i32 noundef 897, ptr noundef nonnull @__func__.store_atom_2, ptr noundef null) #22
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -4598,7 +4598,7 @@ sw.bb35.i.i.i:                                    ; preds = %if.end.i.i
   br label %sw.epilog.i.i.i
 
 do.body.i.i.i:                                    ; preds = %if.end.i.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.18, i32 noundef 87, ptr noundef nonnull @__func__.required_atomicity, ptr noundef null) #21
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.18, i32 noundef 87, ptr noundef nonnull @__func__.required_atomicity, ptr noundef null) #22
   unreachable
 
 sw.epilog.i.i.i:                                  ; preds = %sw.bb35.i.i.i, %if.else.i.i.i, %sw.bb20.i.i.i, %sw.bb11.i.i.i, %sw.bb3.i.i.i, %if.end.i.i
@@ -4704,7 +4704,7 @@ do.body1.i.i38.i.i:                               ; preds = %do.body1.i.i38.i.i,
   br i1 %25, label %return, label %do.body1.i.i38.i.i, !llvm.loop !51
 
 do.body.i.i:                                      ; preds = %sw.bb3.i.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.18, i32 noundef 948, ptr noundef nonnull @__func__.store_atom_4, ptr noundef null) #21
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.18, i32 noundef 948, ptr noundef nonnull @__func__.store_atom_4, ptr noundef null) #22
   unreachable
 
 sw.bb18.i.i:                                      ; preds = %required_atomicity.exit.i.i
@@ -4765,7 +4765,7 @@ do.body.i.i.i.i:                                  ; preds = %do.body.i.i.i.i, %i
   br i1 %35, label %return, label %do.body.i.i.i.i, !llvm.loop !53
 
 do.body32.i.i:                                    ; preds = %required_atomicity.exit.i.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.18, i32 noundef 966, ptr noundef nonnull @__func__.store_atom_4, ptr noundef null) #21
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.18, i32 noundef 966, ptr noundef nonnull @__func__.store_atom_4, ptr noundef null) #22
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -4899,7 +4899,7 @@ if.then.i:                                        ; preds = %if.else34
 
 if.then.i.i:                                      ; preds = %if.then.i
   %12 = bitcast i128 %val.sroa.0.0.insert.insert.i to <2 x i64>
-  tail call void asm "vmovdqa $1, $0", "=*m,x,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i128) %9, <2 x i64> %12) #18, !srcloc !54
+  tail call void asm "vmovdqa $1, $0", "=*m,x,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i128) %9, <2 x i64> %12) #19, !srcloc !54
   br label %if.end116
 
 do.body.i.i:                                      ; preds = %if.then.i, %do.body.i.i
@@ -4967,7 +4967,7 @@ sw.bb35.i.i:                                      ; preds = %if.end.i
   br label %sw.epilog.i.i
 
 do.body.i34.i:                                    ; preds = %if.end.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.18, i32 noundef 87, ptr noundef nonnull @__func__.required_atomicity, ptr noundef null) #21
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.18, i32 noundef 87, ptr noundef nonnull @__func__.required_atomicity, ptr noundef null) #22
   unreachable
 
 sw.epilog.i.i:                                    ; preds = %sw.bb35.i.i, %if.else.i.i, %sw.bb20.i.i, %sw.bb11.i.i, %sw.bb3.i.i, %if.end.i
@@ -5204,15 +5204,15 @@ do.body.i.i98.i:                                  ; preds = %do.body.i.i98.i, %s
   br i1 %40, label %if.end116, label %do.body.i.i98.i, !llvm.loop !53
 
 do.body.i:                                        ; preds = %sw.bb12.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.18, i32 noundef 1100, ptr noundef nonnull @__func__.store_atom_16, ptr noundef null) #21
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.18, i32 noundef 1100, ptr noundef nonnull @__func__.store_atom_16, ptr noundef null) #22
   unreachable
 
 do.body34.i:                                      ; preds = %required_atomicity.exit.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.18, i32 noundef 1108, ptr noundef nonnull @__func__.store_atom_16, ptr noundef null) #21
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.18, i32 noundef 1108, ptr noundef nonnull @__func__.store_atom_16, ptr noundef null) #22
   unreachable
 
 sw.epilog36.i:                                    ; preds = %required_atomicity.exit.i
-  tail call void @cpu_loop_exit_atomic(ptr noundef nonnull %cpu, i64 noundef %ra) #21
+  tail call void @cpu_loop_exit_atomic(ptr noundef nonnull %cpu, i64 noundef %ra) #22
   unreachable
 
 if.end49:                                         ; preds = %entry
@@ -5327,7 +5327,7 @@ if.else.i.i:                                      ; preds = %entry
 do_ld1_mmu.exit:                                  ; preds = %if.then.i.i, %if.else.i.i
   %retval.0.i.i = phi i8 [ %conv3.i.i, %if.then.i.i ], [ %7, %if.else.i.i ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %l.i)
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 1) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 1) #19
   ret i8 %retval.0.i.i
 }
 
@@ -5339,7 +5339,7 @@ entry:
   tail call void @llvm.assume(i1 %cmp)
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %call2 = tail call fastcc zeroext i16 @do_ld2_mmu(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i64 noundef %ra, i32 noundef 0)
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 1) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 1) #19
   ret i16 %call2
 }
 
@@ -5351,7 +5351,7 @@ entry:
   tail call void @llvm.assume(i1 %cmp)
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %call2 = tail call fastcc i32 @do_ld4_mmu(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i64 noundef %ra, i32 noundef 0)
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 1) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 1) #19
   ret i32 %call2
 }
 
@@ -5388,7 +5388,7 @@ if.end.i:                                         ; preds = %entry
 do_ld8_mmu.exit:                                  ; preds = %if.then.i, %if.end.i
   %retval.0.i = phi i64 [ %call4.i, %if.then.i ], [ %spec.select.i, %if.end.i ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %l.i)
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 1) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 1) #19
   ret i64 %retval.0.i
 }
 
@@ -5400,7 +5400,7 @@ entry:
   tail call void @llvm.assume(i1 %cmp)
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %call2 = tail call fastcc { i64, i64 } @do_ld16_mmu(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i64 noundef %ra)
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 1) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 1) #19
   ret { i64, i64 } %call2
 }
 
@@ -5445,7 +5445,7 @@ if.else14.i.i.i:                                  ; preds = %if.else.i.i.i
 
 helper_stb_mmu.exit:                              ; preds = %if.then.i.i.i, %if.else.i.i.i, %if.else14.i.i.i
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %l.i.i)
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 2) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 2) #19
   ret void
 }
 
@@ -5457,7 +5457,7 @@ entry:
   tail call void @llvm.assume(i1 %cmp)
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   tail call fastcc void @do_st2_mmu(ptr noundef %add.ptr.i, i64 noundef %addr, i16 noundef zeroext %val, i32 noundef %oi, i64 noundef %retaddr)
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 2) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 2) #19
   ret void
 }
 
@@ -5469,7 +5469,7 @@ entry:
   tail call void @llvm.assume(i1 %cmp)
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   tail call fastcc void @do_st4_mmu(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %val, i32 noundef %oi, i64 noundef %retaddr)
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 2) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 2) #19
   ret void
 }
 
@@ -5509,7 +5509,7 @@ if.end.i:                                         ; preds = %entry
 
 do_st8_mmu.exit:                                  ; preds = %if.then.i, %if.end.i
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %l.i)
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 2) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 2) #19
   ret void
 }
 
@@ -5521,7 +5521,7 @@ entry:
   tail call void @llvm.assume(i1 %cmp)
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   tail call fastcc void @do_st16_mmu(ptr noundef %add.ptr.i, i64 noundef %addr, i64 noundef %val.coerce0, i64 noundef %val.coerce1, i32 noundef %oi, i64 noundef %retaddr)
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 2) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 2) #19
   ret void
 }
 
@@ -5562,7 +5562,7 @@ if.else.i.i.i:                                    ; preds = %entry
 cpu_ldb_mmu.exit:                                 ; preds = %if.then.i.i.i, %if.else.i.i.i
   %retval.0.i.i.i = phi i8 [ %conv3.i.i.i, %if.then.i.i.i ], [ %7, %if.else.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %l.i.i)
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %mmu_idx, i32 noundef 1) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %mmu_idx, i32 noundef 1) #19
   %conv = zext i8 %retval.0.i.i.i to i32
   ret i32 %conv
 }
@@ -5604,7 +5604,7 @@ if.else.i.i.i.i:                                  ; preds = %entry
 cpu_ldub_mmuidx_ra.exit:                          ; preds = %if.then.i.i.i.i, %if.else.i.i.i.i
   %retval.0.i.i.i.i = phi i8 [ %conv3.i.i.i.i, %if.then.i.i.i.i ], [ %7, %if.else.i.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %l.i.i.i)
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i.i, i64 noundef %addr, i32 noundef %mmu_idx, i32 noundef 1) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i.i, i64 noundef %addr, i32 noundef %mmu_idx, i32 noundef 1) #19
   %conv1 = sext i8 %retval.0.i.i.i.i to i32
   ret i32 %conv1
 }
@@ -5618,7 +5618,7 @@ entry:
   tail call void @llvm.assume(i1 %cmp.i)
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %call2.i = tail call fastcc zeroext i16 @do_ld2_mmu(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %or.i, i64 noundef %ra, i32 noundef 0)
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %or.i, i32 noundef 1) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %or.i, i32 noundef 1) #19
   %conv = zext i16 %call2.i to i32
   ret i32 %conv
 }
@@ -5632,7 +5632,7 @@ entry:
   tail call void @llvm.assume(i1 %cmp.i.i)
   %add.ptr.i.i.i = getelementptr i8, ptr %env, i64 -10176
   %call2.i.i = tail call fastcc zeroext i16 @do_ld2_mmu(ptr noundef %add.ptr.i.i.i, i64 noundef %addr, i32 noundef %or.i.i, i64 noundef %ra, i32 noundef 0)
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i.i, i64 noundef %addr, i32 noundef %or.i.i, i32 noundef 1) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i.i, i64 noundef %addr, i32 noundef %or.i.i, i32 noundef 1) #19
   %conv1 = sext i16 %call2.i.i to i32
   ret i32 %conv1
 }
@@ -5646,7 +5646,7 @@ entry:
   tail call void @llvm.assume(i1 %cmp.i)
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %call2.i = tail call fastcc i32 @do_ld4_mmu(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %or.i, i64 noundef %ra, i32 noundef 0)
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %or.i, i32 noundef 1) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %or.i, i32 noundef 1) #19
   ret i32 %call2.i
 }
 
@@ -5667,7 +5667,7 @@ entry:
   tail call void @llvm.assume(i1 %cmp.i)
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %call2.i = tail call fastcc zeroext i16 @do_ld2_mmu(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %or.i, i64 noundef %ra, i32 noundef 0)
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %or.i, i32 noundef 1) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %or.i, i32 noundef 1) #19
   %conv = zext i16 %call2.i to i32
   ret i32 %conv
 }
@@ -5681,7 +5681,7 @@ entry:
   tail call void @llvm.assume(i1 %cmp.i.i)
   %add.ptr.i.i.i = getelementptr i8, ptr %env, i64 -10176
   %call2.i.i = tail call fastcc zeroext i16 @do_ld2_mmu(ptr noundef %add.ptr.i.i.i, i64 noundef %addr, i32 noundef %or.i.i, i64 noundef %ra, i32 noundef 0)
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i.i, i64 noundef %addr, i32 noundef %or.i.i, i32 noundef 1) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i.i, i64 noundef %addr, i32 noundef %or.i.i, i32 noundef 1) #19
   %conv1 = sext i16 %call2.i.i to i32
   ret i32 %conv1
 }
@@ -5695,7 +5695,7 @@ entry:
   tail call void @llvm.assume(i1 %cmp.i)
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %call2.i = tail call fastcc i32 @do_ld4_mmu(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %or.i, i64 noundef %ra, i32 noundef 0)
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %or.i, i32 noundef 1) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %or.i, i32 noundef 1) #19
   ret i32 %call2.i
 }
 
@@ -5750,7 +5750,7 @@ if.else14.i.i.i.i:                                ; preds = %if.else.i.i.i.i
 
 cpu_stb_mmu.exit:                                 ; preds = %if.then.i.i.i.i, %if.else.i.i.i.i, %if.else14.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %l.i.i.i)
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i.i, i64 noundef %addr, i32 noundef %mmu_idx, i32 noundef 2) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i.i, i64 noundef %addr, i32 noundef %mmu_idx, i32 noundef 2) #19
   ret void
 }
 
@@ -5764,7 +5764,7 @@ entry:
   tail call void @llvm.assume(i1 %cmp.i)
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   tail call fastcc void @do_st2_mmu(ptr noundef %add.ptr.i.i, i64 noundef %addr, i16 noundef zeroext %conv, i32 noundef %or.i, i64 noundef %ra)
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %or.i, i32 noundef 2) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %or.i, i32 noundef 2) #19
   ret void
 }
 
@@ -5777,7 +5777,7 @@ entry:
   tail call void @llvm.assume(i1 %cmp.i)
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   tail call fastcc void @do_st4_mmu(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %val, i32 noundef %or.i, i64 noundef %ra)
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %or.i, i32 noundef 2) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %or.i, i32 noundef 2) #19
   ret void
 }
 
@@ -5799,7 +5799,7 @@ entry:
   tail call void @llvm.assume(i1 %cmp.i)
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   tail call fastcc void @do_st2_mmu(ptr noundef %add.ptr.i.i, i64 noundef %addr, i16 noundef zeroext %conv, i32 noundef %or.i, i64 noundef %ra)
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %or.i, i32 noundef 2) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %or.i, i32 noundef 2) #19
   ret void
 }
 
@@ -5812,7 +5812,7 @@ entry:
   tail call void @llvm.assume(i1 %cmp.i)
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   tail call fastcc void @do_st4_mmu(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %val, i32 noundef %or.i, i64 noundef %ra)
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %or.i, i32 noundef 2) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %or.i, i32 noundef 2) #19
   ret void
 }
 
@@ -5828,7 +5828,7 @@ entry:
 define dso_local range(i32 0, 256) i32 @cpu_ldub_data_ra(ptr noundef %env, i64 noundef %addr, i64 noundef %ra) local_unnamed_addr #0 {
 entry:
   %l.i.i.i = alloca %struct.MMULookupLocals, align 8
-  %call = tail call i32 @riscv_cpu_mmu_index(ptr noundef %env, i1 noundef zeroext false) #18
+  %call = tail call i32 @riscv_cpu_mmu_index(ptr noundef %env, i1 noundef zeroext false) #19
   %0 = and i32 %call, 112
   %cmp.i.i = icmp eq i32 %0, 0
   tail call void @llvm.assume(i1 %cmp.i.i)
@@ -5862,7 +5862,7 @@ if.else.i.i.i.i:                                  ; preds = %entry
 cpu_ldub_mmuidx_ra.exit:                          ; preds = %if.then.i.i.i.i, %if.else.i.i.i.i
   %retval.0.i.i.i.i = phi i8 [ %conv3.i.i.i.i, %if.then.i.i.i.i ], [ %7, %if.else.i.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %l.i.i.i)
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i.i, i64 noundef %addr, i32 noundef %call, i32 noundef 1) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i.i, i64 noundef %addr, i32 noundef %call, i32 noundef 1) #19
   %conv.i = zext i8 %retval.0.i.i.i.i to i32
   ret i32 %conv.i
 }
@@ -5871,7 +5871,7 @@ cpu_ldub_mmuidx_ra.exit:                          ; preds = %if.then.i.i.i.i, %i
 define dso_local range(i32 -128, 128) i32 @cpu_ldsb_data_ra(ptr noundef %env, i64 noundef %addr, i64 noundef %ra) local_unnamed_addr #0 {
 entry:
   %l.i.i.i.i = alloca %struct.MMULookupLocals, align 8
-  %call.i = tail call i32 @riscv_cpu_mmu_index(ptr noundef %env, i1 noundef zeroext false) #18
+  %call.i = tail call i32 @riscv_cpu_mmu_index(ptr noundef %env, i1 noundef zeroext false) #19
   %0 = and i32 %call.i, 112
   %cmp.i.i.i = icmp eq i32 %0, 0
   tail call void @llvm.assume(i1 %cmp.i.i.i)
@@ -5905,7 +5905,7 @@ if.else.i.i.i.i.i:                                ; preds = %entry
 cpu_ldub_data_ra.exit:                            ; preds = %if.then.i.i.i.i.i, %if.else.i.i.i.i.i
   %retval.0.i.i.i.i.i = phi i8 [ %conv3.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %7, %if.else.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %l.i.i.i.i)
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i.i.i, i64 noundef %addr, i32 noundef %call.i, i32 noundef 1) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i.i.i, i64 noundef %addr, i32 noundef %call.i, i32 noundef 1) #19
   %conv1 = sext i8 %retval.0.i.i.i.i.i to i32
   ret i32 %conv1
 }
@@ -5913,14 +5913,14 @@ cpu_ldub_data_ra.exit:                            ; preds = %if.then.i.i.i.i.i, 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local range(i32 0, 65536) i32 @cpu_lduw_be_data_ra(ptr noundef %env, i64 noundef %addr, i64 noundef %ra) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @riscv_cpu_mmu_index(ptr noundef %env, i1 noundef zeroext false) #18
+  %call = tail call i32 @riscv_cpu_mmu_index(ptr noundef %env, i1 noundef zeroext false) #19
   %or.i.i = or i32 %call, 272
   %0 = and i32 %or.i.i, 112
   %cmp.i.i = icmp eq i32 %0, 16
   tail call void @llvm.assume(i1 %cmp.i.i)
   %add.ptr.i.i.i = getelementptr i8, ptr %env, i64 -10176
   %call2.i.i = tail call fastcc zeroext i16 @do_ld2_mmu(ptr noundef %add.ptr.i.i.i, i64 noundef %addr, i32 noundef %or.i.i, i64 noundef %ra, i32 noundef 0)
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i.i, i64 noundef %addr, i32 noundef %or.i.i, i32 noundef 1) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i.i, i64 noundef %addr, i32 noundef %or.i.i, i32 noundef 1) #19
   %conv.i = zext i16 %call2.i.i to i32
   ret i32 %conv.i
 }
@@ -5928,14 +5928,14 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local range(i32 -32768, 32768) i32 @cpu_ldsw_be_data_ra(ptr noundef %env, i64 noundef %addr, i64 noundef %ra) local_unnamed_addr #0 {
 entry:
-  %call.i = tail call i32 @riscv_cpu_mmu_index(ptr noundef %env, i1 noundef zeroext false) #18
+  %call.i = tail call i32 @riscv_cpu_mmu_index(ptr noundef %env, i1 noundef zeroext false) #19
   %or.i.i.i = or i32 %call.i, 272
   %0 = and i32 %or.i.i.i, 112
   %cmp.i.i.i = icmp eq i32 %0, 16
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   %add.ptr.i.i.i.i = getelementptr i8, ptr %env, i64 -10176
   %call2.i.i.i = tail call fastcc zeroext i16 @do_ld2_mmu(ptr noundef %add.ptr.i.i.i.i, i64 noundef %addr, i32 noundef %or.i.i.i, i64 noundef %ra, i32 noundef 0)
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i.i.i, i64 noundef %addr, i32 noundef %or.i.i.i, i32 noundef 1) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i.i.i, i64 noundef %addr, i32 noundef %or.i.i.i, i32 noundef 1) #19
   %conv1 = sext i16 %call2.i.i.i to i32
   ret i32 %conv1
 }
@@ -5943,21 +5943,21 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @cpu_ldl_be_data_ra(ptr noundef %env, i64 noundef %addr, i64 noundef %ra) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @riscv_cpu_mmu_index(ptr noundef %env, i1 noundef zeroext false) #18
+  %call = tail call i32 @riscv_cpu_mmu_index(ptr noundef %env, i1 noundef zeroext false) #19
   %or.i.i = or i32 %call, 288
   %0 = and i32 %or.i.i, 112
   %cmp.i.i = icmp eq i32 %0, 32
   tail call void @llvm.assume(i1 %cmp.i.i)
   %add.ptr.i.i.i = getelementptr i8, ptr %env, i64 -10176
   %call2.i.i = tail call fastcc i32 @do_ld4_mmu(ptr noundef %add.ptr.i.i.i, i64 noundef %addr, i32 noundef %or.i.i, i64 noundef %ra, i32 noundef 0)
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i.i, i64 noundef %addr, i32 noundef %or.i.i, i32 noundef 1) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i.i, i64 noundef %addr, i32 noundef %or.i.i, i32 noundef 1) #19
   ret i32 %call2.i.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @cpu_ldq_be_data_ra(ptr noundef %env, i64 noundef %addr, i64 noundef %ra) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @riscv_cpu_mmu_index(ptr noundef %env, i1 noundef zeroext false) #18
+  %call = tail call i32 @riscv_cpu_mmu_index(ptr noundef %env, i1 noundef zeroext false) #19
   %or.i.i = or i32 %call, 304
   %call1.i = tail call i64 @cpu_ldq_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %or.i.i, i64 noundef %ra)
   ret i64 %call1.i
@@ -5966,14 +5966,14 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local range(i32 0, 65536) i32 @cpu_lduw_le_data_ra(ptr noundef %env, i64 noundef %addr, i64 noundef %ra) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @riscv_cpu_mmu_index(ptr noundef %env, i1 noundef zeroext false) #18
+  %call = tail call i32 @riscv_cpu_mmu_index(ptr noundef %env, i1 noundef zeroext false) #19
   %or.i.i = or i32 %call, 16
   %0 = and i32 %or.i.i, 112
   %cmp.i.i = icmp eq i32 %0, 16
   tail call void @llvm.assume(i1 %cmp.i.i)
   %add.ptr.i.i.i = getelementptr i8, ptr %env, i64 -10176
   %call2.i.i = tail call fastcc zeroext i16 @do_ld2_mmu(ptr noundef %add.ptr.i.i.i, i64 noundef %addr, i32 noundef %or.i.i, i64 noundef %ra, i32 noundef 0)
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i.i, i64 noundef %addr, i32 noundef %or.i.i, i32 noundef 1) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i.i, i64 noundef %addr, i32 noundef %or.i.i, i32 noundef 1) #19
   %conv.i = zext i16 %call2.i.i to i32
   ret i32 %conv.i
 }
@@ -5981,14 +5981,14 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local range(i32 -32768, 32768) i32 @cpu_ldsw_le_data_ra(ptr noundef %env, i64 noundef %addr, i64 noundef %ra) local_unnamed_addr #0 {
 entry:
-  %call.i = tail call i32 @riscv_cpu_mmu_index(ptr noundef %env, i1 noundef zeroext false) #18
+  %call.i = tail call i32 @riscv_cpu_mmu_index(ptr noundef %env, i1 noundef zeroext false) #19
   %or.i.i.i = or i32 %call.i, 16
   %0 = and i32 %or.i.i.i, 112
   %cmp.i.i.i = icmp eq i32 %0, 16
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   %add.ptr.i.i.i.i = getelementptr i8, ptr %env, i64 -10176
   %call2.i.i.i = tail call fastcc zeroext i16 @do_ld2_mmu(ptr noundef %add.ptr.i.i.i.i, i64 noundef %addr, i32 noundef %or.i.i.i, i64 noundef %ra, i32 noundef 0)
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i.i.i, i64 noundef %addr, i32 noundef %or.i.i.i, i32 noundef 1) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i.i.i, i64 noundef %addr, i32 noundef %or.i.i.i, i32 noundef 1) #19
   %conv1 = sext i16 %call2.i.i.i to i32
   ret i32 %conv1
 }
@@ -5996,21 +5996,21 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @cpu_ldl_le_data_ra(ptr noundef %env, i64 noundef %addr, i64 noundef %ra) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @riscv_cpu_mmu_index(ptr noundef %env, i1 noundef zeroext false) #18
+  %call = tail call i32 @riscv_cpu_mmu_index(ptr noundef %env, i1 noundef zeroext false) #19
   %or.i.i = or i32 %call, 32
   %0 = and i32 %or.i.i, 112
   %cmp.i.i = icmp eq i32 %0, 32
   tail call void @llvm.assume(i1 %cmp.i.i)
   %add.ptr.i.i.i = getelementptr i8, ptr %env, i64 -10176
   %call2.i.i = tail call fastcc i32 @do_ld4_mmu(ptr noundef %add.ptr.i.i.i, i64 noundef %addr, i32 noundef %or.i.i, i64 noundef %ra, i32 noundef 0)
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i.i, i64 noundef %addr, i32 noundef %or.i.i, i32 noundef 1) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i.i, i64 noundef %addr, i32 noundef %or.i.i, i32 noundef 1) #19
   ret i32 %call2.i.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @cpu_ldq_le_data_ra(ptr noundef %env, i64 noundef %addr, i64 noundef %ra) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @riscv_cpu_mmu_index(ptr noundef %env, i1 noundef zeroext false) #18
+  %call = tail call i32 @riscv_cpu_mmu_index(ptr noundef %env, i1 noundef zeroext false) #19
   %or.i.i = or i32 %call, 48
   %call1.i = tail call i64 @cpu_ldq_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %or.i.i, i64 noundef %ra)
   ret i64 %call1.i
@@ -6020,7 +6020,7 @@ entry:
 define dso_local void @cpu_stb_data_ra(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i64 noundef %ra) local_unnamed_addr #0 {
 entry:
   %l.i.i.i.i = alloca %struct.MMULookupLocals, align 8
-  %call = tail call i32 @riscv_cpu_mmu_index(ptr noundef %env, i1 noundef zeroext false) #18
+  %call = tail call i32 @riscv_cpu_mmu_index(ptr noundef %env, i1 noundef zeroext false) #19
   %conv.i = trunc i32 %val to i8
   %0 = and i32 %call, 112
   %cmp.i.i.i = icmp eq i32 %0, 0
@@ -6060,14 +6060,14 @@ if.else14.i.i.i.i.i:                              ; preds = %if.else.i.i.i.i.i
 
 cpu_stb_mmuidx_ra.exit:                           ; preds = %if.then.i.i.i.i.i, %if.else.i.i.i.i.i, %if.else14.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %l.i.i.i.i)
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i.i.i, i64 noundef %addr, i32 noundef %call, i32 noundef 2) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i.i.i, i64 noundef %addr, i32 noundef %call, i32 noundef 2) #19
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @cpu_stw_be_data_ra(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i64 noundef %ra) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @riscv_cpu_mmu_index(ptr noundef %env, i1 noundef zeroext false) #18
+  %call = tail call i32 @riscv_cpu_mmu_index(ptr noundef %env, i1 noundef zeroext false) #19
   %or.i.i = or i32 %call, 272
   %conv.i = trunc i32 %val to i16
   %0 = and i32 %or.i.i, 112
@@ -6075,28 +6075,28 @@ entry:
   tail call void @llvm.assume(i1 %cmp.i.i)
   %add.ptr.i.i.i = getelementptr i8, ptr %env, i64 -10176
   tail call fastcc void @do_st2_mmu(ptr noundef %add.ptr.i.i.i, i64 noundef %addr, i16 noundef zeroext %conv.i, i32 noundef %or.i.i, i64 noundef %ra)
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i.i, i64 noundef %addr, i32 noundef %or.i.i, i32 noundef 2) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i.i, i64 noundef %addr, i32 noundef %or.i.i, i32 noundef 2) #19
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @cpu_stl_be_data_ra(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i64 noundef %ra) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @riscv_cpu_mmu_index(ptr noundef %env, i1 noundef zeroext false) #18
+  %call = tail call i32 @riscv_cpu_mmu_index(ptr noundef %env, i1 noundef zeroext false) #19
   %or.i.i = or i32 %call, 288
   %0 = and i32 %or.i.i, 112
   %cmp.i.i = icmp eq i32 %0, 32
   tail call void @llvm.assume(i1 %cmp.i.i)
   %add.ptr.i.i.i = getelementptr i8, ptr %env, i64 -10176
   tail call fastcc void @do_st4_mmu(ptr noundef %add.ptr.i.i.i, i64 noundef %addr, i32 noundef %val, i32 noundef %or.i.i, i64 noundef %ra)
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i.i, i64 noundef %addr, i32 noundef %or.i.i, i32 noundef 2) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i.i, i64 noundef %addr, i32 noundef %or.i.i, i32 noundef 2) #19
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @cpu_stq_be_data_ra(ptr noundef %env, i64 noundef %addr, i64 noundef %val, i64 noundef %ra) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @riscv_cpu_mmu_index(ptr noundef %env, i1 noundef zeroext false) #18
+  %call = tail call i32 @riscv_cpu_mmu_index(ptr noundef %env, i1 noundef zeroext false) #19
   %or.i.i = or i32 %call, 304
   tail call void @cpu_stq_mmu(ptr noundef %env, i64 noundef %addr, i64 noundef %val, i32 noundef %or.i.i, i64 noundef %ra)
   ret void
@@ -6105,7 +6105,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @cpu_stw_le_data_ra(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i64 noundef %ra) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @riscv_cpu_mmu_index(ptr noundef %env, i1 noundef zeroext false) #18
+  %call = tail call i32 @riscv_cpu_mmu_index(ptr noundef %env, i1 noundef zeroext false) #19
   %or.i.i = or i32 %call, 16
   %conv.i = trunc i32 %val to i16
   %0 = and i32 %or.i.i, 112
@@ -6113,28 +6113,28 @@ entry:
   tail call void @llvm.assume(i1 %cmp.i.i)
   %add.ptr.i.i.i = getelementptr i8, ptr %env, i64 -10176
   tail call fastcc void @do_st2_mmu(ptr noundef %add.ptr.i.i.i, i64 noundef %addr, i16 noundef zeroext %conv.i, i32 noundef %or.i.i, i64 noundef %ra)
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i.i, i64 noundef %addr, i32 noundef %or.i.i, i32 noundef 2) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i.i, i64 noundef %addr, i32 noundef %or.i.i, i32 noundef 2) #19
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @cpu_stl_le_data_ra(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i64 noundef %ra) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @riscv_cpu_mmu_index(ptr noundef %env, i1 noundef zeroext false) #18
+  %call = tail call i32 @riscv_cpu_mmu_index(ptr noundef %env, i1 noundef zeroext false) #19
   %or.i.i = or i32 %call, 32
   %0 = and i32 %or.i.i, 112
   %cmp.i.i = icmp eq i32 %0, 32
   tail call void @llvm.assume(i1 %cmp.i.i)
   %add.ptr.i.i.i = getelementptr i8, ptr %env, i64 -10176
   tail call fastcc void @do_st4_mmu(ptr noundef %add.ptr.i.i.i, i64 noundef %addr, i32 noundef %val, i32 noundef %or.i.i, i64 noundef %ra)
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i.i, i64 noundef %addr, i32 noundef %or.i.i, i32 noundef 2) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i.i, i64 noundef %addr, i32 noundef %or.i.i, i32 noundef 2) #19
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @cpu_stq_le_data_ra(ptr noundef %env, i64 noundef %addr, i64 noundef %val, i64 noundef %ra) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @riscv_cpu_mmu_index(ptr noundef %env, i1 noundef zeroext false) #18
+  %call = tail call i32 @riscv_cpu_mmu_index(ptr noundef %env, i1 noundef zeroext false) #19
   %or.i.i = or i32 %call, 48
   tail call void @cpu_stq_mmu(ptr noundef %env, i64 noundef %addr, i64 noundef %val, i32 noundef %or.i.i, i64 noundef %ra)
   ret void
@@ -6144,7 +6144,7 @@ entry:
 define dso_local range(i32 0, 256) i32 @cpu_ldub_data(ptr noundef %env, i64 noundef %addr) local_unnamed_addr #0 {
 entry:
   %l.i.i.i.i = alloca %struct.MMULookupLocals, align 8
-  %call.i = tail call i32 @riscv_cpu_mmu_index(ptr noundef %env, i1 noundef zeroext false) #18
+  %call.i = tail call i32 @riscv_cpu_mmu_index(ptr noundef %env, i1 noundef zeroext false) #19
   %0 = and i32 %call.i, 112
   %cmp.i.i.i = icmp eq i32 %0, 0
   tail call void @llvm.assume(i1 %cmp.i.i.i)
@@ -6178,7 +6178,7 @@ if.else.i.i.i.i.i:                                ; preds = %entry
 cpu_ldub_data_ra.exit:                            ; preds = %if.then.i.i.i.i.i, %if.else.i.i.i.i.i
   %retval.0.i.i.i.i.i = phi i8 [ %conv3.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %7, %if.else.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %l.i.i.i.i)
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i.i.i, i64 noundef %addr, i32 noundef %call.i, i32 noundef 1) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i.i.i, i64 noundef %addr, i32 noundef %call.i, i32 noundef 1) #19
   %conv.i.i = zext i8 %retval.0.i.i.i.i.i to i32
   ret i32 %conv.i.i
 }
@@ -6187,7 +6187,7 @@ cpu_ldub_data_ra.exit:                            ; preds = %if.then.i.i.i.i.i, 
 define dso_local range(i32 -128, 128) i32 @cpu_ldsb_data(ptr noundef %env, i64 noundef %addr) local_unnamed_addr #0 {
 entry:
   %l.i.i.i.i.i = alloca %struct.MMULookupLocals, align 8
-  %call.i.i = tail call i32 @riscv_cpu_mmu_index(ptr noundef %env, i1 noundef zeroext false) #18
+  %call.i.i = tail call i32 @riscv_cpu_mmu_index(ptr noundef %env, i1 noundef zeroext false) #19
   %0 = and i32 %call.i.i, 112
   %cmp.i.i.i.i = icmp eq i32 %0, 0
   tail call void @llvm.assume(i1 %cmp.i.i.i.i)
@@ -6221,7 +6221,7 @@ if.else.i.i.i.i.i.i:                              ; preds = %entry
 cpu_ldub_data.exit:                               ; preds = %if.then.i.i.i.i.i.i, %if.else.i.i.i.i.i.i
   %retval.0.i.i.i.i.i.i = phi i8 [ %conv3.i.i.i.i.i.i, %if.then.i.i.i.i.i.i ], [ %7, %if.else.i.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %l.i.i.i.i.i)
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i.i.i.i, i64 noundef %addr, i32 noundef %call.i.i, i32 noundef 1) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i.i.i.i, i64 noundef %addr, i32 noundef %call.i.i, i32 noundef 1) #19
   %conv1 = sext i8 %retval.0.i.i.i.i.i.i to i32
   ret i32 %conv1
 }
@@ -6229,14 +6229,14 @@ cpu_ldub_data.exit:                               ; preds = %if.then.i.i.i.i.i.i
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local range(i32 0, 65536) i32 @cpu_lduw_be_data(ptr noundef %env, i64 noundef %addr) local_unnamed_addr #0 {
 entry:
-  %call.i = tail call i32 @riscv_cpu_mmu_index(ptr noundef %env, i1 noundef zeroext false) #18
+  %call.i = tail call i32 @riscv_cpu_mmu_index(ptr noundef %env, i1 noundef zeroext false) #19
   %or.i.i.i = or i32 %call.i, 272
   %0 = and i32 %or.i.i.i, 112
   %cmp.i.i.i = icmp eq i32 %0, 16
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   %add.ptr.i.i.i.i = getelementptr i8, ptr %env, i64 -10176
   %call2.i.i.i = tail call fastcc zeroext i16 @do_ld2_mmu(ptr noundef %add.ptr.i.i.i.i, i64 noundef %addr, i32 noundef %or.i.i.i, i64 noundef 0, i32 noundef 0)
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i.i.i, i64 noundef %addr, i32 noundef %or.i.i.i, i32 noundef 1) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i.i.i, i64 noundef %addr, i32 noundef %or.i.i.i, i32 noundef 1) #19
   %conv.i.i = zext i16 %call2.i.i.i to i32
   ret i32 %conv.i.i
 }
@@ -6244,14 +6244,14 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local range(i32 -32768, 32768) i32 @cpu_ldsw_be_data(ptr noundef %env, i64 noundef %addr) local_unnamed_addr #0 {
 entry:
-  %call.i.i = tail call i32 @riscv_cpu_mmu_index(ptr noundef %env, i1 noundef zeroext false) #18
+  %call.i.i = tail call i32 @riscv_cpu_mmu_index(ptr noundef %env, i1 noundef zeroext false) #19
   %or.i.i.i.i = or i32 %call.i.i, 272
   %0 = and i32 %or.i.i.i.i, 112
   %cmp.i.i.i.i = icmp eq i32 %0, 16
   tail call void @llvm.assume(i1 %cmp.i.i.i.i)
   %add.ptr.i.i.i.i.i = getelementptr i8, ptr %env, i64 -10176
   %call2.i.i.i.i = tail call fastcc zeroext i16 @do_ld2_mmu(ptr noundef %add.ptr.i.i.i.i.i, i64 noundef %addr, i32 noundef %or.i.i.i.i, i64 noundef 0, i32 noundef 0)
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i.i.i.i, i64 noundef %addr, i32 noundef %or.i.i.i.i, i32 noundef 1) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i.i.i.i, i64 noundef %addr, i32 noundef %or.i.i.i.i, i32 noundef 1) #19
   %conv1 = sext i16 %call2.i.i.i.i to i32
   ret i32 %conv1
 }
@@ -6259,21 +6259,21 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @cpu_ldl_be_data(ptr noundef %env, i64 noundef %addr) local_unnamed_addr #0 {
 entry:
-  %call.i = tail call i32 @riscv_cpu_mmu_index(ptr noundef %env, i1 noundef zeroext false) #18
+  %call.i = tail call i32 @riscv_cpu_mmu_index(ptr noundef %env, i1 noundef zeroext false) #19
   %or.i.i.i = or i32 %call.i, 288
   %0 = and i32 %or.i.i.i, 112
   %cmp.i.i.i = icmp eq i32 %0, 32
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   %add.ptr.i.i.i.i = getelementptr i8, ptr %env, i64 -10176
   %call2.i.i.i = tail call fastcc i32 @do_ld4_mmu(ptr noundef %add.ptr.i.i.i.i, i64 noundef %addr, i32 noundef %or.i.i.i, i64 noundef 0, i32 noundef 0)
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i.i.i, i64 noundef %addr, i32 noundef %or.i.i.i, i32 noundef 1) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i.i.i, i64 noundef %addr, i32 noundef %or.i.i.i, i32 noundef 1) #19
   ret i32 %call2.i.i.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @cpu_ldq_be_data(ptr noundef %env, i64 noundef %addr) local_unnamed_addr #0 {
 entry:
-  %call.i = tail call i32 @riscv_cpu_mmu_index(ptr noundef %env, i1 noundef zeroext false) #18
+  %call.i = tail call i32 @riscv_cpu_mmu_index(ptr noundef %env, i1 noundef zeroext false) #19
   %or.i.i.i = or i32 %call.i, 304
   %call1.i.i = tail call i64 @cpu_ldq_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %or.i.i.i, i64 noundef 0)
   ret i64 %call1.i.i
@@ -6282,14 +6282,14 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local range(i32 0, 65536) i32 @cpu_lduw_le_data(ptr noundef %env, i64 noundef %addr) local_unnamed_addr #0 {
 entry:
-  %call.i = tail call i32 @riscv_cpu_mmu_index(ptr noundef %env, i1 noundef zeroext false) #18
+  %call.i = tail call i32 @riscv_cpu_mmu_index(ptr noundef %env, i1 noundef zeroext false) #19
   %or.i.i.i = or i32 %call.i, 16
   %0 = and i32 %or.i.i.i, 112
   %cmp.i.i.i = icmp eq i32 %0, 16
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   %add.ptr.i.i.i.i = getelementptr i8, ptr %env, i64 -10176
   %call2.i.i.i = tail call fastcc zeroext i16 @do_ld2_mmu(ptr noundef %add.ptr.i.i.i.i, i64 noundef %addr, i32 noundef %or.i.i.i, i64 noundef 0, i32 noundef 0)
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i.i.i, i64 noundef %addr, i32 noundef %or.i.i.i, i32 noundef 1) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i.i.i, i64 noundef %addr, i32 noundef %or.i.i.i, i32 noundef 1) #19
   %conv.i.i = zext i16 %call2.i.i.i to i32
   ret i32 %conv.i.i
 }
@@ -6297,14 +6297,14 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local range(i32 -32768, 32768) i32 @cpu_ldsw_le_data(ptr noundef %env, i64 noundef %addr) local_unnamed_addr #0 {
 entry:
-  %call.i.i = tail call i32 @riscv_cpu_mmu_index(ptr noundef %env, i1 noundef zeroext false) #18
+  %call.i.i = tail call i32 @riscv_cpu_mmu_index(ptr noundef %env, i1 noundef zeroext false) #19
   %or.i.i.i.i = or i32 %call.i.i, 16
   %0 = and i32 %or.i.i.i.i, 112
   %cmp.i.i.i.i = icmp eq i32 %0, 16
   tail call void @llvm.assume(i1 %cmp.i.i.i.i)
   %add.ptr.i.i.i.i.i = getelementptr i8, ptr %env, i64 -10176
   %call2.i.i.i.i = tail call fastcc zeroext i16 @do_ld2_mmu(ptr noundef %add.ptr.i.i.i.i.i, i64 noundef %addr, i32 noundef %or.i.i.i.i, i64 noundef 0, i32 noundef 0)
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i.i.i.i, i64 noundef %addr, i32 noundef %or.i.i.i.i, i32 noundef 1) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i.i.i.i, i64 noundef %addr, i32 noundef %or.i.i.i.i, i32 noundef 1) #19
   %conv1 = sext i16 %call2.i.i.i.i to i32
   ret i32 %conv1
 }
@@ -6312,21 +6312,21 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @cpu_ldl_le_data(ptr noundef %env, i64 noundef %addr) local_unnamed_addr #0 {
 entry:
-  %call.i = tail call i32 @riscv_cpu_mmu_index(ptr noundef %env, i1 noundef zeroext false) #18
+  %call.i = tail call i32 @riscv_cpu_mmu_index(ptr noundef %env, i1 noundef zeroext false) #19
   %or.i.i.i = or i32 %call.i, 32
   %0 = and i32 %or.i.i.i, 112
   %cmp.i.i.i = icmp eq i32 %0, 32
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   %add.ptr.i.i.i.i = getelementptr i8, ptr %env, i64 -10176
   %call2.i.i.i = tail call fastcc i32 @do_ld4_mmu(ptr noundef %add.ptr.i.i.i.i, i64 noundef %addr, i32 noundef %or.i.i.i, i64 noundef 0, i32 noundef 0)
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i.i.i, i64 noundef %addr, i32 noundef %or.i.i.i, i32 noundef 1) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i.i.i, i64 noundef %addr, i32 noundef %or.i.i.i, i32 noundef 1) #19
   ret i32 %call2.i.i.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @cpu_ldq_le_data(ptr noundef %env, i64 noundef %addr) local_unnamed_addr #0 {
 entry:
-  %call.i = tail call i32 @riscv_cpu_mmu_index(ptr noundef %env, i1 noundef zeroext false) #18
+  %call.i = tail call i32 @riscv_cpu_mmu_index(ptr noundef %env, i1 noundef zeroext false) #19
   %or.i.i.i = or i32 %call.i, 48
   %call1.i.i = tail call i64 @cpu_ldq_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %or.i.i.i, i64 noundef 0)
   ret i64 %call1.i.i
@@ -6336,7 +6336,7 @@ entry:
 define dso_local void @cpu_stb_data(ptr noundef %env, i64 noundef %addr, i32 noundef %val) local_unnamed_addr #0 {
 entry:
   %l.i.i.i.i.i = alloca %struct.MMULookupLocals, align 8
-  %call.i = tail call i32 @riscv_cpu_mmu_index(ptr noundef %env, i1 noundef zeroext false) #18
+  %call.i = tail call i32 @riscv_cpu_mmu_index(ptr noundef %env, i1 noundef zeroext false) #19
   %conv.i.i = trunc i32 %val to i8
   %0 = and i32 %call.i, 112
   %cmp.i.i.i.i = icmp eq i32 %0, 0
@@ -6376,14 +6376,14 @@ if.else14.i.i.i.i.i.i:                            ; preds = %if.else.i.i.i.i.i.i
 
 cpu_stb_data_ra.exit:                             ; preds = %if.then.i.i.i.i.i.i, %if.else.i.i.i.i.i.i, %if.else14.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %l.i.i.i.i.i)
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i.i.i.i, i64 noundef %addr, i32 noundef %call.i, i32 noundef 2) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i.i.i.i, i64 noundef %addr, i32 noundef %call.i, i32 noundef 2) #19
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @cpu_stw_be_data(ptr noundef %env, i64 noundef %addr, i32 noundef %val) local_unnamed_addr #0 {
 entry:
-  %call.i = tail call i32 @riscv_cpu_mmu_index(ptr noundef %env, i1 noundef zeroext false) #18
+  %call.i = tail call i32 @riscv_cpu_mmu_index(ptr noundef %env, i1 noundef zeroext false) #19
   %or.i.i.i = or i32 %call.i, 272
   %conv.i.i = trunc i32 %val to i16
   %0 = and i32 %or.i.i.i, 112
@@ -6391,28 +6391,28 @@ entry:
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   %add.ptr.i.i.i.i = getelementptr i8, ptr %env, i64 -10176
   tail call fastcc void @do_st2_mmu(ptr noundef %add.ptr.i.i.i.i, i64 noundef %addr, i16 noundef zeroext %conv.i.i, i32 noundef %or.i.i.i, i64 noundef 0)
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i.i.i, i64 noundef %addr, i32 noundef %or.i.i.i, i32 noundef 2) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i.i.i, i64 noundef %addr, i32 noundef %or.i.i.i, i32 noundef 2) #19
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @cpu_stl_be_data(ptr noundef %env, i64 noundef %addr, i32 noundef %val) local_unnamed_addr #0 {
 entry:
-  %call.i = tail call i32 @riscv_cpu_mmu_index(ptr noundef %env, i1 noundef zeroext false) #18
+  %call.i = tail call i32 @riscv_cpu_mmu_index(ptr noundef %env, i1 noundef zeroext false) #19
   %or.i.i.i = or i32 %call.i, 288
   %0 = and i32 %or.i.i.i, 112
   %cmp.i.i.i = icmp eq i32 %0, 32
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   %add.ptr.i.i.i.i = getelementptr i8, ptr %env, i64 -10176
   tail call fastcc void @do_st4_mmu(ptr noundef %add.ptr.i.i.i.i, i64 noundef %addr, i32 noundef %val, i32 noundef %or.i.i.i, i64 noundef 0)
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i.i.i, i64 noundef %addr, i32 noundef %or.i.i.i, i32 noundef 2) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i.i.i, i64 noundef %addr, i32 noundef %or.i.i.i, i32 noundef 2) #19
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @cpu_stq_be_data(ptr noundef %env, i64 noundef %addr, i64 noundef %val) local_unnamed_addr #0 {
 entry:
-  %call.i = tail call i32 @riscv_cpu_mmu_index(ptr noundef %env, i1 noundef zeroext false) #18
+  %call.i = tail call i32 @riscv_cpu_mmu_index(ptr noundef %env, i1 noundef zeroext false) #19
   %or.i.i.i = or i32 %call.i, 304
   tail call void @cpu_stq_mmu(ptr noundef %env, i64 noundef %addr, i64 noundef %val, i32 noundef %or.i.i.i, i64 noundef 0)
   ret void
@@ -6421,7 +6421,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @cpu_stw_le_data(ptr noundef %env, i64 noundef %addr, i32 noundef %val) local_unnamed_addr #0 {
 entry:
-  %call.i = tail call i32 @riscv_cpu_mmu_index(ptr noundef %env, i1 noundef zeroext false) #18
+  %call.i = tail call i32 @riscv_cpu_mmu_index(ptr noundef %env, i1 noundef zeroext false) #19
   %or.i.i.i = or i32 %call.i, 16
   %conv.i.i = trunc i32 %val to i16
   %0 = and i32 %or.i.i.i, 112
@@ -6429,28 +6429,28 @@ entry:
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   %add.ptr.i.i.i.i = getelementptr i8, ptr %env, i64 -10176
   tail call fastcc void @do_st2_mmu(ptr noundef %add.ptr.i.i.i.i, i64 noundef %addr, i16 noundef zeroext %conv.i.i, i32 noundef %or.i.i.i, i64 noundef 0)
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i.i.i, i64 noundef %addr, i32 noundef %or.i.i.i, i32 noundef 2) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i.i.i, i64 noundef %addr, i32 noundef %or.i.i.i, i32 noundef 2) #19
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @cpu_stl_le_data(ptr noundef %env, i64 noundef %addr, i32 noundef %val) local_unnamed_addr #0 {
 entry:
-  %call.i = tail call i32 @riscv_cpu_mmu_index(ptr noundef %env, i1 noundef zeroext false) #18
+  %call.i = tail call i32 @riscv_cpu_mmu_index(ptr noundef %env, i1 noundef zeroext false) #19
   %or.i.i.i = or i32 %call.i, 32
   %0 = and i32 %or.i.i.i, 112
   %cmp.i.i.i = icmp eq i32 %0, 32
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   %add.ptr.i.i.i.i = getelementptr i8, ptr %env, i64 -10176
   tail call fastcc void @do_st4_mmu(ptr noundef %add.ptr.i.i.i.i, i64 noundef %addr, i32 noundef %val, i32 noundef %or.i.i.i, i64 noundef 0)
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i.i.i, i64 noundef %addr, i32 noundef %or.i.i.i, i32 noundef 2) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i.i.i, i64 noundef %addr, i32 noundef %or.i.i.i, i32 noundef 2) #19
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @cpu_stq_le_data(ptr noundef %env, i64 noundef %addr, i64 noundef %val) local_unnamed_addr #0 {
 entry:
-  %call.i = tail call i32 @riscv_cpu_mmu_index(ptr noundef %env, i1 noundef zeroext false) #18
+  %call.i = tail call i32 @riscv_cpu_mmu_index(ptr noundef %env, i1 noundef zeroext false) #19
   %or.i.i.i = or i32 %call.i, 48
   tail call void @cpu_stq_mmu(ptr noundef %env, i64 noundef %addr, i64 noundef %val, i32 noundef %or.i.i.i, i64 noundef 0)
   ret void
@@ -6467,7 +6467,7 @@ entry:
   %conv2.i = trunc i32 %newv to i8
   %2 = cmpxchg ptr %call1.i, i8 %conv.i, i8 %conv2.i seq_cst seq_cst, align 1
   %3 = extractvalue { i8, i1 } %2, 0
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   %conv3.i = zext i8 %3 to i32
   ret i32 %conv3.i
 }
@@ -6481,7 +6481,7 @@ entry:
   %conv2 = trunc i32 %newv to i8
   %0 = cmpxchg ptr %call1, i8 %conv, i8 %conv2 seq_cst seq_cst, align 1
   %1 = extractvalue { i8, i1 } %0, 0
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   %conv3 = zext i8 %1 to i32
   ret i32 %conv3
 }
@@ -6499,7 +6499,7 @@ entry:
   %3 = tail call i16 @llvm.bswap.i16(i16 %conv2.i)
   %4 = cmpxchg ptr %call1.i, i16 %2, i16 %3 seq_cst seq_cst, align 2
   %5 = extractvalue { i16, i1 } %4, 0
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   %6 = tail call i16 @llvm.bswap.i16(i16 %5)
   %conv3.i = zext i16 %6 to i32
   ret i32 %conv3.i
@@ -6516,7 +6516,7 @@ entry:
   %1 = tail call i16 @llvm.bswap.i16(i16 %conv2)
   %2 = cmpxchg ptr %call1, i16 %0, i16 %1 seq_cst seq_cst, align 2
   %3 = extractvalue { i16, i1 } %2, 0
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   %4 = tail call i16 @llvm.bswap.i16(i16 %3)
   %conv3 = zext i16 %4 to i32
   ret i32 %conv3
@@ -6533,7 +6533,7 @@ entry:
   %conv2.i = trunc i32 %newv to i16
   %2 = cmpxchg ptr %call1.i, i16 %conv.i, i16 %conv2.i seq_cst seq_cst, align 2
   %3 = extractvalue { i16, i1 } %2, 0
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   %conv3.i = zext i16 %3 to i32
   ret i32 %conv3.i
 }
@@ -6547,7 +6547,7 @@ entry:
   %conv2 = trunc i32 %newv to i16
   %0 = cmpxchg ptr %call1, i16 %conv, i16 %conv2 seq_cst seq_cst, align 2
   %1 = extractvalue { i16, i1 } %0, 0
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   %conv3 = zext i16 %1 to i32
   ret i32 %conv3
 }
@@ -6563,7 +6563,7 @@ entry:
   %3 = tail call i32 @llvm.bswap.i32(i32 %newv)
   %4 = cmpxchg ptr %call1.i, i32 %2, i32 %3 seq_cst seq_cst, align 4
   %5 = extractvalue { i32, i1 } %4, 0
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   %6 = tail call i32 @llvm.bswap.i32(i32 %5)
   ret i32 %6
 }
@@ -6577,7 +6577,7 @@ entry:
   %1 = tail call i32 @llvm.bswap.i32(i32 %newv)
   %2 = cmpxchg ptr %call1, i32 %0, i32 %1 seq_cst seq_cst, align 4
   %3 = extractvalue { i32, i1 } %2, 0
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   %4 = tail call i32 @llvm.bswap.i32(i32 %3)
   ret i32 %4
 }
@@ -6591,7 +6591,7 @@ entry:
   %call1.i = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 4, i64 noundef %1)
   %2 = cmpxchg ptr %call1.i, i32 %oldv, i32 %newv seq_cst seq_cst, align 4
   %3 = extractvalue { i32, i1 } %2, 0
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i32 %3
 }
 
@@ -6602,7 +6602,7 @@ entry:
   %call1 = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 4, i64 noundef %retaddr)
   %0 = cmpxchg ptr %call1, i32 %cmpv, i32 %newv seq_cst seq_cst, align 4
   %1 = extractvalue { i32, i1 } %0, 0
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i32 %1
 }
 
@@ -6617,7 +6617,7 @@ entry:
   %3 = tail call i64 @llvm.bswap.i64(i64 %newv)
   %4 = cmpxchg ptr %call1.i, i64 %2, i64 %3 seq_cst seq_cst, align 8
   %5 = extractvalue { i64, i1 } %4, 0
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   %6 = tail call i64 @llvm.bswap.i64(i64 %5)
   ret i64 %6
 }
@@ -6631,7 +6631,7 @@ entry:
   %1 = tail call i64 @llvm.bswap.i64(i64 %newv)
   %2 = cmpxchg ptr %call1, i64 %0, i64 %1 seq_cst seq_cst, align 8
   %3 = extractvalue { i64, i1 } %2, 0
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   %4 = tail call i64 @llvm.bswap.i64(i64 %3)
   ret i64 %4
 }
@@ -6645,7 +6645,7 @@ entry:
   %call1.i = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 8, i64 noundef %1)
   %2 = cmpxchg ptr %call1.i, i64 %oldv, i64 %newv seq_cst seq_cst, align 8
   %3 = extractvalue { i64, i1 } %2, 0
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i64 %3
 }
 
@@ -6656,7 +6656,7 @@ entry:
   %call1 = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 8, i64 noundef %retaddr)
   %0 = cmpxchg ptr %call1, i64 %cmpv, i64 %newv seq_cst seq_cst, align 8
   %1 = extractvalue { i64, i1 } %0, 0
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i64 %1
 }
 
@@ -6688,7 +6688,7 @@ entry:
   %extract.t5.i.i = trunc nuw i128 %extract4.i.i to i64
   %_old.0.off0.i.i = select i1 %13, i64 %2, i64 %extract.t2.i.i
   %_old.0.off64.i.i = select i1 %13, i64 %3, i64 %extract.t5.i.i
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   %15 = tail call i64 @llvm.bswap.i64(i64 %_old.0.off64.i.i)
   %16 = tail call i64 @llvm.bswap.i64(i64 %_old.0.off0.i.i)
   %.fca.0.insert.i.i6.i = insertvalue { i64, i64 } poison, i64 %15, 0
@@ -6722,7 +6722,7 @@ entry:
   %extract.t5.i = trunc nuw i128 %extract4.i to i64
   %_old.0.off0.i = select i1 %11, i64 %0, i64 %extract.t2.i
   %_old.0.off64.i = select i1 %11, i64 %1, i64 %extract.t5.i
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   %13 = tail call i64 @llvm.bswap.i64(i64 %_old.0.off64.i)
   %14 = tail call i64 @llvm.bswap.i64(i64 %_old.0.off0.i)
   %.fca.0.insert.i.i6 = insertvalue { i64, i64 } poison, i64 %13, 0
@@ -6756,7 +6756,7 @@ entry:
   %_old.0.off64.i.i = select i1 %3, i64 %oldv.coerce1, i64 %extract.t5.i.i
   %.fca.0.insert.i.i = insertvalue { i64, i64 } poison, i64 %_old.0.off0.i.i, 0
   %.fca.1.insert.i.i = insertvalue { i64, i64 } %.fca.0.insert.i.i, i64 %_old.0.off64.i.i, 1
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret { i64, i64 } %.fca.1.insert.i.i
 }
 
@@ -6784,14 +6784,14 @@ entry:
   %_old.0.off64.i = select i1 %1, i64 %cmpv.coerce1, i64 %extract.t5.i
   %.fca.0.insert.i = insertvalue { i64, i64 } poison, i64 %_old.0.off0.i, 0
   %.fca.1.insert.i = insertvalue { i64, i64 } %.fca.0.insert.i, i64 %_old.0.off64.i, 1
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret { i64, i64 } %.fca.1.insert.i
 }
 
 ; Function Attrs: noreturn nounwind sspstrong uwtable
 define dso_local noundef { i64, i64 } @helper_nonatomic_cmpxchgo(ptr nocapture noundef readnone %env, i64 noundef %addr, i64 noundef %cmpv.coerce0, i64 noundef %cmpv.coerce1, i64 noundef %newv.coerce0, i64 noundef %newv.coerce1, i32 noundef %oi) local_unnamed_addr #10 {
 entry:
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.5, i32 noundef 67, ptr noundef nonnull @__func__.helper_nonatomic_cmpxchgo, ptr noundef null) #21
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.5, i32 noundef 67, ptr noundef nonnull @__func__.helper_nonatomic_cmpxchgo, ptr noundef null) #22
   unreachable
 }
 
@@ -6804,7 +6804,7 @@ entry:
   %call1.i = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 1, i64 noundef %1)
   %conv.i = trunc i32 %val to i8
   %2 = atomicrmw add ptr %call1.i, i8 %conv.i seq_cst, align 1
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   %conv2.i = zext i8 %2 to i32
   ret i32 %conv2.i
 }
@@ -6816,7 +6816,7 @@ entry:
   %call1 = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 1, i64 noundef %retaddr)
   %conv = trunc i32 %val to i8
   %0 = atomicrmw add ptr %call1, i8 %conv seq_cst, align 1
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   %conv2 = zext i8 %0 to i32
   ret i32 %conv2
 }
@@ -6828,7 +6828,7 @@ entry:
   %1 = ptrtoint ptr %0 to i64
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %call1.i = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 2, i64 noundef %1)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !57
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !57
   fence seq_cst
   %2 = load atomic i16, ptr %call1.i monotonic, align 2
   %3 = trunc i32 %val to i16
@@ -6846,7 +6846,7 @@ do.body.i:                                        ; preds = %do.body.i, %entry
 
 cpu_atomic_fetch_addw_be_mmu.exit:                ; preds = %do.body.i
   %conv2.i = zext i16 %4 to i32
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i32 %conv2.i
 }
 
@@ -6855,7 +6855,7 @@ define dso_local range(i32 0, 65536) i32 @cpu_atomic_fetch_addw_be_mmu(ptr nound
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %call1 = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 2, i64 noundef %retaddr)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !57
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !57
   fence seq_cst
   %0 = load atomic i16, ptr %call1 monotonic, align 2
   %1 = trunc i32 %xval to i16
@@ -6873,7 +6873,7 @@ do.body:                                          ; preds = %do.body, %entry
 
 do.end:                                           ; preds = %do.body
   %conv2 = zext i16 %2 to i32
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i32 %conv2
 }
 
@@ -6886,7 +6886,7 @@ entry:
   %call1.i = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 2, i64 noundef %1)
   %conv.i = trunc i32 %val to i16
   %2 = atomicrmw add ptr %call1.i, i16 %conv.i seq_cst, align 2
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   %conv2.i = zext i16 %2 to i32
   ret i32 %conv2.i
 }
@@ -6898,7 +6898,7 @@ entry:
   %call1 = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 2, i64 noundef %retaddr)
   %conv = trunc i32 %val to i16
   %0 = atomicrmw add ptr %call1, i16 %conv seq_cst, align 2
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   %conv2 = zext i16 %0 to i32
   ret i32 %conv2
 }
@@ -6910,7 +6910,7 @@ entry:
   %1 = ptrtoint ptr %0 to i64
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %call1.i = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 4, i64 noundef %1)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !59
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !59
   fence seq_cst
   %2 = load atomic i32, ptr %call1.i monotonic, align 4
   br label %do.body.i
@@ -6926,7 +6926,7 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   br i1 %cmp.not.i, label %cpu_atomic_fetch_addl_be_mmu.exit, label %do.body.i, !llvm.loop !60
 
 cpu_atomic_fetch_addl_be_mmu.exit:                ; preds = %do.body.i
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i32 %3
 }
 
@@ -6935,7 +6935,7 @@ define dso_local i32 @cpu_atomic_fetch_addl_be_mmu(ptr noundef %env, i64 noundef
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %call1 = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 4, i64 noundef %retaddr)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !59
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !59
   fence seq_cst
   %0 = load atomic i32, ptr %call1 monotonic, align 4
   br label %do.body
@@ -6951,7 +6951,7 @@ do.body:                                          ; preds = %do.body, %entry
   br i1 %cmp.not, label %do.end, label %do.body, !llvm.loop !60
 
 do.end:                                           ; preds = %do.body
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i32 %1
 }
 
@@ -6963,7 +6963,7 @@ entry:
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %call1.i = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 4, i64 noundef %1)
   %2 = atomicrmw add ptr %call1.i, i32 %val seq_cst, align 4
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i32 %2
 }
 
@@ -6973,7 +6973,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %call1 = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 4, i64 noundef %retaddr)
   %0 = atomicrmw add ptr %call1, i32 %val seq_cst, align 4
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i32 %0
 }
 
@@ -6984,7 +6984,7 @@ entry:
   %1 = ptrtoint ptr %0 to i64
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %call1.i = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 8, i64 noundef %1)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !61
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !61
   fence seq_cst
   %2 = load atomic i64, ptr %call1.i monotonic, align 8
   br label %do.body.i
@@ -7000,7 +7000,7 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   br i1 %cmp.not.i, label %cpu_atomic_fetch_addq_be_mmu.exit, label %do.body.i, !llvm.loop !62
 
 cpu_atomic_fetch_addq_be_mmu.exit:                ; preds = %do.body.i
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i64 %3
 }
 
@@ -7009,7 +7009,7 @@ define dso_local i64 @cpu_atomic_fetch_addq_be_mmu(ptr noundef %env, i64 noundef
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %call1 = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 8, i64 noundef %retaddr)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !61
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !61
   fence seq_cst
   %0 = load atomic i64, ptr %call1 monotonic, align 8
   br label %do.body
@@ -7025,7 +7025,7 @@ do.body:                                          ; preds = %do.body, %entry
   br i1 %cmp.not, label %do.end, label %do.body, !llvm.loop !62
 
 do.end:                                           ; preds = %do.body
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i64 %1
 }
 
@@ -7037,7 +7037,7 @@ entry:
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %call1.i = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 8, i64 noundef %1)
   %2 = atomicrmw add ptr %call1.i, i64 %val seq_cst, align 8
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i64 %2
 }
 
@@ -7047,7 +7047,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %call1 = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 8, i64 noundef %retaddr)
   %0 = atomicrmw add ptr %call1, i64 %val seq_cst, align 8
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i64 %0
 }
 
@@ -7060,7 +7060,7 @@ entry:
   %call1.i = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 1, i64 noundef %1)
   %conv.i = trunc i32 %val to i8
   %2 = atomicrmw and ptr %call1.i, i8 %conv.i seq_cst, align 1
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   %conv2.i = zext i8 %2 to i32
   ret i32 %conv2.i
 }
@@ -7072,7 +7072,7 @@ entry:
   %call1 = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 1, i64 noundef %retaddr)
   %conv = trunc i32 %val to i8
   %0 = atomicrmw and ptr %call1, i8 %conv seq_cst, align 1
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   %conv2 = zext i8 %0 to i32
   ret i32 %conv2
 }
@@ -7087,7 +7087,7 @@ entry:
   %conv.i = trunc i32 %val to i16
   %2 = tail call i16 @llvm.bswap.i16(i16 %conv.i)
   %3 = atomicrmw and ptr %call1.i, i16 %2 seq_cst, align 2
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   %4 = tail call i16 @llvm.bswap.i16(i16 %3)
   %conv2.i = zext i16 %4 to i32
   ret i32 %conv2.i
@@ -7101,7 +7101,7 @@ entry:
   %conv = trunc i32 %val to i16
   %0 = tail call i16 @llvm.bswap.i16(i16 %conv)
   %1 = atomicrmw and ptr %call1, i16 %0 seq_cst, align 2
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   %2 = tail call i16 @llvm.bswap.i16(i16 %1)
   %conv2 = zext i16 %2 to i32
   ret i32 %conv2
@@ -7116,7 +7116,7 @@ entry:
   %call1.i = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 2, i64 noundef %1)
   %conv.i = trunc i32 %val to i16
   %2 = atomicrmw and ptr %call1.i, i16 %conv.i seq_cst, align 2
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   %conv2.i = zext i16 %2 to i32
   ret i32 %conv2.i
 }
@@ -7128,7 +7128,7 @@ entry:
   %call1 = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 2, i64 noundef %retaddr)
   %conv = trunc i32 %val to i16
   %0 = atomicrmw and ptr %call1, i16 %conv seq_cst, align 2
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   %conv2 = zext i16 %0 to i32
   ret i32 %conv2
 }
@@ -7142,7 +7142,7 @@ entry:
   %call1.i = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 4, i64 noundef %1)
   %2 = tail call i32 @llvm.bswap.i32(i32 %val)
   %3 = atomicrmw and ptr %call1.i, i32 %2 seq_cst, align 4
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   %4 = tail call i32 @llvm.bswap.i32(i32 %3)
   ret i32 %4
 }
@@ -7154,7 +7154,7 @@ entry:
   %call1 = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 4, i64 noundef %retaddr)
   %0 = tail call i32 @llvm.bswap.i32(i32 %val)
   %1 = atomicrmw and ptr %call1, i32 %0 seq_cst, align 4
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   %2 = tail call i32 @llvm.bswap.i32(i32 %1)
   ret i32 %2
 }
@@ -7167,7 +7167,7 @@ entry:
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %call1.i = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 4, i64 noundef %1)
   %2 = atomicrmw and ptr %call1.i, i32 %val seq_cst, align 4
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i32 %2
 }
 
@@ -7177,7 +7177,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %call1 = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 4, i64 noundef %retaddr)
   %0 = atomicrmw and ptr %call1, i32 %val seq_cst, align 4
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i32 %0
 }
 
@@ -7190,7 +7190,7 @@ entry:
   %call1.i = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 8, i64 noundef %1)
   %2 = tail call i64 @llvm.bswap.i64(i64 %val)
   %3 = atomicrmw and ptr %call1.i, i64 %2 seq_cst, align 8
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   %4 = tail call i64 @llvm.bswap.i64(i64 %3)
   ret i64 %4
 }
@@ -7202,7 +7202,7 @@ entry:
   %call1 = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 8, i64 noundef %retaddr)
   %0 = tail call i64 @llvm.bswap.i64(i64 %val)
   %1 = atomicrmw and ptr %call1, i64 %0 seq_cst, align 8
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   %2 = tail call i64 @llvm.bswap.i64(i64 %1)
   ret i64 %2
 }
@@ -7215,7 +7215,7 @@ entry:
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %call1.i = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 8, i64 noundef %1)
   %2 = atomicrmw and ptr %call1.i, i64 %val seq_cst, align 8
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i64 %2
 }
 
@@ -7225,7 +7225,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %call1 = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 8, i64 noundef %retaddr)
   %0 = atomicrmw and ptr %call1, i64 %val seq_cst, align 8
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i64 %0
 }
 
@@ -7238,7 +7238,7 @@ entry:
   %call1.i = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 1, i64 noundef %1)
   %conv.i = trunc i32 %val to i8
   %2 = atomicrmw or ptr %call1.i, i8 %conv.i seq_cst, align 1
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   %conv2.i = zext i8 %2 to i32
   ret i32 %conv2.i
 }
@@ -7250,7 +7250,7 @@ entry:
   %call1 = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 1, i64 noundef %retaddr)
   %conv = trunc i32 %val to i8
   %0 = atomicrmw or ptr %call1, i8 %conv seq_cst, align 1
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   %conv2 = zext i8 %0 to i32
   ret i32 %conv2
 }
@@ -7265,7 +7265,7 @@ entry:
   %conv.i = trunc i32 %val to i16
   %2 = tail call i16 @llvm.bswap.i16(i16 %conv.i)
   %3 = atomicrmw or ptr %call1.i, i16 %2 seq_cst, align 2
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   %4 = tail call i16 @llvm.bswap.i16(i16 %3)
   %conv2.i = zext i16 %4 to i32
   ret i32 %conv2.i
@@ -7279,7 +7279,7 @@ entry:
   %conv = trunc i32 %val to i16
   %0 = tail call i16 @llvm.bswap.i16(i16 %conv)
   %1 = atomicrmw or ptr %call1, i16 %0 seq_cst, align 2
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   %2 = tail call i16 @llvm.bswap.i16(i16 %1)
   %conv2 = zext i16 %2 to i32
   ret i32 %conv2
@@ -7294,7 +7294,7 @@ entry:
   %call1.i = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 2, i64 noundef %1)
   %conv.i = trunc i32 %val to i16
   %2 = atomicrmw or ptr %call1.i, i16 %conv.i seq_cst, align 2
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   %conv2.i = zext i16 %2 to i32
   ret i32 %conv2.i
 }
@@ -7306,7 +7306,7 @@ entry:
   %call1 = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 2, i64 noundef %retaddr)
   %conv = trunc i32 %val to i16
   %0 = atomicrmw or ptr %call1, i16 %conv seq_cst, align 2
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   %conv2 = zext i16 %0 to i32
   ret i32 %conv2
 }
@@ -7320,7 +7320,7 @@ entry:
   %call1.i = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 4, i64 noundef %1)
   %2 = tail call i32 @llvm.bswap.i32(i32 %val)
   %3 = atomicrmw or ptr %call1.i, i32 %2 seq_cst, align 4
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   %4 = tail call i32 @llvm.bswap.i32(i32 %3)
   ret i32 %4
 }
@@ -7332,7 +7332,7 @@ entry:
   %call1 = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 4, i64 noundef %retaddr)
   %0 = tail call i32 @llvm.bswap.i32(i32 %val)
   %1 = atomicrmw or ptr %call1, i32 %0 seq_cst, align 4
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   %2 = tail call i32 @llvm.bswap.i32(i32 %1)
   ret i32 %2
 }
@@ -7345,7 +7345,7 @@ entry:
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %call1.i = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 4, i64 noundef %1)
   %2 = atomicrmw or ptr %call1.i, i32 %val seq_cst, align 4
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i32 %2
 }
 
@@ -7355,7 +7355,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %call1 = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 4, i64 noundef %retaddr)
   %0 = atomicrmw or ptr %call1, i32 %val seq_cst, align 4
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i32 %0
 }
 
@@ -7368,7 +7368,7 @@ entry:
   %call1.i = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 8, i64 noundef %1)
   %2 = tail call i64 @llvm.bswap.i64(i64 %val)
   %3 = atomicrmw or ptr %call1.i, i64 %2 seq_cst, align 8
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   %4 = tail call i64 @llvm.bswap.i64(i64 %3)
   ret i64 %4
 }
@@ -7380,7 +7380,7 @@ entry:
   %call1 = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 8, i64 noundef %retaddr)
   %0 = tail call i64 @llvm.bswap.i64(i64 %val)
   %1 = atomicrmw or ptr %call1, i64 %0 seq_cst, align 8
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   %2 = tail call i64 @llvm.bswap.i64(i64 %1)
   ret i64 %2
 }
@@ -7393,7 +7393,7 @@ entry:
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %call1.i = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 8, i64 noundef %1)
   %2 = atomicrmw or ptr %call1.i, i64 %val seq_cst, align 8
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i64 %2
 }
 
@@ -7403,7 +7403,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %call1 = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 8, i64 noundef %retaddr)
   %0 = atomicrmw or ptr %call1, i64 %val seq_cst, align 8
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i64 %0
 }
 
@@ -7416,7 +7416,7 @@ entry:
   %call1.i = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 1, i64 noundef %1)
   %conv.i = trunc i32 %val to i8
   %2 = atomicrmw xor ptr %call1.i, i8 %conv.i seq_cst, align 1
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   %conv2.i = zext i8 %2 to i32
   ret i32 %conv2.i
 }
@@ -7428,7 +7428,7 @@ entry:
   %call1 = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 1, i64 noundef %retaddr)
   %conv = trunc i32 %val to i8
   %0 = atomicrmw xor ptr %call1, i8 %conv seq_cst, align 1
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   %conv2 = zext i8 %0 to i32
   ret i32 %conv2
 }
@@ -7443,7 +7443,7 @@ entry:
   %conv.i = trunc i32 %val to i16
   %2 = tail call i16 @llvm.bswap.i16(i16 %conv.i)
   %3 = atomicrmw xor ptr %call1.i, i16 %2 seq_cst, align 2
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   %4 = tail call i16 @llvm.bswap.i16(i16 %3)
   %conv2.i = zext i16 %4 to i32
   ret i32 %conv2.i
@@ -7457,7 +7457,7 @@ entry:
   %conv = trunc i32 %val to i16
   %0 = tail call i16 @llvm.bswap.i16(i16 %conv)
   %1 = atomicrmw xor ptr %call1, i16 %0 seq_cst, align 2
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   %2 = tail call i16 @llvm.bswap.i16(i16 %1)
   %conv2 = zext i16 %2 to i32
   ret i32 %conv2
@@ -7472,7 +7472,7 @@ entry:
   %call1.i = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 2, i64 noundef %1)
   %conv.i = trunc i32 %val to i16
   %2 = atomicrmw xor ptr %call1.i, i16 %conv.i seq_cst, align 2
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   %conv2.i = zext i16 %2 to i32
   ret i32 %conv2.i
 }
@@ -7484,7 +7484,7 @@ entry:
   %call1 = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 2, i64 noundef %retaddr)
   %conv = trunc i32 %val to i16
   %0 = atomicrmw xor ptr %call1, i16 %conv seq_cst, align 2
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   %conv2 = zext i16 %0 to i32
   ret i32 %conv2
 }
@@ -7498,7 +7498,7 @@ entry:
   %call1.i = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 4, i64 noundef %1)
   %2 = tail call i32 @llvm.bswap.i32(i32 %val)
   %3 = atomicrmw xor ptr %call1.i, i32 %2 seq_cst, align 4
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   %4 = tail call i32 @llvm.bswap.i32(i32 %3)
   ret i32 %4
 }
@@ -7510,7 +7510,7 @@ entry:
   %call1 = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 4, i64 noundef %retaddr)
   %0 = tail call i32 @llvm.bswap.i32(i32 %val)
   %1 = atomicrmw xor ptr %call1, i32 %0 seq_cst, align 4
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   %2 = tail call i32 @llvm.bswap.i32(i32 %1)
   ret i32 %2
 }
@@ -7523,7 +7523,7 @@ entry:
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %call1.i = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 4, i64 noundef %1)
   %2 = atomicrmw xor ptr %call1.i, i32 %val seq_cst, align 4
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i32 %2
 }
 
@@ -7533,7 +7533,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %call1 = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 4, i64 noundef %retaddr)
   %0 = atomicrmw xor ptr %call1, i32 %val seq_cst, align 4
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i32 %0
 }
 
@@ -7546,7 +7546,7 @@ entry:
   %call1.i = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 8, i64 noundef %1)
   %2 = tail call i64 @llvm.bswap.i64(i64 %val)
   %3 = atomicrmw xor ptr %call1.i, i64 %2 seq_cst, align 8
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   %4 = tail call i64 @llvm.bswap.i64(i64 %3)
   ret i64 %4
 }
@@ -7558,7 +7558,7 @@ entry:
   %call1 = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 8, i64 noundef %retaddr)
   %0 = tail call i64 @llvm.bswap.i64(i64 %val)
   %1 = atomicrmw xor ptr %call1, i64 %0 seq_cst, align 8
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   %2 = tail call i64 @llvm.bswap.i64(i64 %1)
   ret i64 %2
 }
@@ -7571,7 +7571,7 @@ entry:
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %call1.i = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 8, i64 noundef %1)
   %2 = atomicrmw xor ptr %call1.i, i64 %val seq_cst, align 8
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i64 %2
 }
 
@@ -7581,7 +7581,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %call1 = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 8, i64 noundef %retaddr)
   %0 = atomicrmw xor ptr %call1, i64 %val seq_cst, align 8
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i64 %0
 }
 
@@ -7592,7 +7592,7 @@ entry:
   %1 = ptrtoint ptr %0 to i64
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %call1.i = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 1, i64 noundef %1)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !63
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !63
   fence seq_cst
   %2 = load atomic i8, ptr %call1.i monotonic, align 1
   %sext.i = shl i32 %val, 24
@@ -7610,7 +7610,7 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   br i1 %cmp10.not.i, label %cpu_atomic_fetch_sminb_mmu.exit, label %do.body.i, !llvm.loop !64
 
 cpu_atomic_fetch_sminb_mmu.exit:                  ; preds = %do.body.i
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i32 %conv2.i
 }
 
@@ -7619,7 +7619,7 @@ define dso_local range(i32 -128, 128) i32 @cpu_atomic_fetch_sminb_mmu(ptr nounde
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %call1 = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 1, i64 noundef %retaddr)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !63
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !63
   fence seq_cst
   %0 = load atomic i8, ptr %call1 monotonic, align 1
   %sext = shl i32 %xval, 24
@@ -7637,7 +7637,7 @@ do.body:                                          ; preds = %do.body, %entry
   br i1 %cmp10.not, label %do.end, label %do.body, !llvm.loop !64
 
 do.end:                                           ; preds = %do.body
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i32 %conv2
 }
 
@@ -7648,7 +7648,7 @@ entry:
   %1 = ptrtoint ptr %0 to i64
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %call1.i = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 2, i64 noundef %1)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !65
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !65
   fence seq_cst
   %2 = load atomic i16, ptr %call1.i monotonic, align 2
   %sext.i = shl i32 %val, 16
@@ -7668,7 +7668,7 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   br i1 %cmp9.not.i, label %cpu_atomic_fetch_sminw_be_mmu.exit, label %do.body.i, !llvm.loop !66
 
 cpu_atomic_fetch_sminw_be_mmu.exit:               ; preds = %do.body.i
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i32 %conv2.i
 }
 
@@ -7677,7 +7677,7 @@ define dso_local range(i32 -32768, 32768) i32 @cpu_atomic_fetch_sminw_be_mmu(ptr
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %call1 = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 2, i64 noundef %retaddr)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !65
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !65
   fence seq_cst
   %0 = load atomic i16, ptr %call1 monotonic, align 2
   %sext = shl i32 %xval, 16
@@ -7697,7 +7697,7 @@ do.body:                                          ; preds = %do.body, %entry
   br i1 %cmp9.not, label %do.end, label %do.body, !llvm.loop !66
 
 do.end:                                           ; preds = %do.body
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i32 %conv2
 }
 
@@ -7708,7 +7708,7 @@ entry:
   %1 = ptrtoint ptr %0 to i64
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %call1.i = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 2, i64 noundef %1)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !67
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !67
   fence seq_cst
   %2 = load atomic i16, ptr %call1.i monotonic, align 2
   %sext.i = shl i32 %val, 16
@@ -7726,7 +7726,7 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   br i1 %cmp10.not.i, label %cpu_atomic_fetch_sminw_le_mmu.exit, label %do.body.i, !llvm.loop !68
 
 cpu_atomic_fetch_sminw_le_mmu.exit:               ; preds = %do.body.i
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i32 %conv2.i
 }
 
@@ -7735,7 +7735,7 @@ define dso_local range(i32 -32768, 32768) i32 @cpu_atomic_fetch_sminw_le_mmu(ptr
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %call1 = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 2, i64 noundef %retaddr)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !67
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !67
   fence seq_cst
   %0 = load atomic i16, ptr %call1 monotonic, align 2
   %sext = shl i32 %xval, 16
@@ -7753,7 +7753,7 @@ do.body:                                          ; preds = %do.body, %entry
   br i1 %cmp10.not, label %do.end, label %do.body, !llvm.loop !68
 
 do.end:                                           ; preds = %do.body
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i32 %conv2
 }
 
@@ -7764,7 +7764,7 @@ entry:
   %1 = ptrtoint ptr %0 to i64
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %call1.i = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 4, i64 noundef %1)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !69
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !69
   fence seq_cst
   %2 = load atomic i32, ptr %call1.i monotonic, align 4
   br label %do.body.i
@@ -7780,7 +7780,7 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   br i1 %cmp3.not.i, label %cpu_atomic_fetch_sminl_be_mmu.exit, label %do.body.i, !llvm.loop !70
 
 cpu_atomic_fetch_sminl_be_mmu.exit:               ; preds = %do.body.i
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i32 %3
 }
 
@@ -7789,7 +7789,7 @@ define dso_local i32 @cpu_atomic_fetch_sminl_be_mmu(ptr noundef %env, i64 nounde
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %call1 = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 4, i64 noundef %retaddr)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !69
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !69
   fence seq_cst
   %0 = load atomic i32, ptr %call1 monotonic, align 4
   br label %do.body
@@ -7805,7 +7805,7 @@ do.body:                                          ; preds = %do.body, %entry
   br i1 %cmp3.not, label %do.end, label %do.body, !llvm.loop !70
 
 do.end:                                           ; preds = %do.body
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i32 %1
 }
 
@@ -7816,7 +7816,7 @@ entry:
   %1 = ptrtoint ptr %0 to i64
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %call1.i = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 4, i64 noundef %1)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !71
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !71
   fence seq_cst
   %2 = load atomic i32, ptr %call1.i monotonic, align 4
   br label %do.body.i
@@ -7830,7 +7830,7 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   br i1 %cmp4.not.i, label %cpu_atomic_fetch_sminl_le_mmu.exit, label %do.body.i, !llvm.loop !72
 
 cpu_atomic_fetch_sminl_le_mmu.exit:               ; preds = %do.body.i
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i32 %cmp.0.i
 }
 
@@ -7839,7 +7839,7 @@ define dso_local i32 @cpu_atomic_fetch_sminl_le_mmu(ptr noundef %env, i64 nounde
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %call1 = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 4, i64 noundef %retaddr)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !71
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !71
   fence seq_cst
   %0 = load atomic i32, ptr %call1 monotonic, align 4
   br label %do.body
@@ -7853,7 +7853,7 @@ do.body:                                          ; preds = %do.body, %entry
   br i1 %cmp4.not, label %do.end, label %do.body, !llvm.loop !72
 
 do.end:                                           ; preds = %do.body
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i32 %cmp.0
 }
 
@@ -7864,7 +7864,7 @@ entry:
   %1 = ptrtoint ptr %0 to i64
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %call1.i = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 8, i64 noundef %1)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !73
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !73
   fence seq_cst
   %2 = load atomic i64, ptr %call1.i monotonic, align 8
   br label %do.body.i
@@ -7880,7 +7880,7 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   br i1 %cmp3.not.i, label %cpu_atomic_fetch_sminq_be_mmu.exit, label %do.body.i, !llvm.loop !74
 
 cpu_atomic_fetch_sminq_be_mmu.exit:               ; preds = %do.body.i
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i64 %3
 }
 
@@ -7889,7 +7889,7 @@ define dso_local i64 @cpu_atomic_fetch_sminq_be_mmu(ptr noundef %env, i64 nounde
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %call1 = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 8, i64 noundef %retaddr)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !73
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !73
   fence seq_cst
   %0 = load atomic i64, ptr %call1 monotonic, align 8
   br label %do.body
@@ -7905,7 +7905,7 @@ do.body:                                          ; preds = %do.body, %entry
   br i1 %cmp3.not, label %do.end, label %do.body, !llvm.loop !74
 
 do.end:                                           ; preds = %do.body
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i64 %1
 }
 
@@ -7916,7 +7916,7 @@ entry:
   %1 = ptrtoint ptr %0 to i64
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %call1.i = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 8, i64 noundef %1)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !75
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !75
   fence seq_cst
   %2 = load atomic i64, ptr %call1.i monotonic, align 8
   br label %do.body.i
@@ -7930,7 +7930,7 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   br i1 %cmp4.not.i, label %cpu_atomic_fetch_sminq_le_mmu.exit, label %do.body.i, !llvm.loop !76
 
 cpu_atomic_fetch_sminq_le_mmu.exit:               ; preds = %do.body.i
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i64 %cmp.0.i
 }
 
@@ -7939,7 +7939,7 @@ define dso_local i64 @cpu_atomic_fetch_sminq_le_mmu(ptr noundef %env, i64 nounde
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %call1 = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 8, i64 noundef %retaddr)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !75
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !75
   fence seq_cst
   %0 = load atomic i64, ptr %call1 monotonic, align 8
   br label %do.body
@@ -7953,7 +7953,7 @@ do.body:                                          ; preds = %do.body, %entry
   br i1 %cmp4.not, label %do.end, label %do.body, !llvm.loop !76
 
 do.end:                                           ; preds = %do.body
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i64 %cmp.0
 }
 
@@ -7964,7 +7964,7 @@ entry:
   %1 = ptrtoint ptr %0 to i64
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %call1.i = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 1, i64 noundef %1)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !77
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !77
   fence seq_cst
   %2 = load atomic i8, ptr %call1.i monotonic, align 1
   %conv3.i = and i32 %val, 255
@@ -7981,7 +7981,7 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   br i1 %cmp10.not.i, label %cpu_atomic_fetch_uminb_mmu.exit, label %do.body.i, !llvm.loop !78
 
 cpu_atomic_fetch_uminb_mmu.exit:                  ; preds = %do.body.i
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i32 %conv2.i
 }
 
@@ -7990,7 +7990,7 @@ define dso_local range(i32 0, 256) i32 @cpu_atomic_fetch_uminb_mmu(ptr noundef %
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %call1 = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 1, i64 noundef %retaddr)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !77
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !77
   fence seq_cst
   %0 = load atomic i8, ptr %call1 monotonic, align 1
   %conv3 = and i32 %xval, 255
@@ -8007,7 +8007,7 @@ do.body:                                          ; preds = %do.body, %entry
   br i1 %cmp10.not, label %do.end, label %do.body, !llvm.loop !78
 
 do.end:                                           ; preds = %do.body
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i32 %conv2
 }
 
@@ -8018,7 +8018,7 @@ entry:
   %1 = ptrtoint ptr %0 to i64
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %call1.i = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 2, i64 noundef %1)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !79
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !79
   fence seq_cst
   %2 = load atomic i16, ptr %call1.i monotonic, align 2
   %conv3.i = and i32 %val, 65535
@@ -8037,7 +8037,7 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   br i1 %cmp9.not.i, label %cpu_atomic_fetch_uminw_be_mmu.exit, label %do.body.i, !llvm.loop !80
 
 cpu_atomic_fetch_uminw_be_mmu.exit:               ; preds = %do.body.i
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i32 %conv2.i
 }
 
@@ -8046,7 +8046,7 @@ define dso_local range(i32 0, 65536) i32 @cpu_atomic_fetch_uminw_be_mmu(ptr noun
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %call1 = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 2, i64 noundef %retaddr)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !79
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !79
   fence seq_cst
   %0 = load atomic i16, ptr %call1 monotonic, align 2
   %conv3 = and i32 %xval, 65535
@@ -8065,7 +8065,7 @@ do.body:                                          ; preds = %do.body, %entry
   br i1 %cmp9.not, label %do.end, label %do.body, !llvm.loop !80
 
 do.end:                                           ; preds = %do.body
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i32 %conv2
 }
 
@@ -8076,7 +8076,7 @@ entry:
   %1 = ptrtoint ptr %0 to i64
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %call1.i = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 2, i64 noundef %1)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !81
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !81
   fence seq_cst
   %2 = load atomic i16, ptr %call1.i monotonic, align 2
   %conv3.i = and i32 %val, 65535
@@ -8093,7 +8093,7 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   br i1 %cmp10.not.i, label %cpu_atomic_fetch_uminw_le_mmu.exit, label %do.body.i, !llvm.loop !82
 
 cpu_atomic_fetch_uminw_le_mmu.exit:               ; preds = %do.body.i
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i32 %conv2.i
 }
 
@@ -8102,7 +8102,7 @@ define dso_local range(i32 0, 65536) i32 @cpu_atomic_fetch_uminw_le_mmu(ptr noun
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %call1 = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 2, i64 noundef %retaddr)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !81
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !81
   fence seq_cst
   %0 = load atomic i16, ptr %call1 monotonic, align 2
   %conv3 = and i32 %xval, 65535
@@ -8119,7 +8119,7 @@ do.body:                                          ; preds = %do.body, %entry
   br i1 %cmp10.not, label %do.end, label %do.body, !llvm.loop !82
 
 do.end:                                           ; preds = %do.body
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i32 %conv2
 }
 
@@ -8130,7 +8130,7 @@ entry:
   %1 = ptrtoint ptr %0 to i64
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %call1.i = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 4, i64 noundef %1)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !83
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !83
   fence seq_cst
   %2 = load atomic i32, ptr %call1.i monotonic, align 4
   br label %do.body.i
@@ -8146,7 +8146,7 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   br i1 %cmp3.not.i, label %cpu_atomic_fetch_uminl_be_mmu.exit, label %do.body.i, !llvm.loop !84
 
 cpu_atomic_fetch_uminl_be_mmu.exit:               ; preds = %do.body.i
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i32 %3
 }
 
@@ -8155,7 +8155,7 @@ define dso_local i32 @cpu_atomic_fetch_uminl_be_mmu(ptr noundef %env, i64 nounde
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %call1 = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 4, i64 noundef %retaddr)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !83
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !83
   fence seq_cst
   %0 = load atomic i32, ptr %call1 monotonic, align 4
   br label %do.body
@@ -8171,7 +8171,7 @@ do.body:                                          ; preds = %do.body, %entry
   br i1 %cmp3.not, label %do.end, label %do.body, !llvm.loop !84
 
 do.end:                                           ; preds = %do.body
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i32 %1
 }
 
@@ -8182,7 +8182,7 @@ entry:
   %1 = ptrtoint ptr %0 to i64
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %call1.i = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 4, i64 noundef %1)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !85
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !85
   fence seq_cst
   %2 = load atomic i32, ptr %call1.i monotonic, align 4
   br label %do.body.i
@@ -8196,7 +8196,7 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   br i1 %cmp4.not.i, label %cpu_atomic_fetch_uminl_le_mmu.exit, label %do.body.i, !llvm.loop !86
 
 cpu_atomic_fetch_uminl_le_mmu.exit:               ; preds = %do.body.i
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i32 %cmp.0.i
 }
 
@@ -8205,7 +8205,7 @@ define dso_local i32 @cpu_atomic_fetch_uminl_le_mmu(ptr noundef %env, i64 nounde
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %call1 = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 4, i64 noundef %retaddr)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !85
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !85
   fence seq_cst
   %0 = load atomic i32, ptr %call1 monotonic, align 4
   br label %do.body
@@ -8219,7 +8219,7 @@ do.body:                                          ; preds = %do.body, %entry
   br i1 %cmp4.not, label %do.end, label %do.body, !llvm.loop !86
 
 do.end:                                           ; preds = %do.body
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i32 %cmp.0
 }
 
@@ -8230,7 +8230,7 @@ entry:
   %1 = ptrtoint ptr %0 to i64
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %call1.i = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 8, i64 noundef %1)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !87
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !87
   fence seq_cst
   %2 = load atomic i64, ptr %call1.i monotonic, align 8
   br label %do.body.i
@@ -8246,7 +8246,7 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   br i1 %cmp3.not.i, label %cpu_atomic_fetch_uminq_be_mmu.exit, label %do.body.i, !llvm.loop !88
 
 cpu_atomic_fetch_uminq_be_mmu.exit:               ; preds = %do.body.i
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i64 %3
 }
 
@@ -8255,7 +8255,7 @@ define dso_local i64 @cpu_atomic_fetch_uminq_be_mmu(ptr noundef %env, i64 nounde
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %call1 = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 8, i64 noundef %retaddr)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !87
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !87
   fence seq_cst
   %0 = load atomic i64, ptr %call1 monotonic, align 8
   br label %do.body
@@ -8271,7 +8271,7 @@ do.body:                                          ; preds = %do.body, %entry
   br i1 %cmp3.not, label %do.end, label %do.body, !llvm.loop !88
 
 do.end:                                           ; preds = %do.body
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i64 %1
 }
 
@@ -8282,7 +8282,7 @@ entry:
   %1 = ptrtoint ptr %0 to i64
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %call1.i = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 8, i64 noundef %1)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !89
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !89
   fence seq_cst
   %2 = load atomic i64, ptr %call1.i monotonic, align 8
   br label %do.body.i
@@ -8296,7 +8296,7 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   br i1 %cmp4.not.i, label %cpu_atomic_fetch_uminq_le_mmu.exit, label %do.body.i, !llvm.loop !90
 
 cpu_atomic_fetch_uminq_le_mmu.exit:               ; preds = %do.body.i
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i64 %cmp.0.i
 }
 
@@ -8305,7 +8305,7 @@ define dso_local i64 @cpu_atomic_fetch_uminq_le_mmu(ptr noundef %env, i64 nounde
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %call1 = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 8, i64 noundef %retaddr)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !89
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !89
   fence seq_cst
   %0 = load atomic i64, ptr %call1 monotonic, align 8
   br label %do.body
@@ -8319,7 +8319,7 @@ do.body:                                          ; preds = %do.body, %entry
   br i1 %cmp4.not, label %do.end, label %do.body, !llvm.loop !90
 
 do.end:                                           ; preds = %do.body
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i64 %cmp.0
 }
 
@@ -8330,7 +8330,7 @@ entry:
   %1 = ptrtoint ptr %0 to i64
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %call1.i = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 1, i64 noundef %1)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !91
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !91
   fence seq_cst
   %2 = load atomic i8, ptr %call1.i monotonic, align 1
   %sext.i = shl i32 %val, 24
@@ -8348,7 +8348,7 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   br i1 %cmp10.not.i, label %cpu_atomic_fetch_smaxb_mmu.exit, label %do.body.i, !llvm.loop !92
 
 cpu_atomic_fetch_smaxb_mmu.exit:                  ; preds = %do.body.i
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i32 %conv2.i
 }
 
@@ -8357,7 +8357,7 @@ define dso_local range(i32 -128, 128) i32 @cpu_atomic_fetch_smaxb_mmu(ptr nounde
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %call1 = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 1, i64 noundef %retaddr)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !91
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !91
   fence seq_cst
   %0 = load atomic i8, ptr %call1 monotonic, align 1
   %sext = shl i32 %xval, 24
@@ -8375,7 +8375,7 @@ do.body:                                          ; preds = %do.body, %entry
   br i1 %cmp10.not, label %do.end, label %do.body, !llvm.loop !92
 
 do.end:                                           ; preds = %do.body
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i32 %conv2
 }
 
@@ -8386,7 +8386,7 @@ entry:
   %1 = ptrtoint ptr %0 to i64
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %call1.i = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 2, i64 noundef %1)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !93
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !93
   fence seq_cst
   %2 = load atomic i16, ptr %call1.i monotonic, align 2
   %sext.i = shl i32 %val, 16
@@ -8406,7 +8406,7 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   br i1 %cmp9.not.i, label %cpu_atomic_fetch_smaxw_be_mmu.exit, label %do.body.i, !llvm.loop !94
 
 cpu_atomic_fetch_smaxw_be_mmu.exit:               ; preds = %do.body.i
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i32 %conv2.i
 }
 
@@ -8415,7 +8415,7 @@ define dso_local range(i32 -32768, 32768) i32 @cpu_atomic_fetch_smaxw_be_mmu(ptr
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %call1 = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 2, i64 noundef %retaddr)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !93
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !93
   fence seq_cst
   %0 = load atomic i16, ptr %call1 monotonic, align 2
   %sext = shl i32 %xval, 16
@@ -8435,7 +8435,7 @@ do.body:                                          ; preds = %do.body, %entry
   br i1 %cmp9.not, label %do.end, label %do.body, !llvm.loop !94
 
 do.end:                                           ; preds = %do.body
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i32 %conv2
 }
 
@@ -8446,7 +8446,7 @@ entry:
   %1 = ptrtoint ptr %0 to i64
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %call1.i = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 2, i64 noundef %1)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !95
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !95
   fence seq_cst
   %2 = load atomic i16, ptr %call1.i monotonic, align 2
   %sext.i = shl i32 %val, 16
@@ -8464,7 +8464,7 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   br i1 %cmp10.not.i, label %cpu_atomic_fetch_smaxw_le_mmu.exit, label %do.body.i, !llvm.loop !96
 
 cpu_atomic_fetch_smaxw_le_mmu.exit:               ; preds = %do.body.i
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i32 %conv2.i
 }
 
@@ -8473,7 +8473,7 @@ define dso_local range(i32 -32768, 32768) i32 @cpu_atomic_fetch_smaxw_le_mmu(ptr
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %call1 = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 2, i64 noundef %retaddr)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !95
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !95
   fence seq_cst
   %0 = load atomic i16, ptr %call1 monotonic, align 2
   %sext = shl i32 %xval, 16
@@ -8491,7 +8491,7 @@ do.body:                                          ; preds = %do.body, %entry
   br i1 %cmp10.not, label %do.end, label %do.body, !llvm.loop !96
 
 do.end:                                           ; preds = %do.body
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i32 %conv2
 }
 
@@ -8502,7 +8502,7 @@ entry:
   %1 = ptrtoint ptr %0 to i64
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %call1.i = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 4, i64 noundef %1)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !97
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !97
   fence seq_cst
   %2 = load atomic i32, ptr %call1.i monotonic, align 4
   br label %do.body.i
@@ -8518,7 +8518,7 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   br i1 %cmp3.not.i, label %cpu_atomic_fetch_smaxl_be_mmu.exit, label %do.body.i, !llvm.loop !98
 
 cpu_atomic_fetch_smaxl_be_mmu.exit:               ; preds = %do.body.i
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i32 %3
 }
 
@@ -8527,7 +8527,7 @@ define dso_local i32 @cpu_atomic_fetch_smaxl_be_mmu(ptr noundef %env, i64 nounde
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %call1 = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 4, i64 noundef %retaddr)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !97
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !97
   fence seq_cst
   %0 = load atomic i32, ptr %call1 monotonic, align 4
   br label %do.body
@@ -8543,7 +8543,7 @@ do.body:                                          ; preds = %do.body, %entry
   br i1 %cmp3.not, label %do.end, label %do.body, !llvm.loop !98
 
 do.end:                                           ; preds = %do.body
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i32 %1
 }
 
@@ -8554,7 +8554,7 @@ entry:
   %1 = ptrtoint ptr %0 to i64
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %call1.i = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 4, i64 noundef %1)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !99
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !99
   fence seq_cst
   %2 = load atomic i32, ptr %call1.i monotonic, align 4
   br label %do.body.i
@@ -8568,7 +8568,7 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   br i1 %cmp4.not.i, label %cpu_atomic_fetch_smaxl_le_mmu.exit, label %do.body.i, !llvm.loop !100
 
 cpu_atomic_fetch_smaxl_le_mmu.exit:               ; preds = %do.body.i
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i32 %cmp.0.i
 }
 
@@ -8577,7 +8577,7 @@ define dso_local i32 @cpu_atomic_fetch_smaxl_le_mmu(ptr noundef %env, i64 nounde
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %call1 = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 4, i64 noundef %retaddr)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !99
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !99
   fence seq_cst
   %0 = load atomic i32, ptr %call1 monotonic, align 4
   br label %do.body
@@ -8591,7 +8591,7 @@ do.body:                                          ; preds = %do.body, %entry
   br i1 %cmp4.not, label %do.end, label %do.body, !llvm.loop !100
 
 do.end:                                           ; preds = %do.body
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i32 %cmp.0
 }
 
@@ -8602,7 +8602,7 @@ entry:
   %1 = ptrtoint ptr %0 to i64
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %call1.i = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 8, i64 noundef %1)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !101
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !101
   fence seq_cst
   %2 = load atomic i64, ptr %call1.i monotonic, align 8
   br label %do.body.i
@@ -8618,7 +8618,7 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   br i1 %cmp3.not.i, label %cpu_atomic_fetch_smaxq_be_mmu.exit, label %do.body.i, !llvm.loop !102
 
 cpu_atomic_fetch_smaxq_be_mmu.exit:               ; preds = %do.body.i
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i64 %3
 }
 
@@ -8627,7 +8627,7 @@ define dso_local i64 @cpu_atomic_fetch_smaxq_be_mmu(ptr noundef %env, i64 nounde
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %call1 = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 8, i64 noundef %retaddr)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !101
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !101
   fence seq_cst
   %0 = load atomic i64, ptr %call1 monotonic, align 8
   br label %do.body
@@ -8643,7 +8643,7 @@ do.body:                                          ; preds = %do.body, %entry
   br i1 %cmp3.not, label %do.end, label %do.body, !llvm.loop !102
 
 do.end:                                           ; preds = %do.body
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i64 %1
 }
 
@@ -8654,7 +8654,7 @@ entry:
   %1 = ptrtoint ptr %0 to i64
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %call1.i = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 8, i64 noundef %1)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !103
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !103
   fence seq_cst
   %2 = load atomic i64, ptr %call1.i monotonic, align 8
   br label %do.body.i
@@ -8668,7 +8668,7 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   br i1 %cmp4.not.i, label %cpu_atomic_fetch_smaxq_le_mmu.exit, label %do.body.i, !llvm.loop !104
 
 cpu_atomic_fetch_smaxq_le_mmu.exit:               ; preds = %do.body.i
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i64 %cmp.0.i
 }
 
@@ -8677,7 +8677,7 @@ define dso_local i64 @cpu_atomic_fetch_smaxq_le_mmu(ptr noundef %env, i64 nounde
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %call1 = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 8, i64 noundef %retaddr)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !103
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !103
   fence seq_cst
   %0 = load atomic i64, ptr %call1 monotonic, align 8
   br label %do.body
@@ -8691,7 +8691,7 @@ do.body:                                          ; preds = %do.body, %entry
   br i1 %cmp4.not, label %do.end, label %do.body, !llvm.loop !104
 
 do.end:                                           ; preds = %do.body
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i64 %cmp.0
 }
 
@@ -8702,7 +8702,7 @@ entry:
   %1 = ptrtoint ptr %0 to i64
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %call1.i = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 1, i64 noundef %1)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !105
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !105
   fence seq_cst
   %2 = load atomic i8, ptr %call1.i monotonic, align 1
   %conv3.i = and i32 %val, 255
@@ -8719,7 +8719,7 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   br i1 %cmp10.not.i, label %cpu_atomic_fetch_umaxb_mmu.exit, label %do.body.i, !llvm.loop !106
 
 cpu_atomic_fetch_umaxb_mmu.exit:                  ; preds = %do.body.i
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i32 %conv2.i
 }
 
@@ -8728,7 +8728,7 @@ define dso_local range(i32 0, 256) i32 @cpu_atomic_fetch_umaxb_mmu(ptr noundef %
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %call1 = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 1, i64 noundef %retaddr)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !105
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !105
   fence seq_cst
   %0 = load atomic i8, ptr %call1 monotonic, align 1
   %conv3 = and i32 %xval, 255
@@ -8745,7 +8745,7 @@ do.body:                                          ; preds = %do.body, %entry
   br i1 %cmp10.not, label %do.end, label %do.body, !llvm.loop !106
 
 do.end:                                           ; preds = %do.body
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i32 %conv2
 }
 
@@ -8756,7 +8756,7 @@ entry:
   %1 = ptrtoint ptr %0 to i64
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %call1.i = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 2, i64 noundef %1)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !107
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !107
   fence seq_cst
   %2 = load atomic i16, ptr %call1.i monotonic, align 2
   %conv3.i = and i32 %val, 65535
@@ -8775,7 +8775,7 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   br i1 %cmp9.not.i, label %cpu_atomic_fetch_umaxw_be_mmu.exit, label %do.body.i, !llvm.loop !108
 
 cpu_atomic_fetch_umaxw_be_mmu.exit:               ; preds = %do.body.i
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i32 %conv2.i
 }
 
@@ -8784,7 +8784,7 @@ define dso_local range(i32 0, 65536) i32 @cpu_atomic_fetch_umaxw_be_mmu(ptr noun
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %call1 = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 2, i64 noundef %retaddr)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !107
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !107
   fence seq_cst
   %0 = load atomic i16, ptr %call1 monotonic, align 2
   %conv3 = and i32 %xval, 65535
@@ -8803,7 +8803,7 @@ do.body:                                          ; preds = %do.body, %entry
   br i1 %cmp9.not, label %do.end, label %do.body, !llvm.loop !108
 
 do.end:                                           ; preds = %do.body
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i32 %conv2
 }
 
@@ -8814,7 +8814,7 @@ entry:
   %1 = ptrtoint ptr %0 to i64
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %call1.i = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 2, i64 noundef %1)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !109
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !109
   fence seq_cst
   %2 = load atomic i16, ptr %call1.i monotonic, align 2
   %conv3.i = and i32 %val, 65535
@@ -8831,7 +8831,7 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   br i1 %cmp10.not.i, label %cpu_atomic_fetch_umaxw_le_mmu.exit, label %do.body.i, !llvm.loop !110
 
 cpu_atomic_fetch_umaxw_le_mmu.exit:               ; preds = %do.body.i
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i32 %conv2.i
 }
 
@@ -8840,7 +8840,7 @@ define dso_local range(i32 0, 65536) i32 @cpu_atomic_fetch_umaxw_le_mmu(ptr noun
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %call1 = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 2, i64 noundef %retaddr)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !109
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !109
   fence seq_cst
   %0 = load atomic i16, ptr %call1 monotonic, align 2
   %conv3 = and i32 %xval, 65535
@@ -8857,7 +8857,7 @@ do.body:                                          ; preds = %do.body, %entry
   br i1 %cmp10.not, label %do.end, label %do.body, !llvm.loop !110
 
 do.end:                                           ; preds = %do.body
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i32 %conv2
 }
 
@@ -8868,7 +8868,7 @@ entry:
   %1 = ptrtoint ptr %0 to i64
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %call1.i = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 4, i64 noundef %1)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !111
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !111
   fence seq_cst
   %2 = load atomic i32, ptr %call1.i monotonic, align 4
   br label %do.body.i
@@ -8884,7 +8884,7 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   br i1 %cmp3.not.i, label %cpu_atomic_fetch_umaxl_be_mmu.exit, label %do.body.i, !llvm.loop !112
 
 cpu_atomic_fetch_umaxl_be_mmu.exit:               ; preds = %do.body.i
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i32 %3
 }
 
@@ -8893,7 +8893,7 @@ define dso_local i32 @cpu_atomic_fetch_umaxl_be_mmu(ptr noundef %env, i64 nounde
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %call1 = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 4, i64 noundef %retaddr)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !111
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !111
   fence seq_cst
   %0 = load atomic i32, ptr %call1 monotonic, align 4
   br label %do.body
@@ -8909,7 +8909,7 @@ do.body:                                          ; preds = %do.body, %entry
   br i1 %cmp3.not, label %do.end, label %do.body, !llvm.loop !112
 
 do.end:                                           ; preds = %do.body
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i32 %1
 }
 
@@ -8920,7 +8920,7 @@ entry:
   %1 = ptrtoint ptr %0 to i64
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %call1.i = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 4, i64 noundef %1)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !113
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !113
   fence seq_cst
   %2 = load atomic i32, ptr %call1.i monotonic, align 4
   br label %do.body.i
@@ -8934,7 +8934,7 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   br i1 %cmp4.not.i, label %cpu_atomic_fetch_umaxl_le_mmu.exit, label %do.body.i, !llvm.loop !114
 
 cpu_atomic_fetch_umaxl_le_mmu.exit:               ; preds = %do.body.i
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i32 %cmp.0.i
 }
 
@@ -8943,7 +8943,7 @@ define dso_local i32 @cpu_atomic_fetch_umaxl_le_mmu(ptr noundef %env, i64 nounde
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %call1 = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 4, i64 noundef %retaddr)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !113
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !113
   fence seq_cst
   %0 = load atomic i32, ptr %call1 monotonic, align 4
   br label %do.body
@@ -8957,7 +8957,7 @@ do.body:                                          ; preds = %do.body, %entry
   br i1 %cmp4.not, label %do.end, label %do.body, !llvm.loop !114
 
 do.end:                                           ; preds = %do.body
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i32 %cmp.0
 }
 
@@ -8968,7 +8968,7 @@ entry:
   %1 = ptrtoint ptr %0 to i64
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %call1.i = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 8, i64 noundef %1)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !115
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !115
   fence seq_cst
   %2 = load atomic i64, ptr %call1.i monotonic, align 8
   br label %do.body.i
@@ -8984,7 +8984,7 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   br i1 %cmp3.not.i, label %cpu_atomic_fetch_umaxq_be_mmu.exit, label %do.body.i, !llvm.loop !116
 
 cpu_atomic_fetch_umaxq_be_mmu.exit:               ; preds = %do.body.i
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i64 %3
 }
 
@@ -8993,7 +8993,7 @@ define dso_local i64 @cpu_atomic_fetch_umaxq_be_mmu(ptr noundef %env, i64 nounde
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %call1 = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 8, i64 noundef %retaddr)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !115
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !115
   fence seq_cst
   %0 = load atomic i64, ptr %call1 monotonic, align 8
   br label %do.body
@@ -9009,7 +9009,7 @@ do.body:                                          ; preds = %do.body, %entry
   br i1 %cmp3.not, label %do.end, label %do.body, !llvm.loop !116
 
 do.end:                                           ; preds = %do.body
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i64 %1
 }
 
@@ -9020,7 +9020,7 @@ entry:
   %1 = ptrtoint ptr %0 to i64
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %call1.i = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 8, i64 noundef %1)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !117
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !117
   fence seq_cst
   %2 = load atomic i64, ptr %call1.i monotonic, align 8
   br label %do.body.i
@@ -9034,7 +9034,7 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   br i1 %cmp4.not.i, label %cpu_atomic_fetch_umaxq_le_mmu.exit, label %do.body.i, !llvm.loop !118
 
 cpu_atomic_fetch_umaxq_le_mmu.exit:               ; preds = %do.body.i
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i64 %cmp.0.i
 }
 
@@ -9043,7 +9043,7 @@ define dso_local i64 @cpu_atomic_fetch_umaxq_le_mmu(ptr noundef %env, i64 nounde
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %call1 = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 8, i64 noundef %retaddr)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !117
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !117
   fence seq_cst
   %0 = load atomic i64, ptr %call1 monotonic, align 8
   br label %do.body
@@ -9057,7 +9057,7 @@ do.body:                                          ; preds = %do.body, %entry
   br i1 %cmp4.not, label %do.end, label %do.body, !llvm.loop !118
 
 do.end:                                           ; preds = %do.body
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i64 %cmp.0
 }
 
@@ -9071,7 +9071,7 @@ entry:
   %conv.i = trunc i32 %val to i8
   %2 = atomicrmw add ptr %call1.i, i8 %conv.i seq_cst, align 1
   %3 = add i8 %2, %conv.i
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   %conv2.i = zext i8 %3 to i32
   ret i32 %conv2.i
 }
@@ -9084,7 +9084,7 @@ entry:
   %conv = trunc i32 %val to i8
   %0 = atomicrmw add ptr %call1, i8 %conv seq_cst, align 1
   %1 = add i8 %0, %conv
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   %conv2 = zext i8 %1 to i32
   ret i32 %conv2
 }
@@ -9096,7 +9096,7 @@ entry:
   %1 = ptrtoint ptr %0 to i64
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %call1.i = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 2, i64 noundef %1)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !119
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !119
   fence seq_cst
   %2 = load atomic i16, ptr %call1.i monotonic, align 2
   %3 = trunc i32 %val to i16
@@ -9113,7 +9113,7 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   br i1 %cmp.not.i, label %cpu_atomic_add_fetchw_be_mmu.exit, label %do.body.i, !llvm.loop !120
 
 cpu_atomic_add_fetchw_be_mmu.exit:                ; preds = %do.body.i
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   %conv8.i = zext i16 %conv4.i to i32
   ret i32 %conv8.i
 }
@@ -9123,7 +9123,7 @@ define dso_local range(i32 0, 65536) i32 @cpu_atomic_add_fetchw_be_mmu(ptr nound
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %call1 = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 2, i64 noundef %retaddr)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !119
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !119
   fence seq_cst
   %0 = load atomic i16, ptr %call1 monotonic, align 2
   %1 = trunc i32 %xval to i16
@@ -9140,7 +9140,7 @@ do.body:                                          ; preds = %do.body, %entry
   br i1 %cmp.not, label %do.end, label %do.body, !llvm.loop !120
 
 do.end:                                           ; preds = %do.body
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   %conv8 = zext i16 %conv4 to i32
   ret i32 %conv8
 }
@@ -9155,7 +9155,7 @@ entry:
   %conv.i = trunc i32 %val to i16
   %2 = atomicrmw add ptr %call1.i, i16 %conv.i seq_cst, align 2
   %3 = add i16 %2, %conv.i
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   %conv2.i = zext i16 %3 to i32
   ret i32 %conv2.i
 }
@@ -9168,7 +9168,7 @@ entry:
   %conv = trunc i32 %val to i16
   %0 = atomicrmw add ptr %call1, i16 %conv seq_cst, align 2
   %1 = add i16 %0, %conv
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   %conv2 = zext i16 %1 to i32
   ret i32 %conv2
 }
@@ -9180,7 +9180,7 @@ entry:
   %1 = ptrtoint ptr %0 to i64
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %call1.i = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 4, i64 noundef %1)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !121
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !121
   fence seq_cst
   %2 = load atomic i32, ptr %call1.i monotonic, align 4
   br label %do.body.i
@@ -9196,7 +9196,7 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   br i1 %cmp.not.i, label %cpu_atomic_add_fetchl_be_mmu.exit, label %do.body.i, !llvm.loop !122
 
 cpu_atomic_add_fetchl_be_mmu.exit:                ; preds = %do.body.i
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i32 %add.i
 }
 
@@ -9205,7 +9205,7 @@ define dso_local i32 @cpu_atomic_add_fetchl_be_mmu(ptr noundef %env, i64 noundef
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %call1 = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 4, i64 noundef %retaddr)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !121
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !121
   fence seq_cst
   %0 = load atomic i32, ptr %call1 monotonic, align 4
   br label %do.body
@@ -9221,7 +9221,7 @@ do.body:                                          ; preds = %do.body, %entry
   br i1 %cmp.not, label %do.end, label %do.body, !llvm.loop !122
 
 do.end:                                           ; preds = %do.body
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i32 %add
 }
 
@@ -9234,7 +9234,7 @@ entry:
   %call1.i = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 4, i64 noundef %1)
   %2 = atomicrmw add ptr %call1.i, i32 %val seq_cst, align 4
   %3 = add i32 %2, %val
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i32 %3
 }
 
@@ -9245,7 +9245,7 @@ entry:
   %call1 = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 4, i64 noundef %retaddr)
   %0 = atomicrmw add ptr %call1, i32 %val seq_cst, align 4
   %1 = add i32 %0, %val
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i32 %1
 }
 
@@ -9256,7 +9256,7 @@ entry:
   %1 = ptrtoint ptr %0 to i64
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %call1.i = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 8, i64 noundef %1)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !123
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !123
   fence seq_cst
   %2 = load atomic i64, ptr %call1.i monotonic, align 8
   br label %do.body.i
@@ -9272,7 +9272,7 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   br i1 %cmp.not.i, label %cpu_atomic_add_fetchq_be_mmu.exit, label %do.body.i, !llvm.loop !124
 
 cpu_atomic_add_fetchq_be_mmu.exit:                ; preds = %do.body.i
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i64 %add.i
 }
 
@@ -9281,7 +9281,7 @@ define dso_local i64 @cpu_atomic_add_fetchq_be_mmu(ptr noundef %env, i64 noundef
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %call1 = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 8, i64 noundef %retaddr)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !123
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !123
   fence seq_cst
   %0 = load atomic i64, ptr %call1 monotonic, align 8
   br label %do.body
@@ -9297,7 +9297,7 @@ do.body:                                          ; preds = %do.body, %entry
   br i1 %cmp.not, label %do.end, label %do.body, !llvm.loop !124
 
 do.end:                                           ; preds = %do.body
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i64 %add
 }
 
@@ -9310,7 +9310,7 @@ entry:
   %call1.i = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 8, i64 noundef %1)
   %2 = atomicrmw add ptr %call1.i, i64 %val seq_cst, align 8
   %3 = add i64 %2, %val
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i64 %3
 }
 
@@ -9321,7 +9321,7 @@ entry:
   %call1 = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 8, i64 noundef %retaddr)
   %0 = atomicrmw add ptr %call1, i64 %val seq_cst, align 8
   %1 = add i64 %0, %val
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i64 %1
 }
 
@@ -9335,7 +9335,7 @@ entry:
   %conv.i = trunc i32 %val to i8
   %2 = atomicrmw and ptr %call1.i, i8 %conv.i seq_cst, align 1
   %3 = and i8 %2, %conv.i
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   %conv2.i = zext i8 %3 to i32
   ret i32 %conv2.i
 }
@@ -9348,7 +9348,7 @@ entry:
   %conv = trunc i32 %val to i8
   %0 = atomicrmw and ptr %call1, i8 %conv seq_cst, align 1
   %1 = and i8 %0, %conv
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   %conv2 = zext i8 %1 to i32
   ret i32 %conv2
 }
@@ -9364,7 +9364,7 @@ entry:
   %2 = tail call i16 @llvm.bswap.i16(i16 %conv.i)
   %3 = atomicrmw and ptr %call1.i, i16 %2 seq_cst, align 2
   %4 = and i16 %3, %2
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   %5 = tail call i16 @llvm.bswap.i16(i16 %4)
   %conv2.i = zext i16 %5 to i32
   ret i32 %conv2.i
@@ -9379,7 +9379,7 @@ entry:
   %0 = tail call i16 @llvm.bswap.i16(i16 %conv)
   %1 = atomicrmw and ptr %call1, i16 %0 seq_cst, align 2
   %2 = and i16 %1, %0
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   %3 = tail call i16 @llvm.bswap.i16(i16 %2)
   %conv2 = zext i16 %3 to i32
   ret i32 %conv2
@@ -9395,7 +9395,7 @@ entry:
   %conv.i = trunc i32 %val to i16
   %2 = atomicrmw and ptr %call1.i, i16 %conv.i seq_cst, align 2
   %3 = and i16 %2, %conv.i
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   %conv2.i = zext i16 %3 to i32
   ret i32 %conv2.i
 }
@@ -9408,7 +9408,7 @@ entry:
   %conv = trunc i32 %val to i16
   %0 = atomicrmw and ptr %call1, i16 %conv seq_cst, align 2
   %1 = and i16 %0, %conv
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   %conv2 = zext i16 %1 to i32
   ret i32 %conv2
 }
@@ -9423,7 +9423,7 @@ entry:
   %2 = tail call i32 @llvm.bswap.i32(i32 %val)
   %3 = atomicrmw and ptr %call1.i, i32 %2 seq_cst, align 4
   %4 = and i32 %3, %2
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   %5 = tail call i32 @llvm.bswap.i32(i32 %4)
   ret i32 %5
 }
@@ -9436,7 +9436,7 @@ entry:
   %0 = tail call i32 @llvm.bswap.i32(i32 %val)
   %1 = atomicrmw and ptr %call1, i32 %0 seq_cst, align 4
   %2 = and i32 %1, %0
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   %3 = tail call i32 @llvm.bswap.i32(i32 %2)
   ret i32 %3
 }
@@ -9450,7 +9450,7 @@ entry:
   %call1.i = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 4, i64 noundef %1)
   %2 = atomicrmw and ptr %call1.i, i32 %val seq_cst, align 4
   %3 = and i32 %2, %val
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i32 %3
 }
 
@@ -9461,7 +9461,7 @@ entry:
   %call1 = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 4, i64 noundef %retaddr)
   %0 = atomicrmw and ptr %call1, i32 %val seq_cst, align 4
   %1 = and i32 %0, %val
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i32 %1
 }
 
@@ -9475,7 +9475,7 @@ entry:
   %2 = tail call i64 @llvm.bswap.i64(i64 %val)
   %3 = atomicrmw and ptr %call1.i, i64 %2 seq_cst, align 8
   %4 = and i64 %3, %2
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   %5 = tail call i64 @llvm.bswap.i64(i64 %4)
   ret i64 %5
 }
@@ -9488,7 +9488,7 @@ entry:
   %0 = tail call i64 @llvm.bswap.i64(i64 %val)
   %1 = atomicrmw and ptr %call1, i64 %0 seq_cst, align 8
   %2 = and i64 %1, %0
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   %3 = tail call i64 @llvm.bswap.i64(i64 %2)
   ret i64 %3
 }
@@ -9502,7 +9502,7 @@ entry:
   %call1.i = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 8, i64 noundef %1)
   %2 = atomicrmw and ptr %call1.i, i64 %val seq_cst, align 8
   %3 = and i64 %2, %val
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i64 %3
 }
 
@@ -9513,7 +9513,7 @@ entry:
   %call1 = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 8, i64 noundef %retaddr)
   %0 = atomicrmw and ptr %call1, i64 %val seq_cst, align 8
   %1 = and i64 %0, %val
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i64 %1
 }
 
@@ -9527,7 +9527,7 @@ entry:
   %conv.i = trunc i32 %val to i8
   %2 = atomicrmw or ptr %call1.i, i8 %conv.i seq_cst, align 1
   %3 = or i8 %2, %conv.i
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   %conv2.i = zext i8 %3 to i32
   ret i32 %conv2.i
 }
@@ -9540,7 +9540,7 @@ entry:
   %conv = trunc i32 %val to i8
   %0 = atomicrmw or ptr %call1, i8 %conv seq_cst, align 1
   %1 = or i8 %0, %conv
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   %conv2 = zext i8 %1 to i32
   ret i32 %conv2
 }
@@ -9556,7 +9556,7 @@ entry:
   %2 = tail call i16 @llvm.bswap.i16(i16 %conv.i)
   %3 = atomicrmw or ptr %call1.i, i16 %2 seq_cst, align 2
   %4 = or i16 %3, %2
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   %5 = tail call i16 @llvm.bswap.i16(i16 %4)
   %conv2.i = zext i16 %5 to i32
   ret i32 %conv2.i
@@ -9571,7 +9571,7 @@ entry:
   %0 = tail call i16 @llvm.bswap.i16(i16 %conv)
   %1 = atomicrmw or ptr %call1, i16 %0 seq_cst, align 2
   %2 = or i16 %1, %0
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   %3 = tail call i16 @llvm.bswap.i16(i16 %2)
   %conv2 = zext i16 %3 to i32
   ret i32 %conv2
@@ -9587,7 +9587,7 @@ entry:
   %conv.i = trunc i32 %val to i16
   %2 = atomicrmw or ptr %call1.i, i16 %conv.i seq_cst, align 2
   %3 = or i16 %2, %conv.i
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   %conv2.i = zext i16 %3 to i32
   ret i32 %conv2.i
 }
@@ -9600,7 +9600,7 @@ entry:
   %conv = trunc i32 %val to i16
   %0 = atomicrmw or ptr %call1, i16 %conv seq_cst, align 2
   %1 = or i16 %0, %conv
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   %conv2 = zext i16 %1 to i32
   ret i32 %conv2
 }
@@ -9615,7 +9615,7 @@ entry:
   %2 = tail call i32 @llvm.bswap.i32(i32 %val)
   %3 = atomicrmw or ptr %call1.i, i32 %2 seq_cst, align 4
   %4 = or i32 %3, %2
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   %5 = tail call i32 @llvm.bswap.i32(i32 %4)
   ret i32 %5
 }
@@ -9628,7 +9628,7 @@ entry:
   %0 = tail call i32 @llvm.bswap.i32(i32 %val)
   %1 = atomicrmw or ptr %call1, i32 %0 seq_cst, align 4
   %2 = or i32 %1, %0
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   %3 = tail call i32 @llvm.bswap.i32(i32 %2)
   ret i32 %3
 }
@@ -9642,7 +9642,7 @@ entry:
   %call1.i = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 4, i64 noundef %1)
   %2 = atomicrmw or ptr %call1.i, i32 %val seq_cst, align 4
   %3 = or i32 %2, %val
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i32 %3
 }
 
@@ -9653,7 +9653,7 @@ entry:
   %call1 = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 4, i64 noundef %retaddr)
   %0 = atomicrmw or ptr %call1, i32 %val seq_cst, align 4
   %1 = or i32 %0, %val
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i32 %1
 }
 
@@ -9667,7 +9667,7 @@ entry:
   %2 = tail call i64 @llvm.bswap.i64(i64 %val)
   %3 = atomicrmw or ptr %call1.i, i64 %2 seq_cst, align 8
   %4 = or i64 %3, %2
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   %5 = tail call i64 @llvm.bswap.i64(i64 %4)
   ret i64 %5
 }
@@ -9680,7 +9680,7 @@ entry:
   %0 = tail call i64 @llvm.bswap.i64(i64 %val)
   %1 = atomicrmw or ptr %call1, i64 %0 seq_cst, align 8
   %2 = or i64 %1, %0
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   %3 = tail call i64 @llvm.bswap.i64(i64 %2)
   ret i64 %3
 }
@@ -9694,7 +9694,7 @@ entry:
   %call1.i = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 8, i64 noundef %1)
   %2 = atomicrmw or ptr %call1.i, i64 %val seq_cst, align 8
   %3 = or i64 %2, %val
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i64 %3
 }
 
@@ -9705,7 +9705,7 @@ entry:
   %call1 = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 8, i64 noundef %retaddr)
   %0 = atomicrmw or ptr %call1, i64 %val seq_cst, align 8
   %1 = or i64 %0, %val
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i64 %1
 }
 
@@ -9719,7 +9719,7 @@ entry:
   %conv.i = trunc i32 %val to i8
   %2 = atomicrmw xor ptr %call1.i, i8 %conv.i seq_cst, align 1
   %3 = xor i8 %2, %conv.i
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   %conv2.i = zext i8 %3 to i32
   ret i32 %conv2.i
 }
@@ -9732,7 +9732,7 @@ entry:
   %conv = trunc i32 %val to i8
   %0 = atomicrmw xor ptr %call1, i8 %conv seq_cst, align 1
   %1 = xor i8 %0, %conv
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   %conv2 = zext i8 %1 to i32
   ret i32 %conv2
 }
@@ -9748,7 +9748,7 @@ entry:
   %2 = tail call i16 @llvm.bswap.i16(i16 %conv.i)
   %3 = atomicrmw xor ptr %call1.i, i16 %2 seq_cst, align 2
   %4 = xor i16 %3, %2
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   %5 = tail call i16 @llvm.bswap.i16(i16 %4)
   %conv2.i = zext i16 %5 to i32
   ret i32 %conv2.i
@@ -9763,7 +9763,7 @@ entry:
   %0 = tail call i16 @llvm.bswap.i16(i16 %conv)
   %1 = atomicrmw xor ptr %call1, i16 %0 seq_cst, align 2
   %2 = xor i16 %1, %0
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   %3 = tail call i16 @llvm.bswap.i16(i16 %2)
   %conv2 = zext i16 %3 to i32
   ret i32 %conv2
@@ -9779,7 +9779,7 @@ entry:
   %conv.i = trunc i32 %val to i16
   %2 = atomicrmw xor ptr %call1.i, i16 %conv.i seq_cst, align 2
   %3 = xor i16 %2, %conv.i
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   %conv2.i = zext i16 %3 to i32
   ret i32 %conv2.i
 }
@@ -9792,7 +9792,7 @@ entry:
   %conv = trunc i32 %val to i16
   %0 = atomicrmw xor ptr %call1, i16 %conv seq_cst, align 2
   %1 = xor i16 %0, %conv
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   %conv2 = zext i16 %1 to i32
   ret i32 %conv2
 }
@@ -9807,7 +9807,7 @@ entry:
   %2 = tail call i32 @llvm.bswap.i32(i32 %val)
   %3 = atomicrmw xor ptr %call1.i, i32 %2 seq_cst, align 4
   %4 = xor i32 %3, %2
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   %5 = tail call i32 @llvm.bswap.i32(i32 %4)
   ret i32 %5
 }
@@ -9820,7 +9820,7 @@ entry:
   %0 = tail call i32 @llvm.bswap.i32(i32 %val)
   %1 = atomicrmw xor ptr %call1, i32 %0 seq_cst, align 4
   %2 = xor i32 %1, %0
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   %3 = tail call i32 @llvm.bswap.i32(i32 %2)
   ret i32 %3
 }
@@ -9834,7 +9834,7 @@ entry:
   %call1.i = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 4, i64 noundef %1)
   %2 = atomicrmw xor ptr %call1.i, i32 %val seq_cst, align 4
   %3 = xor i32 %2, %val
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i32 %3
 }
 
@@ -9845,7 +9845,7 @@ entry:
   %call1 = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 4, i64 noundef %retaddr)
   %0 = atomicrmw xor ptr %call1, i32 %val seq_cst, align 4
   %1 = xor i32 %0, %val
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i32 %1
 }
 
@@ -9859,7 +9859,7 @@ entry:
   %2 = tail call i64 @llvm.bswap.i64(i64 %val)
   %3 = atomicrmw xor ptr %call1.i, i64 %2 seq_cst, align 8
   %4 = xor i64 %3, %2
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   %5 = tail call i64 @llvm.bswap.i64(i64 %4)
   ret i64 %5
 }
@@ -9872,7 +9872,7 @@ entry:
   %0 = tail call i64 @llvm.bswap.i64(i64 %val)
   %1 = atomicrmw xor ptr %call1, i64 %0 seq_cst, align 8
   %2 = xor i64 %1, %0
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   %3 = tail call i64 @llvm.bswap.i64(i64 %2)
   ret i64 %3
 }
@@ -9886,7 +9886,7 @@ entry:
   %call1.i = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 8, i64 noundef %1)
   %2 = atomicrmw xor ptr %call1.i, i64 %val seq_cst, align 8
   %3 = xor i64 %2, %val
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i64 %3
 }
 
@@ -9897,7 +9897,7 @@ entry:
   %call1 = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 8, i64 noundef %retaddr)
   %0 = atomicrmw xor ptr %call1, i64 %val seq_cst, align 8
   %1 = xor i64 %0, %val
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i64 %1
 }
 
@@ -9908,7 +9908,7 @@ entry:
   %1 = ptrtoint ptr %0 to i64
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %call1.i = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 1, i64 noundef %1)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !125
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !125
   fence seq_cst
   %2 = load atomic i8, ptr %call1.i monotonic, align 1
   %sext.i = shl i32 %val, 24
@@ -9926,7 +9926,7 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   br i1 %cmp10.not.i, label %cpu_atomic_smin_fetchb_mmu.exit, label %do.body.i, !llvm.loop !126
 
 cpu_atomic_smin_fetchb_mmu.exit:                  ; preds = %do.body.i
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i32 %cond.i
 }
 
@@ -9935,7 +9935,7 @@ define dso_local range(i32 -128, 128) i32 @cpu_atomic_smin_fetchb_mmu(ptr nounde
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %call1 = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 1, i64 noundef %retaddr)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !125
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !125
   fence seq_cst
   %0 = load atomic i8, ptr %call1 monotonic, align 1
   %sext = shl i32 %xval, 24
@@ -9953,7 +9953,7 @@ do.body:                                          ; preds = %do.body, %entry
   br i1 %cmp10.not, label %do.end, label %do.body, !llvm.loop !126
 
 do.end:                                           ; preds = %do.body
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i32 %cond
 }
 
@@ -9964,7 +9964,7 @@ entry:
   %1 = ptrtoint ptr %0 to i64
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %call1.i = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 2, i64 noundef %1)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !127
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !127
   fence seq_cst
   %2 = load atomic i16, ptr %call1.i monotonic, align 2
   %sext.i = shl i32 %val, 16
@@ -9984,7 +9984,7 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   br i1 %cmp9.not.i, label %cpu_atomic_smin_fetchw_be_mmu.exit, label %do.body.i, !llvm.loop !128
 
 cpu_atomic_smin_fetchw_be_mmu.exit:               ; preds = %do.body.i
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i32 %cond.i
 }
 
@@ -9993,7 +9993,7 @@ define dso_local range(i32 -32768, 32768) i32 @cpu_atomic_smin_fetchw_be_mmu(ptr
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %call1 = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 2, i64 noundef %retaddr)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !127
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !127
   fence seq_cst
   %0 = load atomic i16, ptr %call1 monotonic, align 2
   %sext = shl i32 %xval, 16
@@ -10013,7 +10013,7 @@ do.body:                                          ; preds = %do.body, %entry
   br i1 %cmp9.not, label %do.end, label %do.body, !llvm.loop !128
 
 do.end:                                           ; preds = %do.body
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i32 %cond
 }
 
@@ -10024,7 +10024,7 @@ entry:
   %1 = ptrtoint ptr %0 to i64
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %call1.i = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 2, i64 noundef %1)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !129
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !129
   fence seq_cst
   %2 = load atomic i16, ptr %call1.i monotonic, align 2
   %sext.i = shl i32 %val, 16
@@ -10042,7 +10042,7 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   br i1 %cmp10.not.i, label %cpu_atomic_smin_fetchw_le_mmu.exit, label %do.body.i, !llvm.loop !130
 
 cpu_atomic_smin_fetchw_le_mmu.exit:               ; preds = %do.body.i
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i32 %cond.i
 }
 
@@ -10051,7 +10051,7 @@ define dso_local range(i32 -32768, 32768) i32 @cpu_atomic_smin_fetchw_le_mmu(ptr
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %call1 = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 2, i64 noundef %retaddr)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !129
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !129
   fence seq_cst
   %0 = load atomic i16, ptr %call1 monotonic, align 2
   %sext = shl i32 %xval, 16
@@ -10069,7 +10069,7 @@ do.body:                                          ; preds = %do.body, %entry
   br i1 %cmp10.not, label %do.end, label %do.body, !llvm.loop !130
 
 do.end:                                           ; preds = %do.body
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i32 %cond
 }
 
@@ -10080,7 +10080,7 @@ entry:
   %1 = ptrtoint ptr %0 to i64
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %call1.i = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 4, i64 noundef %1)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !131
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !131
   fence seq_cst
   %2 = load atomic i32, ptr %call1.i monotonic, align 4
   br label %do.body.i
@@ -10096,7 +10096,7 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   br i1 %cmp3.not.i, label %cpu_atomic_smin_fetchl_be_mmu.exit, label %do.body.i, !llvm.loop !132
 
 cpu_atomic_smin_fetchl_be_mmu.exit:               ; preds = %do.body.i
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i32 %cond.i
 }
 
@@ -10105,7 +10105,7 @@ define dso_local i32 @cpu_atomic_smin_fetchl_be_mmu(ptr noundef %env, i64 nounde
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %call1 = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 4, i64 noundef %retaddr)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !131
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !131
   fence seq_cst
   %0 = load atomic i32, ptr %call1 monotonic, align 4
   br label %do.body
@@ -10121,7 +10121,7 @@ do.body:                                          ; preds = %do.body, %entry
   br i1 %cmp3.not, label %do.end, label %do.body, !llvm.loop !132
 
 do.end:                                           ; preds = %do.body
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i32 %cond
 }
 
@@ -10132,7 +10132,7 @@ entry:
   %1 = ptrtoint ptr %0 to i64
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %call1.i = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 4, i64 noundef %1)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !133
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !133
   fence seq_cst
   %2 = load atomic i32, ptr %call1.i monotonic, align 4
   br label %do.body.i
@@ -10146,7 +10146,7 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   br i1 %cmp4.not.i, label %cpu_atomic_smin_fetchl_le_mmu.exit, label %do.body.i, !llvm.loop !134
 
 cpu_atomic_smin_fetchl_le_mmu.exit:               ; preds = %do.body.i
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i32 %cond.i
 }
 
@@ -10155,7 +10155,7 @@ define dso_local i32 @cpu_atomic_smin_fetchl_le_mmu(ptr noundef %env, i64 nounde
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %call1 = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 4, i64 noundef %retaddr)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !133
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !133
   fence seq_cst
   %0 = load atomic i32, ptr %call1 monotonic, align 4
   br label %do.body
@@ -10169,7 +10169,7 @@ do.body:                                          ; preds = %do.body, %entry
   br i1 %cmp4.not, label %do.end, label %do.body, !llvm.loop !134
 
 do.end:                                           ; preds = %do.body
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i32 %cond
 }
 
@@ -10180,7 +10180,7 @@ entry:
   %1 = ptrtoint ptr %0 to i64
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %call1.i = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 8, i64 noundef %1)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !135
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !135
   fence seq_cst
   %2 = load atomic i64, ptr %call1.i monotonic, align 8
   br label %do.body.i
@@ -10196,7 +10196,7 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   br i1 %cmp3.not.i, label %cpu_atomic_smin_fetchq_be_mmu.exit, label %do.body.i, !llvm.loop !136
 
 cpu_atomic_smin_fetchq_be_mmu.exit:               ; preds = %do.body.i
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i64 %cond.i
 }
 
@@ -10205,7 +10205,7 @@ define dso_local i64 @cpu_atomic_smin_fetchq_be_mmu(ptr noundef %env, i64 nounde
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %call1 = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 8, i64 noundef %retaddr)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !135
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !135
   fence seq_cst
   %0 = load atomic i64, ptr %call1 monotonic, align 8
   br label %do.body
@@ -10221,7 +10221,7 @@ do.body:                                          ; preds = %do.body, %entry
   br i1 %cmp3.not, label %do.end, label %do.body, !llvm.loop !136
 
 do.end:                                           ; preds = %do.body
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i64 %cond
 }
 
@@ -10232,7 +10232,7 @@ entry:
   %1 = ptrtoint ptr %0 to i64
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %call1.i = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 8, i64 noundef %1)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !137
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !137
   fence seq_cst
   %2 = load atomic i64, ptr %call1.i monotonic, align 8
   br label %do.body.i
@@ -10246,7 +10246,7 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   br i1 %cmp4.not.i, label %cpu_atomic_smin_fetchq_le_mmu.exit, label %do.body.i, !llvm.loop !138
 
 cpu_atomic_smin_fetchq_le_mmu.exit:               ; preds = %do.body.i
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i64 %cond.i
 }
 
@@ -10255,7 +10255,7 @@ define dso_local i64 @cpu_atomic_smin_fetchq_le_mmu(ptr noundef %env, i64 nounde
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %call1 = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 8, i64 noundef %retaddr)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !137
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !137
   fence seq_cst
   %0 = load atomic i64, ptr %call1 monotonic, align 8
   br label %do.body
@@ -10269,7 +10269,7 @@ do.body:                                          ; preds = %do.body, %entry
   br i1 %cmp4.not, label %do.end, label %do.body, !llvm.loop !138
 
 do.end:                                           ; preds = %do.body
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i64 %cond
 }
 
@@ -10280,7 +10280,7 @@ entry:
   %1 = ptrtoint ptr %0 to i64
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %call1.i = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 1, i64 noundef %1)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !139
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !139
   fence seq_cst
   %2 = load atomic i8, ptr %call1.i monotonic, align 1
   %conv3.i = and i32 %val, 255
@@ -10297,7 +10297,7 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   br i1 %cmp10.not.i, label %cpu_atomic_umin_fetchb_mmu.exit, label %do.body.i, !llvm.loop !140
 
 cpu_atomic_umin_fetchb_mmu.exit:                  ; preds = %do.body.i
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i32 %cond.i
 }
 
@@ -10306,7 +10306,7 @@ define dso_local range(i32 0, 256) i32 @cpu_atomic_umin_fetchb_mmu(ptr noundef %
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %call1 = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 1, i64 noundef %retaddr)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !139
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !139
   fence seq_cst
   %0 = load atomic i8, ptr %call1 monotonic, align 1
   %conv3 = and i32 %xval, 255
@@ -10323,7 +10323,7 @@ do.body:                                          ; preds = %do.body, %entry
   br i1 %cmp10.not, label %do.end, label %do.body, !llvm.loop !140
 
 do.end:                                           ; preds = %do.body
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i32 %cond
 }
 
@@ -10334,7 +10334,7 @@ entry:
   %1 = ptrtoint ptr %0 to i64
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %call1.i = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 2, i64 noundef %1)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !141
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !141
   fence seq_cst
   %2 = load atomic i16, ptr %call1.i monotonic, align 2
   %conv3.i = and i32 %val, 65535
@@ -10353,7 +10353,7 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   br i1 %cmp9.not.i, label %cpu_atomic_umin_fetchw_be_mmu.exit, label %do.body.i, !llvm.loop !142
 
 cpu_atomic_umin_fetchw_be_mmu.exit:               ; preds = %do.body.i
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i32 %cond.i
 }
 
@@ -10362,7 +10362,7 @@ define dso_local range(i32 0, 65536) i32 @cpu_atomic_umin_fetchw_be_mmu(ptr noun
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %call1 = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 2, i64 noundef %retaddr)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !141
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !141
   fence seq_cst
   %0 = load atomic i16, ptr %call1 monotonic, align 2
   %conv3 = and i32 %xval, 65535
@@ -10381,7 +10381,7 @@ do.body:                                          ; preds = %do.body, %entry
   br i1 %cmp9.not, label %do.end, label %do.body, !llvm.loop !142
 
 do.end:                                           ; preds = %do.body
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i32 %cond
 }
 
@@ -10392,7 +10392,7 @@ entry:
   %1 = ptrtoint ptr %0 to i64
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %call1.i = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 2, i64 noundef %1)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !143
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !143
   fence seq_cst
   %2 = load atomic i16, ptr %call1.i monotonic, align 2
   %conv3.i = and i32 %val, 65535
@@ -10409,7 +10409,7 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   br i1 %cmp10.not.i, label %cpu_atomic_umin_fetchw_le_mmu.exit, label %do.body.i, !llvm.loop !144
 
 cpu_atomic_umin_fetchw_le_mmu.exit:               ; preds = %do.body.i
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i32 %cond.i
 }
 
@@ -10418,7 +10418,7 @@ define dso_local range(i32 0, 65536) i32 @cpu_atomic_umin_fetchw_le_mmu(ptr noun
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %call1 = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 2, i64 noundef %retaddr)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !143
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !143
   fence seq_cst
   %0 = load atomic i16, ptr %call1 monotonic, align 2
   %conv3 = and i32 %xval, 65535
@@ -10435,7 +10435,7 @@ do.body:                                          ; preds = %do.body, %entry
   br i1 %cmp10.not, label %do.end, label %do.body, !llvm.loop !144
 
 do.end:                                           ; preds = %do.body
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i32 %cond
 }
 
@@ -10446,7 +10446,7 @@ entry:
   %1 = ptrtoint ptr %0 to i64
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %call1.i = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 4, i64 noundef %1)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !145
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !145
   fence seq_cst
   %2 = load atomic i32, ptr %call1.i monotonic, align 4
   br label %do.body.i
@@ -10462,7 +10462,7 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   br i1 %cmp3.not.i, label %cpu_atomic_umin_fetchl_be_mmu.exit, label %do.body.i, !llvm.loop !146
 
 cpu_atomic_umin_fetchl_be_mmu.exit:               ; preds = %do.body.i
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i32 %cond.i
 }
 
@@ -10471,7 +10471,7 @@ define dso_local i32 @cpu_atomic_umin_fetchl_be_mmu(ptr noundef %env, i64 nounde
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %call1 = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 4, i64 noundef %retaddr)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !145
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !145
   fence seq_cst
   %0 = load atomic i32, ptr %call1 monotonic, align 4
   br label %do.body
@@ -10487,7 +10487,7 @@ do.body:                                          ; preds = %do.body, %entry
   br i1 %cmp3.not, label %do.end, label %do.body, !llvm.loop !146
 
 do.end:                                           ; preds = %do.body
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i32 %cond
 }
 
@@ -10498,7 +10498,7 @@ entry:
   %1 = ptrtoint ptr %0 to i64
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %call1.i = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 4, i64 noundef %1)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !147
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !147
   fence seq_cst
   %2 = load atomic i32, ptr %call1.i monotonic, align 4
   br label %do.body.i
@@ -10512,7 +10512,7 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   br i1 %cmp4.not.i, label %cpu_atomic_umin_fetchl_le_mmu.exit, label %do.body.i, !llvm.loop !148
 
 cpu_atomic_umin_fetchl_le_mmu.exit:               ; preds = %do.body.i
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i32 %cond.i
 }
 
@@ -10521,7 +10521,7 @@ define dso_local i32 @cpu_atomic_umin_fetchl_le_mmu(ptr noundef %env, i64 nounde
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %call1 = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 4, i64 noundef %retaddr)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !147
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !147
   fence seq_cst
   %0 = load atomic i32, ptr %call1 monotonic, align 4
   br label %do.body
@@ -10535,7 +10535,7 @@ do.body:                                          ; preds = %do.body, %entry
   br i1 %cmp4.not, label %do.end, label %do.body, !llvm.loop !148
 
 do.end:                                           ; preds = %do.body
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i32 %cond
 }
 
@@ -10546,7 +10546,7 @@ entry:
   %1 = ptrtoint ptr %0 to i64
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %call1.i = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 8, i64 noundef %1)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !149
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !149
   fence seq_cst
   %2 = load atomic i64, ptr %call1.i monotonic, align 8
   br label %do.body.i
@@ -10562,7 +10562,7 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   br i1 %cmp3.not.i, label %cpu_atomic_umin_fetchq_be_mmu.exit, label %do.body.i, !llvm.loop !150
 
 cpu_atomic_umin_fetchq_be_mmu.exit:               ; preds = %do.body.i
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i64 %cond.i
 }
 
@@ -10571,7 +10571,7 @@ define dso_local i64 @cpu_atomic_umin_fetchq_be_mmu(ptr noundef %env, i64 nounde
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %call1 = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 8, i64 noundef %retaddr)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !149
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !149
   fence seq_cst
   %0 = load atomic i64, ptr %call1 monotonic, align 8
   br label %do.body
@@ -10587,7 +10587,7 @@ do.body:                                          ; preds = %do.body, %entry
   br i1 %cmp3.not, label %do.end, label %do.body, !llvm.loop !150
 
 do.end:                                           ; preds = %do.body
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i64 %cond
 }
 
@@ -10598,7 +10598,7 @@ entry:
   %1 = ptrtoint ptr %0 to i64
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %call1.i = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 8, i64 noundef %1)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !151
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !151
   fence seq_cst
   %2 = load atomic i64, ptr %call1.i monotonic, align 8
   br label %do.body.i
@@ -10612,7 +10612,7 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   br i1 %cmp4.not.i, label %cpu_atomic_umin_fetchq_le_mmu.exit, label %do.body.i, !llvm.loop !152
 
 cpu_atomic_umin_fetchq_le_mmu.exit:               ; preds = %do.body.i
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i64 %cond.i
 }
 
@@ -10621,7 +10621,7 @@ define dso_local i64 @cpu_atomic_umin_fetchq_le_mmu(ptr noundef %env, i64 nounde
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %call1 = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 8, i64 noundef %retaddr)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !151
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !151
   fence seq_cst
   %0 = load atomic i64, ptr %call1 monotonic, align 8
   br label %do.body
@@ -10635,7 +10635,7 @@ do.body:                                          ; preds = %do.body, %entry
   br i1 %cmp4.not, label %do.end, label %do.body, !llvm.loop !152
 
 do.end:                                           ; preds = %do.body
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i64 %cond
 }
 
@@ -10646,7 +10646,7 @@ entry:
   %1 = ptrtoint ptr %0 to i64
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %call1.i = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 1, i64 noundef %1)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !153
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !153
   fence seq_cst
   %2 = load atomic i8, ptr %call1.i monotonic, align 1
   %sext.i = shl i32 %val, 24
@@ -10664,7 +10664,7 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   br i1 %cmp10.not.i, label %cpu_atomic_smax_fetchb_mmu.exit, label %do.body.i, !llvm.loop !154
 
 cpu_atomic_smax_fetchb_mmu.exit:                  ; preds = %do.body.i
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i32 %cond.i
 }
 
@@ -10673,7 +10673,7 @@ define dso_local range(i32 -128, 128) i32 @cpu_atomic_smax_fetchb_mmu(ptr nounde
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %call1 = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 1, i64 noundef %retaddr)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !153
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !153
   fence seq_cst
   %0 = load atomic i8, ptr %call1 monotonic, align 1
   %sext = shl i32 %xval, 24
@@ -10691,7 +10691,7 @@ do.body:                                          ; preds = %do.body, %entry
   br i1 %cmp10.not, label %do.end, label %do.body, !llvm.loop !154
 
 do.end:                                           ; preds = %do.body
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i32 %cond
 }
 
@@ -10702,7 +10702,7 @@ entry:
   %1 = ptrtoint ptr %0 to i64
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %call1.i = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 2, i64 noundef %1)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !155
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !155
   fence seq_cst
   %2 = load atomic i16, ptr %call1.i monotonic, align 2
   %sext.i = shl i32 %val, 16
@@ -10722,7 +10722,7 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   br i1 %cmp9.not.i, label %cpu_atomic_smax_fetchw_be_mmu.exit, label %do.body.i, !llvm.loop !156
 
 cpu_atomic_smax_fetchw_be_mmu.exit:               ; preds = %do.body.i
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i32 %cond.i
 }
 
@@ -10731,7 +10731,7 @@ define dso_local range(i32 -32768, 32768) i32 @cpu_atomic_smax_fetchw_be_mmu(ptr
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %call1 = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 2, i64 noundef %retaddr)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !155
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !155
   fence seq_cst
   %0 = load atomic i16, ptr %call1 monotonic, align 2
   %sext = shl i32 %xval, 16
@@ -10751,7 +10751,7 @@ do.body:                                          ; preds = %do.body, %entry
   br i1 %cmp9.not, label %do.end, label %do.body, !llvm.loop !156
 
 do.end:                                           ; preds = %do.body
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i32 %cond
 }
 
@@ -10762,7 +10762,7 @@ entry:
   %1 = ptrtoint ptr %0 to i64
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %call1.i = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 2, i64 noundef %1)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !157
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !157
   fence seq_cst
   %2 = load atomic i16, ptr %call1.i monotonic, align 2
   %sext.i = shl i32 %val, 16
@@ -10780,7 +10780,7 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   br i1 %cmp10.not.i, label %cpu_atomic_smax_fetchw_le_mmu.exit, label %do.body.i, !llvm.loop !158
 
 cpu_atomic_smax_fetchw_le_mmu.exit:               ; preds = %do.body.i
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i32 %cond.i
 }
 
@@ -10789,7 +10789,7 @@ define dso_local range(i32 -32768, 32768) i32 @cpu_atomic_smax_fetchw_le_mmu(ptr
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %call1 = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 2, i64 noundef %retaddr)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !157
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !157
   fence seq_cst
   %0 = load atomic i16, ptr %call1 monotonic, align 2
   %sext = shl i32 %xval, 16
@@ -10807,7 +10807,7 @@ do.body:                                          ; preds = %do.body, %entry
   br i1 %cmp10.not, label %do.end, label %do.body, !llvm.loop !158
 
 do.end:                                           ; preds = %do.body
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i32 %cond
 }
 
@@ -10818,7 +10818,7 @@ entry:
   %1 = ptrtoint ptr %0 to i64
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %call1.i = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 4, i64 noundef %1)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !159
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !159
   fence seq_cst
   %2 = load atomic i32, ptr %call1.i monotonic, align 4
   br label %do.body.i
@@ -10834,7 +10834,7 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   br i1 %cmp3.not.i, label %cpu_atomic_smax_fetchl_be_mmu.exit, label %do.body.i, !llvm.loop !160
 
 cpu_atomic_smax_fetchl_be_mmu.exit:               ; preds = %do.body.i
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i32 %cond.i
 }
 
@@ -10843,7 +10843,7 @@ define dso_local i32 @cpu_atomic_smax_fetchl_be_mmu(ptr noundef %env, i64 nounde
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %call1 = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 4, i64 noundef %retaddr)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !159
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !159
   fence seq_cst
   %0 = load atomic i32, ptr %call1 monotonic, align 4
   br label %do.body
@@ -10859,7 +10859,7 @@ do.body:                                          ; preds = %do.body, %entry
   br i1 %cmp3.not, label %do.end, label %do.body, !llvm.loop !160
 
 do.end:                                           ; preds = %do.body
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i32 %cond
 }
 
@@ -10870,7 +10870,7 @@ entry:
   %1 = ptrtoint ptr %0 to i64
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %call1.i = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 4, i64 noundef %1)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !161
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !161
   fence seq_cst
   %2 = load atomic i32, ptr %call1.i monotonic, align 4
   br label %do.body.i
@@ -10884,7 +10884,7 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   br i1 %cmp4.not.i, label %cpu_atomic_smax_fetchl_le_mmu.exit, label %do.body.i, !llvm.loop !162
 
 cpu_atomic_smax_fetchl_le_mmu.exit:               ; preds = %do.body.i
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i32 %cond.i
 }
 
@@ -10893,7 +10893,7 @@ define dso_local i32 @cpu_atomic_smax_fetchl_le_mmu(ptr noundef %env, i64 nounde
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %call1 = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 4, i64 noundef %retaddr)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !161
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !161
   fence seq_cst
   %0 = load atomic i32, ptr %call1 monotonic, align 4
   br label %do.body
@@ -10907,7 +10907,7 @@ do.body:                                          ; preds = %do.body, %entry
   br i1 %cmp4.not, label %do.end, label %do.body, !llvm.loop !162
 
 do.end:                                           ; preds = %do.body
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i32 %cond
 }
 
@@ -10918,7 +10918,7 @@ entry:
   %1 = ptrtoint ptr %0 to i64
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %call1.i = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 8, i64 noundef %1)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !163
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !163
   fence seq_cst
   %2 = load atomic i64, ptr %call1.i monotonic, align 8
   br label %do.body.i
@@ -10934,7 +10934,7 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   br i1 %cmp3.not.i, label %cpu_atomic_smax_fetchq_be_mmu.exit, label %do.body.i, !llvm.loop !164
 
 cpu_atomic_smax_fetchq_be_mmu.exit:               ; preds = %do.body.i
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i64 %cond.i
 }
 
@@ -10943,7 +10943,7 @@ define dso_local i64 @cpu_atomic_smax_fetchq_be_mmu(ptr noundef %env, i64 nounde
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %call1 = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 8, i64 noundef %retaddr)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !163
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !163
   fence seq_cst
   %0 = load atomic i64, ptr %call1 monotonic, align 8
   br label %do.body
@@ -10959,7 +10959,7 @@ do.body:                                          ; preds = %do.body, %entry
   br i1 %cmp3.not, label %do.end, label %do.body, !llvm.loop !164
 
 do.end:                                           ; preds = %do.body
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i64 %cond
 }
 
@@ -10970,7 +10970,7 @@ entry:
   %1 = ptrtoint ptr %0 to i64
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %call1.i = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 8, i64 noundef %1)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !165
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !165
   fence seq_cst
   %2 = load atomic i64, ptr %call1.i monotonic, align 8
   br label %do.body.i
@@ -10984,7 +10984,7 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   br i1 %cmp4.not.i, label %cpu_atomic_smax_fetchq_le_mmu.exit, label %do.body.i, !llvm.loop !166
 
 cpu_atomic_smax_fetchq_le_mmu.exit:               ; preds = %do.body.i
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i64 %cond.i
 }
 
@@ -10993,7 +10993,7 @@ define dso_local i64 @cpu_atomic_smax_fetchq_le_mmu(ptr noundef %env, i64 nounde
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %call1 = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 8, i64 noundef %retaddr)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !165
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !165
   fence seq_cst
   %0 = load atomic i64, ptr %call1 monotonic, align 8
   br label %do.body
@@ -11007,7 +11007,7 @@ do.body:                                          ; preds = %do.body, %entry
   br i1 %cmp4.not, label %do.end, label %do.body, !llvm.loop !166
 
 do.end:                                           ; preds = %do.body
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i64 %cond
 }
 
@@ -11018,7 +11018,7 @@ entry:
   %1 = ptrtoint ptr %0 to i64
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %call1.i = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 1, i64 noundef %1)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !167
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !167
   fence seq_cst
   %2 = load atomic i8, ptr %call1.i monotonic, align 1
   %conv3.i = and i32 %val, 255
@@ -11035,7 +11035,7 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   br i1 %cmp10.not.i, label %cpu_atomic_umax_fetchb_mmu.exit, label %do.body.i, !llvm.loop !168
 
 cpu_atomic_umax_fetchb_mmu.exit:                  ; preds = %do.body.i
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i32 %cond.i
 }
 
@@ -11044,7 +11044,7 @@ define dso_local range(i32 0, 256) i32 @cpu_atomic_umax_fetchb_mmu(ptr noundef %
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %call1 = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 1, i64 noundef %retaddr)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !167
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !167
   fence seq_cst
   %0 = load atomic i8, ptr %call1 monotonic, align 1
   %conv3 = and i32 %xval, 255
@@ -11061,7 +11061,7 @@ do.body:                                          ; preds = %do.body, %entry
   br i1 %cmp10.not, label %do.end, label %do.body, !llvm.loop !168
 
 do.end:                                           ; preds = %do.body
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i32 %cond
 }
 
@@ -11072,7 +11072,7 @@ entry:
   %1 = ptrtoint ptr %0 to i64
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %call1.i = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 2, i64 noundef %1)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !169
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !169
   fence seq_cst
   %2 = load atomic i16, ptr %call1.i monotonic, align 2
   %conv3.i = and i32 %val, 65535
@@ -11091,7 +11091,7 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   br i1 %cmp9.not.i, label %cpu_atomic_umax_fetchw_be_mmu.exit, label %do.body.i, !llvm.loop !170
 
 cpu_atomic_umax_fetchw_be_mmu.exit:               ; preds = %do.body.i
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i32 %cond.i
 }
 
@@ -11100,7 +11100,7 @@ define dso_local range(i32 0, 65536) i32 @cpu_atomic_umax_fetchw_be_mmu(ptr noun
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %call1 = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 2, i64 noundef %retaddr)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !169
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !169
   fence seq_cst
   %0 = load atomic i16, ptr %call1 monotonic, align 2
   %conv3 = and i32 %xval, 65535
@@ -11119,7 +11119,7 @@ do.body:                                          ; preds = %do.body, %entry
   br i1 %cmp9.not, label %do.end, label %do.body, !llvm.loop !170
 
 do.end:                                           ; preds = %do.body
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i32 %cond
 }
 
@@ -11130,7 +11130,7 @@ entry:
   %1 = ptrtoint ptr %0 to i64
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %call1.i = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 2, i64 noundef %1)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !171
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !171
   fence seq_cst
   %2 = load atomic i16, ptr %call1.i monotonic, align 2
   %conv3.i = and i32 %val, 65535
@@ -11147,7 +11147,7 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   br i1 %cmp10.not.i, label %cpu_atomic_umax_fetchw_le_mmu.exit, label %do.body.i, !llvm.loop !172
 
 cpu_atomic_umax_fetchw_le_mmu.exit:               ; preds = %do.body.i
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i32 %cond.i
 }
 
@@ -11156,7 +11156,7 @@ define dso_local range(i32 0, 65536) i32 @cpu_atomic_umax_fetchw_le_mmu(ptr noun
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %call1 = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 2, i64 noundef %retaddr)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !171
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !171
   fence seq_cst
   %0 = load atomic i16, ptr %call1 monotonic, align 2
   %conv3 = and i32 %xval, 65535
@@ -11173,7 +11173,7 @@ do.body:                                          ; preds = %do.body, %entry
   br i1 %cmp10.not, label %do.end, label %do.body, !llvm.loop !172
 
 do.end:                                           ; preds = %do.body
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i32 %cond
 }
 
@@ -11184,7 +11184,7 @@ entry:
   %1 = ptrtoint ptr %0 to i64
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %call1.i = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 4, i64 noundef %1)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !173
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !173
   fence seq_cst
   %2 = load atomic i32, ptr %call1.i monotonic, align 4
   br label %do.body.i
@@ -11200,7 +11200,7 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   br i1 %cmp3.not.i, label %cpu_atomic_umax_fetchl_be_mmu.exit, label %do.body.i, !llvm.loop !174
 
 cpu_atomic_umax_fetchl_be_mmu.exit:               ; preds = %do.body.i
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i32 %cond.i
 }
 
@@ -11209,7 +11209,7 @@ define dso_local i32 @cpu_atomic_umax_fetchl_be_mmu(ptr noundef %env, i64 nounde
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %call1 = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 4, i64 noundef %retaddr)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !173
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !173
   fence seq_cst
   %0 = load atomic i32, ptr %call1 monotonic, align 4
   br label %do.body
@@ -11225,7 +11225,7 @@ do.body:                                          ; preds = %do.body, %entry
   br i1 %cmp3.not, label %do.end, label %do.body, !llvm.loop !174
 
 do.end:                                           ; preds = %do.body
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i32 %cond
 }
 
@@ -11236,7 +11236,7 @@ entry:
   %1 = ptrtoint ptr %0 to i64
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %call1.i = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 4, i64 noundef %1)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !175
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !175
   fence seq_cst
   %2 = load atomic i32, ptr %call1.i monotonic, align 4
   br label %do.body.i
@@ -11250,7 +11250,7 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   br i1 %cmp4.not.i, label %cpu_atomic_umax_fetchl_le_mmu.exit, label %do.body.i, !llvm.loop !176
 
 cpu_atomic_umax_fetchl_le_mmu.exit:               ; preds = %do.body.i
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i32 %cond.i
 }
 
@@ -11259,7 +11259,7 @@ define dso_local i32 @cpu_atomic_umax_fetchl_le_mmu(ptr noundef %env, i64 nounde
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %call1 = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 4, i64 noundef %retaddr)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !175
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !175
   fence seq_cst
   %0 = load atomic i32, ptr %call1 monotonic, align 4
   br label %do.body
@@ -11273,7 +11273,7 @@ do.body:                                          ; preds = %do.body, %entry
   br i1 %cmp4.not, label %do.end, label %do.body, !llvm.loop !176
 
 do.end:                                           ; preds = %do.body
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i32 %cond
 }
 
@@ -11284,7 +11284,7 @@ entry:
   %1 = ptrtoint ptr %0 to i64
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %call1.i = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 8, i64 noundef %1)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !177
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !177
   fence seq_cst
   %2 = load atomic i64, ptr %call1.i monotonic, align 8
   br label %do.body.i
@@ -11300,7 +11300,7 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   br i1 %cmp3.not.i, label %cpu_atomic_umax_fetchq_be_mmu.exit, label %do.body.i, !llvm.loop !178
 
 cpu_atomic_umax_fetchq_be_mmu.exit:               ; preds = %do.body.i
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i64 %cond.i
 }
 
@@ -11309,7 +11309,7 @@ define dso_local i64 @cpu_atomic_umax_fetchq_be_mmu(ptr noundef %env, i64 nounde
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %call1 = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 8, i64 noundef %retaddr)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !177
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !177
   fence seq_cst
   %0 = load atomic i64, ptr %call1 monotonic, align 8
   br label %do.body
@@ -11325,7 +11325,7 @@ do.body:                                          ; preds = %do.body, %entry
   br i1 %cmp3.not, label %do.end, label %do.body, !llvm.loop !178
 
 do.end:                                           ; preds = %do.body
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i64 %cond
 }
 
@@ -11336,7 +11336,7 @@ entry:
   %1 = ptrtoint ptr %0 to i64
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %call1.i = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 8, i64 noundef %1)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !179
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !179
   fence seq_cst
   %2 = load atomic i64, ptr %call1.i monotonic, align 8
   br label %do.body.i
@@ -11350,7 +11350,7 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   br i1 %cmp4.not.i, label %cpu_atomic_umax_fetchq_le_mmu.exit, label %do.body.i, !llvm.loop !180
 
 cpu_atomic_umax_fetchq_le_mmu.exit:               ; preds = %do.body.i
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i64 %cond.i
 }
 
@@ -11359,7 +11359,7 @@ define dso_local i64 @cpu_atomic_umax_fetchq_le_mmu(ptr noundef %env, i64 nounde
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %call1 = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 8, i64 noundef %retaddr)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !179
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !179
   fence seq_cst
   %0 = load atomic i64, ptr %call1 monotonic, align 8
   br label %do.body
@@ -11373,7 +11373,7 @@ do.body:                                          ; preds = %do.body, %entry
   br i1 %cmp4.not, label %do.end, label %do.body, !llvm.loop !180
 
 do.end:                                           ; preds = %do.body
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i64 %cond
 }
 
@@ -11386,7 +11386,7 @@ entry:
   %call1.i = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 1, i64 noundef %1)
   %conv.i = trunc i32 %val to i8
   %2 = atomicrmw xchg ptr %call1.i, i8 %conv.i seq_cst, align 1
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   %conv2.i = zext i8 %2 to i32
   ret i32 %conv2.i
 }
@@ -11398,7 +11398,7 @@ entry:
   %call1 = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 1, i64 noundef %retaddr)
   %conv = trunc i32 %val to i8
   %0 = atomicrmw xchg ptr %call1, i8 %conv seq_cst, align 1
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   %conv2 = zext i8 %0 to i32
   ret i32 %conv2
 }
@@ -11413,7 +11413,7 @@ entry:
   %conv.i = trunc i32 %val to i16
   %2 = tail call i16 @llvm.bswap.i16(i16 %conv.i)
   %3 = atomicrmw xchg ptr %call1.i, i16 %2 seq_cst, align 2
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   %4 = tail call i16 @llvm.bswap.i16(i16 %3)
   %conv4.i = zext i16 %4 to i32
   ret i32 %conv4.i
@@ -11427,7 +11427,7 @@ entry:
   %conv = trunc i32 %val to i16
   %0 = tail call i16 @llvm.bswap.i16(i16 %conv)
   %1 = atomicrmw xchg ptr %call1, i16 %0 seq_cst, align 2
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   %2 = tail call i16 @llvm.bswap.i16(i16 %1)
   %conv4 = zext i16 %2 to i32
   ret i32 %conv4
@@ -11442,7 +11442,7 @@ entry:
   %call1.i = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 2, i64 noundef %1)
   %conv.i = trunc i32 %val to i16
   %2 = atomicrmw xchg ptr %call1.i, i16 %conv.i seq_cst, align 2
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   %conv2.i = zext i16 %2 to i32
   ret i32 %conv2.i
 }
@@ -11454,7 +11454,7 @@ entry:
   %call1 = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 2, i64 noundef %retaddr)
   %conv = trunc i32 %val to i16
   %0 = atomicrmw xchg ptr %call1, i16 %conv seq_cst, align 2
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   %conv2 = zext i16 %0 to i32
   ret i32 %conv2
 }
@@ -11468,7 +11468,7 @@ entry:
   %call1.i = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 4, i64 noundef %1)
   %2 = tail call i32 @llvm.bswap.i32(i32 %val)
   %3 = atomicrmw xchg ptr %call1.i, i32 %2 seq_cst, align 4
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   %4 = tail call i32 @llvm.bswap.i32(i32 %3)
   ret i32 %4
 }
@@ -11480,7 +11480,7 @@ entry:
   %call1 = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 4, i64 noundef %retaddr)
   %0 = tail call i32 @llvm.bswap.i32(i32 %val)
   %1 = atomicrmw xchg ptr %call1, i32 %0 seq_cst, align 4
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   %2 = tail call i32 @llvm.bswap.i32(i32 %1)
   ret i32 %2
 }
@@ -11493,7 +11493,7 @@ entry:
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %call1.i = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 4, i64 noundef %1)
   %2 = atomicrmw xchg ptr %call1.i, i32 %val seq_cst, align 4
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i32 %2
 }
 
@@ -11503,7 +11503,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %call1 = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 4, i64 noundef %retaddr)
   %0 = atomicrmw xchg ptr %call1, i32 %val seq_cst, align 4
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i32 %0
 }
 
@@ -11516,7 +11516,7 @@ entry:
   %call1.i = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 8, i64 noundef %1)
   %2 = tail call i64 @llvm.bswap.i64(i64 %val)
   %3 = atomicrmw xchg ptr %call1.i, i64 %2 seq_cst, align 8
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   %4 = tail call i64 @llvm.bswap.i64(i64 %3)
   ret i64 %4
 }
@@ -11528,7 +11528,7 @@ entry:
   %call1 = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 8, i64 noundef %retaddr)
   %0 = tail call i64 @llvm.bswap.i64(i64 %val)
   %1 = atomicrmw xchg ptr %call1, i64 %0 seq_cst, align 8
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   %2 = tail call i64 @llvm.bswap.i64(i64 %1)
   ret i64 %2
 }
@@ -11541,7 +11541,7 @@ entry:
   %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
   %call1.i = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 8, i64 noundef %1)
   %2 = atomicrmw xchg ptr %call1.i, i64 %val seq_cst, align 8
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i64 %2
 }
 
@@ -11551,7 +11551,7 @@ entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %call1 = tail call fastcc ptr @atomic_mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 8, i64 noundef %retaddr)
   %0 = atomicrmw xchg ptr %call1, i64 %val seq_cst, align 8
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
+  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #19
   ret i64 %0
 }
 
@@ -11601,7 +11601,7 @@ if.then11:                                        ; preds = %get_alignment_bits.
   %1 = load ptr, ptr %tcg_ops.i, align 8
   %do_unaligned_access.i = getelementptr inbounds i8, ptr %1, i64 80
   %2 = load ptr, ptr %do_unaligned_access.i, align 8
-  tail call void %2(ptr noundef %cpu, i64 noundef %addr, i32 noundef 1, i32 noundef %and.i, i64 noundef %sub) #21
+  tail call void %2(ptr noundef %cpu, i64 noundef %addr, i32 noundef 1, i32 noundef %and.i, i64 noundef %sub) #22
   unreachable
 
 if.end13:                                         ; preds = %get_alignment_bits.exit, %get_alignment_bits.exit.thread
@@ -11666,7 +11666,7 @@ while.cond6.preheader.i.i:                        ; preds = %if.then.i, %while.c
   br i1 %tobool15.not2.i.i, label %while.cond.loopexit.i.i, label %while.body16.i.i
 
 while.body16.i.i:                                 ; preds = %while.cond6.preheader.i.i, %while.body16.i.i
-  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !9
+  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !9
   %11 = load atomic i32, ptr %neg.i monotonic, align 4
   %tobool15.not.i.i = icmp eq i32 %11, 0
   br i1 %tobool15.not.i.i, label %while.cond.loopexit.i.i, label %while.body16.i.i, !llvm.loop !10
@@ -11703,11 +11703,11 @@ if.then33:                                        ; preds = %for.inc.i
   %14 = load ptr, ptr %tcg_ops.i75, align 8
   %tlb_fill.i = getelementptr inbounds i8, ptr %14, i64 64
   %15 = load ptr, ptr %tlb_fill.i, align 8
-  %call.i = tail call zeroext i1 %15(ptr noundef %cpu, i64 noundef %addr, i32 noundef %size, i32 noundef 1, i32 noundef %and.i, i1 noundef zeroext false, i64 noundef %sub98) #18
+  %call.i = tail call zeroext i1 %15(ptr noundef %cpu, i64 noundef %addr, i32 noundef %size, i32 noundef 1, i32 noundef %and.i, i1 noundef zeroext false, i64 noundef %sub98) #19
   br i1 %call.i, label %tlb_fill.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then33
-  tail call void @__assert_fail(ptr noundef nonnull @.str.17, ptr noundef nonnull @.str, i32 noundef 1317, ptr noundef nonnull @__PRETTY_FUNCTION__.tlb_fill) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.17, ptr noundef nonnull @.str, i32 noundef 1317, ptr noundef nonnull @__PRETTY_FUNCTION__.tlb_fill) #22
   unreachable
 
 tlb_fill.exit:                                    ; preds = %if.then33
@@ -11781,7 +11781,7 @@ if.then99:                                        ; preds = %if.then82
   %conv100 = zext nneg i32 %size to i64
   %attrs = getelementptr inbounds i8, ptr %arrayidx63, i64 16
   %27 = load i32, ptr %attrs, align 8
-  tail call void @cpu_check_watchpoint(ptr noundef nonnull %cpu, i64 noundef %addr, i64 noundef %conv100, i32 %27, i32 noundef %wp_flags.1, i64 noundef %sub98) #18
+  tail call void @cpu_check_watchpoint(ptr noundef nonnull %cpu, i64 noundef %addr, i64 noundef %conv100, i32 %27, i32 noundef %wp_flags.1, i64 noundef %sub98) #19
   br label %if.end102
 
 if.end102:                                        ; preds = %if.then82, %if.then99, %if.end73
@@ -11790,7 +11790,7 @@ if.end102:                                        ; preds = %if.then82, %if.then
   ret ptr %28
 
 stop_the_world:                                   ; preds = %if.end51, %if.end13, %if.then49
-  tail call void @cpu_loop_exit_atomic(ptr noundef %cpu, i64 noundef %sub98) #21
+  tail call void @cpu_loop_exit_atomic(ptr noundef %cpu, i64 noundef %sub98) #22
   unreachable
 }
 
@@ -11807,7 +11807,7 @@ declare i64 @llvm.bswap.i64(i64) #11
 define dso_local range(i32 0, 256) i32 @cpu_ldub_code(ptr noundef %env, i64 noundef %addr) local_unnamed_addr #0 {
 entry:
   %l.i = alloca %struct.MMULookupLocals, align 8
-  %call = tail call i32 @riscv_cpu_mmu_index(ptr noundef %env, i1 noundef zeroext true) #18
+  %call = tail call i32 @riscv_cpu_mmu_index(ptr noundef %env, i1 noundef zeroext true) #19
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %l.i)
   %call.i = call fastcc zeroext i1 @mmu_lookup(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %call, i64 noundef 0, i32 noundef 2, ptr noundef nonnull %l.i)
@@ -11845,7 +11845,7 @@ do_ld1_mmu.exit:                                  ; preds = %if.then.i.i, %if.el
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local range(i32 0, 65536) i32 @cpu_lduw_code(ptr noundef %env, i64 noundef %addr) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @riscv_cpu_mmu_index(ptr noundef %env, i1 noundef zeroext true) #18
+  %call = tail call i32 @riscv_cpu_mmu_index(ptr noundef %env, i1 noundef zeroext true) #19
   %or.i = or i32 %call, 16
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %call3 = tail call fastcc zeroext i16 @do_ld2_mmu(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %or.i, i64 noundef 0, i32 noundef 2)
@@ -11856,7 +11856,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @cpu_ldl_code(ptr noundef %env, i64 noundef %addr) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @riscv_cpu_mmu_index(ptr noundef %env, i1 noundef zeroext true) #18
+  %call = tail call i32 @riscv_cpu_mmu_index(ptr noundef %env, i1 noundef zeroext true) #19
   %or.i = or i32 %call, 32
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %call3 = tail call fastcc i32 @do_ld4_mmu(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %or.i, i64 noundef 0, i32 noundef 2)
@@ -11867,7 +11867,7 @@ entry:
 define dso_local i64 @cpu_ldq_code(ptr noundef %env, i64 noundef %addr) local_unnamed_addr #0 {
 entry:
   %l.i = alloca %struct.MMULookupLocals, align 8
-  %call = tail call i32 @riscv_cpu_mmu_index(ptr noundef %env, i1 noundef zeroext true) #18
+  %call = tail call i32 @riscv_cpu_mmu_index(ptr noundef %env, i1 noundef zeroext true) #19
   %or.i = or i32 %call, 48
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %l.i)
@@ -12063,18 +12063,18 @@ if.then32.i:                                      ; preds = %if.then30.i
 if.end35.i:                                       ; preds = %if.end28.i
   %table.i = getelementptr inbounds i8, ptr %arrayidx4, i64 8
   %5 = load ptr, ptr %table.i, align 8
-  tail call void @g_free(ptr noundef %5) #18
+  tail call void @g_free(ptr noundef %5) #19
   %fulltlb.i = getelementptr inbounds i8, ptr %arrayidx, i64 560
   %6 = load ptr, ptr %fulltlb.i, align 8
-  tail call void @g_free(ptr noundef %6) #18
+  tail call void @g_free(ptr noundef %6) #19
   store i64 %now, ptr %window_begin_ns.i, align 8
   store i64 0, ptr %window_max_entries.i, align 8
   %sub.i = shl i64 %new_size.0.i, 5
   %shl36.i = add i64 %sub.i, -32
   store i64 %shl36.i, ptr %arrayidx4, align 16
-  %call37.i = tail call noalias ptr @g_try_malloc_n(i64 noundef %new_size.0.i, i64 noundef 32) #19
+  %call37.i = tail call noalias ptr @g_try_malloc_n(i64 noundef %new_size.0.i, i64 noundef 32) #20
   store ptr %call37.i, ptr %table.i, align 8
-  %call39.i = tail call noalias ptr @g_try_malloc_n(i64 noundef %new_size.0.i, i64 noundef 32) #19
+  %call39.i = tail call noalias ptr @g_try_malloc_n(i64 noundef %new_size.0.i, i64 noundef 32) #20
   store ptr %call39.i, ptr %fulltlb.i, align 8
   %7 = load ptr, ptr %table.i, align 8
   %cmp4251.i = icmp eq ptr %7, null
@@ -12089,11 +12089,11 @@ while.body.i:                                     ; preds = %if.end35.i, %if.end
   br i1 %cmp45.i, label %if.then46.i, label %if.end49.i
 
 if.then46.i:                                      ; preds = %while.body.i
-  %call47.i = tail call ptr @__errno_location() #23
+  %call47.i = tail call ptr @__errno_location() #24
   %9 = load i32, ptr %call47.i, align 4
-  %call48.i = tail call ptr @strerror(i32 noundef %9) #18
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.7, ptr noundef nonnull @__func__.tlb_mmu_resize_locked, ptr noundef %call48.i) #18
-  tail call void @abort() #21
+  %call48.i = tail call ptr @strerror(i32 noundef %9) #19
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.7, ptr noundef nonnull @__func__.tlb_mmu_resize_locked, ptr noundef %call48.i) #19
+  tail call void @abort() #22
   unreachable
 
 if.end49.i:                                       ; preds = %while.body.i
@@ -12102,12 +12102,12 @@ if.end49.i:                                       ; preds = %while.body.i
   %sub56.i = shl i64 %cond55.i, 5
   %shl57.i = add i64 %sub56.i, -32
   store i64 %shl57.i, ptr %arrayidx4, align 16
-  tail call void @g_free(ptr noundef %8) #18
+  tail call void @g_free(ptr noundef %8) #19
   %10 = load ptr, ptr %fulltlb.i, align 8
-  tail call void @g_free(ptr noundef %10) #18
-  %call61.i = tail call noalias ptr @g_try_malloc_n(i64 noundef %cond55.i, i64 noundef 32) #19
+  tail call void @g_free(ptr noundef %10) #19
+  %call61.i = tail call noalias ptr @g_try_malloc_n(i64 noundef %cond55.i, i64 noundef 32) #20
   store ptr %call61.i, ptr %table.i, align 8
-  %call63.i = tail call noalias ptr @g_try_malloc_n(i64 noundef %cond55.i, i64 noundef 32) #19
+  %call63.i = tail call noalias ptr @g_try_malloc_n(i64 noundef %cond55.i, i64 noundef 32) #20
   store ptr %call63.i, ptr %fulltlb.i, align 8
   %11 = load ptr, ptr %table.i, align 8
   %cmp42.i = icmp eq ptr %11, null
@@ -12146,8 +12146,8 @@ declare ptr @strerror(i32 noundef) local_unnamed_addr #13
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #14
 
-; Function Attrs: noreturn nounwind
-declare void @abort() local_unnamed_addr #5
+; Function Attrs: cold nofree noreturn nounwind
+declare void @abort() local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.ctlz.i64(i64, i1 immarg) #11
@@ -12162,7 +12162,7 @@ entry:
   %and.i = add i64 %addr, 4096
   %shr.i = lshr i64 %and.i, 12
   %shr2.i = lshr i64 %addr, 12
-  %call.i.i.i = tail call ptr @get_ptr_rcu_reader() #18
+  %call.i.i.i = tail call ptr @get_ptr_rcu_reader() #19
   %depth.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 12
   %0 = load i32, ptr %depth.i.i.i, align 4
   %inc.i.i.i = add i32 %0, 1
@@ -12174,7 +12174,7 @@ while.end.i.i.i:                                  ; preds = %entry
   %1 = load atomic i64, ptr @rcu_gp_ctr monotonic, align 8
   %conv8.i.i.i = and i64 %1, 4294967295
   store atomic i64 %conv8.i.i.i, ptr %call.i.i.i monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !34
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !34
   fence seq_cst
   br label %rcu_read_auto_lock.exit.i
 
@@ -12182,7 +12182,7 @@ rcu_read_auto_lock.exit.i:                        ; preds = %while.end.i.i.i, %e
   %idxprom.i = zext nneg i32 %client to i64
   %arrayidx.i = getelementptr [3 x ptr], ptr getelementptr inbounds (i8, ptr @ram_list, i64 64), i64 0, i64 %idxprom.i
   %2 = load atomic i64, ptr %arrayidx.i monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !182
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !182
   %cmp521.i = icmp ult i64 %shr2.i, %shr.i
   br i1 %cmp521.i, label %while.body6.lr.ph.i, label %for.inc.i
 
@@ -12203,7 +12203,7 @@ while.body6.i:                                    ; preds = %while.body6.i, %whi
   %sub10.i = sub nsw i64 %cond.i, %base.022.i
   %arrayidx12.i = getelementptr [0 x ptr], ptr %blocks11.i, i64 0, i64 %idx.024.i
   %4 = load ptr, ptr %arrayidx12.i, align 8
-  %call13.i = tail call i64 @find_next_bit(ptr noundef %4, i64 noundef %sub10.i, i64 noundef %offset.023.i) #18
+  %call13.i = tail call i64 @find_next_bit(ptr noundef %4, i64 noundef %sub10.i, i64 noundef %offset.023.i) #19
   %cmp14.i = icmp ult i64 %call13.i, %sub10.i
   %inc.i = add nuw nsw i64 %idx.024.i, 1
   %cmp5.i = icmp uge i64 %add7.i, %shr.i
@@ -12212,14 +12212,14 @@ while.body6.i:                                    ; preds = %while.body6.i, %whi
 
 for.inc.i:                                        ; preds = %while.body6.i, %rcu_read_auto_lock.exit.i
   %dirty.1.i = phi i1 [ false, %rcu_read_auto_lock.exit.i ], [ %cmp14.i, %while.body6.i ]
-  %call.i.i16.i = tail call ptr @get_ptr_rcu_reader() #18
+  %call.i.i16.i = tail call ptr @get_ptr_rcu_reader() #19
   %depth.i.i17.i = getelementptr inbounds i8, ptr %call.i.i16.i, i64 12
   %5 = load i32, ptr %depth.i.i17.i, align 4
   %cmp.not.i.i18.i = icmp eq i32 %5, 0
   br i1 %cmp.not.i.i18.i, label %if.else.i.i.i, label %if.end.i.i.i
 
 if.else.i.i.i:                                    ; preds = %for.inc.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.10, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.10, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #22
   unreachable
 
 if.end.i.i.i:                                     ; preds = %for.inc.i
@@ -12230,7 +12230,7 @@ if.end.i.i.i:                                     ; preds = %for.inc.i
 
 while.end.i.i19.i:                                ; preds = %if.end.i.i.i
   store atomic i64 0, ptr %call.i.i16.i release, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !36
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !36
   fence seq_cst
   %waiting.i.i.i = getelementptr inbounds i8, ptr %call.i.i16.i, i64 8
   %6 = load atomic i8, ptr %waiting.i.i.i monotonic, align 8
@@ -12239,7 +12239,7 @@ while.end.i.i19.i:                                ; preds = %if.end.i.i.i
 
 while.end21.i.i.i:                                ; preds = %while.end.i.i19.i
   store atomic i8 0, ptr %waiting.i.i.i monotonic, align 8
-  tail call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #18
+  tail call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #19
   br label %cpu_physical_memory_get_dirty.exit
 
 cpu_physical_memory_get_dirty.exit:               ; preds = %if.end.i.i.i, %while.end.i.i19.i, %while.end21.i.i.i
@@ -12299,7 +12299,7 @@ if.then5:                                         ; preds = %get_alignment_bits.
   %1 = load ptr, ptr %tcg_ops.i, align 8
   %do_unaligned_access.i = getelementptr inbounds i8, ptr %1, i64 80
   %2 = load ptr, ptr %do_unaligned_access.i, align 8
-  tail call void %2(ptr noundef %cpu, i64 noundef %addr, i32 noundef %type, i32 noundef %and.i, i64 noundef %ra) #21
+  tail call void %2(ptr noundef %cpu, i64 noundef %addr, i32 noundef %type, i32 noundef %and.i, i64 noundef %ra) #22
   unreachable
 
 if.end7:                                          ; preds = %get_alignment_bits.exit
@@ -12344,7 +12344,7 @@ if.then.i:                                        ; preds = %if.then51
   %conv.i = sext i32 %6 to i64
   %attrs.i = getelementptr inbounds i8, ptr %4, i64 16
   %7 = load i32, ptr %attrs.i, align 8
-  tail call void @cpu_check_watchpoint(ptr noundef %cpu, i64 noundef %5, i64 noundef %conv.i, i32 %7, i32 noundef %cond.i, i64 noundef %ra) #18
+  tail call void @cpu_check_watchpoint(ptr noundef %cpu, i64 noundef %5, i64 noundef %conv.i, i32 %7, i32 noundef %cond.i, i64 noundef %ra) #19
   %and5.i = and i32 %3, -3
   br label %if.end.i
 
@@ -12427,7 +12427,7 @@ if.then.i75:                                      ; preds = %if.then114
   %conv.i78 = sext i32 %17 to i64
   %attrs.i79 = getelementptr inbounds i8, ptr %15, i64 16
   %18 = load i32, ptr %attrs.i79, align 8
-  tail call void @cpu_check_watchpoint(ptr noundef %cpu, i64 noundef %16, i64 noundef %conv.i78, i32 %18, i32 noundef %cond.i77, i64 noundef %ra) #18
+  tail call void @cpu_check_watchpoint(ptr noundef %cpu, i64 noundef %16, i64 noundef %conv.i78, i32 %18, i32 noundef %cond.i77, i64 noundef %ra) #19
   %and5.i80 = and i32 %13, -3
   br label %if.end.i81
 
@@ -12460,7 +12460,7 @@ if.then.i95:                                      ; preds = %mmu_watch_or_dirty.
   %conv.i98 = sext i32 %22 to i64
   %attrs.i99 = getelementptr inbounds i8, ptr %19, i64 16
   %23 = load i32, ptr %attrs.i99, align 8
-  tail call void @cpu_check_watchpoint(ptr noundef %cpu, i64 noundef %20, i64 noundef %conv.i98, i32 %23, i32 noundef %cond.i97, i64 noundef %ra) #18
+  tail call void @cpu_check_watchpoint(ptr noundef %cpu, i64 noundef %20, i64 noundef %conv.i98, i32 %23, i32 noundef %cond.i97, i64 noundef %ra) #19
   %and5.i100 = and i32 %21, -3
   br label %if.end.i101
 
@@ -12553,7 +12553,7 @@ while.cond6.preheader.i.i:                        ; preds = %if.then.i, %while.c
   br i1 %tobool15.not2.i.i, label %while.cond.loopexit.i.i, label %while.body16.i.i
 
 while.body16.i.i:                                 ; preds = %while.cond6.preheader.i.i, %while.body16.i.i
-  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !9
+  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !9
   %9 = load atomic i32, ptr %neg.i monotonic, align 4
   %tobool15.not.i.i = icmp eq i32 %9, 0
   br i1 %tobool15.not.i.i, label %while.cond.loopexit.i.i, label %while.body16.i.i, !llvm.loop !10
@@ -12592,11 +12592,11 @@ if.then9:                                         ; preds = %for.inc.i
   %13 = load ptr, ptr %tcg_ops.i, align 8
   %tlb_fill.i = getelementptr inbounds i8, ptr %13, i64 64
   %14 = load ptr, ptr %tlb_fill.i, align 8
-  %call.i = tail call zeroext i1 %14(ptr noundef nonnull %cpu, i64 noundef %0, i32 noundef %11, i32 noundef %access_type, i32 noundef %mmu_idx, i1 noundef zeroext false, i64 noundef %ra) #18
+  %call.i = tail call zeroext i1 %14(ptr noundef nonnull %cpu, i64 noundef %0, i32 noundef %11, i32 noundef %access_type, i32 noundef %mmu_idx, i1 noundef zeroext false, i64 noundef %ra) #19
   br i1 %call.i, label %tlb_fill.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then9
-  tail call void @__assert_fail(ptr noundef nonnull @.str.17, ptr noundef nonnull @.str, i32 noundef 1317, ptr noundef nonnull @__PRETTY_FUNCTION__.tlb_fill) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.17, ptr noundef nonnull @.str, i32 noundef 1317, ptr noundef nonnull @__PRETTY_FUNCTION__.tlb_fill) #22
   unreachable
 
 tlb_fill.exit:                                    ; preds = %if.then9
@@ -12653,11 +12653,11 @@ entry:
   %1 = load ptr, ptr %tcg_ops, align 8
   %tlb_fill = getelementptr inbounds i8, ptr %1, i64 64
   %2 = load ptr, ptr %tlb_fill, align 8
-  %call = tail call zeroext i1 %2(ptr noundef %cpu, i64 noundef %addr, i32 noundef %size, i32 noundef %access_type, i32 noundef %mmu_idx, i1 noundef zeroext false, i64 noundef %retaddr) #18
+  %call = tail call zeroext i1 %2(ptr noundef %cpu, i64 noundef %addr, i32 noundef %size, i32 noundef %access_type, i32 noundef %mmu_idx, i1 noundef zeroext false, i64 noundef %retaddr) #19
   br i1 %call, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.17, ptr noundef nonnull @.str, i32 noundef 1317, ptr noundef nonnull @__PRETTY_FUNCTION__.tlb_fill) #21
+  tail call void @__assert_fail(ptr noundef nonnull @.str.17, ptr noundef nonnull @.str, i32 noundef 1317, ptr noundef nonnull @__PRETTY_FUNCTION__.tlb_fill) #22
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -12674,7 +12674,7 @@ entry:
   %attrs2 = getelementptr inbounds i8, ptr %full, i64 16
   %attrs.sroa.0.0.copyload = load i32, ptr %attrs2, align 8
   %1 = load i64, ptr %full, align 8
-  %call.i = tail call ptr @iotlb_to_section(ptr noundef %cpu, i64 noundef %1, i32 %attrs.sroa.0.0.copyload) #18
+  %call.i = tail call ptr @iotlb_to_section(ptr noundef %cpu, i64 noundef %1, i32 %attrs.sroa.0.0.copyload) #19
   %mem_io_pc.i = getelementptr inbounds i8, ptr %cpu, i64 632
   store i64 %ra, ptr %mem_io_pc.i, align 8
   %can_do_io.i = getelementptr inbounds i8, ptr %cpu, i64 10164
@@ -12683,7 +12683,7 @@ entry:
   br i1 %tobool.i, label %io_prepare.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void @cpu_io_recompile(ptr noundef nonnull %cpu, i64 noundef %ra) #21
+  tail call void @cpu_io_recompile(ptr noundef nonnull %cpu, i64 noundef %ra) #22
   unreachable
 
 io_prepare.exit:                                  ; preds = %entry
@@ -12691,7 +12691,7 @@ io_prepare.exit:                                  ; preds = %entry
   %add.i = add i64 %and.i, %addr
   %mr3 = getelementptr inbounds i8, ptr %call.i, i64 16
   %3 = load ptr, ptr %mr3, align 16
-  tail call void @qemu_mutex_lock_iothread_impl(ptr noundef nonnull @.str, i32 noundef 2033) #18
+  tail call void @qemu_mutex_lock_iothread_impl(ptr noundef nonnull @.str, i32 noundef 2033) #19
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %val.i)
   %ignore_memory_transaction_failures.i.i = getelementptr inbounds i8, ptr %cpu, i64 760
   %cc.i.i = getelementptr inbounds i8, ptr %cpu, i64 160
@@ -12710,7 +12710,7 @@ do.body.i:                                        ; preds = %if.end10.i, %io_pre
   %shl.i = shl nuw nsw i32 1, %4
   %or2.i = or disjoint i32 %4, 16
   %5 = load i32, ptr %attrs2, align 8
-  %call3.i = call i32 @memory_region_dispatch_read(ptr noundef %3, i64 noundef %mr_offset.addr.0.i, ptr noundef nonnull %val.i, i32 noundef %or2.i, i32 %5) #18
+  %call3.i = call i32 @memory_region_dispatch_read(ptr noundef %3, i64 noundef %mr_offset.addr.0.i, ptr noundef nonnull %val.i, i32 noundef %or2.i, i32 %5) #19
   %cmp.not.i = icmp eq i32 %call3.i, 0
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i8
 
@@ -12733,7 +12733,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   %and.i.i = and i64 %addr.addr.0.i, 4095
   %or.i.i = or i64 %10, %and.i.i
   %11 = load i32, ptr %attrs2, align 8
-  call void %9(ptr noundef nonnull %cpu, i64 noundef %or.i.i, i64 noundef %addr.addr.0.i, i32 noundef %shl.i, i32 noundef %type, i32 noundef %mmu_idx, i32 %11, i32 noundef %call3.i, i64 noundef %ra) #18
+  call void %9(ptr noundef nonnull %cpu, i64 noundef %or.i.i, i64 noundef %addr.addr.0.i, i32 noundef %shl.i, i32 noundef %type, i32 noundef %mmu_idx, i32 %11, i32 noundef %call3.i, i64 noundef %ra) #19
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i.i, %land.lhs.true.i.i, %if.then.i8, %do.body.i
@@ -12760,7 +12760,7 @@ if.end10.i:                                       ; preds = %if.end.i
 int_ld_mmio_beN.exit:                             ; preds = %if.end10.i, %if.then9.i
   %retval.0.i = phi i64 [ %12, %if.then9.i ], [ %or12.i, %if.end10.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %val.i)
-  call void @qemu_mutex_unlock_iothread() #18
+  call void @qemu_mutex_unlock_iothread() #19
   ret i64 %retval.0.i
 }
 
@@ -12774,7 +12774,7 @@ declare void @cpu_io_recompile(ptr noundef, i64 noundef) local_unnamed_addr #3
 declare i32 @memory_region_dispatch_read(ptr noundef, i64 noundef, ptr noundef, i32 noundef, i32) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #15
+declare void @llvm.assume(i1 noundef) #16
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc i64 @do_ld_beN(ptr noundef %cpu, ptr nocapture noundef readonly %p, i64 noundef %ret_be, i32 noundef %mmu_idx, i32 noundef %type, i32 noundef %mop, i64 noundef %ra) unnamed_addr #0 {
@@ -12848,7 +12848,7 @@ sw.default.i:                                     ; preds = %do.body.i
   br label %sw.epilog.i
 
 do.body16.i:                                      ; preds = %do.body.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 2126, ptr noundef nonnull @__func__.do_ld_parts_beN, ptr noundef null) #21
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 2126, ptr noundef nonnull @__func__.do_ld_parts_beN, ptr noundef null) #22
   unreachable
 
 sw.epilog.i:                                      ; preds = %sw.default.i, %sw.bb6.i, %sw.bb.i
@@ -12929,7 +12929,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   br i1 %exitcond.not.i, label %sw.epilog, label %for.body.i, !llvm.loop !186
 
 do.body:                                          ; preds = %if.end
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 2244, ptr noundef nonnull @__func__.do_ld_beN, ptr noundef null) #21
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 2244, ptr noundef nonnull @__func__.do_ld_beN, ptr noundef null) #22
   unreachable
 
 sw.epilog:                                        ; preds = %for.body.i, %sw.epilog.i, %sw.bb20, %if.then17, %if.then
@@ -12987,11 +12987,11 @@ if.then10.i:                                      ; preds = %if.end.i
   br i1 %or.cond.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then10.i
-  %9 = tail call <2 x i64> asm "vmovdqu $1, $0", "=x,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i128) %8) #22, !srcloc !48
+  %9 = tail call <2 x i64> asm "vmovdqu $1, $0", "=x,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i128) %8) #23, !srcloc !48
   br label %load_atom_extract_al16_or_al8.exit.i
 
 if.else.i.i:                                      ; preds = %if.then10.i
-  %10 = tail call <2 x i64> asm "vmovdqa $1, $0", "=x,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i128) %8) #22, !srcloc !49
+  %10 = tail call <2 x i64> asm "vmovdqa $1, $0", "=x,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i128) %8) #23, !srcloc !49
   br label %load_atom_extract_al16_or_al8.exit.i
 
 load_atom_extract_al16_or_al8.exit.i:             ; preds = %if.else.i.i, %if.then.i.i
@@ -13069,7 +13069,7 @@ sw.bb35.i.i:                                      ; preds = %if.end12.i
   br label %sw.epilog.i.i
 
 do.body.i.i:                                      ; preds = %if.end12.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.18, i32 noundef 87, ptr noundef nonnull @__func__.required_atomicity, ptr noundef null) #21
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.18, i32 noundef 87, ptr noundef nonnull @__func__.required_atomicity, ptr noundef null) #22
   unreachable
 
 sw.epilog.i.i:                                    ; preds = %sw.bb35.i.i, %if.else.i8.i, %sw.bb20.i.i, %sw.bb11.i.i, %sw.bb3.i.i, %if.end12.i
@@ -13148,7 +13148,7 @@ entry:
   %attrs2 = getelementptr inbounds i8, ptr %full, i64 16
   %attrs.sroa.0.0.copyload = load i32, ptr %attrs2, align 8
   %1 = load i64, ptr %full, align 8
-  %call.i = tail call ptr @iotlb_to_section(ptr noundef %cpu, i64 noundef %1, i32 %attrs.sroa.0.0.copyload) #18
+  %call.i = tail call ptr @iotlb_to_section(ptr noundef %cpu, i64 noundef %1, i32 %attrs.sroa.0.0.copyload) #19
   %mem_io_pc.i = getelementptr inbounds i8, ptr %cpu, i64 632
   store i64 %ra, ptr %mem_io_pc.i, align 8
   %can_do_io.i = getelementptr inbounds i8, ptr %cpu, i64 10164
@@ -13157,7 +13157,7 @@ entry:
   br i1 %tobool.i, label %io_prepare.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void @cpu_io_recompile(ptr noundef nonnull %cpu, i64 noundef %ra) #21
+  tail call void @cpu_io_recompile(ptr noundef nonnull %cpu, i64 noundef %ra) #22
   unreachable
 
 io_prepare.exit:                                  ; preds = %entry
@@ -13165,7 +13165,7 @@ io_prepare.exit:                                  ; preds = %entry
   %add.i = add i64 %and.i, %addr
   %mr3 = getelementptr inbounds i8, ptr %call.i, i64 16
   %3 = load ptr, ptr %mr3, align 16
-  tail call void @qemu_mutex_lock_iothread_impl(ptr noundef nonnull @.str, i32 noundef 2057) #18
+  tail call void @qemu_mutex_lock_iothread_impl(ptr noundef nonnull @.str, i32 noundef 2057) #19
   %sub = add nsw i32 %size, -8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %val.i)
   %ignore_memory_transaction_failures.i.i = getelementptr inbounds i8, ptr %cpu, i64 760
@@ -13185,7 +13185,7 @@ do.body.i:                                        ; preds = %if.end10.i, %io_pre
   %shl.i = shl nuw nsw i32 1, %4
   %or2.i = or disjoint i32 %4, 16
   %5 = load i32, ptr %attrs2, align 8
-  %call3.i = call i32 @memory_region_dispatch_read(ptr noundef %3, i64 noundef %mr_offset.addr.0.i, ptr noundef nonnull %val.i, i32 noundef %or2.i, i32 %5) #18
+  %call3.i = call i32 @memory_region_dispatch_read(ptr noundef %3, i64 noundef %mr_offset.addr.0.i, ptr noundef nonnull %val.i, i32 noundef %or2.i, i32 %5) #19
   %cmp.not.i = icmp eq i32 %call3.i, 0
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i17
 
@@ -13208,7 +13208,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   %and.i.i = and i64 %addr.addr.0.i, 4095
   %or.i.i = or i64 %10, %and.i.i
   %11 = load i32, ptr %attrs2, align 8
-  call void %9(ptr noundef nonnull %cpu, i64 noundef %or.i.i, i64 noundef %addr.addr.0.i, i32 noundef %shl.i, i32 noundef 0, i32 noundef %mmu_idx, i32 %11, i32 noundef %call3.i, i64 noundef %ra) #18
+  call void %9(ptr noundef nonnull %cpu, i64 noundef %or.i.i, i64 noundef %addr.addr.0.i, i32 noundef %shl.i, i32 noundef 0, i32 noundef %mmu_idx, i32 %11, i32 noundef %call3.i, i64 noundef %ra) #19
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i.i, %land.lhs.true.i.i, %if.then.i17, %do.body.i
@@ -13255,7 +13255,7 @@ do.body.i24:                                      ; preds = %if.end10.i47, %int_
   %shl.i32 = shl nuw nsw i32 1, %14
   %or2.i33 = or disjoint i32 %14, 16
   %15 = load i32, ptr %attrs2, align 8
-  %call3.i34 = call i32 @memory_region_dispatch_read(ptr noundef %3, i64 noundef %mr_offset.addr.0.i26, ptr noundef nonnull %val.i19, i32 noundef %or2.i33, i32 %15) #18
+  %call3.i34 = call i32 @memory_region_dispatch_read(ptr noundef %3, i64 noundef %mr_offset.addr.0.i26, ptr noundef nonnull %val.i19, i32 noundef %or2.i33, i32 %15) #19
   %cmp.not.i35 = icmp eq i32 %call3.i34, 0
   br i1 %cmp.not.i35, label %if.end.i45, label %if.then.i36
 
@@ -13278,7 +13278,7 @@ if.then.i.i42:                                    ; preds = %land.lhs.true.i.i38
   %and.i.i43 = and i64 %addr.addr.0.i27, 4095
   %or.i.i44 = or i64 %20, %and.i.i43
   %21 = load i32, ptr %attrs2, align 8
-  call void %19(ptr noundef nonnull %cpu, i64 noundef %or.i.i44, i64 noundef %addr.addr.0.i27, i32 noundef %shl.i32, i32 noundef 0, i32 noundef %mmu_idx, i32 %21, i32 noundef %call3.i34, i64 noundef %ra) #18
+  call void %19(ptr noundef nonnull %cpu, i64 noundef %or.i.i44, i64 noundef %addr.addr.0.i27, i32 noundef %shl.i32, i32 noundef 0, i32 noundef %mmu_idx, i32 %21, i32 noundef %call3.i34, i64 noundef %ra) #19
   br label %if.end.i45
 
 if.end.i45:                                       ; preds = %if.then.i.i42, %land.lhs.true.i.i38, %if.then.i36, %do.body.i24
@@ -13305,7 +13305,7 @@ if.end10.i47:                                     ; preds = %if.end.i45
 int_ld_mmio_beN.exit59:                           ; preds = %if.end10.i47, %if.then9.i58
   %retval.0.i57 = phi i64 [ %22, %if.then9.i58 ], [ %or12.i51, %if.end10.i47 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %val.i19)
-  call void @qemu_mutex_unlock_iothread() #18
+  call void @qemu_mutex_unlock_iothread() #19
   %.fca.0.insert.i = insertvalue { i64, i64 } poison, i64 %retval.0.i57, 0
   %.fca.1.insert.i = insertvalue { i64, i64 } %.fca.0.insert.i, i64 %retval.0.i, 1
   ret { i64, i64 } %.fca.1.insert.i
@@ -13383,7 +13383,7 @@ sw.default.i:                                     ; preds = %do.body.i
   br label %sw.epilog.i
 
 do.body16.i:                                      ; preds = %do.body.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 2126, ptr noundef nonnull @__func__.do_ld_parts_beN, ptr noundef null) #21
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 2126, ptr noundef nonnull @__func__.do_ld_parts_beN, ptr noundef null) #22
   unreachable
 
 sw.epilog.i:                                      ; preds = %sw.default.i, %sw.bb6.i, %sw.bb.i
@@ -13440,7 +13440,7 @@ sw.default.i57:                                   ; preds = %do.body.i35
   br label %sw.epilog.i45
 
 do.body16.i42:                                    ; preds = %do.body.i35
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 2126, ptr noundef nonnull @__func__.do_ld_parts_beN, ptr noundef null) #21
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 2126, ptr noundef nonnull @__func__.do_ld_parts_beN, ptr noundef null) #22
   unreachable
 
 sw.epilog.i45:                                    ; preds = %sw.default.i57, %sw.bb6.i43, %sw.bb.i55
@@ -13470,7 +13470,7 @@ sw.bb10:                                          ; preds = %if.end
   br i1 %tobool.not.i.i, label %atomic16_read_rw.exit.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %sw.bb10
-  %21 = tail call <2 x i64> asm "vmovdqa $1, $0", "=x,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i128) %add.ptr.i61) #22, !srcloc !50
+  %21 = tail call <2 x i64> asm "vmovdqa $1, $0", "=x,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i128) %add.ptr.i61) #23, !srcloc !50
   %retval.sroa.0.0.extract.trunc.i.i.i = extractelement <2 x i64> %21, i64 0
   %retval.sroa.2.0.extract.trunc.i.i.i = extractelement <2 x i64> %21, i64 1
   br label %do_ld_whole_be16.exit
@@ -13548,7 +13548,7 @@ do_ld_bytes_beN.exit:                             ; preds = %for.body.i, %sw.bb1
   br label %sw.epilog
 
 do.body:                                          ; preds = %if.end
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 2294, ptr noundef nonnull @__func__.do_ld16_beN, ptr noundef null) #21
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 2294, ptr noundef nonnull @__func__.do_ld16_beN, ptr noundef null) #22
   unreachable
 
 sw.epilog:                                        ; preds = %sw.epilog.i45, %do_ld_bytes_beN.exit
@@ -13572,7 +13572,7 @@ entry:
   %attrs2 = getelementptr inbounds i8, ptr %full, i64 16
   %attrs.sroa.0.0.copyload = load i32, ptr %attrs2, align 8
   %1 = load i64, ptr %full, align 8
-  %call.i = tail call ptr @iotlb_to_section(ptr noundef %cpu, i64 noundef %1, i32 %attrs.sroa.0.0.copyload) #18
+  %call.i = tail call ptr @iotlb_to_section(ptr noundef %cpu, i64 noundef %1, i32 %attrs.sroa.0.0.copyload) #19
   %mem_io_pc.i = getelementptr inbounds i8, ptr %cpu, i64 632
   store i64 %ra, ptr %mem_io_pc.i, align 8
   %can_do_io.i = getelementptr inbounds i8, ptr %cpu, i64 10164
@@ -13581,7 +13581,7 @@ entry:
   br i1 %tobool.i, label %io_prepare.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void @cpu_io_recompile(ptr noundef nonnull %cpu, i64 noundef %ra) #21
+  tail call void @cpu_io_recompile(ptr noundef nonnull %cpu, i64 noundef %ra) #22
   unreachable
 
 io_prepare.exit:                                  ; preds = %entry
@@ -13589,7 +13589,7 @@ io_prepare.exit:                                  ; preds = %entry
   %add.i = add i64 %and.i, %addr
   %mr3 = getelementptr inbounds i8, ptr %call.i, i64 16
   %3 = load ptr, ptr %mr3, align 16
-  tail call void @qemu_mutex_lock_iothread_impl(ptr noundef nonnull @.str, i32 noundef 2580) #18
+  tail call void @qemu_mutex_lock_iothread_impl(ptr noundef nonnull @.str, i32 noundef 2580) #19
   %ignore_memory_transaction_failures.i.i = getelementptr inbounds i8, ptr %cpu, i64 760
   %cc.i.i = getelementptr inbounds i8, ptr %cpu, i64 160
   %phys_addr.i.i = getelementptr inbounds i8, ptr %full, i64 8
@@ -13606,7 +13606,7 @@ do.body.i:                                        ; preds = %if.end10.i, %io_pre
   %4 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %or1.i, i1 true)
   %shl.i = shl nuw nsw i32 1, %4
   %5 = load i32, ptr %attrs2, align 8
-  %call3.i = tail call i32 @memory_region_dispatch_write(ptr noundef %3, i64 noundef %mr_offset.addr.0.i, i64 noundef %val_le.addr.0.i, i32 noundef %4, i32 %5) #18
+  %call3.i = tail call i32 @memory_region_dispatch_write(ptr noundef %3, i64 noundef %mr_offset.addr.0.i, i64 noundef %val_le.addr.0.i, i32 noundef %4, i32 %5) #19
   %cmp.not.i = icmp eq i32 %call3.i, 0
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i8
 
@@ -13629,7 +13629,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   %and.i.i = and i64 %addr.addr.0.i, 4095
   %or.i.i = or i64 %10, %and.i.i
   %11 = load i32, ptr %attrs2, align 8
-  tail call void %9(ptr noundef nonnull %cpu, i64 noundef %or.i.i, i64 noundef %addr.addr.0.i, i32 noundef %shl.i, i32 noundef 1, i32 noundef %mmu_idx, i32 %11, i32 noundef %call3.i, i64 noundef %ra) #18
+  tail call void %9(ptr noundef nonnull %cpu, i64 noundef %or.i.i, i64 noundef %addr.addr.0.i, i32 noundef %shl.i, i32 noundef 1, i32 noundef %mmu_idx, i32 %11, i32 noundef %call3.i, i64 noundef %ra) #19
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i.i, %land.lhs.true.i.i, %if.then.i8, %do.body.i
@@ -13649,7 +13649,7 @@ if.end10.i:                                       ; preds = %if.end.i
 
 int_st_mmio_leN.exit:                             ; preds = %if.end.i, %if.end10.i
   %retval.0.i = phi i64 [ 0, %if.end.i ], [ %shr.i, %if.end10.i ]
-  tail call void @qemu_mutex_unlock_iothread() #18
+  tail call void @qemu_mutex_unlock_iothread() #19
   ret i64 %retval.0.i
 }
 
@@ -13741,7 +13741,7 @@ sw.default.i:                                     ; preds = %do.body.i
   br label %sw.epilog.i
 
 do.body9.i:                                       ; preds = %do.body.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.18, i32 noundef 746, ptr noundef nonnull @__func__.store_parts_leN, ptr noundef null) #21
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.18, i32 noundef 746, ptr noundef nonnull @__func__.store_parts_leN, ptr noundef null) #22
   unreachable
 
 sw.epilog.i:                                      ; preds = %sw.default.i, %sw.bb2.i, %sw.bb.i
@@ -13830,7 +13830,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   br i1 %exitcond.not.i, label %sw.epilog, label %for.body.i, !llvm.loop !56
 
 do.body:                                          ; preds = %if.end14
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 2664, ptr noundef nonnull @__func__.do_st_leN, ptr noundef null) #21
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 2664, ptr noundef nonnull @__func__.do_st_leN, ptr noundef null) #22
   unreachable
 
 sw.epilog:                                        ; preds = %for.body.i, %sw.epilog.i, %sw.bb35, %store_whole_le8.exit, %if.then12, %if.then
@@ -13939,7 +13939,7 @@ sw.bb35.i.i:                                      ; preds = %if.end.i
   br label %sw.epilog.i.i
 
 do.body.i.i:                                      ; preds = %if.end.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.18, i32 noundef 87, ptr noundef nonnull @__func__.required_atomicity, ptr noundef null) #21
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.18, i32 noundef 87, ptr noundef nonnull @__func__.required_atomicity, ptr noundef null) #22
   unreachable
 
 sw.epilog.i.i:                                    ; preds = %sw.bb35.i.i, %if.else.i.i, %sw.bb20.i.i, %sw.bb11.i.i, %sw.bb3.i.i, %if.end.i
@@ -14100,7 +14100,7 @@ do.body1.i.i59.i:                                 ; preds = %do.body1.i.i59.i, %
   br i1 %20, label %if.end22, label %do.body1.i.i59.i, !llvm.loop !52
 
 do.body.i:                                        ; preds = %sw.bb4.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.18, i32 noundef 1018, ptr noundef nonnull @__func__.store_atom_8, ptr noundef null) #21
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.18, i32 noundef 1018, ptr noundef nonnull @__func__.store_atom_8, ptr noundef null) #22
   unreachable
 
 sw.bb17.i:                                        ; preds = %required_atomicity.exit.i
@@ -14134,7 +14134,7 @@ do.body.i.i.i:                                    ; preds = %do.body.i.i.i, %sw.
   br i1 %26, label %if.end22, label %do.body.i.i.i, !llvm.loop !53
 
 do.body23.i:                                      ; preds = %required_atomicity.exit.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.18, i32 noundef 1030, ptr noundef nonnull @__func__.store_atom_8, ptr noundef null) #21
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.18, i32 noundef 1030, ptr noundef nonnull @__func__.store_atom_8, ptr noundef null) #22
   unreachable
 
 if.end22:                                         ; preds = %do.body.i.i.i, %do.body1.i.i59.i, %for.body.i.i, %sw.bb3.i, %sw.bb2.i, %sw.bb.i, %if.then.i, %if.else, %if.then
@@ -14150,7 +14150,7 @@ entry:
   %attrs3 = getelementptr inbounds i8, ptr %full, i64 16
   %attrs.sroa.0.0.copyload = load i32, ptr %attrs3, align 8
   %1 = load i64, ptr %full, align 8
-  %call.i = tail call ptr @iotlb_to_section(ptr noundef %cpu, i64 noundef %1, i32 %attrs.sroa.0.0.copyload) #18
+  %call.i = tail call ptr @iotlb_to_section(ptr noundef %cpu, i64 noundef %1, i32 %attrs.sroa.0.0.copyload) #19
   %mem_io_pc.i = getelementptr inbounds i8, ptr %cpu, i64 632
   store i64 %ra, ptr %mem_io_pc.i, align 8
   %can_do_io.i = getelementptr inbounds i8, ptr %cpu, i64 10164
@@ -14159,7 +14159,7 @@ entry:
   br i1 %tobool.i, label %io_prepare.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void @cpu_io_recompile(ptr noundef nonnull %cpu, i64 noundef %ra) #21
+  tail call void @cpu_io_recompile(ptr noundef nonnull %cpu, i64 noundef %ra) #22
   unreachable
 
 io_prepare.exit:                                  ; preds = %entry
@@ -14167,7 +14167,7 @@ io_prepare.exit:                                  ; preds = %entry
   %add.i = add i64 %and.i, %addr
   %mr4 = getelementptr inbounds i8, ptr %call.i, i64 16
   %3 = load ptr, ptr %mr4, align 16
-  tail call void @qemu_mutex_lock_iothread_impl(ptr noundef nonnull @.str, i32 noundef 2604) #18
+  tail call void @qemu_mutex_lock_iothread_impl(ptr noundef nonnull @.str, i32 noundef 2604) #19
   %ignore_memory_transaction_failures.i.i = getelementptr inbounds i8, ptr %cpu, i64 760
   %cc.i.i = getelementptr inbounds i8, ptr %cpu, i64 160
   %phys_addr.i.i = getelementptr inbounds i8, ptr %full, i64 8
@@ -14184,7 +14184,7 @@ do.body.i:                                        ; preds = %if.end10.i, %io_pre
   %4 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %or1.i, i1 true)
   %shl.i = shl nuw nsw i32 1, %4
   %5 = load i32, ptr %attrs3, align 8
-  %call3.i = tail call i32 @memory_region_dispatch_write(ptr noundef %3, i64 noundef %mr_offset.addr.0.i, i64 noundef %val_le.addr.0.i, i32 noundef %4, i32 %5) #18
+  %call3.i = tail call i32 @memory_region_dispatch_write(ptr noundef %3, i64 noundef %mr_offset.addr.0.i, i64 noundef %val_le.addr.0.i, i32 noundef %4, i32 %5) #19
   %cmp.not.i = icmp eq i32 %call3.i, 0
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i15
 
@@ -14207,7 +14207,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   %and.i.i = and i64 %addr.addr.0.i, 4095
   %or.i.i = or i64 %10, %and.i.i
   %11 = load i32, ptr %attrs3, align 8
-  tail call void %9(ptr noundef nonnull %cpu, i64 noundef %or.i.i, i64 noundef %addr.addr.0.i, i32 noundef %shl.i, i32 noundef 1, i32 noundef %mmu_idx, i32 %11, i32 noundef %call3.i, i64 noundef %ra) #18
+  tail call void %9(ptr noundef nonnull %cpu, i64 noundef %or.i.i, i64 noundef %addr.addr.0.i, i32 noundef %shl.i, i32 noundef 1, i32 noundef %mmu_idx, i32 %11, i32 noundef %call3.i, i64 noundef %ra) #19
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i.i, %land.lhs.true.i.i, %if.then.i15, %do.body.i
@@ -14242,7 +14242,7 @@ do.body.i21:                                      ; preds = %if.end10.i43, %int_
   %12 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %or1.i28, i1 true)
   %shl.i29 = shl nuw nsw i32 1, %12
   %13 = load i32, ptr %attrs3, align 8
-  %call3.i30 = tail call i32 @memory_region_dispatch_write(ptr noundef %3, i64 noundef %mr_offset.addr.0.i23, i64 noundef %val_le.addr.0.i25, i32 noundef %12, i32 %13) #18
+  %call3.i30 = tail call i32 @memory_region_dispatch_write(ptr noundef %3, i64 noundef %mr_offset.addr.0.i23, i64 noundef %val_le.addr.0.i25, i32 noundef %12, i32 %13) #19
   %cmp.not.i31 = icmp eq i32 %call3.i30, 0
   br i1 %cmp.not.i31, label %if.end.i41, label %if.then.i32
 
@@ -14265,7 +14265,7 @@ if.then.i.i38:                                    ; preds = %land.lhs.true.i.i34
   %and.i.i39 = and i64 %addr.addr.0.i24, 4095
   %or.i.i40 = or i64 %18, %and.i.i39
   %19 = load i32, ptr %attrs3, align 8
-  tail call void %17(ptr noundef nonnull %cpu, i64 noundef %or.i.i40, i64 noundef %addr.addr.0.i24, i32 noundef %shl.i29, i32 noundef 1, i32 noundef %mmu_idx, i32 %19, i32 noundef %call3.i30, i64 noundef %ra) #18
+  tail call void %17(ptr noundef nonnull %cpu, i64 noundef %or.i.i40, i64 noundef %addr.addr.0.i24, i32 noundef %shl.i29, i32 noundef 1, i32 noundef %mmu_idx, i32 %19, i32 noundef %call3.i30, i64 noundef %ra) #19
   br label %if.end.i41
 
 if.end.i41:                                       ; preds = %if.then.i.i38, %land.lhs.true.i.i34, %if.then.i32, %do.body.i21
@@ -14285,7 +14285,7 @@ if.end10.i43:                                     ; preds = %if.end.i41
 
 int_st_mmio_leN.exit53:                           ; preds = %if.end.i41, %if.end10.i43
   %retval.0.i52 = phi i64 [ 0, %if.end.i41 ], [ %shr.i46, %if.end10.i43 ]
-  tail call void @qemu_mutex_unlock_iothread() #18
+  tail call void @qemu_mutex_unlock_iothread() #19
   ret i64 %retval.0.i52
 }
 
@@ -14369,7 +14369,7 @@ sw.default.i:                                     ; preds = %do.body.i
   br label %sw.epilog.i
 
 do.body9.i:                                       ; preds = %do.body.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.18, i32 noundef 746, ptr noundef nonnull @__func__.store_parts_leN, ptr noundef null) #21
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.18, i32 noundef 746, ptr noundef nonnull @__func__.store_parts_leN, ptr noundef null) #22
   unreachable
 
 sw.epilog.i:                                      ; preds = %sw.default.i, %sw.bb2.i, %sw.bb.i
@@ -14422,7 +14422,7 @@ sw.default.i40:                                   ; preds = %do.body.i20
   br label %sw.epilog.i30
 
 do.body9.i27:                                     ; preds = %do.body.i20
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.18, i32 noundef 746, ptr noundef nonnull @__func__.store_parts_leN, ptr noundef null) #21
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.18, i32 noundef 746, ptr noundef nonnull @__func__.store_parts_leN, ptr noundef null) #22
   unreachable
 
 sw.epilog.i30:                                    ; preds = %sw.default.i40, %sw.bb2.i28, %sw.bb.i38
@@ -14518,7 +14518,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   br i1 %exitcond.not.i, label %sw.epilog, label %for.body.i, !llvm.loop !56
 
 do.body:                                          ; preds = %if.end17
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 2716, ptr noundef nonnull @__func__.do_st16_leN, ptr noundef null) #21
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 2716, ptr noundef nonnull @__func__.do_st16_leN, ptr noundef null) #22
   unreachable
 
 sw.epilog:                                        ; preds = %for.body.i, %sw.epilog.i30, %sw.bb33, %store_whole_le16.exit, %if.then14, %if.then
@@ -14529,49 +14529,49 @@ sw.epilog:                                        ; preds = %for.body.i, %sw.epi
 declare void @qemu_plugin_vcpu_mem_cb(ptr noundef, i64 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctpop.i64(i64) #16
+declare i64 @llvm.ctpop.i64(i64) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #16
+declare i32 @llvm.umax.i32(i32, i32) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #16
+declare i32 @llvm.smin.i32(i32, i32) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #16
+declare i64 @llvm.smin.i64(i64, i64) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #16
+declare i32 @llvm.umin.i32(i32, i32) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #16
+declare i64 @llvm.umin.i64(i64, i64) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #16
+declare i32 @llvm.smax.i32(i32, i32) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #16
+declare i64 @llvm.smax.i64(i64, i64) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #16
+declare i64 @llvm.umax.i64(i64, i64) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.ctpop.i16(i16) #16
+declare i16 @llvm.ctpop.i16(i16) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.usub.sat.i32(i32, i32) #16
+declare i32 @llvm.usub.sat.i32(i32, i32) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.cttz.i16(i16, i1 immarg) #16
+declare i16 @llvm.cttz.i16(i16, i1 immarg) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i128 @llvm.bswap.i128(i128) #16
+declare i128 @llvm.bswap.i128(i128) #17
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -14588,15 +14588,16 @@ attributes #11 = { mustprogress nocallback nofree nosync nounwind speculatable w
 attributes #12 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #17 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #18 = { nounwind }
-attributes #19 = { nounwind allocsize(0,1) }
-attributes #20 = { nounwind allocsize(1) }
-attributes #21 = { noreturn nounwind }
-attributes #22 = { nounwind memory(read) }
-attributes #23 = { nounwind willreturn memory(none) }
+attributes #15 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #18 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #19 = { nounwind }
+attributes #20 = { nounwind allocsize(0,1) }
+attributes #21 = { nounwind allocsize(1) }
+attributes #22 = { noreturn nounwind }
+attributes #23 = { nounwind memory(read) }
+attributes #24 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

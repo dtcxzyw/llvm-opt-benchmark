@@ -64,7 +64,7 @@ define dso_local noalias ptr @riscv_plic_hart_config_string(i32 noundef %hart_co
 entry:
   %add = add i32 %hart_count, 1
   %conv = sext i32 %add to i64
-  %call = tail call noalias ptr @g_malloc_n(i64 noundef %conv, i64 noundef 8) #10
+  %call = tail call noalias ptr @g_malloc_n(i64 noundef %conv, i64 noundef 8) #11
   %cmp10 = icmp sgt i32 %hart_count, 0
   br i1 %cmp10, label %for.body.preheader, label %for.end
 
@@ -75,8 +75,8 @@ for.body.preheader:                               ; preds = %entry
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
   %0 = trunc nuw nsw i64 %indvars.iv to i32
-  %call2 = tail call ptr @qemu_get_cpu(i32 noundef %0) #11
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call2, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU) #11
+  %call2 = tail call ptr @qemu_get_cpu(i32 noundef %0) #12
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call2, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU) #12
   %1 = getelementptr i8, ptr %call.i, i64 15192
   %env4.val = load i32, ptr %1, align 8
   %2 = and i32 %env4.val, 262144
@@ -96,8 +96,8 @@ for.end:                                          ; preds = %entry, %for.end.loo
   %i.0.lcssa = phi i64 [ %4, %for.end.loopexit ], [ 0, %entry ]
   %arrayidx9 = getelementptr ptr, ptr %call, i64 %i.0.lcssa
   store ptr null, ptr %arrayidx9, align 8
-  %call10 = tail call noalias ptr @g_strjoinv(ptr noundef nonnull @.str.2, ptr noundef %call) #11
-  tail call void @g_free(ptr noundef %call) #11
+  %call10 = tail call noalias ptr @g_strjoinv(ptr noundef nonnull @.str.2, ptr noundef %call) #12
+  tail call void @g_free(ptr noundef %call) #12
   ret ptr %call10
 }
 
@@ -143,12 +143,12 @@ entry:
   br i1 %tobool.not, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %firmware_filename, ptr noundef nonnull dereferenceable(8) @.str.5) #12
+  %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %firmware_filename, ptr noundef nonnull dereferenceable(8) @.str.5) #13
   %tobool1.not = icmp eq i32 %call, 0
   br i1 %tobool1.not, label %if.then, label %if.else
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
-  %call.i = tail call ptr @qemu_find_file(i32 noundef 0, ptr noundef %default_machine_firmware) #11
+  %call.i = tail call ptr @qemu_find_file(i32 noundef 0, ptr noundef %default_machine_firmware) #12
   %cmp.i = icmp eq ptr %call.i, null
   br i1 %cmp.i, label %if.then.i, label %if.end7
 
@@ -158,17 +158,17 @@ if.then.i:                                        ; preds = %if.then
   br i1 %tobool.i.i, label %if.end7, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.then.i
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.23, ptr noundef %default_machine_firmware) #11
-  tail call void @exit(i32 noundef 1) #13
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.23, ptr noundef %default_machine_firmware) #12
+  tail call void @exit(i32 noundef 1) #14
   unreachable
 
 if.else:                                          ; preds = %lor.lhs.false
-  %call3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %firmware_filename, ptr noundef nonnull dereferenceable(5) @.str.6) #12
+  %call3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %firmware_filename, ptr noundef nonnull dereferenceable(5) @.str.6) #13
   %tobool4.not = icmp eq i32 %call3, 0
   br i1 %tobool4.not, label %if.end7, label %if.then5
 
 if.then5:                                         ; preds = %if.else
-  %call.i4 = tail call ptr @qemu_find_file(i32 noundef 0, ptr noundef nonnull %firmware_filename) #11
+  %call.i4 = tail call ptr @qemu_find_file(i32 noundef 0, ptr noundef nonnull %firmware_filename) #12
   %cmp.i5 = icmp eq ptr %call.i4, null
   br i1 %cmp.i5, label %if.then.i6, label %if.end7
 
@@ -178,8 +178,8 @@ if.then.i6:                                       ; preds = %if.then5
   br i1 %tobool.i.i7, label %if.end7, label %if.then2.i8
 
 if.then2.i8:                                      ; preds = %if.then.i6
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.23, ptr noundef nonnull %firmware_filename) #11
-  tail call void @exit(i32 noundef 1) #13
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.23, ptr noundef nonnull %firmware_filename) #12
+  tail call void @exit(i32 noundef 1) #14
   unreachable
 
 if.end7:                                          ; preds = %if.then.i6, %if.then5, %if.then.i, %if.then, %if.else
@@ -204,7 +204,7 @@ entry:
 do.end.i:                                         ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %firmware_entry.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %firmware_end.i)
-  %call.i = call i64 @load_elf_ram_sym(ptr noundef nonnull %call, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %firmware_entry.i, ptr noundef null, ptr noundef nonnull %firmware_end.i, ptr noundef null, i32 noundef 0, i32 noundef 243, i32 noundef 1, i32 noundef 0, ptr noundef null, i1 noundef zeroext true, ptr noundef %sym_cb) #11
+  %call.i = call i64 @load_elf_ram_sym(ptr noundef nonnull %call, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %firmware_entry.i, ptr noundef null, ptr noundef nonnull %firmware_end.i, ptr noundef null, i32 noundef 0, i32 noundef 243, i32 noundef 1, i32 noundef 0, ptr noundef null, i1 noundef zeroext true, ptr noundef %sym_cb) #12
   %cmp1.i = icmp sgt i64 %call.i, 0
   br i1 %cmp1.i, label %if.then2.i, label %if.end3.i
 
@@ -216,7 +216,7 @@ if.end3.i:                                        ; preds = %do.end.i
   %2 = load ptr, ptr @current_machine, align 8
   %ram_size.i = getelementptr inbounds i8, ptr %2, i64 144
   %3 = load i64, ptr %ram_size.i, align 8
-  %call4.i = call i64 @load_image_targphys_as(ptr noundef nonnull %call, i64 noundef %firmware_load_addr, i64 noundef %3, ptr noundef null) #11
+  %call4.i = call i64 @load_image_targphys_as(ptr noundef nonnull %call, i64 noundef %firmware_load_addr, i64 noundef %3, ptr noundef null) #12
   %cmp5.i = icmp sgt i64 %call4.i, 0
   br i1 %cmp5.i, label %if.then6.i, label %if.end7.i
 
@@ -225,15 +225,15 @@ if.then6.i:                                       ; preds = %if.end3.i
   br label %riscv_load_firmware.exit
 
 if.end7.i:                                        ; preds = %if.end3.i
-  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.9, ptr noundef nonnull %call) #11
-  call void @exit(i32 noundef 1) #13
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.9, ptr noundef nonnull %call) #12
+  call void @exit(i32 noundef 1) #14
   unreachable
 
 riscv_load_firmware.exit:                         ; preds = %if.then2.i, %if.then6.i
   %retval.0.i = phi i64 [ %1, %if.then2.i ], [ %add.i, %if.then6.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %firmware_entry.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %firmware_end.i)
-  call void @g_free(ptr noundef nonnull %call) #11
+  call void @g_free(ptr noundef nonnull %call) #12
   br label %if.end
 
 if.end:                                           ; preds = %riscv_load_firmware.exit, %entry
@@ -250,11 +250,11 @@ entry:
   br i1 %cmp.not, label %if.else, label %do.end
 
 if.else:                                          ; preds = %entry
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.7, i32 noundef 156, ptr noundef nonnull @__func__.riscv_load_firmware, ptr noundef nonnull @.str.8) #13
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.7, i32 noundef 156, ptr noundef nonnull @__func__.riscv_load_firmware, ptr noundef nonnull @.str.8) #15
   unreachable
 
 do.end:                                           ; preds = %entry
-  %call = call i64 @load_elf_ram_sym(ptr noundef nonnull %firmware_filename, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %firmware_entry, ptr noundef null, ptr noundef nonnull %firmware_end, ptr noundef null, i32 noundef 0, i32 noundef 243, i32 noundef 1, i32 noundef 0, ptr noundef null, i1 noundef zeroext true, ptr noundef %sym_cb) #11
+  %call = call i64 @load_elf_ram_sym(ptr noundef nonnull %firmware_filename, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %firmware_entry, ptr noundef null, ptr noundef nonnull %firmware_end, ptr noundef null, i32 noundef 0, i32 noundef 243, i32 noundef 1, i32 noundef 0, ptr noundef null, i1 noundef zeroext true, ptr noundef %sym_cb) #12
   %cmp1 = icmp sgt i64 %call, 0
   br i1 %cmp1, label %if.then2, label %if.end3
 
@@ -266,7 +266,7 @@ if.end3:                                          ; preds = %do.end
   %1 = load ptr, ptr @current_machine, align 8
   %ram_size = getelementptr inbounds i8, ptr %1, i64 144
   %2 = load i64, ptr %ram_size, align 8
-  %call4 = call i64 @load_image_targphys_as(ptr noundef nonnull %firmware_filename, i64 noundef %firmware_load_addr, i64 noundef %2, ptr noundef null) #11
+  %call4 = call i64 @load_image_targphys_as(ptr noundef nonnull %firmware_filename, i64 noundef %firmware_load_addr, i64 noundef %2, ptr noundef null) #12
   %cmp5 = icmp sgt i64 %call4, 0
   br i1 %cmp5, label %if.then6, label %if.end7
 
@@ -275,8 +275,8 @@ if.then6:                                         ; preds = %if.end3
   br label %return
 
 if.end7:                                          ; preds = %if.end3
-  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.9, ptr noundef nonnull %firmware_filename) #11
-  call void @exit(i32 noundef 1) #13
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.9, ptr noundef nonnull %firmware_filename) #12
+  call void @exit(i32 noundef 1) #14
   unreachable
 
 return:                                           ; preds = %if.then6, %if.then2
@@ -295,7 +295,7 @@ declare i64 @load_image_targphys_as(ptr noundef, i64 noundef, i64 noundef, ptr n
 
 declare void @error_report(ptr noundef, ...) local_unnamed_addr #3
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -311,11 +311,11 @@ entry:
   br i1 %cmp.not, label %if.else, label %do.end
 
 if.else:                                          ; preds = %entry
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.7, i32 noundef 226, ptr noundef nonnull @__func__.riscv_load_kernel, ptr noundef nonnull @.str.10) #13
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.7, i32 noundef 226, ptr noundef nonnull @__func__.riscv_load_kernel, ptr noundef nonnull @.str.10) #15
   unreachable
 
 do.end:                                           ; preds = %entry
-  %call = call i64 @load_elf_ram_sym(ptr noundef nonnull %0, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %kernel_load_base, ptr noundef null, ptr noundef null, i32 noundef 0, i32 noundef 243, i32 noundef 1, i32 noundef 0, ptr noundef null, i1 noundef zeroext true, ptr noundef %sym_cb) #11
+  %call = call i64 @load_elf_ram_sym(ptr noundef nonnull %0, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %kernel_load_base, ptr noundef null, ptr noundef null, i32 noundef 0, i32 noundef 243, i32 noundef 1, i32 noundef 0, ptr noundef null, i1 noundef zeroext true, ptr noundef %sym_cb) #12
   %cmp3 = icmp sgt i64 %call, 0
   br i1 %cmp3, label %if.then4, label %if.end5
 
@@ -325,7 +325,7 @@ if.then4:                                         ; preds = %do.end
   br label %out
 
 if.end5:                                          ; preds = %do.end
-  %call6 = call i64 @load_uimage_as(ptr noundef nonnull %0, ptr noundef nonnull %kernel_entry, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null) #11
+  %call6 = call i64 @load_uimage_as(ptr noundef nonnull %0, ptr noundef nonnull %kernel_entry, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null) #12
   %cmp7 = icmp sgt i64 %call6, 0
   br i1 %cmp7, label %out, label %if.end9
 
@@ -333,7 +333,7 @@ if.end9:                                          ; preds = %if.end5
   %3 = load ptr, ptr @current_machine, align 8
   %ram_size = getelementptr inbounds i8, ptr %3, i64 144
   %4 = load i64, ptr %ram_size, align 8
-  %call10 = call i64 @load_image_targphys_as(ptr noundef nonnull %0, i64 noundef %kernel_start_addr, i64 noundef %4, ptr noundef null) #11
+  %call10 = call i64 @load_image_targphys_as(ptr noundef nonnull %0, i64 noundef %kernel_start_addr, i64 noundef %4, ptr noundef null) #12
   %cmp11 = icmp sgt i64 %call10, 0
   br i1 %cmp11, label %if.then12, label %if.end13
 
@@ -342,8 +342,8 @@ if.then12:                                        ; preds = %if.end9
   br label %out
 
 if.end13:                                         ; preds = %if.end9
-  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.11, ptr noundef nonnull %0) #11
-  call void @exit(i32 noundef 1) #13
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.11, ptr noundef nonnull %0) #12
+  call void @exit(i32 noundef 1) #14
   unreachable
 
 out:                                              ; preds = %if.end5, %if.then12, %if.then4
@@ -378,18 +378,18 @@ do.end.i:                                         ; preds = %land.lhs.true
   %cond.i = call i64 @llvm.umin.i64(i64 %div20.i, i64 134217728)
   %add.i = add i64 %cond.i, %9
   %sub.i = sub i64 %11, %add.i
-  %call.i = call i64 @load_ramdisk(ptr noundef nonnull %8, i64 noundef %add.i, i64 noundef %sub.i) #11
+  %call.i = call i64 @load_ramdisk(ptr noundef nonnull %8, i64 noundef %add.i, i64 noundef %sub.i) #12
   %cmp3.i = icmp eq i64 %call.i, -1
   br i1 %cmp3.i, label %if.then4.i, label %if.end10.i
 
 if.then4.i:                                       ; preds = %do.end.i
-  %call6.i = call i64 @load_image_targphys(ptr noundef nonnull %8, i64 noundef %add.i, i64 noundef %sub.i) #11
+  %call6.i = call i64 @load_image_targphys(ptr noundef nonnull %8, i64 noundef %add.i, i64 noundef %sub.i) #12
   %cmp7.i = icmp eq i64 %call6.i, -1
   br i1 %cmp7.i, label %if.then8.i, label %if.end10.i
 
 if.then8.i:                                       ; preds = %if.then4.i
-  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.27, ptr noundef nonnull %8) #11
-  call void @exit(i32 noundef 1) #13
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.27, ptr noundef nonnull %8) #12
+  call void @exit(i32 noundef 1) #14
   unreachable
 
 if.end10.i:                                       ; preds = %if.then4.i, %do.end.i
@@ -400,9 +400,9 @@ if.end10.i:                                       ; preds = %if.then4.i, %do.end
 if.then11.i:                                      ; preds = %if.end10.i
   %add12.i = add i64 %size.0.i, %add.i
   %conv.i = trunc i64 %add.i to i32
-  %call13.i = call i32 @qemu_fdt_setprop_cell(ptr noundef nonnull %10, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.28, i32 noundef %conv.i) #11
+  %call13.i = call i32 @qemu_fdt_setprop_cell(ptr noundef nonnull %10, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.28, i32 noundef %conv.i) #12
   %conv14.i = trunc i64 %add12.i to i32
-  %call15.i = call i32 @qemu_fdt_setprop_cell(ptr noundef nonnull %10, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.29, i32 noundef %conv14.i) #11
+  %call15.i = call i32 @qemu_fdt_setprop_cell(ptr noundef nonnull %10, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.29, i32 noundef %conv14.i) #12
   br label %if.end20
 
 if.end20:                                         ; preds = %if.then11.i, %if.end10.i, %land.lhs.true, %if.end17
@@ -421,7 +421,7 @@ land.lhs.true24:                                  ; preds = %land.lhs.true22
   br i1 %tobool26.not, label %if.end30, label %if.then27
 
 if.then27:                                        ; preds = %land.lhs.true24
-  %call29 = call i32 @qemu_fdt_setprop_string(ptr noundef nonnull %1, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, ptr noundef nonnull %12) #11
+  %call29 = call i32 @qemu_fdt_setprop_string(ptr noundef nonnull %1, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, ptr noundef nonnull %12) #12
   br label %if.end30
 
 if.end30:                                         ; preds = %if.then27, %land.lhs.true24, %land.lhs.true22, %if.end20
@@ -438,12 +438,12 @@ define dso_local range(i64 0, -2097151) i64 @riscv_compute_fdt_addr(i64 noundef 
 entry:
   %fdt = getelementptr inbounds i8, ptr %ms, i64 40
   %0 = load ptr, ptr %fdt, align 8
-  %call = tail call i32 @fdt_pack(ptr noundef %0) #11
+  %call = tail call i32 @fdt_pack(ptr noundef %0) #12
   %cmp = icmp eq i32 %call, 0
   br i1 %cmp, label %do.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.7, i32 noundef 301, ptr noundef nonnull @__func__.riscv_compute_fdt_addr, ptr noundef nonnull @.str.14) #13
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.7, i32 noundef 301, ptr noundef nonnull @__func__.riscv_compute_fdt_addr, ptr noundef nonnull @.str.14) #15
   unreachable
 
 do.end:                                           ; preds = %entry
@@ -470,8 +470,8 @@ do.end:                                           ; preds = %entry
   br i1 %cmp3, label %if.then4, label %if.end5
 
 if.then4:                                         ; preds = %do.end
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.15) #11
-  tail call void @exit(i32 noundef 1) #13
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.15) #12
+  tail call void @exit(i32 noundef 1) #14
   unreachable
 
 if.end5:                                          ; preds = %do.end
@@ -513,11 +513,11 @@ entry:
   %3 = load i8, ptr %arrayidx8.i, align 1
   %conv9.i = zext i8 %3 to i32
   %or10.i = or disjoint i32 %or7.i, %conv9.i
-  tail call void @qemu_fdt_dumpdtb(ptr noundef %fdt, i32 noundef %or10.i) #11
+  tail call void @qemu_fdt_dumpdtb(ptr noundef %fdt, i32 noundef %or10.i) #12
   %conv = zext i32 %or10.i to i64
-  %call2 = tail call ptr @rom_add_blob(ptr noundef nonnull @.str.16, ptr noundef %fdt, i64 noundef %conv, i64 noundef %conv, i64 noundef %fdt_addr, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull @address_space_memory, i1 noundef zeroext true) #11
-  %call4 = tail call ptr @rom_ptr_for_as(ptr noundef nonnull @address_space_memory, i64 noundef %fdt_addr, i64 noundef %conv) #11
-  tail call void @qemu_register_reset_nosnapshotload(ptr noundef nonnull @qemu_fdt_randomize_seeds, ptr noundef %call4) #11
+  %call2 = tail call ptr @rom_add_blob(ptr noundef nonnull @.str.16, ptr noundef %fdt, i64 noundef %conv, i64 noundef %conv, i64 noundef %fdt_addr, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull @address_space_memory, i1 noundef zeroext true) #12
+  %call4 = tail call ptr @rom_ptr_for_as(ptr noundef nonnull @address_space_memory, i64 noundef %fdt_addr, i64 noundef %conv) #12
+  tail call void @qemu_register_reset_nosnapshotload(ptr noundef nonnull @qemu_fdt_randomize_seeds, ptr noundef %call4) #12
   ret void
 }
 
@@ -550,13 +550,13 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.17) #11
-  tail call void @exit(i32 noundef 1) #13
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.17) #12
+  tail call void @exit(i32 noundef 1) #14
   unreachable
 
 if.end:                                           ; preds = %entry
   %add = add i64 %conv, %rom_base
-  %call6 = call ptr @rom_add_blob(ptr noundef nonnull @.str.18, ptr noundef nonnull %dinfo, i64 noundef 48, i64 noundef 48, i64 noundef %add, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull @address_space_memory, i1 noundef zeroext true) #11
+  %call6 = call ptr @rom_add_blob(ptr noundef nonnull @.str.18, ptr noundef nonnull %dinfo, i64 noundef 48, i64 noundef 48, i64 noundef %add, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull @address_space_memory, i1 noundef zeroext true) #12
   ret void
 }
 
@@ -609,7 +609,7 @@ if.then21:                                        ; preds = %entry
   br label %if.end23
 
 if.end23:                                         ; preds = %if.then21, %entry
-  %call30 = call ptr @rom_add_blob(ptr noundef nonnull @.str.19, ptr noundef nonnull %reset_vec, i64 noundef 40, i64 noundef 40, i64 noundef %rom_base, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull @address_space_memory, i1 noundef zeroext true) #11
+  %call30 = call ptr @rom_add_blob(ptr noundef nonnull @.str.19, ptr noundef nonnull %reset_vec, i64 noundef 40, i64 noundef 40, i64 noundef %rom_base, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull @address_space_memory, i1 noundef zeroext true) #12
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %dinfo.i)
   store i64 1229083471, ptr %dinfo.i, align 8
   %version.i = getelementptr inbounds i8, ptr %dinfo.i, i64 8
@@ -625,13 +625,13 @@ if.end23:                                         ; preds = %if.then21, %entry
   br i1 %cmp.i12, label %if.then.i, label %riscv_rom_copy_firmware_info.exit
 
 if.then.i:                                        ; preds = %if.end23
-  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.17) #11
-  call void @exit(i32 noundef 1) #13
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.17) #12
+  call void @exit(i32 noundef 1) #14
   unreachable
 
 riscv_rom_copy_firmware_info.exit:                ; preds = %if.end23
   %add.i = add i64 %rom_base, 40
-  %call6.i = call ptr @rom_add_blob(ptr noundef nonnull @.str.18, ptr noundef nonnull %dinfo.i, i64 noundef 48, i64 noundef 48, i64 noundef %add.i, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull @address_space_memory, i1 noundef zeroext true) #11
+  %call6.i = call ptr @rom_add_blob(ptr noundef nonnull @.str.18, ptr noundef nonnull %dinfo.i, i64 noundef 48, i64 noundef 48, i64 noundef %add.i, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull @address_space_memory, i1 noundef zeroext true) #12
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %dinfo.i)
   ret void
 }
@@ -640,21 +640,21 @@ riscv_rom_copy_firmware_info.exit:                ; preds = %if.end23
 define dso_local void @riscv_setup_direct_kernel(i64 noundef %kernel_addr, i64 noundef %fdt_addr) local_unnamed_addr #1 {
 entry:
   %0 = load atomic i64, ptr @cpus_queue monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !7
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !7
   %tobool.not4 = icmp eq i64 %0, 0
   br i1 %tobool.not4, label %for.end, label %for.body
 
 for.body:                                         ; preds = %entry, %for.body
   %cs.0.in5 = phi i64 [ %1, %for.body ], [ %0, %entry ]
   %cs.0 = inttoptr i64 %cs.0.in5 to ptr
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %cs.0, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU) #11
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %cs.0, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU) #12
   %kernel_addr1 = getelementptr inbounds i8, ptr %call.i, i64 18952
   store i64 %kernel_addr, ptr %kernel_addr1, align 8
   %fdt_addr3 = getelementptr inbounds i8, ptr %call.i, i64 18960
   store i64 %fdt_addr, ptr %fdt_addr3, align 16
   %node = getelementptr inbounds i8, ptr %cs.0, i64 568
   %1 = load atomic i64, ptr %node monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !8
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !8
   %tobool.not = icmp eq i64 %1, 0
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !9
 
@@ -671,32 +671,32 @@ entry:
   br i1 %tobool.not, label %if.end10, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call = tail call ptr @fw_cfg_find() #11
+  %call = tail call ptr @fw_cfg_find() #12
   %tobool1.not = icmp eq ptr %call, null
   br i1 %tobool1.not, label %if.else, label %if.end
 
 if.else:                                          ; preds = %if.then
-  tail call void @__assert_fail(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.7, i32 noundef 453, ptr noundef nonnull @__PRETTY_FUNCTION__.riscv_setup_firmware_boot) #13
+  tail call void @__assert_fail(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.7, i32 noundef 453, ptr noundef nonnull @__PRETTY_FUNCTION__.riscv_setup_firmware_boot) #15
   unreachable
 
 if.end:                                           ; preds = %if.then
   %1 = load ptr, ptr %kernel_filename, align 8
-  tail call void @load_image_to_fw_cfg(ptr noundef nonnull %call, i16 noundef zeroext 8, i16 noundef zeroext 17, ptr noundef %1, i1 noundef zeroext true) #11
+  tail call void @load_image_to_fw_cfg(ptr noundef nonnull %call, i16 noundef zeroext 8, i16 noundef zeroext 17, ptr noundef %1, i1 noundef zeroext true) #12
   %initrd_filename = getelementptr inbounds i8, ptr %machine, i64 256
   %2 = load ptr, ptr %initrd_filename, align 8
-  tail call void @load_image_to_fw_cfg(ptr noundef nonnull %call, i16 noundef zeroext 11, i16 noundef zeroext 18, ptr noundef %2, i1 noundef zeroext false) #11
+  tail call void @load_image_to_fw_cfg(ptr noundef nonnull %call, i16 noundef zeroext 11, i16 noundef zeroext 18, ptr noundef %2, i1 noundef zeroext false) #12
   %kernel_cmdline = getelementptr inbounds i8, ptr %machine, i64 248
   %3 = load ptr, ptr %kernel_cmdline, align 8
   %tobool4.not = icmp eq ptr %3, null
   br i1 %tobool4.not, label %if.end10, label %if.then5
 
 if.then5:                                         ; preds = %if.end
-  %call7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #12
+  %call7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #13
   %4 = trunc i64 %call7 to i32
   %conv = add i32 %4, 1
-  tail call void @fw_cfg_add_i32(ptr noundef nonnull %call, i16 noundef zeroext 20, i32 noundef %conv) #11
+  tail call void @fw_cfg_add_i32(ptr noundef nonnull %call, i16 noundef zeroext 20, i32 noundef %conv) #12
   %5 = load ptr, ptr %kernel_cmdline, align 8
-  tail call void @fw_cfg_add_string(ptr noundef nonnull %call, i16 noundef zeroext 21, ptr noundef %5) #11
+  tail call void @fw_cfg_add_string(ptr noundef nonnull %call, i16 noundef zeroext 21, ptr noundef %5) #12
   br label %if.end10
 
 if.end10:                                         ; preds = %if.end, %if.then5, %entry
@@ -706,7 +706,7 @@ if.end10:                                         ; preds = %if.end, %if.then5, 
 declare ptr @fw_cfg_find() local_unnamed_addr #3
 
 ; Function Attrs: noreturn nounwind
-declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #6
+declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #7
 
 declare void @load_image_to_fw_cfg(ptr noundef, i16 noundef zeroext, i16 noundef zeroext, ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
 
@@ -728,16 +728,16 @@ declare i64 @load_image_targphys(ptr noundef, i64 noundef, i64 noundef) local_un
 declare i32 @qemu_fdt_setprop_cell(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #7
+declare i64 @llvm.umin.i64(i64, i64) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -745,14 +745,16 @@ attributes #2 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true"
 attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #10 = { nounwind allocsize(0,1) }
-attributes #11 = { nounwind }
-attributes #12 = { nounwind willreturn memory(read) }
-attributes #13 = { noreturn nounwind }
+attributes #6 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #11 = { nounwind allocsize(0,1) }
+attributes #12 = { nounwind }
+attributes #13 = { nounwind willreturn memory(read) }
+attributes #14 = { cold noreturn nounwind }
+attributes #15 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

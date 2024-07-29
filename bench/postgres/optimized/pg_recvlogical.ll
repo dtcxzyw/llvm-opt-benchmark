@@ -291,7 +291,7 @@ sub_293:                                          ; preds = %sub_192
   br i1 %57, label %59, label %58
 
 58:                                               ; preds = %55
-  call void @exit(i32 noundef 1) #15
+  call void @exit(i32 noundef 1) #16
   unreachable
 
 59:                                               ; preds = %55
@@ -355,7 +355,7 @@ sub_293:                                          ; preds = %sub_192
 84:                                               ; preds = %81
   %85 = load ptr, ptr @optarg, align 8
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.32, ptr noundef %85) #13
-  call void @exit(i32 noundef 1) #15
+  call void @exit(i32 noundef 1) #16
   unreachable
 
 86:                                               ; preds = %81
@@ -377,7 +377,7 @@ sub_293:                                          ; preds = %sub_192
 96:                                               ; preds = %93
   %97 = load ptr, ptr @optarg, align 8
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.33, ptr noundef %97) #13
-  call void @exit(i32 noundef 1) #15
+  call void @exit(i32 noundef 1) #16
   unreachable
 
 98:                                               ; preds = %93
@@ -432,7 +432,7 @@ sub_293:                                          ; preds = %sub_192
   br i1 %126, label %128, label %127
 
 127:                                              ; preds = %124
-  call void @exit(i32 noundef 1) #15
+  call void @exit(i32 noundef 1) #16
   unreachable
 
 128:                                              ; preds = %124
@@ -469,7 +469,7 @@ sub_293:                                          ; preds = %sub_192
 138:                                              ; preds = %50
   %139 = load ptr, ptr @progname, align 8
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 2, ptr noundef nonnull @.str.35, ptr noundef %139) #13
-  call void @exit(i32 noundef 1) #15
+  call void @exit(i32 noundef 1) #16
   unreachable
 
 140:                                              ; preds = %50
@@ -484,7 +484,7 @@ sub_293:                                          ; preds = %sub_192
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.36, ptr noundef %146) #13
   %147 = load ptr, ptr @progname, align 8
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 2, ptr noundef nonnull @.str.35, ptr noundef %147) #13
-  call void @exit(i32 noundef 1) #15
+  call void @exit(i32 noundef 1) #16
   unreachable
 
 148:                                              ; preds = %140
@@ -496,7 +496,7 @@ sub_293:                                          ; preds = %sub_192
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.37) #13
   %152 = load ptr, ptr @progname, align 8
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 2, ptr noundef nonnull @.str.35, ptr noundef %152) #13
-  call void @exit(i32 noundef 1) #15
+  call void @exit(i32 noundef 1) #16
   unreachable
 
 153:                                              ; preds = %148
@@ -510,7 +510,7 @@ sub_293:                                          ; preds = %sub_192
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.38) #13
   %157 = load ptr, ptr @progname, align 8
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 2, ptr noundef nonnull @.str.35, ptr noundef %157) #13
-  call void @exit(i32 noundef 1) #15
+  call void @exit(i32 noundef 1) #16
   unreachable
 
 158:                                              ; preds = %153
@@ -524,7 +524,7 @@ sub_293:                                          ; preds = %sub_192
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.39) #13
   %162 = load ptr, ptr @progname, align 8
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 2, ptr noundef nonnull @.str.35, ptr noundef %162) #13
-  call void @exit(i32 noundef 1) #15
+  call void @exit(i32 noundef 1) #16
   unreachable
 
 163:                                              ; preds = %158
@@ -537,7 +537,7 @@ sub_293:                                          ; preds = %sub_192
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.40) #13
   %165 = load ptr, ptr @progname, align 8
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 2, ptr noundef nonnull @.str.35, ptr noundef %165) #13
-  call void @exit(i32 noundef 1) #15
+  call void @exit(i32 noundef 1) #16
   unreachable
 
 166:                                              ; preds = %163
@@ -550,7 +550,7 @@ sub_293:                                          ; preds = %sub_192
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.41) #13
   %169 = load ptr, ptr @progname, align 8
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 2, ptr noundef nonnull @.str.35, ptr noundef %169) #13
-  call void @exit(i32 noundef 1) #15
+  call void @exit(i32 noundef 1) #16
   unreachable
 
 170:                                              ; preds = %166
@@ -568,7 +568,7 @@ sub_293:                                          ; preds = %sub_192
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.42) #13
   %173 = load ptr, ptr @progname, align 8
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 2, ptr noundef nonnull @.str.35, ptr noundef %173) #13
-  call void @exit(i32 noundef 1) #15
+  call void @exit(i32 noundef 1) #16
   unreachable
 
 174:                                              ; preds = %170
@@ -586,7 +586,7 @@ sub_293:                                          ; preds = %sub_192
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.43) #13
   %177 = load ptr, ptr @progname, align 8
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 2, ptr noundef nonnull @.str.35, ptr noundef %177) #13
-  call void @exit(i32 noundef 1) #15
+  call void @exit(i32 noundef 1) #16
   unreachable
 
 178:                                              ; preds = %174
@@ -603,7 +603,7 @@ sub_293:                                          ; preds = %sub_192
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.44) #13
   %179 = load ptr, ptr @progname, align 8
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 2, ptr noundef nonnull @.str.35, ptr noundef %179) #13
-  call void @exit(i32 noundef 1) #15
+  call void @exit(i32 noundef 1) #16
   unreachable
 
 180:                                              ; preds = %178, %.thread83
@@ -613,7 +613,7 @@ sub_293:                                          ; preds = %sub_192
   br i1 %.not54, label %182, label %183
 
 182:                                              ; preds = %180
-  call void @exit(i32 noundef 1) #15
+  call void @exit(i32 noundef 1) #16
   unreachable
 
 183:                                              ; preds = %180
@@ -626,7 +626,7 @@ sub_293:                                          ; preds = %sub_192
   br i1 %189, label %191, label %190
 
 190:                                              ; preds = %183
-  call void @exit(i32 noundef 1) #15
+  call void @exit(i32 noundef 1) #16
   unreachable
 
 191:                                              ; preds = %183
@@ -636,7 +636,7 @@ sub_293:                                          ; preds = %sub_192
 
 194:                                              ; preds = %191
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.45) #13
-  call void @exit(i32 noundef 1) #15
+  call void @exit(i32 noundef 1) #16
   unreachable
 
 195:                                              ; preds = %191
@@ -662,7 +662,7 @@ sub_293:                                          ; preds = %sub_192
   br i1 %205, label %207, label %206
 
 206:                                              ; preds = %202
-  call void @exit(i32 noundef 1) #15
+  call void @exit(i32 noundef 1) #16
   unreachable
 
 207:                                              ; preds = %202, %195
@@ -689,7 +689,7 @@ sub_293:                                          ; preds = %sub_192
   br i1 %216, label %218, label %217
 
 217:                                              ; preds = %212
-  call void @exit(i32 noundef 1) #15
+  call void @exit(i32 noundef 1) #16
   unreachable
 
 218:                                              ; preds = %212
@@ -885,7 +885,7 @@ sub_293:                                          ; preds = %sub_192
 295:                                              ; preds = %292
   %296 = load ptr, ptr @outfile, align 8
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.107, ptr noundef %296) #13
-  call void @exit(i32 noundef 1) #15
+  call void @exit(i32 noundef 1) #16
   unreachable
 
 OutputFsync.exit.i:                               ; preds = %292, %289, %288, %284, %280, %277
@@ -964,7 +964,7 @@ sub_1.i:                                          ; preds = %sub_0.i
 328:                                              ; preds = %325
   %329 = load ptr, ptr @outfile, align 8
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.107, ptr noundef %329) #13
-  call void @exit(i32 noundef 1) #15
+  call void @exit(i32 noundef 1) #16
   unreachable
 
 OutputFsync.exit157.i:                            ; preds = %325, %322, %321, %316
@@ -1145,7 +1145,7 @@ sub_1164.i:                                       ; preds = %sub_0163.i
   br i1 %417, label %418, label %.critedge.i
 
 418:                                              ; preds = %416
-  %419 = tail call ptr @__errno_location() #16
+  %419 = tail call ptr @__errno_location() #17
   %420 = load i32, ptr %419, align 4
   %421 = icmp eq i32 %420, 4
   br i1 %421, label %.backedge.i, label %423
@@ -1239,7 +1239,7 @@ sub_1164.i:                                       ; preds = %sub_0163.i
 461:                                              ; preds = %458
   %462 = load ptr, ptr @outfile, align 8
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.107, ptr noundef %462) #13
-  call void @exit(i32 noundef 1) #15
+  call void @exit(i32 noundef 1) #16
   unreachable
 
 flushAndSendFeedback.exit.i:                      ; preds = %458, %455, %454, %450
@@ -1301,7 +1301,7 @@ flushAndSendFeedback.exit.i:                      ; preds = %458, %455, %454, %4
 488:                                              ; preds = %485
   %489 = load ptr, ptr @outfile, align 8
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.107, ptr noundef %489) #13
-  call void @exit(i32 noundef 1) #15
+  call void @exit(i32 noundef 1) #16
   unreachable
 
 flushAndSendFeedback.exit75:                      ; preds = %476, %481, %482, %485
@@ -1388,7 +1388,7 @@ flushAndSendFeedback.exit75:                      ; preds = %476, %481, %482, %4
 528:                                              ; preds = %525
   %529 = load ptr, ptr @outfile, align 8
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.107, ptr noundef %529) #13
-  call void @exit(i32 noundef 1) #15
+  call void @exit(i32 noundef 1) #16
   unreachable
 
 flushAndSendFeedback.exit:                        ; preds = %516, %521, %522, %525
@@ -1545,7 +1545,7 @@ sub_0167.i:                                       ; preds = %574
 592:                                              ; preds = %589
   %593 = load ptr, ptr @outfile, align 8
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.107, ptr noundef %593) #13
-  call void @exit(i32 noundef 1) #15
+  call void @exit(i32 noundef 1) #16
   unreachable
 
 OutputFsync.exit:                                 ; preds = %.tail166.thread.i, %585, %586, %589
@@ -1601,7 +1601,7 @@ StreamLogicalLog.exit:                            ; preds = %225, %601
 
 606:                                              ; preds = %605
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.48) #13
-  call void @exit(i32 noundef 1) #15
+  call void @exit(i32 noundef 1) #16
   unreachable
 
 607:                                              ; preds = %605
@@ -1662,7 +1662,7 @@ define internal fastcc void @usage() unnamed_addr #3 {
   ret void
 }
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
@@ -1883,7 +1883,7 @@ attributes #0 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vec
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nofree norecurse nounwind memory(readwrite, argmem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1895,7 +1895,8 @@ attributes #12 = { nocallback nofree nosync nounwind willreturn memory(argmem: r
 attributes #13 = { nounwind }
 attributes #14 = { nounwind willreturn memory(read) }
 attributes #15 = { noreturn nounwind }
-attributes #16 = { nounwind willreturn memory(none) }
+attributes #16 = { cold noreturn nounwind }
+attributes #17 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

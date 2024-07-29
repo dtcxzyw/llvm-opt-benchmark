@@ -212,7 +212,7 @@ _set_exit_code.exit:                              ; preds = %28, %33, %35
 
 56:                                               ; preds = %53, %50, %48
   %57 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.47, ptr noundef nonnull %46) #15
-  tail call void @exit(i32 noundef 1) #17
+  tail call void @exit(i32 noundef 1) #18
   unreachable
 
 58:                                               ; preds = %53
@@ -812,7 +812,7 @@ _reorder_het_job_recs.exit.i:                     ; preds = %.thread.i.i, %266
   br i1 %318, label %.lr.ph270.i, label %._crit_edge271.i
 
 319:                                              ; preds = %316
-  %320 = tail call ptr @__errno_location() #18
+  %320 = tail call ptr @__errno_location() #19
   store i32 %315, ptr %320, align 4
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.9, i32 noundef 493, ptr noundef nonnull @__func__._launch_app) #17
   unreachable
@@ -823,7 +823,7 @@ _reorder_het_job_recs.exit.i:                     ; preds = %.thread.i.i, %266
   br i1 %.not208.i, label %325, label %322
 
 322:                                              ; preds = %.lr.ph270.i
-  %323 = tail call ptr @__errno_location() #18
+  %323 = tail call ptr @__errno_location() #19
   store i32 %321, ptr %323, align 4
   %324 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.9, i32 noundef 495, ptr noundef nonnull @__func__._launch_app) #15
   br label %325
@@ -839,7 +839,7 @@ _reorder_het_job_recs.exit.i:                     ; preds = %.thread.i.i, %266
   br i1 %.not206.i, label %331, label %329
 
 329:                                              ; preds = %._crit_edge271.i
-  %330 = tail call ptr @__errno_location() #18
+  %330 = tail call ptr @__errno_location() #19
   store i32 %328, ptr %330, align 4
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.9, i32 noundef 496, ptr noundef nonnull @__func__._launch_app) #17
   unreachable
@@ -863,7 +863,7 @@ _reorder_het_job_recs.exit.i:                     ; preds = %.thread.i.i, %266
   br i1 %.not205.i, label %340, label %338
 
 338:                                              ; preds = %337
-  %339 = tail call ptr @__errno_location() #18
+  %339 = tail call ptr @__errno_location() #19
   store i32 %315, ptr %339, align 4
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.9, i32 noundef 507, ptr noundef nonnull @__func__._launch_app) #17
   unreachable
@@ -877,7 +877,7 @@ _reorder_het_job_recs.exit.i:                     ; preds = %.thread.i.i, %266
   br i1 %.not210.i, label %346, label %344
 
 344:                                              ; preds = %340
-  %345 = tail call ptr @__errno_location() #18
+  %345 = tail call ptr @__errno_location() #19
   store i32 %343, ptr %345, align 4
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.9, i32 noundef 509, ptr noundef nonnull @__func__._launch_app) #17
   unreachable
@@ -944,7 +944,7 @@ _reorder_het_job_recs.exit.i:                     ; preds = %.thread.i.i, %266
   br i1 %.not211.i, label %386, label %384
 
 384:                                              ; preds = %375
-  %385 = tail call ptr @__errno_location() #18
+  %385 = tail call ptr @__errno_location() #19
   store i32 %383, ptr %385, align 4
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.18) #17
   unreachable
@@ -955,7 +955,7 @@ _reorder_het_job_recs.exit.i:                     ; preds = %.thread.i.i, %266
   br i1 %.not212.i, label %391, label %388
 
 388:                                              ; preds = %386
-  %389 = tail call ptr @__errno_location() #18
+  %389 = tail call ptr @__errno_location() #19
   store i32 %387, ptr %389, align 4
   %390 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.19) #15
   br label %391
@@ -966,7 +966,7 @@ _reorder_het_job_recs.exit.i:                     ; preds = %.thread.i.i, %266
   br i1 %.not213.i, label %396, label %393
 
 393:                                              ; preds = %391
-  %394 = tail call ptr @__errno_location() #18
+  %394 = tail call ptr @__errno_location() #19
   store i32 %392, ptr %394, align 4
   %395 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.20) #15
   br label %396
@@ -977,7 +977,7 @@ _reorder_het_job_recs.exit.i:                     ; preds = %.thread.i.i, %266
   br i1 %.not214.i, label %400, label %398
 
 398:                                              ; preds = %396
-  %399 = tail call ptr @__errno_location() #18
+  %399 = tail call ptr @__errno_location() #19
   store i32 %397, ptr %399, align 4
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.21, ptr noundef nonnull @__func__._launch_app) #17
   unreachable
@@ -988,7 +988,7 @@ _reorder_het_job_recs.exit.i:                     ; preds = %.thread.i.i, %266
   br i1 %.not215.i, label %404, label %402
 
 402:                                              ; preds = %400
-  %403 = tail call ptr @__errno_location() #18
+  %403 = tail call ptr @__errno_location() #19
   store i32 %401, ptr %403, align 4
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.22, ptr noundef nonnull @__func__._launch_app) #17
   unreachable
@@ -999,7 +999,7 @@ _reorder_het_job_recs.exit.i:                     ; preds = %.thread.i.i, %266
   br i1 %.not216.i, label %409, label %406
 
 406:                                              ; preds = %404
-  %407 = tail call ptr @__errno_location() #18
+  %407 = tail call ptr @__errno_location() #19
   store i32 %405, ptr %407, align 4
   %408 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.23) #15
   br label %409
@@ -1025,7 +1025,7 @@ _reorder_het_job_recs.exit.i:                     ; preds = %.thread.i.i, %266
   br i1 %413, label %.lr.ph272.i, label %._crit_edge273.i
 
 414:                                              ; preds = %._crit_edge269.i
-  %415 = tail call ptr @__errno_location() #18
+  %415 = tail call ptr @__errno_location() #19
   store i32 %411, ptr %415, align 4
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.9, i32 noundef 549, ptr noundef nonnull @__func__._launch_app) #17
   unreachable
@@ -1036,7 +1036,7 @@ _reorder_het_job_recs.exit.i:                     ; preds = %.thread.i.i, %266
   br i1 %.not203.i, label %420, label %417
 
 417:                                              ; preds = %.lr.ph272.i
-  %418 = tail call ptr @__errno_location() #18
+  %418 = tail call ptr @__errno_location() #19
   store i32 %416, ptr %418, align 4
   %419 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.9, i32 noundef 551, ptr noundef nonnull @__func__._launch_app) #15
   br label %420
@@ -1052,7 +1052,7 @@ _reorder_het_job_recs.exit.i:                     ; preds = %.thread.i.i, %266
   br i1 %.not201.i, label %426, label %424
 
 424:                                              ; preds = %._crit_edge273.i
-  %425 = tail call ptr @__errno_location() #18
+  %425 = tail call ptr @__errno_location() #19
   store i32 %423, ptr %425, align 4
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.9, i32 noundef 552, ptr noundef nonnull @__func__._launch_app) #17
   unreachable
@@ -1308,7 +1308,7 @@ define internal noalias noundef ptr @_launch_one_app(ptr noundef %0) #0 {
   br i1 %.not, label %15, label %13
 
 13:                                               ; preds = %1
-  %14 = tail call ptr @__errno_location() #18
+  %14 = tail call ptr @__errno_location() #19
   store i32 %12, ptr %14, align 4
   tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.9, i32 noundef 273, ptr noundef nonnull @__func__._launch_one_app) #17
   unreachable
@@ -1328,7 +1328,7 @@ define internal noalias noundef ptr @_launch_one_app(ptr noundef %0) #0 {
   br i1 %.not52, label %20, label %18
 
 18:                                               ; preds = %16
-  %19 = tail call ptr @__errno_location() #18
+  %19 = tail call ptr @__errno_location() #19
   store i32 %17, ptr %19, align 4
   tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.9, i32 noundef 276, ptr noundef nonnull @__func__._launch_one_app) #17
   unreachable
@@ -1340,7 +1340,7 @@ define internal noalias noundef ptr @_launch_one_app(ptr noundef %0) #0 {
   br i1 %.not53, label %24, label %22
 
 22:                                               ; preds = %20
-  %23 = tail call ptr @__errno_location() #18
+  %23 = tail call ptr @__errno_location() #19
   store i32 %21, ptr %23, align 4
   tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.9, i32 noundef 280, ptr noundef nonnull @__func__._launch_one_app) #17
   unreachable
@@ -1352,7 +1352,7 @@ define internal noalias noundef ptr @_launch_one_app(ptr noundef %0) #0 {
   br i1 %.not54, label %.loopexit63, label %26
 
 26:                                               ; preds = %24
-  %27 = tail call ptr @__errno_location() #18
+  %27 = tail call ptr @__errno_location() #19
   store i32 %25, ptr %27, align 4
   %28 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.9, i32 noundef 282, ptr noundef nonnull @__func__._launch_one_app) #15
   br label %.loopexit63
@@ -1363,7 +1363,7 @@ define internal noalias noundef ptr @_launch_one_app(ptr noundef %0) #0 {
   br i1 %.not62, label %33, label %30
 
 30:                                               ; preds = %.lr.ph
-  %31 = tail call ptr @__errno_location() #18
+  %31 = tail call ptr @__errno_location() #19
   store i32 %29, ptr %31, align 4
   %32 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.9, i32 noundef 285, ptr noundef nonnull @__func__._launch_one_app) #15
   br label %33
@@ -1378,7 +1378,7 @@ define internal noalias noundef ptr @_launch_one_app(ptr noundef %0) #0 {
   br i1 %.not56, label %37, label %35
 
 35:                                               ; preds = %.loopexit63
-  %36 = tail call ptr @__errno_location() #18
+  %36 = tail call ptr @__errno_location() #19
   store i32 %34, ptr %36, align 4
   tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.9, i32 noundef 287, ptr noundef nonnull @__func__._launch_one_app) #17
   unreachable
@@ -1444,7 +1444,7 @@ define internal noalias noundef ptr @_launch_one_app(ptr noundef %0) #0 {
   br i1 %.not59, label %72, label %70
 
 70:                                               ; preds = %68
-  %71 = tail call ptr @__errno_location() #18
+  %71 = tail call ptr @__errno_location() #19
   store i32 %69, ptr %71, align 4
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.9, i32 noundef 309, ptr noundef nonnull @__func__._launch_one_app) #17
   unreachable
@@ -1462,7 +1462,7 @@ define internal noalias noundef ptr @_launch_one_app(ptr noundef %0) #0 {
   br i1 %.not60, label %83, label %80
 
 80:                                               ; preds = %72
-  %81 = tail call ptr @__errno_location() #18
+  %81 = tail call ptr @__errno_location() #19
   store i32 %79, ptr %81, align 4
   %82 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.9, i32 noundef 311, ptr noundef nonnull @__func__._launch_one_app) #15
   br label %83
@@ -1474,7 +1474,7 @@ define internal noalias noundef ptr @_launch_one_app(ptr noundef %0) #0 {
   br i1 %.not61, label %88, label %86
 
 86:                                               ; preds = %83
-  %87 = tail call ptr @__errno_location() #18
+  %87 = tail call ptr @__errno_location() #19
   store i32 %85, ptr %87, align 4
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.9, i32 noundef 312, ptr noundef nonnull @__func__._launch_one_app) #17
   unreachable
@@ -2043,7 +2043,7 @@ _uint16_array_to_str.exit:                        ; preds = %206, %._crit_edge.l
   br i1 %.not108, label %288, label %278
 
 278:                                              ; preds = %276
-  %279 = tail call ptr @__ctype_b_loc() #18
+  %279 = tail call ptr @__ctype_b_loc() #19
   %280 = load ptr, ptr %279, align 8
   %281 = sext i8 %277 to i64
   %282 = getelementptr inbounds i16, ptr %280, i64 %281
@@ -2149,10 +2149,10 @@ define internal void @_pty_restore() #0 {
 
 3:                                                ; preds = %0
   %4 = load ptr, ptr @stderr, align 8
-  %5 = tail call ptr @__errno_location() #18
+  %5 = tail call ptr @__errno_location() #19
   %6 = load i32, ptr %5, align 4
   %7 = tail call ptr @strerror(i32 noundef %6) #15
-  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.41, ptr noundef %7) #19
+  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.41, ptr noundef %7) #20
   br label %9
 
 9:                                                ; preds = %3, %0
@@ -2195,7 +2195,7 @@ declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #10
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #11
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #12
 
 declare i32 @xstrcmp(ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -2228,14 +2228,15 @@ attributes #8 = { mustprogress nofree nounwind willreturn memory(read) "frame-po
 attributes #9 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #15 = { nounwind }
 attributes #16 = { nounwind willreturn memory(read) }
 attributes #17 = { noreturn nounwind }
-attributes #18 = { nounwind willreturn memory(none) }
-attributes #19 = { cold nounwind }
+attributes #18 = { cold noreturn nounwind }
+attributes #19 = { nounwind willreturn memory(none) }
+attributes #20 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
 

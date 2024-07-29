@@ -493,7 +493,7 @@ declare i32 @close(i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind
 declare i32 @dup2(i32 noundef, i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
@@ -1875,7 +1875,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
   br i1 %.not, label %25, label %24
 
 24:                                               ; preds = %2
-  tail call void @exit(i32 noundef 2) #19
+  tail call void @exit(i32 noundef 2) #23
   unreachable
 
 25:                                               ; preds = %2
@@ -1998,7 +1998,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
 
 54:                                               ; preds = %.critedge
   %55 = load ptr, ptr @stderr, align 8
-  %56 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %55, ptr noundef nonnull @.str.60, ptr noundef %51) #23
+  %56 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %55, ptr noundef nonnull @.str.60, ptr noundef %51) #24
   br label %.thread253
 
 57:                                               ; preds = %.critedge
@@ -2605,7 +2605,7 @@ string_list_add.exit50.i:                         ; preds = %124
   %347 = call ptr @optget(ptr noundef %52, ptr noundef nonnull @.str.92) #17
   %348 = getelementptr inbounds i8, ptr %347, i64 16
   %349 = load ptr, ptr %348, align 8
-  %350 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %346, ptr noundef nonnull @.str.94, ptr noundef %349) #23
+  %350 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %346, ptr noundef nonnull @.str.94, ptr noundef %349) #24
   br label %.thread327
 
 351:                                              ; preds = %335
@@ -2625,12 +2625,12 @@ string_list_add.exit50.i:                         ; preds = %124
 359:                                              ; preds = %353
   %360 = load ptr, ptr @stderr, align 8
   %361 = load ptr, ptr %339, align 8
-  %362 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %360, ptr noundef nonnull @.str.96, ptr noundef %361) #23
+  %362 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %360, ptr noundef nonnull @.str.96, ptr noundef %361) #24
   %363 = load ptr, ptr @stderr, align 8
   %364 = tail call ptr @__errno_location() #18
   %365 = load i32, ptr %364, align 4
   %366 = call ptr @strerror(i32 noundef %365) #17
-  %367 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %363, ptr noundef nonnull @.str.97, ptr noundef %366) #23
+  %367 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %363, ptr noundef nonnull @.str.97, ptr noundef %366) #24
   %368 = load ptr, ptr %339, align 8
   %369 = load i32, ptr %364, align 4
   %370 = call ptr @strerror(i32 noundef %369) #17
@@ -3944,7 +3944,7 @@ attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protect
 attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -3962,7 +3962,8 @@ attributes #19 = { noreturn nounwind }
 attributes #20 = { nounwind allocsize(0,1) }
 attributes #21 = { nounwind willreturn memory(read) }
 attributes #22 = { nounwind allocsize(0) }
-attributes #23 = { cold nounwind }
+attributes #23 = { cold noreturn nounwind }
+attributes #24 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

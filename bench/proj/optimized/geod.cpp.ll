@@ -104,7 +104,7 @@ sub_2:                                            ; preds = %sub_1
   %28 = tail call noundef ptr @_Z14pj_get_releasev()
   %29 = load ptr, ptr getelementptr inbounds (i8, ptr @emess_dat, i64 8), align 8
   %30 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.16, ptr noundef %28, ptr noundef %29) #11
-  tail call void @exit(i32 noundef 0) #9
+  tail call void @exit(i32 noundef 0) #12
   unreachable
 
 .preheader108:                                    ; preds = %23, %120
@@ -298,7 +298,7 @@ sub_2:                                            ; preds = %sub_1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph137, %73, %.critedge, %101
-  tail call void @exit(i32 noundef 0) #9
+  tail call void @exit(i32 noundef 0) #12
   unreachable
 
 103:                                              ; preds = %.backedge
@@ -522,7 +522,7 @@ sub_2:                                            ; preds = %sub_1
 194:                                              ; preds = %185
   store double %190, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 32), align 8
   %195 = load ptr, ptr %4, align 8
-  %196 = call double @strtod(ptr noundef %195, ptr noundef nonnull %4) #12
+  %196 = call double @strtod(ptr noundef %195, ptr noundef nonnull %4) #13
   %197 = load double, ptr @to_meter, align 8
   %198 = fmul double %196, %197
   store double %198, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 64), align 8
@@ -792,11 +792,11 @@ _ZL7processP8_IO_FILE.exit:                       ; preds = %.backedge.i, %167
   br i1 %.not90, label %_ZL6do_arcv.exit, label %.lr.ph, !llvm.loop !11
 
 _ZL6do_arcv.exit:                                 ; preds = %.lr.ph.i, %360, %133, %150
-  call void @exit(i32 noundef 0) #9
+  call void @exit(i32 noundef 0) #12
   unreachable
 }
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
@@ -946,7 +946,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
 
 attributes #0 = { mustprogress norecurse noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -954,10 +954,11 @@ attributes #5 = { mustprogress norecurse uwtable "frame-pointer"="all" "min-lega
 attributes #6 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nofree nounwind willreturn memory(argmem: read) }
 attributes #8 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { noreturn nounwind }
+attributes #9 = { cold noreturn nounwind }
 attributes #10 = { nounwind willreturn memory(read) }
 attributes #11 = { cold nounwind }
-attributes #12 = { nounwind }
+attributes #12 = { noreturn nounwind }
+attributes #13 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

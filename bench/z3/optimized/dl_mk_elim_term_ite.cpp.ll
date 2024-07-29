@@ -2273,7 +2273,7 @@ sw.default.i.i.i:                                 ; preds = %if.end29.i.i.i
           to label %invoke.cont51.i.i.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i.i
 
 invoke.cont51.i.i.i:                              ; preds = %sw.default.i.i.i
-  call void @exit(i32 noundef 114) #17
+  call void @exit(i32 noundef 114) #20
   unreachable
 
 while.cond14.backedge.i.i.i:                      ; preds = %for.cond.i.i.i.i.i, %_ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit.i.i.i.i, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE8containsEPS0_.exit.i.i.i.i, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i.i.i.i.i, %land.lhs.true.i.i.i.i, %_Z17is_uninterp_constPK4expr.exit.i.i.i.i, %if.end29.i.i.i, %invoke.cont24.i.i.i
@@ -2588,7 +2588,7 @@ sw.default83.i.i.i:                               ; preds = %start.i.i.i
           to label %invoke.cont84.i.i.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i.i
 
 invoke.cont84.i.i.i:                              ; preds = %sw.default83.i.i.i
-  call void @exit(i32 noundef 114) #17
+  call void @exit(i32 noundef 114) #20
   unreachable
 
 sw.epilog85.i.i.i:                                ; preds = %for.cond.i.i193.i.i.i, %while.end80.i.i.i, %_ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit.i214.i.i.i, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE8containsEPS0_.exit.i200.i.i.i, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i.i188.i.i.i, %land.lhs.true.i185.i.i.i, %_Z17is_uninterp_constPK4expr.exit.i184.i.i.i, %land.lhs.true.i.i177.i.i.i, %while.end.i.i.i, %sw.bb.i.i.i
@@ -3445,7 +3445,7 @@ call2.i.i.noexc.i.i.i:                            ; preds = %_ZNK11ast_manager11
 
 if.then.i124.invoke.i.i.i:                        ; preds = %call2.i.i.noexc182.i.i.i, %call2.i.i.noexc.i.i.i
   %exception.i181.i.i.i = call ptr @__cxa_allocate_exception(i64 1) #19
-  invoke void @__cxa_throw(ptr %exception.i181.i.i.i, ptr nonnull @_ZTIN12_GLOBAL__N_113term_ite_proc5foundE, ptr null) #20
+  invoke void @__cxa_throw(ptr %exception.i181.i.i.i, ptr nonnull @_ZTIN12_GLOBAL__N_113term_ite_proc5foundE, ptr null) #21
           to label %if.then.i124.cont.i.i.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i.i
 
 if.then.i124.cont.i.i.i:                          ; preds = %if.then.i124.invoke.i.i.i
@@ -3512,7 +3512,7 @@ sw.default.i.i.i:                                 ; preds = %if.end38.i.i.i
           to label %invoke.cont65.i.i.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i.i
 
 invoke.cont65.i.i.i:                              ; preds = %sw.default.i.i.i
-  call void @exit(i32 noundef 114) #17
+  call void @exit(i32 noundef 114) #20
   unreachable
 
 while.cond21.backedge.i.i.i:                      ; preds = %call2.i.i.noexc.i.i.i, %_ZNK11ast_manager6is_iteEPK4expr.exit.i.i.i.i.i, %land.rhs.i.i.i.i.i.i.i, %if.end38.i.i.i, %invoke.cont33.i.i.i
@@ -3755,7 +3755,7 @@ sw.default102.i.i.i:                              ; preds = %start.i.i.i
           to label %invoke.cont103.i.i.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i.i
 
 invoke.cont103.i.i.i:                             ; preds = %sw.default102.i.i.i
-  call void @exit(i32 noundef 114) #17
+  call void @exit(i32 noundef 114) #20
   unreachable
 
 sw.epilog104.i.i.i:                               ; preds = %while.end97.i.i.i, %call2.i.i.noexc182.sw.epilog104_crit_edge.i.i.i, %_ZNK11ast_manager6is_iteEPK4expr.exit.i.i175.i.i.i, %land.rhs.i.i.i.i171.i.i.i, %while.end.i.i.i, %sw.bb.i.i.i
@@ -4582,7 +4582,7 @@ _ZN10ptr_bufferI3astLj16EED2Ev.exit:              ; preds = %invoke.cont, %if.en
 
 declare void @_Z26notify_assertion_violationPKciS0_(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -4673,7 +4673,7 @@ invoke.cont:                                      ; preds = %if.then17
   store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception, align 8
   %m_msg.i = getelementptr inbounds i8, ptr %exception, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
-  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #20
+  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #21
           to label %unreachable unwind label %ehcleanup
 
 ehcleanup:                                        ; preds = %invoke.cont
@@ -4721,7 +4721,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.4) #20
+  invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.4) #21
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
@@ -4912,7 +4912,7 @@ invoke.cont:                                      ; preds = %if.then17
   store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception, align 8
   %m_msg.i = getelementptr inbounds i8, ptr %exception, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
-  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #20
+  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #21
           to label %unreachable unwind label %ehcleanup
 
 ehcleanup:                                        ; preds = %invoke.cont
@@ -4984,7 +4984,7 @@ attributes #5 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="t
 attributes #6 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -4995,7 +4995,8 @@ attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn mem
 attributes #17 = { noreturn nounwind }
 attributes #18 = { builtin nounwind }
 attributes #19 = { nounwind }
-attributes #20 = { noreturn }
+attributes #20 = { cold noreturn nounwind }
+attributes #21 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

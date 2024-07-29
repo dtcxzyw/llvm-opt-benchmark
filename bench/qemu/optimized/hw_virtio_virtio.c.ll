@@ -295,7 +295,7 @@ entry:
   br i1 %tobool.not, label %out_no_cache, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call = tail call noalias dereferenceable_or_null(352) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 352) #20
+  %call = tail call noalias dereferenceable_or_null(352) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 352) #22
   %3 = load ptr, ptr %vq1, align 8
   %arrayidx.i = getelementptr %struct.VirtQueue, ptr %3, i64 %idxprom
   %4 = load i32, ptr %arrayidx.i, align 8
@@ -310,7 +310,7 @@ if.end:                                           ; preds = %entry
   %desc7 = getelementptr inbounds i8, ptr %call, i64 16
   %dma_as = getelementptr inbounds i8, ptr %vdev, i64 472
   %7 = load ptr, ptr %dma_as, align 8
-  %call9 = tail call i64 @address_space_cache_init(ptr noundef nonnull %desc7, ptr noundef %7, i64 noundef %2, i64 noundef %mul.i, i1 noundef zeroext %tobool.i.i) #21
+  %call9 = tail call i64 @address_space_cache_init(ptr noundef nonnull %desc7, ptr noundef %7, i64 noundef %2, i64 noundef %mul.i, i1 noundef zeroext %tobool.i.i) #23
   %cmp = icmp ult i64 %call9, %mul.i
   br i1 %cmp, label %if.then10, label %if.end11
 
@@ -343,7 +343,7 @@ virtio_queue_get_used_size.exit:                  ; preds = %if.end11, %if.end.i
   %11 = load ptr, ptr %dma_as, align 8
   %used15 = getelementptr inbounds i8, ptr %arrayidx, i64 32
   %12 = load i64, ptr %used15, align 8
-  %call16 = tail call i64 @address_space_cache_init(ptr noundef nonnull %used, ptr noundef %11, i64 noundef %12, i64 noundef %retval.0.i, i1 noundef zeroext true) #21
+  %call16 = tail call i64 @address_space_cache_init(ptr noundef nonnull %used, ptr noundef %11, i64 noundef %12, i64 noundef %retval.0.i, i1 noundef zeroext true) #23
   %cmp17 = icmp ult i64 %call16, %retval.0.i
   br i1 %cmp17, label %if.then18, label %if.end19
 
@@ -375,13 +375,13 @@ virtio_queue_get_avail_size.exit:                 ; preds = %if.end19, %if.end.i
   %15 = load ptr, ptr %dma_as, align 8
   %avail23 = getelementptr inbounds i8, ptr %arrayidx, i64 24
   %16 = load i64, ptr %avail23, align 8
-  %call24 = tail call i64 @address_space_cache_init(ptr noundef nonnull %avail, ptr noundef %15, i64 noundef %16, i64 noundef %retval.0.i44, i1 noundef zeroext false) #21
+  %call24 = tail call i64 @address_space_cache_init(ptr noundef nonnull %avail, ptr noundef %15, i64 noundef %16, i64 noundef %retval.0.i44, i1 noundef zeroext false) #23
   %cmp25 = icmp ult i64 %call24, %retval.0.i44
   br i1 %cmp25, label %if.then26, label %while.end
 
 if.then26:                                        ; preds = %virtio_queue_get_avail_size.exit
   tail call void (ptr, ptr, ...) @virtio_error(ptr noundef nonnull %vdev, ptr noundef nonnull @.str.41)
-  tail call void @address_space_cache_destroy(ptr noundef nonnull %avail) #21
+  tail call void @address_space_cache_destroy(ptr noundef nonnull %avail) #23
   br label %err_used
 
 while.end:                                        ; preds = %virtio_queue_get_avail_size.exit
@@ -391,16 +391,16 @@ while.end:                                        ; preds = %virtio_queue_get_av
   br i1 %tobool32.not, label %return, label %return.sink.split
 
 err_used:                                         ; preds = %if.then26, %if.then18
-  tail call void @address_space_cache_destroy(ptr noundef nonnull %used) #21
+  tail call void @address_space_cache_destroy(ptr noundef nonnull %used) #23
   br label %err_desc
 
 err_desc:                                         ; preds = %err_used, %if.then10
-  tail call void @address_space_cache_destroy(ptr noundef nonnull %desc7) #21
+  tail call void @address_space_cache_destroy(ptr noundef nonnull %desc7) #23
   br label %out_no_cache
 
 out_no_cache:                                     ; preds = %entry, %err_desc
   %new.0 = phi ptr [ %call, %err_desc ], [ null, %entry ]
-  tail call void @g_free(ptr noundef %new.0) #21
+  tail call void @g_free(ptr noundef %new.0) #23
   %18 = load atomic i64, ptr %caches monotonic, align 8
   store atomic i64 0, ptr %caches release, align 8
   %tobool.not.i = icmp eq i64 %18, 0
@@ -412,7 +412,7 @@ if.then.i:                                        ; preds = %out_no_cache
 
 return.sink.split:                                ; preds = %while.end, %if.then.i
   %.sink = phi ptr [ %19, %if.then.i ], [ %1, %while.end ]
-  tail call void @call_rcu1(ptr noundef nonnull %.sink, ptr noundef nonnull @virtio_free_region_cache) #21
+  tail call void @call_rcu1(ptr noundef nonnull %.sink, ptr noundef nonnull @virtio_free_region_cache) #23
   br label %return
 
 return:                                           ; preds = %return.sink.split, %out_no_cache, %while.end
@@ -442,7 +442,7 @@ define dso_local void @virtio_error(ptr noundef %vdev, ptr noundef %fmt, ...) lo
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %ap)
-  call void @error_vreport(ptr noundef %fmt, ptr noundef nonnull %ap) #21
+  call void @error_vreport(ptr noundef %fmt, ptr noundef nonnull %ap) #23
   call void @llvm.va_end.p0(ptr nonnull %ap)
   %0 = getelementptr i8, ptr %vdev, i64 184
   %vdev.val = load i64, ptr %0, align 8
@@ -529,17 +529,17 @@ entry:
   br i1 %cmp.not, label %if.else, label %if.end
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.66, ptr noundef nonnull @.str.42, i32 noundef 210, ptr noundef nonnull @__PRETTY_FUNCTION__.virtio_free_region_cache) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.66, ptr noundef nonnull @.str.42, i32 noundef 210, ptr noundef nonnull @__PRETTY_FUNCTION__.virtio_free_region_cache) #24
   unreachable
 
 if.end:                                           ; preds = %entry
   %desc = getelementptr inbounds i8, ptr %caches, i64 16
-  tail call void @address_space_cache_destroy(ptr noundef nonnull %desc) #21
+  tail call void @address_space_cache_destroy(ptr noundef nonnull %desc) #23
   %avail = getelementptr inbounds i8, ptr %caches, i64 128
-  tail call void @address_space_cache_destroy(ptr noundef nonnull %avail) #21
+  tail call void @address_space_cache_destroy(ptr noundef nonnull %avail) #23
   %used = getelementptr inbounds i8, ptr %caches, i64 240
-  tail call void @address_space_cache_destroy(ptr noundef nonnull %used) #21
-  tail call void @g_free(ptr noundef nonnull %caches) #21
+  tail call void @address_space_cache_destroy(ptr noundef nonnull %used) #23
+  tail call void @g_free(ptr noundef nonnull %caches) #23
   ret void
 }
 
@@ -620,7 +620,7 @@ if.end:                                           ; preds = %entry
   %.val = load i64, ptr %2, align 8
   %and.i.i = and i64 %.val, 17179869184
   %tobool.i.i.not = icmp eq i64 %and.i.i, 0
-  %call.i.i.i7 = tail call ptr @get_ptr_rcu_reader() #21
+  %call.i.i.i7 = tail call ptr @get_ptr_rcu_reader() #23
   %depth.i.i.i8 = getelementptr inbounds i8, ptr %call.i.i.i7, i64 12
   %3 = load i32, ptr %depth.i.i.i8, align 4
   %inc.i.i.i9 = add i32 %3, 1
@@ -635,14 +635,14 @@ while.end.i.i.i:                                  ; preds = %if.then2
   %4 = load atomic i64, ptr @rcu_gp_ctr monotonic, align 8
   %conv8.i.i.i = and i64 %4, 4294967295
   store atomic i64 %conv8.i.i.i, ptr %call.i.i.i7 monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !5
   fence seq_cst
   br label %rcu_read_auto_lock.exit.i
 
 rcu_read_auto_lock.exit.i:                        ; preds = %while.end.i.i.i, %if.then2
   %caches.i.i = getelementptr inbounds i8, ptr %vq, i64 40
   %5 = load atomic i64, ptr %caches.i.i monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !6
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !6
   %tobool.not.i = icmp eq i64 %5, 0
   br i1 %tobool.not.i, label %if.then.i.i.i, label %if.end.i
 
@@ -655,7 +655,7 @@ if.end.i:                                         ; preds = %rcu_read_auto_lock.
   br i1 %switch1.i.i, label %if.else.i.i.i.i.i, label %if.end.i.i.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %if.end.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68, i32 noundef 30, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_lduw_le_cached) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68, i32 noundef 30, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_lduw_le_cached) #24
   unreachable
 
 if.end.i.i.i.i.i:                                 ; preds = %if.end.i
@@ -664,18 +664,18 @@ if.end.i.i.i.i.i:                                 ; preds = %if.end.i
   br i1 %tobool.not.i.i.i.i.i, label %if.else8.i.i.i.i.i, label %virtio_lduw_phys_cached.exit.i.i
 
 if.else8.i.i.i.i.i:                               ; preds = %if.end.i.i.i.i.i
-  %call10.i.i.i.i.i = tail call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %used.i, i64 noundef 2, i32 1, ptr noundef null) #21
+  %call10.i.i.i.i.i = tail call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %used.i, i64 noundef 2, i32 1, ptr noundef null) #23
   br label %virtio_lduw_phys_cached.exit.i.i
 
 virtio_lduw_phys_cached.exit.i.i:                 ; preds = %if.else8.i.i.i.i.i, %if.end.i.i.i.i.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !7
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !7
   fence acquire
   %9 = load i64, ptr %len.i.i.i.i.i, align 16
   %switch.i.i = icmp ult i64 %9, 2
   br i1 %switch.i.i, label %if.else.i.i.i11.i.i, label %if.end.i.i.i12.i.i
 
 if.else.i.i.i11.i.i:                              ; preds = %virtio_lduw_phys_cached.exit.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68, i32 noundef 30, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_lduw_le_cached) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68, i32 noundef 30, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_lduw_le_cached) #24
   unreachable
 
 if.end.i.i.i12.i.i:                               ; preds = %virtio_lduw_phys_cached.exit.i.i
@@ -684,7 +684,7 @@ if.end.i.i.i12.i.i:                               ; preds = %virtio_lduw_phys_ca
   br i1 %tobool.not.i.i.i13.i.i, label %if.else8.i.i.i18.i.i, label %vring_packed_event_read.exit.i
 
 if.else8.i.i.i18.i.i:                             ; preds = %if.end.i.i.i12.i.i
-  %call10.i.i.i19.i.i = tail call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %used.i, i64 noundef 0, i32 1, ptr noundef null) #21
+  %call10.i.i.i19.i.i = tail call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %used.i, i64 noundef 0, i32 1, ptr noundef null) #23
   br label %vring_packed_event_read.exit.i
 
 vring_packed_event_read.exit.i:                   ; preds = %if.else8.i.i.i18.i.i, %if.end.i.i.i12.i.i
@@ -712,7 +712,7 @@ if.then6.i:                                       ; preds = %if.else.i
   br i1 %switch.i12.i, label %if.else.i.i.i.i16.i, label %if.end.i.i.i.i13.i
 
 if.else.i.i.i.i16.i:                              ; preds = %if.then6.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68, i32 noundef 77, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_stw_le_cached) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68, i32 noundef 77, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_stw_le_cached) #24
   unreachable
 
 if.end.i.i.i.i13.i:                               ; preds = %if.then6.i
@@ -725,12 +725,12 @@ if.then5.i.i.i.i15.i:                             ; preds = %if.end.i.i.i.i13.i
   br label %vring_packed_off_wrap_write.exit.i
 
 if.else7.i.i.i.i.i:                               ; preds = %if.end.i.i.i.i13.i
-  tail call void @address_space_stw_le_cached_slow(ptr noundef nonnull %used.i, i64 noundef 0, i16 noundef zeroext %or.i, i32 1, ptr noundef null) #21
+  tail call void @address_space_stw_le_cached_slow(ptr noundef nonnull %used.i, i64 noundef 0, i16 noundef zeroext %or.i, i32 1, ptr noundef null) #23
   br label %vring_packed_off_wrap_write.exit.i
 
 vring_packed_off_wrap_write.exit.i:               ; preds = %if.else7.i.i.i.i.i, %if.then5.i.i.i.i15.i
-  tail call void @address_space_cache_invalidate(ptr noundef nonnull %used.i, i64 noundef 0, i64 noundef 2) #21
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !8
+  tail call void @address_space_cache_invalidate(ptr noundef nonnull %used.i, i64 noundef 0, i64 noundef 2) #23
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !8
   fence release
   br label %if.end16.i
 
@@ -741,7 +741,7 @@ if.end16.i:                                       ; preds = %vring_packed_off_wr
   br i1 %switch.i18.i, label %if.else.i.i.i.i24.i, label %if.end.i.i.i.i19.i
 
 if.else.i.i.i.i24.i:                              ; preds = %if.end16.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68, i32 noundef 77, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_stw_le_cached) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68, i32 noundef 77, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_stw_le_cached) #24
   unreachable
 
 if.end.i.i.i.i19.i:                               ; preds = %if.end16.i
@@ -755,27 +755,27 @@ if.then5.i.i.i.i21.i:                             ; preds = %if.end.i.i.i.i19.i
   br label %vring_packed_flags_write.exit.i
 
 if.else7.i.i.i.i23.i:                             ; preds = %if.end.i.i.i.i19.i
-  tail call void @address_space_stw_le_cached_slow(ptr noundef nonnull %used.i, i64 noundef 2, i16 noundef zeroext %e.sroa.1.0.i, i32 1, ptr noundef null) #21
+  tail call void @address_space_stw_le_cached_slow(ptr noundef nonnull %used.i, i64 noundef 2, i16 noundef zeroext %e.sroa.1.0.i, i32 1, ptr noundef null) #23
   br label %vring_packed_flags_write.exit.i
 
 vring_packed_flags_write.exit.i:                  ; preds = %if.else7.i.i.i.i23.i, %if.then5.i.i.i.i21.i
-  tail call void @address_space_cache_invalidate(ptr noundef nonnull %used.i, i64 noundef 2, i64 noundef 2) #21
+  tail call void @address_space_cache_invalidate(ptr noundef nonnull %used.i, i64 noundef 2, i64 noundef 2) #23
   br i1 %tobool2.not.i, label %if.then.i.i.i, label %if.then21.i
 
 if.then21.i:                                      ; preds = %vring_packed_flags_write.exit.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !9
   fence seq_cst
   br label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then21.i, %vring_packed_flags_write.exit.i, %rcu_read_auto_lock.exit.i
-  %call.i.i.i.i.i = tail call ptr @get_ptr_rcu_reader() #21
+  %call.i.i.i.i.i = tail call ptr @get_ptr_rcu_reader() #23
   %depth.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 12
   %19 = load i32, ptr %depth.i.i.i.i.i, align 4
   %cmp.not.i.i.i.i.i = icmp eq i32 %19, 0
   br i1 %cmp.not.i.i.i.i.i, label %if.else.i.i.i.i26.i, label %if.end.i.i.i.i25.i
 
 if.else.i.i.i.i26.i:                              ; preds = %if.then.i.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.75, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.75, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #24
   unreachable
 
 if.end.i.i.i.i25.i:                               ; preds = %if.then.i.i.i
@@ -786,7 +786,7 @@ if.end.i.i.i.i25.i:                               ; preds = %if.then.i.i.i
 
 while.end.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i25.i
   store atomic i64 0, ptr %call.i.i.i.i.i release, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !10
   fence seq_cst
   %waiting.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 8
   %20 = load atomic i8, ptr %waiting.i.i.i.i.i monotonic, align 8
@@ -800,7 +800,7 @@ while.end.i.i.i38:                                ; preds = %if.else
   %21 = load atomic i64, ptr @rcu_gp_ctr monotonic, align 8
   %conv8.i.i.i39 = and i64 %21, 4294967295
   store atomic i64 %conv8.i.i.i39, ptr %call.i.i.i7 monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !5
   fence seq_cst
   br label %rcu_read_auto_lock.exit.i11
 
@@ -815,7 +815,7 @@ rcu_read_auto_lock.exit.i11:                      ; preds = %while.end.i.i.i38, 
 if.then.i:                                        ; preds = %rcu_read_auto_lock.exit.i11
   %caches.i.i.i = getelementptr inbounds i8, ptr %vq, i64 40
   %24 = load atomic i64, ptr %caches.i.i.i monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !6
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !6
   %tobool.not.i.i = icmp eq i64 %24, 0
   br i1 %tobool.not.i.i, label %vring_avail_idx.exit.i, label %if.end.i.i
 
@@ -828,7 +828,7 @@ if.end.i.i:                                       ; preds = %if.then.i
   br i1 %switch.i.i17, label %if.else.i.i.i.i.i35, label %if.end.i.i.i.i.i18
 
 if.else.i.i.i.i.i35:                              ; preds = %if.end.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68, i32 noundef 30, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_lduw_le_cached) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68, i32 noundef 30, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_lduw_le_cached) #24
   unreachable
 
 if.end.i.i.i.i.i18:                               ; preds = %if.end.i.i
@@ -842,7 +842,7 @@ if.then5.i.i.i.i.i:                               ; preds = %if.end.i.i.i.i.i18
   br label %virtio_lduw_phys_cached.exit.i.i20
 
 if.else8.i.i.i.i.i33:                             ; preds = %if.end.i.i.i.i.i18
-  %call10.i.i.i.i.i34 = tail call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %avail.i.i, i64 noundef 2, i32 1, ptr noundef null) #21
+  %call10.i.i.i.i.i34 = tail call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %avail.i.i, i64 noundef 2, i32 1, ptr noundef null) #23
   br label %virtio_lduw_phys_cached.exit.i.i20
 
 virtio_lduw_phys_cached.exit.i.i20:               ; preds = %if.else8.i.i.i.i.i33, %if.then5.i.i.i.i.i
@@ -859,7 +859,7 @@ vring_avail_idx.exit.i:                           ; preds = %virtio_lduw_phys_ca
 
 if.end.i6.i:                                      ; preds = %vring_avail_idx.exit.i
   %29 = load atomic i64, ptr %caches.i.i.i monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !6
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !6
   %tobool1.not.i.i = icmp eq i64 %29, 0
   br i1 %tobool1.not.i.i, label %if.end5.i, label %if.end3.i.i
 
@@ -879,7 +879,7 @@ if.end3.i.i:                                      ; preds = %if.end.i6.i
   br i1 %or.cond.i.i.i.i.i, label %if.end.i.i.i.i10.i, label %if.else.i.i.i.i9.i
 
 if.else.i.i.i.i9.i:                               ; preds = %if.end3.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68, i32 noundef 77, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_stw_le_cached) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68, i32 noundef 77, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_stw_le_cached) #24
   unreachable
 
 if.end.i.i.i.i10.i:                               ; preds = %if.end3.i.i
@@ -893,18 +893,18 @@ if.then5.i.i.i.i12.i:                             ; preds = %if.end.i.i.i.i10.i
   br label %virtio_stw_phys_cached.exit.i.i
 
 if.else7.i.i.i.i.i32:                             ; preds = %if.end.i.i.i.i10.i
-  tail call void @address_space_stw_le_cached_slow(ptr noundef nonnull %used.i.i, i64 noundef %33, i16 noundef zeroext %retval.0.i.i, i32 1, ptr noundef null) #21
+  tail call void @address_space_stw_le_cached_slow(ptr noundef nonnull %used.i.i, i64 noundef %33, i16 noundef zeroext %retval.0.i.i, i32 1, ptr noundef null) #23
   br label %virtio_stw_phys_cached.exit.i.i
 
 virtio_stw_phys_cached.exit.i.i:                  ; preds = %if.else7.i.i.i.i.i32, %if.then5.i.i.i.i12.i
-  tail call void @address_space_cache_invalidate(ptr noundef nonnull %used.i.i, i64 noundef %33, i64 noundef 2) #21
+  tail call void @address_space_cache_invalidate(ptr noundef nonnull %used.i.i, i64 noundef %33, i64 noundef 2) #23
   br label %if.end5.i
 
 if.else.i36:                                      ; preds = %rcu_read_auto_lock.exit.i11
   %tobool.not.i37 = icmp eq i32 %enable, 0
   %caches.i.i28.i = getelementptr inbounds i8, ptr %vq, i64 40
   %36 = load atomic i64, ptr %caches.i.i28.i monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23
   %tobool.not.i29.i = icmp eq i64 %36, 0
   br i1 %tobool.not.i37, label %if.else4.i, label %if.then3.i
 
@@ -920,7 +920,7 @@ if.end.i16.i:                                     ; preds = %if.then3.i
   br i1 %switch.i19.i, label %if.else.i.i.i.i27.i, label %if.end.i.i.i.i20.i
 
 if.else.i.i.i.i27.i:                              ; preds = %if.end.i16.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68, i32 noundef 30, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_lduw_le_cached) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68, i32 noundef 30, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_lduw_le_cached) #24
   unreachable
 
 if.end.i.i.i.i20.i:                               ; preds = %if.end.i16.i
@@ -934,14 +934,14 @@ if.end.i.i.i13.thread.i.i:                        ; preds = %if.end.i.i.i.i20.i
   br label %if.then5.i.i.i15.i.i
 
 virtio_lduw_phys_cached.exit.i24.i:               ; preds = %if.end.i.i.i.i20.i
-  %call10.i.i.i.i25.i = tail call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %used.i17.i, i64 noundef 0, i32 1, ptr noundef null) #21
+  %call10.i.i.i.i25.i = tail call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %used.i17.i, i64 noundef 0, i32 1, ptr noundef null) #23
   %.pre.i.i = load i64, ptr %len.i.i.i.i18.i, align 16
   %41 = and i16 %call10.i.i.i.i25.i, -2
   %switch16.i.i = icmp ult i64 %.pre.i.i, 2
   br i1 %switch16.i.i, label %if.else.i.i.i12.i.i, label %if.end.i.i.i13.i.i
 
 if.else.i.i.i12.i.i:                              ; preds = %virtio_lduw_phys_cached.exit.i24.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68, i32 noundef 77, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_stw_le_cached) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68, i32 noundef 77, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_stw_le_cached) #24
   unreachable
 
 if.end.i.i.i13.i.i:                               ; preds = %virtio_lduw_phys_cached.exit.i24.i
@@ -956,11 +956,11 @@ if.then5.i.i.i15.i.i:                             ; preds = %if.end.i.i.i13.i.i,
   br label %virtio_stw_phys_cached.exit.i23.i
 
 if.else7.i.i.i.i26.i:                             ; preds = %if.end.i.i.i13.i.i
-  tail call void @address_space_stw_le_cached_slow(ptr noundef nonnull %used.i17.i, i64 noundef 0, i16 noundef zeroext %41, i32 1, ptr noundef null) #21
+  tail call void @address_space_stw_le_cached_slow(ptr noundef nonnull %used.i17.i, i64 noundef 0, i16 noundef zeroext %41, i32 1, ptr noundef null) #23
   br label %virtio_stw_phys_cached.exit.i23.i
 
 virtio_stw_phys_cached.exit.i23.i:                ; preds = %if.else7.i.i.i.i26.i, %if.then5.i.i.i15.i.i
-  tail call void @address_space_cache_invalidate(ptr noundef nonnull %used.i17.i, i64 noundef 0, i64 noundef 2) #21
+  tail call void @address_space_cache_invalidate(ptr noundef nonnull %used.i17.i, i64 noundef 0, i64 noundef 2) #23
   br label %if.then7.i
 
 if.else4.i:                                       ; preds = %if.else.i36
@@ -975,7 +975,7 @@ if.end.i30.i:                                     ; preds = %if.else4.i
   br i1 %switch.i33.i, label %if.else.i.i.i.i49.i, label %if.end.i.i.i.i34.i
 
 if.else.i.i.i.i49.i:                              ; preds = %if.end.i30.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68, i32 noundef 30, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_lduw_le_cached) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68, i32 noundef 30, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_lduw_le_cached) #24
   unreachable
 
 if.end.i.i.i.i34.i:                               ; preds = %if.end.i30.i
@@ -989,14 +989,14 @@ if.end.i.i.i13.thread.i36.i:                      ; preds = %if.end.i.i.i.i34.i
   br label %if.then5.i.i.i15.i38.i
 
 virtio_lduw_phys_cached.exit.i40.i:               ; preds = %if.end.i.i.i.i34.i
-  %call10.i.i.i.i41.i = tail call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %used.i31.i, i64 noundef 0, i32 1, ptr noundef null) #21
+  %call10.i.i.i.i41.i = tail call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %used.i31.i, i64 noundef 0, i32 1, ptr noundef null) #23
   %.pre.i42.i = load i64, ptr %len.i.i.i.i32.i, align 16
   %48 = or i16 %call10.i.i.i.i41.i, 1
   %switch16.i43.i = icmp ult i64 %.pre.i42.i, 2
   br i1 %switch16.i43.i, label %if.else.i.i.i12.i48.i, label %if.end.i.i.i13.i44.i
 
 if.else.i.i.i12.i48.i:                            ; preds = %virtio_lduw_phys_cached.exit.i40.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68, i32 noundef 77, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_stw_le_cached) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68, i32 noundef 77, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_stw_le_cached) #24
   unreachable
 
 if.end.i.i.i13.i44.i:                             ; preds = %virtio_lduw_phys_cached.exit.i40.i
@@ -1011,11 +1011,11 @@ if.then5.i.i.i15.i38.i:                           ; preds = %if.end.i.i.i13.i44.
   br label %virtio_stw_phys_cached.exit.i39.i
 
 if.else7.i.i.i.i47.i:                             ; preds = %if.end.i.i.i13.i44.i
-  tail call void @address_space_stw_le_cached_slow(ptr noundef nonnull %used.i31.i, i64 noundef 0, i16 noundef zeroext %48, i32 1, ptr noundef null) #21
+  tail call void @address_space_stw_le_cached_slow(ptr noundef nonnull %used.i31.i, i64 noundef 0, i16 noundef zeroext %48, i32 1, ptr noundef null) #23
   br label %virtio_stw_phys_cached.exit.i39.i
 
 virtio_stw_phys_cached.exit.i39.i:                ; preds = %if.else7.i.i.i.i47.i, %if.then5.i.i.i15.i38.i
-  tail call void @address_space_cache_invalidate(ptr noundef nonnull %used.i31.i, i64 noundef 0, i64 noundef 2) #21
+  tail call void @address_space_cache_invalidate(ptr noundef nonnull %used.i31.i, i64 noundef 0, i64 noundef 2) #23
   br label %if.then.i.i.i22
 
 if.end5.i:                                        ; preds = %virtio_stw_phys_cached.exit.i.i, %if.end.i6.i, %vring_avail_idx.exit.i
@@ -1023,19 +1023,19 @@ if.end5.i:                                        ; preds = %virtio_stw_phys_cac
   br i1 %tobool6.not.i, label %if.then.i.i.i22, label %if.then7.i
 
 if.then7.i:                                       ; preds = %if.end5.i, %virtio_stw_phys_cached.exit.i23.i, %if.then3.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !11
   fence seq_cst
   br label %if.then.i.i.i22
 
 if.then.i.i.i22:                                  ; preds = %if.then7.i, %if.end5.i, %virtio_stw_phys_cached.exit.i39.i, %if.else4.i
-  %call.i.i.i.i.i23 = tail call ptr @get_ptr_rcu_reader() #21
+  %call.i.i.i.i.i23 = tail call ptr @get_ptr_rcu_reader() #23
   %depth.i.i.i.i.i24 = getelementptr inbounds i8, ptr %call.i.i.i.i.i23, i64 12
   %51 = load i32, ptr %depth.i.i.i.i.i24, align 4
   %cmp.not.i.i.i.i.i25 = icmp eq i32 %51, 0
   br i1 %cmp.not.i.i.i.i.i25, label %if.else.i.i.i.i51.i, label %if.end.i.i.i.i50.i
 
 if.else.i.i.i.i51.i:                              ; preds = %if.then.i.i.i22
-  tail call void @__assert_fail(ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.75, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.75, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #24
   unreachable
 
 if.end.i.i.i.i50.i:                               ; preds = %if.then.i.i.i22
@@ -1046,7 +1046,7 @@ if.end.i.i.i.i50.i:                               ; preds = %if.then.i.i.i22
 
 while.end.i.i.i.i.i28:                            ; preds = %if.end.i.i.i.i50.i
   store atomic i64 0, ptr %call.i.i.i.i.i23 release, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !10
   fence seq_cst
   %waiting.i.i.i.i.i29 = getelementptr inbounds i8, ptr %call.i.i.i.i.i23, i64 8
   %52 = load atomic i8, ptr %waiting.i.i.i.i.i29 monotonic, align 8
@@ -1056,7 +1056,7 @@ while.end.i.i.i.i.i28:                            ; preds = %if.end.i.i.i.i50.i
 if.end3.sink.split:                               ; preds = %while.end.i.i.i.i.i28, %while.end.i.i.i.i.i
   %waiting.i.i.i.i.i29.sink = phi ptr [ %waiting.i.i.i.i.i, %while.end.i.i.i.i.i ], [ %waiting.i.i.i.i.i29, %while.end.i.i.i.i.i28 ]
   store atomic i8 0, ptr %waiting.i.i.i.i.i29.sink monotonic, align 8
-  tail call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #21
+  tail call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #23
   br label %if.end3
 
 if.end3:                                          ; preds = %if.end3.sink.split, %while.end.i.i.i.i.i28, %if.end.i.i.i.i50.i, %while.end.i.i.i.i.i, %if.end.i.i.i.i25.i, %entry
@@ -1085,7 +1085,7 @@ entry:
   br i1 %tobool.i.i.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call.i.i.i = tail call ptr @get_ptr_rcu_reader() #21
+  %call.i.i.i = tail call ptr @get_ptr_rcu_reader() #23
   %depth.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 12
   %2 = load i32, ptr %depth.i.i.i, align 4
   %inc.i.i.i = add i32 %2, 1
@@ -1097,7 +1097,7 @@ while.end.i.i.i:                                  ; preds = %if.then
   %3 = load atomic i64, ptr @rcu_gp_ctr monotonic, align 8
   %conv8.i.i.i = and i64 %3, 4294967295
   store atomic i64 %conv8.i.i.i, ptr %call.i.i.i monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !5
   fence seq_cst
   br label %rcu_read_auto_lock.exit.i
 
@@ -1110,7 +1110,7 @@ rcu_read_auto_lock.exit.i:                        ; preds = %while.end.i.i.i, %i
 if.end.i.i:                                       ; preds = %rcu_read_auto_lock.exit.i
   %caches.i.i.i = getelementptr inbounds i8, ptr %vq, i64 40
   %5 = load atomic i64, ptr %caches.i.i.i monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !6
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !6
   %tobool5.not.i.i = icmp eq i64 %5, 0
   br i1 %tobool5.not.i.i, label %if.then.i.i.i, label %if.end7.i.i
 
@@ -1131,7 +1131,7 @@ if.end7.i.i:                                      ; preds = %if.end.i.i
   br i1 %or.cond.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i
 
 if.else.i.i.i.i.i.i:                              ; preds = %if.end7.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68, i32 noundef 30, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_lduw_le_cached) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68, i32 noundef 30, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_lduw_le_cached) #24
   unreachable
 
 if.end.i.i.i.i.i.i:                               ; preds = %if.end7.i.i
@@ -1145,7 +1145,7 @@ if.then5.i.i.i.i.i.i:                             ; preds = %if.end.i.i.i.i.i.i
   br label %vring_packed_desc_read_flags.exit.i.i
 
 if.else8.i.i.i.i.i.i:                             ; preds = %if.end.i.i.i.i.i.i
-  %call10.i.i.i.i.i.i = tail call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %desc8.i.i, i64 noundef %add.i.i.i, i32 1, ptr noundef null) #21
+  %call10.i.i.i.i.i.i = tail call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %desc8.i.i, i64 noundef %add.i.i.i, i32 1, ptr noundef null) #23
   br label %vring_packed_desc_read_flags.exit.i.i
 
 vring_packed_desc_read_flags.exit.i.i:            ; preds = %if.else8.i.i.i.i.i.i, %if.then5.i.i.i.i.i.i
@@ -1165,14 +1165,14 @@ vring_packed_desc_read_flags.exit.i.i:            ; preds = %if.else8.i.i.i.i.i.
 
 if.then.i.i.i:                                    ; preds = %vring_packed_desc_read_flags.exit.i.i, %if.end.i.i, %rcu_read_auto_lock.exit.i
   %retval.0.i.i = phi i32 [ %lnot.ext14.i.i, %vring_packed_desc_read_flags.exit.i.i ], [ 1, %rcu_read_auto_lock.exit.i ], [ 1, %if.end.i.i ]
-  %call.i.i.i.i.i = tail call ptr @get_ptr_rcu_reader() #21
+  %call.i.i.i.i.i = tail call ptr @get_ptr_rcu_reader() #23
   %depth.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 12
   %14 = load i32, ptr %depth.i.i.i.i.i, align 4
   %cmp.not.i.i.i.i.i = icmp eq i32 %14, 0
   br i1 %cmp.not.i.i.i.i.i, label %if.else.i.i.i.i.i, label %if.end.i.i.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.75, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.75, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #24
   unreachable
 
 if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i
@@ -1183,7 +1183,7 @@ if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i
 
 while.end.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i.i
   store atomic i64 0, ptr %call.i.i.i.i.i release, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !10
   fence seq_cst
   %waiting.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 8
   %15 = load atomic i8, ptr %waiting.i.i.i.i.i monotonic, align 8
@@ -1192,7 +1192,7 @@ while.end.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i.i
 
 while.end21.i.i.i.i.i:                            ; preds = %while.end.i.i.i.i.i
   store atomic i8 0, ptr %waiting.i.i.i.i.i monotonic, align 8
-  tail call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #21
+  tail call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #23
   br label %return
 
 if.else:                                          ; preds = %entry
@@ -1222,7 +1222,7 @@ if.end5.i:                                        ; preds = %if.end.i
   br i1 %cmp.not.i, label %if.end10.i, label %virtio_queue_split_empty.exit
 
 if.end10.i:                                       ; preds = %if.end5.i
-  %call.i.i.i4 = tail call ptr @get_ptr_rcu_reader() #21
+  %call.i.i.i4 = tail call ptr @get_ptr_rcu_reader() #23
   %depth.i.i.i5 = getelementptr inbounds i8, ptr %call.i.i.i4, i64 12
   %21 = load i32, ptr %depth.i.i.i5, align 4
   %inc.i.i.i6 = add i32 %21, 1
@@ -1234,14 +1234,14 @@ while.end.i.i.i25:                                ; preds = %if.end10.i
   %22 = load atomic i64, ptr @rcu_gp_ctr monotonic, align 8
   %conv8.i.i.i26 = and i64 %22, 4294967295
   store atomic i64 %conv8.i.i.i26, ptr %call.i.i.i4 monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !5
   fence seq_cst
   br label %rcu_read_auto_lock.exit.i8
 
 rcu_read_auto_lock.exit.i8:                       ; preds = %while.end.i.i.i25, %if.end10.i
   %caches.i.i.i9 = getelementptr inbounds i8, ptr %vq, i64 40
   %23 = load atomic i64, ptr %caches.i.i.i9 monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !6
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !6
   %tobool.not.i.i10 = icmp eq i64 %23, 0
   br i1 %tobool.not.i.i10, label %if.then.i.i.i13, label %if.end.i.i11
 
@@ -1254,7 +1254,7 @@ if.end.i.i11:                                     ; preds = %rcu_read_auto_lock.
   br i1 %switch.i.i, label %if.else.i.i.i.i.i24, label %if.end.i.i.i.i.i12
 
 if.else.i.i.i.i.i24:                              ; preds = %if.end.i.i11
-  tail call void @__assert_fail(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68, i32 noundef 30, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_lduw_le_cached) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68, i32 noundef 30, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_lduw_le_cached) #24
   unreachable
 
 if.end.i.i.i.i.i12:                               ; preds = %if.end.i.i11
@@ -1268,7 +1268,7 @@ if.then5.i.i.i.i.i:                               ; preds = %if.end.i.i.i.i.i12
   br label %virtio_lduw_phys_cached.exit.i.i
 
 if.else8.i.i.i.i.i:                               ; preds = %if.end.i.i.i.i.i12
-  %call10.i.i.i.i.i = tail call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %avail.i.i, i64 noundef 2, i32 1, ptr noundef null) #21
+  %call10.i.i.i.i.i = tail call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %avail.i.i, i64 noundef 2, i32 1, ptr noundef null) #23
   br label %virtio_lduw_phys_cached.exit.i.i
 
 virtio_lduw_phys_cached.exit.i.i:                 ; preds = %if.else8.i.i.i.i.i, %if.then5.i.i.i.i.i
@@ -1280,14 +1280,14 @@ if.then.i.i.i13:                                  ; preds = %virtio_lduw_phys_ca
   %retval.0.i.i14 = phi i16 [ %retval.0.i.i.i.i.i, %virtio_lduw_phys_cached.exit.i.i ], [ 0, %rcu_read_auto_lock.exit.i8 ]
   %27 = load i16, ptr %last_avail_idx.i, align 8
   %cmp16.i = icmp eq i16 %retval.0.i.i14, %27
-  %call.i.i.i.i.i15 = tail call ptr @get_ptr_rcu_reader() #21
+  %call.i.i.i.i.i15 = tail call ptr @get_ptr_rcu_reader() #23
   %depth.i.i.i.i.i16 = getelementptr inbounds i8, ptr %call.i.i.i.i.i15, i64 12
   %28 = load i32, ptr %depth.i.i.i.i.i16, align 4
   %cmp.not.i.i.i.i.i17 = icmp eq i32 %28, 0
   br i1 %cmp.not.i.i.i.i.i17, label %if.else.i.i.i.i7.i, label %if.end.i.i.i.i6.i
 
 if.else.i.i.i.i7.i:                               ; preds = %if.then.i.i.i13
-  tail call void @__assert_fail(ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.75, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.75, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #24
   unreachable
 
 if.end.i.i.i.i6.i:                                ; preds = %if.then.i.i.i13
@@ -1298,7 +1298,7 @@ if.end.i.i.i.i6.i:                                ; preds = %if.then.i.i.i13
 
 while.end.i.i.i.i.i20:                            ; preds = %if.end.i.i.i.i6.i
   store atomic i64 0, ptr %call.i.i.i.i.i15 release, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !10
   fence seq_cst
   %waiting.i.i.i.i.i21 = getelementptr inbounds i8, ptr %call.i.i.i.i.i15, i64 8
   %29 = load atomic i8, ptr %waiting.i.i.i.i.i21 monotonic, align 8
@@ -1307,7 +1307,7 @@ while.end.i.i.i.i.i20:                            ; preds = %if.end.i.i.i.i6.i
 
 while.end21.i.i.i.i.i23:                          ; preds = %while.end.i.i.i.i.i20
   store atomic i8 0, ptr %waiting.i.i.i.i.i21 monotonic, align 8
-  tail call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #21
+  tail call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #23
   br label %virtio_queue_split_empty.exit
 
 virtio_queue_split_empty.exit:                    ; preds = %if.else, %virtio_device_disabled.exit.i, %if.end.i, %if.end5.i, %if.end.i.i.i.i6.i, %while.end.i.i.i.i.i20, %while.end21.i.i.i.i.i23
@@ -1364,7 +1364,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %7 = load i64, ptr %iov_len.i, align 8
   %cond.i = tail call i64 @llvm.umin.i64(i64 %7, i64 %conv.i)
   %8 = load ptr, ptr %arrayidx.i, align 8
-  tail call void @address_space_unmap(ptr noundef %vq.val.val, ptr noundef %8, i64 noundef %7, i1 noundef zeroext true, i64 noundef %cond.i) #21
+  tail call void @address_space_unmap(ptr noundef %vq.val.val, ptr noundef %8, i64 noundef %7, i1 noundef zeroext true, i64 noundef %cond.i) #23
   %9 = trunc nuw i64 %cond.i to i32
   %conv12.i = add i32 %offset.03.i, %9
   %inc.i = add nuw i32 %i.02.i, 1
@@ -1380,7 +1380,7 @@ for.body16.i:                                     ; preds = %for.body16.i, %for.
   %12 = load ptr, ptr %arrayidx18.i, align 8
   %iov_len23.i = getelementptr inbounds i8, ptr %arrayidx18.i, i64 8
   %13 = load i64, ptr %iov_len23.i, align 8
-  tail call void @address_space_unmap(ptr noundef %vq.val.val, ptr noundef %12, i64 noundef %13, i1 noundef zeroext false, i64 noundef %13) #21
+  tail call void @address_space_unmap(ptr noundef %vq.val.val, ptr noundef %12, i64 noundef %13, i1 noundef zeroext false, i64 noundef %13) #23
   %inc29.i = add nuw i32 %i.15.i, 1
   %14 = load i32, ptr %out_num.i, align 4
   %cmp14.i = icmp ult i32 %inc29.i, %14
@@ -1458,7 +1458,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %13 = load i64, ptr %iov_len.i.i, align 8
   %cond.i.i = tail call i64 @llvm.umin.i64(i64 %13, i64 %conv.i.i)
   %14 = load ptr, ptr %arrayidx.i.i, align 8
-  tail call void @address_space_unmap(ptr noundef %vq.val.val.i, ptr noundef %14, i64 noundef %13, i1 noundef zeroext true, i64 noundef %cond.i.i) #21
+  tail call void @address_space_unmap(ptr noundef %vq.val.val.i, ptr noundef %14, i64 noundef %13, i1 noundef zeroext true, i64 noundef %cond.i.i) #23
   %15 = trunc nuw i64 %cond.i.i to i32
   %conv12.i.i = add i32 %offset.03.i.i, %15
   %inc.i.i = add nuw i32 %i.02.i.i, 1
@@ -1474,7 +1474,7 @@ for.body16.i.i:                                   ; preds = %for.body16.i.i, %fo
   %18 = load ptr, ptr %arrayidx18.i.i, align 8
   %iov_len23.i.i = getelementptr inbounds i8, ptr %arrayidx18.i.i, i64 8
   %19 = load i64, ptr %iov_len23.i.i, align 8
-  tail call void @address_space_unmap(ptr noundef %vq.val.val.i, ptr noundef %18, i64 noundef %19, i1 noundef zeroext false, i64 noundef %19) #21
+  tail call void @address_space_unmap(ptr noundef %vq.val.val.i, ptr noundef %18, i64 noundef %19, i1 noundef zeroext false, i64 noundef %19) #23
   %inc29.i.i = add nuw i32 %i.15.i.i, 1
   %20 = load i32, ptr %out_num.i.i, align 4
   %cmp14.i.i = icmp ult i32 %inc29.i.i, %20
@@ -1566,16 +1566,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #21
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #21
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #23
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #23
   %4 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.69, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, ptr noundef %vq, ptr noundef %elem, i32 noundef %len, i32 noundef %idx) #21
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.69, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, ptr noundef %vq, ptr noundef %elem, i32 noundef %len, i32 noundef %idx) #23
   br label %trace_virtqueue_fill.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.70, ptr noundef %vq, ptr noundef %elem, i32 noundef %len, i32 noundef %idx) #21
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.70, ptr noundef %vq, ptr noundef %elem, i32 noundef %len, i32 noundef %idx) #23
   br label %trace_virtqueue_fill.exit
 
 trace_virtqueue_fill.exit:                        ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -1615,7 +1615,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %11 = load i64, ptr %iov_len.i, align 8
   %cond.i = tail call i64 @llvm.umin.i64(i64 %11, i64 %conv.i)
   %12 = load ptr, ptr %arrayidx.i, align 8
-  tail call void @address_space_unmap(ptr noundef %vq.val.val, ptr noundef %12, i64 noundef %11, i1 noundef zeroext true, i64 noundef %cond.i) #21
+  tail call void @address_space_unmap(ptr noundef %vq.val.val, ptr noundef %12, i64 noundef %11, i1 noundef zeroext true, i64 noundef %cond.i) #23
   %13 = trunc nuw i64 %cond.i to i32
   %conv12.i = add i32 %offset.03.i, %13
   %inc.i = add nuw i32 %i.02.i, 1
@@ -1631,7 +1631,7 @@ for.body16.i:                                     ; preds = %for.body16.i, %for.
   %16 = load ptr, ptr %arrayidx18.i, align 8
   %iov_len23.i = getelementptr inbounds i8, ptr %arrayidx18.i, i64 8
   %17 = load i64, ptr %iov_len23.i, align 8
-  tail call void @address_space_unmap(ptr noundef %vq.val.val, ptr noundef %16, i64 noundef %17, i1 noundef zeroext false, i64 noundef %17) #21
+  tail call void @address_space_unmap(ptr noundef %vq.val.val, ptr noundef %16, i64 noundef %17, i1 noundef zeroext false, i64 noundef %17) #23
   %inc29.i = add nuw i32 %i.15.i, 1
   %18 = load i32, ptr %out_num.i, align 4
   %cmp14.i = icmp ult i32 %inc29.i, %18
@@ -1691,7 +1691,7 @@ if.end.i:                                         ; preds = %if.else
   store i32 %len, ptr %len6.i, align 4
   %caches.i.i.i = getelementptr inbounds i8, ptr %vq, i64 40
   %32 = load atomic i64, ptr %caches.i.i.i monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !6
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !6
   %tobool.not.i.i = icmp eq i64 %32, 0
   br i1 %tobool.not.i.i, label %virtqueue_split_fill.exit, label %if.end.i.i
 
@@ -1713,7 +1713,7 @@ if.end.i.i:                                       ; preds = %if.end.i
   br i1 %or.cond.i.i.i, label %if.else.i.i.i, label %if.end.i.i.i
 
 if.else.i.i.i:                                    ; preds = %if.end.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.72, i32 noundef 3045, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_write_cached) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.72, i32 noundef 3045, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_write_cached) #24
   unreachable
 
 if.end.i.i.i:                                     ; preds = %if.end.i.i
@@ -1728,11 +1728,11 @@ if.then6.i.i.i:                                   ; preds = %if.end.i.i.i
   br label %address_space_write_cached.exit.i.i
 
 if.else8.i.i.i:                                   ; preds = %if.end.i.i.i
-  %call.i.i.i = call i32 @address_space_write_cached_slow(ptr noundef nonnull %used.i.i, i64 noundef %35, ptr noundef nonnull %uelem.i, i64 noundef 8) #21
+  %call.i.i.i = call i32 @address_space_write_cached_slow(ptr noundef nonnull %used.i.i, i64 noundef %35, ptr noundef nonnull %uelem.i, i64 noundef 8) #23
   br label %address_space_write_cached.exit.i.i
 
 address_space_write_cached.exit.i.i:              ; preds = %if.else8.i.i.i, %if.then6.i.i.i
-  call void @address_space_cache_invalidate(ptr noundef nonnull %used.i.i, i64 noundef %35, i64 noundef 8) #21
+  call void @address_space_cache_invalidate(ptr noundef nonnull %used.i.i, i64 noundef %35, i64 noundef 8) #23
   br label %virtqueue_split_fill.exit
 
 virtqueue_split_fill.exit:                        ; preds = %if.else, %if.end.i, %address_space_write_cached.exit.i.i
@@ -1857,7 +1857,7 @@ if.else:                                          ; preds = %if.end
   br i1 %tobool.not.i7, label %if.end4, label %if.end.i
 
 if.end.i:                                         ; preds = %if.else
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !16
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !16
   fence release
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i)
   %23 = load i32, ptr @trace_events_enabled_count, align 4
@@ -1879,16 +1879,16 @@ if.then.i.i.i:                                    ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.i.i.i, label %if.then8.i.i.i, label %if.else.i.i.i
 
 if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
-  %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #21
-  %call10.i.i.i = tail call i32 @qemu_get_thread_id() #21
+  %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #23
+  %call10.i.i.i = tail call i32 @qemu_get_thread_id() #23
   %27 = load i64, ptr %_now.i.i.i, align 8
   %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %28 = load i64, ptr %tv_usec.i.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.73, i32 noundef %call10.i.i.i, i64 noundef %27, i64 noundef %28, ptr noundef nonnull %vq, i32 noundef %count) #21
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.73, i32 noundef %call10.i.i.i, i64 noundef %27, i64 noundef %28, ptr noundef nonnull %vq, i32 noundef %count) #23
   br label %trace_virtqueue_flush.exit.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.74, ptr noundef nonnull %vq, i32 noundef %count) #21
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.74, ptr noundef nonnull %vq, i32 noundef %count) #23
   br label %trace_virtqueue_flush.exit.i
 
 trace_virtqueue_flush.exit.i:                     ; preds = %if.else.i.i.i, %if.then8.i.i.i, %land.lhs.true5.i.i.i, %if.end.i
@@ -1899,7 +1899,7 @@ trace_virtqueue_flush.exit.i:                     ; preds = %if.else.i.i.i, %if.
   %conv5.i = add i16 %29, %30
   %caches.i.i.i = getelementptr inbounds i8, ptr %vq, i64 40
   %31 = load atomic i64, ptr %caches.i.i.i monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !6
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !6
   %tobool.not.i.i = icmp eq i64 %31, 0
   br i1 %tobool.not.i.i, label %vring_used_idx_set.exit.i, label %if.then.i.i
 
@@ -1912,7 +1912,7 @@ if.then.i.i:                                      ; preds = %trace_virtqueue_flu
   br i1 %switch.i.i, label %if.else.i.i.i.i.i, label %if.end.i.i.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %if.then.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68, i32 noundef 77, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_stw_le_cached) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68, i32 noundef 77, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_stw_le_cached) #24
   unreachable
 
 if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i
@@ -1926,11 +1926,11 @@ if.then5.i.i.i.i.i:                               ; preds = %if.end.i.i.i.i.i
   br label %virtio_stw_phys_cached.exit.i.i
 
 if.else7.i.i.i.i.i:                               ; preds = %if.end.i.i.i.i.i
-  tail call void @address_space_stw_le_cached_slow(ptr noundef nonnull %used.i.i, i64 noundef 2, i16 noundef zeroext %conv5.i, i32 1, ptr noundef null) #21
+  tail call void @address_space_stw_le_cached_slow(ptr noundef nonnull %used.i.i, i64 noundef 2, i16 noundef zeroext %conv5.i, i32 1, ptr noundef null) #23
   br label %virtio_stw_phys_cached.exit.i.i
 
 virtio_stw_phys_cached.exit.i.i:                  ; preds = %if.else7.i.i.i.i.i, %if.then5.i.i.i.i.i
-  tail call void @address_space_cache_invalidate(ptr noundef nonnull %used.i.i, i64 noundef 2, i64 noundef 2) #21
+  tail call void @address_space_cache_invalidate(ptr noundef nonnull %used.i.i, i64 noundef 2, i64 noundef 2) #23
   br label %vring_used_idx_set.exit.i
 
 vring_used_idx_set.exit.i:                        ; preds = %virtio_stw_phys_cached.exit.i.i, %trace_virtqueue_flush.exit.i
@@ -1959,7 +1959,7 @@ if.end4:                                          ; preds = %if.then23.i11, %vri
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @virtqueue_push(ptr noundef %vq, ptr noundef %elem, i32 noundef %len) local_unnamed_addr #0 {
 entry:
-  %call.i.i = tail call ptr @get_ptr_rcu_reader() #21
+  %call.i.i = tail call ptr @get_ptr_rcu_reader() #23
   %depth.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   %0 = load i32, ptr %depth.i.i, align 4
   %inc.i.i = add i32 %0, 1
@@ -1971,21 +1971,21 @@ while.end.i.i:                                    ; preds = %entry
   %1 = load atomic i64, ptr @rcu_gp_ctr monotonic, align 8
   %conv8.i.i = and i64 %1, 4294967295
   store atomic i64 %conv8.i.i, ptr %call.i.i monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !5
   fence seq_cst
   br label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %while.end.i.i, %entry
   tail call void @virtqueue_fill(ptr noundef %vq, ptr noundef %elem, i32 noundef %len, i32 noundef 0)
   tail call void @virtqueue_flush(ptr noundef %vq, i32 noundef 1)
-  %call.i.i.i.i = tail call ptr @get_ptr_rcu_reader() #21
+  %call.i.i.i.i = tail call ptr @get_ptr_rcu_reader() #23
   %depth.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 12
   %2 = load i32, ptr %depth.i.i.i.i, align 4
   %cmp.not.i.i.i.i = icmp eq i32 %2, 0
   br i1 %cmp.not.i.i.i.i, label %if.else.i.i.i.i, label %if.end.i.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %if.then.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.75, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.75, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #24
   unreachable
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i
@@ -1996,7 +1996,7 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i
 
 while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   store atomic i64 0, ptr %call.i.i.i.i release, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !10
   fence seq_cst
   %waiting.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
   %3 = load atomic i8, ptr %waiting.i.i.i.i monotonic, align 8
@@ -2005,7 +2005,7 @@ while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
 
 while.end21.i.i.i.i:                              ; preds = %while.end.i.i.i.i
   store atomic i8 0, ptr %waiting.i.i.i.i monotonic, align 8
-  tail call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #21
+  tail call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #23
   br label %glib_autoptr_cleanup_RCUReadAuto.exit
 
 glib_autoptr_cleanup_RCUReadAuto.exit:            ; preds = %if.end.i.i.i.i, %while.end.i.i.i.i, %while.end21.i.i.i.i
@@ -2015,7 +2015,7 @@ glib_autoptr_cleanup_RCUReadAuto.exit:            ; preds = %if.end.i.i.i.i, %wh
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @rcu_read_auto_lock() unnamed_addr #0 {
 entry:
-  %call.i = tail call ptr @get_ptr_rcu_reader() #21
+  %call.i = tail call ptr @get_ptr_rcu_reader() #23
   %depth.i = getelementptr inbounds i8, ptr %call.i, i64 12
   %0 = load i32, ptr %depth.i, align 4
   %inc.i = add i32 %0, 1
@@ -2027,7 +2027,7 @@ while.end.i:                                      ; preds = %entry
   %1 = load atomic i64, ptr @rcu_gp_ctr monotonic, align 8
   %conv8.i = and i64 %1, 4294967295
   store atomic i64 %conv8.i, ptr %call.i monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !5
   fence seq_cst
   br label %rcu_read_lock.exit
 
@@ -2042,14 +2042,14 @@ entry:
   br i1 %tobool.not.i, label %glib_autoptr_clear_RCUReadAuto.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %call.i.i.i = tail call ptr @get_ptr_rcu_reader() #21
+  %call.i.i.i = tail call ptr @get_ptr_rcu_reader() #23
   %depth.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 12
   %0 = load i32, ptr %depth.i.i.i, align 4
   %cmp.not.i.i.i = icmp eq i32 %0, 0
   br i1 %cmp.not.i.i.i, label %if.else.i.i.i, label %if.end.i.i.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.75, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.75, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #24
   unreachable
 
 if.end.i.i.i:                                     ; preds = %if.then.i
@@ -2060,7 +2060,7 @@ if.end.i.i.i:                                     ; preds = %if.then.i
 
 while.end.i.i.i:                                  ; preds = %if.end.i.i.i
   store atomic i64 0, ptr %call.i.i.i release, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !10
   fence seq_cst
   %waiting.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   %1 = load atomic i8, ptr %waiting.i.i.i monotonic, align 8
@@ -2069,7 +2069,7 @@ while.end.i.i.i:                                  ; preds = %if.end.i.i.i
 
 while.end21.i.i.i:                                ; preds = %while.end.i.i.i
   store atomic i8 0, ptr %waiting.i.i.i monotonic, align 8
-  tail call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #21
+  tail call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #23
   br label %glib_autoptr_clear_RCUReadAuto.exit
 
 glib_autoptr_clear_RCUReadAuto.exit:              ; preds = %entry, %if.end.i.i.i, %while.end.i.i.i, %while.end21.i.i.i
@@ -2083,7 +2083,7 @@ entry:
   %desc3.i = alloca %struct.VRingDesc, align 8
   %indirect_desc_cache.i = alloca %struct.MemoryRegionCache, align 16
   %desc.i = alloca %struct.VRingPackedDesc, align 8
-  %call.i.i = tail call ptr @get_ptr_rcu_reader() #21
+  %call.i.i = tail call ptr @get_ptr_rcu_reader() #23
   %depth.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   %0 = load i32, ptr %depth.i.i, align 4
   %inc.i.i = add i32 %0, 1
@@ -2095,7 +2095,7 @@ while.end.i.i:                                    ; preds = %entry
   %1 = load atomic i64, ptr @rcu_gp_ctr monotonic, align 8
   %conv8.i.i = and i64 %1, 4294967295
   store atomic i64 %conv8.i.i, ptr %call.i.i monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !5
   fence seq_cst
   br label %rcu_read_auto_lock.exit
 
@@ -2109,7 +2109,7 @@ if.end:                                           ; preds = %rcu_read_auto_lock.
   %caches.i = getelementptr inbounds i8, ptr %vq, i64 40
   %3 = load atomic i64, ptr %caches.i monotonic, align 8
   %4 = inttoptr i64 %3 to ptr
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !6
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !6
   %tobool5.not = icmp eq i64 %3, 0
   br i1 %tobool5.not, label %err, label %if.end7
 
@@ -2200,7 +2200,7 @@ if.then14.i:                                      ; preds = %if.end12.i
 if.end15.i:                                       ; preds = %if.end12.i
   %19 = load ptr, ptr %dma_as.i, align 8
   %20 = load i64, ptr %desc.i, align 8
-  %call18.i = call i64 @address_space_cache_init(ptr noundef nonnull %indirect_desc_cache.i, ptr noundef %19, i64 noundef %20, i64 noundef %conv9.i, i1 noundef zeroext false) #21
+  %call18.i = call i64 @address_space_cache_init(ptr noundef nonnull %indirect_desc_cache.i, ptr noundef %19, i64 noundef %20, i64 noundef %conv9.i, i1 noundef zeroext false) #23
   %21 = load i32, ptr %len8.i, align 8
   %conv20.i = zext i32 %21 to i64
   %cmp21.i = icmp slt i64 %call18.i, %conv20.i
@@ -2258,7 +2258,7 @@ virtqueue_packed_read_next_desc.exit.us.i:        ; preds = %if.end47.us.i
   br i1 %cmp29.us.i, label %if.then31.i, label %if.end32.us.i, !llvm.loop !17
 
 if.then55.split.us.i:                             ; preds = %if.end47.us.i
-  call void @address_space_cache_destroy(ptr noundef nonnull %indirect_desc_cache.i) #21
+  call void @address_space_cache_destroy(ptr noundef nonnull %indirect_desc_cache.i) #23
   %inc56.i = add i32 %total_bufs.088.i, 1
   %inc57.i = add i32 %idx.092.i, 1
   br label %if.end60.i
@@ -2354,7 +2354,7 @@ for.end.i:                                        ; preds = %for.end.loopexit.i,
 done.i:                                           ; preds = %if.end32.i, %if.end32.us.i, %for.end.i, %if.then31.i, %if.then23.i, %if.then14.i, %if.then11.i
   %in_total.3.i = phi i32 [ %in_total.0.lcssa.i, %for.end.i ], [ 0, %if.then31.i ], [ 0, %if.then23.i ], [ 0, %if.then14.i ], [ 0, %if.then11.i ], [ %in_total.2.us.i, %if.end32.us.i ], [ %in_total.2.i, %if.end32.i ]
   %out_total.3.i = phi i32 [ %out_total.0.lcssa.i, %for.end.i ], [ 0, %if.then31.i ], [ 0, %if.then23.i ], [ 0, %if.then14.i ], [ 0, %if.then11.i ], [ %out_total.2.us.i, %if.end32.us.i ], [ %out_total.2.i, %if.end32.i ]
-  call void @address_space_cache_destroy(ptr noundef nonnull %indirect_desc_cache.i) #21
+  call void @address_space_cache_destroy(ptr noundef nonnull %indirect_desc_cache.i) #23
   %tobool77.not.i = icmp eq ptr %in_bytes, null
   br i1 %tobool77.not.i, label %if.end79.i, label %if.then78.i
 
@@ -2405,7 +2405,7 @@ while.cond.i:                                     ; preds = %while.cond.i.backed
 
 cond.false.i.i:                                   ; preds = %while.cond.i
   %38 = load atomic i64, ptr %caches.i monotonic, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !6
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !6
   %tobool.not.i.i.i = icmp eq i64 %38, 0
   br i1 %tobool.not.i.i.i, label %cond.end.i.i, label %if.end.i.i.i
 
@@ -2418,7 +2418,7 @@ if.end.i.i.i:                                     ; preds = %cond.false.i.i
   br i1 %switch.i.i.i, label %if.else.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i
 
 if.else.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i
-  call void @__assert_fail(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68, i32 noundef 30, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_lduw_le_cached) #22
+  call void @__assert_fail(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68, i32 noundef 30, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_lduw_le_cached) #24
   unreachable
 
 if.end.i.i.i.i.i.i:                               ; preds = %if.end.i.i.i
@@ -2432,7 +2432,7 @@ if.then5.i.i.i.i.i.i:                             ; preds = %if.end.i.i.i.i.i.i
   br label %virtio_lduw_phys_cached.exit.i.i.i
 
 if.else8.i.i.i.i.i.i:                             ; preds = %if.end.i.i.i.i.i.i
-  %call10.i.i.i.i.i.i = call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %avail.i.i.i, i64 noundef 2, i32 1, ptr noundef null) #21
+  %call10.i.i.i.i.i.i = call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %avail.i.i.i, i64 noundef 2, i32 1, ptr noundef null) #23
   br label %virtio_lduw_phys_cached.exit.i.i.i
 
 virtio_lduw_phys_cached.exit.i.i.i:               ; preds = %if.else8.i.i.i.i.i.i, %if.then5.i.i.i.i.i.i
@@ -2461,12 +2461,12 @@ if.end.i.i:                                       ; preds = %cond.end.i.i
   br i1 %tobool.not.i.i, label %done.i35, label %while.body.i
 
 while.body.i:                                     ; preds = %if.end.i.i
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !18
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !18
   fence acquire
   %46 = load i32, ptr %vq, align 8
   %inc.i34 = add i32 %idx.0.i, 1
   %47 = load atomic i64, ptr %caches.i monotonic, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !6
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !6
   %tobool.not.i.i31.i = icmp eq i64 %47, 0
   br i1 %tobool.not.i.i31.i, label %vring_avail_ring.exit.i.i, label %if.end.i.i32.i
 
@@ -2486,7 +2486,7 @@ if.end.i.i32.i:                                   ; preds = %while.body.i
   br i1 %or.cond.i.i.i.i.i.i, label %if.end.i.i.i.i.i36.i, label %if.else.i.i.i.i.i35.i
 
 if.else.i.i.i.i.i35.i:                            ; preds = %if.end.i.i32.i
-  call void @__assert_fail(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68, i32 noundef 30, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_lduw_le_cached) #22
+  call void @__assert_fail(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68, i32 noundef 30, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_lduw_le_cached) #24
   unreachable
 
 if.end.i.i.i.i.i36.i:                             ; preds = %if.end.i.i32.i
@@ -2500,7 +2500,7 @@ if.then5.i.i.i.i.i38.i:                           ; preds = %if.end.i.i.i.i.i36.
   br label %vring_avail_ring.exit.i.i
 
 if.else8.i.i.i.i.i45.i:                           ; preds = %if.end.i.i.i.i.i36.i
-  %call10.i.i.i.i.i46.i = call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %avail.i.i33.i, i64 noundef %50, i32 1, ptr noundef null) #21
+  %call10.i.i.i.i.i46.i = call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %avail.i.i33.i, i64 noundef %50, i32 1, ptr noundef null) #23
   br label %vring_avail_ring.exit.i.i
 
 vring_avail_ring.exit.i.i:                        ; preds = %if.else8.i.i.i.i.i45.i, %if.then5.i.i.i.i.i38.i, %while.body.i
@@ -2526,7 +2526,7 @@ if.end.i38:                                       ; preds = %vring_avail_ring.ex
   br i1 %or.cond.i.i.i, label %if.else.i.i.i, label %if.end.i.i48.i
 
 if.else.i.i.i:                                    ; preds = %if.end.i38
-  call void @__assert_fail(ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.72, i32 noundef 3023, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_read_cached) #22
+  call void @__assert_fail(ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.72, i32 noundef 3023, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_read_cached) #24
   unreachable
 
 if.end.i.i48.i:                                   ; preds = %if.end.i38
@@ -2540,7 +2540,7 @@ if.then6.i.i.i:                                   ; preds = %if.end.i.i48.i
   br label %vring_split_desc_read.exit.i
 
 if.else8.i.i.i:                                   ; preds = %if.end.i.i48.i
-  %call.i.i.i = call i32 @address_space_read_cached_slow(ptr noundef nonnull %desc.i29, i64 noundef %mul.i.i, ptr noundef nonnull %desc3.i, i64 noundef 16) #21
+  %call.i.i.i = call i32 @address_space_read_cached_slow(ptr noundef nonnull %desc.i29, i64 noundef %mul.i.i, ptr noundef nonnull %desc3.i, i64 noundef 16) #23
   br label %vring_split_desc_read.exit.i
 
 vring_split_desc_read.exit.i:                     ; preds = %if.else8.i.i.i, %if.then6.i.i.i
@@ -2575,7 +2575,7 @@ if.then16.i:                                      ; preds = %if.end13.i
 if.end17.i:                                       ; preds = %if.end13.i
   %60 = load ptr, ptr %dma_as.i31, align 8
   %61 = load i64, ptr %desc3.i, align 8
-  %call20.i = call i64 @address_space_cache_init(ptr noundef nonnull %indirect_desc_cache.i23, ptr noundef %60, i64 noundef %61, i64 noundef %conv10.i, i1 noundef zeroext false) #21
+  %call20.i = call i64 @address_space_cache_init(ptr noundef nonnull %indirect_desc_cache.i23, ptr noundef %60, i64 noundef %61, i64 noundef %conv10.i, i1 noundef zeroext false) #23
   %62 = load i32, ptr %len7.i, align 8
   %conv22.i = zext i32 %62 to i64
   %cmp23.i = icmp slt i64 %call20.i, %conv22.i
@@ -2592,7 +2592,7 @@ if.end26.i:                                       ; preds = %if.end17.i
   br i1 %cmp3.not.i.i53.i, label %if.else.i.i61.i, label %if.end.i.i55.i
 
 if.else.i.i61.i:                                  ; preds = %if.end26.i
-  call void @__assert_fail(ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.72, i32 noundef 3023, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_read_cached) #22
+  call void @__assert_fail(ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.72, i32 noundef 3023, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_read_cached) #24
   unreachable
 
 if.end.i.i55.i:                                   ; preds = %if.end26.i
@@ -2605,7 +2605,7 @@ if.then6.i.i57.i:                                 ; preds = %if.end.i.i55.i
   br label %if.end30.i
 
 if.else8.i.i59.i:                                 ; preds = %if.end.i.i55.i
-  %call.i.i60.i = call i32 @address_space_read_cached_slow(ptr noundef nonnull %indirect_desc_cache.i23, i64 noundef 0, ptr noundef nonnull %desc3.i, i64 noundef 16) #21
+  %call.i.i60.i = call i32 @address_space_read_cached_slow(ptr noundef nonnull %indirect_desc_cache.i23, i64 noundef 0, ptr noundef nonnull %desc3.i, i64 noundef 16) #23
   br label %if.end30.i
 
 if.end30.i:                                       ; preds = %if.else8.i.i59.i, %if.then6.i.i57.i, %vring_split_desc_read.exit.i
@@ -2667,7 +2667,7 @@ if.end6.i.i:                                      ; preds = %if.end.i64.i
   br i1 %or.cond.i.i.i.i, label %if.else.i.i.i.i, label %if.end.i.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %if.end6.i.i
-  call void @__assert_fail(ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.72, i32 noundef 3023, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_read_cached) #22
+  call void @__assert_fail(ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.72, i32 noundef 3023, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_read_cached) #24
   unreachable
 
 if.end.i.i.i.i:                                   ; preds = %if.end6.i.i
@@ -2681,7 +2681,7 @@ if.then6.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
   br label %virtqueue_split_read_next_desc.exit.i
 
 if.else8.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
-  %call.i.i.i.i = call i32 @address_space_read_cached_slow(ptr noundef nonnull %desc_cache.0.i40, i64 noundef %mul.i.i.i, ptr noundef nonnull %desc3.i, i64 noundef 16) #21
+  %call.i.i.i.i = call i32 @address_space_read_cached_slow(ptr noundef nonnull %desc_cache.0.i40, i64 noundef %mul.i.i.i, ptr noundef nonnull %desc3.i, i64 noundef 16) #23
   br label %virtqueue_split_read_next_desc.exit.i
 
 virtqueue_split_read_next_desc.exit.i:            ; preds = %if.else8.i.i.i.i, %if.then6.i.i.i.i
@@ -2694,7 +2694,7 @@ if.end57.i:                                       ; preds = %if.end50.i
   br i1 %cmp58.i, label %if.then60.i, label %while.cond.i.backedge
 
 if.then60.i:                                      ; preds = %if.end57.i
-  call void @address_space_cache_destroy(ptr noundef nonnull %indirect_desc_cache.i23) #21
+  call void @address_space_cache_destroy(ptr noundef nonnull %indirect_desc_cache.i23) #23
   %inc61.i = add i32 %total_bufs.0.i, 1
   br label %while.cond.i.backedge
 
@@ -2705,7 +2705,7 @@ while.cond.i.backedge:                            ; preds = %if.then60.i, %if.en
 done.i35:                                         ; preds = %if.end.i.i, %if.end35.i, %virtqueue_split_read_next_desc.exit.thread72.i, %if.then34.i, %if.then25.i, %if.then16.i, %if.then12.i, %virtqueue_get_head.exit.i, %while.end.thread.i
   %in_total.3.i36 = phi i32 [ 0, %while.end.thread.i ], [ 0, %virtqueue_split_read_next_desc.exit.thread72.i ], [ 0, %virtqueue_get_head.exit.i ], [ 0, %if.then34.i ], [ 0, %if.then25.i ], [ 0, %if.then16.i ], [ 0, %if.then12.i ], [ %in_total.2.i44, %if.end35.i ], [ %in_total.0.i, %if.end.i.i ]
   %out_total.3.i37 = phi i32 [ 0, %while.end.thread.i ], [ 0, %virtqueue_split_read_next_desc.exit.thread72.i ], [ 0, %virtqueue_get_head.exit.i ], [ 0, %if.then34.i ], [ 0, %if.then25.i ], [ 0, %if.then16.i ], [ 0, %if.then12.i ], [ %out_total.2.i45, %if.end35.i ], [ %out_total.0.i, %if.end.i.i ]
-  call void @address_space_cache_destroy(ptr noundef nonnull %indirect_desc_cache.i23) #21
+  call void @address_space_cache_destroy(ptr noundef nonnull %indirect_desc_cache.i23) #23
   %tobool68.not.i = icmp eq ptr %in_bytes, null
   br i1 %tobool68.not.i, label %if.end70.i, label %if.then69.i
 
@@ -2743,14 +2743,14 @@ if.then27:                                        ; preds = %if.end25
   br label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %virtqueue_split_get_avail_bytes.exit, %virtqueue_packed_get_avail_bytes.exit, %if.then27, %if.end25
-  %call.i.i.i.i49 = call ptr @get_ptr_rcu_reader() #21
+  %call.i.i.i.i49 = call ptr @get_ptr_rcu_reader() #23
   %depth.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i49, i64 12
   %72 = load i32, ptr %depth.i.i.i.i, align 4
   %cmp.not.i.i.i.i = icmp eq i32 %72, 0
   br i1 %cmp.not.i.i.i.i, label %if.else.i.i.i.i51, label %if.end.i.i.i.i50
 
 if.else.i.i.i.i51:                                ; preds = %if.then.i.i
-  call void @__assert_fail(ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.75, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #22
+  call void @__assert_fail(ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.75, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #24
   unreachable
 
 if.end.i.i.i.i50:                                 ; preds = %if.then.i.i
@@ -2761,7 +2761,7 @@ if.end.i.i.i.i50:                                 ; preds = %if.then.i.i
 
 while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i50
   store atomic i64 0, ptr %call.i.i.i.i49 release, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !10
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !10
   fence seq_cst
   %waiting.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i49, i64 8
   %73 = load atomic i8, ptr %waiting.i.i.i.i monotonic, align 8
@@ -2770,7 +2770,7 @@ while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i50
 
 while.end21.i.i.i.i:                              ; preds = %while.end.i.i.i.i
   store atomic i8 0, ptr %waiting.i.i.i.i monotonic, align 8
-  call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #21
+  call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #23
   br label %glib_autoptr_cleanup_RCUReadAuto.exit
 
 glib_autoptr_cleanup_RCUReadAuto.exit:            ; preds = %if.end.i.i.i.i50, %while.end.i.i.i.i, %while.end21.i.i.i.i
@@ -2826,7 +2826,7 @@ for.body.i:                                       ; preds = %for.cond.i, %for.bo
   %5 = load i64, ptr %arrayidx2.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %xlen.i.i)
   store i64 %3, ptr %xlen.i.i, align 8
-  %call.i.i = call ptr @address_space_map(ptr noundef %4, i64 noundef %5, ptr noundef nonnull %xlen.i.i, i1 noundef zeroext true, i32 1) #21
+  %call.i.i = call ptr @address_space_map(ptr noundef %4, i64 noundef %5, ptr noundef nonnull %xlen.i.i, i1 noundef zeroext true, i32 1) #23
   %6 = load i64, ptr %xlen.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %xlen.i.i)
   store ptr %call.i.i, ptr %arrayidx.i, align 8
@@ -2834,8 +2834,8 @@ for.body.i:                                       ; preds = %for.cond.i, %for.bo
   br i1 %tobool35.not.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %for.body.i
-  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.80) #21
-  call void @exit(i32 noundef 1) #22
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.80) #23
+  call void @exit(i32 noundef 1) #25
   unreachable
 
 if.end.i:                                         ; preds = %for.body.i
@@ -2844,8 +2844,8 @@ if.end.i:                                         ; preds = %for.body.i
   br i1 %cmp39.not.i, label %for.cond.i, label %if.then40.i
 
 if.then40.i:                                      ; preds = %if.end.i
-  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.81) #21
-  call void @exit(i32 noundef 1) #22
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.81) #23
+  call void @exit(i32 noundef 1) #25
   unreachable
 
 virtqueue_map_iovec.exit:                         ; preds = %for.cond.i, %entry
@@ -2878,7 +2878,7 @@ for.body.i12:                                     ; preds = %for.cond.i22, %for.
   %13 = load i64, ptr %arrayidx2.i16, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %xlen.i.i7)
   store i64 %11, ptr %xlen.i.i7, align 8
-  %call.i.i17 = call ptr @address_space_map(ptr noundef %12, i64 noundef %13, ptr noundef nonnull %xlen.i.i7, i1 noundef zeroext false, i32 1) #21
+  %call.i.i17 = call ptr @address_space_map(ptr noundef %12, i64 noundef %13, ptr noundef nonnull %xlen.i.i7, i1 noundef zeroext false, i32 1) #23
   %14 = load i64, ptr %xlen.i.i7, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %xlen.i.i7)
   store ptr %call.i.i17, ptr %arrayidx.i14, align 8
@@ -2886,8 +2886,8 @@ for.body.i12:                                     ; preds = %for.cond.i22, %for.
   br i1 %tobool35.not.i18, label %if.then.i25, label %if.end.i19
 
 if.then.i25:                                      ; preds = %for.body.i12
-  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.80) #21
-  call void @exit(i32 noundef 1) #22
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.80) #23
+  call void @exit(i32 noundef 1) #25
   unreachable
 
 if.end.i19:                                       ; preds = %for.body.i12
@@ -2896,8 +2896,8 @@ if.end.i19:                                       ; preds = %for.body.i12
   br i1 %cmp39.not.i20, label %for.cond.i22, label %if.then40.i21
 
 if.then40.i21:                                    ; preds = %if.end.i19
-  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.81) #21
-  call void @exit(i32 noundef 1) #22
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.81) #23
+  call void @exit(i32 noundef 1) #25
   unreachable
 
 virtqueue_map_iovec.exit26:                       ; preds = %for.cond.i22, %virtqueue_map_iovec.exit
@@ -2950,7 +2950,7 @@ if.then3:                                         ; preds = %if.end
   store ptr null, ptr %mr.i.i, align 16
   %fv.i.i = getelementptr inbounds i8, ptr %indirect_desc_cache.i, i64 24
   store ptr null, ptr %fv.i.i, align 8
-  %call.i.i.i = tail call ptr @get_ptr_rcu_reader() #21
+  %call.i.i.i = tail call ptr @get_ptr_rcu_reader() #23
   %depth.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 12
   %4 = load i32, ptr %depth.i.i.i, align 4
   %inc.i.i.i = add i32 %4, 1
@@ -2962,7 +2962,7 @@ while.end.i.i.i:                                  ; preds = %if.then3
   %5 = load atomic i64, ptr @rcu_gp_ctr monotonic, align 8
   %conv8.i.i.i = and i64 %5, 4294967295
   store atomic i64 %conv8.i.i.i, ptr %call.i.i.i monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !5
   fence seq_cst
   br label %rcu_read_auto_lock.exit.i
 
@@ -2975,7 +2975,7 @@ rcu_read_auto_lock.exit.i:                        ; preds = %while.end.i.i.i, %i
 if.end.i.i:                                       ; preds = %rcu_read_auto_lock.exit.i
   %caches.i.i.i = getelementptr inbounds i8, ptr %vq, i64 40
   %7 = load atomic i64, ptr %caches.i.i.i monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !6
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !6
   %tobool5.not.i.i = icmp eq i64 %7, 0
   br i1 %tobool5.not.i.i, label %if.then.i.i.i, label %if.end7.i.i
 
@@ -2996,7 +2996,7 @@ if.end7.i.i:                                      ; preds = %if.end.i.i
   br i1 %or.cond.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i
 
 if.else.i.i.i.i.i.i:                              ; preds = %if.end7.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68, i32 noundef 30, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_lduw_le_cached) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68, i32 noundef 30, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_lduw_le_cached) #24
   unreachable
 
 if.end.i.i.i.i.i.i:                               ; preds = %if.end7.i.i
@@ -3010,7 +3010,7 @@ if.then5.i.i.i.i.i.i:                             ; preds = %if.end.i.i.i.i.i.i
   br label %virtio_queue_packed_empty_rcu.exit.i
 
 if.else8.i.i.i.i.i.i:                             ; preds = %if.end.i.i.i.i.i.i
-  %call10.i.i.i.i.i.i = tail call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %desc8.i.i, i64 noundef %add.i.i.i, i32 1, ptr noundef null) #21
+  %call10.i.i.i.i.i.i = tail call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %desc8.i.i, i64 noundef %add.i.i.i, i32 1, ptr noundef null) #23
   br label %virtio_queue_packed_empty_rcu.exit.i
 
 virtio_queue_packed_empty_rcu.exit.i:             ; preds = %if.else8.i.i.i.i.i.i, %if.then5.i.i.i.i.i.i
@@ -3045,7 +3045,7 @@ if.end6.i:                                        ; preds = %if.end.i
   %conv.i = zext i16 %18 to i32
   %19 = load atomic i64, ptr %caches.i.i.i monotonic, align 8
   %20 = inttoptr i64 %19 to ptr
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !6
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !6
   %tobool8.not.i = icmp eq i64 %19, 0
   br i1 %tobool8.not.i, label %if.then9.i, label %if.end10.i
 
@@ -3092,7 +3092,7 @@ if.end27.i:                                       ; preds = %if.then22.i
   %dma_as.i = getelementptr inbounds i8, ptr %0, i64 472
   %26 = load ptr, ptr %dma_as.i, align 8
   %27 = load i64, ptr %desc.i, align 8
-  %call31.i = call i64 @address_space_cache_init(ptr noundef nonnull %indirect_desc_cache.i, ptr noundef %26, i64 noundef %27, i64 noundef %conv24.i, i1 noundef zeroext false) #21
+  %call31.i = call i64 @address_space_cache_init(ptr noundef nonnull %indirect_desc_cache.i, ptr noundef %26, i64 noundef %27, i64 noundef %conv24.i, i1 noundef zeroext false) #23
   %28 = load i32, ptr %len23.i, align 8
   %conv33.i = zext i32 %28 to i64
   %cmp34.i = icmp slt i64 %call31.i, %conv33.i
@@ -3283,15 +3283,15 @@ if.end131.i:                                      ; preds = %if.then120.i, %for.
 
 if.then.i.i.i:                                    ; preds = %for.body.i.i, %err_undo_map.i, %if.end131.i, %if.then36.i, %if.then26.i, %if.then16.i, %if.then9.i, %if.then5.i, %virtio_queue_packed_empty_rcu.exit.i, %if.end.i.i, %rcu_read_auto_lock.exit.i
   %elem.0.i = phi ptr [ null, %virtio_queue_packed_empty_rcu.exit.i ], [ null, %if.then5.i ], [ null, %if.then16.i ], [ null, %if.then26.i ], [ null, %if.then36.i ], [ %call77.i, %if.end131.i ], [ null, %if.then9.i ], [ null, %err_undo_map.i ], [ null, %rcu_read_auto_lock.exit.i ], [ null, %if.end.i.i ], [ null, %for.body.i.i ]
-  call void @address_space_cache_destroy(ptr noundef nonnull %indirect_desc_cache.i) #21
-  %call.i.i.i.i.i = call ptr @get_ptr_rcu_reader() #21
+  call void @address_space_cache_destroy(ptr noundef nonnull %indirect_desc_cache.i) #23
+  %call.i.i.i.i.i = call ptr @get_ptr_rcu_reader() #23
   %depth.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 12
   %60 = load i32, ptr %depth.i.i.i.i.i, align 4
   %cmp.not.i.i.i.i.i = icmp eq i32 %60, 0
   br i1 %cmp.not.i.i.i.i.i, label %if.else.i.i.i.i.i, label %if.end.i.i.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i
-  call void @__assert_fail(ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.75, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #22
+  call void @__assert_fail(ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.75, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #24
   unreachable
 
 if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i
@@ -3302,7 +3302,7 @@ if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i
 
 while.end.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i.i
   store atomic i64 0, ptr %call.i.i.i.i.i release, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !10
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !10
   fence seq_cst
   %waiting.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 8
   %61 = load atomic i8, ptr %waiting.i.i.i.i.i monotonic, align 8
@@ -3311,7 +3311,7 @@ while.end.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i.i
 
 while.end21.i.i.i.i.i:                            ; preds = %while.end.i.i.i.i.i
   store atomic i8 0, ptr %waiting.i.i.i.i.i monotonic, align 8
-  call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #21
+  call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #23
   br label %virtqueue_packed_pop.exit
 
 err_undo_map.sink.split.i:                        ; preds = %if.end67.i, %if.else.i
@@ -3333,7 +3333,7 @@ for.body.i.i:                                     ; preds = %err_undo_map.i, %fo
   %64 = load ptr, ptr %iov.addr.08.i.i, align 8
   %iov_len.i.i = getelementptr inbounds i8, ptr %iov.addr.08.i.i, i64 8
   %65 = load i64, ptr %iov_len.i.i, align 8
-  call void @cpu_physical_memory_unmap(ptr noundef %64, i64 noundef %65, i1 noundef zeroext %cmp1.i.i, i64 noundef 0) #21
+  call void @cpu_physical_memory_unmap(ptr noundef %64, i64 noundef %65, i1 noundef zeroext %cmp1.i.i, i64 noundef 0) #23
   %incdec.ptr.i.i = getelementptr i8, ptr %iov.addr.08.i.i, i64 16
   %inc.i60.i = add nuw i32 %i.07.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %inc.i60.i, %add.i.i
@@ -3359,7 +3359,7 @@ if.else:                                          ; preds = %if.end
   store ptr null, ptr %mr.i.i12, align 16
   %fv.i.i13 = getelementptr inbounds i8, ptr %indirect_desc_cache.i5, i64 24
   store ptr null, ptr %fv.i.i13, align 8
-  %call.i.i.i14 = tail call ptr @get_ptr_rcu_reader() #21
+  %call.i.i.i14 = tail call ptr @get_ptr_rcu_reader() #23
   %depth.i.i.i15 = getelementptr inbounds i8, ptr %call.i.i.i14, i64 12
   %66 = load i32, ptr %depth.i.i.i15, align 4
   %inc.i.i.i16 = add i32 %66, 1
@@ -3371,7 +3371,7 @@ while.end.i.i.i90:                                ; preds = %if.else
   %67 = load atomic i64, ptr @rcu_gp_ctr monotonic, align 8
   %conv8.i.i.i91 = and i64 %67, 4294967295
   store atomic i64 %conv8.i.i.i91, ptr %call.i.i.i14 monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !5
   fence seq_cst
   br label %rcu_read_auto_lock.exit.i18
 
@@ -3405,7 +3405,7 @@ if.end5.i.i:                                      ; preds = %if.end.i.i19
 if.end10.i.i:                                     ; preds = %if.end5.i.i
   %caches.i.i.i.i = getelementptr inbounds i8, ptr %vq, i64 40
   %74 = load atomic i64, ptr %caches.i.i.i.i monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !6
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !6
   %tobool.not.i.i.i = icmp eq i64 %74, 0
   br i1 %tobool.not.i.i.i, label %virtio_queue_empty_rcu.exit.i, label %if.end.i.i.i
 
@@ -3418,7 +3418,7 @@ if.end.i.i.i:                                     ; preds = %if.end10.i.i
   br i1 %switch.i.i.i, label %if.else.i.i.i.i.i.i89, label %if.end.i.i.i.i.i.i81
 
 if.else.i.i.i.i.i.i89:                            ; preds = %if.end.i.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68, i32 noundef 30, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_lduw_le_cached) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68, i32 noundef 30, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_lduw_le_cached) #24
   unreachable
 
 if.end.i.i.i.i.i.i81:                             ; preds = %if.end.i.i.i
@@ -3432,7 +3432,7 @@ if.then5.i.i.i.i.i.i83:                           ; preds = %if.end.i.i.i.i.i.i8
   br label %virtio_lduw_phys_cached.exit.i.i.i
 
 if.else8.i.i.i.i.i.i87:                           ; preds = %if.end.i.i.i.i.i.i81
-  %call10.i.i.i.i.i.i88 = tail call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %avail.i.i.i, i64 noundef 2, i32 1, ptr noundef null) #21
+  %call10.i.i.i.i.i.i88 = tail call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %avail.i.i.i, i64 noundef 2, i32 1, ptr noundef null) #23
   br label %virtio_lduw_phys_cached.exit.i.i.i
 
 virtio_lduw_phys_cached.exit.i.i.i:               ; preds = %if.else8.i.i.i.i.i.i87, %if.then5.i.i.i.i.i.i83
@@ -3447,7 +3447,7 @@ virtio_queue_empty_rcu.exit.i:                    ; preds = %virtio_lduw_phys_ca
   br i1 %cmp15.i.not.i, label %if.then.i.i.i26, label %if.end.i22
 
 if.end.i22:                                       ; preds = %virtio_queue_empty_rcu.exit.i, %if.end5.i.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !25
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !25
   fence acquire
   store i32 0, ptr %in_num.i7, align 4
   store i32 0, ptr %out_num.i6, align 4
@@ -3467,7 +3467,7 @@ if.end6.i37:                                      ; preds = %if.end.i22
   store i16 %inc.i38, ptr %last_avail_idx.i.i21, align 8
   %caches.i.i.i56.i = getelementptr inbounds i8, ptr %vq, i64 40
   %82 = load atomic i64, ptr %caches.i.i.i56.i monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !6
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !6
   %tobool.not.i.i57.i = icmp eq i64 %82, 0
   br i1 %tobool.not.i.i57.i, label %vring_avail_ring.exit.i.i, label %if.end.i.i58.i
 
@@ -3488,7 +3488,7 @@ if.end.i.i58.i:                                   ; preds = %if.end6.i37
   br i1 %or.cond.i.i.i.i.i.i43, label %if.end.i.i.i.i.i62.i, label %if.else.i.i.i.i.i61.i
 
 if.else.i.i.i.i.i61.i:                            ; preds = %if.end.i.i58.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68, i32 noundef 30, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_lduw_le_cached) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68, i32 noundef 30, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_lduw_le_cached) #24
   unreachable
 
 if.end.i.i.i.i.i62.i:                             ; preds = %if.end.i.i58.i
@@ -3502,7 +3502,7 @@ if.then5.i.i.i.i.i64.i:                           ; preds = %if.end.i.i.i.i.i62.
   br label %vring_avail_ring.exit.i.i
 
 if.else8.i.i.i.i.i70.i:                           ; preds = %if.end.i.i.i.i.i62.i
-  %call10.i.i.i.i.i71.i = tail call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %avail.i.i59.i, i64 noundef %85, i32 1, ptr noundef null) #21
+  %call10.i.i.i.i.i71.i = tail call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %avail.i.i59.i, i64 noundef %85, i32 1, ptr noundef null) #23
   br label %vring_avail_ring.exit.i.i
 
 vring_avail_ring.exit.i.i:                        ; preds = %if.else8.i.i.i.i.i70.i, %if.then5.i.i.i.i.i64.i, %if.end6.i37
@@ -3532,7 +3532,7 @@ if.then11.i:                                      ; preds = %if.end9.i
 
 if.end.i73.i:                                     ; preds = %if.then11.i
   %92 = load atomic i64, ptr %caches.i.i.i56.i monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !6
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !6
   %tobool1.not.i.i77 = icmp eq i64 %92, 0
   br i1 %tobool1.not.i.i77, label %if.end13.i, label %if.end3.i.i
 
@@ -3552,7 +3552,7 @@ if.end3.i.i:                                      ; preds = %if.end.i73.i
   br i1 %or.cond.i.i.i.i.i, label %if.end.i.i.i.i.i79, label %if.else.i.i.i.i.i78
 
 if.else.i.i.i.i.i78:                              ; preds = %if.end3.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68, i32 noundef 77, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_stw_le_cached) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68, i32 noundef 77, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_stw_le_cached) #24
   unreachable
 
 if.end.i.i.i.i.i79:                               ; preds = %if.end3.i.i
@@ -3566,17 +3566,17 @@ if.then5.i.i.i.i.i:                               ; preds = %if.end.i.i.i.i.i79
   br label %virtio_stw_phys_cached.exit.i.i
 
 if.else7.i.i.i.i.i:                               ; preds = %if.end.i.i.i.i.i79
-  tail call void @address_space_stw_le_cached_slow(ptr noundef nonnull %used.i.i, i64 noundef %96, i16 noundef zeroext %90, i32 1, ptr noundef null) #21
+  tail call void @address_space_stw_le_cached_slow(ptr noundef nonnull %used.i.i, i64 noundef %96, i16 noundef zeroext %90, i32 1, ptr noundef null) #23
   br label %virtio_stw_phys_cached.exit.i.i
 
 virtio_stw_phys_cached.exit.i.i:                  ; preds = %if.else7.i.i.i.i.i, %if.then5.i.i.i.i.i
-  tail call void @address_space_cache_invalidate(ptr noundef nonnull %used.i.i, i64 noundef %96, i64 noundef 2) #21
+  tail call void @address_space_cache_invalidate(ptr noundef nonnull %used.i.i, i64 noundef %96, i64 noundef 2) #23
   br label %if.end13.i
 
 if.end13.i:                                       ; preds = %virtio_stw_phys_cached.exit.i.i, %if.end.i73.i, %if.then11.i, %if.end9.i
   %99 = load atomic i64, ptr %caches.i.i.i56.i monotonic, align 8
   %100 = inttoptr i64 %99 to ptr
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !6
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !6
   %tobool15.not.i = icmp eq i64 %99, 0
   br i1 %tobool15.not.i, label %if.then16.i76, label %if.end17.i45
 
@@ -3607,7 +3607,7 @@ if.end24.i:                                       ; preds = %if.end17.i45
   br i1 %or.cond.i.i.i, label %if.else.i.i.i, label %if.end.i.i76.i
 
 if.else.i.i.i:                                    ; preds = %if.end24.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.72, i32 noundef 3023, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_read_cached) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.72, i32 noundef 3023, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_read_cached) #24
   unreachable
 
 if.end.i.i76.i:                                   ; preds = %if.end24.i
@@ -3621,7 +3621,7 @@ if.then6.i.i.i:                                   ; preds = %if.end.i.i76.i
   br label %vring_split_desc_read.exit.i
 
 if.else8.i.i.i:                                   ; preds = %if.end.i.i76.i
-  %call.i.i78.i = call i32 @address_space_read_cached_slow(ptr noundef nonnull %desc18.i, i64 noundef %mul.i.i, ptr noundef nonnull %desc.i10, i64 noundef 16) #21
+  %call.i.i78.i = call i32 @address_space_read_cached_slow(ptr noundef nonnull %desc18.i, i64 noundef %mul.i.i, ptr noundef nonnull %desc.i10, i64 noundef 16) #23
   br label %vring_split_desc_read.exit.i
 
 vring_split_desc_read.exit.i:                     ; preds = %if.else8.i.i.i, %if.then6.i.i.i
@@ -3651,7 +3651,7 @@ if.end35.i:                                       ; preds = %lor.lhs.false.i
   %dma_as.i49 = getelementptr inbounds i8, ptr %0, i64 472
   %106 = load ptr, ptr %dma_as.i49, align 8
   %107 = load i64, ptr %desc.i10, align 8
-  %call39.i = call i64 @address_space_cache_init(ptr noundef nonnull %indirect_desc_cache.i5, ptr noundef %106, i64 noundef %107, i64 noundef %conv32.i, i1 noundef zeroext false) #21
+  %call39.i = call i64 @address_space_cache_init(ptr noundef nonnull %indirect_desc_cache.i5, ptr noundef %106, i64 noundef %107, i64 noundef %conv32.i, i1 noundef zeroext false) #23
   %108 = load i32, ptr %len29.i, align 8
   %conv41.i = zext i32 %108 to i64
   %cmp42.i = icmp slt i64 %call39.i, %conv41.i
@@ -3745,7 +3745,7 @@ if.end6.i.i:                                      ; preds = %if.end.i80.i
   br i1 %or.cond.i.i.i.i, label %if.else.i.i.i.i, label %if.end.i.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %if.end6.i.i
-  call void @__assert_fail(ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.72, i32 noundef 3023, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_read_cached) #22
+  call void @__assert_fail(ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.72, i32 noundef 3023, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_read_cached) #24
   unreachable
 
 if.end.i.i.i.i:                                   ; preds = %if.end6.i.i
@@ -3759,7 +3759,7 @@ if.then6.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
   br label %do.body.i52.backedge
 
 if.else8.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
-  %call.i.i.i.i = call i32 @address_space_read_cached_slow(ptr noundef nonnull %desc_cache.0.i50, i64 noundef %mul.i.i.i58, ptr noundef nonnull %desc.i10, i64 noundef 16) #21
+  %call.i.i.i.i = call i32 @address_space_read_cached_slow(ptr noundef nonnull %desc_cache.0.i50, i64 noundef %mul.i.i.i58, ptr noundef nonnull %desc.i10, i64 noundef 16) #23
   br label %do.body.i52.backedge
 
 do.body.i52.backedge:                             ; preds = %if.else8.i.i.i.i, %if.then6.i.i.i.i
@@ -3837,15 +3837,15 @@ for.end113.i:                                     ; preds = %for.body101.i, %for
 
 if.then.i.i.i26:                                  ; preds = %err_undo_map.i57, %for.end113.i, %if.then44.i, %if.then34.i, %if.then23.i, %if.then16.i76, %virtqueue_get_head.exit.i, %if.then5.i25, %virtio_queue_empty_rcu.exit.i, %if.end.i.i19, %virtio_device_disabled.exit.i.i, %rcu_read_auto_lock.exit.i18
   %elem.0.i27 = phi ptr [ null, %virtio_queue_empty_rcu.exit.i ], [ null, %if.then5.i25 ], [ null, %if.then23.i ], [ null, %if.then34.i ], [ null, %if.then44.i ], [ null, %err_undo_map.i57 ], [ %call88.i, %for.end113.i ], [ null, %if.then16.i76 ], [ null, %virtqueue_get_head.exit.i ], [ null, %virtio_device_disabled.exit.i.i ], [ null, %if.end.i.i19 ], [ null, %rcu_read_auto_lock.exit.i18 ]
-  call void @address_space_cache_destroy(ptr noundef nonnull %indirect_desc_cache.i5) #21
-  %call.i.i.i.i.i28 = call ptr @get_ptr_rcu_reader() #21
+  call void @address_space_cache_destroy(ptr noundef nonnull %indirect_desc_cache.i5) #23
+  %call.i.i.i.i.i28 = call ptr @get_ptr_rcu_reader() #23
   %depth.i.i.i.i.i29 = getelementptr inbounds i8, ptr %call.i.i.i.i.i28, i64 12
   %134 = load i32, ptr %depth.i.i.i.i.i29, align 4
   %cmp.not.i.i.i.i.i30 = icmp eq i32 %134, 0
   br i1 %cmp.not.i.i.i.i.i30, label %if.else.i.i.i.i86.i, label %if.end.i.i.i.i85.i
 
 if.else.i.i.i.i86.i:                              ; preds = %if.then.i.i.i26
-  call void @__assert_fail(ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.75, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #22
+  call void @__assert_fail(ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.75, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #24
   unreachable
 
 if.end.i.i.i.i85.i:                               ; preds = %if.then.i.i.i26
@@ -3856,7 +3856,7 @@ if.end.i.i.i.i85.i:                               ; preds = %if.then.i.i.i26
 
 while.end.i.i.i.i.i33:                            ; preds = %if.end.i.i.i.i85.i
   store atomic i64 0, ptr %call.i.i.i.i.i28 release, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !10
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !10
   fence seq_cst
   %waiting.i.i.i.i.i34 = getelementptr inbounds i8, ptr %call.i.i.i.i.i28, i64 8
   %135 = load atomic i8, ptr %waiting.i.i.i.i.i34 monotonic, align 8
@@ -3865,7 +3865,7 @@ while.end.i.i.i.i.i33:                            ; preds = %if.end.i.i.i.i85.i
 
 while.end21.i.i.i.i.i36:                          ; preds = %while.end.i.i.i.i.i33
   store atomic i8 0, ptr %waiting.i.i.i.i.i34 monotonic, align 8
-  call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #21
+  call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #23
   br label %virtqueue_split_pop.exit
 
 err_undo_map.i57:                                 ; preds = %if.end72.i, %if.then54.i, %virtqueue_split_read_next_desc.exit.thread94.i, %if.then79.i, %if.then63.i
@@ -3918,7 +3918,7 @@ if.then4:                                         ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %elem.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %desc.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %elem.i, i8 0, i64 56, i1 false)
-  %call.i.i.i = tail call ptr @get_ptr_rcu_reader() #21
+  %call.i.i.i = tail call ptr @get_ptr_rcu_reader() #23
   %depth.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 12
   %4 = load i32, ptr %depth.i.i.i, align 4
   %inc.i.i.i = add i32 %4, 1
@@ -3930,14 +3930,14 @@ while.end.i.i.i:                                  ; preds = %if.then4
   %5 = load atomic i64, ptr @rcu_gp_ctr monotonic, align 8
   %conv8.i.i.i = and i64 %5, 4294967295
   store atomic i64 %conv8.i.i.i, ptr %call.i.i.i monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !5
   fence seq_cst
   br label %rcu_read_auto_lock.exit.i
 
 rcu_read_auto_lock.exit.i:                        ; preds = %while.end.i.i.i, %if.then4
   %caches.i.i = getelementptr inbounds i8, ptr %vq, i64 40
   %6 = load atomic i64, ptr %caches.i.i monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !6
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !6
   %tobool.not.i = icmp eq i64 %6, 0
   br i1 %tobool.not.i, label %if.then.i.i.i, label %if.end.i
 
@@ -4032,14 +4032,14 @@ if.end39.i:                                       ; preds = %if.then29.i, %while
 
 if.then.i.i.i:                                    ; preds = %if.end39.i, %while.body.i, %if.end.i, %rcu_read_auto_lock.exit.i
   %retval.0.i = phi i32 [ 0, %rcu_read_auto_lock.exit.i ], [ 0, %if.end.i ], [ %dropped.027.i, %while.body.i ], [ %inc18.i, %if.end39.i ]
-  %call.i.i.i.i.i = call ptr @get_ptr_rcu_reader() #21
+  %call.i.i.i.i.i = call ptr @get_ptr_rcu_reader() #23
   %depth.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 12
   %31 = load i32, ptr %depth.i.i.i.i.i, align 4
   %cmp.not.i.i.i.i.i = icmp eq i32 %31, 0
   br i1 %cmp.not.i.i.i.i.i, label %if.else.i.i.i.i.i, label %if.end.i.i.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i
-  call void @__assert_fail(ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.75, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #22
+  call void @__assert_fail(ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.75, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #24
   unreachable
 
 if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i
@@ -4050,7 +4050,7 @@ if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i
 
 while.end.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i.i
   store atomic i64 0, ptr %call.i.i.i.i.i release, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !10
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !10
   fence seq_cst
   %waiting.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 8
   %32 = load atomic i8, ptr %waiting.i.i.i.i.i monotonic, align 8
@@ -4059,7 +4059,7 @@ while.end.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i.i
 
 while.end21.i.i.i.i.i:                            ; preds = %while.end.i.i.i.i.i
   store atomic i8 0, ptr %waiting.i.i.i.i.i monotonic, align 8
-  call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #21
+  call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #23
   br label %virtqueue_packed_drop_all.exit
 
 virtqueue_packed_drop_all.exit:                   ; preds = %if.end.i.i.i.i.i, %while.end.i.i.i.i.i, %while.end21.i.i.i.i.i
@@ -4091,12 +4091,12 @@ land.rhs.i:                                       ; preds = %if.end10.i, %land.r
   br i1 %cmp.i8, label %while.body.i9, label %virtqueue_split_drop_all.exit
 
 while.body.i9:                                    ; preds = %land.rhs.i
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !30
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !30
   fence acquire
   %35 = load i16, ptr %last_avail_idx.i7, align 8
   %36 = load i32, ptr %vq, align 8
   %37 = load atomic i64, ptr %caches.i.i.i.i monotonic, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !6
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !6
   %tobool.not.i.i.i = icmp eq i64 %37, 0
   br i1 %tobool.not.i.i.i, label %vring_avail_ring.exit.i.i, label %if.end.i.i.i
 
@@ -4117,7 +4117,7 @@ if.end.i.i.i:                                     ; preds = %while.body.i9
   br i1 %or.cond.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i
 
 if.else.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i
-  call void @__assert_fail(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68, i32 noundef 30, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_lduw_le_cached) #22
+  call void @__assert_fail(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68, i32 noundef 30, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_lduw_le_cached) #24
   unreachable
 
 if.end.i.i.i.i.i.i:                               ; preds = %if.end.i.i.i
@@ -4131,7 +4131,7 @@ if.then5.i.i.i.i.i.i:                             ; preds = %if.end.i.i.i.i.i.i
   br label %vring_avail_ring.exit.i.i
 
 if.else8.i.i.i.i.i.i:                             ; preds = %if.end.i.i.i.i.i.i
-  %call10.i.i.i.i.i.i = call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %avail.i.i.i, i64 noundef %40, i32 1, ptr noundef null) #21
+  %call10.i.i.i.i.i.i = call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %avail.i.i.i, i64 noundef %40, i32 1, ptr noundef null) #23
   br label %vring_avail_ring.exit.i.i
 
 vring_avail_ring.exit.i.i:                        ; preds = %if.else8.i.i.i.i.i.i, %if.then5.i.i.i.i.i.i, %while.body.i9
@@ -4163,7 +4163,7 @@ if.then8.i:                                       ; preds = %if.end.i12
 
 if.end.i.i:                                       ; preds = %if.then8.i
   %48 = load atomic i64, ptr %caches.i.i.i.i monotonic, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !6
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !6
   %tobool1.not.i.i16 = icmp eq i64 %48, 0
   br i1 %tobool1.not.i.i16, label %if.end10.i, label %if.end3.i.i
 
@@ -4183,7 +4183,7 @@ if.end3.i.i:                                      ; preds = %if.end.i.i
   br i1 %or.cond.i.i.i.i.i, label %if.end.i.i.i.i.i18, label %if.else.i.i.i.i.i17
 
 if.else.i.i.i.i.i17:                              ; preds = %if.end3.i.i
-  call void @__assert_fail(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68, i32 noundef 77, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_stw_le_cached) #22
+  call void @__assert_fail(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68, i32 noundef 77, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_stw_le_cached) #24
   unreachable
 
 if.end.i.i.i.i.i18:                               ; preds = %if.end3.i.i
@@ -4197,11 +4197,11 @@ if.then5.i.i.i.i.i:                               ; preds = %if.end.i.i.i.i.i18
   br label %virtio_stw_phys_cached.exit.i.i
 
 if.else7.i.i.i.i.i:                               ; preds = %if.end.i.i.i.i.i18
-  call void @address_space_stw_le_cached_slow(ptr noundef nonnull %used.i.i, i64 noundef %52, i16 noundef zeroext %inc6.i, i32 1, ptr noundef null) #21
+  call void @address_space_stw_le_cached_slow(ptr noundef nonnull %used.i.i, i64 noundef %52, i16 noundef zeroext %inc6.i, i32 1, ptr noundef null) #23
   br label %virtio_stw_phys_cached.exit.i.i
 
 virtio_stw_phys_cached.exit.i.i:                  ; preds = %if.else7.i.i.i.i.i, %if.then5.i.i.i.i.i
-  call void @address_space_cache_invalidate(ptr noundef nonnull %used.i.i, i64 noundef %52, i64 noundef 2) #21
+  call void @address_space_cache_invalidate(ptr noundef nonnull %used.i.i, i64 noundef %52, i64 noundef 2) #23
   br label %if.end10.i
 
 if.end10.i:                                       ; preds = %virtio_stw_phys_cached.exit.i.i, %if.end.i.i, %if.then8.i, %if.end.i12
@@ -4225,14 +4225,14 @@ return:                                           ; preds = %entry, %virtio_devi
 define dso_local noundef ptr @qemu_get_virtqueue_element(ptr nocapture noundef readonly %vdev, ptr noundef %f, i64 noundef %sz) local_unnamed_addr #0 {
 entry:
   %data = alloca %struct.VirtQueueElementOld, align 8
-  %call = call i64 @qemu_get_buffer(ptr noundef %f, ptr noundef nonnull %data, i64 noundef 49168) #21
+  %call = call i64 @qemu_get_buffer(ptr noundef %f, ptr noundef nonnull %data, i64 noundef 49168) #23
   %in_num = getelementptr inbounds i8, ptr %data, i64 8
   %0 = load i32, ptr %in_num, align 8
   %cmp = icmp ult i32 %0, 1025
   br i1 %cmp, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  call void @__assert_fail(ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.42, i32 noundef 1919, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_get_virtqueue_element) #22
+  call void @__assert_fail(ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.42, i32 noundef 1919, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_get_virtqueue_element) #24
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -4242,7 +4242,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp3, label %if.end7, label %if.else6
 
 if.else6:                                         ; preds = %if.end
-  call void @__assert_fail(ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.42, i32 noundef 1920, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_get_virtqueue_element) #22
+  call void @__assert_fail(ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.42, i32 noundef 1920, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_get_virtqueue_element) #24
   unreachable
 
 if.end7:                                          ; preds = %if.end
@@ -4367,7 +4367,7 @@ for.end66:                                        ; preds = %for.body52, %for.co
 
 if.then68:                                        ; preds = %for.end66
   %ndescs = getelementptr inbounds i8, ptr %call10, i64 8
-  %call.i = call i32 @qemu_get_be32(ptr noundef %f) #21
+  %call.i = call i32 @qemu_get_be32(ptr noundef %f) #23
   store i32 %call.i, ptr %ndescs, align 4
   br label %if.end69
 
@@ -4389,7 +4389,7 @@ entry:
   br i1 %cmp, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.90, ptr noundef nonnull @.str.42, i32 noundef 1486, ptr noundef nonnull @__PRETTY_FUNCTION__.virtqueue_alloc_element) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.90, ptr noundef nonnull @.str.42, i32 noundef 1486, ptr noundef nonnull @__PRETTY_FUNCTION__.virtqueue_alloc_element) #24
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -4404,7 +4404,7 @@ if.end:                                           ; preds = %entry
   %add12 = add i64 %2, %mul11
   %mul14 = shl nuw nsw i64 %conv3, 4
   %add15 = add i64 %add12, %mul14
-  %call = tail call noalias ptr @g_malloc(i64 noundef %add15) #23
+  %call = tail call noalias ptr @g_malloc(i64 noundef %add15) #26
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %3 = load i32, ptr @trace_events_enabled_count, align 4
   %tobool.i.i = icmp ne i32 %3, 0
@@ -4425,16 +4425,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #21
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #21
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #23
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #23
   %7 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.91, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, ptr noundef %call, i64 noundef %sz, i32 noundef %in_num, i32 noundef %out_num) #21
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.91, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, ptr noundef %call, i64 noundef %sz, i32 noundef %in_num, i32 noundef %out_num) #23
   br label %trace_virtqueue_alloc_element.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.92, ptr noundef %call, i64 noundef %sz, i32 noundef %in_num, i32 noundef %out_num) #21
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.92, ptr noundef %call, i64 noundef %sz, i32 noundef %in_num, i32 noundef %out_num) #23
   br label %trace_virtqueue_alloc_element.exit
 
 trace_virtqueue_alloc_element.exit:               ; preds = %if.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -4567,11 +4567,11 @@ for.end46:                                        ; preds = %for.body36, %for.co
 if.then:                                          ; preds = %for.end46
   %ndescs = getelementptr inbounds i8, ptr %elem, i64 8
   %ndescs.val = load i32, ptr %ndescs, align 4
-  tail call void @qemu_put_be32(ptr noundef %f, i32 noundef %ndescs.val) #21
+  tail call void @qemu_put_be32(ptr noundef %f, i32 noundef %ndescs.val) #23
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %for.end46
-  call void @qemu_put_buffer(ptr noundef %f, ptr noundef nonnull %data, i64 noundef 49168) #21
+  call void @qemu_put_buffer(ptr noundef %f, ptr noundef nonnull %data, i64 noundef 49168) #23
   ret void
 }
 
@@ -4583,10 +4583,10 @@ declare void @qemu_put_buffer(ptr noundef, ptr noundef, i64 noundef) local_unnam
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @virtio_update_irq(ptr noundef %vdev) local_unnamed_addr #0 {
 entry:
-  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.97, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #21
-  %call1.i = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i) #21
-  %call.i4.i = tail call ptr @object_get_class(ptr noundef %call1.i) #21
-  %call1.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i4.i, ptr noundef nonnull @.str.98, ptr noundef nonnull @.str.99, i32 noundef 36, ptr noundef nonnull @__func__.VIRTIO_BUS_GET_CLASS) #21
+  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.97, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #23
+  %call1.i = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i) #23
+  %call.i4.i = tail call ptr @object_get_class(ptr noundef %call1.i) #23
+  %call1.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i4.i, ptr noundef nonnull @.str.98, ptr noundef nonnull @.str.99, i32 noundef 36, ptr noundef nonnull @__func__.VIRTIO_BUS_GET_CLASS) #23
   %disabled.i.i = getelementptr inbounds i8, ptr %vdev, i64 437
   %0 = load i8, ptr %disabled.i.i, align 1
   %tobool.i.i = trunc i8 %0 to i1
@@ -4607,7 +4607,7 @@ if.end.i:                                         ; preds = %virtio_device_disab
 if.then4.i:                                       ; preds = %if.end.i
   %parent.i = getelementptr inbounds i8, ptr %call1.i, i64 40
   %3 = load ptr, ptr %parent.i, align 8
-  tail call void %2(ptr noundef %3, i16 noundef zeroext -1) #21
+  tail call void %2(ptr noundef %3, i16 noundef zeroext -1) #23
   br label %virtio_notify_vector.exit
 
 virtio_notify_vector.exit:                        ; preds = %entry, %virtio_device_disabled.exit.i, %if.end.i, %if.then4.i
@@ -4618,8 +4618,8 @@ virtio_notify_vector.exit:                        ; preds = %entry, %virtio_devi
 define dso_local i32 @virtio_set_status(ptr noundef %vdev, i8 noundef zeroext %val) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %call.i = tail call ptr @object_get_class(ptr noundef %vdev) #21
-  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.93, ptr noundef nonnull @.str.65, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_GET_CLASS) #21
+  %call.i = tail call ptr @object_get_class(ptr noundef %vdev) #23
+  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.93, ptr noundef nonnull @.str.65, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_GET_CLASS) #23
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %0 = load i32, ptr @trace_events_enabled_count, align 4
   %tobool.i.i = icmp ne i32 %0, 0
@@ -4640,18 +4640,18 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #21
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #21
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #23
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #23
   %4 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i8 %val to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.94, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, ptr noundef %vdev, i32 noundef %conv11.i.i) #21
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.94, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, ptr noundef %vdev, i32 noundef %conv11.i.i) #23
   br label %trace_virtio_set_status.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
   %conv12.i.i = zext i8 %val to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.95, ptr noundef %vdev, i32 noundef %conv12.i.i) #21
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.95, ptr noundef %vdev, i32 noundef %conv12.i.i) #23
   br label %trace_virtio_set_status.exit
 
 trace_virtio_set_status.exit:                     ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -4673,8 +4673,8 @@ if.then:                                          ; preds = %trace_virtio_set_st
   br i1 %or.cond, label %if.end10, label %if.then5
 
 if.then5:                                         ; preds = %if.then
-  %call.i.i = tail call ptr @object_get_class(ptr noundef nonnull %vdev) #21
-  %call1.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.93, ptr noundef nonnull @.str.65, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_GET_CLASS) #21
+  %call.i.i = tail call ptr @object_get_class(ptr noundef nonnull %vdev) #23
+  %call1.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.93, ptr noundef nonnull @.str.65, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_GET_CLASS) #23
   %10 = getelementptr i8, ptr %vdev, i64 176
   %vdev.val5.i = load i64, ptr %10, align 8
   %and.i.i.i17 = and i64 %vdev.val5.i, 8589934592
@@ -4694,7 +4694,7 @@ if.end.i:                                         ; preds = %land.lhs.true.i, %i
   br i1 %tobool.not.i, label %if.end10, label %virtio_validate_features.exit
 
 virtio_validate_features.exit:                    ; preds = %if.end.i
-  %call5.i = tail call i32 %11(ptr noundef nonnull %vdev) #21
+  %call5.i = tail call i32 %11(ptr noundef nonnull %vdev) #23
   %tobool7.not = icmp eq i32 %call5.i, 0
   br i1 %tobool7.not, label %if.end10, label %return
 
@@ -4734,7 +4734,7 @@ if.end21:                                         ; preds = %if.then2.i, %if.end
   br i1 %tobool22.not, label %if.end25, label %if.then23
 
 if.then23:                                        ; preds = %if.end21
-  tail call void %16(ptr noundef nonnull %vdev, i8 noundef zeroext %val) #21
+  tail call void %16(ptr noundef nonnull %vdev, i8 noundef zeroext %val) #23
   br label %if.end25
 
 if.end25:                                         ; preds = %if.then23, %if.end21
@@ -4749,15 +4749,15 @@ return:                                           ; preds = %land.lhs.true.i, %v
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @virtio_queue_reset(ptr noundef %vdev, i32 noundef %queue_index) local_unnamed_addr #0 {
 entry:
-  %call.i = tail call ptr @object_get_class(ptr noundef %vdev) #21
-  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.93, ptr noundef nonnull @.str.65, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_GET_CLASS) #21
+  %call.i = tail call ptr @object_get_class(ptr noundef %vdev) #23
+  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.93, ptr noundef nonnull @.str.65, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_GET_CLASS) #23
   %queue_reset = getelementptr inbounds i8, ptr %call1.i, i64 256
   %0 = load ptr, ptr %queue_reset, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call void %0(ptr noundef %vdev, i32 noundef %queue_index) #21
+  tail call void %0(ptr noundef %vdev, i32 noundef %queue_index) #23
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -4870,7 +4870,7 @@ virtio_queue_set_vector.exit:                     ; preds = %entry, %if.end25.i
 
 if.then.i34:                                      ; preds = %virtio_queue_set_vector.exit
   %23 = inttoptr i64 %22 to ptr
-  tail call void @call_rcu1(ptr noundef nonnull %23, ptr noundef nonnull @virtio_free_region_cache) #21
+  tail call void @call_rcu1(ptr noundef nonnull %23, ptr noundef nonnull @virtio_free_region_cache) #23
   br label %virtio_virtqueue_reset_region_cache.exit
 
 virtio_virtqueue_reset_region_cache.exit:         ; preds = %virtio_queue_set_vector.exit, %if.then.i34
@@ -4880,15 +4880,15 @@ virtio_virtqueue_reset_region_cache.exit:         ; preds = %virtio_queue_set_ve
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @virtio_queue_enable(ptr noundef %vdev, i32 noundef %queue_index) local_unnamed_addr #0 {
 entry:
-  %call.i = tail call ptr @object_get_class(ptr noundef %vdev) #21
-  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.93, ptr noundef nonnull @.str.65, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_GET_CLASS) #21
+  %call.i = tail call ptr @object_get_class(ptr noundef %vdev) #23
+  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.93, ptr noundef nonnull @.str.65, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_GET_CLASS) #23
   %queue_enable = getelementptr inbounds i8, ptr %call1.i, i64 264
   %0 = load ptr, ptr %queue_enable, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call void %0(ptr noundef %vdev, i32 noundef %queue_index) #21
+  tail call void %0(ptr noundef %vdev, i32 noundef %queue_index) #23
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -4898,8 +4898,8 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @virtio_reset(ptr noundef %opaque) local_unnamed_addr #0 {
 entry:
-  %call.i = tail call ptr @object_get_class(ptr noundef %opaque) #21
-  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.93, ptr noundef nonnull @.str.65, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_GET_CLASS) #21
+  %call.i = tail call ptr @object_get_class(ptr noundef %opaque) #23
+  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.93, ptr noundef nonnull @.str.65, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_GET_CLASS) #23
   %call1 = tail call i32 @virtio_set_status(ptr noundef %opaque, i8 noundef zeroext 0)
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @current_cpu)
   %1 = load ptr, ptr %0, align 8
@@ -4907,11 +4907,11 @@ entry:
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call.i25 = tail call zeroext i1 @cpu_virtio_is_big_endian(ptr noundef nonnull %1) #21
+  %call.i25 = tail call zeroext i1 @cpu_virtio_is_big_endian(ptr noundef nonnull %1) #23
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %call.i26 = tail call zeroext i1 @target_words_bigendian() #21
+  %call.i26 = tail call zeroext i1 @target_words_bigendian() #23
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
@@ -4931,8 +4931,8 @@ land.lhs.true:                                    ; preds = %if.end
   br i1 %tobool8.not, label %if.end13, label %if.then9
 
 if.then9:                                         ; preds = %land.lhs.true
-  %call11 = tail call ptr %4(ptr noundef nonnull %opaque) #21
-  %call12 = tail call i32 @vhost_reset_device(ptr noundef %call11) #21
+  %call11 = tail call ptr %4(ptr noundef nonnull %opaque) #23
+  %call12 = tail call i32 @vhost_reset_device(ptr noundef %call11) #23
   br label %if.end13
 
 if.end13:                                         ; preds = %if.then9, %land.lhs.true, %if.end
@@ -4942,7 +4942,7 @@ if.end13:                                         ; preds = %if.then9, %land.lhs
   br i1 %tobool14.not, label %if.end17, label %if.then15
 
 if.then15:                                        ; preds = %if.end13
-  tail call void %5(ptr noundef nonnull %opaque) #21
+  tail call void %5(ptr noundef nonnull %opaque) #23
   br label %if.end17
 
 if.end17:                                         ; preds = %if.then15, %if.end13
@@ -4964,10 +4964,10 @@ if.end17:                                         ; preds = %if.then15, %if.end1
   store atomic i8 0, ptr %isr monotonic, align 1
   %config_vector = getelementptr inbounds i8, ptr %opaque, i64 216
   store i16 -1, ptr %config_vector, align 8
-  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %opaque, ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.97, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #21
-  %call1.i28 = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i) #21
-  %call.i4.i = tail call ptr @object_get_class(ptr noundef %call1.i28) #21
-  %call1.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i4.i, ptr noundef nonnull @.str.98, ptr noundef nonnull @.str.99, i32 noundef 36, ptr noundef nonnull @__func__.VIRTIO_BUS_GET_CLASS) #21
+  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %opaque, ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.97, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #23
+  %call1.i28 = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i) #23
+  %call.i4.i = tail call ptr @object_get_class(ptr noundef %call1.i28) #23
+  %call1.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i4.i, ptr noundef nonnull @.str.98, ptr noundef nonnull @.str.99, i32 noundef 36, ptr noundef nonnull @__func__.VIRTIO_BUS_GET_CLASS) #23
   %6 = load i8, ptr %disabled, align 1
   %tobool.i.i = trunc i8 %6 to i1
   br i1 %tobool.i.i, label %for.body.preheader, label %virtio_device_disabled.exit.i
@@ -4986,7 +4986,7 @@ if.end.i:                                         ; preds = %virtio_device_disab
 if.then4.i:                                       ; preds = %if.end.i
   %parent.i = getelementptr inbounds i8, ptr %call1.i28, i64 40
   %9 = load ptr, ptr %parent.i, align 8
-  tail call void %8(ptr noundef %9, i16 noundef zeroext -1) #21
+  tail call void %8(ptr noundef %9, i16 noundef zeroext -1) #23
   br label %for.body.preheader
 
 for.body.preheader:                               ; preds = %if.end17, %virtio_device_disabled.exit.i, %if.end.i, %if.then4.i
@@ -5195,10 +5195,10 @@ for.end:                                          ; preds = %for.inc, %for.end.s
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @virtio_queue_set_align(ptr noundef %vdev, i32 noundef %n, i32 noundef %align) local_unnamed_addr #0 {
 entry:
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.97, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #21
-  %call1 = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i) #21
-  %call.i6 = tail call ptr @object_get_class(ptr noundef %call1) #21
-  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i6, ptr noundef nonnull @.str.98, ptr noundef nonnull @.str.99, i32 noundef 36, ptr noundef nonnull @__func__.VIRTIO_BUS_GET_CLASS) #21
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.97, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #23
+  %call1 = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i) #23
+  %call.i6 = tail call ptr @object_get_class(ptr noundef %call1) #23
+  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i6, ptr noundef nonnull @.str.98, ptr noundef nonnull @.str.99, i32 noundef 36, ptr noundef nonnull @__func__.VIRTIO_BUS_GET_CLASS) #23
   %0 = getelementptr i8, ptr %vdev, i64 184
   %vdev.val = load i64, ptr %0, align 8
   %and.i.i = and i64 %vdev.val, 4294967296
@@ -5206,7 +5206,7 @@ entry:
   br i1 %tobool.i.i.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.46) #21
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.46) #23
   br label %if.end9
 
 if.end:                                           ; preds = %entry
@@ -5216,7 +5216,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool, label %if.end5, label %if.else
 
 if.else:                                          ; preds = %if.end
-  tail call void @__assert_fail(ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.42, i32 noundef 2250, ptr noundef nonnull @__PRETTY_FUNCTION__.virtio_queue_set_align) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.42, i32 noundef 2250, ptr noundef nonnull @__PRETTY_FUNCTION__.virtio_queue_set_align) #24
   unreachable
 
 if.end5:                                          ; preds = %if.end
@@ -5313,16 +5313,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #21
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #21
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #23
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #23
   %7 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.100, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, ptr noundef nonnull %vdev, i32 noundef %n, ptr noundef %arrayidx) #21
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.100, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, ptr noundef nonnull %vdev, i32 noundef %n, ptr noundef %arrayidx) #23
   br label %trace_virtio_queue_notify.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.101, ptr noundef nonnull %vdev, i32 noundef %n, ptr noundef %arrayidx) #21
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.101, ptr noundef nonnull %vdev, i32 noundef %n, ptr noundef %arrayidx) #23
   br label %trace_virtio_queue_notify.exit
 
 trace_virtio_queue_notify.exit:                   ; preds = %if.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -5334,7 +5334,7 @@ trace_virtio_queue_notify.exit:                   ; preds = %if.end, %land.lhs.t
 
 if.then8:                                         ; preds = %trace_virtio_queue_notify.exit
   %host_notifier = getelementptr inbounds i8, ptr %arrayidx, i64 116
-  %call = tail call i32 @event_notifier_set(ptr noundef nonnull %host_notifier) #21
+  %call = tail call i32 @event_notifier_set(ptr noundef nonnull %host_notifier) #23
   br label %if.end22
 
 if.else:                                          ; preds = %trace_virtio_queue_notify.exit
@@ -5344,7 +5344,7 @@ if.else:                                          ; preds = %trace_virtio_queue_
   br i1 %tobool9.not, label %if.end22, label %if.then10
 
 if.then10:                                        ; preds = %if.else
-  tail call void %10(ptr noundef nonnull %vdev, ptr noundef %arrayidx) #21
+  tail call void %10(ptr noundef nonnull %vdev, ptr noundef %arrayidx) #23
   %start_on_kick = getelementptr inbounds i8, ptr %vdev, i64 440
   %11 = load i8, ptr %start_on_kick, align 8
   %tobool12 = trunc i8 %11 to i1
@@ -5497,7 +5497,7 @@ for.end:                                          ; preds = %for.body
   br i1 %or.cond, label %if.then4, label %if.end5
 
 if.then4:                                         ; preds = %for.inc, %for.end
-  tail call void @abort() #22
+  tail call void @abort() #24
   unreachable
 
 if.end5:                                          ; preds = %for.end
@@ -5514,7 +5514,7 @@ if.end5:                                          ; preds = %for.end
   %handle_output22 = getelementptr %struct.VirtQueue, ptr %4, i64 %idxprom7, i32 14
   store ptr %handle_output, ptr %handle_output22, align 8
   %conv = sext i32 %queue_size to i64
-  %call = tail call noalias ptr @g_malloc0_n(i64 noundef %conv, i64 noundef 56) #20
+  %call = tail call noalias ptr @g_malloc0_n(i64 noundef %conv, i64 noundef 56) #22
   %5 = load ptr, ptr %vq, align 8
   %used_elems = getelementptr %struct.VirtQueue, ptr %5, i64 %idxprom7, i32 1
   store ptr %call, ptr %used_elems, align 8
@@ -5523,8 +5523,8 @@ if.end5:                                          ; preds = %for.end
   ret ptr %arrayidx28
 }
 
-; Function Attrs: noreturn nounwind
-declare void @abort() local_unnamed_addr #6
+; Function Attrs: cold nofree noreturn nounwind
+declare void @abort() local_unnamed_addr #11
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @virtio_delete_queue(ptr nocapture noundef %vq) local_unnamed_addr #0 {
@@ -5536,7 +5536,7 @@ entry:
   store ptr null, ptr %handle_output, align 8
   %used_elems = getelementptr inbounds i8, ptr %vq, i64 48
   %0 = load ptr, ptr %used_elems, align 8
-  tail call void @g_free(ptr noundef %0) #21
+  tail call void @g_free(ptr noundef %0) #23
   store ptr null, ptr %used_elems, align 8
   %caches1.i = getelementptr inbounds i8, ptr %vq, i64 40
   %1 = load atomic i64, ptr %caches1.i monotonic, align 8
@@ -5546,7 +5546,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %2 = inttoptr i64 %1 to ptr
-  tail call void @call_rcu1(ptr noundef nonnull %2, ptr noundef nonnull @virtio_free_region_cache) #21
+  tail call void @call_rcu1(ptr noundef nonnull %2, ptr noundef nonnull @virtio_free_region_cache) #23
   br label %virtio_virtqueue_reset_region_cache.exit
 
 virtio_virtqueue_reset_region_cache.exit:         ; preds = %entry, %if.then.i
@@ -5560,7 +5560,7 @@ entry:
   br i1 %or.cond, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call void @abort() #22
+  tail call void @abort() #24
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -5575,7 +5575,7 @@ if.end:                                           ; preds = %entry
   store ptr null, ptr %handle_output.i, align 8
   %used_elems.i = getelementptr inbounds i8, ptr %arrayidx, i64 48
   %1 = load ptr, ptr %used_elems.i, align 8
-  tail call void @g_free(ptr noundef %1) #21
+  tail call void @g_free(ptr noundef %1) #23
   store ptr null, ptr %used_elems.i, align 8
   %caches1.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 40
   %2 = load atomic i64, ptr %caches1.i.i monotonic, align 8
@@ -5585,7 +5585,7 @@ if.end:                                           ; preds = %entry
 
 if.then.i.i:                                      ; preds = %if.end
   %3 = inttoptr i64 %2 to ptr
-  tail call void @call_rcu1(ptr noundef nonnull %3, ptr noundef nonnull @virtio_free_region_cache) #21
+  tail call void @call_rcu1(ptr noundef nonnull %3, ptr noundef nonnull @virtio_free_region_cache) #23
   br label %virtio_delete_queue.exit
 
 virtio_delete_queue.exit:                         ; preds = %if.end, %if.then.i.i
@@ -5596,7 +5596,7 @@ virtio_delete_queue.exit:                         ; preds = %if.end, %if.then.i.
 define dso_local void @virtio_notify_irqfd(ptr noundef %vdev, ptr noundef %vq) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %call.i.i = tail call ptr @get_ptr_rcu_reader() #21
+  %call.i.i = tail call ptr @get_ptr_rcu_reader() #23
   %depth.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   %0 = load i32, ptr %depth.i.i, align 4
   %inc.i.i = add i32 %0, 1
@@ -5608,13 +5608,13 @@ while.end.i.i:                                    ; preds = %entry
   %1 = load atomic i64, ptr @rcu_gp_ctr monotonic, align 8
   %conv8.i.i = and i64 %1, 4294967295
   store atomic i64 %conv8.i.i, ptr %call.i.i monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !5
   fence seq_cst
   br label %rcu_read_auto_lock.exit
 
 rcu_read_auto_lock.exit:                          ; preds = %entry, %while.end.i.i
   %call1 = tail call fastcc zeroext i1 @virtio_should_notify(ptr noundef %vdev, ptr noundef %vq)
-  %call.i.i5 = tail call ptr @get_ptr_rcu_reader() #21
+  %call.i.i5 = tail call ptr @get_ptr_rcu_reader() #23
   %depth.i.i6 = getelementptr inbounds i8, ptr %call.i.i5, i64 12
   %2 = load i32, ptr %depth.i.i6, align 4
   %cmp.not.i.i7 = icmp eq i32 %2, 0
@@ -5624,7 +5624,7 @@ for.inc:                                          ; preds = %rcu_read_auto_lock.
   br i1 %cmp.not.i.i7, label %if.else.i.i, label %if.end.i.i
 
 if.else.i.i:                                      ; preds = %for.inc
-  tail call void @__assert_fail(ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.75, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.75, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #24
   unreachable
 
 if.end.i.i:                                       ; preds = %for.inc
@@ -5635,7 +5635,7 @@ if.end.i.i:                                       ; preds = %for.inc
 
 while.end.i.i8:                                   ; preds = %if.end.i.i
   store atomic i64 0, ptr %call.i.i5 release, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !10
   fence seq_cst
   %waiting.i.i = getelementptr inbounds i8, ptr %call.i.i5, i64 8
   %3 = load atomic i8, ptr %waiting.i.i monotonic, align 8
@@ -5644,14 +5644,14 @@ while.end.i.i8:                                   ; preds = %if.end.i.i
 
 while.end21.i.i:                                  ; preds = %while.end.i.i8
   store atomic i8 0, ptr %waiting.i.i monotonic, align 8
-  tail call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #21
+  tail call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #23
   br label %for.end
 
 if.then.i.i:                                      ; preds = %rcu_read_auto_lock.exit
   br i1 %cmp.not.i.i7, label %if.else.i.i.i.i, label %if.end.i.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %if.then.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.75, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.75, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #24
   unreachable
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i
@@ -5662,7 +5662,7 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i
 
 while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   store atomic i64 0, ptr %call.i.i5 release, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !10
   fence seq_cst
   %waiting.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i5, i64 8
   %4 = load atomic i8, ptr %waiting.i.i.i.i monotonic, align 8
@@ -5671,7 +5671,7 @@ while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
 
 while.end21.i.i.i.i:                              ; preds = %while.end.i.i.i.i
   store atomic i8 0, ptr %waiting.i.i.i.i monotonic, align 8
-  tail call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #21
+  tail call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #23
   br label %return
 
 for.end:                                          ; preds = %while.end21.i.i, %while.end.i.i8, %if.end.i.i
@@ -5695,16 +5695,16 @@ if.then.i.i10:                                    ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i11
 
 if.then8.i.i:                                     ; preds = %if.then.i.i10
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #21
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #21
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #23
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #23
   %9 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %10 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.103, i32 noundef %call10.i.i, i64 noundef %9, i64 noundef %10, ptr noundef %vdev, ptr noundef %vq) #21
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.103, i32 noundef %call10.i.i, i64 noundef %9, i64 noundef %10, ptr noundef %vdev, ptr noundef %vq) #23
   br label %trace_virtio_notify_irqfd.exit
 
 if.else.i.i11:                                    ; preds = %if.then.i.i10
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.104, ptr noundef %vdev, ptr noundef %vq) #21
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.104, ptr noundef %vdev, ptr noundef %vq) #23
   br label %trace_virtio_notify_irqfd.exit
 
 trace_virtio_notify_irqfd.exit:                   ; preds = %for.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i11
@@ -5723,7 +5723,7 @@ if.then.i:                                        ; preds = %trace_virtio_notify
 
 virtio_set_isr.exit:                              ; preds = %trace_virtio_notify_irqfd.exit, %if.then.i
   %guest_notifier = getelementptr inbounds i8, ptr %vq, i64 104
-  tail call void @defer_call(ptr noundef nonnull @virtio_notify_irqfd_deferred_fn, ptr noundef nonnull %guest_notifier) #21
+  tail call void @defer_call(ptr noundef nonnull @virtio_notify_irqfd_deferred_fn, ptr noundef nonnull %guest_notifier) #23
   br label %return
 
 return:                                           ; preds = %while.end21.i.i.i.i, %while.end.i.i.i.i, %if.end.i.i.i.i, %virtio_set_isr.exit
@@ -5742,7 +5742,7 @@ entry:
 if.then:                                          ; preds = %entry
   %caches.i.i = getelementptr inbounds i8, ptr %vq, i64 40
   %1 = load atomic i64, ptr %caches.i.i monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !6
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !6
   %tobool.not.i = icmp eq i64 %1, 0
   br i1 %tobool.not.i, label %return, label %if.end.i
 
@@ -5755,7 +5755,7 @@ if.end.i:                                         ; preds = %if.then
   br i1 %switch1.i.i, label %if.else.i.i.i.i.i, label %if.end.i.i.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %if.end.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68, i32 noundef 30, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_lduw_le_cached) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68, i32 noundef 30, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_lduw_le_cached) #24
   unreachable
 
 if.end.i.i.i.i.i:                                 ; preds = %if.end.i
@@ -5769,19 +5769,19 @@ if.then5.i.i.i.i.i:                               ; preds = %if.end.i.i.i.i.i
   br label %virtio_lduw_phys_cached.exit.i.i
 
 if.else8.i.i.i.i.i:                               ; preds = %if.end.i.i.i.i.i
-  %call10.i.i.i.i.i = tail call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %avail.i, i64 noundef 2, i32 1, ptr noundef null) #21
+  %call10.i.i.i.i.i = tail call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %avail.i, i64 noundef 2, i32 1, ptr noundef null) #23
   br label %virtio_lduw_phys_cached.exit.i.i
 
 virtio_lduw_phys_cached.exit.i.i:                 ; preds = %if.else8.i.i.i.i.i, %if.then5.i.i.i.i.i
   %retval.0.i.i.i.i.i = phi i16 [ %add.ptr.val.i.i.i.i.i, %if.then5.i.i.i.i.i ], [ %call10.i.i.i.i.i, %if.else8.i.i.i.i.i ]
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !7
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !7
   fence acquire
   %5 = load i64, ptr %len.i.i.i.i.i, align 16
   %switch.i.i = icmp ult i64 %5, 2
   br i1 %switch.i.i, label %if.else.i.i.i11.i.i, label %if.end.i.i.i12.i.i
 
 if.else.i.i.i11.i.i:                              ; preds = %virtio_lduw_phys_cached.exit.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68, i32 noundef 30, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_lduw_le_cached) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68, i32 noundef 30, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_lduw_le_cached) #24
   unreachable
 
 if.end.i.i.i12.i.i:                               ; preds = %virtio_lduw_phys_cached.exit.i.i
@@ -5794,7 +5794,7 @@ if.then5.i.i.i14.i.i:                             ; preds = %if.end.i.i.i12.i.i
   br label %vring_packed_event_read.exit.i
 
 if.else8.i.i.i18.i.i:                             ; preds = %if.end.i.i.i12.i.i
-  %call10.i.i.i19.i.i = tail call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %avail.i, i64 noundef 0, i32 1, ptr noundef null) #21
+  %call10.i.i.i19.i.i = tail call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %avail.i, i64 noundef 0, i32 1, ptr noundef null) #23
   br label %vring_packed_event_read.exit.i
 
 vring_packed_event_read.exit.i:                   ; preds = %if.else8.i.i.i18.i.i, %if.then5.i.i.i14.i.i
@@ -5845,7 +5845,7 @@ vring_packed_need_event.exit.i:                   ; preds = %if.then.i.i, %lor.r
   br label %return
 
 if.else:                                          ; preds = %entry
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !43
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !43
   fence seq_cst
   %vdev.val10.i = load i64, ptr %0, align 8
   %and.i.i.i = and i64 %vdev.val10.i, 16777216
@@ -5876,7 +5876,7 @@ if.end.i6:                                        ; preds = %land.lhs.true1.if.e
 if.then5.i:                                       ; preds = %if.end.i6
   %caches.i.i.i = getelementptr inbounds i8, ptr %vq, i64 40
   %15 = load atomic i64, ptr %caches.i.i.i monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !6
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !6
   %tobool.not.i.i = icmp eq i64 %15, 0
   br i1 %tobool.not.i.i, label %vring_avail_flags.exit.i, label %if.end.i.i
 
@@ -5889,7 +5889,7 @@ if.end.i.i:                                       ; preds = %if.then5.i
   br i1 %switch.i.i13, label %if.else.i.i.i.i.i20, label %if.end.i.i.i.i.i14
 
 if.else.i.i.i.i.i20:                              ; preds = %if.end.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68, i32 noundef 30, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_lduw_le_cached) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68, i32 noundef 30, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_lduw_le_cached) #24
   unreachable
 
 if.end.i.i.i.i.i14:                               ; preds = %if.end.i.i
@@ -5902,7 +5902,7 @@ if.then5.i.i.i.i.i16:                             ; preds = %if.end.i.i.i.i.i14
   br label %vring_avail_flags.exit.i
 
 if.else8.i.i.i.i.i18:                             ; preds = %if.end.i.i.i.i.i14
-  %call10.i.i.i.i.i19 = tail call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %avail.i.i, i64 noundef 0, i32 1, ptr noundef null) #21
+  %call10.i.i.i.i.i19 = tail call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %avail.i.i, i64 noundef 0, i32 1, ptr noundef null) #23
   br label %vring_avail_flags.exit.i
 
 vring_avail_flags.exit.i:                         ; preds = %if.else8.i.i.i.i.i18, %if.then5.i.i.i.i.i16, %if.then5.i
@@ -5927,7 +5927,7 @@ lor.rhs.i11:                                      ; preds = %if.end8.i
   %23 = load i32, ptr %vq, align 8
   %caches.i.i.i.i = getelementptr inbounds i8, ptr %vq, i64 40
   %24 = load atomic i64, ptr %caches.i.i.i.i monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !6
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !6
   %tobool.not.i.i.i = icmp eq i64 %24, 0
   br i1 %tobool.not.i.i.i, label %vring_get_used_event.exit.i, label %if.end.i.i.i
 
@@ -5946,7 +5946,7 @@ if.end.i.i.i:                                     ; preds = %lor.rhs.i11
   br i1 %or.cond.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i
 
 if.else.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68, i32 noundef 30, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_lduw_le_cached) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68, i32 noundef 30, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_lduw_le_cached) #24
   unreachable
 
 if.end.i.i.i.i.i.i:                               ; preds = %if.end.i.i.i
@@ -5960,7 +5960,7 @@ if.then5.i.i.i.i.i.i:                             ; preds = %if.end.i.i.i.i.i.i
   br label %vring_get_used_event.exit.i
 
 if.else8.i.i.i.i.i.i:                             ; preds = %if.end.i.i.i.i.i.i
-  %call10.i.i.i.i.i.i = tail call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %avail.i.i.i, i64 noundef %27, i32 1, ptr noundef null) #21
+  %call10.i.i.i.i.i.i = tail call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %avail.i.i.i, i64 noundef %27, i32 1, ptr noundef null) #23
   br label %vring_get_used_event.exit.i
 
 vring_get_used_event.exit.i:                      ; preds = %if.else8.i.i.i.i.i.i, %if.then5.i.i.i.i.i.i, %lor.rhs.i11
@@ -6005,21 +6005,21 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #21
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #21
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #23
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #23
   %5 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.105, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %0, ptr noundef %add.ptr) #21
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.105, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %0, ptr noundef %add.ptr) #23
   br label %trace_virtio_notify_irqfd_deferred_fn.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.106, ptr noundef %0, ptr noundef %add.ptr) #21
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.106, ptr noundef %0, ptr noundef %add.ptr) #23
   br label %trace_virtio_notify_irqfd_deferred_fn.exit
 
 trace_virtio_notify_irqfd_deferred_fn.exit:       ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %call = tail call i32 @event_notifier_set(ptr noundef nonnull %opaque) #21
+  %call = tail call i32 @event_notifier_set(ptr noundef nonnull %opaque) #23
   ret void
 }
 
@@ -6027,7 +6027,7 @@ trace_virtio_notify_irqfd_deferred_fn.exit:       ; preds = %entry, %land.lhs.tr
 define dso_local void @virtio_notify(ptr noundef %vdev, ptr noundef %vq) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %call.i.i = tail call ptr @get_ptr_rcu_reader() #21
+  %call.i.i = tail call ptr @get_ptr_rcu_reader() #23
   %depth.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   %0 = load i32, ptr %depth.i.i, align 4
   %inc.i.i = add i32 %0, 1
@@ -6039,13 +6039,13 @@ while.end.i.i:                                    ; preds = %entry
   %1 = load atomic i64, ptr @rcu_gp_ctr monotonic, align 8
   %conv8.i.i = and i64 %1, 4294967295
   store atomic i64 %conv8.i.i, ptr %call.i.i monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !5
   fence seq_cst
   br label %rcu_read_auto_lock.exit
 
 rcu_read_auto_lock.exit:                          ; preds = %entry, %while.end.i.i
   %call1 = tail call fastcc zeroext i1 @virtio_should_notify(ptr noundef %vdev, ptr noundef %vq)
-  %call.i.i4 = tail call ptr @get_ptr_rcu_reader() #21
+  %call.i.i4 = tail call ptr @get_ptr_rcu_reader() #23
   %depth.i.i5 = getelementptr inbounds i8, ptr %call.i.i4, i64 12
   %2 = load i32, ptr %depth.i.i5, align 4
   %cmp.not.i.i6 = icmp eq i32 %2, 0
@@ -6055,7 +6055,7 @@ for.inc:                                          ; preds = %rcu_read_auto_lock.
   br i1 %cmp.not.i.i6, label %if.else.i.i, label %if.end.i.i
 
 if.else.i.i:                                      ; preds = %for.inc
-  tail call void @__assert_fail(ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.75, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.75, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #24
   unreachable
 
 if.end.i.i:                                       ; preds = %for.inc
@@ -6066,7 +6066,7 @@ if.end.i.i:                                       ; preds = %for.inc
 
 while.end.i.i7:                                   ; preds = %if.end.i.i
   store atomic i64 0, ptr %call.i.i4 release, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !10
   fence seq_cst
   %waiting.i.i = getelementptr inbounds i8, ptr %call.i.i4, i64 8
   %3 = load atomic i8, ptr %waiting.i.i monotonic, align 8
@@ -6075,14 +6075,14 @@ while.end.i.i7:                                   ; preds = %if.end.i.i
 
 while.end21.i.i:                                  ; preds = %while.end.i.i7
   store atomic i8 0, ptr %waiting.i.i monotonic, align 8
-  tail call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #21
+  tail call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #23
   br label %for.end
 
 if.then.i.i:                                      ; preds = %rcu_read_auto_lock.exit
   br i1 %cmp.not.i.i6, label %if.else.i.i.i.i, label %if.end.i.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %if.then.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.75, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.75, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #24
   unreachable
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i
@@ -6093,7 +6093,7 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i
 
 while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   store atomic i64 0, ptr %call.i.i4 release, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !10
   fence seq_cst
   %waiting.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i4, i64 8
   %4 = load atomic i8, ptr %waiting.i.i.i.i monotonic, align 8
@@ -6102,7 +6102,7 @@ while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
 
 while.end21.i.i.i.i:                              ; preds = %while.end.i.i.i.i
   store atomic i8 0, ptr %waiting.i.i.i.i monotonic, align 8
-  tail call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #21
+  tail call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #23
   br label %return
 
 for.end:                                          ; preds = %while.end21.i.i, %while.end.i.i7, %if.end.i.i
@@ -6126,16 +6126,16 @@ if.then.i.i9:                                     ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i10
 
 if.then8.i.i:                                     ; preds = %if.then.i.i9
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #21
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #21
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #23
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #23
   %9 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %10 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.107, i32 noundef %call10.i.i, i64 noundef %9, i64 noundef %10, ptr noundef %vdev, ptr noundef %vq) #21
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.107, i32 noundef %call10.i.i, i64 noundef %9, i64 noundef %10, ptr noundef %vdev, ptr noundef %vq) #23
   br label %trace_virtio_notify.exit
 
 if.else.i.i10:                                    ; preds = %if.then.i.i9
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.108, ptr noundef %vdev, ptr noundef %vq) #21
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.108, ptr noundef %vdev, ptr noundef %vq) #23
   br label %trace_virtio_notify.exit
 
 trace_virtio_notify.exit:                         ; preds = %for.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i10
@@ -6157,10 +6157,10 @@ virtio_set_isr.exit.i:                            ; preds = %if.then.i.i13, %tra
   %15 = phi ptr [ %11, %trace_virtio_notify.exit ], [ %.pre.i, %if.then.i.i13 ]
   %vector.i = getelementptr inbounds i8, ptr %vq, i64 80
   %16 = load i16, ptr %vector.i, align 8
-  %call.i.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %15, ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.97, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #21
-  %call1.i.i = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i.i) #21
-  %call.i4.i.i = tail call ptr @object_get_class(ptr noundef %call1.i.i) #21
-  %call1.i.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i4.i.i, ptr noundef nonnull @.str.98, ptr noundef nonnull @.str.99, i32 noundef 36, ptr noundef nonnull @__func__.VIRTIO_BUS_GET_CLASS) #21
+  %call.i.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %15, ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.97, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #23
+  %call1.i.i = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i.i) #23
+  %call.i4.i.i = tail call ptr @object_get_class(ptr noundef %call1.i.i) #23
+  %call1.i.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i4.i.i, ptr noundef nonnull @.str.98, ptr noundef nonnull @.str.99, i32 noundef 36, ptr noundef nonnull @__func__.VIRTIO_BUS_GET_CLASS) #23
   %disabled.i.i.i = getelementptr inbounds i8, ptr %15, i64 437
   %17 = load i8, ptr %disabled.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %17 to i1
@@ -6181,7 +6181,7 @@ if.end.i.i11:                                     ; preds = %virtio_device_disab
 if.then4.i.i:                                     ; preds = %if.end.i.i11
   %parent.i.i = getelementptr inbounds i8, ptr %call1.i.i, i64 40
   %20 = load ptr, ptr %parent.i.i, align 8
-  tail call void %19(ptr noundef %20, i16 noundef zeroext %16) #21
+  tail call void %19(ptr noundef %20, i16 noundef zeroext %16) #23
   br label %return
 
 return:                                           ; preds = %while.end21.i.i.i.i, %while.end.i.i.i.i, %if.end.i.i.i.i, %if.then4.i.i, %if.end.i.i11, %virtio_device_disabled.exit.i.i, %virtio_set_isr.exit.i
@@ -6215,10 +6215,10 @@ virtio_set_isr.exit:                              ; preds = %if.end, %if.then.i
   store i32 %inc, ptr %generation, align 4
   %config_vector = getelementptr inbounds i8, ptr %vdev, i64 216
   %6 = load i16, ptr %config_vector, align 8
-  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %vdev, ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.97, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #21
-  %call1.i = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i) #21
-  %call.i4.i = tail call ptr @object_get_class(ptr noundef %call1.i) #21
-  %call1.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i4.i, ptr noundef nonnull @.str.98, ptr noundef nonnull @.str.99, i32 noundef 36, ptr noundef nonnull @__func__.VIRTIO_BUS_GET_CLASS) #21
+  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %vdev, ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.97, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #23
+  %call1.i = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i) #23
+  %call.i4.i = tail call ptr @object_get_class(ptr noundef %call1.i) #23
+  %call1.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i4.i, ptr noundef nonnull @.str.98, ptr noundef nonnull @.str.99, i32 noundef 36, ptr noundef nonnull @__func__.VIRTIO_BUS_GET_CLASS) #23
   %disabled.i.i = getelementptr inbounds i8, ptr %vdev, i64 437
   %7 = load i8, ptr %disabled.i.i, align 1
   %tobool.i.i = trunc i8 %7 to i1
@@ -6239,7 +6239,7 @@ if.end.i:                                         ; preds = %virtio_device_disab
 if.then4.i:                                       ; preds = %if.end.i
   %parent.i = getelementptr inbounds i8, ptr %call1.i, i64 40
   %10 = load ptr, ptr %parent.i, align 8
-  tail call void %9(ptr noundef %10, i16 noundef zeroext %6) #21
+  tail call void %9(ptr noundef %10, i16 noundef zeroext %6) #23
   br label %return
 
 return:                                           ; preds = %if.then4.i, %if.end.i, %virtio_device_disabled.exit.i, %virtio_set_isr.exit, %entry
@@ -6249,12 +6249,12 @@ return:                                           ; preds = %if.then4.i, %if.end
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @virtio_save(ptr noundef %vdev, ptr noundef %f) local_unnamed_addr #0 {
 entry:
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.97, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #21
-  %call1 = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i) #21
-  %call.i58 = tail call ptr @object_get_class(ptr noundef %call1) #21
-  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i58, ptr noundef nonnull @.str.98, ptr noundef nonnull @.str.99, i32 noundef 36, ptr noundef nonnull @__func__.VIRTIO_BUS_GET_CLASS) #21
-  %call.i59 = tail call ptr @object_get_class(ptr noundef %vdev) #21
-  %call1.i60 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i59, ptr noundef nonnull @.str.93, ptr noundef nonnull @.str.65, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_GET_CLASS) #21
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.97, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #23
+  %call1 = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i) #23
+  %call.i58 = tail call ptr @object_get_class(ptr noundef %call1) #23
+  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i58, ptr noundef nonnull @.str.98, ptr noundef nonnull @.str.99, i32 noundef 36, ptr noundef nonnull @__func__.VIRTIO_BUS_GET_CLASS) #23
+  %call.i59 = tail call ptr @object_get_class(ptr noundef %vdev) #23
+  %call1.i60 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i59, ptr noundef nonnull @.str.93, ptr noundef nonnull @.str.65, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_GET_CLASS) #23
   %guest_features = getelementptr inbounds i8, ptr %vdev, i64 184
   %0 = load i64, ptr %guest_features, align 8
   %conv = trunc i64 %0 to i32
@@ -6266,31 +6266,31 @@ entry:
 if.then:                                          ; preds = %entry
   %parent = getelementptr inbounds i8, ptr %call1, i64 40
   %2 = load ptr, ptr %parent, align 8
-  tail call void %1(ptr noundef %2, ptr noundef %f) #21
+  tail call void %1(ptr noundef %2, ptr noundef %f) #23
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
   %status = getelementptr inbounds i8, ptr %vdev, i64 168
   %status.val = load i8, ptr %status, align 1
   %conv.i = zext i8 %status.val to i32
-  tail call void @qemu_put_byte(ptr noundef %f, i32 noundef %conv.i) #21
+  tail call void @qemu_put_byte(ptr noundef %f, i32 noundef %conv.i) #23
   %isr = getelementptr inbounds i8, ptr %vdev, i64 169
   %isr.val = load i8, ptr %isr, align 1
   %conv.i61 = zext i8 %isr.val to i32
-  tail call void @qemu_put_byte(ptr noundef %f, i32 noundef %conv.i61) #21
+  tail call void @qemu_put_byte(ptr noundef %f, i32 noundef %conv.i61) #23
   %queue_sel = getelementptr inbounds i8, ptr %vdev, i64 170
   %queue_sel.val = load i16, ptr %queue_sel, align 2
   %conv.i62 = zext i16 %queue_sel.val to i32
-  tail call void @qemu_put_be16(ptr noundef %f, i32 noundef %conv.i62) #21
-  tail call void @qemu_put_be32(ptr noundef %f, i32 noundef %conv) #21
+  tail call void @qemu_put_be16(ptr noundef %f, i32 noundef %conv.i62) #23
+  tail call void @qemu_put_be32(ptr noundef %f, i32 noundef %conv) #23
   %config_len = getelementptr inbounds i8, ptr %vdev, i64 200
   %3 = load i64, ptr %config_len, align 8
   %conv5 = trunc i64 %3 to i32
-  tail call void @qemu_put_be32(ptr noundef %f, i32 noundef %conv5) #21
+  tail call void @qemu_put_be32(ptr noundef %f, i32 noundef %conv5) #23
   %config = getelementptr inbounds i8, ptr %vdev, i64 208
   %4 = load ptr, ptr %config, align 8
   %5 = load i64, ptr %config_len, align 8
-  tail call void @qemu_put_buffer(ptr noundef %f, ptr noundef %4, i64 noundef %5) #21
+  tail call void @qemu_put_buffer(ptr noundef %f, ptr noundef %4, i64 noundef %5) #23
   %vq = getelementptr inbounds i8, ptr %vdev, i64 232
   %6 = load ptr, ptr %vq, align 8
   br label %for.body
@@ -6313,7 +6313,7 @@ for.end.split.loop.exit:                          ; preds = %for.body
 
 for.end:                                          ; preds = %for.inc, %for.end.split.loop.exit
   %i.0.lcssa = phi i32 [ %8, %for.end.split.loop.exit ], [ 1024, %for.inc ]
-  tail call void @qemu_put_be32(ptr noundef %f, i32 noundef %i.0.lcssa) #21
+  tail call void @qemu_put_be32(ptr noundef %f, i32 noundef %i.0.lcssa) #23
   %has_variable_vring_alignment = getelementptr inbounds i8, ptr %call1.i, i64 320
   %save_queue = getelementptr inbounds i8, ptr %call1.i, i64 176
   %parent47 = getelementptr inbounds i8, ptr %call1, i64 40
@@ -6328,7 +6328,7 @@ for.body15:                                       ; preds = %for.end, %for.inc49
   br i1 %cmp21, label %for.end51, label %if.end24
 
 if.end24:                                         ; preds = %for.body15
-  tail call void @qemu_put_be32(ptr noundef %f, i32 noundef %10) #21
+  tail call void @qemu_put_be32(ptr noundef %f, i32 noundef %10) #23
   %11 = load i8, ptr %has_variable_vring_alignment, align 8
   %tobool30 = trunc i8 %11 to i1
   br i1 %tobool30, label %if.then31, label %if.end36
@@ -6337,19 +6337,19 @@ if.then31:                                        ; preds = %if.end24
   %12 = load ptr, ptr %vq, align 8
   %align = getelementptr %struct.VirtQueue, ptr %12, i64 %indvars.iv67, i32 0, i32 2
   %13 = load i32, ptr %align, align 8
-  tail call void @qemu_put_be32(ptr noundef %f, i32 noundef %13) #21
+  tail call void @qemu_put_be32(ptr noundef %f, i32 noundef %13) #23
   br label %if.end36
 
 if.end36:                                         ; preds = %if.then31, %if.end24
   %14 = load ptr, ptr %vq, align 8
   %desc = getelementptr %struct.VirtQueue, ptr %14, i64 %indvars.iv67, i32 0, i32 3
   %15 = load i64, ptr %desc, align 8
-  tail call void @qemu_put_be64(ptr noundef %f, i64 noundef %15) #21
+  tail call void @qemu_put_be64(ptr noundef %f, i64 noundef %15) #23
   %16 = load ptr, ptr %vq, align 8
   %last_avail_idx = getelementptr %struct.VirtQueue, ptr %16, i64 %indvars.iv67, i32 2
   %last_avail_idx.val = load i16, ptr %last_avail_idx, align 2
   %conv.i63 = zext i16 %last_avail_idx.val to i32
-  tail call void @qemu_put_be16(ptr noundef %f, i32 noundef %conv.i63) #21
+  tail call void @qemu_put_be16(ptr noundef %f, i32 noundef %conv.i63) #23
   %17 = load ptr, ptr %save_queue, align 8
   %tobool44.not = icmp eq ptr %17, null
   br i1 %tobool44.not, label %for.inc49, label %if.then45
@@ -6357,7 +6357,7 @@ if.end36:                                         ; preds = %if.then31, %if.end2
 if.then45:                                        ; preds = %if.end36
   %18 = load ptr, ptr %parent47, align 8
   %19 = trunc nuw nsw i64 %indvars.iv67 to i32
-  tail call void %17(ptr noundef %18, i32 noundef %19, ptr noundef %f) #21
+  tail call void %17(ptr noundef %18, i32 noundef %19, ptr noundef %f) #23
   br label %for.inc49
 
 for.inc49:                                        ; preds = %if.end36, %if.then45
@@ -6372,7 +6372,7 @@ for.end51:                                        ; preds = %for.body15, %for.in
   br i1 %cmp52.not, label %if.end56, label %if.then54
 
 if.then54:                                        ; preds = %for.end51
-  tail call void %20(ptr noundef nonnull %vdev, ptr noundef %f) #21
+  tail call void %20(ptr noundef nonnull %vdev, ptr noundef %f) #23
   br label %if.end56
 
 if.end56:                                         ; preds = %if.then54, %for.end51
@@ -6382,12 +6382,12 @@ if.end56:                                         ; preds = %if.then54, %for.end
   br i1 %tobool57.not, label %if.end64, label %if.then58
 
 if.then58:                                        ; preds = %if.end56
-  %call60 = tail call i32 @vmstate_save_state(ptr noundef %f, ptr noundef nonnull %21, ptr noundef nonnull %vdev, ptr noundef null) #21
+  %call60 = tail call i32 @vmstate_save_state(ptr noundef %f, ptr noundef nonnull %21, ptr noundef nonnull %vdev, ptr noundef null) #23
   %tobool61.not = icmp eq i32 %call60, 0
   br i1 %tobool61.not, label %if.end64, label %return
 
 if.end64:                                         ; preds = %if.then58, %if.end56
-  %call65 = tail call i32 @vmstate_save_state(ptr noundef %f, ptr noundef nonnull @vmstate_virtio, ptr noundef nonnull %vdev, ptr noundef null) #21
+  %call65 = tail call i32 @vmstate_save_state(ptr noundef %f, ptr noundef nonnull @vmstate_virtio, ptr noundef nonnull %vdev, ptr noundef null) #23
   br label %return
 
 return:                                           ; preds = %if.then58, %if.end64
@@ -6404,10 +6404,10 @@ declare i32 @vmstate_save_state(ptr noundef, ptr noundef, ptr noundef, ptr nound
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @virtio_device_get(ptr noundef %f, ptr noundef %opaque, i64 %size, ptr nocapture readnone %field) #0 {
 entry:
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.93, ptr noundef nonnull @.str.65, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #21
-  %call.i2 = tail call ptr @object_get_class(ptr noundef %call.i) #21
-  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i2, ptr noundef nonnull @.str.93, ptr noundef nonnull @.str.65, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_GET_CLASS) #21
-  %call.i3 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call1.i, ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.97, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #21
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.93, ptr noundef nonnull @.str.65, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #23
+  %call.i2 = tail call ptr @object_get_class(ptr noundef %call.i) #23
+  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i2, ptr noundef nonnull @.str.93, ptr noundef nonnull @.str.65, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_GET_CLASS) #23
+  %call.i3 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call1.i, ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.97, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #23
   %vmsd = getelementptr inbounds i8, ptr %call.i3, i64 160
   %0 = load ptr, ptr %vmsd, align 8
   %version_id = getelementptr inbounds i8, ptr %0, i64 12
@@ -6419,7 +6419,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @virtio_device_put(ptr noundef %f, ptr noundef %opaque, i64 %size, ptr nocapture readnone %field, ptr nocapture readnone %vmdesc) #0 {
 entry:
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.93, ptr noundef nonnull @.str.65, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #21
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.93, ptr noundef nonnull @.str.65, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #23
   %call1 = tail call i32 @virtio_save(ptr noundef %call.i, ptr noundef %f)
   ret i32 %call1
 }
@@ -6447,12 +6447,12 @@ do.body:                                          ; preds = %if.end
 if.then7:                                         ; preds = %do.body
   %name = getelementptr inbounds i8, ptr %vdev, i64 160
   %3 = load ptr, ptr %name, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.49, ptr noundef nonnull @__func__.virtio_set_features, ptr noundef %3) #21
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.49, ptr noundef nonnull @__func__.virtio_set_features, ptr noundef %3) #23
   br label %if.end9
 
 if.end9:                                          ; preds = %if.then7, %do.body, %if.end
-  %call.i.i = tail call ptr @object_get_class(ptr noundef nonnull %vdev) #21
-  %call1.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.93, ptr noundef nonnull @.str.65, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_GET_CLASS) #21
+  %call.i.i = tail call ptr @object_get_class(ptr noundef nonnull %vdev) #23
+  %call1.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.93, ptr noundef nonnull @.str.65, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_GET_CLASS) #23
   %host_features.i = getelementptr inbounds i8, ptr %vdev, i64 176
   %4 = load i64, ptr %host_features.i, align 8
   %and2.i = and i64 %4, %val
@@ -6462,7 +6462,7 @@ if.end9:                                          ; preds = %if.then7, %do.body,
   br i1 %tobool.not.i, label %virtio_set_features_nocheck.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end9
-  tail call void %5(ptr noundef nonnull %vdev, i64 noundef %and2.i) #21
+  tail call void %5(ptr noundef nonnull %vdev, i64 noundef %and2.i) #23
   br label %virtio_set_features_nocheck.exit
 
 virtio_set_features_nocheck.exit:                 ; preds = %if.end9, %if.then.i
@@ -6576,7 +6576,7 @@ for.end:                                          ; preds = %for.inc, %entry
   br i1 %cmp6.not, label %if.else, label %if.end8
 
 if.else:                                          ; preds = %for.end
-  tail call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.42, i32 noundef 2969, ptr noundef nonnull @__PRETTY_FUNCTION__.virtio_get_config_size) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.42, i32 noundef 2969, ptr noundef nonnull @__PRETTY_FUNCTION__.virtio_get_config_size) #24
   unreachable
 
 if.end8:                                          ; preds = %for.end
@@ -6586,12 +6586,12 @@ if.end8:                                          ; preds = %for.end
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @virtio_load(ptr noundef %vdev, ptr noundef %f, i32 noundef %version_id) #0 {
 entry:
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.97, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #21
-  %call1 = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i) #21
-  %call.i168 = tail call ptr @object_get_class(ptr noundef %call1) #21
-  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i168, ptr noundef nonnull @.str.98, ptr noundef nonnull @.str.99, i32 noundef 36, ptr noundef nonnull @__func__.VIRTIO_BUS_GET_CLASS) #21
-  %call.i169 = tail call ptr @object_get_class(ptr noundef %vdev) #21
-  %call1.i170 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i169, ptr noundef nonnull @.str.93, ptr noundef nonnull @.str.65, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_GET_CLASS) #21
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.97, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #23
+  %call1 = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i) #23
+  %call.i168 = tail call ptr @object_get_class(ptr noundef %call1) #23
+  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i168, ptr noundef nonnull @.str.98, ptr noundef nonnull @.str.99, i32 noundef 36, ptr noundef nonnull @__func__.VIRTIO_BUS_GET_CLASS) #23
+  %call.i169 = tail call ptr @object_get_class(ptr noundef %vdev) #23
+  %call1.i170 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i169, ptr noundef nonnull @.str.93, ptr noundef nonnull @.str.65, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_GET_CLASS) #23
   %device_endian = getelementptr inbounds i8, ptr %vdev, i64 464
   store i8 0, ptr %device_endian, align 8
   %load_config = getelementptr inbounds i8, ptr %call1.i, i64 192
@@ -6602,46 +6602,46 @@ entry:
 if.then:                                          ; preds = %entry
   %parent = getelementptr inbounds i8, ptr %call1, i64 40
   %1 = load ptr, ptr %parent, align 8
-  %call5 = tail call i32 %0(ptr noundef %1, ptr noundef %f) #21
+  %call5 = tail call i32 %0(ptr noundef %1, ptr noundef %f) #23
   %tobool6.not = icmp eq i32 %call5, 0
   br i1 %tobool6.not, label %if.end8, label %return
 
 if.end8:                                          ; preds = %if.then, %entry
   %status = getelementptr inbounds i8, ptr %vdev, i64 168
-  %call.i171 = tail call i32 @qemu_get_byte(ptr noundef %f) #21
+  %call.i171 = tail call i32 @qemu_get_byte(ptr noundef %f) #23
   %conv.i = trunc i32 %call.i171 to i8
   store i8 %conv.i, ptr %status, align 1
   %isr = getelementptr inbounds i8, ptr %vdev, i64 169
-  %call.i172 = tail call i32 @qemu_get_byte(ptr noundef %f) #21
+  %call.i172 = tail call i32 @qemu_get_byte(ptr noundef %f) #23
   %conv.i173 = trunc i32 %call.i172 to i8
   store i8 %conv.i173, ptr %isr, align 1
   %queue_sel = getelementptr inbounds i8, ptr %vdev, i64 170
-  %call.i174 = tail call i32 @qemu_get_be16(ptr noundef %f) #21
+  %call.i174 = tail call i32 @qemu_get_be16(ptr noundef %f) #23
   %conv.i175 = trunc i32 %call.i174 to i16
   store i16 %conv.i175, ptr %queue_sel, align 2
   %cmp = icmp ugt i16 %conv.i175, 1023
   br i1 %cmp, label %return, label %if.end12
 
 if.end12:                                         ; preds = %if.end8
-  %call.i176 = tail call i32 @qemu_get_be32(ptr noundef %f) #21
+  %call.i176 = tail call i32 @qemu_get_be32(ptr noundef %f) #23
   %conv13 = zext i32 %call.i176 to i64
   %guest_features = getelementptr inbounds i8, ptr %vdev, i64 184
   store i64 %conv13, ptr %guest_features, align 8
-  %call14 = tail call i32 @qemu_get_be32(ptr noundef %f) #21
+  %call14 = tail call i32 @qemu_get_be32(ptr noundef %f) #23
   %config = getelementptr inbounds i8, ptr %vdev, i64 208
   %2 = load ptr, ptr %config, align 8
   %conv15 = sext i32 %call14 to i64
   %config_len16 = getelementptr inbounds i8, ptr %vdev, i64 200
   %3 = load i64, ptr %config_len16, align 8
   %cond = tail call i64 @llvm.umin.i64(i64 %3, i64 %conv15)
-  %call19 = tail call i64 @qemu_get_buffer(ptr noundef %f, ptr noundef %2, i64 noundef %cond) #21
+  %call19 = tail call i64 @qemu_get_buffer(ptr noundef %f, ptr noundef %2, i64 noundef %cond) #23
   %4 = load i64, ptr %config_len16, align 8
   %cmp22258 = icmp ult i64 %4, %conv15
   br i1 %cmp22258, label %while.body, label %while.end
 
 while.body:                                       ; preds = %if.end12, %while.body
   %config_len.0259 = phi i32 [ %dec, %while.body ], [ %call14, %if.end12 ]
-  %call24 = tail call i32 @qemu_get_byte(ptr noundef %f) #21
+  %call24 = tail call i32 @qemu_get_byte(ptr noundef %f) #23
   %dec = add i32 %config_len.0259, -1
   %conv20 = sext i32 %dec to i64
   %5 = load i64, ptr %config_len16, align 8
@@ -6649,7 +6649,7 @@ while.body:                                       ; preds = %if.end12, %while.bo
   br i1 %cmp22, label %while.body, label %while.end, !llvm.loop !48
 
 while.end:                                        ; preds = %while.body, %if.end12
-  %call25 = tail call i32 @qemu_get_be32(ptr noundef %f) #21
+  %call25 = tail call i32 @qemu_get_be32(ptr noundef %f) #23
   %cmp26 = icmp ugt i32 %call25, 1024
   br i1 %cmp26, label %if.then28, label %for.cond.preheader
 
@@ -6666,12 +6666,12 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
   br label %for.body
 
 if.then28:                                        ; preds = %while.end
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.51, i32 noundef %call25) #21
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.51, i32 noundef %call25) #23
   br label %return
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %call32 = tail call i32 @qemu_get_be32(ptr noundef %f) #21
+  %call32 = tail call i32 @qemu_get_be32(ptr noundef %f) #23
   %6 = load ptr, ptr %vq, align 8
   %arrayidx = getelementptr %struct.VirtQueue, ptr %6, i64 %indvars.iv
   store i32 %call32, ptr %arrayidx, align 8
@@ -6680,20 +6680,20 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %tobool34, label %if.then35, label %if.end41
 
 if.then35:                                        ; preds = %for.body
-  %call36 = tail call i32 @qemu_get_be32(ptr noundef %f) #21
+  %call36 = tail call i32 @qemu_get_be32(ptr noundef %f) #23
   %8 = load ptr, ptr %vq, align 8
   %align = getelementptr %struct.VirtQueue, ptr %8, i64 %indvars.iv, i32 0, i32 2
   store i32 %call36, ptr %align, align 8
   br label %if.end41
 
 if.end41:                                         ; preds = %if.then35, %for.body
-  %call42 = tail call i64 @qemu_get_be64(ptr noundef %f) #21
+  %call42 = tail call i64 @qemu_get_be64(ptr noundef %f) #23
   %9 = load ptr, ptr %vq, align 8
   %desc = getelementptr %struct.VirtQueue, ptr %9, i64 %indvars.iv, i32 0, i32 3
   store i64 %call42, ptr %desc, align 8
   %10 = load ptr, ptr %vq, align 8
   %last_avail_idx = getelementptr %struct.VirtQueue, ptr %10, i64 %indvars.iv, i32 2
-  %call.i177 = tail call i32 @qemu_get_be16(ptr noundef %f) #21
+  %call.i177 = tail call i32 @qemu_get_be16(ptr noundef %f) #23
   %conv.i178 = trunc i32 %call.i177 to i16
   store i16 %conv.i178, ptr %last_avail_idx, align 2
   %11 = load ptr, ptr %vq, align 8
@@ -6718,7 +6718,7 @@ land.lhs.true:                                    ; preds = %if.end41
 if.then68:                                        ; preds = %land.lhs.true
   %16 = trunc nuw nsw i64 %indvars.iv to i32
   %conv66 = zext i16 %15 to i32
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.52, i32 noundef %16, i32 noundef %conv66) #21
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.52, i32 noundef %16, i32 noundef %conv66) #23
   br label %return
 
 if.end74:                                         ; preds = %land.lhs.true, %if.end41
@@ -6729,7 +6729,7 @@ if.end74:                                         ; preds = %land.lhs.true, %if.
 if.then76:                                        ; preds = %if.end74
   %18 = load ptr, ptr %parent78, align 8
   %19 = trunc nuw nsw i64 %indvars.iv to i32
-  %call79 = tail call i32 %17(ptr noundef %18, i32 noundef %19, ptr noundef %f) #21
+  %call79 = tail call i32 %17(ptr noundef %18, i32 noundef %19, ptr noundef %f) #23
   %tobool80.not = icmp eq i32 %call79, 0
   br i1 %tobool80.not, label %for.inc, label %return
 
@@ -6739,10 +6739,10 @@ for.inc:                                          ; preds = %if.end74, %if.then7
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !49
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader
-  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %vdev, ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.97, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #21
-  %call1.i179 = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i) #21
-  %call.i4.i = tail call ptr @object_get_class(ptr noundef %call1.i179) #21
-  %call1.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i4.i, ptr noundef nonnull @.str.98, ptr noundef nonnull @.str.99, i32 noundef 36, ptr noundef nonnull @__func__.VIRTIO_BUS_GET_CLASS) #21
+  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %vdev, ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.97, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #23
+  %call1.i179 = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i) #23
+  %call.i4.i = tail call ptr @object_get_class(ptr noundef %call1.i179) #23
+  %call1.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i4.i, ptr noundef nonnull @.str.98, ptr noundef nonnull @.str.99, i32 noundef 36, ptr noundef nonnull @__func__.VIRTIO_BUS_GET_CLASS) #23
   %disabled.i.i = getelementptr inbounds i8, ptr %vdev, i64 437
   %20 = load i8, ptr %disabled.i.i, align 1
   %tobool.i.i = trunc i8 %20 to i1
@@ -6763,7 +6763,7 @@ if.end.i:                                         ; preds = %virtio_device_disab
 if.then4.i:                                       ; preds = %if.end.i
   %parent.i = getelementptr inbounds i8, ptr %call1.i179, i64 40
   %23 = load ptr, ptr %parent.i, align 8
-  tail call void %22(ptr noundef %23, i16 noundef zeroext -1) #21
+  tail call void %22(ptr noundef %23, i16 noundef zeroext -1) #23
   br label %virtio_notify_vector.exit
 
 virtio_notify_vector.exit:                        ; preds = %for.end, %virtio_device_disabled.exit.i, %if.end.i, %if.then4.i
@@ -6773,7 +6773,7 @@ virtio_notify_vector.exit:                        ; preds = %for.end, %virtio_de
   br i1 %cmp84.not, label %if.end92, label %if.then86
 
 if.then86:                                        ; preds = %virtio_notify_vector.exit
-  %call88 = tail call i32 %24(ptr noundef nonnull %vdev, ptr noundef %f, i32 noundef %version_id) #21
+  %call88 = tail call i32 %24(ptr noundef nonnull %vdev, ptr noundef %f, i32 noundef %version_id) #23
   %tobool89.not = icmp eq i32 %call88, 0
   br i1 %tobool89.not, label %if.end92, label %return
 
@@ -6784,12 +6784,12 @@ if.end92:                                         ; preds = %if.then86, %virtio_
   br i1 %tobool93.not, label %if.end100, label %if.then94
 
 if.then94:                                        ; preds = %if.end92
-  %call96 = tail call i32 @vmstate_load_state(ptr noundef %f, ptr noundef nonnull %25, ptr noundef nonnull %vdev, i32 noundef %version_id) #21
+  %call96 = tail call i32 @vmstate_load_state(ptr noundef %f, ptr noundef nonnull %25, ptr noundef nonnull %vdev, i32 noundef %version_id) #23
   %tobool97.not = icmp eq i32 %call96, 0
   br i1 %tobool97.not, label %if.end100, label %return
 
 if.end100:                                        ; preds = %if.then94, %if.end92
-  %call101 = tail call i32 @vmstate_load_state(ptr noundef %f, ptr noundef nonnull @vmstate_virtio, ptr noundef nonnull %vdev, i32 noundef 1) #21
+  %call101 = tail call i32 @vmstate_load_state(ptr noundef %f, ptr noundef nonnull @vmstate_virtio, ptr noundef nonnull %vdev, i32 noundef 1) #23
   %tobool102.not = icmp eq i32 %call101, 0
   br i1 %tobool102.not, label %if.end104, label %return
 
@@ -6799,7 +6799,7 @@ if.end104:                                        ; preds = %if.end100
   br i1 %cmp107, label %if.then109, label %if.end113
 
 if.then109:                                       ; preds = %if.end104
-  %call.i180 = tail call zeroext i1 @target_words_bigendian() #21
+  %call.i180 = tail call zeroext i1 @target_words_bigendian() #23
   %conv111 = select i1 %call.i180, i8 2, i8 1
   store i8 %conv111, ptr %device_endian, align 8
   br label %if.end113
@@ -6818,7 +6818,7 @@ if.then115:                                       ; preds = %if.end113
 
 if.then120:                                       ; preds = %if.then115
   %29 = load i64, ptr %host_features.i, align 8
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.53, i64 noundef %28, i64 noundef %29) #21
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.53, i64 noundef %28, i64 noundef %29) #23
   br label %return
 
 if.else:                                          ; preds = %if.end113
@@ -6828,7 +6828,7 @@ if.else:                                          ; preds = %if.end113
 
 if.then126:                                       ; preds = %if.else
   %30 = load i64, ptr %host_features.i, align 8
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.54, i32 noundef %call.i176, i64 noundef %30) #21
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.54, i32 noundef %call.i176, i64 noundef %30) #23
   br label %return
 
 if.end129:                                        ; preds = %if.else, %if.then115
@@ -6942,7 +6942,7 @@ if.then153:                                       ; preds = %if.end151
 if.end168:                                        ; preds = %if.end151
   %caches.i.i = getelementptr inbounds i8, ptr %arrayidx171, i64 40
   %46 = load atomic i64, ptr %caches.i.i monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !6
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !6
   %tobool.not.i190 = icmp eq i64 %46, 0
   br i1 %tobool.not.i190, label %vring_avail_idx.exit, label %if.end.i191
 
@@ -6955,7 +6955,7 @@ if.end.i191:                                      ; preds = %if.end168
   br i1 %switch.i, label %if.else.i.i.i.i, label %if.end.i.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %if.end.i191
-  tail call void @__assert_fail(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68, i32 noundef 30, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_lduw_le_cached) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68, i32 noundef 30, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_lduw_le_cached) #24
   unreachable
 
 if.end.i.i.i.i:                                   ; preds = %if.end.i191
@@ -6969,7 +6969,7 @@ if.then5.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
   br label %virtio_lduw_phys_cached.exit.i
 
 if.else8.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
-  %call10.i.i.i.i = tail call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %avail.i192, i64 noundef 2, i32 1, ptr noundef null) #21
+  %call10.i.i.i.i = tail call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %avail.i192, i64 noundef 2, i32 1, ptr noundef null) #23
   br label %virtio_lduw_phys_cached.exit.i
 
 virtio_lduw_phys_cached.exit.i:                   ; preds = %if.else8.i.i.i.i, %if.then5.i.i.i.i
@@ -6990,7 +6990,7 @@ vring_avail_idx.exit:                             ; preds = %if.end168, %virtio_
   %cmp186 = icmp ult i32 %52, %conv180
   %caches.i.i194 = getelementptr inbounds i8, ptr %arrayidx176, i64 40
   %53 = load atomic i64, ptr %caches.i.i194 monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23
   %tobool.not.i195 = icmp eq i64 %53, 0
   br i1 %cmp186, label %if.then188, label %if.end215
 
@@ -7006,7 +7006,7 @@ if.end.i196:                                      ; preds = %if.then188
   br i1 %switch.i199, label %if.else.i.i.i.i211, label %if.end.i.i.i.i200
 
 if.else.i.i.i.i211:                               ; preds = %if.end.i196
-  tail call void @__assert_fail(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68, i32 noundef 30, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_lduw_le_cached) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68, i32 noundef 30, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_lduw_le_cached) #24
   unreachable
 
 if.end.i.i.i.i200:                                ; preds = %if.end.i196
@@ -7020,7 +7020,7 @@ if.then5.i.i.i.i202:                              ; preds = %if.end.i.i.i.i200
   br label %virtio_lduw_phys_cached.exit.i205
 
 if.else8.i.i.i.i209:                              ; preds = %if.end.i.i.i.i200
-  %call10.i.i.i.i210 = tail call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %avail.i197, i64 noundef 2, i32 1, ptr noundef null) #21
+  %call10.i.i.i.i210 = tail call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %avail.i197, i64 noundef 2, i32 1, ptr noundef null) #23
   br label %virtio_lduw_phys_cached.exit.i205
 
 virtio_lduw_phys_cached.exit.i205:                ; preds = %if.else8.i.i.i.i209, %if.then5.i.i.i.i202
@@ -7061,7 +7061,7 @@ if.end.i215:                                      ; preds = %if.end215
   br i1 %switch.i218, label %if.else.i.i.i.i227, label %if.end.i.i.i.i219
 
 if.else.i.i.i.i227:                               ; preds = %if.end.i215
-  tail call void @__assert_fail(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68, i32 noundef 30, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_lduw_le_cached) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68, i32 noundef 30, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_lduw_le_cached) #24
   unreachable
 
 if.end.i.i.i.i219:                                ; preds = %if.end.i215
@@ -7075,7 +7075,7 @@ if.then5.i.i.i.i221:                              ; preds = %if.end.i.i.i.i219
   br label %vring_used_idx.exit
 
 if.else8.i.i.i.i225:                              ; preds = %if.end.i.i.i.i219
-  %call10.i.i.i.i226 = tail call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %used.i216, i64 noundef 2, i32 1, ptr noundef null) #21
+  %call10.i.i.i.i226 = tail call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %used.i216, i64 noundef 2, i32 1, ptr noundef null) #23
   br label %vring_used_idx.exit
 
 vring_used_idx.exit:                              ; preds = %if.end215, %if.then5.i.i.i.i221, %if.else8.i.i.i.i225
@@ -7087,7 +7087,7 @@ vring_used_idx.exit:                              ; preds = %if.end215, %if.then
   %arrayidx226 = getelementptr %struct.VirtQueue, ptr %67, i64 %indvars.iv273
   %caches.i.i228 = getelementptr inbounds i8, ptr %arrayidx226, i64 40
   %68 = load atomic i64, ptr %caches.i.i228 monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !6
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !6
   %tobool.not.i229 = icmp eq i64 %68, 0
   br i1 %tobool.not.i229, label %vring_avail_idx.exit246, label %if.end.i230
 
@@ -7100,7 +7100,7 @@ if.end.i230:                                      ; preds = %vring_used_idx.exit
   br i1 %switch.i233, label %if.else.i.i.i.i245, label %if.end.i.i.i.i234
 
 if.else.i.i.i.i245:                               ; preds = %if.end.i230
-  tail call void @__assert_fail(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68, i32 noundef 30, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_lduw_le_cached) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68, i32 noundef 30, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_lduw_le_cached) #24
   unreachable
 
 if.end.i.i.i.i234:                                ; preds = %if.end.i230
@@ -7114,7 +7114,7 @@ if.then5.i.i.i.i236:                              ; preds = %if.end.i.i.i.i234
   br label %virtio_lduw_phys_cached.exit.i239
 
 if.else8.i.i.i.i243:                              ; preds = %if.end.i.i.i.i234
-  %call10.i.i.i.i244 = tail call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %avail.i231, i64 noundef 2, i32 1, ptr noundef null) #21
+  %call10.i.i.i.i244 = tail call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %avail.i231, i64 noundef 2, i32 1, ptr noundef null) #23
   br label %virtio_lduw_phys_cached.exit.i239
 
 virtio_lduw_phys_cached.exit.i239:                ; preds = %if.else8.i.i.i.i243, %if.then5.i.i.i.i236
@@ -7154,7 +7154,7 @@ if.then260:                                       ; preds = %vring_avail_idx.exi
   %used_idx274 = getelementptr inbounds i8, ptr %arrayidx251, i64 64
   %81 = load i16, ptr %used_idx274, align 8
   %conv275 = zext i16 %81 to i32
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.56, i32 noundef %79, i32 noundef %78, i32 noundef %conv270, i32 noundef %conv275) #21
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.56, i32 noundef %79, i32 noundef %78, i32 noundef %conv270, i32 noundef %conv275) #23
   br label %cleanup
 
 for.inc278:                                       ; preds = %for.body140, %vring_avail_idx.exit246, %vring_avail_idx.exit212, %if.then153
@@ -7169,7 +7169,7 @@ for.end280:                                       ; preds = %for.inc278, %if.end
   br i1 %tobool281.not, label %if.end288, label %if.then282
 
 if.then282:                                       ; preds = %for.end280
-  %call284 = tail call i32 %82(ptr noundef nonnull %vdev) #21
+  %call284 = tail call i32 %82(ptr noundef nonnull %vdev) #23
   %tobool285.not = icmp eq i32 %call284, 0
   br i1 %tobool285.not, label %if.end288, label %cleanup
 
@@ -7207,11 +7207,11 @@ entry:
 define internal i32 @virtio_set_features_nocheck_maybe_co(ptr noundef %vdev, i64 noundef %val) #0 {
 entry:
   %data = alloca %struct.VirtioSetFeaturesNocheckData, align 8
-  %call = tail call zeroext i1 @qemu_in_coroutine() #21
+  %call = tail call zeroext i1 @qemu_in_coroutine() #23
   br i1 %call, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %call1 = tail call ptr @qemu_coroutine_self() #21
+  %call1 = tail call ptr @qemu_coroutine_self() #23
   store ptr %call1, ptr %data, align 8
   %vdev2 = getelementptr inbounds i8, ptr %data, i64 8
   store ptr %vdev, ptr %vdev2, align 8
@@ -7219,15 +7219,15 @@ if.then:                                          ; preds = %entry
   store i64 %val, ptr %val3, align 8
   %ret = getelementptr inbounds i8, ptr %data, i64 24
   store i32 0, ptr %ret, align 8
-  %call4 = tail call ptr @qemu_get_current_aio_context() #21
-  call void @aio_bh_schedule_oneshot_full(ptr noundef %call4, ptr noundef nonnull @virtio_set_features_nocheck_bh, ptr noundef nonnull %data, ptr noundef nonnull @.str.151) #21
-  call void @qemu_coroutine_yield() #21
+  %call4 = tail call ptr @qemu_get_current_aio_context() #23
+  call void @aio_bh_schedule_oneshot_full(ptr noundef %call4, ptr noundef nonnull @virtio_set_features_nocheck_bh, ptr noundef nonnull %data, ptr noundef nonnull @.str.151) #23
+  call void @qemu_coroutine_yield() #23
   %0 = load i32, ptr %ret, align 8
   br label %return
 
 if.else:                                          ; preds = %entry
-  %call.i.i = tail call ptr @object_get_class(ptr noundef %vdev) #21
-  %call1.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.93, ptr noundef nonnull @.str.65, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_GET_CLASS) #21
+  %call.i.i = tail call ptr @object_get_class(ptr noundef %vdev) #23
+  %call1.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.93, ptr noundef nonnull @.str.65, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_GET_CLASS) #23
   %host_features.i = getelementptr inbounds i8, ptr %vdev, i64 176
   %1 = load i64, ptr %host_features.i, align 8
   %and2.i = and i64 %1, %val
@@ -7237,7 +7237,7 @@ if.else:                                          ; preds = %entry
   br i1 %tobool.not.i, label %virtio_set_features_nocheck.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.else
-  tail call void %2(ptr noundef nonnull %vdev, i64 noundef %and2.i) #21
+  tail call void %2(ptr noundef nonnull %vdev, i64 noundef %and2.i) #23
   br label %virtio_set_features_nocheck.exit
 
 virtio_set_features_nocheck.exit:                 ; preds = %if.else, %if.then.i
@@ -7259,7 +7259,7 @@ define dso_local void @virtio_cleanup(ptr nocapture noundef readonly %vdev) loca
 entry:
   %vmstate = getelementptr inbounds i8, ptr %vdev, i64 448
   %0 = load ptr, ptr %vmstate, align 8
-  tail call void @qemu_del_vm_change_state_handler(ptr noundef %0) #21
+  tail call void @qemu_del_vm_change_state_handler(ptr noundef %0) #23
   ret void
 }
 
@@ -7268,8 +7268,8 @@ declare void @qemu_del_vm_change_state_handler(ptr noundef) local_unnamed_addr #
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @virtio_instance_init_common(ptr noundef %proxy_obj, ptr noundef %data, i64 noundef %vdev_size, ptr noundef %vdev_name) local_unnamed_addr #0 {
 entry:
-  %call = tail call zeroext i1 (ptr, ptr, ptr, i64, ptr, ptr, ...) @object_initialize_child_with_props(ptr noundef %proxy_obj, ptr noundef nonnull @.str.57, ptr noundef %data, i64 noundef %vdev_size, ptr noundef %vdev_name, ptr noundef nonnull @error_abort, ptr noundef null) #21
-  tail call void @qdev_alias_all_properties(ptr noundef %data, ptr noundef %proxy_obj) #21
+  %call = tail call zeroext i1 (ptr, ptr, ptr, i64, ptr, ptr, ...) @object_initialize_child_with_props(ptr noundef %proxy_obj, ptr noundef nonnull @.str.57, ptr noundef %data, i64 noundef %vdev_size, ptr noundef %vdev_name, ptr noundef nonnull @error_abort, ptr noundef null) #23
+  tail call void @qdev_alias_all_properties(ptr noundef %data, ptr noundef %proxy_obj) #23
   ret void
 }
 
@@ -7280,10 +7280,10 @@ declare void @qdev_alias_all_properties(ptr noundef, ptr noundef) local_unnamed_
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @virtio_init(ptr noundef %vdev, i16 noundef zeroext %device_id, i64 noundef %config_size) local_unnamed_addr #0 {
 entry:
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.97, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #21
-  %call1 = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i) #21
-  %call.i39 = tail call ptr @object_get_class(ptr noundef %call1) #21
-  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i39, ptr noundef nonnull @.str.98, ptr noundef nonnull @.str.99, i32 noundef 36, ptr noundef nonnull @__func__.VIRTIO_BUS_GET_CLASS) #21
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.97, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #23
+  %call1 = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i) #23
+  %call.i39 = tail call ptr @object_get_class(ptr noundef %call1) #23
+  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i39, ptr noundef nonnull @.str.98, ptr noundef nonnull @.str.99, i32 noundef 36, ptr noundef nonnull @__func__.VIRTIO_BUS_GET_CLASS) #23
   %query_nvectors = getelementptr inbounds i8, ptr %call1.i, i64 288
   %0 = load ptr, ptr %query_nvectors, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -7292,14 +7292,14 @@ entry:
 cond.end:                                         ; preds = %entry
   %parent = getelementptr inbounds i8, ptr %call1, i64 40
   %1 = load ptr, ptr %parent, align 8
-  %call4 = tail call i32 %0(ptr noundef %1) #21
+  %call4 = tail call i32 %0(ptr noundef %1) #23
   %tobool5.not = icmp eq i32 %call4, 0
   br i1 %tobool5.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %cond.end
   %conv = sext i32 %call4 to i64
   %mul = shl nsw i64 %conv, 3
-  %call6 = tail call noalias ptr @g_malloc0(i64 noundef %mul) #23
+  %call6 = tail call noalias ptr @g_malloc0(i64 noundef %mul) #26
   %vector_queues = getelementptr inbounds i8, ptr %vdev, i64 480
   store ptr %call6, ptr %vector_queues, align 8
   br label %if.end
@@ -7321,10 +7321,10 @@ if.end:                                           ; preds = %entry, %if.then, %c
   store i16 0, ptr %queue_sel, align 2
   %config_vector = getelementptr inbounds i8, ptr %vdev, i64 216
   store i16 -1, ptr %config_vector, align 8
-  %call10 = tail call noalias dereferenceable_or_null(155648) ptr @g_malloc0_n(i64 noundef 1024, i64 noundef 152) #20
+  %call10 = tail call noalias dereferenceable_or_null(155648) ptr @g_malloc0_n(i64 noundef 1024, i64 noundef 152) #22
   %vq = getelementptr inbounds i8, ptr %vdev, i64 232
   store ptr %call10, ptr %vq, align 8
-  %call11 = tail call zeroext i1 @runstate_is_running() #21
+  %call11 = tail call zeroext i1 @runstate_is_running() #23
   %vm_running = getelementptr inbounds i8, ptr %vdev, i64 434
   %frombool = zext i1 %call11 to i8
   store i8 %frombool, ptr %vm_running, align 2
@@ -7356,7 +7356,7 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i, label %if.end.i, label %if.else.i
 
 if.else.i:                                        ; preds = %for.end
-  tail call void @__assert_fail(ptr noundef nonnull @.str.152, ptr noundef nonnull @.str.42, i32 noundef 201, ptr noundef nonnull @__PRETTY_FUNCTION__.virtio_id_to_name) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.152, ptr noundef nonnull @.str.42, i32 noundef 201, ptr noundef nonnull @__PRETTY_FUNCTION__.virtio_id_to_name) #24
   unreachable
 
 if.end.i:                                         ; preds = %for.end
@@ -7367,7 +7367,7 @@ if.end.i:                                         ; preds = %for.end
   br i1 %cmp2.not.i, label %if.else5.i, label %virtio_id_to_name.exit
 
 if.else5.i:                                       ; preds = %if.end.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.153, ptr noundef nonnull @.str.42, i32 noundef 203, ptr noundef nonnull @__PRETTY_FUNCTION__.virtio_id_to_name) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.153, ptr noundef nonnull @.str.42, i32 noundef 203, ptr noundef nonnull @__PRETTY_FUNCTION__.virtio_id_to_name) #24
   unreachable
 
 virtio_id_to_name.exit:                           ; preds = %if.end.i
@@ -7379,18 +7379,18 @@ virtio_id_to_name.exit:                           ; preds = %if.end.i
   br i1 %tobool27.not, label %if.end31, label %if.then28
 
 if.then28:                                        ; preds = %virtio_id_to_name.exit
-  %call29 = tail call noalias ptr @g_malloc0(i64 noundef %config_size) #23
+  %call29 = tail call noalias ptr @g_malloc0(i64 noundef %config_size) #26
   br label %if.end31
 
 if.end31:                                         ; preds = %virtio_id_to_name.exit, %if.then28
   %call29.sink = phi ptr [ %call29, %if.then28 ], [ null, %virtio_id_to_name.exit ]
   %7 = getelementptr inbounds i8, ptr %vdev, i64 208
   store ptr %call29.sink, ptr %7, align 8
-  %call.i40 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %vdev, ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.97, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #21
-  %call33 = tail call ptr @qdev_add_vm_change_state_handler(ptr noundef %call.i40, ptr noundef nonnull @virtio_vmstate_change, ptr noundef nonnull %vdev) #21
+  %call.i40 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %vdev, ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.97, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #23
+  %call33 = tail call ptr @qdev_add_vm_change_state_handler(ptr noundef %call.i40, ptr noundef nonnull @virtio_vmstate_change, ptr noundef nonnull %vdev) #23
   %vmstate = getelementptr inbounds i8, ptr %vdev, i64 448
   store ptr %call33, ptr %vmstate, align 8
-  %call.i41 = tail call zeroext i1 @target_words_bigendian() #21
+  %call.i41 = tail call zeroext i1 @target_words_bigendian() #23
   %conv35 = select i1 %call.i41, i8 2, i8 1
   %device_endian = getelementptr inbounds i8, ptr %vdev, i64 464
   store i8 %conv35, ptr %device_endian, align 8
@@ -7400,7 +7400,7 @@ if.end31:                                         ; preds = %virtio_id_to_name.e
 }
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #11
+declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #12
 
 declare zeroext i1 @runstate_is_running() local_unnamed_addr #3
 
@@ -7410,10 +7410,10 @@ declare ptr @qdev_add_vm_change_state_handler(ptr noundef, ptr noundef, ptr noun
 define internal void @virtio_vmstate_change(ptr noundef %opaque, i1 noundef zeroext %running, i32 %state) #0 {
 entry:
   %frombool = zext i1 %running to i8
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.97, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #21
-  %call1 = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i) #21
-  %call.i13 = tail call ptr @object_get_class(ptr noundef %call1) #21
-  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i13, ptr noundef nonnull @.str.98, ptr noundef nonnull @.str.99, i32 noundef 36, ptr noundef nonnull @__func__.VIRTIO_BUS_GET_CLASS) #21
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.97, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #23
+  %call1 = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i) #23
+  %call.i13 = tail call ptr @object_get_class(ptr noundef %call1) #23
+  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i13, ptr noundef nonnull @.str.98, ptr noundef nonnull @.str.99, i32 noundef 36, ptr noundef nonnull @__func__.VIRTIO_BUS_GET_CLASS) #23
   br i1 %running, label %land.rhs, label %land.end.thread
 
 land.end.thread:                                  ; preds = %entry
@@ -7464,7 +7464,7 @@ if.end:                                           ; preds = %if.then.i, %land.en
 if.then11:                                        ; preds = %if.end
   %parent = getelementptr inbounds i8, ptr %call1, i64 40
   %7 = load ptr, ptr %parent, align 8
-  tail call void %6(ptr noundef %7, i1 noundef zeroext %5) #21
+  tail call void %6(ptr noundef %7, i1 noundef zeroext %5) #23
   br label %if.end14
 
 if.end14:                                         ; preds = %if.then11, %if.end
@@ -7528,10 +7528,10 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local zeroext i1 @virtio_queue_enabled(ptr noundef %vdev, i32 noundef %n) local_unnamed_addr #0 {
 entry:
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.97, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #21
-  %call1 = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i) #21
-  %call.i5 = tail call ptr @object_get_class(ptr noundef %call1) #21
-  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i5, ptr noundef nonnull @.str.98, ptr noundef nonnull @.str.99, i32 noundef 36, ptr noundef nonnull @__func__.VIRTIO_BUS_GET_CLASS) #21
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.97, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #23
+  %call1 = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i) #23
+  %call.i5 = tail call ptr @object_get_class(ptr noundef %call1) #23
+  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i5, ptr noundef nonnull @.str.98, ptr noundef nonnull @.str.99, i32 noundef 36, ptr noundef nonnull @__func__.VIRTIO_BUS_GET_CLASS) #23
   %queue_enabled = getelementptr inbounds i8, ptr %call1.i, i64 312
   %0 = load ptr, ptr %queue_enabled, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -7540,7 +7540,7 @@ entry:
 if.then:                                          ; preds = %entry
   %parent = getelementptr inbounds i8, ptr %call1, i64 40
   %1 = load ptr, ptr %parent, align 8
-  %call4 = tail call zeroext i1 %0(ptr noundef %1, i32 noundef %n) #21
+  %call4 = tail call zeroext i1 %0(ptr noundef %1, i32 noundef %n) #23
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -7626,7 +7626,7 @@ return:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @virtio_queue_set_last_avail_idx(ptr nocapture noundef readonly %vdev, i32 noundef %n, i32 noundef %idx) local_unnamed_addr #12 {
+define dso_local void @virtio_queue_set_last_avail_idx(ptr nocapture noundef readonly %vdev, i32 noundef %n, i32 noundef %idx) local_unnamed_addr #13 {
 entry:
   %0 = getelementptr i8, ptr %vdev, i64 184
   %vdev.val = load i64, ptr %0, align 8
@@ -7689,7 +7689,7 @@ entry:
   br i1 %tobool.i.i.not, label %if.else, label %if.end
 
 if.else:                                          ; preds = %entry
-  %call.i.i.i = tail call ptr @get_ptr_rcu_reader() #21
+  %call.i.i.i = tail call ptr @get_ptr_rcu_reader() #23
   %depth.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 12
   %1 = load i32, ptr %depth.i.i.i, align 4
   %inc.i.i.i = add i32 %1, 1
@@ -7701,7 +7701,7 @@ while.end.i.i.i:                                  ; preds = %if.else
   %2 = load atomic i64, ptr @rcu_gp_ctr monotonic, align 8
   %conv8.i.i.i = and i64 %2, 4294967295
   store atomic i64 %conv8.i.i.i, ptr %call.i.i.i monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !5
   fence seq_cst
   br label %rcu_read_auto_lock.exit.i
 
@@ -7718,7 +7718,7 @@ rcu_read_auto_lock.exit.i:                        ; preds = %while.end.i.i.i, %i
 if.then.i:                                        ; preds = %rcu_read_auto_lock.exit.i
   %caches.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 40
   %5 = load atomic i64, ptr %caches.i.i.i monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !6
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !6
   %tobool.not.i.i = icmp eq i64 %5, 0
   br i1 %tobool.not.i.i, label %vring_used_idx.exit.i, label %if.end.i.i
 
@@ -7731,7 +7731,7 @@ if.end.i.i:                                       ; preds = %if.then.i
   br i1 %switch.i.i, label %if.else.i.i.i.i.i, label %if.end.i.i.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %if.end.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68, i32 noundef 30, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_lduw_le_cached) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68, i32 noundef 30, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_lduw_le_cached) #24
   unreachable
 
 if.end.i.i.i.i.i:                                 ; preds = %if.end.i.i
@@ -7745,7 +7745,7 @@ if.then5.i.i.i.i.i:                               ; preds = %if.end.i.i.i.i.i
   br label %vring_used_idx.exit.i
 
 if.else8.i.i.i.i.i:                               ; preds = %if.end.i.i.i.i.i
-  %call10.i.i.i.i.i = tail call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %used.i.i, i64 noundef 2, i32 1, ptr noundef null) #21
+  %call10.i.i.i.i.i = tail call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %used.i.i, i64 noundef 2, i32 1, ptr noundef null) #23
   br label %vring_used_idx.exit.i
 
 vring_used_idx.exit.i:                            ; preds = %if.else8.i.i.i.i.i, %if.then5.i.i.i.i.i, %if.then.i
@@ -7762,14 +7762,14 @@ vring_used_idx.exit.i:                            ; preds = %if.else8.i.i.i.i.i,
   br label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %vring_used_idx.exit.i, %rcu_read_auto_lock.exit.i
-  %call.i.i.i.i.i = tail call ptr @get_ptr_rcu_reader() #21
+  %call.i.i.i.i.i = tail call ptr @get_ptr_rcu_reader() #23
   %depth.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 12
   %12 = load i32, ptr %depth.i.i.i.i.i, align 4
   %cmp.not.i.i.i.i.i = icmp eq i32 %12, 0
   br i1 %cmp.not.i.i.i.i.i, label %if.else.i.i.i.i10.i, label %if.end.i.i.i.i9.i
 
 if.else.i.i.i.i10.i:                              ; preds = %if.then.i.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.75, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.75, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #24
   unreachable
 
 if.end.i.i.i.i9.i:                                ; preds = %if.then.i.i.i
@@ -7780,7 +7780,7 @@ if.end.i.i.i.i9.i:                                ; preds = %if.then.i.i.i
 
 while.end.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i9.i
   store atomic i64 0, ptr %call.i.i.i.i.i release, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !10
   fence seq_cst
   %waiting.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 8
   %13 = load atomic i8, ptr %waiting.i.i.i.i.i monotonic, align 8
@@ -7789,7 +7789,7 @@ while.end.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i9.i
 
 while.end21.i.i.i.i.i:                            ; preds = %while.end.i.i.i.i.i
   store atomic i8 0, ptr %waiting.i.i.i.i.i monotonic, align 8
-  tail call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #21
+  tail call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #23
   br label %if.end
 
 if.end:                                           ; preds = %while.end21.i.i.i.i.i, %while.end.i.i.i.i.i, %if.end.i.i.i.i9.i, %entry
@@ -7806,7 +7806,7 @@ entry:
   br i1 %tobool.i.i.not, label %if.else, label %return
 
 if.else:                                          ; preds = %entry
-  %call.i.i.i = tail call ptr @get_ptr_rcu_reader() #21
+  %call.i.i.i = tail call ptr @get_ptr_rcu_reader() #23
   %depth.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 12
   %1 = load i32, ptr %depth.i.i.i, align 4
   %inc.i.i.i = add i32 %1, 1
@@ -7818,7 +7818,7 @@ while.end.i.i.i:                                  ; preds = %if.else
   %2 = load atomic i64, ptr @rcu_gp_ctr monotonic, align 8
   %conv8.i.i.i = and i64 %2, 4294967295
   store atomic i64 %conv8.i.i.i, ptr %call.i.i.i monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !5
   fence seq_cst
   br label %rcu_read_auto_lock.exit.i
 
@@ -7835,7 +7835,7 @@ rcu_read_auto_lock.exit.i:                        ; preds = %while.end.i.i.i, %i
 if.then.i:                                        ; preds = %rcu_read_auto_lock.exit.i
   %caches.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 40
   %5 = load atomic i64, ptr %caches.i.i.i monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !6
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !6
   %tobool.not.i.i = icmp eq i64 %5, 0
   br i1 %tobool.not.i.i, label %vring_used_idx.exit.i, label %if.end.i.i
 
@@ -7848,7 +7848,7 @@ if.end.i.i:                                       ; preds = %if.then.i
   br i1 %switch.i.i, label %if.else.i.i.i.i.i, label %if.end.i.i.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %if.end.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68, i32 noundef 30, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_lduw_le_cached) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68, i32 noundef 30, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_lduw_le_cached) #24
   unreachable
 
 if.end.i.i.i.i.i:                                 ; preds = %if.end.i.i
@@ -7862,7 +7862,7 @@ if.then5.i.i.i.i.i:                               ; preds = %if.end.i.i.i.i.i
   br label %vring_used_idx.exit.i
 
 if.else8.i.i.i.i.i:                               ; preds = %if.end.i.i.i.i.i
-  %call10.i.i.i.i.i = tail call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %used.i.i, i64 noundef 2, i32 1, ptr noundef null) #21
+  %call10.i.i.i.i.i = tail call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %used.i.i, i64 noundef 2, i32 1, ptr noundef null) #23
   br label %vring_used_idx.exit.i
 
 vring_used_idx.exit.i:                            ; preds = %if.else8.i.i.i.i.i, %if.then5.i.i.i.i.i, %if.then.i
@@ -7873,14 +7873,14 @@ vring_used_idx.exit.i:                            ; preds = %if.else8.i.i.i.i.i,
   br label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %vring_used_idx.exit.i, %rcu_read_auto_lock.exit.i
-  %call.i.i.i.i.i = tail call ptr @get_ptr_rcu_reader() #21
+  %call.i.i.i.i.i = tail call ptr @get_ptr_rcu_reader() #23
   %depth.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 12
   %10 = load i32, ptr %depth.i.i.i.i.i, align 4
   %cmp.not.i.i.i.i.i = icmp eq i32 %10, 0
   br i1 %cmp.not.i.i.i.i.i, label %if.else.i.i.i.i6.i, label %if.end.i.i.i.i5.i
 
 if.else.i.i.i.i6.i:                               ; preds = %if.then.i.i.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.75, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.75, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #24
   unreachable
 
 if.end.i.i.i.i5.i:                                ; preds = %if.then.i.i.i
@@ -7891,7 +7891,7 @@ if.end.i.i.i.i5.i:                                ; preds = %if.then.i.i.i
 
 while.end.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i5.i
   store atomic i64 0, ptr %call.i.i.i.i.i release, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !10
   fence seq_cst
   %waiting.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 8
   %11 = load atomic i8, ptr %waiting.i.i.i.i.i monotonic, align 8
@@ -7900,7 +7900,7 @@ while.end.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i5.i
 
 while.end21.i.i.i.i.i:                            ; preds = %while.end.i.i.i.i.i
   store atomic i8 0, ptr %waiting.i.i.i.i.i monotonic, align 8
-  tail call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #21
+  tail call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #23
   br label %return
 
 return:                                           ; preds = %while.end21.i.i.i.i.i, %while.end.i.i.i.i.i, %if.end.i.i.i.i5.i, %entry
@@ -7908,7 +7908,7 @@ return:                                           ; preds = %while.end21.i.i.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @virtio_queue_invalidate_signalled_used(ptr nocapture noundef readonly %vdev, i32 noundef %n) local_unnamed_addr #12 {
+define dso_local void @virtio_queue_invalidate_signalled_used(ptr nocapture noundef readonly %vdev, i32 noundef %n) local_unnamed_addr #13 {
 entry:
   %vq = getelementptr inbounds i8, ptr %vdev, i64 232
   %0 = load ptr, ptr %vq, align 8
@@ -7945,11 +7945,11 @@ entry:
   br i1 %brmerge, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call void @event_notifier_set_handler(ptr noundef nonnull %guest_notifier3, ptr noundef nonnull @virtio_queue_guest_notifier_read) #21
+  tail call void @event_notifier_set_handler(ptr noundef nonnull %guest_notifier3, ptr noundef nonnull @virtio_queue_guest_notifier_read) #23
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  tail call void @event_notifier_set_handler(ptr noundef nonnull %guest_notifier3, ptr noundef null) #21
+  tail call void @event_notifier_set_handler(ptr noundef nonnull %guest_notifier3, ptr noundef null) #23
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
@@ -7969,7 +7969,7 @@ declare void @event_notifier_set_handler(ptr noundef, ptr noundef) local_unnamed
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @virtio_queue_guest_notifier_read(ptr noundef %n) #0 {
 entry:
-  %call = tail call i32 @event_notifier_test_and_clear(ptr noundef %n) #21
+  %call = tail call i32 @event_notifier_test_and_clear(ptr noundef %n) #23
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
@@ -7991,10 +7991,10 @@ virtio_set_isr.exit.i:                            ; preds = %if.then.i.i, %if.th
   %4 = phi ptr [ %0, %if.then ], [ %.pre.i, %if.then.i.i ]
   %vector.i = getelementptr i8, ptr %n, i64 -24
   %5 = load i16, ptr %vector.i, align 8
-  %call.i.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %4, ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.97, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #21
-  %call1.i.i = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i.i) #21
-  %call.i4.i.i = tail call ptr @object_get_class(ptr noundef %call1.i.i) #21
-  %call1.i.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i4.i.i, ptr noundef nonnull @.str.98, ptr noundef nonnull @.str.99, i32 noundef 36, ptr noundef nonnull @__func__.VIRTIO_BUS_GET_CLASS) #21
+  %call.i.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %4, ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.97, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #23
+  %call1.i.i = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i.i) #23
+  %call.i4.i.i = tail call ptr @object_get_class(ptr noundef %call1.i.i) #23
+  %call1.i.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i4.i.i, ptr noundef nonnull @.str.98, ptr noundef nonnull @.str.99, i32 noundef 36, ptr noundef nonnull @__func__.VIRTIO_BUS_GET_CLASS) #23
   %disabled.i.i.i = getelementptr inbounds i8, ptr %4, i64 437
   %6 = load i8, ptr %disabled.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %6 to i1
@@ -8015,7 +8015,7 @@ if.end.i.i:                                       ; preds = %virtio_device_disab
 if.then4.i.i:                                     ; preds = %if.end.i.i
   %parent.i.i = getelementptr inbounds i8, ptr %call1.i.i, i64 40
   %9 = load ptr, ptr %parent.i.i, align 8
-  tail call void %8(ptr noundef %9, i16 noundef zeroext %5) #21
+  tail call void %8(ptr noundef %9, i16 noundef zeroext %5) #23
   br label %if.end
 
 if.end:                                           ; preds = %if.then4.i.i, %if.end.i.i, %virtio_device_disabled.exit.i.i, %virtio_set_isr.exit.i, %entry
@@ -8031,18 +8031,18 @@ entry:
   br i1 %brmerge, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call void @event_notifier_set_handler(ptr noundef nonnull %config_notifier, ptr noundef nonnull @virtio_config_guest_notifier_read) #21
+  tail call void @event_notifier_set_handler(ptr noundef nonnull %config_notifier, ptr noundef nonnull @virtio_config_guest_notifier_read) #23
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  tail call void @event_notifier_set_handler(ptr noundef nonnull %config_notifier, ptr noundef null) #21
+  tail call void @event_notifier_set_handler(ptr noundef nonnull %config_notifier, ptr noundef null) #23
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
   br i1 %assign, label %if.end5, label %if.then4
 
 if.then4:                                         ; preds = %if.end
-  %call.i = tail call i32 @event_notifier_test_and_clear(ptr noundef nonnull %config_notifier) #21
+  %call.i = tail call i32 @event_notifier_test_and_clear(ptr noundef nonnull %config_notifier) #23
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %if.end5, label %if.then.i
 
@@ -8057,7 +8057,7 @@ if.end5:                                          ; preds = %if.then.i, %if.then
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @virtio_config_guest_notifier_read(ptr noundef %n) #0 {
 entry:
-  %call = tail call i32 @event_notifier_test_and_clear(ptr noundef %n) #21
+  %call = tail call i32 @event_notifier_test_and_clear(ptr noundef %n) #23
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
@@ -8071,7 +8071,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local nonnull ptr @virtio_queue_get_guest_notifier(ptr noundef readnone %vq) local_unnamed_addr #13 {
+define dso_local nonnull ptr @virtio_queue_get_guest_notifier(ptr noundef readnone %vq) local_unnamed_addr #14 {
 entry:
   %guest_notifier = getelementptr inbounds i8, ptr %vq, i64 104
   ret ptr %guest_notifier
@@ -8081,8 +8081,8 @@ entry:
 define dso_local void @virtio_queue_aio_attach_host_notifier(ptr noundef %vq, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %host_notifier = getelementptr inbounds i8, ptr %vq, i64 116
-  tail call void @aio_set_event_notifier(ptr noundef %ctx, ptr noundef nonnull %host_notifier, ptr noundef nonnull @virtio_queue_host_notifier_read, ptr noundef nonnull @virtio_queue_host_notifier_aio_poll, ptr noundef nonnull @virtio_queue_host_notifier_aio_poll_ready) #21
-  tail call void @aio_set_event_notifier_poll(ptr noundef %ctx, ptr noundef nonnull %host_notifier, ptr noundef nonnull @virtio_queue_host_notifier_aio_poll_begin, ptr noundef nonnull @virtio_queue_host_notifier_aio_poll_end) #21
+  tail call void @aio_set_event_notifier(ptr noundef %ctx, ptr noundef nonnull %host_notifier, ptr noundef nonnull @virtio_queue_host_notifier_read, ptr noundef nonnull @virtio_queue_host_notifier_aio_poll, ptr noundef nonnull @virtio_queue_host_notifier_aio_poll_ready) #23
+  tail call void @aio_set_event_notifier_poll(ptr noundef %ctx, ptr noundef nonnull %host_notifier, ptr noundef nonnull @virtio_queue_host_notifier_aio_poll_begin, ptr noundef nonnull @virtio_queue_host_notifier_aio_poll_end) #23
   ret void
 }
 
@@ -8091,7 +8091,7 @@ declare void @aio_set_event_notifier(ptr noundef, ptr noundef, ptr noundef, ptr 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @virtio_queue_host_notifier_read(ptr noundef %n) #0 {
 entry:
-  %call = tail call i32 @event_notifier_test_and_clear(ptr noundef %n) #21
+  %call = tail call i32 @event_notifier_test_and_clear(ptr noundef %n) #23
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
@@ -8153,7 +8153,7 @@ entry:
 define dso_local void @virtio_queue_aio_attach_host_notifier_no_poll(ptr noundef %vq, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %host_notifier = getelementptr inbounds i8, ptr %vq, i64 116
-  tail call void @aio_set_event_notifier(ptr noundef %ctx, ptr noundef nonnull %host_notifier, ptr noundef nonnull @virtio_queue_host_notifier_read, ptr noundef null, ptr noundef null) #21
+  tail call void @aio_set_event_notifier(ptr noundef %ctx, ptr noundef nonnull %host_notifier, ptr noundef nonnull @virtio_queue_host_notifier_read, ptr noundef null, ptr noundef null) #23
   ret void
 }
 
@@ -8161,7 +8161,7 @@ entry:
 define dso_local void @virtio_queue_aio_detach_host_notifier(ptr noundef %vq, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %host_notifier = getelementptr inbounds i8, ptr %vq, i64 116
-  tail call void @aio_set_event_notifier(ptr noundef %ctx, ptr noundef nonnull %host_notifier, ptr noundef null, ptr noundef null, ptr noundef null) #21
+  tail call void @aio_set_event_notifier(ptr noundef %ctx, ptr noundef nonnull %host_notifier, ptr noundef null, ptr noundef null, ptr noundef null) #23
   ret void
 }
 
@@ -8218,22 +8218,22 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #21
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #21
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #23
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #23
   %9 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %10 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.100, i32 noundef %call10.i.i, i64 noundef %9, i64 noundef %10, ptr noundef nonnull %2, i32 noundef %conv8, ptr noundef nonnull %vq) #21
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.100, i32 noundef %call10.i.i, i64 noundef %9, i64 noundef %10, ptr noundef nonnull %2, i32 noundef %conv8, ptr noundef nonnull %vq) #23
   br label %trace_virtio_queue_notify.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.101, ptr noundef nonnull %2, i32 noundef %conv8, ptr noundef nonnull %vq) #21
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.101, ptr noundef nonnull %2, i32 noundef %conv8, ptr noundef nonnull %vq) #23
   br label %trace_virtio_queue_notify.exit
 
 trace_virtio_queue_notify.exit:                   ; preds = %if.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   %11 = load ptr, ptr %handle_output, align 8
-  tail call void %11(ptr noundef nonnull %2, ptr noundef nonnull %vq) #21
+  tail call void %11(ptr noundef nonnull %2, ptr noundef nonnull %vq) #23
   %start_on_kick = getelementptr inbounds i8, ptr %2, i64 440
   %12 = load i8, ptr %start_on_kick, align 8
   %tobool10 = trunc i8 %12 to i1
@@ -8256,21 +8256,21 @@ if.end19:                                         ; preds = %if.then2.i, %if.the
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local nonnull ptr @virtio_queue_get_host_notifier(ptr noundef readnone %vq) local_unnamed_addr #13 {
+define dso_local nonnull ptr @virtio_queue_get_host_notifier(ptr noundef readnone %vq) local_unnamed_addr #14 {
 entry:
   %host_notifier = getelementptr inbounds i8, ptr %vq, i64 116
   ret ptr %host_notifier
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local nonnull ptr @virtio_config_get_guest_notifier(ptr noundef readnone %vdev) local_unnamed_addr #13 {
+define dso_local nonnull ptr @virtio_config_get_guest_notifier(ptr noundef readnone %vdev) local_unnamed_addr #14 {
 entry:
   %config_notifier = getelementptr inbounds i8, ptr %vdev, i64 504
   ret ptr %config_notifier
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @virtio_queue_set_host_notifier_enabled(ptr nocapture noundef writeonly %vq, i1 noundef zeroext %enabled) local_unnamed_addr #14 {
+define dso_local void @virtio_queue_set_host_notifier_enabled(ptr nocapture noundef writeonly %vq, i1 noundef zeroext %enabled) local_unnamed_addr #15 {
 entry:
   %frombool = zext i1 %enabled to i8
   %host_notifier_enabled = getelementptr inbounds i8, ptr %vq, i64 128
@@ -8281,10 +8281,10 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @virtio_queue_set_host_notifier_mr(ptr noundef %vdev, i32 noundef %n, ptr noundef %mr, i1 noundef zeroext %assign) local_unnamed_addr #0 {
 entry:
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.97, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #21
-  %call1 = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i) #21
-  %call.i3 = tail call ptr @object_get_class(ptr noundef %call1) #21
-  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i3, ptr noundef nonnull @.str.98, ptr noundef nonnull @.str.99, i32 noundef 36, ptr noundef nonnull @__func__.VIRTIO_BUS_GET_CLASS) #21
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.97, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #23
+  %call1 = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i) #23
+  %call.i3 = tail call ptr @object_get_class(ptr noundef %call1) #23
+  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i3, ptr noundef nonnull @.str.98, ptr noundef nonnull @.str.99, i32 noundef 36, ptr noundef nonnull @__func__.VIRTIO_BUS_GET_CLASS) #23
   %set_host_notifier_mr = getelementptr inbounds i8, ptr %call1.i, i64 248
   %0 = load ptr, ptr %set_host_notifier_mr, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -8293,7 +8293,7 @@ entry:
 if.then:                                          ; preds = %entry
   %parent = getelementptr inbounds i8, ptr %call1, i64 40
   %1 = load ptr, ptr %parent, align 8
-  %call5 = tail call i32 %0(ptr noundef %1, i32 noundef %n, ptr noundef %mr, i1 noundef zeroext %assign) #21
+  %call5 = tail call i32 %0(ptr noundef %1, i32 noundef %n, ptr noundef %mr, i1 noundef zeroext %assign) #23
   br label %return
 
 return:                                           ; preds = %entry, %if.then
@@ -8306,8 +8306,8 @@ define dso_local void @virtio_device_set_child_bus_name(ptr nocapture noundef %v
 entry:
   %bus_name1 = getelementptr inbounds i8, ptr %vdev, i64 456
   %0 = load ptr, ptr %bus_name1, align 8
-  tail call void @g_free(ptr noundef %0) #21
-  %call = tail call noalias ptr @g_strdup(ptr noundef %bus_name) #21
+  tail call void @g_free(ptr noundef %0) #23
+  %call = tail call noalias ptr @g_strdup(ptr noundef %bus_name) #23
   store ptr %call, ptr %bus_name1, align 8
   ret void
 }
@@ -8319,10 +8319,10 @@ declare void @error_vreport(ptr noundef, ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @virtio_device_start_ioeventfd(ptr noundef %vdev) local_unnamed_addr #0 {
 entry:
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.97, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #21
-  %call1 = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i) #21
-  %call.i1 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1, ptr noundef nonnull @.str.98, ptr noundef nonnull @.str.99, i32 noundef 36, ptr noundef nonnull @__func__.VIRTIO_BUS) #21
-  %call3 = tail call i32 @virtio_bus_start_ioeventfd(ptr noundef %call.i1) #21
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.97, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #23
+  %call1 = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i) #23
+  %call.i1 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1, ptr noundef nonnull @.str.98, ptr noundef nonnull @.str.99, i32 noundef 36, ptr noundef nonnull @__func__.VIRTIO_BUS) #23
+  %call3 = tail call i32 @virtio_bus_start_ioeventfd(ptr noundef %call.i1) #23
   ret i32 %call3
 }
 
@@ -8331,10 +8331,10 @@ declare i32 @virtio_bus_start_ioeventfd(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @virtio_device_grab_ioeventfd(ptr noundef %vdev) local_unnamed_addr #0 {
 entry:
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.97, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #21
-  %call1 = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i) #21
-  %call.i1 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1, ptr noundef nonnull @.str.98, ptr noundef nonnull @.str.99, i32 noundef 36, ptr noundef nonnull @__func__.VIRTIO_BUS) #21
-  %call3 = tail call i32 @virtio_bus_grab_ioeventfd(ptr noundef %call.i1) #21
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.97, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #23
+  %call1 = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i) #23
+  %call.i1 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1, ptr noundef nonnull @.str.98, ptr noundef nonnull @.str.99, i32 noundef 36, ptr noundef nonnull @__func__.VIRTIO_BUS) #23
+  %call3 = tail call i32 @virtio_bus_grab_ioeventfd(ptr noundef %call.i1) #23
   ret i32 %call3
 }
 
@@ -8343,10 +8343,10 @@ declare i32 @virtio_bus_grab_ioeventfd(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @virtio_device_release_ioeventfd(ptr noundef %vdev) local_unnamed_addr #0 {
 entry:
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.97, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #21
-  %call1 = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i) #21
-  %call.i1 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1, ptr noundef nonnull @.str.98, ptr noundef nonnull @.str.99, i32 noundef 36, ptr noundef nonnull @__func__.VIRTIO_BUS) #21
-  tail call void @virtio_bus_release_ioeventfd(ptr noundef %call.i1) #21
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.97, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #23
+  %call1 = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i) #23
+  %call.i1 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1, ptr noundef nonnull @.str.98, ptr noundef nonnull @.str.99, i32 noundef 36, ptr noundef nonnull @__func__.VIRTIO_BUS) #23
+  tail call void @virtio_bus_release_ioeventfd(ptr noundef %call.i1) #23
   ret void
 }
 
@@ -8355,10 +8355,10 @@ declare void @virtio_bus_release_ioeventfd(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local zeroext i1 @virtio_device_ioeventfd_enabled(ptr noundef %vdev) local_unnamed_addr #0 {
 entry:
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.97, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #21
-  %call1 = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i) #21
-  %call.i1 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1, ptr noundef nonnull @.str.98, ptr noundef nonnull @.str.99, i32 noundef 36, ptr noundef nonnull @__func__.VIRTIO_BUS) #21
-  %call3 = tail call zeroext i1 @virtio_bus_ioeventfd_enabled(ptr noundef %call.i1) #21
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.97, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #23
+  %call1 = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i) #23
+  %call.i1 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1, ptr noundef nonnull @.str.98, ptr noundef nonnull @.str.99, i32 noundef 36, ptr noundef nonnull @__func__.VIRTIO_BUS) #23
+  %call3 = tail call zeroext i1 @virtio_bus_ioeventfd_enabled(ptr noundef %call.i1) #23
   ret i1 %call3
 }
 
@@ -8368,12 +8368,12 @@ declare zeroext i1 @virtio_bus_ioeventfd_enabled(ptr noundef) local_unnamed_addr
 define dso_local noundef ptr @qmp_x_query_virtio_queue_status(ptr noundef %path, i16 noundef zeroext %queue, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %state = alloca %struct.vhost_vring_state, align 4
-  %call = tail call ptr @qmp_find_virtio_device(ptr noundef %path) #21
+  %call = tail call ptr @qmp_find_virtio_device(ptr noundef %path) #23
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.42, i32 noundef 3890, ptr noundef nonnull @__func__.qmp_x_query_virtio_queue_status, ptr noundef nonnull @.str.58, ptr noundef %path) #21
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.42, i32 noundef 3890, ptr noundef nonnull @__func__.qmp_x_query_virtio_queue_status, ptr noundef nonnull @.str.58, ptr noundef %path) #23
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -8391,14 +8391,14 @@ lor.lhs.false:                                    ; preds = %if.end
   br i1 %tobool.not, label %if.then5, label %if.end7
 
 if.then5:                                         ; preds = %lor.lhs.false, %if.end
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.42, i32 noundef 3895, ptr noundef nonnull @__func__.qmp_x_query_virtio_queue_status, ptr noundef nonnull @.str.59, i32 noundef %conv) #21
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.42, i32 noundef 3895, ptr noundef nonnull @__func__.qmp_x_query_virtio_queue_status, ptr noundef nonnull @.str.59, i32 noundef %conv) #23
   br label %return
 
 if.end7:                                          ; preds = %lor.lhs.false
-  %call8 = tail call noalias dereferenceable_or_null(72) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 72) #20
+  %call8 = tail call noalias dereferenceable_or_null(72) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 72) #22
   %name = getelementptr inbounds i8, ptr %call, i64 160
   %2 = load ptr, ptr %name, align 8
-  %call9 = tail call noalias ptr @g_strdup(ptr noundef %2) #21
+  %call9 = tail call noalias ptr @g_strdup(ptr noundef %2) #23
   store ptr %call9, ptr %call8, align 8
   %3 = load ptr, ptr %vq.i, align 8
   %queue_index = getelementptr %struct.VirtQueue, ptr %3, i64 %idxprom.i, i32 11
@@ -8444,11 +8444,11 @@ if.end7:                                          ; preds = %lor.lhs.false
   br i1 %tobool52, label %if.then53, label %if.else
 
 if.then53:                                        ; preds = %if.end7
-  %call.i = tail call ptr @object_get_class(ptr noundef nonnull %call) #21
-  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.93, ptr noundef nonnull @.str.65, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_GET_CLASS) #21
+  %call.i = tail call ptr @object_get_class(ptr noundef nonnull %call) #23
+  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.93, ptr noundef nonnull @.str.65, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_GET_CLASS) #23
   %get_vhost = getelementptr inbounds i8, ptr %call1.i, i64 352
   %14 = load ptr, ptr %get_vhost, align 8
-  %call55 = tail call ptr %14(ptr noundef nonnull %call) #21
+  %call55 = tail call ptr %14(ptr noundef nonnull %call) #23
   %vq_index = getelementptr inbounds i8, ptr %call55, i64 444
   %15 = load i32, ptr %vq_index, align 4
   %cmp57.not = icmp sgt i32 %15, %conv
@@ -8468,14 +8468,14 @@ if.then63:                                        ; preds = %land.lhs.true
   %17 = load ptr, ptr %vhost_ops, align 8
   %vhost_get_vq_index = getelementptr inbounds i8, ptr %17, i64 208
   %18 = load ptr, ptr %vhost_get_vq_index, align 8
-  %call65 = tail call i32 %18(ptr noundef nonnull %call55, i32 noundef %conv) #21
+  %call65 = tail call i32 %18(ptr noundef nonnull %call55, i32 noundef %conv) #23
   store i32 %call65, ptr %state, align 4
   %num66 = getelementptr inbounds i8, ptr %state, i64 4
   store i32 0, ptr %num66, align 4
   %19 = load ptr, ptr %vhost_ops, align 8
   %vhost_get_vring_base = getelementptr inbounds i8, ptr %19, i64 128
   %20 = load ptr, ptr %vhost_get_vring_base, align 8
-  %call68 = call i32 %20(ptr noundef nonnull %call55, ptr noundef nonnull %state) #21
+  %call68 = call i32 %20(ptr noundef nonnull %call55, ptr noundef nonnull %state) #23
   %conv69 = trunc i32 %call68 to i16
   %last_avail_idx = getelementptr inbounds i8, ptr %call8, i64 58
   store i16 %conv69, ptr %last_avail_idx, align 2
@@ -8510,12 +8510,12 @@ define dso_local noundef ptr @qmp_x_query_virtio_queue_element(ptr noundef %path
 entry:
   %indirect_desc_cache = alloca %struct.MemoryRegionCache, align 16
   %desc = alloca %struct.VRingDesc, align 8
-  %call = tail call ptr @qmp_find_virtio_device(ptr noundef %path) #21
+  %call = tail call ptr @qmp_find_virtio_device(ptr noundef %path) #23
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.42, i32 noundef 3983, ptr noundef nonnull @__func__.qmp_x_query_virtio_queue_element, ptr noundef nonnull @.str.60, ptr noundef %path) #21
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.42, i32 noundef 3983, ptr noundef nonnull @__func__.qmp_x_query_virtio_queue_element, ptr noundef nonnull @.str.60, ptr noundef %path) #23
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -8533,7 +8533,7 @@ lor.lhs.false:                                    ; preds = %if.end
   br i1 %tobool.not, label %if.then5, label %if.end7
 
 if.then5:                                         ; preds = %lor.lhs.false, %if.end
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.42, i32 noundef 3988, ptr noundef nonnull @__func__.qmp_x_query_virtio_queue_element, ptr noundef nonnull @.str.59, i32 noundef %conv) #21
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.42, i32 noundef 3988, ptr noundef nonnull @__func__.qmp_x_query_virtio_queue_element, ptr noundef nonnull @.str.59, i32 noundef %conv) #23
   br label %return
 
 if.end7:                                          ; preds = %lor.lhs.false
@@ -8544,7 +8544,7 @@ if.end7:                                          ; preds = %lor.lhs.false
   br i1 %tobool.i.i.not, label %if.else, label %if.then10
 
 if.then10:                                        ; preds = %if.end7
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.42, i32 noundef 3994, ptr noundef nonnull @__func__.qmp_x_query_virtio_queue_element, ptr noundef nonnull @.str.61) #21
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.42, i32 noundef 3994, ptr noundef nonnull @__func__.qmp_x_query_virtio_queue_element, ptr noundef nonnull @.str.61) #23
   br label %return
 
 if.else:                                          ; preds = %if.end7
@@ -8552,7 +8552,7 @@ if.else:                                          ; preds = %if.end7
   store ptr null, ptr %mr.i, align 16
   %fv.i = getelementptr inbounds i8, ptr %indirect_desc_cache, i64 24
   store ptr null, ptr %fv.i, align 8
-  %call.i.i = tail call ptr @get_ptr_rcu_reader() #21
+  %call.i.i = tail call ptr @get_ptr_rcu_reader() #23
   %depth.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   %3 = load i32, ptr %depth.i.i, align 4
   %inc.i.i = add i32 %3, 1
@@ -8564,7 +8564,7 @@ while.end.i.i:                                    ; preds = %if.else
   %4 = load atomic i64, ptr @rcu_gp_ctr monotonic, align 8
   %conv8.i.i = and i64 %4, 4294967295
   store atomic i64 %conv8.i.i, ptr %call.i.i monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !5
   fence seq_cst
   br label %rcu_read_auto_lock.exit
 
@@ -8577,7 +8577,7 @@ if.then13:                                        ; preds = %rcu_read_auto_lock.
   %6 = load i16, ptr %last_avail_idx, align 8
   %caches.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 40
   %7 = load atomic i64, ptr %caches.i.i monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !6
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !6
   %tobool.not.i = icmp eq i64 %7, 0
   br i1 %tobool.not.i, label %if.end26, label %if.end.i
 
@@ -8598,7 +8598,7 @@ if.end.i:                                         ; preds = %if.then13
   br i1 %or.cond.i.i.i.i, label %if.end.i.i.i.i, label %if.else.i.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %if.end.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68, i32 noundef 30, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_lduw_le_cached) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68, i32 noundef 30, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_lduw_le_cached) #24
   unreachable
 
 if.end.i.i.i.i:                                   ; preds = %if.end.i
@@ -8612,13 +8612,13 @@ if.then5.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
   br label %if.end26
 
 if.else8.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
-  %call10.i.i.i.i = tail call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %avail.i, i64 noundef %10, i32 1, ptr noundef null) #21
+  %call10.i.i.i.i = tail call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %avail.i, i64 noundef %10, i32 1, ptr noundef null) #23
   br label %if.end26
 
 if.else19:                                        ; preds = %rcu_read_auto_lock.exit
   %caches.i.i55 = getelementptr inbounds i8, ptr %arrayidx.i, i64 40
   %13 = load atomic i64, ptr %caches.i.i55 monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !6
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !6
   %tobool.not.i56 = icmp eq i64 %13, 0
   br i1 %tobool.not.i56, label %if.end26, label %if.end.i57
 
@@ -8639,7 +8639,7 @@ if.end.i57:                                       ; preds = %if.else19
   br i1 %or.cond.i.i.i.i64, label %if.end.i.i.i.i66, label %if.else.i.i.i.i65
 
 if.else.i.i.i.i65:                                ; preds = %if.end.i57
-  tail call void @__assert_fail(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68, i32 noundef 30, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_lduw_le_cached) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68, i32 noundef 30, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_lduw_le_cached) #24
   unreachable
 
 if.end.i.i.i.i66:                                 ; preds = %if.end.i57
@@ -8653,7 +8653,7 @@ if.then5.i.i.i.i68:                               ; preds = %if.end.i.i.i.i66
   br label %if.end26
 
 if.else8.i.i.i.i72:                               ; preds = %if.end.i.i.i.i66
-  %call10.i.i.i.i73 = tail call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %avail.i59, i64 noundef %16, i32 1, ptr noundef null) #21
+  %call10.i.i.i.i73 = tail call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %avail.i59, i64 noundef %16, i32 1, ptr noundef null) #23
   br label %if.end26
 
 if.end26:                                         ; preds = %if.else8.i.i.i.i72, %if.then5.i.i.i.i68, %if.else19, %if.else8.i.i.i.i, %if.then5.i.i.i.i, %if.then13
@@ -8662,12 +8662,12 @@ if.end26:                                         ; preds = %if.else8.i.i.i.i72,
   %caches.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 40
   %19 = load atomic i64, ptr %caches.i monotonic, align 8
   %20 = inttoptr i64 %19 to ptr
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !6
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !6
   %tobool28.not = icmp eq i64 %19, 0
   br i1 %tobool28.not, label %if.then29, label %if.end30
 
 if.then29:                                        ; preds = %if.end26
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.42, i32 noundef 4021, ptr noundef nonnull @__func__.qmp_x_query_virtio_queue_element, ptr noundef nonnull @.str.62) #21
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.42, i32 noundef 4021, ptr noundef nonnull @__func__.qmp_x_query_virtio_queue_element, ptr noundef nonnull @.str.62) #23
   br label %if.then.i.i
 
 if.end30:                                         ; preds = %if.end26
@@ -8679,7 +8679,7 @@ if.end30:                                         ; preds = %if.end26
   br i1 %cmp33, label %if.then35, label %if.end36
 
 if.then35:                                        ; preds = %if.end30
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.42, i32 noundef 4025, ptr noundef nonnull @__func__.qmp_x_query_virtio_queue_element, ptr noundef nonnull @.str.43) #21
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.42, i32 noundef 4025, ptr noundef nonnull @__func__.qmp_x_query_virtio_queue_element, ptr noundef nonnull @.str.43) #23
   br label %if.then.i.i
 
 if.end36:                                         ; preds = %if.end30
@@ -8693,7 +8693,7 @@ if.end36:                                         ; preds = %if.end30
   br i1 %or.cond.i.i, label %if.else.i.i, label %if.end.i.i
 
 if.else.i.i:                                      ; preds = %if.end36
-  tail call void @__assert_fail(ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.72, i32 noundef 3023, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_read_cached) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.72, i32 noundef 3023, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_read_cached) #24
   unreachable
 
 if.end.i.i:                                       ; preds = %if.end36
@@ -8707,7 +8707,7 @@ if.then6.i.i:                                     ; preds = %if.end.i.i
   br label %vring_split_desc_read.exit
 
 if.else8.i.i:                                     ; preds = %if.end.i.i
-  %call.i.i76 = call i32 @address_space_read_cached_slow(ptr noundef nonnull %desc31, i64 noundef %mul.i, ptr noundef nonnull %desc, i64 noundef 16) #21
+  %call.i.i76 = call i32 @address_space_read_cached_slow(ptr noundef nonnull %desc31, i64 noundef %mul.i, ptr noundef nonnull %desc, i64 noundef 16) #23
   br label %vring_split_desc_read.exit
 
 vring_split_desc_read.exit:                       ; preds = %if.then6.i.i, %if.else8.i.i
@@ -8724,14 +8724,14 @@ if.then40:                                        ; preds = %vring_split_desc_re
   %len42 = getelementptr inbounds i8, ptr %desc, i64 8
   %27 = load i32, ptr %len42, align 8
   %conv43 = zext i32 %27 to i64
-  %call44 = call i64 @address_space_cache_init(ptr noundef nonnull %indirect_desc_cache, ptr noundef %25, i64 noundef %26, i64 noundef %conv43, i1 noundef zeroext false) #21
+  %call44 = call i64 @address_space_cache_init(ptr noundef nonnull %indirect_desc_cache, ptr noundef %25, i64 noundef %26, i64 noundef %conv43, i1 noundef zeroext false) #23
   %28 = load i32, ptr %len42, align 8
   %conv46 = zext i32 %28 to i64
   %cmp47 = icmp slt i64 %call44, %conv46
   br i1 %cmp47, label %if.then49, label %if.end50
 
 if.then49:                                        ; preds = %if.then40
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.42, i32 noundef 4037, ptr noundef nonnull @__func__.qmp_x_query_virtio_queue_element, ptr noundef nonnull @.str.63) #21
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.42, i32 noundef 4037, ptr noundef nonnull @__func__.qmp_x_query_virtio_queue_element, ptr noundef nonnull @.str.63) #23
   br label %done
 
 if.end50:                                         ; preds = %if.then40
@@ -8742,21 +8742,21 @@ if.end50:                                         ; preds = %if.then40
 if.end54:                                         ; preds = %if.end50, %vring_split_desc_read.exit
   %max.0 = phi i32 [ %div54, %if.end50 ], [ %5, %vring_split_desc_read.exit ]
   %desc_cache.0 = phi ptr [ %indirect_desc_cache, %if.end50 ], [ %desc31, %vring_split_desc_read.exit ]
-  %call55 = call noalias dereferenceable_or_null(40) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 40) #20
-  %call56 = call noalias dereferenceable_or_null(6) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 6) #20
+  %call55 = call noalias dereferenceable_or_null(40) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 40) #22
+  %call56 = call noalias dereferenceable_or_null(6) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 6) #22
   %avail = getelementptr inbounds i8, ptr %call55, i64 24
   store ptr %call56, ptr %avail, align 8
-  %call57 = call noalias dereferenceable_or_null(4) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 4) #20
+  %call57 = call noalias dereferenceable_or_null(4) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 4) #22
   %used = getelementptr inbounds i8, ptr %call55, i64 32
   store ptr %call57, ptr %used, align 8
   %name = getelementptr inbounds i8, ptr %call, i64 160
   %29 = load ptr, ptr %name, align 8
-  %call58 = call noalias ptr @g_strdup(ptr noundef %29) #21
+  %call58 = call noalias ptr @g_strdup(ptr noundef %29) #23
   store ptr %call58, ptr %call55, align 8
   %index60 = getelementptr inbounds i8, ptr %call55, i64 8
   store i32 %head.0, ptr %index60, align 8
   %30 = load atomic i64, ptr %caches.i monotonic, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !6
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !6
   %tobool.not.i78 = icmp eq i64 %30, 0
   br i1 %tobool.not.i78, label %vring_avail_flags.exit, label %if.end.i79
 
@@ -8769,7 +8769,7 @@ if.end.i79:                                       ; preds = %if.end54
   br i1 %switch.i, label %if.else.i.i.i.i89, label %if.end.i.i.i.i82
 
 if.else.i.i.i.i89:                                ; preds = %if.end.i79
-  call void @__assert_fail(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68, i32 noundef 30, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_lduw_le_cached) #22
+  call void @__assert_fail(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68, i32 noundef 30, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_lduw_le_cached) #24
   unreachable
 
 if.end.i.i.i.i82:                                 ; preds = %if.end.i79
@@ -8782,14 +8782,14 @@ if.then5.i.i.i.i84:                               ; preds = %if.end.i.i.i.i82
   br label %vring_avail_flags.exit
 
 if.else8.i.i.i.i87:                               ; preds = %if.end.i.i.i.i82
-  %call10.i.i.i.i88 = call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %avail.i80, i64 noundef 0, i32 1, ptr noundef null) #21
+  %call10.i.i.i.i88 = call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %avail.i80, i64 noundef 0, i32 1, ptr noundef null) #23
   br label %vring_avail_flags.exit
 
 vring_avail_flags.exit:                           ; preds = %if.end54, %if.then5.i.i.i.i84, %if.else8.i.i.i.i87
   %retval.0.i86 = phi i16 [ 0, %if.end54 ], [ %add.ptr.val.i.i.i.i85, %if.then5.i.i.i.i84 ], [ %call10.i.i.i.i88, %if.else8.i.i.i.i87 ]
   store i16 %retval.0.i86, ptr %call56, align 2
   %34 = load atomic i64, ptr %caches.i monotonic, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !6
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !6
   %tobool.not.i91 = icmp eq i64 %34, 0
   br i1 %tobool.not.i91, label %vring_avail_idx.exit, label %if.end.i92
 
@@ -8802,7 +8802,7 @@ if.end.i92:                                       ; preds = %vring_avail_flags.e
   br i1 %switch.i95, label %if.else.i.i.i.i104, label %if.end.i.i.i.i96
 
 if.else.i.i.i.i104:                               ; preds = %if.end.i92
-  call void @__assert_fail(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68, i32 noundef 30, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_lduw_le_cached) #22
+  call void @__assert_fail(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68, i32 noundef 30, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_lduw_le_cached) #24
   unreachable
 
 if.end.i.i.i.i96:                                 ; preds = %if.end.i92
@@ -8816,7 +8816,7 @@ if.then5.i.i.i.i98:                               ; preds = %if.end.i.i.i.i96
   br label %virtio_lduw_phys_cached.exit.i
 
 if.else8.i.i.i.i102:                              ; preds = %if.end.i.i.i.i96
-  %call10.i.i.i.i103 = call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %avail.i93, i64 noundef 2, i32 1, ptr noundef null) #21
+  %call10.i.i.i.i103 = call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %avail.i93, i64 noundef 2, i32 1, ptr noundef null) #23
   br label %virtio_lduw_phys_cached.exit.i
 
 virtio_lduw_phys_cached.exit.i:                   ; preds = %if.else8.i.i.i.i102, %if.then5.i.i.i.i98
@@ -8832,7 +8832,7 @@ vring_avail_idx.exit:                             ; preds = %vring_avail_flags.e
   %ring = getelementptr inbounds i8, ptr %call56, i64 4
   store i16 %head.0.in, ptr %ring, align 2
   %38 = load atomic i64, ptr %caches.i monotonic, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !6
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !6
   %tobool.not.i106 = icmp eq i64 %38, 0
   br i1 %tobool.not.i106, label %vring_used_flags.exit, label %if.end.i107
 
@@ -8845,7 +8845,7 @@ if.end.i107:                                      ; preds = %vring_avail_idx.exi
   br i1 %switch.i109, label %if.else.i.i.i.i117, label %if.end.i.i.i.i110
 
 if.else.i.i.i.i117:                               ; preds = %if.end.i107
-  call void @__assert_fail(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68, i32 noundef 30, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_lduw_le_cached) #22
+  call void @__assert_fail(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68, i32 noundef 30, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_lduw_le_cached) #24
   unreachable
 
 if.end.i.i.i.i110:                                ; preds = %if.end.i107
@@ -8858,14 +8858,14 @@ if.then5.i.i.i.i112:                              ; preds = %if.end.i.i.i.i110
   br label %vring_used_flags.exit
 
 if.else8.i.i.i.i115:                              ; preds = %if.end.i.i.i.i110
-  %call10.i.i.i.i116 = call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %used.i, i64 noundef 0, i32 1, ptr noundef null) #21
+  %call10.i.i.i.i116 = call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %used.i, i64 noundef 0, i32 1, ptr noundef null) #23
   br label %vring_used_flags.exit
 
 vring_used_flags.exit:                            ; preds = %vring_avail_idx.exit, %if.then5.i.i.i.i112, %if.else8.i.i.i.i115
   %retval.0.i114 = phi i16 [ 0, %vring_avail_idx.exit ], [ %add.ptr.val.i.i.i.i113, %if.then5.i.i.i.i112 ], [ %call10.i.i.i.i116, %if.else8.i.i.i.i115 ]
   store i16 %retval.0.i114, ptr %call57, align 2
   %42 = load atomic i64, ptr %caches.i monotonic, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !6
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !6
   %tobool.not.i119 = icmp eq i64 %42, 0
   br i1 %tobool.not.i119, label %vring_used_idx.exit, label %if.end.i120
 
@@ -8878,7 +8878,7 @@ if.end.i120:                                      ; preds = %vring_used_flags.ex
   br i1 %switch.i123, label %if.else.i.i.i.i132, label %if.end.i.i.i.i124
 
 if.else.i.i.i.i132:                               ; preds = %if.end.i120
-  call void @__assert_fail(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68, i32 noundef 30, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_lduw_le_cached) #22
+  call void @__assert_fail(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68, i32 noundef 30, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_lduw_le_cached) #24
   unreachable
 
 if.end.i.i.i.i124:                                ; preds = %if.end.i120
@@ -8892,7 +8892,7 @@ if.then5.i.i.i.i126:                              ; preds = %if.end.i.i.i.i124
   br label %vring_used_idx.exit
 
 if.else8.i.i.i.i130:                              ; preds = %if.end.i.i.i.i124
-  %call10.i.i.i.i131 = call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %used.i121, i64 noundef 2, i32 1, ptr noundef null) #21
+  %call10.i.i.i.i131 = call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %used.i121, i64 noundef 2, i32 1, ptr noundef null) #23
   br label %vring_used_idx.exit
 
 vring_used_idx.exit:                              ; preds = %vring_used_flags.exit, %if.then5.i.i.i.i126, %if.else8.i.i.i.i130
@@ -8911,8 +8911,8 @@ if.end77.lr.ph:                                   ; preds = %vring_used_idx.exit
 if.end77:                                         ; preds = %if.end77.lr.ph, %virtqueue_split_read_next_desc.exit
   %ndescs.0148 = phi i32 [ 0, %if.end77.lr.ph ], [ %inc, %virtqueue_split_read_next_desc.exit ]
   %list.0147 = phi ptr [ null, %if.end77.lr.ph ], [ %call78, %virtqueue_split_read_next_desc.exit ]
-  %call78 = call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #20
-  %call79 = call noalias dereferenceable_or_null(24) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 24) #20
+  %call78 = call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #22
+  %call79 = call noalias dereferenceable_or_null(24) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 24) #22
   %value = getelementptr inbounds i8, ptr %call78, i64 8
   store ptr %call79, ptr %value, align 8
   %46 = load i64, ptr %desc, align 8
@@ -8933,10 +8933,10 @@ for.body.i:                                       ; preds = %for.inc.i, %if.end7
   br i1 %cmp.i, label %for.inc.i, label %if.end.i133
 
 if.end.i133:                                      ; preds = %for.body.i
-  %call.i = call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #23
+  %call.i = call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #26
   %value.i = getelementptr inbounds i8, ptr %arrayidx10.i, i64 8
   %50 = load ptr, ptr %value.i, align 8
-  %call8.i = call noalias ptr @g_strdup(ptr noundef %50) #21
+  %call8.i = call noalias ptr @g_strdup(ptr noundef %50) #23
   %value9.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %call8.i, ptr %value9.i, align 8
   store ptr %list.08.i, ptr %call.i, align 8
@@ -8982,7 +8982,7 @@ if.end6.i:                                        ; preds = %if.end.i136
   br i1 %or.cond.i.i.i, label %if.else.i.i.i, label %if.end.i.i.i
 
 if.else.i.i.i:                                    ; preds = %if.end6.i
-  call void @__assert_fail(ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.72, i32 noundef 3023, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_read_cached) #22
+  call void @__assert_fail(ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.72, i32 noundef 3023, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_read_cached) #24
   unreachable
 
 if.end.i.i.i:                                     ; preds = %if.end6.i
@@ -8996,7 +8996,7 @@ if.then6.i.i.i:                                   ; preds = %if.end.i.i.i
   br label %virtqueue_split_read_next_desc.exit
 
 if.else8.i.i.i:                                   ; preds = %if.end.i.i.i
-  %call.i.i.i = call i32 @address_space_read_cached_slow(ptr noundef nonnull %desc_cache.0, i64 noundef %mul.i.i, ptr noundef nonnull %desc, i64 noundef 16) #21
+  %call.i.i.i = call i32 @address_space_read_cached_slow(ptr noundef nonnull %desc_cache.0, i64 noundef %mul.i.i, ptr noundef nonnull %desc, i64 noundef 16) #23
   br label %virtqueue_split_read_next_desc.exit
 
 virtqueue_split_read_next_desc.exit:              ; preds = %if.then6.i.i.i, %if.else8.i.i.i
@@ -9011,19 +9011,19 @@ do.end:                                           ; preds = %virtqueue_split_rea
 
 done:                                             ; preds = %do.end, %if.then49
   %element.0 = phi ptr [ null, %if.then49 ], [ %call55, %do.end ]
-  call void @address_space_cache_destroy(ptr noundef nonnull %indirect_desc_cache) #21
+  call void @address_space_cache_destroy(ptr noundef nonnull %indirect_desc_cache) #23
   br label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then29, %if.then35, %done
   %switch = phi ptr [ null, %if.then35 ], [ %element.0, %done ], [ null, %if.then29 ]
-  %call.i.i.i.i = call ptr @get_ptr_rcu_reader() #21
+  %call.i.i.i.i = call ptr @get_ptr_rcu_reader() #23
   %depth.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 12
   %58 = load i32, ptr %depth.i.i.i.i, align 4
   %cmp.not.i.i.i.i = icmp eq i32 %58, 0
   br i1 %cmp.not.i.i.i.i, label %if.else.i.i.i.i140, label %if.end.i.i.i.i139
 
 if.else.i.i.i.i140:                               ; preds = %if.then.i.i
-  call void @__assert_fail(ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.75, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #22
+  call void @__assert_fail(ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.75, i32 noundef 101, ptr noundef nonnull @__PRETTY_FUNCTION__.rcu_read_unlock) #24
   unreachable
 
 if.end.i.i.i.i139:                                ; preds = %if.then.i.i
@@ -9034,7 +9034,7 @@ if.end.i.i.i.i139:                                ; preds = %if.then.i.i
 
 while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i139
   store atomic i64 0, ptr %call.i.i.i.i release, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !10
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !10
   fence seq_cst
   %waiting.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
   %59 = load atomic i8, ptr %waiting.i.i.i.i monotonic, align 8
@@ -9043,7 +9043,7 @@ while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i139
 
 while.end21.i.i.i.i:                              ; preds = %while.end.i.i.i.i
   store atomic i8 0, ptr %waiting.i.i.i.i monotonic, align 8
-  call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #21
+  call void @qemu_event_set(ptr noundef nonnull @rcu_gp_event) #23
   br label %return
 
 return:                                           ; preds = %while.end21.i.i.i.i, %while.end.i.i.i.i, %if.end.i.i.i.i139, %if.then10, %if.then5, %if.then
@@ -9065,7 +9065,7 @@ entry:
   br i1 %or.cond.i, label %if.else.i, label %if.end.i
 
 if.else.i:                                        ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.72, i32 noundef 3023, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_read_cached) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.72, i32 noundef 3023, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_read_cached) #24
   unreachable
 
 if.end.i:                                         ; preds = %entry
@@ -9079,7 +9079,7 @@ if.then6.i:                                       ; preds = %if.end.i
   br label %address_space_read_cached.exit
 
 if.else8.i:                                       ; preds = %if.end.i
-  %call.i = tail call i32 @address_space_read_cached_slow(ptr noundef nonnull %cache, i64 noundef %mul, ptr noundef %desc, i64 noundef 16) #21
+  %call.i = tail call i32 @address_space_read_cached_slow(ptr noundef nonnull %cache, i64 noundef %mul, ptr noundef %desc, i64 noundef 16) #23
   br label %address_space_read_cached.exit
 
 address_space_read_cached.exit:                   ; preds = %if.then6.i, %if.else8.i
@@ -9089,7 +9089,7 @@ address_space_read_cached.exit:                   ; preds = %if.then6.i, %if.els
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @do_qemu_init_virtio_register_types() #0 {
 entry:
-  tail call void @register_module_init(ptr noundef nonnull @virtio_register_types, i32 noundef 3) #21
+  tail call void @register_module_init(ptr noundef nonnull @virtio_register_types, i32 noundef 3) #23
   ret void
 }
 
@@ -9098,12 +9098,12 @@ declare void @register_module_init(ptr noundef, i32 noundef) local_unnamed_addr 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @virtio_register_types() #0 {
 entry:
-  %call = tail call ptr @type_register_static(ptr noundef nonnull @virtio_device_info) #21
+  %call = tail call ptr @type_register_static(ptr noundef nonnull @virtio_device_info) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #15
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #16
 
 declare zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef, i64 noundef, i32, ptr noundef) local_unnamed_addr #3
 
@@ -9114,7 +9114,7 @@ declare void @address_space_stw_le_cached_slow(ptr noundef, i64 noundef, i16 nou
 declare void @address_space_unmap(ptr noundef, ptr noundef, i64 noundef, i1 noundef zeroext, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #16
+declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #17
 
 declare i32 @qemu_get_thread_id() local_unnamed_addr #3
 
@@ -9152,7 +9152,7 @@ if.end:                                           ; preds = %entry
   store i16 %storemerge, ptr %flags, align 2
   %caches.i = getelementptr inbounds i8, ptr %vq, i64 40
   %6 = load atomic i64, ptr %caches.i monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !6
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !6
   %tobool41.not = icmp eq i64 %6, 0
   br i1 %tobool41.not, label %return, label %if.end43
 
@@ -9175,7 +9175,7 @@ if.end43:                                         ; preds = %if.end
   br i1 %or.cond.i.i.i, label %if.else.i.i.i, label %if.end.i.i.i
 
 if.else.i.i.i:                                    ; preds = %if.end43
-  tail call void @__assert_fail(ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.72, i32 noundef 3045, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_write_cached) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.72, i32 noundef 3045, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_write_cached) #24
   unreachable
 
 if.end.i.i.i:                                     ; preds = %if.end43
@@ -9189,11 +9189,11 @@ if.then6.i.i.i:                                   ; preds = %if.end.i.i.i
   br label %address_space_write_cached.exit.i.i
 
 if.else8.i.i.i:                                   ; preds = %if.end.i.i.i
-  %call.i.i.i = call i32 @address_space_write_cached_slow(ptr noundef nonnull %desc44, i64 noundef %add.i.i, ptr noundef nonnull %id, i64 noundef 2) #21
+  %call.i.i.i = call i32 @address_space_write_cached_slow(ptr noundef nonnull %desc44, i64 noundef %add.i.i, ptr noundef nonnull %id, i64 noundef 2) #23
   br label %address_space_write_cached.exit.i.i
 
 address_space_write_cached.exit.i.i:              ; preds = %if.else8.i.i.i, %if.then6.i.i.i
-  call void @address_space_cache_invalidate(ptr noundef nonnull %desc44, i64 noundef %add.i.i, i64 noundef 2) #21
+  call void @address_space_cache_invalidate(ptr noundef nonnull %desc44, i64 noundef %add.i.i, i64 noundef 2) #23
   %11 = load i64, ptr %len1.i.i.i, align 16
   %cmp.i12.i.i = icmp ule i64 %11, %add3.i.i
   %sub.i13.i.i = sub nuw i64 %11, %add3.i.i
@@ -9202,7 +9202,7 @@ address_space_write_cached.exit.i.i:              ; preds = %if.else8.i.i.i, %if
   br i1 %or.cond.i15.i.i, label %if.else.i23.i.i, label %if.end.i16.i.i
 
 if.else.i23.i.i:                                  ; preds = %address_space_write_cached.exit.i.i
-  call void @__assert_fail(ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.72, i32 noundef 3045, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_write_cached) #22
+  call void @__assert_fail(ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.72, i32 noundef 3045, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_write_cached) #24
   unreachable
 
 if.end.i16.i.i:                                   ; preds = %address_space_write_cached.exit.i.i
@@ -9217,15 +9217,15 @@ if.then6.i18.i.i:                                 ; preds = %if.end.i16.i.i
   br label %vring_packed_desc_write_data.exit.i
 
 if.else8.i21.i.i:                                 ; preds = %if.end.i16.i.i
-  %call.i22.i.i = call i32 @address_space_write_cached_slow(ptr noundef nonnull %desc44, i64 noundef %add3.i.i, ptr noundef nonnull %len, i64 noundef 4) #21
+  %call.i22.i.i = call i32 @address_space_write_cached_slow(ptr noundef nonnull %desc44, i64 noundef %add3.i.i, ptr noundef nonnull %len, i64 noundef 4) #23
   br label %vring_packed_desc_write_data.exit.i
 
 vring_packed_desc_write_data.exit.i:              ; preds = %if.else8.i21.i.i, %if.then6.i18.i.i
-  call void @address_space_cache_invalidate(ptr noundef nonnull %desc44, i64 noundef %add3.i.i, i64 noundef 4) #21
+  call void @address_space_cache_invalidate(ptr noundef nonnull %desc44, i64 noundef %add3.i.i, i64 noundef 4) #23
   br i1 %strict_order, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %vring_packed_desc_write_data.exit.i
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !54
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !54
   fence release
   br label %if.end.i
 
@@ -9240,7 +9240,7 @@ if.end.i:                                         ; preds = %if.then.i, %vring_p
   br i1 %or.cond.i.i.i.i.i, label %if.end.i.i.i.i.i, label %if.else.i.i.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %if.end.i
-  call void @__assert_fail(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68, i32 noundef 77, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_stw_le_cached) #22
+  call void @__assert_fail(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68, i32 noundef 77, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_stw_le_cached) #24
   unreachable
 
 if.end.i.i.i.i.i:                                 ; preds = %if.end.i
@@ -9254,11 +9254,11 @@ if.then5.i.i.i.i.i:                               ; preds = %if.end.i.i.i.i.i
   br label %vring_packed_desc_write.exit
 
 if.else7.i.i.i.i.i:                               ; preds = %if.end.i.i.i.i.i
-  call void @address_space_stw_le_cached_slow(ptr noundef nonnull %desc44, i64 noundef %add.i7.i, i16 noundef zeroext %desc.val.i, i32 1, ptr noundef null) #21
+  call void @address_space_stw_le_cached_slow(ptr noundef nonnull %desc44, i64 noundef %add.i7.i, i16 noundef zeroext %desc.val.i, i32 1, ptr noundef null) #23
   br label %vring_packed_desc_write.exit
 
 vring_packed_desc_write.exit:                     ; preds = %if.then5.i.i.i.i.i, %if.else7.i.i.i.i.i
-  call void @address_space_cache_invalidate(ptr noundef nonnull %desc44, i64 noundef %add.i7.i, i64 noundef 2) #21
+  call void @address_space_cache_invalidate(ptr noundef nonnull %desc44, i64 noundef %add.i7.i, i64 noundef 2) #23
   br label %return
 
 return:                                           ; preds = %if.end, %entry, %vring_packed_desc_write.exit
@@ -9283,7 +9283,7 @@ entry:
   br i1 %or.cond.i.i.i.i, label %if.end.i.i.i.i, label %if.else.i.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68, i32 noundef 30, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_lduw_le_cached) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68, i32 noundef 30, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_lduw_le_cached) #24
   unreachable
 
 if.end.i.i.i.i:                                   ; preds = %entry
@@ -9297,7 +9297,7 @@ if.then5.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
   br label %vring_packed_desc_read_flags.exit
 
 if.else8.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
-  %call10.i.i.i.i = tail call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %cache, i64 noundef %add.i, i32 1, ptr noundef null) #21
+  %call10.i.i.i.i = tail call zeroext i16 @address_space_lduw_le_cached_slow(ptr noundef nonnull %cache, i64 noundef %add.i, i32 1, ptr noundef null) #23
   br label %vring_packed_desc_read_flags.exit
 
 vring_packed_desc_read_flags.exit:                ; preds = %if.then5.i.i.i.i, %if.else8.i.i.i.i
@@ -9306,7 +9306,7 @@ vring_packed_desc_read_flags.exit:                ; preds = %if.then5.i.i.i.i, %
   br i1 %strict_order, label %if.then, label %if.end
 
 if.then:                                          ; preds = %vring_packed_desc_read_flags.exit
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !55
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !55
   fence acquire
   br label %if.end
 
@@ -9319,7 +9319,7 @@ if.end:                                           ; preds = %if.then, %vring_pac
   br i1 %or.cond.i, label %if.else.i, label %if.end.i
 
 if.else.i:                                        ; preds = %if.end
-  tail call void @__assert_fail(ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.72, i32 noundef 3023, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_read_cached) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.72, i32 noundef 3023, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_read_cached) #24
   unreachable
 
 if.end.i:                                         ; preds = %if.end
@@ -9334,7 +9334,7 @@ if.then6.i:                                       ; preds = %if.end.i
   br label %address_space_read_cached.exit
 
 if.else8.i:                                       ; preds = %if.end.i
-  %call.i = tail call i32 @address_space_read_cached_slow(ptr noundef nonnull %cache, i64 noundef %mul.i, ptr noundef nonnull %desc, i64 noundef 8) #21
+  %call.i = tail call i32 @address_space_read_cached_slow(ptr noundef nonnull %cache, i64 noundef %mul.i, ptr noundef nonnull %desc, i64 noundef 8) #23
   br label %address_space_read_cached.exit
 
 address_space_read_cached.exit:                   ; preds = %if.then6.i, %if.else8.i
@@ -9348,7 +9348,7 @@ address_space_read_cached.exit:                   ; preds = %if.then6.i, %if.els
   br i1 %or.cond.i20, label %if.else.i28, label %if.end.i21
 
 if.else.i28:                                      ; preds = %address_space_read_cached.exit
-  tail call void @__assert_fail(ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.72, i32 noundef 3023, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_read_cached) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.72, i32 noundef 3023, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_read_cached) #24
   unreachable
 
 if.end.i21:                                       ; preds = %address_space_read_cached.exit
@@ -9363,7 +9363,7 @@ if.then6.i23:                                     ; preds = %if.end.i21
   br label %address_space_read_cached.exit29
 
 if.else8.i26:                                     ; preds = %if.end.i21
-  %call.i27 = tail call i32 @address_space_read_cached_slow(ptr noundef nonnull %cache, i64 noundef %add1, ptr noundef nonnull %id, i64 noundef 2) #21
+  %call.i27 = tail call i32 @address_space_read_cached_slow(ptr noundef nonnull %cache, i64 noundef %add1, ptr noundef nonnull %id, i64 noundef 2) #23
   br label %address_space_read_cached.exit29
 
 address_space_read_cached.exit29:                 ; preds = %if.then6.i23, %if.else8.i26
@@ -9377,7 +9377,7 @@ address_space_read_cached.exit29:                 ; preds = %if.then6.i23, %if.e
   br i1 %or.cond.i34, label %if.else.i42, label %if.end.i35
 
 if.else.i42:                                      ; preds = %address_space_read_cached.exit29
-  tail call void @__assert_fail(ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.72, i32 noundef 3023, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_read_cached) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.72, i32 noundef 3023, ptr noundef nonnull @__PRETTY_FUNCTION__.address_space_read_cached) #24
   unreachable
 
 if.end.i35:                                       ; preds = %address_space_read_cached.exit29
@@ -9392,7 +9392,7 @@ if.then6.i37:                                     ; preds = %if.end.i35
   br label %address_space_read_cached.exit43
 
 if.else8.i40:                                     ; preds = %if.end.i35
-  %call.i41 = tail call i32 @address_space_read_cached_slow(ptr noundef nonnull %cache, i64 noundef %add3, ptr noundef nonnull %len, i64 noundef 4) #21
+  %call.i41 = tail call i32 @address_space_read_cached_slow(ptr noundef nonnull %cache, i64 noundef %add3, ptr noundef nonnull %len, i64 noundef 4) #23
   br label %address_space_read_cached.exit43
 
 address_space_read_cached.exit43:                 ; preds = %if.then6.i37, %if.else8.i40
@@ -9401,8 +9401,8 @@ address_space_read_cached.exit43:                 ; preds = %if.then6.i37, %if.e
 
 declare i32 @address_space_read_cached_slow(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
-; Function Attrs: noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #6
+; Function Attrs: nofree noreturn nounwind
+declare void @exit(i32 noundef) local_unnamed_addr #18
 
 declare ptr @address_space_map(ptr noundef, i64 noundef, ptr noundef, i1 noundef zeroext, i32) local_unnamed_addr #3
 
@@ -9415,7 +9415,7 @@ entry:
   br i1 %cmp.not, label %if.else, label %if.end
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.84, ptr noundef nonnull @.str.42, i32 noundef 1387, ptr noundef nonnull @__PRETTY_FUNCTION__.virtqueue_map_desc) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.84, ptr noundef nonnull @.str.42, i32 noundef 1387, ptr noundef nonnull @__PRETTY_FUNCTION__.virtqueue_map_desc) #24
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -9445,7 +9445,7 @@ if.end6:                                          ; preds = %while.body
   %1 = load ptr, ptr %dma_as, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %xlen.i)
   store i64 %sz.addr.034, ptr %xlen.i, align 8
-  %call.i = call ptr @address_space_map(ptr noundef %1, i64 noundef %pa.addr.033, ptr noundef nonnull %xlen.i, i1 noundef zeroext %is_write, i32 1) #21
+  %call.i = call ptr @address_space_map(ptr noundef %1, i64 noundef %pa.addr.033, ptr noundef nonnull %xlen.i, i1 noundef zeroext %is_write, i32 1) #23
   %2 = load i64, ptr %xlen.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %xlen.i)
   %idxprom = zext i32 %num_sg.035 to i64
@@ -9500,16 +9500,16 @@ if.then.i:                                        ; preds = %land.lhs.true5.i
   br i1 %tobool7.i, label %if.then8.i, label %if.else.i
 
 if.then8.i:                                       ; preds = %if.then.i
-  %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #21
-  %call10.i = tail call i32 @qemu_get_thread_id() #21
+  %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #23
+  %call10.i = tail call i32 @qemu_get_thread_id() #23
   %4 = load i64, ptr %_now.i, align 8
   %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %5 = load i64, ptr %tv_usec.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.88, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, ptr noundef %vq, ptr noundef %elem, i32 noundef %in_num, i32 noundef %out_num) #21
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.88, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, ptr noundef %vq, ptr noundef %elem, i32 noundef %in_num, i32 noundef %out_num) #23
   br label %_nocheck__trace_virtqueue_pop.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.89, ptr noundef %vq, ptr noundef %elem, i32 noundef %in_num, i32 noundef %out_num) #21
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.89, ptr noundef %vq, ptr noundef %elem, i32 noundef %in_num, i32 noundef %out_num) #23
   br label %_nocheck__trace_virtqueue_pop.exit
 
 _nocheck__trace_virtqueue_pop.exit:               ; preds = %entry, %land.lhs.true5.i, %if.then8.i, %if.else.i
@@ -9531,7 +9531,7 @@ for.body:                                         ; preds = %entry, %for.body
   %0 = load ptr, ptr %iov.addr.08, align 8
   %iov_len = getelementptr inbounds i8, ptr %iov.addr.08, i64 8
   %1 = load i64, ptr %iov_len, align 8
-  tail call void @cpu_physical_memory_unmap(ptr noundef %0, i64 noundef %1, i1 noundef zeroext %cmp1, i64 noundef 0) #21
+  tail call void @cpu_physical_memory_unmap(ptr noundef %0, i64 noundef %1, i1 noundef zeroext %cmp1, i64 noundef 0) #23
   %incdec.ptr = getelementptr i8, ptr %iov.addr.08, i64 16
   %inc = add nuw i32 %i.07, 1
   %exitcond.not = icmp eq i32 %inc, %add
@@ -9544,7 +9544,7 @@ for.end:                                          ; preds = %for.body, %entry
 declare void @cpu_physical_memory_unmap(ptr noundef, i64 noundef, i1 noundef zeroext, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #11
+declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #12
 
 declare ptr @object_class_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
@@ -9571,7 +9571,7 @@ entry:
   br i1 %cmp.not, label %if.else, label %if.end
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.42, i32 noundef 2520, ptr noundef nonnull @__PRETTY_FUNCTION__.virtio_device_endian_needed) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.42, i32 noundef 2520, ptr noundef nonnull @__PRETTY_FUNCTION__.virtio_device_endian_needed) #24
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -9583,7 +9583,7 @@ if.end:                                           ; preds = %entry
 
 if.then2:                                         ; preds = %if.end
   %conv4 = zext i8 %0 to i32
-  %call.i = tail call zeroext i1 @target_words_bigendian() #21
+  %call.i = tail call zeroext i1 @target_words_bigendian() #23
   %..i = select i1 %call.i, i32 2, i32 1
   %cmp6 = icmp ne i32 %..i, %conv4
   br label %return
@@ -9653,10 +9653,10 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal zeroext i1 @virtio_extra_state_needed(ptr noundef %opaque) #0 {
 entry:
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.97, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #21
-  %call1 = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i) #21
-  %call.i3 = tail call ptr @object_get_class(ptr noundef %call1) #21
-  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i3, ptr noundef nonnull @.str.98, ptr noundef nonnull @.str.99, i32 noundef 36, ptr noundef nonnull @__func__.VIRTIO_BUS_GET_CLASS) #21
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.97, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #23
+  %call1 = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i) #23
+  %call.i3 = tail call ptr @object_get_class(ptr noundef %call1) #23
+  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i3, ptr noundef nonnull @.str.98, ptr noundef nonnull @.str.99, i32 noundef 36, ptr noundef nonnull @__func__.VIRTIO_BUS_GET_CLASS) #23
   %has_extra_state = getelementptr inbounds i8, ptr %call1.i, i64 224
   %0 = load ptr, ptr %has_extra_state, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -9665,7 +9665,7 @@ entry:
 land.rhs:                                         ; preds = %entry
   %parent = getelementptr inbounds i8, ptr %call1, i64 40
   %1 = load ptr, ptr %parent, align 8
-  %call4 = tail call zeroext i1 %0(ptr noundef %1) #21
+  %call4 = tail call zeroext i1 %0(ptr noundef %1) #23
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %entry
@@ -9676,10 +9676,10 @@ land.end:                                         ; preds = %land.rhs, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @get_extra_state(ptr noundef %f, ptr noundef %pv, i64 %size, ptr nocapture readnone %field) #0 {
 entry:
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %pv, ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.97, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #21
-  %call1 = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i) #21
-  %call.i3 = tail call ptr @object_get_class(ptr noundef %call1) #21
-  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i3, ptr noundef nonnull @.str.98, ptr noundef nonnull @.str.99, i32 noundef 36, ptr noundef nonnull @__func__.VIRTIO_BUS_GET_CLASS) #21
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %pv, ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.97, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #23
+  %call1 = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i) #23
+  %call.i3 = tail call ptr @object_get_class(ptr noundef %call1) #23
+  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i3, ptr noundef nonnull @.str.98, ptr noundef nonnull @.str.99, i32 noundef 36, ptr noundef nonnull @__func__.VIRTIO_BUS_GET_CLASS) #23
   %load_extra_state = getelementptr inbounds i8, ptr %call1.i, i64 216
   %0 = load ptr, ptr %load_extra_state, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -9688,7 +9688,7 @@ entry:
 if.else:                                          ; preds = %entry
   %parent = getelementptr inbounds i8, ptr %call1, i64 40
   %1 = load ptr, ptr %parent, align 8
-  %call4 = tail call i32 %0(ptr noundef %1, ptr noundef %f) #21
+  %call4 = tail call i32 %0(ptr noundef %1, ptr noundef %f) #23
   br label %return
 
 return:                                           ; preds = %entry, %if.else
@@ -9699,15 +9699,15 @@ return:                                           ; preds = %entry, %if.else
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i32 @put_extra_state(ptr noundef %f, ptr noundef %pv, i64 %size, ptr nocapture readnone %field, ptr nocapture readnone %vmdesc) #0 {
 entry:
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %pv, ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.97, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #21
-  %call1 = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i) #21
-  %call.i2 = tail call ptr @object_get_class(ptr noundef %call1) #21
-  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i2, ptr noundef nonnull @.str.98, ptr noundef nonnull @.str.99, i32 noundef 36, ptr noundef nonnull @__func__.VIRTIO_BUS_GET_CLASS) #21
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %pv, ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.97, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #23
+  %call1 = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i) #23
+  %call.i2 = tail call ptr @object_get_class(ptr noundef %call1) #23
+  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i2, ptr noundef nonnull @.str.98, ptr noundef nonnull @.str.99, i32 noundef 36, ptr noundef nonnull @__func__.VIRTIO_BUS_GET_CLASS) #23
   %save_extra_state = getelementptr inbounds i8, ptr %call1.i, i64 184
   %0 = load ptr, ptr %save_extra_state, align 8
   %parent = getelementptr inbounds i8, ptr %call1, i64 40
   %1 = load ptr, ptr %parent, align 8
-  tail call void %0(ptr noundef %1, ptr noundef %f) #21
+  tail call void %0(ptr noundef %1, ptr noundef %f) #23
   ret i32 0
 }
 
@@ -9756,8 +9756,8 @@ entry:
   %0 = load ptr, ptr %vdev, align 8
   %val = getelementptr inbounds i8, ptr %opaque, i64 16
   %1 = load i64, ptr %val, align 8
-  %call.i.i = tail call ptr @object_get_class(ptr noundef %0) #21
-  %call1.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.93, ptr noundef nonnull @.str.65, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_GET_CLASS) #21
+  %call.i.i = tail call ptr @object_get_class(ptr noundef %0) #23
+  %call1.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.93, ptr noundef nonnull @.str.65, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_GET_CLASS) #23
   %host_features.i = getelementptr inbounds i8, ptr %0, i64 176
   %2 = load i64, ptr %host_features.i, align 8
   %and2.i = and i64 %2, %1
@@ -9767,7 +9767,7 @@ entry:
   br i1 %tobool.not.i, label %virtio_set_features_nocheck.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void %3(ptr noundef nonnull %0, i64 noundef %and2.i) #21
+  tail call void %3(ptr noundef nonnull %0, i64 noundef %and2.i) #23
   br label %virtio_set_features_nocheck.exit
 
 virtio_set_features_nocheck.exit:                 ; preds = %entry, %if.then.i
@@ -9780,7 +9780,7 @@ virtio_set_features_nocheck.exit:                 ; preds = %entry, %if.then.i
   %ret = getelementptr inbounds i8, ptr %opaque, i64 24
   store i32 %cond.i, ptr %ret, align 8
   %4 = load ptr, ptr %opaque, align 8
-  tail call void @aio_co_wake(ptr noundef %4) #21
+  tail call void @aio_co_wake(ptr noundef %4) #23
   ret void
 }
 
@@ -9793,7 +9793,7 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @virtio_device_instance_finalize(ptr noundef %obj) #0 {
 entry:
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.93, ptr noundef nonnull @.str.65, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #21
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.93, ptr noundef nonnull @.str.65, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #23
   %vq.i = getelementptr inbounds i8, ptr %call.i, i64 232
   %0 = load ptr, ptr %vq.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
@@ -9816,7 +9816,7 @@ if.end4.i:                                        ; preds = %for.body.i
 
 if.then.i.i:                                      ; preds = %if.end4.i
   %4 = inttoptr i64 %3 to ptr
-  tail call void @call_rcu1(ptr noundef nonnull %4, ptr noundef nonnull @virtio_free_region_cache) #21
+  tail call void @call_rcu1(ptr noundef nonnull %4, ptr noundef nonnull @virtio_free_region_cache) #23
   br label %virtio_virtqueue_reset_region_cache.exit.i
 
 virtio_virtqueue_reset_region_cache.exit.i:       ; preds = %if.then.i.i, %if.end4.i
@@ -9830,31 +9830,31 @@ virtio_virtqueue_reset_region_cache.exit.for.end_crit_edge.i: ; preds = %virtio_
 
 for.end.i:                                        ; preds = %for.body.i, %virtio_virtqueue_reset_region_cache.exit.for.end_crit_edge.i
   %5 = phi ptr [ %.pre.i, %virtio_virtqueue_reset_region_cache.exit.for.end_crit_edge.i ], [ %1, %for.body.i ]
-  tail call void @g_free(ptr noundef %5) #21
+  tail call void @g_free(ptr noundef %5) #23
   br label %virtio_device_free_virtqueues.exit
 
 virtio_device_free_virtqueues.exit:               ; preds = %entry, %for.end.i
   %config = getelementptr inbounds i8, ptr %call.i, i64 208
   %6 = load ptr, ptr %config, align 8
-  tail call void @g_free(ptr noundef %6) #21
+  tail call void @g_free(ptr noundef %6) #23
   %vector_queues = getelementptr inbounds i8, ptr %call.i, i64 480
   %7 = load ptr, ptr %vector_queues, align 8
-  tail call void @g_free(ptr noundef %7) #21
+  tail call void @g_free(ptr noundef %7) #23
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @virtio_device_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
 entry:
-  %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.93, ptr noundef nonnull @.str.65, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_CLASS) #21
-  %call.i7 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.97, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #21
+  %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.93, ptr noundef nonnull @.str.65, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_CLASS) #23
+  %call.i7 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.97, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #23
   %realize = getelementptr inbounds i8, ptr %call.i7, i64 144
   store ptr @virtio_device_realize, ptr %realize, align 8
   %unrealize = getelementptr inbounds i8, ptr %call.i7, i64 152
   store ptr @virtio_device_unrealize, ptr %unrealize, align 8
   %bus_type = getelementptr inbounds i8, ptr %call.i7, i64 168
   store ptr @.str.98, ptr %bus_type, align 8
-  tail call void @device_class_set_props(ptr noundef %call.i7, ptr noundef nonnull @virtio_properties) #21
+  tail call void @device_class_set_props(ptr noundef %call.i7, ptr noundef nonnull @virtio_properties) #23
   %start_ioeventfd = getelementptr inbounds i8, ptr %call.i, i64 296
   store ptr @virtio_device_start_ioeventfd_impl, ptr %start_ioeventfd, align 8
   %stop_ioeventfd = getelementptr inbounds i8, ptr %call.i, i64 304
@@ -9870,9 +9870,9 @@ entry:
 define internal void @virtio_device_realize(ptr noundef %dev, ptr noundef %errp) #0 {
 entry:
   %err = alloca ptr, align 8
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.93, ptr noundef nonnull @.str.65, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #21
-  %call.i15 = tail call ptr @object_get_class(ptr noundef %dev) #21
-  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i15, ptr noundef nonnull @.str.93, ptr noundef nonnull @.str.65, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_GET_CLASS) #21
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.93, ptr noundef nonnull @.str.65, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #23
+  %call.i15 = tail call ptr @object_get_class(ptr noundef %dev) #23
+  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i15, ptr noundef nonnull @.str.93, ptr noundef nonnull @.str.65, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_GET_CLASS) #23
   store ptr null, ptr %err, align 8
   %vmsd = getelementptr inbounds i8, ptr %call1.i, i64 336
   %0 = load ptr, ptr %vmsd, align 8
@@ -9886,7 +9886,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %tobool2.not, label %if.end, label %if.else
 
 if.else:                                          ; preds = %lor.lhs.false
-  tail call void @__assert_fail(ptr noundef nonnull @.str.161, ptr noundef nonnull @.str.42, i32 noundef 3664, ptr noundef nonnull @__PRETTY_FUNCTION__.virtio_device_realize) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.161, ptr noundef nonnull @.str.42, i32 noundef 3664, ptr noundef nonnull @__PRETTY_FUNCTION__.virtio_device_realize) #24
   unreachable
 
 if.end:                                           ; preds = %entry, %lor.lhs.false
@@ -9896,26 +9896,26 @@ if.end:                                           ; preds = %entry, %lor.lhs.fal
   br i1 %cmp.not, label %if.end8, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  call void %2(ptr noundef %dev, ptr noundef nonnull %err) #21
+  call void %2(ptr noundef %dev, ptr noundef nonnull %err) #23
   %3 = load ptr, ptr %err, align 8
   %cmp5.not = icmp eq ptr %3, null
   br i1 %cmp5.not, label %if.end8, label %if.then6
 
 if.then6:                                         ; preds = %if.then3
-  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %3) #21
+  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %3) #23
   br label %return
 
 if.end8:                                          ; preds = %if.then3, %if.end
-  call void @virtio_bus_device_plugged(ptr noundef %call.i, ptr noundef nonnull %err) #21
+  call void @virtio_bus_device_plugged(ptr noundef %call.i, ptr noundef nonnull %err) #23
   %4 = load ptr, ptr %err, align 8
   %cmp9.not = icmp eq ptr %4, null
   br i1 %cmp9.not, label %if.end11, label %if.then10
 
 if.then10:                                        ; preds = %if.end8
-  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %4) #21
+  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %4) #23
   %unrealize = getelementptr inbounds i8, ptr %call1.i, i64 184
   %5 = load ptr, ptr %unrealize, align 8
-  call void %5(ptr noundef %dev) #21
+  call void %5(ptr noundef %dev) #23
   br label %return
 
 if.end11:                                         ; preds = %if.end8
@@ -9926,7 +9926,7 @@ if.end11:                                         ; preds = %if.end8
   store ptr @.str.48, ptr %name, align 8
   %dma_as = getelementptr inbounds i8, ptr %call.i, i64 472
   %6 = load ptr, ptr %dma_as, align 8
-  call void @memory_listener_register(ptr noundef nonnull %listener, ptr noundef %6) #21
+  call void @memory_listener_register(ptr noundef nonnull %listener, ptr noundef %6) #23
   br label %return
 
 return:                                           ; preds = %if.end11, %if.then10, %if.then6
@@ -9936,25 +9936,25 @@ return:                                           ; preds = %if.end11, %if.then1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @virtio_device_unrealize(ptr noundef %dev) #0 {
 entry:
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.93, ptr noundef nonnull @.str.65, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #21
-  %call.i7 = tail call ptr @object_get_class(ptr noundef %dev) #21
-  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i7, ptr noundef nonnull @.str.93, ptr noundef nonnull @.str.65, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_GET_CLASS) #21
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.93, ptr noundef nonnull @.str.65, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #23
+  %call.i7 = tail call ptr @object_get_class(ptr noundef %dev) #23
+  %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i7, ptr noundef nonnull @.str.93, ptr noundef nonnull @.str.65, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_GET_CLASS) #23
   %listener = getelementptr inbounds i8, ptr %call.i, i64 240
-  tail call void @memory_listener_unregister(ptr noundef nonnull %listener) #21
-  tail call void @virtio_bus_device_unplugged(ptr noundef %call.i) #21
+  tail call void @memory_listener_unregister(ptr noundef nonnull %listener) #23
+  tail call void @virtio_bus_device_unplugged(ptr noundef %call.i) #23
   %unrealize = getelementptr inbounds i8, ptr %call1.i, i64 184
   %0 = load ptr, ptr %unrealize, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call void %0(ptr noundef %dev) #21
+  tail call void %0(ptr noundef %dev) #23
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
   %bus_name = getelementptr inbounds i8, ptr %call.i, i64 456
   %1 = load ptr, ptr %bus_name, align 8
-  tail call void @g_free(ptr noundef %1) #21
+  tail call void @g_free(ptr noundef %1) #23
   store ptr null, ptr %bus_name, align 8
   ret void
 }
@@ -9964,10 +9964,10 @@ declare void @device_class_set_props(ptr noundef, ptr noundef) local_unnamed_add
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i32 -2147483648, 1) i32 @virtio_device_start_ioeventfd_impl(ptr noundef %vdev) #0 {
 entry:
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.97, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #21
-  %call1 = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i) #21
-  %call.i26 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1, ptr noundef nonnull @.str.98, ptr noundef nonnull @.str.99, i32 noundef 36, ptr noundef nonnull @__func__.VIRTIO_BUS) #21
-  tail call void @memory_region_transaction_begin() #21
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.97, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #23
+  %call1 = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i) #23
+  %call.i26 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1, ptr noundef nonnull @.str.98, ptr noundef nonnull @.str.99, i32 noundef 36, ptr noundef nonnull @__func__.VIRTIO_BUS) #23
+  tail call void @memory_region_transaction_begin() #23
   %vq3 = getelementptr inbounds i8, ptr %vdev, i64 232
   br label %for.body
 
@@ -9981,7 +9981,7 @@ for.body:                                         ; preds = %entry, %for.inc
 
 if.end:                                           ; preds = %for.body
   %2 = trunc nuw nsw i64 %indvars.iv to i32
-  %call5 = tail call i32 @virtio_bus_set_host_notifier(ptr noundef %call.i26, i32 noundef %2, i1 noundef zeroext true) #21
+  %call5 = tail call i32 @virtio_bus_set_host_notifier(ptr noundef %call.i26, i32 noundef %2, i1 noundef zeroext true) #23
   %cmp6 = icmp slt i32 %call5, 0
   br i1 %cmp6, label %while.cond.preheader, label %if.end8
 
@@ -9991,7 +9991,7 @@ while.cond.preheader:                             ; preds = %if.end
 
 if.end8:                                          ; preds = %if.end
   %host_notifier = getelementptr %struct.VirtQueue, ptr %0, i64 %indvars.iv, i32 17
-  tail call void @event_notifier_set_handler(ptr noundef %host_notifier, ptr noundef nonnull @virtio_queue_host_notifier_read) #21
+  tail call void @event_notifier_set_handler(ptr noundef %host_notifier, ptr noundef nonnull @virtio_queue_host_notifier_read) #23
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.end8
@@ -10009,7 +10009,7 @@ for.body11:                                       ; preds = %for.inc, %for.inc21
 
 if.end18:                                         ; preds = %for.body11
   %host_notifier19 = getelementptr inbounds i8, ptr %arrayidx15, i64 116
-  %call20 = tail call i32 @event_notifier_set(ptr noundef nonnull %host_notifier19) #21
+  %call20 = tail call i32 @event_notifier_set(ptr noundef nonnull %host_notifier19) #23
   br label %for.inc21
 
 for.inc21:                                        ; preds = %for.body11, %if.end18
@@ -10034,17 +10034,17 @@ while.cond.backedge:                              ; preds = %while.body, %if.end
 if.end32:                                         ; preds = %while.body
   %indvars = trunc i64 %indvars.iv.next46 to i32
   %host_notifier33 = getelementptr %struct.VirtQueue, ptr %5, i64 %idxprom.i28, i32 17
-  tail call void @event_notifier_set_handler(ptr noundef %host_notifier33, ptr noundef null) #21
-  %call34 = tail call i32 @virtio_bus_set_host_notifier(ptr noundef %call.i26, i32 noundef %indvars, i1 noundef zeroext false) #21
+  tail call void @event_notifier_set_handler(ptr noundef %host_notifier33, ptr noundef null) #23
+  %call34 = tail call i32 @virtio_bus_set_host_notifier(ptr noundef %call.i26, i32 noundef %indvars, i1 noundef zeroext false) #23
   %cmp35 = icmp sgt i32 %call34, -1
   br i1 %cmp35, label %while.cond.backedge, label %if.else
 
 if.else:                                          ; preds = %if.end32
-  tail call void @__assert_fail(ptr noundef nonnull @.str.172, ptr noundef nonnull @.str.42, i32 noundef 3782, ptr noundef nonnull @__PRETTY_FUNCTION__.virtio_device_start_ioeventfd_impl) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.172, ptr noundef nonnull @.str.42, i32 noundef 3782, ptr noundef nonnull @__PRETTY_FUNCTION__.virtio_device_start_ioeventfd_impl) #24
   unreachable
 
 while.end:                                        ; preds = %while.cond.backedge
-  tail call void @memory_region_transaction_commit() #21
+  tail call void @memory_region_transaction_commit() #23
   br i1 %cmp2437.not, label %return, label %while.body41
 
 while.body41:                                     ; preds = %while.end, %while.cond38.backedge
@@ -10058,7 +10058,7 @@ while.body41:                                     ; preds = %while.end, %while.c
   br i1 %tobool43.not, label %while.cond38.backedge, label %if.end45
 
 if.end45:                                         ; preds = %while.body41
-  tail call void @virtio_bus_cleanup_host_notifier(ptr noundef %call.i26, i32 noundef %dec3941) #21
+  tail call void @virtio_bus_cleanup_host_notifier(ptr noundef %call.i26, i32 noundef %dec3941) #23
   br label %while.cond38.backedge
 
 while.cond38.backedge:                            ; preds = %if.end45, %while.body41
@@ -10067,7 +10067,7 @@ while.cond38.backedge:                            ; preds = %if.end45, %while.bo
 
 return.sink.split:                                ; preds = %for.inc21, %while.cond.preheader
   %retval.0.ph = phi i32 [ %call5, %while.cond.preheader ], [ 0, %for.inc21 ]
-  tail call void @memory_region_transaction_commit() #21
+  tail call void @memory_region_transaction_commit() #23
   br label %return
 
 return:                                           ; preds = %while.cond38.backedge, %return.sink.split, %while.end
@@ -10078,10 +10078,10 @@ return:                                           ; preds = %while.cond38.backed
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @virtio_device_stop_ioeventfd_impl(ptr noundef %vdev) #0 {
 entry:
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.97, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #21
-  %call1 = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i) #21
-  %call.i13 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1, ptr noundef nonnull @.str.98, ptr noundef nonnull @.str.99, i32 noundef 36, ptr noundef nonnull @__func__.VIRTIO_BUS) #21
-  tail call void @memory_region_transaction_begin() #21
+  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.97, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #23
+  %call1 = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i) #23
+  %call.i13 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1, ptr noundef nonnull @.str.98, ptr noundef nonnull @.str.99, i32 noundef 36, ptr noundef nonnull @__func__.VIRTIO_BUS) #23
+  tail call void @memory_region_transaction_begin() #23
   %vq3 = getelementptr inbounds i8, ptr %vdev, i64 232
   br label %for.body
 
@@ -10095,14 +10095,14 @@ for.body:                                         ; preds = %entry, %for.inc
 
 if.end:                                           ; preds = %for.body
   %host_notifier = getelementptr %struct.VirtQueue, ptr %0, i64 %indvars.iv, i32 17
-  tail call void @event_notifier_set_handler(ptr noundef %host_notifier, ptr noundef null) #21
+  tail call void @event_notifier_set_handler(ptr noundef %host_notifier, ptr noundef null) #23
   %2 = trunc nuw nsw i64 %indvars.iv to i32
-  %call5 = tail call i32 @virtio_bus_set_host_notifier(ptr noundef %call.i13, i32 noundef %2, i1 noundef zeroext false) #21
+  %call5 = tail call i32 @virtio_bus_set_host_notifier(ptr noundef %call.i13, i32 noundef %2, i1 noundef zeroext false) #23
   %cmp6 = icmp sgt i32 %call5, -1
   br i1 %cmp6, label %for.inc, label %if.else
 
 if.else:                                          ; preds = %if.end
-  tail call void @__assert_fail(ptr noundef nonnull @.str.172, ptr noundef nonnull @.str.42, i32 noundef 3825, ptr noundef nonnull @__PRETTY_FUNCTION__.virtio_device_stop_ioeventfd_impl) #22
+  tail call void @__assert_fail(ptr noundef nonnull @.str.172, ptr noundef nonnull @.str.42, i32 noundef 3825, ptr noundef nonnull @__PRETTY_FUNCTION__.virtio_device_stop_ioeventfd_impl) #24
   unreachable
 
 for.inc:                                          ; preds = %if.end, %for.body
@@ -10111,7 +10111,7 @@ for.inc:                                          ; preds = %if.end, %for.body
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !63
 
 for.end:                                          ; preds = %for.inc
-  tail call void @memory_region_transaction_commit() #21
+  tail call void @memory_region_transaction_commit() #23
   br label %for.body11
 
 for.body11:                                       ; preds = %for.end, %for.inc16
@@ -10124,7 +10124,7 @@ for.body11:                                       ; preds = %for.end, %for.inc16
 
 if.end15:                                         ; preds = %for.body11
   %5 = trunc nuw nsw i64 %indvars.iv20 to i32
-  tail call void @virtio_bus_cleanup_host_notifier(ptr noundef %call.i13, i32 noundef %5) #21
+  tail call void @virtio_bus_cleanup_host_notifier(ptr noundef %call.i13, i32 noundef %5) #23
   br label %for.inc16
 
 for.inc16:                                        ; preds = %for.body11, %if.end15
@@ -10181,22 +10181,22 @@ declare void @memory_region_transaction_commit() local_unnamed_addr #3
 declare void @virtio_bus_cleanup_host_notifier(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start.p0(ptr) #17
+declare void @llvm.va_start.p0(ptr) #19
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end.p0(ptr) #17
+declare void @llvm.va_end.p0(ptr) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #18
+declare i64 @llvm.umin.i64(i64, i64) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #18
+declare i64 @llvm.umax.i64(i64, i64) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #21
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -10209,19 +10209,22 @@ attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #9 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #16 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #18 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #19 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #20 = { nounwind allocsize(0,1) }
-attributes #21 = { nounwind }
-attributes #22 = { noreturn nounwind }
-attributes #23 = { nounwind allocsize(0) }
+attributes #11 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #17 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #20 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #21 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #22 = { nounwind allocsize(0,1) }
+attributes #23 = { nounwind }
+attributes #24 = { noreturn nounwind }
+attributes #25 = { cold noreturn nounwind }
+attributes #26 = { nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

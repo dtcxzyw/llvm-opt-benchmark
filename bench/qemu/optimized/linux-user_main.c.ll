@@ -189,10 +189,10 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @fork_start() local_unnamed_addr #0 {
 entry:
-  tail call void @start_exclusive() #27
-  tail call void @mmap_fork_start() #27
-  tail call void @cpu_list_lock() #27
-  tail call void @qemu_plugin_user_prefork_lock() #27
+  tail call void @start_exclusive() #29
+  tail call void @mmap_fork_start() #29
+  tail call void @cpu_list_lock() #29
+  tail call void @qemu_plugin_user_prefork_lock() #29
   ret void
 }
 
@@ -208,13 +208,13 @@ declare void @qemu_plugin_user_prefork_lock() local_unnamed_addr #1
 define dso_local void @fork_end(i32 noundef %child) local_unnamed_addr #0 {
 entry:
   %tobool = icmp ne i32 %child, 0
-  tail call void @qemu_plugin_user_postfork(i1 noundef zeroext %tobool) #27
-  tail call void @mmap_fork_end(i32 noundef %child) #27
+  tail call void @qemu_plugin_user_postfork(i1 noundef zeroext %tobool) #29
+  tail call void @mmap_fork_end(i32 noundef %child) #29
   br i1 %tobool, label %while.end, label %if.else34
 
 while.end:                                        ; preds = %entry
   %0 = load atomic i64, ptr @cpus_queue monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !5
   %tobool2.not12 = icmp eq i64 %0, 0
   %.pre14 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_cpu)
   br i1 %tobool2.not12, label %for.end, label %while.end7
@@ -224,7 +224,7 @@ while.end7:                                       ; preds = %while.end, %for.inc
   %cpu.0 = inttoptr i64 %cpu.0.in13 to ptr
   %node = getelementptr inbounds i8, ptr %cpu.0, i64 568
   %1 = load atomic i64, ptr %node monotonic, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !6
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !6
   %2 = load ptr, ptr %.pre14, align 8
   %cmp.not = icmp eq ptr %2, %cpu.0
   br i1 %cmp.not, label %for.inc, label %do.body10
@@ -259,17 +259,17 @@ for.inc:                                          ; preds = %while.end7, %while.
   br i1 %tobool2.not, label %for.end, label %while.end7, !llvm.loop !7
 
 for.end:                                          ; preds = %for.inc, %while.end
-  tail call void @qemu_init_cpu_list() #27
+  tail call void @qemu_init_cpu_list() #29
   %7 = load ptr, ptr %.pre14, align 8
-  tail call void @gdbserver_fork(ptr noundef %7) #27
+  tail call void @gdbserver_fork(ptr noundef %7) #29
   br label %if.end35
 
 if.else34:                                        ; preds = %entry
-  tail call void @cpu_list_unlock() #27
+  tail call void @cpu_list_unlock() #29
   br label %if.end35
 
 if.end35:                                         ; preds = %if.else34, %for.end
-  tail call void @end_exclusive() #27
+  tail call void @end_exclusive() #29
   ret void
 }
 
@@ -300,7 +300,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qemu_cpu_kick(ptr noundef %cpu) local_unnamed_addr #0 {
 entry:
-  tail call void @cpu_exit(ptr noundef %cpu) #27
+  tail call void @cpu_exit(ptr noundef %cpu) #29
   ret void
 }
 
@@ -314,7 +314,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %call = tail call i64 (i64, ...) @syscall(i64 noundef 186) #27
+  %call = tail call i64 (i64, ...) @syscall(i64 noundef 186) #29
   %conv = trunc i64 %call to i32
   store i32 %conv, ptr %ts, align 8
   br label %if.end
@@ -329,7 +329,7 @@ declare i64 @syscall(i64 noundef, ...) local_unnamed_addr #4
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @stop_all_tasks() local_unnamed_addr #0 {
 entry:
-  tail call void @start_exclusive() #27
+  tail call void @start_exclusive() #29
   ret void
 }
 
@@ -345,12 +345,12 @@ entry:
   store i32 2, ptr %.compoundliteral.sroa.2.0.sigaltstack_used.sroa_idx, align 8
   %.compoundliteral.sroa.3.0.sigaltstack_used.sroa_idx = getelementptr inbounds i8, ptr %ts, i64 9180
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.compoundliteral.sroa.3.0.sigaltstack_used.sroa_idx, i8 0, i64 12, i1 false)
-  %call = tail call i64 @sysconf(i32 noundef 2) #27
+  %call = tail call i64 @sysconf(i32 noundef 2) #29
   %cmp = icmp sgt i64 %call, 0
   br i1 %cmp, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
-  %call1 = call i32 @clock_gettime(i32 noundef 7, ptr noundef nonnull %bt) #27
+  %call1 = call i32 @clock_gettime(i32 noundef 7, ptr noundef nonnull %bt) #29
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %if.then, label %if.end
 
@@ -386,9 +386,9 @@ declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #4
 define dso_local noundef ptr @cpu_copy(ptr nocapture noundef readonly %env) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @cpu_type, align 8
-  %call1 = tail call ptr @cpu_create(ptr noundef %0) #27
+  %call1 = tail call ptr @cpu_create(ptr noundef %0) #29
   %add.ptr.i13 = getelementptr i8, ptr %call1, i64 10176
-  tail call void @cpu_reset(ptr noundef %call1) #27
+  tail call void @cpu_reset(ptr noundef %call1) #29
   %tcg_cflags = getelementptr i8, ptr %env, i64 -9456
   %1 = load i32, ptr %tcg_cflags, align 16
   %tcg_cflags3 = getelementptr inbounds i8, ptr %call1, i64 720
@@ -408,7 +408,7 @@ for.body:                                         ; preds = %entry, %for.body
   %2 = load i64, ptr %bp.016, align 8
   %flags = getelementptr inbounds i8, ptr %bp.016, i64 8
   %3 = load i32, ptr %flags, align 8
-  %call7 = tail call i32 @cpu_breakpoint_insert(ptr noundef %call1, i64 noundef %2, i32 noundef %3, ptr noundef null) #27
+  %call7 = tail call i32 @cpu_breakpoint_insert(ptr noundef %call1, i64 noundef %2, i32 noundef %3, ptr noundef null) #29
   %entry8 = getelementptr inbounds i8, ptr %bp.016, i64 16
   %bp.0 = load ptr, ptr %entry8, align 8
   %tobool.not = icmp eq ptr %bp.0, null
@@ -435,11 +435,11 @@ entry:
   %err = alloca ptr, align 8
   %tmp = alloca i64, align 8
   %0 = load ptr, ptr %argv, align 8
-  tail call void @error_init(ptr noundef %0) #27
-  tail call void @module_call_init(i32 noundef 4) #27
-  tail call void @qemu_init_cpu_list() #27
-  tail call void @module_call_init(i32 noundef 3) #27
-  %call = tail call ptr @envlist_create() #27
+  tail call void @error_init(ptr noundef %0) #29
+  tail call void @module_call_init(i32 noundef 4) #29
+  tail call void @qemu_init_cpu_list() #29
+  tail call void @module_call_init(i32 noundef 3) #29
+  %call = tail call ptr @envlist_create() #29
   store ptr %call, ptr @envlist, align 8
   %1 = load ptr, ptr @environ, align 8
   br label %for.cond
@@ -460,13 +460,13 @@ while.body:                                       ; preds = %while.cond.preheade
   %incdec.ptr2 = getelementptr i8, ptr %wrk.1106, i64 -8
   %3 = load ptr, ptr @envlist, align 8
   %4 = load ptr, ptr %incdec.ptr2, align 8
-  %call3 = tail call i32 @envlist_setenv(ptr noundef %3, ptr noundef %4) #27
+  %call3 = tail call i32 @envlist_setenv(ptr noundef %3, ptr noundef %4) #29
   %5 = load ptr, ptr @environ, align 8
   %cmp1.not = icmp eq ptr %incdec.ptr2, %5
   br i1 %cmp1.not, label %while.end, label %while.body, !llvm.loop !11
 
 while.end:                                        ; preds = %while.body, %while.cond.preheader
-  %call4 = call i32 @getrlimit64(i32 noundef 3, ptr noundef nonnull %lim) #27
+  %call4 = call i32 @getrlimit64(i32 noundef 3, ptr noundef nonnull %lim) #29
   %cmp5 = icmp eq i32 %call4, 0
   %6 = load i64, ptr %lim, align 8
   %cmp6 = icmp ne i64 %6, -1
@@ -482,8 +482,8 @@ if.then:                                          ; preds = %while.end
 
 if.end:                                           ; preds = %if.then, %while.end
   store ptr null, ptr @cpu_model, align 8
-  call void @qemu_add_opts(ptr noundef nonnull @qemu_trace_opts) #27
-  call void @qemu_add_opts(ptr noundef nonnull @qemu_plugin_opts) #27
+  call void @qemu_add_opts(ptr noundef nonnull @qemu_trace_opts) #29
+  call void @qemu_add_opts(ptr noundef nonnull @qemu_plugin_opts) #29
   br label %for.body.i
 
 for.cond7.preheader.i:                            ; preds = %for.inc.i
@@ -499,12 +499,12 @@ for.body.i:                                       ; preds = %for.inc.i, %if.end
   br i1 %cmp1.i, label %for.inc.i, label %if.end.i
 
 if.end.i:                                         ; preds = %for.body.i
-  %call.i = call ptr @getenv(ptr noundef nonnull %9) #27
+  %call.i = call ptr @getenv(ptr noundef nonnull %9) #29
   %cmp3.not.i = icmp eq ptr %call.i, null
   br i1 %cmp3.not.i, label %for.inc.i, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.end.i
-  call void %8(ptr noundef nonnull %call.i) #27
+  call void %8(ptr noundef nonnull %call.i) #29
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then4.i, %if.end.i, %for.body.i
@@ -547,14 +547,14 @@ if.end19.i:                                       ; preds = %if.end15.tail.i
   %cmp22.i = icmp eq i8 %13, 45
   %incdec.ptr25.i = getelementptr i8, ptr %11, i64 2
   %spec.select.i = select i1 %cmp22.i, ptr %incdec.ptr25.i, ptr %incdec.ptr16.i
-  %call33.i107 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select.i, ptr noundef nonnull dereferenceable(2) @.str.30) #28
+  %call33.i107 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select.i, ptr noundef nonnull dereferenceable(2) @.str.30) #30
   %tobool34.not.i108 = icmp eq i32 %call33.i107, 0
   br i1 %tobool34.not.i108, label %if.then35.i, label %for.inc50.i
 
 for.body31.i:                                     ; preds = %for.inc50.i
   %incdec.ptr51.i = getelementptr i8, ptr %arginfo.140.i109, i64 48
   %20 = load ptr, ptr %incdec.ptr51.i, align 8
-  %call33.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select.i, ptr noundef nonnull dereferenceable(1) %20) #28
+  %call33.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select.i, ptr noundef nonnull dereferenceable(1) %20) #30
   %tobool34.not.i = icmp eq i32 %call33.i, 0
   br i1 %tobool34.not.i, label %if.then35.i, label %for.inc50.i, !llvm.loop !13
 
@@ -572,20 +572,20 @@ if.then37.i:                                      ; preds = %if.then35.i
 
 if.then40.i:                                      ; preds = %if.then37.i
   %22 = load ptr, ptr @stderr, align 8
-  %call41.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef nonnull @.str.27, ptr noundef %spec.select.i) #29
-  call void @exit(i32 noundef 1) #30
+  %call41.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef nonnull @.str.27, ptr noundef %spec.select.i) #31
+  call void @exit(i32 noundef 1) #32
   unreachable
 
 if.end42.i:                                       ; preds = %if.then37.i
   %idxprom44.i = sext i32 %inc.i to i64
   %arrayidx45.i = getelementptr ptr, ptr %argv, i64 %idxprom44.i
   %23 = load ptr, ptr %arrayidx45.i, align 8
-  call void %.lcssa(ptr noundef %23) #27
+  call void %.lcssa(ptr noundef %23) #29
   %inc46.i = add i32 %optind.042.i, 2
   br label %for.end52.i
 
 if.else.i:                                        ; preds = %if.then35.i
-  call void %.lcssa(ptr noundef null) #27
+  call void %.lcssa(ptr noundef null) #29
   br label %for.end52.i
 
 for.inc50.i:                                      ; preds = %if.end19.i, %for.body31.i
@@ -602,8 +602,8 @@ for.end52.i:                                      ; preds = %if.else.i, %if.end4
 
 if.then56.i:                                      ; preds = %for.inc50.i
   %25 = load ptr, ptr @stderr, align 8
-  %call57.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef nonnull @.str.28, ptr noundef %spec.select.i) #29
-  call void @exit(i32 noundef 1) #30
+  %call57.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef nonnull @.str.28, ptr noundef %spec.select.i) #31
+  call void @exit(i32 noundef 1) #32
   unreachable
 
 for.end59.i:                                      ; preds = %for.end52.i, %if.end15.tail.i, %if.end10.i, %for.cond7.preheader.i
@@ -613,8 +613,8 @@ for.end59.i:                                      ; preds = %for.end52.i, %if.en
 
 if.then62.i:                                      ; preds = %for.end59.i
   %26 = load ptr, ptr @stderr, align 8
-  %27 = call i64 @fwrite(ptr nonnull @.str.29, i64 32, i64 1, ptr %26) #29
-  call void @exit(i32 noundef 1) #30
+  %27 = call i64 @fwrite(ptr nonnull @.str.29, i64 32, i64 1, ptr %26) #31
+  call void @exit(i32 noundef 1) #32
   unreachable
 
 parse_args.exit:                                  ; preds = %for.end59.i
@@ -627,47 +627,47 @@ parse_args.exit:                                  ; preds = %for.end59.i
   %.b85 = load i1, ptr @enable_strace, align 1
   %mul = select i1 %.b85, i32 524288, i32 0
   %or = or i32 %mul, %30
-  %call16 = call zeroext i1 @qemu_set_log_filename_flags(ptr noundef %29, i32 noundef %or, ptr noundef nonnull @error_fatal) #27
-  %call17 = call zeroext i1 @trace_init_backends() #27
+  %call16 = call zeroext i1 @qemu_set_log_filename_flags(ptr noundef %29, i32 noundef %or, ptr noundef nonnull @error_fatal) #29
+  %call17 = call zeroext i1 @trace_init_backends() #29
   br i1 %call17, label %if.end19, label %if.then18
 
 if.then18:                                        ; preds = %parse_args.exit
-  call void @exit(i32 noundef 1) #30
+  call void @exit(i32 noundef 1) #32
   unreachable
 
 if.end19:                                         ; preds = %parse_args.exit
-  call void @trace_init_file() #27
-  %call20 = call i32 @qemu_plugin_load_list(ptr noundef nonnull @plugins, ptr noundef nonnull @error_fatal) #27
+  call void @trace_init_file() #29
+  %call20 = call i32 @qemu_plugin_load_list(ptr noundef nonnull @plugins, ptr noundef nonnull @error_fatal) #29
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %regs1, i8 0, i64 256, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(264) %info1, i8 0, i64 264, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1104) %bprm, i8 0, i64 1104, i1 false)
   %31 = load ptr, ptr @interp_prefix, align 8
-  call void @init_paths(ptr noundef %31) #27
-  call void @init_qemu_uname_release() #27
-  %call21 = call i64 @qemu_getauxval(i64 noundef 2) #27
+  call void @init_paths(ptr noundef %31) #29
+  call void @init_qemu_uname_release() #29
+  %call21 = call i64 @qemu_getauxval(i64 noundef 2) #29
   %conv22 = trunc i64 %call21 to i32
   %cmp23 = icmp eq i32 %conv22, 0
   br i1 %cmp23, label %if.then25, label %if.end34
 
 if.then25:                                        ; preds = %if.end19
   %32 = load ptr, ptr @exec_path, align 8
-  %call26 = call i32 (ptr, i32, ...) @open64(ptr noundef %32, i32 noundef 0) #27
+  %call26 = call i32 (ptr, i32, ...) @open64(ptr noundef %32, i32 noundef 0) #29
   %cmp27 = icmp slt i32 %call26, 0
   br i1 %cmp27, label %if.then29, label %if.end34
 
 if.then29:                                        ; preds = %if.then25
   %33 = load ptr, ptr @exec_path, align 8
-  %call30 = tail call ptr @__errno_location() #31
+  %call30 = tail call ptr @__errno_location() #33
   %34 = load i32, ptr %call30, align 4
-  %call31 = call ptr @strerror(i32 noundef %34) #27
+  %call31 = call ptr @strerror(i32 noundef %34) #29
   %call32 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef %33, ptr noundef %call31)
-  call void @_exit(i32 noundef 1) #30
+  call void @_exit(i32 noundef 1) #34
   unreachable
 
 if.end34:                                         ; preds = %if.then25, %if.end19
   %execfd.0 = phi i32 [ %call26, %if.then25 ], [ %conv22, %if.end19 ]
   %35 = load ptr, ptr @exec_path, align 8
-  %call35 = call ptr @realpath(ptr noundef %35, ptr noundef nonnull @real_exec_path) #27
+  %call35 = call ptr @realpath(ptr noundef %35, ptr noundef nonnull @real_exec_path) #29
   %tobool36.not = icmp eq ptr %call35, null
   br i1 %tobool36.not, label %if.end38, label %if.then37
 
@@ -676,7 +676,7 @@ if.then37:                                        ; preds = %if.end34
   br label %if.end38
 
 if.end38:                                         ; preds = %if.then37, %if.end34
-  %call39 = call i64 @qemu_getauxval(i64 noundef 8) #27
+  %call39 = call i64 @qemu_getauxval(i64 noundef 8) #29
   %add = add nsw i32 %optind.2.i, 1
   %cmp42 = icmp sge i32 %add, %argc
   %and = and i64 %call39, 1
@@ -688,27 +688,27 @@ if.end38:                                         ; preds = %if.then37, %if.end3
   br i1 %cmp49, label %if.then51, label %if.end54
 
 if.then51:                                        ; preds = %if.end38
-  %call52 = call i32 @get_elf_eflags(i32 noundef %execfd.0) #27
+  %call52 = call i32 @get_elf_eflags(i32 noundef %execfd.0) #29
   store ptr @.str.128, ptr @cpu_model, align 8
   br label %if.end54
 
 if.end54:                                         ; preds = %if.then51, %if.end38
   %37 = phi ptr [ @.str.128, %if.then51 ], [ %36, %if.end38 ]
-  %call55 = call ptr @parse_cpu_option(ptr noundef nonnull %37) #27
+  %call55 = call ptr @parse_cpu_option(ptr noundef nonnull %37) #29
   store ptr %call55, ptr @cpu_type, align 8
-  %call56 = call ptr @current_accel() #27
-  %call57 = call ptr @object_get_class(ptr noundef %call56) #27
-  %call58 = call ptr @object_class_dynamic_cast_assert(ptr noundef %call57, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str, i32 noundef 789, ptr noundef nonnull @__func__.main) #27
-  call void @accel_init_interfaces(ptr noundef %call58) #27
+  %call56 = call ptr @current_accel() #29
+  %call57 = call ptr @object_get_class(ptr noundef %call56) #29
+  %call58 = call ptr @object_class_dynamic_cast_assert(ptr noundef %call57, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str, i32 noundef 789, ptr noundef nonnull @__func__.main) #29
+  call void @accel_init_interfaces(ptr noundef %call58) #29
   %.b8486 = load i1, ptr @opt_one_insn_per_tb, align 1
-  %call60 = call zeroext i1 @object_property_set_bool(ptr noundef %call56, ptr noundef nonnull @.str.3, i1 noundef zeroext %.b8486, ptr noundef nonnull @error_abort) #27
+  %call60 = call zeroext i1 @object_property_set_bool(ptr noundef %call56, ptr noundef nonnull @.str.3, i1 noundef zeroext %.b8486, ptr noundef nonnull @error_abort) #29
   %init_machine = getelementptr inbounds i8, ptr %call58, i64 104
   %38 = load ptr, ptr %init_machine, align 8
-  %call61 = call i32 %38(ptr noundef null) #27
+  %call61 = call i32 %38(ptr noundef null) #29
   %39 = load ptr, ptr @cpu_type, align 8
-  %call62 = call ptr @cpu_create(ptr noundef %39) #27
+  %call62 = call ptr @cpu_create(ptr noundef %39) #29
   %add.ptr.i = getelementptr i8, ptr %call62, i64 10176
-  call void @cpu_reset(ptr noundef %call62) #27
+  call void @cpu_reset(ptr noundef %call62) #29
   %40 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_cpu)
   store ptr %call62, ptr %40, align 8
   %41 = load i64, ptr @reserved_va, align 8
@@ -723,11 +723,11 @@ if.then66:                                        ; preds = %if.end54
   br i1 %tobool68.not, label %land.lhs.true74, label %if.then69
 
 if.then69:                                        ; preds = %if.then66
-  %call70 = call ptr @size_to_str(i64 noundef %42) #27
+  %call70 = call ptr @size_to_str(i64 noundef %42) #29
   %43 = load ptr, ptr @stderr, align 8
-  %call71 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %43, ptr noundef nonnull @.str.4, ptr noundef %call70) #29
-  call void @g_free(ptr noundef %call70) #27
-  call void @exit(i32 noundef 1) #30
+  %call71 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %43, ptr noundef nonnull @.str.4, ptr noundef %call70) #31
+  call void @g_free(ptr noundef %call70) #29
+  call void @exit(i32 noundef 1) #32
   unreachable
 
 land.lhs.true74:                                  ; preds = %if.then66
@@ -736,8 +736,8 @@ land.lhs.true74:                                  ; preds = %if.then66
 
 if.then77:                                        ; preds = %land.lhs.true74
   %44 = load ptr, ptr @stderr, align 8
-  %45 = call i64 @fwrite(ptr nonnull @.str.5, i64 33, i64 1, ptr %44) #29
-  call void @exit(i32 noundef 1) #30
+  %45 = call i64 @fwrite(ptr nonnull @.str.5, i64 33, i64 1, ptr %44) #31
+  call void @exit(i32 noundef 1) #32
   unreachable
 
 if.then82:                                        ; preds = %land.lhs.true74
@@ -783,11 +783,11 @@ if.end105:                                        ; preds = %if.then93, %if.else
   br i1 %cmp106.not, label %if.else110, label %if.then108
 
 if.then108:                                       ; preds = %if.end105
-  %call109 = call i32 @qemu_guest_random_seed_main(ptr noundef nonnull %46, ptr noundef nonnull %err) #27
+  %call109 = call i32 @qemu_guest_random_seed_main(ptr noundef nonnull %46, ptr noundef nonnull %err) #29
   br label %if.end112
 
 if.else110:                                       ; preds = %if.end105
-  %call111 = call i32 @qcrypto_init(ptr noundef nonnull %err) #27
+  %call111 = call i32 @qcrypto_init(ptr noundef nonnull %err) #29
   br label %if.end112
 
 if.end112:                                        ; preds = %if.else110, %if.then108
@@ -796,21 +796,21 @@ if.end112:                                        ; preds = %if.else110, %if.the
   br i1 %tobool113.not, label %if.end115, label %if.then114
 
 if.then114:                                       ; preds = %if.end112
-  call void (ptr, ptr, ...) @error_reportf_err(ptr noundef nonnull %47, ptr noundef nonnull @.str.6) #27
-  call void @exit(i32 noundef 1) #30
+  call void (ptr, ptr, ...) @error_reportf_err(ptr noundef nonnull %47, ptr noundef nonnull @.str.6) #29
+  call void @exit(i32 noundef 1) #32
   unreachable
 
 if.end115:                                        ; preds = %if.end112
   %48 = load ptr, ptr @envlist, align 8
-  %call116 = call ptr @envlist_to_environ(ptr noundef %48, ptr noundef null) #27
+  %call116 = call ptr @envlist_to_environ(ptr noundef %48, ptr noundef null) #29
   %49 = load ptr, ptr @envlist, align 8
-  call void @envlist_free(ptr noundef %49) #27
+  call void @envlist_free(ptr noundef %49) #29
   %call117 = call noalias ptr @fopen64(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8)
   %cmp118.not = icmp eq ptr %call117, null
   br i1 %cmp118.not, label %if.end137, label %if.then120
 
 if.then120:                                       ; preds = %if.end115
-  %call121 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %call117, ptr noundef nonnull @.str.9, ptr noundef nonnull %tmp) #27
+  %call121 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %call117, ptr noundef nonnull @.str.9, ptr noundef nonnull %tmp) #29
   %cmp122 = icmp eq i32 %call121, 1
   %50 = load i64, ptr %tmp, align 8
   %cmp125 = icmp ne i64 %50, 0
@@ -825,7 +825,7 @@ if.then127:                                       ; preds = %if.then120
   br i1 %cmp.i.not, label %if.end135, label %if.then133
 
 if.then133:                                       ; preds = %if.then127
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.10, i64 noundef %50) #27
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.10, i64 noundef %50) #29
   br label %if.end135
 
 if.end135:                                        ; preds = %if.then133, %if.then127, %if.then120
@@ -846,21 +846,21 @@ if.then140:                                       ; preds = %if.end137
   br i1 %cmp.i90.not, label %if.end152, label %if.then149
 
 if.then149:                                       ; preds = %if.then140
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i64 noundef %53) #27
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i64 noundef %53) #29
   br label %if.end152
 
 if.end152:                                        ; preds = %if.then149, %if.then140, %if.end137
   %sub153 = sub i32 %argc, %optind.0
   %add154 = add i32 %sub153, 1
   %conv155 = sext i32 %add154 to i64
-  %call156 = call noalias ptr @calloc(i64 noundef %conv155, i64 noundef 8) #32
+  %call156 = call noalias ptr @calloc(i64 noundef %conv155, i64 noundef 8) #35
   %cmp157 = icmp eq ptr %call156, null
   br i1 %cmp157, label %if.then159, label %if.end161
 
 if.then159:                                       ; preds = %if.end152
   %55 = load ptr, ptr @stderr, align 8
-  %56 = call i64 @fwrite(ptr nonnull @.str.12, i64 42, i64 1, ptr %55) #29
-  call void @exit(i32 noundef 1) #30
+  %56 = call i64 @fwrite(ptr nonnull @.str.12, i64 42, i64 1, ptr %55) #31
+  call void @exit(i32 noundef 1) #32
   unreachable
 
 if.end161:                                        ; preds = %if.end152
@@ -869,7 +869,7 @@ if.end161:                                        ; preds = %if.end152
   br i1 %cmp162.not, label %if.end168, label %if.then164
 
 if.then164:                                       ; preds = %if.end161
-  %call165 = call noalias ptr @strdup(ptr noundef nonnull %57) #27
+  %call165 = call noalias ptr @strdup(ptr noundef nonnull %57) #29
   store ptr %call165, ptr %call156, align 8
   br label %if.end168
 
@@ -894,7 +894,7 @@ for.body172:                                      ; preds = %for.body172.prehead
   %idxprom174 = sext i32 %add173 to i64
   %arrayidx175 = getelementptr ptr, ptr %argv, i64 %idxprom174
   %61 = load ptr, ptr %arrayidx175, align 8
-  %call176 = call noalias ptr @strdup(ptr noundef %61) #27
+  %call176 = call noalias ptr @strdup(ptr noundef %61) #29
   %arrayidx178 = getelementptr ptr, ptr %call156, i64 %indvars.iv
   store ptr %call176, ptr %arrayidx178, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -905,7 +905,7 @@ for.end181:                                       ; preds = %for.body172, %if.en
   %idxprom182.pre-phi = phi i64 [ %.pre, %if.end168.for.end181_crit_edge ], [ %59, %for.body172 ]
   %arrayidx183 = getelementptr ptr, ptr %call156, i64 %idxprom182.pre-phi
   store ptr null, ptr %arrayidx183, align 8
-  %call184 = call noalias dereferenceable_or_null(9200) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 9200) #32
+  %call184 = call noalias dereferenceable_or_null(9200) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 9200) #35
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %bt.i)
   %used.i = getelementptr inbounds i8, ptr %call184, i64 40
   store i32 1, ptr %used.i, align 8
@@ -915,12 +915,12 @@ for.end181:                                       ; preds = %for.body172, %if.en
   store i32 2, ptr %.compoundliteral.sroa.2.0.sigaltstack_used.sroa_idx.i, align 8
   %.compoundliteral.sroa.3.0.sigaltstack_used.sroa_idx.i = getelementptr inbounds i8, ptr %call184, i64 9180
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.compoundliteral.sroa.3.0.sigaltstack_used.sroa_idx.i, i8 0, i64 12, i1 false)
-  %call.i91 = call i64 @sysconf(i32 noundef 2) #27
+  %call.i91 = call i64 @sysconf(i32 noundef 2) #29
   %cmp.i92 = icmp sgt i64 %call.i91, 0
   br i1 %cmp.i92, label %land.lhs.true.i, label %init_task_state.exit
 
 land.lhs.true.i:                                  ; preds = %for.end181
-  %call1.i = call i32 @clock_gettime(i32 noundef 7, ptr noundef nonnull %bt.i) #27
+  %call1.i = call i32 @clock_gettime(i32 noundef 7, ptr noundef nonnull %bt.i) #29
   %tobool.not.i94 = icmp eq i32 %call1.i, 0
   br i1 %tobool.not.i94, label %if.then.i, label %init_task_state.exit
 
@@ -949,15 +949,15 @@ init_task_state.exit:                             ; preds = %for.end181, %land.l
   br i1 %cmp.i95, label %if.then.i97, label %task_settid.exit
 
 if.then.i97:                                      ; preds = %init_task_state.exit
-  %call.i98 = call i64 (i64, ...) @syscall(i64 noundef 186) #27
+  %call.i98 = call i64 (i64, ...) @syscall(i64 noundef 186) #29
   %conv.i = trunc i64 %call.i98 to i32
   store i32 %conv.i, ptr %call184, align 8
   br label %task_settid.exit
 
 task_settid.exit:                                 ; preds = %init_task_state.exit, %if.then.i97
-  call void @qemu_mutex_init(ptr noundef nonnull @target_fd_trans_lock) #27
+  call void @qemu_mutex_init(ptr noundef nonnull @target_fd_trans_lock) #29
   %65 = load ptr, ptr @exec_path, align 8
-  %call187 = call i32 @loader_exec(i32 noundef %execfd.0, ptr noundef %65, ptr noundef nonnull %call156, ptr noundef %call116, ptr noundef nonnull %regs1, ptr noundef nonnull %info1, ptr noundef nonnull %bprm) #27
+  %call187 = call i32 @loader_exec(i32 noundef %execfd.0, ptr noundef %65, ptr noundef nonnull %call156, ptr noundef %call116, ptr noundef nonnull %regs1, ptr noundef nonnull %info1, ptr noundef nonnull %bprm) #29
   %cmp188.not = icmp eq i32 %call187, 0
   br i1 %cmp188.not, label %for.cond195.preheader, label %if.then190
 
@@ -969,29 +969,29 @@ for.cond195.preheader:                            ; preds = %task_settid.exit
 if.then190:                                       ; preds = %task_settid.exit
   %67 = load ptr, ptr @exec_path, align 8
   %sub191 = sub i32 0, %call187
-  %call192 = call ptr @strerror(i32 noundef %sub191) #27
+  %call192 = call ptr @strerror(i32 noundef %sub191) #29
   %call193 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef %67, ptr noundef %call192)
-  call void @_exit(i32 noundef 1) #30
+  call void @_exit(i32 noundef 1) #34
   unreachable
 
 for.body197:                                      ; preds = %for.cond195.preheader, %for.body197
   %68 = phi ptr [ %69, %for.body197 ], [ %66, %for.cond195.preheader ]
   %wrk.2114 = phi ptr [ %incdec.ptr199, %for.body197 ], [ %call116, %for.cond195.preheader ]
-  call void @g_free(ptr noundef nonnull %68) #27
+  call void @g_free(ptr noundef nonnull %68) #29
   %incdec.ptr199 = getelementptr i8, ptr %wrk.2114, i64 8
   %69 = load ptr, ptr %incdec.ptr199, align 8
   %tobool196.not = icmp eq ptr %69, null
   br i1 %tobool196.not, label %for.end200, label %for.body197, !llvm.loop !15
 
 for.end200:                                       ; preds = %for.body197, %for.cond195.preheader
-  call void @g_free(ptr noundef nonnull %call116) #27
+  call void @g_free(ptr noundef nonnull %call116) #29
   %70 = load i32, ptr @qemu_loglevel, align 4
   %and.i99 = and i32 %70, 16384
   %cmp.i100.not = icmp eq i32 %and.i99, 0
   br i1 %cmp.i100.not, label %if.end222, label %if.then202
 
 if.then202:                                       ; preds = %for.end200
-  %call203 = call ptr @qemu_log_trylock() #27
+  %call203 = call ptr @qemu_log_trylock() #29
   %tobool204.not = icmp eq ptr %call203, null
   br i1 %tobool204.not, label %if.end222, label %if.then205
 
@@ -1000,7 +1000,7 @@ if.then205:                                       ; preds = %if.then202
   %72 = inttoptr i64 %71 to ptr
   %call206 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %call203, ptr noundef nonnull @.str.13, ptr noundef %72)
   %73 = call i64 @fwrite(ptr nonnull @.str.14, i64 42, i64 1, ptr nonnull %call203)
-  call void @page_dump(ptr noundef nonnull %call203) #27
+  call void @page_dump(ptr noundef nonnull %call203) #29
   %end_code = getelementptr inbounds i8, ptr %info1, i64 24
   %74 = load i64, ptr %end_code, align 8
   %call208 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %call203, ptr noundef nonnull @.str.15, i64 noundef %74)
@@ -1031,40 +1031,40 @@ if.then205:                                       ; preds = %if.then202
   %saved_auxv = getelementptr inbounds i8, ptr %info1, i64 104
   %83 = load i64, ptr %saved_auxv, align 8
   %call220 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %call203, ptr noundef nonnull @.str.24, i64 noundef %83)
-  call void @qemu_log_unlock(ptr noundef nonnull %call203) #27
+  call void @qemu_log_unlock(ptr noundef nonnull %call203) #29
   br label %if.end222
 
 if.end222:                                        ; preds = %if.then202, %if.then205, %for.end200
   %brk223 = getelementptr inbounds i8, ptr %info1, i64 48
   %84 = load i64, ptr %brk223, align 8
-  call void @target_set_brk(i64 noundef %84) #27
-  call void @syscall_init() #27
-  call void @signal_init() #27
-  call void @tcg_prologue_init() #27
-  call void @target_cpu_copy_regs(ptr noundef %add.ptr.i, ptr noundef nonnull %regs1) #27
+  call void @target_set_brk(i64 noundef %84) #29
+  call void @syscall_init() #29
+  call void @signal_init() #29
+  call void @tcg_prologue_init() #29
+  call void @target_cpu_copy_regs(ptr noundef %add.ptr.i, ptr noundef nonnull %regs1) #29
   %85 = load ptr, ptr @gdbstub, align 8
   %tobool224.not = icmp eq ptr %85, null
   br i1 %tobool224.not, label %if.end233, label %if.then225
 
 if.then225:                                       ; preds = %if.end222
-  %call226 = call i32 @gdbserver_start(ptr noundef nonnull %85) #27
+  %call226 = call i32 @gdbserver_start(ptr noundef nonnull %85) #29
   %cmp227 = icmp slt i32 %call226, 0
   br i1 %cmp227, label %if.then229, label %if.end231
 
 if.then229:                                       ; preds = %if.then225
   %86 = load ptr, ptr @stderr, align 8
   %87 = load ptr, ptr @gdbstub, align 8
-  %call230 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %86, ptr noundef nonnull @.str.25, ptr noundef %87) #29
-  call void @exit(i32 noundef 1) #30
+  %call230 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %86, ptr noundef nonnull @.str.25, ptr noundef %87) #31
+  call void @exit(i32 noundef 1) #32
   unreachable
 
 if.end231:                                        ; preds = %if.then225
-  %call232 = call i32 @gdb_handlesig(ptr noundef %call62, i32 noundef 0) #27
+  %call232 = call i32 @gdb_handlesig(ptr noundef %call62, i32 noundef 0) #29
   br label %if.end233
 
 if.end233:                                        ; preds = %if.end231, %if.end222
-  call void @qemu_semihosting_guestfd_init() #27
-  call void @cpu_loop(ptr noundef %add.ptr.i) #30
+  call void @qemu_semihosting_guestfd_init() #29
+  call void @cpu_loop(ptr noundef %add.ptr.i) #34
   unreachable
 }
 
@@ -1085,7 +1085,7 @@ declare zeroext i1 @qemu_set_log_filename_flags(ptr noundef, i32 noundef, ptr no
 
 declare zeroext i1 @trace_init_backends() local_unnamed_addr #1
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #8
 
 declare void @trace_init_file() local_unnamed_addr #1
@@ -1199,8 +1199,8 @@ declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #16
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #17
 
-; Function Attrs: noreturn nounwind sspstrong uwtable
-define internal void @handle_arg_help(ptr nocapture readnone %arg) #7 {
+; Function Attrs: nofree noreturn nounwind sspstrong uwtable
+define internal void @handle_arg_help(ptr nocapture readnone %arg) #18 {
 entry:
   tail call fastcc void @usage(i32 noundef 0)
   unreachable
@@ -1209,24 +1209,24 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @handle_arg_gdb(ptr noundef %arg) #0 {
 entry:
-  %call = tail call noalias ptr @g_strdup(ptr noundef %arg) #27
+  %call = tail call noalias ptr @g_strdup(ptr noundef %arg) #29
   store ptr %call, ptr @gdbstub, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal void @handle_arg_ld_prefix(ptr nocapture noundef readonly %arg) #18 {
+define internal void @handle_arg_ld_prefix(ptr nocapture noundef readonly %arg) #19 {
 entry:
-  %call = tail call noalias ptr @strdup(ptr noundef %arg) #27
+  %call = tail call noalias ptr @strdup(ptr noundef %arg) #29
   store ptr %call, ptr @interp_prefix, align 8
   ret void
 }
 
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @handle_arg_stack_size(ptr noundef %arg) #0 {
+; Function Attrs: nofree nounwind sspstrong uwtable
+define internal void @handle_arg_stack_size(ptr noundef %arg) #20 {
 entry:
   %p = alloca ptr, align 8
-  %call = call i64 @strtoul(ptr noundef %arg, ptr noundef nonnull %p, i32 noundef 0) #27
+  %call = call i64 @strtoul(ptr noundef %arg, ptr noundef nonnull %p, i32 noundef 0) #29
   store i64 %call, ptr @guest_stack_size, align 8
   %cmp = icmp eq i64 %call, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -1260,7 +1260,7 @@ if.end13:                                         ; preds = %if.end13.sink.split
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @handle_arg_cpu(ptr nocapture noundef readonly %arg) #0 {
 entry:
-  %call = tail call noalias ptr @strdup(ptr noundef %arg) #27
+  %call = tail call noalias ptr @strdup(ptr noundef %arg) #29
   store ptr %call, ptr @cpu_model, align 8
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %if.then, label %lor.lhs.false
@@ -1277,13 +1277,13 @@ entry.tail.i:                                     ; preds = %lor.lhs.false
   br i1 %3, label %if.then, label %is_help_option.exit
 
 is_help_option.exit:                              ; preds = %lor.lhs.false, %entry.tail.i
-  %call1.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %call, ptr noundef nonnull dereferenceable(5) @.str.33) #28
+  %call1.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %call, ptr noundef nonnull dereferenceable(5) @.str.33) #30
   %tobool2.not.i = icmp eq i32 %call1.i, 0
   br i1 %tobool2.not.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry.tail.i, %is_help_option.exit, %entry
-  tail call void @list_cpus() #27
-  tail call void @exit(i32 noundef 1) #30
+  tail call void @list_cpus() #29
+  tail call void @exit(i32 noundef 1) #32
   unreachable
 
 if.end:                                           ; preds = %is_help_option.exit
@@ -1294,18 +1294,18 @@ if.end:                                           ; preds = %is_help_option.exit
 define internal void @handle_arg_set_env(ptr nocapture noundef readonly %arg) #0 {
 entry:
   %p = alloca ptr, align 8
-  %call = tail call noalias ptr @strdup(ptr noundef %arg) #27
+  %call = tail call noalias ptr @strdup(ptr noundef %arg) #29
   store ptr %call, ptr %p, align 8
   br label %while.cond
 
 while.cond:                                       ; preds = %while.body, %entry
-  %call1 = call ptr @strsep(ptr noundef nonnull %p, ptr noundef nonnull @.str.123) #27
+  %call1 = call ptr @strsep(ptr noundef nonnull %p, ptr noundef nonnull @.str.123) #29
   %cmp.not = icmp eq ptr %call1, null
   br i1 %cmp.not, label %while.end, label %while.body
 
 while.body:                                       ; preds = %while.cond
   %0 = load ptr, ptr @envlist, align 8
-  %call2 = call i32 @envlist_setenv(ptr noundef %0, ptr noundef nonnull %call1) #27
+  %call2 = call i32 @envlist_setenv(ptr noundef %0, ptr noundef nonnull %call1) #29
   %cmp3.not = icmp eq i32 %call2, 0
   br i1 %cmp3.not, label %while.cond, label %if.then, !llvm.loop !16
 
@@ -1314,7 +1314,7 @@ if.then:                                          ; preds = %while.body
   unreachable
 
 while.end:                                        ; preds = %while.cond
-  call void @free(ptr noundef %call) #27
+  call void @free(ptr noundef %call) #29
   ret void
 }
 
@@ -1322,18 +1322,18 @@ while.end:                                        ; preds = %while.cond
 define internal void @handle_arg_unset_env(ptr nocapture noundef readonly %arg) #0 {
 entry:
   %p = alloca ptr, align 8
-  %call = tail call noalias ptr @strdup(ptr noundef %arg) #27
+  %call = tail call noalias ptr @strdup(ptr noundef %arg) #29
   store ptr %call, ptr %p, align 8
   br label %while.cond
 
 while.cond:                                       ; preds = %while.body, %entry
-  %call1 = call ptr @strsep(ptr noundef nonnull %p, ptr noundef nonnull @.str.123) #27
+  %call1 = call ptr @strsep(ptr noundef nonnull %p, ptr noundef nonnull @.str.123) #29
   %cmp.not = icmp eq ptr %call1, null
   br i1 %cmp.not, label %while.end, label %while.body
 
 while.body:                                       ; preds = %while.cond
   %0 = load ptr, ptr @envlist, align 8
-  %call2 = call i32 @envlist_unsetenv(ptr noundef %0, ptr noundef nonnull %call1) #27
+  %call2 = call i32 @envlist_unsetenv(ptr noundef %0, ptr noundef nonnull %call1) #29
   %cmp3.not = icmp eq i32 %call2, 0
   br i1 %cmp3.not, label %while.cond, label %if.then, !llvm.loop !17
 
@@ -1342,40 +1342,40 @@ if.then:                                          ; preds = %while.body
   unreachable
 
 while.end:                                        ; preds = %while.cond
-  call void @free(ptr noundef %call) #27
+  call void @free(ptr noundef %call) #29
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal void @handle_arg_argv0(ptr nocapture noundef readonly %arg) #18 {
+define internal void @handle_arg_argv0(ptr nocapture noundef readonly %arg) #19 {
 entry:
-  %call = tail call noalias ptr @strdup(ptr noundef %arg) #27
+  %call = tail call noalias ptr @strdup(ptr noundef %arg) #29
   store ptr %call, ptr @argv0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal void @handle_arg_uname(ptr nocapture noundef readonly %arg) #18 {
+define internal void @handle_arg_uname(ptr nocapture noundef readonly %arg) #19 {
 entry:
-  %call = tail call noalias ptr @strdup(ptr noundef %arg) #27
+  %call = tail call noalias ptr @strdup(ptr noundef %arg) #29
   store ptr %call, ptr @qemu_uname_release, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn uwtable
-define internal void @handle_arg_guest_base(ptr nocapture noundef readonly %arg) #19 {
+define internal void @handle_arg_guest_base(ptr nocapture noundef readonly %arg) #21 {
 entry:
-  %call = tail call i64 @strtol(ptr nocapture noundef %arg, ptr noundef null, i32 noundef 0) #27
+  %call = tail call i64 @strtol(ptr nocapture noundef %arg, ptr noundef null, i32 noundef 0) #29
   store i64 %call, ptr @guest_base, align 8
   store i8 1, ptr @have_guest_base, align 1
   ret void
 }
 
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @handle_arg_reserved_va(ptr noundef %arg) #0 {
+; Function Attrs: nofree nounwind sspstrong uwtable
+define internal void @handle_arg_reserved_va(ptr noundef %arg) #20 {
 entry:
   %p = alloca ptr, align 8
-  %call = call i64 @strtoul(ptr noundef %arg, ptr noundef nonnull %p, i32 noundef 0) #27
+  %call = call i64 @strtoul(ptr noundef %arg, ptr noundef nonnull %p, i32 noundef 0) #29
   %0 = load ptr, ptr %p, align 8
   %1 = load i8, ptr %0, align 1
   switch i8 %1, label %if.end7 [
@@ -1405,8 +1405,8 @@ if.then.if.end7_crit_edge:                        ; preds = %if.then
 
 if.then5:                                         ; preds = %if.then
   %2 = load ptr, ptr @stderr, align 8
-  %3 = tail call i64 @fwrite(ptr nonnull @.str.5, i64 33, i64 1, ptr %2) #29
-  tail call void @exit(i32 noundef 1) #30
+  %3 = tail call i64 @fwrite(ptr nonnull @.str.5, i64 33, i64 1, ptr %2) #31
+  tail call void @exit(i32 noundef 1) #32
   unreachable
 
 if.end7:                                          ; preds = %if.then.if.end7_crit_edge, %entry
@@ -1418,8 +1418,8 @@ if.end7:                                          ; preds = %if.then.if.end7_cri
 
 if.then9:                                         ; preds = %if.end7
   %6 = load ptr, ptr @stderr, align 8
-  %call10 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.124, ptr noundef nonnull %5) #29
-  tail call void @exit(i32 noundef 1) #30
+  %call10 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.124, ptr noundef nonnull %5) #31
+  tail call void @exit(i32 noundef 1) #32
   unreachable
 
 if.end11:                                         ; preds = %if.end7
@@ -1431,15 +1431,15 @@ if.end11:                                         ; preds = %if.end7
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @handle_arg_log(ptr noundef %arg) #0 {
 entry:
-  %call = tail call i32 @qemu_str_to_log_mask(ptr noundef %arg) #27
+  %call = tail call i32 @qemu_str_to_log_mask(ptr noundef %arg) #29
   store i32 %call, ptr @last_log_mask, align 4
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr @stdout, align 8
-  tail call void @qemu_print_log_usage(ptr noundef %0) #27
-  tail call void @exit(i32 noundef 1) #30
+  tail call void @qemu_print_log_usage(ptr noundef %0) #29
+  tail call void @exit(i32 noundef 1) #32
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -1449,21 +1449,21 @@ if.end:                                           ; preds = %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @handle_arg_dfilter(ptr noundef %arg) #0 {
 entry:
-  tail call void @qemu_set_dfilter_ranges(ptr noundef %arg, ptr noundef nonnull @error_fatal) #27
+  tail call void @qemu_set_dfilter_ranges(ptr noundef %arg, ptr noundef nonnull @error_fatal) #29
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define internal void @handle_arg_log_filename(ptr noundef %arg) #20 {
+define internal void @handle_arg_log_filename(ptr noundef %arg) #22 {
 entry:
   store ptr %arg, ptr @last_log_filename, align 8
   ret void
 }
 
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @handle_arg_pagesize(ptr nocapture noundef readonly %arg) #0 {
+; Function Attrs: nofree nounwind sspstrong uwtable
+define internal void @handle_arg_pagesize(ptr nocapture noundef readonly %arg) #20 {
 entry:
-  %call = tail call i32 @atoi(ptr nocapture noundef %arg) #28
+  %call = tail call i32 @atoi(ptr nocapture noundef %arg) #30
   %conv = sext i32 %call to i64
   store i64 %conv, ptr @qemu_host_page_size, align 8
   %cmp = icmp ne i32 %call, 0
@@ -1474,8 +1474,8 @@ entry:
 
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr @stderr, align 8
-  %2 = tail call i64 @fwrite(ptr nonnull @.str.125, i64 33, i64 1, ptr %1) #29
-  tail call void @exit(i32 noundef 1) #30
+  %2 = tail call i64 @fwrite(ptr nonnull @.str.125, i64 33, i64 1, ptr %1) #31
+  tail call void @exit(i32 noundef 1) #32
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -1483,21 +1483,21 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define internal void @handle_arg_one_insn_per_tb(ptr nocapture readnone %arg) #20 {
+define internal void @handle_arg_one_insn_per_tb(ptr nocapture readnone %arg) #22 {
 entry:
   store i1 true, ptr @opt_one_insn_per_tb, align 1
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define internal void @handle_arg_strace(ptr nocapture readnone %arg) #20 {
+define internal void @handle_arg_strace(ptr nocapture readnone %arg) #22 {
 entry:
   store i1 true, ptr @enable_strace, align 1
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define internal void @handle_arg_seed(ptr noundef %arg) #20 {
+define internal void @handle_arg_seed(ptr noundef %arg) #22 {
 entry:
   store ptr %arg, ptr @seed_optarg, align 8
   ret void
@@ -1506,41 +1506,41 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @handle_arg_trace(ptr noundef %arg) #0 {
 entry:
-  tail call void @trace_opt_parse(ptr noundef %arg) #27
+  tail call void @trace_opt_parse(ptr noundef %arg) #29
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @handle_arg_plugin(ptr noundef %arg) #0 {
 entry:
-  tail call void @qemu_plugin_opt_parse(ptr noundef %arg, ptr noundef nonnull @plugins) #27
+  tail call void @qemu_plugin_opt_parse(ptr noundef %arg, ptr noundef nonnull @plugins) #29
   ret void
 }
 
-; Function Attrs: noreturn nounwind sspstrong uwtable
-define internal void @handle_arg_version(ptr nocapture readnone %arg) #7 {
+; Function Attrs: nofree noreturn nounwind sspstrong uwtable
+define internal void @handle_arg_version(ptr nocapture readnone %arg) #18 {
 entry:
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
-  tail call void @exit(i32 noundef 0) #30
+  tail call void @exit(i32 noundef 0) #34
   unreachable
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @handle_arg_perfmap(ptr nocapture readnone %arg) #0 {
 entry:
-  tail call void @perf_enable_perfmap() #27
+  tail call void @perf_enable_perfmap() #29
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @handle_arg_jitdump(ptr nocapture readnone %arg) #0 {
 entry:
-  tail call void @perf_enable_jitdump() #27
+  tail call void @perf_enable_jitdump() #29
   ret void
 }
 
-; Function Attrs: noreturn nounwind sspstrong uwtable
-define internal fastcc void @usage(i32 noundef %exitcode) unnamed_addr #7 {
+; Function Attrs: nofree noreturn nounwind sspstrong uwtable
+define internal fastcc void @usage(i32 noundef %exitcode) unnamed_addr #18 {
 entry:
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
   br label %for.body
@@ -1550,7 +1550,7 @@ for.body:                                         ; preds = %entry, %if.end
   %maxarglen.028 = phi i32 [ 8, %entry ], [ %maxarglen.1, %if.end ]
   %arginfo.027 = phi ptr [ @arg_table, %entry ], [ %incdec.ptr, %if.end ]
   %0 = load ptr, ptr %arginfo.027, align 8
-  %call1 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #28
+  %call1 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #30
   %has_arg = getelementptr inbounds i8, ptr %arginfo.027, i64 16
   %1 = load i8, ptr %has_arg, align 8
   %tobool = trunc i8 %1 to i1
@@ -1559,7 +1559,7 @@ for.body:                                         ; preds = %entry, %if.end
 if.then:                                          ; preds = %for.body
   %example = getelementptr inbounds i8, ptr %arginfo.027, i64 32
   %2 = load ptr, ptr %example, align 8
-  %call2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #28
+  %call2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #30
   %add = add i64 %call1, 1
   %add4 = add i64 %add, %call2
   br label %if.end
@@ -1569,7 +1569,7 @@ if.end:                                           ; preds = %if.then, %for.body
   %arglen.0 = trunc i64 %arglen.0.in to i32
   %env = getelementptr inbounds i8, ptr %arginfo.027, i64 8
   %3 = load ptr, ptr %env, align 8
-  %call6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #28
+  %call6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #30
   %conv7 = sext i32 %maxenvlen.029 to i64
   %cmp8 = icmp ugt i64 %call6, %conv7
   %conv13 = trunc i64 %call6 to i32
@@ -1595,7 +1595,7 @@ for.body25:                                       ; preds = %for.end, %for.inc43
   br i1 %tobool27, label %if.then28, label %if.else
 
 if.then28:                                        ; preds = %for.body25
-  %call32 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #28
+  %call32 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #30
   %7 = trunc i64 %call32 to i32
   %8 = xor i32 %7, -1
   %conv34 = add i32 %maxarglen.1, %8
@@ -1628,7 +1628,7 @@ for.end45:                                        ; preds = %for.inc43
   %16 = load i64, ptr @guest_stack_size, align 8
   %call46 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.120, ptr noundef %15, i64 noundef %16)
   %puts26 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.2)
-  tail call void @exit(i32 noundef %exitcode) #30
+  tail call void @exit(i32 noundef %exitcode) #34
   unreachable
 }
 
@@ -1638,7 +1638,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #17
 declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #21
+declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #23
 
 declare void @list_cpus() local_unnamed_addr #1
 
@@ -1646,12 +1646,12 @@ declare void @list_cpus() local_unnamed_addr #1
 declare ptr @strsep(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #22
+declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #24
 
 declare i32 @envlist_unsetenv(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #21
+declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #23
 
 declare i32 @qemu_str_to_log_mask(ptr noundef) local_unnamed_addr #1
 
@@ -1660,7 +1660,7 @@ declare void @qemu_print_log_usage(ptr noundef) local_unnamed_addr #1
 declare void @qemu_set_dfilter_ranges(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #23
+declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #25
 
 declare void @trace_opt_parse(ptr noundef) local_unnamed_addr #1
 
@@ -1673,25 +1673,25 @@ declare void @perf_enable_jitdump() local_unnamed_addr #1
 declare void @qemu_mutex_init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #24
+declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #26
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.usub.sat.i64(i64, i64) #25
+declare i64 @llvm.usub.sat.i64(i64, i64) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctpop.i64(i64) #25
+declare i64 @llvm.ctpop.i64(i64) #27
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #24
+declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #26
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #25
+declare i32 @llvm.smax.i32(i32, i32) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #26
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #28
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #26
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #28
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1701,7 +1701,7 @@ attributes #4 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stac
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { noreturn nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1711,21 +1711,24 @@ attributes #14 = { mustprogress nofree nounwind willreturn memory(argmem: readwr
 attributes #15 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #17 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { mustprogress nofree nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { mustprogress nofree nounwind sspstrong willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #22 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #23 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #24 = { nofree nounwind }
-attributes #25 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #26 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #27 = { nounwind }
-attributes #28 = { nounwind willreturn memory(read) }
-attributes #29 = { cold }
-attributes #30 = { noreturn nounwind }
-attributes #31 = { nounwind willreturn memory(none) }
-attributes #32 = { nounwind allocsize(0,1) }
+attributes #18 = { nofree noreturn nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nofree nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { nofree nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { mustprogress nofree nounwind sspstrong willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #22 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #23 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #24 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #25 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #26 = { nofree nounwind }
+attributes #27 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #28 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #29 = { nounwind }
+attributes #30 = { nounwind willreturn memory(read) }
+attributes #31 = { cold }
+attributes #32 = { cold noreturn nounwind }
+attributes #33 = { nounwind willreturn memory(none) }
+attributes #34 = { noreturn nounwind }
+attributes #35 = { nounwind allocsize(0,1) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

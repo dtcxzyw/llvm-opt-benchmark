@@ -473,12 +473,12 @@ sub_2159:                                         ; preds = %sub_1158
 
 60:                                               ; preds = %57
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.53, ptr noundef %59, ptr noundef nonnull %8) #14
-  call void @exit(i32 noundef 1) #16
+  call void @exit(i32 noundef 1) #17
   unreachable
 
 61:                                               ; preds = %57
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.53, ptr noundef nonnull %8, ptr noundef %59) #14
-  call void @exit(i32 noundef 1) #16
+  call void @exit(i32 noundef 1) #17
   unreachable
 
 62:                                               ; preds = %46
@@ -713,7 +713,7 @@ sub_2159:                                         ; preds = %sub_1158
 142:                                              ; preds = %.lr.ph.i
   %143 = call ptr @filter_object_type_name(i32 noundef %141) #14
   call void (ptr, ptr, ...) @pg_log_filter_error(ptr noundef nonnull %3, ptr noundef nonnull @.str.314, ptr noundef nonnull @.str.315, ptr noundef %143) #14
-  call void @exit(i32 noundef 1) #16
+  call void @exit(i32 noundef 1) #17
   unreachable
 
 144:                                              ; preds = %.lr.ph.i
@@ -733,7 +733,7 @@ sub_2159:                                         ; preds = %sub_1158
 
 145:                                              ; preds = %144, %144, %144, %144, %144, %144, %144, %144, %144, %144
   call void (ptr, ptr, ...) @pg_log_filter_error(ptr noundef nonnull %3, ptr noundef nonnull @.str.316) #14
-  call void @exit(i32 noundef 1) #16
+  call void @exit(i32 noundef 1) #17
   unreachable
 
 146:                                              ; preds = %144
@@ -765,7 +765,7 @@ read_dumpall_filters.exit:                        ; preds = %151, %136
 153:                                              ; preds = %64
   %154 = load ptr, ptr @progname, align 8
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 2, ptr noundef nonnull @.str.73, ptr noundef %154) #14
-  call void @exit(i32 noundef 1) #16
+  call void @exit(i32 noundef 1) #17
   unreachable
 
 155:                                              ; preds = %64
@@ -780,7 +780,7 @@ read_dumpall_filters.exit:                        ; preds = %151, %136
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.74, ptr noundef %161) #14
   %162 = load ptr, ptr @progname, align 8
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 2, ptr noundef nonnull @.str.73, ptr noundef %162) #14
-  call void @exit(i32 noundef 1) #16
+  call void @exit(i32 noundef 1) #17
   unreachable
 
 163:                                              ; preds = %155
@@ -804,7 +804,7 @@ read_dumpall_filters.exit:                        ; preds = %151, %136
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.75) #14
   %171 = load ptr, ptr @progname, align 8
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 2, ptr noundef nonnull @.str.73, ptr noundef %171) #14
-  call void @exit(i32 noundef 1) #16
+  call void @exit(i32 noundef 1) #17
   unreachable
 
 172:                                              ; preds = %163
@@ -818,7 +818,7 @@ read_dumpall_filters.exit:                        ; preds = %151, %136
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.76) #14
   %176 = load ptr, ptr @progname, align 8
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 2, ptr noundef nonnull @.str.73, ptr noundef %176) #14
-  call void @exit(i32 noundef 1) #16
+  call void @exit(i32 noundef 1) #17
   unreachable
 
 177:                                              ; preds = %173
@@ -829,7 +829,7 @@ read_dumpall_filters.exit:                        ; preds = %151, %136
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.77) #14
   %180 = load ptr, ptr @progname, align 8
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 2, ptr noundef nonnull @.str.73, ptr noundef %180) #14
-  call void @exit(i32 noundef 1) #16
+  call void @exit(i32 noundef 1) #17
   unreachable
 
 .critedge:                                        ; preds = %168, %172, %177
@@ -844,7 +844,7 @@ read_dumpall_filters.exit:                        ; preds = %151, %136
 
 183:                                              ; preds = %182
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.78) #14
-  call void @exit(i32 noundef 1) #16
+  call void @exit(i32 noundef 1) #17
   unreachable
 
 184:                                              ; preds = %182, %.critedge
@@ -859,7 +859,7 @@ read_dumpall_filters.exit:                        ; preds = %151, %136
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.79) #14
   %189 = load ptr, ptr @progname, align 8
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 2, ptr noundef nonnull @.str.73, ptr noundef %189) #14
-  call void @exit(i32 noundef 1) #16
+  call void @exit(i32 noundef 1) #17
   unreachable
 
 190:                                              ; preds = %186, %184
@@ -1048,7 +1048,7 @@ read_dumpall_filters.exit:                        ; preds = %151, %136
 
 264:                                              ; preds = %262
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.100, ptr noundef nonnull %.088) #14
-  call void @exit(i32 noundef 1) #16
+  call void @exit(i32 noundef 1) #17
   unreachable
 
 265:                                              ; preds = %260
@@ -1066,7 +1066,7 @@ read_dumpall_filters.exit:                        ; preds = %151, %136
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.103) #14
   %271 = load ptr, ptr @progname, align 8
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 2, ptr noundef nonnull @.str.73, ptr noundef %271) #14
-  call void @exit(i32 noundef 1) #16
+  call void @exit(i32 noundef 1) #17
   unreachable
 
 .thread:                                          ; preds = %265, %267, %262
@@ -1085,7 +1085,7 @@ read_dumpall_filters.exit:                        ; preds = %151, %136
 275:                                              ; preds = %273
   %276 = load ptr, ptr @filename, align 8
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.105, ptr noundef %276) #14
-  call void @exit(i32 noundef 1) #16
+  call void @exit(i32 noundef 1) #17
   unreachable
 
 277:                                              ; preds = %.thread
@@ -1104,7 +1104,7 @@ read_dumpall_filters.exit:                        ; preds = %151, %136
 
 283:                                              ; preds = %280
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.106, ptr noundef nonnull %.0102) #14
-  call void @exit(i32 noundef 1) #16
+  call void @exit(i32 noundef 1) #17
   unreachable
 
 284:                                              ; preds = %280, %279
@@ -1346,7 +1346,7 @@ define internal fastcc void @help() unnamed_addr #3 {
   ret void
 }
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) #4
 
 ; Function Attrs: nofree nounwind
@@ -1424,7 +1424,7 @@ define internal fastcc ptr @connectDatabase(ptr noundef %0, ptr noundef %1, ptr 
 21:                                               ; preds = %17
   %22 = load ptr, ptr %8, align 8
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.80, ptr noundef %22) #14
-  call void @exit(i32 noundef 1) #16
+  call void @exit(i32 noundef 1) #17
   unreachable
 
 .lr.ph:                                           ; preds = %.preheader, %31
@@ -1591,7 +1591,7 @@ define internal fastcc ptr @connectDatabase(ptr noundef %0, ptr noundef %1, ptr 
 
 95:                                               ; preds = %89
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.100, ptr noundef %0) #14
-  call void @exit(i32 noundef 1) #16
+  call void @exit(i32 noundef 1) #17
   unreachable
 
 96:                                               ; preds = %89
@@ -1625,7 +1625,7 @@ define internal fastcc ptr @connectDatabase(ptr noundef %0, ptr noundef %1, ptr 
 109:                                              ; preds = %108
   %110 = call ptr @PQerrorMessage(ptr noundef nonnull %94) #14
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.80, ptr noundef %110) #14
-  call void @exit(i32 noundef 1) #16
+  call void @exit(i32 noundef 1) #17
   unreachable
 
 111:                                              ; preds = %108
@@ -1700,7 +1700,7 @@ constructConnStr.exit:                            ; preds = %132, %112
 
 140:                                              ; preds = %constructConnStr.exit
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.305) #14
-  call void @exit(i32 noundef 1) #16
+  call void @exit(i32 noundef 1) #17
   unreachable
 
 141:                                              ; preds = %constructConnStr.exit
@@ -1713,7 +1713,7 @@ constructConnStr.exit:                            ; preds = %132, %112
 
 143:                                              ; preds = %141
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.306, ptr noundef nonnull %139) #14
-  call void @exit(i32 noundef 1) #16
+  call void @exit(i32 noundef 1) #17
   unreachable
 
 144:                                              ; preds = %141
@@ -1725,7 +1725,7 @@ constructConnStr.exit:                            ; preds = %132, %112
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.307) #14
   %147 = load ptr, ptr @progname, align 8
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 1, ptr noundef nonnull @.str.308, ptr noundef nonnull %139, ptr noundef %147, ptr noundef nonnull @.str.309) #14
-  call void @exit(i32 noundef 1) #16
+  call void @exit(i32 noundef 1) #17
   unreachable
 
 148:                                              ; preds = %144, %141
@@ -1763,7 +1763,7 @@ define internal fastcc void @expand_dbname_patterns(ptr noundef %0) unnamed_addr
 11:                                               ; preds = %.lr.ph6
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.284, ptr noundef nonnull %7) #14
   call void @PQfinish(ptr noundef %0) #14
-  call void @exit(i32 noundef 1) #16
+  call void @exit(i32 noundef 1) #17
   unreachable
 
 12:                                               ; preds = %.lr.ph6
@@ -1827,7 +1827,7 @@ define internal fastcc void @executeCommand(ptr noundef %0, ptr noundef %1) unna
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.188, ptr noundef %7) #14
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 1, ptr noundef nonnull @.str.189, ptr noundef %1) #14
   tail call void @PQfinish(ptr noundef %0) #14
-  tail call void @exit(i32 noundef 1) #16
+  tail call void @exit(i32 noundef 1) #17
   unreachable
 
 8:                                                ; preds = %4
@@ -2489,7 +2489,7 @@ define internal fastcc void @dumpRoleMembership(ptr noundef %0) unnamed_addr #3 
 
 49:                                               ; preds = %29
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.257) #14
-  tail call void @exit(i32 noundef 1) #16
+  tail call void @exit(i32 noundef 1) #17
   unreachable
 
 rolename_compute_size.exit.i:                     ; preds = %29
@@ -2509,7 +2509,7 @@ rolename_compute_size.exit.i:                     ; preds = %29
 
 60:                                               ; preds = %rolename_compute_size.exit.i
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.257) #14
-  tail call void @exit(i32 noundef 1) #16
+  tail call void @exit(i32 noundef 1) #17
   unreachable
 
 rolename_create.exit:                             ; preds = %rolename_compute_size.exit.i
@@ -2981,22 +2981,22 @@ rolename_lookup.exit.thread.us:                   ; preds = %110, %292, %91, %.p
 .split.us:                                        ; preds = %.lr.ph153.split.us, %.preheader.us161
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.245, ptr noundef %30) #14
   tail call void @PQfinish(ptr noundef %0) #14
-  tail call void @exit(i32 noundef 1) #16
+  tail call void @exit(i32 noundef 1) #17
   unreachable
 
 .split155.us:                                     ; preds = %127
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.258) #14
-  tail call void @exit(i32 noundef 1) #16
+  tail call void @exit(i32 noundef 1) #17
   unreachable
 
 .split157.us:                                     ; preds = %130
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.257) #14
-  tail call void @exit(i32 noundef 1) #16
+  tail call void @exit(i32 noundef 1) #17
   unreachable
 
 .split159.us:                                     ; preds = %rolename_compute_size.exit.i.i.i.us
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.257) #14
-  tail call void @exit(i32 noundef 1) #16
+  tail call void @exit(i32 noundef 1) #17
   unreachable
 
 ._crit_edge.loopexit:                             ; preds = %..loopexit_crit_edge.us
@@ -3052,7 +3052,7 @@ define internal fastcc void @dumpRoleGUCPrivs(ptr noundef %0) unnamed_addr #3 {
 20:                                               ; preds = %.lr.ph
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.262, ptr noundef %14, ptr noundef %12) #14
   tail call void @PQfinish(ptr noundef %0) #14
-  tail call void @exit(i32 noundef 1) #16
+  tail call void @exit(i32 noundef 1) #17
   unreachable
 
 21:                                               ; preds = %.lr.ph
@@ -3148,7 +3148,7 @@ define internal fastcc void @dumpTablespaces(ptr noundef %0) unnamed_addr #3 {
 37:                                               ; preds = %34
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.275, ptr noundef %18, ptr noundef %15) #14
   tail call void @PQfinish(ptr noundef %0) #14
-  tail call void @exit(i32 noundef 1) #16
+  tail call void @exit(i32 noundef 1) #17
   unreachable
 
 38:                                               ; preds = %34, %33
@@ -3300,7 +3300,7 @@ define internal fastcc void @dumpDatabases(ptr noundef %0) unnamed_addr #3 {
 
 46:                                               ; preds = %36
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.293, ptr noundef %13) #14
-  call void @exit(i32 noundef 1) #16
+  call void @exit(i32 noundef 1) #17
   unreachable
 
 47:                                               ; preds = %36
@@ -3317,7 +3317,7 @@ define internal fastcc void @dumpDatabases(ptr noundef %0) unnamed_addr #3 {
 51:                                               ; preds = %49
   %52 = load ptr, ptr @filename, align 8
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.295, ptr noundef %52) #14
-  call void @exit(i32 noundef 1) #16
+  call void @exit(i32 noundef 1) #17
   unreachable
 
 53:                                               ; preds = %47, %49, %.lr.ph, %18
@@ -3359,7 +3359,7 @@ define internal fastcc ptr @executeQuery(ptr noundef %0, ptr noundef %1) unnamed
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.188, ptr noundef %7) #14
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 1, ptr noundef nonnull @.str.189, ptr noundef %1) #14
   tail call void @PQfinish(ptr noundef %0) #14
-  tail call void @exit(i32 noundef 1) #16
+  tail call void @exit(i32 noundef 1) #17
   unreachable
 
 8:                                                ; preds = %4
@@ -3484,7 +3484,7 @@ attributes #0 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vec
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -3497,6 +3497,7 @@ attributes #13 = { nocallback nofree nosync nounwind willreturn memory(argmem: r
 attributes #14 = { nounwind }
 attributes #15 = { nounwind willreturn memory(read) }
 attributes #16 = { noreturn nounwind }
+attributes #17 = { cold noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

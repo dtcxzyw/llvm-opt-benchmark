@@ -354,7 +354,7 @@ return:                                           ; preds = %do.end, %entry, %sw
   ret i32 %retval.0
 }
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: cold nofree noreturn nounwind
 declare void @abort() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
@@ -439,8 +439,8 @@ entry:
   ret ptr %0
 }
 
-; Function Attrs: nounwind uwtable
-define noundef nonnull ptr @llhttp_errno_name(i32 noundef %err) local_unnamed_addr #0 {
+; Function Attrs: nofree nounwind uwtable
+define noundef nonnull ptr @llhttp_errno_name(i32 noundef %err) local_unnamed_addr #7 {
 entry:
   %0 = icmp ult i32 %err, 36
   br i1 %0, label %switch.lookup, label %sw.default
@@ -456,8 +456,8 @@ switch.lookup:                                    ; preds = %entry
   ret ptr %switch.load
 }
 
-; Function Attrs: nounwind uwtable
-define noundef nonnull ptr @llhttp_method_name(i32 noundef %method) local_unnamed_addr #0 {
+; Function Attrs: nofree nounwind uwtable
+define noundef nonnull ptr @llhttp_method_name(i32 noundef %method) local_unnamed_addr #7 {
 entry:
   %0 = icmp ult i32 %method, 46
   br i1 %0, label %switch.lookup, label %sw.default
@@ -473,8 +473,8 @@ switch.lookup:                                    ; preds = %entry
   ret ptr %switch.load
 }
 
-; Function Attrs: nounwind uwtable
-define noundef nonnull ptr @llhttp_status_name(i32 noundef %status) local_unnamed_addr #0 {
+; Function Attrs: nofree nounwind uwtable
+define noundef nonnull ptr @llhttp_status_name(i32 noundef %status) local_unnamed_addr #7 {
 entry:
   switch i32 %status, label %sw.default [
     i32 100, label %return
@@ -1629,7 +1629,7 @@ attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protect
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

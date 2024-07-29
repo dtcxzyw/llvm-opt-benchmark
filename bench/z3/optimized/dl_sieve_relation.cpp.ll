@@ -2578,13 +2578,13 @@ for.end:                                          ; preds = %for.inc, %_ZN6vecto
 define hidden void @_ZN7datalog21sieve_relation_plugin23extract_inner_signatureERKNS_18relation_signatureERS1_(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %this, ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %s, ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %inner_sig) local_unnamed_addr #7 align 2 {
 entry:
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.2, i32 noundef 184, ptr noundef nonnull @.str.3)
-  tail call void @exit(i32 noundef 114) #22
+  tail call void @exit(i32 noundef 114) #24
   unreachable
 }
 
 declare void @_Z26notify_assertion_violationPKciS0_(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
-; Function Attrs: noreturn nounwind
+; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -2912,7 +2912,7 @@ declare noundef ptr @_ZN7datalog16relation_manager17mk_empty_relationERKNS_18rel
 define hidden noalias noundef nonnull ptr @_ZN7datalog21sieve_relation_plugin8mk_emptyERKNS_18relation_signatureE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %s) unnamed_addr #7 align 2 {
 entry:
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.2, i32 noundef 228, ptr noundef nonnull @.str.3)
-  tail call void @exit(i32 noundef 114) #22
+  tail call void @exit(i32 noundef 114) #24
   unreachable
 }
 
@@ -6416,7 +6416,7 @@ _ZN7datalog13relation_baseD2Ev.exit:              ; preds = %_ZN7svectorIbjED2Ev
 define linkonce_odr hidden void @_ZN7datalog14sieve_relationD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #4 comdat align 2 {
 entry:
   tail call void @_ZN7datalog14sieve_relationD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #21
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
   ret void
 }
 
@@ -6582,7 +6582,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog21sieve_relation_pluginE, i64 16), ptr %this, align 8
   %m_spec_store.i = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZN7datalog14rel_spec_storeINS_21sieve_relation_plugin8rel_specENS2_4hashE10default_eqIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %m_spec_store.i) #21
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
   ret void
 }
 
@@ -7376,7 +7376,7 @@ _ZN7datalog17tr_infrastructureINS_15relation_traitsEE18convenient_join_fnD2Ev.ex
 define linkonce_odr hidden void @_ZN7datalog21sieve_relation_plugin7join_fnD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #4 comdat align 2 {
 entry:
   tail call void @_ZN7datalog21sieve_relation_plugin7join_fnD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #21
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
   ret void
 }
 
@@ -7711,7 +7711,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7datalog17tr_infrastructureINS_15relation_traitsEE23identity_transformer_fnD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
   ret void
 }
 
@@ -7820,7 +7820,7 @@ _ZN7datalog17tr_infrastructureINS_15relation_traitsEE25convenient_transformer_fn
 define linkonce_odr hidden void @_ZN7datalog21sieve_relation_plugin14transformer_fnD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #4 comdat align 2 {
 entry:
   tail call void @_ZN7datalog21sieve_relation_plugin14transformer_fnD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #21
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
   ret void
 }
 
@@ -7930,7 +7930,7 @@ terminate.lpad.i.i:                               ; preds = %if.end.i.i.i
   unreachable
 
 _ZN7datalog21sieve_relation_plugin8union_fnD2Ev.exit: ; preds = %entry, %if.end.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
   ret void
 }
 
@@ -8014,7 +8014,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7datalog17tr_infrastructureINS_15relation_traitsEE19identity_mutator_fnD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
   ret void
 }
 
@@ -8034,7 +8034,7 @@ entry:
 define linkonce_odr hidden void @_ZN7datalog17tr_infrastructureINS_15relation_traitsEE10mutator_fn6attachERNS_13relation_baseE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(28) %other) unnamed_addr #3 comdat align 2 {
 entry:
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.7, i32 noundef 225, ptr noundef nonnull @.str.3)
-  tail call void @exit(i32 noundef 114) #22
+  tail call void @exit(i32 noundef 114) #24
   unreachable
 }
 
@@ -8091,7 +8091,7 @@ terminate.lpad.i.i:                               ; preds = %if.end.i.i.i
   unreachable
 
 _ZN7datalog21sieve_relation_plugin9filter_fnD2Ev.exit: ; preds = %entry, %if.end.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
   ret void
 }
 
@@ -8118,7 +8118,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7datalog17tr_infrastructureINS_15relation_traitsEE31identity_intersection_filter_fnD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
   ret void
 }
 
@@ -8181,7 +8181,7 @@ terminate.lpad.i.i:                               ; preds = %if.end.i.i.i
   unreachable
 
 _ZN7datalog21sieve_relation_plugin18negation_filter_fnD2Ev.exit: ; preds = %entry, %if.end.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #25
   ret void
 }
 
@@ -10771,7 +10771,7 @@ for.inc54:                                        ; preds = %for.body29, %_ZNK6v
 
 for.end56:                                        ; preds = %for.inc54, %for.inc54.us, %for.cond27.preheader
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.15, i32 noundef 460, ptr noundef nonnull @.str.3)
-  tail call void @exit(i32 noundef 114) #22
+  tail call void @exit(i32 noundef 114) #24
   unreachable
 
 return.sink.split.sink.split:                     ; preds = %if.end.i.i.i.i.i.i66, %if.then.i.i.i.i.i.i.i68, %if.end.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
@@ -10975,7 +10975,7 @@ for.inc19:                                        ; preds = %for.body14
 
 for.end21:                                        ; preds = %for.cond12.preheader, %for.inc19
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.15, i32 noundef 212, ptr noundef nonnull @.str.3)
-  tail call void @exit(i32 noundef 114) #22
+  tail call void @exit(i32 noundef 114) #24
   unreachable
 
 for.inc23.sink.split.sink.split:                  ; preds = %if.end.i.i.i.i.i.i.i25, %if.then.i.i.i.i.i.i.i.i27, %if.end.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
@@ -11402,7 +11402,7 @@ for.inc54:                                        ; preds = %for.body29, %_ZNK6v
 
 for.end56:                                        ; preds = %for.inc54, %for.inc54.us, %for.cond27.preheader
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.15, i32 noundef 404, ptr noundef nonnull @.str.3)
-  tail call void @exit(i32 noundef 114) #22
+  tail call void @exit(i32 noundef 114) #24
   unreachable
 
 return:                                           ; preds = %_ZN18default_hash_entryI9_key_dataIN7datalog18relation_signatureEP5u_mapINS1_21sieve_relation_plugin8rel_specEEEE8set_dataEOS8_.exit96, %_ZN18default_hash_entryI9_key_dataIN7datalog18relation_signatureEP5u_mapINS1_21sieve_relation_plugin8rel_specEEEE8set_dataEOS8_.exit82, %_ZN18default_hash_entryI9_key_dataIN7datalog18relation_signatureEP5u_mapINS1_21sieve_relation_plugin8rel_specEEEE8set_dataEOS8_.exit49, %_ZN18default_hash_entryI9_key_dataIN7datalog18relation_signatureEP5u_mapINS1_21sieve_relation_plugin8rel_specEEEE8set_dataEOS8_.exit
@@ -11580,7 +11580,7 @@ for.inc19:                                        ; preds = %for.body14
 
 for.end21:                                        ; preds = %for.cond12.preheader, %for.inc19
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.15, i32 noundef 212, ptr noundef nonnull @.str.3)
-  tail call void @exit(i32 noundef 114) #22
+  tail call void @exit(i32 noundef 114) #24
   unreachable
 
 for.inc23.sink.split.sink.split:                  ; preds = %if.end.i.i.i.i.i.i.i25, %if.then.i.i.i.i.i.i.i.i27, %if.end.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
@@ -12945,7 +12945,7 @@ for.inc54:                                        ; preds = %for.body.i.i.i.i.i7
 
 for.end56:                                        ; preds = %for.inc54, %for.inc54.us, %for.cond27.preheader
   call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.15, i32 noundef 404, ptr noundef nonnull @.str.3)
-  call void @exit(i32 noundef 114) #22
+  call void @exit(i32 noundef 114) #24
   unreachable
 
 return:                                           ; preds = %_ZN18default_hash_entryI9_key_dataIN7datalog21sieve_relation_plugin8rel_specEjEE8set_dataEOS4_.exit115, %_ZN18default_hash_entryI9_key_dataIN7datalog21sieve_relation_plugin8rel_specEjEE8set_dataEOS4_.exit99, %_ZN18default_hash_entryI9_key_dataIN7datalog21sieve_relation_plugin8rel_specEjEE8set_dataEOS4_.exit52, %_ZN18default_hash_entryI9_key_dataIN7datalog21sieve_relation_plugin8rel_specEjEE8set_dataEOS4_.exit
@@ -13123,7 +13123,7 @@ for.inc19:                                        ; preds = %for.body14
 
 for.end21:                                        ; preds = %for.cond12.preheader, %for.inc19
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.15, i32 noundef 212, ptr noundef nonnull @.str.3)
-  tail call void @exit(i32 noundef 114) #22
+  tail call void @exit(i32 noundef 114) #24
   unreachable
 
 for.inc23.sink.split.sink.split:                  ; preds = %if.end.i.i.i.i.i.i25, %if.then.i.i.i.i.i.i.i27, %if.end.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
@@ -13701,7 +13701,7 @@ for.inc54:                                        ; preds = %for.body29, %land.l
 
 for.end56:                                        ; preds = %for.inc54, %for.cond27.preheader
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.15, i32 noundef 404, ptr noundef nonnull @.str.3)
-  tail call void @exit(i32 noundef 114) #22
+  tail call void @exit(i32 noundef 114) #24
   unreachable
 
 return:                                           ; preds = %_ZN18default_hash_entryI9_key_dataIjN7datalog21sieve_relation_plugin8rel_specEEE8set_dataEOS4_.exit85, %_ZN18default_hash_entryI9_key_dataIjN7datalog21sieve_relation_plugin8rel_specEEE8set_dataEOS4_.exit69, %_ZN18default_hash_entryI9_key_dataIjN7datalog21sieve_relation_plugin8rel_specEEE8set_dataEOS4_.exit51, %_ZN18default_hash_entryI9_key_dataIjN7datalog21sieve_relation_plugin8rel_specEEE8set_dataEOS4_.exit
@@ -13887,7 +13887,7 @@ for.inc19:                                        ; preds = %for.body14
 
 for.end21:                                        ; preds = %for.cond12.preheader, %for.inc19
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.15, i32 noundef 212, ptr noundef nonnull @.str.3)
-  tail call void @exit(i32 noundef 114) #22
+  tail call void @exit(i32 noundef 114) #24
   unreachable
 
 for.inc23.sink.split.sink.split:                  ; preds = %if.end.i.i.i.i.i.i27, %if.then.i.i.i.i.i.i.i29, %if.end.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
@@ -14028,7 +14028,7 @@ attributes #4 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal
 attributes #5 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #6 = { mustprogress nofree nounwind willreturn memory(read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #11 = { cold noreturn nounwind memory(inaccessiblemem: write) }
@@ -14044,7 +14044,8 @@ attributes #20 = { nocallback nofree nosync nounwind willreturn memory(inaccessi
 attributes #21 = { nounwind }
 attributes #22 = { noreturn nounwind }
 attributes #23 = { noreturn }
-attributes #24 = { builtin nounwind }
+attributes #24 = { cold noreturn nounwind }
+attributes #25 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 
